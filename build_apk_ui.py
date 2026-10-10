@@ -63,6 +63,10 @@ html = html.replace(
     """    const r = await fetch('/api/vocabulary');
     const groups = await r.json();""",
     """    const groups = vocabGroups;""")
+html = html.replace(
+    """    const r = await fetch('/api/listening');
+    const levels = await r.json();""",
+    """    const levels = listeningLevels;""")
 
 # 3) boot: load the data, build the bot, then populate the panels
 html = html.replace(
@@ -70,14 +74,19 @@ html = html.replace(
 loadPhrases();
 loadVocabulary();""",
     """/* offline boot: load the bundled data, build the engine, fill the panels */
-let bot, grammarTopics, phraseTopics, vocabGroups;
+let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
 
 Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
-             loadJSON('phrases'), loadJSON('jokes')])
-  .then(([memory, glossary, grammar, phrases, jokes]) => {
+             loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening')])
+  .then(([memory, glossary, grammar, phrases, jokes, listening]) => {
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes});
+
+    listeningLevels = listening.levels.map((lv) => ({
+      id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,
+      blurb_en: lv.blurb.en, blurb_fa: lv.blurb.fa, sentences: lv.sentences,
+    }));
 
     // Use the engine's own unwrapped maps so panel data always matches the
     // structures bot.js actually uses.
@@ -105,6 +114,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
     loadGrammar();
     loadPhrases();
     loadVocabulary();
+    loadListening();
   })
   .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""")
 

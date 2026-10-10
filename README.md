@@ -24,6 +24,8 @@ no network calls, no tracking.
 | 📚 Vocabulary | 1,052 words across 33 grouped domains, translate & define in both languages |
 | 📘 Grammar | 31 lessons (A1→B2) — structure → function → highlighted examples → 12 scored exercises |
 | 💬 Sentences | 277 ready-to-use sentences across 25 real-life situations |
+| 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶, or the whole row to practise it) |
+| 🌱 Daily seed | The bird fills a seed ring as you use the app — hit the daily goal and it blooms, keep a streak |
 | 😂 Jokes | 10 bilingual jokes with category filtering (`programming joke`, `جوک ربات`) |
 | 🔤 Alphabets | English + Persian alphabet, and single-letter lookup (`what letter is A`, `حرف ب`) |
 
@@ -56,8 +58,12 @@ JavaScript port (`bot.js`). `tests_js_vs_python.py` asserts the two engines
 produce identical replies, so the phone behaves exactly like the desktop.
 
 ```bash
-python3 tests_js_vs_python.py   # 56/56 replies identical
+python3 tests_js_vs_python.py   # 61/61 replies identical
 ```
+
+Speech is native on Android (`MainActivity.kt` bridges the page to Android's
+built-in `TextToSpeech`), so the listening practice is offline and needs no
+network. In a desktop browser the same panel falls back to the Web Speech API.
 
 ---
 
@@ -75,6 +81,7 @@ glossary.json               1,052 words in 33 domains
 grammar.json                31 lessons with exercises
 phrases.json                277 sentences in 25 situations
 jokes.json                  10 bilingual jokes
+listening.json              48 spoken sentences graded A1 → C2
 
 android/                    Gradle project for the APK
   app/src/main/assets/www/    index.html (generated) · bot.js · data/*.json

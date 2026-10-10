@@ -116,6 +116,7 @@ class Fluentify {
     this.grammar = unwrapTopics(data.grammar);
     this.phrases = unwrapTopics(data.phrases);
     this.jokes = Array.isArray(data.jokes) ? data.jokes : data.jokes.jokes || [];
+    this.listening = (data.listening && data.listening.levels) || data.listening || [];
 
     // glossary: accept either the whole file or just its "domains" map
     const rawGlossary = data.glossary && data.glossary.domains ? data.glossary.domains : data.glossary;
@@ -515,6 +516,39 @@ class Fluentify {
     return parts.join('\n');
   }
 
+  /* --------------------------------------------------------- listening */
+
+  matchListeningLevel(text, lowered) {
+    for (const level of this.listening) {
+      const lid = level.id.toLowerCase();
+      if (wordRe(lid).test(lowered)) return level;
+      if (new RegExp('\\b(?:listen|speak|say|audio|voice)\\s+' + lid + '\\b').test(lowered)) {
+        return level;
+      }
+    }
+    return null;
+  }
+
+  formatListeningLevel(level) {
+    const parts = [`\u{1F3A7} ${level.title.en} (${level.title.fa})`,
+                   `${level.blurb.en} / ${level.blurb.fa}`];
+    level.sentences.forEach((s, i) => {
+      parts.push(`${i + 1}. ${s.en}\n   \u21b3 ${s.fa}`);
+    });
+    return parts.join('\n');
+  }
+
+  handleListening(text, lowered, lang) {
+    const asked = /\b(listen|listening|audio|voice|speak)\b/.test(lowered) ||
+      ['گوش دادن', 'آواز', 'بگو'].some((w) => text.includes(w));
+    if (!asked) return null;
+    const level = this.matchListeningLevel(text, lowered);
+    if (level) return this.formatListeningLevel(level);
+    const names = this.listening.map((l) => l.title.en.split(' · ')[0]).join(' · ');
+    return `\u{1F3A7} Listening levels — سطح شنیدن: ${names}\n` +
+      "Ask: 'listen A1' or 'گوش دادن A1'";
+  }
+
   /* ---------------------------------------------------------- glossary */
 
   handleDomainList(text, lowered, lang) {
@@ -606,6 +640,7 @@ class Fluentify {
     if (result === null) result = this.handleLetterLookup(text);
     if (result === null) result = this.handleGrammar(text, lowered, lang);
     if (result === null) result = this.handlePhrases(text, lowered, lang);
+    if (result === null) result = this.handleListening(text, lowered, lang);
     if (result === null) result = this.handleGlossaryLookup(text, lang);
     if (result === null) result = this.handleDomainList(text, lowered, lang);
     if (result) {

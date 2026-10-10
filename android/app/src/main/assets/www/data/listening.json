@@ -1,0 +1,94 @@
+{
+  "levels": [
+    {
+      "id": "A1",
+      "title": {"en": "A1 · First words", "fa": "A1 · کلمات اول"},
+      "blurb": {"en": "Short, everyday sentences.", "fa": "جملات کوتاه روزمره."},
+      "sentences": [
+        {"en": "Good morning! How are you?", "fa": "صبح بخیر! حالت چطوره؟"},
+        {"en": "My name is Sara. I am from Tehran.", "fa": "اسمم سارا است. از تهران هستم."},
+        {"en": "I would like a cup of tea, please.", "fa": "یک فنجان چای می‌خواهم، لطفاً."},
+        {"en": "Where is the train station?", "fa": "ایستگاه قطار کجاست؟"},
+        {"en": "I do not understand. Can you repeat that?", "fa": "نمی‌فهمم. می‌توانی تکرار کنی؟"},
+        {"en": "See you tomorrow!", "fa": "تا فردا می‌بینمت!"},
+        {"en": "The weather is cold today.", "fa": "هوا امروز سرد است."},
+        {"en": "I am hungry and thirsty.", "fa": "گرسنه و تشنه هستم."}
+      ]
+    },
+    {
+      "id": "A2",
+      "title": {"en": "A2 · Everyday talk", "fa": "A2 · مکالمه روزمره"},
+      "blurb": {"en": "Shopping, directions, simple past.", "fa": "خرید، مسیریابی، گذشته ساده."},
+      "sentences": [
+        {"en": "How much does this cost?", "fa": "این چند است؟"},
+        {"en": "Could you show me a smaller size?", "fa": "می‌توانی سایز کوچک‌تری نشانم بدهی؟"},
+        {"en": "I went to the market yesterday.", "fa": "دیروز به بازار رفتم."},
+        {"en": "Turn left at the traffic lights.", "fa": "سر چراغ راهنما بپیچ چپ."},
+        {"en": "I usually have lunch at one o'clock.", "fa": "معمولاً ساعت یک ناهار می‌خورم."},
+        {"en": "Sorry, I did not catch your name.", "fa": "ببخشید، اسمتان را متوجه نشدم."},
+        {"en": "I would like to book a table for two.", "fa": "می‌خواهم برای دو نفر میز رزرو کنم."},
+        {"en": "My flight is delayed by one hour.", "fa": "پرواز من یک ساعت تأخیر دارد."}
+      ]
+    },
+    {
+      "id": "B1",
+      "title": {"en": "B1 · Getting by", "fa": "B1 · روان صحبت کردن"},
+      "blurb": {"en": "Opinions, experiences, conditionals.", "fa": "نظر، تجربه، جملات شرطی."},
+      "sentences": [
+        {"en": "If I had more time, I would learn another language.", "fa": "اگر وقت بیشتری داشتم، زبان دیگری یاد می‌گرفتم."},
+        {"en": "I have been learning English for two years.", "fa": "دو سال است که دارم انگلیسی یاد می‌گیرم."},
+        {"en": "To be honest, I completely disagree.", "fa": "راستش، کاملاً مخالفم."},
+        {"en": "The report needs to be finished by Friday.", "fa": "گزارش باید تا جمعه تمام شود."},
+        {"en": "She has just told me the good news.", "fa": "او همین حالا خبر خوب را به من داد."},
+        {"en": "I would rather stay at home tonight.", "fa": "ترجیح می‌دهم امشب خانه بمانم."},
+        {"en": "This is the first time I have tried sushi.", "fa": "این اولین بار است که سووشی امتحان می‌کنم."},
+        {"en": "Could you let me know when the results are ready?", "fa": "وقتی نتایج آماده شد می‌توانی خبرم کنی؟"}
+      ]
+    },
+    {
+      "id": "B2",
+      "title": {"en": "B2 · Fluent", "fa": "B2 · روان و طبیعی"},
+      "blurb": {"en": "Past perfect, passive voice, nuance.", "fa": "گذشته کامل، مجهول، ظرافت."},
+      "sentences": [
+        {"en": "The results will have been announced by then.", "fa": "تا آن موقع نتایج اعلام شده خواهد بود."},
+        {"en": "Had I known about the delay, I would have rebooked.", "fa": "اگر از تأخیر خبر داشتم، رزرو را عوض می‌کردم."},
+        {"en": "The proposal was rejected without any explanation.", "fa": "پیشنهاد بدون هیچ توضیحی رد شد."},
+        {"en": "I have been putting this off for weeks.", "fa": "هفته‌هاست این را عقب می‌اندازم."},
+        {"en": "She must have left already; her car is gone.", "fa": "حتماً رفته؛ ماشینش نیست."},
+        {"en": "Not only did she apologise, but she also paid.", "fa": "نه‌تنها عذر خواست، بلکه پول هم داد."},
+        {"en": "It would have been better if you had asked me first.", "fa": "بهتر بود اول از من می‌پرسیدی."},
+        {"en": "The article was written by an unknown journalist.", "fa": "آن مقاله توسط یک روزنامه‌نگار ناشناس نوشته شده بود."}
+      ]
+    },
+    {
+      "id": "C1",
+      "title": {"en": "C1 · Advanced", "fa": "C1 · پیشرفته"},
+      "blurb": {"en": "Subtle meaning, inversion, academic tone.", "fa": "معانی ظریف، وارونگی، لحن دانشگاهی."},
+      "sentences": [
+        {"en": "Rarely does one encounter such precision in amateur work.", "fa": "به‌ندرت چنین دقتی در کار آماتور دیده می‌شود."},
+        {"en": "It was not until the deadline passed that we noticed.", "fa": "تنها پس از گذشتن مهلت بود که متوجه شدیم."},
+        {"en": "No sooner had we arrived than the storm began.", "fa": "به‌محض اینکه رسیدیم، طوفان شروع شد."},
+        {"en": "What the proposal lacks far outweighs what it offers.", "fa": "آنچه پیشنهاد کم دارد بسیار بیشتر از آنچه ارائه می‌دهد است."},
+        {"en": "Only after the second review did the flaws become apparent.", "fa": "تنها پس از بازبینی دوم بود که ایرادها آشکار شد."},
+        {"en": "She has a tendency to overstate her certainty.", "fa": "او تمایل دارد یقین خود را بیش از حد بزرگ جلوه دهد."},
+        {"en": "Not until the following spring was the damage assessed.", "fa": "ارزیابی خسارت تا بهار بعد انجام نشد."},
+        {"en": "Were the evidence any less robust, the case would collapse.", "fa": "اگر شواهد چندان محکم نبود، پرونده فرو می‌ریخت."}
+      ]
+    },
+    {
+      "id": "C2",
+      "title": {"en": "C2 · Mastery", "fa": "C2 · تسلط"},
+      "blurb": {"en": "Elegant, literary and professional English.", "fa": "انگلیسی فصیح، ادبی و حرفه‌ای."},
+      "sentences": [
+        {"en": "His argument, however persuasive, rests on a premise never substantiated.", "fa": "استدلال او، هرچقدر هم متقاعدکننده، بر پیش‌فرضی بنا شده که هرگز اثبات نشد."},
+        {"en": "The extent to which the reforms will endure remains, at best, speculative.", "fa": "دوام اصلاحات تا حد زیادی، در بهترین حالت، حدس و گمان است."},
+        {"en": "She had long ceased to expect the courtesy of a reply.", "fa": "او مدت‌ها بود که انتظار لطف پاسخ را نداشت."},
+        {"en": "What purports to be consensus is, in truth, a minority view.", "fa": "آنچه به‌ظاهر اجماع است، در واقع دیدگاه اقلیت است."},
+        {"en": "The premise, however plausible, is ultimately unverifiable.", "fa": "این پیش‌فرض، هرچقدر هم محتمل، در نهایت غیرقابل‌راستی‌آزمایی است."},
+        {"en": "Few would contend that the outcome was anything other than fortuitous.", "fa": "کمتر کسی خواهد گفت نتیجه چیزی جز تصادفی نبوده است."},
+        {"en": "His argument collapses the moment its central premise is withdrawn.", "fa": "استدلال او به‌محض کنار گذاشتن پیش‌فرض اصلی‌اش فرو می‌ریزد."},
+        {"en": "The passage is replete with allusions that elude the uninitiated.", "fa": "این متن آکنده از اشاراتی است که برای ناآگاهان گنگ می‌ماند."}
+      ]
+    }
+  ]
+}

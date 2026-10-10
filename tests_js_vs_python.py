@@ -24,6 +24,7 @@ CASES = [
     "استرس دارم", "merci", "house words", "bank sentences", "politely complaining",
     "سفر و فرودگاه", "تکراری", "abjad", "پنج", "5", "translate قهوه",
     "خوشبختصبح", "yes", "no", "thanks", "درمان",
+    "listen", "listen A2", "گوش دادن C1", "بگو B1", "listening levels",
 ]
 
 

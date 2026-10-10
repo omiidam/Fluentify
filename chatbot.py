@@ -20,6 +20,7 @@ GLOSSARY_FILE = Path(__file__).parent / "glossary.json"
 PHRASES_FILE = Path(__file__).parent / "phrases.json"
 GRAMMAR_FILE = Path(__file__).parent / "grammar.json"
 JOKES_FILE = Path(__file__).parent / "jokes.json"
+LISTENING_FILE = Path(__file__).parent / "listening.json"
 
 PERSIAN_DIGITS = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
 PERSIAN_TO_ASCII = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
@@ -127,6 +128,7 @@ class ChatBot:
         glossary_path: Path = GLOSSARY_FILE,
         grammar_path: Path = GRAMMAR_FILE,
         phrases_path: Path = PHRASES_FILE,
+        listening_path: Path = LISTENING_FILE,
     ):
         with open(memory_path, encoding="utf-8") as f:
             self.memory = json.load(f)
@@ -142,6 +144,10 @@ class ChatBot:
         if PHRASES_FILE.exists():
             with open(phrases_path, encoding="utf-8") as f:
                 self.phrases = json.load(f)["topics"]
+        self.listening = []         # CEFR A1-C2 listening sentences
+        if LISTENING_FILE.exists():
+            with open(listening_path, encoding="utf-8") as f:
+                self.listening = json.load(f)["levels"]
         self.jokes = []            # bilingual joke library
         self.last_joke_id = None   # avoid repeating the same joke twice in a row
         if JOKES_FILE.exists():
@@ -609,6 +615,44 @@ class ChatBot:
         return None
 
     # ------------------------------------------------------------------ #
+    #  Listening (CEFR A1-C2 sentences to hear read aloud)
+    # ------------------------------------------------------------------ #
+    def match_listening_level(self, text: str, lowered: str):
+        for level in self.listening:
+            lid = level["id"].lower()
+            if re.search(rf"\b{lid}\b", lowered):
+                return level
+            if re.search(rf"(?:listen|speak|say|audio|voice)\s+{lid}\b", lowered):
+                return level
+        return None
+
+    @staticmethod
+    def format_listening_level(level) -> str:
+        head = f"\U0001f3a7 {level['title']['en']} ({level['title']['fa']})"
+        parts = [head, f"{level['blurb']['en']} / {level['blurb']['fa']}"]
+        for i, s in enumerate(level["sentences"], 1):
+            parts.append(f"{i}. {s['en']}\n   \u21b3 {s['fa']}")
+        return "\n".join(parts)
+
+    def handle_listening(self, text: str, lowered: str, lang: str) -> str | None:
+        if not re.search(r"\b(listen|listening|audio|voice|speak)\b", lowered) and not any(
+            w in text for w in ("گوش دادن", "آواز", "بگو")
+        ):
+            return None
+        level = self.match_listening_level(text, lowered)
+        if level:
+            return self.format_listening_level(level)
+        if re.search(r"\b(listen|listening|audio|voice)\b", lowered) or any(
+            w in text for w in ("گوش دادن", "آواز", "بگو")
+        ):
+            names = " · ".join(l["title"]["en"].split(" · ")[0] for l in self.listening)
+            return (
+                f"\U0001f3a7 Listening levels — سطح شنیدن: {names}\n"
+                "Ask: 'listen A1' or 'گوش دادن A1'"
+            )
+        return None
+
+    # ------------------------------------------------------------------ #
     #  Glossary (vocabulary domains + word lookup)
     # ------------------------------------------------------------------ #
     def handle_domain_list(self, text: str, lowered: str, lang: str) -> str | None:
@@ -722,6 +766,8 @@ class ChatBot:
             result = self.handle_grammar(text, lowered, lang)
         if result is None:
             result = self.handle_phrases(text, lowered, lang)
+        if result is None:
+            result = self.handle_listening(text, lowered, lang)
         if result is None:
             result = self.handle_glossary_lookup(text, lang)
         if result is None:

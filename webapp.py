@@ -132,6 +132,36 @@ HTML = r"""<!DOCTYPE html>
     box-shadow: 0 8px 22px rgba(255,92,157,.28), inset 0 1px 0 rgba(255,255,255,.45);
   }
   .avatar svg { width: 38px; height: 38px; display: block; }
+  /* the bird reacts to the daily seed */
+  @keyframes bob { 0%,100% { transform: translateY(0) rotate(0deg); }
+                   50% { transform: translateY(-3px) rotate(-3deg); } }
+  @keyframes bloom { 0% { transform: scale(1); }
+                      35% { transform: scale(1.18) rotate(6deg); }
+                      60% { transform: scale(1.06) rotate(-4deg); }
+                      100% { transform: scale(1); } }
+  .avatar svg { animation: bob 4.5s ease-in-out infinite; }
+  .avatar.full svg { animation: bob 2.2s ease-in-out infinite; }
+  .avatar.bloom { animation: bloom 1.6s ease; }
+  .avatar.full {
+    box-shadow: 0 8px 26px rgba(255,141,196,.5), 0 0 0 2px rgba(255,141,196,.45),
+                inset 0 1px 0 rgba(255,255,255,.5);
+  }
+
+  /* daily seed meter */
+  #seedmeter {
+    position: relative; flex: none; width: 66px; height: 20px; border-radius: 999px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    overflow: hidden; display: flex; align-items: center; justify-content: flex-end;
+  }
+  #seedmeter i {
+    position: absolute; inset: 0 auto 0 0; border-radius: 999px;
+    background: linear-gradient(90deg, #ff8dc4, #a78bfa);
+    transition: width .45s cubic-bezier(.34,1.3,.64,1);
+  }
+  #seedmeter span {
+    position: relative; font-size: 10.5px; font-weight: 700; padding: 0 7px;
+    color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); white-space: nowrap;
+  }
   header h1 { font-size: 17.5px; letter-spacing: .3px; font-weight: 700; }
   header p { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
   .spacer { flex: 1; }
@@ -165,7 +195,7 @@ HTML = r"""<!DOCTYPE html>
   }
 
   /* ---------- vocabulary / grammar / phrases panels ---------- */
-  #vpanel, #gpanel, #fpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel {
     display: none; padding: 14px 20px;
     background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015)),
                 linear-gradient(180deg, rgba(8,12,34,.86), rgba(8,12,34,.74));
@@ -178,11 +208,46 @@ HTML = r"""<!DOCTYPE html>
     -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
     mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
   }
-  #vpanel.open, #gpanel.open, #fpanel.open { display: block; }
+  #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open { display: block; }
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
-  #vpanel h3, #gpanel h3, #fpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3 {
     font-size: 12px; color: #a9b8de; margin-bottom: 9px; font-weight: 600;
   }
+
+  /* ---------- listening: level tabs + playable sentences ---------- */
+  .ltabs { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
+  .ltab {
+    background: linear-gradient(140deg, rgba(255,141,196,.14), rgba(167,139,250,.10));
+    color: #ffc4e2; border: 1px solid rgba(255,141,196,.3);
+    border-radius: 8px; padding: 4px 12px; font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: .12s; font-family: inherit;
+  }
+  .ltab:hover { background: rgba(255,141,196,.28); transform: translateY(-1px); }
+  .ltab.on {
+    background: linear-gradient(140deg, #ff8dc4, #a78bfa); color: #fff;
+    border-color: transparent; box-shadow: 0 3px 12px rgba(255,141,196,.35);
+  }
+  .llist { display: flex; flex-direction: column; gap: 4px; }
+  .lrow {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px; padding: 7px 11px; transition: .12s;
+  }
+  .lrow:hover { background: rgba(255,255,255,.09); border-color: rgba(255,141,196,.35); }
+  .lrow.playing {
+    background: rgba(255,141,196,.16); border-color: rgba(255,141,196,.6);
+  }
+  .lplay {
+    width: 28px; height: 28px; flex: none; border-radius: 50%;
+    background: linear-gradient(135deg, #ff8dc4, #a78bfa); border: none;
+    color: #fff; font-size: 12px; cursor: pointer;
+    display: grid; place-items: center; transition: .12s;
+  }
+  .lplay:hover { filter: brightness(1.12); transform: scale(1.08); }
+  .ltext { flex: 1; min-width: 0; }
+  .ltext .en { font-size: 13.5px; line-height: 1.45; }
+  .ltext .fa { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+  .lblurb { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
   .domains { display: block; max-height: 230px; overflow-y: auto; padding-right: 4px; }
 
   /* vocabulary: grouped, compact — one pill per domain (alt-click = فارسی) */
@@ -394,6 +459,7 @@ HTML = r"""<!DOCTYPE html>
     .app { height: 100vh; border-radius: 0; width: 100%; }
     body { padding: 0; }
     .status { display: none; }
+    #seedmeter { display: none; }
     header { flex-wrap: wrap; padding: 12px 14px; }
     #chat { padding: 16px 14px 8px; }
     .bubble-wrap { max-width: 88%; }
@@ -450,10 +516,12 @@ HTML = r"""<!DOCTYPE html>
       <h1>Fluentify</h1>
     </div>
     <div class="spacer"></div>
+    <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <button class="hbtn" id="vtoggle" title="Browse vocabulary domains">📚 Vocabulary</button>
     <button class="hbtn" id="gtoggle" title="English grammar lessons — درس‌های گرامر">📘 Grammar</button>
     <button class="hbtn" id="ftoggle" title="Useful everyday sentences — جملات کاربردی">💬 Sentences</button>
+    <button class="hbtn" id="ltoggle" title="Listening practice A1–C2 — شنیدن و تلفظ">🎧 Listening</button>
     <button class="hbtn" id="clear" title="Clear conversation">🗑 Clear</button>
   </header>
 
@@ -470,6 +538,11 @@ HTML = r"""<!DOCTYPE html>
   <div id="fpanel">
     <h3>Useful everyday sentences — جملات کاربردی روزمره</h3>
     <div class="domains" id="ftopics"></div>
+  </div>
+
+  <div id="lpanel">
+    <h3>Listening practice A1 → C2 — گوش دادن و تلفظ</h3>
+    <div id="llevels"></div>
   </div>
 
   <div id="chat"></div>
@@ -587,6 +660,7 @@ async function send(text) {
   sendbtn.disabled = true;
   add(text, 'user');
   input.value = '';
+  Seed.add(1);                 // daily seed grows with usage
   showTyping();
   try {
     const r = await fetch('/api/chat?message=' + encodeURIComponent(text));
@@ -609,6 +683,188 @@ document.getElementById('form').addEventListener('submit', e => {
 document.getElementById('chips').addEventListener('click', e => {
   if (e.target.classList.contains('chip')) send(e.target.textContent);
 });
+
+/* ---------- motion seed: the bird fills up with daily usage ---------- */
+const SEED_GOAL = 10;                     // messages per day to fill the seed
+const Seed = {
+  state: { day: '', count: 0, streak: 0, best: 0 },
+  key(d = new Date()) {
+    return d.getFullYear() + '-' +
+           String(d.getMonth() + 1).padStart(2, '0') + '-' +
+           String(d.getDate()).padStart(2, '0');
+  },
+  load() {
+    try {
+      const raw = localStorage.getItem('fluentify.seed');
+      if (raw) this.state = Object.assign(this.state, JSON.parse(raw));
+    } catch (e) { /* private mode: keep in memory only */ }
+    this.rollDay();
+    this.paint();
+  },
+  save() {
+    try { localStorage.setItem('fluentify.seed', JSON.stringify(this.state)); } catch (e) {}
+  },
+  rollDay() {
+    const today = this.key();
+    if (this.state.day === today) return;
+    if (this.state.day) {
+      // yesterday completed the goal → the streak continues
+      if (this.state.count >= SEED_GOAL) this.state.streak += 1;
+      else this.state.streak = 0;
+      this.state.best = Math.max(this.state.best, this.state.streak);
+    }
+    this.state.day = today;
+    this.state.count = 0;
+    this.save();
+  },
+  add(n = 1) {
+    const before = this.state.count;
+    this.state.count += n;
+    if (before < SEED_GOAL && this.state.count >= SEED_GOAL) {
+      this.state.streak = Math.max(this.state.streak, this.state.count >= SEED_GOAL ? this.state.streak : 0);
+      this.celebrate();
+    }
+    this.save();
+    this.paint();
+  },
+  celebrate() {
+    const av = document.querySelector('.avatar');
+    if (av) { av.classList.add('bloom'); setTimeout(() => av.classList.remove('bloom'), 1600); }
+    add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! Keep the streak going tomorrow.`, 'bot');
+  },
+  paint() {
+    const pct = Math.min(100, Math.round((this.state.count / SEED_GOAL) * 100));
+    const av = document.querySelector('.avatar');
+    const bird = av && av.querySelector('svg');
+    if (bird) {
+      // the seed ring around the bird grows through the day
+      bird.style.setProperty('--seed', pct + '%');
+      av.classList.toggle('full', pct >= 100);
+    }
+    const meter = document.getElementById('seedmeter');
+    if (meter) {
+      meter.innerHTML = '';
+      const bar = document.createElement('i');
+      bar.style.width = pct + '%';
+      const t = document.createElement('span');
+      t.textContent = pct >= 100
+        ? '🌸 ' + this.state.streak + 'd'
+        : pct + '%';
+      meter.append(bar, t);
+      meter.title = `Seed ${pct}% · streak ${this.state.streak} day(s) · ${this.state.count}/${SEED_GOAL} today`;
+    }
+  },
+};
+
+/* ---------- listening: CEFR A1-C2, spoken aloud ---------- */
+
+/* Speech: on Android use the app's native engine (offline, natural voice);
+   everywhere else fall back to the Web Speech API. */
+const Speech = {
+  playing: null,
+  speak(text, onEnd) {
+    this.stop();
+    if (window.AndroidTTS && window.AndroidTTS.speak) {
+      window.AndroidTTS.speak(text);
+      this.playing = { text };
+      setTimeout(() => { this.playing = null; if (onEnd) onEnd(); },
+                 Math.max(1800, text.length * 62));
+      return true;
+    }
+    if (!('speechSynthesis' in window)) return false;
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-GB';
+    u.rate = 0.92;
+    u.onend = () => { this.playing = null; if (onEnd) onEnd(); };
+    u.onerror = () => { this.playing = null; if (onEnd) onEnd(); };
+    this.playing = { text, utter: u };
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+    return true;
+  },
+  stop() {
+    if (this.playing && this.playing.utter) speechSynthesis.cancel();
+    if (window.AndroidTTS && window.AndroidTTS.stop) window.AndroidTTS.stop();
+    this.playing = null;
+  },
+  isPlaying(text) { return !!this.playing && this.playing.text === text; },
+};
+
+async function loadListening() {
+  const box = document.getElementById('llevels');
+  try {
+    const r = await fetch('/api/listening');
+    const levels = await r.json();
+    if (!levels.length) return;
+
+    const tabs = document.createElement('div');
+    tabs.className = 'ltabs';
+    const list = document.createElement('div');
+    list.className = 'llist';
+
+    const render = (lv, idx) => {
+      [...tabs.children].forEach((b, i) => b.classList.toggle('on', i === idx));
+      list.innerHTML = '';
+      const blurb = document.createElement('div');
+      blurb.className = 'lblurb';
+      blurb.textContent = lv.blurb_en + ' — ' + lv.blurb_fa;
+      list.appendChild(blurb);
+      lv.sentences.forEach((s) => {
+        const row = document.createElement('div');
+        row.className = 'lrow';
+        const btn = document.createElement('button');
+        btn.className = 'lplay';
+        btn.textContent = '▶';
+        btn.title = 'Play — تلفظ کن';
+        const text = document.createElement('div');
+        text.className = 'ltext';
+        const en = document.createElement('div');
+        en.className = 'en';
+        en.textContent = s.en;
+        const fa = document.createElement('div');
+        fa.className = 'fa';
+        fa.textContent = s.fa;
+        text.append(en, fa);
+        row.append(btn, text);
+
+        btn.onclick = (ev) => {
+          ev.stopPropagation();
+          if (Speech.isPlaying(s.en)) {
+            Speech.stop();
+            row.classList.remove('playing');
+            btn.textContent = '▶';
+            return;
+          }
+          [...list.querySelectorAll('.lrow')].forEach((n) => {
+            n.classList.remove('playing');
+            n.firstChild.textContent = '▶';
+          });
+          row.classList.add('playing');
+          btn.textContent = '❚❚';
+          Speech.speak(s.en, () => {
+            row.classList.remove('playing');
+            btn.textContent = '▶';
+          });
+        };
+        row.onclick = () => send(s.en);   // tap the row to practise it too
+        list.appendChild(row);
+      });
+    };
+
+    levels.forEach((lv, idx) => {
+      const b = document.createElement('button');
+      b.className = 'ltab';
+      b.textContent = lv.id;
+      b.title = lv.title_en;
+      b.onclick = () => render(lv, idx);
+      tabs.appendChild(b);
+    });
+
+    box.innerHTML = '';
+    box.append(tabs, list);
+    render(levels[0], 0);
+  } catch (e) { /* panel stays empty offline */ }
+}
 
 /* phrases panel (fetched from phrases.json via the server) */
 async function loadPhrases() {
@@ -677,8 +933,8 @@ async function loadVocabulary() {
 function togglePanel(panelId, btnId) {
   const panel = document.getElementById(panelId);
   const wasOpen = panel.classList.contains('open');
-  ['vpanel', 'gpanel', 'fpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
-  ['vtoggle', 'gtoggle', 'ftoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
+  ['vpanel', 'gpanel', 'fpanel', 'lpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
+  ['vtoggle', 'gtoggle', 'ftoggle', 'ltoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
   if (!wasOpen) {
     panel.classList.add('open');
     document.getElementById(btnId).classList.add('on');
@@ -687,6 +943,7 @@ function togglePanel(panelId, btnId) {
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
 document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggle');
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
+document.getElementById('ltoggle').onclick = () => togglePanel('lpanel', 'ltoggle');
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
 const LEVEL_NAMES = {
@@ -759,6 +1016,7 @@ async function loadGrammar() {
 loadGrammar();
 loadPhrases();
 loadVocabulary();
+loadListening();
 
 /* clear conversation */
 document.getElementById('clear').onclick = () => {
@@ -769,6 +1027,7 @@ document.getElementById('clear').onclick = () => {
 
 /* boot */
 add(WELCOME, 'bot');
+Seed.load();
 input.focus();
 </script>
 </body>
@@ -778,7 +1037,23 @@ input.focus();
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path.startswith("/api/vocabulary"):
+        if self.path.startswith("/api/listening"):
+            # CEFR A1-C2 listening sentences for the 🎧 panel
+            levels = [{
+                "id": lv["id"],
+                "title_en": lv["title"]["en"],
+                "title_fa": lv["title"]["fa"],
+                "blurb_en": lv["blurb"]["en"],
+                "blurb_fa": lv["blurb"]["fa"],
+                "sentences": lv["sentences"],
+            } for lv in bot.listening]
+            body = json.dumps(levels, ensure_ascii=False).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path.startswith("/api/vocabulary"):
             # Vocabulary domains for the UI panel, grouped for a tidy layout
             groups = []
             for g in bot.glossary_groups:
