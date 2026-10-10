@@ -1,0 +1,212 @@
+[
+  {
+    "id": "programming_001",
+    "category": "Programming · Pun",
+    "category_fa": "برنامه‌نویسی · جناس",
+    "keywords": [
+      "programmer",
+      "programming",
+      "code",
+      "dark mode",
+      "برنامه نویس",
+      "کدنویسی"
+    ],
+    "setup": "Why do programmers prefer dark mode?",
+    "punchline": "Because light attracts bugs!",
+    "translation": {
+      "setup": "چرا برنامه‌نویس‌ها حالت تاریک رو ترجیح می‌دن؟",
+      "punchline": "چون نور، باگ‌ها رو جذب می‌کنه!"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "ai_001",
+    "category": "AI · Everyday humor",
+    "category_fa": "هوش مصنوعی · طنز روزمره",
+    "keywords": [
+      "ai",
+      "artificial intelligence",
+      "procrastination",
+      "هوش مصنوعی",
+      "امروز و فردا"
+    ],
+    "setup": "I asked an AI to tell me a joke about procrastination.",
+    "punchline": "It said: “Sure! I’ll tell you one tomorrow.”",
+    "translation": {
+      "setup": "از هوش مصنوعی خواستم یه جوک درباره امروز و فردا کردن بگه.",
+      "punchline": "گفت: «حتماً! فردا برات تعریف می‌کنم.»"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "technology_001",
+    "category": "Technology · Wordplay",
+    "category_fa": "تکنولوژی · بازی با کلمات",
+    "keywords": [
+      "wifi",
+      "wi-fi",
+      "internet",
+      "connection",
+      "وای فای",
+      "اینترنت"
+    ],
+    "setup": "Why was the Wi-Fi feeling sad?",
+    "punchline": "Because nobody was connecting with it.",
+    "translation": {
+      "setup": "چرا وای‌فای ناراحت بود؟",
+      "punchline": "چون هیچ‌کس باهاش ارتباط برقرار نمی‌کرد!"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "wordplay_001",
+    "category": "Wordplay",
+    "category_fa": "بازی با کلمات",
+    "keywords": [
+      "elevator",
+      "level",
+      "decision",
+      "آسانسور",
+      "سطح"
+    ],
+    "setup": "Why is an elevator so good at making decisions?",
+    "punchline": "It knows how to take things to the next level.",
+    "translation": {
+      "setup": "چرا آسانسور تو تصمیم‌گیری خیلی خوبه؟",
+      "punchline": "چون همیشه می‌دونه چطور اوضاع رو به سطح بالاتری ببره!"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "food_001",
+    "category": "Food · English wordplay",
+    "category_fa": "خوراکی · بازی با کلمات انگلیسی",
+    "keywords": [
+      "coffee",
+      "bean",
+      "قهوه",
+      "غذا",
+      "joke about food"
+    ],
+    "setup": "What did the coffee say to its friend?",
+    "punchline": "“Where have you bean all my life?”",
+    "translation": {
+      "setup": "قهوه به دوستش چی گفت؟",
+      "punchline": "«این همه مدت کجا بودی؟ دونه‌دونه دنبالت می‌گشتم!»"
+    },
+    "note": "The original plays on \"been\" and \"bean\"; the Persian version recreates the playful meaning.",
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "robots_001",
+    "category": "Robots · Family-friendly",
+    "category_fa": "ربات‌ها · مناسب همه",
+    "keywords": [
+      "robot",
+      "vacation",
+      "battery",
+      "recharge",
+      "ربات",
+      "باتری"
+    ],
+    "setup": "Why did the robot go on vacation?",
+    "punchline": "It needed to recharge its batteries.",
+    "translation": {
+      "setup": "چرا ربات رفت تعطیلات؟",
+      "punchline": "چون نیاز داشت باتری‌هاشو دوباره شارژ کنه!"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "school_001",
+    "category": "School · Misunderstanding",
+    "category_fa": "مدرسه · سوءتفاهم",
+    "keywords": [
+      "school",
+      "student",
+      "teacher",
+      "late",
+      "مدرسه",
+      "دانش آموز",
+      "معلم"
+    ],
+    "setup": "Teacher: “Why are you late?”\nStudent: “Because the sign said, ‘School ahead, go slow.’”",
+    "punchline": "",
+    "translation": {
+      "setup": "معلم: «چرا دیر اومدی؟»\nدانش‌آموز: «آخه نوشته بود مدرسه در پیش است، آهسته برانید!»",
+      "punchline": ""
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "relationships_001",
+    "category": "Relationships · Situational humor",
+    "category_fa": "روابط · طنز موقعیتی",
+    "keywords": [
+      "girlfriend",
+      "relationship",
+      "detective",
+      "دوست دختر",
+      "رابطه",
+      "کاراگاه"
+    ],
+    "setup": "My girlfriend told me to stop acting like a detective.",
+    "punchline": "I said: “Why? What are you hiding?”",
+    "translation": {
+      "setup": "دوست‌دخترم بهم گفت دست از کارآگاه‌بازی بردار.",
+      "punchline": "گفتم: «چرا؟ چی رو ازم مخفی می‌کنی؟»"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "fitness_001",
+    "category": "Fitness · Relatable humor",
+    "category_fa": "ورزش · طنز تلخ‌وشیرین",
+    "keywords": [
+      "gym",
+      "fitness",
+      "workout",
+      "shape",
+      "باشگاه",
+      "ورزش",
+      "وزن"
+    ],
+    "setup": "I joined a gym to get in shape.",
+    "punchline": "Now I'm in the shape of a person who pays for a gym membership and never goes.",
+    "translation": {
+      "setup": "باشگاه ثبت‌نام کردم که خوش‌فرم بشم.",
+      "punchline": "الان فقط شبیه کسی‌ام که پول باشگاه می‌ده ولی نمی‌ره!"
+    },
+    "tone": "friendly",
+    "safe": true
+  },
+  {
+    "id": "chatbot_001",
+    "category": "Chatbot humor · Conversational",
+    "category_fa": "طنز چت‌بات · مکالمه‌ای",
+    "keywords": [
+      "chatbot",
+      "bot",
+      "smart",
+      "mind reader",
+      "چت بات",
+      "ربات"
+    ],
+    "setup": "User: “Are you smart?”\nChatbot: “Absolutely.”\nUser: “Then why can't you understand me?”",
+    "punchline": "Chatbot: “I'm smart, not a mind reader!”",
+    "translation": {
+      "setup": "کاربر: «تو باهوشی؟»\nچت‌بات: «صددرصد!»\nکاربر: «پس چرا حرفمو نمی‌فهمی؟»",
+      "punchline": "چت‌بات: «باهوشم، ذهن‌خوان که نیستم!»"
+    },
+    "tone": "friendly",
+    "safe": true
+  }
+]

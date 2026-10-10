@@ -1,0 +1,6681 @@
+{
+  "topics": {
+    "simple_present": {
+      "title": {
+        "en": "Simple Present",
+        "fa": "فعل حال ساده"
+      },
+      "keywords": {
+        "en": [
+          "simple present",
+          "present simple"
+        ],
+        "fa": [
+          "حال ساده",
+          "فعل حال ساده"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + V1   (add -s / -es for he, she, it)",
+          "fa": "مثبت:   فاعل + فعل پایه   (برای he/she/it فعل s/es می‌گیرد)"
+        },
+        {
+          "en": "Negative:     Subject + do / does + not + V1",
+          "fa": "منفی:   فاعل + do/does + not + فعل پایه"
+        },
+        {
+          "en": "Question:     Do / Does + subject + V1 ?",
+          "fa": "سؤالی:  Do/Does + فاعل + فعل پایه ؟"
+        },
+        {
+          "en": "Short answer: Yes, he does.  /  No, he doesn't.",
+          "fa": "پاسخ کوتاه: Yes, he does.  /  No, he doesn't."
+        }
+      ],
+      "function": [
+        {
+          "en": "Habits and daily routines",
+          "fa": "عادت‌ها و کارهای روزانه"
+        },
+        {
+          "en": "Facts and general truths (science, nature)",
+          "fa": "حقایق و قوانین کلی (علمی و طبیعی)"
+        },
+        {
+          "en": "Permanent situations and states",
+          "fa": "حالات و وضعیت‌های دائمی"
+        },
+        {
+          "en": "Timetables and schedules (trains, classes)",
+          "fa": "برنامه‌های زمان‌بندی‌شده ( قطار، کلاس‌ها)"
+        },
+        {
+          "en": "Feelings, opinions and stative verbs (like, want, know, believe)",
+          "fa": "احساسات، نظرات و افعال حالتی (دوست داشتن، خواستن، دانستن)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **go** to school every day.",
+          "fa": "من هر روز به مدرسه **می‌روم**."
+        },
+        {
+          "en": "She **works** in a hospital.",
+          "fa": "او در بیمارستان **کار می‌کند**."
+        },
+        {
+          "en": "Water **boils** at 100°C.",
+          "fa": "آب در ۱۰۰ درجه **می‌جوشد**."
+        },
+        {
+          "en": "They **don't watch** TV at night.",
+          "fa": "آن‌ها شب‌ها تلویزیون **تماشا نمی‌کنند**."
+        },
+        {
+          "en": "**Does** he **speak** English?",
+          "fa": "آیا او انگلیسی **صحبت می‌کند**؟"
+        },
+        {
+          "en": "The train **leaves** at 7 a.m.",
+          "fa": "قطار ساعت ۷ صبح **حرکت می‌کند**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Ali ____ to school every day. (go)",
+            "fa": "علی هر روز به مدرسه ____ می‌رود. (go)"
+          },
+          "a": [
+            "goes"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ football on Fridays. (play)",
+            "fa": "آن‌ها جمعه‌ها فوتبال ____ می‌کنند. (play)"
+          },
+          "a": [
+            "play"
+          ]
+        },
+        {
+          "q": {
+            "en": "My mother ____ delicious food. (cook)",
+            "fa": "مادرم غذای خوشمزه ____ می‌کند. (cook)"
+          },
+          "a": [
+            "cooks"
+          ]
+        },
+        {
+          "q": {
+            "en": "The sun ____ in the east. (rise)",
+            "fa": "خورشید از شرق ____ می‌کند. (rise)"
+          },
+          "a": [
+            "rises"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ English every night. (study)",
+            "fa": "من هر شب انگلیسی ____ می‌کنم. (study)"
+          },
+          "a": [
+            "study"
+          ]
+        },
+        {
+          "q": {
+            "en": "Water ____ at 100 degrees. (boil)",
+            "fa": "آب در ۱۰۰ درجه ____ می‌شود. (boil)"
+          },
+          "a": [
+            "boils"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you speak Persian? (do)",
+            "fa": "____ تو فارسی صحبت می‌کنی؟ (do)"
+          },
+          "a": [
+            "do"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ not like coffee. (do)",
+            "fa": "او قهوه دوست ____ دارد. (do)"
+          },
+          "a": [
+            "does"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ TV in the evening. (watch)",
+            "fa": "ما عصرها تلویزیون ____ می‌کنیم. (watch)"
+          },
+          "a": [
+            "watch"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ her teeth twice a day. (brush)",
+            "fa": "او دندان‌هایش را روزی دو بار ____ می‌زند. (brush)"
+          },
+          "a": [
+            "brushes"
+          ]
+        },
+        {
+          "q": {
+            "en": "My father ____ the newspaper every morning. (read)",
+            "fa": "پدرم هر صبح روزنامه را ____ می‌خواند. (read)"
+          },
+          "a": [
+            "reads"
+          ]
+        },
+        {
+          "q": {
+            "en": "The museum ____ not open on Mondays. (do)",
+            "fa": "موزه دوشنبه‌ها باز ____ نیست. (do)"
+          },
+          "a": [
+            "does"
+          ]
+        }
+      ],
+      "level": "A1"
+    },
+    "to_be": {
+      "level": "A1",
+      "title": {
+        "en": "Verb to be",
+        "fa": "to be"
+      },
+      "keywords": {
+        "en": [
+          "verb to be",
+          "to be",
+          "am is are",
+          "am is are verb"
+        ],
+        "fa": [
+          "فعل to be",
+          "فعل بودن",
+          "am is are"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  I am  ·  You / We / They are  ·  He / She / It is",
+          "fa": "مثبت:   I am  ·  You / We / They are  ·  He / She / It is"
+        },
+        {
+          "en": "Negative:     am not  ·  isn't  ·  aren't",
+          "fa": "منفی:   am not  ·  isn't  ·  aren't"
+        },
+        {
+          "en": "Question:     Am I …?  Are you …?  Is he …?  (the verb comes first)",
+          "fa": "سؤالی:   Am I …?  Are you …?  Is he …?  (فعل اول می‌آید)"
+        },
+        {
+          "en": "Short answer: Yes, I am.  /  No, I'm not.",
+          "fa": "پاسخ کوتاه: Yes, I am.  /  No, I'm not."
+        },
+        {
+          "en": "Contractions: I'm · you're · he's · it's · we're · they're",
+          "fa": "شکل کوتاه: I'm · you're · he's · it's · we're · they're"
+        },
+        {
+          "en": "Note: to be can NEVER be dropped — 'I am a student', not 'I student'",
+          "fa": "نکته: فعل to be هرگز حذف نمی‌شود — «I am a student»، نه «I student»"
+        }
+      ],
+      "function": [
+        {
+          "en": "Identity and description (She is a doctor)",
+          "fa": "هویت و توصیف (او دکتر است)"
+        },
+        {
+          "en": "Feelings, states, age (I am hungry, He is ten)",
+          "fa": "احساسات، حالت‌ها، سن (گرسنه‌ام، ده سالشه)"
+        },
+        {
+          "en": "Weather, time and dates (It is cold, It is 5 o'clock)",
+          "fa": "هوا، ساعت و تاریخ (هوا سرده، ساعت ۵ است)"
+        },
+        {
+          "en": "AUXILIARY in continuous forms (I am reading)",
+          "fa": "فعل کمکی در زمان استمراری (دارم می‌خونم)"
+        },
+        {
+          "en": "AUXILIARY in the passive voice (The letter was written)",
+          "fa": "فعل کمکی در مجهول (نامه نوشته شد)"
+        },
+        {
+          "en": "After a preposition to express position (She is at home)",
+          "fa": "بعد از حرف اضافه برای موقعیت (او خونه‌ست)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **am** a student.",
+          "fa": "من **دانشجو** هستم."
+        },
+        {
+          "en": "She **isn't** at home now.",
+          "fa": "او **الان** خونه **نیست**."
+        },
+        {
+          "en": "**Are** you **ready**?",
+          "fa": "**آماده‌ای**؟"
+        },
+        {
+          "en": "The weather **is** beautiful today.",
+          "fa": "هوا امروز **خوبه**."
+        },
+        {
+          "en": "They **are** reading a book.",
+          "fa": "آن‌ها دارن کتاب **می‌خونن**."
+        },
+        {
+          "en": "It **was** cold yesterday.",
+          "fa": "دیشه هوا **سرد بود**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ a teacher. (to be)",
+            "fa": "من معلم ____ ."
+          },
+          "a": [
+            "am"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ at school now. (to be)",
+            "fa": "او الان در مدرسه ____ ."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ ready. (to be)",
+            "fa": "آن‌ها آماده ____ ."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ not tired. (to be)",
+            "fa": "او خسته ____ نیست."
+          },
+          "a": [
+            "isn't",
+            "is not"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you a doctor? (to be question)",
+            "fa": "____ تو دکتر هستی؟"
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ hungry. (to be)",
+            "fa": "من گرسنه ____ ."
+          },
+          "a": [
+            "am"
+          ]
+        },
+        {
+          "q": {
+            "en": "The book ____ on the table. (to be)",
+            "fa": "کتاب ____ روی میزه."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ from Iran. (to be)",
+            "fa": "ما ____ از ایران هستیم."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "It ____ ten o'clock. (to be)",
+            "fa": "ساعت ____ است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ very kind people. (to be)",
+            "fa": "آن‌ها آدم‌های خیلی مهربونی ____ ."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ my sister. (to be)",
+            "fa": "او خواهرم ____ ."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "Am I late? → Yes, you ____ .",
+            "fa": "دیر شدم؟ → بله، تو ____ ."
+          },
+          "a": [
+            "are"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Verb to be",
+        "fa": "فعل to be"
+      }
+    },
+    "articles": {
+      "level": "A1",
+      "title": {
+        "en": "Articles a/an/the",
+        "fa": "حروف تعیین"
+      },
+      "keywords": {
+        "en": [
+          "articles",
+          "a an the",
+          "article",
+          "definite indefinite article"
+        ],
+        "fa": [
+          "حروف تعیین",
+          "a an the",
+          "معرف و نکره"
+        ]
+      },
+      "structure": [
+        {
+          "en": "a  =  one of many, mentioned for the first time  →  a book, a dog",
+          "fa": "a  =  یکی از چندتا، اولین بار  →  یک کتاب"
+        },
+        {
+          "en": "an  =  before a VOWEL SOUND  →  an apple, an hour, but a university",
+          "fa": "an  =  قبل از «صدای» مصوت  →  یک ساعت، ولی a university"
+        },
+        {
+          "en": "the  =  specific, already known, or unique  →  the sun, the book I mentioned",
+          "fa": "the  =  مشخص، شناخته‌شده یا یکتا  →  خورشید، کتابی که گفتم"
+        },
+        {
+          "en": "Zero article  =  plurals & uncountables in general  →  Water is life. I like music.",
+          "fa": "بدون حرف  =  جمع‌ها و غیرقابل‌شمارش به‌طور کلی  →  آب زندگی است"
+        },
+        {
+          "en": "No article  =  most proper nouns, meals, languages, subjects  →  Tehran, lunch, English, math",
+          "fa": "بدون حرف  =  اسم خاص، وعده‌ها، زبان‌ها، درس‌ها  →  تهران، ناهار، انگلیسی، ریاضی"
+        },
+        {
+          "en": "the  with superlatives and sequences  →  the best, the first, the last",
+          "fa": "the با صفت تکراری و ترتیب  →  بهترین، اولین، آخرین"
+        }
+      ],
+      "function": [
+        {
+          "en": "a / an introduces something new or not specific",
+          "fa": "a / an چیزی نو یا غیرمشخص را معرفی می‌کند"
+        },
+        {
+          "en": "the points to something already identified",
+          "fa": "the به چیزی اشاره دارد که از قبل مشخص است"
+        },
+        {
+          "en": "Used for unique things on Earth (the moon, the internet)",
+          "fa": "برای چیزهای یکتای زمین (ماه، اینترنت)"
+        },
+        {
+          "en": "Used with superlatives (the best, the tallest)",
+          "fa": "با صفت‌های تکراری (بهترین، بلندترین)"
+        },
+        {
+          "en": "Second mention takes 'the' — I bought a book. The book was cheap.",
+          "fa": "دیدار دوم با the — یک کتاب خریدم. کتاب ارزون بود."
+        },
+        {
+          "en": "Jobs and nationalities take 'a' — a doctor, an Iranian",
+          "fa": "مشاغل و ملیت‌ها با a — یک دکتر، یک ایرانی"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I saw **a** cat. It was **a** black cat.",
+          "fa": "یه **گربه** دیدم. **یه** گربه سیاه بود."
+        },
+        {
+          "en": "She waited for **an** hour.",
+          "fa": "یه **ساعت** منتظر موند."
+        },
+        {
+          "en": "**The** sun rises in **the** east.",
+          "fa": "**خورشید** از **شرق** طلوع می‌کنه."
+        },
+        {
+          "en": "**The** book on **the** table is mine.",
+          "fa": "**کتاب** روی **میز** مال منه."
+        },
+        {
+          "en": "Water is important for life.",
+          "fa": "آب برای زندگی مهمه."
+        },
+        {
+          "en": "This is **the** best restaurant in town.",
+          "fa": "این **بهترین** رستوران شهره."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I need ____ umbrella. (a / an)",
+            "fa": "به ____ چتر نیاز دارم."
+          },
+          "a": [
+            "an"
+          ]
+        },
+        {
+          "q": {
+            "en": "She is ____ engineer. (a / an)",
+            "fa": "او مهندس ____ ."
+          },
+          "a": [
+            "an"
+          ]
+        },
+        {
+          "q": {
+            "en": "I bought ____ book yesterday. (a / the)",
+            "fa": "دیروز ____ کتاب خریدم."
+          },
+          "a": [
+            "a"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ moon is very bright tonight.",
+            "fa": "____ ماه امشب خیلی روشنه."
+          },
+          "a": [
+            "the"
+          ]
+        },
+        {
+          "q": {
+            "en": "He waited for ____ hour. (a / an)",
+            "fa": "____ ساعت منتظر موند."
+          },
+          "a": [
+            "an"
+          ]
+        },
+        {
+          "q": {
+            "en": "This is ____ restaurant in the city.",
+            "fa": "این ____ رستوران شهره."
+          },
+          "a": [
+            "the"
+          ]
+        },
+        {
+          "q": {
+            "en": "I like ____ music very much. (the / no article)",
+            "fa": "موسیقی رو خیلی دوست دارم. (the / بدون حرف)"
+          },
+          "a": [
+            "",
+            "no article",
+            "zero"
+          ]
+        },
+        {
+          "q": {
+            "en": "He plays ____ tennis every Sunday.",
+            "fa": "هر یکشنبه تنیس بازی می‌کنه."
+          },
+          "a": [
+            "",
+            "no article",
+            "zero"
+          ]
+        },
+        {
+          "q": {
+            "en": "That's ____ good idea!",
+            "fa": "ایده ____ خوبیه!"
+          },
+          "a": [
+            "a"
+          ]
+        },
+        {
+          "q": {
+            "en": "She lives in ____ Tehran, not ____ Shiraz.",
+            "fa": "او در ____ تهران زندگی می‌کنه، نه ____ شیراز."
+          },
+          "a": [
+            "the"
+          ]
+        },
+        {
+          "q": {
+            "en": "We have ____ early breakfast at 6.",
+            "fa": "ساعت ۶ صبحانه ____ زودهنگام داریم."
+          },
+          "a": [
+            "an"
+          ]
+        },
+        {
+          "q": {
+            "en": "Look at ____ sun — it's beautiful.",
+            "fa": "به ____ خورشید نگاه کن — قشنگه."
+          },
+          "a": [
+            "the"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Articles (a / an / the)",
+        "fa": "حروف تعیین (a / an / the)"
+      }
+    },
+    "pronouns": {
+      "level": "A1",
+      "title": {
+        "en": "Pronouns",
+        "fa": "ضمایر"
+      },
+      "keywords": {
+        "en": [
+          "pronouns",
+          "personal pronouns",
+          "possessive pronouns",
+          "he she it they"
+        ],
+        "fa": [
+          "ضمایر",
+          "ضمیر شخصی",
+          "ضمیر ملکی"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Subject:  I · you · he · she · it · we · they",
+          "fa": "فاعلی:   I · you · he · she · it · we · they"
+        },
+        {
+          "en": "Object:   me · you · him · her · it · us · them",
+          "fa": "مفعولی:   me · you · him · her · it · us · them"
+        },
+        {
+          "en": "Possessive adjective:  my · your · his · her · its · our · their",
+          "fa": "صفت ملکی:   my · your · his · her · its · our · their"
+        },
+        {
+          "en": "Possessive pronoun:  mine · yours · his · hers · ours · theirs",
+          "fa": "ضمیر ملکی:   mine · yours · his · hers · ours · theirs"
+        },
+        {
+          "en": "Reflexive:  myself · yourself · himself · herself · itself · ourselves · themselves",
+          "fa": "انعکاسی:   myself · yourself · himself · herself · ourselves · themselves"
+        },
+        {
+          "en": "he = male person, she = female person, it = thing or animal",
+          "fa": "he برای مرد، she برای زن، it برای اشیا و حیوانات"
+        }
+      ],
+      "function": [
+        {
+          "en": "Replace nouns to avoid repetition",
+          "fa": "جایگزین اسم برای جلوگیری از تکرار"
+        },
+        {
+          "en": "Subject pronouns come BEFORE the verb",
+          "fa": "ضمایر فاعلی قبل از فعل می‌آیند"
+        },
+        {
+          "en": "Object pronouns come AFTER a verb or preposition",
+          "fa": "ضمایر مفعولی بعد از فعل یا حرف اضافه می‌آیند"
+        },
+        {
+          "en": "Possessives show ownership (This is my car)",
+          "fa": "ملکیت را نشان می‌دهند (این ماشین منه)"
+        },
+        {
+          "en": "Reflexives: 'by myself' = alone, 'hurt myself'",
+          "fa": "انعکاسی: «خودم» — تنها، خودم را زدم"
+        },
+        {
+          "en": "'their' = belonging to them, but 'there' = that place",
+          "fa": "their یعنی مال آن‌ها، ولی there یعنی آنجا"
+        }
+      ],
+      "examples": [
+        {
+          "en": "**She** gave **me** her book.",
+          "fa": "**او** کتابش رو به **من** داد."
+        },
+        {
+          "en": "**We** saw **them** yesterday.",
+          "fa": "**ما** دیروز **آن‌ها** رو دیدیم."
+        },
+        {
+          "en": "This is **my** car — it's **mine**.",
+          "fa": "این ماشین **منه** — **مال منه**."
+        },
+        {
+          "en": "He taught **himself** to swim.",
+          "fa": "خودش یاد گرفت شنا کنه."
+        },
+        {
+          "en": "Put it between **you** and **me**.",
+          "fa": "بذارش بین **تو** و **من**."
+        },
+        {
+          "en": "**They** are visiting **their** parents.",
+          "fa": "**آن‌ها** دارن به **والدینشون** سر می‌زنن."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I called ____ (she / her) yesterday.",
+            "fa": "دیروز ____ (او) رو صدا زدم."
+          },
+          "a": [
+            "her"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (He / Him) is my brother.",
+            "fa": "____ برادر منه."
+          },
+          "a": [
+            "he"
+          ]
+        },
+        {
+          "q": {
+            "en": "This pen is ____ (my / mine).",
+            "fa": "این خودکار ____ هست."
+          },
+          "a": [
+            "mine"
+          ]
+        },
+        {
+          "q": {
+            "en": "They helped ____ (we / us) with the boxes.",
+            "fa": "آن‌ها به ____ (ما) کمک کردن."
+          },
+          "a": [
+            "us"
+          ]
+        },
+        {
+          "q": {
+            "en": "The dog cut ____ (it / itself) with a stone.",
+            "fa": "سگ با یه سنگ ____ رو برید."
+          },
+          "a": [
+            "itself"
+          ]
+        },
+        {
+          "q": {
+            "en": "That's ____ (their / there) car.",
+            "fa": "اون ماشین ____ هست."
+          },
+          "a": [
+            "their"
+          ]
+        },
+        {
+          "q": {
+            "en": "I did it by ____ (myself / me).",
+            "fa": "خودم انجامش دادم."
+          },
+          "a": [
+            "myself"
+          ]
+        },
+        {
+          "q": {
+            "en": "Give it to ____ (he / him), please.",
+            "fa": "به ____ لطفاً بده."
+          },
+          "a": [
+            "him"
+          ]
+        },
+        {
+          "q": {
+            "en": "The cat is licking ____ (it / itself).",
+            "fa": "گربه داره خودش رو می‌لیسه."
+          },
+          "a": [
+            "itself"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (We / Us) live in Tehran.",
+            "fa": "____ در تهران زندگی می‌کنیم."
+          },
+          "a": [
+            "we"
+          ]
+        },
+        {
+          "q": {
+            "en": "Those books are ____ (our / ours).",
+            "fa": "اون کتاب‌ها ____ هستن."
+          },
+          "a": [
+            "ours"
+          ]
+        },
+        {
+          "q": {
+            "en": "She looked at ____ (I / me) and smiled.",
+            "fa": "به ____ نگاه کرد و لبخند زد."
+          },
+          "a": [
+            "me"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Pronouns",
+        "fa": "ضمایر"
+      }
+    },
+    "nouns_number": {
+      "level": "A1",
+      "title": {
+        "en": "Nouns & Number",
+        "fa": "اسم و جمع"
+      },
+      "keywords": {
+        "en": [
+          "nouns",
+          "singular and plural",
+          "plural nouns",
+          "countable uncountable",
+          "number rules"
+        ],
+        "fa": [
+          "مفرد و جمع",
+          "اسم و عدد",
+          "جمع بستن"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Regular plural:  add -s  →  book → books",
+          "fa": "جمع منظم:   اضافه کردن s  →  کتاب → کتاب‌ها"
+        },
+        {
+          "en": "After -s, -x, -sh, -ch, -z  →  add -es  →  box → boxes, dish → dishes",
+          "fa": "بعد از s، x، sh، ch، z  →  es  →  جعبه → جعبه‌ها"
+        },
+        {
+          "en": "Consonant + y  →  y → ies  →  city → cities  |  vowel + y  →  add -s  →  boy → boys",
+          "fa": "y بعد از صامت  →  ies  →  شهر → شهرها  |  y بعد از مصوت  →  s  →  پسر → پسرها"
+        },
+        {
+          "en": "After -f / -fe  →  f → ves  →  wife → wives, leaf → leaves",
+          "fa": "بعد از f یا fe  →  ves  →  همسر → همسرها"
+        },
+        {
+          "en": "Irregular plurals must be memorised  →  man → men, child → children, foot → feet",
+          "fa": "جمع‌های بی‌قاعده باید حفظ شوند  →  مرد → مردان، بچه → بچه‌ها"
+        },
+        {
+          "en": "Never plural:  sheep, fish, series, information",
+          "fa": "بدون جمع:   sheep، fish، information"
+        }
+      ],
+      "function": [
+        {
+          "en": "Countable nouns have both singular and plural",
+          "fa": "اسم‌های قابل‌شمارش مفرد و جمع دارند"
+        },
+        {
+          "en": "Uncountable nouns have NO plural (water, advice, news, furniture)",
+          "fa": "اسم‌های غیرقابل‌شمارش جمع ندارند (آب، نصیحت، خبر، اثاثیه)"
+        },
+        {
+          "en": "Countable → a / an / many / few.  Uncountable → much / little",
+          "fa": "قابل‌شمارش → a / an / many / few.  غیرقابل‌شمارش → much / little"
+        },
+        {
+          "en": "Uncountable + 'piece of' to make it countable — a piece of advice",
+          "fa": "غیرقابل‌شمارش با piece of شمرده می‌شود — یک تکه نصیحت"
+        },
+        {
+          "en": "'No plural' nouns keep the singular verb (The news is good)",
+          "fa": "اسم‌های بدون جمع فعل مفرد می‌گیرن (خبر خوبه)"
+        },
+        {
+          "en": "Plural of a compound noun takes the plural at the end (football players)",
+          "fa": "در اسم‌های مرکب، جمع روی بخش آخر می‌آید (بازیکنان فوتبال)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "Three **city**-**cars** are parked outside.",
+          "fa": "سه تا ماشین **شهری** بیرون پارک شدن."
+        },
+        {
+          "en": "I need some **advice** (not advices).",
+          "fa": "به یه **نصیحت** نیاز دارم (نه نصیحت‌ها)."
+        },
+        {
+          "en": "These **children** are playing.",
+          "fa": "این **بچه‌ها** بازی می‌کنن."
+        },
+        {
+          "en": "**Sheep** are running on the hill.",
+          "fa": "**گوسفندها** توی تپه می‌دون."
+        },
+        {
+          "en": "Would you like a **piece of** cake?",
+          "fa": "یه تکه کیک می‌خوای؟"
+        },
+        {
+          "en": "The **news** is not good.",
+          "fa": "**خبر** خوب نیست."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Plural of 'city' → ____",
+            "fa": "جمع 'city' → ____"
+          },
+          "a": [
+            "cities"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'box' → ____",
+            "fa": "جمع 'box' → ____"
+          },
+          "a": [
+            "boxes"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'baby' → ____",
+            "fa": "جمع 'baby' → ____"
+          },
+          "a": [
+            "babies"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'knife' → ____",
+            "fa": "جمع 'knife' → ____"
+          },
+          "a": [
+            "knives"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'child' → ____",
+            "fa": "جمع 'child' → ____"
+          },
+          "a": [
+            "children"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'man' → ____",
+            "fa": "جمع 'man' → ____"
+          },
+          "a": [
+            "men"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'leaf' → ____",
+            "fa": "جمع 'leaf' → ____"
+          },
+          "a": [
+            "leaves"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'watch' → ____",
+            "fa": "جمع 'watch' → ____"
+          },
+          "a": [
+            "watches"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'tooth' → ____",
+            "fa": "جمع 'tooth' → ____"
+          },
+          "a": [
+            "teeth"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'person' → ____",
+            "fa": "جمع 'person' → ____"
+          },
+          "a": [
+            "people"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'mouse' (the animal) → ____",
+            "fa": "جمع 'mouse' (حیوان) → ____"
+          },
+          "a": [
+            "mice"
+          ]
+        },
+        {
+          "q": {
+            "en": "Plural of 'photo' → ____",
+            "fa": "جمع 'photo' → ____"
+          },
+          "a": [
+            "photos",
+            "photoes"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Nouns & Number",
+        "fa": "اسم و عدد (مفرد و جمع)"
+      }
+    },
+    "word_order": {
+      "level": "A1",
+      "title": {
+        "en": "Word Order",
+        "fa": "ترتیب کلمات"
+      },
+      "keywords": {
+        "en": [
+          "word order",
+          "basic sentence structure",
+          "subject verb object",
+          "sentence order"
+        ],
+        "fa": [
+          "ترتیب کلمات",
+          "ترتیب جمله",
+          "فاعل فعل مفعول"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Basic pattern:  Subject + Verb + Object  →  Ali eats apples.",
+          "fa": "الگوی پایه:   فاعل + فعل + مفعول  →  علی سیب می‌خوره."
+        },
+        {
+          "en": "With adjective:  Subject + be + adjective  →  She is happy.",
+          "fa": "با صفت:   فاعل + be + صفت  →  او خوشحاله."
+        },
+        {
+          "en": "With time/place:  these usually come at the END",
+          "fa": "زمان و مکان معمولاً در انتهای جمله می‌آیند"
+        },
+        {
+          "en": "Frequency adverb goes BEFORE the main verb: I always eat breakfast.",
+          "fa": "قید تکرار قبل از فعل اصلی می‌آید: من همیشه صبحانه می‌خورم."
+        },
+        {
+          "en": "Question:  Question word + auxiliary + subject + verb",
+          "fa": "سؤال:   کلمه سؤال + فعل کمکی + فاعل + فعل"
+        },
+        {
+          "en": "Negative with do/does:  don't / doesn't + base verb",
+          "fa": "منفی با do/does:   don't / doesn't + فعل پایه"
+        }
+      ],
+      "function": [
+        {
+          "en": "English is fixed word order — not free like Persian",
+          "fa": "ترتیب انگلیسی ثابت است — مثل فارسی آزاد نیست"
+        },
+        {
+          "en": "Subject before verb, verb before object",
+          "fa": "فاعل قبل از فعل، فعل قبل از مفعول"
+        },
+        {
+          "en": "Adjectives come before nouns (a big house)",
+          "fa": "صفت قبل از اسم می‌آید (یه خونه بزرگ)"
+        },
+        {
+          "en": "Never place an adverb between a verb and its object",
+          "fa": "قید را بین فعل و مفعولش قرار ندهید"
+        },
+        {
+          "en": "Prepositional phrases go at the end of the clause",
+          "fa": "عبارت‌های حرف‌اضافه در انتهای بند می‌آیند"
+        },
+        {
+          "en": "Two verbs usually need 'and' or 'to' between them",
+          "fa": "بین دو فعل معمولاً and یا to لازم است"
+        }
+      ],
+      "examples": [
+        {
+          "en": "She **reads books** every night.",
+          "fa": "او هر شب **کتاب می‌خونه**."
+        },
+        {
+          "en": "**I usually** get up at seven.",
+          "fa": "**من معمولاً** ساعت ۷ بلند می‌شم."
+        },
+        {
+          "en": "He put the keys **on the table**.",
+          "fa": "او کلیدها رو **روی میز** گذاشت."
+        },
+        {
+          "en": "**Where do** you **live**?",
+          "fa": "**کجا** زندگی **می‌کنی**؟"
+        },
+        {
+          "en": "I **don't like** cold weather.",
+          "fa": "من هوای سرد رو **دوست ندارم**."
+        },
+        {
+          "en": "They usually **go to school** by bus.",
+          "fa": "آن‌ها معمولاً با اتوبوس **به مدرسه می‌رن**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Correct order: reads / she / books",
+            "fa": "ترتیب درست: reads / she / books"
+          },
+          "a": [
+            "she reads books"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: often / is / late / he",
+            "fa": "ترتیب درست: often / is / late / he"
+          },
+          "a": [
+            "he is often late"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: you / where / live / do",
+            "fa": "ترتیب درست: you / where / live / do"
+          },
+          "a": [
+            "where do you live"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: likes / he / not / coffee / doesn't",
+            "fa": "ترتیب درست: likes / he / not / coffee / doesn't"
+          },
+          "a": [
+            "he doesn't like coffee"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: the school / we / go to / every day",
+            "fa": "ترتیب درست: the school / we / go to / every day"
+          },
+          "a": [
+            "we go to the school every day"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: plays / she / well / tennis / very",
+            "fa": "ترتیب درست: plays / she / well / tennis / very"
+          },
+          "a": [
+            "she plays very well"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: friends / my / are / they",
+            "fa": "ترتیب درست: friends / my / are / they"
+          },
+          "a": [
+            "they are my friends"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: what / doing / you / now / are",
+            "fa": "ترتیب درست: what / doing / you / now / are"
+          },
+          "a": [
+            "what are you doing now"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: a / I / bought / new / car",
+            "fa": "ترتیب درست: a / I / bought / new / car"
+          },
+          "a": [
+            "i bought a new car"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: the park / children / are / playing / in",
+            "fa": "ترتیب درست: the park / children / are / playing / in"
+          },
+          "a": [
+            "children are playing in the park"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: don't / I / understand",
+            "fa": "ترتیب درست: don't / I / understand"
+          },
+          "a": [
+            "i don't understand"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct order: rain / it / heavily / yesterday / was / raining",
+            "fa": "ترتیب درست: rain / it / heavily / yesterday / was / raining"
+          },
+          "a": [
+            "it was raining heavily yesterday"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Basic Word Order",
+        "fa": "ترتیب کلمات"
+      }
+    },
+    "simple_past": {
+      "title": {
+        "en": "Simple Past",
+        "fa": "فعل گذشته ساده"
+      },
+      "keywords": {
+        "en": [
+          "simple past",
+          "past simple",
+          "past tense"
+        ],
+        "fa": [
+          "گذشته ساده",
+          "ساده گذشته",
+          "ماضی ساده",
+          "زمان گذشته"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + V2   (regular verbs: -ed → worked; irregulars: went, saw, wrote)",
+          "fa": "مثبت:   فاعل + فعل گذشته   (قواعدی: ed → worked؛ بی‌قاعده: رفت، دید، نوشت)"
+        },
+        {
+          "en": "Negative:     Subject + did not (didn't) + V1",
+          "fa": "منفی:   فاعل + did not (didn't) + فعل پایه"
+        },
+        {
+          "en": "Question:     Did + subject + V1 ?",
+          "fa": "سؤالی:  Did + فاعل + فعل پایه ؟"
+        },
+        {
+          "en": "Short answer: Yes, he did.  /  No, he didn't.",
+          "fa": "پاسخ کوتاه: Yes, he did.  /  No, he didn't."
+        },
+        {
+          "en": "Note: after did / didn't the verb returns to its base form (V1).",
+          "fa": "نکته: بعد از did / didn't فعل به شکل پایه (V1) برمی‌گردد."
+        }
+      ],
+      "function": [
+        {
+          "en": "Completed actions at a finished time (yesterday, last week, in 2010)",
+          "fa": "کارهای تمام‌شده در زمان مشخص گذشته (دیروز، هفته گذشته، در ۲۰۱۰)"
+        },
+        {
+          "en": "A sequence of past actions (storytelling / narration)",
+          "fa": "زنجیره‌ای از کارهای گذشته (روایت داستان)"
+        },
+        {
+          "en": "Past habits and states that are no longer true",
+          "fa": "عادت‌های گذشته که دیگر ادامه ندارند"
+        },
+        {
+          "en": "Past events when the exact time is not mentioned",
+          "fa": "رویدادهای گذشته بدون ذکر زمان دقیق"
+        },
+        {
+          "en": "Common partners: ago, last…, when, yesterday",
+          "fa": "همراهان پرتکرار: ago، last…، when، yesterday"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **visited** my grandmother last week.",
+          "fa": "هفته گذشته سر مادربزرگم **رفتم**."
+        },
+        {
+          "en": "She **didn't call** me yesterday.",
+          "fa": "دیروز به من **زنگ نزد**."
+        },
+        {
+          "en": "**Did** you **finish** your homework?",
+          "fa": "آیا تکلیفت را **تمام کردی**؟"
+        },
+        {
+          "en": "We **watched** a movie and **ate** pizza.",
+          "fa": "یک فیلم **دیدیم** و پیتزا **خوردیم**."
+        },
+        {
+          "en": "He **went** to Tehran in 2019.",
+          "fa": "او در سال ۲۰۱۹ به تهران **رفت**."
+        },
+        {
+          "en": "When I was young, I **played** football every day.",
+          "fa": "وقتی بچه بودم، هر روز فوتبال **بازی می‌کردم**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ my homework yesterday. (finish)",
+            "fa": "من دیروز تکلیفم را ____ کردم. (finish)"
+          },
+          "a": [
+            "finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ not go to school yesterday. (do)",
+            "fa": "او دیروز به مدرسه ____ رفت. (do)"
+          },
+          "a": [
+            "did"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ a great movie last night. (watch)",
+            "fa": "آن‌ها دیشب یک فیلم عالی ____ کردند. (watch)"
+          },
+          "a": [
+            "watched"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you see the eclipse? (do)",
+            "fa": "____ تو گرفتگی خورشید را دیدی؟ (do)"
+          },
+          "a": [
+            "did"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ to the store an hour ago. (go)",
+            "fa": "او یک ساعت پیش به مغازه ____ . (go)"
+          },
+          "a": [
+            "went"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ dinner at 8 p.m. (eat)",
+            "fa": "ما ساعت ۸ شب شام ____ دیم. (eat)"
+          },
+          "a": [
+            "ate"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ her at the market. (see)",
+            "fa": "من او را در بازار ____ . (see)"
+          },
+          "a": [
+            "saw"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ a letter to his friend. (write)",
+            "fa": "او نامه‌ای برای دوستش ____ نوشت. (write)"
+          },
+          "a": [
+            "wrote"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ a beautiful song at the party. (sing)",
+            "fa": "او در مهمانی یک آهنگ قشنگ ____ خواند. (sing)"
+          },
+          "a": [
+            "sang"
+          ]
+        },
+        {
+          "q": {
+            "en": "Last summer we ____ to the north of Iran. (travel)",
+            "fa": "تابستان گذشته به شمال ایران ____ کردیم. (travel)"
+          },
+          "a": [
+            "traveled",
+            "travelled"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ to the beach by car. (drive)",
+            "fa": "آن‌ها با ماشین به ساحل ____ کردند. (drive)"
+          },
+          "a": [
+            "drove"
+          ]
+        },
+        {
+          "q": {
+            "en": "The concert ____ at 9 p.m. (start)",
+            "fa": "کنسرت ساعت ۹ شب ____ شد. (start)"
+          },
+          "a": [
+            "started"
+          ]
+        }
+      ],
+      "level": "A2"
+    },
+    "simple_future": {
+      "title": {
+        "en": "Simple Future",
+        "fa": "فعل آینده ساده"
+      },
+      "keywords": {
+        "en": [
+          "simple future",
+          "future simple",
+          "future tense",
+          "will future"
+        ],
+        "fa": [
+          "آینده ساده",
+          "ساده آینده",
+          "زمان آینده"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + will + V1   (I / he / she / it will go)",
+          "fa": "مثبت:   فاعل + will + فعل پایه   (I / he / she / it will go)"
+        },
+        {
+          "en": "Negative:     Subject + will not (won't) + V1",
+          "fa": "منفی:   فاعل + will not (won't) + فعل پایه"
+        },
+        {
+          "en": "Question:     Will + subject + V1 ?",
+          "fa": "سؤالی:  Will + فاعل + فعل پایه ؟"
+        },
+        {
+          "en": "Short answer: Yes, he will.  /  No, he won't.",
+          "fa": "پاسخ کوتاه: Yes, he will.  /  No, he won't."
+        },
+        {
+          "en": "Plans & intentions:  Subject + am / is / are + going to + V1",
+          "fa": "برنامه‌ها و نیت‌ها:  فاعل + am/is/are + going to + فعل پایه"
+        }
+      ],
+      "function": [
+        {
+          "en": "Predictions and guesses about the future",
+          "fa": "پیش‌بینی‌ها و حدس‌ها درباره آینده"
+        },
+        {
+          "en": "Promises, offers and threats (spontaneous decisions)",
+          "fa": "قول، پیشنهاد و تهدید (تصمیم لحظه‌ای)"
+        },
+        {
+          "en": "Facts that are always true in the future",
+          "fa": "حقایقی که همیشه در آینده درست‌اند"
+        },
+        {
+          "en": "Arrangements and plans (be going to)",
+          "fa": "قرارها و برنامه‌های از پیش تصمیم‌گرفته (be going to)"
+        },
+        {
+          "en": "Common partners: tomorrow, next…, soon, in 2030, I think",
+          "fa": "همراهان پرتکرار: tomorrow، next…، soon، in 2030، I think"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **will call** you tomorrow.",
+          "fa": "من فردا به تو **زنگ می‌زنم**."
+        },
+        {
+          "en": "She **won't forget** your birthday.",
+          "fa": "او تولدت را **فراموش نمی‌کند**."
+        },
+        {
+          "en": "**Will** you **come** to the party?",
+          "fa": "آیا تو به مهمانی **می‌آیی**؟"
+        },
+        {
+          "en": "Look at those clouds! It **is going to rain**.",
+          "fa": "به اون ابرها نگاه کن! **می‌خواد بباره**."
+        },
+        {
+          "en": "He **will be** a doctor one day.",
+          "fa": "یک روز او **پزشک می‌شود**."
+        },
+        {
+          "en": "We **are going to travel** next summer.",
+          "fa": "تابستان بعد **سفر می‌رویم**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I think it ____ rain tomorrow. (will)",
+            "fa": "فکر می‌کنم فردا باران ____ بیاید. (will)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ be a doctor one day. (will)",
+            "fa": "او یک روز پزشک ____ شود. (will)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you come to the party? (will)",
+            "fa": "____ تو به مهمانی می‌آیی؟ (will)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "The train ____ leave at 7 a.m. tomorrow. (will)",
+            "fa": "فردا قطار ساعت ۷ صبح ____ حرکت کند. (will)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "Don't worry — I ____ help you. (will)",
+            "fa": "نگران نباش — من ____ کمکت می‌کنم. (will)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ not come to the meeting. (will)",
+            "fa": "آن‌ها به جلسه ____ بیایند. (will, negative)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ tell anyone — it's a secret. (will, negative)",
+            "fa": "من به هیچ‌کس ____ بگویم — رازه. (will, منفی)"
+          },
+          "a": [
+            "won't",
+            "will not",
+            "wont"
+          ]
+        },
+        {
+          "q": {
+            "en": "Look at those clouds! It ____ rain. (be going to, it)",
+            "fa": "به ابرها نگاه کن! ____ ببارد. (be going to)"
+          },
+          "a": [
+            "is going to"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ travel next summer. (be going to, we)",
+            "fa": "ما تابستان بعد ____ سفر برویم. (be going to)"
+          },
+          "a": [
+            "are going to"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ graduate next year. (be going to, she)",
+            "fa": "او سال بعد ____ فارغ‌التحصیل شود. (be going to)"
+          },
+          "a": [
+            "is going to"
+          ]
+        },
+        {
+          "q": {
+            "en": "I promise I ____ call you tomorrow. (will)",
+            "fa": "قول می‌دم فردا ____ زنگ بزنم. (will)"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "One day robots ____ do all the housework. (will)",
+            "fa": "یک روز ربات‌ها ____ همه کارهای خانه را بکنند. (will)"
+          },
+          "a": [
+            "will"
+          ]
+        }
+      ],
+      "level": "A2"
+    },
+    "present_progressive": {
+      "title": {
+        "en": "Present Progressive",
+        "fa": "حال استمراری"
+      },
+      "keywords": {
+        "en": [
+          "present progressive",
+          "present continuous",
+          "progressive tense",
+          "continuous tense",
+          "progressive tenses",
+          "continuous tenses"
+        ],
+        "fa": [
+          "حال استمراری",
+          "حال مستمر",
+          "زمان استمراری",
+          "زمان مستمر"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  am / is / are + V-ing   (I am eating · she is eating)",
+          "fa": "مثبت:   am / is / are + فعل ing   (I am eating · she is eating)"
+        },
+        {
+          "en": "Negative:     am / is / are + not + V-ing",
+          "fa": "منفی:   am / is / are + not + فعل ing"
+        },
+        {
+          "en": "Question:     am / is / are + subject + V-ing ?",
+          "fa": "سؤالی:   am / is / are + فاعل + فعل ing ؟"
+        },
+        {
+          "en": "Short answer: Yes, she is.  /  No, she isn't.",
+          "fa": "پاسخ کوتاه: Yes, she is.  /  No, she isn't."
+        },
+        {
+          "en": "Spelling:  drop the final e (make → making)  ·  double the consonant (run → running)",
+          "fa": "املا:   حذف e پایانی (make → making)  ·  دو برابر کردن صامت (run → running)"
+        },
+        {
+          "en": "Note: use this tense for RIGHT NOW, not for permanent situations",
+          "fa": "نکته: این زمان برای «همین الان» است، نه برای کارهای دائمی"
+        }
+      ],
+      "function": [
+        {
+          "en": "Something happening at this moment",
+          "fa": "کاری که همین الان در حال انجام است"
+        },
+        {
+          "en": "Temporary situations around now (this week, this month)",
+          "fa": "وضعیت‌های موقتی در حال حاضر (این هفته، این ماه)"
+        },
+        {
+          "en": "Recent developments and changes (I am learning English now)",
+          "fa": "تغییرات و اتفاقات اخیر (الان دارم انگلیسی یاد می‌گیرم)"
+        },
+        {
+          "en": "Fixed future arrangements (I'm meeting Ali at 7)",
+          "fa": "قرارهای قطعی در آینده نزدیک (ساعت ۷ علی را می‌بینم)"
+        },
+        {
+          "en": "With verbs of state: be, know, want, like, love, believe — usually NOT used",
+          "fa": "با افعال حالتی: be، know، want، like، love، believe — معمولاً استفاده نمی‌شود"
+        },
+        {
+          "en": "Common partners: now, right now, at the moment, Look!, Listen!",
+          "fa": "همراهان پرتکرار: now، right now، at the moment، نگاه کن!، گوش کن!"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **am studying** English right now.",
+          "fa": "الان دارم انگلیسی **می‌خوانم**."
+        },
+        {
+          "en": "She **is waiting** for the bus.",
+          "fa": "او دارد منتظر **اتوبوس** می‌ماند."
+        },
+        {
+          "en": "They **aren't sleeping** — they're playing.",
+          "fa": "آن‌ها **نمی‌خوابند** — دارند بازی می‌کنند."
+        },
+        {
+          "en": "**Is** he **coming** with us tonight?",
+          "fa": "آیا او امشب با ما **می‌آید**؟"
+        },
+        {
+          "en": "Look! It **is raining** again.",
+          "fa": "نگاه کن! دوباره **دارد باران می‌بارد**."
+        },
+        {
+          "en": "I **am not eating** meat these days.",
+          "fa": "این روزها **گوشت نمی‌خورم**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ (read) a book right now. (progressive)",
+            "fa": "الان دارم کتاب ____ . (استمراری)"
+          },
+          "a": [
+            "am reading"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (cook) dinner in the kitchen. (progressive)",
+            "fa": "او دارد در آشپزخانه ____ . (استمراری)"
+          },
+          "a": [
+            "is cooking"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (play) football now. (progressive)",
+            "fa": "آن‌ها الان داره فوتبال ____ . (استمراری)"
+          },
+          "a": [
+            "are playing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ he ____ (write) an email? (progressive question)",
+            "fa": "____ او دارد ایمیل ____ ؟ (سؤالی استمراری)"
+          },
+          "a": [
+            "is writing"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (not / work) today — it's Friday. (progressive negative)",
+            "fa": "من امروز ____ کار نمی‌کنم — جمعه است. (منفی استمراری)"
+          },
+          "a": [
+            "am not working",
+            "amn't working"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (wait) for the results. (progressive)",
+            "fa": "ما داریم منتظر نتیجه ____ . (استمراری)"
+          },
+          "a": [
+            "are waiting"
+          ]
+        },
+        {
+          "q": {
+            "en": "What ____ you ____ (do) right now? (progressive question)",
+            "fa": "الا دقیقاً داری چه کار ____ ؟ (سؤالی استمراری)"
+          },
+          "a": [
+            "are you doing",
+            "do you do"
+          ]
+        },
+        {
+          "q": {
+            "en": "Listen! The baby ____ (cry). (progressive)",
+            "fa": "گوش کن! بچه دارد ____ . (استمراری)"
+          },
+          "a": [
+            "is crying"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (not / use) the gym this month. (progressive negative)",
+            "fa": "آن‌ها این ماه از باشگاه استفاده ____ . (منفی استمراری)"
+          },
+          "a": [
+            "aren't using",
+            "are not using"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct the sentence: \"She is drink tea.\"  →  She ____ tea.",
+            "fa": "جمله را اصلاح کنید: «She is drink tea.» →  او دارد چای ____ ."
+          },
+          "a": [
+            "is drinking"
+          ]
+        },
+        {
+          "q": {
+            "en": "Add -ing: make → ____  ·  run → ____  ·  write → ____",
+            "fa": "با -ing کامل کنید: make → ____  ·  run → ____  ·  write → ____"
+          },
+          "a": [
+            "making running writing",
+            "making, running, writing"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'm ____ (meet) my cousin at 8 tonight. (arrangement)",
+            "fa": "امشب ساعت ۸ قرار است داداشم را ____ . (قرار)"
+          },
+          "a": [
+            "am meeting"
+          ]
+        }
+      ],
+      "level": "A2",
+      "title_long": {
+        "en": "Present Progressive",
+        "fa": "زمان حال استمراری"
+      }
+    },
+    "past_progressive": {
+      "title": {
+        "en": "Past Progressive",
+        "fa": "گذشته استمراری"
+      },
+      "keywords": {
+        "en": [
+          "past progressive",
+          "past continuous",
+          "progressive past"
+        ],
+        "fa": [
+          "گذشته استمراری",
+          "گذشته مستمر",
+          "زمان گذشته استمراری"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  was / were + V-ing   (I was eating · they were eating)",
+          "fa": "مثبت:   was / were + فعل ing   (I was eating · they were eating)"
+        },
+        {
+          "en": "Negative:     was / were + not + V-ing",
+          "fa": "منفی:   was / were + not + فعل ing"
+        },
+        {
+          "en": "Question:     Was / Were + subject + V-ing ?",
+          "fa": "سؤالی:   Was / Were + فاعل + فعل ing ؟"
+        },
+        {
+          "en": "Short answer: Yes, they were.  /  No, they weren't.",
+          "fa": "پاسخ کوتاه: Yes, they were.  /  No, they weren't."
+        },
+        {
+          "en": "With was/were NOT followed by V-ing: I was tired. (not 'I was being tired')",
+          "fa": "بعد از was/were فعل ing نمی‌آید: I was tired. (نه 'I was being tired')"
+        },
+        {
+          "en": "Spelling:  drop the final e (write → writing)  ·  double the consonant (sit → sitting)",
+          "fa": "املا:   حذف e پایانی (write → writing)  ·  دو برابر کردن صامت (sit → sitting)"
+        }
+      ],
+      "function": [
+        {
+          "en": "An action in progress in the past (at a past moment)",
+          "fa": "کاری که در گذشته در حال انجام بوده (در یک لحظه از گذشته)"
+        },
+        {
+          "en": "Long actions that were interrupted by a short one",
+          "fa": "کارهای طولانی که با یک کار کوتاه قطع شدند"
+        },
+        {
+          "en": "Two actions happening at the same time (both in the past)",
+          "fa": "دو کار که هم‌زمان در گذشته اتفاق افتادند"
+        },
+        {
+          "en": "Background for storytelling and setting the scene",
+          "fa": "پس‌زمینه برای داستان‌گویی و توصیف صحنه"
+        },
+        {
+          "en": "With past continuous + past simple:  I was sleeping when he called.",
+          "fa": "با گذشته استمراری + گذشته ساده:  داشتم خواب می‌کردم که زنگ زد."
+        },
+        {
+          "en": "Common partners: at 8 last night, all day, while, when, as",
+          "fa": "همراهان پرتکرار: دیشب ساعت ۸، تمام روز، در حالی که، وقتی که"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **was cooking** dinner at 7 o'clock.",
+          "fa": "ساعت ۷ داشتم شام **می‌پختم**."
+        },
+        {
+          "en": "They **were sleeping** when I arrived.",
+          "fa": "وقتی رسیدم، آن‌ها **خواب بودند**."
+        },
+        {
+          "en": "She **wasn't working** last Monday.",
+          "fa": "دوشنبه هفته گذشته **کار نمی‌کرد**."
+        },
+        {
+          "en": "**Were** you **studying** yesterday evening?",
+          "fa": "دیروز عصر داشتی **درس می‌خواندی**؟"
+        },
+        {
+          "en": "While she **was cooking**, we **were talking**.",
+          "fa": "در حالی که او داشت **آشپزی می‌کرد**، ما داشتیم **حرف می‌زدیم**."
+        },
+        {
+          "en": "It **was raining** when the match started.",
+          "fa": "وقتی بازی شروع شد، داشت **باران می‌بارید**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ (watch) TV at 9 last night. (progressive)",
+            "fa": "دیشب ساعت ۹ داشتم تلویزیون ____ . (استمراری)"
+          },
+          "a": [
+            "was watching"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (play) chess when I came in. (progressive)",
+            "fa": "وقتی وارد شدم، آن‌ها داشتند شطرنج ____ . (استمراری)"
+          },
+          "a": [
+            "were playing"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (not / use) the computer last night. (progressive negative)",
+            "fa": "او دیشب از کامپیوتر استفاده ____ . (منفی استمراری)"
+          },
+          "a": [
+            "wasn't using",
+            "was not using"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you ____ (sleep) at midnight? (progressive question)",
+            "fa": "نیمه‌شب داشتی ____ ؟ (سؤالی استمراری)"
+          },
+          "a": [
+            "were you sleeping",
+            "was you sleeping"
+          ]
+        },
+        {
+          "q": {
+            "en": "It ____ (rain) when we left the house.",
+            "fa": "وقتی از خانه بیرون زدیم، داشت ____ ."
+          },
+          "a": [
+            "was raining"
+          ]
+        },
+        {
+          "q": {
+            "en": "While I ____ (cook), my brother ____ (wash) the dishes. (two actions)",
+            "fa": "وقتی داشتم ____ ، برادرم داشت ظرف‌ها را ____ . (دو کار هم‌زمان)"
+          },
+          "a": [
+            "was cooking washing"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (not / work) here last year. (progressive negative)",
+            "fa": "آن‌ها پارسال اینجا کار ____ . (منفی استمراری)"
+          },
+          "a": [
+            "weren't working",
+            "were not working"
+          ]
+        },
+        {
+          "q": {
+            "en": "What ____ you ____ (do) all day yesterday? (progressive question)",
+            "fa": "دیروز تمام روز داشتی چه کار ____ ؟ (سؤالی استمراری)"
+          },
+          "a": [
+            "were you doing",
+            "was you doing"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (call) me while I ____ (drive). (interrupted action)",
+            "fa": "او در حالی که داشتم ____ رانندگی می‌کردم، به من ____ زد. (کار قطع‌شده)"
+          },
+          "a": [
+            "called was driving",
+            "was driving called"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (read) a book when the lights went out. (progressive)",
+            "fa": "داشتم کتاب ____ که چراغ‌ها خاموش شد. (استمراری)"
+          },
+          "a": [
+            "was reading"
+          ]
+        },
+        {
+          "q": {
+            "en": "The children ____ (make) noise all afternoon.",
+            "fa": "بچه‌ها تمام عصر داشتند ____ ."
+          },
+          "a": [
+            "were making"
+          ]
+        },
+        {
+          "q": {
+            "en": "Add -ing: dance → ____  ·  stop → ____  · lie → ____",
+            "fa": "با -ing کامل کنید: dance → ____  ·  stop → ____  ·  lie → ____"
+          },
+          "a": [
+            "dancing stopping lying",
+            "dancing, stopping, lying"
+          ]
+        }
+      ],
+      "level": "A2",
+      "title_long": {
+        "en": "Past Progressive",
+        "fa": "زمان گذشته استمراری"
+      }
+    },
+    "modals": {
+      "level": "A2",
+      "title": {
+        "en": "Modal Verbs",
+        "fa": "فعل کمکی"
+      },
+      "keywords": {
+        "en": [
+          "modal verbs",
+          "modals",
+          "can could should must",
+          "have to"
+        ],
+        "fa": [
+          "فعل کمکی",
+          "modal",
+          "باید و میتوان"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Form:  modal + BASE verb (no 'to', no -s)  →  He can swim.",
+          "fa": "ساختار:   modal + فعل پایه (بدون to و بدون s)  →  او می‌تونه شنا کنه."
+        },
+        {
+          "en": "Negative:  modal + not  →  She can't come.",
+          "fa": "منفی:   modal + not  →  اون نمی‌تونه بیاد."
+        },
+        {
+          "en": "Question:  modal + subject + verb … ?  →  Can you help?",
+          "fa": "سؤالی:   modal + فاعل + فعل … ؟  →  می‌تونی کمک کنی؟"
+        },
+        {
+          "en": "have to / must = obligation   ·   don't have to = no obligation",
+          "fa": "have to / must = اجبار   ·   don't have to = بدون اجبار"
+        },
+        {
+          "en": "should = advice  ·  must = strong duty  ·  might / could = possibility",
+          "fa": "should = توصیه  ·  must = وظیفه  ·  might / could = احتمال"
+        },
+        {
+          "en": "Note: there is NO to + modal: ✗ He must to go.  ✓ He must go.",
+          "fa": "نکته: to قبل از modal نمی‌آید: ✗ must to go  ✓ must go"
+        }
+      ],
+      "function": [
+        {
+          "en": "can / could — ability and permission (I can drive)",
+          "fa": "can / could — توانایی و اجازه (می‌تونم رانندگی کنم)"
+        },
+        {
+          "en": "may / might / could — possibility (It might rain)",
+          "fa": "may / might / could — احتمال (ممنه بارون بیاد)"
+        },
+        {
+          "en": "must / have to — strong obligation (You must wear a helmet)",
+          "fa": "must / have to — اجبار شدید (باید کلاه بزنی)"
+        },
+        {
+          "en": "should / ought to — advice (You should see a doctor)",
+          "fa": "should / ought to — توصیه (باید دکتر بری)"
+        },
+        {
+          "en": "would — polite request or past habit (Would you help?)",
+          "fa": "would — درخواست مؤدبانه یا عادت گذشته (کمک می‌کنی؟)"
+        },
+        {
+          "en": "had better = strong recommendation (You'd better hurry)",
+          "fa": "had better = توصیه اکید (بهتره زود باشی)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **can** speak three languages.",
+          "fa": "من **می‌تونم** سه زبان حرف بزنم."
+        },
+        {
+          "en": "You **should** see a doctor.",
+          "fa": "تو **باید** بری دکتر."
+        },
+        {
+          "en": "It **might** rain later.",
+          "fa": "بعداً **ممکنه** بارون بیاد."
+        },
+        {
+          "en": "You **must** wear a seatbelt.",
+          "fa": "**باید** کمربند ببندی."
+        },
+        {
+          "en": "**Could** you help me, please?",
+          "fa": "**میشه** کمکم کنی؟"
+        },
+        {
+          "en": "You **don't have to** come if you're busy.",
+          "fa": "اگه سرت شلوغه **لازم نیست** بیای."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ (can / could) help you. (choose one)",
+            "fa": "من ____ کمکت کنم."
+          },
+          "a": [
+            "can",
+            "could"
+          ]
+        },
+        {
+          "q": {
+            "en": "You ____ drink so much coffee. (advice)",
+            "fa": "نباید اینقدر قهوه بخوری. (توصیه)"
+          },
+          "a": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "q": {
+            "en": "He has a headache — he ____ see a doctor.",
+            "fa": "سردرد داره — باید دکتر بره."
+          },
+          "a": [
+            "should"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you send me the file? (polite request)",
+            "fa": "____ فایل رو برام بفرستی؟ (درخواست مؤدبانه)"
+          },
+          "a": [
+            "could",
+            "can",
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "It ____ (might / must) rain tonight.",
+            "fa": "امشب ____ بارون بباره."
+          },
+          "a": [
+            "might"
+          ]
+        },
+        {
+          "q": {
+            "en": "You ____ (must / don't have to) come if you don't want to.",
+            "fa": "اگه نمی‌خوای بیای ____ ."
+          },
+          "a": [
+            "don't have to",
+            "do not have to",
+            "need not",
+            "dont have to"
+          ]
+        },
+        {
+          "q": {
+            "en": "Students ____ (must / may) wear a uniform at school.",
+            "fa": "دانش‌آموزها ____ لباس فرم بپوشن تو مدرسه."
+          },
+          "a": [
+            "must"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (can / must) speak five languages — she's very clever.",
+            "fa": "او ____ پنج زبان بلده — خیلی باهوشه."
+          },
+          "a": [
+            "can"
+          ]
+        },
+        {
+          "q": {
+            "en": "You look tired — you ____ go to bed early.",
+            "fa": "خسته به نظر میای — باید زود بخوابی."
+          },
+          "a": [
+            "should",
+            "had better"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ not park here. (obligation)",
+            "fa": "اینجا پارک کردن ____ ."
+          },
+          "a": [
+            "mustn't",
+            "must not",
+            "can't",
+            "cannot"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (may / must) be at home now — his car is outside.",
+            "fa": "حتماً خونه‌ست — ماشینش بیرونه."
+          },
+          "a": [
+            "must"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ I open the window? (polite question)",
+            "fa": "____ پنجره رو باز کنم؟"
+          },
+          "a": [
+            "may",
+            "can",
+            "could"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Modal Verbs",
+        "fa": "فعل‌های کمکی (Modals)"
+      }
+    },
+    "comparatives": {
+      "level": "A2",
+      "title": {
+        "en": "Comparatives",
+        "fa": "تفضیلی و تکراری"
+      },
+      "keywords": {
+        "en": [
+          "comparatives",
+          "superlatives",
+          "comparative and superlative",
+          "more than",
+          "as as"
+        ],
+        "fa": [
+          "تفضیلی",
+          "تکراری",
+          "مقایسه"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Comparative (2 things):  short adj + -er + than  →  taller than",
+          "fa": "تفضیلی (۲ چیز):   صفت کوتاه + er + than  →  بلندتر از"
+        },
+        {
+          "en": "Comparative (long adj):  more + adjective + than  →  more expensive than",
+          "fa": "تفضیلی (صفت بلند):   more + صفت + than  →  گرون‌تر از"
+        },
+        {
+          "en": "Superlative (3+):  the + short adj + -est  ·  the most + long adj",
+          "fa": "تکراری (۳+):   the + صفت کوتاه + est  ·  the most + صفت بلند"
+        },
+        {
+          "en": "Irregular:  good → better → best  ·  bad → worse → worst  ·  far → farther → farthest",
+          "fa": "بی‌قاعده:   good → better → best  ·  bad → worse → worst  ·  far → farther → farthest"
+        },
+        {
+          "en": "Equality:  as + adjective + as  →  as tall as",
+          "fa": "تساوی:   as + صفت + as  →  به اندازه"
+        },
+        {
+          "en": "Spelling:  happy → happier  ·  easy → easier  ·  big → bigger (double the consonant)",
+          "fa": "املا:   happy → happier  ·  easy → easier  ·  big → bigger (صامت دو برابر)"
+        }
+      ],
+      "function": [
+        {
+          "en": "Comparing two people or things",
+          "fa": "مقایسه دو نفر یا دو چیز"
+        },
+        {
+          "en": "Ranking three or more (the tallest building)",
+          "fa": "رتبه‌بندی سه یا بیشتر (بلندترین ساختمان)"
+        },
+        {
+          "en": "Intensity: much / far / a bit / slightly + comparative",
+          "fa": "شدت:   much / far / a bit / slightly + تفضیلی"
+        },
+        {
+          "en": "Negative comparison: not as … as  →  not as fast as",
+          "fa": "مقایسه منفی: not as … as  →  به اون سرعت نیست"
+        },
+        {
+          "en": "Result: so / such + comparative (It was so cold that we stayed in)",
+          "fa": "نتیجه: so / such + تفضیلی (انقدر سرد بود که تو موندیم)"
+        },
+        {
+          "en": "Double comparative: the more … the more …",
+          "fa": "تفضیلی دوتایی: the more … the more …"
+        }
+      ],
+      "examples": [
+        {
+          "en": "This book is **more interesting** than that one.",
+          "fa": "این کتاب از اون یکی **جالب‌تره**."
+        },
+        {
+          "en": "Ali is **taller** than me.",
+          "fa": "علی از من **بلندتره**."
+        },
+        {
+          "en": "She's the **kindest** person in our class.",
+          "fa": "او **مهربون‌ترین** آدم کلاس ماست."
+        },
+        {
+          "en": "My phone is **as expensive as** yours.",
+          "fa": "گوشی من **به اندازه** گوشی تو گرونه."
+        },
+        {
+          "en": "The **more** you practise, the **better** you get.",
+          "fa": "هرچی **بیشتر** تمرین کنی، **بهتر** می‌شی."
+        },
+        {
+          "en": "This one is **much cheaper**.",
+          "fa": "این یکی **خیلی ارزون‌تره**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Comparative of 'big': ____",
+            "fa": "تفضیلی 'big': ____"
+          },
+          "a": [
+            "bigger"
+          ]
+        },
+        {
+          "q": {
+            "en": "Comparative of 'happy': ____",
+            "fa": "تفضیلی 'happy': ____"
+          },
+          "a": [
+            "happier"
+          ]
+        },
+        {
+          "q": {
+            "en": "Superlative of 'good': ____",
+            "fa": "تکراری 'good': ____"
+          },
+          "a": [
+            "best"
+          ]
+        },
+        {
+          "q": {
+            "en": "Superlative of 'beautiful': ____",
+            "fa": "تکراری 'beautiful': ____"
+          },
+          "a": [
+            "most beautiful"
+          ]
+        },
+        {
+          "q": {
+            "en": "Comparative of 'expensive': ____",
+            "fa": "تفضیلی 'expensive': ____"
+          },
+          "a": [
+            "more expensive"
+          ]
+        },
+        {
+          "q": {
+            "en": "Comparative of 'bad': ____",
+            "fa": "تفضیلی 'bad': ____"
+          },
+          "a": [
+            "worse"
+          ]
+        },
+        {
+          "q": {
+            "en": "Superlative of 'far': ____",
+            "fa": "تکراری 'far': ____"
+          },
+          "a": [
+            "farthest",
+            "furthest"
+          ]
+        },
+        {
+          "q": {
+            "en": "Comparative of 'easy': ____",
+            "fa": "تفضیلی 'easy': ____"
+          },
+          "a": [
+            "easier"
+          ]
+        },
+        {
+          "q": {
+            "en": "This is ____ (the most / most) beautiful city.",
+            "fa": "این ____ زیباترین شهره."
+          },
+          "a": [
+            "the most"
+          ]
+        },
+        {
+          "q": {
+            "en": "He is not ____ (as / so) tall as his brother.",
+            "fa": "اون به اندازه برادرش قد ____ نیست."
+          },
+          "a": [
+            "as"
+          ]
+        },
+        {
+          "q": {
+            "en": "Comparative of 'little': ____",
+            "fa": "تفضیلی 'little': ____"
+          },
+          "a": [
+            "less"
+          ]
+        },
+        {
+          "q": {
+            "en": "Superlative of 'far' + in the world: ____",
+            "fa": "تکراری 'far' در جهان: ____"
+          },
+          "a": [
+            "the farthest",
+            "the furthest"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Comparatives & Superlatives",
+        "fa": "صفت‌های تفضیلی و تکراری"
+      }
+    },
+    "adverbs": {
+      "level": "A2",
+      "title": {
+        "en": "Adverbs",
+        "fa": "قیدها"
+      },
+      "keywords": {
+        "en": [
+          "adverbs",
+          "adverb",
+          "frequency adverbs",
+          "adverb formation"
+        ],
+        "fa": [
+          "قید",
+          "ظرفیت",
+          "کلمه های پرسشی"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Most adverbs of manner = adjective + -ly  →  quick → quickly",
+          "fa": "بیشتر قیدهای حالت = صفت + ly  →  سریع → سریعاً"
+        },
+        {
+          "en": "Position: BEFORE the main verb  →  She always arrives early.",
+          "fa": "جایگاه:   قبل از فعل اصلی  →  اون همیشه زود میاد."
+        },
+        {
+          "en": "Position: AFTER 'be'  →  He is never late.",
+          "fa": "جایگاه:   بعد از be  →  اون هیچ‌وقت دیر نمی‌کنه."
+        },
+        {
+          "en": "Frequency order: always > usually > often > sometimes > rarely > never",
+          "fa": "ترتیب بسامد:   always > usually > often > sometimes > rarely > never"
+        },
+        {
+          "en": "Adverbs of time: yesterday, today, tomorrow, now, soon, already",
+          "fa": "قید زمان:   دیروز، امروز، فردا، الان، به‌زودی، قبلاً"
+        },
+        {
+          "en": "Some adverbs are irregular: good → well, fast → fast, hard → hard",
+          "fa": "بعضی قیدها بی‌قاعده‌اند: good → well، fast → fast"
+        }
+      ],
+      "function": [
+        {
+          "en": "Modify verbs (She sings beautifully)",
+          "fa": "تغییر فعل (او زیبا می‌خونه)"
+        },
+        {
+          "en": "Modify adjectives (a really big house)",
+          "fa": "تغییر صفت (یه خونه خیلی بزرگ)"
+        },
+        {
+          "en": "Modify whole sentences (Fortunately, we won)",
+          "fa": "تغییر کل جمله (خوشبختانه، ما بردیم)"
+        },
+        {
+          "en": "Answer how? when? where? how often? how much?",
+          "fa": "پاسخ به چگونه؟ کی؟ کجا؟ چند بار؟ چقدر؟"
+        },
+        {
+          "en": "'Hardly / barely' go BEFORE the main verb",
+          "fa": "hardly / barely قبل از فعل اصلی می‌آید"
+        },
+        {
+          "en": "Note: 'hardly' = almost not (He hardly sleeps)",
+          "fa": "نکته: hardly یعنی تقریباً نه (تقریباً نمی‌خوابه)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "She sings **beautifully**.",
+          "fa": "او **زیبا** می‌خونه."
+        },
+        {
+          "en": "He **always** arrives on time.",
+          "fa": "او **همیشه** سر وقت میاد."
+        },
+        {
+          "en": "The lesson was **very** interesting.",
+          "fa": "درس **خیلی** جالب بود."
+        },
+        {
+          "en": "I **can** speak English **well**.",
+          "fa": "من **می‌تونم** خوب انگلیسی حرف بزنم."
+        },
+        {
+          "en": "They **rarely** eat fast food.",
+          "fa": "آن‌ها به‌ندرت فست‌فود می‌خورن."
+        },
+        {
+          "en": "**Luckily**, nobody was hurt.",
+          "fa": "**خوشبختانه**، کسی آسیب ندید."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Adverb of 'slow': ____",
+            "fa": "قید 'slow': ____"
+          },
+          "a": [
+            "slowly"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'happy': ____",
+            "fa": "قید 'happy': ____"
+          },
+          "a": [
+            "happily"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'quick': ____",
+            "fa": "قید 'quick': ____"
+          },
+          "a": [
+            "quickly"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'careful': ____",
+            "fa": "قید 'careful': ____"
+          },
+          "a": [
+            "carefully"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'good': ____",
+            "fa": "قید 'good': ____"
+          },
+          "a": [
+            "well"
+          ]
+        },
+        {
+          "q": {
+            "en": "Most common frequency adverb (100%): ____",
+            "fa": "پرتکرارترین قید بسامد (۱۰۰٪): ____"
+          },
+          "a": [
+            "always"
+          ]
+        },
+        {
+          "q": {
+            "en": "Opposite of 'always': ____",
+            "fa": " opposite of 'always': ____"
+          },
+          "a": [
+            "never"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'true': ____",
+            "fa": "قید 'true': ____"
+          },
+          "a": [
+            "truly"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'terrible': ____",
+            "fa": "قید 'terrible': ____"
+          },
+          "a": [
+            "terribly"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'easy': ____",
+            "fa": "قید 'easy': ____"
+          },
+          "a": [
+            "easily"
+          ]
+        },
+        {
+          "q": {
+            "en": "Meaning of 'hardly': ____",
+            "fa": "معنی 'hardly': ____"
+          },
+          "a": [
+            "almost not",
+            "barely",
+            "scarcely"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adverb of 'complete' (sentence adverb): ____",
+            "fa": "قید 'complete' (قید جمله): ____"
+          },
+          "a": [
+            "completely"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Adverbs",
+        "fa": "قیدها (Adverbs)"
+      }
+    },
+    "countable_uncountable": {
+      "level": "A2",
+      "title": {
+        "en": "Countable / Uncountable",
+        "fa": "شمارشی"
+      },
+      "keywords": {
+        "en": [
+          "countable uncountable",
+          "many much",
+          "some any",
+          "quantifiers"
+        ],
+        "fa": [
+          "قابل شمارش",
+          "many much",
+          "کمیت سنجه"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Countable → a / an · many · few · a number of",
+          "fa": "قابل‌شمارش → a / an · many · few · a number of"
+        },
+        {
+          "en": "Uncountable → much · little · a lot of · a piece of",
+          "fa": "غیرقابل‌شمارش → much · little · a lot of · a piece of"
+        },
+        {
+          "en": "some  =  positive / offering (I have some money)",
+          "fa": "some = مثبت یا پیشنهاد (یه کم پول دارم)"
+        },
+        {
+          "en": "any  =  negative or question (I don't have any money)",
+          "fa": "any = منفی یا سؤال (هیچ پولی ندارم)"
+        },
+        {
+          "en": "a lot of / lots of  =  both (a lot of books, a lot of water)",
+          "fa": "a lot of / lots of = هر دو (کتاب زیاد، آب زیاد)"
+        },
+        {
+          "en": "How much = uncountable · How many = countable",
+          "fa": "How much = غیرقابل‌شمارش · How many = قابل‌شمارش"
+        }
+      ],
+      "function": [
+        {
+          "en": "Talking about quantities and amounts",
+          "fa": "صحبت درباره مقدار و کمیت"
+        },
+        {
+          "en": "Uncountables: water, money, rice, bread, information, advice, news, furniture",
+          "fa": "غیرقابل‌شمارش: آب، پول، برنج، نان، اطلاعات، نصیحت، خبر، اثاثیه"
+        },
+        {
+          "en": "'A few' = some (positive) · 'few' = almost none (negative)",
+          "fa": "a few = چندتا (مثبت) · few = تقریباً هیچ (منفی)"
+        },
+        {
+          "en": "'A little' = some · 'little' = almost none",
+          "fa": "a little = یه کم · little = تقریباً هیچ"
+        },
+        {
+          "en": "Make uncountables countable: a piece of advice, a glass of water",
+          "fa": "قابل‌شمارش کردن غیرقابل‌شمارش: یک تکه نصیحت، یه لیوان آب"
+        },
+        {
+          "en": "'A few' and 'a little' in questions means 'some?', not 'how many?'",
+          "fa": "a few و a little در سؤال یعنی «چندتا؟» نه «چند تا؟»"
+        }
+      ],
+      "examples": [
+        {
+          "en": "How **many** books do you have?",
+          "fa": "**چند** تا کتاب داری؟"
+        },
+        {
+          "en": "How **much** does it cost?",
+          "fa": "**چند** تا می‌شه؟"
+        },
+        {
+          "en": "I don't have **any** time today.",
+          "fa": "امروز **هیچ** وقتی ندارم."
+        },
+        {
+          "en": "She has **a few** friends in Tehran.",
+          "fa": "چند تا دوست داره تو تهران."
+        },
+        {
+          "en": "There's **a little** milk in the fridge.",
+          "fa": "یه **کم** شیر تو یخچاله."
+        },
+        {
+          "en": "I'd like two **cups of** tea.",
+          "fa": "دو تا **فنجان** چای می‌خوام."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "How ____ money do you have?",
+            "fa": "چقدر پول داری؟"
+          },
+          "a": [
+            "much"
+          ]
+        },
+        {
+          "q": {
+            "en": "How ____ apples do you have?",
+            "fa": "چند تا سیب داری؟"
+          },
+          "a": [
+            "many"
+          ]
+        },
+        {
+          "q": {
+            "en": "There isn't ____ milk left.",
+            "fa": "دیگه شیری ____ نمونده."
+          },
+          "a": [
+            "any"
+          ]
+        },
+        {
+          "q": {
+            "en": "I have ____ eggs. (positive)",
+            "fa": "چند تا تخم‌مرغ دارم. (مثبت)"
+          },
+          "a": [
+            "some",
+            "a few"
+          ]
+        },
+        {
+          "q": {
+            "en": "There's ____ water in the bottle.",
+            "fa": "یه کم آب تو بطریه."
+          },
+          "a": [
+            "a little",
+            "some"
+          ]
+        },
+        {
+          "q": {
+            "en": "a piece of ____ (uncountable noun)",
+            "fa": "یک تکه ____ (اسم غیرقابل‌شمارش)"
+          },
+          "a": [
+            "advice",
+            "information",
+            "news",
+            "furniture",
+            "bread",
+            "water"
+          ]
+        },
+        {
+          "q": {
+            "en": "a glass of ____",
+            "fa": "یک لیوان ____"
+          },
+          "a": [
+            "water",
+            "milk",
+            "tea",
+            "juice",
+            "wine"
+          ]
+        },
+        {
+          "q": {
+            "en": "We need ____ help. (negative)",
+            "fa": "به ____ کمک نیاز داریم. (منفی)"
+          },
+          "a": [
+            "some"
+          ]
+        },
+        {
+          "q": {
+            "en": "How ____ time do you have?",
+            "fa": "چقدر وقت داری؟"
+          },
+          "a": [
+            "much"
+          ]
+        },
+        {
+          "q": {
+            "en": "There are ____ students in the class.",
+            "fa": "____ دانش‌آموز تو کلاس هستن."
+          },
+          "a": [
+            "some",
+            "many",
+            "a few"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'd like two ____ of bread.",
+            "fa": "دو ____ نان می‌خوام."
+          },
+          "a": [
+            "loaves",
+            "slices",
+            "pieces"
+          ]
+        },
+        {
+          "q": {
+            "en": "a cup of ____",
+            "fa": "یک فنجان ____"
+          },
+          "a": [
+            "tea",
+            "coffee",
+            "soup",
+            "water"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Countable & Uncountable",
+        "fa": "قابل‌شمارش و غیرقابل‌شمارش"
+      }
+    },
+    "question_tags": {
+      "level": "A2",
+      "title": {
+        "en": "Question Tags",
+        "fa": "تگ سوال"
+      },
+      "keywords": {
+        "en": [
+          "question tags",
+          "tag questions",
+          "right isnt it",
+          "reverse questions"
+        ],
+        "fa": [
+          "سوال تکراری",
+          "تگ سوال",
+          "سوال معکوس"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Form:  statement + opposite auxiliary + subject",
+          "fa": "ساختار:   جمله خبری + فعل کمکی مخالف + فاعل"
+        },
+        {
+          "en": "Positive statement → negative tag:  You're ready, aren't you?",
+          "fa": "جمله مثبت → تگ منفی:   آماده‌ای، نیستی؟"
+        },
+        {
+          "en": "Negative statement → positive tag:  You aren't ready, are you?",
+          "fa": "جمله منفی → تگ مثبت:   آماده نیستی، هستی؟"
+        },
+        {
+          "en": "With verbs: don't/doesn't ↔ do/does · is ↔ isn't",
+          "fa": "با افعال:   don't/doesn’t ↔ do/does  ·  is ↔ isn’t"
+        },
+        {
+          "en": "Use pronouns in the tag:  Ali is coming, isn't he?",
+          "fa": "در تگ از ضمیر استفاده کنید: علی داره میاد، نیست؟"
+        },
+        {
+          "en": "Invitations use 'will you':  I'll help you, will I?",
+          "fa": "دعوت‌ها با will you: کمکت می‌کنم، باشه؟"
+        }
+      ],
+      "function": [
+        {
+          "en": "Turning a statement into a question",
+          "fa": "تبدیل جمله خبری به سؤال"
+        },
+        {
+          "en": "Seeking confirmation or agreement",
+          "fa": "گرفتن تأیید یا توافق"
+        },
+        {
+          "en": "Keeping a conversation going politely",
+          "fa": "ادامه دادن مکالمه به ادب"
+        },
+        {
+          "en": "Checking that something is still true",
+          "fa": "اطمینان از اینکه هنوز برقرار است"
+        },
+        {
+          "en": "Contract the tag when possible: isn't he? ✓  is'nt he? ✗",
+          "fa": "تگ را کوتاه کنید: isn’t he؟ ✓  is’nt he؟ ✗"
+        },
+        {
+          "en": "For 'let's': 'Let's go, shall we?'",
+          "fa": "برای let's: «بیا بریم، قبوله؟»"
+        }
+      ],
+      "examples": [
+        {
+          "en": "You're coming with us, **aren't you**?",
+          "fa": "با ما میای، **نیستی**؟"
+        },
+        {
+          "en": "This is your bag, **isn't it**?",
+          "fa": "این کیف توئه، **نیست**؟"
+        },
+        {
+          "en": "She didn't call, **did she**?",
+          "fa": "زنگ نزد، **نکرد**؟"
+        },
+        {
+          "en": "They work here, **don't they**?",
+          "fa": "اینجا کار می‌کنن، **نمی‌کنن**؟"
+        },
+        {
+          "en": "You **are** happy, **aren't you**?",
+          "fa": "خوشحالی، **نیستی**؟"
+        },
+        {
+          "en": "I **am** late, **amn't I**?",
+          "fa": "دیر کردم، **نکردم**؟"
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "You're a student, ____?",
+            "fa": "تو دانشجویی، ____؟"
+          },
+          "a": [
+            "aren't you",
+            "arent you"
+          ]
+        },
+        {
+          "q": {
+            "en": "He works here, ____?",
+            "fa": "او اینجا کار می‌کنه، ____؟"
+          },
+          "a": [
+            "doesn't he",
+            "doesnt he"
+          ]
+        },
+        {
+          "q": {
+            "en": "She is Persian, ____?",
+            "fa": "او ایرانیه، ____؟"
+          },
+          "a": [
+            "isn't she",
+            "isnt she"
+          ]
+        },
+        {
+          "q": {
+            "en": "They didn't go, ____?",
+            "fa": "آن‌ها نرفتن، ____؟"
+          },
+          "a": [
+            "did they",
+            "didnt they"
+          ]
+        },
+        {
+          "q": {
+            "en": "It isn't cold, ____?",
+            "fa": "هوا سرد نیست، ____؟"
+          },
+          "a": [
+            "is it",
+            "isnt it"
+          ]
+        },
+        {
+          "q": {
+            "en": "You can swim, ____?",
+            "fa": "شنا بلدی، ____؟"
+          },
+          "a": [
+            "can't you",
+            "cant you"
+          ]
+        },
+        {
+          "q": {
+            "en": "She has a car, ____?",
+            "fa": "او ماشین داره، ____؟"
+          },
+          "a": [
+            "doesn't she",
+            "doesnt she"
+          ]
+        },
+        {
+          "q": {
+            "en": "We should go, ____?",
+            "fa": "باید بریم، ____؟"
+          },
+          "a": [
+            "shouldn't we",
+            "shouldnt we"
+          ]
+        },
+        {
+          "q": {
+            "en": "He is my friend, ____?",
+            "fa": "او دوست منه، ____؟"
+          },
+          "a": [
+            "isn't he",
+            "isnt he"
+          ]
+        },
+        {
+          "q": {
+            "en": "They are ready, ____?",
+            "fa": "آن‌ها آماده‌ن، ____؟"
+          },
+          "a": [
+            "aren't they",
+            "arent they"
+          ]
+        },
+        {
+          "q": {
+            "en": "I am right, ____?",
+            "fa": "من درست می‌گم، ____؟"
+          },
+          "a": [
+            "aren't I",
+            "arent I",
+            "am I not"
+          ]
+        },
+        {
+          "q": {
+            "en": "You didn't wait, ____?",
+            "fa": "منتظر ن موندی، ____؟"
+          },
+          "a": [
+            "did you",
+            "didnt you"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Question Tags",
+        "fa": "جملات پرسشی با تگ"
+      }
+    },
+    "present_perfect": {
+      "title": {
+        "en": "Present Perfect",
+        "fa": "زمان حال کامل"
+      },
+      "keywords": {
+        "en": [
+          "present perfect",
+          "have has v3",
+          "perfect tenses",
+          "perfect tense"
+        ],
+        "fa": [
+          "حال کامل",
+          "زمان حال کامل",
+          "کامل"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + have / has + V3",
+          "fa": "مثبت:   فاعل + have / has + فعل سوم (past participle)"
+        },
+        {
+          "en": "Negative:     Subject + have / has + not + V3",
+          "fa": "منفی:   فاعل + have / has + not + فعل سوم"
+        },
+        {
+          "en": "Question:     Have / Has + subject + V3 ?",
+          "fa": "سؤالی:   Have / Has + فاعل + فعل سوم ؟"
+        },
+        {
+          "en": "Short answer: Yes, she has.  /  No, she hasn't.",
+          "fa": "پاسخ کوتاه: Yes, she has.  /  No, she hasn't."
+        },
+        {
+          "en": "Spelling of V3:  regular → -ed (worked)  ·  irregular → 3rd form (gone, seen, written)",
+          "fa": "املای فعل سوم:   قواعدی → ed (worked)  ·  بی‌قاعده → شکل سوم (gone, seen, written)"
+        },
+        {
+          "en": "Note: NO specific past time — not 'yesterday', not 'in 2019', not 'last week'",
+          "fa": "نکته: زمان دقیق گذشته نمی‌آید — نه «دیروز»، نه «سال ۲۰۱۹»، نه «هفته گذشته»"
+        }
+      ],
+      "function": [
+        {
+          "en": "A past action with a visible result NOW (I have lost my keys)",
+          "fa": "کاری در گذشته با نتیجه‌ای که الان دیده می‌شود (کلیدمو گم کردم)"
+        },
+        {
+          "en": "Life experience — with ever / never (Have you ever been to Rome?)",
+          "fa": "تجربه زندگی — با ever / never (تا حالا روم رفته‌ای؟)"
+        },
+        {
+          "en": "Unfinished time — with since / for (I have lived here for 5 years)",
+          "fa": "زمان ناتمام — با since / for (۵ ساله اینجا زندگی می‌کنم)"
+        },
+        {
+          "en": "Recent news (He has just left the building)",
+          "fa": "خبرهای تازه (همین حالا ساختمون رو ترک کرده)"
+        },
+        {
+          "en": "With already / yet / just / so far",
+          "fa": "با already / yet / just / so far"
+        },
+        {
+          "en": "Common partners: ever, never, already, yet, just, since, for, so far, recently",
+          "fa": "همراهان پرتکرار: ever، never، already، yet، just، since، for، so far، recently"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **have finished** my homework.",
+          "fa": "مشقم رو **تموم کردم**."
+        },
+        {
+          "en": "She **has gone** to Tehran. (not 'has went')",
+          "fa": "او **رفته** تهران. (نه 'has went')"
+        },
+        {
+          "en": "**Have** you ever **been** to Paris?",
+          "fa": "تا حالا **Paris** رفتی؟"
+        },
+        {
+          "en": "I **haven't seen** him since 2020.",
+          "fa": "از سال ۲۰۲۰ **ندیدمش**."
+        },
+        {
+          "en": "He **hasn't arrived** yet.",
+          "fa": "هنوز **نرسیده**."
+        },
+        {
+          "en": "They **have lived** here for ten years.",
+          "fa": "ده ساله که اینجا **زندگی می‌کنن**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ (finish) my work already. (present perfect)",
+            "fa": "من کارم رو تموم کردم. (حال کامل)"
+          },
+          "a": [
+            "have finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (go) to Isfahan last summer. (present perfect)",
+            "fa": "او تابستون پیش رفته اصفهان. (حال کامل)"
+          },
+          "a": [
+            "has gone"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you ever ____ (eat) sushi? (present perfect question)",
+            "fa": "تا حالا سووشی خوردی؟ (سؤالی حال کامل)"
+          },
+          "a": [
+            "have you eaten",
+            "had you eaten"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (not / see) my car since Monday.",
+            "fa": "از دوشنبه ماشینم رو ندیدم. (منفی حال کامل)"
+          },
+          "a": [
+            "haven't seen",
+            "have not seen"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (know) each other for ten years.",
+            "fa": "ده ساله همدیگه رو می‌شناسیم. (حال کامل)"
+          },
+          "a": [
+            "have known"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (just / call) you. (present perfect)",
+            "fa": "همین الان زنگ زدت. (حال کامل)"
+          },
+          "a": [
+            "has just called"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ they ____ (arrive) yet? (present perfect question)",
+            "fa": "هنوز نرسیدن؟ (سؤالی حال کامل)"
+          },
+          "a": [
+            "have they arrived",
+            "did they arrive"
+          ]
+        },
+        {
+          "q": {
+            "en": "Correct it: \"He has went home.\"  →  He has ____",
+            "fa": "اصلاح کن: «He has went home.» →  He has ____"
+          },
+          "a": [
+            "gone"
+          ]
+        },
+        {
+          "q": {
+            "en": "Give V3: go → ____  ·  write → ____  ·  see → ____",
+            "fa": "شکل سوم بده: go → ____  ·  write → ____  ·  see → ____"
+          },
+          "a": [
+            "gone written seen",
+            "gone, written, seen"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (never / try) Persian food.",
+            "fa": "هرگز غذای ایرانی نخوردم."
+          },
+          "a": [
+            "have never tried",
+            "have never ate"
+          ]
+        },
+        {
+          "q": {
+            "en": "How long ____ you ____ (study) English? (present perfect)",
+            "fa": "چقدر انگلیسی خوندی؟ (حال کامل)"
+          },
+          "a": [
+            "have you studied",
+            "have you been studying",
+            "did you study"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (live) in Tehran since 2019. (present perfect)",
+            "fa": "از ۲۰۱۹ تو تهران زندگی می‌کنه. (حال کامل)"
+          },
+          "a": [
+            "has lived"
+          ]
+        }
+      ],
+      "level": "B1"
+    },
+    "present_perfect_continuous": {
+      "title": {
+        "en": "Present Perfect Cont.",
+        "fa": "حال کامل استمراری"
+      },
+      "keywords": {
+        "en": [
+          "present perfect continuous",
+          "perfect continuous",
+          "perfect progressive"
+        ],
+        "fa": [
+          "حال کامل استمراری",
+          "کامل مستمر",
+          "حال کامل مستمر"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + have / has + been + V-ing",
+          "fa": "مثبت:   فاعل + have / has + been + فعل ing"
+        },
+        {
+          "en": "Negative:     Subject + have / has + not + been + V-ing",
+          "fa": "منفی:   فاعل + have / has + not + been + فعل ing"
+        },
+        {
+          "en": "Question:     Have / Has + subject + been + V-ing ?",
+          "fa": "سؤالی:   Have / Has + فاعل + been + فعل ing ؟"
+        },
+        {
+          "en": "Short answer: Yes, he has.  /  No, he hasn't.",
+          "fa": "پاسخ کوتاه: Yes, he has.  /  No, he hasn't."
+        },
+        {
+          "en": "With for / since:  I have been working here for 3 years.",
+          "fa": "با for / since:   ۳ ساله اینجا کار می‌کنم."
+        },
+        {
+          "en": "Note: focus on the ACTIVITY and its duration, not the result",
+          "fa": "نکته: تمرکز روی «کار» و «مدتش» است، نه نتیجه"
+        }
+      ],
+      "function": [
+        {
+          "en": "An action that started in the past and is STILL going on",
+          "fa": "کاری که در گذشته شروع شده و هنوز ادامه دارد"
+        },
+        {
+          "en": "Emphasis on duration — for / since / all day / how long",
+          "fa": "تأکید بر مدت زمان — for / since / all day / how long"
+        },
+        {
+          "en": "The RESULT of a recent activity (I'm tired — I've been running)",
+          "fa": "نتیجه یک فعالیت اخیر (خسته‌ام — کلی دویدم)"
+        },
+        {
+          "en": "Repeated activities over a period (He has been calling me daily)",
+          "fa": "کارهای تکرارشونده در یک بازه (هر روز بهم زنگ می‌زنه)"
+        },
+        {
+          "en": "Have / has been TO = visited (once or more) in the past",
+          "fa": "have / has been TO = در گذشته به جایی رفته و برگشته"
+        },
+        {
+          "en": "Have / has been IN = lived / stayed there for a period",
+          "fa": "have / has been IN = مدتی در آنجا زندگی کرده / مانده"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **have been studying** for three hours.",
+          "fa": "سه ساعته دارم درس **می‌خونم**."
+        },
+        {
+          "en": "She **has been working** since morning.",
+          "fa": "از صبح دارد **کار می‌کند**."
+        },
+        {
+          "en": "**Have** you **been waiting** long?",
+          "fa": "مدت زیادی منتظر بودی؟"
+        },
+        {
+          "en": "It **has been raining** since noon.",
+          "fa": "از ظهر دارد **باران می‌بارد**."
+        },
+        {
+          "en": "Your eyes are red — you **have been crying**.",
+          "fa": "چشمت قرمزه — داشتی **گریه می‌کردی**."
+        },
+        {
+          "en": "I**'ve been walking**. Look at my shoes!",
+          "fa": "داشتم **راه می‌رفتم**. به کفشم نگاه کن!"
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I ____ (wait) for you for an hour. (perfect continuous)",
+            "fa": "یک ساعته منتظرتم. (کامل استمراری)"
+          },
+          "a": [
+            "have been waiting"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (live) in Paris since 2015.",
+            "fa": "از ۲۰۱۵ در پاریس زندگی می‌کنه. (کامل استمراری)"
+          },
+          "a": [
+            "has been living"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you ____ (study) all day? (perfect continuous question)",
+            "fa": "تمام روز داشتی درس می‌خوندی؟ (سؤالی)"
+          },
+          "a": [
+            "have you been studying"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (not / work) here for months. (negative)",
+            "fa": "ماه‌هاست اینجا کار نمی‌کنیم. (منفی)"
+          },
+          "a": [
+            "haven't been working",
+            "have not been working"
+          ]
+        },
+        {
+          "q": {
+            "en": "It ____ (rain) since this morning.",
+            "fa": "از صبح داره بارون میاد. (کامل استمراری)"
+          },
+          "a": [
+            "has been raining"
+          ]
+        },
+        {
+          "q": {
+            "en": "How long ____ you ____ (learn) English? (perfect continuous)",
+            "fa": "چقدر انگلیسی یاد گرفتی؟ (کامل استمراری)"
+          },
+          "a": [
+            "have you been learning"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (call) me every day this week.",
+            "fa": "این هفته هر روز بهم زنگ زده. (کامل استمراری)"
+          },
+          "a": [
+            "has been calling"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (not / use) the car since May.",
+            "fa": "از اردیبهشت از ماشین استفاده نمی‌کنن. (منفی)"
+          },
+          "a": [
+            "haven't been using",
+            "have not been using"
+          ]
+        },
+        {
+          "q": {
+            "en": "Give V-ing: run → ____  ·  write → ____  ·  sit → ____",
+            "fa": "با ing کامل کنید: run → ____  ·  write → ____  ·  sit → ____"
+          },
+          "a": [
+            "running writing sitting",
+            "running, writing, sitting"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (work) here since 2018. (perfect continuous)",
+            "fa": "از ۲۰۱۸ اینجا کار می‌کنم. (کامل استمراری)"
+          },
+          "a": [
+            "have been working"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ she ____ (cry)? Look at her eyes.",
+            "fa": "داره گریه می‌کنه؟ به چشماش نگاه کن."
+          },
+          "a": [
+            "has she been crying",
+            "is she crying"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (wait) in the lobby since 6 o'clock.",
+            "fa": "از ساعت ۶ توی لابی منتظریم. (کامل استمراری)"
+          },
+          "a": [
+            "have been waiting"
+          ]
+        }
+      ],
+      "level": "B1",
+      "title_long": {
+        "en": "Present Perfect Continuous",
+        "fa": "زمان حال کامل استمراری"
+      }
+    },
+    "conditionals": {
+      "level": "B1",
+      "title": {
+        "en": "Conditionals",
+        "fa": "جملات شرطی"
+      },
+      "keywords": {
+        "en": [
+          "conditionals",
+          "conditional sentences",
+          "if clauses",
+          "first second third conditional"
+        ],
+        "fa": [
+          "شرطی",
+          "جملات شرطی",
+          "اگر"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Zero:   If + present, present  →  If it rains, we stay home.",
+          "fa": "صفر:   اگر + حال ساده، حال ساده  →  اگه بارون بیاد، خونه می‌مونیم."
+        },
+        {
+          "en": "First:  If + present, will + V1  →  If it rains, we will stay home.",
+          "fa": "اول:   اگر + حال ساده، will + فعل پایه  →  اگه بارون بیاد، خونه می‌مونیم."
+        },
+        {
+          "en": "Second: If + past, would + V1  →  If I were rich, I would travel.",
+          "fa": "دوم:   اگر + گذشته، would + فعل پایه  →  اگه پولدار بودم سفر می‌کردم."
+        },
+        {
+          "en": "Third:  If + had + V3, would have + V3  →  If I had known, I would have helped.",
+          "fa": "سوم:   اگر + had + فعل سوم، would have + فعل سوم  →  اگه می‌دونستم کمک می‌کردم."
+        },
+        {
+          "en": "Unless = if not:  Unless you hurry, you'll be late.",
+          "fa": "unless یعنی اگه … نباشه:  اگه عجله نکنی دیر می‌شی."
+        },
+        {
+          "en": "Never put 'will' or 'would' in the if-clause (first and second type)",
+          "fa": "در بند if هرگز will/would نیاورید (نوع اول و دوم)"
+        }
+      ],
+      "function": [
+        {
+          "en": "Zero — general truths and laws (If you heat water, it boils)",
+          "fa": "صفر — حقایق کلی و قانون‌ها (اگه آب رو گرم کنی می‌جوشه)"
+        },
+        {
+          "en": "First — real and likely future (If I win, I'll buy a car)",
+          "fa": "اول — آینده واقعی و محتمل (اگه ببرم، ماشین می‌خرم)"
+        },
+        {
+          "en": "Second — unreal or imaginary present (If I had a million dollars)",
+          "fa": "دوم — غیرواقعی یا خیالی حال (اگه یه میلیون دلار داشتم)"
+        },
+        {
+          "en": "Third — unreal past / regret (If she had studied, she'd have passed)",
+          "fa": "سوم — گذشته غیرواقعی / پشیمونی (اگه درس خونده بود، قبول می‌شد)"
+        },
+        {
+          "en": "Mixed: If + past, will + V1 (I think I'll call you if I'm free tomorrow)",
+          "fa": "ترکیبی:   اگر + گذشته، will + فعل پایه"
+        },
+        {
+          "en": "'What if' = What will happen if…?  'I wish' = unreal desire",
+          "fa": "What if = چی میشه اگه …؟  ·  I wish = آرزوی غیرممکن"
+        }
+      ],
+      "examples": [
+        {
+          "en": "If you **heat** ice, it **melts**.",
+          "fa": "اگه یخ رو **گرم** کنی، **آب** می‌شه."
+        },
+        {
+          "en": "If it rains, I **will stay** at home.",
+          "fa": "اگه بارون بیاد، **خونه می‌مونم**."
+        },
+        {
+          "en": "If I **were** you, I would apologize.",
+          "fa": "اگه **جای تو** بودم، عذر می‌خواستم."
+        },
+        {
+          "en": "If I **had known**, I **would have called** you.",
+          "fa": "اگه **می‌دونستم**، زنگ **می‌زدم**."
+        },
+        {
+          "en": "I'll help you **unless** you're busy.",
+          "fa": "کمکت می‌کنم **مگه** سرت شلوغ باشه."
+        },
+        {
+          "en": "**What if** we lost the match?",
+          "fa": "**اگه** بازی رو ببازیم چی؟"
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "If it ____ (rain) tomorrow, we will stay home.",
+            "fa": "اگه فردا بارون ____ ، خونه می‌مونیم."
+          },
+          "a": [
+            "rains"
+          ]
+        },
+        {
+          "q": {
+            "en": "If I ____ (be) rich, I would travel the world.",
+            "fa": "اگه ____ پولدار بودم، دور دنیا سفر می‌کردم."
+          },
+          "a": [
+            "were",
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "If I ____ (know) the answer, I would tell you.",
+            "fa": "اگه جواب رو ____ ، بهت می‌گفتم."
+          },
+          "a": [
+            "knew"
+          ]
+        },
+        {
+          "q": {
+            "en": "If she ____ (study) more, she would have passed.",
+            "fa": "اگه بیشتر ____ , قبول می‌شد."
+          },
+          "a": [
+            "had studied"
+          ]
+        },
+        {
+          "q": {
+            "en": "If you ____ (freeze) water, it turns to ice.",
+            "fa": "اگه آب رو ____ ، یخ می‌شه."
+          },
+          "a": [
+            "freeze"
+          ]
+        },
+        {
+          "q": {
+            "en": "Unless you ____ (hurry), you will be late.",
+            "fa": "اگه عجله نکنی (مگه ____)، دیر می‌شی."
+          },
+          "a": [
+            "hurry"
+          ]
+        },
+        {
+          "q": {
+            "en": "If I ____ (have) time, I would help you.",
+            "fa": "اگه ____ وقت داشتم، کمکت می‌کردم."
+          },
+          "a": [
+            "had"
+          ]
+        },
+        {
+          "q": {
+            "en": "If they ____ (arrive) early, they will wait outside.",
+            "fa": "اگه زود برسن، بیرون منتظر می‌مونن."
+          },
+          "a": [
+            "arrive"
+          ]
+        },
+        {
+          "q": {
+            "en": "If he ____ (not / be) tired, he would walk.",
+            "fa": "اگه خسته نبود، پیاده می‌رفت."
+          },
+          "a": [
+            "weren't",
+            "were not",
+            "wasnt",
+            "was not"
+          ]
+        },
+        {
+          "q": {
+            "en": "If I ____ (meet) her, I will say hello.",
+            "fa": "اگه ببینمش، بهش سلام می‌کنم."
+          },
+          "a": [
+            "meet"
+          ]
+        },
+        {
+          "q": {
+            "en": "If you heat water to 100°C, it ____ (boil).",
+            "fa": "اگه آب رو تا ۱۰۰ درجه گرم کنی، می‌جوشه."
+          },
+          "a": [
+            "boils"
+          ]
+        },
+        {
+          "q": {
+            "en": "If I had known the answer, I ____ (tell) you yesterday.",
+            "fa": "اگه جواب رو می‌دونستم، دیروز بهت می‌گفتم."
+          },
+          "a": [
+            "would have told",
+            "would have said"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Conditional Sentences",
+        "fa": "جملات شرطی"
+      }
+    },
+    "passive_voice": {
+      "level": "B1",
+      "title": {
+        "en": "Passive Voice",
+        "fa": "فعل مجهول"
+      },
+      "keywords": {
+        "en": [
+          "passive voice",
+          "passive",
+          "be verb past participle",
+          "passive forms"
+        ],
+        "fa": [
+          "مجهول",
+          "فعل مجهول",
+          "ساختار مجهول"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Form:  Subject + be (correct tense) + V3  →  The door was opened.",
+          "fa": "ساختار:   فاعل + be (زمان درست) + فعل سوم  →  در باز شد."
+        },
+        {
+          "en": "Present:  am / is / are + V3   ·   Past: was / were + V3",
+          "fa": "حال:   am / is / are + V3  ·  گذشته:   was / were + V3"
+        },
+        {
+          "en": "Future:  will be + V3  ·  Present perfect: has been + V3",
+          "fa": "آینده:   will be + V3  ·  حال کامل:   has been + V3"
+        },
+        {
+          "en": "Negative / question:  be + not + V3   ·   Be + subject + V3 ?",
+          "fa": "منفی / سؤالی:   be + not + V3  ·  Be + فاعل + V3 ؟"
+        },
+        {
+          "en": "Agent with 'by' (optional):  It was written **by** Shakespeare.",
+          "fa": "فاعل با by (اختیاری):  توسط شکسپیر نوشته شد."
+        },
+        {
+          "en": "With modals:  can / must / should + be + V3  →  It can be fixed.",
+          "fa": "با modal:   can / must / should + be + V3  →  قابل تعمیره."
+        }
+      ],
+      "function": [
+        {
+          "en": "Focus on the ACTION, not on who does it",
+          "fa": "تمرکز روی «عمل» است، نه انجام‌دهنده"
+        },
+        {
+          "en": "Formal, scientific and academic writing",
+          "fa": "نوشتار رسمی، علمی و دانشگاهی"
+        },
+        {
+          "en": "When the doer is unknown or obvious",
+          "fa": "وقتی انجام‌دهنده نامعلوم یا مشخص است"
+        },
+        {
+          "en": "Object → subject:  'The teacher praised Ali' → 'Ali was praised'",
+          "fa": "تبدیل مفعول به فاعل: علی تحسین شد"
+        },
+        {
+          "en": "Polite requests (Could you open the window?) use the ACTIVE for clarity",
+          "fa": "درخواست مؤدبانه بهتر است فعال باشد"
+        },
+        {
+          "en": "Impersonal passive (people say): It's said that he is rich.",
+          "fa": "مجهول شخصی (مردم می‌گویند): گفته می‌شود که ثروتمند است."
+        }
+      ],
+      "examples": [
+        {
+          "en": "English **is spoken** all over the world.",
+          "fa": "انگلیسی **در همه جا صحبت می‌شود**."
+        },
+        {
+          "en": "The letter **was sent** yesterday.",
+          "fa": "نامه **دیروز فرستاده شد**."
+        },
+        {
+          "en": "The room **will be cleaned** tomorrow.",
+          "fa": "اتاق **فردا تمیز می‌شه**."
+        },
+        {
+          "en": "The car **was stolen** last night.",
+          "fa": "ماشین **دیشب دزدیده شد**."
+        },
+        {
+          "en": "These books **must be returned** today.",
+          "fa": "این کتاب‌ها **باید امروز برگردن**."
+        },
+        {
+          "en": "The problem **has been solved**.",
+          "fa": "مشکل **حل شده**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Active: 'Someone stole my bike.' → Passive: 'My bike ____ (steal).'",
+            "fa": "فعال: کسی دوچرخه‌مو دزدید. → مجهول: دوچرخه‌م ____ دزدیده شد."
+          },
+          "a": [
+            "was stolen"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The room is cleaned every day.' → Active: 'Someone ____ the room.'",
+            "fa": "مجهول: اتاق هر روز تمیز می‌شه. → فعال: کسی اتاق رو ____ ."
+          },
+          "a": [
+            "cleans"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'English ____ (speak) here.",
+            "fa": "مجهول: اینجا انگلیسی ____ صحبت می‌شه."
+          },
+          "a": [
+            "is spoken"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The cake ____ (eat) by the children.",
+            "fa": "مجهول: کیک رو بچه‌ها ____ ."
+          },
+          "a": [
+            "was eaten"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The bridge ____ (build) in 2010.",
+            "fa": "مجهول: پل در ۲۰۱۰ ____ ساخته شد."
+          },
+          "a": [
+            "was built"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The film ____ (watch) tomorrow.",
+            "fa": "مجهول: فیلم فردا ____ تماشا می‌شه."
+          },
+          "a": [
+            "will be watched"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The work ____ (finish) already.",
+            "fa": "مجهول: کار قبلاً ____ تموم شده."
+          },
+          "a": [
+            "has been finished",
+            "was finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'This medicine ____ (take) twice a day.",
+            "fa": "مجهول: این دارو روزی دو بار ____ مصرف می‌شه."
+          },
+          "a": [
+            "must be taken",
+            "should be taken",
+            "is taken"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The window ____ (break) last night.",
+            "fa": "مجهول: پنجره دیشب ____ شکست."
+          },
+          "a": [
+            "was broken"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The results ____ (announce) tomorrow.",
+            "fa": "مجهول: نتایج فردا ____ اعلام می‌شه."
+          },
+          "a": [
+            "will be announced"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'He ____ (arrest) by the police.",
+            "fa": "مجهول: او توسط پلیس ____ بازداشت شد."
+          },
+          "a": [
+            "was arrested"
+          ]
+        },
+        {
+          "q": {
+            "en": "Passive: 'The song ____ (write) by a famous singer.",
+            "fa": "مجهول: آهنگ توسط یه خواننده معروف ____ نوشته شد."
+          },
+          "a": [
+            "was written"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Passive Voice",
+        "fa": "فعل مجهول"
+      }
+    },
+    "gerunds_infinitives": {
+      "level": "B1",
+      "title": {
+        "en": "Gerunds & Infinitives",
+        "fa": "Gerund و مصدر"
+      },
+      "keywords": {
+        "en": [
+          "gerunds and infinitives",
+          "gerund",
+          "infinitive",
+          "verb ing to verb"
+        ],
+        "fa": [
+          " gerund",
+          "مصدر",
+          "ing ساختن"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Infinitive:  verb + TO + V1  →  I want to leave.",
+          "fa": "مصدر:   فعل + to + فعل پایه  →  می‌خوام برم."
+        },
+        {
+          "en": "Gerund:  verb + V-ing  →  I enjoy reading.",
+          "fa": " gerund:   فعل + ing  →  از خوندن لذت می‌برم."
+        },
+        {
+          "en": "Verbs + gerund: enjoy, avoid, finish, mind, suggest, consider, keep",
+          "fa": "افعال + gerund:   enjoy، avoid، finish، mind، suggest، consider، keep"
+        },
+        {
+          "en": "Verbs + infinitive: want, decide, hope, plan, promise, agree, refuse",
+          "fa": "افعال + مصدر:   want، decide، hope، plan، promise، agree، refuse"
+        },
+        {
+          "en": "Verbs that change meaning:  stop to + V  /  stop + -ing",
+          "fa": "افعال با معنای متفاوت:   stop to + V  /  stop + ing"
+        },
+        {
+          "en": "After a preposition ALWAYS use the gerund:  good at swimming",
+          "fa": "بعد از حرف اضافه همیشه gerund:   خوب بودن در شنا کردن"
+        }
+      ],
+      "function": [
+        {
+          "en": "Gerund as a noun: Swimming is fun. (the act)",
+          "fa": "gerund به‌عنوان اسم: شنا کردن لذت‌بخشه. (عمل)"
+        },
+        {
+          "en": "Infinitive for purpose: I study to learn. (why)",
+          "fa": "مصدر برای هدف: درس می‌خونم تا یاد بگیرم. (چرا)"
+        },
+        {
+          "en": "After prepositions (in, on, of, for, without, by, about)",
+          "fa": "بعد از حروف اضافه (in، on، of، for، without، by، about)"
+        },
+        {
+          "en": "The most common overall form in English is the gerund (ing)",
+          "fa": "رایج‌ترین شکل در انگلیسی gerund است (ing)"
+        },
+        {
+          "en": "subject + to + V = one thing  ·  subject + V-ing = general action",
+          "fa": "فاعل + to + فعل = یک مورد  ·  فاعل + ing = عمل کلی"
+        },
+        {
+          "en": "'look forward to' is followed by -ing (to is a preposition here)",
+          "fa": "look forward to با ing می‌آید (اینجا to حرف اضافه است)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I enjoy **reading** at night.",
+          "fa": "شب‌ها از **خوندن** لذت می‌برم."
+        },
+        {
+          "en": "She decided **to leave** early.",
+          "fa": "او تصمیم گرفت **زود بره**."
+        },
+        {
+          "en": "He stopped **smoking** last year.",
+          "fa": "پارسال **سیگار کشیدن رو** ول کرد."
+        },
+        {
+          "en": "He stopped **to smoke**. (paused in order to)",
+          "fa": "ایستاد **تا سیگار بکشه**. (مکث کرد)"
+        },
+        {
+          "en": "Would you mind **opening** the window?",
+          "fa": "موندم **پنجره رو باز کنی**؟"
+        },
+        {
+          "en": "I want **to go** home early.",
+          "fa": "می‌خوام **زود** برم خونه."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I enjoy ____ (read / reading) books.",
+            "fa": "از ____ کتاب لذت می‌برم."
+          },
+          "a": [
+            "reading"
+          ]
+        },
+        {
+          "q": {
+            "en": "She wants ____ (to go / go) home.",
+            "fa": "او می‌خواد ____ خونه بره."
+          },
+          "a": [
+            "to go"
+          ]
+        },
+        {
+          "q": {
+            "en": "Would you mind ____ (open / opening) the window?",
+            "fa": "موندم ____ پنجره رو باز کنی؟"
+          },
+          "a": [
+            "opening"
+          ]
+        },
+        {
+          "q": {
+            "en": "They decided ____ (to leave / leaving).",
+            "fa": "آن‌ها تصمیم گرفتن ____ ."
+          },
+          "a": [
+            "to leave"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'm good at ____ (swim / swimming).",
+            "fa": "من خوبم در ____ ."
+          },
+          "a": [
+            "swimming"
+          ]
+        },
+        {
+          "q": {
+            "en": "He suggested ____ (to meet / meeting) at six.",
+            "fa": "او پیشنهاد داد که ____ ساعت شش ملاقات کنیم."
+          },
+          "a": [
+            "meeting"
+          ]
+        },
+        {
+          "q": {
+            "en": "She avoided ____ (to answer / answering) the question.",
+            "fa": "او از ____ سؤال فرار کرد."
+          },
+          "a": [
+            "answering"
+          ]
+        },
+        {
+          "q": {
+            "en": "I promise ____ (to call / calling) you tonight.",
+            "fa": "قول می‌دم امشب زنگ ____ ."
+          },
+          "a": [
+            "to call"
+          ]
+        },
+        {
+          "q": {
+            "en": "Thank you for ____ (help / helping) me.",
+            "fa": "ممنون که ____ کمکم کردی."
+          },
+          "a": [
+            "helping"
+          ]
+        },
+        {
+          "q": {
+            "en": "He stopped ____ (to rest / resting) for a moment.",
+            "fa": "او یه لحظه ایستاد ____ ."
+          },
+          "a": [
+            "to rest"
+          ]
+        },
+        {
+          "q": {
+            "en": "Keep ____ (try / trying) — you'll get there.",
+            "fa": "به ____ ادامه بده — می‌رسی."
+          },
+          "a": [
+            "trying"
+          ]
+        },
+        {
+          "q": {
+            "en": "I look forward to ____ (see / seeing) you.",
+            "fa": "منتظر ____ هستم."
+          },
+          "a": [
+            "seeing"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Gerunds & Infinitives",
+        "fa": "اسم مفعول‌ساز (Gerund) و مصدر (Infinitive)"
+      }
+    },
+    "relative_clauses": {
+      "level": "B1",
+      "title": {
+        "en": "Relative Clauses",
+        "fa": "جملات موصول"
+      },
+      "keywords": {
+        "en": [
+          "relative clauses",
+          "relative pronoun",
+          "who which that where"
+        ],
+        "fa": [
+          "جمله موصول",
+          "ضمایر موصول"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Defining (no comma):  the man **who** lives next door",
+          "fa": "تعریفی (بدون ویرگول):   مردی که کنار در زندگی می‌کنه"
+        },
+        {
+          "en": "For people: who / that / whom   ·   For things: which / that",
+          "fa": "برای افراد:   who / that / whom  ·  برای اشیا:   which / that"
+        },
+        {
+          "en": "For places: where   ·   For people: whose (possession)",
+          "fa": "برای مکان:   where  ·  برای افراد:   whose (مالکیت)"
+        },
+        {
+          "en": "For times: when   ·   The relative pronoun can be OMITTED if it is the object",
+          "fa": "برای زمان:   when  ·  ضمیر موصول اگر مفعول باشد حذف می‌شود"
+        },
+        {
+          "en": "Non-defining (with commas):  my sister, **who** lives in Tehran, is a nurse.",
+          "fa": "غیرتعریفی (با ویرگول):   خواهرم که در تهران زندگی می‌کنه، پرستاره."
+        },
+        {
+          "en": "When both sexes are possible, use who (the teacher who…).",
+          "fa": "وقتی هر دو جنس ممکن است، who به کار می‌رود."
+        }
+      ],
+      "function": [
+        {
+          "en": "Giving extra information about a noun",
+          "fa": "دادن اطلاعات بیشتر درباره یک اسم"
+        },
+        {
+          "en": "Defining clauses = essential to identify the noun (no commas)",
+          "fa": "جمله تعریفی = برای شناسایی اسم ضروری است (بدون ویرگول)"
+        },
+        {
+          "en": "Non-defining clauses = extra, removable information (with commas)",
+          "fa": "جمله غیرتعریفی = اطلاعات اضافی و قابل حذف (با ویرگول)"
+        },
+        {
+          "en": "whose shows possession: the man whose car was stolen",
+          "fa": "whose مالکیت را نشان می‌دهد: مردی که ماشینش دزدیده شد"
+        },
+        {
+          "en": "where for places: the city where I was born",
+          "fa": "where برای مکان: شهری که در آن به دنیا آمدم"
+        },
+        {
+          "en": "when for times: the year when we first met",
+          "fa": "when برای زمان: سالی که اولین بار همدیگه رو دیدیم"
+        }
+      ],
+      "examples": [
+        {
+          "en": "The man **who** called you is my uncle.",
+          "fa": "مردی که بهت زنگ زد عموی منه."
+        },
+        {
+          "en": "This is the house **where** I grew up.",
+          "fa": "این خونه‌ایه که توش بزرگ شدم."
+        },
+        {
+          "en": "I know a girl **whose** father is a pilot.",
+          "fa": "دختری رو می‌شناسم که باباش خلبونه."
+        },
+        {
+          "en": "The book **that** you lent me is great.",
+          "fa": "کتابی که بهم قرض دادی عالیه."
+        },
+        {
+          "en": "My sister, **who** lives in Isfahan, is a doctor.",
+          "fa": "خواهرم که اصفهان زندگی می‌کنه، دکتره."
+        },
+        {
+          "en": "That was the year **when** we graduated.",
+          "fa": "اون سالی بود که فارغ‌التحصیل شدیم."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "The boy ____ is playing is my neighbour. (who / which)",
+            "fa": "پسری که داره بازی می‌کنه همسایه‌مه."
+          },
+          "a": [
+            "who"
+          ]
+        },
+        {
+          "q": {
+            "en": "The book ____ I bought yesterday is good. (which / who)",
+            "fa": "کتابی که دیروز خریدم خوبه."
+          },
+          "a": [
+            "which",
+            "that"
+          ]
+        },
+        {
+          "q": {
+            "en": "The city ____ I was born is Tehran. (where / which)",
+            "fa": "شهری که درش به دنیا اومدم تهرانه."
+          },
+          "a": [
+            "where"
+          ]
+        },
+        {
+          "q": {
+            "en": "The woman ____ car is red is a teacher. (whose / who)",
+            "fa": "خانمی که ماشینش قرمزه معلمه."
+          },
+          "a": [
+            "whose"
+          ]
+        },
+        {
+          "q": {
+            "en": "I still remember the day ____ we met. (when / which)",
+            "fa": "هنوز روزی که همدیگه رو دیدیم یادمه."
+          },
+          "a": [
+            "when",
+            "that"
+          ]
+        },
+        {
+          "q": {
+            "en": "The film ____ we watched was great. (which / who)",
+            "fa": "فیلمی که تماشا کردیم عالی بود."
+          },
+          "a": [
+            "which",
+            "that"
+          ]
+        },
+        {
+          "q": {
+            "en": "He is the only person ____ who can solve it. (that / what)",
+            "fa": "او تنها کسیه ____ که می‌تونه حلش کنه."
+          },
+          "a": [
+            "that",
+            "who"
+          ]
+        },
+        {
+          "q": {
+            "en": "This is the restaurant ____ we had dinner. (where / which)",
+            "fa": "این رستورانیه که شام خوردیم."
+          },
+          "a": [
+            "where"
+          ]
+        },
+        {
+          "q": {
+            "en": "The dog ____ barked all night is a neighbour's.",
+            "fa": "سگی که همه شب پارس می‌کرد مال همسایه‌ست."
+          },
+          "a": [
+            "that",
+            "which"
+          ]
+        },
+        {
+          "q": {
+            "en": "I met a woman ____ sons live abroad. (whose / where)",
+            "fa": "زنی رو دیدم که پسراش abroad زندگی می‌کنن."
+          },
+          "a": [
+            "whose"
+          ]
+        },
+        {
+          "q": {
+            "en": "Complete: 'The house ____ roof is red.'",
+            "fa": "کامل کنید: خونه‌ای که ____ش قرمزه."
+          },
+          "a": [
+            "whose"
+          ]
+        },
+        {
+          "q": {
+            "en": "Complete: 'The hotel ____ we stayed was cheap.'",
+            "fa": "کامل کنید: هتلی که ____ ارزون بود."
+          },
+          "a": [
+            "where",
+            "that",
+            "which"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Relative Clauses",
+        "fa": "جملات موصول"
+      }
+    },
+    "purpose_reason": {
+      "level": "B1",
+      "title": {
+        "en": "Purpose & Reason",
+        "fa": "هدف و دلیل"
+      },
+      "keywords": {
+        "en": [
+          "purpose and reason",
+          "so that",
+          "in order to",
+          "because since",
+          "reason clauses"
+        ],
+        "fa": [
+          "هدف و دلیل",
+          "تا اینکه",
+          "به خاطر اینکه"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Purpose + to:   I study English **to get** a better job.",
+          "fa": "هدف + to:   انگلیسی می‌خونم **تا** شغل بهتری پیدا کنم."
+        },
+        {
+          "en": "Purpose + so that:  I study English **so that** I can travel.",
+          "fa": "هدف + so that:   انگلیسی می‌خونم **تا اینکه** بتونم سفر کنم."
+        },
+        {
+          "en": "Purpose + in order to (more formal): **in order to** learn faster",
+          "fa": "هدف + in order to (رسمی‌تر):   **برای اینکه** سریع‌تر یاد بگیرم"
+        },
+        {
+          "en": "Reason + because / since / as:  I stayed home **because** it rained.",
+          "fa": "دلیل + because / since / as:   چون بارون اومد خونه موندم."
+        },
+        {
+          "en": "After because / since, WORD ORDER changes (no inversion, no that)",
+          "fa": "بعد از because/since ترتیب کلمات عوض نمی‌شود (نه وارونه، نه that)"
+        },
+        {
+          "en": "'So' = therefore (I was tired, so I slept).  'Because' cannot start a sentence-ending clause.",
+          "fa": "so یعنی بنابراین. جمله‌ای که با because شروع شود نمی‌تواند فعل داشته باشد."
+        }
+      ],
+      "function": [
+        {
+          "en": "Explaining why you do something (purpose)",
+          "fa": "توضیح اینکه چرا کاری را می‌کنی (هدف)"
+        },
+        {
+          "en": "Explaining the cause of a situation (reason)",
+          "fa": "توضیح علت یک موقعیت (دلیل)"
+        },
+        {
+          "en": "to / in order to = one verb (same subject)",
+          "fa": "to / in order to = یک فعل (همان فاعل)"
+        },
+        {
+          "en": "so that / in order that = clause, may need can/may",
+          "fa": "so that = بند، ممکن است به can/may نیاز داشته باشد"
+        },
+        {
+          "en": "because / since / as — no inversion after them",
+          "fa": "because / since / as — بعد از آن‌ها وارونگی نمی‌شود"
+        },
+        {
+          "en": "'so' cannot be used to mean 'because' at the start with two clauses joined by comma only",
+          "fa": "so اول جمله برای «چون» به کار نمی‌رود"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I study English **to get** a better job.",
+          "fa": "انگلیسی می‌خونم **تا** شغل بهتری پیدا کنم."
+        },
+        {
+          "en": "He arrived early **so that** he could park.",
+          "fa": "زود اومد **تا اینکه** بتونه پارک کنه."
+        },
+        {
+          "en": "I called **in order to** confirm the time.",
+          "fa": "زنگ زدم **برای اینکه** ساعت رو تأیید کنم."
+        },
+        {
+          "en": "I stayed home **because** it was raining.",
+          "fa": "چون بارون می‌اومد خونه موندم."
+        },
+        {
+          "en": "**Since** you are here, let's start.",
+          "fa": "**چون** اینجایی، شروع کنیم."
+        },
+        {
+          "en": "It was late, **so** I went to bed.",
+          "fa": "دیر بود، **برای همین** خوابیدم."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I learn Persian ____ (to / so that) speak with my family.",
+            "fa": "فارسی یاد می‌گیرم ____ با خونواده‌ام حرف بزنم."
+          },
+          "a": [
+            "to"
+          ]
+        },
+        {
+          "q": {
+            "en": "I got up early ____ (because / to) catch the train.",
+            "fa": "زود بیدار شدم ____ قطار رو بگیرم."
+          },
+          "a": [
+            "to"
+          ]
+        },
+        {
+          "q": {
+            "en": "We left early ____ (because / so) the road was closed.",
+            "fa": "زود رفتیم ____ جاده بسته بود."
+          },
+          "a": [
+            "because"
+          ]
+        },
+        {
+          "q": {
+            "en": "She speaks slowly ____ (so that / because) I can understand.",
+            "fa": "آروم حرف می‌زنه ____ بفهمم."
+          },
+          "a": [
+            "so that"
+          ]
+        },
+        {
+          "q": {
+            "en": "I saved money ____ (to / because) buy a laptop.",
+            "fa": "پول پس‌انداز کردم ____ لپ‌تاپ بخرم."
+          },
+          "a": [
+            "to"
+          ]
+        },
+        {
+          "q": {
+            "en": "He was tired, ____ (so / because) he went to sleep.",
+            "fa": "خسته بود، ____ خوابید."
+          },
+          "a": [
+            "so"
+          ]
+        },
+        {
+          "q": {
+            "en": "Put the lid on ____ (to / so that) the milk stays fresh.",
+            "fa": "در ظرف رو بذار ____ شیر تازه بمونه."
+          },
+          "a": [
+            "so that"
+          ]
+        },
+        {
+          "q": {
+            "en": "I didn't go ____ (because / to) the weather.",
+            "fa": "نرفتم ____ هوا."
+          },
+          "a": [
+            "because"
+          ]
+        },
+        {
+          "q": {
+            "en": "She works hard ____ (in order to / because) support her family.",
+            "fa": "سخت کار می‌کنه ____ خونواده‌اش رو سرپا کنه."
+          },
+          "a": [
+            "in order to",
+            "to"
+          ]
+        },
+        {
+          "q": {
+            "en": "He was late ____ (so that / because) of the traffic.",
+            "fa": "به خاطر ترافیک دیر کرد."
+          },
+          "a": [
+            "because"
+          ]
+        },
+        {
+          "q": {
+            "en": "We use a dictionary ____ (to / so that) check new words.",
+            "fa": "از دیکشنری استفاده می‌کنیم ____ کلمات جدید رو چک کنیم."
+          },
+          "a": [
+            "to"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'm tired, ____ (so / because) I'll go to bed early.",
+            "fa": "خسته‌ام، ____ زود می‌خوابم."
+          },
+          "a": [
+            "so"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Purpose & Reason Clauses",
+        "fa": "جملات هدف و دلیل"
+      }
+    },
+    "reported_speech": {
+      "level": "B1",
+      "title": {
+        "en": "Reported Speech",
+        "fa": "گفتار غیرمستقیم"
+      },
+      "keywords": {
+        "en": [
+          "reported speech",
+          "indirect speech",
+          "backshift",
+          "he said that"
+        ],
+        "fa": [
+          "گفتار غیر مستقیم",
+          "نقل قول",
+          "تغییر زمان"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Form:  reporting verb + (that) + clause",
+          "fa": "ساختار:   فعل گزارش + (that) + بند"
+        },
+        {
+          "en": "Backshift of tenses:  present → past, will → would, am/is/are → was/were",
+          "fa": "عقب‌بردن زمان‌ها:   حال → گذشته، will → would، am/is/are → was/were"
+        },
+        {
+          "en": "Past perfect stays past perfect: had + V3 → had + V3",
+          "fa": "گذشته کامل باقی می‌ماند:   had + V3 → had + V3"
+        },
+        {
+          "en": "say (no object) vs tell + object:  He said (that)… / He told me (that)…",
+          "fa": "say بدون مفعول، tell با مفعول:   گفت … / بهم گفت که …"
+        },
+        {
+          "en": "Questions become:  if / whether + question word + clause order",
+          "fa": "سؤال‌ها می‌شوند:   if / whether + کلمه سؤال + ترتیب جمله"
+        },
+        {
+          "en": "Requests / commands:  He asked me to wait.  He told me not to wait.",
+          "fa": "درخواست/دستور:   ازم خواست صبر کنم.  گفت صبر نکنم."
+        }
+      ],
+      "function": [
+        {
+          "en": "Reporting what someone said without quoting them directly",
+          "fa": "بازگویی گفته کسی بدون نقل‌قول مستقیم"
+        },
+        {
+          "en": "Questions → if / whether or a question word",
+          "fa": "سؤال‌ها → if / whether یا کلمه سؤال"
+        },
+        {
+          "en": "Commands → ask/tell + object + to + V",
+          "fa": "دستورها → ask/tell + مفعول + to + فعل"
+        },
+        {
+          "en": "Negative: not moves after the reporting verb (He said he was not ready)",
+          "fa": "منفی: not بعد از فعل گزارش می‌آید"
+        },
+        {
+          "en": "Time and place change: today → that day, here → there",
+          "fa": "زمان و مکان تغییر می‌کند:   امروز → اون روز، اینجا → اونجا"
+        },
+        {
+          "en": "Pronouns change to match the reporter's point of view",
+          "fa": "ضمایر متناسب با دیدگاه گوینده تغییر می‌کنند"
+        }
+      ],
+      "examples": [
+        {
+          "en": "He said (that) he **was** tired.",
+          "fa": "او گفت که **خسته بوده**."
+        },
+        {
+          "en": "She said (that) she **would call** later.",
+          "fa": "او گفت که **بعداً زنگ می‌زنه**."
+        },
+        {
+          "en": "They said (that) they **had finished** the work.",
+          "fa": "آن‌ها گفتن که کار رو **تمام کرده بودند**."
+        },
+        {
+          "en": "He asked me **if / whether** I was ready.",
+          "fa": "ازم پرسید که آماده بودم یا نه."
+        },
+        {
+          "en": "He told me **not to be** late.",
+          "fa": "بهم گفت دیر نکنم."
+        },
+        {
+          "en": "She told me (that) **she didn't like** it.",
+          "fa": "او بهم گفت که **دوستش نداره**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "'I am busy.' → He said he ____ busy.",
+            "fa": "«سرم شلوغه.» → گفت سرش شلوغ ____ ."
+          },
+          "a": [
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I will help.' → She said she ____ help.",
+            "fa": "«کمک می‌کنم.» → گفت ____ کمک می‌کنه."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "'Are you ready?' → He asked if I ____ ready.",
+            "fa": "«آماده‌ای؟» → پرسید آماده ____ ."
+          },
+          "a": [
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I don't know.' → She said she ____ know.",
+            "fa": "«نمی‌دونم.» → گفت ____ می‌دونه."
+          },
+          "a": [
+            "didn't",
+            "did not",
+            "doesnt"
+          ]
+        },
+        {
+          "q": {
+            "en": "'Please wait.' → He asked me ____ wait.",
+            "fa": "«لطفاً صبر کن.» → ازم خواست ____ صبر کنم."
+          },
+          "a": [
+            "to"
+          ]
+        },
+        {
+          "q": {
+            "en": "'Where do you live?' → She asked where I ____.",
+            "fa": "«کجا زندگی می‌کنی؟» → پرسید کجا ____ ."
+          },
+          "a": [
+            "I lived",
+            "did I live"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I have finished.' → He said he ____ finished.",
+            "fa": "«تموم کردم.» → گفت تموم ____ ."
+          },
+          "a": [
+            "had"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I am hungry.' → She told me she ____ hungry.",
+            "fa": "«گرسنه‌ام.» → بهم گفت ____ گرسنه‌ست."
+          },
+          "a": [
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "'Don't go!' → He told me ____ go.",
+            "fa": "«نرو!» → گفت ____ برم."
+          },
+          "a": [
+            "not to"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I can swim.' → He said he ____ swim.",
+            "fa": "«شنا بلدم.» → گفت شنا ____ ."
+          },
+          "a": [
+            "could"
+          ]
+        },
+        {
+          "q": {
+            "en": "'What time is it?' → She asked what time ____.",
+            "fa": "«ساعت چنده؟» → پرسید ساعت چند ____ ."
+          },
+          "a": [
+            "it was",
+            "was it"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I went yesterday.' → He said he ____ gone the day before.",
+            "fa": "«دیروز رفتم.» → گفت روز قبل رفته بود."
+          },
+          "a": [
+            "had"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Reported Speech",
+        "fa": "گفتار غیرمستقیم (Reported Speech)"
+      }
+    },
+    "linking_words": {
+      "level": "B1",
+      "title": {
+        "en": "Linking Words",
+        "fa": "حروف ربط"
+      },
+      "keywords": {
+        "en": [
+          "linking words",
+          "conjunctions",
+          "however therefore",
+          "both either neither"
+        ],
+        "fa": [
+          "حروف ربط",
+          "کانکشنشن",
+          "اما بنابراین"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Conjunctions join words or short clauses inside a sentence",
+          "fa": "حروف ربط کلمات یا بندهای کوتاه را در یک جمله وصل می‌کنند"
+        },
+        {
+          "en": "Adding: and · also · besides · moreover · in addition",
+          "fa": "افزودن:   and · also · besides · moreover"
+        },
+        {
+          "en": "Contrast: but · however · although · while · whereas · despite",
+          "fa": "تضاد:   but · however · although · while · علی‌رغم"
+        },
+        {
+          "en": "Cause / result: because · so · therefore · as a result",
+          "fa": "علت و نتیجه:   because · so · therefore"
+        },
+        {
+          "en": "Pairs: both … and · either … or · neither … nor · not only … but also",
+          "fa": "جفت‌ها:   both … and · either … or · neither … nor · not only … but also"
+        },
+        {
+          "en": "'Although' takes a clause, 'despite' takes a noun or -ing",
+          "fa": "although بند می‌گیرد، despite اسم یا ing می‌گیرد"
+        }
+      ],
+      "function": [
+        {
+          "en": "Joining short simple sentences into complex ones",
+          "fa": "اتصال جملات ساده به جملات پیچیده"
+        },
+        {
+          "en": "Showing contrast between two ideas",
+          "fa": "نشان دادن تضاد بین دو ایده"
+        },
+        {
+          "en": "Adding extra information politely",
+          "fa": "افزودن اطلاعات به‌صورت مؤدبانه"
+        },
+        {
+          "en": "However and therefore are adverbs — use a full stop or ; before them",
+          "fa": "however و therefore قید هستند — قبلشان نقطه یا «;» می‌آید"
+        },
+        {
+          "en": "'Despite' + noun: despite the rain / despite being late",
+          "fa": "despite + اسم: با وجود بارون / با وجود دیر اومدن"
+        },
+        {
+          "en": "'Although' + clause: although it was raining",
+          "fa": "although + بند: با اینکه بارون می‌اومد"
+        }
+      ],
+      "examples": [
+        {
+          "en": "It was raining; **however**, we went out.",
+          "fa": "بارون می‌اومد؛ **با این حال**، بیرون رفتیم."
+        },
+        {
+          "en": "**Although** it was late, she kept studying.",
+          "fa": "**با اینکه** دیر بود، به درس خواندن ادامه داد."
+        },
+        {
+          "en": "**Despite** the rain, we had fun.",
+          "fa": "**با وجود** بارون، خوش گذشت."
+        },
+        {
+          "en": "He was tired, **so** he went to bed.",
+          "fa": "خسته بود، **برای همین** خوابید."
+        },
+        {
+          "en": "**Both** my brother **and** I like chess.",
+          "fa": "**هم** برادرم **و هم** من شطرنج دوست داریم."
+        },
+        {
+          "en": "**Neither** answer **was** correct.",
+          "fa": "**هیچ‌کدام** از جواب‌ها **درست** نبود."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Contrast: 'He is rich. ____ he's not happy.'",
+            "fa": "تضاد: ثروتمنده. ____ خوشحال نیست."
+          },
+          "a": [
+            "however",
+            "but"
+          ]
+        },
+        {
+          "q": {
+            "en": "Concession + clause: '____ it was raining, we walked.'",
+            "fa": "با وجود بند: ____ بارون می‌اومد، پیاده رفتیم."
+          },
+          "a": [
+            "although",
+            "though",
+            "even though"
+          ]
+        },
+        {
+          "q": {
+            "en": "Preposition + noun: '____ the rain, we walked.'",
+            "fa": "حرف اضافه + اسم: ____ بارون، پیاده رفتیم."
+          },
+          "a": [
+            "despite",
+            "in spite of"
+          ]
+        },
+        {
+          "q": {
+            "en": "Pair: '____ tea ____ coffee are expensive.'",
+            "fa": "جفت: ____ چای ____ قهوه گرونن."
+          },
+          "a": [
+            "both and",
+            "both",
+            "and"
+          ]
+        },
+        {
+          "q": {
+            "en": "Pair: 'I like ____ tea ____ coffee.'",
+            "fa": "جفت: من ____ چای ____ قهوه دوست دارم."
+          },
+          "a": [
+            "either or",
+            "either",
+            "or"
+          ]
+        },
+        {
+          "q": {
+            "en": "Pair: '____ he ____ I smoke.'",
+            "fa": "جفت: ____ اون ____ من سیگار می‌کشیم."
+          },
+          "a": [
+            "neither nor",
+            "neither",
+            "nor"
+          ]
+        },
+        {
+          "q": {
+            "en": "Result: 'It was late. ____ I went home.'",
+            "fa": "نتیجه: دیر بود. ____ رفتم خونه."
+          },
+          "a": [
+            "so",
+            "therefore"
+          ]
+        },
+        {
+          "q": {
+            "en": "Addition: 'I like tea. ____ I like coffee too.'",
+            "fa": "افزودن: چای دوست دارم. ____ قهوه هم دوست دارم."
+          },
+          "a": [
+            "also",
+            "and",
+            "besides",
+            "moreover"
+          ]
+        },
+        {
+          "q": {
+            "en": "'____ + -ing': Despite ____ (be) late, he came.",
+            "fa": "despite + ing: با وجود ____ دیر اومدن، اومد."
+          },
+          "a": [
+            "being"
+          ]
+        },
+        {
+          "q": {
+            "en": "'____ + noun': Despite ____ (the rain), we walked.",
+            "fa": "despite + اسم: با وجود ____ بارون، پیاده رفتیم."
+          },
+          "a": [
+            "the rain",
+            "rain"
+          ]
+        },
+        {
+          "q": {
+            "en": "'not only … ____ also': I like not only tea ____ coffee.",
+            "fa": "not only … ____ also: نه‌تنها چای ____ قهوه دوست دارم."
+          },
+          "a": [
+            "but"
+          ]
+        },
+        {
+          "q": {
+            "en": "Contrast adverb after a full stop: 'He is lazy. ____ he is late.'",
+            "fa": "قید تضاد بعد از نقطه: تنبلی. ____ دیر هم میاد."
+          },
+          "a": [
+            "however",
+            "therefore"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Linking Words & Conjunctions",
+        "fa": "حروف ربط"
+      }
+    },
+    "past_perfect": {
+      "title": {
+        "en": "Past Perfect",
+        "fa": "زمان گذشته کامل"
+      },
+      "keywords": {
+        "en": [
+          "past perfect",
+          "had v3",
+          "pluperfect"
+        ],
+        "fa": [
+          "گذشته کامل",
+          "زمان گذشته کامل"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + had + V3",
+          "fa": "مثبت:   فاعل + had + فعل سوم"
+        },
+        {
+          "en": "Negative:     Subject + had + not + V3",
+          "fa": "منفی:   فاعل + had + not + فعل سوم"
+        },
+        {
+          "en": "Question:     Had + subject + V3 ?",
+          "fa": "سؤالی:   Had + فاعل + فعل سوم ؟"
+        },
+        {
+          "en": "Short answer: Yes, she had.  /  No, she hadn't.",
+          "fa": "پاسخ کوتاه: Yes, she had.  /  No, she hadn't."
+        },
+        {
+          "en": "Note:  had = past perfect for ALL persons (I / he / she / we / they had)",
+          "fa": "نکته:  had برای همه اشخاص یکسان است (I / he / she / we / they had)"
+        },
+        {
+          "en": "Typical pattern:  Past Perfect (earlier) + Simple Past (later)",
+          "fa": "الگوی رایج:   گذشته کامل (زودتر) + گذشته ساده (دیرتر)"
+        }
+      ],
+      "function": [
+        {
+          "en": "The EARLIER of two past actions",
+          "fa": "کارِ زودتر از دو کار گذشته"
+        },
+        {
+          "en": "Something already finished before another past moment",
+          "fa": "چیزی که قبل از یک لحظه از گذشته تمام شده بود"
+        },
+        {
+          "en": "With before / after / already / by the time / when",
+          "fa": "با before / after / already / by the time / when"
+        },
+        {
+          "en": "Regret about the past — If I had known... (3rd conditional)",
+          "fa": "پشیمونی از گذشته — اگه می‌دونستم... (شرطی سوم)"
+        },
+        {
+          "en": "Past duration — By 2020, he had worked there for 10 years",
+          "fa": "مدت زمان گذشته — تا ۲۰۲۰، ده سال آنجا کار کرده بود"
+        },
+        {
+          "en": "Common partners: already, just, never, before, by the time, when",
+          "fa": "همراهان پرتکرار: already، just، never، before، by the time، when"
+        }
+      ],
+      "examples": [
+        {
+          "en": "When I arrived, the class **had already started**.",
+          "fa": "وقتی رسیدم، کلاس **شروع شده بود**."
+        },
+        {
+          "en": "She **had never seen** him before that day.",
+          "fa": "تا اون روز **ندیده بودمش**."
+        },
+        {
+          "en": "**Had** you **finished** the report by five?",
+          "fa": "تا ساعت پنج گزارش رو **تمام کرده بودی**؟"
+        },
+        {
+          "en": "I **hadn't eaten** anything by noon.",
+          "fa": "تا ظهر **چیزی نخورده بودم**."
+        },
+        {
+          "en": "If I **had known**, I would have helped you.",
+          "fa": "اگه **می‌دونستم**، کمکت می‌کردم."
+        },
+        {
+          "en": "By last summer, he **had lived** in Paris for ten years.",
+          "fa": "تا تابستون پیش، ده سال بود که در پاریس زندگی کرده بود."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "When I got there, the film ____ (already / start). (past perfect)",
+            "fa": "وقتی رسیدم، فیلم (قبلاً شروع شده بود). (گذشته کامل)"
+          },
+          "a": [
+            "had already started",
+            "had started"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (not / finish) her homework before the test.",
+            "fa": "قبل از امتحان تکلیفش رو (تمام نکرده بود). (منفی گذشته کامل)"
+          },
+          "a": [
+            "hadn't finished",
+            "had not finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you ever ____ (see) that film before? (past perfect question)",
+            "fa": "قبلاً اون فیلم رو دیده بودی؟ (سؤالی گذشته کامل)"
+          },
+          "a": [
+            "had you ever seen"
+          ]
+        },
+        {
+          "q": {
+            "en": "By the time he arrived, we ____ (eat) dinner.",
+            "fa": "وقتی رسید، ما شام رو (خورده بودیم)."
+          },
+          "a": [
+            "had eaten"
+          ]
+        },
+        {
+          "q": {
+            "en": "If I ____ (know / better), I would have called you.",
+            "fa": "اگه (بهتر می‌دونستم)، زنگ می‌زدم."
+          },
+          "a": [
+            "had known"
+          ]
+        },
+        {
+          "q": {
+            "en": "He told me he ____ (lose) his keys the night before.",
+            "fa": "گفت شب قبل کلیدش رو (گم کرده بود)."
+          },
+          "a": [
+            "had lost"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (live) in Germany for five years before moving.",
+            "fa": "قبل از نقل مکان، پنج سال آلمان زندگی کرده بودند."
+          },
+          "a": [
+            "had lived"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ she ____ (leave) when you called her?",
+            "fa": "وقتی زنگ زدی رفته بود؟"
+          },
+          "a": [
+            "had she left"
+          ]
+        },
+        {
+          "q": {
+            "en": "Give V3: be → ____  ·  do → ____  ·  take → ____",
+            "fa": "شکل سوم بده: be → ____  ·  do → ____  ·  take → ____"
+          },
+          "a": [
+            "been done taken",
+            "been, done, taken"
+          ]
+        },
+        {
+          "q": {
+            "en": "After I ____ (finish) lunch, I went back to work.",
+            "fa": "بعد از اینکه (ناهار خوردم)، برگشتم سر کار."
+          },
+          "a": [
+            "had finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "The weather was terrible, so we ____ (not / go) out.",
+            "fa": "هوا خیلی بد بود، برای همین بیرون (نرفتیم)."
+          },
+          "a": [
+            "hadn't gone",
+            "had not gone"
+          ]
+        },
+        {
+          "q": {
+            "en": "I couldn't enter because I ____ (forget) my password.",
+            "fa": "نمی‌تونستم وارد بشم چون رممم رو (فراموش کرده بودم)."
+          },
+          "a": [
+            "had forgotten"
+          ]
+        }
+      ],
+      "level": "B2"
+    },
+    "future_perfect": {
+      "title": {
+        "en": "Future Perfect",
+        "fa": "زمان آینده کامل"
+      },
+      "keywords": {
+        "en": [
+          "future perfect",
+          "future perfect continuous",
+          "will have v3",
+          "future perfect tense"
+        ],
+        "fa": [
+          "آینده کامل",
+          "زمان آینده کامل",
+          "آینده کامل مستمر"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative:  Subject + will have + V3",
+          "fa": "مثبت:   فاعل + will have + فعل سوم"
+        },
+        {
+          "en": "Negative:     Subject + will not (won't) have + V3",
+          "fa": "منفی:   فاعل + will not (won't) have + فعل سوم"
+        },
+        {
+          "en": "Question:     Will + subject + have + V3 ?",
+          "fa": "سؤالی:   Will + فاعل + have + فعل سوم ؟"
+        },
+        {
+          "en": "Short answer: Yes, she will.  /  No, she won't.",
+          "fa": "پاسخ کوتاه: Yes, she will.  /  No, she won't."
+        },
+        {
+          "en": "Continuous form:  Subject + will have been + V-ing",
+          "fa": "حالت استمراری:   فاعل + will have been + فعل ing"
+        },
+        {
+          "en": "Note: always paired with 'by + time' — by June, by tomorrow, by then",
+          "fa": "نکته: همیشه با «by + زمان» می‌آید — by June، by tomorrow، by then"
+        }
+      ],
+      "function": [
+        {
+          "en": "Something completed BEFORE a future deadline",
+          "fa": "کاری که قبل از یک مهلت آینده تمام می‌شود"
+        },
+        {
+          "en": "Talking about a future point looking BACK (by 2030 I will have lived here 20 years)",
+          "fa": "نگاه به عقب از یک نقطه آینده (تا ۲۰۳۰ بیست سال اینجا زندگی کرده خواهم بود)"
+        },
+        {
+          "en": "Predictions about what will be true later",
+          "fa": "پیش‌بینی درباره آنچه بعداً درست خواهد بود"
+        },
+        {
+          "en": "With by the time + clause, and before / after",
+          "fa": "با by the time + جمله، و before / after"
+        },
+        {
+          "en": "Common partners: by, by then, by the time, in two years, before",
+          "fa": "همراهان پرتکرار: by، by then، by the time، in two years، before"
+        },
+        {
+          "en": "Compare: will have done (result) vs will have been doing (duration)",
+          "fa": "مقایسه: will have done (نتیجه) در برابر will have been doing (مدت)"
+        }
+      ],
+      "examples": [
+        {
+          "en": "By June, I **will have finished** the course.",
+          "fa": "تا ژوئن، دوره رو **تمام کرده خواهم بود**."
+        },
+        {
+          "en": "She **will have graduated** by then.",
+          "fa": "تا اون موقع **فارغ‌التحصیل شده خواهد بود**."
+        },
+        {
+          "en": "By eight o'clock, we **will have eaten** dinner.",
+          "fa": "تا ساعت هشت، شام رو **خورده‌ایم**."
+        },
+        {
+          "en": "**Will** you **have finished** the report by Friday?",
+          "fa": "تا جمعه گزارش رو **تمام کرده‌ای**؟"
+        },
+        {
+          "en": "By 2030, he **will have worked** here for twenty years.",
+          "fa": "تا ۲۰۳۰، بیست سال است که اینجا **کار کرده خواهد بود**."
+        },
+        {
+          "en": "By tomorrow, the problem **will have been solved**.",
+          "fa": "تا فردا، مشکل **حل شده خواهد بود**."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "By June, I ____ (finish) the course. (future perfect)",
+            "fa": "تا ژوئن دوره رو (تمام کرده‌ام). (آینده کامل)"
+          },
+          "a": [
+            "will have finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (not / graduate) by July.",
+            "fa": "او تا جولای (فارغ‌التحصیل نخواهد شد). (منفی آینده کامل)"
+          },
+          "a": [
+            "won't have graduated",
+            "will not have graduated"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ they ____ (arrive) by tomorrow evening?",
+            "fa": "تا فردا شب رسیده‌اند؟"
+          },
+          "a": [
+            "will they have arrived"
+          ]
+        },
+        {
+          "q": {
+            "en": "By eight, we ____ (eat) dinner. (future perfect)",
+            "fa": "تا ساعت هشت شام رو (خورده‌ایم)."
+          },
+          "a": [
+            "will have eaten"
+          ]
+        },
+        {
+          "q": {
+            "en": "By 2030, I ____ (live) here for 20 years.",
+            "fa": "تا ۲۰۳۰ بیست سال (اینجا زندگی کرده خواهم بود)."
+          },
+          "a": [
+            "will have lived",
+            "will have been living"
+          ]
+        },
+        {
+          "q": {
+            "en": "By the time you arrive, I ____ (pack) my bags.",
+            "fa": "وقتی برسی، چمدون‌هام رو (بسته‌ام)."
+          },
+          "a": [
+            "will have packed"
+          ]
+        },
+        {
+          "q": {
+            "en": "Give V3: go → ____  ·  eat → ____  ·  write → ____",
+            "fa": "شکل سوم بده: go → ____  ·  eat → ____  ·  write → ____"
+          },
+          "a": [
+            "gone eaten written",
+            "gone, eaten, written"
+          ]
+        },
+        {
+          "q": {
+            "en": "In two weeks, the project ____ (be) finished.",
+            "fa": "دو هفته دیگه پروژه (تمام شده خواهد بود)."
+          },
+          "a": [
+            "will be finished",
+            "will have been finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "She will have ____ (work) here for a decade by then.",
+            "fa": "تا اون موقع ده سال است که اینجا (کار کرده خواهد بود)."
+          },
+          "a": [
+            "been working",
+            "worked"
+          ]
+        },
+        {
+          "q": {
+            "en": "By the end of the year, we ____ (save) enough money.",
+            "fa": "تا آخر سال (به اندازه کافی پس‌انداز کرده‌ایم)."
+          },
+          "a": [
+            "will have saved"
+          ]
+        },
+        {
+          "q": {
+            "en": "He will have ____ (study) for three hours by then.",
+            "fa": "تا اون موقع سه ساعت (درس خوانده خواهد بود)."
+          },
+          "a": [
+            "been studying",
+            "studied"
+          ]
+        },
+        {
+          "q": {
+            "en": "By Monday, the weather ____ (improve).",
+            "fa": "تا دوشنبه هوا (بهتر شده خواهد بود)."
+          },
+          "a": [
+            "will have improved"
+          ]
+        }
+      ],
+      "level": "B2"
+    },
+    "modals_past": {
+      "level": "B2",
+      "title": {
+        "en": "Modals for the Past",
+        "fa": "modal گذشته"
+      },
+      "keywords": {
+        "en": [
+          "modals for the past",
+          "should have",
+          "must have",
+          "could have",
+          "deduction"
+        ],
+        "fa": [
+          "modal گذشته",
+          "باید کرده",
+          "استنتاج"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Form:  modal + have + V3   (no 'to', no 'did')",
+          "fa": "ساختار:   modal + have + فعل سوم (بدون did)"
+        },
+        {
+          "en": "should have + V3 = regret / reproach (You should have told me)",
+          "fa": "should have + V3 = پشیمونی و ملامت (باید بهم می‌گفتی)"
+        },
+        {
+          "en": "could have + V3 = past ability or a missed chance",
+          "fa": "could have + V3 = توانایی گذشته یا فرصت از دست رفته"
+        },
+        {
+          "en": "would have + V3 = hypothetical past result",
+          "fa": "would have + V3 = نتیجه خیالی در گذشته"
+        },
+        {
+          "en": "must have + V3 = DEDUCTION — strong certainty about the past",
+          "fa": "must have + V3 = استنتاج: اطمینان زیاد درباره گذشته"
+        },
+        {
+          "en": "might / may / can't have + V3 = uncertain deduction",
+          "fa": "might / may / can't have + V3 = استنتاج نامطمئن"
+        }
+      ],
+      "function": [
+        {
+          "en": "Expressing regret about something not done",
+          "fa": "ابراز پشیمونی از کاری که انجام نشد"
+        },
+        {
+          "en": "Talking about lost opportunities",
+          "fa": "صحبت از فرصت‌های از دست رفته"
+        },
+        {
+          "en": "Drawing conclusions about the past from evidence",
+          "fa": "نتیجه‌گیری درباره گذشته از روی شواهد"
+        },
+        {
+          "en": "must have + V3 is always certain; can't have + V3 = impossible",
+          "fa": "must have + V3 یعنی حتماً؛ can't have + V3 = غیرممکن"
+        },
+        {
+          "en": "Could have = possible but unknown",
+          "fa": "could have = ممکن ولی نامعلوم"
+        },
+        {
+          "en": "Negative: shouldn't have + V3 = you did something you shouldn't have",
+          "fa": "منفی: shouldn't have + V3 = کاری کردی که نباید می‌کردی"
+        }
+      ],
+      "examples": [
+        {
+          "en": "You **should have** told me earlier.",
+          "fa": "باید **زودتر بهم** می‌گفتی."
+        },
+        {
+          "en": "She **could have** come, but she was tired.",
+          "fa": "می‌تونست بیاد، ولی خسته بود."
+        },
+        {
+          "en": "He **must have** forgotten our date.",
+          "fa": "حتماً قرارمون رو **فراموش کرده**."
+        },
+        {
+          "en": "It **can't have** been her — she was abroad.",
+          "fa": "نمی‌تونه اون بوده باشه — خارج بود."
+        },
+        {
+          "en": "If I **would have** known, I'd have stayed.",
+          "fa": "اگه می‌دونستم، می‌موندم."
+        },
+        {
+          "en": "They **might have** taken the wrong bus.",
+          "fa": "شاید اتوبوس اشتباهی رو سوار شده باشن."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "You should ____ (tell / told) me. (past modal)",
+            "fa": "باید ____ بهم می‌گفتی."
+          },
+          "a": [
+            "have told"
+          ]
+        },
+        {
+          "q": {
+            "en": "He must ____ (finish / finished) his work already.",
+            "fa": "او حتماً کارش رو تموم ____ ."
+          },
+          "a": [
+            "have finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "She could ____ (come / came) but she was busy.",
+            "fa": "می‌تونست بیاد ولی سرش شلوغ بود."
+          },
+          "a": [
+            "have come"
+          ]
+        },
+        {
+          "q": {
+            "en": "They shouldn't ____ (buy / bought) that car.",
+            "fa": "آن‌ها نباید اون ماشین رو ____ ."
+          },
+          "a": [
+            "have bought"
+          ]
+        },
+        {
+          "q": {
+            "en": "It can't ____ (be / have been) so late — the shops are open.",
+            "fa": "نمی‌تونه اینقدر دیر باشه — مغازه‌ها بازن."
+          },
+          "a": [
+            "have been"
+          ]
+        },
+        {
+          "q": {
+            "en": "If we ____ (know / have known), we'd have come.",
+            "fa": "اگه می‌دونستیم، می‌اومدیم."
+          },
+          "a": [
+            "had known"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (must / have must) have left her phone at home.",
+            "fa": "حتماً گوشیش رو تو خونه جا گذاشته."
+          },
+          "a": [
+            "must"
+          ]
+        },
+        {
+          "q": {
+            "en": "You should ____ (not / not have) said that. (past modal negative)",
+            "fa": "نباید اون رو می‌گفتی."
+          },
+          "a": [
+            "not have said",
+            "not have"
+          ]
+        },
+        {
+          "q": {
+            "en": "He might ____ (lose / have lost) his keys.",
+            "fa": "شاید کلیداش رو گم کرده باشه."
+          },
+          "a": [
+            "have lost"
+          ]
+        },
+        {
+          "q": {
+            "en": "The room ____ (must / have must) have been cleaned — it's spotless.",
+            "fa": "اتاق حتماً تمیز شده — بی‌نقصه."
+          },
+          "a": [
+            "must"
+          ]
+        },
+        {
+          "q": {
+            "en": "I would ____ (call / have called) you yesterday, but I forgot.",
+            "fa": "دیروز زنگت می‌زدم، ولی یادم رفت."
+          },
+          "a": [
+            "have called"
+          ]
+        },
+        {
+          "q": {
+            "en": "They can't ____ (have stolen / stole) it — they were at school.",
+            "fa": "نمی‌تونه دزدیده باشن — مدرسه بودن."
+          },
+          "a": [
+            "have stolen"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Modals for the Past",
+        "fa": ".modal ها برای گذشته"
+      }
+    },
+    "future_in_past": {
+      "level": "B2",
+      "title": {
+        "en": "Future in the Past",
+        "fa": "آینده در گذشته"
+      },
+      "keywords": {
+        "en": [
+          "future in the past",
+          "would v1",
+          "was going to",
+          "past future"
+        ],
+        "fa": [
+          "آینده در گذشته",
+          "قرار بود",
+          "قرار داشتن"
+        ]
+      },
+      "structure": [
+        {
+          "en": "would + V1 = a future that did not happen (reported speech, 2nd conditional)",
+          "fa": "would + فعل پایه = آینده‌ای که اتفاق نیفتاد"
+        },
+        {
+          "en": "was / were going to + V1 = intention in the past",
+          "fa": "was going to + فعل = قصد گذشته"
+        },
+        {
+          "en": "was / were about to + V1 = about to do (just before it happened)",
+          "fa": "was about to + فعل = در آستانه انجام"
+        },
+        {
+          "en": "Negative:  wasn't going to / wouldn't",
+          "fa": "منفی:   wasn't going to / wouldn't"
+        },
+        {
+          "en": "Question:  Were you going to come?",
+          "fa": "سؤالی:   Were you going to come?"
+        },
+        {
+          "en": "Note: 'was to' is formal — The meeting was to be held in May.",
+          "fa": "نکته: was to رسمی است — جلسه قرار بود در ماه مه برگزار شود."
+        }
+      ],
+      "function": [
+        {
+          "en": "Talking about plans you had before they changed",
+          "fa": "صحبت از برنامه‌هایی که قبل از تغییر داشتید"
+        },
+        {
+          "en": "Explaining why something didn't happen",
+          "fa": "توضیح اینکه چرا چیزی اتفاق نیفتاد"
+        },
+        {
+          "en": "was going to = plan that was real but prevented",
+          "fa": "was going to = برنامه واقعی که جلویش گرفته شد"
+        },
+        {
+          "en": "was about to = the moment just before something happened",
+          "fa": "was about to = درست قبل از اتفاق"
+        },
+        {
+          "en": "In reported speech: 'I will help' → 'He said he would help'",
+          "fa": "در نقل قول: «کمک می‌کنم» → «گفت کمک می‌کنه»"
+        },
+        {
+          "en": "No time reference is carried: would can also mean 'used to'",
+          "fa": "بدون ارجاع به زمان؛ would می‌تواند یعنی «عادت داشت» هم باشد"
+        }
+      ],
+      "examples": [
+        {
+          "en": "He said he **would call** me.",
+          "fa": "گفت که **بعداً زنگ می‌زنه**."
+        },
+        {
+          "en": "I **was going to** study abroad, but I changed my mind.",
+          "fa": "قرار بود **خارج** درس بخونم، ولی نظرم عوض شد."
+        },
+        {
+          "en": "She **was about to** leave when the phone rang.",
+          "fa": "داشت **می‌رفت** که تلفن زنگ زد."
+        },
+        {
+          "en": "They **weren't going to** buy a new car.",
+          "fa": "قرار نبود ماشین جدید بخرن."
+        },
+        {
+          "en": "**Were** you going to come tonight?",
+          "fa": "قرار بود **امشب** بیای؟"
+        },
+        {
+          "en": "I **would** visit you more often.",
+          "fa": "بیشتر بهت سر می‌زدم."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "'I will help you.' → She said she ____ help you.",
+            "fa": "«کمکت می‌کنم.» → گفت ____ کمکت می‌کنه."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "I was going to ____ (buy) a bike, but now I'll sell mine.",
+            "fa": "قرار بود دوچرخه بخرم، ولی الان می‌فروشم."
+          },
+          "a": [
+            "buy"
+          ]
+        },
+        {
+          "q": {
+            "en": "She was about to ____ (leave) when I arrived.",
+            "fa": "داشت می‌رفت که رسیدم."
+          },
+          "a": [
+            "leave"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I won't come.' → He said he ____ come.",
+            "fa": "«نمیام.» → گفت ____ میاد."
+          },
+          "a": [
+            "wouldn't",
+            "would not"
+          ]
+        },
+        {
+          "q": {
+            "en": "They weren't going to ____ (get) married yet.",
+            "fa": "قرار نبود هنوز ازدواج کنن."
+          },
+          "a": [
+            "get"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you going to join us? (question)",
+            "fa": "____ میای با ما؟ (سؤالی)"
+          },
+          "a": [
+            "were",
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I'm going to study.' → He said he ____ study.",
+            "fa": "«می‌خوام درس بخونم.» → گفت ____ درس می‌خونه."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "The plane was about to ____ (take off).",
+            "fa": "هواپیما داشت بلند می‌شد."
+          },
+          "a": [
+            "take off",
+            "depart"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I'll bring the tickets.' → They said they ____ bring them.",
+            "fa": "«بلیط‌ها رو میارم.» → گفتن میارن."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "He wasn't going to ____ (tell) anyone.",
+            "fa": "قرار نبود به کسی بگه."
+          },
+          "a": [
+            "tell"
+          ]
+        },
+        {
+          "q": {
+            "en": "Use would for habit: 'Every day he ____ smoke a cigarette.'",
+            "fa": "برای عادت از would استفاده کن: هر روز ____ سیگار می‌کشید."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "'I can help.' → She said she ____ help.",
+            "fa": "«می‌تونم کمک کنم.» → گفت ____ کمک می‌کنه."
+          },
+          "a": [
+            "could"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Future in the Past",
+        "fa": "آینده در گذشته"
+      }
+    },
+    "phrasal_verbs": {
+      "level": "B2",
+      "title": {
+        "en": "Phrasal Verbs",
+        "fa": "افعال ترکیبی"
+      },
+      "keywords": {
+        "en": [
+          "phrasal verbs",
+          "separable phrasal verbs",
+          "verb particle"
+        ],
+        "fa": [
+          "افعال ترکیبی",
+          "فعل + حرف اضافه"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Form:  verb + particle (up, out, on, in, off, down, over, away)",
+          "fa": "ساختار:   فعل + ذره (up، out، on، in، off، down، over، away)"
+        },
+        {
+          "en": "Separable (pronoun or noun object):  turn **off** the light / turn the light **off**",
+          "fa": "جداپذیر (با ضمیر یا اسم):   خاموش کردن چراغ / چراغ را خاموش کردن"
+        },
+        {
+          "en": "Inseparable (no object between):  look **after** the baby ✓ / look the baby after ✗",
+          "fa": "جدانشدنی:   نگهداری از بچه ✓ / … ✗"
+        },
+        {
+          "en": "The particle changes the meaning:  look (نگاه کردن) → look after (مواظبت)",
+          "fa": "ذره معنا را عوض می‌کند:   نگاه کردن → مراقبت کردن"
+        },
+        {
+          "en": "Type 1: change (change off a light)  ·  Type 2: no change (come in)",
+          "fa": "نوع ۱: معنا عوض می‌شود  ·  نوع ۲: معنا عوض نمی‌شود"
+        },
+        {
+          "en": "Some are idiomatic: give up = stop trying, not 'give upward'",
+          "fa": "بعضی‌ها اصطلاحی‌اند: give up = تسلیم شدن"
+        }
+      ],
+      "function": [
+        {
+          "en": "Very common in spoken English — more common than single verbs",
+          "fa": "در مکالمه روزمره بسیار رایج‌اند"
+        },
+        {
+          "en": "Separable ones take their object in the middle: pick **it** up",
+          "fa": "جداپذیرها مفعول را وسط می‌گیرند: pick it up"
+        },
+        {
+          "en": "Inseparable ones never split: look **after** it ✓",
+          "fa": "جدانشدنی‌ها هرگز جدا نمی‌شوند"
+        },
+        {
+          "en": "Used with pronouns: I looked **after** her. ✓",
+          "fa": "با ضمایر استفاده می‌شوند"
+        },
+        {
+          "en": "Not all phrasal verbs are separable — learn them as whole units",
+          "fa": "همه جداپذیر نیستند — آن‌ها را به‌عنوان یک واحد یاد بگیرید"
+        },
+        {
+          "en": "Phrasal PRE verbs: depend on, consist of, belong to",
+          "fa": "حروف اضافه‌ای: depend on، consist of، belong to"
+        }
+      ],
+      "examples": [
+        {
+          "en": "Please turn **off** the lights.",
+          "fa": "لطفاً چراغ‌ها رو **خاموش** کن."
+        },
+        {
+          "en": "He gave **up** smoking last year.",
+          "fa": "پارسال سیگار **ول** کرد."
+        },
+        {
+          "en": "She looks **after** her little brother.",
+          "fa": "او از برادر کوچیکش مراقبت می‌کنه."
+        },
+        {
+          "en": "The meeting is going to be **put off**.",
+          "fa": "جلسه **به تعویق** می‌افته."
+        },
+        {
+          "en": "Pick **it up** — it's on the floor.",
+          "fa": "**برش دار** — روی زمینه."
+        },
+        {
+          "en": "I'm looking **forward to** seeing you.",
+          "fa": "منتظر **دیدنت** هستم."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Give up = ____ in Persian",
+            "fa": "give up یعنی ____"
+          },
+          "a": [
+            "give up",
+            "stop trying",
+            "تسلیم"
+          ]
+        },
+        {
+          "q": {
+            "en": "Separable: 'turn off the light' → 'turn the light ____'",
+            "fa": "جداپذیر: چراغ رو خاموش ____"
+          },
+          "a": [
+            "off"
+          ]
+        },
+        {
+          "q": {
+            "en": "Inseparable: look ____ (after / it after) the baby",
+            "fa": "جدانشدنی: look ____ the baby"
+          },
+          "a": [
+            "after"
+          ]
+        },
+        {
+          "q": {
+            "en": "Put off = ____ (cancel / lift)",
+            "fa": "put off یعنی ____"
+          },
+          "a": [
+            "cancel",
+            "postpone",
+            "به تعویق انداختن"
+          ]
+        },
+        {
+          "q": {
+            "en": "Fill in: 'Please pick ____ (up / it up) the book.'",
+            "fa": "کامل کنید: کتاب رو ____ بردار."
+          },
+          "a": [
+            "it up",
+            "up"
+          ]
+        },
+        {
+          "q": {
+            "en": "Look after = ____ (watch / ignore)",
+            "fa": "look after یعنی ____"
+          },
+          "a": [
+            "watch",
+            "take care of",
+            "مراقبت"
+          ]
+        },
+        {
+          "q": {
+            "en": "Find out = ____ (discover / lose)",
+            "fa": "find out یعنی ____"
+          },
+          "a": [
+            "discover",
+            "to know",
+            "پیدا کردن"
+          ]
+        },
+        {
+          "q": {
+            "en": "Get on = ____ in a bus (increase)",
+            "fa": "get on یعنی سوار شدن"
+          },
+          "a": [
+            "get on",
+            "board",
+            "سوار"
+          ]
+        },
+        {
+          "q": {
+            "en": "Give up the phone",
+            "fa": "give up the phone"
+          },
+          "a": [
+            "hang up"
+          ]
+        },
+        {
+          "q": {
+            "en": "Take off the plane = ____ (leave)",
+            "fa": "take off یعنی ____"
+          },
+          "a": [
+            "take off",
+            "depart",
+            "بلند شدن"
+          ]
+        },
+        {
+          "q": {
+            "en": "Look out! = ____ (watch out / look inside)",
+            "fa": "look out یعنی ____"
+          },
+          "a": [
+            "watch out",
+            "be careful",
+            "مواظب باش"
+          ]
+        },
+        {
+          "q": {
+            "en": "Put on = ____ (wear / remove)",
+            "fa": "put on یعنی ____"
+          },
+          "a": [
+            "wear",
+            "پوشیدن"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Phrasal Verbs",
+        "fa": "افعال ترکیبی (Phrasal Verbs)"
+      }
+    },
+    "wish_subjunctive": {
+      "level": "B2",
+      "title": {
+        "en": "Wish & Subjunctive",
+        "fa": "wish و subjunctive"
+      },
+      "keywords": {
+        "en": [
+          "wish subjunctive",
+          "wish",
+          "if only",
+          "would rather",
+          "subjunctive"
+        ],
+        "fa": [
+          "wish",
+          "ای کاش",
+          "subjunctive"
+        ]
+      },
+      "structure": [
+        {
+          "en": "wish + PAST SIMPLE = present reality (untrue)  →  I wish I were rich.",
+          "fa": "wish + گذشته ساده = واقعیت حال (نادرست)  →  ای کاش پولدار بودم."
+        },
+        {
+          "en": "wish + had + V3 = past reality (regret)  →  I wish I had called.",
+          "fa": "wish + had + فعل سوم = گذشته (پشیمونی)  →  ای کاش زنگ زده بودم."
+        },
+        {
+          "en": "wish + would/could + V1 = request or future hope",
+          "fa": "wish + would/could + فعل = درخواست یا آرزوی آینده"
+        },
+        {
+          "en": "'If only' + past = strong unreal wish",
+          "fa": "if only + گذشته = آرزوی غیرممکن قوی"
+        },
+        {
+          "en": "'would rather' + base verb (than)  →  I'd rather stay home.",
+          "fa": "would rather + فعل پایه  →  ترجیح می‌دم خونه بمونم."
+        },
+        {
+          "en": "'as if / as though' + past:  He acts as if he knew everything.",
+          "fa": "as if / as though + گذشته:  انگار همه‌چیز رو می‌دونه"
+        }
+      ],
+      "function": [
+        {
+          "en": "Expressing an unreal or impossible wish",
+          "fa": "بیان آرزوی غیرواقعی یا ناممکن"
+        },
+        {
+          "en": "Regretting something you did or didn't do",
+          "fa": "پشیمونی از کاری که کردی یا نکردی"
+        },
+        {
+          "en": "Polite or indirect requests (I wish you would help)",
+          "fa": "درخواست مؤدبانه یا غیرمستقیم"
+        },
+        {
+          "en": "'as if / as though' shows something is untrue",
+          "fa": "as if / as though نشان می‌دهد چیزی واقعی نیست"
+        },
+        {
+          "en": "prefer + to V or -ing:  I prefer walking to taking a taxi.",
+          "fa": "prefer + to V یا ing:  پیاده رفتن رو به تاکسی ترجیح می‌دم."
+        },
+        {
+          "en": "would rather is followed by the BASE verb",
+          "fa": "بعد از would ریشه فعل می‌آید"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I wish I **were** taller.",
+          "fa": "ای کاش **بلندتر** بودم."
+        },
+        {
+          "en": "I wish I **had asked** you.",
+          "fa": "ای کاش ازت **پرسیده بودم**."
+        },
+        {
+          "en": "I wish you **would stop** shouting.",
+          "fa": "کاش **داد نزدی**."
+        },
+        {
+          "en": "**If only** I **hadn't forgotten**!",
+          "fa": "**کاش** یادم نرفته بود!"
+        },
+        {
+          "en": "I'd rather **stay** at home tonight.",
+          "fa": "ترجیح می‌دم امشب **خونه بمونم**."
+        },
+        {
+          "en": "He talks as if he **knew** everything.",
+          "fa": "انگار همه‌چیز رو **می‌دونه** حرف می‌زنه."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "I wish I ____ (be / was) taller. (unreal present)",
+            "fa": "ای کاش بلندتر ____ ."
+          },
+          "a": [
+            "were",
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "I wish I ____ (study / had studied) harder. (past regret)",
+            "fa": "ای کاش بیشتر ____ بودم."
+          },
+          "a": [
+            "had studied"
+          ]
+        },
+        {
+          "q": {
+            "en": "I wish you ____ (stop / stopped) calling me so late.",
+            "fa": "کاش دیگه دیر زنگ نمی‌زدی."
+          },
+          "a": [
+            "would stop",
+            "would call stop",
+            "wouldnt"
+          ]
+        },
+        {
+          "q": {
+            "en": "If only I ____ (have / had) more time!",
+            "fa": "کاش وقت بیشتری ____ !"
+          },
+          "a": [
+            "had"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'd rather ____ (stay / staying) home.",
+            "fa": "ترجیح می‌دم خونه بمونم."
+          },
+          "a": [
+            "stay"
+          ]
+        },
+        {
+          "q": {
+            "en": "He acts as if he ____ (know / knew) everything.",
+            "fa": "انگار همه‌چیز رو می‌دونه."
+          },
+          "a": [
+            "knew"
+          ]
+        },
+        {
+          "q": {
+            "en": "I prefer tea ____ coffee.",
+            "fa": "چای رو به قهوه ترجیح می‌دم."
+          },
+          "a": [
+            "to",
+            "over"
+          ]
+        },
+        {
+          "q": {
+            "en": "wish + would + V1 is used for ____ (past / requests).",
+            "fa": "wish + would + فعل برای ____ به کار می‌رود."
+          },
+          "a": [
+            "requests",
+            "request",
+            "polite",
+            "in requests"
+          ]
+        },
+        {
+          "q": {
+            "en": "I wish it ____ (rain / would rain) tomorrow.",
+            "fa": "کاش فردا بارون می‌اومد."
+          },
+          "a": [
+            "would rain"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'd rather ____ (not go / not going) tomorrow.",
+            "fa": "ترجیح می‌دم فردا نرم."
+          },
+          "a": [
+            "not go",
+            "didnt go"
+          ]
+        },
+        {
+          "q": {
+            "en": "She looks as if she ____ (be / were) angry.",
+            "fa": "انگار عصبانیه."
+          },
+          "a": [
+            "were",
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "If only I ____ (know / knew) the answer!",
+            "fa": "کاش جواب رو می‌دونستم!"
+          },
+          "a": [
+            "knew"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Wish & Subjunctive",
+        "fa": "آرزو و حالت subjunctive"
+      }
+    },
+    "inversion": {
+      "level": "B2",
+      "title": {
+        "en": "Inversion",
+        "fa": "وارونگی"
+      },
+      "keywords": {
+        "en": [
+          "inversion",
+          "inverted sentences",
+          "negative inversion",
+          "never have i"
+        ],
+        "fa": [
+          "inversion",
+          "وارونگی",
+          "جابه‌جایی"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Never / rarely / seldom / little + AUXILARY + subject + V",
+          "fa": "never / rarely / seldom + فعل کمکی + فاعل + فعل"
+        },
+        {
+          "en": "Hardly … WHEN  →  Hardly had I left when it started raining.",
+          "fa": "hardly … when  →  به‌محض اینکه رفتم، بارون شروع شد"
+        },
+        {
+          "en": "Only after / Only when + clause, then inversion:  Only when he arrived did I leave.",
+          "fa": "only after / only when + بند، سپس وارونگی"
+        },
+        {
+          "en": "Not only … but also:  Not only did he apologise, but he also paid.",
+          "fa": "not only … but also:   نه‌تنها عذر خواست، بلکه پول هم داد"
+        },
+        {
+          "en": "So / such in negative meaning:  So cold was the night that we froze.",
+          "fa": "so / such با معنای منفی:   شب آنقدر سرد بود که یخ زدیم"
+        },
+        {
+          "en": "Question words:  Who told you that?  Where have you been?",
+          "fa": "کلمات سؤال هم وارونگی دارند"
+        }
+      ],
+      "function": [
+        {
+          "en": "Emphasising a negative adverbial at the start",
+          "fa": "تأکید بر قید منفی در ابتدای جمله"
+        },
+        {
+          "en": "Making formal and literary writing",
+          "fa": "نوشتار رسمی و ادبی"
+        },
+        {
+          "en": "After 'no sooner … than':  No sooner had he sat down than the phone rang.",
+          "fa": "بعد از no sooner … than"
+        },
+        {
+          "en": "The auxiliary moves BEFORE the subject",
+          "fa": "فعل کمکی قبل از فاعل می‌رود"
+        },
+        {
+          "en": "The main verb stays in its normal form",
+          "fa": "فعل اصلی شکل عادی خود را حفظ می‌کند"
+        },
+        {
+          "en": "Rare in speech — mostly in writing",
+          "fa": "در گفتار نادر است — بیشتر در نوشتار"
+        }
+      ],
+      "examples": [
+        {
+          "en": "**Never have I** seen such a mess.",
+          "fa": "**هیچ‌وقت** چنین شلوغی ندیدم."
+        },
+        {
+          "en": "**Hardly had I** sat down **when** the phone rang.",
+          "fa": "**به‌محض** اینکه نشستم، تلفن زنگ زد."
+        },
+        {
+          "en": "**Only after** lunch **did** he **leave**.",
+          "fa": "**فقط بعد** از ناهار رفت."
+        },
+        {
+          "en": "**Not only did** she sing, **but she also** danced.",
+          "fa": "**نه‌تنها** خواند، **بلکه** رقصید هم."
+        },
+        {
+          "en": "**Rarely do** people **listen** these days.",
+          "fa": "این روزها مردم **به‌ندرت** گوش می‌دن."
+        },
+        {
+          "en": "**Seldom has** he **been** so tired.",
+          "fa": "**کمتر** پیش آمده اینقدر خسته باشه."
+        }
+      ],
+      "exercises": [
+        {
+          "q": {
+            "en": "Invert: 'I have never seen that.' → 'Never ____'",
+            "fa": "وارونه کنید: Never ____"
+          },
+          "a": [
+            "have i seen that",
+            "have i ever seen that"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert: 'He left after I called.' (only after) → 'Only after I called ____'",
+            "fa": "وارونه کنید: Only after I called ____"
+          },
+          "a": [
+            "did he leave"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert: 'She doesn't often complain.' → 'Rarely ____'",
+            "fa": "وارونه کنید: Rarely ____"
+          },
+          "a": [
+            "does she complain"
+          ]
+        },
+        {
+          "q": {
+            "en": "Hardly … when: 'I had no time to eat when he called.'",
+            "fa": "hardly … when: وقتی زنگ زد وقت ناهار نداشتم."
+          },
+          "a": [
+            "hardly had i time to eat when",
+            "hardly had i had time to eat when"
+          ]
+        },
+        {
+          "q": {
+            "en": "Not only … but also: 'He apologised and he paid.'",
+            "fa": "not only … but also: عذر خواست و پول هم داد."
+          },
+          "a": [
+            "not only did he apologise but he also paid",
+            "not only did he apologize but he also paid"
+          ]
+        },
+        {
+          "q": {
+            "en": "No sooner … than: 'He sat down. The phone rang.'",
+            "fa": "no sooner … than: نشست. تلفن زنگ زد."
+          },
+          "a": [
+            "no sooner had he sat down than the phone rang",
+            "no sooner had he sat down than it rang"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert with 'little': 'I know little about it.' → 'Little ____'",
+            "fa": "با little وارونه کنید: Little ____"
+          },
+          "a": [
+            "do i know",
+            "do i know about it"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert with 'seldom': 'They rarely visit us.' → 'Seldom ____'",
+            "fa": "با seldom وارونه کنید: Seldom ____"
+          },
+          "a": [
+            "do they visit us"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert with 'only when': 'He left when she arrived.' (only when)",
+            "fa": "با only when وارونه کنید: وقتی اون رسید، او رفت."
+          },
+          "a": [
+            "only when she arrived did he leave"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert: 'I have never been so tired.' → 'Never ____'",
+            "fa": "وارونه کنید: Never ____"
+          },
+          "a": [
+            "have i been so tired",
+            "have i ever been so tired"
+          ]
+        },
+        {
+          "q": {
+            "en": "Invert with 'no sooner': 'He arrived. I called.'",
+            "fa": "با no sooner وارونه کنید: رسید. زنگ زدم."
+          },
+          "a": [
+            "no sooner had he arrived than i called"
+          ]
+        },
+        {
+          "q": {
+            "en": "The auxiliary moves before the subject: 'She rarely eats.' → 'Rarely ____'",
+            "fa": "فعل کمکی قبل از فاعل: Rarely ____"
+          },
+          "a": [
+            "does she eat",
+            "does she"
+          ]
+        }
+      ],
+      "title_long": {
+        "en": "Inversion",
+        "fa": "جابه‌جایی ترتیب کلمات (Inversion)"
+      }
+    }
+  }
+}

@@ -1,0 +1,5157 @@
+{
+  "domains": {
+    "colors": {
+      "label": {
+        "en": "color",
+        "fa": "رنگ"
+      },
+      "list_label": {
+        "en": "Colors",
+        "fa": "رنگ‌ها"
+      },
+      "keywords": {
+        "en": [
+          "colors",
+          "colours",
+          "color names",
+          "color words"
+        ],
+        "fa": [
+          "رنگها",
+          "رنگ ها",
+          "اسم رنگ"
+        ]
+      },
+      "words": [
+        [
+          "red",
+          "قرمز"
+        ],
+        [
+          "blue",
+          "آبی"
+        ],
+        [
+          "green",
+          "سبز"
+        ],
+        [
+          "yellow",
+          "زرد"
+        ],
+        [
+          "black",
+          "مشکی"
+        ],
+        [
+          "white",
+          "سفید"
+        ],
+        [
+          "orange",
+          "نارنجی"
+        ],
+        [
+          "purple",
+          "بنفشی"
+        ],
+        [
+          "pink",
+          "صورتی"
+        ],
+        [
+          "brown",
+          "قهوه‌ای"
+        ],
+        [
+          "gray",
+          "خاکستری"
+        ],
+        [
+          "gold",
+          "طلایی"
+        ],
+        [
+          "silver",
+          "نقره‌ای"
+        ],
+        [
+          "cyan",
+          "فیروزه‌ای"
+        ],
+        [
+          "navy",
+          "سرمه‌ای"
+        ],
+        [
+          "turquoise",
+          "فیروزه"
+        ],
+        [
+          "beige",
+          "بژ"
+        ],
+        [
+          "olive",
+          "زیتونی"
+        ],
+        [
+          "maroon",
+          "زرشکی"
+        ],
+        [
+          "dark",
+          "تیره"
+        ],
+        [
+          "light",
+          "روشن"
+        ],
+        [
+          "transparent",
+          "شفاف"
+        ],
+        [
+          "khaki",
+          "کاکی"
+        ],
+        [
+          "crimson",
+          "سرخابی"
+        ],
+        [
+          "violet",
+          "نیلی"
+        ],
+        [
+          "golden",
+          "طلایی رنگ"
+        ],
+        [
+          "light blue",
+          "آبی روشن"
+        ],
+        [
+          "dark blue",
+          "آبی تیره"
+        ],
+        [
+          "light green",
+          "سبز روشن"
+        ],
+        [
+          "dark green",
+          "سبز تیره"
+        ],
+        [
+          "light gray",
+          "خاکستری روشن"
+        ],
+        [
+          "dark gray",
+          "خاکستری تیره"
+        ],
+        [
+          "cream",
+          "کرم"
+        ],
+        [
+          "indigo",
+          "نیل"
+        ],
+        [
+          "lavender",
+          "اسطوخودوسی"
+        ],
+        [
+          "peach",
+          "هلویی"
+        ],
+        [
+          "mint",
+          "نعنایی"
+        ],
+        [
+          "burgundy",
+          "بورژundy"
+        ],
+        [
+          "magenta",
+          "سرخابی"
+        ],
+        [
+          "emerald",
+          "زمردی"
+        ],
+        [
+          "ruby",
+          "یاقوتی"
+        ]
+      ],
+      "group": "describe"
+    },
+    "animals": {
+      "label": {
+        "en": "animal",
+        "fa": "حیوان"
+      },
+      "list_label": {
+        "en": "Animals",
+        "fa": "حیوانات"
+      },
+      "keywords": {
+        "en": [
+          "animals",
+          "animal names",
+          "names of animals"
+        ],
+        "fa": [
+          "حیوانات",
+          "اسم حیوان",
+          "حیوان ها"
+        ]
+      },
+      "words": [
+        [
+          "cat",
+          "گربه"
+        ],
+        [
+          "dog",
+          "سگ"
+        ],
+        [
+          "bird",
+          "پرنده"
+        ],
+        [
+          "fish",
+          "ماهی"
+        ],
+        [
+          "horse",
+          "اسب"
+        ],
+        [
+          "cow",
+          "گاو"
+        ],
+        [
+          "sheep",
+          "گوسفند"
+        ],
+        [
+          "lion",
+          "شیر"
+        ],
+        [
+          "bear",
+          "خرس"
+        ],
+        [
+          "rabbit",
+          "خرگوش"
+        ],
+        [
+          "mouse",
+          "موش"
+        ],
+        [
+          "elephant",
+          "فیل"
+        ],
+        [
+          "monkey",
+          "میمون"
+        ],
+        [
+          "chicken",
+          "مرغ"
+        ],
+        [
+          "duck",
+          "اردک"
+        ],
+        [
+          "snake",
+          "مار"
+        ],
+        [
+          "wolf",
+          "گرگ"
+        ],
+        [
+          "deer",
+          "آهو"
+        ],
+        [
+          "tiger",
+          "ببر"
+        ],
+        [
+          "fox",
+          "روباه"
+        ],
+        [
+          "giraffe",
+          "زرافه"
+        ],
+        [
+          "zebra",
+          "گورخر"
+        ],
+        [
+          "crocodile",
+          "تمساح"
+        ],
+        [
+          "frog",
+          "قورباغه"
+        ],
+        [
+          "bee",
+          "زنبور"
+        ],
+        [
+          "ant",
+          "مورچه"
+        ],
+        [
+          "butterfly",
+          "پروانه"
+        ],
+        [
+          "spider",
+          "عنکبوت"
+        ],
+        [
+          "pigeon",
+          "کبوتر"
+        ],
+        [
+          "eagle",
+          "عقاب"
+        ],
+        [
+          "whale",
+          "نهنگ"
+        ],
+        [
+          "dolphin",
+          "دلفین"
+        ],
+        [
+          "shark",
+          "کوسه"
+        ],
+        [
+          "dinosaur",
+          "دایناسور"
+        ],
+        [
+          "goat",
+          "بز"
+        ],
+        [
+          "donkey",
+          "الاغ"
+        ],
+        [
+          "camel",
+          "شتر"
+        ],
+        [
+          "buffalo",
+          "گاومیش"
+        ],
+        [
+          "rooster",
+          "خروس"
+        ],
+        [
+          "turkey",
+          "بوقلمون"
+        ],
+        [
+          "goose",
+          "غاز"
+        ],
+        [
+          "swan",
+          "قو"
+        ],
+        [
+          "peacock",
+          "طاووس"
+        ],
+        [
+          "bat",
+          "خفاش"
+        ],
+        [
+          "hedgehog",
+          "خارپشت"
+        ],
+        [
+          "squirrel",
+          "سنجاب"
+        ],
+        [
+          "leopard",
+          "پلنگ"
+        ],
+        [
+          "cheetah",
+          "یوزپلنگ"
+        ],
+        [
+          "penguin",
+          "پنگوئن"
+        ],
+        [
+          "ostrich",
+          "شترمرغ"
+        ],
+        [
+          "parrot",
+          "طوطی"
+        ],
+        [
+          "crow",
+          "کلاغ"
+        ],
+        [
+          "sparrow",
+          "گنجشک"
+        ],
+        [
+          "owl",
+          "جغد"
+        ],
+        [
+          "turtle",
+          "لاک‌پشت"
+        ],
+        [
+          "lizard",
+          "مارمولک"
+        ],
+        [
+          "octopus",
+          "هشت‌پا"
+        ],
+        [
+          "crab",
+          "خرچنگ"
+        ],
+        [
+          "hippo",
+          "اسب آبی"
+        ],
+        [
+          "kangaroo",
+          "کانگورو"
+        ]
+      ],
+      "group": "world"
+    },
+    "food": {
+      "label": {
+        "en": "food",
+        "fa": "خوراکی"
+      },
+      "list_label": {
+        "en": "Food",
+        "fa": "غذاها"
+      },
+      "keywords": {
+        "en": [
+          "foods",
+          "food names",
+          "kinds of food"
+        ],
+        "fa": [
+          "غذاها",
+          "اسم غذا",
+          "غذا هاتون"
+        ]
+      },
+      "words": [
+        [
+          "bread",
+          "نان"
+        ],
+        [
+          "rice",
+          "برنج"
+        ],
+        [
+          "meat",
+          "گوشت"
+        ],
+        [
+          "soup",
+          "سوپ"
+        ],
+        [
+          "cheese",
+          "پنیر"
+        ],
+        [
+          "egg",
+          "تخم مرغ"
+        ],
+        [
+          "butter",
+          "کره"
+        ],
+        [
+          "sugar",
+          "شکر"
+        ],
+        [
+          "salt",
+          "نمک"
+        ],
+        [
+          "oil",
+          "روغن"
+        ],
+        [
+          "tea",
+          "چای"
+        ],
+        [
+          "coffee",
+          "قهوه"
+        ],
+        [
+          "juice",
+          "آب میوه"
+        ],
+        [
+          "water",
+          "آب"
+        ],
+        [
+          "cake",
+          "کیک"
+        ],
+        [
+          "sandwich",
+          "ساندویچ"
+        ],
+        [
+          "pizza",
+          "پیتزا"
+        ],
+        [
+          "noodle",
+          "ماکارونی"
+        ],
+        [
+          "yogurt",
+          "ماست"
+        ],
+        [
+          "honey",
+          "عسل"
+        ],
+        [
+          "milk",
+          "شیر"
+        ],
+        [
+          "kebab",
+          "کباب"
+        ],
+        [
+          "stew",
+          "خورشت"
+        ],
+        [
+          "salad",
+          "سالاد"
+        ],
+        [
+          "soda",
+          "نوشابه"
+        ],
+        [
+          "lemonade",
+          "لیموناد"
+        ],
+        [
+          "pasta",
+          "پاستا"
+        ],
+        [
+          "burger",
+          "برگر"
+        ],
+        [
+          "pepper",
+          "فلفل"
+        ],
+        [
+          "chicken",
+          "مرغ"
+        ],
+        [
+          "beef",
+          "گوشت گاو"
+        ],
+        [
+          "fish",
+          "ماهی"
+        ],
+        [
+          "shrimp",
+          "میگو"
+        ],
+        [
+          "steak",
+          "استیک"
+        ],
+        [
+          "sausage",
+          "سوسیس"
+        ],
+        [
+          "hamburger",
+          "همبرگر"
+        ],
+        [
+          "fries",
+          "سیب‌زمینی سرخ‌کرده"
+        ],
+        [
+          "cookie",
+          "کوکی"
+        ],
+        [
+          "chocolate",
+          "شکلات"
+        ],
+        [
+          "ice cream",
+          "بستنی"
+        ],
+        [
+          "dessert",
+          "دسر"
+        ],
+        [
+          "pudding",
+          "پودینگ"
+        ]
+      ],
+      "group": "food"
+    },
+    "fruits": {
+      "label": {
+        "en": "fruit",
+        "fa": "میوه"
+      },
+      "list_label": {
+        "en": "Fruits",
+        "fa": "میوه‌ها"
+      },
+      "keywords": {
+        "en": [
+          "fruits",
+          "fruit names",
+          "names of fruits"
+        ],
+        "fa": [
+          "میوهها",
+          "میوه ها",
+          "اسم میوه"
+        ]
+      },
+      "words": [
+        [
+          "apple",
+          "سیب"
+        ],
+        [
+          "banana",
+          "موز"
+        ],
+        [
+          "orange",
+          "پرتقال"
+        ],
+        [
+          "grape",
+          "انگور"
+        ],
+        [
+          "pomegranate",
+          "انار"
+        ],
+        [
+          "watermelon",
+          "هندوانه"
+        ],
+        [
+          "lemon",
+          "لیمو"
+        ],
+        [
+          "strawberry",
+          "توت فرنگی"
+        ],
+        [
+          "peach",
+          "هلو"
+        ],
+        [
+          "cherry",
+          "گیلاس"
+        ],
+        [
+          "pear",
+          "گلابی"
+        ],
+        [
+          "fig",
+          "انجیر"
+        ],
+        [
+          "date",
+          "خرما"
+        ],
+        [
+          "kiwi",
+          "کیوی"
+        ],
+        [
+          "melon",
+          "طالبی"
+        ],
+        [
+          "plum",
+          "آلو"
+        ],
+        [
+          "pineapple",
+          "آناناس"
+        ],
+        [
+          "mango",
+          "انبه"
+        ],
+        [
+          "apricot",
+          "زردآلو"
+        ],
+        [
+          "lime",
+          "لیموی سبز"
+        ],
+        [
+          "coconut",
+          "نارگیل"
+        ]
+      ],
+      "group": "food"
+    },
+    "vegetables": {
+      "label": {
+        "en": "vegetable",
+        "fa": "سبزی"
+      },
+      "list_label": {
+        "en": "Vegetables",
+        "fa": "سبزیجات"
+      },
+      "keywords": {
+        "en": [
+          "vegetables",
+          "vegetable names"
+        ],
+        "fa": [
+          "سبزیجات",
+          "سبزی ها",
+          "اسم سبزی"
+        ]
+      },
+      "words": [
+        [
+          "potato",
+          "سیب زمینی"
+        ],
+        [
+          "tomato",
+          "گوجه فرنگی"
+        ],
+        [
+          "onion",
+          "پیاز"
+        ],
+        [
+          "garlic",
+          "سیر"
+        ],
+        [
+          "cucumber",
+          "خیار"
+        ],
+        [
+          "carrot",
+          "هویج"
+        ],
+        [
+          "cabbage",
+          "کلم"
+        ],
+        [
+          "lettuce",
+          "کاهو"
+        ],
+        [
+          "pepper",
+          "فلفل"
+        ],
+        [
+          "mushroom",
+          "قارچ"
+        ],
+        [
+          "eggplant",
+          "بادمجان"
+        ],
+        [
+          "spinach",
+          "اسفناج"
+        ],
+        [
+          "pea",
+          "نخود"
+        ],
+        [
+          "lentil",
+          "عدس"
+        ],
+        [
+          "broccoli",
+          "کلم بروکلی"
+        ],
+        [
+          "cauliflower",
+          "کلم گل‌کلم"
+        ],
+        [
+          "celery",
+          "کرفس"
+        ],
+        [
+          "peas",
+          "نخود سبز"
+        ],
+        [
+          "corn",
+          "ذرت"
+        ],
+        [
+          "zucchini",
+          "کدو"
+        ]
+      ],
+      "group": "food"
+    },
+    "body": {
+      "label": {
+        "en": "body part",
+        "fa": "عضو بدن"
+      },
+      "list_label": {
+        "en": "Body parts",
+        "fa": "اعضای بدن"
+      },
+      "keywords": {
+        "en": [
+          "body parts",
+          "parts of body",
+          "parts of the body"
+        ],
+        "fa": [
+          "اعضای بدن",
+          "اندام ها"
+        ]
+      },
+      "words": [
+        [
+          "head",
+          "سر"
+        ],
+        [
+          "hand",
+          "دست"
+        ],
+        [
+          "foot",
+          "پا"
+        ],
+        [
+          "eye",
+          "چشم"
+        ],
+        [
+          "ear",
+          "گوش"
+        ],
+        [
+          "nose",
+          "بینی"
+        ],
+        [
+          "mouth",
+          "دهان"
+        ],
+        [
+          "hair",
+          "مو"
+        ],
+        [
+          "heart",
+          "قلب"
+        ],
+        [
+          "finger",
+          "انگشت"
+        ],
+        [
+          "tooth",
+          "دندان"
+        ],
+        [
+          "back",
+          "کمر"
+        ],
+        [
+          "stomach",
+          "معده"
+        ],
+        [
+          "brain",
+          "مغز"
+        ],
+        [
+          "leg",
+          "پا"
+        ],
+        [
+          "arm",
+          "بازو"
+        ],
+        [
+          "neck",
+          "گردن"
+        ],
+        [
+          "knee",
+          "زانو"
+        ],
+        [
+          "shoulder",
+          "شانه"
+        ],
+        [
+          "elbow",
+          "آرنج"
+        ],
+        [
+          "wrist",
+          "مچ"
+        ],
+        [
+          "ankle",
+          "مچ پا"
+        ],
+        [
+          "chest",
+          "سینه"
+        ],
+        [
+          "lip",
+          "لب"
+        ],
+        [
+          "tongue",
+          "زبان"
+        ],
+        [
+          "cheek",
+          "گونه"
+        ],
+        [
+          "forehead",
+          "پیشانی"
+        ],
+        [
+          "chin",
+          "چانه"
+        ],
+        [
+          "thumb",
+          "شست"
+        ],
+        [
+          "waist",
+          "کمر"
+        ],
+        [
+          "hip",
+          "لگن"
+        ],
+        [
+          "toe",
+          "انگشت پا"
+        ],
+        [
+          "skin",
+          "پوست"
+        ],
+        [
+          "bone",
+          "استخوان"
+        ],
+        [
+          "muscle",
+          "عضله"
+        ]
+      ],
+      "group": "people"
+    },
+    "family": {
+      "label": {
+        "en": "family member",
+        "fa": "عضو خانواده"
+      },
+      "list_label": {
+        "en": "Family members",
+        "fa": "اعضای خانواده"
+      },
+      "keywords": {
+        "en": [
+          "family members",
+          "names of family",
+          "relatives"
+        ],
+        "fa": [
+          "اعضای خانواده",
+          "اسم خانواده",
+          "خویشاوندان"
+        ]
+      },
+      "words": [
+        [
+          "mother",
+          "مادر"
+        ],
+        [
+          "father",
+          "پدر"
+        ],
+        [
+          "brother",
+          "برادر"
+        ],
+        [
+          "sister",
+          "خواهر"
+        ],
+        [
+          "son",
+          "پسر"
+        ],
+        [
+          "daughter",
+          "دختر"
+        ],
+        [
+          "grandfather",
+          "پدربزرگ"
+        ],
+        [
+          "grandmother",
+          "مادربزرگ"
+        ],
+        [
+          "uncle",
+          "عمو"
+        ],
+        [
+          "aunt",
+          "عمه"
+        ],
+        [
+          "husband",
+          "شوهر"
+        ],
+        [
+          "wife",
+          "همسر"
+        ],
+        [
+          "baby",
+          "نوزاد"
+        ],
+        [
+          "child",
+          "کودک"
+        ],
+        [
+          "nephew",
+          "برادرزاده"
+        ],
+        [
+          "niece",
+          "خواهرزاده"
+        ],
+        [
+          "cousin",
+          "پسرعمو"
+        ],
+        [
+          "mother-in-law",
+          "مادرشوهر"
+        ],
+        [
+          "parents",
+          "والدین"
+        ],
+        [
+          "twins",
+          "دوقلو"
+        ],
+        [
+          "stepfather",
+          "نپدر"
+        ]
+      ],
+      "group": "people"
+    },
+    "numbers": {
+      "label": {
+        "en": "number",
+        "fa": "عدد"
+      },
+      "list_label": {
+        "en": "Numbers",
+        "fa": "اعداد"
+      },
+      "keywords": {
+        "en": [
+          "numbers",
+          "number names",
+          "counting",
+          "how to count"
+        ],
+        "fa": [
+          "اعداد",
+          "اسم اعداد",
+          "شمارش"
+        ]
+      },
+      "words": [
+        [
+          "zero",
+          "صفر",
+          "0"
+        ],
+        [
+          "one",
+          "یک",
+          "1"
+        ],
+        [
+          "two",
+          "دو",
+          "2"
+        ],
+        [
+          "three",
+          "سه",
+          "3"
+        ],
+        [
+          "four",
+          "چهار",
+          "4"
+        ],
+        [
+          "five",
+          "پنج",
+          "5"
+        ],
+        [
+          "six",
+          "شش",
+          "6"
+        ],
+        [
+          "seven",
+          "هفت",
+          "7"
+        ],
+        [
+          "eight",
+          "هشت",
+          "8"
+        ],
+        [
+          "nine",
+          "نه",
+          "9"
+        ],
+        [
+          "ten",
+          "ده",
+          "10"
+        ],
+        [
+          "eleven",
+          "یازده",
+          "11"
+        ],
+        [
+          "twelve",
+          "دوازده",
+          "12"
+        ],
+        [
+          "thirteen",
+          "سیزده",
+          "13"
+        ],
+        [
+          "fourteen",
+          "چهارده",
+          "14"
+        ],
+        [
+          "fifteen",
+          "پانزده",
+          "15"
+        ],
+        [
+          "sixteen",
+          "شانزده",
+          "16"
+        ],
+        [
+          "seventeen",
+          "هفده",
+          "17"
+        ],
+        [
+          "eighteen",
+          "هجده",
+          "18"
+        ],
+        [
+          "nineteen",
+          "نوزده",
+          "19"
+        ],
+        [
+          "twenty",
+          "بیست",
+          "20"
+        ],
+        [
+          "thirty",
+          "سی",
+          "30"
+        ],
+        [
+          "forty",
+          "چهل",
+          "40"
+        ],
+        [
+          "fifty",
+          "پنجاه",
+          "50"
+        ],
+        [
+          "hundred",
+          "صد",
+          "100"
+        ],
+        [
+          "thousand",
+          "هزار",
+          "1000"
+        ],
+        [
+          "sixty",
+          "شصت"
+        ],
+        [
+          "seventy",
+          "هفتاد"
+        ],
+        [
+          "eighty",
+          "هشتاد"
+        ],
+        [
+          "ninety",
+          "نود"
+        ],
+        [
+          "million",
+          "میلیون"
+        ],
+        [
+          "first",
+          "اول"
+        ],
+        [
+          "second",
+          "دوم"
+        ],
+        [
+          "third",
+          "سوم"
+        ],
+        [
+          "half",
+          "نیم"
+        ]
+      ],
+      "group": "essentials"
+    },
+    "emotions": {
+      "label": {
+        "en": "emotion",
+        "fa": "احساس"
+      },
+      "list_label": {
+        "en": "Emotions",
+        "fa": "احساسات"
+      },
+      "keywords": {
+        "en": [
+          "emotions",
+          "feelings",
+          "mood words",
+          "names of feelings"
+        ],
+        "fa": [
+          "احساسات",
+          "اسم احساس",
+          "حالات روحی"
+        ]
+      },
+      "words": [
+        [
+          "happy",
+          "خوشحال"
+        ],
+        [
+          "sad",
+          "ناراحت"
+        ],
+        [
+          "angry",
+          "عصبانی"
+        ],
+        [
+          "afraid",
+          "ترسیده"
+        ],
+        [
+          "surprised",
+          "متعجب"
+        ],
+        [
+          "tired",
+          "خسته"
+        ],
+        [
+          "bored",
+          "بی حوصله"
+        ],
+        [
+          "shy",
+          "خجالتی"
+        ],
+        [
+          "proud",
+          "مغرور"
+        ],
+        [
+          "jealous",
+          "حسود"
+        ],
+        [
+          "calm",
+          "آرام"
+        ],
+        [
+          "excited",
+          "هیجان زده"
+        ],
+        [
+          "lonely",
+          "تنها"
+        ],
+        [
+          "grateful",
+          "سپاسگزار"
+        ],
+        [
+          "nervous",
+          "عصبی"
+        ],
+        [
+          "confused",
+          "سردرگم"
+        ],
+        [
+          "disappointed",
+          "ناامید"
+        ],
+        [
+          "relaxed",
+          "ریلکس"
+        ],
+        [
+          "serious",
+          "جدی"
+        ],
+        [
+          "cheerful",
+          "شادمان"
+        ]
+      ],
+      "group": "people"
+    },
+    "jobs": {
+      "label": {
+        "en": "job",
+        "fa": "شغل"
+      },
+      "list_label": {
+        "en": "Jobs",
+        "fa": "مشاغل"
+      },
+      "keywords": {
+        "en": [
+          "jobs",
+          "occupations",
+          "professions",
+          "job names"
+        ],
+        "fa": [
+          "شغل ها",
+          "مشاغل",
+          "اسم شغل"
+        ]
+      },
+      "words": [
+        [
+          "doctor",
+          "پزشک"
+        ],
+        [
+          "teacher",
+          "معلم"
+        ],
+        [
+          "engineer",
+          "مهندس"
+        ],
+        [
+          "lawyer",
+          "وکیل"
+        ],
+        [
+          "police",
+          "پلیس"
+        ],
+        [
+          "nurse",
+          "پرستار"
+        ],
+        [
+          "driver",
+          "راننده"
+        ],
+        [
+          "farmer",
+          "کشاورز"
+        ],
+        [
+          "soldier",
+          "سرباز"
+        ],
+        [
+          "artist",
+          "هنرمند"
+        ],
+        [
+          "writer",
+          "نویسنده"
+        ],
+        [
+          "singer",
+          "خواننده"
+        ],
+        [
+          "student",
+          "دانشجو"
+        ],
+        [
+          "cook",
+          "آشپز"
+        ],
+        [
+          "baker",
+          "نانوا"
+        ],
+        [
+          "vet",
+          "دامپزشک"
+        ],
+        [
+          "judge",
+          "قاضی"
+        ],
+        [
+          "journalist",
+          "روزنامه نگار"
+        ],
+        [
+          "pilot",
+          "خلبان"
+        ],
+        [
+          "sailor",
+          "ملوان"
+        ],
+        [
+          "dentist",
+          "دندانپزشک"
+        ],
+        [
+          "pharmacist",
+          "داروساز"
+        ],
+        [
+          "architect",
+          "معمار"
+        ],
+        [
+          "programmer",
+          "برنامه نویس"
+        ],
+        [
+          "scientist",
+          "دانشمند"
+        ],
+        [
+          "musician",
+          "موسیقیدان"
+        ],
+        [
+          "waiter",
+          "پیشخدم"
+        ],
+        [
+          "police officer",
+          "پلیس"
+        ],
+        [
+          "designer",
+          "طراح"
+        ],
+        [
+          "manager",
+          "مدیر"
+        ],
+        [
+          "accountant",
+          "حسابدار"
+        ],
+        [
+          "electrician",
+          "برق‌کار"
+        ],
+        [
+          "plumber",
+          "لوله‌کش"
+        ],
+        [
+          "carpenter",
+          "نجار"
+        ],
+        [
+          "translator",
+          "مترجم"
+        ],
+        [
+          "photographer",
+          "عکاس"
+        ],
+        [
+          "actor",
+          "بازیگر"
+        ],
+        [
+          "banker",
+          "بانکدار"
+        ],
+        [
+          "receptionist",
+          "پذیرش"
+        ]
+      ],
+      "group": "people"
+    },
+    "transport": {
+      "label": {
+        "en": "vehicle",
+        "fa": "وسیله نقلیه"
+      },
+      "list_label": {
+        "en": "Vehicles",
+        "fa": "وسایل نقلیه"
+      },
+      "keywords": {
+        "en": [
+          "vehicles",
+          "vehicle names",
+          "transport",
+          "means of transport"
+        ],
+        "fa": [
+          "وسایل نقلیه",
+          "ناقله ها"
+        ]
+      },
+      "words": [
+        [
+          "car",
+          "ماشین"
+        ],
+        [
+          "bus",
+          "اتوبوس"
+        ],
+        [
+          "train",
+          "قطار"
+        ],
+        [
+          "airplane",
+          "هواپیما"
+        ],
+        [
+          "bicycle",
+          "دوچرخه"
+        ],
+        [
+          "taxi",
+          "تاکسی"
+        ],
+        [
+          "ship",
+          "کشتی"
+        ],
+        [
+          "motorcycle",
+          "موتور"
+        ],
+        [
+          "truck",
+          "کامیون"
+        ],
+        [
+          "metro",
+          "مترو"
+        ],
+        [
+          "boat",
+          "قایق"
+        ],
+        [
+          "van",
+          "ون"
+        ],
+        [
+          "plane",
+          "هواپیما"
+        ],
+        [
+          "subway",
+          "مترو"
+        ],
+        [
+          "tram",
+          "ترام"
+        ],
+        [
+          "scooter",
+          "اسکوتر"
+        ],
+        [
+          "helicopter",
+          "بالگرد"
+        ],
+        [
+          "tractor",
+          "تراکتور"
+        ]
+      ],
+      "group": "world"
+    },
+    "travel": {
+      "label": {
+        "en": "travel word",
+        "fa": "کلمه سفر"
+      },
+      "list_label": {
+        "en": "Travel words",
+        "fa": "کلمات سفر"
+      },
+      "keywords": {
+        "en": [
+          "travel words",
+          "travel vocabulary",
+          "words about travel"
+        ],
+        "fa": [
+          "کلمات سفر",
+          "کلمات مسافرت"
+        ]
+      },
+      "words": [
+        [
+          "airport",
+          "فرودگاه"
+        ],
+        [
+          "hotel",
+          "هتل"
+        ],
+        [
+          "passport",
+          "پاسپورت"
+        ],
+        [
+          "ticket",
+          "بلیت"
+        ],
+        [
+          "luggage",
+          "چمدان"
+        ],
+        [
+          "map",
+          "نقشه"
+        ],
+        [
+          "road",
+          "جاده"
+        ],
+        [
+          "bridge",
+          "پل"
+        ],
+        [
+          "beach",
+          "ساحل"
+        ],
+        [
+          "island",
+          "جزیره"
+        ],
+        [
+          "trip",
+          "سفر"
+        ],
+        [
+          "suitcase",
+          "چمدون"
+        ],
+        [
+          "visa",
+          "ویزا"
+        ],
+        [
+          "reservation",
+          "رزرو"
+        ],
+        [
+          "boarding pass",
+          "کارت پرواز"
+        ],
+        [
+          "departure",
+          "حرکت"
+        ],
+        [
+          "arrival",
+          "رسیدن"
+        ],
+        [
+          "flight",
+          "پرواز"
+        ],
+        [
+          "gate",
+          "گیت"
+        ],
+        [
+          "terminal",
+          "ترمینال"
+        ],
+        [
+          "delay",
+          "تأخیر"
+        ],
+        [
+          "tourist",
+          "گردشگر"
+        ],
+        [
+          "souvenir",
+          "سوغاری"
+        ],
+        [
+          "guide",
+          "راهنما"
+        ],
+        [
+          "abroad",
+          "خارج از کشور"
+        ]
+      ],
+      "group": "world"
+    },
+    "technology": {
+      "label": {
+        "en": "tech word",
+        "fa": "کلمه فناوری"
+      },
+      "list_label": {
+        "en": "Technology words",
+        "fa": "کلمات کامپیوتر"
+      },
+      "keywords": {
+        "en": [
+          "technology words",
+          "tech vocabulary",
+          "computing words",
+          "computer words"
+        ],
+        "fa": [
+          "کلمات کامپیوتر",
+          "کلمات تکنولوژی"
+        ]
+      },
+      "words": [
+        [
+          "computer",
+          "کامپیوتر"
+        ],
+        [
+          "phone",
+          "تلفن"
+        ],
+        [
+          "internet",
+          "اینترنت"
+        ],
+        [
+          "keyboard",
+          "کیبورد"
+        ],
+        [
+          "screen",
+          "صفحه"
+        ],
+        [
+          "software",
+          "نرم افزار"
+        ],
+        [
+          "hardware",
+          "سخت افزار"
+        ],
+        [
+          "program",
+          "برنامه"
+        ],
+        [
+          "file",
+          "فایل"
+        ],
+        [
+          "password",
+          "رمز عبور"
+        ],
+        [
+          "battery",
+          "باتری"
+        ],
+        [
+          "charger",
+          "شارژر"
+        ],
+        [
+          "camera",
+          "دوربین"
+        ],
+        [
+          "robot",
+          "ربات"
+        ],
+        [
+          "data",
+          "داده"
+        ],
+        [
+          "mouse",
+          "ماوس"
+        ],
+        [
+          "tablet",
+          "تبلت"
+        ],
+        [
+          "laptop",
+          "لپ تاپ"
+        ],
+        [
+          "server",
+          "سرور"
+        ],
+        [
+          "network",
+          "شبکه"
+        ],
+        [
+          "website",
+          "وب سایت"
+        ],
+        [
+          "app",
+          "اپلیکیشن"
+        ],
+        [
+          "email",
+          "ایمیل"
+        ],
+        [
+          "video",
+          "ویدیو"
+        ],
+        [
+          "image",
+          "عکس"
+        ],
+        [
+          "message",
+          "پیام"
+        ],
+        [
+          "smartphone",
+          "گوشی هوشمند"
+        ],
+        [
+          "printer",
+          "پرینتر"
+        ],
+        [
+          "scanner",
+          "اسکنر"
+        ],
+        [
+          "router",
+          "روتر"
+        ],
+        [
+          "hard drive",
+          "هارد"
+        ],
+        [
+          "USB",
+          "یواس‌بی"
+        ],
+        [
+          "application",
+          "برنامه"
+        ],
+        [
+          "browser",
+          "مرورگر"
+        ],
+        [
+          "download",
+          "دانلود"
+        ],
+        [
+          "upload",
+          "آپلود"
+        ],
+        [
+          "folder",
+          "پوشه"
+        ],
+        [
+          "database",
+          "پایگاه داده"
+        ],
+        [
+          "click",
+          "کلیک"
+        ],
+        [
+          "search",
+          "جستجو"
+        ],
+        [
+          "setting",
+          "تنظیمات"
+        ],
+        [
+          "update",
+          "به‌روزرسانی"
+        ],
+        [
+          "virus",
+          "ویروس"
+        ],
+        [
+          "backup",
+          "پشتیبان"
+        ],
+        [
+          "pixel",
+          "پیکسل"
+        ],
+        [
+          "bluetooth",
+          "بلوتوث"
+        ],
+        [
+          "Wi-Fi",
+          "وای‌فای"
+        ]
+      ],
+      "group": "work"
+    },
+    "sports": {
+      "label": {
+        "en": "sport",
+        "fa": "ورزش"
+      },
+      "list_label": {
+        "en": "Sports",
+        "fa": "ورزش‌ها"
+      },
+      "keywords": {
+        "en": [
+          "sports",
+          "sport names",
+          "kinds of sport",
+          "kinds of sports"
+        ],
+        "fa": [
+          "ورزشها",
+          "ورزش ها",
+          "اسم ورزش"
+        ]
+      },
+      "words": [
+        [
+          "football",
+          "فوتبال"
+        ],
+        [
+          "basketball",
+          "بسکتبال"
+        ],
+        [
+          "tennis",
+          "تنیس"
+        ],
+        [
+          "swimming",
+          "شنا"
+        ],
+        [
+          "volleyball",
+          "والیبال"
+        ],
+        [
+          "wrestling",
+          "کشتی"
+        ],
+        [
+          "boxing",
+          "بوکس"
+        ],
+        [
+          "golf",
+          "گلف"
+        ],
+        [
+          "hockey",
+          "هاکی"
+        ],
+        [
+          "cycling",
+          "دوچرخه سواری"
+        ],
+        [
+          "running",
+          "دویدن"
+        ],
+        [
+          "gym",
+          "باشگاه"
+        ],
+        [
+          "skiing",
+          "اسکی"
+        ],
+        [
+          "skating",
+          "اسکیت"
+        ],
+        [
+          "karate",
+          "کاراته"
+        ],
+        [
+          "judo",
+          "جودو"
+        ],
+        [
+          "climbing",
+          "کوهنوردی"
+        ],
+        [
+          "fishing",
+          "ماهیگیری"
+        ],
+        [
+          "gymnastics",
+          "ژیمناستیک"
+        ],
+        [
+          "athletics",
+          "ورزش‌های استقامتی"
+        ],
+        [
+          "surfing",
+          "موج‌سواری"
+        ],
+        [
+          "yoga",
+          "یوگا"
+        ],
+        [
+          "dancing",
+          "رقص"
+        ],
+        [
+          "chess",
+          "شطرنج"
+        ],
+        [
+          "ski",
+          "اسکی"
+        ]
+      ],
+      "group": "describe"
+    },
+    "clothing": {
+      "label": {
+        "en": "clothing",
+        "fa": "لباس"
+      },
+      "list_label": {
+        "en": "Clothes",
+        "fa": "لباس‌ها"
+      },
+      "keywords": {
+        "en": [
+          "clothes",
+          "clothing",
+          "names of clothes"
+        ],
+        "fa": [
+          "لباسها",
+          "لباس ها",
+          "پوشاک"
+        ]
+      },
+      "words": [
+        [
+          "shirt",
+          "پیراهن"
+        ],
+        [
+          "pants",
+          "شلوار"
+        ],
+        [
+          "dress",
+          "لباس"
+        ],
+        [
+          "shoes",
+          "کفش"
+        ],
+        [
+          "socks",
+          "جوراب"
+        ],
+        [
+          "hat",
+          "کلاه"
+        ],
+        [
+          "coat",
+          "پالتو"
+        ],
+        [
+          "jacket",
+          "کاپشن"
+        ],
+        [
+          "scarf",
+          "روسری"
+        ],
+        [
+          "gloves",
+          "دستکش"
+        ],
+        [
+          "glasses",
+          "عینک"
+        ],
+        [
+          "ring",
+          "انگشتر"
+        ],
+        [
+          "belt",
+          "کمربند"
+        ],
+        [
+          "button",
+          "دکمه"
+        ],
+        [
+          "pocket",
+          "جیب"
+        ],
+        [
+          "uniform",
+          "یونیفرم"
+        ],
+        [
+          "zipper",
+          "زیپ"
+        ],
+        [
+          "necklace",
+          "گردنبند"
+        ],
+        [
+          "trousers",
+          "شلوار"
+        ],
+        [
+          "skirt",
+          "دامن"
+        ],
+        [
+          "sweater",
+          "پلیور"
+        ],
+        [
+          "jeans",
+          "جینز"
+        ],
+        [
+          "shorts",
+          "شلوارک"
+        ],
+        [
+          "sneakers",
+          "کتانی"
+        ],
+        [
+          "boots",
+          "چکمه"
+        ],
+        [
+          "cap",
+          "کلاه کپ"
+        ],
+        [
+          "tie",
+          "کراوات"
+        ],
+        [
+          "pyjamas",
+          "لباس خواب"
+        ],
+        [
+          "suit",
+          "کت و شلوار"
+        ]
+      ],
+      "group": "describe"
+    },
+    "school": {
+      "label": {
+        "en": "school word",
+        "fa": "کلمه درسی"
+      },
+      "list_label": {
+        "en": "School words",
+        "fa": "کلمات درسی"
+      },
+      "keywords": {
+        "en": [
+          "school words",
+          "school vocabulary",
+          "education",
+          "classroom words"
+        ],
+        "fa": [
+          "کلمات مدرسه",
+          "کلمات درسی",
+          "واژگان درسی"
+        ]
+      },
+      "words": [
+        [
+          "school",
+          "مدرسه"
+        ],
+        [
+          "university",
+          "دانشگاه"
+        ],
+        [
+          "book",
+          "کتاب"
+        ],
+        [
+          "pen",
+          "قلم"
+        ],
+        [
+          "paper",
+          "کاغذ"
+        ],
+        [
+          "pencil",
+          "مداد"
+        ],
+        [
+          "desk",
+          "میز"
+        ],
+        [
+          "board",
+          "تخته"
+        ],
+        [
+          "lesson",
+          "درس"
+        ],
+        [
+          "exam",
+          "امتحان"
+        ],
+        [
+          "library",
+          "کتابخانه"
+        ],
+        [
+          "class",
+          "کلاس"
+        ],
+        [
+          "teacher",
+          "معلم"
+        ],
+        [
+          "student",
+          "دانش‌آموز"
+        ],
+        [
+          "homework",
+          "تکلیف"
+        ],
+        [
+          "grade",
+          "نمره"
+        ],
+        [
+          "notebook",
+          "دفتر"
+        ],
+        [
+          "eraser",
+          "پاک‌کن"
+        ],
+        [
+          "ruler",
+          "خط‌کش"
+        ],
+        [
+          "schoolbag",
+          "کوله"
+        ],
+        [
+          "blackboard",
+          "تخته"
+        ],
+        [
+          "playground",
+          "حیاط"
+        ],
+        [
+          "timetable",
+          "برنامه کلاسی"
+        ],
+        [
+          "subject",
+          "درس"
+        ],
+        [
+          "project",
+          "پروژه"
+        ]
+      ],
+      "group": "work"
+    },
+    "places": {
+      "label": {
+        "en": "place",
+        "fa": "مکان"
+      },
+      "list_label": {
+        "en": "Places",
+        "fa": "مکان‌ها"
+      },
+      "keywords": {
+        "en": [
+          "places",
+          "daily places",
+          "household words",
+          "rooms"
+        ],
+        "fa": [
+          "مکانها",
+          "مکان ها",
+          "جاهای شهر",
+          "وسایل خونه"
+        ]
+      },
+      "words": [
+        [
+          "house",
+          "خانه"
+        ],
+        [
+          "room",
+          "اتاق"
+        ],
+        [
+          "door",
+          "در"
+        ],
+        [
+          "window",
+          "پنجره"
+        ],
+        [
+          "street",
+          "خیابان"
+        ],
+        [
+          "city",
+          "شهر"
+        ],
+        [
+          "village",
+          "روستا"
+        ],
+        [
+          "market",
+          "بازار"
+        ],
+        [
+          "shop",
+          "فروشگاه"
+        ],
+        [
+          "garden",
+          "باغ"
+        ],
+        [
+          "bed",
+          "تخت"
+        ],
+        [
+          "chair",
+          "صندلی"
+        ],
+        [
+          "table",
+          "میز"
+        ],
+        [
+          "key",
+          "کلید"
+        ],
+        [
+          "money",
+          "پول"
+        ],
+        [
+          "bank",
+          "بانک"
+        ],
+        [
+          "hospital",
+          "بیمارستان"
+        ],
+        [
+          "pharmacy",
+          "داروخانه"
+        ],
+        [
+          "park",
+          "پارک"
+        ],
+        [
+          "mosque",
+          "مسجد"
+        ],
+        [
+          "office",
+          "دفتر"
+        ],
+        [
+          "restaurant",
+          "رستوران"
+        ],
+        [
+          "cafe",
+          "کافه"
+        ],
+        [
+          "cinema",
+          "سینما"
+        ],
+        [
+          "theater",
+          "تئاتر"
+        ],
+        [
+          "museum",
+          "موزه"
+        ],
+        [
+          "zoo",
+          "باغ وحش"
+        ],
+        [
+          "bakery",
+          "نانوایی"
+        ],
+        [
+          "supermarket",
+          "سوپرمارکت"
+        ],
+        [
+          "bedroom",
+          "اتاق خواب"
+        ],
+        [
+          "bathroom",
+          "حمام"
+        ],
+        [
+          "living room",
+          "اتاق نشیمن"
+        ],
+        [
+          "kitchen",
+          "آشپزخانه"
+        ],
+        [
+          "balcony",
+          "بالکن"
+        ],
+        [
+          "garage",
+          "گاراژ"
+        ],
+        [
+          "basement",
+          "زیرزمین"
+        ],
+        [
+          "hallway",
+          "راهرو"
+        ],
+        [
+          "factory",
+          "کارخانه"
+        ],
+        [
+          "farm",
+          "مزرعه"
+        ],
+        [
+          "town",
+          "شهرک"
+        ],
+        [
+          "capital",
+          "پایتخت"
+        ],
+        [
+          "neighbourhood",
+          "محله"
+        ],
+        [
+          "corner shop",
+          "فروشگاه گوشه"
+        ]
+      ],
+      "group": "home"
+    },
+    "nature": {
+      "label": {
+        "en": "nature word",
+        "fa": "کلمه طبیعت"
+      },
+      "list_label": {
+        "en": "Nature words",
+        "fa": "کلمات طبیعت"
+      },
+      "keywords": {
+        "en": [
+          "nature",
+          "nature words",
+          "words about nature"
+        ],
+        "fa": [
+          "طبیعت",
+          "کلمات طبیعت"
+        ]
+      },
+      "words": [
+        [
+          "tree",
+          "درخت"
+        ],
+        [
+          "flower",
+          "گل"
+        ],
+        [
+          "river",
+          "رودخانه"
+        ],
+        [
+          "sea",
+          "دریا"
+        ],
+        [
+          "mountain",
+          "کوه"
+        ],
+        [
+          "sky",
+          "آسمان"
+        ],
+        [
+          "star",
+          "ستاره"
+        ],
+        [
+          "sun",
+          "خورشید"
+        ],
+        [
+          "moon",
+          "ماه"
+        ],
+        [
+          "cloud",
+          "ابر"
+        ],
+        [
+          "rain",
+          "باران"
+        ],
+        [
+          "snow",
+          "برف"
+        ],
+        [
+          "wind",
+          "باد"
+        ],
+        [
+          "fire",
+          "آتش"
+        ],
+        [
+          "earth",
+          "زمین"
+        ],
+        [
+          "stone",
+          "سنگ"
+        ],
+        [
+          "sand",
+          "ماسه"
+        ],
+        [
+          "forest",
+          "جنگل"
+        ],
+        [
+          "leaf",
+          "برگ"
+        ],
+        [
+          "grass",
+          "چمن"
+        ],
+        [
+          "valley",
+          "دره"
+        ],
+        [
+          "cave",
+          "غار"
+        ],
+        [
+          "cliff",
+          "صخره"
+        ],
+        [
+          "soil",
+          "خاک"
+        ],
+        [
+          "seed",
+          "بذر"
+        ],
+        [
+          "root",
+          "ریشه"
+        ],
+        [
+          "branch",
+          "شاخه"
+        ],
+        [
+          "bush",
+          "بوته"
+        ],
+        [
+          "lake",
+          "دریاچه"
+        ],
+        [
+          "desert",
+          "بیابان"
+        ],
+        [
+          "island",
+          "جزیره"
+        ],
+        [
+          "hill",
+          "تپه"
+        ],
+        [
+          "thunder",
+          "رعد"
+        ],
+        [
+          "lightning",
+          "برق"
+        ]
+      ],
+      "group": "world"
+    },
+    "adjectives": {
+      "label": {
+        "en": "adjective",
+        "fa": "صفت"
+      },
+      "list_label": {
+        "en": "Adjectives",
+        "fa": "صفات"
+      },
+      "keywords": {
+        "en": [
+          "adjectives",
+          "describing words",
+          "describe words"
+        ],
+        "fa": [
+          "صفات",
+          "صفت ها",
+          "کلمات وصفی"
+        ]
+      },
+      "words": [
+        [
+          "big",
+          "بزرگ"
+        ],
+        [
+          "small",
+          "کوچک"
+        ],
+        [
+          "good",
+          "خوب"
+        ],
+        [
+          "bad",
+          "بد"
+        ],
+        [
+          "hot",
+          "گرم"
+        ],
+        [
+          "cold",
+          "سرد"
+        ],
+        [
+          "new",
+          "جدید"
+        ],
+        [
+          "old",
+          "قدیمی"
+        ],
+        [
+          "fast",
+          "سریع"
+        ],
+        [
+          "slow",
+          "آهسته"
+        ],
+        [
+          "easy",
+          "آسان"
+        ],
+        [
+          "hard",
+          "سخت"
+        ],
+        [
+          "beautiful",
+          "زیبا"
+        ],
+        [
+          "ugly",
+          "زشت"
+        ],
+        [
+          "expensive",
+          "گران"
+        ],
+        [
+          "cheap",
+          "ارزان"
+        ],
+        [
+          "clean",
+          "تمیز"
+        ],
+        [
+          "dirty",
+          "کثیف"
+        ],
+        [
+          "full",
+          "پر"
+        ],
+        [
+          "empty",
+          "خالی"
+        ],
+        [
+          "right",
+          "درست"
+        ],
+        [
+          "wrong",
+          "غلط"
+        ],
+        [
+          "young",
+          "جوان"
+        ],
+        [
+          "long",
+          "بلند"
+        ],
+        [
+          "short",
+          "کوتاه"
+        ],
+        [
+          "heavy",
+          "سنگین"
+        ],
+        [
+          "light",
+          "سبک"
+        ],
+        [
+          "quiet",
+          "آرام"
+        ],
+        [
+          "loud",
+          "بلند"
+        ],
+        [
+          "strong",
+          "قوی"
+        ],
+        [
+          "happy",
+          "خوشحال"
+        ],
+        [
+          "sad",
+          "غمگین"
+        ],
+        [
+          "angry",
+          "عصبانی"
+        ],
+        [
+          "tired",
+          "خسته"
+        ],
+        [
+          "difficult",
+          "سخت"
+        ],
+        [
+          "important",
+          "مهم"
+        ],
+        [
+          "famous",
+          "مشهور"
+        ],
+        [
+          "weak",
+          "ضعیف"
+        ],
+        [
+          "rich",
+          "ثروتمند"
+        ],
+        [
+          "poor",
+          "فقیر"
+        ],
+        [
+          "modern",
+          "مدرن"
+        ],
+        [
+          "traditional",
+          "سنتی"
+        ]
+      ],
+      "group": "describe"
+    },
+    "verbs": {
+      "label": {
+        "en": "verb",
+        "fa": "فعل"
+      },
+      "list_label": {
+        "en": "Verbs",
+        "fa": "افعال"
+      },
+      "keywords": {
+        "en": [
+          "verbs",
+          "action words",
+          "action verbs"
+        ],
+        "fa": [
+          "افعال",
+          "فعل ها",
+          "کلمات کار"
+        ]
+      },
+      "words": [
+        [
+          "go",
+          "رفتن"
+        ],
+        [
+          "come",
+          "آمدن"
+        ],
+        [
+          "eat",
+          "خوردن"
+        ],
+        [
+          "drink",
+          "نوشیدن"
+        ],
+        [
+          "sleep",
+          "خوابیدن"
+        ],
+        [
+          "walk",
+          "راه رفتن"
+        ],
+        [
+          "run",
+          "دویدن"
+        ],
+        [
+          "read",
+          "خواندن"
+        ],
+        [
+          "write",
+          "نوشتن"
+        ],
+        [
+          "speak",
+          "صحبت کردن"
+        ],
+        [
+          "listen",
+          "گوش دادن"
+        ],
+        [
+          "see",
+          "دیدن"
+        ],
+        [
+          "buy",
+          "خریدن"
+        ],
+        [
+          "sell",
+          "فروختن"
+        ],
+        [
+          "work",
+          "کار کردن"
+        ],
+        [
+          "play",
+          "بازی کردن"
+        ],
+        [
+          "learn",
+          "یاد گرفتن"
+        ],
+        [
+          "teach",
+          "تدریس کردن"
+        ],
+        [
+          "love",
+          "دوست داشتن"
+        ],
+        [
+          "want",
+          "خواستن"
+        ],
+        [
+          "need",
+          "نیاز داشتن"
+        ],
+        [
+          "know",
+          "دانستن"
+        ],
+        [
+          "think",
+          "فکر کردن"
+        ],
+        [
+          "help",
+          "کمک کردن"
+        ],
+        [
+          "start",
+          "شروع کردن"
+        ],
+        [
+          "finish",
+          "تمام کردن"
+        ],
+        [
+          "open",
+          "باز کردن"
+        ],
+        [
+          "close",
+          "بستن"
+        ],
+        [
+          "give",
+          "دادن"
+        ],
+        [
+          "take",
+          "گرفتن"
+        ],
+        [
+          "study",
+          "درس خواندن"
+        ],
+        [
+          "make",
+          "ساختن"
+        ],
+        [
+          "build",
+          "ساختن"
+        ],
+        [
+          "wait",
+          "منتظر ماندن"
+        ],
+        [
+          "find",
+          "پیدا کردن"
+        ],
+        [
+          "lose",
+          "گم کردن"
+        ],
+        [
+          "remember",
+          "به یاد آوردن"
+        ],
+        [
+          "forget",
+          "فراموش کردن"
+        ],
+        [
+          "believe",
+          "باور داشتن"
+        ],
+        [
+          "hope",
+          "امید داشتن"
+        ],
+        [
+          "like",
+          "دوست داشتن"
+        ],
+        [
+          "hate",
+          "متنفر بودن"
+        ]
+      ],
+      "group": "describe"
+    },
+    "time_words": {
+      "label": {
+        "en": "time word",
+        "fa": "کلمه زمان"
+      },
+      "list_label": {
+        "en": "Time words",
+        "fa": "کلمات زمان"
+      },
+      "keywords": {
+        "en": [
+          "time words",
+          "words about time",
+          "time vocabulary"
+        ],
+        "fa": [
+          "کلمات زمان",
+          "واژه های زمان"
+        ]
+      },
+      "words": [
+        [
+          "day",
+          "روز"
+        ],
+        [
+          "week",
+          "هفته"
+        ],
+        [
+          "month",
+          "ماه"
+        ],
+        [
+          "year",
+          "سال"
+        ],
+        [
+          "hour",
+          "ساعت"
+        ],
+        [
+          "minute",
+          "دقیقه"
+        ],
+        [
+          "second",
+          "ثانیه"
+        ],
+        [
+          "morning",
+          "صبح"
+        ],
+        [
+          "afternoon",
+          "عصر"
+        ],
+        [
+          "evening",
+          "غروب"
+        ],
+        [
+          "night",
+          "شب"
+        ],
+        [
+          "today",
+          "امروز"
+        ],
+        [
+          "tomorrow",
+          "فردا"
+        ],
+        [
+          "yesterday",
+          "دیروز"
+        ],
+        [
+          "weekend",
+          "تعطیلات"
+        ],
+        [
+          "calendar",
+          "تقویم"
+        ],
+        [
+          "noon",
+          "ظهر"
+        ],
+        [
+          "midnight",
+          "نیمه شب"
+        ],
+        [
+          "deadline",
+          "مهلت"
+        ],
+        [
+          "century",
+          "قرن"
+        ],
+        [
+          "o'clock",
+          "ساعت"
+        ],
+        [
+          "past",
+          "گذشته"
+        ],
+        [
+          "future",
+          "آینده"
+        ],
+        [
+          "now",
+          "اکنون"
+        ],
+        [
+          "soon",
+          "به‌زودی"
+        ],
+        [
+          "later",
+          "بعداً"
+        ],
+        [
+          "early",
+          "زود"
+        ],
+        [
+          "late",
+          "دیر"
+        ]
+      ],
+      "group": "essentials"
+    },
+    "weather_seasons": {
+      "label": {
+        "en": "weather word",
+        "fa": "کلمه آب و هوا"
+      },
+      "list_label": {
+        "en": "Weather & seasons",
+        "fa": "آب و هوا و فصل‌ها"
+      },
+      "keywords": {
+        "en": [
+          "weather words",
+          "seasons",
+          "names of seasons"
+        ],
+        "fa": [
+          "کلمات آب و هوا",
+          "فصل ها",
+          "فصلها"
+        ]
+      },
+      "words": [
+        [
+          "storm",
+          "طوفان"
+        ],
+        [
+          "fog",
+          "مه"
+        ],
+        [
+          "ice",
+          "یخ"
+        ],
+        [
+          "rainbow",
+          "رنگین کمان"
+        ],
+        [
+          "season",
+          "فصل"
+        ],
+        [
+          "spring",
+          "بهار"
+        ],
+        [
+          "summer",
+          "تابستان"
+        ],
+        [
+          "autumn",
+          "پاییز"
+        ],
+        [
+          "winter",
+          "زمستان"
+        ],
+        [
+          "humidity",
+          "رطوبت"
+        ],
+        [
+          "temperature",
+          "دما"
+        ],
+        [
+          "thunder",
+          "رعد"
+        ],
+        [
+          "lightning",
+          "آذرخش"
+        ],
+        [
+          "breeze",
+          "نسیم"
+        ],
+        [
+          "sunny",
+          "آفتابی"
+        ],
+        [
+          "rainy",
+          "بارانی"
+        ],
+        [
+          "cloudy",
+          "ابری"
+        ],
+        [
+          "windy",
+          "بادی"
+        ],
+        [
+          "snowy",
+          "برفی"
+        ],
+        [
+          "stormy",
+          "طوفانی"
+        ],
+        [
+          "foggy",
+          "مه‌آلود"
+        ],
+        [
+          "humid",
+          "مرطوب"
+        ],
+        [
+          "dry",
+          "خشک"
+        ],
+        [
+          "hot",
+          "داغ"
+        ],
+        [
+          "mild",
+          "معتدل"
+        ],
+        [
+          "cold",
+          "سرد"
+        ],
+        [
+          "warm",
+          "گرم"
+        ],
+        [
+          "forecast",
+          "پیش‌بینی"
+        ]
+      ],
+      "group": "world"
+    },
+    "music": {
+      "label": {
+        "en": "music word",
+        "fa": "کلمه موسیقی"
+      },
+      "list_label": {
+        "en": "Music words",
+        "fa": "کلمات موسیقی"
+      },
+      "keywords": {
+        "en": [
+          "music words",
+          "musical instruments",
+          "instruments"
+        ],
+        "fa": [
+          "کلمات موسیقی",
+          "سازها",
+          "آلات موسیقی"
+        ]
+      },
+      "words": [
+        [
+          "song",
+          "آهنگ"
+        ],
+        [
+          "music",
+          "موسیقی"
+        ],
+        [
+          "guitar",
+          "گیتار"
+        ],
+        [
+          "piano",
+          "پیانو"
+        ],
+        [
+          "drum",
+          "طبل"
+        ],
+        [
+          "band",
+          "گروه"
+        ],
+        [
+          "concert",
+          "کنسرت"
+        ],
+        [
+          "instrument",
+          "ساز"
+        ],
+        [
+          "voice",
+          "صدا"
+        ],
+        [
+          "rhythm",
+          "ریتم"
+        ],
+        [
+          "note",
+          "نت"
+        ],
+        [
+          "melody",
+          "ملودی"
+        ],
+        [
+          "violin",
+          "ویولن"
+        ],
+        [
+          "flute",
+          "نی"
+        ],
+        [
+          "trumpet",
+          "ترومپت"
+        ],
+        [
+          "harmonica",
+          "دهنی"
+        ],
+        [
+          "saxophone",
+          "ساکسفون"
+        ],
+        [
+          "cello",
+          "ویولنسل"
+        ],
+        [
+          "harp",
+          "چنگ"
+        ],
+        [
+          "banjo",
+          "بنجو"
+        ],
+        [
+          "accordion",
+          "آکاردئون"
+        ],
+        [
+          "singing",
+          "خوانندگی"
+        ],
+        [
+          "chorus",
+          "ترانه"
+        ],
+        [
+          "album",
+          "آلبوم"
+        ],
+        [
+          "orchestra",
+          "ارکسترا"
+        ]
+      ],
+      "group": "describe"
+    },
+    "basic_words": {
+      "label": {
+        "en": "basic word",
+        "fa": "کلمه پایه"
+      },
+      "list_label": {
+        "en": "Basic words",
+        "fa": "کلمات پایه"
+      },
+      "keywords": {
+        "en": [
+          "basic words",
+          "common words",
+          "question words"
+        ],
+        "fa": [
+          "کلمات پایه",
+          "ضمیر ها",
+          "کلمات پرسشی"
+        ]
+      },
+      "words": [
+        [
+          "what",
+          "چه"
+        ],
+        [
+          "who",
+          "چه کسی"
+        ],
+        [
+          "where",
+          "کجا"
+        ],
+        [
+          "when",
+          "کی"
+        ],
+        [
+          "why",
+          "چرا"
+        ],
+        [
+          "how",
+          "چطور"
+        ],
+        [
+          "which",
+          "کدام"
+        ],
+        [
+          "i",
+          "من"
+        ],
+        [
+          "you",
+          "تو"
+        ],
+        [
+          "he",
+          "او"
+        ],
+        [
+          "we",
+          "ما"
+        ],
+        [
+          "they",
+          "آنها"
+        ],
+        [
+          "here",
+          "اینجا"
+        ],
+        [
+          "there",
+          "آنجا"
+        ],
+        [
+          "everyone",
+          "همه"
+        ],
+        [
+          "nothing",
+          "هیچ"
+        ],
+        [
+          "something",
+          "چیزی"
+        ],
+        [
+          "always",
+          "همیشه"
+        ],
+        [
+          "never",
+          "هرگز"
+        ],
+        [
+          "sometimes",
+          "گاهی"
+        ],
+        [
+          "yes",
+          "بله"
+        ],
+        [
+          "no",
+          "نه"
+        ],
+        [
+          "please",
+          "لطفاً"
+        ],
+        [
+          "sorry",
+          "ببخشید"
+        ],
+        [
+          "thanks",
+          "متشکرم"
+        ],
+        [
+          "hello",
+          "سلام"
+        ],
+        [
+          "goodbye",
+          "خداحافظ"
+        ],
+        [
+          "she",
+          "او"
+        ],
+        [
+          "it",
+          "آن"
+        ],
+        [
+          "and",
+          "و"
+        ],
+        [
+          "or",
+          "یا"
+        ],
+        [
+          "but",
+          "اما"
+        ],
+        [
+          "because",
+          "چون"
+        ],
+        [
+          "if",
+          "اگر"
+        ],
+        [
+          "very",
+          "خیلی"
+        ],
+        [
+          "not",
+          "نه"
+        ]
+      ],
+      "group": "essentials"
+    },
+    "house": {
+      "label": {
+        "en": "house",
+        "fa": "خانه"
+      },
+      "list_label": {
+        "en": "House & Furniture",
+        "fa": "خانه و اثاثیه"
+      },
+      "keywords": {
+        "en": [
+          "house words",
+          "furniture",
+          "home words",
+          "household items"
+        ],
+        "fa": [
+          "خانه",
+          "اثاثیه",
+          "لوازم خانه"
+        ]
+      },
+      "words": [
+        [
+          "door",
+          "در"
+        ],
+        [
+          "window",
+          "پنجره"
+        ],
+        [
+          "wall",
+          "دیوار"
+        ],
+        [
+          "floor",
+          "کف"
+        ],
+        [
+          "ceiling",
+          "سقف"
+        ],
+        [
+          "roof",
+          "بام"
+        ],
+        [
+          "stairs",
+          "پله"
+        ],
+        [
+          "balcony",
+          "بالکن"
+        ],
+        [
+          "bed",
+          "تخت"
+        ],
+        [
+          "wardrobe",
+          "کمد"
+        ],
+        [
+          "sofa",
+          "مبل راحتی"
+        ],
+        [
+          "armchair",
+          "صندلی راحتی"
+        ],
+        [
+          "table",
+          "میز"
+        ],
+        [
+          "chair",
+          "صندلی"
+        ],
+        [
+          "shelf",
+          "قفسه"
+        ],
+        [
+          "drawer",
+          "کشو"
+        ],
+        [
+          "mirror",
+          "آینه"
+        ],
+        [
+          "carpet",
+          "فرش"
+        ],
+        [
+          "curtain",
+          "پرده"
+        ],
+        [
+          "cushion",
+          "بالشتک"
+        ],
+        [
+          "lamp",
+          "چراغ"
+        ],
+        [
+          "fridge",
+          "یخچال"
+        ],
+        [
+          "stove",
+          "اجاق"
+        ],
+        [
+          "oven",
+          "فر"
+        ],
+        [
+          "sink",
+          "سینک"
+        ],
+        [
+          "kettle",
+          "کتری"
+        ],
+        [
+          "microwave",
+          "مایکروویو"
+        ],
+        [
+          "dishwasher",
+          "ماشین ظرفشویی"
+        ],
+        [
+          "washing machine",
+          "ماشین لباسشویی"
+        ],
+        [
+          "vacuum cleaner",
+          "جاروبرقی"
+        ],
+        [
+          "towel",
+          "حوله"
+        ],
+        [
+          "toothbrush",
+          "مسواک"
+        ],
+        [
+          "soap",
+          "صابون"
+        ],
+        [
+          "key",
+          "کلید"
+        ],
+        [
+          "umbrella",
+          "چتر"
+        ],
+        [
+          "ladder",
+          "نردبان"
+        ],
+        [
+          "tool",
+          "ابزار"
+        ],
+        [
+          "hammer",
+          "چکش"
+        ],
+        [
+          "screwdriver",
+          "پیچ‌گوشتی"
+        ]
+      ],
+      "group": "home"
+    },
+    "city": {
+      "label": {
+        "en": "city",
+        "fa": "شهر"
+      },
+      "list_label": {
+        "en": "City & Buildings",
+        "fa": "شهر و ساختمان‌ها"
+      },
+      "keywords": {
+        "en": [
+          "city words",
+          "buildings",
+          "urban words",
+          "city buildings"
+        ],
+        "fa": [
+          "شهر",
+          "ساختمان",
+          "مغازه"
+        ]
+      },
+      "words": [
+        [
+          "hospital",
+          "بیمارستان"
+        ],
+        [
+          "school",
+          "مدرسه"
+        ],
+        [
+          "university",
+          "دانشگاه"
+        ],
+        [
+          "library",
+          "کتابخانه"
+        ],
+        [
+          "museum",
+          "موزه"
+        ],
+        [
+          "bank",
+          "بانک"
+        ],
+        [
+          "post office",
+          "دفتر پست"
+        ],
+        [
+          "police station",
+          "اداره پلیس"
+        ],
+        [
+          "fire station",
+          "آتش‌نشانی"
+        ],
+        [
+          "restaurant",
+          "رستوران"
+        ],
+        [
+          "cafe",
+          "کافه"
+        ],
+        [
+          "bakery",
+          "نانوایی"
+        ],
+        [
+          "supermarket",
+          "سوپرمارکت"
+        ],
+        [
+          "shop",
+          "مغازه"
+        ],
+        [
+          "market",
+          "بازار"
+        ],
+        [
+          "pharmacy",
+          "داروخانه"
+        ],
+        [
+          "hotel",
+          "هتل"
+        ],
+        [
+          "station",
+          "ایستگاه"
+        ],
+        [
+          "airport",
+          "فرودگاه"
+        ],
+        [
+          "park",
+          "پارک"
+        ],
+        [
+          "square",
+          "میدان"
+        ],
+        [
+          "bridge",
+          "پل"
+        ],
+        [
+          "street",
+          "خیابان"
+        ],
+        [
+          "avenue",
+          "بلوار"
+        ],
+        [
+          "lane",
+          "کوچه"
+        ],
+        [
+          "corner",
+          "گوشه"
+        ],
+        [
+          "bus stop",
+          "ایستگاه اتوبوس"
+        ],
+        [
+          "traffic light",
+          "چراغ راهنما"
+        ],
+        [
+          "crosswalk",
+          "خط عابر"
+        ],
+        [
+          "sidewalk",
+          "پیاده‌رو"
+        ],
+        [
+          "parking",
+          "پارکینگ"
+        ],
+        [
+          "ticket",
+          "بلیط"
+        ],
+        [
+          "map",
+          "نقشه"
+        ]
+      ],
+      "group": "home"
+    },
+    "bank_money": {
+      "label": {
+        "en": "money",
+        "fa": "پول"
+      },
+      "list_label": {
+        "en": "Money & Banking",
+        "fa": "پول و بانک"
+      },
+      "keywords": {
+        "en": [
+          "money words",
+          "banking",
+          "shopping money",
+          "currency"
+        ],
+        "fa": [
+          "پول",
+          "بانک",
+          "مالی"
+        ]
+      },
+      "words": [
+        [
+          "money",
+          "پول"
+        ],
+        [
+          "cash",
+          "نقد"
+        ],
+        [
+          "coin",
+          "سکه"
+        ],
+        [
+          "note",
+          "اسکناس"
+        ],
+        [
+          "card",
+          "کارت"
+        ],
+        [
+          "credit card",
+          "کارت اعتباری"
+        ],
+        [
+          "bank account",
+          "حساب بانکی"
+        ],
+        [
+          "transfer",
+          "انتقال"
+        ],
+        [
+          "withdraw",
+          "برداشت"
+        ],
+        [
+          "deposit",
+          "واریز"
+        ],
+        [
+          "balance",
+          "مانده"
+        ],
+        [
+          "receipt",
+          "رسید"
+        ],
+        [
+          "bill",
+          "قبض"
+        ],
+        [
+          "invoice",
+          "فاکتور"
+        ],
+        [
+          "price",
+          "قیمت"
+        ],
+        [
+          "cost",
+          "هزینه"
+        ],
+        [
+          "cheap",
+          "ارزان"
+        ],
+        [
+          "expensive",
+          "گران"
+        ],
+        [
+          "discount",
+          "تخفیف"
+        ],
+        [
+          "tax",
+          "مالیات"
+        ],
+        [
+          "budget",
+          "بودجه"
+        ],
+        [
+          "salary",
+          "حقوق"
+        ],
+        [
+          "wage",
+          "دستمزد"
+        ],
+        [
+          "income",
+          "درآمد"
+        ],
+        [
+          "savings",
+          "پس‌انداز"
+        ],
+        [
+          "loan",
+          "وام"
+        ],
+        [
+          "debt",
+          "بدهی"
+        ],
+        [
+          "payment",
+          "پرداخت"
+        ],
+        [
+          "refund",
+          "استرداد"
+        ],
+        [
+          "exchange",
+          "تبدیل"
+        ],
+        [
+          "currency",
+          "واحد پول"
+        ],
+        [
+          "wallet",
+          "کیف پول"
+        ]
+      ],
+      "group": "home"
+    },
+    "body_health": {
+      "label": {
+        "en": "health",
+        "fa": "سلامت"
+      },
+      "list_label": {
+        "en": "Health & Illness",
+        "fa": "سلامت و بیماری"
+      },
+      "keywords": {
+        "en": [
+          "health words",
+          "illness",
+          "symptoms",
+          "doctor words"
+        ],
+        "fa": [
+          "سلامت",
+          "بیماری",
+          "علائم"
+        ]
+      },
+      "words": [
+        [
+          "health",
+          "سلامت"
+        ],
+        [
+          "illness",
+          "بیماری"
+        ],
+        [
+          "pain",
+          "درد"
+        ],
+        [
+          "headache",
+          "سردرد"
+        ],
+        [
+          "stomach ache",
+          "دل‌درد"
+        ],
+        [
+          "backache",
+          "کمردرد"
+        ],
+        [
+          "fever",
+          "تب"
+        ],
+        [
+          "cough",
+          "سرفه"
+        ],
+        [
+          "cold",
+          "سرماخوردگی"
+        ],
+        [
+          "flu",
+          "آنفولانزا"
+        ],
+        [
+          "allergy",
+          "حساسیت"
+        ],
+        [
+          "infection",
+          "عفونت"
+        ],
+        [
+          "medicine",
+          "دارو"
+        ],
+        [
+          "pill",
+          "قرص"
+        ],
+        [
+          "syrup",
+          "شربت"
+        ],
+        [
+          "injection",
+          "آمپول"
+        ],
+        [
+          "hospital",
+          "بیمارستان"
+        ],
+        [
+          "clinic",
+          "کلینیک"
+        ],
+        [
+          "doctor",
+          "دکتر"
+        ],
+        [
+          "nurse",
+          "پرستار"
+        ],
+        [
+          "dentist",
+          "دندانپزشک"
+        ],
+        [
+          "pharmacy",
+          "داروخانه"
+        ],
+        [
+          "prescription",
+          "نسخه"
+        ],
+        [
+          "blood",
+          "خون"
+        ],
+        [
+          "heart",
+          "قلب"
+        ],
+        [
+          "bone",
+          "استخوان"
+        ],
+        [
+          "skin",
+          "پوست"
+        ],
+        [
+          "rest",
+          "استراحت"
+        ],
+        [
+          "exercise",
+          "ورزش"
+        ],
+        [
+          "sleep",
+          "خواب"
+        ],
+        [
+          "recovery",
+          "بهبود"
+        ]
+      ],
+      "group": "people"
+    },
+    "work_business": {
+      "label": {
+        "en": "work",
+        "fa": "کار"
+      },
+      "list_label": {
+        "en": "Work & Business",
+        "fa": "کار و تجارت"
+      },
+      "keywords": {
+        "en": [
+          "work words",
+          "business",
+          "office words",
+          "career"
+        ],
+        "fa": [
+          "کار",
+          "تجارت",
+          "اداری"
+        ]
+      },
+      "words": [
+        [
+          "job",
+          "شغل"
+        ],
+        [
+          "career",
+          "مسیر شغلی"
+        ],
+        [
+          "employee",
+          "کارمند"
+        ],
+        [
+          "employer",
+          "کارفرما"
+        ],
+        [
+          "manager",
+          "مدیر"
+        ],
+        [
+          "boss",
+          "رئیس"
+        ],
+        [
+          "colleague",
+          "همکار"
+        ],
+        [
+          "team",
+          "تیم"
+        ],
+        [
+          "meeting",
+          "جلسه"
+        ],
+        [
+          "project",
+          "پروژه"
+        ],
+        [
+          "task",
+          "وظیفه"
+        ],
+        [
+          "deadline",
+          "مهلت"
+        ],
+        [
+          "report",
+          "گزارش"
+        ],
+        [
+          "schedule",
+          "برنامه زمانی"
+        ],
+        [
+          "salary",
+          "حقوق"
+        ],
+        [
+          "bonus",
+          "پاداش"
+        ],
+        [
+          "interview",
+          "مصاحبه"
+        ],
+        [
+          "resume",
+          "رزومه"
+        ],
+        [
+          "contract",
+          "قرارداد"
+        ],
+        [
+          "client",
+          "مشتری"
+        ],
+        [
+          "company",
+          "شرکت"
+        ],
+        [
+          "business",
+          "کسب‌وکار"
+        ],
+        [
+          "office",
+          "دفتر"
+        ],
+        [
+          "department",
+          "بخش"
+        ],
+        [
+          "profit",
+          "سود"
+        ],
+        [
+          "loss",
+          "زیان"
+        ],
+        [
+          "market",
+          "بازار"
+        ],
+        [
+          "product",
+          "محصول"
+        ],
+        [
+          "service",
+          "خدمات"
+        ],
+        [
+          "price",
+          "قیمت"
+        ],
+        [
+          "budget",
+          "بودجه"
+        ]
+      ],
+      "group": "work"
+    },
+    "communication": {
+      "label": {
+        "en": "communication",
+        "fa": "ارتباطات"
+      },
+      "list_label": {
+        "en": "Communication",
+        "fa": "ارتباطات"
+      },
+      "keywords": {
+        "en": [
+          "communication words",
+          "phone words",
+          "messages",
+          "talking"
+        ],
+        "fa": [
+          "ارتباطات",
+          "تلفن",
+          "پیام"
+        ]
+      },
+      "words": [
+        [
+          "call",
+          "تماس گرفتن"
+        ],
+        [
+          "answer",
+          "جواب دادن"
+        ],
+        [
+          "hang up",
+          "قطع کردن"
+        ],
+        [
+          "dial",
+          "شماره گرفتن"
+        ],
+        [
+          "message",
+          "پیام"
+        ],
+        [
+          "text",
+          "متن"
+        ],
+        [
+          "voicemail",
+          "پیام صوتی"
+        ],
+        [
+          "inbox",
+          "صندوق ورودی"
+        ],
+        [
+          "attachment",
+          "پیوست"
+        ],
+        [
+          "reply",
+          "پاسخ"
+        ],
+        [
+          "missed call",
+          "تماس بی‌پاسخ"
+        ],
+        [
+          "signal",
+          "آنتن"
+        ],
+        [
+          "network",
+          "شبکه"
+        ],
+        [
+          "password",
+          "رمز عبور"
+        ],
+        [
+          "account",
+          "حساب"
+        ],
+        [
+          "notification",
+          "اعلان"
+        ],
+        [
+          "contact",
+          "مخاطب"
+        ],
+        [
+          "chat",
+          "گفتگو"
+        ],
+        [
+          "email",
+          "ایمیل"
+        ],
+        [
+          "subject",
+          "موضوع"
+        ],
+        [
+          "attach",
+          "پیوست کردن"
+        ],
+        [
+          "send",
+          "فرستادن"
+        ],
+        [
+          "receive",
+          "دریافت"
+        ],
+        [
+          "delete",
+          "حذف کردن"
+        ],
+        [
+          "notification sound",
+          "صدای اعلان"
+        ],
+        [
+          "screen",
+          "صفحه"
+        ]
+      ],
+      "group": "people"
+    },
+    "shopping_clothes": {
+      "label": {
+        "en": "shopping",
+        "fa": "خرید"
+      },
+      "list_label": {
+        "en": "Shopping & Sizes",
+        "fa": "خرید و سایزها"
+      },
+      "keywords": {
+        "en": [
+          "shopping words",
+          "sizes",
+          "department store"
+        ],
+        "fa": [
+          "خرید",
+          "سایز",
+          "اندازه"
+        ]
+      },
+      "words": [
+        [
+          "size",
+          "سایز"
+        ],
+        [
+          "small",
+          "کوچک"
+        ],
+        [
+          "medium",
+          "متوسط"
+        ],
+        [
+          "large",
+          "بزرگ"
+        ],
+        [
+          "extra large",
+          "خیلی بزرگ"
+        ],
+        [
+          "fitting room",
+          "اتاق پرو"
+        ],
+        [
+          "try on",
+          "پوشیدن و امتحان کردن"
+        ],
+        [
+          "checkout",
+          "صندوق"
+        ],
+        [
+          "cashier",
+          "صندوق‌دار"
+        ],
+        [
+          "receipt",
+          "رسید خرید"
+        ],
+        [
+          "bag",
+          "کیسه"
+        ],
+        [
+          "discount",
+          "تخفیف"
+        ],
+        [
+          "sale",
+          "حراج"
+        ],
+        [
+          "brand",
+          "برند"
+        ],
+        [
+          "quality",
+          "کیفیت"
+        ],
+        [
+          "refund",
+          "بازگشت وجه"
+        ],
+        [
+          "exchange",
+          "تعویض"
+        ],
+        [
+          "receipt",
+          "رسید"
+        ],
+        [
+          "customer",
+          "مشتری"
+        ],
+        [
+          "queue",
+          "صف"
+        ],
+        [
+          "aisle",
+          "راهرو"
+        ],
+        [
+          "shelf",
+          "قفسه"
+        ],
+        [
+          "basket",
+          "سبد"
+        ],
+        [
+          "bargain",
+          "تخفیف‌دار"
+        ],
+        [
+          "expensive",
+          "گران"
+        ],
+        [
+          "cheap",
+          "ارزان"
+        ]
+      ],
+      "group": "home"
+    },
+    "directions_words": {
+      "label": {
+        "en": "directions",
+        "fa": "مسیر"
+      },
+      "list_label": {
+        "en": "Directions & Position",
+        "fa": "مسیریابی و جهت"
+      },
+      "keywords": {
+        "en": [
+          "direction words",
+          "position words",
+          "left right",
+          "prepositions of place"
+        ],
+        "fa": [
+          "جهت",
+          "چپ و راست",
+          "موقعیت"
+        ]
+      },
+      "words": [
+        [
+          "left",
+          "چپ"
+        ],
+        [
+          "right",
+          "راست"
+        ],
+        [
+          "straight",
+          "صاف"
+        ],
+        [
+          "forward",
+          "جلو"
+        ],
+        [
+          "back",
+          "عقب"
+        ],
+        [
+          "up",
+          "بالا"
+        ],
+        [
+          "down",
+          "پایین"
+        ],
+        [
+          "near",
+          "نزدیک"
+        ],
+        [
+          "far",
+          "دور"
+        ],
+        [
+          "behind",
+          "پشت"
+        ],
+        [
+          "in front of",
+          "جلوی"
+        ],
+        [
+          "next to",
+          "کنار"
+        ],
+        [
+          "between",
+          "بین"
+        ],
+        [
+          "beside",
+          "در کنار"
+        ],
+        [
+          "inside",
+          "داخل"
+        ],
+        [
+          "outside",
+          "بیرون"
+        ],
+        [
+          "above",
+          "بالای"
+        ],
+        [
+          "below",
+          "پایین"
+        ],
+        [
+          "opposite",
+          "روبه‌روی"
+        ],
+        [
+          "across",
+          "آن‌طرف"
+        ],
+        [
+          "around",
+          "دور"
+        ],
+        [
+          "along",
+          "در امتداد"
+        ],
+        [
+          "corner",
+          "گوشه"
+        ],
+        [
+          "entrance",
+          "ورودی"
+        ],
+        [
+          "exit",
+          "خروجی"
+        ],
+        [
+          "floor",
+          "طبقه"
+        ]
+      ],
+      "group": "home"
+    },
+    "daily_routine_words": {
+      "label": {
+        "en": "routine",
+        "fa": "کارهای روزانه"
+      },
+      "list_label": {
+        "en": "Daily Routine Verbs",
+        "fa": "افعال کارهای روزانه"
+      },
+      "keywords": {
+        "en": [
+          "morning actions",
+          "housework words",
+          "everyday chores",
+          "things you do daily"
+        ],
+        "fa": [
+          "وظایف صبحگاهی",
+          "عادت‌های روزانه"
+        ]
+      },
+      "words": [
+        [
+          "wake up",
+          "بیدار شدن"
+        ],
+        [
+          "get up",
+          "بلند شدن"
+        ],
+        [
+          "go to bed",
+          "به رختخواب رفتن"
+        ],
+        [
+          "brush teeth",
+          "مسواک زدن"
+        ],
+        [
+          "wash face",
+          "صورت شستن"
+        ],
+        [
+          "take a shower",
+          "حمام کردن"
+        ],
+        [
+          "get dressed",
+          "لباس پوشیدن"
+        ],
+        [
+          "make breakfast",
+          "صبحانه درست کردن"
+        ],
+        [
+          "have breakfast",
+          "صبحانه خوردن"
+        ],
+        [
+          "have lunch",
+          "ناهار خوردن"
+        ],
+        [
+          "have dinner",
+          "شام خوردن"
+        ],
+        [
+          "cook",
+          "آشپزی کردن"
+        ],
+        [
+          "clean the house",
+          "خانه تمیز کردن"
+        ],
+        [
+          "do the dishes",
+          "ظرف شستن"
+        ],
+        [
+          "do laundry",
+          "لباس شستن"
+        ],
+        [
+          "iron clothes",
+          "اتو کشیدن"
+        ],
+        [
+          "vacuum",
+          "جارو کشیدن"
+        ],
+        [
+          "make the bed",
+          "بستر را مرتب کردن"
+        ],
+        [
+          "go to work",
+          "رفتن به سر کار"
+        ],
+        [
+          "come home",
+          "به خانه برگشتن"
+        ],
+        [
+          "relax",
+          "استراحت کردن"
+        ],
+        [
+          "take a walk",
+          "پیاده‌روی کردن"
+        ],
+        [
+          "watch TV",
+          "تلویزیون دیدن"
+        ],
+        [
+          "read a book",
+          "کتاب خواندن"
+        ],
+        [
+          "go to sleep",
+          "خوابیدن"
+        ],
+        [
+          "set an alarm",
+          "بیدارخواه گذاشتن"
+        ],
+        [
+          "take medicine",
+          "دارو خوردن"
+        ]
+      ],
+      "group": "home"
+    },
+    "_groups": [
+      {
+        "id": "essentials",
+        "en": "Essentials",
+        "fa": "پایه",
+        "domains": [
+          "basic_words",
+          "numbers",
+          "time_words"
+        ]
+      },
+      {
+        "id": "people",
+        "en": "People & Body",
+        "fa": "افراد و بدن",
+        "domains": [
+          "family",
+          "body",
+          "body_health",
+          "emotions",
+          "jobs",
+          "communication"
+        ]
+      },
+      {
+        "id": "home",
+        "en": "Home & City",
+        "fa": "خانه و شهر",
+        "domains": [
+          "house",
+          "places",
+          "city",
+          "shopping_clothes",
+          "bank_money",
+          "directions_words",
+          "daily_routine_words"
+        ]
+      },
+      {
+        "id": "food",
+        "en": "Food & Drink",
+        "fa": "خوراکی",
+        "domains": [
+          "food",
+          "fruits",
+          "vegetables"
+        ]
+      },
+      {
+        "id": "world",
+        "en": "Nature & World",
+        "fa": "طبیعت و جهان",
+        "domains": [
+          "nature",
+          "animals",
+          "weather_seasons",
+          "travel",
+          "transport"
+        ]
+      },
+      {
+        "id": "work",
+        "en": "Work & Study",
+        "fa": "کار و تحصیل",
+        "domains": [
+          "school",
+          "work_business",
+          "technology"
+        ]
+      },
+      {
+        "id": "describe",
+        "en": "Describing",
+        "fa": "وصف کردن",
+        "domains": [
+          "adjectives",
+          "verbs",
+          "colors",
+          "clothing",
+          "sports",
+          "music"
+        ]
+      }
+    ]
+  }
+}

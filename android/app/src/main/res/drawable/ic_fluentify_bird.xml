@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fluentify's mascot: the same cute pink bird used in the app header. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:fillColor="#FF8DC4"
+        android:pathData="M28,60 L12,44 L17,70 Z" />
+    <path
+        android:fillColor="#FF6FAE"
+        android:pathData="M52,30 q-2,-16 11,-16 q-3,10 -5,15 q7,-10 15,-7 q-5,8 -12,10 Z" />
+
+    <path
+        android:pathData="M52,60 m-36,0 a36,30 0 1,0 72,0 a36,30 0 1,0 -72,0"
+        android:fillColor="#FF8DC4" />
+    <path
+        android:pathData="M52,69 m-21,17 a21,17 0 1,0 42,0 a21,17 0 1,0 -42,0"
+        android:fillColor="#FFD9EC" />
+    <path
+        android:pathData="M29,53 q19,6 19,24 q-19,-6 -19,-24 Z"
+        android:fillColor="#FF6FAE" />
+
+    <path
+        android:pathData="M83,50 L98,56 L83,62 Z"
+        android:fillColor="#FFC44D" />
+
+    <path
+        android:pathData="M70,48 m-7.5,0 a7.5,7.5 0 1,0 15,0 a7.5,7.5 0 1,0 -15,0"
+        android:fillColor="#4A1030" />
+    <path
+        android:pathData="M73,45 m-2.6,0 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0"
+        android:fillColor="#FFFFFF" />
+
+    <path
+        android:pathData="M78,62 m-7,4.5 a7,4.5 0 1,0 14,0 a7,4.5 0 1,0 -14,0"
+        android:fillColor="#FF4F93"
+        android:fillAlpha="0.4" />
+</vector>
