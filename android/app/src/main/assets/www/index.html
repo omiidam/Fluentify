@@ -826,10 +826,17 @@ async function loadListening() {
           });
           row.classList.add('playing');
           btn.textContent = '❚❚';
-          Speech.speak(s.en, () => {
+          const spoken = Speech.speak(s.en, () => {
             row.classList.remove('playing');
             btn.textContent = '▶';
           });
+          if (!spoken) {
+            row.classList.remove('playing');
+            btn.textContent = '▶';
+            add('🔇 No speech engine is available on this device — ' +
+                'the sentence is still here to practise. / روی این دستگاه صدایی در دسترس نیست.',
+                'bot');
+          }
         };
         row.onclick = () => send(s.en);   // tap the row to practise it too
         list.appendChild(row);
