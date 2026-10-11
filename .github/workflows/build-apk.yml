@@ -27,7 +27,7 @@ jobs:
       - name: Sync the chatbot data into the app assets
         run: |
           cp memory.json glossary.json grammar.json phrases.json jokes.json \
-             android/app/src/main/assets/www/data/
+             listening.json android/app/src/main/assets/www/data/
 
       - name: Build APK
         working-directory: android
