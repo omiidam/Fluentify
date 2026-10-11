@@ -23,6 +23,12 @@ old_send = """  showTyping();
     const data = await r.json();
     hideTyping();
     add(data.reply, 'bot');
+    // finishing a practice unlocks that topic's exam — refresh the panel so
+    // the 🎓 button stops showing the lock
+    if (/exam is now open|آزمون باز شد/i.test(data.reply) &&
+        document.getElementById('gpanel').classList.contains('open')) {
+      loadGrammar();
+    }
   } catch (e) {
     hideTyping();
     add('⚠️ connection lost — is the server running?', 'bot', {err: true});
@@ -33,11 +39,17 @@ new_send = """  showTyping();
     const reply = bot.respond(text);
     hideTyping();
     add(reply, 'bot');
+    // finishing a practice unlocks that topic's exam — refresh the panel so
+    // the 🎓 button stops showing the lock
+    if (/exam is now open|آزمون باز شد/i.test(reply) &&
+        document.getElementById('gpanel').classList.contains('open')) {
+      loadGrammar();
+    }
   } catch (e) {
     hideTyping();
     add('⚠️ something went wrong — ' + e.message, 'bot', {err: true});
   }"""
-assert old_send in html
+assert old_send in html, "send() block not found — update build_apk_ui.py"
 html = html.replace(old_send, new_send)
 
 # 2) the three panels: read from the bundled JSON instead of the API
@@ -90,10 +102,13 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
 
     // Use the engine's own unwrapped maps so panel data always matches the
     // structures bot.js actually uses.
-    grammarTopics = Object.values(bot.grammar).map((t) => ({
-      title_en: t.title.en, title_fa: t.title.fa, level: t.level || '',
+    grammarTopics = Object.entries(bot.grammar).map(([id, t]) => ({
+      id, title_en: t.title.en, title_fa: t.title.fa, level: t.level || '',
       query_en: t.keywords.en[0],
       practice_en: t.keywords.en[0] + ' exercises',
+      exam_en: t.keywords.en[0] + ' exam',
+      practice_n: (t.practice || []).length,
+      exam_n: (t.exam || []).length,
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
       title_en: t.title.en, title_fa: t.title.fa,

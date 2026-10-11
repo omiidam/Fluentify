@@ -138,8 +138,9 @@ class ChatBot:
         self._load_glossary(glossary_path)
         with open(grammar_path, encoding="utf-8") as f:
             self.grammar = json.load(f)["topics"]
-        self.exercise = None       # active grammar exercise session
+        self.exercise = None       # active grammar session (practice | exam)
         self.exercise_score = 0
+        self.practice_done: set = set()   # topics whose practice stage is cleared
         self.phrases = {}          # practical sentence banks (phrases.json)
         if PHRASES_FILE.exists():
             with open(phrases_path, encoding="utf-8") as f:
@@ -353,7 +354,7 @@ class ChatBot:
             "Practice it: 'simple present exercises'"
         )
 
-    def format_topic(self, topic, lang: str) -> str:
+    def format_topic(self, topic, lang: str, topic_id: str = "") -> str:
         """English grammar content first, with the Persian translation
         under each line (structure · function · examples)."""
         long = topic.get("title_long", topic["title"])
@@ -374,25 +375,63 @@ class ChatBot:
             for i, e in enumerate(topic["examples"], 1)
         )
 
-        count = to_persian_digits(len(topic["exercises"])) if lang == "fa" else len(topic["exercises"])
+        practice_n = len(topic.get("practice", []))
+        exam_n = len(topic.get("exam", topic.get("exercises", [])))
+        done = self._unlocked(topic_id)
         parts.append("\n4️⃣ Exercises / تمرین")
         if lang == "fa":
-            parts.append(f"{count} سوال آماده دارم — بنویس: 'تمرین {topic['title']['fa']}'")
+            p_s, e_s = to_persian_digits(practice_n), to_persian_digits(exam_n)
+            parts.append(
+                f"۱) تمرین: {p_s} سوال — بنویس: 'تمرین {topic['title']['fa']}'"
+            )
+            parts.append(
+                f"۲) آزمون: {e_s} سوال (🔒 تا وقتی تمرین رو تموم کنی)"
+                if not done else
+                f"۲) آزمون: {e_s} سوال — بنویس: 'آزمون {topic['title']['fa']}'"
+            )
         else:
-            parts.append(f"{count} questions ready — type: '{topic['title']['en'].lower()} exercises'")
+            parts.append(f"1) Practice: {practice_n} questions — type: '{topic['title']['en'].lower()} exercises'")
+            parts.append(
+                f"2) Exam: {exam_n} questions 🔒 (finish the practice first)"
+                if not done else
+                f"2) Exam: {exam_n} questions — type: '{topic['title']['en'].lower()} exam'"
+            )
         return "\n".join(parts)
 
-    def format_exercise_card(self, topic, index: int, lang: str) -> str:
-        q = topic["exercises"][index]
-        total = len(topic["exercises"])
+    def _unlocked(self, topic_id: str) -> bool:
+        return topic_id in self.practice_done
+
+    def practice_unlocked(self, topic, lang: str) -> str:
+        """Message shown when the practice stage is cleared and the exam opens."""
+        exam_n = len(topic.get("exam", []))
+        if lang == "fa":
+            return (
+                "✅ تمرین تمام شد! آزمون باز شد. 🎓\n"
+                f"{'─' * 30}\n"
+                f"{to_persian_digits(exam_n)} سوال باقی مانده — بنویس: 'آزمون {topic['title']['fa']}'\n"
+                "هر پاسخ درست یک امتیاز. آخرش کارت نتیجه با سطح می‌گیری."
+            )
+        return (
+            "✅ Practice complete! Your exam is now open. 🎓\n"
+            f"{'─' * 30}\n"
+            f"{exam_n} questions to go — type: '{topic['title']['en'].lower()} exam'\n"
+            "Each correct answer scores a point; you'll get a graded result card at the end."
+        )
+
+    def format_exercise_card(self, topic, index: int, lang: str, stage: str = "practice") -> str:
+        questions = topic.get("exam", []) if stage == "exam" else topic.get("practice", [])
+        q = questions[index]
+        total = len(questions)
         n = to_persian_digits(index + 1) if lang == "fa" else str(index + 1)
         total_s = to_persian_digits(total) if lang == "fa" else str(total)
         question = q["q"].get(lang, q["q"]["en"])
         if lang == "fa":
+            head = "🎓 آزمون" if stage == "exam" else "✏️ تمرین"
             hint = "پاسخ خودت رو بنویس. ('جواب' برای دیدن جواب، 'گرامر' برای خروج)"
-            return f"✏️ تمرین {n} از {total_s}\n{question}\n{hint}"
+            return f"{head} {n} از {total_s}\n{question}\n{hint}"
+        head = "🎓 Exam" if stage == "exam" else "✏️ Practice"
         hint = "Type your answer. ('show answer' to reveal it, 'grammar' to exit)"
-        return f"✏️ Exercise {n}/{total_s}\n{question}\n{hint}"
+        return f"{head} {n}/{total_s}\n{question}\n{hint}"
 
     @staticmethod
     def norm_answer(s: str) -> str:
@@ -412,20 +451,51 @@ class ChatBot:
         g = set(guess.split())
         return any(set(e.split()) == g for e in expected if len(e.split()) > 1)
 
+    def wants_exam(self, text: str, lowered: str, lang: str) -> bool:
+        if lang == "en":
+            return any(w in lowered for w in ("exam", "test", "final test"))
+        return any(w in text for w in ("آزمون", "امتحان", "تست نهایی"))
+
     def handle_grammar(self, text: str, lowered: str, lang: str) -> str | None:
         found = self.match_grammar_topic(text, lowered, lang)
         if found:
             topic_id, topic = found
-            if self.wants_exercises(text, lowered, lang):
-                self.exercise = {"topic": topic_id, "index": 0, "lang": lang}
+            exam = self.wants_exam(text, lowered, lang)
+            practice = self.wants_exercises(text, lowered, lang)
+
+            if exam:
+                if topic_id not in self.practice_done:
+                    n = to_persian_digits(len(topic.get("practice", []))) if lang == "fa" \
+                        else str(len(topic.get("practice", [])))
+                    title = topic["title"]["fa"] if lang == "fa" else topic["title"]["en"]
+                    return (
+                        f"🔒 آزمون قفل است — اول تمرین ({n} سوال) را کامل کن.\n"
+                        f"بنویس: 'تمرین {title}'"
+                        if lang == "fa" else
+                        f"🔒 The exam is locked — finish the practice first ({n} questions).\n"
+                        f"Type: '{topic['title']['en'].lower()} exercises'"
+                    )
+                self.exercise = {"topic": topic_id, "index": 0, "lang": lang,
+                                 "stage": "exam"}
                 self.exercise_score = 0
                 intro = (
-                    f"🎯 شروع تمرین «{topic['title']['fa']}» — موفق باشی!\n"
+                    f"🎓 شروع آزمون «{topic['title']['fa']}» — موفق باشی!\n"
                     if lang == "fa"
-                    else f"🎯 Starting '{topic['title']['en']}' practice — good luck!\n"
+                    else f"🎓 Starting the '{topic['title']['en']}' exam — good luck!\n"
                 )
-                return intro + self.format_exercise_card(topic, 0, lang)
-            return self.format_topic(topic, lang)
+                return intro + self.format_exercise_card(topic, 0, lang, "exam")
+
+            if practice:
+                self.exercise = {"topic": topic_id, "index": 0, "lang": lang,
+                                 "stage": "practice"}
+                self.exercise_score = 0
+                intro = (
+                    f"✏️ شروع تمرین «{topic['title']['fa']}» — موفق باشی!\n"
+                    if lang == "fa"
+                    else f"✏️ Starting '{topic['title']['en']}' practice — good luck!\n"
+                )
+                return intro + self.format_exercise_card(topic, 0, lang, "practice")
+            return self.format_topic(topic, lang, topic_id)
         if self.wants_grammar_menu(text, lowered, lang):
             return self.format_grammar_menu(lang)
         return None
@@ -438,6 +508,44 @@ class ChatBot:
     EXIT_WORDS_FA = ("خروج", "خداحافظ", "لغو", "متوقف", "توقف", "راهنما", "جوک", "مرسی")
     SHOW_WORDS = ("show answer", "answer", "skip", "next", "reveal", "solution")
     SHOW_WORDS_FA = ("جواب", "حل کن", "بعدی", "نشون بده", "رد شو")
+
+    def looks_like_answer(self, text: str, lowered: str, lang: str) -> bool:
+        """Is this message an attempt at the current exercise?
+
+        Without this, anything typed mid-quiz ("what's the capital of
+        France?") is rejected with "Not quite" instead of being answered.
+        A question, or anything another handler recognises (intent, phrase
+        bank, grammar topic, vocabulary domain), is clearly not an answer.
+        """
+        if "?" in text or "؟" in text:
+            return False
+        if self.match_phrase_topic(text, lowered):
+            return False
+        if self.match_grammar_topic(text, lowered, "en") or self.match_grammar_topic(
+            text, lowered, "fa"
+        ):
+            return False
+        if self.handle_domain_list(text, lowered, lang):
+            return False
+        if self.match_intent(text, lang):
+            return False
+        return True
+
+    def is_show_command(self, text: str, lowered: str) -> bool:
+        """True only for an explicit reveal request.
+
+        Substring matching was too loose: "notananswer at all here" contains
+        "answer" and used to reveal the solution.
+        """
+        stripped = re.sub(r"[.!?؟,;:\"'«»()\[\]]", "", lowered).strip()
+        if not stripped:
+            return False
+        if stripped in self.SHOW_WORDS or stripped in self.SHOW_WORDS_FA:
+            return True
+        return any(
+            stripped.startswith(w + " ") or stripped == w
+            for w in ("show answer", "reveal answer", "show me", "help me answer")
+        ) or any(stripped.startswith(w) for w in ("نشون بده", "جواب بده"))
 
     def is_exit_command(self, text: str, lowered: str) -> bool:
         """True when the message is a command to leave the exercise, rather
@@ -459,9 +567,11 @@ class ChatBot:
 
         topic_id = self.exercise["topic"]
         topic = self.grammar[topic_id]
+        stage = self.exercise.get("stage", "practice")
+        questions = topic.get("exam", []) if stage == "exam" else topic.get("practice", [])
         sess_lang = self.exercise.get("lang", lang)
         index = self.exercise["index"]
-        question = topic["exercises"][index]
+        question = questions[index]
 
         # A correct answer always wins — some legit answers ARE command words
         # ("cancel" is the answer to a phrasal-verb question, "stop" to another).
@@ -474,7 +584,7 @@ class ChatBot:
                 if sess_lang == "fa"
                 else random.choice(["✅ Correct!", "✅ Well done!", "✅ Exactly!"])
             )
-            return praise + "\n" + self._advance_exercise(topic, sess_lang)
+            return praise + "\n" + self._advance_exercise(topic, sess_lang, topic_id, stage)
 
         # Leaving the exercise: exit words (either language), or switching
         # to a grammar menu / another topic
@@ -483,6 +593,10 @@ class ChatBot:
             # A real goodbye still deserves the farewell; anything else just
             # closes the practice instead of falling through to the glossary.
             if re.search(r"\b(bye|goodbye|خداحافظ)\b", lowered) or "خداحافظ" in text:
+                return None
+            # "tell me a joke" / "help" are exit words *and* real requests —
+            # close the quiz but still answer them properly.
+            if not self.looks_like_answer(text, lowered, lang):
                 return None
             score = self.exercise_score
             self.exercise_score = 0
@@ -501,10 +615,12 @@ class ChatBot:
             return None
 
         # Reveal / skip (either language)
-        reveal = any(w in lowered for w in self.SHOW_WORDS) or any(
-            w in text for w in self.SHOW_WORDS_FA
-        )
+        reveal = self.is_show_command(text, lowered)
         if not reveal:
+            # Only treat it as a wrong answer if it reads like one; otherwise
+            # let the normal handlers answer it and keep the quiz open.
+            if not self.looks_like_answer(text, lowered, lang):
+                return None
             if sess_lang == "fa":
                 return "❌ نه، درست نیست. دوباره امتحان کن — یا بنویس 'جواب'."
             return "❌ Not quite. Try again — or type 'show answer'."
@@ -512,17 +628,21 @@ class ChatBot:
         # Reveal the answer, then advance
         answer = " / ".join(question["a"])
         reveal_msg = f"💡 جواب: {answer}" if sess_lang == "fa" else f"💡 Answer: {answer}"
-        return reveal_msg + "\n" + self._advance_exercise(topic, sess_lang)
+        return reveal_msg + "\n" + self._advance_exercise(topic, sess_lang, topic_id, stage)
 
-    def _advance_exercise(self, topic, lang: str) -> str:
+    def _advance_exercise(self, topic, lang: str, topic_id: str, stage: str = "practice") -> str:
         self.exercise["index"] += 1
         index = self.exercise["index"]
-        if index >= len(topic["exercises"]):
-            total = len(topic["exercises"])
+        questions = topic.get("exam", []) if stage == "exam" else topic.get("practice", [])
+        if index >= len(questions):
+            total = len(questions)
             score = self.exercise_score
             self.exercise = None
-            return self.format_score_report(topic, score, total, lang)
-        return self.format_exercise_card(topic, index, lang)
+            if stage == "practice":
+                self.practice_done.add(topic_id)
+                return self.practice_unlocked(topic, lang)
+            return self.format_score_report(topic, score, total, lang, stage)
+        return self.format_exercise_card(topic, index, lang, stage)
 
     # Score bands — each result gets its own "theme"
     SCORE_BANDS = (
@@ -538,7 +658,7 @@ class ChatBot:
          "Every expert started here. Read the lesson again and retry. / هر متخصصی از همین‌جا شروع کرد."),
     )
 
-    def format_score_report(self, topic, score: int, total: int, lang: str) -> str:
+    def format_score_report(self, topic, score: int, total: int, lang: str, stage: str = "exam") -> str:
         """A proper end-of-quiz report: score, band, breakdown and next step."""
         pct = round(score / total * 100) if total else 0
         for cut, icon, en, fa, note in self.SCORE_BANDS:
@@ -553,7 +673,7 @@ class ChatBot:
             score_s = to_persian_digits(score)
             total_s = to_persian_digits(total)
             pct_sign = "٪"
-            head = f"{icon} نتیجه تمرین — {topic['title']['fa']}"
+            head = f"{icon} نتیجه آزمون — {topic['title']['fa']}"
             return (
                 f"{head}\n"
                 f"{'─' * 34}\n"
@@ -561,9 +681,9 @@ class ChatBot:
                 f"{bar}\n"
                 f"سطح: {fa}\n"
                 f"{note}\n"
-                f"برای درس برگرد: 'گرامر' — یا دوباره: 'تمرین {topic['title']['fa']}'"
+                f"برای درس برگرد: 'گرامر' — یا دوباره: 'آزمون {topic['title']['fa']}'"
             )
-        head = f"{icon} Practice result — {topic['title']['en']}"
+        head = f"{icon} Exam result — {topic['title']['en']}"
         return (
             f"{head}\n"
             f"{'─' * 34}\n"
@@ -571,7 +691,7 @@ class ChatBot:
             f"{bar}\n"
             f"Level:   {en}\n"
             f"{note}\n"
-            f"Back to lessons: 'grammar' — or retry: '{topic['title']['en'].lower()} exercises'"
+            f"Back to lessons: 'grammar' — or retry: '{topic['title']['en'].lower()} exam'"
         )
 
     # ------------------------------------------------------------------ #

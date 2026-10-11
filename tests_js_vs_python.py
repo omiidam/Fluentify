@@ -25,6 +25,11 @@ CASES = [
     "سفر و فرودگاه", "تکراری", "abjad", "پنج", "5", "translate قهوه",
     "خوشبختصبح", "yes", "no", "thanks", "درمان",
     "listen", "listen A2", "گوش دادن C1", "بگو B1", "listening levels",
+    # practice -> exam gate (each topic starts locked)
+    "simple present exam", "آزمون حال ساده", "future perfect exam",
+    "simple present test", "past perfect exam", "articles exam", "to be exam",
+    # the exam-unlock / lock messages
+    "simple present", "future perfect", "passive voice", "articles",
 ]
 
 

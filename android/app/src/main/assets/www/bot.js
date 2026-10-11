@@ -139,6 +139,7 @@ class Fluentify {
     this.history = [];
     this.exercise = null;
     this.exerciseScore = 0;
+    this.practiceDone = new Set();   // topics whose practice stage is cleared
     this.lastJokeId = null;
   }
 
@@ -313,7 +314,7 @@ class Fluentify {
       "Practice it: 'simple present exercises'";
   }
 
-  formatTopic(topic, lang) {
+  formatTopic(topic, lang, topicId = '') {
     const long = topic.title_long || topic.title;
     const parts = [`📘 English Grammar — ${long.en} (${long.fa})`];
     parts.push('\n1️⃣ Structure / ساختار');
@@ -323,43 +324,79 @@ class Fluentify {
     topic.function.forEach((f) => parts.push(`• ${f.en}\n  ↳ ${f.fa}`));
     parts.push('\n3️⃣ Examples / مثال‌ها');
     topic.examples.forEach((e, i) => parts.push(`${i + 1}. ${e.en}\n   ↳ ${e.fa}`));
-    const n = topic.exercises.length;
+    const practiceN = (topic.practice || []).length;
+    const examN = (topic.exam || []).length;
+    const done = this.practiceDone.has(topicId);
     parts.push('\n4️⃣ Exercises / تمرین');
     if (lang === 'fa') {
-      parts.push(`${toPersianDigits(n)} سوال آماده دارم — بنویس: 'تمرین ${topic.title.fa}'`);
+      const pS = toPersianDigits(practiceN), eS = toPersianDigits(examN);
+      parts.push(`۱) تمرین: ${pS} سوال — بنویس: 'تمرین ${topic.title.fa}'`);
+      parts.push(done
+        ? `۲) آزمون: ${eS} سوال — بنویس: 'آزمون ${topic.title.fa}'`
+        : `۲) آزمون: ${eS} سوال (🔒 تا وقتی تمرین رو تموم کنی)`);
     } else {
-      parts.push(`${n} questions ready — type: '${topic.title.en.toLowerCase()} exercises'`);
+      parts.push(`1) Practice: ${practiceN} questions — type: '${topic.title.en.toLowerCase()} exercises'`);
+      parts.push(done
+        ? `2) Exam: ${examN} questions — type: '${topic.title.en.toLowerCase()} exam'`
+        : `2) Exam: ${examN} questions 🔒 (finish the practice first)`);
     }
     return parts.join('\n');
   }
 
-  formatExerciseCard(topic, index, lang) {
-    const q = topic.exercises[index];
-    const total = topic.exercises.length;
+  formatExerciseCard(topic, index, lang, stage = 'practice') {
+    const questions = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const q = questions[index];
+    const total = questions.length;
     const n = lang === 'fa' ? toPersianDigits(index + 1) : String(index + 1);
     const totalS = lang === 'fa' ? toPersianDigits(total) : String(total);
     const question = q.q[lang] || q.q.en;
     if (lang === 'fa') {
-      return `✏️ تمرین ${n} از ${totalS}\n${question}\n` +
+      const head = stage === 'exam' ? '🎓 آزمون' : '✏️ تمرین';
+      return `${head} ${n} از ${totalS}\n${question}\n` +
         "پاسخ خودت رو بنویس. ('جواب' برای دیدن جواب، 'گرامر' برای خروج)";
     }
-    return `✏️ Exercise ${n}/${totalS}\n${question}\n` +
+    const head = stage === 'exam' ? '🎓 Exam' : '✏️ Practice';
+    return `${head} ${n}/${totalS}\n${question}\n` +
       "Type your answer. ('show answer' to reveal it, 'grammar' to exit)";
+  }
+
+  wantsExam(text, lowered, lang) {
+    if (lang === 'en') {
+      return ['exam', 'test', 'final test'].some((w) => lowered.includes(w));
+    }
+    return ['آزمون', 'امتحان', 'تست نهایی'].some((w) => text.includes(w));
   }
 
   handleGrammar(text, lowered, lang) {
     const found = this.matchGrammarTopic(text, lowered, lang);
     if (found) {
       const [topicId, topic] = found;
-      if (this.wantsExercises(text, lowered, lang)) {
-        this.exercise = { topic: topicId, index: 0, lang };
+      if (this.wantsExam(text, lowered, lang)) {
+        if (!this.practiceDone.has(topicId)) {
+          const n = (topic.practice || []).length;
+          const nStr = lang === 'fa' ? toPersianDigits(n) : String(n);
+          const title = lang === 'fa' ? topic.title.fa : topic.title.en;
+          return lang === 'fa'
+            ? `🔒 آزمون قفل است — اول تمرین (${nStr} سوال) را کامل کن.\nبنویس: 'تمرین ${title}'`
+            : `🔒 The exam is locked — finish the practice first (${nStr} questions).\n` +
+              `Type: '${topic.title.en.toLowerCase()} exercises'`;
+        }
+        this.exercise = { topic: topicId, index: 0, lang, stage: 'exam' };
         this.exerciseScore = 0;
         const intro = lang === 'fa'
-          ? `🎯 شروع تمرین «${topic.title.fa}» — موفق باشی!\n`
-          : `🎯 Starting '${topic.title.en}' practice — good luck!\n`;
-        return intro + this.formatExerciseCard(topic, 0, lang);
+          ? `🎓 شروع آزمون «${topic.title.fa}» — موفق باشی!\n`
+          : `🎓 Starting the '${topic.title.en}' exam — good luck!\n`;
+        return intro + this.formatExerciseCard(topic, 0, lang, 'exam');
       }
-      return this.formatTopic(topic, lang);
+      if (this.wantsExercises(text, lowered, lang)) {
+        this.exercise = { topic: topicId, index: 0, lang, stage: 'practice' };
+        this.exerciseScore = 0;
+        const intro = lang === 'fa'
+          ? `✏️ شروع تمرین «${topic.title.fa}» — موفق باشی!\n`
+          : `✏️ Starting '${topic.title.en}' practice — good luck!\n`;
+        return intro + this.formatExerciseCard(topic, 0, lang, 'practice');
+      }
+      return this.formatTopic(topic, lang, topicId);
     }
     if (this.wantsGrammarMenu(text, lowered, lang)) return this.formatGrammarMenu(lang);
     return null;
@@ -381,6 +418,29 @@ class Fluentify {
     });
   }
 
+  isShowCommand(text, lowered) {
+    // Strict: substring matching revealed the answer for any message
+    // containing "answer" (e.g. "I have no answer").
+    const stripped = lowered.replace(/[.!?؟,;:"'«»()\[\]]/g, '').trim();
+    if (!stripped) return false;
+    if (SHOW_WORDS.includes(stripped) || SHOW_WORDS_FA.includes(stripped)) return true;
+    const prefixes = ['show answer', 'reveal answer', 'show me', 'help me answer'];
+    if (prefixes.some((w) => stripped === w || stripped.startsWith(w + ' '))) return true;
+    return ['نشون بده', 'جواب بده'].some((w) => stripped.startsWith(w));
+  }
+
+  looksLikeAnswer(text, lowered, lang) {
+    // Without this, anything typed mid-quiz ("what's the capital of France?")
+    // is rejected with "Not quite" instead of being answered normally.
+    if (text.includes('?') || text.includes('؟')) return false;
+    if (this.matchPhraseTopic(text, lowered)) return false;
+    if (this.matchGrammarTopic(text, lowered, 'en') ||
+        this.matchGrammarTopic(text, lowered, 'fa')) return false;
+    if (this.handleDomainList(text, lowered, lang)) return false;
+    if (this.matchIntent(text, lang)) return false;
+    return true;
+  }
+
   isExitCommand(text, lowered) {
     return EXIT_WORDS.some((w) => wordRe(w).test(lowered)) ||
       EXIT_WORDS_FA.some((w) => text.includes(w));
@@ -393,7 +453,9 @@ class Fluentify {
     const topic = this.grammar[topicId];
     const sessLang = this.exercise.lang || lang;
     const index = this.exercise.index;
-    const question = topic.exercises[index];
+    const stage = this.exercise.stage || 'practice';
+    const questions = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    const question = questions[index];
 
     // A correct answer always wins — some legit answers ARE command words
     const guess = this.normAnswer(text);
@@ -403,12 +465,15 @@ class Fluentify {
       const praise = sessLang === 'fa'
         ? pick(['✅ آفرین!', '✅ درسته!', '✅ عالی!'])
         : pick(['✅ Correct!', '✅ Well done!', '✅ Exactly!']);
-      return praise + '\n' + this.advanceExercise(topic, sessLang);
+      return praise + '\n' + this.advanceExercise(topic, sessLang, topicId, stage);
     }
 
     if (this.isExitCommand(text, lowered)) {
       this.exercise = null;
       if (/\b(bye|goodbye)\b/.test(lowered) || text.includes('خداحافظ')) return null;
+      // "tell me a joke" / "help" are exit words *and* real requests —
+      // close the quiz but still answer them properly.
+      if (!this.looksLikeAnswer(text, lowered, lang)) return null;
       const score = this.exerciseScore;
       this.exerciseScore = 0;
       return sessLang === 'fa'
@@ -425,10 +490,12 @@ class Fluentify {
       return null;
     }
 
-    const reveal =
-      SHOW_WORDS.some((w) => lowered.includes(w)) ||
-      SHOW_WORDS_FA.some((w) => text.includes(w));
+    // Reveal / skip (either language)
+    const reveal = this.isShowCommand(text, lowered);
     if (!reveal) {
+      // Only reject it as a wrong answer if it reads like one; otherwise
+      // let the normal handlers answer it and keep the quiz open.
+      if (!this.looksLikeAnswer(text, lowered, lang)) return null;
       return sessLang === 'fa'
         ? "❌ نه، درست نیست. دوباره امتحان کن — یا بنویس 'جواب'."
         : "❌ Not quite. Try again — or type 'show answer'.";
@@ -436,19 +503,36 @@ class Fluentify {
 
     const answer = question['a'].join(' / ');
     const revealMsg = sessLang === 'fa' ? '💡 جواب: ' + answer : '💡 Answer: ' + answer;
-    return revealMsg + '\n' + this.advanceExercise(topic, sessLang);
+    return revealMsg + '\n' + this.advanceExercise(topic, sessLang, topicId, stage);
   }
 
-  advanceExercise(topic, lang) {
+  advanceExercise(topic, lang, topicId, stage = 'practice') {
     this.exercise.index += 1;
     const index = this.exercise.index;
-    if (index >= topic.exercises.length) {
-      const total = topic.exercises.length;
+    const questions = stage === 'exam' ? (topic.exam || []) : (topic.practice || []);
+    if (index >= questions.length) {
+      const total = questions.length;
       const score = this.exerciseScore;
       this.exercise = null;
-      return this.formatScoreReport(topic, score, total, lang);
+      if (stage === 'practice') {
+        this.practiceDone.add(topicId);
+        return this.practiceUnlocked(topic, lang);
+      }
+      return this.formatScoreReport(topic, score, total, lang, stage);
     }
-    return this.formatExerciseCard(topic, index, lang);
+    return this.formatExerciseCard(topic, index, lang, stage);
+  }
+
+  practiceUnlocked(topic, lang) {
+    const examN = (topic.exam || []).length;
+    if (lang === 'fa') {
+      return '✅ تمرین تمام شد! آزمون باز شد. 🎓\n' + '─'.repeat(30) + '\n' +
+        `${toPersianDigits(examN)} سوال باقی مانده — بنویس: 'آزمون ${topic.title.fa}'\n` +
+        'هر پاسخ درست یک امتیاز. آخرش کارت نتیجه با سطح می‌گیری.';
+    }
+    return '✅ Practice complete! Your exam is now open. 🎓\n' + '─'.repeat(30) + '\n' +
+      `${examN} questions to go — type: '${topic.title.en.toLowerCase()} exam'\n` +
+      "Each correct answer scores a point; you'll get a graded result card at the end.";
   }
 
   /* Score bands — each result gets its own "theme" */
@@ -465,7 +549,7 @@ class Fluentify {
      'Every expert started here. Read the lesson again and retry. / هر متخصصی از همین‌جا شروع کرد.'],
   ];
 
-  formatScoreReport(topic, score, total, lang) {
+  formatScoreReport(topic, score, total, lang, stage = 'exam') {
     const pct = total ? Math.round((score / total) * 100) : 0;
     let band = Fluentify.SCORE_BANDS[Fluentify.SCORE_BANDS.length - 1];
     for (const b of Fluentify.SCORE_BANDS) {
@@ -478,14 +562,14 @@ class Fluentify {
     const rule = '─'.repeat(34);
 
     if (lang === 'fa') {
-      return `${icon} نتیجه تمرین — ${topic.title.fa}\n${rule}\n` +
+      return `${icon} نتیجه آزمون — ${topic.title.fa}\n${rule}\n` +
         `امتیاز:  ${toPersianDigits(score)} / ${toPersianDigits(total)}   (${toPersianDigits(pct)}٪)\n` +
         `${bar}\nسطح: ${fa}\n${note}\n` +
-        `برای درس برگرد: 'گرامر' — یا دوباره: 'تمرین ${topic.title.fa}'`;
+        `برای درس برگرد: 'گرامر' — یا دوباره: 'آزمون ${topic.title.fa}'`;
     }
-    return `${icon} Practice result — ${topic.title.en}\n${rule}\n` +
+    return `${icon} Exam result — ${topic.title.en}\n${rule}\n` +
       `Score:   ${score}/${total}   (${pct}%)\n${bar}\nLevel:   ${en}\n${note}\n` +
-      `Back to lessons: 'grammar' — or retry: '${topic.title.en.toLowerCase()} exercises'`;
+      `Back to lessons: 'grammar' — or retry: '${topic.title.en.toLowerCase()} exam'`;
   }
 
   /* ------------------------------------------------------------- jokes */

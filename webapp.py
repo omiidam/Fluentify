@@ -134,13 +134,13 @@ HTML = r"""<!DOCTYPE html>
   .avatar svg { width: 38px; height: 38px; display: block; }
   /* the bird reacts to the daily seed */
   @keyframes bob { 0%,100% { transform: translateY(0) rotate(0deg); }
-                   50% { transform: translateY(-3px) rotate(-3deg); } }
+                   50% { transform: translateY(-4px) rotate(-4deg); } }
   @keyframes bloom { 0% { transform: scale(1); }
                       35% { transform: scale(1.18) rotate(6deg); }
                       60% { transform: scale(1.06) rotate(-4deg); }
                       100% { transform: scale(1); } }
-  .avatar svg { animation: bob 4.5s ease-in-out infinite; }
-  .avatar.full svg { animation: bob 2.2s ease-in-out infinite; }
+  .avatar svg { animation: bob 1.7s ease-in-out infinite; }
+  .avatar.full svg { animation: bob .9s ease-in-out infinite; }
   .avatar.bloom { animation: bloom 1.6s ease; }
   .avatar.full {
     box-shadow: 0 8px 26px rgba(255,141,196,.5), 0 0 0 2px rgba(255,141,196,.45),
@@ -454,6 +454,40 @@ HTML = r"""<!DOCTYPE html>
   .ftopic:hover { background: rgba(109,140,255,.24); transform: translateY(-1px); }
   .ftopic .fa { color: var(--muted); font-size: 11.5px; }
 
+  /* ---------- everyday-sentence cards ----------
+     A phrase bank used to arrive as one run-on pre-wrap block, so the
+     translations collided. Each "• en / ↳ fa" pair is its own card now. */
+  .msg.plist { white-space: normal; padding: 12px; }
+  .msg.plist .plist-head {
+    font-size: 14px; font-weight: 700; color: #ffc4e2;
+    padding: 2px 4px 10px; margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .pcard {
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 10px 12px; margin-bottom: 7px;
+    border-radius: 12px;
+    background: linear-gradient(150deg, rgba(255,255,255,.085), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.11);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+  }
+  .pcard:last-child { margin-bottom: 0; }
+  .pcard .pen { font-size: 14px; line-height: 1.5; color: var(--text); }
+  .pcard .pen::before {
+    content: '▸'; color: #ff8dc4; font-size: 11px; margin-inline-end: 7px;
+    vertical-align: 1px;
+  }
+  .pcard .pfa { font-size: 13px; line-height: 1.6; color: var(--muted); }
+  .pcard .pfa::before {
+    content: '↳'; color: #7f8fbd; font-size: 11px; margin-inline-end: 7px;
+  }
+  @media (min-width: 600px) {
+    .msg.plist { padding: 14px 16px; }
+    .pcard { padding: 11px 14px; margin-bottom: 8px; }
+    .pcard .pen { font-size: 14.5px; }
+    .pcard .pfa { font-size: 13.5px; }
+  }
+
   /* ---------- graceful fallback where backdrop-filter is unsupported ---------- */
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .app { background: linear-gradient(160deg, #141c46, #1b2350); }
@@ -464,19 +498,163 @@ HTML = r"""<!DOCTYPE html>
     .hb { display: none; }
   }
 
-  @media (max-width: 720px) {
-    .app { height: 100vh; border-radius: 0; width: 100%; }
-    body { padding: 0; }
-    .status { display: none; }
-    #seedmeter { display: none; }
-    header { flex-wrap: wrap; padding: 12px 14px; }
-    #chat { padding: 16px 14px 8px; }
-    .bubble-wrap { max-width: 88%; }
-    .domains { max-height: 160px; }
+  /* =================================================================
+     MOBILE FIRST
+     The rules above are the phone layout: full-bleed, one column,
+     44px touch targets, safe-area aware. Larger screens only ever
+     *add* room — nothing below is required for the app to be usable.
+     ================================================================= */
+  :root {
+    /* phones don't have a pointer: no hover lift, and 44px min targets */
+    --tap: 44px;
+    --gap: 8px;
+    --pad: 14px;
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --vh: 100dvh; /* falls back to 100vh where dvh is unsupported */
   }
-  @media (max-width: 460px) {
-    .hbtn { padding: 7px 10px; font-size: 12px; }
-    header h1 { font-size: 15px; }
+  @supports not (height: 100dvh) { :root { --vh: 100vh; } }
+
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    padding: 0;
+    /* the phone owns the whole screen; the desktop frame is opt-in below */
+    align-items: stretch; justify-content: stretch;
+  }
+  .app {
+    width: 100%; height: var(--vh);
+    border-radius: 0; border-inline: none; border-block: none;
+  }
+  .app::after { left: 6%; right: 6%; }
+
+  /* ---- header: title row, then a scrollable strip of panel toggles ---- */
+  header {
+    flex-wrap: wrap; gap: 10px;
+    padding: calc(10px + var(--sat)) calc(var(--pad) + var(--sar)) 10px
+             calc(var(--pad) + var(--sal));
+  }
+  header h1 { font-size: 16px; }
+  .avatar { width: 42px; height: 42px; border-radius: 14px; }
+  .avatar svg { width: 34px; height: 34px; }
+  .status { display: none; }      /* the pill is desktop-only decoration */
+  #seedmeter { display: none; }    /* needs ~90px of header to read properly */
+
+  /* the toggles become a horizontally scrollable toolbar under the title */
+  .tools {
+    order: 10; width: 100%;
+    display: flex; gap: 7px; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+    scrollbar-width: none; padding-bottom: 2px;
+    /* let the row bleed into the side padding so pills can scroll to the edge */
+    margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad);
+  }
+  .tools::-webkit-scrollbar { display: none; }
+  .hbtn {
+    flex: none; min-height: var(--tap);
+    padding: 9px 14px; font-size: 12.5px; border-radius: 12px;
+  }
+  /* no hover affordances on touch — they'd stick after a tap */
+  @media (hover: none) {
+    .hbtn:hover, .chip:hover, .ftopic:hover, .vbtn:hover,
+    .gbtn:hover, .go:hover, .ltab:hover, .lrow:hover, .lplay:hover,
+    .send:hover { transform: none; filter: none; }
+    .hbtn:active, .chip:active, .ftopic:active, .vbtn:active,
+    .gbtn:active, .go:active, .ltab:active, .lrow:active, .send:active {
+      transform: scale(.96);
+    }
+  }
+
+  /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */
+  #vpanel, #gpanel, #fpanel, #lpanel {
+    padding: 12px calc(var(--pad) + var(--sar)) 14px calc(var(--pad) + var(--sal));
+    max-height: 62%;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3 {
+    font-size: 11.5px; margin-bottom: 8px; line-height: 1.5;
+  }
+  .domains { max-height: 46vh; }
+
+  /* every tappable pill in a panel gets a real touch target */
+  .vbtn, .gbtn, .ftopic, .ltab {
+    min-height: 36px; padding: 7px 12px; font-size: 12px;
+  }
+  .gbtn { padding: 0; }
+  .gmain { padding: 8px 4px 8px 12px; font-size: 12px; min-height: 36px; }
+  .go { padding: 0 12px; font-size: 13px; }
+  .go.exam {
+    background: rgba(255,196,77,.14); color: #fcd34d;
+    border-left-color: rgba(255,196,77,.34);
+  }
+  .go.exam:not(.locked):hover { background: rgba(255,196,77,.34); }
+  .go.exam.locked {
+    background: rgba(148,163,184,.12); color: #8a97bb;
+    border-left-color: rgba(148,163,184,.26);
+  }
+  .lrow { padding: 9px 11px; gap: 12px; }
+  .lplay { width: 36px; height: 36px; font-size: 14px; }
+  .ltext .en { font-size: 14px; }
+  .ltext .fa { font-size: 12px; margin-top: 2px; }
+  .ltabs { gap: 6px; }
+
+  /* ---- chat ---- */
+  #chat { padding: 14px calc(var(--pad) + var(--sar)) 8px calc(var(--pad) + var(--sal));
+          gap: 13px; }
+  .bubble-wrap { max-width: 92%; }
+  .mav { width: 28px; height: 28px; border-radius: 10px; }
+  .mav svg { width: 23px; height: 23px; }
+  .msg { padding: 11px 14px; font-size: 15px; border-radius: 16px; }
+  .msg.long { max-height: 52vh; }
+  .row { gap: 8px; }
+
+  /* ---- chips: edge-to-edge scroll strip ---- */
+  .chips {
+    gap: 7px; padding: 9px calc(var(--pad) + var(--sar)) 9px calc(var(--pad) + var(--sal));
+    -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  }
+  .chip { min-height: 38px; padding: 9px 14px; }
+
+  /* ---- input: 16px stops iOS zooming on focus, safe area clears the bar ---- */
+  form {
+    padding: 10px calc(var(--pad) + var(--sar))
+             calc(10px + var(--sab)) calc(var(--pad) + var(--sal));
+    gap: 8px;
+  }
+  #input { padding: 12px 15px; font-size: 16px; border-radius: 14px; }
+  .send { padding: 0 20px; font-size: 14px; border-radius: 14px; min-height: 46px; }
+
+  /* ---------- tablets: two comfortable columns ---------- */
+  @media (min-width: 600px) {
+    :root { --pad: 18px; }
+    .app { border-radius: 22px; border: 1px solid rgba(255,255,255,.14); }
+    body { padding: 16px; align-items: center; justify-content: center; }
+    .app { height: min(94vh, 980px); width: min(1180px, 100%); }
+    .app::after { left: 12%; right: 12%; }
+    header { padding: 14px 20px; flex-wrap: nowrap; }
+    header h1 { font-size: 17.5px; }
+    .avatar { width: 46px; height: 46px; border-radius: 15px; }
+    .avatar svg { width: 38px; height: 38px; }
+    .tools { order: 0; width: auto; margin: 0; padding: 0; overflow: visible; }
+    .hbtn { min-height: 0; padding: 8px 14px; font-size: 13px; }
+    #chat { padding: 20px 22px 10px; gap: 16px; }
+    .bubble-wrap { max-width: 80%; }
+    .mav { width: 32px; height: 32px; border-radius: 11px; }
+    .mav svg { width: 26px; height: 26px; }
+    .msg { padding: 12px 16px; font-size: 15px; }
+    #vpanel, #gpanel, #fpanel, #lpanel { padding: 14px 20px; max-height: 52%; }
+    .domains { max-height: 230px; }
+    form { padding: 14px 20px 18px; gap: 10px; }
+    #input { padding: 14px 17px; font-size: 15.5px; }
+    .send { padding: 0 28px; font-size: 15px; min-height: 0; }
+  }
+
+  /* ---------- desktop: show the decorative status + seed meter ---------- */
+  @media (min-width: 900px) {
+    .status { display: flex; }
+    #seedmeter { display: flex; width: 66px; height: 20px; }
   }
 </style>
 </head>
@@ -527,11 +705,13 @@ HTML = r"""<!DOCTYPE html>
     <div class="spacer"></div>
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
-    <button class="hbtn" id="vtoggle" title="Browse vocabulary domains">📚 Vocabulary</button>
-    <button class="hbtn" id="gtoggle" title="English grammar lessons — درس‌های گرامر">📘 Grammar</button>
-    <button class="hbtn" id="ftoggle" title="Useful everyday sentences — جملات کاربردی">💬 Sentences</button>
-    <button class="hbtn" id="ltoggle" title="Listening practice A1–C2 — شنیدن و تلفظ">🎧 Listening</button>
-    <button class="hbtn" id="clear" title="Clear conversation">🗑 Clear</button>
+    <nav class="tools" aria-label="Study panels">
+      <button class="hbtn" id="vtoggle" title="Browse vocabulary domains">📚 Vocabulary</button>
+      <button class="hbtn" id="gtoggle" title="English grammar lessons — درس‌های گرامر">📘 Grammar</button>
+      <button class="hbtn" id="ftoggle" title="Useful everyday sentences — جملات کاربردی">💬 Sentences</button>
+      <button class="hbtn" id="ltoggle" title="Listening practice A1–C2 — شنیدن و تلفظ">🎧 Listening</button>
+      <button class="hbtn" id="clear" title="Clear conversation">🗑 Clear</button>
+    </nav>
   </header>
 
   <div id="vpanel">
@@ -634,6 +814,56 @@ function renderText(s) {
   return escapeHtml(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 }
 
+/* A phrase bank arrives as "• english\n  ↳ فارسی" pairs under a title line.
+   Render it as separate cards instead of one run-on pre-wrap block. */
+function parsePhraseList(text) {
+  const lines = text.split('\n');
+  if (!lines.some((l) => /^\s*[•·]\s+/.test(l))) return null;
+  const head = [];
+  const pairs = [];
+  let cur = null;
+  for (const raw of lines) {
+    const line = raw.replace(/\s+$/, '');
+    const bullet = line.match(/^\s*[•·]\s+(.*)$/);
+    const arrow = line.match(/^\s*↳\s*(.*)$/);
+    if (bullet) {
+      cur = { en: bullet[1].trim(), fa: '' };
+      pairs.push(cur);
+    } else if (arrow && cur) {
+      cur.fa = arrow[1].trim();
+    } else if (line.trim()) {
+      (cur ? pairs : head).push(line.trim());
+    }
+  }
+  return pairs.length ? { head: head.join('\n'), pairs } : null;
+}
+
+function renderPhraseList(bubble, parsed) {
+  bubble.classList.add('plist');
+  bubble.textContent = '';
+  if (parsed.head) {
+    const h = document.createElement('div');
+    h.className = 'plist-head';
+    h.innerHTML = renderText(parsed.head);
+    bubble.appendChild(h);
+  }
+  for (const p of parsed.pairs) {
+    const card = document.createElement('div');
+    card.className = 'pcard';
+    const en = document.createElement('div');
+    en.className = 'pen';
+    en.innerHTML = renderText(p.en);
+    card.appendChild(en);
+    if (p.fa) {
+      const fa = document.createElement('div');
+      fa.className = 'pfa';
+      fa.innerHTML = renderText(p.fa);
+      card.appendChild(fa);
+    }
+    bubble.appendChild(card);
+  }
+}
+
 function add(text, who, opts = {}) {
   const row = document.createElement('div');
   row.className = 'row ' + who;
@@ -650,7 +880,9 @@ function add(text, who, opts = {}) {
   if (opts.err) bubble.classList.add('err');
   if (isFa(text) && !/[A-Za-z]/.test(text.slice(0, 40))) bubble.classList.add('rtl');
   if (text.split('\n').length > 10) bubble.classList.add('long');
-  bubble.innerHTML = renderText(text);
+  const phrases = who === 'bot' && !opts.err ? parsePhraseList(text) : null;
+  if (phrases) renderPhraseList(bubble, phrases);
+  else bubble.innerHTML = renderText(text);
 
   const meta = document.createElement('div');
   meta.className = 'meta';
@@ -693,6 +925,12 @@ async function send(text) {
     const data = await r.json();
     hideTyping();
     add(data.reply, 'bot');
+    // finishing a practice unlocks that topic's exam — refresh the panel so
+    // the 🎓 button stops showing the lock
+    if (/exam is now open|آزمون باز شد/i.test(data.reply) &&
+        document.getElementById('gpanel').classList.contains('open')) {
+      loadGrammar();
+    }
   } catch (e) {
     hideTyping();
     add('⚠️ connection lost — is the server running?', 'bot', {err: true});
@@ -1033,6 +1271,15 @@ const LEVEL_NAMES = {
   C1: 'پیشرفته · Advanced',
   C2: 'تسلط · Proficiency',
 };
+/* Online the server reports the unlock state; offline (APK) the flag lives on
+   the local bot engine, so ask whichever one is present. */
+function isExamUnlocked(t) {
+  if (typeof bot !== 'undefined' && bot && bot.practiceDone && t.id) {
+    return bot.practiceDone.has(t.id);
+  }
+  return !!t.unlocked;
+}
+
 async function loadGrammar() {
   try {
     const r = await fetch('/api/grammar');
@@ -1080,11 +1327,28 @@ async function loadGrammar() {
         const go = document.createElement('button');
         go.className = 'go';
         go.textContent = '✏️';
-        go.title = 'Practice — ' + t.title_en;
+        go.title = (t.practice_n || 0) + ' practice questions — ' + t.title_en;
         go.setAttribute('aria-label', 'Practice ' + t.title_en);
         go.onclick = () => send(t.practice_en);
 
-        pill.append(b, go);
+        // the 20-question exam — locked until the practice is finished
+        const ex = document.createElement('button');
+        const open = isExamUnlocked(t);
+        ex.className = 'go exam' + (open ? '' : ' locked');
+        ex.textContent = '🎓';
+        ex.title = open
+          ? (t.exam_n || 0) + ' exam questions — ' + t.title_en
+          : (t.exam_n || 0) + ' exam questions (locked — finish the practice first)';
+        ex.setAttribute('aria-label', 'Exam ' + t.title_en);
+        ex.onclick = () => {
+          if (ex.classList.contains('locked')) {
+            send(t.practice_en);
+          } else {
+            send(t.exam_en);
+          }
+        };
+
+        pill.append(b, go, ex);
         row.appendChild(pill);
       });
       wrap.appendChild(row);
@@ -1172,7 +1436,7 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path.startswith("/api/grammar"):
             # Grammar topics for the UI panel (bilingual)
             topics = []
-            for t in bot.grammar.values():
+            for t_id, t in bot.grammar.items():
                 topics.append({
                     "title_en": t["title"]["en"],
                     "title_fa": t["title"]["fa"],
@@ -1180,6 +1444,11 @@ class Handler(BaseHTTPRequestHandler):
                     "query_fa": t["keywords"]["fa"][0],
                     "practice_en": f"{t['keywords']['en'][0]} exercises",
                     "practice_fa": f"تمرین {t['keywords']['fa'][0]}",
+                    "exam_en": f"{t['keywords']['en'][0]} exam",
+                    "exam_fa": f"آزمون {t['keywords']['fa'][0]}",
+                    "practice_n": len(t.get("practice", [])),
+                    "exam_n": len(t.get("exam", [])),
+                    "unlocked": t_id in bot.practice_done,
                     "level": t.get("level", ""),
                 })
             body = json.dumps(topics, ensure_ascii=False).encode("utf-8")
