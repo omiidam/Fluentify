@@ -1,6 +1,7 @@
 package app.fluentify
 
 import android.annotation.SuppressLint
+import android.media.AudioAttributes
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.webkit.JavascriptInterface
@@ -96,9 +97,53 @@ class MainActivity : AppCompatActivity() {
         if (tts == null) {
             tts = TextToSpeech(this) { status ->
                 ttsReady = status == TextToSpeech.SUCCESS
-                if (ttsReady) tts?.language = Locale.UK
+                if (ttsReady) applyBestEnglishVoice()
             }
         }
+    }
+
+    /**
+     * Route speech through the media stream (clearer, honours the volume
+     * slider like a music app) and pick the most natural installed voice.
+     */
+    private fun applyBestEnglishVoice() {
+        val engine = tts ?: return
+        engine.setAudioAttributes(
+            AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .build()
+        )
+        val preferred = listOf(
+            "en-gb-x-rnn-local",   // on-device neural voices (most natural)
+            "en-gb-x-nb-local",
+            "en-us-x-rnn-local",
+            "en-gb-x-sfg-local",
+            "en-us-x-sfg-local",
+            "en-gb"
+        )
+        val all = engine.voices ?: return
+        for (name in preferred) {
+            val v = all.firstOrNull { it.name == name }
+            if (v != null && engine.setVoice(v)) {
+                engine.language = Locale.UK
+                return
+            }
+        }
+        // otherwise: the highest-quality installed English voice
+        val best = all
+            .filter { it.locale.language == "en" }
+            .maxByOrNull { q ->
+                var s = 0
+                if (q.quality >= TextToSpeech.QUALITY_NORMAL) s += 20
+                if (q.quality >= TextToSpeech.QUALITY_HIGH) s += 40
+                if (q.quality >= TextToSpeech.QUALITY_VERY_HIGH) s += 60
+                if (!q.isNetworkConnectionRequired) s += 25   // offline
+                if (q.locale.language == Locale.UK.language) s += 10
+                s
+            }
+        if (best != null) engine.setVoice(best)
+        else engine.language = Locale.UK
     }
 
     override fun onStop() {

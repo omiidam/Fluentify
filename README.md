@@ -22,10 +22,10 @@ no network calls, no tracking.
 |---|---|
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 1,052 words across 33 grouped domains, translate & define in both languages |
-| 📘 Grammar | 31 lessons (A1→B2) — structure → function → highlighted examples → 12 scored exercises |
+| 📘 Grammar | 31 lessons (A1→B2) — structure → function → **20 scored tests** each, with a themed result card |
 | 💬 Sentences | 277 ready-to-use sentences across 25 real-life situations |
-| 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶, or the whole row to practise it) |
-| 🌱 Daily seed | The bird fills a seed ring as you use the app — hit the daily goal and it blooms, keep a streak |
+| 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
+| 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
 | 😂 Jokes | 10 bilingual jokes with category filtering (`programming joke`, `جوک ربات`) |
 | 🔤 Alphabets | English + Persian alphabet, and single-letter lookup (`what letter is A`, `حرف ب`) |
 
@@ -87,6 +87,21 @@ android/                    Gradle project for the APK
   app/src/main/assets/www/    index.html (generated) · bot.js · data/*.json
 .github/workflows/build-apk.yml
 ```
+
+## Practice scoring
+
+Each lesson ends with 20 tests. The result is graded into a themed band:
+
+| Score | | |
+|---|---|---|
+| 90–100% | 🌟 Excellent |Outstanding — this grammar is yours. |
+| 75–89% | 🌿 Very good | Strong and accurate. |
+| 60–74% | 💧 Good | Solid, with a few slips to polish. |
+| 40–59% | 🔥 Almost there | You have the idea — another round will lock it in. |
+| 0–39% | 🌱 Keep going | Every expert started here. |
+
+Revealing an answer with *show answer* moves on **without** scoring it, so the
+number reflects what you actually got right.
 
 ## Adding content
 

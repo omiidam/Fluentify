@@ -330,6 +330,15 @@
     background: linear-gradient(150deg, rgba(255,255,255,.16), rgba(255,141,196,.14));
     border-color: rgba(255,141,196,.3);
   }
+  .mav.me {
+    background: linear-gradient(150deg, rgba(255,255,255,.16), rgba(255,210,87,.16));
+    border-color: rgba(255,210,87,.34);
+  }
+  .row.user .mav {
+    background: linear-gradient(150deg, rgba(255,255,255,.18), rgba(255,210,87,.18));
+    border-color: rgba(255,210,87,.38);
+    box-shadow: 0 4px 12px rgba(245,165,36,.3);
+  }
   .row.user .mav {
     background: linear-gradient(135deg, var(--user1), var(--user2));
     border: none; box-shadow: 0 4px 12px rgba(79,110,247,.35);
@@ -576,7 +585,28 @@ const chat = document.getElementById('chat');
 const input = document.getElementById('input');
 const sendbtn = document.getElementById('sendbtn');
 const isFa = s => /[\u0600-\u06FF]/.test(s);
-const WELCOME = "Hi, I'm Fluentify!";
+/* The learner is the second bird — same shape, sunny yellow instead of pink. */
+const YELLOW_BIRD =
+  '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+  '<defs>' +
+  '<linearGradient id="ybA" x1="0" y1="0" x2="1" y2="1">' +
+  '<stop offset="0" stop-color="#ffe9a8"/><stop offset="55%" stop-color="#ffd257"/>' +
+  '<stop offset="100%" stop-color="#f5a524"/></linearGradient>' +
+  '<linearGradient id="ylA" x1="0" y1="0" x2="0" y2="1">' +
+  '<stop offset="0" stop-color="#fffdf2"/><stop offset="100%" stop-color="#fff0c2"/>' +
+  '</linearGradient></defs>' +
+  '<path d="M10 27 L3.5 20 L5.5 31 Z" fill="#f5a524"/>' +
+  '<ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#ybA)"/>' +
+  '<ellipse cx="23" cy="30.5" rx="9.5" ry="7.5" fill="url(#ylA)" opacity=".95"/>' +
+  '<path d="M13 23.5 q8.5 2.5 8.5 10.5 q-8.5-2.5-8.5-10.5Z" fill="#ffbe3d"/>' +
+  '<path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#ffd979"/>' +
+  '<path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#f97316"/>' +
+  '<circle cx="31" cy="21.5" r="3.3" fill="#4a2b00"/>' +
+  '<circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>' +
+  '<ellipse cx="34.5" cy="27.5" rx="3.2" ry="2.1" fill="#f97316" opacity=".35"/>' +
+  '</svg>';
+
+const WELCOME = "Hey ! Fluently here. Let's learn English together.";
 
 function now() {
   return new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
@@ -595,12 +625,8 @@ function add(text, who, opts = {}) {
   row.className = 'row ' + who;
 
   const av = document.createElement('div');
-  av.className = 'mav' + (who === 'bot' ? ' bot' : '');
-  if (who === 'bot') {
-    av.innerHTML = BIRD;
-  } else {
-    av.textContent = '🙂';
-  }
+  av.className = 'mav' + (who === 'bot' ? ' bot' : ' me');
+  av.innerHTML = who === 'bot' ? BIRD : YELLOW_BIRD;
 
   const wrap = document.createElement('div');
   wrap.className = 'bubble-wrap';
@@ -671,13 +697,24 @@ document.getElementById('chips').addEventListener('click', e => {
 });
 
 /* ---------- motion seed: the bird fills up with daily usage ---------- */
-const SEED_GOAL = 10;                     // messages per day to fill the seed
+const SEED_GOAL = 20;                     // tokens available per session
+const SEED_RESET_UTC = 3.5;               // session rolls over at 03:30 GMT
 const Seed = {
   state: { day: '', count: 0, streak: 0, best: 0 },
+  /* A session starts at 03:30 GMT, so the "day" is counted from that point —
+     otherwise a user studying at 02:00 would lose their progress at midnight. */
   key(d = new Date()) {
-    return d.getFullYear() + '-' +
-           String(d.getMonth() + 1).padStart(2, '0') + '-' +
-           String(d.getDate()).padStart(2, '0');
+    const shifted = new Date(d.getTime() - SEED_RESET_UTC * 3600 * 1000);
+    return shifted.getUTCFullYear() + '-' +
+           String(shifted.getUTCMonth() + 1).padStart(2, '0') + '-' +
+           String(shifted.getUTCDate()).padStart(2, '0');
+  },
+  /* when the current session ends (for the countdown in the tooltip) */
+  msLeft() {
+    const now = new Date();
+    const next = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
+                          3, 30, 0, 0) + SEED_RESET_UTC * 3600 * 1000;
+    return next - now.getTime();
   },
   load() {
     try {
@@ -737,7 +774,9 @@ const Seed = {
         ? '🌸 ' + this.state.streak + 'd'
         : pct + '%';
       meter.append(bar, t);
-      meter.title = `Seed ${pct}% · streak ${this.state.streak} day(s) · ${this.state.count}/${SEED_GOAL} today`;
+      meter.title = `Seed ${pct}% · streak ${this.state.streak} session(s) · ` +
+        `${this.state.count}/${SEED_GOAL} tokens · resets in ` +
+        `${Math.floor(this.msLeft() / 3600000)}h ${Math.floor((this.msLeft() % 3600000) / 60000)}m (03:30 GMT)`;
     }
   },
 };
@@ -748,19 +787,49 @@ const Seed = {
    everywhere else fall back to the Web Speech API. */
 const Speech = {
   playing: null,
+  voice: null,
+  /* Prefer the most natural-sounding voice the device actually has, instead of
+     taking whatever the engine happens to default to (often the worst one). */
+  pickVoice() {
+    if (!('speechSynthesis' in window)) return null;
+    const list = speechSynthesis.getVoices();
+    if (!list.length) return null;
+    const score = (v) => {
+      let s = 0;
+      const n = (v.name || '').toLowerCase();
+      if (/natural|neural|premium|enhanced/.test(n)) s += 100;
+      if (/google/.test(n)) s += 60;
+      if (/(samantha|karen|daniel|serena|moira|tessa|zira|aria|jenny|libby|sonia)/.test(n)) s += 45;
+      if (v.localService) s += 25;           // offline = instant, no network
+      if (/^en[-_]GB/i.test(v.lang)) s += 22;
+      else if (/^en[-_]AU|^en[-_]IE/i.test(v.lang)) s += 14;
+      else if (/^en[-_]US/i.test(v.lang)) s += 12;
+      if (/female|woman|woman/.test(n)) s += 8;
+      if (/(compact|eloquence|espeak)/.test(n)) s -= 50;   // robotic engines
+      return s;
+    };
+    const en = list.filter((v) => /^en/i.test(v.lang));
+    const pool = en.length ? en : list;
+    return pool.slice().sort((a, b) => score(b) - score(a))[0] || null;
+  },
   speak(text, onEnd) {
     this.stop();
+    // Android: the native engine (high-quality offline voices)
     if (window.AndroidTTS && window.AndroidTTS.speak) {
       window.AndroidTTS.speak(text);
       this.playing = { text };
       setTimeout(() => { this.playing = null; if (onEnd) onEnd(); },
-                 Math.max(1800, text.length * 62));
+                 Math.max(2200, text.length * 62));
       return true;
     }
     if (!('speechSynthesis' in window)) return false;
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-GB';
-    u.rate = 0.92;
+    if (!this.voice) this.voice = this.pickVoice();
+    if (this.voice) u.voice = this.voice;
+    u.lang = this.voice ? this.voice.lang : 'en-GB';
+    u.rate = 0.95;      // a touch slower than default = clearer
+    u.pitch = 1.0;      // neutral, avoids the chipmunk effect
+    u.volume = 1;
     u.onend = () => { this.playing = null; if (onEnd) onEnd(); };
     u.onerror = () => { this.playing = null; if (onEnd) onEnd(); };
     this.playing = { text, utter: u };
@@ -775,6 +844,9 @@ const Speech = {
   },
   isPlaying(text) { return !!this.playing && this.playing.text === text; },
 };
+if ('speechSynthesis' in window) {
+  speechSynthesis.onvoiceschanged = () => { Speech.voice = Speech.pickVoice(); };
+}
 
 async function loadListening() {
   const box = document.getElementById('llevels');
@@ -838,7 +910,7 @@ async function loadListening() {
                 'bot');
           }
         };
-        row.onclick = () => send(s.en);   // tap the row to practise it too
+        row.onclick = (ev) => btn.onclick(ev);   // the row is just a bigger play target
         list.appendChild(row);
       });
     };

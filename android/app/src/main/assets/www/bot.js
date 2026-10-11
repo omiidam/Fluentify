@@ -318,6 +318,7 @@ class Fluentify {
     const parts = [`📘 English Grammar — ${long.en} (${long.fa})`];
     parts.push('\n1️⃣ Structure / ساختار');
     topic.structure.forEach((s) => parts.push(`• ${s.en}\n  ↳ ${s.fa}`));
+    if (topic.tip) parts.push(`\n💡 Tip: ${topic.tip.en}\n   ↳ ${topic.tip.fa}`);
     parts.push('\n2️⃣ Function / کاربرد');
     topic.function.forEach((f) => parts.push(`• ${f.en}\n  ↳ ${f.fa}`));
     parts.push('\n3️⃣ Examples / مثال‌ها');
@@ -445,16 +446,46 @@ class Fluentify {
       const total = topic.exercises.length;
       const score = this.exerciseScore;
       this.exercise = null;
-      const totalS = lang === 'fa' ? toPersianDigits(total) : String(total);
-      const scoreS = lang === 'fa' ? toPersianDigits(score) : String(score);
-      if (lang === 'fa') {
-        return `🎉 تمرین تموم شد! امتیازت: ${scoreS} از ${totalS}\n` +
-          "برای درس برگرد: 'گرامر' — یا دوباره تمرین: 'تمرین حال ساده'";
-      }
-      return `🎉 Exercise finished! Your score: ${scoreS}/${totalS}\n` +
-        "Back to lessons: 'grammar' — or practice again: 'simple present exercises'";
+      return this.formatScoreReport(topic, score, total, lang);
     }
     return this.formatExerciseCard(topic, index, lang);
+  }
+
+  /* Score bands — each result gets its own "theme" */
+  static SCORE_BANDS = [
+    [90, '🌟', 'Excellent', 'عالی',
+     'Outstanding — this grammar is yours. / فوق‌العاده — این گرامر مال توئه.'],
+    [75, '🌿', 'Very good', 'خیلی خوب',
+     'Strong and accurate. / قوی و دقیق.'],
+    [60, '💧', 'Good', 'خوب',
+     'Solid, with a few slips to polish. / خوب، فقط چند نکته برای صیقل.'],
+    [40, '🔥', 'Almost there', 'نزدیک شدی',
+     'You have the idea — another round will lock it in. / ایده رو داری — یه دور دیگه کاملش می‌کنه.'],
+    [0, '🌱', 'Keep going', 'ادامه بده',
+     'Every expert started here. Read the lesson again and retry. / هر متخصصی از همین‌جا شروع کرد.'],
+  ];
+
+  formatScoreReport(topic, score, total, lang) {
+    const pct = total ? Math.round((score / total) * 100) : 0;
+    let band = Fluentify.SCORE_BANDS[Fluentify.SCORE_BANDS.length - 1];
+    for (const b of Fluentify.SCORE_BANDS) {
+      if (pct >= b[0]) { band = b; break; }
+    }
+    const [cut, icon, en, fa, note] = band;
+    const barLen = 20;
+    const filled = Math.max(0, Math.min(barLen, Math.round((pct / 100) * barLen)));
+    const bar = '█'.repeat(filled) + '░'.repeat(barLen - filled);
+    const rule = '─'.repeat(34);
+
+    if (lang === 'fa') {
+      return `${icon} نتیجه تمرین — ${topic.title.fa}\n${rule}\n` +
+        `امتیاز:  ${toPersianDigits(score)} / ${toPersianDigits(total)}   (${toPersianDigits(pct)}٪)\n` +
+        `${bar}\nسطح: ${fa}\n${note}\n` +
+        `برای درس برگرد: 'گرامر' — یا دوباره: 'تمرین ${topic.title.fa}'`;
+    }
+    return `${icon} Practice result — ${topic.title.en}\n${rule}\n` +
+      `Score:   ${score}/${total}   (${pct}%)\n${bar}\nLevel:   ${en}\n${note}\n` +
+      `Back to lessons: 'grammar' — or retry: '${topic.title.en.toLowerCase()} exercises'`;
   }
 
   /* ------------------------------------------------------------- jokes */

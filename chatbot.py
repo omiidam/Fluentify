@@ -362,6 +362,8 @@ class ChatBot:
 
         parts.append("\n1️⃣ Structure / ساختار")
         parts.extend(f"• {s['en']}\n  ↳ {s['fa']}" for s in topic["structure"])
+        if topic.get("tip"):
+            parts.append(f"\n💡 Tip: {topic['tip']['en']}\n   ↳ {topic['tip']['fa']}")
 
         parts.append("\n2️⃣ Function / کاربرد")
         parts.extend(f"• {f['en']}\n  ↳ {f['fa']}" for f in topic["function"])
@@ -519,18 +521,58 @@ class ChatBot:
             total = len(topic["exercises"])
             score = self.exercise_score
             self.exercise = None
-            total_s = to_persian_digits(total) if lang == "fa" else str(total)
-            score_s = to_persian_digits(score) if lang == "fa" else str(score)
-            if lang == "fa":
-                return (
-                    f"🎉 تمرین تموم شد! امتیازت: {score_s} از {total_s}\n"
-                    "برای درس برگرد: 'گرامر' — یا دوباره تمرین: 'تمرین حال ساده'"
-                )
-            return (
-                f"🎉 Exercise finished! Your score: {score_s}/{total_s}\n"
-                "Back to lessons: 'grammar' — or practice again: 'simple present exercises'"
-            )
+            return self.format_score_report(topic, score, total, lang)
         return self.format_exercise_card(topic, index, lang)
+
+    # Score bands — each result gets its own "theme"
+    SCORE_BANDS = (
+        (90, "🌟", "Excellent", "عالی",
+         "Outstanding — this grammar is yours. / فوق‌العاده — این گرامر مال توئه."),
+        (75, "🌿", "Very good", "خیلی خوب",
+         "Strong and accurate. / قوی و دقیق."),
+        (60, "💧", "Good", "خوب",
+         "Solid, with a few slips to polish. / خوب، فقط چند نکته برای صیقل."),
+        (40, "🔥", "Almost there", "نزدیک شدی",
+         "You have the idea — another round will lock it in. / ایده رو داری — یه دور دیگه کاملش می‌کنه."),
+        (0, "🌱", "Keep going", "ادامه بده",
+         "Every expert started here. Read the lesson again and retry. / هر متخصصی از همین‌جا شروع کرد."),
+    )
+
+    def format_score_report(self, topic, score: int, total: int, lang: str) -> str:
+        """A proper end-of-quiz report: score, band, breakdown and next step."""
+        pct = round(score / total * 100) if total else 0
+        for cut, icon, en, fa, note in self.SCORE_BANDS:
+            if pct >= cut:
+                break
+        bar_len = 20
+        filled = max(0, min(bar_len, round(pct / 100 * bar_len)))
+        bar = "█" * filled + "░" * (bar_len - filled)
+
+        if lang == "fa":
+            pct_s = to_persian_digits(pct)
+            score_s = to_persian_digits(score)
+            total_s = to_persian_digits(total)
+            pct_sign = "٪"
+            head = f"{icon} نتیجه تمرین — {topic['title']['fa']}"
+            return (
+                f"{head}\n"
+                f"{'─' * 34}\n"
+                f"امتیاز:  {score_s} / {total_s}   ({pct_s}{pct_sign})\n"
+                f"{bar}\n"
+                f"سطح: {fa}\n"
+                f"{note}\n"
+                f"برای درس برگرد: 'گرامر' — یا دوباره: 'تمرین {topic['title']['fa']}'"
+            )
+        head = f"{icon} Practice result — {topic['title']['en']}"
+        return (
+            f"{head}\n"
+            f"{'─' * 34}\n"
+            f"Score:   {score}/{total}   ({pct}%)\n"
+            f"{bar}\n"
+            f"Level:   {en}\n"
+            f"{note}\n"
+            f"Back to lessons: 'grammar' — or retry: '{topic['title']['en'].lower()} exercises'"
+        )
 
     # ------------------------------------------------------------------ #
     #  Jokes (bilingual library from jokes.json)
