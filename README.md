@@ -22,7 +22,7 @@ no network calls, no tracking.
 |---|---|
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 1,052 words across 33 grouped domains, translate & define in both languages |
-| 📘 Grammar | 31 lessons (A1→B2) — structure → function → **20 scored tests** each, with a themed result card |
+| 📘 Grammar | 31 lessons (A1→B2) — structure → function → **6 practice questions → a gated 20-question exam**, with a themed result card |
 | 💬 Sentences | 277 ready-to-use sentences across 25 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
@@ -58,7 +58,7 @@ JavaScript port (`bot.js`). `tests_js_vs_python.py` asserts the two engines
 produce identical replies, so the phone behaves exactly like the desktop.
 
 ```bash
-python3 tests_js_vs_python.py   # 61/61 replies identical
+python3 tests_js_vs_python.py   # 72/72 replies identical
 ```
 
 Speech is native on Android (`MainActivity.kt` bridges the page to Android's
@@ -78,7 +78,7 @@ tools/js_engine.js          headless harness for the JS engine
 
 memory.json                 42 intents + both alphabets
 glossary.json               1,052 words in 33 domains
-grammar.json                31 lessons with exercises
+grammar.json                31 lessons: practice + exam question sets
 phrases.json                277 sentences in 25 situations
 jokes.json                  10 bilingual jokes
 listening.json              48 spoken sentences graded A1 → C2
@@ -90,7 +90,30 @@ android/                    Gradle project for the APK
 
 ## Practice scoring
 
-Each lesson ends with 20 tests. The result is graded into a themed band:
+Each lesson has **two** stages. You start with a short guided **practice** set of
+6 questions; once you clear it the 🔒 on that lesson's exam is lifted:
+
+```bash
+# locked
+> simple present exam
+🔒 The exam is locked — finish the practice first (6 questions).
+Type: 'simple present exercises'
+
+# stage 1
+> simple present exercises
+✏️ Starting 'Simple Present' practice — good luck!
+...
+✅ Practice complete! Your exam is now open. 🎓
+
+# stage 2
+> simple present exam
+🎓 Starting the 'Simple Present' exam — good luck!
+```
+
+In Persian: `تمرین حال ساده` then `آزمون حال ساده`. The same gate appears on the
+grammar panel's 🎓 button.
+
+The 20-question exam is graded into a themed band:
 
 | Score | | |
 |---|---|---|
@@ -110,7 +133,8 @@ Everything lives in JSON — no code changes needed:
 * **a word** → append `["english", "فارسی"]` to any `words` list in `glossary.json`
 * **a sentence** → append `{"en": "...", "fa": "..."}` to a topic in `phrases.json`
 * **a grammar lesson** → add a topic to `grammar.json` with `title`, `keywords`, `level`,
-  `structure`, `function`, `examples` (wrap the taught part in `**like this**`) and `exercises`
+  `structure`, `function`, `examples` (wrap the taught part in `**like this**`),
+  `practice` (the 6 warm-up questions) and `exam` (the 20 scored ones)
 * **small talk** → add an intent to `memory.json` with EN/FA keywords and responses
 
 Then re-run `python3 build_apk_ui.py` and `cp *.json android/app/src/main/assets/www/data/`.
