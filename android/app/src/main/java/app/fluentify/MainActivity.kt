@@ -1,6 +1,7 @@
 package app.fluentify
 
 import android.annotation.SuppressLint
+import android.media.AudioAttributes
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.webkit.JavascriptInterface
@@ -75,8 +76,19 @@ class MainActivity : AppCompatActivity() {
             runOnUiThread {
                 val engine = tts
                 if (engine != null && ttsReady) {
-                    engine.language = Locale.UK
-                    engine.setSpeechRate(0.92f)
+                    try {
+                        // media stream = clearer, and honours the volume slider
+                        engine.setAudioAttributes(
+                            AudioAttributes.Builder()
+                                .setUsage(AudioAttributes.USAGE_MEDIA)
+                                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                                .build()
+                        )
+                        engine.language = Locale.UK
+                        engine.setSpeechRate(0.95f)
+                        engine.setPitch(1.0f)
+                    } catch (ignored: Exception) {
+                    }
                     engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "fluentify")
                 }
             }
