@@ -1,10 +1,8 @@
 package app.fluentify
 
 import android.annotation.SuppressLint
-import android.media.AudioAttributes
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.speech.tts.Voice
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))
             .build()
 
-        val bridge = TtsBridge()
         val web = WebView(this).apply {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
@@ -46,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             settings.allowContentAccess = false
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
-            addJavascriptInterface(bridge, "AndroidTTS")
+            addJavascriptInterface(TtsBridge(), "AndroidTTS")
             webViewClient = object : WebViewClient() {
                 override fun shouldInterceptRequest(
                     view: WebView,
@@ -99,73 +96,8 @@ class MainActivity : AppCompatActivity() {
         if (tts == null) {
             tts = TextToSpeech(this) { status ->
                 ttsReady = status == TextToSpeech.SUCCESS
-                if (ttsReady) applyBestEnglishVoice()
+                if (ttsReady) tts?.language = Locale.UK
             }
-        }
-    }
-
-    /**
-     * Route speech through the media stream (clearer, honours the volume
-     * slider like a music app) and pick the most natural installed voice.
-     * Written with plain loops and wrapped in try/catch: a missing voice on an
-     * odd device must never take the app down.
-     */
-    private fun applyBestEnglishVoice() {
-        val engine = tts ?: return
-        try {
-            engine.setAudioAttributes(
-                AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_MEDIA)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                    .build()
-            )
-            val voices = engine.voices
-            if (voices != null) {
-                val all = ArrayList(voices)
-
-                // 1) on-device neural voices sound the most natural
-                val preferred = arrayOf(
-                    "en-gb-x-rnn-local",
-                    "en-gb-x-nb-local",
-                    "en-us-x-rnn-local",
-                    "en-gb-x-sfg-local",
-                    "en-us-x-sfg-local",
-                    "en-gb"
-                )
-                for (i in preferred.indices) {
-                    val wanted = preferred[i]
-                    for (j in all.indices) {
-                        val v = all[j]
-                        if (v.name == wanted && engine.setVoice(v)) {
-                            engine.language = Locale.UK
-                            return
-                        }
-                    }
-                }
-
-                // 2) otherwise the highest-quality installed English voice
-                var best: Voice? = null
-                var bestScore = -1
-                for (j in all.indices) {
-                    val v = all[j]
-                    if (v.locale.language != "en") continue
-                    var score = 0
-                    if (v.quality >= TextToSpeech.QUALITY_VERY_HIGH) score += 60
-                    if (v.quality >= TextToSpeech.QUALITY_HIGH) score += 40
-                    if (v.quality >= TextToSpeech.QUALITY_NORMAL) score += 20
-                    if (!v.isNetworkConnectionRequired) score += 25   // offline
-                    if (score > bestScore) {
-                        bestScore = score
-                        best = v
-                    }
-                }
-                val chosen = best
-                if (chosen != null) engine.setVoice(chosen) else engine.language = Locale.UK
-            } else {
-                engine.language = Locale.UK
-            }
-        } catch (e: Exception) {
-            try { engine.language = Locale.UK } catch (ignored: Exception) { }
         }
     }
 
