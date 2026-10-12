@@ -81,7 +81,8 @@
           "en": "What do you do in your spare time?",
           "fa": "تو اوقات فراغتت چیکار می‌کنی؟"
         }
-      ]
+      ],
+      "level": "A1"
     },
     "daily_routine": {
       "title": {
@@ -169,7 +170,8 @@
           "en": "I'm trying to sleep earlier these days.",
           "fa": "دارم سعی می‌کنم این روزها زودتر بخوابم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "travel": {
       "title": {
@@ -256,7 +258,8 @@
           "en": "How long does it take to get there?",
           "fa": "چقدر طول می‌کشه تا اونجا؟"
         }
-      ]
+      ],
+      "level": "A1"
     },
     "directions": {
       "title": {
@@ -337,7 +340,8 @@
           "en": "It's on your left, right next to the pharmacy.",
           "fa": "سمت چپته، دقیقاً کنار داروخونه."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "restaurant": {
       "title": {
@@ -425,7 +429,8 @@
           "en": "I'll take it to go, thanks.",
           "fa": "می‌برمش می‌رم، ممنون."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "shopping": {
       "title": {
@@ -503,7 +508,8 @@
           "en": "This is too small for me.",
           "fa": "این برای من خیلی کوچیکه."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "work_study": {
       "title": {
@@ -590,7 +596,8 @@
           "en": "What are the main requirements?",
           "fa": "الزامات اصلی چیه؟"
         }
-      ]
+      ],
+      "level": "A1"
     },
     "health": {
       "title": {
@@ -672,7 +679,8 @@
           "en": "Thank you for your help.",
           "fa": "ممنون از کمکتون."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "small_talk": {
       "title": {
@@ -751,7 +759,8 @@
           "en": "Let me think about it and get back to you.",
           "fa": "بذار فکر کنم و بهت خبر بدم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "phone_online": {
       "title": {
@@ -831,7 +840,8 @@
           "en": "Who should I give the phone to?",
           "fa": "گوشی رو به کی بدم؟"
         }
-      ]
+      ],
+      "level": "A1"
     },
     "emergency": {
       "title": {
@@ -908,7 +918,8 @@
           "en": "I need to contact my embassy.",
           "fa": "باید با سفارتمون تماس بگیرم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "job_work": {
       "title": {
@@ -963,7 +974,8 @@
           "en": "I'd like to discuss my salary.",
           "fa": "می‌خواهم درباره حقوقم صحبت کنم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "banking": {
       "title": {
@@ -1017,7 +1029,8 @@
           "en": "I'd like to complain about a charge.",
           "fa": "می‌خواهم بابت یه هزینه شکایت کنم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "housing": {
       "title": {
@@ -1072,7 +1085,8 @@
           "en": "Is the flat furnished?",
           "fa": "خانه مبلمان است؟"
         }
-      ]
+      ],
+      "level": "A1"
     },
     "phone_calls": {
       "title": {
@@ -1126,7 +1140,8 @@
           "en": "Call back as soon as you can.",
           "fa": "هر وقت توانستی زنگ بزن."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "opinions_agreeing": {
       "title": {
@@ -1181,7 +1196,8 @@
           "en": "I couldn't agree more.",
           "fa": "کاملاً موافقم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "problems_complaints": {
       "title": {
@@ -1235,7 +1251,8 @@
           "en": "Sorry to bother you, but…",
           "fa": "ببخشید مزاحمتونم، ولی…"
         }
-      ]
+      ],
+      "level": "A1"
     },
     "social_media": {
       "title": {
@@ -1288,7 +1305,8 @@
           "en": "I got so many notifications.",
           "fa": "کلی اعلان گرفتم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "opinions_food": {
       "title": {
@@ -1344,7 +1362,8 @@
           "en": "I'll try it anyway.",
           "fa": "به هر حال امتحان می‌کنم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "hobbies": {
       "title": {
@@ -1400,7 +1419,8 @@
           "en": "I started reading a lot recently.",
           "fa": "اخیراً زیاد کتاب می‌خونم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "polite_requests": {
       "title": {
@@ -1453,7 +1473,8 @@
           "en": "Thank you in advance.",
           "fa": "از قبل ممنونم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "technology_help": {
       "title": {
@@ -1507,7 +1528,8 @@
           "en": "I need to update the software.",
           "fa": "باید نرم‌افزار رو به‌روز کنم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "family_talk": {
       "title": {
@@ -1560,7 +1582,8 @@
           "en": "We grew up together.",
           "fa": "با هم بزرگ شدیم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "future_plans": {
       "title": {
@@ -1615,7 +1638,8 @@
           "en": "Let's stay in touch.",
           "fa": "بیا در تماس بمانیم."
         }
-      ]
+      ],
+      "level": "A1"
     },
     "polite_disagreeing": {
       "title": {
@@ -1668,6 +1692,980 @@
         {
           "en": "That's the idea — just polish it.",
           "fa": "همان است — فقط صیقلش بده."
+        }
+      ],
+      "level": "A1"
+    },
+    "phrasal_in_context": {
+      "title": {
+        "en": "Phrasal verbs in real sentences",
+        "fa": "فعل‌های ترکیبی در جمله‌های واقعی"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "phrasal verbs sentences",
+          "phrasal in context",
+          "verb particles"
+        ],
+        "fa": [
+          "جمله های فعل ترکیبی",
+          "افعال ترکیبی در جمله"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "I've been meaning to look into this for weeks.",
+          "fa": "چند هفته است می‌خواهم این را بررسی کنم."
+        },
+        {
+          "en": "Could you look after my cat this weekend?",
+          "fa": "می‌توانی این آخر هفته از گربه‌ام نگهداری کنی؟"
+        },
+        {
+          "en": "I can't make up my mind — both are lovely.",
+          "fa": "نمی‌توانم تصمیم بگیرم — هر دو خیلی خوب‌اند."
+        },
+        {
+          "en": "She turned down the offer without hesitating.",
+          "fa": "او بدون مکث پیشنهاد را رد کرد."
+        },
+        {
+          "en": "We need to cut down on sugar.",
+          "fa": "باید مصرف قند را کم کنیم."
+        },
+        {
+          "en": "He put off the decision for as long as he could.",
+          "fa": "او تا جایی که می‌توانست تصمیم را عقب انداخت."
+        },
+        {
+          "en": "Let's get down to business.",
+          "fa": "بیایید جدی شویم و کار را شروع کنیم."
+        },
+        {
+          "en": "That excuse doesn't wash with me.",
+          "fa": "این بهانه برای من قابل قبول نیست."
+        },
+        {
+          "en": "I need to catch up on my reading.",
+          "fa": "باید مطالعه‌ام را به‌روز کنم."
+        },
+        {
+          "en": "Let's call it a day and grab a drink.",
+          "fa": "بیایید کار را تمام کنیم و یک نوشیدنی بگیریم."
+        },
+        {
+          "en": "We should iron out the details tomorrow.",
+          "fa": "باید جزئیات را فردا نهایی کنیم."
+        },
+        {
+          "en": "He worked overtime to make up for it.",
+          "fa": "او اضافه‌کاری کرد تا جبران کند."
+        }
+      ]
+    },
+    "making_arrangements": {
+      "title": {
+        "en": "Plans & arrangements",
+        "fa": "برنامه‌ریزی و توافق"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "making plans",
+          "arrangements",
+          "schedule",
+          "plan something"
+        ],
+        "fa": [
+          "برنامه ریزی",
+          "هماهنگی",
+          "قرار ملاقات"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "Are you free this Saturday afternoon?",
+          "fa": "شنبه عصر آزادی؟"
+        },
+        {
+          "en": "Let's pencil something in for next week.",
+          "fa": "برای هفته بعد یک چیزی موقت کنار بگذاریم."
+        },
+        {
+          "en": "I'll give you a ring once it's sorted.",
+          "fa": "وقتی جا افتاد بهت زنگ می‌زنم."
+        },
+        {
+          "en": "Something's come up — can we push it back?",
+          "fa": "یک اتفاقی افتاده — می‌توانیم عقب بیندازیم؟"
+        },
+        {
+          "en": "I'll let you know by Friday at the latest.",
+          "fa": "حداکثر تا جمعه بهت اطلاع می‌دهم."
+        },
+        {
+          "en": "Can you work around my shift?",
+          "fa": "می‌توانی دور شیفت من را تنظیم کنی؟"
+        },
+        {
+          "en": "Let's play it by ear for now.",
+          "fa": "فعلاً بگذاریم ببینیم چه پیش می‌آید."
+        },
+        {
+          "en": "Count me in — I'm definitely coming.",
+          "fa": "مرا حساب کن — حتماً می‌آیم."
+        },
+        {
+          "en": "I'd rather not commit to the whole weekend.",
+          "fa": "ترجیح می‌دهم به کل آخر هفته متعهد نشوم."
+        },
+        {
+          "en": "Let's sort out the details over coffee.",
+          "fa": "جزئیات را با یک قهوه حل کنیم."
+        },
+        {
+          "en": "If it rains, we'll make it a rain check.",
+          "fa": "اگر باران ببارد، به مورد بعدی موکول می‌کنیم."
+        },
+        {
+          "en": "Keep me posted, would you?",
+          "fa": "خبرم کن، باشه؟"
+        }
+      ]
+    },
+    "workplace_b1": {
+      "title": {
+        "en": "Working with people",
+        "fa": "کار کردن با دیگران"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "at work",
+          "colleagues",
+          "asking for help at work",
+          "workplace talk"
+        ],
+        "fa": [
+          "محیط کار",
+          "همکار",
+          "کمک خواستن در کار"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "Could you walk me through it?",
+          "fa": "می‌شود قدم‌به‌قدم توضیحش بدهی؟"
+        },
+        {
+          "en": "I'm a bit out of my depth here.",
+          "fa": "اینجا کمی از تخصصم بیرون است."
+        },
+        {
+          "en": "Do you have a minute to review my draft?",
+          "fa": "یک دقیقه وقت داری پیش‌نویسم را ببینی؟"
+        },
+        {
+          "en": "Let me get back to you on that.",
+          "fa": "بگذار درباره‌اش به تو برگردم."
+        },
+        {
+          "en": "I'm happy to take that on.",
+          "fa": "خوشحال می‌شوم آن را بر عهده بگیرم."
+        },
+        {
+          "en": "Can we park that for now?",
+          "fa": "می‌توانیم فعلاً بی‌خیالش شویم؟"
+        },
+        {
+          "en": "I'd rather not commit to that timeline.",
+          "fa": "ترجیح می‌دهم به آن زمان‌بندی متعهد نشوم."
+        },
+        {
+          "en": "Just to be clear, are we talking about the same thing?",
+          "fa": "برای واضح شدن، داریم درباره یک چیز حرف می‌زنیم؟"
+        },
+        {
+          "en": "I'll loop in Sarah on this.",
+          "fa": "سارا را هم در جریان می‌گذارم."
+        },
+        {
+          "en": "That's out of my hands, I'm afraid.",
+          "fa": "متأسفانه این دست من نیست."
+        },
+        {
+          "en": "Let's touch base next week.",
+          "fa": "هفته بعد دوباره در تماس باشیم."
+        },
+        {
+          "en": "Good catch — thanks for spotting that.",
+          "fa": "خوب گرفتی — ممنون که دیدی."
+        }
+      ]
+    },
+    "travel_problems_b2": {
+      "title": {
+        "en": "When things go wrong",
+        "fa": "وقتی کار خراب می‌شود"
+      },
+      "level": "B2",
+      "keywords": {
+        "en": [
+          "travel problems",
+          "delays",
+          "lost luggage",
+          "complaining about travel"
+        ],
+        "fa": [
+          "مشکل سفر",
+          "تأخیر",
+          "گم شدن بار"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "My flight was cancelled at the last minute.",
+          "fa": "پروازم در آخرین لحظه لغو شد."
+        },
+        {
+          "en": "I've been stuck at the airport since midnight.",
+          "fa": "از نیمه‌شب در فرودگاه گیر کرده‌ام."
+        },
+        {
+          "en": "My suitcase hasn't come through on the belt.",
+          "fa": "چمدانم روی چرخِ تحویل بار نیامده است."
+        },
+        {
+          "en": "Could you look into it, please?",
+          "fa": "لطفاً بررسی می‌کنی؟"
+        },
+        {
+          "en": "I've been waiting for three hours now.",
+          "fa": "سه ساعت است منتظرم."
+        },
+        {
+          "en": "I'd like to file a complaint about this.",
+          "fa": "می‌خواهم بابت این شکایت ثبت کنم."
+        },
+        {
+          "en": "Is there any chance of compensation?",
+          "fa": "امیدواری جبرانی بشود؟"
+        },
+        {
+          "en": "At this point I'd rather go home.",
+          "fa": "در این مرحله ترجیح می‌دهم بروم خانه."
+        },
+        {
+          "en": "You have my sympathy.",
+          "fa": "با تو همدردی می‌کنم."
+        },
+        {
+          "en": "Let's see what we can do about it.",
+          "fa": "ببینیم چه کاری می‌شود کرد."
+        },
+        {
+          "en": "I'd appreciate it if you'd sort it out.",
+          "fa": "اگر پیگیریش کنی ممنون می‌شوم."
+        },
+        {
+          "en": "Not to be a pain, but this is urgent.",
+          "fa": "نمی‌خواهم اذیتت کنم، ولی این فوری است."
+        }
+      ]
+    },
+    "meetings_b2": {
+      "title": {
+        "en": "Running a meeting",
+        "fa": "اداره جلسه"
+      },
+      "level": "B2",
+      "keywords": {
+        "en": [
+          "meeting",
+          "running a meeting",
+          "agenda",
+          "minutes",
+          "follow up"
+        ],
+        "fa": [
+          "جلسه",
+          "دستور جلسه",
+          "صورتجلسه",
+          "پیگیری"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "Let's get straight to the point on the agenda.",
+          "fa": "بیایید مستقیم سراغ دستور جلسه برویم."
+        },
+        {
+          "en": "Just to recap where we left off.",
+          "fa": "برای جمع‌بندی جایی که بودیم."
+        },
+        {
+          "en": "Can everyone hear me at the back?",
+          "fa": "همه پشت جلسه صدایم را می‌شنوید؟"
+        },
+        {
+          "en": "I'll take that as a yes — moving on.",
+          "fa": "این را موافقت تلقی می‌کنم — ادامه می‌دهیم."
+        },
+        {
+          "en": "Could you expand on that a little?",
+          "fa": "می‌توانی کمی بیشتر توضیح بدهی؟"
+        },
+        {
+          "en": "I'd like to steer us back on track.",
+          "fa": "می‌خواهم بحث را به مسیر اصلی برگردانم."
+        },
+        {
+          "en": "Let's park that and come back to it.",
+          "fa": "فعلاً بگذاریم کنار، بعداً برمی‌گردیم به آن."
+        },
+        {
+          "en": "Who is going to take the minutes?",
+          "fa": "چه کسی صورتجلسه را می‌نویسد؟"
+        },
+        {
+          "en": "Let's aim to wrap this up in ten minutes.",
+          "fa": "بیایید هدف بگذاریم ده دقیقه‌ای تمامش کنیم."
+        },
+        {
+          "en": "What are the next steps?",
+          "fa": "قدم‌های بعدی چیست؟"
+        },
+        {
+          "en": "I'll circulate the notes afterwards.",
+          "fa": "بعداً یادداشت‌ها را برای همه می‌فرستم."
+        },
+        {
+          "en": "Sorry to interrupt — one last thing.",
+          "fa": "ببخشید مزاحم شدم — یک نکته آخر."
+        }
+      ]
+    },
+    "job_hunting_b2": {
+      "title": {
+        "en": "Job hunting",
+        "fa": "جست‌وجوی کار"
+      },
+      "level": "B2",
+      "keywords": {
+        "en": [
+          "job hunting",
+          "interview",
+          "cv",
+          "applying for a job"
+        ],
+        "fa": [
+          "شغل",
+          "مصاحبه",
+          "رزومه",
+          "درخواست کار"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "I'd like to apply for the advertised position.",
+          "fa": "می‌خواهم برای موقعیت آگهی‌شده درخواست بدهم."
+        },
+        {
+          "en": "Here's my CV — my strongest area is design.",
+          "fa": "این هم رزومه‌ام — قوی‌ترین نقطه‌ام طراحی است."
+        },
+        {
+          "en": "What made you apply for this role?",
+          "fa": "چرا برای این موقعیت درخواست دادید؟"
+        },
+        {
+          "en": "Can you give an example of a time you handled pressure?",
+          "fa": "می‌توانید نمونه‌ای از فشار کاری بدهید؟"
+        },
+        {
+          "en": "I thrive under deadlines.",
+          "fa": "من با مهلت‌های فشرده بهتر کار می‌کنم."
+        },
+        {
+          "en": "What does the progression look like here?",
+          "fa": "مسیر ارتقای شغلی اینجا چگونه است؟"
+        },
+        {
+          "en": "I'd like to know more about the team.",
+          "fa": "دوست دارم بیشتر درباره تیم بدانم."
+        },
+        {
+          "en": "Is there flexibility on the hours?",
+          "fa": "ساعت کاری انعطاف دارد؟"
+        },
+        {
+          "en": "My salary expectation is around…",
+          "fa": "انتظار حقوقی من حدود … است."
+        },
+        {
+          "en": "When can you start?",
+          "fa": "از چه زمانی می‌توانید شروع کنید؟"
+        },
+        {
+          "en": "Could we speak on Monday to touch base?",
+          "fa": "می‌توانیم دوشنبه صحبت کنیم؟"
+        },
+        {
+          "en": "Thank you for your time today.",
+          "fa": "از وقتی که امروز گذاشتید ممنونم."
+        }
+      ]
+    },
+    "formal_email_b2": {
+      "title": {
+        "en": "Formal email",
+        "fa": "ایمیل رسمی"
+      },
+      "level": "B2",
+      "keywords": {
+        "en": [
+          "formal email",
+          "write an email",
+          "business correspondence"
+        ],
+        "fa": [
+          "ایمیل رسمی",
+          "نامه اداری"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "I am writing to enquire about…",
+          "fa": "نوشته‌ام تا درباره … استعلام کنم."
+        },
+        {
+          "en": "Please find attached the requested document.",
+          "fa": "مدارک درخواستی ضمیمه است."
+        },
+        {
+          "en": "I would be grateful if you could respond at your earliest convenience.",
+          "fa": "اگر در اولین فرصت پاسخ دهید سپاسگزارم."
+        },
+        {
+          "en": "Should you have any questions, please do not hesitate to contact me.",
+          "fa": "اگر سؤالی دارید با خکراحی تماس بگیرید."
+        },
+        {
+          "en": "Thank you in advance for your assistance.",
+          "fa": "پیشاپیش بابت همکاری‌تان سپاسگزارم."
+        },
+        {
+          "en": "I am writing to confirm our meeting on…",
+          "fa": "نوشته‌ام تا جلسه‌مان در … را تأیید کنم."
+        },
+        {
+          "en": "Unfortunately, we are unable to accommodate your request.",
+          "fa": "متأسفانه امکان پذیرش درخواست شما وجود ندارد."
+        },
+        {
+          "en": "Please let me know if this works for you.",
+          "fa": "اگر برای شما مناسب است اطلاع دهید."
+        },
+        {
+          "en": "We would appreciate it if you could respond by Friday.",
+          "fa": "اگر تا جمعه پاسخ دهید ممنون می‌شویم."
+        },
+        {
+          "en": "Please find our revised quotation below.",
+          "fa": "پیشنهاد قیمت اصلاح‌شده در پایین آمده است."
+        },
+        {
+          "en": "I look forward to hearing from you.",
+          "fa": "منتظر دریافت پاسخ شما هستم."
+        },
+        {
+          "en": "Kind regards,",
+          "fa": "با احترام،"
+        }
+      ]
+    },
+    "opinion_b2": {
+      "title": {
+        "en": "Giving & defending an opinion",
+        "fa": "نظر دادن و دفاع از آن"
+      },
+      "level": "B2",
+      "keywords": {
+        "en": [
+          "opinion",
+          "do you think",
+          "agree disagree",
+          "point of view"
+        ],
+        "fa": [
+          "نظر دادن",
+          "موافقت",
+          "دیدگاه"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "Personally, I'd go for the cheaper option.",
+          "fa": "شخصاً ارزان‌تر گزینه را انتخاب می‌کنم."
+        },
+        {
+          "en": "I take your point, but I'd argue otherwise.",
+          "fa": "نکته‌تان را می‌پذیرم، اما نظرم فرق دارد."
+        },
+        {
+          "en": "That's a fair point, though.",
+          "fa": "نکته منصفانه‌ای است، البته."
+        },
+        {
+          "en": "It depends on how you look at it.",
+          "fa": "بستگی دارد از چه زاویه‌ای نگاه کنی."
+        },
+        {
+          "en": "I've always believed the opposite.",
+          "fa": "همیشه خلاف آن را باور داشته‌ام."
+        },
+        {
+          "en": "I'm not entirely convinced.",
+          "fa": "کاملاً قانع نشده‌ام."
+        },
+        {
+          "en": "How do you feel about that?",
+          "fa": "نظرت درباره آن چیست؟"
+        },
+        {
+          "en": "Let's agree to disagree.",
+          "fa": "بیایید بر سر اختلاف توافق کنیم."
+        },
+        {
+          "en": "That's exactly what I was going to say.",
+          "fa": "دقیقاً همین را می‌خواستم بگویم."
+        },
+        {
+          "en": "There's something in that.",
+          "fa": "یک نکته در این حرف هست."
+        },
+        {
+          "en": "If you ask me…",
+          "fa": "اگر از من بپرسی…"
+        },
+        {
+          "en": "It's a matter of opinion.",
+          "fa": "این موضوع سلیقه است."
+        }
+      ]
+    },
+    "hedging_c1": {
+      "title": {
+        "en": "Hedging & softening",
+        "fa": "بیان محتاطانه و ملایم"
+      },
+      "level": "C1",
+      "keywords": {
+        "en": [
+          "hedging",
+          "soften what you say",
+          "be careful how you say it"
+        ],
+        "fa": [
+          "احتیاط در بیان",
+          "لحن ملایم"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "It would seem that the deadline has slipped.",
+          "fa": "به نظر می‌رسد مهلت جابه‌جا شده است."
+        },
+        {
+          "en": "I'd be inclined to agree, on the whole.",
+          "fa": "در مجموع تمایل دارم موافقت کنم."
+        },
+        {
+          "en": "There may be a case for delaying it.",
+          "fa": "شاید دلیلی برای به تعویق انداختنش باشد."
+        },
+        {
+          "en": "This is, at best, a partial solution.",
+          "fa": "این حداکثر یک راه‌حل نیمه‌کاره است."
+        },
+        {
+          "en": "I wouldn't go so far as to say that.",
+          "fa": "نمی‌خواهم آن‌قدر پیش بروم که بگویم."
+        },
+        {
+          "en": "Broadly speaking, the trend is upward.",
+          "fa": "به طور کلی، روند صعودی است."
+        },
+        {
+          "en": "It could be argued that…",
+          "fa": "می‌توان استدلال کرد که…"
+        },
+        {
+          "en": "That's not to say it's unimportant.",
+          "fa": "این به این معنا نیست که بی‌اهمیت است."
+        },
+        {
+          "en": "Somewhat surprisingly, the results held.",
+          "fa": "تا حدی غیرمنتظره، نتایج پابرجا ماند."
+        },
+        {
+          "en": "I'd rather put it this way.",
+          "fa": "ترجیح می‌دهم این‌طور بیانش کنم."
+        },
+        {
+          "en": "In fairness, both views have merit.",
+          "fa": "منصفانه بگوییم، هر دو دیدگاه ارزش دارند."
+        },
+        {
+          "en": "To some extent, that explains the gap.",
+          "fa": "تا حدی این تفاوت را توضیح می‌دهد."
+        }
+      ]
+    },
+    "academic_discussion": {
+      "title": {
+        "en": "Academic discussion",
+        "fa": "بحث دانشگاهی"
+      },
+      "level": "C1",
+      "keywords": {
+        "en": [
+          "academic discussion",
+          "essay",
+          "research discussion",
+          "writing argument"
+        ],
+        "fa": [
+          "بحث آکادمیک",
+          "مقاله",
+          "پژوهش"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "The evidence broadly supports this claim.",
+          "fa": "شواهد از این ادعا تا حدی پشتیبانی می‌کند."
+        },
+        {
+          "en": "A more rigorous methodology would strengthen this.",
+          "fa": "روش‌شناسی دقیق‌تر این را تقویت می‌کرد."
+        },
+        {
+          "en": "The findings should be interpreted cautiously.",
+          "fa": "یافته‌ها باید با احتیاط تفسیر شوند."
+        },
+        {
+          "en": "This contradicts the earlier literature.",
+          "fa": "این با پژوهش‌های پیشین در تناقض است."
+        },
+        {
+          "en": "Prior work has largely overlooked this.",
+          "fa": "کارهای قبلی تا حد زیادی این را نادیده گرفته‌اند."
+        },
+        {
+          "en": "The correlation does not imply causation.",
+          "fa": "همبستگی به معنای علیت نیست."
+        },
+        {
+          "en": "A limitation of this study is the sample size.",
+          "fa": "محدودیت این پژوهش، حجم نمونه است."
+        },
+        {
+          "en": "The results were replicated across sites.",
+          "fa": "نتایج در چند محل تکرار شد."
+        },
+        {
+          "en": "This has significant implications for policy.",
+          "fa": "این پیامدهای مهمی برای سیاست‌گذاری دارد."
+        },
+        {
+          "en": "It remains an open question whether…",
+          "fa": "همچنان جای تردید است که آیا…"
+        },
+        {
+          "en": "Taken together, these patterns suggest…",
+          "fa": "با هم، این الگوها نشان می‌دهند که…"
+        },
+        {
+          "en": "A more nuanced account is needed.",
+          "fa": "به توضیح دقیق‌تری نیاز داریم."
+        }
+      ]
+    },
+    "presenting_arguments": {
+      "title": {
+        "en": "Presenting & countering",
+        "fa": "مطرح کردن و پاسخ به استدلال"
+      },
+      "level": "C1",
+      "keywords": {
+        "en": [
+          "presenting an argument",
+          "counter argument",
+          "persuade"
+        ],
+        "fa": [
+          "مطرح کردن استدلال",
+          "پاسخ به دلیل"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "Let me put the case the other way round.",
+          "fa": "بگذارید استدلال را از جهت دیگری مطرح کنم."
+        },
+        {
+          "en": "That assumes something we haven't established.",
+          "fa": "این فرضی می‌گیرد که هنوز اثبات نشده."
+        },
+        {
+          "en": "Granting that point, the conclusion still fails.",
+          "fa": "با فرض پذیرش آن نکته، نتیجه همچنان درست نیست."
+        },
+        {
+          "en": "The stronger objection is this.",
+          "fa": "دلیل محکم‌تر این است."
+        },
+        {
+          "en": "We can set that objection aside for now.",
+          "fa": "فعلاً می‌توانیم آن اعتراض را کنار بگذاریم."
+        },
+        {
+          "en": "The data cut both ways.",
+          "fa": "داده‌ها دو وجه دارند."
+        },
+        {
+          "en": "It hinges entirely on how you define success.",
+          "fa": "همه چیز به تعریف موفقیت بستگی دارد."
+        },
+        {
+          "en": "Even so, the benefit outweighs the cost.",
+          "fa": "با این حال، سود از هزینه بیشتر است."
+        },
+        {
+          "en": "That is true only in the short term.",
+          "fa": "این تنها در کوتاه‌مدت درست است."
+        },
+        {
+          "en": "I accept the premise but not the reasoning.",
+          "fa": "مقدمه را می‌پذیرم اما استدلال را نه."
+        },
+        {
+          "en": "What would change your mind?",
+          "fa": "چه چیزی نظرت را عوض می‌کند؟"
+        },
+        {
+          "en": "On balance, the case is stronger.",
+          "fa": "در مجموع، استدلال محکم‌تری است."
+        }
+      ]
+    },
+    "summarising_c1": {
+      "title": {
+        "en": "Summarising & paraphrasing",
+        "fa": "خلاصه‌گویی و بازنویسی"
+      },
+      "level": "C1",
+      "keywords": {
+        "en": [
+          "summarise",
+          "paraphrase",
+          "in other words",
+          "put it another way"
+        ],
+        "fa": [
+          "خلاصه گویی",
+          "بازنویسی",
+          "به بیان دیگر"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "To put it another way, the two are not comparable.",
+          "fa": "به بیان دیگر، این دو قابل مقایسه نیستند."
+        },
+        {
+          "en": "In short, the benefits outweigh the drawbacks.",
+          "fa": "به اختصار، مزایا بیشتر از معایب است."
+        },
+        {
+          "en": "The core idea is that…",
+          "fa": "ایده اصلی این است که…"
+        },
+        {
+          "en": "If I may put it more simply.",
+          "fa": "اگر اجازه دهید ساده‌تر بگویم."
+        },
+        {
+          "en": "The upshot is a modest improvement.",
+          "fa": "نتیجه نهایی بهبودی اندکی است."
+        },
+        {
+          "en": "Essentially, both routes lead there.",
+          "fa": "در essence، هر دو مسیر به یک جا می‌رسند."
+        },
+        {
+          "en": "Let me summarise the argument so far.",
+          "fa": "بگذارید استدلال تا اینجا را خلاصه کنم."
+        },
+        {
+          "en": "That's the crux of the matter.",
+          "fa": "همین نکته اصلی مسئله است."
+        },
+        {
+          "en": "Broadly, the findings point one way.",
+          "fa": "به طور کلی، یافته‌ها به یک سمت اشاره دارند."
+        },
+        {
+          "en": "Suffice it to say that…",
+          "fa": "همین بس است که بگوییم…"
+        },
+        {
+          "en": "The distinction is easy to lose sight of.",
+          "fa": "این تمایز به‌سادگی از دست می‌رود."
+        },
+        {
+          "en": "In other words, it's a trade-off.",
+          "fa": "به زبان دیگر، یک معاوضه است."
+        }
+      ]
+    },
+    "formal_writing_c2": {
+      "title": {
+        "en": "Formal written English",
+        "fa": "انگلیسی نوشتاری رسمی"
+      },
+      "level": "C2",
+      "keywords": {
+        "en": [
+          "formal writing",
+          "official letter",
+          "formal tone"
+        ],
+        "fa": [
+          "نوشتار رسمی",
+          "نامه رسمی"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "We are writing to inform you of the forthcoming changes.",
+          "fa": "نوشته‌ایم تا شما را از تغییرات پیش‌رو مطلع سازیم."
+        },
+        {
+          "en": "Should any discrepancy arise, please notify us forthwith.",
+          "fa": "در صورت بروز هرگونه مغایرت، لطفاً فوراً به ما اطلاع دهید."
+        },
+        {
+          "en": "The aforementioned measures have since been implemented.",
+          "fa": "اقدامات یادشده از آن پس اجرا شده‌اند."
+        },
+        {
+          "en": "We would be most grateful for your cooperation in this matter.",
+          "fa": "در این خصوص بیش از هر چیز از همکاری شما سپاسگزار خواهیم بود."
+        },
+        {
+          "en": "It is imperative that all parties remain informed.",
+          "fa": "ضروری است که همه طرف‌ها مطلع بمانند."
+        },
+        {
+          "en": "Please find enclosed the relevant documentation.",
+          "fa": "مدارک مربوطه ضمیمه است."
+        },
+        {
+          "en": "We regret to inform you of the delay.",
+          "fa": "با تأسف، تأخیر را به اطلاع می‌رسانیم."
+        },
+        {
+          "en": "This matter is currently under consideration.",
+          "fa": "این موضوع در حال بررسی است."
+        },
+        {
+          "en": "Further correspondence should be addressed to the undersigned.",
+          "fa": "مکاتبات بعدی به امضاکننده تقدیم شود."
+        },
+        {
+          "en": "We trust that the above resolves the discrepancy.",
+          "fa": "امیدواریم موارد فوق مغایرت را رفع کند."
+        },
+        {
+          "en": "Your prompt attention to this request is appreciated.",
+          "fa": "از توجه سریع شما به این درخواست سپاسگزاریم."
+        },
+        {
+          "en": "Should you require any further clarification…",
+          "fa": "چنانچه به هرگونه توضیح بیشتر نیاز داشتید…"
+        }
+      ]
+    },
+    "subtle_responses_c2": {
+      "title": {
+        "en": "Subtle & socially precise",
+        "fa": "پاسخ‌های ظریف و اجتماعی"
+      },
+      "level": "C2",
+      "keywords": {
+        "en": [
+          "subtle",
+          "tactful",
+          "social nuance",
+          "read between the lines"
+        ],
+        "fa": [
+          "ظریف",
+          "دیپلماتیک",
+          "نکته‌های اجتماعی"
+        ]
+      },
+      "phrases": [
+        {
+          "en": "I'd steer clear of that topic at dinner.",
+          "fa": "سر میز شام از آن موضوع پرهیز می‌کنم."
+        },
+        {
+          "en": "He was being deliberately oblique.",
+          "fa": "عمداً حرفش را نامفهوم زده بود."
+        },
+        {
+          "en": "Her silence said more than her words.",
+          "fa": "سکوتش بیشتر از کلماتش حرف می‌زد."
+        },
+        {
+          "en": "That's a rather loaded question.",
+          "fa": "سؤالی با بارِ قابل‌توجهی بود."
+        },
+        {
+          "en": "He let it go rather than cause a scene.",
+          "fa": "به‌جای صحنه‌سازی، موضوع را رها کرد."
+        },
+        {
+          "en": "She chose her words with some care.",
+          "fa": "کلماتش را با دقت انتخاب کرده بود."
+        },
+        {
+          "en": "There's a diplomatic way of putting it.",
+          "fa": "یک روش دیپلماتیک برای بیانش هست."
+        },
+        {
+          "en": "He was being scrupulously polite.",
+          "fa": "بیش از حد مؤدبانه رفتار می‌کرد."
+        },
+        {
+          "en": "It landed badly, though it was well meant.",
+          "fa": "بد منظور نبود اما بد نشست."
+        },
+        {
+          "en": "I'd tread carefully around that.",
+          "fa": "با آن موضوع محتاط برخورد می‌کنم."
+        },
+        {
+          "en": "She was evidently being sardonic.",
+          "fa": "واضح بود که طنز به کار می‌برد."
+        },
+        {
+          "en": "The subtext was unmistakable.",
+          "fa": "متن پنهان حرف کاملاً روشن بود."
         }
       ]
     }

@@ -180,7 +180,7 @@
   }
 
   /* ---------- vocabulary / grammar / phrases panels ---------- */
-  #vpanel, #gpanel, #fpanel, #lpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel {
     display: none; padding: 14px 20px;
     background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015)),
                 linear-gradient(180deg, rgba(8,12,34,.86), rgba(8,12,34,.74));
@@ -194,8 +194,9 @@
     mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open { display: block; }
+  /* #phpanel gets its own flex layout below, so it is not listed here */
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
-  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3 {
     font-size: 12px; color: #a9b8de; margin-bottom: 9px; font-weight: 600;
   }
 
@@ -272,6 +273,30 @@
     display: flex; align-items: center; gap: 7px;
     font-size: 11px; color: var(--muted); letter-spacing: .05em;
     text-transform: uppercase; margin-bottom: 6px;
+  }
+  /* CEFR level chip in the group header */
+  .vgroup-head .lv {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .05em;
+    padding: 2px 6px; border-radius: 5px;
+    background: linear-gradient(135deg, rgba(109,140,255,.34), rgba(167,139,250,.28));
+    color: #dbe2ff; border: 1px solid rgba(109,140,255,.38);
+  }
+  /* in-panel search (56 domains needs one) */
+  .psearch { margin-bottom: 9px; }
+  .psearch input {
+    width: 100%; padding: 9px 13px; font-size: 15px; font-family: inherit;
+    color: var(--text); outline: none; border-radius: 10px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+  }
+  .psearch input:focus {
+    border-color: rgba(109,140,255,.7); background: rgba(255,255,255,.09);
+    box-shadow: 0 0 0 3px rgba(109,140,255,.16);
+  }
+  .psearch input::placeholder { color: #7e8caf; }
+  .pempty { font-size: 12.5px; color: var(--muted); padding: 10px 2px; }
+  .ftopic .n {
+    background: rgba(255,255,255,.1); border-radius: 5px;
+    padding: 0 5px; font-size: 10px; color: var(--muted);
   }
   .glevel-head b { color: #a5b6ff; font-weight: 700; }
   .glevel-head .count {
@@ -368,8 +393,41 @@
   .msg { unicode-bidi: plaintext; text-align: start; }
   .msg b, .msg strong { color: #fcd34d; font-weight: 700; }
   .msg.long { max-height: 420px; overflow-y: auto; }
-  .meta { font-size: 10.5px; color: var(--dim); padding: 0 5px; font-weight: 500; }
+  .meta { font-size: 10.5px; color: var(--dim); padding: 0 5px; font-weight: 500;
+          display: flex; align-items: center; gap: 7px; }
+  .meta i { font-style: normal; opacity: .75; }
+  /* per-message tools: listen / copy */
+  .tools-row { display: inline-flex; gap: 3px; margin-inline-start: auto; }
+  .row.user .tools-row { display: none; }
+  .mtool {
+    background: none; border: 1px solid transparent; color: var(--dim);
+    font-size: 12px; line-height: 1; cursor: pointer; border-radius: 6px;
+    padding: 3px 5px; font-family: inherit; transition: .12s;
+  }
+  .mtool:hover { color: var(--text); background: rgba(255,255,255,.09);
+                 border-color: rgba(255,255,255,.14); }
+  .mtool.on { color: #ff8dc4; border-color: rgba(255,141,196,.4);
+              background: rgba(255,141,196,.14); }
+  @media (hover: none) {
+    .mtool:hover { background: none; color: var(--dim); border-color: transparent; }
+  }
   .msg.err { border-color: #f87171; color: #fecaca; background: #7f1d1d55; }
+
+  /* scroll-to-latest — only appears once you scroll up */
+  .jump {
+    position: absolute; right: 50%; transform: translate(50%, 8px);
+    bottom: 78px; z-index: 6; width: 38px; height: 38px;
+    border-radius: 50%; cursor: pointer; font-size: 15px;
+    display: grid; place-items: center;
+    color: #fff; font-family: inherit;
+    background: linear-gradient(135deg, rgba(109,140,255,.9), rgba(167,139,250,.85));
+    border: 1px solid rgba(255,255,255,.22);
+    box-shadow: 0 6px 18px rgba(0,0,0,.4);
+    opacity: 0; pointer-events: none; transition: .18s;
+  }
+  .jump.show { opacity: 1; pointer-events: auto; transform: translate(50%, 0); }
+  .jump:hover { filter: brightness(1.12); }
+  @media (max-width: 599px) { .jump { bottom: 92px; } }
 
   /* typing indicator */
   .typing { display: inline-flex; gap: 5px; padding: 13px 16px !important; }
@@ -439,6 +497,203 @@
   .ftopic:hover { background: rgba(109,140,255,.24); transform: translateY(-1px); }
   .ftopic .fa { color: var(--muted); font-size: 11.5px; }
 
+  /* ---------- word architecture: clickable chips + detail card ---------- */
+  .wd-slot { margin-top: 9px; padding-top: 9px;
+             border-top: 1px dashed rgba(255,255,255,.12); }
+  .wd-lab {
+    font-size: 10.5px; letter-spacing: .04em; color: #9fb0dd;
+    font-weight: 600; margin-bottom: 6px;
+  }
+  .wd-lab b { color: var(--muted); font-weight: 400; }
+  .wd-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .wchip {
+    background: rgba(52,211,153,.1); color: #a7f3d0;
+    border: 1px solid rgba(52,211,153,.28); border-radius: 7px;
+    padding: 4px 9px; font-size: 11.5px; cursor: pointer;
+    transition: .12s; font-family: inherit;
+  }
+  .wchip:hover { background: rgba(52,211,153,.24); color: #d1fae5;
+                 border-color: rgba(52,211,153,.55); }
+  .wchip.on { background: linear-gradient(135deg, #34d399, #6d8cff);
+              color: #fff; border-color: transparent; }
+  .wd-more { font-size: 10.5px; color: var(--dim); margin-top: 5px; }
+  .wd-more.btn {
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+    border-radius: 8px; padding: 5px 10px; cursor: pointer;
+    font-family: inherit; color: var(--muted);
+  }
+  .wd-more.btn:hover { background: rgba(255,255,255,.12); color: var(--text); }
+
+  .wdetail {
+    display: none; margin-bottom: 11px; padding: 12px;
+    border-radius: 13px; position: relative;
+    background: linear-gradient(150deg, rgba(52,211,153,.14), rgba(109,140,255,.10));
+    border: 1px solid rgba(52,211,153,.34);
+    box-shadow: 0 6px 20px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.14);
+    animation: pop .18s ease;
+  }
+  .wdetail.open { display: block; }
+  .wd-head { display: flex; align-items: center; gap: 9px; }
+  .wd-word {
+    flex: 1; min-width: 0; font-size: 19px; font-weight: 700;
+    letter-spacing: .2px; display: flex; align-items: baseline;
+    gap: 7px; flex-wrap: wrap; line-height: 1.25;
+  }
+  .wd-pos {
+    font-size: 9.5px; font-weight: 700; padding: 2px 6px; border-radius: 5px;
+    background: rgba(255,255,255,.14); color: #d7e2ff;
+  }
+  .wd-close {
+    background: none; border: none; color: var(--dim); cursor: pointer;
+    font-size: 14px; padding: 4px 6px; border-radius: 6px; line-height: 1;
+    font-family: inherit;
+  }
+  .wd-close:hover { color: var(--text); background: rgba(255,255,255,.1); }
+  .wd-mean {
+    font-size: 14px; line-height: 1.6; margin: 7px 0 4px; color: var(--text);
+  }
+  .wd-mean b { color: #6ee7b7; }
+  .wd-forms {
+    display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 5px;
+  }
+  .wd-form {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 6px 9px; border-radius: 8px;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  }
+  .wd-form b {
+    font-family: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
+    font-size: 13px; color: #fcd34d; font-weight: 700; flex: none;
+    min-width: 104px;
+  }
+  .wd-form i { font-style: normal; font-size: 11px; color: var(--muted); }
+  .wd-meta { font-size: 10.5px; color: var(--dim); margin-top: 8px; }
+  @media (min-width: 600px) {
+    .wd-forms { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+    .wd-word { font-size: 21px; }
+  }
+  @media (max-width: 420px) {
+    .wd-form b { min-width: 92px; font-size: 12.5px; }
+  }
+
+  /* ---------- phonetics: topic rail + dense symbol cards ----------
+     Designed so a whole lesson fits on one phone screen: the rail is one
+     scroll line, rows are a single column, and every ▶ speaks the example. */
+  .phrail {
+    display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 9px;
+    margin-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,.1);
+    -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .phrail::-webkit-scrollbar { display: none; }
+  .phtab {
+    flex: none; display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.06); color: var(--muted);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+    padding: 6px 12px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: .14s; font-family: inherit; white-space: nowrap;
+  }
+  .phtab i {
+    font-style: normal; font-size: 9px; font-weight: 800; letter-spacing: .04em;
+    padding: 2px 5px; border-radius: 5px;
+    background: rgba(255,255,255,.1); color: #a9b8de;
+  }
+  .phtab:hover { background: rgba(255,255,255,.12); color: var(--text); }
+  .phtab.on {
+    background: linear-gradient(135deg, #ff8dc4, #a78bfa);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 14px rgba(255,141,196,.4);
+  }
+  .phtab.on i { background: rgba(0,0,0,.22); color: #fff; }
+
+  /* the view scrolls inside the panel; the rail stays pinned so you never
+     lose your place when drilling through a list */
+  .phview { padding-top: 12px; overflow-y: auto; flex: 1; min-height: 0;
+            overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  #phpanel { display: none; flex-direction: column; }
+  #phpanel.open { display: flex; }
+  .phead { margin-bottom: 12px; }
+  .phead .ptitle {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 16px; font-weight: 700; letter-spacing: .2px;
+  }
+  .phead .ptitle .lvl {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .06em;
+    padding: 2px 7px; border-radius: 999px;
+    background: linear-gradient(135deg, rgba(109,140,255,.35), rgba(167,139,250,.3));
+    color: #dbe2ff; border: 1px solid rgba(109,140,255,.4);
+  }
+  .phead .ptitle .pfa { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .pblurb {
+    font-size: 12.5px; line-height: 1.65; color: var(--muted); margin-top: 6px;
+  }
+
+  .ptip {
+    display: flex; gap: 9px; align-items: flex-start;
+    padding: 10px 12px; margin-bottom: 14px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255,196,77,.14), rgba(255,141,196,.08));
+    border: 1px solid rgba(255,196,77,.28);
+  }
+  .ptip .pk { font-size: 14px; line-height: 1.3; flex: none; }
+  .ptip .pt { font-size: 12.5px; line-height: 1.6; color: #ffe6b0; }
+  .ptip .pt b { color: #fff; }
+
+  .pgroup { margin-bottom: 14px; }
+  .pgroup:last-child { margin-bottom: 0; }
+  .pgroup > .ghead {
+    font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
+    color: #9fb0dd; font-weight: 700; margin-bottom: 7px;
+  }
+  .pgroup > .ghead .fa {
+    color: #7f8fbd; text-transform: none; letter-spacing: 0; font-weight: 400;
+  }
+  .prows {
+    display: grid; grid-template-columns: 1fr; gap: 7px;
+  }
+  .prow {
+    display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center;
+    padding: 9px 11px; border-radius: 11px;
+    background: linear-gradient(150deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.09);
+  }
+  .prow:hover { background: rgba(255,255,255,.1); border-color: rgba(255,141,196,.32); }
+  .pmain { min-width: 0; }
+  .pip {
+    font-family: "SF Mono", "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+    font-size: 13.5px; font-weight: 700; color: #ffc4e2;
+    word-break: break-word; line-height: 1.35;
+  }
+  .psub { font-size: 11px; color: #a9b8de; margin-top: 1px; line-height: 1.4; }
+  .psay { font-size: 13px; color: var(--text); margin-top: 3px; line-height: 1.45; }
+  .pfa { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.55; }
+  .pwords {
+    font-size: 11px; color: #8a97bb; margin-top: 3px; line-height: 1.5;
+    font-family: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
+  }
+  .pnote {
+    font-size: 11px; color: #ffd6a0; margin-top: 4px; line-height: 1.5;
+    padding-inline-start: 13px; position: relative;
+  }
+  .pnote::before { content: '💡'; position: absolute; inset-inline-start: 0; font-size: 10px; }
+  .pplay {
+    width: 34px; height: 34px; flex: none; border-radius: 50%;
+    background: linear-gradient(135deg, #ff8dc4, #a78bfa); border: none;
+    color: #fff; font-size: 12px; cursor: pointer;
+    display: grid; place-items: center; transition: .12s;
+    box-shadow: 0 3px 10px rgba(255,141,196,.35);
+  }
+  .pplay:hover { filter: brightness(1.12); transform: scale(1.06); }
+  .pplay.playing { background: linear-gradient(135deg, #34d399, #6d8cff); }
+
+  @media (min-width: 600px) {
+    .prows { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 8px; }
+    .phead .ptitle { font-size: 17.5px; }
+    .pblurb, .ptip .pt { font-size: 13px; }
+    .phtab { padding: 7px 14px; font-size: 12.5px; }
+    .pplay { width: 36px; height: 36px; }
+  }
+
   /* ---------- everyday-sentence cards ----------
      A phrase bank used to arrive as one run-on pre-wrap block, so the
      translations collided. Each "• en / ↳ fa" pair is its own card now. */
@@ -477,7 +732,7 @@
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .app { background: linear-gradient(160deg, #141c46, #1b2350); }
     header { background: linear-gradient(100deg, #24306b, #2a2170); }
-    #vpanel, #gpanel, #fpanel { background: #131a3d; }
+    #vpanel, #gpanel, #fpanel, #phpanel { background: #131a3d; }
     .msg.bot { background: #1c2450; }
     #input { background: #141c46; }
     .hb { display: none; }
@@ -552,13 +807,13 @@
   }
 
   /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */
-  #vpanel, #gpanel, #fpanel, #lpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel {
     padding: 12px calc(var(--pad) + var(--sar)) 14px calc(var(--pad) + var(--sal));
     max-height: 62%;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
-  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3 {
     font-size: 11.5px; margin-bottom: 8px; line-height: 1.5;
   }
   .domains { max-height: 46vh; }
@@ -629,7 +884,7 @@
     .mav { width: 32px; height: 32px; border-radius: 11px; }
     .mav svg { width: 26px; height: 26px; }
     .msg { padding: 12px 16px; font-size: 15px; }
-    #vpanel, #gpanel, #fpanel, #lpanel { padding: 14px 20px; max-height: 52%; }
+    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
     form { padding: 14px 20px 18px; gap: 10px; }
     #input { padding: 14px 17px; font-size: 15.5px; }
@@ -695,13 +950,19 @@
       <button class="hbtn" id="gtoggle" title="English grammar lessons — درس‌های گرامر">📘 Grammar</button>
       <button class="hbtn" id="ftoggle" title="Useful everyday sentences — جملات کاربردی">💬 Sentences</button>
       <button class="hbtn" id="ltoggle" title="Listening practice A1–C2 — شنیدن و تلفظ">🎧 Listening</button>
+      <button class="hbtn" id="phtoggle" title="Phonetics &amp; connected speech — تلفظ و آهنگ">🗣 Phonetics</button>
       <button class="hbtn" id="clear" title="Clear conversation">🗑 Clear</button>
     </nav>
   </header>
 
   <div id="vpanel">
-    <h3>Click any domain to get its word list — روی هر دامنه کلیک کنید</h3>
+    <h3>Vocabulary A1 → C2 — روی هر دسته کلیک کنید تا واژه‌ها را ببینید</h3>
+    <div class="psearch">
+      <input id="vsearch" type="search" placeholder="Search 56 domains… / جست‌وجوی دسته‌ها…"
+             autocomplete="off" aria-label="Search vocabulary domains">
+    </div>
     <div class="domains" id="domains"></div>
+    <div class="pempty" id="vempty" hidden>No domain matches that search. / دسته‌ای با این جست‌وجو پیدا نشد.</div>
   </div>
 
   <div id="gpanel">
@@ -710,7 +971,8 @@
   </div>
 
   <div id="fpanel">
-    <h3>Useful everyday sentences — جملات کاربردی روزمره</h3>
+    <h3>Everyday sentences A1 → C2 — جملات کاربردی روزمره</h3>
+    <div class="wdetail" id="wdetail" aria-live="polite"></div>
     <div class="domains" id="ftopics"></div>
   </div>
 
@@ -719,7 +981,14 @@
     <div id="llevels"></div>
   </div>
 
+  <div id="phpanel">
+    <h3>The sounds that make English fluent — صداهایی که انگلیسی را روان می‌کنند</h3>
+    <div class="phrail" id="phrail" role="tablist" aria-label="Pronunciation topics"></div>
+    <div class="phview" id="phview"></div>
+  </div>
+
   <div id="chat"></div>
+  <button id="jump" class="jump" aria-label="Scroll to the latest message" title="Latest ↓">↓</button>
 
   <div class="chips" id="chips">
     <span class="chip">how are you?</span>
@@ -763,6 +1032,9 @@ const BIRD =
 
 const chat = document.getElementById('chat');
 const input = document.getElementById('input');
+const jump = document.getElementById('jump');
+let pinned = true;   // false once the reader scrolls up
+jump.onclick = () => { chat.scrollTo({top: chat.scrollHeight, behavior: 'smooth'}); pinned = true; };
 const sendbtn = document.getElementById('sendbtn');
 const isFa = s => /[\u0600-\u06FF]/.test(s);
 /* The learner is the second bird — same shape, sunny yellow instead of pink. */
@@ -800,28 +1072,34 @@ function renderText(s) {
   return escapeHtml(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 }
 
-/* A phrase bank arrives as "• english\n  ↳ فارسی" pairs under a title line.
-   Render it as separate cards instead of one run-on pre-wrap block. */
+/* A phrase bank arrives as "💬 Title\n• english\n  ↳ فارسی" pairs.
+   Render it as separate cards instead of one run-on pre-wrap block.
+   Only the 💬 banner marks a phrase bank — grammar lessons also use • and ↳,
+   and must stay as plain text or the parser tears them apart. */
 function parsePhraseList(text) {
-  const lines = text.split('\n');
-  if (!lines.some((l) => /^\s*[•·]\s+/.test(l))) return null;
+  if (!text.trimStart().startsWith('💬')) return null;
   const head = [];
   const pairs = [];
   let cur = null;
-  for (const raw of lines) {
+  for (const raw of text.split('\n')) {
     const line = raw.replace(/\s+$/, '');
     const bullet = line.match(/^\s*[•·]\s+(.*)$/);
     const arrow = line.match(/^\s*↳\s*(.*)$/);
     if (bullet) {
       cur = { en: bullet[1].trim(), fa: '' };
       pairs.push(cur);
-    } else if (arrow && cur) {
-      cur.fa = arrow[1].trim();
+    } else if (arrow) {
+      // only a translation *directly under* a bullet belongs to it
+      if (cur) cur.fa = arrow[1].trim();
     } else if (line.trim()) {
-      (cur ? pairs : head).push(line.trim());
+      head.push(line.trim());   // a heading ends the current pair
+      cur = null;
     }
   }
-  return pairs.length ? { head: head.join('\n'), pairs } : null;
+  // a real bank has a translation for nearly every line
+  const translated = pairs.filter((p) => p.fa).length;
+  if (!pairs.length || translated < pairs.length / 2) return null;
+  return { head: head.join('\n'), pairs };
 }
 
 function renderPhraseList(bubble, parsed) {
@@ -872,14 +1150,56 @@ function add(text, who, opts = {}) {
 
   const meta = document.createElement('div');
   meta.className = 'meta';
-  meta.textContent = (who === 'bot' ? 'Bot' : 'You') + ' · ' + now();
+  meta.append(
+    document.createTextNode(who === 'bot' ? 'Fluentify' : 'You'),
+    Object.assign(document.createElement('i'), {textContent: now()}),
+  );
+
+  // Every bot message gets its tools: hear it, copy it, retry it.
+  if (who === 'bot' && !opts.err) {
+    const tools = document.createElement('div');
+    tools.className = 'tools-row';
+
+    const speakBtn = document.createElement('button');
+    speakBtn.className = 'mtool';
+    speakBtn.textContent = '🔊';
+    speakBtn.title = 'Listen to this message — گوش بده';
+    speakBtn.setAttribute('aria-label', 'Listen to this message');
+    speakBtn.onclick = () => {
+      if (Speech.isPlaying(text)) { Speech.stop(); speakBtn.classList.remove('on'); return; }
+      [...chat.querySelectorAll('.mtool.on')].forEach((n) => n.classList.remove('on'));
+      speakBtn.classList.add('on');
+      if (!Speech.speak(text, () => speakBtn.classList.remove('on'))) {
+        speakBtn.classList.remove('on');
+      }
+    };
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'mtool';
+    copyBtn.textContent = '⧉';
+    copyBtn.title = 'Copy — کپی';
+    copyBtn.setAttribute('aria-label', 'Copy message');
+    copyBtn.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = '✓';
+        setTimeout(() => (copyBtn.textContent = '⧉'), 1400);
+      } catch (e) {
+        copyBtn.textContent = '!';
+        setTimeout(() => (copyBtn.textContent = '⧉'), 1400);
+      }
+    };
+
+    tools.append(speakBtn, copyBtn);
+    meta.appendChild(tools);
+  }
 
   wrap.appendChild(bubble);
   wrap.appendChild(meta);
   row.appendChild(av);
   row.appendChild(wrap);
   chat.appendChild(row);
-  chat.scrollTop = chat.scrollHeight;
+  if (pinned) chat.scrollTop = chat.scrollHeight;
   return bubble;
 }
 
@@ -892,11 +1212,14 @@ function showTyping() {
     '<div class="bubble-wrap"><div class="msg bot typing">' +
     '<span></span><span></span><span></span></div></div>';
   chat.appendChild(row);
-  chat.scrollTop = chat.scrollHeight;
+  if (pinned) chat.scrollTop = chat.scrollHeight;
 }
 function hideTyping() { document.getElementById('typing')?.remove(); }
 
 let busy = false;
+const history = [];      // ↑/↓ recall, like every real messenger
+let historyAt = -1;
+
 async function send(text) {
   text = (text || '').trim();
   if (!text || busy) return;
@@ -904,6 +1227,8 @@ async function send(text) {
   sendbtn.disabled = true;
   add(text, 'user');
   input.value = '';
+  history.push(text);
+  historyAt = history.length;
   Seed.add(1);                 // daily seed grows with usage
   showTyping();
   try {
@@ -1086,6 +1411,148 @@ if ('speechSynthesis' in window) {
   speechSynthesis.onvoiceschanged = () => { Speech.voice = Speech.pickVoice(); };
 }
 
+async function loadPhonetics() {
+  const rail = document.getElementById('phrail');
+  const view = document.getElementById('phview');
+  if (!rail || !view || rail.childElementCount) return;   // already built
+  let sections;
+  try {
+    const sections = phoneticSections;
+  } catch (e) {
+    view.innerHTML = '<div class="pblurb">Phonetics unavailable offline. / آموزش تلفظ در دسترس نیست.</div>';
+    return;
+  }
+  if (!sections.length) return;
+
+  const stop = (b) => {
+    Speech.stop();
+    [...view.querySelectorAll('.pplay')].forEach((n) => {
+      n.classList.remove('playing');
+      n.textContent = '▶';
+    });
+    b.textContent = '▶';
+  };
+
+  const render = (sec, idx) => {
+    [...rail.children].forEach((b, i) => b.classList.toggle('on', i === idx));
+    view.innerHTML = '';
+
+    const head = document.createElement('div');
+    head.className = 'phead';
+    const h = document.createElement('div');
+    h.className = 'ptitle';
+    h.textContent = sec.icon + ' ' + sec.title_en;
+    const lvl = document.createElement('span');
+    lvl.className = 'lvl';
+    lvl.textContent = 'CEFR ' + sec.level;
+    const fa = document.createElement('span');
+    fa.className = 'pfa';
+    fa.textContent = sec.title_fa;
+    h.append(lvl, fa);
+    const blurb = document.createElement('div');
+    blurb.className = 'pblurb';
+    blurb.textContent = sec.blurb_en + ' — ' + sec.blurb_fa;
+    head.append(h, blurb);
+    view.appendChild(head);
+
+    if (sec.tip_en) {
+      const tip = document.createElement('div');
+      tip.className = 'ptip';
+      const k = document.createElement('span');
+      k.className = 'pk';
+      k.textContent = '🔑';
+      const t = document.createElement('span');
+      t.className = 'pt';
+      t.textContent = sec.tip_en + ' — ' + sec.tip_fa;
+      tip.append(k, t);
+      view.appendChild(tip);
+    }
+
+    (sec.groups || []).forEach((g) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'pgroup';
+      const gh = document.createElement('div');
+      gh.className = 'ghead';
+      gh.textContent = g.name_en;
+      const gfa = document.createElement('span');
+      gfa.className = 'fa';
+      gfa.textContent = g.name_fa;
+      gh.appendChild(gfa);
+      wrap.appendChild(gh);
+
+      const grid = document.createElement('div');
+      grid.className = 'prows';
+      (g.rows || []).forEach((r) => {
+        const row = document.createElement('div');
+        row.className = 'prow';
+
+        const main = document.createElement('div');
+        main.className = 'pmain';
+        const add = (cls, txt) => {
+          if (!txt) return;
+          const d = document.createElement('div');
+          d.className = cls;
+          d.textContent = txt;
+          main.appendChild(d);
+        };
+        add('pip', r.ip);
+        add('psub', r.sub);
+        // skip the spoken-example line when it would just repeat the symbol
+        if (r.say && r.say !== r.ip && !r.sub.includes(r.say)) add('psay', r.say);
+        add('pfa', r.fa);
+        add('pwords', r.words);
+        add('pnote', r.note);
+
+        const btn = document.createElement('button');
+        btn.className = 'pplay';
+        btn.textContent = '▶';
+        btn.title = 'Hear it — گوش بده';
+
+        const speak = (ev) => {
+          if (ev) ev.stopPropagation();
+          if (Speech.isPlaying(r.say)) { stop(btn); return; }
+          [...view.querySelectorAll('.pplay')].forEach((n) => {
+            n.classList.remove('playing');
+            n.textContent = '▶';
+          });
+          btn.classList.add('playing');
+          btn.textContent = '❚❚';
+          if (!Speech.speak(r.say, () => stop(btn))) {
+            stop(btn);
+            add0('🔇 No speech engine on this device — / روی این دستگاه موتور گفتار نیست.');
+          }
+        };
+        const add0 = (msg) => add('pnote', msg);
+        btn.onclick = speak;
+        row.onclick = speak;          // the row is a bigger tap target
+        row.append(main, btn);
+        grid.appendChild(row);
+      });
+      wrap.appendChild(grid);
+      view.appendChild(wrap);
+    });
+  };
+
+  rail.innerHTML = '';
+  sections.forEach((sec, idx) => {
+    const b = document.createElement('button');
+    b.className = 'phtab';
+    b.setAttribute('role', 'tab');
+    b.textContent = sec.icon + ' ' + sec.title_en.split(' — ')[0].split(' &')[0];
+    b.title = sec.title_en + ' — ' + sec.title_fa;
+    const lvl = document.createElement('i');
+    lvl.textContent = sec.level;
+    b.appendChild(lvl);
+    b.onclick = () => {
+      render(sec, idx);
+      b.scrollIntoView({block: 'nearest', inline: 'nearest',
+                        behavior: 'smooth'});
+    };
+    rail.appendChild(b);
+  });
+  render(sections[0], 0);
+}
+
 async function loadListening() {
   const box = document.getElementById('llevels');
   try {
@@ -1169,72 +1636,276 @@ async function loadListening() {
 }
 
 /* phrases panel (fetched from phrases.json via the server) */
+/* ---------- word architecture ----------
+   Every vocabulary word carries its form family (decide → decides · decided ·
+   deciding). The chips live inside each CEFR level of the Sentences panel;
+   tapping one opens its detail card. */
+const POS_FA = {noun: 'اسم', verb: 'فعل', adj: 'صفت', adv: 'قید', prep: 'حرف اضافه'};
+const wordArch = {};          // level -> array of entries
+let wordArchLoaded = false;
+
+function showWord(entry) {
+  const card = document.getElementById('wdetail');
+  card.innerHTML = '';
+
+  const head = document.createElement('div');
+  head.className = 'wd-head';
+
+  const title = document.createElement('div');
+  title.className = 'wd-word';
+  title.textContent = entry.en;
+
+  const pos = document.createElement('span');
+  pos.className = 'wd-pos';
+  pos.textContent = (POS_FA[entry.pos] || entry.pos);
+  title.appendChild(pos);
+
+  const say = document.createElement('button');
+  say.className = 'pplay';
+  say.textContent = '▶';
+  say.title = 'Listen — گوش بده';
+  say.onclick = () => {
+    if (Speech.isPlaying(entry.en)) { Speech.stop(); say.textContent = '▶'; return; }
+    say.textContent = '❚❚';
+    Speech.speak(entry.en, () => (say.textContent = '▶'));
+  };
+  say.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); say.click(); } };
+
+  const close = document.createElement('button');
+  close.className = 'wd-close';
+  close.textContent = '✕';
+  close.setAttribute('aria-label', 'Close');
+  close.onclick = () => card.classList.remove('open');
+
+  head.append(title, say, close);
+
+  const mean = document.createElement('div');
+  mean.className = 'wd-mean';
+  mean.innerHTML = '<b>' + escapeHtml(entry.en) + '</b> — ' + escapeHtml(entry.fa);
+
+  card.append(head, mean);
+
+  if (entry.forms && entry.forms.length) {
+    const lab = document.createElement('div');
+    lab.className = 'wd-lab';
+    lab.textContent = 'Word architecture / ساختار واژه';
+    const grid = document.createElement('div');
+    grid.className = 'wd-forms';
+    entry.forms.forEach((f) => {
+      const chip = document.createElement('span');
+      chip.className = 'wd-form';
+      chip.innerHTML = '<b>' + escapeHtml(f.f) + '</b><i>' + escapeHtml(f.n) + '</i>';
+      grid.appendChild(chip);
+    });
+    card.append(lab, grid);
+  }
+
+  const meta = document.createElement('div');
+  meta.className = 'wd-meta';
+  meta.textContent = 'CEFR ' + entry.level + ' · ' + (entry.domains || []).length +
+    ' domain' + ((entry.domains || []).length === 1 ? '' : 's');
+  card.appendChild(meta);
+
+  card.classList.add('open');
+  card.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+}
+
+async function loadWordArch() {
+  if (wordArchLoaded) return;
+  try {
+    const bands = wordArchBands;
+    Object.assign(wordArch, bands);
+    wordArchLoaded = true;
+    // drop the placeholder text and insert the real chips into each level
+    document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
+      const items = wordArch[slot.dataset.words] || [];
+      slot.innerHTML = '';
+      const lab = document.createElement('div');
+      lab.className = 'wd-lab';
+      lab.innerHTML = '🧩 New words / <b>واژه‌های این سطح</b> — tap one to see its architecture';
+      slot.appendChild(lab);
+
+      // A1 has ~800 words; rendering them all at once is slow on a phone, so
+      // show a page at a time and let the learner open the rest.
+      const PAGE = 48;
+      let shown = Math.min(PAGE, items.length);
+      const grid = document.createElement('div');
+      grid.className = 'wd-chips';
+
+      const paint = () => {
+        grid.innerHTML = '';
+        items.slice(0, shown).forEach((entry) => {
+          const b = document.createElement('button');
+          b.className = 'wchip';
+          b.textContent = entry.en;
+          b.title = entry.fa;
+          b.onclick = () => {
+            [...slot.querySelectorAll('.wchip.on')].forEach((n) => n.classList.remove('on'));
+            b.classList.add('on');
+            showWord(entry);
+          };
+          grid.appendChild(b);
+        });
+      };
+      paint();
+      slot.appendChild(grid);
+
+      const more = document.createElement('button');
+      more.className = 'wd-more btn';
+      more.onclick = () => {
+        const open = more.dataset.open === '1';
+        shown = open ? PAGE : items.length;
+        more.dataset.open = open ? '0' : '1';
+        more.textContent = open
+          ? items.length + ' words at ' + slot.dataset.words + ' — show more'
+          : 'showing all ' + items.length + ' · show fewer';
+        paint();
+      };
+      more.dataset.open = '0';
+      more.textContent = items.length + ' words at ' + slot.dataset.words +
+        (items.length > PAGE ? ' — show all' : '');
+      slot.appendChild(more);
+    });
+  } catch (e) {
+    document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
+      slot.innerHTML = '<div class="wd-more">Word forms unavailable offline.</div>';
+    });
+  }
+}
+
 async function loadPhrases() {
+  const box = document.getElementById('ftopics');
   try {
     const topics = phraseTopics;
-    const box = document.getElementById('ftopics');
     box.innerHTML = '';
-    topics.forEach(t => {
-      const b = document.createElement('button');
-      b.className = 'ftopic';
-      b.title = t.count + ' sentences';
-      b.innerHTML = '';
-      const en = document.createElement('span');
-      en.textContent = t.title_en;
-      const fa = document.createElement('span');
-      fa.className = 'fa';
-      fa.textContent = t.title_fa;
-      b.append(en, fa);
-      b.onclick = () => send(t.query);
-      box.appendChild(b);
+    byLevel(topics).forEach(([level, items]) => {
+      const sec = document.createElement('div');
+      sec.className = 'vgroup';
+      sec.appendChild(levelHead(level, items.length, ' topics', 'موضوع'));
+      const row = document.createElement('div');
+      row.className = 'vrow';
+      items.forEach((t) => {
+        const b = document.createElement('button');
+        b.className = 'ftopic';
+        b.title = t.count + ' sentences — ' + t.title_fa;
+        const en = document.createElement('span');
+        en.textContent = t.title_en;
+        const fa = document.createElement('span');
+        fa.className = 'fa';
+        fa.textContent = t.title_fa;
+        const n = document.createElement('span');
+        n.className = 'n';
+        n.textContent = t.count;
+        b.append(en, fa, n);
+        b.onclick = () => send(t.query);
+        row.appendChild(b);
+      });
+      sec.appendChild(row);
+
+      const slot = document.createElement('div');
+      slot.className = 'wd-slot';
+      slot.dataset.words = level;
+      slot.innerHTML = '<div class="wd-more">Loading word forms…</div>';
+      sec.appendChild(slot);
+
+      box.appendChild(sec);
     });
-  } catch (e) { /* panel stays empty offline */ }
+    loadWordArch();
+  } catch (e) {
+    box.innerHTML = '<div class="pblurb">Sentences unavailable offline. / جملات در دسترس نیست.</div>';
+  }
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
+/* The CEFR ladder, shared by the vocabulary and sentence panels so a learner
+   can always see which band they are looking at. */
+const LEVELS = [
+  ['A1', 'Beginner', 'مبتدی'],
+  ['A2', 'Elementary', 'پایه'],
+  ['B1', 'Intermediate', 'متوسط'],
+  ['B2', 'Upper-interm.', 'پیشرفته'],
+  ['C1', 'Advanced', 'پیشرفتهٔ بالا'],
+  ['C2', 'Mastery', 'تسلط'],
+];
+const LEVEL_NAME = Object.fromEntries(LEVELS.map(([id, en, fa]) => [id, {en, fa}]));
+
+/* Flat list → sections grouped by level, biggest bands first. */
+function byLevel(items) {
+  const order = LEVELS.map(([id]) => id);
+  const buckets = new Map(order.map((id) => [id, []]));
+  items.forEach((it) => buckets.get(it.level || 'A1').push(it));
+  return order
+    .map((id) => [id, buckets.get(id)])
+    .filter(([, list]) => list.length);
+}
+
+function levelHead(level, count, noun, nounFa) {
+  const head = document.createElement('div');
+  head.className = 'vgroup-head';
+  const name = LEVEL_NAME[level] || {en: level, fa: level};
+  const b = document.createElement('b');
+  b.className = 'lv';
+  b.textContent = level;
+  head.append(
+    b,
+    document.createTextNode(name.en),
+    Object.assign(document.createElement('span'), {className: 'fa', textContent: name.fa}),
+    Object.assign(document.createElement('span'), {
+      className: 'count',
+      textContent: count + (noun || '') + (nounFa ? ' · ' + nounFa : ''),
+    }),
+  );
+  return head;
+}
+
 async function loadVocabulary() {
+  const box = document.getElementById('domains');
   try {
     const groups = vocabGroups;
-    const box = document.getElementById('domains');
+    // the API returns themed groups; flatten so the panel can regroup by level
+    const all = groups.flatMap((g) => g.items.map((d) => ({...d, group_fa: g.fa})));
+    const filter = (window.__vFilter != null ? window.__vFilter
+      : (document.getElementById('vsearch')?.value || '')).trim().toLowerCase();
+
     box.innerHTML = '';
-    groups.forEach(g => {
+    byLevel(all).forEach(([level, items]) => {
+      const shown = filter
+        ? items.filter((d) => (d.title_en + ' ' + d.title_fa).toLowerCase().includes(filter))
+        : items;
+      if (filter && !shown.length) return;
       const sec = document.createElement('div');
       sec.className = 'vgroup';
-      const head = document.createElement('div');
-      head.className = 'vgroup-head';
-      head.append(
-        document.createTextNode(g.en),
-        Object.assign(document.createElement('span'), {className:'fa', textContent: g.fa}),
-        Object.assign(document.createElement('span'), {
-          className: 'count', textContent: g.items.length,
-        }),
-      );
-      sec.appendChild(head);
+      sec.appendChild(levelHead(level, shown.length, ' domains', 'دسته'));
       const row = document.createElement('div');
       row.className = 'vrow';
-      g.items.forEach(d => {
+      shown.forEach((d) => {
         const b = document.createElement('button');
         b.className = 'vbtn';
         b.title = d.title_fa + ' — ' + d.count + ' words';
         b.append(
           Object.assign(document.createElement('span'), {textContent: d.title_en}),
-          Object.assign(document.createElement('span'), {className:'n', textContent: d.count}),
+          Object.assign(document.createElement('span'), {className: 'n', textContent: d.count}),
         );
-        // alt-click / right area → ask in Persian instead
+        // alt-click → ask in Persian instead
         b.onclick = (ev) => send(ev.altKey ? d.query_fa : d.query_en);
         row.appendChild(b);
       });
       sec.appendChild(row);
       box.appendChild(sec);
     });
-  } catch (e) { /* panel stays empty offline */ }
+
+    const empty = document.getElementById('vempty');
+    if (empty) empty.hidden = !(filter && !box.children.length);
+  } catch (e) {
+    box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / واژگان در دسترس نیست.</div>';
+  }
 }
 /* only one panel open at a time; the active header button is highlighted */
 function togglePanel(panelId, btnId) {
   const panel = document.getElementById(panelId);
   const wasOpen = panel.classList.contains('open');
-  ['vpanel', 'gpanel', 'fpanel', 'lpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
-  ['vtoggle', 'gtoggle', 'ftoggle', 'ltoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
+  ['vpanel', 'gpanel', 'fpanel', 'lpanel', 'phpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
+  ['vtoggle', 'gtoggle', 'ftoggle', 'ltoggle', 'phtoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
   if (!wasOpen) {
     panel.classList.add('open');
     document.getElementById(btnId).classList.add('on');
@@ -1244,6 +1915,7 @@ document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggl
 document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggle');
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
 document.getElementById('ltoggle').onclick = () => togglePanel('lpanel', 'ltoggle');
+document.getElementById('phtoggle').onclick = () => togglePanel('phpanel', 'phtoggle');
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
 const LEVEL_NAMES = {
@@ -1339,18 +2011,37 @@ async function loadGrammar() {
   } catch (e) { /* panel stays empty offline */ }
 }
 /* offline boot: load the bundled data, build the engine, fill the panels */
-let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels;
+let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
+let wordArchBands = {};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
 
 Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
-             loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening')])
-  .then(([memory, glossary, grammar, phrases, jokes, listening]) => {
+             loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
+             loadJSON('phonetics'), loadJSON('word_arch')])
+  .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch]) => {
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes});
 
     listeningLevels = listening.levels.map((lv) => ({
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,
       blurb_en: lv.blurb.en, blurb_fa: lv.blurb.fa, sentences: lv.sentences,
+    }));
+    // word architecture, grouped by CEFR level for the Sentences panel
+    Object.entries(wordArch.words).forEach(([, e]) => {
+      (wordArchBands[e.level || 'A1'] = wordArchBands[e.level || 'A1'] || [])
+        .push({en: e.en, fa: e.fa, pos: e.pos, forms: e.forms,
+               level: e.level, domains: e.domains || []});
+    });
+    Object.values(wordArchBands).forEach((v) => v.sort((a, b) => a.en < b.en ? -1 : 1));
+
+    phoneticSections = phonetics.sections.map((s) => ({
+      id: s.id, icon: s.icon || '🔊', level: s.level || 'A1',
+      title_en: s.title.en, title_fa: s.title.fa,
+      blurb_en: s.blurb.en, blurb_fa: s.blurb.fa,
+      tip_en: (s.tip || {}).en || '', tip_fa: (s.tip || {}).fa || '',
+      groups: (s.groups || []).map((g) => ({
+        name_en: g.name.en, name_fa: g.name.fa, rows: g.rows || [],
+      })),
     }));
 
     // Use the engine's own unwrapped maps so panel data always matches the
@@ -1364,7 +2055,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       exam_n: (t.exam || []).length,
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
-      title_en: t.title.en, title_fa: t.title.fa,
+      title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',
       query: t.keywords.en[0], count: t.phrases.length,
     }));
     vocabGroups = bot.glossaryGroups.map((g) => ({
@@ -1372,7 +2063,8 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       items: g.domains.map((id) => {
         const d = bot.glossary[id];
         return {
-          title_en: d.list_label.en, title_fa: d.list_label.fa,
+          id, title_en: d.list_label.en, title_fa: d.list_label.fa,
+          level: d.level || 'A1',
           query_en: d.keywords.en[0], query_fa: d.keywords.fa[0],
           count: d.words.length,
         };
@@ -1383,16 +2075,59 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
     loadPhrases();
     loadVocabulary();
     loadListening();
+    loadPhonetics();
   })
   .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));
+
+/* live-filter the vocabulary panel as you type */
+document.getElementById('vsearch').addEventListener('input', (ev) => {
+  window.__vFilter = ev.target.value;
+  loadVocabulary();
+});
 loadListening();
+loadPhonetics();
 
 /* clear conversation */
 document.getElementById('clear').onclick = () => {
   chat.innerHTML = '';
+  history.length = 0;
+  historyAt = -1;
   add(WELCOME, 'bot');
   input.focus();
 };
+
+/* ---------- keyboard: the shortcuts people expect ---------- */
+input.addEventListener('keydown', (ev) => {
+  // ↑/↓ walk back through what you typed, like every messenger
+  if (ev.key === 'ArrowUp') {
+    ev.preventDefault();
+    if (!history.length) return;
+    if (historyAt === -1) historyAt = history.length;
+    historyAt = Math.max(0, historyAt - 1);
+    input.value = history[historyAt];
+    setTimeout(() => input.setSelectionRange(input.value.length, input.value.length), 0);
+  } else if (ev.key === 'ArrowDown') {
+    ev.preventDefault();
+    if (historyAt === -1) return;
+    historyAt = Math.min(history.length, historyAt + 1);
+    input.value = historyAt === history.length ? '' : history[historyAt];
+  }
+});
+
+document.addEventListener('keydown', (ev) => {
+  if (ev.key === 'Escape') {
+    // Esc closes whichever panel is open, then stops any audio
+    const open = document.querySelector('#vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open, #phpanel.open');
+    if (open) { open.classList.remove('open'); return; }
+    Speech.stop();
+  }
+});
+
+/* ---------- stop auto-scrolling once the reader scrolls up ---------- */
+chat.addEventListener('scroll', () => {
+  pinned = chat.scrollHeight - chat.scrollTop - chat.clientHeight < 90;
+  jump.classList.toggle('show', !pinned);
+});
 
 /* boot */
 add(WELCOME, 'bot');

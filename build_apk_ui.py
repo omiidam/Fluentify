@@ -79,6 +79,14 @@ html = html.replace(
     """    const r = await fetch('/api/listening');
     const levels = await r.json();""",
     """    const levels = listeningLevels;""")
+html = html.replace(
+    """    const r = await fetch('/api/phonetics');
+    sections = await r.json();""",
+    """    const sections = phoneticSections;""")
+html = html.replace(
+    """    const r = await fetch('/api/wordarch');
+    const bands = await r.json();""",
+    """    const bands = wordArchBands;""")
 
 # 3) boot: load the data, build the bot, then populate the panels
 html = html.replace(
@@ -86,18 +94,37 @@ html = html.replace(
 loadPhrases();
 loadVocabulary();""",
     """/* offline boot: load the bundled data, build the engine, fill the panels */
-let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels;
+let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
+let wordArchBands = {};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
 
 Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
-             loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening')])
-  .then(([memory, glossary, grammar, phrases, jokes, listening]) => {
+             loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
+             loadJSON('phonetics'), loadJSON('word_arch')])
+  .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch]) => {
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes});
 
     listeningLevels = listening.levels.map((lv) => ({
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,
       blurb_en: lv.blurb.en, blurb_fa: lv.blurb.fa, sentences: lv.sentences,
+    }));
+    // word architecture, grouped by CEFR level for the Sentences panel
+    Object.entries(wordArch.words).forEach(([, e]) => {
+      (wordArchBands[e.level || 'A1'] = wordArchBands[e.level || 'A1'] || [])
+        .push({en: e.en, fa: e.fa, pos: e.pos, forms: e.forms,
+               level: e.level, domains: e.domains || []});
+    });
+    Object.values(wordArchBands).forEach((v) => v.sort((a, b) => a.en < b.en ? -1 : 1));
+
+    phoneticSections = phonetics.sections.map((s) => ({
+      id: s.id, icon: s.icon || '🔊', level: s.level || 'A1',
+      title_en: s.title.en, title_fa: s.title.fa,
+      blurb_en: s.blurb.en, blurb_fa: s.blurb.fa,
+      tip_en: (s.tip || {}).en || '', tip_fa: (s.tip || {}).fa || '',
+      groups: (s.groups || []).map((g) => ({
+        name_en: g.name.en, name_fa: g.name.fa, rows: g.rows || [],
+      })),
     }));
 
     // Use the engine's own unwrapped maps so panel data always matches the
@@ -111,7 +138,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       exam_n: (t.exam || []).length,
     }));
     phraseTopics = Object.values(bot.phrases).map((t) => ({
-      title_en: t.title.en, title_fa: t.title.fa,
+      title_en: t.title.en, title_fa: t.title.fa, level: t.level || 'A1',
       query: t.keywords.en[0], count: t.phrases.length,
     }));
     vocabGroups = bot.glossaryGroups.map((g) => ({
@@ -119,7 +146,8 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       items: g.domains.map((id) => {
         const d = bot.glossary[id];
         return {
-          title_en: d.list_label.en, title_fa: d.list_label.fa,
+          id, title_en: d.list_label.en, title_fa: d.list_label.fa,
+          level: d.level || 'A1',
           query_en: d.keywords.en[0], query_fa: d.keywords.fa[0],
           count: d.words.length,
         };
@@ -130,6 +158,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
     loadPhrases();
     loadVocabulary();
     loadListening();
+    loadPhonetics();
   })
   .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""")
 
