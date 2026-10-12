@@ -885,7 +885,9 @@
   .avatar { width: 42px; height: 42px; border-radius: 14px; }
   .avatar svg { width: 34px; height: 34px; }
   .status { display: none; }      /* the pill is desktop-only decoration */
-  #seedmeter { display: none; }    /* needs ~90px of header to read properly */
+  /* the daily counter belongs on the phone too — just more compact */
+  #seedmeter { width: 62px; height: 18px; }
+  #seedmeter span { font-size: 9.5px; padding: 0 6px; letter-spacing: -.2px; }
 
   /* the toggles become a horizontally scrollable toolbar under the title */
   .tools {
@@ -1022,10 +1024,11 @@
     .send { padding: 0 28px; font-size: 15px; min-height: 0; }
   }
 
-  /* ---------- desktop: show the decorative status + seed meter ---------- */
+  /* ---------- desktop: full-size meter + the status pill ---------- */
   @media (min-width: 900px) {
     .status { display: flex; }
-    #seedmeter { display: flex; width: 66px; height: 20px; }
+    #seedmeter { width: 66px; height: 20px; }
+    #seedmeter span { font-size: 10.5px; padding: 0 7px; }
   }
 </style>
 </head>
@@ -1366,22 +1369,24 @@ let historyAt = -1;
 
 async function send(text) {
   text = (text || '').trim();
-  if (!text || busy) return;
-  // "clear" is a command, not a message — and it costs no daily token
+  if (!text) return;
+  // Commands run before the `busy` guard: typing a section name while a
+  // reply is still loading must still work, not be silently dropped.
   if (isClearCommand(text)) {
     add(text, 'user');
     clearChat();
     return;
   }
-  // "open grammar section" opens the topbar panel instead of being answered
+  // "listening", "open grammar section", "بخش واژگان" → open the topbar panel
   const section = matchSectionCommand(text);
   if (section) {
     openSection(section[0], section[1], text);
     return;
   }
-  // "save apple to review" / "review my words" — review is not a chat message
-  const reviewCmd = matchReviewCommand(text);
-  if (reviewCmd) { reviewCmd(text); return; }
+  // "save apple to review" / "open my review list" — also not chat messages.
+  // matchReviewCommand does the work itself and returns true when it handled it.
+  if (matchReviewCommand(text)) return;
+  if (busy) return;                      // real message, but one is in flight
   // daily limit reached — refuse the message, don't queue it
   if (Seed.spent()) { Seed.block(); return; }
   busy = true;
@@ -2615,6 +2620,12 @@ const SECTIONS = {
     panel: 'phpanel', btn: 'phtoggle', en: 'Phonetics', fa: 'تلفظ', icon: '🗣',
     kw: ['phonetics', 'phonetic', 'pronunciation', 'تلفظ', 'فونتیک', 'تلفظ انگلیسی'],
   },
+  review: {
+    panel: 'rpanel', btn: 'rtoggle', en: 'Review', fa: 'مرور', icon: '⭐',
+    kw: ['review', 'reviews', 'flashcards', 'flash cards', 'starred words',
+         'saved words', 'my words', 'مرور', 'مرور کلمات', 'کارت های مرور',
+         'واژه های ذخیره شده'],
+  },
 };
 
 /* an explicit "do something" verb — anything else is treated as a question
@@ -2645,20 +2656,32 @@ function matchSectionCommand(text) {
   return null;
 }
 
+/* Opens the panel and keeps it open. Typing "listening" twice must not close
+   it again — that was the other half of "doesn't work properly". */
 function openSection(id, s, echo) {
   const panel = document.getElementById(s.panel);
   if (!panel) return false;
-  // reuse the topbar toggle so only one panel is ever open
-  const btn = document.getElementById(s.btn);
-  const wasOpen = panel.classList.contains('open');
-  btn.onclick();                                  // the toggle closes it if open
-  const opened = !wasOpen;
+  const alreadyOpen = panel.classList.contains('open');
+  if (!alreadyOpen) {
+    // reuse the topbar toggle so only ever one panel is open
+    document.getElementById(s.btn).onclick();
+  }
+  if (id === 'review') {
+    Review.mode = 'cards';
+    Review.at = 0;
+    Review.flipped = false;
+    Review.paint();
+  }
   if (echo) {
     add(echo, 'user');
-    add(`${s.icon} Opened the **${s.en}** section (${s.fa}).\n` +
-        `بخش ${s.fa} باز شد.`, 'bot');
+    add(`${s.icon} **${s.en}** section is open (${s.fa}).\n` +
+        (id === 'review' && !Review.items.length
+          ? 'No words saved yet — open any word card and tap ☆ Save to review.'
+          : `بخش ${s.fa} باز شد.`) +
+        '\nType the section name again any time to bring it back.',
+        'bot');
   }
-  return opened;
+  return true;
 }
 
 /* ---------- review commands typed in chat ---------- */
