@@ -1396,6 +1396,43 @@
           "بیا قدم به قدم بریم جلو. اولین بخشی که گیر کردی کدومه؟"
         ]
       }
+    },
+    {
+      "name": "clear_chat",
+      "keywords": {
+        "en": [
+          "clear",
+          "clear chat",
+          "clear conversation",
+          "clear messages",
+          "clear history",
+          "reset chat",
+          "reset conversation",
+          "wipe chat",
+          "erase chat",
+          "delete chat"
+        ],
+        "fa": [
+          "پاک کن",
+          "پاک کردن",
+          "پاک کن چت",
+          "حذف پیام‌ها",
+          "حذف گفتگو",
+          "از اول بریم",
+          "ریست",
+          "پاکسازی گفتگو"
+        ]
+      },
+      "responses": {
+        "en": [
+          "🧹 Conversation cleared — a clean slate.",
+          "🧹 Cleared! What shall we start with?"
+        ],
+        "fa": [
+          "🧹 گفتگو پاک شد — صفحه تازه است.",
+          "🧹 پاک شد! از کجا شروع کنیم؟"
+        ]
+      }
     }
   ]
 }

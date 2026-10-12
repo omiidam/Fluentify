@@ -878,7 +878,31 @@ HTML = r"""<!DOCTYPE html>
   form {
     padding: 10px calc(var(--pad) + var(--sar))
              calc(10px + var(--sab)) calc(var(--pad) + var(--sal));
-    gap: 8px;
+    gap: 8px; flex-direction: column;
+  }
+  .prow-form { display: flex; gap: 8px; }
+
+  /* ---- daily limit reached: the composer goes quiet ---- */
+  .limitenote {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px; border-radius: 11px; font-size: 12.5px; line-height: 1.5;
+    background: linear-gradient(135deg, rgba(167,139,250,.18), rgba(255,141,196,.10));
+    border: 1px solid rgba(167,139,250,.34); color: #ddd6fe;
+    animation: fade .2s ease;
+  }
+  .limitenote .lockic { font-size: 15px; flex: none; }
+  .limitenote b { color: #fff; }
+  form.locked #input {
+    opacity: .45; cursor: not-allowed; background: rgba(255,255,255,.03);
+  }
+  form.locked .send {
+    opacity: .4; cursor: not-allowed; filter: grayscale(.5); transform: none;
+    box-shadow: none;
+  }
+  /* every control that would send a message is visibly retired */
+  .chip.locked, .ftopic.locked, .vbtn.locked, .gmain.locked, .go.locked {
+    opacity: .35; cursor: not-allowed; pointer-events: none;
+    filter: grayscale(.6);
   }
   #input { padding: 12px 15px; font-size: 16px; border-radius: 14px; }
   .send { padding: 0 20px; font-size: 14px; border-radius: 14px; min-height: 46px; }
@@ -903,7 +927,8 @@ HTML = r"""<!DOCTYPE html>
     .msg { padding: 12px 16px; font-size: 15px; }
     #vpanel, #gpanel, #fpanel, #lpanel, #phpanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
-    form { padding: 14px 20px 18px; gap: 10px; }
+    form { padding: 14px 20px 18px; gap: 8px; }
+    .prow-form { gap: 10px; }
     #input { padding: 14px 17px; font-size: 15.5px; }
     .send { padding: 0 28px; font-size: 15px; min-height: 0; }
   }
@@ -1018,9 +1043,15 @@ HTML = r"""<!DOCTYPE html>
     <span class="chip">my name is Ali</span>
   </div>
 
-  <form id="form">
-    <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…">
-    <button class="send" id="sendbtn" type="submit">Send</button>
+  <form id="composer">
+    <div class="prow-form">
+      <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…">
+      <button class="send" id="sendbtn" type="submit">Send</button>
+    </div>
+    <div class="limitenote" id="limitenote" hidden>
+      <span class="lockic">🌙</span>
+      <span class="limitxt"></span>
+    </div>
   </form>
 </div>
 
@@ -1239,6 +1270,14 @@ let historyAt = -1;
 async function send(text) {
   text = (text || '').trim();
   if (!text || busy) return;
+  // "clear" is a command, not a message — and it costs no daily token
+  if (isClearCommand(text)) {
+    add(text, 'user');
+    clearChat();
+    return;
+  }
+  // daily limit reached — refuse the message, don't queue it
+  if (Seed.spent()) { Seed.block(); return; }
   busy = true;
   sendbtn.disabled = true;
   add(text, 'user');
@@ -1267,7 +1306,7 @@ async function send(text) {
   input.focus();
 }
 
-document.getElementById('form').addEventListener('submit', e => {
+document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();
   send(input.value);
 });
@@ -1276,10 +1315,11 @@ document.getElementById('chips').addEventListener('click', e => {
 });
 
 /* ---------- motion seed: the bird fills up with daily usage ---------- */
-const SEED_GOAL = 20;                     // tokens available per session
+const SEED_GOAL = 50;                     // messages allowed per session
 const SEED_RESET_UTC = 3.5;               // session rolls over at 03:30 GMT
 const Seed = {
   state: { day: '', count: 0, streak: 0, best: 0 },
+  warned: false,                 // only explain the limit once per session
   /* A session starts at 03:30 GMT, so the "day" is counted from that point —
      otherwise a user studying at 02:00 would lose their progress at midnight. */
   key(d = new Date()) {
@@ -1290,10 +1330,17 @@ const Seed = {
   },
   /* when the current session ends (for the countdown in the tooltip) */
   msLeft() {
+    // the boundary is 03:30 UTC — the same instant at which key() rolls over
     const now = new Date();
-    const next = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
-                          3, 30, 0, 0) + SEED_RESET_UTC * 3600 * 1000;
-    return next - now.getTime();
+    let ms = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
+                      3, 30, 0, 0) - now.getTime();
+    if (ms <= 0) ms += 24 * 3600 * 1000;   // today's boundary passed
+    return ms;
+  },
+  msText() {
+    const ms = Math.max(0, this.msLeft());
+    return Math.floor(ms / 3600000) + 'h ' +
+           String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0') + 'm';
   },
   load() {
     try {
@@ -1308,7 +1355,7 @@ const Seed = {
   },
   rollDay() {
     const today = this.key();
-    if (this.state.day === today) return;
+    if (this.state.day === today) return false;
     if (this.state.day) {
       // yesterday completed the goal → the streak continues
       if (this.state.count >= SEED_GOAL) this.state.streak += 1;
@@ -1317,31 +1364,53 @@ const Seed = {
     }
     this.state.day = today;
     this.state.count = 0;
+    this.warned = false;
     this.save();
+    return true;
   },
+  /* Checked on every send, so a tab left open past 03:30 GMT unlocks itself. */
+  spent() {
+    if (this.rollDay()) this.paint();
+    return this.state.count >= SEED_GOAL;
+  },
+  left() { return Math.max(0, SEED_GOAL - this.state.count); },
   add(n = 1) {
     const before = this.state.count;
     this.state.count += n;
     if (before < SEED_GOAL && this.state.count >= SEED_GOAL) {
-      this.state.streak = Math.max(this.state.streak, this.state.count >= SEED_GOAL ? this.state.streak : 0);
+      this.streak = Math.max(this.streak, 0);
       this.celebrate();
     }
     this.save();
     this.paint();
   },
+  /* Once the daily limit is reached, sending is refused — here and in the
+     offline app this is the whole gate, so it has to be the single check. */
+  block() {
+    if (this.warned) return;
+    this.warned = true;
+    add(`🌙 You've used all ${SEED_GOAL} messages for today — the seed is full.\n` +
+        `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (03:30 GMT).\n` +
+        `امروز هر ${SEED_GOAL} پیام را استفاده کردی. پیام‌های بعدی ${this.msText()} دیگر فعال می‌شوند.`,
+        'bot');
+    this.paint();
+  },
   celebrate() {
     const av = document.querySelector('.avatar');
     if (av) { av.classList.add('bloom'); setTimeout(() => av.classList.remove('bloom'), 1600); }
-    add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! Keep the streak going tomorrow.`, 'bot');
+    add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! You have finished ` +
+        `for today; the next session starts in ${this.msText()} (03:30 GMT).\n` +
+        `امروز تمام شد. ${this.msText()} دیگر بخش بعدی شروع می‌شود.`, 'bot');
   },
   paint() {
     const pct = Math.min(100, Math.round((this.state.count / SEED_GOAL) * 100));
+    const full = pct >= 100;
     const av = document.querySelector('.avatar');
     const bird = av && av.querySelector('svg');
     if (bird) {
       // the seed ring around the bird grows through the day
       bird.style.setProperty('--seed', pct + '%');
-      av.classList.toggle('full', pct >= 100);
+      av.classList.toggle('full', full);
     }
     const meter = document.getElementById('seedmeter');
     if (meter) {
@@ -1349,13 +1418,40 @@ const Seed = {
       const bar = document.createElement('i');
       bar.style.width = pct + '%';
       const t = document.createElement('span');
-      t.textContent = pct >= 100
-        ? '🌸 ' + this.state.streak + 'd'
-        : pct + '%';
+      t.textContent = full ? '🌸 ' + this.state.streak + 'd' : this.state.count + '/' + SEED_GOAL;
       meter.append(bar, t);
       meter.title = `Seed ${pct}% · streak ${this.state.streak} session(s) · ` +
-        `${this.state.count}/${SEED_GOAL} tokens · resets in ` +
-        `${Math.floor(this.msLeft() / 3600000)}h ${Math.floor((this.msLeft() % 3600000) / 60000)}m (03:30 GMT)`;
+        `${this.state.count}/${SEED_GOAL} messages · resets in ` +
+        `${this.msText()} (03:30 GMT)`;
+    }
+    this.lockUI(full);
+  },
+  /* Grey out the composer so the block is visible, not just enforced */
+  lockUI(full) {
+    const box = document.getElementById('composer');
+    if (!box) return;
+    box.classList.toggle('locked', full);
+    const note = document.getElementById('limitenote');
+    if (note) {
+      note.hidden = !full;
+      const txt = note.querySelector('.limitxt');
+      if (txt && full) {
+        txt.innerHTML = `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
+          `The next ${SEED_GOAL} arrive in <b>${this.msText()}</b> (03:30 GMT).<br>` +
+          `سقف پیام امروز پر شد. ${this.msText()} دیگر بخش بعدی فعال می‌شود.`;
+      }
+    }
+    if (full) {
+      input.disabled = true;
+      sendbtn.disabled = true;
+      document.querySelectorAll('.chip, .ftopic, .vbtn, .gmain, .go').forEach((n) => {
+        n.classList.add('locked');
+      });
+    } else {
+      input.disabled = false;
+      sendbtn.disabled = false;
+      document.querySelectorAll('.chip.locked, .ftopic.locked, .vbtn.locked, .gmain.locked, .go.locked')
+        .forEach((n) => n.classList.remove('locked'));
     }
   },
 };
@@ -2045,13 +2141,35 @@ loadListening();
 loadPhonetics();
 
 /* clear conversation */
-document.getElementById('clear').onclick = () => {
+/* ---------- clear: button or typed ---------- */
+function clearChat() {
   chat.innerHTML = '';
   history.length = 0;
   historyAt = -1;
   add(WELCOME, 'bot');
   input.focus();
-};
+}
+
+/* Typing "clear" (or the Persian equivalents) does exactly what the 🗑 button
+   does. Without this the message was treated as a vocabulary lookup. */
+const CLEAR_RE = new RegExp(
+  '^\\s*(?:please\\s+|لطفا\\s*)?' +
+  '(?:' +
+    '(?:clear|reset|wipe|delete|erase)' +
+    '(?:\\s+(?:the\\s+)?(?:chat|conversation|messages?|history|everything))?' +
+    '|پاک\\s*کن(?:\\s*چت|\\s*گفتگو)?' +
+    '|پاک\\s*کردن(?:\\s*چت|\\s*گفتگو)?' +
+    '|حذف\\s*(?:پیام|چت|گفتگو)[\\u200c\\s\\S]*' +
+    '|از\\s*اول\\s*بریم' +
+    '|شروع\\s*مجدد' +
+  ')' +
+  '\\s*(?:please|لطفا|من\\s*فضلك)?\\s*[!.؟]*\\s*$', 'i');
+
+function isClearCommand(text) {
+  return CLEAR_RE.test((text || '').trim());
+}
+
+document.getElementById('clear').onclick = clearChat;
 
 /* ---------- keyboard: the shortcuts people expect ---------- */
 input.addEventListener('keydown', (ev) => {
