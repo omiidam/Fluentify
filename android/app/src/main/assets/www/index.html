@@ -180,7 +180,7 @@
   }
 
   /* ---------- vocabulary / grammar / phrases panels ---------- */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
     display: none; padding: 14px 20px;
     background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015)),
                 linear-gradient(180deg, rgba(8,12,34,.86), rgba(8,12,34,.74));
@@ -196,7 +196,7 @@
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open { display: block; }
   /* #phpanel gets its own flex layout below, so it is not listed here */
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
-  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3 {
     font-size: 12px; color: #a9b8de; margin-bottom: 9px; font-weight: 600;
   }
 
@@ -576,6 +576,112 @@
     .wd-form b { min-width: 92px; font-size: 12.5px; }
   }
 
+  /* ---------- review: saved words + flashcards ---------- */
+  .rbadge {
+    display: inline-block; margin-inline-start: 6px; min-width: 17px;
+    padding: 0 5px; border-radius: 999px; font-size: 10px; font-weight: 700;
+    background: #ffc44d; color: #3a2400; vertical-align: 1px;
+  }
+  .rtop { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
+  .rprog {
+    flex: 1 1 120px; height: 7px; border-radius: 999px; overflow: hidden;
+    background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.12);
+  }
+  .rprog i {
+    display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, #34d399, #6d8cff);
+    transition: width .35s cubic-bezier(.34,1.3,.64,1);
+  }
+  .rcount { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .rtab {
+    background: rgba(255,255,255,.07); color: var(--muted);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 8px;
+    padding: 5px 11px; font-size: 11.5px; cursor: pointer;
+    font-family: inherit; transition: .12s;
+  }
+  .rtab.on { background: linear-gradient(135deg, #34d399, #6d8cff); color: #fff; border-color: transparent; }
+  .rtab:hover { color: var(--text); }
+  .rtab.on:hover { color: #fff; }
+  .rdanger:hover { background: rgba(248,113,113,.25); border-color: rgba(248,113,113,.5); }
+
+  /* flashcard */
+  .rcard {
+    padding: 18px 14px 14px; border-radius: 15px; text-align: center;
+    background: linear-gradient(155deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 8px 24px rgba(0,0,0,.28);
+    min-height: 176px; display: flex; flex-direction: column;
+    justify-content: center; gap: 8px;
+  }
+  .rcard .rword { font-size: 26px; font-weight: 700; letter-spacing: .2px; line-height: 1.2; }
+  .rcard .rpos {
+    align-self: center; font-size: 10px; font-weight: 700; padding: 2px 8px;
+    border-radius: 999px; background: rgba(255,255,255,.13); color: #d7e2ff;
+  }
+  .rcard .rfa { font-size: 15px; color: var(--text); line-height: 1.6; }
+  .rcard .rlvl { font-size: 10px; color: var(--dim); letter-spacing: .05em; }
+  .rcard .rforms {
+    font-size: 11.5px; color: var(--muted);
+    font-family: "SF Mono", Consolas, monospace;
+    line-height: 1.7; word-spacing: .2em;
+  }
+  .rhidden { filter: blur(7px); opacity: .55; user-select: none; }
+  .rflip {
+    margin-top: 4px; background: none; border: 1px dashed rgba(255,255,255,.28);
+    color: var(--muted); border-radius: 9px; padding: 7px 12px; font-size: 12px;
+    cursor: pointer; font-family: inherit;
+  }
+  .rflip:hover { background: rgba(255,255,255,.08); color: var(--text); }
+  .racts { display: flex; gap: 8px; margin-top: 11px; }
+  .rbtn {
+    flex: 1; min-height: 44px; border-radius: 11px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    border: 1px solid rgba(255,255,255,.14); color: #fff;
+  }
+  .rbtn.know { background: linear-gradient(135deg, #34d399, #10b981); }
+  .rbtn.again { background: linear-gradient(135deg, #fb923c, #f43f5e); }
+  .rbtn.play { background: rgba(255,255,255,.1); flex: 0 0 52px; font-size: 16px;
+               line-height: 1; padding: 0; }
+  .rbtn:hover { filter: brightness(1.1); }
+  .rdots { display: flex; gap: 3px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+  .rdot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.2); }
+  .rdot.on { background: #34d399; }
+  .rdot.now { background: #ffc44d; transform: scale(1.5); }
+
+  /* list mode */
+  .rlist { display: flex; flex-direction: column; gap: 6px; }
+  .rrow {
+    display: grid; grid-template-columns: 1fr auto auto; gap: 9px; align-items: center;
+    padding: 8px 10px; border-radius: 10px;
+    background: linear-gradient(150deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .rrow .rmain { min-width: 0; }
+  .rrow .ren { font-size: 13.5px; font-weight: 600; }
+  .rrow .rfa2 { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+  .rrow.ok { border-color: rgba(52,211,153,.4); }
+  .rrow.ok .ren::after { content: ' \2713'; color: #34d399; }
+  .ricon {
+    width: 30px; height: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.07); color: var(--text); font-size: 13px;
+    cursor: pointer; display: grid; place-items: center; font-family: inherit;
+  }
+  .ricon:hover { background: rgba(255,255,255,.14); }
+  .ricon.del:hover { background: rgba(248,113,113,.25); border-color: rgba(248,113,113,.5); }
+  .rempty { text-align: center; padding: 26px 10px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+  .rempty .big { font-size: 30px; display: block; margin-bottom: 8px; }
+
+  /* the "save to review" toggle inside the word card */
+  .rstar {
+    background: rgba(255,196,77,.14); border: 1px solid rgba(255,196,77,.34);
+    color: #fcd34d; border-radius: 9px; padding: 6px 11px; font-size: 12px;
+    cursor: pointer; font-family: inherit; font-weight: 600;
+  }
+  .rstar:hover { background: rgba(255,196,77,.26); }
+  .rstar.on { background: linear-gradient(135deg, #ffc44d, #fb923c); color: #3a2400; border-color: transparent; }
+  .wd-star { margin-top: 10px; display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+  .wd-star .why { font-size: 11px; color: var(--dim); }
+
   /* ---------- phonetics: topic rail + dense symbol cards ----------
      Designed so a whole lesson fits on one phone screen: the rail is one
      scroll line, rows are a single column, and every ▶ speaks the example. */
@@ -610,8 +716,8 @@
      lose your place when drilling through a list */
   .phview { padding-top: 12px; overflow-y: auto; flex: 1; min-height: 0;
             overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
-  #phpanel { display: none; flex-direction: column; }
-  #phpanel.open { display: flex; }
+  #phpanel, #rpanel { display: none; flex-direction: column; }
+  #phpanel.open, #rpanel.open { display: flex; }
   .phead { margin-bottom: 12px; }
   .phead .ptitle {
     display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -732,7 +838,7 @@
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .app { background: linear-gradient(160deg, #141c46, #1b2350); }
     header { background: linear-gradient(100deg, #24306b, #2a2170); }
-    #vpanel, #gpanel, #fpanel, #phpanel { background: #131a3d; }
+    #vpanel, #gpanel, #fpanel, #phpanel, #rpanel { background: #131a3d; }
     .msg.bot { background: #1c2450; }
     #input { background: #141c46; }
     .hb { display: none; }
@@ -807,13 +913,13 @@
   }
 
   /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
     padding: 12px calc(var(--pad) + var(--sar)) 14px calc(var(--pad) + var(--sal));
     max-height: 62%;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
-  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3 {
     font-size: 11.5px; margin-bottom: 8px; line-height: 1.5;
   }
   .domains { max-height: 46vh; }
@@ -908,7 +1014,7 @@
     .mav { width: 32px; height: 32px; border-radius: 11px; }
     .mav svg { width: 26px; height: 26px; }
     .msg { padding: 12px 16px; font-size: 15px; }
-    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel { padding: 14px 20px; max-height: 52%; }
+    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
     form { padding: 14px 20px 18px; gap: 8px; }
     .prow-form { gap: 10px; }
@@ -976,6 +1082,7 @@
       <button class="hbtn" id="ftoggle" title="Useful everyday sentences — جملات کاربردی">💬 Sentences</button>
       <button class="hbtn" id="ltoggle" title="Listening practice A1–C2 — شنیدن و تلفظ">🎧 Listening</button>
       <button class="hbtn" id="phtoggle" title="Phonetics &amp; connected speech — تلفظ و آهنگ">🗣 Phonetics</button>
+      <button class="hbtn" id="rtoggle" title="Words you saved to review — واژه‌های مرور">⭐ Review<span class="rbadge" id="rbadge" hidden>0</span></button>
       <button class="hbtn" id="clear" title="Clear conversation">🗑 Clear</button>
     </nav>
   </header>
@@ -1010,6 +1117,12 @@
     <h3>The sounds that make English fluent — صداهایی که انگلیسی را روان می‌کنند</h3>
     <div class="phrail" id="phrail" role="tablist" aria-label="Pronunciation topics"></div>
     <div class="phview" id="phview"></div>
+  </div>
+
+  <div id="rpanel">
+    <h3>Your review list — واژه‌هایی که برای مرور ذخیره کردی</h3>
+    <div class="rtop" id="rtop"></div>
+    <div class="rbody" id="rbody"></div>
   </div>
 
   <div id="chat"></div>
@@ -1260,6 +1373,15 @@ async function send(text) {
     clearChat();
     return;
   }
+  // "open grammar section" opens the topbar panel instead of being answered
+  const section = matchSectionCommand(text);
+  if (section) {
+    openSection(section[0], section[1], text);
+    return;
+  }
+  // "save apple to review" / "review my words" — review is not a chat message
+  const reviewCmd = matchReviewCommand(text);
+  if (reviewCmd) { reviewCmd(text); return; }
   // daily limit reached — refuse the message, don't queue it
   if (Seed.spent()) { Seed.block(); return; }
   busy = true;
@@ -1513,7 +1635,7 @@ async function loadPhonetics() {
   if (!rail || !view || rail.childElementCount) return;   // already built
   let sections;
   try {
-    const sections = phoneticSections;
+    sections = phoneticSections;
   } catch (e) {
     view.innerHTML = '<div class="pblurb">Phonetics unavailable offline. / آموزش تلفظ در دسترس نیست.</div>';
     return;
@@ -1802,6 +1924,30 @@ function showWord(entry) {
     ' domain' + ((entry.domains || []).length === 1 ? '' : 's');
   card.appendChild(meta);
 
+  // save it for the review section
+  const starWrap = document.createElement('div');
+  starWrap.className = 'wd-star';
+  const star = document.createElement('button');
+  const paintStar = () => {
+    const on = Review.has(entry.en);
+    star.classList.toggle('on', on);
+    star.textContent = on ? '⭐ In review' : '☆ Save to review';
+  };
+  star.className = 'rstar';
+  star.onclick = () => {
+    Review.toggle(entry);
+    paintStar();
+    add(Review.has(entry.en)
+      ? `⭐ Added **${entry.en}** to your review list — ${Review.items.length} word(s) saved.`
+      : `Removed **${entry.en}** from your review list.`, 'bot');
+  };
+  paintStar();
+  const hint = document.createElement('span');
+  hint.className = 'why';
+  hint.textContent = 'then open ⭐ Review in the top bar';
+  starWrap.append(star, hint);
+  card.appendChild(starWrap);
+
   card.classList.add('open');
   card.scrollIntoView({block: 'nearest', behavior: 'smooth'});
 }
@@ -2000,8 +2146,8 @@ async function loadVocabulary() {
 function togglePanel(panelId, btnId) {
   const panel = document.getElementById(panelId);
   const wasOpen = panel.classList.contains('open');
-  ['vpanel', 'gpanel', 'fpanel', 'lpanel', 'phpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
-  ['vtoggle', 'gtoggle', 'ftoggle', 'ltoggle', 'phtoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
+  ['vpanel', 'gpanel', 'fpanel', 'lpanel', 'phpanel', 'rpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
+  ['vtoggle', 'gtoggle', 'ftoggle', 'ltoggle', 'phtoggle', 'rtoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
   if (!wasOpen) {
     panel.classList.add('open');
     document.getElementById(btnId).classList.add('on');
@@ -2012,6 +2158,7 @@ document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggl
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
 document.getElementById('ltoggle').onclick = () => togglePanel('lpanel', 'ltoggle');
 document.getElementById('phtoggle').onclick = () => togglePanel('phpanel', 'phtoggle');
+document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
 const LEVEL_NAMES = {
@@ -2180,8 +2327,6 @@ document.getElementById('vsearch').addEventListener('input', (ev) => {
   window.__vFilter = ev.target.value;
   loadVocabulary();
 });
-loadListening();
-loadPhonetics();
 
 /* clear conversation */
 /* ---------- clear: button or typed ---------- */
@@ -2213,6 +2358,388 @@ function isClearCommand(text) {
 }
 
 document.getElementById('clear').onclick = clearChat;
+
+/* ---------- review list: save words, then drill them ----------
+   Words are saved from the word cards in the Sentences panel (⭐) or by
+   typing "save apple to review". Progress lives in localStorage so it
+   survives a reload, exactly like the daily seed. */
+const Review = {
+  KEY: 'fluentify.review',
+  items: [],            // [{en, fa, pos, forms, level, ok, streak}]
+  mode: 'cards',       // 'cards' | 'list'
+  at: 0,
+  flipped: false,
+
+  load() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      if (raw) this.items = JSON.parse(raw) || [];
+    } catch (e) { this.items = []; }
+    this.paintBadge();
+  },
+  save() {
+    try { localStorage.setItem(this.KEY, JSON.stringify(this.items)); } catch (e) {}
+    this.paintBadge();
+  },
+  has(word) {
+    const w = (word || '').toLowerCase();
+    return this.items.some((i) => i.en.toLowerCase() === w);
+  },
+  add(entry) {
+    if (!entry || !entry.en) return false;
+    if (this.has(entry.en)) return false;
+    this.items.push({
+      en: entry.en, fa: entry.fa || '', pos: entry.pos || '',
+      forms: (entry.forms || []).map((f) => f.f),
+      level: entry.level || 'A1', ok: false, streak: 0,
+    });
+    this.save();
+    return true;
+  },
+  remove(word) {
+    const w = (word || '').toLowerCase();
+    this.items = this.items.filter((i) => i.en.toLowerCase() !== w);
+    this.save();
+    this.paint();
+  },
+  toggle(entry) { return this.has(entry.en) ? (this.remove(entry.en), false) : (this.add(entry), true); },
+  reset() { this.items.forEach((i) => { i.ok = false; i.streak = 0; }); this.at = 0; this.flipped = false; this.save(); this.paint(); },
+  clear() { this.items = []; this.at = 0; this.flipped = false; this.save(); this.paint(); },
+  get mastered() { return this.items.filter((i) => i.ok).length; },
+  current() { return this.items[this.at] || null; },
+  paintBadge() {
+    const b = document.getElementById('rbadge');
+    if (!b) return;
+    b.textContent = this.items.length;
+    b.hidden = !this.items.length;
+  },
+
+  /* ---------- rendering ---------- */
+  paint() {
+    const top = document.getElementById('rtop');
+    const body = document.getElementById('rbody');
+    if (!top || !body) return;
+    top.innerHTML = '';
+    body.innerHTML = '';
+
+    if (!this.items.length) {
+      top.style.display = 'none';
+      body.innerHTML =
+        '<div class="rempty"><span class="big">⭐</span>' +
+        'No words saved yet.<br>Open any word card and tap <b>☆ Save</b> — or type ' +
+        '<b>"save apple to review"</b>.<br>' +
+        'هنوز واژه‌ای ذخیره نشده. هر کارت واژه را باز کنید و ☆ را بزنید.</div>';
+      return;
+    }
+    top.style.display = '';
+
+    const pct = this.items.length ? Math.round(this.mastered / this.items.length * 100) : 0;
+    const mk = (tag, cls, txt) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (txt != null) n.textContent = txt;
+      return n;
+    };
+    const cardsTab = mk('button', 'rtab' + (this.mode === 'cards' ? ' on' : ''), '🃏 Cards');
+    cardsTab.onclick = () => { this.mode = 'cards'; this.at = 0; this.flipped = false; this.paint(); };
+    const listTab = mk('button', 'rtab' + (this.mode === 'list' ? ' on' : ''), '📋 List');
+    listTab.onclick = () => { this.mode = 'list'; this.paint(); };
+    const restart = mk('button', 'rtab rdanger', '↻ Restart');
+    restart.onclick = () => this.reset();
+    const wipe = mk('button', 'rtab rdanger', '🗑 Empty');
+    wipe.onclick = () => this.clear();
+
+    const prog = mk('div', 'rprog');
+    const fill = mk('i');
+    fill.style.width = pct + '%';
+    prog.appendChild(fill);
+    const count = mk('div', 'rcount',
+      `${this.mastered}/${this.items.length} mastered · ${pct}%`);
+
+    top.append(cardsTab, listTab, prog, count, restart, wipe);
+    (this.mode === 'cards' ? this.paintCard : this.paintList).call(this, body);
+  },
+
+  paintCard(body) {
+    if (this.at >= this.items.length) this.at = 0;
+    const item = this.current();
+    if (!item) { this.paint(); return; }
+
+    const card = document.createElement('div');
+    card.className = 'rcard';
+    const word = document.createElement('div');
+    word.className = 'rword';
+    word.textContent = item.en;
+    card.appendChild(word);
+    if (item.pos) {
+      const pos = document.createElement('span');
+      pos.className = 'rpos';
+      pos.textContent = POS_FA[item.pos] || item.pos;
+      card.appendChild(pos);
+    }
+
+    const fa = document.createElement('div');
+    fa.className = 'rfa' + (this.flipped ? '' : ' rhidden');
+    fa.textContent = item.fa || '—';
+    card.appendChild(fa);
+
+    if (item.forms && item.forms.length) {
+      const forms = document.createElement('div');
+      forms.className = 'rforms' + (this.flipped ? '' : ' rhidden');
+      forms.textContent = item.forms.join(' · ');
+      card.appendChild(forms);
+    }
+    const lvl = document.createElement('div');
+    lvl.className = 'rlvl';
+    lvl.textContent = 'CEFR ' + (item.level || 'A1');
+    card.appendChild(lvl);
+
+    const acts = document.createElement('div');
+    acts.className = 'racts';
+    const play = document.createElement('button');
+    play.className = 'rbtn play';
+    play.textContent = '🔊';
+    play.title = 'Listen — گوش بده';
+    play.onclick = () => Speech.speak(item.en);
+    const flip = document.createElement('button');
+    flip.className = 'rbtn';
+    flip.style.background = 'rgba(255,255,255,.10)';
+    flip.textContent = this.flipped ? '🙈 Hide' : '👁 Show meaning';
+    flip.onclick = () => { this.flipped = !this.flipped; this.paint(); };
+    acts.append(play, flip);
+    body.append(card, acts);
+
+    if (this.flipped) {
+      const grade = document.createElement('div');
+      grade.className = 'racts';
+      const again = document.createElement('button');
+      again.className = 'rbtn again';
+      again.textContent = '🔁 Again';
+      again.onclick = () => this.grade(false);
+      const know = document.createElement('button');
+      know.className = 'rbtn know';
+      know.textContent = '✅ Know it';
+      know.onclick = () => this.grade(true);
+      grade.append(again, know);
+      body.appendChild(grade);
+    }
+
+    const dots = document.createElement('div');
+    dots.className = 'rdots';
+    this.items.slice(0, 60).forEach((it, i) => {
+      const d = document.createElement('span');
+      d.className = 'rdot' + (it.ok ? ' on' : '') + (i === this.at ? ' now' : '');
+      dots.appendChild(d);
+    });
+    body.appendChild(dots);
+  },
+
+  paintList(body) {
+    const list = document.createElement('div');
+    list.className = 'rlist';
+    this.items.forEach((item) => {
+      const row = document.createElement('div');
+      row.className = 'rrow' + (item.ok ? ' ok' : '');
+      const main = document.createElement('div');
+      main.className = 'rmain';
+      const en = document.createElement('div');
+      en.className = 'ren';
+      en.textContent = item.en;
+      const fa = document.createElement('div');
+      fa.className = 'rfa2';
+      fa.textContent = (item.fa || '—') + (item.forms && item.forms.length
+        ? '   ·   ' + item.forms.join(' · ') : '');
+      main.append(en, fa);
+      const play = document.createElement('button');
+      play.className = 'ricon';
+      play.textContent = '🔊';
+      play.title = 'Listen';
+      play.onclick = () => Speech.speak(item.en);
+      const del = document.createElement('button');
+      del.className = 'ricon del';
+      del.textContent = '✕';
+      del.title = 'Remove — حذف';
+      del.onclick = () => this.remove(item.en);
+      row.append(main, play, del);
+      list.appendChild(row);
+    });
+    body.appendChild(list);
+  },
+
+  /* Grade the current card. The word stays in the list — it is marked known
+     or not — and the cursor moves on. Grading used to splice the word out,
+     which silently emptied the list. */
+  grade(known) {
+    const item = this.current();
+    if (!item) return;
+    if (known) {
+      item.ok = true;
+      item.streak = (item.streak || 0) + 1;
+    } else {
+      item.ok = false;
+      item.streak = 0;
+    }
+    this.at += 1;
+    if (this.at >= this.items.length) this.at = 0;   // loop round the deck
+    this.flipped = false;
+    this.save();
+    this.paint();
+  },
+};
+
+/* ---------- open a panel by typing its name ----------
+   "open grammar section", "بخش شنیدن را باز کن" → the topbar panel slides
+   open, exactly as if the button had been tapped. Navigation is not practice,
+   so it costs no daily token. */
+const SECTIONS = {
+  vocabulary: {
+    panel: 'vpanel', btn: 'vtoggle', en: 'Vocabulary', fa: 'واژگان', icon: '📚',
+    kw: ['vocabulary', 'vocabularies', 'vocab', 'dictionary', 'glossary',
+         'word bank', 'words bank', 'واژگان', 'واژه', 'کلمات', 'فرهنگ لغت', 'لغت'],
+  },
+  grammar: {
+    panel: 'gpanel', btn: 'gtoggle', en: 'Grammar', fa: 'گرامر', icon: '📘',
+    kw: ['grammar', 'grammer', 'دستور زبان', 'گرامر'],
+  },
+  sentences: {
+    panel: 'fpanel', btn: 'ftoggle', en: 'Sentences', fa: 'جملات', icon: '💬',
+    kw: ['sentences', 'sentence', 'phrases', 'phrase bank', 'useful sentences',
+         'everyday sentences', 'جملات', 'جمله', 'عبارت', 'عبارات'],
+  },
+  listening: {
+    panel: 'lpanel', btn: 'ltoggle', en: 'Listening', fa: 'گوش دادن', icon: '🎧',
+    kw: ['listening', 'audio', 'voice', 'sound', 'pronunciation practice',
+         'گوش دادن', 'شنیدن', 'صدا', 'آواز', 'ضبط'],
+  },
+  phonetics: {
+    panel: 'phpanel', btn: 'phtoggle', en: 'Phonetics', fa: 'تلفظ', icon: '🗣',
+    kw: ['phonetics', 'phonetic', 'pronunciation', 'تلفظ', 'فونتیک', 'تلفظ انگلیسی'],
+  },
+};
+
+/* an explicit "do something" verb — anything else is treated as a question
+   about the topic, which the bot should answer normally */
+const OPEN_VERB = new RegExp(
+  '(?:^|\\s)(?:open|show|display|bring\\s*up|go\\s*to|take\\s*me\\s*to|view|' +
+  'switch\\s*to|activate)' +
+  '|باز\\s*کن|باز\\s*کردن|نشان\\s*بده|نشون\\s*بده|نشانم\\s*بده|برو\\s*به|ببر|بیا\\s*به' +
+  '(?:\\s|$)', 'i');
+/* …or the message is basically just the section's name */
+const SECTION_MARKER = new RegExp(
+  '(?:section|panel|tab|part|بخش|تب|قسمت)', 'i');
+
+function matchSectionCommand(text) {
+  const t = (text || '').trim();
+  if (!t || t.length > 70) return null;          // too long to be a command
+  const low = t.toLowerCase();
+  let found = null;
+  for (const [id, s] of Object.entries(SECTIONS)) {
+    if (s.kw.some((k) => low.includes(k))) { found = [id, s]; break; }
+  }
+  if (!found) return null;
+  const [id, s] = found;
+  const bare = new RegExp(
+    '^(?:the\\s+|منظره\\s+)?(?:' + s.kw.map((k) => k.replace(/ /g, '\\s')).join('|') +
+    ')\\s*(?:' + SECTION_MARKER.source + ')?\\s*[\\s.!?؟!]*$', 'i');
+  if (OPEN_VERB.test(t) || SECTION_MARKER.test(t) || bare.test(t)) return [id, s];
+  return null;
+}
+
+function openSection(id, s, echo) {
+  const panel = document.getElementById(s.panel);
+  if (!panel) return false;
+  // reuse the topbar toggle so only one panel is ever open
+  const btn = document.getElementById(s.btn);
+  const wasOpen = panel.classList.contains('open');
+  btn.onclick();                                  // the toggle closes it if open
+  const opened = !wasOpen;
+  if (echo) {
+    add(echo, 'user');
+    add(`${s.icon} Opened the **${s.en}** section (${s.fa}).\n` +
+        `بخش ${s.fa} باز شد.`, 'bot');
+  }
+  return opened;
+}
+
+/* ---------- review commands typed in chat ---------- */
+const SAVE_RE = new RegExp(
+  // …save X (to|for|in) [my] review [list]
+  '^(?:please\\s+|لطفا\\s*)?(?:save|add|star|bookmark|keep|put)\\s+' +
+  '(?:the\\s+(?:word\\s+)?)?["\'«"]?([^"\'«»!?؟]{1,40}?)["\'»"]?\\s*' +
+  '(?:to|in|into|for)\\s+(?:my\\s+)?review(?:\\s+list)?\\s*[!.؟]*$' +
+  // …a bare, deliberate save — "save apple", never "add apple"
+  '|^(?:please\\s+|لطفا\\s*)?(?:save|star|bookmark)\\s+' +
+  '(?:the\\s+word\\s+)?["\'«"]?([^"\'«»!?؟]{1,40}?)["\'»"]?\\s*[!.؟]*$' +
+  // Persian: ذخیره کردن X برای مرور
+  '|^(?:ذخیره|اضافه)\\s+کردن(?:\\s+کلمه)?\\s*["«]?([^"»!?؟]{1,40}?)["»]?\\s*' +
+  '(?:برای\\s+مرور|به\\s+مرور)?\\s*[!.؟]*$', 'i');
+
+/* "save time is money" is a sentence, not a command — reject anything that
+   looks like more than a word or two, or that carries filler words.
+   (up/out stay out of the list: "give up", "look it up" are real entries.) */
+const SAVE_STOPWORDS = /\b(?:is|are|the|a|an|to|for|my|me|it|that|this|and|of)\b/i;
+function looksLikeWord(s) {
+  const parts = s.trim().split(/\s+/);
+  return parts.length <= 3 && !SAVE_STOPWORDS.test(s);
+}
+
+const REVIEW_OPEN_RE = new RegExp(
+  '^(?:please\\s+|لطفا\\s*)?(?:open\\s+)?(?:my\\s+)?' +
+  '(?:review(?:\\s+(?:list|words|section))?|flashcards?|starred\\s+words?)' +
+  '|^(?:بخش\\s+)?مرور(?:\\s+(?:کلمات|لیست))?|کارت\\s*های\\s*مرور' +
+  '\\s*[!.؟]*$', 'i');
+
+function matchReviewCommand(text) {
+  const t = (text || '').trim();
+
+  if (REVIEW_OPEN_RE.test(t)) {
+    add(t, 'user');
+    if (!Review.items.length) {
+      add('⭐ Your review list is empty. Open any word card and tap **☆ Save to review**.', 'bot');
+      return true;
+    }
+    const panel = document.getElementById('rpanel');
+    const btn = document.getElementById('rtoggle');
+    if (!panel.classList.contains('open')) btn.onclick();   // open it
+    Review.mode = 'cards';
+    Review.at = 0;
+    Review.flipped = false;
+    Review.paint();
+    add(`🃏 Reviewing ${Review.items.length} word(s) — tap **Show meaning**, then grade yourself.`, 'bot');
+    return true;
+  }
+
+  const m = SAVE_RE.exec(t);
+  if (!m) return false;
+  if (!looksLikeWord((m[1] || m[2] || m[3] || '').trim())) return false;
+  const word = (m[1] || m[2] || m[3] || '').trim().replace(/[.!?؟,]+$/, '');
+  if (!word || !looksLikeWord(word)) {
+    add(t, 'user');
+    add('I could not tell which word to save. Try **"save apple to review"**.', 'bot');
+    return true;
+  }
+  const key = word.toLowerCase();
+
+  // keep the Persian and the form family by looking the word up
+  let entry = null;
+  for (const list of Object.values(wordArch)) {
+    const hit = list.find((e) => e.en.toLowerCase() === key);
+    if (hit) { entry = hit; break; }
+  }
+  add(t, 'user');
+  if (!entry) {
+    add(`I don't have **${word}** in the vocabulary to save yet — look for it in the Sentences panel first.`, 'bot');
+    return true;
+  }
+  if (Review.has(word)) {
+    add(`⭐ **${entry.en}** is already in your review list (${Review.items.length} word(s)).`, 'bot');
+    return true;
+  }
+  Review.add(entry);
+  add(`⭐ Saved **${entry.en}** (${entry.fa}) — ${Review.items.length} word(s) in your review list.\n` +
+      `Open ⭐ Review in the top bar to drill it.`, 'bot');
+  return true;
+}
 
 /* ---------- keyboard: the shortcuts people expect ---------- */
 input.addEventListener('keydown', (ev) => {
@@ -2248,6 +2775,7 @@ chat.addEventListener('scroll', () => {
 });
 
 /* boot */
+Review.load();          // after every declaration above
 add(WELCOME, 'bot');
 Seed.load();
 input.focus();

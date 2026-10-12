@@ -82,11 +82,17 @@ html = html.replace(
 html = html.replace(
     """    const r = await fetch('/api/phonetics');
     sections = await r.json();""",
-    """    const sections = phoneticSections;""")
+    """    sections = phoneticSections;""")
 html = html.replace(
     """    const r = await fetch('/api/wordarch');
     const bands = await r.json();""",
     """    const bands = wordArchBands;""")
+# keep the Object.assign line that follows, so the offline copy fills the cache
+html = html.replace(
+    """    Object.assign(wordArch, bands);
+    wordArchLoaded = true;""",
+    """    Object.assign(wordArch, bands);
+    wordArchLoaded = true;""")
 
 # 3) boot: load the data, build the bot, then populate the panels
 html = html.replace(
@@ -161,6 +167,17 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
     loadPhonetics();
   })
   .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""")
+
+# 3b) the panels are already loaded inside the offline boot block; the
+# top-level calls that follow it would run before the data has resolved
+before = """});
+loadListening();
+loadPhonetics();
+"""
+after = """});
+"""
+assert before in html, "offline tail not found — update build_apk_ui.py"
+html = html.replace(before, after, 1)
 
 # 4) load bot.js before the page script
 assert "\n<script>\n" in html

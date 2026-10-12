@@ -1433,6 +1433,84 @@
           "🧹 پاک شد! از کجا شروع کنیم؟"
         ]
       }
+    },
+    {
+      "name": "open_section",
+      "keywords": {
+        "en": [
+          "open section",
+          "open the section",
+          "show section",
+          "open grammar section",
+          "open vocabulary section",
+          "open sentences section",
+          "open listening section",
+          "open phonetics section",
+          "show me the panel",
+          "open panel",
+          "بخش گرامر",
+          "بخش واژگان",
+          "بخش جملات",
+          "بخش شنیدن",
+          "بخش تلفظ",
+          "باز کردن بخش",
+          "نمایش بخش"
+        ],
+        "fa": [
+          "بخش گرامر را باز کن",
+          "بخش واژگان را باز کن",
+          "بخش جملات را باز کن",
+          "بخش شنیدن را باز کن",
+          "بخش تلفظ را باز کن",
+          "بخش را نشان بده",
+          "پنل را باز کن"
+        ]
+      },
+      "responses": {
+        "en": [
+          "📂 Pick the section from the bar at the top — try Grammar, Vocabulary, Sentences, Listening or Phonetics.",
+          "📂 Open it from the top bar and I will keep it on screen. / از نوار بالا انتخاب کنید."
+        ],
+        "fa": [
+          "📂 بخش مورد نظر را از نوار بالا باز کنید.",
+          "📂 بخش را از نوار بالا انتخاب کنید تا روی صفحه بماند."
+        ]
+      }
+    },
+    {
+      "name": "review_list",
+      "keywords": {
+        "en": [
+          "review my words",
+          "review list",
+          "open review",
+          "my review",
+          "flashcards",
+          "review section",
+          "saved words",
+          "starred words",
+          "save to review",
+          "add to review"
+        ],
+        "fa": [
+          "مرور کلمات",
+          "مرور لیست",
+          "بخش مرور",
+          "کارت های مرور",
+          "واژه های ذخیره شده",
+          "افزودن به مرور"
+        ]
+      },
+      "responses": {
+        "en": [
+          "⭐ Open ⭐ **Review** in the top bar — tap any word card and choose **☆ Save to review** to add it.",
+          "⭐ Your saved words live in the ⭐ Review section of the top bar. Type \"save apple to review\" to add one."
+        ],
+        "fa": [
+          "⭐ بخش ⭐ **مرور** را از نوار بالا باز کنید — روی هر کارت واژه بزنید و **☆ ذخیره برای مرور** را انتخاب کنید.",
+          "⭐ واژه‌های ذخیره‌شده در بخش ⭐ مرور هستند."
+        ]
+      }
     }
   ]
 }
