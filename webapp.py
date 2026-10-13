@@ -1149,6 +1149,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bbc-lvl.lvl-B1 { background: #1e4470; color: #a8d4ff; }
   .bbc-lvl.lvl-B2 { background: #4a3a72; color: #dcc4ff; }
   .bbc-lvl.lvl-C1 { background: #6e2b4c; color: #ffc4dd; }
+  .bbc-lvl.lvl-none { background: #33385c; color: #9aa3cc; }
   .bbc-title { font-size: 14.5px; color: #fff; font-weight: 600; }
   .bbc-blurb { margin-top: 5px; font-size: 12.5px; color: #9fb0ef; line-height: 1.5; }
   .bbc-meta { margin-top: 6px; font-size: 11.5px; color: #7d8fd4; }
@@ -2304,17 +2305,24 @@ async function loadBBC() {
     const note = document.createElement('div');
     note.className = 'bbc-note';
     const dist = doc.distribution || {};
-    const spread = Object.keys(dist).sort().join(' · ');
+    // '?' means "no transcript", not a level - it must not be listed as one
+    const spread = Object.keys(dist).filter((k) => k && k !== '?').sort().join(' · ');
+    const ungradedN = episodes.filter((e) => !e.level).length;
+    const tail = ungradedN ? ` ${ungradedN} have no transcript, so no grade.` : '';
     note.textContent = spread
-      ? `${doc.count} BBC episodes graded ${spread}. Each grade comes from the ` +
-        'official transcript — vocabulary, sentence length and speaking pace. ' +
+      ? `${doc.count} BBC episodes — ${episodes.length - ungradedN} graded ` +
+        `${spread}. Each grade comes from the official transcript: vocabulary, ` +
+        `sentence length and speaking pace.${tail} ` +
         'Audio plays from bbc.co.uk. / صدا از سایت بی‌بی‌سی پخش می‌شود.'
       : `${doc.count} episodes from BBC Learning English. Audio plays from bbc.co.uk.`;
     head.appendChild(note);
     wrap.appendChild(head);
 
-    // level filter
+    // Level filter. Episodes without a transcript cannot be graded - the
+    // one-line blurb is too short to score honestly - so they get their own
+    // tab rather than being silently lumped into "All" as if they were A2.
     const levels = [...new Set(episodes.map((e) => e.level).filter(Boolean))].sort();
+    const ungraded = episodes.filter((e) => !e.level).length;
     const bar = document.createElement('div');
     bar.className = 'bbc-tabs';
     let current = 'all';
@@ -2324,7 +2332,9 @@ async function loadBBC() {
     const paint = () => {
       list.innerHTML = '';
       const rows = episodes
-        .filter((e) => current === 'all' || e.level === current)
+        // an ungraded episode has level === null, not '?', so normalise
+        // before comparing or the "Not graded" tab comes back empty
+        .filter((e) => current === 'all' || (e.level || '?') === current)
         .slice(0, current === 'all' ? 80 : 300);
       if (!rows.length) {
         const empty = document.createElement('div');
@@ -2340,8 +2350,9 @@ async function loadBBC() {
         const head2 = document.createElement('div');
         head2.className = 'bbc-row-head';
         const lvl = document.createElement('span');
-        lvl.className = 'bbc-lvl lvl-' + (ep.level || '?');
-        lvl.textContent = ep.level || '?';
+        lvl.className = 'bbc-lvl lvl-' + (ep.level || 'none');
+        lvl.textContent = ep.level || '–';
+        if (!ep.level) lvl.title = 'No transcript, so no honest grade';
         const title = document.createElement('span');
         title.className = 'bbc-title';
         title.textContent = ep.title;
@@ -2361,6 +2372,7 @@ async function loadBBC() {
         if (ep.year) bits.push(ep.year);
         if (ep.duration) bits.push(Math.round(ep.duration / 60) + ' min');
         const st = ep.stats || {};
+        if (!ep.level) bits.push('no transcript to grade from');
         if (st.avg_sentence) bits.push('sentences ~' + st.avg_sentence + ' words');
         if (st.challenge_pct != null) bits.push(st.challenge_pct + '% B2+');
         if (st.c1c2_pct) bits.push(st.c1c2_pct + '% C1');
@@ -2447,7 +2459,8 @@ async function loadBBC() {
       const more = document.createElement('div');
       more.className = 'bbc-empty';
       const shown = rows.length;
-      const total = episodes.filter((e) => current === 'all' || e.level === current).length;
+      const total = episodes.filter(
+        (e) => current === 'all' || (e.level || '?') === current).length;
       more.textContent = total > shown
         ? `Showing ${shown} of ${total} — pick a level to narrow it down.`
         : '';
@@ -2471,6 +2484,7 @@ async function loadBBC() {
       const n = episodes.filter((e) => e.level === lv).length;
       addTab(lv, `${lv} (${n})`);
     });
+    if (ungraded) addTab('?', `Not graded (${ungraded})`);
     bar.firstChild.classList.add('on');
 
     wrap.append(bar, list);

@@ -1084,6 +1084,7 @@
   .bbc-lvl.lvl-B1 { background: #1e4470; color: #a8d4ff; }
   .bbc-lvl.lvl-B2 { background: #4a3a72; color: #dcc4ff; }
   .bbc-lvl.lvl-C1 { background: #6e2b4c; color: #ffc4dd; }
+  .bbc-lvl.lvl-none { background: #33385c; color: #9aa3cc; }
   .bbc-title { font-size: 14.5px; color: #fff; font-weight: 600; }
   .bbc-blurb { margin-top: 5px; font-size: 12.5px; color: #9fb0ef; line-height: 1.5; }
   .bbc-meta { margin-top: 6px; font-size: 11.5px; color: #7d8fd4; }
@@ -1093,6 +1094,8 @@
     border: 1px solid #6f86d6; background: #27356e; color: #fff; cursor: pointer;
   }
   .bbc-play.on { background: #7d2b52; border-color: #ff6f9c; }
+  .bbc-play.nofile { background: #2a2f52; border-color: #4a5a92; color: #a9b7ef; }
+  .bbc-play.nofile:hover { border-color: #7f92d8; color: #dfe6ff; }
   .bbc-link { font-size: 12px; color: #9fb0ef; text-decoration: none; padding: 6px 4px; }
   .bbc-link:hover { color: #fff; text-decoration: underline; }
   .bbc-empty { font-size: 12px; color: #7d8fd4; padding: 4px 2px; }
@@ -2212,7 +2215,12 @@ async function loadBBC() {
   if (!box) return;
   try {
     const doc = bbcCatalogue;
-    const episodes = (doc.episodes || []).filter((e) => e.audio);
+    // Keep transcript-only episodes too. BBC retired the player on its older
+    // 6 Minute English pages, so roughly a third of the archive has a graded
+    // transcript and a worksheet link but no streamable audio - hiding those
+    // would quietly drop two thirds of the catalogue.
+    const all = doc.episodes || [];
+    const episodes = all.filter((e) => e.audio || e.transcript_url);
     if (!episodes.length) return;
 
     const wrap = document.createElement('div');
@@ -2239,8 +2247,11 @@ async function loadBBC() {
     head.appendChild(note);
     wrap.appendChild(head);
 
-    // level filter
+    // Level filter. Episodes without a transcript cannot be graded - the
+    // one-line blurb is too short to score honestly - so they get their own
+    // tab rather than being silently lumped into "All" as if they were A2.
     const levels = [...new Set(episodes.map((e) => e.level).filter(Boolean))].sort();
+    const ungraded = episodes.filter((e) => !e.level).length;
     const bar = document.createElement('div');
     bar.className = 'bbc-tabs';
     let current = 'all';
@@ -2250,8 +2261,8 @@ async function loadBBC() {
     const paint = () => {
       list.innerHTML = '';
       const rows = episodes
-        .filter((e) => current === 'all' || e.level === current)
-        .slice(0, current === 'all' ? 60 : 200);
+        .filter((e) => (current === 'all' && true) || e.level === current)
+        .slice(0, current === 'all' ? 80 : 300);
       if (!rows.length) {
         const empty = document.createElement('div');
         empty.className = 'bbc-empty';
@@ -2266,8 +2277,9 @@ async function loadBBC() {
         const head2 = document.createElement('div');
         head2.className = 'bbc-row-head';
         const lvl = document.createElement('span');
-        lvl.className = 'bbc-lvl lvl-' + (ep.level || '?');
-        lvl.textContent = ep.level || '?';
+        lvl.className = 'bbc-lvl lvl-' + (ep.level || 'none');
+        lvl.textContent = ep.level || '–';
+        if (!ep.level) lvl.title = 'No transcript, so no honest grade';
         const title = document.createElement('span');
         title.className = 'bbc-title';
         title.textContent = ep.title;
@@ -2287,6 +2299,7 @@ async function loadBBC() {
         if (ep.year) bits.push(ep.year);
         if (ep.duration) bits.push(Math.round(ep.duration / 60) + ' min');
         const st = ep.stats || {};
+        if (!ep.level) bits.push('no transcript to grade from');
         if (st.avg_sentence) bits.push('sentences ~' + st.avg_sentence + ' words');
         if (st.challenge_pct != null) bits.push(st.challenge_pct + '% B2+');
         if (st.c1c2_pct) bits.push(st.c1c2_pct + '% C1');
@@ -2298,6 +2311,19 @@ async function loadBBC() {
 
         const play = document.createElement('button');
         play.className = 'bbc-play';
+        if (!ep.audio) {
+          // no stream: BBC removed the player from these older pages, so the
+          // official transcript is the way in
+          play.textContent = '📄  Transcript only';
+          play.classList.add('nofile');
+          play.title = 'BBC no longer streams this episode. Open the transcript.';
+          play.onclick = () => window.open(ep.transcript_url, '_blank',
+                                           'noopener');
+          bar2.appendChild(play);
+          card.appendChild(bar2);
+          list.appendChild(card);
+          continue;
+        }
         play.textContent = '▶  Play';
         const audio = new Audio();
         audio.preload = 'none';
@@ -2384,6 +2410,7 @@ async function loadBBC() {
       const n = episodes.filter((e) => e.level === lv).length;
       addTab(lv, `${lv} (${n})`);
     });
+    if (ungraded) addTab('?', `Not graded (${ungraded})`);
     bar.firstChild.classList.add('on');
 
     wrap.append(bar, list);
