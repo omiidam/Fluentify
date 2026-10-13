@@ -245,6 +245,19 @@ failing quietly.
 python3 tools/check_all.py
 ```
 
-Five suites: content integrity and adversarial input, the capability harness,
-Python/JS message parity, Python/JS *conversation* parity (memory only shows up
-across several messages), and the BBC grader plus the STT config.
+Five suites:
+
+| suite | what it asks |
+| --- | --- |
+| content & input integrity | are the data files well-formed, and does hostile input get a clean answer? |
+| capability harness | can the bot answer what a learner actually asks? |
+| Python/JS message parity | do the CLI and the APK engine agree, message for message? |
+| Python/JS conversation parity | do they agree over a *conversation*? Memory only shows up across several messages. |
+| BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
+
+That last one matters more than its size suggests. A duplicate top-level name
+between the page and `bot.js` is a SyntaxError that kills the whole inline
+script: the APK installs, launches, logs nothing, and is blank. It shipped
+once, and the web build could never catch it because the web page does not
+load `bot.js`. `build_apk_ui.py` now parses both together and exits 1 rather
+than ship an app that cannot start.
