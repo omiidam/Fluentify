@@ -62,6 +62,11 @@ CASES = [
     "how many words do you know",
     # the confused / help intents the probes added
     "I don't know", "i have no idea", "گیج شدم", "i don't understand",
+    # round 3: contextual follow-ups after opening something
+    "exercises", "exam", "show answer", "examples", "cancel", "next",
+    "another one", "repeat that", "vocabulary", "words", "sentences",
+    "phonetics", "واژگان", "جملات", "تلفظ", "I am fine", "I'm good",
+    "what can I learn today", "save apple to review", "what did you say",
 ]
 
 
@@ -96,7 +101,8 @@ def main() -> int:
     cases_file = ROOT / ".cases.json"
     py_out = ROOT / ".py_replies.json"
     js_out = ROOT / ".js_replies.json"
-    cases_file.write_text(json.dumps([[c] for c in CASES], ensure_ascii=False))
+    cases_file.write_text(
+        json.dumps([{"input": c} for c in CASES], ensure_ascii=False))
 
     subprocess.run(
         ["node", str(ROOT / "tools/js_engine.js"), str(cases_file), str(js_out)],
@@ -106,8 +112,10 @@ def main() -> int:
     sys.path.insert(0, str(ROOT))
     from chatbot import ChatBot  # noqa: E402
 
-    bot = ChatBot()
-    py = [bot.respond(c) for c in CASES]
+    # A fresh bot per case: the JS side does the same, and without it one
+    # case that starts a quiz (e.g. "articles exam") poisons every later one
+    # with "Not quite" and hides real mismatches.
+    py = [ChatBot().respond(c) for c in CASES]
     js = json.loads(js_out.read_text())
 
     mismatches = 0

@@ -24,6 +24,7 @@ LISTENING_FILE = Path(__file__).parent / "listening.json"
 DISTINCTIONS_FILE = Path(__file__).parent / "distinctions.json"
 IDIOMS_FILE = Path(__file__).parent / "idioms.json"
 CORRECTIONS_FILE = Path(__file__).parent / "corrections.json"
+PHONETICS_FILE = Path(__file__).parent / "phonetics.json"
 
 PERSIAN_DIGITS = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
 PERSIAN_TO_ASCII = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
@@ -433,6 +434,7 @@ class ChatBot:
         distinctions_path: Path = DISTINCTIONS_FILE,
         idioms_path: Path = IDIOMS_FILE,
         corrections_path: Path = CORRECTIONS_FILE,
+        phonetics_path: Path = PHONETICS_FILE,
     ):
         with open(memory_path, encoding="utf-8") as f:
             self.memory = json.load(f)
@@ -455,6 +457,12 @@ class ChatBot:
                 self.listening = json.load(f)["levels"]
         self.jokes = []            # bilingual joke library
         self.last_joke_id = None   # avoid repeating the same joke twice in a row
+        # What the learner is looking at right now. Without this, "exercises"
+        # after a lesson is a dictionary miss instead of "start that lesson".
+        self.last_lesson: str | None = None
+        self.last_phrase: str | None = None
+        self.last_level: str | None = None
+        self.last_examples = []
         if JOKES_FILE.exists():
             with open(JOKES_FILE, encoding="utf-8") as f:
                 self.jokes = json.load(f)
@@ -470,6 +478,10 @@ class ChatBot:
         if corrections_path.exists():
             with open(corrections_path, encoding="utf-8") as f:
                 self.corrections = json.load(f)["rules"]
+        self.phonetics = []        # phonetics.json sections (titled listing)
+        if phonetics_path.exists():
+            with open(phonetics_path, encoding="utf-8") as f:
+                self.phonetics = json.load(f).get("sections", [])
 
     def _load_glossary(self, path: Path) -> None:
         """Load glossary.json and build fast lookup indices."""
@@ -620,6 +632,219 @@ class ChatBot:
                 idx = to_persian_digits(letters.index(ch) + 1)
                 return f"«{ch}» حرف شماره {idx} در الفبای فارسی است."
             return f"«{ch}» در الفبای فارسی وجود ندارد."
+        return None
+
+    # ------------------------------------------------------------------ #
+    #  Section names — the terminal has no top bar, so the bot must show
+    #  the content itself instead of pointing at a panel that isn't there.
+    # ------------------------------------------------------------------ #
+    SECTION_WORDS = {
+        "vocabulary": ("📚 Vocabulary", "واژگان", "📚"),
+        "words": ("📚 Vocabulary", "واژگان", "📚"),
+        "واژگان": ("📚 Vocabulary", "واژگان", "📚"),
+        "کلمات": ("📚 Vocabulary", "واژگان", "📚"),
+        "sentences": ("💬 Sentence banks", "جملات", "💬"),
+        "phrases": ("💬 Sentence banks", "جملات", "💬"),
+        "جملات": ("💬 Sentence banks", "جملات", "💬"),
+        "جمله": ("💬 Sentence banks", "جملات", "💬"),
+        "phonetics": ("🗣 Sounds & phonetics", "تلفظ", "🗣"),
+        "تلفظ": ("🗣 Sounds & phonetics", "تلفظ", "🗣"),
+        "آوا": ("🗣 Sounds & phonetics", "تلفظ", "🗣"),
+        "grammar": ("📘 Grammar lessons", "گرامر", "📘"),
+        "گرامر": ("📘 Grammar lessons", "گرامر", "📘"),
+        "listening": ("🎧 Listening", "شنیدن", "🎧"),
+        "شنیدن": ("🎧 Listening", "شنیدن", "🎧"),
+    }
+
+    def handle_section(self, text: str, lowered: str, lang: str) -> str | None:
+        """A bare section name has to return content, not a panel hint."""
+        s = re.sub(r"[.!?؟,;:\"'«»()\[\]]", "", lowered).strip()
+        s = re.sub(r"^(?:open|show|باز کن|نشان بده|نمایش)\s+", "", s,
+                   flags=re.IGNORECASE).strip()
+        key = self.SECTION_WORDS.get(s)
+        if not key:
+            return None
+        title, title_fa, icon = key
+
+        if title.startswith("📚"):
+            groups = self.glossary_groups or [
+                {"id": "all", "en": "All domains", "fa": "همه دامنه‌ها",
+                 "domains": [d for d in self.glossary]}]
+            lines = [f"{title} — {title_fa} · "
+                     f"{len(self.glossary)} domains, "
+                     f"{sum(len(d['words']) for d in self.glossary.values())} words"]
+            for g in groups[:8]:
+                names = [self.glossary[d]["label"]["en"]
+                         for d in g["domains"] if d in self.glossary]
+                if not names:
+                    continue
+                lines.append(f"   • {g['en']}: {', '.join(names[:6])}"
+                             + ("…" if len(names) > 6 else ""))
+            lines.append("")
+            lines.append("Ask for one by name — 'fruits', 'colors', 'advanced adjectives'.")
+            return "\n".join(lines)
+
+        if title.startswith("💬"):
+            lines = [f"{title} — {title_fa} · {len(self.phrases)} banks"]
+            for tid, topic in self.phrases.items():
+                lines.append(f"   • {topic['title']['en']} ({topic['title']['fa']})")
+            lines.append("")
+            lines.append("Ask for one by name — 'travel sentences', 'daily routine'.")
+            return "\n".join(lines)
+
+        if title.startswith("🗣"):
+            lines = [f"{title} — {title_fa} · {len(self.phonetics)} sections"]
+            for sec in self.phonetics:
+                ts = sec.get("title", {})
+                lines.append(f"   {sec.get('icon', '•')} {ts.get('en', '?')} "
+                             f"({ts.get('fa', '')}) — {sec.get('level', '')}")
+            lines.append("")
+            lines.append("Open 🗣 Sounds in the app for the rows and the audio.")
+            return "\n".join(lines)
+
+        # grammar and listening already have their own menus; reuse them
+        if title.startswith("📘"):
+            return self.handle_grammar(text, lowered, lang)
+        if title.startswith("🎧"):
+            return self.handle_listening(text, lowered, lang)
+        return None
+
+    # ------------------------------------------------------------------ #
+    #  Contextual follow-ups — "exercises" after a lesson, "another one"
+    #  after a joke. A learner thinks in sequences, not in commands.
+    # ------------------------------------------------------------------ #
+    BARE_EXERCISE = {
+        "exercises": "practice", "exercise": "practice", "practice": "practice",
+        "lets practice": "practice", "let us practice": "practice",
+        "i want to practice": "practice", "start practice": "practice",
+        "begin practice": "practice", "practice exercises": "practice",
+        "quiz": "exam", "exam": "exam", "test": "exam",
+        "lets take the exam": "exam", "i want the exam": "exam",
+        "give me the exam": "exam", "final exam": "exam",
+        "تمرین": "practice", "تمرین کن": "practice", "تمرین بده": "practice",
+        "امتحان": "exam", "آزمون": "exam", "آزمون بده": "exam",
+    }
+    BARE_CANCEL = {
+        "cancel", "stop", "quit", "exit", "close", "enough", "never mind",
+        "nevermind", "end", "finish", "i give up", "give up",
+        "بیخیال", "لغو", "کنسل", "بس کن", "توقف", "رد کن",
+    }
+    BARE_NEXT = {
+        "next", "next question", "next one", "continue", "go on", "skip",
+        "skip this", "another question",
+        "بعدی", "سوال بعدی", "ادامه", "برو بعدی", "رد کن اینو",
+    }
+    BARE_AGAIN = {
+        "another one", "again", "one more", "another joke", "tell me another",
+        "tell me another joke", "another", "more jokes", "again please",
+        "یکی دیگه", "یکی دیگه بگو", "دوباره", "جوک دیگه", "یه جوک دیگه",
+    }
+    BARE_REPEAT = {
+        "repeat that", "say that again", "say it again", "again please",
+        "one more time", "pardon", "come again", "what did you say",
+        "what", "听不懂", "دوباره بگو", "تکرار کن", "چی گفتی",
+    }
+    BARE_SHOW = {
+        "show answer", "the answer", "answer please", "what is the answer",
+        "give me the answer", "answer", "solution",
+        "جواب", "جواب بده", "پاسخ", "پاسخ درست",
+    }
+    BARE_EXAMPLES = {
+        "examples", "more examples", "give me examples", "show examples",
+        "another example", "example sentences", "more examples please",
+        "مثال", "مثال بیشتر", "مثال بده",
+    }
+
+    @staticmethod
+    def _bare(lowered: str, table) -> str | None:
+        """Match a follow-up word for word.
+
+        Bare words need an exact hit: 'next' must not fire inside 'what is the
+        next colour', or the bot would skip ahead while answering a question.
+        The table may be a dict (value = what to do) or a plain set.
+        """
+        s = re.sub(r"[.!?؟,;:\"'«»()\[\]]", "", lowered).strip()
+        if s in table:
+            return table[s] if isinstance(table, dict) else s
+        if re.fullmatch(r"(?:please\s+)?(?:can you\s+|could you\s+)?"
+                        r"(?:give me|tell me|show me|let me|start|begin|open)\s+"
+                        r"[\w' ]{0,24}", s) and s.split()[-1] in table:
+            hit = s.split()[-1]
+            return table[hit] if isinstance(table, dict) else hit
+        return None
+
+    def handle_followup(self, text: str, lowered: str, lang: str) -> str | None:
+        """One-word commands that act on whatever the learner just opened."""
+        if self.exercise:
+            return None        # a live quiz owns every message already
+
+        which = self._bare(lowered, self.BARE_EXERCISE)
+        if which:
+            topic_id = self.last_lesson
+            if topic_id is None:
+                return ("Open a lesson first, then say 'exercises'.\n"
+                        "   ↳ اول یک درس را باز کن، بعد بنویس «تمرین».\n"
+                        "   Write 'grammar' for the list of lessons."
+                        if lang == "en" else
+                        "اول یک درس را باز کن، بعد بنویس «تمرین».\n"
+                        "   For the list of lessons write 'گرامر'.")
+            return self.start_grammar_session(topic_id, which, lang)
+
+        if self._bare(lowered, self.BARE_CANCEL):
+            self.last_lesson = None
+            self.last_examples = []
+            return ("👍 Canceled. / لغو شد." if lang == "en"
+                    else "👍 لغو شد. / Canceled.")
+
+        which = self._bare(lowered, self.BARE_SHOW)
+        if which:
+            if self.last_examples:
+                answer = " / ".join(self.last_examples)
+                return (f"💡 Answer: {answer}\n   ↳ جواب: {answer}"
+                        if lang == "en" else f"💡 جواب: {answer}\n   Answer: {answer}")
+            if self.last_level:
+                return self.format_listening_level(self.last_level)
+            return ("Nothing to reveal yet — open a lesson or ask me a question.\n"
+                    "   ↳ هنوز چیزی برای نمایش نیست — یک درس را باز کن."
+                    if lang == "en" else
+                    "هنوز چیزی برای نمایش نیست — یک درس را باز کن.")
+
+        which = self._bare(lowered, self.BARE_EXAMPLES)
+        if which:
+            topic = self.grammar.get(self.last_lesson or "", None)
+            if topic:
+                rows = topic.get("examples", [])
+                self.last_examples = self._example_answers(topic)
+                return ("📝 More examples — مثال‌های بیشتر:\n" + "\n".join(
+                    f"   {i + 1}. {r['en']}\n      ↳ {r['fa']}"
+                    for i, r in enumerate(rows)))
+            return ("Open a lesson first and ask for examples.\n"
+                    "   ↳ اول یک درس را باز کن.")
+
+        which = self._bare(lowered, self.BARE_AGAIN)
+        if which:
+            return self.tell_joke(text, lang)
+
+        which = self._bare(lowered, self.BARE_REPEAT)
+        if which:
+            if self.last_level:
+                return self.format_listening_level(self.last_level)
+            if self.last_phrase:
+                topic = self.phrases.get(self.last_phrase)
+                if topic:
+                    return ("Say it again — دوباره گوش کن:\n" + "\n".join(
+                        f"   • {r['en']}\n     ↳ {r['fa']}"
+                        for r in topic["phrases"][:4]))
+            return ("Tell me what to repeat — a listening band or a sentence bank.\n"
+                    "   ↳ بگو کدام را تکرار کنم." if lang == "en" else
+                    "بگو کدام را تکرار کنم.")
+
+        if self._bare(lowered, self.BARE_NEXT):
+            topic_id = self.last_lesson
+            if topic_id is None:
+                return None
+            return self.start_grammar_session(topic_id, "practice", lang)
+
         return None
 
     # ------------------------------------------------------------------ #
@@ -1181,6 +1406,57 @@ class ChatBot:
             return any(w in lowered for w in ("exam", "test", "final test"))
         return any(w in text for w in ("آزمون", "امتحان", "تست نهایی"))
 
+    @staticmethod
+    def _example_answers(topic: dict) -> list[str]:
+        """The taught forms inside a lesson's examples, for 'show answer'.
+
+        Each example is written as 'He **goes** to work.' so the bolded span
+        is the answer; if an example has no bold, the whole line is offered.
+        """
+        out = []
+        for row in topic.get("examples", [])[:4]:
+            en = row.get("en", "")
+            bold = re.findall(r"\*\*(.+?)\*\*", en)
+            if bold:
+                out.append(" / ".join(bold))
+            elif en:
+                out.append(en.rstrip("."))
+        return out
+
+    def start_grammar_session(self, topic_id: str, stage: str,
+                              lang: str) -> str:
+        """Open the practice or the exam for a topic the learner has opened.
+
+        Both the named route ("simple present exercises") and the bare route
+        ("exercises" after reading that lesson) come through here, so the
+        practice→exam gate can never be bypassed by the shorter path.
+        """
+        topic = self.grammar[topic_id]
+        self.last_lesson = topic_id
+        if stage == "exam":
+            if topic_id not in self.practice_done:
+                n = (to_persian_digits(len(topic.get("practice", [])))
+                     if lang == "fa" else str(len(topic.get("practice", []))))
+                title = topic["title"]["fa"] if lang == "fa" else topic["title"]["en"]
+                return (
+                    f"🔒 آزمون قفل است — اول تمرین ({n} سوال) را کامل کن.\n"
+                    f"بنویس: 'تمرین {title}'"
+                    if lang == "fa" else
+                    f"🔒 The exam is locked — finish the practice first ({n} questions).\n"
+                    f"Type: '{topic['title']['en'].lower()} exercises'"
+                )
+            intro = (f"🎓 شروع آزمون «{topic['title']['fa']}» — موفق باشی!\n"
+                     if lang == "fa"
+                     else f"🎓 Starting the '{topic['title']['en']}' exam — good luck!\n")
+        else:
+            intro = (f"✏️ شروع تمرین «{topic['title']['fa']}» — موفق باشی!\n"
+                     if lang == "fa"
+                     else f"✏️ Starting '{topic['title']['en']}' practice — good luck!\n")
+        self.exercise = {"topic": topic_id, "index": 0, "lang": lang,
+                         "stage": stage}
+        self.exercise_score = 0
+        return intro + self.format_exercise_card(topic, 0, lang, stage)
+
     def handle_grammar(self, text: str, lowered: str, lang: str) -> str | None:
         found = self.match_grammar_topic(text, lowered, lang)
         if found:
@@ -1189,37 +1465,13 @@ class ChatBot:
             practice = self.wants_exercises(text, lowered, lang)
 
             if exam:
-                if topic_id not in self.practice_done:
-                    n = to_persian_digits(len(topic.get("practice", []))) if lang == "fa" \
-                        else str(len(topic.get("practice", [])))
-                    title = topic["title"]["fa"] if lang == "fa" else topic["title"]["en"]
-                    return (
-                        f"🔒 آزمون قفل است — اول تمرین ({n} سوال) را کامل کن.\n"
-                        f"بنویس: 'تمرین {title}'"
-                        if lang == "fa" else
-                        f"🔒 The exam is locked — finish the practice first ({n} questions).\n"
-                        f"Type: '{topic['title']['en'].lower()} exercises'"
-                    )
-                self.exercise = {"topic": topic_id, "index": 0, "lang": lang,
-                                 "stage": "exam"}
-                self.exercise_score = 0
-                intro = (
-                    f"🎓 شروع آزمون «{topic['title']['fa']}» — موفق باشی!\n"
-                    if lang == "fa"
-                    else f"🎓 Starting the '{topic['title']['en']}' exam — good luck!\n"
-                )
-                return intro + self.format_exercise_card(topic, 0, lang, "exam")
-
+                return self.start_grammar_session(topic_id, "exam", lang)
             if practice:
-                self.exercise = {"topic": topic_id, "index": 0, "lang": lang,
-                                 "stage": "practice"}
-                self.exercise_score = 0
-                intro = (
-                    f"✏️ شروع تمرین «{topic['title']['fa']}» — موفق باشی!\n"
-                    if lang == "fa"
-                    else f"✏️ Starting '{topic['title']['en']}' practice — good luck!\n"
-                )
-                return intro + self.format_exercise_card(topic, 0, lang, "practice")
+                return self.start_grammar_session(topic_id, "practice", lang)
+            # remember what they are reading, so "exercises" and
+            # "show answer" work on the next message
+            self.last_lesson = topic_id
+            self.last_examples = self._example_answers(topic)
             return self.format_topic(topic, lang, topic_id)
         if self.wants_grammar_menu(text, lowered, lang):
             return self.format_grammar_menu(lang)
@@ -1497,7 +1749,8 @@ class ChatBot:
     def handle_phrases(self, text: str, lowered: str, lang: str) -> str | None:
         found = self.match_phrase_topic(text, lowered)
         if found:
-            _, topic = found
+            topic_id, topic = found
+            self.last_phrase = topic_id
             return self.format_phrase_topic(topic, lang)
         return None
 
@@ -1532,6 +1785,7 @@ class ChatBot:
         if level is None and bare:
             level = self.match_listening_level(bare.group(1), bare.group(1))
         if level:
+            self.last_level = level
             return self.format_listening_level(level)
         if re.search(r"\b(listen|listening|audio|voice)\b", lowered) or any(
             w in text for w in ("گوش دادن", "آواز", "بگو")
@@ -1650,6 +1904,14 @@ class ChatBot:
         learned = self.learn_name(text)
 
         # Structured knowledge first
+        section = self.handle_section(text, lowered, lang)
+        if section is not None:
+            return section
+
+        followup = self.handle_followup(text, lowered, lang)
+        if followup is not None:
+            return followup
+
         result = self.handle_alphabet(text, lowered)
         if result is None:
             result = self.handle_letter_lookup(text)

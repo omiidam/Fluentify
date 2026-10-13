@@ -16,13 +16,27 @@ const data = {
   distinctions: JSON.parse(fs.readFileSync(path.join(root, 'distinctions.json'), 'utf8')),
   idioms: JSON.parse(fs.readFileSync(path.join(root, 'idioms.json'), 'utf8')),
   corrections: JSON.parse(fs.readFileSync(path.join(root, 'corrections.json'), 'utf8')),
+  phonetics: JSON.parse(fs.readFileSync(path.join(root, 'phonetics.json'), 'utf8')),
 };
 const ctx = { module: {}, exports: {}, console };
 vm.createContext(ctx);
 vm.runInContext(botSrc + '\n;this.Fluentify = Fluentify;', ctx);
 
 const cases = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
-const bot = new ctx.Fluentify(data);
-const out = cases.map(([input]) => bot.respond(input));
+
+/* A case is either [[msg]] (one message) or [msg, msg, ...] (a flow).
+ * Flows get a FRESH bot each, so state cannot leak between cases — which is
+ * exactly what tests_flow_parity.py checks on the Python side. */
+/* Two shapes reach this file, told apart by an explicit key so a one-word
+ * case can never be mistaken for a flow:
+ *   {input: "hello"}                 — one message, one reply
+ *   {flow: ["simple present", ...]}  — one bot, replies in order
+ * Both get a fresh bot, so state cannot leak between cases. */
+const out = cases.map((entry) => {
+  const isFlow = Array.isArray(entry.flow);
+  const bot = new ctx.Fluentify(data);
+  if (isFlow) return entry.flow.map((m) => bot.respond(m));
+  return bot.respond(entry.input);
+});
 fs.writeFileSync(process.argv[3], JSON.stringify(out));
 console.log('js replies written:', out.length);

@@ -575,7 +575,15 @@
           "say something funny",
           "any jokes",
           "joke",
-          "funny"
+          "funny",
+          "another one",
+          "another joke",
+          "one more joke",
+          "tell me another joke",
+          "یکی دیگه",
+          "جوک دیگه",
+          "یه جوک دیگه",
+          "یک جوک دیگه بگو"
         ],
         "fa": [
           "جوک بگو",
@@ -1044,7 +1052,17 @@
           "what should i write",
           "what do i say",
           "help me",
-          "i need help"
+          "i need help",
+          "what can i learn today",
+          "what can i learn",
+          "what should i learn",
+          "what's new",
+          "whats new",
+          "today",
+          "امروز چی یاد بگیرم",
+          "چی یاد بگیرم",
+          "چه چیزی یاد بگیرم",
+          "امروز چیکار کنم"
         ],
         "fa": [
           "راهنما",
@@ -1631,6 +1649,54 @@
         "fa": [
           "⭐ بخش ⭐ **مرور** را از نوار بالا باز کنید — روی هر کارت واژه بزنید و **☆ ذخیره برای مرور** را انتخاب کنید.",
           "⭐ واژه‌های ذخیره‌شده در بخش ⭐ مرور هستند."
+        ]
+      }
+    },
+    {
+      "name": "fine",
+      "keywords": {
+        "en": [
+          "i am fine",
+          "im fine",
+          "i'm fine",
+          "i am good",
+          "im good",
+          "i'm good",
+          "i am ok",
+          "im ok",
+          "i'm ok",
+          "not bad",
+          "i am well",
+          "everything is fine",
+          "i'm alright",
+          "i am alright",
+          "خوبم",
+          "حالم خوبه",
+          "مرسی خوبم",
+          "خوبم ممنون",
+          "من خوبم"
+        ],
+        "fa": [
+          "everything is fine",
+          "i'm alright",
+          "i am alright",
+          "خوبم",
+          "حالم خوبه",
+          "مرسی خوبم",
+          "خوبم ممنون",
+          "من خوبم"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Good to hear! Want to practise something while you're here?",
+          "Nice! Let's use that energy — ask me for a lesson, a word, or a joke.",
+          "Great! Say 'grammar' for a lesson or 'vocabulary' for words."
+        ],
+        "fa": [
+          "خوبه که اینطوره! می‌خوای چیزی تمرین کنیم؟",
+          "عالیه! بیا از انرژیت استفاده کنیم — یک درس، یک کلمه یا یک جوک.",
+          "خوبه! بنویس «گرامر» برای درس یا «واژگان» برای کلمات."
         ]
       }
     }

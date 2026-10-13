@@ -112,8 +112,10 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('corrections')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch,
           distinctions, idioms, corrections]) => {
+    // every file the engine can read must be handed to it, or a section
+    // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
-                         distinctions, idioms, corrections});
+                         phonetics, distinctions, idioms, corrections});
 
     listeningLevels = listening.levels.map((lv) => ({
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,

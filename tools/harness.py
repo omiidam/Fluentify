@@ -391,6 +391,65 @@ def run_teacher(verbose: bool) -> None:
               f"idioms {len(IDIOM_PROBES)} · corrections {len(CORRECTION_PROBES)}")
 
 
+
+# --------------------------------------------------------------------------
+# 8. conversation — a learner thinks in sequences, not in commands
+# --------------------------------------------------------------------------
+FLOWS = [
+    # (label, [turns], turn index that must NOT be the fallback)
+    ("lesson-then-practice",
+     ["simple present", "exercises", "show answer", "cancel", "exam"], None),
+    ("lesson-then-examples",
+     ["simple present", "examples", "show answer"], None),
+    ("joke-then-another",
+     ["tell me a joke", "another one", "another one"], None),
+    ("listen-then-repeat",
+     ["listen A1", "repeat that", "say that again"], None),
+    ("phrases-then-repeat",
+     ["daily routine", "repeat that"], None),
+    ("fine-then-ask", ["I am fine", "what can I learn today"], None),
+    ("no-open-target", ["exercises", "exam", "show answer", "examples"], None),
+]
+
+SECTION_PROBES = ["vocabulary", "words", "sentences", "phonetics", "grammar",
+                  "listening", "واژگان", "جملات", "تلفظ", "گرامر"]
+
+
+def run_conversation(verbose: bool) -> None:
+    for label, turns, _ in FLOWS:
+        b = ChatBot()
+        for i, msg in enumerate(turns):
+            r = b.respond(msg)
+            check_reply("flow", f"{label}[{i}] {msg!r}", r)
+            if "not sure I understand" in r or "متوجه نشدم" in r:
+                fail("flow", f"{label}[{i}] {msg!r}",
+                     "a follow-up command fell through to the fallback")
+            if "don't have" in r and "glossary" in r:
+                fail("flow", f"{label}[{i}] {msg!r}",
+                     "a follow-up command was read as a dictionary lookup")
+    for q in SECTION_PROBES:
+        r = b.respond(q)
+        check_reply("section", q, r, banned=["not sure", "don't have"])
+        if len(r.splitlines()) < 2:
+            fail("section", q, "no content listed")
+
+    # the practice→exam gate must hold on the bare route too
+    b = ChatBot()
+    b.respond("future perfect")
+    locked = b.respond("exam")
+    if "locked" not in locked.lower() and "قفل" not in locked:
+        fail("gate", "bare exam after a lesson", "the gate did not hold")
+    b.respond("exercises")
+    topic = b.grammar["future_perfect"]
+    for item in topic["practice"]:
+        b.handle_exercise(item["a"][0], item["a"][0].lower(), "en")
+    opened = b.respond("exam")
+    if "locked" in opened.lower():
+        fail("gate", "bare exam after practice", "still locked after the practice")
+    if verbose:
+        print(f"  flows {len(FLOWS)} · section names {len(SECTION_PROBES)}")
+
+
 RUNNERS = [
     ("vocabulary", run_vocabulary),
     ("grammar", run_grammar),
@@ -398,6 +457,7 @@ RUNNERS = [
     ("smalltalk", run_smalltalk),
     ("robustness", run_robustness),
     ("teacher", run_teacher),
+    ("conversation", run_conversation),
     ("data", run_data),
 ]
 
