@@ -1946,7 +1946,7 @@ async function send(text) {
   }
   // "save apple to review" / "open my review list" — also not chat messages.
   // matchReviewCommand does the work itself and returns true when it handled it.
-  if (matchReviewCommand(text)) { input.value = ''; return; }
+  if (await matchReviewCommand(text)) { input.value = ''; return; }
   if (busy) return;                      // real message, but one is in flight
   // daily limit reached — refuse the message, don't queue it
   if (Seed.spent()) { Seed.block(); return; }
@@ -3538,9 +3538,18 @@ function showWord(entry) {
   card.scrollIntoView({block: 'nearest', behavior: 'smooth'});
 }
 
+/* word_arch.json is 302 KB - 78% of everything the page downloads at boot -
+   and it exists only to fill the word chips inside the Sentences panel. It is
+   fetched the first time something actually needs it rather than on every
+   page load: on a phone on a slow connection, 302 KB the user may never open
+   is the difference between the app feeling instant and feeling like it is
+   thinking. The promise is kept so two callers cannot start two downloads. */
+let wordArchPromise = null;
 async function loadWordArch() {
   if (wordArchLoaded) return;
-  try {
+  if (wordArchPromise) return wordArchPromise;
+  wordArchPromise = (async () => {
+    try {
     const bands = wordArchBands;
     Object.assign(wordArch, bands);
     wordArchLoaded = true;
@@ -3594,11 +3603,17 @@ async function loadWordArch() {
         (items.length > PAGE ? ' — show all' : '');
       slot.appendChild(more);
     });
-  } catch (e) {
-    document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
-      slot.innerHTML = '<div class="wd-more">Word forms unavailable offline.</div>';
-    });
-  }
+    } catch (e) {
+      document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
+        slot.innerHTML = '<div class="wd-more">Word forms unavailable offline.</div>';
+      });
+    }
+  })().finally(() => {
+    // Cleared so a failed download can be retried. On success the
+    // wordArchLoaded flag short-circuits before this matters.
+    wordArchPromise = null;
+  });
+  return wordArchPromise;
 }
 
 async function loadPhrases() {
@@ -3743,7 +3758,13 @@ const PANEL_ON_OPEN = {
   // search is attached on first open rather than at boot, because the panels
   // are filled asynchronously and a search with nothing to filter is useless
   gpanel: () => PanelSearch.attachAll(),
-  fpanel: () => PanelSearch.attachAll(),
+  // The word chips are the only consumer, and they are 302 KB. Fetch when the
+  // panel is actually opened, then attach the search once there is something
+  // to filter.
+  fpanel: () => {
+    loadPhrases().then(() => PanelSearch.attachAll());
+    loadWordArch();
+  },
   lpanel: () => PanelSearch.attachAll(),
   phpanel: () => PanelSearch.attachAll(),
 };
@@ -4332,7 +4353,7 @@ const REVIEW_OPEN_RE = new RegExp(
   '|^(?:بخش\\s+)?مرور(?:\\s+(?:کلمات|لیست))?|کارت\\s*های\\s*مرور' +
   '\\s*[!.؟]*$', 'i');
 
-function matchReviewCommand(text) {
+async function matchReviewCommand(text) {
   const t = (text || '').trim();
 
   if (REVIEW_OPEN_RE.test(t)) {
@@ -4362,6 +4383,12 @@ function matchReviewCommand(text) {
     return true;
   }
   const key = word.toLowerCase();
+
+  // word_arch.json is fetched lazily now, so saving a word before the
+  // Sentences panel has ever been opened would find nothing and tell the
+  // learner the word is not in the vocabulary. Fetch it here instead - only on
+  // this path, so an ordinary message never pays for it.
+  if (!wordArchLoaded) await loadWordArch();
 
   // keep the Persian and the form family by looking the word up
   let entry = null;

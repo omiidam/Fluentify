@@ -105,6 +105,32 @@ def main() -> int:
               f'aria-label={name!r} does not contain the visible text; '
               f"a voice-control user cannot say {visible!r} to open it")
 
+    # ---------------------------------------------------- lazy word archive --
+    # word_arch.json is 302 KB - 78% of the boot payload - and it exists only
+    # to fill the word chips inside the Sentences panel. It used to be fetched
+    # on every page load for a panel most visitors never open.
+    # The boot statements are the top-level calls after PANEL_ON_OPEN is
+    # declared; the hook that does fetch word_arch lives above them, so the
+    # window has to start after it or this check just finds its own fix.
+    boot = src[src.rindex("PANEL_ON_OPEN"):]
+    boot = boot[boot.index("};") + 2:]
+    # Anchored to column zero, so it finds the top-level boot call and not the
+    # `await loadWordArch()` inside the save command, which is deliberate.
+    check("word_arch is not fetched at boot",
+          not re.search(r"^loadWordArch\(\)", boot, re.M),
+          "302 KB of word chips should wait for the panel that shows them")
+    hooks = re.search(r"PANEL_ON_OPEN\s*=\s*\{(.*?)\n\};", src, re.S)
+    hook_body = hooks.group(1) if hooks else ""
+    check("opening the Sentences panel is what fetches word_arch",
+          "loadWordArch" in hook_body,
+          "otherwise the word chips are a placeholder that never fills")
+    # "save apple to review" looks a word up in the archive, so that path has
+    # to wait for it rather than report the word as unknown.
+    review = fn_body(src, "matchReviewCommand")
+    check("saving a word waits for word_arch if it is not loaded",
+          "await loadWordArch()" in review,
+          "otherwise saving before the Sentences panel was ever opened fails")
+
     # ------------------------------------------------------- failed sends --
     # Two bugs shared by both builds: a message that produced no reply still
     # cost one of the fifty daily ones, and the composer was already cleared so

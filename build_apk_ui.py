@@ -30,9 +30,36 @@ BUNDLED_DATA = [
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
 html = re.search(r'HTML_TEMPLATE = r"""(.*?)"""', src, re.S).group(1)
 
+def sub(text: str, old: str, new: str, what: str,
+        count: int = -1, required: bool = True) -> str:
+    """html.replace, but it refuses to fail quietly.
+
+    Thirteen transforms rewrite the page for the offline build. Plain
+    str.replace returns the input unchanged when the pattern is absent and
+    raises nothing, so an edit to webapp.py that moves or removes any of
+    these anchors silently ships an APK with that piece missing. It happened:
+    dropping one boot call made the data-loading replacement a no-op and the
+    offline app shipped with no engine, no data and no panels - and the build
+    still printed "page parses clean".
+
+    Every anchor here is a seam between the two builds, so each one has to
+    still be there. If one is not, stop and say which.
+    """
+    if old not in text:
+        if required:
+            sys.exit(
+                f"build_apk_ui: cannot rewrite {what}\n"
+                f"  the offline build and webapp.py have drifted apart - the "
+                f"pattern this step replaces no longer exists in the page.\n"
+                f"  expected to find: {old[:110]!r}"
+            )
+        return text
+    return text.replace(old, new, count)
+
+
 # the offline build has the config file in its own data/ folder, so the marker
 # becomes a plain fetch-free assignment filled from that file at boot
-html = html.replace("/*__STT_CONFIG__*/", "")
+html = sub(html, "/*__STT_CONFIG__*/", "", "the STT config marker")
 
 # 1) send(): call the local engine instead of the HTTP endpoint
 #
@@ -88,51 +115,64 @@ for fn, api, expr in [
     # each loader names its variable differently; handle generically below
     del old, fn, api, expr
 
-html = html.replace(
+html = sub(
+    html,
     """    const r = await fetch('/api/grammar');
     const topics = await r.json();""",
-    """    const topics = grammarTopics;""")
-html = html.replace(
+    """    const topics = grammarTopics;""",
+    "loadGrammar's fetch")
+html = sub(
+    html,
     """    const r = await fetch('/api/phrases');
     const topics = await r.json();""",
-    """    const topics = phraseTopics;""")
-html = html.replace(
+    """    const topics = phraseTopics;""",
+    "loadPhrases's fetch")
+html = sub(
+    html,
     """    const r = await fetch('/api/vocabulary');
     const groups = await r.json();""",
-    """    const groups = vocabGroups;""")
-html = html.replace(
+    """    const groups = vocabGroups;""",
+    "loadVocabulary's fetch")
+html = sub(
+    html,
     """    const r = await fetch('/api/listening');
     const levels = await r.json();""",
-    """    const levels = listeningLevels;""")
-html = html.replace(
+    """    const levels = listeningLevels;""",
+    "loadListening's fetch")
+html = sub(
+    html,
     """    const r = await fetch('/api/phonetics');
     sections = await r.json();""",
-    """    sections = phoneticSections;""")
-html = html.replace(
-    """    const bands = wordArchBands;""",
-    """    const bands = wordArchBands;""")
+    """    sections = phoneticSections;""",
+    "loadPhonetics's fetch")
 # every occurrence, not just the first: loadWordArch has a second call site
-html = html.replace(
+html = sub(
+    html,
     """    const r = await fetch('/api/wordarch');
     const bands = await r.json();""",
-    """    const bands = wordArchBands;""")
-html = html.replace(
+    """    const bands = wordArchBands;""",
+    "loadWordArch's fetch")
+html = sub(
+    html,
     """    const r = await fetch('/api/bbc');
     const doc = await r.json();""",
-    """    const doc = bbcCatalogue;""")
+    """    const doc = bbcCatalogue;""",
+    "loadBBC's fetch")
 
-# keep the Object.assign line that follows, so the offline copy fills the cache
-html = html.replace(
-    """    Object.assign(wordArch, bands);
-    wordArchLoaded = true;""",
-    """    Object.assign(wordArch, bands);
-    wordArchLoaded = true;""")
+# The Object.assign below the rewritten fetch is left alone on purpose: it is
+# what fills the offline cache.
 
 # 3) boot: load the data, build the bot, then populate the panels
-html = html.replace(
-    """loadGrammar();
-loadPhrases();
-loadVocabulary();""",
+# Matched on the calls themselves rather than one contiguous block. The boot
+# statements are separated by a listener, and an earlier version of this
+# replaced the exact three-line run "loadGrammar(); loadPhrases();
+# loadVocabulary();" - so removing one boot call made the replacement silently
+# do nothing and the offline app shipped with no data loading at all.
+_boot = """loadGrammar();
+loadVocabulary();"""
+html = sub(
+    html,
+    _boot,
     """/* offline boot: load the bundled data, build the engine, fill the panels */
 let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
 let bbcCatalogue = {episodes: [], count: 0};
@@ -220,7 +260,8 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
     loadPhonetics();
     mountMic();
   })
-  .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""")
+  .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""",
+    "the offline boot block")
 
 # 3b) the panels are already loaded inside the offline boot block; the
 # top-level calls that follow it would run before the data has resolved
@@ -230,12 +271,13 @@ loadPhonetics();
 """
 after = """});
 """
-assert before in html, "offline tail not found — update build_apk_ui.py"
-html = html.replace(before, after, 1)
+html = sub(html, before, after, "the page tail", 1)
 
 # 4) load bot.js before the page script
 assert "\n<script>\n" in html
-html = html.replace("\n<script>\n", '\n<script src="bot.js"></script>\n<script>\n', 1)
+html = sub(html, "\n<script>\n",
+           '\n<script src="bot.js"></script>\n<script>\n',
+           "the inline script tag", 1)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(html, encoding="utf-8")
