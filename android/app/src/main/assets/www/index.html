@@ -3553,8 +3553,33 @@ async function loadWordArch() {
     const bands = wordArchBands;
     Object.assign(wordArch, bands);
     wordArchLoaded = true;
-    // drop the placeholder text and insert the real chips into each level
-    document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
+    paintWordArch();
+    } catch (e) {
+      const slots = document.querySelectorAll('#ftopics [data-words]');
+      slots.forEach((slot) => {
+        slot.innerHTML = '<div class="wd-more">Word forms unavailable offline.</div>';
+      });
+    }
+  })().finally(() => {
+    wordArchPromise = null;
+  });
+  return wordArchPromise;
+}
+
+/* Fetching the archive and painting the chips are separate on purpose.
+
+   They used to be one function, called straight after the topic buttons were
+   built. Now the two run on different triggers - the fetch waits for the
+   Sentences panel to open, and the painting has to happen whenever the topic
+   buttons have just been rebuilt - and folding them together meant whichever
+   came first won. Offline that is loadWordArch() finding no slots to fill,
+   because the panel's data was already in memory and resolved instantly. On
+   the web it only worked because 302 KB takes longer to arrive than 5 KB, so
+   the ordering bug was invisible exactly where it was easiest to hit. */
+function paintWordArch() {
+  if (!wordArchLoaded) return;
+  // drop the placeholder text and insert the real chips into each level
+  document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
       const items = wordArch[slot.dataset.words] || [];
       slot.innerHTML = '';
       const lab = document.createElement('div');
@@ -3603,17 +3628,6 @@ async function loadWordArch() {
         (items.length > PAGE ? ' — show all' : '');
       slot.appendChild(more);
     });
-    } catch (e) {
-      document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
-        slot.innerHTML = '<div class="wd-more">Word forms unavailable offline.</div>';
-      });
-    }
-  })().finally(() => {
-    // Cleared so a failed download can be retried. On success the
-    // wordArchLoaded flag short-circuits before this matters.
-    wordArchPromise = null;
-  });
-  return wordArchPromise;
 }
 
 async function loadPhrases() {
@@ -3653,7 +3667,14 @@ async function loadPhrases() {
 
       box.appendChild(sec);
     });
-    loadWordArch();
+    // Fetch if it is not in hand, then paint into the slots just created.
+    // The two are separate calls because either can be the first: on the web
+    // the 302 KB archive arrives after this panel has rendered, and offline it
+    // is already in memory and resolves before the slots exist at all. Calling
+    // loadWordArch() on its own would return early the second time and leave
+    // five empty "Loading word forms…" placeholders on screen.
+    await loadWordArch();
+    paintWordArch();
   } catch (e) {
     box.innerHTML = '<div class="pblurb">Sentences unavailable offline. / جملات در دسترس نیست.</div>';
   }

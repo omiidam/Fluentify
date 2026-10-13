@@ -131,6 +131,19 @@ def main() -> int:
           "await loadWordArch()" in review,
           "otherwise saving before the Sentences panel was ever opened fails")
 
+    # Fetching the archive and painting the chips are separate calls, because
+    # either can happen first. Offline the data is already in memory and
+    # resolves before the topic buttons exist; on the web it arrives long after
+    # they do. Calling loadWordArch() alone paints whichever ran first and
+    # leaves five "Loading word forms…" placeholders on screen.
+    check("painting the word chips is separate from fetching them",
+          "function paintWordArch(" in src,
+          "one function cannot win both orderings")
+    phrases = fn_body(src, "loadPhrases")
+    check("the Sentences panel repaints the chips into its fresh slots",
+          "await loadWordArch()" in phrases and "paintWordArch()" in phrases,
+          "the topic buttons are rebuilt on every open, so the chips go with them")
+
     # ------------------------------------------------------- failed sends --
     # Two bugs shared by both builds: a message that produced no reply still
     # cost one of the fifty daily ones, and the composer was already cleared so
