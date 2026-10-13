@@ -1134,14 +1134,71 @@
   }
 
   /* ---- daily limit reached: the composer goes quiet ---- */
+  /* The daily allowance, drawn as a rail under the composer with the moon
+     riding along it. It was a row of text that appeared only once the limit
+     had already been hit, which is the one moment advice is too late to be
+     useful - you cannot spend fifty messages and then be told you had ten
+     left. The moon travels left to right and is against the right-hand end
+     at the limit. */
   .limitenote {
-    display: flex; align-items: center; gap: 8px;
-    padding: 9px 12px; border-radius: 11px; font-size: 12.5px; line-height: 1.5;
+    padding: 0; margin: 8px 2px 0; min-height: 26px;
+  }
+
+  .limitrail {
+    position: relative; height: 18px;
+  }
+  /* the track */
+  .limitrail::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 8px;
+    height: 3px; border-radius: 2px; background: rgba(255,255,255,.09);
+  }
+  /* how much of the day is spent */
+  .limitfill {
+    position: absolute; left: 0; top: 8px; height: 3px; border-radius: 2px;
+    width: calc(var(--p, 0) * (100% - 20px) + 10px);
+    background: linear-gradient(90deg, rgba(109,140,255,.85), rgba(167,139,250,.85));
+    transition: width .45s cubic-bezier(.22,1,.36,1), background .3s;
+  }
+
+  .limitenote .lockic {
+    position: absolute; top: -2px; font-size: 15px; line-height: 1;
+    /* `left`, not transform. In a transform, a percentage resolves against
+       the element's own box, not its containing block - so
+       translateX(calc(var(--p) * (100% - 20px))) moves the moon by a fraction
+       of its own 19px width and it never leaves the start of the rail.
+       `left` resolves against the rail, which is what "move to the right"
+       actually means here. */
+    left: calc(var(--p, 0) * (100% - 20px));
+    transition: left .45s cubic-bezier(.22,1,.36,1);
+    filter: grayscale(.35) brightness(.95);
+  }
+
+  /* the text is quiet until it has something worth saying */
+  .limitxt {
+    display: block; margin-top: 3px; font-size: 11.5px; line-height: 1.5;
+    color: #9fb0ef;
+  }
+  .limitxt:empty { display: none; }
+
+  .limitenote.warn .limitfill {
+    background: linear-gradient(90deg, rgba(167,139,250,.9), rgba(255,141,196,.9));
+  }
+  .limitenote.warn .lockic { filter: none; }
+  .limitenote.warn .limitxt { color: #e9c6ff; }
+
+  .limitenote.full .limitfill {
+    background: linear-gradient(90deg, rgba(255,141,196,.95), rgba(255,92,157,.95));
+  }
+  .limitenote.full .lockic { filter: none; }
+  .limitenote.full {
+    padding: 9px 12px; border-radius: 11px;
     background: linear-gradient(135deg, rgba(167,139,250,.18), rgba(255,141,196,.10));
-    border: 1px solid rgba(167,139,250,.34); color: #ddd6fe;
+    border: 1px solid rgba(167,139,250,.34);
     animation: fade .2s ease;
   }
-  .limitenote .lockic { font-size: 15px; flex: none; }
+  .limitenote.full .limitrail { height: 14px; }
+  .limitenote.full .limitfill { top: 6px; height: 3px; }
+  .limitenote.full .lockic { top: -4px; }
   .limitenote b { color: #fff; }
   form.locked #input {
     opacity: .45; cursor: not-allowed; background: rgba(255,255,255,.03);
@@ -1206,6 +1263,10 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .mic.rec, .mic.hint { animation: none; }
+    /* The moon still lands in the right place - it just arrives there
+       rather than sliding across. Its position is information; the travel is
+       decoration. */
+    .limitenote .lockic, .limitfill { transition: none; }
   }
   .stt-panel {
     display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
@@ -1685,8 +1746,11 @@
       <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…">
       <button class="send" id="sendbtn" type="submit">Send</button>
     </div>
-    <div class="limitenote" id="limitenote" hidden>
-      <span class="lockic">🌙</span>
+    <div class="limitenote" id="limitenote" role="status" aria-live="polite">
+      <div class="limitrail">
+        <span class="limitfill"></span>
+        <span class="lockic" aria-hidden="true">🌙</span>
+      </div>
       <span class="limitxt"></span>
     </div>
   </form>
@@ -2187,12 +2251,33 @@ const Seed = {
     box.classList.toggle('locked', full);
     const note = document.getElementById('limitenote');
     if (note) {
-      note.hidden = !full;
+      const used = Math.min(this.state.count, SEED_GOAL);
+      const left = SEED_GOAL - used;
+      const pct = used / SEED_GOAL;
+      // The moon's position is the whole point of the row: one property,
+      // and the track does the rest. 0 is the left end, 1 the right.
+      note.style.setProperty('--p', pct.toFixed(4));
+
+      // Warn over the last fifth, where a learner can still do something
+      // about it, and say nothing at all before that. A bar that announces
+      // itself on every message is a bar people stop reading.
+      const warn = pct >= 0.8;
+      note.classList.toggle('warn', warn && !full);
+      note.classList.toggle('full', !!full);
+
       const txt = note.querySelector('.limitxt');
-      if (txt && full) {
-        txt.innerHTML = `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
-          `The next ${SEED_GOAL} arrive in <b>${this.msText()}</b> (03:30 GMT).<br>` +
-          `سقف پیام امروز پر شد. ${this.msText()} دیگر بخش بعدی فعال می‌شود.`;
+      if (txt) {
+        txt.innerHTML = full
+          ? `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
+            `The next ${SEED_GOAL} arrive in <b>${this.msText()}</b> (03:30 GMT).<br>` +
+            `سقف پیام امروز پر شد. ${this.msText()} دیگر بخش بعدی فعال می‌شود.`
+          : warn
+            // "1 messages left" is the sort of thing that makes a learner stop
+            // trusting the rest of the copy
+            ? `<b>${left}</b> ${left === 1 ? 'message' : 'messages'} left today — ` +
+              `the next ${SEED_GOAL} arrive in <b>${this.msText()}</b> (03:30 GMT).<br>` +
+              `${left} پیام باقی مانده. ${this.msText()} دیگر بخش بعدی.`
+            : '';
       }
     }
     if (full) {

@@ -178,6 +178,33 @@ def main() -> int:
           "neither audio nor transcript" in bbc,
           "an honest count has to explain the difference")
 
+    # ------------------------------------------------------- daily limit --
+    # The moon rides a rail from the left end to the right as the counter goes
+    # 0 -> 50. It used to be a row of text that appeared only once the limit
+    # had already been hit, which is the one moment advice is too late to be
+    # useful.
+    lockui = fn_body(src, "lockUI")
+    check("the moon's position comes from the message counter",
+          "--p" in lockui and "used / SEED_GOAL" in lockui,
+          "the rail has to be driven by the count, not by the full/empty flag")
+    check("the limit note is always present, not hidden until the limit",
+          re.search(r'<div class="limitenote"[^>]*id="limitenote"(?![^>]*hidden)', src)
+          is not None,
+          "a progress indicator that only appears at 100% shows no progress")
+    lockic = re.search(r"\n  \.limitenote \.lockic \{(.*?)\n  \}", src, re.S)
+    # Comments out, or this check matches the comment that explains why the
+    # transform was removed - which mentions translateX by name.
+    lb = re.sub(r"/\*.*?\*/", "", lockic.group(1), flags=re.S) if lockic else ""
+    # The trap: a percentage inside transform() resolves against the element's
+    # own box, not the rail, so the moon moved by a fraction of its own 19px
+    # and never left the start.
+    check("the moon is positioned with left, not a percentage transform",
+          "left: calc(var(--p" in lb and "translateX" not in lb,
+          "a % in a transform resolves against the element, so it never travels")
+    check("the rail keeps the moon inside it at both ends",
+          "100% - 20px" in lb,
+          "otherwise the moon hangs off the end of the track when full")
+
     # ------------------------------------------------- scroll-to-latest --
     # It was position:absolute at `bottom: 78px`, centred. The composer is
     # taller than 78px, so the button floated on top of the message input and
