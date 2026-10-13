@@ -128,6 +128,70 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @keyframes float1 { to { transform: translate(60px, 40px) scale(1.15); } }
   @keyframes float2 { to { transform: translate(-50px, -40px) scale(1.1); } }
 
+  /* ---------------------------------------------------- panel shell -------
+     One header for every panel: a title, an optional search and a close
+     button. Before this each panel had its own h3 and its own idea of how to
+     be dismissed. */
+  .phead {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 10px; flex: none;
+  }
+  .phead h3 { flex: 1 1 auto; margin: 0; min-width: 0; }
+  .pclose {
+    flex: 0 0 38px; width: 38px; height: 38px; border-radius: 11px;
+    display: grid; place-items: center; cursor: pointer;
+    background: #18204a; border: 1px solid #33427c; color: #c3ceff;
+    font-size: 17px; line-height: 1;
+    transition: background .16s, border-color .16s, transform .14s;
+  }
+  .pclose:hover { background: #222c60; border-color: #6f86d6; color: #fff; }
+  .pclose:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 2px; }
+  .pclose:active { transform: scale(.93); }
+  .pclose svg { width: 15px; height: 15px; display: block; }
+
+  /* the search box every panel now shares */
+  .psearch { margin-bottom: 10px; flex: none; }
+  .psearch input {
+    width: 100%; padding: 10px 13px; border-radius: 12px;
+    background: #18204a; border: 1px solid #33427c; color: var(--text);
+    font-size: 14px; font-family: inherit; outline: none;
+  }
+  .psearch input::placeholder { color: #7583bd; }
+  .psearch input:focus {
+    border-color: #6f86d6;
+    box-shadow: 0 0 0 3px rgba(111, 134, 214, .18);
+  }
+
+  /* the one empty state, used by every panel */
+  .pempty {
+    padding: 26px 18px; text-align: center; line-height: 1.7;
+    color: #9fb0ef; font-size: 13.5px;
+    background: #141c46; border: 1px dashed #33427c; border-radius: 14px;
+  }
+  .pempty b { color: #dbe3ff; }
+
+  .pcount {
+    flex: none; margin: -4px 2px 8px; font-size: 11.5px; color: #7d8fd4;
+    letter-spacing: .01em;
+  }
+
+  /* Grouped runs: the avatar collapses to a thin stem and the speaker name is
+     dropped, so a multi-part answer reads as one turn. */
+  /* Hide only the bird, not the avatar box. Hiding the box with visibility
+     would hide the stem drawn on it as well, since a pseudo-element cannot be
+     more visible than its parent - so the bird fades and the stem stays. */
+  .row.grouped .mav { position: relative; }
+  .row.grouped .mav > svg { opacity: 0; }
+  .row.grouped .mav::before {
+    content: ''; position: absolute; left: 50%; top: 15px; bottom: -15px;
+    width: 2px; transform: translateX(-50%); border-radius: 1px;
+    background: linear-gradient(rgba(255,141,196,.34), rgba(255,141,196,.05));
+  }
+  .row + .row.grouped { margin-top: -6px; }
+  .row.grouped .meta > span:first-child,
+  .row.grouped .meta > i { display: none; }
+  .row.grouped .meta { justify-content: flex-end; }
+
   /* ---- the app is a pane of frosted glass ---- */
   .app {
     position: relative; z-index: 1;
@@ -1534,17 +1598,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
-      <button class="hbtn" id="vtoggle" title="Vocabulary — واژگان" aria-label="Vocabulary">
+      <button class="hbtn" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i>📚</i><span>Vocab</span></button>
-      <button class="hbtn" id="gtoggle" title="Grammar — گرامر" aria-label="Grammar">
+      <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
         <i>📘</i><span>Grammar</span></button>
-      <button class="hbtn" id="ftoggle" title="Sentences — جملات کاربردی" aria-label="Sentences">
+      <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Sentences">
         <i>💬</i><span>Say</span></button>
-      <button class="hbtn" id="ltoggle" title="Listening A1–C2 — شنیدن" aria-label="Listening">
+      <button class="hbtn" id="ltoggle" aria-expanded="false" title="Listening A1–C2 — شنیدن" aria-label="Listening">
         <i>🎧</i><span>Listen</span></button>
-      <button class="hbtn" id="phtoggle" title="Phonetics — تلفظ و آهنگ" aria-label="Phonetics">
+      <button class="hbtn" id="phtoggle" aria-expanded="false" title="Phonetics — تلفظ و آهنگ" aria-label="Phonetics">
         <i>🗣</i><span>Sounds</span></button>
-      <button class="hbtn" id="rtoggle" title="Review saved words — واژه‌های مرور" aria-label="Review">
+      <button class="hbtn" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" aria-label="Review">
         <i>⭐</i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
       <button class="hbtn danger" id="clear" title="Clear conversation — پاک کردن گفتگو" aria-label="Clear conversation">
         <i>🗑</i><span>Clear</span></button>
@@ -1589,7 +1653,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="rbody" id="rbody"></div>
   </div>
 
-  <div id="chat"></div>
+  <div id="chat" role="log" aria-live="polite"
+         aria-relevant="additions" aria-label="Conversation"></div>
   <button id="jump" class="jump" aria-label="Scroll to the latest message" title="Latest ↓">↓</button>
 
   <div class="chips" id="chips">
@@ -1736,9 +1801,27 @@ function renderPhraseList(bubble, parsed) {
   }
 }
 
+// The text the user last actually sent, so a bot message can offer to try the
+// question again. Commands never reach here - they are intercepted above and
+// never become chat messages - so this cannot replay "open grammar section".
+let lastUserText = '';
+
 function add(text, who, opts = {}) {
   const row = document.createElement('div');
   row.className = 'row ' + who;
+
+  // Grouping. The tutor answers in several bubbles - the reply, then a tip,
+  // then a correction - and repeating the full avatar and speaker name on
+  // each one reads as four separate people talking. Consecutive messages from
+  // the same speaker share one.
+  const prev = chat.lastElementChild;
+  if (!opts.err && !opts.typing && prev &&
+      prev.classList.contains('row') &&
+      prev.classList.contains(who) &&
+      !prev.classList.contains('typing-row')) {
+    row.classList.add('grouped');
+    prev.classList.add('grouped');
+  }
 
   const av = document.createElement('div');
   av.className = 'mav' + (who === 'bot' ? ' bot' : ' me');
@@ -1758,12 +1841,15 @@ function add(text, who, opts = {}) {
 
   const meta = document.createElement('div');
   meta.className = 'meta';
+  // The speaker name goes in an element rather than a bare text node so that
+  // grouping can hide it - CSS cannot select a text node.
   meta.append(
-    document.createTextNode(who === 'bot' ? 'Fluentify' : 'You'),
+    Object.assign(document.createElement('span'), {className: 'who',
+      textContent: who === 'bot' ? 'Fluentify' : 'You'}),
     Object.assign(document.createElement('i'), {textContent: now()}),
   );
 
-  // Every bot message gets its tools: hear it, copy it, retry it.
+  // Every bot message gets its tools: hear it, copy it, ask again.
   if (who === 'bot' && !opts.err) {
     const tools = document.createElement('div');
     tools.className = 'tools-row';
@@ -1798,7 +1884,36 @@ function add(text, who, opts = {}) {
       }
     };
 
-    tools.append(speakBtn, copyBtn);
+    // "Try that again" re-sends what the user actually asked, rather than
+    // asking the bot to repeat itself - a learner who did not understand the
+    // answer wants a different one, not the same words louder.
+    const againBtn = document.createElement('button');
+    againBtn.className = 'mtool';
+    againBtn.textContent = '↻';
+    againBtn.title = 'Ask again — یک بار دیگر';
+    againBtn.setAttribute('aria-label', 'Ask that again');
+    againBtn.hidden = !lastUserText;
+    againBtn.onclick = () => {
+      if (busy || !lastUserText) return;
+      const again = lastUserText;
+      // drop the question and the answer being retried, so the thread reads
+      // as one attempt rather than three
+      const rows = [...chat.querySelectorAll('.row.user, .row.bot')];
+      const ui = rows.map((r) => r).filter((r) => r.classList.contains('user'));
+      const lastUi = ui[ui.length - 1];
+      if (lastUi) {
+        let n = lastUi;
+        while (n && n.nextElementSibling &&
+               !n.nextElementSibling.classList.contains('user')) {
+          n = n.nextElementSibling;
+          n.remove();
+        }
+        lastUi.remove();
+      }
+      send(again);
+    };
+
+    tools.append(speakBtn, copyBtn, againBtn);
     meta.appendChild(tools);
   }
 
@@ -1856,6 +1971,7 @@ async function send(text) {
   if (Seed.spent()) { Seed.block(); return; }
   busy = true;
   sendbtn.disabled = true;
+  lastUserText = text;
   add(text, 'user');
   input.value = '';
   history.push(text);
@@ -2238,6 +2354,313 @@ const Motion = (() => {
   }
 
   return {init, calm, fine};
+})();
+
+/* ============================================================================
+ * PANEL SHELL
+ * Every section panel gets the same behaviour: a close button, Esc to leave,
+ * focus moved in on open and back to the tile on close, aria-expanded on the
+ * tile, and a search box where searching makes sense.
+ *
+ * This exists because the six panels had drifted into six behaviours. Only
+ * Vocabulary had search, none had a close button, Esc closed the audio but
+ * not a panel, and opening one left focus stranded on the tile behind it.
+ * ==========================================================================*/
+const Panels = (() => {
+  const TILES = {
+    vpanel: 'vtoggle', gpanel: 'gtoggle', fpanel: 'ftoggle',
+    lpanel: 'ltoggle', phpanel: 'phtoggle', rpanel: 'rtoggle',
+  };
+  let openId = null;
+
+  const CLOSE_ICON =
+    '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" ' +
+    'stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+    '<path d="M3 3l10 10M13 3L3 13"/></svg>';
+
+  /* Build the header once. Existing bare <h3> elements are adopted in place
+     so the panels keep their own wording without being rewritten. */
+  function ensureShell(panelId) {
+    const panel = document.getElementById(panelId);
+    if (!panel || panel.querySelector('.phead')) return;
+    const h3 = panel.querySelector('h3');
+    if (!h3) return;
+
+    const head = document.createElement('div');
+    head.className = 'phead';
+    panel.insertBefore(head, h3);
+    head.appendChild(h3);
+
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'pclose';
+    close.innerHTML = CLOSE_ICON;
+    close.title = 'Close — بستن';
+    close.setAttribute('aria-label', 'Close this section');
+    close.addEventListener('click', () => toggle(panelId));
+    head.appendChild(close);
+
+    const tile = document.getElementById(TILES[panelId]);
+    if (tile) tile.setAttribute('aria-controls', panelId);
+  }
+
+  /* A search box for any panel that can usefully be filtered. `count` reports
+     how many items are currently visible so the label can be honest. */
+  function addSearch(panelId, placeholder, onInput) {
+    const panel = document.getElementById(panelId);
+    if (!panel || panel.querySelector('.psearch')) return;
+    const box = document.createElement('div');
+    box.className = 'psearch';
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.placeholder = placeholder;
+    input.autocomplete = 'off';
+    input.setAttribute('aria-label', placeholder);
+    input.addEventListener('input', () => onInput(input.value));
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { input.value = ''; onInput(''); }
+    });
+    box.appendChild(input);
+    const head = panel.querySelector('.phead');
+    if (head) head.after(box);
+    else panel.prepend(box);
+    panel._search = input;
+  }
+
+  function focusables(panel) {
+    return [...panel.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )].filter((el) => el.offsetParent !== null || el === document.activeElement);
+  }
+
+  /* The one place panel visibility changes. togglePanel() routes through here
+     so the class, the tile state, aria-expanded and focus cannot disagree. */
+  function set(panelId, wantOpen, hook) {
+    ensureShell(panelId);
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    const tile = document.getElementById(TILES[panelId]);
+
+    if (!wantOpen) {
+      panel.classList.remove('open');
+      tile?.classList.remove('on');
+      tile?.setAttribute('aria-expanded', 'false');
+      if (openId === panelId) openId = null;
+      // Only pull focus back if it is still inside the panel being closed -
+      // otherwise Escape from the composer would steal it. The destination is
+      // the panel's own tile rather than whatever was focused on open, because
+      // a mouse click does not reliably focus the button it lands on and the
+      // remembered element would sometimes be <body>.
+      if (panel.contains(document.activeElement)) {
+        document.getElementById(TILES[panelId])?.focus();
+      }
+      return;
+    }
+
+    // one panel at a time, the way it has always worked
+    if (openId && openId !== panelId) set(openId, false);
+
+    panel.classList.add('open');
+    tile?.classList.add('on');
+    tile?.setAttribute('aria-expanded', 'true');
+    openId = panelId;
+
+    // A panel whose content is generated rather than static has to be told to
+    // redraw when it opens. Without this the Review panel opened blank.
+    if (hook) hook();
+
+    // focus the close button, not the first field: opening a panel should not
+    // drop a keyboard user into a search box they did not ask for
+    (panel.querySelector('.pclose') || panel).focus?.();
+  }
+
+  function toggle(panelId, hook) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    set(panelId, !panel.classList.contains('open'), hook);
+  }
+
+  /* Escape closes the topmost thing: an open panel, else the audio. */
+  function init() {
+    Object.keys(TILES).forEach(ensureShell);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (openId) { e.preventDefault(); set(openId, false); }
+      else if (typeof Speech !== 'undefined' && Speech.playing) Speech.stop();
+    }, true);
+
+    // keep Tab inside an open panel
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !openId) return;
+      const panel = document.getElementById(openId);
+      const items = focusables(panel);
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
+  }
+
+  return {init, set, toggle, ensureShell, addSearch, isOpen: () => openId,
+          closeAll: () => { if (openId) set(openId, false); }};
+})();
+
+/* ============================================================================
+ * PANEL SEARCH
+ * Vocabulary had a search box and the other five panels did not, so 37
+ * grammar lessons and 39 sentence banks could only be found by scrolling.
+ *
+ * This is generic on purpose: hide what does not match, report what is left,
+ * and say so when nothing does. One implementation means the panels cannot
+ * drift apart again the way they did.
+ * ==========================================================================*/
+const PanelSearch = (() => {
+  const attached = new Map();
+
+  function emptyFor(panelId) {
+    const panel = document.getElementById(panelId);
+    let box = panel.querySelector('.pempty[data-search]');
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'pempty';
+      box.dataset.search = '1';
+      box.hidden = true;
+      panel.appendChild(box);
+    }
+    return box;
+  }
+
+  function apply(panelId, needle) {
+    const panel = document.getElementById(panelId);
+    const state = attached.get(panelId);
+    if (!panel || !state) return;
+    const q = needle.trim().toLowerCase();
+
+    let shown = 0;
+    for (const el of state.items) {
+      // re-read the text each time: the cards re-render on their own
+      const hit = !q || el.textContent.toLowerCase().includes(q);
+      el.hidden = !hit;
+      if (hit) shown++;
+    }
+    pruneEmptyGroups(state.selector.split(',').map((s) => s.trim()),
+                     state.group || []);
+
+    if (state.tabs) state.tabs(q, shown);
+    if (state.after) state.after(shown, q);
+
+    const box = emptyFor(panelId);
+
+    if (q && shown === 0) {
+      box.innerHTML = 'Nothing matches <b>' + (needle.length > 28
+        ? needle.slice(0, 28) + '…' : needle) + '</b>.<br>' +
+        'چیزی پیدا نشد — املای دیگری را امتحان کن.';
+      box.hidden = false;
+    } else {
+      box.hidden = true;
+    }
+
+    const node = document.getElementById(panelId + 'count');
+    if (node) {
+      node.textContent = q
+        ? `${shown} of ${state.items.length} · ${needle}`
+        : `${state.items.length} · نمایش همه`;
+    }
+  }
+
+  /* A group is the heading a set of items sits under - A2 under Vocabulary,
+     a band under Sounds. Hiding every item in it without hiding the heading
+     itself leaves the panel looking broken, so empty groups go too. */
+  function pruneEmptyGroups(items, groups) {
+    for (const g of groups) {
+      const kids = [...g.querySelectorAll(items.join(','))];
+      g.hidden = kids.length > 0 && kids.every((k) => k.hidden);
+    }
+  }
+
+  /* items:   what the panel repeats and what a search matches against
+     group:   the heading that wraps them, hidden when they all filter out
+     shadow:  items re-render, so the handler is on the panel, not the item  */
+  function attach(panelId, selector, placeholder, opts = {}) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    const items = [...panel.querySelectorAll(selector)];
+    if (!items.length) return;      // content not loaded yet; boot calls again
+
+    // Re-attach is a refresh, not a skip. loadListening empties its list and
+    // rebuilds it on every level change, so holding the original nodes would
+    // leave the search filtering elements that are no longer in the document.
+    const known = attached.get(panelId);
+    if (known && known.selector === selector) {
+      known.items = items;
+      known.group = opts.group ? [...panel.querySelectorAll(opts.group)] : [];
+    } else {
+      attached.set(panelId, {
+        items,
+        group: opts.group ? [...panel.querySelectorAll(opts.group)] : [],
+        selector,
+        tabs: opts.tabs,
+        after: opts.after,
+      });
+    }
+
+    const status = document.getElementById(panelId + 'count');
+    if (!status) {
+      const node = document.createElement('div');
+      node.className = 'pcount';
+      node.id = panelId + 'count';
+      panel.prepend(node);
+    }
+    Panels.addSearch(panelId, placeholder, (v) => apply(panelId, v));
+
+    const live = document.getElementById(panelId + 'count');
+    const q = panel._search ? panel._search.value : '';
+    live.textContent = q
+      ? `… · ${q}` : `${items.length} · نمایش همه`;
+    // keep whatever is already typed rather than dropping it on a refresh
+    if (q) apply(panelId, q);
+  }
+
+  function attachAll() {
+    // selectors are the classes the loaders actually emit, not the ones they
+    // look like they should
+    // Vocabulary is deliberately absent. It shipped with a search box of its
+    // own that filters the 56 domain names; attaching a second one here would
+    // put two identical-looking inputs in one panel.
+    attach('gpanel', '.gbtn',
+      'Search 37 lessons… / جست‌وجوی درس‌ها…', {group: '.glevel'});
+    attach('fpanel', '.ftopic',
+      'Search the sentence banks… / جست‌وجوی موضوع‌ها…');
+    // Sounds shows one topic at a time in .phview, so .pgroup is empty until
+    // something is clicked and searching it would match nothing. The topic
+    // rail is the panel's index and is always there, so that is what is
+    // searched - it filters what you can reach, not just what is on screen.
+    attach('phpanel', '.phtab',
+      'Search the topics… / جست‌وجوی موضوع صداها…');
+    attach('phpanel', '.phtab',
+      'Search the topics… / جست‌وجوی موضوع صداها…',
+      {after: (shown) => {
+        // if the topic on screen was filtered out, move to the first that was
+        // not, so the panel is never showing an invisible selection
+        const rail = document.querySelector('#phpanel .prail');
+        const cur = rail?.querySelector('.phtab.on, .phtab[aria-selected="true"]');
+        if (cur && cur.hidden) {
+          const next = [...rail.querySelectorAll('.phtab')].find((t) => !t.hidden);
+          next?.click();
+        }
+      }});
+    attach('lpanel', '.lrow',
+      'Search the sentences… / جست‌وجوی جمله‌ها…',
+      {tabs: (q) => { document.querySelectorAll('#lpanel .ltab').forEach((t) => {
+        t.hidden = !!q && !t.textContent.toLowerCase().includes(q);
+      }); }});
+  }
+
+  return {attachAll, apply};
 })();
 
 /* ------------------------------------------------------------------ STT ---
@@ -2762,6 +3185,7 @@ async function loadListening() {
     box.innerHTML = '';
     box.append(toBbc, tabs, list);
     render(levels[0], 0);
+    PanelSearch.attachAll();
   } catch (e) { /* panel stays empty offline */ }
 }
 
@@ -3297,20 +3721,9 @@ async function loadVocabulary() {
 }
 /* only one panel open at a time; the active header button is highlighted */
 function togglePanel(panelId, btnId) {
-  const panel = document.getElementById(panelId);
-  const wasOpen = panel.classList.contains('open');
-  ['vpanel', 'gpanel', 'fpanel', 'lpanel', 'phpanel', 'rpanel'].forEach(id => document.getElementById(id).classList.remove('open'));
-  ['vtoggle', 'gtoggle', 'ftoggle', 'ltoggle', 'phtoggle', 'rtoggle'].forEach(id => document.getElementById(id).classList.remove('on'));
-  if (!wasOpen) {
-    panel.classList.add('open');
-    document.getElementById(btnId).classList.add('on');
-    // A panel whose content is generated rather than static has to be told to
-    // redraw when it opens. Without this the Review panel opened blank: the
-    // words were saved and the badge counted them, but nothing had ever asked
-    // Review.paint() to render them into #rbody.
-    const hook = PANEL_ON_OPEN[panelId];
-    if (hook) hook();
-  }
+  // All of the book-keeping - the open class, the tile, aria-expanded, focus -
+  // lives in Panels. This stays the entry point every caller already uses.
+  Panels.toggle(panelId, PANEL_ON_OPEN[panelId]);
 }
 
 /* Panels that must rebuild their contents each time they are opened.
@@ -3318,6 +3731,12 @@ function togglePanel(panelId, btnId) {
    themselves are only called on click, long after they are defined. */
 const PANEL_ON_OPEN = {
   rpanel: () => { Review.load(); Review.paint(); },
+  // search is attached on first open rather than at boot, because the panels
+  // are filled asynchronously and a search with nothing to filter is useless
+  gpanel: () => PanelSearch.attachAll(),
+  fpanel: () => PanelSearch.attachAll(),
+  lpanel: () => PanelSearch.attachAll(),
+  phpanel: () => PanelSearch.attachAll(),
 };
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
 document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggle');
@@ -3433,6 +3852,8 @@ loadListening();
 loadPhonetics();
 mountMic();
 Motion.init();
+Panels.init();
+PanelSearch.attachAll();   // once the panels have content
 
 /* clear conversation */
 /* ---------- clear: button or typed ---------- */
@@ -3907,6 +4328,9 @@ chat.addEventListener('scroll', () => {
 
 /* boot */
 Review.load();          // after every declaration above
+Review.paint();         // and paint once here as well as on open, so the
+                        // panel can never be reached in a blank state even if
+                        // the on-open hook is missed
 add(WELCOME, 'bot');
 Seed.load();
 input.focus();

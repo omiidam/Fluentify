@@ -93,9 +93,18 @@ def main() -> int:
     # The regression: opening the panel painted nothing.
     toggle = fn_body(src, "togglePanel")
     check("togglePanel exists", bool(toggle))
-    check("togglePanel runs a per-panel hook when opening",
-           "PANEL_ON_OPEN" in toggle and "if (hook) hook();" in toggle,
+    check("togglePanel routes through the panel shell",
+           "Panels.toggle" in toggle,
+           "focus, aria-expanded and the open class must not be able to diverge")
+    # The hook used to run in togglePanel. It now lives in Panels.set(), which
+    # is the only thing that opens a panel. Checking the old location would let
+    # the exact regression this file was written for come back unnoticed.
+    openbody = fn_body(src, "set")
+    check("opening a panel runs its per-panel hook",
+           "if (hook) hook();" in openbody,
            "a panel whose content is generated must be told to redraw")
+    check("togglePanel passes the per-panel hook down",
+           "PANEL_ON_OPEN" in toggle)
 
     hooks = re.search(r"PANEL_ON_OPEN\s*=\s*\{(.*?)\n\};", src, re.S)
     check("PANEL_ON_OPEN is declared", bool(hooks))
