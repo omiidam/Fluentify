@@ -89,6 +89,22 @@ def main() -> int:
         return 1
     src = SRC.read_text(encoding="utf-8")
 
+    # ------------------------------------------------- WCAG 2.5.3 label in name --
+    # Lighthouse caught three tiles whose visible text was not inside the
+    # accessible name - "Sounds" on screen, "Phonetics" to a screen reader.
+    # A voice-control user says what they can see, so those tiles could not be
+    # activated by their own label. The score was still 1.0, which is exactly
+    # why it needed a check rather than a number to watch.
+    for m in re.finditer(
+        r'<button[^>]*class="hbtn[^"]*"[^>]*aria-label="([^"]+)"[^>]*>\s*'
+        r'<i>[^<]*</i>\s*<span>([^<]+)</span>', src,
+    ):
+        name, visible = m.group(1), m.group(2).strip()
+        check(f"the {visible!r} tile is named after what it says",
+              visible.lower() in name.lower(),
+              f'aria-label={name!r} does not contain the visible text; '
+              f"a voice-control user cannot say {visible!r} to open it")
+
     # ------------------------------------------------------- failed sends --
     # Two bugs shared by both builds: a message that produced no reply still
     # cost one of the fifty daily ones, and the composer was already cleared so

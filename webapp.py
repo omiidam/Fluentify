@@ -69,6 +69,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fluentify — English &amp; Persian</title>
+<meta name="description" content="A bilingual English and Persian tutor: graded vocabulary, grammar, sentence patterns, pronunciation and 1126 BBC listening episodes, with speech-to-text and an offline Android app.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
   :root {
     /* base theme sampled from imagecolorpicker.com/color-code/0b102e */
@@ -1626,13 +1628,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <i>📚</i><span>Vocab</span></button>
       <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
         <i>📘</i><span>Grammar</span></button>
-      <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Sentences">
+      <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
         <i>💬</i><span>Say</span></button>
       <button class="hbtn" id="ltoggle" aria-expanded="false" title="Listening A1–C2 — شنیدن" aria-label="Listening">
         <i>🎧</i><span>Listen</span></button>
-      <button class="hbtn" id="phtoggle" aria-expanded="false" title="Phonetics — تلفظ و آهنگ" aria-label="Phonetics">
+      <button class="hbtn" id="phtoggle" aria-expanded="false" title="Phonetics — تلفظ و آهنگ" aria-label="Sounds — pronunciation and rhythm / تلفظ و آهنگ">
         <i>🗣</i><span>Sounds</span></button>
-      <button class="hbtn" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" aria-label="Review">
+      <button class="hbtn" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
         <i>⭐</i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
       <button class="hbtn danger" id="clear" title="Clear conversation — پاک کردن گفتگو" aria-label="Clear conversation">
         <i>🗑</i><span>Clear</span></button>
@@ -4420,6 +4422,18 @@ input.focus();
 
 
 class Handler(BaseHTTPRequestHandler):
+    def _send_text(self, body: str, content_type: str,
+                   cache_seconds: int = 0) -> None:
+        """Reply with a plain body. `_send_json` covers everything else."""
+        raw = body.encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", content_type)
+        if cache_seconds:
+            self.send_header("Cache-Control", f"public, max-age={cache_seconds}")
+        self.send_header("Content-Length", str(len(raw)))
+        self.end_headers()
+        self.wfile.write(raw)
+
     def _send_json(self, payload, cache_seconds: int = 300) -> None:
         """Reply with JSON. Anything read from a file on disk is cached
         briefly, because those files are re-read on every request and only
@@ -4434,6 +4448,12 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        # Lighthouse flagged robots.txt as invalid because the 404 page was
+        # being parsed as one. This app is a personal tool and has nothing to
+        # index, so say so explicitly rather than leaving a 404 to be read.
+        if self.path == "/robots.txt":
+            return self._send_text("User-agent: *\nDisallow: /\n",
+                                   "text/plain; charset=utf-8")
         if self.path.startswith("/api/wordarch"):
             # Word architecture: for every vocabulary word, its verified form
             # family. The Sentences panel groups these under each CEFR level.
