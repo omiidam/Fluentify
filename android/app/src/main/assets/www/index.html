@@ -160,23 +160,38 @@
   .status i { width: 8px; height: 8px; border-radius: 50%; background: #34d399;
               box-shadow: 0 0 8px #34d399; animation: pulse 1.6s infinite; display: inline-block; }
   @keyframes pulse { 50% { opacity: .35; } }
+  /* Section tiles: icon over a tiny caption. Seven of these fit across a
+     phone without scrolling, where the old full-width pills overflowed. */
   .hbtn {
+    position: relative;
     background: linear-gradient(140deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
     color: var(--text);
-    border: 1px solid rgba(255,255,255,.16); border-radius: 11px;
-    padding: 8px 14px; font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: .15s; white-space: nowrap;
+    border: 1px solid rgba(255,255,255,.16); border-radius: 12px;
+    width: 46px; height: 46px; padding: 4px 2px;
+    display: inline-flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2px;
+    cursor: pointer; transition: .15s; flex: none;
     font-family: inherit;
   }
+  .hbtn i { font-style: normal; font-size: 16px; line-height: 1; }
+  .hbtn span {
+    font-size: 8.5px; font-weight: 700; letter-spacing: -.05px;
+    line-height: 1; color: var(--muted); max-width: 100%;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
   .hbtn:hover {
-    border-color: rgba(109,140,255,.7); color: #dfe6ff;
+    border-color: rgba(109,140,255,.7);
     background: linear-gradient(140deg, rgba(109,140,255,.28), rgba(167,139,250,.16));
-    transform: translateY(-1px);
   }
   .hbtn.on {
-    border-color: rgba(109,140,255,.8); color: #fff;
+    border-color: rgba(109,140,255,.8);
     background: linear-gradient(140deg, rgba(109,140,255,.42), rgba(167,139,250,.26));
     box-shadow: 0 0 0 1px rgba(109,140,255,.25), 0 4px 14px rgba(109,140,255,.25);
+  }
+  .hbtn.on i, .hbtn.on span { color: #fff; }
+  .hbtn.danger:hover {
+    border-color: rgba(248,113,113,.6);
+    background: rgba(248,113,113,.2);
   }
 
   /* ---------- vocabulary / grammar / phrases panels ---------- */
@@ -578,9 +593,11 @@
 
   /* ---------- review: saved words + flashcards ---------- */
   .rbadge {
-    display: inline-block; margin-inline-start: 6px; min-width: 17px;
-    padding: 0 5px; border-radius: 999px; font-size: 10px; font-weight: 700;
-    background: #ffc44d; color: #3a2400; vertical-align: 1px;
+    position: absolute; top: -3px; inset-inline-end: -3px;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 15px; height: 15px; padding: 0 4px; border-radius: 999px;
+    font-size: 9px; font-weight: 800; color: #3a2400;
+    background: #ffc44d; border: 1px solid rgba(11,16,46,.6);
   }
   .rtop { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
   .rprog {
@@ -889,20 +906,19 @@
   #seedmeter { width: 62px; height: 18px; }
   #seedmeter span { font-size: 9.5px; padding: 0 6px; letter-spacing: -.2px; }
 
-  /* the toggles become a horizontally scrollable toolbar under the title */
+  /* seven compact tiles share the title row — no scrolling needed */
   .tools {
     order: 10; width: 100%;
-    display: flex; gap: 7px; overflow-x: auto;
-    -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
-    scrollbar-width: none; padding-bottom: 2px;
-    /* let the row bleed into the side padding so pills can scroll to the edge */
+    display: flex; gap: 4px; justify-content: space-between;
+    overflow: visible;
+    scrollbar-width: none; padding-bottom: 0;
+    /* let the row bleed into the side padding so tiles can use the full width */
     margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad);
   }
   .tools::-webkit-scrollbar { display: none; }
-  .hbtn {
-    flex: none; min-height: var(--tap);
-    padding: 9px 14px; font-size: 12.5px; border-radius: 12px;
-  }
+  .hbtn { width: 44px; height: 46px; border-radius: 11px; padding: 4px 1px; }
+  .hbtn i { font-size: 15px; }
+  .hbtn span { font-size: 8px; }
   /* no hover affordances on touch — they'd stick after a tap */
   @media (hover: none) {
     .hbtn:hover, .chip:hover, .ftopic:hover, .vbtn:hover,
@@ -1010,7 +1026,9 @@
     .avatar { width: 46px; height: 46px; border-radius: 15px; }
     .avatar svg { width: 38px; height: 38px; }
     .tools { order: 0; width: auto; margin: 0; padding: 0; overflow: visible; }
-    .hbtn { min-height: 0; padding: 8px 14px; font-size: 13px; }
+    .hbtn { width: 48px; height: 48px; }
+    .hbtn i { font-size: 16px; }
+    .hbtn span { font-size: 8.5px; }
     #chat { padding: 20px 22px 10px; gap: 16px; }
     .bubble-wrap { max-width: 80%; }
     .mav { width: 32px; height: 32px; border-radius: 11px; }
@@ -1080,13 +1098,20 @@
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
-      <button class="hbtn" id="vtoggle" title="Browse vocabulary domains">📚 Vocabulary</button>
-      <button class="hbtn" id="gtoggle" title="English grammar lessons — درس‌های گرامر">📘 Grammar</button>
-      <button class="hbtn" id="ftoggle" title="Useful everyday sentences — جملات کاربردی">💬 Sentences</button>
-      <button class="hbtn" id="ltoggle" title="Listening practice A1–C2 — شنیدن و تلفظ">🎧 Listening</button>
-      <button class="hbtn" id="phtoggle" title="Phonetics &amp; connected speech — تلفظ و آهنگ">🗣 Phonetics</button>
-      <button class="hbtn" id="rtoggle" title="Words you saved to review — واژه‌های مرور">⭐ Review<span class="rbadge" id="rbadge" hidden>0</span></button>
-      <button class="hbtn" id="clear" title="Clear conversation">🗑 Clear</button>
+      <button class="hbtn" id="vtoggle" title="Vocabulary — واژگان" aria-label="Vocabulary">
+        <i>📚</i><span>Vocab</span></button>
+      <button class="hbtn" id="gtoggle" title="Grammar — گرامر" aria-label="Grammar">
+        <i>📘</i><span>Grammar</span></button>
+      <button class="hbtn" id="ftoggle" title="Sentences — جملات کاربردی" aria-label="Sentences">
+        <i>💬</i><span>Say</span></button>
+      <button class="hbtn" id="ltoggle" title="Listening A1–C2 — شنیدن" aria-label="Listening">
+        <i>🎧</i><span>Listen</span></button>
+      <button class="hbtn" id="phtoggle" title="Phonetics — تلفظ و آهنگ" aria-label="Phonetics">
+        <i>🗣</i><span>Sounds</span></button>
+      <button class="hbtn" id="rtoggle" title="Review saved words — واژه‌های مرور" aria-label="Review">
+        <i>⭐</i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
+      <button class="hbtn danger" id="clear" title="Clear conversation — پاک کردن گفتگو" aria-label="Clear conversation">
+        <i>🗑</i><span>Clear</span></button>
     </nav>
   </header>
 
@@ -1372,7 +1397,10 @@ async function send(text) {
   if (!text) return;
   // Commands run before the `busy` guard: typing a section name while a
   // reply is still loading must still work, not be silently dropped.
+  // Every command clears the composer — the typed word was a command, not a
+  // message waiting to be sent.
   if (isClearCommand(text)) {
+    input.value = '';
     add(text, 'user');
     clearChat();
     return;
@@ -1380,12 +1408,13 @@ async function send(text) {
   // "listening", "open grammar section", "بخش واژگان" → open the topbar panel
   const section = matchSectionCommand(text);
   if (section) {
+    input.value = '';
     openSection(section[0], section[1], text);
     return;
   }
   // "save apple to review" / "open my review list" — also not chat messages.
   // matchReviewCommand does the work itself and returns true when it handled it.
-  if (matchReviewCommand(text)) return;
+  if (matchReviewCommand(text)) { input.value = ''; return; }
   if (busy) return;                      // real message, but one is in flight
   // daily limit reached — refuse the message, don't queue it
   if (Seed.spent()) { Seed.block(); return; }
