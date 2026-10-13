@@ -137,15 +137,9 @@
   .row.grouped .meta > i { display: none; }
   .row.grouped .meta { justify-content: flex-end; }
 
-  /* The panels cap their height and scroll, and without a cue they simply
-     stop mid-button - which reads as a rendering fault rather than as "there
-     is more below".
-
-     An inset shadow on the scroll container rather than a sticky element on
-     the last child: the last child is not stable. PanelSearch appends its
-     empty-state box to the panel, which changes what :last-child is, and the
-     fade ended up floating over the middle of the content. This cannot move,
-     because it is painted on the box that clips. */
+  /* A cue that the panels scroll, or they just stop mid-button and read as a
+     rendering fault. Painted on the clipping box rather than on :last-child,
+     which PanelSearch appends to and so is not stable. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(0,0,0,.62);
   }
@@ -526,12 +520,9 @@
   }
   .msg.err { border-color: #f87171; color: #fecaca; background: #7f1d1d55; }
 
-  /* The chat is wrapped so this button can be anchored to the transcript
-     rather than to the window. It used to sit at `bottom: 78px`, centred,
-     which put it squarely on top of the message input - the composer is
-     taller than 78px, so the button floated over the text field and read as
-     part of it. Anchoring to the transcript's own bottom edge means no magic
-     number to keep in step with the chips, the composer and the theme row. */
+  /* Wrapping the transcript lets the jump button anchor to it rather than to
+     the window: a bottom offset measured from the window lands on the
+     composer, which is taller than any constant worth writing down. */
   .chatwrap {
     flex: 1 1 auto; position: relative; min-height: 0;
     display: flex; flex-direction: column;
@@ -724,13 +715,9 @@
   }
 
   /* ---------- review: saved words + flashcards ---------- */
-  /* Inside the tile, not overhanging its corner.
-
-     It used to sit at top:-3px / inset-inline-end:-3px, which put it outside a
-     46px button - and because it is a <span> it inherited .hbtn span's
-     overflow:hidden, so the tile clipped it in half and it read as a sliver
-     jammed against the edge. Anchored inside with a real gap, it is a badge
-     on the tile rather than debris next to it. */
+  /* Inside the tile. A negative offset puts it outside a 46px button, and
+     being a span it then inherits .hbtn span's overflow:hidden and is clipped
+     in half - a sliver on the edge rather than a badge. */
   .rbadge {
     position: absolute; top: 3px; inset-inline-end: 3px; z-index: 1;
     display: inline-flex; align-items: center; justify-content: center;
@@ -1145,12 +1132,9 @@
   }
 
   /* ---- daily limit reached: the composer goes quiet ---- */
-  /* The daily allowance, drawn as a rail under the composer with the moon
-     riding along it. It was a row of text that appeared only once the limit
-     had already been hit, which is the one moment advice is too late to be
-     useful - you cannot spend fifty messages and then be told you had ten
-     left. The moon travels left to right and is against the right-hand end
-     at the limit. */
+  /* The daily allowance: a rail under the composer with the moon riding it
+     left to right. It was text that appeared only at the limit, which is the
+     one moment advice is too late to be useful. */
   .limitenote {
     padding: 0; margin: 8px 2px 0; min-height: 26px;
   }
@@ -1173,12 +1157,9 @@
 
   .limitenote .lockic {
     position: absolute; top: -2px; font-size: 15px; line-height: 1;
-    /* `left`, not transform. In a transform, a percentage resolves against
-       the element's own box, not its containing block - so
-       translateX(calc(var(--p) * (100% - 20px))) moves the moon by a fraction
-       of its own 19px width and it never leaves the start of the rail.
-       `left` resolves against the rail, which is what "move to the right"
-       actually means here. */
+    /* left, not transform: a % inside transform() resolves against the
+       element's own box, so the moon moves by a fraction of its own width and
+       never leaves the start of the rail. */
     left: calc(var(--p, 0) * (100% - 20px));
     transition: left .45s cubic-bezier(.22,1,.36,1);
     filter: grayscale(.35) brightness(.95);
@@ -2516,13 +2497,9 @@ const Motion = (() => {
 
 /* ============================================================================
  * PANEL SHELL
- * Every section panel gets the same behaviour: a close button, Esc to leave,
- * focus moved in on open and back to the tile on close, aria-expanded on the
- * tile, and a search box where searching makes sense.
- *
- * This exists because the six panels had drifted into six behaviours. Only
- * Vocabulary had search, none had a close button, Esc closed the audio but
- * not a panel, and opening one left focus stranded on the tile behind it.
+ * Close button, Esc, focus in on open and back to the tile on close, and
+ * aria-expanded - for all six panels, which had otherwise drifted into six
+ * behaviours. togglePanel routes through here so they cannot diverge again.
  * ==========================================================================*/
 const Panels = (() => {
   const TILES = {
@@ -2669,12 +2646,9 @@ const Panels = (() => {
 
 /* ============================================================================
  * PANEL SEARCH
- * Vocabulary had a search box and the other five panels did not, so 37
- * grammar lessons and 39 sentence banks could only be found by scrolling.
- *
- * This is generic on purpose: hide what does not match, report what is left,
- * and say so when nothing does. One implementation means the panels cannot
- * drift apart again the way they did.
+ * Only Vocabulary had a search box; 37 grammar lessons and 39 sentence banks
+ * could only be found by scrolling. Generic on purpose - hide what does not
+ * match, report what is left, say so when nothing does.
  * ==========================================================================*/
 const PanelSearch = (() => {
   const attached = new Map();
@@ -3704,12 +3678,9 @@ function showWord(entry) {
   card.scrollIntoView({block: 'nearest', behavior: 'smooth'});
 }
 
-/* word_arch.json is 302 KB - 78% of everything the page downloads at boot -
-   and it exists only to fill the word chips inside the Sentences panel. It is
-   fetched the first time something actually needs it rather than on every
-   page load: on a phone on a slow connection, 302 KB the user may never open
-   is the difference between the app feeling instant and feeling like it is
-   thinking. The promise is kept so two callers cannot start two downloads. */
+/* word_arch.json is 302 KB of boot payload and only fills the word chips in
+   the Sentences panel, so it is fetched on first use. The promise is kept so
+   two callers cannot start two downloads. */
 let wordArchPromise = null;
 async function loadWordArch() {
   if (wordArchLoaded) return;
@@ -3732,16 +3703,10 @@ async function loadWordArch() {
   return wordArchPromise;
 }
 
-/* Fetching the archive and painting the chips are separate on purpose.
-
-   They used to be one function, called straight after the topic buttons were
-   built. Now the two run on different triggers - the fetch waits for the
-   Sentences panel to open, and the painting has to happen whenever the topic
-   buttons have just been rebuilt - and folding them together meant whichever
-   came first won. Offline that is loadWordArch() finding no slots to fill,
-   because the panel's data was already in memory and resolved instantly. On
-   the web it only worked because 302 KB takes longer to arrive than 5 KB, so
-   the ordering bug was invisible exactly where it was easiest to hit. */
+/* Fetching the archive and painting the chips are separate because either can
+   happen first: the fetch waits for the panel to open, the paint has to
+   follow the topic buttons being rebuilt. Folded together, offline wins the
+   race and finds no slots to fill. */
 function paintWordArch() {
   if (!wordArchLoaded) return;
   // drop the placeholder text and insert the real chips into each level

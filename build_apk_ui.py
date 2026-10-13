@@ -34,16 +34,11 @@ def sub(text: str, old: str, new: str, what: str,
         count: int = -1, required: bool = True) -> str:
     """html.replace, but it refuses to fail quietly.
 
-    Thirteen transforms rewrite the page for the offline build. Plain
     str.replace returns the input unchanged when the pattern is absent and
-    raises nothing, so an edit to webapp.py that moves or removes any of
-    these anchors silently ships an APK with that piece missing. It happened:
-    dropping one boot call made the data-loading replacement a no-op and the
-    offline app shipped with no engine, no data and no panels - and the build
-    still printed "page parses clean".
-
-    Every anchor here is a seam between the two builds, so each one has to
-    still be there. If one is not, stop and say which.
+    raises nothing, so an edit to webapp.py that moves one of these anchors
+    silently ships an APK with that piece missing. It happened: dropping a
+    boot call made the data-loading rewrite a no-op and the offline app shipped
+    with no engine, no data and no panels, while the build still passed.
     """
     if old not in text:
         if required:
@@ -63,12 +58,9 @@ html = sub(html, "/*__STT_CONFIG__*/", "", "the STT config marker")
 
 # 1) send(): call the local engine instead of the HTTP endpoint
 #
-# This used to be an exact string copy of the web send() body, which meant any
-# edit to the catch block in webapp.py broke the APK build with a bare
-# assertion - and the offline build silently kept the old behaviour until
-# someone noticed. It is matched structurally now: the engine call and the
-# failure handling are rewritten where they are, and anything else in the
-# function is left alone. The two builds cannot drift on this path.
+# Matched structurally rather than as an exact copy of the web body, which
+# used to break the build on any edit to the catch block in webapp.py while
+# leaving the offline copy silently out of date.
 m = re.search(r"(  showTyping\(\);\n  try \{\n)(.*?)(\n  \} catch \(e\) \{\n)(.*?)(\n  \}\n)", html, re.S)
 if not m:
     sys.exit("could not find the send() try/catch in the template")
@@ -163,11 +155,8 @@ html = sub(
 # what fills the offline cache.
 
 # 3) boot: load the data, build the bot, then populate the panels
-# Matched on the calls themselves rather than one contiguous block. The boot
-# statements are separated by a listener, and an earlier version of this
-# replaced the exact three-line run "loadGrammar(); loadPhrases();
-# loadVocabulary();" - so removing one boot call made the replacement silently
-# do nothing and the offline app shipped with no data loading at all.
+# Matched on the calls themselves: they are separated by a listener, so an
+# earlier exact three-line match stopped matching the moment one call moved.
 _boot = """loadGrammar();
 loadVocabulary();"""
 html = sub(

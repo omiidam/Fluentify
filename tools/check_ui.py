@@ -106,9 +106,8 @@ def main() -> int:
               f"a voice-control user cannot say {visible!r} to open it")
 
     # ---------------------------------------------------- lazy word archive --
-    # word_arch.json is 302 KB - 78% of the boot payload - and it exists only
-    # to fill the word chips inside the Sentences panel. It used to be fetched
-    # on every page load for a panel most visitors never open.
+    # word_arch.json is 302 KB of boot payload and only fills the Sentences
+    # panel's word chips, so it is fetched on first use.
     # The boot statements are the top-level calls after PANEL_ON_OPEN is
     # declared; the hook that does fetch word_arch lives above them, so the
     # window has to start after it or this check just finds its own fix.
@@ -131,11 +130,9 @@ def main() -> int:
           "await loadWordArch()" in review,
           "otherwise saving before the Sentences panel was ever opened fails")
 
-    # Fetching the archive and painting the chips are separate calls, because
-    # either can happen first. Offline the data is already in memory and
-    # resolves before the topic buttons exist; on the web it arrives long after
-    # they do. Calling loadWordArch() alone paints whichever ran first and
-    # leaves five "Loading word forms…" placeholders on screen.
+    # Fetch and paint are separate because either can run first: offline the
+    # archive is in memory and resolves before the topic buttons exist.
+    # loadWordArch() alone paints whichever ran, leaving the placeholders.
     check("painting the word chips is separate from fetching them",
           "function paintWordArch(" in src,
           "one function cannot win both orderings")
@@ -193,10 +190,8 @@ def main() -> int:
           ".hbtn span sets ellipsis and nowrap, which is for labels not counts")
 
     # ------------------------------------------------------- daily limit --
-    # The moon rides a rail from the left end to the right as the counter goes
-    # 0 -> 50. It used to be a row of text that appeared only once the limit
-    # had already been hit, which is the one moment advice is too late to be
-    # useful.
+    # The moon rides a rail left to right as the counter goes 0 -> 50. It was
+    # text that appeared only once the limit had already been hit.
     lockui = fn_body(src, "lockUI")
     check("the moon's position comes from the message counter",
           "--p" in lockui and "used / SEED_GOAL" in lockui,
@@ -209,9 +204,8 @@ def main() -> int:
     # Comments out, or this check matches the comment that explains why the
     # transform was removed - which mentions translateX by name.
     lb = re.sub(r"/\*.*?\*/", "", lockic.group(1), flags=re.S) if lockic else ""
-    # The trap: a percentage inside transform() resolves against the element's
-    # own box, not the rail, so the moon moved by a fraction of its own 19px
-    # and never left the start.
+    # A % inside transform() resolves against the element's own box, so the
+    # moon moved by a fraction of its own width and never left the start.
     check("the moon is positioned with left, not a percentage transform",
           "left: calc(var(--p" in lb and "translateX" not in lb,
           "a % in a transform resolves against the element, so it never travels")
@@ -220,11 +214,9 @@ def main() -> int:
           "otherwise the moon hangs off the end of the track when full")
 
     # ------------------------------------------------- scroll-to-latest --
-    # It was position:absolute at `bottom: 78px`, centred. The composer is
-    # taller than 78px, so the button floated on top of the message input and
-    # read as part of the text field. Anchored to the transcript's own bottom
-    # edge instead, inside a wrapper, with no magic offset to keep in step
-    # with the chips, the composer and the theme row.
+    # It was at bottom:78px, which is inside the composer, so it floated over
+    # the message input. Now anchored to the transcript, whose height is not a
+    # constant to drift against.
     check("the transcript is wrapped so the jump button can anchor to it",
           '<div class="chatwrap">' in src and "</div>\n  <button id=\"jump\"" not in src,
           "positioning the button against the window is what put it on the composer")
@@ -233,10 +225,9 @@ def main() -> int:
           is not None)
     jumpcss = re.search(r"\n  \.jump \{(.*?)\n  \}", src, re.S)
     jb = jumpcss.group(1) if jumpcss else ""
-    # A bottom offset is only safe because the button is positioned against
-    # the transcript rather than the window: the wrapper is the containing
-    # block, so 14px means 14px above the end of the messages no matter how
-    # tall the chips, composer and theme row happen to be.
+    # The offset is only safe because the wrapper is the containing block:
+    # 14px then means 14px above the last message whatever the chrome's
+    # height, instead of 14px up from the app and on top of the composer.
     wrap = re.search(r"\n  \.chatwrap \{(.*?)\n  \}", src, re.S)
     check("the jump button is offset from the transcript, not from the window",
           wrap is not None and "position: relative" in wrap.group(1)
@@ -254,9 +245,8 @@ def main() -> int:
     check("reaching the bottom clears the unread count",
           re.search(r"if \(pinned\) unread = 0", src) is not None)
 
-    # The suggestion row is left to shrink, which squeezed it to 19px against
-    # 38px chips - every suggestion showed as its bottom half. The transcript
-    # is the only thing in that column that should give up space.
+    # The suggestion row was left to shrink and got squeezed to 19px against
+    # 38px chips, showing every suggestion as its bottom half.
     chips = re.search(r"\n  \.chips \{(.*?)\n  \}", src, re.S)
     check("the suggestion row keeps its natural height",
           chips is not None and "flex: none" in chips.group(1),
@@ -268,14 +258,14 @@ def main() -> int:
     check("togglePanel exists", bool(toggle))
     check("togglePanel routes through the panel shell",
            "Panels.toggle" in toggle,
-           "focus, aria-expanded and the open class must not be able to diverge")
+           "focus and aria-expanded must not diverge from the open class")
     # The hook used to run in togglePanel. It now lives in Panels.set(), which
     # is the only thing that opens a panel. Checking the old location would let
     # the exact regression this file was written for come back unnoticed.
     openbody = fn_body(src, "set")
     check("opening a panel runs its per-panel hook",
            "if (hook) hook();" in openbody,
-           "a panel whose content is generated must be told to redraw")
+           "generated panels must repaint on open")
     check("togglePanel passes the per-panel hook down",
            "PANEL_ON_OPEN" in toggle)
 
