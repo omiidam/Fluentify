@@ -138,9 +138,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: flex; align-items: center; gap: 10px;
     margin-bottom: 10px; flex: none;
   }
+  /* The titles are bilingual and can be long. Without min-width: 0 the h3
+     refuses to shrink below its content and pushes the close button past the
+     edge of the panel on a narrow phone. */
+  .phead h3 { min-width: 0; overflow-wrap: anywhere; }
   .phead h3 { flex: 1 1 auto; margin: 0; min-width: 0; }
   .pclose {
-    flex: 0 0 38px; width: 38px; height: 38px; border-radius: 11px;
+    /* 44px, not 38. This is the one control in a panel you press with a thumb
+       to get out of it, and the app already reserves --tap: 44px on phones
+       for everything else. The button looked generous at desktop width and
+       was not, at the width it is actually used. */
+    flex: 0 0 44px; width: 44px; height: 44px; border-radius: 13px;
     display: grid; place-items: center; cursor: pointer;
     background: #18204a; border: 1px solid #33427c; color: #c3ceff;
     font-size: 17px; line-height: 1;
@@ -1065,7 +1073,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .tools {
     order: 10; width: 100%;
     display: flex; gap: 4px; justify-content: space-between;
-    overflow: visible;
+    /* Seven 44px tiles, six 4px gaps and 14px of padding each side is 360px
+       exactly - so any phone narrower than that clips the last tile. The row
+       scrolls instead. Desktop overrides this back to visible above 600px. */
+    overflow-x: auto;
     scrollbar-width: none; padding-bottom: 0;
     /* let the row bleed into the side padding so tiles can use the full width */
     margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad);
