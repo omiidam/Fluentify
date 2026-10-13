@@ -62,17 +62,27 @@ class MainActivity : AppCompatActivity() {
 
     private val recognizerLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            val text = when (result.resultCode) {
-                Activity.RESULT_OK -> {
-                    val data = result.data ?: Bundle()
-                    data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-                        ?.joinToString(" ")?.trim().orEmpty()
-                }
-                else -> ""
+            // result.data is an Intent?, and mixing it with a Bundle fallback
+            // widens the expression to their common supertype - so the Intent
+            // methods below stop resolving. Keep the nullable Intent and let
+            // the safe call do the work.
+            val results = if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+            } else {
+                null
             }
-            if (result.resultCode == Activity.RESULT_OK && text.isNotEmpty()) {
-                sttFinal?.invoke(text)
-            } else if (result.resultCode != Activity.RESULT_OK) {
+            val text = results?.joinToString(" ")?.trim().orEmpty()
+
+            if (result.resultCode == Activity.RESULT_OK) {
+                if (text.isNotEmpty()) {
+                    sttFinal?.invoke(text)
+                } else {
+                    // RESULT_OK with nothing in it happens when the recogniser
+                    // returns without a usable hypothesis. Saying so beats
+                    // pretending the microphone is simply not responding.
+                    sttError?.invoke("no-speech")
+                }
+            } else {
                 sttError?.invoke("no-speech")
             }
             clearSttCallbacks()
@@ -241,8 +251,10 @@ class MainActivity : AppCompatActivity() {
                     c == '\n' -> sb.append("\\n")
                     c == '\r' -> sb.append("\\r")
                     c == '\t' -> sb.append("\\t")
-                    c.toInt() < 0x20 -> sb.append("\\u").append(
-                        String.format("%04x", c.toInt())
+                    // Char.toInt() is hidden on Kotlin 1.9; Char.code is the
+                    // replacement and is a non-negative code point by contract.
+                    c.code < 0x20 -> sb.append("\\u").append(
+                        String.format(Locale.ROOT, "%04x", c.code)
                     )
                     else -> sb.append(c)
                 }

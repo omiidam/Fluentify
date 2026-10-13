@@ -21,11 +21,14 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Check the Android manifest before spending 5 minutes on Gradle
-        # There is no SDK in the loop below that would tell us a misspelled
-        # android: attribute is not an attribute until AAPT runs, so this
-        # catches the whole class first, in a second.
-        run: python3 tools/check_manifest.py
+      - name: Check the Android sources before spending 5 minutes on Gradle
+        # Neither AAPT nor kotlinc runs until the Gradle step, and two build
+        # failures have shipped that only CI could see - a misspelled android:
+        # attribute and an elvis fallback that widened an Intent to Any. These
+        # catch both classes first, in a second.
+        run: |
+          python3 tools/check_manifest.py
+          python3 tools/check_kotlin.py
 
       - name: Regenerate the offline app UI and sync its data
         # build_apk_ui.py owns the data/ sync - it copies every file the
