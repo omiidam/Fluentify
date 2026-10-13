@@ -467,6 +467,50 @@ def run_motion() -> None:
     check("no keyframe animates a layout property", not bad,
           ", ".join(sorted(bad)))
 
+    # The mic read as missing: an emoji glyph on a #141c46 disc with a
+    # #3a4a86 ring, beside a bright indigo Send button. Three separate causes.
+    check("the mic icon is an SVG, not an emoji",
+          "MIC_ICON" in html and "btn.innerHTML = MIC_ICON" in html)
+    # only the *button icon* matters here: an emoji inside a toast message is
+    # harmless, since a missing glyph degrades to prose rather than to a
+    # control that looks empty
+    mount = html.split("function mountMic")[1].split("\nfunction ")[0]
+    icon_assignment = _re.search(r"btn\.(?:innerHTML|textContent)\s*=\s*([^;]+);", mount)
+    check("the mic icon is assigned from the SVG, not a literal",
+          icon_assignment is not None
+          and "MIC_ICON" in icon_assignment.group(1),
+          f"icon set to {icon_assignment.group(1)[:40] if icon_assignment else '?'}")
+    check("the mic icon is not an emoji glyph",
+          icon_assignment is not None
+          and not _re.search(r"[\U0001F300-\U0001FAFF]", icon_assignment.group(1)),
+          "the glyph depends on the platform having an emoji font")
+    check("the mic has a visible fill, not dark-on-dark",
+          ".mic {" in html and "#29356e" in html.lower(),
+          "a #141c46 disc on a dark composer does not read as a control")
+    check("the mic has a visible border",
+          "#7d92e0" in html.lower())
+    # NOT the disabled attribute: that swallows its own click events, so on
+    # touch the control would do nothing and its explanation be unreachable
+    check("the mic has an unavailable state for browsers with no recogniser",
+          '.mic[aria-disabled="true"]' in html
+          and "btn.setAttribute('aria-disabled', 'true')" in html)
+    # a plain substring test matches sendbtn.disabled and input.disabled, which
+    # are unrelated and correctly disabled elsewhere in the app
+    check("the mic is never given the disabled attribute",
+          _re.search(r"(?<![A-Za-z_$])btn\.disabled", html) is None,
+          "a disabled button does not fire click, so tapping it would be dead")
+    check("an unsupported browser is told why, not left silent",
+          "unsupported_message" in html)
+    check("the input may shrink so the mic is never squeezed out",
+          "#input { min-width: 0; }" in html)
+
+    # toast() was called by the STT error path and the media player but had
+    # never been defined, so both threw a ReferenceError.
+    check("toast() is defined", "function toast(" in html)
+    check("toast() has a host element", 'id="toasthost"' in html)
+    check("system notices no longer masquerade as the tutor speaking",
+          "a system notice, not the tutor speaking" in html)
+
     # mounting must be idempotent - the offline build calls it from the boot
     # block and again at the end of the page script, and two mic buttons in
     # the composer is worse than none

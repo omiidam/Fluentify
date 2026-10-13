@@ -1053,6 +1053,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     gap: 8px; flex-direction: column;
   }
   .prow-form { display: flex; gap: 8px; }
+  /* The composer holds three things: the input, the mic and Send. The input is
+     the only one allowed to shrink, so the mic can never be squeezed off a
+     narrow screen - min-width:0 states that explicitly rather than relying on
+     the input's intrinsic width being small. */
+  #input { min-width: 0; }
+  @media (max-width: 420px) {
+    .send { padding: 0 18px; font-size: 14.5px; }
+    .prow-form { gap: 6px; }
+  }
 
   /* ---- daily limit reached: the composer goes quiet ---- */
   .limitenote {
@@ -1079,25 +1088,54 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #input { padding: 12px 15px; font-size: 16px; border-radius: 14px; }
 
   /* ------------------------------------------------------------ speech ---- */
+  /* The mic used to be an emoji on a #141c46 disc with a #3a4a86 ring -
+     dark on dark, next to a bright indigo Send button. It read as missing,
+     and where the platform has no emoji font the glyph rendered as nothing
+     at all. So: an inline SVG for the icon (never depends on a font) and a
+     fill light enough to be seen without competing with Send. */
   .mic {
     width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%;
-    border: 1px solid #3a4a86; background: #141c46; color: #cfd8ff;
-    font-size: 18px; cursor: pointer; display: grid; place-items: center;
-    transition: background .18s, border-color .18s, transform .1s;
+    display: grid; place-items: center; cursor: pointer;
+    color: #dbe3ff; background: #29356e;
+    border: 1.5px solid #7d92e0;
+    box-shadow: 0 2px 10px rgba(4, 8, 26, .5), inset 0 1px 0 rgba(255, 255, 255, .16);
+    transition: background .18s, border-color .18s, transform .1s, box-shadow .18s;
   }
-  .mic:hover { border-color: #6f86d6; background: #1b2557; }
+  .mic svg { width: 21px; height: 21px; display: block; }
+  .mic svg * { stroke: currentColor; }
+  .mic:hover {
+    background: #35448a; border-color: #a8b8ff; color: #fff;
+    box-shadow: 0 4px 16px rgba(4, 8, 26, .6), inset 0 1px 0 rgba(255, 255, 255, .22);
+  }
+  .mic:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 2px; }
   .mic:active { transform: scale(.94); }
   .mic.rec {
-    background: #7d2b52; border-color: #ff6f9c; color: #fff;
-    box-shadow: 0 0 0 0 rgba(255, 111, 156, .55);
+    background: #b23a6b; border-color: #ff8fb4; color: #fff;
     animation: micPulse 1.4s ease-out infinite;
   }
+  .mic.rec svg { transform: scale(1.06); }
+  /* aria-disabled, not disabled: a disabled button swallows its own click
+     events, so on touch the control would sit there doing nothing and the
+     explanation in its title would be unreachable. aria-disabled announces
+     the state to a screen reader while leaving the tap working. */
+  .mic[aria-disabled="true"] {
+    background: #1e2748; border-color: #4a5a94; color: #8794c9;
+  }
+  .mic[aria-disabled="true"]:hover {
+    background: #26314f; border-color: #6274b8; color: #a7b3e0;
+  }
+  /* a hint, once, so the button is noticed rather than rediscovered */
+  @keyframes micHint {
+    0%, 100% { box-shadow: 0 2px 10px rgba(4,8,26,.5), 0 0 0 0 rgba(168,184,255,.5); }
+    60%      { box-shadow: 0 2px 10px rgba(4,8,26,.5), 0 0 0 9px rgba(168,184,255,0); }
+  }
+  .mic.hint { animation: micHint 2.6s ease-out 3; }
   @keyframes micPulse {
     0%   { box-shadow: 0 0 0 0 rgba(255, 111, 156, .55); }
     100% { box-shadow: 0 0 0 16px rgba(255, 111, 156, 0); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .mic.rec { animation: none; }
+    .mic.rec, .mic.hint { animation: none; }
   }
   .stt-panel {
     display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
@@ -1394,12 +1432,38 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .hbtn:nth-child(6) { animation-delay: .15s; }
   .hbtn:nth-child(7) { animation-delay: .18s; }
 
-  /* ---------- 10. toasts -------------------------------------------- */
+  /* ---------- 10. toasts ----------------------------------------------
+     Short messages that must not be part of the conversation: a microphone
+     that was denied, a clip that needs a network. They land above the
+     composer, speak politely to a screen reader, and leave on their own. */
   @keyframes toastIn {
     from { opacity: 0; transform: translate3d(0, 16px, 0) scale(.94); }
     to   { opacity: 1; transform: none; }
   }
-  .toast { animation: toastIn .32s cubic-bezier(.22,1,.36,1) both; }
+  @keyframes toastOut {
+    from { opacity: 1; transform: none; }
+    to   { opacity: 0; transform: translate3d(0, 8px, 0) scale(.97); }
+  }
+  .toast-host {
+    position: fixed; left: 50%; transform: translateX(-50%);
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+    z-index: 40; display: flex; flex-direction: column; gap: 8px;
+    align-items: center; pointer-events: none;
+    width: min(560px, calc(100vw - 28px));
+  }
+  .toast {
+    pointer-events: auto; max-width: 100%;
+    padding: 11px 15px; border-radius: 13px;
+    background: linear-gradient(140deg, rgba(52,66,138,.97), rgba(30,39,86,.97));
+    border: 1px solid #6f86d6; color: #e6ebff;
+    font-size: 13px; line-height: 1.5; text-align: center;
+    box-shadow: 0 14px 40px rgba(3, 6, 20, .6);
+    animation: toastIn .32s cubic-bezier(.22,1,.36,1) both;
+  }
+  .toast.out { animation: toastOut .26s ease-in forwards; }
+  @media (min-width: 900px) {
+    .toast-host { bottom: 96px; }
+  }
 
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
@@ -1422,6 +1486,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 </head>
 <body>
   <div class="motes" id="motes" aria-hidden="true"></div>
+  <div class="toast-host" id="toasthost" aria-live="polite"></div>
 <div class="backdrop"></div>
 <div class="orb o1"></div>
 <div class="orb o2"></div>
@@ -2364,32 +2429,104 @@ const STT = {
     panel.innerHTML = bits.join(' ');
   },
 };
-/* A single mic button in the composer: tap to talk, tap to stop. */
+/* A transient message. The STT error path and the media player both want to
+ * say something without putting it in the conversation, where it would read
+ * as the tutor talking. */
+let toastSeq = 0;
+function toast(text, ms = 2600) {
+  if (!text) return;
+  const host = document.getElementById('toasthost');
+  if (!host) return;
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = text;
+  host.appendChild(el);
+  // cap the stack: three notices is a message, five is noise
+  while (host.children.length > 3) host.firstElementChild.remove();
+  const id = ++toastSeq;
+  setTimeout(() => {
+    if (!el.isConnected) return;
+    el.classList.add('out');
+    el.addEventListener('animationend', () => el.remove(), {once: true});
+    setTimeout(() => el.remove(), 400);
+  }, Math.max(900, ms));
+  return id;
+}
+
+/* A single mic button in the composer: tap to talk, tap to stop.
+ *
+ * The icon is an inline SVG rather than the 🎙 emoji. The emoji depends on the
+ * platform having a colour-emoji font, and where it does not the button renders
+ * as an empty circle - which reads as a broken control, or as no control.
+ */
+const MIC_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" ' +
+  'stroke-linecap="round" aria-hidden="true">' +
+  '<rect x="9" y="2.5" width="6" height="11" rx="3"/>' +
+  '<path d="M5.5 11a6.5 6.5 0 0 0 13 0"/>' +
+  '<path d="M12 17.5V21"/><path d="M8.5 21h7"/>' +
+  '</svg>';
+
 function mountMic() {
   const box = document.getElementById('input');
-  if (!box || !STT.supported()) return;
+  if (!box) return;
   // Idempotent: the offline build calls this inside its boot block as well as
   // at the end of the page script, and two mic buttons is worse than none.
   if (document.getElementById('mic')) return;
+
   const btn = document.createElement('button');
   btn.id = 'mic';
   btn.className = 'mic';
   btn.type = 'button';
-  btn.title = STT.engine() === 'android'
-    ? 'با میکروفون تایپ کن / dictate'
-    : 'با میکروفون تایپ کن / dictate';
-  btn.setAttribute('aria-label', btn.title);
-  btn.textContent = '🎙';
-  btn.addEventListener('click', () => {
-    if (STT.listening) {
-      STT.stop();
-      STT.commit();
-    } else {
-      STT.begin();
-    }
-  });
+  const LABEL = 'با میکروفون تایپ کن / dictate';
+  btn.title = LABEL;
+  btn.setAttribute('aria-label', LABEL);
+  btn.innerHTML = MIC_ICON;
+
+  const usable = STT.supported();
+  if (!usable) {
+    // Firefox and a few other browsers have no speech engine. Rather than
+    // hide the control - which is what made it look missing - show it in a
+    // muted state and explain itself on tap.
+    btn.setAttribute('aria-disabled', 'true');
+    btn.title = STT.cfg?.web?.unsupported_message
+      || 'این مرورگر گفتار را تشخیص نمی‌دهد — تایپ کن. / This browser has no speech recognition — type instead.';
+    btn.setAttribute('aria-label', btn.title);
+    btn.addEventListener('click', () => toast(btn.title, 4200));
+  } else {
+    btn.addEventListener('click', () => {
+      if (STT.listening) {
+        STT.stop();
+        STT.commit();
+        return;
+      }
+      // begin() returns false when the recogniser refuses to start - a denied
+      // OS permission, or a microphone already in use. Swallowing that leaves
+      // a button that does nothing when tapped, which is the same invisible
+      // control problem in a different costume.
+      if (!STT.begin()) {
+        toast('🎙 Could not start dictation — check the microphone permission. ' +
+              ' / دسترسی به میکروفون را بررسی کن.', 3800);
+      }
+    });
+  }
+
   box.parentNode.insertBefore(btn, box.nextSibling);
   STT.render();
+
+  // one short hint the first time, so the control is found rather than
+  // rediscovered. Shown at most once per browser.
+  if (usable) {
+    const KEY = 'fluentify.mic.hinted';
+    try {
+      if (!localStorage.getItem(KEY)) {
+        btn.classList.add('hint');
+        localStorage.setItem(KEY, '1');
+        btn.addEventListener('animationend', () => btn.classList.remove('hint'),
+                             {once: true});
+      }
+    } catch (e) { /* private mode: the hint is a nicety, so ignore */ }
+  }
 }
 
 if ('speechSynthesis' in window) {
@@ -2597,9 +2734,9 @@ async function loadListening() {
           if (!spoken) {
             row.classList.remove('playing');
             btn.textContent = '▶';
-            add('🔇 No speech engine is available on this device — ' +
-                'the sentence is still here to practise. / روی این دستگاه صدایی در دسترس نیست.',
-                'bot');
+            // a system notice, not the tutor speaking
+            toast('🔇 No speech engine on this device — the sentence is still ' +
+                  'here to practise. / روی این دستگاه صدایی در دسترس نیست.', 4000);
           }
         };
         row.onclick = (ev) => btn.onclick(ev);   // the row is just a bigger play target
@@ -2777,8 +2914,8 @@ async function loadBBC() {
           audio.play().catch(() => {
             play.textContent = '▶  Play';
             play.classList.remove('on');
-            add('🔇 Could not play that clip — the stream needs a network ' +
-                'connection. / پخش این کلیپ به اینترنت نیاز دارد.', 'bot');
+            toast('🔇 Could not play that clip — the stream needs a network ' +
+                  'connection. / پخش این کلیپ به اینترنت نیاز دارد.', 4000);
           });
           play.textContent = '❚❚  Pause';
           play.classList.add('on');
