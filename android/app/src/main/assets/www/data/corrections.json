@@ -13,10 +13,40 @@
       "why": "With I / we / you / they the verb has no -s: 'They don't like it'."
     },
     {
-      "pattern": "\\bi\\s+(is|are|was|were)\\b",
+      "pattern": "\\bi\\s+(is|are)\\b",
       "label": "Subject-verb agreement",
-      "fix": "I am / {1} is",
-      "why": "'I am' in the present, 'I was' in the past. Never 'I is'."
+      "fix": "I am",
+      "why": "'I' takes 'am' in the present and 'was' in the past: 'I am', 'I was' - never 'I is' or 'I are'."
+    },
+    {
+      "pattern": "\\b(they|we|you)\\s+is\\b",
+      "label": "Subject-verb agreement",
+      "fix": "{0} are",
+      "why": "With we / they / you the plural verb is 'are', never 'is'."
+    },
+    {
+      "pattern": "\\b(they|we|you)\\s+was\\b",
+      "label": "Subject-verb agreement",
+      "fix": "{0} were",
+      "why": "With we / they / you the past plural is 'were', never 'was'."
+    },
+    {
+      "pattern": "\\b(i)\\s+were\\b",
+      "label": "Subject-verb agreement",
+      "fix": "I was",
+      "why": "'I' takes 'was' in the past, never 'were'."
+    },
+    {
+      "pattern": "\\b(he|she|it)\\s+(have|has got)\\b",
+      "label": "Subject-verb agreement",
+      "fix": "{0} has",
+      "why": "With he / she / it the verb is 'has', never 'have'."
+    },
+    {
+      "pattern": "\\b(i|we|they|you)\\s+(has)\\b",
+      "label": "Subject-verb agreement",
+      "fix": "{0} have",
+      "why": "With I / we / they / you the verb is 'have', never 'has'."
     },
     {
       "pattern": "\\bhave\\s+(went|gone|ate|eaten|saw|seen|made|taken|took|said|come|came|did|done|got|found|knew|known|thought|bought|gave|given|wrote|written|spoke|spoken|drove|driven|broke|broken|felt|kept|left|met|paid|put|set|sat|stood|understood|worn|run|ran)\\b",
@@ -43,10 +73,16 @@
       "why": "'Most' doubles the superlative: 'most best' becomes 'the best'."
     },
     {
-      "pattern": "\\b(can|will|should|must|could|would|may|might)\\s+to\\b",
+      "pattern": "\\b(can|will|should|must|could|would|may|might)\\s+to\\s+(\\w+)",
       "label": "Modal verb never takes to",
       "fix": "{0} {1}",
       "why": "Modal verbs stand alone: 'can go', 'must go' - never 'can to go'."
+    },
+    {
+      "pattern": "\\b(can|will|should|must|could|would|may|might)\\s+to\\s*[?.!]*\\s*$",
+      "label": "Modal verb never takes to",
+      "fix": "{0}",
+      "why": "A modal verb takes the base form directly - there is nothing after the 'to' here."
     },
     {
       "pattern": "\\b(is|are|was|were|be|been|being)\\s+(in\\s+)?agree\\b",

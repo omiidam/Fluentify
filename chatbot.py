@@ -289,6 +289,19 @@ def first_sound_note(word: str) -> str:
     return f"it starts with /{ch}/"
 
 
+# Past-simple forms that are NOT also participles. "I have seen" is right, so
+# the present-perfect rule must only fire on these - on "seen" or "gone" the
+# learner already used the participle and there is nothing to correct.
+PAST_SIMPLE_ONLY = {
+    "went", "ate", "saw", "came", "did", "got", "found", "knew", "thought",
+    "bought", "gave", "wrote", "spoke", "drove", "broke", "left", "met",
+    "ran", "wore", "tore", "stole", "sang", "drank", "swam", "began", "rose",
+    "fell", "fed", "flew", "threw", "grew", "blew", "drew", "shook", "hid",
+    "bit", "hung", "rode", "woke", "froze", "stole", "struck", "hid",
+    "brought", "caught", "taught", "sought", "thought", "understood",
+}
+
+
 def past_participle(verb: str) -> str:
     """'went' → 'gone'. Regular verbs just add -ed; we leave those alone."""
     v = verb.lower().strip("'")
@@ -1017,6 +1030,12 @@ class ChatBot:
                 continue
             if "{sg}" in rule["fix"] and not m.group(0).lower().endswith("s"):
                 continue
+            if "{pp}" in rule["fix"]:
+                # only fire when the verb is a past simple that is not also a
+                # participle - "have seen" and "have gone" are both correct
+                hit = re.findall(r"[a-z']+", m.group(0).lower())
+                if not hit or hit[-1] not in PAST_SIMPLE_ONLY:
+                    continue
             key = rule["label"]
             if key in seen:
                 continue

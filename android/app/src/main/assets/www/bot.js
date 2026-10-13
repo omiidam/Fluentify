@@ -119,6 +119,16 @@ const BASE_FORMS = {
   equipments: 'equipment', furnitures: 'furniture', advices: 'advice',
   softwares: 'software', researches: 'research', homeworks: 'homework' };
 
+/* Past-simple forms that are NOT also participles. "I have seen" is right, so
+ * the present-perfect rule must only fire on these - on "seen" or "gone" the
+ * learner already used the participle and there is nothing to correct. */
+const PAST_SIMPLE_ONLY = new Set(['went', 'ate', 'saw', 'came', 'did', 'got',
+  'found', 'knew', 'thought', 'bought', 'gave', 'wrote', 'spoke', 'drove',
+  'broke', 'left', 'met', 'ran', 'wore', 'tore', 'stole', 'sang', 'drank',
+  'swam', 'began', 'rose', 'fell', 'fed', 'flew', 'threw', 'grew', 'blew',
+  'drew', 'shook', 'hid', 'bit', 'hung', 'rode', 'woke', 'froze', 'struck',
+  'brought', 'caught', 'taught', 'sought', 'understood']);
+
 const VOWEL_SOUND_EXCEPTIONS = ['s', 'x', 'z', 'ch', 'sh'];
 
 function pastParticiple(verb) {
@@ -1124,6 +1134,12 @@ class Fluentify {
       try { m = new RegExp(rule.pattern, 'i').exec(sentence); } catch (e) { continue; }
       if (!m) continue;
       if (rule.fix.includes('{sg}') && !/\w*s$/i.test(m[0])) continue;
+      if (rule.fix.includes('{pp}')) {
+        // only fire when the verb is a past simple that is not also a
+        // participle - "have seen" and "have gone" are both correct
+        const hit = (m[0].toLowerCase().match(/[a-z']+/g) || []);
+        if (!hit.length || !PAST_SIMPLE_ONLY.has(hit[hit.length - 1])) continue;
+      }
       if (seen.has(rule.label)) continue;
       seen.add(rule.label);
       const was = m[0].replace(/\s+/g, ' ').trim();

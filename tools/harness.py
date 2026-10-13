@@ -450,6 +450,41 @@ def run_conversation(verbose: bool) -> None:
         print(f"  flows {len(FLOWS)} · section names {len(SECTION_PROBES)}")
 
 
+
+# --------------------------------------------------------------------------
+# 9. checker accuracy — it must catch errors AND stay quiet on correct English
+# --------------------------------------------------------------------------
+CORPUS = json.loads(
+    (ROOT / "tools/harness_round4_corpus.json").read_text(encoding="utf-8"))
+
+
+def run_accuracy(verbose: bool) -> None:
+    b = ChatBot()
+    false_pos, false_neg = [], []
+    for sentence in CORPUS["correct"]:
+        if "✏" in b.respond(sentence):
+            false_pos.append(sentence)
+    for sentence in CORPUS["wrong"]:
+        r = b.respond(sentence)
+        if "✏" not in r:
+            false_neg.append(sentence)
+        elif "Better:" not in r:
+            fail("accuracy", sentence, "the error was flagged but not repaired")
+    for sentence in false_pos:
+        detail = next((l for l in b.respond(sentence).splitlines()
+                       if l.startswith("   •")), "")
+        fail("accuracy", repr(sentence), f"correct English was flagged — {detail.strip()}")
+    for sentence in false_neg:
+        fail("accuracy", repr(sentence), "the error was not caught")
+    if verbose:
+        print(f"  checker: {len(CORPUS['correct'])} correct sentences "
+              f"({len(false_pos)} flagged wrongly), "
+              f"{len(CORPUS['wrong'])} wrong ({len(false_neg)} missed)")
+    # the checker must never be the reason a learner's own sentence is lost
+    if false_pos or false_neg:
+        print(f"  → {len(false_pos)} false positives, {len(false_neg)} false negatives")
+
+
 RUNNERS = [
     ("vocabulary", run_vocabulary),
     ("grammar", run_grammar),
@@ -458,6 +493,7 @@ RUNNERS = [
     ("robustness", run_robustness),
     ("teacher", run_teacher),
     ("conversation", run_conversation),
+    ("accuracy", run_accuracy),
     ("data", run_data),
 ]
 

@@ -67,6 +67,15 @@ CASES = [
     "another one", "repeat that", "vocabulary", "words", "sentences",
     "phonetics", "واژگان", "جملات", "تلفظ", "I am fine", "I'm good",
     "what can I learn today", "save apple to review", "what did you say",
+    # round 4: checker accuracy - correct English must stay untouched
+    "I have seen him before", "I have been waiting", "He has written the letter",
+    "It doesn't matter", "We have finished", "There were many people",
+    "I need much help", "She is more experienced than me", "I was tired",
+    # round 4: errors the checker must catch
+    "She have a car", "they was here", "they was happy", "they is here",
+    "I were tired", "we was late", "he have two cars", "she have finished",
+    "I is tired", "it have a handle", "can to go", "will to come",
+    "I have a few pieces of advice", "I have many informations",
 ]
 
 
