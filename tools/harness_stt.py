@@ -335,6 +335,61 @@ def run_fetcher() -> None:
     check("http_get retries", "attempts" in inspect.signature(http_get).parameters)
 
 
+# --------------------------------------------------------------------------
+# the shipped offline bundle
+# --------------------------------------------------------------------------
+def run_bundle() -> None:
+    """The APK must be able to start.
+
+    A duplicate top-level name between the page and bot.js - a `function esc`
+    beside bot.js's `const esc` - is a SyntaxError that kills the whole inline
+    script. The build still succeeds, the APK still installs, and the app is
+    blank with nothing in the log. It shipped once, and only a real browser
+    caught it, because the web build does not load bot.js.
+    """
+    import shutil
+    import subprocess
+
+    out = ROOT / "android/app/src/main/assets/www"
+    index, bot_js = out / "index.html", out / "bot.js"
+    check("the offline page exists", index.exists())
+    check("bot.js is bundled", bot_js.exists())
+    if not index.exists():
+        return
+
+    html = index.read_text(encoding="utf-8")
+
+    # every file the boot sequence fetches must be there
+    import re as _re
+    wanted = set(_re.findall(r"loadJSON\('([^']+)'\)", html))
+    data_dir = out / "data"
+    missing = [n for n in wanted if not (data_dir / f"{n}.json").exists()]
+    check("every bundled data file is present", not missing,
+          "missing " + ", ".join(sorted(missing)))
+
+    # and nothing may still call the server
+    leftovers = sorted(set(_re.findall(r"fetch\(\s*['\"](/api/[^'\"]+)", html)))
+    check("no server calls survive in the offline page", not leftovers,
+          ", ".join(leftovers))
+
+    # the real check: page and bot.js share one global scope
+    if not shutil.which("node"):
+        return
+    script = _re.search(r"<script>\n(.*)\n</script>", html, _re.S)
+    check("the page has an inline script", script is not None)
+    if not script:
+        return
+    combined = (bot_js.read_text(encoding="utf-8") + "\n;"
+                if bot_js.exists() else "") + script.group(1)
+    tmp = ROOT / "tools/.cache/bundle_check.js"
+    tmp.parent.mkdir(parents=True, exist_ok=True)
+    tmp.write_text(combined, encoding="utf-8")
+    parsed = subprocess.run(["node", "--check", str(tmp)],
+                            capture_output=True, text=True)
+    check("page and bot.js parse together", parsed.returncode == 0,
+          (parsed.stderr or "")[:400])
+
+
 def main() -> int:
     t0 = time.time()
     print("→ grader");   run_grader()
@@ -342,6 +397,7 @@ def main() -> int:
     print("→ audio");    run_audio()
     print("→ pdf");      run_pdf()
     print("→ fetcher");  run_fetcher()
+    print("→ bundle");   run_bundle()
     print()
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS} checks ({time.time() - t0:.1f}s)\n")

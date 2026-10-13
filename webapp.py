@@ -1995,16 +1995,13 @@ const STT = {
     if (this.listening) {
       bits.push('<span class="stt-dot"></span><span class="stt-label">در حال شنیدن… / listening</span>');
     }
-    if (this.interim) bits.push('<span class="stt-interim">' + esc(this.interim) + '</span>');
-    if (this.final) bits.push('<span class="stt-final">' + esc(this.final) + '</span>');
+    if (this.interim)
+      bits.push('<span class="stt-interim">' + escapeHtml(this.interim) + '</span>');
+    if (this.final)
+      bits.push('<span class="stt-final">' + escapeHtml(this.final) + '</span>');
     panel.innerHTML = bits.join(' ');
   },
 };
-function esc(s) {
-  return String(s).replace(/[&<>"']/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-
 /* A single mic button in the composer: tap to talk, tap to stop. */
 function mountMic() {
   const box = document.getElementById('input');

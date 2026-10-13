@@ -1931,16 +1931,13 @@ const STT = {
     if (this.listening) {
       bits.push('<span class="stt-dot"></span><span class="stt-label">در حال شنیدن… / listening</span>');
     }
-    if (this.interim) bits.push('<span class="stt-interim">' + esc(this.interim) + '</span>');
-    if (this.final) bits.push('<span class="stt-final">' + esc(this.final) + '</span>');
+    if (this.interim)
+      bits.push('<span class="stt-interim">' + escapeHtml(this.interim) + '</span>');
+    if (this.final)
+      bits.push('<span class="stt-final">' + escapeHtml(this.final) + '</span>');
     panel.innerHTML = bits.join(' ');
   },
 };
-function esc(s) {
-  return String(s).replace(/[&<>"']/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-
 /* A single mic button in the composer: tap to talk, tap to stop. */
 function mountMic() {
   const box = document.getElementById('input');
@@ -2238,10 +2235,14 @@ async function loadBBC() {
     const note = document.createElement('div');
     note.className = 'bbc-note';
     const dist = doc.distribution || {};
-    const spread = Object.keys(dist).sort().join(' · ');
+    // '?' means "no transcript", not a level - it must not be listed as one
+    const spread = Object.keys(dist).filter((k) => k && k !== '?').sort().join(' · ');
+    const ungradedN = episodes.filter((e) => !e.level).length;
+    const tail = ungradedN ? ` ${ungradedN} have no transcript, so no grade.` : '';
     note.textContent = spread
-      ? `${doc.count} BBC episodes graded ${spread}. Each grade comes from the ` +
-        'official transcript — vocabulary, sentence length and speaking pace. ' +
+      ? `${doc.count} BBC episodes — ${episodes.length - ungradedN} graded ` +
+        `${spread}. Each grade comes from the official transcript: vocabulary, ` +
+        `sentence length and speaking pace.${tail} ` +
         'Audio plays from bbc.co.uk. / صدا از سایت بی‌بی‌سی پخش می‌شود.'
       : `${doc.count} episodes from BBC Learning English. Audio plays from bbc.co.uk.`;
     head.appendChild(note);
@@ -2261,7 +2262,9 @@ async function loadBBC() {
     const paint = () => {
       list.innerHTML = '';
       const rows = episodes
-        .filter((e) => (current === 'all' && true) || e.level === current)
+        // an ungraded episode has level === null, not '?', so normalise
+        // before comparing or the "Not graded" tab comes back empty
+        .filter((e) => current === 'all' || (e.level || '?') === current)
         .slice(0, current === 'all' ? 80 : 300);
       if (!rows.length) {
         const empty = document.createElement('div');
@@ -2386,7 +2389,8 @@ async function loadBBC() {
       const more = document.createElement('div');
       more.className = 'bbc-empty';
       const shown = rows.length;
-      const total = episodes.filter((e) => current === 'all' || e.level === current).length;
+      const total = episodes.filter(
+        (e) => current === 'all' || (e.level || '?') === current).length;
       more.textContent = total > shown
         ? `Showing ${shown} of ${total} — pick a level to narrow it down.`
         : '';

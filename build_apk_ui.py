@@ -8,10 +8,23 @@ Keeping one source of truth means the desktop preview and the app never drift.
 """
 
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "android/app/src/main/assets/www/index.html"
+DATA = OUT.parent / "data"
+
+# Every file the offline boot Promise.all() asks for. If one is missing the
+# whole bundle fails to start with "could not load the language data", which
+# is a blank app and a confusing error - so the list is declared here, once,
+# next to the code that fetches them, and checked on every build.
+BUNDLED_DATA = [
+    "memory.json", "glossary.json", "grammar.json", "phrases.json",
+    "jokes.json", "listening.json", "phonetics.json", "word_arch.json",
+    "distinctions.json", "idioms.json", "corrections.json",
+    "stt.json", "bbc_6min.json",
+]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
 html = re.search(r'HTML_TEMPLATE = r"""(.*?)"""', src, re.S).group(1)
@@ -219,3 +232,70 @@ html = html.replace("\n<script>\n", '\n<script src="bot.js"></script>\n<script>\
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(html, encoding="utf-8")
 print("wrote", OUT, len(html), "chars")
+
+# ---------------------------------------------------------------------------
+# sync the data files
+# ---------------------------------------------------------------------------
+DATA.mkdir(parents=True, exist_ok=True)
+missing = []
+for name in BUNDLED_DATA:
+    src = ROOT / name
+    dest = DATA / name
+    if not src.exists():
+        missing.append(name)
+        continue
+    shutil.copyfile(src, dest)
+print(f"synced {len(BUNDLED_DATA) - len(missing)}/{len(BUNDLED_DATA)} data files -> {DATA}")
+if missing:
+    for name in missing:
+        print(f"  ! {name} is missing from the repository root")
+    print("  the APK will fail to start until these exist "
+          "(tools/fetch_bbc_6min.py builds bbc_6min.json)")
+    raise SystemExit(1)
+
+# the offline page must not reference a server endpoint
+leftovers = re.findall(r"fetch\(\s*['\"](/api/[^'\"]+)", html)
+if leftovers:
+    raise SystemExit("offline page still calls the server: " + ", ".join(set(leftovers)))
+
+# ---------------------------------------------------------------------------
+# parse the page before shipping it
+# ---------------------------------------------------------------------------
+# A duplicate top-level declaration between the page and bot.js - a `function
+# esc` beside bot.js's `const esc` - is a SyntaxError that kills the entire
+# inline script. The result is a silently blank app: nothing renders, nothing
+# logs, and the APK builds fine. Chrome simply refuses to run the file.
+#
+# This exact bug shipped once, and only a real browser caught it, because the
+# web build does not load bot.js and so never hit it. So the build parses the
+# page now, with node, and refuses to produce an APK that cannot start.
+import shutil
+import subprocess
+
+script = re.search(r"<script>\n(.*)\n</script>", html, re.S)
+if not script:
+    raise SystemExit("could not find the page script to parse")
+# Both scripts share one global scope, so the collision only appears when
+# they are checked together - which is exactly why checking the page on its
+# own would have missed this.
+bot_src = OUT.parent / "bot.js"
+combined = ""
+if bot_src.exists():
+    combined += bot_src.read_text(encoding="utf-8") + "\n;"
+combined += script.group(1)
+check = ROOT / "tools/.cache/apk_page_check.js"
+check.parent.mkdir(parents=True, exist_ok=True)
+check.write_text(combined, encoding="utf-8")
+if shutil.which("node"):
+    parsed = subprocess.run(["node", "--check", str(check)],
+                            capture_output=True, text=True)
+    if parsed.returncode != 0:
+        print(parsed.stderr[:2000])
+        raise SystemExit(
+            "the generated page is not valid JavaScript - refusing to ship an "
+            "APK that cannot start. Watch for a top-level name declared twice "
+            "across the page and bot.js."
+        )
+    print("page parses clean (node --check)")
+else:
+    print("node not found - skipped the page parse check")
