@@ -202,12 +202,31 @@ be a hard listening task.
 Word levels come from the CEFR-J list already used for the rest of the app
 (`Maximax67/Words-CEFR-Dataset`, MIT).
 
-The grader is independent of BBC, so it can disagree with them — which is the
-point. `--audit` checks it against BBC's own level tag. Those tags are course
-*ranges* ("intermediate" = B1–B2), so the honest test is containment, not
-equality:
+The grader is independent of BBC, so it can disagree with them. `--audit` tries
+to check it against BBC's own level tag, and the result is worth reading:
 
 ```
+audited 603 tagged episodes
+  BBC's own tags: {'intermediate': 603}
+  per series (grader vs BBC's tag):
+    6 Minute English         inside 152/264 ( 57%)   grader: A1:72 A2:39 B1:137 B2:15 C1:1
+    The English We Speak     inside 134/339 ( 39%)   grader: A1:11 A2:193 B1:114 B2:20 C1:1
+```
+
+**BBC tags all three series "intermediate"**, including Real Easy English,
+whose whole premise is deliberately simple speech. So their tag is a
+course-track label, not a difficulty measurement, and it cannot validate a
+graded catalogue — the low numbers above are the tag being too coarse, not the
+grader being wrong.
+
+The grader is validated by `tools/harness_stt.py` instead, on properties that
+do not depend on BBC:
+
+- harder text must never grade easier than easier text
+- a one-line blurb must not be graded at all, rather than guessed at
+- function words must not drag a passage down
+- the bands line up with where each series is actually pitched
+  (Real Easy English → A1–A2, 6 Minute English → B1–B2, The English We Speak → B2–C1)
 audited 501 tagged episodes
   inside BBC's own band  : 100% (100%)
 ```

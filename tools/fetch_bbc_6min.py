@@ -372,11 +372,18 @@ def fetch_episode(ep: dict, cefr: dict[str, int], keep_text: bool,
 
 
 def audit(episodes: list[dict]) -> None:
-    """Compare the grader with BBC's own level tag on the same episode.
+    """Compare the grader with BBC's own level tag, per series.
 
-    BBC's tags are course ranges ("intermediate" = B1-B2), so the honest test
-    is containment, not equality. A grader that disagrees is only wrong if it
-    lands outside the range the publisher themselves gave.
+    The first version of this reported one containment number over everything
+    and read 100%, which was misleading. It was measured on 6 Minute English
+    alone, which really is intermediate throughout - and it turns out BBC tags
+    all three series "intermediate", including Real Easy English, whose whole
+    premise is simple everyday speech. So the tag is a course-track label, not
+    a difficulty measurement, and it cannot validate a graded catalogue.
+
+    What it can still say is whether the grader is *plausible*: it should agree
+    closely where the tag is narrow and disagree loudly where it is not, and
+    that pattern is reported per series rather than as one flattering average.
     """
     from collections import Counter
 
@@ -384,16 +391,32 @@ def audit(episodes: list[dict]) -> None:
     if not tagged:
         print("  no episodes carry BBC's level tag — nothing to audit against")
         return
-    inside = sum(1 for e in tagged if in_band_range(e["level"], e["bbc_tag"]))
+
+    tags = Counter(e["bbc_tag"] for e in tagged)
     print(f"  audited {len(tagged)} tagged episodes")
-    print(f"    inside BBC's own band  : {inside}/{len(tagged)} "
-          f"({100 * inside // len(tagged)}%)")
-    off = [e for e in tagged if not in_band_range(e["level"], e["bbc_tag"])]
-    for e in off[:8]:
-        print(f"      outside: {e['level']} vs BBC {e['bbc_tag']}"
-              f"  {e['title'][:40]}")
-    print("    (mine, theirs) ->", dict(Counter(
-        (e["level"], e["bbc_tag"]) for e in tagged).most_common(8)))
+    print(f"    BBC's own tags: {dict(tags)}")
+
+    by_series: dict[str, list] = {}
+    for e in tagged:
+        by_series.setdefault(e.get("series", "?"), []).append(e)
+
+    print("    per series (grader vs BBC's tag):")
+    for series, rows in sorted(by_series.items()):
+        inside = sum(1 for e in rows if in_band_range(e["level"], e["bbc_tag"]))
+        levels = Counter(e["level"] for e in rows)
+        spread = " ".join(f"{k}:{v}" for k, v in sorted(levels.items()))
+        print(f"      {series:<24} inside {inside:>3}/{len(rows):<3} "
+              f"({100 * inside // max(1, len(rows)):>3}%)   grader: {spread}")
+
+    everywhere = Counter(e["bbc_tag"] for e in episodes if e.get("bbc_tag"))
+    if len(everywhere) == 1:
+        only = next(iter(everywhere))
+        print(f"    note: BBC tags every series \"{only}\", so the tag carries no")
+        print("          useful difficulty signal and is not a check on the grader.")
+        print("          The grader is validated instead by tools/harness_stt.py:")
+        print("          harder text must never grade easier, a one-line blurb")
+        print("          must not be graded at all, and the bands are constructed to")
+        print("          match where each series is actually pitched.")
 
 
 def main() -> int:
