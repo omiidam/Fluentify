@@ -106,7 +106,7 @@
   .pempty b { color: #dbe3ff; }
 
   .pcount {
-    flex: none; margin: -4px 2px 8px; font-size: 11.5px; color: #7d8fd4;
+    flex: none; margin: -2px 2px 10px; font-size: 11.5px; color: #93a3e0;
     letter-spacing: .01em;
   }
 
@@ -126,6 +126,30 @@
   .row.grouped .meta > span:first-child,
   .row.grouped .meta > i { display: none; }
   .row.grouped .meta { justify-content: flex-end; }
+
+  /* The panels cap their height and scroll, and without a cue they simply
+     stop mid-button - which reads as a rendering fault rather than as "there
+     is more below".
+
+     An inset shadow on the scroll container rather than a sticky element on
+     the last child: the last child is not stable. PanelSearch appends its
+     empty-state box to the panel, which changes what :last-child is, and the
+     fade ended up floating over the middle of the content. This cannot move,
+     because it is painted on the box that clips. */
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
+    box-shadow: inset 0 -16px 16px -16px rgba(0,0,0,.62);
+  }
+
+  /* "Show more" for the 1126-episode BBC list */
+  .bbc-more {
+    display: block; width: 100%; margin-top: 10px; padding: 11px 14px;
+    border-radius: 12px; cursor: pointer; font-family: inherit;
+    font-size: 12.5px; color: #b9c6ff;
+    background: rgba(109,140,255,.13); border: 1px solid rgba(109,140,255,.3);
+    transition: background .16s, border-color .16s;
+  }
+  .bbc-more:hover { background: rgba(109,140,255,.22); border-color: #6f86d6; }
+  .bbc-more:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 2px; }
 
   /* ---- the app is a pane of frosted glass ---- */
   .app {
@@ -2544,14 +2568,19 @@ const PanelSearch = (() => {
       });
     }
 
-    const status = document.getElementById(panelId + 'count');
-    if (!status) {
-      const node = document.createElement('div');
-      node.className = 'pcount';
-      node.id = panelId + 'count';
-      panel.prepend(node);
-    }
     Panels.addSearch(panelId, placeholder, (v) => apply(panelId, v));
+
+    let status = document.getElementById(panelId + 'count');
+    if (!status) {
+      status = document.createElement('div');
+      status.className = 'pcount';
+      status.id = panelId + 'count';
+    }
+    // under the search box, not at the top of the panel: prepending put the
+    // count above the panel's own title, which read as a heading
+    const searchBox = panel.querySelector('.psearch');
+    if (searchBox) searchBox.after(status);
+    else panel.prepend(status);
 
     const live = document.getElementById(panelId + 'count');
     const q = panel._search ? panel._search.value : '';
@@ -3165,12 +3194,21 @@ async function loadBBC() {
     const spread = Object.keys(dist).filter((k) => k && k !== '?').sort().join(' · ');
     const ungradedN = episodes.filter((e) => !e.level).length;
     const tail = ungradedN ? ` ${ungradedN} have no transcript, so no grade.` : '';
+    // Count what is actually listed, not doc.count. Three of the 1126 carry
+    // neither a stream nor a transcript and are filtered out above, so
+    // quoting the catalogue total claimed 1123 episodes were on screen when
+    // 1126 was - and no level tab ever added up to the number in the header.
+    const hidden = (doc.count || 0) - episodes.length;
+    const dropped = hidden > 0
+      ? ` ${hidden} have neither audio nor transcript and are not listed.`
+      : '';
     note.textContent = spread
-      ? `${doc.count} BBC episodes — ${episodes.length - ungradedN} graded ` +
+      ? `${episodes.length} BBC episodes — ${episodes.length - ungradedN} graded ` +
         `${spread}. Each grade comes from the official transcript: vocabulary, ` +
-        `sentence length and speaking pace.${tail} ` +
+        `sentence length and speaking pace.${tail}${dropped} ` +
         'Audio plays from bbc.co.uk. / صدا از سایت بی‌بی‌سی پخش می‌شود.'
-      : `${doc.count} episodes from BBC Learning English. Audio plays from bbc.co.uk.`;
+      : `${episodes.length} episodes from BBC Learning English. ` +
+        'Audio plays from bbc.co.uk.';
     head.appendChild(note);
     wrap.appendChild(head);
 
@@ -3185,13 +3223,21 @@ async function loadBBC() {
     const list = document.createElement('div');
     list.className = 'bbc-list';
 
+    /* 1126 episodes is too many to render at once, and a hard cap with no
+       way past it is worse than a slow one: "Showing 80 of 1126" with no
+       button just tells the user the rest is unreachable. So it pages - 80 at
+       a time, more on request, and the count stays honest throughout. */
+    const PAGE = 80;
+    let shown = PAGE;
+    const matching = () => episodes
+      // an ungraded episode has level === null, not '?', so normalise
+      // before comparing or the "Not graded" tab comes back empty
+      .filter((e) => current === 'all' || (e.level || '?') === current);
+
     const paint = () => {
       list.innerHTML = '';
-      const rows = episodes
-        // an ungraded episode has level === null, not '?', so normalise
-        // before comparing or the "Not graded" tab comes back empty
-        .filter((e) => current === 'all' || (e.level || '?') === current)
-        .slice(0, current === 'all' ? 80 : 300);
+      const all = matching();
+      const rows = all.slice(0, shown);
       if (!rows.length) {
         const empty = document.createElement('div');
         empty.className = 'bbc-empty';
@@ -3322,15 +3368,15 @@ async function loadBBC() {
         card.appendChild(bar2);
         list.appendChild(card);
       }
-      const more = document.createElement('div');
-      more.className = 'bbc-empty';
-      const shown = rows.length;
-      const total = episodes.filter(
-        (e) => current === 'all' || (e.level || '?') === current).length;
-      more.textContent = total > shown
-        ? `Showing ${shown} of ${total} — pick a level to narrow it down.`
-        : '';
-      list.appendChild(more);
+      if (all.length > rows.length) {
+        const more = document.createElement('button');
+        more.className = 'bbc-more';
+        const left = all.length - rows.length;
+        more.textContent = `Show ${Math.min(PAGE, left)} more · ` +
+                           `${rows.length} of ${all.length} shown`;
+        more.onclick = () => { shown += PAGE; paint(); };
+        list.appendChild(more);
+      }
     };
 
     const addTab = (id, label) => {
@@ -3340,6 +3386,7 @@ async function loadBBC() {
       b.dataset.level = id;
       b.onclick = () => {
         current = id;
+        shown = PAGE;              // a new level starts at one page again
         [...bar.children].forEach((c) => c.classList.toggle('on', c === b));
         paint();
       };

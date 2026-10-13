@@ -89,6 +89,20 @@ def main() -> int:
         return 1
     src = SRC.read_text(encoding="utf-8")
 
+    # ---------------------------------------------------------- bbc list --
+    # The header used to quote doc.count while the list showed a filtered
+    # subset, so it claimed 1126 episodes while the All tab held 1123 and no
+    # level tab ever added up to the number printed above them.
+    bbc = fn_body(src, "loadBBC")
+    check("loadBBC exists", bool(bbc))
+    check("the bbc header counts the episodes it lists",
+          "episodes.length} BBC episodes" in bbc or
+          "BBC episodes" in bbc and "doc.count" not in bbc.split("note.textContent")[1][:400],
+          "a filtered list must not be captioned with the unfiltered total")
+    check("bbc says how many were dropped",
+          "neither audio nor transcript" in bbc,
+          "an honest count has to explain the difference")
+
     # ------------------------------------------------------- review list --
     # The regression: opening the panel painted nothing.
     toggle = fn_body(src, "togglePanel")
