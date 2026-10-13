@@ -9,6 +9,7 @@ Keeping one source of truth means the desktop preview and the app never drift.
 
 import re
 import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -34,25 +35,18 @@ html = re.search(r'HTML_TEMPLATE = r"""(.*?)"""', src, re.S).group(1)
 html = html.replace("/*__STT_CONFIG__*/", "")
 
 # 1) send(): call the local engine instead of the HTTP endpoint
-old_send = """  showTyping();
-  try {
-    const r = await fetch('/api/chat?message=' + encodeURIComponent(text));
-    const data = await r.json();
-    hideTyping();
-    add(data.reply, 'bot');
-    // finishing a practice unlocks that topic's exam — refresh the panel so
-    // the 🎓 button stops showing the lock
-    if (/exam is now open|آزمون باز شد/i.test(data.reply) &&
-        document.getElementById('gpanel').classList.contains('open')) {
-      loadGrammar();
-    }
-  } catch (e) {
-    hideTyping();
-    add('⚠️ connection lost — is the server running?', 'bot', {err: true});
-  }"""
-new_send = """  showTyping();
-  try {
-    await sleep(160);                       // a beat so the typing dots show
+#
+# This used to be an exact string copy of the web send() body, which meant any
+# edit to the catch block in webapp.py broke the APK build with a bare
+# assertion - and the offline build silently kept the old behaviour until
+# someone noticed. It is matched structurally now: the engine call and the
+# failure handling are rewritten where they are, and anything else in the
+# function is left alone. The two builds cannot drift on this path.
+m = re.search(r"(  showTyping\(\);\n  try \{\n)(.*?)(\n  \} catch \(e\) \{\n)(.*?)(\n  \}\n)", html, re.S)
+if not m:
+    sys.exit("could not find the send() try/catch in the template")
+
+engine = """    await sleep(160);                       // a beat so the typing dots show
     const reply = bot.respond(text);
     hideTyping();
     add(reply, 'bot');
@@ -61,13 +55,27 @@ new_send = """  showTyping();
     if (/exam is now open|آزمون باز شد/i.test(reply) &&
         document.getElementById('gpanel').classList.contains('open')) {
       loadGrammar();
-    }
-  } catch (e) {
-    hideTyping();
-    add('⚠️ something went wrong — ' + e.message, 'bot', {err: true});
-  }"""
-assert old_send in html, "send() block not found — update build_apk_ui.py"
-html = html.replace(old_send, new_send)
+    }"""
+
+# The offline app has no server to lose, so it reports the engine's own error
+# rather than "is the server running". Everything else about the failure path
+# is identical to the web build on purpose: nothing is charged, and the words
+# go back in the box.
+failure = """    hideTyping();
+    // Nothing was taught, so nothing should have been charged. The seed is
+    // added before the request to keep the meter moving while it is in flight;
+    // a message that never produced a reply must not cost one of the fifty.
+    Seed.add(-1);
+
+    // The composer was already cleared, so the words are gone from the screen
+    // unless we put them back.
+    input.value = text;
+    add('⚠️ Something went wrong — ' + e.message +
+        `\\nYour message is back in the box, and none of your ${SEED_GOAL} ` +
+        'daily messages was used.\\nپیام شما به کادر برگشت و از سهم امروز کم نشد.',
+        'bot', {err: true});"""
+
+html = html[:m.start()] + m.group(1) + engine + m.group(3) + failure + m.group(5) + html[m.end():]
 
 # 2) the three panels: read from the bundled JSON instead of the API
 for fn, api, expr in [

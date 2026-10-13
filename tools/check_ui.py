@@ -89,6 +89,26 @@ def main() -> int:
         return 1
     src = SRC.read_text(encoding="utf-8")
 
+    # ------------------------------------------------------- failed sends --
+    # Two bugs shared by both builds: a message that produced no reply still
+    # cost one of the fifty daily ones, and the composer was already cleared so
+    # the words were gone unless they were put back.
+    send = fn_body(src, "send")
+    check("a failed send refunds the daily message",
+          "Seed.add(-1)" in send,
+          "nothing was taught, so nothing should have been charged")
+    check("a failed send puts the words back in the composer",
+          "input.value = text" in send,
+          "losing a typed Persian sentence to a dropped connection is not acceptable")
+
+    # The offline build is a separate copy of this path, produced by
+    # build_apk_ui.py. It regressed silently once because the two were matched
+    # as exact strings and any edit to one broke the other's pattern.
+    builder = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")
+    check("the offline build gets the same failure handling",
+          builder.count("Seed.add(-1)") >= 1 and builder.count("input.value = text") >= 1,
+          "build_apk_ui.py rewrites send(); it must keep both repairs")
+
     # ---------------------------------------------------------- bbc list --
     # The header used to quote doc.count while the list showed a filtered
     # subset, so it claimed 1126 episodes while the All tab held 1123 and no

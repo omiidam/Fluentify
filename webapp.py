@@ -1873,6 +1873,25 @@ function add(text, who, opts = {}) {
     Object.assign(document.createElement('i'), {textContent: now()}),
   );
 
+  // A failed message gets one tool and it is not a copy button: there is
+  // nothing useful to copy, and the only thing to do about it is try again.
+  if (who === 'bot' && opts.err) {
+    const retry = document.createElement('button');
+    retry.className = 'mtool';
+    retry.textContent = '↻';
+    retry.title = 'Try again — دوباره';
+    retry.setAttribute('aria-label', 'Try that again');
+    retry.onclick = () => {
+      const again = input.value.trim();
+      if (!again || busy) return;
+      send(again);
+    };
+    const box = document.createElement('div');
+    box.className = 'tools-row';
+    box.appendChild(retry);
+    meta.appendChild(box);
+  }
+
   // Every bot message gets its tools: hear it, copy it, ask again.
   if (who === 'bot' && !opts.err) {
     const tools = document.createElement('div');
@@ -2015,7 +2034,20 @@ async function send(text) {
     }
   } catch (e) {
     hideTyping();
-    add('⚠️ connection lost — is the server running?', 'bot', {err: true});
+    // Nothing was taught, so nothing should have been charged. The seed is
+    // added before the request to keep the meter moving while it is in flight;
+    // a message that never arrived must not cost one of the fifty.
+    Seed.add(-1);
+
+    // The composer was already cleared, so the words are gone from the screen
+    // unless we put them back. Someone who typed a full Persian sentence and
+    // lost the connection should not have to write it twice.
+    input.value = text;
+    add('⚠️ No reply came back — is the server running?\n' +
+        `Your message is back in the box, and none of your ${SEED_GOAL} ` +
+        'daily messages was used.\n' +
+        'پاسخی نرسید. پیام شما به کادر برگشت و از سهم امروز کم نشد.',
+        'bot', {err: true});
   }
   busy = false;
   sendbtn.disabled = false;
