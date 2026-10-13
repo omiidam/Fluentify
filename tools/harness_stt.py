@@ -258,12 +258,90 @@ def run_pdf() -> None:
               f"only {len(text.split())} words")
 
 
+# --------------------------------------------------------------------------
+# the fetcher's failure modes
+# --------------------------------------------------------------------------
+def run_fetcher() -> None:
+    """Bad URLs must degrade, not end the run.
+
+    BBC's older transcript links contain a literal space, and urllib turns that
+    into InvalidURL - a ValueError, not a URLError, so the original handler
+    let it through and a single bad link killed the whole 1126-episode run.
+    """
+    import urllib.error
+    import urllib.request
+
+    from fetch_bbc_6min import _title_key, http_get, parse_episode_page
+
+    spaced = ("https://downloads.bbc.co.uk/learningenglish/features/6min/"
+              "180607_6_minute_english_talking_to machines.pdf")
+    # The point is not that this file still exists - it may not - but that a
+    # space in the URL reaches the network instead of raising InvalidURL
+    # before a socket is ever opened.
+    try:
+        http_get(spaced, timeout=25)
+        reachable = True
+    except urllib.error.HTTPError as exc:
+        reachable = f"HTTP {exc.code}"
+    except Exception as exc:  # noqa: BLE001
+        check("a URL with a space reaches the network", False,
+              f"{type(exc).__name__}: {exc}")
+        reachable = False
+    else:
+        pass
+    if reachable:
+        check("a URL with a space reaches the network", True)
+
+    # the older page template: no mp3, and a topic-named transcript
+    old_page = (
+        '<a href="http://downloads.bbc.co.uk/learningenglish/features/6min/'
+        '201029_6min_english_walkman.pdf">transcript</a>'
+        '<div id="heading-intermediate-level"></div>')
+    meta = parse_episode_page(old_page)
+    check("older pages still yield a transcript",
+          meta["transcript_url"].endswith(".pdf"), str(meta["transcript_url"]))
+    check("older pages report no audio", meta["audio"] == "", meta["audio"])
+
+    # titles must join the same way on both sides of the podcast join
+    for a, b in [("Do trees have memories?", "Do trees have memories ?"),
+                 ("Bitcoin: digital crypto-currency", "Bitcoin - digital crypto currency")]:
+        check(f"titles join: {a[:26]}", _title_key(a) == _title_key(b),
+              f"{_title_key(a)!r} vs {_title_key(b)!r}")
+
+    # Every failure this fetcher meets in the wild must be one it catches.
+    # Three separate runs were ended by one of these slipping past a narrower
+    # except clause - HTTPError, then InvalidURL, then ConnectionResetError -
+    # so the whole class is checked rather than a hand-picked few.
+    from fetch_bbc_6min import NET_ERRORS
+
+    wild = [
+        urllib.error.HTTPError("u", 500, "server error", None, None),
+        urllib.error.HTTPError("u", 404, "gone", None, None),
+        urllib.error.URLError("dns"),
+        TimeoutError("timed out"),
+        ConnectionResetError(104, "reset by peer"),
+        ConnectionRefusedError(111, "refused"),
+        ValueError("URL can't contain control characters"),
+        OSError("socket died"),
+    ]
+    for exc in wild:
+        check(f"{type(exc).__name__} is caught by the fetcher",
+              isinstance(exc, NET_ERRORS), str(exc)[:50])
+
+    # a 404 is final; a 500 is worth retrying
+    import inspect
+
+    from fetch_bbc_6min import http_get
+    check("http_get retries", "attempts" in inspect.signature(http_get).parameters)
+
+
 def main() -> int:
     t0 = time.time()
     print("→ grader");   run_grader()
     print("→ stt.json");  run_config()
     print("→ audio");    run_audio()
     print("→ pdf");      run_pdf()
+    print("→ fetcher");  run_fetcher()
     print()
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS} checks ({time.time() - t0:.1f}s)\n")

@@ -63,14 +63,49 @@ LEVELS = ["A2", "B1", "B2", "C1"]
 MIN_SECONDS_BETWEEN = 0.35
 
 
-def http_get(url: str, timeout: int = 40) -> bytes:
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA,
-        "Accept": "text/html,application/xhtml+xml,application/pdf,*/*;q=0.8",
-        "Accept-Language": "en-GB,en;q=0.9",
-    })
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
+# Every failure this fetcher has ever hit in the wild, in one place:
+#   URLError           DNS failure, refused connection, HTTP 4xx/5xx
+#   HTTPError          a subclass of URLError, but named separately in tracebacks
+#   TimeoutError       an OSError since 3.10
+#   ConnectionResetError / ConnectionError / socket.timeout
+#   InvalidURL, OSError("URL can't contain control characters")  a ValueError
+# The first three run-endering crashes in this file were all one of these
+# slipping past a narrower except clause, so they are caught as one class.
+NET_ERRORS = (OSError, ValueError)
+
+
+def http_get(url: str, timeout: int = 40, attempts: int = 3) -> bytes:
+    """Fetch a URL, retrying the transient failures.
+
+    BBC resets the connection often enough that a single try loses episodes
+    to no fault of the URL, so transient errors are retried with a backoff.
+    A URL that is simply gone (404) is not retried - that is not going to
+    change.
+    """
+    # BBC's older transcript links contain a literal space
+    # ("180607_6_minute_english_talking_to machines.pdf"). urllib rejects
+    # those outright, and the one episode that hit it took the whole run down.
+    url = url.replace(" ", "%20")
+    last: Exception | None = None
+    for attempt in range(attempts):
+        req = urllib.request.Request(url, headers={
+            "User-Agent": UA,
+            "Accept": "text/html,application/xhtml+xml,application/pdf,*/*;q=0.8",
+            "Accept-Language": "en-GB,en;q=0.9",
+        })
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code in (404, 410):
+                raise
+            last = exc
+        except NET_ERRORS as exc:
+            last = exc
+        if attempt < attempts - 1:
+            time.sleep(1.5 * (attempt + 1))
+    assert last is not None
+    raise last
 
 
 def parse_feed(xml: str, series: str = "6 Minute English") -> list[dict]:
@@ -101,16 +136,30 @@ def parse_feed(xml: str, series: str = "6 Minute English") -> list[dict]:
 
 
 def parse_episode_page(html: str) -> dict:
-    audio = transcript = worksheet = ""
-    m = re.search(r"https://downloads\.bbc\.co\.uk/[^\"']+?\.mp3", html)
+    """Pull the media URLs out of an episode page.
+
+    Two page templates live in the archive. Recent pages link a downloads.bbc
+    mp3 and name the PDFs "..._transcript.pdf". Older ones are a different
+    template with no audio link at all - BBC retired that player - and their
+    transcript PDF is named after the episode's topic instead, e.g.
+    "201029_6min_english_walkman.pdf". So the fallback is any 6-minute PDF,
+    and http:// counts as well as https:// for the older pages.
+    """
+    audio = transcript = worksheet = any_pdf = ""
+    m = re.search(r'https?://downloads\.bbc\.co\.uk/[^"\']+?\.mp3', html)
     if m:
         audio = m.group(0)
-    for href in re.findall(r'href="([^"]+\.pdf)"', html):
+    for href in re.findall(r'href="(https?://[^"]+\.pdf)"', html):
         low = href.lower()
         if "transcript" in low and not transcript:
             transcript = href
         elif "worksheet" in low and not worksheet:
             worksheet = href
+        elif not any_pdf:
+            any_pdf = href
+    if not transcript:
+        # older pages: the topic-named PDF is the transcript
+        transcript = any_pdf
     dur = ""
     d = re.search(r'data-audio-duration="(\d+)"', html)
     if d:
@@ -120,6 +169,47 @@ def parse_episode_page(html: str) -> dict:
         "worksheet_url": worksheet, "duration": dur,
         "bbc_tag": bbc_level_from_page(html),
     }
+
+
+# The podcast feed carries an audio enclosure and a duration for episodes the
+# site no longer links. Both sides publish the same title, so that is the join.
+PODCAST_FEEDS = {
+    # Only 6 Minute English needs this. Real Easy English and The English We
+    # Speak still link their audio from the episode page; 6 Minute English is
+    # the series whose older pages lost their player.
+    "6 Minute English": "https://podcasts.files.bbci.co.uk/p02pc9tn.rss",
+}
+
+
+def _title_key(title: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
+
+
+def podcast_audio() -> dict:
+    """title key -> {audio, duration}, from the podcast feeds."""
+    out: dict = {}
+    for name, url in PODCAST_FEEDS.items():
+        try:
+            xml = http_get(url, timeout=60).decode("utf-8", "replace")
+        except NET_ERRORS as exc:
+            print(f"  ! podcast feed {name}: {exc}")
+            continue
+        hits = 0
+        for item in re.findall(r"<item>(.*?)</item>", xml, re.S):
+            tm = re.search(r"<title>(.*?)</title>", item, re.S)
+            em = re.search(r'<enclosure[^>]+url="([^"]+)"', item)
+            dm = re.search(r"<itunes:duration>(\d+)</itunes:duration>", item)
+            if not (tm and em):
+                continue
+            title = re.sub(r"^BBC Learning English\s*-\s*", "", tm.group(1)).strip()
+            out.setdefault(_title_key(title), {
+                "audio": em.group(1),
+                "duration": str(int(dm.group(1))) if dm else "",
+            })
+            hits += 1
+        print(f"  podcast {name:<22} {hits} episodes")
+    return out
+
 
 
 def _pdf_strings(blob: bytes) -> list[str]:
@@ -202,8 +292,14 @@ def pdf_to_text(data: bytes) -> str:  # noqa: D401
     return raw.replace("\\n", "\n").replace("\\r", "\n").replace("\\t", " ")
 
 
-def fetch_episode(ep: dict, cefr: dict[str, int], keep_text: bool) -> dict:
-    """One episode: page -> asset URLs + transcript -> grade. Cached on disk."""
+def fetch_episode(ep: dict, cefr: dict[str, int], keep_text: bool,
+                  pod: dict | None = None) -> dict:
+    """One episode: page -> asset URLs + transcript -> grade. Cached on disk.
+
+    `pod` is the title -> {audio, duration} map from the podcast feeds, which
+    is where audio comes from for the older episodes whose pages no longer
+    link any. Without it those episodes are indexed but unplayable.
+    """
     CACHE.mkdir(parents=True, exist_ok=True)
     meta_path = CACHE / f"{ep['id']}.json"
     meta = {}
@@ -213,15 +309,33 @@ def fetch_episode(ep: dict, cefr: dict[str, int], keep_text: bool) -> dict:
         except json.JSONDecodeError:
             meta = {}
 
-    if not meta.get("audio"):
+    # Re-parse when the cached page yielded nothing useful: an older template
+    # means no audio link, and the transcript is named after the topic. The
+    # `page_parsed` marker is what stops this refetching on every single run -
+    # without it, each of the ~250 old-template pages costs a round trip
+    # forever, for ever the same answer.
+    stale = (not meta.get("audio") and not meta.get("transcript_url")
+             and not meta.get("page_parsed"))
+    if not meta or stale:
         try:
             page = http_get(ep["url"]).decode("utf-8", "replace")
-        except (urllib.error.URLError, TimeoutError) as exc:
+        except NET_ERRORS as exc:
             return {**ep, "error": f"page: {exc}"}
         meta.update(parse_episode_page(page))
-        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2),
-                             encoding="utf-8")
+        meta["page_parsed"] = True
         time.sleep(MIN_SECONDS_BETWEEN)
+
+    # audio the site will not link, from BBC's own podcast feed
+    if not meta.get("audio") and pod:
+        hit = pod.get(_title_key(ep["title"]))
+        if hit:
+            meta["audio"] = hit["audio"]
+            meta["audio_from"] = "podcast"
+            if not meta.get("duration") and hit.get("duration"):
+                meta["duration"] = hit["duration"]
+
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2),
+                         encoding="utf-8")
 
     transcript = ""
     if meta.get("transcript_url"):
@@ -230,7 +344,7 @@ def fetch_episode(ep: dict, cefr: dict[str, int], keep_text: bool) -> dict:
             try:
                 pdf_path.write_bytes(http_get(meta["transcript_url"]))
                 time.sleep(MIN_SECONDS_BETWEEN)
-            except (urllib.error.URLError, TimeoutError) as exc:
+            except NET_ERRORS as exc:
                 meta["transcript_error"] = str(exc)
         if pdf_path.exists():
             transcript = pdf_to_text(pdf_path.read_bytes())
@@ -320,10 +434,13 @@ def main() -> int:
     if args.fetch != "0":
         limit = len(unique) if args.fetch == "all" else int(args.fetch)
 
+    print("reading the podcast feeds …")
+    pod = podcast_audio()
+
     keep_text = not args.no_transcripts
     graded, failed = [], 0
     for i, ep in enumerate(unique[:limit], 1):
-        row = fetch_episode(ep, cefr, keep_text)
+        row = fetch_episode(ep, cefr, keep_text, pod)
         if row.get("error"):
             failed += 1
             if failed <= 3:

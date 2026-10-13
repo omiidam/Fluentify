@@ -1158,6 +1158,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border: 1px solid #6f86d6; background: #27356e; color: #fff; cursor: pointer;
   }
   .bbc-play.on { background: #7d2b52; border-color: #ff6f9c; }
+  .bbc-play.nofile { background: #2a2f52; border-color: #4a5a92; color: #a9b7ef; }
+  .bbc-play.nofile:hover { border-color: #7f92d8; color: #dfe6ff; }
   .bbc-link { font-size: 12px; color: #9fb0ef; text-decoration: none; padding: 6px 4px; }
   .bbc-link:hover { color: #fff; text-decoration: underline; }
   .bbc-empty { font-size: 12px; color: #7d8fd4; padding: 4px 2px; }
@@ -2279,7 +2281,12 @@ async function loadBBC() {
   try {
     const r = await fetch('/api/bbc');
     const doc = await r.json();
-    const episodes = (doc.episodes || []).filter((e) => e.audio);
+    // Keep transcript-only episodes too. BBC retired the player on its older
+    // 6 Minute English pages, so roughly a third of the archive has a graded
+    // transcript and a worksheet link but no streamable audio - hiding those
+    // would quietly drop two thirds of the catalogue.
+    const all = doc.episodes || [];
+    const episodes = all.filter((e) => e.audio || e.transcript_url);
     if (!episodes.length) return;
 
     const wrap = document.createElement('div');
@@ -2318,7 +2325,7 @@ async function loadBBC() {
       list.innerHTML = '';
       const rows = episodes
         .filter((e) => current === 'all' || e.level === current)
-        .slice(0, current === 'all' ? 60 : 200);
+        .slice(0, current === 'all' ? 80 : 300);
       if (!rows.length) {
         const empty = document.createElement('div');
         empty.className = 'bbc-empty';
@@ -2365,6 +2372,19 @@ async function loadBBC() {
 
         const play = document.createElement('button');
         play.className = 'bbc-play';
+        if (!ep.audio) {
+          // no stream: BBC removed the player from these older pages, so the
+          // official transcript is the way in
+          play.textContent = '📄  Transcript only';
+          play.classList.add('nofile');
+          play.title = 'BBC no longer streams this episode. Open the transcript.';
+          play.onclick = () => window.open(ep.transcript_url, '_blank',
+                                           'noopener');
+          bar2.appendChild(play);
+          card.appendChild(bar2);
+          list.appendChild(card);
+          continue;
+        }
         play.textContent = '▶  Play';
         const audio = new Audio();
         audio.preload = 'none';
