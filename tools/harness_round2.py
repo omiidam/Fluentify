@@ -483,15 +483,24 @@ def main() -> None:
             elif len(chunks) == 1:
                 sides.append({"en": chunks[0].strip(), "fa": ""})
             else:
+                # A clean (en, fa) pair stays a pair. Either half may also
+                # carry its own "↳ translation", which has to be split back
+                # out - otherwise the arrow prints inline in the English.
                 en, fa = chunks[0], chunks[1]
-                if "\u21b3" in en:
-                    head, _, tail = en.partition("  \u21b3 ")
-                    sides.append({"en": head.strip(), "fa": tail.strip()})
-                    if fa.strip():
-                        sides.append({"en": fa.strip(), "fa": ""})
+                if "↳" in en or "↳" in fa:
+                    for chunk in (en, fa):
+                        chunk = str(chunk).strip()
+                        if not chunk:
+                            continue
+                        if "↳" in chunk:
+                            head, _, tail = chunk.partition("  ↳ ")
+                            sides.append({"en": head.strip(),
+                                          "fa": tail.strip() or head.strip()})
+                        else:
+                            sides.append({"en": chunk, "fa": ""})
                 else:
-                    sides.append({"en": en.strip(),
-                                  "fa": fa.replace("\u21b3 ", "").strip()})
+                    sides.append({"en": en.strip(), "fa": fa.strip()})
+
         assert sides, a
         topics.append({
             "id": f"{a}_vs_{b}".replace(" ", "_"),

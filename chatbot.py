@@ -495,7 +495,28 @@ class ChatBot:
         if phonetics_path.exists():
             with open(phonetics_path, encoding="utf-8") as f:
                 self.phonetics = json.load(f).get("sections", [])
+        self._clean_answers()   # last: it reads the loaded topics
 
+
+
+    def _clean_answers(self) -> None:
+        """Drop blank answer slots at load time.
+
+        An empty string in a question's answers is invisible in the JSON but
+        very visible to a learner: "show answer" printed " / no article / zero"
+        with a leading blank. A blank is also never something anyone can type,
+        so in the data it can only ever be a mistake.
+        """
+        for topic in self.grammar.values():
+            for stage in ("practice", "exam"):
+                for q in topic.get(stage, []):
+                    answers = q.get("a")
+                    if not isinstance(answers, list):
+                        continue
+                    cleaned = [str(a).strip() for a in answers
+                               if str(a).strip()]
+                    if cleaned and cleaned != [str(a) for a in answers]:
+                        q["a"] = cleaned
     def _load_glossary(self, path: Path) -> None:
         """Load glossary.json and build fast lookup indices."""
         with open(path, encoding="utf-8") as f:

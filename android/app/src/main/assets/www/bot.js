@@ -388,6 +388,7 @@ class Fluentify {
     this.exercise = null;
     this.exerciseScore = 0;
     this.practiceDone = new Set();   // topics whose practice stage is cleared
+    this.cleanAnswers();
     this.lastJokeId = null;
     // What the learner is looking at right now. Without this, "exercises"
     // after a lesson is a dictionary miss instead of "start that lesson".
@@ -395,6 +396,24 @@ class Fluentify {
     this.lastPhrase = null;
     this.lastLevel = null;
     this.lastExamples = [];
+  }
+
+  /* Drop blank answer slots at load time. An empty string in a question's
+   * answers is invisible in the JSON but very visible to a learner: "show
+   * answer" printed " / no article / zero" with a leading blank. A blank is
+   * also never something anyone can type, so in the data it can only be a
+   * mistake. */
+  cleanAnswers() {
+    for (const topic of Object.values(this.grammar)) {
+      for (const stage of ['practice', 'exam']) {
+        for (const q of (topic[stage] || [])) {
+          if (!Array.isArray(q.a)) continue;
+          const cleaned = q.a.map((a) => String(a).trim()).filter(Boolean);
+          if (cleaned.length && cleaned.join('\u0000') !== q.a.join('\u0000'))
+            q.a = cleaned;
+        }
+      }
+    }
   }
 
   /* -------------------------------------------------------------- core */
