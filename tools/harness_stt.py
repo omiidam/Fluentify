@@ -390,6 +390,97 @@ def run_bundle() -> None:
           (parsed.stderr or "")[:400])
 
 
+# --------------------------------------------------------------------------
+# the motion system
+# --------------------------------------------------------------------------
+def run_motion() -> None:
+    """Animation must be present, cheap, and switchable off.
+
+    Three things are easy to get wrong and expensive to find: a decorative
+    rule that loses to a later base rule and silently never applies, a
+    top-level name that collides with bot.js and blanks the page, and motion
+    that keeps running for someone who asked for it to stop.
+    """
+    import re as _re
+
+    out = ROOT / "android/app/src/main/assets/www/index.html"
+    if not out.exists():
+        return
+    html = out.read_text(encoding="utf-8")
+
+    check("the motion layer is present", "MOTION SYSTEM" in html)
+    check("the ambient layer has markup", 'id="motes"' in html)
+    check("the motion module is defined", "const Motion = " in html)
+    check("motion is initialised", "Motion.init()" in html)
+
+    # a rule that never applies looks identical to one that does, in source
+    style_end = html.index("</style>")
+    motion_at = html.index("MOTION SYSTEM")
+    check("the motion block is last in the stylesheet",
+          motion_at > html.index(".row { display: flex"),
+          "a later base rule would win on order and the animation never run")
+    check("the motion block is inside the stylesheet", motion_at < style_end)
+
+    # the ambient canvas is decorative and must not be reachable
+    check("the ambient layer is aria-hidden", 'id="motes" aria-hidden="true"' in html)
+
+    # Reduced motion works by neutralising selectors, not by naming keyframes,
+    # so what matters is that the block is last, disables animations outright,
+    # and names everything that would otherwise run forever on its own.
+    check("a reduced-motion block exists",
+          "@media (prefers-reduced-motion: reduce)" in html)
+    reduced = html[html.rindex("@media (prefers-reduced-motion: reduce)"):]
+    check("the reduced-motion block is last in the stylesheet",
+          html.rindex("@media (prefers-reduced-motion: reduce)")
+          > html.rindex("@keyframes"),
+          "an !important override must come after the rules it overrides")
+    check("reduced motion disables animation outright",
+          "animation: none !important" in reduced)
+
+    # the things that would keep moving unprompted, by selector
+    forever = [
+        (".motes", "the ambient canvas"),
+        (".backdrop::before", "the drifting backdrop"),
+        (".orb.o1", "the floating orbs"),
+        (".mav.bot", "the bird idling"),
+        ("body.speaking", "the bird while speaking"),
+        (".bbc-lvl", "the level pill shimmer"),
+        (".mtool.on", "the speaking glow"),
+        (".mic.rec", "the recording pulse"),
+    ]
+    for selector, what in forever:
+        pat = _re.escape(selector).replace(r"\ ", r"\s*")
+        # "stopped" means either not rendered at all, or rendered but static
+        still = _re.search(
+            pat + r"[^}]*?(?:animation:\s*none|display:\s*none)", reduced)
+        check(f"reduced motion stops {what}", still is not None, selector)
+
+    # cost: nothing may animate a layout property
+    layout_props = _re.findall(r"@keyframes[^{]+\{([^}]*)\}", html)
+    bad = set()
+    for body in layout_props:
+        for line in body.split(";"):
+            prop = line.strip().split(":")[0].strip()
+            if prop.startswith(("width", "height", "top", "left", "right",
+                                "bottom", "margin", "padding")):
+                bad.add(prop)
+    check("no keyframe animates a layout property", not bad,
+          ", ".join(sorted(bad)))
+
+    # mounting must be idempotent - the offline build calls it from the boot
+    # block and again at the end of the page script, and two mic buttons in
+    # the composer is worse than none
+    check("mountMic is guarded against a double mount",
+          "if (document.getElementById('mic')) return;" in html)
+
+    # the module must be namespaced: one top-level const, nothing else
+    tops = _re.findall(r"^(?:const|let|var|function|class)\s+([A-Za-z_$][\w$]*)",
+                       html, _re.M)
+    motion_tops = [n for n in tops if n.startswith("Motion")]
+    check("the motion module exposes exactly one global", len(motion_tops) == 1,
+          ", ".join(motion_tops))
+
+
 def main() -> int:
     t0 = time.time()
     print("→ grader");   run_grader()
@@ -398,6 +489,7 @@ def main() -> int:
     print("→ pdf");      run_pdf()
     print("→ fetcher");  run_fetcher()
     print("→ bundle");   run_bundle()
+    print("→ motion");   run_motion()
     print()
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS} checks ({time.time() - t0:.1f}s)\n")
