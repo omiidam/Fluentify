@@ -12,6 +12,8 @@ Four suites, each answering a different question:
   tests_flow_parity   do they still agree over a *conversation*? Memory only
                       shows up across several messages, so a single-message
                       test cannot see it at all.
+  harness_stt   is the CEFR listening grader still calibrated, and is stt.json
+                still the shape the web app, the CLI and Android all read?
 
 Exit code is non-zero if any suite fails.
 """
@@ -27,6 +29,7 @@ SUITES = [
     ("capability harness", [sys.executable, "tools/harness.py"]),
     ("python/js message parity", [sys.executable, "tests_js_vs_python.py"]),
     ("python/js conversation parity", [sys.executable, "tests_flow_parity.py"]),
+    ("BBC grader & speech-to-text", [sys.executable, "tools/harness_stt.py"]),
 ]
 
 

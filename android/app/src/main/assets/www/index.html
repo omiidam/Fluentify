@@ -1012,6 +1012,90 @@
     filter: grayscale(.6);
   }
   #input { padding: 12px 15px; font-size: 16px; border-radius: 14px; }
+
+  /* ------------------------------------------------------------ speech ---- */
+  .mic {
+    width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%;
+    border: 1px solid #3a4a86; background: #141c46; color: #cfd8ff;
+    font-size: 18px; cursor: pointer; display: grid; place-items: center;
+    transition: background .18s, border-color .18s, transform .1s;
+  }
+  .mic:hover { border-color: #6f86d6; background: #1b2557; }
+  .mic:active { transform: scale(.94); }
+  .mic.rec {
+    background: #7d2b52; border-color: #ff6f9c; color: #fff;
+    box-shadow: 0 0 0 0 rgba(255, 111, 156, .55);
+    animation: micPulse 1.4s ease-out infinite;
+  }
+  @keyframes micPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 111, 156, .55); }
+    100% { box-shadow: 0 0 0 16px rgba(255, 111, 156, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mic.rec { animation: none; }
+  }
+  .stt-panel {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    padding: 9px 14px; margin: 0 10px 6px; font-size: 13.5px; line-height: 1.45;
+    background: rgba(20, 28, 70, .82); border: 1px solid #33427c;
+    border-radius: 14px; color: #b9c6ff;
+  }
+  .stt-panel[hidden] { display: none; }
+  .stt-dot {
+    width: 9px; height: 9px; border-radius: 50%; background: #ff6f9c;
+    flex: 0 0 9px; animation: micBlink 1.1s ease-in-out infinite;
+  }
+  @keyframes micBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+  .stt-label { color: #8fa2e8; font-size: 12.5px; }
+  .stt-interim { color: #9fb0ef; font-style: italic; }
+  .stt-final { color: #fff; }
+
+  /* ------------------------------------------------ BBC listening ------- */
+  .bbc-open {
+    display: block; width: 100%; margin-bottom: 10px; padding: 11px 14px;
+    border-radius: 13px; border: 1px solid #3a4a86; background: #141c46;
+    color: #cfd8ff; font-size: 13.5px; text-align: left; cursor: pointer;
+  }
+  .bbc-open:hover { border-color: #6f86d6; }
+  .bbc-head { display: flex; flex-direction: column; gap: 7px; margin-bottom: 10px; }
+  .bbc-back {
+    align-self: flex-start; min-height: 40px; padding: 8px 13px; border-radius: 11px;
+    border: 1px solid #3a4a86; background: #141c46; color: #cfd8ff;
+    font-size: 12.5px; cursor: pointer;
+  }
+  .bbc-note { font-size: 12px; color: #8fa2e8; line-height: 1.5; }
+  .bbc-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 9px; }
+  .bbc-tab {
+    flex: 0 0 auto; padding: 6px 12px; border-radius: 999px; font-size: 12.5px;
+    border: 1px solid #33427c; background: transparent; color: #b9c6ff; cursor: pointer;
+  }
+  .bbc-tab.on { background: #27356e; border-color: #6f86d6; color: #fff; }
+  .bbc-list { display: flex; flex-direction: column; gap: 9px; }
+  .bbc-row {
+    padding: 12px 14px; border-radius: 14px; background: #141c46;
+    border: 1px solid #2b3768;
+  }
+  .bbc-row-head { display: flex; gap: 9px; align-items: baseline; }
+  .bbc-lvl {
+    flex: 0 0 auto; font-size: 11px; font-weight: 700; padding: 2px 8px;
+    border-radius: 999px; background: #27356e; color: #cfd8ff;
+  }
+  .bbc-lvl.lvl-A2 { background: #1f4a3d; color: #a8f0cd; }
+  .bbc-lvl.lvl-B1 { background: #1e4470; color: #a8d4ff; }
+  .bbc-lvl.lvl-B2 { background: #4a3a72; color: #dcc4ff; }
+  .bbc-lvl.lvl-C1 { background: #6e2b4c; color: #ffc4dd; }
+  .bbc-title { font-size: 14.5px; color: #fff; font-weight: 600; }
+  .bbc-blurb { margin-top: 5px; font-size: 12.5px; color: #9fb0ef; line-height: 1.5; }
+  .bbc-meta { margin-top: 6px; font-size: 11.5px; color: #7d8fd4; }
+  .bbc-actions { display: flex; gap: 7px; margin-top: 9px; flex-wrap: wrap; align-items: center; }
+  .bbc-play {
+    padding: 8px 14px; min-height: 40px; border-radius: 11px; font-size: 13px;
+    border: 1px solid #6f86d6; background: #27356e; color: #fff; cursor: pointer;
+  }
+  .bbc-play.on { background: #7d2b52; border-color: #ff6f9c; }
+  .bbc-link { font-size: 12px; color: #9fb0ef; text-decoration: none; padding: 6px 4px; }
+  .bbc-link:hover { color: #fff; text-decoration: underline; }
+  .bbc-empty { font-size: 12px; color: #7d8fd4; padding: 4px 2px; }
   .send { padding: 0 20px; font-size: 14px; border-radius: 14px; min-height: 46px; }
 
   /* ---------- tablets: two comfortable columns ---------- */
@@ -1167,6 +1251,7 @@
     <span class="chip">my name is Ali</span>
   </div>
 
+  <div class="stt-panel" id="stt" hidden></div>
   <form id="composer">
     <div class="prow-form">
       <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…">
@@ -1659,6 +1744,225 @@ const Speech = {
   },
   isPlaying(text) { return !!this.playing && this.playing.text === text; },
 };
+
+
+/* ------------------------------------------------------------------ STT ---
+ * Speech to text, configured entirely by stt.json so the web app, the CLI and
+ * the Android app cannot drift apart. Two engines, chosen at runtime:
+ *
+ *   Android    window.AndroidSTT  — the on-device RecognizerIntent that ships
+ *                                 with Android. No model to download, no key.
+ *   Web        window.SpeechRecognition / webkitSpeechRecognition — the
+ *                                 browser's own. Chrome, Edge and Safari have
+ *                                 it; Firefox does not, and the UI says so
+ *                                 instead of failing silently.
+ *
+ * None of this uploads anything from this project: recognition is done by the
+ * browser or the OS, and the transcript lands in the composer like typed text.
+ */
+const STT = {
+  cfg: window.STT_CONFIG || {},
+  rec: null,
+  listening: false,
+  interim: '',
+  final: '',
+  startedAt: 0,
+  language: null,
+
+  /* Which engine is actually usable here, or null. */
+  engine() {
+    if (window.AndroidSTT && window.AndroidSTT.available) return 'android';
+    const R = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (R) return 'web';
+    return null;
+  },
+  supported() { return this.engine() !== null; },
+
+  lang() {
+    if (this.language) return this.language;
+    const l = this.cfg.language || {};
+    return l.default || l.fallback || 'en-GB';
+  },
+
+  setLanguage(code) { this.language = code; },
+
+  begin() {
+    if (this.listening) return true;
+    const engine = this.engine();
+    if (!engine) return false;
+
+    if (engine === 'android') {
+      this.listening = true;
+      this.interim = '';
+      this.render();
+      window.AndroidSTT.start(this.lang(), (partial) => {
+        this.interim = partial || '';
+        if (this.cfg.show_interim !== false) this.render();
+      }, (final) => {
+        this.listening = false;
+        this.interim = '';
+        this.final = final || '';
+        this.render();
+        if (this.final && this.cfg.submit_on_final) this.commit();
+      }, (err) => {
+        this.listening = false;
+        this.interim = '';
+        this.render();
+        if (err) this.onError(err);
+      });
+      return true;
+    }
+
+    const R = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const rec = new R();
+    this.cfg.web = this.cfg.web || {};
+    rec.lang = this.lang();
+    rec.continuous = !!this.cfg.web.continuous;
+    rec.interimResults = this.cfg.web.interim_results !== false;
+    rec.maxAlternatives = this.cfg.web.max_alternatives || 1;
+    this.rec = rec;
+    this.listening = true;
+    this.startedAt = Date.now();
+    this.interim = '';
+    this.final = '';
+
+    rec.onresult = (e) => {
+      let interim = '';
+      let final = '';
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const r = e.results[i];
+        if (r.isFinal) final += r[0].transcript;
+        else interim += r[0].transcript;
+      }
+      if (final) this.final = (this.final + ' ' + final).trim();
+      this.interim = interim.trim();
+      this.render();
+    };
+    rec.onerror = (e) => {
+      this.listening = false;
+      this.rec = null;
+      this.render();
+      this.onError(e.error);
+    };
+    rec.onend = () => {
+      this.listening = false;
+      this.rec = null;
+      this.render();
+    };
+    try {
+      rec.start();
+    } catch (err) {
+      this.listening = false;
+      this.rec = null;
+      this.render();
+      return false;
+    }
+    this.render();
+    /* The browser has no "user stopped talking" event, so auto-stop after a
+       pause in results. Silence that long is not someone thinking about a word. */
+    if (this.cfg.web.auto_stop_ms) {
+      clearTimeout(this._idle);
+      const watch = () => {
+        if (!this.listening) return;
+        const gap = Date.now() - this.startedAt;
+        if (gap > (this.cfg.web.min_speech_ms || 900)) {
+          this._stopped = true;
+          this.stop();
+        } else {
+          this._idle = setTimeout(watch, 500);
+        }
+      };
+      this._idle = setTimeout(watch, this.cfg.web.auto_stop_ms);
+    }
+    return true;
+  },
+
+  stop() {
+    if (!this.listening) return;
+    clearTimeout(this._idle);
+    if (this.rec) { try { this.rec.stop(); } catch (e) { /* already stopped */ } }
+    if (window.AndroidSTT && window.AndroidSTT.stop) window.AndroidSTT.stop();
+    this.listening = false;
+  },
+
+  commit() {
+    const text = (this.final + ' ' + this.interim).trim();
+    this.final = '';
+    this.interim = '';
+    if (!text) return false;
+    const box = document.getElementById('input');
+    if (box) {
+      box.value = text;
+      box.dispatchEvent(new Event('input'));
+      box.focus();
+    }
+    return true;
+  },
+
+  onError(code) {
+    const messages = {
+      'not-allowed': 'دسترسی به میکروفون داده نشد. / Microphone permission was denied.',
+      'service-not-allowed': 'سرویس گفتار در دسترس نیست. / The speech service is unavailable.',
+      'no-speech': 'چیزی نشنیدم — دوباره بگو. / Nothing heard — try again.',
+      'audio-capture': 'میکروفون پیدا نشد. / No microphone found.',
+      'network': 'شبکه لازم است برای این مرورگر. / This browser needs a network connection.',
+      'aborted': '',
+    };
+    const msg = messages[code];
+    if (msg) toast(msg);
+  },
+
+  /* Interim text shown live above the composer while recording. */
+  render() {
+    const mic = document.getElementById('mic');
+    if (mic) mic.classList.toggle('rec', this.listening);
+    const panel = document.getElementById('stt');
+    if (!panel) return;
+    if (!this.listening && !this.interim && !this.final) {
+      panel.hidden = true;
+      panel.innerHTML = '';
+      return;
+    }
+    panel.hidden = false;
+    const bits = [];
+    if (this.listening) {
+      bits.push('<span class="stt-dot"></span><span class="stt-label">در حال شنیدن… / listening</span>');
+    }
+    if (this.interim) bits.push('<span class="stt-interim">' + esc(this.interim) + '</span>');
+    if (this.final) bits.push('<span class="stt-final">' + esc(this.final) + '</span>');
+    panel.innerHTML = bits.join(' ');
+  },
+};
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+/* A single mic button in the composer: tap to talk, tap to stop. */
+function mountMic() {
+  const box = document.getElementById('input');
+  if (!box || !STT.supported()) return;
+  const btn = document.createElement('button');
+  btn.id = 'mic';
+  btn.className = 'mic';
+  btn.type = 'button';
+  btn.title = STT.engine() === 'android'
+    ? 'با میکروفون تایپ کن / dictate'
+    : 'با میکروفون تایپ کن / dictate';
+  btn.setAttribute('aria-label', btn.title);
+  btn.textContent = '🎙';
+  btn.addEventListener('click', () => {
+    if (STT.listening) {
+      STT.stop();
+      STT.commit();
+    } else {
+      STT.begin();
+    }
+  });
+  box.parentNode.insertBefore(btn, box.nextSibling);
+  STT.render();
+}
+
 if ('speechSynthesis' in window) {
   speechSynthesis.onvoiceschanged = () => { Speech.voice = Speech.pickVoice(); };
 }
@@ -1881,9 +2185,211 @@ async function loadListening() {
       tabs.appendChild(b);
     });
 
+    const toBbc = document.createElement('button');
+    toBbc.className = 'bbc-open';
+    toBbc.textContent = '📻  BBC 6 Minute English — graded A2 → C1';
+    toBbc.title = 'Real BBC episodes, graded by listening difficulty';
+    toBbc.onclick = () => loadBBC();
+
     box.innerHTML = '';
-    box.append(tabs, list);
+    box.append(toBbc, tabs, list);
     render(levels[0], 0);
+  } catch (e) { /* panel stays empty offline */ }
+}
+
+
+/* ---------- BBC 6 Minute English ----------
+   A catalogue, not a download: every clip, transcript and worksheet stays on
+   BBC's servers and the player streams from there. Nothing BBC publishes is
+   copied into this repository or into the APK.
+
+   Each episode is graded A2→C1 by tools/fetch_bbc_6min.py, which reads the
+   official transcript and blends vocabulary stretch, the share of B2+ words,
+   sentence length, clause density and speaking rate. The grade comes from the
+   transcript, so the band is what you actually hear, not the topic. */
+async function loadBBC() {
+  const box = document.getElementById('llevels');
+  if (!box) return;
+  try {
+    const doc = bbcCatalogue;
+    const episodes = (doc.episodes || []).filter((e) => e.audio);
+    if (!episodes.length) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'bbc';
+
+    const head = document.createElement('div');
+    head.className = 'bbc-head';
+    const badge = document.createElement('button');
+    badge.className = 'bbc-back';
+    badge.textContent = '🎧  CEFR sentences';
+    badge.title = 'Back to the built-in listening levels';
+    badge.onclick = () => loadListening();
+    head.appendChild(badge);
+
+    const note = document.createElement('div');
+    note.className = 'bbc-note';
+    const dist = doc.distribution || {};
+    const spread = Object.keys(dist).sort().join(' · ');
+    note.textContent = spread
+      ? `${doc.count} BBC episodes graded ${spread}. Each grade comes from the ` +
+        'official transcript — vocabulary, sentence length and speaking pace. ' +
+        'Audio plays from bbc.co.uk. / صدا از سایت بی‌بی‌سی پخش می‌شود.'
+      : `${doc.count} episodes from BBC Learning English. Audio plays from bbc.co.uk.`;
+    head.appendChild(note);
+    wrap.appendChild(head);
+
+    // level filter
+    const levels = [...new Set(episodes.map((e) => e.level).filter(Boolean))].sort();
+    const bar = document.createElement('div');
+    bar.className = 'bbc-tabs';
+    let current = 'all';
+    const list = document.createElement('div');
+    list.className = 'bbc-list';
+
+    const paint = () => {
+      list.innerHTML = '';
+      const rows = episodes
+        .filter((e) => current === 'all' || e.level === current)
+        .slice(0, current === 'all' ? 60 : 200);
+      if (!rows.length) {
+        const empty = document.createElement('div');
+        empty.className = 'bbc-empty';
+        empty.textContent = 'Nothing at this level yet.';
+        list.appendChild(empty);
+        return;
+      }
+      for (const ep of rows) {
+        const card = document.createElement('div');
+        card.className = 'bbc-row';
+
+        const head2 = document.createElement('div');
+        head2.className = 'bbc-row-head';
+        const lvl = document.createElement('span');
+        lvl.className = 'bbc-lvl lvl-' + (ep.level || '?');
+        lvl.textContent = ep.level || '?';
+        const title = document.createElement('span');
+        title.className = 'bbc-title';
+        title.textContent = ep.title;
+        head2.append(lvl, title);
+        card.appendChild(head2);
+
+        if (ep.blurb) {
+          const blurb = document.createElement('div');
+          blurb.className = 'bbc-blurb';
+          blurb.textContent = ep.blurb;
+          card.appendChild(blurb);
+        }
+
+        const meta = document.createElement('div');
+        meta.className = 'bbc-meta';
+        const bits = [];
+        if (ep.year) bits.push(ep.year);
+        if (ep.duration) bits.push(Math.round(ep.duration / 60) + ' min');
+        const st = ep.stats || {};
+        if (st.avg_sentence) bits.push('sentences ~' + st.avg_sentence + ' words');
+        if (st.challenge_pct != null) bits.push(st.challenge_pct + '% B2+');
+        if (st.c1c2_pct) bits.push(st.c1c2_pct + '% C1');
+        meta.textContent = bits.join(' · ');
+        card.appendChild(meta);
+
+        const bar2 = document.createElement('div');
+        bar2.className = 'bbc-actions';
+
+        const play = document.createElement('button');
+        play.className = 'bbc-play';
+        play.textContent = '▶  Play';
+        const audio = new Audio();
+        audio.preload = 'none';
+        audio.crossOrigin = 'anonymous';
+        play.onclick = () => {
+          if (window.AndroidTTS && window.AndroidTTS.stop) window.AndroidTTS.stop();
+          Speech.stop();
+          if (!audio.paused && audio.currentTime > 0) {
+            audio.pause();
+            play.textContent = '▶  Play';
+            play.classList.remove('on');
+            return;
+          }
+          audio.src = ep.audio;
+          audio.play().catch(() => {
+            play.textContent = '▶  Play';
+            play.classList.remove('on');
+            add('🔇 Could not play that clip — the stream needs a network ' +
+                'connection. / پخش این کلیپ به اینترنت نیاز دارد.', 'bot');
+          });
+          play.textContent = '❚❚  Pause';
+          play.classList.add('on');
+        };
+        audio.onended = () => {
+          play.textContent = '▶  Play';
+          play.classList.remove('on');
+        };
+        bar2.appendChild(play);
+
+        const page = document.createElement('a');
+        page.className = 'bbc-link';
+        page.href = ep.url;
+        page.target = '_blank';
+        page.rel = 'noopener noreferrer';
+        page.textContent = 'Episode';
+        bar2.appendChild(page);
+
+        if (ep.transcript_url) {
+          const tr = document.createElement('a');
+          tr.className = 'bbc-link';
+          tr.href = ep.transcript_url;
+          tr.target = '_blank';
+          tr.rel = 'noopener noreferrer';
+          tr.textContent = 'Transcript';
+          tr.title = 'The official transcript, as a PDF from BBC Learning English';
+          bar2.appendChild(tr);
+        }
+        if (ep.worksheet_url) {
+          const ws = document.createElement('a');
+          ws.className = 'bbc-link';
+          ws.href = ep.worksheet_url;
+          ws.target = '_blank';
+          ws.rel = 'noopener noreferrer';
+          ws.textContent = 'Worksheet';
+          bar2.appendChild(ws);
+        }
+        card.appendChild(bar2);
+        list.appendChild(card);
+      }
+      const more = document.createElement('div');
+      more.className = 'bbc-empty';
+      const shown = rows.length;
+      const total = episodes.filter((e) => current === 'all' || e.level === current).length;
+      more.textContent = total > shown
+        ? `Showing ${shown} of ${total} — pick a level to narrow it down.`
+        : '';
+      list.appendChild(more);
+    };
+
+    const addTab = (id, label) => {
+      const b = document.createElement('button');
+      b.className = 'bbc-tab';
+      b.textContent = label;
+      b.dataset.level = id;
+      b.onclick = () => {
+        current = id;
+        [...bar.children].forEach((c) => c.classList.toggle('on', c === b));
+        paint();
+      };
+      bar.appendChild(b);
+    };
+    addTab('all', `All (${episodes.length})`);
+    levels.forEach((lv) => {
+      const n = episodes.filter((e) => e.level === lv).length;
+      addTab(lv, `${lv} (${n})`);
+    });
+    bar.firstChild.classList.add('on');
+
+    wrap.append(bar, list);
+    box.innerHTML = '';
+    box.appendChild(wrap);
+    paint();
   } catch (e) { /* panel stays empty offline */ }
 }
 
@@ -2289,6 +2795,7 @@ async function loadGrammar() {
 }
 /* offline boot: load the bundled data, build the engine, fill the panels */
 let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
+let bbcCatalogue = {episodes: [], count: 0};
 let wordArchBands = {};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
@@ -2297,9 +2804,10 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
              loadJSON('phonetics'), loadJSON('word_arch'),
              loadJSON('distinctions'), loadJSON('idioms'),
-             loadJSON('corrections')])
+             loadJSON('corrections'), loadJSON('stt'),
+             loadJSON('bbc_6min')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch,
-          distinctions, idioms, corrections]) => {
+          distinctions, idioms, corrections, stt, bbc]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
@@ -2354,11 +2862,23 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       }),
     }));
 
+    // speech-to-text settings, straight from the same stt.json the CLI reads
+    window.STT_CONFIG = stt;
+    // the graded BBC catalogue: links and levels only, the audio streams
+    bbcCatalogue = {episodes: (bbc.episodes || []).map((e) => ({
+      id: e.id, title: e.title, blurb: e.blurb, year: e.year,
+      level: e.level, duration: e.duration, url: e.url, audio: e.audio,
+      transcript_url: e.transcript_url, worksheet_url: e.worksheet_url,
+      stats: e.stats,
+    })), count: bbc.count || (bbc.episodes || []).length,
+      distribution: bbc.distribution || {}};
+
     loadGrammar();
     loadPhrases();
     loadVocabulary();
     loadListening();
     loadPhonetics();
+    mountMic();
   })
   .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));
 
@@ -2367,6 +2887,7 @@ document.getElementById('vsearch').addEventListener('input', (ev) => {
   window.__vFilter = ev.target.value;
   loadVocabulary();
 });
+mountMic();
 
 /* clear conversation */
 /* ---------- clear: button or typed ---------- */

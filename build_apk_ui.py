@@ -14,7 +14,11 @@ ROOT = Path(__file__).parent
 OUT = ROOT / "android/app/src/main/assets/www/index.html"
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
-html = re.search(r'HTML = r"""(.*?)"""', src, re.S).group(1)
+html = re.search(r'HTML_TEMPLATE = r"""(.*?)"""', src, re.S).group(1)
+
+# the offline build has the config file in its own data/ folder, so the marker
+# becomes a plain fetch-free assignment filled from that file at boot
+html = html.replace("/*__STT_CONFIG__*/", "")
 
 # 1) send(): call the local engine instead of the HTTP endpoint
 old_send = """  showTyping();
@@ -84,9 +88,18 @@ html = html.replace(
     sections = await r.json();""",
     """    sections = phoneticSections;""")
 html = html.replace(
+    """    const bands = wordArchBands;""",
+    """    const bands = wordArchBands;""")
+# every occurrence, not just the first: loadWordArch has a second call site
+html = html.replace(
     """    const r = await fetch('/api/wordarch');
     const bands = await r.json();""",
     """    const bands = wordArchBands;""")
+html = html.replace(
+    """    const r = await fetch('/api/bbc');
+    const doc = await r.json();""",
+    """    const doc = bbcCatalogue;""")
+
 # keep the Object.assign line that follows, so the offline copy fills the cache
 html = html.replace(
     """    Object.assign(wordArch, bands);
@@ -101,6 +114,7 @@ loadPhrases();
 loadVocabulary();""",
     """/* offline boot: load the bundled data, build the engine, fill the panels */
 let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
+let bbcCatalogue = {episodes: [], count: 0};
 let wordArchBands = {};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
@@ -109,9 +123,10 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
              loadJSON('phonetics'), loadJSON('word_arch'),
              loadJSON('distinctions'), loadJSON('idioms'),
-             loadJSON('corrections')])
+             loadJSON('corrections'), loadJSON('stt'),
+             loadJSON('bbc_6min')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch,
-          distinctions, idioms, corrections]) => {
+          distinctions, idioms, corrections, stt, bbc]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
@@ -166,11 +181,23 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       }),
     }));
 
+    // speech-to-text settings, straight from the same stt.json the CLI reads
+    window.STT_CONFIG = stt;
+    // the graded BBC catalogue: links and levels only, the audio streams
+    bbcCatalogue = {episodes: (bbc.episodes || []).map((e) => ({
+      id: e.id, title: e.title, blurb: e.blurb, year: e.year,
+      level: e.level, duration: e.duration, url: e.url, audio: e.audio,
+      transcript_url: e.transcript_url, worksheet_url: e.worksheet_url,
+      stats: e.stats,
+    })), count: bbc.count || (bbc.episodes || []).length,
+      distribution: bbc.distribution || {}};
+
     loadGrammar();
     loadPhrases();
     loadVocabulary();
     loadListening();
     loadPhonetics();
+    mountMic();
   })
   .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""")
 

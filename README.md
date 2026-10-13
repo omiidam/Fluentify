@@ -151,3 +151,100 @@ Memory and content structures were informed by these open-source projects:
 ## License
 
 MIT
+
+## 🎧 BBC listening, graded A2 → C1
+
+The 🎧 Listening panel carries a catalogue of **BBC Learning English** episodes,
+each graded by how hard it is to *hear*, not just to read.
+
+### Three series, because one is not enough
+
+> **On the name.** BBC ran a series called *5 Minute English* until 2014 and
+> relaunched it as *6 Minute English*. That series is indexed here — but it is
+> only one of three, and it is **intermediate throughout**. A single series
+> cannot give a graded spread, so the catalogue takes all three that BBC runs at
+> different levels:
+
+| series | episodes | BBC targets | what it is |
+| --- | --- | --- | --- |
+| **Real Easy English** | 124 | A1–A2 | deliberately simple, slow, everyday |
+| **6 Minute English** | 501 | B1–B2 | the former 5 Minute English — news and chat |
+| **The English We Speak** | 501 | B2–C1 | idioms and phrasal verbs, upper level |
+
+> **On the audio.** Every clip, transcript and worksheet is BBC copyright. This
+> project stores **links only**: the catalogue holds the canonical BBC URLs and
+> the app streams the audio from `bbc.co.uk`, exactly as bbc.co.uk does. No BBC
+> media is copied into this repository or bundled into the APK.
+
+```bash
+python3 tools/fetch_bbc_6min.py --fetch all     # index + grade the archive
+python3 tools/fetch_bbc_6min.py --audit         # grade vs BBC's own level tag
+python3 tools/fetch_bbc_6min.py --report        # level distribution
+```
+
+Downloads are resumable — per-episode pages and PDFs are cached under
+`tools/.cache/` (gitignored). The output is `bbc_6min.json`.
+
+### How an episode is graded
+
+`tools/listening_grade.py` blends four things, because listening difficulty is
+not reading difficulty — a BBC presenter delivers ~150 words a minute with
+contractions and reductions, so a passage you could read comfortably can still
+be a hard listening task.
+
+| signal | what it captures |
+| --- | --- |
+| **stretch** | 75th percentile of content-word CEFR levels — the vocabulary you must already own |
+| **challenge** | share of content tokens at B2 or above — how much is *new* work |
+| **syntax** | sentence length and clause density — what makes a listener lose the thread |
+| **density** | words per minute — separates a slow careful read from a fast discussion |
+
+Word levels come from the CEFR-J list already used for the rest of the app
+(`Maximax67/Words-CEFR-Dataset`, MIT).
+
+The grader is independent of BBC, so it can disagree with them — which is the
+point. `--audit` checks it against BBC's own level tag. Those tags are course
+*ranges* ("intermediate" = B1–B2), so the honest test is containment, not
+equality:
+
+```
+audited 501 tagged episodes
+  inside BBC's own band  : 100% (100%)
+```
+
+## 🎙 Speech to text
+
+Dictation in the composer. Three surfaces, one config.
+
+| surface | engine | needs |
+| --- | --- | --- |
+| web | Web Speech API | a Chromium or Safari browser |
+| Android | `RecognizerIntent` (ships with the OS) | nothing — no model, no key |
+| CLI | faster-whisper / openai-whisper / vosk | `pip install faster-whisper` |
+
+`stt.json` configures all three — languages, auto-stop, interim results, output
+formats, privacy notes — so they cannot drift apart.
+
+```bash
+python3 tools/transcribe.py --check                    # what is installed
+python3 tools/transcribe.py lesson.mp3                 # transcribe
+python3 tools/transcribe.py lesson.mp3 -f srt          # subtitles
+python3 tools/transcribe.py clip.mp3 --model small     # better accuracy
+```
+
+The CLI also grades its own output with the same CEFR grader, so a clip you
+record yourself lands on the same scale as the BBC catalogue.
+
+Nothing is uploaded by this project: recognition is done by the browser or the
+OS. `tools/transcribe.py` says plainly which backends are missing instead of
+failing quietly.
+
+## Checks
+
+```bash
+python3 tools/check_all.py
+```
+
+Five suites: content integrity and adversarial input, the capability harness,
+Python/JS message parity, Python/JS *conversation* parity (memory only shows up
+across several messages), and the BBC grader plus the STT config.

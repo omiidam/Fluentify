@@ -1,0 +1,65 @@
+{
+  "_readme": "Speech-to-text configuration. One file, read by the web app, the CLI (tools/transcribe.py) and the Android bridge, so the three never drift apart. Edit here, not in code.",
+
+  "enabled": true,
+
+  "language": {
+    "default": "en-GB",
+    "fallback": "en-US",
+    "supported": [
+      { "code": "en-GB", "label": "English — British", "flag": "🇬🇧" },
+      { "code": "en-US", "label": "English — American", "flag": "🇺🇸" },
+      { "code": "en-AU", "label": "English — Australian", "flag": "🇦🇺" },
+      { "code": "en-CA", "label": "English — Canadian", "flag": "🇨🇦" },
+      { "code": "en-IN", "label": "English — Indian", "flag": "🇮🇳" },
+      { "code": "en-IE", "label": "English — Irish", "flag": "🇮🇪" },
+      { "code": "en-NZ", "label": "English — New Zealand", "flag": "🇳🇿" },
+      { "code": "en-ZA", "label": "English — South African", "flag": "🇿🇦" },
+      { "code": "fa-IR", "label": "فارسی — Persian", "flag": "🇮🇷" }
+    ]
+  },
+
+  "web": {
+    "_readme": "Browser Web Speech API. No dependency, no key, no server. Chrome, Edge and Safari support it; Firefox does not, so the UI falls back to typing with an explanation.",
+    "engine": "webspeech",
+    "interim_results": true,
+    "continuous": false,
+    "max_alternatives": 1,
+    "auto_stop_ms": 8000,
+    "min_speech_ms": 900,
+    "show_interim": true,
+    "submit_on_final": false,
+    "unsupported_message": "این مرورگر گفتار را تشخیص نمی‌دهد — تایپ کن یا از کروم استفاده کن. / This browser has no speech recognition — type instead, or use Chrome."
+  },
+
+  "android": {
+    "_readme": "Uses the on-device RecognizerIntent that ships with Android, so there is no model to download and no API key. Falls back to the web engine when the device has no recogniser.",
+    "engine": "RecognizerIntent",
+    "prefer_offline": false,
+    "partial_results": true,
+    "max_results": 1,
+    "language_param": "EXTRA_LANGUAGE",
+    "timeout_ms": 60000
+  },
+
+  "cli": {
+    "_readme": "Optional local backends for tools/transcribe.py. It probes what is installed and says so plainly rather than failing quietly. faster-whisper is the best quality per watt; vosk is the lightest; the openai-whisper package is the reference implementation.",
+    "backends": ["faster-whisper", "whisper", "vosk"],
+    "model": "base",
+    "model_dir": "tools/.cache/models",
+    "language": "en",
+    "beam_size": 5,
+    "vad_filter": true,
+    "compute_type": "int8",
+    "output_formats": ["txt", "srt", "vtt", "json"],
+    "grade_transcript": true
+  },
+
+  "levels": ["A2", "B1", "B2", "C1"],
+
+  "privacy": {
+    "_readme": "Recording notes. Web and Android recognition may be sent to the browser/OS vendor's service - the UI says so the first time. Nothing is uploaded by this project.",
+    "notice": "صدا فقط برای تبدیل به متن استفاده می‌شود. / Audio is used only to turn speech into text.",
+    "store_recordings": false
+  }
+}

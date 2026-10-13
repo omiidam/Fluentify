@@ -1,8 +1,13 @@
 package app.fluentify
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.media.AudioAttributes
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
@@ -10,7 +15,9 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.webkit.WebViewAssetLoader
 import java.util.Locale
 
@@ -20,14 +27,84 @@ import java.util.Locale
  * https://appassets.androidplatform.net/ so that fetch("data/memory.json") is
  * same-origin and is not blocked by the stricter file:// origin rules.
  *
- * The 🎧 Listening panel speaks through Android's built-in text-to-speech
- * engine via the AndroidTTS bridge (fully offline, no network, no API key);
- * on the web build the page falls back to the Web Speech API.
+ * Speech out: the 🎧 Listening panel speaks through Android's built-in
+ * text-to-speech engine via the AndroidTTS bridge (fully offline, no network,
+ * no API key); on the web build the page falls back to the Web Speech API.
+ *
+ * Speech in: the 🎙 composer button goes the other way through the AndroidSTT
+ * bridge, using RecognizerIntent - the recogniser that already ships with the
+ * OS. That means no speech model to download, no API key, and nothing of the
+ * learner's voice leaves the device unless they themselves enabled an online
+ * recogniser in system settings (EXTRA_PREFER_OFFLINE is honoured when the
+ * app is configured that way). Partial results stream back so the interim
+ * text appears as they speak.
  */
 class MainActivity : AppCompatActivity() {
 
     private var tts: TextToSpeech? = null
     private var ttsReady = false
+    private var web: WebView? = null
+
+    /* Callbacks handed to the STT bridge for this one recognition. */
+    private var sttPartial: ((String) -> Unit)? = null
+    private var sttFinal: ((String) -> Unit)? = null
+    private var sttError: ((String) -> Unit)? = null
+
+    private val micPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            if (granted) {
+                launchRecognizer(sttLanguage)
+            } else {
+                sttError?.invoke("not-allowed")
+                clearSttCallbacks()
+            }
+        }
+
+    private val recognizerLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            val text = when (result.resultCode) {
+                Activity.RESULT_OK -> {
+                    val data = result.data ?: Bundle()
+                    data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                        ?.joinToString(" ")?.trim().orEmpty()
+                }
+                else -> ""
+            }
+            if (result.resultCode == Activity.RESULT_OK && text.isNotEmpty()) {
+                sttFinal?.invoke(text)
+            } else if (result.resultCode != Activity.RESULT_OK) {
+                sttError?.invoke("no-speech")
+            }
+            clearSttCallbacks()
+        }
+
+    private var sttLanguage: String = "en-GB"
+
+    private fun clearSttCallbacks() {
+        sttPartial = null
+        sttFinal = null
+        sttError = null
+    }
+
+    private fun launchRecognizer(language: String) {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            )
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, language)
+            putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, packageName)
+            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
+            // Streaming partials: the composer shows text while they speak
+            putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+        }
+        try {
+            recognizerLauncher.launch(intent)
+        } catch (e: Exception) {
+            sttError?.invoke("service-not-allowed")
+            clearSttCallbacks()
+        }
+    }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))
             .build()
 
-        val web = WebView(this).apply {
+        val view = WebView(this).apply {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             settings.allowFileAccess = false
@@ -45,6 +122,7 @@ class MainActivity : AppCompatActivity() {
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
             addJavascriptInterface(TtsBridge(), "AndroidTTS")
+            addJavascriptInterface(SttBridge(), "AndroidSTT")
             webViewClient = object : WebViewClient() {
                 override fun shouldInterceptRequest(
                     view: WebView,
@@ -57,13 +135,14 @@ class MainActivity : AppCompatActivity() {
                 ): Boolean = request.url.host != "appassets.androidplatform.net"
             }
         }
+        web = view
 
-        setContentView(web)
-        web.loadUrl("https://appassets.androidplatform.net/assets/www/index.html")
+        setContentView(view)
+        view.loadUrl("https://appassets.androidplatform.net/assets/www/index.html")
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (web.canGoBack()) web.goBack() else finish()
+                if (view.canGoBack()) view.goBack() else finish()
             }
         })
     }
@@ -101,6 +180,75 @@ class MainActivity : AppCompatActivity() {
 
         @JavascriptInterface
         fun isReady(): Boolean = ttsReady
+    }
+
+    /** JS → native speech recognition, the mirror image of the TTS bridge. */
+    inner class SttBridge {
+        /** Does this device have a usable recogniser at all? */
+        @JavascriptInterface
+        fun available(): Boolean {
+            val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            return i.resolveActivity(packageManager) != null
+        }
+
+        @JavascriptInterface
+        fun hasPermission(): Boolean =
+            ContextCompat.checkSelfPermission(
+                this@MainActivity, Manifest.permission.RECORD_AUDIO
+            ) == PackageManager.PERMISSION_GRANTED
+
+        /**
+         * Begin recognition. The three callbacks are the JS functions
+         * onPartial / onFinal / onError; each is invoked with a plain string
+         * so the page never has to know about Android Bundle types.
+         */
+        @JavascriptInterface
+        fun start(
+            language: String?,
+            onPartial: String?,
+            onFinal: String?,
+            onError: String?
+        ) {
+            sttLanguage = language ?: "en-GB"
+            val w = web ?: return
+            sttPartial = { text -> w.evaluateJavascript("window.$onPartial(${quote(text)})", null) }
+            sttFinal = { text -> w.evaluateJavascript("window.$onFinal(${quote(text)})", null) }
+            sttError = { code -> w.evaluateJavascript("window.$onError(${quote(code)})", null) }
+
+            runOnUiThread {
+                if (hasPermission()) {
+                    launchRecognizer(sttLanguage)
+                } else {
+                    micPermission.launch(Manifest.permission.RECORD_AUDIO)
+                }
+            }
+        }
+
+        @JavascriptInterface
+        fun stop() {
+            // RecognizerIntent runs as its own activity; finishing it is the
+            // only way to stop it, and only if it is actually up.
+            sttError?.invoke("aborted")
+            clearSttCallbacks()
+        }
+
+        private fun quote(s: String): String {
+            val sb = StringBuilder("\"")
+            for (c in s) {
+                when {
+                    c == '"' -> sb.append("\\\"")
+                    c == '\\' -> sb.append("\\\\")
+                    c == '\n' -> sb.append("\\n")
+                    c == '\r' -> sb.append("\\r")
+                    c == '\t' -> sb.append("\\t")
+                    c.toInt() < 0x20 -> sb.append("\\u").append(
+                        String.format("%04x", c.toInt())
+                    )
+                    else -> sb.append(c)
+                }
+            }
+            return sb.append('"').toString()
+        }
     }
 
     override fun onStart() {
