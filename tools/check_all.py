@@ -18,6 +18,11 @@ Four suites, each answering a different question:
   check_manifest  is every android: attribute in the manifest one the platform
                 actually defines? There is no SDK here, so this is the only
                 thing standing between a typo and a CI round trip.
+  check_ui      is the page wired up - does every generated panel repaint when
+                it opens, does the mic repaint on save, is toast() defined?
+                Static, because the only real test is a browser and this
+                project has no browser automation. It catches the Review panel
+                opening blank, which looked like data loss and was not.
 
 Exit code is non-zero if any suite fails.
 """
@@ -35,6 +40,7 @@ SUITES = [
     ("python/js conversation parity", [sys.executable, "tests_flow_parity.py"]),
     ("BBC grader & speech-to-text", [sys.executable, "tools/harness_stt.py"]),
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
+    ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
 ]
 
 

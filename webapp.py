@@ -3304,8 +3304,21 @@ function togglePanel(panelId, btnId) {
   if (!wasOpen) {
     panel.classList.add('open');
     document.getElementById(btnId).classList.add('on');
+    // A panel whose content is generated rather than static has to be told to
+    // redraw when it opens. Without this the Review panel opened blank: the
+    // words were saved and the badge counted them, but nothing had ever asked
+    // Review.paint() to render them into #rbody.
+    const hook = PANEL_ON_OPEN[panelId];
+    if (hook) hook();
   }
 }
+
+/* Panels that must rebuild their contents each time they are opened.
+   Declared before togglePanel so the lookup is never undefined; the functions
+   themselves are only called on click, long after they are defined. */
+const PANEL_ON_OPEN = {
+  rpanel: () => { Review.load(); Review.paint(); },
+};
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
 document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggle');
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
@@ -3478,6 +3491,12 @@ const Review = {
     const w = (word || '').toLowerCase();
     return this.items.some((i) => i.en.toLowerCase() === w);
   },
+  /* Repaint only when the panel is actually on screen. Painting a hidden
+     panel is wasted work on the hot path - every word card's ☆ calls add(). */
+  refresh() {
+    const panel = document.getElementById('rpanel');
+    if (panel && panel.classList.contains('open')) this.paint();
+  },
   add(entry) {
     if (!entry || !entry.en) return false;
     if (this.has(entry.en)) return false;
@@ -3487,13 +3506,14 @@ const Review = {
       level: entry.level || 'A1', ok: false, streak: 0,
     });
     this.save();
+    this.refresh();
     return true;
   },
   remove(word) {
     const w = (word || '').toLowerCase();
     this.items = this.items.filter((i) => i.en.toLowerCase() !== w);
     this.save();
-    this.paint();
+    this.refresh();
   },
   toggle(entry) { return this.has(entry.en) ? (this.remove(entry.en), false) : (this.add(entry), true); },
   reset() { this.items.forEach((i) => { i.ok = false; i.streak = 0; }); this.at = 0; this.flipped = false; this.save(); this.paint(); },
