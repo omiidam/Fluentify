@@ -591,21 +591,50 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .msg.err { border-color: #f87171; color: #fecaca; background: #7f1d1d55; }
 
-  /* scroll-to-latest — only appears once you scroll up */
-  .jump {
-    position: absolute; right: 50%; transform: translate(50%, 8px);
-    bottom: 78px; z-index: 6; width: 38px; height: 38px;
-    border-radius: 50%; cursor: pointer; font-size: 15px;
-    display: grid; place-items: center;
-    color: #fff; font-family: inherit;
-    background: linear-gradient(135deg, rgba(109,140,255,.9), rgba(167,139,250,.85));
-    border: 1px solid rgba(255,255,255,.22);
-    box-shadow: 0 6px 18px rgba(0,0,0,.4);
-    opacity: 0; pointer-events: none; transition: .18s;
+  /* The chat is wrapped so this button can be anchored to the transcript
+     rather than to the window. It used to sit at `bottom: 78px`, centred,
+     which put it squarely on top of the message input - the composer is
+     taller than 78px, so the button floated over the text field and read as
+     part of it. Anchoring to the transcript's own bottom edge means no magic
+     number to keep in step with the chips, the composer and the theme row. */
+  .chatwrap {
+    flex: 1 1 auto; position: relative; min-height: 0;
+    display: flex; flex-direction: column;
   }
-  .jump.show { opacity: 1; pointer-events: auto; transform: translate(50%, 0); }
+
+  /* scroll-to-latest — bottom-right of the transcript, where every messenger
+     puts it and, more usefully, where it does not sit over the reading
+     column. Carries a count of what has arrived since you last looked. */
+  .jump {
+    position: absolute; right: 16px; bottom: 14px; z-index: 6;
+    width: 44px; height: 44px;                  /* a real touch target */
+    border-radius: 50%; cursor: pointer; font-size: 17px;
+    display: grid; place-items: center;
+    color: #fff; font-family: inherit; line-height: 1;
+    background: linear-gradient(135deg, rgba(109,140,255,.94), rgba(167,139,250,.9));
+    border: 1px solid rgba(255,255,255,.24);
+    box-shadow: 0 6px 18px rgba(0,0,0,.45);
+    opacity: 0; pointer-events: none;
+    transform: translateY(10px) scale(.9);
+    transition: opacity .18s, transform .18s cubic-bezier(.22,1,.36,1);
+  }
+  .jump.show { opacity: 1; pointer-events: auto; transform: none; }
   .jump:hover { filter: brightness(1.12); }
-  @media (max-width: 599px) { .jump { bottom: 92px; } }
+  .jump:active { transform: scale(.93); }
+  .jump:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 3px; }
+  .jump svg { width: 17px; height: 17px; display: block; }
+
+  /* how many replies have arrived while you were reading further up */
+  .jump b {
+    position: absolute; top: -3px; inset-inline-end: -3px;
+    min-width: 19px; height: 19px; padding: 0 5px;
+    display: grid; place-items: center;
+    border-radius: 10px; font-size: 10.5px; font-weight: 700;
+    background: #ff5c9d; color: #fff;
+    border: 1.5px solid #101538;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  }
+  .jump b[hidden] { display: none; }
 
   /* typing indicator */
   .typing { display: inline-flex; gap: 5px; padding: 13px 16px !important; }
@@ -621,6 +650,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .chips {
     display: flex; gap: 8px; padding: 11px 20px; overflow-x: auto;
     border-top: 1px solid var(--line);
+    /* flex: none, so the suggestion row keeps its natural height. Left to
+       shrink it was being squeezed to 19px against 38px chips, which showed
+       the bottom half of every suggestion. The transcript is the only thing
+       in this column that should give up space, and it scrolls. */
+    flex: none;
   }
   .chips::-webkit-scrollbar { height: 6px; }
   .chips::-webkit-scrollbar-thumb { background: #2f3a6b; border-radius: 6px; }
@@ -1690,9 +1724,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="rbody" id="rbody"></div>
   </div>
 
-  <div id="chat" role="log" aria-live="polite"
+  <div class="chatwrap">
+    <div id="chat" role="log" aria-live="polite"
          aria-relevant="additions" aria-label="Conversation"></div>
-  <button id="jump" class="jump" aria-label="Scroll to the latest message" title="Latest ↓">↓</button>
+    <button id="jump" class="jump" aria-label="Scroll to the latest message"
+            title="Latest ↓"><svg viewBox="0 0 16 16" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg><b id="jumpn" hidden></b></button>
+  </div>
 
   <div class="chips" id="chips">
     <span class="chip">how are you?</span>
@@ -1744,7 +1783,26 @@ const chat = document.getElementById('chat');
 const input = document.getElementById('input');
 const jump = document.getElementById('jump');
 let pinned = true;   // false once the reader scrolls up
-jump.onclick = () => { chat.scrollTo({top: chat.scrollHeight, behavior: 'smooth'}); pinned = true; };
+/* How many replies have arrived below the fold. A scroll-to-latest button
+   that cannot say how much you are missing is a button you have to press
+   speculatively - the count is the whole point of it. */
+let unread = 0;
+function paintJump() {
+  jump.classList.toggle('show', !pinned && chat.scrollHeight > chat.clientHeight + 40);
+  const n = document.getElementById('jumpn');
+  if (!n) return;
+  n.textContent = unread > 99 ? '99+' : String(unread);
+  n.hidden = unread < 1;
+  jump.setAttribute('aria-label', unread > 0
+    ? `Scroll to the latest message, ${unread} new`
+    : 'Scroll to the latest message');
+}
+jump.onclick = () => {
+  chat.scrollTo({top: chat.scrollHeight, behavior: 'smooth'});
+  pinned = true;
+  unread = 0;
+  paintJump();
+};
 const sendbtn = document.getElementById('sendbtn');
 const isFa = s => /[\u0600-\u06FF]/.test(s);
 /* The learner is the second bird — same shape, sunny yellow instead of pink. */
@@ -1979,6 +2037,7 @@ function add(text, who, opts = {}) {
   row.appendChild(wrap);
   chat.appendChild(row);
   if (pinned) chat.scrollTop = chat.scrollHeight;
+  else if (who === 'bot') { unread++; paintJump(); }
   return bubble;
 }
 
@@ -4462,7 +4521,9 @@ document.addEventListener('keydown', (ev) => {
 /* ---------- stop auto-scrolling once the reader scrolls up ---------- */
 chat.addEventListener('scroll', () => {
   pinned = chat.scrollHeight - chat.scrollTop - chat.clientHeight < 90;
-  jump.classList.toggle('show', !pinned);
+  // Reaching the bottom is what clears the count, not merely scrolling.
+  if (pinned) unread = 0;
+  paintJump();
 });
 
 /* boot */

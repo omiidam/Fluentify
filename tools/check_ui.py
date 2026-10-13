@@ -178,6 +178,49 @@ def main() -> int:
           "neither audio nor transcript" in bbc,
           "an honest count has to explain the difference")
 
+    # ------------------------------------------------- scroll-to-latest --
+    # It was position:absolute at `bottom: 78px`, centred. The composer is
+    # taller than 78px, so the button floated on top of the message input and
+    # read as part of the text field. Anchored to the transcript's own bottom
+    # edge instead, inside a wrapper, with no magic offset to keep in step
+    # with the chips, the composer and the theme row.
+    check("the transcript is wrapped so the jump button can anchor to it",
+          '<div class="chatwrap">' in src and "</div>\n  <button id=\"jump\"" not in src,
+          "positioning the button against the window is what put it on the composer")
+    check("the jump button lives inside that wrapper",
+          re.search(r'<div class="chatwrap">.*?<button id="jump".*?</div>', src, re.S)
+          is not None)
+    jumpcss = re.search(r"\n  \.jump \{(.*?)\n  \}", src, re.S)
+    jb = jumpcss.group(1) if jumpcss else ""
+    # A bottom offset is only safe because the button is positioned against
+    # the transcript rather than the window: the wrapper is the containing
+    # block, so 14px means 14px above the end of the messages no matter how
+    # tall the chips, composer and theme row happen to be.
+    wrap = re.search(r"\n  \.chatwrap \{(.*?)\n  \}", src, re.S)
+    check("the jump button is offset from the transcript, not from the window",
+          wrap is not None and "position: relative" in wrap.group(1)
+          and "position: absolute" in jb,
+          "without a positioned wrapper, bottom: is measured from the app and "
+          "lands on the composer again the moment the chrome changes height")
+    check("the jump button sits at the transcript's edge, not over the reading column",
+          "right:" in jb and "right: 50%" not in jb,
+          "centred puts it over the text it is meant to help you skip")
+    check("the jump button meets the touch target minimum",
+          re.search(r"width: 44px", jb) is not None)
+    check("the jump button says how much is waiting below",
+          "unread" in src and 'id="jumpn"' in src,
+          "a scroll button that cannot say what you are missing is pressed speculatively")
+    check("reaching the bottom clears the unread count",
+          re.search(r"if \(pinned\) unread = 0", src) is not None)
+
+    # The suggestion row is left to shrink, which squeezed it to 19px against
+    # 38px chips - every suggestion showed as its bottom half. The transcript
+    # is the only thing in that column that should give up space.
+    chips = re.search(r"\n  \.chips \{(.*?)\n  \}", src, re.S)
+    check("the suggestion row keeps its natural height",
+          chips is not None and "flex: none" in chips.group(1),
+          "it was being squeezed and clipped; the transcript should shrink instead")
+
     # ------------------------------------------------------- review list --
     # The regression: opening the panel painted nothing.
     toggle = fn_body(src, "togglePanel")
