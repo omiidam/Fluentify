@@ -178,6 +178,20 @@ def main() -> int:
           "neither audio nor transcript" in bbc,
           "an honest count has to explain the difference")
 
+    # ---------------------------------------------------- review count badge --
+    # It was at top:-3px / inset-inline-end:-3px, which is outside a 46px
+    # button - and being a <span> it inherited .hbtn span's overflow:hidden,
+    # so the tile clipped it in half and it read as a sliver on the edge.
+    rbadge = re.search(r"\n  \.rbadge \{(.*?)\n  \}", src, re.S)
+    rb = re.sub(r"/\*.*?\*/", "", rbadge.group(1), flags=re.S) if rbadge else ""
+    check("the review badge sits inside its tile",
+          not re.search(r"(top|inset-inline-end|right|left)\s*:\s*-\d", rb),
+          "a negative offset puts it outside the button, where it is clipped "
+          "into a sliver by the label's overflow:hidden")
+    check("the review badge overrides the label's ellipsis",
+          "text-overflow: clip" in rb,
+          ".hbtn span sets ellipsis and nowrap, which is for labels not counts")
+
     # ------------------------------------------------------- daily limit --
     # The moon rides a rail from the left end to the right as the counter goes
     # 0 -> 50. It used to be a row of text that appeared only once the limit

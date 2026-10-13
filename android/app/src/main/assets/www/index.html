@@ -724,13 +724,24 @@
   }
 
   /* ---------- review: saved words + flashcards ---------- */
+  /* Inside the tile, not overhanging its corner.
+
+     It used to sit at top:-3px / inset-inline-end:-3px, which put it outside a
+     46px button - and because it is a <span> it inherited .hbtn span's
+     overflow:hidden, so the tile clipped it in half and it read as a sliver
+     jammed against the edge. Anchored inside with a real gap, it is a badge
+     on the tile rather than debris next to it. */
   .rbadge {
-    position: absolute; top: -3px; inset-inline-end: -3px;
+    position: absolute; top: 3px; inset-inline-end: 3px; z-index: 1;
     display: inline-flex; align-items: center; justify-content: center;
-    min-width: 15px; height: 15px; padding: 0 4px; border-radius: 999px;
-    font-size: 9px; font-weight: 800; color: #3a2400;
-    background: #ffc44d; border: 1px solid rgba(11,16,46,.6);
+    min-width: 15px; height: 15px; padding: 0 3px; border-radius: 999px;
+    font-size: 9px; font-weight: 800; line-height: 1; color: #3a2400;
+    background: #ffc44d; border: 1px solid rgba(11,16,46,.55);
+    box-shadow: 0 1px 3px rgba(0,0,0,.35);
+    /* .hbtn span sets ellipsis and a nowrap overflow; a number needs neither */
+    text-overflow: clip; max-width: none;
   }
+  .rbadge[hidden] { display: none; }
   .rtop { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
   .rprog {
     flex: 1 1 120px; height: 7px; border-radius: 999px; overflow: hidden;
