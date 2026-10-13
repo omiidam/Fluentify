@@ -12,8 +12,12 @@ Four suites, each answering a different question:
   tests_flow_parity   do they still agree over a *conversation*? Memory only
                       shows up across several messages, so a single-message
                       test cannot see it at all.
-  harness_stt   is the CEFR listening grader still calibrated, and is stt.json
-                still the shape the web app, the CLI and Android all read?
+  harness_stt   is the CEFR listening grader still calibrated, is stt.json still
+                the shape the web app, the CLI and Android all read, and does
+                the offline bundle still start?
+  check_manifest  is every android: attribute in the manifest one the platform
+                actually defines? There is no SDK here, so this is the only
+                thing standing between a typo and a CI round trip.
 
 Exit code is non-zero if any suite fails.
 """
@@ -30,6 +34,7 @@ SUITES = [
     ("python/js message parity", [sys.executable, "tests_js_vs_python.py"]),
     ("python/js conversation parity", [sys.executable, "tests_flow_parity.py"]),
     ("BBC grader & speech-to-text", [sys.executable, "tools/harness_stt.py"]),
+    ("android manifest", [sys.executable, "tools/check_manifest.py"]),
 ]
 
 

@@ -21,13 +21,20 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Regenerate the offline app UI
+      - name: Check the Android manifest before spending 5 minutes on Gradle
+        # There is no SDK in the loop below that would tell us a misspelled
+        # android: attribute is not an attribute until AAPT runs, so this
+        # catches the whole class first, in a second.
+        run: python3 tools/check_manifest.py
+
+      - name: Regenerate the offline app UI and sync its data
+        # build_apk_ui.py owns the data/ sync - it copies every file the
+        # offline boot fetches and fails if one is missing. Listing the files
+        # here as well only created a second place to forget one.
         run: python3 build_apk_ui.py
 
-      - name: Sync the chatbot data into the app assets
-        run: |
-          cp memory.json glossary.json grammar.json phrases.json jokes.json \
-             listening.json android/app/src/main/assets/www/data/
+      - name: Run the check suite
+        run: python3 tools/check_all.py
 
       - name: Build APK
         working-directory: android
