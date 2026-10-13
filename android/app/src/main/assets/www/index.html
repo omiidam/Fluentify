@@ -2295,9 +2295,13 @@ const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json())
 
 Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
-             loadJSON('phonetics'), loadJSON('word_arch')])
-  .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch]) => {
-    bot = new Fluentify({memory, glossary, grammar, phrases, jokes});
+             loadJSON('phonetics'), loadJSON('word_arch'),
+             loadJSON('distinctions'), loadJSON('idioms'),
+             loadJSON('corrections')])
+  .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch,
+          distinctions, idioms, corrections]) => {
+    bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
+                         distinctions, idioms, corrections});
 
     listeningLevels = listening.levels.map((lv) => ({
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,

@@ -129,7 +129,16 @@
           "what's new",
           "you ok",
           "chetori",
-          "haleto"
+          "haleto",
+          "how r u",
+          "how're you",
+          "how you doing",
+          "how is it going",
+          "hows it going",
+          "how are u",
+          "چطوری",
+          "چطوری؟",
+          "حالت چطوره"
         ],
         "fa": [
           "حالت چطوره",
@@ -142,7 +151,14 @@
           "خوب هستید",
           "خوبین",
           "حالتون چطوره",
-          "حالتو بپرسم"
+          "حالتو بپرسم",
+          "how r u",
+          "how're you",
+          "how you doing",
+          "how is it going",
+          "hows it going",
+          "how are u",
+          "چطوری؟"
         ]
       },
       "responses": {
@@ -592,14 +608,30 @@
           "how's the weather",
           "what's the weather",
           "is it going to rain",
-          "weather today"
+          "weather today",
+          "what is the weather",
+          "whats the weather",
+          "weather like",
+          "how is the weather",
+          "will it rain",
+          "هوا چطوره",
+          "هوا چطور است",
+          "باران میباره"
         ],
         "fa": [
           "هوا چطوره",
           "هوا چگونه است",
           "بارون میاد",
           "آب و هوا",
-          "هوا سرده"
+          "هوا سرده",
+          "what is the weather",
+          "whats the weather",
+          "weather like",
+          "how is the weather",
+          "is it going to rain",
+          "will it rain",
+          "هوا چطور است",
+          "باران میباره"
         ]
       },
       "responses": {
@@ -958,12 +990,28 @@
         "en": [
           "what is the meaning of life",
           "purpose of life",
-          "why are we here"
+          "why are we here",
+          "what does this word mean",
+          "what does that mean",
+          "what does it mean",
+          "what does this mean",
+          "whats the meaning",
+          "یعنی چی",
+          "معنی این چیه",
+          "این یعنی چی"
         ],
         "fa": [
           "معنی زندگی چیه",
           "هدف زندگی چیه",
-          "ما برای چی اومدیم"
+          "ما برای چی اومدیم",
+          "what does this word mean",
+          "what does that mean",
+          "what does it mean",
+          "what does this mean",
+          "whats the meaning",
+          "یعنی چی",
+          "معنی این چیه",
+          "این یعنی چی"
         ]
       },
       "responses": {
@@ -984,12 +1032,34 @@
           "help",
           "how to use",
           "guide",
-          "instructions"
+          "instructions",
+          "how does this work",
+          "what can i do",
+          "commands",
+          "what are the sections",
+          "چیکار کنم",
+          "چه کارهایی میتونم بکنم",
+          "چطور کار میکنه",
+          "i don't know what to write",
+          "what should i write",
+          "what do i say",
+          "help me",
+          "i need help"
         ],
         "fa": [
           "راهنما",
           "کمک",
-          "چطور استفاده کنم"
+          "چطور استفاده کنم",
+          "how does this work",
+          "what can i do",
+          "commands",
+          "what are the sections",
+          "چیکار کنم",
+          "چه کارهایی میتونم بکنم",
+          "چطور کار میکنه",
+          "چی بنویسم",
+          "کمکم کن",
+          "راهنمایی کن"
         ]
       },
       "responses": {
@@ -1173,7 +1243,13 @@
           "i'm worried",
           "i am worried",
           "i'm nervous",
-          "under pressure"
+          "under pressure",
+          "im stressed",
+          "stressed",
+          "anxious",
+          "استرس دارم",
+          "اضطراب دارم",
+          "under stress"
         ],
         "fa": [
           "استرس دارم",
@@ -1183,7 +1259,16 @@
           "عصبیم",
           "دلم شور میزنه",
           "نمیتونم تمرکز کنم",
-          "خیلی استرس دارم"
+          "خیلی استرس دارم",
+          "im stressed",
+          "i'm stressed",
+          "i am stressed",
+          "stressed",
+          "under pressure",
+          "anxious",
+          "i feel anxious",
+          "اضطراب دارم",
+          "under stress"
         ]
       },
       "responses": {
@@ -1243,7 +1328,17 @@
           "i'm not feeling well",
           "i'm ill",
           "my head hurts",
-          "i have a headache"
+          "i have a headache",
+          "i feel sick",
+          "im sick",
+          "feel ill",
+          "not feeling well",
+          "i feel unwell",
+          "sick",
+          "ill",
+          "حالم خوب نیست",
+          "بیمارم",
+          "م feel sick"
         ],
         "fa": [
           "مریضم",
@@ -1251,7 +1346,17 @@
           "تب دارم",
           "سردرد دارم",
           "بیمار شدم",
-          "حالم بده"
+          "حالم بده",
+          "i feel sick",
+          "im sick",
+          "feel ill",
+          "i'm ill",
+          "not feeling well",
+          "i feel unwell",
+          "sick",
+          "ill",
+          "بیمارم",
+          "م feel sick"
         ]
       },
       "responses": {
@@ -1373,7 +1478,20 @@
           "what do you mean",
           "i didn't get it",
           "explain again",
-          "i'm lost"
+          "i'm lost",
+          "i don't know",
+          "i dont know",
+          "idk",
+          "i have no idea",
+          "no idea",
+          "im confused",
+          "this is confusing",
+          "confusing",
+          "i don't get it",
+          "i dont get it",
+          "i dont understand",
+          "im lost",
+          "help me understand"
         ],
         "fa": [
           "متوجه نشدم",
@@ -1381,18 +1499,22 @@
           "نمیفهمم چی میگی",
           "یه بار دیگه توضیح بده",
           "گیج شدم",
-          "یعنی چی"
+          "یعنی چی",
+          "نمیدونم",
+          "میدونم نیست",
+          "نمیفهمم",
+          "راهنمایی"
         ]
       },
       "responses": {
         "en": [
           "No problem — let me say it another way. Tell me which part is unclear and I'll rephrase it.",
-          "Sorry about that! Try shorter sentences, or ask me an example.",
+          "That's completely normal. Ask me to explain it again, or type 'show answer' and we'll look at it together.",
           "Let's break it down step by step. What's the first bit you're stuck on?"
         ],
         "fa": [
           "اشکالی نداره — یه جور دیگه میگم. بگو کجا گنگه تا ساده‌تر توضیح بدم.",
-          "بابت اون متأسفم! جمل‌های کوتاه‌تر بگو یا ازم مثال بخواه.",
+          "کاملاً طبیعیه. بگو دوباره توضیح بدم، یا بنویس «جواب» تا با هم ببینیم.",
           "بیا قدم به قدم بریم جلو. اولین بخشی که گیر کردی کدومه؟"
         ]
       }

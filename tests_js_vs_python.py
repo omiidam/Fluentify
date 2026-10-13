@@ -30,6 +30,38 @@ CASES = [
     "simple present test", "past perfect exam", "articles exam", "to be exam",
     # the exam-unlock / lock messages
     "simple present", "future perfect", "passive voice", "articles",
+    # numbers written in words + a bare CEFR band
+    "twenty one", "one hundred", "two hundred and fifty", "seven", "apple",
+    "A1", "C2", "listen B2",
+    # confusable pairs
+    "difference between say and tell", "difference between a and an",
+    "tell me the difference between affect and effect", "when do we use since and for",
+    "difference between in and on", "difference between interesting and interested",
+    "تفاوت since و for", "فرق say و tell",
+    "difference between although and though", "difference between few and a few",
+    "difference between used to and get used to",
+    "difference between present perfect and past simple",
+    "difference between because and since", "what is the difference",
+    # idioms
+    "what does 'spill the beans' mean", "meaning of once in a blue moon",
+    "what does hit the books mean", "what is a piece of cake",
+    "meaning of under the weather", "what does the last straw mean",
+    "معنی break the ice", "idioms", "اصطلاح",
+    # the grammar checker
+    "is this correct? I have went there", "correct this sentence: he don't like it",
+    "I didn't went to school", "they doesn't like it", "I have many informations",
+    "is this correct: he go to school", "I no understand this",
+    "I am agree with you", "despite of the rain", "I have more better ideas",
+    "is this sentence right: I no understand", "She doesn't watch TV",
+    "She watches TV every day", "The book is on the table",
+    # pronunciation
+    "how do you pronounce apple", "how do you say hospital",
+    "تلفظ کلمه apple", "how do you pronounce zebra", "how do you say a word",
+    "how do you say thank you", "how do you say good night",
+    # meta
+    "how many words do you know",
+    # the confused / help intents the probes added
+    "I don't know", "i have no idea", "گیج شدم", "i don't understand",
 ]
 
 

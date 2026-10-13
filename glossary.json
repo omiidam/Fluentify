@@ -5214,6 +5214,16 @@
           "formal_advanced",
           "idiomatic_collocations_c2"
         ]
+      },
+      {
+        "id": "academic_pro",
+        "en": "Academic & professional — B2 → C2",
+        "fa": "دانشگاهی و حرفه‌ای — B2 تا C2",
+        "domains": [
+          "advanced_adjectives",
+          "academic_vocab",
+          "business_vocab"
+        ]
       }
     ],
     "phrasal_verbs": {
@@ -9843,6 +9853,464 @@
         [
           "burn midnight oil",
           "شب‌های بیداری"
+        ]
+      ]
+    },
+    "advanced_adjectives": {
+      "label": {
+        "en": "Advanced adjectives",
+        "fa": "صفت‌های پیشرفته"
+      },
+      "list_label": {
+        "en": "Advanced adjectives",
+        "fa": "صفت‌های سطح بالا"
+      },
+      "level": "C1",
+      "keywords": {
+        "en": [
+          "advanced adjectives",
+          "describing qualities",
+          "fine distinctions",
+          "high level adjectives"
+        ],
+        "fa": [
+          "صفت پیشرفته",
+          "توصیف صفات",
+          "صفات سطح بالا"
+        ]
+      },
+      "words": [
+        [
+          "resilient",
+          "تاب‌آور"
+        ],
+        [
+          "ubiquitous",
+          "همه‌جا حاضر"
+        ],
+        [
+          "ephemeral",
+          "کوتاه‌عمر"
+        ],
+        [
+          "candid",
+          "رک‌گو / صادقانه"
+        ],
+        [
+          "meticulous",
+          "سخت‌گیر در جزئیات"
+        ],
+        [
+          "pragmatic",
+          "عمل‌گرا"
+        ],
+        [
+          "tenacious",
+          "سرسخت"
+        ],
+        [
+          "magnitude",
+          "بزرگی و اهمیت"
+        ],
+        [
+          "nuance",
+          "ظرافت معنا"
+        ],
+        [
+          "sceptical",
+          "شکاک"
+        ],
+        [
+          "compelling",
+          "قانع‌کننده"
+        ],
+        [
+          "discreet",
+          "محتاط در رازداری"
+        ],
+        [
+          "lavish",
+          "سخاوتمندانه / تجملی"
+        ],
+        [
+          "mundane",
+          "روزمره و بی‌هیجان"
+        ],
+        [
+          "obscure",
+          "مبهم و ناشناخته"
+        ],
+        [
+          "profound",
+          "عمیق و تأثیرگذار"
+        ],
+        [
+          "redundant",
+          "زائد و تکراری"
+        ],
+        [
+          "subtle",
+          "ظریف"
+        ],
+        [
+          "tedious",
+          "خسته‌کننده"
+        ],
+        [
+          "vivid",
+          "زنده و پررنگ"
+        ],
+        [
+          "austere",
+          "ساده و درون‌گرا"
+        ],
+        [
+          "benevolent",
+          "نوع‌دوستانه"
+        ],
+        [
+          "candidly",
+          "صریحانه"
+        ],
+        [
+          "cynical",
+          "بدبین درباره همه"
+        ],
+        [
+          "diligent",
+          "مجتهد"
+        ],
+        [
+          "eloquent",
+          "خوش‌بیان"
+        ],
+        [
+          "frugal",
+          "کم‌خرج"
+        ],
+        [
+          "gregarious",
+          "جمع‌گرا"
+        ],
+        [
+          "impartial",
+          "بی‌طرف"
+        ],
+        [
+          "indifferent",
+          "بی‌تفاوت"
+        ],
+        [
+          "intrepid",
+          "بی‌باک"
+        ],
+        [
+          "lucid",
+          "روشن و گویا"
+        ],
+        [
+          "naive",
+          "ساده‌لوح"
+        ],
+        [
+          "obstinate",
+          "سرکش"
+        ],
+        [
+          "perpetual",
+          "همیشگی"
+        ],
+        [
+          "quaint",
+          "قدیمی و دلپذیر"
+        ],
+        [
+          "schwa",
+          "صدای شوا /ə/"
+        ]
+      ]
+    },
+    "academic_vocab": {
+      "label": {
+        "en": "Academic & research words",
+        "fa": "واژه‌های دانشگاهی"
+      },
+      "list_label": {
+        "en": "Academic research vocabulary",
+        "fa": "واژه‌های پژوهش دانشگاهی"
+      },
+      "level": "C1",
+      "keywords": {
+        "en": [
+          "academic vocabulary",
+          "research words",
+          "study words",
+          "thesis vocabulary"
+        ],
+        "fa": [
+          "واژه های پژوهش",
+          "واژه های مقاله",
+          "کلمات دانشگاهی"
+        ]
+      },
+      "words": [
+        [
+          "hypothesis",
+          "فرضیه"
+        ],
+        [
+          "methodology",
+          "روش‌شناسی"
+        ],
+        [
+          "empirical",
+          "تجربی"
+        ],
+        [
+          "quantify",
+          "کمی‌سازی کردن"
+        ],
+        [
+          "correlation",
+          "همبستگی"
+        ],
+        [
+          "anomaly",
+          "ناهنجاری"
+        ],
+        [
+          "paradigm",
+          "الگوی فکری"
+        ],
+        [
+          "proliferation",
+          "تکثیر و گسترش"
+        ],
+        [
+          "discrepancy",
+          "ناهمخوانی"
+        ],
+        [
+          "coherence",
+          "انسجام"
+        ],
+        [
+          "validity",
+          "روایی"
+        ],
+        [
+          "replicate",
+          "بازتولید پژوهش"
+        ],
+        [
+          "conflate",
+          "یکی گرفتن"
+        ],
+        [
+          "juxtapose",
+          "کنار هم گذاشتن"
+        ],
+        [
+          "delineate",
+          "ترسیم کردن مرزها"
+        ],
+        [
+          "exacerbate",
+          "بدتر کردن"
+        ],
+        [
+          "mitigate",
+          "کاهش دادن"
+        ],
+        [
+          "substantiate",
+          "اثبات کردن"
+        ],
+        [
+          "contradict",
+          "تناقض داشتن با"
+        ],
+        [
+          "incorporate",
+          "ادغام کردن"
+        ],
+        [
+          "allocate",
+          "تخصیص دادن"
+        ],
+        [
+          "derive from",
+          "مشتق شدن از"
+        ],
+        [
+          "attribute to",
+          "نسبت دادن به"
+        ],
+        [
+          "underpin",
+          "پایه‌گذار بودن"
+        ],
+        [
+          "articulate",
+          "بیان روشن"
+        ],
+        [
+          "elucidate",
+          "روشن کردن"
+        ],
+        [
+          "scrutinise",
+          "به دقت بررسی کردن"
+        ],
+        [
+          "synthesise",
+          "ترکیب و یکپارچه کردن"
+        ],
+        [
+          "idempotent",
+          "خنثی از تکرار (اثر یکسان)"
+        ],
+        [
+          "anthropomorphise",
+          "انسان‌انگاری کردن"
+        ]
+      ]
+    },
+    "business_vocab": {
+      "label": {
+        "en": "Work & business words",
+        "fa": "واژه‌های کار و تجارت"
+      },
+      "list_label": {
+        "en": "Office and business vocabulary",
+        "fa": "واژه‌های محیط کار"
+      },
+      "level": "B2",
+      "keywords": {
+        "en": [
+          "business words",
+          "office vocabulary",
+          "work vocabulary",
+          "meeting words"
+        ],
+        "fa": [
+          "واژه های کار",
+          "واژه های اداری",
+          "کلمات محیط کار"
+        ]
+      },
+      "words": [
+        [
+          "agenda",
+          "دستور جلسه"
+        ],
+        [
+          "minutes",
+          "صورت‌جلسه"
+        ],
+        [
+          "deliverable",
+          "خروجی قابل تحویل"
+        ],
+        [
+          "milestone",
+          "نقطه عطف"
+        ],
+        [
+          "stakeholder",
+          "ذی‌نفع"
+        ],
+        [
+          "deadline",
+          "مهلت نهایی"
+        ],
+        [
+          "bandwidth",
+          "ظرفیت کاری"
+        ],
+        [
+          "procurement",
+          "تأمین"
+        ],
+        [
+          "forecast",
+          "پیش‌بینی"
+        ],
+        [
+          "turnover",
+          "گردش مالی"
+        ],
+        [
+          "margin",
+          "حاشیه سود"
+        ],
+        [
+          "invoice",
+          "صورتحساب"
+        ],
+        [
+          "reimburse",
+          "بازپرداخت کردن"
+        ],
+        [
+          "escalate",
+          "ارجاع به بالاتر"
+        ],
+        [
+          "sign off",
+          "تأیید نهایی"
+        ],
+        [
+          "streamline",
+          "ساده‌سازی فرایند"
+        ],
+        [
+          "prioritise",
+          "اولویت‌بندی کردن"
+        ],
+        [
+          "delegate",
+          "واگذار کردن"
+        ],
+        [
+          "negotiate",
+          "مذاکره کردن"
+        ],
+        [
+          "leverage",
+          "بهره‌برداری از"
+        ],
+        [
+          "onboarding",
+          "ورود کارمند جدید"
+        ],
+        [
+          "workload",
+          "حجم کار"
+        ],
+        [
+          "appraisal",
+          "ارزیابی عملکرد"
+        ],
+        [
+          "probation",
+          "دوره آزمایشی"
+        ],
+        [
+          "overtime",
+          "اضافه‌کاری"
+        ],
+        [
+          "payroll",
+          "حقوق و دستمزد"
+        ],
+        [
+          "contract",
+          "قرارداد"
+        ],
+        [
+          "compliance",
+          "رعایت مقررات"
         ]
       ]
     }
