@@ -95,40 +95,87 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     overflow: hidden;
   }
   /* Layered gradient field — the glass needs colour behind it to refract. */
+  /* ---- the backdrop ----------------------------------------------------
+     Everything here is a gradient fading to transparent, moving only with
+     `transform`. Nothing carries a filter.
+
+     The previous version put `filter: blur(40px) saturate(140%)` on the
+     drifting layer. A filter on an animated element is re-rasterised every
+     frame, on a full-viewport element - the most expensive thing this page
+     could do - and it bought nothing, because radial-gradient stops fading
+     to transparent are already soft. Dropping it is the performance fix and
+     the reason the colours below can be richer. */
   .backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+
   .backdrop::before {
-    content: ''; position: absolute; inset: -20%;
+    content: ''; position: absolute; inset: -18%;
     background:
-      radial-gradient(45% 45% at 18% 22%, rgba(109,140,255,.55), transparent 70%),
-      radial-gradient(40% 40% at 82% 18%, rgba(167,139,250,.45), transparent 70%),
-      radial-gradient(50% 50% at 72% 82%, rgba(52,211,153,.30), transparent 70%),
-      radial-gradient(45% 45% at 25% 85%, rgba(56,189,248,.32), transparent 70%),
-      linear-gradient(160deg, #0b102e 0%, #141c46 45%, #1b2350 100%);
-    filter: blur(40px) saturate(140%);
-    animation: drift 26s ease-in-out infinite alternate;
+      radial-gradient(46% 44% at 16% 20%, rgba(109,140,255,.62), transparent 72%),
+      radial-gradient(42% 40% at 84% 16%, rgba(167,139,250,.52), transparent 72%),
+      radial-gradient(52% 50% at 74% 84%, rgba(52,211,153,.34), transparent 72%),
+      radial-gradient(46% 44% at 22% 86%, rgba(56,189,248,.40), transparent 72%),
+      radial-gradient(38% 34% at 52% 52%, rgba(255,141,196,.20), transparent 74%),
+      linear-gradient(160deg, #0b102e 0%, #151d4a 42%, #1d2660 100%);
+    will-change: transform;
+    animation: drift 30s cubic-bezier(.22,1,.36,1) infinite alternate;
   }
+  /* translate only: scaling a layer this large makes the compositor
+     re-rasterise it too, which is what the filter was concealing. */
   @keyframes drift {
-    from { transform: translate3d(-2%, -1%, 0) scale(1); }
-    to   { transform: translate3d(3%, 2%, 0) scale(1.12); }
+    from { transform: translate3d(-2.5%, -1.5%, 0); }
+    to   { transform: translate3d(3%, 2%, 0); }
   }
-  @media (prefers-reduced-motion: reduce) {
-    .backdrop::before { animation: none; }
+
+  /* Light from above the header, so it reads as lit rather than pasted on.
+     Static, so it costs nothing. */
+  .backdrop::after {
+    content: ''; position: absolute; inset: 0 0 auto; height: 46%;
+    background: radial-gradient(70% 100% at 50% 0%,
+                rgba(160,180,255,.16), transparent 68%);
+    pointer-events: none;
   }
+
+  /* Grounds the composer instead of letting the gradient run flat to the edge. */
+  .vignette {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 42%,
+                transparent 52%, rgba(4,7,24,.55) 100%);
+  }
+
+  /* Grain. Large gradients band visibly on an OLED phone, and the banding is
+     what makes a background look cheap. One static tiled SVG turbulence
+     costs a small texture and nothing per frame. */
+  .grain {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    opacity: .035; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+  }
+
   .orb {
-    position: fixed; border-radius: 50%; filter: blur(60px);
-    opacity: .38; z-index: 0; pointer-events: none;
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+    opacity: .40; will-change: transform;
   }
-  .orb.o1 { width: 380px; height: 380px; top: -90px; left: -70px;
-            background: radial-gradient(circle, #6d8cff, transparent 70%);
-            animation: float1 18s ease-in-out infinite alternate; }
-  .orb.o2 { width: 320px; height: 320px; bottom: -80px; right: -60px;
-            background: radial-gradient(circle, #a78bfa, transparent 70%);
-            animation: float2 22s ease-in-out infinite alternate; }
-  .orb.o3 { width: 260px; height: 260px; top: 45%; right: 18%;
-            background: radial-gradient(circle, #34d399, transparent 70%);
-            opacity: .3; animation: float1 26s ease-in-out infinite alternate-reverse; }
-  @keyframes float1 { to { transform: translate(60px, 40px) scale(1.15); } }
-  @keyframes float2 { to { transform: translate(-50px, -40px) scale(1.1); } }
+  .orb.o1 { width: 420px; height: 420px; top: -100px; left: -80px;
+            background: radial-gradient(circle, rgba(109,140,255,.85) 0%,
+                        rgba(109,140,255,.28) 42%, transparent 72%);
+            animation: float1 18s cubic-bezier(.22,1,.36,1) infinite alternate; }
+  .orb.o2 { width: 360px; height: 360px; bottom: -90px; right: -70px;
+            background: radial-gradient(circle, rgba(167,139,250,.80) 0%,
+                        rgba(167,139,250,.26) 42%, transparent 72%);
+            animation: float2 22s cubic-bezier(.22,1,.36,1) infinite alternate; }
+  .orb.o3 { width: 240px; height: 240px; top: 46%; right: 16%;
+            background: radial-gradient(circle, rgba(52,211,153,.55) 0%,
+                        rgba(52,211,153,.18) 44%, transparent 72%);
+            opacity: .32;
+            animation: float3 28s cubic-bezier(.22,1,.36,1) infinite alternate-reverse; }
+  @keyframes float1 { to { transform: translate(60px, 40px); } }
+  @keyframes float2 { to { transform: translate(-50px, -40px); } }
+  @keyframes float3 { to { transform: translate(-40px, 30px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .backdrop::before, .orb.o1, .orb.o2, .orb.o3 { animation: none; }
+  }
 
   /* ---------------------------------------------------- panel shell -------
      One header for every panel: a title, an optional search and a close
@@ -1715,6 +1762,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div class="motes" id="motes" aria-hidden="true"></div>
   <div class="toast-host" id="toasthost" aria-live="polite"></div>
 <div class="backdrop"></div>
+<div class="vignette"></div>
+<div class="grain"></div>
 <div class="orb o1"></div>
 <div class="orb o2"></div>
 <div class="orb o3"></div>

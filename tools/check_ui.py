@@ -189,6 +189,36 @@ def main() -> int:
           "text-overflow: clip" in rb,
           ".hbtn span sets ellipsis and nowrap, which is for labels not counts")
 
+    # ---------------------------------------------------------- the backdrop --
+    # The drifting background layer had `filter: blur(40px) saturate(140%)` on
+    # it. A filter on an animated element is re-rasterised every frame on a
+    # full-viewport element, which on a phone is the most expensive thing the
+    # page can do - and the gradients were already soft, so it bought nothing.
+    # Put one back and the cost returns silently.
+    css_blocks = re.findall(r"<style>(.*?)</style>", src, re.S)
+    for block in css_blocks:
+        for rule in re.findall(r"([^{}]+)\{([^{}]*)\}", block):
+            selector, body = rule[0].strip(), rule[1]
+            # the shorthand, not animation-name: the stylesheet only ever
+            # uses the shorthand, and requiring both meant the check silently
+            # skipped everything - verified by putting the blur back and
+            # watching it pass
+            if not re.search(r"(^|[;\s])animation(-name)?\s*:", body):
+                continue
+            if not re.search(r"(^|[;\s])filter\s*:", body):
+                continue
+            check(f"nothing both animates and filters: {selector[:40]}",
+                  False,
+                  "a filter on an animated element is re-rasterised every "
+                  "frame; gradients fading to transparent need no blur")
+
+    # the ambient motion rules the project holds itself to
+    check("the backdrop respects prefers-reduced-motion",
+          re.search(r"@media \(prefers-reduced-motion: reduce\)\s*\{[^}]*"
+                    r"\.backdrop::before[^}]*animation: none", src, re.S)
+          is not None,
+          "decorative motion has to collapse for anyone who asked for it")
+
     # ------------------------------------------------------- daily limit --
     # The moon rides a rail left to right as the counter goes 0 -> 50. It was
     # text that appeared only once the limit had already been hit.
