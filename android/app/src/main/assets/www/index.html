@@ -528,11 +528,16 @@
     display: flex; flex-direction: column;
   }
 
-  /* scroll-to-latest — bottom-right of the transcript, where every messenger
-     puts it and, more usefully, where it does not sit over the reading
-     column. Carries a count of what has arrived since you last looked. */
+  /* scroll-to-latest — bottom centre of the transcript. Centred rather than
+     over the right-hand edge, which is the usual convention: the transcript
+     is a single centred reading column here, and a button on one side pulls
+     the eye away from it. Carries a count of what has arrived below. */
   .jump {
-    position: absolute; right: 16px; bottom: 14px; z-index: 6;
+    position: absolute; left: 50%; bottom: 14px; z-index: 6;
+    /* -50% of its own width is exactly what centring wants. (The moon on the
+       daily-limit rail is the opposite case: there a % has to resolve against
+       the rail, and transform cannot do that.) */
+    transform: translateX(-50%) translateY(10px) scale(.9);
     width: 44px; height: 44px;                  /* a real touch target */
     border-radius: 50%; cursor: pointer; font-size: 17px;
     display: grid; place-items: center;
@@ -541,12 +546,16 @@
     border: 1px solid rgba(255,255,255,.24);
     box-shadow: 0 6px 18px rgba(0,0,0,.45);
     opacity: 0; pointer-events: none;
-    transform: translateY(10px) scale(.9);
     transition: opacity .18s, transform .18s cubic-bezier(.22,1,.36,1);
   }
-  .jump.show { opacity: 1; pointer-events: auto; transform: none; }
+  .jump.show {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(-50%);
+  }
   .jump:hover { filter: brightness(1.12); }
-  .jump:active { transform: scale(.93); }
+  /* keeps translateX(-50%) - without it the button lurches to the right
+     on press, since that is the only thing centring it */
+  .jump:active { transform: translateX(-50%) scale(.93); }
   .jump:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 3px; }
   .jump svg { width: 17px; height: 17px; display: block; }
 

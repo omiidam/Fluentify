@@ -234,9 +234,12 @@ def main() -> int:
           and "position: absolute" in jb,
           "without a positioned wrapper, bottom: is measured from the app and "
           "lands on the composer again the moment the chrome changes height")
-    check("the jump button sits at the transcript's edge, not over the reading column",
-          "right:" in jb and "right: 50%" not in jb,
-          "centred puts it over the text it is meant to help you skip")
+    check("the jump button is centred on the transcript",
+          "left: 50%" in jb and "translateX(-50%)" in jb,
+          "the reading column is centred here, so the button belongs there too")
+    check("the press state keeps the centring",
+          ".jump:active" in src and "translateX(-50%) scale(.93)" in src,
+          "a bare scale() drops translateX(-50%) and the button lurches sideways")
     check("the jump button meets the touch target minimum",
           re.search(r"width: 44px", jb) is not None)
     check("the jump button says how much is waiting below",
