@@ -86,6 +86,22 @@ DANGEROUS: list[tuple[str, str, str]] = [
 REQUIRED_BRIDGES = ["AndroidTTS", "AndroidSTT"]
 
 
+def _fn_body(src: str, name: str) -> str:
+    """The body of `fun name(...)`, up to its closing brace at one indent."""
+    m = re.search(rf"fun\s+{re.escape(name)}\s*\([^)]*\)[^{{]*\{{", src)
+    if not m:
+        return ""
+    start = m.end()
+    depth, i = 1, start
+    while i < len(src) and depth:
+        if src[i] == "{":
+            depth += 1
+        elif src[i] == "}":
+            depth -= 1
+        i += 1
+    return src[start:i - 1]
+
+
 def check(name: str, ok: bool, detail: str = "") -> None:
     global CHECKS
     CHECKS += 1
@@ -145,6 +161,42 @@ def main() -> int:
               "an elvis fallback of the wrong type widens the expression")
         check(f"{path.name}: Char.toInt() is not used",
               not re.search(r"\bc\.toInt\(\)", src))
+
+        # --- speech recognition -------------------------------------------------
+        # A SpeechRecognizer that is never destroyed holds the microphone, and
+        # one that is not cancelled when the activity stops keeps dictating with
+        # no UI showing it. Both are invisible from JavaScript, which is how the
+        # mic got stuck in the first place.
+        if "SpeechRecognizer" in src:
+            check(f"{path.name}: the recogniser is destroyed",
+                  "destroy()" in src,
+                  "SpeechRecognizer holds the microphone until destroy()")
+            # Bounded to the function body. A wider window reached into
+            # onDestroy and passed while onStop released nothing - the fourth
+            # time this session a check of mine was green because it matched
+            # the wrong thing.
+            stop_body = _fn_body(src, "onStop")
+            check(f"{path.name}: the recogniser is released when the activity stops",
+                  "releaseRecognizer" in stop_body or "cancel()" in stop_body,
+                  "a page that goes away never calls stop(), so the native "
+                  "side has to")
+            destroy_body = _fn_body(src, "onDestroy")
+            check(f"{path.name}: the recogniser is destroyed with the activity",
+                  "releaseRecognizer" in destroy_body or "destroy()" in destroy_body,
+                  "otherwise the microphone is held after the activity ends")
+            check(f"{path.name}: the listener is set before listening",
+                  src.index("setRecognitionListener") < src.index("startListening"),
+                  "otherwise no callbacks are delivered and nothing is heard")
+            # Scoped to the in-process recogniser's intent, not the fallback
+            # dialog's: it is the one that streams while the user speaks.
+            live = _fn_body(src, "startRecognizer")
+            check(f"{path.name}: the live recogniser asks for partial results",
+                  "EXTRA_PARTIAL_RESULTS" in live,
+                  "without it there is no real-time feedback while speaking")
+            check(f"{path.name}: on-device recognition is preferred where offered",
+                  "isOnDeviceRecognitionAvailable" in src,
+                  "otherwise dictation streams the microphone to a server on an "
+                  "offline install")
 
     # ----------------------------------------------------------------------
     if FAILURES:

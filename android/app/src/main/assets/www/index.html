@@ -1299,6 +1299,11 @@
      at all. So: an inline SVG for the icon (never depends on a font) and a
      fill light enough to be seen without competing with Send. */
   .mic {
+    /* none, so a hold is never stolen for scrolling or swallowed by the
+       long-press callout - which is what left the button stuck on Android */
+    touch-action: none;
+    -webkit-touch-callout: none;
+    user-select: none; -webkit-user-select: none;
     width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%;
     display: grid; place-items: center; cursor: pointer;
     color: #dbe3ff; background: #29356e;
@@ -2967,6 +2972,18 @@ const STT = {
     rec.continuous = !!this.cfg.web.continuous;
     rec.interimResults = this.cfg.web.interim_results !== false;
     rec.maxAlternatives = this.cfg.web.max_alternatives || 1;
+
+    // On-device recognition. Without this the Web Speech API streams audio to
+    // a Google service, so "offline app" is not true of dictation - and in
+    // the Android app the failure mode is the same one the BBC clips had,
+    // a refusal dressed up as "needs a connection". The browser ships a
+    // language pack for it; if the pack is not installed the start() throws
+    // language-not-supported, so only ask for it when one is there.
+    if ('processLocally' in rec && R.available) {
+      R.available({langs: [this.lang()], processLocally: true})
+        .then((state) => { rec.processLocally = state === 'available'; })
+        .catch(() => { rec.processLocally = false; });
+    }
     this.rec = rec;
     this.listening = true;
     this.startedAt = Date.now();
@@ -3147,21 +3164,83 @@ function mountMic() {
     btn.setAttribute('aria-label', btn.title);
     btn.addEventListener('click', () => toast(btn.title, 4200));
   } else {
-    btn.addEventListener('click', () => {
-      if (STT.listening) {
-        STT.stop();
-        STT.commit();
-        return;
+    /* Hold to talk. A short tap is still a tap, so it falls through to
+       toggle-on and the next tap turns it off - which is what the button did
+       before and what people reach for first.
+     *
+     * This used to be a click handler and nothing else, which is why holding
+     * the button left it stuck: on Android a long press raises the text
+     * selection callout and the browser suppresses the second click, so the
+     * recogniser started and no second tap ever arrived. Pointer events fix
+     * that, and setPointerCapture means the release is delivered even if the
+     * finger slides off the button - which is what people do, especially
+     * without looking.
+     *
+     * Every way out is covered: release, cancel, lost capture, the window
+     * losing focus, the page being hidden, and a hard cap. Anything less and
+     * there is a way to leave the microphone open with nothing showing it. */
+    const HOLD_MS = 250;          // shorter than this is a tap, not a hold
+    const MAX_MS = 60000;         // no dictation session runs forever
+    let pressAt = 0;
+    let held = false;
+    let capped = 0;
+
+    const stop = () => {
+      if (!STT.listening) return;
+      STT.stop();
+      STT.commit();
+    };
+
+    btn.addEventListener('pointerdown', (ev) => {
+      ev.preventDefault();                    // no callout, no text selection
+      pressAt = Date.now();
+      held = false;
+      if (!STT.listening) {
+        // begin() returns false when the recogniser refuses to start - a denied
+        // OS permission, or a microphone already in use. Swallowing that leaves
+        // a button that does nothing, which is the same invisible control
+        // problem in a different costume.
+        if (!STT.begin()) {
+          toast('🎙 Could not start dictation — check the microphone ' +
+                'permission. / دسترسی به میکروفون را بررسی کن.', 3800);
+          pressAt = 0;
+          return;
+        }
+        clearTimeout(capped);
+        capped = setTimeout(stop, MAX_MS);
       }
-      // begin() returns false when the recogniser refuses to start - a denied
-      // OS permission, or a microphone already in use. Swallowing that leaves
-      // a button that does nothing when tapped, which is the same invisible
-      // control problem in a different costume.
-      if (!STT.begin()) {
-        toast('🎙 Could not start dictation — check the microphone permission. ' +
-              ' / دسترسی به میکروفون را بررسی کن.', 3800);
-      }
+      try { btn.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
     });
+
+    const release = (ev) => {
+      try { btn.releasePointerCapture(ev.pointerId); } catch (e) { /* fine */ }
+      if (!STT.listening) { pressAt = 0; return; }
+      const held_ms = Date.now() - pressAt;
+      pressAt = 0;
+      // A tap keeps listening; anything longer is a hold and stops here.
+      if (!held && held_ms < HOLD_MS) return;
+      held = true;
+      stop();
+    };
+
+    btn.addEventListener('pointerup', release);
+    // The two ways a press ends without a click reaching the button.
+    btn.addEventListener('pointercancel', release);
+    btn.addEventListener('lostpointercapture', () => {
+      // Only if the pointer genuinely went away - releasePointerCapture in
+      // release() also fires this, and stopping there would cut every hold
+      // short the moment it started.
+      if (pressAt && Date.now() - pressAt >= HOLD_MS) stop();
+    });
+
+    // Backgrounded, switched away, or the screen locked: stop rather than hold
+    // the microphone open behind a UI nobody can see.
+    const bail = () => { if (STT.listening) stop(); };
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) bail();
+    });
+    window.addEventListener('pagehide', bail);
+    window.addEventListener('blur', bail);
   }
 
   box.parentNode.insertBefore(btn, box.nextSibling);

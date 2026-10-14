@@ -7,7 +7,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.AudioAttributes
 import android.os.Bundle
+import android.speech.RecognitionListener
+import android.speech.RecognitionService
 import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     private val micPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (granted) {
-                launchRecognizer(sttLanguage)
+                startRecognizer(sttLanguage)
             } else {
                 sttError?.invoke("not-allowed")
                 clearSttCallbacks()
@@ -96,7 +99,101 @@ class MainActivity : AppCompatActivity() {
         sttError = null
     }
 
-    private fun launchRecognizer(language: String) {
+    /**
+     * A real SpeechRecognizer, not RecognizerIntent.
+     *
+     * RecognizerIntent launches the system dialog as its own activity: the
+     * app has no handle on it, cannot stop it, gets one final answer when it
+     * closes, and the page's mic button has no relationship to its lifecycle.
+     * That is why holding the button left dictation running with nothing to
+     * stop it, and why nothing was heard until the dialog ended.
+     *
+     * SpeechRecognizer is driven in-process: partial results arrive as the
+     * user speaks, and stop() is immediate. On-device is preferred where the
+     * system offers it, so an offline install does not stream the microphone
+     * to a server - which on a phone abroad is the difference between
+     * dictating and failing.
+     */
+    private var speech: SpeechRecognizer? = null
+
+    private fun buildRecognizer(language: String): SpeechRecognizer? {
+        val onDevice = if (android.os.Build.VERSION.SDK_INT >= 31) {
+            try {
+                SpeechRecognizer.isOnDeviceRecognitionAvailable(this)
+            } catch (e: Exception) {
+                false
+            }
+        } else {
+            false
+        }
+        val made = try {
+            if (onDevice) SpeechRecognizer.createOnDeviceSpeechRecognizer(this)
+            else SpeechRecognizer.createSpeechRecognizer(this)
+        } catch (e: Exception) {
+            null
+        }
+        if (made == null) return null
+        made.setRecognitionListener(object : RecognitionListener {
+            override fun onReadyForSpeech(params: Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(rmsdB: Float) {}
+            override fun onBufferReceived(buffer: ByteArray?) {}
+            override fun onEndOfSpeech() {}
+            override fun onEvent(eventType: Int, params: Bundle?) {}
+
+            override fun onError(error: Int) {
+                // Map the platform codes onto what the page already knows how
+                // to say. A bare "aborted" for everything told the user nothing.
+                val code = when (error) {
+                    SpeechRecognizer.ERROR_NO_MATCH,
+                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "no-speech"
+                    SpeechRecognizer.ERROR_NETWORK,
+                    SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "network"
+                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "not-allowed"
+                    SpeechRecognizer.ERROR_AUDIO -> "audio-capture"
+                    SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "busy"
+                    else -> "aborted"
+                }
+                releaseRecognizer()
+                sttError?.invoke(code)
+                clearSttCallbacks()
+            }
+
+            override fun onResults(results: Bundle?) {
+                val text = results
+                    ?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                    ?.firstOrNull().orEmpty()
+                releaseRecognizer()
+                if (text.isBlank()) {
+                    sttError?.invoke("no-speech")
+                } else {
+                    sttFinal?.invoke(text)
+                }
+                clearSttCallbacks()
+            }
+
+            override fun onPartialResults(partialResults: Bundle?) {
+                // The real-time part: this fires repeatedly while they speak.
+                val text = partialResults
+                    ?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                    ?.firstOrNull()
+                if (!text.isNullOrBlank()) sttPartial?.invoke(text)
+            }
+        })
+        sttLanguage = language
+        return made
+    }
+
+    private fun startRecognizer(language: String) {
+        releaseRecognizer()
+        val rec = buildRecognizer(language)
+        if (rec == null) {
+            // No in-process recogniser: fall back to the system dialog, which
+            // at least transcribes something on a device that offers nothing
+            // better.
+            launchRecognizerDialog(language)
+            return
+        }
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(
                 RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -105,7 +202,52 @@ class MainActivity : AppCompatActivity() {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, language)
             putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, packageName)
             putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
-            // Streaming partials: the composer shows text while they speak
+            putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+        }
+        speech = rec
+        try {
+            rec.startListening(intent)
+        } catch (e: Exception) {
+            releaseRecognizer()
+            sttError?.invoke("service-not-allowed")
+            clearSttCallbacks()
+        }
+    }
+
+    /** stopListening gives the engine a chance to emit what it heard. */
+    private fun stopRecognizer() {
+        val rec = speech ?: return
+        try {
+            rec.stopListening()
+        } catch (e: Exception) {
+            releaseRecognizer()
+        }
+    }
+
+    private fun releaseRecognizer() {
+        val rec = speech ?: return
+        speech = null
+        try {
+            rec.cancel()
+        } catch (e: Exception) {
+            // already stopped
+        }
+        try {
+            rec.destroy()
+        } catch (e: Exception) {
+            // already destroyed
+        }
+    }
+
+    private fun launchRecognizerDialog(language: String) {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            )
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, language)
+            putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, packageName)
+            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
             putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
         }
         try {
@@ -197,6 +339,9 @@ class MainActivity : AppCompatActivity() {
         /** Does this device have a usable recogniser at all? */
         @JavascriptInterface
         fun available(): Boolean {
+            if (!SpeechRecognizer.isRecognitionAvailable(this@MainActivity)) return false
+            // <queries> covers the recogniser intent for API 30+, so the
+            // in-process path is reachable too.
             val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             return i.resolveActivity(packageManager) != null
         }
@@ -227,7 +372,7 @@ class MainActivity : AppCompatActivity() {
 
             runOnUiThread {
                 if (hasPermission()) {
-                    launchRecognizer(sttLanguage)
+                    startRecognizer(sttLanguage)
                 } else {
                     micPermission.launch(Manifest.permission.RECORD_AUDIO)
                 }
@@ -236,9 +381,12 @@ class MainActivity : AppCompatActivity() {
 
         @JavascriptInterface
         fun stop() {
-            // RecognizerIntent runs as its own activity; finishing it is the
-            // only way to stop it, and only if it is actually up.
-            sttError?.invoke("aborted")
+            runOnUiThread { stopRecognizer() }
+        }
+
+        /** Tear the microphone down: called when the activity goes away. */
+        fun release() {
+            releaseRecognizer()
             clearSttCallbacks()
         }
 
@@ -276,11 +424,16 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         tts?.stop()
+        // Backgrounded with the microphone open is how dictation used to end up
+        // stuck: the page's stop() never arrived because the page was gone.
+        releaseRecognizer()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         tts?.shutdown()
         tts = null
+        releaseRecognizer()
+        clearSttCallbacks()
     }
 }

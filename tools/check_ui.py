@@ -219,6 +219,40 @@ def main() -> int:
           is not None,
           "decorative motion has to collapse for anyone who asked for it")
 
+    # --------------------------------------------------------------- the mic --
+    # It was a click handler and nothing else. On Android a long press raises
+    # the text-selection callout and the browser suppresses the second click,
+    # so dictation started and nothing ever stopped it.
+    mic = fn_body(src, "mountMic")
+    check("the mic is driven by pointer events, not click alone",
+          "pointerdown" in mic and "pointerup" in mic,
+          "a click is suppressed by the long-press callout on Android")
+    check("a cancelled press stops dictation",
+          "pointercancel" in mic,
+          "a gesture the system takes over ends the press without a click")
+    check("the pointer is captured so a slide off the button still releases",
+          "setPointerCapture" in mic,
+          "people slide off a button without looking, and then it sticks")
+    check("losing the capture is treated as the end of the press",
+          "lostpointercapture" in mic,
+          "otherwise a gesture taken over by the system leaves it listening")
+    for cause, why in (("visibilitychange", "the page being hidden"),
+                       ("pagehide", "the page being closed"),
+                       ("blur", "the window losing focus")):
+        check(f"dictation stops on {cause}",
+              cause in mic,
+              f"{why} leaves no way to stop it from the page")
+    check("a stuck session is capped in length",
+          "MAX_MS" in mic and "setTimeout(stop" in mic,
+          "every escape route can still be missed by one path")
+    check("the mic is told not to trigger the long-press callout",
+          re.search(r"\.mic \{[^}]*touch-action:\s*none", src) is not None,
+          "without touch-action the browser can steal the gesture")
+    check("a recogniser that refuses to start is reported to the user",
+          re.search(r"if \(!STT\.begin\(\)\)", mic) is not None,
+          "begin() returns false on a denied permission; swallowing it leaves "
+          "a button that does nothing")
+
     # ------------------------------------------------------- daily limit --
     # The moon rides a rail left to right as the counter goes 0 -> 50. It was
     # text that appeared only once the limit had already been hit.
