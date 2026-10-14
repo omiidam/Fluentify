@@ -3558,8 +3558,22 @@ async function loadBBC() {
           audio.play().catch(() => {
             play.textContent = '▶  Play';
             play.classList.remove('on');
-            toast('🔇 Could not play that clip — the stream needs a network ' +
-                  'connection. / پخش این کلیپ به اینترنت نیاز دارد.', 4000);
+            // "Needs a network connection" was the one diagnosis that could
+            // not be right - it was reported when the device was online and
+            // the stream was simply refused. MediaError distinguishes a
+            // network failure (2) from a decode or format problem (3) and
+            // from a blocked source (4), which is what cleartext HTTP on
+            // Android produced.
+            const code = audio.error ? audio.error.code : 0;
+            toast(
+              code === 4 || !navigator.onLine
+                ? '🔇 That clip is blocked on this device — open it on the web ' +
+                  'version. / این کلیپ روی این دستگاه مسدود است.'
+                : code === 3
+                  ? '🔇 This clip could not be decoded. / این کلیپ پخش نشد.'
+                  : '🔇 Could not reach the audio — check your connection. / ' +
+                    'اتصال را بررسی کن.',
+              4200);
           });
           play.textContent = '❚❚  Pause';
           play.classList.add('on');
@@ -4682,7 +4696,7 @@ class Handler(BaseHTTPRequestHandler):
             self._send_json(stt_config())
         elif self.path.startswith("/api/bbc"):
             # the graded BBC 6 Minute English catalogue (links only - no media)
-            self._send_json(bbc_catalogue(), 3600)
+            self._send_json(bbc_catalogue(), 300)
         elif self.path.startswith("/api/listening"):
             # CEFR A1-C2 listening sentences for the 🎧 panel
             levels = [{

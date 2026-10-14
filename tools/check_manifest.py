@@ -229,6 +229,35 @@ def main() -> int:
                         f"the page calls window.{symbol} but MainActivity does "
                         f"not register it - this feature will fail at runtime")
 
+    # Cleartext: BBC audio URLs are plain http://. With cleartext off
+    # app-wide and nothing scoped back on, Android refused every stream on a
+    # phone and the player reported "needs a network connection" for a device
+    # that was online the whole time.
+    if 'android:networkSecurityConfig="@xml/network_security_config"' not in raw:
+        problems.append(
+            "the manifest does not defer cleartext policy to a network "
+            "security config, so BBC http:// streams are refused on Android")
+    if "usesCleartextTraffic" in raw:
+        problems.append(
+            "usesCleartextTraffic overrides the network security config; "
+            "remove it and scope the exception in the config instead")
+
+    nsc = MANIFEST.parent / "res/xml/network_security_config.xml"
+    if not nsc.exists():
+        problems.append(
+            f"{nsc.name} is referenced by the manifest but does not exist")
+    else:
+        cfg = nsc.read_text(encoding="utf-8")
+        if '<base-config cleartextTrafficPermitted="false"' not in cfg:
+            problems.append(
+                "cleartext is not denied by default in the network security "
+                "config; the exception must be scoped, not global")
+        hosts = re.findall(r"<domain[^>]*>([^<]+)</domain>", cfg)
+        if hosts != ["downloads.bbc.co.uk"]:
+            problems.append(
+                "cleartext is allowed for " + (", ".join(hosts) or "nothing") +
+                " - it should be downloads.bbc.co.uk and nothing else")
+
     # ------------------------------------------------------------------
     print(f"checked {seen} android: attributes in {MANIFEST.relative_to(ROOT)}")
     if problems:

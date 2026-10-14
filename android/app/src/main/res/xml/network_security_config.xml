@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Cleartext stays off everywhere. The one exception is downloads.bbc.co.uk.
+
+  Every audio URL in the catalogue is plain http://, and the app shipped with
+  usesCleartextTraffic="false", so on a phone Android refused every BBC stream
+  before it left the device. The player caught it and reported "the stream
+  needs a network connection" - which is the one diagnosis that cannot be
+  right, because the device was online the whole time.
+
+  Audio from this host is now mirrored to object storage over https, which is
+  the real fix. This exception exists so the episodes that are not mirrored
+  yet keep working: it is scoped to one host, rather than turning cleartext on
+  for the whole app.
+-->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="false">
+    <trust-anchors>
+      <certificates src="system" />
+    </trust-anchors>
+  </base-config>
+
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="false">downloads.bbc.co.uk</domain>
+  </domain-config>
+</network-security-config>
