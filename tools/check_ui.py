@@ -219,6 +219,29 @@ def main() -> int:
           is not None,
           "decorative motion has to collapse for anyone who asked for it")
 
+    # ---------------------------------------------------------- bbc mirror --
+    # The catalogue listed 1123 episodes of which 5 could be played, which
+    # reads as broken rather than as small. It now lists exactly what exists.
+    cat = ROOT / "bbc_6min.json"
+    if cat.exists():
+        import json as _json
+        doc = _json.loads(cat.read_text(encoding="utf-8"))
+        eps = doc.get("episodes") or []
+        mirrored = [e for e in eps if str(e.get("audio", "")).startswith(
+            (doc.get("mirrored") or {}).get("public_base", "\x00"))]
+        check("every listed episode is one that can actually be played",
+              len(mirrored) == len(eps) and eps,
+              f"{len(eps) - len(mirrored)} of {len(eps)} point at the BBC "
+              "rather than the mirror; the list is meant to be what exists")
+        check("the catalogue count matches the episode list",
+              doc.get("count") == len(eps),
+              "the header number and the list have to agree")
+        levels = {e.get("level") for e in eps if e.get("level")}
+        check("a short catalogue still spans more than one CEFR level",
+              len(levels) >= 3 or len(eps) < 6,
+              f"levels present: {sorted(levels)} - ten clips of one band is a "
+              "worse listening course than three")
+
     # --------------------------------------------------------------- the mic --
     # It was a click handler and nothing else. On Android a long press raises
     # the text-selection callout and the browser suppresses the second click,
