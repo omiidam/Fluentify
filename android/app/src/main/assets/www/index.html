@@ -87,6 +87,77 @@
     background-size: 140px 140px;
   }
 
+
+  /* ---- the flock -------------------------------------------------------
+     The backdrop lived behind .app, which is 58-72% opaque and blurs
+     whatever is behind it - so on a phone, where .app is full-bleed, none of
+     it was visible at all. Whatever draws here has to be a child of .app to
+     be seen, and a child is painted after the backdrop-filter, so it stays
+     crisp instead of being blurred by the glass it sits under.
+
+     Seven birds, sizes and opacities chosen so the eye finds them without
+     ever reading them: the largest is a watermark at 7% and the smallest sit
+     under 4%. Text is drawn on top at full contrast, so nothing here can
+     compete with a word.
+
+     Motion is transform only, 46-88s per pass - slow enough that it reads as
+     drift rather than movement, which is the project's own ambient rule.
+  */
+  .flock {
+    position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    pointer-events: none; border-radius: inherit;
+  }
+  .flock i {
+    position: absolute; display: block;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath fill='%23ffffff' d='M14 96 L0 78 L26 84 Z'/%3E%3Cellipse cx='54' cy='80' rx='42' ry='36' fill='%23ffffff'/%3E%3Ccircle cx='74' cy='42' r='27' fill='%23ffffff'/%3E%3Cpath fill='%23ffffff' d='M98 40 L120 50 L98 58 Z'/%3E%3Ccircle cx='81' cy='37' r='5.5' fill='%23140f3a'/%3E%3C/svg%3E") no-repeat center / contain;
+    will-change: transform;
+  }
+  /* the watermark: one bird, huge, barely there */
+  /* A watermark, not an object. At 26% and 9% this read as a bird-shaped
+     blob half-hidden behind the composer; at 44% and 4.5% it stops being a
+     thing you try to identify and becomes texture - present when you look for
+     it, invisible when you are reading. The drifting birds below are what
+     actually say "flock". */
+  .flock i.wm {
+    width: 44%; height: auto; aspect-ratio: 120 / 120;
+    right: -4%; bottom: -6%; opacity: .045;
+    animation: driftBird 88s cubic-bezier(.22,1,.36,1) infinite alternate;
+  }
+  .flock i.f1 { width: 86px; opacity: .20; left: -12%; top: 16%;
+                animation: flyAcross 62s cubic-bezier(.45,0,.55,1) infinite; }
+  .flock i.f2 { width: 68px; opacity: .17; left: -12%; top: 46%;
+                animation: flyAcross 74s cubic-bezier(.45,0,.55,1) -18s infinite; }
+  .flock i.f3 { width: 54px; opacity: .15; left: -12%; top: 30%;
+                animation: flyAcross 54s cubic-bezier(.45,0,.55,1) -33s infinite; }
+  .flock i.f4 { width: 74px; opacity: .13; left: -12%; top: 58%;
+                animation: flyAcross 86s cubic-bezier(.45,0,.55,1) -46s infinite; }
+  .flock i.f5 { width: 46px; opacity: .18; left: -12%; top: 8%;
+                animation: flyAcross 66s cubic-bezier(.45,0,.55,1) -9s infinite; }
+  .flock i.f6 { width: 60px; opacity: .14; left: -12%; top: 38%;
+                animation: flyAcross 78s cubic-bezier(.45,0,.55,1) -57s infinite; }
+
+  /* a wingbeat: a gentle vertical squash, transform only */
+  @keyframes flap {
+    0%, 100% { transform: scaleY(1); }
+    50%      { transform: scaleY(.72); }
+  }
+  @keyframes flyAcross {
+    0%   { transform: translate3d(0,0,0) scaleY(1); opacity: 0; }
+    8%   { opacity: .20; }
+    45%  { transform: translate3d(58vw,-26px,0) scaleY(.74); }
+    50%  { transform: translate3d(66vw,-40px,0) scaleY(1); }
+    55%  { transform: translate3d(74vw,-26px,0) scaleY(.74); }
+    92%  { opacity: .20; }
+    100% { transform: translate3d(124vw,14px,0) scaleY(1); opacity: 0; }
+  }
+  @keyframes driftBird {
+    from { transform: translate3d(0,0,0) rotate(-2deg) scale(1); }
+    to   { transform: translate3d(-5%,7%,0) rotate(3deg) scale(1.06); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flock i { animation: none; }
+  }
+
   .orb {
     position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
     opacity: .40; will-change: transform;
@@ -1709,6 +1780,10 @@
 <div class="orb o3"></div>
 
 <div class="app">
+  <div class="flock" aria-hidden="true">
+    <i class="wm"></i><i class="f1"></i><i class="f2"></i><i class="f3"></i>
+    <i class="f4"></i><i class="f5"></i><i class="f6"></i>
+  </div>
   <header>
     <div class="hb"></div>
     <div class="avatar" aria-hidden="true">

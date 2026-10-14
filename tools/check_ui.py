@@ -219,6 +219,59 @@ def main() -> int:
           is not None,
           "decorative motion has to collapse for anyone who asked for it")
 
+    # ------------------------------------------------------------ the flock --
+    # The backdrop lived behind .app, which is 58-72% opaque and blurs
+    # whatever is behind it - so on a phone, where .app is full-bleed, none of
+    # it could be seen. The birds have to be a child of .app to show at all.
+    check("the bird flock is inside the app frame",
+          re.search(r'<div class="app">\s*<div class="flock"', src) is not None,
+          "behind .app it is blurred by the glass and hidden on a phone, "
+          "which is where it looked like there was nothing to see")
+    flock = re.search(r"\n  \.flock \{(.*?)\n  \}", src, re.S)
+    fb = re.sub(r"/\*.*?\*/", "", flock.group(1), flags=re.S) if flock else ""
+    check("the flock cannot be clicked",
+          "pointer-events: none" in fb,
+          "a decorative bird that swallows a tap is a bug")
+    check("the flock sits behind the conversation",
+          re.search(r"z-index:\s*0", fb) is not None,
+          "it is a background, not an overlay")
+    check("the flock collapses under prefers-reduced-motion",
+          re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*\.flock i "
+                    r"\{ animation: none", src) is not None,
+          "six birds drifting forever is exactly what that setting is for")
+    # Ambient motion is transform/opacity only, and slow. Scoped to the
+    # decorative keyframes by name: a 180ms button bounce may legitimately
+    # touch box-shadow, and a rule that flagged those would be a rule nobody
+    # could satisfy. Also ignored where the value is 0 or none - a
+    # `padding: 0` keyframe step changes nothing.
+    AMBIENT = {"drift", "float1", "float2", "float3", "flyAcross",
+               "driftBird", "flap"}
+    ANIMATED_BAD = ("width", "height", "top", "left", "right", "bottom",
+                    "background", "filter", "box-shadow", "margin", "padding")
+    for name, body in re.findall(r"@keyframes\s+([\w-]+)\s*\{([\s\S]*?)\n  \}", src):
+        if name not in AMBIENT:
+            continue
+        steps = re.findall(r"[;{]\s*([a-z-]+)\s*:\s*([^;}]+)", body)
+        bad = sorted({prop for prop, val in steps
+                      if prop in ANIMATED_BAD and val.strip() not in ("0", "0px", "none")})
+        check(f"@keyframes {name} animates transform or opacity only",
+              not bad,
+              f"{', '.join(bad)} re-runs layout or paint on every frame")
+
+        # The duration is on the rule that uses the animation, not inside the
+        # keyframes - reading it from the body found nothing and skipped the
+        # check entirely.
+        secs = [float(x) for x in re.findall(
+            rf"animation:\s*{re.escape(name)}\s+([\d.]+)s", src)]
+        if secs:
+            # min(), not max(): six birds share this keyframe, and taking the
+            # slowest let one of them run at 4s without the check noticing.
+            slowest = min(secs)
+            check(f"@keyframes {name} stays in the ambient band",
+                  slowest >= 18,
+                  f"a {slowest}s cycle is below the project's 18-30s ambient "
+                  "band; under that it reads as movement rather than drift")
+
     # ---------------------------------------------------------- bbc mirror --
     # The catalogue listed 1123 episodes of which 5 could be played, which
     # reads as broken rather than as small. It now lists exactly what exists.
