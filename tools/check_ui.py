@@ -334,6 +334,73 @@ def main() -> int:
                   f"a {slowest}s cycle is below the project's 18-30s ambient "
                   "band; under that it reads as movement rather than drift")
 
+    # ------------------------------------------------------------- player --
+    # One bar under the header for everything that makes a sound. The failure
+    # it exists to prevent is a six-minute clip that can only be halted by
+    # finding the card it came from, where the only control was "pause" -
+    # which is not stop, it leaves the position and the download behind.
+    check("there is a player bar under the header",
+          re.search(r"</header>\s*<div id=\"player\"", src) is not None,
+          "it must sit above the chat and the panels, or a panel opened on "
+          "top of it would hide the only way to stop the audio")
+    for ident, label in (("pltoggle", "Pause"), ("plstop", "Stop")):
+        check(f"the player has a {label.lower()} control with an accessible name",
+              re.search(r'id="' + ident + r'"[^>]*aria-label="[^"]+"', src) is not None,
+              "an unlabelled icon button is a control nobody can find")
+    check("the player is hidden until something is playing",
+          re.search(r'id="player"[^>]*\bhidden\b', src) is not None,
+          "an empty bar sitting above the conversation is furniture")
+    check("the player hides when hidden despite being flex",
+          re.search(r"\.player\[hidden\]\s*\{\s*display:\s*none", src) is not None,
+          "display:flex beats the hidden attribute, so the bar would never "
+          "go away")
+    check("the seek track is a labelled slider",
+          re.search(r'id="plseek"[^>]*role="slider"', src) is not None
+          and re.search(r'id="plseek"[^>]*aria-valuenow', src) is not None,
+          "a progress bar you cannot operate by keyboard excludes people")
+    # One Audio, reused. Per-card players are how two clips end up talking
+    # over each other.
+    check("there is exactly one audio element in the page",
+          len(re.findall(r"new Audio\(\)", src)) == 1,
+          f"{len(re.findall(r'new Audio()', src))} of them: two clips can "
+          "then play at once, which is what per-card players always did")
+    check("BBC cards delegate to the player",
+          re.search(r"play\.onclick = \(\) => \{[\s\S]{0,400}?Player\.clip\(", src) is not None,
+          "a card with its own audio has no bar to stop it from")
+    check("a card that is already playing toggles rather than stops",
+          re.search(r"Player\.currentSrc === ep\.audio\) \{ Player\.toggle\(\);", src) is not None,
+          "the button reads Play while pressing it wound the audio up")
+    # Both directions, or the card and the bar end up disagreeing.
+    # Bounded to the handler itself. A {0,220} window reached past the pause
+    # listener and found owner(false) in the ended handler, so deleting the
+    # pause notify still passed.
+    notify = lambda ev, flag: re.search(
+        r"addEventListener\('" + ev + r"',[^{]*\{[^}]*clip\.owner\(" + flag + r"\)", src)
+    check("the card is told about both play and pause",
+          notify("play", "true") is not None and notify("pause", "false") is not None,
+          "notified on play only, the card kept reading Pause while the bar "
+          "read Resume - two controls, one truth, disagreeing")
+    # Most of the page calls Speech.speak directly; without a hook the bar
+    # would only ever know about clips it started itself.
+    check("the player watches Speech rather than being called",
+          re.search(r"Speech\.onchange = sync;", src) is not None
+          and re.search(r"emit\(\) \{ if \(this\.onchange\) this\.onchange", src) is not None,
+          "otherwise the bar sits blank while a word is being spoken")
+    # The catch has to actually clear things. Only checking that a catch
+    # existed passed with a catch that re-armed the broken state.
+    caught = re.search(
+        r"speechSynthesis\.speak\(u\);\s*\}\s*catch \(err\) \{(.*?)\n    \}", src, re.S)
+    body = caught.group(1) if caught else ""
+    check("a throwing speech engine cannot wedge the playing state",
+          bool(caught) and "this.playing = null;" in body and "this.emit();" in body,
+          "speak() throws synchronously on a bad utterance; unless the catch "
+          "clears playing and emits, Speech.playing stays set for ever and "
+          "every later press reads as a stop instead of a start")
+    check("the speech scan collapses under prefers-reduced-motion",
+          re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]*?"
+                    r"\.player\.speech \.pltrack i \{ animation: none", src) is not None,
+          "a bar sweeping back and forth forever is what that setting is for")
+
     # ---------------------------------------------------------- bbc mirror --
     # The catalogue listed 1123 episodes of which 5 could be played, which
     # reads as broken rather than as small. It now lists exactly what exists.

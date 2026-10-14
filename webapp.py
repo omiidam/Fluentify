@@ -201,6 +201,89 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .flock i { animation: none; }
   }
 
+  /* ---- the player ------------------------------------------------------
+     One bar under the header for everything that makes a sound. It is a
+     sibling of the chat, not of any panel, so a clip keeps playing - and
+     stays stoppable - when you open a list on top of it.
+  */
+  .player {
+    display: flex; align-items: center; gap: 10px;
+    margin: 10px 16px 0; padding: 7px 14px 7px 7px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.13);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 10px 28px rgba(3,6,20,.34);
+    backdrop-filter: blur(14px) saturate(1.3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    animation: plIn .28s cubic-bezier(.22,1,.36,1);
+  }
+  /* display:flex would otherwise beat the hidden attribute */
+  .player[hidden] { display: none; }
+  @keyframes plIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .plbtn {
+    flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center;
+    border-radius: 50%; border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.05));
+    color: #ffe6f3; cursor: pointer; padding: 0;
+    transition: transform .16s cubic-bezier(.22,1,.36,1), background .16s;
+  }
+  .plbtn:hover { background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.08)); }
+  .plbtn:active { transform: scale(.93); }
+  .plbtn svg { width: 18px; height: 18px; fill: currentColor; }
+  .plbtn:focus-visible { outline: 2px solid #ff8dc4; outline-offset: 2px; }
+  .plbtn.ghost { width: 32px; height: 32px; color: #c9cbe6; }
+  .plbtn.ghost svg { width: 14px; height: 14px; }
+  .plbody { flex: 1 1 auto; min-width: 0; }
+  .plhead { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+  .plkind {
+    flex: 0 0 auto; font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    color: #ff8dc4; font-weight: 700;
+  }
+  .pltitle {
+    font-size: 13px; color: #eef0ff; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; min-width: 0;
+  }
+  .pltrack {
+    position: relative; height: 6px; margin-top: 6px; border-radius: 99px;
+    background: rgba(255,255,255,.12); cursor: pointer;
+    touch-action: none; overflow: hidden;
+  }
+  .pltrack:focus-visible { outline: 2px solid #ff8dc4; outline-offset: 3px; }
+  .pltrack i {
+    position: absolute; inset: 0 auto 0 0; width: 0%; border-radius: 99px;
+    background: linear-gradient(90deg, #ff8dc4, #ff5c9d);
+  }
+  /* Speech has no duration to scrub, so the bar breathes instead of lying
+     about a position. */
+  .player.speech .pltrack i {
+    width: 100% !important;
+    background: linear-gradient(90deg, transparent, #ff8dc4 40%, #ff5c9d 60%, transparent);
+    animation: plScan 2.4s cubic-bezier(.45,0,.55,1) infinite;
+  }
+  @keyframes plScan {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .player.speech .pltrack { cursor: default; }
+  .pltime {
+    flex: 0 0 auto; font-size: 12px; color: #a9adcf;
+    font-variant-numeric: tabular-nums; min-width: 38px; text-align: right;
+  }
+  @media (max-width: 560px) {
+    .player { margin: 8px 10px 0; gap: 8px; padding: 6px 10px 6px 6px; }
+    .plbtn { width: 34px; height: 34px; }
+    .plbtn.ghost { width: 30px; height: 30px; }
+    .pltitle { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .player { animation: none; }
+    .player.speech .pltrack i { animation: none; opacity: .7; }
+    .plbtn { transition: none; }
+  }
+
   .orb {
     position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
     opacity: .40; will-change: transform;
@@ -1884,6 +1967,25 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </nav>
   </header>
 
+  <div id="player" class="player" hidden role="region" aria-label="Listening player">
+    <button id="pltoggle" class="plbtn" aria-label="Pause" title="Pause">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.6" height="12" rx="1.2"/><rect x="11.4" y="4" width="3.6" height="12" rx="1.2"/></svg>
+    </button>
+    <button id="plstop" class="plbtn ghost" aria-label="Stop" title="Stop">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="5" width="10" height="10" rx="2"/></svg>
+    </button>
+    <div class="plbody">
+      <div class="plhead">
+        <span class="plkind" id="plkind">Listening</span>
+        <span class="pltitle" id="pltitle"></span>
+      </div>
+      <div class="pltrack" id="plseek" role="slider" tabindex="0"
+           aria-label="Seek within the clip" aria-valuemin="0" aria-valuemax="100"
+           aria-valuenow="0" aria-valuetext="Not started"></div>
+    </div>
+    <span class="pltime" id="pltime">0:00</span>
+  </div>
+
   <div id="vpanel">
     <h3>Vocabulary A1 → C2 — روی هر دسته کلیک کنید تا واژه‌ها را ببینید</h3>
     <div class="psearch">
@@ -2535,8 +2637,9 @@ const Speech = {
     if (window.AndroidTTS && window.AndroidTTS.speak) {
       window.AndroidTTS.speak(text);
       this.playing = { text };
-      setTimeout(() => { this.playing = null; if (onEnd) onEnd(); },
+      setTimeout(() => { this.playing = null; if (onEnd) onEnd(); this.emit(); },
                  Math.max(2200, text.length * 62));
+      this.emit();
       return true;
     }
     if (!('speechSynthesis' in window)) return false;
@@ -2547,21 +2650,313 @@ const Speech = {
     u.rate = 0.95;      // a touch slower than default = clearer
     u.pitch = 1.0;      // neutral, avoids the chipmunk effect
     u.volume = 1;
-    u.onend = () => { this.playing = null; if (onEnd) onEnd(); };
-    u.onerror = () => { this.playing = null; if (onEnd) onEnd(); };
+    u.onend = () => { this.playing = null; if (onEnd) onEnd(); this.emit(); };
+    u.onerror = () => { this.playing = null; if (onEnd) onEnd(); this.emit(); };
     this.playing = { text, utter: u };
     speechSynthesis.cancel();
-    speechSynthesis.speak(u);
+    try {
+      speechSynthesis.speak(u);
+    } catch (err) {
+      /* speak() throws synchronously on a bad utterance, and on some engines
+         when it is already mid-sentence. Unhandled, this.playing stayed set
+         for ever: the bar never appeared, the page believed it was still
+         talking, and the next press of any say-button read as a stop rather
+         than a start. */
+      this.playing = null;
+      this.emit();
+      return false;
+    }
+    this.emit();
     return true;
   },
   stop() {
     if (this.playing && this.playing.utter) speechSynthesis.cancel();
     if (window.AndroidTTS && window.AndroidTTS.stop) window.AndroidTTS.stop();
     this.playing = null;
+    this.emit();
   },
   isPlaying(text) { return !!this.playing && this.playing.text === text; },
+
+  /* Player watches this. Most of the page calls Speech.speak directly, so
+     without a signal the bar would only ever know about the clips it started
+     itself and would sit there blank while a word was being spoken. */
+  onchange: null,
+  emit() { if (this.onchange) this.onchange(this.playing); },
 };
 /*__STT_CONFIG__*/
+
+
+/* ================================================================== PLAYER
+ * One bar under the header for everything that makes a sound: the BBC clips
+ * and the spoken words. Before this every card carried its own Audio object
+ * and its own button, so a six-minute episode could only be halted by finding
+ * the card it came from and pressing pause - and pause is not stop, it leaves
+ * the position behind and the download half done.
+ *
+ * One Audio element, reused, is what makes "one thing at a time" true rather
+ * than aspirational: two clips playing over each other is the failure mode
+ * every per-card player has.
+ */
+const Player = (() => {
+  const ICON_PAUSE =
+    '<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.6" ' +
+    'height="12" rx="1.2"/><rect x="11.4" y="4" width="3.6" height="12" rx="1.2"/></svg>';
+  const ICON_PLAY =
+    '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.2v11.6a1 1 0 ' +
+    '0 0 1.5.87l9.2-5.8a1 1 0 0 0 0-1.74l-9.2-5.8A1 1 0 0 0 6 4.2Z"/></svg>';
+
+  let el, toggle, stopBtn, titleEl, kindEl, track, fill, timeEl;
+  let audio = null;            // created once, reused for every clip
+  let clip = null;             // {src, title, owner}
+  let mode = null;             // null | 'clip' | 'speech'
+  let paused = false;
+  let seeking = false;
+
+  const mmss = (v) => {
+    if (!isFinite(v) || v < 0) v = 0;
+    return Math.floor(v / 60) + ':' + String(Math.floor(v % 60)).padStart(2, '0');
+  };
+
+  function mount() {
+    el = document.getElementById('player');
+    if (!el) return false;
+    toggle = document.getElementById('pltoggle');
+    stopBtn = document.getElementById('plstop');
+    titleEl = document.getElementById('pltitle');
+    kindEl = document.getElementById('plkind');
+    track = document.getElementById('plseek');
+    timeEl = document.getElementById('pltime');
+    if (!toggle || !stopBtn || !track || !titleEl || !kindEl || !timeEl) return false;
+    if (!fill) { fill = document.createElement('i'); track.appendChild(fill); }
+    toggle.onclick = () => togglePlay();
+    stopBtn.onclick = () => stopAll();
+    wireSeek();
+    return true;
+  }
+
+  /* ---- seeking -------------------------------------------------------- */
+  const fracAt = (ev) => {
+    const r = track.getBoundingClientRect();
+    if (!r.width) return 0;
+    return Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
+  };
+  function applySeek(f) {
+    if (!audio || mode !== 'clip' || paused) return;
+    const d = audio.duration;
+    if (isFinite(d) && d > 0) { audio.currentTime = f * d; paint(); }
+  }
+  function wireSeek() {
+    track.addEventListener('pointerdown', (ev) => {
+      if (mode !== 'clip' || paused) return;
+      seeking = true;
+      try { track.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
+      applySeek(fracAt(ev));
+    });
+    track.addEventListener('pointermove', (ev) => {
+      if (seeking) applySeek(fracAt(ev));
+    });
+    const done = (ev) => {
+      if (!seeking) return;
+      seeking = false;
+      try { track.releasePointerCapture(ev.pointerId); } catch (e) { /* already gone */ }
+    };
+    track.addEventListener('pointerup', done);
+    track.addEventListener('pointercancel', done);
+    track.addEventListener('keydown', (ev) => {
+      if (mode !== 'clip' || paused) return;
+      const d = audio && isFinite(audio.duration) ? audio.duration : 0;
+      if (!d) return;
+      const step = ev.shiftKey ? 0.1 : 0.02;
+      let f = (audio.currentTime || 0) / d;
+      if (ev.key === 'ArrowRight') f += step;
+      else if (ev.key === 'ArrowLeft') f -= step;
+      else if (ev.key === 'Home') f = 0;
+      else if (ev.key === 'End') f = 1;
+      else if (ev.key === ' ' || ev.key === 'Enter') {
+        togglePlay(); ev.preventDefault(); return;
+      } else return;
+      ev.preventDefault();
+      applySeek(Math.min(1, Math.max(0, f)));
+    });
+  }
+
+  /* ---- painting -------------------------------------------------------- */
+  function paint() {
+    if (!el || !fill) return;
+    if (mode === 'speech') {
+      el.classList.add('speech');
+      kindEl.textContent = 'Speaking';
+      toggle.innerHTML = paused ? ICON_PLAY : ICON_PAUSE;
+      toggle.setAttribute('aria-label', paused ? 'Resume speaking' : 'Stop speaking');
+      toggle.title = paused ? 'Resume' : 'Stop';
+      timeEl.textContent = paused ? 'paused' : '…';
+      track.setAttribute('aria-valuenow', '0');
+      track.setAttribute('aria-valuetext',
+                         titleEl.textContent
+                           ? 'Speaking: ' + titleEl.textContent : 'Speaking');
+      fill.style.width = '100%';
+      return;
+    }
+    el.classList.remove('speech');
+    const dur = audio && isFinite(audio.duration) ? audio.duration : 0;
+    const cur = audio ? (audio.currentTime || 0) : 0;
+    const pct = dur > 0 ? (cur / dur) * 100 : 0;
+    fill.style.width = pct.toFixed(2) + '%';
+    toggle.innerHTML = paused ? ICON_PLAY : ICON_PAUSE;
+    toggle.setAttribute('aria-label', paused ? 'Resume' : 'Pause');
+    toggle.title = paused ? 'Resume' : 'Pause';
+    timeEl.textContent = dur > 0 ? mmss(cur) + ' / ' + mmss(dur) : mmss(cur);
+    track.setAttribute('aria-valuenow', String(Math.round(pct)));
+    track.setAttribute('aria-valuetext',
+                       dur > 0 ? mmss(cur) + ' of ' + mmss(dur) : 'Not started');
+  }
+
+  /* ---- speech, wherever it was started from ----------------------------
+     Most of the page calls Speech.speak directly, so Player watches Speech
+     rather than asking to be called. Without that the bar would only ever
+     know about clips it started itself and would sit blank while a word was
+     being spoken.
+  */
+  function sync() {
+    if (!el) return;
+    const sp = Speech.playing;
+    if (sp) {
+      if (mode !== 'clip') mode = 'speech';
+      if (mode === 'speech') {
+        if (titleEl.textContent !== sp.text) titleEl.textContent = sp.text;
+        el.hidden = false;
+        paused = false;
+        paint();
+      }
+      return;
+    }
+    if (mode === 'speech') {
+      // finished on its own, or Speech.stop() was called
+      if (audio && clip && !audio.paused) return;   // a clip took over
+      mode = null;
+      paused = false;
+      titleEl.textContent = '';
+      el.hidden = true;
+      paint();
+      return;
+    }
+    paint();
+  }
+
+  /* ---- clips ----------------------------------------------------------- */
+  function ensureAudio() {
+    if (audio) return audio;
+    audio = new Audio();
+    audio.preload = 'none';
+    audio.crossOrigin = 'anonymous';
+    audio.addEventListener('timeupdate', paint);
+    audio.addEventListener('loadedmetadata', paint);
+    // Both directions. Only notifying on play left the card reading
+    // "Pause" while the bar read "Resume" - two controls, one truth, and
+    // they disagreed about it.
+    audio.addEventListener('play', () => {
+      paused = false;
+      if (clip && clip.owner) clip.owner(true);
+      paint();
+    });
+    audio.addEventListener('pause', () => {
+      paused = true;
+      if (clip && clip.owner) clip.owner(false);
+      paint();
+    });
+    audio.addEventListener('ended', () => {
+      paused = false;
+      if (clip && clip.owner) clip.owner(false);
+      clip = null;
+      audio.removeAttribute('src');
+      mode = null;
+      el.hidden = true;
+      paint();
+    });
+    audio.addEventListener('error', () => {
+      if (!clip) return;
+      const code = audio.error ? audio.error.code : 0;
+      if (clip.owner) clip.owner(false);
+      clip = null;
+      mode = null;
+      el.hidden = true;
+      paint();
+      // "Needs a network connection" was the one diagnosis that could not be
+      // right - it was reported when the device was online and the stream was
+      // simply refused. MediaError distinguishes a network failure (2) from a
+      // decode or format problem (3) and from a blocked source (4), which is
+      // what cleartext HTTP on Android produced.
+      toast(code === 4 || !navigator.onLine
+        ? '🔇 That clip is blocked on this device — open it on the web ' +
+          'version. / این کلیپ روی این دستگاه مسدود است.'
+        : code === 3
+          ? '🔇 This clip could not be decoded. / این کلیپ پخش نشد.'
+          : '🔇 Could not reach the audio — check your connection. / ' +
+            'اتصال را بررسی کن.', 4200);
+    });
+    return audio;
+  }
+
+  /* owner(on) is how the originating card's button keeps its label honest,
+     so the card and the bar can never disagree about what is playing. */
+  function playClip(src, title, owner) {
+    if (window.AndroidTTS && window.AndroidTTS.stop) window.AndroidTTS.stop();
+    Speech.stop();
+    if (clip && clip.src !== src && clip.owner) clip.owner(false);
+    const resuming = !!(clip && clip.src === src && audio && !audio.paused);
+    clip = { src, title, owner: owner || null };
+    mode = 'clip';
+    paused = false;
+    titleEl.textContent = title || '';
+    kindEl.textContent = 'Listening';
+    el.hidden = false;
+    paint();
+    const a = ensureAudio();
+    if (!resuming) a.src = src;
+    a.play().then(() => { if (clip && clip.owner) clip.owner(true); paint(); })
+     .catch(() => { /* the error handler above says why */ paint(); });
+  }
+
+  function togglePlay() {
+    if (mode === 'speech') {
+      // Android's TextToSpeech has no pause, so stopping is the honest answer
+      // there; resume speaks it again rather than pretending to continue.
+      if (paused) { const t = titleEl.textContent; paused = false; Speech.speak(t); return; }
+      Speech.stop();
+      return;
+    }
+    if (!audio || !clip) return;
+    if (audio.paused) { paused = false; audio.play().catch(() => { /* handled above */ }); }
+    else audio.pause();
+    paint();
+  }
+
+  function stopAll() {
+    if (mode === 'speech') { Speech.stop(); return; }
+    if (audio) {
+      try { audio.pause(); } catch (e) { /* nothing playing */ }
+      try { audio.currentTime = 0; } catch (e) { /* no metadata yet */ }
+      audio.removeAttribute('src');
+    }
+    if (clip && clip.owner) clip.owner(false);
+    clip = null;
+    mode = null;
+    paused = false;
+    if (el) { el.hidden = true; paint(); }
+  }
+
+  Speech.onchange = sync;
+  return {
+    mount,
+    clip: playClip,
+    stop: stopAll,
+    toggle: togglePlay,
+    get playing() { return mode !== null; },
+    get paused() { return paused; },
+    get mode() { return mode; },
+    get currentSrc() { return clip ? clip.src : null; },
+  };
+})();
 
 /* ==================================================================== MOTION
  * One IIFE, no top-level names, so it cannot collide with bot.js - which is
@@ -3825,55 +4220,19 @@ async function loadBBC() {
           continue;
         }
         play.textContent = '▶  Play';
-        const audio = new Audio();
-        audio.preload = 'none';
-        audio.crossOrigin = 'anonymous';
+        const label = (on) => {
+          play.textContent = on ? '❚❚  Pause' : '▶  Play';
+          play.classList.toggle('on', !!on);
+        };
+        // The bar under the header owns the audio; the card only says where
+        // to start it and mirrors what came back, so a six-minute episode can
+        // be paused or stopped from anywhere without hunting for its card.
         play.onclick = () => {
-          if (window.AndroidTTS && window.AndroidTTS.stop) window.AndroidTTS.stop();
-          Speech.stop();
-          if (!audio.paused && audio.currentTime > 0) {
-            audio.pause();
-            play.textContent = '▶  Play';
-            play.classList.remove('on');
-            return;
-          }
-          audio.src = ep.audio;
-          play.style.setProperty('--p', '0turn');
-          audio.play().catch(() => {
-            play.textContent = '▶  Play';
-            play.classList.remove('on');
-            // "Needs a network connection" was the one diagnosis that could
-            // not be right - it was reported when the device was online and
-            // the stream was simply refused. MediaError distinguishes a
-            // network failure (2) from a decode or format problem (3) and
-            // from a blocked source (4), which is what cleartext HTTP on
-            // Android produced.
-            const code = audio.error ? audio.error.code : 0;
-            toast(
-              code === 4 || !navigator.onLine
-                ? '🔇 That clip is blocked on this device — open it on the web ' +
-                  'version. / این کلیپ روی این دستگاه مسدود است.'
-                : code === 3
-                  ? '🔇 This clip could not be decoded. / این کلیپ پخش نشد.'
-                  : '🔇 Could not reach the audio — check your connection. / ' +
-                    'اتصال را بررسی کن.',
-              4200);
-          });
-          play.textContent = '❚❚  Pause';
-          play.classList.add('on');
-        };
-        // A six-minute clip gives no feedback at all without this. The ring
-        // is a conic gradient stopped at --p, so it costs one CSS variable.
-        const ring = () => {
-          const p = audio.duration ? audio.currentTime / audio.duration : 0;
-          play.style.setProperty('--p', p.toFixed(4) + 'turn');
-        };
-        audio.addEventListener('timeupdate', ring);
-        audio.addEventListener('loadedmetadata', ring);
-        audio.onended = () => {
-          play.textContent = '▶  Play';
-          play.classList.remove('on');
-          play.style.setProperty('--p', '0turn');
+          // Pressing the card that is already playing pauses or resumes it,
+          // exactly as the bar does. Treating any playing clip as "stop"
+          // meant the button said Play while pressing it wound up the audio.
+          if (Player.currentSrc === ep.audio) { Player.toggle(); return; }
+          Player.clip(ep.audio, ep.title || ep.url, label);
         };
         bar2.appendChild(play);
 
@@ -4402,6 +4761,7 @@ document.getElementById('vsearch').addEventListener('input', (ev) => {
 loadListening();
 loadPhonetics();
 mountMic();
+Player.mount();
 Motion.init();
 Panels.init();
 PanelSearch.attachAll();
