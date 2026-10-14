@@ -5,3 +5,8 @@ __pycache__/
 .venv/
 tools/.cache/
 .bbc-storage.env
+
+# build output: the offline bundle copies the data files on every build.
+# Tracking them duplicated ~3 MB and let the copies drift from the sources
+# without anything noticing.
+android/app/src/main/assets/www/data/

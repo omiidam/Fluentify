@@ -3377,7 +3377,7 @@ async function loadBBC() {
   const box = document.getElementById('llevels');
   if (!box) return;
   try {
-    const doc = bbcCatalogue;
+    const doc = await bbcCatalogue();
     // Keep transcript-only episodes too. BBC retired the player on its older
     // 6 Minute English pages, so roughly a third of the archive has a graded
     // transcript and a worksheet link but no streamable audio - hiding those
@@ -3740,7 +3740,7 @@ async function loadWordArch() {
   if (wordArchPromise) return wordArchPromise;
   wordArchPromise = (async () => {
     try {
-    const bands = wordArchBands;
+    const bands = await wordArchBands();
     Object.assign(wordArch, bands);
     wordArchLoaded = true;
     paintWordArch();
@@ -4075,19 +4075,35 @@ async function loadGrammar() {
 }
 /* offline boot: load the bundled data, build the engine, fill the panels */
 let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
-let bbcCatalogue = {episodes: [], count: 0};
-let wordArchBands = {};
+/* bbc_6min.json is ~1 MB and word_arch.json ~450 KB, and neither is needed
+   to say hello: the first only when the BBC panel opens, the second only for
+   the Sentences panel's word chips. Fetching them in the boot Promise.all
+   cost 1.4 MB and about 420ms of startup measured in a browser, and this is
+   the build that ships to a phone, which can least afford either. The web
+   build already defers word_arch; the offline build did not. */
+let _bbc = null, _wordArch = null;
+const bbcCatalogue = () => (_bbc ||= loadJSON('bbc_6min'));
+const wordArchBands = () => (_wordArch ||= loadJSON('word_arch').then((wa) => {
+  const bands = {};
+  Object.entries(wa.words).forEach(([, e]) => {
+    (bands[e.level || 'A1'] = bands[e.level || 'A1'] || [])
+      .push({en: e.en, fa: e.fa, pos: e.pos, forms: e.forms,
+             level: e.level, domains: e.domains || []});
+  });
+  Object.values(bands).forEach((v) => v.sort((a, b) => (a.en < b.en ? -1 : 1)));
+  return bands;
+}));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
 
 Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
-             loadJSON('phonetics'), loadJSON('word_arch'),
+             loadJSON('phonetics'),
              loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'),
-             loadJSON('bbc_6min'), loadJSON('register')])
-  .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch,
-          distinctions, idioms, corrections, stt, bbc, register]) => {
+             loadJSON('register')])
+  .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
+          distinctions, idioms, corrections, stt, register]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
@@ -4097,14 +4113,6 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,
       blurb_en: lv.blurb.en, blurb_fa: lv.blurb.fa, sentences: lv.sentences,
     }));
-    // word architecture, grouped by CEFR level for the Sentences panel
-    Object.entries(wordArch.words).forEach(([, e]) => {
-      (wordArchBands[e.level || 'A1'] = wordArchBands[e.level || 'A1'] || [])
-        .push({en: e.en, fa: e.fa, pos: e.pos, forms: e.forms,
-               level: e.level, domains: e.domains || []});
-    });
-    Object.values(wordArchBands).forEach((v) => v.sort((a, b) => a.en < b.en ? -1 : 1));
-
     phoneticSections = phonetics.sections.map((s) => ({
       id: s.id, icon: s.icon || '🔊', level: s.level || 'A1',
       title_en: s.title.en, title_fa: s.title.fa,
@@ -4144,15 +4152,6 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
 
     // speech-to-text settings, straight from the same stt.json the CLI reads
     window.STT_CONFIG = stt;
-    // the graded BBC catalogue: links and levels only, the audio streams
-    bbcCatalogue = {episodes: (bbc.episodes || []).map((e) => ({
-      id: e.id, title: e.title, blurb: e.blurb, year: e.year,
-      level: e.level, duration: e.duration, url: e.url, audio: e.audio,
-      transcript_url: e.transcript_url, worksheet_url: e.worksheet_url,
-      stats: e.stats,
-    })), count: bbc.count || (bbc.episodes || []).length,
-      distribution: bbc.distribution || {}};
-
     loadGrammar();
     loadPhrases();
     loadVocabulary();

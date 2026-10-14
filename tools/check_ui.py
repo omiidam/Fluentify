@@ -334,6 +334,35 @@ def main() -> int:
         loaded = re.findall(r"loadJSON\('([^']+)'", built)
         check("the built page still loads every data file",
               len(loaded) >= 13, f"only {len(loaded)}: {loaded}")
+        # The offline boot hands its data to the engine through a positional
+        # destructure. Leaving one name in after its loadJSON() came out of
+        # the Promise.all shifts every name after it by one - the engine then
+        # builds with the wrong file and no suite notices, because bot.js is
+        # only ever constructed correctly on the web side.
+        i = built.find("Promise.all([")
+        if i != -1:
+            j = built.find(".then(([", i)
+            k = built.find("]) => {", j)
+            if j != -1 and k != -1:
+                promises = re.findall(r"loadJSON\('([^']+)'\)",
+                                      built[i:j])
+                picked = [x.strip() for x in
+                          built[j + len(".then((["):k].split(",") if x.strip()]
+                check("the offline destructure matches its promise list, in order",
+                      promises == picked,
+                      f"{len(promises)} loads but {len(picked)} names; "
+                      f"anything after the first divergence is off by one")
+
+        # the two big files are fetched on demand, not at boot: 1.4 MB and
+        # about 420ms of startup on the build that ships to a phone
+        boot_block = built[i:j] if i != -1 else ""
+        check("bbc_6min.json is not loaded at boot",
+              "bbc_6min" not in boot_block,
+              "~1 MB for a panel most users never open")
+        check("word_arch.json is not loaded at boot",
+              "word_arch" not in boot_block,
+              "~450 KB, only needed by the Sentences panel's word chips")
+
         leftovers = sorted(set(re.findall(r"fetch\(\s*['\"]/api/[^'\"]+", built)))
         check("no server calls survive in the offline page", not leftovers,
               ", ".join(leftovers))
