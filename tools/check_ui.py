@@ -235,6 +235,68 @@ def main() -> int:
     check("the flock sits behind the conversation",
           re.search(r"z-index:\s*0", fb) is not None,
           "it is a background, not an overlay")
+    wm = re.search(r"\.flock i\.wm \{(.*?)\n  \}", src, re.S)
+    wb = wm.group(1) if wm else ""
+    # Centred, so it sits in the quiet middle of the frame rather than in a
+    # corner where it used to hide behind the composer.
+    check("the watermark bird is centred in the frame",
+          re.search(r"left:\s*50%.*?top:\s*50%", wb, re.S) is not None
+          and "translate: -50% -50%" in wb,
+          "an off-centre watermark ends up behind the composer or the header")
+    # The mask is what makes it a watermark rather than a picture. A solid
+    # silhouette, however faint, still has an edge for the eye to catch on.
+    check("the watermark bird fades out instead of ending at an edge",
+          re.search(r"-webkit-mask-image:\s*radial-gradient", src) is not None
+          and re.search(r"mask-image:\s*radial-gradient", src) is not None,
+          "without the radial mask it is a pale sticker on the conversation")
+    size = re.search(r"width:\s*min\(\s*([\d.]+)%", wb)
+    opac = re.search(r"opacity:\s*([\d.]+)", wb)
+    check("the watermark bird is small and faint enough to read through",
+          size is not None and float(size.group(1)) <= 32
+          and opac is not None and float(opac.group(1)) <= 0.08,
+          "the ask was a watermark: small, and under 8% opaque")
+
+    # One bird. The six drifting ones read as clutter behind a transcript.
+    flock_html = re.search(r'<div class="flock"[^>]*>(.*?)</div>', src, re.S)
+    check("there is exactly one background bird",
+          flock_html is not None
+          and len(re.findall(r"<i\b", flock_html.group(1))) == 1,
+          "a flock behind a conversation is clutter, not ambience")
+
+    # The watermark is the icon, so its geometry has to be the icon's. Matching
+    # on the crest and tail paths rather than on the whole SVG: those two are
+    # what make the shape read as this bird rather than a generic one, and they
+    # are the parts a hand-drawn replacement would quietly lose.
+    # Every path in the watermark must exist in the mascot. Testing for the
+    # crest with a plain substring passed while the watermark was missing it,
+    # because the icon itself carries the same string - the two only diverge
+    # when compared to each other.
+    icon = re.search(r"const BIRD =\s*'(.*?)';", src, re.S)
+    mark = re.search(r"\.flock i \{.*?url\(\"data:image/svg\+xml,(.*?)\"\) no-repeat", src, re.S)
+    # Geometry only - d, cx, cy, rx, ry, r. Comparing d alone let an ellipse
+    # be moved to any centre and still pass, which is most of the shape.
+    paths = lambda t: set(re.findall(r"(?:d|cx|cy|rx|ry|r)=['\"]([^'\"]+)['\"]", t)) if t else set()
+    icon_paths, mark_paths = paths(icon.group(1) if icon else ""), \
+                              paths(mark.group(1).replace("%3C", "<").replace("%3E", ">")
+                                    if mark else "")
+    check("the watermark invents no geometry of its own",
+          bool(mark_paths) and mark_paths <= icon_paths,
+          f"not in the icon: {sorted(mark_paths - icon_paths)[:2]} - a "
+          "hand-drawn replacement drifts into a different bird, which is what "
+          "happened when this was a duck")
+    # And the other direction. Subset alone passed with the crest deleted,
+    # because a smaller set is still a subset; it takes both halves to say the
+    # watermark is the icon rather than some of it.
+    OUTLINE = ("M10 27 L3.5 20 L5.5 31 Z",             # tail
+               "M21.5 13.5 q1-6.5 4.5-6.5",          # crest
+               "M36 22.5 L42.5 25.5 L36 28.5 Z")      # beak
+    mark_d = set(re.findall(r"d=['\"]([^'\"]+)['\"]", mark.group(1))) if mark else set()
+    missing = [d for d in OUTLINE if not any(p.startswith(d) for p in mark_d)]
+    check("the watermark keeps the bird's tail, crest and beak",
+          not missing,
+          f"dropped: {len(missing)} of tail/crest/beak - without them it stops "
+          "being this bird")
+
     check("the flock collapses under prefers-reduced-motion",
           re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*\.flock i "
                     r"\{ animation: none", src) is not None,

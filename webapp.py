@@ -153,20 +153,24 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
 
 
-  /* ---- the flock -------------------------------------------------------
-     The backdrop lived behind .app, which is 58-72% opaque and blurs
-     whatever is behind it - so on a phone, where .app is full-bleed, none of
-     it was visible at all. Whatever draws here has to be a child of .app to
-     be seen, and a child is painted after the backdrop-filter, so it stays
-     crisp instead of being blurred by the glass it sits under.
+  /* ---- the watermark bird ------------------------------------------------
+     The backdrop lived behind .app, which is 58-72% opaque and blurs whatever
+     is behind it - so on a phone, where .app is full-bleed, none of it was
+     visible at all. Whatever draws here has to be a child of .app to be seen,
+     and a child is painted after the backdrop-filter, so it stays crisp.
 
-     Seven birds, sizes and opacities chosen so the eye finds them without
-     ever reading them: the largest is a watermark at 7% and the smallest sit
-     under 4%. Text is drawn on top at full contrast, so nothing here can
-     compete with a word.
+     One bird, dead centre, drawn from the icon's own geometry so it is
+     unmistakably the same bird rather than a generic one, filled flat instead
+     of in the mascot's colours so it reads as a watermark and not as artwork
+     competing with the conversation.
 
-     Motion is transform only, 46-88s per pass - slow enough that it reads as
-     drift rather than movement, which is the project's own ambient rule.
+     Three things keep it from interrupting anything. It is small, it is at 6%,
+     and it is masked: the radial gradient dissolves the outline to nothing
+     before the edge, so the bird has no hard boundary to catch the eye. A
+     solid silhouette, however faint, still has an edge; this one has a falloff.
+
+     The six drifting birds that were here before are gone. Moving marks at
+     13-20% read as clutter behind a transcript, not as ambience.
   */
   .flock {
     position: absolute; inset: 0; z-index: 0; overflow: hidden;
@@ -174,50 +178,24 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .flock i {
     position: absolute; display: block;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath fill='%23ffffff' d='M14 96 L0 78 L26 84 Z'/%3E%3Cellipse cx='54' cy='80' rx='42' ry='36' fill='%23ffffff'/%3E%3Ccircle cx='74' cy='42' r='27' fill='%23ffffff'/%3E%3Cpath fill='%23ffffff' d='M98 40 L120 50 L98 58 Z'/%3E%3Ccircle cx='81' cy='37' r='5.5' fill='%23140f3a'/%3E%3C/svg%3E") no-repeat center / contain;
-    will-change: transform;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23ffffff' d='M10 27 L3.5 20 L5.5 31 Z'/%3E%3Cellipse cx='23' cy='27' rx='16' ry='13.5' fill='%23ffffff'/%3E%3Cpath fill='%23ffffff' d='M13 23.5 q8.5 2.5 8.5 10.5 q-8.5-2.5-8.5-10.5Z'/%3E%3Cpath fill='%23ffffff' d='M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z'/%3E%3Cpath fill='%23ffffff' d='M36 22.5 L42.5 25.5 L36 28.5 Z'/%3E%3Ccircle cx='31' cy='21.5' r='3.3' fill='%230e1338'/%3E%3C/svg%3E") no-repeat center / contain;
+    -webkit-mask-image: radial-gradient(closest-side, #000 0%, #000 34%, rgba(0,0,0,.45) 58%, transparent 80%);
+    mask-image: radial-gradient(closest-side, #000 0%, #000 34%, rgba(0,0,0,.45) 58%, transparent 80%);
   }
-  /* the watermark: one bird, huge, barely there */
-  /* A watermark, not an object. At 26% and 9% this read as a bird-shaped
-     blob half-hidden behind the composer; at 44% and 4.5% it stops being a
-     thing you try to identify and becomes texture - present when you look for
-     it, invisible when you are reading. The drifting birds below are what
-     actually say "flock". */
   .flock i.wm {
-    width: 44%; height: auto; aspect-ratio: 120 / 120;
-    right: -4%; bottom: -6%; opacity: .045;
-    animation: driftBird 88s cubic-bezier(.22,1,.36,1) infinite alternate;
+    width: min(30%, 260px); height: auto; aspect-ratio: 1;
+    left: 50%; top: 50%;
+    margin: 0;
+    opacity: .06;
+    translate: -50% -50%;
+    animation: breathe 96s cubic-bezier(.22,1,.36,1) infinite alternate;
   }
-  .flock i.f1 { width: 86px; opacity: .20; left: -12%; top: 16%;
-                animation: flyAcross 62s cubic-bezier(.45,0,.55,1) infinite; }
-  .flock i.f2 { width: 68px; opacity: .17; left: -12%; top: 46%;
-                animation: flyAcross 74s cubic-bezier(.45,0,.55,1) -18s infinite; }
-  .flock i.f3 { width: 54px; opacity: .15; left: -12%; top: 30%;
-                animation: flyAcross 54s cubic-bezier(.45,0,.55,1) -33s infinite; }
-  .flock i.f4 { width: 74px; opacity: .13; left: -12%; top: 58%;
-                animation: flyAcross 86s cubic-bezier(.45,0,.55,1) -46s infinite; }
-  .flock i.f5 { width: 46px; opacity: .18; left: -12%; top: 8%;
-                animation: flyAcross 66s cubic-bezier(.45,0,.55,1) -9s infinite; }
-  .flock i.f6 { width: 60px; opacity: .14; left: -12%; top: 38%;
-                animation: flyAcross 78s cubic-bezier(.45,0,.55,1) -57s infinite; }
-
-  /* a wingbeat: a gentle vertical squash, transform only */
-  @keyframes flap {
-    0%, 100% { transform: scaleY(1); }
-    50%      { transform: scaleY(.72); }
-  }
-  @keyframes flyAcross {
-    0%   { transform: translate3d(0,0,0) scaleY(1); opacity: 0; }
-    8%   { opacity: .20; }
-    45%  { transform: translate3d(58vw,-26px,0) scaleY(.74); }
-    50%  { transform: translate3d(66vw,-40px,0) scaleY(1); }
-    55%  { transform: translate3d(74vw,-26px,0) scaleY(.74); }
-    92%  { opacity: .20; }
-    100% { transform: translate3d(124vw,14px,0) scaleY(1); opacity: 0; }
-  }
-  @keyframes driftBird {
-    from { transform: translate3d(0,0,0) rotate(-2deg) scale(1); }
-    to   { transform: translate3d(-5%,7%,0) rotate(3deg) scale(1.06); }
+  /* The only motion left: a slow swell, so the bird breathes rather than sits.
+     transform and opacity only, and slow enough to go unnoticed if you are
+     reading. */
+  @keyframes breathe {
+    from { scale: 1;    rotate: -1.5deg; }
+    to   { scale: 1.04; rotate: 1.5deg; }
   }
   @media (prefers-reduced-motion: reduce) {
     .flock i { animation: none; }
@@ -1846,8 +1824,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
 <div class="app">
   <div class="flock" aria-hidden="true">
-    <i class="wm"></i><i class="f1"></i><i class="f2"></i><i class="f3"></i>
-    <i class="f4"></i><i class="f5"></i><i class="f6"></i>
+    <i class="wm"></i>
   </div>
   <header>
     <div class="hb"></div>
@@ -3079,6 +3056,29 @@ const STT = {
 
   setLanguage(code) { this.language = code; },
 
+  /* What this utterance has already put in the composer, so a late final
+     result cannot repeat it. Reset per utterance, not per page. */
+  _written: '',
+
+  /* Whether a language pack for on-device recognition is installed. Probed
+     once at boot rather than per press, so begin() can stay synchronous and
+     the answer is already there when it needs it. */
+  _localOK: false,
+  _probed: false,
+  localOK() { return this._localOK; },
+  async probeLocal() {
+    const R = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!R || typeof R.available !== 'function') { this._probed = true; return false; }
+    try {
+      this._localOK = await R.available({langs: [this.lang()], processLocally: true})
+        === 'available';
+    } catch (e) {
+      this._localOK = false;
+    }
+    this._probed = true;
+    return this._localOK;
+  },
+
   begin() {
     if (this.listening) return true;
     const engine = this.engine();
@@ -3087,6 +3087,7 @@ const STT = {
     if (engine === 'android') {
       this.listening = true;
       this.interim = '';
+      this._written = '';
       this.render();
       window.AndroidSTT.start(this.lang(), (partial) => {
         this.interim = partial || '';
@@ -3096,10 +3097,19 @@ const STT = {
         this.interim = '';
         this.final = final || '';
         this.render();
-        if (this.final && this.cfg.submit_on_final) this.commit();
+        /* Always commit, and commit here rather than in the button's stop().
+           Two things made dictation record but never write, on a phone:
+           stopListening() is asynchronous, so pressing the button committed
+           an empty final and threw away what was said a moment later; and
+           this was gated on submit_on_final, which is about sending a
+           message, not about filling the composer. Gating the two together
+           is why every word went missing. */
+        this.commit();
       }, (err) => {
         this.listening = false;
         this.interim = '';
+        this.final = '';
+        this._written = '';
         this.render();
         if (err) this.onError(err);
       });
@@ -3115,21 +3125,21 @@ const STT = {
     rec.maxAlternatives = this.cfg.web.max_alternatives || 1;
 
     // On-device recognition. Without this the Web Speech API streams audio to
-    // a Google service, so "offline app" is not true of dictation - and in
-    // the Android app the failure mode is the same one the BBC clips had,
-    // a refusal dressed up as "needs a connection". The browser ships a
-    // language pack for it; if the pack is not installed the start() throws
-    // language-not-supported, so only ask for it when one is there.
-    if ('processLocally' in rec && R.available) {
-      R.available({langs: [this.lang()], processLocally: true})
-        .then((state) => { rec.processLocally = state === 'available'; })
-        .catch(() => { rec.processLocally = false; });
-    }
+    // a Google service, so "offline app" is not true of dictation - and the
+    // failure mode is the one the BBC clips had, a refusal dressed up as
+    // "needs a connection".
+    //
+    // Read from a cache, not from a promise chained here. The previous version
+    // asked inside a .then(), which resolves long after start() has run, so
+    // processLocally was still false when recognition started and every
+    // request went to the cloud - the exact thing it was written to avoid.
+    if ('processLocally' in rec) rec.processLocally = this.localOK();
     this.rec = rec;
     this.listening = true;
     this.startedAt = Date.now();
     this.interim = '';
     this.final = '';
+    this._written = '';
 
     rec.onresult = (e) => {
       let interim = '';
@@ -3153,6 +3163,9 @@ const STT = {
       this.listening = false;
       this.rec = null;
       this.render();
+      /* Same reasoning as the auto-stop: the engine can end a session on its
+         own, and by then the ledger in commit() makes a repeat harmless. */
+      this.commit();
     };
     try {
       rec.start();
@@ -3173,6 +3186,12 @@ const STT = {
         if (gap > (this.cfg.web.min_speech_ms || 900)) {
           this._stopped = true;
           this.stop();
+          /* Write it. The browser ending a session is not a reason to throw
+             away what was said: this fires after the engine has already
+             delivered its result, and nothing else would ever commit it. A
+             tap that started dictation then goes quiet had the same effect -
+             the words were recognised, held in final, and dropped. */
+          this.commit();
         } else {
           this._idle = setTimeout(watch, 500);
         }
@@ -3188,19 +3207,32 @@ const STT = {
     if (this.rec) { try { this.rec.stop(); } catch (e) { /* already stopped */ } }
     if (window.AndroidSTT && window.AndroidSTT.stop) window.AndroidSTT.stop();
     this.listening = false;
+    this.render();
   },
 
   commit() {
-    const text = (this.final + ' ' + this.interim).trim();
+    let text = (this.final + ' ' + this.interim).trim();
     this.final = '';
     this.interim = '';
     if (!text) return false;
+    /* Only what has not been written yet. Android streams partials and then
+       answers with the whole utterance again, so a stop that committed the
+       interim was followed a moment later by the same words being appended:
+       "what is a verb what is a verb". The web engine never does this, which
+       is why it only showed up on a phone. */
+    if (this._written && text.startsWith(this._written))
+      text = text.slice(this._written.length).trim();
+    if (!text) { this.render(); return false; }
+    this._written = this._written ? this._written + ' ' + text : text;
     const box = document.getElementById('input');
     if (box) {
-      box.value = text;
+      /* Append, never replace. Assigning box.value meant that typing half a
+         sentence and then dictating the other half deleted the half. */
+      box.value = box.value.trim() ? box.value.trim() + ' ' + text : text;
       box.dispatchEvent(new Event('input'));
       box.focus();
     }
+    this.render();
     return true;
   },
 
@@ -3323,7 +3355,7 @@ function mountMic() {
     const HOLD_MS = 250;          // shorter than this is a tap, not a hold
     const MAX_MS = 60000;         // no dictation session runs forever
     let pressAt = 0;
-    let held = false;
+    let wasListening = false;     // was it already running when this began?
     let capped = 0;
 
     const stop = () => {
@@ -3335,7 +3367,12 @@ function mountMic() {
     btn.addEventListener('pointerdown', (ev) => {
       ev.preventDefault();                    // no callout, no text selection
       pressAt = Date.now();
-      held = false;
+      // A press that begins while dictation is already running is a request
+      // to stop, however brief. The previous version tracked a `held` flag
+      // that only a long press ever set, so tapping a second time fell
+      // through as "too short, keep listening" and the button could not be
+      // turned off at all - you had to hold it.
+      wasListening = STT.listening;
       if (!STT.listening) {
         // begin() returns false when the recogniser refuses to start - a denied
         // OS permission, or a microphone already in use. Swallowing that leaves
@@ -3358,10 +3395,10 @@ function mountMic() {
       if (!STT.listening) { pressAt = 0; return; }
       const held_ms = Date.now() - pressAt;
       pressAt = 0;
-      // A tap keeps listening; anything longer is a hold and stops here.
-      if (!held && held_ms < HOLD_MS) return;
-      held = true;
-      stop();
+      // Stop if it was already running, or if this was a hold. A short press
+      // that started it deliberately leaves it running for the next tap.
+      if (wasListening || held_ms >= HOLD_MS) stop();
+      wasListening = false;
     };
 
     btn.addEventListener('pointerup', release);
@@ -4367,7 +4404,8 @@ loadPhonetics();
 mountMic();
 Motion.init();
 Panels.init();
-PanelSearch.attachAll();   // once the panels have content
+PanelSearch.attachAll();
+STT.probeLocal();      // decide on-device once, not on every press
 
 /* clear conversation */
 /* ---------- clear: button or typed ---------- */

@@ -525,6 +525,112 @@ def run_motion() -> None:
           ", ".join(motion_tops))
 
 
+# --------------------------------------------------------------------------
+# the mic: five ways dictation used to record and never write
+# --------------------------------------------------------------------------
+def run_mic() -> None:
+    """Static guards on the dictation path in webapp.py.
+
+    Every check here is about a bug that shipped: words that were heard and
+    then dropped on the floor. They are source-level because the real engines
+    are a browser service and an Android class, neither of which exists in a
+    test run - so a passing suite here means the logic is right, not that
+    anyone has spoken into a phone.
+    """
+    src = (ROOT / "webapp.py").read_text(encoding="utf-8")
+
+    def strip_comments(t: str) -> str:
+        # Comments say what the code is for, so a check that greps them for a
+        # banned token reads the explanation of a fix as the bug it replaced.
+        return re.sub(r"/\*.*?\*/", " ", t, flags=re.S)
+
+    def block(start_pat: str, end_pat: str, raw: bool = False) -> str:
+        m = re.search(start_pat + r"(.*?)" + end_pat, src, re.S)
+        if not m:
+            return ""
+        return m.group(1) if raw else strip_comments(m.group(1))
+
+    mic = block(r"function mountMic\(\)", r"\n  \};")
+    stt = block(r"const STT = \{", r"\n\};")
+    check("mountMic found in webapp.py", bool(mic))
+    check("STT found in webapp.py", bool(stt))
+    if not (mic and stt):
+        return
+
+    # 1. a press that begins while already listening must stop. The old flag
+    #    was only set by a LONG press, so a second tap fell through as "too
+    #    short, keep listening" and the button could not be switched off.
+    check("a press while listening is recorded as a stop request",
+          re.search(r"wasListening\s*=\s*STT\.listening", mic) is not None,
+          "without this a second tap can never stop dictation")
+    check("release stops when it was already listening",
+          re.search(r"if \(wasListening \|\| held_ms >= HOLD_MS\) stop\(\)", mic) is not None,
+          "the tap-to-stop case is missing")
+    check("the vestigial held flag is gone",
+          not re.search(r"\bheld\s*=", mic),
+          "held was only ever set by a long press, which is the bug")
+
+    # 2. on-device must be decided before start(). Chaining R.available()
+    #    onto .then() resolved long after start(), so processLocally was
+    #    still false and every request went to the cloud.
+    check("processLocally is set from a cache, not a promise chain",
+          re.search(r"if \('processLocally' in rec\)\s*\n?\s*rec\.processLocally\s*=\s*this\.localOK\(\)", stt) is not None,
+          "set from a promise it lands after start(), so on-device never takes effect")
+    check("on-device availability is probed once at boot",
+          re.search(r"async probeLocal\(\)", stt) is not None
+          and re.search(r"STT\.probeLocal\(\);", src) is not None,
+          "probing per press races start(); probing at boot does not")
+    check("probeLocal guards an absent available()",
+          re.search(r"typeof R\.available !== 'function'", stt) is not None,
+          "older engines have no static available() and would throw")
+
+    # 3. Android only knows the transcript once the engine answers, which is
+    #    after stop(). So the final callback must commit, not the button.
+    final_cb = block(r"\}\s*,\s*\(final\) => \{", r"\}, \(err\) =>")
+    check("the android final callback commits what it was told",
+          re.search(r"\}, \(final\) => \{.*?this\.commit\(\);.*?\}, \(err\) =>", stt, re.S) is not None,
+          "recording completed but nothing was written to the composer")
+    check("the final is not gated on submit_on_final",
+          "submit_on_final" not in final_cb and bool(final_cb),
+          "submit_on_final is about sending a message, not filling the composer; "
+          "gating the two together is why every word went missing")
+
+    # 4. a stop that committed the interim, then the same words arriving as
+    #    the final result, appended everything twice.
+    check("commit refuses to rewrite what it already wrote",
+          re.search(r"this\._written && text\.startsWith\(this\._written\)", stt) is not None,
+          "android re-sends the whole utterance as the final result, so the "
+          "words are appended twice")
+    # Counted across the whole object this was >= 2, which the android branch
+    # satisfied on its own: dropping the web branch's reset still passed. Each
+    # engine has to reset its own, or a stale ledger swallows the next phrase.
+    for engine, pat in (("android", r"if \(engine === 'android'\) \{(.*?)\n    \}"),
+                        ("web", r"const rec = new R\(\);(.*?)\n    rec\.onresult")):
+        m = re.search(pat, stt, re.S)
+        b = m.group(1) if m else ""
+        check(f"the {engine} engine resets the write ledger per utterance",
+              "this._written = ''" in b,
+              "a ledger left over from the last phrase makes the next one look "
+              "like a repeat and drops it")
+
+    # 5. every way a session can end must leave the words somewhere.
+    check("dictation appends to the composer rather than replacing it",
+          "box.value.trim() ? box.value.trim() + ' ' + text : text" in stt,
+          "typing half a sentence then dictating deleted the half")
+    watch = strip_comments(
+        stt[stt.find("const watch = () => {"):stt.find("this._idle = setTimeout(watch, 500);")])
+    check("the silence auto-stop writes what it heard",
+          re.search(r"this\._stopped = true;\s*this\.stop\(\);\s*this\.commit\(\)", watch) is not None,
+          "after 8s of quiet the browser ends the session and the recognised "
+          "text was discarded")
+    check("an engine that ends its own session writes what it heard",
+          re.search(r"rec\.onend = \(\) => \{.*?this\.commit\(\);", stt, re.S) is not None,
+          "the browser may stop on its own; by then nothing else would commit")
+    check("an error clears the ledger so the next try is clean",
+          re.search(r"\(err\) => \{.*?this\._written = '';.*?\},", stt, re.S) is not None,
+          "a failed utterance would leave the next one looking like a repeat")
+
+
 def main() -> int:
     t0 = time.time()
     print("→ grader");   run_grader()
@@ -534,6 +640,7 @@ def main() -> int:
     print("→ fetcher");  run_fetcher()
     print("→ bundle");   run_bundle()
     print("→ motion");   run_motion()
+    print("→ mic");      run_mic()
     print()
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS} checks ({time.time() - t0:.1f}s)\n")
