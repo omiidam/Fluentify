@@ -13,6 +13,17 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 
 CASES = [
+    # register — the one capability whose whole output is built at runtime,
+    # so it needs parity coverage like any other reply path
+    "register", "formal vs casual",
+    "how do I say i need to leave early",
+    "how do I say sorry I'm late formally",
+    "how do i say i don't agree casually",
+    "چطور بگم نفهمیدم مؤدبانه",
+    "چطور بگم به نظر من رسمی",
+    "what do I say in a job interview",
+    "how would you say help me formally",
+    "how do I say turn on the light casually",
     "hello", "how are you", "الفبای فارسی", "english alphabet", "حرف ب",
     "what letter is A", "translate apple", "سیب به انگلیسی", "معنی خوشحال چیه",
     "define شیر", "رنگها", "حیوانات", "حیوان", "مدرسه", "سیب", "رنگها رو بگو",

@@ -7,6 +7,7 @@ use the bundled bot.js engine and the JSON files in assets/www/data.
 Keeping one source of truth means the desktop preview and the app never drift.
 """
 
+import hashlib
 import re
 import shutil
 import sys
@@ -24,7 +25,7 @@ BUNDLED_DATA = [
     "memory.json", "glossary.json", "grammar.json", "phrases.json",
     "jokes.json", "listening.json", "phonetics.json", "word_arch.json",
     "distinctions.json", "idioms.json", "corrections.json",
-    "stt.json", "bbc_6min.json",
+    "stt.json", "bbc_6min.json", "register.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
@@ -174,13 +175,13 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phonetics'), loadJSON('word_arch'),
              loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'),
-             loadJSON('bbc_6min')])
+             loadJSON('bbc_6min'), loadJSON('register')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics, wordArch,
-          distinctions, idioms, corrections, stt, bbc]) => {
+          distinctions, idioms, corrections, stt, bbc, register]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
-                         phonetics, distinctions, idioms, corrections});
+                         phonetics, distinctions, idioms, corrections, register});
 
     listeningLevels = listening.levels.map((lv) => ({
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,
@@ -264,8 +265,15 @@ html = sub(html, before, after, "the page tail", 1)
 
 # 4) load bot.js before the page script
 assert "\n<script>\n" in html
+# bot.js gets a content hash. Without one the browser keeps serving the
+# previous engine after a rebuild, and the offline app silently runs old
+# behaviour against new data - which is exactly how the register feature
+# looked absent on the offline bundle when the file on disk plainly had it.
+_bot_file = ROOT / "android/app/src/main/assets/www/bot.js"
+_bot_sha = hashlib.sha1(_bot_file.read_bytes()).hexdigest()[:8] \
+    if _bot_file.exists() else "dev"
 html = sub(html, "\n<script>\n",
-           '\n<script src="bot.js"></script>\n<script>\n',
+           f'\n<script src="bot.js?v={_bot_sha}"></script>\n<script>\n',
            "the inline script tag", 1)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)

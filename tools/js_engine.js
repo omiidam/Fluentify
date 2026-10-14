@@ -17,6 +17,7 @@ const data = {
   idioms: JSON.parse(fs.readFileSync(path.join(root, 'idioms.json'), 'utf8')),
   corrections: JSON.parse(fs.readFileSync(path.join(root, 'corrections.json'), 'utf8')),
   phonetics: JSON.parse(fs.readFileSync(path.join(root, 'phonetics.json'), 'utf8')),
+  register: JSON.parse(fs.readFileSync(path.join(root, 'register.json'), 'utf8')),
 };
 const ctx = { module: {}, exports: {}, console };
 vm.createContext(ctx);

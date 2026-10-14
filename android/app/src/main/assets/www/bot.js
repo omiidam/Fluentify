@@ -365,6 +365,7 @@ class Fluentify {
       data.corrections || [];
     this.phonetics = (data.phonetics && data.phonetics.sections) ||
       data.phonetics || [];
+    this.register = data.register || null;
 
     // glossary: accept either the whole file or just its "domains" map
     const rawGlossary = data.glossary && data.glossary.domains ? data.glossary.domains : data.glossary;
@@ -1105,6 +1106,130 @@ class Fluentify {
     return `🗯  “${row.en}” — ${row.fa}\n   ↳ ${row.meaning}\n   e.g. ${row.example}`;
   }
 
+  _regLabel(key) {
+    const reg = ((this.register && this.register.registers) || {})[key] || {};
+    const lab = reg.label || {};
+    return `${lab.en || key} / ${lab.fa || key}`;
+  }
+
+  _regRenderPair(pair, only) {
+    const keys = ['formal', 'consultative', 'casual'].includes(only)
+      ? [only] : ['formal', 'consultative', 'casual'];
+    const out = [`“${pair.meaning.en}” — ${pair.meaning.fa}`, ''];
+    for (const k of keys) {
+      const body = pair[k];
+      if (!body) continue;
+      out.push(this._regLabel(k));
+      out.push(`  ${body.en}`);
+      out.push(`  ↳ ${body.fa}`);
+      out.push('');
+    }
+    if (!only && pair.note) {
+      out.push(`↳ ${pair.note.en}`);
+      out.push(`↳ ${pair.note.fa}`);
+    }
+    return out.join('\n').trim();
+  }
+
+  /* Character bigrams, not whole words: word overlap works in English and
+     fails in Persian, where the inflected form rarely matches the stored
+     meaning. Bigrams compare shape and need no stemmer for either script. */
+  _regMatch(thing) {
+    // \p{L}\p{N}, not \w: JavaScript's \w is ASCII-only, so a negated
+    // [^\w\s] class replaces every Persian letter with a space and the
+    // query comes back empty. Python's \w is Unicode-aware, so the two
+    // engines silently disagreed on exactly the Persian queries.
+    const t = (thing.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ')
+      .replace(/\s+/g, ' ').trim());
+    if (t.length < 2) return null;
+    const grams = (s) => {
+      const flat = s.replace(/ /g, '');
+      const out = new Set();
+      for (let i = 0; i < flat.length - 1; i++) out.add(flat.slice(i, i + 2));
+      return out;
+    };
+    const probe = grams(t);
+    if (!probe.size) return null;
+    let best = null, score = 0;
+    for (const pair of (this.register && this.register.pairs) || []) {
+      const hay = (pair.meaning.en + ' ' + pair.meaning.fa).toLowerCase();
+      let s;
+      if (hay.includes(t)) s = 1;
+      else {
+        const target = grams(hay);
+        let hit = 0;
+        for (const g of probe) if (target.has(g)) hit++;
+        s = hit / probe.size;
+        // too little signal to be a match: "a word" is four bigrams and two
+        // of them land inside "order", which is not the same request
+        if (hit < 3) s = 0;
+      }
+      if (s > score) { best = pair; score = s; }
+    }
+    return score >= 0.45 ? best : null;
+  }
+
+  handleRegister(text, lowered, lang) {
+    if (!this.register) return null;
+
+    const sit = lowered.match(
+      /(?:\bin\b|\bat\b|\bduring\b|\bfor\b)\s+(?:a|an|the)?\s*([\w\s]{3,40}?)\s*[?.!]?$/);
+    if (sit && /\b(interview|meeting|email|class|conference|restaurant|shop|doctor|manager|boss|professor)\b/
+        .test(sit[1])) {
+      for (const s of this.register.situations || []) {
+        const blob = (s.situation.en + ' ' + s.situation.fa).toLowerCase();
+        if (sit[1].split(' ').some((w) => blob.includes(w))) {
+          return `“${s.situation.en}” — ${s.situation.fa}\n`
+            + `→ ${this._regLabel(s.register)}\n`
+            + `${s.note.en}\n↳ ${s.note.fa}`;
+        }
+      }
+      return null;
+    }
+
+    const m = lowered.match(
+      /(?:how (?:do|can|should) (?:i|you|we) say|how to say|how would you say|what (?:do|should) i say|چطور بگم|چطور بگویم|چی بگم)\s+(.+?)\s*(formally|informally|casually|polite|politely|official|رسمی|رسمیانه|خودمانی|محاوره|مؤدبانه)?\s*[?.!]*$/);
+    if (m) {
+      const thing = m[1].trim()
+        .replace(/\s+(formally|informally|casually|polite|politely|official|رسمی|رسمیانه|خودمانی|محاوره|مؤدبانه)$/, '')
+        .replace(/[? ]+$/, '').trim();
+      const tail = m[2] || '';
+      let only = null;
+      if (['formally', 'informally', 'casually', 'official', 'رسمی', 'رسمیانه'].includes(tail))
+        only = ['informally', 'casually', 'محاوره'].includes(tail) ? 'casual' : 'formal';
+      else if (['polite', 'politely', 'مؤدبانه', 'خودمانی'].includes(tail))
+        only = tail === 'خودمانی' ? 'casual' : 'consultative';
+      const pair = this._regMatch(thing);
+      if (pair) return this._regRenderPair(pair, only);
+      // Only claim the query when it actually named a register. "How do you
+      // say a word" is a pronunciation question, and swallowing it here took
+      // the stress marks with it.
+      if (!tail) return null;
+      const avail = (this.register.pairs || []).slice(0, 6)
+        .map((p) => `*${p.meaning.en}*`).join(', ');
+      return `I do not have "${thing}" in the register list yet.\n`
+        + `I do have: ${avail}\n↳ هنوز این مورد را ندارم.`;
+    }
+
+    if (/\bregisters?\b|formal vs|formal or casual|سطح رسمیت|رسمی یا محاوره|محاوره یا رسمی/
+        .test(lowered)) {
+      const lines = ['**Register** — one meaning, three ways to say it. / '
+        + '**سطح رسمیت** — یک معنا، سه راه برای گفتن.', ''];
+      for (const c of this.register.channels || []) {
+        lines.push(`• **${c.title.en}** — ${c.blurb.en}`);
+        lines.push(`  ↳ ${c.title.fa}: ${c.blurb.fa}`);
+      }
+      const pairs = this.register.pairs || [];
+      if (pairs.length) {
+        lines.push('');
+        lines.push('Try: ' + pairs.slice(0, 4)
+          .map((p) => `*${p.meaning.en}*`).join(', '));
+      }
+      return lines.join('\n');
+    }
+    return null;
+  }
+
   handleIdioms(text, lowered, lang) {
     let target = null;
     let m = /(?:meaning|mean|means|idiom|یعنی|معنی|معنی اصطلاح)\s*(?:of\s*)?["'‘’]?([a-z][a-z' \-]{2,30}?)["'‘’]?\s*[?!.؟]*\s*$/i
@@ -1569,6 +1694,9 @@ class Fluentify {
     let result = this.handleAlphabet(text, lowered);
     if (result === null) result = this.handleLetterLookup(text);
     if (result === null) result = this.handleNumber(text, lang);
+    // ahead of handlePronounce, which also answers "how do I say X" -
+    // a register question is the more specific reading of that phrase
+    if (result === null) result = this.handleRegister(text, lowered, lang);
     if (result === null) result = this.handlePronounce(text, lowered, lang);
     if (result === null) result = this.handleDistinction(text, lowered, lang);
     if (result === null) result = this.handleIdioms(text, lowered, lang);

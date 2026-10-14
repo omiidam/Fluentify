@@ -23,6 +23,7 @@ JOKES_FILE = Path(__file__).parent / "jokes.json"
 LISTENING_FILE = Path(__file__).parent / "listening.json"
 DISTINCTIONS_FILE = Path(__file__).parent / "distinctions.json"
 IDIOMS_FILE = Path(__file__).parent / "idioms.json"
+REGISTER_FILE = Path(__file__).parent / "register.json"
 CORRECTIONS_FILE = Path(__file__).parent / "corrections.json"
 PHONETICS_FILE = Path(__file__).parent / "phonetics.json"
 
@@ -448,6 +449,7 @@ class ChatBot:
         idioms_path: Path = IDIOMS_FILE,
         corrections_path: Path = CORRECTIONS_FILE,
         phonetics_path: Path = PHONETICS_FILE,
+        register_path: Path = REGISTER_FILE,
     ):
         with open(memory_path, encoding="utf-8") as f:
             self.memory = json.load(f)
@@ -491,6 +493,10 @@ class ChatBot:
         if corrections_path.exists():
             with open(corrections_path, encoding="utf-8") as f:
                 self.corrections = json.load(f)["rules"]
+        self.register = {}          # register.json - formal / everyday / casual
+        if register_path.exists():
+            with open(register_path, encoding="utf-8") as f:
+                self.register = json.load(f)
         self.phonetics = []        # phonetics.json sections (titled listing)
         if phonetics_path.exists():
             with open(phonetics_path, encoding="utf-8") as f:
@@ -1926,6 +1932,138 @@ class ChatBot:
     # ------------------------------------------------------------------ #
     #  Core
     # ------------------------------------------------------------------ #
+    # ------------------------------------------------------------------ #
+    #  Register — the same idea at three levels of formality
+    # ------------------------------------------------------------------ #
+    def _reg_label(self, key: str) -> str:
+        reg = (self.register.get("registers") or {}).get(key) or {}
+        lab = reg.get("label") or {}
+        return f"{lab.get('en', key)} / {lab.get('fa', key)}"
+
+    def _reg_render_pair(self, pair: dict, only: str | None = None) -> str:
+        """Render one pair at three registers, or just the one asked for."""
+        keys = [only] if only in ("formal", "casual", "consultative") \
+            else ["formal", "consultative", "casual"]
+        out = [f"“{pair['meaning']['en']}” — {pair['meaning']['fa']}", ""]
+        for k in keys:
+            body = pair.get(k)
+            if not body:
+                continue
+            out.append(f"{self._reg_label(k)}")
+            out.append(f"  {body['en']}")
+            out.append(f"  ↳ {body['fa']}")
+            out.append("")
+        if not only and pair.get("note"):
+            out.append(f"↳ {pair['note']['en']}")
+            out.append(f"↳ {pair['note']['fa']}")
+        return "\n".join(out).rstrip()
+
+    def _reg_match(self, thing: str) -> dict | None:
+        """Find a pair by its meaning, in either language.
+
+        Scored on character bigrams rather than whole words. Word overlap
+        works in English and fails in Persian, where the inflected form of a
+        word rarely matches the form used in the stored meaning - "دیر کردن"
+        against "ببخشید دیر کردم" shares a stem but no token. Bigrams compare
+        shape instead, and need no stemmer for either script.
+        """
+        t = re.sub(r"[^\w\s]", " ", thing.lower())
+        t = re.sub(r"\s+", " ", t).strip()
+        if len(t) < 2:
+            return None
+
+        def grams(text: str) -> set[str]:
+            flat = text.replace(" ", "")
+            return {flat[i:i + 2] for i in range(len(flat) - 1)}
+
+        probe = grams(t)
+        if not probe:
+            return None
+        best, score = None, 0.0
+        for pair in self.register.get("pairs", []):
+            hay = (pair["meaning"]["en"] + " " + pair["meaning"]["fa"]).lower()
+            if t in hay:
+                s = 1.0
+            else:
+                target = grams(hay)
+                shared = len(probe & target)
+                s = shared / len(probe)
+                if shared < 3:
+                    s = 0.0          # too little signal to be a match
+            if s > score:
+                best, score = pair, s
+        # 0.45 keeps "I need to leave early" matching "I have to leave early"
+        # while "help me" does not drag in an unrelated pair.
+        return best if score >= 0.45 else None
+
+    def handle_register(self, text: str, lowered: str, lang: str) -> str | None:
+        if not self.register:
+            return None
+
+        # a situation: "what do I say in a job interview"
+        m = re.search(r"(?:\bin\b|\bat\b|\bduring\b|\bfor\b)\s+"
+                      r"(?:a|an|the)?\s*([\w\s]{3,40}?)\s*[?.!]?$", lowered)
+        if m and re.search(r"\b(interview|meeting|email|class|conference|"
+                           r"restaurant|shop|doctor|manager|boss|professor)\b",
+                           m.group(1)):
+            for sit in self.register.get("situations", []):
+                blob = (sit["situation"]["en"] + " " + sit["situation"]["fa"]).lower()
+                if any(w in blob for w in m.group(1).split()):
+                    return (f"“{sit['situation']['en']}” — {sit['situation']['fa']}\n"
+                            f"→ {self._reg_label(sit['register'])}\n"
+                            f"{sit['note']['en']}\n"
+                            f"↳ {sit['note']['fa']}")
+            return None
+
+        # "how do I say <thing> formally / casually"
+        m = re.search(r"(?:how (?:do|can|should) (?:i|you|we) say|how to say|how would you say|"
+                      r"what (?:do|should) i say|چطور بگم|چطور بگویم|چی بگم)"
+                      r"\s+(.+?)\s*"
+                      r"(formally|informally|casually|polite|politely|official|"
+                      r"رسمی|رسمیانه|خودمانی|محاوره|مؤدبانه)?\s*[?.!]*$", lowered)
+        if m:
+            thing = re.sub(r"\s+(formally|informally|casually|polite|politely|official|"
+                           r"رسمی|رسمیانه|خودمانی|محاوره|مؤدبانه)$", "",
+                           m.group(1).strip()).strip(" ?")
+            tail = m.group(2) or ""
+            only = None
+            if tail in ("formally", "informally", "casually", "official",
+                        "رسمی", "رسمیانه"):
+                only = "casual" if tail in ("informally", "casually", "محاوره") \
+                    else "formal"
+            elif tail in ("polite", "politely", "مؤدبانه", "خودمانی"):
+                only = "consultative" if tail != "خودمانی" else "casual"
+            pair = self._reg_match(thing)
+            if pair:
+                return self._reg_render_pair(pair, only)
+            # Only claim the query when it actually named a register. "How do
+            # you say a word" is a pronunciation question, and swallowing it
+            # here took the stress marks with it.
+            if not tail:
+                return None
+            available = ", ".join(f"*{p['meaning']['en']}*" for p in
+                                  self.register.get("pairs", [])[:6])
+            return (f'I do not have "{thing}" in the register list yet.\n'
+                    f"I do have: {available}\n"
+                    f"↳ هنوز این مورد را ندارم.")
+
+        # a bare ask: register / formal vs casual / سطح رسمیت
+        if re.search(r"\bregisters?\b|formal vs|formal or casual|"
+                     r"سطح رسمیت|رسمی یا محاوره|محاوره یا رسمی", lowered):
+            lines = ["**Register** — one meaning, three ways to say it. / "
+                     "**سطح رسمیت** — یک معنا، سه راه برای گفتن.", ""]
+            for c in self.register.get("channels", []):
+                lines.append(f"• **{c['title']['en']}** — {c['blurb']['en']}")
+                lines.append(f"  ↳ {c['title']['fa']}: {c['blurb']['fa']}")
+            pairs = self.register.get("pairs", [])
+            if pairs:
+                lines.append("")
+                lines.append("Try: " + ", ".join(
+                    f"*{p['meaning']['en']}*" for p in pairs[:4]))
+            return "\n".join(lines)
+
+        return None
+
     def respond(self, user_input: str) -> str:
         text = user_input.strip()
         self.remember(text)
@@ -1957,6 +2095,10 @@ class ChatBot:
             result = self.handle_letter_lookup(text)
         if result is None:
             result = self.handle_number(text, lang)
+        # ahead of handle_pronounce, which also answers "how do I say X" -
+        # a register question is the more specific reading of that phrase
+        if result is None:
+            result = self.handle_register(text, lowered, lang)
         if result is None:
             result = self.handle_pronounce(text, lowered, lang)
         if result is None:

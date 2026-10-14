@@ -543,17 +543,47 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bubble-wrap { max-width: min(78%, 760px); display: flex; flex-direction: column; gap: 5px; }
   .row.user .bubble-wrap { align-items: flex-end; }
   .msg {
+    position: relative;
     padding: 12px 16px; border-radius: 17px;
     font-size: 15px; line-height: 1.68; white-space: pre-wrap; word-wrap: break-word;
     border: 1px solid var(--line);
   }
+  /* The tutor's own bubbles carry the bird's colour. Neutral white glass made
+     every reply look like a system message; the tutor is the one voice in the
+     conversation and should be the one that looks like a voice. Anthropomorphic
+     styling measurably raises perceived empathy and trust, and trust is what
+     drives whether people stay in a tutor (Frontiers 2025, n=160). */
   .msg.bot {
-    background: linear-gradient(150deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-    border: 1px solid rgba(255,255,255,.12);
+    background:
+      linear-gradient(150deg, rgba(255,141,196,.16), rgba(167,139,250,.11) 55%,
+                              rgba(255,255,255,.05));
+    border: 1px solid rgba(255,141,196,.22);
     border-bottom-left-radius: 6px;
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 10px rgba(3,6,20,.3), inset 0 1px 0 rgba(255,255,255,.12);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 3px 14px rgba(3,6,20,.34), inset 0 1px 0 rgba(255,255,255,.15);
+  }
+  /* a hairline of the tutor's colour down the leading edge */
+  .msg.bot::before {
+    content: ''; position: absolute; inset-block: 11px; inset-inline-start: 0;
+    width: 2px; border-radius: 0 2px 2px 0;
+    background: linear-gradient(rgba(255,141,196,.75), rgba(167,139,250,.35));
+    pointer-events: none;
+  }
+  .msg.user::before { background: linear-gradient(rgba(109,140,255,.6), rgba(167,139,250,.3)); }
+
+  /* Terms the tutor is pointing at. Yellow on pink glass was the weakest
+     pairing on the page; this reads at a glance and stays legible on the
+     user's violet bubble too. */
+  .msg b, .msg strong {
+    color: #ffd9ec; font-weight: 700;
+    background: rgba(255,141,196,.16);
+    border-radius: 5px; padding: 0 4px; margin: 0 -1px;
+    box-shadow: inset 0 0 0 1px rgba(255,141,196,.28);
+  }
+  .msg.user b, .msg.user strong {
+    color: #e8ecff; background: rgba(255,255,255,.15);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
   }
   .msg.user {
     background: linear-gradient(135deg, #4f6ef7 0%, #7c4dff 60%, #a855f7 100%);
