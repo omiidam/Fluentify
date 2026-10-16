@@ -200,28 +200,57 @@ def main() -> int:
 
     # ----------------------------------------------------------------------
     # The page lives in a WebView and the renderer is a separate process.
-    # Android's documented default is to kill the whole app when that renderer
-    # goes away, which is what "opens and jumps straight back out" looks like
-    # from the outside: no JS error, nothing in logcat about the page, the
-    # process simply gone. Returning true is the whole fix.
-    check("the activity handles WebView renderer death",
-          "override fun onRenderProcessGone" in src,
-          "without it Android kills the app when the renderer is OOM-killed, "
-          "which reads as the app crashing on open")
-    gone = re.search(r"override fun onRenderProcessGone[\s\S]*?\n    \}", src)
-    body = gone.group(0) if gone else ""
-    check("it returns true so Android does not kill the app",
-          "return true" in body,
-          "returning false is the default that ends the process")
+    # Android kills the whole app when that renderer goes away unless the
+    # callback returns true, which is what "opens and jumps straight back
+    # out" looks like from outside: no JS error, nothing in logcat about the
+    # page, the process simply gone.
+    #
+    # The callback is WebViewClient.onRenderProcessGone. Activity has no such
+    # method. An override placed on the Activity does not compile, and the
+    # error points at a real API that exists one class over - which reads as
+    # a broken toolchain rather than a misplaced override. It is checked here
+    # by location, not by name, so moving it back cannot pass.
+    client = re.search(r"webViewClient = object : WebViewClient\(\) \{(.*?)\n            \}",
+                       src, re.S)
+    cbody = client.group(1) if client else ""
+    # Expression body, so there is no closing brace to anchor on - matching
+    # one made the check fail on correct code, which is worse than no check.
+    # A fixed window, not a lazy one ending at a bracket: the parameters and
+    # the body are both part of what needs reading, and a lazy match stopped
+    # at the closing ")" of the argument list and so never saw the body.
+    gone = re.search(r"override fun onRenderProcessGone[\s\S]{0,300}", cbody)
+    check("renderer death is handled inside the WebViewClient",
+          bool(gone),
+          "WebViewClient is where onRenderProcessGone lives; Activity has no "
+          "such method and an override there does not compile")
+    # Four spaces is a member of the activity; sixteen is a member of the
+    # anonymous WebViewClient. The wrong one was written at four.
+    check("it is not declared on the Activity as well",
+          not re.search(r"\n    override fun onRenderProcessGone", src),
+          "two declarations, one of them in the wrong class, and the build "
+          "stops on the one nobody meant")
+    gb = gone.group(0) if gone else ""
+    check("it defers to the recovery path",
+          "recoverFromRendererLoss" in gb,
+          "the recovery has to live on the activity to reach setContentView; "
+          "returning false is the default that lets Android kill the app")
+    rec = re.search(r"private fun recoverFromRendererLoss[\s\S]*?\n    \}", src)
+    rb = rec.group(0) if rec else ""
+    # "contains return true" was not enough: a lazy match found the true at
+    # the end of the function and sailed past a return false in front of it.
+    # Any false on this path is the one Android reads as "kill the app".
+    check("the recovery path never returns false",
+          bool(rb) and "return false" not in rb and "return true" in rb,
+          "a false anywhere on this path is Android's cue to end the process")
     check("a replacement WebView is built and reloaded",
-          "buildWebView()" in body and "loadUrl(PAGE_URL)" in body,
+          "buildWebView()" in rb and "loadUrl(PAGE_URL)" in rb,
           "a handled renderer death still leaves a dead view on screen unless "
           "something reloads it")
-    check("the dead WebView is detached and destroyed, not leaked",
-          "removeView(view)" in body and "view.destroy()" in body,
-          "leaving the old view attached leaks it for the life of the activity")
+    check("the dead view is detached from its parent",
+          "removeView(dying)" in rb,
+          "leaving it attached leaks it for the life of the activity")
     check("the microphone is released before the renderer goes",
-          "releaseRecognizer()" in body and "clearSttCallbacks()" in body,
+          "releaseRecognizer()" in rb and "clearSttCallbacks()" in rb,
           "the recogniser outlives the renderer and the next press throws")
     # Back must follow the live view. Capturing the original means asking a
     # destroyed WebView whether it can go back, which is exactly the state

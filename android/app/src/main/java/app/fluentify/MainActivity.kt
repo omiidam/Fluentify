@@ -312,33 +312,38 @@ class MainActivity : AppCompatActivity() {
                     view: WebView,
                     request: WebResourceRequest
                 ): Boolean = request.url.host != "appassets.androidplatform.net"
+
+                /**
+                 * The renderer runs in its own process. When it is killed -
+                 * out of memory is the usual reason, and this page is heavy
+                 * enough to be a candidate on a constrained device - Android
+                 * kills the whole application with it unless this returns
+                 * true. That is what "opens and immediately jumps out of the
+                 * app" was: no JS error, nothing in logcat about the page,
+                 * the process simply gone.
+                 *
+                 * It lives on WebViewClient, not on Activity. Activity has no
+                 * such method, so an override there does not compile, and the
+                 * error names a real API that does exist - which is exactly
+                 * the kind of mistake that reads as a broken toolchain.
+                 */
+                override fun onRenderProcessGone(
+                    dying: WebView,
+                    detail: RenderProcessGoneDetail
+                ): Boolean = recoverFromRendererLoss(dying)
             }
         }
     }
 
-    /**
-     * The renderer runs in its own process. When it is killed - out of memory
-     * is the usual reason, and this app's page is heavy enough to be a
-     * candidate on a constrained device - Android's default is to kill the
-     * whole application with it. That is what "opens and immediately jumps
-     * out of the app" was: not a JS error, and nothing in logcat to point at
-     * the page, just the process disappearing.
-     *
-     * Returning true says the app has dealt with it. The dead view is
-     * discarded, a fresh one is built and the page reloads, so the user sees a
-     * reload instead of being thrown to the launcher.
-     */
-    override fun onRenderProcessGone(view: WebView, detail: RenderProcessGoneDetail): Boolean {
+    private fun recoverFromRendererLoss(dying: WebView): Boolean {
         releaseRecognizer()
         clearSttCallbacks()
         web = null
         try {
-            (view.parent as? android.view.ViewGroup)?.removeView(view)
-            view.destroy()
+            (dying.parent as? android.view.ViewGroup)?.removeView(dying)
         } catch (ignored: Exception) {
-            // the process is already gone; there is nothing left to clean up
+            // already detached, or the process is gone; nothing left to do
         }
-        // The microphone belongs to the dead renderer, not to us.
         try {
             Toast.makeText(
                 this,
