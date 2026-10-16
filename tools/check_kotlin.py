@@ -199,6 +199,42 @@ def main() -> int:
                   "offline install")
 
     # ----------------------------------------------------------------------
+    # The page lives in a WebView and the renderer is a separate process.
+    # Android's documented default is to kill the whole app when that renderer
+    # goes away, which is what "opens and jumps straight back out" looks like
+    # from the outside: no JS error, nothing in logcat about the page, the
+    # process simply gone. Returning true is the whole fix.
+    check("the activity handles WebView renderer death",
+          "override fun onRenderProcessGone" in src,
+          "without it Android kills the app when the renderer is OOM-killed, "
+          "which reads as the app crashing on open")
+    gone = re.search(r"override fun onRenderProcessGone[\s\S]*?\n    \}", src)
+    body = gone.group(0) if gone else ""
+    check("it returns true so Android does not kill the app",
+          "return true" in body,
+          "returning false is the default that ends the process")
+    check("a replacement WebView is built and reloaded",
+          "buildWebView()" in body and "loadUrl(PAGE_URL)" in body,
+          "a handled renderer death still leaves a dead view on screen unless "
+          "something reloads it")
+    check("the dead WebView is detached and destroyed, not leaked",
+          "removeView(view)" in body and "view.destroy()" in body,
+          "leaving the old view attached leaks it for the life of the activity")
+    check("the microphone is released before the renderer goes",
+          "releaseRecognizer()" in body and "clearSttCallbacks()" in body,
+          "the recogniser outlives the renderer and the next press throws")
+    # Back must follow the live view. Capturing the original means asking a
+    # destroyed WebView whether it can go back, which is exactly the state
+    # after a renderer restart.
+    back = re.search(r"handleOnBackPressed\(\)[\s\S]{0,240}", src)
+    check("the back handler follows the live WebView, not a captured one",
+          back is not None and "val live = web" in back.group(0),
+          "after a renderer restart the captured view is destroyed")
+    check("the page URL is written down once",
+          src.count("https://appassets.androidplatform.net/assets/www/index.html") == 1,
+          "two copies of the entry point is one of them going stale")
+
+    # ----------------------------------------------------------------------
     if FAILURES:
         print(f"FAIL  {len(FAILURES)} of {CHECKS + len(FAILURES)} Kotlin checks\n")
         for f in FAILURES:

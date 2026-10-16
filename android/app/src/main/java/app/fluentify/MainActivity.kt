@@ -13,10 +13,12 @@ import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
 import android.webkit.JavascriptInterface
+import android.webkit.RenderProcessGoneDetail
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -262,11 +264,36 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE != 0) {
+            // Lets chrome://inspect read the console and the page source of a
+            // debug build, which is the difference between guessing at a
+            // blank screen and reading the error that caused it.
+            WebView.setWebContentsDebuggingEnabled(true)
+        }
+
+        val view = buildWebView()
+        web = view
+
+        setContentView(view)
+        view.loadUrl(PAGE_URL)
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Read web, not the captured local: after a renderer restart
+                // the original view is destroyed and asking it whether it can
+                // go back is asking a corpse.
+                val live = web
+                if (live != null && live.canGoBack()) live.goBack() else finish()
+            }
+        })
+    }
+
+    private fun buildWebView(): WebView {
         val loader = WebViewAssetLoader.Builder()
             .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))
             .build()
 
-        val view = WebView(this).apply {
+        return WebView(this).apply {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             settings.allowFileAccess = false
@@ -287,16 +314,60 @@ class MainActivity : AppCompatActivity() {
                 ): Boolean = request.url.host != "appassets.androidplatform.net"
             }
         }
-        web = view
+    }
 
-        setContentView(view)
-        view.loadUrl("https://appassets.androidplatform.net/assets/www/index.html")
+    /**
+     * The renderer runs in its own process. When it is killed - out of memory
+     * is the usual reason, and this app's page is heavy enough to be a
+     * candidate on a constrained device - Android's default is to kill the
+     * whole application with it. That is what "opens and immediately jumps
+     * out of the app" was: not a JS error, and nothing in logcat to point at
+     * the page, just the process disappearing.
+     *
+     * Returning true says the app has dealt with it. The dead view is
+     * discarded, a fresh one is built and the page reloads, so the user sees a
+     * reload instead of being thrown to the launcher.
+     */
+    override fun onRenderProcessGone(view: WebView, detail: RenderProcessGoneDetail): Boolean {
+        releaseRecognizer()
+        clearSttCallbacks()
+        web = null
+        try {
+            (view.parent as? android.view.ViewGroup)?.removeView(view)
+            view.destroy()
+        } catch (ignored: Exception) {
+            // the process is already gone; there is nothing left to clean up
+        }
+        // The microphone belongs to the dead renderer, not to us.
+        try {
+            Toast.makeText(
+                this,
+                "Reloading — Android stopped the page renderer",
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (ignored: Exception) {
+        }
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (view.canGoBack()) view.goBack() else finish()
-            }
-        })
+        val fresh = buildWebView()
+        web = fresh
+        setContentView(fresh)
+        fresh.loadUrl(PAGE_URL)
+        return true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        web?.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        web?.onResume()
+    }
+
+    companion object {
+        private const val PAGE_URL =
+            "https://appassets.androidplatform.net/assets/www/index.html"
     }
 
     /** JS → native speech. Called from the page via window.AndroidTTS. */
