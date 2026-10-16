@@ -334,6 +334,75 @@ def main() -> int:
                   f"a {slowest}s cycle is below the project's 18-30s ambient "
                   "band; under that it reads as movement rather than drift")
 
+    # Opening a panel leaves .chatwrap 0px tall. #chat cannot shrink below
+    # its own padding - 20px plus 10px - so without clipping a 30px band of
+    # transcript painted straight over the chips row. min-height:0 on #chat
+    # does not fix it: a padding box is the floor a box can shrink to.
+    wrap = re.search(r"\.chatwrap \{([^}]*)\}", src)
+    wb = re.sub(r"/\*.*?\*/", " ", wrap.group(1), flags=re.S) if wrap else ""
+    check("the transcript is clipped when a panel squeezes it to nothing",
+          re.search(r"overflow:\s*hidden", wb) is not None,
+          "opening a panel otherwise paints 30px of conversation across the "
+          "chips row; the box cannot shrink below its padding")
+
+    # ------------------------------------------------------------- colour --
+    # Contrast has to be computed, not eyeballed. The learner bubble was
+    # indigo->violet and two of its three stops sat under 4.5:1 against the
+    # white 15px text - 4.28 and 3.96 - and had been shipped that way. A
+    # check that only asked "is this a hex colour" would have passed it.
+    def lum(c: str) -> float:
+        c = c.lstrip("#")
+        if len(c) == 3:
+            c = "".join(x * 2 for x in c)
+        ch = [int(c[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+        f = lambda v: v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+        return 0.2126 * f(ch[0]) + 0.7152 * f(ch[1]) + 0.0722 * f(ch[2])
+
+    def ratio(a: str, b: str) -> float:
+        la, lb = lum(a), lum(b)
+        hi, lo = max(la, lb), min(la, lb)
+        return (hi + 0.05) / (lo + 0.05)
+
+    for name in ("user1", "user2", "user3"):
+        m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6})", src)
+        if m:
+            check(f"--{name} clears AA against the white bubble text",
+                  ratio(m.group(1), "#ffffff") >= 4.5,
+                  f"{m.group(1)} is {ratio(m.group(1), '#ffffff'):.2f}:1 on white, "
+                  "under the 4.5 that 15px body text needs")
+
+    # The section accents are text-coloured on the navy base, so they owe it
+    # the same 4.5. One is open at a time, but each is still read as text.
+    for name in ("teal", "cyan", "violet", "emerald", "amber", "rose"):
+        m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6})", src)
+        if m:
+            check(f"--{name} clears AA on the base colour",
+                  ratio(m.group(1), "#0b102e") >= 4.5,
+                  f"{m.group(1)} is {ratio(m.group(1), '#0b102e'):.2f}:1 on "
+                  "#0b102e")
+
+    # The learner must not drift back to the chrome's own hue, which is what
+    # made both sides of the conversation look alike.
+    hues = {}
+    for name in ("user1", "user2", "accent"):
+        m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{6})", src)
+        if m:
+            c = m.group(1).lstrip("#")
+            r, g, b = (int(c[i:i + 2], 16) / 255 for i in (0, 2, 4))
+            mx, mn = max(r, g, b), min(r, g, b)
+            d = mx - mn
+            if d:
+                hues[name] = (60 * ((g - b) / d % 6) if mx == r else
+                              60 * ((b - r) / d + 2) if mx == g else
+                              60 * ((r - g) / d + 4))
+    if "user1" in hues and "accent" in hues:
+        sep = abs(hues["user1"] - hues["accent"]) % 360
+        sep = min(sep, 360 - sep)
+        check("the learner's colour is a different hue from the chrome",
+              sep >= 30,
+              f"{sep:.0f}deg from --accent: too close to read as a different "
+              "speaker at a glance")
+
     # ------------------------------------------------------------- player --
     # One bar under the header for everything that makes a sound. The failure
     # it exists to prevent is a six-minute clip that can only be halted by

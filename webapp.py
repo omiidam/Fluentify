@@ -79,7 +79,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --panel: rgba(17, 24, 58, .88); --panel2: #1a2350;
     --accent: #6d8cff; --accent2: #34d399; --accent3: #a78bfa;
     --text: #eef1fb; --muted: #aab7d8; --dim: #8a97bb;
-    --bot: #1c2450; --user1: #4f6ef7; --user2: #7c4dff;
+    --bot: #1c2450;
+    /* The learner's own side. It was indigo->violet, which on a navy base
+       read as the same family as the chrome and left both sides of the
+       conversation looking alike. Teal is the one cool hue the wheel was
+       missing between the indigo chrome and the emerald used for "correct",
+       and it separates the two speakers at a glance.
+       Every stop is at least 4.5:1 against white text. The violet it
+       replaces was not: #a855f7 is 3.96 and #4f6ef7 is 4.28, both under the
+       AA threshold for 15px text. */
+    --user1: #0e7490; --user2: #0f766e; --user3: #115e59;
+    /* accents, one per section. All are >= 6.8:1 on --base, and only one
+       section is ever open at a time, so they read as a wayfinding key
+       rather than a spectrum. */
+    --teal: #2dd4bf; --cyan: #67e8f9; --violet: #c4b5fd;
+    --emerald: #6ee7b7; --amber: #fcd34d; --rose: #ff8dc4;
     --line: rgba(148, 163, 184, .16);
     --line2: rgba(148, 163, 184, .28);
     --shadow: 0 40px 100px rgba(3, 6, 20, .7);
@@ -550,6 +564,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3 {
     font-size: 12px; color: #a9b8de; margin-bottom: 9px; font-weight: 600;
   }
+  /* A coloured rule per section. Only one panel is ever open, so this is a
+     wayfinding cue rather than a palette to look at - it tells you where you
+     are before you have read a word. */
+  #vpanel h3  { border-inline-start: 3px solid var(--teal);    padding-inline-start: 9px; }
+  #gpanel h3  { border-inline-start: 3px solid var(--violet);  padding-inline-start: 9px; }
+  #fpanel h3  { border-inline-start: 3px solid var(--rose);    padding-inline-start: 9px; }
+  #lpanel h3  { border-inline-start: 3px solid var(--cyan);    padding-inline-start: 9px; }
+  #phpanel h3 { border-inline-start: 3px solid var(--emerald); padding-inline-start: 9px; }
+  #rpanel h3  { border-inline-start: 3px solid var(--amber);   padding-inline-start: 9px; }
 
   /* ---------- listening: level tabs + playable sentences ---------- */
   .ltabs { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -749,7 +772,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: linear-gradient(rgba(255,141,196,.75), rgba(167,139,250,.35));
     pointer-events: none;
   }
-  .msg.user::before { background: linear-gradient(rgba(109,140,255,.6), rgba(167,139,250,.3)); }
+  /* the tutor's pink hairline down one edge, the learner's teal down the
+     other: the shape of the corner already says who spoke, and this makes it
+     say it in colour too */
+  .msg.user::before { background: linear-gradient(rgba(45,212,191,.65), rgba(14,116,144,.35)); }
 
   /* Terms the tutor is pointing at. Yellow on pink glass was the weakest
      pairing on the page; this reads at a glance and stays legible on the
@@ -765,9 +791,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
   }
   .msg.user {
-    background: linear-gradient(135deg, #4f6ef7 0%, #7c4dff 60%, #a855f7 100%);
+    background: linear-gradient(135deg, var(--user1) 0%, var(--user2) 55%,
+                                        var(--user3) 100%);
     color: #fff; border: none; border-bottom-right-radius: 6px;
-    box-shadow: 0 6px 20px rgba(79,110,247,.38), inset 0 1px 0 rgba(255,255,255,.3);
+    box-shadow: 0 6px 20px rgba(14,116,144,.38), inset 0 1px 0 rgba(255,255,255,.3);
   }
   .msg.rtl { direction: rtl; text-align: right; }
   /* mixed bilingual text: each line picks its own direction */
@@ -800,6 +827,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .chatwrap {
     flex: 1 1 auto; position: relative; min-height: 0;
     display: flex; flex-direction: column;
+    /* Opening a panel leaves this 0px tall, and #chat cannot shrink below
+       its own padding - 20px top plus 10px bottom - so a 30px band of
+       transcript used to paint straight over the chips row beneath it.
+       min-height:0 on #chat does not help: a padding box is the floor a box
+       can shrink to, not a minimum-height. Clipping is the fix. The jump
+       button lives in here too, and is only meaningful while the transcript
+       is on screen; clipped content takes no pointer events either, so it
+       cannot become an invisible target. */
+    overflow: hidden;
   }
 
   /* scroll-to-latest — bottom centre of the transcript. Centred rather than
@@ -1516,8 +1552,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .mic:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 2px; }
   .mic:active { transform: scale(.94); }
+  /* Teal, not pink. Pink is the tutor; when the mic pulses in the tutor's
+     own colour it reads as though the app is talking at you. */
   .mic.rec {
-    background: #b23a6b; border-color: #ff8fb4; color: #fff;
+    background: #0f766e; border-color: #5eead4; color: #fff;
     animation: micPulse 1.4s ease-out infinite;
   }
   .mic.rec svg { transform: scale(1.06); }
