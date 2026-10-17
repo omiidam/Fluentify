@@ -1254,8 +1254,11 @@
 
   /* ---- header: title row, then a scrollable strip of panel toggles ---- */
   header {
-    flex-wrap: wrap; gap: 10px;
-    padding: calc(10px + var(--sat)) calc(var(--pad) + var(--sar)) 10px
+    flex-wrap: wrap; gap: 8px;
+    /* The chrome was a quarter of the screen: 119px of header plus 108px of
+       composer on an 791px viewport left barely two thirds for the thing the
+       app is for. Padding is cut rather than type - the reading size stays. */
+    padding: calc(7px + var(--sat)) calc(var(--pad) + var(--sar)) 7px
              calc(var(--pad) + var(--sal));
   }
   header h1 { font-size: 16px; }
@@ -1270,7 +1273,7 @@
   .tools {
     order: 10; width: 100%;
     display: flex; gap: 4px; justify-content: space-between;
-    /* Seven 44px tiles, six 4px gaps and 14px of padding each side is 360px
+    /* Seven 38px tiles, six 4px gaps and 14px of padding each side is 306px
        exactly - so any phone narrower than that clips the last tile. The row
        scrolls instead. Desktop overrides this back to visible above 600px. */
     overflow-x: auto;
@@ -1279,8 +1282,10 @@
     margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad);
   }
   .tools::-webkit-scrollbar { display: none; }
-  .hbtn { width: 44px; height: 46px; border-radius: 11px; padding: 4px 1px; }
-  .hbtn i { font-size: 15px; }
+  /* 38x40, not 44x46: still well past the 24px WCAG 2.5.8 minimum, and
+     seven of them plus gaps now fit without a scroll on a 360dp phone. */
+  .hbtn { width: 38px; height: 40px; border-radius: 10px; padding: 3px 0; }
+  .hbtn i { font-size: 14px; }
   .hbtn span { font-size: 8px; }
   /* no hover affordances on touch — they'd stick after a tap */
   @media (hover: none) {
@@ -1295,8 +1300,8 @@
 
   /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
-    padding: 12px calc(var(--pad) + var(--sar)) 14px calc(var(--pad) + var(--sal));
-    max-height: 62%;
+    padding: 10px calc(var(--pad) + var(--sar)) 11px calc(var(--pad) + var(--sal));
+    max-height: 66%;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
@@ -1307,10 +1312,10 @@
 
   /* every tappable pill in a panel gets a real touch target */
   .vbtn, .gbtn, .ftopic, .ltab {
-    min-height: 36px; padding: 7px 12px; font-size: 12px;
+    min-height: 32px; padding: 6px 11px; font-size: 12px;
   }
   .gbtn { padding: 0; }
-  .gmain { padding: 8px 4px 8px 12px; font-size: 12px; min-height: 36px; }
+  .gmain { padding: 6px 3px 6px 10px; font-size: 12px; min-height: 32px; }
   .go { padding: 0 12px; font-size: 13px; }
   .go.exam {
     background: rgba(255,196,77,.14); color: #fcd34d;
@@ -1321,26 +1326,27 @@
     background: rgba(148,163,184,.12); color: #8a97bb;
     border-left-color: rgba(148,163,184,.26);
   }
-  .lrow { padding: 9px 11px; gap: 12px; }
+  .lrow { padding: 7px 10px; gap: 10px; }
   .lplay { width: 36px; height: 36px; font-size: 14px; }
   .ltext .en { font-size: 14px; }
   .ltext .fa { font-size: 12px; margin-top: 2px; }
   .ltabs { gap: 6px; }
 
   /* ---- chat ---- */
-  #chat { padding: 14px calc(var(--pad) + var(--sar)) 8px calc(var(--pad) + var(--sal));
-          gap: 13px; }
-  .bubble-wrap { max-width: 92%; }
-  .mav { width: 28px; height: 28px; border-radius: 10px; }
-  .mav svg { width: 23px; height: 23px; }
-  .msg { padding: 11px 14px; font-size: 15px; border-radius: 16px; }
+  #chat { padding: 10px calc(var(--pad) + var(--sar)) 6px calc(var(--pad) + var(--sal));
+          gap: 10px; }
+  .bubble-wrap { max-width: 94%; }
+  .mav { width: 24px; height: 24px; border-radius: 9px; }
+  .mav svg { width: 20px; height: 20px; }
+  /* font-size deliberately unchanged: denser, not smaller to read */
+  .msg { padding: 9px 12px; font-size: 15px; border-radius: 14px; }
   .msg.long { max-height: 52vh; }
-  .row { gap: 8px; }
+  .row { gap: 6px; }
 
   /* ---- input: 16px stops iOS zooming on focus, safe area clears the bar ---- */
   form {
-    padding: 10px calc(var(--pad) + var(--sar))
-             calc(10px + var(--sab)) calc(var(--pad) + var(--sal));
+    padding: 8px calc(var(--pad) + var(--sar))
+             calc(8px + var(--sab)) calc(var(--pad) + var(--sal));
     gap: 8px; flex-direction: column;
   }
   .prow-form { display: flex; gap: 8px; }
@@ -1359,11 +1365,11 @@
      left to right. It was text that appeared only at the limit, which is the
      one moment advice is too late to be useful. */
   .limitenote {
-    padding: 0; margin: 8px 2px 0; min-height: 26px;
+    padding: 0; margin: 5px 2px 0; min-height: 20px;
   }
 
   .limitrail {
-    position: relative; height: 18px;
+    position: relative; height: 15px;
   }
   /* the track */
   .limitrail::before {
@@ -1427,7 +1433,7 @@
     opacity: .35; cursor: not-allowed; pointer-events: none;
     filter: grayscale(.6);
   }
-  #input { padding: 12px 15px; font-size: 16px; border-radius: 14px; }
+  #input { padding: 10px 13px; font-size: 16px; border-radius: 13px; }
 
   /* ------------------------------------------------------------ speech ---- */
   /* The mic used to be an emoji on a #141c46 disc with a #3a4a86 ring -
@@ -1441,7 +1447,7 @@
     touch-action: none;
     -webkit-touch-callout: none;
     user-select: none; -webkit-user-select: none;
-    width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%;
+    width: 40px; height: 40px; flex: 0 0 40px; border-radius: 50%;
     display: grid; place-items: center; cursor: pointer;
     color: #dbe3ff; background: #29356e;
     border: 1.5px solid #7d92e0;
@@ -1555,7 +1561,9 @@
   .bbc-link { font-size: 12px; color: #9fb0ef; text-decoration: none; padding: 6px 4px; }
   .bbc-link:hover { color: #fff; text-decoration: underline; }
   .bbc-empty { font-size: 12px; color: #7d8fd4; padding: 4px 2px; }
-  .send { padding: 0 20px; font-size: 14px; border-radius: 14px; min-height: 46px; }
+  /* 40, not 46: this min-height was the floor for the whole composer row,
+     input and mic included, so the button set the height of the form. */
+  .send { padding: 0 18px; font-size: 14px; border-radius: 13px; min-height: 40px; }
 
   /* ---------- tablets: two comfortable columns ---------- */
   @media (min-width: 600px) {

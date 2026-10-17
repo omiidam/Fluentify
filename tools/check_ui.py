@@ -345,6 +345,46 @@ def main() -> int:
           "opening a panel otherwise paints 30px of conversation across the "
           "chips row; the box cannot shrink below its padding")
 
+    # ------------------------------------------------------------ density --
+    # The ask was to make room for the material, not to make it smaller to
+    # read. Padding and chrome were cut; type sizes were not, and these hold
+    # that line so a later tidy-up cannot quietly undo it.
+    # Every declaration in the cascade, not the first one found. .msg is
+    # declared twice - 15px on the desktop and again on a phone - and a check
+    # that took the first block passed happily when only the phone one was
+    # shrunk to 13px, which is the device that actually shows it.
+    def declared(sel: str, prop: str) -> list[float]:
+        return [float(x) for x in re.findall(
+            re.escape(sel) + r"\s*\{[^}]*?" + prop + r":\s*([\d.]+)px", src)]
+
+    msg_fs = declared(".msg", "font-size")
+    check("message text stays at 15px or larger everywhere",
+          bool(msg_fs) and min(msg_fs) >= 15,
+          f"{msg_fs}px: denser layout is not an excuse for smaller type")
+
+    check("the composer reaches 16px on a phone so iOS does not zoom on focus",
+          max(declared("#input", "font-size") or [0]) >= 16,
+          f"{declared('#input', 'font-size')}px")
+
+    # WCAG 2.5.8 asks for 24x24. The tiles went 44 to 38, which is well past
+    # it and is what lets seven of them fit without a scroll strip.
+    for sel, label in ((".hbtn", "panel tiles"), (".mic", "microphone")):
+        ws, hs = declared(sel, "width"), declared(sel, "height")
+        check(f"{label} stay above the WCAG 2.5.8 target minimum",
+              bool(ws) and bool(hs) and min(ws) >= 24 and min(hs) >= 24,
+              f"smallest declared {min(ws) if ws else '?'}x{min(hs) if hs else '?'}"
+              ": below 24px is not a target, it is a guess")
+
+    # The chrome is what was actually too big: 119px of header and 108px of
+    # composer left barely two thirds of a phone for the conversation.
+    # .send has three declarations; the phone one is what matters, and the
+    # narrow-phone one drops the floor entirely.
+    send_mh = declared(".send", "min-height")
+    check("the send button is not the floor for the whole composer",
+          bool(send_mh) and max(send_mh) <= 42,
+          f"min-height {send_mh}px sets the height of the input and the "
+          "microphone too - at 46px it made all three 46")
+
     # ------------------------------------------------------------- colour --
     # Contrast has to be computed, not eyeballed. The learner bubble was
     # indigo->violet and two of its three stops sat under 4.5:1 against the
