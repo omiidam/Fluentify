@@ -540,9 +540,41 @@ def run_mic() -> None:
     src = (ROOT / "webapp.py").read_text(encoding="utf-8")
 
     def strip_comments(t: str) -> str:
-        # Comments say what the code is for, so a check that greps them for a
-        # banned token reads the explanation of a fix as the bug it replaced.
-        return re.sub(r"/\*.*?\*/", " ", t, flags=re.S)
+        """Remove /* */ blocks and // lines, leaving string literals alone.
+
+        Comments say what the code is for, so a check that greps them for a
+        banned token reads the explanation of a fix as the bug it replaced.
+        Both comment styles have to go: a note written as // lines is as
+        common here as a block, and handling only blocks let a paragraph
+        explaining why a call is forbidden fail the check that forbids it.
+
+        Strings are tracked so that "https://..." in a URL is not mistaken for
+        the start of a line comment and the rest of the line is thrown away.
+        """
+        out, i, n, quote = [], 0, len(t), None
+        while i < n:
+            c = t[i]
+            if quote:
+                out.append(c)
+                if c == "\\":
+                    if i + 1 < n:
+                        out.append(t[i + 1]); i += 2; continue
+                elif c == quote:
+                    quote = None
+                i += 1
+                continue
+            if c in "\"'`":
+                quote = c; out.append(c); i += 1; continue
+            if c == "/" and i + 1 < n and t[i + 1] == "*":
+                j = t.find("*/", i + 2)
+                i = n if j < 0 else j + 2
+                out.append(" "); continue
+            if c == "/" and i + 1 < n and t[i + 1] == "/":
+                j = t.find("\n", i)
+                i = n if j < 0 else j
+                out.append(" "); continue
+            out.append(c); i += 1
+        return "".join(out)
 
     def block(start_pat: str, end_pat: str, raw: bool = False) -> str:
         m = re.search(start_pat + r"(.*?)" + end_pat, src, re.S)
@@ -570,19 +602,22 @@ def run_mic() -> None:
           not re.search(r"\bheld\s*=", mic),
           "held was only ever set by a long press, which is the bug")
 
-    # 2. on-device must be decided before start(). Chaining R.available()
-    #    onto .then() resolved long after start(), so processLocally was
-    #    still false and every request went to the cloud.
-    check("processLocally is set from a cache, not a promise chain",
-          re.search(r"if \('processLocally' in rec\)\s*\n?\s*rec\.processLocally\s*=\s*this\.localOK\(\)", stt) is not None,
-          "set from a promise it lands after start(), so on-device never takes effect")
-    check("on-device availability is probed once at boot",
-          re.search(r"async probeLocal\(\)", stt) is not None
-          and re.search(r"STT\.probeLocal\(\);", src) is not None,
-          "probing per press races start(); probing at boot does not")
-    check("probeLocal guards an absent available()",
-          re.search(r"typeof R\.available !== 'function'", stt) is not None,
-          "older engines have no static available() and would throw")
+    # Android WebView exposes the on-device speech interfaces with no binder
+    # behind them and terminates the renderer for the bad IPC message. Asking
+    # anything about them is fatal, so nothing may touch them.
+    # Against the code, not the prose: the paragraph explaining why this is
+    # forbidden names the very calls it forbids, so a check on the raw source
+    # fails on correct code.
+    stt_code = strip_comments(stt)
+    check("nothing asks the engine for on-device availability",
+          ".available(" not in stt_code and "available({langs" not in stt_code,
+          "SpeechRecognition.available() kills the Android WebView renderer: "
+          "'No binder found for interface media.mojom.OnDeviceSpeechRecognition'. "
+          "It crashed the app in a loop, because the reload asked again")
+    check("processLocally is never assigned",
+          not re.search(r"processLocally\s*=", stt_code),
+          "touching the property is the same missing binder as calling "
+          "available(), and ends the renderer the same way")
 
     # 3. Android only knows the transcript once the engine answers, which is
     #    after stop(). So the final callback must commit, not the button.

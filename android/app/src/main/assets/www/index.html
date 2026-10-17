@@ -764,7 +764,7 @@
     display: flex; flex-direction: column;
     /* Opening a panel leaves this 0px tall, and #chat cannot shrink below
        its own padding - 20px top plus 10px bottom - so a 30px band of
-       transcript used to paint straight over the chips row beneath it.
+       transcript used to paint straight over the controls beneath it.
        min-height:0 on #chat does not help: a padding box is the floor a box
        can shrink to, not a minimum-height. Clipping is the fix. The jump
        button lives in here too, and is only meaningful while the transcript
@@ -825,30 +825,6 @@
   .typing span:nth-child(2) { animation-delay: .15s; }
   .typing span:nth-child(3) { animation-delay: .3s; }
   @keyframes bounce { 30% { transform: translateY(-6px); opacity: 1; } }
-
-  /* ---------- chips ---------- */
-  .chips {
-    display: flex; gap: 8px; padding: 11px 20px; overflow-x: auto;
-    border-top: 1px solid var(--line);
-    /* flex: none, so the suggestion row keeps its natural height. Left to
-       shrink it was being squeezed to 19px against 38px chips, which showed
-       the bottom half of every suggestion. The transcript is the only thing
-       in this column that should give up space, and it scrolls. */
-    flex: none;
-  }
-  .chips::-webkit-scrollbar { height: 6px; }
-  .chips::-webkit-scrollbar-thumb { background: #2f3a6b; border-radius: 6px; }
-  .chip {
-    background: linear-gradient(140deg, rgba(109,140,255,.14), rgba(167,139,250,.08));
-    color: #c3cdff;
-    border: 1px solid rgba(109,140,255,.28);
-    border-radius: 999px; padding: 7px 14px; font-size: 12.5px;
-    cursor: pointer; transition: .15s; white-space: nowrap; flex: none;
-  }
-  .chip:hover {
-    background: linear-gradient(140deg, rgba(109,140,255,.3), rgba(167,139,250,.18));
-    transform: translateY(-1px); border-color: rgba(109,140,255,.55);
-  }
 
   /* ---------- input ---------- */
   form {
@@ -1308,10 +1284,10 @@
   .hbtn span { font-size: 8px; }
   /* no hover affordances on touch — they'd stick after a tap */
   @media (hover: none) {
-    .hbtn:hover, .chip:hover, .ftopic:hover, .vbtn:hover,
+    .hbtn:hover, .ftopic:hover, .vbtn:hover,
     .gbtn:hover, .go:hover, .ltab:hover, .lrow:hover, .lplay:hover,
     .send:hover { transform: none; filter: none; }
-    .hbtn:active, .chip:active, .ftopic:active, .vbtn:active,
+    .hbtn:active, .ftopic:active, .vbtn:active,
     .gbtn:active, .go:active, .ltab:active, .lrow:active, .send:active {
       transform: scale(.96);
     }
@@ -1360,13 +1336,6 @@
   .msg { padding: 11px 14px; font-size: 15px; border-radius: 16px; }
   .msg.long { max-height: 52vh; }
   .row { gap: 8px; }
-
-  /* ---- chips: edge-to-edge scroll strip ---- */
-  .chips {
-    gap: 7px; padding: 9px calc(var(--pad) + var(--sar)) 9px calc(var(--pad) + var(--sal));
-    -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
-  }
-  .chip { min-height: 38px; padding: 9px 14px; }
 
   /* ---- input: 16px stops iOS zooming on focus, safe area clears the bar ---- */
   form {
@@ -1454,7 +1423,7 @@
     box-shadow: none;
   }
   /* every control that would send a message is visibly retired */
-  .chip.locked, .ftopic.locked, .vbtn.locked, .gmain.locked, .go.locked {
+  .ftopic.locked, .vbtn.locked, .gmain.locked, .go.locked {
     opacity: .35; cursor: not-allowed; pointer-events: none;
     filter: grayscale(.6);
   }
@@ -1728,9 +1697,9 @@
     animation: rippleOut .58s cubic-bezier(.22,1,.36,1) forwards;
     z-index: 2;
   }
-  button, .chip, .ltab, .bbc-tab, .lrow, .tile, .cchip { position: relative; overflow: hidden; }
-  button:active, .chip:active, .ltab:active { transform: scale(.965); }
-  button, .chip, .ltab, .bbc-tab, .lrow { transition: transform .14s cubic-bezier(.22,1,.36,1); }
+  button, .ltab, .bbc-tab, .lrow, .tile, .cchip { position: relative; overflow: hidden; }
+  button:active, .ltab:active { transform: scale(.965); }
+  button, .ltab, .bbc-tab, .lrow { transition: transform .14s cubic-bezier(.22,1,.36,1); }
 
   /* ---------- 6. panels ---------------------------------------------
      Content staggers in. The nth-child delays are in CSS rather than JS so
@@ -1863,7 +1832,7 @@
     .mic.rec, .stt-dot, .bbc-play.on::before { animation: none !important; }
     body.speaking .mav.bot { animation: none !important; }
     .eqbar i, .mtool.on { animation: none !important; }
-    button, .chip, .ltab, .bbc-tab, .lrow { transition: none !important; }
+    button, .ltab, .bbc-tab, .lrow { transition: none !important; }
     * { scroll-behavior: auto !important; }
   }
 </style>
@@ -2004,17 +1973,6 @@
             title="Latest ↓"><svg viewBox="0 0 16 16" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg><b id="jumpn" hidden></b></button>
-  </div>
-
-  <div class="chips" id="chips">
-    <span class="chip">how are you?</span>
-    <span class="chip">translate apple</span>
-    <span class="chip">رنگها</span>
-    <span class="chip">define شیر</span>
-    <span class="chip">الفبای فارسی</span>
-    <span class="chip">tell me a joke</span>
-    <span class="chip">ساعت چنده</span>
-    <span class="chip">my name is Ali</span>
   </div>
 
   <div class="stt-panel" id="stt" hidden></div>
@@ -2405,10 +2363,6 @@ document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();
   send(input.value);
 });
-document.getElementById('chips').addEventListener('click', e => {
-  if (e.target.classList.contains('chip')) send(e.target.textContent);
-});
-
 /* ---------- motion seed: the bird fills up with daily usage ---------- */
 const SEED_GOAL = 50;                     // messages allowed per session
 const SEED_RESET_UTC = 3.5;               // session rolls over at 03:30 GMT
@@ -2560,13 +2514,13 @@ const Seed = {
     if (full) {
       input.disabled = true;
       sendbtn.disabled = true;
-      document.querySelectorAll('.chip, .ftopic, .vbtn, .gmain, .go').forEach((n) => {
+      document.querySelectorAll('.ftopic, .vbtn, .gmain, .go').forEach((n) => {
         n.classList.add('locked');
       });
     } else {
       input.disabled = false;
       sendbtn.disabled = false;
-      document.querySelectorAll('.chip.locked, .ftopic.locked, .vbtn.locked, .gmain.locked, .go.locked')
+      document.querySelectorAll('.ftopic.locked, .vbtn.locked, .gmain.locked, .go.locked')
         .forEach((n) => n.classList.remove('locked'));
     }
   },
@@ -3026,7 +2980,7 @@ const Motion = (() => {
    */
   function startRipple() {
     if (calm.matches) return;
-    const SEL = 'button, .chip, .ltab, .bbc-tab, .lrow, .tile, .cchip';
+    const SEL = 'button, .ltab, .bbc-tab, .lrow, .tile, .cchip';
     document.addEventListener('pointerdown', (ev) => {
       const host = ev.target.closest?.(SEL);
       if (!host || !host.getBoundingClientRect) return;
@@ -3427,24 +3381,6 @@ const STT = {
      result cannot repeat it. Reset per utterance, not per page. */
   _written: '',
 
-  /* Whether a language pack for on-device recognition is installed. Probed
-     once at boot rather than per press, so begin() can stay synchronous and
-     the answer is already there when it needs it. */
-  _localOK: false,
-  _probed: false,
-  localOK() { return this._localOK; },
-  async probeLocal() {
-    const R = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!R || typeof R.available !== 'function') { this._probed = true; return false; }
-    try {
-      this._localOK = await R.available({langs: [this.lang()], processLocally: true})
-        === 'available';
-    } catch (e) {
-      this._localOK = false;
-    }
-    this._probed = true;
-    return this._localOK;
-  },
 
   begin() {
     if (this.listening) return true;
@@ -3491,16 +3427,24 @@ const STT = {
     rec.interimResults = this.cfg.web.interim_results !== false;
     rec.maxAlternatives = this.cfg.web.max_alternatives || 1;
 
-    // On-device recognition. Without this the Web Speech API streams audio to
-    // a Google service, so "offline app" is not true of dictation - and the
-    // failure mode is the one the BBC clips had, a refusal dressed up as
-    // "needs a connection".
+    // On-device recognition is deliberately NOT touched.
     //
-    // Read from a cache, not from a promise chained here. The previous version
-    // asked inside a .then(), which resolves long after start() has run, so
-    // processLocally was still false when recognition started and every
-    // request went to the cloud - the exact thing it was written to avoid.
-    if ('processLocally' in rec) rec.processLocally = this.localOK();
+    // It is supposed to stop the Web Speech API streaming audio to a Google
+    // service, which is worth having. But on Android WebView the on-device
+    // speech interfaces are exposed with no binder behind them, and merely
+    // asking about them is fatal: Chromium logs
+    //
+    //   Terminating render process for bad Mojo message: No binder found
+    //   for interface media.mojom.OnDeviceSpeechRecognition
+    //
+    // and kills the renderer. Observed on the device as a crash loop, because
+    // the renderer-death handler reloads the page, the page asks again, and
+    // the renderer dies again - a black screen that never settles.
+    //
+    // So neither SpeechRecognition.available() nor processLocally is touched
+    // here. Dictation uses the cloud engine on Android and on the web; the
+    // native SpeechRecognizer bridge is what the APK uses, and it is already
+    // on-device. Revisit only with a WebView that implements the interface.
     this.rec = rec;
     this.listening = true;
     this.startedAt = Date.now();
@@ -4813,7 +4757,6 @@ Player.mount();
 Motion.init();
 Panels.init();
 PanelSearch.attachAll();
-STT.probeLocal();      // decide on-device once, not on every press
 
 /* clear conversation */
 /* ---------- clear: button or typed ---------- */

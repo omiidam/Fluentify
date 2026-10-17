@@ -586,12 +586,23 @@ def main() -> int:
     check("reaching the bottom clears the unread count",
           re.search(r"if \(pinned\) unread = 0", src) is not None)
 
-    # The suggestion row was left to shrink and got squeezed to 19px against
-    # 38px chips, showing every suggestion as its bottom half.
-    chips = re.search(r"\n  \.chips \{(.*?)\n  \}", src, re.S)
-    check("the suggestion row keeps its natural height",
-          chips is not None and "flex: none" in chips.group(1),
-          "it was being squeezed and clipped; the transcript should shrink instead")
+    # The suggestion row is gone. It was a fixed strip of eight canned
+    # questions that never changed, it cost a whole band of the screen on a
+    # phone, and everything it offered is already reachable from the panels
+    # or by typing. The check is here so it cannot quietly come back with its
+    # CSS and its click handler still attached to a missing element.
+    check("there is no suggestion chip row",
+          'id="chips"' not in src and "class=\"chip\"" not in src,
+          "the hint row was removed; do not bring it back")
+    check("nothing still looks for the removed chip row",
+          "getElementById('chips')" not in src,
+          "a listener bound to a missing element throws and takes the rest of "
+          "the boot script with it")
+    # .chip or .chips opening a rule, but not .cchip, which belongs to the
+    # word panels and is still in use.
+    orphan = re.findall(r"\n\s*\.chips?\s*[,{]", src)
+    check("no orphaned .chip styling is left behind", not orphan,
+          f"{len(orphan)} selector(s) for a row that no longer exists")
 
     # ------------------------------------------------------- review list --
     # The regression: opening the panel painted nothing.
