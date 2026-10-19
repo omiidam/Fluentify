@@ -679,6 +679,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 4px 16px rgba(109,140,255,.34);
   }
   .hbtn.on i, .hbtn.on span { color: #fff; }
+  /* Keyboard users need to know which section button has focus now that
+     there is no border to lose. */
+  .hbtn:focus-visible {
+    outline: 2px solid #ff8dc4;
+    outline-offset: 2px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 0 0 3px rgba(255,141,196,.25);
+  }
   .hbtn.danger:hover {
     border-color: rgba(248,113,113,.6);
     background: rgba(248,113,113,.2);
