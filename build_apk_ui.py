@@ -25,7 +25,7 @@ BUNDLED_DATA = [
     "memory.json", "glossary.json", "grammar.json", "phrases.json",
     "jokes.json", "listening.json", "phonetics.json", "word_arch.json",
     "distinctions.json", "idioms.json", "corrections.json",
-    "stt.json", "bbc_6min.json", "register.json",
+    "stt.json", "bbc_6min.json", "register.json", "emojis.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
@@ -145,59 +145,96 @@ html = sub(
     const bands = await r.json();""",
     """    const bands = await wordArchBands();""",
     "loadWordArch's fetch")
+# bbcDoc() is the cached reader, not a loader of its own: the fetch lives on
+# one line and loadBBC() only awaits it. Rewritten where it actually is.
 html = sub(
     html,
-    """    const r = await fetch('/api/bbc');
-    const doc = await r.json();""",
-    """    const doc = await bbcCatalogue();""",
-    "loadBBC's fetch")
+    """  bbcDocCache ||= fetch('/api/bbc').then((r) => r.json());""",
+    """  bbcDocCache ||= bbcCatalogue();""",
+    "bbcDoc's fetch")
 
 # The Object.assign below the rewritten fetch is left alone on purpose: it is
 # what fills the offline cache.
 
-# 3) boot: load the data, build the bot, then populate the panels
-# Matched on the calls themselves: they are separated by a listener, so an
-# earlier exact three-line match stopped matching the moment one call moved.
-_boot = """loadGrammar();
-loadVocabulary();"""
-html = sub(
-    html,
-    _boot,
-    """/* offline boot: load the bundled data, build the engine, fill the panels */
-let bot, grammarTopics, phraseTopics, vocabGroups, listeningLevels, phoneticSections;
-/* bbc_6min.json is ~1 MB and word_arch.json ~450 KB, and neither is needed
-   to say hello: the first only when the BBC panel opens, the second only for
-   the Sentences panel's word chips. Fetching them in the boot Promise.all
-   cost 1.4 MB and about 420ms of startup measured in a browser, and this is
-   the build that ships to a phone, which can least afford either. The web
-   build already defers word_arch; the offline build did not. */
-let _bbc = null, _wordArch = null;
-const bbcCatalogue = () => (_bbc ||= loadJSON('bbc_6min'));
-const wordArchBands = () => (_wordArch ||= loadJSON('word_arch').then((wa) => {
-  const bands = {};
-  Object.entries(wa.words).forEach(([, e]) => {
-    (bands[e.level || 'A1'] = bands[e.level || 'A1'] || [])
-      .push({en: e.en, fa: e.fa, pos: e.pos, forms: e.forms,
-             level: e.level, domains: e.domains || []});
-  });
-  Object.values(bands).forEach((v) => v.sort((a, b) => (a.en < b.en ? -1 : 1)));
-  return bands;
-}));
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const loadJSON = (name) => fetch('data/' + name + '.json').then((r) => r.json());
+# 3) boot: read every bundled file, build the engine, then fill the panels
+#
+# The web build boots on one line - loadAllSections(), behind a loading screen
+# that is held for five seconds whatever the machine does. The offline page
+# boots on the same call: the only difference is where the sections' contents
+# come from. They are not fetched from /api/* any more (the rewrites above), so
+# the data has to come out of assets/www/data and the engine has to be built
+# from it before loadAllSections() has anything to draw.
+#
+# The anchor is that one boot line, matched in webapp.py and not in any of the
+# text the rewrites above produce. An anchor built out of rewritten text is an
+# anchor that vanishes the day a rewrite changes shape, and this build has
+# already shipped once because an earlier anchor stopped matching.
+_offline_boot = "loadAllSections().finally(() => Boot.ready());"
 
+_offline_block = r"""/* offline boot: read every bundled file, build the engine, and then run the
+   web build's own loadAllSections() behind the loading screen.
+
+   Every file is read here, including bbc_6min.json and word_arch.json. They
+   used to be deferred to the first tap on Listen or Sentences, which was a
+   sensible idea before the loading screen existed and is a pointless one now:
+   the screen is held for five seconds regardless, so reading 1.4 MB behind it
+   costs the user nothing and saves the first tap a stall. It also means the
+   progress bar counts real reads rather than idling at one number. */
+let bot = null, grammarTopics, phraseTopics, vocabGroups, listeningLevels,
+    phoneticSections;
+/* Filled by the boot below, read by the two helpers the panel loaders call.
+   Plain values rather than promises: by the time a loader can reach them the
+   files are already in hand, and a promise here would only invite a load
+   before the boot has finished handing them over. */
+let _bbc = null, _bands = null;
+const bbcCatalogue = () => _bbc;
+const wordArchBands = () => _bands;
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/* Cached, because the boot reads every file and the emoji picker asks for one
+   of them again the first time the picker is opened. A cached read is nothing.
+   The status check is here because a missing file otherwise arrives as a JSON
+   parse error that does not say which file was missing. */
+const _json = {};
+const loadJSON = (name) => (_json[name] ||= fetch('data/' + name + '.json').then((r) => {
+  if (!r.ok) throw new Error(name + '.json could not be read (HTTP ' + r.status + ')');
+  return r.json();
+}));
+
+/* The eleven files the engine is built from, then the four that only fill the
+   UI. Every name here is the name of the file it came from, and the same
+   names, in the same order, are destructured on the other side of the .then.
+   That is not a style preference: tools/check_ui.py compares the two lists,
+   because a dropped name in the destructure shifts every name after it by one
+   and the engine then builds out of the wrong files without saying so. */
 Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
-             loadJSON('phonetics'),
-             loadJSON('distinctions'), loadJSON('idioms'),
-             loadJSON('corrections'), loadJSON('stt'),
-             loadJSON('register')])
+             loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
+             loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
+             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
-          distinctions, idioms, corrections, stt, register]) => {
+          distinctions, idioms, corrections, stt, register, emojis, bbc_6min,
+          word_arch]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
                          phonetics, distinctions, idioms, corrections, register});
+
+    // The Listen panel's catalogue, links only: no transcript is ever served.
+    _bbc = bbc_6min;
+
+    // The Sentences panel's word chips, banded by level. Built here rather
+    // than on first open so that open is a repaint and nothing else.
+    _bands = (() => {
+      const bands = {};
+      Object.entries(word_arch.words).forEach(([, e]) => {
+        (bands[e.level || 'A1'] = bands[e.level || 'A1'] || [])
+          .push({en: e.en, fa: e.fa, pos: e.pos, forms: e.forms,
+                 level: e.level, domains: e.domains || []});
+      });
+      Object.values(bands).forEach((v) => v.sort((a, b) => (a.en < b.en ? -1 : 1)));
+      return bands;
+    })();
 
     listeningLevels = listening.levels.map((lv) => ({
       id: lv.id, title_en: lv.title.en, title_fa: lv.title.fa,
@@ -240,27 +277,31 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
       }),
     }));
 
-    // speech-to-text settings, straight from the same stt.json the CLI reads
+    // speech-to-text settings, straight from the same stt.json the CLI reads.
+    // STT.cfg is read once, when STT is declared - which is above this block -
+    // so setting window.STT_CONFIG alone would leave the offline app reading
+    // an empty config and falling back to the browser's defaults.
     window.STT_CONFIG = stt;
-    loadGrammar();
-    loadPhrases();
-    loadVocabulary();
-    loadListening();
-    loadPhonetics();
-    mountMic();
-  })
-  .catch((e) => add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true}));""",
-    "the offline boot block")
+    STT.cfg = stt;
 
-# 3b) the panels are already loaded inside the offline boot block; the
-# top-level calls that follow it would run before the data has resolved
-before = """});
-loadListening();
-loadPhonetics();
-"""
-after = """});
-"""
-html = sub(html, before, after, "the page tail", 1)
+    /* Every section, now, while the loading screen is up. The web build does
+       exactly this and the offline build used to do its own smaller version
+       of it: one boot, one place to look when a section comes back empty. */
+    return loadAllSections();
+  })
+  .then(() => Boot.ready())
+  .catch((e) => {
+    add('⚠️ could not load the language data: ' + e.message, 'bot', {err: true});
+    // The screen still has to come down. A caught rejection is not an
+    // unhandled one, so nothing else will dismiss it, and the ceiling timer
+    // is twenty seconds away.
+    Boot.ready();
+  });"""
+html = sub(html, _offline_boot, _offline_block, "the offline boot block")
+
+# Nothing else is needed to make the page tail work: it no longer calls the
+# panel loaders itself, because loadAllSections() does and the offline page
+# reuses that same call.
 
 # 4) load bot.js before the page script
 assert "\n<script>\n" in html

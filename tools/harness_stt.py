@@ -487,8 +487,11 @@ def run_motion() -> None:
     check("the mic has a visible fill, not dark-on-dark",
           ".mic {" in html and "#29356e" in html.lower(),
           "a #141c46 disc on a dark composer does not read as a control")
-    check("the mic has a visible border",
-          "#7d92e0" in html.lower())
+    check("the mic reads as a visible control without a border",
+          ".mic {" in html and "#29356e" in html.lower()
+          and ".mic.rec" in html and "#0f766e" in html.lower(),
+          "fill plus shadow keeps the mic legible with no outline; the "
+          "recording state still differs by hue, not by a ring")
     # NOT the disabled attribute: that swallows its own click events, so on
     # touch the control would do nothing and its explanation be unreachable
     check("the mic has an unavailable state for browsers with no recogniser",

@@ -167,6 +167,139 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
 
 
+  /* ---- the boot screen ----
+     Shown on every cold start, before anything else paints. It is in the
+     markup rather than added by script on purpose: the boot reads about a
+     megabyte of JSON, and a script-added overlay arrives after the first
+     long frame - which is the blank screen it was meant to cover.
+
+     It always goes away. Three ways out, because a loader that cannot be
+     dismissed is the one bug worse than no loader at all: the boot finishing,
+     a window error, and a deadline that fires whatever happened in between.
+  */
+  .boot {
+    position: fixed; inset: 0; z-index: 9998;
+    display: grid; place-items: center;
+    background: radial-gradient(120% 90% at 50% 18%, #1b2350 0%, #0b102e 62%);
+    transition: opacity .34s cubic-bezier(.22,1,.36,1), visibility .34s;
+  }
+  .boot.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+  .boot-in { display: grid; justify-items: center; gap: 14px; }
+  .boot-bird {
+    width: 74px; height: 74px;
+    animation: bootBob 2.6s cubic-bezier(.45,0,.55,1) infinite;
+  }
+  @keyframes bootBob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-7px); }
+  }
+  /* A bouncing tile with its shadow on the floor. The shape is borrowed from
+     a well-known loading animation; the colour is the tutor's. Transform
+     only, so it stays on the compositor. */
+  .loader {
+    width: 34px; height: 34px; position: relative;
+  }
+  .loader::before {
+    content: ''; width: 34px; height: 4px;
+    background: rgba(255,92,157,.42);
+    position: absolute; top: 42px; left: 0;
+    border-radius: 50%;
+    animation: bootShadow .5s linear infinite;
+  }
+  .loader::after {
+    content: ''; width: 100%; height: 100%;
+    background: linear-gradient(140deg, #ffc2e2, #ff5c9d);
+    position: absolute; top: 0; left: 0;
+    border-radius: 4px;
+    animation: bootJump .5s linear infinite;
+  }
+  @keyframes bootJump {
+    15%  { border-bottom-right-radius: 3px; }
+    25%  { transform: translateY(8px) rotate(22.5deg); }
+    50%  { transform: translateY(15px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 22px; }
+    75%  { transform: translateY(8px) rotate(67.5deg); }
+    100% { transform: translateY(0) rotate(90deg); }
+  }
+  @keyframes bootShadow {
+    0%, 100% { transform: scale(1, 1); }
+    50%      { transform: scale(1.18, 1); }
+  }
+  .boot-txt { display: grid; justify-items: center; gap: 3px; margin-top: 6px; }
+  .boot-txt b { font-size: 16px; color: #eef1fb; letter-spacing: .2px; }
+  .boot-txt span { font-size: 12px; color: #9fb0ef; }
+  /* The bar counts sections that have actually landed, so it has to be a
+     real width rather than an animation on a fixed timeline. Transform
+     only, so filling it costs no layout on a phone. */
+  .boot-track {
+    width: 172px; height: 3px; border-radius: 3px;
+    background: rgba(255,255,255,.13); overflow: hidden;
+  }
+  .boot-track i {
+    display: block; width: 100%; height: 100%; border-radius: inherit;
+    background: linear-gradient(90deg, #ff8dc4, #a78bfa);
+    transform: scaleX(0); transform-origin: 0 50%;
+    transition: transform .45s cubic-bezier(.22,1,.36,1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .boot { transition: none; }
+    .boot-bird { animation: none; }
+    .loader::before, .loader::after { animation: none; }
+    .boot-track i { transition: none; }
+  }
+
+  /* ---- the emoji picker ---- */
+  .emoji-panel {
+    margin: 0 0 6px;
+    border-radius: 16px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(20,27,63,.97), rgba(14,19,48,.97));
+    border: 1px solid var(--line2);
+    box-shadow: 0 18px 44px rgba(3,6,20,.55);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+    animation: emojiIn .2s cubic-bezier(.22,1,.36,1);
+  }
+  .emoji-panel[hidden] { display: none; }
+  @keyframes emojiIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .esearch {
+    width: 100%; border: 0; border-bottom: 1px solid var(--line);
+    background: rgba(255,255,255,.04); color: var(--text);
+    padding: 11px 14px; font-size: 14px; font-family: inherit;
+    outline: none;
+  }
+  .esearch::placeholder { color: #7e8caf; }
+  .esearch::-webkit-search-cancel-button { filter: invert(.7); }
+  .ebody {
+    max-height: 46vh; overflow-y: auto;
+    padding: 8px 10px 10px;
+    overscroll-behavior: contain;
+  }
+  .ebody::-webkit-scrollbar { width: 7px; }
+  .ebody::-webkit-scrollbar-thumb { background: #2f3a6b; border-radius: 6px; }
+  .ehead {
+    font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    color: #8a97bb; font-weight: 700;
+    padding: 9px 2px 5px; position: sticky; top: -8px;
+    background: linear-gradient(180deg, rgba(16,22,52,.99), rgba(16,22,52,.9));
+  }
+  .etile {
+    width: 38px; height: 38px; padding: 0; margin: 1px;
+    font-size: 21px; line-height: 1; border: 0; border-radius: 9px;
+    background: transparent; cursor: pointer;
+    transition: background .13s, transform .13s cubic-bezier(.22,1,.36,1);
+  }
+  .etile:hover { background: rgba(255,255,255,.1); transform: scale(1.12); }
+  .etile:active { transform: scale(.9); }
+  .etile:focus-visible { outline: 2px solid #ff8dc4; outline-offset: 1px; }
+  .eempty { padding: 22px 8px; text-align: center; color: #8a97bb; font-size: 13px; }
+  /* Touch has no hover, and a tap that only shows a tooltip teaches nothing:
+     the tile presses, the emoji goes in. */
+  @media (hover: none) {
+    .etile:hover { background: transparent; transform: none; }
+  }
+
   /* ---- the watermark bird ------------------------------------------------
      The backdrop lived behind .app, which is 58-72% opaque and blurs whatever
      is behind it - so on a phone, where .app is full-bleed, none of it was
@@ -294,6 +427,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   @media (prefers-reduced-motion: reduce) {
     .player { animation: none; }
+    .emoji-panel { animation: none; }
+    .etile { transition: none; }
     .player.speech .pltrack i { animation: none; opacity: .7; }
     .plbtn { transition: none; }
   }
@@ -512,11 +647,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @keyframes pulse { 50% { opacity: .35; } }
   /* Section tiles: icon over a tiny caption. Seven of these fit across a
      phone without scrolling, where the old full-width pills overflowed. */
+  /* Borderless on purpose. Seven outlined boxes in a row is a rack of
+     buttons, not a toolbar; what separates them is the fill and the space
+     between, which is what a toolbar actually is. The states carry
+     themselves on background and shadow instead of on a coloured outline. */
   .hbtn {
     position: relative;
-    background: linear-gradient(140deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+    background: linear-gradient(140deg, rgba(255,255,255,.13), rgba(255,255,255,.05));
     color: var(--text);
-    border: 1px solid rgba(255,255,255,.16); border-radius: 12px;
+    border: 0; border-radius: 12px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
     width: 46px; height: 46px; padding: 4px 2px;
     display: inline-flex; flex-direction: column;
     align-items: center; justify-content: center; gap: 2px;
@@ -529,14 +669,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     line-height: 1; color: var(--muted); max-width: 100%;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
+  /* Without an outline to recolour, the open state has to say itself louder
+     than the closed one: a deeper fill and a glow, not a line. */
   .hbtn:hover {
-    border-color: rgba(109,140,255,.7);
-    background: linear-gradient(140deg, rgba(109,140,255,.28), rgba(167,139,250,.16));
+    background: linear-gradient(140deg, rgba(109,140,255,.30), rgba(167,139,250,.18));
   }
   .hbtn.on {
-    border-color: rgba(109,140,255,.8);
-    background: linear-gradient(140deg, rgba(109,140,255,.42), rgba(167,139,250,.26));
-    box-shadow: 0 0 0 1px rgba(109,140,255,.25), 0 4px 14px rgba(109,140,255,.25);
+    background: linear-gradient(140deg, rgba(109,140,255,.46), rgba(167,139,250,.28));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.16), 0 4px 16px rgba(109,140,255,.34);
   }
   .hbtn.on i, .hbtn.on span { color: #fff; }
   .hbtn.danger:hover {
@@ -897,25 +1037,58 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: linear-gradient(0deg, rgba(11,16,46,.55), transparent);
     flex: none;
   }
+  /* The box is the field now. The input used to carry its own border, focus
+     ring and background, which drew a second outline inside the first. It is
+     bare now and .messageBox:focus-within does the talking. */
   #input {
-    flex: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
-    border-radius: 15px; padding: 14px 17px; color: var(--text);
+    flex: 1; background: transparent; border: 0;
+    padding: 0 2px; color: var(--text);
     font-size: 15.5px; outline: none; transition: .15s;
     font-family: inherit;
   }
-  #input:focus {
-    border-color: rgba(109,140,255,.7);
-    background: rgba(255,255,255,.09);
-    box-shadow: 0 0 0 3px rgba(109,140,255,.18);
-  }
   #input::placeholder { color: #7e8caf; }
+  /* ---------- the message box ----------
+     The shape is borrowed from a plain chat composer: one rounded container
+     with the controls inside it rather than a row of separate pills. The
+     greys are the app's own - the shell is the same glass as the panels, and
+     the focus ring is the tutor's pink, so typing into it reads the same way
+     as the bird answering.
+  */
+  .messageBox {
+    display: flex; align-items: center; gap: 3px;
+    padding: 3px 4px 3px 3px; border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+    border: 1px solid var(--line2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+    transition: border-color .18s, box-shadow .18s;
+  }
+  .messageBox:focus-within {
+    border-color: rgba(255,141,196,.5);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 0 3px rgba(255,141,196,.13);
+  }
+  .ico {
+    flex: 0 0 auto; width: 36px; height: 36px; padding: 0;
+    display: grid; place-items: center; border: 0; border-radius: 10px;
+    background: transparent; color: var(--muted); cursor: pointer;
+    transition: background .16s, color .16s, transform .16s cubic-bezier(.22,1,.36,1);
+  }
+  .ico svg { width: 19px; height: 19px; }
+  .ico:hover { background: rgba(255,255,255,.08); color: #fff; }
+  .ico:active { transform: scale(.9); }
+  .ico:focus-visible { outline: 2px solid #ff8dc4; outline-offset: 2px; }
+  #emojibtn[aria-expanded="true"] { background: rgba(255,141,196,.16); color: #ffc4e2; }
   .send {
+    flex: 0 0 auto; width: 40px; height: 40px; padding: 0;
+    display: grid; place-items: center;
     background: linear-gradient(135deg, #6d8cff 0%, #a78bfa 100%);
-    border: none; border-radius: 15px; color: #fff;
-    padding: 0 28px; font-size: 15px; font-weight: 700; cursor: pointer;
-    transition: .15s; box-shadow: 0 8px 22px rgba(109,140,255,.45);
+    border: 0; border-radius: 12px; color: #fff; cursor: pointer;
+    transition: filter .15s, transform .16s cubic-bezier(.22,1,.36,1);
+    /* Flat, like the other two controls in the row. The old drop shadow read
+       as an outline at this size and made the button look boxed. */
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
     font-family: inherit;
   }
+  .send svg { width: 19px; height: 19px; }
   .send:hover { filter: brightness(1.12); transform: translateY(-1px); }
   .send:disabled { opacity: .55; cursor: not-allowed; transform: none; }
 
@@ -1414,15 +1587,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
              calc(8px + var(--sab)) calc(var(--pad) + var(--sal));
     gap: 8px; flex-direction: column;
   }
-  .prow-form { display: flex; gap: 8px; }
   /* The composer holds three things: the input, the mic and Send. The input is
      the only one allowed to shrink, so the mic can never be squeezed off a
      narrow screen - min-width:0 states that explicitly rather than relying on
      the input's intrinsic width being small. */
   #input { min-width: 0; }
   @media (max-width: 420px) {
-    .send { padding: 0 18px; font-size: 14.5px; }
-    .prow-form { gap: 6px; }
+    .messageBox { gap: 2px; padding: 3px 4px 3px 3px; }
   }
 
   /* ---- daily limit reached: the composer goes quiet ---- */
@@ -1512,17 +1683,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     touch-action: none;
     -webkit-touch-callout: none;
     user-select: none; -webkit-user-select: none;
-    width: 40px; height: 40px; flex: 0 0 40px; border-radius: 50%;
+    width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%;
     display: grid; place-items: center; cursor: pointer;
     color: #dbe3ff; background: #29356e;
-    border: 1.5px solid #7d92e0;
+    border: 0;
     box-shadow: 0 2px 10px rgba(4, 8, 26, .5), inset 0 1px 0 rgba(255, 255, 255, .16);
-    transition: background .18s, border-color .18s, transform .1s, box-shadow .18s;
+    transition: background .18s, color .18s, transform .1s, box-shadow .18s;
   }
-  .mic svg { width: 21px; height: 21px; display: block; }
+  .mic svg { width: 19px; height: 19px; display: block; }
   .mic svg * { stroke: currentColor; }
+  /* The outline used to carry every state - default, hover, listening,
+     unavailable - so removing it is not just deleting a line: each of those
+     states now has to be legible from the fill alone. They are, because the
+     fills differ in hue, not just in brightness. */
   .mic:hover {
-    background: #35448a; border-color: #a8b8ff; color: #fff;
+    background: #3a4b93; color: #fff;
     box-shadow: 0 4px 16px rgba(4, 8, 26, .6), inset 0 1px 0 rgba(255, 255, 255, .22);
   }
   .mic:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 2px; }
@@ -1530,7 +1705,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* Teal, not pink. Pink is the tutor; when the mic pulses in the tutor's
      own colour it reads as though the app is talking at you. */
   .mic.rec {
-    background: #0f766e; border-color: #5eead4; color: #fff;
+    background: #0f766e; color: #fff;
+    box-shadow: 0 2px 10px rgba(4, 8, 26, .5), 0 0 0 1px rgba(94, 234, 212, .35);
     animation: micPulse 1.4s ease-out infinite;
   }
   .mic.rec svg { transform: scale(1.06); }
@@ -1539,10 +1715,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      explanation in its title would be unreachable. aria-disabled announces
      the state to a screen reader while leaving the tap working. */
   .mic[aria-disabled="true"] {
-    background: #1e2748; border-color: #4a5a94; color: #8794c9;
+    background: #1e2748; color: #8794c9;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
   }
   .mic[aria-disabled="true"]:hover {
-    background: #26314f; border-color: #6274b8; color: #a7b3e0;
+    background: #26314f; color: #a7b3e0;
   }
   /* a hint, once, so the button is noticed rather than rediscovered */
   @keyframes micHint {
@@ -1628,7 +1805,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bbc-empty { font-size: 12px; color: #7d8fd4; padding: 4px 2px; }
   /* 40, not 46: this min-height was the floor for the whole composer row,
      input and mic included, so the button set the height of the form. */
-  .send { padding: 0 18px; font-size: 14px; border-radius: 13px; min-height: 40px; }
+  .send { width: 36px; height: 36px; border-radius: 10px; }
 
   /* ---------- tablets: two comfortable columns ---------- */
   @media (min-width: 600px) {
@@ -1653,9 +1830,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
     form { padding: 14px 20px 18px; gap: 8px; }
-    .prow-form { gap: 10px; }
-    #input { padding: 14px 17px; font-size: 15.5px; }
-    .send { padding: 0 28px; font-size: 15px; min-height: 0; }
+    #input { padding: 10px 14px; font-size: 15.5px; }
+    .send { width: 36px; height: 36px; padding: 0; }
   }
 
   /* ---------- desktop: full-size meter + the status pill ---------- */
@@ -1911,6 +2087,26 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 </style>
 </head>
 <body>
+<div class="boot" id="boot" role="status" aria-live="polite"
+     aria-label="Loading Fluentify / در حال بارگذاری">
+    <div class="boot-in">
+      <svg class="boot-bird" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="bootBirdG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffc2e2"/><stop offset="55%" stop-color="#ff8dc4"/>
+            <stop offset="100%" stop-color="#ff5c9d"/></linearGradient>
+        </defs>
+        <path d="M10 27 L3.5 20 L5.5 31 Z" fill="#ff5c9d"/>
+        <ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#bootBirdG)"/>
+        <path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#ff9ccb"/>
+        <path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#ffc44d"/>
+        <circle cx="31" cy="21.5" r="3.3" fill="#4a1030"/>
+        <circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>
+      </svg>
+      <div class="loader" aria-hidden="true"></div>
+      <div class="boot-track" aria-hidden="true"><i id="bootfill"></i></div>
+    </div>
+  </div>
   <div class="motes" id="motes" aria-hidden="true"></div>
   <div class="toast-host" id="toasthost" aria-live="polite"></div>
 <div class="backdrop"></div>
@@ -2050,10 +2246,33 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   <div class="stt-panel" id="stt" hidden></div>
   <form id="composer">
-    <div class="prow-form">
-      <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…">
-      <button class="send" id="sendbtn" type="submit">Send</button>
+    <div class="messageBox" id="messageBox">
+      <button type="button" class="ico" id="emojibtn"
+              aria-label="Emoji / ایموجی" title="Emoji / ایموجی"
+              aria-haspopup="dialog" aria-expanded="false" aria-controls="emojipanel">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+          <circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="9.2" cy="10.1" r="1.1" fill="currentColor"/>
+          <circle cx="14.8" cy="10.1" r="1.1" fill="currentColor"/>
+          <path d="M8.3 14.1a4.5 4.5 0 0 0 7.4 0" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…"
+             aria-label="Message / پیام">
+      <button class="send" id="sendbtn" type="submit"
+              aria-label="Send / ارسال" title="Send / ارسال">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.9 3.1 2.9 10.2l7.2 2.9 2.9 7.2 7.9-17.2Z"
+                fill="none" stroke="currentColor" stroke-width="1.9"
+                stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.9 3.1 10.1 13.1" fill="none" stroke="currentColor"
+                stroke-width="1.9" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
+    <div id="emojipanel" class="emoji-panel" role="dialog"
+         aria-label="Emoji picker / انتخاب ایموجی" hidden></div>
     <div class="limitenote" id="limitenote" role="status" aria-live="polite">
       <div class="limitrail">
         <span class="limitfill"></span>
@@ -2958,6 +3177,190 @@ const Player = (() => {
   };
 })();
 
+/* ==================================================================== EMOJI
+ * The picker's contents come from emojis.json, not from here - same rule as
+ * every other piece of content in this project: adding an emoji is an edit to
+ * a data file, never to code.
+ *
+ * Search matches the emoji itself, its name, its category and its keywords,
+ * so "happy", "check" and "teacher" all find something. That matters more
+ * here than in a phone keyboard: the people using this are learners, and
+ * looking for a word they already know is faster than hunting a grid.
+ */
+const Emoji = (() => {
+  const SEARCH = /[\p{L}\p{N}\s'-]/u;   // \w is ASCII-only; Persian would not match
+  let data = null;
+  let open = false;
+  let lastFocus = null;
+  let els = {};
+
+  const norm = (s) => String(s || '').toLowerCase().trim();
+
+  /* Emoji carry no text of their own, so each one gets its name as an
+     accessible label. A grid of unlabelled glyphs is a wall of nothing to a
+     screen reader. */
+  function tile(e) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'etile';
+    b.textContent = e.e;
+    b.dataset.emoji = e.e;
+    const label = norm(e.name).replace(/-/g, ' ');
+    b.title = label;
+    b.setAttribute('aria-label', label);
+    return b;
+  }
+
+  function matches(e, q, cat) {
+    if (!q) return true;
+    const hay = norm(e.e + ' ' + e.name + ' ' + (e.kw || '') + ' ' + cat);
+    return q.split(/\s+/).every((word) => hay.includes(word));
+  }
+
+  function renderGrid(host, list, catLabel) {
+    const frag = document.createDocumentFragment();
+    list.forEach((e) => frag.appendChild(tile(e)));
+    host.appendChild(frag);
+  }
+
+  function build() {
+    els.panel = document.getElementById('emojipanel');
+    els.btn = document.getElementById('emojibtn');
+    els.input = document.getElementById('input');
+    if (!els.panel || !els.btn) return false;
+
+    els.search = document.createElement('input');
+    els.search.type = 'search';
+    els.search.className = 'esearch';
+    els.search.placeholder = 'Search emoji… / جست‌وجوی ایموجی…';
+    els.search.setAttribute('aria-label', 'Search emoji / جست‌وجوی ایموجی');
+    els.panel.appendChild(els.search);
+
+    els.body = document.createElement('div');
+    els.body.className = 'ebody';
+    els.panel.appendChild(els.body);
+
+    els.search.addEventListener('input', () => paint());
+    els.search.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape') { ev.stopPropagation(); close(); }
+    });
+
+    els.btn.addEventListener('click', () => (open ? close() : show()));
+
+    /* Delegated: the grid is rebuilt on every keystroke, so a listener on each
+       tile would go with the tile and leak a closure per emoji. */
+    els.panel.addEventListener('click', (ev) => {
+      const t = ev.target.closest('.etile');
+      if (!t) return;
+      insert(t.dataset.emoji);
+    });
+
+    // A click anywhere else closes it. Capture, so it still works when the
+    // click lands on something that stops propagation.
+    document.addEventListener('pointerdown', (ev) => {
+      if (!open) return;
+      if (els.panel.contains(ev.target) || els.btn.contains(ev.target)) return;
+      close();
+    }, true);
+
+    document.addEventListener('keydown', (ev) => {
+      if (!open) return;
+      if (ev.key === 'Escape') { ev.preventDefault(); close(); }
+    });
+
+    load();
+    return true;
+  }
+
+  /* Insert at the caret, not at the end. Someone writing "good mo" then
+     picking an emoji should not have their emoji land after the sentence. */
+  function insert(ch) {
+    const box = els.input;
+    if (!box) return;
+    const at = typeof box.selectionStart === 'number' ? box.selectionStart : box.value.length;
+    const before = box.value.slice(0, at);
+    const after = box.value.slice(typeof box.selectionEnd === 'number' ? box.selectionEnd : at);
+    box.value = before + ch + after;
+    const caret = at + ch.length;
+    box.setSelectionRange(caret, caret);
+    box.dispatchEvent(new Event('input'));
+    box.focus();
+  }
+
+  function paint() {
+    const q = norm(els.search.value);
+    els.body.textContent = '';
+    let shown = 0;
+
+    if (!q) {
+      renderGrid(els.body, data.recent.emojis, 'recent');
+      shown += data.recent.emojis.length;
+      data.categories.forEach((c) => {
+        const h = document.createElement('div');
+        h.className = 'ehead';
+        h.textContent = c.label + ' · ' + c.label_fa;
+        els.body.appendChild(h);
+        renderGrid(els.body, c.emojis, c.label);
+        shown += c.emojis.length;
+      });
+    } else {
+      data.categories.forEach((c) => {
+        const hits = c.emojis.filter((e) => matches(e, q, c.label));
+        if (!hits.length) return;
+        const h = document.createElement('div');
+        h.className = 'ehead';
+        h.textContent = hits.length + ' · ' + c.label;
+        els.body.appendChild(h);
+        renderGrid(els.body, hits, c.label);
+        shown += hits.length;
+      });
+    }
+
+    if (!shown) {
+      const none = document.createElement('div');
+      none.className = 'eempty';
+      none.textContent = 'No emoji matches “' + els.search.value.trim() + '”';
+      els.body.appendChild(none);
+    }
+  }
+
+  function show() {
+    if (!data) return;
+    open = true;
+    lastFocus = document.activeElement;
+    els.panel.hidden = false;
+    els.btn.setAttribute('aria-expanded', 'true');
+    els.search.value = '';
+    paint();
+    els.search.focus();
+  }
+
+  function close() {
+    if (!open) return;
+    open = false;
+    els.panel.hidden = true;
+    els.btn.setAttribute('aria-expanded', 'false');
+    // Focus goes back to the field, not to the button: the user's next move
+    // is to carry on typing.
+    if (els.input) els.input.focus();
+    else if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  async function load() {
+    if (data) return true;
+    try {
+      data = await loadJSON('emojis');
+    } catch (e) {
+      // No picker is a smaller problem than a composer that cannot send.
+      if (els.btn) els.btn.hidden = true;
+      data = null;
+      return false;
+    }
+    return true;
+  }
+
+  return { mount: build, open: show, close, get open() { return open; } };
+})();
 /* ==================================================================== MOTION
  * One IIFE, no top-level names, so it cannot collide with bot.js - which is
  * the failure that blanked the offline app once already.
@@ -3698,8 +4101,8 @@ const MIC_ICON =
 function mountMic() {
   const box = document.getElementById('input');
   if (!box) return;
-  // Idempotent: the offline build calls this inside its boot block as well as
-  // at the end of the page script, and two mic buttons is worse than none.
+  // Idempotent: anything that boots the page early mounts it too, and two mic
+  // buttons is worse than none.
   if (document.getElementById('mic')) return;
 
   const btn = document.createElement('button');
@@ -4071,12 +4474,19 @@ async function loadListening() {
    official transcript and blends vocabulary stretch, the share of B2+ words,
    sentence length, clause density and speaking rate. The grade comes from the
    transcript, so the band is what you actually hear, not the topic. */
+let bbcDocCache = null;
+/* The graded catalogue, cached. It is about a megabyte, and the boot warms it
+   so the first tap on the Listen tab is not the thing that discovers it. */
+async function bbcDoc() {
+  bbcDocCache ||= fetch('/api/bbc').then((r) => r.json());
+  return bbcDocCache;
+}
+
 async function loadBBC() {
   const box = document.getElementById('llevels');
   if (!box) return;
   try {
-    const r = await fetch('/api/bbc');
-    const doc = await r.json();
+    const doc = await bbcDoc();
     // Keep transcript-only episodes too. BBC retired the player on its older
     // 6 Minute English pages, so roughly a third of the archive has a graded
     // transcript and a worksheet link but no streamable audio - hiding those
@@ -4740,17 +5150,113 @@ async function loadGrammar() {
     });
   } catch (e) { /* panel stays empty offline */ }
 }
-loadGrammar();
-loadVocabulary();
+/* ---- the boot screen ----
+ * Held for a set spell rather than for as long as the reads happen to take.
+ * A boot that returns in three hundred milliseconds reads as a flicker, and
+ * this is the one moment every section is being read off disk anyway - so the
+ * overlay stays up for a floor of about five seconds while they load behind
+ * it, and counts them as they land.
+ *
+ * It always comes down. Four ways out, and the point of listing them is that
+ * any one of them failing still leaves the app usable. A loader that cannot
+ * be dismissed is worse than no loader: it is a blank screen with an
+ * animation on it, and there is no way to tell that from a crash.
+ *
+ *   1. the sections finishing, once the floor has also passed
+ *   2. an uncaught error, which otherwise leaves the overlay over a page that
+ *      is mostly working and so looks broken
+ *   3. a rejected promise, which would otherwise be silent
+ *   4. a deadline, for the case where a fetch simply never settles
+ */
+const Boot = (() => {
+  const el = document.getElementById('boot');
+  if (!el) return { say() {}, step() {}, ready() {}, hide() {} };
+
+  const FLOOR_MS = 5000;     // what start-up should feel like, not how long it takes
+  const CEILING_MS = 20000;  // past this the user is watching a spinner, not a load
+
+  const fill = document.getElementById('bootfill');
+  const note = document.getElementById('bootnote');
+  let gone = false;
+  let floorUp = false;
+  let dataIn = false;
+  let deadline = 0;
+
+  function hide() {
+    if (gone) return;
+    gone = true;
+    clearTimeout(deadline);
+    el.classList.add('gone');
+    // Removed as well as faded: left in the tree it stays a full-screen
+    // element that a later focus can land on.
+    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
+    try { input.focus(); } catch (e) { /* the field may not exist yet */ }
+  }
+
+  // Both conditions, in whichever order they arrive. The floor is on a timer
+  // rather than on a promise so that a slow section cannot extend it.
+  function maybe() { if (floorUp && dataIn) hide(); }
+  setTimeout(() => { floorUp = true; maybe(); }, FLOOR_MS);
+
+  deadline = setTimeout(hide, CEILING_MS);
+  window.addEventListener('error', hide);
+  window.addEventListener('unhandledrejection', hide);
+
+  return {
+    /* What is loading, in the reader's words. */
+    say(text) { if (note) note.textContent = text; },
+    step(done, total, label) {
+      if (fill) fill.style.transform = 'scaleX(' + (total ? done / total : 0) + ')';
+      if (note && label) note.textContent = label + ' · ' + done + ' / ' + total;
+    },
+    /* Every section is in. The overlay still holds until the floor passes. */
+    ready() { dataIn = true; maybe(); },
+    hide,
+  };
+})();
+
+/* ---- the sections ----
+ * Every one is read here rather than on first open. The loader is on screen
+ * anyway, so the reads are close to free where the user can see them, and a
+ * panel that opens instantly is worth more than a boot that returns a few
+ * hundred milliseconds sooner. Each step reports itself, so the bar counts
+ * real work instead of animating a fixed fiction.
+ *
+ * The last two are the heavy ones and the ones that used to be deferred: the
+ * word index is about 450 KB and feeds the chips in Sentences, the catalogue
+ * is about a megabyte and feeds the Listen tab. Deferring them saved time
+ * nobody was waiting on and made those two sections feel broken.
+ */
+async function loadAllSections() {
+  const steps = [
+    ['Vocabulary', loadVocabulary],
+    ['Grammar', loadGrammar],
+    ['Sentences', loadPhrases],
+    ['Listening', loadListening],
+    ['Sounds', loadPhonetics],
+    ['Word index', loadWordArch],
+    ['Audio', bbcDoc],
+  ];
+  let done = 0;
+  Boot.step(0, steps.length, 'Preparing');
+  await Promise.all(steps.map(async ([label, run]) => {
+    try { await run(); } catch (e) { /* one thin section beats no app */ }
+    Boot.step(++done, steps.length, label);
+  }));
+}
+
+/* The offline build replaces this line with its bundled boot block, which
+   reads the same sections out of the APK's assets and calls
+   loadAllSections() itself once the engine is built. */
+loadAllSections().finally(() => Boot.ready());
 
 /* live-filter the vocabulary panel as you type */
 document.getElementById('vsearch').addEventListener('input', (ev) => {
   window.__vFilter = ev.target.value;
   loadVocabulary();
 });
-loadListening();
-loadPhonetics();
 mountMic();
+Emoji.mount();
 Player.mount();
 Motion.init();
 Panels.init();
@@ -5234,6 +5740,7 @@ chat.addEventListener('scroll', () => {
   if (pinned) unread = 0;
   paintJump();
 });
+
 
 /* boot */
 Review.load();          // after every declaration above

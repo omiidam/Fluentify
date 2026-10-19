@@ -18,14 +18,25 @@ For the first N episodes that have audio:
   1. download the mp3 from bbc.co.uk
   2. upload it to the bucket under bbc/<id>.mp3, skipping anything already
      there with the same size
-  3. rewrite that episode's `audio` field in bbc_6min.json to the mirror
+  3. extract the episode's transcript from its PDF and store that beside the
+     audio as bbc/<id>.txt, which is what the app's Transcript button reads
+  4. rewrite that episode's `audio` field in bbc_6min.json to the mirror
 
 Everything is resumable and idempotent, because a hundred downloads that fail
 on the fortieth should not have to start over.
 
     python3 tools/mirror_bbc_audio.py --limit 100
+    python3 tools/mirror_bbc_audio.py --add 5 --prune   # five more, keep the rest
     python3 tools/mirror_bbc_audio.py --limit 100 --dry-run
     python3 tools/mirror_bbc_audio.py --verify
+
+On the transcripts: BBC Learning English publishes each one as a PDF and
+publishes it for the world to read and print. This extracts the text out of
+that PDF and serves it from our own bucket, so the reader can read along on a
+phone instead of being handed a link that a WebView cannot open and a system
+browser has to fetch over the network anyway. The audio is already
+redistributed by this tool; the text is BBC's copyright in exactly the same
+way, and the same judgement applies to it.
 
 Credentials come from .bbc-storage.env (gitignored) or the environment.
 Never hardcode them: webapp.py's HTML is bundled into the APK, so a key in a
@@ -54,6 +65,9 @@ ROOT = Path(__file__).resolve().parent.parent
 CATALOGUE = ROOT / "bbc_6min.json"
 ENVFILE = ROOT / ".bbc-storage.env"
 CACHE = ROOT / "tools/.cache"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from transcript_text import pdf_to_text_readable  # noqa: E402
 
 # Speech is a narrow-band signal. BBC ships these at 128-320 kbps stereo,
 # which is the right call for music and the wrong one for dictation-sized
@@ -212,14 +226,113 @@ def human(n: float) -> str:
     return f"{n:.1f}GB"
 
 
+PDF_CACHE = ROOT / "tools/.cache/bbc"
+
+
+def read_transcript(ep: dict) -> str:
+    """The episode's transcript as readable text, or "" if there isn't one.
+
+    Read out of the same PDF the grader read, through transcript_text.py,
+    which reconstructs the page rather than pulling the text literals out of
+    it. The result is what is printed on the page: a heading, the dialogue,
+    the vocabulary beside it.
+
+    The PDFs are cached by fetch_bbc_6min.py under tools/.cache/bbc/, named
+    after the episode id. Twelve of them are there from the last grading run;
+    the rest are downloaded here and left for next time.
+    """
+    url = ep.get("transcript_url")
+    if not url:
+        return ""
+    pdf = PDF_CACHE / f"{ep['id']}.pdf"
+    if not pdf.exists():
+        pdf.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            download(url, pdf, timeout=60, tries=3)
+        except Exception as exc:                       # noqa: BLE001
+            print(f"  ! {ep['id']}: transcript pdf - {type(exc).__name__}",
+                  file=sys.stderr)
+            return ""
+    try:
+        return pdf_to_text_readable(pdf.read_bytes())
+    except Exception as exc:                           # noqa: BLE001
+        print(f"  ! {ep['id']}: transcript text - {type(exc).__name__}",
+              file=sys.stderr)
+        return ""
+
+
+def put_transcript(s3, bucket: str, public: str, ep: dict) -> bool:
+    """Store the transcript beside the audio and point the episode at it.
+
+    Beside the audio rather than inside the APK, for the same reason the audio
+    is: adding episodes should not mean rebuilding the app, and the text is
+    4 KB against 3 MB for the clip. One fetch on first open, cached after.
+    """
+    text = read_transcript(ep)
+    if len(text) < 200:
+        # Below a couple of hundred words this is not a transcript, it is a
+        # page that failed to extract. Shipping it would put an empty reader
+        # in front of the listener, which is the bug this whole thing is for.
+        return False
+    key = key_for(ep).replace(".mp3", ".txt")
+    body = text.encode("utf-8")
+    s3.put_object(Bucket=bucket, Key=key, Body=body,
+                  ContentType="text/plain; charset=utf-8",
+                  CacheControl="public, max-age=31536000, immutable",
+                  ACL="public-read")
+    ep["transcript_text"] = f"{public}/{key}"
+    ep["transcript_words"] = len(text.split())
+    return True
+
+
+def spread(episodes: list, n: int) -> list:
+    """The first n, but one from each CEFR band before a second from any.
+
+    Catalogue order is chronological within a series, and BBC runs each series
+    at one level, so the first ten of anything are ten clips of the same
+    difficulty. Ten of one level is a worse listening course than three, and a
+    listener who works through the list in order needs to get somewhere.
+    """
+    by_level: dict = {}
+    for e in episodes:
+        by_level.setdefault(e.get("level") or "?", []).append(e)
+    order = sorted(by_level)
+    todo, seen = [], set()
+    while len(todo) < n:
+        added = False
+        for lv in order:
+            bucket = by_level[lv]
+            while bucket:
+                ep = bucket.pop(0)
+                if ep["id"] in seen:
+                    continue
+                seen.add(ep["id"])
+                todo.append(ep)
+                added = True
+                break
+            if len(todo) >= n:
+                break
+        if not added:
+            break
+    return todo
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=100,
                     help="how many episodes to mirror (default 100)")
+    ap.add_argument("--add", type=int, default=0, metavar="N",
+                    help="keep everything already in the bucket and mirror N "
+                         "more on top, spread across the CEFR bands. Asks "
+                         "the bucket what it has, so unlike --limit it cannot "
+                         "re-pick episodes that are already there")
     ap.add_argument("--dry-run", action="store_true",
                     help="list what would be mirrored and change nothing")
     ap.add_argument("--verify", action="store_true",
                     help="check the catalogue against what is actually stored")
+    ap.add_argument("--no-transcripts", action="store_true",
+                    help="mirror the audio only, leaving out the transcript "
+                         "text the app reads on the Transcript tap")
     ap.add_argument("--no-transcode", action="store_true",
                     help="store the original bytes instead of mono 64k")
     ap.add_argument("--keep-others", action="store_true",
@@ -240,6 +353,13 @@ def main() -> int:
                          "the section lists what you can listen to")
     args = ap.parse_args()
 
+    # --add is "more than what is there", so the ones already stored have to
+    # survive the run untouched. Without this the loop re-downloads all of them
+    # to prove it can, which is twenty minutes of BBC's bandwidth to learn
+    # nothing.
+    if args.add:
+        args.keep_others = True
+
     doc = json.loads(CATALOGUE.read_text(encoding="utf-8"))
     episodes = doc.get("episodes") or []
 
@@ -250,32 +370,23 @@ def main() -> int:
     # them emptied the selection once every candidate was ours - it is to
     # remember where each one came from and fetch from that.
     usable = [e for e in episodes if e.get("audio")]
-    if args.spread:
-        # The first ten in catalogue order are all "The English We Speak" and
-        # "6 Minute English", which the grader put at A2 - ten clips of one
-        # level is a worse listening course than three. Round-robin the bands
-        # instead, so a short list still spans A1 to C1.
-        by_level: dict = {}
-        for e in usable:
-            by_level.setdefault(e.get("level") or "?", []).append(e)
-        order = sorted(by_level)
-        todo, seen = [], set()
-        while len(todo) < args.limit:
-            added = False
-            for lv in order:
-                bucket = by_level[lv]
-                while bucket:
-                    ep = bucket.pop(0)
-                    if ep["id"] in seen:
-                        continue
-                    seen.add(ep["id"])
-                    todo.append(ep)
-                    added = True
-                    break
-                if len(todo) >= args.limit:
-                    break
-            if not added:
-                break
+
+    # --add has to ask the bucket what is already there, because "add five
+    # more" means five more than the ones stored, not the first five of the
+    # catalogue. Everything else picks from the catalogue alone and stays
+    # offline until it starts downloading.
+    stored: set[str] = set()
+    if args.add:
+        s3, bucket, public = connect()
+        stored = {o["Key"] for o in
+                  s3.list_objects_v2(Bucket=bucket).get("Contents", [])}
+        have = [e for e in usable if key_for(e) in stored]
+        want = [e for e in usable if key_for(e) not in stored]
+        todo = have + spread(want, args.add)
+        print(f"{len(have)} already stored, adding {args.add} more "
+              f"({len(want)} candidates)")
+    elif args.spread:
+        todo = spread(usable, args.limit)
     else:
         todo = usable[:args.limit]
 
@@ -330,6 +441,7 @@ def main() -> int:
             print(f"transcoding to mono 64k with {Path(ff).name}")
 
     done = missing = failed = 0
+    texts = 0
     mirrored_keys: set = set()
     bytes_up = saved = 0
     t0 = time.time()
@@ -414,6 +526,16 @@ def main() -> int:
         mirrored_keys.add(key)
         done += 1
 
+        # The transcript, if there is one. Done for every episode the loop
+        # touches and not only the new ones, because that is how a re-run
+        # backfills the text for episodes mirrored before this existed.
+        if not args.no_transcripts:
+            if put_transcript(s3, bucket, public, ep):
+                texts += 1
+            else:
+                ep.pop("transcript_text", None)
+                ep.pop("transcript_words", None)
+
         if i % 5 == 0 or i == len(todo):
             rate = bytes_up / max(0.001, time.time() - t0)
             print(f"  {i}/{len(todo)}  {done} mirrored  {human(bytes_up)} up "
@@ -468,6 +590,8 @@ def main() -> int:
         "bucket": bucket,
         "public_base": public,
         "episodes": done,
+        "transcripts": sum(1 for e in doc["episodes"]
+                           if e.get("transcript_text")),
         "note": "every episode listed here is mirrored and plays offline of "
                 "the BBC; the list is the set that exists, not a sample",
     }
@@ -475,6 +599,7 @@ def main() -> int:
 
     print(f"\nmirrored {done} of {len(todo)}  ({human(bytes_up)} uploaded)"
           f"{f', {failed} failed' if failed else ''}")
+    print(f"transcripts stored for {texts} episode(s)")
     print(f"catalogue updated: {len(doc['episodes'])} episodes now stream "
           f"from {public}")
     return 1 if failed else 0

@@ -20,121 +20,104 @@
       "groups": [
         {
           "name": {
-            "en": "Front vowels — the pairs that trip people up",
-            "fa": "واک‌های جلو — جفت‌هایی که همه را گمراه می‌کنند"
+            "en": "Front vowels — the pairs that trip people up"
           },
           "rows": [
             {
               "ip": "/iː/ vs /ɪ/",
               "sub": "long vs short, tense vs relaxed",
               "say": "ship",
-              "fa": "کشتی — sheep /iː/ گوسفند",
               "words": "eat·it · seat·sit · leave·live · feel·fill"
             },
             {
               "ip": "/e/ vs /æ/",
               "sub": "bed / bad",
               "say": "bed",
-              "fa": "تخت‌خواب — bad /æ/ بد",
               "words": "men·man · said·sad · pen·pan · said·sad"
             },
             {
               "ip": "/ɑː/",
               "sub": "back vowel, long",
               "say": "car",
-              "fa": "ماشین — father, arm, class",
               "words": "park·star · hard·harm"
             },
             {
               "ip": "/ʌ/",
               "sub": "central, short",
               "say": "cup",
-              "fa": "فنجان — love, come, jump",
               "words": "much·money · son·sun"
             },
             {
               "ip": "/ɜː/",
               "sub": "like /a/ with a smile",
               "say": "bird",
-              "fa": "پرنده — work, girl, learn",
               "words": "first·person · turn·turtle"
             },
             {
               "ip": "/ɒ/",
               "sub": "short, rounded",
               "say": "hot",
-              "fa": "داغ — dog, watch, box",
               "words": "not·note · lost·lost"
             },
             {
               "ip": "/ɔː/",
               "sub": "long, rounded",
               "say": "door",
-              "fa": "در — four, more, talk",
               "words": "all·awful · walk·talk"
             },
             {
               "ip": "/ə/",
               "sub": "the schwa — see its own section",
               "say": "about",
-              "fa": "درباره — see 🫧 Schwa below",
               "words": "banana · sofa · problem"
             }
           ]
         },
         {
           "name": {
-            "en": "Diphthongs — two vowels, one glide",
-            "fa": "واک‌های دوتایی — دو واک، یک حرکت"
+            "en": "Diphthongs — two vowels, one glide"
           },
           "rows": [
             {
               "ip": "/eɪ/",
               "sub": "ay",
               "say": "day",
-              "fa": "روز — make, name, wait",
               "words": "play·say · eight·late"
             },
             {
               "ip": "/aɪ/",
               "sub": "eye",
               "say": "my",
-              "fa": "من — time, like, high",
               "words": "find·kind · night·light"
             },
             {
               "ip": "/ɔɪ/",
               "sub": "oy",
               "say": "boy",
-              "fa": "پسر — toy, join, noise",
               "words": "point·coin · choice·voice"
             },
             {
               "ip": "/aʊ/",
               "sub": "ow",
               "say": "now",
-              "fa": "الان — how, out, house",
               "words": "town·down · about·allowed"
             },
             {
               "ip": "/əʊ/",
               "sub": "oh",
               "say": "go",
-              "fa": "برو — no, home, close",
               "words": "boat·coat · know·snow"
             },
             {
               "ip": "/ɪə/",
               "sub": "ear",
               "say": "here",
-              "fa": "اینجا — near, clear, appear",
               "words": "hear·beer · year·really"
             },
             {
               "ip": "/eə/",
               "sub": "air",
               "say": "hair",
-              "fa": "مو — where, care, share",
               "words": "bear·pear · stare·stair"
             }
           ]
@@ -160,65 +143,56 @@
       "groups": [
         {
           "name": {
-            "en": "The three sounds",
-            "fa": "سه صدا"
+            "en": "The three sounds"
           },
           "rows": [
             {
               "ip": "/ɪz/",
               "sub": "adds a syllable",
               "say": "watches",
-              "fa": "ساعت‌ها — after s, sh, ch, x, z",
               "words": "boxes · dishes · buses · churches · glasses"
             },
             {
               "ip": "/z/",
               "sub": "the default",
               "say": "books",
-              "fa": "کتاب‌ها — most other endings",
               "words": "dogs · cars · beds · bags · boys"
             },
             {
               "ip": "/s/",
               "sub": "after unvoiced sounds",
               "say": "cats",
-              "fa": "گربه‌ها — after p, t, k, f, th",
               "words": "maps · hats · cakes · leaves · baths"
             }
           ]
         },
         {
           "name": {
-            "en": "Where it appears",
-            "fa": "کجا می‌آید"
+            "en": "Where it appears"
           },
           "rows": [
             {
               "ip": "plural",
               "sub": "one cat → two cats",
               "say": "two cats",
-              "fa": "دو گربه — most English plurals",
               "words": "kids · students · phones"
             },
             {
               "ip": "3rd person",
               "sub": "he works, she lives",
               "say": "he works",
-              "fa": "او کار می‌کند — every verb takes it",
               "words": "goes · runs · likes · needs"
             },
             {
               "ip": "possessive",
               "sub": "it's John's book",
               "say": "it's John's",
-              "fa": "کتابِ جان — names ending in s",
               "words": "Ann's · my sister's · the students'"
             },
             {
               "ip": "don't / doesn't",
               "sub": "she doesn't /ʌn't/",
               "say": "she doesn't go",
-              "fa": "او نمی‌رود — the /t/ becomes /ʌn/",
               "words": "don't · can't · won't · he's"
             }
           ]
@@ -244,58 +218,50 @@
       "groups": [
         {
           "name": {
-            "en": "The rule",
-            "fa": "قانون"
+            "en": "The rule"
           },
           "rows": [
             {
               "ip": "/ɪd/",
               "sub": "after t or d",
               "say": "needed",
-              "fa": "لازم بود — wanted, painted, decided",
               "words": "started · fitted · handed · waited"
             },
             {
               "ip": "/t/",
               "sub": "after unvoiced",
               "say": "walked",
-              "fa": "راه رفت — p, k, f, s, th, ch, sh",
               "words": "laughed · jumped · washed · kissed · watched"
             },
             {
               "ip": "/d/",
               "sub": "after voiced",
               "say": "played",
-              "fa": "بازی کرد — b, g, v, z, m, n, l, r",
               "words": "called · cleaned · lived · opened · turned"
             }
           ]
         },
         {
           "name": {
-            "en": "The irregular ones you already know",
-            "fa": "بی‌قاعده‌هایی که می‌دانی"
+            "en": "The irregular ones you already know"
           },
           "rows": [
             {
               "ip": "said",
               "sub": "/sed/ — nothing added",
               "say": "he said",
-              "fa": "او گفت — say / said / said",
               "words": "go → went · do → did · make → made"
             },
             {
               "ip": "went",
               "sub": "/went/",
               "say": "she went",
-              "fa": "او رفت — go, the vowel changes too",
               "words": "eat → ate · drink → drank · sing → sang"
             },
             {
               "ip": "been",
               "sub": "/bɪn/ — short i",
               "say": "I have been",
-              "fa": "من بوده‌ام — be / was / been",
               "words": "see → saw · take → took · give → gave"
             }
           ]
@@ -321,72 +287,62 @@
       "groups": [
         {
           "name": {
-            "en": "One spelling, two beats",
-            "fa": "یک املا، دو تکیه"
+            "en": "One spelling, two beats"
           },
           "rows": [
             {
               "ip": "ˈrecord / reˈcord",
               "sub": "noun vs verb",
               "say": "a record player",
-              "fa": "دستگاه پخش — to record a film",
               "note": "the stress moves one syllable right for the verb"
             },
             {
               "ip": "ˈpresent / preˈsent",
               "sub": "noun vs verb",
               "say": "a present",
-              "fa": "هدیه — to present a plan",
               "note": "two completely different words"
             },
             {
               "ip": "ˈobject / obˈject",
               "sub": "noun vs verb",
               "say": "an object",
-              "fa": "شیء — to object to something",
               "note": "the /j/ sound appears in the verb"
             },
             {
               "ip": "ˈincrease / inˈcrease",
               "sub": "noun vs verb",
               "say": "an increase",
-              "fa": "افزایش — prices increased",
               "note": "the /iː/ flips to /ɪ/ in the verb"
             }
           ]
         },
         {
           "name": {
-            "en": "Say it like this",
-            "fa": "این‌طور بگو"
+            "en": "Say it like this"
           },
           "rows": [
             {
               "ip": "beˈcause",
               "sub": "not be-CAUZE",
               "say": "because",
-              "fa": "چون — stress stays on the second part",
               "words": "be·GIN · be·FORE · a·BOUT · be·HIND"
             },
             {
               "ip": "ˈphotograph",
               "sub": "PHO-to-graph, not pho-TO",
               "say": "photograph",
-              "fa": "عکس گرفتن — noun keeps the first beat",
               "words": "pho·TO·gra·phy · pho·TO·graph·ic"
             },
             {
               "ip": "ˈbeautiful",
               "sub": "BEAU-ti-ful",
               "say": "beautiful",
-              "fa": "زیبا — the stress is on BEAU",
               "words": "ˈcomfortable · ˈwonderful · ˈdifferent"
             },
             {
               "ip": "comˈputer",
               "sub": "com-PYU-ter",
               "say": "computer",
-              "fa": "کامپیوتر — stress on the second syllable",
               "words": "comˈfortable · phoˈtograph · aˈgree"
             }
           ]
@@ -412,71 +368,61 @@
       "groups": [
         {
           "name": {
-            "en": "Everyday examples",
-            "fa": "نمونه‌های روزمره"
+            "en": "Everyday examples"
           },
           "rows": [
             {
               "ip": "banana",
               "sub": "bə-NAN-ə",
               "say": "banana",
-              "fa": "موز — three syllables, stress in the middle",
               "words": "sofa · camera · villa · panorama"
             },
             {
               "ip": "problem",
               "sub": "PROB-ləm",
               "say": "problem",
-              "fa": "مشکل — the first syllable carries the stress",
               "words": "system · welcome · problem · open"
             },
             {
               "ip": "about",
               "sub": "ə-BAUT",
               "say": "about",
-              "fa": "درباره — the /a/ is a schwa, /au/ is not",
               "words": "above · around · alone · awake"
             },
             {
               "ip": "family",
               "sub": "FAM-ə-le",
               "say": "family",
-              "fa": "خانواده — the final -y is a schwa",
               "words": "holiday · memory · very · money"
             },
             {
               "ip": "computer",
               "sub": "kəm-PYU-tər",
               "say": "computer",
-              "fa": "کامپیوتر — schwa at both ends",
               "words": "tomorrow · remember · November · summer"
             },
             {
               "ip": "again",
               "sub": "ə-GEN",
               "say": "again",
-              "fa": "دوباره — spelled ag-ain, said ə-GEN",
               "words": "against · along · away · agree"
             },
             {
               "ip": "other",
               "sub": "AH-thər",
               "say": "other",
-              "fa": "دیگر — also in another, together",
               "words": "another · together · mother · brother"
             },
             {
               "ip": "support",
               "sub": "sə-PORT",
               "say": "support",
-              "fa": "پشتیبانی — two syllables, not three",
               "words": "suppose · surprise · sugar · teacher"
             },
             {
               "ip": "afraid",
               "sub": "ə-FRAYD",
               "say": "afraid",
-              "fa": "ترسیده — the /aɪ/ is the real vowel",
               "words": "ahead · again · awake · around"
             }
           ]
@@ -502,15 +448,13 @@
       "groups": [
         {
           "name": {
-            "en": "The two hardest",
-            "fa": "دو تای سخت‌ترین"
+            "en": "The two hardest"
           },
           "rows": [
             {
               "ip": "/θ/",
               "sub": "thin — voiceless",
               "say": "think",
-              "fa": "فکر کردن — tongue between teeth, no voice",
               "words": "think · thank · three · month · birth",
               "note": "the most common mistake is replacing it with /s/"
             },
@@ -518,7 +462,6 @@
               "ip": "/ð/",
               "sub": "this — voiced",
               "say": "this",
-              "fa": "این — same mouth shape, but the throat buzzes",
               "words": "that · mother · weather · together",
               "note": "common in: the, that, this, them, there, then"
             }
@@ -526,29 +469,25 @@
         },
         {
           "name": {
-            "en": "Lips and tongue",
-            "fa": "لب و زبان"
+            "en": "Lips and tongue"
           },
           "rows": [
             {
               "ip": "/v/",
               "sub": "top teeth on the lower lip",
               "say": "very",
-              "fa": "خیلی — not /w/, not /f/",
               "words": "video · have · love · of · give"
             },
             {
               "ip": "/w/",
               "sub": "round the lips, no teeth",
               "say": "we",
-              "fa": "ما — like Persian و but with rounded lips",
               "words": "what · want · one · away · work"
             },
             {
               "ip": "/r/",
               "sub": "never touches the roof",
               "say": "red",
-              "fa": "قرمز — unlike the rolled Persian ر",
               "words": "right · around · sorry · carry · very",
               "note": "the tip of the tongue floats; it never curls back"
             },
@@ -556,43 +495,37 @@
               "ip": "/l/",
               "sub": "light at the end of a word",
               "say": "light",
-              "fa": "نور — \"well\" is /wɛl/, not /wɛːl/",
               "words": "like · well · all · feel · little"
             },
             {
               "ip": "/ŋ/",
               "sub": "like a soft n",
               "say": "sing",
-              "fa": "خواندن — the back of the tongue rises",
               "words": "thing · running · English · think · young"
             }
           ]
         },
         {
           "name": {
-            "en": "The new letters",
-            "fa": "حروف تازه"
+            "en": "The new letters"
           },
           "rows": [
             {
               "ip": "/z/",
               "sub": "voiced s",
               "say": "zoo",
-              "fa": "باغ‌وحش — Persian ز already does this",
               "words": "zero · busy · easy · is · was"
             },
             {
               "ip": "/ʒ/",
               "sub": "voiced sh",
               "say": "vision",
-              "fa": "بینایی — the /i/ is the French-style one",
               "words": "usually · measure · television · pleasure"
             },
             {
               "ip": "/dʒ/",
               "sub": "voiced ch",
               "say": "job",
-              "fa": "کار — Persian ج in some dialects",
               "words": "jump · bridge · age · enjoy · January"
             }
           ]
@@ -618,64 +551,55 @@
       "groups": [
         {
           "name": {
-            "en": "The pairs that change meaning",
-            "fa": "جفت‌هایی که معنی را عوض می‌کنند"
+            "en": "The pairs that change meaning"
           },
           "rows": [
             {
               "ip": "/p/ vs /b/",
               "sub": "cap — cab",
               "say": "cap",
-              "fa": "کلاه — cab تاکسی",
               "words": "put·but · pig·big · pen·Ben · cap·cab"
             },
             {
               "ip": "/t/ vs /d/",
               "sub": "ten — den",
               "say": "write",
-              "fa": "نوشتن — ride سواری",
               "words": "ten·den · town·down · write·ride · wait·weigh"
             },
             {
               "ip": "/k/ vs /g/",
               "sub": "coat — goat",
               "say": "coat",
-              "fa": "پالتو — بز",
               "words": "back·bag · come·gum · lock·log · curl·girl"
             },
             {
               "ip": "/f/ vs /v/",
               "sub": "fan — van",
               "say": "safe",
-              "fa": "امن — save نجات دادن",
               "words": "fan·van · leaf·leave · fan·fine · safe·save"
             },
             {
               "ip": "/s/ vs /z/",
               "sub": "sip — zip",
               "say": "price",
-              "fa": "قیمت — prize جایزه",
               "words": "sip·zip · grass·graze · ice·eyes · price·prize"
             },
             {
               "ip": "/ʃ/ vs /ʒ/",
               "sub": "shy — measure",
               "say": "measure",
-              "fa": "اندازه گرفتن — shy خجالتی",
               "words": "shy·sky-J · pressure·pleasure · fresh·vision"
             },
             {
               "ip": "/tʃ/ vs /dʒ/",
               "sub": "cheap — jeep",
               "say": "cheap",
-              "fa": "ارزان — job کار",
               "words": "cheap·jeep · chin·gin · rich·ridge · beach·beige"
             },
             {
               "ip": "/θ/ vs /ð/",
               "sub": "think — this",
               "say": "then",
-              "fa": "آن‌وقت — thin نازک",
               "words": "think·then · mouth·moth · throw·though"
             }
           ]
@@ -701,114 +625,98 @@
       "groups": [
         {
           "name": {
-            "en": "Weak forms — the grammar words",
-            "fa": "شکل‌های ضعیف — کلمات دستوری"
+            "en": "Weak forms — the grammar words"
           },
           "rows": [
             {
               "ip": "can → /kən/",
               "sub": "weak form",
               "say": "I can swim.",
-              "fa": "من شنا بلدم — نه /kæn/",
               "words": "can't /kænt/ · you can /jəkən/"
             },
             {
               "ip": "of → /əv/",
               "sub": "weak form",
               "say": "a cup of tea",
-              "fa": "یک فنجان چای — نه /ɒv/",
               "words": "a lot of · instead of · out of"
             },
             {
               "ip": "and → /ən/",
               "sub": "weak form",
               "say": "bread and butter",
-              "fa": "نان و کره — نه /ænd/",
               "words": "salt and pepper · fish and chips"
             },
             {
               "ip": "to → /tə/",
               "sub": "weak form",
               "say": "I want to go.",
-              "fa": "می‌خواهم بروم — نه /tuː/",
               "words": "have to · going to · used to"
             },
             {
               "ip": "was / were → /wəz/ /wə/",
               "sub": "weak form",
               "say": "he was late",
-              "fa": "دیر کرده بود — نه /wɒz/",
               "words": "I was · we were · you were"
             },
             {
               "ip": "should → /ʃəd/",
               "sub": "weak form",
               "say": "you should go",
-              "fa": "باید بروی — نه /ʃʊd/",
               "words": "could · would · must"
             },
             {
               "ip": "them → /ðəm/",
               "sub": "weak form",
               "say": "give them to me",
-              "fa": "آن‌ها را به من بده — نه /ðem/",
               "words": "for them · tell them · from them"
             },
             {
               "ip": "for → /fə/",
               "sub": "weak form",
               "say": "wait for me",
-              "fa": "منتظرم بمان — نه /fɔː/",
               "words": "ask for · look for · what for"
             },
             {
               "ip": "have → /əv/",
               "sub": "weak form",
               "say": "I have a question",
-              "fa": "یک سؤال دارم — نه /hæv/",
               "words": "could have · must have · have to"
             }
           ]
         },
         {
           "name": {
-            "en": "Say it like this",
-            "fa": "این‌طور بگو"
+            "en": "Say it like this"
           },
           "rows": [
             {
               "ip": "Where are you?",
               "sub": "\"Wh-re you?\"",
               "say": "Where are you?",
-              "fa": "کجایی؟ — چهار هجا، سه تا ناچیز",
               "note": "the fastest speakers glue them together"
             },
             {
               "ip": "What are you doing?",
               "sub": "\"Whaddaya doin'?\"",
               "say": "What are you doing?",
-              "fa": "داری چه می‌کنی؟ — casual contraction",
               "note": "always safe in speech, never in writing"
             },
             {
               "ip": "going to",
               "sub": "\"/ənə/ → gonna\"",
               "say": "I'm going to leave.",
-              "fa": "می‌خواهم بروم — \"gonna\"",
               "note": "natural even in careful speech"
             },
             {
               "ip": "have to",
               "sub": "\"/hæftə/ → gotta\"",
               "say": "I have to go.",
-              "fa": "باید بروم — \"gotta\"",
               "note": "the most natural of all contractions"
             },
             {
               "ip": "would have",
               "sub": "→ would've",
               "say": "I would have gone.",
-              "fa": "رفته بودم — contracted",
               "note": "also: I'd, you'd, he'd"
             }
           ]
@@ -834,71 +742,61 @@
       "groups": [
         {
           "name": {
-            "en": "Linking — the consonants join",
-            "fa": "پیوستن — صامت‌ها به هم می‌چسبند"
+            "en": "Linking — the consonants join"
           },
           "rows": [
             {
               "ip": "next day",
               "sub": "/nekst ˈdeɪ/",
               "say": "See you next day.",
-              "fa": "فردا می‌بینمت — /t/ + /d/ → /t/",
               "words": "next door · that time · big deal · good day"
             },
             {
               "ip": "want to",
               "sub": "/ˈwʌntə/",
               "say": "I want to go.",
-              "fa": "می‌خواهم بروم — /t/ + /t/ → /t/",
               "words": "want to know · need to go · used to be"
             },
             {
               "ip": "an hour",
               "sub": "/əˈnaʊə/",
               "say": "I'll be there in an hour.",
-              "fa": "یک ساعت دیگر — the /h/ is dropped",
               "words": "an honest · a hotel · an hour ago"
             },
             {
               "ip": "what are you",
               "sub": "/ˈwɒtʃə/",
               "say": "What are you doing?",
-              "fa": "چه می‌کنی؟ — /t/ + /a/ → /tʃ/",
               "words": "not at all · what else · how about"
             },
             {
               "ip": "pick it up",
               "sub": "flapping: /piˈki ʌp/",
               "say": "Pick it up.",
-              "fa": "بردارش کن — the final /t/ flaps",
               "words": "put it down · let it go · cut it out"
             },
             {
               "ip": "come on",
               "sub": "/kʌˈmɒn/",
               "say": "Come on!",
-              "fa": "بیا! — /k/ + /ə/ → /k/",
               "words": "come on in · go on · run on"
             },
             {
               "ip": "a lot of",
               "sub": "/əˈlɌɒv/",
               "say": "a lot of people",
-              "fa": "خیلی آدم — /t/ + /ə/ → /t/",
               "words": "a lot of time · a lot to do"
             },
             {
               "ip": "forget it",
               "sub": "/fəˈɡeɾɪt/",
               "say": "Forget it.",
-              "fa": "بی‌خیال — final /t/ is dropped",
               "words": "forget about it · forget it"
             },
             {
               "ip": "shouldn't",
               "sub": "→ /ˈʃʊdnt/",
               "say": "I shouldn't go.",
-              "fa": "نباید بروم — the vowel disappears",
               "words": "wouldn't · couldn't · haven't · mustn't"
             }
           ]
@@ -924,50 +822,43 @@
       "groups": [
         {
           "name": {
-            "en": "The four patterns",
-            "fa": "چهار الگو"
+            "en": "The four patterns"
           },
           "rows": [
             {
               "ip": "↘",
               "sub": "falling — statement, certainty",
               "say": "I'm fine.",
-              "fa": "خوبم. — پایین‌رو، مطمئن",
               "note": "the voice drops and stays down"
             },
             {
               "ip": "↗",
               "sub": "rising — yes/no question",
               "say": "Are you ready?",
-              "fa": "آماده‌ای؟ — بالارو",
               "note": "also surprise, doubt, checking"
             },
             {
               "ip": "↘↗",
               "sub": "fall-rise — polite, surprised",
               "say": "Really?",
-              "fa": "جدی؟ — پایین بعد بالا",
               "note": "softens what would sound blunt"
             },
             {
               "ip": "↘ ↘ ↘",
               "sub": "list intonation",
               "say": "I want tea, coffee and bread.",
-              "fa": "چای، قهوه و نان می‌خواهم.",
               "note": "one fall per item, the last one carries it"
             },
             {
               "ip": "↗↘",
               "sub": "if/unless clause rises, main falls",
               "say": "If you go, I'll go.",
-              "fa": "اگر بروی، من هم می‌روم.",
               "note": "the setup lifts, the point drops"
             },
             {
               "ip": "↑↓↑",
               "sub": "surprise + confirmation",
               "say": "You're right!",
-              "fa": "راست می‌گی! — بالا، پایین، بالا",
               "note": "the high ending shows it wasn't expected"
             }
           ]
@@ -993,15 +884,13 @@
       "groups": [
         {
           "name": {
-            "en": "The patterns",
-            "fa": "الگوها"
+            "en": "The patterns"
           },
           "rows": [
             {
               "ip": "-ough",
               "sub": "five different sounds",
               "say": "though",
-              "fa": "اگرچه — /oʊ/",
               "words": "through /uː/ · cough /ɒf/ · tough /ʌf/ · bough /aʊ/",
               "note": "there is no rule at all — memorise as a group"
             },
@@ -1009,7 +898,6 @@
               "ip": "-igh",
               "sub": "always /aɪ/",
               "say": "night",
-              "fa": "شب — gh is silent",
               "words": "light · right · high · sight · bright · slight",
               "note": "compare with /ɪ/ in think, bring, sing"
             },
@@ -1017,7 +905,6 @@
               "ip": "-ea-",
               "sub": "four pronunciations",
               "say": "bread",
-              "fa": "نان — /ɛ/",
               "words": "great /eɪ/ · steak /eɪ/ · heart /ɑː/ · head /ɛ/",
               "note": "the most irregular vowel spelling in English"
             },
@@ -1025,28 +912,24 @@
               "ip": "silent letters",
               "sub": "speak, don't spell",
               "say": "listen",
-              "fa": "گوش دادن — the t is silent",
               "words": "know · write · answer · half · calm · island · Wednesday"
             },
             {
               "ip": "-f → -ves",
               "sub": "plural changes the sound",
               "say": "leaves",
-              "fa": "برگ‌ها — leaf /liːf/ → /liːvz/",
               "words": "knife·knives · wife·wives · life·lives · shelf·shelves"
             },
             {
               "ip": "double consonants",
               "sub": "add a syllable when doubled",
               "say": "running",
-              "fa": "دویدن — run /rʌn/ → /ˈrʌnɪŋ/",
               "words": "big·bigger · hot·hotter · stop·stopped · plan·planned"
             },
             {
               "ip": "final -e",
               "sub": "a silent e makes the vowel long",
               "say": "made",
-              "fa": "ساخته شد — make /meɪk/ → /meɪd/",
               "words": "hope·hoped · live·lived · note·noted · dance·danced"
             }
           ]
@@ -1072,79 +955,67 @@
       "groups": [
         {
           "name": {
-            "en": "Where the beat lands",
-            "fa": "ضربه کجا می‌نشیند"
+            "en": "Where the beat lands"
           },
           "rows": [
             {
               "ip": "content words",
               "sub": "noun · verb · adjective · adverb",
               "say": "I bought a new car last week.",
-              "fa": "ماشین نو خریدم — روی «خریدم» و «نو» ضربه بزن.",
               "note": "function words ride in between, unstressed"
             },
             {
               "ip": "stress shift",
               "sub": "when a word becomes the verb",
               "say": "I can run ten kilometres.",
-              "fa": "می‌توانم ده کیلومتر بدوم — «run» برجسته می‌شود.",
               "words": "light·to light · second·a second · present·to present"
             },
             {
               "ip": "unstressed words",
               "sub": "they vanish",
-              "say": "Would you like to come?",
-              "fa": "می‌آیی؟ — of, to, would تقریباً حذف می‌شوند."
+              "say": "Would you like to come?"
             },
             {
               "ip": "chunking",
               "sub": "phrase > word > sound",
-              "say": "I'd like to book a table for two.",
-              "fa": "می‌خواهم میز دو نفره رزرو کنم — چهار گروه."
+              "say": "I'd like to book a table for two."
             },
             {
               "ip": "weak + strong",
               "sub": "the rhythm pattern",
-              "say": "Can you see the sea?",
-              "fa": "می‌بینی دریا را؟ — CAN you SEE the SEA."
+              "say": "Can you see the sea?"
             },
             {
               "ip": "overlong groups",
               "sub": "split them",
-              "say": "When I arrived, the meeting had already started.",
-              "fa": "وقتی رسیدم | جلسه شروع شده بود — دو گروه."
+              "say": "When I arrived, the meeting had already started."
             }
           ]
         },
         {
           "name": {
-            "en": "Practice it",
-            "fa": "تمرین کنید"
+            "en": "Practice it"
           },
           "rows": [
             {
               "ip": "clap it",
               "sub": "clap on stressed words only",
-              "say": "I would really like to help you.",
-              "fa": "واقعاً دوست دارم کمکت کنم — سه ضربه."
+              "say": "I would really like to help you."
             },
             {
               "ip": "record yourself",
               "sub": "compare with the original",
-              "say": "Reading fluently is a matter of practice.",
-              "fa": "روان خواندن نتیجه تمرین است."
+              "say": "Reading fluently is a matter of practice."
             },
             {
               "ip": "don't over-pause",
               "sub": "short pauses, not silences",
-              "say": "Well, I mean, it depends, doesn't it?",
-              "fa": "خب، یعنی، بستگی دارد، نه؟"
+              "say": "Well, I mean, it depends, doesn't it?"
             },
             {
               "ip": "sentence stress",
               "sub": "one new idea = one beat",
-              "say": "That's a good idea. But it needs work.",
-              "fa": "ایده خوبی است. | اما کار می‌برد."
+              "say": "That's a good idea. But it needs work."
             }
           ]
         }
@@ -1169,77 +1040,65 @@
       "groups": [
         {
           "name": {
-            "en": "Presenting",
-            "fa": "ارائه"
+            "en": "Presenting"
           },
           "rows": [
             {
               "ip": "signpost",
               "sub": "pause, then drop",
-              "say": "Three things happened last quarter.",
-              "fa": "سه اتفاق افتاد — مکث، سپس افت."
+              "say": "Three things happened last quarter."
             },
             {
               "ip": "the number",
               "sub": "isolated and loud",
-              "say": "Revenue rose by forty per cent.",
-              "fa": "درآمد چهل درصد رشد کرد — روی عدد تأکید کن."
+              "say": "Revenue rose by forty per cent."
             },
             {
               "ip": "contrast",
               "sub": "the other half falls",
-              "say": "Costs rose. Profits fell.",
-              "fa": "هزینه‌ها بالا رفت. | سود پایین آمد."
+              "say": "Costs rose. Profits fell."
             },
             {
               "ip": "closing",
               "sub": "fall, then hold",
-              "say": "That is where we are today.",
-              "fa": "اینجاییم که امروز هستیم — پایین و ثابت."
+              "say": "That is where we are today."
             }
           ]
         },
         {
           "name": {
-            "en": "Persuading & managing",
-            "fa": "متقاعد کردن و مدیریت"
+            "en": "Persuading & managing"
           },
           "rows": [
             {
               "ip": "hedged decline",
               "sub": "rise, then firm drop",
-              "say": "I see your point, though…",
-              "fa": "نکته‌تان را می‌بینم، اما…"
+              "say": "I see your point, though…"
             },
             {
               "ip": "confident",
               "sub": "low and level",
-              "say": "We can deliver this by Friday.",
-              "fa": "می‌توانیم تا جمعه تحویل دهیم — یکنواخت و پایین."
+              "say": "We can deliver this by Friday."
             },
             {
               "ip": "excuse",
               "sub": "flat and slightly rising",
-              "say": "That won't work for the team.",
-              "fa": "برای تیم مناسب نیست — بدون تنش."
+              "say": "That won't work for the team."
             },
             {
               "ip": "good news",
               "sub": "rise, level, hold",
-              "say": "We have a new offer on the table.",
-              "fa": "پیشنهاد جدیدی داریم — بالا، سپس ثابت."
+              "say": "We have a new offer on the table."
             },
             {
               "ip": "bad news",
               "sub": "small sigh, then level",
-              "say": "The supplier has withdrawn.",
-              "fa": "تأمین‌کننده انصراف داده است."
+              "say": "The supplier has withdrawn."
             },
             {
               "ip": "disagreement",
               "sub": "never end on a rise",
-              "say": "I understand, but I see it differently.",
-              "fa": "درک می‌کنم، اما نظرم فرق دارد — آخرش پایین."
+              "say": "I understand, but I see it differently."
             }
           ]
         }
@@ -1264,95 +1123,80 @@
       "groups": [
         {
           "name": {
-            "en": "Common reductions",
-            "fa": "کاهش‌های پرتکرار"
+            "en": "Common reductions"
           },
           "rows": [
             {
               "ip": "of /əv/ → (v)",
               "sub": "often just a breath",
-              "say": "a couple of hours",
-              "fa": "چند ساعت — و در عمل تقریباً حذف می‌شود."
+              "say": "a couple of hours"
             },
             {
               "ip": "to /tə/ → (t)",
               "sub": "used to → 'juːstə'",
-              "say": "I used to live there.",
-              "fa": "آنجا زندگی می‌کردم — فشرده می‌شود."
+              "say": "I used to live there."
             },
             {
               "ip": "and → n",
               "sub": "just a nasal",
-              "say": "bread and butter",
-              "fa": "نان و کره — «and» فقط یک ن می‌شود."
+              "say": "bread and butter"
             },
             {
               "ip": "for → fə",
               "sub": "one syllable",
-              "say": "what are you waiting for?",
-              "fa": "منتظر چی هستی؟ — همه در هم ادغام می‌شوند."
+              "say": "what are you waiting for?"
             },
             {
               "ip": "-ing → ŋ",
               "sub": "no vowel at all",
-              "say": "I'm not going.",
-              "fa": "نمی‌روم — «ing» فقط یک ن است."
+              "say": "I'm not going."
             },
             {
               "ip": "-ed → d / t",
               "sub": "gone entirely",
-              "say": "we walked",
-              "fa": "راه رفتیم — پسوند حذف می‌شود."
+              "say": "we walked"
             },
             {
               "ip": "final stops",
               "sub": "just a glottal click",
-              "say": "that right?",
-              "fa": "درسته؟ — تلفظ انفجاری کوتاه."
+              "say": "that right?"
             },
             {
               "ip": "the → ðə",
               "sub": "or just /ə/",
-              "say": "the other one",
-              "fa": "آن یکی دیگر — «the» تقریباً حذف می‌شود."
+              "say": "the other one"
             }
           ]
         },
         {
           "name": {
-            "en": "Where to stop reducing",
-            "fa": "کجا دیگر کم نکن"
+            "en": "Where to stop reducing"
           },
           "rows": [
             {
               "ip": "content words",
               "sub": "keep every sound",
-              "say": "Reorganisation is unavoidable.",
-              "fa": "بازسازی سازمان اجتناب‌ناپذیر است — محتوا کامل."
+              "say": "Reorganisation is unavoidable."
             },
             {
               "ip": "numbers & names",
               "sub": "always clear",
-              "say": "Room seven, please.",
-              "fa": "اتاق هفت، لطفاً."
+              "say": "Room seven, please."
             },
             {
               "ip": "negatives",
               "sub": "don't lose the contrast",
-              "say": "I said no, not maybe.",
-              "fa": "گفتم نه، نه شاید — تفاوت حیاتی است."
+              "say": "I said no, not maybe."
             },
             {
               "ip": "instructions",
               "sub": "clarity beats speed",
-              "say": "Turn left after the bridge.",
-              "fa": "بعد از پل بپیچ چپ — دستور باید واضح بماند."
+              "say": "Turn left after the bridge."
             },
             {
               "ip": "first time",
               "sub": "say it fully",
-              "say": "Could you say that again?",
-              "fa": "می‌توانید دوباره بگویید؟ — آهسته و کامل."
+              "say": "Could you say that again?"
             }
           ]
         }

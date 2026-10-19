@@ -17,6 +17,7 @@ import sys
 import urllib.request
 
 import websockets
+from websockets.asyncio.client import connect
 
 
 def sh(*cmd: str) -> str:
@@ -48,7 +49,18 @@ async def main() -> int:
     url = target["webSocketDebuggerUrl"]
     url = url.replace("localhost", "127.0.0.1")
     exprs = sys.argv[1:] or ["document.title"]
-    async with websockets.connect(url, max_size=32 * 1024 * 1024) as ws:
+    # A bounded handshake and a per-expression deadline. Without them a
+    # renderer that is busy - or one that has gone away - leaves this hanging
+    # until something else kills it, which is indistinguishable from the tool
+    # being broken.
+    try:
+        ws = await asyncio.wait_for(
+            websockets.connect(url, max_size=32 * 1024 * 1024,
+                               open_timeout=15), timeout=20)
+    except (asyncio.TimeoutError, OSError) as e:
+        raise SystemExit(f"could not attach to the WebView: {e}")
+
+    async with ws:
         n = 0
         for expr in exprs:
             n += 1
@@ -58,7 +70,11 @@ async def main() -> int:
                            "awaitPromise": True, "userGesture": True},
             }))
             while True:
-                msg = json.loads(await ws.recv())
+                try:
+                    msg = json.loads(await asyncio.wait_for(ws.recv(), timeout=25))
+                except asyncio.TimeoutError:
+                    print(f"  !! {expr}\n     -> no reply within 25s")
+                    break
                 if msg.get("id") != n:
                     continue
                 res = msg.get("result", {})

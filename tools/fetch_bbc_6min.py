@@ -23,6 +23,7 @@ with --audit.
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import re
 import sys
@@ -71,7 +72,12 @@ MIN_SECONDS_BETWEEN = 0.35
 #   InvalidURL, OSError("URL can't contain control characters")  a ValueError
 # The first three run-endering crashes in this file were all one of these
 # slipping past a narrower except clause, so they are caught as one class.
-NET_ERRORS = (OSError, ValueError)
+# A truncated body is the failure mode this actually hits: BBC closes the
+# connection partway through a few hundred PDFs per run. IncompleteRead is an
+# HTTPException, which is neither an OSError nor a ValueError, so it used to
+# escape every except clause here and take the whole run down on episode nine
+# of a thousand - with every grade before it still only in memory.
+NET_ERRORS = (OSError, ValueError, http.client.HTTPException)
 
 
 def http_get(url: str, timeout: int = 40, attempts: int = 3) -> bytes:

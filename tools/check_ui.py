@@ -113,11 +113,39 @@ def main() -> int:
     # window has to start after it or this check just finds its own fix.
     boot = src[src.rindex("PANEL_ON_OPEN"):]
     boot = boot[boot.index("};") + 2:]
-    # Anchored to column zero, so it finds the top-level boot call and not the
-    # `await loadWordArch()` inside the save command, which is deliberate.
-    check("word_arch is not fetched at boot",
-          not re.search(r"^loadWordArch\(\)", boot, re.M),
-          "302 KB of word chips should wait for the panel that shows them")
+# ---------------------------------------------------------------- sections --
+    # This used to be deferred on purpose: 450 KB of word chips that nobody
+    # sees until the Sentences panel opens, so fetching them at boot looked
+    # like waste. With the loading screen held for five seconds, deferring
+    # saves nothing the user is waiting on and leaves that panel feeling
+    # broken on first open. The word index is read during boot now; the
+    # open-panel hook below stays as the fallback for a read that failed.
+    #
+    # The list inside loadAllSections is the boot's entire value. A section
+    # dropped from it goes back to loading on first tap, and nothing else
+    # would say so - the app would still open, just slower to be usable.
+    boot_sections = re.search(r"async function loadAllSections\(\)\s*\{([\s\S]*?)\n\}", src)
+    boot_body = boot_sections.group(1) if boot_sections else ""
+    for fn, why in (("loadVocabulary", "Vocabulary"),
+                    ("loadGrammar", "Grammar"),
+                    ("loadPhrases", "Sentences"),
+                    ("loadListening", "Listening"),
+                    ("loadPhonetics", "Sounds"),
+                    ("loadWordArch", "the word index behind the chips"),
+                    ("bbcDoc", "the audio catalogue")):
+        check(f"{why} is read during boot",
+              boot_sections is not None and fn in boot_body,
+              f"{fn} is missing from loadAllSections(), so that section is "
+              "back to loading on first tap")
+    check("the boot reports progress rather than spinning blindly",
+          "Boot.step(" in boot_body and "Boot.step(0," in boot_body,
+          "a bar that never moves is worse than the bouncing tile, because "
+          "it looks like a stall")
+    check("one unreadable section does not abandon the rest of the boot",
+          re.search(r"try \{ await run\(\); \} catch", boot_body) is not None,
+          "Promise.all rejects on the first failure, so one missing file "
+          "leaves every later section unbuilt")
+
     hooks = re.search(r"PANEL_ON_OPEN\s*=\s*\{(.*?)\n\};", src, re.S)
     hook_body = hooks.group(1) if hooks else ""
     check("opening the Sentences panel is what fetches word_arch",
@@ -377,13 +405,210 @@ def main() -> int:
 
     # The chrome is what was actually too big: 119px of header and 108px of
     # composer left barely two thirds of a phone for the conversation.
-    # .send has three declarations; the phone one is what matters, and the
-    # narrow-phone one drops the floor entirely.
-    send_mh = declared(".send", "min-height")
-    check("the send button is not the floor for the whole composer",
-          bool(send_mh) and max(send_mh) <= 42,
-          f"min-height {send_mh}px sets the height of the input and the "
-          "microphone too - at 46px it made all three 46")
+    # The send button is an icon button with an explicit box, so it no longer
+    # sets the height of the row by min-height. What it must not do is grow:
+    # the composer is one line whatever happens inside it.
+    send_w, send_h = declared(".send", "width"), declared(".send", "height")
+    check("the send button is a fixed square, not a floor for the row",
+          bool(send_w) and bool(send_h)
+          and max(send_w) <= 44 and max(send_h) <= 44,
+          f"{send_w}x{send_h}: when it was 46px tall by min-height it set the "
+          "height of the input and the microphone too")
+
+
+    # -------------------------------------------------------------- borderless --
+    # Seven outlined boxes in a row is a rack of buttons, not a toolbar, and
+    # the same outline around the mic and the send button made the composer
+    # read as three small boxes sitting inside a fourth. The states that used
+    # to live on the outline have to be carried by fill and shadow instead, so
+    # these checks test both halves of that: no outline, and a state that is
+    # still readable without one.
+    def border_px(sel: str) -> list[float]:
+        """Declared border widths for a selector's own rules, in px.
+
+        Matches the bare selector only: ".hbtn" followed by whitespace and a
+        brace, so it picks up the base rule and the narrow-screen one while
+        skipping ".hbtn:hover" and ".hbtn i".
+        """
+        out: list[float] = []
+        for block in re.findall(r"(?<![\w.-])" + re.escape(sel) + r"\s*\{([^}]*)\}", src):
+            m = re.search(r"(?<!-)\bborder(?:-width)?\s*:\s*([^;]+)", block)
+            if not m:
+                continue
+            for part in m.group(1).split():
+                if part in ("none", "0"):
+                    out.append(0.0)
+                elif part.endswith("px"):
+                    out.append(float(part[:-2]))
+        return out
+
+    for sel, label in ((".hbtn", "top-bar section buttons"),
+                       (".mic", "microphone"),
+                       (".send", "send button")):
+        ws = border_px(sel)
+        check(f"the {label} carry no border",
+              bool(ws) and max(ws) == 0,
+              f"{ws}: a row of outlined boxes reads as a rack of buttons rather "
+              "than a toolbar, and in the composer it reads as three boxes "
+              "inside a fourth")
+
+    on = re.search(r"\.hbtn\.on\s*\{([^}]*)\}", src)
+    check("the open section button still reads as open without its outline",
+          on is not None and "background" in on.group(1)
+          and "box-shadow" in on.group(1),
+          "the border was doing that job: with no fill and no glow, the open "
+          "panel looks exactly like the seven closed ones")
+
+    # The microphone told four states apart with four border colours. Fill
+    # alone has to carry them now, so they must differ by hue rather than by
+    # a shade of the same blue - which is invisible to anyone who glances at
+    # it, and "is it listening?" is exactly what a glance is asking.
+    mic_fills: dict[str, str | None] = {}
+    for state, pat in (("idle", r"\.mic\s*\{"),
+                       ("listening", r"\.mic\.rec\s*\{"),
+                       ("unavailable", r"\.mic\[aria-disabled=.true.\]\s*\{")):
+        m = re.search(pat + r"([^}]*)\}", src)
+        bg = re.search(r"background:\s*(#[0-9a-f]{3,8})", m.group(1)) if m else None
+        mic_fills[state] = bg.group(1).lower() if bg else None
+    check("the microphone's states differ by colour, not just by brightness",
+          all(mic_fills.values()) and len(set(mic_fills.values())) == 3,
+          f"{mic_fills}: these were told apart by border colour, which is gone")    # -------------------------------------------------------------- boot --
+    # The loader is in the markup rather than added by script: boot reads about
+    # a megabyte of JSON, and a script-added overlay lands after the first long
+    # frame - the blank screen it was meant to cover.
+    check("the boot overlay is in the markup, not injected by script",
+          re.search(r"<body>\s*<div class=\"boot\"", src) is not None,
+          "injected by script it appears after the first slow frame, which is "
+          "the blank screen it exists to hide")
+    # Four independent ways down. Any one of them failing still leaves the app
+    # usable; all four failing is a blank screen with an animation on it.
+    # "the boot finishing" is Boot.ready(), not Boot.hide(): the ordinary path
+    # is the sections landing plus the floor having passed, and the overlay is
+    # not allowed to go the moment the last read finishes.
+    for label, pat in (
+        ("the boot finishing", r"Boot\.ready\(\)"),
+        ("an uncaught error", r"window\.addEventListener\('error', hide\)"),
+        ("a promise rejection", r"window\.addEventListener\('unhandledrejection', hide\)"),
+        ("a deadline", r"setTimeout\(hide, CEILING_MS\)"),
+    ):
+        check(f"the boot screen always comes down on {label}",
+              re.search(pat, src) is not None,
+              "a loader that cannot be dismissed is worse than no loader")
+    check("the boot overlay is removed from the tree, not just faded",
+          re.search(r"classList\.add\('gone'\)[\s\S]{0,300}?removeChild\(el\)", src) is not None,
+          "left in the tree it stays a full-screen element a later focus can "
+          "land on, over a working page")
+    # The floor is the requirement: start-up reads about a megabyte of JSON
+    # and the loading screen is what covers it, so it is held for five seconds
+    # whether the reads take two or twenty. Without the floor a fast machine
+    # flashes the loader and the slow one keeps it, which is the one thing a
+    # loading screen must not do.
+    floor = re.search(r"FLOOR_MS\s*=\s*(\d+)", src)
+    check("the boot screen is held for at least five seconds",
+          floor is not None and int(floor.group(1)) >= 5000,
+          "a boot that returns in 300ms reads as a flicker, not as a load")
+    check("the floor is a timer, not a promise",
+          re.search(r"setTimeout\(\(\) => \{ floorUp = true; maybe\(\); \}, FLOOR_MS\)", src)
+          is not None,
+          "awaited instead, one slow section extends the boot by its own time")
+    check("the boot waits for the sections as well as the floor",
+          re.search(r"function maybe\(\) \{ if \(floorUp && dataIn\) hide\(\); \}", src)
+          is not None,
+          "either condition alone dismisses the screen before the app is usable")
+    check("the boot deadline is short enough to be useful",
+          (lambda m: m is not None and 8000 <= int(m.group(1)) <= 20000)(
+              re.search(r"CEILING_MS\s*=\s*(\d+)", src)),
+          "boot reads about a megabyte of JSON; much past twenty seconds and "
+          "the user is watching a spinner rather than watching it load")
+    # The mascot again: the boot bird is a second copy of the same geometry,
+    # and a hand-drawn one drifts from the icon exactly as the watermark did.
+    icon = re.search(r"const BIRD =\s*'(.*?)';", src, re.S)
+    check("the boot bird is the mascot, not a redrawing of it",
+          icon is not None and all(d in src for d in (
+              "M10 27 L3.5 20 L5.5 31 Z", "M21.5 13.5 q1-6.5 4.5-6.5",
+              "M36 22.5 L42.5 25.5 L36 28.5 Z")),
+          "crest, tail and beak are the icon's own paths, copied so the boot "
+          "bird cannot drift into a different animal")
+    # The loader animates on a 0.5s cycle. That is UI feedback, not ambience,
+    # so it is exempt from the 18s band - but it still has to be transform-only
+    # or it repaints every frame.
+    def keyframes_body(name: str) -> str:
+        """The whole block, braces balanced.
+
+        A [^}]* capture stops at the first nested "}", which in a keyframe is
+        the end of the first step - so a check written that way never saw the
+        50% step, where the property it was looking for actually lived.
+        """
+        start = src.find("@keyframes " + name)
+        if start < 0:
+            return ""
+        i = src.find("{", start)
+        depth, j = 0, i
+        while j < len(src):
+            if src[j] == "{":
+                depth += 1
+            elif src[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    return src[i + 1:j]
+            j += 1
+        return ""
+
+    for name in ("bootJump", "bootShadow", "bootBob"):
+        body = keyframes_body(name)
+        bad = sorted({prop for prop in re.findall(
+            r"[;{]\s*([a-z-]+)\s*:", body)
+            if prop in ("width", "height", "top", "left", "bottom", "right",
+                        "background", "margin", "padding", "filter")})
+        check(f"@{name} animates transform only", bool(body) and not bad,
+              f"{', '.join(bad)} re-runs layout or paint on every frame")
+    check("the boot animation collapses under prefers-reduced-motion",
+          re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,600}?"
+                    r"\.loader::before, \.loader::after \{ animation: none", src) is not None,
+          "an endless bounce is what that setting is for")
+
+    # ------------------------------------------------------------- emoji --
+    # Content lives in emojis.json, not in code. That is the rule the whole
+    # project follows, and a picker with its list hardcoded here would break
+    # it while looking like the feature works.
+    check("the emoji list is a data file, not code",
+          re.search(r"loadJSON\('emojis'\)", src) is not None
+          and "😀" not in src,
+          "adding an emoji must be an edit to emojis.json, never to webapp.py")
+    check("the emoji button is wired to the panel it controls",
+          re.search(r'id="emojibtn"[^>]*aria-controls="emojipanel"', src) is not None
+          and re.search(r"id='emojipanel'|getElementById\('emojipanel'\)", src) is not None,
+          "aria-controls has to point at something that exists")
+    check("the picker reports its open state",
+          re.search(r"els\.btn\.setAttribute\('aria-expanded'", src) is not None,
+          "a button that opens something should say whether it is open")
+    # Escape and an outside click both have to close it, or on a phone it is
+    # a panel in the way with no obvious way out. Every document keydown
+    # handler is examined, not just the first: the search field has its own
+    # Escape branch, so searching the source for the key anywhere passed even
+    # with the document-level handler deleted.
+    handlers = re.findall(
+        r"document\.addEventListener\('keydown',[\s\S]{0,400}?\n    \}\)", src)
+    outside = "els.panel.contains(ev.target)" in src
+    check("the picker closes on Escape and on an outside click",
+          any("Escape" in h and "close()" in h for h in handlers) and outside,
+          "either route alone leaves the other open, and on a phone that is a "
+          "panel sitting over the composer with no way out of it")
+    check("the picker returns focus to the composer when it closes",
+          re.search(r"function close\(\)[\s\S]{0,400}?els\.input\.focus\(\)", src) is not None,
+          "focus left on a hidden button is a keyboard trap")
+# Against the code, not the prose: the line that declares the pattern
+    # carries a comment explaining that \w is ASCII-only, so a check that
+    # greps the raw line for "\w" fails on exactly the code that fixes it.
+    search_line = next((l for l in src.splitlines() if "const SEARCH" in l), "")
+    code_part = re.sub(r"//.*$", "", search_line)
+    check("emoji search is Unicode-aware",
+          "\\p{L}" in code_part and "\\w" not in code_part,
+          f"declared as {code_part.strip()!r}: a bare \\w cannot match Persian, "
+          "so a search for an emoji in Farsi would return nothing at all")
+    check("every emoji tile carries an accessible name",
+          re.search(r"b\.setAttribute\('aria-label', label\)", src) is not None,
+          "a grid of unlabelled glyphs is a wall of nothing to a screen reader")
 
     # ------------------------------------------------------------- colour --
     # Contrast has to be computed, not eyeballed. The learner bubble was
@@ -742,15 +967,32 @@ def main() -> int:
                       f"{len(promises)} loads but {len(picked)} names; "
                       f"anything after the first divergence is off by one")
 
-        # the two big files are fetched on demand, not at boot: 1.4 MB and
-        # about 420ms of startup on the build that ships to a phone
+        # Every data file is read behind the loading screen, the two big ones
+        # included. They used to be fetched on first use instead, on the
+        # reasoning that a panel most people never open should not cost every
+        # start-up 1.4 MB - which is true and also irrelevant, because the
+        # screen is held for five seconds whatever the machine does. Deferring
+        # them only moved the wait from start-up to the first tap, and made
+        # the progress bar on the loading screen count three of seven.
         boot_block = built[i:j] if i != -1 else ""
-        check("bbc_6min.json is not loaded at boot",
-              "bbc_6min" not in boot_block,
-              "~1 MB for a panel most users never open")
-        check("word_arch.json is not loaded at boot",
-              "word_arch" not in boot_block,
-              "~450 KB, only needed by the Sentences panel's word chips")
+        for name, why in (("bbc_6min", "the Listen tab's catalogue"),
+                          ("word_arch", "the Sentences panel's word chips")):
+            check(f"{name}.json is loaded during the boot",
+                  f"loadJSON('{name}')" in boot_block,
+                  f"{why} should be read while the loading screen is up, not "
+                  f"on the first tap")
+        # ...and because the boot holds the screen, it has to reach the same
+        # loadAllSections() the web build does. The offline page used to have
+        # its own smaller boot that filled five panels and left two empty
+        # until they were opened.
+        check("the offline boot fills the panels through loadAllSections",
+              re.search(r"return loadAllSections\(\);", built) is not None,
+              "one boot, one place to look when a section comes back empty")
+        check("the offline boot is dismissed through Boot, not a bare timer",
+              "Boot.ready()" in built
+              and "Boot.hide()" not in (built[j:] if i != -1 and j != -1 else ""),
+              "Boot.hide() straight after the reads throws away the five "
+              "second floor and the loading screen is a flicker")
 
         leftovers = sorted(set(re.findall(r"fetch\(\s*['\"]/api/[^'\"]+", built)))
         check("no server calls survive in the offline page", not leftovers,
