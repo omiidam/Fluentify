@@ -108,6 +108,11 @@
      megabyte of JSON, and a script-added overlay arrives after the first
      long frame - which is the blank screen it was meant to cover.
 
+     The composition is a lit glass card floating over a slow aurora, rather
+     than a logo on an empty field. Everything that moves is transform- or
+     opacity-only, so the five seconds this is on screen do not compete with
+     the JSON reads behind it for the phone's main thread.
+
      It always goes away. Three ways out, because a loader that cannot be
      dismissed is the one bug worse than no loader at all: the boot finishing,
      a window error, and a deadline that fires whatever happened in between.
@@ -115,29 +120,124 @@
   .boot {
     position: fixed; inset: 0; z-index: 9998;
     display: grid; place-items: center;
-    background: radial-gradient(120% 90% at 50% 18%, #1b2350 0%, #0b102e 62%);
-    transition: opacity .34s cubic-bezier(.22,1,.36,1), visibility .34s;
+    overflow: hidden; isolation: isolate;
+    padding: max(24px, env(safe-area-inset-top)) 24px
+             max(24px, env(safe-area-inset-bottom));
+    background:
+      radial-gradient(95% 70% at 50% -10%, #26336b 0%, transparent 62%),
+      radial-gradient(80% 60% at 108% 108%, #16344d 0%, transparent 58%),
+      linear-gradient(158deg, #080c22 0%, #0b102e 52%, #090e26 100%);
+    transition: opacity .4s cubic-bezier(.22,1,.36,1), visibility .4s;
   }
   .boot.gone { opacity: 0; visibility: hidden; pointer-events: none; }
-  .boot-in { display: grid; justify-items: center; gap: 14px; }
+
+  /* Static colour, moving light. No filter on an animated layer: a blur here
+     is re-rasterised every frame on the one screen that must stay smooth. */
+  .boot-aurora { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .boot-aurora i {
+    position: absolute; display: block;
+    width: 62vmax; height: 62vmax; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,92,157,.22) 0%, rgba(255,92,157,0) 68%);
+    animation: bootDrift 19s ease-in-out infinite alternate;
+  }
+  .boot-aurora i:nth-child(1) { top: -34vmax; left: -26vmax; }
+  .boot-aurora i:nth-child(2) {
+    top: 18vmax; right: -34vmax;
+    background: radial-gradient(circle, rgba(139,102,255,.26) 0%, rgba(139,102,255,0) 68%);
+    animation-duration: 24s; animation-delay: -7s;
+  }
+  .boot-aurora i:nth-child(3) {
+    bottom: -38vmax; left: 8vmax;
+    background: radial-gradient(circle, rgba(52,211,153,.14) 0%, rgba(52,211,153,0) 70%);
+    animation-duration: 29s; animation-delay: -13s;
+  }
+  @keyframes bootDrift {
+    0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
+    50%  { transform: translate3d(4%, 3%, 0) scale(1.08); }
+    100% { transform: translate3d(-1%, 5%, 0) scale(1.03); }
+  }
+
+  .boot-in {
+    position: relative; width: min(100%, 384px);
+    display: grid; justify-items: center; gap: 18px;
+    padding: 34px 28px 24px;
+    border-radius: 30px;
+    background: linear-gradient(160deg, rgba(31,40,89,.82), rgba(10,15,42,.9));
+    border: 1px solid rgba(255,255,255,.09);
+    box-shadow:
+      0 34px 90px rgba(2,5,18,.62),
+      0 2px 0 rgba(255,255,255,.05) inset,
+      0 -30px 70px rgba(109,140,255,.08) inset;
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    backdrop-filter: blur(22px) saturate(140%);
+    animation: bootCardIn .72s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes bootCardIn {
+    from { opacity: 0; transform: translateY(14px) scale(.975); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* The mark: the mascot inside a slowly turning gradient ring, with a soft
+     inner well so the bird reads against the card rather than floating. */
+  .boot-mark {
+    position: relative; width: 108px; height: 108px;
+    display: grid; place-items: center;
+  }
+  .boot-halo {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(from 0deg,
+      #ff5c9d, #ffc2e2, #a78bfa, #6d8cff, #34d399, #ff5c9d);
+    opacity: .9;
+    box-shadow: 0 0 42px rgba(255,92,157,.3), 0 0 80px rgba(109,140,255,.16);
+    animation: bootSpin 7s linear infinite;
+  }
+  .boot-halo::after {
+    content: ''; position: absolute; inset: 4px; border-radius: 50%;
+    background: radial-gradient(circle at 32% 24%, #1d2757, #0c1130 72%);
+    box-shadow: 0 1px 0 rgba(255,255,255,.08) inset;
+  }
+  @keyframes bootSpin {
+    to { transform: rotate(1turn); }
+  }
   .boot-bird {
-    width: 74px; height: 74px;
-    animation: bootBob 2.6s cubic-bezier(.45,0,.55,1) infinite;
+    position: relative; z-index: 1;
+    width: 68px; height: 68px;
+    animation: bootBob 2.8s cubic-bezier(.45,0,.55,1) infinite;
+    transform-origin: 50% 58%;
   }
   @keyframes bootBob {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-7px); }
+    0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+    50%      { transform: translateY(-6px) rotate(1.5deg); }
   }
+
+  .boot-brand { display: grid; justify-items: center; gap: 5px; text-align: center; }
+  .boot-name {
+    font-size: 29px; font-weight: 700; letter-spacing: -.6px;
+    line-height: 1.05;
+    background: linear-gradient(102deg, #ffffff 8%, #ffc2e2 48%, #c4b5fd 88%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .boot-tag {
+    font-size: 12.5px; letter-spacing: .2px; color: #a9b6dd;
+    line-height: 1.5;
+  }
+  .boot-tag em { color: #ffb7d8; font-style: normal; }
+
   /* A bouncing tile with its shadow on the floor. The shape is borrowed from
      a well-known loading animation; the colour is the tutor's. Transform
      only, so it stays on the compositor. */
+  .boot-loading {
+    width: 100%; display: flex; align-items: center; gap: 15px;
+    margin-top: 2px;
+  }
   .loader {
-    width: 34px; height: 34px; position: relative;
+    width: 26px; height: 26px; position: relative; flex: 0 0 26px;
   }
   .loader::before {
-    content: ''; width: 34px; height: 4px;
+    content: ''; width: 26px; height: 3px;
     background: rgba(255,92,157,.42);
-    position: absolute; top: 42px; left: 0;
+    position: absolute; top: 33px; left: 0;
     border-radius: 50%;
     animation: bootShadow .5s linear infinite;
   }
@@ -146,37 +246,71 @@
     background: linear-gradient(140deg, #ffc2e2, #ff5c9d);
     position: absolute; top: 0; left: 0;
     border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(255,92,157,.35);
     animation: bootJump .5s linear infinite;
   }
   @keyframes bootJump {
     15%  { border-bottom-right-radius: 3px; }
-    25%  { transform: translateY(8px) rotate(22.5deg); }
-    50%  { transform: translateY(15px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 22px; }
-    75%  { transform: translateY(8px) rotate(67.5deg); }
+    25%  { transform: translateY(6px) rotate(22.5deg); }
+    50%  { transform: translateY(11px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 18px; }
+    75%  { transform: translateY(6px) rotate(67.5deg); }
     100% { transform: translateY(0) rotate(90deg); }
   }
   @keyframes bootShadow {
     0%, 100% { transform: scale(1, 1); }
     50%      { transform: scale(1.18, 1); }
   }
-  .boot-txt { display: grid; justify-items: center; gap: 3px; margin-top: 6px; }
-  .boot-txt b { font-size: 16px; color: #eef1fb; letter-spacing: .2px; }
-  .boot-txt span { font-size: 12px; color: #9fb0ef; }
+
   /* The bar counts sections that have actually landed, so it has to be a
      real width rather than an animation on a fixed timeline. Transform
      only, so filling it costs no layout on a phone. */
   .boot-track {
-    width: 172px; height: 3px; border-radius: 3px;
-    background: rgba(255,255,255,.13); overflow: hidden;
+    position: relative; flex: 1 1 auto;
+    height: 5px; border-radius: 999px;
+    background: rgba(255,255,255,.1); overflow: hidden;
+    box-shadow: 0 1px 0 rgba(255,255,255,.05) inset;
   }
   .boot-track i {
     display: block; width: 100%; height: 100%; border-radius: inherit;
-    background: linear-gradient(90deg, #ff8dc4, #a78bfa);
+    background: linear-gradient(90deg, #ff5c9d, #ff9ccb 42%, #a78bfa 100%);
+    box-shadow: 0 0 16px rgba(255,92,157,.45);
     transform: scaleX(0); transform-origin: 0 50%;
-    transition: transform .45s cubic-bezier(.22,1,.36,1);
+    transition: transform .5s cubic-bezier(.22,1,.36,1);
   }
+  .boot-meta {
+    width: 100%; display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; margin-top: -6px;
+    font-size: 11.5px; color: #93a2cc;
+  }
+  .boot-meta #bootnote {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .boot-meta #bootpct {
+    flex: none; color: #ffc2e2; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .boot-foot {
+    display: flex; align-items: center; gap: 7px;
+    margin-top: 4px; padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,.07); width: 100%;
+    justify-content: center;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    color: #7b89b5;
+  }
+  .boot-foot i {
+    width: 5px; height: 5px; border-radius: 50%; background: #34d399;
+    box-shadow: 0 0 10px rgba(52,211,153,.7);
+    animation: bootPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes bootPulse {
+    0%, 100% { opacity: .55; transform: scale(.85); }
+    50%      { opacity: 1; transform: scale(1); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .boot { transition: none; }
+    .boot-in { animation: none; }
+    .boot-aurora i, .boot-halo, .boot-foot i { animation: none; }
     .boot-bird { animation: none; }
     .loader::before, .loader::after { animation: none; }
     .boot-track i { transition: none; }
@@ -2031,22 +2165,38 @@
 <body>
 <div class="boot" id="boot" role="status" aria-live="polite"
      aria-label="Loading Fluentify / در حال بارگذاری">
+    <div class="boot-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="boot-in">
-      <svg class="boot-bird" viewBox="0 0 48 48" aria-hidden="true">
-        <defs>
-          <linearGradient id="bootBirdG" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ffc2e2"/><stop offset="55%" stop-color="#ff8dc4"/>
-            <stop offset="100%" stop-color="#ff5c9d"/></linearGradient>
-        </defs>
-        <path d="M10 27 L3.5 20 L5.5 31 Z" fill="#ff5c9d"/>
-        <ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#bootBirdG)"/>
-        <path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#ff9ccb"/>
-        <path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#ffc44d"/>
-        <circle cx="31" cy="21.5" r="3.3" fill="#4a1030"/>
-        <circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>
-      </svg>
-      <div class="loader" aria-hidden="true"></div>
-      <div class="boot-track" aria-hidden="true"><i id="bootfill"></i></div>
+      <div class="boot-mark" aria-hidden="true">
+        <span class="boot-halo"></span>
+        <svg class="boot-bird" viewBox="0 0 48 48">
+          <defs>
+            <linearGradient id="bootBirdG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffc2e2"/><stop offset="55%" stop-color="#ff8dc4"/>
+              <stop offset="100%" stop-color="#ff5c9d"/></linearGradient>
+          </defs>
+          <path d="M10 27 L3.5 20 L5.5 31 Z" fill="#ff5c9d"/>
+          <ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#bootBirdG)"/>
+          <path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#ff9ccb"/>
+          <path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#ffc44d"/>
+          <circle cx="31" cy="21.5" r="3.3" fill="#4a1030"/>
+          <circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="boot-brand">
+        <div class="boot-name">Fluentify</div>
+        <div class="boot-tag">English, one small win at a time<br>
+          <em>انگلیسی، هر روز یک قدم کوچک</em></div>
+      </div>
+      <div class="boot-loading" aria-hidden="true">
+        <div class="loader"></div>
+        <div class="boot-track"><i id="bootfill"></i></div>
+      </div>
+      <div class="boot-meta">
+        <span id="bootnote">Preparing your library…</span>
+        <span id="bootpct">0%</span>
+      </div>
+      <div class="boot-foot"><i aria-hidden="true"></i>Offline-ready · آماده آفلاین</div>
     </div>
   </div>
   <div class="motes" id="motes" aria-hidden="true"></div>
@@ -4405,14 +4555,16 @@ async function loadListening() {
 
 
 /* ---------- BBC 6 Minute English ----------
-   A catalogue, not a download: every clip, transcript and worksheet stays on
-   BBC's servers and the player streams from there. Nothing BBC publishes is
-   copied into this repository or into the APK.
+   An audio catalogue: the mirrored clips and the episode links are what this
+   section offers. The transcript PDFs are not shown at all - BBC's download
+   links are unreliable from a WebView and several have been retired, so a
+   "Transcript" control that opens a dead PDF is worse than no control.
 
    Each episode is graded A2→C1 by tools/fetch_bbc_6min.py, which reads the
    official transcript and blends vocabulary stretch, the share of B2+ words,
-   sentence length, clause density and speaking rate. The grade comes from the
-   transcript, so the band is what you actually hear, not the topic. */
+   sentence length, clause density and speaking rate. The grade still comes
+   from the transcript, so the band is what you actually hear, not the topic;
+   the transcript is simply not surfaced as a download. */
 let bbcDocCache = null;
 /* The graded catalogue, cached. It is about a megabyte, and the boot warms it
    so the first tap on the Listen tab is not the thing that discovers it. */
@@ -4426,12 +4578,11 @@ async function loadBBC() {
   if (!box) return;
   try {
     const doc = await bbcDoc();
-    // Keep transcript-only episodes too. BBC retired the player on its older
-    // 6 Minute English pages, so roughly a third of the archive has a graded
-    // transcript and a worksheet link but no streamable audio - hiding those
-    // would quietly drop two thirds of the catalogue.
+    // Audio first, and only audio. An episode with no stream has nothing this
+    // section can play, and its transcript link is exactly the dead PDF the
+    // section no longer offers - so it is not listed at all.
     const all = doc.episodes || [];
-    const episodes = all.filter((e) => e.audio || e.transcript_url);
+    const episodes = all.filter((e) => e.audio);
     if (!episodes.length) return;
 
     const wrap = document.createElement('div');
@@ -4449,31 +4600,29 @@ async function loadBBC() {
     const note = document.createElement('div');
     note.className = 'bbc-note';
     const dist = doc.distribution || {};
-    // '?' means "no transcript", not a level - it must not be listed as one
+    // '?' means "ungraded", not a level - it must not be listed as one
     const spread = Object.keys(dist).filter((k) => k && k !== '?').sort().join(' · ');
     const ungradedN = episodes.filter((e) => !e.level).length;
-    const tail = ungradedN ? ` ${ungradedN} have no transcript, so no grade.` : '';
-    // Count what is actually listed, not doc.count. Three of the 1126 carry
-    // neither a stream nor a transcript and are filtered out above, so
-    // quoting the catalogue total claimed 1123 episodes were on screen when
-    // 1126 was - and no level tab ever added up to the number in the header.
+    const tail = ungradedN ? ` ${ungradedN} are still ungraded.` : '';
+    // Count what is actually listed, not doc.count. Episodes with no playable
+    // stream are filtered out above, so quoting the catalogue total would
+    // claim more episodes are on screen than any level tab can add up to.
     const hidden = (doc.count || 0) - episodes.length;
     const dropped = hidden > 0
-      ? ` ${hidden} have neither audio nor transcript and are not listed.`
+      ? ` ${hidden} have no playable audio and are not listed.`
       : '';
     note.textContent = spread
       ? `${episodes.length} BBC episodes — ${episodes.length - ungradedN} graded ` +
-        `${spread}. Each grade comes from the official transcript: vocabulary, ` +
+        `${spread}. Each grade is set from the episode's transcript: vocabulary, ` +
         `sentence length and speaking pace.${tail}${dropped} ` +
-        'Audio plays from bbc.co.uk. / صدا از سایت بی‌بی‌سی پخش می‌شود.'
+        'Audio plays from the offline mirror. / صدا از نسخه آفلاین پخش می‌شود.'
       : `${episodes.length} episodes from BBC Learning English. ` +
-        'Audio plays from bbc.co.uk.';
+        'Audio plays from the offline mirror.';
     head.appendChild(note);
     wrap.appendChild(head);
 
-    // Level filter. Episodes without a transcript cannot be graded - the
-    // one-line blurb is too short to score honestly - so they get their own
-    // tab rather than being silently lumped into "All" as if they were A2.
+    // Level filter. Episodes without a grade get their own tab rather than
+    // being silently lumped into "All" as if they were A2.
     const levels = [...new Set(episodes.map((e) => e.level).filter(Boolean))].sort();
     const ungraded = episodes.filter((e) => !e.level).length;
     const bar = document.createElement('div');
@@ -4513,7 +4662,7 @@ async function loadBBC() {
         const lvl = document.createElement('span');
         lvl.className = 'bbc-lvl lvl-' + (ep.level || 'none');
         lvl.textContent = ep.level || '–';
-        if (!ep.level) lvl.title = 'No transcript, so no honest grade';
+        if (!ep.level) lvl.title = 'Not graded yet';
         const title = document.createElement('span');
         title.className = 'bbc-title';
         title.textContent = ep.title;
@@ -4533,7 +4682,7 @@ async function loadBBC() {
         if (ep.year) bits.push(ep.year);
         if (ep.duration) bits.push(Math.round(ep.duration / 60) + ' min');
         const st = ep.stats || {};
-        if (!ep.level) bits.push('no transcript to grade from');
+        if (!ep.level) bits.push('not graded yet');
         if (st.avg_sentence) bits.push('sentences ~' + st.avg_sentence + ' words');
         if (st.challenge_pct != null) bits.push(st.challenge_pct + '% B2+');
         if (st.c1c2_pct) bits.push(st.c1c2_pct + '% C1');
@@ -4545,19 +4694,6 @@ async function loadBBC() {
 
         const play = document.createElement('button');
         play.className = 'bbc-play';
-        if (!ep.audio) {
-          // no stream: BBC removed the player from these older pages, so the
-          // official transcript is the way in
-          play.textContent = '📄  Transcript only';
-          play.classList.add('nofile');
-          play.title = 'BBC no longer streams this episode. Open the transcript.';
-          play.onclick = () => window.open(ep.transcript_url, '_blank',
-                                           'noopener');
-          bar2.appendChild(play);
-          card.appendChild(bar2);
-          list.appendChild(card);
-          continue;
-        }
         play.textContent = '▶  Play';
         const label = (on) => {
           play.textContent = on ? '❚❚  Pause' : '▶  Play';
@@ -4583,16 +4719,6 @@ async function loadBBC() {
         page.textContent = 'Episode';
         bar2.appendChild(page);
 
-        if (ep.transcript_url) {
-          const tr = document.createElement('a');
-          tr.className = 'bbc-link';
-          tr.href = ep.transcript_url;
-          tr.target = '_blank';
-          tr.rel = 'noopener noreferrer';
-          tr.textContent = 'Transcript';
-          tr.title = 'The official transcript, as a PDF from BBC Learning English';
-          bar2.appendChild(tr);
-        }
         if (ep.worksheet_url) {
           const ws = document.createElement('a');
           ws.className = 'bbc-link';
@@ -5112,6 +5238,7 @@ const Boot = (() => {
 
   const fill = document.getElementById('bootfill');
   const note = document.getElementById('bootnote');
+  const pct = document.getElementById('bootpct');
   let gone = false;
   let floorUp = false;
   let dataIn = false;
@@ -5141,8 +5268,14 @@ const Boot = (() => {
     /* What is loading, in the reader's words. */
     say(text) { if (note) note.textContent = text; },
     step(done, total, label) {
-      if (fill) fill.style.transform = 'scaleX(' + (total ? done / total : 0) + ')';
-      if (note && label) note.textContent = label + ' · ' + done + ' / ' + total;
+      const ratio = total ? Math.min(1, done / total) : 0;
+      if (fill) fill.style.transform = 'scaleX(' + ratio + ')';
+      if (pct) pct.textContent = Math.round(ratio * 100) + '%';
+      if (note) {
+        note.textContent = label
+          ? label + ' · ' + done + ' of ' + total
+          : 'Preparing your library…';
+      }
     },
     /* Every section is in. The overlay still holds until the floor passes. */
     ready() { dataIn = true; maybe(); },

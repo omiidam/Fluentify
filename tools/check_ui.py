@@ -200,8 +200,14 @@ def main() -> int:
           "BBC episodes" in bbc and "doc.count" not in bbc.split("note.textContent")[1][:400],
           "a filtered list must not be captioned with the unfiltered total")
     check("bbc says how many were dropped",
-          "neither audio nor transcript" in bbc,
+          "no playable audio" in bbc,
           "an honest count has to explain the difference")
+    # BBC's transcript PDFs are not dependable from the WebView, so the list
+    # must not offer a control that opens one. The grade still comes from the
+    # transcript; only its dead download link is gone.
+    check("the bbc list does not offer transcript downloads",
+          "transcript_url" not in bbc and "Transcript" not in bbc,
+          "a transcript button that opens a retired PDF reads as a broken app")
 
     # ---------------------------------------------------- review count badge --
     # It was at top:-3px / inset-inline-end:-3px, which is outside a 46px
