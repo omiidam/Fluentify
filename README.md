@@ -21,9 +21,9 @@ no network calls, no tracking.
 | Area | Details |
 |---|---|
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
-| 📚 Vocabulary | 1,052 words across 33 grouped domains, translate & define in both languages |
-| 📘 Grammar | 31 lessons (A1→B2) — structure → function → **6 practice questions → a gated 20-question exam**, with a themed result card |
-| 💬 Sentences | 277 ready-to-use sentences across 25 real-life situations |
+| 📚 Vocabulary | 2,314 words across 64 grouped domains, translate & define in both languages |
+| 📘 Grammar | 42 lessons (A1→C2) — structure → function → **6 practice questions → a gated 20-question exam**, with a themed result card |
+| 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
 | 😂 Jokes | 10 bilingual jokes with category filtering (`programming joke`, `جوک ربات`) |
@@ -77,9 +77,9 @@ tests_js_vs_python.py       Python ⇄ JavaScript engine parity test
 tools/js_engine.js          headless harness for the JS engine
 
 memory.json                 42 intents + both alphabets
-glossary.json               1,052 words in 33 domains
-grammar.json                31 lessons: practice + exam question sets
-phrases.json                277 sentences in 25 situations
+glossary.json               2,314 words in 64 domains
+grammar.json                42 lessons: practice + exam question sets
+phrases.json                517 sentences in 45 situations
 jokes.json                  10 bilingual jokes
 listening.json              48 spoken sentences graded A1 → C2
 
@@ -171,10 +171,11 @@ each graded by how hard it is to *hear*, not just to read.
 | **6 Minute English** | 501 | B1–B2 | the former 5 Minute English — news and chat |
 | **The English We Speak** | 501 | B2–C1 | idioms and phrasal verbs, upper level |
 
-> **On the audio.** Every clip, transcript and worksheet is BBC copyright. This
-> project stores **links only**: the catalogue holds the canonical BBC URLs and
-> the app streams the audio from `bbc.co.uk`, exactly as bbc.co.uk does. No BBC
-> media is copied into this repository or bundled into the APK.
+> **On the audio.** Every clip, transcript and worksheet is BBC copyright. The
+> repository stores **links only**, and no BBC media is committed to git or
+> bundled into the APK. The 20 episodes in the shipped catalogue are mirrored to
+> an ArvanCloud storage bucket for reliable streaming; the app still keeps the
+> canonical BBC page URL for each episode.
 
 ```bash
 python3 tools/fetch_bbc_6min.py --fetch all     # index + grade the archive

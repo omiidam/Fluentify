@@ -5147,7 +5147,8 @@
         "domains": [
           "food",
           "fruits",
-          "vegetables"
+          "vegetables",
+          "cooking_basics"
         ]
       },
       {
@@ -5183,6 +5184,17 @@
           "clothing",
           "sports",
           "music"
+        ]
+      },
+      {
+        "id": "modern_life",
+        "en": "Modern life",
+        "fa": "زندگی امروزی",
+        "domains": [
+          "digital_life",
+          "relationships",
+          "public_services",
+          "sleep_wellbeing"
         ]
       },
       {
@@ -10311,6 +10323,821 @@
         [
           "compliance",
           "رعایت مقررات"
+        ]
+      ]
+    },
+    "cooking_basics": {
+      "label": {
+        "en": "cooking",
+        "fa": "آشپزی"
+      },
+      "list_label": {
+        "en": "Cooking & recipes",
+        "fa": "آشپزی و دستور پخت"
+      },
+      "level": "A2",
+      "keywords": {
+        "en": [
+          "cooking words",
+          "recipe words",
+          "kitchen verbs",
+          "how to cook"
+        ],
+        "fa": [
+          "کلمات آشپزی",
+          "دستور پخت",
+          "وسایل آشپزخانه",
+          "پختن غذا"
+        ]
+      },
+      "words": [
+        [
+          "recipe",
+          "دستور پخت"
+        ],
+        [
+          "ingredient",
+          "ماده اولیه"
+        ],
+        [
+          "boil",
+          "جوشاندن"
+        ],
+        [
+          "fry",
+          "سرخ کردن"
+        ],
+        [
+          "bake",
+          "پختن در فر"
+        ],
+        [
+          "roast",
+          "بریان کردن"
+        ],
+        [
+          "grill",
+          "کباب کردن"
+        ],
+        [
+          "steam",
+          "بخارپز کردن"
+        ],
+        [
+          "chop",
+          "خرد کردن"
+        ],
+        [
+          "slice",
+          "برش دادن"
+        ],
+        [
+          "stir",
+          "هم زدن"
+        ],
+        [
+          "mix",
+          "مخلوط کردن"
+        ],
+        [
+          "pour",
+          "ریختن"
+        ],
+        [
+          "peel",
+          "پوست کندن"
+        ],
+        [
+          "season",
+          "چاشنی زدن"
+        ],
+        [
+          "taste",
+          "چشیدن"
+        ],
+        [
+          "delicious",
+          "خوشمزه"
+        ],
+        [
+          "spicy",
+          "تند"
+        ],
+        [
+          "salty",
+          "شور"
+        ],
+        [
+          "sour",
+          "ترش"
+        ],
+        [
+          "sweet",
+          "شیرین"
+        ],
+        [
+          "bitter",
+          "تلخ"
+        ],
+        [
+          "sauce",
+          "سس"
+        ],
+        [
+          "pan",
+          "ماهیتابه"
+        ],
+        [
+          "pot",
+          "قابلمه"
+        ],
+        [
+          "oven",
+          "فر"
+        ],
+        [
+          "stove",
+          "اجاق"
+        ],
+        [
+          "knife",
+          "چاقو"
+        ],
+        [
+          "cutting board",
+          "تخته برش"
+        ],
+        [
+          "leftovers",
+          "غذای باقی‌مانده"
+        ],
+        [
+          "serving",
+          "یک وعده"
+        ],
+        [
+          "tablespoon",
+          "قاشق غذاخوری"
+        ]
+      ]
+    },
+    "digital_life": {
+      "label": {
+        "en": "digital life",
+        "fa": "زندگی دیجیتال"
+      },
+      "list_label": {
+        "en": "Phones, apps & online life",
+        "fa": "گوشی، برنامه و زندگی آنلاین"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "digital life",
+          "app words",
+          "internet words",
+          "social media words"
+        ],
+        "fa": [
+          "زندگی دیجیتال",
+          "اینترنت",
+          "گوشی",
+          "شبکه اجتماعی"
+        ]
+      },
+      "words": [
+        [
+          "smartphone",
+          "گوشی هوشمند"
+        ],
+        [
+          "charger",
+          "شارژر"
+        ],
+        [
+          "battery",
+          "باتری"
+        ],
+        [
+          "screen",
+          "صفحه‌نمایش"
+        ],
+        [
+          "notification",
+          "اعلان"
+        ],
+        [
+          "password",
+          "رمز عبور"
+        ],
+        [
+          "username",
+          "نام کاربری"
+        ],
+        [
+          "account",
+          "حساب کاربری"
+        ],
+        [
+          "log in",
+          "وارد شدن"
+        ],
+        [
+          "log out",
+          "خارج شدن"
+        ],
+        [
+          "sign up",
+          "ثبت‌نام کردن"
+        ],
+        [
+          "download",
+          "دانلود کردن"
+        ],
+        [
+          "upload",
+          "بارگذاری کردن"
+        ],
+        [
+          "stream",
+          "پخش جریانی"
+        ],
+        [
+          "scroll",
+          "اسکرول کردن"
+        ],
+        [
+          "swipe",
+          "سوایپ کردن"
+        ],
+        [
+          "tap",
+          "ضربه زدن"
+        ],
+        [
+          "update",
+          "به‌روزرسانی"
+        ],
+        [
+          "install",
+          "نصب کردن"
+        ],
+        [
+          "settings",
+          "تنظیمات"
+        ],
+        [
+          "privacy",
+          "حریم خصوصی"
+        ],
+        [
+          "permission",
+          "مجوز"
+        ],
+        [
+          "data usage",
+          "مصرف داده"
+        ],
+        [
+          "Wi-Fi",
+          "وای‌فای"
+        ],
+        [
+          "message",
+          "پیام"
+        ],
+        [
+          "emoji",
+          "شکلک"
+        ],
+        [
+          "screenshot",
+          "تصویر صفحه"
+        ],
+        [
+          "backup",
+          "نسخه پشتیبان"
+        ],
+        [
+          "sync",
+          "همگام‌سازی"
+        ],
+        [
+          "offline",
+          "آفلاین"
+        ],
+        [
+          "online",
+          "آنلاین"
+        ],
+        [
+          "app",
+          "برنامه"
+        ],
+        [
+          "link",
+          "پیوند"
+        ],
+        [
+          "profile",
+          "نمایه"
+        ],
+        [
+          "follower",
+          "دنبال‌کننده"
+        ],
+        [
+          "hashtag",
+          "هشتگ"
+        ]
+      ]
+    },
+    "relationships": {
+      "label": {
+        "en": "relationship",
+        "fa": "رابطه"
+      },
+      "list_label": {
+        "en": "Friends, love & trust",
+        "fa": "دوستی، عشق و اعتماد"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "relationships",
+          "friendship words",
+          "love and dating words",
+          "trust words"
+        ],
+        "fa": [
+          "روابط",
+          "دوستی",
+          "عشق",
+          "اعتماد"
+        ]
+      },
+      "words": [
+        [
+          "friendship",
+          "دوستی"
+        ],
+        [
+          "trust",
+          "اعتماد"
+        ],
+        [
+          "respect",
+          "احترام"
+        ],
+        [
+          "support",
+          "حمایت"
+        ],
+        [
+          "loyalty",
+          "وفاداری"
+        ],
+        [
+          "commitment",
+          "تعهد"
+        ],
+        [
+          "affection",
+          "محبت"
+        ],
+        [
+          "crush",
+          "شیفتگی"
+        ],
+        [
+          "date",
+          "قرار عاشقانه"
+        ],
+        [
+          "partner",
+          "شریک زندگی"
+        ],
+        [
+          "couple",
+          "زوج"
+        ],
+        [
+          "marriage",
+          "ازدواج"
+        ],
+        [
+          "divorce",
+          "طلاق"
+        ],
+        [
+          "argument",
+          "بحث"
+        ],
+        [
+          "misunderstanding",
+          "سوءتفاهم"
+        ],
+        [
+          "apology",
+          "عذرخواهی"
+        ],
+        [
+          "forgive",
+          "بخشیدن"
+        ],
+        [
+          "break up",
+          "جدا شدن"
+        ],
+        [
+          "make up",
+          "آشتی کردن"
+        ],
+        [
+          "get along with",
+          "کنار آمدن با"
+        ],
+        [
+          "fall in love",
+          "عاشق شدن"
+        ],
+        [
+          "propose",
+          "خواستگاری کردن"
+        ],
+        [
+          "engaged",
+          "نامزد"
+        ],
+        [
+          "wedding",
+          "عروسی"
+        ],
+        [
+          "anniversary",
+          "سالگرد"
+        ],
+        [
+          "relative",
+          "خویشاوند"
+        ],
+        [
+          "colleague",
+          "همکار"
+        ],
+        [
+          "neighbour",
+          "همسایه"
+        ],
+        [
+          "bond",
+          "پیوند"
+        ],
+        [
+          "honest",
+          "صادق"
+        ],
+        [
+          "jealous",
+          "حسود"
+        ],
+        [
+          "supportive",
+          "حامی"
+        ],
+        [
+          "rely on",
+          "تکیه کردن به"
+        ],
+        [
+          "keep in touch",
+          "در ارتباط ماندن"
+        ],
+        [
+          "drift apart",
+          "از هم دور شدن"
+        ]
+      ]
+    },
+    "public_services": {
+      "label": {
+        "en": "public services",
+        "fa": "خدمات عمومی"
+      },
+      "list_label": {
+        "en": "Forms, offices & civic life",
+        "fa": "اداره‌ها، فرم‌ها و زندگی شهری"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "public services",
+          "government words",
+          "council words",
+          "paperwork words"
+        ],
+        "fa": [
+          "خدمات عمومی",
+          "دولت",
+          "شهرداری",
+          "فرم اداری"
+        ]
+      },
+      "words": [
+        [
+          "government",
+          "دولت"
+        ],
+        [
+          "council",
+          "شورای شهر"
+        ],
+        [
+          "municipality",
+          "شهرداری"
+        ],
+        [
+          "office",
+          "اداره"
+        ],
+        [
+          "counter",
+          "باجه"
+        ],
+        [
+          "queue",
+          "صف"
+        ],
+        [
+          "form",
+          "فرم"
+        ],
+        [
+          "application",
+          "درخواست"
+        ],
+        [
+          "identification",
+          "کارت شناسایی"
+        ],
+        [
+          "passport",
+          "گذرنامه"
+        ],
+        [
+          "license",
+          "مجوز"
+        ],
+        [
+          "certificate",
+          "گواهی"
+        ],
+        [
+          "registration",
+          "ثبت‌نام"
+        ],
+        [
+          "appointment",
+          "وقت ملاقات"
+        ],
+        [
+          "fee",
+          "هزینه"
+        ],
+        [
+          "tax",
+          "مالیات"
+        ],
+        [
+          "insurance",
+          "بیمه"
+        ],
+        [
+          "pension",
+          "مستمری"
+        ],
+        [
+          "benefit",
+          "کمک‌هزینه"
+        ],
+        [
+          "postal service",
+          "خدمات پستی"
+        ],
+        [
+          "parcel",
+          "بسته"
+        ],
+        [
+          "address",
+          "نشانی"
+        ],
+        [
+          "signature",
+          "امضا"
+        ],
+        [
+          "photocopy",
+          "رونوشت"
+        ],
+        [
+          "stamp",
+          "مهر"
+        ],
+        [
+          "deadline",
+          "مهلت"
+        ],
+        [
+          "renew",
+          "تمدید کردن"
+        ],
+        [
+          "submit",
+          "ارائه دادن"
+        ],
+        [
+          "process",
+          "فرایند"
+        ],
+        [
+          "approve",
+          "تأیید کردن"
+        ],
+        [
+          "reject",
+          "رد کردن"
+        ],
+        [
+          "complain",
+          "شکایت کردن"
+        ],
+        [
+          "fine",
+          "جریمه"
+        ],
+        [
+          "emergency services",
+          "خدمات اضطراری"
+        ],
+        [
+          "utility service",
+          "خدمات شهری"
+        ]
+      ]
+    },
+    "sleep_wellbeing": {
+      "label": {
+        "en": "sleep",
+        "fa": "خواب"
+      },
+      "list_label": {
+        "en": "Rest, stress & balance",
+        "fa": "استراحت، استرس و تعادل"
+      },
+      "level": "B1",
+      "keywords": {
+        "en": [
+          "sleep words",
+          "wellbeing words",
+          "stress and rest",
+          "self-care words"
+        ],
+        "fa": [
+          "خواب",
+          "آرامش",
+          "سلامت روان",
+          "استرس"
+        ]
+      },
+      "words": [
+        [
+          "sleep",
+          "خواب"
+        ],
+        [
+          "nap",
+          "چرت"
+        ],
+        [
+          "insomnia",
+          "بی‌خوابی"
+        ],
+        [
+          "bedtime",
+          "وقت خواب"
+        ],
+        [
+          "wake up",
+          "بیدار شدن"
+        ],
+        [
+          "alarm clock",
+          "ساعت زنگ‌دار"
+        ],
+        [
+          "routine",
+          "برنامه روزانه"
+        ],
+        [
+          "exhausted",
+          "خسته"
+        ],
+        [
+          "rested",
+          "سرحال"
+        ],
+        [
+          "stress",
+          "استرس"
+        ],
+        [
+          "anxiety",
+          "اضطراب"
+        ],
+        [
+          "burnout",
+          "فرسودگی شغلی"
+        ],
+        [
+          "relax",
+          "آرام شدن"
+        ],
+        [
+          "breathe",
+          "نفس کشیدن"
+        ],
+        [
+          "meditation",
+          "مراقبه"
+        ],
+        [
+          "mindfulness",
+          "ذهن‌آگاهی"
+        ],
+        [
+          "exercise",
+          "ورزش کردن"
+        ],
+        [
+          "nutrition",
+          "تغذیه"
+        ],
+        [
+          "balanced diet",
+          "رژیم متعادل"
+        ],
+        [
+          "hydration",
+          "آب‌رسانی"
+        ],
+        [
+          "screen time",
+          "زمان استفاده از صفحه"
+        ],
+        [
+          "unwind",
+          "آرام گرفتن"
+        ],
+        [
+          "mood",
+          "حالت روحی"
+        ],
+        [
+          "energy",
+          "انرژی"
+        ],
+        [
+          "focus",
+          "تمرکز"
+        ],
+        [
+          "habit",
+          "عادت"
+        ],
+        [
+          "break",
+          "استراحت کوتاه"
+        ],
+        [
+          "self-care",
+          "مراقبت از خود"
+        ],
+        [
+          "mental health",
+          "سلامت روان"
+        ],
+        [
+          "wellbeing",
+          "بهزیستی"
+        ],
+        [
+          "recover",
+          "بهبود یافتن"
+        ],
+        [
+          "oversleep",
+          "بیش از حد خوابیدن"
         ]
       ]
     }

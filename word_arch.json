@@ -2878,7 +2878,8 @@
    ],
    "level": "A1",
    "domains": [
-    "fruits"
+    "fruits",
+    "relationships"
    ]
   },
   "kiwi": {
@@ -5009,7 +5010,8 @@
    ],
    "level": "A1",
    "domains": [
-    "emotions"
+    "emotions",
+    "relationships"
    ]
   },
   "calm": {
@@ -6378,7 +6380,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "public_services"
    ]
   },
   "ticket": {
@@ -6880,7 +6883,8 @@
    "level": "B1",
    "domains": [
     "technology",
-    "communication"
+    "communication",
+    "digital_life"
    ]
   },
   "software": {
@@ -6967,7 +6971,8 @@
    "level": "B1",
    "domains": [
     "technology",
-    "communication"
+    "communication",
+    "digital_life"
    ]
   },
   "battery": {
@@ -6986,7 +6991,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "charger": {
@@ -7005,7 +7011,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "camera": {
@@ -7165,7 +7172,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "email": {
@@ -7239,7 +7247,8 @@
    "level": "B1",
    "domains": [
     "technology",
-    "communication"
+    "communication",
+    "digital_life"
    ]
   },
   "smartphone": {
@@ -7254,7 +7263,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "printer": {
@@ -7364,7 +7374,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "public_services"
    ]
   },
   "browser": {
@@ -7402,7 +7413,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "upload": {
@@ -7421,7 +7433,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "folder": {
@@ -7535,7 +7548,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "virus": {
@@ -7573,7 +7587,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "pixel": {
@@ -7622,7 +7637,8 @@
    ],
    "level": "B1",
    "domains": [
-    "technology"
+    "technology",
+    "digital_life"
    ]
   },
   "football": {
@@ -9406,7 +9422,8 @@
    "level": "A1",
    "domains": [
     "places",
-    "work_business"
+    "work_business",
+    "public_services"
    ]
   },
   "restaurant": {
@@ -11423,7 +11440,8 @@
    "level": "A1",
    "domains": [
     "verbs",
-    "body_health"
+    "body_health",
+    "sleep_wellbeing"
    ]
   },
   "walk": {
@@ -12709,7 +12727,9 @@
     "time_words",
     "work_business",
     "education_b1",
-    "workplace"
+    "workplace",
+    "business_vocab",
+    "public_services"
    ]
   },
   "century": {
@@ -12956,7 +12976,8 @@
    "level": "A1",
    "domains": [
     "weather_seasons",
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "spring": {
@@ -13291,7 +13312,8 @@
    "domains": [
     "weather_seasons",
     "workplace",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "song": {
@@ -14659,7 +14681,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "cooking_basics"
    ]
   },
   "oven": {
@@ -14678,7 +14701,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "cooking_basics"
    ]
   },
   "sink": {
@@ -15441,7 +15465,8 @@
    "domains": [
     "bank_money",
     "workplace",
-    "finance_b2"
+    "finance_b2",
+    "business_vocab"
    ]
   },
   "price": {
@@ -15528,7 +15553,8 @@
    "level": "A2",
    "domains": [
     "bank_money",
-    "finance_b2"
+    "finance_b2",
+    "public_services"
    ]
   },
   "budget": {
@@ -16151,7 +16177,8 @@
    ],
    "level": "A1",
    "domains": [
-    "body_health"
+    "body_health",
+    "sleep_wellbeing"
    ]
   },
   "recovery": {
@@ -16285,7 +16312,8 @@
    "level": "A2",
    "domains": [
     "work_business",
-    "workplace"
+    "workplace",
+    "relationships"
    ]
   },
   "team": {
@@ -16457,7 +16485,8 @@
    "level": "A2",
    "domains": [
     "work_business",
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "client": {
@@ -16844,7 +16873,8 @@
    ],
    "level": "A1",
    "domains": [
-    "communication"
+    "communication",
+    "digital_life"
    ]
   },
   "notification": {
@@ -16863,7 +16893,8 @@
    ],
    "level": "A1",
    "domains": [
-    "communication"
+    "communication",
+    "digital_life"
    ]
   },
   "contact": {
@@ -17272,7 +17303,8 @@
    ],
    "level": "A1",
    "domains": [
-    "shopping_clothes"
+    "shopping_clothes",
+    "public_services"
    ]
   },
   "aisle": {
@@ -17621,7 +17653,8 @@
    "forms": [],
    "level": "A1",
    "domains": [
-    "daily_routine_words"
+    "daily_routine_words",
+    "sleep_wellbeing"
    ]
   },
   "get up": {
@@ -18054,7 +18087,8 @@
    "level": "A1",
    "domains": [
     "daily_routine_words",
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "take a walk": {
@@ -18363,7 +18397,8 @@
    ],
    "level": "B1",
    "domains": [
-    "phrasal_verbs"
+    "phrasal_verbs",
+    "relationships"
    ]
   },
   "get used to": {
@@ -19519,7 +19554,8 @@
    ],
    "level": "B1",
    "domains": [
-    "describing_people"
+    "describing_people",
+    "relationships"
    ]
   },
   "patient": {
@@ -20085,7 +20121,8 @@
    ],
    "level": "B1",
    "domains": [
-    "describing_people"
+    "describing_people",
+    "relationships"
    ]
   },
   "impatient": {
@@ -20379,7 +20416,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "fry": {
@@ -20402,7 +20440,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "bake": {
@@ -20425,7 +20464,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "roast": {
@@ -20448,7 +20488,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "grill": {
@@ -20471,7 +20512,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "chop": {
@@ -20494,7 +20536,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "slice": {
@@ -20517,7 +20560,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "peel": {
@@ -20540,7 +20584,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "stir": {
@@ -20563,7 +20608,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "cooking_basics"
    ]
   },
   "simmer": {
@@ -21070,7 +21116,8 @@
    ],
    "level": "B1",
    "domains": [
-    "health_visits"
+    "health_visits",
+    "sleep_wellbeing"
    ]
   },
   "operation": {
@@ -21226,7 +21273,8 @@
    ],
    "level": "B1",
    "domains": [
-    "health_visits"
+    "health_visits",
+    "public_services"
    ]
   },
   "prescribe": {
@@ -21605,7 +21653,8 @@
    "domains": [
     "education_b1",
     "workplace",
-    "formal_register"
+    "formal_register",
+    "public_services"
    ]
   },
   "revise": {
@@ -22082,7 +22131,8 @@
    "level": "B1",
    "domains": [
     "education_b1",
-    "science_tech_c1"
+    "science_tech_c1",
+    "academic_vocab"
    ]
   },
   "methodology": {
@@ -22101,7 +22151,8 @@
    ],
    "level": "B1",
    "domains": [
-    "education_b1"
+    "education_b1",
+    "academic_vocab"
    ]
   },
   "participate": {
@@ -23021,7 +23072,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "minutes": {
@@ -23036,7 +23088,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "attend": {
@@ -23157,7 +23210,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "milestone": {
@@ -23177,7 +23231,8 @@
    "level": "B2",
    "domains": [
     "workplace",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "objective": {
@@ -23216,7 +23271,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "workflow": {
@@ -23265,7 +23321,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "payroll": {
@@ -23284,7 +23341,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "probation": {
@@ -23303,7 +23361,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "appraisal": {
@@ -23322,7 +23381,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "promotion": {
@@ -23471,7 +23531,8 @@
    "level": "B2",
    "domains": [
     "workplace",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "brief": {
@@ -23524,7 +23585,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "streamline": {
@@ -23544,7 +23606,8 @@
    "level": "B2",
    "domains": [
     "workplace",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "revenue": {
@@ -23584,7 +23647,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "expense": {
@@ -23622,7 +23686,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "escalate": {
@@ -23641,7 +23706,8 @@
    ],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "sign off": {
@@ -23651,7 +23717,8 @@
    "forms": [],
    "level": "B2",
    "domains": [
-    "workplace"
+    "workplace",
+    "business_vocab"
    ]
   },
   "headline": {
@@ -25303,7 +25370,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "pensive": {
@@ -25413,7 +25481,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "temperament": {
@@ -25626,7 +25695,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "compulsion": {
@@ -25664,7 +25734,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "depression": {
@@ -25732,7 +25803,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "burnout": {
@@ -25751,7 +25823,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "stress": {
@@ -25770,7 +25843,8 @@
    ],
    "level": "B2",
    "domains": [
-    "psychology_feelings"
+    "psychology_feelings",
+    "sleep_wellbeing"
    ]
   },
   "cope": {
@@ -26030,7 +26104,8 @@
    ],
    "level": "B2",
    "domains": [
-    "law_rights"
+    "law_rights",
+    "public_services"
    ]
   },
   "offence": {
@@ -26355,7 +26430,8 @@
    "domains": [
     "law_rights",
     "workplace_c1",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "regulation": {
@@ -26567,7 +26643,8 @@
    "domains": [
     "finance_b2",
     "workplace_c1",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "instalment": {
@@ -26787,7 +26864,8 @@
    ],
    "level": "B2",
    "domains": [
-    "finance_b2"
+    "finance_b2",
+    "public_services"
    ]
   },
   "premium": {
@@ -27887,7 +27965,8 @@
    ],
    "level": "C1",
    "domains": [
-    "academic_wordlist"
+    "academic_wordlist",
+    "advanced_adjectives"
    ]
   },
   "valid": {
@@ -27975,7 +28054,8 @@
    ],
    "level": "C1",
    "domains": [
-    "academic_wordlist"
+    "academic_wordlist",
+    "advanced_adjectives"
    ]
   },
   "comprehensive": {
@@ -28156,7 +28236,8 @@
    ],
    "level": "C1",
    "domains": [
-    "academic_wordlist"
+    "academic_wordlist",
+    "academic_vocab"
    ]
   },
   "mitigate": {
@@ -28179,7 +28260,8 @@
    ],
    "level": "C1",
    "domains": [
-    "academic_wordlist"
+    "academic_wordlist",
+    "academic_vocab"
    ]
   },
   "facilitate": {
@@ -28240,7 +28322,8 @@
    ],
    "level": "C1",
    "domains": [
-    "academic_wordlist"
+    "academic_wordlist",
+    "academic_vocab"
    ]
   },
   "inform": {
@@ -29806,7 +29889,8 @@
    "level": "C1",
    "domains": [
     "workplace_c1",
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "optimise": {
@@ -29871,7 +29955,8 @@
    ],
    "level": "C1",
    "domains": [
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "exploit": {
@@ -30184,7 +30269,8 @@
    "level": "C1",
    "domains": [
     "workplace_c1",
-    "science_tech_c1"
+    "science_tech_c1",
+    "business_vocab"
    ]
   },
   "synergy": {
@@ -30222,7 +30308,8 @@
    ],
    "level": "C1",
    "domains": [
-    "workplace_c1"
+    "workplace_c1",
+    "business_vocab"
    ]
   },
   "outsource": {
@@ -30389,7 +30476,8 @@
    ],
    "level": "C1",
    "domains": [
-    "science_tech_c1"
+    "science_tech_c1",
+    "academic_vocab"
    ]
   },
   "causation": {
@@ -30431,7 +30519,8 @@
    ],
    "level": "C1",
    "domains": [
-    "science_tech_c1"
+    "science_tech_c1",
+    "academic_vocab"
    ]
   },
   "peer review": {
@@ -30966,7 +31055,8 @@
    ],
    "level": "C1",
    "domains": [
-    "science_tech_c1"
+    "science_tech_c1",
+    "advanced_adjectives"
    ]
   },
   "prototype": {
@@ -31590,6 +31680,3438 @@
    "level": "C2",
    "domains": [
     "formal_advanced"
+   ]
+  },
+  "resilient": {
+   "en": "resilient",
+   "fa": "تاب‌آور",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "resiliently",
+     "n": "adverb"
+    },
+    {
+     "f": "more resilient",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most resilient",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "ubiquitous": {
+   "en": "ubiquitous",
+   "fa": "همه‌جا حاضر",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "ubiquitously",
+     "n": "adverb"
+    },
+    {
+     "f": "more ubiquitous",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most ubiquitous",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "ephemeral": {
+   "en": "ephemeral",
+   "fa": "کوتاه‌عمر",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "ephemerally",
+     "n": "adverb"
+    },
+    {
+     "f": "more ephemeral",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most ephemeral",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "candid": {
+   "en": "candid",
+   "fa": "رک‌گو / صادقانه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "candid's",
+     "n": "possessive"
+    },
+    {
+     "f": "candids",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "meticulous": {
+   "en": "meticulous",
+   "fa": "سخت‌گیر در جزئیات",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "meticulously",
+     "n": "adverb"
+    },
+    {
+     "f": "more meticulous",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most meticulous",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "pragmatic": {
+   "en": "pragmatic",
+   "fa": "عمل‌گرا",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more pragmatic",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most pragmatic",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "tenacious": {
+   "en": "tenacious",
+   "fa": "سرسخت",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "tenaciously",
+     "n": "adverb"
+    },
+    {
+     "f": "more tenacious",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most tenacious",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "magnitude": {
+   "en": "magnitude",
+   "fa": "بزرگی و اهمیت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "magnitude's",
+     "n": "possessive"
+    },
+    {
+     "f": "magnitudes",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "nuance": {
+   "en": "nuance",
+   "fa": "ظرافت معنا",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "nuance's",
+     "n": "possessive"
+    },
+    {
+     "f": "nuances",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "sceptical": {
+   "en": "sceptical",
+   "fa": "شکاک",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "sceptically",
+     "n": "adverb"
+    },
+    {
+     "f": "more sceptical",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most sceptical",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "discreet": {
+   "en": "discreet",
+   "fa": "محتاط در رازداری",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "discreetly",
+     "n": "adverb"
+    },
+    {
+     "f": "more discreet",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most discreet",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "lavish": {
+   "en": "lavish",
+   "fa": "سخاوتمندانه / تجملی",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "lavishly",
+     "n": "adverb"
+    },
+    {
+     "f": "more lavish",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most lavish",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "mundane": {
+   "en": "mundane",
+   "fa": "روزمره و بی‌هیجان",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "mundanely",
+     "n": "adverb"
+    },
+    {
+     "f": "more mundane",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most mundane",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "obscure": {
+   "en": "obscure",
+   "fa": "مبهم و ناشناخته",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "obscure's",
+     "n": "possessive"
+    },
+    {
+     "f": "obscures",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "profound": {
+   "en": "profound",
+   "fa": "عمیق و تأثیرگذار",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "profounder",
+     "n": "comparative"
+    },
+    {
+     "f": "profoundest",
+     "n": "superlative"
+    },
+    {
+     "f": "profoundly",
+     "n": "adverb"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "subtle": {
+   "en": "subtle",
+   "fa": "ظریف",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "subtler",
+     "n": "comparative"
+    },
+    {
+     "f": "subtlest",
+     "n": "superlative"
+    },
+    {
+     "f": "subtlely",
+     "n": "adverb"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "vivid": {
+   "en": "vivid",
+   "fa": "زنده و پررنگ",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "vividly",
+     "n": "adverb"
+    },
+    {
+     "f": "more vivid",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most vivid",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "austere": {
+   "en": "austere",
+   "fa": "ساده و درون‌گرا",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "austerely",
+     "n": "adverb"
+    },
+    {
+     "f": "more austere",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most austere",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "benevolent": {
+   "en": "benevolent",
+   "fa": "نوع‌دوستانه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "benevolently",
+     "n": "adverb"
+    },
+    {
+     "f": "more benevolent",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most benevolent",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "candidly": {
+   "en": "candidly",
+   "fa": "صریحانه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more candidly",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most candidly",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "cynical": {
+   "en": "cynical",
+   "fa": "بدبین درباره همه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "cynically",
+     "n": "adverb"
+    },
+    {
+     "f": "more cynical",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most cynical",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "diligent": {
+   "en": "diligent",
+   "fa": "مجتهد",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "diligently",
+     "n": "adverb"
+    },
+    {
+     "f": "more diligent",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most diligent",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "eloquent": {
+   "en": "eloquent",
+   "fa": "خوش‌بیان",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "eloquently",
+     "n": "adverb"
+    },
+    {
+     "f": "more eloquent",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most eloquent",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "frugal": {
+   "en": "frugal",
+   "fa": "کم‌خرج",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "frugally",
+     "n": "adverb"
+    },
+    {
+     "f": "more frugal",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most frugal",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "gregarious": {
+   "en": "gregarious",
+   "fa": "جمع‌گرا",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "gregariously",
+     "n": "adverb"
+    },
+    {
+     "f": "more gregarious",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most gregarious",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "impartial": {
+   "en": "impartial",
+   "fa": "بی‌طرف",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "impartially",
+     "n": "adverb"
+    },
+    {
+     "f": "more impartial",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most impartial",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "indifferent": {
+   "en": "indifferent",
+   "fa": "بی‌تفاوت",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "indifferently",
+     "n": "adverb"
+    },
+    {
+     "f": "more indifferent",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most indifferent",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "intrepid": {
+   "en": "intrepid",
+   "fa": "بی‌باک",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "intrepidly",
+     "n": "adverb"
+    },
+    {
+     "f": "more intrepid",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most intrepid",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "lucid": {
+   "en": "lucid",
+   "fa": "روشن و گویا",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "lucidly",
+     "n": "adverb"
+    },
+    {
+     "f": "more lucid",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most lucid",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "naive": {
+   "en": "naive",
+   "fa": "ساده‌لوح",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "naively",
+     "n": "adverb"
+    },
+    {
+     "f": "more naive",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most naive",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "obstinate": {
+   "en": "obstinate",
+   "fa": "سرکش",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "obstinately",
+     "n": "adverb"
+    },
+    {
+     "f": "more obstinate",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most obstinate",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "perpetual": {
+   "en": "perpetual",
+   "fa": "همیشگی",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "perpetually",
+     "n": "adverb"
+    },
+    {
+     "f": "more perpetual",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most perpetual",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "quaint": {
+   "en": "quaint",
+   "fa": "قدیمی و دلپذیر",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "quainter",
+     "n": "comparative"
+    },
+    {
+     "f": "quaintest",
+     "n": "superlative"
+    },
+    {
+     "f": "quaintly",
+     "n": "adverb"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "schwa": {
+   "en": "schwa",
+   "fa": "صدای شوا /ə/",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "schwa's",
+     "n": "possessive"
+    },
+    {
+     "f": "schwas",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "advanced_adjectives"
+   ]
+  },
+  "empirical": {
+   "en": "empirical",
+   "fa": "تجربی",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "empirically",
+     "n": "adverb"
+    },
+    {
+     "f": "more empirical",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most empirical",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "quantify": {
+   "en": "quantify",
+   "fa": "کمی‌سازی کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "quantifies",
+     "n": "3rd person"
+    },
+    {
+     "f": "quantifying",
+     "n": "-ing"
+    },
+    {
+     "f": "quantified",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "anomaly": {
+   "en": "anomaly",
+   "fa": "ناهنجاری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "anomaly's",
+     "n": "possessive"
+    },
+    {
+     "f": "anomalies",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "paradigm": {
+   "en": "paradigm",
+   "fa": "الگوی فکری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "paradigm's",
+     "n": "possessive"
+    },
+    {
+     "f": "paradigms",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "proliferation": {
+   "en": "proliferation",
+   "fa": "تکثیر و گسترش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "proliferation's",
+     "n": "possessive"
+    },
+    {
+     "f": "proliferations",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "discrepancy": {
+   "en": "discrepancy",
+   "fa": "ناهمخوانی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "discrepancy's",
+     "n": "possessive"
+    },
+    {
+     "f": "discrepancies",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "coherence": {
+   "en": "coherence",
+   "fa": "انسجام",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "coherence's",
+     "n": "possessive"
+    },
+    {
+     "f": "coherences",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "validity": {
+   "en": "validity",
+   "fa": "روایی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "validity's",
+     "n": "possessive"
+    },
+    {
+     "f": "validities",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "conflate": {
+   "en": "conflate",
+   "fa": "یکی گرفتن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "conflates",
+     "n": "3rd person"
+    },
+    {
+     "f": "conflating",
+     "n": "-ing"
+    },
+    {
+     "f": "conflated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "juxtapose": {
+   "en": "juxtapose",
+   "fa": "کنار هم گذاشتن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "juxtapose's",
+     "n": "possessive"
+    },
+    {
+     "f": "juxtaposes",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "delineate": {
+   "en": "delineate",
+   "fa": "ترسیم کردن مرزها",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "delineates",
+     "n": "3rd person"
+    },
+    {
+     "f": "delineating",
+     "n": "-ing"
+    },
+    {
+     "f": "delineated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "substantiate": {
+   "en": "substantiate",
+   "fa": "اثبات کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "substantiates",
+     "n": "3rd person"
+    },
+    {
+     "f": "substantiating",
+     "n": "-ing"
+    },
+    {
+     "f": "substantiated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "contradict": {
+   "en": "contradict",
+   "fa": "تناقض داشتن با",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "contradict's",
+     "n": "possessive"
+    },
+    {
+     "f": "contradicts",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "incorporate": {
+   "en": "incorporate",
+   "fa": "ادغام کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "incorporates",
+     "n": "3rd person"
+    },
+    {
+     "f": "incorporating",
+     "n": "-ing"
+    },
+    {
+     "f": "incorporated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "allocate": {
+   "en": "allocate",
+   "fa": "تخصیص دادن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "allocates",
+     "n": "3rd person"
+    },
+    {
+     "f": "allocating",
+     "n": "-ing"
+    },
+    {
+     "f": "allocated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "derive from": {
+   "en": "derive from",
+   "fa": "مشتق شدن از",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "from's",
+     "n": "possessive"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "attribute to": {
+   "en": "attribute to",
+   "fa": "نسبت دادن به",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "to's",
+     "n": "possessive"
+    },
+    {
+     "f": "tos",
+     "n": "plural"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "articulate": {
+   "en": "articulate",
+   "fa": "بیان روشن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "articulates",
+     "n": "3rd person"
+    },
+    {
+     "f": "articulating",
+     "n": "-ing"
+    },
+    {
+     "f": "articulated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "elucidate": {
+   "en": "elucidate",
+   "fa": "روشن کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "elucidates",
+     "n": "3rd person"
+    },
+    {
+     "f": "elucidating",
+     "n": "-ing"
+    },
+    {
+     "f": "elucidated",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "scrutinise": {
+   "en": "scrutinise",
+   "fa": "به دقت بررسی کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "scrutinising",
+     "n": "-ing"
+    },
+    {
+     "f": "scrutinised",
+     "n": "past"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "synthesise": {
+   "en": "synthesise",
+   "fa": "ترکیب و یکپارچه کردن",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more synthesise",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most synthesise",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "idempotent": {
+   "en": "idempotent",
+   "fa": "خنثی از تکرار (اثر یکسان)",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more idempotent",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most idempotent",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "anthropomorphise": {
+   "en": "anthropomorphise",
+   "fa": "انسان‌انگاری کردن",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more anthropomorphise",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most anthropomorphise",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "C1",
+   "domains": [
+    "academic_vocab"
+   ]
+  },
+  "onboarding": {
+   "en": "onboarding",
+   "fa": "ورود کارمند جدید",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "onboarding's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "business_vocab"
+   ]
+  },
+  "workload": {
+   "en": "workload",
+   "fa": "حجم کار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "workload's",
+     "n": "possessive"
+    },
+    {
+     "f": "workloads",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "business_vocab"
+   ]
+  },
+  "recipe": {
+   "en": "recipe",
+   "fa": "دستور پخت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "recipe's",
+     "n": "possessive"
+    },
+    {
+     "f": "recipes",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "ingredient": {
+   "en": "ingredient",
+   "fa": "ماده اولیه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more ingredient",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most ingredient",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "steam": {
+   "en": "steam",
+   "fa": "بخارپز کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "steam's",
+     "n": "possessive"
+    },
+    {
+     "f": "steams",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "mix": {
+   "en": "mix",
+   "fa": "مخلوط کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "mix's",
+     "n": "possessive"
+    },
+    {
+     "f": "mixes",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "pour": {
+   "en": "pour",
+   "fa": "ریختن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "pour's",
+     "n": "possessive"
+    },
+    {
+     "f": "pours",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "taste": {
+   "en": "taste",
+   "fa": "چشیدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "taste's",
+     "n": "possessive"
+    },
+    {
+     "f": "tastes",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "delicious": {
+   "en": "delicious",
+   "fa": "خوشمزه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "deliciously",
+     "n": "adverb"
+    },
+    {
+     "f": "more delicious",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most delicious",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "spicy": {
+   "en": "spicy",
+   "fa": "تند",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "spicy's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "salty": {
+   "en": "salty",
+   "fa": "شور",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "salty's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "sour": {
+   "en": "sour",
+   "fa": "ترش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "sour's",
+     "n": "possessive"
+    },
+    {
+     "f": "sours",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "sweet": {
+   "en": "sweet",
+   "fa": "شیرین",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "sweet's",
+     "n": "possessive"
+    },
+    {
+     "f": "sweets",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "bitter": {
+   "en": "bitter",
+   "fa": "تلخ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bitter's",
+     "n": "possessive"
+    },
+    {
+     "f": "bitters",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "sauce": {
+   "en": "sauce",
+   "fa": "سس",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "sauce's",
+     "n": "possessive"
+    },
+    {
+     "f": "sauces",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "pan": {
+   "en": "pan",
+   "fa": "ماهیتابه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "pan's",
+     "n": "possessive"
+    },
+    {
+     "f": "pans",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "pot": {
+   "en": "pot",
+   "fa": "قابلمه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "pot's",
+     "n": "possessive"
+    },
+    {
+     "f": "potts",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "knife": {
+   "en": "knife",
+   "fa": "چاقو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "knife's",
+     "n": "possessive"
+    },
+    {
+     "f": "knives",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "cutting board": {
+   "en": "cutting board",
+   "fa": "تخته برش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "board's",
+     "n": "possessive"
+    },
+    {
+     "f": "boards",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "leftovers": {
+   "en": "leftovers",
+   "fa": "غذای باقی‌مانده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "leftovers's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "serving": {
+   "en": "serving",
+   "fa": "یک وعده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "serving's",
+     "n": "possessive"
+    },
+    {
+     "f": "servings",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "tablespoon": {
+   "en": "tablespoon",
+   "fa": "قاشق غذاخوری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "tablespoon's",
+     "n": "possessive"
+    },
+    {
+     "f": "tablespoons",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "cooking_basics"
+   ]
+  },
+  "username": {
+   "en": "username",
+   "fa": "نام کاربری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "username's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "log in": {
+   "en": "log in",
+   "fa": "وارد شدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "in's",
+     "n": "possessive"
+    },
+    {
+     "f": "ins",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "log out": {
+   "en": "log out",
+   "fa": "خارج شدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "out's",
+     "n": "possessive"
+    },
+    {
+     "f": "outs",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "sign up": {
+   "en": "sign up",
+   "fa": "ثبت‌نام کردن",
+   "pos": "noun",
+   "forms": [],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "stream": {
+   "en": "stream",
+   "fa": "پخش جریانی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "stream's",
+     "n": "possessive"
+    },
+    {
+     "f": "streams",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "scroll": {
+   "en": "scroll",
+   "fa": "اسکرول کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "scroll's",
+     "n": "possessive"
+    },
+    {
+     "f": "scrolls",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "swipe": {
+   "en": "swipe",
+   "fa": "سوایپ کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "swipe's",
+     "n": "possessive"
+    },
+    {
+     "f": "swipes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "tap": {
+   "en": "tap",
+   "fa": "ضربه زدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "tap's",
+     "n": "possessive"
+    },
+    {
+     "f": "taps",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "install": {
+   "en": "install",
+   "fa": "نصب کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "install's",
+     "n": "possessive"
+    },
+    {
+     "f": "installs",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "settings": {
+   "en": "settings",
+   "fa": "تنظیمات",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "settings's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "privacy": {
+   "en": "privacy",
+   "fa": "حریم خصوصی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "privacy's",
+     "n": "possessive"
+    },
+    {
+     "f": "privacies",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "permission": {
+   "en": "permission",
+   "fa": "مجوز",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "permission's",
+     "n": "possessive"
+    },
+    {
+     "f": "permissions",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "data usage": {
+   "en": "data usage",
+   "fa": "مصرف داده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "usage's",
+     "n": "possessive"
+    },
+    {
+     "f": "usages",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "emoji": {
+   "en": "emoji",
+   "fa": "شکلک",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "emoji's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "screenshot": {
+   "en": "screenshot",
+   "fa": "تصویر صفحه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "screenshot's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "sync": {
+   "en": "sync",
+   "fa": "همگام‌سازی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "sync's",
+     "n": "possessive"
+    },
+    {
+     "f": "syncs",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "offline": {
+   "en": "offline",
+   "fa": "آفلاین",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "offline's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "online": {
+   "en": "online",
+   "fa": "آنلاین",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "online's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "link": {
+   "en": "link",
+   "fa": "پیوند",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "link's",
+     "n": "possessive"
+    },
+    {
+     "f": "links",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "profile": {
+   "en": "profile",
+   "fa": "نمایه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "profile's",
+     "n": "possessive"
+    },
+    {
+     "f": "profiles",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "follower": {
+   "en": "follower",
+   "fa": "دنبال‌کننده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "follower's",
+     "n": "possessive"
+    },
+    {
+     "f": "followers",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "hashtag": {
+   "en": "hashtag",
+   "fa": "هشتگ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "hashtag's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "digital_life"
+   ]
+  },
+  "friendship": {
+   "en": "friendship",
+   "fa": "دوستی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "friendship's",
+     "n": "possessive"
+    },
+    {
+     "f": "friendships",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "trust": {
+   "en": "trust",
+   "fa": "اعتماد",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "trust's",
+     "n": "possessive"
+    },
+    {
+     "f": "trusts",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "respect": {
+   "en": "respect",
+   "fa": "احترام",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "respects",
+     "n": "3rd person"
+    },
+    {
+     "f": "respecting",
+     "n": "-ing"
+    },
+    {
+     "f": "respected",
+     "n": "past"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "support": {
+   "en": "support",
+   "fa": "حمایت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "support's",
+     "n": "possessive"
+    },
+    {
+     "f": "supports",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "loyalty": {
+   "en": "loyalty",
+   "fa": "وفاداری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "loyalty's",
+     "n": "possessive"
+    },
+    {
+     "f": "loyalties",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "commitment": {
+   "en": "commitment",
+   "fa": "تعهد",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "commitment's",
+     "n": "possessive"
+    },
+    {
+     "f": "commitments",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "affection": {
+   "en": "affection",
+   "fa": "محبت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "affection's",
+     "n": "possessive"
+    },
+    {
+     "f": "affections",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "crush": {
+   "en": "crush",
+   "fa": "شیفتگی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "crush's",
+     "n": "possessive"
+    },
+    {
+     "f": "crushes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "partner": {
+   "en": "partner",
+   "fa": "شریک زندگی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "partner's",
+     "n": "possessive"
+    },
+    {
+     "f": "partners",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "couple": {
+   "en": "couple",
+   "fa": "زوج",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "couple's",
+     "n": "possessive"
+    },
+    {
+     "f": "couples",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "marriage": {
+   "en": "marriage",
+   "fa": "ازدواج",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "marriage's",
+     "n": "possessive"
+    },
+    {
+     "f": "marriages",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "divorce": {
+   "en": "divorce",
+   "fa": "طلاق",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "divorce's",
+     "n": "possessive"
+    },
+    {
+     "f": "divorces",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "argument": {
+   "en": "argument",
+   "fa": "بحث",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "argument's",
+     "n": "possessive"
+    },
+    {
+     "f": "arguments",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "misunderstanding": {
+   "en": "misunderstanding",
+   "fa": "سوءتفاهم",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "misunderstanding's",
+     "n": "possessive"
+    },
+    {
+     "f": "misunderstandings",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "apology": {
+   "en": "apology",
+   "fa": "عذرخواهی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "apology's",
+     "n": "possessive"
+    },
+    {
+     "f": "apologies",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "forgive": {
+   "en": "forgive",
+   "fa": "بخشیدن",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "forgiver",
+     "n": "comparative"
+    },
+    {
+     "f": "most forgive",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "break up": {
+   "en": "break up",
+   "fa": "جدا شدن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "breaks",
+     "n": "3rd person"
+    },
+    {
+     "f": "breaking",
+     "n": "-ing"
+    },
+    {
+     "f": "broke",
+     "n": "past"
+    },
+    {
+     "f": "broken",
+     "n": "past participle"
+    },
+    {
+     "f": "has broken",
+     "n": "perfect (has/have + …)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "make up": {
+   "en": "make up",
+   "fa": "آشتی کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "makes",
+     "n": "3rd person"
+    },
+    {
+     "f": "making",
+     "n": "-ing"
+    },
+    {
+     "f": "made",
+     "n": "past"
+    },
+    {
+     "f": "has made",
+     "n": "perfect (has/have + …)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "fall in love": {
+   "en": "fall in love",
+   "fa": "عاشق شدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "love's",
+     "n": "possessive"
+    },
+    {
+     "f": "loves",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "propose": {
+   "en": "propose",
+   "fa": "خواستگاری کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "propose's",
+     "n": "possessive"
+    },
+    {
+     "f": "proposes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "engaged": {
+   "en": "engaged",
+   "fa": "نامزد",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "engaged's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "wedding": {
+   "en": "wedding",
+   "fa": "عروسی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "wedding's",
+     "n": "possessive"
+    },
+    {
+     "f": "weddings",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "anniversary": {
+   "en": "anniversary",
+   "fa": "سالگرد",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more anniversary",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most anniversary",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "relative": {
+   "en": "relative",
+   "fa": "خویشاوند",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "relatively",
+     "n": "adverb"
+    },
+    {
+     "f": "more relative",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most relative",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "neighbour": {
+   "en": "neighbour",
+   "fa": "همسایه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "neighbour's",
+     "n": "possessive"
+    },
+    {
+     "f": "neighbours",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "bond": {
+   "en": "bond",
+   "fa": "پیوند",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bond's",
+     "n": "possessive"
+    },
+    {
+     "f": "bonds",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "rely on": {
+   "en": "rely on",
+   "fa": "تکیه کردن به",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "on's",
+     "n": "possessive"
+    },
+    {
+     "f": "ons",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "keep in touch": {
+   "en": "keep in touch",
+   "fa": "در ارتباط ماندن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "keeps",
+     "n": "3rd person"
+    },
+    {
+     "f": "keeping",
+     "n": "-ing"
+    },
+    {
+     "f": "kept",
+     "n": "past"
+    },
+    {
+     "f": "has kept",
+     "n": "perfect (has/have + …)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "drift apart": {
+   "en": "drift apart",
+   "fa": "از هم دور شدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "apart's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "relationships"
+   ]
+  },
+  "government": {
+   "en": "government",
+   "fa": "دولت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "government's",
+     "n": "possessive"
+    },
+    {
+     "f": "governments",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "council": {
+   "en": "council",
+   "fa": "شورای شهر",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "council's",
+     "n": "possessive"
+    },
+    {
+     "f": "councils",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "municipality": {
+   "en": "municipality",
+   "fa": "شهرداری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "municipality's",
+     "n": "possessive"
+    },
+    {
+     "f": "municipalities",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "counter": {
+   "en": "counter",
+   "fa": "باجه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "counter's",
+     "n": "possessive"
+    },
+    {
+     "f": "counters",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "form": {
+   "en": "form",
+   "fa": "فرم",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "form's",
+     "n": "possessive"
+    },
+    {
+     "f": "forms",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "identification": {
+   "en": "identification",
+   "fa": "کارت شناسایی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "identification's",
+     "n": "possessive"
+    },
+    {
+     "f": "identifications",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "license": {
+   "en": "license",
+   "fa": "مجوز",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "license's",
+     "n": "possessive"
+    },
+    {
+     "f": "licenses",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "certificate": {
+   "en": "certificate",
+   "fa": "گواهی",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "certificates",
+     "n": "3rd person"
+    },
+    {
+     "f": "certificating",
+     "n": "-ing"
+    },
+    {
+     "f": "certificated",
+     "n": "past"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "registration": {
+   "en": "registration",
+   "fa": "ثبت‌نام",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "registration's",
+     "n": "possessive"
+    },
+    {
+     "f": "registrations",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "fee": {
+   "en": "fee",
+   "fa": "هزینه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "fee's",
+     "n": "possessive"
+    },
+    {
+     "f": "fees",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "pension": {
+   "en": "pension",
+   "fa": "مستمری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "pension's",
+     "n": "possessive"
+    },
+    {
+     "f": "pensions",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "benefit": {
+   "en": "benefit",
+   "fa": "کمک‌هزینه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "benefit's",
+     "n": "possessive"
+    },
+    {
+     "f": "benefits",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "postal service": {
+   "en": "postal service",
+   "fa": "خدمات پستی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "service's",
+     "n": "possessive"
+    },
+    {
+     "f": "services",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "parcel": {
+   "en": "parcel",
+   "fa": "بسته",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "parcel's",
+     "n": "possessive"
+    },
+    {
+     "f": "parcels",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "address": {
+   "en": "address",
+   "fa": "نشانی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "address's",
+     "n": "possessive"
+    },
+    {
+     "f": "addresses",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "signature": {
+   "en": "signature",
+   "fa": "امضا",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "signature's",
+     "n": "possessive"
+    },
+    {
+     "f": "signatures",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "photocopy": {
+   "en": "photocopy",
+   "fa": "رونوشت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "photocopy's",
+     "n": "possessive"
+    },
+    {
+     "f": "photocopies",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "stamp": {
+   "en": "stamp",
+   "fa": "مهر",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "stamp's",
+     "n": "possessive"
+    },
+    {
+     "f": "stamps",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "renew": {
+   "en": "renew",
+   "fa": "تمدید کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "renew's",
+     "n": "possessive"
+    },
+    {
+     "f": "renews",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "process": {
+   "en": "process",
+   "fa": "فرایند",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "process's",
+     "n": "possessive"
+    },
+    {
+     "f": "processes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "approve": {
+   "en": "approve",
+   "fa": "تأیید کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "approve's",
+     "n": "possessive"
+    },
+    {
+     "f": "approves",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "reject": {
+   "en": "reject",
+   "fa": "رد کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "rejects",
+     "n": "3rd person"
+    },
+    {
+     "f": "rejecting",
+     "n": "-ing"
+    },
+    {
+     "f": "rejected",
+     "n": "past"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "complain": {
+   "en": "complain",
+   "fa": "شکایت کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "complain's",
+     "n": "possessive"
+    },
+    {
+     "f": "complains",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "emergency services": {
+   "en": "emergency services",
+   "fa": "خدمات اضطراری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "services's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "utility service": {
+   "en": "utility service",
+   "fa": "خدمات شهری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "service's",
+     "n": "possessive"
+    },
+    {
+     "f": "services",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "public_services"
+   ]
+  },
+  "nap": {
+   "en": "nap",
+   "fa": "چرت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "nap's",
+     "n": "possessive"
+    },
+    {
+     "f": "naps",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "insomnia": {
+   "en": "insomnia",
+   "fa": "بی‌خوابی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "insomnia's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "bedtime": {
+   "en": "bedtime",
+   "fa": "وقت خواب",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bedtime's",
+     "n": "possessive"
+    },
+    {
+     "f": "bedtimes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "alarm clock": {
+   "en": "alarm clock",
+   "fa": "ساعت زنگ‌دار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "clock's",
+     "n": "possessive"
+    },
+    {
+     "f": "clocks",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "routine": {
+   "en": "routine",
+   "fa": "برنامه روزانه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "routine's",
+     "n": "possessive"
+    },
+    {
+     "f": "routines",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "rested": {
+   "en": "rested",
+   "fa": "سرحال",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "rested's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "breathe": {
+   "en": "breathe",
+   "fa": "نفس کشیدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "breathe's",
+     "n": "possessive"
+    },
+    {
+     "f": "breathes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "meditation": {
+   "en": "meditation",
+   "fa": "مراقبه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "meditation's",
+     "n": "possessive"
+    },
+    {
+     "f": "meditations",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "mindfulness": {
+   "en": "mindfulness",
+   "fa": "ذهن‌آگاهی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "mindfulness's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "nutrition": {
+   "en": "nutrition",
+   "fa": "تغذیه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "nutrition's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "balanced diet": {
+   "en": "balanced diet",
+   "fa": "رژیم متعادل",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "diet's",
+     "n": "possessive"
+    },
+    {
+     "f": "diets",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "hydration": {
+   "en": "hydration",
+   "fa": "آب‌رسانی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "hydration's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "screen time": {
+   "en": "screen time",
+   "fa": "زمان استفاده از صفحه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "time's",
+     "n": "possessive"
+    },
+    {
+     "f": "times",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "unwind": {
+   "en": "unwind",
+   "fa": "آرام گرفتن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "unwind's",
+     "n": "possessive"
+    },
+    {
+     "f": "unwinds",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "energy": {
+   "en": "energy",
+   "fa": "انرژی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "energy's",
+     "n": "possessive"
+    },
+    {
+     "f": "energies",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "focus": {
+   "en": "focus",
+   "fa": "تمرکز",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "focus's",
+     "n": "possessive"
+    },
+    {
+     "f": "focuses",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "break": {
+   "en": "break",
+   "fa": "استراحت کوتاه",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "breaks",
+     "n": "3rd person"
+    },
+    {
+     "f": "breaking",
+     "n": "-ing"
+    },
+    {
+     "f": "broke",
+     "n": "past"
+    },
+    {
+     "f": "broken",
+     "n": "past participle"
+    },
+    {
+     "f": "has broken",
+     "n": "perfect (has/have + …)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "self-care": {
+   "en": "self-care",
+   "fa": "مراقبت از خود",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "self-care's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "mental health": {
+   "en": "mental health",
+   "fa": "سلامت روان",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "health's",
+     "n": "possessive"
+    },
+    {
+     "f": "healths",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
+   ]
+  },
+  "oversleep": {
+   "en": "oversleep",
+   "fa": "بیش از حد خوابیدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "oversleep's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "sleep_wellbeing"
    ]
   }
  }

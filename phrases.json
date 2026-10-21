@@ -2743,6 +2743,361 @@
     }
    ],
    "level": "A2"
+  },
+  "digital_admin": {
+   "title": {
+    "en": "Online accounts & refunds",
+    "fa": "حساب آنلاین و بازپرداخت"
+   },
+   "keywords": {
+    "en": [
+     "online account problems",
+     "cancel subscription",
+     "request a refund",
+     "app keeps crashing"
+    ],
+    "fa": [
+     "مشکل حساب آنلاین",
+     "لغو اشتراک",
+     "درخواست بازپرداخت",
+     "برنامه قطع می‌شود"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I can't log in to my account.",
+     "fa": "نمی‌توانم وارد حسابم شوم."
+    },
+    {
+     "en": "I forgot my password and the reset link has expired.",
+     "fa": "رمز عبورم را فراموش کرده‌ام و لینک بازیابی منقضی شده است."
+    },
+    {
+     "en": "Could you resend the verification code?",
+     "fa": "می‌شود کد تأیید را دوباره بفرستید؟"
+    },
+    {
+     "en": "How do I cancel my subscription?",
+     "fa": "چطور اشتراکم را لغو کنم؟"
+    },
+    {
+     "en": "I'd like a refund, please.",
+     "fa": "لطفاً بازپرداخت می‌خواهم."
+    },
+    {
+     "en": "The app keeps crashing when I open it.",
+     "fa": "هر وقت برنامه را باز می‌کنم قطع می‌شود."
+    },
+    {
+     "en": "My order hasn't arrived yet.",
+     "fa": "سفارش من هنوز نرسیده است."
+    },
+    {
+     "en": "Can I change the delivery address?",
+     "fa": "می‌توانم نشانی تحویل را عوض کنم؟"
+    },
+    {
+     "en": "Is there a cheaper monthly plan?",
+     "fa": "طرح ماهانه ارزان‌تری وجود دارد؟"
+    },
+    {
+     "en": "I was charged twice for the same order.",
+     "fa": "برای یک سفارش دو بار از من پول گرفته شده است."
+    },
+    {
+     "en": "Please update the email address on my profile.",
+     "fa": "لطفاً نشانی ایمیل نمایه‌ام را به‌روزرسانی کنید."
+    },
+    {
+     "en": "The link in your message doesn't work.",
+     "fa": "لینک پیام شما کار نمی‌کند."
+    }
+   ],
+   "level": "A2"
+  },
+  "neighbours": {
+   "title": {
+    "en": "Neighbours & building life",
+    "fa": "همسایه‌ها و ساختمان"
+   },
+   "keywords": {
+    "en": [
+     "neighbour problems",
+     "building repair",
+     "noise complaint",
+     "lost parcel"
+    ],
+    "fa": [
+     "مشکل همسایه",
+     "تعمیر ساختمان",
+     "شکایت از سر و صدا",
+     "بسته گم‌شده"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "Could you keep the noise down after ten, please?",
+     "fa": "لطفاً بعد از ساعت ده سر و صدا را کم می‌کنید؟"
+    },
+    {
+     "en": "The lift isn't working again.",
+     "fa": "آسانسور دوباره کار نمی‌کند."
+    },
+    {
+     "en": "My parcel was left with the neighbour.",
+     "fa": "بسته من پیش همسایه گذاشته شده است."
+    },
+    {
+     "en": "Could I borrow a ladder for five minutes?",
+     "fa": "می‌توانم پنج دقیقه نردبان قرض بگیرم؟"
+    },
+    {
+     "en": "The water pressure is very low today.",
+     "fa": "فشار آب امروز خیلی کم است."
+    },
+    {
+     "en": "Where do we put the recycling?",
+     "fa": "بازیافت را کجا بگذاریم؟"
+    },
+    {
+     "en": "The bin collection was missed this week.",
+     "fa": "این هفته زباله‌ها جمع نشد."
+    },
+    {
+     "en": "I'm having a small gathering on Saturday.",
+     "fa": "شنبه یک دورهمی کوچک دارم."
+    },
+    {
+     "en": "Would you mind moving your car?",
+     "fa": "اشکالی ندارد ماشینتان را جابه‌جا کنید؟"
+    },
+    {
+     "en": "The building door doesn't lock properly.",
+     "fa": "در ساختمان درست قفل نمی‌شود."
+    },
+    {
+     "en": "I'll let the landlord know.",
+     "fa": "به صاحب‌خانه اطلاع می‌دهم."
+    },
+    {
+     "en": "Thanks for helping me carry the shopping.",
+     "fa": "ممنون که کمک کردی خریدها را بیاورم."
+    }
+   ],
+   "level": "A2"
+  },
+  "relationships_b1": {
+   "title": {
+    "en": "Relationships & boundaries",
+    "fa": "روابط و مرزها"
+   },
+   "keywords": {
+    "en": [
+     "relationship talk",
+     "setting boundaries",
+     "apologise to a friend",
+     "checking in with someone"
+    ],
+    "fa": [
+     "درباره رابطه حرف زدن",
+     "تعیین مرز",
+     "عذرخواهی از دوست",
+     "احوال‌پرسی از کسی"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I've been meaning to call you.",
+     "fa": "قصد داشتم بهت زنگ بزنم."
+    },
+    {
+     "en": "How are things with you and Sara?",
+     "fa": "بین تو و سارا چطور است؟"
+    },
+    {
+     "en": "I'm sorry I snapped at you earlier.",
+     "fa": "ببخشید که قبلاً تند حرف زدم."
+    },
+    {
+     "en": "I need some time to think.",
+     "fa": "به کمی وقت برای فکر کردن نیاز دارم."
+    },
+    {
+     "en": "I really appreciate your support.",
+     "fa": "واقعاً از حمایتت ممنونم."
+    },
+    {
+     "en": "Let's talk about it when we're both calm.",
+     "fa": "بیا وقتی هر دو آرام‌تر بودیم درباره‌اش حرف بزنیم."
+    },
+    {
+     "en": "I didn't mean to hurt your feelings.",
+     "fa": "قصد نداشتم ناراحتت کنم."
+    },
+    {
+     "en": "Can we start over?",
+     "fa": "می‌توانیم از نو شروع کنیم؟"
+    },
+    {
+     "en": "I value your honesty.",
+     "fa": "برای صداقتت ارزش قائلم."
+    },
+    {
+     "en": "You can always count on me.",
+     "fa": "همیشه می‌توانی روی من حساب کنی."
+    },
+    {
+     "en": "I think we need to set some boundaries.",
+     "fa": "فکر می‌کنم باید چند مرز مشخص کنیم."
+    },
+    {
+     "en": "Let's keep in touch.",
+     "fa": "بیا در ارتباط بمانیم."
+    }
+   ],
+   "level": "B1"
+  },
+  "customer_service_b2": {
+   "title": {
+    "en": "Complaints & customer service",
+    "fa": "شکایت و خدمات مشتری"
+   },
+   "keywords": {
+    "en": [
+     "customer service complaint",
+     "return an item",
+     "warranty claim",
+     "ask for a supervisor"
+    ],
+    "fa": [
+     "شکایت از خدمات مشتری",
+     "پس دادن کالا",
+     "درخواست گارانتی",
+     "درخواست صحبت با مدیر"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I'd like to return this item, if that's possible.",
+     "fa": "اگر ممکن است می‌خواهم این کالا را پس بدهم."
+    },
+    {
+     "en": "It's still under warranty.",
+     "fa": "هنوز گارانتی دارد."
+    },
+    {
+     "en": "Could you escalate this to a supervisor?",
+     "fa": "می‌توانید این را به مدیر ارجاع دهید؟"
+    },
+    {
+     "en": "I was overcharged for the service.",
+     "fa": "برای این خدمت بیش از حد از من پول گرفته‌اند."
+    },
+    {
+     "en": "I'd appreciate a written confirmation.",
+     "fa": "ممنون می‌شوم تأییدیه کتبی بدهید."
+    },
+    {
+     "en": "That doesn't match what I was told.",
+     "fa": "این با چیزی که به من گفته شد نمی‌خواند."
+    },
+    {
+     "en": "I'd like to make a formal complaint.",
+     "fa": "می‌خواهم شکایت رسمی ثبت کنم."
+    },
+    {
+     "en": "Can you offer a replacement instead of a refund?",
+     "fa": "به‌جای بازپرداخت می‌توانید کالای جایگزین بدهید؟"
+    },
+    {
+     "en": "What's the expected turnaround time?",
+     "fa": "زمان تقریبی رسیدگی چقدر است؟"
+    },
+    {
+     "en": "I'll give you one more chance to resolve this.",
+     "fa": "یک فرصت دیگر می‌دهم این را حل کنید."
+    },
+    {
+     "en": "Please confirm the cancellation in writing.",
+     "fa": "لطفاً لغو را کتبی تأیید کنید."
+    },
+    {
+     "en": "I'm not satisfied with that solution.",
+     "fa": "من از آن راه‌حل راضی نیستم."
+    }
+   ],
+   "level": "B2"
+  },
+  "news_media_b2": {
+   "title": {
+    "en": "News & media literacy",
+    "fa": "اخبار و سواد رسانه‌ای"
+   },
+   "keywords": {
+    "en": [
+     "talking about the news",
+     "fake news",
+     "news source",
+     "media bias"
+    ],
+    "fa": [
+     "درباره اخبار حرف زدن",
+     "اخبار جعلی",
+     "منبع خبر",
+     "جانب‌داری رسانه"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "Did you see the headline this morning?",
+     "fa": "تیتر خبر امروز صبح را دیدی؟"
+    },
+    {
+     "en": "That story has been taken out of context.",
+     "fa": "آن ماجرا از بافت خودش بیرون کشیده شده است."
+    },
+    {
+     "en": "I'm not sure that source is reliable.",
+     "fa": "مطمئن نیستم آن منبع قابل اعتماد باشد."
+    },
+    {
+     "en": "Let's check the original report.",
+     "fa": "بیا گزارش اصلی را بررسی کنیم."
+    },
+    {
+     "en": "The article exaggerates the risk.",
+     "fa": "مقاله خطر را بزرگ‌نمایی می‌کند."
+    },
+    {
+     "en": "Several outlets reported the same thing.",
+     "fa": "چند رسانه همین مطلب را گزارش کردند."
+    },
+    {
+     "en": "It turned out to be a hoax.",
+     "fa": "معلوم شد یک فریب خبری بود."
+    },
+    {
+     "en": "The figures don't add up.",
+     "fa": "اعداد با هم جور درنمی‌آیند."
+    },
+    {
+     "en": "Who stands to benefit from this narrative?",
+     "fa": "چه کسی از این روایت سود می‌برد؟"
+    },
+    {
+     "en": "I'd rather wait for the official statement.",
+     "fa": "ترجیح می‌دهم منتظر بیانیه رسمی بمانم."
+    },
+    {
+     "en": "The coverage has been quite one-sided.",
+     "fa": "پوشش خبری کاملاً یک‌طرفه بوده است."
+    },
+    {
+     "en": "There's more to the story than that.",
+     "fa": "ماجرا بیشتر از این حرف‌هاست."
+    }
+   ],
+   "level": "B2"
   }
  }
 }

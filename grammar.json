@@ -9031,14 +9031,12 @@
       "keywords": {
         "en": [
           "future perfect",
-          "future perfect continuous",
           "will have v3",
           "future perfect tense"
         ],
         "fa": [
           "آینده کامل",
-          "زمان آینده کامل",
-          "آینده کامل مستمر"
+          "زمان آینده کامل"
         ]
       },
       "structure": [
@@ -13204,6 +13202,1697 @@
           },
           "a": [
             "duration"
+          ]
+        }
+      ]
+    },
+    "used_to_would": {
+      "title": {
+        "en": "Used to & Would",
+        "fa": "used to و would"
+      },
+      "keywords": {
+        "en": [
+          "used to",
+          "would past habits",
+          "past habits",
+          "used to would"
+        ],
+        "fa": [
+          "عادت گذشته",
+          "گذشته تکرارشونده",
+          "used to",
+          "would"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative: Subject + used to + base verb",
+          "fa": "مثبت: فاعل + used to + فعل پایه"
+        },
+        {
+          "en": "Negative: Subject + didn't use to + base verb",
+          "fa": "منفی: فاعل + didn't use to + فعل پایه"
+        },
+        {
+          "en": "Question: Did + subject + use to + base verb?",
+          "fa": "سؤالی: Did + فاعل + use to + فعل پایه؟"
+        },
+        {
+          "en": "Repeated past action: Subject + would + base verb",
+          "fa": "کار تکرارشونده در گذشته: فاعل + would + فعل پایه"
+        },
+        {
+          "en": "Be used to + noun / -ing = accustomed to it now",
+          "fa": "be used to + اسم یا ing = الان به آن عادت داریم"
+        },
+        {
+          "en": "Get used to + noun / -ing = becoming accustomed",
+          "fa": "get used to + اسم یا ing = در حال عادت کردن"
+        }
+      ],
+      "function": [
+        {
+          "en": "Past habits that no longer happen (I used to walk to school)",
+          "fa": "عادت‌های گذشته که دیگر ادامه ندارند (قبلاً پیاده به مدرسه می‌رفتم)"
+        },
+        {
+          "en": "Past states and situations — used to only, not would",
+          "fa": "حالت‌ها و وضعیت‌های گذشته — فقط used to، نه would"
+        },
+        {
+          "en": "Repeated actions in a story or memory — would works here",
+          "fa": "کارهای تکرارشونده در خاطره یا داستان — اینجا would درست است"
+        },
+        {
+          "en": "Contrast between the past and now",
+          "fa": "مقایسه گذشته با حال"
+        },
+        {
+          "en": "Do not confuse used to + verb with be used to + -ing",
+          "fa": "used to + فعل را با be used to + ing اشتباه نگیرید"
+        }
+      ],
+      "examples": [
+        {
+          "en": "I **used to** live in Shiraz.",
+          "fa": "من قبلاً در شیراز **زندگی می‌کردم**."
+        },
+        {
+          "en": "She **didn't use to** like coffee.",
+          "fa": "او قبلاً قهوه **دوست نداشت**."
+        },
+        {
+          "en": "**Did** you **use to** play football?",
+          "fa": "قبلاً فوتبال **بازی می‌کردی**؟"
+        },
+        {
+          "en": "Every summer we **would** visit our grandparents.",
+          "fa": "هر تابستان به دیدن پدربزرگ و مادربزرگ **می‌رفتیم**."
+        },
+        {
+          "en": "There **used to** be a cinema here.",
+          "fa": "قبلاً اینجا یک سینما **بود**."
+        },
+        {
+          "en": "He **is used to** getting up early.",
+          "fa": "او به زود بیدار شدن **عادت دارد**."
+        },
+        {
+          "en": "They are **getting used to** working night shifts.",
+          "fa": "آن‌ها دارند به کار در شیفت شب **عادت می‌کنند**."
+        },
+        {
+          "en": "I **would never** forget my keys when I was a child.",
+          "fa": "وقتی بچه بودم هیچ‌وقت کلیدهایم را **فراموش نمی‌کردم**."
+        }
+      ],
+      "level": "B1",
+      "tip": {
+        "en": "used to + base verb covers past habits and past states. would only covers repeated actions, never states like be, have, know or live. Don't confuse it with be used to + -ing, which describes the present.",
+        "fa": "used to + فعل پایه برای عادت و وضعیت گذشته است. would فقط برای کار تکرارشونده می‌آید، نه برای حالت‌هایی مثل be، have، know یا live. آن را با be used to + ing که مربوط به حال است اشتباه نگیرید."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "I ____ (use) to live in Shiraz.",
+            "fa": "من قبلاً در شیراز زندگی می‌کردم."
+          },
+          "a": [
+            "used"
+          ]
+        },
+        {
+          "q": {
+            "en": "She didn't ____ (use) to like coffee.",
+            "fa": "او قبلاً قهوه دوست نداشت."
+          },
+          "a": [
+            "use"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you use to play football?",
+            "fa": "قبلاً فوتبال بازی می‌کردی؟"
+          },
+          "a": [
+            "Did"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (would) spend every summer by the sea.",
+            "fa": "هر تابستان کنار دریا می‌گذراندیم."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (be) used to getting up early.",
+            "fa": "او به زود بیدار شدن عادت دارد."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "They are getting used to ____ (work) night shifts.",
+            "fa": "آن‌ها دارند به کار در شیفت شب عادت می‌کنند."
+          },
+          "a": [
+            "working"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "My grandfather ____ (use) to tell us stories.",
+            "fa": "پدربزرگم برایمان داستان تعریف می‌کرد."
+          },
+          "a": [
+            "used"
+          ]
+        },
+        {
+          "q": {
+            "en": "I didn't ____ (use) to enjoy spicy food.",
+            "fa": "من قبلاً غذای تند دوست نداشتم."
+          },
+          "a": [
+            "use"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ she use to work here?",
+            "fa": "او قبلاً اینجا کار می‌کرد؟"
+          },
+          "a": [
+            "Did"
+          ]
+        },
+        {
+          "q": {
+            "en": "Every winter we ____ (would) visit our cousins.",
+            "fa": "هر زمستان به دیدن پسرعموهایمان می‌رفتیم."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "There ____ (use) to be a cinema here.",
+            "fa": "قبلاً اینجا یک سینما بود."
+          },
+          "a": [
+            "used"
+          ]
+        },
+        {
+          "q": {
+            "en": "He isn't used to ____ (drive) on the left.",
+            "fa": "او به رانندگی در سمت چپ عادت ندارد."
+          },
+          "a": [
+            "driving"
+          ]
+        },
+        {
+          "q": {
+            "en": "She will get used to ____ (live) alone.",
+            "fa": "او به تنها زندگی کردن عادت خواهد کرد."
+          },
+          "a": [
+            "living"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (use) to go camping every summer.",
+            "fa": "ما هر تابستان به کمپینگ می‌رفتیم."
+          },
+          "a": [
+            "used"
+          ]
+        },
+        {
+          "q": {
+            "en": "They didn't ____ (use) to have a car.",
+            "fa": "آن‌ها قبلاً ماشین نداشتند."
+          },
+          "a": [
+            "use"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you use to smoke?",
+            "fa": "قبلاً سیگار می‌کشیدی؟"
+          },
+          "a": [
+            "Did"
+          ]
+        },
+        {
+          "q": {
+            "en": "My father ____ (would) take me to school when I was little.",
+            "fa": "وقتی کوچک بودم پدرم مرا به مدرسه می‌برد."
+          },
+          "a": [
+            "would"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (use) to think he was shy.",
+            "fa": "من قبلاً فکر می‌کردم او خجالتی است."
+          },
+          "a": [
+            "used"
+          ]
+        },
+        {
+          "q": {
+            "en": "She is used to ____ (work) long hours.",
+            "fa": "او به کار کردن ساعت‌های طولانی عادت دارد."
+          },
+          "a": [
+            "working"
+          ]
+        },
+        {
+          "q": {
+            "en": "The shop ____ (use) to be on the corner.",
+            "fa": "مغازه قبلاً سر نبش بود."
+          },
+          "a": [
+            "used"
+          ]
+        },
+        {
+          "q": {
+            "en": "Did he ____ (use) to live in Tehran?",
+            "fa": "او قبلاً در تهران زندگی می‌کرد؟"
+          },
+          "a": [
+            "use"
+          ]
+        },
+        {
+          "q": {
+            "en": "We would ____ (meet) at the same café every Friday.",
+            "fa": "ما هر جمعه در همان کافه همدیگر را می‌دیدیم."
+          },
+          "a": [
+            "meet"
+          ]
+        },
+        {
+          "q": {
+            "en": "I didn't use to ____ (like) vegetables.",
+            "fa": "من قبلاً سبزیجات دوست نداشتم."
+          },
+          "a": [
+            "like"
+          ]
+        },
+        {
+          "q": {
+            "en": "There used to ____ (be) a tree in front of the house.",
+            "fa": "قبلاً جلوی خانه یک درخت بود."
+          },
+          "a": [
+            "be"
+          ]
+        },
+        {
+          "q": {
+            "en": "He would never ____ (forget) his keys.",
+            "fa": "او هیچ‌وقت کلیدهایش را فراموش نمی‌کرد."
+          },
+          "a": [
+            "forget"
+          ]
+        },
+        {
+          "q": {
+            "en": "Are you used to ____ (get) up early?",
+            "fa": "آیا به زود بیدار شدن عادت داری؟"
+          },
+          "a": [
+            "getting"
+          ]
+        }
+      ]
+    },
+    "future_continuous": {
+      "title": {
+        "en": "Future Continuous",
+        "fa": "آینده استمراری"
+      },
+      "keywords": {
+        "en": [
+          "future continuous",
+          "will be doing",
+          "future progressive"
+        ],
+        "fa": [
+          "آینده استمراری",
+          "will be doing",
+          "آینده جاری"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative: Subject + will be + V-ing",
+          "fa": "مثبت: فاعل + will be + فعل ing‌دار"
+        },
+        {
+          "en": "Negative: Subject + won't be + V-ing",
+          "fa": "منفی: فاعل + won't be + فعل ing‌دار"
+        },
+        {
+          "en": "Question: Will + subject + be + V-ing?",
+          "fa": "سؤالی: Will + فاعل + be + فعل ing‌دار؟"
+        },
+        {
+          "en": "At a future point: At 8 p.m. I will be studying.",
+          "fa": "در یک لحظه آینده: ساعت ۸ شب در حال درس خواندن خواهم بود."
+        },
+        {
+          "en": "Polite inquiry: Will you be using the car?",
+          "fa": "پرسش مؤدبانه: آیا از ماشین استفاده خواهی کرد؟"
+        }
+      ],
+      "function": [
+        {
+          "en": "An action already in progress at a future time",
+          "fa": "کاری که در زمانی در آینده در جریان خواهد بود"
+        },
+        {
+          "en": "Plans and arrangements that will be happening",
+          "fa": "برنامه‌ها و ترتیباتی که در آینده جریان دارند"
+        },
+        {
+          "en": "Predicting what someone will be doing",
+          "fa": "پیش‌بینی کاری که کسی در آینده انجام خواهد داد"
+        },
+        {
+          "en": "Polite questions about someone's plans",
+          "fa": "پرسش مؤدبانه درباره برنامه‌های کسی"
+        },
+        {
+          "en": "Not the same as will do, which sees the action as complete",
+          "fa": "با will do یکی نیست؛ آن کار را کامل و تمام‌شده می‌بیند"
+        }
+      ],
+      "examples": [
+        {
+          "en": "At 8 p.m. I **will be studying** for the exam.",
+          "fa": "ساعت ۸ شب در حال درس خواندن برای امتحان **خواهم بود**."
+        },
+        {
+          "en": "They **won't be travelling** next week.",
+          "fa": "آن‌ها هفته آینده **سفر نخواهند کرد**."
+        },
+        {
+          "en": "**Will** you **be using** the laptop tonight?",
+          "fa": "امشب از لپ‌تاپ **استفاده می‌کنی**؟"
+        },
+        {
+          "en": "This time tomorrow we **will be flying** to Istanbul.",
+          "fa": "فردا همین موقع در حال پرواز به استانبول **خواهیم بود**."
+        },
+        {
+          "en": "She **will be working** when you call.",
+          "fa": "وقتی زنگ بزنی او در حال کار **خواهد بود**."
+        },
+        {
+          "en": "Don't call at nine — I **will be having** dinner.",
+          "fa": "ساعت نه زنگ نزن — من در حال شام خوردن **خواهم بود**."
+        }
+      ],
+      "level": "B1",
+      "tip": {
+        "en": "Use will be + -ing for an action in progress at a future moment. Use will + base verb for a finished action or a decision, and be going to for plans you have already made.",
+        "fa": "برای کاری که در یک لحظه آینده در جریان است از will be + ing استفاده کنید. برای کار تمام‌شده یا تصمیم از will + فعل پایه و برای برنامه‌های قبلی از be going to استفاده کنید."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "At 8 p.m. I ____ (study) for the exam.",
+            "fa": "ساعت ۸ شب در حال درس خواندن برای امتحان خواهم بود."
+          },
+          "a": [
+            "will be studying"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (not/travel) next week.",
+            "fa": "آن‌ها هفته آینده سفر نخواهند کرد."
+          },
+          "a": [
+            "won't be travelling",
+            "will not be travelling"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you be using the laptop tonight?",
+            "fa": "امشب از لپ‌تاپ استفاده می‌کنی؟"
+          },
+          "a": [
+            "Will"
+          ]
+        },
+        {
+          "q": {
+            "en": "This time tomorrow we ____ (fly) to Istanbul.",
+            "fa": "فردا همین موقع در حال پرواز به استانبول خواهیم بود."
+          },
+          "a": [
+            "will be flying"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (work) when you call.",
+            "fa": "وقتی زنگ بزنی او در حال کار خواهد بود."
+          },
+          "a": [
+            "will be working"
+          ]
+        },
+        {
+          "q": {
+            "en": "Don't call at nine — I ____ (have) dinner.",
+            "fa": "ساعت نه زنگ نزن — در حال شام خوردن خواهم بود."
+          },
+          "a": [
+            "will be having"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "At 10 a.m. tomorrow, we ____ (meet) the client.",
+            "fa": "فردا ساعت ۱۰ صبح با مشتری جلسه خواهیم داشت."
+          },
+          "a": [
+            "will be meeting"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (not/wait) for you at the station.",
+            "fa": "من در ایستگاه منتظرت نخواهم بود."
+          },
+          "a": [
+            "won't be waiting",
+            "will not be waiting"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ he be working late tonight?",
+            "fa": "او امشب تا دیروقت کار می‌کند؟"
+          },
+          "a": [
+            "Will"
+          ]
+        },
+        {
+          "q": {
+            "en": "This time next month I ____ (lie) on a beach.",
+            "fa": "ماه آینده همین موقع روی ساحل دراز کشیده خواهم بود."
+          },
+          "a": [
+            "will be lying"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (drive) to the airport at six.",
+            "fa": "آن‌ها ساعت شش در حال رانندگی به فرودگاه خواهند بود."
+          },
+          "a": [
+            "will be driving"
+          ]
+        },
+        {
+          "q": {
+            "en": "Don't phone at eight — she ____ (put) the children to bed.",
+            "fa": "ساعت هشت زنگ نزن — او بچه‌ها را می‌خواباند."
+          },
+          "a": [
+            "will be putting"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (not/use) the car tomorrow.",
+            "fa": "ما فردا از ماشین استفاده نخواهیم کرد."
+          },
+          "a": [
+            "won't be using",
+            "will not be using"
+          ]
+        },
+        {
+          "q": {
+            "en": "What ____ you be doing at this time tomorrow?",
+            "fa": "فردا همین موقع چه کار خواهی کرد؟"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "The team ____ (play) in the final on Saturday.",
+            "fa": "تیم شنبه در فینال بازی خواهد کرد."
+          },
+          "a": [
+            "will be playing"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (study) abroad next year.",
+            "fa": "او سال آینده در خارج درس خواهد خواند."
+          },
+          "a": [
+            "will be studying"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (see) the doctor at noon.",
+            "fa": "من ظهر دکتر را خواهم دید."
+          },
+          "a": [
+            "will be seeing"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (not/sleep) when we arrive.",
+            "fa": "وقتی برسیم آن‌ها خواب نخواهند بود."
+          },
+          "a": [
+            "won't be sleeping",
+            "will not be sleeping"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you be coming to the party?",
+            "fa": "به مهمانی می‌آیی؟"
+          },
+          "a": [
+            "Will"
+          ]
+        },
+        {
+          "q": {
+            "en": "At midnight the kitchen staff ____ (clean) up.",
+            "fa": "نیمه‌شب کارکنان آشپزخانه در حال تمیزکاری خواهند بود."
+          },
+          "a": [
+            "will be cleaning"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (wear) her red dress at the ceremony.",
+            "fa": "او در مراسم لباس قرمز خواهد پوشید."
+          },
+          "a": [
+            "will be wearing"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (wait) outside when the film ends.",
+            "fa": "وقتی فیلم تمام شود بیرون منتظر خواهیم بود."
+          },
+          "a": [
+            "will be waiting"
+          ]
+        },
+        {
+          "q": {
+            "en": "The children ____ (play) in the garden after lunch.",
+            "fa": "بچه‌ها بعد از ناهار در باغ بازی خواهند کرد."
+          },
+          "a": [
+            "will be playing"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (not/work) on Friday afternoon.",
+            "fa": "من جمعه بعدازظهر کار نخواهم کرد."
+          },
+          "a": [
+            "won't be working",
+            "will not be working"
+          ]
+        },
+        {
+          "q": {
+            "en": "What ____ she be wearing at the wedding?",
+            "fa": "او در عروسی چه خواهد پوشید؟"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "By this time next week, you ____ (sit) on a plane.",
+            "fa": "هفته آینده همین موقع روی هواپیما نشسته خواهی بود."
+          },
+          "a": [
+            "will be sitting"
+          ]
+        }
+      ]
+    },
+    "future_perfect_continuous": {
+      "title": {
+        "en": "Future Perfect Continuous",
+        "fa": "آینده کامل استمراری"
+      },
+      "keywords": {
+        "en": [
+          "future perfect continuous",
+          "will have been doing",
+          "future perfect progressive"
+        ],
+        "fa": [
+          "آینده کامل استمراری",
+          "will have been doing",
+          "آینده کامل جاری"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Affirmative: Subject + will have been + V-ing",
+          "fa": "مثبت: فاعل + will have been + فعل ing‌دار"
+        },
+        {
+          "en": "Negative: Subject + won't have been + V-ing",
+          "fa": "منفی: فاعل + won't have been + فعل ing‌دار"
+        },
+        {
+          "en": "Question: Will + subject + have been + V-ing?",
+          "fa": "سؤالی: Will + فاعل + have been + فعل ing‌دار؟"
+        },
+        {
+          "en": "Duration + future point: By June, I will have been working here for five years.",
+          "fa": "مدت + نقطه آینده: تا ژوئن، پنج سال می‌شود که اینجا کار می‌کنم."
+        },
+        {
+          "en": "Often with for + duration and by + deadline",
+          "fa": "معمولاً با for + مدت و by + مهلت می‌آید"
+        }
+      ],
+      "function": [
+        {
+          "en": "How long an action will have continued up to a future point",
+          "fa": "مدتی که یک کار تا نقطه‌ای در آینده ادامه خواهد داشت"
+        },
+        {
+          "en": "Emphasising duration, not completion",
+          "fa": "تأکید بر مدت انجام کار، نه تمام شدن آن"
+        },
+        {
+          "en": "Predicting long-running situations",
+          "fa": "پیش‌بینی وضعیت‌های طولانی‌مدت"
+        },
+        {
+          "en": "Cause and visible result in the future",
+          "fa": "علت و نتیجه قابل مشاهده در آینده"
+        },
+        {
+          "en": "Not used with state verbs such as know or belong",
+          "fa": "با افعال حالتی مثل know یا belong استفاده نمی‌شود"
+        }
+      ],
+      "examples": [
+        {
+          "en": "By June, I **will have been working** here for five years.",
+          "fa": "تا ژوئن، پنج سال می‌شود که اینجا **کار می‌کنم**."
+        },
+        {
+          "en": "She **won't have been studying** long enough by then.",
+          "fa": "تا آن موقع او به اندازه کافی **درس نخوانده** خواهد بود."
+        },
+        {
+          "en": "**Will** you **have been waiting** for an hour by 10?",
+          "fa": "تا ساعت ۱۰ یک ساعت **منتظر** بوده‌ای؟"
+        },
+        {
+          "en": "They **will have been living** there for a decade next month.",
+          "fa": "ماه آینده ده سال می‌شود که آنجا **زندگی می‌کنند**."
+        },
+        {
+          "en": "He **will have been driving** for six hours by the time he arrives.",
+          "fa": "تا وقتی برسد شش ساعت **رانندگی کرده** خواهد بود."
+        },
+        {
+          "en": "We **won't have been waiting** long when the bus comes.",
+          "fa": "وقتی اتوبوس برسد مدت زیادی **منتظر نبوده‌ایم**."
+        }
+      ],
+      "level": "B2",
+      "tip": {
+        "en": "Use will have been + -ing for duration up to a future point. If you only need completion, use will have + V3 instead. State verbs normally take will have + V3, not the continuous form.",
+        "fa": "برای مدت تا یک نقطه در آینده از will have been + ing استفاده کنید. اگر فقط تمام شدن مهم است، will have + فعل سوم به‌کار می‌رود. افعال حالتی معمولاً شکل استمراری نمی‌گیرند."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "By June, I ____ (work) here for five years.",
+            "fa": "تا ژوئن، پنج سال می‌شود که اینجا کار می‌کنم."
+          },
+          "a": [
+            "will have been working"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (not/study) long enough by then.",
+            "fa": "تا آن موقع او به اندازه کافی درس نخوانده خواهد بود."
+          },
+          "a": [
+            "won't have been studying",
+            "will not have been studying"
+          ]
+        },
+        {
+          "q": {
+            "en": "By 10, ____ you have been waiting for an hour?",
+            "fa": "تا ساعت ۱۰ یک ساعت منتظر بوده‌ای؟"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (live) there for a decade next month.",
+            "fa": "ماه آینده ده سال می‌شود که آنجا زندگی می‌کنند."
+          },
+          "a": [
+            "will have been living"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (drive) for six hours by the time he arrives.",
+            "fa": "تا وقتی برسد شش ساعت رانندگی کرده خواهد بود."
+          },
+          "a": [
+            "will have been driving"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (not/wait) long when the bus comes.",
+            "fa": "وقتی اتوبوس برسد مدت زیادی منتظر نبوده‌ایم."
+          },
+          "a": [
+            "won't have been waiting",
+            "will not have been waiting"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "By next month, she ____ (teach) for twenty years.",
+            "fa": "تا ماه آینده بیست سال می‌شود که تدریس می‌کند."
+          },
+          "a": [
+            "will have been teaching"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (not/live) there long when the lease ends.",
+            "fa": "وقتی اجاره تمام شود مدت زیادی آنجا زندگی نکرده‌اند."
+          },
+          "a": [
+            "won't have been living",
+            "will not have been living"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ he have been working here for a year by May?",
+            "fa": "تا مه یک سال می‌شود که اینجا کار می‌کند؟"
+          },
+          "a": [
+            "Will"
+          ]
+        },
+        {
+          "q": {
+            "en": "By the time you arrive, I ____ (cook) for two hours.",
+            "fa": "تا وقتی برسی دو ساعت است که آشپزی می‌کنم."
+          },
+          "a": [
+            "will have been cooking"
+          ]
+        },
+        {
+          "q": {
+            "en": "We ____ (travel) for six months by December.",
+            "fa": "تا دسامبر شش ماه در سفر خواهیم بود."
+          },
+          "a": [
+            "will have been travelling"
+          ]
+        },
+        {
+          "q": {
+            "en": "She ____ (not/sleep) well for a week by then.",
+            "fa": "تا آن موقع یک هفته بود که خوب نخوابیده است."
+          },
+          "a": [
+            "won't have been sleeping",
+            "will not have been sleeping"
+          ]
+        },
+        {
+          "q": {
+            "en": "By 2030, the city ____ (grow) for fifty years.",
+            "fa": "تا ۲۰۳۰ پنجاه سال می‌شود که شهر رشد می‌کند."
+          },
+          "a": [
+            "will have been growing"
+          ]
+        },
+        {
+          "q": {
+            "en": "How long ____ you have been studying English by June?",
+            "fa": "تا ژوئن چند وقت است که انگلیسی می‌خوانی؟"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (run) his own business for a decade next year.",
+            "fa": "سال آینده ده سال می‌شود که کسب‌وکار خودش را اداره می‌کند."
+          },
+          "a": [
+            "will have been running"
+          ]
+        },
+        {
+          "q": {
+            "en": "They ____ (wait) for three hours by the time the train comes.",
+            "fa": "تا وقتی قطار برسد سه ساعت منتظر بوده‌اند."
+          },
+          "a": [
+            "will have been waiting"
+          ]
+        },
+        {
+          "q": {
+            "en": "I ____ (not/work) there long enough to get a pension.",
+            "fa": "من به اندازه کافی آنجا کار نکرده‌ام که مستمری بگیرم."
+          },
+          "a": [
+            "won't have been working",
+            "will not have been working"
+          ]
+        },
+        {
+          "q": {
+            "en": "By Friday, we ____ (prepare) for the event for a month.",
+            "fa": "تا جمعه یک ماه می‌شود که برای رویداد آماده می‌شویم."
+          },
+          "a": [
+            "will have been preparing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ she have been driving for eight hours by midnight?",
+            "fa": "تا نیمه‌شب هشت ساعت رانندگی کرده است؟"
+          },
+          "a": [
+            "Will"
+          ]
+        },
+        {
+          "q": {
+            "en": "The team ____ (train) together for a year by the final.",
+            "fa": "تا فینال یک سال می‌شود که تیم با هم تمرین می‌کند."
+          },
+          "a": [
+            "will have been training"
+          ]
+        },
+        {
+          "q": {
+            "en": "By the end of the course, you ____ (learn) English for three years.",
+            "fa": "تا پایان دوره سه سال می‌شود که انگلیسی یاد می‌گیری."
+          },
+          "a": [
+            "will have been learning"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ____ (not/use) the machine long when it breaks.",
+            "fa": "وقتی دستگاه خراب شود مدت زیادی از آن استفاده نکرده است."
+          },
+          "a": [
+            "won't have been using",
+            "will not have been using"
+          ]
+        },
+        {
+          "q": {
+            "en": "By sunset, they ____ (walk) for ten hours.",
+            "fa": "تا غروب ده ساعت پیاده‌روی کرده‌اند."
+          },
+          "a": [
+            "will have been walking"
+          ]
+        },
+        {
+          "q": {
+            "en": "How long ____ the children have been playing by dinner?",
+            "fa": "تا شام چند وقت است که بچه‌ها بازی می‌کنند؟"
+          },
+          "a": [
+            "will"
+          ]
+        },
+        {
+          "q": {
+            "en": "By 2028, I ____ (write) this column for five years.",
+            "fa": "تا ۲۰۲۸ پنج سال می‌شود که این ستون را می‌نویسم."
+          },
+          "a": [
+            "will have been writing"
+          ]
+        }
+      ]
+    },
+    "so_such_too_enough": {
+      "title": {
+        "en": "So, Such, Too & Enough",
+        "fa": "so، such، too و enough"
+      },
+      "keywords": {
+        "en": [
+          "so such too enough",
+          "too and enough",
+          "so and such",
+          "intensifiers"
+        ],
+        "fa": [
+          "so such too enough",
+          "too و enough",
+          "so و such",
+          "قیدهای تشدید"
+        ]
+      },
+      "structure": [
+        {
+          "en": "so + adjective / adverb (+ that ...)",
+          "fa": "so + صفت یا قید (+ that ...)"
+        },
+        {
+          "en": "such + (a/an) + adjective + noun (+ that ...)",
+          "fa": "such + (a/an) + صفت + اسم (+ that ...)"
+        },
+        {
+          "en": "too + adjective / adverb + to + verb",
+          "fa": "too + صفت یا قید + to + فعل"
+        },
+        {
+          "en": "adjective / adverb + enough + to + verb",
+          "fa": "صفت یا قید + enough + to + فعل"
+        },
+        {
+          "en": "enough + noun",
+          "fa": "enough + اسم"
+        },
+        {
+          "en": "so much / so many · too much / too many",
+          "fa": "so much / so many · too much / too many"
+        }
+      ],
+      "function": [
+        {
+          "en": "so and such add emphasis or introduce a result",
+          "fa": "so و such برای تأکید یا بیان نتیجه به‌کار می‌روند"
+        },
+        {
+          "en": "too says more than is wanted or possible",
+          "fa": "too یعنی بیش از حد لازم یا ممکن"
+        },
+        {
+          "en": "enough says the amount is sufficient",
+          "fa": "enough یعنی مقدار کافی است"
+        },
+        {
+          "en": "so many / so much with countable and uncountable nouns",
+          "fa": "so many و so much با اسم قابل شمارش و غیرقابل شمارش"
+        },
+        {
+          "en": "Notice the word order: enough comes after adjectives but before nouns",
+          "fa": "ترتیب مهم است: enough بعد از صفت و قبل از اسم می‌آید"
+        }
+      ],
+      "examples": [
+        {
+          "en": "The coffee is **too hot** to drink.",
+          "fa": "قهوه **بیش از حد داغ** است و نمی‌شود نوشید."
+        },
+        {
+          "en": "It was **such a good film** that we watched it twice.",
+          "fa": "**آن‌قدر فیلم خوبی** بود که دو بار دیدیمش."
+        },
+        {
+          "en": "She is old **enough** to drive.",
+          "fa": "او به اندازه کافی بزرگ شده که رانندگی کند."
+        },
+        {
+          "en": "He speaks **so quickly** that I can't follow.",
+          "fa": "او **آن‌قدر سریع** حرف می‌زند که نمی‌توانم دنبال کنم."
+        },
+        {
+          "en": "There were **so many** people that we couldn't get in.",
+          "fa": "**آن‌قدر** آدم زیاد بود که نتوانستیم وارد شویم."
+        },
+        {
+          "en": "We don't have **enough time** to finish.",
+          "fa": "ما **وقت کافی** برای تمام کردن نداریم."
+        },
+        {
+          "en": "There is **too much** noise in the street.",
+          "fa": "در خیابان **سر و صدای بیش از حد** وجود دارد."
+        }
+      ],
+      "level": "B1",
+      "tip": {
+        "en": "Use so before an adjective or adverb, but such before an adjective + noun. Too means more than you want; enough means the right amount. Say old enough, but enough money — the order changes with the word type.",
+        "fa": "so قبل از صفت یا قید می‌آید، اما such قبل از صفت + اسم. too یعنی بیش از حد و enough یعنی به اندازه کافی. بگویید old enough اما enough money — ترتیب با نوع کلمه عوض می‌شود."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "The coffee is ____ hot to drink.",
+            "fa": "قهوه بیش از حد داغ است و نمی‌شود نوشید."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "It was ____ a good film that we watched it twice.",
+            "fa": "آن‌قدر فیلم خوبی بود که دو بار دیدیمش."
+          },
+          "a": [
+            "such"
+          ]
+        },
+        {
+          "q": {
+            "en": "She is old ____ to drive.",
+            "fa": "او به اندازه کافی بزرگ شده که رانندگی کند."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "He speaks ____ quickly that I can't follow.",
+            "fa": "او آن‌قدر سریع حرف می‌زند که نمی‌توانم دنبال کنم."
+          },
+          "a": [
+            "so"
+          ]
+        },
+        {
+          "q": {
+            "en": "There were ____ many people that we couldn't get in.",
+            "fa": "آن‌قدر آدم زیاد بود که نتوانستیم وارد شویم."
+          },
+          "a": [
+            "so"
+          ]
+        },
+        {
+          "q": {
+            "en": "We don't have ____ time to finish.",
+            "fa": "ما وقت کافی برای تمام کردن نداریم."
+          },
+          "a": [
+            "enough"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "The bag was ____ heavy for me to lift.",
+            "fa": "کیف برای بلند کردن من بیش از حد سنگین بود."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "It was ____ a cold day that we stayed inside.",
+            "fa": "آن‌قدر روز سردی بود که داخل ماندیم."
+          },
+          "a": [
+            "such"
+          ]
+        },
+        {
+          "q": {
+            "en": "He isn't tall ____ to reach the shelf.",
+            "fa": "او به اندازه کافی قدبلند نیست که به قفسه برسد."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "She was ____ tired that she fell asleep at once.",
+            "fa": "او آن‌قدر خسته بود که فوراً خوابش برد."
+          },
+          "a": [
+            "so"
+          ]
+        },
+        {
+          "q": {
+            "en": "There is ____ much sugar in this tea.",
+            "fa": "این چای شکر بیش از حد دارد."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "We have ____ money to buy the tickets.",
+            "fa": "ما پول کافی برای خرید بلیت‌ها داریم."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "They were ____ nice people that we invited them again.",
+            "fa": "آن‌ها آن‌قدر آدم‌های خوبی بودند که دوباره دعوتشان کردیم."
+          },
+          "a": [
+            "such"
+          ]
+        },
+        {
+          "q": {
+            "en": "The exam was ____ difficult for most students.",
+            "fa": "امتحان برای بیشتر دانش‌آموزان بیش از حد سخت بود."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "He ran fast ____ to catch the bus.",
+            "fa": "او به اندازه کافی سریع دوید که به اتوبوس برسد."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "There were ____ many cars on the road.",
+            "fa": "ماشین‌های بیش از حد زیادی در جاده بود."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "It was ____ an interesting book that I read it in a day.",
+            "fa": "آن‌قدر کتاب جالبی بود که در یک روز خواندمش."
+          },
+          "a": [
+            "such"
+          ]
+        },
+        {
+          "q": {
+            "en": "I don't have ____ patience for this game.",
+            "fa": "من برای این بازی صبر کافی ندارم."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "The soup was ____ salty to eat.",
+            "fa": "سوپ بیش از حد شور بود و نمی‌شد خورد."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "She spoke ____ quietly that nobody heard her.",
+            "fa": "او آن‌قدر آهسته حرف زد که هیچ‌کس نشنید."
+          },
+          "a": [
+            "so"
+          ]
+        },
+        {
+          "q": {
+            "en": "We had ____ a wonderful time that we stayed another day.",
+            "fa": "آن‌قدر وقت خوبی داشتیم که یک روز دیگر ماندیم."
+          },
+          "a": [
+            "such"
+          ]
+        },
+        {
+          "q": {
+            "en": "There isn't ____ room for another chair.",
+            "fa": "فضای کافی برای یک صندلی دیگر نیست."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "He has ____ much work to do today.",
+            "fa": "او امروز کار بیش از حد زیادی دارد."
+          },
+          "a": [
+            "too"
+          ]
+        },
+        {
+          "q": {
+            "en": "The water was warm ____ to swim in.",
+            "fa": "آب به اندازه کافی گرم بود که در آن شنا کنیم."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "It was ____ late that we decided to take a taxi.",
+            "fa": "آن‌قدر دیر بود که تصمیم گرفتیم تاکسی بگیریم."
+          },
+          "a": [
+            "so"
+          ]
+        },
+        {
+          "q": {
+            "en": "They are ____ kind people that everyone likes them.",
+            "fa": "آن‌ها آن‌قدر آدم‌های مهربانی هستند که همه دوستشان دارند."
+          },
+          "a": [
+            "such"
+          ]
+        }
+      ]
+    },
+    "participle_clauses": {
+      "title": {
+        "en": "Participle Clauses",
+        "fa": "عبارت‌های وصفی"
+      },
+      "keywords": {
+        "en": [
+          "participle clauses",
+          "ing clause",
+          "having done",
+          "reduced relative clause"
+        ],
+        "fa": [
+          "عبارت وصفی",
+          "عبارت ing",
+          "having done",
+          "کوتاه‌سازی جمله"
+        ]
+      },
+      "structure": [
+        {
+          "en": "-ing clause = active meaning, same subject as the main clause",
+          "fa": "عبارت ing = معنای فعال، با فاعل مشترک با جمله اصلی"
+        },
+        {
+          "en": "-ed clause = passive meaning",
+          "fa": "عبارت ed = معنای مجهول"
+        },
+        {
+          "en": "Having + V3 = the first action finished before the second",
+          "fa": "Having + فعل سوم = کار اول قبل از کار دوم تمام شده"
+        },
+        {
+          "en": "Not + -ing / Not having + V3 = negative participle clause",
+          "fa": "Not + ing یا Not having + فعل سوم = عبارت وصفی منفی"
+        },
+        {
+          "en": "After / before / while / when + -ing",
+          "fa": "after / before / while / when + ing"
+        },
+        {
+          "en": "Having been + V3 = passive action completed first",
+          "fa": "Having been + فعل سوم = کار مجهول که اول تمام شده"
+        }
+      ],
+      "function": [
+        {
+          "en": "Shorten a relative clause: the man who was waiting → the man waiting",
+          "fa": "کوتاه کردن جمله وصفی: the man who was waiting ← the man waiting"
+        },
+        {
+          "en": "Show two actions happening at the same time",
+          "fa": "نشان دادن دو کار همزمان"
+        },
+        {
+          "en": "Show which action happened first",
+          "fa": "نشان دادن اینکه کدام کار اول اتفاق افتاده"
+        },
+        {
+          "en": "Give a reason, result or condition in a formal style",
+          "fa": "بیان دلیل، نتیجه یا شرط در سبک رسمی"
+        },
+        {
+          "en": "Avoid repeating the subject",
+          "fa": "جلوگیری از تکرار فاعل"
+        }
+      ],
+      "examples": [
+        {
+          "en": "**Walking** home, I saw an old friend.",
+          "fa": "**در حال رفتن** به خانه، دوست قدیمی‌ای را دیدم."
+        },
+        {
+          "en": "**Written** in 1925, the novel is still popular.",
+          "fa": "این رمان که در ۱۹۲۵ **نوشته شد**، هنوز محبوب است."
+        },
+        {
+          "en": "**Having finished** the report, she went home.",
+          "fa": "**پس از تمام کردن** گزارش، او به خانه رفت."
+        },
+        {
+          "en": "The dog, **barking** loudly, ran to the gate.",
+          "fa": "سگ که **پارس می‌کرد**، به سمت دروازه دوید."
+        },
+        {
+          "en": "**Not knowing** the answer, he kept silent.",
+          "fa": "**چون جواب را نمی‌دانست**، سکوت کرد."
+        },
+        {
+          "en": "**Invited** to the party, she bought a new dress.",
+          "fa": "او که **دعوت شده بود**، لباس جدیدی خرید."
+        },
+        {
+          "en": "**Having been warned**, they left early.",
+          "fa": "**پس از اینکه به آن‌ها هشدار داده شد**، زودتر رفتند."
+        }
+      ],
+      "level": "B2",
+      "tip": {
+        "en": "The subject of the participle must match the subject of the main clause. Use -ing for active and -ed for passive, and having + V3 when the first action clearly finishes before the second.",
+        "fa": "فاعل عبارت وصفی باید با فاعل جمله اصلی یکی باشد. برای معنای فعال از ing و برای مجهول از ed استفاده کنید؛ وقتی کار اول قطعاً قبل از دوم تمام می‌شود، having + فعل سوم به‌کار برید."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "____ (walk) home, I saw an old friend.",
+            "fa": "در حال رفتن به خانه، دوست قدیمی‌ای را دیدم."
+          },
+          "a": [
+            "Walking"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (write) in 1925, the novel is still popular.",
+            "fa": "این رمان که در ۱۹۲۵ نوشته شد، هنوز محبوب است."
+          },
+          "a": [
+            "Written"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (finish) the report, she went home.",
+            "fa": "پس از تمام کردن گزارش، او به خانه رفت."
+          },
+          "a": [
+            "Having finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "The dog, ____ (bark) loudly, ran to the gate.",
+            "fa": "سگ که پارس می‌کرد، به سمت دروازه دوید."
+          },
+          "a": [
+            "barking"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (not/know) the answer, he kept silent.",
+            "fa": "چون جواب را نمی‌دانست، سکوت کرد."
+          },
+          "a": [
+            "Not knowing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (invite) to the party, she bought a new dress.",
+            "fa": "او که دعوت شده بود، لباس جدیدی خرید."
+          },
+          "a": [
+            "Invited"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "____ (wait) for the bus, I read the news.",
+            "fa": "در حال انتظار برای اتوبوس، اخبار را خواندم."
+          },
+          "a": [
+            "Waiting"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (build) in 1890, the bridge is still in use.",
+            "fa": "پل که در ۱۸۹۰ ساخته شد، هنوز استفاده می‌شود."
+          },
+          "a": [
+            "Built"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (lose) his keys, he called a locksmith.",
+            "fa": "چون کلیدهایش را گم کرده بود، قفلساز خبر کرد."
+          },
+          "a": [
+            "Having lost"
+          ]
+        },
+        {
+          "q": {
+            "en": "She sat by the window, ____ (watch) the rain.",
+            "fa": "او کنار پنجره نشست و باران را تماشا کرد."
+          },
+          "a": [
+            "watching"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (not/understand) the question, I asked again.",
+            "fa": "چون سؤال را نفهمیدم، دوباره پرسیدم."
+          },
+          "a": [
+            "Not understanding"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (shock) by the news, she couldn't speak.",
+            "fa": "او از خبر شوکه شده بود و نمی‌توانست حرف بزند."
+          },
+          "a": [
+            "Shocked"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (finish) his homework, he went out to play.",
+            "fa": "پس از تمام کردن مشقش، برای بازی بیرون رفت."
+          },
+          "a": [
+            "Having finished"
+          ]
+        },
+        {
+          "q": {
+            "en": "The children, ____ (laugh) loudly, ran into the room.",
+            "fa": "بچه‌ها که بلند می‌خندیدند، وارد اتاق شدند."
+          },
+          "a": [
+            "laughing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (damage) by the storm, the roof needs repair.",
+            "fa": "سقف که بر اثر طوفان آسیب دیده، نیاز به تعمیر دارد."
+          },
+          "a": [
+            "Damaged"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (not/have) enough money, we stayed at home.",
+            "fa": "چون پول کافی نداشتیم، خانه ماندیم."
+          },
+          "a": [
+            "Not having"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (hear) the noise, the dog started barking.",
+            "fa": "سگ با شنیدن صدا شروع به پارس کردن کرد."
+          },
+          "a": [
+            "Hearing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (write) the email, she switched off the computer.",
+            "fa": "پس از نوشتن ایمیل، کامپیوتر را خاموش کرد."
+          },
+          "a": [
+            "Having written"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (interview) for the job, he felt nervous.",
+            "fa": "او که برای شغل مصاحبه شده بود، عصبی بود."
+          },
+          "a": [
+            "Interviewed"
+          ]
+        },
+        {
+          "q": {
+            "en": "The teacher stood at the door, ____ (smile) at the students.",
+            "fa": "معلم دم در ایستاد و به دانش‌آموزان لبخند زد."
+          },
+          "a": [
+            "smiling"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (not/see) the sign, the driver missed the turn.",
+            "fa": "راننده چون تابلو را ندید، پیچ را رد کرد."
+          },
+          "a": [
+            "Not seeing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (exhaust) after the trip, they went straight to bed.",
+            "fa": "آن‌ها پس از سفر خسته بودند و مستقیم به رختخواب رفتند."
+          },
+          "a": [
+            "Exhausted"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (complete) the training, she applied for the job.",
+            "fa": "پس از کامل کردن آموزش، او برای شغل درخواست داد."
+          },
+          "a": [
+            "Having completed"
+          ]
+        },
+        {
+          "q": {
+            "en": "The man ____ (stand) near the gate is my uncle.",
+            "fa": "مردی که نزدیک دروازه ایستاده عموی من است."
+          },
+          "a": [
+            "standing"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (give) a second chance, he worked much harder.",
+            "fa": "او که فرصت دوباره گرفته بود، بسیار سخت‌تر کار کرد."
+          },
+          "a": [
+            "Given"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ (not/receive) a reply, we sent another email.",
+            "fa": "چون پاسخی نگرفتیم، ایمیل دیگری فرستادیم."
+          },
+          "a": [
+            "Not receiving"
           ]
         }
       ]

@@ -1,5 +1,5 @@
 {
- "_readme": "BBC Learning English — 6 Minute English (called 5 Minute English until 2014). A catalogue only: the audio, transcripts and worksheets stay on BBC's servers and the app plays from these canonical URLs. No BBC media is stored in this repository or shipped in the APK. Rebuild with tools/fetch_bbc_6min.py --fetch N.",
+ "_readme": "BBC Learning English — a curated catalogue built from 6 Minute English, The English We Speak and Real Easy English. This file stores links, not BBC media: the canonical BBC page and audio URLs stay with every episode. The 20 shipped episodes also have their audio mirrored to ArvanCloud so the app can stream reliably; no BBC media is committed to this repository or bundled into the APK. Rebuild with tools/fetch_bbc_6min.py, then mirror with tools/mirror_bbc_audio.py.",
  "_grading": "tools/listening_grade.py — CEFR-J word list (Maximax67/Words-CEFR-Dataset, MIT). A passage's band blends the 75th percentile of its content-word levels, the share of B2+ vocabulary, sentence length and clause density, and speaking rate. Audited against BBC's own level tag with --audit.",
  "levels": [
   "A2",
@@ -369,6 +369,54 @@
    "audio_kb": 1086
   },
   {
+   "id": "6 Minute English-ep-180118",
+   "title": "A dry January?",
+   "blurb": "Are you trying to give up drinking this month? Catherine and Rob discuss abstaining and the benefits of a dry January",
+   "url": "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english/ep-180118",
+   "year": "",
+   "series": "6 Minute English",
+   "series_expected": "B1-B2",
+   "level": null,
+   "duration": "",
+   "audio": "https://s3.ir-thr-at1.arvanstorage.ir/fluentify-bbc/bbc/6-Minute-English-ep-180118.mp3",
+   "transcript_url": "http://downloads.bbc.co.uk/learningenglish/features/6min/180118_6min_english_dry_january.pdf",
+   "worksheet_url": "",
+   "bbc_tag": "intermediate",
+   "graded_from": "transcript",
+   "stats": {
+    "level": null,
+    "total_words": 19,
+    "reason": "too short"
+   },
+   "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/6min/180118_6min_eng_dry_january_download.mp3",
+   "audio_source": "mirror",
+   "audio_kb": 3073
+  },
+  {
+   "id": "The English We Speak-ep-171120",
+   "title": "A knees-up",
+   "blurb": "Party time!",
+   "url": "https://www.bbc.co.uk/learningenglish/english/features/the-english-we-speak/ep-171120",
+   "year": "",
+   "series": "The English We Speak",
+   "series_expected": "B2-C1",
+   "level": null,
+   "duration": "",
+   "audio": "https://s3.ir-thr-at1.arvanstorage.ir/fluentify-bbc/bbc/The-English-We-Speak-ep-171120.mp3",
+   "transcript_url": "http://downloads.bbc.co.uk/learningenglish/features/tews/171120_tews_knees_up.pdf",
+   "worksheet_url": "",
+   "bbc_tag": "intermediate",
+   "graded_from": "transcript",
+   "stats": {
+    "level": null,
+    "total_words": 2,
+    "reason": "too short"
+   },
+   "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/tews/171120_tews_knees_up_download.mp3",
+   "audio_source": "mirror",
+   "audio_kb": 1112
+  },
+  {
    "id": "The English We Speak-ep-200224",
    "title": "A memory like a sieve",
    "blurb": "An English phrase to remember",
@@ -399,6 +447,30 @@
    "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/tews/200224_tews_a_memory_like_a_sieve_download.mp3",
    "audio_source": "mirror",
    "audio_kb": 1458
+  },
+  {
+   "id": "The English We Speak-ep-180716",
+   "title": "A necessary evil",
+   "blurb": "Unavoidable situations",
+   "url": "https://www.bbc.co.uk/learningenglish/english/features/the-english-we-speak/ep-180716",
+   "year": "",
+   "series": "The English We Speak",
+   "series_expected": "B2-C1",
+   "level": null,
+   "duration": "",
+   "audio": "https://s3.ir-thr-at1.arvanstorage.ir/fluentify-bbc/bbc/The-English-We-Speak-ep-180716.mp3",
+   "transcript_url": "http://downloads.bbc.co.uk/learningenglish/features/tews/180716_tews_necessary_evil.pdf",
+   "worksheet_url": "",
+   "bbc_tag": "intermediate",
+   "graded_from": "transcript",
+   "stats": {
+    "level": null,
+    "total_words": 2,
+    "reason": "too short"
+   },
+   "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/tews/180716_tews_necessary_evil_download.mp3",
+   "audio_source": "mirror",
+   "audio_kb": 1209
   },
   {
    "id": "6 Minute English-ep-210429",
@@ -463,6 +535,70 @@
    "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/tews/200928_tews_a_wake_up_call_download.mp3",
    "audio_source": "mirror",
    "audio_kb": 1332
+  },
+  {
+   "id": "6 Minute English-ep-211014",
+   "title": "Angela Merkel",
+   "blurb": "Why is the German leader Angela Merkel called 'Mutti'?",
+   "url": "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english/ep-211014",
+   "year": "",
+   "series": "6 Minute English",
+   "series_expected": "B1-B2",
+   "level": "A1",
+   "duration": "",
+   "audio": "https://s3.ir-thr-at1.arvanstorage.ir/fluentify-bbc/bbc/6-Minute-English-ep-211014.mp3",
+   "transcript_url": "http://downloads.bbc.co.uk/learningenglish/features/6min/211014_6min_english_angela_merkel.pdf",
+   "worksheet_url": "",
+   "bbc_tag": "intermediate",
+   "graded_from": "transcript",
+   "stats": {
+    "level": "A1",
+    "score": 1.37,
+    "stretch": "A1",
+    "syntax": 0.83,
+    "avg_sentence": 10.6,
+    "clauses_per_sentence": 0.0,
+    "challenge_pct": 8,
+    "c1c2_pct": 6,
+    "wpm": 150,
+    "total_words": 181,
+    "unique_content": 32
+   },
+   "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/6min/211014_6min_english_angela_merkel_download.mp3",
+   "audio_source": "mirror",
+   "audio_kb": 2899
+  },
+  {
+   "id": "6 Minute English-ep-211209",
+   "title": "Body language online",
+   "blurb": "How can we make video conferences feel more natural?",
+   "url": "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english/ep-211209",
+   "year": "",
+   "series": "6 Minute English",
+   "series_expected": "B1-B2",
+   "level": "A1",
+   "duration": "",
+   "audio": "https://s3.ir-thr-at1.arvanstorage.ir/fluentify-bbc/bbc/6-Minute-English-ep-211209.mp3",
+   "transcript_url": "http://downloads.bbc.co.uk/learningenglish/features/6min/211209_6min_english_body_language.pdf",
+   "worksheet_url": "",
+   "bbc_tag": "intermediate",
+   "graded_from": "transcript",
+   "stats": {
+    "level": "A1",
+    "score": 1.47,
+    "stretch": "A1",
+    "syntax": 1.26,
+    "avg_sentence": 13.1,
+    "clauses_per_sentence": 0.0,
+    "challenge_pct": 9,
+    "c1c2_pct": 6,
+    "wpm": 150,
+    "total_words": 170,
+    "unique_content": 27
+   },
+   "audio_src": "http://downloads.bbc.co.uk/learningenglish/features/6min/211209_6min_english_body_language_download..mp3",
+   "audio_source": "mirror",
+   "audio_kb": 2969
   }
  ],
  "distribution": {
@@ -470,14 +606,14 @@
   "B1": 3,
   "B2": 2,
   "C1": 1,
-  "?": 3,
-  "A1": 3
+  "?": 6,
+  "A1": 5
  },
- "count": 15,
+ "count": 20,
  "mirrored": {
   "bucket": "fluentify-bbc",
   "public_base": "https://s3.ir-thr-at1.arvanstorage.ir/fluentify-bbc",
-  "episodes": 15,
+  "episodes": 20,
   "transcripts": 0,
   "note": "every episode listed here is mirrored and plays offline of the BBC; the list is the set that exists, not a sample"
  }
