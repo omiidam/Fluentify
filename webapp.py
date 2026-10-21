@@ -884,12 +884,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: rgba(255,255,255,.07); border-radius: 999px;
     padding: 0 6px; font-size: 10px; margin-inline-start: auto;
   }
-  .vrow { display: flex; flex-wrap: wrap; gap: 4px; }
+  .vrow { display: flex; flex-wrap: wrap; gap: 3px; }
   .vbtn {
-    display: inline-flex; align-items: center; gap: 6px;
+    display: inline-flex; align-items: center; gap: 5px;
     background: rgba(109,140,255,.1); color: #c3cdff;
     border: 1px solid rgba(109,140,255,.26);
-    border-radius: 8px; padding: 3px 9px; font-size: 11.5px;
+    border-radius: 7px; padding: 2px 7px; font-size: 10.5px; line-height: 1.25;
     cursor: pointer; transition: .12s; font-family: inherit;
   }
   .vbtn:hover {
@@ -897,8 +897,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     transform: translateY(-1px); color: #e2e8ff;
   }
   .vbtn .n {
-    background: rgba(255,255,255,.1); border-radius: 5px;
-    padding: 0 5px; font-size: 10px; color: var(--muted);
+    background: rgba(255,255,255,.1); border-radius: 4px;
+    padding: 0 4px; font-size: 9px; color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
   /* grammar panel: compact, grouped by CEFR level */
@@ -916,7 +916,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: linear-gradient(135deg, rgba(109,140,255,.34), rgba(167,139,250,.28));
     color: #dbe2ff; border: 1px solid rgba(109,140,255,.38);
   }
-  /* in-panel search (56 domains needs one) */
+  /* in-panel search (the domain panel needs one) */
   .psearch { margin-bottom: 9px; }
   .psearch input {
     width: 100%; padding: 9px 13px; font-size: 15px; font-family: inherit;
@@ -2333,9 +2333,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <div id="vpanel">
-    <h3>Vocabulary A1 → C2 — روی هر دسته کلیک کنید تا واژه‌ها را ببینید</h3>
+    <h3>Vocabulary A1 → C2</h3>
     <div class="psearch">
-      <input id="vsearch" type="search" placeholder="Search 56 domains… / جست‌وجوی دسته‌ها…"
+      <input id="vsearch" type="search" placeholder="Search 70 domains… / جست‌وجوی دسته‌ها…"
              autocomplete="off" aria-label="Search vocabulary domains">
     </div>
     <div class="domains" id="domains"></div>
@@ -5094,8 +5094,12 @@ async function loadVocabulary() {
     const groups = await r.json();
     // the API returns themed groups; flatten so the panel can regroup by level
     const all = groups.flatMap((g) => g.items.map((d) => ({...d, group_fa: g.fa})));
+    const search = document.getElementById('vsearch');
+    if (search) {
+      search.placeholder = `Search ${all.length} domains… / جست‌وجوی دسته‌ها…`;
+    }
     const filter = (window.__vFilter != null ? window.__vFilter
-      : (document.getElementById('vsearch')?.value || '')).trim().toLowerCase();
+      : (search?.value || '')).trim().toLowerCase();
 
     box.innerHTML = '';
     byLevel(all).forEach(([level, items]) => {

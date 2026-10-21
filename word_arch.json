@@ -2650,7 +2650,8 @@
    ],
    "level": "A1",
    "domains": [
-    "food"
+    "food",
+    "restaurant_dining"
    ]
   },
   "pudding": {
@@ -5327,7 +5328,8 @@
    "forms": [],
    "level": "A1",
    "domains": [
-    "jobs"
+    "jobs",
+    "emergency_safety"
    ]
   },
   "nurse": {
@@ -5423,7 +5425,8 @@
    ],
    "level": "A1",
    "domains": [
-    "jobs"
+    "jobs",
+    "art_design"
    ]
   },
   "writer": {
@@ -5750,7 +5753,8 @@
    ],
    "level": "A1",
    "domains": [
-    "jobs"
+    "jobs",
+    "restaurant_dining"
    ]
   },
   "police officer": {
@@ -5788,7 +5792,8 @@
    ],
    "level": "A1",
    "domains": [
-    "jobs"
+    "jobs",
+    "art_design"
    ]
   },
   "manager": {
@@ -6341,7 +6346,8 @@
    "level": "B1",
    "domains": [
     "travel",
-    "city"
+    "city",
+    "airport_flight"
    ]
   },
   "hotel": {
@@ -6381,7 +6387,8 @@
    "level": "B1",
    "domains": [
     "travel",
-    "public_services"
+    "public_services",
+    "hotel_stay"
    ]
   },
   "ticket": {
@@ -6411,7 +6418,8 @@
    "forms": [],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "hotel_stay"
    ]
   },
   "map": {
@@ -6547,7 +6555,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "hotel_stay"
    ]
   },
   "visa": {
@@ -6586,7 +6595,9 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "restaurant_dining",
+    "hotel_stay"
    ]
   },
   "boarding pass": {
@@ -6605,7 +6616,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "airport_flight"
    ]
   },
   "departure": {
@@ -6624,7 +6636,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "airport_flight"
    ]
   },
   "arrival": {
@@ -6643,7 +6656,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "airport_flight"
    ]
   },
   "flight": {
@@ -6662,7 +6676,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "airport_flight"
    ]
   },
   "gate": {
@@ -6681,7 +6696,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "airport_flight"
    ]
   },
   "terminal": {
@@ -6700,7 +6716,8 @@
    ],
    "level": "B1",
    "domains": [
-    "travel"
+    "travel",
+    "airport_flight"
    ]
   },
   "delay": {
@@ -9042,7 +9059,8 @@
    ],
    "level": "A1",
    "domains": [
-    "places"
+    "places",
+    "hotel_stay"
    ]
   },
   "door": {
@@ -9280,7 +9298,8 @@
    "level": "A1",
    "domains": [
     "places",
-    "house"
+    "house",
+    "hotel_stay"
    ]
   },
   "money": {
@@ -9341,7 +9360,8 @@
    "domains": [
     "places",
     "city",
-    "body_health"
+    "body_health",
+    "emergency_safety"
    ]
   },
   "pharmacy": {
@@ -10166,7 +10186,8 @@
    ],
    "level": "A1",
    "domains": [
-    "nature"
+    "nature",
+    "tools_diy"
    ]
   },
   "forest": {
@@ -11412,7 +11433,8 @@
    ],
    "level": "A1",
    "domains": [
-    "verbs"
+    "verbs",
+    "restaurant_dining"
    ]
   },
   "sleep": {
@@ -13272,7 +13294,8 @@
    ],
    "level": "A1",
    "domains": [
-    "weather_seasons"
+    "weather_seasons",
+    "restaurant_dining"
    ]
   },
   "warm": {
@@ -14452,7 +14475,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "hotel_stay"
    ]
   },
   "wardrobe": {
@@ -14847,7 +14871,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "hotel_stay"
    ]
   },
   "toothbrush": {
@@ -14923,7 +14948,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "tools_diy"
    ]
   },
   "tool": {
@@ -14942,7 +14968,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "tools_diy"
    ]
   },
   "hammer": {
@@ -14961,7 +14988,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "tools_diy"
    ]
   },
   "screwdriver": {
@@ -14980,7 +15008,8 @@
    ],
    "level": "A1",
    "domains": [
-    "house"
+    "house",
+    "tools_diy"
    ]
   },
   "post office": {
@@ -15384,7 +15413,8 @@
    "domains": [
     "bank_money",
     "law_rights",
-    "finance_b2"
+    "finance_b2",
+    "hotel_stay"
    ]
   },
   "balance": {
@@ -15425,7 +15455,8 @@
    "domains": [
     "bank_money",
     "shopping_clothes",
-    "shopping_clothes"
+    "shopping_clothes",
+    "restaurant_dining"
    ]
   },
   "bill": {
@@ -15444,7 +15475,8 @@
    ],
    "level": "A2",
    "domains": [
-    "bank_money"
+    "bank_money",
+    "restaurant_dining"
    ]
   },
   "invoice": {
@@ -15731,7 +15763,8 @@
    "domains": [
     "bank_money",
     "shopping_clothes",
-    "law_rights"
+    "law_rights",
+    "hotel_stay"
    ]
   },
   "exchange": {
@@ -15984,7 +16017,8 @@
    "level": "A1",
    "domains": [
     "body_health",
-    "health_visits"
+    "health_visits",
+    "restaurant_dining"
    ]
   },
   "infection": {
@@ -16023,7 +16057,8 @@
    ],
    "level": "A1",
    "domains": [
-    "body_health"
+    "body_health",
+    "emergency_safety"
    ]
   },
   "pill": {
@@ -16389,7 +16424,8 @@
    ],
    "level": "A2",
    "domains": [
-    "work_business"
+    "work_business",
+    "emergency_safety"
    ]
   },
   "schedule": {
@@ -17643,7 +17679,8 @@
    ],
    "level": "A1",
    "domains": [
-    "directions_words"
+    "directions_words",
+    "emergency_safety"
    ]
   },
   "wake up": {
@@ -19865,7 +19902,8 @@
    ],
    "level": "B1",
    "domains": [
-    "describing_people"
+    "describing_people",
+    "art_design"
    ]
   },
   "sensitive": {
@@ -20679,7 +20717,8 @@
    "level": "B1",
    "domains": [
     "household_actions",
-    "quantities"
+    "quantities",
+    "tools_diy"
    ]
   },
   "drain": {
@@ -20930,7 +20969,8 @@
    ],
    "level": "B1",
    "domains": [
-    "household_actions"
+    "household_actions",
+    "tools_diy"
    ]
   },
   "symptom": {
@@ -20983,7 +21023,8 @@
    ],
    "level": "B1",
    "domains": [
-    "health_visits"
+    "health_visits",
+    "emergency_safety"
    ]
   },
   "blood pressure": {
@@ -21408,7 +21449,8 @@
    ],
    "level": "B1",
    "domains": [
-    "health_visits"
+    "health_visits",
+    "emergency_safety"
    ]
   },
   "emergency room": {
@@ -22096,7 +22138,8 @@
    ],
    "level": "B1",
    "domains": [
-    "education_b1"
+    "education_b1",
+    "art_design"
    ]
   },
   "literature": {
@@ -24057,7 +24100,8 @@
    ],
    "level": "B2",
    "domains": [
-    "media_news"
+    "media_news",
+    "tools_diy"
    ]
   },
   "censorship": {
@@ -26865,7 +26909,8 @@
    "level": "B2",
    "domains": [
     "finance_b2",
-    "public_services"
+    "public_services",
+    "emergency_safety"
    ]
   },
   "premium": {
@@ -33088,7 +33133,8 @@
    ],
    "level": "A2",
    "domains": [
-    "cooking_basics"
+    "cooking_basics",
+    "restaurant_dining"
    ]
   },
   "salty": {
@@ -34713,7 +34759,8 @@
    ],
    "level": "B1",
    "domains": [
-    "public_services"
+    "public_services",
+    "hotel_stay"
    ]
   },
   "emergency services": {
@@ -35112,6 +35159,2477 @@
    "level": "B1",
    "domains": [
     "sleep_wellbeing"
+   ]
+  },
+  "menu": {
+   "en": "menu",
+   "fa": "منو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "menu's",
+     "n": "possessive"
+    },
+    {
+     "f": "menus",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "waitress": {
+   "en": "waitress",
+   "fa": "پیشخدمت خانم",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "waitress's",
+     "n": "possessive"
+    },
+    {
+     "f": "waitresses",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "table for two": {
+   "en": "table for two",
+   "fa": "میز دونفره",
+   "pos": "noun",
+   "forms": [],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "order": {
+   "en": "order",
+   "fa": "سفارش دادن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "order's",
+     "n": "possessive"
+    },
+    {
+     "f": "orders",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "starter": {
+   "en": "starter",
+   "fa": "پیش‌غذا",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "starter's",
+     "n": "possessive"
+    },
+    {
+     "f": "starters",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "main course": {
+   "en": "main course",
+   "fa": "غذای اصلی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "course's",
+     "n": "possessive"
+    },
+    {
+     "f": "courses",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "tip": {
+   "en": "tip",
+   "fa": "انعام",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "tip's",
+     "n": "possessive"
+    },
+    {
+     "f": "tips",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "change": {
+   "en": "change",
+   "fa": "باقی پول",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "change's",
+     "n": "possessive"
+    },
+    {
+     "f": "changes",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "recommend": {
+   "en": "recommend",
+   "fa": "توصیه کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "recommend's",
+     "n": "possessive"
+    },
+    {
+     "f": "recommends",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "vegetarian": {
+   "en": "vegetarian",
+   "fa": "گیاه‌خوار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "vegetarian's",
+     "n": "possessive"
+    },
+    {
+     "f": "vegetarians",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "vegan": {
+   "en": "vegan",
+   "fa": "وگان",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "vegan's",
+     "n": "possessive"
+    },
+    {
+     "f": "vegans",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "still water": {
+   "en": "still water",
+   "fa": "آب بدون گاز",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "water's",
+     "n": "possessive"
+    },
+    {
+     "f": "waters",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "sparkling water": {
+   "en": "sparkling water",
+   "fa": "آب گازدار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "water's",
+     "n": "possessive"
+    },
+    {
+     "f": "waters",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "takeaway": {
+   "en": "takeaway",
+   "fa": "غذای بیرون‌بر",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "takeaway's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "cutlery": {
+   "en": "cutlery",
+   "fa": "قاشق و چنگال",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "cutlery's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "napkin": {
+   "en": "napkin",
+   "fa": "دستمال سفره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "napkin's",
+     "n": "possessive"
+    },
+    {
+     "f": "napkins",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "plate": {
+   "en": "plate",
+   "fa": "بشقاب",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "plates",
+     "n": "3rd person"
+    },
+    {
+     "f": "plating",
+     "n": "-ing"
+    },
+    {
+     "f": "plated",
+     "n": "past"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "glass": {
+   "en": "glass",
+   "fa": "لیوان",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "glass's",
+     "n": "possessive"
+    },
+    {
+     "f": "glasses",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "bottle": {
+   "en": "bottle",
+   "fa": "بطری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bottle's",
+     "n": "possessive"
+    },
+    {
+     "f": "bottles",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "book a table": {
+   "en": "book a table",
+   "fa": "میز رزرو کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "table's",
+     "n": "possessive"
+    },
+    {
+     "f": "tables",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "split the bill": {
+   "en": "split the bill",
+   "fa": "صورت‌حساب را تقسیم کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bill's",
+     "n": "possessive"
+    },
+    {
+     "f": "bills",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "restaurant_dining"
+   ]
+  },
+  "reception": {
+   "en": "reception",
+   "fa": "پذیرش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "reception's",
+     "n": "possessive"
+    },
+    {
+     "f": "receptions",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "check-in": {
+   "en": "check-in",
+   "fa": "ورود",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "check-in's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "check-out": {
+   "en": "check-out",
+   "fa": "خروج",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "check-out's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "booking": {
+   "en": "booking",
+   "fa": "رزرو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "booking's",
+     "n": "possessive"
+    },
+    {
+     "f": "bookings",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "single room": {
+   "en": "single room",
+   "fa": "اتاق یک‌نفره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "room's",
+     "n": "possessive"
+    },
+    {
+     "f": "rooms",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "double room": {
+   "en": "double room",
+   "fa": "اتاق دونفره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "room's",
+     "n": "possessive"
+    },
+    {
+     "f": "rooms",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "twin room": {
+   "en": "twin room",
+   "fa": "اتاق دو تخته",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "room's",
+     "n": "possessive"
+    },
+    {
+     "f": "rooms",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "suite": {
+   "en": "suite",
+   "fa": "سوئیت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "suite's",
+     "n": "possessive"
+    },
+    {
+     "f": "suites",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "key card": {
+   "en": "key card",
+   "fa": "کارت کلید",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "card's",
+     "n": "possessive"
+    },
+    {
+     "f": "cards",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "lift": {
+   "en": "lift",
+   "fa": "آسانسور",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "lift's",
+     "n": "possessive"
+    },
+    {
+     "f": "lifts",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "wi-fi password": {
+   "en": "Wi-Fi password",
+   "fa": "رمز وای‌فای",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "password's",
+     "n": "possessive"
+    },
+    {
+     "f": "passwords",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "breakfast included": {
+   "en": "breakfast included",
+   "fa": "صبحانه شامل",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "included's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "room service": {
+   "en": "room service",
+   "fa": "سرویس اتاق",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "service's",
+     "n": "possessive"
+    },
+    {
+     "f": "services",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "housekeeping": {
+   "en": "housekeeping",
+   "fa": "نظافت اتاق",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "housekeeping's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "pillow": {
+   "en": "pillow",
+   "fa": "بالش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "pillow's",
+     "n": "possessive"
+    },
+    {
+     "f": "pillows",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "blanket": {
+   "en": "blanket",
+   "fa": "پتو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "blanket's",
+     "n": "possessive"
+    },
+    {
+     "f": "blankets",
+     "n": "plural"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "air conditioning": {
+   "en": "air conditioning",
+   "fa": "تهویه هوا",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "conditioning's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "heating": {
+   "en": "heating",
+   "fa": "گرمایش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "heating's",
+     "n": "possessive"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "noise": {
+   "en": "noise",
+   "fa": "سر و صدا",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "noises",
+     "n": "3rd person"
+    },
+    {
+     "f": "noising",
+     "n": "-ing"
+    },
+    {
+     "f": "noised",
+     "n": "past"
+    }
+   ],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "booked up": {
+   "en": "booked up",
+   "fa": "پر شده",
+   "pos": "noun",
+   "forms": [],
+   "level": "A2",
+   "domains": [
+    "hotel_stay"
+   ]
+  },
+  "check-in desk": {
+   "en": "check-in desk",
+   "fa": "میز پذیرش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "desk's",
+     "n": "possessive"
+    },
+    {
+     "f": "desks",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "boarding time": {
+   "en": "boarding time",
+   "fa": "زمان سوار شدن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "time's",
+     "n": "possessive"
+    },
+    {
+     "f": "times",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "direct flight": {
+   "en": "direct flight",
+   "fa": "پرواز مستقیم",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "flight's",
+     "n": "possessive"
+    },
+    {
+     "f": "flights",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "connecting flight": {
+   "en": "connecting flight",
+   "fa": "پرواز اتصالی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "flight's",
+     "n": "possessive"
+    },
+    {
+     "f": "flights",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "layover": {
+   "en": "layover",
+   "fa": "توقف بین دو پرواز",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "layover's",
+     "n": "possessive"
+    },
+    {
+     "f": "layovers",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "security": {
+   "en": "security",
+   "fa": "امنیت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "security's",
+     "n": "possessive"
+    },
+    {
+     "f": "securities",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "security check": {
+   "en": "security check",
+   "fa": "بازرسی امنیتی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "check's",
+     "n": "possessive"
+    },
+    {
+     "f": "checks",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "passport control": {
+   "en": "passport control",
+   "fa": "کنترل گذرنامه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "control's",
+     "n": "possessive"
+    },
+    {
+     "f": "controls",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "customs": {
+   "en": "customs",
+   "fa": "گمرک",
+   "pos": "noun",
+   "forms": [],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "baggage claim": {
+   "en": "baggage claim",
+   "fa": "تحویل بار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "claim's",
+     "n": "possessive"
+    },
+    {
+     "f": "claims",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "carry-on baggage": {
+   "en": "carry-on baggage",
+   "fa": "بار دستی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "baggage's",
+     "n": "possessive"
+    },
+    {
+     "f": "baggages",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "checked baggage": {
+   "en": "checked baggage",
+   "fa": "بار تحویلی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "baggage's",
+     "n": "possessive"
+    },
+    {
+     "f": "baggages",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "excess baggage": {
+   "en": "excess baggage",
+   "fa": "بار اضافه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "baggage's",
+     "n": "possessive"
+    },
+    {
+     "f": "baggages",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "aisle seat": {
+   "en": "aisle seat",
+   "fa": "صندلی کنار راهرو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "seat's",
+     "n": "possessive"
+    },
+    {
+     "f": "seats",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "window seat": {
+   "en": "window seat",
+   "fa": "صندلی کنار پنجره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "seat's",
+     "n": "possessive"
+    },
+    {
+     "f": "seats",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "seat belt": {
+   "en": "seat belt",
+   "fa": "کمربند ایمنی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "belt's",
+     "n": "possessive"
+    },
+    {
+     "f": "belts",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight",
+    "emergency_safety"
+   ]
+  },
+  "delayed": {
+   "en": "delayed",
+   "fa": "به تأخیر افتاده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "delayed's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "cancelled": {
+   "en": "cancelled",
+   "fa": "لغو شده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "cancelled's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "on time": {
+   "en": "on time",
+   "fa": "به موقع",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "time's",
+     "n": "possessive"
+    },
+    {
+     "f": "times",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "runway": {
+   "en": "runway",
+   "fa": "باند فرودگاه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "runway's",
+     "n": "possessive"
+    },
+    {
+     "f": "runways",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "turbulence": {
+   "en": "turbulence",
+   "fa": "تلاطم هوا",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "turbulence's",
+     "n": "possessive"
+    },
+    {
+     "f": "turbulences",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "divert": {
+   "en": "divert",
+   "fa": "مسیر را تغییر دادن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "divert's",
+     "n": "possessive"
+    },
+    {
+     "f": "diverts",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "miss a flight": {
+   "en": "miss a flight",
+   "fa": "پرواز را از دست دادن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "flight's",
+     "n": "possessive"
+    },
+    {
+     "f": "flights",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "airport_flight"
+   ]
+  },
+  "emergency": {
+   "en": "emergency",
+   "fa": "اضطراری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "emergency's",
+     "n": "possessive"
+    },
+    {
+     "f": "emergencies",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "fire brigade": {
+   "en": "fire brigade",
+   "fa": "آتش‌نشانی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "brigade's",
+     "n": "possessive"
+    },
+    {
+     "f": "brigades",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "accident": {
+   "en": "accident",
+   "fa": "حادثه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "accidently",
+     "n": "adverb"
+    },
+    {
+     "f": "more accident",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most accident",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "bleeding": {
+   "en": "bleeding",
+   "fa": "خون‌ریزی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bleeding's",
+     "n": "possessive"
+    },
+    {
+     "f": "bleedings",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "burn": {
+   "en": "burn",
+   "fa": "سوختگی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "burn's",
+     "n": "possessive"
+    },
+    {
+     "f": "burns",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "choke": {
+   "en": "choke",
+   "fa": "خفگی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "choke's",
+     "n": "possessive"
+    },
+    {
+     "f": "chokes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "danger": {
+   "en": "danger",
+   "fa": "خطر",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "danger's",
+     "n": "possessive"
+    },
+    {
+     "f": "dangers",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "warning": {
+   "en": "warning",
+   "fa": "هشدار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "warning's",
+     "n": "possessive"
+    },
+    {
+     "f": "warnings",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "first aid": {
+   "en": "first aid",
+   "fa": "کمک‌های اولیه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "aid's",
+     "n": "possessive"
+    },
+    {
+     "f": "aids",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "bandage": {
+   "en": "bandage",
+   "fa": "باند",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "bandage's",
+     "n": "possessive"
+    },
+    {
+     "f": "bandages",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "fire extinguisher": {
+   "en": "fire extinguisher",
+   "fa": "کپسول آتش‌نشانی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "extinguisher's",
+     "n": "possessive"
+    },
+    {
+     "f": "extinguishers",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "smoke alarm": {
+   "en": "smoke alarm",
+   "fa": "آژیر دود",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "alarm's",
+     "n": "possessive"
+    },
+    {
+     "f": "alarms",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "emergency exit": {
+   "en": "emergency exit",
+   "fa": "خروج اضطراری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "exit's",
+     "n": "possessive"
+    },
+    {
+     "f": "exits",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "evacuate": {
+   "en": "evacuate",
+   "fa": "تخلیه کردن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "evacuates",
+     "n": "3rd person"
+    },
+    {
+     "f": "evacuating",
+     "n": "-ing"
+    },
+    {
+     "f": "evacuated",
+     "n": "past"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "rescue": {
+   "en": "rescue",
+   "fa": "نجات دادن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "rescue's",
+     "n": "possessive"
+    },
+    {
+     "f": "rescues",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "safe": {
+   "en": "safe",
+   "fa": "امن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "safe's",
+     "n": "possessive"
+    },
+    {
+     "f": "saves",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "dangerous": {
+   "en": "dangerous",
+   "fa": "خطرناک",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "dangerously",
+     "n": "adverb"
+    },
+    {
+     "f": "more dangerous",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most dangerous",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "lost": {
+   "en": "lost",
+   "fa": "گمشده",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "lost's",
+     "n": "possessive"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "theft": {
+   "en": "theft",
+   "fa": "سرقت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "theft's",
+     "n": "possessive"
+    },
+    {
+     "f": "thefts",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "helmet": {
+   "en": "helmet",
+   "fa": "کلاه ایمنی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "helmet's",
+     "n": "possessive"
+    },
+    {
+     "f": "helmets",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "lock": {
+   "en": "lock",
+   "fa": "قفل کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "lock's",
+     "n": "possessive"
+    },
+    {
+     "f": "locks",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
+  "nail": {
+   "en": "nail",
+   "fa": "میخ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "nail's",
+     "n": "possessive"
+    },
+    {
+     "f": "nails",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "screw": {
+   "en": "screw",
+   "fa": "پیچ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "screw's",
+     "n": "possessive"
+    },
+    {
+     "f": "screws",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "wrench": {
+   "en": "wrench",
+   "fa": "آچار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "wrench's",
+     "n": "possessive"
+    },
+    {
+     "f": "wrenches",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "drill": {
+   "en": "drill",
+   "fa": "دریل",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "drill's",
+     "n": "possessive"
+    },
+    {
+     "f": "drills",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "saw": {
+   "en": "saw",
+   "fa": "اره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "saw's",
+     "n": "possessive"
+    },
+    {
+     "f": "saws",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "tape measure": {
+   "en": "tape measure",
+   "fa": "متر نواری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "measure's",
+     "n": "possessive"
+    },
+    {
+     "f": "measures",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "paint": {
+   "en": "paint",
+   "fa": "رنگ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "paint's",
+     "n": "possessive"
+    },
+    {
+     "f": "paints",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "brush": {
+   "en": "brush",
+   "fa": "قلم‌مو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "brush's",
+     "n": "possessive"
+    },
+    {
+     "f": "brushes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy",
+    "art_design"
+   ]
+  },
+  "roller": {
+   "en": "roller",
+   "fa": "غلتک رنگ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "roller's",
+     "n": "possessive"
+    },
+    {
+     "f": "rollers",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "glue": {
+   "en": "glue",
+   "fa": "چسب",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "glue's",
+     "n": "possessive"
+    },
+    {
+     "f": "glues",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "duct tape": {
+   "en": "duct tape",
+   "fa": "نوار چسب",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "tape's",
+     "n": "possessive"
+    },
+    {
+     "f": "tapes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "rope": {
+   "en": "rope",
+   "fa": "طناب",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "rope's",
+     "n": "possessive"
+    },
+    {
+     "f": "ropes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "wire": {
+   "en": "wire",
+   "fa": "سیم",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "wire's",
+     "n": "possessive"
+    },
+    {
+     "f": "wires",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "plug": {
+   "en": "plug",
+   "fa": "دوشاخه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "plug's",
+     "n": "possessive"
+    },
+    {
+     "f": "plugs",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "socket": {
+   "en": "socket",
+   "fa": "پریز",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "socket's",
+     "n": "possessive"
+    },
+    {
+     "f": "sockets",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "switch": {
+   "en": "switch",
+   "fa": "کلید برق",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "switch's",
+     "n": "possessive"
+    },
+    {
+     "f": "switches",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "fix": {
+   "en": "fix",
+   "fa": "تعمیر کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "fix's",
+     "n": "possessive"
+    },
+    {
+     "f": "fixes",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "assemble": {
+   "en": "assemble",
+   "fa": "سرهم کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "assemble's",
+     "n": "possessive"
+    },
+    {
+     "f": "assembles",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "tighten": {
+   "en": "tighten",
+   "fa": "سفت کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "tighten's",
+     "n": "possessive"
+    },
+    {
+     "f": "tightens",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "loosen": {
+   "en": "loosen",
+   "fa": "شل کردن",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "loosen's",
+     "n": "possessive"
+    },
+    {
+     "f": "loosens",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "broken": {
+   "en": "broken",
+   "fa": "خراب",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "brokenly",
+     "n": "adverb"
+    },
+    {
+     "f": "more broken",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most broken",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "cut": {
+   "en": "cut",
+   "fa": "بریدن",
+   "pos": "verb",
+   "forms": [
+    {
+     "f": "cuts",
+     "n": "3rd person"
+    },
+    {
+     "f": "cutting",
+     "n": "-ing"
+    },
+    {
+     "f": "cutted",
+     "n": "past"
+    },
+    {
+     "f": "has cut",
+     "n": "perfect (has/have + …)"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "art": {
+   "en": "art",
+   "fa": "هنر",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "art's",
+     "n": "possessive"
+    },
+    {
+     "f": "arts",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "design": {
+   "en": "design",
+   "fa": "طراحی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "design's",
+     "n": "possessive"
+    },
+    {
+     "f": "designs",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "drawing": {
+   "en": "drawing",
+   "fa": "طراحی با مداد",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "drawing's",
+     "n": "possessive"
+    },
+    {
+     "f": "drawings",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "painting": {
+   "en": "painting",
+   "fa": "نقاشی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "painting's",
+     "n": "possessive"
+    },
+    {
+     "f": "paintings",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "sculpture": {
+   "en": "sculpture",
+   "fa": "مجسمه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "sculpture's",
+     "n": "possessive"
+    },
+    {
+     "f": "sculptures",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "gallery": {
+   "en": "gallery",
+   "fa": "گالری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "gallery's",
+     "n": "possessive"
+    },
+    {
+     "f": "galleries",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "exhibition": {
+   "en": "exhibition",
+   "fa": "نمایشگاه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "exhibition's",
+     "n": "possessive"
+    },
+    {
+     "f": "exhibitions",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "canvas": {
+   "en": "canvas",
+   "fa": "بوم نقاشی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "canvas's",
+     "n": "possessive"
+    },
+    {
+     "f": "canvases",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "palette": {
+   "en": "palette",
+   "fa": "پالت رنگ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "palette's",
+     "n": "possessive"
+    },
+    {
+     "f": "palettes",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "colour": {
+   "en": "colour",
+   "fa": "رنگ",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "colour's",
+     "n": "possessive"
+    },
+    {
+     "f": "colours",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "shade": {
+   "en": "shade",
+   "fa": "سایه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "shade's",
+     "n": "possessive"
+    },
+    {
+     "f": "shades",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "contrast": {
+   "en": "contrast",
+   "fa": "تضاد",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "contrast's",
+     "n": "possessive"
+    },
+    {
+     "f": "contrasts",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "texture": {
+   "en": "texture",
+   "fa": "بافت",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "texture's",
+     "n": "possessive"
+    },
+    {
+     "f": "textures",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "pattern": {
+   "en": "pattern",
+   "fa": "الگو",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "pattern's",
+     "n": "possessive"
+    },
+    {
+     "f": "patterns",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "shape": {
+   "en": "shape",
+   "fa": "شکل",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "shape's",
+     "n": "possessive"
+    },
+    {
+     "f": "shapes",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "composition": {
+   "en": "composition",
+   "fa": "ترکیب‌بندی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "composition's",
+     "n": "possessive"
+    },
+    {
+     "f": "compositions",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "sketch": {
+   "en": "sketch",
+   "fa": "طرح اولیه",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "sketch's",
+     "n": "possessive"
+    },
+    {
+     "f": "sketches",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "portrait": {
+   "en": "portrait",
+   "fa": "پرتره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "portrait's",
+     "n": "possessive"
+    },
+    {
+     "f": "portraits",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "landscape": {
+   "en": "landscape",
+   "fa": "منظره",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "landscape's",
+     "n": "possessive"
+    },
+    {
+     "f": "landscapes",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "realistic": {
+   "en": "realistic",
+   "fa": "واقع‌گرایانه",
+   "pos": "adj",
+   "forms": [
+    {
+     "f": "more realistic",
+     "n": "comparative (long)"
+    },
+    {
+     "f": "most realistic",
+     "n": "superlative (long)"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "inspiration": {
+   "en": "inspiration",
+   "fa": "الهام",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "inspiration's",
+     "n": "possessive"
+    },
+    {
+     "f": "inspirations",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "style": {
+   "en": "style",
+   "fa": "سبک",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "style's",
+     "n": "possessive"
+    },
+    {
+     "f": "styles",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "masterpiece": {
+   "en": "masterpiece",
+   "fa": "شاهکار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "masterpiece's",
+     "n": "possessive"
+    },
+    {
+     "f": "masterpieces",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "critique": {
+   "en": "critique",
+   "fa": "نقد",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "critique's",
+     "n": "possessive"
+    },
+    {
+     "f": "critiques",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
+   ]
+  },
+  "commission": {
+   "en": "commission",
+   "fa": "سفارش هنری",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "commission's",
+     "n": "possessive"
+    },
+    {
+     "f": "commissions",
+     "n": "plural"
+    }
+   ],
+   "level": "B2",
+   "domains": [
+    "art_design"
    ]
   }
  }

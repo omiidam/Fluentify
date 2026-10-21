@@ -5123,7 +5123,8 @@
           "body_health",
           "emotions",
           "jobs",
-          "communication"
+          "communication",
+          "emergency_safety"
         ]
       },
       {
@@ -5137,7 +5138,8 @@
           "shopping_clothes",
           "bank_money",
           "directions_words",
-          "daily_routine_words"
+          "daily_routine_words",
+          "tools_diy"
         ]
       },
       {
@@ -5148,7 +5150,8 @@
           "food",
           "fruits",
           "vegetables",
-          "cooking_basics"
+          "cooking_basics",
+          "restaurant_dining"
         ]
       },
       {
@@ -5160,7 +5163,9 @@
           "animals",
           "weather_seasons",
           "travel",
-          "transport"
+          "transport",
+          "hotel_stay",
+          "airport_flight"
         ]
       },
       {
@@ -5183,7 +5188,8 @@
           "colors",
           "clothing",
           "sports",
-          "music"
+          "music",
+          "art_design"
         ]
       },
       {
@@ -11138,6 +11144,898 @@
         [
           "oversleep",
           "بیش از حد خوابیدن"
+        ]
+      ]
+    },
+    "restaurant_dining": {
+      "label": {
+        "en": "restaurant word",
+        "fa": "کلمه رستوران"
+      },
+      "list_label": {
+        "en": "Restaurants & ordering",
+        "fa": "رستوران و سفارش غذا"
+      },
+      "level": "A2",
+      "group": "food",
+      "keywords": {
+        "en": [
+          "restaurant words",
+          "ordering food",
+          "dining out",
+          "restaurant vocabulary"
+        ],
+        "fa": [
+          "کلمات رستوران",
+          "سفارش غذا",
+          "غذا خوردن بیرون",
+          "منوی رستوران"
+        ]
+      },
+      "words": [
+        [
+          "menu",
+          "منو"
+        ],
+        [
+          "waiter",
+          "پیشخدمت"
+        ],
+        [
+          "waitress",
+          "پیشخدمت خانم"
+        ],
+        [
+          "reservation",
+          "رزرو"
+        ],
+        [
+          "table for two",
+          "میز دونفره"
+        ],
+        [
+          "order",
+          "سفارش دادن"
+        ],
+        [
+          "starter",
+          "پیش‌غذا"
+        ],
+        [
+          "main course",
+          "غذای اصلی"
+        ],
+        [
+          "dessert",
+          "دسر"
+        ],
+        [
+          "drink",
+          "نوشیدنی"
+        ],
+        [
+          "bill",
+          "صورت‌حساب"
+        ],
+        [
+          "tip",
+          "انعام"
+        ],
+        [
+          "receipt",
+          "رسید"
+        ],
+        [
+          "change",
+          "باقی پول"
+        ],
+        [
+          "recommend",
+          "توصیه کردن"
+        ],
+        [
+          "vegetarian",
+          "گیاه‌خوار"
+        ],
+        [
+          "vegan",
+          "وگان"
+        ],
+        [
+          "allergy",
+          "حساسیت غذایی"
+        ],
+        [
+          "spicy",
+          "تند"
+        ],
+        [
+          "mild",
+          "ملایم"
+        ],
+        [
+          "still water",
+          "آب بدون گاز"
+        ],
+        [
+          "sparkling water",
+          "آب گازدار"
+        ],
+        [
+          "takeaway",
+          "غذای بیرون‌بر"
+        ],
+        [
+          "cutlery",
+          "قاشق و چنگال"
+        ],
+        [
+          "napkin",
+          "دستمال سفره"
+        ],
+        [
+          "plate",
+          "بشقاب"
+        ],
+        [
+          "glass",
+          "لیوان"
+        ],
+        [
+          "bottle",
+          "بطری"
+        ],
+        [
+          "book a table",
+          "میز رزرو کردن"
+        ],
+        [
+          "split the bill",
+          "صورت‌حساب را تقسیم کردن"
+        ]
+      ]
+    },
+    "hotel_stay": {
+      "label": {
+        "en": "hotel word",
+        "fa": "کلمه هتل"
+      },
+      "list_label": {
+        "en": "Hotels & stays",
+        "fa": "هتل و اقامت"
+      },
+      "level": "A2",
+      "group": "world",
+      "keywords": {
+        "en": [
+          "hotel words",
+          "hotel vocabulary",
+          "staying at a hotel",
+          "accommodation words"
+        ],
+        "fa": [
+          "کلمات هتل",
+          "اقامت در هتل",
+          "رزرو هتل",
+          "اتاق هتل"
+        ]
+      },
+      "words": [
+        [
+          "reception",
+          "پذیرش"
+        ],
+        [
+          "check-in",
+          "ورود"
+        ],
+        [
+          "check-out",
+          "خروج"
+        ],
+        [
+          "booking",
+          "رزرو"
+        ],
+        [
+          "reservation",
+          "رزرو"
+        ],
+        [
+          "room",
+          "اتاق"
+        ],
+        [
+          "single room",
+          "اتاق یک‌نفره"
+        ],
+        [
+          "double room",
+          "اتاق دونفره"
+        ],
+        [
+          "twin room",
+          "اتاق دو تخته"
+        ],
+        [
+          "suite",
+          "سوئیت"
+        ],
+        [
+          "key",
+          "کلید"
+        ],
+        [
+          "key card",
+          "کارت کلید"
+        ],
+        [
+          "lift",
+          "آسانسور"
+        ],
+        [
+          "stairs",
+          "پله"
+        ],
+        [
+          "luggage",
+          "وسایل سفر"
+        ],
+        [
+          "suitcase",
+          "چمدان"
+        ],
+        [
+          "passport",
+          "گذرنامه"
+        ],
+        [
+          "Wi-Fi password",
+          "رمز وای‌فای"
+        ],
+        [
+          "breakfast included",
+          "صبحانه شامل"
+        ],
+        [
+          "room service",
+          "سرویس اتاق"
+        ],
+        [
+          "housekeeping",
+          "نظافت اتاق"
+        ],
+        [
+          "towel",
+          "حوله"
+        ],
+        [
+          "pillow",
+          "بالش"
+        ],
+        [
+          "blanket",
+          "پتو"
+        ],
+        [
+          "air conditioning",
+          "تهویه هوا"
+        ],
+        [
+          "heating",
+          "گرمایش"
+        ],
+        [
+          "noise",
+          "سر و صدا"
+        ],
+        [
+          "complain",
+          "شکایت کردن"
+        ],
+        [
+          "refund",
+          "بازپرداخت"
+        ],
+        [
+          "deposit",
+          "ودیعه"
+        ],
+        [
+          "booked up",
+          "پر شده"
+        ]
+      ]
+    },
+    "airport_flight": {
+      "label": {
+        "en": "airport word",
+        "fa": "کلمه فرودگاه"
+      },
+      "list_label": {
+        "en": "At the airport",
+        "fa": "در فرودگاه"
+      },
+      "level": "B1",
+      "group": "world",
+      "keywords": {
+        "en": [
+          "airport words",
+          "airport vocabulary",
+          "flight words",
+          "air travel words"
+        ],
+        "fa": [
+          "کلمات فرودگاه",
+          "سفر هوایی",
+          "کلمات پرواز",
+          "فرودگاه"
+        ]
+      },
+      "words": [
+        [
+          "airport",
+          "فرودگاه"
+        ],
+        [
+          "terminal",
+          "ترمینال"
+        ],
+        [
+          "check-in desk",
+          "میز پذیرش"
+        ],
+        [
+          "boarding pass",
+          "کارت پرواز"
+        ],
+        [
+          "boarding time",
+          "زمان سوار شدن"
+        ],
+        [
+          "gate",
+          "گیت"
+        ],
+        [
+          "departure",
+          "خروج"
+        ],
+        [
+          "arrival",
+          "ورود"
+        ],
+        [
+          "flight",
+          "پرواز"
+        ],
+        [
+          "direct flight",
+          "پرواز مستقیم"
+        ],
+        [
+          "connecting flight",
+          "پرواز اتصالی"
+        ],
+        [
+          "layover",
+          "توقف بین دو پرواز"
+        ],
+        [
+          "security",
+          "امنیت"
+        ],
+        [
+          "security check",
+          "بازرسی امنیتی"
+        ],
+        [
+          "passport control",
+          "کنترل گذرنامه"
+        ],
+        [
+          "customs",
+          "گمرک"
+        ],
+        [
+          "baggage claim",
+          "تحویل بار"
+        ],
+        [
+          "carry-on baggage",
+          "بار دستی"
+        ],
+        [
+          "checked baggage",
+          "بار تحویلی"
+        ],
+        [
+          "excess baggage",
+          "بار اضافه"
+        ],
+        [
+          "aisle seat",
+          "صندلی کنار راهرو"
+        ],
+        [
+          "window seat",
+          "صندلی کنار پنجره"
+        ],
+        [
+          "seat belt",
+          "کمربند ایمنی"
+        ],
+        [
+          "delayed",
+          "به تأخیر افتاده"
+        ],
+        [
+          "cancelled",
+          "لغو شده"
+        ],
+        [
+          "on time",
+          "به موقع"
+        ],
+        [
+          "runway",
+          "باند فرودگاه"
+        ],
+        [
+          "turbulence",
+          "تلاطم هوا"
+        ],
+        [
+          "divert",
+          "مسیر را تغییر دادن"
+        ],
+        [
+          "miss a flight",
+          "پرواز را از دست دادن"
+        ]
+      ]
+    },
+    "emergency_safety": {
+      "label": {
+        "en": "safety word",
+        "fa": "کلمه ایمنی"
+      },
+      "list_label": {
+        "en": "Emergencies & safety",
+        "fa": "اورژانس و ایمنی"
+      },
+      "level": "B1",
+      "group": "people",
+      "keywords": {
+        "en": [
+          "emergency words",
+          "safety words",
+          "emergency vocabulary",
+          "first aid words"
+        ],
+        "fa": [
+          "کلمات اورژانس",
+          "ایمنی",
+          "کمک‌های اولیه",
+          "حوادث"
+        ]
+      },
+      "words": [
+        [
+          "emergency",
+          "اضطراری"
+        ],
+        [
+          "ambulance",
+          "آمبولانس"
+        ],
+        [
+          "fire brigade",
+          "آتش‌نشانی"
+        ],
+        [
+          "police",
+          "پلیس"
+        ],
+        [
+          "accident",
+          "حادثه"
+        ],
+        [
+          "injury",
+          "آسیب"
+        ],
+        [
+          "bleeding",
+          "خون‌ریزی"
+        ],
+        [
+          "burn",
+          "سوختگی"
+        ],
+        [
+          "choke",
+          "خفگی"
+        ],
+        [
+          "danger",
+          "خطر"
+        ],
+        [
+          "warning",
+          "هشدار"
+        ],
+        [
+          "first aid",
+          "کمک‌های اولیه"
+        ],
+        [
+          "bandage",
+          "باند"
+        ],
+        [
+          "medicine",
+          "دارو"
+        ],
+        [
+          "hospital",
+          "بیمارستان"
+        ],
+        [
+          "fire extinguisher",
+          "کپسول آتش‌نشانی"
+        ],
+        [
+          "smoke alarm",
+          "آژیر دود"
+        ],
+        [
+          "exit",
+          "خروج"
+        ],
+        [
+          "emergency exit",
+          "خروج اضطراری"
+        ],
+        [
+          "evacuate",
+          "تخلیه کردن"
+        ],
+        [
+          "rescue",
+          "نجات دادن"
+        ],
+        [
+          "safe",
+          "امن"
+        ],
+        [
+          "dangerous",
+          "خطرناک"
+        ],
+        [
+          "lost",
+          "گمشده"
+        ],
+        [
+          "theft",
+          "سرقت"
+        ],
+        [
+          "report",
+          "گزارش دادن"
+        ],
+        [
+          "insurance",
+          "بیمه"
+        ],
+        [
+          "helmet",
+          "کلاه ایمنی"
+        ],
+        [
+          "seat belt",
+          "کمربند ایمنی"
+        ],
+        [
+          "lock",
+          "قفل کردن"
+        ]
+      ]
+    },
+    "tools_diy": {
+      "label": {
+        "en": "tool word",
+        "fa": "کلمه ابزار"
+      },
+      "list_label": {
+        "en": "Tools & repairs",
+        "fa": "ابزار و تعمیرات"
+      },
+      "level": "B1",
+      "group": "home",
+      "keywords": {
+        "en": [
+          "tool words",
+          "tools vocabulary",
+          "diy words",
+          "repair words"
+        ],
+        "fa": [
+          "کلمات ابزار",
+          "ابزار و تعمیرات",
+          "تعمیر کردن",
+          "کارهای خانه"
+        ]
+      },
+      "words": [
+        [
+          "tool",
+          "ابزار"
+        ],
+        [
+          "hammer",
+          "چکش"
+        ],
+        [
+          "nail",
+          "میخ"
+        ],
+        [
+          "screw",
+          "پیچ"
+        ],
+        [
+          "screwdriver",
+          "پیچ‌گوشتی"
+        ],
+        [
+          "wrench",
+          "آچار"
+        ],
+        [
+          "drill",
+          "دریل"
+        ],
+        [
+          "saw",
+          "اره"
+        ],
+        [
+          "tape measure",
+          "متر نواری"
+        ],
+        [
+          "ladder",
+          "نردبان"
+        ],
+        [
+          "paint",
+          "رنگ"
+        ],
+        [
+          "brush",
+          "قلم‌مو"
+        ],
+        [
+          "roller",
+          "غلتک رنگ"
+        ],
+        [
+          "glue",
+          "چسب"
+        ],
+        [
+          "duct tape",
+          "نوار چسب"
+        ],
+        [
+          "rope",
+          "طناب"
+        ],
+        [
+          "wire",
+          "سیم"
+        ],
+        [
+          "plug",
+          "دوشاخه"
+        ],
+        [
+          "socket",
+          "پریز"
+        ],
+        [
+          "switch",
+          "کلید برق"
+        ],
+        [
+          "fix",
+          "تعمیر کردن"
+        ],
+        [
+          "repair",
+          "تعمیر"
+        ],
+        [
+          "assemble",
+          "سرهم کردن"
+        ],
+        [
+          "tighten",
+          "سفت کردن"
+        ],
+        [
+          "loosen",
+          "شل کردن"
+        ],
+        [
+          "leak",
+          "نشتی"
+        ],
+        [
+          "broken",
+          "خراب"
+        ],
+        [
+          "measure",
+          "اندازه گرفتن"
+        ],
+        [
+          "cut",
+          "بریدن"
+        ],
+        [
+          "sand",
+          "سمباده زدن"
+        ]
+      ]
+    },
+    "art_design": {
+      "label": {
+        "en": "art word",
+        "fa": "کلمه هنر"
+      },
+      "list_label": {
+        "en": "Art & design",
+        "fa": "هنر و طراحی"
+      },
+      "level": "B2",
+      "group": "describe",
+      "keywords": {
+        "en": [
+          "art words",
+          "design words",
+          "art vocabulary",
+          "drawing and painting"
+        ],
+        "fa": [
+          "کلمات هنر",
+          "طراحی",
+          "واژگان هنر",
+          "نقاشی"
+        ]
+      },
+      "words": [
+        [
+          "art",
+          "هنر"
+        ],
+        [
+          "artist",
+          "هنرمند"
+        ],
+        [
+          "design",
+          "طراحی"
+        ],
+        [
+          "designer",
+          "طراح"
+        ],
+        [
+          "drawing",
+          "طراحی با مداد"
+        ],
+        [
+          "painting",
+          "نقاشی"
+        ],
+        [
+          "sculpture",
+          "مجسمه"
+        ],
+        [
+          "gallery",
+          "گالری"
+        ],
+        [
+          "exhibition",
+          "نمایشگاه"
+        ],
+        [
+          "canvas",
+          "بوم نقاشی"
+        ],
+        [
+          "brush",
+          "قلم‌مو"
+        ],
+        [
+          "palette",
+          "پالت رنگ"
+        ],
+        [
+          "colour",
+          "رنگ"
+        ],
+        [
+          "shade",
+          "سایه"
+        ],
+        [
+          "contrast",
+          "تضاد"
+        ],
+        [
+          "texture",
+          "بافت"
+        ],
+        [
+          "pattern",
+          "الگو"
+        ],
+        [
+          "shape",
+          "شکل"
+        ],
+        [
+          "composition",
+          "ترکیب‌بندی"
+        ],
+        [
+          "sketch",
+          "طرح اولیه"
+        ],
+        [
+          "portrait",
+          "پرتره"
+        ],
+        [
+          "landscape",
+          "منظره"
+        ],
+        [
+          "abstract",
+          "انتزاعی"
+        ],
+        [
+          "realistic",
+          "واقع‌گرایانه"
+        ],
+        [
+          "creative",
+          "خلاق"
+        ],
+        [
+          "inspiration",
+          "الهام"
+        ],
+        [
+          "style",
+          "سبک"
+        ],
+        [
+          "masterpiece",
+          "شاهکار"
+        ],
+        [
+          "critique",
+          "نقد"
+        ],
+        [
+          "commission",
+          "سفارش هنری"
         ]
       ]
     }
