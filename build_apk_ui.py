@@ -243,10 +243,10 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
     phoneticSections = phonetics.sections.map((s) => ({
       id: s.id, icon: s.icon || '🔊', level: s.level || 'A1',
       title_en: s.title.en, title_fa: s.title.fa,
-      blurb_en: s.blurb.en, blurb_fa: s.blurb.fa,
-      tip_en: (s.tip || {}).en || '', tip_fa: (s.tip || {}).fa || '',
+      blurb_en: s.blurb.en,
+      tip_en: (s.tip || {}).en || '',
       groups: (s.groups || []).map((g) => ({
-        name_en: g.name.en, name_fa: g.name.fa, rows: g.rows || [],
+        name_en: g.name.en, rows: g.rows || [],
       })),
     }));
 

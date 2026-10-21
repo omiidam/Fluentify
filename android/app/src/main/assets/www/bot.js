@@ -303,6 +303,47 @@ const FA_LOOKUP_PATTERNS = [
   /(.+?)\s*(?:چیه|چیست)$/,
 ];
 
+const VAGUE_MEANING_EN = /^(?:what(?:'s|s| is)?\s+(?:the\s+)?meaning(?:\s+of\s+(?:this|that|it))?|what\s+does\s+(?:this|that|it|this\s+word|that\s+word)\s+mean|what\s+do\s+you\s+mean(?:\s+by\s+(?:this|that|it))?)\s*[?.!]*$/i;
+const VAGUE_MEANING_FA = /^(?:(?:این|اون|آن)\s*یعنی\s*(?:چی|چه)|یعنی\s*(?:چی|چه)|معنی\s*(?:این|اون|آن)\s*(?:چیه|چیست|هست)|منظورت\s*(?:از\s*(?:این|اون|آن))?\s*(?:چیه|چیست))\s*[؟?.!]*$/;
+
+function editDistance(a, b) {
+  if (a === b) return 0;
+  if (a.length < b.length) [a, b] = [b, a];
+  let previous = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const current = [i];
+    for (let j = 1; j <= b.length; j++) {
+      current.push(Math.min(
+        previous[j] + 1,
+        current[j - 1] + 1,
+        previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1),
+      ));
+    }
+    previous = current;
+  }
+  return previous[b.length];
+}
+
+const REGISTER_STOPWORDS = new Set([
+  'a', 'an', 'the', 'and', 'or', 'but', 'if', 'in', 'on', 'at', 'to',
+  'for', 'of', 'with', 'from', 'by', 'as', 'is', 'am', 'are', 'was',
+  'were', 'be', 'been', 'being', 'do', 'does', 'did', 'have', 'has',
+  'had', 'i', 'me', 'my', 'we', 'us', 'our', 'you', 'your', 'he',
+  'him', 'his', 'she', 'her', 'it', 'its', 'they', 'them', 'their',
+  'this', 'that', 'these', 'those', 'please', 'can', 'could', 'would',
+  'should', 'will', 'just', 'very', 'really', 'so', 'not', 'no',
+]);
+
+function contentTokens(text) {
+  const out = new Set();
+  for (let word of (text.toLowerCase().match(/[a-z]+/g) || [])) {
+    if (word.length <= 2 || REGISTER_STOPWORDS.has(word)) continue;
+    if (word.length > 4 && word.endsWith('s')) word = word.slice(0, -1);
+    out.add(word);
+  }
+  return out;
+}
+
 const HELP_TEXT = {
   en:
     "I can do all of this:\n" +
@@ -316,6 +357,10 @@ const HELP_TEXT = {
     "- Grammar lessons    → ask: 'grammar', then 'simple present' or 'حال ساده'\n" +
     "- Everyday sentences → ask: 'travel sentences' or 'جملات سفر'\n" +
     "- Grammar practice   → ask: 'simple present exercises' or 'تمرین حال ساده'\n" +
+    "- Pronunciation      → ask: 'how do you pronounce hospital'\n" +
+    "- Register           → ask: 'how do I say sorry formally'\n" +
+    "- Listening practice → ask: 'listen A1' or 'گوش دادن A1'\n" +
+    "- Sounds guide       → ask: 'phonetics' or 'تلفظ'\n" +
     "- Current time/date  → ask: 'what time is it' or 'ساعت چنده'\n" +
     "- Remember your name → say: 'my name is ...' or 'اسم من ... است'\n" +
     "Type 'bye' to exit.",
@@ -331,6 +376,10 @@ const HELP_TEXT = {
     "- درس گرامر        → بپرس: 'گرامر' بعد 'حال ساده' یا 'simple present'\n" +
     "- جملات کاربردی    → بپرس: 'جملات سفر' یا 'daily routine'\n" +
     "- تمرین گرامر      → بپرس: 'تمرین حال ساده' یا 'simple present exercises'\n" +
+    "- تلفظ             → بپرس: 'تلفظ hospital' یا 'how do you pronounce hospital'\n" +
+    "- سطح رسمیت        → بپرس: 'چطور بگم ببخشید دیر کردم رسمی'\n" +
+    "- تمرین شنیدن      → بپرس: 'گوش دادن A1' یا 'listen A1'\n" +
+    "- راهنمای صداها    → بپرس: 'تلفظ' یا 'phonetics'\n" +
     "- ساعت و تاریخ     → بپرس: 'ساعت چنده' یا 'what time is it'\n" +
     "- یادآوری اسمت    → بگو: 'اسم من ... است' یا 'my name is ...'\n" +
     "برای خروج 'bye' یا 'خروج' رو بنویس.",
@@ -979,6 +1028,9 @@ class Fluentify {
   }
 
   handleGlossaryLookup(text, lang) {
+    // Philosophy, not vocabulary: otherwise "meaning of life" becomes a
+    // failed lookup for the word "life".
+    if (/\b(?:meaning|purpose) of life\b/i.test(text)) return null;
     let target = null;
     const patterns = lang === 'fa'
       ? FA_LOOKUP_PATTERNS.concat(EN_LOOKUP_PATTERNS)
@@ -1002,13 +1054,64 @@ class Fluentify {
     return this.formatLookup(target, entries, lang);
   }
 
-  notFound(target, lang) {
-    if (lang === 'fa') {
-      return `«${target}» توی واژه‌نامه من نیست هنوز 📚 ` +
-        'یکی از این دامنه‌ها رو امتحان کن: رنگها، حیوانات، میوهها، اعداد، مشاغل.';
+  _suggestWords(target, limit = 3) {
+    const key = normalizeWord(target);
+    if (!key) return [];
+    const targetFa = detectLang(target) === 'fa';
+    const pool = targetFa ? this.glossaryFa : this.glossaryEn;
+    const maxDist = key.length <= 5 ? 1 : 2;
+    const found = [];
+    for (const [normalized, entries] of pool) {
+      if (!normalized || Math.abs(normalized.length - key.length) > maxDist) continue;
+      const dist = editDistance(key, normalized);
+      if (!dist || dist > maxDist) continue;
+      for (const entry of entries) {
+        const display = targetFa ? entry[2] : entry[1];
+        // "aple" should lead to "apple", not the phrase "a pile".
+        if (display && (target.includes(' ') || !display.includes(' ')))
+          found.push([dist, display.includes(' '), display.toLowerCase(), display]);
+      }
     }
-    return `I don't have "${target}" in my glossary yet 📚 ` +
-      'Try one of my domains: colors, animals, fruits, numbers, jobs, sports...';
+    found.sort((a, b) => a[0] - b[0]
+      || (a[1] === b[1] ? 0 : a[1] ? 1 : -1)
+      || (a[2] < b[2] ? -1 : a[2] > b[2] ? 1 : 0)
+      || (a[3] < b[3] ? -1 : a[3] > b[3] ? 1 : 0));
+    const out = [], seen = new Set();
+    for (const [, , folded, display] of found) {
+      if (seen.has(folded)) continue;
+      seen.add(folded);
+      out.push(display);
+      if (out.length === limit) break;
+    }
+    return out;
+  }
+
+  notFound(target, lang) {
+    const suggestions = this._suggestWords(target);
+    if (lang === 'fa') {
+      let hint, example;
+      if (suggestions.length) {
+        const names = suggestions.map((s) => `«${s}»`).join('، ');
+        hint = `منظورت ${names} بود؟`;
+        example = ` این‌طور بپرس: «معنی ${suggestions[0]} چیه».`;
+      } else {
+        hint = 'شکل ساده کلمه را امتحان کن (مثلاً go به‌جای went) '
+          + 'یا یک دامنه بپرس: رنگ‌ها، حیوانات، میوه‌ها.';
+        example = '';
+      }
+      return `«${target}» توی واژه‌نامه من نیست 📚\n   ↳ ${hint}${example}`;
+    }
+    let hint, example;
+    if (suggestions.length) {
+      const names = suggestions.map((s) => `"${s}"`).join(', ');
+      hint = `Did you mean ${names}?`;
+      example = ` Ask: 'translate ${suggestions[0]}'.`;
+    } else {
+      hint = "Try the base form (e.g. 'go', not 'went'), or ask for a "
+        + 'domain: colors, animals, fruits, numbers.';
+      example = '';
+    }
+    return `I don't have "${target}" in my glossary yet 📚\n   ↳ ${hint}${example}`;
   }
 
   formatLookup(target, entries, lang) {
@@ -1150,6 +1253,7 @@ class Fluentify {
     };
     const probe = grams(t);
     if (!probe.size) return null;
+    const probeWords = contentTokens(t);
     let best = null, score = 0;
     for (const pair of (this.register && this.register.pairs) || []) {
       const hay = (pair.meaning.en + ' ' + pair.meaning.fa).toLowerCase();
@@ -1163,6 +1267,14 @@ class Fluentify {
         // too little signal to be a match: "a word" is four bigrams and two
         // of them land inside "order", which is not the same request
         if (hit < 3) s = 0;
+        // Bigrams alone match short courtesy phrases to unrelated sentences
+        // ("thank you" vs "can you help me"). Require a real content word.
+        if (s && probeWords.size) {
+          const hayWords = contentTokens(hay);
+          let sharedWord = false;
+          for (const w of probeWords) if (hayWords.has(w)) { sharedWord = true; break; }
+          if (!sharedWord) s = 0;
+        }
       }
       if (s > score) { best = pair; score = s; }
     }
@@ -1199,6 +1311,10 @@ class Fluentify {
         only = ['informally', 'casually', 'محاوره'].includes(tail) ? 'casual' : 'formal';
       else if (['polite', 'politely', 'مؤدبانه', 'خودمانی'].includes(tail))
         only = tail === 'خودمانی' ? 'casual' : 'consultative';
+      // A dictionary word or a stored phrase is a pronunciation question,
+      // not a register request: "how do you say thank you".
+      if (!tail && (this.lookupWord(thing).length
+        || this.lookupPhrase(normalizeWord(thing)))) return null;
       const pair = this._regMatch(thing);
       if (pair) return this._regRenderPair(pair, only);
       // Only claim the query when it actually named a register. "How do you
@@ -1228,6 +1344,28 @@ class Fluentify {
       return lines.join('\n');
     }
     return null;
+  }
+
+  handleLifeMeaning(text, lang) {
+    if (!(/\b(?:meaning|purpose) of life\b|\bwhy are we here\b/i.test(text)
+      || ['معنی زندگی', 'هدف زندگی', 'برای چی اومدیم'].some((p) => text.includes(p))))
+      return null;
+    const intent = this.intents.find((i) => i.name === 'meaning');
+    return intent ? this.replyFromIntent(intent, lang) : null;
+  }
+
+  handleVagueMeaning(text, lang) {
+    const cleaned = text.trim().replace(/\s+/g, ' ');
+    if (!VAGUE_MEANING_EN.test(cleaned) && !VAGUE_MEANING_FA.test(cleaned))
+      return null;
+    if (lang === 'fa') {
+      return 'کدام کلمه یا جمله را می‌پرسید؟ این‌طور بنویسید: '
+        + '«معنی <کلمه> چیه» یا «<کلمه> به انگلیسی» '
+        + 'تا معنی دقیق و مثال بدهم.';
+    }
+    return 'Which word or sentence do you mean? Send it like this: '
+      + '"define <word>" or "what does <word> mean" — '
+      + 'then I can give the exact meaning and an example.';
   }
 
   handleIdioms(text, lowered, lang) {
@@ -1699,6 +1837,7 @@ class Fluentify {
     if (result === null) result = this.handleRegister(text, lowered, lang);
     if (result === null) result = this.handlePronounce(text, lowered, lang);
     if (result === null) result = this.handleDistinction(text, lowered, lang);
+    if (result === null) result = this.handleLifeMeaning(text, lang);
     if (result === null) result = this.handleIdioms(text, lowered, lang);
     if (result === null) result = this.handleCorrection(text, lowered, lang);
     if (result === null) result = this.handleStat(text, lowered, lang);
@@ -1706,6 +1845,7 @@ class Fluentify {
     if (result === null) result = this.handlePhrases(text, lowered, lang);
     if (result === null) result = this.handleListening(text, lowered, lang);
     if (result === null) result = this.handleGlossaryLookup(text, lang);
+    if (result === null) result = this.handleVagueMeaning(text, lang);
     if (result === null) result = this.handleDomainList(text, lowered, lang);
     if (result) {
       if (learned) {
@@ -1733,13 +1873,20 @@ class Fluentify {
     }
 
     if (lang === 'fa') {
-      return 'متوجه نشدم 😅 می‌تونی درباره الفبای فارسی، جوک، ساعت، ترجمه کلمات ' +
-        "(مثل 'سیب به انگلیسی') یا واژگان (مثل 'رنگها' و 'حیوانات') بپرسی. " +
-        "برای راهنما بنویس 'راهنما'.";
+      return 'متوجه نشدم 😅 ترجیح می‌دهم حدس نزنم. یکی از این‌ها را امتحان کن:\n'
+        + '   • ترجمه کلمه → «سیب به انگلیسی»\n'
+        + '   • واژگان → «رنگ‌ها» یا «حیوانات»\n'
+        + '   • گرامر → «حال ساده» یا «گرامر»\n'
+        + '   • تلفظ → «تلفظ hospital»\n'
+        + '   • فهرست کامل → «راهنما»';
     }
-    return "I'm not sure I understand 😅 Try asking about the alphabets, a joke, " +
-      "translating a word ('translate apple'), a vocabulary domain " +
-      "('what are the colors'), or the time. Type 'help' for options.";
+    return "I'm not sure I understand yet — I'd rather ask than guess. 😊\n"
+      + '   Try one of these:\n'
+      + "   • translate a word → 'translate apple'\n"
+      + "   • vocabulary → 'colors' or 'what are the fruits'\n"
+      + "   • grammar → 'simple present' or 'grammar'\n"
+      + "   • pronunciation → 'how do you pronounce hospital'\n"
+      + "   • full menu → 'help'";
   }
 }
 

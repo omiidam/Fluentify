@@ -4407,7 +4407,7 @@ async function loadPhonetics() {
     h.append(lvl, fa);
     const blurb = document.createElement('div');
     blurb.className = 'pblurb';
-    blurb.textContent = sec.blurb_en + ' — ' + sec.blurb_fa;
+    blurb.textContent = sec.blurb_en;
     head.append(h, blurb);
     view.appendChild(head);
 
@@ -4419,7 +4419,7 @@ async function loadPhonetics() {
       k.textContent = '🔑';
       const t = document.createElement('span');
       t.className = 'pt';
-      t.textContent = sec.tip_en + ' — ' + sec.tip_fa;
+      t.textContent = sec.tip_en;
       tip.append(k, t);
       view.appendChild(tip);
     }
@@ -4430,10 +4430,6 @@ async function loadPhonetics() {
       const gh = document.createElement('div');
       gh.className = 'ghead';
       gh.textContent = g.name_en;
-      const gfa = document.createElement('span');
-      gfa.className = 'fa';
-      gfa.textContent = g.name_fa;
-      gh.appendChild(gfa);
       wrap.appendChild(gh);
 
       const grid = document.createElement('div');
@@ -4455,7 +4451,6 @@ async function loadPhonetics() {
         add('psub', r.sub);
         // skip the spoken-example line when it would just repeat the symbol
         if (r.say && r.say !== r.ip && !r.sub.includes(r.say)) add('psay', r.say);
-        add('pfa', r.fa);
         add('pwords', r.words);
         add('pnote', r.note);
 
@@ -5929,12 +5924,9 @@ class Handler(BaseHTTPRequestHandler):
                 "title_en": s["title"]["en"],
                 "title_fa": s["title"]["fa"],
                 "blurb_en": s["blurb"]["en"],
-                "blurb_fa": s["blurb"]["fa"],
                 "tip_en": s.get("tip", {}).get("en", ""),
-                "tip_fa": s.get("tip", {}).get("fa", ""),
                 "groups": [{
                     "name_en": g["name"]["en"],
-                    "name_fa": g["name"]["fa"],
                     "rows": g.get("rows", []),
                 } for g in s.get("groups", [])],
             } for s in data["sections"]]

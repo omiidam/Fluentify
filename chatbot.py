@@ -43,6 +43,10 @@ HELP_TEXT = {
         "- Grammar lessons    → ask: 'grammar', then 'simple present' or 'حال ساده'\n"
         "- Everyday sentences → ask: 'travel sentences' or 'جملات سفر'\n"
         "- Grammar practice   → ask: 'simple present exercises' or 'تمرین حال ساده'\n"
+        "- Pronunciation      → ask: 'how do you pronounce hospital'\n"
+        "- Register           → ask: 'how do I say sorry formally'\n"
+        "- Listening practice → ask: 'listen A1' or 'گوش دادن A1'\n"
+        "- Sounds guide       → ask: 'phonetics' or 'تلفظ'\n"
         "- Current time/date  → ask: 'what time is it' or 'ساعت چنده'\n"
         "- Remember your name → say: 'my name is ...' or 'اسم من ... است'\n"
         "Type 'bye' to exit."
@@ -59,6 +63,10 @@ HELP_TEXT = {
         "- درس گرامر        → بپرس: 'گرامر' بعد 'حال ساده' یا 'simple present'\n"
         "- جملات کاربردی    → بپرس: 'جملات سفر' یا 'daily routine'\n"
         "- تمرین گرامر      → بپرس: 'تمرین حال ساده' یا 'simple present exercises'\n"
+        "- تلفظ             → بپرس: 'تلفظ hospital' یا 'how do you pronounce hospital'\n"
+        "- سطح رسمیت        → بپرس: 'چطور بگم ببخشید دیر کردم رسمی'\n"
+        "- تمرین شنیدن      → بپرس: 'گوش دادن A1' یا 'listen A1'\n"
+        "- راهنمای صداها    → بپرس: 'تلفظ' یا 'phonetics'\n"
         "- ساعت و تاریخ     → بپرس: 'ساعت چنده' یا 'what time is it'\n"
         "- یادآوری اسمت    → بگو: 'اسم من ... است' یا 'my name is ...'\n"
         "برای خروج 'bye' یا 'خروج' رو بنویس."
@@ -406,6 +414,49 @@ def normalize_word(text: str) -> str:
     return normalize_en(text)
 
 
+def edit_distance(a: str, b: str) -> int:
+    """Levenshtein distance, shared with the JavaScript engine."""
+    if a == b:
+        return 0
+    if len(a) < len(b):
+        a, b = b, a
+    previous = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        current = [i]
+        for j, cb in enumerate(b, 1):
+            current.append(min(
+                previous[j] + 1,
+                current[j - 1] + 1,
+                previous[j - 1] + (ca != cb),
+            ))
+        previous = current
+    return previous[-1]
+
+
+REGISTER_STOPWORDS = {
+    "a", "an", "the", "and", "or", "but", "if", "in", "on", "at", "to",
+    "for", "of", "with", "from", "by", "as", "is", "am", "are", "was",
+    "were", "be", "been", "being", "do", "does", "did", "have", "has",
+    "had", "i", "me", "my", "we", "us", "our", "you", "your", "he",
+    "him", "his", "she", "her", "it", "its", "they", "them", "their",
+    "this", "that", "these", "those", "please", "can", "could", "would",
+    "should", "will", "just", "very", "really", "so", "not", "no",
+}
+
+
+def content_tokens(text: str) -> set[str]:
+    """Content words for register matching, with a tiny plural fold."""
+    words = re.findall(r"[a-z]+", text.lower())
+    out = set()
+    for word in words:
+        if len(word) <= 2 or word in REGISTER_STOPWORDS:
+            continue
+        if len(word) > 4 and word.endswith("s"):
+            word = word[:-1]
+        out.add(word)
+    return out
+
+
 # Stopwords that should never be treated as glossary lookup targets
 LOOKUP_STOPWORDS = {
     "it", "this", "that", "is", "are", "mean", "means", "the", "a", "an",
@@ -435,6 +486,21 @@ FA_LOOKUP_PATTERNS = [
     r"به\s+(?:انگلیسی|فارسی)\s+(?P<t>.+)",
     r"(?P<t>.+?)\s*(?:چیه|چیست)$",
 ]
+
+# Deictic questions such as "what does that mean?" have no lookup target.
+# They need a precise clarification, not a joke-shaped answer.
+VAGUE_MEANING_EN = re.compile(
+    r"^(?:what(?:'s|s| is)?\s+(?:the\s+)?meaning(?:\s+of\s+(?:this|that|it))?"
+    r"|what\s+does\s+(?:this|that|it|this\s+word|that\s+word)\s+mean"
+    r"|what\s+do\s+you\s+mean(?:\s+by\s+(?:this|that|it))?)\s*[?.!]*$",
+    re.IGNORECASE,
+)
+VAGUE_MEANING_FA = re.compile(
+    r"^(?:(?:این|اون|آن)\s*یعنی\s*(?:چی|چه)"
+    r"|یعنی\s*(?:چی|چه)"
+    r"|معنی\s*(?:این|اون|آن)\s*(?:چیه|چیست|هست)"
+    r"|منظورت\s*(?:از\s*(?:این|اون|آن))?\s*(?:چیه|چیست))\s*[؟?.!]*$"
+)
 
 
 class ChatBot:
@@ -1874,6 +1940,10 @@ class ChatBot:
 
     def handle_glossary_lookup(self, text: str, lang: str) -> str | None:
         """Translate/define a word: 'translate apple', 'سیب به انگلیسی', ..."""
+        # Philosophy, not vocabulary: otherwise "meaning of life" becomes a
+        # failed lookup for the word "life".
+        if re.search(r"\b(?:meaning|purpose) of life\b", text, re.IGNORECASE):
+            return None
         target = None
         # Try the natural patterns for the detected language first,
         # then fall back to the other set (handles mixed-language text
@@ -1902,17 +1972,58 @@ class ChatBot:
             return self.not_found_msg(target, lang)
         return self.format_lookup(target, entries, lang)
 
-    @staticmethod
-    def not_found_msg(target: str, lang: str) -> str:
+    def _suggest_words(self, target: str, limit: int = 3) -> list[str]:
+        """Close glossary words for a typo. Deterministic in Python and JS."""
+        key = normalize_word(target)
+        if not key:
+            return []
+        target_fa = detect_lang(target) == "fa"
+        pool = self.glossary_fa if target_fa else self.glossary_en
+        max_dist = 1 if len(key) <= 5 else 2
+        found = []
+        for normalized, entries in pool.items():
+            if not normalized or abs(len(normalized) - len(key)) > max_dist:
+                continue
+            dist = edit_distance(key, normalized)
+            if not dist or dist > max_dist:
+                continue
+            for entry in entries:
+                display = entry[2] if target_fa else entry[1]
+                # "aple" should lead to "apple", not the phrase "a pile".
+                if display and (" " in target or " " not in display):
+                    found.append((dist, " " in display, display.lower(), display))
+        found.sort()
+        out, seen = [], set()
+        for _, _, folded, display in found:
+            if folded in seen:
+                continue
+            seen.add(folded)
+            out.append(display)
+            if len(out) == limit:
+                break
+        return out
+
+    def not_found_msg(self, target: str, lang: str) -> str:
+        suggestions = self._suggest_words(target)
         if lang == "fa":
-            return (
-                f"«{target}» توی واژه‌نامه من نیست هنوز 📚 "
-                "یکی از این دامنه‌ها رو امتحان کن: رنگها، حیوانات، میوهها، اعداد، مشاغل."
-            )
-        return (
-            f"I don't have \"{target}\" in my glossary yet 📚 "
-            "Try one of my domains: colors, animals, fruits, numbers, jobs, sports..."
-        )
+            if suggestions:
+                names = "، ".join(f"«{s}»" for s in suggestions)
+                hint = f"منظورت {names} بود؟"
+                example = f" این‌طور بپرس: «معنی {suggestions[0]} چیه»."
+            else:
+                hint = ("شکل ساده کلمه را امتحان کن (مثلاً go به‌جای went) "
+                        "یا یک دامنه بپرس: رنگ‌ها، حیوانات، میوه‌ها.")
+                example = ""
+            return f"«{target}» توی واژه‌نامه من نیست 📚\n   ↳ {hint}{example}"
+        if suggestions:
+            names = ", ".join(f'"{s}"' for s in suggestions)
+            hint = f"Did you mean {names}?"
+            example = f" Ask: 'translate {suggestions[0]}'."
+        else:
+            hint = ("Try the base form (e.g. 'go', not 'went'), or ask for a "
+                    "domain: colors, animals, fruits, numbers.")
+            example = ""
+        return f"I don't have \"{target}\" in my glossary yet 📚\n   ↳ {hint}{example}"
 
     def format_lookup(self, target: str, entries, lang: str) -> str:
         dom_id, en, fa = entries[0]
@@ -1979,6 +2090,7 @@ class ChatBot:
         probe = grams(t)
         if not probe:
             return None
+        probe_words = content_tokens(t)
         best, score = None, 0.0
         for pair in self.register.get("pairs", []):
             hay = (pair["meaning"]["en"] + " " + pair["meaning"]["fa"]).lower()
@@ -1990,6 +2102,11 @@ class ChatBot:
                 s = shared / len(probe)
                 if shared < 3:
                     s = 0.0          # too little signal to be a match
+                # Bigrams alone match short courtesy phrases to unrelated
+                # sentences ("thank you" vs "can you help me"). Require at
+                # least one real content word in common for Latin text.
+                if s and probe_words and not (probe_words & content_tokens(hay)):
+                    s = 0.0
             if s > score:
                 best, score = pair, s
         # 0.45 keeps "I need to leave early" matching "I have to leave early"
@@ -2033,6 +2150,11 @@ class ChatBot:
                     else "formal"
             elif tail in ("polite", "politely", "مؤدبانه", "خودمانی"):
                 only = "consultative" if tail != "خودمانی" else "casual"
+            # A dictionary word or a stored phrase is a pronunciation
+            # question, not a register request: "how do you say thank you".
+            if not tail and (self.lookup_word(thing)
+                             or self.lookup_phrase(normalize_word(thing))):
+                return None
             pair = self._reg_match(thing)
             if pair:
                 return self._reg_render_pair(pair, only)
@@ -2063,6 +2185,32 @@ class ChatBot:
             return "\n".join(lines)
 
         return None
+
+    def handle_life_meaning(self, text: str, lang: str) -> str | None:
+        """Route the philosophical question before broad vocabulary keywords."""
+        if not (re.search(r"\b(?:meaning|purpose) of life\b|\bwhy are we here\b",
+                          text, re.IGNORECASE)
+                or any(p in text for p in ("معنی زندگی", "هدف زندگی",
+                                           "برای چی اومدیم"))):
+            return None
+        for intent in self.intents:
+            if intent["name"] == "meaning":
+                return self.reply_from_intent(intent, lang)
+        return None
+
+    def handle_vague_meaning(self, text: str, lang: str) -> str | None:
+        """Ask which word the learner means instead of inventing an answer."""
+        cleaned = re.sub(r"\s+", " ", text.strip())
+        if not (VAGUE_MEANING_EN.match(cleaned)
+                or VAGUE_MEANING_FA.match(cleaned)):
+            return None
+        if lang == "fa":
+            return ("کدام کلمه یا جمله را می‌پرسید؟ این‌طور بنویسید: "
+                    "«معنی <کلمه> چیه» یا «<کلمه> به انگلیسی» "
+                    "تا معنی دقیق و مثال بدهم.")
+        return ("Which word or sentence do you mean? Send it like this: "
+                "\"define <word>\" or \"what does <word> mean\" — "
+                "then I can give the exact meaning and an example.")
 
     def respond(self, user_input: str) -> str:
         text = user_input.strip()
@@ -2104,6 +2252,8 @@ class ChatBot:
         if result is None:
             result = self.handle_distinction(text, lowered, lang)
         if result is None:
+            result = self.handle_life_meaning(text, lang)
+        if result is None:
             result = self.handle_idioms(text, lowered, lang)
         if result is None:
             result = self.handle_correction(text, lowered, lang)
@@ -2117,6 +2267,8 @@ class ChatBot:
             result = self.handle_listening(text, lowered, lang)
         if result is None:
             result = self.handle_glossary_lookup(text, lang)
+        if result is None:
+            result = self.handle_vague_meaning(text, lang)
         if result is None:
             result = self.handle_domain_list(text, lowered, lang)
         if result:
@@ -2148,17 +2300,26 @@ class ChatBot:
             if word and normalize_word(word):
                 return self.not_found_msg(word, lang)
 
-        # Language-specific fallbacks
+        # Language-specific fallbacks. The exact phrases "I'm not sure I
+        # understand" / "متوجه نشدم" are kept as flow-test markers; the rest
+        # is a precise menu instead of a generic "try something else".
         if lang == "fa":
             return (
-                "متوجه نشدم 😅 می‌تونی درباره الفبای فارسی، جوک، ساعت، ترجمه کلمات "
-                "(مثل 'سیب به انگلیسی') یا واژگان (مثل 'رنگها' و 'حیوانات') بپرسی. "
-                "برای راهنما بنویس 'راهنما'."
+                "متوجه نشدم 😅 ترجیح می‌دهم حدس نزنم. یکی از این‌ها را امتحان کن:\n"
+                "   • ترجمه کلمه → «سیب به انگلیسی»\n"
+                "   • واژگان → «رنگ‌ها» یا «حیوانات»\n"
+                "   • گرامر → «حال ساده» یا «گرامر»\n"
+                "   • تلفظ → «تلفظ hospital»\n"
+                "   • فهرست کامل → «راهنما»"
             )
         return (
-            "I'm not sure I understand 😅 Try asking about the alphabets, a joke, "
-            "translating a word ('translate apple'), a vocabulary domain "
-            "('what are the colors'), or the time. Type 'help' for options."
+            "I'm not sure I understand yet — I'd rather ask than guess. 😊\n"
+            "   Try one of these:\n"
+            "   • translate a word → 'translate apple'\n"
+            "   • vocabulary → 'colors' or 'what are the fruits'\n"
+            "   • grammar → 'simple present' or 'grammar'\n"
+            "   • pronunciation → 'how do you pronounce hospital'\n"
+            "   • full menu → 'help'"
         )
 
 

@@ -330,14 +330,14 @@
       },
       "responses": {
         "en": [
-          "I'm a simple bilingual chatbot — I know greetings and the English & Persian alphabets!",
-          "You can call me ChatBot. I'm here to chat in English or Persian.",
-          "I'm a friendly rule-based bot with a little daily-conversation memory."
+          "I'm Fluentify, your bilingual English coach. I can translate words, explain grammar, teach pronunciation and share real-life sentences — in English or Persian.",
+          "I'm a rule-based English tutor with vocabulary, grammar practice, pronunciation, sentence banks and listening lessons. I won't invent a fact if my data doesn't cover it.",
+          "Call me Fluentify. I answer from a curated bilingual library, so my answers are consistent offline and easy to check."
         ],
         "fa": [
-          "من یه چت‌بات ساده‌ام که سلام‌وعلیک و الفبای فارسی و انگلیسی رو بلده!",
-          "اسم من چت‌باته، به انگلیسی و فارسی باهات حرف می‌زنم.",
-          "من یه ربات ساده‌ام با کمی حافظه برای مکالمات روزمره."
+          "من Fluentify هستم، مربی دوزبانه انگلیسی‌ات. می‌توانم کلمه ترجمه کنم، گرامر توضیح بدهم، تلفظ یاد بدهم و جمله‌های کاربردی نشان بدهم — به انگلیسی یا فارسی.",
+          "من یک مربی انگلیسی قاعده‌محور با واژگان، تمرین گرامر، تلفظ، جمله‌های کاربردی و درس شنیدن هستم. اگر داده‌ام چیزی را پوشش ندهد، از خودم نمی‌سازم.",
+          "اسم من Fluentify است. از یک کتابخانه دوزبانه انتخاب‌شده جواب می‌دهم، پس پاسخ‌ها آفلاین هم یکدست و قابل بررسی‌اند."
         ]
       }
     },
@@ -362,12 +362,12 @@
       },
       "responses": {
         "en": [
-          "I can chat about daily things, tell you the English or Persian alphabet, remember your name, and tell jokes. Type 'help' for more!",
-          "I know greetings, small talk, jokes, time & date, and both alphabets — in English and Persian."
+          "I can translate and define words, teach vocabulary by topic, explain grammar with practice and exams, correct common mistakes, teach pronunciation and register, share sentence banks, and run A1–C2 listening practice. Ask 'help' for examples.",
+          "My strongest areas are vocabulary, grammar, pronunciation and practical sentences. I can also tell jokes, give the time and date, and remember your name. Try 'translate apple' or 'simple present'."
         ],
         "fa": [
-          "می‌تونم مکالمه روزمره داشته باشم، الفبای فارسی و انگلیسی رو بهت بگم، اسمت رو یادم بمونه و لطیفه بگم. برای راهنما 'help' رو بزن.",
-          "من سلام و علیک، صحبت روزمره، جوک، ساعت و تاریخ و هر دو الفبا رو بلده."
+          "می‌توانم کلمه ترجمه و تعریف کنم، واژگان موضوعی یاد بدهم، گرامر را با تمرین و آزمون توضیح بدهم، اشتباه‌های رایج را اصلاح کنم، تلفظ و سطح رسمیت را یاد بدهم، جمله‌های کاربردی بدهم و تمرین شنیدن A1 تا C2 اجرا کنم. برای نمونه بنویس «راهنما».",
+          "قوی‌ترین بخش‌های من واژگان، گرامر، تلفظ و جمله‌های کاربردی است. جوک هم می‌گویم، ساعت و تاریخ می‌دهم و اسمت را یادم می‌ماند. مثلاً بنویس «سیب به انگلیسی» یا «حال ساده»."
         ]
       }
     },
@@ -998,28 +998,15 @@
         "en": [
           "what is the meaning of life",
           "purpose of life",
-          "why are we here",
-          "what does this word mean",
-          "what does that mean",
-          "what does it mean",
-          "what does this mean",
-          "whats the meaning",
-          "یعنی چی",
-          "معنی این چیه",
-          "این یعنی چی"
+          "why are we here"
         ],
         "fa": [
           "معنی زندگی چیه",
           "هدف زندگی چیه",
           "ما برای چی اومدیم",
-          "what does this word mean",
-          "what does that mean",
-          "what does it mean",
-          "what does this mean",
-          "whats the meaning",
-          "یعنی چی",
-          "معنی این چیه",
-          "این یعنی چی"
+          "what is the meaning of life",
+          "purpose of life",
+          "why are we here"
         ]
       },
       "responses": {
