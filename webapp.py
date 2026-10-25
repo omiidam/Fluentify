@@ -1539,35 +1539,35 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* ---------- everyday-sentence cards ----------
      A phrase bank used to arrive as one run-on pre-wrap block, so the
      translations collided. Each "• en / ↳ fa" pair is its own card now. */
-  .msg.plist { white-space: normal; padding: 12px; }
+  .msg.plist { white-space: normal; padding: 8px 10px; }
   .msg.plist .plist-head {
-    font-size: 14px; font-weight: 700; color: #ffc4e2;
-    padding: 2px 4px 10px; margin-bottom: 8px;
+    font-size: 13px; font-weight: 700; color: #ffc4e2;
+    padding: 1px 3px 6px; margin-bottom: 6px;
     border-bottom: 1px solid rgba(255,255,255,.12);
   }
   .pcard {
-    display: flex; flex-direction: column; gap: 3px;
-    padding: 10px 12px; margin-bottom: 7px;
-    border-radius: 12px;
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 8px 10px; margin-bottom: 5px;
+    border-radius: 10px;
     background: linear-gradient(150deg, rgba(255,255,255,.085), rgba(255,255,255,.03));
     border: 1px solid rgba(255,255,255,.11);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
   }
   .pcard:last-child { margin-bottom: 0; }
-  .pcard .pen { font-size: 14px; line-height: 1.5; color: var(--text); }
+  .pcard .pen { font-size: 13px; line-height: 1.45; color: var(--text); }
   .pcard .pen::before {
-    content: '▸'; color: #ff8dc4; font-size: 11px; margin-inline-end: 7px;
+    content: '▸'; color: #ff8dc4; font-size: 10px; margin-inline-end: 6px;
     vertical-align: 1px;
   }
-  .pcard .pfa { font-size: 13px; line-height: 1.6; color: var(--muted); }
+  .pcard .pfa { font-size: 12px; line-height: 1.5; color: var(--muted); }
   .pcard .pfa::before {
-    content: '↳'; color: #7f8fbd; font-size: 11px; margin-inline-end: 7px;
+    content: '↳'; color: #7f8fbd; font-size: 10px; margin-inline-end: 6px;
   }
   @media (min-width: 600px) {
-    .msg.plist { padding: 14px 16px; }
-    .pcard { padding: 11px 14px; margin-bottom: 8px; }
-    .pcard .pen { font-size: 14.5px; }
-    .pcard .pfa { font-size: 13.5px; }
+    .msg.plist { padding: 9px 12px; }
+    .pcard { padding: 8px 11px; margin-bottom: 6px; }
+    .pcard .pen { font-size: 13.5px; }
+    .pcard .pfa { font-size: 12.5px; }
   }
 
   /* ---------- graceful fallback where backdrop-filter is unsupported ---------- */

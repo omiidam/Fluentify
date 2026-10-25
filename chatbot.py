@@ -1918,11 +1918,18 @@ class ChatBot:
         for dom_id, dom in self.glossary.items():
             for kw in dom["keywords"].get(lang, []):
                 key = normalize_word(kw)
-                matched = (
-                    re.search(rf"\b{re.escape(kw)}(?:s|es)?\b", lowered)
-                    if lang == "en"
-                    else key in norm_text
-                )
+                if lang == "en":
+                    matched = re.search(rf"\b{re.escape(kw)}(?:s|es)?\b", lowered)
+                else:
+                    # Order-independent: every content token of the keyword
+                    # must appear somewhere in the query, so "هتل کلمات"
+                    # matches the keyword "کلمات هتل" regardless of word order.
+                    # normalize_word() collapses spaces, so tokenize the raw
+                    # lowered text instead.
+                    clean = re.sub(r"[.!?،،;:\"«»()\[\]]", " ", lowered)
+                    text_toks = [t for t in clean.split() if t]
+                    kw_toks = [t for t in kw.split() if t]
+                    matched = bool(kw_toks) and all(t in text_toks for t in kw_toks)
                 if matched:
                     return self.format_domain(dom, lang)
         return None

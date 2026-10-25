@@ -6346,7 +6346,6 @@
    "level": "B1",
    "domains": [
     "travel",
-    "city",
     "airport_flight"
    ]
   },
@@ -6366,8 +6365,7 @@
    ],
    "level": "B1",
    "domains": [
-    "travel",
-    "city"
+    "travel"
    ]
   },
   "passport": {
@@ -14932,86 +14930,6 @@
     "house"
    ]
   },
-  "ladder": {
-   "en": "ladder",
-   "fa": "نردبان",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "ladder's",
-     "n": "possessive"
-    },
-    {
-     "f": "ladders",
-     "n": "plural"
-    }
-   ],
-   "level": "A1",
-   "domains": [
-    "house",
-    "tools_diy"
-   ]
-  },
-  "tool": {
-   "en": "tool",
-   "fa": "ابزار",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "tool's",
-     "n": "possessive"
-    },
-    {
-     "f": "tools",
-     "n": "plural"
-    }
-   ],
-   "level": "A1",
-   "domains": [
-    "house",
-    "tools_diy"
-   ]
-  },
-  "hammer": {
-   "en": "hammer",
-   "fa": "چکش",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "hammer's",
-     "n": "possessive"
-    },
-    {
-     "f": "hammers",
-     "n": "plural"
-    }
-   ],
-   "level": "A1",
-   "domains": [
-    "house",
-    "tools_diy"
-   ]
-  },
-  "screwdriver": {
-   "en": "screwdriver",
-   "fa": "پیچ‌گوشتی",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "screwdriver's",
-     "n": "possessive"
-    },
-    {
-     "f": "screwdrivers",
-     "n": "plural"
-    }
-   ],
-   "level": "A1",
-   "domains": [
-    "house",
-    "tools_diy"
-   ]
-  },
   "post office": {
    "en": "post office",
    "fa": "دفتر پست",
@@ -21433,45 +21351,6 @@
     "health_visits"
    ]
   },
-  "ambulance": {
-   "en": "ambulance",
-   "fa": "آمبولانس",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "ambulance's",
-     "n": "possessive"
-    },
-    {
-     "f": "ambulances",
-     "n": "plural"
-    }
-   ],
-   "level": "B1",
-   "domains": [
-    "health_visits",
-    "emergency_safety"
-   ]
-  },
-  "emergency room": {
-   "en": "emergency room",
-   "fa": "اورژانس",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "room's",
-     "n": "possessive"
-    },
-    {
-     "f": "rooms",
-     "n": "plural"
-    }
-   ],
-   "level": "B1",
-   "domains": [
-    "health_visits"
-   ]
-  },
   "insurance card": {
    "en": "insurance card",
    "fa": "کارت بیمه",
@@ -25134,25 +25013,6 @@
     },
     {
      "f": "levels",
-     "n": "plural"
-    }
-   ],
-   "level": "B2",
-   "domains": [
-    "environment_b2"
-   ]
-  },
-  "pollinate": {
-   "en": "pollinate",
-   "fa": "آلوده کردن",
-   "pos": "noun",
-   "forms": [
-    {
-     "f": "pollinate's",
-     "n": "possessive"
-    },
-    {
-     "f": "pollinates",
      "n": "plural"
     }
    ],
@@ -36338,6 +36198,25 @@
     "emergency_safety"
    ]
   },
+  "ambulance": {
+   "en": "ambulance",
+   "fa": "آمبولانس",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "ambulance's",
+     "n": "possessive"
+    },
+    {
+     "f": "ambulances",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "emergency_safety"
+   ]
+  },
   "fire brigade": {
    "en": "fire brigade",
    "fa": "آتش‌نشانی",
@@ -36726,6 +36605,44 @@
     "emergency_safety"
    ]
   },
+  "tool": {
+   "en": "tool",
+   "fa": "ابزار",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "tool's",
+     "n": "possessive"
+    },
+    {
+     "f": "tools",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "hammer": {
+   "en": "hammer",
+   "fa": "چکش",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "hammer's",
+     "n": "possessive"
+    },
+    {
+     "f": "hammers",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
   "nail": {
    "en": "nail",
    "fa": "میخ",
@@ -36756,6 +36673,25 @@
     },
     {
      "f": "screws",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "screwdriver": {
+   "en": "screwdriver",
+   "fa": "پیچ‌گوشتی",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "screwdriver's",
+     "n": "possessive"
+    },
+    {
+     "f": "screwdrivers",
      "n": "plural"
     }
    ],
@@ -36832,6 +36768,25 @@
     },
     {
      "f": "measures",
+     "n": "plural"
+    }
+   ],
+   "level": "B1",
+   "domains": [
+    "tools_diy"
+   ]
+  },
+  "ladder": {
+   "en": "ladder",
+   "fa": "نردبان",
+   "pos": "noun",
+   "forms": [
+    {
+     "f": "ladder's",
+     "n": "possessive"
+    },
+    {
+     "f": "ladders",
      "n": "plural"
     }
    ],
