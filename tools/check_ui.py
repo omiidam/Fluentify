@@ -271,24 +271,20 @@ def main() -> int:
           "it is a background, not an overlay")
     wm = re.search(r"\.flock i\.wm \{(.*?)\n  \}", src, re.S)
     wb = wm.group(1) if wm else ""
-    # Centred, so it sits in the quiet middle of the frame rather than in a
-    # corner where it used to hide behind the composer.
-    check("the watermark bird is centred in the frame",
-          re.search(r"left:\s*50%.*?top:\s*50%", wb, re.S) is not None
-          and "translate: -50% -50%" in wb,
-          "an off-centre watermark ends up behind the composer or the header")
-    # The mask is what makes it a watermark rather than a picture. A solid
-    # silhouette, however faint, still has an edge for the eye to catch on.
-    check("the watermark bird fades out instead of ending at an edge",
+    # The watermark was tuned for navy glass, where 6% white reads as a ghost.
+    # The cream theme made it a white bird on white paper: invisible except its
+    # dark eye, which sat mid-transcript and looked like a dead pixel. It is off
+    # now, and this is what stops a later recovery of the old opacity from
+    # bringing the dot back. The geometry checks below still guard the artwork
+    # itself, so re-enabling it cannot reintroduce a different bird.
+    check("the watermark is switched off on the paper theme",
+          re.search(r"display:\s*none", wb) is not None,
+          "a white bird on cream shows only its eye, which reads as a dead "
+          "pixel in the middle of the conversation")
+    check("the watermark still fades out instead of ending at an edge",
           re.search(r"-webkit-mask-image:\s*radial-gradient", src) is not None
           and re.search(r"mask-image:\s*radial-gradient", src) is not None,
           "without the radial mask it is a pale sticker on the conversation")
-    size = re.search(r"width:\s*min\(\s*([\d.]+)%", wb)
-    opac = re.search(r"opacity:\s*([\d.]+)", wb)
-    check("the watermark bird is small and faint enough to read through",
-          size is not None and float(size.group(1)) <= 32
-          and opac is not None and float(opac.group(1)) <= 0.08,
-          "the ask was a watermark: small, and under 8% opaque")
 
     # One bird. The six drifting ones read as clutter behind a transcript.
     flock_html = re.search(r'<div class="flock"[^>]*>(.*?)</div>', src, re.S)
@@ -448,15 +444,23 @@ def main() -> int:
                     out.append(float(part[:-2]))
         return out
 
-    for sel, label in ((".hbtn", "top-bar section buttons"),
-                       (".mic", "microphone"),
-                       (".send", "send button")):
+    # The theme change moved the toolbar the other way on purpose. On paper a
+    # white tile needs its hairline to sit *on* the cream at all; without it
+    # the seven buttons float as pale smudges. The composer's own controls stay
+    # borderless, because they live inside a container that already has one -
+    # that was the original complaint and it still holds. Each is asserted, so
+    # neither decision can quietly spread to the other.
+    ws = border_px(".hbtn")
+    check("the top-bar tiles sit on one hairline",
+          bool(ws) and max(ws) <= 1,
+          f"{ws}: a white tile with no edge disappears into cream, and a "
+          "heavy one turns the toolbar into a rack of boxes")
+    for sel, label in ((".mic", "microphone"), (".send", "send button")):
         ws = border_px(sel)
-        check(f"the {label} carry no border",
+        check(f"the {label} carries no border of its own",
               bool(ws) and max(ws) == 0,
-              f"{ws}: a row of outlined boxes reads as a rack of buttons rather "
-              "than a toolbar, and in the composer it reads as three boxes "
-              "inside a fourth")
+              f"{ws}: three outlined controls inside an outlined composer "
+              "read as a box inside a box")
 
     on = re.search(r"\.hbtn\.on\s*\{([^}]*)\}", src)
     check("the open section button still reads as open without its outline",
@@ -634,45 +638,37 @@ def main() -> int:
         hi, lo = max(la, lb), min(la, lb)
         return (hi + 0.05) / (lo + 0.05)
 
+    # The learner bubble is navy with cream text on the paper theme.
+    bubble_text = "#fdf7ea"
     for name in ("user1", "user2", "user3"):
         m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6})", src)
         if m:
-            check(f"--{name} clears AA against the white bubble text",
-                  ratio(m.group(1), "#ffffff") >= 4.5,
-                  f"{m.group(1)} is {ratio(m.group(1), '#ffffff'):.2f}:1 on white, "
-                  "under the 4.5 that 15px body text needs")
+            check(f"--{name} clears AA against the bubble text",
+                  ratio(m.group(1), bubble_text) >= 4.5,
+                  f"{m.group(1)} is {ratio(m.group(1), bubble_text):.2f}:1 on "
+                  "the bubble text colour, under the 4.5 that 16px body text "
+                  "needs")
 
-    # The section accents are text-coloured on the navy base, so they owe it
+    # The section accents are text-coloured on the paper base, so they owe it
     # the same 4.5. One is open at a time, but each is still read as text.
     for name in ("teal", "cyan", "violet", "emerald", "amber", "rose"):
         m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6})", src)
         if m:
-            check(f"--{name} clears AA on the base colour",
-                  ratio(m.group(1), "#0b102e") >= 4.5,
-                  f"{m.group(1)} is {ratio(m.group(1), '#0b102e'):.2f}:1 on "
-                  "#0b102e")
+            check(f"--{name} clears AA on the paper base",
+                  ratio(m.group(1), "#faf4e8") >= 4.5,
+                  f"{m.group(1)} is {ratio(m.group(1), '#faf4e8'):.2f}:1 on "
+                  "#faf4e8")
 
-    # The learner must not drift back to the chrome's own hue, which is what
-    # made both sides of the conversation look alike.
-    hues = {}
-    for name in ("user1", "user2", "accent"):
-        m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{6})", src)
-        if m:
-            c = m.group(1).lstrip("#")
-            r, g, b = (int(c[i:i + 2], 16) / 255 for i in (0, 2, 4))
-            mx, mn = max(r, g, b), min(r, g, b)
-            d = mx - mn
-            if d:
-                hues[name] = (60 * ((g - b) / d % 6) if mx == r else
-                              60 * ((b - r) / d + 2) if mx == g else
-                              60 * ((r - g) / d + 4))
-    if "user1" in hues and "accent" in hues:
-        sep = abs(hues["user1"] - hues["accent"]) % 360
-        sep = min(sep, 360 - sep)
-        check("the learner's colour is a different hue from the chrome",
-              sep >= 30,
-              f"{sep:.0f}deg from --accent: too close to read as a different "
-              "speaker at a glance")
+    # The two speakers have to stay separable at a glance. Navy-on-cream made
+    # the hue test wrong - both sides share the theme's ink - so what is
+    # checked now is the thing the eye actually uses: one bubble is dark and
+    # the other is paper.
+    m = re.search(r"--user1:\s*(#[0-9a-fA-F]{6})", src)
+    if m:
+        check("the learner bubble separates from the tutor's paper card",
+              ratio(m.group(1), "#fffcf3") >= 3,
+              f"{m.group(1)} is {ratio(m.group(1), '#fffcf3'):.2f}:1 against "
+              "the tutor card: the two speakers would read alike")
 
     # ------------------------------------------------------------- player --
     # One bar under the header for everything that makes a sound. The failure

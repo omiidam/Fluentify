@@ -35,6 +35,24 @@ living in separate sections.
 
 ---
 
+## Look and feel
+
+Warm paper, navy ink and a gold spark: the page is cream (`#faf4e8`), the
+mascot and the room's only dark surface are navy (`#1b2d52`), and gold
+(`#f1c15a`) marks what the tutor is pointing at. **Baloo 2** carries headings
+and the top-bar buttons, **Kalam** carries the transcript — the two faces of the
+reference design, both SIL OFL and vendored in `fonts/` so the APK has them
+offline.
+
+Every colour and both families live in one `:root` block at the top of
+[webapp.py](webapp.py); nothing downstream hard-codes a hue, so re-theming is a
+single edit. [tools/check_ui.py](tools/check_ui.py) asserts the structural rules
+the design depends on — tile hairlines, the borderless composer controls, the
+contrast pairs, the disabled watermark — so a later tweak cannot quietly undo
+them.
+
+---
+
 ## Run it on the desktop
 
 ```bash

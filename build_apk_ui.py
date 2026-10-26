@@ -348,6 +348,26 @@ if leftovers:
 # ---------------------------------------------------------------------------
 # parse the page before shipping it
 # ---------------------------------------------------------------------------
+# sync the two faces the page is set in. They live next to index.html so the
+# relative url() in @font-face resolves over file:// as well as over http, and
+# the offline app keeps the theme's typography instead of falling back to
+# whatever the phone happens to ship.
+FONT_DIR = ROOT / "fonts"
+# The two licences travel with the files: both faces are SIL OFL, and the
+# terms require the licence to ship wherever the font is redistributed.
+FONTS = ["baloo2-latin.woff2", "kalam-latin.woff2",
+         "OFL-baloo2.txt", "OFL-kalam.txt"]
+missing_fonts = [f for f in FONTS if not (FONT_DIR / f).exists()]
+if missing_fonts:
+    raise SystemExit("build_apk_ui: fonts missing from fonts/: "
+                     + ", ".join(missing_fonts))
+font_out = OUT.parent / "fonts"
+font_out.mkdir(parents=True, exist_ok=True)
+for name in FONTS:
+    shutil.copyfile(FONT_DIR / name, font_out / name)
+print(f"synced {len(FONTS)} font files -> {font_out}")
+
+# ---------------------------------------------------------------------------
 # A duplicate top-level declaration between the page and bot.js - a `function
 # esc` beside bot.js's `const esc` - is a SyntaxError that kills the entire
 # inline script. The result is a silently blank app: nothing renders, nothing

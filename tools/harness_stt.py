@@ -484,12 +484,14 @@ def run_motion() -> None:
           icon_assignment is not None
           and not _re.search(r"[\U0001F300-\U0001FAFF]", icon_assignment.group(1)),
           "the glyph depends on the platform having an emoji font")
-    check("the mic has a visible fill, not dark-on-dark",
-          ".mic {" in html and "#29356e" in html.lower(),
-          "a #141c46 disc on a dark composer does not read as a control")
+    check("the mic has a visible fill, not one lost against the composer",
+          ".mic {" in html and "#1b2d52" in html.lower(),
+          "a tone that blends into the composer does not read as a control - "
+          "the mic is navy on the cream composer, the one saturated control "
+          "in the row")
     check("the mic reads as a visible control without a border",
-          ".mic {" in html and "#29356e" in html.lower()
-          and ".mic.rec" in html and "#0f766e" in html.lower(),
+          ".mic {" in html and "#1b2d52" in html.lower()
+          and ".mic.rec" in html and "#a8493a" in html.lower(),
           "fill plus shadow keeps the mic legible with no outline; the "
           "recording state still differs by hue, not by a ring")
     # NOT the disabled attribute: that swallows its own click events, so on
