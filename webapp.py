@@ -902,12 +902,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-variant-numeric: tabular-nums;
   }
   /* grammar panel: compact, grouped by CEFR level */
-  .glevel { margin-bottom: 8px; }
+  .glevel { margin-bottom: 5px; }
   .glevel:last-child { margin-bottom: 0; }
   .glevel-head {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 11px; color: var(--muted); letter-spacing: .05em;
-    text-transform: uppercase; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 5px;
+    font-size: 10px; color: var(--muted); letter-spacing: .05em;
+    text-transform: uppercase; margin-bottom: 4px;
   }
   /* CEFR level chip in the group header */
   .vgroup-head .lv {
@@ -939,7 +939,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     padding: 1px 7px; font-size: 10.5px;
   }
   .gtopic {
-    display: flex; flex-wrap: wrap; gap: 5px;
+    display: flex; flex-wrap: wrap; gap: 3px;
   }
   .gbtn {
     display: inline-flex; align-items: stretch;
@@ -951,18 +951,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .gbtn:hover { background: rgba(52,211,153,.2); transform: translateY(-1px); }
   .gmain {
     background: none; border: none; cursor: pointer;
-    display: inline-flex; align-items: baseline; gap: 5px;
-    color: #6ee7b7; padding: 4px 4px 4px 11px; font-size: 12px;
-    font-family: inherit;
+    display: inline-flex; align-items: baseline; gap: 4px;
+    color: #6ee7b7; padding: 2px 3px 2px 7px; font-size: 11px;
+    line-height: 1.25; font-family: inherit;
   }
-  .gmain .fa { color: var(--muted); font-size: 11px; }
+  .gmain .fa { color: var(--muted); font-size: 9.5px; }
   .go {
     background: rgba(167,139,250,.18); color: #ddd6fe;
     border: none; border-left: 1px solid rgba(167,139,250,.32);
-    padding: 0 8px; font-size: 11px; cursor: pointer;
+    padding: 0 5px; font-size: 9.5px; cursor: pointer; line-height: 1.2;
   }
   .go:hover { background: rgba(167,139,250,.38); }
-  .gsep { color: var(--muted); font-size: 11px; width: 100%; }
+  .gsep { color: var(--muted); font-size: 10px; width: 100%; }
 
   /* ---------- chat area ---------- */
   #chat {
@@ -1673,9 +1673,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .vbtn, .gbtn, .ftopic, .ltab {
     min-height: 32px; padding: 6px 11px; font-size: 12px;
   }
-  .gbtn { padding: 0; }
-  .gmain { padding: 6px 3px 6px 10px; font-size: 12px; min-height: 32px; }
-  .go { padding: 0 12px; font-size: 13px; }
+  /* 28px, not 32: still past the 24px WCAG 2.5.8 minimum, and 48 lessons
+     grouped by level now fit a phone screen without hunting. */
+  .gbtn { padding: 0; min-height: 28px; }
+  .gmain { padding: 4px 3px 4px 9px; font-size: 11.5px; min-height: 28px; }
+  .go { padding: 0 9px; font-size: 11.5px; }
   .go.exam {
     background: rgba(255,196,77,.14); color: #fcd34d;
     border-left-color: rgba(255,196,77,.34);
@@ -3795,7 +3797,7 @@ const Panels = (() => {
 
 /* ============================================================================
  * PANEL SEARCH
- * Only Vocabulary had a search box; 37 grammar lessons and 39 sentence banks
+ * Only Vocabulary had a search box; 48 grammar lessons and 39 sentence banks
  * could only be found by scrolling. Generic on purpose - hide what does not
  * match, report what is left, say so when nothing does.
  * ==========================================================================*/
@@ -3918,7 +3920,7 @@ const PanelSearch = (() => {
     // own that filters the 56 domain names; attaching a second one here would
     // put two identical-looking inputs in one panel.
     attach('gpanel', '.gbtn',
-      'Search 37 lessons… / جست‌وجوی درس‌ها…', {group: '.glevel'});
+      'Search 48 lessons… / جست‌وجوی درس‌ها…', {group: '.glevel'});
     attach('fpanel', '.ftopic',
       'Search the sentence banks… / جست‌وجوی موضوع‌ها…');
     // Sounds shows one topic at a time in .phview, so .pgroup is empty until

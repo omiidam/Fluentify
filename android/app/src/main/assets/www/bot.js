@@ -643,14 +643,19 @@ class Fluentify {
     parts.push('\n1️⃣ Structure / ساختار');
     topic.structure.forEach((s) => parts.push(`• ${s.en}\n  ↳ ${s.fa}`));
     if (topic.tip) parts.push(`\n💡 Tip: ${topic.tip.en}\n   ↳ ${topic.tip.fa}`);
-    parts.push('\n2️⃣ Function / کاربرد');
+    const notes = topic.explain || [];
+    if (notes.length) {
+      parts.push('\n2️⃣ Explanation / توضیح');
+      notes.forEach((n) => parts.push(`• ${n.en}\n  ↳ ${n.fa}`));
+    }
+    parts.push('\n3️⃣ Function / کاربرد');
     topic.function.forEach((f) => parts.push(`• ${f.en}\n  ↳ ${f.fa}`));
-    parts.push('\n3️⃣ Examples / مثال‌ها');
+    parts.push('\n4️⃣ Examples / مثال‌ها');
     topic.examples.forEach((e, i) => parts.push(`${i + 1}. ${e.en}\n   ↳ ${e.fa}`));
     const practiceN = (topic.practice || []).length;
     const examN = (topic.exam || []).length;
     const done = this.practiceDone.has(topicId);
-    parts.push('\n4️⃣ Exercises / تمرین');
+    parts.push('\n5️⃣ Exercises / تمرین');
     if (lang === 'fa') {
       const pS = toPersianDigits(practiceN), eS = toPersianDigits(examN);
       parts.push(`۱) تمرین: ${pS} سوال — بنویس: 'تمرین ${topic.title.fa}'`);
@@ -849,12 +854,28 @@ class Fluentify {
       const score = this.exerciseScore;
       this.exercise = null;
       if (stage === 'practice') {
+        // The gate is real: a reveal or a retry leaves the score short and the
+        // exam closed. Only a clean run opens it.
+        if (score < total) return this.practiceRetry(topic, score, total, lang);
         this.practiceDone.add(topicId);
         return this.practiceUnlocked(topic, lang);
       }
       return this.formatScoreReport(topic, score, total, lang, stage);
     }
     return this.formatExerciseCard(topic, index, lang, stage);
+  }
+
+  practiceRetry(topic, score, total, lang) {
+    if (lang === 'fa') {
+      return `🔒 تمرین تمام شد، ولی نمره‌ات ${toPersianDigits(score)} از ` +
+        `${toPersianDigits(total)} است.\n${'─'.repeat(30)}\n` +
+        "آزمون فقط وقتی باز می‌شود که همه‌ی پاسخ‌ها درست باشند.\n" +
+        `دوباره تلاش کن: 'تمرین ${topic.title.fa}'`;
+    }
+    return `🔒 Practice finished — ${score}/${total} correct.\n` +
+      `${'─'.repeat(30)}\n` +
+      'The exam opens only after a perfect run: every answer right.\n' +
+      `Try again: '${topic.title.en.toLowerCase()} exercises'`;
   }
 
   practiceUnlocked(topic, lang) {

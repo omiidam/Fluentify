@@ -33,6 +33,20 @@
           "fa": "پاسخ کوتاه: Yes, he does.  /  No, he doesn't."
         }
       ],
+      "explain": [
+        {
+          "en": "The -s appears only in the third person singular (he, she, it) and only in the affirmative: 'She works', but 'She does not work' and 'Does she work?'.",
+          "fa": "حرف s فقط در سوم‌شخص مفرد (he/she/it) و فقط در حالت مثبت می‌آید: «She works» درست است، ولی «She does not work» و «Does she work؟» بدون s هستند."
+        },
+        {
+          "en": "Spelling of the -s: most verbs just add -s (plays); verbs ending in -o, -sh, -ch, -ss, -x add -es (goes, watches, fixes); consonant + y becomes -ies (study → studies, but play → plays).",
+          "fa": "املای s: بیشتر افعال فقط s می‌گیرند (plays)؛ افعالی که به o، sh، ch، ss، x ختم می‌شوند es می‌گیرند (goes, watches, fixes)؛ و بعد از بی‌صدا + y به شکل in می‌روند (study → studies ولی play → plays)."
+        },
+        {
+          "en": "Do not use the present simple for what is happening right now: 'I am eating now', not 'I eat now'. The present simple states a fact or a habit, not a moment.",
+          "fa": "حال ساده برای اتفاق لحظه‌ای به کار نمی‌رود: «I am eating now» درست است نه «I eat now». حال ساده بیان‌گر عادت و حقیقت است، نه لحظه‌ی حال."
+        }
+      ],
       "function": [
         {
           "en": "Habits and daily routines",
@@ -339,6 +353,348 @@
         }
       ]
     },
+    "subject_verb_agreement": {
+      "title": {
+        "en": "Subject–Verb Agreement",
+        "fa": "هماهنگی فاعل و فعل"
+      },
+      "keywords": {
+        "en": [
+          "subject verb agreement",
+          "singular or plural verb",
+          "each of the students",
+          "either or"
+        ],
+        "fa": [
+          "هماهنگی فاعل و فعل",
+          "فعل مفرد و جمع",
+          "مطابقت فاعل"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Singular subject → verb with -s: He works. · Plural subject → base verb: They work.",
+          "fa": "فاعل مفرد ← فعل با s: He works. · فاعل جمع ← فعل پایه: They work."
+        },
+        {
+          "en": "each, every, everyone, one of + plural noun → singular verb: Each of the students has a book.",
+          "fa": "each, every, everyone, one of + اسم جمع ← فعل مفرد: Each of the students has a book."
+        },
+        {
+          "en": "either … or / neither … nor → the verb agrees with the nearer subject: Either you or he is right.",
+          "fa": "either … or / neither … nor ← فعل با فاعل نزدیک‌تر هماهنگ می‌شود: Either you or he is right."
+        },
+        {
+          "en": "Uncountable nouns and subject names are singular: The news is good. · Physics is hard.",
+          "fa": "اسم‌های غیرقابل‌شمارش و نام درس‌ها مفرد هستند: The news is good. · Physics is hard."
+        },
+        {
+          "en": "A collective noun takes a singular verb: The team is winning.",
+          "fa": "اسم جمعی فعل مفرد می‌گیرد: The team is winning."
+        },
+        {
+          "en": "With there / here the verb agrees with the noun after it: There is one problem. / There are two problems.",
+          "fa": "با there / here فعل با اسمِ بعد از خودش هماهنگ می‌شود: There is one problem. / There are two problems."
+        }
+      ],
+      "explain": [
+        {
+          "en": "The -s marks the third person singular, not plurality: 'The student works' but 'The students work'. Persian marks the plural on the verb, English marks it only on the subject, so learners often reverse the two.",
+          "fa": "s نشانه‌ی سوم‌شخص مفرد است، نه جمع: «The student works» اما «The students work». فارسی جمع را روی فعل نشان می‌دهد و انگلیسی فقط روی فاعل، برای همین زبان‌آموزها این دو را جابه‌جا می‌کنند."
+        },
+        {
+          "en": "When two subjects are joined by 'with', 'as well as' or 'together with', the verb follows the FIRST subject: 'The teacher, with her students, is here.'",
+          "fa": "وقتی دو فاعل با with، as well as یا together with وصل شوند، فعل با فاعل اول هماهنگ می‌شود: «The teacher, with her students, is here»."
+        },
+        {
+          "en": "'A number of + plural' is plural (a number of students are), but 'the number of + plural' is singular (the number of students is growing). The article changes the subject.",
+          "fa": "«A number of + جمع» جمع است (a number of students are)، ولی «the number of + جمع» مفرد است (the number of students is growing). حرف تعریف فاعل را عوض می‌کند."
+        }
+      ],
+      "function": [
+        {
+          "en": "Keep the verb and the subject in step in long sentences",
+          "fa": "در جمله‌های بلند فعل و فاعل را هماهنگ نگه دار"
+        },
+        {
+          "en": "Handle quantifier subjects: each, every, none, either",
+          "fa": "فاعل‌های مقدار: each، every، none، either"
+        },
+        {
+          "en": "Use uncountable and subject nouns correctly",
+          "fa": "اسم‌های غیرقابل‌شمارش و نام درس‌ها را درست به کار ببر"
+        },
+        {
+          "en": "Agree with there is / there are",
+          "fa": "هماهنگی با there is / there are"
+        }
+      ],
+      "examples": [
+        {
+          "en": "**Each of the answers is** correct.",
+          "fa": "**هر یک از پاسخ‌ها** درست **است**."
+        },
+        {
+          "en": "**Neither of the boys was** ready.",
+          "fa": "**هیچ‌کدام از پسرها** آماده **نبود**."
+        },
+        {
+          "en": "**The news is** good.",
+          "fa": "**خبر** خوب **است**."
+        },
+        {
+          "en": "**Here comes** the bus.",
+          "fa": "اتوبوس **دارد می‌آید**."
+        },
+        {
+          "en": "**Ten kilometres is** a long way to walk.",
+          "fa": "**ده کیلومتر** برای پیاده‌روی **زیاد است**."
+        }
+      ],
+      "level": "B1",
+      "tip": {
+        "en": "Find the real subject, not the word next to the verb: 'one of the + plural' is singular, 'a number of + plural' is plural.",
+        "fa": "فاعل واقعی را پیدا کن، نه واژه‌ی کنار فعل: «one of the + جمع» مفرد است، «a number of + جمع» جمع."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "Each of the students ____ a laptop.",
+            "fa": "هر یک از دانشجوها لپ‌تاپ دارد."
+          },
+          "a": [
+            "has"
+          ]
+        },
+        {
+          "q": {
+            "en": "The team ____ playing well today.",
+            "fa": "تیم امروز خوب بازی می‌کند."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "Neither of the answers ____ correct.",
+            "fa": "هیچ‌کدام از جواب‌ها درست نیست."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "My brother and I ____ friends.",
+            "fa": "من و برادرم دوست هستیم."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "The news ____ on at eight.",
+            "fa": "اخبار ساعت هشت پخش می‌شود."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "There ____ many reasons to go.",
+            "fa": "دلایل زیادی برای رفتن هست."
+          },
+          "a": [
+            "are"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "Everybody ____ ready.",
+            "fa": "همه آماده‌اند."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "The list of names ____ long.",
+            "fa": "فهرست نام‌ها بلند است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "Either the manager or the assistants ____ the keys.",
+            "fa": "یا مدیر یا دستیارها کلیدها را دارند."
+          },
+          "a": [
+            "have"
+          ]
+        },
+        {
+          "q": {
+            "en": "Neither of the parents ____ present.",
+            "fa": "هیچ‌کدام از والدین حاضر نبودند."
+          },
+          "a": [
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "Ten minutes ____ enough for a break.",
+            "fa": "ده دقیقه برای استراحت کافی است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "Mathematics ____ my favourite subject.",
+            "fa": "ریاضی درس مورد علاقه‌ی من است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "The police ____ looking for him.",
+            "fa": "پلیس دنبال او می‌گردد."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "Each of the questions ____ easy.",
+            "fa": "هر یک از سؤال‌ها آسان است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "My friends, as well as my brother, ____ coming.",
+            "fa": "دوستانم و همچنین برادرم می‌آیند."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "There ____ a dog in the garden.",
+            "fa": "یک سگ در باغ هست."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "The number of students ____ growing.",
+            "fa": "تعداد دانشجوها رو به افزایش است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "A number of students ____ absent today.",
+            "fa": "شماری از دانشجوها امروز غایب‌اند."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "Neither the teacher nor the students ____ ready.",
+            "fa": "نه معلم و نه دانش‌آموزها آماده نبودند."
+          },
+          "a": [
+            "were"
+          ]
+        },
+        {
+          "q": {
+            "en": "Bread and butter ____ what I want.",
+            "fa": "نان و کره همان چیزی است که می‌خواهم."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "The jury ____ still discussing the case.",
+            "fa": "هیئت منصفه هنوز در حال بررسی پرونده است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "One of my friends ____ a pilot.",
+            "fa": "یکی از دوستانم خلبان است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "Here ____ the keys.",
+            "fa": "کلیدها اینجاست."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "His family ____ living in Tabriz.",
+            "fa": "خانواده‌اش در تبریز زندگی می‌کنند."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "The scissors ____ on the table.",
+            "fa": "قیچی روی میز است."
+          },
+          "a": [
+            "are"
+          ]
+        },
+        {
+          "q": {
+            "en": "Every student and every teacher ____ invited.",
+            "fa": "هر دانش‌آموز و هر معلمی دعوت شده است."
+          },
+          "a": [
+            "was"
+          ]
+        }
+      ]
+    },
     "to_be": {
       "level": "A1",
       "title": {
@@ -382,6 +738,20 @@
         {
           "en": "Note: to be can NEVER be dropped — 'I am a student', not 'I student'",
           "fa": "نکته: فعل to be هرگز حذف نمی‌شود — «I am a student»، نه «I student»"
+        }
+      ],
+      "explain": [
+        {
+          "en": "In negatives and questions the subject and the verb swap: 'He is happy' → 'Is he happy?'. This inversion is what makes a question in English — no helper word is needed.",
+          "fa": "در منفی و سؤال، فاعل و فعل جایشان عوض می‌شود: «He is happy» → «Is he happy؟». همین جابه‌جایی در انگلیسی سؤال می‌سازد و نیازی به واژه‌ی کمکی نیست."
+        },
+        {
+          "en": "The verb can never be dropped, even when Persian drops it: 'Ali student' ✗ → 'Ali is a student' ✓. Every English sentence needs a verb.",
+          "fa": "فعل را هرگز حذف نکن، حتی جایی که فارسی حذف می‌کند: «Ali student» غلط است و «Ali is a student» درست. هر جمله‌ی انگلیسی به فعل نیاز دارد."
+        },
+        {
+          "en": "'It' is the dummy subject for weather, time, distance and impersonal statements: It is cold · It is five o'clock · It is far from here.",
+          "fa": "ضمیر It برای آب‌وهوا، زمان، فاصله و جمله‌های بی‌فاعل به کار می‌رود: It is cold · It is five o'clock · It is far from here."
         }
       ],
       "function": [
@@ -697,6 +1067,347 @@
         }
       ]
     },
+    "there_is_there_are": {
+      "title": {
+        "en": "There is / There are",
+        "fa": "وجود چیزی"
+      },
+      "keywords": {
+        "en": [
+          "there is there are",
+          "there is and there are",
+          "existence with there"
+        ],
+        "fa": [
+          "there is there are",
+          "وجود چیزی",
+          "هست و هستند"
+        ]
+      },
+      "structure": [
+        {
+          "en": "There is + singular or uncountable · There are + plural: There is a book. / There are three books.",
+          "fa": "There is + مفرد یا غیرقابل‌شمارش · There are + جمع: There is a book. / There are three books."
+        },
+        {
+          "en": "Past: There was + singular · There were + plural.",
+          "fa": "گذشته: There was + مفرد · There were + جمع."
+        },
+        {
+          "en": "Questions: Is there …? / Are there …? — Yes, there is. / No, there aren't.",
+          "fa": "سؤالی: Is there …? / Are there …? — Yes, there is. / No, there aren't."
+        },
+        {
+          "en": "Negative: There isn't / There aren't + noun.",
+          "fa": "منفی: There isn't / There aren't + اسم."
+        },
+        {
+          "en": "The verb agrees with the noun AFTER it: There is a lot of noise. / There are a lot of people.",
+          "fa": "فعل با اسمی که بعد از آن می‌آید هماهنگ است: There is a lot of noise. / There are a lot of people."
+        },
+        {
+          "en": "Use it to say that something exists, not where it is: There is a bank near here.",
+          "fa": "با آن می‌گوییم چیزی وجود دارد، نه اینکه کجاست: There is a bank near here."
+        }
+      ],
+      "explain": [
+        {
+          "en": "'There' is not a place here — it is a placeholder that lets English put the new information at the end of the sentence. 'A problem is' sounds broken; 'There is a problem' is natural.",
+          "fa": "«there» اینجا به معنی «آنجا» نیست؛ جای‌نگهدار است تا انگلیسی اطلاعات تازه را آخر جمله بگذارد. «A problem is» ناقص است، ولی «There is a problem» طبیعی است."
+        },
+        {
+          "en": "Agreement looks forward, at the noun that follows: There is some milk (uncountable) but There are some eggs (plural). The word 'there' itself is never plural.",
+          "fa": "هماهنگی به اسمِ بعد از فعل نگاه می‌کند: «There is some milk» (غیرقابل‌شمارش) ولی «There are some eggs» (جمع). خودِ «there» هرگز جمع نمی‌شود."
+        },
+        {
+          "en": "In fast speech people say 'There's two tickets', but in writing and in exams keep There are for plurals.",
+          "fa": "در گفتار سریع می‌شنوی «There's two tickets»، اما در نوشتار و آزمون برای جمع از There are استفاده کن."
+        }
+      ],
+      "function": [
+        {
+          "en": "Say that something or somebody exists",
+          "fa": "گفتن اینکه چیزی یا کسی وجود دارد"
+        },
+        {
+          "en": "Describe a room, a street or a picture",
+          "fa": "توصیف یک اتاق، خیابان یا تصویر"
+        },
+        {
+          "en": "Answer 'What is in …?' and 'Is there any …?'",
+          "fa": "پاسخ به «چه چیزی در … هست؟» و «آیا … هست؟»"
+        },
+        {
+          "en": "Talk about events: There was a party last night.",
+          "fa": "صحبت از رویدادها: There was a party last night."
+        }
+      ],
+      "examples": [
+        {
+          "en": "**There is a cat** under the table.",
+          "fa": "**یک گربه** زیر میز **هست**."
+        },
+        {
+          "en": "**There are three** empty seats.",
+          "fa": "**سه** صندلی خالی **وجود دارد**."
+        },
+        {
+          "en": "**There was** an accident on the bridge.",
+          "fa": "روی پل **یک تصادف شده بود**."
+        },
+        {
+          "en": "**Is there** any butter left?",
+          "fa": "**آیا** کره‌ای باقی **مانده**؟"
+        },
+        {
+          "en": "**There isn't** any milk in the fridge.",
+          "fa": "**هیچ** شیری در یخچال **نیست**."
+        }
+      ],
+      "level": "A1",
+      "tip": {
+        "en": "Look at the noun that comes after the verb: singular or uncountable takes is / was, plural takes are / were. Never 'there have'.",
+        "fa": "به اسمی که بعد از فعل می‌آید نگاه کن: مفرد یا غیرقابل‌شمارش is / was می‌گیرد و جمع are / were. هرگز «there have» نگو."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "____ a book on the desk.",
+            "fa": "یک کتاب روی میز هست."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ seven days in a week.",
+            "fa": "هفت روز در هفته وجود دارد."
+          },
+          "a": [
+            "there are"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ an accident last night.",
+            "fa": "دیشب یک تصادف شد."
+          },
+          "a": [
+            "there was"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ any sugar? — No, there isn't.",
+            "fa": "آیا شکری هست؟ — نه، نیست."
+          },
+          "a": [
+            "is there"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a lot of people at the market.",
+            "fa": "در بازار افراد زیادی هستند."
+          },
+          "a": [
+            "there are"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ any milk in the fridge?",
+            "fa": "آیا شیری در یخچال هست؟"
+          },
+          "a": [
+            "is there"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "____ some water in the bottle.",
+            "fa": "کمی آب در بطری هست."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ two cups on the table.",
+            "fa": "دو فنجان روی میز هست."
+          },
+          "a": [
+            "there are"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a problem with the car.",
+            "fa": "ماشین یک مشکلی دارد."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ any chairs in this room?",
+            "fa": "آیا صندلی‌ای در این اتاق هست؟"
+          },
+          "a": [
+            "are there"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a lot of traffic this morning.",
+            "fa": "امروز صبح ترافیک زیادی بود."
+          },
+          "a": [
+            "there was"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ no reason to worry.",
+            "fa": "دلیلی برای نگرانی نیست."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ five students absent today.",
+            "fa": "امروز پنج دانش‌آموز غایب بودند."
+          },
+          "a": [
+            "there were"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a supermarket near here?",
+            "fa": "آیا این نزدیکی سوپرمارکتی هست؟"
+          },
+          "a": [
+            "is there"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ anybody at home?",
+            "fa": "آیا کسی خانه هست؟"
+          },
+          "a": [
+            "is there"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a beautiful view from the hill.",
+            "fa": "از تپه منظره‌ی زیبایی هست."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ some eggs in the box.",
+            "fa": "چند تخم‌مرغ در جعبه هست."
+          },
+          "a": [
+            "there are"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a meeting tomorrow morning.",
+            "fa": "فردا صبح جلسه‌ای هست."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ any news about the exam?",
+            "fa": "آیا خبری درباره‌ی آزمون هست؟"
+          },
+          "a": [
+            "is there"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ three banks on this street.",
+            "fa": "در این خیابان سه بانک وجود دارد."
+          },
+          "a": [
+            "there are"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ an interesting programme on TV tonight.",
+            "fa": "امشب برنامه‌ی جالبی از تلویزیون پخش می‌شود."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ any doubt about it?",
+            "fa": "آیا شکی در آن هست؟"
+          },
+          "a": [
+            "is there"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a lot of noise in the street last night.",
+            "fa": "دیشب در خیابان سر و صدای زیادی بود."
+          },
+          "a": [
+            "there was"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ enough seats for everyone.",
+            "fa": "برای همه صندلی کافی هست."
+          },
+          "a": [
+            "there are"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ a clock on the wall.",
+            "fa": "یک ساعت روی دیوار هست."
+          },
+          "a": [
+            "there is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ many reasons to stay.",
+            "fa": "دلایل زیادی برای ماندن هست."
+          },
+          "a": [
+            "there are"
+          ]
+        }
+      ]
+    },
     "articles": {
       "level": "A1",
       "title": {
@@ -740,6 +1451,20 @@
         {
           "en": "the  with superlatives and sequences  →  the best, the first, the last",
           "fa": "the با صفت تکراری و ترتیب  →  بهترین، اولین، آخرین"
+        }
+      ],
+      "explain": [
+        {
+          "en": "a / an is decided by SOUND, not by spelling: an hour (silent h), an MP, but a university (yoo), a one-off.",
+          "fa": "انتخاب a یا an بر اساس صداست نه املا: an hour (ح بی‌صدا)، an MP، ولی a university (صدای یو) و a one-off."
+        },
+        {
+          "en": "Uncountables and general plurals take no article: 'Life is short', 'Cats are clever'. Add 'the' only when you mean the specific ones.",
+          "fa": "اسم‌های غیرقابل‌شمارش و جمع‌های کلی حرف تعریف نمی‌گیرند: «Life is short»، «Cats are clever». فقط وقتی منظور مشخص است the می‌آید."
+        },
+        {
+          "en": "First mention takes a/an, second mention takes the: 'I bought a book. The book was cheap.'",
+          "fa": "بار اول a/an و بار دوم the می‌آید: «I bought a book. The book was cheap.»"
         }
       ],
       "function": [
@@ -1096,6 +1821,20 @@
           "fa": "he برای مرد، she برای زن، it برای اشیا و حیوانات"
         }
       ],
+      "explain": [
+        {
+          "en": "After a verb or a preposition use the object form: 'for me', 'to him', 'with us' — never 'for I'.",
+          "fa": "بعد از فعل یا حرف اضافه حالت مفعولی می‌آید: «for me»، «to him»، «with us» — هرگز «for I»."
+        },
+        {
+          "en": "'its' belongs to it (The dog wagged its tail); 'it's' means it is. The apostrophe always marks a contraction, never possession by a thing.",
+          "fa": "«its» یعنی ملکیتِ آن چیز (The dog wagged its tail)؛ «it's» یعنی it is. آپاستروف همیشه نشانه‌ی حذف است، نه ملکیت چیزها."
+        },
+        {
+          "en": "Reflexives are for the same subject ('I hurt myself'), for emphasis ('I myself saw it') and for 'by + -self' = alone ('She lives by herself').",
+          "fa": "ضمیر انعکاسی برای هم‌فناعل بودن (I hurt myself)، برای تأکید (I myself saw it) و در عبارت by + -self به معنی تنها (She lives by herself) استفاده می‌شود."
+        }
+      ],
       "function": [
         {
           "en": "Replace nouns to avoid repetition",
@@ -1447,6 +2186,20 @@
         {
           "en": "Never plural:  sheep, fish, series, information",
           "fa": "بدون جمع:   sheep، fish، information"
+        }
+      ],
+      "explain": [
+        {
+          "en": "Nouns ending in -o often take -es (potato → potatoes) but not always (photo → photos); -f and -fe often become -ves (knife → knives, wolf → wolves).",
+          "fa": "اسم‌هایی که به o ختم می‌شوند معمولاً es می‌گیرند (potato → potatoes) ولی نه همیشه (photo → photos)؛ f و fe معمولاً به ves تبدیل می‌شوند (knife → knives)."
+        },
+        {
+          "en": "Some nouns look plural but take a singular verb: news, physics, mathematics — 'The news is good', not 'are'.",
+          "fa": "بعضی اسم‌ها جمع به نظر می‌رسند ولی فعل مفرد می‌گیرند: news، physics، mathematics — «The news is good»."
+        },
+        {
+          "en": "Uncountables never take a/an or -s: 'three pieces of furniture', 'some advice', 'much money'.",
+          "fa": "اسم‌های غیرقابل‌شمارش نه a/an می‌گیرند و نه s: «three pieces of furniture»، «some advice»، «much money»."
         }
       ],
       "function": [
@@ -1802,6 +2555,20 @@
           "fa": "منفی با do/does:   don't / doesn't + فعل پایه"
         }
       ],
+      "explain": [
+        {
+          "en": "Questions and negatives borrow an auxiliary (do / does / did, be, have) and move it before the subject: 'She works' → 'Does she work?'.",
+          "fa": "سؤال و منفی از فعل کمکی کمک می‌گیرند (do/does/did, be, have) و آن را قبل از فاعل می‌گذارند: «She works» → «Does she work؟»."
+        },
+        {
+          "en": "Adverbs of frequency (always, never, usually) go before the main verb but after 'be': 'She is always ready' ✓, 'She always is ready' ✗.",
+          "fa": "ظرف‌های تکرار (always, never, usually) قبل از فعل اصلی ولی بعد از be می‌آیند: «She is always ready» درست و «She always is ready» غلط است."
+        },
+        {
+          "en": "Two verbs in a row need a connector: 'I want to go', 'I enjoy reading', 'I saw him running' — never 'I want go'.",
+          "fa": "دو فعل کنار هم به رابط نیاز دارند: «I want to go»، «I enjoy reading»، «I saw him running» — هرگز «I want go»."
+        }
+      ],
       "function": [
         {
           "en": "English is fixed word order — not free like Persian",
@@ -2115,6 +2882,691 @@
         }
       ]
     },
+    "wh_questions": {
+      "title": {
+        "en": "Question Words (wh- questions)",
+        "fa": "سؤال‌سازی با کلمات سؤالی"
+      },
+      "keywords": {
+        "en": [
+          "wh questions",
+          "question words",
+          "how to ask a question",
+          "indirect questions"
+        ],
+        "fa": [
+          "سؤال سازی",
+          "کلمات سؤالی",
+          "سؤال غیرمستقیم",
+          "سوال پرسیدن"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Wh- word + do / does / did + subject + base verb: Where do you live? / What does she want?",
+          "fa": "کلمه‌ی سؤالی + do/does/did + فاعل + فعل پایه: Where do you live? / What does she want?"
+        },
+        {
+          "en": "With be or a modal there is no 'do': Who is calling? / How can I help?",
+          "fa": "با be یا افعال وجهی «do» نمی‌آید: Who is calling? / How can I help?"
+        },
+        {
+          "en": "Yes/no questions have no question word: Are you coming?",
+          "fa": "سؤال بله/خیر کلمه‌ی سؤالی ندارد: Are you coming?"
+        },
+        {
+          "en": "Embedded questions keep statement order: Do you know where he lives? (not 'where does he live').",
+          "fa": "سؤال غیرمستقیم ترتیب جمله‌ی خبری دارد: Do you know where he lives? (نه «where does he live»)."
+        },
+        {
+          "en": "how much / how many for quantity · how long for time · what time for the clock.",
+          "fa": "how much / how many برای مقدار · how long برای مدت · what time برای ساعت."
+        },
+        {
+          "en": "When the question word is the subject, there is no inversion: Who called you?",
+          "fa": "وقتی کلمه‌ی سؤالی خودش فاعل باشد جابه‌جایی نیست: Who called you?"
+        }
+      ],
+      "explain": [
+        {
+          "en": "English needs a helper to ask a question. 'Where he lives?' is a statement with a question mark; add does — 'Where does he live?' — and the verb goes back to its base form.",
+          "fa": "انگلیسی برای سؤال به فعل کمکی نیاز دارد. «Where he lives?» یک جمله‌ی خبری با علامت سؤال است؛ does را اضافه کن — «Where does he live?» — و فعل به شکل پایه برمی‌گردد."
+        },
+        {
+          "en": "An embedded question is a statement inside a question: 'Could you tell me where the station is?' The word order flips back to subject + verb and no extra 'does' appears, because the question is already carried by the first part.",
+          "fa": "سؤال غیرمستقیم یک جمله‌ی خبری داخل سؤال است: «Could you tell me where the station is?» ترتیب به فاعل + فعل برمی‌گردد و «does» اضافه نمی‌شود، چون بار سؤالی را بخش اول برداشته است."
+        },
+        {
+          "en": "'Who' can be the subject or the object. As subject it takes a normal verb: 'Who broke the window?' As object it needs the helper: 'Who did you invite?'",
+          "fa": "«who» می‌تواند فاعل یا مفعول باشد. اگر فاعل باشد فعل عادی می‌آید: «Who broke the window?» اگر مفعول باشد کمکی لازم است: «Who did you invite?»"
+        }
+      ],
+      "function": [
+        {
+          "en": "Ask for information: place, time, reason, person, manner",
+          "fa": "پرسیدن اطلاعات: مکان، زمان، دلیل، شخص، روش"
+        },
+        {
+          "en": "Ask politely with an embedded question",
+          "fa": "سؤال مؤدبانه با جمله‌ی غیرمستقیم"
+        },
+        {
+          "en": "Ask about quantity and price",
+          "fa": "پرسیدن مقدار و قیمت"
+        },
+        {
+          "en": "Keep conversations going with follow-up questions",
+          "fa": "ادامه دادن گفتگو با سؤال‌های بعدی"
+        }
+      ],
+      "examples": [
+        {
+          "en": "**Where does** your sister work?",
+          "fa": "خواهرت **کجا** کار می‌کند؟"
+        },
+        {
+          "en": "Do you know **where your sister works**?",
+          "fa": "می‌دانی خواهرت **کجا کار می‌کند**؟"
+        },
+        {
+          "en": "**Who called** you last night?",
+          "fa": "دیشب **چه کسی** به تو زنگ زد؟"
+        },
+        {
+          "en": "**How much** does this cost?",
+          "fa": "این **چقدر** است؟"
+        },
+        {
+          "en": "**Why** were you late? — **Because** the bus broke down.",
+          "fa": "**چرا** دیر کردی؟ — **چون** اتوبوس خراب شد."
+        }
+      ],
+      "level": "A2",
+      "tip": {
+        "en": "Direct question: helper + subject + base verb. Embedded question: subject + verb, and never add do/does/did.",
+        "fa": "سؤال مستقیم: کمک‌فعل + فاعل + فعل پایه. سؤال غیرمستقیم: فاعل + فعل، و هرگز do/does/did اضافه نکن."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "____ does he live? — In Berlin.",
+            "fa": "او کجا زندگی می‌کند؟ — در برلین."
+          },
+          "a": [
+            "where"
+          ]
+        },
+        {
+          "q": {
+            "en": "Do you know where he ____?",
+            "fa": "می‌دانی کجا زندگی می‌کند؟"
+          },
+          "a": [
+            "lives"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ called you last night?",
+            "fa": "دیشب چه کسی به تو زنگ زد؟"
+          },
+          "a": [
+            "who"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ much is this jacket?",
+            "fa": "این کاپشن چقدر است؟"
+          },
+          "a": [
+            "how"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ are you late? — Because of the traffic.",
+            "fa": "چرا دیر کردی؟ — به‌خاطر ترافیک."
+          },
+          "a": [
+            "why"
+          ]
+        },
+        {
+          "q": {
+            "en": "Where ____ she study? — Medicine.",
+            "fa": "او کجا درس می‌خواند؟ — پزشکی."
+          },
+          "a": [
+            "does"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "____ is your birthday? — In May.",
+            "fa": "تولدت چه زمانی است؟ — در ماه مه."
+          },
+          "a": [
+            "when"
+          ]
+        },
+        {
+          "q": {
+            "en": "Could you tell me where the station ____?",
+            "fa": "می‌گویید ایستگاه کجاست؟"
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ did you choose this colour?",
+            "fa": "چرا این رنگ را انتخاب کردی؟"
+          },
+          "a": [
+            "why"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ are you so tired today?",
+            "fa": "چرا امروز این‌قدر خسته‌ای؟"
+          },
+          "a": [
+            "why"
+          ]
+        },
+        {
+          "q": {
+            "en": "I don't know what time it ____.",
+            "fa": "نمی‌دانم ساعت چند است."
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ is the quickest way to the station?",
+            "fa": "سریع‌ترین راه به ایستگاه چیست؟"
+          },
+          "a": [
+            "what"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ many students are in your class?",
+            "fa": "چند دانش‌آموز در کلاس تو هستند؟"
+          },
+          "a": [
+            "how"
+          ]
+        },
+        {
+          "q": {
+            "en": "Do you know whether he ____ coming?",
+            "fa": "می‌دانی آیا او می‌آید؟"
+          },
+          "a": [
+            "is"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ you tell me how this works?",
+            "fa": "می‌شود بگویید این چطور کار می‌کند؟"
+          },
+          "a": [
+            "can"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ called this number?",
+            "fa": "چه کسی به این شماره زنگ زد؟"
+          },
+          "a": [
+            "who"
+          ]
+        },
+        {
+          "q": {
+            "en": "I wonder ____ he means.",
+            "fa": "نمی‌دانم منظورش چیست."
+          },
+          "a": [
+            "what"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ time does the shop close?",
+            "fa": "مغازه چه ساعتی بسته می‌شود؟"
+          },
+          "a": [
+            "what"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ do you live? — In Shiraz.",
+            "fa": "کجا زندگی می‌کنی؟ — در شیراز."
+          },
+          "a": [
+            "where"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ is taller, Ali or Sara?",
+            "fa": "کدام قدبلندتر است، علی یا سارا؟"
+          },
+          "a": [
+            "which"
+          ]
+        },
+        {
+          "q": {
+            "en": "Ask me ____ old I am.",
+            "fa": "بپرس چند سال دارم."
+          },
+          "a": [
+            "how"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ were you born?",
+            "fa": "کجا/چه زمانی به دنیا آمدی؟"
+          },
+          "a": [
+            "when"
+          ]
+        },
+        {
+          "q": {
+            "en": "She asked me where I ____ from.",
+            "fa": "او پرسید اهل کجا هستم."
+          },
+          "a": [
+            "was"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ is your phone number?",
+            "fa": "شماره تلفنت چیست؟"
+          },
+          "a": [
+            "what"
+          ]
+        },
+        {
+          "q": {
+            "en": "Do you know if the film ____ started?",
+            "fa": "می‌دانی فیلم شروع شده یا نه؟"
+          },
+          "a": [
+            "has"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ didn't you answer my message?",
+            "fa": "چرا جواب پیام من را ندادی؟"
+          },
+          "a": [
+            "why"
+          ]
+        }
+      ]
+    },
+    "adjective_order": {
+      "title": {
+        "en": "Adjective Order",
+        "fa": "ترتیب صفت‌ها"
+      },
+      "keywords": {
+        "en": [
+          "adjective order",
+          "order of adjectives",
+          "adjective position",
+          "adjective order rules"
+        ],
+        "fa": [
+          "ترتیب صفت",
+          "جای صفت",
+          "صفت قبل از اسم"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Opinion → size → age → shape → colour → origin → material → purpose: a lovely small old round brown Italian wooden coffee table.",
+          "fa": "نظر → اندازه → سن → شکل → رنگ → مبدأ → جنس → کاربرد: یک میز قهوه‌خوری چوبی ایتالیایی قهوه‌ای گِرد قدیمی کوچک و زیبا."
+        },
+        {
+          "en": "Two adjectives of equal weight take a comma or 'and': a tall, thin man.",
+          "fa": "دو صفت هم‌وزن با ویرگول یا and جدا می‌شوند: a tall, thin man."
+        },
+        {
+          "en": "-ing describes the thing itself; -ed describes how it makes you feel: a boring film / a bored class.",
+          "fa": "ing صفتِ خودِ چیز است و ed حسِ تو: فیلم خسته‌کننده / کلاس خسته."
+        },
+        {
+          "en": "enough comes AFTER an adjective or adverb: big enough, quickly enough — but BEFORE a noun: enough money.",
+          "fa": "enough بعد از صفت یا قید می‌آید: big enough، quickly enough — ولی قبل از اسم: enough money."
+        },
+        {
+          "en": "Adjectives never take a plural: a red car, two red cars.",
+          "fa": "صفت هرگز جمع نمی‌بندد: a red car، two red cars."
+        },
+        {
+          "en": "else comes after the adjective: anyone else, something else.",
+          "fa": "else بعد از صفت می‌آید: anyone else، something else."
+        }
+      ],
+      "explain": [
+        {
+          "en": "English fixes the order of adjectives, so 'a red big car' sounds wrong to a native ear although every word is correct. Learn the chain as one unit: opinion-size-age-shape-colour-origin-material-purpose.",
+          "fa": "انگلیسی ترتیب صفت‌ها را ثابت نگه می‌دارد؛ بنابراین «a red big car» هرچند هر واژه‌اش درست است، برای یک انگلیسی‌زبان غلط به گوش می‌رسد. زنجیره را یک‌جا حفظ کن: نظر-اندازه-سن-شکل-رنگ-مبدأ-جنس-کاربرد."
+        },
+        {
+          "en": "-ing means the thing causes the feeling and -ed means the person has it: 'The exam was difficult, so the students were worried.' 'The students were difficult' means something completely different.",
+          "fa": "«ing» یعنی چیز حس را ایجاد می‌کند و «ed» یعنی شخص آن حس را دارد: «The exam was difficult, so the students were worried». جمله‌ی «The students were difficult» معنی را کاملاً عوض می‌کند."
+        },
+        {
+          "en": "'enough' changes side with the word type: after an adjective (old enough, tall enough) but before a noun (enough time). Learners who learn one pattern use it everywhere and write 'enough big'.",
+          "fa": "«enough» با نوع واژه جایش عوض می‌شود: بعد از صفت (old enough) ولی قبل از اسم (enough time). کسی که فقط یک الگو یاد بگیرد همه‌جا «enough big» می‌نویسد."
+        }
+      ],
+      "function": [
+        {
+          "en": "Put several adjectives together and still sound natural",
+          "fa": "چند صفت را پشت هم بیاور و باز طبیعی به گوش برسی"
+        },
+        {
+          "en": "Say what you think of something before its facts",
+          "fa": "نظرت را قبل از ویژگی‌های عینی بگو"
+        },
+        {
+          "en": "Tell the cause (-ing) from the feeling (-ed)",
+          "fa": "علت (ing) را از حس (ed) جدا کن"
+        },
+        {
+          "en": "Place enough correctly the first time",
+          "fa": "enough را بار اول درست بگذار"
+        }
+      ],
+      "examples": [
+        {
+          "en": "She bought a **beautiful small Italian leather** handbag.",
+          "fa": "او یک کیف دستی **چرمی ایتالیایی کوچک و زیبا** خرید."
+        },
+        {
+          "en": "The lecture was **boring**; the students looked **bored**.",
+          "fa": "سخنرانی **خسته‌کننده** بود؛ دانشجوها **خسته** به نظر می‌رسیدند."
+        },
+        {
+          "en": "The hall is **big enough** for a thousand guests.",
+          "fa": "تالار برای هزار مهمان **به اندازه کافی بزرگ** است."
+        },
+        {
+          "en": "He lives in a **lovely old house** near the river.",
+          "fa": "او در یک **خانه‌ی قدیمی زیبا** کنار رودخانه زندگی می‌کند."
+        },
+        {
+          "en": "Take **something else** if you are still hungry.",
+          "fa": "اگر هنوز گرسنه‌ای **چیز دیگری** بردار."
+        }
+      ],
+      "level": "B1",
+      "tip": {
+        "en": "Chain to remember: opinion → size → age → shape → colour → origin → material → purpose. And enough flips: old enough, but enough money.",
+        "fa": "زنجیره‌ی حفظی: نظر ← اندازه ← سن ← شکل ← رنگ ← مبدأ ← جنس ← کاربرد. و enough جابه‌جا می‌شود: old enough ولی enough money."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "My brother is ____ enough to reach the top shelf.",
+            "fa": "برادرم آن‌قدر بلند است که به طبقه‌ی بالا برسد."
+          },
+          "a": [
+            "tall"
+          ]
+        },
+        {
+          "q": {
+            "en": "Put the words in order: 'red big car' → a big ____ car.",
+            "fa": "به ترتیب درست: ماشین قرمز بزرگ → یک ماشین بزرگ ____."
+          },
+          "a": [
+            "red"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: This maths problem is ____.",
+            "fa": "این مسئله‌ی ریاضی گیج‌کننده است."
+          },
+          "a": [
+            "confusing"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: I was ____ by the noise last night.",
+            "fa": "دیشب از سر و صدا کلافه شدم."
+          },
+          "a": [
+            "annoyed"
+          ]
+        },
+        {
+          "q": {
+            "en": "We found a ____ little café around the corner.",
+            "fa": "یک کافه‌ی کوچک زیبا سر خیابان پیدا کردیم."
+          },
+          "a": [
+            "lovely"
+          ]
+        },
+        {
+          "q": {
+            "en": "There isn't ____ bread left — shall I buy more?",
+            "fa": "نان کافی نمانده — بیشتر بخرم؟"
+          },
+          "a": [
+            "enough"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "Put in order: 'Italian delicious pasta' → delicious ____ pasta.",
+            "fa": "به ترتیب درست: پاستای ایتالیایی خوشمزه → پاستای خوشمزه‌ی ____."
+          },
+          "a": [
+            "italian"
+          ]
+        },
+        {
+          "q": {
+            "en": "This bag is not heavy ____ to carry.",
+            "fa": "این کیف برای حمل کردن به اندازه‌ی کافی سنگین نیست."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: The news was ____.",
+            "fa": "آن خبر تکان‌دهنده بود."
+          },
+          "a": [
+            "shocking"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: The children looked ____ after the trip.",
+            "fa": "بچه‌ها بعد از سفر هیجان‌زده به نظر می‌رسیدند."
+          },
+          "a": [
+            "excited"
+          ]
+        },
+        {
+          "q": {
+            "en": "Opinion first: a ____ little old house (nice).",
+            "fa": "نظر اول: یک خانه‌ی کوچک قدیمی ____ (nice)."
+          },
+          "a": [
+            "nice"
+          ]
+        },
+        {
+          "q": {
+            "en": "Colour before material: a ____ wooden table (white).",
+            "fa": "رنگ قبل از جنس: یک میز چوبی ____ (white)."
+          },
+          "a": [
+            "white"
+          ]
+        },
+        {
+          "q": {
+            "en": "'Anyone ____?' asked the teacher.",
+            "fa": "معلم پرسید: «کسی دیگر؟»"
+          },
+          "a": [
+            "else"
+          ]
+        },
+        {
+          "q": {
+            "en": "Size before age: a ____ new car (small).",
+            "fa": "اندازه قبل از سن: یک ماشین نو ____ (small)."
+          },
+          "a": [
+            "small"
+          ]
+        },
+        {
+          "q": {
+            "en": "Adjectives do not change: two ____ red apples (big).",
+            "fa": "صفت تغییر نمی‌کند: دو سیب قرمز ____ (big)."
+          },
+          "a": [
+            "big"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: The film is ____ — I am never watching it again.",
+            "fa": "فیلم خسته‌کننده است — دیگر هرگز تماشایش نمی‌کنم."
+          },
+          "a": [
+            "boring"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: We were ____ by the good news.",
+            "fa": "از خبر خوب ذوق کردیم."
+          },
+          "a": [
+            "thrilled"
+          ]
+        },
+        {
+          "q": {
+            "en": "Origin before material: a ____ cotton shirt (Egyptian).",
+            "fa": "مبدأ قبل از جنس: یک پیراهن نخی ____ (Egyptian)."
+          },
+          "a": [
+            "egyptian"
+          ]
+        },
+        {
+          "q": {
+            "en": "enough comes after the adverb: She sings ____ enough to pass.",
+            "fa": "enough بعد از قید: او آن‌قدر خوب می‌خواند که قبول شود."
+          },
+          "a": [
+            "well"
+          ]
+        },
+        {
+          "q": {
+            "en": "Is there anything ____ you need?",
+            "fa": "چیز دیگری لازم داری؟"
+          },
+          "a": [
+            "else"
+          ]
+        },
+        {
+          "q": {
+            "en": "Purpose comes last: a ____ bicycle (racing).",
+            "fa": "کاربرد آخر می‌آید: یک دوچرخه‌ی ____ (racing)."
+          },
+          "a": [
+            "racing"
+          ]
+        },
+        {
+          "q": {
+            "en": "Shape before colour: a round ____ vase (blue).",
+            "fa": "شکل قبل از رنگ: یک گلدان گِرد ____ (blue)."
+          },
+          "a": [
+            "blue"
+          ]
+        },
+        {
+          "q": {
+            "en": "I am not hungry ____.",
+            "fa": "من به اندازه‌ی کافی گرسنه نیستم."
+          },
+          "a": [
+            "enough"
+          ]
+        },
+        {
+          "q": {
+            "en": "-ing or -ed: The instructions were ____, so we got lost.",
+            "fa": "دستورالعمل‌ها گیج‌کننده بود، برای همین گم شدیم."
+          },
+          "a": [
+            "confusing"
+          ]
+        },
+        {
+          "q": {
+            "en": "The soup smells ____.",
+            "fa": "سوپ خوش‌بو است."
+          },
+          "a": [
+            "delicious"
+          ]
+        },
+        {
+          "q": {
+            "en": "Two equal adjectives take a comma: a tall, ____ man (thin).",
+            "fa": "دو صفت هم‌وزن ویرگول می‌گیرند: یک مرد بلندقد و ____ (thin)."
+          },
+          "a": [
+            "thin"
+          ]
+        }
+      ]
+    },
     "simple_past": {
       "title": {
         "en": "Simple Past",
@@ -2153,6 +3605,20 @@
         {
           "en": "Note: after did / didn't the verb returns to its base form (V1).",
           "fa": "نکته: بعد از did / didn't فعل به شکل پایه (V1) برمی‌گردد."
+        }
+      ],
+      "explain": [
+        {
+          "en": "'did' already carries the past, so the main verb returns to its base form: 'Did you went' ✗ → 'Did you go' ✓.",
+          "fa": "چون did خودش گذشته را حمل می‌کند، فعل اصلی به شکل پایه برمی‌گردد: «Did you went» غلط و «Did you go» درست است."
+        },
+        {
+          "en": "Irregular past forms must be memorised: go/went, buy/bought, think/thought, take/took, see/saw — there is no rule for them.",
+          "fa": "شکل گذشته‌ی بی‌قاعده باید حفظ شود: go/went، buy/bought، think/thought، take/took، see/saw — برای این‌ها قاعده‌ای وجود ندارد."
+        },
+        {
+          "en": "Past time markers pin the sentence to the past: yesterday, last night, two days ago, in 2015 — never mix them with the present perfect.",
+          "fa": "قیدهای زمان گذشته جمله را قفل می‌کنند: yesterday، last night، two days ago، in 2015 — هرگز با حال کامل قاطی نشوند."
         }
       ],
       "function": [
@@ -2498,6 +3964,20 @@
         {
           "en": "Plans & intentions:  Subject + am / is / are + going to + V1",
           "fa": "برنامه‌ها و نیت‌ها:  فاعل + am/is/are + going to + فعل پایه"
+        }
+      ],
+      "explain": [
+        {
+          "en": "'will' is a decision made at the moment of speaking; 'be going to' is a plan already made — 'Look at those clouds! It's going to rain.'",
+          "fa": "will تصمیم لحظه‌ی گفتن است؛ be going to نقشه‌ای از قبل تعیین‌شده: «Look at those clouds! It's going to rain.»"
+        },
+        {
+          "en": "After will and going to the verb stays in the base form: 'will goes' ✗ → 'will go' ✓.",
+          "fa": "بعد از will و going to فعل پایه می‌آید: «will goes» غلط و «will go» درست است."
+        },
+        {
+          "en": "In the negative, will contracts to won't and going to becomes wasn't / weren't going to: 'I won't tell anyone'.",
+          "fa": "در حالت منفی will به won't قرار می‌گیرد و going to به wasn't/weren't going to تبدیل می‌شود: «I won't tell anyone»."
         }
       ],
       "function": [
@@ -2853,6 +4333,20 @@
         {
           "en": "Note: use this tense for RIGHT NOW, not for permanent situations",
           "fa": "نکته: این زمان برای «همین الان» است، نه برای کارهای دائمی"
+        }
+      ],
+      "explain": [
+        {
+          "en": "-ing spelling: drop a final silent e (make → making), double the final consonant after a short vowel (sit → sitting, but see → seeing), -ie becomes -ying (lie → lying).",
+          "fa": "املای ing: e بی‌صدا حذف می‌شود (make → making)، بعد از مصوت کوتاه حرف بی‌صدا تکرار می‌شود (sit → sitting ولی see → seeing)، و ie به ying می‌رود (lie → lying)."
+        },
+        {
+          "en": "State verbs (know, like, want, believe, own, seem) are not used in the continuous: 'I know the answer', not 'I am knowing'.",
+          "fa": "افعال حالتی (know, like, want, believe, own, seem) استمراری نمی‌شوند: «I know the answer» درست است، نه «I am knowing»."
+        },
+        {
+          "en": "The present progressive can announce a fixed future arrangement with a time: 'I'm meeting her at six tomorrow'.",
+          "fa": "این زمان می‌تواند قرار آینده‌ی قطعی را هم برساند همراه با زمان مشخص: «I'm meeting her at six tomorrow»."
         }
       ],
       "function": [
@@ -3219,6 +4713,20 @@
           "fa": "املا:   حذف e پایانی (write → writing)  ·  دو برابر کردن صامت (sit → sitting)"
         }
       ],
+      "explain": [
+        {
+          "en": "The long action takes was / were + -ing and the short interrupting action takes the simple past: 'I was cooking when the phone rang.'",
+          "fa": "فعل طولانی was/were + ing می‌گیرد و فعل کوتاهِ قطع‌کننده ساده می‌ماند: «I was cooking when the phone rang.»"
+        },
+        {
+          "en": "was / were + -ing says the action was still running; was / were + adjective only describes a state: 'I was tired', not 'I was being tired'.",
+          "fa": "was/were + ing یعنی کار هنوز ادامه داشت؛ was/were + صفت فقط حالت را توصیف می‌کند: «I was tired» درست است نه «I was being tired»."
+        },
+        {
+          "en": "'while' joins two long actions running in parallel: 'While I was studying, my brother was watching TV.'",
+          "fa": "while دو عمل طولانیِ هم‌زمان را به هم وصل می‌کند: «While I was studying, my brother was watching TV.»"
+        }
+      ],
       "function": [
         {
           "en": "An action in progress in the past (at a past moment)",
@@ -3581,6 +5089,20 @@
         {
           "en": "Note: there is NO to + modal: ✗ He must to go.  ✓ He must go.",
           "fa": "نکته: to قبل از modal نمی‌آید: ✗ must to go  ✓ must go"
+        }
+      ],
+      "explain": [
+        {
+          "en": "A modal never takes -s and never takes 'to': 'He can swims' ✗ → 'He can swim' ✓, 'He must to go' ✗ → 'He must go' ✓.",
+          "fa": "فعل نما نه s می‌گیرد و نه to: «He can swims» غلط و «He can swim» درست است؛ «He must to go» غلط و «He must go» درست."
+        },
+        {
+          "en": "can't = impossibility now, couldn't = past inability, mustn't = prohibition — the negative of obligation is 'don't have to', not 'mustn't'.",
+          "fa": "can't یعنی ناممکن بودن الان، couldn't یعنی ناتوانی گذشته، mustn't یعنی ممنوعیت — منفیِ الزام don't have to است نه mustn't."
+        },
+        {
+          "en": "must has no past form for obligation (use had to) and no past participle — for regret use 'should have + V3'.",
+          "fa": "must برای الزام شکل گذشته ندارد (باید had to به کار برود) و وجه وصفی ندارد؛ برای پشیمانی از should have + V3 استفاده کن."
         }
       ],
       "function": [
@@ -3966,6 +5488,20 @@
           "fa": "املا:   happy → happier  ·  easy → easier  ·  big → bigger (صامت دو برابر)"
         }
       ],
+      "explain": [
+        {
+          "en": "Two things take the comparative, three or more take the superlative: 'He is the taller of the two' ✓ but 'He is taller of the class' ✗.",
+          "fa": "برای دو چیز صفت تفضیلی و برای سه یا بیشتر مطلق می‌آید: «He is the taller of the two» درست ولی «He is taller of the class» غلط."
+        },
+        {
+          "en": "Spelling: one-syllable adjectives add -er (tall → taller); two syllables ending in -y drop the y and add -ier (happy → happier); longer adjectives use more.",
+          "fa": "املای تفضیلی: صفت یک‌هجایی er می‌گیرد (tall → taller)؛ دوهجاییِ ختم‌شده به y حرف y را حذف و ier می‌گذارد (happy → happier)؛ بقیه با more ساخته می‌شوند."
+        },
+        {
+          "en": "Never stack two comparative markers: 'more better' ✗ → 'better' ✓, 'very taller' ✗ → 'much taller' ✓.",
+          "fa": "هرگز دو نشانه‌ی مقایسه را روی هم نگذار: «more better» غلط و «better» درست؛ «very taller» غلط و «much taller» درست است."
+        }
+      ],
       "function": [
         {
           "en": "Comparing two people or things",
@@ -4320,6 +5856,20 @@
           "fa": "بعضی قیدها بی‌قاعده‌اند: good → well، fast → fast"
         }
       ],
+      "explain": [
+        {
+          "en": "Position: before the main verb, after 'be', and at the very start when the adverb modifies the whole sentence — 'She always complains', 'She is always late', 'Unfortunately, she lost.'",
+          "fa": "جاگذاری: قبل از فعل اصلی، بعد از be، و در ابتدای جمله وقتی کل جمله را توصیف می‌کند — «She always complains»، «She is always late»، «Unfortunately, she lost.»"
+        },
+        {
+          "en": "hardly, barely and scarcely already carry a negative meaning, so 'I can't hardly' is a double negative — say 'I can hardly see'.",
+          "fa": "hardly و barely و scarcely خودشان منفی‌اند، پس «I can't hardly» دوگانه‌ی منفی است — بگو «I can hardly see»."
+        },
+        {
+          "en": "Adverbs of degree (very, quite, too, so) sit directly before the adjective or adverb they modify: 'very happy', never 'happy very'.",
+          "fa": "ظرف‌های درجه (very, quite, too, so) دقیقاً قبل از صفت یا قید می‌آیند: «very happy»، هرگز «happy very»."
+        }
+      ],
       "function": [
         {
           "en": "Modify verbs (She sings beautifully)",
@@ -4631,6 +6181,348 @@
         }
       ]
     },
+    "prepositions_time_place": {
+      "title": {
+        "en": "Prepositions of Time and Place",
+        "fa": "حروف اضافه‌ی زمان و مکان"
+      },
+      "keywords": {
+        "en": [
+          "prepositions of time",
+          "prepositions of place",
+          "in on at",
+          "at in on"
+        ],
+        "fa": [
+          "حرف اضافه زمان",
+          "حرف اضافه مکان",
+          "in on at"
+        ]
+      },
+      "structure": [
+        {
+          "en": "Time: at = clock time (at 7:30) · on = days and dates (on Monday, on 5 May) · in = long periods (in summer, in 2026).",
+          "fa": "زمان: at برای ساعت (at 7:30) · on برای روز و تاریخ (on Monday) · in برای دوره‌های بلند (in summer, in 2026)."
+        },
+        {
+          "en": "Place: at = a point (at the bus stop) · on = a surface (on the wall) · in = an enclosed space (in the box, in Paris).",
+          "fa": "مکان: at برای نقطه (at the bus stop) · on برای سطح (on the wall) · in برای فضای بسته (in the box, in Paris)."
+        },
+        {
+          "en": "No preposition before next, last, this, every + time: next week, last night, every day.",
+          "fa": "قبل از next, last, this, every + زمان حرف اضافه نمی‌آید: next week، last night، every day."
+        },
+        {
+          "en": "Fixed patterns: at night · in the morning · on Monday morning · at the weekend (BrE) / on the weekend (AmE).",
+          "fa": "الگوهای ثابت: at night · in the morning · on Monday morning · at the weekend (بریتانیایی) / on the weekend (آمریکایی)."
+        },
+        {
+          "en": "in time = not late · on time = at exactly the right moment.",
+          "fa": "in time یعنی دیر نرسیدن · on time یعنی دقیقاً سر وقت."
+        },
+        {
+          "en": "at the corner of the street, but on Oxford Street — a point versus a line.",
+          "fa": "at the corner of the street، ولی on Oxford Street — نقطه در برابر خط."
+        }
+      ],
+      "explain": [
+        {
+          "en": "Think in three sizes. 'in' holds a whole period (in May, in winter), 'on' marks a named day or a surface (on Tuesday, on the table), 'at' pins one exact point (at 6 o'clock, at the door).",
+          "fa": "سه اندازه را در ذهن داشته باش. «in» یک دوره‌ی کامل را در بر می‌گیرد (in May, in winter)، «on» یک روز مشخص یا یک سطح را نشان می‌دهد (on Tuesday, on the table) و «at» یک نقطه‌ی دقیق را میخ می‌کند (at 6 o'clock, at the door)."
+        },
+        {
+          "en": "Learners write 'in Monday' because Persian puts a preposition before the day. English uses only 'on' for days: on Monday, on my birthday.",
+          "fa": "زبان‌آموزها «in Monday» می‌نویسند چون فارسی قبل از روز حرف اضافه می‌آورد. انگلیسی برای روزها فقط «on» دارد: on Monday، on my birthday."
+        },
+        {
+          "en": "Time words that already point forward or back — next, last, this, every, tomorrow, yesterday — take no preposition at all: 'I saw her last Friday', not 'on last Friday'.",
+          "fa": "واژه‌های زمانی که خودشان به گذشته یا آینده اشاره دارند — next, last, this, every, tomorrow, yesterday — هیچ حرف اضافه‌ای نمی‌گیرند: «I saw her last Friday» نه «on last Friday»."
+        }
+      ],
+      "function": [
+        {
+          "en": "Say when something happens: day, date, month, clock time",
+          "fa": "گفتن زمان رویداد: روز، تاریخ، ماه، ساعت"
+        },
+        {
+          "en": "Say where something is: a point, a surface, an enclosure",
+          "fa": "گفتن مکان چیزی: نقطه، سطح، فضای بسته"
+        },
+        {
+          "en": "Avoid the classic errors: in Monday, at morning, on next week",
+          "fa": "پرهیز از خطاهای رایج: in Monday، at morning، on next week"
+        },
+        {
+          "en": "Tell 'in time' from 'on time'",
+          "fa": "تفاوت in time و on time"
+        }
+      ],
+      "examples": [
+        {
+          "en": "The train leaves **on** Friday **at** 6:15 **in** the morning.",
+          "fa": "قطار **روز** جمعه **ساعت** ۶:۱۵ **صبح** حرکت می‌کند."
+        },
+        {
+          "en": "She was waiting **at** the corner of the street.",
+          "fa": "او **سرِ** خیابان منتظر بود."
+        },
+        {
+          "en": "We got there just **in** time for the opening.",
+          "fa": "دقیقاً **به موقعِ** شروع رسیدیم."
+        },
+        {
+          "en": "He was born **in** 1998, **on** a cold January day.",
+          "fa": "او **در** سال ۱۹۹۸، **در** یک روز سرد ژانویه به دنیا آمد."
+        },
+        {
+          "en": "Leave your bag **on** the chair.",
+          "fa": "کیفت را **روی** صندلی بگذار."
+        }
+      ],
+      "level": "A2",
+      "tip": {
+        "en": "Clock time = at · days and dates = on · months, years, seasons = in. Point = at · surface = on · inside = in. Nothing before next / last / this / every.",
+        "fa": "ساعت = at · روز و تاریخ = on · ماه، سال و فصل = in. نقطه = at · سطح = on · داخل = in. قبل از next / last / this / every هیچ."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "The meeting is ____ Monday.",
+            "fa": "جلسه روز دوشنبه است."
+          },
+          "a": [
+            "on"
+          ]
+        },
+        {
+          "q": {
+            "en": "I wake up ____ 6 o'clock every morning.",
+            "fa": "هر صبح ساعت ۶ بیدار می‌شوم."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "It's cold ____ January here.",
+            "fa": "اینجا در ژانویه سرد است."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "Put your coat ____ the hook.",
+            "fa": "کتت را روی قلاب بگذار."
+          },
+          "a": [
+            "on"
+          ]
+        },
+        {
+          "q": {
+            "en": "The film starts ____ 8 p.m.",
+            "fa": "فیلم ساعت ۸ شب شروع می‌شود."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "The shop is closed ____ Sundays.",
+            "fa": "مغازه یکشنبه‌ها بسته است."
+          },
+          "a": [
+            "on"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "Class begins ____ 8:30.",
+            "fa": "کلاس ساعت ۸:۳۰ شروع می‌شود."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "My birthday is ____ March.",
+            "fa": "تولدم در مارس است."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "We arrived ____ the airport early.",
+            "fa": "زود به فرودگاه رسیدیم."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "The painting hangs ____ the wall.",
+            "fa": "تابلو روی دیوار آویزان است."
+          },
+          "a": [
+            "on"
+          ]
+        },
+        {
+          "q": {
+            "en": "She lives ____ Tehran.",
+            "fa": "او در تهران زندگی می‌کند."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "The bridge ____ the river is very old.",
+            "fa": "پل روی رودخانه خیلی قدیمی است."
+          },
+          "a": [
+            "over"
+          ]
+        },
+        {
+          "q": {
+            "en": "Don't be late ____ the party.",
+            "fa": "برای مهمانی دیر نکن."
+          },
+          "a": [
+            "for"
+          ]
+        },
+        {
+          "q": {
+            "en": "It rains a lot ____ winter.",
+            "fa": "در زمستان زیاد باران می‌بارد."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "We have a test ____ Friday morning.",
+            "fa": "جمعه صبح آزمون داریم."
+          },
+          "a": [
+            "on"
+          ]
+        },
+        {
+          "q": {
+            "en": "He waited ____ the bus stop for an hour.",
+            "fa": "یک ساعت سر ایستگاه اتوبوس منتظر ماند."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "The letter is ____ the envelope.",
+            "fa": "نامه داخل پاکت است."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "Turn left ____ the traffic lights.",
+            "fa": "سرِ چراغ راهنما به چپ بپیچ."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "We'll meet ____ the same time tomorrow.",
+            "fa": "فردا همین ساعت همدیگر را می‌بینیم."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "They moved here ____ 2019.",
+            "fa": "آن‌ها سال ۲۰۱۹ به اینجا آمدند."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "She was born ____ 12 June.",
+            "fa": "او در ۱۲ ژوئن به دنیا آمد."
+          },
+          "a": [
+            "on"
+          ]
+        },
+        {
+          "q": {
+            "en": "Put the milk ____ the fridge.",
+            "fa": "شیر را در یخچال بگذار."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "The children are playing ____ the garden.",
+            "fa": "بچه‌ها در باغ بازی می‌کنند."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "I'm usually busy ____ the afternoon.",
+            "fa": "من معمولاً بعدازظهر مشغولم."
+          },
+          "a": [
+            "in"
+          ]
+        },
+        {
+          "q": {
+            "en": "The meeting is ____ the office.",
+            "fa": "جلسه در دفتر است."
+          },
+          "a": [
+            "at"
+          ]
+        },
+        {
+          "q": {
+            "en": "It's warm ____ summer.",
+            "fa": "در تابستان هوا گرم است."
+          },
+          "a": [
+            "in"
+          ]
+        }
+      ]
+    },
     "countable_uncountable": {
       "level": "A2",
       "title": {
@@ -4674,6 +6566,20 @@
         {
           "en": "How much = uncountable · How many = countable",
           "fa": "How much = غیرقابل‌شمارش · How many = قابل‌شمارش"
+        }
+      ],
+      "explain": [
+        {
+          "en": "information, advice, furniture, news, money, luggage, bread and research are uncountable in English even though Persian counts them.",
+          "fa": "information, advice, furniture, news, money, luggage, bread و research در انگلیسی غیرقابل‌شمارش‌اند، هرچند فارسی آن‌ها را می‌شمارد."
+        },
+        {
+          "en": "a few + countable (a few books) and a little + uncountable (a little water) both mean 'some'; without the article they mean 'almost none'.",
+          "fa": "a few با اسم شمارشی (a few books) و a little با اسم غیرشمارشی (a little water) هر دو یعنی «مقداری»؛ بدون حرف تعریف یعنی «تقریباً هیچ»."
+        },
+        {
+          "en": "In questions use some when a yes is expected ('Would you like some tea?') and any for real doubt ('Do you have any milk?').",
+          "fa": "در سؤال وقتی انتظار جواب بله داری some به کار برو («Would you like some tea?») و وقتی واقعاً مطمئن نیستی any («Do you have any milk?»)."
         }
       ],
       "function": [
@@ -5015,6 +6921,349 @@
         }
       ]
     },
+    "determiners_some_any": {
+      "title": {
+        "en": "Determiners: some, any, no, every",
+        "fa": "تعیین‌کننده‌ها: some, any, no, every"
+      },
+      "keywords": {
+        "en": [
+          "determiners",
+          "some or any",
+          "much many a lot of",
+          "countable and uncountable determiners"
+        ],
+        "fa": [
+          "تعیین‌کننده",
+          "some any",
+          "کلمات مقدار",
+          "much many"
+        ]
+      },
+      "structure": [
+        {
+          "en": "some + plural or uncountable, in offers and requests: Would you like some tea?",
+          "fa": "some + جمع یا غیرقابل‌شمارش، در تعارف و درخواست: Would you like some tea?"
+        },
+        {
+          "en": "any in negatives and questions: We don't have any milk. / Do you have any questions?",
+          "fa": "any در منفی و سؤالی: We don't have any milk. / Do you have any questions?"
+        },
+        {
+          "en": "no = not any, with a positive verb: I have no idea. / There is no milk.",
+          "fa": "no یعنی not any، با فعل مثبت: I have no idea. / There is no milk."
+        },
+        {
+          "en": "every + singular noun · all + plural or uncountable: Every day is different. / All the water is gone.",
+          "fa": "every + اسم مفرد · all + جمع یا غیرقابل‌شمارش: Every day is different. / All the water is gone."
+        },
+        {
+          "en": "much + uncountable and many + countable (mostly in negatives and questions); a lot of works with both.",
+          "fa": "much + غیرقابل‌شمارش و many + قابل‌شمارش (بیشتر در منفی و سؤالی)؛ a lot of با هر دو می‌آید."
+        },
+        {
+          "en": "few / little = almost none · a few / a little = some: I have few friends. / I have a few friends.",
+          "fa": "few / little یعنی تقریباً هیچ · a few / a little یعنی کمی: I have few friends. / I have a few friends."
+        }
+      ],
+      "explain": [
+        {
+          "en": "some and any do not change the noun: some students (plural), some water (uncountable). The choice between them is about the type of sentence, not the type of noun — some for positive statements and offers, any for negatives and questions.",
+          "fa": "some و any اسم را تغییر نمی‌دهند: some students (جمع)، some water (غیرقابل‌شمارش). انتخاب بین آن‌ها به نوع جمله بستگی دارد، نه نوع اسم — some برای جمله‌ی مثبت و تعارف، any برای منفی و سؤالی."
+        },
+        {
+          "en": "'no' is shorter and stronger than 'not any': 'I have no money' = 'I don't have any money'. Watch the verb: 'no' keeps it positive, so 'I don't have no money' is a double negative.",
+          "fa": "«no» کوتاه‌تر و قوی‌تر از «not any» است: «I have no money» = «I don't have any money». به فعل دقت کن: با «no» فعل مثبت می‌ماند، پس «I don't have no money» منفیِ دوبل است."
+        },
+        {
+          "en": "few and little mean almost none — the article changes everything: 'I have little time' (not enough) versus 'I have a little time' (enough for you).",
+          "fa": "few و little یعنی تقریباً هیچ — حرف تعریف همه‌چیز را عوض می‌کند: «I have little time» (وقت کافی ندارم) در برابر «I have a little time» (کمی وقت دارم)."
+        }
+      ],
+      "function": [
+        {
+          "en": "Offer and request things politely",
+          "fa": "تعارف و درخواست مؤدبانه"
+        },
+        {
+          "en": "Build negatives and questions about quantity",
+          "fa": "ساختن منفی و سؤال درباره‌ی مقدار"
+        },
+        {
+          "en": "Choose much / many / a lot of correctly",
+          "fa": "انتخاب درست much / many / a lot of"
+        },
+        {
+          "en": "Show the difference between 'almost none' and 'a small amount'",
+          "fa": "نشان دادن تفاوت «تقریباً هیچ» و «کمی»"
+        }
+      ],
+      "examples": [
+        {
+          "en": "Would you like **some** more coffee?",
+          "fa": "کمی قهوه‌ی بیشتر می‌خوری؟"
+        },
+        {
+          "en": "We don't have **any** sugar left.",
+          "fa": "هیچ شکری برایمان نمانده."
+        },
+        {
+          "en": "There is **no** reason to hurry.",
+          "fa": "**هیچ** دلیلی برای عجله نیست."
+        },
+        {
+          "en": "I have **a little** money for the trip.",
+          "fa": "**کمی** پول برای سفر دارم."
+        },
+        {
+          "en": "**Few** people came, but **a few** stayed until the end.",
+          "fa": "**افراد کمی** آمدند، ولی **چند نفر** تا آخر ماندند."
+        }
+      ],
+      "level": "A2",
+      "tip": {
+        "en": "some = positive and offers · any = questions and negatives · no = not any with a positive verb. few = almost none, a few = some.",
+        "fa": "some = مثبت و تعارف · any = سؤال و منفی · no = not any با فعل مثبت. few = تقریباً هیچ، a few = چند تا."
+      },
+      "practice": [
+        {
+          "q": {
+            "en": "Would you like ____ tea?",
+            "fa": "کمی چای می‌خوری؟"
+          },
+          "a": [
+            "some"
+          ]
+        },
+        {
+          "q": {
+            "en": "I don't have ____ time today.",
+            "fa": "امروز وقت ندارم."
+          },
+          "a": [
+            "any"
+          ]
+        },
+        {
+          "q": {
+            "en": "There is ____ milk in the bottle.",
+            "fa": "در بطری هیچ شیری نیست."
+          },
+          "a": [
+            "no"
+          ]
+        },
+        {
+          "q": {
+            "en": "Do you have ____ questions?",
+            "fa": "سؤالی داری؟"
+          },
+          "a": [
+            "any"
+          ]
+        },
+        {
+          "q": {
+            "en": "I have ____ money — let me pay.",
+            "fa": "کمی پول دارم — بگذار من حساب کنم."
+          },
+          "a": [
+            "a little"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ day is different.",
+            "fa": "هر روز متفاوت است."
+          },
+          "a": [
+            "every"
+          ]
+        }
+      ],
+      "exam": [
+        {
+          "q": {
+            "en": "Would you like ____ sugar in your coffee?",
+            "fa": "کمی شکر در قهوه‌ات می‌ریزی؟"
+          },
+          "a": [
+            "some"
+          ]
+        },
+        {
+          "q": {
+            "en": "There aren't ____ apples left.",
+            "fa": "سیبی باقی نمانده."
+          },
+          "a": [
+            "any"
+          ]
+        },
+        {
+          "q": {
+            "en": "I have ____ idea what happened.",
+            "fa": "هیچ ایده‌ای ندارم چه شد."
+          },
+          "a": [
+            "no"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ student knows the answer.",
+            "fa": "هر دانش‌آموزی جواب را می‌داند."
+          },
+          "a": [
+            "every"
+          ]
+        },
+        {
+          "q": {
+            "en": "Do you need ____ help?",
+            "fa": "کمکی لازم داری؟"
+          },
+          "a": [
+            "any"
+          ]
+        },
+        {
+          "q": {
+            "en": "We bought ____ eggs for breakfast.",
+            "fa": "برای صبحانه چند تخم‌مرغ خریدیم."
+          },
+          "a": [
+            "some"
+          ]
+        },
+        {
+          "q": {
+            "en": "There is ____ time before the train leaves — we must run.",
+            "fa": "قبل از حرکت قطار وقت کمی هست — باید بدویم."
+          },
+          "a": [
+            "little"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ much homework do you get?",
+            "fa": "چقدر تکلیف می‌گیری؟"
+          },
+          "a": [
+            "how"
+          ]
+        },
+        {
+          "q": {
+            "en": "I don't have ____ money this month.",
+            "fa": "این ماه پول ندارم."
+          },
+          "a": [
+            "much"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ of my friends like this film.",
+            "fa": "هیچ‌کدام از دوستانم این فیلم را دوست ندارند."
+          },
+          "a": [
+            "none"
+          ]
+        },
+        {
+          "q": {
+            "en": "Can I have ____ water, please?",
+            "fa": "می‌شود کمی آب بدید؟"
+          },
+          "a": [
+            "some"
+          ]
+        },
+        {
+          "q": {
+            "en": "There is ____ information in this book.",
+            "fa": "اطلاعات زیادی در این کتاب هست."
+          },
+          "a": [
+            "a lot of"
+          ]
+        },
+        {
+          "q": {
+            "en": "How ____ brothers do you have?",
+            "fa": "چند برادر داری؟"
+          },
+          "a": [
+            "many"
+          ]
+        },
+        {
+          "q": {
+            "en": "We had ____ rain last week.",
+            "fa": "هفته‌ی پیش باران زیادی داشتیم."
+          },
+          "a": [
+            "a lot of"
+          ]
+        },
+        {
+          "q": {
+            "en": "I've got ____ few friends here.",
+            "fa": "اینجا چند دوست دارم."
+          },
+          "a": [
+            "a"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ one is perfect.",
+            "fa": "هیچ‌کس کامل نیست."
+          },
+          "a": [
+            "no"
+          ]
+        },
+        {
+          "q": {
+            "en": "Is there ____ milk in the fridge?",
+            "fa": "در یخچال شیری هست؟"
+          },
+          "a": [
+            "any"
+          ]
+        },
+        {
+          "q": {
+            "en": "He made ____ mistakes in the test.",
+            "fa": "او در آزمون اشتباه نداشت."
+          },
+          "a": [
+            "no"
+          ]
+        },
+        {
+          "q": {
+            "en": "____ people enjoy Mondays.",
+            "fa": "بیشتر مردم دوشنبه‌ها را دوست دارند."
+          },
+          "a": [
+            "most"
+          ]
+        },
+        {
+          "q": {
+            "en": "There are ____ seats left — only two.",
+            "fa": "صندلی‌های کمی مانده — فقط دو تا."
+          },
+          "a": [
+            "few"
+          ]
+        }
+      ]
+    },
     "question_tags": {
       "level": "A2",
       "title": {
@@ -5058,6 +7307,20 @@
         {
           "en": "Invitations use 'will you':  I'll help you, will I?",
           "fa": "دعوت‌ها با will you: کمکت می‌کنم، باشه؟"
+        }
+      ],
+      "explain": [
+        {
+          "en": "The tag repeats the auxiliary of the statement and flips its polarity: positive statement → negative tag, negative statement → positive tag.",
+          "fa": "برچسب جمله فعل کمکیِ همان جمله را تکرار می‌کند و قطعیتش را برعکس می‌کند: جمله‌ی مثبت با برچسب منفی و بالعکس."
+        },
+        {
+          "en": "After an imperative use 'will you?' and after 'let's' use 'shall we?': 'Open the door, will you?', 'Let's go, shall we?'.",
+          "fa": "بعد از جمله‌ی امری will you؟ می‌آید و بعد از let's صورت shall we؟: «Open the door, will you?»، «Let's go, shall we?»"
+        },
+        {
+          "en": "A rising tone asks a real question; a falling tone only asks the listener to agree — the words are identical.",
+          "fa": "لحنِ بالارونده سؤال واقعی است و لحن پایین‌رونده فقط تأکید می‌خواهد — کلمات یکسان‌اند."
         }
       ],
       "function": [
@@ -5436,6 +7699,20 @@
           "fa": "نکته: زمان دقیق گذشته نمی‌آید — نه «دیروز»، نه «سال ۲۰۱۹»، نه «هفته گذشته»"
         }
       ],
+      "explain": [
+        {
+          "en": "Never combine it with a finished time: 'I have seen him yesterday' ✗ → 'I saw him yesterday' ✓.",
+          "fa": "هرگز با زمانِ پایان‌یافته قاطی نشود: «I have seen him yesterday» غلط و «I saw him yesterday» درست است."
+        },
+        {
+          "en": "just, already and yet sit between have / has and the V3 in British English: 'I have just finished', 'She has already left', 'He hasn't arrived yet'.",
+          "fa": "just و already و yet در انگلیسی بریتانیایی بین have/has و فرم سوم می‌نشینند: «I have just finished»، «She has already left»، «He hasn't arrived yet»."
+        },
+        {
+          "en": "for = a length of time (for two years); since = a starting point (since 2023) — both need a verb that continues to now.",
+          "fa": "for یعنی مدت زمان (for two years) و since یعنی نقطه‌ی شروع (since 2023) — هر دو با فعلی به کار می‌روند که تا الان ادامه دارد."
+        }
+      ],
       "function": [
         {
           "en": "A past action with a visible result NOW (I have lost my keys)",
@@ -5795,6 +8072,20 @@
         {
           "en": "Note: focus on the ACTIVITY and its duration, not the result",
           "fa": "نکته: تمرکز روی «کار» و «مدتش» است، نه نتیجه"
+        }
+      ],
+      "explain": [
+        {
+          "en": "Use it when the activity itself matters and its traces are visible: 'You're soaked — have you been walking in the rain?'.",
+          "fa": "وقتی خودِ فعالیت مهم است و اثرش پیداست به کار می‌رود: «You're soaked — have you been walking in the rain?»"
+        },
+        {
+          "en": "'How long …?' invites this tense — 'How long have you been waiting?' — while 'How long did you wait?' closes the action in the past.",
+          "fa": "سؤال با How long این زمان را می‌طلبد — «How long have you been waiting?» — ولی «How long did you wait?» کار را در گذشته تمام‌شده نشان می‌دهد."
+        },
+        {
+          "en": "State verbs stay in the simple form: 'I have known her for years', never 'I have been knowing'.",
+          "fa": "افعال حالتی در شکل ساده می‌مانند: «I have known her for years»، هرگز «I have been knowing»."
         }
       ],
       "function": [
@@ -6158,6 +8449,20 @@
           "fa": "در بند if هرگز will/would نیاورید (نوع اول و دوم)"
         }
       ],
+      "explain": [
+        {
+          "en": "Never put will or would inside the if-clause: 'If it will rain' ✗ → 'If it rains' ✓.",
+          "fa": "هرگز will یا would داخل جمله‌ی if نگذار: «If it will rain» غلط و «If it rains» درست است."
+        },
+        {
+          "en": "The second conditional uses the past only to mark unreality, not past time — and 'were' is preferred for every person: 'If I were you'.",
+          "fa": "جمله‌ی شرطی نوع دوم فقط برای نشان دادن غیرواقعی بودنِ وضعیت می‌گیرد، نه زمان گذشته — و بعد از if برای همه‌ی اشخاص were ترجیح دارد: «If I were you»."
+        },
+        {
+          "en": "The third conditional is a closed past regret: If + had + V3, would have + V3 — never 'would have' inside the if-clause.",
+          "fa": "نوع سوم پشیمانیِ گذشته‌ی بسته است: If + had + V3، would have + V3 — هرگز would have داخل جمله‌ی if نمی‌آید."
+        }
+      ],
       "function": [
         {
           "en": "Zero — general truths and laws (If you heat water, it boils)",
@@ -6515,6 +8820,20 @@
         {
           "en": "With modals:  can / must / should + be + V3  →  It can be fixed.",
           "fa": "با modal:   can / must / should + be + V3  →  قابل تعمیره."
+        }
+      ],
+      "explain": [
+        {
+          "en": "The object of the active sentence becomes the subject of the passive: 'Ali wrote the report' → 'The report was written by Ali'.",
+          "fa": "مفعولِ جمله‌ی معلوم به فاعلِ جمله‌ی مجهول تبدیل می‌شود: «Ali wrote the report» → «The report was written by Ali»."
+        },
+        {
+          "en": "The auxiliary 'be' carries the tense and V3 never changes: is written · was written · will be written · has been written.",
+          "fa": "فعل کمکی be زمان را حمل می‌کند و فرم سوم ثابت می‌ماند: is written · was written · will be written · has been written."
+        },
+        {
+          "en": "Drop the agent when it is unknown or obvious: 'The letter was stolen', 'The road is being repaired' — no 'by' phrase needed.",
+          "fa": "فعّال را حذف کن وقتی ناشناخته یا محرز است: «The letter was stolen»، «The road is being repaired» — نیازی به by نیست."
         }
       ],
       "function": [
@@ -6880,6 +9199,20 @@
           "fa": "بعد از حرف اضافه همیشه gerund:   خوب بودن در شنا کردن"
         }
       ],
+      "explain": [
+        {
+          "en": "After every preposition the verb takes -ing: 'interested in learning', 'good at swimming', 'without saying goodbye'.",
+          "fa": "بعد از هر حرف اضافه فعل ing می‌گیرد: «interested in learning»، «good at swimming»، «without saying goodbye»."
+        },
+        {
+          "en": "Meaning pairs change with the form: 'stop to rest' = pause in order to rest; 'stop resting' = quit the activity. The same contrast holds for remember, forget and regret.",
+          "fa": "جفت‌های معنایی با شکل عوض می‌شوند: «stop to rest» یعنی برای استراحت مکث کردن، «stop resting» یعنی استراحت را کنار گذاشتن. همین تضاد در remember و forget و regret هست."
+        },
+        {
+          "en": "Safe rule: intention verbs (want, decide, plan, hope) take to + V, enjoyment and avoidance verbs (enjoy, avoid, finish, mind) take -ing.",
+          "fa": "قاعده‌ی امن: افعال نیت (want, decide, plan, hope) با to + فعل و افعال لذت و پرهیز (enjoy, avoid, finish, mind) با ing می‌آیند."
+        }
+      ],
       "function": [
         {
           "en": "Gerund as a noun: Swimming is fun. (the act)",
@@ -7228,6 +9561,20 @@
         {
           "en": "When both sexes are possible, use who (the teacher who…).",
           "fa": "وقتی هر دو جنس ممکن است، who به کار می‌رود."
+        }
+      ],
+      "explain": [
+        {
+          "en": "You can omit the relative pronoun only when it is the object: 'the book (that) I bought' ✓ — but 'the man (that) saved me' must keep who / that.",
+          "fa": "حذف اسم موصول فقط وقتی ممکن است که مفعول باشد: «the book (that) I bought» درست، ولی «the man that saved me» باید who/that را نگه دارد."
+        },
+        {
+          "en": "Non-defining clauses (with commas) never take 'that': 'My sister, who lives in Paris, is a nurse' ✓.",
+          "fa": "جمله‌های وصفیِ غیرتعریفی (با ویرگول) هرگز that نمی‌گیرند: «My sister, who lives in Paris, is a nurse»."
+        },
+        {
+          "en": "whose works for people and for things: 'the student whose phone rang', 'the company whose logo changed'.",
+          "fa": "whose برای انسان و چیز به کار می‌رود: «the student whose phone rang»، «the company whose logo changed»."
         }
       ],
       "function": [
@@ -7608,6 +9955,20 @@
           "fa": "so یعنی بنابراین. جمله‌ای که با because شروع شود نمی‌تواند فعل داشته باشد."
         }
       ],
+      "explain": [
+        {
+          "en": "to / in order to share the subject of the main clause: 'I left early to catch the bus'. When the subject changes, use so that: 'I left early so that she could rest'.",
+          "fa": "to و in order to فاعلِ جمله‌ی اصلی را دارند: «I left early to catch the bus». وقتی فاعل فرق می‌کند از so that استفاده کن: «I left early so that she could rest»."
+        },
+        {
+          "en": "so that normally needs a modal (can, could, may, might, will): 'so that he can speak' — a bare verb sounds wrong there.",
+          "fa": "so that معمولاً به فعل نما نیاز دارد (can, could, may, might, will): «so that he can speak» — فعل تنها در آنجا نادرست است."
+        },
+        {
+          "en": "After because, since and as there is no inversion and no 'that': 'Because it rained, we stayed home' ✓.",
+          "fa": "بعد از because و since و as نه جابه‌جایی می‌آید و نه that: «Because it rained, we stayed home»."
+        }
+      ],
       "function": [
         {
           "en": "Explaining why you do something (purpose)",
@@ -7963,6 +10324,20 @@
         {
           "en": "Requests / commands:  He asked me to wait.  He told me not to wait.",
           "fa": "درخواست/دستور:   ازم خواست صبر کنم.  گفت صبر نکنم."
+        }
+      ],
+      "explain": [
+        {
+          "en": "say vs tell: 'say something (to someone)' but 'tell someone something' — 'He said me' ✗ → 'He told me' ✓.",
+          "fa": "تفاوت say و tell: say چیزی (به کسی) می‌گوید و tell به کسی چیزی می‌گوید — «He said me» غلط و «He told me» درست."
+        },
+        {
+          "en": "If the reporting verb is past, the tense shifts back one step; if it is present or the fact still holds, the tense need not shift: 'He says he is tired'.",
+          "fa": "اگر فعل گزارش‌دهنده گذشته باشد زمان یک قدم عقب می‌رود؛ اگر حال باشد یا حقیقت هنوز برقرار، نیازی به عقب رفتن نیست: «He says he is tired»."
+        },
+        {
+          "en": "Yes / no questions become if / whether and lose the question order: 'Are you coming?' → 'He asked whether I was coming'.",
+          "fa": "سؤال‌های آری/خیر به if یا whether تبدیل می‌شوند و ترتیب سؤالی را از دست می‌دهند: «Are you coming?» → «He asked whether I was coming»."
         }
       ],
       "function": [
@@ -8323,6 +10698,20 @@
         {
           "en": "'Although' takes a clause, 'despite' takes a noun or -ing",
           "fa": "although بند می‌گیرد، despite اسم یا ing می‌گیرد"
+        }
+      ],
+      "explain": [
+        {
+          "en": "although / though / even though take a full clause, while despite and in spite of take a noun or an -ing: 'despite the rain', 'despite raining'.",
+          "fa": "although و though و even though جمله می‌گیرند، ولی despite و in spite of اسم یا ing می‌گیرند: «despite the rain»، «despite raining»."
+        },
+        {
+          "en": "however, therefore and moreover are adverbs, so they need a full stop or a semicolon before them: 'It rained. However, we went out.'",
+          "fa": "however و therefore و moreover قید‌اند و قبل از آن‌ها نقطه‌ی جدا یا ویرگول انگلیسی می‌خواهد: «It rained. However, we went out.»"
+        },
+        {
+          "en": "Balanced pairs must hold equal shapes: 'Both Ali and Sara came', 'Either you call me, or I call you'.",
+          "fa": "جفت‌های هم‌وزن باید هم‌شکل باشند: «Both Ali and Sara came»، «Either you call me, or I call you»."
         }
       ],
       "function": [
@@ -8708,6 +11097,20 @@
           "fa": "الگوی رایج:   گذشته کامل (زودتر) + گذشته ساده (دیرتر)"
         }
       ],
+      "explain": [
+        {
+          "en": "You need it only when two past events compete: the earlier one becomes had + V3, the later one stays in the simple past.",
+          "fa": "فقط وقتی لازم است که دو رویداد گذشته رقابت کنند: رویداد قدیمی‌تر had + فرم سوم و رویداد جدیدتر ساده می‌ماند."
+        },
+        {
+          "en": "had is identical for every person: I had, she had, they had — there is no 'hads' and no helping verb in questions beyond 'had'.",
+          "fa": "had برای همه‌ی اشخاص یکسان است: I had، she had، they had — نه «hads» داریم و نه در سؤال چیزی جز خودِ had کمکی می‌شود."
+        },
+        {
+          "en": "When before, after, when or by the time already fixes the order, the simple past is also correct: 'After he arrived, we ate.'",
+          "fa": "وقتی before، after، when یا by the time ترتیب را از قبل مشخص کرده باشند، گذشته‌ی ساده هم درست است: «After he arrived, we ate»."
+        }
+      ],
       "function": [
         {
           "en": "The EARLIER of two past actions",
@@ -9063,6 +11466,20 @@
         {
           "en": "Note: always paired with 'by + time' — by June, by tomorrow, by then",
           "fa": "نکته: همیشه با «by + زمان» می‌آید — by June، by tomorrow، by then"
+        }
+      ],
+      "explain": [
+        {
+          "en": "by + a time gives the deadline and the action finishes before it: 'By Friday I will have finished the report'.",
+          "fa": "by + زمان مهلت را مشخص می‌کند و کار قبل از آن تمام می‌شود: «By Friday I will have finished the report»."
+        },
+        {
+          "en": "will have is the same for every person and the question needs no 'do': 'Will + subject + have + V3?'.",
+          "fa": "will have برای همه‌ی اشخاص یکسان است و سؤال به do نیاز ندارد: «Will + subject + have + V3؟»"
+        },
+        {
+          "en": "Compare will have done (finished, result) with will have been doing (duration up to that point).",
+          "fa": "مقایسه کن: will have done (تمام‌شده، نتیجه) با will have been doing (مدت تا آن لحظه)."
         }
       ],
       "function": [
@@ -9428,6 +11845,20 @@
           "fa": "might / may / can't have + V3 = استنتاج نامطمئن"
         }
       ],
+      "explain": [
+        {
+          "en": "The pattern is fixed: modal + have + V3 — never 'modal + had' and never 'did': 'You should have told me' ✓.",
+          "fa": "الگو ثابت است: فعل نما + have + فرم سوم — هرگز «modal + had» و هرگز did: «You should have told me»."
+        },
+        {
+          "en": "must have + V3 = sure it happened; can't have + V3 = sure it did not; might / may have + V3 = possible but uncertain.",
+          "fa": "must have + V3 یعنی یقین که اتفاق افتاده؛ can't have + V3 یعنی یقین که نیفتاده؛ might/may have + V3 یعنی ممکن است ولی مطمئن نیستیم."
+        },
+        {
+          "en": "shouldn't have + V3 criticises something that did happen ('You shouldn't have shouted'), while don't have to only removes present obligation.",
+          "fa": "shouldn't + have + V3 کاری را که افتاده سرزنش می‌کند («You shouldn't have shouted»)، ولی don't to have فقط الزامِ حال را برمی‌دارد."
+        }
+      ],
       "function": [
         {
           "en": "Expressing regret about something not done",
@@ -9780,6 +12211,20 @@
         {
           "en": "Note: 'was to' is formal — The meeting was to be held in May.",
           "fa": "نکته: was to رسمی است — جلسه قرار بود در ماه مه برگزار شود."
+        }
+      ],
+      "explain": [
+        {
+          "en": "would + V1 is the past viewpoint of will — used after a past reporting verb or for an unreal future: 'He said he would call'.",
+          "fa": "would + فعل پایه نگاه گذشته به will است — بعد از فعل گزارشیِ گذشته یا برای آینده‌ی غیرواقعی: «He said he would call»."
+        },
+        {
+          "en": "was going to = a real intention that was stopped; was about to = it was going to happen at that very moment.",
+          "fa": "was going to یعنی نیت واقعی که متوقف شد؛ was about to یعنی همان لحظه قرار بود اتفاق بیفتد."
+        },
+        {
+          "en": "After was going to the verb stays in the base form: 'I was going to leave', never 'I was going to left'.",
+          "fa": "بعد از was going to فعل پایه می‌آید: «I was going to leave»، هرگز «I was going to left»."
         }
       ],
       "function": [
@@ -10135,6 +12580,20 @@
         {
           "en": "Some are idiomatic: give up = stop trying, not 'give upward'",
           "fa": "بعضی‌ها اصطلاحی‌اند: give up = تسلیم شدن"
+        }
+      ],
+      "explain": [
+        {
+          "en": "With a noun object a separable phrasal verb splits either way — 'turn off the light' / 'turn the light off' — but a pronoun must go in the middle: 'turn it off', never 'turn off it'.",
+          "fa": "با مفعولِ اسم می‌توان جدا کرد: «turn off the light» یا «turn the light off» — ولی ضمیر حتماً وسط می‌رود: «turn it off»، هرگز «turn off it»."
+        },
+        {
+          "en": "Inseparable phrasal verbs (look after, run into, consist of, depend on) never take an object in the middle: 'look after the baby' ✓.",
+          "fa": "فعل مرکبِ جدانشدنی (look after, run into, consist of, depend on) هرگز مفعول وسط نمی‌گیرند: «look after the baby»."
+        },
+        {
+          "en": "The particle changes the meaning completely: look up (search) vs look up to (respect) vs look after (care for) — learn them as whole units.",
+          "fa": "قیدِ جمله معنی را کامل عوض می‌کند: look up (جست‌وجو) در برابر look up to (احترام گذاشتن) در برابر look after (مواظبت) — آن‌ها را به‌صورت واحد حفظ کن."
         }
       ],
       "function": [
@@ -10529,6 +12988,20 @@
           "fa": "as if / as though + گذشته:  انگار همه‌چیز رو می‌دونه"
         }
       ],
+      "explain": [
+        {
+          "en": "wish + past simple speaks about the present: 'I wish I knew' means I do not know now — the tense steps back, not the time.",
+          "fa": "wish + گذشته‌ی ساده درباره‌ی حال است: «I wish I knew» یعنی الان نمی‌دانم — زمان فعل عقب می‌رود، نه زمان واقعی."
+        },
+        {
+          "en": "wish + would is for other people's behaviour or a future change: 'I wish he would listen' — never 'I wish I would be rich' for your own state.",
+          "fa": "wish + would برای رفتار دیگران یا تغییر آینده است: «I wish he would listen» — برای وضعیت خودت از would استفاده نکن."
+        },
+        {
+          "en": "would rather + base verb for yourself, but + past simple for another person's action: 'I'd rather stay' / 'I'd rather you stayed'.",
+          "fa": "would rather برای خودت با فعل پایه می‌آید و برای کارِ دیگران با گذشته‌ی ساده: «I'd rather stay» / «I'd rather you stayed»."
+        }
+      ],
       "function": [
         {
           "en": "Expressing an unreal or impossible wish",
@@ -10896,6 +13369,20 @@
           "fa": "کلمات سؤال هم وارونگی دارند"
         }
       ],
+      "explain": [
+        {
+          "en": "A fronted negative adverb inverts the auxiliary before the subject: 'Never have I seen such a thing', 'Rarely does he complain'.",
+          "fa": "قیدِ منفیِ ابتدای جمله فعل کمکی را قبل از فاعل می‌برد: «Never have I seen such a thing»، «Rarely does he complain»."
+        },
+        {
+          "en": "no sooner, hardly and barely pair with than / when: 'No sooner had we arrived than it began to rain'.",
+          "fa": "no sooner و hardly و barely با than/when جفت می‌شوند: «No sooner had we arrived than it began to rain»."
+        },
+        {
+          "en": "Only + adverbial inverts, but only + noun does not: 'Only then did I understand' ✓, 'Only a doctor can say that' ✓.",
+          "fa": "only + قید وارونه می‌سازد ولی only + اسم نه: «Only then did I understand» و «Only a doctor can say that» هر دو درست‌اند."
+        }
+      ],
       "function": [
         {
           "en": "Emphasising a negative adverbial at the start",
@@ -11259,6 +13746,20 @@
           "fa": "این در سال ۲۰۱۹ بود که بالاخره به خارج رفت"
         }
       ],
+      "explain": [
+        {
+          "en": "A cleft splits one sentence in two: 'She left in 2019' → 'It was in 2019 that she left' — the emphasised piece sits between was and that.",
+          "fa": "جمله‌ی تأکیدی یک جمله را دو تا می‌کند: «She left in 2019» → «It was in 2019 that she left» — تکه‌ی تأکیدی بین was و that می‌نشیند."
+        },
+        {
+          "en": "Use a what-clause when the emphasised part is a thing or a whole idea: 'What I need is time', 'What surprised me was his calm'.",
+          "fa": "وقتی چیزِ تأکیدی یک شیء یا یک ایده‌ی کامل است از what استفاده کن: «What I need is time»، «What surprised me was his calm»."
+        },
+        {
+          "en": "The verb after the focus must agree with the real subject: 'It is the students who are ready', not '…who is ready'.",
+          "fa": "فعل بعد از تأکید با فاعل واقعی جمع می‌شود: «It is the students who are ready»، نه «…who is ready»."
+        }
+      ],
       "function": [
         {
           "en": "Used to correct a misunderstanding, contrast, or emphasise one element while the rest goes quiet. Very common in speech, writing and exam answers.",
@@ -11585,6 +14086,20 @@
         {
           "en": "The mix happens because **one part is finished** and the **other is still true**.",
           "fa": "ترکیب به این دلیل است که یک بخش تمام شده و بخش دیگر هنوز برقرار است"
+        }
+      ],
+      "explain": [
+        {
+          "en": "Past condition → present result: If + had + V3, would + V1 — 'If I had taken that job, I would be in Berlin now'.",
+          "fa": "شرطِ گذشته با نتیجه‌ی حال: If + had + V3، would + فعل پایه — «If I had taken that job, I would be in Berlin now»."
+        },
+        {
+          "en": "Present condition → past result: If + simple past, would have + V3 — 'If I weren't so shy, I would have spoken up'.",
+          "fa": "شرطِ حال با نتیجه‌ی گذشته: If + گذشته‌ی ساده، would have + فرم سوم — «If I weren't so shy, I would have spoken up»."
+        },
+        {
+          "en": "The two halves must really be different times; if both are past it is a normal third conditional, if both are present a second.",
+          "fa": "دو نیمه باید واقعاً زمان‌های متفاوتی داشته باشند؛ اگر هر دو گذشته باشند نوع سوم معمولی و اگر هر دو حال باشند نوع دوم است."
         }
       ],
       "function": [
@@ -11924,6 +14439,20 @@
           "fa": "تفاوت را ببین: *ماشینم را تعمیر کردم* = خودم انجام دادم"
         }
       ],
+      "explain": [
+        {
+          "en": "The pattern keeps three parts: have / get + object + past participle — the object is the thing acted on, not the person doing the work.",
+          "fa": "الگو سه جزء دارد: have/get + مفعول + فرم سوم — مفعول همان چیزی است که رویش کار می‌شود، نه کسی که کار می‌کند."
+        },
+        {
+          "en": "You can still say who did it and when: 'I had my teeth checked by a dentist', 'We had the roof fixed last week'.",
+          "fa": "می‌توانی بگویی چه کسی و چه زمانی: «I had my teeth checked by a dentist»، «We had the roof fixed last week»."
+        },
+        {
+          "en": "Never drop the participle: 'I had the car wash' ✗ → 'I had the car washed' ✓ — and only use it when someone else did the work.",
+          "fa": "فرم سوم را حذف نکن: «I had the car wash» غلط و «I had the car washed» درست — و فقط وقتی دیگری کار را کرده باشد این الگو درست است."
+        }
+      ],
       "function": [
         {
           "en": "Say clearly that the work was outsourced. Extremely common and often misunderstood by learners, who drop the middle noun.",
@@ -12250,6 +14779,20 @@
         {
           "en": "  You may have to start again.",
           "fa": "ممکن است مجبور شوی دوباره شروع کنی."
+        }
+      ],
+      "explain": [
+        {
+          "en": "Read the stack from left to right: the modal gives the attitude and have + V3 puts the event in the past — should (advice) → should have (regret).",
+          "fa": "از چپ به راست بخوان: فعل نما نگرش را می‌دهد و have + فرم سوم رویداد را در گذشته می‌گذارد — should (نصیحت) → should have (پشیمانی)."
+        },
+        {
+          "en": "Never use 'did' with a modal: 'He must have gone' ✓, 'He must have did it' ✗ — modals already carry the grammar.",
+          "fa": "هرگز did با فعل نما نیامیزد: «He must have gone» درست و «He must have did it» غلط — خودِ فعل نما بار دستوری را حمل می‌کند."
+        },
+        {
+          "en": "may / might have to + V1 is future obligation, not the past: 'You may have to resit the exam'.",
+          "fa": "may/might have to + فعل پایه یعنی الزام آینده، نه گذشته: «You may have to resit the exam»."
         }
       ],
       "function": [
@@ -12579,6 +15122,20 @@
         {
           "en": "Shorthand: gonna, wanna, gotta, 'cause — normal in speech, wrong in writing.",
           "fa": "کوتاه‌نویسی: gonna، wanna، gotta — در گفتار طبیعی، در نوشتار غلط"
+        }
+      ],
+      "explain": [
+        {
+          "en": "Substitution keeps the auxiliary and drops the rest: 'I like tea and so do we' — the auxiliary of the first clause is repeated, not the verb.",
+          "fa": "در جانه‌زنی فعل کمکی می‌ماند و بقیه حذف می‌شود: «I like tea and so do we» — فعل کمکیِ جمله‌ی اول تکرار می‌شود نه خودِ فعل."
+        },
+        {
+          "en": "so with an affirmative auxiliary, neither with a negative one: 'I don't smoke, and neither does he'.",
+          "fa": "so با فعل کمکیِ مثبت و neither با منفی می‌آید: «I don't smoke, and neither does he»."
+        },
+        {
+          "en": "In speech the subject and 'be' often vanish ('Coming in?', 'Ready?'); in writing keep them: 'Are you coming in?'.",
+          "fa": "در گفتار فاعل و be اغلب حذف می‌شوند («Coming in?»، «Ready?»)؛ در نوشتار نگهشان دار: «Are you coming in?»."
         }
       ],
       "function": [
@@ -12912,6 +15469,20 @@
         {
           "en": "  because it is **difficult** → because of **the difficulty**",
           "fa": "چون سخت است → به دلیل دشواری آن"
+        }
+      ],
+      "explain": [
+        {
+          "en": "-tion / -sion, -ment, -ance / -ence, -al and -ity are the usual noun endings: decide → decision, arrive → arrival, fail → failure, argue → argument.",
+          "fa": "پسوندهای رایج اسم‌ساز: -tion/-sion، -ment، -ance/-ence، -al و -ity — decide → decision، arrive → arrival، fail → failure، argue → argument."
+        },
+        {
+          "en": "A nominalisation usually needs a light verb: make a decision, do research, give an explanation — not 'take a research'.",
+          "fa": "اسم‌شده معمولاً به فعل سبک نیاز دارد: make a decision، do research، give an explanation — نه «take a research»."
+        },
+        {
+          "en": "After a nominalisation use of, not a clause: 'because of the delay', never 'because of it was late'.",
+          "fa": "بعد از اسم‌شده از of استفاده کن، نه جمله: «because of the delay»، هرگز «because of it was late»."
         }
       ],
       "function": [
@@ -13249,6 +15820,20 @@
         {
           "en": "Get used to + noun / -ing = becoming accustomed",
           "fa": "get used to + اسم یا ing = در حال عادت کردن"
+        }
+      ],
+      "explain": [
+        {
+          "en": "used to covers both states and repeated actions; would covers repeated actions only — 'I used to live there' ✓ but 'I would live there' ✗ for a state.",
+          "fa": "used to هم حالت و هم کار تکراری را پوشش می‌دهد، ولی would فقط کار تکراری را: «I used to live there» درست ولی «I would live there» برای حالت غلط."
+        },
+        {
+          "en": "The negative and the question drop the d: didn't use to, 'Did you use to …?' — 'didn't used to' is wrong.",
+          "fa": "منفی و سؤال حرف d را حذف می‌کنند: didn't use to و «Did you use to …?» — «didn't used to» غلط است."
+        },
+        {
+          "en": "be used to + noun / -ing = accustomed now ('I am used to waking early'); get used to = becoming so.",
+          "fa": "be used to + اسم یا ing یعنی الان عادت کرده‌ام («I am used to waking early») و get used to یعنی در حال عادت کردن."
         }
       ],
       "function": [
@@ -13590,6 +16175,20 @@
           "fa": "پرسش مؤدبانه: آیا از ماشین استفاده خواهی کرد؟"
         }
       ],
+      "explain": [
+        {
+          "en": "will be + -ing places the action in the middle of a future moment; it is neither a plan nor a promise, just a scene.",
+          "fa": "will be + ing عمل را در میانه‌ی لحظه‌ای آینده می‌گذارد؛ نه نقشه است نه قول، فقط یک تصویر."
+        },
+        {
+          "en": "'Will you be using the car?' is the polite form — it asks about a plan without forcing a yes or a no.",
+          "fa": "«Will you be using the car?» شکل مؤدبانه است — درباره‌ی نقشه می‌پرسد بدون آن‌که مجبور به آری/خیر کند."
+        },
+        {
+          "en": "With a future time reference (at seven tomorrow) this tense is the natural choice: 'This time tomorrow I'll be flying'.",
+          "fa": "با ارجاع زمانی آینده (at seven tomorrow) این زمان طبیعی‌ترین انتخاب است: «This time tomorrow I'll be flying»."
+        }
+      ],
       "function": [
         {
           "en": "An action already in progress at a future time",
@@ -13926,6 +16525,20 @@
           "fa": "معمولاً با for + مدت و by + مهلت می‌آید"
         }
       ],
+      "explain": [
+        {
+          "en": "The classic frame is by + future time + for + duration: 'By December I will have been working here for ten years'.",
+          "fa": "الگوی کلاسیک by + زمان آینده + for + مدت است: «By December I will have been working here for ten years»."
+        },
+        {
+          "en": "It measures how long, so it needs an action verb; with a state verb (know, own, belong) use will have + V3 instead.",
+          "fa": "این زمان مدت را می‌سنجد پس به فعل پویا نیاز دارد؛ با فعل حالتی (know, own, belong) به‌جایش will have + فرم سوم بیاید."
+        },
+        {
+          "en": "The negative simply inserts not after will: 'I won't have been sleeping much lately'.",
+          "fa": "حالت منفی فقط not را بعد از will می‌گذارد: «I won't have been sleeping much lately»."
+        }
+      ],
       "function": [
         {
           "en": "How long an action will have continued up to a future point",
@@ -14258,6 +16871,20 @@
         {
           "en": "so much / so many · too much / too many",
           "fa": "so much / so many · too much / too many"
+        }
+      ],
+      "explain": [
+        {
+          "en": "so + adjective (so cold) but such + (a/an) + adjective + noun (such a cold day) — the noun forces 'such'.",
+          "fa": "so با صفت می‌آید (so cold) ولی such با (a/an) + صفت + اسم (such a cold day) — وجود اسم such را واجب می‌کند."
+        },
+        {
+          "en": "too + adjective always means excessively, with an unwanted result: 'too cold to swim' — it is not a neutral 'very'.",
+          "fa": "too + صفت همیشه یعنی بیش از حد، با نتیجه‌ی ناخواسته: «too cold to swim» — این معادلِ خنثای very نیست."
+        },
+        {
+          "en": "enough follows adjectives and adverbs (old enough, quickly enough) but comes before nouns (enough money, enough time).",
+          "fa": "enough بعد از صفت و قید می‌آید (old enough, quickly enough) ولی قبل از اسم (enough money, enough time)."
         }
       ],
       "function": [
@@ -14599,6 +17226,20 @@
         {
           "en": "Having been + V3 = passive action completed first",
           "fa": "Having been + فعل سوم = کار مجهول که اول تمام شده"
+        }
+      ],
+      "explain": [
+        {
+          "en": "-ing is active and -ed is passive: 'the man waiting outside' (he waits) vs 'the letter written yesterday' (someone wrote it).",
+          "fa": "ing معلوم است و ed مجهول: «the man waiting outside» (خودش منتظر است) در برابر «the letter written yesterday» (کسی نوشته‌اش)."
+        },
+        {
+          "en": "having + V3 marks the earlier of two actions: 'Having finished the report, she went home.'",
+          "fa": "having + فرم سوم عملِ زودتر را نشان می‌دهد: «Having finished the report, she went home.»"
+        },
+        {
+          "en": "The subject of the main clause must be the one doing the participle's action: 'Walking home, I got wet' ✓ but 'Walking home, the rain started' ✗.",
+          "fa": "فاعلِ جمله‌ی اصلی باید همان کسی باشد که کارِ اسم فعل را انجام می‌دهد: «Walking home, I get wet» درست ولی «Walking home, the rain started» غلط."
         }
       ],
       "function": [

@@ -1428,10 +1428,15 @@ class ChatBot:
         if topic.get("tip"):
             parts.append(f"\n💡 Tip: {topic['tip']['en']}\n   ↳ {topic['tip']['fa']}")
 
-        parts.append("\n2️⃣ Function / کاربرد")
+        notes = topic.get("explain") or []
+        if notes:
+            parts.append("\n2️⃣ Explanation / توضیح")
+            parts.extend(f"• {n['en']}\n  ↳ {n['fa']}" for n in notes)
+
+        parts.append("\n3️⃣ Function / کاربرد")
         parts.extend(f"• {f['en']}\n  ↳ {f['fa']}" for f in topic["function"])
 
-        parts.append("\n3️⃣ Examples / مثال‌ها")
+        parts.append("\n4️⃣ Examples / مثال‌ها")
         parts.extend(
             f"{i}. {e['en']}\n   ↳ {e['fa']}"
             for i, e in enumerate(topic["examples"], 1)
@@ -1440,7 +1445,7 @@ class ChatBot:
         practice_n = len(topic.get("practice", []))
         exam_n = len(topic.get("exam", topic.get("exercises", [])))
         done = self._unlocked(topic_id)
-        parts.append("\n4️⃣ Exercises / تمرین")
+        parts.append("\n5️⃣ Exercises / تمرین")
         if lang == "fa":
             p_s, e_s = to_persian_digits(practice_n), to_persian_digits(exam_n)
             parts.append(
@@ -1478,6 +1483,23 @@ class ChatBot:
             f"{'─' * 30}\n"
             f"{exam_n} questions to go — type: '{topic['title']['en'].lower()} exam'\n"
             "Each correct answer scores a point; you'll get a graded result card at the end."
+        )
+
+    def practice_retry(self, topic, score: int, total: int, lang: str) -> str:
+        """The practice is over but not perfect, so the exam stays shut."""
+        if lang == "fa":
+            s, t = to_persian_digits(score), to_persian_digits(total)
+            return (
+                f"🔒 تمرین تمام شد، ولی نمره‌ات {s} از {t} است.\n"
+                f"{'─' * 30}\n"
+                "آزمون فقط وقتی باز می‌شود که همه‌ی پاسخ‌ها درست باشند.\n"
+                f"دوباره تلاش کن: 'تمرین {topic['title']['fa']}'"
+            )
+        return (
+            f"🔒 Practice finished — {score}/{total} correct.\n"
+            f"{'─' * 30}\n"
+            "The exam opens only after a perfect run: every answer right.\n"
+            f"Try again: '{topic['title']['en'].lower()} exercises'"
         )
 
     def format_exercise_card(self, topic, index: int, lang: str, stage: str = "practice") -> str:
@@ -1728,6 +1750,10 @@ class ChatBot:
             score = self.exercise_score
             self.exercise = None
             if stage == "practice":
+                # The gate is real: a reveal or a retry leaves the score short
+                # and the exam closed. Only a clean run opens it.
+                if score < total:
+                    return self.practice_retry(topic, score, total, lang)
                 self.practice_done.add(topic_id)
                 return self.practice_unlocked(topic, lang)
             return self.format_score_report(topic, score, total, lang, stage)

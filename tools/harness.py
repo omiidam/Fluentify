@@ -160,6 +160,21 @@ def run_grammar(verbose: bool) -> None:
             scored += 1
         check_reply("exam", f"{tid} result", out or "",
                     need=[f"{scored}/{scored}"])
+        # one revealed answer is not a clean run: the exam must stay shut
+        b4 = ChatBot()
+        b4.respond(f"{topic['keywords']['en'][0]} exercises")
+        out = None
+        for i, item in enumerate(topic["practice"]):
+            if i == 0:
+                out = b4.handle_exercise("show answer", "show answer", "en")
+            else:
+                out = b4.handle_exercise(item["a"][0], item["a"][0].lower(), "en")
+        check_reply("gate", f"{tid} imperfect practice", out or "",
+                    need=["Practice finished"])
+        if "locked" not in b4.respond(f"{topic['keywords']['en'][0]} exam").lower():
+            fail("gate", f"{tid} imperfect practice",
+                 "the exam opened without a perfect run")
+
         # a wrong answer must not be rewarded
         b3 = ChatBot()
         b3.respond(f"{topic['keywords']['en'][0]} exam" if tid in b3.practice_done

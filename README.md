@@ -5,7 +5,7 @@
 </p>
 
 A bilingual (English / Persian) language tutor — greetings, small talk, jokes, a
-1000+ word glossary, 25 banks of practical sentences and 31 English grammar
+1000+ word glossary, 25 banks of practical sentences and 48 English grammar
 lessons with interactive exercises. It runs **completely offline**: no API keys,
 no network calls, no tracking.
 
@@ -22,7 +22,7 @@ no network calls, no tracking.
 |---|---|
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 words across 64 grouped domains, translate & define in both languages |
-| 📘 Grammar | 42 lessons (A1→C2) — structure → function → **6 practice questions → a gated 20-question exam**, with a themed result card |
+| 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
@@ -78,7 +78,7 @@ tools/js_engine.js          headless harness for the JS engine
 
 memory.json                 42 intents + both alphabets
 glossary.json               2,314 words in 64 domains
-grammar.json                42 lessons: practice + exam question sets
+grammar.json                48 lessons: explanation, practice + exam question sets
 phrases.json                517 sentences in 45 situations
 jokes.json                  10 bilingual jokes
 listening.json              48 spoken sentences graded A1 → C2
@@ -104,6 +104,12 @@ Type: 'simple present exercises'
 ✏️ Starting 'Simple Present' practice — good luck!
 ...
 ✅ Practice complete! Your exam is now open. 🎓
+
+# a revealed answer or a miss keeps it shut
+> simple present exercises
+...
+🔒 Practice finished — 5/6 correct.
+The exam opens only after a perfect run: every answer right.
 
 # stage 2
 > simple present exam
@@ -133,8 +139,9 @@ Everything lives in JSON — no code changes needed:
 * **a word** → append `["english", "فارسی"]` to any `words` list in `glossary.json`
 * **a sentence** → append `{"en": "...", "fa": "..."}` to a topic in `phrases.json`
 * **a grammar lesson** → add a topic to `grammar.json` with `title`, `keywords`, `level`,
-  `structure`, `function`, `examples` (wrap the taught part in `**like this**`),
-  `practice` (the 6 warm-up questions) and `exam` (the 20 scored ones)
+  `structure`, `explain` (the deeper "why it works" notes), `function`, `examples`
+  (wrap the taught part in `**like this**`), `practice` (the 6 warm-up questions the
+  exam gate waits on) and `exam` (the 20 scored ones)
 * **small talk** → add an intent to `memory.json` with EN/FA keywords and responses
 
 Then re-run `python3 build_apk_ui.py` and `cp *.json android/app/src/main/assets/www/data/`.
