@@ -29,3 +29,7 @@ android/.gradle/
 # on every build. Tracking them duplicated ~3 MB and let the copies drift from
 # the sources without anything noticing.
 android/app/src/main/assets/www/data/
+# Node dependencies for the offline grammar analyser. The generated bundle
+# (nlp/fluentify-nlp.js) IS committed: CI never runs npm, and the APK build
+# copies that file straight into the app.
+nlp/node_modules/

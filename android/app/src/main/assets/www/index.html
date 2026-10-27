@@ -1435,6 +1435,91 @@
      toggle. It used to say .fa, which matched nothing the renderer emits -
      the button flipped its label and hid nothing at all. */
   .dcard.persian-off .dfa { display: none; }
+
+  /* ---------- offline sentence analyser ---------- */
+  .nbar { display: flex; gap: 8px; margin-bottom: 10px; }
+  #ninput {
+    flex: 1 1 auto; min-width: 0; font-family: var(--font-body); font-size: 14px;
+    padding: 9px 12px; border-radius: 11px; color: var(--navy);
+    border: 1px solid var(--line); background: var(--card);
+  }
+  #ninput:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  .nbtn {
+    flex: none; font-family: var(--font-display); font-weight: 700; font-size: 12.5px;
+    padding: 9px 14px; border-radius: 11px; cursor: pointer; color: var(--lav-ink);
+    border: 1px solid rgba(90,74,140,.35); background: var(--lav);
+  }
+  .nbtn:hover { filter: brightness(.97); }
+  .nexamples { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+  .nex {
+    font-family: var(--font-body); font-size: 11.5px; padding: 5px 9px;
+    border-radius: 999px; cursor: pointer; color: var(--navy2);
+    border: 1px dashed var(--line); background: transparent;
+  }
+  .nex:hover { border-style: solid; background: var(--card); }
+  .nresult { padding-top: 4px; }
+  .nbusy, .nfail { font-size: 13px; color: var(--muted); padding: 10px 2px; }
+  .nfail { color: #a4451f; }
+  .nfoot { font-size: 10.5px; color: var(--dim); margin: 12px 0 0; line-height: 1.5; }
+  .nhead b { font-family: var(--font-display); font-size: 15px; color: var(--navy2); }
+  .nhead { margin-bottom: 2px; }
+  .nlabel {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+    color: var(--dim); margin: 13px 0 6px;
+  }
+  .ntable {
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    background: var(--card);
+  }
+  .nrow {
+    display: grid; grid-template-columns: 1.1fr 1.5fr 1fr 1.3fr;
+    gap: 6px; align-items: center; padding: 6px 10px; font-size: 12.5px;
+    border-top: 1px solid var(--line);
+  }
+  .nrow:first-child { border-top: 0; }
+  .nw { font-weight: 700; color: var(--navy2); word-break: break-word; }
+  .npos, .nrole { color: var(--text); }
+  .npos small, .nrole small {
+    display: block; direction: rtl; text-align: right; unicode-bidi: plaintext;
+    font-size: 10.5px; color: var(--muted); font-weight: 400;
+  }
+  .nlemma { font-size: 11.5px; color: var(--dim); }
+  .nunknown { font-size: 10.5px; color: var(--dim); font-style: italic; }
+  .ncard {
+    border: 1px solid var(--line); border-radius: 12px; padding: 9px 11px;
+    background: var(--card); margin-bottom: 8px;
+  }
+  .ntitle { font-family: var(--font-display); font-size: 13.5px; font-weight: 700; color: var(--navy2); }
+  .ntitle small {
+    display: block; direction: rtl; text-align: right; unicode-bidi: plaintext;
+    font-family: var(--font-body); font-size: 11px; font-weight: 400; color: var(--muted);
+  }
+  .nev {
+    font-size: 11.5px; color: var(--gold-ink, #8a6d1f); margin-top: 4px;
+    font-style: italic; word-break: break-word;
+  }
+  .nnote2 { font-size: 12.5px; color: var(--text); margin-top: 5px; line-height: 1.5; }
+  .nchip {
+    margin-top: 8px; font-family: var(--font-body); font-size: 11.5px;
+    padding: 5px 10px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(46,122,90,.35); background: rgba(46,122,90,.08);
+    color: #2e6b52;
+  }
+  .nchip:hover { background: rgba(46,122,90,.16); }
+  .nlim { margin: 0; padding-left: 16px; }
+  .nlim li { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin-bottom: 4px; }
+  .nengine {
+    margin-top: 12px; padding-top: 8px; font-size: 10.5px; color: var(--dim);
+    border-top: 1px dashed var(--line);
+  }
+  /* inside a chat bubble the analysis is the same thing, a little tighter */
+  .msg .ntable { background: transparent; }
+  .msg .ncard { background: transparent; }
+  .msg .nrow { font-size: 12px; padding: 5px 8px; }
+  @media (max-width: 640px) {
+    .nrow { grid-template-columns: 1fr 1.2fr; row-gap: 2px; }
+    .nlemma, .nrole { grid-column: 2; }
+  }
   .dtools {
     display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
     margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line);
@@ -2486,6 +2571,8 @@
     <nav class="tools" aria-label="Study panels">
       <button class="hbtn" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/><path d="M7.6 13.4h3.2v3.2H7.6z"/></svg></i><span>Today</span><span class="rbadge" id="dbadge" hidden>0</span></button>
+      <button class="hbtn" id="ntoggle" aria-expanded="false" title="Analyse a sentence — تحلیل گرامری جمله" aria-label="Analyse a sentence">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyse</span></button>
       <button class="hbtn" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
       <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
@@ -2520,6 +2607,20 @@
            aria-valuenow="0" aria-valuetext="Not started"></div>
     </div>
     <span class="pltime" id="pltime">0:00</span>
+  </div>
+
+  <div id="npanel">
+    <h3>Offline sentence analyser — تحلیل گرامری جمله</h3>
+    <div class="nbar">
+      <input id="ninput" type="text" dir="ltr" autocomplete="off" spellcheck="false"
+             placeholder="One English sentence… / یک جملهٔ انگلیسی…"
+             aria-label="Sentence to analyse">
+      <button type="button" id="ngo" class="nbtn">Analyse · تحلیل</button>
+    </div>
+    <div class="nexamples" id="nexamples"></div>
+    <div class="nresult" id="nresult" aria-live="polite"></div>
+    <p class="nfoot">Runs on your device with the bundled grammar engine — no server, no
+    internet, no model download. — روی دستگاه خودت و بدون اینترنت اجرا می‌شود.</p>
   </div>
 
   <div id="dpanel">
@@ -2841,8 +2942,11 @@ function add(text, who, opts = {}) {
   if (opts.err) bubble.classList.add('err');
   if (isFa(text) && !/[A-Za-z]/.test(text.slice(0, 40))) bubble.classList.add('rtl');
   if (text.split('\n').length > 10) bubble.classList.add('long');
-  const phrases = who === 'bot' && !opts.err ? parsePhraseList(text) : null;
+  const phrases = who === 'bot' && !opts.err && !opts.html ? parsePhraseList(text) : null;
   if (phrases) renderPhraseList(bubble, phrases);
+  // opts.html is renderAnalysis() output: already escaped field by field, and
+  // escaping it a second time would print the markup instead of the analysis.
+  else if (opts.html) bubble.innerHTML = text;
   else bubble.innerHTML = renderText(text);
 
   const meta = document.createElement('div');
@@ -2985,6 +3089,10 @@ async function send(text) {
     clearChat();
     return;
   }
+  // "analyse this sentence …" / «نقش دستوری کلمات چیه؟» — the bundled tagger
+  // answers it on the device. Runs before the section commands, because both
+  // match words like "grammar".
+  if (await matchAnalyseCommand(text)) { input.value = ''; return; }
   // "listening", "open grammar section", "بخش واژگان" → open the topbar panel
   const section = matchSectionCommand(text);
   if (section) {
@@ -3903,7 +4011,7 @@ const Motion = (() => {
  * ==========================================================================*/
 const Panels = (() => {
   const TILES = {
-    dpanel: 'dtoggle', vpanel: 'vtoggle', gpanel: 'gtoggle',
+    dpanel: 'dtoggle', npanel: 'ntoggle', vpanel: 'vtoggle', gpanel: 'gtoggle',
     fpanel: 'ftoggle', lpanel: 'ltoggle', phpanel: 'phtoggle',
     rpanel: 'rtoggle',
   };
@@ -5395,6 +5503,9 @@ const PANEL_ON_OPEN = {
   // the day's three items: repaint on every open, because the date may have
   // moved on since the panel was last looked at (an overnight session)
   dpanel: () => Daily.refresh(true),
+  // the analyser mounts its input handler and examples on first open, and
+  // keeps whatever analysis is already on screen
+  npanel: () => Analyser.mount(),
   rpanel: () => { Review.load(); Review.paint(); },
   // search is attached on first open rather than at boot, because the panels
   // are filled asynchronously and a search with nothing to filter is useless
@@ -5410,6 +5521,7 @@ const PANEL_ON_OPEN = {
   phpanel: () => PanelSearch.attachAll(),
 };
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
+document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
 document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggle');
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
@@ -6516,6 +6628,12 @@ const SECTIONS = {
     panel: 'gpanel', btn: 'gtoggle', en: 'Grammar', fa: 'گرامر', icon: '📘',
     kw: ['grammar', 'grammer', 'دستور زبان', 'گرامر'],
   },
+  analyser: {
+    panel: 'npanel', btn: 'ntoggle', en: 'Sentence analyser', fa: 'تحلیل جمله',
+    icon: '🔬',
+    kw: ['analyser', 'analyzer', 'sentence analyser', 'sentence analyzer',
+         'parts of speech', 'تجزیه جمله', 'تحلیل جمله', 'تحلیل گرامری'],
+  },
   sentences: {
     panel: 'fpanel', btn: 'ftoggle', en: 'Sentences', fa: 'جملات', icon: '💬',
     kw: ['sentences', 'sentence', 'phrases', 'phrase bank', 'useful sentences',
@@ -6540,6 +6658,315 @@ const SECTIONS = {
 
 /* an explicit "do something" verb — anything else is treated as a question
    about the topic, which the bot should answer normally */
+/* ============================================================================
+ * OFFLINE GRAMMAR ANALYSER
+ * A real tagger — winkNLP plus the English web model, 3.5 MB of JavaScript
+ * bundled with the page and with the APK — runs the analysis here, on the
+ * device. No server, no Python, no network, and no model download: the file
+ * is served from /nlp/ on the web and sits next to index.html inside the
+ * APK. It is fetched on the first request only, and the model itself is built
+ * when it is first asked a question (~80 ms, once), so the sentence is handed
+ * over after the browser has painted the "analysing" bubble.
+ * ==========================================================================*/
+const NLP = (() => {
+  /* Relative on purpose. On the web this is /nlp/fluentify-nlp.js; inside the
+     APK the page is served from the appassets origin by the WebView asset
+     loader, so the same relative path resolves to assets/www/nlp/ with no
+     change to the WebView, no file access and no new permission. */
+  const SRC = 'nlp/fluentify-nlp.js';
+  let loading = null;
+
+  function load() {
+    if (window.FluentifyNLP) return Promise.resolve(window.FluentifyNLP);
+    if (loading) return loading;
+    loading = new Promise((resolve, reject) => {
+      const tag = document.createElement('script');
+      tag.src = SRC;
+      tag.async = true;
+      tag.onload = () => (window.FluentifyNLP
+        ? resolve(window.FluentifyNLP)
+        : reject(new Error('the analyser file loaded but started nothing')));
+      tag.onerror = () => reject(new Error('the analyser file is missing (' + SRC + ')'));
+      document.head.appendChild(tag);
+    });
+    return loading;
+  }
+
+  async function analyze(sentence) {
+    const api = await load();
+    /* The first call builds the model. One yield, so the bubble that says the
+       sentence is being analysed is on screen before the main thread goes
+       busy; after that the model is cached and a bounded sentence costs about
+       a millisecond. */
+    await new Promise((r) => setTimeout(r, 0));
+    return api.analyze(sentence);
+  }
+
+  /* Which existing grammar lesson covers a structure the tagger found. These
+     are the Knowledge Base's own phrases, so the chip lands on the lesson the
+     learner already has; tools/check_analyser.py fails if one stops being a
+     keyword in grammar.json. */
+  const TOPIC = {
+    simple_present: 'simple present', third_person_s: 'subject verb agreement',
+    simple_past: 'simple past', past_simple: 'simple past',
+    future_simple: 'simple future', present_continuous: 'present continuous',
+    past_continuous: 'past continuous', future_continuous: 'future continuous',
+    present_perfect: 'present perfect',
+    present_perfect_continuous: 'present perfect continuous',
+    past_perfect: 'past perfect',
+    past_perfect_continuous: 'perfect continuous',
+    future_perfect: 'future perfect',
+    future_perfect_continuous: 'future perfect progressive',
+    modal_verb: 'modal verbs', modal_verbs: 'modal verbs', modal_perfect: 'must have',
+    passive_voice: 'passive voice',
+    zero_conditional: 'conditionals', first_conditional: 'conditionals',
+    second_conditional: 'conditionals', third_conditional: 'conditionals',
+    gerund: 'gerunds and infinitives', infinitive: 'gerunds and infinitives',
+    verb_infinitive: 'gerunds and infinitives', past_participle: 'be verb past participle',
+    articles: 'articles', pronouns: 'pronouns', adjectives: 'adjective order',
+    comparison: 'comparatives', adverbs: 'adverbs',
+    prepositional_phrase: 'prepositions of time', conjunction: 'conjunctions',
+    negation: 'word order', declarative: 'word order', imperative: 'word order',
+    exclamative: 'word order', yes_no_question: 'how to ask a question',
+    wh_question: 'question words', copular: 'to be',
+  };
+
+  return {load, analyze, TOPIC, ready: () => !!window.FluentifyNLP};
+})();
+
+/* Does this message ask for a sentence to be taken apart? Kept to explicit
+   request wording in both languages, because a message that merely mentions
+   grammar is a question for the tutor, not a parse. */
+const ANALYSE_INTENT = new RegExp(
+  // "analyse [this / the sentence / it]" — the request words are consumed with
+  // the verb, so the sentence that follows is left whole
+  '(?:analyse|analyze|analysis|parse)\\s*' +
+  '(?:this|that|it|these|those|the\\s+sentences?|my\\s+sentences?|' +
+  'the\\s+following|below)?|' +
+  'break\\s+(?:this|that|it|the)\\s+(?:sentence\\s+)?down|' +
+  'break\\s+down\\s+th(?:is|e)\\s+sentence|parts?\\s+of\\s+speech|' +
+  'part\\s+of\\s+speech|grammatical\\s+roles?|(?:explain|show)\\s+the\\s+grammar|' +
+  '(?:explain|show)\\s+the\\s+structure|grammar\\s+of\\s+th(?:is|e)\\s+sentence|' +
+  'sentence\\s+structure|structure\\s+of\\s+th(?:is|e)\\s+sentence|' +
+  '(?:find|list)\\s+the\\s+(?:verbs?|nouns?)|nouns?\\s+and\\s+verbs?|' +
+  'verbs?\\s+and\\s+nouns?|grammar\\s+(?:analyse|analyze|analysis)|' +
+  'تحلیل\\s*گرامری|آنالیز\\s*گرامری|گرامر\\s*این\\s*جمله|' +
+  'تجزیه\\s*(?:کن|گرامری)?|نقش\\s*دستوری\\s*کلمات?|نقش\\s*کلمه\\w*|' +
+  'از\\s*نظر\\s*گرامری|ساختار\\s*این\\s*جمله|اجزای\\s*جمله|' +
+  'فاعل\\s*و\\s*فعل|تحلیل\\s*(?:کن|کنید|این\\s*جمله)?', 'i');
+
+/* The words that ask for the analysis rather than belong to the sentence, and
+   the lead-ins a learner naturally types in front of it. */
+const ANALYSE_NOISE = new RegExp(
+  '^(?:this|that|these|those|the|a|an|of|for|in|on|about|please|below|following|' +
+  'sentence|sentences|grammar|structure|role|roles|word|words|verb|verbs|noun|nouns|' +
+  'subject|object|me|it|and|to|do|does|can|you|my|its|its\\s+grammar|sentence\\s+grammar|' +
+  'the\\s+grammar|the\\s+structure|از|را|این|آن|جمله|جملهٔ|گرامری|گرامر|رو)\\s+', 'i');
+
+/* A determiner is only the request's, never the sentence's: "the structure of
+   this sentence: The book was written by George" loses the first "the", while
+   "analyse this: The book was written by George" keeps the one that belongs to
+   the sentence. */
+const ANALYSE_DETERMINER = ['the', 'this', 'that', 'these', 'those', 'a', 'an'];
+
+/* Pull the sentence out of the request. The sentence is what the learner
+   pasted: the longest run of Latin words left once the request itself is
+   gone. Persian around it is dropped, and a request with no sentence in it
+   returns '' rather than a guess. */
+function extractSentence(text) {
+  const raw = String(text);
+  /* A colon is the learner showing us where the sentence begins, so it is
+     trusted before anything is guessed at. */
+  const colon = raw.lastIndexOf(':');
+  if (colon !== -1) {
+    const tail = raw.slice(colon + 1).trim();
+    const words = (tail.match(/[A-Za-z][A-Za-z0-9'’\-]*/g) || []);
+    if (words.length > 1) return tail.replace(ANALYSE_INTENT, ' ').replace(/\s+/g, ' ').trim();
+  }
+  let rest = raw.replace(ANALYSE_INTENT, ' ').replace(/[؟?،,]+/g, ' ');
+  const runs = (rest.match(/[A-Za-z][A-Za-z0-9'’\-]*(?:[ \t]+[A-Za-z0-9'’\-]+)*[.!?…]*/g) || [])
+    .map((s) => s.replace(/[ \t]+/g, ' ').trim())
+    .filter((s) => s.length > 1);
+  if (!runs.length) return '';
+  let best = runs.reduce((a, b) => (b.length > a.length ? b : a), '');
+  let guard = 0;
+  while (guard++ < 14) {
+    const m = best.match(ANALYSE_NOISE);
+    if (!m) break;
+    const word = m[0].trim().toLowerCase();
+    const next = best.slice(m[0].length).trim().split(/\s+/)[0].toLowerCase();
+    if (ANALYSE_DETERMINER.indexOf(word) !== -1 && !ANALYSE_NOISE.test(next + ' ')) break;
+    best = best.slice(m[0].length);
+  }
+  // The learner's own punctuation is part of the sentence, so only the
+  // separators the request left behind come off.
+  best = best.replace(/[\s:;,]+$/, '').trim();
+  // one Latin word on its own is not a sentence to analyse
+  return /[A-Za-z]/.test(best) && best.split(/\s+/).length > 1 ? best : '';
+}
+
+/* The analysis, rendered once and used twice: in the chat and in the panel.
+   Every field is escaped; nothing from the tagger is trusted as markup. */
+function renderAnalysis(r, opts) {
+  const o = opts || {};
+  const words = r.tokens.filter((t) => ['PUNCT', 'SYM'].indexOf(t.pos) === -1);
+  const out = [];
+
+  out.push('<div class="nhead"><b>' + escapeHtml(r.analysedSentence || r.originalSentence) +
+    '</b>' + (r.analysedSentence && r.analysedSentence !== r.originalSentence
+      ? '<div class="dfa">فقط بخش انگلیسی همین جمله تحلیل شد.</div>' : '') + '</div>');
+
+  out.push('<div class="nlabel">Words — کلمات</div><div class="ntable">');
+  for (const t of words) {
+    out.push('<div class="nrow">' +
+      '<span class="nw">' + escapeHtml(t.text) + '</span>' +
+      '<span class="npos">' + escapeHtml(t.posLabel) + '<small>' + escapeHtml(t.posLabelFa) + '</small></span>' +
+      '<span class="nlemma">' + (t.lemma && t.lemma !== t.text.toLowerCase()
+        ? '→ ' + escapeHtml(t.lemma) : '') + '</span>' +
+      '<span class="nrole">' + (t.grammaticalRole
+        ? escapeHtml(t.roleLabel || t.grammaticalRole) + '<small>' + escapeHtml(t.roleLabelFa || '') + '</small>'
+        : '<span class="nunknown">role: not claimed</span>') + '</span>' +
+      '</div>');
+  }
+  out.push('</div>');
+
+  const details = (r.structureDetails || []).filter((d) => d.label_en);
+  if (details.length) {
+    out.push('<div class="nlabel">Structures — ساختارها</div>');
+    for (const d of details) {
+      const topic = NLP.TOPIC[d.id];
+      const words2 = (d.evidence || []).map((i) => (r.tokens[i] ? r.tokens[i].text : ''))
+        .filter(Boolean).join(' ');
+      out.push('<div class="ncard">' +
+        '<div class="ntitle">' + escapeHtml(d.label_en) + '<small>' + escapeHtml(d.label_fa || '') + '</small></div>' +
+        (words2 ? '<div class="nev">' + escapeHtml(words2) + '</div>' : '') +
+        '<div class="nnote2">' + escapeHtml(d.note_en || '') + '</div>' +
+        (d.note_fa ? '<div class="dfa">' + escapeHtml(d.note_fa) + '</div>' : '') +
+        (topic ? '<button type="button" class="nchip" data-ask="' + escapeHtml(topic) +
+          '">📘 ' + escapeHtml(topic) + ' · درس</button>' : '') +
+        '</div>');
+    }
+  }
+
+  if (r.limitations && r.limitations.length) {
+    out.push('<div class="nlabel">What this cannot do — محدودیت‌ها</div><ul class="nlim">');
+    for (const l of r.limitations) out.push('<li>' + escapeHtml(l) + '</li>');
+    out.push('</ul>');
+  }
+
+  out.push('<div class="nengine">' + escapeHtml(r.engine) + ' · ' + r.tokenCount +
+    ' words · analysed on this device — بدون اینترنت و بدون سرور</div>');
+  return out.join('');
+}
+
+/* One click on a lesson chip asks the existing Knowledge Base for the topic.
+   Bound once, on the document, so it works for a bubble and for the panel. */
+document.addEventListener('click', (ev) => {
+  const chip = ev.target.closest && ev.target.closest('.nchip');
+  if (!chip) return;
+  ev.preventDefault();
+  send(chip.getAttribute('data-ask'));
+});
+
+/* The sentences the panel offers as a first click: three the analyser is
+   confidently right about, and one question, which is the shape learners
+   most often want explained. */
+const ANALYSE_EXAMPLES = [
+  'She has been learning English.',
+  'The book was written by George.',
+  'If it rains, we will stay home.',
+  'Can you help me?',
+];
+
+const Analyser = (() => {
+  let mounted = false;
+  const paint = (html) => { const el = document.getElementById('nresult'); if (el) el.innerHTML = html; };
+
+  async function run(sentence) {
+    mount();
+    const box = document.getElementById('ninput');
+    const text = (sentence || (box ? box.value : '') || '').trim();
+    if (!text) { box && box.focus(); return; }
+    if (box) box.value = text;
+    paint('<div class="nbusy">🔬 analysing on this device… · در حال تحلیل…</div>');
+    try {
+      paint(renderAnalysis(await NLP.analyze(text)));
+    } catch (e) {
+      paint('<div class="nfail">⚠️ ' + escapeHtml(e.message) + '<br>تحلیل انجام نشد.</div>');
+    }
+  }
+
+  /* The same analysis the chat bubble just showed, kept in the panel so it can
+     be re-read after the conversation has moved on. */
+  function show(result, sentence) {
+    const box = document.getElementById('ninput');
+    if (box && sentence) box.value = sentence;
+    open();
+    paint(renderAnalysis(result));
+  }
+
+  function mount() {
+    if (mounted) return;
+    mounted = true;
+    const go = document.getElementById('ngo');
+    const box = document.getElementById('ninput');
+    if (go) go.onclick = () => run();
+    if (box) box.onkeydown = (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); run(); } };
+    const row = document.getElementById('nexamples');
+    if (row) {
+      row.textContent = '';
+      ANALYSE_EXAMPLES.forEach((s) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'nex';
+        b.textContent = s;
+        b.onclick = () => run(s);
+        row.appendChild(b);
+      });
+    }
+  }
+
+  function open() {
+    const panel = document.getElementById('npanel');
+    if (panel && !panel.classList.contains('open')) document.getElementById('ntoggle').onclick();
+    mount();
+  }
+
+  return {run, show, mount, open};
+})();
+
+/* A grammar-analysis request is answered here, on the device, before the
+   Knowledge Base is consulted at all: it costs nothing from the daily seed
+   and it works with the aeroplane mode on. */
+async function matchAnalyseCommand(text) {
+  const t = (text || '').trim();
+  if (!t || t.length > 300 || !ANALYSE_INTENT.test(t)) return false;
+  add(t, 'user');
+  // Only the request itself: a request with no sentence in it asks for one
+  // rather than silently re-analysing whatever the panel last held.
+  const sentence = extractSentence(t);
+  if (!sentence) {
+    Analyser.open();
+    add('🔬 Send me one English sentence and I will take it apart word by word. ' +
+        'Nothing leaves your device.\n' +
+        'یک جملهٔ انگلیسی بفرست تا کلمه‌به‌کلمه تحلیل کنم؛ همه‌چیز روی دستگاه خودت انجام می‌شود.\n' +
+        'Try: **analyse this: She has been learning English.**', 'bot');
+    return true;
+  }
+  showTyping();
+  try {
+    const result = await NLP.analyze(sentence);
+    hideTyping();
+    Analyser.show(result, sentence);
+    add(renderAnalysis(result), 'bot', {html: true});
+  } catch (e) {
+    hideTyping();
+    add('⚠️ ' + e.message + '\n' +
+        'تحلیل انجام نشد — این بخش نباید به اینترنت نیاز داشته باشد.', 'bot', {err: true});
+  }
+  return true;
+}
+
 const OPEN_VERB = new RegExp(
   '(?:^|\\s)(?:open|show|display|bring\\s*up|go\\s*to|take\\s*me\\s*to|view|' +
   'switch\\s*to|activate)' +

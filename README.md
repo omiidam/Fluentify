@@ -24,6 +24,7 @@ no network calls, no tracking.
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 words across 64 grouped domains, translate & define in both languages |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
+| 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
@@ -56,6 +57,57 @@ does not repeat for **1,320 days**. Extending the catalogue only lengthens the
 cycle, and each category steps through every entry before reusing one.
 Completion is stored per date (`fluentify.daily.v1` in `localStorage`) and is
 never cleared, so yesterday's ticks survive the new day.
+
+### Offline grammar analyser
+
+Ask for it and the sentence is taken apart on the device:
+
+```
+analyse this sentence: She has been learning English.
+این جمله رو از نظر گرامری تحلیل کن: She has been learning English.
+```
+
+Both answer with a table — each word, its part of speech in English *and*
+Persian, its lemma, and whether it is the subject or the object — followed by
+the structures the sentence carries (here: Declarative, Present Perfect
+Continuous, Pronouns), a lesson chip per structure that opens the matching
+lesson from the Knowledge Base, and a plain statement of what the method cannot
+do. The same analysis is kept in the **Analyse** panel, where a sentence can
+also be typed or picked from an example.
+
+The engine is [winkNLP](https://github.com/winkjs/wink-nlp) 2.4.0 with the
+English web model [wink-eng-lite-web-model](https://github.com/winkjs/wink-eng-lite-web-model)
+1.8.1, bundled into one 3.5 MB file ([nlp/fluentify-nlp.js](nlp/fluentify-nlp.js))
+by `cd nlp && npm run build`. Both are MIT and the notices ship with the file —
+see [nlp/THIRD-PARTY-NOTICES.md](nlp/THIRD-PARTY-NOTICES.md).
+
+What that buys, and what it does not:
+
+* **Tokenising, sentence splitting, parts of speech, lemmas, negation and
+  contraction flags** come from the bundled model.
+* **Tenses, aspect, voice, conditionals, gerunds/infinitives** come from
+  explicit rules in [nlp/src/analyser.js](nlp/src/analyser.js) that read the
+  surface form against the lemma. They are asserted, and wrong answers are
+  asserted *against*, in [tools/check_analyser.py](tools/check_analyser.py) —
+  `reads` is present simple, `finished` after `have` is a past participle,
+  `will have finished` is the future perfect.
+* **There is no dependency parser**, and the app never pretends there is: no
+  `nsubj`, `dobj` or `ROOT` is ever emitted, the only roles reported are
+  subject and object inferred from word order, and every one of them is marked
+  `roleStatus: "inferred"` in both languages. A suite that finds a dependency
+  label, an offset that does not slice back to its token, or a lesson chip
+  whose topic the Knowledge Base cannot answer fails the build.
+* **Ambiguity is stated, not hidden** — a second sentence in the box, a paste
+  longer than 40 words, a word the tagger could not read, or a verb spelled the
+  same in the present and the past (`read`, `put`, `cut`) each add a line to
+  the analysis saying so.
+
+The model is built on the first analysis (~70 ms, once) and cached; after that
+a bounded sentence costs under a millisecond. The file itself is fetched
+lazily on the first request, never at boot, and every analysis is computed
+locally — the browser test for this feature runs with **no `/api/` request at
+all**, and the copied bundle inside the APK is the same file the web build
+serves.
 
 ---
 
@@ -314,7 +366,7 @@ failing quietly.
 python3 tools/check_all.py
 ```
 
-Five suites:
+Eleven suites:
 
 | suite | what it asks |
 | --- | --- |
@@ -323,6 +375,7 @@ Five suites:
 | Python/JS message parity | do the CLI and the APK engine agree, message for message? |
 | Python/JS conversation parity | do they agree over a *conversation*? Memory only shows up across several messages. |
 | BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
+| offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
 
 That last one matters more than its size suggests. A duplicate top-level name
 between the page and `bot.js` is a SyntaxError that kills the whole inline

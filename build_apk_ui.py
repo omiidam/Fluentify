@@ -384,6 +384,30 @@ for name in FONTS:
 print(f"synced {len(FONTS)} font files -> {font_out}")
 
 # ---------------------------------------------------------------------------
+# the offline grammar engine
+# ---------------------------------------------------------------------------
+# The page analyses a sentence with a tagger that has to be in the APK: there
+# is no server inside the app and no network to fetch one from. It sits in
+# nlp/ next to index.html, and the WebView serves everything under
+# assets/www through WebViewAssetLoader, so the page's relative url resolves
+# inside the app exactly as it does over http. That is what makes the web
+# build and the APK run the same file rather than two copies of it - and it
+# needs no change to the WebView's settings or permissions.
+NLP_FILE = ROOT / "nlp" / "fluentify-nlp.js"
+if not NLP_FILE.exists():
+    raise SystemExit("build_apk_ui: nlp/fluentify-nlp.js is missing - "
+                     "run: cd nlp && npm install && npm run build")
+nlp_out = OUT.parent / "nlp"
+nlp_out.mkdir(parents=True, exist_ok=True)
+shutil.copyfile(NLP_FILE, nlp_out / NLP_FILE.name)
+# The MIT notices travel with the model: they are embedded in the bundle's
+# first lines as well, and this is the readable copy for whoever opens the APK.
+notices = ROOT / "nlp" / "THIRD-PARTY-NOTICES.md"
+if notices.exists():
+    shutil.copyfile(notices, nlp_out / "THIRD-PARTY-NOTICES.md")
+print(f"synced the grammar engine ({NLP_FILE.stat().st_size / (1024*1024):.2f} MB) -> {nlp_out}")
+
+# ---------------------------------------------------------------------------
 # A duplicate top-level declaration between the page and bot.js - a `function
 # esc` beside bot.js's `const esc` - is a SyntaxError that kills the entire
 # inline script. The result is a silently blank app: nothing renders, nothing

@@ -37,6 +37,12 @@ Four suites, each answering a different question:
                 runtime, and this compares all three over a year of dates and
                 five timezones - including both 2026 daylight-saving nights,
                 where the wait to midnight is not 24 hours.
+  check_analyser  is the bundled grammar engine accurate and honest? It runs
+                the shipped 3.5 MB bundle over the sentences the feature was
+                specified against plus contractions, unpunctuated input,
+                unknown names, a garden-path sentence and mixed script, and
+                refuses any dependency label, any invented offset, and any
+                lesson chip whose topic the Knowledge Base cannot answer.
 
 Exit code is non-zero if any suite fails.
 """
@@ -57,6 +63,7 @@ SUITES = [
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
+    ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 
