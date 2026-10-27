@@ -20,6 +20,7 @@ no network calls, no tracking.
 
 | Area | Details |
 |---|---|
+| 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with audio and a per-day tick |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 words across 64 grouped domains, translate & define in both languages |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
@@ -32,6 +33,29 @@ no network calls, no tracking.
 Every lesson and sentence is shown **English first with the Persian translation
 directly underneath**, so the two languages reinforce each other instead of
 living in separate sections.
+
+### Daily English
+
+Three fresh items at the start of every local day — one word, one expression and
+one conversation — in the **Today** panel, each with audio and a tick, plus the
+same three available in chat (`today's word`, `لغت امروز`).
+
+The choice is a pure function of the local date: `daily_index()` in
+`chatbot.py`, `dailyIndex` in `bot.js` and `dayIndex` in the page walk the same
+catalogue from the same epoch, so the CLI, the web preview and the offline APK
+show the same three items on the same day with no server involved.
+`tools/check_daily.py` compares all three over 365 dates and five timezones,
+including both 2026 daylight-saving nights, where the wait to midnight is not
+24 hours.
+
+The catalogue in `daily.json` is curated, never generated at runtime: 60 words,
+55 expressions, 24 conversations. To be exact about coverage, that is **not**
+365 distinct entries per category — a word returns after 60 days and a
+conversation after 24 — while the whole word + expression + conversation set
+does not repeat for **1,320 days**. Extending the catalogue only lengthens the
+cycle, and each category steps through every entry before reusing one.
+Completion is stored per date (`fluentify.daily.v1` in `localStorage`) and is
+never cleared, so yesterday's ticks survive the new day.
 
 ---
 

@@ -31,6 +31,12 @@ Four suites, each answering a different question:
                 ahead of the bar it was reporting. Runs the shipped Boot code
                 against a two-element stub, and refuses a CSS transition on
                 the bar, because that is what put the two on separate clocks.
+  check_daily   is the Daily English catalogue sound, and do the CLI, the APK
+                engine and the page pick the same three items for the same
+                local date? The rotation exists in three places, one per
+                runtime, and this compares all three over a year of dates and
+                five timezones - including both 2026 daylight-saving nights,
+                where the wait to midnight is not 24 hours.
 
 Exit code is non-zero if any suite fails.
 """
@@ -50,6 +56,7 @@ SUITES = [
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
+    ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 

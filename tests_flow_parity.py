@@ -10,11 +10,17 @@ a state leak — so this walks both engines down the same flows.
 """
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+
+# The daily rotation is a function of the local date, so both engines are
+# pinned to the same one; a run across midnight would otherwise compare two
+# different days and call the clock a mismatch.
+DAILY_TODAY = "2026-05-04"
 
 # Each flow is a sequence a learner actually walks.
 FLOWS = [
@@ -25,6 +31,12 @@ FLOWS = [
     ["tell me a joke", "another one", "another one"],
     ["listen A1", "repeat that", "say that again", "A2", "repeat that"],
     ["daily routine", "repeat that"],
+    # today's three items, and the drill handing the conversation back to the
+    # cards when the learner asks about one of them mid-dialogue
+    ["today's english", "today's word", "today's expression", "today's conversation",
+     "practice today's conversation with me", "لغت امروز",
+     "practice today's conversation with me", "stop", "daily word"],
+    ["لغت امروز", "عبارت امروز", "مکالمه امروز", "انگلیسی روزانه"],
     ["vocabulary", "words", "sentences", "phonetics"],
     ["translate apple", "define apple", "how do you pronounce apple",
      "difference between say and tell", "idioms", "meaning of piece of cake"],
@@ -60,10 +72,14 @@ CANNED = _canned_replies()
 
 def normalise(reply: str) -> str:
     out = (reply or "").strip()
-    if any(v in out for v in VOLATILE):
-        return "<volatile>"
+    # A canned reply first: small talk picks one at random, so the two engines
+    # legitimately differ here. Two of those responses open with "امروز" or
+    # "It's ", which the volatile patterns would otherwise read as a date or a
+    # clock - a mismatch made of nothing but the draw.
     if any(out.split(" ")[0] in r for r in CANNED):
         return "<intent-reply>"
+    if any(v in out for v in VOLATILE):
+        return "<volatile>"
     return out
 
 
@@ -73,8 +89,9 @@ def main() -> int:
     js_out = ROOT / ".flow_js.json"
     cases_file.write_text(json.dumps(cases, ensure_ascii=False))
 
+    env = dict(os.environ, FLUENTIFY_TODAY=DAILY_TODAY)
     subprocess.run(["node", str(ROOT / "tools/js_engine.js"), str(cases_file),
-                    str(js_out)], check=True)
+                    str(js_out)], check=True, env=env)
 
     sys.path.insert(0, str(ROOT))
     from chatbot import ChatBot  # noqa: E402
@@ -84,7 +101,7 @@ def main() -> int:
     checked = 0
 
     for flow, js_replies in zip(FLOWS, js_flows):
-        bot = ChatBot()
+        bot = ChatBot(today=DAILY_TODAY)
         for step, (msg, js) in enumerate(zip(flow, js_replies)):
             py = bot.respond(msg)
             checked += 1

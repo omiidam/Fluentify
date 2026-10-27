@@ -1310,6 +1310,159 @@
     .wd-form b { min-width: 92px; font-size: 12.5px; }
   }
 
+  /* ---------- daily english: word, expression, conversation ----------
+     Three cards, one per daily item. Everything is built from the page's own
+     tokens, so the panel follows the theme rather than inventing a second
+     one, and the grid collapses to a single column on a phone, which is where
+     most of these are read. */
+  .dhead {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    margin: 0 0 10px;
+  }
+  .ddate {
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    color: #6b4a00; padding: 3px 9px; border-radius: 999px;
+    background: var(--gold-soft); border: 1px solid rgba(138,90,0,.2);
+    letter-spacing: .2px;
+  }
+  .dtrack {
+    flex: 1 1 80px; height: 7px; border-radius: 999px; overflow: hidden;
+    background: rgba(22,39,74,0.0765); border: 1px solid rgba(22,39,74,0.102);
+  }
+  .dtrack i {
+    display: block; height: 100%; width: 0; border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    transition: width .35s cubic-bezier(.22,1,.36,1);
+  }
+  .dcount {
+    font-size: 10.5px; font-weight: 800; color: var(--muted);
+    white-space: nowrap;
+  }
+  .dcards { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .dcard {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 11px 12px 10px;
+    box-shadow: 0 1px 2px rgba(74,58,30,.06);
+  }
+  .dcard.done { border-color: rgba(46,122,90,.4); }
+  .dtop { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+  .dico {
+    width: 22px; height: 22px; border-radius: 7px; flex: none;
+    display: grid; place-items: center; font-size: 12px;
+    background: var(--lav); color: var(--lav-ink);
+  }
+  .dkind {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    color: var(--navy2); line-height: 1.2;
+  }
+  .dkind small {
+    font-family: var(--font-body); font-size: 10px; font-weight: 400;
+    color: var(--muted); display: block;
+  }
+  .dtop .spacer { flex: 1 1 auto; }
+  .dlvl, .dreg {
+    font-size: 9.5px; font-weight: 800; padding: 2px 6px; border-radius: 5px;
+    letter-spacing: .3px; white-space: nowrap;
+  }
+  .dlvl { background: rgba(22,39,74,.119); color: #22335a; }
+  .dreg { background: rgba(110,90,168,.14); color: #4c3f7e; }
+  .dword {
+    font-family: var(--font-display); font-size: 21px; font-weight: 700;
+    color: var(--navy2); line-height: 1.15; word-break: break-word;
+  }
+  .dipa {
+    font-family: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
+    font-size: 12px; color: var(--amber); margin-inline-start: 6px;
+  }
+  .dpos { font-size: 10px; color: var(--dim); font-style: italic; }
+  /* Persian inside an English page: the browser needs to be told twice -
+     once for the paragraph direction and once so a line that starts with a
+     Latin word still ends where it should. */
+  .dfa, .dline.fa, .dbubble .dfa {
+    direction: rtl; text-align: right; unicode-bidi: plaintext;
+  }
+  .dfa { font-size: 13px; color: var(--text); line-height: 1.55; margin-top: 3px; }
+  .dline { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .dline.fa { font-size: 12.5px; color: var(--muted); }
+  .dlabel {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .5px;
+    text-transform: uppercase; color: var(--dim); margin-top: 9px;
+  }
+  .drow { display: flex; align-items: flex-start; gap: 7px; margin-top: 6px; }
+  .drow .grow { flex: 1 1 auto; min-width: 0; }
+  .dquote {
+    font-family: var(--font-display); font-size: 15.5px; font-weight: 600;
+    color: var(--navy2); line-height: 1.3;
+  }
+  .dsay {
+    flex: none; width: 28px; height: 28px; border-radius: 9px; cursor: pointer;
+    display: grid; place-items: center; font-family: inherit; padding: 0;
+    border: 1px solid rgba(22,39,74,.13); background: #fffcf3; color: var(--navy);
+    transition: background .15s, border-color .15s;
+  }
+  .dsay svg { width: 14px; height: 14px; display: block; }
+  .dsay:hover { background: var(--gold-soft); border-color: rgba(138,90,0,.3); }
+  .dsay.on { background: var(--gold); border-color: var(--gold2); color: #33260a; }
+  .dex { display: grid; gap: 5px; margin-top: 5px; }
+  .dex .exrow {
+    display: flex; align-items: flex-start; gap: 7px;
+    padding: 6px 8px; border-radius: 9px;
+    background: rgba(22,39,74,.0425); border: 1px solid rgba(22,39,74,.085);
+  }
+  .dex .n {
+    flex: none; font-size: 10px; font-weight: 800; color: var(--dim);
+    padding-top: 3px;
+  }
+  .dchips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .dchip {
+    font-size: 10.5px; padding: 3px 8px; border-radius: 999px;
+    background: var(--lav); color: var(--lav-ink);
+  }
+  .dchip b { font-weight: 700; }
+  .dturns { display: grid; gap: 6px; margin-top: 7px; }
+  .dturn { display: grid; grid-template-columns: auto 1fr; gap: 8px; }
+  .dwho {
+    font-size: 10.5px; font-weight: 800; color: var(--navy);
+    min-width: 56px; padding-top: 5px; word-break: break-word;
+  }
+  .dbubble {
+    padding: 6px 9px; border-radius: 3px 11px 11px 11px; min-width: 0;
+    background: rgba(22,39,74,.045); border: 1px solid rgba(22,39,74,.085);
+  }
+  .dturn.alt .dbubble { background: var(--lav); border-color: rgba(76,63,126,.18); }
+  .dbubble .dfa { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  /* Every Persian line on a card is .dfa, so that one selector is the whole
+     toggle. It used to say .fa, which matched nothing the renderer emits -
+     the button flipped its label and hid nothing at all. */
+  .dcard.persian-off .dfa { display: none; }
+  .dtools {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line);
+  }
+  .dbtn {
+    font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer;
+    padding: 5px 10px; border-radius: 9px; color: var(--navy);
+    background: #fffcf3; border: 1px solid rgba(22,39,74,.14);
+    transition: background .15s, border-color .15s;
+  }
+  .dbtn:hover { background: var(--gold-soft); }
+  .dbtn.on, .dbtn[aria-pressed="true"] {
+    background: rgba(46,122,90,.12); border-color: rgba(46,122,90,.35);
+    color: #235c44;
+  }
+  .dfoot { font-size: 10px; color: var(--dim); margin-inline-start: auto; }
+  .dnote { font-size: 12px; color: var(--muted); line-height: 1.5; margin-top: 6px; }
+  .dnone { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  @media (min-width: 620px) {
+    .dcards { gap: 12px; }
+    .dword { font-size: 23px; }
+    .dwho { min-width: 74px; }
+  }
+  @media (max-width: 420px) {
+    .dwho { min-width: 46px; font-size: 10px; }
+    .dturn { gap: 6px; }
+  }
+
   /* ---------- review: saved words + flashcards ---------- */
   /* Inside the tile. A negative offset puts it outside a 46px button, and
      being a span it then inherits .hbtn span's overflow:hidden and is clipped
@@ -2331,6 +2484,8 @@
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
+      <button class="hbtn" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/><path d="M7.6 13.4h3.2v3.2H7.6z"/></svg></i><span>Today</span><span class="rbadge" id="dbadge" hidden>0</span></button>
       <button class="hbtn" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
       <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
@@ -2365,6 +2520,17 @@
            aria-valuenow="0" aria-valuetext="Not started"></div>
     </div>
     <span class="pltime" id="pltime">0:00</span>
+  </div>
+
+  <div id="dpanel">
+    <h3>Daily English: one word, one expression, one conversation — انگلیسی روزانه</h3>
+    <div class="dhead">
+      <span class="ddate" id="ddate"></span>
+      <div class="dtrack" role="progressbar" aria-label="Today's progress"
+           aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" id="dtrack"><i id="dfill"></i></div>
+      <span class="dcount" id="dcount">0 / 3</span>
+    </div>
+    <div class="dcards" id="dcards"></div>
   </div>
 
   <div id="vpanel">
@@ -2453,7 +2619,7 @@
   </form>
 </div>
 
-<script src="bot.js?v=87c74dc8"></script>
+<script src="bot.js?v=f5ca9f20"></script>
 <script>
 /* Fluentify's mascot — a navy bird with a gold crest (header and messages) */
 const BIRD =
@@ -3737,8 +3903,9 @@ const Motion = (() => {
  * ==========================================================================*/
 const Panels = (() => {
   const TILES = {
-    vpanel: 'vtoggle', gpanel: 'gtoggle', fpanel: 'ftoggle',
-    lpanel: 'ltoggle', phpanel: 'phtoggle', rpanel: 'rtoggle',
+    dpanel: 'dtoggle', vpanel: 'vtoggle', gpanel: 'gtoggle',
+    fpanel: 'ftoggle', lpanel: 'ltoggle', phpanel: 'phtoggle',
+    rpanel: 'rtoggle',
   };
   let openId = null;
 
@@ -5225,6 +5392,9 @@ function togglePanel(panelId, btnId) {
    Declared before togglePanel so the lookup is never undefined; the functions
    themselves are only called on click, long after they are defined. */
 const PANEL_ON_OPEN = {
+  // the day's three items: repaint on every open, because the date may have
+  // moved on since the panel was last looked at (an overnight session)
+  dpanel: () => Daily.refresh(true),
   rpanel: () => { Review.load(); Review.paint(); },
   // search is attached on first open rather than at boot, because the panels
   // are filled asynchronously and a search with nothing to filter is useless
@@ -5239,12 +5409,444 @@ const PANEL_ON_OPEN = {
   lpanel: () => PanelSearch.attachAll(),
   phpanel: () => PanelSearch.attachAll(),
 };
+document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
 document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggle');
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
 document.getElementById('ltoggle').onclick = () => togglePanel('lpanel', 'ltoggle');
 document.getElementById('phtoggle').onclick = () => togglePanel('phpanel', 'phtoggle');
 document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
+
+/* ============================================================================
+ * DAILY ENGLISH
+ * One word, one expression and one conversation, changing at local midnight.
+ *
+ * The selection is a pure function of the local calendar date, so this page,
+ * the CLI and the offline APK all show the same three items on the same day
+ * and none of them has to ask a server for the day's choice. The rotation
+ * below is deliberately a second copy of daily_index() in chatbot.py and
+ * dailyIndex() in bot.js; tools/check_daily.py runs all three copies over a
+ * year of dates and fails on any disagreement, which is what keeps three
+ * copies honest instead of three drifting apart.
+ * ==========================================================================*/
+
+/* --- daily rotation: pure, executed by tools/check_daily.py ------------- */
+const DAY_EPOCH = Date.UTC(2024, 0, 1);
+const DAY_SALTS = {words: 3, expressions: 11, conversations: 5};
+
+/* The device's own local calendar date as YYYY-MM-DD. Not toISOString(), which
+   converts to UTC first - east of Greenwich that answers with yesterday's date
+   every morning until the offset catches up. */
+function dayKey(d) {
+  const p = (n) => String(n).padStart(2, '0');
+  return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+}
+
+/* Whole calendar days since the epoch, counted in UTC arithmetic so a 23- or
+   25-hour day across a daylight-saving change still counts as one day. */
+function dayNumber(key) {
+  const parts = String(key).split('-').map(Number);
+  return Math.round((Date.UTC(parts[0], parts[1] - 1, parts[2]) - DAY_EPOCH) / 86400000);
+}
+
+function dayGcd(a, b) {
+  while (b) { const t = a % b; a = b; b = t; }
+  return Math.abs(a);
+}
+
+/* A step coprime with the catalogue size, so `day * step % size` walks every
+   entry before it repeats one, whatever the size happens to be. */
+function dayStep(size, salt) {
+  if (size <= 1) return 1;
+  let step = 1 + (salt % 9);
+  while (dayGcd(step, size) !== 1) {
+    step += 1;
+    if (step > size + 1) return 1;
+  }
+  return step;
+}
+
+const dayIndex = (day, size, salt) =>
+  (size <= 0 ? 0 : (day * dayStep(size, salt) + salt) % size);
+
+/* Milliseconds until the next local midnight, plus a second of slack. Asked of
+   the Date object rather than by adding 24 hours, so the night the clocks
+   change is not an hour early or an hour late. */
+function untilLocalMidnight(now) {
+  const next = new Date(now.getTime());
+  next.setHours(24, 0, 1, 0);
+  return Math.max(1000, next.getTime() - now.getTime());
+}
+/* --- end daily rotation ------------------------------------------------- */
+
+/* --- daily store: pure, executed by tools/check_daily.py ----------------
+   Completion lives beside the date it belongs to and is never cleared, so
+   yesterday's record survives and "today" simply has no entries yet. Keyed on
+   the content id rather than the position, so extending the catalogue cannot
+   move a tick onto a different word. */
+const DailyStore = {
+  KEY: 'fluentify.daily.v1',
+  read() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      const state = raw ? JSON.parse(raw) : null;
+      const days = state && state.days && typeof state.days === 'object'
+        ? state.days : {};
+      const clean = {};
+      Object.keys(days).forEach((k) => {
+        if (Array.isArray(days[k])) clean[k] = days[k].filter((x) => typeof x === 'string');
+      });
+      return {days: clean};
+    } catch (e) {
+      return {days: {}};   // a corrupt record must not take the panel down
+    }
+  },
+  write(state) {
+    try { localStorage.setItem(this.KEY, JSON.stringify({days: state.days})); }
+    catch (e) { /* private mode, full disk: the tick just does not persist */ }
+  },
+  isDone(state, date, id) {
+    return !!(state.days[date] || []).includes(id);
+  },
+  setDone(state, date, id, done) {
+    const list = (state.days[date] = state.days[date] || []);
+    const at = list.indexOf(id);
+    if (done && at === -1) list.push(id);
+    if (!done && at !== -1) list.splice(at, 1);
+    if (!list.length) delete state.days[date];
+    return state;
+  },
+  /* Counted against the ids on screen, so an id left over from an older
+     catalogue can never make a card look finished or the day look complete. */
+  count(state, date, ids) {
+    return ids.filter((id) => this.isDone(state, date, id)).length;
+  },
+};
+/* --- end daily store ---------------------------------------------------- */
+
+const Daily = (() => {
+  const CARD_ICON = {words: '\u{1F9E0}', expressions: '\u{1F5E3}', conversations: '\u{1F4AC}'};
+  const KIND_EN = {words: 'Word of the Day', expressions: 'Expression of the Day',
+                   conversations: 'Conversation of the Day'};
+  const KIND_FA = {words: 'لغت امروز', expressions: 'عبارت امروز',
+                   conversations: 'مکالمه امروز'};
+  const ORDER = ['words', 'expressions', 'conversations'];
+
+  let cat = null;          // the catalogue, read once
+  let failed = false;
+  let shown = null;        // the date currently painted
+  let picked = null;       // the three items currently painted
+  let timer = 0;
+
+  const els = () => ({
+    cards: document.getElementById('dcards'),
+    date: document.getElementById('ddate'),
+    count: document.getElementById('dcount'),
+    fill: document.getElementById('dfill'),
+    track: document.getElementById('dtrack'),
+    badge: document.getElementById('dbadge'),
+  });
+
+  const esc = (s) => escapeHtml(String(s == null ? '' : s));
+
+  function sayIcon() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ' +
+      'aria-hidden="true"><path d="M4.4 14.4v-3a7 7 0 0 1 14 0v3"/>' +
+      '<path d="M6.6 13.4v3.2M16.8 13.4v3.2M18.4 19.6h-3.2"/></svg>';
+  }
+
+  function say(text) {
+    return '<button type="button" class="dsay" data-say="' + esc(text) +
+      '" title="Listen — گوش بده" aria-label="Listen">' + sayIcon() + '</button>';
+  }
+
+  function faLine(text, cls) {
+    return '<div class="' + (cls || 'dfa') + '">' + esc(text) + '</div>';
+  }
+
+  function examples(entry) {
+    const rows = (entry.examples || []).map((ex, i) =>
+      '<div class="exrow"><span class="n">' + (i + 1) + '</span>' +
+      '<div class="grow"><div class="dline">' + esc(ex.en) + '</div>' +
+      faLine(ex.fa, 'dline fa') + '</div>' + say(ex.en) + '</div>').join('');
+    return rows ? '<div class="dlabel">Examples — مثال‌ها</div><div class="dex">' +
+      rows + '</div>' : '';
+  }
+
+  function cardShell(kind, level, extraHead, body) {
+    return '<div class="dtop"><span class="dico">' + CARD_ICON[kind] + '</span>' +
+      '<span class="dkind">' + KIND_EN[kind] + '<small>' + KIND_FA[kind] +
+      '</small></span><span class="spacer"></span>' + (extraHead || '') +
+      (level ? '<span class="dlvl">' + esc(level) + '</span>' : '') +
+      '</div>' + body;
+  }
+
+  function wordBody(entry) {
+    let html = '<div class="dword">' + esc(entry.en) +
+      (entry.ipa ? '<span class="dipa">' + esc(entry.ipa) + '</span>' : '') + '</div>';
+    if (entry.pos) html += '<div class="dpos">' + esc(entry.pos) + '</div>';
+    html += faLine(entry.fa);
+    const def = entry.def || {};
+    if (def.en || def.fa) {
+      html += '<div class="dlabel">Meaning — معنی</div>' +
+        '<div class="dline">' + esc(def.en) + '</div>' + faLine(def.fa, 'dline fa');
+    }
+    html += examples(entry);
+    const chips = [];
+    if ((entry.syn || []).length) {
+      chips.push('<span class="dchip"><b>Syn</b> ' + esc(entry.syn.join(' · ')) + '</span>');
+    }
+    if ((entry.ant || []).length) {
+      chips.push('<span class="dchip"><b>Ant</b> ' + esc(entry.ant.join(' · ')) + '</span>');
+    }
+    if (chips.length) html += '<div class="dchips">' + chips.join('') + '</div>';
+    html += '<div class="drow">' + say(entry.en) +
+      '<div class="grow"></div></div>';
+    return html;
+  }
+
+  function expressionBody(entry) {
+    let html = '<div class="drow"><div class="grow"><div class="dquote">“' +
+      esc(entry.en) + '”</div>' + faLine(entry.fa) + '</div>' + say(entry.en) + '</div>';
+    [['use', 'Means — یعنی'], ['when', 'When — کجا به کار می‌رود']].forEach(([f, label]) => {
+      const body = entry[f] || {};
+      if (!body.en && !body.fa) return;
+      html += '<div class="dlabel">' + label + '</div><div class="dline">' +
+        esc(body.en) + '</div>' + faLine(body.fa, 'dline fa');
+    });
+    html += examples(entry);
+    const alt = entry.alt || {};
+    if (alt.en) {
+      html += '<div class="dlabel">Also say — این هم می‌شود</div><div class="drow">' +
+        '<div class="grow"><div class="dline">“' + esc(alt.en) + '”</div>' +
+        faLine(alt.fa, 'dline fa') + '</div>' + say(alt.en) + '</div>';
+    }
+    return html;
+  }
+
+  function conversationBody(entry) {
+    const topic = entry.topic || {};
+    const setting = entry.setting || {};
+    let html = '<div class="dquote">' + esc(topic.en) + '</div>' + faLine(topic.fa);
+    if (setting.en) {
+      html += '<div class="dline">' + esc(setting.en) + '</div>' + faLine(setting.fa, 'dline fa');
+    }
+    html += '<div class="dturns">' + (entry.turns || []).map((t, i) =>
+      '<div class="dturn' + (i % 2 ? ' alt' : '') + '">' +
+      '<div class="dwho">' + esc(t.who) + '</div>' +
+      '<div class="dbubble"><div class="dline">' + esc(t.en) + '</div>' +
+      faLine(t.fa) + '</div>' + say(t.en) + '</div>').join('') + '</div>';
+    if ((entry.key || []).length) {
+      html += '<div class="dchips">' + entry.key.map((k) =>
+        '<span class="dchip">' + esc(k.en) + ' — ' + esc(k.fa) + '</span>').join('') + '</div>';
+    }
+    (entry.notes || []).forEach((n) => {
+      if (n.en) html += '<div class="dnote">' + esc(n.en) + '</div>';
+      if (n.fa) html += faLine(n.fa, 'dnote dfa');
+    });
+    return html;
+  }
+
+  function tools(kind, entry, done) {
+    const play = kind === 'conversations'
+      ? '<button type="button" class="dbtn" data-play="1" aria-pressed="false">▶ Listen to it all — کل مکالمه</button>' +
+        '<button type="button" class="dbtn" data-persian="1" aria-pressed="true">فارسی: روشن / Persian: on</button>'
+      : '';
+    return '<div class="dtools">' + play +
+      '<button type="button" class="dbtn' + (done ? ' on' : '') +
+      '" data-done="' + esc(entry.id) + '" aria-pressed="' + (done ? 'true' : 'false') +
+      '">' + (done ? '✓ Done — انجام شد' : 'Mark as done — انجام دادم') + '</button>' +
+      '</div>';
+  }
+
+  function paintCard(kind, entry, done) {
+    if (!entry) {
+      return '<div class="dcard" data-kind="' + kind + '">' +
+        cardShell(kind, '', '', '<div class="dnone">This item is missing from the ' +
+          'catalogue. / این مورد در کاتالوگ نیست.</div>') + '</div>';
+    }
+    const extraHead = kind === 'expressions' && entry.register
+      ? '<span class="dreg">' + esc(entry.register) + '</span>' : '';
+    const body = kind === 'words' ? wordBody(entry)
+      : kind === 'expressions' ? expressionBody(entry)
+      : conversationBody(entry);
+    return '<div class="dcard' + (done ? ' done' : '') + '" data-kind="' + kind +
+      '">' + cardShell(kind, entry.level, extraHead, body) +
+      tools(kind, entry, done) + '</div>';
+  }
+
+  /* Paint the three cards for the current local date, and the progress that
+     goes with them. Called on open, on the date changing, and on resume. */
+  function paint() {
+    const el = els();
+    if (!el.cards) return;
+    const key = dayKey(new Date());
+    shown = key;
+    if (el.date) el.date.textContent = key;
+    if (!cat) {
+      el.cards.innerHTML = '<div class="dcard"><div class="dnone">' +
+        'Today&rsquo;s English could not be loaded. Check the connection and open ' +
+        'this panel again.<br>درس امروز بارگذاری نشد — یک بار دیگر این بخش را باز کن.' +
+        '</div></div>';
+      return;
+    }
+    picked = {date: key};
+    ORDER.forEach((kind) => {
+      const rows = cat[kind] || [];
+      picked[kind] = rows.length ? rows[dayIndex(dayNumber(key), rows.length, DAY_SALTS[kind])] : null;
+    });
+    const state = DailyStore.read();
+    const ids = ORDER.map((k) => picked[k] && picked[k].id).filter(Boolean);
+    const done = DailyStore.count(state, key, ids);
+    el.cards.innerHTML = ORDER.map((kind) =>
+      paintCard(kind, picked[kind], picked[kind] && DailyStore.isDone(state, key, picked[kind].id))
+    ).join('');
+
+    if (el.count) el.count.textContent = done + ' / 3';
+    if (el.fill) el.fill.style.width = Math.round((done / 3) * 100) + '%';
+    if (el.track) el.track.setAttribute('aria-valuenow', String(done));
+    if (el.badge) {
+      el.badge.textContent = String(done);
+      el.badge.hidden = done === 0;
+    }
+    bind(el.cards);
+  }
+
+  function repaintProgress() {
+    if (!picked) return;
+    const el = els();
+    const key = dayKey(new Date());
+    const state = DailyStore.read();
+    const ids = ORDER.map((k) => picked[k] && picked[k].id).filter(Boolean);
+    const done = DailyStore.count(state, key, ids);
+    if (el.count) el.count.textContent = done + ' / 3';
+    if (el.fill) el.fill.style.width = Math.round((done / 3) * 100) + '%';
+    if (el.track) el.track.setAttribute('aria-valuenow', String(done));
+    if (el.badge) { el.badge.textContent = String(done); el.badge.hidden = done === 0; }
+  }
+
+  /* One delegated listener for the card's three kinds of button, so a repaint
+     never leaves a stale handler behind. */
+  function bind(root) {
+    root.querySelectorAll('[data-say]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const text = b.getAttribute('data-say');
+        if (Speech.isPlaying(text)) { Speech.stop(); b.classList.remove('on'); return; }
+        root.querySelectorAll('.dsay.on').forEach((n) => n.classList.remove('on'));
+        b.classList.add('on');
+        if (!Speech.speak(text, () => b.classList.remove('on'))) b.classList.remove('on');
+      });
+    });
+    root.querySelectorAll('[data-done]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const id = b.getAttribute('data-done');
+        const key = dayKey(new Date());
+        const state = DailyStore.read();
+        const next = !DailyStore.isDone(state, key, id);
+        DailyStore.setDone(state, key, id, next);
+        DailyStore.write(state);
+        b.classList.toggle('on', next);
+        b.setAttribute('aria-pressed', next ? 'true' : 'false');
+        b.textContent = next ? '✓ Done — انجام شد' : 'Mark as done — انجام دادم';
+        b.closest('.dcard').classList.toggle('done', next);
+        repaintProgress();
+      });
+    });
+    root.querySelectorAll('[data-persian]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const card = b.closest('.dcard');
+        const off = card.classList.toggle('persian-off');
+        b.textContent = off ? 'فارسی: خاموش / Persian: off' : 'فارسی: روشن / Persian: on';
+        b.setAttribute('aria-pressed', off ? 'false' : 'true');
+      });
+    });
+    root.querySelectorAll('[data-play]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const kind = b.closest('.dcard').getAttribute('data-kind');
+        const entry = picked && picked[kind];
+        if (!entry) return;
+        if (b.getAttribute('aria-pressed') === 'true') { stopPlay(); return; }
+        playTurns(b, entry.turns || []);
+      });
+    });
+  }
+
+  let playing = null;   // the button of the run in progress, so Stop can find it
+
+  function stopPlay() {
+    if (!playing) return;
+    playing.cancelled = true;
+    Speech.stop();
+    playing.el.textContent = '▶ Listen to it all — کل مکالمه';
+    playing.el.setAttribute('aria-pressed', 'false');
+    playing = null;
+  }
+
+  /* The dialogue, line by line: each turn starts when the previous one ends,
+     which is also how the player bar walks a listening clip. */
+  function playTurns(btn, turns) {
+    if (!turns.length) return;
+    const run = {el: btn, i: 0, cancelled: false};
+    playing = run;
+    btn.textContent = '■ Stop — توقف';
+    btn.setAttribute('aria-pressed', 'true');
+    const next = () => {
+      if (run.cancelled) return;
+      if (run.i >= turns.length) { stopPlay(); return; }
+      const turn = turns[run.i++];
+      if (!Speech.speak(turn.en, next)) stopPlay();
+    };
+    next();
+  }
+
+  /* Everything about the day is already in the catalogue, so "loading" is one
+     file read that happens behind the boot screen. */
+  async function load() {
+    if (cat || failed) return cat;
+    try {
+      cat = await loadJSON('daily');
+    } catch (e) {
+      failed = true;
+      cat = null;
+    }
+    return cat;
+  }
+
+  /* Repaint when the local date has moved on: on open, on resume, and once at
+     the next midnight while the app is left running. No polling - one timer
+     that is re-armed for the following midnight each time it fires. */
+  function refresh(force) {
+    const key = dayKey(new Date());
+    if (!force && key === shown) return;
+    paint();
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      refresh(true);
+      schedule();
+    }, untilLocalMidnight(new Date()));
+  }
+
+  function init() {
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) return;
+      refresh(false);   // resumed: only repaints if the date moved
+      schedule();       // timers do not run while backgrounded
+    });
+    window.addEventListener('focus', () => refresh(false));
+    schedule();
+  }
+
+  return {load, paint, refresh, init, stopPlay};
+})();
+
+async function loadDaily() {
+  await Daily.load();
+  Daily.paint();
+}
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
 const LEVEL_NAMES = {
@@ -5476,6 +6078,7 @@ const Boot = (() => {
  */
 async function loadAllSections() {
   const steps = [
+    ['Today', loadDaily],
     ['Vocabulary', loadVocabulary],
     ['Grammar', loadGrammar],
     ['Sentences', loadPhrases],
@@ -5530,14 +6133,16 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
              loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
-             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch')])
+             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch'),
+             loadJSON('daily')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
           distinctions, idioms, corrections, stt, register, emojis, bbc_6min,
-          word_arch]) => {
+          word_arch, daily]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
-                         phonetics, distinctions, idioms, corrections, register});
+                         phonetics, distinctions, idioms, corrections, register,
+                         daily});
 
     // The Listen panel's catalogue, links only: no transcript is ever served.
     _bbc = bbc_6min;
@@ -5628,6 +6233,7 @@ Player.mount();
 Motion.init();
 Panels.init();
 PanelSearch.attachAll();
+Daily.init();
 
 /* clear conversation */
 /* ---------- clear: button or typed ---------- */

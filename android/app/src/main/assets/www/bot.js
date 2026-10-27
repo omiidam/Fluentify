@@ -59,6 +59,79 @@ const SWITCH_ASK_RE = /^\s*(?:please\s+)?(?:speak|reply|answer|respond|write|tal
 const isLookupAsk = (text, lowered) => LOOKUP_ASK_RE.test(lowered) ||
   LOOKUP_ASK_FA.some((w) => text.includes(w));
 
+/* -------------------------------------------------------- daily english ---
+ * One word, one expression and one conversation per local calendar day.
+ * Selection is a pure function of the local date, mirrored from daily_index()
+ * in chatbot.py: both engines must land on the same three items, and they are
+ * compared on exactly that by tests_js_vs_python.py.
+ *
+ * Calendar days from a fixed epoch, counted in UTC arithmetic so a 23- or
+ * 25-hour day across a daylight-saving change still counts as one day. */
+const DAILY_EPOCH = Date.UTC(2024, 0, 1);
+const DAILY_SALTS = { words: 3, expressions: 11, conversations: 5 };
+
+const localDateKey = (d) => {
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+};
+
+function dailyDayNumber(key) {
+  const [y, m, d] = String(key).split('-').map(Number);
+  return Math.round((Date.UTC(y, m - 1, d) - DAILY_EPOCH) / 86400000);
+}
+
+function dailyGcd(a, b) {
+  while (b) { const t = a % b; a = b; b = t; }
+  return a;
+}
+
+/* A step coprime with the catalogue size: `day * step % size` then walks every
+ * entry before it repeats one, whatever the size is. */
+function dailyStep(size, salt) {
+  if (size <= 1) return 1;
+  let step = 1 + (salt % 9);
+  while (dailyGcd(step, size) !== 1) {
+    step += 1;
+    if (step > size + 1) return 1;
+  }
+  return step;
+}
+
+const dailyIndex = (day, size, salt) =>
+  (size <= 0 ? 0 : (day * dailyStep(size, salt) + salt) % size);
+
+/* Narrow on purpose: "practice" alone belongs to the grammar session and
+ * "lesson" alone to the grammar menu, so only these phrases name the daily
+ * rotation and none of them can take a request from the section that had it. */
+const DAILY_WORD_RE = /\b(?:today'?s? word|word of the day|(?:today'?s?|the) vocabulary word|daily word)\b/;
+const DAILY_EXPRESSION_RE = /\b(?:today'?s? (?:expression|phrase|sentence)|(?:expression|phrase|sentence|idiom) of the day|daily (?:expression|phrase))\b/;
+const DAILY_CONVERSATION_RE = /\b(?:today'?s? (?:conversation|dialogue)|(?:conversation|dialogue) of the day|daily (?:conversation|dialogue))\b/;
+const DAILY_ANY_RE = /\b(?:daily english|daily lesson|daily practice|english of the day|today'?s? (?:lesson|english)|what(?:'s| is) today)\b/;
+const DAILY_WORD_FA = ['لغت امروز', 'کلمه امروز', 'واژه امروز', 'لغت روز', 'کلمهٔ امروز', 'واژهٔ امروز'];
+const DAILY_EXPRESSION_FA = ['عبارت امروز', 'جمله امروز', 'اصطلاح امروز', 'عبارت روز', 'جملهٔ امروز', 'عبارت امروز چیه'];
+const DAILY_CONVERSATION_FA = ['مکالمه امروز', 'گفتگوی امروز', 'مکالمه روز', 'دیالوگ امروز', 'مکالمهٔ امروز'];
+const DAILY_ANY_FA = ['انگلیسی روزانه', 'انگلیسی امروز', 'درس امروز', 'روزانه چی', 'امروز چی یاد', 'امروز چی بخونم'];
+const PRACTICE_ASK = ['practice', 'roleplay', 'role play', 'drill', 'تمرین', 'باهام', 'با من', 'نقش بازی'];
+const EXAMPLES_ASK = ['example', 'examples', 'sentence', 'sentence with', 'مثال', 'جمله بساز', 'چند جمله'];
+
+/* Does what the learner said count as the dialogue's line? Exact match is too
+ * strict for a spoken drill and substring alone is too loose, so the line
+ * passes when either contains the other or four fifths of the expected words
+ * are there. */
+function sameSpoken(spoken, expected) {
+  const norm = (s) => String(s).toLowerCase()
+    .replace(/[^\w' ]+/gu, ' ').replace(/\s+/g, ' ').trim();
+  const said = norm(spoken);
+  const want = norm(expected);
+  if (!said || !want) return false;
+  if (said === want || said.includes(want)) return true;
+  const have = new Set(said.split(' '));
+  const need = want.split(' ');
+  let hits = 0;
+  for (const w of new Set(need)) if (have.has(w)) hits += 1;
+  return hits / Math.max(1, new Set(need).size) >= 0.8;
+}
+
 /* ---------------------------------------------------------------- numbers */
 
 const UNITS = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6,
@@ -441,6 +514,11 @@ class Fluentify {
     this.phonetics = (data.phonetics && data.phonetics.sections) ||
       data.phonetics || [];
     this.register = data.register || null;
+    this.daily = Object.assign(
+      { version: 1, words: [], expressions: [], conversations: [] },
+      data.daily || {});
+    this.today = data.today || null;   // injectable for the tests
+    this.dailyPractice = null;
 
     // glossary: accept either the whole file or just its "domains" map
     const rawGlossary = data.glossary && data.glossary.domains ? data.glossary.domains : data.glossary;
@@ -1071,6 +1149,230 @@ class Fluentify {
     const names = this.listening.map((l) => l.title.en.split(' · ')[0]).join(' · ');
     return `\u{1F3A7} Listening levels — سطح شنیدن: ${names}\n` +
       "Ask: 'listen A1' or 'گوش دادن A1'";
+  }
+
+  /* ------------------------------------------------- daily english ------- */
+
+  dailyKey(dateKey) {
+    return dateKey || this.today || localDateKey(new Date());
+  }
+
+  /* Today's three items. A pure function of the date, so the panel, the CLI
+   * and this engine all show the same card on the same day. */
+  dailySelection(dateKey) {
+    const key = this.dailyKey(dateKey);
+    const day = dailyDayNumber(key);
+    const picked = { date: key, version: this.daily.version || 1 };
+    for (const [name, salt] of Object.entries(DAILY_SALTS)) {
+      const rows = this.daily[name] || [];
+      picked[name] = rows.length ? rows[dailyIndex(day, rows.length, salt)] : null;
+    }
+    return picked;
+  }
+
+  _examplesBlock(entry, lang, head) {
+    const lines = [head];
+    (entry.examples || []).forEach((ex, i) => {
+      lines.push(`   ${i + 1}. ${ex.en}`, `      ↳ ${ex.fa}`);
+    });
+    return lines;
+  }
+
+  formatDailyWord(entry, lang) {
+    const head = lang === 'en'
+      ? '\u{1F4C5}  Word of the Day — لغت امروز'
+      : '\u{1F4C5}  لغت امروز — Word of the Day';
+    const lines = [head, ''];
+    lines.push(`  ${entry.en}   ${entry.ipa || ''}`.replace(/\s+$/, ''));
+    const meta = [entry.pos, entry.level].filter(Boolean).join(' · ');
+    if (meta) lines.push(`  ${meta}`);
+    lines.push(`  ↳ ${entry.fa}`);
+    if (entry.def) lines.push(`  ${entry.def.en || ''}`, `  ↳ ${entry.def.fa || ''}`);
+    lines.push('');
+    lines.push(...this._examplesBlock(entry, lang,
+      lang === 'en' ? '  Examples — مثال‌ها:' : '  مثال‌ها — Examples:'));
+    if (entry.syn) lines.push(`  Synonyms — مترادف: ${entry.syn.join(' · ')}`);
+    if (entry.ant) lines.push(`  Antonyms — متضاد: ${entry.ant.join(' · ')}`);
+    return lines.join('\n');
+  }
+
+  formatDailyExpression(entry, lang, examplesOnly = false) {
+    const head = lang === 'en'
+      ? '\u{1F4C5}  Expression of the Day — عبارت امروز'
+      : '\u{1F4C5}  عبارت امروز — Expression of the Day';
+    const meta = [entry.register, entry.level].filter(Boolean).join(' · ');
+    const lines = [head, '', `  “${entry.en}”`, `  ↳ ${entry.fa}`];
+    if (meta) lines.push(`  ${meta}`);
+    if (!examplesOnly) {
+      for (const [field, label] of [['use', 'Means'], ['when', 'When']]) {
+        const body = entry[field];
+        if (body) lines.push('', `  ${label}: ${body.en || ''}`, `  ↳ ${body.fa || ''}`);
+      }
+    }
+    lines.push('');
+    lines.push(...this._examplesBlock(entry, lang,
+      lang === 'en' ? '  Examples — مثال‌ها:' : '  مثال‌ها — Examples:'));
+    if (entry.alt) {
+      lines.push('', `  Also say: “${entry.alt.en || ''}”`, `  ↳ ${entry.alt.fa || ''}`);
+    }
+    return lines.join('\n');
+  }
+
+  formatDailyConversation(entry, lang) {
+    const head = lang === 'en'
+      ? '\u{1F4C5}  Conversation of the Day — مکالمه امروز'
+      : '\u{1F4C5}  مکالمه امروز — Conversation of the Day';
+    const topic = entry.topic || {};
+    const setting = entry.setting || {};
+    const lines = [head, '',
+      `  ${topic.en || ''} — ${topic.fa || ''}   (${entry.level || ''})`];
+    if (setting.en || setting.fa) lines.push(`  ${setting.en || ''}`, `  ↳ ${setting.fa || ''}`);
+    lines.push('');
+    for (const turn of entry.turns || []) {
+      lines.push(`  ${turn.who}: ${turn.en}`, `      ↳ ${turn.fa}`);
+    }
+    if ((entry.key || []).length) {
+      lines.push('', lang === 'en'
+        ? '  Useful phrases — عبارت‌های کلیدی:'
+        : '  عبارت‌های کلیدی — Useful phrases:');
+      for (const row of entry.key) lines.push(`   • ${row.en}  —  ${row.fa}`);
+    }
+    for (const note of entry.notes || []) {
+      lines.push(`  ↳ ${note.en}`, `    ↳ ${note.fa}`);
+    }
+    lines.push('', lang === 'en'
+      ? "  Practice it: ‘practice today's conversation’"
+      : '  تمرینش کن: «مکالمه امروز رو باهام تمرین کن»');
+    return lines.join('\n');
+  }
+
+  formatDailyDigest(picked, lang) {
+    const head = lang === 'en'
+      ? '\u{1F4C5}  Today\'s English — انگلیسی امروز'
+      : '\u{1F4C5}  انگلیسی امروز — Today\'s English';
+    const parts = [head, `  ${picked.date}`, ''];
+    const word = picked.words;
+    if (word) parts.push(`\u{1F9E0}  ${word.en}  ${word.ipa || ''}  —  ${word.fa}`);
+    const expr = picked.expressions;
+    if (expr) parts.push(`\u{1F5E3}  “${expr.en}”  —  ${expr.fa}`);
+    const conv = picked.conversations;
+    if (conv) {
+      const topic = conv.topic || {};
+      parts.push(`\u{1F4AC}  ${topic.en || ''}  —  ${topic.fa || ''}   (${conv.level || ''})`);
+    }
+    parts.push('');
+    if (lang === 'en') {
+      parts.push("Ask: ‘explain today's word’, ‘today's expression’, " +
+        "‘today's conversation’");
+      parts.push('   ↳ بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»');
+    } else {
+      parts.push('بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»');
+      parts.push("   ↳ Or in English: today's word / expression / conversation");
+    }
+    return parts.join('\n');
+  }
+
+  wantsDaily(text, lowered) {
+    if (DAILY_WORD_RE.test(lowered) || DAILY_WORD_FA.some((w) => text.includes(w))) return 'word';
+    if (DAILY_EXPRESSION_RE.test(lowered) || DAILY_EXPRESSION_FA.some((w) => text.includes(w))) return 'expression';
+    if (DAILY_CONVERSATION_RE.test(lowered) || DAILY_CONVERSATION_FA.some((w) => text.includes(w))) return 'conversation';
+    if (DAILY_ANY_RE.test(lowered) || DAILY_ANY_FA.some((w) => text.includes(w))) return 'all';
+    return null;
+  }
+
+  handleDaily(text, lowered, lang) {
+    const which = this.wantsDaily(text, lowered);
+    if (!which) return null;
+    const picked = this.dailySelection();
+    const wantsPractice = PRACTICE_ASK.some((w) => lowered.includes(w) || text.includes(w));
+    const wantsMore = EXAMPLES_ASK.some((w) => lowered.includes(w) || text.includes(w));
+    if (which === 'word' && picked.words) return this.formatDailyWord(picked.words, lang);
+    if (which === 'expression' && picked.expressions) {
+      return this.formatDailyExpression(picked.expressions, lang, wantsMore);
+    }
+    if (which === 'conversation' && picked.conversations) {
+      if (wantsPractice) return this.startDailyPractice(picked.conversations, lang);
+      return this.formatDailyConversation(picked.conversations, lang);
+    }
+    if (!Object.keys(DAILY_SALTS).some((k) => picked[k])) {
+      return 'The daily catalogue is empty. / کاتالوگ روزانه خالی است.';
+    }
+    return this.formatDailyDigest(picked, lang);
+  }
+
+  startDailyPractice(entry, lang) {
+    const turns = entry.turns || [];
+    if (turns.length < 2) {
+      this.dailyPractice = null;
+      return this.formatDailyConversation(entry, lang);
+    }
+    this.dailyPractice = { id: entry.id, turn: 1, right: 0, said: 0 };
+    const topic = entry.topic || {};
+    const head = lang === 'en'
+      ? '\u{1F5E3}  Practice — تمرین مکالمه'
+      : '\u{1F5E3}  تمرین مکالمه — Practice';
+    const first = turns[0];
+    const mine = turns[1];
+    return [head, '', `  ${topic.en || ''} — ${topic.fa || ''}`, '',
+      `  ${first.who}: ${first.en}`, `      ↳ ${first.fa}`, '',
+      lang === 'fa'
+        ? `  Your line — ${mine.who} چه می‌گوید؟`
+        : `  Your line — what does ${mine.who} say?`,
+      '  (say ‘stop’ to leave / برای خروج بنویس «متوقف»)',
+    ].join('\n');
+  }
+
+  handleDailyPractice(text, lowered, lang) {
+    if (!this.dailyPractice) return null;
+    const session = this.dailyPractice;
+    const entry = (this.daily.conversations || [])
+      .find((c) => c.id === session.id);
+    if (!entry) { this.dailyPractice = null; return null; }
+    const leaving = EXIT_WORDS.some((w) => wordRe(w).test(lowered)) ||
+      EXIT_WORDS_FA.some((w) => text.includes(w));
+    if (leaving) {
+      this.dailyPractice = null;
+      return lang === 'en' ? '👍 Practice ended. / تمرین تمام شد.'
+        : '👍 تمرین تمام شد. / Practice ended.';
+    }
+    // A new daily question leaves the drill rather than being graded as an
+    // answer to the line on screen: somebody reading the cards can ask
+    // "لغت امروز" half way through the dialogue, and "not quite" is the wrong
+    // answer to a question.
+    if (this.wantsDaily(text, lowered)) {
+      this.dailyPractice = null;
+      return null;
+    }
+    const turns = entry.turns || [];
+    const index = session.turn;
+    if (index >= turns.length) { this.dailyPractice = null; return null; }
+    const expected = turns[index].en;
+    session.said += 1;
+    const lines = [];
+    if (sameSpoken(text, expected)) {
+      session.right += 1;
+      lines.push(lang === 'en' ? '✅ Well said — آفرین.' : '✅ آفرین — well said.');
+    } else {
+      lines.push((lang === 'en' ? '❌ Not quite — نه دقیقاً. ' : '❌ نه دقیقاً — not quite. ') +
+        `${turns[index].who}: ${expected}`);
+      lines.push(`      ↳ ${turns[index].fa}`);
+    }
+    const follow = index + 1;
+    if (follow + 1 < turns.length) {
+      session.turn = follow + 1;
+      lines.push('', `  ${turns[follow].who}: ${turns[follow].en}`,
+        `      ↳ ${turns[follow].fa}`, '',
+        lang === 'fa'
+          ? `  Your line — ${turns[follow + 1].who} چه می‌گوید؟`
+          : `  Your line — what does ${turns[follow + 1].who} say?`);
+    } else {
+      this.dailyPractice = null;
+      lines.push('', lang === 'en'
+        ? '\u{1F389} Conversation complete — مکالمه تمام شد.'
+        : '\u{1F389} مکالمه تمام شد — conversation complete.',
+        `  Lines said back: ${session.right}/${session.said}`);
+    }
+    return lines.join('\n');
   }
 
   /* ---------------------------------------------------------- glossary */
@@ -1917,6 +2219,10 @@ class Fluentify {
     const exerciseReply = this.handleExercise(text, lowered, lang);
     if (exerciseReply !== null) return exerciseReply;
 
+    // ...and so does the conversation drill, for the same reason
+    const dailyDrill = this.handleDailyPractice(text, lowered, lang);
+    if (dailyDrill !== null) return dailyDrill;
+
     const learned = this.learnName(text);
 
     const section = this.handleSection(text, lowered, lang);
@@ -1924,6 +2230,13 @@ class Fluentify {
 
     const followup = this.handleFollowup(text, lowered, lang);
     if (followup !== null) return followup;
+
+    // Daily asks are specific phrases ("today's word"), so they can sit this
+    // early without taking anything from the panels below - and they must,
+    // because "conversation" and "lesson" belong to sections that would
+    // otherwise answer first with a list of everything.
+    const daily = this.handleDaily(text, lowered, lang);
+    if (daily !== null) return daily;
 
     let result = this.handleAlphabet(text, lowered);
     if (result === null) result = this.handleLetterLookup(text);

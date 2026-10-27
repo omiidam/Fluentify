@@ -26,6 +26,7 @@ BUNDLED_DATA = [
     "jokes.json", "listening.json", "phonetics.json", "word_arch.json",
     "distinctions.json", "idioms.json", "corrections.json",
     "stt.json", "bbc_6min.json", "register.json", "emojis.json",
+    "daily.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
@@ -224,14 +225,16 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
              loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
-             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch')])
+             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch'),
+             loadJSON('daily')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
           distinctions, idioms, corrections, stt, register, emojis, bbc_6min,
-          word_arch]) => {
+          word_arch, daily]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
-                         phonetics, distinctions, idioms, corrections, register});
+                         phonetics, distinctions, idioms, corrections, register,
+                         daily});
 
     // The Listen panel's catalogue, links only: no transcript is ever served.
     _bbc = bbc_6min;

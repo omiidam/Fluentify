@@ -9,10 +9,11 @@ Memory model inspired by:
 """
 
 import json
+import math
 import random
 import re
 import sys
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
 MEMORY_FILE = Path(__file__).parent / "memory.json"
@@ -26,6 +27,47 @@ IDIOMS_FILE = Path(__file__).parent / "idioms.json"
 REGISTER_FILE = Path(__file__).parent / "register.json"
 CORRECTIONS_FILE = Path(__file__).parent / "corrections.json"
 PHONETICS_FILE = Path(__file__).parent / "phonetics.json"
+DAILY_FILE = Path(__file__).parent / "daily.json"
+
+# The daily rotation counts *calendar* days from one fixed date, so a given
+# local date always yields the same three items - in this engine, in the APK
+# engine, and after any restart. Calendar dates rather than elapsed hours
+# because a 23- or 25-hour day across a daylight-saving change still counts as
+# one day, which is what "a new day" means to the person holding the phone.
+DAILY_EPOCH = date(2024, 1, 1)
+
+# One salt per category, so the word, the expression and the conversation do
+# not march through their catalogues in step with each other.
+DAILY_SALTS = {"words": 3, "expressions": 11, "conversations": 5}
+
+
+def daily_day_number(date_key: str) -> int:
+    """How many days after the epoch a YYYY-MM-DD local date is."""
+    return (date.fromisoformat(date_key) - DAILY_EPOCH).days
+
+
+def daily_step(size: int, salt: int) -> int:
+    """A step that is coprime with the catalogue size.
+
+    With a coprime step, `day * step % size` walks every entry before it comes
+    back to one it has used, whatever the size is - so nothing repeats inside a
+    full rotation and the two engines cannot diverge on how they walk.
+    """
+    if size <= 1:
+        return 1
+    step = 1 + (salt % 9)
+    while math.gcd(step, size) != 1:
+        step += 1
+        if step > size + 1:
+            return 1
+    return step
+
+
+def daily_index(day: int, size: int, salt: int) -> int:
+    """The catalogue slot for a day, or 0 when there is nothing to pick."""
+    if size <= 0:
+        return 0
+    return (day * daily_step(size, salt) + salt) % size
 
 PERSIAN_DIGITS = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
 PERSIAN_TO_ASCII = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
@@ -546,6 +588,60 @@ VAGUE_MEANING_FA = re.compile(
     r"|منظورت\s*(?:از\s*(?:این|اون|آن))?\s*(?:چیه|چیست))\s*[؟?.!]*$"
 )
 
+# --------------------------------------------------------------------------
+# Daily English — the questions that ask for today's three items
+# --------------------------------------------------------------------------
+# Deliberately narrow. "practice" alone belongs to the grammar session and
+# "lesson" alone to the grammar menu; only the phrases below name the daily
+# rotation, so none of them can take a request away from the section that
+# already owned it.
+DAILY_WORD_RE = re.compile(
+    r"\b(?:today'?s? word|word of the day"
+    r"|(?:today'?s?|the) vocabulary word|daily word)\b")
+DAILY_EXPRESSION_RE = re.compile(
+    r"\b(?:today'?s? (?:expression|phrase|sentence)"
+    r"|(?:expression|phrase|sentence|idiom) of the day|daily (?:expression|phrase))\b")
+DAILY_CONVERSATION_RE = re.compile(
+    r"\b(?:today'?s? (?:conversation|dialogue)"
+    r"|(?:conversation|dialogue) of the day"
+    r"|daily (?:conversation|dialogue))\b")
+DAILY_ANY_RE = re.compile(
+    r"\b(?:daily english|daily lesson|daily practice|english of the day"
+    r"|today'?s? (?:lesson|english)|what(?:'s| is) today)\b")
+DAILY_WORD_FA = ("لغت امروز", "کلمه امروز", "واژه امروز", "لغت روز",
+                 "کلمهٔ امروز", "واژهٔ امروز")
+DAILY_EXPRESSION_FA = ("عبارت امروز", "جمله امروز", "اصطلاح امروز", "عبارت روز",
+                       "جملهٔ امروز", "عبارت امروز چیه")
+DAILY_CONVERSATION_FA = ("مکالمه امروز", "گفتگوی امروز", "مکالمه روز",
+                         "دیالوگ امروز", "مکالمهٔ امروز")
+DAILY_ANY_FA = ("انگلیسی روزانه", "انگلیسی امروز", "درس امروز", "روزانه چی",
+                "امروز چی یاد", "امروز چی بخونم")
+PRACTICE_ASK = ("practice", "roleplay", "role play", "drill",
+                "تمرین", "باهام", "با من", "نقش بازی")
+EXAMPLES_ASK = ("example", "examples", "sentence", "sentence with",
+                "مثال", "جمله بساز", "چند جمله")
+
+
+def same_spoken(spoken: str, expected: str) -> bool:
+    """Does what the learner said count as the dialogue's line?
+
+    Exact match is too strict for a spoken drill and substring is too loose, so
+    the line passes when either contains the other or when four fifths of the
+    expected words are there. Punctuation and case are ignored - nobody says a
+    full stop.
+    """
+    def norm(s: str) -> str:
+        s = re.sub(r"[^\w' ]+", " ", s.lower(), flags=re.UNICODE)
+        return re.sub(r"\s+", " ", s).strip()
+
+    said, want = norm(spoken), norm(expected)
+    if not said or not want:
+        return False
+    if said == want or want in said:
+        return True
+    have, need = set(said.split()), set(want.split())
+    return len(have & need) / max(1, len(need)) >= 0.8
+
 
 class ChatBot:
     def __init__(
@@ -560,6 +656,8 @@ class ChatBot:
         corrections_path: Path = CORRECTIONS_FILE,
         phonetics_path: Path = PHONETICS_FILE,
         register_path: Path = REGISTER_FILE,
+        daily_path: Path = DAILY_FILE,
+        today: str | None = None,
     ):
         with open(memory_path, encoding="utf-8") as f:
             self.memory = json.load(f)
@@ -611,6 +709,16 @@ class ChatBot:
         if phonetics_path.exists():
             with open(phonetics_path, encoding="utf-8") as f:
                 self.phonetics = json.load(f).get("sections", [])
+        self.daily = {"version": 1, "words": [], "expressions": [],
+                      "conversations": []}
+        if daily_path.exists():
+            with open(daily_path, encoding="utf-8") as f:
+                self.daily = json.load(f)
+        # "today" is normally the device's own local date. It is injectable so
+        # the tests can walk a year across a daylight-saving boundary without
+        # waiting for one or touching the system clock.
+        self.today = today
+        self.daily_practice = None   # active conversation walk-through
         self._clean_answers()   # last: it reads the loaded topics
 
 
@@ -2028,6 +2136,263 @@ class ChatBot:
         return None
 
     # ------------------------------------------------------------------ #
+    #  Daily English — one word, one expression, one conversation a day
+    # ------------------------------------------------------------------ #
+    def daily_key(self, date_key: str | None = None) -> str:
+        """The local calendar date the rotation is on, as YYYY-MM-DD."""
+        return date_key or self.today or datetime.now().date().isoformat()
+
+    def daily_selection(self, date_key: str | None = None) -> dict:
+        """Today's three items. Selection is a pure function of the date, so
+        the CLI, the web preview and the offline APK all show the same card."""
+        key = self.daily_key(date_key)
+        day = daily_day_number(key)
+        picked = {"date": key, "version": self.daily.get("version", 1)}
+        for name, salt in DAILY_SALTS.items():
+            rows = self.daily.get(name) or []
+            picked[name] = rows[daily_index(day, len(rows), salt)] if rows else None
+        return picked
+
+    @staticmethod
+    def _examples_block(entry: dict, lang: str, head: str) -> list[str]:
+        lines = [head]
+        for i, ex in enumerate(entry.get("examples", []), 1):
+            lines.append(f"   {i}. {ex['en']}")
+            lines.append(f"      ↳ {ex['fa']}")
+        return lines
+
+    def format_daily_word(self, entry: dict, lang: str) -> str:
+        head = ("\U0001f4c5  Word of the Day — لغت امروز" if lang == "en"
+                else "\U0001f4c5  لغت امروز — Word of the Day")
+        lines = [head, ""]
+        lines.append(f"  {entry['en']}   {entry.get('ipa', '')}".rstrip())
+        meta = " · ".join(x for x in (entry.get("pos", ""), entry.get("level", ""))
+                          if x)
+        if meta:
+            lines.append(f"  {meta}")
+        lines.append(f"  ↳ {entry['fa']}")
+        definition = entry.get("def") or {}
+        if definition:
+            lines.append(f"  {definition.get('en', '')}")
+            lines.append(f"  ↳ {definition.get('fa', '')}")
+        lines.append("")
+        lines += self._examples_block(
+            entry, lang,
+            "  Examples — مثال‌ها:" if lang == "en" else "  مثال‌ها — Examples:")
+        if entry.get("syn"):
+            lines.append("  Synonyms — مترادف: " + " · ".join(entry["syn"]))
+        if entry.get("ant"):
+            lines.append("  Antonyms — متضاد: " + " · ".join(entry["ant"]))
+        return "\n".join(lines)
+
+    def format_daily_expression(self, entry: dict, lang: str,
+                               examples_only: bool = False) -> str:
+        head = ("\U0001f4c5  Expression of the Day — عبارت امروز" if lang == "en"
+                else "\U0001f4c5  عبارت امروز — Expression of the Day")
+        meta = " · ".join(x for x in (entry.get("register", ""),
+                                      entry.get("level", "")) if x)
+        lines = [head, ""]
+        lines.append(f"  “{entry['en']}”")
+        lines.append(f"  ↳ {entry['fa']}")
+        if meta:
+            lines.append(f"  {meta}")
+        if not examples_only:
+            for field, label in (("use", "Means"), ("when", "When")):
+                body = entry.get(field) or {}
+                if body:
+                    lines.append("")
+                    lines.append(f"  {label}: {body.get('en', '')}")
+                    lines.append(f"  ↳ {body.get('fa', '')}")
+        lines.append("")
+        lines += self._examples_block(
+            entry, lang,
+            "  Examples — مثال‌ها:" if lang == "en" else "  مثال‌ها — Examples:")
+        alt = entry.get("alt") or {}
+        if alt:
+            lines.append("")
+            lines.append(f"  Also say: “{alt.get('en', '')}”")
+            lines.append(f"  ↳ {alt.get('fa', '')}")
+        return "\n".join(lines)
+
+    def format_daily_conversation(self, entry: dict, lang: str) -> str:
+        head = ("\U0001f4c5  Conversation of the Day — مکالمه امروز" if lang == "en"
+                else "\U0001f4c5  مکالمه امروز — Conversation of the Day")
+        topic = entry.get("topic") or {}
+        setting = entry.get("setting") or {}
+        lines = [head, ""]
+        lines.append(f"  {topic.get('en', '')} — {topic.get('fa', '')}"
+                     f"   ({entry.get('level', '')})")
+        if setting:
+            lines.append(f"  {setting.get('en', '')}")
+            lines.append(f"  ↳ {setting.get('fa', '')}")
+        lines.append("")
+        for turn in entry.get("turns", []):
+            lines.append(f"  {turn['who']}: {turn['en']}")
+            lines.append(f"      ↳ {turn['fa']}")
+        if entry.get("key"):
+            lines.append("")
+            lines.append("  Useful phrases — عبارت‌های کلیدی:" if lang == "en"
+                         else "  عبارت‌های کلیدی — Useful phrases:")
+            for row in entry["key"]:
+                lines.append(f"   • {row['en']}  —  {row['fa']}")
+        for note in entry.get("notes", []):
+            lines.append(f"  ↳ {note['en']}")
+            lines.append(f"    ↳ {note['fa']}")
+        lines.append("")
+        lines.append("  Practice it: ‘practice today's conversation’" if lang == "en"
+                     else "  تمرینش کن: «مکالمه امروز رو باهام تمرین کن»")
+        return "\n".join(lines)
+
+    def format_daily_digest(self, picked: dict, lang: str) -> str:
+        """All three at once, which is what the panel shows as three cards."""
+        head = ("\U0001f4c5  Today's English — انگلیسی امروز" if lang == "en"
+                else "\U0001f4c5  انگلیسی امروز — Today's English")
+        parts = [head, f"  {picked['date']}", ""]
+        word = picked.get("words")
+        if word:
+            parts.append(f"\U0001f9e0  {word['en']}  {word.get('ipa', '')}  —  {word['fa']}")
+        expr = picked.get("expressions")
+        if expr:
+            parts.append(f"\U0001f5e3  “{expr['en']}”  —  {expr['fa']}")
+        conv = picked.get("conversations")
+        if conv:
+            topic = conv.get("topic") or {}
+            parts.append(f"\U0001f4ac  {topic.get('en', '')}  —  {topic.get('fa', '')}"
+                         f"   ({conv.get('level', '')})")
+        parts.append("")
+        if lang == "en":
+            parts.append("Ask: ‘explain today's word’, ‘today's expression’, "
+                         "‘today's conversation’")
+            parts.append("   ↳ بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»")
+        else:
+            parts.append("بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»")
+            parts.append("   ↳ Or in English: today's word / expression / conversation")
+        return "\n".join(parts)
+
+    def wants_daily(self, text: str, lowered: str) -> str | None:
+        """Which daily item the message asks for: word | expression |
+        conversation | all, or None when it is not a daily request."""
+        if DAILY_WORD_RE.search(lowered) or any(w in text for w in DAILY_WORD_FA):
+            return "word"
+        if DAILY_EXPRESSION_RE.search(lowered) or any(w in text for w in DAILY_EXPRESSION_FA):
+            return "expression"
+        if DAILY_CONVERSATION_RE.search(lowered) or any(w in text for w in DAILY_CONVERSATION_FA):
+            return "conversation"
+        if DAILY_ANY_RE.search(lowered) or any(w in text for w in DAILY_ANY_FA):
+            return "all"
+        return None
+
+    def handle_daily(self, text: str, lowered: str, lang: str) -> str | None:
+        which = self.wants_daily(text, lowered)
+        if not which:
+            return None
+        picked = self.daily_selection()
+        wants_practice = any(w in lowered for w in PRACTICE_ASK) \
+            or any(w in text for w in PRACTICE_ASK)
+        wants_more = any(w in lowered for w in EXAMPLES_ASK) \
+            or any(w in text for w in EXAMPLES_ASK)
+        if which == "word" and picked.get("words"):
+            return self.format_daily_word(picked["words"], lang)
+        if which == "expression" and picked.get("expressions"):
+            return self.format_daily_expression(picked["expressions"], lang,
+                                                examples_only=wants_more)
+        if which == "conversation" and picked.get("conversations"):
+            if wants_practice:
+                return self.start_daily_practice(picked["conversations"], lang)
+            return self.format_daily_conversation(picked["conversations"], lang)
+        if not any(picked.get(k) for k in DAILY_SALTS):
+            return ("The daily catalogue is empty. / کاتالوگ روزانه خالی است.")
+        return self.format_daily_digest(picked, lang)
+
+    def start_daily_practice(self, entry: dict, lang: str) -> str:
+        """Walk the dialogue: the bot says a line, the learner says the next."""
+        turns = entry.get("turns") or []
+        if len(turns) < 2:
+            self.daily_practice = None
+            return self.format_daily_conversation(entry, lang)
+        self.daily_practice = {"id": entry["id"], "turn": 1, "right": 0,
+                               "said": 0}
+        topic = entry.get("topic") or {}
+        head = ("\U0001f5e3  Practice — تمرین مکالمه" if lang == "en"
+                else "\U0001f5e3  تمرین مکالمه — Practice")
+        first, mine = turns[0], turns[1]
+        return "\n".join([
+            head, "",
+            f"  {topic.get('en', '')} — {topic.get('fa', '')}",
+            "",
+            f"  {first['who']}: {first['en']}",
+            f"      ↳ {first['fa']}",
+            "",
+            f"  Your line — {mine['who']} چه می‌گوید؟" if lang == "fa"
+            else f"  Your line — what does {mine['who']} say?",
+            "  (say ‘stop’ to leave / برای خروج بنویس «متوقف»)",
+        ])
+
+    def handle_daily_practice(self, text: str, lowered: str,
+                              lang: str) -> str | None:
+        """The active conversation drill owns the next message, the way an
+        active grammar exercise does."""
+        if not self.daily_practice:
+            return None
+        session = self.daily_practice
+        entry = next((c for c in self.daily.get("conversations", [])
+                      if c.get("id") == session["id"]), None)
+        if entry is None:
+            self.daily_practice = None
+            return None
+        if lowered.strip() in self.EXIT_WORDS \
+                or any(w in text for w in self.EXIT_WORDS_FA):
+            self.daily_practice = None
+            return ("\U0001f44d Practice ended. / تمرین تمام شد." if lang == "en"
+                    else "\U0001f44d تمرین تمام شد. / Practice ended.")
+        # A new daily question leaves the drill rather than being graded as an
+        # answer to the line on screen: somebody reading the cards can ask
+        # "لغت امروز" half way through the dialogue, and "not quite" is the
+        # wrong answer to a question.
+        if self.wants_daily(text, lowered):
+            self.daily_practice = None
+            return None
+        turns = entry.get("turns") or []
+        index = session["turn"]
+        if index >= len(turns):
+            self.daily_practice = None
+            return None
+        expected = turns[index]["en"]
+        session["said"] += 1
+        lines = []
+        if same_spoken(text, expected):
+            session["right"] += 1
+            lines.append("\u2705 Well said — آفرین." if lang == "en"
+                         else "\u2705 آفرین — well said.")
+        else:
+            lines.append("\u274c Not quite — نه دقیقاً. "
+                         f"{turns[index]['who']}: {expected}"
+                         if lang == "en" else
+                         "\u274c نه دقیقاً — not quite. "
+                         f"{turns[index]['who']}: {expected}")
+            lines.append(f"      ↳ {turns[index]['fa']}")
+        follow = index + 1
+        if follow + 1 < len(turns):
+            session["turn"] = follow + 1
+            lines += [
+                "",
+                f"  {turns[follow]['who']}: {turns[follow]['en']}",
+                f"      ↳ {turns[follow]['fa']}",
+                "",
+                (f"  Your line — {turns[follow + 1]['who']} چه می‌گوید؟"
+                 if lang == "fa" else
+                 f"  Your line — what does {turns[follow + 1]['who']} say?"),
+            ]
+        else:
+            self.daily_practice = None
+            done = f"{session['right']}/{session['said']}"
+            lines += ["",
+                      "\U0001f389 Conversation complete — مکالمه تمام شد." if lang == "en"
+                      else "\U0001f389 مکالمه تمام شد — conversation complete.",
+                      f"  Lines said back: {done}"]
+        return "\n".join(lines)
+
+    # ------------------------------------------------------------------ #
     #  Glossary (vocabulary domains + word lookup)
     # ------------------------------------------------------------------ #
     def handle_domain_list(self, text: str, lowered: str, lang: str) -> str | None:
@@ -2362,6 +2727,11 @@ class ChatBot:
         if exercise_reply is not None:
             return exercise_reply
 
+        # ...and so does the conversation drill, for the same reason
+        daily_drill = self.handle_daily_practice(text, lowered, lang)
+        if daily_drill is not None:
+            return daily_drill
+
         learned = self.learn_name(text)
 
         # Structured knowledge first
@@ -2372,6 +2742,14 @@ class ChatBot:
         followup = self.handle_followup(text, lowered, lang)
         if followup is not None:
             return followup
+
+        # Daily English asks are specific phrases ("today's word"), so they can
+        # sit this early without taking anything from the panels below - and
+        # they must, because "conversation" and "lesson" belong to sections
+        # that would otherwise answer first with a list of everything.
+        daily = self.handle_daily(text, lowered, lang)
+        if daily is not None:
+            return daily
 
         result = self.handle_alphabet(text, lowered)
         if result is None:

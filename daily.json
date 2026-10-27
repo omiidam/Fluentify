@@ -1,0 +1,5404 @@
+{
+ "_readme": [
+  "Daily English: one word, one expression and one conversation per local",
+  "calendar day. Selection is a pure function of the date (see daily_index in",
+  "chatbot.py and dailyIndex in bot.js), so the CLI, the web preview and the",
+  "APK show the same three items on the same day and never reshuffle them.",
+  "",
+  "words          en, pos, ipa, fa, def{en,fa}, level, examples[2]{en,fa},",
+  "               optional syn[] / ant[]",
+  "expressions    en, fa, level, register, use{en,fa}, when{en,fa},",
+  "               examples[2]{en,fa}, alt{en,fa}",
+  "conversations  topic{en,fa}, level, setting{en,fa}, turns[6-10]{who,en,fa},",
+  "               key[]{en,fa}, notes[]{en,fa}",
+  "",
+  "Longer catalogues simply mean a longer stretch before the rotation wraps.",
+  ""
+ ],
+ "version": 1,
+ "words": [
+  {
+   "id": "w001",
+   "en": "busy",
+   "pos": "adjective",
+   "ipa": "/ˈbɪzi/",
+   "fa": "شلوغ، سرش شلوغ",
+   "def": {
+    "en": "Having a lot to do, or full of activity.",
+    "fa": "کسی که کار زیادی دارد یا جایی پر از رفت‌وآمد است."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "I'm busy this morning, but I'm free after lunch.",
+     "fa": "امروز صبح سرم شلوغ است، اما بعد از ناهار آزادم."
+    },
+    {
+     "en": "The restaurant is busy on Friday nights.",
+     "fa": "رستوران شب‌های جمعه شلوغ است."
+    }
+   ],
+   "syn": [
+    "occupied"
+   ],
+   "ant": [
+    "free"
+   ]
+  },
+  {
+   "id": "w002",
+   "en": "cheap",
+   "pos": "adjective",
+   "ipa": "/tʃiːp/",
+   "fa": "ارزان",
+   "def": {
+    "en": "Costing little money.",
+    "fa": "چیزی که پول کمی می‌خواهد."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "The tickets were cheap, so we bought two.",
+     "fa": "بلیت‌ها ارزان بود، پس دو تا خریدیم."
+    },
+    {
+     "en": "Is there a cheaper way to get there?",
+     "fa": "راه ارزان‌تری برای رفتن به آنجا هست؟"
+    }
+   ],
+   "syn": [
+    "inexpensive"
+   ],
+   "ant": [
+    "expensive"
+   ]
+  },
+  {
+   "id": "w003",
+   "en": "expensive",
+   "pos": "adjective",
+   "ipa": "/ɪkˈspensɪv/",
+   "fa": "گران",
+   "def": {
+    "en": "Costing a lot of money.",
+    "fa": "چیزی که پول زیادی می‌خواهد."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "That coat is too expensive for me.",
+     "fa": "آن کت برای من خیلی گران است."
+    },
+    {
+     "en": "Eating out every day gets expensive.",
+     "fa": "هر روز بیرون غذا خوردن گران تمام می‌شود."
+    }
+   ],
+   "syn": [
+    "pricey"
+   ],
+   "ant": [
+    "cheap"
+   ]
+  },
+  {
+   "id": "w004",
+   "en": "noisy",
+   "pos": "adjective",
+   "ipa": "/ˈnɔɪzi/",
+   "fa": "پرسروصدا",
+   "def": {
+    "en": "Making a lot of sound, in a way that annoys people.",
+    "fa": "جایی یا چیزی که صدای زیادی می‌کند و آزاردهنده است."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "My neighbours are noisy at night.",
+     "fa": "همسایه‌های من شب‌ها پرسروصدا هستند."
+    },
+    {
+     "en": "It was too noisy to talk on the phone.",
+     "fa": "آن‌قدر پرسروصدا بود که نشد تلفنی حرف زد."
+    }
+   ],
+   "syn": [
+    "loud"
+   ],
+   "ant": [
+    "quiet"
+   ]
+  },
+  {
+   "id": "w005",
+   "en": "quiet",
+   "pos": "adjective",
+   "ipa": "/ˈkwaɪət/",
+   "fa": "ساکت، آرام",
+   "def": {
+    "en": "Making little or no sound.",
+    "fa": "صدای کم داشتن یا هیچ صدایی نداشتن."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "Please be quiet — the baby is asleep.",
+     "fa": "لطفاً ساکت باش — بچه خواب است."
+    },
+    {
+     "en": "We found a quiet café to study in.",
+     "fa": "یک کافهٔ آرام برای درس خواندن پیدا کردیم."
+    }
+   ],
+   "syn": [
+    "silent",
+    "still"
+   ],
+   "ant": [
+    "noisy"
+   ]
+  },
+  {
+   "id": "w006",
+   "en": "crowded",
+   "pos": "adjective",
+   "ipa": "/ˈkraʊdɪd/",
+   "fa": "شلوغ (پر از جمعیت)",
+   "def": {
+    "en": "Full of people.",
+    "fa": "جایی که پرِ آدم است."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "The metro is crowded at eight in the morning.",
+     "fa": "مترو ساعت هشت صبح شلوغ است."
+    },
+    {
+     "en": "We left because the shop was too crowded.",
+     "fa": "رفتیم بیرون چون مغازه بیش از حد شلوغ بود."
+    }
+   ],
+   "syn": [
+    "packed",
+    "busy"
+   ],
+   "ant": [
+    "empty"
+   ]
+  },
+  {
+   "id": "w007",
+   "en": "empty",
+   "pos": "adjective",
+   "ipa": "/ˈempti/",
+   "fa": "خالی",
+   "def": {
+    "en": "Having nothing or nobody inside.",
+    "fa": "چیزی که هیچ‌چیز یا هیچ‌کس در آن نیست."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "The bottle is empty — can you fill it?",
+     "fa": "بطری خالی است — می‌توانی پرش کنی؟"
+    },
+    {
+     "en": "The street was empty at midnight.",
+     "fa": "نیمه‌شب خیابان خالی بود."
+    }
+   ],
+   "syn": [
+    "bare"
+   ],
+   "ant": [
+    "full"
+   ]
+  },
+  {
+   "id": "w008",
+   "en": "full",
+   "pos": "adjective",
+   "ipa": "/fʊl/",
+   "fa": "پر",
+   "def": {
+    "en": "Holding as much as it can, or having no space left.",
+    "fa": "چیزی که تا آخر پر است یا جا خالی ندارد."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "The bus was full, so we waited for the next one.",
+     "fa": "اتوبوس پر بود، پس منتظر بعدی ماندیم."
+    },
+    {
+     "en": "I'm full — I can't eat any more.",
+     "fa": "سیر شدم — بیشتر از این نمی‌توانم بخورم."
+    }
+   ],
+   "syn": [
+    "packed"
+   ],
+   "ant": [
+    "empty"
+   ]
+  },
+  {
+   "id": "w009",
+   "en": "healthy",
+   "pos": "adjective",
+   "ipa": "/ˈhelθi/",
+   "fa": "سالم",
+   "def": {
+    "en": "Good for your body, or in good physical condition.",
+    "fa": "برای بدن خوب بودن یا در وضعیت جسمی خوب بودن."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "She stays healthy by walking every day.",
+     "fa": "او با پیاده‌روی روزانه سالم می‌ماند."
+    },
+    {
+     "en": "Fruit is a healthy snack.",
+     "fa": "میوه یک خوراکی سالم است."
+    }
+   ],
+   "syn": [
+    "well",
+    "fit"
+   ],
+   "ant": [
+    "unhealthy"
+   ]
+  },
+  {
+   "id": "w010",
+   "en": "safe",
+   "pos": "adjective",
+   "ipa": "/seɪf/",
+   "fa": "امن، بی‌خطر",
+   "def": {
+    "en": "Not in danger, and not likely to cause harm.",
+    "fa": "در خطر نبودن یا آسیب‌زا نبودن."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "Is this neighbourhood safe at night?",
+     "fa": "این محله شب‌ها امن است؟"
+    },
+    {
+     "en": "Keep your passport in a safe place.",
+     "fa": "پاسپورتت را جای امنی نگه دار."
+    }
+   ],
+   "syn": [
+    "secure"
+   ],
+   "ant": [
+    "dangerous"
+   ]
+  },
+  {
+   "id": "w011",
+   "en": "boring",
+   "pos": "adjective",
+   "ipa": "/ˈbɔːrɪŋ/",
+   "fa": "خسته‌کننده، کسل‌کننده",
+   "def": {
+    "en": "Not interesting, so it makes you tired to watch or do.",
+    "fa": "چیزی که جالب نیست و آدم را خسته می‌کند."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "The film was boring, so we left early.",
+     "fa": "فیلم خسته‌کننده بود، پس زودتر رفتیم."
+    },
+    {
+     "en": "I find long meetings boring.",
+     "fa": "جلسه‌های طولانی برای من خسته‌کننده است."
+    }
+   ],
+   "syn": [
+    "dull",
+    "tedious"
+   ],
+   "ant": [
+    "interesting"
+   ]
+  },
+  {
+   "id": "w012",
+   "en": "funny",
+   "pos": "adjective",
+   "ipa": "/ˈfʌni/",
+   "fa": "خنده‌دار، بامزه",
+   "def": {
+    "en": "Making you laugh.",
+    "fa": "چیزی که باعث خنده‌ات می‌شود."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "He told a funny story about his first job.",
+     "fa": "او یک داستان خنده‌دار از اولین شغلش تعریف کرد."
+    },
+    {
+     "en": "You look funny in that hat.",
+     "fa": "با آن کلاه خنده‌دار به نظر می‌رسی."
+    }
+   ],
+   "syn": [
+    "amusing",
+    "hilarious"
+   ],
+   "ant": [
+    "serious"
+   ]
+  },
+  {
+   "id": "w013",
+   "en": "ready",
+   "pos": "adjective",
+   "ipa": "/ˈredi/",
+   "fa": "آماده",
+   "def": {
+    "en": "Prepared for what is going to happen.",
+    "fa": "برای کاری که می‌خواهد پیش بیاید آماده بودن."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "Are you ready to order?",
+     "fa": "برای سفارش دادن آماده‌ای؟"
+    },
+    {
+     "en": "I'll be ready in five minutes.",
+     "fa": "پنج دقیقه دیگر آماده می‌شوم."
+    }
+   ],
+   "syn": [
+    "prepared",
+    "set"
+   ],
+   "ant": [
+    "unprepared"
+   ]
+  },
+  {
+   "id": "w014",
+   "en": "early",
+   "pos": "adjective, adverb",
+   "ipa": "/ˈɜːli/",
+   "fa": "زود",
+   "def": {
+    "en": "Before the usual or expected time.",
+    "fa": "پیش از زمان معمول یا انتظار‌رفته."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "I woke up early and went for a run.",
+     "fa": "زود بیدار شدم و رفتم بدوم."
+    },
+    {
+     "en": "The train arrived ten minutes early.",
+     "fa": "قطار ده دقیقه زود رسید."
+    }
+   ],
+   "syn": [
+    "prompt"
+   ],
+   "ant": [
+    "late"
+   ]
+  },
+  {
+   "id": "w015",
+   "en": "late",
+   "pos": "adjective, adverb",
+   "ipa": "/leɪt/",
+   "fa": "دیر",
+   "def": {
+    "en": "After the usual or expected time.",
+    "fa": "بعد از زمان معمول یا انتظار‌رفته."
+   },
+   "level": "A1",
+   "examples": [
+    {
+     "en": "Sorry I'm late — the bus didn't come.",
+     "fa": "ببخشید دیر کردم — اتوبوس نیامد."
+    },
+    {
+     "en": "It's late, so let's finish tomorrow.",
+     "fa": "دیر شده، پس فردا تمامش کنیم."
+    }
+   ],
+   "syn": [
+    "behind schedule"
+   ],
+   "ant": [
+    "early"
+   ]
+  },
+  {
+   "id": "w016",
+   "en": "borrow",
+   "pos": "verb",
+   "ipa": "/ˈbɒrəʊ/",
+   "fa": "قرض گرفتن",
+   "def": {
+    "en": "To take something for a short time and give it back.",
+    "fa": "چیزی را برای مدتی کوتاه گرفتن و پس دادن."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "Can I borrow your pen for a minute?",
+     "fa": "می‌توانم یک دقیقه خودکارت را قرض بگیرم؟"
+    },
+    {
+     "en": "He borrowed three books from the library.",
+     "fa": "او سه کتاب از کتابخانه قرض گرفت."
+    }
+   ],
+   "syn": [
+    "take on loan"
+   ],
+   "ant": [
+    "lend"
+   ]
+  },
+  {
+   "id": "w017",
+   "en": "lend",
+   "pos": "verb",
+   "ipa": "/lend/",
+   "fa": "قرض دادن",
+   "def": {
+    "en": "To give something to someone for a short time.",
+    "fa": "چیزی را برای مدتی کوتاه به کسی دادن."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "She lent me her umbrella yesterday.",
+     "fa": "او دیروز چترش را به من قرض داد."
+    },
+    {
+     "en": "I never lend money to friends.",
+     "fa": "من هرگز به دوستانم پول قرض نمی‌دهم."
+    }
+   ],
+   "syn": [
+    "loan"
+   ],
+   "ant": [
+    "borrow"
+   ]
+  },
+  {
+   "id": "w018",
+   "en": "tidy",
+   "pos": "adjective",
+   "ipa": "/ˈtaɪdi/",
+   "fa": "مرتب، منظم",
+   "def": {
+    "en": "Arranged neatly, with everything in its place.",
+    "fa": "چیزی که مرتب چیده شده و هر چیز سر جای خودش است."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "Her desk is always tidy.",
+     "fa": "میز او همیشه مرتب است."
+    },
+    {
+     "en": "Let's tidy the kitchen before they arrive.",
+     "fa": "قبل از رسیدنشان آشپزخانه را مرتب کنیم."
+    }
+   ],
+   "syn": [
+    "neat",
+    "organised"
+   ],
+   "ant": [
+    "messy"
+   ]
+  },
+  {
+   "id": "w019",
+   "en": "messy",
+   "pos": "adjective",
+   "ipa": "/ˈmesi/",
+   "fa": "نامرتب، به‌هم‌ریخته",
+   "def": {
+    "en": "Untidy, or with things spread around.",
+    "fa": "بی‌نظم یا پرت‌وپلا."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "My room gets messy when I'm busy.",
+     "fa": "اتاقم وقتی سرم شلوغ است نامرتب می‌شود."
+    },
+    {
+     "en": "Painting is a messy hobby.",
+     "fa": "نقاشی سرگرمی کثیف‌کاری است."
+    }
+   ],
+   "syn": [
+    "untidy",
+    "cluttered"
+   ],
+   "ant": [
+    "tidy"
+   ]
+  },
+  {
+   "id": "w020",
+   "en": "polite",
+   "pos": "adjective",
+   "ipa": "/pəˈlaɪt/",
+   "fa": "مؤدب",
+   "def": {
+    "en": "Behaving in a way that shows respect for other people.",
+    "fa": "رفتاری که احترام به دیگران را نشان می‌دهد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "It is polite to thank people who help you.",
+     "fa": "مؤدبانه است که از کسانی که کمکت می‌کنند تشکر کنی."
+    },
+    {
+     "en": "She asked a polite question and waited for the answer.",
+     "fa": "او مؤدبانه سؤال پرسید و منتظر جواب ماند."
+    }
+   ],
+   "syn": [
+    "courteous",
+    "respectful"
+   ],
+   "ant": [
+    "rude"
+   ]
+  },
+  {
+   "id": "w021",
+   "en": "careful",
+   "pos": "adjective",
+   "ipa": "/ˈkeəfl/",
+   "fa": "مراقب، دقیق",
+   "def": {
+    "en": "Giving attention to what you are doing so nothing goes wrong.",
+    "fa": "توجه داشتن به کاری که می‌کنی تا چیزی خراب نشود."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "Be careful with the hot water.",
+     "fa": "مراقب آب جوش باش."
+    },
+    {
+     "en": "She is careful about what she writes in email.",
+     "fa": "او در آنچه در ایمیل می‌نویسد دقت می‌کند."
+    }
+   ],
+   "syn": [
+    "cautious",
+    "attentive"
+   ],
+   "ant": [
+    "careless"
+   ]
+  },
+  {
+   "id": "w022",
+   "en": "patient",
+   "pos": "adjective",
+   "ipa": "/ˈpeɪʃnt/",
+   "fa": "صبور",
+   "def": {
+    "en": "Able to wait or keep trying without getting angry.",
+    "fa": "توانایی صبر کردن یا ادامه دادن بدون عصبانی شدن."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "You have to be patient with a new language.",
+     "fa": "باید با یک زبان تازه صبور باشی."
+    },
+    {
+     "en": "He is patient with beginners.",
+     "fa": "او با مبتدی‌ها صبور است."
+    }
+   ],
+   "syn": [
+    "tolerant"
+   ],
+   "ant": [
+    "impatient"
+   ]
+  },
+  {
+   "id": "w023",
+   "en": "generous",
+   "pos": "adjective",
+   "ipa": "/ˈdʒenərəs/",
+   "fa": "دست‌ودل‌باز، سخاوتمند",
+   "def": {
+    "en": "Happy to give money, time or help to others.",
+    "fa": "کسی که با خوشحالی پول، وقت یا کمکش را به دیگران می‌دهد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "That was a generous thing to do.",
+     "fa": "کار سخاوتمندانه‌ای بود."
+    },
+    {
+     "en": "My aunt is generous with her time.",
+     "fa": "خالهٔ من با وقتش دست‌ودل‌باز است."
+    }
+   ],
+   "syn": [
+    "kind",
+    "open-handed"
+   ],
+   "ant": [
+    "stingy"
+   ]
+  },
+  {
+   "id": "w024",
+   "en": "curious",
+   "pos": "adjective",
+   "ipa": "/ˈkjʊəriəs/",
+   "fa": "کنجکاو",
+   "def": {
+    "en": "Wanting to know or understand something.",
+    "fa": "کسی که می‌خواهد چیزی را بداند یا بفهمد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Children are curious about everything.",
+     "fa": "بچه‌ها دربارهٔ همه‌چیز کنجکاو هستند."
+    },
+    {
+     "en": "I was curious, so I opened the letter.",
+     "fa": "کنجکاو شدم، پس نامه را باز کردم."
+    }
+   ],
+   "syn": [
+    "interested",
+    "inquisitive"
+   ],
+   "ant": [
+    "indifferent"
+   ]
+  },
+  {
+   "id": "w025",
+   "en": "reliable",
+   "pos": "adjective",
+   "ipa": "/rɪˈlaɪəbl/",
+   "fa": "قابل اعتماد",
+   "def": {
+    "en": "Able to be trusted to do what is promised.",
+    "fa": "کسی یا چیزی که می‌توان به قولش اعتماد کرد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "She is the most reliable person on the team.",
+     "fa": "او قابل‌اعتمادترین آدم تیم است."
+    },
+    {
+     "en": "The bus is reliable, but today it was late.",
+     "fa": "اتوبوس قابل‌اعتماد است، اما امروز دیر آمد."
+    }
+   ],
+   "syn": [
+    "dependable",
+    "steady"
+   ],
+   "ant": [
+    "unreliable"
+   ]
+  },
+  {
+   "id": "w026",
+   "en": "awkward",
+   "pos": "adjective",
+   "ipa": "/ˈɔːkwəd/",
+   "fa": "معذب، ناشیانه",
+   "def": {
+    "en": "Uncomfortable or embarrassing, often in a social situation.",
+    "fa": "ناخوشایند یا خجالت‌آور، بیشتر در موقعیت اجتماعی."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "There was an awkward silence after my question.",
+     "fa": "بعد از سؤال من سکوت معذبی شد."
+    },
+    {
+     "en": "It felt awkward to ask for the money back.",
+     "fa": "پس گرفتن پول، حس ناخوشایندی داشت."
+    }
+   ],
+   "syn": [
+    "uncomfortable",
+    "clumsy"
+   ],
+   "ant": [
+    "relaxed"
+   ]
+  },
+  {
+   "id": "w027",
+   "en": "exhausting",
+   "pos": "adjective",
+   "ipa": "/ɪɡˈzɔːstɪŋ/",
+   "fa": "طاقت‌فرسا",
+   "def": {
+    "en": "Making you extremely tired.",
+    "fa": "چیزی که آدم را به‌شدت خسته می‌کند."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "Moving house is exhausting.",
+     "fa": "اسباب‌کشی طاقت‌فرساست."
+    },
+    {
+     "en": "It was an exhausting day, but a good one.",
+     "fa": "روز طاقت‌فرسایی بود، اما روز خوبی بود."
+    }
+   ],
+   "syn": [
+    "tiring",
+    "draining"
+   ],
+   "ant": [
+    "restful"
+   ]
+  },
+  {
+   "id": "w028",
+   "en": "urgent",
+   "pos": "adjective",
+   "ipa": "/ˈɜːdʒənt/",
+   "fa": "فوری",
+   "def": {
+    "en": "Needing attention straight away.",
+    "fa": "چیزی که باید همین حالا به آن رسیدگی شود."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "This email is urgent — please answer today.",
+     "fa": "این ایمیل فوری است — لطفاً امروز جواب بده."
+    },
+    {
+     "en": "Is it urgent, or can it wait until Monday?",
+     "fa": "فوری است یا می‌تواند تا دوشنبه صبر کند؟"
+    }
+   ],
+   "syn": [
+    "pressing",
+    "critical"
+   ],
+   "ant": [
+    "optional"
+   ]
+  },
+  {
+   "id": "w029",
+   "en": "convenient",
+   "pos": "adjective",
+   "ipa": "/kənˈviːniənt/",
+   "fa": "به‌موقع و راحت",
+   "def": {
+    "en": "Easy to use, or fitting well with your plans.",
+    "fa": "استفاده‌اش راحت است یا با برنامه‌هایت جور است."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Is three o'clock convenient for you?",
+     "fa": "ساعت سه برایت مناسب است؟"
+    },
+    {
+     "en": "Online banking is very convenient.",
+     "fa": "بانکداری آنلاین خیلی راحت است."
+    }
+   ],
+   "syn": [
+    "handy",
+    "suitable"
+   ],
+   "ant": [
+    "inconvenient"
+   ]
+  },
+  {
+   "id": "w030",
+   "en": "confusing",
+   "pos": "adjective",
+   "ipa": "/kənˈfjuːzɪŋ/",
+   "fa": "گیج‌کننده",
+   "def": {
+    "en": "Hard to understand because it is not clear.",
+    "fa": "چیزی که روشن نیست و فهمیدنش سخت است."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "The instructions were confusing.",
+     "fa": "دستورالعمل‌ها گیج‌کننده بود."
+    },
+    {
+     "en": "It is confusing when two words sound the same.",
+     "fa": "وقتی دو کلمه یک‌شکل شنیده می‌شوند، گیج‌کننده است."
+    }
+   ],
+   "syn": [
+    "unclear",
+    "puzzling"
+   ],
+   "ant": [
+    "clear"
+   ]
+  },
+  {
+   "id": "w031",
+   "en": "impressive",
+   "pos": "adjective",
+   "ipa": "/ɪmˈpresɪv/",
+   "fa": "تحسین‌برانگیز",
+   "def": {
+    "en": "So good that people notice and admire it.",
+    "fa": "آن‌قدر خوب که آدم‌ها متوجه می‌شوند و تحسین می‌کنند."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Your pronunciation is impressive.",
+     "fa": "تلفظت تحسین‌برانگیز است."
+    },
+    {
+     "en": "It was an impressive first attempt.",
+     "fa": "تلاش اول تحسین‌برانگیزی بود."
+    }
+   ],
+   "syn": [
+    "remarkable",
+    "striking"
+   ],
+   "ant": [
+    "ordinary"
+   ]
+  },
+  {
+   "id": "w032",
+   "en": "affordable",
+   "pos": "adjective",
+   "ipa": "/əˈfɔːdəbl/",
+   "fa": "مقرون‌به‌صرفه",
+   "def": {
+    "en": "Cheap enough for ordinary people to pay for.",
+    "fa": "آن‌قدر ارزان که آدم‌های معمولی از عهده‌اش برآیند."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "They are looking for an affordable flat near work.",
+     "fa": "دنبال یک آپارتمان مقرون‌به‌صرفه نزدیک محل کارشان هستند."
+    },
+    {
+     "en": "Healthy food should be affordable.",
+     "fa": "غذای سالم باید مقرون‌به‌صرفه باشد."
+    }
+   ],
+   "syn": [
+    "reasonable"
+   ],
+   "ant": [
+    "overpriced"
+   ]
+  },
+  {
+   "id": "w033",
+   "en": "stressful",
+   "pos": "adjective",
+   "ipa": "/ˈstresfl/",
+   "fa": "پراسترس",
+   "def": {
+    "en": "Making you feel worried and under pressure.",
+    "fa": "چیزی که آدم را نگران و تحت فشار می‌کند."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Exams are stressful, but they end.",
+     "fa": "امتحان‌ها پراسترس هستند، اما تمام می‌شوند."
+    },
+    {
+     "en": "It was a stressful week at work.",
+     "fa": "هفتهٔ پراسترسی در محل کار بود."
+    }
+   ],
+   "syn": [
+    "tense",
+    "demanding"
+   ],
+   "ant": [
+    "relaxing"
+   ]
+  },
+  {
+   "id": "w034",
+   "en": "improve",
+   "pos": "verb",
+   "ipa": "/ɪmˈpruːv/",
+   "fa": "بهتر کردن، پیشرفت کردن",
+   "def": {
+    "en": "To get better, or to make something better.",
+    "fa": "بهتر شدن یا چیزی را بهتر کردن."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "My English improved after two months here.",
+     "fa": "انگلیسی من بعد از دو ماه بودن در اینجا بهتر شد."
+    },
+    {
+     "en": "Reading ten minutes a day helps you improve.",
+     "fa": "روزی ده دقیقه خواندن به پیشرفتت کمک می‌کند."
+    }
+   ],
+   "syn": [
+    "get better"
+   ],
+   "ant": [
+    "worsen"
+   ]
+  },
+  {
+   "id": "w035",
+   "en": "complain",
+   "pos": "verb",
+   "ipa": "/kəmˈpleɪn/",
+   "fa": "شکایت کردن",
+   "def": {
+    "en": "To say that something is wrong or you are not happy with it.",
+    "fa": "گفتن اینکه چیزی خراب است یا ناراضی هستی."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "He complained that the room was cold.",
+     "fa": "او شکایت کرد که اتاق سرد بود."
+    },
+    {
+     "en": "I don't want to complain, but the order is late.",
+     "fa": "نمی‌خواهم شکایت کنم، اما سفارش دیر شده است."
+    }
+   ],
+   "syn": [
+    "object",
+    "grumbled"
+   ],
+   "ant": [
+    "praise"
+   ]
+  },
+  {
+   "id": "w036",
+   "en": "remind",
+   "pos": "verb",
+   "ipa": "/rɪˈmaɪnd/",
+   "fa": "یادآوری کردن",
+   "def": {
+    "en": "To help someone remember something.",
+    "fa": "کمک کردن به کسی که چیزی را به یاد بیاورد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Remind me to call my brother tomorrow.",
+     "fa": "یادم بیاور فردا به برادرم زنگ بزنم."
+    },
+    {
+     "en": "That song reminds me of my school years.",
+     "fa": "آن آهنگ سال‌های مدرسه‌ام را یادم می‌آورد."
+    }
+   ],
+   "syn": [
+    "prompt"
+   ],
+   "ant": [
+    "forget"
+   ]
+  },
+  {
+   "id": "w037",
+   "en": "suggest",
+   "pos": "verb",
+   "ipa": "/səˈdʒest/",
+   "fa": "پیشنهاد دادن",
+   "def": {
+    "en": "To give an idea for someone to think about.",
+    "fa": "نظر یا ایده‌ای دادن تا طرف مقابل درباره‌اش فکر کند."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "I suggest we start with the easy questions.",
+     "fa": "پیشنهاد می‌کنم با سؤال‌های آسان شروع کنیم."
+    },
+    {
+     "en": "She suggested meeting at the library.",
+     "fa": "او پیشنهاد داد در کتابخانه همدیگر را ببینیم."
+    }
+   ],
+   "syn": [
+    "propose",
+    "recommend"
+   ],
+   "ant": [
+    "refuse"
+   ]
+  },
+  {
+   "id": "w038",
+   "en": "avoid",
+   "pos": "verb",
+   "ipa": "/əˈvɔɪd/",
+   "fa": "اجتناب کردن، پرهیز کردن",
+   "def": {
+    "en": "To stay away from something, or stop it happening.",
+    "fa": "از چیزی دوری کردن یا نگذاشتن که پیش بیاید."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "I avoid checking my phone in the morning.",
+     "fa": "صبح‌ها از چک کردن گوشی‌ام پرهیز می‌کنم."
+    },
+    {
+     "en": "Leave early to avoid the traffic.",
+     "fa": "زود راه بیفت تا از ترافیک دوری کنی."
+    }
+   ],
+   "syn": [
+    "dodge",
+    "prevent"
+   ],
+   "ant": [
+    "seek"
+   ]
+  },
+  {
+   "id": "w039",
+   "en": "manage",
+   "pos": "verb",
+   "ipa": "/ˈmænɪdʒ/",
+   "fa": "رسیدگی کردن، توانستن",
+   "def": {
+    "en": "To succeed in doing something difficult, or to be in charge of it.",
+    "fa": "توانستن در کار سختی یا مسئولیت چیزی را داشتن."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "I managed to finish the report by Friday.",
+     "fa": "توانستم گزارش را تا جمعه تمام کنم."
+    },
+    {
+     "en": "She manages a small team in the city.",
+     "fa": "او یک تیم کوچک در شهر را اداره می‌کند."
+    }
+   ],
+   "syn": [
+    "handle",
+    "cope"
+   ],
+   "ant": [
+    "fail"
+   ]
+  },
+  {
+   "id": "w040",
+   "en": "achieve",
+   "pos": "verb",
+   "ipa": "/əˈtʃiːv/",
+   "fa": "به دست آوردن، دست یافتن",
+   "def": {
+    "en": "To succeed in reaching a goal, usually with effort.",
+    "fa": "با تلاش به هدف رسیدن."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "He achieved his best score in the last exam.",
+     "fa": "او در آخرین آزمون بهترین نمره‌اش را گرفت."
+    },
+    {
+     "en": "You can't achieve fluency in a week.",
+     "fa": "در یک هفته نمی‌توانی به روانی برسی."
+    }
+   ],
+   "syn": [
+    "reach",
+    "attain"
+   ],
+   "ant": [
+    "fail"
+   ]
+  },
+  {
+   "en": "confident",
+   "pos": "adjective",
+   "ipa": "/ˈkɒnfɪdənt/",
+   "fa": "بااعتمادبه‌نفس، مطمئن",
+   "def": {
+    "en": "Sure that you can do something well, or sure that something is true.",
+    "fa": "مطمئن به توانایی خودت یا مطمئن به درستی چیزی."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "She felt confident before the interview and it went well.",
+     "fa": "قبل از مصاحبه اعتمادبه‌نفس داشت و خوب پیش رفت."
+    },
+    {
+     "en": "I'm confident we can finish this by Friday.",
+     "fa": "مطمئنم می‌توانیم این را تا جمعه تمام کنیم."
+    }
+   ],
+   "syn": [
+    "self-assured",
+    "certain"
+   ],
+   "ant": [
+    "unsure",
+    "nervous"
+   ],
+   "id": "w041"
+  },
+  {
+   "en": "nervous",
+   "pos": "adjective",
+   "ipa": "/ˈnɜːvəs/",
+   "fa": "مضطرب، نگران",
+   "def": {
+    "en": "Worried or a little afraid about something that is going to happen.",
+    "fa": "نگران یا کمی ترسیده از چیزی که قرار است اتفاق بیفتد."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "I always get nervous before I speak in public.",
+     "fa": "قبل از صحبت در جمع همیشه مضطرب می‌شوم."
+    },
+    {
+     "en": "Don't be nervous — everyone is here to help.",
+     "fa": "نگران نباش — همه اینجا هستیم تا کمک کنیم."
+    }
+   ],
+   "syn": [
+    "anxious",
+    "worried"
+   ],
+   "ant": [
+    "relaxed",
+    "calm"
+   ],
+   "id": "w042"
+  },
+  {
+   "en": "annoying",
+   "pos": "adjective",
+   "ipa": "/əˈnɔɪɪŋ/",
+   "fa": "آزاردهنده، رو‌مخ",
+   "def": {
+    "en": "Slightly upsetting or irritating, in a way that is hard to ignore.",
+    "fa": "کمی آزاردهنده یا کلافه‌کننده، به شکلی که نمی‌شود نادیده گرفت."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "That noise from the street is really annoying.",
+     "fa": "آن سر و صدای خیابان واقعاً آزاردهنده است."
+    },
+    {
+     "en": "It's annoying when the bus is late and nobody tells you.",
+     "fa": "آزاردهنده است وقتی اتوبوس دیر می‌رسد و کسی چیزی نمی‌گوید."
+    }
+   ],
+   "syn": [
+    "irritating"
+   ],
+   "ant": [
+    "pleasant"
+   ],
+   "id": "w043"
+  },
+  {
+   "en": "worth",
+   "pos": "adjective",
+   "ipa": "/wɜːθ/",
+   "fa": "ارزیدن، ارزش داشتن",
+   "def": {
+    "en": "Good or useful enough to justify the time, money or effort.",
+    "fa": "به‌قدر کافی خوب یا مفید که ارزش وقت، پول یا زحمتش را داشته باشد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "The museum is worth a visit if you have an hour.",
+     "fa": "اگر یک ساعت وقت داری، موزه ارزش یک بازدید را دارد."
+    },
+    {
+     "en": "It was expensive, but it was worth it.",
+     "fa": "گران بود، اما ارزشش را داشت."
+    }
+   ],
+   "syn": [
+    "worthwhile"
+   ],
+   "id": "w044"
+  },
+  {
+   "en": "reasonable",
+   "pos": "adjective",
+   "ipa": "/ˈriːznəbl/",
+   "fa": "معقول، منصفانه",
+   "def": {
+    "en": "Fair and sensible; about a price, not too expensive.",
+    "fa": "منصفانه و منطقی؛ درباره قیمت، نه خیلی گران."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "The hotel was clean and the price was reasonable.",
+     "fa": "هتل تمیز بود و قیمتش معقول."
+    },
+    {
+     "en": "That sounds like a reasonable plan to me.",
+     "fa": "به نظر من آن برنامه معقولی است."
+    }
+   ],
+   "syn": [
+    "fair",
+    "sensible"
+   ],
+   "ant": [
+    "unreasonable"
+   ],
+   "id": "w045"
+  },
+  {
+   "en": "brief",
+   "pos": "adjective",
+   "ipa": "/briːf/",
+   "fa": "کوتاه، مختصر",
+   "def": {
+    "en": "Lasting a short time, or using few words.",
+    "fa": "کوتاه‌مدت، یا با کلمات کم."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "We had a brief chat before the meeting started.",
+     "fa": "قبل از شروع جلسه گفت‌وگوی کوتاهی داشتیم."
+    },
+    {
+     "en": "Keep your answer brief — two or three sentences.",
+     "fa": "جوابت را مختصر نگه دار — دو یا سه جمله."
+    }
+   ],
+   "syn": [
+    "short",
+    "quick"
+   ],
+   "ant": [
+    "lengthy"
+   ],
+   "id": "w046"
+  },
+  {
+   "en": "obvious",
+   "pos": "adjective",
+   "ipa": "/ˈɒbviəs/",
+   "fa": "واضح، بدیهی",
+   "def": {
+    "en": "Easy to see or understand; not hidden at all.",
+    "fa": "آسان برای دیدن یا فهمیدن؛ اصلاً پنهان نیست."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "It was obvious from her face that she was tired.",
+     "fa": "از صورتش واضح بود که خسته است."
+    },
+    {
+     "en": "Sorry — that was an obvious mistake.",
+     "fa": "ببخشید — آن یک اشتباه واضح بود."
+    }
+   ],
+   "syn": [
+    "clear",
+    "plain"
+   ],
+   "ant": [
+    "unclear"
+   ],
+   "id": "w047"
+  },
+  {
+   "en": "slightly",
+   "pos": "adverb",
+   "ipa": "/ˈslaɪtli/",
+   "fa": "کمی، تا حدی",
+   "def": {
+    "en": "A little, but not very much.",
+    "fa": "کمی، اما نه خیلی زیاد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Could you speak slightly more slowly, please?",
+     "fa": "می‌شود کمی آهسته‌تر صحبت کنید، لطفاً؟"
+    },
+    {
+     "en": "The second one is slightly cheaper.",
+     "fa": "دومی کمی ارزان‌تر است."
+    }
+   ],
+   "syn": [
+    "a bit"
+   ],
+   "ant": [
+    "greatly"
+   ],
+   "id": "w048"
+  },
+  {
+   "en": "actually",
+   "pos": "adverb",
+   "ipa": "/ˈæktʃuəli/",
+   "fa": "در واقع، راستش",
+   "def": {
+    "en": "Used to correct something or to say what is really true.",
+    "fa": "برای تصحیح چیزی یا گفتن حقیقت واقعی به کار می‌رود."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "It looks difficult, but it's actually quite easy.",
+     "fa": "سخت به نظر می‌رسد، اما در واقع خیلی هم آسان است."
+    },
+    {
+     "en": "Actually, I've never been to that café.",
+     "fa": "راستش، من هرگز آن کافه نرفته‌ام."
+    }
+   ],
+   "syn": [
+    "in fact",
+    "really"
+   ],
+   "id": "w049"
+  },
+  {
+   "en": "eventually",
+   "pos": "adverb",
+   "ipa": "/ɪˈventʃuəli/",
+   "fa": "سرانجام، در نهایت",
+   "def": {
+    "en": "In the end, after a long time or after several attempts.",
+    "fa": "در پایان، بعد از مدت‌ها یا بعد از چند تلاش."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "I eventually found the shop on the third street I tried.",
+     "fa": "سرانجام در خیابان سومی که امتحان کردم مغازه را پیدا کردم."
+    },
+    {
+     "en": "Keep practising and you'll eventually get it.",
+     "fa": "به تمرین ادامه بده و در نهایت یادش می‌گیری."
+    }
+   ],
+   "syn": [
+    "finally"
+   ],
+   "ant": [
+    "immediately"
+   ],
+   "id": "w050"
+  },
+  {
+   "en": "apparently",
+   "pos": "adverb",
+   "ipa": "/əˈpærəntli/",
+   "fa": "ظاهراً، بنابر گفته‌ها",
+   "def": {
+    "en": "Used for something you have heard but are not sure about.",
+    "fa": "برای چیزی که شنیده‌ای اما مطمئن نیستی."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "Apparently the train is cancelled, but they haven't announced it yet.",
+     "fa": "ظاهراً قطار لغو شده، اما هنوز اعلام نکرده‌اند."
+    },
+    {
+     "en": "She's apparently moving to another city next month.",
+     "fa": "بنا به گفته‌ها ماه آینده به شهر دیگری می‌رود."
+    }
+   ],
+   "syn": [
+    "seemingly"
+   ],
+   "id": "w051"
+  },
+  {
+   "en": "immediately",
+   "pos": "adverb",
+   "ipa": "/ɪˈmiːdiətli/",
+   "fa": "فوراً، بی‌درنگ",
+   "def": {
+    "en": "At once, with no waiting at all.",
+    "fa": "بی‌درنگ، بدون هیچ معطلی."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Please call me immediately if anything changes.",
+     "fa": "لطفاً اگر چیزی تغییر کرد فوراً به من زنگ بزن."
+    },
+    {
+     "en": "He answered the phone immediately.",
+     "fa": "او بلافاصله تلفن را جواب داد."
+    }
+   ],
+   "syn": [
+    "right away",
+    "at once"
+   ],
+   "ant": [
+    "later"
+   ],
+   "id": "w052"
+  },
+  {
+   "en": "handle",
+   "pos": "verb",
+   "ipa": "/ˈhændl/",
+   "fa": "از پس چیزی برآمدن، رسیدگی کردن",
+   "def": {
+    "en": "To deal with a situation, a problem or a task.",
+    "fa": "رسیدگی کردن به یک موقعیت، مشکل یا کار."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "She handled the angry customer calmly.",
+     "fa": "او با آرامش با مشتری عصبانی برخورد کرد."
+    },
+    {
+     "en": "I can handle the paperwork on my own.",
+     "fa": "می‌توانم خودم کارهای کاغذی را انجام دهم."
+    }
+   ],
+   "syn": [
+    "deal with",
+    "manage"
+   ],
+   "id": "w053"
+  },
+  {
+   "en": "arrange",
+   "pos": "verb",
+   "ipa": "/əˈreɪndʒ/",
+   "fa": "ترتیب دادن، هماهنگ کردن",
+   "def": {
+    "en": "To plan or organize something so that it happens.",
+    "fa": "برنامه‌ریزی یا هماهنگ کردن چیزی تا اتفاق بیفتد."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "Could we arrange a meeting for next week?",
+     "fa": "می‌توانیم جلسه‌ای برای هفته آینده ترتیب بدهیم؟"
+    },
+    {
+     "en": "She arranged the chairs in a circle.",
+     "fa": "او صندلی‌ها را به شکل دایره چید."
+    }
+   ],
+   "syn": [
+    "organise",
+    "set up"
+   ],
+   "id": "w054"
+  },
+  {
+   "en": "postpone",
+   "pos": "verb",
+   "ipa": "/pəˈspəʊn/",
+   "fa": "به تعویق انداختن، عقب انداختن",
+   "def": {
+    "en": "To move an event to a later time or date.",
+    "fa": "جابه‌جا کردن یک رویداد به زمان یا تاریخ دیرتر."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "We had to postpone the picnic because of the rain.",
+     "fa": "به‌خاطر باران مجبور شدیم پیک‌نیک را عقب بیندازیم."
+    },
+    {
+     "en": "Can we postpone our lesson to Thursday?",
+     "fa": "می‌شود درس‌مان را به پنجشنبه منتقل کنیم؟"
+    }
+   ],
+   "syn": [
+    "put off",
+    "delay"
+   ],
+   "ant": [
+    "bring forward"
+   ],
+   "id": "w055"
+  },
+  {
+   "en": "recover",
+   "pos": "verb",
+   "ipa": "/rɪˈkʌvə/",
+   "fa": "بهبود یافتن، حالش بهتر شدن",
+   "def": {
+    "en": "To become well again after an illness, or to get better after a problem.",
+    "fa": "دوباره خوب شدن بعد از بیماری، یا بهبود یافتن بعد از یک مشکل."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "It took him two weeks to recover from the flu.",
+     "fa": "دو هفته طول کشید تا از آنفولانزا بهبود پیدا کند."
+    },
+    {
+     "en": "The city is still recovering from the storm.",
+     "fa": "شهر هنوز از طوفان در حال بازیابی است."
+    }
+   ],
+   "syn": [
+    "get better",
+    "heal"
+   ],
+   "id": "w056"
+  },
+  {
+   "en": "apologise",
+   "pos": "verb",
+   "ipa": "/əˈpɒlədʒaɪz/",
+   "fa": "عذرخواهی کردن",
+   "def": {
+    "en": "To say sorry for something you did.",
+    "fa": "برای کاری که کرده‌ای معذرت خواستن."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "I apologise for the delay — the traffic was terrible.",
+     "fa": "برای تأخیر عذرخواهی می‌کنم — ترافیک وحشتناک بود."
+    },
+    {
+     "en": "He apologised to his neighbour for the noise.",
+     "fa": "او برای سر و صدا از همسایه‌اش عذرخواهی کرد."
+    }
+   ],
+   "syn": [
+    "say sorry"
+   ],
+   "id": "w057"
+  },
+  {
+   "en": "waste",
+   "pos": "verb",
+   "ipa": "/weɪst/",
+   "fa": "هدر دادن، تلف کردن",
+   "def": {
+    "en": "To use something carelessly, so that it is lost for nothing.",
+    "fa": "بی‌دقت استفاده کردن از چیزی، طوری که بیهوده از دست برود."
+   },
+   "level": "A2",
+   "examples": [
+    {
+     "en": "Don't waste water while you brush your teeth.",
+     "fa": "وقتی مسواک می‌زنی آب را هدر نده."
+    },
+    {
+     "en": "I wasted an hour waiting for a bus that never came.",
+     "fa": "یک ساعت تلف کردم منتظر اتوبوسی که هرگز نیامد."
+    }
+   ],
+   "syn": [
+    "throw away"
+   ],
+   "ant": [
+    "save"
+   ],
+   "id": "w058"
+  },
+  {
+   "en": "owe",
+   "pos": "verb",
+   "ipa": "/əʊ/",
+   "fa": "بدهکار بودن",
+   "def": {
+    "en": "To need to give somebody money or something else back.",
+    "fa": "لازم بودن که پول یا چیز دیگری را به کسی برگردانی."
+   },
+   "level": "B1",
+   "examples": [
+    {
+     "en": "I still owe you ten pounds from last week.",
+     "fa": "از هفته پیش هنوز ده پوند به تو بدهکارم."
+    },
+    {
+     "en": "You owe me an explanation.",
+     "fa": "به من توضیحی بدهکاری."
+    }
+   ],
+   "syn": [
+    "be in debt"
+   ],
+   "id": "w059"
+  },
+  {
+   "en": "admit",
+   "pos": "verb",
+   "ipa": "/ədˈmɪt/",
+   "fa": "اعتراف کردن، پذیرفتن",
+   "def": {
+    "en": "To agree, often unwillingly, that something is true.",
+    "fa": "قبول کردن، اغلب با اکراه، که چیزی درست است."
+   },
+   "level": "B2",
+   "examples": [
+    {
+     "en": "I admit I forgot about the meeting.",
+     "fa": "اعتراف می‌کنم جلسه را فراموش کردم."
+    },
+    {
+     "en": "She admitted that the plan had a problem.",
+     "fa": "او پذیرفت که آن برنامه مشکلی دارد."
+    }
+   ],
+   "syn": [
+    "confess",
+    "acknowledge"
+   ],
+   "ant": [
+    "deny"
+   ],
+   "id": "w060"
+  }
+ ],
+ "expressions": [
+  {
+   "id": "e001",
+   "en": "That makes sense.",
+   "fa": "منطقیه، می‌فهمم چرا.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "You understand why something is true or reasonable.",
+    "fa": "می‌فهمی چیزی چرا درست یا معقول است."
+   },
+   "when": {
+    "en": "After someone explains their reason.",
+    "fa": "وقتی کسی دلیلش را توضیح می‌دهد."
+   },
+   "examples": [
+    {
+     "en": "A: I study early because I'm more focused then. — B: That makes sense.",
+     "fa": "الف: صبح زود درس می‌خوانم چون تمرکزم بهتر است. — ب: منطقیه."
+    },
+    {
+     "en": "I see the logic now — that makes sense.",
+     "fa": "الان منطقش را می‌فهمم — معقول است."
+    }
+   ],
+   "alt": {
+    "en": "That's fair.",
+    "fa": "قبول است."
+   }
+  },
+  {
+   "id": "e002",
+   "en": "No worries.",
+   "fa": "مشکلی نیست.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "Said when someone apologises or thanks you, to show it is fine.",
+    "fa": "وقتی کسی عذرخواهی می‌کند یا تشکر می‌کند، برای نشان دادن اینکه مشکلی نیست."
+   },
+   "when": {
+    "en": "Casual situations with friends, family or colleagues you know well.",
+    "fa": "موقعیت‌های خودمانی با دوست، خانواده یا همکاران نزدیک."
+   },
+   "examples": [
+    {
+     "en": "A: Sorry I'm late! — B: No worries, we just sat down.",
+     "fa": "الف: ببخشید دیر کردم! — ب: مشکلی نیست، تازه نشستیم."
+    },
+    {
+     "en": "Thanks for the lift. — No worries at all.",
+     "fa": "ممنون که رساندی. — کاری نکردم."
+    }
+   ],
+   "alt": {
+    "en": "No problem at all.",
+    "fa": "اصلاً مشکلی نیست."
+   }
+  },
+  {
+   "id": "e003",
+   "en": "I'm on my way.",
+   "fa": "دارم می‌آیم.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "You have started travelling and will arrive soon.",
+    "fa": "راه افتاده‌ای و به‌زودی می‌رسی."
+   },
+   "when": {
+    "en": "On the phone when you are late or expected somewhere.",
+    "fa": "وقتی تلفنی حرف می‌زنی و دیر کرده‌ای یا منتظرت هستند."
+   },
+   "examples": [
+    {
+     "en": "I'm on my way — ten minutes, maybe less.",
+     "fa": "دارم می‌آیم — ده دقیقه، شاید کمتر."
+    },
+    {
+     "en": "Tell her I'm on my way and I'll call when I park.",
+     "fa": "به او بگو دارم می‌آیم و وقتی پارک کردم زنگ می‌زنم."
+    }
+   ],
+   "alt": {
+    "en": "I'm heading over now.",
+    "fa": "همین حالا راه می‌افتم."
+   }
+  },
+  {
+   "id": "e004",
+   "en": "How's it going?",
+   "fa": "چطور پیش می‌رود؟ چطوری؟",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "A friendly way to ask how someone is or how their work is.",
+    "fa": "راهی دوستانه برای پرسیدن حال کسی یا پیشرفت کارش."
+   },
+   "when": {
+    "en": "Greeting a friend or colleague you see regularly.",
+    "fa": "احوال‌پرسی از دوست یا همکاری که مرتب می‌بینی."
+   },
+   "examples": [
+    {
+     "en": "Hey, how's it going?",
+     "fa": "سلام، چطور پیش می‌رود؟"
+    },
+    {
+     "en": "How's it going with the new job?",
+     "fa": "کار جدید چطور پیش می‌رود؟"
+    }
+   ],
+   "alt": {
+    "en": "How are things?",
+    "fa": "اوضاع چطور است؟"
+   }
+  },
+  {
+   "id": "e005",
+   "en": "Long time no see!",
+   "fa": "چقدر ندیدمت!",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "Said when you meet someone you have not seen for a long time.",
+    "fa": "وقتی کسی را بعد از مدت‌ها می‌بینی گفته می‌شود."
+   },
+   "when": {
+    "en": "Meeting an old friend or colleague by chance.",
+    "fa": "دیدن اتفاقی یک دوست یا همکار قدیمی."
+   },
+   "examples": [
+    {
+     "en": "Long time no see! You look great.",
+     "fa": "چقدر ندیدمت! خیلی خوب به نظر می‌رسی."
+    },
+    {
+     "en": "Long time no see — how long has it been, two years?",
+     "fa": "چقدر ندیدمت — چند سال گذشته، دو سال؟"
+    }
+   ],
+   "alt": {
+    "en": "It's been ages!",
+    "fa": "خیلی وقت است!"
+   }
+  },
+  {
+   "id": "e006",
+   "en": "What do you mean?",
+   "fa": "منظورت چیه؟",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "You did not understand what someone said and want it explained.",
+    "fa": "حرف کسی را نفهمیده‌ای و می‌خواهی توضیح بدهد."
+   },
+   "when": {
+    "en": "Any time something is unclear — it is not rude when said calmly.",
+    "fa": "هر وقت چیزی روشن نیست — اگر آرام گفته شود بی‌ادبی نیست."
+   },
+   "examples": [
+    {
+     "en": "What do you mean by 'soon' — today or next week?",
+     "fa": "منظورت از «به‌زودی» چیست — امروز یا هفتهٔ بعد؟"
+    },
+    {
+     "en": "Sorry, what do you mean exactly?",
+     "fa": "ببخشید، دقیقاً منظورت چیست؟"
+    }
+   ],
+   "alt": {
+    "en": "I'm not sure I follow.",
+    "fa": "مطمئن نیستم گرفته باشم."
+   }
+  },
+  {
+   "id": "e007",
+   "en": "Could you say that again, please?",
+   "fa": "می‌شود دوباره بگویید؟",
+   "level": "A2",
+   "register": "polite",
+   "use": {
+    "en": "Asking someone to repeat what they said.",
+    "fa": "درخواست تکرار حرفی که کسی زده است."
+   },
+   "when": {
+    "en": "When you missed a word, or the connection was poor.",
+    "fa": "وقتی کلمه‌ای را نشنیده‌ای یا صدا خوب نبوده."
+   },
+   "examples": [
+    {
+     "en": "Sorry, could you say that again, please?",
+     "fa": "ببخشید، می‌شود دوباره بگویید؟"
+    },
+    {
+     "en": "Could you say that again — a bit more slowly?",
+     "fa": "می‌شود دوباره بگویید — کمی آهسته‌تر؟"
+    }
+   ],
+   "alt": {
+    "en": "Say that once more, please.",
+    "fa": "یک بار دیگر بگویید لطفاً."
+   }
+  },
+  {
+   "id": "e008",
+   "en": "I'm not sure yet.",
+   "fa": "هنوز مطمئن نیستم.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "You have not decided, and you are honest about it.",
+    "fa": "تصمیم نگرفته‌ای و صادقانه می‌گویی."
+   },
+   "when": {
+    "en": "Answering an invitation or a question about a plan.",
+    "fa": "پاسخ به دعوت یا سؤال دربارهٔ یک برنامه."
+   },
+   "examples": [
+    {
+     "en": "I'm not sure yet — can I tell you tonight?",
+     "fa": "هنوز مطمئن نیستم — می‌توانم امشب بگویم؟"
+    },
+    {
+     "en": "I'm not sure yet whether I can take the time off.",
+     "fa": "هنوز مطمئن نیستم بتوانم مرخصی بگیرم."
+    }
+   ],
+   "alt": {
+    "en": "I haven't decided.",
+    "fa": "تصمیم نگرفته‌ام."
+   }
+  },
+  {
+   "id": "e009",
+   "en": "It's up to you.",
+   "fa": "به خودت بستگی دارد.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "The decision is yours; you are happy either way.",
+    "fa": "تصمیم با خودت است؛ برایت هر دو حالت خوب است."
+   },
+   "when": {
+    "en": "Choosing between two plans or two options.",
+    "fa": "انتخاب بین دو برنامه یا دو گزینه."
+   },
+   "examples": [
+    {
+     "en": "Pizza or rice? It's up to you.",
+     "fa": "پیتزا یا برنج؟ به خودت بستگی دارد."
+    },
+    {
+     "en": "It's up to you how much you want to practise daily.",
+     "fa": "روزی چقدر تمرین کنی، به خودت بستگی دارد."
+    }
+   ],
+   "alt": {
+    "en": "Your call.",
+    "fa": "تصمیم با توست."
+   }
+  },
+  {
+   "id": "e010",
+   "en": "That sounds great.",
+   "fa": "عالی به نظر می‌رسد.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "You like the plan someone has just suggested.",
+    "fa": "پیشنهاد طرف مقابل را دوست داری."
+   },
+   "when": {
+    "en": "Accepting an invitation or agreeing to a plan.",
+    "fa": "پذیرفتن دعوت یا موافقت با یک برنامه."
+   },
+   "examples": [
+    {
+     "en": "Coffee on Saturday? That sounds great.",
+     "fa": "شنبه قهوه؟ عالی به نظر می‌رسد."
+    },
+    {
+     "en": "That sounds great — let's do it.",
+     "fa": "عالی به نظر می‌رسد — شروع کنیم."
+    }
+   ],
+   "alt": {
+    "en": "I'm in.",
+    "fa": "من هستم."
+   }
+  },
+  {
+   "id": "e011",
+   "en": "Sorry to keep you waiting.",
+   "fa": "ببخشید معطلتان کردم.",
+   "level": "B1",
+   "register": "polite",
+   "use": {
+    "en": "Apologising for making someone wait.",
+    "fa": "عذرخواهی برای اینکه کسی را منتظر گذاشته‌ای."
+   },
+   "when": {
+    "en": "Arriving late for a meeting, or answering a call late.",
+    "fa": "دیر رسیدن به جلسه یا دیر پاسخ دادن به تماس."
+   },
+   "examples": [
+    {
+     "en": "Sorry to keep you waiting — the doctor is running behind.",
+     "fa": "ببخشید معطلتان کردم — پزشک عقب افتاده است."
+    },
+    {
+     "en": "Sorry to keep you waiting; here is the file you asked for.",
+     "fa": "ببخشید معطلتان کردم؛ این هم فایلی که خواستید."
+    }
+   ],
+   "alt": {
+    "en": "Thanks for your patience.",
+    "fa": "ممنون از صبرتان."
+   }
+  },
+  {
+   "id": "e012",
+   "en": "Are you kidding?",
+   "fa": "شوخی می‌کنی؟",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "You are surprised or do not believe what you heard.",
+    "fa": "از چیزی که شنیده‌ای غافلگیر شده‌ای یا باور نمی‌کنی."
+   },
+   "when": {
+    "en": "Friendly surprise with friends — it can sound rude to a stranger.",
+    "fa": "شگفتی دوستانه با دوستان — با غریبه می‌تواند بی‌ادبانه شود."
+   },
+   "examples": [
+    {
+     "en": "Are you kidding? The whole flat for that price?",
+     "fa": "شوخی می‌کنی؟ تمام آن آپارتمان با این قیمت؟"
+    },
+    {
+     "en": "Are you kidding — you walked all the way?",
+     "fa": "شوخی می‌کنی — تمام راه را پیاده آمدی؟"
+    }
+   ],
+   "alt": {
+    "en": "You're joking, right?",
+    "fa": "شوخی می‌کنی، نه؟"
+   }
+  },
+  {
+   "id": "e013",
+   "en": "It doesn't matter.",
+   "fa": "مهم نیست.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "You do not care about the difference, or it is not important.",
+    "fa": "تفاوتش برایت مهم نیست یا اهمیت ندارد."
+   },
+   "when": {
+    "en": "Choosing between equal options, or calming someone down.",
+    "fa": "انتخاب بین گزینه‌های برابر یا آرام کردن کسی."
+   },
+   "examples": [
+    {
+     "en": "Tea or coffee? It doesn't matter to me.",
+     "fa": "چای یا قهوه؟ برای من مهم نیست."
+    },
+    {
+     "en": "It doesn't matter when you start, as long as you keep going.",
+     "fa": "مهم نیست کِی شروع کنی، تا وقتی ادامه بدهی."
+    }
+   ],
+   "alt": {
+    "en": "Either way is fine.",
+    "fa": "هر کدام باشد خوب است."
+   }
+  },
+  {
+   "id": "e014",
+   "en": "Take your time.",
+   "fa": "عجله نکن.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "Telling someone there is no need to hurry.",
+    "fa": "به کسی می‌گویی که نیازی به عجله نیست."
+   },
+   "when": {
+    "en": "When someone is thinking, deciding or working slowly.",
+    "fa": "وقتی کسی دارد فکر می‌کند، تصمیم می‌گیرد یا آهسته کار می‌کند."
+   },
+   "examples": [
+    {
+     "en": "Take your time — we're not in a rush.",
+     "fa": "عجله نکن — ما عجله‌ای نداریم."
+    },
+    {
+     "en": "Take your time with the answer; think in English first.",
+     "fa": "در جواب دادن عجله نکن؛ اول به انگلیسی فکر کن."
+    }
+   ],
+   "alt": {
+    "en": "No rush.",
+    "fa": "عجله‌ای نیست."
+   }
+  },
+  {
+   "id": "e015",
+   "en": "I couldn't agree more.",
+   "fa": "کاملاً موافقم.",
+   "level": "B2",
+   "register": "formal",
+   "use": {
+    "en": "Strong agreement: you agree completely.",
+    "fa": "موافقت شدید: کاملاً همنظر هستی."
+   },
+   "when": {
+    "en": "Work or discussion, when you want to be emphatic.",
+    "fa": "محیط کار یا گفتگو، وقتی می‌خواهی تأکید کنی."
+   },
+   "examples": [
+    {
+     "en": "I couldn't agree more — practice is the whole answer.",
+     "fa": "کاملاً موافقم — تمرین تمام جواب است."
+    },
+    {
+     "en": "I couldn't agree more with that summary.",
+     "fa": "با آن جمع‌بندی کاملاً موافقم."
+    }
+   ],
+   "alt": {
+    "en": "Exactly my view.",
+    "fa": "دقیقاً نظر من است."
+   }
+  },
+  {
+   "id": "e016",
+   "en": "Let me get back to you.",
+   "fa": "بگذار بعداً بهت خبر بدهم.",
+   "level": "B2",
+   "register": "formal",
+   "use": {
+    "en": "You need time before you can answer, and you will reply.",
+    "fa": "برای جواب دادن وقت لازم داری و بعداً پاسخ می‌دهی."
+   },
+   "when": {
+    "en": "Work email or a meeting, when the answer needs checking.",
+    "fa": "ایمیل کاری یا جلسه، وقتی جواب باید بررسی شود."
+   },
+   "examples": [
+    {
+     "en": "Let me get back to you after I check the numbers.",
+     "fa": "بگذار بعد از بررسی اعداد بهت خبر بدهم."
+    },
+    {
+     "en": "I'll get back to you on that by Thursday.",
+     "fa": "در این باره تا پنجشنبه بهت خبر می‌دهم."
+    }
+   ],
+   "alt": {
+    "en": "I'll confirm in a day or two.",
+    "fa": "تا یکی دو روز دیگر قطعی می‌گویم."
+   }
+  },
+  {
+   "id": "e017",
+   "en": "I'm afraid I can't make it.",
+   "fa": "متأسفانه نمی‌توانم بیایم.",
+   "level": "B1",
+   "register": "polite",
+   "use": {
+    "en": "Saying no to an invitation in a gentle way.",
+    "fa": "به‌نرمی نه گفتن به یک دعوت."
+   },
+   "when": {
+    "en": "When declining a meeting, party or dinner.",
+    "fa": "وقتی از جلسه، مهمانی یا شام دعوت شده‌ای و رد می‌کنی."
+   },
+   "examples": [
+    {
+     "en": "I'm afraid I can't make it on Friday — I'm working.",
+     "fa": "متأسفانه جمعه نمی‌توانم بیایم — سرم شلوغ است."
+    },
+    {
+     "en": "I'm afraid I can't make it, but thank you for asking.",
+     "fa": "متأسفانه نمی‌توانم بیایم، اما ممنون که دعوتم کردی."
+    }
+   ],
+   "alt": {
+    "en": "Sadly I can't be there.",
+    "fa": "افسوس نمی‌توانم آنجا باشم."
+   }
+  },
+  {
+   "id": "e018",
+   "en": "Would you mind if I opened the window?",
+   "fa": "اشکالی ندارد پنجره را باز کنم؟",
+   "level": "B1",
+   "register": "polite",
+   "use": {
+    "en": "Asking for permission politely, expecting a yes.",
+    "fa": "مؤدبانه اجازه گرفتن، با انتظار پاسخ مثبت."
+   },
+   "when": {
+    "en": "Small offices, buses, shared rooms.",
+    "fa": "دفترهای کوچک، اتوبوس، اتاق‌های مشترک."
+   },
+   "examples": [
+    {
+     "en": "Would you mind if I opened the window? It's warm in here.",
+     "fa": "اشکالی ندارد پنجره را باز کنم؟ اینجا گرم است."
+    },
+    {
+     "en": "Would you mind if I sat here?",
+     "fa": "اشکالی ندارد اینجا بنشینم؟"
+    }
+   ],
+   "alt": {
+    "en": "Do you mind opening it?",
+    "fa": "بازش می‌کنی؟"
+   }
+  },
+  {
+   "id": "e019",
+   "en": "That's fair enough.",
+   "fa": "منصفانه است، قبول.",
+   "level": "B2",
+   "register": "casual",
+   "use": {
+    "en": "You accept someone's reason, even if you are not delighted.",
+    "fa": "دلیل طرف مقابل را می‌پذیری، هرچند صددرصد راضی نیستی."
+   },
+   "when": {
+    "en": "Ending a small disagreement politely.",
+    "fa": "تمام کردن یک اختلاف کوچک به‌شکلی محترمانه."
+   },
+   "examples": [
+    {
+     "en": "A: I'd rather not drive at night. — B: That's fair enough.",
+     "fa": "الف: ترجیح می‌دهم شب رانندگی نکنم. — ب: منصفانه است."
+    },
+    {
+     "en": "That's fair enough — we can meet earlier.",
+     "fa": "قبول — می‌توانیم زودتر همدیگر را ببینیم."
+    }
+   ],
+   "alt": {
+    "en": "Point taken.",
+    "fa": "حرفت را قبول دارم."
+   }
+  },
+  {
+   "id": "e020",
+   "en": "It depends.",
+   "fa": "بستگی دارد.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "The answer changes with the situation; there is no single answer.",
+    "fa": "پاسخ با موقعیت تغییر می‌کند؛ یک جواب ثابت وجود ندارد."
+   },
+   "when": {
+    "en": "Answering general questions about habits or plans.",
+    "fa": "پاسخ به سؤال‌های کلی دربارهٔ عادت‌ها یا برنامه‌ها."
+   },
+   "examples": [
+    {
+     "en": "It depends — on weekdays I cook, on weekends I don't.",
+     "fa": "بستگی دارد — روزهای کاری آشپزی می‌کنم، آخر هفته نه."
+    },
+    {
+     "en": "How long does it take? It depends on the traffic.",
+     "fa": "چقدر طول می‌کشد؟ بستگی به ترافیک دارد."
+    }
+   ],
+   "alt": {
+    "en": "That varies.",
+    "fa": "متفاوت است."
+   }
+  },
+  {
+   "id": "e021",
+   "en": "Give me a second.",
+   "fa": "یک لحظه صبر کن.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "You need a very short moment before answering or acting.",
+    "fa": "پیش از پاسخ دادن یا انجام کاری یک لحظه وقت لازم داری."
+   },
+   "when": {
+    "en": "Home, work, or on the phone.",
+    "fa": "خانه، محل کار یا تلفنی."
+   },
+   "examples": [
+    {
+     "en": "Give me a second — I'm nearly done.",
+     "fa": "یک لحظه صبر کن — تقریباً تمام شد."
+    },
+    {
+     "en": "Give me a second to find the file.",
+     "fa": "یک لحظه صبر کن تا فایل را پیدا کنم."
+    }
+   ],
+   "alt": {
+    "en": "Just a moment.",
+    "fa": "یک لحظه."
+   }
+  },
+  {
+   "id": "e022",
+   "en": "I have no idea.",
+   "fa": "هیچ ایده‌ای ندارم.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "You really do not know the answer.",
+    "fa": "واقعاً جواب را نمی‌دانی."
+   },
+   "when": {
+    "en": "Friendly conversation — in formal writing, say 'I'm not sure'.",
+    "fa": "گفتگوی دوستانه — در نوشتار رسمی «مطمئن نیستم» بگو."
+   },
+   "examples": [
+    {
+     "en": "Where is the nearest bank? I have no idea, sorry.",
+     "fa": "نزدیک‌ترین بانک کجاست؟ متأسفانه هیچ ایده‌ای ندارم."
+    },
+    {
+     "en": "I have no idea what he meant by that.",
+     "fa": "هیچ ایده‌ای ندارم منظورش از آن چه بود."
+    }
+   ],
+   "alt": {
+    "en": "Not a clue.",
+    "fa": "سرنخی ندارم."
+   }
+  },
+  {
+   "id": "e023",
+   "en": "You've got a point.",
+   "fa": "حرفت درست است.",
+   "level": "B2",
+   "register": "casual",
+   "use": {
+    "en": "Someone made a good argument and you accept part of it.",
+    "fa": "طرف مقابل استدلال خوبی آورده و بخشی از آن را می‌پذیری."
+   },
+   "when": {
+    "en": "Discussion where you partly agree.",
+    "fa": "گفتگویی که بخشی از آن را قبول داری."
+   },
+   "examples": [
+    {
+     "en": "You've got a point — maybe we started too late.",
+     "fa": "حرفت درست است — شاید خیلی دیر شروع کردیم."
+    },
+    {
+     "en": "You've got a point there, but the cost still matters.",
+     "fa": "حرفت درست است، اما هزینه هم مهم است."
+    }
+   ],
+   "alt": {
+    "en": "Good point.",
+    "fa": "نکتهٔ خوبی است."
+   }
+  },
+  {
+   "id": "e024",
+   "en": "Let's call it a day.",
+   "fa": "برای امروز بس است.",
+   "level": "B2",
+   "register": "casual",
+   "use": {
+    "en": "To stop working because enough has been done for now.",
+    "fa": "کار را متوقف کردن چون برای الان به‌قدر کافی انجام شده."
+   },
+   "when": {
+    "en": "Work, study, or a long practice session.",
+    "fa": "کار، درس یا تمرین طولانی."
+   },
+   "examples": [
+    {
+     "en": "We've done three pages — let's call it a day.",
+     "fa": "سه صفحه انجام دادیم — برای امروز بس است."
+    },
+    {
+     "en": "It's six o'clock, let's call it a day.",
+     "fa": "ساعت شش است، برای امروز بس است."
+    }
+   ],
+   "alt": {
+    "en": "Let's wrap up.",
+    "fa": "جمعش کنیم."
+   }
+  },
+  {
+   "id": "e025",
+   "en": "Sorry, my bad.",
+   "fa": "ببخشید، اشتباه من بود.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "A quick, friendly apology for a small mistake.",
+    "fa": "عذرخواهی سریع و دوستانه برای یک اشتباه کوچک."
+   },
+   "when": {
+    "en": "With friends and close colleagues, not in formal writing.",
+    "fa": "با دوستان و همکاران نزدیک، نه در نوشتار رسمی."
+   },
+   "examples": [
+    {
+     "en": "Sorry, my bad — I sent the wrong file.",
+     "fa": "ببخشید، اشتباه من بود — فایل اشتباه را فرستادم."
+    },
+    {
+     "en": "My bad, I'll fix it now.",
+     "fa": "اشتباه من بود، همین حالا درستش می‌کنم."
+    }
+   ],
+   "alt": {
+    "en": "That was my mistake.",
+    "fa": "آن اشتباه من بود."
+   }
+  },
+  {
+   "id": "e026",
+   "en": "I'm just looking, thanks.",
+   "fa": "فقط دارم نگاه می‌کنم، ممنون.",
+   "level": "A2",
+   "register": "polite",
+   "use": {
+    "en": "Telling a shop assistant you do not need help yet.",
+    "fa": "به فروشنده می‌گویی که هنوز کمک لازم نداری."
+   },
+   "when": {
+    "en": "In shops and markets.",
+    "fa": "در مغازه و بازار."
+   },
+   "examples": [
+    {
+     "en": "I'm just looking, thanks — I'll ask if I need anything.",
+     "fa": "فقط دارم نگاه می‌کنم، ممنون — اگر چیزی لازم داشتم می‌گویم."
+    },
+    {
+     "en": "A: Can I help you? — B: I'm just looking, thanks.",
+     "fa": "الف: کمکی می‌توانم بکنم؟ — ب: فقط نگاه می‌کنم، ممنون."
+    }
+   ],
+   "alt": {
+    "en": "Just browsing, thank you.",
+    "fa": "فقط دارم تماشا می‌کنم، ممنون."
+   }
+  },
+  {
+   "id": "e027",
+   "en": "Could I have the bill, please?",
+   "fa": "می‌شود صورتحساب را بیاورید؟",
+   "level": "A2",
+   "register": "polite",
+   "use": {
+    "en": "Asking for the bill at the end of a meal.",
+    "fa": "درخواست صورتحساب در پایان غذا."
+   },
+   "when": {
+    "en": "Restaurants and cafés.",
+    "fa": "رستوران و کافه."
+   },
+   "examples": [
+    {
+     "en": "Could I have the bill, please? We're in a hurry.",
+     "fa": "می‌شود صورتحساب را بیاورید؟ عجله داریم."
+    },
+    {
+     "en": "Could we have the bill when you have a moment?",
+     "fa": "هر وقت فرصت داشتید صورتحساب را بیاورید."
+    }
+   ],
+   "alt": {
+    "en": "We'd like to pay, please.",
+    "fa": "می‌خواهیم حساب کنیم، لطفاً."
+   }
+  },
+  {
+   "id": "e028",
+   "en": "Do you have a minute?",
+   "fa": "یک دقیقه وقت داری؟",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "Asking whether someone can talk now, briefly.",
+    "fa": "پرسیدن اینکه کسی می‌تواند الان کوتاه صحبت کند یا نه."
+   },
+   "when": {
+    "en": "Before raising a work question or a small problem.",
+    "fa": "پیش از طرح یک سؤال کاری یا مشکل کوچک."
+   },
+   "examples": [
+    {
+     "en": "Do you have a minute? I'd like to ask about the deadline.",
+     "fa": "یک دقیقه وقت داری؟ می‌خواهم دربارهٔ مهلت بپرسم."
+    },
+    {
+     "en": "Do you have a minute to check this sentence?",
+     "fa": "یک دقیقه وقت داری این جمله را چک کنی؟"
+    }
+   ],
+   "alt": {
+    "en": "Got a second?",
+    "fa": "یک لحظه وقت داری؟"
+   }
+  },
+  {
+   "id": "e029",
+   "en": "I'll think about it.",
+   "fa": "فکرش را می‌کنم.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "You are not saying yes or no yet.",
+    "fa": "هنوز نه بله می‌گویی نه نه."
+   },
+   "when": {
+    "en": "Buying something, or answering a suggestion you are unsure about.",
+    "fa": "خرید چیزی یا پاسخ به پیشنهادی که در آن تردید داری."
+   },
+   "examples": [
+    {
+     "en": "I'll think about it and let you know tomorrow.",
+     "fa": "فکرش را می‌کنم و فردا خبر می‌دهم."
+    },
+    {
+     "en": "It sounds expensive — I'll think about it.",
+     "fa": "گران به نظر می‌رسد — فکرش را می‌کنم."
+    }
+   ],
+   "alt": {
+    "en": "Let me sleep on it.",
+    "fa": "بگذار رویش فکر کنم."
+   }
+  },
+  {
+   "id": "e030",
+   "en": "I'm running late.",
+   "fa": "دارم دیر می‌کنم.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "You are behind schedule and will not arrive on time.",
+    "fa": "از برنامه عقب افتاده‌ای و سر وقت نمی‌رسی."
+   },
+   "when": {
+    "en": "Texting or calling to warn someone.",
+    "fa": "پیام یا تماس برای خبر دادن به کسی."
+   },
+   "examples": [
+    {
+     "en": "I'm running late — start without me.",
+     "fa": "دارم دیر می‌کنم — بی‌من شروع کنید."
+    },
+    {
+     "en": "Sorry, I'm running late this morning.",
+     "fa": "ببخشید، امروز صبح دارم دیر می‌کنم."
+    }
+   ],
+   "alt": {
+    "en": "I'm behind schedule.",
+    "fa": "از برنامه عقبم."
+   }
+  },
+  {
+   "id": "e031",
+   "en": "Let's keep in touch.",
+   "fa": "در تماس باشیم.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "Said when saying goodbye to someone you want to stay in contact with.",
+    "fa": "وقتی از کسی خداحافظی می‌کنی و می‌خواهی در ارتباط بمانید."
+   },
+   "when": {
+    "en": "End of a meeting, a class or a visit.",
+    "fa": "پایان یک جلسه، کلاس یا دیدار."
+   },
+   "examples": [
+    {
+     "en": "It was good to meet you — let's keep in touch.",
+     "fa": "از آشنایی خوشحال شدم — در تماس باشیم."
+    },
+    {
+     "en": "Let's keep in touch about the project.",
+     "fa": "دربارهٔ پروژه در تماس باشیم."
+    }
+   ],
+   "alt": {
+    "en": "Stay in touch.",
+    "fa": "در ارتباط باش."
+   }
+  },
+  {
+   "id": "e032",
+   "en": "No offence, but...",
+   "fa": "جسارتاً...، بی‌احترامی نباشد ولی...",
+   "level": "B2",
+   "register": "casual",
+   "use": {
+    "en": "Warning that the next words may be direct or critical.",
+    "fa": "هشدار اینکه جملهٔ بعدی ممکن است صریح یا انتقادی باشد."
+   },
+   "when": {
+    "en": "Careful: only with people you know well.",
+    "fa": "مراقب باش: فقط با کسانی که خوب می‌شناسی."
+   },
+   "examples": [
+    {
+     "en": "No offence, but that jacket is very bright.",
+     "fa": "جسارتاً، آن کت خیلی پررنگ است."
+    },
+    {
+     "en": "No offence, but I think the plan needs more work.",
+     "fa": "بی‌احترامی نباشد، اما فکر می‌کنم برنامه کار بیشتری لازم دارد."
+    }
+   ],
+   "alt": {
+    "en": "Don't take this the wrong way, but...",
+    "fa": "بد برداشت نکن، اما..."
+   }
+  },
+  {
+   "id": "e033",
+   "en": "Thanks for having me.",
+   "fa": "ممنون که دعوتم کردی.",
+   "level": "B1",
+   "register": "polite",
+   "use": {
+    "en": "Thanking a host as you leave their home or event.",
+    "fa": "تشکر از میزبان هنگام ترک خانه یا مهمانی او."
+   },
+   "when": {
+    "en": "Leaving a dinner, a party or a meeting at someone's office.",
+    "fa": "ترک یک شام، مهمانی یا جلسه در دفتر کسی."
+   },
+   "examples": [
+    {
+     "en": "Thanks for having me — dinner was lovely.",
+     "fa": "ممنون که دعوتم کردی — شام عالی بود."
+    },
+    {
+     "en": "Thanks for having me, I learned a lot today.",
+     "fa": "ممنون که پذیرفتید، امروز چیز زیادی یاد گرفتم."
+    }
+   ],
+   "alt": {
+    "en": "Thanks for inviting me.",
+    "fa": "ممنون که دعوتم کردی."
+   }
+  },
+  {
+   "id": "e034",
+   "en": "I'd rather not, if that's okay.",
+   "fa": "ترجیح می‌دهم نه، اگر اشکالی ندارد.",
+   "level": "B2",
+   "register": "polite",
+   "use": {
+    "en": "A gentle refusal that leaves room for the other person.",
+    "fa": "رد کردن مؤدبانه که برای طرف مقابل جا باز می‌کند."
+   },
+   "when": {
+    "en": "Declining a request without sounding harsh.",
+    "fa": "رد کردن درخواستی بدون تند به نظر رسیدن."
+   },
+   "examples": [
+    {
+     "en": "I'd rather not talk about it now, if that's okay.",
+     "fa": "ترجیح می‌دهم الان درباره‌اش حرف نزنم، اگر اشکالی ندارد."
+    },
+    {
+     "en": "I'd rather not lend the car, if that's okay.",
+     "fa": "ترجیح می‌دهم ماشین را قرض ندهم، اگر اشکالی ندارد."
+    }
+   ],
+   "alt": {
+    "en": "I'd prefer not to, thank you.",
+    "fa": "ترجیح می‌دهم نه، ممنون."
+   }
+  },
+  {
+   "id": "e035",
+   "en": "That's a good question.",
+   "fa": "سؤال خوبی است.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "Said when a question is difficult or makes you think.",
+    "fa": "وقتی سؤالی سخت است یا باعث فکر کردن می‌شود گفته می‌شود."
+   },
+   "when": {
+    "en": "Buying time before you answer, without making anything up.",
+    "fa": "خرید زمان پیش از پاسخ، بدون از خود درآوردن چیزی."
+   },
+   "examples": [
+    {
+     "en": "That's a good question — I don't know the answer yet.",
+     "fa": "سؤال خوبی است — هنوز جوابش را نمی‌دانم."
+    },
+    {
+     "en": "That's a good question; let me think for a second.",
+     "fa": "سؤال خوبی است؛ بگذار یک لحظه فکر کنم."
+    }
+   ],
+   "alt": {
+    "en": "Good question.",
+    "fa": "سؤال خوبی است."
+   }
+  },
+  {
+   "id": "e036",
+   "en": "I see what you mean.",
+   "fa": "می‌فهمم منظورت چیست.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "You understand someone's point, even if you may disagree.",
+    "fa": "منظور طرف مقابل را می‌فهمی، حتی اگر مخالف باشی."
+   },
+   "when": {
+    "en": "Discussion, when you want to show you listened.",
+    "fa": "گفتگو، وقتی می‌خواهی نشان بدهی گوش داده‌ای."
+   },
+   "examples": [
+    {
+     "en": "I see what you mean, but I read it differently.",
+     "fa": "می‌فهمم منظورت چیست، اما من جور دیگری خواندمش."
+    },
+    {
+     "en": "I see what you mean — the sentence does sound strange.",
+     "fa": "می‌فهمم منظورت چیست — جمله واقعاً عجیب به نظر می‌رسد."
+    }
+   ],
+   "alt": {
+    "en": "I get your point.",
+    "fa": "منظورت را می‌فهمم."
+   }
+  },
+  {
+   "id": "e037",
+   "en": "Let me know what you decide.",
+   "fa": "تصمیمت را به من بگو.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "You are leaving the decision to someone and want to hear the outcome.",
+    "fa": "تصمیم را به طرف مقابل واگذار می‌کنی و می‌خواهی نتیجه را بدانی."
+   },
+   "when": {
+    "en": "Ending a conversation about a plan.",
+    "fa": "پایان گفتگو دربارهٔ یک برنامه."
+   },
+   "examples": [
+    {
+     "en": "Let me know what you decide about the trip.",
+     "fa": "دربارهٔ سفر هر تصمیمی گرفتی به من بگو."
+    },
+    {
+     "en": "Let me know what you decide and I'll book it.",
+     "fa": "هر چه تصمیم گرفتی بگو تا رزرو کنم."
+    }
+   ],
+   "alt": {
+    "en": "Tell me what you decide.",
+    "fa": "هر چه تصمیم گرفتی بگو."
+   }
+  },
+  {
+   "en": "Could you give me a hand?",
+   "fa": "می‌شود کمکم کنی؟",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "A friendly way to ask for help with something.",
+    "fa": "راه دوستانه‌ای برای درخواست کمک در کاری."
+   },
+   "when": {
+    "en": "When you need a hand carrying, fixing or moving something.",
+    "fa": "وقتی برای حمل، تعمیر یا جابه‌جا کردن چیزی کمک لازم داری."
+   },
+   "examples": [
+    {
+     "en": "Could you give me a hand with these boxes?",
+     "fa": "می‌شود با این جعبه‌ها کمکم کنی؟"
+    },
+    {
+     "en": "A: Could you give me a hand? — B: Of course, what do you need?",
+     "fa": "الف: می‌شود کمکم کنی؟ — ب: البته، چه لازم داری؟"
+    }
+   ],
+   "alt": {
+    "en": "Can you help me with this?",
+    "fa": "می‌توانی در این کار کمکم کنی؟"
+   },
+   "id": "e038"
+  },
+  {
+   "en": "I'd better get going.",
+   "fa": "بهتر است دیگر بروم.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "A polite, natural way to say you have to leave.",
+    "fa": "راه مؤدبانه و طبیعی برای گفتن اینکه باید بروی."
+   },
+   "when": {
+    "en": "At the end of a visit or a chat, when it is time to go.",
+    "fa": "در پایان یک دیدار یا گفت‌وگو، وقتی وقت رفتن است."
+   },
+   "examples": [
+    {
+     "en": "It's been lovely — I'd better get going.",
+     "fa": "خیلی خوب بود — بهتر است دیگر بروم."
+    },
+    {
+     "en": "I'd better get going or I'll miss my bus.",
+     "fa": "بهتر است بروم وگرنه اتوبوسم را از دست می‌دهم."
+    }
+   ],
+   "alt": {
+    "en": "I should head off.",
+    "fa": "باید راه بیفتم."
+   },
+   "id": "e039"
+  },
+  {
+   "en": "It's not a big deal.",
+   "fa": "چیز مهمی نیست.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "Said to show that a problem is small and the other person should not worry.",
+    "fa": "برای نشان دادن اینکه مسئله کوچک است و طرف مقابل نباید نگران شود."
+   },
+   "when": {
+    "en": "After someone apologises, or when something goes slightly wrong.",
+    "fa": "بعد از عذرخواهی کسی، یا وقتی چیزی کمی خراب می‌شود."
+   },
+   "examples": [
+    {
+     "en": "A: Sorry I'm late. — B: It's not a big deal, we just sat down.",
+     "fa": "الف: ببخشید دیر کردم. — ب: چیز مهمی نیست، تازه نشسته‌ایم."
+    },
+    {
+     "en": "Don't worry about the broken cup — it's not a big deal.",
+     "fa": "نگران فنجان شکسته نباش — چیز مهمی نیست."
+    }
+   ],
+   "alt": {
+    "en": "No problem at all.",
+    "fa": "هیچ مشکلی نیست."
+   },
+   "id": "e040"
+  },
+  {
+   "en": "Hang on a second.",
+   "fa": "یک لحظه صبر کن.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "Asked when you need a very short moment before answering.",
+    "fa": "وقتی برای جواب دادن یک لحظه خیلی کوتاه وقت لازم داری."
+   },
+   "when": {
+    "en": "Mid-conversation, on the phone, or when you are looking something up.",
+    "fa": "وسط گفت‌وگو، در تلفن، یا وقتی دنبال چیزی می‌گردی."
+   },
+   "examples": [
+    {
+     "en": "Hang on a second — let me check the address.",
+     "fa": "یک لحظه صبر کن — بگذار آدرس را چک کنم."
+    },
+    {
+     "en": "A: Are you ready? — B: Hang on a second, I'm getting my coat.",
+     "fa": "الف: آماده‌ای؟ — ب: یک لحظه، کاپشنم را می‌آورم."
+    }
+   ],
+   "alt": {
+    "en": "Just a moment, please.",
+    "fa": "فقط یک لحظه، لطفاً."
+   },
+   "id": "e041"
+  },
+  {
+   "en": "I'm not really into it.",
+   "fa": "زیاد از آن خوشم نمی‌آید.",
+   "level": "B1",
+   "register": "casual",
+   "use": {
+    "en": "Said when you do not enjoy something or are not interested in it.",
+    "fa": "وقتی از چیزی لذت نمی‌بری یا علاقه‌ای به آن نداری."
+   },
+   "when": {
+    "en": "Friends suggest a film, food or hobby you do not enjoy.",
+    "fa": "وقتی دوستان فیلم، غذا یا سرگرمی‌ای پیشنهاد می‌دهند که دوست نداری."
+   },
+   "examples": [
+    {
+     "en": "A: Do you like horror films? — B: Not really, I'm not into them.",
+     "fa": "الف: فیلم ترسناک دوست داری؟ — ب: نه زیاد، خوشم نمی‌آید."
+    },
+    {
+     "en": "I tried running, but I'm not really into it.",
+     "fa": "دویدن را امتحان کردم، اما زیاد خوشم نیامد."
+    }
+   ],
+   "alt": {
+    "en": "It's not really my thing.",
+    "fa": "چیز من نیست."
+   },
+   "id": "e042"
+  },
+  {
+   "en": "That works for me.",
+   "fa": "برای من خوب است.",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "Said to agree with a suggested time or plan.",
+    "fa": "برای موافقت با زمان یا برنامهٔ پیشنهادی."
+   },
+   "when": {
+    "en": "When somebody offers a time, a date or a solution.",
+    "fa": "وقتی کسی زمانی، تاریخی یا راه‌حلی پیشنهاد می‌دهد."
+   },
+   "examples": [
+    {
+     "en": "A: Shall we meet at six? — B: That works for me.",
+     "fa": "الف: ساعت شش ببینیم؟ — ب: برای من خوب است."
+    },
+    {
+     "en": "Tuesday works for me better than Monday.",
+     "fa": "سه‌شنبه برای من بهتر از دوشنبه است."
+    }
+   ],
+   "alt": {
+    "en": "That's fine with me.",
+    "fa": "برای من مشکلی نیست."
+   },
+   "id": "e043"
+  },
+  {
+   "en": "You're welcome to join us.",
+   "fa": "خوشحال می‌شویم همراه‌مان بیایی.",
+   "level": "B1",
+   "register": "polite",
+   "use": {
+    "en": "An open, warm invitation that leaves the other person free to say no.",
+    "fa": "دعوتی گرم و باز که حق انتخاب و رد کردن را برای طرف مقابل نگه می‌دارد."
+   },
+   "when": {
+    "en": "When your group is doing something and somebody else is nearby.",
+    "fa": "وقتی گروهت کاری می‌کند و کس دیگری همان‌جا هست."
+   },
+   "examples": [
+    {
+     "en": "We're getting lunch — you're welcome to join us.",
+     "fa": "داریم برای ناهار می‌رویم — خوشحال می‌شویم همراهم بیایی."
+    },
+    {
+     "en": "You're welcome to join us at the concert if you're free.",
+     "fa": "اگر آزادی، خوشحال می‌شویم در کنسرت همراهم بیایی."
+    }
+   ],
+   "alt": {
+    "en": "Feel free to come along.",
+    "fa": "راحت باش، همراهم بیا."
+   },
+   "id": "e044"
+  },
+  {
+   "en": "I'm afraid I disagree.",
+   "fa": "ببخشید، ولی موافق نیستم.",
+   "level": "B2",
+   "register": "formal",
+   "use": {
+    "en": "A polite but clear way to disagree in a meeting or a discussion.",
+    "fa": "راه مؤدبانه اما روشنی برای مخالفت در جلسه یا بحث."
+   },
+   "when": {
+    "en": "Professional settings, where a flat 'no' would sound abrupt.",
+    "fa": "محیط‌های کاری، جایی که «نه» گفتن خالی تند به گوش می‌رسد."
+   },
+   "examples": [
+    {
+     "en": "I'm afraid I disagree with the second point.",
+     "fa": "متأسفانه با نکتهٔ دوم موافق نیستم."
+    },
+    {
+     "en": "I'm afraid I disagree — the data shows the opposite.",
+     "fa": "ببخشید، ولی موافق نیستم — داده‌ها خلافش را نشان می‌دهد."
+    }
+   ],
+   "alt": {
+    "en": "I see it differently.",
+    "fa": "من طور دیگری می‌بینم."
+   },
+   "id": "e045"
+  },
+  {
+   "en": "Would that be okay with you?",
+   "fa": "این برایت خوب است؟",
+   "level": "B1",
+   "register": "polite",
+   "use": {
+    "en": "Checks that the other person agrees before you decide.",
+    "fa": "قبل از تصمیم‌گیری، موافقت طرف مقابل را می‌پرسد."
+   },
+   "when": {
+    "en": "After you suggest a time, a change or a favour.",
+    "fa": "بعد از پیشنهاد یک زمان، تغییر یا درخواست لطف."
+   },
+   "examples": [
+    {
+     "en": "I'd like to move our lesson to Friday — would that be okay with you?",
+     "fa": "می‌خواهم درس‌مان را به جمعه منتقل کنم — برایت خوب است؟"
+    },
+    {
+     "en": "We'd like to bring one more guest. Would that be okay with you?",
+     "fa": "می‌خواهیم یک مهمان دیگر بیاوریم. برایت مشکلی نیست؟"
+    }
+   ],
+   "alt": {
+    "en": "Is that alright with you?",
+    "fa": "برای تو مشکلی نیست؟"
+   },
+   "id": "e046"
+  },
+  {
+   "en": "Let's go with your idea.",
+   "fa": "بیا با ایدهٔ تو پیش برویم.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "Says that you accept somebody else's suggestion.",
+    "fa": "می‌گوید پیشنهاد دیگری را می‌پذیری."
+   },
+   "when": {
+    "en": "In a group deciding between two or three options.",
+    "fa": "در گروهی که بین دو یا سه گزینه تصمیم می‌گیرد."
+   },
+   "examples": [
+    {
+     "en": "Both plans work — let's go with your idea.",
+     "fa": "هر دو برنامه خوب است — بیا با ایدهٔ تو برویم."
+    },
+    {
+     "en": "Fine, let's go with your idea and see how it goes.",
+     "fa": "باشه، با ایدهٔ تو پیش می‌رویم و می‌بینیم چطور می‌شود."
+    }
+   ],
+   "alt": {
+    "en": "Your idea wins.",
+    "fa": "ایدهٔ تو برنده شد."
+   },
+   "id": "e047"
+  },
+  {
+   "en": "I'll get it sorted.",
+   "fa": "خودم درستش می‌کنم.",
+   "level": "B2",
+   "register": "casual",
+   "use": {
+    "en": "Promises to deal with a problem so nobody else has to.",
+    "fa": "قول می‌دهد مشکلی را حل کند تا کس دیگری لازم نباشد."
+   },
+   "when": {
+    "en": "At work, in a shared flat, or anywhere a task needs an owner.",
+    "fa": "در محل کار، خانهٔ مشترک، یا هر جا که کاری مسئول لازم دارد."
+   },
+   "examples": [
+    {
+     "en": "Don't worry about the internet bill — I'll get it sorted.",
+     "fa": "نگران قبض اینترنت نباش — خودم درستش می‌کنم."
+    },
+    {
+     "en": "The printer is broken, but I'll get it sorted this afternoon.",
+     "fa": "پرینتر خراب است، اما امروز بعدازظهر درستش می‌کنم."
+    }
+   ],
+   "alt": {
+    "en": "I'll take care of it.",
+    "fa": "خودم رسیدگی می‌کنم."
+   },
+   "id": "e048"
+  },
+  {
+   "en": "That's exactly my point.",
+   "fa": "دقیقاً حرف من همین است.",
+   "level": "B2",
+   "register": "neutral",
+   "use": {
+    "en": "Shows strong agreement and that the person has understood you.",
+    "fa": "موافقت قوی را نشان می‌دهد و اینکه طرف مقابل حرفت را فهمیده."
+   },
+   "when": {
+    "en": "In a discussion, right after somebody says what you meant.",
+    "fa": "در یک بحث، درست بعد از اینکه کسی همان را می‌گوید که منظور تو بود."
+   },
+   "examples": [
+    {
+     "en": "A: So you mean the deadline is too short. — B: That's exactly my point.",
+     "fa": "الف: یعنی مهلت خیلی کوتاه است. — ب: دقیقاً حرف من همین است."
+    },
+    {
+     "en": "That's exactly my point — we need more time, not more people.",
+     "fa": "دقیقاً منظورم همین است — وقت بیشتر لازم داریم، نه آدم بیشتر."
+    }
+   ],
+   "alt": {
+    "en": "You've hit the nail on the head.",
+    "fa": "دقیقاً به هدف زدی."
+   },
+   "id": "e049"
+  },
+  {
+   "en": "It slipped my mind.",
+   "fa": "از یادم رفت.",
+   "level": "B2",
+   "register": "casual",
+   "use": {
+    "en": "A natural, apologetic way to say you forgot something.",
+    "fa": "راه طبیعی و همراه با عذرخواهی برای گفتن اینکه چیزی را فراموش کرده‌ای."
+   },
+   "when": {
+    "en": "When you miss a small commitment — a call, a reply, an errand.",
+    "fa": "وقتی یک قرار کوچک را از دست می‌دهی — یک تماس، یک جواب، یک کار."
+   },
+   "examples": [
+    {
+     "en": "Sorry I didn't reply — it completely slipped my mind.",
+     "fa": "ببخشید جواب ندادم — کامل از یادم رفت."
+    },
+    {
+     "en": "The appointment slipped my mind and I missed it.",
+     "fa": "قرار از یادم رفت و دیر رسیدم."
+    }
+   ],
+   "alt": {
+    "en": "I completely forgot.",
+    "fa": "کامل فراموش کردم."
+   },
+   "id": "e050"
+  },
+  {
+   "en": "We're running out of time.",
+   "fa": "وقت‌مان دارد تمام می‌شود.",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "Warns that very little time is left.",
+    "fa": "هشدار می‌دهد که وقت خیلی کمی مانده."
+   },
+   "when": {
+    "en": "In a meeting, a lesson or before a deadline.",
+    "fa": "در جلسه، کلاس یا قبل از یک مهلت."
+   },
+   "examples": [
+    {
+     "en": "We're running out of time — let's decide now.",
+     "fa": "وقت‌مان دارد تمام می‌شود — بیایید الان تصمیم بگیریم."
+    },
+    {
+     "en": "I have to skip the last question, we're running out of time.",
+     "fa": "باید سؤال آخر را رد کنم، وقت‌مان تمام می‌شود."
+    }
+   ],
+   "alt": {
+    "en": "Time is short.",
+    "fa": "وقت کم است."
+   },
+   "id": "e051"
+  },
+  {
+   "en": "I'd appreciate your help with this.",
+   "fa": "از کمکت در این کار ممنون می‌شوم.",
+   "level": "B2",
+   "register": "formal",
+   "use": {
+    "en": "A courteous request for help, common in writing and at work.",
+    "fa": "درخواست مؤدبانهٔ کمک، رایج در نوشتار و محیط کار."
+   },
+   "when": {
+    "en": "Emailing a colleague, a tutor or someone senior.",
+    "fa": "ایمیل زدن به همکار، مدرس یا فرد بالاتر."
+   },
+   "examples": [
+    {
+     "en": "I'd appreciate your help with this report before Friday.",
+     "fa": "قبل از جمعه از کمکت در این گزارش ممنون می‌شوم."
+    },
+    {
+     "en": "I'd appreciate your help with this — I'm not sure how to start.",
+     "fa": "از کمکت در این کار ممنون می‌شوم — نمی‌دانم از کجا شروع کنم."
+    }
+   ],
+   "alt": {
+    "en": "I'd be grateful for your help.",
+    "fa": "از کمکت سپاسگزارم."
+   },
+   "id": "e052"
+  },
+  {
+   "en": "No rush.",
+   "fa": "عجله‌ای نیست.",
+   "level": "A2",
+   "register": "casual",
+   "use": {
+    "en": "Tells someone they can take their time.",
+    "fa": "به کسی می‌گوید می‌تواند با فراغت انجام دهد."
+   },
+   "when": {
+    "en": "After asking for something, to remove the pressure.",
+    "fa": "بعد از درخواست چیزی، برای برداشتن فشار."
+   },
+   "examples": [
+    {
+     "en": "Could you send it today? No rush, tomorrow is fine too.",
+     "fa": "می‌توانی امروز بفرستی؟ عجله‌ای نیست، فردا هم خوب است."
+    },
+    {
+     "en": "A: I'll start on it tonight. — B: No rush.",
+     "fa": "الف: امشب شروعش می‌کنم. — ب: عجله‌ای نیست."
+    }
+   ],
+   "alt": {
+    "en": "Take your time.",
+    "fa": "با فراغت انجام بده."
+   },
+   "id": "e053"
+  },
+  {
+   "en": "Just to be clear…",
+   "fa": "فقط برای اینکه روشن باشد…",
+   "level": "B1",
+   "register": "neutral",
+   "use": {
+    "en": "Signals that you are about to remove a possible misunderstanding.",
+    "fa": "نشان می‌دهد که می‌خواهی یک سوءتفاهم ممکن را برطرف کنی."
+   },
+   "when": {
+    "en": "Before repeating, correcting or setting conditions.",
+    "fa": "قبل از تکرار، تصحیح یا گذاشتن شرط."
+   },
+   "examples": [
+    {
+     "en": "Just to be clear, I'm not complaining — I'm asking for advice.",
+     "fa": "فقط برای اینکه روشن باشد، شکایت نمی‌کنم — راهنمایی می‌خواهم."
+    },
+    {
+     "en": "Just to be clear, the meeting is at nine, not ten.",
+     "fa": "فقط برای روشن شدن، جلسه ساعت نه است، نه ده."
+    }
+   ],
+   "alt": {
+    "en": "So we're clear on this…",
+    "fa": "تا این روشن باشد…"
+   },
+   "id": "e054"
+  },
+  {
+   "en": "How did it go?",
+   "fa": "چطور پیش رفت؟",
+   "level": "A2",
+   "register": "neutral",
+   "use": {
+    "en": "Asks about the result of something the other person has just done.",
+    "fa": "دربارهٔ نتیجهٔ کاری می‌پرسد که طرف مقابل تازه انجام داده."
+   },
+   "when": {
+    "en": "After an interview, an exam, an appointment or a first day.",
+    "fa": "بعد از مصاحبه، امتحان، قرار پزشک یا روز اول."
+   },
+   "examples": [
+    {
+     "en": "You had the interview today — how did it go?",
+     "fa": "امروز مصاحبه داشتی — چطور پیش رفت؟"
+    },
+    {
+     "en": "How did it go with the landlord?",
+     "fa": "با صاحب‌خانه چطور پیش رفت؟"
+    }
+   ],
+   "alt": {
+    "en": "How did it turn out?",
+    "fa": "آخرش چطور شد؟"
+   },
+   "id": "e055"
+  }
+ ],
+ "conversations": [
+  {
+   "id": "c001",
+   "topic": {
+    "en": "Making plans",
+    "fa": "برنامه ریختن"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "Two friends decide what to do at the weekend.",
+    "fa": "دو دوست تصمیم می‌گیرند آخر هفته چه کار کنند."
+   },
+   "turns": [
+    {
+     "who": "Alex",
+     "en": "Are you free this weekend?",
+     "fa": "آخر هفته آزادی؟"
+    },
+    {
+     "who": "Sara",
+     "en": "I think so. What's up?",
+     "fa": "فکر کنم بله. چه خبر؟"
+    },
+    {
+     "who": "Alex",
+     "en": "Would you like to grab a coffee?",
+     "fa": "دوست داری برویم قهوه بخوریم؟"
+    },
+    {
+     "who": "Sara",
+     "en": "Sure! That sounds great.",
+     "fa": "حتماً! عالی به نظر می‌رسد."
+    },
+    {
+     "who": "Alex",
+     "en": "How about Saturday afternoon?",
+     "fa": "شنبه بعدازظهر چطور است؟"
+    },
+    {
+     "who": "Sara",
+     "en": "Saturday works for me. Where shall we meet?",
+     "fa": "شنبه برایم خوب است. کجا همدیگر را ببینیم؟"
+    },
+    {
+     "who": "Alex",
+     "en": "The café by the station, at four?",
+     "fa": "کافهٔ نزدیک ایستگاه، ساعت چهار؟"
+    },
+    {
+     "who": "Sara",
+     "en": "Perfect. See you then!",
+     "fa": "عالی. پس می‌بینمت!"
+    }
+   ],
+   "key": [
+    {
+     "en": "What's up?",
+     "fa": "چه خبر؟ (برای پرسیدن پیشنهاد)"
+    },
+    {
+     "en": "grab a coffee",
+     "fa": "برویم قهوه بخوریم (غیررسمی)"
+    },
+    {
+     "en": "How about...?",
+     "fa": "چطور است...؟"
+    },
+    {
+     "en": "works for me",
+     "fa": "برای من خوب است"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Grab a coffee' is the natural casual way to suggest a coffee; 'take a coffee' sounds foreign.",
+     "fa": "«grab a coffee» راه خودمانی و طبیعی پیشنهاد قهوه است؛ «take a coffee» غریبه به گوش می‌رسد."
+    },
+    {
+     "en": "Answering with a day ('Saturday works for me') confirms a plan without repeating it all.",
+     "fa": "جواب دادن با روز («شنبه برایم خوب است») برنامه را بدون تکرار همه‌چیز تأیید می‌کند."
+    }
+   ]
+  },
+  {
+   "id": "c002",
+   "topic": {
+    "en": "Ordering at a café",
+    "fa": "سفارش در کافه"
+   },
+   "level": "A1",
+   "setting": {
+    "en": "A customer orders coffee and a snack.",
+    "fa": "مشتری قهوه و یک خوراکی سفارش می‌دهد."
+   },
+   "turns": [
+    {
+     "who": "Barista",
+     "en": "Hi, what can I get you?",
+     "fa": "سلام، چه چیزی برایتان بیاورم؟"
+    },
+    {
+     "who": "Customer",
+     "en": "A medium latte, please.",
+     "fa": "یک لاتهٔ متوسط، لطفاً."
+    },
+    {
+     "who": "Barista",
+     "en": "For here or to take away?",
+     "fa": "اینجا می‌نوشید یا بیرون می‌برید؟"
+    },
+    {
+     "who": "Customer",
+     "en": "For here, thanks.",
+     "fa": "اینجا، ممنون."
+    },
+    {
+     "who": "Barista",
+     "en": "Anything to eat?",
+     "fa": "چیزی برای خوردن هم می‌خواهید؟"
+    },
+    {
+     "who": "Customer",
+     "en": "Do you have any croissants?",
+     "fa": "کروسان دارید؟"
+    },
+    {
+     "who": "Barista",
+     "en": "We have one left.",
+     "fa": "یک عدد مانده."
+    },
+    {
+     "who": "Customer",
+     "en": "I'll take it. That's all, thanks.",
+     "fa": "همان را می‌گیرم. همین، ممنون."
+    }
+   ],
+   "key": [
+    {
+     "en": "What can I get you?",
+     "fa": "چه چیزی برایتان بیاورم؟"
+    },
+    {
+     "en": "For here or to take away?",
+     "fa": "اینجا یا بیرون‌بر؟"
+    },
+    {
+     "en": "I'll take it.",
+     "fa": "همان را می‌گیرم."
+    }
+   ],
+   "notes": [
+    {
+     "en": "'I'll take it' is the standard way to accept an item you were just offered.",
+     "fa": "«I'll take it» راه استاندارد پذیرفتن چیزی است که همین حالا پیشنهاد شده."
+    },
+    {
+     "en": "'Here' or 'to take away' appears in nearly every café in Britain; in the US you will hear 'for here or to go'.",
+     "fa": "«Here یا to take away» در تقریباً هر کافه‌ای در بریتانیا شنیده می‌شود؛ در آمریکا «for here or to go» می‌گویند."
+    }
+   ]
+  },
+  {
+   "id": "c003",
+   "topic": {
+    "en": "At the doctor's",
+    "fa": "در مطب پزشک"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A patient explains a problem and gets advice.",
+    "fa": "بیمار مشکلش را توضیح می‌دهد و توصیه می‌گیرد."
+   },
+   "turns": [
+    {
+     "who": "Doctor",
+     "en": "What brings you in today?",
+     "fa": "امروز چه چیزی شما را آورد؟"
+    },
+    {
+     "who": "Patient",
+     "en": "I've had a sore throat for three days.",
+     "fa": "سه روز است گلودرد دارم."
+    },
+    {
+     "who": "Doctor",
+     "en": "Any fever or cough?",
+     "fa": "تب یا سرفه هم دارید؟"
+    },
+    {
+     "who": "Patient",
+     "en": "A slight fever last night.",
+     "fa": "دیشب تب خفیفی داشتم."
+    },
+    {
+     "who": "Doctor",
+     "en": "Does it hurt when you swallow?",
+     "fa": "وقتی قورت می‌دهید درد می‌گیرد؟"
+    },
+    {
+     "who": "Patient",
+     "en": "Yes, quite a lot.",
+     "fa": "بله، خیلی."
+    },
+    {
+     "who": "Doctor",
+     "en": "It looks like a throat infection. I'll prescribe something.",
+     "fa": "به نظر عفونت گلو می‌آید. دارو تجویز می‌کنم."
+    },
+    {
+     "who": "Patient",
+     "en": "How often should I take it?",
+     "fa": "چند وقت یک‌بار مصرف کنم؟"
+    },
+    {
+     "who": "Doctor",
+     "en": "Three times a day, after meals. Come back if it gets worse.",
+     "fa": "روزی سه بار، بعد از غذا. اگر بدتر شد برگردید."
+    },
+    {
+     "who": "Patient",
+     "en": "Thank you, doctor.",
+     "fa": "ممنون، دکتر."
+    }
+   ],
+   "key": [
+    {
+     "en": "What brings you in today?",
+     "fa": "امروز چه چیزی شما را آورد؟"
+    },
+    {
+     "en": "I've had ... for three days",
+     "fa": "سه روز است ... دارم"
+    },
+    {
+     "en": "How often should I take it?",
+     "fa": "چند وقت یک‌بار مصرف کنم؟"
+    },
+    {
+     "en": "if it gets worse",
+     "fa": "اگر بدتر شد"
+    }
+   ],
+   "notes": [
+    {
+     "en": "English uses the present perfect for something that started in the past and is still true: 'I've had it for three days'.",
+     "fa": "انگلیسی برای چیزی که از گذشته شروع شده و هنوز ادامه دارد حال کامل می‌گذارد: «I've had it for three days»."
+    },
+    {
+     "en": "Describe the symptom and its timing rather than the diagnosis — the doctor makes the diagnosis.",
+     "fa": "علائم و زمانش را بگو، نه تشخیص؛ تشخیص کار پزشک است."
+    }
+   ]
+  },
+  {
+   "id": "c004",
+   "topic": {
+    "en": "Asking for directions",
+    "fa": "پرسیدن آدرس"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A visitor asks a local how to reach the museum.",
+    "fa": "یک مسافر از یک محلی می‌پرسد موزه کجاست."
+   },
+   "turns": [
+    {
+     "who": "Visitor",
+     "en": "Excuse me, how do I get to the city museum?",
+     "fa": "ببخشید، چطور به موزهٔ شهر بروم؟"
+    },
+    {
+     "who": "Local",
+     "en": "Go straight down this street for two blocks.",
+     "fa": "این خیابان را دو تقاطع مستقیم بروید."
+    },
+    {
+     "who": "Visitor",
+     "en": "Straight, then what?",
+     "fa": "مستقیم، بعد چه؟"
+    },
+    {
+     "who": "Local",
+     "en": "Then turn left at the bank. It's on your right.",
+     "fa": "بعد از بانک به چپ بپیچید. دست راستتان است."
+    },
+    {
+     "who": "Visitor",
+     "en": "Is it far?",
+     "fa": "دور است؟"
+    },
+    {
+     "who": "Local",
+     "en": "About ten minutes on foot.",
+     "fa": "حدود ده دقیقه پیاده."
+    },
+    {
+     "who": "Visitor",
+     "en": "Can I take a bus?",
+     "fa": "می‌توانم سوار اتوبوس شوم؟"
+    },
+    {
+     "who": "Local",
+     "en": "The number seven stops right in front of it.",
+     "fa": "اتوبوس شمارهٔ هفت دقیقاً جلویش می‌ایستد."
+    },
+    {
+     "who": "Visitor",
+     "en": "Great, thank you so much.",
+     "fa": "عالی، خیلی ممنون."
+    },
+    {
+     "who": "Local",
+     "en": "No problem. Enjoy your visit!",
+     "fa": "خواهش می‌کنم. خوش بگذرد!"
+    }
+   ],
+   "key": [
+    {
+     "en": "How do I get to...?",
+     "fa": "چطور به ... بروم؟"
+    },
+    {
+     "en": "two blocks",
+     "fa": "دو تقاطع"
+    },
+    {
+     "en": "on your right",
+     "fa": "سمت راستت"
+    },
+    {
+     "en": "on foot",
+     "fa": "پیاده"
+    }
+   ],
+   "notes": [
+    {
+     "en": "Distances in a city are given in blocks or walking minutes, not metres.",
+     "fa": "فاصله‌ها در شهر با تقاطع یا دقیقهٔ پیاده گفته می‌شود، نه متر."
+    },
+    {
+     "en": "'Excuse me' opens a request to a stranger; without it the question sounds abrupt.",
+     "fa": "«Excuse me» شروع درخواست از یک غریبه است؛ بدون آن سؤال خشک به نظر می‌رسد."
+    }
+   ]
+  },
+  {
+   "id": "c005",
+   "topic": {
+    "en": "Renting a flat",
+    "fa": "اجارهٔ خانه"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A tenant asks about a flat he has seen online.",
+    "fa": "مستأجر دربارهٔ خانه‌ای که آنلاین دیده سؤال می‌کند."
+   },
+   "turns": [
+    {
+     "who": "Tenant",
+     "en": "Hi, I'm calling about the flat on Green Street.",
+     "fa": "سلام، دربارهٔ آپارتمان خیابان گرین تماس گرفتم."
+    },
+    {
+     "who": "Landlord",
+     "en": "Yes, it's still available.",
+     "fa": "بله، هنوز خالی است."
+    },
+    {
+     "who": "Tenant",
+     "en": "How much is the rent, and what does it include?",
+     "fa": "اجاره چقدر است و شامل چه چیزهایی می‌شود؟"
+    },
+    {
+     "who": "Landlord",
+     "en": "Eight hundred a month, bills not included.",
+     "fa": "ماهی هشتصد، بدون قبوض."
+    },
+    {
+     "who": "Tenant",
+     "en": "Is the deposit one month?",
+     "fa": "ودیعه یک ماه است؟"
+    },
+    {
+     "who": "Landlord",
+     "en": "One month's rent, yes.",
+     "fa": "بله، اجارهٔ یک ماه."
+    },
+    {
+     "who": "Tenant",
+     "en": "When could I see it?",
+     "fa": "کِی می‌توانم ببینمش؟"
+    },
+    {
+     "who": "Landlord",
+     "en": "Tomorrow at six, if that works.",
+     "fa": "فردا ساعت شش، اگر مناسب است."
+    },
+    {
+     "who": "Tenant",
+     "en": "That's fine. I'll bring the documents.",
+     "fa": "خوب است. مدارک را می‌آورم."
+    },
+    {
+     "who": "Landlord",
+     "en": "See you tomorrow, then.",
+     "fa": "پس تا فردا."
+    }
+   ],
+   "key": [
+    {
+     "en": "It's still available",
+     "fa": "هنوز خالی است"
+    },
+    {
+     "en": "bills not included",
+     "fa": "قبوض جدا"
+    },
+    {
+     "en": "deposit",
+     "fa": "ودیعه"
+    },
+    {
+     "en": "if that works",
+     "fa": "اگر مناسب است"
+    }
+   ],
+   "notes": [
+    {
+     "en": "Ask 'how much is the rent' and 'what does it include' separately: the rent and the bills are two different numbers.",
+     "fa": "«اجاره چقدر است» و «شامل چه می‌شود» را جدا بپرس: اجاره و قبوض دو عدد جدا هستند."
+    },
+    {
+     "en": "'A month' is the natural unit for rent; 'per month' also works but sounds more written.",
+     "fa": "«a month» واحد طبیعی اجاره است؛ «per month» هم درست است اما نوشتاری‌تر به گوش می‌رسد."
+    }
+   ]
+  },
+  {
+   "id": "c006",
+   "topic": {
+    "en": "A short job interview",
+    "fa": "مصاحبهٔ شغلی کوتاه"
+   },
+   "level": "B2",
+   "setting": {
+    "en": "A candidate answers the first questions of an interview.",
+    "fa": "یک متقاضی به اولین سؤال‌های مصاحبه جواب می‌دهد."
+   },
+   "turns": [
+    {
+     "who": "Interviewer",
+     "en": "Thanks for coming in. Tell me a little about yourself.",
+     "fa": "ممنون که آمدید. کمی از خودتان بگویید."
+    },
+    {
+     "who": "Candidate",
+     "en": "I studied computer science and I've worked in support for three years.",
+     "fa": "کامپیوتر خواندم و سه سال در پشتیبانی کار کرده‌ام."
+    },
+    {
+     "who": "Interviewer",
+     "en": "What made you apply for this role?",
+     "fa": "چه چیزی باعث شد برای این موقعیت درخواست دهید؟"
+    },
+    {
+     "who": "Candidate",
+     "en": "I want to work closer to customers and solve bigger problems.",
+     "fa": "می‌خواهم به مشتری نزدیک‌تر باشم و مشکل‌های بزرگ‌تری حل کنم."
+    },
+    {
+     "who": "Interviewer",
+     "en": "What's a strength you would bring?",
+     "fa": "چه نقطه‌قوتی با خودتان می‌آورید؟"
+    },
+    {
+     "who": "Candidate",
+     "en": "I stay calm when things break, and I write everything down.",
+     "fa": "وقتی چیزی خراب می‌شود آرام می‌مانم و همه‌چیز را می‌نویسم."
+    },
+    {
+     "who": "Interviewer",
+     "en": "And something you're working on?",
+     "fa": "و چیزی که رویش کار می‌کنید؟"
+    },
+    {
+     "who": "Candidate",
+     "en": "Public speaking. I've started presenting in our weekly meeting.",
+     "fa": "سخنرانی در جمع. شروع کرده‌ام در جلسهٔ هفتگی ارائه بدهم."
+    },
+    {
+     "who": "Interviewer",
+     "en": "Good. Do you have any questions for us?",
+     "fa": "خوب است. سؤالی از ما دارید؟"
+    },
+    {
+     "who": "Candidate",
+     "en": "Yes — how is success measured in the first six months?",
+     "fa": "بله — موفقیت در شش ماه اول چطور سنجیده می‌شود؟"
+    }
+   ],
+   "key": [
+    {
+     "en": "Tell me about yourself",
+     "fa": "کمی از خودت بگو"
+    },
+    {
+     "en": "What made you apply?",
+     "fa": "چه چیزی باعث شد درخواست بدهید؟"
+    },
+    {
+     "en": "a strength you would bring",
+     "fa": "نقطه‌قوتی که می‌آورید"
+    },
+    {
+     "en": "How is success measured?",
+     "fa": "موفقیت چطور سنجیده می‌شود؟"
+    }
+   ],
+   "notes": [
+    {
+     "en": "Answer 'tell me about yourself' in three sentences: study, experience, why here.",
+     "fa": "به «tell me about yourself» در سه جمله جواب بده: تحصیل، تجربه، چرا اینجا."
+    },
+    {
+     "en": "Name one real weakness in progress; a fake one ('I work too hard') is heard immediately.",
+     "fa": "یک ضعف واقعی که رویش کار می‌کنی بگو؛ ضعف ساختگی («بیش از حد کار می‌کنم») فوراً فهمیده می‌شود."
+    }
+   ]
+  },
+  {
+   "id": "c007",
+   "topic": {
+    "en": "Something is wrong with the order",
+    "fa": "ایراد در سفارش"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A customer explains a problem with a delivered order by phone.",
+    "fa": "مشتری تلفنی مشکل سفارش تحویل‌شده را توضیح می‌دهد."
+   },
+   "turns": [
+    {
+     "who": "Customer",
+     "en": "Hello, I'm calling about order 4471.",
+     "fa": "سلام، دربارهٔ سفارش ۴۴۷۱ تماس گرفتم."
+    },
+    {
+     "who": "Agent",
+     "en": "Let me pull that up. What's the problem?",
+     "fa": "بگذارید بازش کنم. مشکل چیست؟"
+    },
+    {
+     "who": "Customer",
+     "en": "I ordered two lamps and only one arrived.",
+     "fa": "دو چراغ سفارش دادم و فقط یکی رسید."
+    },
+    {
+     "who": "Agent",
+     "en": "I'm sorry about that. When did it arrive?",
+     "fa": "متأسفم. کِی رسید؟"
+    },
+    {
+     "who": "Customer",
+     "en": "Yesterday morning. The box was open as well.",
+     "fa": "دیروز صبح. کارتن هم باز بود."
+    },
+    {
+     "who": "Agent",
+     "en": "That's not good. I can send the second lamp today.",
+     "fa": "این خوب نیست. می‌توانم چراغ دوم را امروز بفرستم."
+    },
+    {
+     "who": "Customer",
+     "en": "Thank you. Will I pay for delivery again?",
+     "fa": "ممنون. کرایهٔ ارسال را دوباره می‌دهم؟"
+    },
+    {
+     "who": "Agent",
+     "en": "No, that's on us. You'll have it within three days.",
+     "fa": "نه، به عهدهٔ ماست. تا سه روز دیگر دستتان است."
+    },
+    {
+     "who": "Customer",
+     "en": "That works. Thanks for sorting it out.",
+     "fa": "خوب است. ممنون که درستش کردید."
+    },
+    {
+     "who": "Agent",
+     "en": "Thanks for your patience.",
+     "fa": "ممنون از صبرتان."
+    }
+   ],
+   "key": [
+    {
+     "en": "I'm calling about...",
+     "fa": "دربارهٔ ... تماس گرفتم"
+    },
+    {
+     "en": "only one arrived",
+     "fa": "فقط یکی رسید"
+    },
+    {
+     "en": "that's on us",
+     "fa": "به عهدهٔ ماست"
+    },
+    {
+     "en": "sort it out",
+     "fa": "درستش کردن"
+    }
+   ],
+   "notes": [
+    {
+     "en": "Give the order number, the problem, and when it happened — in that order.",
+     "fa": "شمارهٔ سفارش، مشکل، و زمانش را — به همین ترتیب بگو."
+    },
+    {
+     "en": "Complaining politely still states the facts clearly; the politeness is in the tone, not in hiding the problem.",
+     "fa": "شکایت مؤدبانه هم حقایق را روشن می‌گوید؛ ادب در لحن است، نه در پنهان کردن مشکل."
+    }
+   ]
+  },
+  {
+   "id": "c008",
+   "topic": {
+    "en": "Meeting a neighbour",
+    "fa": "گپ با همسایه"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "Two neighbours talk in the lift about the building.",
+    "fa": "دو همسایه در آسانسور دربارهٔ ساختمان حرف می‌زنند."
+   },
+   "turns": [
+    {
+     "who": "Neighbour A",
+     "en": "Morning! You moved in last month, right?",
+     "fa": "صبح بخیر! ماه پیش اسباب‌کشی کردید، درست است؟"
+    },
+    {
+     "who": "Neighbour B",
+     "en": "That's right, flat four. I'm Mina.",
+     "fa": "درست است، واحد چهار. من مینا هستم."
+    },
+    {
+     "who": "Neighbour A",
+     "en": "I'm Reza. How are you finding the building?",
+     "fa": "من رضا هستم. ساختمان چطور است؟"
+    },
+    {
+     "who": "Neighbour B",
+     "en": "Quiet, which I like. The lift is slow though.",
+     "fa": "ساکت است، که دوست دارم. اما آسانسور کند است."
+    },
+    {
+     "who": "Neighbour A",
+     "en": "It always has been. The stairs are faster.",
+     "fa": "همیشه همین‌طور بوده. پله‌ها سریع‌ترند."
+    },
+    {
+     "who": "Neighbour B",
+     "en": "Good to know. Is there a good bakery nearby?",
+     "fa": "خوب است بدانم. نانوایی خوبی این نزدیکی هست؟"
+    },
+    {
+     "who": "Neighbour A",
+     "en": "On the corner, two minutes. Their bread sells out by nine.",
+     "fa": "سر کوچه، دو دقیقه. نانشان تا ساعت نه تمام می‌شود."
+    },
+    {
+     "who": "Neighbour B",
+     "en": "I'll go early then. Thanks!",
+     "fa": "پس زود می‌روم. ممنون!"
+    }
+   ],
+   "key": [
+    {
+     "en": "You moved in last month, right?",
+     "fa": "ماه پیش اسباب‌کشی کردید، درست است؟"
+    },
+    {
+     "en": "How are you finding the building?",
+     "fa": "ساختمان چطور به نظرت می‌آید؟"
+    },
+    {
+     "en": "Good to know.",
+     "fa": "خوب است که بدانم."
+    },
+    {
+     "en": "sells out by nine",
+     "fa": "تا ساعت نه تمام می‌شود"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'How are you finding it?' asks for an opinion, not a search: it means 'what do you think of it?'.",
+     "fa": "«How are you finding it?» نظر می‌خواهد نه جست‌وجو: یعنی «چه نظری درباره‌اش داری؟»."
+    },
+    {
+     "en": "Small talk with a neighbour usually mixes one question with one piece of information about yourself.",
+     "fa": "گپ با همسایه معمولاً یک سؤال و یک اطلاع دربارهٔ خودت را قاطی می‌کند."
+    }
+   ]
+  },
+  {
+   "id": "c009",
+   "topic": {
+    "en": "Buying a train ticket",
+    "fa": "خرید بلیت قطار"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A traveller buys a return ticket at the station.",
+    "fa": "مسافر یک بلیت رفت‌وبرگشت از ایستگاه می‌خرد."
+   },
+   "turns": [
+    {
+     "who": "Traveller",
+     "en": "Hi, I'd like a ticket to Manchester, please.",
+     "fa": "سلام، یک بلیت به منچستر لطفاً."
+    },
+    {
+     "who": "Clerk",
+     "en": "Single or return?",
+     "fa": "یک‌طرفه یا رفت‌وبرگشت؟"
+    },
+    {
+     "who": "Traveller",
+     "en": "Return, coming back tomorrow evening.",
+     "fa": "رفت‌وبرگشت، فردا شب برمی‌گردم."
+    },
+    {
+     "who": "Clerk",
+     "en": "The 18:40 is the last direct one.",
+     "fa": "قطار ۱۸:۴۰ آخرین مستقیم است."
+    },
+    {
+     "who": "Traveller",
+     "en": "That works. Does it need a reservation?",
+     "fa": "خوب است. رزرو لازم دارد؟"
+    },
+    {
+     "who": "Clerk",
+     "en": "No, but you won't get a seat if you leave it late.",
+     "fa": "نه، اما اگر دیر بجنبی صندلی گیرت نمی‌آید."
+    },
+    {
+     "who": "Traveller",
+     "en": "I'll take it. Card, please.",
+     "fa": "همین را می‌خواهم. با کارت، لطفاً."
+    },
+    {
+     "who": "Clerk",
+     "en": "Here's your ticket. Platform nine.",
+     "fa": "این هم بلیتتان. سکوی نه."
+    }
+   ],
+   "key": [
+    {
+     "en": "Single or return?",
+     "fa": "یک‌طرفه یا رفت‌وبرگشت؟"
+    },
+    {
+     "en": "the last direct one",
+     "fa": "آخرین مستقیم"
+    },
+    {
+     "en": "Does it need a reservation?",
+     "fa": "رزرو لازم دارد؟"
+    },
+    {
+     "en": "leave it late",
+     "fa": "دیر جنبیدن"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Single' is one direction, 'return' is both ways — in the US you will hear 'one way' and 'round trip'.",
+     "fa": "«Single» یک‌طرفه و «return» رفت‌وبرگشت است — در آمریکا «one way» و «round trip» می‌گویند."
+    },
+    {
+     "en": "'I'll take it' closes a purchase of something already described.",
+     "fa": "«I'll take it» خرید چیزی را که توصیف شده تمام می‌کند."
+    }
+   ]
+  },
+  {
+   "id": "c010",
+   "topic": {
+    "en": "Asking a professor for more time",
+    "fa": "درخواست تمدید مهلت از استاد"
+   },
+   "level": "B2",
+   "setting": {
+    "en": "A student emails the professor and then talks in person.",
+    "fa": "دانشجو به استاد ایمیل می‌زند و بعد حضوری حرف می‌زند."
+   },
+   "turns": [
+    {
+     "who": "Student",
+     "en": "Professor, do you have a minute about the essay?",
+     "fa": "استاد، یک دقیقه دربارهٔ مقاله وقت دارید؟"
+    },
+    {
+     "who": "Professor",
+     "en": "Of course. How is it going?",
+     "fa": "البته. چطور پیش می‌رود؟"
+    },
+    {
+     "who": "Student",
+     "en": "Two sources arrived late, so I'm behind on the last section.",
+     "fa": "دو منبع دیر رسید، پس در بخش آخر عقبم."
+    },
+    {
+     "who": "Professor",
+     "en": "How much more time do you need?",
+     "fa": "چقدر وقت بیشتر لازم داری؟"
+    },
+    {
+     "who": "Student",
+     "en": "Would it be possible to have until Monday?",
+     "fa": "امکان دارد تا دوشنبه مهلت داشته باشم؟"
+    },
+    {
+     "who": "Professor",
+     "en": "Monday is fine, but send me what you have by Friday.",
+     "fa": "دوشنبه اشکالی ندارد، اما تا جمعه هر چه داری برایم بفرست."
+    },
+    {
+     "who": "Student",
+     "en": "I'll do that. Thank you for understanding.",
+     "fa": "حتماً. ممنون که درک می‌کنید."
+    },
+    {
+     "who": "Professor",
+     "en": "Just tell me early next time — that's all I ask.",
+     "fa": "فقط دفعهٔ بعد زودتر بگو — همین را می‌خواهم."
+    }
+   ],
+   "key": [
+    {
+     "en": "do you have a minute",
+     "fa": "یک دقیقه وقت دارید؟"
+    },
+    {
+     "en": "I'm behind on...",
+     "fa": "در ... عقب افتاده‌ام"
+    },
+    {
+     "en": "Would it be possible to...?",
+     "fa": "امکان دارد ...؟"
+    },
+    {
+     "en": "Thank you for understanding.",
+     "fa": "ممنون که درک می‌کنید."
+    }
+   ],
+   "notes": [
+    {
+     "en": "Ask early and give a reason plus a new date; a request with a date is much easier to grant.",
+     "fa": "زود بپرس و دلیل به‌همراه تاریخ تازه بگو؛ درخواستی که تاریخ دارد رد کردنش سخت‌تر است."
+    },
+    {
+     "en": "'Would it be possible' is the standard polite form for a request to someone senior.",
+     "fa": "«Would it be possible» شکل مؤدبانهٔ استاندارد درخواست از کسی با جایگاه بالاتر است."
+    }
+   ]
+  },
+  {
+   "topic": {
+    "en": "Ordering a taxi",
+    "fa": "گرفتن تاکسی"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A passenger phones a taxi company and gives the address.",
+    "fa": "مسافری به آژانس تاکسی زنگ می‌زند و آدرس می‌دهد."
+   },
+   "turns": [
+    {
+     "who": "Operator",
+     "en": "Good evening, City Cars. How can I help?",
+     "fa": "شب بخیر، آژانس شهر. چطور می‌توانم کمک کنم؟"
+    },
+    {
+     "who": "Nima",
+     "en": "Hi, I'd like a taxi to the airport, please.",
+     "fa": "سلام، لطفاً یک تاکسی برای فرودگاه می‌خواهم."
+    },
+    {
+     "who": "Operator",
+     "en": "Of course. Where should the driver pick you up?",
+     "fa": "البته. راننده از کجا شما را سوار کند؟"
+    },
+    {
+     "who": "Nima",
+     "en": "From 14 Rose Street, near the bakery.",
+     "fa": "از خیابان رز، شمارهٔ ۱۴، نزدیک قنادی."
+    },
+    {
+     "who": "Operator",
+     "en": "Got it. And what time do you need it?",
+     "fa": "بسیار خوب. چه ساعتی لازم دارید؟"
+    },
+    {
+     "who": "Nima",
+     "en": "As soon as possible — my flight is in two hours.",
+     "fa": "هرچه زودتر — پروازم دو ساعت دیگر است."
+    },
+    {
+     "who": "Operator",
+     "en": "The driver will be there in about ten minutes. The fare is around fifteen pounds.",
+     "fa": "راننده حدود ده دقیقهٔ دیگر آنجاست. کرایه حدوداً پانزده پوند می‌شود."
+    },
+    {
+     "who": "Nima",
+     "en": "That's fine. Can I pay by card?",
+     "fa": "مشکلی نیست. می‌توانم با کارت پرداخت کنم؟"
+    },
+    {
+     "who": "Operator",
+     "en": "Yes, you can. He'll call you when he arrives.",
+     "fa": "بله، می‌توانید. وقتی رسید به شما زنگ می‌زند."
+    },
+    {
+     "who": "Nima",
+     "en": "Perfect, thank you very much.",
+     "fa": "عالی، خیلی ممنون."
+    }
+   ],
+   "key": [
+    {
+     "en": "I'd like a taxi to…",
+     "fa": "یک تاکسی برای… می‌خواهم"
+    },
+    {
+     "en": "pick you up",
+     "fa": "سوارت کند"
+    },
+    {
+     "en": "as soon as possible",
+     "fa": "هرچه زودتر"
+    },
+    {
+     "en": "the fare is around…",
+     "fa": "کرایه حدوداً… می‌شود"
+    }
+   ],
+   "notes": [
+    {
+     "en": "In Britain a taxi is 'the taxi' and its price is 'the fare'; 'How much is the taxi?' sounds like asking to buy the car.",
+     "fa": "در انگلیسی بریتانیایی کرایهٔ تاکسی «fare» است؛ «How much is the taxi?» مثل این است که بخواهی خود ماشین را بخری."
+    },
+    {
+     "en": "'Can I pay by card?' is the standard question; 'with card' is understood but less natural.",
+     "fa": "«Can I pay by card?» پرسش استاندارد است؛ «with card» فهمیده می‌شود اما طبیعی نیست."
+    }
+   ],
+   "id": "c011"
+  },
+  {
+   "topic": {
+    "en": "Checking in at a hotel",
+    "fa": "پذیرش هتل"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A guest arrives with a booking and asks about breakfast.",
+    "fa": "مهمانی با رزرو می‌رسد و دربارهٔ صبحانه می‌پرسد."
+   },
+   "turns": [
+    {
+     "who": "Receptionist",
+     "en": "Good afternoon. Do you have a reservation with us?",
+     "fa": "بعدازظهر بخیر. رزرو دارید؟"
+    },
+    {
+     "who": "Lena",
+     "en": "Yes, under the name Farhadi, for three nights.",
+     "fa": "بله، به نام فرهادی، برای سه شب."
+    },
+    {
+     "who": "Receptionist",
+     "en": "Let me check… yes, a double room. Could I see your passport, please?",
+     "fa": "بگذارید چک کنم… بله، اتاق دو نفره. می‌توانم پاسپورت‌تان را ببینم؟"
+    },
+    {
+     "who": "Lena",
+     "en": "Here you are.",
+     "fa": "بفرمایید."
+    },
+    {
+     "who": "Receptionist",
+     "en": "Thank you. Your room is 402 and breakfast is from seven to ten.",
+     "fa": "ممنون. اتاق شما ۴۰۲ است و صبحانه از هفت تا ده."
+    },
+    {
+     "who": "Lena",
+     "en": "Is breakfast included in the price?",
+     "fa": "صبحانه در قیمت لحاظ شده است؟"
+    },
+    {
+     "who": "Receptionist",
+     "en": "Yes, it is. There's also free Wi-Fi — the password is on the card.",
+     "fa": "بله، هست. وای‌فای رایگان هم داریم — رمزش روی کارت است."
+    },
+    {
+     "who": "Lena",
+     "en": "Great. Could I have a wake-up call at six thirty?",
+     "fa": "عالی. می‌شود ساعت شش و نیم بیدارم کنید؟"
+    },
+    {
+     "who": "Receptionist",
+     "en": "Of course. I'll make a note. Enjoy your stay!",
+     "fa": "البته. یادداشت می‌کنم. اقامت خوبی داشته باشید!"
+    }
+   ],
+   "key": [
+    {
+     "en": "a reservation under the name…",
+     "fa": "رزرو به نام…"
+    },
+    {
+     "en": "Is breakfast included?",
+     "fa": "صبحانه شامل می‌شود؟"
+    },
+    {
+     "en": "a wake-up call",
+     "fa": "تماس بیدارباش"
+    },
+    {
+     "en": "Enjoy your stay.",
+     "fa": "اقامت خوبی داشته باشید."
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Here you are' is what you say while handing something over; 'Here you are' for arriving somewhere would be 'Here we are'.",
+     "fa": "«Here you are» را وقتی چیزی را دست کسی می‌دهی می‌گویی؛ برای رسیدن به جایی «Here we are» گفته می‌شود."
+    }
+   ],
+   "id": "c012"
+  },
+  {
+   "topic": {
+    "en": "Booking a table for dinner",
+    "fa": "رزرو میز برای شام"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A customer calls a restaurant to book a table for four.",
+    "fa": "مشتری به رستوران زنگ می‌زند تا میزی برای چهار نفر رزرو کند."
+   },
+   "turns": [
+    {
+     "who": "Staff",
+     "en": "Good morning, Bella Vista. How may I help you?",
+     "fa": "صبح بخیر، بلا ویستا. چطور کمک کنم؟"
+    },
+    {
+     "who": "Omid",
+     "en": "Hello, I'd like to book a table for four, please.",
+     "fa": "سلام، لطفاً می‌خواهم میزی برای چهار نفر رزرو کنم."
+    },
+    {
+     "who": "Staff",
+     "en": "Certainly. Which evening?",
+     "fa": "حتماً. کدام شب؟"
+    },
+    {
+     "who": "Omid",
+     "en": "This Friday, at half past seven if possible.",
+     "fa": "این جمعه، اگر ممکن است ساعت هفت و نیم."
+    },
+    {
+     "who": "Staff",
+     "en": "Friday at seven thirty is full, I'm afraid. Would eight o'clock work?",
+     "fa": "متأسفانه جمعه ساعت هفت و نیم پر است. ساعت هشت خوب است؟"
+    },
+    {
+     "who": "Omid",
+     "en": "Eight is fine. Do you have a table by the window?",
+     "fa": "هشت خوب است. میزی کنار پنجره دارید؟"
+    },
+    {
+     "who": "Staff",
+     "en": "I can reserve one, but I can't promise it. Could I take a name and number?",
+     "fa": "می‌توانم یکی را نگه دارم، اما قول نمی‌دهم. نام و شماره‌تان را بگویید؟"
+    },
+    {
+     "who": "Omid",
+     "en": "Omid Rahimi, 07700 900123.",
+     "fa": "امید رحیمی، ۰۷۷۰۰ ۹۰۰۱۲۳."
+    },
+    {
+     "who": "Staff",
+     "en": "Thank you — a table for four on Friday at eight. See you then.",
+     "fa": "ممنون — میزی برای چهار نفر جمعه ساعت هشت. می‌بینمتان."
+    }
+   ],
+   "key": [
+    {
+     "en": "I'd like to book a table.",
+     "fa": "می‌خواهم میزی رزرو کنم"
+    },
+    {
+     "en": "Would eight o'clock work?",
+     "fa": "ساعت هشت خوب است؟"
+    },
+    {
+     "en": "I can't promise it.",
+     "fa": "قولش را نمی‌دهم"
+    },
+    {
+     "en": "by the window",
+     "fa": "کنار پنجره"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Book a table' is British; American English usually says 'reserve a table'. Both are correct.",
+     "fa": "«book a table» بریتانیایی است؛ آمریکایی معمولاً «reserve a table» می‌گوید. هر دو درست است."
+    },
+    {
+     "en": "Say times as 'half past seven' or 'seven thirty' — never 'seven and half'.",
+     "fa": "ساعت را «half past seven» یا «seven thirty» بگو — هرگز «seven and half» نگو."
+    }
+   ],
+   "id": "c013"
+  },
+  {
+   "topic": {
+    "en": "At the pharmacy",
+    "fa": "در داروخانه"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A customer asks for something for a bad cough.",
+    "fa": "مشتری برای سرفهٔ شدید چیزی می‌خواهد."
+   },
+   "turns": [
+    {
+     "who": "Pharmacist",
+     "en": "Hello, how can I help?",
+     "fa": "سلام، چطور کمک کنم؟"
+    },
+    {
+     "who": "Mina",
+     "en": "Hi. I've had a bad cough for four days. Do you have anything for it?",
+     "fa": "سلام. چهار روز است سرفهٔ شدیدی دارم. چیزی برایش دارید؟"
+    },
+    {
+     "who": "Pharmacist",
+     "en": "Is it a dry cough or are you bringing anything up?",
+     "fa": "سرفه خشک است یا چیزی بالا می‌آید؟"
+    },
+    {
+     "who": "Mina",
+     "en": "It's dry, mostly at night.",
+     "fa": "خشک است، بیشتر شب‌ها."
+    },
+    {
+     "who": "Pharmacist",
+     "en": "Then a cough syrup should help. Take one spoonful before bed.",
+     "fa": "پس شربت سرفه کمک می‌کند. شب قبل از خواب یک قاشق بخورید."
+    },
+    {
+     "who": "Mina",
+     "en": "Can I take it with other medicine? I'm on tablets for blood pressure.",
+     "fa": "می‌توانم با داروی دیگر بخورم؟ برای فشار خون قرص می‌خورم."
+    },
+    {
+     "who": "Pharmacist",
+     "en": "That's fine, but leave two hours between them. If it lasts more than a week, see a doctor.",
+     "fa": "مشکلی نیست، اما بین‌شان دو ساعت فاصله بگذارید. اگر بیش از یک هفته طول کشید، به پزشک مراجعه کنید."
+    },
+    {
+     "who": "Mina",
+     "en": "Understood. How often should I take it?",
+     "fa": "متوجه شدم. هر چند وقت بخورم؟"
+    },
+    {
+     "who": "Pharmacist",
+     "en": "Twice a day, morning and night. That comes to six pounds fifty.",
+     "fa": "دو بار در روز، صبح و شب. می‌شود شش پوند و پنجاه."
+    }
+   ],
+   "key": [
+    {
+     "en": "Do you have anything for…?",
+     "fa": "چیزی برای… دارید؟"
+    },
+    {
+     "en": "a dry cough",
+     "fa": "سرفه خشک"
+    },
+    {
+     "en": "leave two hours between them",
+     "fa": "دو ساعت بین‌شان فاصله بگذار"
+    },
+    {
+     "en": "That comes to…",
+     "fa": "جمعش می‌شود…"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'That comes to six pounds fifty' is the shop phrase for a total; 'It is six pounds fifty' is also fine.",
+     "fa": "«That comes to…» عبارت فروشگاه‌ها برای جمع کل است؛ «It is…» هم درست است."
+    },
+    {
+     "en": "Symptoms and medicine are described with 'for': 'something for a cough', 'tablets for blood pressure'.",
+     "fa": "علائم و دارو با «for» گفته می‌شوند: چیزی برای سرفه، قرص برای فشار خون."
+    }
+   ],
+   "id": "c014"
+  },
+  {
+   "topic": {
+    "en": "Returning something to a shop",
+    "fa": "پس دادن جنس به مغازه"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A customer brings back a jumper that is the wrong size.",
+    "fa": "مشتری پلیوری را که اندازه‌اش نیست برمی‌گرداند."
+   },
+   "turns": [
+    {
+     "who": "Assistant",
+     "en": "Hi, are you finding everything alright?",
+     "fa": "سلام، همه‌چیز خوب پیدا کردید؟"
+    },
+    {
+     "who": "Kian",
+     "en": "Actually, I'd like to return this jumper. I bought it yesterday.",
+     "fa": "راستش می‌خواهم این پلیور را برگردانم. دیروز خریدمش."
+    },
+    {
+     "who": "Assistant",
+     "en": "Of course. Is there a problem with it?",
+     "fa": "البته. مشکلی دارد؟"
+    },
+    {
+     "who": "Kian",
+     "en": "It's too small. I'd like a bigger size, if you have one.",
+     "fa": "خیلی کوچک است. اگر دارید، اندازهٔ بزرگ‌تر می‌خواهم."
+    },
+    {
+     "who": "Assistant",
+     "en": "We have it in medium and large. Do you have the receipt?",
+     "fa": "اندازهٔ متوسط و بزرگ داریم. رسید دارید؟"
+    },
+    {
+     "who": "Kian",
+     "en": "Yes, here it is. I paid by card.",
+     "fa": "بله، بفرمایید. با کارت پرداخت کردم."
+    },
+    {
+     "who": "Assistant",
+     "en": "Perfect. I'll swap it for a large. If you'd rather have your money back, that's fine too.",
+     "fa": "عالی. با اندازهٔ بزرگ عوض می‌کنم. اگر ترجیح می‌دهید پول‌تان برگردد، آن هم مشکلی نیست."
+    },
+    {
+     "who": "Kian",
+     "en": "A large would be great, thanks.",
+     "fa": "اندازهٔ بزرگ عالی است، ممنون."
+    },
+    {
+     "who": "Assistant",
+     "en": "Here you go. Same price, so nothing more to pay.",
+     "fa": "بفرمایید. هم‌قیمت است، پس چیزی برای پرداخت نیست."
+    }
+   ],
+   "key": [
+    {
+     "en": "I'd like to return this.",
+     "fa": "می‌خواهم این را برگردانم"
+    },
+    {
+     "en": "Do you have the receipt?",
+     "fa": "رسید دارید؟"
+    },
+    {
+     "en": "I'll swap it for…",
+     "fa": "با… عوضش می‌کنم"
+    },
+    {
+     "en": "I'd rather have my money back.",
+     "fa": "ترجیح می‌دهم پولم برگردد"
+    }
+   ],
+   "notes": [
+    {
+     "en": "If the shop is at fault, say 'I'd like a refund'; if you changed your mind, 'a refund' may be refused, so 'an exchange' is safer.",
+     "fa": "اگر مغازه مقصر است بگو «I'd like a refund»؛ اگر خودت نظرت عوض شده، ممکن است قبول نکنند، پس «exchange» مطمئن‌تر است."
+    }
+   ],
+   "id": "c015"
+  },
+  {
+   "topic": {
+    "en": "Making an appointment by phone",
+    "fa": "گرفتن نوبت تلفنی"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A patient calls a clinic for a dental appointment.",
+    "fa": "بیماری برای نوبت دندان‌پزشکی به مطب زنگ می‌زند."
+   },
+   "turns": [
+    {
+     "who": "Reception",
+     "en": "Good morning, Riverside Dental. How can I help?",
+     "fa": "صبح بخیر، دندان‌پزشکی ریورساید. چطور کمک کنم؟"
+    },
+    {
+     "who": "Sara",
+     "en": "Hello. I'd like to make an appointment with Dr Ali, please.",
+     "fa": "سلام. لطفاً می‌خواهم از دکتر علی نوبت بگیرم."
+    },
+    {
+     "who": "Reception",
+     "en": "Are you registered with us?",
+     "fa": "نزد ما پرونده دارید؟"
+    },
+    {
+     "who": "Sara",
+     "en": "Yes, my name is Sara Moradi. I came in last spring.",
+     "fa": "بله، اسمم سارا مرادی است. بهار گذشته آمدم."
+    },
+    {
+     "who": "Reception",
+     "en": "I've found you. Is it urgent, or a check-up?",
+     "fa": "پیدایتان کردم. فوری است یا معاینهٔ دوره‌ای؟"
+    },
+    {
+     "who": "Sara",
+     "en": "It's not urgent, but my tooth has been aching for a week.",
+     "fa": "فوری نیست، اما یک هفته است دندانم درد می‌کند."
+    },
+    {
+     "who": "Reception",
+     "en": "The earliest I have is Thursday at four. Would that suit you?",
+     "fa": "زودترین وقتی که دارم پنجشنبه ساعت چهار است. مناسب‌تان است؟"
+    },
+    {
+     "who": "Sara",
+     "en": "Thursday at four is fine. Could I get a reminder by text?",
+     "fa": "پنجشنبه ساعت چهار خوب است. می‌توانید پیامکی یادآوری بفرستید؟"
+    },
+    {
+     "who": "Reception",
+     "en": "Of course. Please call us if you need to cancel.",
+     "fa": "البته. اگر لازم شد لغو کنید لطفاً به ما زنگ بزنید."
+    }
+   ],
+   "key": [
+    {
+     "en": "make an appointment",
+     "fa": "نوبت گرفتن"
+    },
+    {
+     "en": "Are you registered with us?",
+     "fa": "نزد ما پرونده دارید؟"
+    },
+    {
+     "en": "The earliest I have is…",
+     "fa": "زودترین وقتی که دارم…"
+    },
+    {
+     "en": "Would that suit you?",
+     "fa": "مناسب‌تان است؟"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'An appointment' is for a doctor, a dentist or an official; 'a reservation' is for a table, a room or a flight.",
+     "fa": "«appointment» برای پزشک، dentist یا اداره است؛ «reservation» برای میز، اتاق یا پرواز."
+    }
+   ],
+   "id": "c016"
+  },
+  {
+   "topic": {
+    "en": "Small talk at the office",
+    "fa": "گپ کوتاه در محل کار"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "Two colleagues meet by the coffee machine on Monday morning.",
+    "fa": "دو همکار صبح دوشنبه کنار دستگاه قهوه هم را می‌بینند."
+   },
+   "turns": [
+    {
+     "who": "Dan",
+     "en": "Morning! How was your weekend?",
+     "fa": "صبح بخیر! آخر هفته چطور بود؟"
+    },
+    {
+     "who": "Neda",
+     "en": "Not bad, thanks. We finally sorted out the garden.",
+     "fa": "بد نبود، ممنون. بالاخره باغچه را مرتب کردیم."
+    },
+    {
+     "who": "Dan",
+     "en": "Nice. In this weather, that's a job and a half.",
+     "fa": "چه خوب. با این هوا، کار سختی است."
+    },
+    {
+     "who": "Neda",
+     "en": "Tell me about it. What about you?",
+     "fa": "نگو! تو چطور؟"
+    },
+    {
+     "who": "Dan",
+     "en": "Quiet one. I watched the match and did nothing else.",
+     "fa": "آرام بود. بازی را دیدم و کار دیگری نکردم."
+    },
+    {
+     "who": "Neda",
+     "en": "Did your team win?",
+     "fa": "تیمت برد؟"
+    },
+    {
+     "who": "Dan",
+     "en": "One all. Typical.",
+     "fa": "یک-یک. مثل همیشه."
+    },
+    {
+     "who": "Neda",
+     "en": "Never mind. Are you coming to the team lunch on Friday?",
+     "fa": "مهم نیست. جمعه ناهار تیمی می‌آیی؟"
+    },
+    {
+     "who": "Dan",
+     "en": "I'll be there. See you at standup.",
+     "fa": "می‌آیم. در جلسهٔ کوتاه صبح می‌بینمت."
+    }
+   ],
+   "key": [
+    {
+     "en": "How was your weekend?",
+     "fa": "آخر هفته چطور بود؟"
+    },
+    {
+     "en": "Tell me about it.",
+     "fa": "نگو! (یعنی موافقم)"
+    },
+    {
+     "en": "One all.",
+     "fa": "یک-یک (نتیجهٔ مساوی)"
+    },
+    {
+     "en": "a job and a half",
+     "fa": "کاری سخت و پرزحمت"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Tell me about it' does not ask for a story — it means 'I absolutely agree'.",
+     "fa": "«Tell me about it» درخواست داستان نیست — یعنی «کاملاً موافقم»."
+    }
+   ],
+   "id": "c017"
+  },
+  {
+   "topic": {
+    "en": "Inviting a friend to dinner",
+    "fa": "دعوت دوست به شام"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "One friend invites another home for dinner and checks what they eat.",
+    "fa": "دوستی دوست دیگرش را به شام خانه دعوت می‌کند و از غذایش می‌پرسد."
+   },
+   "turns": [
+    {
+     "who": "Reza",
+     "en": "Are you doing anything on Saturday evening?",
+     "fa": "شنبه شب کاری داری؟"
+    },
+    {
+     "who": "Lily",
+     "en": "Nothing planned. Why?",
+     "fa": "چیزی برنامه ندارم. چطور؟"
+    },
+    {
+     "who": "Reza",
+     "en": "We're having a few people over for dinner. Would you like to come?",
+     "fa": "چند نفر را برای شام دعوت کرده‌ایم. دوست داری بیایی؟"
+    },
+    {
+     "who": "Lily",
+     "en": "I'd love to! What time should I come?",
+     "fa": "خیلی دوست دارم! چه ساعتی بیایم؟"
+    },
+    {
+     "who": "Reza",
+     "en": "Around seven, but come earlier if you like.",
+     "fa": "حدود هفت، ولی اگر خواستی زودتر بیا."
+    },
+    {
+     "who": "Lily",
+     "en": "Can I bring anything?",
+     "fa": "چیزی بیاورم؟"
+    },
+    {
+     "who": "Reza",
+     "en": "Just yourself. Unless you want to bring dessert.",
+     "fa": "فقط خودت. مگر اینکه بخواهی دسر بیاوری."
+    },
+    {
+     "who": "Lily",
+     "en": "I'll bring a cake. Is anyone vegetarian?",
+     "fa": "کیک می‌آورم. کسی گیاه‌خوار هست؟"
+    },
+    {
+     "who": "Reza",
+     "en": "One person, so there'll be plenty for everyone either way.",
+     "fa": "یک نفر، پس در هر حال برای همه به‌قدر کافی هست."
+    },
+    {
+     "who": "Lily",
+     "en": "Perfect. See you Saturday!",
+     "fa": "عالی. شنبه می‌بینمت!"
+    }
+   ],
+   "key": [
+    {
+     "en": "Would you like to come?",
+     "fa": "دوست داری بیایی؟"
+    },
+    {
+     "en": "I'd love to!",
+     "fa": "خیلی دوست دارم!"
+    },
+    {
+     "en": "Can I bring anything?",
+     "fa": "چیزی بیاورم؟"
+    },
+    {
+     "en": "Just yourself.",
+     "fa": "فقط خودت."
+    }
+   ],
+   "notes": [
+    {
+     "en": "'I'd love to' is warmer and more polite than 'Yes'; 'sure' is fine between close friends.",
+     "fa": "«I'd love to» گرم‌تر و مؤدبانه‌تر از «Yes» است؛ «sure» بین دوستان نزدیک خوب است."
+    },
+    {
+     "en": "Offering to bring something is expected, and the host usually says 'just yourself'.",
+     "fa": "پیشنهاد آوردن چیزی رسم رایج است و میزبان معمولاً می‌گوید «فقط خودت»."
+    }
+   ],
+   "id": "c018"
+  },
+  {
+   "topic": {
+    "en": "Discussing a project with a colleague",
+    "fa": "گفت‌وگو دربارهٔ پروژه با همکار"
+   },
+   "level": "B2",
+   "setting": {
+    "en": "Two colleagues agree on what to finish first before the deadline.",
+    "fa": "دو همکار توافق می‌کنند قبل از مهلت اول چه کاری را تمام کنند."
+   },
+   "turns": [
+    {
+     "who": "Maryam",
+     "en": "Where are we with the report? The client wants it Friday.",
+     "fa": "گزارش کجاست؟ مشتری برای جمعه می‌خواهدش."
+    },
+    {
+     "who": "Tom",
+     "en": "The data is in, but the summary isn't written yet.",
+     "fa": "داده‌ها آماده است، اما خلاصه هنوز نوشته نشده."
+    },
+    {
+     "who": "Maryam",
+     "en": "Then let's leave the charts for next week. The summary matters more.",
+     "fa": "پس نمودارها را برای هفتهٔ آینده بگذاریم. خلاصه مهم‌تر است."
+    },
+    {
+     "who": "Tom",
+     "en": "I agree, though the client did ask for charts last time.",
+     "fa": "موافقم، هرچند مشتری دفعهٔ پیش نمودارها را خواسته بود."
+    },
+    {
+     "who": "Maryam",
+     "en": "You've got a point. Could you draft the summary and I'll do two charts?",
+     "fa": "حرفت درست است. می‌توانی خلاصه را بنویسی و من دو نمودار بکشم؟"
+    },
+    {
+     "who": "Tom",
+     "en": "That works. I'll need the numbers by Wednesday.",
+     "fa": "خوب است. اعداد را تا چهارشنبه لازم دارم."
+    },
+    {
+     "who": "Maryam",
+     "en": "I'll send them tonight. Anything else likely to slip?",
+     "fa": "امشب می‌فرستم. چیز دیگری ممکن است عقب بیفتد؟"
+    },
+    {
+     "who": "Tom",
+     "en": "Only the translation. I'll flag it in the email.",
+     "fa": "فقط ترجمه. در ایمیل اشاره می‌کنم."
+    },
+    {
+     "who": "Maryam",
+     "en": "Good. Let's go with that and check in on Thursday.",
+     "fa": "خوب است. با همین پیش برویم و پنجشنبه یک بررسی کنیم."
+    }
+   ],
+   "key": [
+    {
+     "en": "Where are we with…?",
+     "fa": "الان وضعیت… چطور است؟"
+    },
+    {
+     "en": "You've got a point.",
+     "fa": "حرفت درست است."
+    },
+    {
+     "en": "likely to slip",
+     "fa": "احتمال دارد عقب بیفتد"
+    },
+    {
+     "en": "I'll flag it.",
+     "fa": "اشاره‌اش می‌کنم"
+    }
+   ],
+   "notes": [
+    {
+     "en": "Professionals disagree with 'I agree, though…' or 'You've got a point, but…' rather than a flat 'No'.",
+     "fa": "در محیط کار مخالفت با «I agree, though…» یا «You've got a point, but…» گفته می‌شود، نه «No» خشک."
+    },
+    {
+     "en": "'Where are we with X?' is the standard way to ask for a status update.",
+     "fa": "«Where are we with X?» پرسش استاندارد گرفتن وضعیت کار است."
+    }
+   ],
+   "id": "c019"
+  },
+  {
+   "topic": {
+    "en": "At the bank",
+    "fa": "در بانک"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A customer opens an account and asks about fees.",
+    "fa": "مشتری حساب باز می‌کند و دربارهٔ کارمزدها می‌پرسد."
+   },
+   "turns": [
+    {
+     "who": "Clerk",
+     "en": "Good morning. How can I help you today?",
+     "fa": "صبح بخیر. امروز چطور کمک کنم؟"
+    },
+    {
+     "who": "Ali",
+     "en": "I've just moved here and I'd like to open a current account.",
+     "fa": "تازه اینجا آمده‌ام و می‌خواهم حساب جاری باز کنم."
+    },
+    {
+     "who": "Clerk",
+     "en": "Certainly. Do you have proof of address?",
+     "fa": "حتماً. مدرک آدرس دارید؟"
+    },
+    {
+     "who": "Ali",
+     "en": "I have a tenancy agreement and my passport.",
+     "fa": "قرارداد اجاره و پاسپورت دارم."
+    },
+    {
+     "who": "Clerk",
+     "en": "That's enough. Is there a monthly fee?",
+     "fa": "کافی است. کارمزد ماهانه دارد؟"
+    },
+    {
+     "who": "Ali",
+     "en": "Sorry — are you asking me?",
+     "fa": "ببخشید — شما از من می‌پرسید؟"
+    },
+    {
+     "who": "Clerk",
+     "en": "Apologies, that was my mistake. The account is free if you pay in a salary.",
+     "fa": "عذر می‌خواهم، اشتباه من بود. حساب رایگان است اگر حقوق‌تان واریز شود."
+    },
+    {
+     "who": "Ali",
+     "en": "It will be. How long does the card take to arrive?",
+     "fa": "همین‌طور می‌شود. کارت چند روزه می‌رسد؟"
+    },
+    {
+     "who": "Clerk",
+     "en": "Five working days. You'll get the PIN separately.",
+     "fa": "پنج روز کاری. رمز را جداگانه دریافت می‌کنید."
+    },
+    {
+     "who": "Ali",
+     "en": "That's clear. Thank you for your help.",
+     "fa": "روشن است. ممنون از کمکتان."
+    }
+   ],
+   "key": [
+    {
+     "en": "open a current account",
+     "fa": "حساب جاری باز کردن"
+    },
+    {
+     "en": "proof of address",
+     "fa": "مدرک آدرس"
+    },
+    {
+     "en": "a monthly fee",
+     "fa": "کارمزد ماهانه"
+    },
+    {
+     "en": "working days",
+     "fa": "روزهای کاری"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Working days' excludes weekends and holidays — the phrase to watch in any promise of delivery.",
+     "fa": "«working days» شامل تعطیلات و آخر هفته نمی‌شود — در هر وعدهٔ زمانی به آن دقت کن."
+    },
+    {
+     "en": "Formal service English asks permission with 'Do you have…?' far more often than 'Can I have…?'.",
+     "fa": "در انگلیسی رسمی خدمات، «Do you have…?» بیشتر از «Can I have…?» برای پرسیدن استفاده می‌شود."
+    }
+   ],
+   "id": "c020"
+  },
+  {
+   "topic": {
+    "en": "At the airport check-in",
+    "fa": "پذیرش در فرودگاه"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "A passenger checks in a bag and asks about the gate.",
+    "fa": "مسافری چمدان تحویل می‌دهد و دربارهٔ در خروجی می‌پرسد."
+   },
+   "turns": [
+    {
+     "who": "Agent",
+     "en": "Good morning. May I see your passport and booking, please?",
+     "fa": "صبح بخیر. لطفاً پاسپورت و بلیت‌تان را ببینم؟"
+    },
+    {
+     "who": "Hana",
+     "en": "Here you are. I'm going to Istanbul.",
+     "fa": "بفرمایید. به استانبول می‌روم."
+    },
+    {
+     "who": "Agent",
+     "en": "Thank you. Are you checking any bags in today?",
+     "fa": "ممنون. امروز چمدانی تحویل می‌دهید؟"
+    },
+    {
+     "who": "Hana",
+     "en": "Just one, and this small bag as hand luggage.",
+     "fa": "فقط یکی، و این کیف کوچک به‌عنوان بار دستی."
+    },
+    {
+     "who": "Agent",
+     "en": "Please put it on the belt… it's twenty-one kilos, so that's one over.",
+     "fa": "لطفاً روی نوار بگذارید… بیست‌ویک کیلو است، یک کیلو اضافه."
+    },
+    {
+     "who": "Hana",
+     "en": "Oh. How much is the extra charge?",
+     "fa": "آه. هزینهٔ اضافه چقدر است؟"
+    },
+    {
+     "who": "Agent",
+     "en": "Nine pounds, or you can move something into your hand luggage.",
+     "fa": "نُه پوند، یا می‌توانید چیزی را به بار دستی‌تان منتقل کنید."
+    },
+    {
+     "who": "Hana",
+     "en": "I'll move a book. There — twenty kilos exactly.",
+     "fa": "یک کتاب را منتقل می‌کنم. بفرمایید — دقیقاً بیست کیلو."
+    },
+    {
+     "who": "Agent",
+     "en": "Perfect. Boarding starts at 10:40 at gate B12.",
+     "fa": "عالی. سوار شدن ساعت ۱۰:۴۰ از در B12 آغاز می‌شود."
+    },
+    {
+     "who": "Hana",
+     "en": "Thank you. Have a good day.",
+     "fa": "ممنون. روز خوبی داشته باشید."
+    }
+   ],
+   "key": [
+    {
+     "en": "check in a bag",
+     "fa": "چمدان تحویل دادن"
+    },
+    {
+     "en": "hand luggage",
+     "fa": "بار دستی"
+    },
+    {
+     "en": "an extra charge",
+     "fa": "هزینهٔ اضافه"
+    },
+    {
+     "en": "Boarding starts at…",
+     "fa": "سوار شدن از… آغاز می‌شود"
+    }
+   ],
+   "notes": [
+    {
+     "en": "Weights, prices and times are given as digits: 'twenty-one kilos', 'gate B12', 'at 10:40'.",
+     "fa": "وزن، قیمت و زمان با اعداد گفته می‌شود: بیست‌ویک کیلو، در B12، ساعت ۱۰:۴۰."
+    }
+   ],
+   "id": "c021"
+  },
+  {
+   "topic": {
+    "en": "Meeting a friend's family",
+    "fa": "آشنایی با خانوادهٔ دوست"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "A visitor meets a friend's parents for the first time.",
+    "fa": "مهمانی برای نخستین بار با پدر و مادر دوستش آشنا می‌شود."
+   },
+   "turns": [
+    {
+     "who": "Mrs Hale",
+     "en": "So you're the friend Daniel keeps talking about. Come in!",
+     "fa": "پس تو همان دوستی هستی که دانیال مدام ازت می‌گوید. بیا داخل!"
+    },
+    {
+     "who": "Sam",
+     "en": "That's me. It's lovely to meet you at last.",
+     "fa": "همان منم. خیلی خوشحالم که بالاخره می‌بینمتان."
+    },
+    {
+     "who": "Mrs Hale",
+     "en": "Daniel, take his coat. Would you like some tea?",
+     "fa": "دانیال، کاپشنش را بگیر. چای می‌خوری؟"
+    },
+    {
+     "who": "Sam",
+     "en": "Tea would be great, thank you. What a nice house this is.",
+     "fa": "چای عالی است، ممنون. چه خانهٔ قشنگی."
+    },
+    {
+     "who": "Mr Hale",
+     "en": "Thank you. Daniel says you're studying medicine?",
+     "fa": "ممنون. دانیال می‌گوید پزشکی می‌خوانی؟"
+    },
+    {
+     "who": "Sam",
+     "en": "That's right, third year. It keeps me busy.",
+     "fa": "درست است، سال سوم. سرم را شلوغ نگه می‌دارد."
+    },
+    {
+     "who": "Mr Hale",
+     "en": "I can imagine. And how did you two meet?",
+     "fa": "می‌توانم تصور کنم. شما دو نفر چطور آشنا شدید؟"
+    },
+    {
+     "who": "Sam",
+     "en": "We shared a flat in our first year and have been friends since.",
+     "fa": "سال اول هم‌خانه بودیم و از آن وقت دوست هستیم."
+    },
+    {
+     "who": "Mrs Hale",
+     "en": "Lovely. Dinner will be ready in half an hour.",
+     "fa": "چه خوب. شام نیم ساعت دیگر آماده است."
+    },
+    {
+     "who": "Sam",
+     "en": "Thank you for having me — it smells wonderful.",
+     "fa": "ممنون که دعوتم کردید — بوی خیلی خوبی می‌آید."
+    }
+   ],
+   "key": [
+    {
+     "en": "It's lovely to meet you.",
+     "fa": "خوشحالم که می‌بینمتان"
+    },
+    {
+     "en": "What a nice house!",
+     "fa": "چه خانهٔ قشنگی!"
+    },
+    {
+     "en": "Thank you for having me.",
+     "fa": "ممنون که دعوتم کردید"
+    },
+    {
+     "en": "in half an hour",
+     "fa": "نیم ساعت دیگر"
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Thank you for having me' is the standard way to thank a host — at the door as well as at the table.",
+     "fa": "«Thank you for having me» راه استاندارد تشکر از میزبان است — هم دم در و هم سر میز."
+    },
+    {
+     "en": "A guest commenting on the house or the food is expected small talk, not flattery.",
+     "fa": "تعریف مهمان از خانه یا غذا گپ معمول است، نه چاپلوسی."
+    }
+   ],
+   "id": "c022"
+  },
+  {
+   "topic": {
+    "en": "Talking about a bad day",
+    "fa": "گفتن از یک روز بد"
+   },
+   "level": "A2",
+   "setting": {
+    "en": "Two friends talk after a day that went wrong from morning to evening.",
+    "fa": "دو دوست بعد از روزی که از صبح تا شب خراب شد، گفت‌وگو می‌کنند."
+   },
+   "turns": [
+    {
+     "who": "Ben",
+     "en": "You look tired. Everything okay?",
+     "fa": "خسته به نظر می‌رسی. همه‌چیز خوب است؟"
+    },
+    {
+     "who": "Zahra",
+     "en": "Not really. I've had one of those days.",
+     "fa": "نه واقعاً. یکی از آن روزها را داشتم."
+    },
+    {
+     "who": "Ben",
+     "en": "What happened?",
+     "fa": "چه شد؟"
+    },
+    {
+     "who": "Zahra",
+     "en": "I missed the bus, spilled coffee on my shirt, and then the meeting ran late.",
+     "fa": "اتوبوس را از دست دادم، قهوه روی پیراهنم ریخت و بعد جلسه طول کشید."
+    },
+    {
+     "who": "Ben",
+     "en": "Ouch. All three before lunch?",
+     "fa": "ای بابا. هر سه تا قبل از ناهار؟"
+    },
+    {
+     "who": "Zahra",
+     "en": "All three. I'm going straight home and going to bed.",
+     "fa": "هر سه. مستقیم می‌روم خانه و می‌خوابم."
+    },
+    {
+     "who": "Ben",
+     "en": "Fair enough. Tomorrow's another day.",
+     "fa": "خیلی هم خوب. فردا روز دیگری است."
+    },
+    {
+     "who": "Zahra",
+     "en": "Exactly what I keep telling myself.",
+     "fa": "دقیقاً همان چیزی که مدام به خودم می‌گویم."
+    },
+    {
+     "who": "Ben",
+     "en": "Text me when you get home.",
+     "fa": "وقتی رسیدی خانه پیام بده."
+    }
+   ],
+   "key": [
+    {
+     "en": "one of those days",
+     "fa": "یکی از آن روزهای بد"
+    },
+    {
+     "en": "What happened?",
+     "fa": "چه شد؟"
+    },
+    {
+     "en": "Ouch.",
+     "fa": "ای بابا. (همدردی)"
+    },
+    {
+     "en": "Tomorrow's another day.",
+     "fa": "فردا روز دیگری است."
+    }
+   ],
+   "notes": [
+    {
+     "en": "'I've had one of those days' is the fixed phrase for a day of small disasters.",
+     "fa": "«I've had one of those days» عبارت ثابت برای روزی پر از بدشانسی کوچک است."
+    },
+    {
+     "en": "'Ouch' works for sympathy as well as physical pain.",
+     "fa": "«Ouch» هم برای درد جسمی و هم برای همدردی به کار می‌رود."
+    }
+   ],
+   "id": "c023"
+  },
+  {
+   "topic": {
+    "en": "Studying together for an exam",
+    "fa": "درس خواندن گروهی برای امتحان"
+   },
+   "level": "B1",
+   "setting": {
+    "en": "Two classmates plan how to revise before an exam on Monday.",
+    "fa": "دو هم‌کلاسی برنامه‌ریزی می‌کنند پیش از امتحان دوشنبه چطور مرور کنند."
+   },
+   "turns": [
+    {
+     "who": "Ellie",
+     "en": "How's your revision going?",
+     "fa": "مرورت چطور پیش می‌رود؟"
+    },
+    {
+     "who": "Kabir",
+     "en": "Slowly. I've read the notes but I can't remember the dates.",
+     "fa": "کند. یادداشت‌ها را خوانده‌ام اما تاریخ‌ها یادم نمی‌ماند."
+    },
+    {
+     "who": "Ellie",
+     "en": "Same here. Shall we test each other on Friday?",
+     "fa": "من هم همین‌طور. جمعه از همدیگر بپرسیم؟"
+    },
+    {
+     "who": "Kabir",
+     "en": "Good idea. Where — library or your place?",
+     "fa": "فکر خوبی است. کجا — کتابخانه یا خانهٔ تو؟"
+    },
+    {
+     "who": "Ellie",
+     "en": "Library, it's quieter. I'll book a room for three hours.",
+     "fa": "کتابخانه، آرام‌تر است. اتاقی برای سه ساعت رزرو می‌کنم."
+    },
+    {
+     "who": "Kabir",
+     "en": "Make it four and I'll bring the past papers.",
+     "fa": "چهار ساعتش کن و من آزمون‌های سال‌های قبل را می‌آورم."
+    },
+    {
+     "who": "Ellie",
+     "en": "Deal. Should we cover the last chapter too?",
+     "fa": "قبول. فصل آخر را هم بخوانیم؟"
+    },
+    {
+     "who": "Kabir",
+     "en": "It's always in the exam, so yes. Two o'clock?",
+     "fa": "همیشه در امتحان می‌آید، پس بله. ساعت دو؟"
+    },
+    {
+     "who": "Ellie",
+     "en": "Two it is. Bring snacks — we'll need them.",
+     "fa": "ساعت دو. خوراکی بیاور — لازم می‌شود."
+    }
+   ],
+   "key": [
+    {
+     "en": "How's your revision going?",
+     "fa": "مرورت چطور پیش می‌رود؟"
+    },
+    {
+     "en": "test each other",
+     "fa": "از همدیگر پرسیدن"
+    },
+    {
+     "en": "past papers",
+     "fa": "آزمون‌های سال‌های قبل"
+    },
+    {
+     "en": "Two it is.",
+     "fa": "پس ساعت دو."
+    }
+   ],
+   "notes": [
+    {
+     "en": "'Revision' is British for studying before an exam; American English says 'review'.",
+     "fa": "«revision» بریتانیایی برای مطالعهٔ پیش از امتحان است؛ آمریکایی «review» می‌گوید."
+    },
+    {
+     "en": "'Two it is' confirms a decision — the same pattern works with any choice: 'Friday it is'.",
+     "fa": "«Two it is» تصمیم را قطعی می‌کند — با هر گزینه‌ای کار می‌کند: «Friday it is»."
+    }
+   ],
+   "id": "c024"
+  }
+ ]
+}

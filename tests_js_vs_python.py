@@ -6,11 +6,17 @@ are randomised (jokes, time, date) are compared on *kind* rather than text.
 """
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+
+# Daily English is chosen from the local date, so both engines are pinned to
+# one: unpinned, a run that happens to cross midnight would compare two
+# different days and report a mismatch that is really a clock.
+DAILY_TODAY = "2026-05-04"
 
 CASES = [
     # register — the one capability whose whole output is built at runtime,
@@ -99,6 +105,14 @@ CASES = [
     "i have to go now", "i am not improving", "I did a mistake",
     "I made a mistake yesterday", "میشه این رو توضیح بدی", "درسته این جمله؟",
     "translate negotiate", "speak english", "reply in english", "polite requests",
+    # daily english: the same three items in both engines, and the questions a
+    # learner asks about them in either language
+    "today's word", "explain today's word", "today's expression",
+    "give me more examples of today's expression", "today's conversation",
+    "what's today's english", "daily english", "daily word",
+    "practice today's conversation with me",
+    "لغت امروز", "لغت امروز رو توضیح بده", "عبارت امروز", "کلمه امروز",
+    "با عبارت امروز چند جمله بساز", "مکالمه امروز", "انگلیسی روزانه",
 ]
 
 
@@ -107,14 +121,19 @@ def normalise(reply: str) -> str:
     out = reply.strip()
     if "😂" in out:  # jokes are randomly picked
         return "<joke>"
+    # Small talk picks a random canned response, so two runs of the same input
+    # legitimately differ: compare the *kind* of reply instead. This test comes
+    # before the clock and date patterns on purpose - one of the speaking-fear
+    # responses opens with "امروز", which the date pattern would swallow, and
+    # then the two runtimes looked different only because they drew different
+    # responses from the same list.
+    base = out.split(" ")[0]
+    if any(base in r for r in ALL_REPLY_TEXTS):
+        return "<intent-reply>"
     if out.startswith("الان ساعت") or out.startswith("It's "):
         return "<time>"
     if out.startswith("امروز") or out.startswith("Today is"):
         return "<date>"
-    # small talk picks a random canned response — compare the *kind* of reply
-    base = out.split(" ")[0]
-    if any(base in r for r in ALL_REPLY_TEXTS):
-        return "<intent-reply>"
     return out
 
 
@@ -136,9 +155,10 @@ def main() -> int:
     cases_file.write_text(
         json.dumps([{"input": c} for c in CASES], ensure_ascii=False))
 
+    env = dict(os.environ, FLUENTIFY_TODAY=DAILY_TODAY)
     subprocess.run(
         ["node", str(ROOT / "tools/js_engine.js"), str(cases_file), str(js_out)],
-        check=True,
+        check=True, env=env,
     )
 
     sys.path.insert(0, str(ROOT))
@@ -147,7 +167,7 @@ def main() -> int:
     # A fresh bot per case: the JS side does the same, and without it one
     # case that starts a quiz (e.g. "articles exam") poisons every later one
     # with "Not quite" and hides real mismatches.
-    py = [ChatBot().respond(c) for c in CASES]
+    py = [ChatBot(today=DAILY_TODAY).respond(c) for c in CASES]
     js = json.loads(js_out.read_text())
 
     mismatches = 0

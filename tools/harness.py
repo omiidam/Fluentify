@@ -422,6 +422,12 @@ FLOWS = [
      ["listen A1", "repeat that", "say that again"], None),
     ("phrases-then-repeat",
      ["daily routine", "repeat that"], None),
+    # reading today's cards, from the drill, back out of it and on to the
+    # expression: the drill must not swallow the questions about the day
+    ("daily-then-practice",
+     ["today's conversation", "practice today's conversation with me",
+      "لغت امروز", "practice today's conversation with me", "stop",
+      "today's expression"], None),
     ("fine-then-ask", ["I am fine", "what can I learn today"], None),
     ("no-open-target", ["exercises", "exam", "show answer", "examples"], None),
 ]
@@ -554,8 +560,102 @@ def run_bilingual(verbose: bool) -> None:
         print(f"  bilingual: {len(BILINGUAL_CASES)} knowledge cases")
 
 
+# --------------------------------------------------------------------------
+# 10. daily english — one word, one expression, one conversation per day
+#
+# Pinned to a fixed date, so the answers are the same on every run: the whole
+# feature is "the same three items all day", and a suite that used the real
+# clock would be checking something else. These cases are about the *chat*;
+# tools/check_daily.py owns the catalogue and the three engines.
+DAILY_PROBES = [
+    ("today's word", ["Word of the Day"], ["متوجه نشدم", "not sure"]),
+    ("explain today's word", ["Word of the Day"], ["متوجه نشدم"]),
+    ("today's expression", ["Expression of the Day"], ["متوجه نشدم"]),
+    ("give me more examples of today's expression", ["Expression of the Day"], []),
+    ("today's conversation", ["Conversation of the Day"], []),
+    ("what's today's english", ["Today"], []),
+    ("daily english", ["Today"], []),
+    ("لغت امروز رو توضیح بده", ["لغت امروز"], ["متوجه نشدم"]),
+    ("عبارت امروز", ["عبارت امروز"], []),
+    ("با عبارت امروز چند جمله بساز", ["عبارت امروز"], []),
+    ("مکالمه امروز", ["مکالمه امروز"], []),
+    ("انگلیسی روزانه", ["انگلیسی"], ["متوجه نشدم"]),
+]
+
+
+# --------------------------------------------------------------------------
+def run_daily(verbose: bool) -> None:
+    day = "2026-05-04"
+    b = ChatBot(today=day)
+    picked = b.daily_selection()
+    word, expr, conv = picked["words"], picked["expressions"], picked["conversations"]
+
+    for text, need, banned in DAILY_PROBES:
+        check_reply("daily", text, b.respond(text), need=need, banned=banned)
+
+    # The chat has to name the very items the panel is showing - a daily
+    # feature that answers with a different word is worse than none.
+    for ask, entry, label in (("today's word", word, "word"),
+                              ("today's expression", expr, "expression"),
+                              ("today's conversation", conv, "conversation")):
+        reply = b.respond(ask)
+        marker = entry["en"] if "en" in entry else entry["topic"]["en"]
+        if marker not in reply:
+            fail("daily", ask, f"the reply never names today's {label} {marker!r}")
+        if entry.get("fa") and entry["fa"] not in reply:
+            fail("daily", ask, f"no Persian for today's {label}")
+
+    # ...and so does the digest, all three at once
+    digest = b.respond("today's english")
+    for entry, label in ((word, "word"), (expr, "expression"), (conv, "conversation")):
+        marker = entry["en"] if "en" in entry else entry["topic"]["en"]
+        if marker not in digest:
+            fail("daily", "digest", f"the digest omits today's {label} {marker!r}")
+
+    # The same local date is the same three items, whichever process asks, and
+    # the next day is a different three. Determinism is the whole promise.
+    again = ChatBot(today=day).daily_selection()
+    for kind in ("words", "expressions", "conversations"):
+        if again[kind]["id"] != picked[kind]["id"]:
+            fail("daily", kind, "a second process picked different items for "
+                              "the same date")
+    nxt = ChatBot(today="2026-05-05").daily_selection()
+    same = [k for k in ("words", "expressions", "conversations")
+            if nxt[k]["id"] == picked[k]["id"]]
+    if same:
+        fail("daily", "next day", f"{', '.join(same)} did not change overnight")
+
+    # The drill walks the dialogue turn by turn...
+    drill = ChatBot(today=day)
+    opening = drill.respond("practice today's conversation with me")
+    first = conv["turns"][0]
+    if first["en"] not in opening:
+        fail("daily", "practice", "the drill does not open with the first line")
+    answer = drill.respond(conv["turns"][1]["en"])
+    if "Well said" not in answer and "آفرین" not in answer:
+        fail("daily", "practice", "saying the expected line back was not accepted")
+    if conv["turns"][2]["en"] not in answer:
+        fail("daily", "practice",
+             "the drill did not show the other speaker's next line")
+    # a line that is not the expected one is answered with the line it wanted
+    wrong = drill.respond("nonsense")
+    if conv["turns"][3]["en"] not in wrong:
+        fail("daily", "practice",
+             "an unexpected answer was not shown the line the drill expected")
+    # ...and a daily question leaves it rather than being graded as an answer
+    escaped = drill.respond("لغت امروز رو توضیح بده")
+    if "Word of the Day" not in escaped and "لغت امروز" not in escaped:
+        fail("daily", "practice escape",
+             "a daily question mid-drill was treated as an answer")
+
+    if verbose:
+        print(f"  daily: {len(DAILY_PROBES)} asks, "
+              f"{word['en']!r} / {expr['en']!r} / {conv['topic']['en']!r}")
+
+
 RUNNERS = [
     ("bilingual", run_bilingual),
+    ("daily english", run_daily),
     ("vocabulary", run_vocabulary),
     ("grammar", run_grammar),
     ("content", run_content),
