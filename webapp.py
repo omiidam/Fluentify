@@ -100,7 +100,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --bg1: #faf4e8; --bg2: #f4ecdb; --bg3: #f2e9d7;
     --panel: rgba(17, 24, 58, .88); --panel2: #fffcf3;
     --accent: #1b2d52; --accent2: #2e7a5a; --accent3: #6e5aa8;
-    --text: #16274a; --muted: #5c6a82; --dim: #7a8394;
+    /* Both greys are darker than a cream page first suggests: --muted lands
+       at 5.2:1 on the lavender chips (not just on white), and --dim at 4.9:1,
+       so the 9-11px counters and timestamps still clear AA where they sit. */
+    --text: #16274a; --muted: #526077; --dim: #66707d;
     --bot: #fffcf3;
     /* the reference design's own four colours */
     --paper: #faf4e8; --paper2: #f2e9d7; --card: #fffcf3;
@@ -429,7 +432,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .ebody::-webkit-scrollbar-thumb { background: #e0d4bd; border-radius: 6px; }
   .ehead {
     font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
-    color: #7a8394; font-weight: 700;
+    color: var(--dim); font-weight: 700;
     padding: 9px 2px 5px; position: sticky; top: -8px;
     background: linear-gradient(180deg, #fffdf7, #fdf8ee);
   }
@@ -442,7 +445,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .etile:hover { background: rgba(22,39,74,0.085); transform: scale(1.12); }
   .etile:active { transform: scale(.9); }
   .etile:focus-visible { outline: 2px solid #1b2d52; outline-offset: 1px; }
-  .eempty { padding: 22px 8px; text-align: center; color: #7a8394; font-size: 13px; }
+  .eempty { padding: 22px 8px; text-align: center; color: var(--dim); font-size: 13px; }
   /* Touch has no hover, and a tap that only shows a tooltip teaches nothing:
      the tile presses, the emoji goes in. */
   @media (hover: none) {
@@ -561,7 +564,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .player.speech .pltrack { cursor: default; }
   .pltime {
-    flex: 0 0 auto; font-size: 12px; color: #a9adcf;
+    /* was #a9adcf, the old theme's periwinkle: 2.0:1 on the paper bar the
+       player now sits on, i.e. the elapsed time was effectively invisible. */
+    flex: 0 0 auto; font-size: 12px; color: var(--muted);
     font-variant-numeric: tabular-nums; min-width: 38px; text-align: right;
   }
   @media (max-width: 560px) {
@@ -659,7 +664,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .pempty b { color: #16274a; }
 
   .pcount {
-    flex: none; margin: -2px 2px 10px; font-size: 11.5px; color: #6b7791;
+    flex: none; margin: -2px 2px 10px; font-size: 11.5px; color: var(--muted);
     letter-spacing: .01em;
   }
 
@@ -914,7 +919,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
     color: #41527a; margin-bottom: 5px; font-weight: 600;
   }
-  .vgroup-head .fa { color: #7a8394; text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .vgroup-head .fa { color: var(--dim); text-transform: none; letter-spacing: 0; font-weight: 400; }
   .vgroup-head .count {
     background: rgba(22,39,74,0.0595); border-radius: 999px;
     padding: 0 6px; font-size: 10px; margin-inline-start: auto;
@@ -990,7 +995,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--lav-ink); padding: 2px 3px 2px 7px; font-size: 11px;
     line-height: 1.25; font-family: inherit;
   }
-  .gmain .fa { color: #6d649b; font-size: 9.5px; }
+  .gmain .fa { color: var(--lav-ink); font-size: 9.5px; }
   .go {
     background: rgba(241,193,90,.34); color: #7a5000;
     border: none; border-left: 1px solid rgba(226,167,46,.45);
@@ -1029,14 +1034,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: linear-gradient(150deg, rgba(233,229,248,.9), rgba(22,39,74,.06));
     border-color: rgba(76,63,126,.28);
   }
-  .row.user .mav {
-    background: linear-gradient(135deg, var(--lav), var(--lav2));
-    border-color: rgba(76,63,126,.28);
-    box-shadow: 0 4px 12px rgba(76,63,126,.16);
-  }
+  /* One rule, not three. The two lavender ones above were dead - a later rule
+     with the same selector always won - and the shadow that survived was the
+     old indigo rgba(79,110,247): a blue glow on the calmer, warmer page. */
   .row.user .mav {
     background: linear-gradient(135deg, var(--user1), var(--user2));
-    border: none; box-shadow: 0 4px 12px rgba(79,110,247,.35);
+    border: none; box-shadow: 0 4px 12px rgba(22,39,74,.22);
   }
   .bubble-wrap { max-width: min(78%, 760px); display: flex; flex-direction: column; gap: 5px; }
   .row.user .bubble-wrap { align-items: flex-end; }
@@ -1385,6 +1388,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     /* .hbtn span sets ellipsis and a nowrap overflow; a number needs neither */
     text-overflow: clip; max-width: none;
   }
+  /* .hbtn span (0,1,1) outranked .rbadge (0,1,0), so the count inherited the
+     label's grey on a gold pill - 3.8:1 at 9px. The badge needs its own ink. */
+  .hbtn span.rbadge { color: #33260a; }
   .rbadge[hidden] { display: none; }
   .rtop { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
   .rprog {
@@ -1546,7 +1552,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .ptip .pk { font-size: 14px; line-height: 1.3; flex: none; }
   .ptip .pt { font-size: 12.5px; line-height: 1.6; color: var(--muted); }
-  .ptip .pt b { color: #fff; }
+  .ptip .pt b { color: var(--ink); }
 
   .pgroup { margin-bottom: 14px; }
   .pgroup:last-child { margin-bottom: 0; }
@@ -1555,7 +1561,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: #41527a; font-weight: 700; margin-bottom: 7px;
   }
   .pgroup > .ghead .fa {
-    color: #7a8394; text-transform: none; letter-spacing: 0; font-weight: 400;
+    color: var(--dim); text-transform: none; letter-spacing: 0; font-weight: 400;
   }
   .prows {
     display: grid; grid-template-columns: 1fr; gap: 7px;
@@ -1578,7 +1584,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .psay { font-size: 13px; color: var(--text); margin-top: 3px; line-height: 1.45; }
   .pfa { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.55; }
   .pwords {
-    font-size: 11px; color: #7a8394; margin-top: 3px; line-height: 1.5;
+    font-size: 11px; color: var(--dim); margin-top: 3px; line-height: 1.5;
     font-family: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
   }
   .pnote {
@@ -1629,7 +1635,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .pcard .pfa { font-size: 12px; line-height: 1.5; color: var(--muted); }
   .pcard .pfa::before {
-    content: '↳'; color: #7a8394; font-size: 10px; margin-inline-end: 6px;
+    content: '↳'; color: var(--dim); font-size: 10px; margin-inline-end: 6px;
   }
   @media (min-width: 600px) {
     .msg.plist { padding: 9px 12px; }
@@ -1755,7 +1761,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .go.exam:not(.locked):hover { background: rgba(201,138,22,.34); }
   .go.exam.locked {
-    background: rgba(22,39,74,0.102); color: #7a8394;
+    /* --muted, not --dim: the locked chip sits on the lavender bar, where the
+       lighter grey measured 4.1:1 at 11.5px. */
+    background: rgba(22,39,74,0.102); color: var(--muted);
     border-left-color: rgba(22,39,74,0.221);
   }
   .lrow { padding: 7px 10px; gap: 10px; }
@@ -1891,7 +1899,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      states now has to be legible from the fill alone. They are, because the
      fills differ in hue, not just in brightness. */
   .mic:hover {
-    background: #3a4b93; color: #fff;
+    /* #3a4b93 was the indigo highlight of the old palette */
+    background: #2f4470; color: #fffcf3;
     box-shadow: 0 4px 16px rgba(74,58,30, .6), inset 0 1px 0 rgba(22,39,74,0.187);
   }
   .mic:focus-visible { outline: 2px solid #1b2d52; outline-offset: 2px; }
@@ -1909,7 +1918,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      explanation in its title would be unreachable. aria-disabled announces
      the state to a screen reader while leaving the tap working. */
   .mic[aria-disabled="true"] {
-    background: #e6dfd0; color: #7a8394;
+    background: #e6dfd0; color: var(--dim);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
   }
   .mic[aria-disabled="true"]:hover {
@@ -1921,9 +1930,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     60%      { box-shadow: 0 2px 8px rgba(22,39,74,.22), 0 0 0 9px rgba(241,193,90,0); }
   }
   .mic.hint { animation: micHint 2.6s ease-out 3; }
+  /* the pulse ring follows the button's own red, not the tutor's pink */
   @keyframes micPulse {
-    0%   { box-shadow: 0 0 0 0 rgba(255, 111, 156, .55); }
-    100% { box-shadow: 0 0 0 16px rgba(255, 111, 156, 0); }
+    0%   { box-shadow: 0 0 0 0 rgba(168,73,58,.5); }
+    100% { box-shadow: 0 0 0 16px rgba(168,73,58,0); }
   }
   @media (prefers-reduced-motion: reduce) {
     .mic.rec, .mic.hint { animation: none; }
@@ -1946,7 +1956,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @keyframes micBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
   .stt-label { color: #5c6a82; font-size: 12.5px; }
   .stt-interim { color: #4c5e8a; font-style: italic; }
-  .stt-final { color: #fff; }
+  /* white on the cream speech card: the transcript arrived invisible */
+  .stt-final { color: var(--ink); }
 
   /* ------------------------------------------------ BBC listening ------- */
   .bbc-open {
@@ -1971,7 +1982,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bbc-list { display: flex; flex-direction: column; gap: 9px; }
   .bbc-row {
     padding: 12px 14px; border-radius: 14px; background: #f7f0e1;
-    border: 1px solid #2b3768;
+    /* a hairline, not the #2b3768 outline the dark list used */
+    border: 1px solid rgba(22,39,74,.13);
+    box-shadow: 0 2px 8px rgba(74,58,30,.07);
   }
   .bbc-row-head { display: flex; gap: 9px; align-items: baseline; }
   .bbc-lvl {
@@ -1982,8 +1995,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bbc-lvl.lvl-B1 { background: #dce8f6; color: #2f5c96; }
   .bbc-lvl.lvl-B2 { background: #ece6f8; color: #4c3f7e; }
   .bbc-lvl.lvl-C1 { background: #f6dfe8; color: #a03a63; }
-  .bbc-lvl.lvl-none { background: #33385c; color: #9aa3cc; }
-  .bbc-title { font-size: 14.5px; color: #fff; font-weight: 600; }
+  /* the unrated chip belongs to the same family as the others; it was a navy
+     pill left over from the dark list, sitting on a cream card */
+  .bbc-lvl.lvl-none { background: #eee3cf; color: #33456b; }
+  .bbc-title { font-size: 14.5px; color: var(--ink); font-weight: 600; }
   .bbc-blurb { margin-top: 5px; font-size: 12.5px; color: #4c5e8a; line-height: 1.5; }
   .bbc-meta { margin-top: 6px; font-size: 11.5px; color: #5c6a82; }
   .bbc-actions { display: flex; gap: 7px; margin-top: 9px; flex-wrap: wrap; align-items: center; }
@@ -1996,7 +2011,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bbc-play.nofile { background: #efe4d1; border-color: rgba(22,39,74,.18); color: var(--muted); }
   .bbc-play.nofile:hover { border-color: rgba(22,39,74,.4); color: var(--ink); }
   .bbc-link { font-size: 12px; color: var(--lav-ink); text-decoration: none; padding: 6px 4px; }
-  .bbc-link:hover { color: #fff; text-decoration: underline; }
+  .bbc-link:hover { color: var(--navy); text-decoration: underline; }
   .bbc-empty { font-size: 12px; color: #5c6a82; padding: 4px 2px; }
   /* 40, not 46: this min-height was the floor for the whole composer row,
      input and mic included, so the button set the height of the form. */
@@ -2009,11 +2024,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     body { padding: 16px; align-items: center; justify-content: center; }
     .app { height: min(94vh, 980px); width: min(1180px, 100%); }
     .app::after { left: 12%; right: 12%; }
-    header { padding: 14px 20px; flex-wrap: nowrap; }
+    header { padding: 14px 20px; flex-wrap: wrap; }
     header h1 { font-size: 19px; }
     .avatar { width: 46px; height: 46px; border-radius: 15px; }
     .avatar svg { width: 38px; height: 38px; }
-    .tools { order: 0; width: auto; margin: 0; padding: 0; overflow: visible; }
+    /* The toolbar leaves the phone strip but stays on its own row. Inlining
+       it here was a clipped row: at 600-880px the title, the meter and seven
+       48px tiles measure ~830px, so the last two tiles - Review and Clear -
+       ran under the app's overflow:hidden and could not be tapped at all.
+       One row measures the whole header; it only fits from 900px up. */
+    .tools { order: 10; width: 100%; margin: 0; padding: 0;
+             overflow: visible; gap: 6px; justify-content: flex-start; }
     .hbtn { width: 48px; height: 48px; }
     .hbtn i, .hbtn i svg { width: 19px; height: 19px; }
     .hbtn span { font-size: 8.5px; }
@@ -2034,6 +2055,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .status { display: flex; }
     #seedmeter { width: 66px; height: 20px; }
     #seedmeter span { font-size: 10.5px; padding: 0 7px; }
+    /* now the header really is one row: brand, meter, tool rail */
+    header { flex-wrap: nowrap; }
+    .tools { order: 0; width: auto; justify-content: flex-end; }
   }
 
   /* ==================================================================
@@ -2514,6 +2538,17 @@ const BIRD =
   '<circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>' +
   '<ellipse cx="34.5" cy="27.5" rx="3.2" ry="2.1" fill="#e2a72e" opacity=".35"/>' +
   '</svg>';
+
+/* Reading a data file by name. The offline bundle defines this against its own
+   data/*.json; the web build reads every section over /api instead, and the
+   emoji picker is the one place that asks for a file by name. Without it here
+   the picker never opened at all: the call threw, the module caught the throw,
+   and the composer's emoji button hid itself rather than sit there dead. */
+const _json = {};
+const loadJSON = (name) => (_json[name] ||= fetch('/api/' + name).then((r) => {
+  if (!r.ok) throw new Error(name + ' could not be read (HTTP ' + r.status + ')');
+  return r.json();
+}));
 
 const chat = document.getElementById('chat');
 const input = document.getElementById('input');
@@ -6099,6 +6134,12 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
+        elif self.path.startswith("/api/emojis"):
+            # The composer's emoji picker. The offline bundle reads this same
+            # file as data/emojis.json; here it needs a route, because the web
+            # build has no data/ directory to fetch from.
+            self._send_json(json.loads((ROOT / "emojis.json").read_text(encoding="utf-8")),
+                            3600)
         elif self.path.startswith("/api/vocabulary"):
             # Vocabulary domains for the UI panel, grouped for a tidy layout
             groups = []

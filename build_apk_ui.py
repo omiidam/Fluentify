@@ -156,6 +156,24 @@ html = sub(
 # The Object.assign below the rewritten fetch is left alone on purpose: it is
 # what fills the offline cache.
 
+# 2b) the emoji picker's data loader: data/*.json instead of /api/emojis
+#
+# The web build has no data/ directory, so it reads a file by name over the
+# API; the offline page has the directory and no server.
+html = sub(
+    html,
+    """const _json = {};
+const loadJSON = (name) => (_json[name] ||= fetch('/api/' + name).then((r) => {
+  if (!r.ok) throw new Error(name + ' could not be read (HTTP ' + r.status + ')');
+  return r.json();
+}));""",
+    """const _json = {};
+const loadJSON = (name) => (_json[name] ||= fetch('data/' + name + '.json').then((r) => {
+  if (!r.ok) throw new Error(name + '.json could not be read (HTTP ' + r.status + ')');
+  return r.json();
+}));""",
+    "the emoji data loader")
+
 # 3) boot: read every bundled file, build the engine, then fill the panels
 #
 # The web build boots on one line - loadAllSections(), behind a loading screen
@@ -191,15 +209,10 @@ const bbcCatalogue = () => _bbc;
 const wordArchBands = () => _bands;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-/* Cached, because the boot reads every file and the emoji picker asks for one
-   of them again the first time the picker is opened. A cached read is nothing.
-   The status check is here because a missing file otherwise arrives as a JSON
-   parse error that does not say which file was missing. */
-const _json = {};
-const loadJSON = (name) => (_json[name] ||= fetch('data/' + name + '.json').then((r) => {
-  if (!r.ok) throw new Error(name + '.json could not be read (HTTP ' + r.status + ')');
-  return r.json();
-}));
+/* loadJSON, _json and the emoji picker's cache live in the page script above,
+   rewritten in step 2b to read data/*.json. Declaring them again here would be
+   two top-level consts of the same name in one script - a SyntaxError that
+   takes the whole page down. */
 
 /* The eleven files the engine is built from, then the four that only fill the
    UI. Every name here is the name of the file it came from, and the same
