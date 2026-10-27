@@ -521,10 +521,14 @@ def main() -> int:
           re.search(r"setTimeout\(\(\) => \{ floorUp = true; maybe\(\); \}, FLOOR_MS\)", src)
           is not None,
           "awaited instead, one slow section extends the boot by its own time")
+    # Three conditions, and the third is the one the learner can see: the bar
+    # has to have actually arrived at 100% before the overlay goes, or the
+    # screen leaves mid-fill under a label that already said 100%.
     check("the boot waits for the sections as well as the floor",
-          re.search(r"function maybe\(\) \{ if \(floorUp && dataIn\) hide\(\); \}", src)
+          re.search(r"function maybe\(\) \{ if \(floorUp && dataIn && shown >= 1\) hide\(\); \}", src)
           is not None,
-          "either condition alone dismisses the screen before the app is usable")
+          "either condition alone dismisses the screen before the app is usable, "
+          "and the bar has to finish before the screen does")
     check("the boot deadline is short enough to be useful",
           (lambda m: m is not None and 8000 <= int(m.group(1)) <= 20000)(
               re.search(r"CEILING_MS\s*=\s*(\d+)", src)),

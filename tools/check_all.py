@@ -26,6 +26,11 @@ Four suites, each answering a different question:
                 Static, because the only real test is a browser and this
                 project has no browser automation. It catches the Review panel
                 opening blank, which looked like data loss and was not.
+  check_boot    do the loading screen's bar and its percentage agree? The
+                label is the readout people actually read, and it used to run
+                ahead of the bar it was reporting. Runs the shipped Boot code
+                against a two-element stub, and refuses a CSS transition on
+                the bar, because that is what put the two on separate clocks.
 
 Exit code is non-zero if any suite fails.
 """
@@ -44,6 +49,7 @@ SUITES = [
     ("BBC grader & speech-to-text", [sys.executable, "tools/harness_stt.py"]),
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
+    ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 

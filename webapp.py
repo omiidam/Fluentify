@@ -375,12 +375,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: rgba(22,39,74,.14); overflow: hidden;
     box-shadow: 0 1px 0 rgba(22,39,74,.06) inset;
   }
+  /* No transition here: the bar is repainted from the one eased ratio every
+     frame (see Boot), and a transition on top of that would put the bar and
+     the percentage back on two different clocks. */
   .boot-track i {
     display: block; width: 100%; height: 100%; border-radius: inherit;
     background: linear-gradient(90deg, #1b2d52, #8a5a00 55%, #f1c15a 100%);
     box-shadow: 0 0 12px rgba(241,193,90,.55);
     transform: scaleX(0); transform-origin: 0 50%;
-    transition: transform .5s cubic-bezier(.22,1,.36,1);
   }
   .boot-meta {
     width: 100%; display: flex; justify-content: flex-end;
@@ -5437,14 +5439,68 @@ const Boot = (() => {
 
   const fill = document.getElementById('bootfill');
   const pct = document.getElementById('bootpct');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
   let gone = false;
   let floorUp = false;
   let dataIn = false;
   let deadline = 0;
 
+  /* One number, two readouts.
+     The bar and the label were already painted from the same ratio, but not
+     on the same clock: the bar eased to it over a .5s CSS transition while the
+     label was set at once, so the percentage ran ahead of the bar that was
+     reporting it - worst at the end, where the label read 100% while the bar
+     still had a tenth of itself to fill. The ratio is eased here instead, once
+     per frame, and both readouts are painted from that single value, so they
+     cannot disagree: 0 is an empty bar and 0%, 1 is a full bar and 100%, and
+     every frame between is the same number in both places. */
+  let target = 0;      // what the sections that have landed have earned
+  let shown = 0;       // what the screen is showing
+  let timer = 0;       // the tick that closes the gap between the two
+  let last = 0;        // when that tick last ran, for the time-based ease
+
+  function paint() {
+    if (fill) fill.style.transform = 'scaleX(' + shown + ')';
+    if (pct) pct.textContent = Math.round(shown * 100) + '%';
+  }
+
+  /* Timed, not frame-based. A rAF loop stops dead whenever the page is hidden —
+     and this overlay covers the very moment a phone is still locked or the tab
+     is still in the background — so a frame-counter would leave the bar parked
+     at whatever it had reached and never arrive. Elapsed time is used instead,
+     with a 90ms half-life, so a tick that arrives late (a throttled timer, a
+     janky frame) closes the same share of the gap a smooth one would. */
+  function tick() {
+    timer = 0;
+    const now = performance.now();
+    const dt = last ? Math.min(400, now - last) : 16;
+    last = now;
+    const gap = target - shown;
+    if (gap < 0.0006) {          // close enough to land exactly on it
+      shown = target;
+      paint();
+      maybe();                   // 100% is one of the ways the screen comes down
+      return;
+    }
+    shown += gap * (1 - Math.pow(0.5, dt / 90));
+    paint();
+    timer = setTimeout(tick, 16);
+  }
+
+  function aim(next) {
+    target = Math.max(target, Math.min(1, next));   // never goes backwards
+    if (gone) return;                               // nothing left to paint on
+    if (calm.matches) { shown = target; paint(); maybe(); return; }
+    if (!timer && shown !== target) { last = 0; timer = setTimeout(tick, 0); }
+  }
+
+  paint();   // 0% over an empty bar, before the first section lands
+
   function hide() {
     if (gone) return;
     gone = true;
+    clearTimeout(timer);
+    timer = 0;
     clearTimeout(deadline);
     el.classList.add('gone');
     // Removed as well as faded: left in the tree it stays a full-screen
@@ -5453,9 +5509,15 @@ const Boot = (() => {
     try { input.focus(); } catch (e) { /* the field may not exist yet */ }
   }
 
-  // Both conditions, in whichever order they arrive. The floor is on a timer
-  // rather than on a promise so that a slow section cannot extend it.
-  function maybe() { if (floorUp && dataIn) hide(); }
+  /* Three conditions now, in whichever order they arrive: the floor the design
+     asks for, the sections being in, and the bar having actually arrived at
+     100%. The third is what makes the number honest at the end - the bar used
+     to be able to show 96% and then be whisked away under a label that had
+     already said 100%, because the dismissal and the paint were on separate
+     clocks. The floor is on a timer rather than on a promise so that a slow
+     section cannot extend it, and the ceiling still gets the screen down if
+     the data never lands (the bar then says so, by stopping short). */
+  function maybe() { if (floorUp && dataIn && shown >= 1) hide(); }
   setTimeout(() => { floorUp = true; maybe(); }, FLOOR_MS);
 
   deadline = setTimeout(hide, CEILING_MS);
@@ -5466,11 +5528,7 @@ const Boot = (() => {
     /* Kept for callers that want to explain the wait; the card itself now
        shows only the bar and its percentage. */
     say() {},
-    step(done, total) {
-      const ratio = total ? Math.min(1, done / total) : 0;
-      if (fill) fill.style.transform = 'scaleX(' + ratio + ')';
-      if (pct) pct.textContent = Math.round(ratio * 100) + '%';
-    },
+    step(done, total) { aim(total ? done / total : 0); },
     /* Every section is in. The overlay still holds until the floor passes. */
     ready() { dataIn = true; maybe(); },
     hide,
