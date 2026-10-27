@@ -367,6 +367,26 @@ def normalize_en(text: str) -> str:
     return re.sub(r"[^\w\s']", "", text.lower()).strip()
 
 
+# Writing variations that carry no meaning: ZWNJ ("می‌خواهم" vs "میخواهم"),
+# the Arabic yeh/kaf and heh forms, and the bidi marks a phone keyboard
+# sometimes pastes in. Learners type all of them; intent keywords are written
+# in whichever form came to hand.
+FA_FOLD_TABLE = str.maketrans({
+    "ي": "ی", "ك": "ک", "ۀ": "ه", "ة": "ه",
+    "\u200c": "", "\u200d": "", "\u200e": "", "\u200f": "",
+})
+
+
+def fold_fa(text: str) -> str:
+    """Fold Persian writing variations so both sides compare equal.
+
+    Applied to the message and to every keyword, so it can only ever add
+    matches: a keyword that matched before still matches, and
+    "از حرف زدن می‌ترسم" now also answers "از حرف زدن میترسم".
+    """
+    return text.translate(FA_FOLD_TABLE)
+
+
 CORE_PHRASES = {
     "thank you": ("Thank you.", "ممنونم."),
     "thanks": ("Thanks!", "مرسی!"),
@@ -463,7 +483,30 @@ LOOKUP_STOPWORDS = {
     "what", "which", "word", "translate", "define",
     "این", "اون", "است", "چیه", "چیست", "کلمه", "معنی",
     "اسمت", "نامت", "اسم", "تو", "شما", "من", "خودت",
+    # the verb of asking is not a word to translate: "به فارسی بگو" (say it in
+    # Persian) is a request about the reply, not a lookup for «بگو»
+    "بگو", "بگویم", "بگم", "بگید", "بگین", "بگویید",
 }
+
+# A message that names the lookup it wants ("translate X", "معنی X") asks for
+# a word, not for a phrase bank that happens to share the word. The English
+# side uses a regex; the Persian side is a substring test, because \b is
+# ASCII-only in JavaScript and the two engines have to agree.
+LOOKUP_ASK_RE = re.compile(
+    r"\b(?:translate|define|definition of|meaning of|what does|means)\b")
+LOOKUP_ASK_FA = ("معنی", "ترجمه", "به انگلیسی")
+
+# "speak english", "reply in persian", "english please" — a request about the
+# language of the answer, not a word to translate.
+SWITCH_ASK_RE = re.compile(
+    r"^\s*(?:please\s+)?(?:speak|reply|answer|respond|write|talk|continue)\b"
+    r"[^.!?]*?\bin\s+(?:english|persian|farsi)\b"
+    r"|^\s*(?:english|persian|farsi)\s+please\b",
+    re.IGNORECASE)
+
+
+def is_lookup_ask(text: str, lowered: str) -> bool:
+    return bool(LOOKUP_ASK_RE.search(lowered)) or any(w in text for w in LOOKUP_ASK_FA)
 
 # Pattern (lang, regex) lists to extract a target word from lookup requests
 EN_LOOKUP_PATTERNS = [
@@ -480,6 +523,7 @@ FA_LOOKUP_PATTERNS = [
     r"معنی\s+(?P<t>.+?)\s*(?:چیه|چیست|هست)",
     r"(?P<t>.+?)\s*یعنی\s*چه",
     r"(?:چطوری|چطور|چجوری)\s+(?P<t>.+?)\s*بگم",
+    r"(?P<t>.+?)\s*رو\s*(?:بگو|بگویم|بگید|بگین)\s*[؟?.!]*$",
     r"ترجمه\s+(?P<t>.+)",
     r"کلمه\s+(?P<t>.+?)\s*(?:چیه|چیست)",
     r"(?P<t>.+?)\s+به\s+(?:انگلیسی|فارسی)",
@@ -648,6 +692,7 @@ class ChatBot:
     # ------------------------------------------------------------------ #
     def match_intent(self, text: str, lang: str):
         lowered = text.lower()
+        folded_fa = fold_fa(text)
         best_intent, best_score = None, 0
         for intent in self.intents:
             score = 0
@@ -660,7 +705,7 @@ class ChatBot:
                     suffix = r"(?:s|es)?" if len(kw) >= 3 else ""
                     if re.search(rf"\b{re.escape(kw)}{suffix}\b", lowered):
                         score += weight
-                elif kw in text:  # Persian is agglutinative — substring is safer
+                elif fold_fa(kw) in folded_fa:  # Persian is agglutinative — substring is safer
                     score += weight
             if score > best_score:
                 best_intent, best_score = intent, score
@@ -1059,6 +1104,16 @@ class ChatBot:
                 f"   e.g. {row['example']}")
 
     def handle_idioms(self, text: str, lowered: str, lang: str) -> str | None:
+        # The idiom on its own is a question about it. "Break a leg" is what
+        # somebody types after hearing it — and "break a leg" is a wish for a
+        # good performance, never an instruction about a leg. Without this it
+        # came back as "I'm not sure I understand", with the entry that
+        # explains it sitting two lines below in the same table.
+        bare = re.sub(r"[^\w' \-]+", " ", lowered).strip()
+        if len(bare.split()) >= 2:
+            row = self.match_idiom(bare)
+            if row:
+                return self.format_idiom(row)
         target = None
         m = re.search(
             r"(?:meaning|mean|means|idiom|یعنی|معنی|معنی اصطلاح)\s*(?:of\s*)?"
@@ -1196,10 +1251,13 @@ class ChatBot:
         return (sentence[:start] + rendered + sentence[end:]).replace("  ", " ").strip()
 
     def handle_correction(self, text: str, lowered: str, lang: str) -> str | None:
+        # "میشه" (could you) opens any polite Persian request, so it is not a
+        # check-this-sentence marker: "میشه present perfect رو برام explain
+        # کنی؟" is a question about English, not an English sentence to mark.
         asked = bool(re.search(
             r"\b(is (?:this|that|it) (?:correct|right|wrong)|check my|"
             r"correct (?:my|this|these|the)|fix (?:my|this|my sentence)|"
-            r"is this ok|grammatically|درسته|درست است|میشه|غلطه)",
+            r"is this ok|grammatically|درسته|درست است|غلطه)",
             lowered)) or "درسته" in text or "غلط" in text
         # a bare English sentence is an implicit request to check it
         sentence = re.sub(
@@ -1214,6 +1272,16 @@ class ChatBot:
         if not sentence or re.search(r"[\u0600-\u06FF]", sentence):
             if not asked:
                 return None
+        # The rules are English rules. A Persian-dominant message asks *about*
+        # English; it is not an English sentence to mark, and answering it with
+        # "this sentence is correct English" was the wrong reply.
+        latin = len(re.findall(r"[A-Za-z]", sentence))
+        persian = len(re.findall(r"[\u0600-\u06FF]", sentence))
+        if persian and latin < persian:
+            if asked:
+                return ("Send me the English sentence and I'll mark it. / "
+                        "جملهٔ انگلیسی را بفرست تا بررسی کنم.")
+            return None
         looks_like_question = "?" in sentence or "؟" in sentence
         # The rules are specific enough to be their own signal: if one fires
         # on a plain English sentence, the learner wants it checked whether or
@@ -1378,11 +1446,17 @@ class ChatBot:
         best_len = -1
         for topic_id, topic in self.grammar.items():
             for kw in topic["keywords"].get(lang, []):
-                hit = (
-                    bool(re.search(rf"\b{re.escape(kw)}\b", lowered))
-                    if lang == "en"
-                    else kw in text
-                )
+                if lang == "en":
+                    hit = bool(re.search(rf"\b{re.escape(kw)}\b", lowered))
+                    # "I have to go now" is a learner leaving, not a request for
+                    # the modals lesson: a keyword that names a verb phrase
+                    # stops naming the topic once a subject stands in front.
+                    if hit and re.search(
+                            rf"\b(?:i|you|we|they|he|she|it)\s+{re.escape(kw)}\b",
+                            lowered):
+                        hit = False
+                else:
+                    hit = kw in text
                 if hit and len(kw) > best_len:
                     best, best_len = (topic_id, topic), len(kw)
         return best
@@ -1592,7 +1666,13 @@ class ChatBot:
         return intro + self.format_exercise_card(topic, 0, lang, stage)
 
     def handle_grammar(self, text: str, lowered: str, lang: str) -> str | None:
-        found = self.match_grammar_topic(text, lowered, lang)
+        # A Persian question can name an English grammar term — "میشه present
+        # perfect رو برام explain کنی؟" — so try the detected language first
+        # and the other one after it. The lesson itself still renders in the
+        # language of the question.
+        found = (self.match_grammar_topic(text, lowered, lang)
+                 or self.match_grammar_topic(text, lowered,
+                                             "en" if lang == "fa" else "fa"))
         if found:
             topic_id, topic = found
             exam = self.wants_exam(text, lowered, lang)
@@ -1866,11 +1946,17 @@ class ChatBot:
         the keywords must stay specific enough not to swallow common requests
         like 'help' or 'where is the bank'."""
         norm_text = normalize_word(text)
+        # "translate interview" asks for one word, and 'interview' is also a
+        # keyword of the job-hunting bank. A message that names the lookup it
+        # wants is a glossary request; a single-word keyword must not take it.
+        lookup_ask = is_lookup_ask(text, lowered)
         for topic_id, topic in self.phrases.items():
             for lang in ("en", "fa"):
                 for kw in topic["keywords"].get(lang, []):
                     if lang == "en":
                         if re.search(rf"\b{re.escape(kw)}\b", lowered):
+                            if lookup_ask and " " not in kw.strip():
+                                continue
                             return topic_id, topic
                     elif normalize_word(kw) in norm_text:
                         return topic_id, topic
@@ -1913,21 +1999,27 @@ class ChatBot:
         return "\n".join(parts)
 
     def handle_listening(self, text: str, lowered: str, lang: str) -> str | None:
-        asked = bool(re.search(r"\b(listen|listening|audio|voice|speak)\b", lowered)) \
-            or any(w in text for w in ("گوش دادن", "آواز", "بگو"))
+        # "speak" and the Persian verb of asking are not listening words:
+        # "speak english" is a switch request and "speak more slowly" is a
+        # speed request, and the band list is the wrong answer for both. They
+        # count only when a band is named with them — "speak A1", "B1 رو بگو" — or
+        # "سطح b1 چیه" would come back as a listening lesson instead of the CEFR
+        # explanation it asked for.
+        level = self.match_listening_level(text, lowered)
+        asked = bool(re.search(r"\b(listen|listening|audio|voice)\b", lowered)) \
+            or any(w in text for w in ("گوش دادن", "آواز")) \
+            or (level is not None
+                and (re.search(r"\bspeak\b", lowered) or "بگو" in text))
         # a learner often just types the band itself: "A1", "b2", "C2"
         bare = re.fullmatch(r"\s*([abc][12])\s*[?!.؟]*\s*", lowered)
         if not asked and not bare:
             return None
-        level = self.match_listening_level(text, lowered)
         if level is None and bare:
             level = self.match_listening_level(bare.group(1), bare.group(1))
         if level:
             self.last_level = level
             return self.format_listening_level(level)
-        if re.search(r"\b(listen|listening|audio|voice)\b", lowered) or any(
-            w in text for w in ("گوش دادن", "آواز", "بگو")
-        ):
+        if asked or bare:
             names = " · ".join(l["title"]["en"].split(" · ")[0] for l in self.listening)
             return (
                 f"\U0001f3a7 Listening levels — سطح شنیدن: {names}\n"
@@ -1976,6 +2068,11 @@ class ChatBot:
         # Philosophy, not vocabulary: otherwise "meaning of life" becomes a
         # failed lookup for the word "life".
         if re.search(r"\b(?:meaning|purpose) of life\b", text, re.IGNORECASE):
+            return None
+        # "reply in english" is a request about the reply, not a lookup for the
+        # word "reply" — the "<X> in <language>" pattern would otherwise
+        # translate it. The language-switch intents own this phrasing.
+        if SWITCH_ASK_RE.search(text):
             return None
         target = None
         # Try the natural patterns for the detected language first,
@@ -2154,11 +2251,16 @@ class ChatBot:
         m = re.search(r"(?:\bin\b|\bat\b|\bduring\b|\bfor\b)\s+"
                       r"(?:a|an|the)?\s*([\w\s]{3,40}?)\s*[?.!]?$", lowered)
         if m and re.search(r"\b(interview|meeting|email|class|conference|"
-                           r"restaurant|shop|doctor|manager|boss|professor)\b",
+                           r"restaurant|shop|doctor|manager|boss|professor)s?\b",
                            m.group(1)):
+            asked = m.group(1).split()
             for sit in self.register.get("situations", []):
                 blob = (sit["situation"]["en"] + " " + sit["situation"]["fa"]).lower()
-                if any(w in blob for w in m.group(1).split()):
+                # "at a doctors appointment" has to reach "a visit to the
+                # doctor": learners type the plural and the app stores the
+                # singular.
+                if any(v in blob for w in asked
+                       for v in (w, re.sub(r"s$", "", w))):
                     return (f"“{sit['situation']['en']}” — {sit['situation']['fa']}\n"
                             f"→ {self._reg_label(sit['register'])}\n"
                             f"{sit['note']['en']}\n"

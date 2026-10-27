@@ -37,6 +37,28 @@ const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const wordRe = (kw, plural = false) =>
   new RegExp('\\b' + esc(kw) + (plural && kw.length >= 3 ? '(?:s|es)?' : '') + '\\b');
 
+/* Fold Persian writing variations that carry no meaning — ZWNJ ("می‌خواهم" vs
+ * "میخواهم"), the Arabic yeh/kaf and heh forms, and bidi marks. Applied to the
+ * message and to every keyword, so it can only ever add matches. */
+const FA_FOLD = {
+  '\u064a': '\u06cc', '\u0643': '\u06a9', '\u06c0': '\u0647', '\u0629': '\u0647',
+  '\u200c': '', '\u200d': '', '\u200e': '', '\u200f': '',
+};
+const foldFa = (text) => String(text).replace(
+  /[\u064a\u0643\u06c0\u0629\u200c\u200d\u200e\u200f]/g, (ch) => FA_FOLD[ch] ?? '');
+
+/* A message that names the lookup it wants ("translate X", "معنی X") asks for a
+ * word, not for a phrase bank that happens to share the word. The Persian side
+ * is a substring test: \b is ASCII-only here, so it cannot anchor Persian. */
+const LOOKUP_ASK_RE = /\b(?:translate|define|definition of|meaning of|what does|means)\b/;
+const LOOKUP_ASK_FA = ['معنی', 'ترجمه', 'به انگلیسی'];
+
+/* "speak english", "reply in persian", "english please" — a request about the
+ * language of the answer, not a word to translate. */
+const SWITCH_ASK_RE = /^\s*(?:please\s+)?(?:speak|reply|answer|respond|write|talk|continue)\b[^.!?]*?\bin\s+(?:english|persian|farsi)\b|^\s*(?:english|persian|farsi)\s+please\b/i;
+const isLookupAsk = (text, lowered) => LOOKUP_ASK_RE.test(lowered) ||
+  LOOKUP_ASK_FA.some((w) => text.includes(w));
+
 /* ---------------------------------------------------------------- numbers */
 
 const UNITS = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6,
@@ -279,6 +301,9 @@ const LOOKUP_STOPWORDS = new Set([
   'what', 'which', 'word', 'translate', 'define',
   'این', 'اون', 'است', 'چیه', 'چیست', 'کلمه', 'معنی',
   'اسمت', 'نامت', 'اسم', 'تو', 'شما', 'من', 'خودت',
+  // the verb of asking is not a word to translate: "به فارسی بگو" (say it in
+  // Persian) is a request about the reply, not a lookup for «بگو»
+  'بگو', 'بگویم', 'بگم', 'بگید', 'بگین', 'بگویید',
 ]);
 
 const EN_LOOKUP_PATTERNS = [
@@ -296,6 +321,7 @@ const FA_LOOKUP_PATTERNS = [
   /معنی\s+(.+?)\s*(?:چیه|چیست|هست)/,
   /(.+?)\s*یعنی\s*چه/,
   /(?:چطوری|چطور|چجوری)\s+(.+?)\s+بگم/,
+  /(.+?)\s*رو\s*(?:بگو|بگویم|بگید|بگین)\s*[؟?.!]*$/,
   /ترجمه\s+(.+)/,
   /کلمه\s+(.+?)\s*(?:چیه|چیست)/,
   /(.+?)\s+به\s+(?:انگلیسی|فارسی)/,
@@ -499,6 +525,7 @@ class Fluentify {
 
   matchIntent(text, lang) {
     const lowered = text.toLowerCase();
+    const foldedFa = foldFa(text);
     let best = null;
     let bestScore = 0;
     for (const intent of this.intents) {
@@ -507,7 +534,7 @@ class Fluentify {
         const weight = kw.trim().split(/\s+/).length > 1 ? 3 : 2;
         if (lang === 'en') {
           if (wordRe(kw, true).test(lowered)) score += weight;
-        } else if (text.includes(kw)) {
+        } else if (foldedFa.includes(foldFa(kw))) {
           score += weight;
         }
       }
@@ -603,7 +630,14 @@ class Fluentify {
     let bestLen = -1;
     for (const [topicId, topic] of Object.entries(this.grammar)) {
       for (const kw of topic.keywords[lang] || []) {
-        const hit = lang === 'en' ? wordRe(kw).test(lowered) : text.includes(kw);
+        let hit = lang === 'en' ? wordRe(kw).test(lowered) : text.includes(kw);
+        // "I have to go now" is a learner leaving, not a request for the modals
+        // lesson: a keyword that names a verb phrase stops naming the topic
+        // once a subject stands in front of it.
+        if (hit && lang === 'en' &&
+            new RegExp('\\b(?:i|you|we|they|he|she|it)\\s+' + esc(kw) + '\\b').test(lowered)) {
+          hit = false;
+        }
         if (hit && kw.length > bestLen) {
           best = [topicId, topic];
           bestLen = kw.length;
@@ -724,7 +758,12 @@ class Fluentify {
   }
 
   handleGrammar(text, lowered, lang) {
-    const found = this.matchGrammarTopic(text, lowered, lang);
+    // A Persian question can name an English grammar term — "میشه present
+    // perfect رو برام explain کنی؟" — so try the detected language first and
+    // the other one after it. The lesson still renders in the question's
+    // language.
+    const found = this.matchGrammarTopic(text, lowered, lang) ||
+      this.matchGrammarTopic(text, lowered, lang === 'fa' ? 'en' : 'fa');
     if (found) {
       const [topicId, topic] = found;
       if (this.wantsExam(text, lowered, lang))
@@ -964,11 +1003,15 @@ class Fluentify {
 
   matchPhraseTopic(text, lowered) {
     const normText = normalizeWord(text);
+    const lookupAsk = isLookupAsk(text, lowered);
     for (const topic of Object.values(this.phrases)) {
       for (const lang of ['en', 'fa']) {
         for (const kw of topic.keywords[lang] || []) {
           if (lang === 'en') {
-            if (wordRe(kw).test(lowered)) return topic;
+            if (wordRe(kw).test(lowered)) {
+              if (lookupAsk && !kw.trim().includes(' ')) continue;
+              return topic;
+            }
           } else if (normText.includes(normalizeWord(kw))) {
             return topic;
           }
@@ -1011,12 +1054,18 @@ class Fluentify {
   }
 
   handleListening(text, lowered, lang) {
-    const asked = /\b(listen|listening|audio|voice|speak)\b/.test(lowered) ||
-      ['گوش دادن', 'آواز', 'بگو'].some((w) => text.includes(w));
+    // "speak" and the Persian verb of asking are not listening words: "speak
+    // english" is a switch request and "speak more slowly" is a speed request,
+    // and the band list is the wrong answer for both. They count only when a
+    // band is named with them — "speak A1", "B1 رو بگو" — or "سطح b1 چیه"
+    // would come back as a listening lesson instead of its explanation.
+    let level = this.matchListeningLevel(text, lowered);
+    const asked = /\b(listen|listening|audio|voice)\b/.test(lowered) ||
+      ['گوش دادن', 'آواز'].some((w) => text.includes(w)) ||
+      (level !== null && (/\bspeak\b/.test(lowered) || text.includes('بگو')));
     // a learner often just types the band itself: "A1", "b2", "C2"
     const bare = /^\s*([abc][12])\s*[?!.؟]*\s*$/.exec(lowered);
     if (!asked && !bare) return null;
-    let level = this.matchListeningLevel(text, lowered);
     if (!level && bare) level = this.matchListeningLevel(bare[1], bare[1]);
     if (level) { this.lastLevel = level; return this.formatListeningLevel(level); }
     const names = this.listening.map((l) => l.title.en.split(' · ')[0]).join(' · ');
@@ -1052,6 +1101,9 @@ class Fluentify {
     // Philosophy, not vocabulary: otherwise "meaning of life" becomes a
     // failed lookup for the word "life".
     if (/\b(?:meaning|purpose) of life\b/i.test(text)) return null;
+    // "reply in english" is a request about the reply, not a lookup for the
+    // word "reply" — the "<X> in <language>" pattern would translate it.
+    if (SWITCH_ASK_RE.test(text)) return null;
     let target = null;
     const patterns = lang === 'fa'
       ? FA_LOOKUP_PATTERNS.concat(EN_LOOKUP_PATTERNS)
@@ -1307,11 +1359,14 @@ class Fluentify {
 
     const sit = lowered.match(
       /(?:\bin\b|\bat\b|\bduring\b|\bfor\b)\s+(?:a|an|the)?\s*([\w\s]{3,40}?)\s*[?.!]?$/);
-    if (sit && /\b(interview|meeting|email|class|conference|restaurant|shop|doctor|manager|boss|professor)\b/
+    if (sit && /\b(interview|meeting|email|class|conference|restaurant|shop|doctor|manager|boss|professor)s?\b/
         .test(sit[1])) {
+      const asked = sit[1].split(' ');
       for (const s of this.register.situations || []) {
         const blob = (s.situation.en + ' ' + s.situation.fa).toLowerCase();
-        if (sit[1].split(' ').some((w) => blob.includes(w))) {
+        // "at a doctors appointment" has to reach "a visit to the doctor":
+        // learners type the plural and the app stores the singular.
+        if (asked.some((w) => blob.includes(w) || blob.includes(w.replace(/s$/, '')))) {
           return `“${s.situation.en}” — ${s.situation.fa}\n`
             + `→ ${this._regLabel(s.register)}\n`
             + `${s.note.en}\n↳ ${s.note.fa}`;
@@ -1390,6 +1445,14 @@ class Fluentify {
   }
 
   handleIdioms(text, lowered, lang) {
+    // The idiom on its own is a question about it - "break a leg" is a wish for
+    // a good performance, never an instruction about a leg. Kept identical to
+    // the Python engine; tests_js_vs_python.py compares the two on it.
+    const bare = lowered.replace(/[^\w' \-]+/g, ' ').trim();
+    if (bare.split(/\s+/).length >= 2) {
+      const hit = this.matchIdiom(bare);
+      if (hit) return this.formatIdiom(hit);
+    }
     let target = null;
     let m = /(?:meaning|mean|means|idiom|یعنی|معنی|معنی اصطلاح)\s*(?:of\s*)?["'‘’]?([a-z][a-z' \-]{2,30}?)["'‘’]?\s*[?!.؟]*\s*$/i
       .exec(lowered.trim());
@@ -1487,13 +1550,25 @@ class Fluentify {
   }
 
   handleCorrection(text, lowered, lang) {
-    const asked = /\b(is (?:this|that|it) (?:correct|right|wrong)|check my|correct (?:my|this|these|the)|fix (?:my|this|my sentence)|is this ok|grammatically|درسته|درست است|میشه|غلطه)/.test(lowered)
+    // "میشه" (could you) opens any polite Persian request, so it is not a
+    // check-this-sentence marker: "میشه present perfect رو برام explain کنی؟"
+    // is a question about English, not an English sentence to mark.
+    const asked = /\b(is (?:this|that|it) (?:correct|right|wrong)|check my|correct (?:my|this|these|the)|fix (?:my|this|my sentence)|is this ok|grammatically|درسته|درست است|غلطه)/.test(lowered)
       || /درسته|غلط/.test(text);
     const sentence = text.replace(
       /^\s*(?:is (?:this|that|it) (?:sentence )?(?:correct|right|ok|wrong)\b[?:]?|(?:please\s+)?correct (?:this|my|these|the)?\s*(?:sentence|text)?\b[:]?|check (?:this|that|my)\s*(?:sentence|text)?\b[:]?|fix (?:my|this)\s*(?:sentence)?\b[:]?|آیا این جمله درسته[؟?]?)\s*/i,
       '').replace(/^[\s.?!؟،,]+|[\s.?!؟،,]+$/g, '');
     if (!sentence) return null;
     if (FA_RE.test(sentence) && !asked) return null;
+    // The rules are English rules. A Persian-dominant message asks *about*
+    // English; answering it with "this sentence is correct English" was wrong.
+    const latin = (sentence.match(/[A-Za-z]/g) || []).length;
+    const persian = (sentence.match(/[\u0600-\u06FF]/g) || []).length;
+    if (persian && latin < persian) {
+      return asked
+        ? "Send me the English sentence and I'll mark it. / جملهٔ انگلیسی را بفرست تا بررسی کنم."
+        : null;
+    }
     const looksLikeQuestion = sentence.includes('?') || sentence.includes('؟');
     let problems = asked ? this.checkGrammar(sentence) : this.checkGrammar(sentence);
     if (!asked && !problems.length) return null;

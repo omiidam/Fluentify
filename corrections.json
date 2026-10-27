@@ -257,6 +257,180 @@
       "label": "Duration phrase",
       "fix": "{0} {1} {2} {2}s",
       "why": "'for' goes before the duration: 'for three years'."
+    },
+    {
+      "pattern": "\\b(i|we|they|you)\\s+have\\s+(\\d+)\\s+years?\\s+old\\b",
+      "label": "Age takes be, not have",
+      "fix": "{0} am {1} years old",
+      "why": "English is the other way round from «۲۰ سال دارم»: the person is the age. 'I am 20 years old'."
+    },
+    {
+      "pattern": "\\b(he|she)\\s+has?\\s+(\\d+)\\s+years?\\s+old\\b",
+      "label": "Age takes be, not has",
+      "fix": "{0} is {1} years old",
+      "why": "«۲۰ سال دارد» becomes 'He is 20', not 'He has 20 years'."
+    },
+    {
+      "pattern": "\\bhow\\s+much\\s+is\\s+your\\s+age\\b",
+      "label": "Asking age",
+      "fix": "How old are you",
+      "why": "Age is asked with 'How old', not 'How much'. «چند سالت است؟» → 'How old are you?'"
+    },
+    {
+      "pattern": "\\bmarried\\s+with\\b",
+      "label": "Married takes to",
+      "fix": "married to",
+      "why": "'Marry' and 'be married' take 'to' in English, where Persian uses «با»."
+    },
+    {
+      "pattern": "\\bdid\\s+(you|he|she|they|we|it)\\s+(went|came|saw|ate|took|said|got|\\w+ed)\\b",
+      "label": "Base verb after did",
+      "fix": "did {0} {base}",
+      "why": "'Did' already carries the past, so the next verb stays in its base form: 'did you go', not 'did you went'."
+    },
+    {
+      "pattern": "\\bhow\\s+do\\s+you\\s+call\\b",
+      "label": "Naming things",
+      "fix": "What do you call",
+      "why": "English asks what we call a thing, not how: «این را چه مینامید؟» → 'What do you call this?'"
+    },
+    {
+      "pattern": "\\b(take|took|taking|takes)\\s+a\\s+(photo|picture)\\s+from\\b",
+      "label": "Photos are of",
+      "fix": "{0} a {1} of",
+      "why": "You take a photo **of** something. 'From' comes from «عکس گرفتن از»."
+    },
+    {
+      "pattern": "\\b(made|make|making|makes)\\s+a\\s+(photo|picture)\\b",
+      "label": "Photos are taken",
+      "fix": "take a {1}",
+      "why": "English takes photographs; it does not make them, even though Persian «عکس گرفتن» uses a verb closer to taking than making."
+    },
+    {
+      "pattern": "\\bopen\\s+the\\s+(light|lamp|tv|television|air conditioner|ac)\\b",
+      "label": "Lights are turned on",
+      "fix": "turn on the {0}",
+      "why": "«چراغ را روشن کن» becomes 'turn the light on' — devices are turned on, not opened."
+    },
+    {
+      "pattern": "\\b(close|closed)\\s+the\\s+(light|lamp|tv|television|air conditioner|ac)\\b",
+      "label": "Lights are turned off",
+      "fix": "turn off the {1}",
+      "why": "«چراغ را خاموش کن» becomes 'turn the light off'. 'Close' is for doors and books."
+    },
+    {
+      "pattern": "\\b(said|say|says)\\s+(me|him|her|us|them)\\b",
+      "label": "Say needs to",
+      "fix": "{0} to {1}",
+      "why": "'Tell' takes a person bare — 'tell me' — but 'say' needs 'to': 'say it to me'."
+    },
+    {
+      "pattern": "\\blet['’]?s\\s+to\\s+(\\w+)\\b",
+      "label": "Let's takes no to",
+      "fix": "let's {0}",
+      "why": "'Let's' already contains the verb: 'let's go', never 'let's to go'."
+    },
+    {
+      "pattern": "\\bsuggest\\s+(you|him|her|us|them)\\s+to\\b",
+      "label": "Suggest takes that",
+      "fix": "suggest that {0}",
+      "why": "'Suggest' does not take an object + to-infinitive in English: 'suggest that you go' or 'suggest going'."
+    },
+    {
+      "pattern": "\\b(recommend|describe)\\s+(me|us|him|her|them)\\b",
+      "label": "Recommend needs to",
+      "fix": "{0} to {1}",
+      "why": "'Recommend' and 'describe' need 'to' before the person: 'recommend it to me'."
+    },
+    {
+      "pattern": "\\bhave\\s+(cold|headache|fever|stomachache|toothache|sore throat)\\b",
+      "label": "Illness takes a",
+      "fix": "have a {0}",
+      "why": "«سرما خوردم» is 'I have a cold' — the illness is countable here, so it needs 'a'."
+    },
+    {
+      "pattern": "\\b(go|goes|went|come|comes|came|work|works|worked|study|studies|studied|see|sees|saw|do|does|did|eat|eats|ate|walk|walks|walked|practise|practises|practised|practice|practices|practiced)\\s+everyday\\b",
+      "label": "Every day is two words",
+      "fix": "{0} every day",
+      "why": "'Everyday' is an adjective ('everyday English'). When it answers *when*, it is two words: 'I practise every day'."
+    },
+    {
+      "pattern": "\\b(going|go|went|come|coming|came|get|getting|got|drive|driving|drove|walk|walking|walked)\\s+to\\s+home\\b",
+      "label": "Home takes no to",
+      "fix": "{0} home",
+      "why": "'Home' works like 'there' and 'abroad' — no preposition: 'I'm going home'."
+    },
+    {
+      "pattern": "\\bin\\s+the\\s+last\\s+(night|week|month|year|summer|winter)\\b",
+      "label": "Last night, no in",
+      "fix": "last {0}",
+      "why": "'Last night' and 'last week' take no preposition in English, where Persian has «دیشب»/«هفتهٔ پیش» as single words."
+    },
+    {
+      "pattern": "\\bsince\\s+(two|three|four|five|six|seven|eight|nine|ten|a few|several)\\s+(years?|months?|weeks?|days?|hours?)\\b",
+      "label": "Since is a point in time",
+      "fix": "for {0} {1}",
+      "why": "'Since' marks when something started (since 2020). A length of time takes 'for' (for three years)."
+    },
+    {
+      "pattern": "\\breply\\s+(me|us|him|her|them)\\b",
+      "label": "Reply needs to",
+      "fix": "reply to {0}",
+      "why": "'Reply' and 'answer' take the person with 'to' when a verb follows: 'reply to me'."
+    },
+    {
+      "pattern": "\\blisten\\s+(me|us|him|her|them)\\b",
+      "label": "Listen needs to",
+      "fix": "listen to {0}",
+      "why": "'Listen' takes 'to' before the person or thing: 'listen to me'. ('Hear' takes none.)"
+    },
+    {
+      "pattern": "\\bwait\\s+(me|us|him|her|them)\\b",
+      "label": "Wait needs for",
+      "fix": "wait for {0}",
+      "why": "'Wait for someone' — the person is not the direct object in English."
+    },
+    {
+      "pattern": "\\b(arrive|arrived|arriving|arrives)\\s+to\\b",
+      "label": "Arrive at, not to",
+      "fix": "{0} at",
+      "why": "You arrive **at** a place or **in** a city. 'Arrive to' comes straight from «رسیدن به»."
+    },
+    {
+      "pattern": "\\bdid\\s+a\\s+mistake\\b",
+      "label": "Mistakes are made",
+      "fix": "made a mistake",
+      "why": "English makes mistakes and does favours — the reverse of Persian «اشتباه کردن»."
+    },
+    {
+      "pattern": "\\b(am|is|are)\\s+interesting\\s+in\\b",
+      "label": "Interested, not interesting",
+      "fix": "{0} interested in",
+      "why": "People are **interested**; things are **interesting**. «به تاریخ علاقه دارم» → 'I am interested in history'."
+    },
+    {
+      "pattern": "\\b(am|is|are)\\s+(living|working|studying|waiting|learning)\\s+here\\s+for\\s+(\\d+|two|three|four|five|six|seven|eight|nine|ten)\\s+(years?|months?)\\b",
+      "label": "Duration needs the perfect",
+      "fix": "have been {1} here for {2} {3}",
+      "why": "A stretch of time that started in the past and continues now takes the perfect: 'I have been living here for three years'."
+    },
+    {
+      "pattern": "\\bdoes\\s+a\\s+mistake\\b",
+      "label": "Mistakes are made — does",
+      "fix": "makes a mistake",
+      "why": "English *makes* mistakes, not «does» them: 'he makes a mistake'."
+    },
+    {
+      "pattern": "\\b(do|don't|doesn't|didn't|never)\\s+do\\s+a\\s+mistake\\b",
+      "label": "Mistakes are made — do",
+      "fix": "{0} make a mistake",
+      "why": "'Make a mistake' is the fixed collocation, so the auxiliary keeps 'do' and the verb becomes 'make'."
+    },
+    {
+      "pattern": "\\bdoing\\s+a\\s+mistake\\b",
+      "label": "Mistakes are made — continuous",
+      "fix": "making a mistake",
+      "why": "The -ing form is 'making a mistake' — «دارم اشتباه می‌کنم» maps to 'I'm making a mistake'."
     }
   ]
 }

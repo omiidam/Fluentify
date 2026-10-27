@@ -1565,6 +1565,543 @@
           "fa": "رفتم چون خسته نبودم."
         }
       ]
+    },
+    {
+      "id": "subject_omission_fa",
+      "level": "B1",
+      "title": {
+        "en": "Dropped subjects (Persian → English)",
+        "fa": "حذف فاعل در فارسی و انگلیسی"
+      },
+      "keywords": {
+        "en": [
+          "missing subject in english",
+          "why does english need a subject",
+          "persian dropped subject",
+          "subject omission english",
+          "english subject persian difference"
+        ],
+        "fa": [
+          "حذف فاعل",
+          "فاعل در انگلیسی",
+          "چرا انگلیسی فاعل می‌خواهد"
+        ]
+      },
+      "why": "Persian is a pro-drop language: because the verb carries the person, «رفتم» is a complete sentence. English verbs do not carry that information, so it needs a subject every time — 'I went'. Copying the Persian habit produces 'Is very good' or 'Went to the shops yesterday'.",
+      "sides": [
+        {
+          "en": "**I** went to the shops yesterday.",
+          "fa": "دیروز رفتم خرید."
+        },
+        {
+          "en": "**It** is very good.",
+          "fa": "خیلی خوبه."
+        },
+        {
+          "en": "**They** don't have it in stock.",
+          "fa": "ندارن تو انبار."
+        }
+      ]
+    },
+    {
+      "id": "age_have_vs_be",
+      "level": "A2",
+      "title": {
+        "en": "Age: be, not have",
+        "fa": "سن: با be نه have"
+      },
+      "keywords": {
+        "en": [
+          "how to say age in english",
+          "i have 20 years old",
+          "age with have or be",
+          "years old mistake",
+          "difference between have and be age"
+        ],
+        "fa": [
+          "سن در انگلیسی",
+          "چند سال دارم انگلیسی",
+          "I have 20 years"
+        ]
+      },
+      "why": "Persian owns age: «۲۰ سال دارم». English is the other way round — the person is the age: 'I am 20 (years old)'. So 'I have 20 years old' is the classic transfer error, and 'How much is your age?' is its question form; English asks 'How old are you?'",
+      "sides": [
+        {
+          "en": "**I am** 24 years old.",
+          "fa": "۲۴ سال دارم."
+        },
+        {
+          "en": "**How old** are you?",
+          "fa": "چند سالت است؟"
+        },
+        {
+          "en": "**My sister is** three years older than me.",
+          "fa": "خواهرم سه سال از من بزرگ‌تر است."
+        }
+      ]
+    },
+    {
+      "id": "in_on_at_time",
+      "level": "B1",
+      "title": {
+        "en": "In / on / at (time)",
+        "fa": "in و on و at برای زمان"
+      },
+      "keywords": {
+        "en": [
+          "in on at for time",
+          "difference between in on and at",
+          "time prepositions english",
+          "in on at time difference"
+        ],
+        "fa": [
+          "تفاوت in و on و at زمان",
+          "حرف اضافه زمان"
+        ]
+      },
+      "why": "Work from the largest unit down: **in** for months, years and seasons (in May, in 2024); **on** for days and dates (on Friday, on 3 May); **at** for clock times and points in the day (at six, at night). Persian often uses just «در» or nothing at all.",
+      "sides": [
+        {
+          "en": "The exam is **in** July.",
+          "fa": "امتحان در ماه ژوئیه است."
+        },
+        {
+          "en": "The exam is **on** 12 July.",
+          "fa": "امتحان دوازدهم ژوئیه است."
+        },
+        {
+          "en": "The exam is **at** 9 a.m.",
+          "fa": "امتحان ساعت ۹ صبح است."
+        }
+      ]
+    },
+    {
+      "id": "will_vs_going_to",
+      "level": "B1",
+      "title": {
+        "en": "Will / going to",
+        "fa": "will یا going to"
+      },
+      "keywords": {
+        "en": [
+          "will or going to",
+          "difference between will and going to",
+          "will vs going to",
+          "future forms difference"
+        ],
+        "fa": [
+          "تفاوت will و going to",
+          "will یا going to"
+        ]
+      },
+      "why": "Both are future, but 'going to' carries a plan or a visible sign ('I'm going to study medicine' — decided; 'Look at those clouds, it's going to rain' — evidence), while 'will' is a decision made now, a promise, or a prediction without evidence ('I'll answer it'). Mixing them is rarely a mistake in English — but 'will' for a fixed plan sounds distant.",
+      "sides": [
+        {
+          "en": "I'**m going to** start a course in September.",
+          "fa": "قصد دارم از سپتامبر یه دوره شروع کنم."
+        },
+        {
+          "en": "The phone's ringing — I'**ll** get it.",
+          "fa": "تلفن زنگ می‌زنه — من جواب می‌دم."
+        },
+        {
+          "en": "It'**s going to** snow tonight.",
+          "fa": "امشب برف میاد."
+        }
+      ]
+    },
+    {
+      "id": "should_vs_must",
+      "level": "A2",
+      "title": {
+        "en": "Should / must / have to",
+        "fa": "should و must و have to"
+      },
+      "keywords": {
+        "en": [
+          "should or must",
+          "difference between should and must",
+          "must vs have to",
+          "obligation in english"
+        ],
+        "fa": [
+          "تفاوت should و must",
+          "باید در انگلیسی",
+          "have to یا must"
+        ]
+      },
+      "why": "'Must' is strong and comes from the speaker; 'have to' is an outside rule (a law, a school, a boss); 'should' is advice with no force at all. Persian «باید» covers all three, so the tone has to be chosen deliberately in English.",
+      "sides": [
+        {
+          "en": "You **must** wear a seatbelt. (the law)",
+          "fa": "باید کمربند ببندی. (قانون)"
+        },
+        {
+          "en": "I **have to** be at work by eight. (my boss says so)",
+          "fa": "باید تا ساعت هشت سر کار باشم. (رئیس گفته)"
+        },
+        {
+          "en": "You **should** get some sleep. (advice)",
+          "fa": "بهتره یه کم بخوابی. (توصیه)"
+        }
+      ]
+    },
+    {
+      "id": "used_to_vs_be_used_to",
+      "level": "B2",
+      "title": {
+        "en": "Used to / be used to",
+        "fa": "used to و be used to"
+      },
+      "keywords": {
+        "en": [
+          "used to or be used to",
+          "difference between used to and be used to",
+          "used to vs be used to",
+          "get used to difference"
+        ],
+        "fa": [
+          "تفاوت used to و be used to",
+          "used to یا be used to",
+          "عادت کردن"
+        ]
+      },
+      "why": "'Used to + base verb' is a finished past habit ('I used to smoke'). 'Be used to + -ing / noun' is familiarity now ('I'm used to waking early'). One is about the past, the other about the present — and the second is the one Persian speakers read as 'I was used to smoke', which is a different sentence.",
+      "sides": [
+        {
+          "en": "I **used to** walk to school. (past habit, now stopped)",
+          "fa": "قبلاً پیاده به مدرسه می‌رفتم."
+        },
+        {
+          "en": "I'**m used to** walking to school. (normal for me now)",
+          "fa": "به پیاده رفتن به مدرسه عادت دارم."
+        },
+        {
+          "en": "She'**s getting used to** the new hours.",
+          "fa": "داره به ساعت‌های کاری جدید عادت می‌کنه."
+        }
+      ]
+    },
+    {
+      "id": "too_vs_enough",
+      "level": "B1",
+      "title": {
+        "en": "Too / enough",
+        "fa": "too و enough"
+      },
+      "keywords": {
+        "en": [
+          "too or enough",
+          "difference between too and enough",
+          "too vs enough",
+          "enough word order"
+        ],
+        "fa": [
+          "تفاوت too و enough",
+          "too یا enough",
+          "به اندازه کافی"
+        ]
+      },
+      "why": "'Too' means more than you want and comes **before** the adjective (too hot). 'Enough' means as much as you need and comes **after** it (warm enough). Notice the Persian «خیلی گرم» is 'very hot' or 'too hot' depending on whether you are complaining.",
+      "sides": [
+        {
+          "en": "It's **too** cold to swim.",
+          "fa": "برای شنا کردن خیلی سرده."
+        },
+        {
+          "en": "It's warm **enough** to swim.",
+          "fa": "برای شنا کردن به اندازهٔ کافی گرمه."
+        },
+        {
+          "en": "There aren't **enough** chairs.",
+          "fa": "صندلی به اندازهٔ کافی نیست."
+        }
+      ]
+    },
+    {
+      "id": "so_vs_such",
+      "level": "B1",
+      "title": {
+        "en": "So / such",
+        "fa": "so و such"
+      },
+      "keywords": {
+        "en": [
+          "so or such",
+          "difference between so and such",
+          "so vs such",
+          "such a difference"
+        ],
+        "fa": [
+          "تفاوت so و such",
+          "so یا such"
+        ]
+      },
+      "why": "'So' takes an adjective or adverb alone: so tired, so quickly. 'Such' takes a noun phrase, with or without an adjective: such a mess, such lovely weather. When a singular countable noun follows, 'such' also drags 'a' along — 'such a nice day', not 'such nice day'.",
+      "sides": [
+        {
+          "en": "I'm **so** tired today.",
+          "fa": "امروز خیلی خسته‌ام."
+        },
+        {
+          "en": "It was **such a** nice day.",
+          "fa": "روز خیلی خوبی بود."
+        },
+        {
+          "en": "They were **such** friendly people.",
+          "fa": "آدم‌های خیلی خوش‌برخوردی بودند."
+        }
+      ]
+    },
+    {
+      "id": "although_vs_however",
+      "level": "B2",
+      "title": {
+        "en": "Although / however",
+        "fa": "although و however"
+      },
+      "keywords": {
+        "en": [
+          "although or however",
+          "difference between although and however",
+          "although vs however",
+          "contrast connectors english"
+        ],
+        "fa": [
+          "تفاوت although و however",
+          "although یا however"
+        ]
+      },
+      "why": "'Although' joins two halves inside one sentence and cannot be followed by a full stop ('Although it rained, we went out'). 'However' starts a new sentence or comes after a semicolon, and needs a comma after it ('It rained. However, we went out'). Writing 'However it rained' is the transfer from Persian «هرچند» at the wrong level.",
+      "sides": [
+        {
+          "en": "**Although** it rained, we went out.",
+          "fa": "با اینکه باران آمد، بیرون رفتیم."
+        },
+        {
+          "en": "It rained. **However,** we went out.",
+          "fa": "باران آمد. با این حال بیرون رفتیم."
+        },
+        {
+          "en": "It's cheap; **however,** it's slow.",
+          "fa": "ارزان است؛ اما کند است."
+        }
+      ]
+    },
+    {
+      "id": "raise_vs_rise",
+      "level": "B2",
+      "title": {
+        "en": "Raise / rise",
+        "fa": "raise و rise"
+      },
+      "keywords": {
+        "en": [
+          "raise or rise",
+          "difference between raise and rise",
+          "raise vs rise",
+          "transitive rise difference"
+        ],
+        "fa": [
+          "تفاوت raise و rise",
+          "raise یا rise"
+        ]
+      },
+      "why": "'Raise' needs an object: you raise something (raise your hand, raise prices). 'Rise' takes no object: something rises by itself (the sun rises, prices rise). The same split runs through lie/lay and fall/fell.",
+      "sides": [
+        {
+          "en": "Please **raise** your hand.",
+          "fa": "لطفاً دستت را بالا ببر."
+        },
+        {
+          "en": "The sun **rises** in the east.",
+          "fa": "خورشید از شرق طلوع می‌کند."
+        },
+        {
+          "en": "Prices have **risen** again.",
+          "fa": "قیمت‌ها دوباره بالا رفته‌اند."
+        }
+      ]
+    },
+    {
+      "id": "wish_vs_hope",
+      "level": "B2",
+      "title": {
+        "en": "Wish / hope",
+        "fa": "wish و hope"
+      },
+      "keywords": {
+        "en": [
+          "wish or hope",
+          "difference between wish and hope",
+          "wish vs hope",
+          "when to use wish"
+        ],
+        "fa": [
+          "تفاوت wish و hope",
+          "wish یا hope",
+          "آرزو کردن انگلیسی"
+        ]
+      },
+      "why": "'Hope' is for something possible and usually future: 'I hope it works'. 'Wish' is for something unreal or regretted, and it pushes the verb one step back in time: 'I wish I knew' (now), 'I wish I had known' (then).",
+      "sides": [
+        {
+          "en": "I **hope** you pass the exam.",
+          "fa": "امیدوارم امتحان را قبول شوی."
+        },
+        {
+          "en": "I **wish** I had more time.",
+          "fa": "ای کاش وقت بیشتری داشتم."
+        },
+        {
+          "en": "I **wish** I hadn't said that.",
+          "fa": "ای کاش آن حرف را نزده بودم."
+        }
+      ]
+    },
+    {
+      "id": "ezafe_vs_of",
+      "level": "B2",
+      "title": {
+        "en": "The role of «of» and »'s«",
+        "fa": "ترکیب اضافی فارسی و of در انگلیسی"
+      },
+      "keywords": {
+        "en": [
+          "persian ezafe in english",
+          "how to translate ezafe",
+          "of or apostrophe s",
+          "possessive difference persian"
+        ],
+        "fa": [
+          "ترکیب اضافی",
+          "اضافه در انگلیسی",
+          "of یا s مالکیت"
+        ]
+      },
+      "why": "Persian links two nouns with the ezafe (کتابِ مریم), which English splits three ways: the possessive »'s« for people (Mary's book), 'of' for things and longer phrases (the end of the film), and plain juxtaposition for noun + noun compounds (a book cover). Choosing between them is where «کتابِ درس» becomes 'a textbook' rather than 'the book of lesson'.",
+      "sides": [
+        {
+          "en": "**Mary's** car is outside. (people take 's)",
+          "fa": "ماشینِ مریم بیرونه."
+        },
+        {
+          "en": "The end **of** the film was sad. (things take of)",
+          "fa": "پایانِ فیلم غم‌انگیز بود."
+        },
+        {
+          "en": "That's the **school gate**. (noun + noun)",
+          "fa": "اون درِ مدرسه‌ست."
+        }
+      ]
+    },
+    {
+      "id": "ra_object_marking",
+      "level": "B1",
+      "title": {
+        "en": "«را» and English word order",
+        "fa": "«را» و ترتیب جملهٔ انگلیسی"
+      },
+      "keywords": {
+        "en": [
+          "object marking english",
+          "persian ra in english",
+          "word order object english",
+          "why english word order matters"
+        ],
+        "fa": [
+          "را در انگلیسی",
+          "ترتیب جمله انگلیسی",
+          "مفعول در انگلیسی"
+        ]
+      },
+      "why": "«را» lets Persian put the object almost anywhere and still know what it is. English has no such marker, so meaning travels on position alone: after the verb is the object. That is why «کتاب را به علی دادم» has to become 'I gave the book to Ali' and not 'I to Ali gave the book'.",
+      "sides": [
+        {
+          "en": "I gave the book to Ali.",
+          "fa": "کتاب را به علی دادم."
+        },
+        {
+          "en": "She saw the film last night.",
+          "fa": "دیشب فیلم را دید."
+        },
+        {
+          "en": "He doesn't like coffee.",
+          "fa": "او قهوه دوست ندارد."
+        }
+      ]
+    },
+    {
+      "id": "polite_requests_fa",
+      "level": "B1",
+      "title": {
+        "en": "Polite requests: could you, not «میشه»",
+        "fa": "درخواست مؤدبانه در انگلیسی"
+      },
+      "keywords": {
+        "en": [
+          "polite request in english",
+          "how to ask politely in english",
+          "could you difference",
+          "persian taarof in english"
+        ],
+        "fa": [
+          "درخواست مؤدبانه",
+          "تعارف در انگلیسی",
+          "میشه لطفا انگلیسی"
+        ]
+      },
+      "why": "Persian softens a request with تعارف and «میشه لطفاً…», and it can be said with a rising statement. English does the softening with the form of the verb: 'Could you…' is politer than 'Can you…', which is politer than the bare imperative, and the bare imperative ('Give me the salt') is the one that reads as rude in English even though the Persian equivalent does not.",
+      "sides": [
+        {
+          "en": "**Could you** send me the file?",
+          "fa": "می‌شه فایل رو برام بفرستی؟"
+        },
+        {
+          "en": "**Would you mind** closing the door?",
+          "fa": "زحمت می‌کشی در رو ببندی؟"
+        },
+        {
+          "en": "**I was wondering if** you could help.",
+          "fa": "می‌خواستم ببینم می‌تونی کمک کنی."
+        }
+      ]
+    },
+    {
+      "id": "tag_questions_fa",
+      "level": "B1",
+      "title": {
+        "en": "Tag questions («مگه نه؟»)",
+        "fa": "سوال‌های ضمیمه"
+      },
+      "keywords": {
+        "en": [
+          "tag questions in english",
+          "isn't it mage na",
+          "question tags rules",
+          "how to say mage na in english"
+        ],
+        "fa": [
+          "مگه نه در انگلیسی",
+          "سوال ضمیمه",
+          "question tag"
+        ]
+      },
+      "why": "Persian appends one unchanging tag — «مگه نه؟» / «درسته؟» — to anything. English tags mirror the sentence and flip the polarity: positive sentence takes a negative tag ('You're coming, aren't you?'), negative takes a positive one ('You aren't coming, are you?'), and the auxiliary must be the one already in the sentence.",
+      "sides": [
+        {
+          "en": "You're coming, **aren't you**?",
+          "fa": "داری میای، مگه نه؟"
+        },
+        {
+          "en": "You didn't call, **did you**?",
+          "fa": "زنگ نزدی، درسته؟"
+        },
+        {
+          "en": "It's cold, **isn't it**?",
+          "fa": "سرده، مگه نه؟"
+        }
+      ]
     }
   ]
 }

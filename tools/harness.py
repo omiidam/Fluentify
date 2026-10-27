@@ -500,7 +500,62 @@ def run_accuracy(verbose: bool) -> None:
         print(f"  → {len(false_pos)} false positives, {len(false_neg)} false negatives")
 
 
+# --------------------------------------------------------------------------
+# 10. bilingual knowledge — the questions the new banks are meant to answer
+# --------------------------------------------------------------------------
+# (input, must appear, must not appear). The markers are the distinctive words
+# of the entry rather than a whole sentence, so editing the copy does not break
+# the check. The banned list carries the sharpest assertions here: the failure
+# this suite was written for is a *wrong handler* answering confidently, not a
+# plain refusal.
+BILINGUAL_CASES = [
+    # an idiom is never read as its literal parts
+    ("what does break a leg mean", ["good luck", "موفق باشی"], ["شکستگی", "injury is"]),
+    ("break a leg", ["موفق باشی"], ["متوجه نشدم"]),
+    # contrastive grammar and the structures behind it
+    ("difference between make and do", ["make"], ["not sure"]),
+    ("difference between present perfect and past simple", ["perfect"], ["not sure"]),
+    # a Persian question that names an English grammar term
+    ("میشه present perfect رو برام explain کنی؟", ["Present Perfect"],
+     ["✅", "correct English"]),
+    ("قوانین inversion چیه", ["Inversion"], ["متوجه نشدم"]),
+    # register: stored pairs and stored situations
+    ("how do I say I have to go now formally", ["I have to go now"],
+     ["not in the register list"]),
+    ("how do i say please be quiet casually", ["Quiet down"],
+     ["not in the register list"]),
+    ("what do I say at a doctors appointment", ["doctor"], ["متوجه نشدم"]),
+    ("what do I say in a job interview", ["job interview"], ["متوجه نشدم"]),
+    # natural Persian requests: a lookup, a slow-down, a language switch
+    ("اتوبوس رو بگو", ["bus"], ["واژه‌نامه"]),
+    ("آهسته‌تر بگو", [], ["سطح شنیدن", "Listening levels"]),
+    ("به فارسی بگو", ["فارسی"], ["واژه‌نامه من نیست"]),
+    ("انگلیسی حرف بزن", ["English"], ["فارسی ادامه"]),
+    # listening itself must keep working
+    ("listen A1", ["A1"], []),
+    ("B1 رو بگو", ["B1"], []),
+    ("سطح b1 چیه", ["سطح"], ["سطح شنیدن", "Listening levels"]),
+    # Persian typed without the zero-width non-joiner still matches
+    ("از حرف زدن میترسم", [], ["متوجه نشدم"]),
+    ("باید برم", [], ["متوجه نشدم"]),
+    # the checker catches a real error and leaves correct English alone
+    ("I did a mistake", ["made a mistake"], []),
+    ("I made a mistake yesterday", [], ["✏"]),
+    # a question *about* English is not an English sentence to mark
+    ("میشه این رو توضیح بدی", [], ["درست است", "correct English"]),
+]
+
+
+def run_bilingual(verbose: bool) -> None:
+    b = ChatBot()
+    for text, need, banned in BILINGUAL_CASES:
+        check_reply("bilingual", text, b.respond(text), need=need, banned=banned)
+    if verbose:
+        print(f"  bilingual: {len(BILINGUAL_CASES)} knowledge cases")
+
+
 RUNNERS = [
+    ("bilingual", run_bilingual),
     ("vocabulary", run_vocabulary),
     ("grammar", run_grammar),
     ("content", run_content),

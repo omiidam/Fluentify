@@ -87,6 +87,18 @@ CASES = [
     "I were tired", "we was late", "he have two cars", "she have finished",
     "I is tired", "it have a handle", "can to go", "will to come",
     "I have a few pieces of advice", "I have many informations",
+    # round 5: the bilingual banks — idioms, contrasts, register, natural
+    # Persian requests, and the handlers that used to steal them
+    "what does break a leg mean", "break a leg", "difference between make and do",
+    "difference between present perfect and past simple",
+    "میشه present perfect رو برام explain کنی؟", "قوانین inversion چیه",
+    "what do I say at a doctors appointment", "what do I say in a job interview",
+    "how do I say I have to go now formally", "how do i say please be quiet casually",
+    "اتوبوس رو بگو", "آهسته‌تر بگو", "به فارسی بگو", "انگلیسی حرف بزن",
+    "B1 رو بگو", "سطح b1 چیه", "از حرف زدن میترسم", "باید برم",
+    "i have to go now", "i am not improving", "I did a mistake",
+    "I made a mistake yesterday", "میشه این رو توضیح بدی", "درسته این جمله؟",
+    "translate negotiate", "speak english", "reply in english", "polite requests",
 ]
 
 

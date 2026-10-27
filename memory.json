@@ -1686,6 +1686,318 @@
           "خوبه! بنویس «گرامر» برای درس یا «واژگان» برای کلمات."
         ]
       }
+    },
+    {
+      "name": "study_plan",
+      "keywords": {
+        "en": [
+          "how can i learn faster",
+          "how to study english",
+          "study tips",
+          "best way to learn english",
+          "learning plan",
+          "how should i study"
+        ],
+        "fa": [
+          "چطور انگلیسی یاد بگیرم",
+          "روش یادگیری",
+          "چطور سریعتر یاد بگیرم",
+          "برنامهٔ مطالعه"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Short and daily beats long and rare. Fifteen minutes a day, speaking out loud, will outgrow three hours on Friday.",
+          "Four things, in order of how much they pay off: speak aloud even when alone, review yesterday's words before new ones, say whole sentences instead of single words, and let yourself make mistakes on purpose.",
+          "Pick one thing you did today and say it in English, out loud, five ways. That single habit builds fluency faster than any word list."
+        ],
+        "fa": [
+          "کوتاه و هر روز، از طولانی و هر چند وقت یک‌بار بهتر است. روزی پانزده دقیقه با صدای بلند، از سه ساعت جمعه جلو می‌زند.",
+          "چهار کار، به ترتیب اثربخشی: بلند بلند حرف بزن حتی تنهایی، قبل از واژه‌های جدید قبلی‌ها را مرور کن، جملهٔ کامل بگو نه تک‌کلمه، و بگذار عمداً اشتباه کنی.",
+          "هر روز یکی از کارهایت را انتخاب کن و پنج جور مختلف به انگلیسی بگو. همین یک عادت از هر فهرست لغتی سریع‌تر روانی می‌آورد."
+        ]
+      }
+    },
+    {
+      "name": "no_progress",
+      "keywords": {
+        "en": [
+          "i am not improving",
+          "i feel stuck",
+          "no progress",
+          "i have been learning for years",
+          "i am not getting better"
+        ],
+        "fa": [
+          "پیشرفت نمی‌کنم",
+          "گیر کرده‌ام",
+          "توی جا موندم",
+          "چند ساله دارم یاد می‌گیرم"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Plateaus are what progress looks like from inside. The early gains were new words; what is left is speed and confidence, and both move in steps, not a slope.",
+          "When it stops feeling like progress, the target is usually too comfortable. Put yourself where you have to reach — a conversation, an unsubtitled clip, a message you actually send.",
+          "You have learned enough to notice your own mistakes now, and that is exactly why it feels worse. Noticing them is the stage before fixing them."
+        ],
+        "fa": [
+          "توقف‌های ظاهری، همان شکل پیشرفت از درون است. بردهای اولیه واژه‌های جدید بودند؛ آنچه مانده سرعت و اعتماد است و این دو پله‌پله جلو می‌روند.",
+          "وقتی حس می‌کنی پیشرفت نیست، یعنی هدف زیادی راحت است. خودت را جایی بگذار که باید دست دراز کنی: یک گفتگو، یک کلیپ بدون زیرنویس، پیامی که واقعاً می‌فرستی.",
+          "الان به اندازه‌ای یاد گرفته‌ای که اشتباه‌های خودت را ببینی و همین حس را بدتر می‌کند. دیدنشان مرحلهٔ قبل از درست کردنشان است."
+        ]
+      }
+    },
+    {
+      "name": "speaking_fear",
+      "keywords": {
+        "en": [
+          "i am afraid to speak",
+          "i am shy in english",
+          "i freeze when i speak",
+          "scared of speaking",
+          "i can't speak in front of people"
+        ],
+        "fa": [
+          "از حرف زدن می‌ترسم",
+          "خجالتی‌ام",
+          "زبانم قفل می‌شود",
+          "جلوی جمع نمی‌توانم حرف بزنم"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Speaking is a physical skill, so it needs a low-stakes rehearsal room. Talk to yourself in the mirror, or to this app for five minutes — the fear shrinks with repetitions, not with grammar.",
+          "Saying one sentence badly today is worth more than saying it perfectly in your head tomorrow. Fluency is built from sentences that came out imperfectly.",
+          "Nobody is grading your word order while you talk. Native speakers process meaning before form, and they fill gaps for you — the mistake you are dreading is usually invisible."
+        ],
+        "fa": [
+          "حرف زدن یک مهارت بدنی است، پس اتاق تمرین کم‌ریسک لازم دارد. با خودت جلوی آینه حرف بزن یا پنج دقیقه با همین برنامه — ترس با تکرار کم می‌شود نه با گرامر.",
+          "امروز یک جمله را بد گفتن، از فردا در ذهنت بی‌نقص گفتن ارزشش بیشتر است. روانی از جمله‌هایی ساخته می‌شود که ناقص بیرون آمده‌اند.",
+          "کسی موقع حرف زدنت ترتیب کلماتت را نمره نمی‌دهد. انگلیسی‌زبان‌ها اول معنا را می‌فهمند و جاهای خالی را پر می‌کنند."
+        ]
+      }
+    },
+    {
+      "name": "cefr_question",
+      "keywords": {
+        "en": [
+          "what is b1",
+          "cefr levels",
+          "what does a2 mean",
+          "am i intermediate",
+          "levels in english",
+          "which level am i"
+        ],
+        "fa": [
+          "سطح b1 چیه",
+          "سطح‌های انگلیسی",
+          "a1 a2 b1 یعنی چی",
+          "سطحم چیه"
+        ]
+      },
+      "responses": {
+        "en": [
+          "A1 to C2 are six bands for what you can *do* in a language, not how much you know. A1: fixed everyday phrases. A2: simple exchanges about routine. B1: keep a conversation going and explain opinions. B2: handle unfamiliar topics and argue a case. C1: express yourself fluently and with nuance. C2: precision and ease across registers.",
+          "Roughly: A levels are about survival and routine, B levels about holding your own, C levels about precision and register. Most learners who can read English comfortably live around B1–B2 anyway.",
+          "You are the band you can work at on a bad day, not on your best one. That is how the official tests treat it too."
+        ],
+        "fa": [
+          "A1 تا C2 شش سطح برای کاری است که در زبان می‌توانی انجام دهی، نه اندازهٔ چیزی که می‌دانی. A1: عبارت‌های روزمرهٔ ثابت. A2: گفتگوی سادهٔ روزانه. B1: ادامه دادن گفتگو و توضیح نظر. B2: موضوع‌های ناآشنا و دفاع از یک نظر. C1: بیان روان و با ظرافت. C2: دقت و راحتی در همهٔ سطوح رسمیت.",
+          "تقریباً: سطح A برای بقا و روزمرگی، B برای ایستادن روی پای خودت، C برای دقت و سطح رسمیت. بیشتر کسانی که راحت انگلیسی می‌خوانند، حدود B1–B2 هستند.",
+          "سطح تو همانی است که در روز بدت هم می‌توانی در آن کار کنی، نه بهترین روز."
+        ]
+      }
+    },
+    {
+      "name": "culture_question",
+      "keywords": {
+        "en": [
+          "is it rude to",
+          "how do people greet in iran",
+          "what is taarof",
+          "culture difference",
+          "polite in iran",
+          "greeting customs"
+        ],
+        "fa": [
+          "تعارف",
+          "آداب معاشرت",
+          "بی‌ادبی محسوب می‌شود",
+          "رسم مهمانی"
+        ]
+      },
+      "responses": {
+        "en": [
+          "The one that trips people up most: English expects a request to be answered immediately, while Persian courtesy often expects a first refusal. If you mean yes, say yes the first time — a polite no in English is final.",
+          "Directness is the difference to keep in mind. 'Could you speak more slowly?' is polite English, not an insult, and 'no thanks' needs no reason attached.",
+          "Taarof has no direct English equivalent — what English has instead is hedging: 'probably', 'if that works for you', 'I'd rather not'. Same job, different machinery."
+        ],
+        "fa": [
+          "تفاوت اصلی که همه را گیر می‌اندازد: انگلیسی انتظار دارد درخواست همان بار اول جواب بگیرد، در حالی که تعارف فارسی معمولاً یک «نه»ی اولیه می‌خواهد. اگر بله است، بار اول بله بگو.",
+          "سرراستی را در ذهن نگه دار. «می‌شه آهسته‌تر حرف بزنی؟» در انگلیسی مؤدبانه است نه توهین، و «نه ممنون» به دلیل نیاز ندارد.",
+          "تعارف معادل مستقیم در انگلیسی ندارد؛ چیزی که انگلیسی دارد احتیاط در بیان است: probably، if that works for you، I'd rather not."
+        ]
+      }
+    },
+    {
+      "name": "switch_to_english",
+      "keywords": {
+        "en": [
+          "speak english",
+          "in english please",
+          "reply in english",
+          "answer in english",
+          "switch to english",
+          "english please"
+        ],
+        "fa": [
+          "انگلیسی حرف بزن",
+          "انگلیسی جواب بده",
+          "به انگلیسی بگو",
+          "انگلیسی جوابم بده",
+          "به انگلیسی جواب بده",
+          "انگلیسی ادامه بده"
+        ]
+      },
+      "responses": {
+        "en": [
+          "English it is. Ask in either language and I'll answer in English; say «فارسی حرف بزن» and I'll switch back.",
+          "Done — English from here. If a lesson is clearer in Persian, just ask and I'll mix the two."
+        ],
+        "fa": [
+          "باشه، از این به بعد انگلیسی می‌نویسم — I'll answer in English from here. سؤالت را به هر زبانی بپرس، انگلیسی جواب می‌دهم. اگر فارسی خواستی بگو «فارسی حرف بزن».",
+          "چشم، انگلیسی ادامه می‌دهم — English from now on. توضیح فارسی خواستی، همان جمله را فارسی هم می‌نویسم."
+        ]
+      }
+    },
+    {
+      "name": "switch_to_persian",
+      "keywords": {
+        "en": [
+          "speak persian",
+          "talk in farsi",
+          "reply in persian",
+          "answer in persian",
+          "in persian please",
+          "switch to persian",
+          "farsi please"
+        ],
+        "fa": [
+          "فارسی حرف بزن",
+          "به فارسی بگو",
+          "به فارسی جواب بده",
+          "فارسی جواب بده",
+          "فارسی ادامه بده"
+        ]
+      },
+      "responses": {
+        "en": [
+          "شدی فارسی — Persian from here. I'll answer in Persian and keep the English terms in English. / باشید، از این به بعد فارسی می‌نویسم.",
+          "Persian it is — سؤال را فارسی بپرس و فارسی جواب می‌گیری. Technical terms stay in English so the lesson still lands."
+        ],
+        "fa": [
+          "چشم، فارسی ادامه می‌دهم. سؤال را به هر زبانی بپرسی، با همان زبان جواب می‌دهم مگر بگویی غیر از این.",
+          "باشه، فارسی. اگر جایی توضیح انگلیسی راحت‌تر بود بگو تا عوض کنم — قاطی کردنشان اینجا اشکالی ندارد."
+        ]
+      }
+    },
+    {
+      "name": "slower_repeat",
+      "keywords": {
+        "en": [
+          "speak more slowly",
+          "say it slower",
+          "one more time please",
+          "can you repeat",
+          "again please",
+          "speak slower",
+          "can you say that again"
+        ],
+        "fa": [
+          "آهسته‌تر بگو",
+          "آهسته‌تر حرف بزن",
+          "یک بار دیگه بگو",
+          "یک بار دیگه تکرار کن",
+          "دوباره تکرار کن",
+          "بلندتر بگو",
+          "بلندتر حرف بزن"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Here it is again, in shorter pieces — read one line, say it out loud, then take the next. Slower is a setting, not a talent.",
+          "Try this: tap 🔊 on any message and it will read the English aloud. Repeating a clip three times trains the ear faster than reading it three times.",
+          "Take it a clause at a time. Break the sentence where the meaning breaks, and pause there out loud — that is how the rhythm gets in."
+        ],
+        "fa": [
+          "دوباره، تکه‌تکه — یک خط را بخوان، بلند بگو، بعد برو سراغ بعدی. آهسته حرف زدن یک تنظیم است، نه یک استعداد.",
+          "روی 🔊 هر پیام بزن تا انگلیسی را برایت بخواند. سه بار شنیدنِ یک قطعه، گوش را سریع‌تر از سه بار خواندنش تربیت می‌کند.",
+          "جمله را در جایی بشکن که معنا می‌شکند و همان‌جا بلند مکث کن؛ ریتم این‌طوری جا می‌افتد."
+        ]
+      }
+    },
+    {
+      "name": "chat_please",
+      "keywords": {
+        "en": [
+          "ask me a question",
+          "let's just chat",
+          "talk to me",
+          "have a conversation",
+          "be my conversation partner"
+        ],
+        "fa": [
+          "باهام حرف بزن",
+          "سؤال ازم بپرس",
+          "یه گپ بزنیم",
+          "گفتگو کنیم"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Gladly. Where do you live, and what's the best thing about it?",
+          "Let's start easy: what did you have for breakfast, and who made it?",
+          "Tell me one thing you did today that you would do again. Then I'll ask about it — in English, and I'll only fix things that get in the way.",
+          "What are you working on at the moment — study, a job, or something else? Give me a sentence and I'll take it from there."
+        ],
+        "fa": [
+          "با کمال میل. کجا زندگی می‌کنی و بهترین چیز آنجا چیست؟",
+          "ساده شروع کنیم: صبحانه چه خوردی و چه کسی درستش کرد؟",
+          "یک کار امروزت را بگو که دلت می‌خواهد دوباره تکرارش کنی. بعد من در موردش می‌پرسم.",
+          "الان مشغول چه چیزی هستی — درس، کار، یا چیز دیگر؟ یک جمله بگو و من ادامه می‌دهم."
+        ]
+      }
+    },
+    {
+      "name": "leaving_now",
+      "keywords": {
+        "en": [
+          "i have to go now",
+          "i should go",
+          "catch you later",
+          "talk tomorrow",
+          "i am off now"
+        ],
+        "fa": [
+          "باید برم",
+          "الان باید برم",
+          "بعداً حرف می‌زنیم",
+          "من دیگه می‌رم"
+        ]
+      },
+      "responses": {
+        "en": [
+          "Of course — good work today. Come back tomorrow and tell me one thing you said in English today.",
+          "Right, off you go. Your review list is saved, so tomorrow starts where today stopped. / موفق باشی!",
+          "See you later! Before you go, one sentence in English about your day — then you're free."
+        ],
+        "fa": [
+          "برو به سلامت — امروز خوب کار کردی. فردا برگرد و یک جمله‌ای که امروز به انگلیسی گفتی برایم بگو.",
+          "باشه، برو. فهرست مرورهایت ذخیره است، پس فردا از همان‌جا ادامه می‌دهیم.",
+          "فعلاً می‌بینمت! قبل از رفتن، یک جملهٔ انگلیسی از روزت بگو و بعد آزادی."
+        ]
+      }
     }
   ]
 }

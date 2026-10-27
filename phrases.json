@@ -1436,8 +1436,9 @@
     ],
     "fa": [
      "جملات درخواست",
+     "درخواست مؤدبانه",
      "لطفا کمک",
-     "میشه"
+     "میشه کمکم کنی"
     ]
    },
    "phrases": [
@@ -3098,6 +3099,663 @@
     }
    ],
    "level": "B2"
+  },
+  "apologising": {
+   "title": {
+    "en": "Apologising & making up",
+    "fa": "عذرخواهی و آشتی"
+   },
+   "keywords": {
+    "en": [
+     "apologise",
+     "apologize",
+     "apologising",
+     "apologizing",
+     "making up",
+     "saying sorry",
+     "how to say sorry",
+     "my fault"
+    ],
+    "fa": [
+     "عذرخواهی",
+     "معذرت",
+     "شرمنده",
+     "آشتی",
+     "ببخشید بابت",
+     "قهر"
+    ]
+   },
+   "level": "A2",
+   "phrases": [
+    {
+     "en": "I'm really sorry — that was my fault.",
+     "fa": "واقعاً شرمنده‌ام — تقصیر خودم بود."
+    },
+    {
+     "en": "Sorry I'm late. The traffic was awful.",
+     "fa": "ببخشید دیر رسیدم. ترافیک وحشتناک بود."
+    },
+    {
+     "en": "I didn't mean to hurt your feelings.",
+     "fa": "قصد نداشتم ناراحتت کنم."
+    },
+    {
+     "en": "It won't happen again, I promise.",
+     "fa": "قول می‌دم دیگه تکرار نشه."
+    },
+    {
+     "en": "I should have told you earlier.",
+     "fa": "باید زودتر بهت می‌گفتم."
+    },
+    {
+     "en": "Let me make it up to you.",
+     "fa": "بذار جبرانش کنم."
+    },
+    {
+     "en": "I owe you an apology.",
+     "fa": "باید ازت عذرخواهی کنم."
+    },
+    {
+     "en": "No worries — it's not a big deal.",
+     "fa": "مشکلی نیست — چیز مهمی نبود."
+    },
+    {
+     "en": "Don't worry about it. These things happen.",
+     "fa": "خودت رو ناراحت نکن. این چیزها پیش میاد."
+    },
+    {
+     "en": "Thanks for understanding — I appreciate it.",
+     "fa": "ممنون که درک می‌کنی — قدرش رو می‌دونم."
+    }
+   ]
+  },
+  "compliments_thanks": {
+   "title": {
+    "en": "Compliments & gratitude",
+    "fa": "تعریف و تشکر"
+   },
+   "keywords": {
+    "en": [
+     "compliment",
+     "compliments",
+     "say thank you",
+     "thanking someone",
+     "gratitude",
+     "praising someone"
+    ],
+    "fa": [
+     "تعریف کردن",
+     "تشکر",
+     "قدردانی",
+     "ممنون گفتن",
+     "خوشم اومد بگو"
+    ]
+   },
+   "level": "A2",
+   "phrases": [
+    {
+     "en": "That's a lovely jacket — it really suits you.",
+     "fa": "کاپشن قشنگی داری — خیلی بهت میاد."
+    },
+    {
+     "en": "You did a great job on that.",
+     "fa": "خیلی خوب انجامش دادی."
+    },
+    {
+     "en": "I couldn't have done it without you.",
+     "fa": "بدون تو نمی‌تونستم انجامش بدم."
+    },
+    {
+     "en": "Thank you so much — that was really kind of you.",
+     "fa": "خیلی ممنون — واقعاً لطف کردی."
+    },
+    {
+     "en": "I'm so grateful for your help.",
+     "fa": "از کمکت خیلی ممنونم."
+    },
+    {
+     "en": "You're too kind!",
+     "fa": "لطف داری!"
+    },
+    {
+     "en": "Thanks a million!",
+     "fa": "خیلی خیلی ممنون!"
+    },
+    {
+     "en": "Any time — happy to help.",
+     "fa": "کاری نکردم — خوشحالم که کمک کردم."
+    },
+    {
+     "en": "I really appreciate it.",
+     "fa": "واقعاً قدردانی می‌کنم."
+    },
+    {
+     "en": "Please pass on my thanks to your family.",
+     "fa": "لطفاً از طرف من هم از خانواده‌ات تشکر کن."
+    }
+   ]
+  },
+  "declining_politely": {
+   "title": {
+    "en": "Declining politely & saying no",
+    "fa": "رد کردن مؤدبانه و نه گفتن"
+   },
+   "keywords": {
+    "en": [
+     "declining an invitation",
+     "say no politely",
+     "turn down an offer",
+     "refuse politely",
+     "declining",
+     "polite refusal",
+     "how to say no"
+    ],
+    "fa": [
+     "نه بگم",
+     "نه گفتن",
+     "رد کردن دعوت",
+     "دعوت رو رد",
+     "قبول نکن",
+     "مؤدبانه رد"
+    ]
+   },
+   "level": "B1",
+   "phrases": [
+    {
+     "en": "I'd love to, but I can't make it tonight.",
+     "fa": "خیلی دوست داشتم، ولی امشب نمی‌تونم بیام."
+    },
+    {
+     "en": "Thanks for asking, but I'll have to pass.",
+     "fa": "ممنون که دعوتم کردی، ولی باید بگذرم."
+    },
+    {
+     "en": "I'm afraid I'm not able to help with that.",
+     "fa": "متأسفانه نمی‌تونم در این مورد کمکی کنم."
+    },
+    {
+     "en": "That sounds great, but I'm already booked that day.",
+     "fa": "به نظر خیلی خوب میاد، ولی اون روز برنامه دارم."
+    },
+    {
+     "en": "Can I take a rain check?",
+     "fa": "می‌شه یه وقت دیگه انجامش بدیم؟"
+    },
+    {
+     "en": "I'd rather not, if that's okay.",
+     "fa": "اگر اشکالی نداره، ترجیح می‌دم این کار رو نکنم."
+    },
+    {
+     "en": "Let me think about it and get back to you.",
+     "fa": "بذار روش فکر کنم و بعداً بهت خبر بدم."
+    },
+    {
+     "en": "I'm not comfortable with that.",
+     "fa": "با این موضوع راحت نیستم."
+    },
+    {
+     "en": "It's not really my thing, but thank you.",
+     "fa": "راستش سلیقهٔ من نیست، ولی ممنون."
+    },
+    {
+     "en": "Sorry, I have to say no this time.",
+     "fa": "ببخشید، این بار باید نه بگم."
+    }
+   ]
+  },
+  "advice_encouragement": {
+   "title": {
+    "en": "Advice & encouragement",
+    "fa": "توصیه و دلگرمی"
+   },
+   "keywords": {
+    "en": [
+     "encourage someone",
+     "giving advice",
+     "cheer someone up",
+     "encouragement",
+     "advice in english",
+     "supporting a friend"
+    ],
+    "fa": [
+     "دلگرمی",
+     "توصیه",
+     "روحیه دادن",
+     "امید دادن",
+     "تشویق کردن"
+    ]
+   },
+   "level": "B1",
+   "phrases": [
+    {
+     "en": "Don't worry — you're doing better than you think.",
+     "fa": "نگران نباش — بهتر از چیزی که فکر می‌کنی پیش می‌ری."
+    },
+    {
+     "en": "Give it a try. What's the worst that could happen?",
+     "fa": "یه امتحان بکن. بدترین چیزی که ممکنه بشه چیه؟"
+    },
+    {
+     "en": "Take your time. There's no rush.",
+     "fa": "عجله نکن. عجله‌ای نیست."
+    },
+    {
+     "en": "You've got this!",
+     "fa": "تو می‌تونی!"
+    },
+    {
+     "en": "If I were you, I'd talk to her first.",
+     "fa": "جای تو باشم، اول با خودش حرف می‌زدم."
+    },
+    {
+     "en": "Have you thought about taking a break?",
+     "fa": "به این فکر کردی که یه استراحت کنی؟"
+    },
+    {
+     "en": "It might help to write it down.",
+     "fa": "شاید نوشتنش کمکت کنه."
+    },
+    {
+     "en": "Don't be too hard on yourself.",
+     "fa": "اینقدر به خودت سخت نگیر."
+    },
+    {
+     "en": "Mistakes are how the learning happens.",
+     "fa": "اشتباه‌ها همون جایی هستن که یادگیری اتفاق می‌افته."
+    },
+    {
+     "en": "I'm rooting for you.",
+     "fa": "برات آرزوی موفقیت می‌کنم."
+    }
+   ]
+  },
+  "empathy_feelings": {
+   "title": {
+    "en": "Feelings & empathy",
+    "fa": "احساس‌ها و همدلی"
+   },
+   "keywords": {
+    "en": [
+     "show empathy",
+     "comfort someone",
+     "talking about feelings",
+     "sympathy phrases",
+     "how are you holding up"
+    ],
+    "fa": [
+     "همدلی",
+     "دلداری",
+     "دلجویی",
+     "تسلیت",
+     "احساسات"
+    ]
+   },
+   "level": "B1",
+   "phrases": [
+    {
+     "en": "I'm sorry to hear that.",
+     "fa": "متأسفم که این رو می‌شنوم."
+    },
+    {
+     "en": "That must have been really hard.",
+     "fa": "حتماً خیلی سخت بوده."
+    },
+    {
+     "en": "I know how you feel — I've been there.",
+     "fa": "می‌فهمم چه حسی داری — خودم هم تجربه‌اش کردم."
+    },
+    {
+     "en": "How are you holding up?",
+     "fa": "اوضاع چطوره؟ حالت خوبه؟"
+    },
+    {
+     "en": "Do you want to talk about it?",
+     "fa": "می‌خوای در موردش حرف بزنیم؟"
+    },
+    {
+     "en": "I'm here if you need anything.",
+     "fa": "هر چیزی لازم داشتی، من هستم."
+    },
+    {
+     "en": "I'm really happy for you!",
+     "fa": "واقعاً برات خوشحالم!"
+    },
+    {
+     "en": "That's wonderful news!",
+     "fa": "خبر خیلی خوبیه!"
+    },
+    {
+     "en": "I'm so proud of you.",
+     "fa": "خیلی بهت افتخار می‌کنم."
+    },
+    {
+     "en": "Take care of yourself, okay?",
+     "fa": "حواست به خودت باشه، باشه؟"
+    }
+   ]
+  },
+  "clarifying_understanding": {
+   "title": {
+    "en": "Clarifying & checking understanding",
+    "fa": "روشن کردن و اطمینان از درک"
+   },
+   "keywords": {
+    "en": [
+     "clarify",
+     "checking understanding",
+     "didn't understand",
+     "ask to repeat",
+     "make sure i understood",
+     "clarifying"
+    ],
+    "fa": [
+     "متوجه نشدم",
+     "متوجه نشدن",
+     "دوباره بگو",
+     "روشن کن",
+     "درست فهمیدم"
+    ]
+   },
+   "level": "B1",
+   "phrases": [
+    {
+     "en": "Sorry, could you say that more slowly?",
+     "fa": "ببخشید، می‌شه آهسته‌تر بگی؟"
+    },
+    {
+     "en": "Do you mean you've already paid?",
+     "fa": "منظورت اینه که قبلاً پرداخت کردی؟"
+    },
+    {
+     "en": "Just to be clear, the meeting is on Tuesday, right?",
+     "fa": "فقط برای روشن شدن، جلسه سه‌شنبه‌ست، درسته؟"
+    },
+    {
+     "en": "I'm not sure I follow — can you give me an example?",
+     "fa": "درست متوجه نشدم — می‌تونی یه مثال بزنی؟"
+    },
+    {
+     "en": "What exactly do you mean by that?",
+     "fa": "دقیقاً منظورت چیه؟"
+    },
+    {
+     "en": "Let me repeat that to make sure I've got it.",
+     "fa": "بذار تکرار کنم تا مطمئن شم درست فهمیدم."
+    },
+    {
+     "en": "Could you spell that for me?",
+     "fa": "می‌شه املاش رو بگی؟"
+    },
+    {
+     "en": "So, if I understand correctly, we start at nine.",
+     "fa": "پس اگر درست فهمیده باشم، ساعت نه شروع می‌کنیم."
+    },
+    {
+     "en": "Is that clear, or should I go over it again?",
+     "fa": "روشنه یا دوباره مرور کنم؟"
+    },
+    {
+     "en": "I think we're talking about two different things.",
+     "fa": "فکر می‌کنم داریم در مورد دو موضوع مختلف حرف می‌زنیم."
+    }
+   ]
+  },
+  "storytelling_daily": {
+   "title": {
+    "en": "Telling a story about your day",
+    "fa": "تعریف کردن از روزت"
+   },
+   "keywords": {
+    "en": [
+     "tell a story",
+     "what happened today",
+     "narrating events",
+     "storytelling",
+     "tell me about your day"
+    ],
+    "fa": [
+     "داستان تعریف",
+     "روزت چطور",
+     "امروز چه خبر"
+    ]
+   },
+   "level": "B1",
+   "phrases": [
+    {
+     "en": "You won't believe what happened today.",
+     "fa": "باور نمی‌کنی امروز چی شد."
+    },
+    {
+     "en": "So there I was, standing in the rain.",
+     "fa": "خلاصه، من اونجا زیر بارون وایساده بودم."
+    },
+    {
+     "en": "Then, out of nowhere, a taxi pulled up.",
+     "fa": "بعد یهو یه تاکسی جلوم ایستاد."
+    },
+    {
+     "en": "To cut a long story short, we missed the bus.",
+     "fa": "خلاصه‌اش کنم، اتوبوس رو از دست دادیم."
+    },
+    {
+     "en": "And then guess what happened!",
+     "fa": "و بعد حدس بزن چی شد!"
+    },
+    {
+     "en": "Anyway, where was I?",
+     "fa": "بگذریم، داشتم چی می‌گفتم؟"
+    },
+    {
+     "en": "The funny thing is, she knew all along.",
+     "fa": "نکتهٔ خنده‌دار این بود که از اول می‌دونست."
+    },
+    {
+     "en": "Long story short, it worked out in the end.",
+     "fa": "خلاصه‌اش کنم، آخرش درست شد."
+    },
+    {
+     "en": "That reminds me of the time I lost my keys.",
+     "fa": "این یادم می‌ندازه اون وقتی که کلیدهام رو گم کردم."
+    },
+    {
+     "en": "So that's how my day went — how about yours?",
+     "fa": "خلاصهٔ روز من این‌طوری گذشت — روز تو چطور بود؟"
+    }
+   ]
+  },
+  "ending_conversations": {
+   "title": {
+    "en": "Ending a conversation",
+    "fa": "تمام کردن گفتگو"
+   },
+   "keywords": {
+    "en": [
+     "end a conversation",
+     "say goodbye",
+     "leave-taking",
+     "closing a chat",
+     "wrap up a conversation"
+    ],
+    "fa": [
+     "خداحافظی",
+     "خدافظی",
+     "تمام کردن گفتگو",
+     "پایان مکالمه",
+     "برم دیگه"
+    ]
+   },
+   "level": "B1",
+   "phrases": [
+    {
+     "en": "Anyway, I should let you go.",
+     "fa": "بگذریم، بذار دیگه نگهت ندارم."
+    },
+    {
+     "en": "It was great catching up with you.",
+     "fa": "خیلی خوب بود که با هم حرف زدیم."
+    },
+    {
+     "en": "Let's do this again soon.",
+     "fa": "باید به‌زودی دوباره تکرارش کنیم."
+    },
+    {
+     "en": "Say hi to everyone for me.",
+     "fa": "سلام من رو به همه برسون."
+    },
+    {
+     "en": "I'd better get going — see you tomorrow.",
+     "fa": "بهتره برم — فردا می‌بینمت."
+    },
+    {
+     "en": "Take care, and text me when you get home.",
+     "fa": "حواست به خودت باشه، رسیدی خونه پیام بده."
+    },
+    {
+     "en": "Thanks for your time.",
+     "fa": "ممنون که وقت گذاشتی."
+    },
+    {
+     "en": "Let's catch up next week, if you're free.",
+     "fa": "اگر وقت داشتی، هفتهٔ بعد گپی بزنیم."
+    },
+    {
+     "en": "I'll let you get back to work.",
+     "fa": "بذار به کارت برسی."
+    },
+    {
+     "en": "Have a great evening!",
+     "fa": "شب خوبی داشته باشی!"
+    }
+   ]
+  },
+  "turn_taking_b2": {
+   "title": {
+    "en": "Interrupting & keeping a conversation going",
+    "fa": "وسط حرف پریدن و ادامهٔ گفتگو"
+   },
+   "keywords": {
+    "en": [
+     "interrupt politely",
+     "turn taking",
+     "keep the conversation going",
+     "jump in",
+     "taking turns talking"
+    ],
+    "fa": [
+     "وسط حرف",
+     "ادامه دادن گفتگو",
+     "نوبت صحبت",
+     "حرفت رو قطع"
+    ]
+   },
+   "level": "B2",
+   "phrases": [
+    {
+     "en": "Sorry to interrupt, but can I add something?",
+     "fa": "ببخشید که وسط حرفت می‌پرم، می‌تونم یه چیزی اضافه کنم؟"
+    },
+    {
+     "en": "Can I jump in here?",
+     "fa": "می‌تونم یه چیزی بگم؟"
+    },
+    {
+     "en": "That's a good point — and on top of that…",
+     "fa": "نکتهٔ خوبی بود — و علاوه بر اون…"
+    },
+    {
+     "en": "Where were we?",
+     "fa": "داشتیم چی می‌گفتیم؟"
+    },
+    {
+     "en": "Go on, I'm listening.",
+     "fa": "ادامه بده، گوش می‌دم."
+    },
+    {
+     "en": "Sorry, you were saying?",
+     "fa": "ببخشید، داشتی چی می‌گفتی؟"
+    },
+    {
+     "en": "Just to build on what you said…",
+     "fa": "فقط می‌خوام به حرفت اضافه کنم…"
+    },
+    {
+     "en": "Can we come back to that in a minute?",
+     "fa": "می‌تونیم یه دقیقه بعد دوباره به این موضوع برگردیم؟"
+    },
+    {
+     "en": "I see what you mean, but…",
+     "fa": "می‌فهمم منظورت چیه، ولی…"
+    },
+    {
+     "en": "Let's hear both sides before we decide.",
+     "fa": "قبل از تصمیم، نظر هر دو طرف رو بشنویم."
+    }
+   ]
+  },
+  "negotiating_compromise": {
+   "title": {
+    "en": "Negotiating & compromise",
+    "fa": "مذاکره و رسیدن به توافق"
+   },
+   "keywords": {
+    "en": [
+     "compromise",
+     "negotiate",
+     "meet halfway",
+     "reaching agreement",
+     "settle a disagreement"
+    ],
+    "fa": [
+     "مذاکره",
+     "توافق",
+     "سازش",
+     "راه میانه",
+     "به توافق رسیدن"
+    ]
+   },
+   "level": "B2",
+   "phrases": [
+    {
+     "en": "Could we meet halfway on this?",
+     "fa": "می‌تونیم در این مورد به یه راه میانه برسیم؟"
+    },
+    {
+     "en": "What if we split the difference?",
+     "fa": "چی می‌شه اگر وسطش رو بگیریم؟"
+    },
+    {
+     "en": "I'm happy to compromise if you are.",
+     "fa": "اگر تو هم موافقی، من با سازش موافقم."
+    },
+    {
+     "en": "That works for me as long as we keep it simple.",
+     "fa": "برای من قابل قبوله، به شرطی که ساده نگهش داریم."
+    },
+    {
+     "en": "Let's agree on the basics first.",
+     "fa": "اول روی کلیات به توافق برسیم."
+    },
+    {
+     "en": "I can live with that.",
+     "fa": "با این می‌تونم کنار بیام."
+    },
+    {
+     "en": "Let's put that aside for now.",
+     "fa": "بذار این رو فعلاً کنار بگذاریم."
+    },
+    {
+     "en": "Would you be willing to try it for a month?",
+     "fa": "حاضری یه ماه امتحانش کنیم؟"
+    },
+    {
+     "en": "We're going in circles — let's take a break.",
+     "fa": "داریم دور خودمون می‌چرخیم — بذار یه استراحت بدیم."
+    },
+    {
+     "en": "Either way, we'll make it work.",
+     "fa": "در هر حال، کاری می‌کنیم که درست بشه."
+    }
+   ]
   }
  }
 }

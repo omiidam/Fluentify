@@ -328,6 +328,72 @@
     "en": "Emoji are part of the register here. Leaving them out reads cold.",
     "fa": "ایموجی خودش بخشی از این سطح است. نبودنش سرد به نظر می‌رسد."
    }
+  },
+  {
+   "situation": {
+    "en": "a visit to the doctor",
+    "fa": "وقت دکتر"
+   },
+   "register": "consultative",
+   "note": {
+    "en": "Describe the symptom and its timing, not a diagnosis. 'It hurts when I breathe, and it started on Monday' tells the doctor far more than 'I have a problem'.",
+    "fa": "علائم و زمان شروع را بگو، نه تشخیص. «وقتی نفس میکشم درد میگیرد و از دوشنبه شروع شد» بیشتر از «یه مشکلی دارم» کمک میکند."
+   }
+  },
+  {
+   "situation": {
+    "en": "a meeting with your boss",
+    "fa": "جلسه با رئیس"
+   },
+   "register": "consultative",
+   "note": {
+    "en": "State the point in the first sentence and keep the cushioning short. 'I'd like to talk about the deadline — I think we need two more days' works better than ten minutes of preamble.",
+    "fa": "موضوع را در جملهٔ اول بگو و مقدمه را کوتاه نگه دار."
+   }
+  },
+  {
+   "situation": {
+    "en": "an email to a professor",
+    "fa": "ایمیل به استاد"
+   },
+   "register": "formal",
+   "note": {
+    "en": "A subject line that says what it is, one sentence of context, and a specific request. Contractions are fine in email; 'gonna' and emoji are not.",
+    "fa": "موضوع ایمیل روشن، یک جمله توضیح، و یک درخواست مشخص. شکل کوتاهشده اشکالی ندارد، اما عامیانه و ایموجی نه."
+   }
+  },
+  {
+   "situation": {
+    "en": "a class presentation",
+    "fa": "ارائهٔ کلاسی"
+   },
+   "register": "formal",
+   "note": {
+    "en": "Signpost out loud — 'First…', 'That brings me to…', 'To sum up…'. Listeners in English expect the map, and in a second language the signposts buy you thinking time.",
+    "fa": "با نشانههای کلامی مسیر را مشخص کن: «اول…»، «میرسم به…»، «خلاصه کنم…»."
+   }
+  },
+  {
+   "situation": {
+    "en": "a restaurant with colleagues",
+    "fa": "رستوران با همکاران"
+   },
+   "register": "consultative",
+   "note": {
+    "en": "Polite requests use 'Could I' and 'I'll have', not 'Give me'. Splitting the bill is asked about directly: 'Shall we split it?'",
+    "fa": "درخواست مؤدبانه با «Could I» و «I'll have»؛ صورتحساب را مستقیم میپرسی: «Shall we split it?»"
+   }
+  },
+  {
+   "situation": {
+    "en": "a conference and its small talk",
+    "fa": "کنفرانس و گپ‌های آن"
+   },
+   "register": "consultative",
+   "note": {
+    "en": "Open with the event, not the person: 'What brought you to this session?' is safer than a personal question, and it gives them an easy answer.",
+    "fa": "با خود رویداد شروع کن نه با شخص: «چه چیزی شما را به این ارائه کشاند؟»"
+   }
   }
  ],
  "pairs": [
@@ -587,7 +653,7 @@
   {
    "id": "end_call",
    "meaning": {
-    "en": "I have to go",
+    "en": "I have to go now",
     "fa": "باید بروم"
    },
    "formal": {
@@ -651,6 +717,209 @@
    "note": {
     "en": "The casual one is a full sentence with the subject and verb dropped. That is not laziness; it is what English does when it is being friendly.",
     "fa": "جملهٔ خودمانی فاعل و فعل را حذف کرده. این تنبلی نیست؛ این کاری است که انگلیسی برای صمیمی‌شدن می‌کند."
+   }
+  },
+  {
+   "id": "dont_know",
+   "meaning": {
+    "en": "I don't know the answer",
+    "fa": "جوابش را نمی‌دانم"
+   },
+   "formal": {
+    "en": "I'm afraid I don't have that information to hand.",
+    "fa": "متأسفانه الان آن اطلاعات را در دست ندارم."
+   },
+   "consultative": {
+    "en": "I'm not sure, actually — let me check and get back to you.",
+    "fa": "راستش مطمئن نیستم — بذار چک کنم و خبر بدم."
+   },
+   "casual": {
+    "en": "No idea, sorry!",
+    "fa": "هیچ ایده‌ای ندارم، ببخشید!"
+   },
+   "note": {
+    "en": "'I don't know' is not rude in English — it is honest. What reads badly is a confident guess dressed up as fact.",
+    "fa": "«نمی‌دانم» در انگلیسی بی‌ادبی نیست؛ صادقانه است. آنچه بد به نظر می‌رسد حدس مطمئن‌نماست."
+   }
+  },
+  {
+   "id": "complain_noise",
+   "meaning": {
+    "en": "The noise is a problem",
+    "fa": "سروصدا مشکل است"
+   },
+   "formal": {
+    "en": "I wonder if the noise could be kept down after eleven; it carries into the flats above.",
+    "fa": "می‌خواستم ببینم می‌شود بعد از ساعت یازده صدا را کم کرد؛ به واحدهای بالا می‌رسد."
+   },
+   "consultative": {
+    "en": "Would you mind turning it down a little? The walls are thin here.",
+    "fa": "میشه یه کم کمش کنی؟ دیوارها اینجا نازک است."
+   },
+   "casual": {
+    "en": "Hey, can you knock the volume down a bit?",
+    "fa": "هی، می‌شه صدا رو یه کم پایین بیاری؟"
+   },
+   "note": {
+    "en": "English complaints attach a reason to the request. The reason is what turns an order into something a neighbour can accept.",
+    "fa": "شکایت در انگلیسی دلیل را به درخواست می‌چسباند؛ همان دلیل است که دستور را تبدیل به چیزی می‌کند که همسایه می‌تواند بپذیرد."
+   }
+  },
+  {
+   "id": "bad_news",
+   "meaning": {
+    "en": "I have bad news",
+    "fa": "خبر بدی دارم"
+   },
+   "formal": {
+    "en": "Unfortunately I have to tell you that the application was not successful.",
+    "fa": "متأسفانه باید بگویم که درخواست پذیرفته نشد."
+   },
+   "consultative": {
+    "en": "I've got some bad news, I'm afraid — the application didn't go through.",
+    "fa": "متأسفانه یه خبر بد دارم — درخواست رد شد."
+   },
+   "casual": {
+    "en": "Bad news, sorry — it didn't work out.",
+    "fa": "خبر بد، ببخشید — در نیامد."
+   },
+   "note": {
+    "en": "Notice the order: the warning ('Unfortunately', 'I'm afraid') comes first. It lets the listener brace, which is its entire job.",
+    "fa": "ترتیب را ببین: هشدار («متأسفانه») اول می‌آید تا مخاطب آماده شود."
+   }
+  },
+  {
+   "id": "ask_discount",
+   "meaning": {
+    "en": "Can you lower the price",
+    "fa": "می‌شود ارزان‌ترش کنی"
+   },
+   "formal": {
+    "en": "Is there any flexibility on the price?",
+    "fa": "آیا در قیمت انعطافی وجود دارد؟"
+   },
+   "consultative": {
+    "en": "Would you be able to do a bit better on the price?",
+    "fa": "می‌توانید در قیمت یه کم بهتر کنید؟"
+   },
+   "casual": {
+    "en": "Any chance of a deal on this?",
+    "fa": "می‌شه یه تخفیفی بدی؟"
+   },
+   "note": {
+    "en": "English negotiates with 'Would you be able to', never with a stated intention to pay less — the deferential form is what keeps the request polite in a shop.",
+    "fa": "چانه‌زنی در انگلیسی با «می‌توانید…؟» انجام می‌شود نه با اعلام قصد پرداخت کمتر."
+   }
+  },
+  {
+   "id": "keep_quiet",
+   "meaning": {
+    "en": "Please be quiet",
+    "fa": "لطفاً ساکت باش"
+   },
+   "formal": {
+    "en": "Could I ask everyone to hold the side conversations until the break?",
+    "fa": "می‌شود از همه خواهش کنم گفتگوهای جانبی را تا استراحت نگه دارند؟"
+   },
+   "consultative": {
+    "en": "Sorry, would you mind keeping it down a little?",
+    "fa": "ببخشید، می‌شه یه کم صداتون رو پایین بیارید؟"
+   },
+   "casual": {
+    "en": "Quiet down, please — I can't hear myself think!",
+    "fa": "ساکت باشید لطفاً — تمرکز ندارم!"
+   },
+   "note": {
+    "en": "The bare imperative ('Be quiet') is a command in English even when the intention is not. 'Would you mind' does the softening.",
+    "fa": "«ساکت باش» در انگلیسی دستور است، هرچند قصدت دستور نباشد."
+   }
+  },
+  {
+   "id": "invite",
+   "meaning": {
+    "en": "Would you like to come",
+    "fa": "دوست داری بیایی"
+   },
+   "formal": {
+    "en": "We would be delighted if you could join us on Friday evening.",
+    "fa": "خوشحال خواهیم شد اگر جمعه‌شب تشریف بیاورید."
+   },
+   "consultative": {
+    "en": "A few of us are getting together on Friday — fancy joining?",
+    "fa": "چند نفریم جمعه جمع می‌شویم — دوست داری بیایی؟"
+   },
+   "casual": {
+    "en": "We're doing something Friday. You in?",
+    "fa": "جمعه یه برنامه‌ای داریم. هستی؟"
+   },
+   "note": {
+    "en": "Every version leaves a real way to say no. An invitation with no exit reads as pressure in English.",
+    "fa": "هر سه نسخه راه واقعی برای «نه» گذاشته‌اند؛ دعوت بی‌راهِ فرار در انگلیسی فشار به نظر می‌رسد."
+   }
+  },
+  {
+   "id": "not_sure_answer",
+   "meaning": {
+    "en": "Let me check",
+    "fa": "بگذار چک کنم"
+   },
+   "formal": {
+    "en": "I will confirm and revert to you by tomorrow.",
+    "fa": "بررسی می‌کنم و فردا به شما اطلاع می‌دهم."
+   },
+   "consultative": {
+    "en": "Let me look into it and get back to you today.",
+    "fa": "بذار بررسی کنم و امروز بهت خبر بدم."
+   },
+   "casual": {
+    "en": "Hang on, I'll check.",
+    "fa": "یه لحظه، چک می‌کنم."
+   },
+   "note": {
+    "en": "A promise with a time on it ('today', 'by tomorrow') is what makes this useful rather than a brush-off.",
+    "fa": "قول با زمان مشخص («امروز»، «تا فردا») است که این جمله را مفید می‌کند نه سرگردان."
+   }
+  },
+  {
+   "id": "agree_softly",
+   "meaning": {
+    "en": "I agree",
+    "fa": "موافقم"
+   },
+   "formal": {
+    "en": "That is a fair assessment, and I would support it.",
+    "fa": "ارزیابی درستی است و از آن حمایت می‌کنم."
+   },
+   "consultative": {
+    "en": "That makes sense to me — I'm on board.",
+    "fa": "برای من منطقی است — موافقم."
+   },
+   "casual": {
+    "en": "Yeah, fair enough.",
+    "fa": "آره، قبوله."
+   },
+   "note": {
+    "en": "'Fair enough' agrees while leaving room to disagree later, which is why it is so common in workplace English.",
+    "fa": "«Fair enough» موافقت می‌کند و راه را برای مخالفت بعدی باز می‌گذارد."
+   }
+  },
+  {
+   "id": "wrong_memory",
+   "meaning": {
+    "en": "I remember it differently",
+    "fa": "یادم جور دیگری است"
+   },
+   "formal": {
+    "en": "My recollection differs on that point — may I check the record?",
+    "fa": "یاد من در آن مورد متفاوت است — می‌توانم سند را بررسی کنم؟"
+   },
+   "consultative": {
+    "en": "I thought it was Thursday, but I might be wrong.",
+    "fa": "فکر می‌کردم پنجشنبه بود، ولی ممکن است اشتباه کنم."
+   },
+   "casual": {
+    "en": "Hmm, that's not how I remember it.",
+    "fa": "هوم، یاد من این‌طوری نیست."
    }
   }
  ]

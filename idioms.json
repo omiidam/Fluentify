@@ -276,6 +276,332 @@
           "example": "So far so good — half way there."
         }
       ]
+    },
+    {
+      "id": "idioms_work",
+      "level": "B2",
+      "title": {
+        "en": "Idioms — work & projects",
+        "fa": "اصطلاح‌ها — کار و پروژه"
+      },
+      "keywords": {
+        "en": [
+          "work idioms",
+          "office idioms",
+          "business idioms",
+          "idioms about work",
+          "idioms at work",
+          "project idioms"
+        ],
+        "fa": [
+          "اصطلاحات کاری",
+          "اصطلاح اداری",
+          "اصطلاحات محل کار"
+        ]
+      },
+      "idioms": [
+        {
+          "en": "on the same page",
+          "fa": "هم‌نظر بودن",
+          "meaning": "agreeing about the same plan or facts",
+          "example": "Let's make sure we're on the same page before the meeting."
+        },
+        {
+          "en": "get the ball rolling",
+          "fa": "کار رو راه انداختن",
+          "meaning": "to start something so it can continue",
+          "example": "I'll get the ball rolling and you can take over later."
+        },
+        {
+          "en": "keep me in the loop",
+          "fa": "من رو در جریان بذار",
+          "meaning": "keep me informed about what is happening",
+          "example": "Please keep me in the loop about the new dates."
+        },
+        {
+          "en": "touch base",
+          "fa": "یه خبری گرفتن / گپ کوتاه",
+          "meaning": "to talk briefly to check how things are",
+          "example": "Let's touch base on Friday."
+        },
+        {
+          "en": "learn the ropes",
+          "fa": "کار رو یاد گرفتن",
+          "meaning": "to learn how a job is done",
+          "example": "It took me a month to learn the ropes."
+        },
+        {
+          "en": "pull your weight",
+          "fa": "سهم خودت رو انجام دادن",
+          "meaning": "to do your fair share of the work",
+          "example": "Everyone has to pull their weight on this team."
+        },
+        {
+          "en": "back to the drawing board",
+          "fa": "دوباره از اول شروع کردن",
+          "meaning": "to start planning again after a failure",
+          "example": "The client said no, so it's back to the drawing board."
+        },
+        {
+          "en": "cut corners",
+          "fa": "کم‌کاری کردن / سرهم‌بندی کردن",
+          "meaning": "to do something badly to save time or money",
+          "example": "They cut corners on testing and it showed."
+        },
+        {
+          "en": "call it a day",
+          "fa": "برای امروز تمومش کنیم",
+          "meaning": "to stop working for the day",
+          "example": "It's already six — let's call it a day."
+        },
+        {
+          "en": "bite the bullet",
+          "fa": "دل به دریا زدن",
+          "meaning": "to accept something difficult and get it over with",
+          "example": "I bit the bullet and asked for a raise."
+        },
+        {
+          "en": "burn the midnight oil",
+          "fa": "تا دیروقت کار کردن",
+          "meaning": "to work late into the night",
+          "example": "She burned the midnight oil to finish the report."
+        },
+        {
+          "en": "step up",
+          "fa": "پیش قدم شدن",
+          "meaning": "to take responsibility when it is needed",
+          "example": "Someone has to step up and lead this."
+        },
+        {
+          "en": "in the pipeline",
+          "fa": "در دست اقدام",
+          "meaning": "planned and being worked on",
+          "example": "Two new courses are in the pipeline."
+        },
+        {
+          "en": "a steep learning curve",
+          "fa": "شیب یادگیری تند",
+          "meaning": "a lot to learn quickly at the start",
+          "example": "The new software had a steep learning curve."
+        },
+        {
+          "en": "on the back burner",
+          "fa": "گذاشتن کنار برای بعد",
+          "meaning": "delayed so something else can be done first",
+          "example": "The redesign is on the back burner this month."
+        }
+      ]
+    },
+    {
+      "id": "idioms_feelings",
+      "level": "B1",
+      "title": {
+        "en": "Idioms — feelings",
+        "fa": "اصطلاح‌ها — احساس‌ها"
+      },
+      "keywords": {
+        "en": [
+          "feelings idioms",
+          "idioms about feelings",
+          "emotional idioms",
+          "idioms for moods",
+          "how to say i feel"
+        ],
+        "fa": [
+          "اصطلاحات احساسی",
+          "اصطلاح حالت روحی",
+          "حال و احوال اصطلاح"
+        ]
+      },
+      "idioms": [
+        {
+          "en": "under the weather",
+          "fa": "حالش خوب نیست / مریض‌احوال",
+          "meaning": "slightly ill or not yourself",
+          "example": "I'm a bit under the weather today."
+        },
+        {
+          "en": "over the moon",
+          "fa": "از خوشحالی در پوست خود نگنجیدن",
+          "meaning": "extremely happy",
+          "example": "She was over the moon about the results."
+        },
+        {
+          "en": "down in the dumps",
+          "fa": "دل‌گرفته و بی‌حال",
+          "meaning": "sad and without energy",
+          "example": "He's been down in the dumps since the exam."
+        },
+        {
+          "en": "on cloud nine",
+          "fa": "در آسمان‌ها سیر کردن",
+          "meaning": "very happy and excited",
+          "example": "They were on cloud nine after the wedding."
+        },
+        {
+          "en": "butterflies in my stomach",
+          "fa": "دلم شور می‌زنه",
+          "meaning": "nervous excitement before something big",
+          "example": "I had butterflies in my stomach before the interview."
+        },
+        {
+          "en": "at the end of my rope",
+          "fa": "دیگه طاقتم تموم شده",
+          "meaning": "no strength left to keep trying",
+          "example": "After three sleepless nights I was at the end of my rope."
+        },
+        {
+          "en": "fed up",
+          "fa": "خسته و کلافه",
+          "meaning": "annoyed because something has gone on too long",
+          "example": "I'm fed up with the same excuses."
+        },
+        {
+          "en": "blow off steam",
+          "fa": "خودت رو خالی کردن",
+          "meaning": "to release strong feelings safely",
+          "example": "He goes running to blow off steam."
+        },
+        {
+          "en": "keep your chin up",
+          "fa": "دلت رو قوی نگه دار",
+          "meaning": "stay positive when things are hard",
+          "example": "Keep your chin up — the worst is over."
+        },
+        {
+          "en": "get cold feet",
+          "fa": "جا زدن / پشیمون شدن در لحظهٔ آخر",
+          "meaning": "to become nervous and want to back out",
+          "example": "He got cold feet the night before the move."
+        },
+        {
+          "en": "have a lot on my plate",
+          "fa": "سرم شلوغه",
+          "meaning": "to have a lot to deal with",
+          "example": "I can't take anything else on — I've got a lot on my plate."
+        },
+        {
+          "en": "put yourself in my shoes",
+          "fa": "خودت رو جای من بذار",
+          "meaning": "imagine my situation before judging",
+          "example": "Put yourself in my shoes for a second."
+        }
+      ]
+    },
+    {
+      "id": "idioms_social",
+      "level": "B1",
+      "title": {
+        "en": "Idioms — everyday & social",
+        "fa": "اصطلاح‌ها — روزمره و اجتماعی"
+      },
+      "keywords": {
+        "en": [
+          "everyday idioms",
+          "social idioms",
+          "idioms for daily life",
+          "common expressions",
+          "informal idioms",
+          "idioms with friends"
+        ],
+        "fa": [
+          "اصطلاحات روزمره",
+          "اصطلاح دوستانه",
+          "اصطلاحات عامیانه"
+        ]
+      },
+      "idioms": [
+        {
+          "en": "break a leg",
+          "fa": "موفق باشی!",
+          "meaning": "good luck — said to someone about to perform. It is never a wish for an injury",
+          "example": "Break a leg at the concert tonight!"
+        },
+        {
+          "en": "fingers crossed",
+          "fa": "دعات می‌کنم / امیدوارم",
+          "meaning": "hoping it works out",
+          "example": "Fingers crossed the visa comes through."
+        },
+        {
+          "en": "long time no see",
+          "fa": "خیلی وقت بود ندیدمت",
+          "meaning": "greeting someone you have not seen in a while",
+          "example": "Long time no see — how have you been?"
+        },
+        {
+          "en": "hit the road",
+          "fa": "راه افتادن",
+          "meaning": "to leave or start a journey",
+          "example": "We should hit the road before the traffic builds."
+        },
+        {
+          "en": "grab a bite",
+          "fa": "یه چیزی خوردن",
+          "meaning": "to eat something quickly",
+          "example": "Do you want to grab a bite after class?"
+        },
+        {
+          "en": "give me a hand",
+          "fa": "یه دستی کمکم کن",
+          "meaning": "help me with something physical or short",
+          "example": "Give me a hand with these boxes."
+        },
+        {
+          "en": "hang on",
+          "fa": "یه لحظه صبر کن",
+          "meaning": "wait a moment",
+          "example": "Hang on, I'll check the address."
+        },
+        {
+          "en": "take it easy",
+          "fa": "آرام باش / خودت را ناراحت نکن",
+          "meaning": "relax, or calm down",
+          "example": "Take it easy — nobody is angry with you."
+        },
+        {
+          "en": "out of the blue",
+          "fa": "بی‌مقدمه و یک‌هو",
+          "meaning": "suddenly and without warning",
+          "example": "She called me out of the blue last night."
+        },
+        {
+          "en": "once in a blue moon",
+          "fa": "سالی یه بار / خیلی کم",
+          "meaning": "very rarely",
+          "example": "We eat out once in a blue moon."
+        },
+        {
+          "en": "speak of the devil",
+          "fa": "عجب، جای خالی‌اش اینجا بود",
+          "meaning": "said when the person you were discussing arrives",
+          "example": "Speak of the devil — we were just talking about you!"
+        },
+        {
+          "en": "better late than never",
+          "fa": "دیر رسیدن بهتر از هرگز نرسیدن",
+          "meaning": "doing something late is still better than not doing it",
+          "example": "He finally replied — better late than never."
+        },
+        {
+          "en": "so far so good",
+          "fa": "تا اینجا که خوب بوده",
+          "meaning": "things are going well up to now",
+          "example": "We're on week four — so far so good."
+        },
+        {
+          "en": "no worries",
+          "fa": "مشکلی نیست",
+          "meaning": "that's fine; don't apologise",
+          "example": "“Sorry for the delay.” “No worries.”"
+        },
+        {
+          "en": "call it a night",
+          "fa": "برای امشب دیگه بسّه",
+          "meaning": "to stop for the night and go home or to bed",
+          "example": "It's midnight — let's call it a night."
+        }
+      ]
     }
   ]
 }
