@@ -690,7 +690,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* A cue that the panels scroll, or they just stop mid-button and read as a
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -849,8 +849,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: #fdf1ee;
   }
 
-  /* ---------- vocabulary / grammar / phrases panels ---------- */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
+  /* ---------- vocabulary / grammar / phrases panels ----------
+     Every panel is here, and every panel must be: #dpanel and #npanel were
+     added to the markup without being added to this rule, so they had no
+     display:none at all and simply sat in the flow. The Today panel is 2400px
+     of cards on an 844px phone, which left #chat sixteen pixels tall - the
+     daily feature did not sit beside the conversation, it was the page.
+     tools/check_ui.py now derives the list from the markup and fails on any
+     panel that is missing here. */
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel {
     display: none; padding: 14px 20px;
     background: #fffcf3;
     border-bottom: 1px solid rgba(22,39,74,.12);
@@ -860,7 +867,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
     mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
   }
-  #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open { display: block; }
+  #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
+  #dpanel.open, #npanel.open { display: block; }
   /* #phpanel gets its own flex layout below, so it is not listed here */
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
   #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3 {
@@ -1446,6 +1454,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      Latin word still ends where it should. */
   .dfa, .dline.fa, .dbubble .dfa {
     direction: rtl; text-align: right; unicode-bidi: plaintext;
+    /* Tahoma is the theme's declared Persian face; the body's handwriting
+       font also claims Arabic glyphs, and at 12px they read as a wobble. */
+    font-family: Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
   }
   .dfa { font-size: 13px; color: var(--text); line-height: 1.55; margin-top: 3px; }
   .dline { font-size: 13px; color: var(--text); line-height: 1.5; }
@@ -1501,6 +1512,176 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      toggle. It used to say .fa, which matched nothing the renderer emits -
      the button flipped its label and hid nothing at all. */
   .dcard.persian-off .dfa { display: none; }
+
+  /* ---------- Today's English inside the conversation ----------
+     The daily set is a container in the transcript rather than a panel: one
+     small card a day, three rows, skip it or switch it off, and the whole
+     thing stays somewhere between the chat and the top bar instead of being
+     a page of its own. */
+  /* The container itself. It had no rule at all when the card first shipped:
+     every row was styled and the box around them was not, so the card
+     inherited the transcript's handwriting face with no padding, border or
+     background and read as loose text wedged into the conversation. */
+  .dinline {
+    position: relative; overflow: hidden;
+    /* The chat's own reading width, so the card is a bubble-shaped thing in
+       the transcript rather than a banner across a wide window. */
+    max-width: 760px; width: 100%;
+    margin: 2px 0 12px; padding: 12px 13px 10px 15px;
+    border-radius: 16px; border: 1px solid rgba(138,90,0,.24);
+    background: linear-gradient(180deg, #fffefb, var(--card) 62%);
+    box-shadow: 0 1px 1px rgba(74,58,30,.05),
+                0 10px 22px -16px rgba(74,58,30,.6);
+    font-family: var(--font-body);
+  }
+  .dinline::before {
+    content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
+    background: linear-gradient(180deg, var(--gold), var(--gold2));
+  }
+  .dinline.complete { border-color: rgba(46,122,90,.34); }
+  .dinline.complete::before {
+    background: linear-gradient(180deg, #3f9673, var(--green));
+  }
+  .dihead {
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .diico {
+    width: 26px; height: 26px; border-radius: 9px; flex: none;
+    display: grid; place-items: center;
+    background: var(--gold-soft); border: 1px solid rgba(138,90,0,.22);
+    color: #8a5a00;
+  }
+  .diico svg { width: 15px; height: 15px; }
+  .dico svg { width: 13px; height: 13px; }
+  .diskipped svg { width: 14px; height: 14px; flex: none; color: #8a5a00; }
+  .dititle {
+    font-family: var(--font-display); font-size: 13.5px; font-weight: 700;
+    color: var(--navy2); line-height: 1.2;
+  }
+  .dititle small {
+    display: block; font-family: var(--font-body); font-size: 10px;
+    font-weight: 400; color: var(--muted); margin-top: 1px;
+  }
+  .dihead .spacer { flex: 1 1 auto; }
+  /* The bar runs under the whole heading instead of being squeezed between
+     the title and the counter, where it had 92px to report three steps. */
+  .dump {
+    height: 4px; border-radius: 999px; margin: 7px 0 0;
+    overflow: hidden; background: rgba(22,39,74,.085);
+  }
+  .dump i {
+    display: block; height: 100%; width: 0; border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    transition: width .35s cubic-bezier(.22,1,.36,1);
+  }
+  .diprog {
+    font-family: var(--font-display); font-size: 11px; font-weight: 700;
+    color: var(--muted); white-space: nowrap; padding-top: 3px;
+    font-variant-numeric: tabular-nums;
+  }
+  .dinline.complete .diprog { color: var(--green); }
+  .dix {
+    flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+    display: grid; place-items: center; padding: 0; font-family: inherit;
+    font-size: 13px; line-height: 1; color: var(--dim);
+    border: 1px solid transparent; background: transparent;
+    transition: background .15s, color .15s;
+  }
+  .dix:hover { background: rgba(22,39,74,.07); color: var(--navy); }
+  .dirow {
+    display: flex; align-items: flex-start; gap: 8px; padding: 7px 0 6px;
+    border-top: 1px solid rgba(22,39,74,.1);
+  }
+  .dump + .dirow { margin-top: 6px; }
+  .dirow .grow { flex: 1 1 auto; min-width: 0; }
+  /* A tinted chip per kind, so the three rows are told apart at a glance
+     without a label repeating what the row already says. */
+  .dikind {
+    flex: none; width: 24px; height: 24px; border-radius: 7px; margin-top: 1px;
+    display: grid; place-items: center;
+  }
+  .dikind svg { width: 13px; height: 13px; }
+  .dirow[data-kind="words"] .dikind { background: var(--gold-soft); color: #8a5a00; }
+  .dirow[data-kind="expressions"] .dikind { background: var(--lav); color: var(--lav-ink); }
+  .dirow[data-kind="conversations"] .dikind {
+    background: rgba(15,107,99,.13); color: #0f6b63;
+  }
+  .dimain {
+    font-family: var(--font-display); font-size: 14.5px; font-weight: 700;
+    color: var(--navy2); line-height: 1.3; word-break: break-word;
+  }
+  .dirow.done .dimain { color: #2e6b52; }
+  .disub {
+    direction: rtl; text-align: right; unicode-bidi: plaintext;
+    font-family: Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
+    font-size: 12px; color: var(--muted); margin-top: 3px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .dibody { margin-top: 6px; padding: 7px 9px; border-radius: 10px;
+            background: rgba(22,39,74,.04); border: 1px solid rgba(22,39,74,.08); }
+  /* Three one-line rows until a row is opened: the card is a container in the
+     conversation, so it must not be a screenful of material the learner has
+     not asked to read yet. */
+  .dirow .dibody { display: none; }
+  .dirow.open .dibody { display: block; }
+  .ditools { display: flex; align-items: center; gap: 5px; flex: none; padding-top: 2px; }
+  .ditools .dsay { width: 26px; height: 26px; border-radius: 8px; }
+  .ditick, .dimore {
+    flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+    display: grid; place-items: center; padding: 0; font-family: inherit;
+    font-size: 12px; color: var(--dim);
+    border: 1px solid rgba(22,39,74,.13); background: #fffcf3;
+  }
+  .ditick.on { background: rgba(46,122,90,.14); border-color: rgba(46,122,90,.4); color: #2e6b52; }
+  .dimore svg { width: 11px; height: 11px; transition: transform .18s; }
+  .dirow.open .dimore svg { transform: rotate(180deg); }
+  .difoot {
+    display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+    margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(22,39,74,.09);
+  }
+  .dibtn {
+    font-family: var(--font-body); font-size: 11px; padding: 5px 9px;
+    border-radius: 999px; cursor: pointer; color: var(--navy2);
+    border: 1px solid rgba(22,39,74,.14); background: #fffcf3;
+  }
+  .dibtn:hover { background: var(--gold-soft); }
+  .dibtn.ghost {
+    border-color: transparent; background: transparent; color: var(--dim);
+    padding-inline: 6px;
+  }
+  .dibtn.ghost:hover { background: rgba(22,39,74,.05); color: var(--navy); }
+  .difoot .spacer { flex: 1 1 auto; }
+  /* The skipped state is the same card, one line tall: dismissing the day must
+     not cost the learner their way back into it. */
+  .diskipped {
+    display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .diskipped .dfa { font-size: 11.5px; }
+  .diskipped .spacer { flex: 1 1 auto; }
+  .disk { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+
+  /* ---------- the Today panel, scannable rather than scrollable ---------- */
+  .dlead { margin-top: 2px; }
+  .dmore {
+    flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+    display: grid; place-items: center; padding: 0; font-family: inherit;
+    color: var(--dim); border: 1px solid rgba(22,39,74,.13); background: #fffcf3;
+  }
+  .dmore svg { width: 11px; height: 11px; transition: transform .18s; }
+  .dcard.open .dmore svg { transform: rotate(180deg); }
+  .dcard .dbody { display: none; }
+  .dcard.open .dbody { display: block; }
+  .dtick {
+    flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+    display: grid; place-items: center; padding: 0; font-family: inherit;
+    font-size: 12px; color: var(--dim);
+    border: 1px solid rgba(22,39,74,.13); background: #fffcf3;
+  }
+  .dtick.on { background: rgba(46,122,90,.14); border-color: rgba(46,122,90,.4); color: #2e6b52; }
+  .dpanelbar {
+    display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 9px;
+  }
 
   /* ---------- offline sentence analyser ---------- */
   .nbar { display: flex; gap: 8px; margin-bottom: 10px; }
@@ -1888,7 +2069,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .app { background: #fffcf3; }
     header { background: #fffcf3; }
-    #vpanel, #gpanel, #fpanel, #phpanel, #rpanel { background: #fffcf3; }
+    #vpanel, #gpanel, #fpanel, #phpanel, #rpanel, #dpanel, #npanel { background: #fffcf3; }
     .msg.bot { background: #fffcf3; }
     #input { background: #fffdf7; }
     .hb { display: none; }
@@ -1974,8 +2155,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
   }
 
-  /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel {
+  /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel {
     padding: 10px calc(var(--pad) + var(--sar)) 11px calc(var(--pad) + var(--sal));
     max-height: 66%;
     overscroll-behavior: contain;
@@ -2283,7 +2463,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .mav { width: 32px; height: 32px; border-radius: 11px; }
     .mav svg { width: 26px; height: 26px; }
     .msg { padding: 12px 16px; font-size: 16px; }
-    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel { padding: 14px 20px; max-height: 52%; }
+    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
     form { padding: 14px 20px 18px; gap: 8px; }
     #input { padding: 10px 14px; font-size: 15.5px; }
@@ -2690,14 +2870,20 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <div id="dpanel">
-    <h3>Daily English: one word, one expression, one conversation — انگلیسی روزانه</h3>
-    <div class="dhead">
+    <h3>Today's English: one word, one expression, one conversation — انگلیسی امروز</h3>
+    <div class="dpanelbar">
       <span class="ddate" id="ddate"></span>
       <div class="dtrack" role="progressbar" aria-label="Today's progress"
            aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" id="dtrack"><i id="dfill"></i></div>
       <span class="dcount" id="dcount">0 / 3</span>
     </div>
     <div class="dcards" id="dcards"></div>
+    <p class="nfoot">This is a suggestion, not a schedule: skip a day, or keep the card out of
+    the chat entirely, and nothing is lost or reset. — این بخش پیشنهاد است، نه برنامهٔ اجباری.</p>
+    <div class="disk">
+      <button type="button" class="dibtn" id="dcardtoggle" aria-pressed="true">Keep
+      today&rsquo;s English out of the chat — پنهان کردن کارت روزانه</button>
+    </div>
   </div>
 
   <div id="vpanel">
@@ -5705,11 +5891,63 @@ const DailyStore = {
   count(state, date, ids) {
     return ids.filter((id) => this.isDone(state, date, id)).length;
   },
+
+  /* Whether the daily set is offered at all, and whether today's offer was
+     turned down. Learning a language is not a streak to be defended: the
+     feature is a suggestion, so "not today" and "not ever, in the chat" are
+     both one tap away and neither is punished with a nagging badge. */
+  CARD_KEY: 'fluentify.daily.card.v1',
+  readCard() {
+    try {
+      const raw = localStorage.getItem(this.CARD_KEY);
+      const s = raw ? JSON.parse(raw) : null;
+      const sk = s && s.skipped && typeof s.skipped === 'object' ? s.skipped : {};
+      const skipped = {};
+      Object.keys(sk).forEach((k) => { if (sk[k]) skipped[k] = true; });
+      return {hidden: !!(s && s.hidden), skipped: skipped};
+    } catch (e) {
+      return {hidden: false, skipped: {}};   // a corrupt record must not hide anything
+    }
+  },
+  writeCard(prefs) {
+    const skipped = prefs.skipped || {};
+    // "skipped" is per day, so it would grow forever. The newest sixty are
+    // kept: more than enough to remember the recent past, and bounded.
+    const kept = {};
+    Object.keys(skipped).sort().reverse().slice(0, 60)
+      .forEach((k) => { kept[k] = true; });
+    try {
+      localStorage.setItem(this.CARD_KEY,
+        JSON.stringify({hidden: !!prefs.hidden, skipped: kept}));
+    } catch (e) { /* private mode: the choice just does not persist */ }
+    return {hidden: !!prefs.hidden, skipped: kept};
+  },
+  isSkipped(prefs, date) { return !!prefs.skipped[date]; },
+  setSkipped(prefs, date, on) {
+    prefs.skipped = prefs.skipped || {};
+    if (on) prefs.skipped[date] = true; else delete prefs.skipped[date];
+    return prefs;
+  },
 };
 /* --- end daily store ---------------------------------------------------- */
 
 const Daily = (() => {
-  const CARD_ICON = {words: '\u{1F9E0}', expressions: '\u{1F5E3}', conversations: '\u{1F4AC}'};
+  /* Line icons in the toolbar's own family, drawn in currentColor. The three
+     emoji these replace rendered differently on every platform and read as
+     decoration beside the theme's drawn set. */
+  const svgIcon = (paths) => '<svg viewBox="0 0 24 24" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
+  const CARD_ICON = {
+    today: svgIcon('<rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/>' +
+      '<path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/>'),
+    words: svgIcon('<path d="M12 7.6C10.5 6.4 8.5 5.8 6 5.8H4.2v12.4H6c2.5 0 4.5.6 6 1.8"/>' +
+      '<path d="M12 7.6c1.5-1.2 3.5-1.8 6-1.8h1.8v12.4H18c-2.5 0-4.5.6-6 1.8"/>' +
+      '<path d="M12 7.6v12.4"/>'),
+    expressions: svgIcon('<path d="M9.4 8.2H6.6a1.4 1.4 0 0 0-1.4 1.4v2.2a1.4 1.4 0 0 0 1.4 1.4h1.6v.4c0 1.2-.7 2.1-1.8 2.5"/>' +
+      '<path d="M18 8.2h-2.8a1.4 1.4 0 0 0-1.4 1.4v2.2a1.4 1.4 0 0 0 1.4 1.4h1.6v.4c0 1.2-.7 2.1-1.8 2.5"/>'),
+    conversations: svgIcon('<path d="M20.4 12.4c0 3.5-3.5 6.3-7.8 6.3-1 0-2-.1-2.9-.4l-4.1 1.5 1.2-3.4a5.8 5.8 0 0 1-1.9-4c0-3.5 3.5-6.3 7.7-6.3s7.8 2.8 7.8 6.3z"/>'),
+  };
   const KIND_EN = {words: 'Word of the Day', expressions: 'Expression of the Day',
                    conversations: 'Conversation of the Day'};
   const KIND_FA = {words: 'لغت امروز', expressions: 'عبارت امروز',
@@ -5832,16 +6070,41 @@ const Daily = (() => {
     return html;
   }
 
-  function tools(kind, entry, done) {
+  const CHEVRON = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ' +
+    'aria-hidden="true"><path d="M2.4 4.4 6 8l3.6-3.6"/></svg>';
+
+  function doneTick(id, done) {
+    return '<button type="button" class="dtick' + (done ? ' on' : '') + '" data-done="' +
+      esc(id) + '" aria-pressed="' + (done ? 'true' : 'false') + '" title="Mark as done — ' +
+      'انجام دادم" aria-label="Mark as done">✓</button>';
+  }
+
+  /* The panel keeps the full detail, but one line of it per item is enough to
+     decide whether to open it: a wall of three expanded cards is what made
+     this panel two screens tall before anyone had chosen anything. */
+  function leadOf(kind, entry) {
+    if (kind === 'words') {
+      return '<div class="dlead"><div class="dword">' + esc(entry.en) +
+        (entry.ipa ? '<span class="dipa">' + esc(entry.ipa) + '</span>' : '') +
+        '</div>' + (entry.pos ? '<div class="dpos">' + esc(entry.pos) + '</div>' : '') +
+        faLine(entry.fa) + '</div>';
+    }
+    if (kind === 'expressions') {
+      return '<div class="dlead"><div class="dquote">“' + esc(entry.en) + '”</div>' +
+        faLine(entry.fa) + '</div>';
+    }
+    const topic = entry.topic || {};
+    return '<div class="dlead"><div class="dquote">' + esc(topic.en) + '</div>' +
+      faLine(topic.fa) + '</div>';
+  }
+
+  function tools(kind, entry) {
     const play = kind === 'conversations'
       ? '<button type="button" class="dbtn" data-play="1" aria-pressed="false">▶ Listen to it all — کل مکالمه</button>' +
         '<button type="button" class="dbtn" data-persian="1" aria-pressed="true">فارسی: روشن / Persian: on</button>'
       : '';
-    return '<div class="dtools">' + play +
-      '<button type="button" class="dbtn' + (done ? ' on' : '') +
-      '" data-done="' + esc(entry.id) + '" aria-pressed="' + (done ? 'true' : 'false') +
-      '">' + (done ? '✓ Done — انجام شد' : 'Mark as done — انجام دادم') + '</button>' +
-      '</div>';
+    return play ? '<div class="dtools">' + play + '</div>' : '';
   }
 
   function paintCard(kind, entry, done) {
@@ -5855,87 +6118,353 @@ const Daily = (() => {
     const body = kind === 'words' ? wordBody(entry)
       : kind === 'expressions' ? expressionBody(entry)
       : conversationBody(entry);
+    const head = '<div class="dtop"><span class="dico">' + CARD_ICON[kind] + '</span>' +
+      '<span class="dkind">' + KIND_EN[kind] + '<small>' + KIND_FA[kind] +
+      '</small></span><span class="spacer"></span>' + extraHead +
+      (entry.level ? '<span class="dlvl">' + esc(entry.level) + '</span>' : '') +
+      doneTick(entry.id, done) +
+      '<button type="button" class="dmore" data-more="1" aria-expanded="false" ' +
+      'title="More — بیشتر" aria-label="Show more">' + CHEVRON + '</button></div>';
     return '<div class="dcard' + (done ? ' done' : '') + '" data-kind="' + kind +
-      '">' + cardShell(kind, entry.level, extraHead, body) +
-      tools(kind, entry, done) + '</div>';
+      '">' + head + leadOf(kind, entry) +
+      '<div class="dbody">' + body + tools(kind, entry) + '</div></div>';
+  }
+
+  /* The three items for a date. Shared by the panel and by the card in the
+     conversation, so the two can never show different content on one day. */
+  function ensurePicked(key) {
+    if (picked && picked.date === key && cat) return picked;
+    picked = {date: key};
+    ORDER.forEach((kind) => {
+      const rows = (cat && cat[kind]) || [];
+      picked[kind] = rows.length
+        ? rows[dayIndex(dayNumber(key), rows.length, DAY_SALTS[kind])] : null;
+    });
+    return picked;
+  }
+
+  function progress(key) {
+    const ids = ORDER.map((k) => picked && picked[k] && picked[k].id).filter(Boolean);
+    return DailyStore.count(DailyStore.read(), key, ids);
   }
 
   /* Paint the three cards for the current local date, and the progress that
      goes with them. Called on open, on the date changing, and on resume. */
   function paint() {
     const el = els();
-    if (!el.cards) return;
     const key = dayKey(new Date());
     shown = key;
     if (el.date) el.date.textContent = key;
     if (!cat) {
-      el.cards.innerHTML = '<div class="dcard"><div class="dnone">' +
-        'Today&rsquo;s English could not be loaded. Check the connection and open ' +
-        'this panel again.<br>درس امروز بارگذاری نشد — یک بار دیگر این بخش را باز کن.' +
-        '</div></div>';
+      if (el.cards) {
+        el.cards.innerHTML = '<div class="dcard"><div class="dnone">' +
+          'Today&rsquo;s English could not be loaded. Check the connection and open ' +
+          'this panel again.<br>درس امروز بارگذاری نشد — یک بار دیگر این بخش را باز کن.' +
+          '</div></div>';
+      }
       return;
     }
-    picked = {date: key};
-    ORDER.forEach((kind) => {
-      const rows = cat[kind] || [];
-      picked[kind] = rows.length ? rows[dayIndex(dayNumber(key), rows.length, DAY_SALTS[kind])] : null;
-    });
+    ensurePicked(key);
     const state = DailyStore.read();
-    const ids = ORDER.map((k) => picked[k] && picked[k].id).filter(Boolean);
-    const done = DailyStore.count(state, key, ids);
-    el.cards.innerHTML = ORDER.map((kind) =>
-      paintCard(kind, picked[kind], picked[kind] && DailyStore.isDone(state, key, picked[kind].id))
-    ).join('');
-
-    if (el.count) el.count.textContent = done + ' / 3';
-    if (el.fill) el.fill.style.width = Math.round((done / 3) * 100) + '%';
-    if (el.track) el.track.setAttribute('aria-valuenow', String(done));
-    if (el.badge) {
-      el.badge.textContent = String(done);
-      el.badge.hidden = done === 0;
+    const done = progress(key);
+    if (el.cards) {
+      el.cards.innerHTML = ORDER.map((kind) =>
+        paintCard(kind, picked[kind], picked[kind] && DailyStore.isDone(state, key, picked[kind].id))
+      ).join('');
+      bind(el.cards);
     }
-    bind(el.cards);
+    paintProgress(done);
+    paintCardToggle();
+    mountCard();
+  }
+
+  function paintProgress(done) {
+    const el = els();
+    const pct = Math.round((done / 3) * 100);
+    if (el.count) el.count.textContent = done + ' / 3';
+    if (el.fill) el.fill.style.width = pct + '%';
+    if (el.track) el.track.setAttribute('aria-valuenow', String(done));
+    if (el.badge) { el.badge.textContent = String(done); el.badge.hidden = done === 0; }
+    const card = document.getElementById('dailyset');
+    if (!card) return;
+    const fill = card.querySelector('.dump i');
+    const label = card.querySelector('.diprog');
+    const bar = card.querySelector('.dump');
+    if (fill) fill.style.width = pct + '%';
+    if (label) label.textContent = done + ' / 3';
+    if (bar) bar.setAttribute('aria-valuenow', String(done));
+    card.classList.toggle('complete', done === 3);
   }
 
   function repaintProgress() {
     if (!picked) return;
-    const el = els();
-    const key = dayKey(new Date());
-    const state = DailyStore.read();
-    const ids = ORDER.map((k) => picked[k] && picked[k].id).filter(Boolean);
-    const done = DailyStore.count(state, key, ids);
-    if (el.count) el.count.textContent = done + ' / 3';
-    if (el.fill) el.fill.style.width = Math.round((done / 3) * 100) + '%';
-    if (el.track) el.track.setAttribute('aria-valuenow', String(done));
-    if (el.badge) { el.badge.textContent = String(done); el.badge.hidden = done === 0; }
+    paintProgress(progress(dayKey(new Date())));
   }
 
-  /* One delegated listener for the card's three kinds of button, so a repaint
-     never leaves a stale handler behind. */
-  function bind(root) {
+  /* ---------------------------------------------------------------- the
+     card in the conversation.
+     The daily set is offered *inside* the chat: one small container in the
+     transcript, not a panel that takes the screen. It arrives once a day,
+     every row can be opened or ticked without leaving the conversation, and
+     the footer can turn today's offer down or the whole thing off. */
+
+  function previewOf(kind, entry) {
+    if (kind === 'words') {
+      const def = entry.def || {};
+      let html = def.en ? '<div class="dline">' + esc(def.en) + '</div>' : '';
+      if (def.fa) html += faLine(def.fa, 'dline fa');
+      const ex = (entry.examples || [])[0];
+      if (ex) {
+        html += '<div class="dlabel">Example — مثال</div><div class="dline">' +
+          esc(ex.en) + '</div>' + faLine(ex.fa, 'dline fa');
+      }
+      return html;
+    }
+    if (kind === 'expressions') {
+      const use = entry.use || {};
+      let html = use.en ? '<div class="dline">' + esc(use.en) + '</div>' : '';
+      if (use.fa) html += faLine(use.fa, 'dline fa');
+      const ex = (entry.examples || [])[0];
+      if (ex) {
+        html += '<div class="dlabel">Example — مثال</div><div class="dline">' +
+          esc(ex.en) + '</div>' + faLine(ex.fa, 'dline fa');
+      }
+      return html;
+    }
+    const setting = entry.setting || {};
+    let html = setting.en ? '<div class="dline">' + esc(setting.en) + '</div>' : '';
+    if (setting.fa) html += faLine(setting.fa, 'dline fa');
+    const turns = entry.turns || [];
+    html += '<div class="dturns">' + turns.slice(0, 2).map((t, i) =>
+      '<div class="dturn' + (i % 2 ? ' alt' : '') + '"><div class="dwho">' +
+      esc(t.who) + '</div><div class="dbubble"><div class="dline">' + esc(t.en) +
+      '</div>' + faLine(t.fa) + '</div>' + say(t.en) + '</div>').join('') + '</div>';
+    if (turns.length > 2) {
+      html += '<div class="dnote">' + (turns.length - 2) +
+        ' more lines in the panel. / ادامهٔ مکالمه در بخش امروز.' + '</div>';
+    }
+    return html;
+  }
+
+  function mainOf(kind, entry) {
+    if (kind === 'words') return esc(entry.en);
+    if (kind === 'expressions') return '“' + esc(entry.en) + '”';
+    const topic = entry.topic || {};
+    return esc(topic.en || 'Conversation');
+  }
+
+  function subOf(kind, entry) {
+    if (kind === 'conversations') return esc((entry.topic || {}).fa || '');
+    return esc(entry.fa || '');
+  }
+
+  function rowHtml(kind, entry, done) {
+    if (!entry) return '';
+    return '<div class="dirow' + (done ? ' done' : '') + '" data-kind="' + kind + '">' +
+      '<span class="dikind">' + CARD_ICON[kind] + '</span>' +
+      '<div class="grow"><div class="dimain">' + mainOf(kind, entry) +
+      (entry.level ? ' <span class="dlvl">' + esc(entry.level) + '</span>' : '') +
+      '</div><div class="disub">' + subOf(kind, entry) + '</div>' +
+      '<div class="dibody">' + previewOf(kind, entry) + '</div></div>' +
+      '<div class="ditools">' + say(kind === 'conversations'
+        ? (((entry.turns || [])[0] || {}).en || '') : entry.en) +
+      '<button type="button" class="ditick' + (done ? ' on' : '') + '" data-done="' +
+      esc(entry.id) + '" aria-pressed="' + (done ? 'true' : 'false') +
+      '" title="Done — انجام دادم" aria-label="Mark as done">✓</button>' +
+      '<button type="button" class="dimore" data-more="1" aria-expanded="false" ' +
+      'title="Open — بیشتر" aria-label="Show details">' + CHEVRON + '</button>' +
+      '</div></div>';
+  }
+
+  function cardHtml(prefs, key) {
+    const state = DailyStore.read();
+    const done = progress(key);
+    if (DailyStore.isSkipped(prefs, key)) {
+      return '<div class="diskipped">' + CARD_ICON.today +
+        '<span>Today&rsquo;s English is skipped.</span>' +
+        '<span class="dfa">امروز رد شد.</span><span class="spacer"></span>' +
+        '<button type="button" class="dibtn ghost" data-unskip="1">Show it — نمایش</button>' +
+        '</div>';
+    }
+    const rows = ORDER.map((kind) =>
+      rowHtml(kind, picked[kind], picked[kind] && DailyStore.isDone(state, key, picked[kind].id))
+    ).join('');
+    /* One control per action: the ✕ skips today (reversible from the struck
+       line it leaves behind), "Read all three" opens every row in place, and
+       the permanent switch sits quiet on the right. It used to carry four
+       buttons, two of which skipped the same day. */
+    return '<div class="dihead"><span class="diico">' + CARD_ICON.today + '</span>' +
+      '<span class="dititle">Today&rsquo;s English<small>انگلیسی امروز · ' + key +
+      '</small></span><span class="spacer"></span>' +
+      '<span class="diprog">' + done + ' / 3</span>' +
+      '<button type="button" class="dix" data-skip="1" title="Skip today — رد کردن" ' +
+      'aria-label="Skip today for now">✕</button></div>' +
+      '<div class="dump" role="progressbar" aria-label="Today&rsquo;s progress" ' +
+      'aria-valuemin="0" aria-valuemax="3" aria-valuenow="' + done + '">' +
+      '<i style="width:' + Math.round((done / 3) * 100) + '%"></i></div>' + rows +
+      '<div class="difoot">' +
+      '<button type="button" class="dibtn ghost" data-learn="1">Read all three — هر سه</button>' +
+      '<span class="spacer"></span>' +
+      '<button type="button" class="dibtn ghost" data-hide="1">Don&rsquo;t show again</button>' +
+      '</div>';
+  }
+
+  /* Mounted into the transcript, so the daily set is part of the conversation
+     rather than a panel over it. Nothing is drawn when the feature has been
+     switched off, and the panel's own button is the way back. */
+  function mountCard() {
+    const chatEl = document.getElementById('chat');
+    const existing = document.getElementById('dailyset');
+    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+    if (!chatEl || !cat) return;
+    const prefs = DailyStore.readCard();
+    if (prefs.hidden) { paintCardToggle(); return; }
+    const key = dayKey(new Date());
+    ensurePicked(key);
+    const node = document.createElement('div');
+    node.className = 'dinline' + (progress(key) === 3 ? ' complete' : '');
+    node.id = 'dailyset';
+    node.setAttribute('role', 'region');
+    node.setAttribute('aria-label', "Today's English — انگلیسی امروز");
+    node.innerHTML = cardHtml(prefs, key);
+    chatEl.appendChild(node);
+    bindCard(node);
+  }
+
+  function removeCard() {
+    const el = document.getElementById('dailyset');
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+  }
+
+  function bindCard(root) {
     root.querySelectorAll('[data-say]').forEach((b) => {
       b.addEventListener('click', () => {
         const text = b.getAttribute('data-say');
+        if (!text) return;
         if (Speech.isPlaying(text)) { Speech.stop(); b.classList.remove('on'); return; }
         root.querySelectorAll('.dsay.on').forEach((n) => n.classList.remove('on'));
         b.classList.add('on');
         if (!Speech.speak(text, () => b.classList.remove('on'))) b.classList.remove('on');
       });
     });
+    root.querySelectorAll('[data-more]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const row = b.closest('.dirow');
+        const open = row.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
     root.querySelectorAll('[data-done]').forEach((b) => {
       b.addEventListener('click', () => {
-        const id = b.getAttribute('data-done');
-        const key = dayKey(new Date());
-        const state = DailyStore.read();
-        const next = !DailyStore.isDone(state, key, id);
-        DailyStore.setDone(state, key, id, next);
-        DailyStore.write(state);
+        const next = toggleDone(b.getAttribute('data-done'));
         b.classList.toggle('on', next);
         b.setAttribute('aria-pressed', next ? 'true' : 'false');
-        b.textContent = next ? '✓ Done — انجام شد' : 'Mark as done — انجام دادم';
-        b.closest('.dcard').classList.toggle('done', next);
-        repaintProgress();
+        const row = b.closest('.dirow');
+        if (row) row.classList.toggle('done', next);
       });
+    });
+    root.querySelectorAll('[data-skip]').forEach((b) => {
+      b.addEventListener('click', () => skipToday(true));
+    });
+    root.querySelectorAll('[data-unskip]').forEach((b) => {
+      b.addEventListener('click', () => skipToday(false));
+    });
+    root.querySelectorAll('[data-hide]').forEach((b) => {
+      b.addEventListener('click', () => setHidden(true));
+    });
+    /* "Read all three" opens the rows here instead of throwing the learner
+       into the panel: the whole point of the card is that the day is
+       readable without leaving the conversation. */
+    root.querySelectorAll('[data-learn]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const list = [...root.querySelectorAll('.dirow')];
+        const open = !list.every((r) => r.classList.contains('open'));
+        list.forEach((r) => {
+          r.classList.toggle('open', open);
+          const more = r.querySelector('[data-more]');
+          if (more) more.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        b.textContent = open ? 'Close all — بستن همه' : 'Read all three — هر سه';
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
+
+  /* One place that marks an item done, for the tick in the card and the tick in
+     the panel: the badge, both progress bars and the day's count follow. */
+  function toggleDone(id) {
+    if (!id) return false;
+    const key = dayKey(new Date());
+    const state = DailyStore.read();
+    const next = !DailyStore.isDone(state, key, id);
+    DailyStore.setDone(state, key, id, next);
+    DailyStore.write(state);
+    document.querySelectorAll('[data-done="' + id + '"]').forEach((b) => {
+      b.classList.toggle('on', next);
+      b.setAttribute('aria-pressed', next ? 'true' : 'false');
+      const card = b.closest('.dcard');
+      if (card) card.classList.toggle('done', next);
+    });
+    repaintProgress();
+    return next;
+  }
+
+  function skipToday(on) {
+    const prefs = DailyStore.readCard();
+    DailyStore.writeCard(DailyStore.setSkipped(prefs, dayKey(new Date()), on));
+    mountCard();
+  }
+
+  function setHidden(on) {
+    const prefs = DailyStore.readCard();
+    prefs.hidden = on;
+    DailyStore.writeCard(prefs);
+    if (on) removeCard(); else mountCard();
+    paintCardToggle();
+    /* The card is gone the moment this runs, so say where it went: the switch
+       that brings it back lives in the Today panel. */
+    if (on && typeof toast === 'function') {
+      toast('Daily card hidden — از بخش Today برگردان');
+    }
+  }
+
+  /* The panel's own switch, labelled with what it will do next rather than
+     with the current state - a button that says "hidden" and does nothing is
+     the usual way this goes wrong. */
+  function paintCardToggle() {
+    const b = document.getElementById('dcardtoggle');
+    if (!b) return;
+    const hidden = DailyStore.readCard().hidden;
+    b.textContent = hidden
+      ? 'Show today\u2019s English in the chat — نمایش کارت روزانه'
+      : 'Keep today\u2019s English out of the chat — پنهان کردن کارت روزانه';
+    b.setAttribute('aria-pressed', hidden ? 'false' : 'true');
+  }
+
+  /* One delegated listener for the panel card's buttons, so a repaint never
+     leaves a stale handler behind. The ticks live in the card header, so the
+     state is visible without opening the card - which is what the panel is
+     for now: three collapsed lines you can scan. */
+  function bind(root) {
+    root.querySelectorAll('[data-say]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const text = b.getAttribute('data-say');
+        if (!text) return;
+        if (Speech.isPlaying(text)) { Speech.stop(); b.classList.remove('on'); return; }
+        root.querySelectorAll('.dsay.on').forEach((n) => n.classList.remove('on'));
+        b.classList.add('on');
+        if (!Speech.speak(text, () => b.classList.remove('on'))) b.classList.remove('on');
+      });
+    });
+    root.querySelectorAll('[data-more]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const card = b.closest('.dcard');
+        const open = card.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+    root.querySelectorAll('[data-done]').forEach((b) => {
+      b.addEventListener('click', () => toggleDone(b.getAttribute('data-done')));
     });
     root.querySelectorAll('[data-persian]').forEach((b) => {
       b.addEventListener('click', () => {
@@ -6018,18 +6547,27 @@ const Daily = (() => {
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) return;
       refresh(false);   // resumed: only repaints if the date moved
+      mountCard();      // and the day's card is the day's card
       schedule();       // timers do not run while backgrounded
     });
     window.addEventListener('focus', () => refresh(false));
+    const toggle = document.getElementById('dcardtoggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => setHidden(!DailyStore.readCard().hidden));
+    }
     schedule();
   }
 
-  return {load, paint, refresh, init, stopPlay};
+  return {load, paint, refresh, init, stopPlay, mountCard, removeCard,
+          paintCardToggle, skipToday, setHidden};
 })();
 
 async function loadDaily() {
   await Daily.load();
   Daily.paint();
+  // the daily set is offered in the conversation itself, and skipped or
+  // switched off entirely by the learner
+  Daily.mountCard();
 }
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
@@ -6305,6 +6843,7 @@ function clearChat() {
   history.length = 0;
   historyAt = -1;
   add(WELCOME, 'bot');
+  Daily.mountCard();     // today's set belongs where the conversation starts
   renderStarters();
   input.focus();
 }

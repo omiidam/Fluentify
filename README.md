@@ -38,8 +38,18 @@ living in separate sections.
 ### Daily English
 
 Three fresh items at the start of every local day — one word, one expression and
-one conversation — in the **Today** panel, each with audio and a tick, plus the
-same three available in chat (`today's word`, `لغت امروز`).
+one conversation — offered as **a small card inside the conversation**, not as a
+section that takes the chat away: three one-line rows that open in place, a tick
+per row, and a progress count. The **Today** panel holds the full material
+(examples, the whole dialogue, audio) and is opened on demand.
+
+The daily set is a suggestion, so turning it down is one tap and nothing is
+punished: **✕** collapses the card to one line for that day, and **Don't show
+again** keeps it out of the chat entirely, reversible from the panel's own
+switch. **Read all three** opens the rows where they sit, so the day is readable
+without leaving the conversation. Completion is kept per day either way, so
+skipping reads as skipping, not as failing. The same three are also available in
+chat (`today's word`, `لغت امروز`).
 
 The choice is a pure function of the local date: `daily_index()` in
 `chatbot.py`, `dailyIndex` in `bot.js` and `dayIndex` in the page walk the same
@@ -47,7 +57,10 @@ catalogue from the same epoch, so the CLI, the web preview and the offline APK
 show the same three items on the same day with no server involved.
 `tools/check_daily.py` compares all three over 365 dates and five timezones,
 including both 2026 daylight-saving nights, where the wait to midnight is not
-24 hours.
+24 hours. It also exercises the skip / switch-off store: skipping one day must
+skip one day, un-skipping must work, a corrupt record must not hide the
+feature, and the per-day list is pruned so years of daily use cannot fill
+storage.
 
 The catalogue in `daily.json` is curated, never generated at runtime: 60 words,
 55 expressions, 24 conversations. To be exact about coverage, that is **not**

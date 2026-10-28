@@ -875,6 +875,52 @@ def main() -> int:
     check("no orphaned .chip styling is left behind", not orphan,
           f"{len(orphan)} selector(s) for a row that no longer exists")
 
+    # ------------------------------------------------------------ panels --
+    # Every panel in the markup has to be in the CSS that hides it. #dpanel
+    # was added to the markup without being added to the display:none rule, so
+    # the Today panel simply sat in the flow: 2400px of cards on an 844px
+    # phone, leaving #chat sixteen pixels tall. Nothing caught it, because
+    # every check looked at the panels the CSS already mentioned.
+    # The panels are the ones with a tile, in the order Panels.TILES lists
+    # them: that table is what the top bar toggles, so a panel missing from the
+    # CSS is a panel that is always on screen. #phpanel and #rpanel lay
+    # themselves out with flex, so either display is accepted for the open
+    # state; #emojipanel is a dialog with the hidden attribute and is not one
+    # of these at all.
+    tiles = re.search(r"const TILES = \{(.*?)\};", src, re.S)
+    panels = sorted(set(re.findall(r"(\w+panel):\s*'", tiles.group(1)))) if tiles else []
+    check("the panel table is where this check can read it", len(panels) >= 6,
+          f"found {panels}")
+    for btn in (re.findall(r"\w+panel:\s*'(\w+)'", tiles.group(1)) if tiles else []):
+        check(f"the {btn} tile exists for its panel",
+              f'id="{btn}"' in src,
+              "Panel's TILES points at a tile that is not in the markup")
+
+    # Comments count in a manual read and must not count here: the note above
+    # this very rule names the two panels it had to be given, and scanning the
+    # raw source found them in the comment and called the rule correct.
+    css = re.sub(r"/\*.*?\*/", " ", src, flags=re.S)
+
+    def has_display(panel: str, kind: str) -> bool:
+        for m in re.finditer(r"([^{}]*)\{\s*display:\s*(block|flex)", css):
+            sel = m.group(1)
+            if f"#{panel}.open" in sel and m.group(2) == kind:
+                return True
+        return False
+
+    hidden = []
+    for m in re.finditer(r"([^{}]*)\{\s*display:\s*none", css):
+        hidden += re.findall(r"#(\w+panel)", m.group(1))
+    missing = [p for p in panels if p not in hidden]
+    check("every panel in the tile table is hidden until it is opened",
+          not missing,
+          f"{missing} would sit in the flow, eating the chat the way the "
+          "Today panel did")
+    unopenable = [p for p in panels
+                  if not (has_display(p, "block") or has_display(p, "flex"))]
+    check("every panel has an .open rule that shows it", not unopenable,
+          f"{unopenable} could never open")
+
     # ------------------------------------------------------- review list --
     # The regression: opening the panel painted nothing.
     toggle = fn_body(src, "togglePanel")

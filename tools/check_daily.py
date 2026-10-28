@@ -368,8 +368,64 @@ check(!('2026-01-05' in s.days), 'a non-array day survived the clean-up');
 check(JSON.stringify(s.days['2026-01-06']) === '["w002"]',
   'non-string ids were not filtered out: ' + JSON.stringify(s.days['2026-01-06']));
 
+/* 4) the offer: skipping a day and switching the card off. The daily set is a
+   suggestion, so both answers have to be remembered and both have to be
+   reversible - and the per-day record must not grow without bound. */
+mem[DailyStore.KEY] = '';
+mem[DailyStore.CARD_KEY] = '';
+delete mem[DailyStore.KEY];
+delete mem[DailyStore.CARD_KEY];
+
+let p = DailyStore.readCard();
+check(p.hidden === false && Object.keys(p.skipped).length === 0,
+  'a fresh learner should be offered the card and to skip nothing');
+check(!DailyStore.isSkipped(p, DAY1), 'a fresh day should not read as skipped');
+
+DailyStore.writeCard(DailyStore.setSkipped(p, DAY1, true));
+p = DailyStore.readCard();
+check(DailyStore.isSkipped(p, DAY1), 'skipping today did not survive a write/read');
+check(!DailyStore.isSkipped(p, DAY2), 'skipping one day skipped the next as well');
+
+// and it is reversible: the learner can ask for today back
+DailyStore.writeCard(DailyStore.setSkipped(DailyStore.readCard(), DAY1, false));
+check(!DailyStore.isSkipped(DailyStore.readCard(), DAY1),
+  'a skipped day could not be un-skipped');
+
+// switching the card off is separate from skipping a day
+p = DailyStore.readCard();
+p.hidden = true;
+DailyStore.writeCard(p);
+check(DailyStore.readCard().hidden === true, 'switching the card off did not stick');
+p = DailyStore.readCard();
+p.hidden = false;
+DailyStore.writeCard(p);
+check(DailyStore.readCard().hidden === false, 'the card could not be switched back on');
+
+// a corrupt preference record must not hide the feature
+mem[DailyStore.CARD_KEY] = 'not json';
+p = DailyStore.readCard();
+check(p.hidden === false && Object.keys(p.skipped).length === 0,
+  'a corrupt preference record hid the daily card');
+mem[DailyStore.CARD_KEY] = '{"hidden":"yes","skipped":{"2026-01-05":true,"2026-01-06":0}}';
+p = DailyStore.readCard();
+check(p.hidden === true, 'a truthy hidden flag was dropped');
+check(Object.keys(p.skipped).length === 1 && p.skipped['2026-01-05'] === true,
+  'falsy skip flags were not filtered: ' + JSON.stringify(p.skipped));
+
+// skipped days are pruned when written, so a daily user cannot fill storage
+const many = {hidden: false, skipped: {}};
+for (let i = 0; i < 200; i++) {
+  const d = new Date(Date.UTC(2026, 0, 1) + i * 86400000).toISOString().slice(0, 10);
+  many.skipped[d] = true;
+}
+const kept = DailyStore.writeCard(many).skipped;
+check(Object.keys(kept).length === 60, 'skipped days were not pruned: ' +
+  Object.keys(kept).length);
+check(kept['2026-07-19'], 'pruning kept the oldest instead of the newest');
+
 fs.writeFileSync(outPath, JSON.stringify({picks, clock, problems}));
-console.log('checked', picks.length, 'dates,', clock.length, 'instants');
+console.log('checked', picks.length, 'dates,', clock.length, 'instants,',
+  'and the skip/opt-out store');
 """
 
 
@@ -505,6 +561,35 @@ def wiring(src: str, cat: dict) -> None:
     for fn in ("wordBody", "expressionBody", "conversationBody", "paintCard",
                "tools", "bind", "playTurns"):
         check(f"function {fn}(" in src, f"the Daily module has no {fn}()")
+
+    # The card in the conversation. Every one of its rows was styled and the
+    # box around them was not, so it inherited the transcript's handwriting
+    # face with no padding, border or background and read as loose text wedged
+    # into the chat. The container rule is a hard requirement, not boilerplate.
+    box = re.search(r"\n  \.dinline \{[^}]*\}", src)
+    check(bool(box), "the .dinline card in the chat has no rule at all")
+    if box:
+        for prop, what in (("background:", "no background"),
+                           ("border:", "no border"),
+                           ("padding:", "no padding"),
+                           ("border-radius:", "no radius")):
+            check(prop in box.group(0),
+                  f"the .dinline container has {what} and reads as bare text")
+    check("node.id = 'dailyset'" in src and "chatEl.appendChild(node)" in src,
+          "the daily card is not mounted into the transcript any more")
+
+    # One control per action: the card shipped four, two of which skipped the
+    # same day. And "read all three" has to open the rows in place, because
+    # the point of the card is reading the day without leaving the chat.
+    card = re.search(r"function cardHtml\(prefs, key\) \{(.*?)\n  \}\n", src, re.S)
+    check(bool(card), "the daily card has no renderer")
+    if card:
+        body = card.group(1)
+        check(body.count('data-skip="1"') == 1,
+              "the daily card offers %d ways to skip one day"
+              % body.count('data-skip="1"'))
+        check('data-learn="1"' in body and "dpanel" not in body,
+              "\"Read all three\" jumps to the panel instead of opening the rows")
 
     # the offline bundle has to carry the catalogue and hand it to the engine
     build = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")
