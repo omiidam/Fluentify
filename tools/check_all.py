@@ -33,9 +33,9 @@ Four suites, each answering a different question:
                 the bar, because that is what put the two on separate clocks.
   check_seed_clock  is the fifty-message gate's clock right? It runs the
                 shipped Seed code against a pinned clock at every hour of a
-                day and both sides of 03:30 GMT, and refuses a countdown that
-                is written once and then freezes, or a session that needs a
-                reload to unlock.
+                day and both sides of midnight in Tehran (20:30 UTC), and
+                refuses a countdown that is written once and then freezes, or
+                a session that needs a reload to unlock.
   check_daily   is the Daily English catalogue sound, and do the CLI, the APK
                 engine and the page pick the same three items for the same
                 local date? The rotation exists in three places, one per

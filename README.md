@@ -27,7 +27,7 @@ no network calls, no tracking.
 | 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
-| 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
+| 🌱 Daily seed | 50 messages per session; the session rolls over at **00:00 Tehran (GMT+3:30)**, fill the seed and the bird blooms |
 | 🦊 Fox stickers | thirty-six flat fox stickers in the composer's picker, searchable in English and Persian |
 | 😂 Jokes | 10 bilingual jokes with category filtering (`programming joke`, `جوک ربات`) |
 | 🔤 Alphabets | English + Persian alphabet, and single-letter lookup (`what letter is A`, `حرف ب`) |

@@ -3407,26 +3407,28 @@ document.getElementById('composer').addEventListener('submit', e => {
 });
 /* ---------- motion seed: the bird fills up with daily usage ---------- */
 const SEED_GOAL = 50;                     // messages allowed per session
-const SEED_RESET_UTC = 3.5;               // session rolls over at 03:30 GMT
+/* The day is Iran's day, not UTC's: GMT+3:30, so the session rolls over at
+   00:00 Tehran, which is 20:30 UTC. A learner in Tehran at 23:59 local (20:29
+   UTC) is still in the session they started that morning, and one minute later
+   they get a fresh fifty - whatever the UTC date says. Iran has had no daylight
+   saving since 2022, so the offset is a constant rather than a rule set. */
+const SEED_TZ_MIN = 210;                  // +03:30
 const Seed = {
   state: { day: '', count: 0, streak: 0, best: 0 },
   warned: false,                 // only explain the limit once per session
-  /* A session starts at 03:30 GMT, so the "day" is counted from that point —
-     otherwise a user studying at 02:00 would lose their progress at midnight. */
+  /* The session day is the calendar date in Tehran, so the roll is midnight
+     there - the same instant msLeft() counts down to. */
   key(d = new Date()) {
-    const shifted = new Date(d.getTime() - SEED_RESET_UTC * 3600 * 1000);
-    return shifted.getUTCFullYear() + '-' +
-           String(shifted.getUTCMonth() + 1).padStart(2, '0') + '-' +
-           String(shifted.getUTCDate()).padStart(2, '0');
+    const local = new Date(d.getTime() + SEED_TZ_MIN * 60 * 1000);
+    return local.getUTCFullYear() + '-' +
+           String(local.getUTCMonth() + 1).padStart(2, '0') + '-' +
+           String(local.getUTCDate()).padStart(2, '0');
   },
-  /* when the current session ends (for the countdown in the tooltip) */
+  /* when the current session ends: the next midnight in Tehran */
   msLeft() {
-    // the boundary is 03:30 UTC — the same instant at which key() rolls over
-    const now = new Date();
-    let ms = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
-                      3, 30, 0, 0) - now.getTime();
-    if (ms <= 0) ms += 24 * 3600 * 1000;   // today's boundary passed
-    return ms;
+    const local = new Date(Date.now() + SEED_TZ_MIN * 60 * 1000);
+    return Date.UTC(local.getUTCFullYear(), local.getUTCMonth(),
+                    local.getUTCDate() + 1, 0, 0, 0, 0) - local.getTime();
   },
   /* Minutes left, and never "0h 00m" while the reset is still ahead: flooring
      to zero for the last minute reads as "this should be open already". */
@@ -3441,7 +3443,7 @@ const Seed = {
      a message was sent, so a screen read on the next morning still counted the
      hours from when the note first appeared - and, worse, the only thing that
      ever re-read the day was a send, which a locked composer cannot do, so the
-     app never unlocked itself at 03:30 GMT. This is that tick. */
+     app never unlocked itself at midnight. This is that tick. */
   tick() {
     if (this.rollDay()) { this.paint(); return; }
     this.noteText();
@@ -3454,7 +3456,7 @@ const Seed = {
     this.rollDay();
     this.paint();
     // Every half minute, and again the moment a sleeping tab comes back: a
-    // phone that was asleep at 03:30 must not wake up to yesterday's lock.
+    // phone that was asleep at midnight must not wake up to yesterday's lock.
     clearInterval(Seed.timer);
     Seed.timer = setInterval(() => Seed.tick(), 30000);
     document.addEventListener('visibilitychange', () => {
@@ -3479,7 +3481,7 @@ const Seed = {
     this.save();
     return true;
   },
-  /* Checked on every send, so a tab left open past 03:30 GMT unlocks itself. */
+  /* Checked on every send, so a tab left open past midnight unlocks itself. */
   spent() {
     if (this.rollDay()) this.paint();
     return this.state.count >= SEED_GOAL;
@@ -3501,7 +3503,7 @@ const Seed = {
     if (this.warned) return;
     this.warned = true;
     add(`🌙 You've used all ${SEED_GOAL} messages for today — the seed is full.\n` +
-        `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (03:30 GMT).`,
+        `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (00:00 GMT+3:30).`,
         'bot');
     this.paint();
   },
@@ -3509,7 +3511,7 @@ const Seed = {
     const av = document.querySelector('.avatar');
     if (av) { av.classList.add('bloom'); setTimeout(() => av.classList.remove('bloom'), 1600); }
     add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! You have finished ` +
-        `for today; the next session starts in ${this.msText()} (03:30 GMT).`, 'bot');
+        `for today; the next session starts in ${this.msText()} (00:00 GMT+3:30).`, 'bot');
   },
   paint() {
     const pct = Math.min(100, Math.round((this.state.count / SEED_GOAL) * 100));
@@ -3551,17 +3553,17 @@ const Seed = {
     // trusting the rest of the copy.
     txt.innerHTML = used >= SEED_GOAL
       ? `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
-        `The next ${SEED_GOAL} arrive in <b>${at}</b> (03:30 GMT).`
+        `The next ${SEED_GOAL} arrive in <b>${at}</b> (00:00 GMT+3:30).`
       : left <= SEED_GOAL * 0.2
         ? `<b>${left}</b> ${left === 1 ? 'message' : 'messages'} left today — ` +
-          `the next ${SEED_GOAL} arrive in <b>${at}</b> (03:30 GMT).`
+          `the next ${SEED_GOAL} arrive in <b>${at}</b> (00:00 GMT+3:30).`
         : '';
     // The tooltip carries the same clock, so it is refreshed with it.
     const meter = document.getElementById('seedmeter');
     if (meter) {
       meter.title = `Seed ${Math.round((used / SEED_GOAL) * 100)}% · streak ` +
         `${this.state.streak} session(s) · ${this.state.count}/${SEED_GOAL} ` +
-        `messages · resets in ${at} (03:30 GMT)`;
+        `messages · resets in ${at} (00:00 GMT+3:30)`;
     }
   },
   /* Grey out the composer so the block is visible, not just enforced */
