@@ -369,8 +369,10 @@ check(JSON.stringify(s.days['2026-01-06']) === '["w002"]',
   'non-string ids were not filtered out: ' + JSON.stringify(s.days['2026-01-06']));
 
 /* 4) the offer: skipping a day and switching the card off. The daily set is a
-   suggestion, so both answers have to be remembered and both have to be
-   reversible - and the per-day record must not grow without bound. */
+   suggestion, so both answers are remembered. Turning *today* down is final
+   for the day - the card is removed and nothing brings it back - while the
+   permanent switch is a preference that can be changed from the panel. The
+   per-day record must also not grow without bound. */
 mem[DailyStore.KEY] = '';
 mem[DailyStore.CARD_KEY] = '';
 delete mem[DailyStore.KEY];
@@ -381,15 +383,19 @@ check(p.hidden === false && Object.keys(p.skipped).length === 0,
   'a fresh learner should be offered the card and to skip nothing');
 check(!DailyStore.isSkipped(p, DAY1), 'a fresh day should not read as skipped');
 
-DailyStore.writeCard(DailyStore.setSkipped(p, DAY1, true));
+DailyStore.writeCard(DailyStore.setSkipped(p, DAY1));
 p = DailyStore.readCard();
 check(DailyStore.isSkipped(p, DAY1), 'skipping today did not survive a write/read');
 check(!DailyStore.isSkipped(p, DAY2), 'skipping one day skipped the next as well');
 
-// and it is reversible: the learner can ask for today back
-DailyStore.writeCard(DailyStore.setSkipped(DailyStore.readCard(), DAY1, false));
-check(!DailyStore.isSkipped(DailyStore.readCard(), DAY1),
-  'a skipped day could not be un-skipped');
+// there is no path back: never mind the UI, the store itself must not be
+// callable into reopening a day the learner turned down
+check(DailyStore.setSkipped.length === 2,
+  'setSkipped grew an on/off argument again - a skipped day is reopenable at ' +
+  'the store level');
+DailyStore.setSkipped(DailyStore.readCard(), DAY1);
+check(DailyStore.isSkipped(DailyStore.readCard(), DAY1),
+  'writing the skip a second time cleared it');
 
 // switching the card off is separate from skipping a day
 p = DailyStore.readCard();
@@ -599,7 +605,7 @@ def wiring(src: str, cat: dict) -> None:
     # One control per action: the card shipped four, two of which skipped the
     # same day. And "read all three" has to open the rows in place, because
     # the point of the card is reading the day without leaving the chat.
-    card = re.search(r"function cardHtml\(prefs, key\) \{(.*?)\n  \}\n", src, re.S)
+    card = re.search(r"function cardHtml\(key\) \{(.*?)\n  \}\n", src, re.S)
     check(bool(card), "the daily card has no renderer")
     if card:
         body = card.group(1)
@@ -608,6 +614,35 @@ def wiring(src: str, cat: dict) -> None:
               % body.count('data-skip="1"'))
         check('data-learn="1"' in body and "dpanel" not in body,
               "\"Read all three\" jumps to the panel instead of opening the rows")
+        # Skipping is final: no restore line, no un-skip button, and the mount
+        # must refuse to draw the card for a day that was turned down.
+        check('data-unskip' not in body and 'diskipped' not in body,
+              "the skipped card still renders a way to bring the day back")
+    check('data-unskip' not in src and '.diskipped' not in src,
+          "a skipped day can be restored from the page again")
+    mount = re.search(r"function mountCard\(\) \{(.*?)\n  \}\n", src, re.S)
+    check(bool(mount), "the daily card has no mount")
+    if mount:
+        check('isSkipped' in mount.group(1),
+              "mountCard() does not check whether the day was turned down, so "
+              "a repaint would put a skipped card back")
+    skip = re.search(r"function skipToday\(\) \{(.*?)\n  \}\n", src, re.S)
+    check(bool(skip), "skipping today has no handler")
+    if skip:
+        check('removeCard()' in skip.group(1),
+              "skipping today no longer removes the card")
+
+    # #chat is a flex column and the card clips its own content, so without an
+    # explicit flex-basis flexbox gives it a zero minimum height and squashes
+    # it to a sliver on a short screen - the mobile bug this rule exists for.
+    if box:
+        rule = box.group(0)
+        check('flex: 0 0 auto' in rule or 'flex-shrink: 0' in rule,
+              "the daily card can be shrunk by its flex parent: on a phone it "
+              "collapses instead of letting the transcript scroll")
+        check('auto' in rule.split('margin:')[1].split(';')[0]
+              if 'margin:' in rule else False,
+              "the daily card is not centred in the transcript")
 
     # the offline bundle has to carry the catalogue and hand it to the engine
     build = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")

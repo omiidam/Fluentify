@@ -100,12 +100,14 @@ voice: a speaker under every line turned a reading card into a player, and this
 app already has a Listening panel where audio is the point.
 
 The daily set is a suggestion, so turning it down is one tap and nothing is
-punished: **✕** collapses the card to one line for that day, and **Don't show
+punished: **✕** removes the card for the rest of that day, and **Don't show
 again** keeps it out of the chat entirely, reversible from the panel's own
-switch. **Read all three** opens the rows where they sit, so the day is readable
-without leaving the conversation. Completion is kept per day either way, so
-skipping reads as skipping, not as failing. The same three are also available in
-chat (`today's word`, `لغت امروز`).
+switch. A skipped day stays skipped — there is no un-skip control, and the page
+will not redraw the card on a repaint, a resume or the next launch; tomorrow
+offers a new day. **Read all three** opens the rows where they sit, so the day
+is readable without leaving the conversation. Completion is kept per day either
+way, so skipping reads as skipping, not as failing. The same three are also
+available in chat (`today's word`, `لغت امروز`).
 
 The choice is a pure function of the local date: `daily_index()` in
 `chatbot.py`, `dailyIndex` in `bot.js` and `dayIndex` in the page walk the same
@@ -114,9 +116,9 @@ show the same three items on the same day with no server involved.
 `tools/check_daily.py` compares all three over 365 dates and five timezones,
 including both 2026 daylight-saving nights, where the wait to midnight is not
 24 hours. It also exercises the skip / switch-off store: skipping one day must
-skip one day, un-skipping must work, a corrupt record must not hide the
-feature, and the per-day list is pruned so years of daily use cannot fill
-storage.
+skip one day and stay skipped (the store has no un-skip to call), a corrupt
+record must not hide the feature, and the per-day list is pruned so years of
+daily use cannot fill storage.
 
 The catalogue in `daily.json` is curated, never generated at runtime: 60 words,
 55 expressions, 24 conversations. To be exact about coverage, that is **not**

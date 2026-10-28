@@ -961,6 +961,10 @@
     flex: 1; overflow-y: auto; padding: 22px 22px 10px;
     display: flex; flex-direction: column; gap: 16px;
     scroll-behavior: smooth;
+    /* Android's WebView keeps momentum scrolling only when asked, and the
+       daily card is taller than a phone screen once its rows are open: the
+       transcript has to scroll like a list, not stick under the finger. */
+    -webkit-overflow-scrolling: touch;
     /* Firefox: backdrop-filter can flicker inside overflow+border-radius parents */
     overscroll-behavior: none;
   }
@@ -1464,10 +1468,19 @@
      background and read as loose text wedged into the conversation. */
   .dinline {
     position: relative; overflow: hidden;
-    /* The chat's own reading width, so the card is a bubble-shaped thing in
-       the transcript rather than a banner across a wide window. */
-    max-width: 760px; width: 100%;
-    margin: 6px 0 14px;
+    /* The transcript's own width, centred: the day's material is not a side
+       note, and at 760px it read as a narrow insert beside full-width
+       bubbles. Capped so a wide monitor does not stretch three short rows
+       into one long line, and auto margins do the centring. */
+    max-width: 980px; width: 100%;
+    /* #chat is a flex column, and this card clips its own content for the
+       gold top rule. A clipped flex item has an automatic minimum size of
+       zero, so on a short screen flexbox squashed the whole card to 2px and
+       the transcript never scrolled: on a phone the day could not be read at
+       all, and no amount of scrolling brought it back. It keeps its height
+       now, and the transcript scrolls instead. */
+    flex: 0 0 auto;
+    margin: 2px auto 10px;
     border-radius: 18px; border: 1px solid rgba(138,90,0,.26);
     background: var(--card);
     /* Three light sources: a hairline of daylight on the top edge, a contact
@@ -1508,7 +1521,6 @@
   }
   .diico svg { width: 16px; height: 16px; }
   .dico svg { width: 13px; height: 13px; }
-  .diskipped svg { width: 14px; height: 14px; flex: none; color: #8a5a00; }
   .dititle {
     font-family: var(--font-display); font-size: 14px; font-weight: 700;
     color: var(--navy2); line-height: 1.25; letter-spacing: .1px;
@@ -1628,16 +1640,6 @@
   }
   .dibtn.ghost:hover { background: rgba(22,39,74,.05); color: var(--navy); }
   .difoot .spacer { flex: 1 1 auto; }
-  /* The skipped state is the same card, one line tall: dismissing the day must
-     not cost the learner their way back into it. */
-  .diskipped {
-    display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
-    padding: 12px 13px 12px 14px;
-    font-size: 12.5px; color: var(--muted);
-  }
-  .diskipped .dfa { font-size: 11.5px; }
-  .diskipped .spacer { flex: 1 1 auto; }
-  .disk { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
 
   /* ---------- the Today panel, scannable rather than scrollable ---------- */
   .dlead { margin-top: 2px; }
@@ -5934,9 +5936,13 @@ const DailyStore = {
     return {hidden: !!prefs.hidden, skipped: kept};
   },
   isSkipped(prefs, date) { return !!prefs.skipped[date]; },
-  setSkipped(prefs, date, on) {
+  /* One way only. There is no "un-skip" parameter, because there is no
+     un-skip: a day the learner turned down stays turned down, so the store
+     cannot be talked into reopening it by a later repaint or a stale
+     handler. */
+  setSkipped(prefs, date) {
     prefs.skipped = prefs.skipped || {};
-    if (on) prefs.skipped[date] = true; else delete prefs.skipped[date];
+    prefs.skipped[date] = true;
     return prefs;
   },
 };
@@ -6276,29 +6282,24 @@ const Daily = (() => {
       '</div></div>';
   }
 
-  function cardHtml(prefs, key) {
+  function cardHtml(key) {
     const state = DailyStore.read();
     const done = progress(key);
-    if (DailyStore.isSkipped(prefs, key)) {
-      return '<div class="diskipped">' + CARD_ICON.today +
-        '<span>Today&rsquo;s English is skipped.</span>' +
-        '<span class="dfa">امروز رد شد.</span><span class="spacer"></span>' +
-        '<button type="button" class="dibtn ghost" data-unskip="1">Show it — نمایش</button>' +
-        '</div>';
-    }
     const rows = ORDER.map((kind) =>
       rowHtml(kind, picked[kind], picked[kind] && DailyStore.isDone(state, key, picked[kind].id))
     ).join('');
-    /* One control per action: the ✕ skips today (reversible from the struck
-       line it leaves behind), "Read all three" opens every row in place, and
-       the permanent switch sits quiet on the right. It used to carry four
-       buttons, two of which skipped the same day. */
+    /* One control per action: the ✕ turns today's offer down for good (the
+       card is removed, not folded into a restore line), "Read all three"
+       opens every row in place, and the permanent switch sits quiet on the
+       right. It used to carry four buttons, two of which skipped the same
+       day. */
     return '<div class="dihead"><span class="diico">' + CARD_ICON.today + '</span>' +
       '<span class="dititle">Today&rsquo;s English<small>' + dayLabel(key) +
       '</small></span><span class="spacer"></span>' +
       '<span class="diprog">' + done + ' / 3</span>' +
-      '<button type="button" class="dix" data-skip="1" title="Skip today — رد کردن" ' +
-      'aria-label="Skip today for now">✕</button></div>' +
+      '<button type="button" class="dix" data-skip="1" ' +
+      'title="Skip today — رد کردن (برنمی‌گردد)" ' +
+      'aria-label="Skip today — the card will not come back today">✕</button></div>' +
       '<div class="dump" role="progressbar" aria-label="Today&rsquo;s progress" ' +
       'aria-valuemin="0" aria-valuemax="3" aria-valuenow="' + done + '">' +
       '<i style="width:' + Math.round((done / 3) * 100) + '%"></i></div>' + rows +
@@ -6320,17 +6321,28 @@ const Daily = (() => {
     if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
     if (!chatEl || !cat) return;
     const prefs = DailyStore.readCard();
-    if (prefs.hidden) { paintCardToggle(); return; }
     const key = dayKey(new Date());
+    /* Turning today's offer down is a decision, not a toggle: the card goes,
+       and nothing on the page brings it back - not a repaint, not the next
+       launch, not a resume. The day is over until tomorrow's card. */
+    if (prefs.hidden || DailyStore.isSkipped(prefs, key)) {
+      paintCardToggle();
+      return;
+    }
     ensurePicked(key);
     const node = document.createElement('div');
     node.className = 'dinline' + (progress(key) === 3 ? ' complete' : '');
     node.id = 'dailyset';
     node.setAttribute('role', 'region');
     node.setAttribute('aria-label', "Today's English — انگلیسی امروز");
-    node.innerHTML = cardHtml(prefs, key);
+    node.innerHTML = cardHtml(key);
     chatEl.appendChild(node);
     bindCard(node);
+    /* The card is the last thing in the transcript, so on a short screen its
+       footer starts below the fold. Nudge it into view only while the reader
+       is still at the bottom: scrolling a transcript someone has scrolled up
+       in is the one thing a chat must never do. */
+    if (pinned) node.scrollIntoView({block: 'nearest'});
   }
 
   function removeCard() {
@@ -6367,10 +6379,7 @@ const Daily = (() => {
       });
     });
     root.querySelectorAll('[data-skip]').forEach((b) => {
-      b.addEventListener('click', () => skipToday(true));
-    });
-    root.querySelectorAll('[data-unskip]').forEach((b) => {
-      b.addEventListener('click', () => skipToday(false));
+      b.addEventListener('click', () => skipToday());
     });
     root.querySelectorAll('[data-hide]').forEach((b) => {
       b.addEventListener('click', () => setHidden(true));
@@ -6412,10 +6421,16 @@ const Daily = (() => {
     return next;
   }
 
-  function skipToday(on) {
+  /* Skipping removes the card outright. There is deliberately no un-skip
+     control anywhere: a day the learner turned down must stay turned down,
+     so the flag is written and the card is taken out of the transcript. */
+  function skipToday() {
     const prefs = DailyStore.readCard();
-    DailyStore.writeCard(DailyStore.setSkipped(prefs, dayKey(new Date()), on));
-    mountCard();
+    DailyStore.writeCard(DailyStore.setSkipped(prefs, dayKey(new Date())));
+    removeCard();
+    if (typeof toast === 'function') {
+      toast("Today's English is skipped. / امروز رد شد");
+    }
   }
 
   function setHidden(on) {
