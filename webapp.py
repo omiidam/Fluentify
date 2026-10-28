@@ -1533,73 +1533,99 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     /* The chat's own reading width, so the card is a bubble-shaped thing in
        the transcript rather than a banner across a wide window. */
     max-width: 760px; width: 100%;
-    margin: 2px 0 12px; padding: 12px 13px 10px 15px;
-    border-radius: 16px; border: 1px solid rgba(138,90,0,.24);
-    background: linear-gradient(180deg, #fffefb, var(--card) 62%);
-    box-shadow: 0 1px 1px rgba(74,58,30,.05),
-                0 10px 22px -16px rgba(74,58,30,.6);
+    margin: 6px 0 14px;
+    border-radius: 18px; border: 1px solid rgba(138,90,0,.26);
+    background: var(--card);
+    /* Three light sources: a hairline of daylight on the top edge, a contact
+       shadow so it sits on the page, and one wide soft one so it does not read
+       as a flat rectangle pasted into the transcript. */
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.9) inset,
+      0 2px 5px rgba(74,58,30,.055),
+      0 20px 38px -26px rgba(74,58,30,.75);
     font-family: var(--font-body);
   }
+  /* A gold rule across the top edge rather than a bar down the side: the card
+     is something you read, and the rule marks where the day starts without
+     turning its left edge into a permanent stripe. */
   .dinline::before {
-    content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
-    background: linear-gradient(180deg, var(--gold), var(--gold2));
+    content: ""; position: absolute; inset: 0 0 auto; height: 3px; z-index: 1;
+    background: linear-gradient(90deg, var(--gold2), var(--gold) 42%, #f8e2b4);
   }
-  .dinline.complete { border-color: rgba(46,122,90,.34); }
+  .dinline.complete { border-color: rgba(46,122,90,.32); }
   .dinline.complete::before {
-    background: linear-gradient(180deg, #3f9673, var(--green));
+    background: linear-gradient(90deg, var(--green), #4aa27e 55%, #a8d8bf);
   }
+  /* The header is its own band: a warm wash that separates "what this is"
+     from the three things it holds, and a hairline to close it. */
   .dihead {
-    display: flex; align-items: flex-start; gap: 8px;
+    display: flex; align-items: flex-start; gap: 9px;
+    padding: 13px 12px 10px 14px;
+    background:
+      radial-gradient(130% 160% at 0% 0%, rgba(241,193,90,.24), transparent 64%),
+      linear-gradient(180deg, #fffefb, #fffcf3);
   }
   .diico {
-    width: 26px; height: 26px; border-radius: 9px; flex: none;
+    width: 28px; height: 28px; border-radius: 9px; flex: none;
     display: grid; place-items: center;
-    background: var(--gold-soft); border: 1px solid rgba(138,90,0,.22);
-    color: #8a5a00;
+    background: linear-gradient(180deg, #fdf1d6, var(--gold-soft));
+    border: 1px solid rgba(138,90,0,.26); color: #7d5200;
+    box-shadow: 0 1px 2px rgba(138,90,0,.14);
   }
-  .diico svg { width: 15px; height: 15px; }
+  .diico svg { width: 16px; height: 16px; }
   .dico svg { width: 13px; height: 13px; }
   .diskipped svg { width: 14px; height: 14px; flex: none; color: #8a5a00; }
   .dititle {
-    font-family: var(--font-display); font-size: 13.5px; font-weight: 700;
-    color: var(--navy2); line-height: 1.2;
+    font-family: var(--font-display); font-size: 14px; font-weight: 700;
+    color: var(--navy2); line-height: 1.25; letter-spacing: .1px;
   }
   .dititle small {
     display: block; font-family: var(--font-body); font-size: 10px;
-    font-weight: 400; color: var(--muted); margin-top: 1px;
+    font-weight: 400; color: var(--muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
   }
   .dihead .spacer { flex: 1 1 auto; }
   /* The bar runs under the whole heading instead of being squeezed between
      the title and the counter, where it had 92px to report three steps. */
+  /* Full-bleed under the header band, so it doubles as the rule that closes
+     the band off from the three rows below it. */
   .dump {
-    height: 4px; border-radius: 999px; margin: 7px 0 0;
-    overflow: hidden; background: rgba(22,39,74,.085);
+    height: 4px; margin: 0; border-radius: 0;
+    border-top: 1px solid rgba(138,90,0,.16);
+    overflow: hidden; background: rgba(22,39,74,.06);
+    box-shadow: inset 0 1px 2px rgba(22,39,74,.07);
   }
   .dump i {
-    display: block; height: 100%; width: 0; border-radius: 999px;
-    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    display: block; height: 100%; width: 0; border-radius: 0;
+    background: linear-gradient(90deg, var(--gold2), var(--gold));
     transition: width .35s cubic-bezier(.22,1,.36,1);
   }
   .diprog {
-    font-family: var(--font-display); font-size: 11px; font-weight: 700;
-    color: var(--muted); white-space: nowrap; padding-top: 3px;
-    font-variant-numeric: tabular-nums;
+    font-family: var(--font-display); font-size: 11.5px; font-weight: 700;
+    color: var(--muted); white-space: nowrap; padding-top: 4px;
+    font-variant-numeric: tabular-nums; letter-spacing: .2px;
   }
   .dinline.complete .diprog { color: var(--green); }
   .dix {
     flex: none; width: 28px; height: 28px; border-radius: 8px; cursor: pointer;
     display: grid; place-items: center; padding: 0; font-family: inherit;
-    font-size: 16px; line-height: 1; color: var(--muted);
+    font-size: 15px; line-height: 1; color: rgba(82,96,119,.8);
     border: 1px solid transparent; background: transparent;
     transition: background .15s, color .15s;
   }
-  .dix:hover { background: rgba(22,39,74,.07); color: var(--navy); }
+  /* The header band is warm, so the ✕ darkens toward the navy on hover rather
+     than sitting in the flat grey the rows below use. */
+  .dix:hover { background: rgba(138,90,0,.12); color: var(--navy); }
   .dirow {
-    display: flex; align-items: flex-start; gap: 8px; padding: 7px 0 6px;
-    border-top: 1px solid rgba(22,39,74,.1);
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 8px 13px 7px 14px;
+    border-top: 1px solid rgba(22,39,74,.075);
+    transition: background .15s;
   }
-  .dump + .dirow { margin-top: 6px; }
-  .dirow .grow { flex: 1 1 auto; min-width: 0; }
+  /* The meter already draws the line above the first row. */
+  .dump + .dirow { border-top: 0; }
+  @media (hover: hover) { .dirow:hover { background: rgba(22,39,74,.024); } }
+  .dirow .grow { flex: 1 1 auto; min-width: 0; cursor: pointer; }
   /* A tinted chip per kind, so the three rows are told apart at a glance
      without a label repeating what the row already says. */
   .dikind {
@@ -1623,8 +1649,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 12px; color: var(--muted); margin-top: 3px;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .dibody { margin-top: 6px; padding: 7px 9px; border-radius: 10px;
-            background: rgba(22,39,74,.04); border: 1px solid rgba(22,39,74,.08); }
+  /* The opened body is an inset of the card, not a second card: warm paper,
+     a hairline, and slightly looser leading than the rows above it. */
+  .dibody { margin-top: 7px; padding: 9px 11px; border-radius: 12px;
+            background: linear-gradient(180deg, #fffdf8, #fdf8ec);
+            border: 1px solid rgba(138,90,0,.15);
+            line-height: 1.55; }
   /* Three one-line rows until a row is opened: the card is a container in the
      conversation, so it must not be a screenful of material the learner has
      not asked to read yet. */
@@ -1636,13 +1666,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: grid; place-items: center; padding: 0; font-family: inherit;
     font-size: 12px; color: var(--dim);
     border: 1px solid rgba(22,39,74,.13); background: #fffcf3;
+    transition: background .15s, border-color .15s, color .15s;
   }
-  .ditick.on { background: rgba(46,122,90,.14); border-color: rgba(46,122,90,.4); color: #2e6b52; }
+  /* A done item is a filled disc, not a lightly tinted outline: at a glance
+     the day is either three unfilled boxes or three green ones. */
+  .ditick.on, .dtick.on {
+    background: var(--green); border-color: var(--green); color: #fff;
+  }
+  .ditick:hover, .dimore:hover { border-color: rgba(22,39,74,.24); }
   .dimore svg { width: 11px; height: 11px; transition: transform .18s; }
   .dirow.open .dimore svg { transform: rotate(180deg); }
   .difoot {
     display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
-    margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(22,39,74,.09);
+    margin: 0; padding: 8px 12px 9px 14px;
+    border-top: 1px solid rgba(22,39,74,.075);
+    background: rgba(22,39,74,.022);
   }
   .dibtn {
     font-family: var(--font-body); font-size: 11px; padding: 5px 9px;
@@ -1660,6 +1698,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      not cost the learner their way back into it. */
   .diskipped {
     display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+    padding: 12px 13px 12px 14px;
     font-size: 12.5px; color: var(--muted);
   }
   .diskipped .dfa { font-size: 11.5px; }
@@ -5834,6 +5873,20 @@ function dayKey(d) {
   return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
 }
 
+/* The card's date line. The ISO key was shown raw next to a Persian phrase,
+   and the bidi run flipped the two around - the day read as
+   "28-10-2026 · انگلیسی امروز". Plain English and a written-out month, so there
+   is nothing for the direction algorithm to reorder. */
+const dayLabel = (key) => {
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                  'August', 'September', 'October', 'November', 'December'];
+  const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+                'Saturday'];
+  const [y, m, d] = String(key).split('-').map(Number);
+  const at = new Date(y, m - 1, d);
+  return DAYS[at.getDay()] + ', ' + d + ' ' + MONTHS[m - 1] + ' ' + y;
+};
+
 /* Whole calendar days since the epoch, counted in UTC arithmetic so a 23- or
    25-hour day across a daylight-saving change still counts as one day. */
 function dayNumber(key) {
@@ -6305,7 +6358,7 @@ const Daily = (() => {
        the permanent switch sits quiet on the right. It used to carry four
        buttons, two of which skipped the same day. */
     return '<div class="dihead"><span class="diico">' + CARD_ICON.today + '</span>' +
-      '<span class="dititle">Today&rsquo;s English<small>انگلیسی امروز · ' + key +
+      '<span class="dititle">Today&rsquo;s English<small>' + dayLabel(key) +
       '</small></span><span class="spacer"></span>' +
       '<span class="diprog">' + done + ' / 3</span>' +
       '<button type="button" class="dix" data-skip="1" title="Skip today — رد کردن" ' +
@@ -6355,6 +6408,17 @@ const Daily = (() => {
         const row = b.closest('.dirow');
         const open = row.classList.toggle('open');
         b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+    /* Tapping a row opens it. The chevron stays the labelled control for
+       keyboards and screen readers; this is the same toggle for a thumb, and
+       it ignores clicks inside the opened body so selecting a line does not
+       fold the row shut under the reader. */
+    root.querySelectorAll('.dirow .grow').forEach((g) => {
+      g.addEventListener('click', (ev) => {
+        if (ev.target.closest('.dibody') || ev.target.closest('button')) return;
+        const more = g.parentNode.querySelector('[data-more]');
+        if (more) more.click();
       });
     });
     root.querySelectorAll('[data-done]').forEach((b) => {

@@ -581,10 +581,18 @@ def wiring(src: str, cat: dict) -> None:
     if box:
         for prop, what in (("background:", "no background"),
                            ("border:", "no border"),
-                           ("padding:", "no padding"),
-                           ("border-radius:", "no radius")):
+                           ("border-radius:", "no radius"),
+                           ("box-shadow:", "no shadow")):
             check(prop in box.group(0),
                   f"the .dinline container has {what} and reads as bare text")
+    # The card pads its own bands rather than its box (the header wash and the
+    # full-bleed meter need the full width), so the padding assertion lives
+    # here: the rows, not the wrapper, are what text would touch the border in.
+    for band, what in (("dihead", "header"), ("dirow", "row"), ("difoot", "footer")):
+        rule = re.search(r"\n  \." + band + r" \{[^}]*\}", src)
+        check(bool(rule) and "padding" in rule.group(0),
+              f"the daily card's {what} band has no padding: its text sits on "
+              f"the border")
     check("node.id = 'dailyset'" in src and "chatEl.appendChild(node)" in src,
           "the daily card is not mounted into the transcript any more")
 
