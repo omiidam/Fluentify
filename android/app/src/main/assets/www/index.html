@@ -4046,10 +4046,15 @@ const Stickers = (() => {
     els.body.textContent = '';
     const hits = data.stickers.filter((s) => matches(s, q));
 
-    const head = document.createElement('div');
-    head.className = 'ehead';
-    head.textContent = (q ? hits.length + ' · ' : '') + data.label + ' · ' + data.label_fa;
-    els.body.appendChild(head);
+    /* No heading: the panel holds one set and its button already says what it
+       is, so a name above the grid only repeats it. While a search is live the
+       count is the one thing the grid cannot show by itself. */
+    if (q && hits.length) {
+      const head = document.createElement('div');
+      head.className = 'ehead';
+      head.textContent = hits.length + (hits.length === 1 ? ' match' : ' matches');
+      els.body.appendChild(head);
+    }
 
     if (!hits.length) {
       const none = document.createElement('div');
