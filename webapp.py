@@ -312,14 +312,25 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @keyframes bootSpin {
     to { transform: rotate(1turn); }
   }
-  /* The mascot itself, not a redrawn copy of it: the same picture the header
-     and the launcher show, cut round so the well behind it frames it. */
-  .boot-fox {
-    position: relative; z-index: 1;
-    width: 80px; height: 80px; border-radius: 50%;
-    box-shadow: 0 8px 22px rgba(74,58,30,.28), 0 0 0 1px rgba(43,48,73,.10);
+  /* The mascot itself, not a redrawn copy of it: the same cut-out the header
+     and the launcher show, standing in the well behind it. The picture brings
+     its own transparent background, so it needs no disc and no border - a
+     rounded frame around a figure that is already ragged would show as a
+     square behind it. The shadow is a drop-shadow for the same reason: it
+     follows the silhouette instead of the box the PNG is drawn in. */
+  .boot-fox-bob {
+    position: relative; z-index: 1; display: grid; place-items: center;
     animation: bootBob 2.8s cubic-bezier(.45,0,.55,1) infinite;
     transform-origin: 50% 62%;
+  }
+  /* The bob is on the wrapper and the shadow on the picture: a filter on an
+     animated element is re-rasterised every frame (see the backdrop's own
+     note), and this shadow is a per-pixel blur of a 100px cut-out. 86px of
+     picture is 79px of figure inside the well's 100px - the first cut at
+     100px put the beret and the tail through the ring. */
+  .boot-fox {
+    width: 86px; height: 86px; display: block;
+    filter: drop-shadow(0 7px 12px rgba(74,58,30,.30));
   }
   @keyframes bootBob {
     0%, 100% { transform: translateY(0) rotate(-1.5deg); }
@@ -409,7 +420,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .boot { transition: none; }
     .boot-in { animation: none; }
     .boot-aurora i, .boot-halo { animation: none; }
-    .boot-fox { animation: none; }
+    .boot-fox-bob { animation: none; }
     .loader::before, .loader::after { animation: none; }
     .boot-track i { transition: none; }
   }
@@ -765,7 +776,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: none;
   }
   .avatar img {
-    width: 40px; height: 40px; display: block; border-radius: 50%;
+    width: 40px; height: 40px; display: block;
   }
   /* the mascot reacts to the daily seed */
   @keyframes bob { 0%,100% { transform: translateY(0) rotate(0deg); }
@@ -2776,8 +2787,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="boot-in">
       <div class="boot-mark" aria-hidden="true">
         <span class="boot-halo"></span>
-        <img class="boot-fox" src="brand/fox-mark.png" alt="" width="80"
-             height="80" decoding="async">
+        <span class="boot-fox-bob">
+          <img class="boot-fox" src="brand/fox-mark.png" alt="" width="86"
+               height="86" decoding="async">
+        </span>
       </div>
       <div class="boot-brand">
         <div class="boot-name">Fluentify</div>
@@ -2980,8 +2993,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <script>
 /* Fluentify's mascot — the fox, cut from the one brand picture
    (brand/fox-source.png, via tools/build_brand.py). The header, the boot
-   screen, the launcher icon and every message row show this same animal:
-   the face here because a full-length portrait at 26px is an orange smudge. */
+   screen, the launcher icon and every message row show this same animal, and
+   all of them keep the picture's transparent background: the face here
+   because a full-length portrait at 26px is an orange smudge. */
 const MASCOT =
   '<img class="mface" src="brand/fox-face.png" alt="" width="26" ' +
   'height="26" decoding="async">';

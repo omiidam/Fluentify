@@ -154,12 +154,18 @@ handler, because those strings are inserted with `innerHTML`.
 
 ### The mascot
 
-One illustration, one pipeline. `brand/fox-source.png` is the artwork, and
-`python3 tools/build_brand.py` cuts everything the app draws from it: the round
-portrait in `brand/` (boot screen, header, message rows, tab icon) and all
-twelve launcher PNGs plus the three adaptive foregrounds under
-`android/app/src/main/res/mipmap-*`. Re-cutting a crop is an edit to that file,
-not a new drawing.
+One illustration, one pipeline. `brand/fox-source.png` is the artwork — a
+cut-out on a transparent background — and `python3 tools/build_brand.py` cuts
+everything the app draws from it: the whole figure and the head in `brand/`
+(boot screen, header, message rows, tab icon) and all twelve launcher PNGs plus
+the three adaptive foregrounds under `android/app/src/main/res/mipmap-*`.
+Re-cutting a crop is an edit to that file, not a new drawing.
+
+The transparency is used, not filled in: the boot mark and the avatars carry no
+disc, frame or ring, and their shadow is a `drop-shadow` that follows the
+silhouette instead of the square the PNG is drawn in. The launcher is the one
+place that gets a background, because a legacy launcher icon has no background
+layer of its own and the system paints nothing behind it.
 
 Nothing is redrawn per surface. That is the point: the mascot was a hand-drawn
 SVG for a while, and the boot screen carried a second copy of it that had to be
