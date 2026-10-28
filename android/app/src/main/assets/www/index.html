@@ -3350,10 +3350,23 @@ const Seed = {
     if (ms <= 0) ms += 24 * 3600 * 1000;   // today's boundary passed
     return ms;
   },
+  /* Minutes left, and never "0h 00m" while the reset is still ahead: flooring
+     to zero for the last minute reads as "this should be open already". */
   msText() {
-    const ms = Math.max(0, this.msLeft());
-    return Math.floor(ms / 3600000) + 'h ' +
-           String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0') + 'm';
+    const ms = this.msLeft();
+    if (ms < 60000) return 'under a minute';
+    const mins = Math.floor(ms / 60000);
+    const h = Math.floor(mins / 60), m = mins % 60;
+    return h ? `${h}h ${String(m).padStart(2, '0')}m` : `${m}m`;
+  },
+  /* The countdown is a clock, not a snapshot. It used to be written only when
+     a message was sent, so a screen read on the next morning still counted the
+     hours from when the note first appeared - and, worse, the only thing that
+     ever re-read the day was a send, which a locked composer cannot do, so the
+     app never unlocked itself at 03:30 GMT. This is that tick. */
+  tick() {
+    if (this.rollDay()) { this.paint(); return; }
+    this.noteText();
   },
   load() {
     try {
@@ -3362,6 +3375,13 @@ const Seed = {
     } catch (e) { /* private mode: keep in memory only */ }
     this.rollDay();
     this.paint();
+    // Every half minute, and again the moment a sleeping tab comes back: a
+    // phone that was asleep at 03:30 must not wake up to yesterday's lock.
+    clearInterval(Seed.timer);
+    Seed.timer = setInterval(() => Seed.tick(), 30000);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) Seed.tick();
+    });
   },
   save() {
     try { localStorage.setItem('fluentify.seed', JSON.stringify(this.state)); } catch (e) {}
@@ -3403,8 +3423,7 @@ const Seed = {
     if (this.warned) return;
     this.warned = true;
     add(`🌙 You've used all ${SEED_GOAL} messages for today — the seed is full.\n` +
-        `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (03:30 GMT).\n` +
-        `امروز هر ${SEED_GOAL} پیام را استفاده کردی. پیام‌های بعدی ${this.msText()} دیگر فعال می‌شوند.`,
+        `Your next ${SEED_GOAL} messages arrive in ${this.msText()} (03:30 GMT).`,
         'bot');
     this.paint();
   },
@@ -3412,8 +3431,7 @@ const Seed = {
     const av = document.querySelector('.avatar');
     if (av) { av.classList.add('bloom'); setTimeout(() => av.classList.remove('bloom'), 1600); }
     add(`🌱 Today's seed is full — ${SEED_GOAL} messages done! You have finished ` +
-        `for today; the next session starts in ${this.msText()} (03:30 GMT).\n` +
-        `امروز تمام شد. ${this.msText()} دیگر بخش بعدی شروع می‌شود.`, 'bot');
+        `for today; the next session starts in ${this.msText()} (03:30 GMT).`, 'bot');
   },
   paint() {
     const pct = Math.min(100, Math.round((this.state.count / SEED_GOAL) * 100));
@@ -3433,11 +3451,40 @@ const Seed = {
       const t = document.createElement('span');
       t.textContent = full ? '🌸 ' + this.state.streak + 'd' : this.state.count + '/' + SEED_GOAL;
       meter.append(bar, t);
-      meter.title = `Seed ${pct}% · streak ${this.state.streak} session(s) · ` +
-        `${this.state.count}/${SEED_GOAL} messages · resets in ` +
-        `${this.msText()} (03:30 GMT)`;
+      // the tooltip is written by noteText, with the countdown it reports
     }
     this.lockUI(full);
+  },
+  /* The sentence under the rail. Split out of lockUI so the half-minute tick
+     can refresh the countdown without rebuilding the meter - rewriting that
+     would restart the bar's width transition twice a minute. English only:
+     this is chrome about the app's own clock, not something being taught. */
+  noteText() {
+    const note = document.getElementById('limitenote');
+    const txt = note && note.querySelector('.limitxt');
+    if (!txt) return;
+    const used = Math.min(this.state.count, SEED_GOAL);
+    const left = SEED_GOAL - used;
+    const at = this.msText();
+    // Warn over the last fifth, where a learner can still do something about
+    // it, and say nothing at all before that. A bar that announces itself on
+    // every message is a bar people stop reading.
+    // "1 messages left" is the sort of thing that makes a learner stop
+    // trusting the rest of the copy.
+    txt.innerHTML = used >= SEED_GOAL
+      ? `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
+        `The next ${SEED_GOAL} arrive in <b>${at}</b> (03:30 GMT).`
+      : left <= SEED_GOAL * 0.2
+        ? `<b>${left}</b> ${left === 1 ? 'message' : 'messages'} left today — ` +
+          `the next ${SEED_GOAL} arrive in <b>${at}</b> (03:30 GMT).`
+        : '';
+    // The tooltip carries the same clock, so it is refreshed with it.
+    const meter = document.getElementById('seedmeter');
+    if (meter) {
+      meter.title = `Seed ${Math.round((used / SEED_GOAL) * 100)}% · streak ` +
+        `${this.state.streak} session(s) · ${this.state.count}/${SEED_GOAL} ` +
+        `messages · resets in ${at} (03:30 GMT)`;
+    }
   },
   /* Grey out the composer so the block is visible, not just enforced */
   lockUI(full) {
@@ -3447,33 +3494,12 @@ const Seed = {
     const note = document.getElementById('limitenote');
     if (note) {
       const used = Math.min(this.state.count, SEED_GOAL);
-      const left = SEED_GOAL - used;
-      const pct = used / SEED_GOAL;
       // The moon's position is the whole point of the row: one property,
       // and the track does the rest. 0 is the left end, 1 the right.
-      note.style.setProperty('--p', pct.toFixed(4));
-
-      // Warn over the last fifth, where a learner can still do something
-      // about it, and say nothing at all before that. A bar that announces
-      // itself on every message is a bar people stop reading.
-      const warn = pct >= 0.8;
-      note.classList.toggle('warn', warn && !full);
+      note.style.setProperty('--p', (used / SEED_GOAL).toFixed(4));
+      note.classList.toggle('warn', used / SEED_GOAL >= 0.8 && !full);
       note.classList.toggle('full', !!full);
-
-      const txt = note.querySelector('.limitxt');
-      if (txt) {
-        txt.innerHTML = full
-          ? `Daily limit reached — <b>${SEED_GOAL}/${SEED_GOAL}</b> messages used. ` +
-            `The next ${SEED_GOAL} arrive in <b>${this.msText()}</b> (03:30 GMT).<br>` +
-            `سقف پیام امروز پر شد. ${this.msText()} دیگر بخش بعدی فعال می‌شود.`
-          : warn
-            // "1 messages left" is the sort of thing that makes a learner stop
-            // trusting the rest of the copy
-            ? `<b>${left}</b> ${left === 1 ? 'message' : 'messages'} left today — ` +
-              `the next ${SEED_GOAL} arrive in <b>${this.msText()}</b> (03:30 GMT).<br>` +
-              `${left} پیام باقی مانده. ${this.msText()} دیگر بخش بعدی.`
-            : '';
-      }
+      this.noteText();
     }
     if (full) {
       input.disabled = true;

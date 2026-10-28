@@ -31,6 +31,11 @@ Four suites, each answering a different question:
                 ahead of the bar it was reporting. Runs the shipped Boot code
                 against a two-element stub, and refuses a CSS transition on
                 the bar, because that is what put the two on separate clocks.
+  check_seed_clock  is the fifty-message gate's clock right? It runs the
+                shipped Seed code against a pinned clock at every hour of a
+                day and both sides of 03:30 GMT, and refuses a countdown that
+                is written once and then freezes, or a session that needs a
+                reload to unlock.
   check_daily   is the Daily English catalogue sound, and do the CLI, the APK
                 engine and the page pick the same three items for the same
                 local date? The rotation exists in three places, one per
@@ -66,6 +71,7 @@ SUITES = [
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
+    ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
