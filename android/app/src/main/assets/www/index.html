@@ -1715,10 +1715,6 @@
   .nchip:hover { background: rgba(46,122,90,.16); }
   .nlim { margin: 0; padding-left: 16px; }
   .nlim li { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin-bottom: 4px; }
-  .nengine {
-    margin-top: 12px; padding-top: 8px; font-size: 10.5px; color: var(--dim);
-    border-top: 1px dashed var(--line);
-  }
   /* inside a chat bubble the analysis is the same thing, a little tighter */
   .msg .ntable { background: transparent; }
   .msg .ncard { background: transparent; }
@@ -7376,14 +7372,17 @@ function renderAnalysis(r, opts) {
     }
   }
 
-  if (r.limitations && r.limitations.length) {
+  /* The tagger ships one standing caveat about its own method. It describes
+     the engine rather than the sentence on screen, so the panel prints only
+     the caveats this analysis earned — "read" that is also a present, a
+     contraction the tagger expanded, a paste that was cut to length. */
+  const caveats = (r.limitations || []).filter((l) => !/dependency parser/.test(l));
+  if (caveats.length) {
     out.push('<div class="nlabel">What this cannot do — محدودیت‌ها</div><ul class="nlim">');
-    for (const l of r.limitations) out.push('<li>' + escapeHtml(l) + '</li>');
+    for (const l of caveats) out.push('<li>' + escapeHtml(l) + '</li>');
     out.push('</ul>');
   }
 
-  out.push('<div class="nengine">' + escapeHtml(r.engine) + ' · ' + r.tokenCount +
-    ' words · analysed on this device — بدون اینترنت و بدون سرور</div>');
   return out.join('');
 }
 
