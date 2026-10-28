@@ -652,6 +652,11 @@ def main() -> int:
         rows = foxes.get("stickers") or []
         check("the sticker set has enough faces to be a picker", len(rows) >= 8,
               f"only {len(rows)} stickers")
+        # The reference sheet is 36 drawings, six rows of six. The picker
+        # shipped twelve of them once - the sheet was the spec and half of it
+        # was missing, which no "is it a picker at all" check can see.
+        check("the picker carries the whole sheet", len(rows) == 36,
+              f"{len(rows)} stickers: the sheet has 36 drawings")
         ids = [r.get("id") for r in rows]
         check("every sticker id is unique", len(set(ids)) == len(ids),
               f"duplicates in {ids}")

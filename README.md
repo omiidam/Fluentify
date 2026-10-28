@@ -28,7 +28,7 @@ no network calls, no tracking.
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
-| 🦊 Fox stickers | twelve flat fox stickers in the composer's picker, searchable in English and Persian |
+| 🦊 Fox stickers | thirty-six flat fox stickers in the composer's picker, searchable in English and Persian |
 | 😂 Jokes | 10 bilingual jokes with category filtering (`programming joke`, `جوک ربات`) |
 | 🔤 Alphabets | English + Persian alphabet, and single-letter lookup (`what letter is A`, `حرف ب`) |
 
@@ -76,12 +76,17 @@ never cleared, so yesterday's ticks survive the new day.
 
 ### Fox stickers
 
-The composer's picker holds twelve fox stickers instead of the usual unicode
-palette: one flat style, drawn from a single head and a single sitting body, so
-the set reads as one hand rather than twelve. `foxes.json` is the whole
-catalogue — id, English name, Persian name, search keywords and the finished
-SVG — so adding a fox is an edit to that file, never to the page. Search works
-in both languages: `sleep` and «خواب» find the same sticker.
+The composer's picker holds thirty-six fox stickers instead of the usual unicode
+palette — the whole reference sheet, six rows of six. One flat style, composed
+from a single front head, a single side head and four bodies, so the set reads
+as one hand rather than thirty-six.
+
+`foxes.json` is the whole catalogue — id, English name, Persian name, search
+keywords and the finished SVG — so the page never draws a fox itself. The
+finished SVG is generated: `tools/build_foxes.py` holds the poses and writes the
+file, which is why the palette and the eyes are one constant each. Edit a pose
+there and re-run it rather than hand-patching a path. Search works in both
+languages: `sleep` and «خواب» find the same sticker.
 
 A sticker is a picture and the composer is a text field, so a picked fox goes in
 as `[fox:cute]` and is expanded back into the drawing when the message renders —
