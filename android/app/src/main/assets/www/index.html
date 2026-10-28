@@ -1515,9 +1515,9 @@
   }
   .dinline.complete .diprog { color: var(--green); }
   .dix {
-    flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+    flex: none; width: 28px; height: 28px; border-radius: 8px; cursor: pointer;
     display: grid; place-items: center; padding: 0; font-family: inherit;
-    font-size: 13px; line-height: 1; color: var(--dim);
+    font-size: 16px; line-height: 1; color: var(--muted);
     border: 1px solid transparent; background: transparent;
     transition: background .15s, color .15s;
   }
@@ -5872,8 +5872,10 @@ const Daily = (() => {
     words: svgIcon('<path d="M12 7.6C10.5 6.4 8.5 5.8 6 5.8H4.2v12.4H6c2.5 0 4.5.6 6 1.8"/>' +
       '<path d="M12 7.6c1.5-1.2 3.5-1.8 6-1.8h1.8v12.4H18c-2.5 0-4.5.6-6 1.8"/>' +
       '<path d="M12 7.6v12.4"/>'),
-    expressions: svgIcon('<path d="M9.4 8.2H6.6a1.4 1.4 0 0 0-1.4 1.4v2.2a1.4 1.4 0 0 0 1.4 1.4h1.6v.4c0 1.2-.7 2.1-1.8 2.5"/>' +
-      '<path d="M18 8.2h-2.8a1.4 1.4 0 0 0-1.4 1.4v2.2a1.4 1.4 0 0 0 1.4 1.4h1.6v.4c0 1.2-.7 2.1-1.8 2.5"/>'),
+    /* Solid blocks, not strokes: two outline quotes at 13px read as the
+       numerals "55" in the chip. */
+    expressions: svgIcon('<path fill="currentColor" stroke="none" d="M6.4 9.6h4.4v3.9c0 2.4-1.6 4.3-4.4 5.1l-.7-1.6c1.5-.5 2.4-1.4 2.6-2.6H6.4z"/>' +
+      '<path fill="currentColor" stroke="none" d="M14.8 9.6h4.4v3.9c0 2.4-1.6 4.3-4.4 5.1l-.7-1.6c1.5-.5 2.4-1.4 2.6-2.6h-1.9z"/>'),
     conversations: svgIcon('<path d="M20.4 12.4c0 3.5-3.5 6.3-7.8 6.3-1 0-2-.1-2.9-.4l-4.1 1.5 1.2-3.4a5.8 5.8 0 0 1-1.9-4c0-3.5 3.5-6.3 7.7-6.3s7.8 2.8 7.8 6.3z"/>'),
   };
   const KIND_EN = {words: 'Word of the Day', expressions: 'Expression of the Day',
@@ -6233,7 +6235,9 @@ const Daily = (() => {
       '<div class="difoot">' +
       '<button type="button" class="dibtn ghost" data-learn="1">Read all three — هر سه</button>' +
       '<span class="spacer"></span>' +
-      '<button type="button" class="dibtn ghost" data-hide="1">Don&rsquo;t show again</button>' +
+      '<button type="button" class="dibtn ghost" data-hide="1" ' +
+      'title="Don&rsquo;t show again — دیگر نشان نده" ' +
+      'aria-label="Don&rsquo;t show again — دیگر نشان نده">Don&rsquo;t show again</button>' +
       '</div>';
   }
 
