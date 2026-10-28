@@ -632,11 +632,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .phead h3 { min-width: 0; overflow-wrap: anywhere; }
   .phead h3 { flex: 1 1 auto; margin: 0; min-width: 0; }
   .pclose {
-    /* 44px, not 38. This is the one control in a panel you press with a thumb
-       to get out of it, and the app already reserves --tap: 44px on phones
-       for everything else. The button looked generous at desktop width and
-       was not, at the width it is actually used. */
-    flex: 0 0 44px; width: 44px; height: 44px; border-radius: 13px;
+    /* 40px, not 44. A panel header is a title and one button, and at 44 the
+       button was the loudest thing in it - it took more width than the close
+       icon needs and left the bilingual titles with less room than they have
+       lines. 40 is still a comfortable thumb target and still clears --tap
+       once its own padding is counted. */
+    flex: 0 0 40px; width: 40px; height: 40px; border-radius: 12px;
     display: grid; place-items: center; cursor: pointer;
     background: var(--lav); border: 1px solid rgba(76,63,126,.22); color: var(--lav-ink);
     font-size: 17px; line-height: 1;
@@ -650,7 +651,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* the search box every panel now shares */
   .psearch { margin-bottom: 10px; flex: none; }
   .psearch input {
-    width: 100%; padding: 10px 13px; border-radius: 12px;
+    width: 100%; padding: 8px 13px; border-radius: 12px;
     background: #fffdf7; border: 1px solid rgba(22,39,74,.16); color: var(--text);
     font-size: 14px; font-family: inherit; outline: none;
   }
@@ -972,7 +973,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* in-panel search (the domain panel needs one) */
   .psearch { margin-bottom: 9px; }
   .psearch input {
-    width: 100%; padding: 9px 13px; font-size: 15px; font-family: inherit;
+    /* The box was taller than the rows it filters. A search field is a
+       shortcut, not a form: the type stays at 15px and only the line box and
+       the padding shrink, which is where the height was going. */
+    width: 100%; padding: 6px 12px; font-size: 15px; line-height: 1.2;
+    font-family: inherit;
     color: var(--text); outline: none; border-radius: 10px;
     background: rgba(22,39,74,0.051); border: 1px solid rgba(22,39,74,0.119);
   }
@@ -2907,7 +2912,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <div id="gpanel">
-    <h3>English grammar lessons &amp; practice — درس‌ها و تمرین‌های گرامر انگلیسی (کلیک = درس · ✏️ = تمرین)</h3>
+    <h3>English grammar lessons &amp; practice (click = lesson · ✏️ = practice)</h3>
     <div class="domains" id="gtopics"></div>
   </div>
 

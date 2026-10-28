@@ -970,6 +970,15 @@ def main() -> int:
                   if not (has_display(p, "block") or has_display(p, "flex"))]
     check("every panel has an .open rule that shows it", not unopenable,
           f"{unopenable} could never open")
+    # The close button is the only way out of a panel, so its size is a floor,
+    # not a style: it was 44px, was trimmed to 40 to give the bilingual titles
+    # their width back, and must not follow that trend any further.
+    close = re.search(r"\n  \.pclose \{(.*?)\n  \}", src, re.S)
+    size = re.search(r"width: (\d+)px", close.group(1)) if close else None
+    check("the panel close button is still a thumb target",
+          bool(size) and int(size.group(1)) >= 40,
+          f"{size.group(1) + 'px' if size else 'no width'} is a lucky tap, and it "
+          "is the only way out of a panel")
 
     # ------------------------------------------------------- review list --
     # The regression: opening the panel painted nothing.
