@@ -2861,7 +2861,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <div id="npanel">
-    <h3>Offline sentence analyser — تحلیل گرامری جمله</h3>
+    <h3>Sentence analyzer</h3>
     <div class="nbar">
       <input id="ninput" type="text" dir="ltr" autocomplete="off" spellcheck="false"
              placeholder="One English sentence… / یک جملهٔ انگلیسی…"
@@ -2870,8 +2870,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
     <div class="nexamples" id="nexamples"></div>
     <div class="nresult" id="nresult" aria-live="polite"></div>
-    <p class="nfoot">Runs on your device with the bundled grammar engine — no server, no
-    internet, no model download. — روی دستگاه خودت و بدون اینترنت اجرا می‌شود.</p>
   </div>
 
   <div id="dpanel">
