@@ -1065,15 +1065,13 @@ class ChatBot:
         shown_count = min(len(senses), max(3, (best or 0) + 1))
         for shown, i in enumerate(range(shown_count), start=1):
             sense = (senses[i] + [""] * 5)[:5]
-            _pos, definition, meaning, example, fa_example = sense
+            _pos, definition, meaning, example = sense[:4]
             lead = f"{meaning} — {definition}" if meaning and definition else (meaning or definition)
             mark = " ★" if best is not None and i == best else ""
             num = to_persian_digits(shown) if lang == "fa" else str(shown)
             lines.append(f"   {num}. {lead}{mark}")
             if example:
                 lines.append(f"      ▸ {example}")
-            if fa_example:
-                lines.append(f"      ↳ {fa_example}")
         if context and best is not None:
             num = to_persian_digits(best + 1) if lang == "fa" else str(best + 1)
             lines.append(
@@ -1113,19 +1111,24 @@ class ChatBot:
         return "\n".join(lines)
 
     def format_lex_examples(self, head: str, entry: dict, lang: str) -> str:
-        """The worked sentences the source stored for a word."""
-        pairs = [(s[3], s[4]) for s in entry.get("s") or [] if s[3] or s[4]]
-        if not pairs:
+        """The worked sentences the source stored for a word.
+
+        English only. The source's Persian sentence for a sense is an
+        independent sentence about the word, not a translation of its English
+        example - "I sautéed the mushroom with garlic and butter" sat above
+        "I bought mushrooms at the market yesterday" - and printed underneath
+        the English one it read as a mistranslation. A learner asking for an
+        example wants a correct one, not a second sentence beside it.
+        """
+        examples = [s[3] for s in entry.get("s") or [] if s[3]]
+        if not examples:
             return (f"🔎 برای **{head}** جمله‌ای ثبت نشده." if lang == "fa"
                     else f"🔎 My dictionary records no example sentence for **{head}**.")
         title = (f"📖 **{head}** — مثال‌ها" if lang == "fa"
                  else f"📖 **{head}** — examples")
         lines = [title]
-        for example, fa_example in pairs[:2]:
-            if example:
-                lines.append(f"   ▸ {example}")
-            if fa_example:
-                lines.append(f"   ↳ {fa_example}")
+        for example in examples[:2]:
+            lines.append(f"   ▸ {example}")
         return "\n".join(lines)
 
     def format_lex_forms(self, head: str, entry: dict, lang: str,

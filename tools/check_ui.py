@@ -906,11 +906,29 @@ def main() -> int:
           "a bare scale() drops translateX(-50%) and the button lurches sideways")
     check("the jump button meets the touch target minimum",
           re.search(r"width: 44px", jb) is not None)
-    check("the jump button says how much is waiting below",
-          "unread" in src and 'id="jumpn"' in src,
-          "a scroll button that cannot say what you are missing is pressed speculatively")
-    check("reaching the bottom clears the unread count",
-          re.search(r"if \(pinned\) unread = 0", src) is not None)
+    # The unread badge on that button was redundant: the transcript already
+    # says what arrived, and a gold count over a button whose only job is to
+    # scroll answers a question nobody asked. The button stays; the counter
+    # must not come back with it.
+    check("the jump button carries no unread badge",
+          'id="jumpn"' not in src and re.search(r"\bunread\b", src) is None,
+          "the unread count the learner called redundant is back")
+    check("no styling is left for the badge either",
+          re.search(r"\n  \.jump b\s*[,{]", src) is None,
+          "a rule for a badge that no longer exists")
+
+    # "Listen to this message" is gone from every message: a speaker on every
+    # answer turned the transcript into a player, and the Listening section is
+    # where listening happens. The other two tools stay.
+    check("messages carry no listen button",
+          'Listen to this message' not in src and 'speakBtn' not in src,
+          "a per-message speaker is back in the transcript")
+    check("the speaker's glow style came out with it",
+          'speakGlow' not in src and re.search(r"\n\s*\.mtool\.on\s*\{", src) is None,
+          "an animation for a button that no longer exists")
+    check("the transcript tools are wired without a speaker",
+          'tools.append(copyBtn, againBtn)' in src and 'speakBtn' not in src,
+          "the tools row still tries to append a removed button")
 
     # The suggestion row is gone. It was a fixed strip of eight canned
     # questions that never changed, it cost a whole band of the screen on a

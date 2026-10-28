@@ -445,7 +445,6 @@ def run_motion() -> None:
         (".mav.bot", "the bird idling"),
         ("body.speaking", "the bird while speaking"),
         (".bbc-lvl", "the level pill shimmer"),
-        (".mtool.on", "the speaking glow"),
         (".mic.rec", "the recording pulse"),
     ]
     for selector, what in forever:

@@ -1672,14 +1672,12 @@ class Fluentify {
       const definition = sense[1] || '';
       const meaning = sense[2] || '';
       const example = sense[3] || '';
-      const faExample = sense[4] || '';
       const lead = meaning && definition ? `${meaning} — ${definition}`
         : (meaning || definition);
       const mark = best !== null && i === best ? ' ★' : '';
       const num = lang === 'fa' ? toPersianDigits(shown) : String(shown);
       lines.push(`   ${num}. ${lead}${mark}`);
       if (example) lines.push(`      ▸ ${example}`);
-      if (faExample) lines.push(`      ↳ ${faExample}`);
     }
     if (context && best !== null) {
       const num = lang === 'fa' ? toPersianDigits(best + 1) : String(best + 1);
@@ -1716,12 +1714,15 @@ class Fluentify {
       lines.push(`   • (${label}) ${words.slice(0, 8).join(' · ')}`);
     }
     return lines.join('\n');
-  }
-
-  formatLexExamples(head, entry, lang) {
-    const pairs = (entry.s || []).filter((s) => s[3] || s[4])
-      .map((s) => [s[3] || '', s[4] || '']);
-    if (!pairs.length) {
+  }  formatLexExamples(head, entry, lang) {
+    /* English only. The source's Persian sentence for a sense is an
+       independent sentence about the word, not a translation of its English
+       example - "I sautéed the mushroom with garlic and butter" sat above "I
+       bought mushrooms at the market yesterday" - and printed underneath the
+       English one it read as a mistranslation. A learner asking for an
+       example wants a correct one, not a second sentence beside it. */
+    const examples = (entry.s || []).map((s) => s[3] || '').filter(Boolean);
+    if (!examples.length) {
       return lang === 'fa'
         ? `🔎 برای **${head}** جمله‌ای ثبت نشده.`
         : `🔎 My dictionary records no example sentence for **${head}**.`;
@@ -1729,9 +1730,8 @@ class Fluentify {
     const lines = [lang === 'fa'
       ? `📖 **${head}** — مثال‌ها`
       : `📖 **${head}** — examples`];
-    for (const [example, faExample] of pairs.slice(0, 2)) {
-      if (example) lines.push(`   ▸ ${example}`);
-      if (faExample) lines.push(`   ↳ ${faExample}`);
+    for (const example of examples.slice(0, 2)) {
+      lines.push(`   ▸ ${example}`);
     }
     return lines.join('\n');
   }

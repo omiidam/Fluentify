@@ -1136,8 +1136,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .mtool:hover { color: var(--text); background: rgba(22,39,74,0.0765);
                  border-color: rgba(22,39,74,0.119); }
-  .mtool.on { color: #1b2d52; border-color: rgba(27,45,82,.3);
-              background: rgba(27,45,82,.08); }
   @media (hover: none) {
     .mtool:hover { background: none; color: var(--dim); border-color: transparent; }
   }
@@ -1227,18 +1225,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .jump:active { transform: translateX(-50%) scale(.93); }
   .jump:focus-visible { outline: 2px solid #1b2d52; outline-offset: 3px; }
   .jump svg { width: 17px; height: 17px; display: block; }
-
-  /* how many replies have arrived while you were reading further up */
-  .jump b {
-    position: absolute; top: -3px; inset-inline-end: -3px;
-    min-width: 19px; height: 19px; padding: 0 5px;
-    display: grid; place-items: center;
-    border-radius: 10px; font-size: 10.5px; font-weight: 700;
-    background: #8a5a00; color: #fffcf3;
-    border: 1.5px solid #fffcf3;
-    box-shadow: 0 2px 6px rgba(74,58,30,.4);
-  }
-  .jump b[hidden] { display: none; }
 
   /* typing indicator */
   .typing { display: inline-flex; gap: 5px; padding: 13px 16px !important; }
@@ -2671,15 +2657,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .bbc-lvl { animation: pillShimmer 7s ease-in-out infinite; }
 
   /* ---------- 8. audio ----------------------------------------------
-     While something is playing: bars in the play button and the speak
-     tool, and a conic ring on the track button for real progress. */
+     While something is playing: bars in the play button, and a conic ring on
+     the track button for real progress. */
   @keyframes eq { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
-  /* the 🔊 tool glows while it is the thing making noise */
-  @keyframes speakGlow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,111,156,.0); }
-    50%      { box-shadow: 0 0 0 4px rgba(255,111,156,.22); }
-  }
-  .mtool.on { animation: speakGlow 1.5s ease-in-out infinite; }
 
   .playing, .bbc-play.on {
     position: relative;
@@ -2765,7 +2745,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .count.pop, .toast, .ripple,
     .mic.rec, .stt-dot, .bbc-play.on::before { animation: none !important; }
     body.speaking .mav.bot { animation: none !important; }
-    .eqbar i, .mtool.on { animation: none !important; }
+    .eqbar i { animation: none !important; }
     button, .ltab, .bbc-tab, .lrow { transition: none !important; }
     * { scroll-behavior: auto !important; }
   }
@@ -2974,7 +2954,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <button id="jump" class="jump" aria-label="Scroll to the latest message"
             title="Latest ↓"><svg viewBox="0 0 16 16" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg><b id="jumpn" hidden></b></button>
+            stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></button>
   </div>
 
   <div class="stt-panel" id="stt" hidden></div>
@@ -3056,24 +3036,12 @@ const chat = document.getElementById('chat');
 const input = document.getElementById('input');
 const jump = document.getElementById('jump');
 let pinned = true;   // false once the reader scrolls up
-/* How many replies have arrived below the fold. A scroll-to-latest button
-   that cannot say how much you are missing is a button you have to press
-   speculatively - the count is the whole point of it. */
-let unread = 0;
 function paintJump() {
   jump.classList.toggle('show', !pinned && chat.scrollHeight > chat.clientHeight + 40);
-  const n = document.getElementById('jumpn');
-  if (!n) return;
-  n.textContent = unread > 99 ? '99+' : String(unread);
-  n.hidden = unread < 1;
-  jump.setAttribute('aria-label', unread > 0
-    ? `Scroll to the latest message, ${unread} new`
-    : 'Scroll to the latest message');
 }
 jump.onclick = () => {
   chat.scrollTo({top: chat.scrollHeight, behavior: 'smooth'});
   pinned = true;
-  unread = 0;
   paintJump();
 };
 const sendbtn = document.getElementById('sendbtn');
@@ -3303,20 +3271,9 @@ function add(text, who, opts = {}) {
     const tools = document.createElement('div');
     tools.className = 'tools-row';
 
-    const speakBtn = document.createElement('button');
-    speakBtn.className = 'mtool';
-    speakBtn.textContent = '🔊';
-    speakBtn.title = 'Listen to this message — گوش بده';
-    speakBtn.setAttribute('aria-label', 'Listen to this message');
-    speakBtn.onclick = () => {
-      if (Speech.isPlaying(text)) { Speech.stop(); speakBtn.classList.remove('on'); return; }
-      [...chat.querySelectorAll('.mtool.on')].forEach((n) => n.classList.remove('on'));
-      speakBtn.classList.add('on');
-      if (!Speech.speak(text, () => speakBtn.classList.remove('on'))) {
-        speakBtn.classList.remove('on');
-      }
-    };
-
+    // No speaker on a message: the per-answer speaker is gone everywhere it
+    // appeared - it turned every answer into a player, and the app already
+    // has a Listening section for listening. Copy and ask-again stay.
     const copyBtn = document.createElement('button');
     copyBtn.className = 'mtool';
     copyBtn.textContent = '⧉';
@@ -3362,7 +3319,7 @@ function add(text, who, opts = {}) {
       send(again);
     };
 
-    tools.append(speakBtn, copyBtn, againBtn);
+    tools.append(copyBtn, againBtn);
     meta.appendChild(tools);
   }
 
@@ -3372,7 +3329,7 @@ function add(text, who, opts = {}) {
   row.appendChild(wrap);
   chat.appendChild(row);
   if (pinned) chat.scrollTop = chat.scrollHeight;
-  else if (who === 'bot') { unread++; paintJump(); }
+  else paintJump();
   return bubble;
 }
 
@@ -4295,17 +4252,17 @@ const Motion = (() => {
 
   /* ------------------------------------------------------- speaking state
    * The bird breathes idly and pulses while a message is being read. The
-   * page already marks an active speaker with .on, so this only has to
-   * watch for that rather than know anything about audio.
+   * page marks an active player with .on - the Listening section's play
+   * button - so this only has to watch for that rather than know anything
+   * about audio. The per-answer speaker no longer exists, so .mtool.on has
+   * nothing to observe: one observer on the document covers the transcript
+   * and the panels alike.
    */
   function watchSpeaking() {
     const set = () => {
-      const on = !!document.querySelector('.mtool.on, .bbc-play.on');
-      document.body.classList.toggle('speaking', on);
+      document.body.classList.toggle('speaking',
+        !!document.querySelector('.bbc-play.on'));
     };
-    new MutationObserver(set).observe(document.getElementById('chat') || document.body,
-      {subtree: true, attributes: true, attributeFilter: ['class']});
-    // the listening panel lives outside #chat
     new MutationObserver(set).observe(document.body,
       {subtree: true, attributes: true, attributeFilter: ['class']});
     set();
@@ -7668,8 +7625,6 @@ document.addEventListener('keydown', (ev) => {
 /* ---------- stop auto-scrolling once the reader scrolls up ---------- */
 chat.addEventListener('scroll', () => {
   pinned = chat.scrollHeight - chat.scrollTop - chat.clientHeight < 90;
-  // Reaching the bottom is what clears the count, not merely scrolling.
-  if (pinned) unread = 0;
   paintJump();
 });
 

@@ -280,7 +280,7 @@ def main() -> int:
     print("building entries")
     entries: dict[str, dict] = {}
     dropped_no_definition = dropped_duplicate = 0
-    stats = {"senses": 0, "fa": 0, "en_examples": 0, "fa_examples": 0,
+    stats = {"senses": 0, "fa": 0, "en_examples": 0,
              "ipa": 0, "synonym_words": 0, "antonym_words": 0, "forms": 0}
 
     for row in sorted(words, key=lambda r: (r.get("frequency_rank") or 10 ** 9,
@@ -300,7 +300,7 @@ def main() -> int:
             sense = [pos, en_def]
             meaning = persian_only(fa.get("meaning"))
             example = (s.get("example_en") or "").strip()
-            fa_example = persian_only(fa.get("example"))
+            sense = [pos, en_def]
             # Trailing fields stay empty rather than being dropped, so the
             # array positions mean one fixed thing in both engines.
             sense.append(meaning)
@@ -309,16 +309,22 @@ def main() -> int:
             # sense carrying both an English and a Persian sentence cost 4 MB
             # of APK for sentences a learner reads once.
             keep_example = args.all_examples or sense_i == 0
-            sense.append(fa_example if keep_example else "")
             if not keep_example:
                 sense[3] = ""
+            # The Persian sentence the source stores for a sense is an
+            # independent sentence about the word, not a translation of the
+            # English example - "I sautéed the mushroom" above "I bought
+            # mushrooms at the market" - and beside the English one it read as
+            # a mistranslation. It is therefore not shipped: the field stays
+            # in the array so the shape never shifts, and the engines render
+            # the English example alone.
+            sense.append("")
             senses.append(sense)
             stats["senses"] += 1
             stats["fa"] += bool(meaning)
             # Counted after the blanking above: a count taken before it claimed
             # 35,109 examples for the 20,601 that are actually stored.
             stats["en_examples"] += bool(sense[3])
-            stats["fa_examples"] += bool(sense[4])
         if not senses:
             dropped_no_definition += 1
             continue
@@ -453,7 +459,11 @@ def main() -> int:
             "headwords. Entry layout: r frequency rank, p parts of speech, "
             "i IPA by region, f inflected forms, s senses as "
             "[pos, English definition, Persian meaning, English example, "
-            "Persian example] (empty string where the source has none), "
+            "unused] - the fifth slot is always empty: the source's Persian "
+            "sentence for a sense is an independent sentence about the word, "
+            "not a translation of the English example, so printing it under "
+            "one read as a mistranslation. The slot is kept so the array "
+            "positions never shift - "
             "y synonyms by part of speech, a antonyms by part of speech. "
             "Nothing here is inferred: a field is present only when the "
             "source provided it."),
@@ -465,7 +475,8 @@ def main() -> int:
         "senses": stats["senses"],
         "persian_meanings": stats["fa"],
         "english_examples": stats["en_examples"],
-        "persian_examples": stats["fa_examples"],
+        "persian_examples": 0,   # deliberately not shipped; see the sense
+                                 # layout above
         "ipa_entries": stats["ipa"],
         "inflected_forms": stats["forms"],
         "synonym_words": stats["synonym_words"],
