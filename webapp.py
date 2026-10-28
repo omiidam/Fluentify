@@ -72,6 +72,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <title>Fluentify — English &amp; Persian</title>
 <meta name="description" content="A bilingual English and Persian tutor: graded vocabulary, grammar, sentence patterns, pronunciation and 1126 BBC listening episodes, with speech-to-text and an offline Android app.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- The tab icon is the mascot too, from the same brand picture as the header
+     and the launcher - so the browser tab does not keep a different animal. -->
+<link rel="icon" type="image/png" href="brand/fox-face.png">
+<link rel="apple-touch-icon" href="brand/fox-mark.png">
 <style>
   /* The two faces, vendored next to this file so the offline APK keeps them.
      Latin uses the rounded display face and the handwritten text face; the
@@ -304,11 +308,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @keyframes bootSpin {
     to { transform: rotate(1turn); }
   }
-  .boot-bird {
+  /* The mascot itself, not a redrawn copy of it: the same picture the header
+     and the launcher show, cut round so the well behind it frames it. */
+  .boot-fox {
     position: relative; z-index: 1;
-    width: 68px; height: 68px;
+    width: 80px; height: 80px; border-radius: 50%;
+    box-shadow: 0 8px 22px rgba(74,58,30,.28), 0 0 0 1px rgba(22,39,74,.10);
     animation: bootBob 2.8s cubic-bezier(.45,0,.55,1) infinite;
-    transform-origin: 50% 58%;
+    transform-origin: 50% 62%;
   }
   @keyframes bootBob {
     0%, 100% { transform: translateY(0) rotate(-1.5deg); }
@@ -398,7 +405,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .boot { transition: none; }
     .boot-in { animation: none; }
     .boot-aurora i, .boot-halo { animation: none; }
-    .boot-bird { animation: none; }
+    .boot-fox { animation: none; }
     .loader::before, .loader::after { animation: none; }
     .boot-track i { transition: none; }
   }
@@ -457,23 +464,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .stile:hover { background: transparent; transform: none; }
   }
 
-  /* ---- the watermark bird ------------------------------------------------
+  /* ---- the watermark ------------------------------------------------------
      The backdrop lived behind .app, which is 58-72% opaque and blurs whatever
      is behind it - so on a phone, where .app is full-bleed, none of it was
      visible at all. Whatever draws here has to be a child of .app to be seen,
      and a child is painted after the backdrop-filter, so it stays crisp.
 
-     One bird, dead centre, drawn from the icon's own geometry so it is
-     unmistakably the same bird rather than a generic one, filled flat instead
-     of in the mascot's colours so it reads as a watermark and not as artwork
-     competing with the conversation.
+     One mark, dead centre, and it is the brand picture itself rather than a
+     redrawn silhouette of it: two drawings of one mascot drift apart, and did
+     when this was a hand-cut copy of the header's bird.
 
-     Three things keep it from interrupting anything. It is small, it is at 6%,
+     Three things keep it from interrupting anything. It is small, it is faint,
      and it is masked: the radial gradient dissolves the outline to nothing
-     before the edge, so the bird has no hard boundary to catch the eye. A
+     before the edge, so the mark has no hard boundary to catch the eye. A
      solid silhouette, however faint, still has an edge; this one has a falloff.
 
-     The six drifting birds that were here before are gone. Moving marks at
+     The six drifting marks that were here before are gone. Moving shapes at
      13-20% read as clutter behind a transcript, not as ambience.
   */
   .flock {
@@ -482,7 +488,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .flock i {
     position: absolute; display: block;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23ffffff' d='M10 27 L3.5 20 L5.5 31 Z'/%3E%3Cellipse cx='23' cy='27' rx='16' ry='13.5' fill='%23ffffff'/%3E%3Cpath fill='%23ffffff' d='M13 23.5 q8.5 2.5 8.5 10.5 q-8.5-2.5-8.5-10.5Z'/%3E%3Cpath fill='%23ffffff' d='M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z'/%3E%3Cpath fill='%23ffffff' d='M36 22.5 L42.5 25.5 L36 28.5 Z'/%3E%3Ccircle cx='31' cy='21.5' r='3.3' fill='%230e1338'/%3E%3C/svg%3E") no-repeat center / contain;
+    background: url("brand/fox-mark.png") no-repeat center / contain;
     -webkit-mask-image: radial-gradient(closest-side, #000 0%, #000 34%, rgba(74,58,30,.45) 58%, transparent 80%);
     mask-image: radial-gradient(closest-side, #000 0%, #000 34%, rgba(74,58,30,.45) 58%, transparent 80%);
   }
@@ -490,7 +496,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      read as a ghost. On cream it is invisible except its dark eye, which sat
      in the middle of the transcript looking like a dead pixel. */
   .flock i.wm { display: none; }
-  /* The only motion left: a slow swell, so the bird breathes rather than sits.
+  /* The only motion left: a slow swell, so the mark breathes rather than sits.
      transform and opacity only, and slow enough to go unnoticed if you are
      reading. */
   @keyframes breathe {
@@ -676,11 +682,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   /* Grouped runs: the avatar collapses to a thin stem and the speaker name is
      dropped, so a multi-part answer reads as one turn. */
-  /* Hide only the bird, not the avatar box. Hiding the box with visibility
+  /* Hide only the portrait, not the avatar box. Hiding the box with visibility
      would hide the stem drawn on it as well, since a pseudo-element cannot be
-     more visible than its parent - so the bird fades and the stem stays. */
+     more visible than its parent - so the picture fades and the stem stays. */
   .row.grouped .mav { position: relative; }
-  .row.grouped .mav > svg { opacity: 0; }
+  .row.grouped .mav > svg, .row.grouped .mav > img { opacity: 0; }
   .row.grouped .mav::before {
     content: ''; position: absolute; left: 50%; top: 15px; bottom: -15px;
     width: 2px; transform: translateX(-50%); border-radius: 1px;
@@ -749,16 +755,19 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: grid; place-items: center;
     box-shadow: 0 8px 18px rgba(226,167,46,.22), inset 0 1px 0 #ffffff;
   }
-  .avatar svg { width: 38px; height: 38px; display: block; }
-  /* the bird reacts to the daily seed */
+  .avatar img {
+    width: 38px; height: 38px; display: block; border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(22,39,74,.14), 0 2px 5px rgba(74,58,30,.22);
+  }
+  /* the mascot reacts to the daily seed */
   @keyframes bob { 0%,100% { transform: translateY(0) rotate(0deg); }
                    50% { transform: translateY(-4px) rotate(-4deg); } }
   @keyframes bloom { 0% { transform: scale(1); }
                       35% { transform: scale(1.18) rotate(6deg); }
                       60% { transform: scale(1.06) rotate(-4deg); }
                       100% { transform: scale(1); } }
-  .avatar svg { animation: bob 1.7s ease-in-out infinite; }
-  .avatar.full svg { animation: bob .9s ease-in-out infinite; }
+  .avatar img { animation: bob 1.7s ease-in-out infinite; }
+  .avatar.full img { animation: bob .9s ease-in-out infinite; }
   .avatar.bloom { animation: bloom 1.6s ease; }
   .avatar.full {
     box-shadow: 0 8px 26px rgba(226,167,46,.45), 0 0 0 2px rgba(226,167,46,.55),
@@ -1047,11 +1056,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: grid; place-items: center; font-size: 16px;
     background: rgba(22,39,74,0.0595); border: 1px solid rgba(22,39,74,0.119);
   }
-  .mav svg { width: 26px; height: 26px; display: block; }
+  .mav svg, .mav img { width: 26px; height: 26px; display: block; }
+  /* the tutor's face is a round portrait, so the tile reads as a frame */
+  .mav img { border-radius: 50%; }
   .mav.bot {
     background: linear-gradient(150deg, rgba(241,193,90,.30), rgba(22,39,74,.06));
     border-color: rgba(226,167,46,.4);
+    /* The tutor's portrait is round, so its tile is too: a circle sitting in a
+       rounded square reads as a picture that missed its frame. The picture
+       fills the tile, so the gold edge is the only frame it gets. */
+    border-radius: 50%;
   }
+  .mav.bot img { width: 100%; height: 100%; }
   .mav.me {
     background: linear-gradient(150deg, rgba(233,229,248,.9), rgba(22,39,74,.06));
     border-color: rgba(76,63,126,.28);
@@ -2139,7 +2155,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   header h1 { font-size: 17px; }
   .avatar { width: 42px; height: 42px; border-radius: 14px; }
-  .avatar svg { width: 34px; height: 34px; }
+  .avatar img { width: 34px; height: 34px; }
   .status { display: none; }      /* the pill is desktop-only decoration */
   /* the daily counter belongs on the phone too — just more compact */
   #seedmeter { width: 62px; height: 18px; }
@@ -2219,7 +2235,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           gap: 10px; }
   .bubble-wrap { max-width: 94%; }
   .mav { width: 24px; height: 24px; border-radius: 9px; }
-  .mav svg { width: 20px; height: 20px; }
+  .mav svg, .mav img { width: 20px; height: 20px; }
   /* font-size deliberately unchanged: denser, not smaller to read */
   .msg { padding: 10px 13px; font-size: 16px; border-radius: 14px; }
   .msg.long { max-height: 52vh; }
@@ -2469,7 +2485,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     header { padding: 14px 20px; flex-wrap: wrap; }
     header h1 { font-size: 19px; }
     .avatar { width: 46px; height: 46px; border-radius: 15px; }
-    .avatar svg { width: 38px; height: 38px; }
+    .avatar img { width: 38px; height: 38px; }
     /* The toolbar leaves the phone strip but stays on its own row. Inlining
        it here was a clipped row: at 600-880px the title, the meter and seven
        48px tiles measure ~830px, so the last two tiles - Review and Clear -
@@ -2483,7 +2499,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     #chat { padding: 20px 22px 10px; gap: 16px; }
     .bubble-wrap { max-width: 80%; }
     .mav { width: 32px; height: 32px; border-radius: 11px; }
-    .mav svg { width: 26px; height: 26px; }
+    .mav svg, .mav img { width: 26px; height: 26px; }
     .msg { padding: 12px 16px; font-size: 16px; }
     #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
@@ -2550,23 +2566,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .row.bot .msg.bot::after { animation: sheen .85s .16s ease-out; }
 
   /* ---------- 3. the bird -------------------------------------------
-     Idle: a slow breath. Blink: the eye squashes. Speaking: the whole
-     bird pulses on the beat of whatever is being read aloud. */
+     Idle: a slow breath. Speaking: the whole portrait pulses on the beat of
+     whatever is being read aloud. The blink is gone with the drawn eye - a
+     picture cannot squint, and faking it would mean two mascots again. */
   @keyframes breathe {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50%      { transform: translateY(-2px) rotate(-1.2deg); }
-  }
-  @keyframes blink {
-    0%, 92%, 100% { transform: scaleY(1); }
-    95%           { transform: scaleY(.08); }
   }
   @keyframes talkPulse {
     0%, 100% { transform: scale(1); }
     50%      { transform: scale(1.09); }
   }
   .mav.bot { animation: breathe 4.2s ease-in-out infinite; }
-  .mav.bot svg .eye,
-  .mav.bot svg [class~="eye"] { transform-origin: center; animation: blink 5.5s infinite; }
   body.speaking .mav.bot { animation: talkPulse .62s ease-in-out infinite; }
 
   /* ---------- 4. typing indicator ------------------------------------
@@ -2748,19 +2759,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="boot-in">
       <div class="boot-mark" aria-hidden="true">
         <span class="boot-halo"></span>
-        <svg class="boot-bird" viewBox="0 0 48 48">
-          <defs>
-            <linearGradient id="bootBirdG" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#2f4470"/><stop offset="55%" stop-color="#1b2d52"/>
-              <stop offset="100%" stop-color="#14233f"/></linearGradient>
-          </defs>
-          <path d="M10 27 L3.5 20 L5.5 31 Z" fill="#14233f"/>
-          <ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#bootBirdG)"/>
-          <path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#f1c15a"/>
-          <path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#f1c15a"/>
-          <circle cx="31" cy="21.5" r="3.3" fill="#10203c"/>
-          <circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>
-        </svg>
+        <img class="boot-fox" src="brand/fox-mark.png" alt="" width="80"
+             height="80" decoding="async">
       </div>
       <div class="boot-brand">
         <div class="boot-name">Fluentify</div>
@@ -2792,36 +2792,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <header>
     <div class="hb"></div>
     <div class="avatar" aria-hidden="true">
-      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#2f4470"/>
-            <stop offset="55%" stop-color="#1b2d52"/>
-            <stop offset="100%" stop-color="#14233f"/>
-          </linearGradient>
-          <linearGradient id="bellyGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fffcf3"/>
-            <stop offset="100%" stop-color="#e9dcc0"/>
-          </linearGradient>
-        </defs>
-        <!-- tail feathers -->
-        <path d="M10 27 L3.5 20 L5.5 31 Z" fill="#14233f"/>
-        <!-- body -->
-        <ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#bodyGrad)"/>
-        <!-- belly -->
-        <ellipse cx="23" cy="30.5" rx="9.5" ry="7.5" fill="url(#bellyGrad)" opacity=".92"/>
-        <!-- wing -->
-        <path d="M13 23.5 q8.5 2.5 8.5 10.5 q-8.5-2.5-8.5-10.5Z" fill="#14233f"/>
-        <!-- head tuft -->
-        <path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#f1c15a"/>
-        <!-- beak -->
-        <path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#f1c15a"/>
-        <!-- eye -->
-        <circle cx="31" cy="21.5" r="3.3" fill="#10203c"/>
-        <circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>
-        <!-- blush -->
-        <ellipse cx="34.5" cy="27.5" rx="3.2" ry="2.1" fill="#e2a72e" opacity=".35"/>
-      </svg>
+      <img src="brand/fox-face.png" alt="" width="38" height="38" decoding="async">
     </div>
     <div>
       <h1>Fluentify</h1>
@@ -2990,26 +2961,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 </div>
 
 <script>
-/* Fluentify's mascot — a navy bird with a gold crest (header and messages) */
-const BIRD =
-  '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
-  '<defs>' +
-  '<linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">' +
-  '<stop offset="0" stop-color="#2f4470"/><stop offset="55%" stop-color="#1b2d52"/>' +
-  '<stop offset="100%" stop-color="#14233f"/></linearGradient>' +
-  '<linearGradient id="blA" x1="0" y1="0" x2="0" y2="1">' +
-  '<stop offset="0" stop-color="#fffcf3"/><stop offset="100%" stop-color="#e9dcc0"/>' +
-  '</linearGradient></defs>' +
-  '<path d="M10 27 L3.5 20 L5.5 31 Z" fill="#14233f"/>' +
-  '<ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#bgA)"/>' +
-  '<ellipse cx="23" cy="30.5" rx="9.5" ry="7.5" fill="url(#blA)" opacity=".92"/>' +
-  '<path d="M13 23.5 q8.5 2.5 8.5 10.5 q-8.5-2.5-8.5-10.5Z" fill="#14233f"/>' +
-  '<path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#f1c15a"/>' +
-  '<path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#f1c15a"/>' +
-  '<circle cx="31" cy="21.5" r="3.3" fill="#10203c"/>' +
-  '<circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>' +
-  '<ellipse cx="34.5" cy="27.5" rx="3.2" ry="2.1" fill="#e2a72e" opacity=".35"/>' +
-  '</svg>';
+/* Fluentify's mascot — the fox, cut from the one brand picture
+   (brand/fox-source.png, via tools/build_brand.py). The header, the boot
+   screen, the launcher icon and every message row show this same animal:
+   the face here because a full-length portrait at 26px is an orange smudge. */
+const MASCOT =
+  '<img class="mface" src="brand/fox-face.png" alt="" width="26" ' +
+  'height="26" decoding="async">';
 
 /* Reading a data file by name. The offline bundle defines this against its own
    data/*.json; the web build reads every section over /api instead, and the
@@ -3036,7 +2994,8 @@ jump.onclick = () => {
 };
 const sendbtn = document.getElementById('sendbtn');
 const isFa = s => /[\u0600-\u06FF]/.test(s);
-/* The learner is the second bird — same shape, sunny yellow instead of pink. */
+/* The learner's own marker: a sunny bird, so the two sides of the conversation
+   never look alike. This is not the brand mark - the fox is. */
 const YELLOW_BIRD =
   '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
   '<defs>' +
@@ -3206,7 +3165,7 @@ function add(text, who, opts = {}) {
 
   const av = document.createElement('div');
   av.className = 'mav' + (who === 'bot' ? ' bot' : ' me');
-  av.innerHTML = who === 'bot' ? BIRD : YELLOW_BIRD;
+  av.innerHTML = who === 'bot' ? MASCOT : YELLOW_BIRD;
 
   const wrap = document.createElement('div');
   wrap.className = 'bubble-wrap';
@@ -3324,7 +3283,7 @@ function showTyping() {
   row.className = 'row bot';
   row.id = 'typing';
   row.innerHTML =
-    '<div class="mav bot">' + BIRD + '</div>' +
+    '<div class="mav bot">' + MASCOT + '</div>' +
     '<div class="bubble-wrap"><div class="msg bot typing">' +
     '<span></span><span></span><span></span></div></div>';
   chat.appendChild(row);
@@ -3507,10 +3466,10 @@ const Seed = {
     const pct = Math.min(100, Math.round((this.state.count / SEED_GOAL) * 100));
     const full = pct >= 100;
     const av = document.querySelector('.avatar');
-    const bird = av && av.querySelector('svg');
-    if (bird) {
+    const mark = av && av.querySelector('img');
+    if (mark) {
       // the seed ring around the bird grows through the day
-      bird.style.setProperty('--seed', pct + '%');
+      mark.style.setProperty('--seed', pct + '%');
       av.classList.toggle('full', full);
     }
     const meter = document.getElementById('seedmeter');
@@ -7702,6 +7661,26 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "text/javascript; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
             self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+            self.end_headers()
+            self.wfile.write(body)
+            return
+        if self.path.startswith("/brand/"):
+            # The mascot. Whitelisted by name for the same reason the fonts are:
+            # this is the one place a path could be typed in, and the APK
+            # carries the identical files.
+            name = self.path[len("/brand/"):]
+            if not re.fullmatch(r"[a-z0-9-]+\.png", name):
+                return self._send_text("not found", "text/plain; charset=utf-8",
+                                       status=404)
+            path = ROOT / "brand" / name
+            if not path.exists():
+                return self._send_text("not found", "text/plain; charset=utf-8",
+                                       status=404)
+            body = path.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "image/png")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "public, max-age=604800")
             self.end_headers()
             self.wfile.write(body)
             return

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fluentify</string>
-    <color name="ic_launcher_background">#0B102E</color>
+    <!-- The illustration's own paper, so the icon's background layer has no
+         seam against the portrait standing on it. -->
+    <color name="ic_launcher_background">#FDFAF1</color>
 </resources>

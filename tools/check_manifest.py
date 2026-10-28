@@ -37,6 +37,18 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "android/app/src/main/AndroidManifest.xml"
 ANDROID_NS = "{http://schemas.android.com/apk/res/android}"
 
+
+def png_size(data: bytes) -> tuple[int, int]:
+    """Width and height straight out of the IHDR chunk.
+
+    Reading it here rather than importing an image library keeps this check on
+    the standard library like the rest of them: CI runs it and never installs
+    Pillow - only tools/build_brand.py, which runs by hand, needs that.
+    """
+    if data[:8] != b"\x89PNG\r\n\x1a\n" or data[12:16] != b"IHDR":
+        return (0, 0)
+    return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+
 # The android: attributes each element in this project's manifest may carry.
 # Sourced from the platform's own attribute tables, trimmed to what an app
 # manifest realistically uses. Names not listed here are the ones worth
@@ -259,6 +271,57 @@ def main() -> int:
                 " - it should be downloads.bbc.co.uk and nothing else")
 
     # ------------------------------------------------------------------
+    # The launcher icon. AAPT fails on a resource id that does not exist, but a
+    # half-regenerated set builds fine and only looks wrong on the phone: one
+    # density still holding the previous picture, or mdpi cut at a different
+    # size than the rest. tools/build_brand.py writes all fifteen files from
+    # one source, so this only has to notice when one of them is stale.
+    res = MANIFEST.parent / "res"
+    for attr, name in (("icon", "ic_launcher"), ("roundIcon", "ic_launcher_round")):
+        if f'android:{attr}="@mipmap/{name}"' not in raw:
+            problems.append(
+                f"the manifest does not declare android:{attr}=\"@mipmap/{name}\"; "
+                "the launcher then falls back to a blank system icon")
+    # 48dp is mdpi; every other density is a fixed multiple of it, which is why
+    # the expected pixel sizes can be derived rather than listed.
+    DENSITIES = {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144,
+                 "xxxhdpi": 192}
+    for density, dp in DENSITIES.items():
+        folder = res / f"mipmap-{density}"
+        for name, expected in (("ic_launcher", dp),
+                               ("ic_launcher_round", dp),
+                               # the adaptive layer is 108dp, not 48
+                               ("ic_launcher_foreground", dp * 108 // 48)):
+            path = folder / f"{name}.png"
+            if not path.exists():
+                problems.append(
+                    f"mipmap-{density}/{name}.png is missing - the launcher "
+                    "icon set is generated, so run tools/build_brand.py")
+                continue
+            got = png_size(path.read_bytes())
+            if got != (expected, expected):
+                problems.append(
+                    f"mipmap-{density}/{name}.png is {got[0]}x{got[1]}, expected "
+                    f"{expected}x{expected}: a half-regenerated density shows a "
+                    "different icon on that device")
+    for xml in ("ic_launcher.xml", "ic_launcher_round.xml"):
+        adaptive = res / "mipmap-anydpi-v26" / xml
+        if not adaptive.exists():
+            problems.append(f"mipmap-anydpi-v26/{xml} is missing")
+            continue
+        body = adaptive.read_text(encoding="utf-8")
+        for piece in ('@mipmap/ic_launcher_foreground',
+                      '@color/ic_launcher_background'):
+            if piece not in body:
+                problems.append(
+                    f"mipmap-anydpi-v26/{xml} does not draw {piece}")
+
+    colors = res / "values/strings.xml"
+    if colors.exists() and "#FDFAF1" not in colors.read_text(encoding="utf-8"):
+        problems.append(
+            "ic_launcher_background is not the illustration's paper (#FDFAF1), "
+            "so the adaptive icon has a visible seam behind the portrait")
+
     print(f"checked {seen} android: attributes in {MANIFEST.relative_to(ROOT)}")
     if problems:
         print(f"\nFAIL  {len(problems)} problems\n")

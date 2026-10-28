@@ -1,7 +1,7 @@
 # Fluentify
 
 <p align="center">
-  <img src="docs/bird.svg" width="96" alt="Fluentify mascot — a cute pink bird">
+  <img src="brand/fox-mark.png" width="128" alt="Fluentify's mascot — a scholarly fox in a beret and spectacles">
 </p>
 
 A bilingual (English / Persian) language tutor — greetings, small talk, jokes, a
@@ -152,6 +152,23 @@ copied from it. `tools/check_ui.py` fails if a sticker id could not survive its
 `[fox:id]` token, or if any entry ever carries a script, an `href` or an event
 handler, because those strings are inserted with `innerHTML`.
 
+### The mascot
+
+One illustration, one pipeline. `brand/fox-source.png` is the artwork, and
+`python3 tools/build_brand.py` cuts everything the app draws from it: the round
+portrait in `brand/` (boot screen, header, message rows, tab icon) and all
+twelve launcher PNGs plus the three adaptive foregrounds under
+`android/app/src/main/res/mipmap-*`. Re-cutting a crop is an edit to that file,
+not a new drawing.
+
+Nothing is redrawn per surface. That is the point: the mascot was a hand-drawn
+SVG for a while, and the boot screen carried a second copy of it that had to be
+kept identical by a test. A picture cannot drift from itself — and the launcher
+icon is generated at exactly 48/72/96/144/192 px (the adaptive layer at 108 dp,
+art at 72 dp of it, so no mask shape crops the fox) instead of being scaled by
+the launcher. `tools/check_manifest.py` fails if a density is stale or the set
+is half-regenerated.
+
 ### Offline grammar analyser
 
 Ask for it and the sentence is taken apart on the device:
@@ -263,6 +280,8 @@ webapp.py                   desktop UI + HTTP server
 build_apk_ui.py             generates the offline app UI from webapp.py
 tests_js_vs_python.py       Python ⇄ JavaScript engine parity test
 tools/js_engine.js          headless harness for the JS engine
+tools/build_brand.py        cuts every mascot picture + the launcher icons
+brand/                      fox-source.png (art) → fox-mark/fox-face (the app)
 tools/build_lexicon.py      builds lexicon/ from the cached sources
 tools/check_lexicon.py      the dictionary's data, answers and invisibility
 

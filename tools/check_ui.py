@@ -286,46 +286,40 @@ def main() -> int:
           and re.search(r"mask-image:\s*radial-gradient", src) is not None,
           "without the radial mask it is a pale sticker on the conversation")
 
-    # One bird. The six drifting ones read as clutter behind a transcript.
+    # One mark. The six drifting ones read as clutter behind a transcript.
     flock_html = re.search(r'<div class="flock"[^>]*>(.*?)</div>', src, re.S)
-    check("there is exactly one background bird",
+    check("there is exactly one background mark",
           flock_html is not None
           and len(re.findall(r"<i\b", flock_html.group(1))) == 1,
           "a flock behind a conversation is clutter, not ambience")
 
-    # The watermark is the icon, so its geometry has to be the icon's. Matching
-    # on the crest and tail paths rather than on the whole SVG: those two are
-    # what make the shape read as this bird rather than a generic one, and they
-    # are the parts a hand-drawn replacement would quietly lose.
-    # Every path in the watermark must exist in the mascot. Testing for the
-    # crest with a plain substring passed while the watermark was missing it,
-    # because the icon itself carries the same string - the two only diverge
-    # when compared to each other.
-    icon = re.search(r"const BIRD =\s*'(.*?)';", src, re.S)
-    mark = re.search(r"\.flock i \{.*?url\(\"data:image/svg\+xml,(.*?)\"\) no-repeat", src, re.S)
-    # Geometry only - d, cx, cy, rx, ry, r. Comparing d alone let an ellipse
-    # be moved to any centre and still pass, which is most of the shape.
-    paths = lambda t: set(re.findall(r"(?:d|cx|cy|rx|ry|r)=['\"]([^'\"]+)['\"]", t)) if t else set()
-    icon_paths, mark_paths = paths(icon.group(1) if icon else ""), \
-                              paths(mark.group(1).replace("%3C", "<").replace("%3E", ">")
-                                    if mark else "")
-    check("the watermark invents no geometry of its own",
-          bool(mark_paths) and mark_paths <= icon_paths,
-          f"not in the icon: {sorted(mark_paths - icon_paths)[:2]} - a "
-          "hand-drawn replacement drifts into a different bird, which is what "
-          "happened when this was a duck")
-    # And the other direction. Subset alone passed with the crest deleted,
-    # because a smaller set is still a subset; it takes both halves to say the
-    # watermark is the icon rather than some of it.
-    OUTLINE = ("M10 27 L3.5 20 L5.5 31 Z",             # tail
-               "M21.5 13.5 q1-6.5 4.5-6.5",          # crest
-               "M36 22.5 L42.5 25.5 L36 28.5 Z")      # beak
-    mark_d = set(re.findall(r"d=['\"]([^'\"]+)['\"]", mark.group(1))) if mark else set()
-    missing = [d for d in OUTLINE if not any(p.startswith(d) for p in mark_d)]
-    check("the watermark keeps the bird's tail, crest and beak",
-          not missing,
-          f"dropped: {len(missing)} of tail/crest/beak - without them it stops "
-          "being this bird")
+    # The mascot is a picture now, cut once from one illustration by
+    # tools/build_brand.py. "The same animal everywhere" is therefore a
+    # property of the files the page names - not of SVG paths kept in sync by
+    # hand. The boot screen used to carry a hand-redrawn copy of the header's
+    # bird, and the two only stayed alike because a test compared geometry.
+    # Only what is actually drawn - a src or a background url - so a comment
+    # naming the source picture does not read as a third mascot.
+    art = set(re.findall(r'(?:src="|url\(")brand/(fox-[a-z]+\.png)', src))
+    check("the page names the brand pictures, not geometry of its own",
+          art == {"fox-mark.png", "fox-face.png"},
+          f"found {sorted(art)}: the header, the boot mark and the message "
+          "avatars all come from tools/build_brand.py, or one surface quietly "
+          "grows a second mascot")
+    check("the boot mark and the watermark are the same picture",
+          len(re.findall(r"brand/fox-mark\.png", src)) >= 2,
+          "the loading screen and the background mark drawing different files "
+          "is how two mascots start")
+    # A half-finished swap leaves the old drawing behind: an SVG nobody
+    # remembers painting, still on some surface. The learner's own marker is
+    # deliberately still a drawn bird, so this looks for the old *mascot* - the
+    # constant the message rows used - rather than for bird paths as such.
+    check("the hand-drawn mascot is gone from the page",
+          "const BIRD =" not in src
+          and re.search(r'<img class="mface" src="brand/fox-face\.png"', src)
+          is not None,
+          "the tutor's avatar is the picture, not a second drawing that a later "
+          "edit could switch back on")
 
     check("the flock collapses under prefers-reduced-motion",
           re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*\.flock i "
@@ -534,15 +528,13 @@ def main() -> int:
               re.search(r"CEILING_MS\s*=\s*(\d+)", src)),
           "boot reads about a megabyte of JSON; much past twenty seconds and "
           "the user is watching a spinner rather than watching it load")
-    # The mascot again: the boot bird is a second copy of the same geometry,
-    # and a hand-drawn one drifts from the icon exactly as the watermark did.
-    icon = re.search(r"const BIRD =\s*'(.*?)';", src, re.S)
-    check("the boot bird is the mascot, not a redrawing of it",
-          icon is not None and all(d in src for d in (
-              "M10 27 L3.5 20 L5.5 31 Z", "M21.5 13.5 q1-6.5 4.5-6.5",
-              "M36 22.5 L42.5 25.5 L36 28.5 Z")),
-          "crest, tail and beak are the icon's own paths, copied so the boot "
-          "bird cannot drift into a different animal")
+    # The boot mark is the mascot. Both are the same PNG, so the loading screen
+    # cannot drift from the header the way a hand-copied drawing did.
+    boot_mark = re.search(r'<img class="boot-fox" src="(brand/[a-z-]+\.png)"', src)
+    check("the boot mark is the mascot picture, not a redrawing of it",
+          boot_mark is not None and boot_mark.group(1) == "brand/fox-mark.png",
+          "the loading screen shows tools/build_brand.py's own file, so it "
+          "cannot grow a second animal")
     # The loader animates on a 0.5s cycle. That is UI feedback, not ambience,
     # so it is exempt from the 18s band - but it still has to be transform-only
     # or it repaints every frame.

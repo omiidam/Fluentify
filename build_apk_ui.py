@@ -408,6 +408,27 @@ for name in FONTS:
 print(f"synced {len(FONTS)} font files -> {font_out}")
 
 # ---------------------------------------------------------------------------
+# the mascot
+# ---------------------------------------------------------------------------
+# The boot screen, the header and every message row draw brand/fox-*.png. They
+# have to travel with the page for the same reason the fonts do: relative urls,
+# no server. Both are produced from one source by tools/build_brand.py, so this
+# only copies - a missing file is a build failure, not a mascot that quietly
+# turns into a broken image inside the app.
+BRAND_DIR = ROOT / "brand"
+BRAND_FILES = ["fox-mark.png", "fox-face.png"]
+missing_brand = [f for f in BRAND_FILES if not (BRAND_DIR / f).exists()]
+if missing_brand:
+    raise SystemExit("build_apk_ui: brand art missing from brand/: "
+                     + ", ".join(missing_brand)
+                     + " - run: python3 tools/build_brand.py")
+brand_out = OUT.parent / "brand"
+brand_out.mkdir(parents=True, exist_ok=True)
+for name in BRAND_FILES:
+    shutil.copyfile(BRAND_DIR / name, brand_out / name)
+print(f"synced {len(BRAND_FILES)} brand files -> {brand_out}")
+
+# ---------------------------------------------------------------------------
 # the offline grammar engine
 # ---------------------------------------------------------------------------
 # The page analyses a sentence with a tagger that has to be in the APK: there
