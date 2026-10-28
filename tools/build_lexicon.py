@@ -315,7 +315,9 @@ def main() -> int:
             senses.append(sense)
             stats["senses"] += 1
             stats["fa"] += bool(meaning)
-            stats["en_examples"] += bool(example)
+            # Counted after the blanking above: a count taken before it claimed
+            # 35,109 examples for the 20,601 that are actually stored.
+            stats["en_examples"] += bool(sense[3])
             stats["fa_examples"] += bool(sense[4])
         if not senses:
             dropped_no_definition += 1

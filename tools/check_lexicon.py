@@ -98,7 +98,12 @@ def check_data(shards: dict[str, dict]) -> dict:
                     stats["examples"] += 1
                     check(bool(LATIN.search(sense[3])),
                           f"{name}/{key}: example {sense[3][:40]!r} is not English")
-                    check(not sense[4] or bool(PERSIAN.search(sense[4])),
+                # Counted separately: a sense can keep its Persian example
+                # while its English one was blanked, and the meta file counts
+                # the two columns independently.
+                if sense[4]:
+                    stats["fa_examples"] = stats.get("fa_examples", 0) + 1
+                    check(bool(PERSIAN.search(sense[4])),
                           f"{name}/{key}: example translation {sense[4][:40]!r} "
                           f"has no Persian")
             if entry.get("i"):
@@ -131,6 +136,15 @@ def check_data(shards: dict[str, dict]) -> dict:
     check(meta.get("persian_meanings") == stats["fa"],
           f"_meta.json claims {meta.get('persian_meanings')} Persian meanings, "
           f"the shards hold {stats['fa']}")
+    check(meta.get("english_examples") == stats["examples"],
+          f"_meta.json claims {meta.get('english_examples')} English examples, "
+          f"the shards hold {stats['examples']}")
+    check(meta.get("persian_examples") == stats.get("fa_examples", 0),
+          f"_meta.json claims {meta.get('persian_examples')} Persian examples, "
+          f"the shards hold {stats.get('fa_examples', 0)}")
+    check(meta.get("ipa_entries") == stats["ipa"],
+          f"_meta.json claims {meta.get('ipa_entries')} IPA entries, "
+          f"the shards hold {stats['ipa']}")
     check(meta.get("shards") == len(shards),
           f"_meta.json claims {meta.get('shards')} shards, found {len(shards)}")
     check(stats["words"] > 15000, f"only {stats['words']} headwords")
