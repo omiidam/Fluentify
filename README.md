@@ -28,6 +28,7 @@ no network calls, no tracking.
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 20 tokens per session; the session rolls over at **03:30 GMT**, fill the seed and the bird blooms |
+| 🦊 Fox stickers | twelve flat fox stickers in the composer's picker, searchable in English and Persian |
 | 😂 Jokes | 10 bilingual jokes with category filtering (`programming joke`, `جوک ربات`) |
 | 🔤 Alphabets | English + Persian alphabet, and single-letter lookup (`what letter is A`, `حرف ب`) |
 
@@ -70,6 +71,24 @@ does not repeat for **1,320 days**. Extending the catalogue only lengthens the
 cycle, and each category steps through every entry before reusing one.
 Completion is stored per date (`fluentify.daily.v1` in `localStorage`) and is
 never cleared, so yesterday's ticks survive the new day.
+
+### Fox stickers
+
+The composer's picker holds twelve fox stickers instead of the usual unicode
+palette: one flat style, drawn from a single head and a single sitting body, so
+the set reads as one hand rather than twelve. `foxes.json` is the whole
+catalogue — id, English name, Persian name, search keywords and the finished
+SVG — so adding a fox is an edit to that file, never to the page. Search works
+in both languages: `sleep` and «خواب» find the same sticker.
+
+A sticker is a picture and the composer is a text field, so a picked fox goes in
+as `[fox:cute]` and is expanded back into the drawing when the message renders —
+after the text has been escaped, so the artwork always comes from the catalogue
+and never from what someone typed. The drawings are original: the reference set
+that prompted the feature is a watermarked stock sheet, so nothing is traced or
+copied from it. `tools/check_ui.py` fails if a sticker id could not survive its
+`[fox:id]` token, or if any entry ever carries a script, an `href` or an event
+handler, because those strings are inserted with `innerHTML`.
 
 ### Offline grammar analyser
 

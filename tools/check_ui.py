@@ -581,18 +581,30 @@ def main() -> int:
                     r"\.loader::before, \.loader::after \{ animation: none", src) is not None,
           "an endless bounce is what that setting is for")
 
-    # ------------------------------------------------------------- emoji --
-    # Content lives in emojis.json, not in code. That is the rule the whole
-    # project follows, and a picker with its list hardcoded here would break
+    # ----------------------------------------------------------- stickers --
+    # Content lives in foxes.json, not in code. That is the rule the whole
+    # project follows, and a picker with its artwork hardcoded here would break
     # it while looking like the feature works.
-    check("the emoji list is a data file, not code",
-          re.search(r"loadJSON\('emojis'\)", src) is not None
+    check("the sticker catalogue is a data file, not code",
+          re.search(r"loadJSON\('foxes'\)", src) is not None
           and "😀" not in src,
-          "adding an emoji must be an edit to emojis.json, never to webapp.py")
-    check("the emoji button is wired to the panel it controls",
-          re.search(r'id="emojibtn"[^>]*aria-controls="emojipanel"', src) is not None
-          and re.search(r"id='emojipanel'|getElementById\('emojipanel'\)", src) is not None,
+          "adding a sticker must be an edit to foxes.json, never to webapp.py")
+    check("the sticker button is wired to the panel it controls",
+          re.search(r'id="stickerbtn"[^>]*aria-controls="stickerpanel"', src) is not None
+          and re.search(r"id='stickerpanel'|getElementById\('stickerpanel'\)", src) is not None,
           "aria-controls has to point at something that exists")
+    # A sticker is a picture, so it travels as a token and is painted back on
+    # render: a picker that inserted a token nothing expanded would look for
+    # all the world like it worked, right up to the moment the message sent.
+    check("the sticker token is expanded when a message is rendered",
+          "function stickerize(" in src and "stickerize(escapeHtml(s))" in src,
+          "[fox:id] would sit in the bubble as text")
+    check("the sticker catalogue is registered before it is drawn",
+          "function registerFoxes(" in src and "registerFoxes(data.stickers)" in src,
+          "a sticker already in the transcript would never paint")
+    check("the picker inserts a token rather than a single character",
+          re.search(r"insert\('\[fox:' \+ t\.dataset\.fox \+ '\]'\)", src) is not None,
+          "the tile no longer inserts the sticker it shows")
     check("the picker reports its open state",
           re.search(r"els\.btn\.setAttribute\('aria-expanded'", src) is not None,
           "a button that opens something should say whether it is open")
@@ -611,18 +623,56 @@ def main() -> int:
     check("the picker returns focus to the composer when it closes",
           re.search(r"function close\(\)[\s\S]{0,400}?els\.input\.focus\(\)", src) is not None,
           "focus left on a hidden button is a keyboard trap")
-# Against the code, not the prose: the line that declares the pattern
-    # carries a comment explaining that \w is ASCII-only, so a check that
-    # greps the raw line for "\w" fails on exactly the code that fixes it.
-    search_line = next((l for l in src.splitlines() if "const SEARCH" in l), "")
-    code_part = re.sub(r"//.*$", "", search_line)
-    check("emoji search is Unicode-aware",
-          "\\p{L}" in code_part and "\\w" not in code_part,
-          f"declared as {code_part.strip()!r}: a bare \\w cannot match Persian, "
-          "so a search for an emoji in Farsi would return nothing at all")
-    check("every emoji tile carries an accessible name",
+    # The picker used a \w-ish character class to split the query; \w is
+    # ASCII-only, so a Farsi search matched nothing. The sticker search
+    # compares lowered substrings instead, which is Unicode-correct without a
+    # pattern at all - but that is only true if the words in the haystack
+    # include the Persian, so both halves are asserted.
+    match_fn = next((l for l in src.splitlines() if "const hay = norm(" in l), "")
+    check("the sticker search is fed the Persian name and the keywords",
+          "s.fa" in match_fn and "s.kw" in match_fn,
+          "the Farsi name of each sticker has to be searchable")
+    check("the sticker search compares substrings, not a \\w class",
+          ".includes(word)" in src,
+          "a search that goes through \\w cannot match Persian at all")
+    check("every sticker tile carries an accessible name",
           re.search(r"b\.setAttribute\('aria-label', label\)", src) is not None,
-          "a grid of unlabelled glyphs is a wall of nothing to a screen reader")
+          "a grid of unlabelled pictures is a wall of nothing to a screen reader")
+
+    # The catalogue itself. Its SVGs are inserted with innerHTML, so the file is
+    # the thing that has to be well-formed: a stray <script> pasted into one
+    # entry would be code execution on every page that draws a fox.
+    import json as _json
+    try:
+        foxes = _json.loads((ROOT / "foxes.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        foxes = None
+        check("foxes.json is readable", False, str(exc))
+    if foxes:
+        rows = foxes.get("stickers") or []
+        check("the sticker set has enough faces to be a picker", len(rows) >= 8,
+              f"only {len(rows)} stickers")
+        ids = [r.get("id") for r in rows]
+        check("every sticker id is unique", len(set(ids)) == len(ids),
+              f"duplicates in {ids}")
+        bad_id = [i for i in ids if not re.fullmatch(r"[a-z0-9-]+", str(i))]
+        check("every sticker id survives the [fox:id] token", not bad_id,
+              f"{bad_id} would never render: the token is [a-z0-9-] only")
+        for r in rows:
+            where = r.get("id", "?")
+            check(f"sticker {where} is complete",
+                  bool(r.get("name") and r.get("fa") and r.get("kw") and r.get("svg")),
+                  "a sticker without a name, a Persian name, keywords or artwork")
+            art = str(r.get("svg") or "")
+            check(f"sticker {where} carries only drawing markup",
+                  "<script" not in art and "<foreignObject" not in art
+                  and not re.search(r"\son[a-z]+\s*=", art)
+                  and "href=" not in art,
+                  "it is inserted with innerHTML, so a script or an href in "
+                  "it would run")
+            check(f"sticker {where} stays inside its own box",
+                  'viewBox="0 0 64 64"' not in art,
+                  "the 64x64 viewBox belongs on the wrapper the page draws")
 
     # ------------------------------------------------------------- colour --
     # Contrast has to be computed, not eyeballed. The learner bubble was

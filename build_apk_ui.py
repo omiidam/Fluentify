@@ -25,7 +25,7 @@ BUNDLED_DATA = [
     "memory.json", "glossary.json", "grammar.json", "phrases.json",
     "jokes.json", "listening.json", "phonetics.json", "word_arch.json",
     "distinctions.json", "idioms.json", "corrections.json",
-    "stt.json", "bbc_6min.json", "register.json", "emojis.json",
+    "stt.json", "bbc_6min.json", "register.json", "foxes.json",
     "daily.json",
 ]
 
@@ -225,10 +225,10 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
              loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
-             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch'),
+             loadJSON('foxes'), loadJSON('bbc_6min'), loadJSON('word_arch'),
              loadJSON('daily')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
-          distinctions, idioms, corrections, stt, register, emojis, bbc_6min,
+          distinctions, idioms, corrections, stt, register, foxes, bbc_6min,
           word_arch, daily]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline

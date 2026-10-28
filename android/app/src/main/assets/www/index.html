@@ -372,20 +372,23 @@
     padding: 9px 2px 5px; position: sticky; top: -8px;
     background: linear-gradient(180deg, #fffdf7, #fdf8ee);
   }
-  .etile {
-    width: 38px; height: 38px; padding: 0; margin: 1px;
-    font-size: 21px; line-height: 1; border: 0; border-radius: 9px;
-    background: transparent; cursor: pointer;
+  /* Stickers are drawn, not typed, so a tile is a 46px square with the fox at
+     34px inside it and room for the tile itself to lift on hover. */
+  .stile {
+    width: 46px; height: 46px; padding: 0; margin: 2px;
+    display: inline-grid; place-items: center; vertical-align: top;
+    border: 0; border-radius: 12px; background: transparent; cursor: pointer;
     transition: background .13s, transform .13s cubic-bezier(.22,1,.36,1);
   }
-  .etile:hover { background: rgba(22,39,74,0.085); transform: scale(1.12); }
-  .etile:active { transform: scale(.9); }
-  .etile:focus-visible { outline: 2px solid #1b2d52; outline-offset: 1px; }
+  .stileart { width: 34px; height: 34px; display: block; pointer-events: none; }
+  .stile:hover { background: rgba(22,39,74,0.07); transform: scale(1.1); }
+  .stile:active { transform: scale(.92); }
+  .stile:focus-visible { outline: 2px solid #1b2d52; outline-offset: 1px; }
   .eempty { padding: 22px 8px; text-align: center; color: var(--dim); font-size: 13px; }
   /* Touch has no hover, and a tap that only shows a tooltip teaches nothing:
-     the tile presses, the emoji goes in. */
+     the tile presses, the sticker goes in. */
   @media (hover: none) {
-    .etile:hover { background: transparent; transform: none; }
+    .stile:hover { background: transparent; transform: none; }
   }
 
   /* ---- the watermark bird ------------------------------------------------
@@ -514,7 +517,7 @@
   @media (prefers-reduced-motion: reduce) {
     .player { animation: none; }
     .emoji-panel { animation: none; }
-    .etile { transition: none; }
+    .stile { transition: none; }
     .player.speech .pltrack i { animation: none; opacity: .7; }
     .plbtn { transition: none; }
   }
@@ -1038,6 +1041,13 @@
   .msg { unicode-bidi: plaintext; text-align: start; }
   .msg b, .msg strong { color: #8a5a00; font-weight: 700; }
   .msg.long { max-height: 420px; overflow-y: auto; }
+  /* A fox inside a bubble. 46px reads as a sticker without turning a
+     one-word message into a billboard, and the negative margin keeps the
+     bubble from growing a blank line above and below it. */
+  .msg .stk {
+    width: 46px; height: 46px; display: inline-block;
+    vertical-align: -12px; margin: -2px 1px;
+  }
   .meta { font-size: 10.5px; color: var(--dim); padding: 0 5px; font-weight: 500;
           display: flex; align-items: center; gap: 7px; }
   .meta i { font-style: normal; opacity: .75; }
@@ -1210,7 +1220,7 @@
   .ico:hover { background: rgba(22,39,74,.08); color: var(--ink); }
   .ico:active { transform: scale(.9); }
   .ico:focus-visible { outline: 2px solid #1b2d52; outline-offset: 2px; }
-  #emojibtn[aria-expanded="true"] { background: var(--lav); color: var(--lav-ink); }
+  #stickerbtn[aria-expanded="true"] { background: var(--lav); color: var(--lav-ink); }
   /* Round, because it sits inside a pill. A 12px rectangle in a 999px
      capsule looked like a button that had been dropped in. */
   .send {
@@ -2870,15 +2880,18 @@
   <div class="stt-panel" id="stt" hidden></div>
   <form id="composer">
     <div class="messageBox" id="messageBox">
-      <button type="button" class="ico" id="emojibtn"
-              aria-label="Emoji / ایموجی" title="Emoji / ایموجی"
-              aria-haspopup="dialog" aria-expanded="false" aria-controls="emojipanel">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
-          <circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.7"/>
-          <circle cx="9.2" cy="10.1" r="1.1" fill="currentColor"/>
-          <circle cx="14.8" cy="10.1" r="1.1" fill="currentColor"/>
-          <path d="M8.3 14.1a4.5 4.5 0 0 0 7.4 0" stroke="currentColor"
-                stroke-width="1.7" stroke-linecap="round"/>
+      <button type="button" class="ico" id="stickerbtn"
+              aria-label="Fox stickers / استیکرهای روباه"
+              title="Fox stickers / استیکرهای روباه"
+              aria-haspopup="dialog" aria-expanded="false" aria-controls="stickerpanel">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+             stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.4 10.4 6 3.2 10.6 5.8"/>
+          <path d="M19.6 10.4 18 3.2 13.4 5.8"/>
+          <path d="M4.4 10.4c0 5.4 3.4 9.8 7.6 9.8s7.6-4.4 7.6-9.8"/>
+          <circle cx="9.5" cy="11.6" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="14.5" cy="11.6" r="1.05" fill="currentColor" stroke="none"/>
+          <path d="M10.8 15.4h2.4l-1.2 1.7z" fill="currentColor" stroke="none"/>
         </svg>
       </button>
       <input id="input" autocomplete="off" placeholder="Type a message… / پیام بنویسید…"
@@ -2894,8 +2907,8 @@
         </svg>
       </button>
     </div>
-    <div id="emojipanel" class="emoji-panel" role="dialog"
-         aria-label="Emoji picker / انتخاب ایموجی" hidden></div>
+    <div id="stickerpanel" class="emoji-panel" role="dialog"
+         aria-label="Fox stickers / استیکرهای روباه" hidden></div>
     <div class="limitenote" id="limitenote" role="status" aria-live="polite">
       <div class="limitrail">
         <span class="limitfill"></span>
@@ -3033,9 +3046,31 @@ function now() {
 function escapeHtml(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+/* ---------------------------------------------------------------- stickers
+   A fox travels through a message as [fox:cute]: the composer holds the
+   token, and the bubble holds the drawing. The catalogue registers itself
+   when it loads, and the swap happens after the text has been escaped, so the
+   picture always comes from our own data and never from what someone typed. */
+const FOX_STICKERS = Object.create(null);
+
+function registerFoxes(list) {
+  (list || []).forEach((s) => { FOX_STICKERS[s.id] = s; });
+}
+
+function foxSvg(id, cls) {
+  const s = FOX_STICKERS[id];
+  if (!s) return '';
+  return '<svg class="' + (cls || 'stk') + '" viewBox="0 0 64 64" role="img" ' +
+    'aria-label="' + escapeHtml(s.name) + ' fox sticker">' + s.svg + '</svg>';
+}
+
+function stickerize(html) {
+  return html.replace(/\[fox:([a-z0-9-]+)\]/g, (m, id) => foxSvg(id) || m);
+}
+
 function renderText(s) {
-  // escape first (safe), then turn **...** markers into bold
-  return escapeHtml(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  // escape first (safe), then the stickers, then **...** markers into bold
+  return stickerize(escapeHtml(s)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 }
 
 /* A phrase bank arrives as "💬 Title\n• english\n  ↳ فارسی" pairs.
@@ -3857,18 +3892,22 @@ const Player = (() => {
   };
 })();
 
-/* ==================================================================== EMOJI
- * The picker's contents come from emojis.json, not from here - same rule as
- * every other piece of content in this project: adding an emoji is an edit to
- * a data file, never to code.
+/* ================================================================= STICKERS
+ * The picker offers the fox stickers, and their artwork lives in foxes.json -
+ * same rule as every other piece of content here: adding a sticker is an edit
+ * to a data file, never to this page.
  *
- * Search matches the emoji itself, its name, its category and its keywords,
- * so "happy", "check" and "teacher" all find something. That matters more
- * here than in a phone keyboard: the people using this are learners, and
+ * A sticker is a picture, not a character, so it travels through a message as
+ * [fox:cute] and is painted back into the bubble afterwards by stickerize().
+ * The composer shows the token while it is being written; the bubble shows the
+ * fox.
+ *
+ * Search matches the sticker's id, its English name, its Persian name and its
+ * keywords, so "happy", "sleep" and «خوشحال» all find something. That matters
+ * more here than in a phone keyboard: the people using this are learners, and
  * looking for a word they already know is faster than hunting a grid.
  */
-const Emoji = (() => {
-  const SEARCH = /[\p{L}\p{N}\s'-]/u;   // \w is ASCII-only; Persian would not match
+const Stickers = (() => {
   let data = null;
   let open = false;
   let lastFocus = null;
@@ -3876,44 +3915,44 @@ const Emoji = (() => {
 
   const norm = (s) => String(s || '').toLowerCase().trim();
 
-  /* Emoji carry no text of their own, so each one gets its name as an
-     accessible label. A grid of unlabelled glyphs is a wall of nothing to a
+  /* A sticker carries no text of its own, so each one gets its name as an
+     accessible label. A grid of unlabelled pictures is a wall of nothing to a
      screen reader. */
-  function tile(e) {
+  function tile(s) {
     const b = document.createElement('button');
     b.type = 'button';
-    b.className = 'etile';
-    b.textContent = e.e;
-    b.dataset.emoji = e.e;
-    const label = norm(e.name).replace(/-/g, ' ');
+    b.className = 'stile';
+    b.innerHTML = foxSvg(s.id, 'stileart');
+    b.dataset.fox = s.id;
+    const label = s.name + ' — ' + s.fa;
     b.title = label;
     b.setAttribute('aria-label', label);
     return b;
   }
 
-  function matches(e, q, cat) {
+  function matches(s, q) {
     if (!q) return true;
-    const hay = norm(e.e + ' ' + e.name + ' ' + (e.kw || '') + ' ' + cat);
+    const hay = norm(s.id + ' ' + s.name + ' ' + s.fa + ' ' + (s.kw || ''));
     return q.split(/\s+/).every((word) => hay.includes(word));
   }
 
-  function renderGrid(host, list, catLabel) {
+  function renderGrid(host, list) {
     const frag = document.createDocumentFragment();
-    list.forEach((e) => frag.appendChild(tile(e)));
+    list.forEach((s) => frag.appendChild(tile(s)));
     host.appendChild(frag);
   }
 
   function build() {
-    els.panel = document.getElementById('emojipanel');
-    els.btn = document.getElementById('emojibtn');
+    els.panel = document.getElementById('stickerpanel');
+    els.btn = document.getElementById('stickerbtn');
     els.input = document.getElementById('input');
     if (!els.panel || !els.btn) return false;
 
     els.search = document.createElement('input');
     els.search.type = 'search';
     els.search.className = 'esearch';
-    els.search.placeholder = 'Search emoji… / جست‌وجوی ایموجی…';
-    els.search.setAttribute('aria-label', 'Search emoji / جست‌وجوی ایموجی');
+    els.search.placeholder = 'Search stickers… / جست‌وجوی استیکر…';
+    els.search.setAttribute('aria-label', 'Search stickers / جست‌وجوی استیکر');
     els.panel.appendChild(els.search);
 
     els.body = document.createElement('div');
@@ -3930,9 +3969,9 @@ const Emoji = (() => {
     /* Delegated: the grid is rebuilt on every keystroke, so a listener on each
        tile would go with the tile and leak a closure per emoji. */
     els.panel.addEventListener('click', (ev) => {
-      const t = ev.target.closest('.etile');
+      const t = ev.target.closest('.stile');
       if (!t) return;
-      insert(t.dataset.emoji);
+      insert('[fox:' + t.dataset.fox + ']');
     });
 
     // A click anywhere else closes it. Capture, so it still works when the
@@ -3967,41 +4006,27 @@ const Emoji = (() => {
     box.focus();
   }
 
+  /* One grid. The set is twelve pictures, not three hundred glyphs, so the
+     categories and the recents row the emoji palette needed would be two
+     headings and a strip of duplicates above a single row of foxes. */
   function paint() {
     const q = norm(els.search.value);
     els.body.textContent = '';
-    let shown = 0;
+    const hits = data.stickers.filter((s) => matches(s, q));
 
-    if (!q) {
-      renderGrid(els.body, data.recent.emojis, 'recent');
-      shown += data.recent.emojis.length;
-      data.categories.forEach((c) => {
-        const h = document.createElement('div');
-        h.className = 'ehead';
-        h.textContent = c.label + ' · ' + c.label_fa;
-        els.body.appendChild(h);
-        renderGrid(els.body, c.emojis, c.label);
-        shown += c.emojis.length;
-      });
-    } else {
-      data.categories.forEach((c) => {
-        const hits = c.emojis.filter((e) => matches(e, q, c.label));
-        if (!hits.length) return;
-        const h = document.createElement('div');
-        h.className = 'ehead';
-        h.textContent = hits.length + ' · ' + c.label;
-        els.body.appendChild(h);
-        renderGrid(els.body, hits, c.label);
-        shown += hits.length;
-      });
-    }
+    const head = document.createElement('div');
+    head.className = 'ehead';
+    head.textContent = (q ? hits.length + ' · ' : '') + data.label + ' · ' + data.label_fa;
+    els.body.appendChild(head);
 
-    if (!shown) {
+    if (!hits.length) {
       const none = document.createElement('div');
       none.className = 'eempty';
-      none.textContent = 'No emoji matches “' + els.search.value.trim() + '”';
+      none.textContent = 'No sticker matches “' + els.search.value.trim() + '”';
       els.body.appendChild(none);
+      return;
     }
+    renderGrid(els.body, hits);
   }
 
   function show() {
@@ -4029,17 +4054,21 @@ const Emoji = (() => {
   async function load() {
     if (data) return true;
     try {
-      data = await loadJSON('emojis');
+      data = await loadJSON('foxes');
     } catch (e) {
       // No picker is a smaller problem than a composer that cannot send.
       if (els.btn) els.btn.hidden = true;
       data = null;
       return false;
     }
+    /* The same catalogue feeds the bubbles, so a sticker already in the
+       transcript still paints when the picker is never opened. */
+    registerFoxes(data.stickers);
     return true;
   }
 
-  return { mount: build, open: show, close, get open() { return open; } };
+  return { mount: build, open: show, close, load,
+           get open() { return open; }, get catalogue() { return data; } };
 })();
 /* ==================================================================== MOTION
  * One IIFE, no top-level names, so it cannot collide with bot.js - which is
@@ -6733,6 +6762,7 @@ const Boot = (() => {
 async function loadAllSections() {
   const steps = [
     ['Today', loadDaily],
+    ['Stickers', () => Stickers.load()],
     ['Vocabulary', loadVocabulary],
     ['Grammar', loadGrammar],
     ['Sentences', loadPhrases],
@@ -6787,10 +6817,10 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phrases'), loadJSON('jokes'), loadJSON('listening'),
              loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
-             loadJSON('emojis'), loadJSON('bbc_6min'), loadJSON('word_arch'),
+             loadJSON('foxes'), loadJSON('bbc_6min'), loadJSON('word_arch'),
              loadJSON('daily')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
-          distinctions, idioms, corrections, stt, register, emojis, bbc_6min,
+          distinctions, idioms, corrections, stt, register, foxes, bbc_6min,
           word_arch, daily]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
@@ -6882,7 +6912,7 @@ document.getElementById('vsearch').addEventListener('input', (ev) => {
   loadVocabulary();
 });
 mountMic();
-Emoji.mount();
+Stickers.mount();
 Player.mount();
 Motion.init();
 Panels.init();
