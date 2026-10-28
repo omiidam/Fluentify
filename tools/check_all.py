@@ -37,6 +37,10 @@ Four suites, each answering a different question:
                 runtime, and this compares all three over a year of dates and
                 five timezones - including both 2026 daylight-saving nights,
                 where the wait to midnight is not 24 hours.
+  check_lexicon   is the dictionary sound, does it answer through the chat, and
+                is it still invisible? No route, no panel, no tab: it is
+                knowledge behind the existing conversation, and this refuses
+                both a malformed shard and a new dictionary surface.
   check_analyser  is the bundled grammar engine accurate and honest? It runs
                 the shipped 3.5 MB bundle over the sentences the feature was
                 specified against plus contractions, unpunctuated input,
@@ -64,6 +68,7 @@ SUITES = [
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
+    ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 

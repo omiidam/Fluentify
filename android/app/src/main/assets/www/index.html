@@ -2951,7 +2951,7 @@
   </form>
 </div>
 
-<script src="bot.js?v=f5ca9f20"></script>
+<script src="bot.js?v=a0240995"></script>
 <script>
 /* Fluentify's mascot — a navy bird with a gold crest (header and messages) */
 const BIRD =
@@ -3370,6 +3370,9 @@ async function send(text) {
   showTyping();
   try {
     await sleep(160);                       // a beat so the typing dots show
+    // the dictionary is 335 shards, so only the ones this message can touch
+    // are read - and they are read before respond(), which is synchronous
+    await bot.loadLexiconFor(text);
     const reply = bot.respond(text);
     hideTyping();
     add(reply, 'bot');

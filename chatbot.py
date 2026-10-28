@@ -28,6 +28,8 @@ REGISTER_FILE = Path(__file__).parent / "register.json"
 CORRECTIONS_FILE = Path(__file__).parent / "corrections.json"
 PHONETICS_FILE = Path(__file__).parent / "phonetics.json"
 DAILY_FILE = Path(__file__).parent / "daily.json"
+# The dictionary is a directory of shards, not a file: see tools/build_lexicon.py
+LEXICON_DIR = Path(__file__).parent / "lexicon"
 
 # The daily rotation counts *calendar* days from one fixed date, so a given
 # local date always yields the same three items - in this engine, in the APK
@@ -495,6 +497,18 @@ def edit_distance(a: str, b: str) -> int:
     return previous[-1]
 
 
+def is_subsequence(short: str, long: str) -> bool:
+    """Is `short` a message `long` with letters missing?
+
+    "resilent" is one edit from both "resident" (a substitution) and
+    "resilient" (a dropped letter), and distance alone cannot choose. A dropped
+    letter is the commoner typo of the two, so the candidate that keeps every
+    letter the learner typed, in order, is offered first.
+    """
+    it = iter(long)
+    return all(ch in it for ch in short)
+
+
 REGISTER_STOPWORDS = {
     "a", "an", "the", "and", "or", "but", "if", "in", "on", "at", "to",
     "for", "of", "with", "from", "by", "as", "is", "am", "are", "was",
@@ -504,6 +518,126 @@ REGISTER_STOPWORDS = {
     "this", "that", "these", "those", "please", "can", "could", "would",
     "should", "will", "just", "very", "really", "so", "not", "no",
 }
+
+
+# --------------------------------------------------------------------------
+# Dictionary — lexical knowledge, sharded (see tools/build_lexicon.py)
+# --------------------------------------------------------------------------
+# The dictionary is not a new surface. It is another source of knowledge behind
+# the same chat: a lookup the glossary cannot answer now falls through to it,
+# and four things the glossary never could answer (synonyms, opposites, forms,
+# one word's meaning in a sentence) are read from it directly.
+LEX_POS_FA = {"noun": "اسم", "verb": "فعل", "adjective": "صفت",
+              "adverb": "قید"}
+
+# The source labels every inflected form it stores, so a question about one
+# form is answered by lookup rather than by guessing from the ending.
+LEX_FORM_LABEL = {"past": "past", "past_participle": "past participle",
+                  "3rd_present": "3rd person", "gerund": "-ing form",
+                  "plural": "plural", "comparative": "comparative",
+                  "superlative": "superlative",
+                  "non_3rd_present": "present"}
+
+
+def lex_shard_names(word: str) -> list[str]:
+    """Which shard files a word could live in, most specific first.
+
+    Two letters normally, three for the crowded buckets the build splits, so
+    the reader does not have to know which choice the build made.
+    """
+    w = re.sub(r"[^a-z]", "", (word or "").lower())
+    if len(w) >= 3:
+        return [w[:3], w[:2]]
+    if len(w) == 2:
+        return [w]
+    if len(w) == 1:
+        return [w + "_"]
+    return []
+
+
+# "what does X mean" is a request for a *definition*; the glossary holds a
+# translation, which is a different answer. The dictionary is asked first for
+# these, and the glossary keeps every other lookup exactly as it was.
+DEFINITION_ASK_RE = re.compile(
+    r"\b(?:define|definition of|meaning of|what does|what's the meaning|"
+    r"what is the meaning)\b", re.IGNORECASE)
+
+LEX_SYNONYMS_RE = re.compile(
+    r"\b(?:synonyms?|similar words?|other words? for|another word for|"
+    r"words? like)\b", re.IGNORECASE)
+LEX_SYNONYMS_FA = ("مترادف", "هم معنی", "هم‌معنی", "هممعنی")
+LEX_ANTONYMS_RE = re.compile(
+    r"\b(?:antonyms?|opposite of|opposite to|opposites|contrary of)\b",
+    re.IGNORECASE)
+LEX_ANTONYMS_FA = ("متضاد", "مخالف", "برعکس")
+LEX_FORMS_RE = re.compile(
+    r"\b(?:forms? of|inflections? of|verb forms? of)\b", re.IGNORECASE)
+# Ordered: "past participle of" must be read before "past tense of" can claim
+# the word "past".
+LEX_FORM_ASKS = [
+    (re.compile(r"\bpast participle of\b", re.IGNORECASE), "past_participle"),
+    (re.compile(r"\bpast (?:simple|tense|form) of\b", re.IGNORECASE), "past"),
+    (re.compile(r"\b(?:plural|plural form) of\b", re.IGNORECASE), "plural"),
+    (re.compile(r"\b(?:ing form|-ing form|gerund) of\b", re.IGNORECASE), "gerund"),
+    (re.compile(r"\bcomparative of\b", re.IGNORECASE), "comparative"),
+    (re.compile(r"\bsuperlative of\b", re.IGNORECASE), "superlative"),
+    (re.compile(r"\bthird person(?: singular)?(?: form)? of\b", re.IGNORECASE),
+     "3rd_present"),
+]
+# "what does bank mean in river bank" - the sentence is the whole point of the
+# question, so it is kept and used to choose a sense.
+LEX_CONTEXT_RE = re.compile(
+    r"\b(?:in|inside|within)\s+(?:the\s+|a\s+|an\s+)?(.{2,50})$", re.IGNORECASE)
+
+LEX_SYN_PATTERNS = [
+    r"synonyms? (?:of|for)\s+(?P<t>.+)",
+    r"(?:similar|other) words? (?:for|to)\s+(?P<t>.+)",
+    r"another word for\s+(?P<t>.+)",
+    r"words? like\s+(?P<t>.+)",
+    r"(?:مترادف|هم‌?معنی)\s*(?:های|ها|ی|کلمه|واژه)?\s*(?P<t>.+)",
+]
+LEX_ANT_PATTERNS = [
+    r"antonyms? (?:of|for)\s+(?P<t>.+)",
+    r"(?:opposite|contrary) (?:of|to)\s+(?P<t>.+)",
+    r"(?:متضاد|مخالف|برعکس)\s*(?:های|ها|ی|کلمه|واژه)?\s*(?P<t>.+)",
+]
+LEX_EXAMPLE_PATTERNS = [
+    r"examples? (?:with|of|for|using)\s+(?P<t>.+)",
+    r"sentences? (?:with|using)\s+(?P<t>.+)",
+    r"(?:use|using) (?P<t>.+?) in (?:a|the|one) sentence",
+    r"\u0686\u0646\u062f \u0645\u062b\u0627\u0644 \u0628\u0627\s+(?P<t>.+)",
+    r"\u0645\u062b\u0627\u0644(?:\u06cc|\u0647\u0627\u06cc)? \u0628\u0627\s+(?P<t>.+)",
+]
+
+LEX_FORM_PATTERNS = {
+    "past": [r"past (?:simple|tense|form) of\s+(?P<t>.+)",
+             r"(?:ماضی|گذشته)\s*(?P<t>.+)"],
+    "past_participle": [r"past participle of\s+(?P<t>.+)",
+                        r"اسم مفعول\s*(?P<t>.+)"],
+    "plural": [r"plural of\s+(?P<t>.+)", r"جمع\s*(?P<t>.+)"],
+    "gerund": [r"(?:ing form|-ing form|gerund) of\s+(?P<t>.+)"],
+    "comparative": [r"comparative of\s+(?P<t>.+)"],
+    "superlative": [r"superlative of\s+(?P<t>.+)"],
+    "3rd_present": [r"third person(?: singular)?(?: form)? of\s+(?P<t>.+)"],
+}
+# Trailing Persian question furniture, trimmed off a target over and over:
+# «مترادف کلمه beautiful رو بگو» must reduce to "beautiful".
+# Words that carry the question rather than the meaning when a sentence is
+# used to pick a sense out of the dictionary.
+LEX_STOP = {
+    "the", "a", "an", "and", "or", "but", "in", "on", "at", "of", "to",
+    "for", "with", "from", "by", "as", "is", "are", "was", "were", "be",
+    "been", "being", "it", "its", "this", "that", "these", "those", "i",
+    "you", "he", "she", "we", "they", "my", "your", "his", "her", "our",
+    "their", "me", "him", "them", "do", "does", "did", "what", "which",
+    "mean", "means", "meaning", "word", "sentence", "use", "used", "using",
+    "say", "said", "tell", "explain", "please", "can", "could", "would",
+    "should", "how", "when", "where", "why", "there", "here", "not",
+}
+
+LEX_TARGET_TRIM = re.compile(
+    r"\s*(?:رو\s*)?(?:بگو|بگویید|بگین|بگید|چیه|چیست|چی|هست|را|کلمه|واژه|یعنی|چه)\s*$",
+    re.UNICODE)
 
 
 def content_tokens(text: str) -> set[str]:
@@ -552,6 +686,7 @@ def is_lookup_ask(text: str, lowered: str) -> bool:
 
 # Pattern (lang, regex) lists to extract a target word from lookup requests
 EN_LOOKUP_PATTERNS = [
+    r"explain (?:the )?(?:word |meaning of )?(?P<t>.+)",
     r"what is the (?:english|persian|farsi) (?:word|translation) for\s+(?P<t>.+)",
     r"how do (?:i|you) say\s+(?P<t>.+?)\s+in\s+(?:english|persian|farsi)",
     r"what does\s+(?P<t>.+?)\s+means?\b",
@@ -563,6 +698,7 @@ EN_LOOKUP_PATTERNS = [
 ]
 FA_LOOKUP_PATTERNS = [
     r"معنی\s+(?P<t>.+?)\s*(?:چیه|چیست|هست)",
+    r"معنی\s+(?P<t>.+)",
     r"(?P<t>.+?)\s*یعنی\s*چه",
     r"(?:چطوری|چطور|چجوری)\s+(?P<t>.+?)\s*بگم",
     r"(?P<t>.+?)\s*رو\s*(?:بگو|بگویم|بگید|بگین)\s*[؟?.!]*$",
@@ -657,8 +793,14 @@ class ChatBot:
         phonetics_path: Path = PHONETICS_FILE,
         register_path: Path = REGISTER_FILE,
         daily_path: Path = DAILY_FILE,
+        lexicon_path: Path = LEXICON_DIR,
         today: str | None = None,
     ):
+        self.lexicon_path = lexicon_path
+        # Shards are read on demand and kept: a message usually touches one or
+        # two, so a session holds a few thousand words, never twenty thousand.
+        self._lex_shards: dict[str, dict | None] = {}
+        self._lex_fa_cache: dict[str, list[str]] | None = None
         with open(memory_path, encoding="utf-8") as f:
             self.memory = json.load(f)
         self.user_name = None
@@ -772,6 +914,241 @@ class ChatBot:
                 seen.add(e)
                 unique.append(e)
         return unique
+
+    # ------------------------------------------------------------------ #
+    #  Dictionary — sharded lexical knowledge (tools/build_lexicon.py)
+    # ------------------------------------------------------------------ #
+    def _lex_shard(self, name: str) -> dict | None:
+        """One shard, read once. A missing shard is a cached None, never a
+        raise: the chat has to keep working if the dictionary is absent."""
+        if name in self._lex_shards:
+            return self._lex_shards[name]
+        shard = None
+        try:
+            with open(self.lexicon_path / f"{name}.json", encoding="utf-8") as f:
+                shard = json.load(f)
+        except (OSError, ValueError):
+            shard = None
+        self._lex_shards[name] = shard
+        return shard
+
+    def lex_prefetch(self, text: str) -> None:
+        """Read the shards this message could need, and nothing else."""
+        for word in re.findall(r"[A-Za-z][A-Za-z'’-]*", text or ""):
+            for name in lex_shard_names(word):
+                self._lex_shard(name)
+
+    def lex_find(self, word: str):
+        """(headword, entry) for a word or one of its inflected forms."""
+        key = normalize_word(word)
+        if not key or not re.fullmatch(r"[a-z][a-z' -]*", key):
+            return None
+        for name in lex_shard_names(key):
+            shard = self._lex_shard(name)
+            if shard and key in shard["w"]:
+                return key, shard["w"][key]
+        for name in lex_shard_names(key):
+            shard = self._lex_shard(name)
+            if not shard:
+                continue
+            base = shard["f"].get(key)
+            if base and base in shard["w"]:
+                return base, shard["w"][base]
+        return None
+
+    def lex_near(self, word: str, limit: int = 3) -> list[str]:
+        """Close headwords for a typo, bounded to the shards the word is in."""
+        key = normalize_word(word)
+        if len(key) < 3:
+            return []
+        max_dist = 1 if len(key) <= 5 else 2
+        found = []
+        for name in lex_shard_names(key):
+            shard = self._lex_shard(name)
+            if not shard:
+                continue
+            for candidate in shard["w"]:
+                if abs(len(candidate) - len(key)) > max_dist:
+                    continue
+                dist = edit_distance(key, candidate)
+                if dist and dist <= max_dist:
+                    # "resilent" is one edit from both "resident" and
+                    # "resilient"; the longer shared prefix is the one the
+                    # learner was typing towards.
+                    shared = 0
+                    for a, b in zip(key, candidate):
+                        if a != b:
+                            break
+                        shared += 1
+                    dropped = is_subsequence(key, candidate)
+                    found.append((dist, -dropped, -shared, candidate))
+        found.sort()
+        out: list[str] = []
+        for _dist, _dropped, _shared, candidate in found:
+            if candidate not in out:
+                out.append(candidate)
+            if len(out) == limit:
+                break
+        return out
+
+    def lex_persian(self, word: str) -> list[str]:
+        """English headwords for a Persian meaning.
+
+        Only one-word meanings are keys - "بودن (صفت را دنبال می‌کند)" is a
+        gloss, and treating it as a headword would be invention.
+        """
+        if self._lex_fa_cache is None:
+            try:
+                with open(self.lexicon_path / "_fa.json", encoding="utf-8") as f:
+                    self._lex_fa_cache = json.load(f)["p"]
+            except (OSError, ValueError):
+                self._lex_fa_cache = {}
+        key = normalize_fa(word)
+        return self._lex_fa_cache.get(key) or []
+
+    # ------------------------------------------------------- dictionary text
+    @staticmethod
+    def _lex_pos_text(entry: dict, lang: str) -> str:
+        pos = entry.get("p") or []
+        if not pos:
+            return ""
+        if lang == "fa":
+            return "، ".join(LEX_POS_FA.get(p, p) for p in pos)
+        return ", ".join(pos)
+
+    @staticmethod
+    def _lex_ipa(entry: dict) -> str:
+        ipa = entry.get("i") or {}
+        us, uk = ipa.get("us"), ipa.get("uk")
+        if us and uk and us != uk:
+            return f" /{us}/ (US) · /{uk}/ (UK)"
+        if us or uk:
+            return f" /{us or uk}/"
+        return ""
+
+    @staticmethod
+    def _lex_sense_score(sense: list, tokens: set[str]) -> int:
+        hay = " ".join([sense[1] or "", sense[3] or "", sense[2] or ""])
+        return len(tokens & set(re.findall(r"[a-z']{2,}", hay.lower())))
+
+    def format_lex_entry(self, head: str, entry: dict, asked: str,
+                         lang: str, context: set[str] | None = None,
+                         context_text: str = "") -> str:
+        """One headword: pronunciation, part of speech, then its senses.
+
+        `context` is the rest of the learner's sentence. With it, the sense
+        that mentions those words is shown first and marked - "bank" in "I
+        deposited money in the bank" must not open with a river.
+        """
+        senses = entry.get("s") or []
+        best = None
+        if context:
+            scored = sorted(((self._lex_sense_score(senses[i], context), i)
+                             for i in range(len(senses))), key=lambda t: (-t[0], t[1]))
+            if scored and scored[0][0] > 0:
+                best = scored[0][1]
+
+        asked_norm = normalize_word(asked)
+        label = f"**{head}**" if asked_norm == head else f"**{asked}** → **{head}**"
+        line = f"📖 {label}{self._lex_ipa(entry)}"
+        pos_text = self._lex_pos_text(entry, lang)
+        if pos_text:
+            line += f" — {pos_text}"
+        if len(senses) > 1:
+            line += (f" · {to_persian_digits(len(senses))} معنی" if lang == "fa"
+                     else f" · {len(senses)} meanings")
+        lines = [line]
+
+        # Senses keep the source's order - renumbering them so the matching one
+        # comes first made "sense 4 fits best" point at a line numbered 1. The
+        # matching sense is shown, and marked, in the place it really has.
+        shown_count = min(len(senses), max(3, (best or 0) + 1))
+        for shown, i in enumerate(range(shown_count), start=1):
+            sense = (senses[i] + [""] * 5)[:5]
+            _pos, definition, meaning, example, fa_example = sense
+            lead = f"{meaning} — {definition}" if meaning and definition else (meaning or definition)
+            mark = " ★" if best is not None and i == best else ""
+            num = to_persian_digits(shown) if lang == "fa" else str(shown)
+            lines.append(f"   {num}. {lead}{mark}")
+            if example:
+                lines.append(f"      ▸ {example}")
+            if fa_example:
+                lines.append(f"      ↳ {fa_example}")
+        if context and best is not None:
+            num = to_persian_digits(best + 1) if lang == "fa" else str(best + 1)
+            lines.append(
+                f"   ↳ در جمله تو، معنی {num} مناسب‌تر است." if lang == "fa"
+                else f"   ↳ In your sentence, sense {num} fits best.")
+        elif context:
+            # The learner named a sentence and none of the stored senses
+            # mentions it. Saying so is the answer; picking the closest anyway
+            # would be a guess dressed as a definition.
+            said = context_text.strip(" .?!؟،")
+            if lang == "fa":
+                lines.append(f"   ↳ برای «{said}» معنی‌ای ثبت نکرده‌ام — این‌ها معنی‌های موجودند.")
+            else:
+                lines.append(f"   ↳ I have no sense recorded for \u201c{said}\u201d "
+                             f"— these are the meanings I have.")
+        return "\n".join(lines)
+
+    def format_lex_relations(self, head: str, entry: dict, lang: str,
+                             kind: str) -> str:
+        """Synonyms (kind='y') or opposites (kind='a'), grouped by word class."""
+        groups = entry.get(kind) or {}
+        syn = kind == "y"
+        if lang == "fa":
+            title = ("🔗 مترادف‌های" if syn else "⚖️ متضادهای") + f" **{head}**"
+            empty = "   ↳ در واژه‌نامه ثبت نشده است."
+        else:
+            title = ("🔗 synonyms of" if syn else "⚖️ opposites of") + f" **{head}**"
+            empty = "   ↳ none are recorded in my dictionary."
+        if not groups:
+            return title + "\n" + empty
+        lines = [title]
+        for pos, words in groups.items():
+            if not words:
+                continue
+            label = LEX_POS_FA.get(pos, pos) if lang == "fa" else pos
+            lines.append(f"   • ({label}) " + " · ".join(words[:8]))
+        return "\n".join(lines)
+
+    def format_lex_examples(self, head: str, entry: dict, lang: str) -> str:
+        """The worked sentences the source stored for a word."""
+        pairs = [(s[3], s[4]) for s in entry.get("s") or [] if s[3] or s[4]]
+        if not pairs:
+            return (f"🔎 برای **{head}** جمله‌ای ثبت نشده." if lang == "fa"
+                    else f"🔎 My dictionary records no example sentence for **{head}**.")
+        title = (f"📖 **{head}** — مثال‌ها" if lang == "fa"
+                 else f"📖 **{head}** — examples")
+        lines = [title]
+        for example, fa_example in pairs[:2]:
+            if example:
+                lines.append(f"   ▸ {example}")
+            if fa_example:
+                lines.append(f"   ↳ {fa_example}")
+        return "\n".join(lines)
+
+    def format_lex_forms(self, head: str, entry: dict, lang: str,
+                         only: str | None = None) -> str:
+        forms = entry.get("f") or []
+        if only:
+            hits = [f[0] for f in forms if f[1] == only]
+            label = LEX_FORM_LABEL.get(only, only)
+            if hits:
+                if lang == "fa":
+                    return f"🔤 **{head}** — {label}: " + "، ".join(hits)
+                return f"🔤 {label} of **{head}** → " + ", ".join(hits)
+            return (f"🔤 برای **{head}** شکل «{label}» ثبت نشده." if lang == "fa"
+                    else f"🔤 My dictionary records no {label} for **{head}**.")
+        if not forms:
+            return (f"🔤 برای **{head}** شکلی ثبت نشده." if lang == "fa"
+                    else f"🔤 My dictionary records no inflected forms for **{head}**.")
+        head_line = ("🔤 صورت‌های" if lang == "fa" else "🔤 forms of")
+        lines = [f"{head_line} **{head}**"]
+        for name, ftype in forms[:8]:
+            label = LEX_FORM_LABEL.get(ftype, ftype or "form")
+            lines.append(f"   • {label}: {name}")
+        return "\n".join(lines)
 
     # ------------------------------------------------------------------ #
     #  Memory helpers
@@ -2428,6 +2805,139 @@ class ChatBot:
             lines.append(f"{fa} — {en}" if lang == "fa" else f"{en} — {fa}")
         return "\n".join(lines)
 
+    # ------------------------------------------------------------------ #
+    #  Dictionary asks the glossary never answered
+    # ------------------------------------------------------------------ #
+    def extract_lookup_target(self, text: str, lang: str) -> str | None:
+        """The word a lookup question is about, in either language."""
+        if lang == "fa":
+            patterns = FA_LOOKUP_PATTERNS + EN_LOOKUP_PATTERNS
+        else:
+            patterns = EN_LOOKUP_PATTERNS + FA_LOOKUP_PATTERNS
+        for pattern in patterns:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                target = match.group("t").strip(" .?!؟،,;:\"'«»()[]").strip()
+                if target:
+                    return target
+        return None
+
+    @staticmethod
+    def _lex_target(text: str, patterns) -> str | None:
+        """The word after a trigger phrase, with the question trimmed off."""
+        for pattern in patterns:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if not match:
+                continue
+            target = match.group("t").strip(" .?!؟،,;:\"'«»()[]")
+            for _ in range(3):
+                trimmed = LEX_TARGET_TRIM.sub("", target).strip()
+                if trimmed == target:
+                    break
+                target = trimmed
+            if target:
+                return target
+        return None
+
+    def _lex_resolve(self, target: str):
+        """(asked, head, entry) for a target, falling back to its last word.
+
+        "مترادف کلمه beautiful رو بگو" leaves a target with Persian furniture
+        around it, so the words are tried from the end, where the English one
+        is.
+        """
+        for candidate in [target] + list(reversed(target.split())):
+            found = self.lex_find(candidate)
+            if found:
+                head, entry = found
+                return candidate, head, entry
+        return None
+
+    def lex_or_not_found(self, word: str, lang: str) -> str:
+        """A word the glossary does not hold: try the dictionary, then say so."""
+        found = self.lex_find(word)
+        if found:
+            head, entry = found
+            return self.format_lex_entry(head, entry, word, lang)
+        if detect_lang(word) == "fa":
+            heads = self.lex_persian(word)
+            if heads:
+                found = self.lex_find(heads[0])
+                if found:
+                    head, entry = found
+                    return self.format_lex_entry(head, entry, word, lang)
+        near = self.lex_near(word)
+        if near:
+            found = self.lex_find(near[0])
+            if found:
+                head, entry = found
+                if lang == "fa":
+                    lead = f"🤔 «{word}» را ندارم — منظورت **{head}** بود؟"
+                else:
+                    lead = (f'🤔 I don\'t have "{word}" — did you mean '
+                            f'**{head}**?')
+                return lead + "\n" + self.format_lex_entry(head, entry, head, lang)
+        return self.not_found_msg(word, lang)
+
+    def handle_lexicon(self, text: str, lowered: str, lang: str) -> str | None:
+        """Synonyms, opposites, forms, and a word read in its sentence."""
+        # 0) the word in a sentence: "examples with achieve"
+        target = self._lex_target(text, LEX_EXAMPLE_PATTERNS)
+        if target:
+            resolved = self._lex_resolve(target)
+            if resolved:
+                _asked, head, entry = resolved
+                return self.format_lex_examples(head, entry, lang)
+        # 1) a form of the word: "past tense of seek"
+        for pattern, form_type in LEX_FORM_ASKS:
+            if not pattern.search(text):
+                continue
+            target = self._lex_target(text, LEX_FORM_PATTERNS.get(form_type, []))
+            resolved = self._lex_resolve(target) if target else None
+            if not resolved:
+                continue
+            _asked, head, entry = resolved
+            return self.format_lex_forms(head, entry, lang, only=form_type)
+        # 2) every form the dictionary holds
+        if LEX_FORMS_RE.search(text) or "صورت‌های" in text:
+            target = self._lex_target(text, [r"forms? of\s+(?P<t>.+)",
+                                             r"inflections? of\s+(?P<t>.+)"])
+            resolved = self._lex_resolve(target) if target else None
+            if resolved:
+                _asked, head, entry = resolved
+                return self.format_lex_forms(head, entry, lang)
+        # 3) synonyms and opposites
+        for patterns, kind, marker, marker_fa in (
+                (LEX_SYN_PATTERNS, "y", LEX_SYNONYMS_RE, LEX_SYNONYMS_FA),
+                (LEX_ANT_PATTERNS, "a", LEX_ANTONYMS_RE, LEX_ANTONYMS_FA)):
+            asked_now = marker.search(text) or any(w in text for w in marker_fa)
+            if not asked_now:
+                continue
+            target = self._lex_target(text, patterns)
+            resolved = self._lex_resolve(target) if target else None
+            if resolved:
+                _asked, head, entry = resolved
+                return self.format_lex_relations(head, entry, lang, kind)
+        # 4) "what does bank mean in river bank" - a sentence picks the sense
+        if is_lookup_ask(text, lowered):
+            context = LEX_CONTEXT_RE.search(text)
+            target = self.extract_lookup_target(text, lang)
+            if context and target and len(target.split()) == 1:
+                found = self.lex_find(target)
+                if found and len(found[1].get("s") or []) > 1:
+                    head, entry = found
+                    # The word itself is not context: "run" appears inside the
+                    # gloss "cut and run", which used to make a sentence about
+                    # a business match the fleeing sense.
+                    tokens = (set(re.findall(r"[a-z']{2,}",
+                                             context.group(1).lower()))
+                              - LEX_STOP - {normalize_word(target)})
+                    if tokens:
+                        return self.format_lex_entry(head, entry, target, lang,
+                                                     context=tokens,
+                                                     context_text=context.group(1))
+        return None
+
     def handle_glossary_lookup(self, text: str, lang: str) -> str | None:
         """Translate/define a word: 'translate apple', 'سیب به انگلیسی', ..."""
         # Philosophy, not vocabulary: otherwise "meaning of life" becomes a
@@ -2458,13 +2968,22 @@ class ChatBot:
         if not target or normalize_word(target) in LOOKUP_STOPWORDS:
             return None
 
+        if (DEFINITION_ASK_RE.search(text) or "معنی" in text) \
+                and len(target.split()) == 1 and detect_lang(target) != "fa":
+            found = self.lex_find(target)
+            if found:
+                head, entry = found
+                return self.format_lex_entry(head, entry, target, lang)
+
         entries = self.lookup_word(target)
         if not entries:
             # Multi-word targets are probably not vocab lookups at all
             # ("help me in english") → let the intent matcher handle them
             if len(target.split()) > 1:
                 return None
-            return self.not_found_msg(target, lang)
+            # The glossary is the curated core; the dictionary behind it covers
+            # the rest of English, including the typo suggestion at the end.
+            return self.lex_or_not_found(target, lang)
         return self.format_lookup(target, entries, lang)
 
     def _suggest_words(self, target: str, limit: int = 3) -> list[str]:
@@ -2756,6 +3275,15 @@ class ChatBot:
             result = self.handle_letter_lookup(text)
         if result is None:
             result = self.handle_number(text, lang)
+        # The dictionary answers four asks nothing above it had: synonyms,
+        # opposites, a word's inflected forms, and one word's meaning read in
+        # the learner's own sentence. It runs here, ahead of the panels that
+        # claim nearby words - "similar words" is a distinction topic, "past
+        # tense" is a grammar lesson, but "synonyms for X" and "past tense of
+        # seek" are lookups, and the phrase has to win over the topic.
+        if result is None:
+            self.lex_prefetch(text)
+            result = self.handle_lexicon(text, lowered, lang)
         # ahead of handle_pronounce, which also answers "how do I say X" -
         # a register question is the more specific reading of that phrase
         if result is None:
@@ -2811,7 +3339,7 @@ class ChatBot:
             if entries:
                 return self.format_lookup(word, entries, lang)
             if word and normalize_word(word):
-                return self.not_found_msg(word, lang)
+                return self.lex_or_not_found(word, lang)
 
         # Language-specific fallbacks. The exact phrases "I'm not sure I
         # understand" / "متوجه نشدم" are kept as flow-test markers; the rest

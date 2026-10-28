@@ -23,25 +23,65 @@ const data = {
   // the Python/JS comparison from depending on when the suite is run.
   today: process.env.FLUENTIFY_TODAY || null,
 };
+
+/* The dictionary is a directory of shards. In the app the page fetches the
+ * shards a message touches; here the same loader reads them from disk, and the
+ * same lazy path is exercised - so a shard name the engine asks for but the
+ * build never wrote shows up as a missing answer rather than as a test that
+ * quietly used a different route. */
+const lexDir = path.join(root, 'lexicon');
+const lexLoaded = new Map();
+data.lexLoader = (name) => {
+  if (lexLoaded.has(name)) return Promise.resolve(lexLoaded.get(name));
+  let shard = null;
+  try {
+    const file = path.join(lexDir, String(name).replace(/^lex\//, '') + '.json');
+    shard = JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (err) {
+    shard = null;
+  }
+  lexLoaded.set(name, shard);
+  return Promise.resolve(shard);
+};
+try {
+  data.lexFa = JSON.parse(fs.readFileSync(path.join(lexDir, '_fa.json'), 'utf8'));
+} catch (err) {
+  data.lexFa = null;
+}
+
 const ctx = { module: {}, exports: {}, console };
 vm.createContext(ctx);
 vm.runInContext(botSrc + '\n;this.Fluentify = Fluentify;', ctx);
 
 const cases = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 
-/* A case is either [[msg]] (one message) or [msg, msg, ...] (a flow).
- * Flows get a FRESH bot each, so state cannot leak between cases — which is
- * exactly what tests_flow_parity.py checks on the Python side. */
 /* Two shapes reach this file, told apart by an explicit key so a one-word
  * case can never be mistaken for a flow:
  *   {input: "hello"}                 — one message, one reply
  *   {flow: ["simple present", ...]}  — one bot, replies in order
- * Both get a fresh bot, so state cannot leak between cases. */
-const out = cases.map((entry) => {
-  const isFlow = Array.isArray(entry.flow);
-  const bot = new ctx.Fluentify(data);
-  if (isFlow) return entry.flow.map((m) => bot.respond(m));
-  return bot.respond(entry.input);
+ * Both get a fresh bot, so state cannot leak between cases.
+ *
+ * respond() is synchronous, so the dictionary is fetched first for that one
+ * message and awaited — which is exactly the order the page uses. */
+const out = [];
+(async () => {
+  for (const entry of cases) {
+    const bot = new ctx.Fluentify(data);
+    if (Array.isArray(entry.flow)) {
+      const replies = [];
+      for (const m of entry.flow) {
+        await bot.loadLexiconFor(m);
+        replies.push(bot.respond(m));
+      }
+      out.push(replies);
+      continue;
+    }
+    await bot.loadLexiconFor(entry.input);
+    out.push(bot.respond(entry.input));
+  }
+  fs.writeFileSync(process.argv[3], JSON.stringify(out));
+  console.log('js replies written:', out.length);
+})().catch((err) => {
+  console.error(err);
+  process.exit(1);
 });
-fs.writeFileSync(process.argv[3], JSON.stringify(out));
-console.log('js replies written:', out.length);

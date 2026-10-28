@@ -113,6 +113,19 @@ CASES = [
     "practice today's conversation with me",
     "لغت امروز", "لغت امروز رو توضیح بده", "عبارت امروز", "کلمه امروز",
     "با عبارت امروز چند جمله بساز", "مکالمه امروز", "انگلیسی روزانه",
+    # the dictionary: definitions, senses, relations, forms, examples, typos,
+    # and the same asks made in Persian. Every one of these is answered by the
+    # sharded lexicon, so a drift in either engine shows up here.
+    "what does resilient mean", "define achievement", "explain the word approach",
+    "what does next mean", "meaning of run", "what does bank mean",
+    "what does bank mean in river bank", "what does run mean in run a business",
+    "give me synonyms for beautiful", "what is the opposite of generous",
+    "what is the past tense of seek", "what is the plural of child",
+    "give me examples with achieve", "use negotiate in a sentence",
+    "what does resilent mean", "what does achievment mean",
+    "معنی courage چیه", "معنی next چیه", "مترادف کلمه beautiful رو بگو",
+    "چند مثال با achieve بزن", "can you explain معنی achieve",
+    "what forms does go have", "merci", "next",
 ]
 
 
@@ -121,14 +134,19 @@ def normalise(reply: str) -> str:
     out = reply.strip()
     if "😂" in out:  # jokes are randomly picked
         return "<joke>"
+    if "✅ جواب" in out:  # riddles are randomly picked too
+        return "<riddle>"
     # Small talk picks a random canned response, so two runs of the same input
     # legitimately differ: compare the *kind* of reply instead. This test comes
     # before the clock and date patterns on purpose - one of the speaking-fear
     # responses opens with "امروز", which the date pattern would swallow, and
     # then the two runtimes looked different only because they drew different
     # responses from the same list.
-    base = out.split(" ")[0]
-    if any(base in r for r in ALL_REPLY_TEXTS):
+    # Compared as a whole line, not as a first word: the canned replies are
+    # returned verbatim, whereas a first-token test swallowed every dictionary
+    # answer that happens to open with a shared emoji (📖), and then reported
+    # a real match as a mismatch.
+    if out.split("\n")[0].strip() in ALL_REPLY_SET:
         return "<intent-reply>"
     if out.startswith("الان ساعت") or out.startswith("It's "):
         return "<time>"
@@ -146,6 +164,7 @@ def _collect_replies() -> list[str]:
 
 
 ALL_REPLY_TEXTS = _collect_replies()
+ALL_REPLY_SET = {r.strip() for r in ALL_REPLY_TEXTS}
 
 
 def main() -> int:

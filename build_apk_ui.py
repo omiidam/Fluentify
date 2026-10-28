@@ -68,6 +68,9 @@ if not m:
     sys.exit("could not find the send() try/catch in the template")
 
 engine = """    await sleep(160);                       // a beat so the typing dots show
+    // the dictionary is 335 shards, so only the ones this message can touch
+    // are read - and they are read before respond(), which is synchronous
+    await bot.loadLexiconFor(text);
     const reply = bot.respond(text);
     hideTyping();
     add(reply, 'bot');
@@ -355,6 +358,27 @@ if missing:
     print("  the APK will fail to start until these exist "
           "(tools/fetch_bbc_6min.py builds bbc_6min.json)")
     raise SystemExit(1)
+
+# ---------------------------------------------------------------------------
+# sync the dictionary
+# ---------------------------------------------------------------------------
+# The dictionary ships as shards under data/lex/, next to the other data files,
+# because that is where the engine's loader looks: it asks for one shard per
+# word of the current message and caches what it read, so the app never parses
+# 12 MB at boot and a lookup costs one small file. Every shard is copied - a
+# missing one is not a crash, it is a word that silently has no meaning.
+LEX_SRC = ROOT / "lexicon"
+LEX_DEST = DATA / "lex"
+shards = sorted(LEX_SRC.glob("*.json")) if LEX_SRC.exists() else []
+if not shards:
+    raise SystemExit("build_apk_ui: lexicon/ is empty - run tools/build_lexicon.py")
+LEX_DEST.mkdir(parents=True, exist_ok=True)
+for stale in LEX_DEST.glob("*.json"):
+    stale.unlink()
+for shard in shards:
+    shutil.copyfile(shard, LEX_DEST / shard.name)
+print(f"synced {len(shards)} dictionary shards "
+      f"({sum(s.stat().st_size for s in shards) / (1024*1024):.1f} MB) -> {LEX_DEST}")
 
 # the offline page must not reference a server endpoint
 leftovers = re.findall(r"fetch\(\s*['\"](/api/[^'\"]+)", html)

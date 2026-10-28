@@ -267,7 +267,10 @@ def run_robustness(verbose: bool) -> None:
     for text, label in ROBUST:
         r = b.respond(text)
         check_reply("robust", f"{label} ({text[:24]!r})", r)
-        if MARKUP.search(r or ""):
+        # A complete **bold** span is rendered as bold by the page (a dictionary
+        # answer bolds the headword), so only a *stray* marker - the "{**" or
+        # half-open case this guards against - counts as a leak.
+        if MARKUP.search(re.sub(r"\*\*[^*]+\*\*", "", r or "")):
             fail("robust", label, "markup leaked")
     if verbose:
         print(f"  robustness: {len(ROBUST)} edge cases")

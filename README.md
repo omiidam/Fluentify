@@ -22,7 +22,7 @@ no network calls, no tracking.
 |---|---|
 | 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
-| 📚 Vocabulary | 2,314 words across 64 grouped domains, translate & define in both languages |
+| 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **20,602-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
 | 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
@@ -35,6 +35,59 @@ no network calls, no tracking.
 Every lesson and sentence is shown **English first with the Persian translation
 directly underneath**, so the two languages reinforce each other instead of
 living in separate sections.
+
+### Dictionary
+
+A lookup the curated glossary cannot answer falls through to a dictionary of
+**20,602 headwords / 35,110 senses** (35,097 of them with a Persian meaning,
+18,426 with IPA, 20,601 with a worked example). It is knowledge behind the same
+chat, not a page: there is no dictionary tab, panel, button or route.
+
+```
+define achievement            what does bank mean in river bank
+give me synonyms for beautiful  what is the past tense of seek
+what is the opposite of generous  what does achievment mean   ← typo, offered the word
+معنی courage چیه              مترادف کلمه beautiful رو بگو
+```
+
+It also answers four things the glossary never could: synonyms, opposites, the
+inflected forms a word actually has, and one word's meaning **read inside the
+learner's own sentence** ("what does run mean in run a business"). Multiple
+meanings are kept apart, never merged: `bank` answers river bank and financial
+bank separately, and a sentence picks the sense by scoring the entry's own
+glosses against it. If no sense matches the sentence, the answer says so instead
+of guessing.
+
+Sources and licences (full text in `lexicon/_meta.json`, which the suite
+cross-checks against the shards on disk):
+
+| source | licence | what came from it |
+|---|---|---|
+| [OpenJam](https://github.com/amirj4m/openjam) | MIT, data included | lemmas, senses, definitions, examples, Persian sense translations, IPA, inflected forms |
+| [Princeton WordNet 3.1](https://wordnet.princeton.edu/) | WordNet (BSD-style) | synonyms and antonyms |
+
+Deliberately **not** imported: the English–Persian dataset with no licence, the
+VahidN dictionaries whose individual contents publish none, and the Wiktionary
+extract whose CC BY-SA share-alike would relicense the app's data. Nothing the
+sources lack is invented — no entry carries a CEFR level (OpenJam's field is
+just a frequency band), and an entry with no Persian meaning says nothing
+rather than printing an English gloss under a Persian label.
+
+Storage is **333 shards**, not one file: the page fetches the shards for the
+words of the current message (`data/lex/<prefix>.json`, 10.2 MB in total,
+~3 MB compressed into the APK) and caches them, so startup parses nothing and
+lookup cost is one small file. `lexicon/_index.json` lists which shards exist,
+because English is not spread evenly. Persian questions read `_fa.json` once.
+
+```bash
+python3 tools/build_lexicon.py     # rebuild from the cached sources (~2 s)
+python3 tools/check_lexicon.py     # data, answers, and "still invisible"
+```
+
+Known gaps, measured rather than papered over: the source does not carry every
+lemma, so a few words are simply absent — `resilient` is one (its noun
+`resilience` is there). The answer names the word it lacks and offers the
+closest one it has.
 
 ### Daily English
 
@@ -208,6 +261,13 @@ webapp.py                   desktop UI + HTTP server
 build_apk_ui.py             generates the offline app UI from webapp.py
 tests_js_vs_python.py       Python ⇄ JavaScript engine parity test
 tools/js_engine.js          headless harness for the JS engine
+tools/build_lexicon.py      builds lexicon/ from the cached sources
+tools/check_lexicon.py      the dictionary's data, answers and invisibility
+
+lexicon/                    generated dictionary: 333 shards + _meta/_fa/_index
+  <prefix>.json               headwords, forms, senses for one prefix
+  _fa.json                    Persian meaning → English headwords
+  _meta.json                  counts, sources, licences
 
 memory.json                 42 intents + both alphabets
 glossary.json               2,314 words in 64 domains
@@ -287,6 +347,11 @@ Memory and content structures were informed by these open-source projects:
 [Persian-Caesar/chatbot](https://github.com/Persian-Caesar/chatbot),
 [Nikola-Ver/English-grammar-tree](https://github.com/Nikola-Ver/English-grammar-tree) and
 [guilherme-reis/English-Grammar-Mental-Map-In-Markdown](https://github.com/guilherme-reis/English-Grammar-Mental-Map-In-Markdown).
+
+The dictionary's content comes from [OpenJam](https://github.com/amirj4m/openjam)
+(MIT, data included) and [Princeton WordNet 3.1](https://wordnet.princeton.edu/)
+(WordNet licence, BSD-style); the notices travel with the data in
+`lexicon/_meta.json`.
 
 ## License
 
@@ -405,7 +470,7 @@ failing quietly.
 python3 tools/check_all.py
 ```
 
-Eleven suites:
+Twelve suites:
 
 | suite | what it asks |
 | --- | --- |
@@ -415,6 +480,7 @@ Eleven suites:
 | Python/JS conversation parity | do they agree over a *conversation*? Memory only shows up across several messages. |
 | BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
 | offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
+| dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licences still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
 
 That last one matters more than its size suggests. A duplicate top-level name
 between the page and `bot.js` is a SyntaxError that kills the whole inline

@@ -380,6 +380,7 @@ const LOOKUP_STOPWORDS = new Set([
 ]);
 
 const EN_LOOKUP_PATTERNS = [
+  /explain (?:the )?(?:word |meaning of )?(.+)/i,
   /what is the (?:english|persian|farsi) (?:word|translation) for\s+(.+)/i,
   /how do (?:i|you) say\s+(.+?)\s+in\s+(?:english|persian|farsi)/i,
   /what does\s+(.+?)\s+means?\b/i,
@@ -392,6 +393,7 @@ const EN_LOOKUP_PATTERNS = [
 
 const FA_LOOKUP_PATTERNS = [
   /معنی\s+(.+?)\s*(?:چیه|چیست|هست)/,
+  /معنی\s+(.+)/,
   /(.+?)\s*یعنی\s*چه/,
   /(?:چطوری|چطور|چجوری)\s+(.+?)\s+بگم/,
   /(.+?)\s*رو\s*(?:بگو|بگویم|بگید|بگین)\s*[؟?.!]*$/,
@@ -402,8 +404,108 @@ const FA_LOOKUP_PATTERNS = [
   /(.+?)\s*(?:چیه|چیست)$/,
 ];
 
+/* ---------------------------------------------------------------- dictionary
+ * The sharded lexicon (tools/build_lexicon.py). Shards are fetched on demand
+ * for the words of one message and cached, so the 20,602-headword dictionary
+ * is never parsed at startup and never held whole. The Python engine reads the
+ * same files with the same rules: every string below is a mirror of
+ * chatbot.py, which is what the parity suite compares.
+ */
+const LEX_POS_FA = {
+  noun: 'اسم', verb: 'فعل', adjective: 'صفت', adverb: 'قید',
+};
+
+const LEX_FORM_LABEL = {
+  past: 'past', past_participle: 'past participle', '3rd_present': '3rd person',
+  gerund: '-ing form', plural: 'plural', comparative: 'comparative',
+  superlative: 'superlative', non_3rd_present: 'present',
+};
+
+const lexShardNames = (word) => {
+  const w = String(word || '').toLowerCase().replace(/[^a-z]/g, '');
+  if (w.length >= 3) return [w.slice(0, 3), w.slice(0, 2)];
+  if (w.length === 2) return [w];
+  if (w.length === 1) return [`${w}_`];
+  return [];
+};
+
+const DEFINITION_ASK_RE = /\b(?:define|definition of|meaning of|what does|what's the meaning|what is the meaning)\b/i;
+
+const LEX_SYNONYMS_RE = /\b(?:synonyms?|similar words?|other words? for|another word for|words? like)\b/i;
+const LEX_SYNONYMS_FA = ['مترادف', 'هم معنی', 'هم‌معنی', 'هممعنی'];
+const LEX_ANTONYMS_RE = /\b(?:antonyms?|opposite of|opposite to|opposites|contrary of)\b/i;
+const LEX_ANTONYMS_FA = ['متضاد', 'مخالف', 'برعکس'];
+const LEX_FORMS_RE = /\b(?:forms? of|inflections? of|verb forms? of)\b/i;
+const LEX_FORM_ASKS = [
+  [/\bpast participle of\b/i, 'past_participle'],
+  [/\bpast (?:simple|tense|form) of\b/i, 'past'],
+  [/\b(?:plural|plural form) of\b/i, 'plural'],
+  [/\b(?:ing form|-ing form|gerund) of\b/i, 'gerund'],
+  [/\bcomparative of\b/i, 'comparative'],
+  [/\bsuperlative of\b/i, 'superlative'],
+  [/\bthird person(?: singular)?(?: form)? of\b/i, '3rd_present'],
+];
+const LEX_CONTEXT_RE = /\b(?:in|inside|within)\s+(?:the\s+|a\s+|an\s+)?(.{2,50})$/i;
+
+const LEX_SYN_PATTERNS = [
+  /synonyms? (?:of|for)\s+(.+)/i,
+  /(?:similar|other) words? (?:for|to)\s+(.+)/i,
+  /another word for\s+(.+)/i,
+  /words? like\s+(.+)/i,
+  /(?:مترادف|هم‌?معنی)\s*(?:های|ها|ی|کلمه|واژه)?\s*(.+)/,
+];
+const LEX_ANT_PATTERNS = [
+  /antonyms? (?:of|for)\s+(.+)/i,
+  /(?:opposite|contrary) (?:of|to)\s+(.+)/i,
+  /(?:متضاد|مخالف|برعکس)\s*(?:های|ها|ی|کلمه|واژه)?\s*(.+)/,
+];
+const LEX_FORM_PATTERNS = {
+  past: [/past (?:simple|tense|form) of\s+(.+)/i, /(?:ماضی|گذشته)\s*(.+)/],
+  past_participle: [/past participle of\s+(.+)/i, /اسم مفعول\s*(.+)/],
+  plural: [/plural of\s+(.+)/i, /جمع\s*(.+)/],
+  gerund: [/(?:ing form|-ing form|gerund) of\s+(.+)/i],
+  comparative: [/comparative of\s+(.+)/i],
+  superlative: [/superlative of\s+(.+)/i],
+  '3rd_present': [/third person(?: singular)?(?: form)? of\s+(.+)/i],
+};
+const LEX_EXAMPLE_PATTERNS = [
+  /examples? (?:with|of|for|using)\s+(.+)/i,
+  /sentences? (?:with|using)\s+(.+)/i,
+  /(?:use|using) (.+?) in (?:a|the|one) sentence/i,
+  /چند مثال با\s+(.+)/,
+  /مثال(?:ی|های)? با\s+(.+)/,
+];
+const LEX_TARGET_TRIM = /\s*(?:رو\s*)?(?:بگو|بگویید|بگین|بگید|چیه|چیست|چی|هست|را|کلمه|واژه|یعنی|چه)\s*$/u;
+
+const LEX_STOP = new Set([
+  'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'of', 'to',
+  'for', 'with', 'from', 'by', 'as', 'is', 'are', 'was', 'were', 'be',
+  'been', 'being', 'it', 'its', 'this', 'that', 'these', 'those', 'i',
+  'you', 'he', 'she', 'we', 'they', 'my', 'your', 'his', 'her', 'our',
+  'their', 'me', 'him', 'them', 'do', 'does', 'did', 'what', 'which',
+  'mean', 'means', 'meaning', 'word', 'sentence', 'use', 'used', 'using',
+  'say', 'said', 'tell', 'explain', 'please', 'can', 'could', 'would',
+  'should', 'how', 'when', 'where', 'why', 'there', 'here', 'not',
+]);
+
 const VAGUE_MEANING_EN = /^(?:what(?:'s|s| is)?\s+(?:the\s+)?meaning(?:\s+of\s+(?:this|that|it))?|what\s+does\s+(?:this|that|it|this\s+word|that\s+word)\s+mean|what\s+do\s+you\s+mean(?:\s+by\s+(?:this|that|it))?)\s*[?.!]*$/i;
 const VAGUE_MEANING_FA = /^(?:(?:این|اون|آن)\s*یعنی\s*(?:چی|چه)|یعنی\s*(?:چی|چه)|معنی\s*(?:این|اون|آن)\s*(?:چیه|چیست|هست)|منظورت\s*(?:از\s*(?:این|اون|آن))?\s*(?:چیه|چیست))\s*[؟?.!]*$/;
+
+/* Is `short` the longer word with letters missing?
+ *
+ * "resilent" is one edit from both "resident" (a substitution) and
+ * "resilient" (a dropped letter), and distance alone cannot choose between
+ * them. A dropped letter is the commoner typo of the two, so the candidate
+ * that keeps every letter the learner typed, in order, is offered first. */
+function isSubsequence(short, long) {
+  let at = 0;
+  for (const ch of short) {
+    at = long.indexOf(ch, at);
+    if (at === -1) return false;
+    at += ch.length;
+  }
+  return true;
+}
 
 function editDistance(a, b) {
   if (a === b) return 0;
@@ -550,6 +652,18 @@ class Fluentify {
     this.lastPhrase = null;
     this.lastLevel = null;
     this.lastExamples = [];
+    // The dictionary is ~20k headwords, so it is read one shard at a time for
+    // the words of the current message and cached — never parsed at boot.
+    // Where no loader or shards exist (the node tests, an old APK) every
+    // lookup falls through to the glossary and then to not-found, exactly as
+    // before the dictionary was added.
+    this.lexShards = new Map();
+    this.lexLoading = new Set();
+    this.lexIndex = null;   // filled by the first loadLexiconFor()
+    this.lexFa = data.lexFa || null;
+    this.lexFaCache = null;
+    this.lexLoader = data.lexLoader || ((path) => fetch(`${data.lexBase || 'data/'}${path}.json`)
+      .then((r) => (r.ok ? r.json() : null)));
   }
 
   /* Drop blank answer slots at load time. An empty string in a question's
@@ -1399,6 +1513,373 @@ class Fluentify {
     return lines.join('\n');
   }
 
+  /* ------------------------------------------------------------ dictionary */
+  attachLexicon(shards) {
+    for (const [name, shard] of Object.entries(shards || {}))
+      this.lexShards.set(name, shard);
+  }
+
+  /* Fetch the shards this message could touch - and only those. Called by the
+   * page before respond(), because a fetch cannot be synchronous and respond()
+   * must stay so. Already-loaded shards resolve without a request. */
+  async loadLexiconFor(text) {
+    if (!this.lexLoader) return;
+    // Which shards exist: only some three-letter prefixes have one, so without
+    // the list every word costs a wasted 404 on its three-letter candidate.
+    // A missing list (an older bundle) simply means asking for both.
+    if (this.lexIndex === null) {
+      let index = null;
+      try {
+        index = await this.lexLoader('lex/_index');
+      } catch (err) {
+        index = null;
+      }
+      this.lexIndex = new Set((index && index.names) || []);
+    }
+    // A Persian question is answered from the reverse index, which is a file of
+    // its own; it is read on the first Persian message, not at boot.
+    if (this.lexFa === null && /[\u0600-\u06FF]/.test(String(text || ''))) {
+      try {
+        this.lexFa = await this.lexLoader('lex/_fa');
+      } catch (err) {
+        this.lexFa = null;
+      }
+      this.lexFaCache = null;
+    }
+    const words = String(text || '').match(/[A-Za-z][A-Za-z'’-]*/g) || [];
+    const pending = [];
+    for (const word of words) {
+      for (const name of lexShardNames(word)) {
+        if (this.lexIndex.size && !this.lexIndex.has(name)) continue;
+        if (this.lexShards.has(name) || this.lexLoading.has(name)) continue;
+        this.lexLoading.add(name);
+        pending.push(this.lexLoader(`lex/${name}`)
+          .then((shard) => this.lexShards.set(name, shard || null))
+          .catch(() => this.lexShards.set(name, null)));
+      }
+    }
+    if (pending.length) await Promise.all(pending);
+  }
+
+  lexShard(name) {
+    return this.lexShards.has(name) ? this.lexShards.get(name) : null;
+  }
+
+  lexFind(word) {
+    const key = normalizeWord(word);
+    if (!key || !/^[a-z][a-z' -]*$/.test(key)) return null;
+    for (const name of lexShardNames(key)) {
+      const shard = this.lexShard(name);
+      if (shard && shard.w && Object.prototype.hasOwnProperty.call(shard.w, key))
+        return [key, shard.w[key]];
+    }
+    for (const name of lexShardNames(key)) {
+      const shard = this.lexShard(name);
+      if (!shard || !shard.f) continue;
+      const base = shard.f[key];
+      if (base && shard.w && shard.w[base]) return [base, shard.w[base]];
+    }
+    return null;
+  }
+
+  lexNear(word, limit = 3) {
+    const key = normalizeWord(word);
+    if (key.length < 3) return [];
+    const maxDist = key.length <= 5 ? 1 : 2;
+    const found = [];
+    for (const name of lexShardNames(key)) {
+      const shard = this.lexShard(name);
+      if (!shard || !shard.w) continue;
+      for (const candidate of Object.keys(shard.w)) {
+        if (Math.abs(candidate.length - key.length) > maxDist) continue;
+        const dist = editDistance(key, candidate);
+        if (!dist || dist > maxDist) continue;
+        // "resilent" is one edit from both "resident" and "resilient"; the
+        // longer shared prefix is the one the learner was typing towards.
+        let shared = 0;
+        while (shared < key.length && shared < candidate.length
+          && key[shared] === candidate[shared]) shared++;
+        found.push([dist, isSubsequence(key, candidate) ? 0 : 1, -shared, candidate]);
+      }
+    }
+    found.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]
+      || (a[3] < b[3] ? -1 : a[3] > b[3] ? 1 : 0));
+    const out = [];
+    for (const [, , , candidate] of found) {
+      if (!out.includes(candidate)) out.push(candidate);
+      if (out.length === limit) break;
+    }
+    return out;
+  }
+
+  lexPersian(word) {
+    if (this.lexFaCache === null)
+      this.lexFaCache = (this.lexFa && this.lexFa.p) || {};
+    const key = normalizeFa(word);
+    return this.lexFaCache[key] || [];
+  }
+
+  _lexPosText(entry, lang) {
+    const pos = entry.p || [];
+    if (!pos.length) return '';
+    return lang === 'fa'
+      ? pos.map((p) => LEX_POS_FA[p] || p).join('، ')
+      : pos.join(', ');
+  }
+
+  _lexIpa(entry) {
+    const ipa = entry.i || {};
+    const us = ipa.us, uk = ipa.uk;
+    if (us && uk && us !== uk) return ` /${us}/ (US) · /${uk}/ (UK)`;
+    if (us || uk) return ` /${us || uk}/`;
+    return '';
+  }
+
+  _lexSenseScore(sense, tokens) {
+    const hay = [sense[1] || '', sense[3] || '', sense[2] || ''].join(' ');
+    const words = hay.toLowerCase().match(/[a-z']{2,}/g) || [];
+    let score = 0;
+    for (const w of new Set(words)) if (tokens.has(w)) score++;
+    return score;
+  }
+
+  formatLexEntry(head, entry, asked, lang, context = null, contextText = '') {
+    const senses = entry.s || [];
+    let best = null;
+    if (context && context.size) {
+      const scored = senses.map((s, i) => [this._lexSenseScore(s, context), i])
+        .sort((a, b) => (a[0] !== b[0] ? b[0] - a[0] : a[1] - b[1]));
+      if (scored.length && scored[0][0] > 0) best = scored[0][1];
+    }
+
+    const askedNorm = normalizeWord(asked);
+    const label = askedNorm === head ? `**${head}**` : `**${asked}** → **${head}**`;
+    let line = `📖 ${label}${this._lexIpa(entry)}`;
+    const posText = this._lexPosText(entry, lang);
+    if (posText) line += ` — ${posText}`;
+    if (senses.length > 1) {
+      line += lang === 'fa'
+        ? ` · ${toPersianDigits(senses.length)} معنی`
+        : ` · ${senses.length} meanings`;
+    }
+    const lines = [line];
+
+    const shownCount = Math.min(senses.length,
+      Math.max(3, (best === null ? 0 : best) + 1));
+    for (let i = 0; i < shownCount; i++) {
+      const shown = i + 1;
+      const sense = senses[i] || [];
+      const definition = sense[1] || '';
+      const meaning = sense[2] || '';
+      const example = sense[3] || '';
+      const faExample = sense[4] || '';
+      const lead = meaning && definition ? `${meaning} — ${definition}`
+        : (meaning || definition);
+      const mark = best !== null && i === best ? ' ★' : '';
+      const num = lang === 'fa' ? toPersianDigits(shown) : String(shown);
+      lines.push(`   ${num}. ${lead}${mark}`);
+      if (example) lines.push(`      ▸ ${example}`);
+      if (faExample) lines.push(`      ↳ ${faExample}`);
+    }
+    if (context && best !== null) {
+      const num = lang === 'fa' ? toPersianDigits(best + 1) : String(best + 1);
+      lines.push(lang === 'fa'
+        ? `   ↳ در جمله تو، معنی ${num} مناسب‌تر است.`
+        : `   ↳ In your sentence, sense ${num} fits best.`);
+    } else if (context) {
+      const said = String(contextText || '')
+        .replace(/^[ .?!؟،]+|[ .?!؟،]+$/g, '');
+      lines.push(lang === 'fa'
+        ? `   ↳ برای «${said}» معنی‌ای ثبت نکرده‌ام — این‌ها معنی‌های موجودند.`
+        : `   ↳ I have no sense recorded for “${said}” — these are the meanings I have.`);
+    }
+    return lines.join('\n');
+  }
+
+  formatLexRelations(head, entry, lang, kind) {
+    const groups = entry[kind] || {};
+    const syn = kind === 'y';
+    const title = lang === 'fa'
+      ? `${syn ? '🔗 مترادف‌های' : '⚖️ متضادهای'} **${head}**`
+      : `${syn ? '🔗 synonyms of' : '⚖️ opposites of'} **${head}**`;
+    if (!Object.keys(groups).length) {
+      const empty = lang === 'fa'
+        ? '   ↳ در واژه‌نامه ثبت نشده است.'
+        : '   ↳ none are recorded in my dictionary.';
+      return `${title}\n${empty}`;
+    }
+    const lines = [title];
+    for (const pos of Object.keys(groups)) {
+      const words = groups[pos] || [];
+      if (!words.length) continue;
+      const label = lang === 'fa' ? (LEX_POS_FA[pos] || pos) : pos;
+      lines.push(`   • (${label}) ${words.slice(0, 8).join(' · ')}`);
+    }
+    return lines.join('\n');
+  }
+
+  formatLexExamples(head, entry, lang) {
+    const pairs = (entry.s || []).filter((s) => s[3] || s[4])
+      .map((s) => [s[3] || '', s[4] || '']);
+    if (!pairs.length) {
+      return lang === 'fa'
+        ? `🔎 برای **${head}** جمله‌ای ثبت نشده.`
+        : `🔎 My dictionary records no example sentence for **${head}**.`;
+    }
+    const lines = [lang === 'fa'
+      ? `📖 **${head}** — مثال‌ها`
+      : `📖 **${head}** — examples`];
+    for (const [example, faExample] of pairs.slice(0, 2)) {
+      if (example) lines.push(`   ▸ ${example}`);
+      if (faExample) lines.push(`   ↳ ${faExample}`);
+    }
+    return lines.join('\n');
+  }
+
+  formatLexForms(head, entry, lang, only = null) {
+    const forms = entry.f || [];
+    if (only) {
+      const hits = forms.filter((f) => f[1] === only).map((f) => f[0]);
+      const label = LEX_FORM_LABEL[only] || only;
+      if (hits.length) {
+        return lang === 'fa'
+          ? `🔤 **${head}** — ${label}: ${hits.join('، ')}`
+          : `🔤 ${label} of **${head}** → ${hits.join(', ')}`;
+      }
+      return lang === 'fa'
+        ? `🔤 برای **${head}** شکل «${label}» ثبت نشده.`
+        : `🔤 My dictionary records no ${label} for **${head}**.`;
+    }
+    if (!forms.length) {
+      return lang === 'fa'
+        ? `🔤 برای **${head}** شکلی ثبت نشده.`
+        : `🔤 My dictionary records no inflected forms for **${head}**.`;
+    }
+    const lines = [lang === 'fa'
+      ? `🔤 صورت‌های **${head}**`
+      : `🔤 forms of **${head}**`];
+    for (const [name, ftype] of forms.slice(0, 8)) {
+      const label = LEX_FORM_LABEL[ftype] || ftype || 'form';
+      lines.push(`   • ${label}: ${name}`);
+    }
+    return lines.join('\n');
+  }
+
+  extractLookupTarget(text, lang) {
+    const patterns = lang === 'fa'
+      ? FA_LOOKUP_PATTERNS.concat(EN_LOOKUP_PATTERNS)
+      : EN_LOOKUP_PATTERNS.concat(FA_LOOKUP_PATTERNS);
+    for (const p of patterns) {
+      const m = text.match(p);
+      if (!m) continue;
+      const target = m[1]
+        .replace(/^[\s.?!؟،,;:"'«»()[\]]+|[\s.?!؟،,;:"'«»()[\]]+$/g, '')
+        .trim();
+      if (target) return target;
+    }
+    return null;
+  }
+
+  _lexTarget(text, patterns) {
+    for (const p of patterns) {
+      const m = text.match(p);
+      if (!m) continue;
+      let target = m[1]
+        .replace(/^[ .?!؟،,;:"'«»()[\]]+|[ .?!؟،,;:"'«»()[\]]+$/g, '');
+      for (let i = 0; i < 3; i++) {
+        const trimmed = target.replace(LEX_TARGET_TRIM, '').trim();
+        if (trimmed === target) break;
+        target = trimmed;
+      }
+      if (target) return target;
+    }
+    return null;
+  }
+
+  _lexResolve(target) {
+    const candidates = [target].concat(target.split(/\s+/).reverse());
+    for (const candidate of candidates) {
+      const found = this.lexFind(candidate);
+      if (found) return [candidate, found[0], found[1]];
+    }
+    return null;
+  }
+
+  lexOrNotFound(word, lang) {
+    let found = this.lexFind(word);
+    if (found) return this.formatLexEntry(found[0], found[1], word, lang);
+    if (detectLang(word) === 'fa') {
+      const heads = this.lexPersian(word);
+      if (heads.length) {
+        found = this.lexFind(heads[0]);
+        if (found) return this.formatLexEntry(found[0], found[1], word, lang);
+      }
+    }
+    const near = this.lexNear(word);
+    if (near.length) {
+      found = this.lexFind(near[0]);
+      if (found) {
+        const [head, entry] = found;
+        const lead = lang === 'fa'
+          ? `🤔 «${word}» را ندارم — منظورت **${head}** بود؟`
+          : `🤔 I don't have "${word}" — did you mean **${head}**?`;
+        return `${lead}\n${this.formatLexEntry(head, entry, head, lang)}`;
+      }
+    }
+    return this.notFound(word, lang);
+  }
+
+  handleLexicon(text, lowered, lang) {
+    // 0) the word in a sentence: "examples with achieve"
+    let target = this._lexTarget(text, LEX_EXAMPLE_PATTERNS);
+    if (target) {
+      const resolved = this._lexResolve(target);
+      if (resolved) return this.formatLexExamples(resolved[1], resolved[2], lang);
+    }
+    // 1) a form of the word: "past tense of seek"
+    for (const [pattern, formType] of LEX_FORM_ASKS) {
+      if (!pattern.test(text)) continue;
+      target = this._lexTarget(text, LEX_FORM_PATTERNS[formType] || []);
+      const resolved = target ? this._lexResolve(target) : null;
+      if (!resolved) continue;
+      return this.formatLexForms(resolved[1], resolved[2], lang, formType);
+    }
+    // 2) every form the dictionary holds
+    if (LEX_FORMS_RE.test(text) || text.includes('صورت‌های')) {
+      target = this._lexTarget(text, [/forms? of\s+(.+)/i, /inflections? of\s+(.+)/i]);
+      const resolved = target ? this._lexResolve(target) : null;
+      if (resolved) return this.formatLexForms(resolved[1], resolved[2], lang);
+    }
+    // 3) synonyms and opposites
+    for (const [patterns, kind, marker, markerFa] of [
+      [LEX_SYN_PATTERNS, 'y', LEX_SYNONYMS_RE, LEX_SYNONYMS_FA],
+      [LEX_ANT_PATTERNS, 'a', LEX_ANTONYMS_RE, LEX_ANTONYMS_FA],
+    ]) {
+      const askedNow = marker.test(text) || markerFa.some((w) => text.includes(w));
+      if (!askedNow) continue;
+      target = this._lexTarget(text, patterns);
+      const resolved = target ? this._lexResolve(target) : null;
+      if (resolved) return this.formatLexRelations(resolved[1], resolved[2], lang, kind);
+    }
+    // 4) "what does bank mean in river bank" - a sentence picks the sense
+    if (isLookupAsk(text, lowered)) {
+      const context = text.match(LEX_CONTEXT_RE);
+      target = this.extractLookupTarget(text, lang);
+      if (context && target && target.split(/\s+/).length === 1) {
+        const found = this.lexFind(target);
+        if (found && (found[1].s || []).length > 1) {
+          const [head, entry] = found;
+          const tokens = new Set(((context[1] || '').toLowerCase()
+            .match(/[a-z']{2,}/g) || [])
+            .filter((w) => !LEX_STOP.has(w) && w !== normalizeWord(target)));
+          if (tokens.size)
+            return this.formatLexEntry(head, entry, target, lang, tokens, context[1]);
+        }
+      }
+    }
+    return null;
+  }
+
   handleGlossaryLookup(text, lang) {
     // Philosophy, not vocabulary: otherwise "meaning of life" becomes a
     // failed lookup for the word "life".
@@ -1421,10 +1902,20 @@ class Fluentify {
     target = target.replace(/^[\s.?!؟،,;:"'«»()[\]]+|[\s.?!؟،,;:"'«»()[\]]+$/g, '').trim();
     if (!target || LOOKUP_STOPWORDS.has(normalizeWord(target))) return null;
 
+    // "what does X mean" asks for a definition and the dictionary has one;
+    // the glossary holds a translation, which is a different answer.
+    if ((DEFINITION_ASK_RE.test(text) || text.includes('معنی'))
+      && target.split(/\s+/).length === 1 && detectLang(target) !== 'fa') {
+      const found = this.lexFind(target);
+      if (found) return this.formatLexEntry(found[0], found[1], target, lang);
+    }
+
     const entries = this.lookupWord(target);
     if (!entries.length) {
       if (target.split(/\s+/).length > 1) return null;
-      return this.notFound(target, lang);
+      // The glossary is the curated core; the dictionary behind it covers the
+      // rest of English, including the typo suggestion at the end.
+      return this.lexOrNotFound(target, lang);
     }
     return this.formatLookup(target, entries, lang);
   }
@@ -2241,6 +2732,13 @@ class Fluentify {
     let result = this.handleAlphabet(text, lowered);
     if (result === null) result = this.handleLetterLookup(text);
     if (result === null) result = this.handleNumber(text, lang);
+    // The dictionary answers four asks nothing above it had: synonyms,
+    // opposites, a word's inflected forms, and one word's meaning read in the
+    // learner's own sentence. It runs here, ahead of the panels that claim
+    // nearby words - "similar words" is a distinction topic, "past tense" is a
+    // grammar lesson, but "synonyms for X" and "past tense of seek" are
+    // lookups, and the phrase has to win over the topic.
+    if (result === null) result = this.handleLexicon(text, lowered, lang);
     // ahead of handlePronounce, which also answers "how do I say X" -
     // a register question is the more specific reading of that phrase
     if (result === null) result = this.handleRegister(text, lowered, lang);
@@ -2278,7 +2776,7 @@ class Fluentify {
       const word = text.replace(/^[ .!?؟،"'«»]+|[ .!?؟،"'«»]+$/g, '');
       const entries = this.lookupWord(word);
       if (entries.length) return this.formatLookup(word, entries, lang);
-      if (word && normalizeWord(word)) return this.notFound(word, lang);
+      if (word && normalizeWord(word)) return this.lexOrNotFound(word, lang);
     }
 
     if (lang === 'fa') {
