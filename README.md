@@ -224,19 +224,24 @@ serves.
 
 ## Look and feel
 
-Warm paper, navy ink and a gold spark: the page is cream (`#faf4e8`), the
-mascot and the room's only dark surface are navy (`#1b2d52`), and gold
-(`#f1c15a`) marks what the tutor is pointing at. **Baloo 2** carries headings
-and the top-bar buttons, **Kalam** carries the transcript — the two faces of the
-reference design, both SIL OFL and vendored in `fonts/` so the APK has them
-offline.
+Two flat bands, sand and slate, with gold linework and the steel blue of the
+illustration's water — the four colours of the poster the theme is cut from.
+The page is sand-cream (`#f7f1e0`), the transcript is its own slightly deeper
+sheet (`#faf4e2`), slate (`#3c405b`) is the only dark surface (the learner's own
+bubbles, the mic, the send button), gold (`#e8bf5f`) marks what the tutor is
+pointing at, and the steel blue (`#e4ecf3` / `#33526e`) carries the chips and
+pills the lavender used to hold. **Baloo 2** carries headings and the top-bar
+buttons, **Kalam** carries the transcript — the two faces of the design, both
+SIL OFL and vendored in `fonts/` so the APK has them offline.
 
-Every colour and both families live in one `:root` block at the top of
-[webapp.py](webapp.py); nothing downstream hard-codes a hue, so re-theming is a
-single edit. [tools/check_ui.py](tools/check_ui.py) asserts the structural rules
-the design depends on — tile hairlines, the borderless composer controls, the
-contrast pairs, the disabled watermark — so a later tweak cannot quietly undo
-them.
+The palette and both families are declared once in the `:root` block at the top
+of [webapp.py](webapp.py); the surfaces below repeat those values, so a re-theme
+is a change to the block plus a pass over the literals that mirror it. The pairs
+that matter are computed rather than eyeballed: [tools/check_ui.py](tools/check_ui.py)
+reads `--base` and `--card` out of the stylesheet and fails if an accent or a
+learner bubble drops under AA on them, alongside the structural rules the design
+depends on — tile hairlines, the borderless composer controls, the disabled
+watermark.
 
 ---
 

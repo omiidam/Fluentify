@@ -702,24 +702,29 @@ def main() -> int:
 
     # The section accents are text-coloured on the paper base, so they owe it
     # the same 4.5. One is open at a time, but each is still read as text.
+    # The base is read from the stylesheet rather than written here: a literal
+    # copy of it survived two palette changes and kept testing the wrong paper.
+    base = re.search(r"--base:\s*(#[0-9a-fA-F]{6})", src)
+    base = base.group(1) if base else "#faf4e8"
     for name in ("teal", "cyan", "violet", "emerald", "amber", "rose"):
         m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6})", src)
         if m:
             check(f"--{name} clears AA on the paper base",
-                  ratio(m.group(1), "#faf4e8") >= 4.5,
-                  f"{m.group(1)} is {ratio(m.group(1), '#faf4e8'):.2f}:1 on "
-                  "#faf4e8")
+                  ratio(m.group(1), base) >= 4.5,
+                  f"{m.group(1)} is {ratio(m.group(1), base):.2f}:1 on {base}")
 
     # The two speakers have to stay separable at a glance. Navy-on-cream made
     # the hue test wrong - both sides share the theme's ink - so what is
     # checked now is the thing the eye actually uses: one bubble is dark and
     # the other is paper.
+    card = re.search(r"--card:\s*(#[0-9a-fA-F]{6})", src)
+    card = card.group(1) if card else "#fffcef"
     m = re.search(r"--user1:\s*(#[0-9a-fA-F]{6})", src)
     if m:
         check("the learner bubble separates from the tutor's paper card",
-              ratio(m.group(1), "#fffcf3") >= 3,
-              f"{m.group(1)} is {ratio(m.group(1), '#fffcf3'):.2f}:1 against "
-              "the tutor card: the two speakers would read alike")
+              ratio(m.group(1), card) >= 3,
+              f"{m.group(1)} is {ratio(m.group(1), card):.2f}:1 against the "
+              "tutor card: the two speakers would read alike")
 
     # ------------------------------------------------------------- player --
     # One bar under the header for everything that makes a sound. The failure

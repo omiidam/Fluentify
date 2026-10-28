@@ -6,9 +6,9 @@
          flash in front of a cream loading screen. The bars are drawn in the
          same paper, with dark icons to match their light background. -->
     <style name="Theme.Fluentify" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:statusBarColor">#FAF4E8</item>
-        <item name="android:navigationBarColor">#FAF4E8</item>
-        <item name="android:windowBackground">#FAF4E8</item>
+        <item name="android:statusBarColor">#F7F1E0</item>
+        <item name="android:navigationBarColor">#F7F1E0</item>
+        <item name="android:windowBackground">#F7F1E0</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>

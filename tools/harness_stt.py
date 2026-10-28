@@ -483,13 +483,18 @@ def run_motion() -> None:
           icon_assignment is not None
           and not _re.search(r"[\U0001F300-\U0001FAFF]", icon_assignment.group(1)),
           "the glyph depends on the platform having an emoji font")
+    # The fill is compared against the theme's own navy rather than a literal
+    # copy of it: the value moved with the palette and the check kept asking
+    # for the colour the page no longer had.
+    navy = _re.search(r"--navy:\s*(#[0-9a-fA-F]{6})", html)
+    navy = navy.group(1).lower() if navy else ""
     check("the mic has a visible fill, not one lost against the composer",
-          ".mic {" in html and "#1b2d52" in html.lower(),
+          ".mic {" in html and bool(navy) and navy in html.lower(),
           "a tone that blends into the composer does not read as a control - "
-          "the mic is navy on the cream composer, the one saturated control "
-          "in the row")
+          "the mic is the theme's navy on the cream composer, the one "
+          "saturated control in the row")
     check("the mic reads as a visible control without a border",
-          ".mic {" in html and "#1b2d52" in html.lower()
+          ".mic {" in html and bool(navy) and navy in html.lower()
           and ".mic.rec" in html and "#a8493a" in html.lower(),
           "fill plus shadow keeps the mic legible with no outline; the "
           "recording state still differs by hue, not by a ring")
