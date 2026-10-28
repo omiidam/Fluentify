@@ -1486,15 +1486,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-family: var(--font-display); font-size: 15.5px; font-weight: 600;
     color: var(--navy2); line-height: 1.3;
   }
-  .dsay {
-    flex: none; width: 28px; height: 28px; border-radius: 9px; cursor: pointer;
-    display: grid; place-items: center; font-family: inherit; padding: 0;
-    border: 1px solid rgba(22,39,74,.13); background: #fffcf3; color: var(--navy);
-    transition: background .15s, border-color .15s;
-  }
-  .dsay svg { width: 14px; height: 14px; display: block; }
-  .dsay:hover { background: var(--gold-soft); border-color: rgba(138,90,0,.3); }
-  .dsay.on { background: var(--gold); border-color: var(--gold2); color: #33260a; }
   .dex { display: grid; gap: 5px; margin-top: 5px; }
   .dex .exrow {
     display: flex; align-items: flex-start; gap: 7px;
@@ -1640,7 +1631,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .dirow .dibody { display: none; }
   .dirow.open .dibody { display: block; }
   .ditools { display: flex; align-items: center; gap: 5px; flex: none; padding-top: 2px; }
-  .ditools .dsay { width: 26px; height: 26px; border-radius: 8px; }
   .ditick, .dimore {
     flex: none; width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
     display: grid; place-items: center; padding: 0; font-family: inherit;
@@ -6007,18 +5997,6 @@ const Daily = (() => {
 
   const esc = (s) => escapeHtml(String(s == null ? '' : s));
 
-  function sayIcon() {
-    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
-      'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ' +
-      'aria-hidden="true"><path d="M4.4 14.4v-3a7 7 0 0 1 14 0v3"/>' +
-      '<path d="M6.6 13.4v3.2M16.8 13.4v3.2M18.4 19.6h-3.2"/></svg>';
-  }
-
-  function say(text) {
-    return '<button type="button" class="dsay" data-say="' + esc(text) +
-      '" title="Listen — گوش بده" aria-label="Listen">' + sayIcon() + '</button>';
-  }
-
   function faLine(text, cls) {
     return '<div class="' + (cls || 'dfa') + '">' + esc(text) + '</div>';
   }
@@ -6027,7 +6005,7 @@ const Daily = (() => {
     const rows = (entry.examples || []).map((ex, i) =>
       '<div class="exrow"><span class="n">' + (i + 1) + '</span>' +
       '<div class="grow"><div class="dline">' + esc(ex.en) + '</div>' +
-      faLine(ex.fa, 'dline fa') + '</div>' + say(ex.en) + '</div>').join('');
+      faLine(ex.fa, 'dline fa') + '</div></div>').join('');
     return rows ? '<div class="dlabel">Examples — مثال‌ها</div><div class="dex">' +
       rows + '</div>' : '';
   }
@@ -6059,14 +6037,12 @@ const Daily = (() => {
       chips.push('<span class="dchip"><b>Ant</b> ' + esc(entry.ant.join(' · ')) + '</span>');
     }
     if (chips.length) html += '<div class="dchips">' + chips.join('') + '</div>';
-    html += '<div class="drow">' + say(entry.en) +
-      '<div class="grow"></div></div>';
     return html;
   }
 
   function expressionBody(entry) {
     let html = '<div class="drow"><div class="grow"><div class="dquote">“' +
-      esc(entry.en) + '”</div>' + faLine(entry.fa) + '</div>' + say(entry.en) + '</div>';
+      esc(entry.en) + '”</div>' + faLine(entry.fa) + '</div></div>';
     [['use', 'Means — یعنی'], ['when', 'When — کجا به کار می‌رود']].forEach(([f, label]) => {
       const body = entry[f] || {};
       if (!body.en && !body.fa) return;
@@ -6078,7 +6054,7 @@ const Daily = (() => {
     if (alt.en) {
       html += '<div class="dlabel">Also say — این هم می‌شود</div><div class="drow">' +
         '<div class="grow"><div class="dline">“' + esc(alt.en) + '”</div>' +
-        faLine(alt.fa, 'dline fa') + '</div>' + say(alt.en) + '</div>';
+        faLine(alt.fa, 'dline fa') + '</div></div>';
     }
     return html;
   }
@@ -6094,7 +6070,7 @@ const Daily = (() => {
       '<div class="dturn' + (i % 2 ? ' alt' : '') + '">' +
       '<div class="dwho">' + esc(t.who) + '</div>' +
       '<div class="dbubble"><div class="dline">' + esc(t.en) + '</div>' +
-      faLine(t.fa) + '</div>' + say(t.en) + '</div>').join('') + '</div>';
+      faLine(t.fa) + '</div></div>').join('') + '</div>';
     if ((entry.key || []).length) {
       html += '<div class="dchips">' + entry.key.map((k) =>
         '<span class="dchip">' + esc(k.en) + ' — ' + esc(k.fa) + '</span>').join('') + '</div>';
@@ -6135,12 +6111,14 @@ const Daily = (() => {
       faLine(topic.fa) + '</div>';
   }
 
-  function tools(kind, entry) {
-    const play = kind === 'conversations'
-      ? '<button type="button" class="dbtn" data-play="1" aria-pressed="false">▶ Listen to it all — کل مکالمه</button>' +
-        '<button type="button" class="dbtn" data-persian="1" aria-pressed="true">فارسی: روشن / Persian: on</button>'
+  /* The dialogue keeps its Persian toggle and nothing else. This is reading
+     material; the Listening panel is where the app does audio, and a play row
+     under every daily card was asking the learner to switch modes to use it. */
+  function tools(kind) {
+    return kind === 'conversations'
+      ? '<div class="dtools"><button type="button" class="dbtn" data-persian="1" ' +
+        'aria-pressed="true">فارسی: روشن / Persian: on</button></div>'
       : '';
-    return play ? '<div class="dtools">' + play + '</div>' : '';
   }
 
   function paintCard(kind, entry, done) {
@@ -6163,7 +6141,7 @@ const Daily = (() => {
       'title="More — بیشتر" aria-label="Show more">' + CHEVRON + '</button></div>';
     return '<div class="dcard' + (done ? ' done' : '') + '" data-kind="' + kind +
       '">' + head + leadOf(kind, entry) +
-      '<div class="dbody">' + body + tools(kind, entry) + '</div></div>';
+      '<div class="dbody">' + body + tools(kind) + '</div></div>';
   }
 
   /* The three items for a date. Shared by the panel and by the card in the
@@ -6274,7 +6252,7 @@ const Daily = (() => {
     html += '<div class="dturns">' + turns.slice(0, 2).map((t, i) =>
       '<div class="dturn' + (i % 2 ? ' alt' : '') + '"><div class="dwho">' +
       esc(t.who) + '</div><div class="dbubble"><div class="dline">' + esc(t.en) +
-      '</div>' + faLine(t.fa) + '</div>' + say(t.en) + '</div>').join('') + '</div>';
+      '</div>' + faLine(t.fa) + '</div></div>').join('') + '</div>';
     if (turns.length > 2) {
       html += '<div class="dnote">' + (turns.length - 2) +
         ' more lines in the panel. / ادامهٔ مکالمه در بخش امروز.' + '</div>';
@@ -6302,8 +6280,7 @@ const Daily = (() => {
       (entry.level ? ' <span class="dlvl">' + esc(entry.level) + '</span>' : '') +
       '</div><div class="disub">' + subOf(kind, entry) + '</div>' +
       '<div class="dibody">' + previewOf(kind, entry) + '</div></div>' +
-      '<div class="ditools">' + say(kind === 'conversations'
-        ? (((entry.turns || [])[0] || {}).en || '') : entry.en) +
+      '<div class="ditools">' +
       '<button type="button" class="ditick' + (done ? ' on' : '') + '" data-done="' +
       esc(entry.id) + '" aria-pressed="' + (done ? 'true' : 'false') +
       '" title="Done — انجام دادم" aria-label="Mark as done">✓</button>' +
@@ -6375,16 +6352,6 @@ const Daily = (() => {
   }
 
   function bindCard(root) {
-    root.querySelectorAll('[data-say]').forEach((b) => {
-      b.addEventListener('click', () => {
-        const text = b.getAttribute('data-say');
-        if (!text) return;
-        if (Speech.isPlaying(text)) { Speech.stop(); b.classList.remove('on'); return; }
-        root.querySelectorAll('.dsay.on').forEach((n) => n.classList.remove('on'));
-        b.classList.add('on');
-        if (!Speech.speak(text, () => b.classList.remove('on'))) b.classList.remove('on');
-      });
-    });
     root.querySelectorAll('[data-more]').forEach((b) => {
       b.addEventListener('click', () => {
         const row = b.closest('.dirow');
@@ -6484,16 +6451,6 @@ const Daily = (() => {
      state is visible without opening the card - which is what the panel is
      for now: three collapsed lines you can scan. */
   function bind(root) {
-    root.querySelectorAll('[data-say]').forEach((b) => {
-      b.addEventListener('click', () => {
-        const text = b.getAttribute('data-say');
-        if (!text) return;
-        if (Speech.isPlaying(text)) { Speech.stop(); b.classList.remove('on'); return; }
-        root.querySelectorAll('.dsay.on').forEach((n) => n.classList.remove('on'));
-        b.classList.add('on');
-        if (!Speech.speak(text, () => b.classList.remove('on'))) b.classList.remove('on');
-      });
-    });
     root.querySelectorAll('[data-more]').forEach((b) => {
       b.addEventListener('click', () => {
         const card = b.closest('.dcard');
@@ -6512,43 +6469,6 @@ const Daily = (() => {
         b.setAttribute('aria-pressed', off ? 'false' : 'true');
       });
     });
-    root.querySelectorAll('[data-play]').forEach((b) => {
-      b.addEventListener('click', () => {
-        const kind = b.closest('.dcard').getAttribute('data-kind');
-        const entry = picked && picked[kind];
-        if (!entry) return;
-        if (b.getAttribute('aria-pressed') === 'true') { stopPlay(); return; }
-        playTurns(b, entry.turns || []);
-      });
-    });
-  }
-
-  let playing = null;   // the button of the run in progress, so Stop can find it
-
-  function stopPlay() {
-    if (!playing) return;
-    playing.cancelled = true;
-    Speech.stop();
-    playing.el.textContent = '▶ Listen to it all — کل مکالمه';
-    playing.el.setAttribute('aria-pressed', 'false');
-    playing = null;
-  }
-
-  /* The dialogue, line by line: each turn starts when the previous one ends,
-     which is also how the player bar walks a listening clip. */
-  function playTurns(btn, turns) {
-    if (!turns.length) return;
-    const run = {el: btn, i: 0, cancelled: false};
-    playing = run;
-    btn.textContent = '■ Stop — توقف';
-    btn.setAttribute('aria-pressed', 'true');
-    const next = () => {
-      if (run.cancelled) return;
-      if (run.i >= turns.length) { stopPlay(); return; }
-      const turn = turns[run.i++];
-      if (!Speech.speak(turn.en, next)) stopPlay();
-    };
-    next();
   }
 
   /* Everything about the day is already in the catalogue, so "loading" is one
@@ -6596,7 +6516,7 @@ const Daily = (() => {
     schedule();
   }
 
-  return {load, paint, refresh, init, stopPlay, mountCard, removeCard,
+  return {load, paint, refresh, init, mountCard, removeCard,
           paintCardToggle, skipToday, setHidden};
 })();
 

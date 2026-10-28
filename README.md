@@ -20,7 +20,7 @@ no network calls, no tracking.
 
 | Area | Details |
 |---|---|
-| 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with audio and a per-day tick |
+| 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 words across 64 grouped domains, translate & define in both languages |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
@@ -42,7 +42,9 @@ Three fresh items at the start of every local day — one word, one expression a
 one conversation — offered as **a small card inside the conversation**, not as a
 section that takes the chat away: three one-line rows that open in place, a tick
 per row, and a progress count. The **Today** panel holds the full material
-(examples, the whole dialogue, audio) and is opened on demand.
+(examples and the whole dialogue) and is opened on demand. The section has no
+voice: a speaker under every line turned a reading card into a player, and this
+app already has a Listening panel where audio is the point.
 
 The daily set is a suggestion, so turning it down is one tap and nothing is
 punished: **✕** collapses the card to one line for that day, and **Don't show

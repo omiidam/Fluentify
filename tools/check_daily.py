@@ -559,8 +559,18 @@ def wiring(src: str, cat: dict) -> None:
 
     # every card renderer must exist, or a category silently paints nothing
     for fn in ("wordBody", "expressionBody", "conversationBody", "paintCard",
-               "tools", "bind", "playTurns"):
+               "tools", "bind"):
         check(f"function {fn}(" in src, f"the Daily module has no {fn}()")
+
+    # No voice in this section. Three items a day is reading material; audio is
+    # the Listening panel's job, and a speaker under every line made the daily
+    # card look like a player instead of a card. Asserted on the two strings the
+    # removed controls owned, because a future edit that reintroduces one would
+    # otherwise look like a feature.
+    for gone, what in (("data-say", "a per-line speaker button"),
+                       ("data-play", "a \"listen to it all\" button"),
+                       ("Listen to it all", "the listen-all control")):
+        check(gone not in src, f"the Daily feature has {what} again")
 
     # The card in the conversation. Every one of its rows was styled and the
     # box around them was not, so it inherited the transcript's handwriting
