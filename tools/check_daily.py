@@ -397,6 +397,29 @@ DailyStore.setSkipped(DailyStore.readCard(), DAY1);
 check(DailyStore.isSkipped(DailyStore.readCard(), DAY1),
   'writing the skip a second time cleared it');
 
+/* Finishing the day closes the card, and the day is recorded as finished so
+   a repaint cannot mount it again. Like the skip flag it is one-way at the
+   store: there is no argument that reopens a day already read. */
+check(!DailyStore.isFinished(p, DAY1), 'a fresh day should not read as finished');
+DailyStore.writeCard(DailyStore.setFinished(p, DAY1));
+p = DailyStore.readCard();
+check(DailyStore.isFinished(p, DAY1), 'finishing today did not survive a write/read');
+check(!DailyStore.isFinished(p, DAY2), 'finishing one day finished the next as well');
+// the two are separate decisions, not one flag with two names
+DailyStore.writeCard(DailyStore.setFinished(DailyStore.readCard(), DAY2));
+p = DailyStore.readCard();
+check(!DailyStore.isSkipped(p, DAY2), 'finishing a day also marked it skipped');
+check(DailyStore.isSkipped(p, DAY1), 'finishing another day cleared the skip');
+check(DailyStore.setFinished.length === 2,
+  'setFinished grew an on/off argument - a finished day is reopenable at the ' +
+  'store level');
+DailyStore.setFinished(DailyStore.readCard(), DAY1);
+check(DailyStore.isFinished(DailyStore.readCard(), DAY1),
+  'writing the finished flag a second time cleared it');
+const finKept = DailyStore.writeCard(DailyStore.readCard()).finished;
+check(Object.keys(finKept).length <= 60,
+  'finished days are not pruned, so the record grows without bound');
+
 // switching the card off is separate from skipping a day
 p = DailyStore.readCard();
 p.hidden = true;
@@ -631,6 +654,30 @@ def wiring(src: str, cat: dict) -> None:
     if skip:
         check('removeCard()' in skip.group(1),
               "skipping today no longer removes the card")
+
+    # A finished day is a closed day: the third tick has to end the card, and
+    # the day must be recorded so the next repaint does not mount it again.
+    done = re.search(r"function toggleDone\(id\) \{(.*?)\n  \}\n", src, re.S)
+    check(bool(done), "there is no single place that marks a daily item done")
+    if done:
+        check("progress(key) === 3" in done.group(1)
+              and "closeWhenDone()" in done.group(1),
+              "the third tick does not end the day: the card stays in the "
+              "transcript as a spent progress bar")
+    close = re.search(r"function closeWhenDone\(\) \{(.*?)\n  \}\n", src, re.S)
+    check(bool(close), "finishing the day has no handler")
+    if close:
+        body = close.group(1)
+        check('removeCard()' in body and 'setFinished' in body,
+              "the finished card is not removed, or the day is not recorded as "
+              "finished - a repaint would put it back")
+        check('setTimeout' in body,
+              "the card closes on the same tick it was completed, so the third "
+              "tick and its progress never show")
+    if mount:
+        check('isFinished' in mount.group(1),
+              "mountCard() does not check whether the day is finished, so a "
+              "repaint reopens a closed day")
 
     # #chat is a flex column and the card clips its own content, so without an
     # explicit flex-basis flexbox gives it a zero minimum height and squashes

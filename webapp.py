@@ -1593,6 +1593,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .dinline.complete::before {
     background: linear-gradient(90deg, var(--green), #4aa27e 55%, #a8d8bf);
   }
+  /* Finished: the third tick turns the rule green, then the card folds away
+     rather than vanishing between two frames. Opacity and transform only, so
+     the close stays on the compositor like every other animation here. */
+  .dinline.closing {
+    opacity: 0; transform: translateY(-8px) scale(.99);
+    transition: opacity .55s ease .25s, transform .55s ease .25s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dinline.closing { transition: none; }
+  }
   /* The header is its own band: a warm wash that separates "what this is"
      from the three things it holds, and a hairline to close it. */
   .dihead {
@@ -5945,27 +5955,42 @@ const DailyStore = {
       const raw = localStorage.getItem(this.CARD_KEY);
       const s = raw ? JSON.parse(raw) : null;
       const sk = s && s.skipped && typeof s.skipped === 'object' ? s.skipped : {};
-      const skipped = {};
+      const fin = s && s.finished && typeof s.finished === 'object' ? s.finished : {};
+      const skipped = {}, finished = {};
       Object.keys(sk).forEach((k) => { if (sk[k]) skipped[k] = true; });
-      return {hidden: !!(s && s.hidden), skipped: skipped};
+      Object.keys(fin).forEach((k) => { if (fin[k]) finished[k] = true; });
+      return {hidden: !!(s && s.hidden), skipped: skipped, finished: finished};
     } catch (e) {
-      return {hidden: false, skipped: {}};   // a corrupt record must not hide anything
+      return {hidden: false, skipped: {}, finished: {}};
     }
   },
   writeCard(prefs) {
-    const skipped = prefs.skipped || {};
-    // "skipped" is per day, so it would grow forever. The newest sixty are
+    // Both maps are per day, so they would grow forever. The newest sixty are
     // kept: more than enough to remember the recent past, and bounded.
-    const kept = {};
-    Object.keys(skipped).sort().reverse().slice(0, 60)
-      .forEach((k) => { kept[k] = true; });
+    const prune = (map) => {
+      const kept = {};
+      Object.keys(map || {}).sort().reverse().slice(0, 60)
+        .forEach((k) => { kept[k] = true; });
+      return kept;
+    };
+    const skipped = prune(prefs.skipped);
+    const finished = prune(prefs.finished);
     try {
       localStorage.setItem(this.CARD_KEY,
-        JSON.stringify({hidden: !!prefs.hidden, skipped: kept}));
+        JSON.stringify({hidden: !!prefs.hidden, skipped: skipped,
+                        finished: finished}));
     } catch (e) { /* private mode: the choice just does not persist */ }
-    return {hidden: !!prefs.hidden, skipped: kept};
+    return {hidden: !!prefs.hidden, skipped: skipped, finished: finished};
   },
   isSkipped(prefs, date) { return !!prefs.skipped[date]; },
+  /* A day whose three items are all ticked is over too: the card closes and
+     stays closed, so the next repaint cannot reopen a finished day. */
+  isFinished(prefs, date) { return !!prefs.finished[date]; },
+  setFinished(prefs, date) {
+    prefs.finished = prefs.finished || {};
+    prefs.finished[date] = true;
+    return prefs;
+  },
   /* One way only. There is no "un-skip" parameter, because there is no
      un-skip: a day the learner turned down stays turned down, so the store
      cannot be talked into reopening it by a later repaint or a stale
@@ -6353,7 +6378,8 @@ const Daily = (() => {
     /* Turning today's offer down is a decision, not a toggle: the card goes,
        and nothing on the page brings it back - not a repaint, not the next
        launch, not a resume. The day is over until tomorrow's card. */
-    if (prefs.hidden || DailyStore.isSkipped(prefs, key)) {
+    if (prefs.hidden || DailyStore.isSkipped(prefs, key) ||
+        DailyStore.isFinished(prefs, key)) {
       paintCardToggle();
       return;
     }
@@ -6431,7 +6457,9 @@ const Daily = (() => {
   }
 
   /* One place that marks an item done, for the tick in the card and the tick in
-     the panel: the badge, both progress bars and the day's count follow. */
+     the panel: the badge, both progress bars and the day's count follow, and
+     the third tick ends the day - the card closes itself once it is finished
+     instead of sitting in the transcript as a spent progress bar. */
   function toggleDone(id) {
     if (!id) return false;
     const key = dayKey(new Date());
@@ -6446,7 +6474,29 @@ const Daily = (() => {
       if (card) card.classList.toggle('done', next);
     });
     repaintProgress();
+    if (next && progress(key) === 3) closeWhenDone();
     return next;
+  }
+
+  /* All three ticked: let the third tick land, then take the card out. The
+     day is recorded as finished before the timer runs, so a repaint in the
+     half second before it closes cannot re-mount the card behind our back.
+     One way only, like a skipped day: unticking in the panel later does not
+     reopen the conversation's card - the day has been read. */
+  let closing = 0;
+  function closeWhenDone() {
+    const key = dayKey(new Date());
+    DailyStore.writeCard(DailyStore.setFinished(DailyStore.readCard(), key));
+    const card = document.getElementById('dailyset');
+    if (card) card.classList.add('complete', 'closing');
+    if (closing) return;
+    closing = setTimeout(() => {
+      closing = 0;
+      removeCard();
+      if (typeof toast === 'function') {
+        toast('Today\u2019s English is done \u2014 \u0627\u0645\u0631\u0648\u0632 \u06a9\u0627\u0645\u0644 \u0634\u062f');
+      }
+    }, 900);
   }
 
   /* Skipping removes the card outright. There is deliberately no un-skip
