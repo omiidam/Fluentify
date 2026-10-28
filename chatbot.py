@@ -1075,17 +1075,17 @@ class ChatBot:
         if context and best is not None:
             num = to_persian_digits(best + 1) if lang == "fa" else str(best + 1)
             lines.append(
-                f"   ↳ در جمله تو، معنی {num} مناسب‌تر است." if lang == "fa"
-                else f"   ↳ In your sentence, sense {num} fits best.")
+                f"   ↲ در جمله تو، معنی {num} مناسب‌تر است." if lang == "fa"
+                else f"   ↲ In your sentence, sense {num} fits best.")
         elif context:
             # The learner named a sentence and none of the stored senses
             # mentions it. Saying so is the answer; picking the closest anyway
             # would be a guess dressed as a definition.
             said = context_text.strip(" .?!؟،")
             if lang == "fa":
-                lines.append(f"   ↳ برای «{said}» معنی‌ای ثبت نکرده‌ام — این‌ها معنی‌های موجودند.")
+                lines.append(f"   ↲ برای «{said}» معنی‌ای ثبت نکرده‌ام — این‌ها معنی‌های موجودند.")
             else:
-                lines.append(f"   ↳ I have no sense recorded for \u201c{said}\u201d "
+                lines.append(f"   ↲ I have no sense recorded for \u201c{said}\u201d "
                              f"— these are the meanings I have.")
         return "\n".join(lines)
 
@@ -1096,10 +1096,10 @@ class ChatBot:
         syn = kind == "y"
         if lang == "fa":
             title = ("🔗 مترادف‌های" if syn else "⚖️ متضادهای") + f" **{head}**"
-            empty = "   ↳ در واژه‌نامه ثبت نشده است."
+            empty = "   ↲ در واژه‌نامه ثبت نشده است."
         else:
             title = ("🔗 synonyms of" if syn else "⚖️ opposites of") + f" **{head}**"
-            empty = "   ↳ none are recorded in my dictionary."
+            empty = "   ↲ none are recorded in my dictionary."
         if not groups:
             return title + "\n" + empty
         lines = [title]
@@ -1422,7 +1422,7 @@ class ChatBot:
             topic_id = self.last_lesson
             if topic_id is None:
                 return ("Open a lesson first, then say 'exercises'.\n"
-                        "   ↳ اول یک درس را باز کن، بعد بنویس «تمرین».\n"
+                        "   ↲ اول یک درس را باز کن، بعد بنویس «تمرین».\n"
                         "   Write 'grammar' for the list of lessons."
                         if lang == "en" else
                         "اول یک درس را باز کن، بعد بنویس «تمرین».\n"
@@ -1439,12 +1439,12 @@ class ChatBot:
         if which:
             if self.last_examples:
                 answer = " / ".join(self.last_examples)
-                return (f"💡 Answer: {answer}\n   ↳ جواب: {answer}"
+                return (f"💡 Answer: {answer}\n   ↲ جواب: {answer}"
                         if lang == "en" else f"💡 جواب: {answer}\n   Answer: {answer}")
             if self.last_level:
                 return self.format_listening_level(self.last_level)
             return ("Nothing to reveal yet — open a lesson or ask me a question.\n"
-                    "   ↳ هنوز چیزی برای نمایش نیست — یک درس را باز کن."
+                    "   ↲ هنوز چیزی برای نمایش نیست — یک درس را باز کن."
                     if lang == "en" else
                     "هنوز چیزی برای نمایش نیست — یک درس را باز کن.")
 
@@ -1455,10 +1455,10 @@ class ChatBot:
                 rows = topic.get("examples", [])
                 self.last_examples = self._example_answers(topic)
                 return ("📝 More examples — مثال‌های بیشتر:\n" + "\n".join(
-                    f"   {i + 1}. {r['en']}\n      ↳ {r['fa']}"
+                    f"   {i + 1}. {r['en']}\n      ↲ {r['fa']}"
                     for i, r in enumerate(rows)))
             return ("Open a lesson first and ask for examples.\n"
-                    "   ↳ اول یک درس را باز کن.")
+                    "   ↲ اول یک درس را باز کن.")
 
         which = self._bare(lowered, self.BARE_AGAIN)
         if which:
@@ -1472,10 +1472,10 @@ class ChatBot:
                 topic = self.phrases.get(self.last_phrase)
                 if topic:
                     return ("Say it again — دوباره گوش کن:\n" + "\n".join(
-                        f"   • {r['en']}\n     ↳ {r['fa']}"
+                        f"   • {r['en']}\n     ↲ {r['fa']}"
                         for r in topic["phrases"][:4]))
             return ("Tell me what to repeat — a listening band or a sentence bank.\n"
-                    "   ↳ بگو کدام را تکرار کنم." if lang == "en" else
+                    "   ↲ بگو کدام را تکرار کنم." if lang == "en" else
                     "بگو کدام را تکرار کنم.")
 
         if self._bare(lowered, self.BARE_NEXT):
@@ -1536,13 +1536,13 @@ class ChatBot:
         topic = self.distinctions[topic_id]
         title = topic["title"]["en"]
         lines = [f"⚖️  {title}  ·  ({topic['title']['fa']})",
-                 f"   ↳ سطح: {topic['level']}", "",
+                 f"   ↲ سطح: {topic['level']}", "",
                  f"{topic['why']}"]
         for side in topic["sides"]:
             lines.append("")
             lines.append(f"  • {side['en']}")
             if side.get("fa"):
-                lines.append(f"    ↳ {side['fa']}")
+                lines.append(f"    ↲ {side['fa']}")
         return "\n".join(lines)
 
     def handle_distinction(self, text: str, lowered: str, lang: str) -> str | None:
@@ -1588,7 +1588,7 @@ class ChatBot:
 
     def format_idiom(self, row: dict) -> str:
         return (f"🗯  “{row['en']}” — {row['fa']}\n"
-                f"   ↳ {row['meaning']}\n"
+                f"   ↲ {row['meaning']}\n"
                 f"   e.g. {row['example']}")
 
     def handle_idioms(self, text: str, lowered: str, lang: str) -> str | None:
@@ -1785,7 +1785,7 @@ class ChatBot:
             problems = self.check_grammar(sentence)
         if not problems:
             if asked:
-                return ("✅ That sentence is correct English.  ↳ این جمله درست است."
+                return ("✅ That sentence is correct English.  ↲ این جمله درست است."
                         if lang == "en" else
                         "✅ این جمله درست است. / That sentence is correct English.")
             return None
@@ -1860,7 +1860,7 @@ class ChatBot:
                              for w in tokens):
             return (
                 "🗣  Give me the word and I'll help you say it.\n"
-                "   ↳ کلمه را بگو تا با هم تلفظش کنیم.\n"
+                "   ↲ کلمه را بگو تا با هم تلفظش کنیم.\n"
                 "   Try: 'how do you pronounce hospital'"
             )
 
@@ -1875,16 +1875,16 @@ class ChatBot:
             note = first_sound_note(en)
             if note:
                 lines.append(f"   Tip: {note}.")
-            lines.append("   ↳ For the full guide ask: 'phonetics'")
+            lines.append("   ↲ For the full guide ask: 'phonetics'")
             return "\n".join(lines)
 
         phrase = self.lookup_phrase(key)
         if phrase:
             lines = [f"🗣  “{phrase['en']}”",
-                     f"   ↳ {phrase['fa']}",
+                     f"   ↲ {phrase['fa']}",
                      *([f"   Say it slowly: {' · '.join(phrase['en'])}"]
                        if len(phrase["en"]) <= 24 else []),
-                     "   ↳ For the full guide ask: 'phonetics'"]
+                     "   ↲ For the full guide ask: 'phonetics'"]
             return "\n".join(lines)
 
         # Not in the dictionary — say something useful instead of dropping the
@@ -1892,7 +1892,7 @@ class ChatBot:
         return (
             f"🗣  “{word}” is not in my vocabulary list yet, so I cannot give "
             f"you its Persian meaning.\n"
-            f"   ↳ «{word}» هنوز در واژگان من نیست.\n"
+            f"   ↲ «{word}» هنوز در واژگان من نیست.\n"
             f"   Say it slowly: {' · '.join(word)} · stress: {mark_stress(key)}\n"
             f"   Ask 'idioms' or 'difference between {word} and ...' to look it "
             f"up from another angle."
@@ -1986,21 +1986,21 @@ class ChatBot:
         parts = [head]
 
         parts.append("\n1️⃣ Structure / ساختار")
-        parts.extend(f"• {s['en']}\n  ↳ {s['fa']}" for s in topic["structure"])
+        parts.extend(f"• {s['en']}\n  ↲ {s['fa']}" for s in topic["structure"])
         if topic.get("tip"):
-            parts.append(f"\n💡 Tip: {topic['tip']['en']}\n   ↳ {topic['tip']['fa']}")
+            parts.append(f"\n💡 Tip: {topic['tip']['en']}\n   ↲ {topic['tip']['fa']}")
 
         notes = topic.get("explain") or []
         if notes:
             parts.append("\n2️⃣ Explanation / توضیح")
-            parts.extend(f"• {n['en']}\n  ↳ {n['fa']}" for n in notes)
+            parts.extend(f"• {n['en']}\n  ↲ {n['fa']}" for n in notes)
 
         parts.append("\n3️⃣ Function / کاربرد")
-        parts.extend(f"• {f['en']}\n  ↳ {f['fa']}" for f in topic["function"])
+        parts.extend(f"• {f['en']}\n  ↲ {f['fa']}" for f in topic["function"])
 
         parts.append("\n4️⃣ Examples / مثال‌ها")
         parts.extend(
-            f"{i}. {e['en']}\n   ↳ {e['fa']}"
+            f"{i}. {e['en']}\n   ↲ {e['fa']}"
             for i, e in enumerate(topic["examples"], 1)
         )
 
@@ -2455,7 +2455,7 @@ class ChatBot:
         """English sentence first, Persian translation beneath it."""
         parts = [f"💬 {topic['title']['en']} ({topic['title']['fa']})"]
         for line in topic["phrases"]:
-            parts.append(f"• {line['en']}\n  ↳ {line['fa']}")
+            parts.append(f"• {line['en']}\n  ↲ {line['fa']}")
         return "\n".join(parts)
 
     def handle_phrases(self, text: str, lowered: str, lang: str) -> str | None:
@@ -2483,7 +2483,7 @@ class ChatBot:
         head = f"\U0001f3a7 {level['title']['en']} ({level['title']['fa']})"
         parts = [head, f"{level['blurb']['en']} / {level['blurb']['fa']}"]
         for i, s in enumerate(level["sentences"], 1):
-            parts.append(f"{i}. {s['en']}\n   \u21b3 {s['fa']}")
+            parts.append(f"{i}. {s['en']}\n   \u21b2 {s['fa']}")
         return "\n".join(parts)
 
     def handle_listening(self, text: str, lowered: str, lang: str) -> str | None:
@@ -2538,7 +2538,7 @@ class ChatBot:
         lines = [head]
         for i, ex in enumerate(entry.get("examples", []), 1):
             lines.append(f"   {i}. {ex['en']}")
-            lines.append(f"      ↳ {ex['fa']}")
+            lines.append(f"      ↲ {ex['fa']}")
         return lines
 
     def format_daily_word(self, entry: dict, lang: str) -> str:
@@ -2550,11 +2550,11 @@ class ChatBot:
                           if x)
         if meta:
             lines.append(f"  {meta}")
-        lines.append(f"  ↳ {entry['fa']}")
+        lines.append(f"  ↲ {entry['fa']}")
         definition = entry.get("def") or {}
         if definition:
             lines.append(f"  {definition.get('en', '')}")
-            lines.append(f"  ↳ {definition.get('fa', '')}")
+            lines.append(f"  ↲ {definition.get('fa', '')}")
         lines.append("")
         lines += self._examples_block(
             entry, lang,
@@ -2573,7 +2573,7 @@ class ChatBot:
                                       entry.get("level", "")) if x)
         lines = [head, ""]
         lines.append(f"  “{entry['en']}”")
-        lines.append(f"  ↳ {entry['fa']}")
+        lines.append(f"  ↲ {entry['fa']}")
         if meta:
             lines.append(f"  {meta}")
         if not examples_only:
@@ -2582,7 +2582,7 @@ class ChatBot:
                 if body:
                     lines.append("")
                     lines.append(f"  {label}: {body.get('en', '')}")
-                    lines.append(f"  ↳ {body.get('fa', '')}")
+                    lines.append(f"  ↲ {body.get('fa', '')}")
         lines.append("")
         lines += self._examples_block(
             entry, lang,
@@ -2591,7 +2591,7 @@ class ChatBot:
         if alt:
             lines.append("")
             lines.append(f"  Also say: “{alt.get('en', '')}”")
-            lines.append(f"  ↳ {alt.get('fa', '')}")
+            lines.append(f"  ↲ {alt.get('fa', '')}")
         return "\n".join(lines)
 
     def format_daily_conversation(self, entry: dict, lang: str) -> str:
@@ -2604,11 +2604,11 @@ class ChatBot:
                      f"   ({entry.get('level', '')})")
         if setting:
             lines.append(f"  {setting.get('en', '')}")
-            lines.append(f"  ↳ {setting.get('fa', '')}")
+            lines.append(f"  ↲ {setting.get('fa', '')}")
         lines.append("")
         for turn in entry.get("turns", []):
             lines.append(f"  {turn['who']}: {turn['en']}")
-            lines.append(f"      ↳ {turn['fa']}")
+            lines.append(f"      ↲ {turn['fa']}")
         if entry.get("key"):
             lines.append("")
             lines.append("  Useful phrases — عبارت‌های کلیدی:" if lang == "en"
@@ -2616,8 +2616,8 @@ class ChatBot:
             for row in entry["key"]:
                 lines.append(f"   • {row['en']}  —  {row['fa']}")
         for note in entry.get("notes", []):
-            lines.append(f"  ↳ {note['en']}")
-            lines.append(f"    ↳ {note['fa']}")
+            lines.append(f"  ↲ {note['en']}")
+            lines.append(f"    ↲ {note['fa']}")
         lines.append("")
         lines.append("  Practice it: ‘practice today's conversation’" if lang == "en"
                      else "  تمرینش کن: «مکالمه امروز رو باهام تمرین کن»")
@@ -2643,10 +2643,10 @@ class ChatBot:
         if lang == "en":
             parts.append("Ask: ‘explain today's word’, ‘today's expression’, "
                          "‘today's conversation’")
-            parts.append("   ↳ بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»")
+            parts.append("   ↲ بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»")
         else:
             parts.append("بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»")
-            parts.append("   ↳ Or in English: today's word / expression / conversation")
+            parts.append("   ↲ Or in English: today's word / expression / conversation")
         return "\n".join(parts)
 
     def wants_daily(self, text: str, lowered: str) -> str | None:
@@ -2701,7 +2701,7 @@ class ChatBot:
             f"  {topic.get('en', '')} — {topic.get('fa', '')}",
             "",
             f"  {first['who']}: {first['en']}",
-            f"      ↳ {first['fa']}",
+            f"      ↲ {first['fa']}",
             "",
             f"  Your line — {mine['who']} چه می‌گوید؟" if lang == "fa"
             else f"  Your line — what does {mine['who']} say?",
@@ -2750,14 +2750,14 @@ class ChatBot:
                          if lang == "en" else
                          "\u274c نه دقیقاً — not quite. "
                          f"{turns[index]['who']}: {expected}")
-            lines.append(f"      ↳ {turns[index]['fa']}")
+            lines.append(f"      ↲ {turns[index]['fa']}")
         follow = index + 1
         if follow + 1 < len(turns):
             session["turn"] = follow + 1
             lines += [
                 "",
                 f"  {turns[follow]['who']}: {turns[follow]['en']}",
-                f"      ↳ {turns[follow]['fa']}",
+                f"      ↲ {turns[follow]['fa']}",
                 "",
                 (f"  Your line — {turns[follow + 1]['who']} چه می‌گوید؟"
                  if lang == "fa" else
@@ -3031,7 +3031,7 @@ class ChatBot:
                 hint = ("شکل ساده کلمه را امتحان کن (مثلاً go به‌جای went) "
                         "یا یک دامنه بپرس: رنگ‌ها، حیوانات، میوه‌ها.")
                 example = ""
-            return f"«{target}» توی واژه‌نامه من نیست 📚\n   ↳ {hint}{example}"
+            return f"«{target}» توی واژه‌نامه من نیست 📚\n   ↲ {hint}{example}"
         if suggestions:
             names = ", ".join(f'"{s}"' for s in suggestions)
             hint = f"Did you mean {names}?"
@@ -3040,7 +3040,7 @@ class ChatBot:
             hint = ("Try the base form (e.g. 'go', not 'went'), or ask for a "
                     "domain: colors, animals, fruits, numbers.")
             example = ""
-        return f"I don't have \"{target}\" in my glossary yet 📚\n   ↳ {hint}{example}"
+        return f"I don't have \"{target}\" in my glossary yet 📚\n   ↲ {hint}{example}"
 
     def format_lookup(self, target: str, entries, lang: str) -> str:
         dom_id, en, fa = entries[0]
@@ -3079,11 +3079,11 @@ class ChatBot:
                 continue
             out.append(f"{self._reg_label(k)}")
             out.append(f"  {body['en']}")
-            out.append(f"  ↳ {body['fa']}")
+            out.append(f"  ↲ {body['fa']}")
             out.append("")
         if not only and pair.get("note"):
-            out.append(f"↳ {pair['note']['en']}")
-            out.append(f"↳ {pair['note']['fa']}")
+            out.append(f"↲ {pair['note']['en']}")
+            out.append(f"↲ {pair['note']['fa']}")
         return "\n".join(out).rstrip()
 
     def _reg_match(self, thing: str) -> dict | None:
@@ -3151,7 +3151,7 @@ class ChatBot:
                     return (f"“{sit['situation']['en']}” — {sit['situation']['fa']}\n"
                             f"→ {self._reg_label(sit['register'])}\n"
                             f"{sit['note']['en']}\n"
-                            f"↳ {sit['note']['fa']}")
+                            f"↲ {sit['note']['fa']}")
             return None
 
         # "how do I say <thing> formally / casually"
@@ -3189,7 +3189,7 @@ class ChatBot:
                                   self.register.get("pairs", [])[:6])
             return (f'I do not have "{thing}" in the register list yet.\n'
                     f"I do have: {available}\n"
-                    f"↳ هنوز این مورد را ندارم.")
+                    f"↲ هنوز این مورد را ندارم.")
 
         # a bare ask: register / formal vs casual / سطح رسمیت
         if re.search(r"\bregisters?\b|formal vs|formal or casual|"
@@ -3198,7 +3198,7 @@ class ChatBot:
                      "**سطح رسمیت** — یک معنا، سه راه برای گفتن.", ""]
             for c in self.register.get("channels", []):
                 lines.append(f"• **{c['title']['en']}** — {c['blurb']['en']}")
-                lines.append(f"  ↳ {c['title']['fa']}: {c['blurb']['fa']}")
+                lines.append(f"  ↲ {c['title']['fa']}: {c['blurb']['fa']}")
             pairs = self.register.get("pairs", [])
             if pairs:
                 lines.append("")

@@ -222,11 +222,11 @@ def check_answers() -> int:
     # ...and with no second line pretending to translate the first: the
     # source's Persian sentence for a sense is an independent sentence about
     # the word, so a line under the English example reads as a mistranslation
-    check("↳" not in reply,
+    check("↲" not in reply,
           "an example answered with a second line under it - the unpaired "
           "Persian sentence is not a translation and must not be printed as one")
     reply = ask("what does mushroom mean")
-    check("↳" not in reply.split("In your sentence")[0],
+    check("↲" not in reply.split("In your sentence")[0],
           "a definition printed an unpaired Persian example under the "
           "English one")
 

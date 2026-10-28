@@ -130,7 +130,7 @@ def main() -> None:
             topic_id = self.last_lesson
             if topic_id is None:
                 return ("Open a lesson first, then say 'exercises'.\\n"
-                        "   ↳ اول یک درس را باز کن، بعد بنویس «تمرین».\\n"
+                        "   ↲ اول یک درس را باز کن، بعد بنویس «تمرین».\\n"
                         "   Write 'grammar' for the list of lessons."
                         if lang == "en" else
                         "اول یک درس را باز کن، بعد بنویس «تمرین».\\n"
@@ -147,13 +147,13 @@ def main() -> None:
         if which:
             if self.last_examples:
                 answer = " / ".join(self.last_examples)
-                return (f"💡 Answer: {answer}\\n   ↳ جواب: {answer}"
+                return (f"💡 Answer: {answer}\\n   ↲ جواب: {answer}"
                         if lang == "en" else f"💡 جواب: {answer}\\n   Answer: {answer}")
             if self.last_level:
                 return self.format_listening_level(
                     self.match_listening_level(self.last_level, self.last_level))
             return ("Nothing to reveal yet — open a lesson or ask me a question.\\n"
-                    "   ↳ هنوز چیزی برای نمایش نیست — یک درس را باز کن."
+                    "   ↲ هنوز چیزی برای نمایش نیست — یک درس را باز کن."
                     if lang == "en" else
                     "هنوز چیزی برای نمایش نیست — یک درس را باز کن.")
 
@@ -164,10 +164,10 @@ def main() -> None:
                 rows = topic.get("examples", [])
                 self.last_examples = [r["en"] for r in rows[:4]] or []
                 return ("📝 More examples — مثال‌های بیشتر:\\n" + "\\n".join(
-                    f"   {i + 1}. {r['en']}\\n      ↳ {r['fa']}"
+                    f"   {i + 1}. {r['en']}\\n      ↲ {r['fa']}"
                     for i, r in enumerate(rows)))
             return ("Open a lesson first and ask for examples.\\n"
-                    "   ↳ اول یک درس را باز کن.")
+                    "   ↲ اول یک درس را باز کن.")
 
         which = self._bare(lowered, self.BARE_AGAIN)
         if which:
@@ -182,10 +182,10 @@ def main() -> None:
                 topic = self.phrases.get(self.last_phrase)
                 if topic:
                     return ("Say it again — دوباره گوش کن:\\n" + "\\n".join(
-                        f"   • {r['en']}\\n     ↳ {r['fa']}"
+                        f"   • {r['en']}\\n     ↲ {r['fa']}"
                         for r in topic["phrases"][:4]))
             return ("Tell me what to repeat — a listening band or a sentence bank.\\n"
-                    "   ↳ بگو کدام را تکرار کنم." if lang == "en" else
+                    "   ↲ بگو کدام را تکرار کنم." if lang == "en" else
                     "بگو کدام را تکرار کنم.")
 
         if self._bare(lowered, self.BARE_NEXT):

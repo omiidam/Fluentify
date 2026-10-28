@@ -100,7 +100,7 @@ def run_grader() -> None:
           short.get("level") is None, str(short))
 
     # the transcript cleaner must not throw on real junk
-    for junk in ["", "   ", "\n\n", "↳ x", "‮mirror", "a" * 3000]:
+    for junk in ["", "   ", "\n\n", "↲ x", "‮mirror", "a" * 3000]:
         try:
             clean_transcript(junk)
         except Exception as exc:  # noqa: BLE001

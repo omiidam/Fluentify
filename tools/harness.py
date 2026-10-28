@@ -44,7 +44,7 @@ def fail(kind: str, case: str, detail: str) -> None:
 # checks
 # --------------------------------------------------------------------------
 MARKUP = re.compile(r"\{\*\*|\*\*|\{en\}|\{fa\}|<br\s*/?>|\bnan\b|�")
-TRANSLATE = "\u21b3"  # the arrow that introduces a translation
+TRANSLATE = "\u21b2"  # the arrow that introduces a translation
 
 
 def check_reply(kind: str, case: str, reply: str, want=None, banned=(), need=()) -> None:
@@ -376,7 +376,7 @@ def run_teacher(verbose: bool) -> None:
         # "don't have" is only a dictionary-miss signal in a *lookup*; here it
         # can be perfectly good English inside a lesson.
         check_reply("distinction", q, r,
-                    need=[] if q == "what is the difference" else ["↳"])
+                    need=[] if q == "what is the difference" else ["↲"])
         if q not in ("what is the difference",
                      "what is the difference between present perfect and past simple") \
                 and "⚖" not in r:

@@ -47,11 +47,11 @@ METHODS = r'''
   formatDistinction(topicId) {
     const topic = this.distinctions[topicId];
     const lines = [`⚖️  ${topic.title.en}  ·  (${topic.title.fa})`,
-      `   ↳ سطح: ${topic.level}`, '', topic.why];
+      `   ↲ سطح: ${topic.level}`, '', topic.why];
     for (const side of topic.sides) {
       lines.push('');
       lines.push(`  • ${side.en}`);
-      if (side.fa) lines.push(`    ↳ ${side.fa}`);
+      if (side.fa) lines.push(`    ↲ ${side.fa}`);
     }
     return lines.join('\n');
   }
@@ -87,7 +87,7 @@ METHODS = r'''
   }
 
   formatIdiom(row) {
-    return `🗯  “${row.en}” — ${row.fa}\n   ↳ ${row.meaning}\n   e.g. ${row.example}`;
+    return `🗯  “${row.en}” — ${row.fa}\n   ↲ ${row.meaning}\n   e.g. ${row.example}`;
   }
 
   handleIdioms(text, lowered, lang) {
@@ -198,7 +198,7 @@ METHODS = r'''
     if (!problems.length) {
       return asked
         ? (lang === 'en'
-          ? '✅ That sentence is correct English.  ↳ این جمله درست است.'
+          ? '✅ That sentence is correct English.  ↲ این جمله درست است.'
           : '✅ این جمله درست است. / That sentence is correct English.')
         : null;
     }
@@ -270,7 +270,7 @@ METHODS = r'''
       ['word', 'words', 'this', 'that', 'it'].includes(w.toLowerCase());
     if (!tokens.length || tokens.every(stopish)) {
       return '🗣  Give me the word and I\'ll help you say it.\n' +
-        '   ↳ کلمه را بگو تا با هم تلفظش کنیم.\n' +
+        '   ↲ کلمه را بگو تا با هم تلفظش کنیم.\n' +
         "   Try: 'how do you pronounce hospital'";
     }
 
@@ -283,22 +283,22 @@ METHODS = r'''
         `   Stress: ${markStress(en)} — the capital part carries the beat`];
       const note = firstSoundNote(en);
       if (note) lines.push(`   Tip: ${note}.`);
-      lines.push("   ↳ For the full guide ask: 'phonetics'");
+      lines.push("   ↲ For the full guide ask: 'phonetics'");
       return lines.join('\n');
     }
 
     const phrase = this.lookupPhrase(key);
     if (phrase) {
-      const lines = [`🗣  “${phrase.en}”`, `   ↳ ${phrase.fa}`];
+      const lines = [`🗣  “${phrase.en}”`, `   ↲ ${phrase.fa}`];
       if (phrase.en.length <= 24)
         lines.push(`   Say it slowly: ${phrase.en.split('').join(' · ')}`);
-      lines.push("   ↳ For the full guide ask: 'phonetics'");
+      lines.push("   ↲ For the full guide ask: 'phonetics'");
       return lines.join('\n');
     }
 
     const slow = word.split('').join(' · ');
     return `🗣  “${word}” is not in my vocabulary list yet, so I cannot give you its Persian meaning.\n` +
-      `   ↳ «${word}» هنوز در واژگان من نیست.\n` +
+      `   ↲ «${word}» هنوز در واژگان من نیست.\n` +
       `   Say it slowly: ${slow} · stress: ${markStress(key)}\n` +
       `   Ask 'idioms' or 'difference between ${word} and ...' to look it up from another angle.`;
   }

@@ -2088,7 +2088,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   /* ---------- everyday-sentence cards ----------
      A phrase bank used to arrive as one run-on pre-wrap block, so the
-     translations collided. Each "• en / ↳ fa" pair is its own card now. */
+     translations collided. Each "• en / ↲ fa" pair is its own card now. */
   .msg.plist { white-space: normal; padding: 8px 10px; }
   .msg.plist .plist-head {
     font-size: 13px; font-weight: 700; color: #8a5a00;
@@ -2111,7 +2111,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .pcard .pfa { font-size: 12px; line-height: 1.5; color: var(--muted); }
   .pcard .pfa::before {
-    content: '↳'; color: var(--dim); font-size: 10px; margin-inline-end: 6px;
+    content: '↲'; color: var(--dim); font-size: 10px; margin-inline-end: 6px;
   }
   @media (min-width: 600px) {
     .msg.plist { padding: 9px 12px; }
@@ -3102,9 +3102,9 @@ function renderText(s) {
   return stickerize(escapeHtml(s)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 }
 
-/* A phrase bank arrives as "💬 Title\n• english\n  ↳ فارسی" pairs.
+/* A phrase bank arrives as "💬 Title\n• english\n  ↲ فارسی" pairs.
    Render it as separate cards instead of one run-on pre-wrap block.
-   Only the 💬 banner marks a phrase bank — grammar lessons also use • and ↳,
+   Only the 💬 banner marks a phrase bank — grammar lessons also use • and ↲,
    and must stay as plain text or the parser tears them apart. */
 function parsePhraseList(text) {
   if (!text.trimStart().startsWith('💬')) return null;
@@ -3114,7 +3114,7 @@ function parsePhraseList(text) {
   for (const raw of text.split('\n')) {
     const line = raw.replace(/\s+$/, '');
     const bullet = line.match(/^\s*[•·]\s+(.*)$/);
-    const arrow = line.match(/^\s*↳\s*(.*)$/);
+    const arrow = line.match(/^\s*↲\s*(.*)$/);
     if (bullet) {
       cur = { en: bullet[1].trim(), fa: '' };
       pairs.push(cur);

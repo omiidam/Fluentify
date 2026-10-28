@@ -150,7 +150,7 @@ BLOCK = r'''
     if (which) {
       if (!this.lastLesson) {
         return lang === 'en'
-          ? "Open a lesson first, then say 'exercises'.\n   ↳ اول یک درس را باز کن، بعد بنویس «تمرین».\n   Write 'grammar' for the list of lessons."
+          ? "Open a lesson first, then say 'exercises'.\n   ↲ اول یک درس را باز کن، بعد بنویس «تمرین».\n   Write 'grammar' for the list of lessons."
           : 'اول یک درس را باز کن، بعد بنویس «تمرین».\n   For the list of lessons write \'گرامر\'.';
       }
       return this.startGrammarSession(this.lastLesson, which, lang);
@@ -165,11 +165,11 @@ BLOCK = r'''
     if (this.bare(lowered, this.bareTable('show'))) {
       if (this.lastExamples && this.lastExamples.length)
         return lang === 'en'
-          ? `💡 Answer: ${this.lastExamples.join(' / ')}\n   ↳ جواب: ${this.lastExamples.join(' / ')}`
+          ? `💡 Answer: ${this.lastExamples.join(' / ')}\n   ↲ جواب: ${this.lastExamples.join(' / ')}`
           : `💡 جواب: ${this.lastExamples.join(' / ')}\n   Answer: ${this.lastExamples.join(' / ')}`;
       if (this.lastLevel) return this.formatListeningLevel(this.lastLevel);
       return lang === 'en'
-        ? 'Nothing to reveal yet — open a lesson or ask me a question.\n   ↳ هنوز چیزی برای نمایش نیست — یک درس را باز کن.'
+        ? 'Nothing to reveal yet — open a lesson or ask me a question.\n   ↲ هنوز چیزی برای نمایش نیست — یک درس را باز کن.'
         : 'هنوز چیزی برای نمایش نیست — یک درس را باز کن.';
     }
 
@@ -179,9 +179,9 @@ BLOCK = r'''
         const rows = topic.examples || [];
         this.lastExamples = exampleAnswers(topic);
         return '📝 More examples — مثال‌های بیشتر:\n' + rows.map((r, i) =>
-          `   ${i + 1}. ${r.en}\n      ↳ ${r.fa}`).join('\n');
+          `   ${i + 1}. ${r.en}\n      ↲ ${r.fa}`).join('\n');
       }
-      return 'Open a lesson first and ask for examples.\n   ↳ اول یک درس را باز کن.';
+      return 'Open a lesson first and ask for examples.\n   ↲ اول یک درس را باز کن.';
     }
 
     if (this.bare(lowered, this.bareTable('again'))) return this.tellJoke(text, lang);
@@ -191,10 +191,10 @@ BLOCK = r'''
       if (this.lastPhrase) {
         const topic = this.phrases[this.lastPhrase];
         if (topic) return 'Say it again — دوباره گوش کن:\n' + topic.phrases.slice(0, 4)
-          .map((r) => `   • ${r.en}\n     ↳ ${r.fa}`).join('\n');
+          .map((r) => `   • ${r.en}\n     ↲ ${r.fa}`).join('\n');
       }
       return lang === 'en'
-        ? 'Tell me what to repeat — a listening band or a sentence bank.\n   ↳ بگو کدام را تکرار کنم.'
+        ? 'Tell me what to repeat — a listening band or a sentence bank.\n   ↲ بگو کدام را تکرار کنم.'
         : 'بگو کدام را تکرار کنم.';
     }
 

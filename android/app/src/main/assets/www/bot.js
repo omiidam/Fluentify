@@ -867,17 +867,17 @@ class Fluentify {
     const long = topic.title_long || topic.title;
     const parts = [`📘 English Grammar — ${long.en} (${long.fa})`];
     parts.push('\n1️⃣ Structure / ساختار');
-    topic.structure.forEach((s) => parts.push(`• ${s.en}\n  ↳ ${s.fa}`));
-    if (topic.tip) parts.push(`\n💡 Tip: ${topic.tip.en}\n   ↳ ${topic.tip.fa}`);
+    topic.structure.forEach((s) => parts.push(`• ${s.en}\n  ↲ ${s.fa}`));
+    if (topic.tip) parts.push(`\n💡 Tip: ${topic.tip.en}\n   ↲ ${topic.tip.fa}`);
     const notes = topic.explain || [];
     if (notes.length) {
       parts.push('\n2️⃣ Explanation / توضیح');
-      notes.forEach((n) => parts.push(`• ${n.en}\n  ↳ ${n.fa}`));
+      notes.forEach((n) => parts.push(`• ${n.en}\n  ↲ ${n.fa}`));
     }
     parts.push('\n3️⃣ Function / کاربرد');
-    topic.function.forEach((f) => parts.push(`• ${f.en}\n  ↳ ${f.fa}`));
+    topic.function.forEach((f) => parts.push(`• ${f.en}\n  ↲ ${f.fa}`));
     parts.push('\n4️⃣ Examples / مثال‌ها');
-    topic.examples.forEach((e, i) => parts.push(`${i + 1}. ${e.en}\n   ↳ ${e.fa}`));
+    topic.examples.forEach((e, i) => parts.push(`${i + 1}. ${e.en}\n   ↲ ${e.fa}`));
     const practiceN = (topic.practice || []).length;
     const examN = (topic.exam || []).length;
     const done = this.practiceDone.has(topicId);
@@ -1219,7 +1219,7 @@ class Fluentify {
     // remember the bank, so "repeat that" works on the next message
     this.lastPhrase = topic.id;
     const parts = [`💬 ${topic.title.en} (${topic.title.fa})`];
-    topic.phrases.forEach((p) => parts.push(`• ${p.en}\n  ↳ ${p.fa}`));
+    topic.phrases.forEach((p) => parts.push(`• ${p.en}\n  ↲ ${p.fa}`));
     return parts.join('\n');
   }
 
@@ -1240,7 +1240,7 @@ class Fluentify {
     const parts = [`\u{1F3A7} ${level.title.en} (${level.title.fa})`,
                    `${level.blurb.en} / ${level.blurb.fa}`];
     level.sentences.forEach((s, i) => {
-      parts.push(`${i + 1}. ${s.en}\n   \u21b3 ${s.fa}`);
+      parts.push(`${i + 1}. ${s.en}\n   \u21b2 ${s.fa}`);
     });
     return parts.join('\n');
   }
@@ -1287,7 +1287,7 @@ class Fluentify {
   _examplesBlock(entry, lang, head) {
     const lines = [head];
     (entry.examples || []).forEach((ex, i) => {
-      lines.push(`   ${i + 1}. ${ex.en}`, `      ↳ ${ex.fa}`);
+      lines.push(`   ${i + 1}. ${ex.en}`, `      ↲ ${ex.fa}`);
     });
     return lines;
   }
@@ -1300,8 +1300,8 @@ class Fluentify {
     lines.push(`  ${entry.en}   ${entry.ipa || ''}`.replace(/\s+$/, ''));
     const meta = [entry.pos, entry.level].filter(Boolean).join(' · ');
     if (meta) lines.push(`  ${meta}`);
-    lines.push(`  ↳ ${entry.fa}`);
-    if (entry.def) lines.push(`  ${entry.def.en || ''}`, `  ↳ ${entry.def.fa || ''}`);
+    lines.push(`  ↲ ${entry.fa}`);
+    if (entry.def) lines.push(`  ${entry.def.en || ''}`, `  ↲ ${entry.def.fa || ''}`);
     lines.push('');
     lines.push(...this._examplesBlock(entry, lang,
       lang === 'en' ? '  Examples — مثال‌ها:' : '  مثال‌ها — Examples:'));
@@ -1315,19 +1315,19 @@ class Fluentify {
       ? '\u{1F4C5}  Expression of the Day — عبارت امروز'
       : '\u{1F4C5}  عبارت امروز — Expression of the Day';
     const meta = [entry.register, entry.level].filter(Boolean).join(' · ');
-    const lines = [head, '', `  “${entry.en}”`, `  ↳ ${entry.fa}`];
+    const lines = [head, '', `  “${entry.en}”`, `  ↲ ${entry.fa}`];
     if (meta) lines.push(`  ${meta}`);
     if (!examplesOnly) {
       for (const [field, label] of [['use', 'Means'], ['when', 'When']]) {
         const body = entry[field];
-        if (body) lines.push('', `  ${label}: ${body.en || ''}`, `  ↳ ${body.fa || ''}`);
+        if (body) lines.push('', `  ${label}: ${body.en || ''}`, `  ↲ ${body.fa || ''}`);
       }
     }
     lines.push('');
     lines.push(...this._examplesBlock(entry, lang,
       lang === 'en' ? '  Examples — مثال‌ها:' : '  مثال‌ها — Examples:'));
     if (entry.alt) {
-      lines.push('', `  Also say: “${entry.alt.en || ''}”`, `  ↳ ${entry.alt.fa || ''}`);
+      lines.push('', `  Also say: “${entry.alt.en || ''}”`, `  ↲ ${entry.alt.fa || ''}`);
     }
     return lines.join('\n');
   }
@@ -1340,10 +1340,10 @@ class Fluentify {
     const setting = entry.setting || {};
     const lines = [head, '',
       `  ${topic.en || ''} — ${topic.fa || ''}   (${entry.level || ''})`];
-    if (setting.en || setting.fa) lines.push(`  ${setting.en || ''}`, `  ↳ ${setting.fa || ''}`);
+    if (setting.en || setting.fa) lines.push(`  ${setting.en || ''}`, `  ↲ ${setting.fa || ''}`);
     lines.push('');
     for (const turn of entry.turns || []) {
-      lines.push(`  ${turn.who}: ${turn.en}`, `      ↳ ${turn.fa}`);
+      lines.push(`  ${turn.who}: ${turn.en}`, `      ↲ ${turn.fa}`);
     }
     if ((entry.key || []).length) {
       lines.push('', lang === 'en'
@@ -1352,7 +1352,7 @@ class Fluentify {
       for (const row of entry.key) lines.push(`   • ${row.en}  —  ${row.fa}`);
     }
     for (const note of entry.notes || []) {
-      lines.push(`  ↳ ${note.en}`, `    ↳ ${note.fa}`);
+      lines.push(`  ↲ ${note.en}`, `    ↲ ${note.fa}`);
     }
     lines.push('', lang === 'en'
       ? "  Practice it: ‘practice today's conversation’"
@@ -1378,10 +1378,10 @@ class Fluentify {
     if (lang === 'en') {
       parts.push("Ask: ‘explain today's word’, ‘today's expression’, " +
         "‘today's conversation’");
-      parts.push('   ↳ بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»');
+      parts.push('   ↲ بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»');
     } else {
       parts.push('بپرس: «لغت امروز»، «عبارت امروز»، «مکالمه امروز»');
-      parts.push("   ↳ Or in English: today's word / expression / conversation");
+      parts.push("   ↲ Or in English: today's word / expression / conversation");
     }
     return parts.join('\n');
   }
@@ -1428,7 +1428,7 @@ class Fluentify {
     const first = turns[0];
     const mine = turns[1];
     return [head, '', `  ${topic.en || ''} — ${topic.fa || ''}`, '',
-      `  ${first.who}: ${first.en}`, `      ↳ ${first.fa}`, '',
+      `  ${first.who}: ${first.en}`, `      ↲ ${first.fa}`, '',
       lang === 'fa'
         ? `  Your line — ${mine.who} چه می‌گوید؟`
         : `  Your line — what does ${mine.who} say?`,
@@ -1469,13 +1469,13 @@ class Fluentify {
     } else {
       lines.push((lang === 'en' ? '❌ Not quite — نه دقیقاً. ' : '❌ نه دقیقاً — not quite. ') +
         `${turns[index].who}: ${expected}`);
-      lines.push(`      ↳ ${turns[index].fa}`);
+      lines.push(`      ↲ ${turns[index].fa}`);
     }
     const follow = index + 1;
     if (follow + 1 < turns.length) {
       session.turn = follow + 1;
       lines.push('', `  ${turns[follow].who}: ${turns[follow].en}`,
-        `      ↳ ${turns[follow].fa}`, '',
+        `      ↲ ${turns[follow].fa}`, '',
         lang === 'fa'
           ? `  Your line — ${turns[follow + 1].who} چه می‌گوید؟`
           : `  Your line — what does ${turns[follow + 1].who} say?`);
@@ -1682,14 +1682,14 @@ class Fluentify {
     if (context && best !== null) {
       const num = lang === 'fa' ? toPersianDigits(best + 1) : String(best + 1);
       lines.push(lang === 'fa'
-        ? `   ↳ در جمله تو، معنی ${num} مناسب‌تر است.`
-        : `   ↳ In your sentence, sense ${num} fits best.`);
+        ? `   ↲ در جمله تو، معنی ${num} مناسب‌تر است.`
+        : `   ↲ In your sentence, sense ${num} fits best.`);
     } else if (context) {
       const said = String(contextText || '')
         .replace(/^[ .?!؟،]+|[ .?!؟،]+$/g, '');
       lines.push(lang === 'fa'
-        ? `   ↳ برای «${said}» معنی‌ای ثبت نکرده‌ام — این‌ها معنی‌های موجودند.`
-        : `   ↳ I have no sense recorded for “${said}” — these are the meanings I have.`);
+        ? `   ↲ برای «${said}» معنی‌ای ثبت نکرده‌ام — این‌ها معنی‌های موجودند.`
+        : `   ↲ I have no sense recorded for “${said}” — these are the meanings I have.`);
     }
     return lines.join('\n');
   }
@@ -1702,8 +1702,8 @@ class Fluentify {
       : `${syn ? '🔗 synonyms of' : '⚖️ opposites of'} **${head}**`;
     if (!Object.keys(groups).length) {
       const empty = lang === 'fa'
-        ? '   ↳ در واژه‌نامه ثبت نشده است.'
-        : '   ↳ none are recorded in my dictionary.';
+        ? '   ↲ در واژه‌نامه ثبت نشده است.'
+        : '   ↲ none are recorded in my dictionary.';
       return `${title}\n${empty}`;
     }
     const lines = [title];
@@ -1965,7 +1965,7 @@ class Fluentify {
           + 'یا یک دامنه بپرس: رنگ‌ها، حیوانات، میوه‌ها.';
         example = '';
       }
-      return `«${target}» توی واژه‌نامه من نیست 📚\n   ↳ ${hint}${example}`;
+      return `«${target}» توی واژه‌نامه من نیست 📚\n   ↲ ${hint}${example}`;
     }
     let hint, example;
     if (suggestions.length) {
@@ -1977,7 +1977,7 @@ class Fluentify {
         + 'domain: colors, animals, fruits, numbers.';
       example = '';
     }
-    return `I don't have "${target}" in my glossary yet 📚\n   ↳ ${hint}${example}`;
+    return `I don't have "${target}" in my glossary yet 📚\n   ↲ ${hint}${example}`;
   }
 
   formatLookup(target, entries, lang) {
@@ -2032,11 +2032,11 @@ class Fluentify {
   formatDistinction(topicId) {
     const topic = this.distinctions[topicId];
     const lines = [`⚖️  ${topic.title.en}  ·  (${topic.title.fa})`,
-      `   ↳ سطح: ${topic.level}`, '', topic.why];
+      `   ↲ سطح: ${topic.level}`, '', topic.why];
     for (const side of topic.sides) {
       lines.push('');
       lines.push(`  • ${side.en}`);
-      if (side.fa) lines.push(`    ↳ ${side.fa}`);
+      if (side.fa) lines.push(`    ↲ ${side.fa}`);
     }
     return lines.join('\n');
   }
@@ -2072,7 +2072,7 @@ class Fluentify {
   }
 
   formatIdiom(row) {
-    return `🗯  “${row.en}” — ${row.fa}\n   ↳ ${row.meaning}\n   e.g. ${row.example}`;
+    return `🗯  “${row.en}” — ${row.fa}\n   ↲ ${row.meaning}\n   e.g. ${row.example}`;
   }
 
   _regLabel(key) {
@@ -2090,12 +2090,12 @@ class Fluentify {
       if (!body) continue;
       out.push(this._regLabel(k));
       out.push(`  ${body.en}`);
-      out.push(`  ↳ ${body.fa}`);
+      out.push(`  ↲ ${body.fa}`);
       out.push('');
     }
     if (!only && pair.note) {
-      out.push(`↳ ${pair.note.en}`);
-      out.push(`↳ ${pair.note.fa}`);
+      out.push(`↲ ${pair.note.en}`);
+      out.push(`↲ ${pair.note.fa}`);
     }
     return out.join('\n').trim();
   }
@@ -2162,7 +2162,7 @@ class Fluentify {
         if (asked.some((w) => blob.includes(w) || blob.includes(w.replace(/s$/, '')))) {
           return `“${s.situation.en}” — ${s.situation.fa}\n`
             + `→ ${this._regLabel(s.register)}\n`
-            + `${s.note.en}\n↳ ${s.note.fa}`;
+            + `${s.note.en}\n↲ ${s.note.fa}`;
         }
       }
       return null;
@@ -2193,7 +2193,7 @@ class Fluentify {
       const avail = (this.register.pairs || []).slice(0, 6)
         .map((p) => `*${p.meaning.en}*`).join(', ');
       return `I do not have "${thing}" in the register list yet.\n`
-        + `I do have: ${avail}\n↳ هنوز این مورد را ندارم.`;
+        + `I do have: ${avail}\n↲ هنوز این مورد را ندارم.`;
     }
 
     if (/\bregisters?\b|formal vs|formal or casual|سطح رسمیت|رسمی یا محاوره|محاوره یا رسمی/
@@ -2202,7 +2202,7 @@ class Fluentify {
         + '**سطح رسمیت** — یک معنا، سه راه برای گفتن.', ''];
       for (const c of this.register.channels || []) {
         lines.push(`• **${c.title.en}** — ${c.blurb.en}`);
-        lines.push(`  ↳ ${c.title.fa}: ${c.blurb.fa}`);
+        lines.push(`  ↲ ${c.title.fa}: ${c.blurb.fa}`);
       }
       const pairs = this.register.pairs || [];
       if (pairs.length) {
@@ -2371,7 +2371,7 @@ class Fluentify {
     if (!problems.length) {
       return asked
         ? (lang === 'en'
-          ? '✅ That sentence is correct English.  ↳ این جمله درست است.'
+          ? '✅ That sentence is correct English.  ↲ این جمله درست است.'
           : '✅ این جمله درست است. / That sentence is correct English.')
         : null;
     }
@@ -2443,7 +2443,7 @@ class Fluentify {
       ['word', 'words', 'this', 'that', 'it'].includes(w.toLowerCase());
     if (!tokens.length || tokens.every(stopish)) {
       return '🗣  Give me the word and I\'ll help you say it.\n' +
-        '   ↳ کلمه را بگو تا با هم تلفظش کنیم.\n' +
+        '   ↲ کلمه را بگو تا با هم تلفظش کنیم.\n' +
         "   Try: 'how do you pronounce hospital'";
     }
 
@@ -2456,22 +2456,22 @@ class Fluentify {
         `   Stress: ${markStress(en)} — the capital part carries the beat`];
       const note = firstSoundNote(en);
       if (note) lines.push(`   Tip: ${note}.`);
-      lines.push("   ↳ For the full guide ask: 'phonetics'");
+      lines.push("   ↲ For the full guide ask: 'phonetics'");
       return lines.join('\n');
     }
 
     const phrase = this.lookupPhrase(key);
     if (phrase) {
-      const lines = [`🗣  “${phrase.en}”`, `   ↳ ${phrase.fa}`];
+      const lines = [`🗣  “${phrase.en}”`, `   ↲ ${phrase.fa}`];
       if (phrase.en.length <= 24)
         lines.push(`   Say it slowly: ${phrase.en.split('').join(' · ')}`);
-      lines.push("   ↳ For the full guide ask: 'phonetics'");
+      lines.push("   ↲ For the full guide ask: 'phonetics'");
       return lines.join('\n');
     }
 
     const slow = word.split('').join(' · ');
     return `🗣  “${word}” is not in my vocabulary list yet, so I cannot give you its Persian meaning.\n` +
-      `   ↳ «${word}» هنوز در واژگان من نیست.\n` +
+      `   ↲ «${word}» هنوز در واژگان من نیست.\n` +
       `   Say it slowly: ${slow} · stress: ${markStress(key)}\n` +
       `   Ask 'idioms' or 'difference between ${word} and ...' to look it up from another angle.`;
   }
@@ -2643,7 +2643,7 @@ class Fluentify {
     if (which) {
       if (!this.lastLesson) {
         return lang === 'en'
-          ? "Open a lesson first, then say 'exercises'.\n   ↳ اول یک درس را باز کن، بعد بنویس «تمرین».\n   Write 'grammar' for the list of lessons."
+          ? "Open a lesson first, then say 'exercises'.\n   ↲ اول یک درس را باز کن، بعد بنویس «تمرین».\n   Write 'grammar' for the list of lessons."
           : 'اول یک درس را باز کن، بعد بنویس «تمرین».\n   For the list of lessons write \'گرامر\'.';
       }
       return this.startGrammarSession(this.lastLesson, which, lang);
@@ -2658,11 +2658,11 @@ class Fluentify {
     if (this.bare(lowered, this.bareTable('show'))) {
       if (this.lastExamples && this.lastExamples.length)
         return lang === 'en'
-          ? `💡 Answer: ${this.lastExamples.join(' / ')}\n   ↳ جواب: ${this.lastExamples.join(' / ')}`
+          ? `💡 Answer: ${this.lastExamples.join(' / ')}\n   ↲ جواب: ${this.lastExamples.join(' / ')}`
           : `💡 جواب: ${this.lastExamples.join(' / ')}\n   Answer: ${this.lastExamples.join(' / ')}`;
       if (this.lastLevel) return this.formatListeningLevel(this.lastLevel);
       return lang === 'en'
-        ? 'Nothing to reveal yet — open a lesson or ask me a question.\n   ↳ هنوز چیزی برای نمایش نیست — یک درس را باز کن.'
+        ? 'Nothing to reveal yet — open a lesson or ask me a question.\n   ↲ هنوز چیزی برای نمایش نیست — یک درس را باز کن.'
         : 'هنوز چیزی برای نمایش نیست — یک درس را باز کن.';
     }
 
@@ -2672,9 +2672,9 @@ class Fluentify {
         const rows = topic.examples || [];
         this.lastExamples = exampleAnswers(topic);
         return '📝 More examples — مثال‌های بیشتر:\n' + rows.map((r, i) =>
-          `   ${i + 1}. ${r.en}\n      ↳ ${r.fa}`).join('\n');
+          `   ${i + 1}. ${r.en}\n      ↲ ${r.fa}`).join('\n');
       }
-      return 'Open a lesson first and ask for examples.\n   ↳ اول یک درس را باز کن.';
+      return 'Open a lesson first and ask for examples.\n   ↲ اول یک درس را باز کن.';
     }
 
     if (this.bare(lowered, this.bareTable('again'))) return this.tellJoke(text, lang);
@@ -2684,10 +2684,10 @@ class Fluentify {
       if (this.lastPhrase) {
         const topic = this.phrases[this.lastPhrase];
         if (topic) return 'Say it again — دوباره گوش کن:\n' + topic.phrases.slice(0, 4)
-          .map((r) => `   • ${r.en}\n     ↳ ${r.fa}`).join('\n');
+          .map((r) => `   • ${r.en}\n     ↲ ${r.fa}`).join('\n');
       }
       return lang === 'en'
-        ? 'Tell me what to repeat — a listening band or a sentence bank.\n   ↳ بگو کدام را تکرار کنم.'
+        ? 'Tell me what to repeat — a listening band or a sentence bank.\n   ↲ بگو کدام را تکرار کنم.'
         : 'بگو کدام را تکرار کنم.';
     }
 

@@ -123,8 +123,8 @@ DISTINCTIONS = [
     ("interesting", "interested", "A2",
      "'Interesting' describes the thing. 'Interested' describes the person's "
      "feeling. This is the classic Persian-speaker mistake (از کلمه علاقه).",
-     [("The film was very **interesting**.  ↳ فیلم خیلی جالب بود.",
-      "I'm **interested** in history.  ↳ من به تاریخ علاقه‌مند هستم.")]),
+     [("The film was very **interesting**.  ↲ فیلم خیلی جالب بود.",
+      "I'm **interested** in history.  ↲ من به تاریخ علاقه‌مند هستم.")]),
     ("used to", "get used to", "B2",
      "'Used to + verb' is a habit in the past that is gone. 'Get used to + "
      "noun/gerund' is getting comfortable with something.",
@@ -134,7 +134,7 @@ DISTINCTIONS = [
      "Keep them in the right order: a person is **interested in** something; "
      "the thing is **interesting**.",
      [("She's **interested in** Persian art.", "او به هنر ایرانی علاقه‌مند است."),
-      ("Persian art is very **interesting**.  ↳ هنر ایرانی خیلی جالب است.")]),
+      ("Persian art is very **interesting**.  ↲ هنر ایرانی خیلی جالب است.")]),
     ("by the way", "on the way", "B1",
      "'By the way' is a phrase that introduces a new topic. 'On the way' "
      "describes travel.",
@@ -209,23 +209,23 @@ DISTINCTIONS = [
     ("alike", "likely", "B2",
      "'Alike' = similar (they look alike). 'Likely' = probable (it is likely "
      "to rain). One letter, two meanings.",
-     [("The twins look very **alike**.  ↳ دوقلوها خیلی شبیه هم هستند.",
-      "It is **likely** to rain today.  ↳ امروز احتمالاً باران می‌بارد.")]),
+     [("The twins look very **alike**.  ↲ دوقلوها خیلی شبیه هم هستند.",
+      "It is **likely** to rain today.  ↲ امروز احتمالاً باران می‌بارد.")]),
     ("advice", "advise", "B2",
      "'Advice' is the noun (uncountable). 'Advise' is the verb. No plural, "
      "and it never takes an 's'.",
-     [("Let me give you some **advice**.  ↳ بگذار به تو یک مشاوره بدهم.",
-      "I **advise** you to rest.  ↳ به تو توصیه می‌کنم استراحت کنی.")]),
+     [("Let me give you some **advice**.  ↲ بگذار به تو یک مشاوره بدهم.",
+      "I **advise** you to rest.  ↲ به تو توصیه می‌کنم استراحت کنی.")]),
     ("practise", "practice", "B2",
      "British English: 'practise' is the verb, 'practice' the noun. American "
      "English uses 'practice' for both.",
-     [("She **practises** the piano daily.  ↳ او هر روز پیانو می‌نوازد.",
-      "She has a daily piano **practice**.  ↳ او یک تمرین روزانه پیانو دارد.")]),
+     [("She **practises** the piano daily.  ↲ او هر روز پیانو می‌نوازد.",
+      "She has a daily piano **practice**.  ↲ او یک تمرین روزانه پیانو دارد.")]),
     ("affect", "effect", "C1",
      "Also as a verb: 'to effect a change' is formal and rarer than 'to "
      "affect a change'.",
-     [("The new law **effects** many changes.  ↳ قانون جدید تغییرات زیادی ایجاد می‌کند.",
-      "The new law **affects** many people.  ↳ قانون جدید بر مردم زیادی تأثیر می‌گذارد.")]),
+     [("The new law **effects** many changes.  ↲ قانون جدید تغییرات زیادی ایجاد می‌کند.",
+      "The new law **affects** many people.  ↲ قانون جدید بر مردم زیادی تأثیر می‌گذارد.")]),
     ("at the end", "in the end", "B1",
      "'At the end' = at the final point of something (at the end of the film). "
      "'In the end' = after considering everything (in the end, she said no).",
@@ -473,27 +473,27 @@ def main() -> None:
     topics = []
     for a, b, level, why, pairs in DISTINCTIONS:
         # Normalise every entry to a list of {en, fa} sides. A side may be
-        # written as one string carrying its own "\u21b3 ..." translation.
+        # written as one string carrying its own "\u21b2 ..." translation.
         sides = []
         for item in pairs:
             chunks = list(item) if isinstance(item, (tuple, list)) else [item]
-            if len(chunks) == 1 and "\u21b3" in chunks[0]:
-                head, _, tail = chunks[0].partition("  \u21b3 ")
+            if len(chunks) == 1 and "\u21b2" in chunks[0]:
+                head, _, tail = chunks[0].partition("  \u21b2 ")
                 sides.append({"en": head.strip(), "fa": tail.strip()})
             elif len(chunks) == 1:
                 sides.append({"en": chunks[0].strip(), "fa": ""})
             else:
                 # A clean (en, fa) pair stays a pair. Either half may also
-                # carry its own "↳ translation", which has to be split back
+                # carry its own "↲ translation", which has to be split back
                 # out - otherwise the arrow prints inline in the English.
                 en, fa = chunks[0], chunks[1]
-                if "↳" in en or "↳" in fa:
+                if "↲" in en or "↲" in fa:
                     for chunk in (en, fa):
                         chunk = str(chunk).strip()
                         if not chunk:
                             continue
-                        if "↳" in chunk:
-                            head, _, tail = chunk.partition("  ↳ ")
+                        if "↲" in chunk:
+                            head, _, tail = chunk.partition("  ↲ ")
                             sides.append({"en": head.strip(),
                                           "fa": tail.strip() or head.strip()})
                         else:
