@@ -1151,12 +1151,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: flex; flex-direction: column; gap: 9px;
     padding: 2px 2px 4px 38px; animation: fade .22s ease both;
   }
-  .slead {
-    font-family: var(--font-display); font-size: 10px; font-weight: 700;
-    letter-spacing: .10em; text-transform: uppercase; color: var(--dim);
-  }
-  .slead span { letter-spacing: 0; text-transform: none; font-weight: 600;
-                opacity: .8; }
   .schips { display: flex; flex-wrap: wrap; gap: 7px; }
   .schip {
     background: #fffcf3; color: var(--ink);
@@ -3086,10 +3080,6 @@ function renderStarters() {
   wrap.className = 'starters';
   wrap.id = 'starters';
 
-  const lead = document.createElement('div');
-  lead.className = 'slead';
-  lead.innerHTML = 'Start here <span>· از اینجا شروع کن</span>';
-
   const row = document.createElement('div');
   row.className = 'schips';
   STARTERS.forEach(([query, label, fa]) => {
@@ -3102,7 +3092,7 @@ function renderStarters() {
     row.appendChild(b);
   });
 
-  wrap.append(lead, row);
+  wrap.append(row);
   chat.appendChild(wrap);
 }
 
@@ -6038,10 +6028,7 @@ const Daily = (() => {
   }
 
   function wordBody(entry) {
-    let html = '<div class="dword">' + esc(entry.en) +
-      (entry.ipa ? '<span class="dipa">' + esc(entry.ipa) + '</span>' : '') + '</div>';
-    if (entry.pos) html += '<div class="dpos">' + esc(entry.pos) + '</div>';
-    html += faLine(entry.fa);
+    let html = '';
     const def = entry.def || {};
     if (def.en || def.fa) {
       html += '<div class="dlabel">Meaning — معنی</div>' +
@@ -6060,8 +6047,7 @@ const Daily = (() => {
   }
 
   function expressionBody(entry) {
-    let html = '<div class="drow"><div class="grow"><div class="dquote">“' +
-      esc(entry.en) + '”</div>' + faLine(entry.fa) + '</div></div>';
+    let html = '';
     [['use', 'Means — یعنی'], ['when', 'When — کجا به کار می‌رود']].forEach(([f, label]) => {
       const body = entry[f] || {};
       if (!body.en && !body.fa) return;
@@ -6078,10 +6064,12 @@ const Daily = (() => {
     return html;
   }
 
+  /* leadOf() already prints the item's headline — the word, the quote, the
+     topic — so the open body starts at what is new. Repeating the headline
+     here showed every card's first two lines twice on opening. */
   function conversationBody(entry) {
-    const topic = entry.topic || {};
     const setting = entry.setting || {};
-    let html = '<div class="dquote">' + esc(topic.en) + '</div>' + faLine(topic.fa);
+    let html = '';
     if (setting.en) {
       html += '<div class="dline">' + esc(setting.en) + '</div>' + faLine(setting.fa, 'dline fa');
     }
