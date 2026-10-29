@@ -3160,13 +3160,29 @@ function lineDir(raw) {
 const FA_TOKEN = /^[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*$/;
 const EN_TOKEN = /^[A-Za-z][A-Za-z0-9'\u2019._\-\/]*$/;
 
+/* A parenthetical is lifted out before the line is split, and put back as one
+   isolated unit of the line's own direction. Left in the stream, a bracket
+   holding a Latin term inside a Persian sentence is three neutrals around an
+   island, and the bidi algorithm is free to park the whole group at the end of
+   the line - which is exactly what it did to "(he/she/it)". */
+const PAREN_TOKEN = '\u0000(\d+)\u0000';
+
 function inlineHtml(raw, lineDirection) {
-  const tokens = raw.match(/[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*|[A-Za-z][A-Za-z0-9'\u2019._\-\/]*|\s+|[\s\S]/g) || [];
+  const groups = [];
+  raw = raw.replace(/\(([^()]*)\)/g, (m, inner) => {
+    groups.push(inner);
+    return '\u0000' + (groups.length - 1) + '\u0000';
+  });
+  const tokens = raw.match(new RegExp(
+    '[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*'
+    + "|[A-Za-z][A-Za-z0-9'\u2019._\\-\\/]*"
+    + '|' + PAREN_TOKEN + '|\\s+|[\\s\\S]', 'g')) || [];
   const runs = [];
   for (const tk of tokens) {
-    const kind = FA_TOKEN.test(tk) ? 'fa' : EN_TOKEN.test(tk) ? 'en' : 'n';
+    const kind = FA_TOKEN.test(tk) ? 'fa' : EN_TOKEN.test(tk) ? 'en'
+      : /^\u0000\d+\u0000$/.test(tk) ? 'paren' : 'n';
     const prev = runs[runs.length - 1];
-    if (prev && prev.kind === kind) prev.text += tk;
+    if (prev && prev.kind === kind && kind !== 'paren') prev.text += tk;
     else runs.push({kind, text: tk});
   }
   // fold the spaces between Persian words into the Persian run
@@ -3181,6 +3197,11 @@ function inlineHtml(raw, lineDirection) {
   }
   return runs.map((run) => {
     const esc = escapeHtml(run.text);
+    if (run.kind === 'paren') {
+      const inner = groups[Number(esc.match(/^\u0000(\d+)\u0000$/)[1])];
+      return `<bdi class="paren" dir="${lineDirection}">(${
+        inlineHtml(inner, lineDirection)})</bdi>`;
+    }
     if (run.kind === 'fa') {
       return `<bdi class="fa" lang="fa" dir="rtl">${esc}</bdi>`;
     }
