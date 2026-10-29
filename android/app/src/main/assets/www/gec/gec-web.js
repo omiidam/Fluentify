@@ -106,7 +106,11 @@
     for (const rule of rules || []) {
       if (!rule || !rule.pattern) continue;
       try {
-        out = out.replace(new RegExp(rule.pattern, rule.flags || ''), rule.replace);
+        // gec_fixes.json is written for Python, where a group is \1; in
+        // JavaScript that is a literal "1", so the references are translated
+        // before the rule runs. (It shipped for an hour as "She 1 eaten".)
+        const replacement = String(rule.replace || '').replace(/\\(\d)/g, '$$$1');
+        out = out.replace(new RegExp(rule.pattern, rule.flags || ''), replacement);
       } catch (e) { /* a rule that does not compile must not take the page */ }
     }
     if (text[0] && text[0] === text[0].toUpperCase() && out[0] === out[0].toLowerCase()) {

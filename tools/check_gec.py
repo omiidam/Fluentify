@@ -274,6 +274,11 @@ def run_web() -> None:
         check("the preview serves a correction endpoint", '"/api/correct"' in text)
         check("the preview runs the model as a resident worker",
               "gec_worker.py" in text and "class LocalGec" in text)
+        # The rule file is written for Python (\1); JavaScript reads that as a
+        # literal "1" unless it is translated. That shipped for an hour as
+        # "She 1 eaten lunch", so the translation is asserted, not assumed.
+        check("the page translates the rules' backreferences",
+              "$$$1" in text and "gec_fixes.json" in text)
         check("the preview's pen button is wired to it",
               'id="gecbtn"' in text and "fetch('/api/correct" in text)
         check("the pen does not spend one of the daily messages",
