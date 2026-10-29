@@ -423,7 +423,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .boot-aurora i:nth-child(3) {
     bottom: -38vmax; left: 8vmax;
-    background: radial-gradient(circle, rgba(46,122,90,.14) 0%, rgba(46,122,90,0) 70%);
+    background: radial-gradient(circle, rgba(79,70,160,.14) 0%, rgba(79,70,160,0) 70%);
     animation-duration: 29s; animation-delay: -13s;
   }
   @keyframes bootDrift {
@@ -1608,13 +1608,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .wd-lab b { color: var(--muted); font-weight: 400; }
   .wd-chips { display: flex; flex-wrap: wrap; gap: 4px; }
   .wchip {
-    background: rgba(46,122,90,.10); color: #2c3169;
-    border: 1px solid rgba(46,122,90,.28); border-radius: 7px;
+    background: rgba(79,70,160,.10); color: #2c3169;
+    border: 1px solid rgba(79,70,160,.28); border-radius: 7px;
     padding: 4px 9px; font-size: 11.5px; cursor: pointer;
     transition: .12s; font-family: inherit;
   }
-  .wchip:hover { background: rgba(46,122,90,.18); color: #1f2456;
-                 border-color: rgba(46,122,90,.55); }
+  .wchip:hover { background: rgba(79,70,160,.18); color: #1f2456;
+                 border-color: rgba(79,70,160,.55); }
   .wchip.on { background: linear-gradient(135deg, #4a4fa0, #3c405b);
               color: #fff; border-color: transparent; }
   .wd-more { font-size: 10.5px; color: var(--dim); margin-top: 5px; }
@@ -1628,8 +1628,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .wdetail {
     display: none; margin-bottom: 11px; padding: 12px;
     border-radius: 13px; position: relative;
-    background: linear-gradient(150deg, rgba(46,122,90,.14), rgba(60,64,91,.10));
-    border: 1px solid rgba(46,122,90,.34);
+    background: linear-gradient(150deg, rgba(79,70,160,.14), rgba(60,64,91,.10));
+    border: 1px solid rgba(79,70,160,.34);
     box-shadow: 0 6px 20px rgba(74,58,30,.28), inset 0 1px 0 rgba(43,48,73,0.119);
     animation: pop .18s ease;
   }
@@ -1711,7 +1711,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-radius: 14px; padding: 11px 12px 10px;
     box-shadow: 0 1px 2px rgba(74,58,30,.06);
   }
-  .dcard.done { border-color: rgba(46,122,90,.4); }
+  .dcard.done { border-color: rgba(79,70,160,.4); }
   .dtop { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
   .dico {
     width: 22px; height: 22px; border-radius: 7px; flex: none;
@@ -1839,7 +1839,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     content: ""; position: absolute; inset: 0 0 auto; height: 3px; z-index: 1;
     background: linear-gradient(90deg, var(--gold2), var(--gold) 42%, #f8e2b4);
   }
-  .dinline.complete { border-color: rgba(46,122,90,.32); }
+  .dinline.complete { border-color: rgba(79,70,160,.32); }
   .dinline.complete::before {
     background: linear-gradient(90deg, var(--success), #7175c0 55%, #bcbfe6);
   }
@@ -2008,7 +2008,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 12px; color: var(--dim);
     border: 1px solid rgba(43,48,73,.13); background: #fffcef;
   }
-  .dtick.on { background: rgba(46,122,90,.14); border-color: rgba(46,122,90,.4); color: #3d4289; }
+  .dtick.on { background: rgba(79,70,160,.14); border-color: rgba(79,70,160,.4); color: #3d4289; }
   .dpanelbar {
     display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 9px;
   }
@@ -2078,10 +2078,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .nchip {
     margin-top: 8px; font-family: var(--font-body); font-size: 11.5px;
     padding: 5px 10px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(46,122,90,.35); background: rgba(46,122,90,.08);
+    border: 1px solid rgba(79,70,160,.35); background: rgba(79,70,160,.08);
     color: #3d4289;
   }
-  .nchip:hover { background: rgba(46,122,90,.16); }
+  .nchip:hover { background: rgba(79,70,160,.16); }
   .nlim { margin: 0; padding-left: 16px; }
   .nlim li { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin-bottom: 4px; }
   /* inside a chat bubble the analysis is the same thing, a little tighter */
@@ -2104,7 +2104,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .dbtn:hover { background: var(--gold-soft); }
   .dbtn.on, .dbtn[aria-pressed="true"] {
-    background: rgba(46,122,90,.12); border-color: rgba(46,122,90,.35);
+    background: rgba(79,70,160,.12); border-color: rgba(79,70,160,.35);
     color: #30356f;
   }
   .dfoot { font-size: 10px; color: var(--dim); margin-inline-start: auto; }
@@ -2215,7 +2215,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .rrow .rmain { min-width: 0; }
   .rrow .ren { font-size: 13.5px; font-weight: 600; }
   .rrow .rfa2 { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
-  .rrow.ok { border-color: rgba(46,122,90,.4); }
+  .rrow.ok { border-color: rgba(79,70,160,.4); }
   .rrow.ok .ren::after { content: ' \2713'; color: #4a4fa0; }
   .ricon {
     width: 30px; height: 30px; border-radius: 8px; border: 1px solid rgba(43,48,73,0.119);
