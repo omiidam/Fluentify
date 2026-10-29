@@ -31,6 +31,48 @@
       U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
       U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
+  /* Mikhak (aminabedi68/Mikhak, OFL) is the Persian face of the whole app.
+     The body face is a handwriting font that also claims Arabic glyphs, which
+     is why Persian used to read as a wobble at UI sizes. The unicode-range
+     keeps Mikhak to the Arabic script, so Latin stays in Baloo2/Kalam and a
+     mixed line keeps two voices on purpose. */
+  @font-face {
+    font-family: 'Mikhak';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/mikhak-regular.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF,
+      U+FE70-FEFF, U+200C-200D, U+0640;
+  }
+  @font-face {
+    font-family: 'Mikhak';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('fonts/mikhak-medium.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF,
+      U+FE70-FEFF, U+200C-200D, U+0640;
+  }
+  @font-face {
+    font-family: 'Mikhak';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('fonts/mikhak-semibold.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF,
+      U+FE70-FEFF, U+200C-200D, U+0640;
+  }
+  @font-face {
+    font-family: 'Mikhak';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/mikhak-bold.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF,
+      U+FE70-FEFF, U+200C-200D, U+0640;
+  }
+
   :root {
     /* Four colours, taken from the poster this theme is set in: its sand band
        (#EBE2B7), its slate band (#3C405B), the gold of its linework (#E8BF5F)
@@ -59,9 +101,9 @@
     --success: #4a4fa0; --red: #a8493a;
     /* Kalam is the handwritten body face of the reference; Baloo 2 the
        rounded display face of its headings. Tahoma carries the Persian. */
-    --font-body: 'Kalam', 'Segoe Print', 'Comic Sans MS', Tahoma, 'Vazirmatn',
-      'IranSans', sans-serif;
-    --font-display: 'Baloo2', 'Trebuchet MS', Tahoma, 'Vazirmatn', 'IranSans',
+    --font-body: 'Mikhak', 'Kalam', 'Segoe Print', 'Comic Sans MS', var(--font-fa);
+    --font-fa: 'Mikhak', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
+    --font-display: 'Mikhak', 'Baloo2', 'Trebuchet MS', Tahoma, 'Vazirmatn', 'IranSans',
       sans-serif;
     /* The learner's own side, in the poster's slate. One bubble is dark and
        the other is paper, which is the contrast the eye actually uses to tell
@@ -977,7 +1019,7 @@
      wants, and the Latin inside it is marked as its own run with a hair of
      space around it so a borrowed term does not collide with the Persian
      around it. */
-  .bl .fa { font-family: Tahoma, 'Vazirmatn', 'IranSans', sans-serif; font-size: .97em; }
+  .bl .fa { font-family: var(--font-fa); font-size: .97em; }
   .bl[dir="rtl"] { line-height: 1.85; }
   .bl[dir="rtl"] .lat {
     padding-inline: 2px; font-size: .96em; letter-spacing: .005em;
@@ -1517,7 +1559,7 @@
     direction: rtl; text-align: right; unicode-bidi: plaintext;
     /* Tahoma is the theme's declared Persian face; the body's handwriting
        font also claims Arabic glyphs, and at 12px they read as a wobble. */
-    font-family: Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
+    font-family: var(--font-fa);
   }
   .dfa { font-size: 13px; color: var(--text); line-height: 1.55; margin-top: 3px; }
   .dline { font-size: 13px; color: var(--text); line-height: 1.5; }
@@ -1709,7 +1751,7 @@
   .dirow.done .dimain { color: #3d4289; }
   .disub {
     direction: rtl; text-align: right; unicode-bidi: plaintext;
-    font-family: Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
+    font-family: var(--font-fa);
     font-size: 12px; color: var(--muted); margin-top: 3px;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
