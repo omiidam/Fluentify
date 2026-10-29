@@ -1,0 +1,526 @@
+[
+ [
+  "agreement",
+  "She have a car",
+  [
+   "has"
+  ]
+ ],
+ [
+  "agreement",
+  "He don't like it",
+  [
+   "doesn't",
+   "does not"
+  ]
+ ],
+ [
+  "agreement",
+  "They was happy yesterday",
+  [
+   "were"
+  ]
+ ],
+ [
+  "agreement",
+  "My friends is coming",
+  [
+   "are"
+  ]
+ ],
+ [
+  "agreement",
+  "The news are bad",
+  [
+   "is"
+  ]
+ ],
+ [
+  "agreement",
+  "Everybody have a phone",
+  [
+   "has"
+  ]
+ ],
+ [
+  "tense",
+  "I have went there",
+  [
+   "have gone",
+   "have been"
+  ]
+ ],
+ [
+  "tense",
+  "She has ate lunch",
+  [
+   "has eaten",
+   "had eaten"
+  ]
+ ],
+ [
+  "tense",
+  "Yesterday I go to school",
+  [
+   "went"
+  ]
+ ],
+ [
+  "tense",
+  "I am living here since 2010",
+  [
+   "have been living",
+   "have lived"
+  ]
+ ],
+ [
+  "tense",
+  "When I was young I have played football",
+  [
+   "played"
+  ]
+ ],
+ [
+  "tense",
+  "He is knowing the answer",
+  [
+   "knows"
+  ]
+ ],
+ [
+  "tense",
+  "I will called you tomorrow",
+  [
+   "will call"
+  ]
+ ],
+ [
+  "article",
+  "I bought a apple",
+  [
+   "an apple"
+  ]
+ ],
+ [
+  "article",
+  "She is teacher",
+  [
+   "a teacher"
+  ]
+ ],
+ [
+  "article",
+  "He went to the school by bus",
+  [
+   "school"
+  ]
+ ],
+ [
+  "article",
+  "I have an useful idea",
+  [
+   "a useful"
+  ]
+ ],
+ [
+  "plural",
+  "I have many informations",
+  [
+   "information"
+  ]
+ ],
+ [
+  "plural",
+  "She gave me two advices",
+  [
+   "advice"
+  ]
+ ],
+ [
+  "plural",
+  "There are three childs here",
+  [
+   "children"
+  ]
+ ],
+ [
+  "plural",
+  "I need some furnitures",
+  [
+   "furniture"
+  ]
+ ],
+ [
+  "preposition",
+  "I am agree with you",
+  [
+   "agree"
+  ]
+ ],
+ [
+  "preposition",
+  "She is married with him",
+  [
+   "married to"
+  ]
+ ],
+ [
+  "preposition",
+  "I am interested on music",
+  [
+   "interested in"
+  ]
+ ],
+ [
+  "preposition",
+  "He arrived to the airport",
+  [
+   "arrived at",
+   "arrived in"
+  ]
+ ],
+ [
+  "preposition",
+  "We discussed about the plan",
+  [
+   "discussed"
+  ]
+ ],
+ [
+  "preposition",
+  "I depend of my parents",
+  [
+   "depend on"
+  ]
+ ],
+ [
+  "comparative",
+  "She is more taller than me",
+  [
+   "taller"
+  ]
+ ],
+ [
+  "comparative",
+  "This is the most easiest test",
+  [
+   "easiest"
+  ]
+ ],
+ [
+  "comparative",
+  "He is more better today",
+  [
+   "better"
+  ]
+ ],
+ [
+  "modal",
+  "I can to swim",
+  [
+   "can swim"
+  ]
+ ],
+ [
+  "modal",
+  "You must to study",
+  [
+   "must study"
+  ]
+ ],
+ [
+  "modal",
+  "He should goes home",
+  [
+   "should go"
+  ]
+ ],
+ [
+  "pronoun",
+  "Me and my brother went out",
+  [
+   "My brother and I",
+   "I and my brother"
+  ]
+ ],
+ [
+  "pronoun",
+  "Him and her are friends",
+  [
+   "He and she"
+  ]
+ ],
+ [
+  "pronoun",
+  "The book is my",
+  [
+   "mine"
+  ]
+ ],
+ [
+  "question",
+  "Where you are going?",
+  [
+   "Where are you going"
+  ]
+ ],
+ [
+  "question",
+  "What you did yesterday?",
+  [
+   "What did you do"
+  ]
+ ],
+ [
+  "question",
+  "Does she likes tea?",
+  [
+   "Does she like"
+  ]
+ ],
+ [
+  "negation",
+  "I don't have no money",
+  [
+   "don't have any",
+   "have no"
+  ]
+ ],
+ [
+  "negation",
+  "She didn't went there",
+  [
+   "didn't go"
+  ]
+ ],
+ [
+  "negation",
+  "He not like coffee",
+  [
+   "does not like",
+   "doesn't like"
+  ]
+ ],
+ [
+  "gerund",
+  "I enjoy to read books",
+  [
+   "enjoy reading"
+  ]
+ ],
+ [
+  "gerund",
+  "She suggested to go out",
+  [
+   "suggested going"
+  ]
+ ],
+ [
+  "gerund",
+  "I look forward to meet you",
+  [
+   "meeting"
+  ]
+ ],
+ [
+  "gerund",
+  "He avoided to answer",
+  [
+   "avoided answering"
+  ]
+ ],
+ [
+  "infinitive",
+  "I want that you come",
+  [
+   "want you to come"
+  ]
+ ],
+ [
+  "infinitive",
+  "She made me to cry",
+  [
+   "made me cry"
+  ]
+ ],
+ [
+  "word-order",
+  "I very like this movie",
+  [
+   "like this movie very much",
+   "really like"
+  ]
+ ],
+ [
+  "word-order",
+  "Always he is late",
+  [
+   "He is always late"
+  ]
+ ],
+ [
+  "word-order",
+  "I like very much tea",
+  [
+   "like tea very much"
+  ]
+ ],
+ [
+  "passive",
+  "The letter was wrote by him",
+  [
+   "was written"
+  ]
+ ],
+ [
+  "passive",
+  "English is spoke here",
+  [
+   "is spoken"
+  ]
+ ],
+ [
+  "conditional",
+  "If I would have time I would travel",
+  [
+   "If I had"
+  ]
+ ],
+ [
+  "conditional",
+  "If he will come I will tell him",
+  [
+   "If he comes"
+  ]
+ ],
+ [
+  "conditional",
+  "I wish I was taller",
+  [
+   "were taller"
+  ]
+ ],
+ [
+  "adjective",
+  "She is very much happy",
+  [
+   "very happy"
+  ]
+ ],
+ [
+  "adjective",
+  "I am boring in this class",
+  [
+   "bored"
+  ]
+ ],
+ [
+  "adjective",
+  "The film was very much interesting",
+  [
+   "very interesting"
+  ]
+ ],
+ [
+  "adverb",
+  "He drives very fastly",
+  [
+   "fast"
+  ]
+ ],
+ [
+  "conjunction",
+  "Although it rained but we went out",
+  [
+   "Although it rained",
+   "even though"
+  ]
+ ],
+ [
+  "conjunction",
+  "Because he was tired so he slept",
+  [
+   "Because he was tired"
+  ]
+ ],
+ [
+  "spelling",
+  "I recieved your letter",
+  [
+   "received"
+  ]
+ ],
+ [
+  "spelling",
+  "She definately agrees",
+  [
+   "definitely"
+  ]
+ ],
+ [
+  "spelling",
+  "I am to tired",
+  [
+   "too tired"
+  ]
+ ],
+ [
+  "count",
+  "There is less people here",
+  [
+   "fewer"
+  ]
+ ],
+ [
+  "count",
+  "I have much friends",
+  [
+   "many"
+  ]
+ ],
+ [
+  "misc",
+  "I am used to wake up early",
+  [
+   "used to waking",
+   "used to wake"
+  ]
+ ],
+ [
+  "misc",
+  "She does not has time",
+  [
+   "does not have"
+  ]
+ ],
+ [
+  "misc",
+  "This is more worse than that",
+  [
+   "worse"
+  ]
+ ],
+ [
+  "misc",
+  "He suggested me to stop",
+  [
+   "suggested that I",
+   "suggested I"
+  ]
+ ],
+ [
+  "misc",
+  "I have been to London last year",
+  [
+   "went to London"
+  ]
+ ],
+ [
+  "misc",
+  "It is me who did it",
+  [
+   "It was I",
+   "It is I"
+  ]
+ ]
+]

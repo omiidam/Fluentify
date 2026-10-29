@@ -40,6 +40,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "gec.json"
+FIXES = ROOT / "gec_fixes.json"
 
 PERSIAN = re.compile(r"[\u0600-\u06FF]")
 LATIN = re.compile(r"[A-Za-z]")
@@ -194,6 +195,42 @@ def load_seconds() -> float:
     return _LOADED_AT
 
 
+def load_fixes() -> list[dict]:
+    """The deterministic rules that run before and after the model.
+
+    A 60M-parameter corrector has classes it never fixes - pronoun case,
+    "It is me", "I wish I was", have + simple past. They are cheap to state as
+    rules and expensive to leave to the model, so they live in gec_fixes.json,
+    which the page reads too. A rule that does not compile is skipped rather
+    than taking the sentence down with it.
+    """
+    if not FIXES.exists():
+        return []
+    try:
+        return json.loads(FIXES.read_text(encoding="utf-8")).get("rules", [])
+    except ValueError:
+        return []
+
+
+def apply_fixes(text: str) -> str:
+    """Rules applied in order, then the sentence's capital restored.
+
+    Restoring it is not decoration: "Me and my brother went out" becomes
+    "my brother and I went out" once the pronoun rule fires, and a correction
+    that starts a sentence in lower case looks broken however right it is.
+    """
+    out = text
+    for rule in load_fixes():
+        flags = re.IGNORECASE if "i" in (rule.get("flags") or "") else 0
+        try:
+            out = re.sub(rule["pattern"], rule["replace"], out, flags=flags)
+        except re.error:
+            continue
+    if text[:1].isupper() and out[:1].islower():
+        out = out[0].upper() + out[1:]
+    return out
+
+
 def equivalent(a: str, b: str) -> bool:
     """Same sentence, ignoring what a corrector is allowed to tidy.
 
@@ -247,7 +284,10 @@ def correct(sentence: str, cfg: dict | None = None) -> dict:
                 "refused": reason, "seconds": 0.0}
     model, tokenizer = load_model(cfg)
     started = time.time()
-    batch = tokenizer([cfg["model"]["prefix"] + text],
+    # rules first: the model corrects what it was trained on, and a pronoun
+    # fixed before it is asked is one it cannot get wrong
+    cleaned = apply_fixes(text)
+    batch = tokenizer([cfg["model"]["prefix"] + cleaned],
                       max_length=cfg["run"]["max_length"], truncation=True,
                       padding="max_length", return_tensors="pt")
     ids = model.generate(
@@ -260,7 +300,7 @@ def correct(sentence: str, cfg: dict | None = None) -> dict:
     )
     out = tokenizer.decode(ids[0], skip_special_tokens=True,
                            clean_up_tokenization_spaces=True)
-    out = " ".join(out.split())
+    out = apply_fixes(" ".join(out.split()))
     elapsed = round(time.time() - started, 3)
     return {"input": text, "output": out, "changed": not equivalent(out, text),
             "refused": None, "seconds": elapsed}

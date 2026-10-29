@@ -357,6 +357,34 @@ def run_model(cfg: dict) -> None:
           f"{sum(r['seconds'] for r in data['rows']):.2f}s for {len(data['rows'])} sentences")
 
 
+CORPUS = ROOT / "tools/gec_corpus.json"
+
+
+def run_corpus() -> None:
+    """Every error class the app promises to correct, not eleven sentences.
+
+    The bench proves the model runs; this proves it still answers the kinds of
+    mistake a learner actually makes - agreement, tense, articles, plurals,
+    prepositions, modals, pronouns, questions, negation, gerunds, conditionals,
+    word order, passive, spelling. A model update that fixes one class by
+    breaking another shows up here as a rate, not as a nice-looking sentence.
+    """
+    if not CORPUS.exists() or str(ROOT / "tools") not in sys.path:
+        return
+    import gec
+    rows = json.loads(CORPUS.read_text(encoding="utf-8"))
+    ok, misses = 0, []
+    for cat, wrong, keys in rows:
+        out = (gec.correct(wrong).get("output") or "").lower()
+        if any(k.lower() in out for k in keys):
+            ok += 1
+        else:
+            misses.append(f"[{cat}] {wrong!r}")
+    check(f"the corrector handles the {len(rows)}-sentence corpus",
+          ok / len(rows) >= 0.9,
+          f"{ok}/{len(rows)}; missed {', '.join(misses[:4])}")
+
+
 def weights_here() -> bool:
     try:
         sys.path.insert(0, str(ROOT / "tools"))
@@ -379,6 +407,7 @@ def main() -> int:
         run_web()
         if weights_here():
             run_model(cfg)
+            run_corpus()
         else:
             print("  (weights not downloaded: the correction checks were skipped — "
                   "run `python3 tools/gec.py \"I like to swimming\"` once to fetch them)")

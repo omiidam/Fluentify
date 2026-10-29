@@ -90,12 +90,29 @@
     const open = (file) => ort.InferenceSession.create(DIR + file, {
       executionProviders: ['wasm'], graphOptimizationLevel: 'all',
     });
-    const [encoder, decoder, tokenizerJson] = await Promise.all([
+    const [encoder, decoder, tokenizerJson, fixesJson] = await Promise.all([
       open('encoder_model.onnx'),
       open('decoder_model.onnx'),
       fetch(DIR + 'tokenizer.json').then((r) => r.json()),
+      fetch(DIR + 'gec_fixes.json').then((r) => r.json()).catch(() => ({rules: []})),
     ]);
-    return {encoder, decoder, tok: makeTokenizer(tokenizerJson)};
+    return {encoder, decoder, tok: makeTokenizer(tokenizerJson), fixes: fixesJson.rules};
+  }
+
+  /* The rule pass gec_fixes.json carries: applied to the sentence before the
+     model sees it and to its answer, exactly as tools/gec.py does. */
+  function applyFixes(text, rules) {
+    let out = text;
+    for (const rule of rules || []) {
+      if (!rule || !rule.pattern) continue;
+      try {
+        out = out.replace(new RegExp(rule.pattern, rule.flags || ''), rule.replace);
+      } catch (e) { /* a rule that does not compile must not take the page */ }
+    }
+    if (text[0] && text[0] === text[0].toUpperCase() && out[0] === out[0].toLowerCase()) {
+      out = out[0].toUpperCase() + out.slice(1);
+    }
+    return out;
   }
 
   const ready = () => (booting ||= boot());
@@ -109,8 +126,9 @@
               refused: 'The model corrects English only. / این مدل فقط انگلیسی را اصلاح می‌کند.'};
     }
     const started = performance.now();
-    const {encoder, decoder, tok} = await ready();
-    const ids = tok.encode('gec: ' + text);
+    const {encoder, decoder, tok, fixes} = await ready();
+    const cleaned = applyFixes(text, fixes);
+    const ids = tok.encode('gec: ' + cleaned);
     const n = ids.length;
     const inputIds = new ort.Tensor('int64', BigInt64Array.from(ids.map(BigInt)), [1, n]);
     const mask = new ort.Tensor('int64', BigInt64Array.from(ids.map(() => 1n)), [1, n]);
@@ -138,7 +156,7 @@
       if (bestId === EOS) break;
     }
 
-    const output = tok.decode(out.slice(1));
+    const output = applyFixes(tok.decode(out.slice(1)), fixes);
     const norm = (s) => s.replace(/[.!?]+\s*$/, '').toLowerCase();
     return {
       input: text, output,
