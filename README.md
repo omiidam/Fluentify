@@ -506,44 +506,95 @@ Nothing is uploaded by this project: recognition is done by the browser or the
 OS. `tools/transcribe.py` says plainly which backends are missing instead of
 failing quietly.
 
-## 🧠 Local grammar correction — gec-t5_small
+## 🧠 Grammar correction — GEC-BART Base, on the server
 
-The ✏️ checker in the conversation is a rule set: fifty-odd patterns for the
-errors a learner actually makes, each with the fix and the *why*. Beside it,
-not instead of it, sits an optional model — [Unbabel/gec-t5_small](https://huggingface.co/Unbabel/gec-t5_small),
-a T5-small fine-tuned for grammatical error correction (apache-2.0, F₀.₅ 60.70
-on BEA-2019). It reads a whole sentence, so it repairs things no pattern list
-was told about: `I like to swimming` → `I like swimming.`
+The ✏️ pen in the composer sends one sentence to `/api/correct`. Behind it is
+[gotutiyan/gec-bart-base](https://huggingface.co/gotutiyan/gec-bart-base) — BART-base
+fine-tuned on BEA-2019, CoNLL-2014 and FCE (Katsumata & Komachi, AACL 2020; MIT; ERRANT
+F₀.₅ 63.3 on BEA-19 test). It reads a whole sentence, so it repairs what no pattern list
+was told about: `She go to school yesterday.` → `She went to school yesterday.`
 
-```bash
-python3 tools/gec.py --check                 # what is installed, what is cached
-python3 tools/gec.py "I like to swimming"    # → I like swimming.
-echo "he don't like it" | python3 tools/gec.py --stdin
-python3 tools/gec.py --bench                 # ten known sentences, timed
+**Where the weights live.** 558 MB of safetensors, in ArvanCloud object storage:
+
+```
+s3://fluentify-bbc/GEC-BART BASE/
+  model.safetensors   config.json        tokenizer.json
+  tokenizer_config.json   vocab.json     merges.txt
+  special_tokens_map.json   manifest.json
 ```
 
-Install the dependencies once, into a project venv — a 900 MB torch does not
-belong in the system Python of an app whose selling point is "standard library
-only":
+Object storage holds the files; it does not run the model. The Python service does, and it
+loads the checkpoint from its own disk — ArvanCloud is touched only for an install, a cache
+repair or a version change.
+
+```bash
+python3 tools/gec_store.py --check      # keys, bucket, prefix, what is in the folder
+python3 tools/gec_store.py --upload     # upload, then verify size and SHA-256 per object
+python3 tools/gec.py --install          # fetch from the bucket into the cache
+python3 tools/gec.py --check            # identity, revision, cache, venv, storage
+python3 tools/gec.py "She go to school yesterday."
+python3 tools/gec.py --bench            # fourteen known sentences, timed
+```
+
+Credentials come from `ARVAN_S3_ACCESS_KEY_ID` / `ARVAN_S3_SECRET_ACCESS_KEY` in the
+environment or from `.arvan-storage.env` (gitignored) — never from a tracked file, because
+this page is bundled into the APK.
+
+Install the dependencies once, into a project venv — a 2 GB torch does not belong in the
+system Python of an app whose selling point is "standard library only":
 
 ```bash
 python3 -m venv .venv/gec
 .venv/gec/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
-.venv/gec/bin/pip install transformers sentencepiece
+.venv/gec/bin/pip install transformers safetensors boto3
 ```
 
 `tools/gec.py` re-runs itself inside that venv, so the command stays
-`python3 tools/gec.py …`. The first correction downloads ~242 MB of weights into
-`tools/.cache/models/` (gitignored); every one after that is offline. `gec.json`
-holds the checkpoint, the tokenizer, the `gec: ` prefix, the beam settings and
-the sentence limit — the model card's settings, plus
-`no_repeat_ngram_size` because a 60M-parameter model can otherwise loop.
+`python3 tools/gec.py …`. The checkpoint is pinned in `gec.json` (`model.revision`) and
+every file is checked against `GEC-BART BASE/manifest.json` before the model loads, so an
+interrupted 558 MB download fails at the door rather than at inference.
 
-**Why it is not in the app.** The APK runs its own JavaScript engine and the web
-page runs the same engine in the browser. Neither can load a T5, and
-`tests_js_vs_python.py` holds the two engines to the same words, message for
-message — so a model line in the default reply would be drift by construction,
-not a feature. Instead the model is asked for explicitly:
+**Measured on this machine** (CPU, one sentence at a time): **0.24–0.50 s per correction**,
+0.2–0.4 s to load with the files warm in the page cache, **71/73** on
+`tools/gec_corpus.json` (66/73 without the rule pass), and all four already-correct bench
+sentences left untouched. The decode uses `clean_up_tokenization_spaces`, because BART's
+byte-level tokenizer otherwise returns `She went to school yesterday .` — which is how it
+shipped for one build.
+
+**What is on the phone.** Nothing: no weights, no inference runtime, no tokenizer. The
+bundle went from **133 MB to 25 MB**. The pen button asks the backend when the build was
+given one:
+
+```bash
+FLUENTIFY_GEC_API=https://your-server.example python3 build_apk_ui.py
+```
+
+and otherwise answers from the rule engine `bot.js` already carries, so the pen still works
+with the phone in airplane mode. A loopback address is refused at build time: a phone
+cannot reach this laptop, and a correction that silently never arrives is worse than one
+that says it needs a connection.
+
+**Serving it.** The existing Python service hosts the model; `tools/gec_worker.py` keeps it
+resident so a request costs one generation, not one load:
+
+```ini
+# /etc/systemd/system/fluentify-gec.service
+[Service]
+WorkingDirectory=/srv/fluentify
+Environment=FLUENTIFY_GEC_DIR=/srv/fluentify/models/gec-bart
+ExecStart=/srv/fluentify/.venv/gec/bin/python webapp.py
+Restart=always
+```
+
+The endpoint answers `available:false` with a reason — never a traceback — when the model
+is missing, and `HF_HUB_OFFLINE` is set before transformers loads, so a running model never
+phones home. `python3 tools/gec_store.py --verify` compares the server's cache with the
+bucket's manifest when a cache is suspect.
+
+**A corrector repairs the sentence, not the meaning.** It may turn `I have went there` into
+`I have been there`: grammatical, and no longer what the learner said. The rule set's
+`have gone` is the one that keeps their meaning, which is why the chat's second opinion
+stays a line beside the rules rather than a replacement for them:
 
 ```bash
 FLUENTIFY_GEC=1 python3 chatbot.py
@@ -554,19 +605,9 @@ FLUENTIFY_GEC=1 python3 chatbot.py
 🧠 Local GEC model — مدل محلی: I have gone there.
 ```
 
-**What it costs.** A GEC model repairs the sentence, not the meaning: it turns
-`I have went there` into `I have been there`, which is grammatical and no
-longer what the learner said. The rule set's `have gone` is the one that keeps
-their meaning. That is the honest division of labour — the model catches errors
-no pattern list knows about, the rules explain and preserve — and it is another
-reason the model stays a second opinion rather than the answer.
-
-The flag is the whole switch: with it unset, `chatbot.py` never imports the
-model, never touches torch, and answers exactly as the APK does. The refused
-cases are named before anything loads — empty input, Persian-only or
-Persian-dominant input (the model is English), and sentences past 40 words —
-because a T5-small asked to correct what it was not trained on will invent an
-answer rather than decline.
+The refused cases are named before anything loads — empty input, Persian-only or
+Persian-dominant input (the model is English), and sentences past 64 words — because a
+corrector asked what it was not trained on will invent an answer rather than decline.
 
 ## Checks
 
@@ -585,7 +626,7 @@ Thirteen suites:
 | BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
 | offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
 | dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licences still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
-| local GEC model | is the optional gec-t5 model still optional? `gec.json` must name the model card's checkpoint and carry no global switch, the page, `bot.js` and the Kotlin must not mention it at all, the default chat reply must stay byte-identical with `FLUENTIFY_GEC` unset — and, when the weights are cached, the model must repair the five broken sentences and leave the five correct ones alone. |
+| grammar corrector | is it GEC-BART Base, on the server, and absent from the app? `gec.json` must pin the checkpoint and the ArvanCloud location and carry no global switch; the page, `bot.js` and the Kotlin must name no checkpoint and hold no weights, and the bundle must stay under 60 MB; the default chat reply must stay identical with `FLUENTIFY_GEC` unset; and the installed model must repair the bench and the 73-sentence corpus. |
 
 That last one matters more than its size suggests. A duplicate top-level name
 between the page and `bot.js` is a SyntaxError that kills the whole inline

@@ -9,6 +9,9 @@ __pycache__/
 # reaches this file is a key that reaches a shipped app.
 tools/.cache/
 .bbc-storage.env
+# ArvanCloud keys for the GEC-BART Base checkpoint. Same rule as the BBC keys:
+# anything this file holds can end up inside a shipped app, so it never ships.
+.arvan-storage.env
 
 # Machine-specific SDK location, written by Gradle.
 android/local.properties

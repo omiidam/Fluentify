@@ -19,7 +19,6 @@ from chatbot import ChatBot
 
 PORT = 8765
 ROOT = Path(__file__).resolve().parent
-GEC_DIR = ROOT / "android/app/src/main/assets/www/gec"
 STT_FILE = ROOT / "stt.json"
 BBC_FILE = ROOT / "bbc_6min.json"
 
@@ -71,13 +70,14 @@ def bbc_catalogue() -> dict:
 bot = ChatBot()  # shared session memory for the preview
 
 # ------------------------------------------------------------ local corrector
-# Unbabel/gec-t5_small runs on this machine and nowhere else: the weights are in
-# tools/.cache/models, the interpreter is .venv/gec, and tools/gec_worker.py
-# keeps the model loaded between sentences. Only this server can host it - the
-# browser and the APK ship JavaScript, and a T5 is not a JavaScript dependency -
-# so the correction is an endpoint of its own. That is also why chat replies are
-# untouched: the model answers a question about a sentence, it does not edit the
-# conversation, and the APK keeps the rule-based checker it ships with.
+# GEC-BART Base (gotutiyan/gec-bart-base) runs on the server and nowhere else:
+# the weights are a 558 MB BART, the interpreter is .venv/gec, and
+# tools/gec_worker.py keeps the model loaded between sentences. Only a Python
+# process can host it - the browser and the APK ship JavaScript, and a BART is
+# not a JavaScript dependency - so the correction is an endpoint of its own.
+# That is also why chat replies are untouched: the model answers a question
+# about a sentence, it does not edit the conversation, and the APK keeps the
+# rule-based checker it ships with.
 sys.path.insert(0, str(ROOT / "tools"))
 try:
     import gec as gec_model
@@ -88,10 +88,10 @@ except Exception:                    # a partial checkout must not stop the app
 class LocalGec:
     """One long-lived model process, started when a sentence first needs it.
 
-    Loading T5 takes seconds and a correction takes milliseconds, so a process
-    per request would spend nearly all of its time loading. If the environment
-    is absent the endpoint still answers, saying why, instead of failing the
-    page with a traceback.
+    Loading GEC-BART takes seconds and a correction takes about one, so a
+    process per request would spend nearly all of its time loading. If the
+    environment is absent the endpoint still answers, saying why, instead of
+    failing the page with a traceback.
     """
 
     def __init__(self):
@@ -3780,25 +3780,18 @@ async function checkEnglish(text) {
   showTyping();
   let data = null;
   try {
-    if (window.GECWeb) {
-      // The model is in the page, so this is the same code path on the phone,
-      // where there is no server to ask. The endpoint stays as a fallback for
-      // a page served without the bundled files.
-      data = await window.GECWeb.correct(text);
-      data.available = true;
-      data.local = true;
-    } else {
-      const r = await fetch('/api/correct?message=' + encodeURIComponent(text));
-      data = await r.json();
-    }
+    // The model is server-side, so the page asks the endpoint and draws the
+    // answer. No weights are loaded into the browser any more.
+    const r = await fetch('/api/correct?message=' + encodeURIComponent(text));
+    data = await r.json();
   } catch (e) {
     data = null;
   }
   hideTyping();
   busy = false;
   if (!data || data.available === false) {
-    add('⚠️ ' + ((data && data.refused) || 'The local correction model did not answer.') +
-        '\n  ↲ مدل اصلاح محلی پاسخ نداد.', 'bot', {err: true});
+    add('⚠️ ' + ((data && data.refused) || 'The correction model did not answer.') +
+        '\n  ↲ مدل اصلاحِ گرامر پاسخ نداد.', 'bot', {err: true});
     return;
   }
   if (data.refused) {
@@ -3810,8 +3803,7 @@ async function checkEnglish(text) {
         '  ↲ این جمله از نظر گرامری درست است.', 'bot');
     return;
   }
-  add('✍️ Grammar correction / اصلاح گرامر' +
-      (data.local ? ' — on this device / روی همین دستگاه' : '') + '\n' +
+  add('✍️ Grammar correction / اصلاح گرامر\n' +
       '• You wrote / نوشتی: ' + text + '\n' +
       '• Correct / درست: **' + data.output + '**\n' +
       '  ↲ ' + data.output, 'bot');
@@ -8108,10 +8100,6 @@ renderStarters();
 Seed.load();
 input.focus();
 </script>
-  <!-- the corrector runs here, not on a server: same files in the browser and
-       in the APK, so a sentence is corrected with the app in airplane mode -->
-  <script src="gec/ort.min.js"></script>
-  <script src="gec/gec-web.js"></script>
 </body>
 </html>
 """
@@ -8365,13 +8353,21 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
         elif self.path.startswith("/api/correct"):
-            # The sentence comes back corrected, or with the reason it was not:
-            # the browser only draws the answer, it holds no model.
+            # GEC-BART Base answers here and the page only draws the result. A
+            # model that is missing or unwell is a JSON refusal, not a
+            # traceback: the page has to be able to say why it got nothing.
             query = parse_qs(urlparse(self.path).query)
             message = query.get("message", [""])[0]
-            body = json.dumps(gec.correct(message), ensure_ascii=False).encode("utf-8")
+            try:
+                row = gec.correct(message)
+            except Exception as exc:   # one bad sentence must not end the server
+                row = {"available": False, "input": message, "output": "",
+                       "changed": False,
+                       "refused": f"The correction model failed: {exc}"}
+            body = json.dumps(row, ensure_ascii=False).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Cache-Control", "no-store")
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
@@ -8385,25 +8381,6 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
-        elif self.path.startswith("/gec/"):
-            # The on-device model: encoder, decoder, tokeniser, ORT runtime. The
-            # page in the APK reads the same files from assets, so a byte served
-            # here is the byte shipped on the phone.
-            base = GEC_DIR.resolve()
-            path = (base / urlparse(self.path).path[len("/gec/"):]).resolve()
-            if base not in path.parents or not path.is_file():
-                self.send_error(404)
-                return
-            data = path.read_bytes()
-            kinds = {".wasm": "application/wasm",
-                     ".js": "text/javascript; charset=utf-8",
-                     ".json": "application/json; charset=utf-8"}
-            self.send_response(200)
-            self.send_header("Content-Type",
-                             kinds.get(path.suffix, "application/octet-stream"))
-            self.send_header("Content-Length", str(len(data)))
-            self.end_headers()
-            self.wfile.write(data)
         else:
             body = render_page().encode("utf-8")
             self.send_response(200)

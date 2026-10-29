@@ -56,10 +56,12 @@ Four suites, each answering a different question:
                 unknown names, a garden-path sentence and mixed script, and
                 refuses any dependency label, any invented offset, and any
                 lesson chip whose topic the Knowledge Base cannot answer.
-  check_gec     is the local gec-t5 model still optional? gec.json must name
-                the checkpoint and carry no global switch, the shipped page,
-                bot.js and Kotlin must not mention it at all, and the default
-                chat reply must stay byte-identical with the flag unset.
+  check_gec     is the grammar corrector still GEC-BART Base, on the server,
+                and absent from the app? gec.json must pin the checkpoint and
+                the ArvanCloud location, the APK must hold no weights and no
+                inference runtime, the default chat reply must stay identical
+                with FLUENTIFY_GEC unset, and the installed model must repair
+                the bench and the corpus.
 
 Exit code is non-zero if any suite fails.
 """

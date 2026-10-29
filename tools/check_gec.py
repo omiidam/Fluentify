@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
-"""The local GEC model: configured, correct, and invisible until asked for.
+"""The grammar corrector: GEC-BART Base, server-side, and absent from the app.
 
-Unbabel/gec-t5_small is the only thing in this repo that needs a torch. That
-makes it a standing risk to three properties the project otherwise guarantees:
-the app runs on the standard library alone, the APK behaves exactly like the
-CLI, and nothing is fetched at runtime. This suite is what keeps the model on
-the right side of all three.
+The model is a 558 MB BART, which makes it the one thing in this repo that
+needs torch and the one thing that cannot ship in an APK. This suite is what
+keeps it on the right side of both:
 
-  config        gec.json parses, names the checkpoint the model card names,
-                and carries no "enabled" switch - the model is never on for
-                everyone, only for an invocation that asks
-  tool          `tools/gec.py --check` reports without a model, and refuses a
-                request it cannot answer *before* loading 242 MB
-  guards        empty, Persian and over-long input are turned away with a
-                reason, and none of them loads the model
-  default path  with FLUENTIFY_GEC unset, the chat reply is byte-identical to
-                the rule-based one, and torch is never imported
-  opt-in path   with the flag set, the reply gains at most one marked line, or
-                nothing at all when the model is missing - it never raises
-  invisible     webapp.py, the APK's bot.js, the built page and the Kotlin
-                mention the model nowhere: the shipped app has no such feature
+  config      gec.json names gotutiyan/gec-bart-base at a pinned revision, MIT,
+              asks for safetensors and not the duplicate pytorch_model.bin, and
+              carries no "enabled" switch for the chat path
+  storage     the ArvanCloud location is the bucket the model was uploaded to,
+              credentials are never read from a tracked file, and a missing key
+              is a message rather than a traceback
+  tool        `--check` reports without a model, and a request it cannot answer
+              is refused *before* 558 MB is loaded
+  guards      empty, Persian and over-long input are turned away with a reason
+  default path with FLUENTIFY_GEC unset the chat reply is the rule-based one,
+              and torch is never imported
+  invisible   bot.js, the built page and the Kotlin name no checkpoint and hold
+              no weights - there is no .onnx, no .safetensors, no inference
+              runtime in the APK, and the page asks an endpoint instead
+  wireless    the pen button still spends no daily message
 
-If the weights are present it also runs the bench through the real model and
-checks what it is supposed to do: repair the broken sentences and leave the
-correct ones alone. Skipped, with a printed reason, when they are not.
+When the checkpoint is installed it also runs the bench and the 73-sentence
+corpus through the real model, because a suite that only reads config would
+pass against a cache that cannot load.
 
     python3 tools/check_gec.py
 """
@@ -38,11 +38,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "gec.json"
 GEC = ROOT / "tools/gec.py"
+STORE = ROOT / "tools/gec_store.py"
 WEBAPP = ROOT / "webapp.py"
 BOT = ROOT / "android/app/src/main/assets/www/bot.js"
 BUILT = ROOT / "android/app/src/main/assets/www/index.html"
+ASSETS = ROOT / "android/app/src/main/assets/www"
 KOTLIN = ROOT / "android/app/src/main/java"
 
+MODEL_ID = "gotutiyan/gec-bart-base"
+PREFIX = "GEC-BART BASE/"
 FLAG = "FLUENTIFY_GEC"
 checks = 0
 failures: list[str] = []
@@ -63,8 +67,8 @@ def fail(message: str) -> None:
 
 
 def summary_line() -> str:
-    return (f"{checks - len(failures)}/{checks} checks over gec.json, the tool's "
-            f"guards, the opt-in path and the shipped surfaces")
+    return (f"{checks - len(failures)}/{checks} checks over gec.json, the storage "
+            f"location, the tool's guards and the shipped surfaces")
 
 
 # --------------------------------------------------------------------------
@@ -81,41 +85,108 @@ def run_config() -> dict:
         fail(f"gec.json does not parse: {exc}")
         return {}
 
-    for key in ("model", "run", "env"):
+    for key in ("model", "storage", "run", "env"):
         check(f"gec.{key} present", key in cfg)
 
     model = cfg.get("model", {})
-    check("the checkpoint is the one in the model card",
-          model.get("id") == "Unbabel/gec-t5_small", str(model.get("id")))
-    check("the tokenizer is t5-small's",
-          model.get("tokenizer") == "t5-small", str(model.get("tokenizer")))
-    prefix = model.get("prefix", "")
-    check("the prefix is 'gec: ' with its space", prefix == "gec: ", repr(prefix))
+    check("the checkpoint is GEC-BART Base", model.get("id") == MODEL_ID,
+          str(model.get("id")))
+    revision = str(model.get("revision", ""))
+    check("the revision is pinned to a commit", bool(re.fullmatch(r"[0-9a-f]{40}", revision)),
+          revision or "(unset) - 'main' can move under a running service")
+    check("the licence is recorded", model.get("license") == "MIT",
+          str(model.get("license")))
+    check("the architecture is BART's",
+          model.get("architecture") == "BartForConditionalGeneration",
+          str(model.get("architecture")))
+    files = model.get("files", [])
+    check("safetensors is the weights file", "model.safetensors" in files, str(files))
+    check("the duplicate pytorch_model.bin is not fetched",
+          "pytorch_model.bin" not in files, str(files))
+    for name in ("config.json", "tokenizer.json", "vocab.json", "merges.txt",
+                 "tokenizer_config.json"):
+        check(f"the tokenizer needs {name}", name in files)
+    check("no prefix is invented for this checkpoint", model.get("prefix", "") == "",
+          repr(model.get("prefix")))
+    check("the model card is kept as attribution",
+          bool(model.get("attribution")), str(model.get("attribution")))
+
+    store = cfg.get("storage", {})
+    check("the storage region is ir-thr-at1", store.get("region") == "ir-thr-at1",
+          str(store.get("region")))
+    check("the storage bucket is the one the model was uploaded to",
+          store.get("bucket") == "fluentify-bbc", str(store.get("bucket")))
+    check("the storage prefix is the requested folder", store.get("prefix") == PREFIX,
+          repr(store.get("prefix")))
+    check("the endpoint is the S3 API, not the console",
+          str(store.get("endpoint", "")).startswith("https://s3.") and
+          "console" not in str(store.get("endpoint", "")), str(store.get("endpoint")))
+    check("no credentials are stored in gec.json",
+          not any("secret" in k.lower() or "access_key" in k.lower() for k in store),
+          str(list(store)))
 
     run = cfg.get("run", {})
     check("beams between 1 and 10", 1 <= int(run.get("num_beams", 0)) <= 10,
           str(run.get("num_beams")))
-    check("max_length within the model's 512 positions",
-          32 <= int(run.get("max_length", 0)) <= 512, str(run.get("max_length")))
+    check("max_length within BART's 1024 positions",
+          32 <= int(run.get("max_length", 0)) <= 1024, str(run.get("max_length")))
     check("a sentence limit below the token limit",
           5 <= int(run.get("max_input_words", 0)) <= 80,
           str(run.get("max_input_words")))
     cache = str(run.get("cache_dir", ""))
-    check("the weights land in the gitignored cache",
-          cache.startswith("tools/.cache/"), cache)
-    check("early stopping is on", run.get("early_stopping") is True)
+    check("the weights land in the gitignored cache", cache.startswith("tools/.cache/"),
+          cache)
+    check("generation is deterministic in cost (no sampling)",
+          "do_sample" not in run and "temperature" not in run, str(sorted(run)))
 
     env = cfg.get("env", {})
     check("the venv is outside the repo", env.get("venv", "").startswith(".venv/"),
           str(env.get("venv")))
     check("the flag is the one chatbot.py reads", env.get("flag") == FLAG,
           str(env.get("flag")))
+    check("the cache can be repointed at a server disk",
+          bool(env.get("model_dir")), str(env.get("model_dir")))
 
     # The absence of this key is the point: a config switch would put a model
-    # line in every grammar reply, in an app whose APK cannot produce one.
+    # line in every grammar reply, which the APK cannot produce.
     check("gec.json carries no global enable switch", "enabled" not in cfg,
           "a global switch would drift the CLI from the APK")
     return cfg
+
+
+# --------------------------------------------------------------------------
+# storage
+# --------------------------------------------------------------------------
+def run_storage(cfg: dict) -> None:
+    """The upload tool must be usable and must not leak what it is given."""
+    check("tools/gec_store.py exists", STORE.exists())
+    if not STORE.exists():
+        return
+    proc = subprocess.run([sys.executable, str(STORE), "--check"], cwd=ROOT,
+                          capture_output=True, text=True, timeout=120,
+                          env={k: v for k, v in os.environ.items()
+                               if k not in ("ARVAN_S3_ACCESS_KEY_ID",
+                                            "ARVAN_S3_SECRET_ACCESS_KEY")})
+    out = proc.stdout + proc.stderr
+    check("--check names the bucket and the folder",
+          "fluentify-bbc" in out and PREFIX in out, out[:160])
+    if proc.returncode == 0:
+        check("with credentials, the bucket is reachable", "PASS" in out, out[-160:])
+    else:
+        # No keys here is the honest, common state on a checkout. It must say
+        # which ones are missing rather than raise.
+        check("without credentials it says which keys to set",
+              "ARVAN_S3_ACCESS_KEY_ID" in out, out[:160])
+        check("without credentials it does not pretend to have uploaded",
+              "PASS" not in out, out[:160])
+    secret = os.environ.get("ARVAN_S3_SECRET_ACCESS_KEY", "")
+    if secret:
+        check("the secret is never printed", secret not in out)
+
+    # Uploading is opt-in by invoking the tool, never a side effect of a test.
+    check("the upload tool does not run on import",
+          "upload(" not in (STORE.read_text(encoding="utf-8").split('if __name__')[0]
+                            .split("def upload")[0]), "an import must not upload")
 
 
 # --------------------------------------------------------------------------
@@ -128,22 +199,24 @@ def run_tool(cfg: dict) -> None:
                               env={k: v for k, v in os.environ.items() if k != FLAG})
 
     proc = call("--check")
-    check("--check exits 0 with no model installed", proc.returncode == 0,
-          proc.stderr.strip()[-200:])
+    check("--check exits 0", proc.returncode == 0, proc.stderr.strip()[-200:])
     out = proc.stdout
-    check("--check names the checkpoint",
-          cfg.get("model", {}).get("id", "Unbabel/gec-t5_small") in out)
+    check("--check names the checkpoint", MODEL_ID in out)
+    check("--check names the pinned revision",
+          str(cfg.get("model", {}).get("revision", "")) in out)
     check("--check names the venv it will use", ".venv/" in out)
-    check("--check says the model is CLI-only", "CLI only" in out)
+    check("--check names the storage location",
+          "fluentify-bbc" in out and PREFIX in out)
     check("--check names the opt-in flag", FLAG in out)
-    check("--check points at the cache", "tools/.cache/models" in out)
+    check("--check points at the cache", "tools/.cache/gec-bart" in out)
 
     proc = call()
     check("no sentence is a usage error, not a crash", proc.returncode == 2,
           str(proc.returncode))
 
     proc = call("--help")
-    check("--help works", proc.returncode == 0 and "gec-t5" in proc.stdout)
+    check("--help works and names the model",
+          proc.returncode == 0 and "GEC-BART" in proc.stdout, proc.stdout[:120])
 
 
 # --------------------------------------------------------------------------
@@ -162,7 +235,7 @@ def run_guards(cfg: dict) -> None:
         "empty": gec.correct("   ", cfg),
         "persian": gec.correct("این جمله فارسی است", cfg),
         "mostly persian": gec.correct("I said سلام و درود به همه دوستان امروز", cfg),
-        "too long": gec.correct(" ".join(["word"] * 60), cfg),
+        "too long": gec.correct(" ".join(["word"] * 80), cfg),
     }
     for label, row in rows.items():
         check(f"{label} input is refused", bool(row.get("refused")), str(row)[:120])
@@ -170,12 +243,14 @@ def run_guards(cfg: dict) -> None:
               len(row.get("refused") or "") > 10, str(row.get("refused")))
     check("no refusal loaded the model", gec._MODEL is None)
 
-    # A one-word sentence is refused by the length rule? No - it is fair game,
-    # but only when the model exists; here we only insist it is not refused for
-    # being Persian or over-long.
     check("a plain English sentence passes the guards",
           gec.refuse("he don't like it", cfg) is None,
           str(gec.refuse("he don't like it", cfg)))
+    check("the configured cache is where the loader looks",
+          gec.model_dir(cfg) == ROOT / cfg["run"]["cache_dir"], str(gec.model_dir(cfg)))
+    check("the identity reports the pinned model",
+          gec.model_identity(cfg)["model"] == MODEL_ID,
+          str(gec.model_identity(cfg)))
 
 
 # --------------------------------------------------------------------------
@@ -213,13 +288,10 @@ def run_optin(cfg: dict) -> None:
         check("with the flag, asking never raises", isinstance(line, str))
         if line:
             check("an opt-in line is labelled", "🧠" in line, line[:80])
-            # The model's repair of "have went" is "have been"; the rule set's
-            # is "have gone". Both are the correction this line must carry.
-            check("an opt-in line carries the model's correction",
-                  any(w in line.lower() for w in ("have been", "have gone")),
+            check("an opt-in line carries a participle correction",
+                  any(w in line.lower() for w in ("have gone", "have been")),
                   line[:120])
         else:
-            # No model environment here: the honest answer is no line at all.
             check("no model, no line", True)
             print("  (no model environment: the opt-in path returned nothing, "
                   "which is what it must do)")
@@ -228,93 +300,99 @@ def run_optin(cfg: dict) -> None:
     finally:
         os.environ.pop(FLAG, None)
 
-    # Whatever happened above, the shipped reply must be back to the rules.
     reply = chatbot.ChatBot().respond("is this correct? I have went there")
     check("the flag's effect ended with the flag", "🧠" not in reply, reply[:120])
 
 
 # --------------------------------------------------------------------------
-# invisible: the shipped app has no model in it
+# invisible: the shipped app carries no model
 # --------------------------------------------------------------------------
-MARKERS = ("gec-t5", "Unbabel", "gec_t5", FLAG)
+MARKERS = ("gotutiyan", "safetensors", "gec-bart-base", "GECWeb", "onnxruntime",
+           FLAG)
+WEIGHT_SUFFIXES = (".onnx", ".safetensors", ".wasm", ".bin", ".pt")
 
 
 def run_invisible() -> None:
-    # webapp.py is deliberately absent here: the preview is a Python server and
-    # hosts the model itself. The APK cannot - it ships HTML/JS - so the same
-    # markers must stay out of bot.js, the generated offline page and Kotlin.
     for path in (BOT, BUILT):
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         for marker in MARKERS:
-            check(f"{path.name} does not mention {marker}", marker not in text)
+            # The offline page names FLUENTIFY_GEC_API - the build-time backend
+            # hook - and that is deliberately not the chat's opt-in flag, so the
+            # flag is matched as a whole word rather than as a prefix.
+            hit = (re.search(r"\bFLUENTIFY_GEC\b(?!_)", text) if marker == FLAG
+                   else marker in text)
+            check(f"{path.name} does not mention {marker}", not hit)
     if KOTLIN.exists():
         for path in KOTLIN.rglob("*.kt"):
             text = path.read_text(encoding="utf-8", errors="replace")
             for marker in MARKERS:
-                check(f"{path.name} does not mention {marker}", marker not in text)
+                hit = (re.search(r"\bFLUENTIFY_GEC\b(?!_)", text) if marker == FLAG
+                       else marker in text)
+                check(f"{path.name} does not mention {marker}", not hit)
+            check(f"{path.name} loads no model", "onnx" not in text.lower())
 
-    # The bundle the APK loads must not have grown a model either: the copied
-    # data directory is what ships on the phone.
-    data = ROOT / "android/app/src/main/assets/www/data"
-    if data.exists():
-        check("the APK's data directory carries no model reference",
-              not any(marker in p.read_text(encoding="utf-8", errors="replace")
-                      for p in data.glob("*.json") for marker in MARKERS))
-    check("there is no model file in the bundle",
-          not any(p.suffix in (".bin", ".safetensors") for p in
-                  (ROOT / "android/app/src/main/assets/www").rglob("*")))
+    check("the old asset directory is gone", not (ASSETS / "gec").exists(),
+          "android/app/src/main/assets/www/gec still exists")
+    weights = [p.relative_to(ROOT) for p in ASSETS.rglob("*")
+               if p.suffix in WEIGHT_SUFFIXES]
+    check("the APK bundle holds no model weights", not weights, str(weights[:3]))
+    size = sum(p.stat().st_size for p in ASSETS.rglob("*") if p.is_file())
+    check("the offline bundle is the app, not the model (< 60 MB)",
+          size < 60 * 1024 * 1024, f"{size / 1048576:.1f} MB")
+
+    # The phone must not be handed a loopback address: it cannot reach this
+    # machine, and a silent failure there is a correction that never arrives.
+    if BUILT.exists():
+        match = re.search(r"const GEC_API = '([^']*)'", BUILT.read_text(encoding="utf-8"))
+        check("the offline page has a corrector entry point", bool(match),
+              "no GEC_API in the built page")
+        if match and match.group(1):
+            check("a configured backend is https, not a local address",
+                  match.group(1).startswith("https://") and
+                  not any(h in match.group(1) for h in ("127.0.0.1", "localhost")),
+                  match.group(1))
 
 
 def run_web() -> None:
     """The preview hosts the model; the offline page must not pretend to."""
-    if WEBAPP.exists():
-        text = WEBAPP.read_text(encoding="utf-8", errors="replace")
-        check("the preview serves a correction endpoint", '"/api/correct"' in text)
-        check("the preview runs the model as a resident worker",
-              "gec_worker.py" in text and "class LocalGec" in text)
-        # The rule file is written for Python (\1); JavaScript reads that as a
-        # literal "1" unless it is translated. That shipped for an hour as
-        # "She 1 eaten lunch", so the translation is asserted in the file that
-        # actually runs on the page, not in the template that names it.
-        web = (ROOT / "android/app/src/main/assets/www/gec/gec-web.js")
-        js = web.read_text(encoding="utf-8", errors="replace") if web.exists() else ""
-        check("the page translates the rules' backreferences",
-              "$$$1" in js and "gec_fixes.json" in js)
-        check("the preview's pen button is wired to it",
-              'id="gecbtn"' in text and "fetch('/api/correct" in text)
-        check("the pen does not spend one of the daily messages",
-              "Seed.add" not in text.split("async function checkEnglish")[1].split("\n}")[0])
-    bundle = ROOT / "android/app/src/main/assets/www/gec"
-    check("the model ships with the app",
-          (bundle / "encoder_model.onnx").exists()
-          and (bundle / "decoder_model.onnx").exists()
-          and (bundle / "tokenizer.json").exists()
-          and (bundle / "ort.min.js").exists()
-          and (bundle / "ort-wasm-simd.wasm").exists())
+    if not WEBAPP.exists():
+        return
+    text = WEBAPP.read_text(encoding="utf-8", errors="replace")
+    check("the preview serves a correction endpoint", '"/api/correct"' in text)
+    check("the preview runs the model as a resident worker",
+          "gec_worker.py" in text and "class LocalGec" in text)
+    check("the page asks the endpoint instead of loading weights",
+          "fetch('/api/correct" in text and "window.GECWeb" not in text)
+    check("the old model route is gone", '"/gec/"' not in text,
+          "webapp.py still serves /gec/")
+    check("the pen button is still wired", 'id="gecbtn"' in text)
+    check("the pen does not spend one of the daily messages",
+          "Seed.add" not in text.split("async function checkEnglish")[1].split("\n}")[0])
+    check("a model failure is JSON, not a traceback",
+          "The correction model failed" in text)
+
     if BUILT.exists():
-        text = BUILT.read_text(encoding="utf-8", errors="replace")
-        check("the offline page runs the bundled model",
-              'id="gecbtn"' in text and "gec/gec-web.js" in text
-              and "gec/ort.min.js" in text)
+        built = BUILT.read_text(encoding="utf-8", errors="replace")
+        check("the offline page routes the pen through correctSentence",
+              "correctSentence(text)" in built)
+        check("the offline page no longer fetches the endpoint directly",
+              "fetch('/api/correct" not in built, "the fetch survived the build")
 
 
 # --------------------------------------------------------------------------
 # the real model, when it is here
 # --------------------------------------------------------------------------
 BROKEN = {
-    "I like to swimming": ("swim",),
-    "he don't like it": ("doesn't", "does not"),
-    # The model prefers "have been" to the rule set's "have gone". Both are
-    # grammatical; they are not the same sentence. That is a GEC model's
-    # known hazard, and the reason the rules stay the surface that ships.
-    "I have went there": ("have been", "have gone"),
-    "She have a car": ("has",),
-    "They was happy yesterday": ("were",),
+    "She go to school yesterday.": ("went",),
+    "He don't like coffee.": ("doesn't", "does not"),
+    "I has a book.": ("have a book",),
+    "They was happy.": ("were",),
+    "I like to swimming": ("like swimming",),
 }
-CORRECT = ["She watches TV every day", "The book is on the table",
-           "I have seen him before"]
+CORRECT = ["She speaks English very well.", "She watches TV every day",
+           "The book is on the table", "I have seen him before"]
 
 
 def run_model(cfg: dict) -> None:
@@ -333,8 +411,13 @@ def run_model(cfg: dict) -> None:
         return
     rows = {r["input"].lower(): r for r in data["rows"]}
 
+    identity = data.get("identity", {})
+    check("the loaded checkpoint is the pinned one",
+          identity.get("model") == MODEL_ID and
+          str(identity.get("revision")) == str(cfg["model"]["revision"]),
+          str(identity))
     check("the model reports how long it took to load",
-          0 < data.get("load_seconds", 0) < 120, str(data.get("load_seconds")))
+          0 < data.get("load_seconds", 0) < 300, str(data.get("load_seconds")))
     for sentence, wants in BROKEN.items():
         row = rows.get(sentence.lower())
         if not row:
@@ -344,6 +427,12 @@ def run_model(cfg: dict) -> None:
         check(f"{sentence!r} is corrected", row["changed"], repr(row["output"]))
         check(f"{sentence!r} is corrected the right way",
               any(w in out for w in wants), repr(row["output"]))
+        # BART's byte-level decode leaves " ." and "does n't" unless the
+        # tokenizer is asked to clean up. That shipped once as
+        # "She went to school yesterday ." and looks like broken English.
+        check(f"{sentence!r} is decoded cleanly",
+              " ." not in row["output"] and " n't" not in row["output"],
+              repr(row["output"]))
     for sentence in CORRECT:
         row = rows.get(sentence.lower())
         if not row:
@@ -352,8 +441,6 @@ def run_model(cfg: dict) -> None:
         check(f"correct English is left alone: {sentence!r}", not row["changed"],
               repr(row["output"]))
 
-    # The three correct sentences come back with a capital and a full stop.
-    # That is tidying, not correction, and the bench must not call it a change.
     import gec
     check("a closing full stop is not counted as a correction",
           gec.equivalent("The book is on the table", "The book is on the table."))
@@ -369,18 +456,7 @@ CORPUS = ROOT / "tools/gec_corpus.json"
 
 
 def run_corpus() -> None:
-    """Every error class the app promises to correct, not eleven sentences.
-
-    The bench proves the model runs; this proves it still answers the kinds of
-    mistake a learner actually makes - agreement, tense, articles, plurals,
-    prepositions, modals, pronouns, questions, negation, gerunds, conditionals,
-    word order, passive, spelling. A model update that fixes one class by
-    breaking another shows up here as a rate, not as a nice-looking sentence.
-
-    The sentences go through tools/gec.py rather than importing gec: this suite
-    runs on the system interpreter, which has no torch, and the tool is what
-    re-execs into .venv/gec.
-    """
+    """Every error class the app promises to correct, not eleven sentences."""
     if not CORPUS.exists():
         return
     rows = json.loads(CORPUS.read_text(encoding="utf-8"))
@@ -412,6 +488,7 @@ def run_corpus() -> None:
     check(f"the corrector handles the {len(rows)}-sentence corpus",
           ok / len(rows) >= 0.9,
           f"{ok}/{len(rows)}; missed {', '.join(misses[:4])}")
+    print(f"  corpus {ok}/{len(rows)}")
 
 
 def weights_here() -> bool:
@@ -425,9 +502,10 @@ def weights_here() -> bool:
 
 # --------------------------------------------------------------------------
 def main() -> int:
-    print("Local GEC model — Unbabel/gec-t5_small\n")
+    print("Grammar correction — GEC-BART Base, server-side\n")
     cfg = run_config()
     if cfg:
+        run_storage(cfg)
         run_tool(cfg)
         run_guards(cfg)
         run_default(cfg)
@@ -438,8 +516,8 @@ def main() -> int:
             run_model(cfg)
             run_corpus()
         else:
-            print("  (weights not downloaded: the correction checks were skipped — "
-                  "run `python3 tools/gec.py \"I like to swimming\"` once to fetch them)")
+            print("  (checkpoint not installed: the inference checks were skipped — "
+                  "run `python3 tools/gec.py --install` once to fetch it)")
 
     print()
     if failures:

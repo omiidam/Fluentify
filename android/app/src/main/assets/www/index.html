@@ -3616,6 +3616,37 @@ async function send(text) {
    from the weights on this machine, and the page only draws the result. It is a
    button rather than a step of send(), so a correction costs nothing from the
    daily seed and never rewords the conversation the bot is having. */
+/* Correction. The app holds no model: the corrector is 558 MB and runs on the
+   server. If a backend was configured at build time (FLUENTIFY_GEC_API) the
+   sentence goes there; otherwise the rule engine bot.js already carries
+   answers, so the pen still works with the phone in airplane mode. */
+const GEC_API = '';
+const localCorrect = (text) => {
+  const problems = bot.checkGrammar(text);
+  const whole = problems.map((p) => p.whole).find(Boolean);
+  if (!whole) {
+    return {available: true, input: text, output: text, changed: false,
+            refused: null, local: true};
+  }
+  const out = whole.charAt(0).toUpperCase() + whole.slice(1);
+  return {available: true, input: text, output: out, refused: null, local: true,
+          changed: out.toLowerCase() !== text.toLowerCase()};
+};
+async function correctSentence(text) {
+  if (GEC_API) {
+    try {
+      const ctl = new AbortController();
+      const timer = setTimeout(() => ctl.abort(), 8000);
+      const r = await fetch(GEC_API + '/api/correct?message=' + encodeURIComponent(text),
+                            {signal: ctl.signal});
+      clearTimeout(timer);
+      const data = await r.json();
+      if (data && data.available !== false) return data;
+    } catch (e) { /* offline, or the backend is down: the rules answer */ }
+  }
+  return localCorrect(text);
+}
+
 async function checkEnglish(text) {
   text = (text || '').trim();
   if (!text || busy) return;
@@ -3627,24 +3658,17 @@ async function checkEnglish(text) {
   showTyping();
   let data = null;
   try {
-    if (window.GECWeb) {
-      // The model is in the page, so this is the same code path on the phone,
-      // where there is no server to ask. The endpoint stays as a fallback for
-      // a page served without the bundled files.
-      data = await window.GECWeb.correct(text);
-      data.available = true;
-      data.local = true;
-    } else {
-      data = {available: false, refused: 'The on-device model could not be loaded.'};
-    }
+    // The model is server-side, so the page asks the endpoint and draws the
+    // answer. No weights are loaded into the browser any more.
+    data = await correctSentence(text);
   } catch (e) {
     data = null;
   }
   hideTyping();
   busy = false;
   if (!data || data.available === false) {
-    add('⚠️ ' + ((data && data.refused) || 'The local correction model did not answer.') +
-        '\n  ↲ مدل اصلاح محلی پاسخ نداد.', 'bot', {err: true});
+    add('⚠️ ' + ((data && data.refused) || 'The correction model did not answer.') +
+        '\n  ↲ مدل اصلاحِ گرامر پاسخ نداد.', 'bot', {err: true});
     return;
   }
   if (data.refused) {
@@ -3656,8 +3680,7 @@ async function checkEnglish(text) {
         '  ↲ این جمله از نظر گرامری درست است.', 'bot');
     return;
   }
-  add('✍️ Grammar correction / اصلاح گرامر' +
-      (data.local ? ' — on this device / روی همین دستگاه' : '') + '\n' +
+  add('✍️ Grammar correction / اصلاح گرامر\n' +
       '• You wrote / نوشتی: ' + text + '\n' +
       '• Correct / درست: **' + data.output + '**\n' +
       '  ↲ ' + data.output, 'bot');
@@ -8070,9 +8093,5 @@ renderStarters();
 Seed.load();
 input.focus();
 </script>
-  <!-- the corrector runs here, not on a server: same files in the browser and
-       in the APK, so a sentence is corrected with the app in airplane mode -->
-  <script src="gec/ort.min.js"></script>
-  <script src="gec/gec-web.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 {
- "_readme": "Deterministic fixes for error classes gec-t5_small misses. Applied to the sentence before the model and to its answer, by tools/gec.py and by assets/www/gec/gec-web.js - one file, both runtimes, so the phone cannot drift from the desktop.",
+ "_readme": "Deterministic fixes for error classes the model misses. Applied to the sentence before GEC-BART Base sees it and to its answer, by tools/gec.py - the server is the only runtime that holds a model. They are model-agnostic rules: pronoun case, \"It is me\", \"I wish I was\", have + simple past.",
  "rules": [
   {
    "id": "me_and",

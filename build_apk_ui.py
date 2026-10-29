@@ -8,6 +8,7 @@ Keeping one source of truth means the desktop preview and the app never drift.
 """
 
 import hashlib
+import os
 import re
 import shutil
 import sys
@@ -58,13 +59,24 @@ def sub(text: str, old: str, new: str, what: str,
 # becomes a plain fetch-free assignment filled from that file at boot
 html = sub(html, "/*__STT_CONFIG__*/", "", "the STT config marker")
 
-# The local corrector ships *inside* the offline page now: gec/ holds the int8
-# encoder and decoder, the tokeniser and the ORT runtime, and gec-web.js runs
-# them in the WebView. Nothing here removes the button - it works in airplane
-# mode, which is the point of shipping the weights.
-if not (ROOT / "android/app/src/main/assets/www/gec/encoder_model.onnx").exists():
-    sys.exit("build_apk_ui: the offline bundle has no model - copy "
-             "android/app/src/main/assets/www/gec/ first")
+# The corrector is server-side now. GEC-BART Base is a 558 MB BART and runs in
+# the Python service, so no weights ship in the APK - what ships is the rule
+# engine bot.js already carries. The pen button asks the backend when one was
+# configured at build time and falls back to those rules when it cannot.
+GEC_API = os.environ.get("FLUENTIFY_GEC_API", "").strip().rstrip("/")
+if GEC_API and not GEC_API.startswith("https://"):
+    sys.exit("build_apk_ui: FLUENTIFY_GEC_API must be the public https:// backend")
+if any(h in GEC_API for h in ("127.0.0.1", "localhost", "10.0.2.2")):
+    sys.exit("build_apk_ui: FLUENTIFY_GEC_API is a loopback address - the phone "
+             "cannot reach this machine, so leave it unset to use the rules")
+# A model in the bundle is a 558 MB app and a correction that runs on the
+# phone. Both are wrong for this build, and it should fail here rather than in
+# an APK nobody inspects.
+_stray = [p.relative_to(ROOT) for p in
+          (ROOT / "android/app/src/main/assets/www").rglob("*")
+          if p.suffix in (".onnx", ".safetensors", ".wasm") or p.name == "pytorch_model.bin"]
+if _stray:
+    sys.exit(f"build_apk_ui: model weights are in the offline bundle: {_stray[:3]}")
 
 # 1) send(): call the local engine instead of the HTTP endpoint
 #
@@ -344,14 +356,50 @@ html = sub(html, "\n<script>\n",
            "the inline script tag", 1)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
-# The offline page has no server, so the corrector's fallback fetch is replaced
-# by a plain answer. GECWeb is bundled in gec/, so this only runs if those files
-# are missing - it is a message, not a request.
+# The offline page has no server, so the corrector's fetch becomes one function
+# that tries a configured backend and otherwise answers from the rules. The
+# button keeps its behaviour: it never charges a daily message and never edits
+# the conversation.
+CORRECTOR = r'''/* Correction. The app holds no model: the corrector is 558 MB and runs on the
+   server. If a backend was configured at build time (FLUENTIFY_GEC_API) the
+   sentence goes there; otherwise the rule engine bot.js already carries
+   answers, so the pen still works with the phone in airplane mode. */
+const GEC_API = '__GEC_API__';
+const localCorrect = (text) => {
+  const problems = bot.checkGrammar(text);
+  const whole = problems.map((p) => p.whole).find(Boolean);
+  if (!whole) {
+    return {available: true, input: text, output: text, changed: false,
+            refused: null, local: true};
+  }
+  const out = whole.charAt(0).toUpperCase() + whole.slice(1);
+  return {available: true, input: text, output: out, refused: null, local: true,
+          changed: out.toLowerCase() !== text.toLowerCase()};
+};
+async function correctSentence(text) {
+  if (GEC_API) {
+    try {
+      const ctl = new AbortController();
+      const timer = setTimeout(() => ctl.abort(), 8000);
+      const r = await fetch(GEC_API + '/api/correct?message=' + encodeURIComponent(text),
+                            {signal: ctl.signal});
+      clearTimeout(timer);
+      const data = await r.json();
+      if (data && data.available !== false) return data;
+    } catch (e) { /* offline, or the backend is down: the rules answer */ }
+  }
+  return localCorrect(text);
+}
+
+'''
+html = sub(html, "async function checkEnglish(text) {",
+           CORRECTOR.replace("__GEC_API__", GEC_API) + "async function checkEnglish(text) {",
+           "the checkEnglish declaration")
 html = sub(html,
-           "      const r = await fetch('/api/correct?message=' + encodeURIComponent(text));\n"
-           "      data = await r.json();",
-           "      data = {available: false, refused: 'The on-device model could not be loaded.'};",
-           "the corrector's server fallback")
+           "    const r = await fetch('/api/correct?message=' + encodeURIComponent(text));\n"
+           "    data = await r.json();",
+           "    data = await correctSentence(text);",
+           "the corrector's server call")
 
 OUT.write_text(html, encoding="utf-8")
 print("wrote", OUT, len(html), "chars")

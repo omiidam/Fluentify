@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Serves Unbabel/gec-t5_small over stdin/stdout, one sentence per line.
+"""Serves GEC-BART Base over stdin/stdout, one sentence per line.
 
     .venv/gec/bin/python tools/gec_worker.py
 
-The model costs a few seconds to load and milliseconds to use, so a process that
-starts, answers one sentence and exits spends almost all of its time loading.
-This keeps the model resident and answers until stdin closes:
+The model costs seconds to load and about a third of a second to use, so a
+process that starts, answers one sentence and exits spends almost all of its
+time loading. This keeps the model resident and answers until stdin closes:
 
     {"sentence": "he don't like it"}         in
     {"input": "he don't like it", "output": "He doesn't like it.", ...}   out
@@ -13,14 +13,14 @@ This keeps the model resident and answers until stdin closes:
 The first line on stdout is `{"ready": true, "load_seconds": …}`, so a caller
 knows the weights are in memory rather than guessing from a timeout.
 
-No network is involved once the checkpoint is cached: HF_HUB_OFFLINE is set by
-tools/gec.py when the weights are present, and it is set again here.
+No network is involved once the checkpoint is cached: tools/gec.py verifies the
+manifest and sets HF_HUB_OFFLINE before transformers is imported, and the only
+thing that ever fetches is an explicit install.
 """
 
 from __future__ import annotations
 
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -33,11 +33,11 @@ def serve() -> int:
     cfg = gec.load_config()
     try:
         gec.load_model(cfg)          # load once, before announcing readiness
-    except RuntimeError as exc:      # missing torch/transformers
+    except RuntimeError as exc:      # missing torch/transformers or weights
         print(json.dumps({"ready": False, "error": str(exc)}), flush=True)
         return 3
-    os.environ.setdefault("HF_HUB_OFFLINE", "1")
-    print(json.dumps({"ready": True, "load_seconds": gec.load_seconds()}), flush=True)
+    print(json.dumps({"ready": True, "load_seconds": gec.load_seconds(),
+                      "model": gec.model_identity(cfg)}), flush=True)
 
     for line in sys.stdin:
         line = line.strip()

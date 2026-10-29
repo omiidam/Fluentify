@@ -1,34 +1,55 @@
 {
-  "_readme": "Grammatical error correction with Unbabel/gec-t5_small, run on this machine. Read by tools/gec.py and by the CLI chat's opt-in second opinion. There is deliberately no 'enabled' switch here: the model is never on the default reply path, because the APK and the web page are stdlib/browser-only and cannot load a T5. Turning it on is a per-invocation choice (FLUENTIFY_GEC=1) so the shipped chat, the JS port and the parity suites cannot drift.",
+  "_readme": "Grammatical error correction with gotutiyan/gec-bart-base (GEC-BART Base), run by the Python service and nowhere else. Read by tools/gec.py, tools/gec_worker.py, tools/gec_store.py and webapp.py's /api/correct. The weights are 558 MB of BART, so they do not ship in the APK and are never fetched by a browser: the phone and the page ask the server. There is deliberately no 'enabled' switch for the chat path - see env.flag, which only turns on the optional second-opinion line in the CLI.",
 
   "model": {
-    "_readme": "The checkpoint from the model card. gec-t5_small is T5-small fine-tuned on the BEA-2019 / CoNLL / FCE corpora; apache-2.0, ~242 MB of fp32 weights.",
-    "id": "Unbabel/gec-t5_small",
-    "tokenizer": "t5-small",
-    "prefix": "gec: ",
-    "revision": "main"
+    "_readme": "The official checkpoint, pinned to an immutable revision. The safetensors file is the only weights file required: the repo also carries pytorch_model.bin, and downloading both would store the same 558 MB twice. License is MIT per the model card.",
+    "id": "gotutiyan/gec-bart-base",
+    "revision": "bb878d72a696f9ea56d9854a27a48027e2eb3874",
+    "license": "MIT",
+    "architecture": "BartForConditionalGeneration",
+    "paper": "Katsumata & Komachi, Stronger Baselines for GEC Using a Pretrained Encoder-Decoder Model (AACL 2020)",
+    "prefix": "",
+    "files": ["model.safetensors", "config.json", "tokenizer.json",
+              "tokenizer_config.json", "vocab.json", "merges.txt",
+              "special_tokens_map.json"],
+    "attribution": "README.md"
+  },
+
+  "storage": {
+    "_readme": "Where the weights live for the server to install from. Object storage holds the files; it does not run the model. The bucket stays private and the keys come from the environment or .arvan-storage.env, never from a tracked file.",
+    "endpoint": "https://s3.ir-thr-at1.arvanstorage.ir",
+    "region": "ir-thr-at1",
+    "bucket": "fluentify-bbc",
+    "prefix": "GEC-BART BASE/",
+    "manifest": "manifest.json",
+    "env_file": ".arvan-storage.env"
   },
 
   "run": {
-    "_readme": "Generation settings from the model card, with one addition: no_repeat_ngram_size, because a 60M-parameter model can otherwise loop on an unusual word.",
-    "num_beams": 5,
+    "_readme": "Generation settings for a BART fine-tuned on BEA-2019/CoNLL/FCE. Four beams is the paper's setting; measured on the project corpus, more beams cost latency without buying accuracy. max_input_words is conservative because BART's window is 1024 positions but a corrector's answer degrades on a long sentence.",
+    "num_beams": 4,
     "max_length": 128,
-    "early_stopping": true,
+    "min_length": 2,
     "no_repeat_ngram_size": 3,
-    "max_input_words": 40,
-    "cache_dir": "tools/.cache/models"
+    "length_penalty": 1.0,
+    "early_stopping": true,
+    "max_input_words": 64,
+    "cache_dir": "tools/.cache/gec-bart",
+    "load_timeout_seconds": 300,
+    "infer_timeout_seconds": 120
   },
 
   "env": {
-    "_readme": "Where the weights live when they have been fetched, and the interpreter that holds torch/transformers. Both are outside git.",
+    "_readme": "The interpreter that holds torch/transformers/boto3, the opt-in flag for the CLI's second opinion, and the variable that repoints the cache at a server's persistent disk.",
     "venv": ".venv/gec",
-    "flag": "FLUENTIFY_GEC"
+    "flag": "FLUENTIFY_GEC",
+    "model_dir": "FLUENTIFY_GEC_DIR"
   },
 
   "notes": {
     "language": "en",
     "offline": true,
-    "network": "Only the first run downloads the checkpoint. After that every correction is computed on this device.",
-    "surfaces": "CLI, and the web preview through POST-free /api/correct (the pen button in the composer). The chat replies are untouched - the model answers a question about one sentence - and the APK keeps the rule-based checker in bot.js, which is what ships."
+    "network": "Only an install or a cache repair reaches ArvanCloud. Once the manifest checks out, every correction is computed on this machine.",
+    "surfaces": "The web page's pen button through /api/correct, the CLI, and the optional chat second opinion. The APK asks the same endpoint when FLUENTIFY_GEC_API is set at build time, and otherwise answers from its rule engine."
   }
 }

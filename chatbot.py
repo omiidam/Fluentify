@@ -3375,16 +3375,16 @@ class ChatBot:
 
 
 def second_opinion(sentence: str) -> str:
-    """A correction from the local gec-t5 model, when it has been switched on.
+    """A correction from GEC-BART Base, when it has been switched on.
 
     Off unless FLUENTIFY_GEC is set. The rule set above is what ships: the APK
-    runs its own JavaScript port, that port cannot load a 242 MB T5, and
+    runs its own JavaScript port, that port cannot load a 558 MB BART, and
     `tests_js_vs_python.py` holds the two engines to the same words - so a
     model line on the default path would be drift by construction. Asked for
     explicitly, it is a second opinion beside the rules, never instead of them.
 
     The import is inside the function on purpose: this file stays stdlib-only
-    and the 900 MB dependency is never touched unless the learner opts in.
+    and the 2 GB dependency is never touched unless the learner opts in.
     """
     try:
         tools = str(Path(__file__).resolve().parent / "tools")
