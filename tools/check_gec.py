@@ -276,9 +276,12 @@ def run_web() -> None:
               "gec_worker.py" in text and "class LocalGec" in text)
         # The rule file is written for Python (\1); JavaScript reads that as a
         # literal "1" unless it is translated. That shipped for an hour as
-        # "She 1 eaten lunch", so the translation is asserted, not assumed.
+        # "She 1 eaten lunch", so the translation is asserted in the file that
+        # actually runs on the page, not in the template that names it.
+        web = (ROOT / "android/app/src/main/assets/www/gec/gec-web.js")
+        js = web.read_text(encoding="utf-8", errors="replace") if web.exists() else ""
         check("the page translates the rules' backreferences",
-              "$$$1" in text and "gec_fixes.json" in text)
+              "$$$1" in js and "gec_fixes.json" in js)
         check("the preview's pen button is wired to it",
               'id="gecbtn"' in text and "fetch('/api/correct" in text)
         check("the pen does not spend one of the daily messages",
