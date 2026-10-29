@@ -157,31 +157,61 @@ def run_config() -> dict:
 # --------------------------------------------------------------------------
 # storage
 # --------------------------------------------------------------------------
+def _env_file_values() -> dict:
+    """The env file's KEY=VALUE pairs, read without printing any of them."""
+    path = ROOT / "gec.json"
+    try:
+        cfg = json.loads(path.read_text(encoding="utf-8"))
+        env_file = ROOT / cfg.get("storage", {}).get("env_file", ".arvan-storage.env")
+        pairs = {}
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
+                pairs[key.strip()] = value.strip()
+        return pairs
+    except (OSError, ValueError):
+        return {}
+
+
 def run_storage(cfg: dict) -> None:
     """The upload tool must be usable and must not leak what it is given."""
     check("tools/gec_store.py exists", STORE.exists())
     if not STORE.exists():
         return
+    # Two states, both must be honest. The first run hides the keys *and* the
+    # env file: a machine that has credentials must still be able to prove what
+    # the missing-credential path says, because that is what a fresh checkout
+    # and a misconfigured server both see.
+    absent_env = {k: v for k, v in os.environ.items()
+                  if k not in ("ARVAN_S3_ACCESS_KEY_ID", "ARVAN_S3_SECRET_ACCESS_KEY")}
+    absent_env["ARVAN_S3_ENV_FILE"] = str(ROOT / "tools/.cache/no-such-storage.env")
     proc = subprocess.run([sys.executable, str(STORE), "--check"], cwd=ROOT,
-                          capture_output=True, text=True, timeout=120,
-                          env={k: v for k, v in os.environ.items()
-                               if k not in ("ARVAN_S3_ACCESS_KEY_ID",
-                                            "ARVAN_S3_SECRET_ACCESS_KEY")})
+                          capture_output=True, text=True, timeout=120, env=absent_env)
     out = proc.stdout + proc.stderr
     check("--check names the bucket and the folder",
           "fluentify-bbc" in out and PREFIX in out, out[:160])
+    check("without credentials it says which keys to set",
+          "ARVAN_S3_ACCESS_KEY_ID" in out, out[:160])
+    check("without credentials it does not pretend to have uploaded",
+          "PASS" not in out, out[:160])
+    check("without credentials it does not raise",
+          "Traceback" not in out, out[-160:])
+
+    # Second run, real settings: if this machine has keys, the bucket has to
+    # answer; if it has none, the message is the truthful one.
+    proc = subprocess.run([sys.executable, str(STORE), "--check"], cwd=ROOT,
+                          capture_output=True, text=True, timeout=120)
+    live = proc.stdout + proc.stderr
     if proc.returncode == 0:
-        check("with credentials, the bucket is reachable", "PASS" in out, out[-160:])
+        check("with credentials, the bucket is reachable", "PASS" in live, live[-200:])
     else:
-        # No keys here is the honest, common state on a checkout. It must say
-        # which ones are missing rather than raise.
-        check("without credentials it says which keys to set",
-              "ARVAN_S3_ACCESS_KEY_ID" in out, out[:160])
-        check("without credentials it does not pretend to have uploaded",
-              "PASS" not in out, out[:160])
-    secret = os.environ.get("ARVAN_S3_SECRET_ACCESS_KEY", "")
-    if secret:
-        check("the secret is never printed", secret not in out)
+        check("with no credentials on the machine, --check says so",
+              "ARVAN_S3_ACCESS_KEY_ID" in live, live[:160])
+    for source in (os.environ, _env_file_values()):
+        secret = source.get("ARVAN_S3_SECRET_ACCESS_KEY", "")
+        if secret:
+            check("the secret is never printed", secret not in live)
 
     # Uploading is opt-in by invoking the tool, never a side effect of a test.
     check("the upload tool does not run on import",

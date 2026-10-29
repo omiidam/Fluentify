@@ -80,7 +80,11 @@ def settings(cfg: dict | None = None) -> dict:
     """The storage location from gec.json, credentials from the environment."""
     cfg = cfg or load_config()
     store = cfg.get("storage", {})
-    env_file = ROOT / store.get("env_file", ".arvan-storage.env")
+    # The override exists so a test (or a deploy) can point at another file
+    # without editing a tracked one - check_gec.py uses it to exercise the
+    # "no credentials" path on a machine that has them.
+    env_file = Path(os.environ.get("ARVAN_S3_ENV_FILE")
+                    or ROOT / store.get("env_file", ".arvan-storage.env"))
     file_env = read_env_file(env_file)
     pick = lambda name, default="": os.environ.get(name) or file_env.get(name) or default
     return {
