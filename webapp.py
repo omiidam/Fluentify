@@ -983,6 +983,48 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     padding: 0 4px; font-size: 9px; color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
+  /* A lesson is six things - structure, tip, explanation, function, examples,
+     exercises - and they used to arrive as one pre-wrap wall of text. Each is
+     its own bordered card now, with a rail whose colour says which part of the
+     lesson you are in. The engine's text is untouched: this is the page's
+     parsing of the same words the CLI and the APK print. */
+  .glesson { white-space: normal; }
+  .glesson-head {
+    font-family: var(--font-display); font-size: 14.5px; font-weight: 700;
+    color: var(--navy); line-height: 1.4; margin-bottom: 2px;
+  }
+  .gsec {
+    margin-top: 9px; border-radius: 13px;
+    border: 1px solid rgba(43,48,73,0.145);
+    background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,252,239,.42));
+    box-shadow: 0 1px 2px rgba(43,48,73,.05);
+    overflow: hidden;
+  }
+  .gsec:first-of-type { margin-top: 11px; }
+  .gsec-h {
+    display: flex; align-items: center; gap: 7px;
+    padding: 6px 11px 6px 10px;
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    letter-spacing: .015em; color: var(--navy);
+    background: rgba(43,48,73,0.038);
+    border-bottom: 1px solid rgba(43,48,73,0.105);
+    border-inline-start: 3px solid var(--violet);
+  }
+  .gsec-b {
+    white-space: pre-wrap; padding: 9px 12px 10px 13px;
+    font-size: 13.5px; line-height: 1.66; color: var(--text);
+  }
+  .gsec-b b { color: var(--navy); }
+  /* one rail colour per part, drawn from the theme's own accents */
+  .gsec[data-kind="structure"]   .gsec-h { border-inline-start-color: var(--violet); }
+  .gsec[data-kind="tip"]         .gsec-h { border-inline-start-color: var(--amber); }
+  .gsec[data-kind="explanation"] .gsec-h { border-inline-start-color: var(--indigo); }
+  .gsec[data-kind="function"]    .gsec-h { border-inline-start-color: var(--cyan); }
+  .gsec[data-kind="examples"]    .gsec-h { border-inline-start-color: var(--teal); }
+  .gsec[data-kind="exercises"]   .gsec-h { border-inline-start-color: var(--slate-rail, #3c405b); }
+  @media (max-width: 560px) {
+    .gsec-b { font-size: 13px; padding: 8px 10px 9px 11px; }
+  }
   /* grammar panel: compact, grouped by CEFR level */
   .glevel { margin-bottom: 5px; }
   .glevel:last-child { margin-bottom: 0; }
@@ -3123,6 +3165,64 @@ function renderText(s) {
   return stickerize(escapeHtml(s)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 }
 
+/* A lesson arrives as five numbered parts plus a tip, separated only by blank
+   lines. Splitting on those markers is what lets each part have its own card;
+   everything else about the text - the words, the order, the bilingual ↲ lines
+   - is left exactly as the engine wrote it. Returns null for anything that is
+   not a lesson, so every other message keeps the plain bubble. */
+const GLESSON_PARTS = {'1️⃣': 'structure', '💡': 'tip', '2️⃣': 'explanation',
+                       '3️⃣': 'function', '4️⃣': 'examples', '5️⃣': 'exercises'};
+
+function parseGrammarSections(text) {
+  if (!text.trimStart().startsWith('📘 English Grammar')) return null;
+  const head = [];
+  const sections = [];
+  let cur = null;
+  for (const raw of text.split('\n')) {
+    const line = raw.replace(/\s+$/, '');
+    const m = line.match(/^(?:([1-5]️⃣)\s*(.+)|(💡)\s*(Tip:.*))$/);
+    if (m) {
+      cur = { title: m[1] ? m[1] + ' ' + m[2].trim() : '💡 ' + m[4].trim(),
+              body: [] };
+      sections.push(cur);
+      continue;
+    }
+    if (cur) cur.body.push(line); else head.push(line);
+  }
+  // A real lesson has the numbered parts; a menu or a stray mention does not.
+  if (sections.length < 3) return null;
+  return {
+    head: head.join('\n').trim(),
+    sections: sections.map((s) => ({title: s.title, body: s.body.join('\n').trim()}))
+      .filter((s) => s.body),
+  };
+}
+
+function renderGrammarLesson(bubble, parsed) {
+  bubble.classList.add('glesson');
+  bubble.textContent = '';
+  if (parsed.head) {
+    const h = document.createElement('div');
+    h.className = 'glesson-head';
+    h.innerHTML = renderText(parsed.head);
+    bubble.appendChild(h);
+  }
+  parsed.sections.forEach((sec) => {
+    const card = document.createElement('section');
+    card.className = 'gsec';
+    card.dataset.kind = GLESSON_PARTS[sec.title.slice(0, sec.title.indexOf(' '))]
+                        || 'structure';
+    const h = document.createElement('div');
+    h.className = 'gsec-h';
+    h.innerHTML = renderText(sec.title);
+    const b = document.createElement('div');
+    b.className = 'gsec-b';
+    b.innerHTML = renderText(sec.body);
+    card.append(h, b);
+    bubble.appendChild(card);
+  });
+}
+
 /* A phrase bank arrives as "💬 Title\n• english\n  ↲ فارسی" pairs.
    Render it as separate cards instead of one run-on pre-wrap block.
    Only the 💬 banner marks a phrase bank — grammar lessons also use • and ↲,
@@ -3214,7 +3314,9 @@ function add(text, who, opts = {}) {
   if (isFa(text) && !/[A-Za-z]/.test(text.slice(0, 40))) bubble.classList.add('rtl');
   if (text.split('\n').length > 10) bubble.classList.add('long');
   const phrases = who === 'bot' && !opts.err && !opts.html ? parsePhraseList(text) : null;
-  if (phrases) renderPhraseList(bubble, phrases);
+  const lesson = who === 'bot' && !opts.err && !opts.html ? parseGrammarSections(text) : null;
+  if (lesson) renderGrammarLesson(bubble, lesson);
+  else if (phrases) renderPhraseList(bubble, phrases);
   // opts.html is renderAnalysis() output: already escaped field by field, and
   // escaping it a second time would print the markup instead of the analysis.
   else if (opts.html) bubble.innerHTML = text;
