@@ -240,7 +240,10 @@ MARKERS = ("gec-t5", "Unbabel", "gec_t5", FLAG)
 
 
 def run_invisible() -> None:
-    for path in (WEBAPP, BOT, BUILT):
+    # webapp.py is deliberately absent here: the preview is a Python server and
+    # hosts the model itself. The APK cannot - it ships HTML/JS - so the same
+    # markers must stay out of bot.js, the generated offline page and Kotlin.
+    for path in (BOT, BUILT):
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -262,6 +265,23 @@ def run_invisible() -> None:
     check("there is no model file in the bundle",
           not any(p.suffix in (".bin", ".safetensors") for p in
                   (ROOT / "android/app/src/main/assets/www").rglob("*")))
+
+
+def run_web() -> None:
+    """The preview hosts the model; the offline page must not pretend to."""
+    if WEBAPP.exists():
+        text = WEBAPP.read_text(encoding="utf-8", errors="replace")
+        check("the preview serves a correction endpoint", '"/api/correct"' in text)
+        check("the preview runs the model as a resident worker",
+              "gec_worker.py" in text and "class LocalGec" in text)
+        check("the preview's pen button is wired to it",
+              'id="gecbtn"' in text and "fetch('/api/correct" in text)
+        check("the pen does not spend one of the daily messages",
+              "Seed.add" not in text.split("async function checkEnglish")[1].split("\n}")[0])
+    if BUILT.exists():
+        text = BUILT.read_text(encoding="utf-8", errors="replace")
+        check("the offline page carries no correction button", 'id="gecbtn"' not in text)
+        check("the offline page never calls the endpoint", "/api/correct" not in text)
 
 
 # --------------------------------------------------------------------------
@@ -348,6 +368,7 @@ def main() -> int:
         run_default(cfg)
         run_optin(cfg)
         run_invisible()
+        run_web()
         if weights_here():
             run_model(cfg)
         else:

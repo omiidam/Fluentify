@@ -5,7 +5,12 @@ Run:  python3 webapp.py   →  http://localhost:8765
 """
 
 import json
+import os
 import re
+import select
+import subprocess
+import sys
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -63,6 +68,89 @@ def bbc_catalogue() -> dict:
     doc["count"] = len(doc.get("episodes", []))
     return doc
 bot = ChatBot()  # shared session memory for the preview
+
+# ------------------------------------------------------------ local corrector
+# Unbabel/gec-t5_small runs on this machine and nowhere else: the weights are in
+# tools/.cache/models, the interpreter is .venv/gec, and tools/gec_worker.py
+# keeps the model loaded between sentences. Only this server can host it - the
+# browser and the APK ship JavaScript, and a T5 is not a JavaScript dependency -
+# so the correction is an endpoint of its own. That is also why chat replies are
+# untouched: the model answers a question about a sentence, it does not edit the
+# conversation, and the APK keeps the rule-based checker it ships with.
+sys.path.insert(0, str(ROOT / "tools"))
+try:
+    import gec as gec_model
+except Exception:                    # a partial checkout must not stop the app
+    gec_model = None
+
+
+class LocalGec:
+    """One long-lived model process, started when a sentence first needs it.
+
+    Loading T5 takes seconds and a correction takes milliseconds, so a process
+    per request would spend nearly all of its time loading. If the environment
+    is absent the endpoint still answers, saying why, instead of failing the
+    page with a traceback.
+    """
+
+    def __init__(self):
+        self.proc = None
+        self.lock = threading.Lock()
+
+    def _start(self):
+        if self.proc is not None and self.proc.poll() is None:
+            return self.proc
+        if gec_model is None:
+            raise RuntimeError("The local correction model is not installed.")
+        cfg = gec_model.load_config()
+        python = gec_model.venv_python(cfg)
+        if not python.exists() or not gec_model.weights_present():
+            raise RuntimeError(
+                "The local correction model is not installed yet — see "
+                "gec.json / tools/gec.py.")
+        self.proc = subprocess.Popen(
+            [str(python), str(ROOT / "tools" / "gec_worker.py")],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL, text=True, bufsize=1,
+            env={**os.environ, "HF_HUB_OFFLINE": "1"},
+        )
+        ready, _, _ = select.select([self.proc.stdout], [], [], 180)
+        line = self.proc.stdout.readline() if ready else ""
+        if '"ready": true' not in line.replace("'", '"'):
+            self.proc.kill()
+            self.proc = None
+            raise RuntimeError("The local correction model did not start.")
+        return self.proc
+
+    def correct(self, sentence: str) -> dict:
+        text = " ".join((sentence or "").split())
+        if not text:
+            return {"available": True, "input": "", "output": "", "changed": False,
+                    "refused": "Nothing to correct — the sentence is empty."}
+        with self.lock:
+            try:
+                proc = self._start()
+            except RuntimeError as exc:
+                return {"available": False, "input": text, "output": "",
+                        "changed": False, "refused": str(exc)}
+            try:
+                proc.stdin.write(json.dumps({"sentence": text}) + "\n")
+                proc.stdin.flush()
+                ready, _, _ = select.select([proc.stdout], [], [], 120)
+                line = proc.stdout.readline() if ready else ""
+                row = json.loads(line) if line.strip() else {}
+            except (OSError, ValueError, subprocess.SubprocessError):
+                row = {}
+            if not row:
+                self.proc = None
+                return {"available": False, "input": text, "output": "",
+                        "changed": False,
+                        "refused": "The local correction model stopped answering."}
+        row["available"] = True
+        return row
+
+
+gec = LocalGec()
 
 HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="en">
@@ -3042,6 +3130,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div class="stt-panel" id="stt" hidden></div>
   <form id="composer">
     <div class="messageBox" id="messageBox">
+      <button type="button" class="ico" id="gecbtn"
+              aria-label="Check my English / گرامر جمله را چک کن"
+              title="Check my English — گرامر جمله را چک کن">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+             stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 19.5l1-4.2L15.8 5a1.8 1.8 0 0 1 2.5 0l.7.7a1.8 1.8 0 0 1 0 2.5L8.7 18.5l-4.2 1Z"/>
+          <path d="M14.6 6.2l3.2 3.2"/>
+        </svg>
+      </button>
       <button type="button" class="ico" id="stickerbtn"
               aria-label="Fox stickers / استیکرهای روباه"
               title="Fox stickers / استیکرهای روباه"
@@ -3644,6 +3741,50 @@ async function send(text) {
   sendbtn.disabled = false;
   input.focus();
 }
+
+/* The local corrector: the sentence goes to /api/correct, the model answers
+   from the weights on this machine, and the page only draws the result. It is a
+   button rather than a step of send(), so a correction costs nothing from the
+   daily seed and never rewords the conversation the bot is having. */
+async function checkEnglish(text) {
+  text = (text || '').trim();
+  if (!text || busy) return;
+  const starters = document.getElementById('starters');
+  if (starters) starters.remove();
+  busy = true;
+  add(text, 'user');
+  input.value = '';
+  showTyping();
+  let data = null;
+  try {
+    const r = await fetch('/api/correct?message=' + encodeURIComponent(text));
+    data = await r.json();
+  } catch (e) {
+    data = null;
+  }
+  hideTyping();
+  busy = false;
+  if (!data || data.available === false) {
+    add('⚠️ ' + ((data && data.refused) || 'The local correction model did not answer.') +
+        '\n  ↲ مدل اصلاح محلی پاسخ نداد.', 'bot', {err: true});
+    return;
+  }
+  if (data.refused) {
+    add('✍️ ' + data.refused, 'bot');
+    return;
+  }
+  if (!data.changed) {
+    add('✅ That sentence is already correct English.\n' +
+        '  ↲ این جمله از نظر گرامری درست است.', 'bot');
+    return;
+  }
+  add('✍️ Grammar correction / اصلاح گرامر\n' +
+      '• You wrote / نوشتی: ' + text + '\n' +
+      '• Correct / درست: **' + data.output + '**\n' +
+      '  ↲ ' + data.output, 'bot');
+}
+
+document.getElementById('gecbtn').addEventListener('click', () => checkEnglish(input.value));
 
 document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();
@@ -8181,6 +8322,17 @@ class Handler(BaseHTTPRequestHandler):
             # The composer's fox stickers. Pure content that the page draws,
             # so it is served straight off disk rather than through the bot.
             body = (ROOT / "foxes.json").read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path.startswith("/api/correct"):
+            # The sentence comes back corrected, or with the reason it was not:
+            # the browser only draws the answer, it holds no model.
+            query = parse_qs(urlparse(self.path).query)
+            message = query.get("message", [""])[0]
+            body = json.dumps(gec.correct(message), ensure_ascii=False).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))

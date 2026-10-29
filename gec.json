@@ -29,6 +29,6 @@
     "language": "en",
     "offline": true,
     "network": "Only the first run downloads the checkpoint. After that every correction is computed on this device.",
-    "surfaces": "CLI only. The web page and the APK keep the rule-based checker in chatbot.py / bot.js, which is what ships."
+    "surfaces": "CLI, and the web preview through POST-free /api/correct (the pen button in the composer). The chat replies are untouched - the model answers a question about one sentence - and the APK keeps the rule-based checker in bot.js, which is what ships."
   }
 }
