@@ -186,17 +186,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
       U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
-  /* IranNastaliq (farsi-fonts/fonts-irannastaliq) is the Persian face of the
-     whole app. It is a Nastaliq: one weight, and it sits deeper than a naskh
-     face, so the Persian surfaces get the line height to match (below). The
-     unicode-range keeps it to the Arabic script, so Latin stays in
-     Baloo2/Kalam and a mixed line keeps two voices on purpose. */
+  /* Gulzar (googlefonts/Gulzar, OFL) is the Persian face of the whole app. It
+     is a Nastaliq, so it sits deeper than a naskh face and the Persian surfaces
+     carry the line height to match (below). The unicode-range keeps it to the
+     Arabic script, so Latin stays in Baloo2/Kalam and a mixed line keeps two
+     voices on purpose. */
   @font-face {
-    font-family: 'IranNastaliq';
+    font-family: 'Gulzar';
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 400;
     font-display: swap;
-    src: url('fonts/irannastaliq.woff2') format('woff2');
+    src: url('fonts/gulzar.woff2') format('woff2');
     unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF,
       U+FE70-FEFF, U+200C-200D, U+0640;
   }
@@ -229,9 +229,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --success: #4a4fa0; --red: #a8493a;
     /* Kalam is the handwritten body face of the reference; Baloo 2 the
        rounded display face of its headings. Tahoma carries the Persian. */
-    --font-body: 'IranNastaliq', 'Kalam', 'Segoe Print', 'Comic Sans MS', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
-    --font-fa: 'IranNastaliq', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
-    --font-display: 'IranNastaliq', 'Baloo2', 'Trebuchet MS', Tahoma, 'Vazirmatn', 'IranSans',
+    --font-body: 'Gulzar', 'Kalam', 'Segoe Print', 'Comic Sans MS', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
+    --font-fa: 'Gulzar', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
+    --font-display: 'Gulzar', 'Baloo2', 'Trebuchet MS', Tahoma, 'Vazirmatn', 'IranSans',
       sans-serif;
     /* The learner's own side, in the poster's slate. One bubble is dark and
        the other is paper, which is the contrast the eye actually uses to tell
@@ -1147,7 +1147,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      wants, and the Latin inside it is marked as its own run with a hair of
      space around it so a borrowed term does not collide with the Persian
      around it. */
-  /* IranNastaliq is the Persian face wherever Persian appears: the language the
+  /* Gulzar is the Persian face wherever Persian appears: the language the
      renderer writes on a line, the islands it emits inside an English one, the
      translation lines, and any element the app marks as Persian. A font stack
      is easy to override by accident; naming the surfaces it applies to is not. */
