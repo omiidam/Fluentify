@@ -2976,6 +2976,15 @@
   <div class="stt-panel" id="stt" hidden></div>
   <form id="composer">
     <div class="messageBox" id="messageBox">
+      <button type="button" class="ico" id="gecbtn"
+              aria-label="Check my English / گرامر جمله را چک کن"
+              title="Check my English — گرامر جمله را چک کن">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+             stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 19.5l1-4.2L15.8 5a1.8 1.8 0 0 1 2.5 0l.7.7a1.8 1.8 0 0 1 0 2.5L8.7 18.5l-4.2 1Z"/>
+          <path d="M14.6 6.2l3.2 3.2"/>
+        </svg>
+      </button>
       <button type="button" class="ico" id="stickerbtn"
               aria-label="Fox stickers / استیکرهای روباه"
               title="Fox stickers / استیکرهای روباه"
@@ -3581,6 +3590,58 @@ async function send(text) {
   input.focus();
 }
 
+/* The local corrector: the sentence goes to the model, which answers
+   from the weights on this machine, and the page only draws the result. It is a
+   button rather than a step of send(), so a correction costs nothing from the
+   daily seed and never rewords the conversation the bot is having. */
+async function checkEnglish(text) {
+  text = (text || '').trim();
+  if (!text || busy) return;
+  const starters = document.getElementById('starters');
+  if (starters) starters.remove();
+  busy = true;
+  add(text, 'user');
+  input.value = '';
+  showTyping();
+  let data = null;
+  try {
+    if (window.GECWeb) {
+      // The model is in the page, so this is the same code path on the phone,
+      // where there is no server to ask. The endpoint stays as a fallback for
+      // a page served without the bundled files.
+      data = await window.GECWeb.correct(text);
+      data.available = true;
+      data.local = true;
+    } else {
+      data = {available: false, refused: 'The on-device model could not be loaded.'};
+    }
+  } catch (e) {
+    data = null;
+  }
+  hideTyping();
+  busy = false;
+  if (!data || data.available === false) {
+    add('⚠️ ' + ((data && data.refused) || 'The local correction model did not answer.') +
+        '\n  ↲ مدل اصلاح محلی پاسخ نداد.', 'bot', {err: true});
+    return;
+  }
+  if (data.refused) {
+    add('✍️ ' + data.refused, 'bot');
+    return;
+  }
+  if (!data.changed) {
+    add('✅ That sentence is already correct English.\n' +
+        '  ↲ این جمله از نظر گرامری درست است.', 'bot');
+    return;
+  }
+  add('✍️ Grammar correction / اصلاح گرامر' +
+      (data.local ? ' — on this device / روی همین دستگاه' : '') + '\n' +
+      '• You wrote / نوشتی: ' + text + '\n' +
+      '• Correct / درست: **' + data.output + '**\n' +
+      '  ↲ ' + data.output, 'bot');
+}
+
+document.getElementById('gecbtn').addEventListener('click', () => checkEnglish(input.value));
 
 document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();
@@ -7987,5 +8048,9 @@ renderStarters();
 Seed.load();
 input.focus();
 </script>
+  <!-- the corrector runs here, not on a server: same files in the browser and
+       in the APK, so a sentence is corrected with the app in airplane mode -->
+  <script src="gec/ort.min.js"></script>
+  <script src="gec/gec-web.js"></script>
 </body>
 </html>

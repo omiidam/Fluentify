@@ -58,17 +58,13 @@ def sub(text: str, old: str, new: str, what: str,
 # becomes a plain fetch-free assignment filled from that file at boot
 html = sub(html, "/*__STT_CONFIG__*/", "", "the STT config marker")
 
-# The local corrector lives behind /api/correct and needs the weights in
-# .venv/gec, neither of which exists on a phone: the offline page would show a
-# pen that can only apologise. The button and the handler behind it are removed
-# together - removing the button alone left the fetch in the page, which is the
-# half that would still try to reach a server.
-html = re.sub(r"\s*<button[^>]*id=\"gecbtn\".*?</button>", "", html, count=1, flags=re.S)
-html = re.sub(r"/\* The local corrector:[\s\S]*?getElementById\('gecbtn'\)[^\n]*\n",
-              "", html, count=1)
-if "gecbtn" in html or "/api/correct" in html:
-    sys.exit("build_apk_ui: the offline page still carries the correction button or "
-             "its request - it has no server to answer it")
+# The local corrector ships *inside* the offline page now: gec/ holds the int8
+# encoder and decoder, the tokeniser and the ORT runtime, and gec-web.js runs
+# them in the WebView. Nothing here removes the button - it works in airplane
+# mode, which is the point of shipping the weights.
+if not (ROOT / "android/app/src/main/assets/www/gec/encoder_model.onnx").exists():
+    sys.exit("build_apk_ui: the offline bundle has no model - copy "
+             "android/app/src/main/assets/www/gec/ first")
 
 # 1) send(): call the local engine instead of the HTTP endpoint
 #
@@ -348,6 +344,15 @@ html = sub(html, "\n<script>\n",
            "the inline script tag", 1)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
+# The offline page has no server, so the corrector's fallback fetch is replaced
+# by a plain answer. GECWeb is bundled in gec/, so this only runs if those files
+# are missing - it is a message, not a request.
+html = sub(html,
+           "      const r = await fetch('/api/correct?message=' + encodeURIComponent(text));\n"
+           "      data = await r.json();",
+           "      data = {available: false, refused: 'The on-device model could not be loaded.'};",
+           "the corrector's server fallback")
+
 OUT.write_text(html, encoding="utf-8")
 print("wrote", OUT, len(html), "chars")
 
@@ -391,6 +396,8 @@ for shard in shards:
     shutil.copyfile(shard, LEX_DEST / shard.name)
 print(f"synced {len(shards)} dictionary shards "
       f"({sum(s.stat().st_size for s in shards) / (1024*1024):.1f} MB) -> {LEX_DEST}")
+
+
 
 # the offline page must not reference a server endpoint
 leftovers = re.findall(r"fetch\(\s*['\"](/api/[^'\"]+)", html)

@@ -278,10 +278,18 @@ def run_web() -> None:
               'id="gecbtn"' in text and "fetch('/api/correct" in text)
         check("the pen does not spend one of the daily messages",
               "Seed.add" not in text.split("async function checkEnglish")[1].split("\n}")[0])
+    bundle = ROOT / "android/app/src/main/assets/www/gec"
+    check("the model ships with the app",
+          (bundle / "encoder_model.onnx").exists()
+          and (bundle / "decoder_model.onnx").exists()
+          and (bundle / "tokenizer.json").exists()
+          and (bundle / "ort.min.js").exists()
+          and (bundle / "ort-wasm-simd.wasm").exists())
     if BUILT.exists():
         text = BUILT.read_text(encoding="utf-8", errors="replace")
-        check("the offline page carries no correction button", 'id="gecbtn"' not in text)
-        check("the offline page never calls the endpoint", "/api/correct" not in text)
+        check("the offline page runs the bundled model",
+              'id="gecbtn"' in text and "gec/gec-web.js" in text
+              and "gec/ort.min.js" in text)
 
 
 # --------------------------------------------------------------------------

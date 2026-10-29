@@ -19,6 +19,7 @@ from chatbot import ChatBot
 
 PORT = 8765
 ROOT = Path(__file__).resolve().parent
+GEC_DIR = ROOT / "android/app/src/main/assets/www/gec"
 STT_FILE = ROOT / "stt.json"
 BBC_FILE = ROOT / "bbc_6min.json"
 
@@ -3742,7 +3743,7 @@ async function send(text) {
   input.focus();
 }
 
-/* The local corrector: the sentence goes to /api/correct, the model answers
+/* The local corrector: the sentence goes to the model, which answers
    from the weights on this machine, and the page only draws the result. It is a
    button rather than a step of send(), so a correction costs nothing from the
    daily seed and never rewords the conversation the bot is having. */
@@ -3757,8 +3758,17 @@ async function checkEnglish(text) {
   showTyping();
   let data = null;
   try {
-    const r = await fetch('/api/correct?message=' + encodeURIComponent(text));
-    data = await r.json();
+    if (window.GECWeb) {
+      // The model is in the page, so this is the same code path on the phone,
+      // where there is no server to ask. The endpoint stays as a fallback for
+      // a page served without the bundled files.
+      data = await window.GECWeb.correct(text);
+      data.available = true;
+      data.local = true;
+    } else {
+      const r = await fetch('/api/correct?message=' + encodeURIComponent(text));
+      data = await r.json();
+    }
   } catch (e) {
     data = null;
   }
@@ -3778,7 +3788,8 @@ async function checkEnglish(text) {
         '  ↲ این جمله از نظر گرامری درست است.', 'bot');
     return;
   }
-  add('✍️ Grammar correction / اصلاح گرامر\n' +
+  add('✍️ Grammar correction / اصلاح گرامر' +
+      (data.local ? ' — on this device / روی همین دستگاه' : '') + '\n' +
       '• You wrote / نوشتی: ' + text + '\n' +
       '• Correct / درست: **' + data.output + '**\n' +
       '  ↲ ' + data.output, 'bot');
@@ -8075,6 +8086,10 @@ renderStarters();
 Seed.load();
 input.focus();
 </script>
+  <!-- the corrector runs here, not on a server: same files in the browser and
+       in the APK, so a sentence is corrected with the app in airplane mode -->
+  <script src="gec/ort.min.js"></script>
+  <script src="gec/gec-web.js"></script>
 </body>
 </html>
 """
@@ -8348,6 +8363,25 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
+        elif self.path.startswith("/gec/"):
+            # The on-device model: encoder, decoder, tokeniser, ORT runtime. The
+            # page in the APK reads the same files from assets, so a byte served
+            # here is the byte shipped on the phone.
+            base = GEC_DIR.resolve()
+            path = (base / urlparse(self.path).path[len("/gec/"):]).resolve()
+            if base not in path.parents or not path.is_file():
+                self.send_error(404)
+                return
+            data = path.read_bytes()
+            kinds = {".wasm": "application/wasm",
+                     ".js": "text/javascript; charset=utf-8",
+                     ".json": "application/json; charset=utf-8"}
+            self.send_response(200)
+            self.send_header("Content-Type",
+                             kinds.get(path.suffix, "application/octet-stream"))
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            self.wfile.write(data)
         else:
             body = render_page().encode("utf-8")
             self.send_response(200)
