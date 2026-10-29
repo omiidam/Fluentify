@@ -1019,6 +1019,13 @@
      wants, and the Latin inside it is marked as its own run with a hair of
      space around it so a borrowed term does not collide with the Persian
      around it. */
+  /* Mikhak is the Persian face wherever Persian appears: the language the
+     renderer writes on a line, the islands it emits inside an English one, the
+     translation lines, and any element the app marks as Persian. A font stack
+     is easy to override by accident; naming the surfaces it applies to is not. */
+  [lang="fa"], .fa, .dfa, .bl[dir="rtl"], .dline.fa, .msg.rtl, .gsec-b bdi.fa {
+    font-family: var(--font-fa);
+  }
   .bl .fa { font-family: var(--font-fa); font-size: .97em; }
   .bl[dir="rtl"] { line-height: 1.85; }
   .bl[dir="rtl"] .lat {
