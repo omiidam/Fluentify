@@ -3111,7 +3111,10 @@ const WELCOME = "Hey! Fluentify here. Let's learn English together.";
    rather than a polite "I don't know that one". */
 const STARTERS = [
   ['colors', 'Colors', 'واژگان رنگ‌ها'],
-  ['present simple', 'Simple present', 'درس حال ساده'],
+  // The query is what the user bubble will show, so it has to read the way the
+  // chip does. It used to send 'present simple', which the lesson accepted as
+  // a keyword but echoed back reversed, under a chip that said "Simple present".
+  ['simple present', 'Simple present', 'درس حال ساده'],
   ['listen a1', 'Listen A1', 'شنیدن سطح A1'],
   ['idioms and sayings', 'Idioms', 'اصطلاح‌ها و ضرب‌المثل‌ها'],
 ];

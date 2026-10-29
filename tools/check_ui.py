@@ -21,6 +21,7 @@ asserted here is that the wiring exists at all, which is what regressed.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -1134,6 +1135,44 @@ def main() -> int:
               ", ".join(leftovers))
     else:
         check("the built page exists", False, "run build_apk_ui.py")
+
+    # ------------------------------------------- a starter says what it sends --
+    # The home chips send a query, and send() echoes that query back as the
+    # learner's own message. So a chip reading "Simple present" must send
+    # "simple present": it sent "present simple", which the lesson accepted as
+    # a keyword - the reply was right and the sentence above it was inside out.
+    block = ""
+    starters = re.search(r"const STARTERS = \[(.*?)\];", src, re.S)
+    if starters:
+        block = starters.group(1)
+    entries = re.findall(r"\[\s*'([^']+)'\s*,\s*'([^']+)'\s*,\s*'([^']+)'\s*\]", block)
+    check("the home starter chips are declared", len(entries) >= 4,
+          f"{len(entries)} chips found in STARTERS")
+    sends = {label: query for query, label, _ in entries}
+    check("the Simple present chip sends the words it shows",
+          sends.get("Simple present") == "simple present",
+          f"the chip shows 'Simple present' but sends {sends.get('Simple present')!r}")
+    check("every starter query is written the way its chip is",
+          all(q == q.lower() for q in sends.values()),
+          f"a query is capitalised, so the echoed sentence is not what the chip says")
+    grammar = ROOT / "grammar.json"
+    if grammar.exists():
+        try:
+            topic = json.loads(grammar.read_text(encoding="utf-8"))["topics"]["simple_present"]
+            words = [w.lower() for w in topic["keywords"]["en"]]
+            check("the lesson still accepts both word orders",
+                  "simple present" in words and "present simple" in words,
+                  f"keywords are {words}, so one of the two spellings now misses")
+            check("the lesson title is the wording the chip shows",
+                  topic["title"]["en"].lower() == "simple present",
+                  f"title is {topic['title']['en']!r}")
+        except (KeyError, ValueError) as exc:
+            check("grammar.json still carries the simple_present lesson", False, str(exc))
+    if BUILT.exists():
+        built = BUILT.read_text(encoding="utf-8")
+        check("the offline build sends the corrected words too",
+              "'simple present', 'Simple present'" in built,
+              "the APK was not rebuilt after the starter changed")
 
     # ----------------------------------------------------------------------
     if FAILURES:
