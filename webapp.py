@@ -998,6 +998,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      between the parts: the sections read as chapters of one page rather than
      six loose cards, and the frame is what separates the lesson from the rest
      of the conversation. */
+  .glesson-head .bl, .gsec-h .bl { display: inline; }
   .glbody {
     margin-top: 10px; border: 1px solid rgba(43,48,73,0.17);
     border-radius: 14px; overflow: hidden;
@@ -1030,6 +1031,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      around it belongs to the English sentence it was written in rather than
      being pulled into the right-to-left text and mirrored. */
   .msg bdi, .gsec-b bdi, .glesson-head bdi, .gsec-h bdi { unicode-bidi: isolate; }
+  /* Every line of a bilingual message is its own block carrying an explicit
+     dir. unicode-bidi: plaintext only picks the *paragraph* direction; the
+     alignment still came from the inherited left-to-right `direction`, which is
+     why Persian lines stayed on the left. With dir on the line, text-align:
+     start is right for Persian and left for English, by construction. */
+  .bl { display: block; white-space: pre-wrap; text-align: start; }
   .gsec-b b { color: var(--navy); }
   /* one rail colour per part, drawn from the theme's own accents */
   .gsec[data-kind="structure"]   .gsec-h { border-inline-start-color: var(--violet); }
@@ -3186,10 +3193,25 @@ function isolateFa(html) {
   return html.replace(FA_RUN, '<bdi>$1</bdi>');
 }
 
+/* Which way a line reads: by its letters, not by its first character, because
+   a Persian line usually opens with a neutral mark (↲, •, a bullet, a number)
+   and an English line may open with an emoji. */
+function lineDir(raw) {
+  const fa = (raw.match(/[\u0600-\u06FF]/g) || []).length;
+  const en = (raw.match(/[A-Za-z]/g) || []).length;
+  return fa && fa >= en ? 'rtl' : 'ltr';
+}
+
 function renderText(s) {
-  // escape first (safe), then isolate the Persian, then the stickers, then
-  // **...** markers into bold
-  return stickerize(isolateFa(escapeHtml(s))).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  // one block per line, each with its own direction. A blank line keeps its
+  // height as a nbsp block rather than collapsing into nothing.
+  return s.split('\n').map((raw) => {
+    if (!raw.trim()) return '<div class="bl">&nbsp;</div>';
+    const dir = lineDir(raw);
+    const html = stickerize(isolateFa(escapeHtml(raw)))
+      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+    return `<div class="bl" dir="${dir}">${html}</div>`;
+  }).join('');
 }
 
 /* A lesson arrives as five numbered parts plus a tip, separated only by blank
