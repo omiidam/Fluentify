@@ -52,6 +52,10 @@ Four suites, each answering a different question:
                 unknown names, a garden-path sentence and mixed script, and
                 refuses any dependency label, any invented offset, and any
                 lesson chip whose topic the Knowledge Base cannot answer.
+  check_gec     is the local gec-t5 model still optional? gec.json must name
+                the checkpoint and carry no global switch, the shipped page,
+                bot.js and Kotlin must not mention it at all, and the default
+                chat reply must stay byte-identical with the flag unset.
 
 Exit code is non-zero if any suite fails.
 """
@@ -74,6 +78,7 @@ SUITES = [
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
+    ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]

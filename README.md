@@ -496,13 +496,75 @@ Nothing is uploaded by this project: recognition is done by the browser or the
 OS. `tools/transcribe.py` says plainly which backends are missing instead of
 failing quietly.
 
+## 🧠 Local grammar correction — gec-t5_small
+
+The ✏️ checker in the conversation is a rule set: fifty-odd patterns for the
+errors a learner actually makes, each with the fix and the *why*. Beside it,
+not instead of it, sits an optional model — [Unbabel/gec-t5_small](https://huggingface.co/Unbabel/gec-t5_small),
+a T5-small fine-tuned for grammatical error correction (apache-2.0, F₀.₅ 60.70
+on BEA-2019). It reads a whole sentence, so it repairs things no pattern list
+was told about: `I like to swimming` → `I like swimming.`
+
+```bash
+python3 tools/gec.py --check                 # what is installed, what is cached
+python3 tools/gec.py "I like to swimming"    # → I like swimming.
+echo "he don't like it" | python3 tools/gec.py --stdin
+python3 tools/gec.py --bench                 # ten known sentences, timed
+```
+
+Install the dependencies once, into a project venv — a 900 MB torch does not
+belong in the system Python of an app whose selling point is "standard library
+only":
+
+```bash
+python3 -m venv .venv/gec
+.venv/gec/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
+.venv/gec/bin/pip install transformers sentencepiece
+```
+
+`tools/gec.py` re-runs itself inside that venv, so the command stays
+`python3 tools/gec.py …`. The first correction downloads ~242 MB of weights into
+`tools/.cache/models/` (gitignored); every one after that is offline. `gec.json`
+holds the checkpoint, the tokenizer, the `gec: ` prefix, the beam settings and
+the sentence limit — the model card's settings, plus
+`no_repeat_ngram_size` because a 60M-parameter model can otherwise loop.
+
+**Why it is not in the app.** The APK runs its own JavaScript engine and the web
+page runs the same engine in the browser. Neither can load a T5, and
+`tests_js_vs_python.py` holds the two engines to the same words, message for
+message — so a model line in the default reply would be drift by construction,
+not a feature. Instead the model is asked for explicitly:
+
+```bash
+FLUENTIFY_GEC=1 python3 chatbot.py
+> is this correct? I have went there
+✏️  One thing to fix — چند نکته برای اصلاح:
+   • have went  →  have gone
+...
+🧠 Local GEC model — مدل محلی: I have gone there.
+```
+
+**What it costs.** A GEC model repairs the sentence, not the meaning: it turns
+`I have went there` into `I have been there`, which is grammatical and no
+longer what the learner said. The rule set's `have gone` is the one that keeps
+their meaning. That is the honest division of labour — the model catches errors
+no pattern list knows about, the rules explain and preserve — and it is another
+reason the model stays a second opinion rather than the answer.
+
+The flag is the whole switch: with it unset, `chatbot.py` never imports the
+model, never touches torch, and answers exactly as the APK does. The refused
+cases are named before anything loads — empty input, Persian-only or
+Persian-dominant input (the model is English), and sentences past 40 words —
+because a T5-small asked to correct what it was not trained on will invent an
+answer rather than decline.
+
 ## Checks
 
 ```bash
 python3 tools/check_all.py
 ```
 
-Twelve suites:
+Thirteen suites:
 
 | suite | what it asks |
 | --- | --- |
@@ -513,6 +575,7 @@ Twelve suites:
 | BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
 | offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
 | dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licences still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
+| local GEC model | is the optional gec-t5 model still optional? `gec.json` must name the model card's checkpoint and carry no global switch, the page, `bot.js` and the Kotlin must not mention it at all, the default chat reply must stay byte-identical with `FLUENTIFY_GEC` unset — and, when the weights are cached, the model must repair the five broken sentences and leave the five correct ones alone. |
 
 That last one matters more than its size suggests. A duplicate top-level name
 between the page and `bot.js` is a SyntaxError that kills the whole inline

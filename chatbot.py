@@ -10,6 +10,7 @@ Memory model inspired by:
 
 import json
 import math
+import os
 import random
 import re
 import sys
@@ -1785,9 +1786,11 @@ class ChatBot:
             problems = self.check_grammar(sentence)
         if not problems:
             if asked:
-                return ("✅ That sentence is correct English.  ↲ این جمله درست است."
+                alt = second_opinion(sentence)
+                lead = ("✅ That sentence is correct English.  ↲ این جمله درست است."
                         if lang == "en" else
                         "✅ این جمله درست است. / That sentence is correct English.")
+                return lead + (("\n\n" + alt) if alt else "")
             return None
         head = ("✏️  A couple of things to fix — چند نکته برای اصلاح:"
                 if len(problems) > 1 else
@@ -1800,6 +1803,10 @@ class ChatBot:
         if whole:
             lines.append("")
             lines.append(f"✅ Better: {whole}")
+        alt = second_opinion(sentence)
+        if alt:
+            lines.append("")
+            lines.append(alt)
         return "\n".join(lines)
 
     # ------------------------------------------------------------------ #
@@ -3365,6 +3372,32 @@ class ChatBot:
             "   • pronunciation → 'how do you pronounce hospital'\n"
             "   • full menu → 'help'"
         )
+
+
+def second_opinion(sentence: str) -> str:
+    """A correction from the local gec-t5 model, when it has been switched on.
+
+    Off unless FLUENTIFY_GEC is set. The rule set above is what ships: the APK
+    runs its own JavaScript port, that port cannot load a 242 MB T5, and
+    `tests_js_vs_python.py` holds the two engines to the same words - so a
+    model line on the default path would be drift by construction. Asked for
+    explicitly, it is a second opinion beside the rules, never instead of them.
+
+    The import is inside the function on purpose: this file stays stdlib-only
+    and the 900 MB dependency is never touched unless the learner opts in.
+    """
+    try:
+        tools = str(Path(__file__).resolve().parent / "tools")
+        if tools not in sys.path:
+            sys.path.insert(0, tools)
+        import gec  # noqa: PLC0415 - optional, and deliberately late
+
+        fixed = gec.second_opinion(sentence)
+    except Exception:  # no model, no venv, no transformers: just the rules
+        return ""
+    if not fixed:
+        return ""
+    return f"🧠 Local GEC model — مدل محلی: {fixed}"
 
 
 def plain(reply: str) -> str:
