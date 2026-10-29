@@ -927,14 +927,23 @@
     font-family: var(--font-display); font-size: 14.5px; font-weight: 700;
     color: var(--navy); line-height: 1.4; margin-bottom: 2px;
   }
-  .gsec {
-    margin-top: 9px; border-radius: 13px;
-    border: 1px solid rgba(43,48,73,0.145);
-    background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,252,239,.42));
+  /* One frame around the whole lesson, and hairline borders *inside* it
+     between the parts: the sections read as chapters of one page rather than
+     six loose cards, and the frame is what separates the lesson from the rest
+     of the conversation. */
+  .glbody {
+    margin-top: 10px; border: 1px solid rgba(43,48,73,0.17);
+    border-radius: 14px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,252,239,.34));
     box-shadow: 0 1px 2px rgba(43,48,73,.05);
-    overflow: hidden;
   }
-  .gsec:first-of-type { margin-top: 11px; }
+  .gsec {
+    margin: 0; border: 0; border-radius: 0;
+    background: transparent; box-shadow: none;
+  }
+  .gsec + .gsec {
+    border-top: 1px solid rgba(43,48,73,0.135);
+  }
   .gsec-h {
     display: flex; align-items: center; gap: 7px;
     padding: 6px 11px 6px 10px;
@@ -3142,6 +3151,8 @@ function renderGrammarLesson(bubble, parsed) {
     h.innerHTML = renderText(parsed.head);
     bubble.appendChild(h);
   }
+  const body = document.createElement('div');
+  body.className = 'glbody';
   parsed.sections.forEach((sec) => {
     const card = document.createElement('section');
     card.className = 'gsec';
@@ -3154,8 +3165,9 @@ function renderGrammarLesson(bubble, parsed) {
     b.className = 'gsec-b';
     b.innerHTML = renderText(sec.body);
     card.append(h, b);
-    bubble.appendChild(card);
+    body.appendChild(card);
   });
+  bubble.appendChild(body);
 }
 
 /* A phrase bank arrives as "💬 Title\n• english\n  ↲ فارسی" pairs.
