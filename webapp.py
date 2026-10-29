@@ -256,7 +256,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --success: #4a4fa0; --red: #a8493a;
     /* Kalam is the handwritten body face of the reference; Baloo 2 the
        rounded display face of its headings. Tahoma carries the Persian. */
-    --font-body: 'Mikhak', 'Kalam', 'Segoe Print', 'Comic Sans MS', var(--font-fa);
+    --font-body: 'Mikhak', 'Kalam', 'Segoe Print', 'Comic Sans MS', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
     --font-fa: 'Mikhak', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
     --font-display: 'Mikhak', 'Baloo2', 'Trebuchet MS', Tahoma, 'Vazirmatn', 'IranSans',
       sans-serif;
