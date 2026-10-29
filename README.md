@@ -22,7 +22,7 @@ no network calls, no tracking.
 |---|---|
 | 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
-| 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **20,602-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
+| 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
 | 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
@@ -39,9 +39,16 @@ living in separate sections.
 ### Dictionary
 
 A lookup the curated glossary cannot answer falls through to a dictionary of
-**20,602 headwords / 35,110 senses** (35,097 of them with a Persian meaning,
-18,426 with IPA, 20,601 with a worked example). It is knowledge behind the same
-chat, not a page: there is no dictionary tab, panel, button or route.
+**70,392 headwords / 111,588 senses** (35,097 with a Persian meaning, 18,426 with IPA,
+33,745 with a worked example). It is knowledge behind the same chat, not a page:
+there is no dictionary tab, panel, button or route.
+
+The first 20,602 headwords come from the OpenJam import and keep everything it
+had. The other 49,790 are WordNet's: definition, parts of speech, one worked
+example and its synonyms and antonyms, and **no Persian meaning** — WordNet has
+none, and an English gloss printed under a Persian label is the mistranslation
+the import already refuses. An entry states what it holds and stays quiet about
+the rest (76,478 of the senses are WordNet's alone).
 
 ```
 define achievement            what does bank mean in river bank
@@ -64,7 +71,7 @@ cross-checks against the shards on disk):
 | source | licence | what came from it |
 |---|---|---|
 | [OpenJam](https://github.com/amirj4m/openjam) | MIT, data included | lemmas, senses, definitions, examples, Persian sense translations, IPA, inflected forms |
-| [Princeton WordNet 3.1](https://wordnet.princeton.edu/) | WordNet (BSD-style) | synonyms and antonyms |
+| [Princeton WordNet 3.1](https://wordnet.princeton.edu/) | WordNet (BSD-style) | synonyms and antonyms; definitions, parts of speech and examples for the headwords OpenJam does not carry |
 
 Deliberately **not** imported: the English–Persian dataset with no licence, the
 VahidN dictionaries whose individual contents publish none, and the Wiktionary
@@ -73,10 +80,10 @@ sources lack is invented — no entry carries a CEFR level (OpenJam's field is
 just a frequency band), and an entry with no Persian meaning says nothing
 rather than printing an English gloss under a Persian label.
 
-Storage is **333 shards**, not one file: the page fetches the shards for the
-words of the current message (`data/lex/<prefix>.json`, 10.2 MB in total,
-~3 MB compressed into the APK) and caches them, so startup parses nothing and
-lookup cost is one small file. `lexicon/_index.json` lists which shards exist,
+Storage is **739 shards**, not one file: the page fetches the shards for the
+words of the current message (`data/lex/<prefix>.json`, 17.7 MB in total,
+~5.1 MB compressed into the APK) and caches them, so startup parses
+nothing and lookup cost is one small file. `lexicon/_index.json` lists which shards exist,
 because English is not spread evenly. Persian questions read `_fa.json` once.
 
 ```bash
@@ -84,10 +91,11 @@ python3 tools/build_lexicon.py     # rebuild from the cached sources (~2 s)
 python3 tools/check_lexicon.py     # data, answers, and "still invisible"
 ```
 
-Known gaps, measured rather than papered over: the source does not carry every
-lemma, so a few words are simply absent — `resilient` is one (its noun
-`resilience` is there). The answer names the word it lacks and offers the
-closest one it has.
+Known gaps, measured rather than papered over: a headword only WordNet carries
+has no Persian meaning, and the answer says so instead of printing an English
+gloss under a Persian label. A word neither source holds is still absent — the
+answer names it and offers the closest headword it does have (`resilent` →
+`resilient`, which is a headword now; `beautifull` → `beautifully`).
 
 ### Daily English
 
@@ -296,7 +304,7 @@ brand/                      fox-source.png (art) → fox-mark/fox-face (the app)
 tools/build_lexicon.py      builds lexicon/ from the cached sources
 tools/check_lexicon.py      the dictionary's data, answers and invisibility
 
-lexicon/                    generated dictionary: 333 shards + _meta/_fa/_index
+lexicon/                    generated dictionary: 739 shards + _meta/_fa/_index
   <prefix>.json               headwords, forms, senses for one prefix
   _fa.json                    Persian meaning → English headwords
   _meta.json                  counts, sources, licences

@@ -116,13 +116,16 @@ WN_POS = {"n": "noun", "v": "verb", "a": "adjective", "s": "adjective",
           "r": "adverb"}
 
 
-def wordnet_relations(lemmas: set[str]) -> dict[str, dict]:
-    """lemma -> {"y": {pos: [synonyms]}, "a": {pos: [antonyms]}}"""
-    base = wordnet_dir()
-    # offset -> (pos, [words]) so an antonym pointer can be resolved
-    synsets: dict[str, tuple[str, list[str]]] = {}
-    rows: list[tuple[str, str, list[str], list[tuple[str, str, int, int]]]] = []
+def read_wordnet() -> list[dict]:
+    """Every synset in WordNet 3.1, parsed once.
 
+    One pass, because two consumers read it: the relation pass that adds
+    synonyms and antonyms to a headword, and the entry pass that gives a
+    definition to a headword the other source does not carry. Parsing twice is
+    the kind of duplication that lets the two disagree.
+    """
+    base = wordnet_dir()
+    synsets: list[dict] = []
     for fname, poskey in (("data.noun", "n"), ("data.verb", "v"),
                           ("data.adj", "a"), ("data.adv", "r")):
         path = base / fname
@@ -131,8 +134,8 @@ def wordnet_relations(lemmas: set[str]) -> dict[str, dict]:
         for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
             if not line or line.startswith("  "):
                 continue          # the licence header
-            head, _, _gloss = line.partition(" | ")
-            blocks = head.split()
+            head_line, _, gloss = line.partition(" | ")
+            blocks = head_line.split()
             if len(blocks) < 6:
                 continue
             # w_cnt is a two-digit *hexadecimal* count - synsets with eleven
@@ -141,8 +144,7 @@ def wordnet_relations(lemmas: set[str]) -> dict[str, dict]:
                                             int(blocks[3], 16))
             words, pos = [], 4
             for _ in range(w_cnt):
-                w = blocks[pos].replace("_", " ")
-                words.append(w)
+                words.append(blocks[pos].replace("_", " "))
                 pos += 2
             # A three-digit pointer *count* follows the words, then that many
             # four-field pointers. Reading the count as a pointer is why every
@@ -158,52 +160,78 @@ def wordnet_relations(lemmas: set[str]) -> dict[str, dict]:
                     break
                 sym = blocks[pos]
                 # The fourth field packs both word numbers into four hex
-                # digits: "0202" is source word 2 -> target word 2. Reading it
-                # as one decimal integer is why every antonym pointer used to
-                # resolve to nothing.
+                # digits: "0202" is source word 2 -> target word 2.
                 nums = blocks[pos + 3]
                 if len(nums) != 4:
                     break
                 try:
-                    src, tgt = int(nums[:2], 16), int(nums[2:], 16)
+                    src_i, tgt = int(nums[:2], 16), int(nums[2:], 16)
                 except ValueError:
                     break
-                pointers.append((sym, blocks[pos + 1], src, tgt))
+                pointers.append((sym, blocks[pos + 1], src_i, tgt))
                 pos += 4
-            synsets[offset] = (WN_POS.get(ss_type, poskey), words)
-            rows.append((offset, WN_POS.get(ss_type, poskey), words, pointers))
+            definition, example = gloss_parts(gloss)
+            synsets.append({
+                "offset": offset,
+                "pos": WN_POS.get(ss_type, poskey),
+                "words": words,
+                "pointers": pointers,
+                "definition": definition,
+                "example": example,
+            })
+    return synsets
+
+
+def gloss_parts(gloss: str) -> tuple[str, str]:
+    """WordNet gloss -> (definition, example).
+
+    A gloss is the definition; an example, when there is one, sits in double
+    quotes after it: 'a sweet girl; "she was a sweet young thing"'. The
+    definition stops at the first semicolon, and the quoted sentence is the
+    example - the same two fields the entries from the other source carry.
+    """
+    definition = gloss.split(";", 1)[0]
+    definition = re.sub(r'\s+', " ", definition).strip().strip('"').strip()
+    m = re.search(r'"([^"]{4,})"', gloss)
+    example = re.sub(r'\s+', " ", m.group(1)).strip() if m else ""
+    return definition, example
+
+
+def wordnet_relations(lemmas: set[str], synsets: list[dict] | None = None) -> dict[str, dict]:
+    """lemma -> {"y": {pos: [synonyms]}, "a": {pos: [antonyms]}}"""
+    rows = synsets if synsets is not None else read_wordnet()
+    # offset -> (pos, [words]) so an antonym pointer can be resolved
+    by_offset = {s["offset"]: (s["pos"], s["words"]) for s in rows}
 
     want = {w.lower() for w in lemmas}
     syn: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
     ant: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
 
-    for offset, pos, words, pointers in rows:
+    for synset in rows:
+        offset, pos, words = synset["offset"], synset["pos"], synset["words"]
         low = [w.lower() for w in words]
-        for i, w in enumerate(low):
+        for w in low:
             if w not in want:
                 continue
             for other in low:
                 if other != w and other not in syn[w][pos]:
                     syn[w][pos].append(other)
-            for sym, tgt_off, src, tgt in pointers:
+            for sym, tgt_off, src, tgt in synset["pointers"]:
                 # '!' is an antonym. '&' is "similar to", which WordNet only
                 # uses between adjectives - "beautiful" has no other member in
                 # its own synset, but it is similar to "beauteous". A learner
                 # asking for a synonym means either.
                 if sym == "&" and pos == "adjective":
-                    target = synsets.get(tgt_off)
+                    target = by_offset.get(tgt_off)
                     if target:
                         for other in target[1]:
-                            # NOT `low`: that name holds the synset's word list
-                            # in the enclosing loop, and shadowing it made the
-                            # next iteration walk the letters of one word.
                             near = other.lower()
                             if near != w and near not in syn[w][pos]:
                                 syn[w][pos].append(near)
                     continue
                 if sym != "!":
                     continue
-                target = synsets.get(tgt_off)
+                target = by_offset.get(tgt_off)
                 if not target:
                     continue
                 t_words = target[1]
@@ -223,6 +251,77 @@ def wordnet_relations(lemmas: set[str]) -> dict[str, dict]:
             out[w] = row
     return out
 
+
+# A headword WordNet can contribute: one word, lower-case, letters only. The
+# multi-word lemmas ("ice cream") are skipped because the engines look a single
+# token up, and the capitalised ones because WordNet capitalises proper nouns -
+# a lower-case "london" in the dictionary would be a new headword invented by a
+# case fold.
+WN_HEADWORD = re.compile(r"^[a-z][a-z'\-]*$")
+
+
+def wn_candidates(synsets: list[dict], taken: set[str]) -> set[str]:
+    """The headwords WordNet has and the built entries do not."""
+    out: set[str] = set()
+    for synset in synsets:
+        if not synset["definition"]:
+            continue
+        for word in synset["words"]:
+            if not word or not word[0].islower():
+                continue
+            key = word.lower()
+            if key in taken or len(key) < 2 or not WN_HEADWORD.match(key):
+                continue
+            out.add(key)
+    return out
+
+
+def add_wordnet_entries(synsets: list[dict], entries: dict[str, dict],
+                        rel: dict[str, dict]) -> tuple[int, int, int]:
+    """Give a definition to every headword the first source does not carry.
+
+    What these entries have: the definition, one worked example on the primary
+    sense, synonyms and antonyms, and the parts of speech. What they do not
+    have, and never claim: a Persian meaning, an IPA transcription, a frequency
+    rank or inflected forms - WordNet carries none of those, and the dictionary
+    prints nothing rather than a guess.
+    """
+    added = senses = examples = 0
+    for synset in synsets:
+        pos, definition = synset["pos"], synset["definition"]
+        if not definition:
+            continue
+        for word in synset["words"]:
+            if not word or not word[0].islower():
+                continue
+            key = word.lower()
+            if not WN_HEADWORD.match(key) or len(key) < 2:
+                continue
+            entry = entries.get(key)
+            if entry is None:
+                entry = entries[key] = {"p": [], "s": []}
+                added += 1
+            if pos not in entry["p"]:
+                entry["p"].append(pos)
+            if len(entry["s"]) >= MAX_SENSES:
+                continue
+            if any(s[0] == pos and s[1] == definition for s in entry["s"]):
+                continue
+            # One example per headword, on the sense it arrives with - the same
+            # rule the other source's entries follow.
+            example = synset["example"] if not entry["s"] else ""
+            entry["s"].append([pos, definition, "", example, ""])
+            senses += 1
+            examples += bool(example)
+
+    for key, entry in entries.items():
+        entry["p"].sort(key=lambda p: POS_ORDER.get(p, 9))
+        relation = rel.get(key) or {}
+        for field, name in (("y", "y"), ("a", "a")):
+            if field not in entry and relation.get(name):
+                entry[name] = {p: v for p, v in sorted(relation[name].items())
+                               if p in entry["p"] or not entry["p"]}
+    return added, senses, examples
 
 # ------------------------------------------------------------------ the build
 
@@ -274,8 +373,13 @@ def main() -> int:
         if name:
             forms_by_word[f["word_id"]].append([name, f.get("form_type") or ""])
 
-    print(f"wordnet relations for {len(words)} lemmas")
-    rel = wordnet_relations({w["english"] for w in words})
+    print("reading wordnet")
+    synsets = read_wordnet()
+    taken = {(w.get("english") or "").strip().lower() for w in words}
+    candidates = wn_candidates(synsets, taken)
+    print(f"  {len(synsets)} synsets; {len(candidates)} headwords the other "
+          f"source does not carry")
+    rel = wordnet_relations({w["english"] for w in words} | candidates, synsets)
 
     print("building entries")
     entries: dict[str, dict] = {}
@@ -375,6 +479,12 @@ def main() -> int:
     print(f"  {len(entries)} headwords, {stats['senses']} senses, "
           f"{dropped_no_definition} dropped (no definition), "
           f"{dropped_duplicate} duplicate headwords")
+
+    wn_added, wn_senses, wn_examples = add_wordnet_entries(synsets, entries, rel)
+    stats["senses"] += wn_senses
+    stats["en_examples"] += wn_examples
+    print(f"  + {wn_added} WordNet-only headwords, {wn_senses} senses "
+          f"({wn_examples} examples; no Persian, no IPA)")
 
     # ---------------------------------------------------------------- shards
     #
@@ -481,6 +591,8 @@ def main() -> int:
         "inflected_forms": stats["forms"],
         "synonym_words": stats["synonym_words"],
         "antonym_words": stats["antonym_words"],
+        "wordnet_only_headwords": wn_added,
+        "wordnet_only_senses": wn_senses,
         "bytes": total,
         "sources": [
             {"name": "OpenJam", "url": "https://github.com/amirj4m/openjam",
@@ -491,7 +603,9 @@ def main() -> int:
                        "including the data."},
             {"name": "Princeton WordNet 3.1",
              "url": "https://wordnet.princeton.edu/",
-             "used_for": "synonyms and antonyms",
+             "used_for": "synonyms and antonyms; definitions, parts of "
+                         "speech and examples for the headwords the "
+                         "other source does not carry",
              "licence": "WordNet License (BSD-style), redistribution "
                         "permitted with notice",
              "notice": "WordNet 3.0/3.1 Copyright 2006, 2011 by Princeton "

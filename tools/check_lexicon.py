@@ -148,8 +148,24 @@ def check_data(shards: dict[str, dict]) -> dict:
     check(meta.get("shards") == len(shards),
           f"_meta.json claims {meta.get('shards')} shards, found {len(shards)}")
     check(stats["words"] > 15000, f"only {stats['words']} headwords")
-    check(stats["fa"] > 0.95 * stats["senses"],
-          f"only {stats['fa']}/{stats['senses']} senses have a Persian meaning")
+    # The dictionary now has two layers. Every sense the first source
+    # contributed still carries a Persian meaning (35,097 of 35,110 - the
+    # 13 gaps are the source's own). The headwords only WordNet carries
+    # have no Persian at all, because WordNet has none: the invariant is
+    # that the gap is exactly theirs, not that the ratio looks good.
+    wn_only = meta.get("wordnet_only_senses")
+    check(isinstance(wn_only, int),
+          "_meta.json does not say how many senses came from WordNet alone")
+    wn_only = wn_only if isinstance(wn_only, int) else 0
+    check(bool(meta.get("wordnet_only_headwords")),
+          "_meta.json does not say how many headwords came from WordNet alone")
+    sourced = stats["senses"] - wn_only
+    check(stats["fa"] >= 0.999 * sourced,
+          f"only {stats['fa']}/{sourced} of the first source's senses have a "
+          "Persian meaning")
+    check(stats["senses"] - stats["fa"] - wn_only <= 25,
+          f"{stats['senses'] - stats['fa'] - wn_only} senses lack Persian "
+          "that WordNet does not account for")
 
     # the licence and provenance travel with the data: the import is only
     # legitimate while the notice that says where it came from ships with it
@@ -238,8 +254,17 @@ def check_answers() -> int:
     check("achievement" in reply, "achievment: no correction offered")
     reply = ask("what does resilent mean")
     check("resilent" in reply, "resilent: the word was not named in the answer")
-    check("resident" in reply or "resilience" in reply,
-          "resilent: the nearest held word was not offered")
+    # "resilient" used to be absent, so the answer named the nearest word it
+    # did hold. WordNet carries it now, so the typo resolves to the headword
+    # itself - the same promise, answered one step closer.
+    check("resilient" in reply,
+          "resilent: the typo did not resolve to the headword it now holds")
+
+    # ...and a typo with no exact match still offers its nearest neighbour.
+    reply = ask("what does beautifull mean")
+    check("beautifull" in reply, "beautifull: the word was not named")
+    check("did you mean" in reply.lower(),
+          "beautifull: no nearest held word was offered")
 
     # a Persian meaning leads back to the English headword
     heads = bot.lex_persian("شجاعت")
