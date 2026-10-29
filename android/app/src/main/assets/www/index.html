@@ -926,6 +926,7 @@
   .glesson-head {
     font-family: var(--font-display); font-size: 14.5px; font-weight: 700;
     color: var(--navy); line-height: 1.4; margin-bottom: 2px;
+    unicode-bidi: plaintext; text-align: start;
   }
   /* One frame around the whole lesson, and hairline borders *inside* it
      between the parts: the sections read as chapters of one page rather than
@@ -952,11 +953,17 @@
     background: rgba(43,48,73,0.038);
     border-bottom: 1px solid rgba(43,48,73,0.105);
     border-inline-start: 3px solid var(--violet);
+    unicode-bidi: plaintext; text-align: start;
   }
   .gsec-b {
     white-space: pre-wrap; padding: 9px 12px 10px 13px;
     font-size: 13.5px; line-height: 1.66; color: var(--text);
+    unicode-bidi: plaintext; text-align: start;
   }
+  /* A Persian run inside an English line is its own island, so a bracket
+     around it belongs to the English sentence it was written in rather than
+     being pulled into the right-to-left text and mirrored. */
+  .msg bdi, .gsec-b bdi, .glesson-head bdi, .gsec-h bdi { unicode-bidi: isolate; }
   .gsec-b b { color: var(--navy); }
   /* one rail colour per part, drawn from the theme's own accents */
   .gsec[data-kind="structure"]   .gsec-h { border-inline-start-color: var(--violet); }
@@ -3104,9 +3111,20 @@ function stickerize(html) {
   return html.replace(/\[fox:([a-z0-9-]+)\]/g, (m, id) => foxSvg(id) || m);
 }
 
+/* A run of Persian inside an English line is wrapped in <bdi>: an isolated
+   island that keeps its own right-to-left order. The spaces join it only when
+   another Persian word follows, so English spacing is untouched. This is what
+   puts "(فعل حال ساده)" back the right way round in an English sentence - the
+   brackets stay with the English, the Persian stays right-to-left. */
+const FA_RUN = /([\u0600-\u06FF](?:[\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]|\s+(?=[\u0600-\u06FF]))*)/g;
+function isolateFa(html) {
+  return html.replace(FA_RUN, '<bdi>$1</bdi>');
+}
+
 function renderText(s) {
-  // escape first (safe), then the stickers, then **...** markers into bold
-  return stickerize(escapeHtml(s)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  // escape first (safe), then isolate the Persian, then the stickers, then
+  // **...** markers into bold
+  return stickerize(isolateFa(escapeHtml(s))).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 }
 
 /* A lesson arrives as five numbered parts plus a tip, separated only by blank

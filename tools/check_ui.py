@@ -589,7 +589,7 @@ def main() -> int:
     # render: a picker that inserted a token nothing expanded would look for
     # all the world like it worked, right up to the moment the message sent.
     check("the sticker token is expanded when a message is rendered",
-          "function stickerize(" in src and "stickerize(escapeHtml(s))" in src,
+          "function stickerize(" in src and "stickerize(isolateFa(escapeHtml(s))" in src,
           "[fox:id] would sit in the bubble as text")
     check("the sticker catalogue is registered before it is drawn",
           "function registerFoxes(" in src and "registerFoxes(data.stickers)" in src,
