@@ -368,14 +368,35 @@ def run_corpus() -> None:
     prepositions, modals, pronouns, questions, negation, gerunds, conditionals,
     word order, passive, spelling. A model update that fixes one class by
     breaking another shows up here as a rate, not as a nice-looking sentence.
+
+    The sentences go through tools/gec.py rather than importing gec: this suite
+    runs on the system interpreter, which has no torch, and the tool is what
+    re-execs into .venv/gec.
     """
-    if not CORPUS.exists() or str(ROOT / "tools") not in sys.path:
+    if not CORPUS.exists():
         return
-    import gec
     rows = json.loads(CORPUS.read_text(encoding="utf-8"))
+    proc = subprocess.run(
+        [sys.executable, str(GEC), "--stdin", "--json"], cwd=ROOT,
+        input="\n".join(r[1] for r in rows), capture_output=True, text=True,
+        timeout=900, env={k: v for k, v in os.environ.items()
+                          if k.lower() != "all_proxy"})
+    if proc.returncode != 0:
+        check("the corpus run completed", False,
+              (proc.stderr or proc.stdout or "").strip()[:200])
+        return
+    text = proc.stdout
+    try:
+        results = json.loads(text)
+    except ValueError:
+        start = text.find("[")
+        results = json.loads(text[start:]) if start >= 0 else []
+    if not results:
+        check("the corpus produced answers", False, "no rows came back")
+        return
     ok, misses = 0, []
-    for cat, wrong, keys in rows:
-        out = (gec.correct(wrong).get("output") or "").lower()
+    for (cat, wrong, keys), row in zip(rows, results):
+        out = (row.get("output") or "").lower()
         if any(k.lower() in out for k in keys):
             ok += 1
         else:
