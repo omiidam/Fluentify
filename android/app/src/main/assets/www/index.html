@@ -971,6 +971,20 @@
      why Persian lines stayed on the left. With dir on the line, text-align:
      start is right for Persian and left for English, by construction. */
   .bl { display: block; white-space: pre-wrap; text-align: start; }
+  /* A line that carries both scripts: the Persian is set in the theme's
+     declared Persian face (the handwriting font also claims Arabic glyphs and
+     reads as a wobble at this size), it gets the taller line height Persian
+     wants, and the Latin inside it is marked as its own run with a hair of
+     space around it so a borrowed term does not collide with the Persian
+     around it. */
+  .bl .fa { font-family: Tahoma, 'Vazirmatn', 'IranSans', sans-serif; font-size: .97em; }
+  .bl[dir="rtl"] { line-height: 1.85; }
+  .bl[dir="rtl"] .lat {
+    padding-inline: 2px; font-size: .96em; letter-spacing: .005em;
+    font-family: var(--font-body);
+  }
+  /* the quiet marker that opens a translation line */
+  .trm { color: var(--muted); margin-inline-end: 5px; font-size: .92em; }
   .gsec-b b { color: var(--navy); }
   /* one rail colour per part, drawn from the theme's own accents */
   .gsec[data-kind="structure"]   .gsec-h { border-inline-start-color: var(--violet); }
@@ -3124,10 +3138,6 @@ function stickerize(html) {
    puts "(فعل حال ساده)" back the right way round in an English sentence - the
    brackets stay with the English, the Persian stays right-to-left. */
 const FA_RUN = /([\u0600-\u06FF](?:[\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]|\s+(?=[\u0600-\u06FF]))*)/g;
-function isolateFa(html) {
-  return html.replace(FA_RUN, '<bdi>$1</bdi>');
-}
-
 /* Which way a line reads: by its letters, not by its first character, because
    a Persian line usually opens with a neutral mark (↲, •, a bullet, a number)
    and an English line may open with an emoji. */
@@ -3137,15 +3147,60 @@ function lineDir(raw) {
   return fa && fa >= en ? 'rtl' : 'ltr';
 }
 
+/* A mixed line is tokenised once and rebuilt as three kinds of run: Persian,
+   Latin, and everything neutral (spaces, punctuation, emoji). Building runs
+   first, instead of wrapping the already-escaped HTML, is what keeps the
+   brackets and the markup out of the pattern's way - an earlier version
+   matched the letters of its own <bdi> tag.
+ *
+ * Persian words are joined into one run across the spaces between them, so a
+ * phrase flows as one right-to-left island instead of a row of separate
+ * fragments. A single space between two Latin words stays neutral, which is
+ * what an inline English term inside a Persian sentence needs. */
+const FA_TOKEN = /^[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*$/;
+const EN_TOKEN = /^[A-Za-z][A-Za-z0-9'\u2019._\-\/]*$/;
+
+function inlineHtml(raw, lineDirection) {
+  const tokens = raw.match(/[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*|[A-Za-z][A-Za-z0-9'\u2019._\-\/]*|\s+|[\s\S]/g) || [];
+  const runs = [];
+  for (const tk of tokens) {
+    const kind = FA_TOKEN.test(tk) ? 'fa' : EN_TOKEN.test(tk) ? 'en' : 'n';
+    const prev = runs[runs.length - 1];
+    if (prev && prev.kind === kind) prev.text += tk;
+    else runs.push({kind, text: tk});
+  }
+  // fold the spaces between Persian words into the Persian run
+  for (let i = 2; i < runs.length - 1; i++) {
+    const space = runs[i], before = runs[i - 1], after = runs[i + 1];
+    if (space.kind === 'n' && !space.text.trim() && before.kind === 'fa' &&
+        after.kind === 'fa') {
+      before.text += space.text + after.text;
+      runs.splice(i, 2);
+      i -= 2;
+    }
+  }
+  return runs.map((run) => {
+    const esc = escapeHtml(run.text);
+    if (run.kind === 'fa') {
+      return `<bdi class="fa" lang="fa" dir="rtl">${esc}</bdi>`;
+    }
+    if (run.kind === 'en' && lineDirection === 'rtl') {
+      return `<bdi class="lat" lang="en" dir="ltr">${esc}</bdi>`;
+    }
+    return esc;
+  }).join('');
+}
+
 function renderText(s) {
-  // one block per line, each with its own direction. A blank line keeps its
-  // height as a nbsp block rather than collapsing into nothing.
+  // one block per line, each with its own direction, its own runs and its own
+  // language. A blank line keeps its height rather than collapsing.
   return s.split('\n').map((raw) => {
     if (!raw.trim()) return '<div class="bl">&nbsp;</div>';
     const dir = lineDir(raw);
-    const html = stickerize(isolateFa(escapeHtml(raw)))
+    let html = stickerize(inlineHtml(raw, dir))
       .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
-    return `<div class="bl" dir="${dir}">${html}</div>`;
+    html = html.replace(/^(\s*)↲/, (m, space) => `${space}<span class="trm">↲</span>`);
+    return `<div class="bl" dir="${dir}" lang="${dir === 'rtl' ? 'fa' : 'en'}">${html}</div>`;
   }).join('');
 }
 
