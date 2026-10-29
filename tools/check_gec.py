@@ -393,6 +393,15 @@ def run_web() -> None:
     check("the preview serves a correction endpoint", '"/api/correct"' in text)
     check("the preview runs the model as a resident worker",
           "gec_worker.py" in text and "class LocalGec" in text)
+    # A server with keys and an empty disk must serve without the checkpoint
+    # being committed or copied there by hand: the install is the service's job.
+    check("the server installs the checkpoint from storage at boot",
+          "def prefetch" in text and "gec.prefetch()" in text and
+          "def _install" in text, "webapp.py does not fetch the model itself")
+    check("a failed install is a message, not a crash",
+          "could not be installed from storage" in text)
+    check("the bind address is configurable for a deployed backend",
+          "FLUENTIFY_HOST" in text)
     check("the page asks the endpoint instead of loading weights",
           "fetch('/api/correct" in text and "window.GECWeb" not in text)
     check("the old model route is gone", '"/gec/"' not in text,

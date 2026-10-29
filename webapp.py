@@ -17,7 +17,10 @@ from urllib.parse import parse_qs, urlparse
 
 from chatbot import ChatBot
 
-PORT = 8765
+PORT = int(os.environ.get("FLUENTIFY_PORT", "8765"))
+# Loopback by default, because this is also the developer's preview. A deployed
+# backend sets FLUENTIFY_HOST=0.0.0.0 (behind TLS) so the phone can reach it.
+HOST = os.environ.get("FLUENTIFY_HOST", "127.0.0.1")
 ROOT = Path(__file__).resolve().parent
 STT_FILE = ROOT / "stt.json"
 BBC_FILE = ROOT / "bbc_6min.json"
@@ -86,29 +89,81 @@ except Exception:                    # a partial checkout must not stop the app
 
 
 class LocalGec:
-    """One long-lived model process, started when a sentence first needs it.
+    """One long-lived model process, and the fetch that puts it on disk.
 
-    Loading GEC-BART takes seconds and a correction takes about one, so a
-    process per request would spend nearly all of its time loading. If the
-    environment is absent the endpoint still answers, saying why, instead of
-    failing the page with a traceback.
+    A server is expected to boot with storage keys and an empty disk: the
+    checkpoint lives in ArvanCloud, so the first start pulls it with the key
+    this process already holds and never asks a browser or a phone for
+    anything. The pull runs in the background so a request that arrives during
+    it gets a sentence rather than a timeout; loading the model happens once,
+    and every correction after that costs one generation.
     """
 
     def __init__(self):
         self.proc = None
         self.lock = threading.Lock()
+        self.state = "idle"          # idle | installing | ready | failed
+        self.error = ""
+
+    def status(self) -> str:
+        """A sentence the page can show, not a stack trace."""
+        if self.state == "installing":
+            return ("The correction model is being installed from storage "
+                    "(561 MB) — try again in a minute.")
+        return self.error
+
+    def prefetch(self) -> None:
+        """Install from object storage at boot when the disk is empty.
+
+        This is what makes a fresh server work with nothing but credentials:
+        the weights are not in the repository, not in the APK, and not on the
+        machine until this runs. Failure is reported, never raised - a missing
+        key must not take the chat down with it.
+        """
+        if self.state in ("installing", "ready"):
+            return
+        if gec_model is None:
+            self.state = "failed"
+            self.error = "The correction model module is missing."
+            return
+        try:
+            cfg = gec_model.load_config()
+        except Exception as exc:
+            self.state, self.error = "failed", f"The corrector is misconfigured: {exc}"
+            return
+        if gec_model.weights_present(cfg):
+            self.state = "ready"
+            return
+        self.state = "installing"
+        threading.Thread(target=self._install, args=(cfg,), daemon=True).start()
+
+    def _install(self, cfg) -> None:
+        try:
+            code = gec_model.install(cfg)
+            ok = code == 0 and gec_model.weights_present(cfg)
+        except Exception as exc:
+            ok, self.error = False, f"The correction model could not be installed: {exc}"
+        if ok:
+            self.state = "ready"
+        else:
+            self.state = "failed"
+            self.error = self.error or (
+                "The correction model could not be installed from storage — check "
+                "the ARVAN_S3_* keys in .arvan-storage.env on this server.")
 
     def _start(self):
         if self.proc is not None and self.proc.poll() is None:
             return self.proc
         if gec_model is None:
-            raise RuntimeError("The local correction model is not installed.")
+            raise RuntimeError("The correction model is not installed.")
         cfg = gec_model.load_config()
         python = gec_model.venv_python(cfg)
-        if not python.exists() or not gec_model.weights_present():
-            raise RuntimeError(
-                "The local correction model is not installed yet — see "
-                "gec.json / tools/gec.py.")
+        if not gec_model.weights_present(cfg):
+            if self.state == "idle":
+                self.prefetch()         # a request before boot: fetch, then say so
+            raise RuntimeError(self.status() or
+                               "The correction model is not installed yet — see "
+                               "gec.json / tools/gec.py.")
         self.proc = subprocess.Popen(
             [str(python), str(ROOT / "tools" / "gec_worker.py")],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE,
@@ -8394,6 +8449,10 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
+    # Fetch the checkpoint before anyone asks for a correction. With storage
+    # keys and an empty disk this is what makes a fresh server work without the
+    # model ever being committed, bundled, or copied here by hand.
+    gec.prefetch()
+    server = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"Chatbot preview running at http://localhost:{PORT}")
     server.serve_forever()
