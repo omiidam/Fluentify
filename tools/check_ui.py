@@ -706,7 +706,7 @@ def main() -> int:
     # copy of it survived two palette changes and kept testing the wrong paper.
     base = re.search(r"--base:\s*(#[0-9a-fA-F]{6})", src)
     base = base.group(1) if base else "#faf4e8"
-    for name in ("teal", "cyan", "violet", "emerald", "amber", "rose"):
+    for name in ("teal", "cyan", "violet", "indigo", "amber", "rose"):
         m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6})", src)
         if m:
             check(f"--{name} clears AA on the paper base",
