@@ -31,6 +31,10 @@ Four suites, each answering a different question:
                 ahead of the bar it was reporting. Runs the shipped Boot code
                 against a two-element stub, and refuses a CSS transition on
                 the bar, because that is what put the two on separate clocks.
+  check_bidi    does a line carrying both languages keep every character,
+                each script in its own direction? It runs the shipped
+                renderer, because a dropped parenthesis is invisible in a
+                screenshot and this shipped once.
   check_seed_clock  is the fifty-message gate's clock right? It runs the
                 shipped Seed code against a pinned clock at every hour of a
                 day and both sides of midnight in Tehran (20:30 UTC), and
@@ -75,6 +79,7 @@ SUITES = [
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
+    ("mixed english/persian lines", [sys.executable, "tools/check_bidi.py"]),
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),

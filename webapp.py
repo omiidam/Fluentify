@@ -1049,6 +1049,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     padding-inline: 2px; font-size: .96em; letter-spacing: .005em;
     font-family: var(--font-body);
   }
+  /* A Persian value inside an English label - a dictionary meaning, a word's
+     Persian name - is an island for the same reason a Persian parenthetical
+     is: otherwise its full stop resolves against the English line. */
+  .wd-mean { text-align: start; }
+  .wd-mean .fa { unicode-bidi: isolate; direction: rtl; }
   /* the quiet marker that opens a translation line */
   .trm { color: var(--muted); margin-inline-end: 5px; font-size: .92em; }
   .gsec-b b { color: var(--navy); }
@@ -3202,14 +3207,13 @@ function stickerize(html) {
    another Persian word follows, so English spacing is untouched. This is what
    puts "(فعل حال ساده)" back the right way round in an English sentence - the
    brackets stay with the English, the Persian stays right-to-left. */
-const FA_RUN = /([\u0600-\u06FF](?:[\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]|\s+(?=[\u0600-\u06FF]))*)/g;
-/* Which way a line reads: by its letters, not by its first character, because
-   a Persian line usually opens with a neutral mark (↲, •, a bullet, a number)
-   and an English line may open with an emoji. */
+/* Which way a line reads: the first *letter* decides, skipping the neutral mark
+   a line usually opens with (↲, •, a bullet, a number, an emoji). Counting the
+   letters instead would flip a Persian sentence to left-to-right as soon as the
+   English term it quotes was longer than the Persian around it. */
 function lineDir(raw) {
-  const fa = (raw.match(/[\u0600-\u06FF]/g) || []).length;
-  const en = (raw.match(/[A-Za-z]/g) || []).length;
-  return fa && fa >= en ? 'rtl' : 'ltr';
+  const first = raw.match(/[\u0600-\u06FF]|[A-Za-z]/);
+  return first && /[\u0600-\u06FF]/.test(first[0]) ? 'rtl' : 'ltr';
 }
 
 /* A mixed line is tokenised once and rebuilt as three kinds of run: Persian,
@@ -3229,29 +3233,32 @@ const EN_TOKEN = /^[A-Za-z][A-Za-z0-9'\u2019._\-\/]*$/;
    isolated unit of the line's own direction. Left in the stream, a bracket
    holding a Latin term inside a Persian sentence is three neutrals around an
    island, and the bidi algorithm is free to park the whole group at the end of
-   the line - which is exactly what it did to "(he/she/it)". */
-const PAREN_TOKEN = '\u0000(\d+)\u0000';
+   the line - which is what it did to "(he/she/it)".
+ *
+ * The markers are private-use characters, not NUL: a NUL cannot travel through
+ * HTML at all, and a backslash-u escape typed into a string stays six readable
+ * characters instead of becoming a sentinel.
+ */
+const PAREN_OPEN = '\ue000';
+const PAREN_CLOSE = '\ue001';
+const TOKEN_RE = /[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*|[A-Za-z][A-Za-z0-9'\u2019\/_-]*(?:\.[A-Za-z0-9][A-Za-z0-9'\u2019\/_-]*)*|[\ue000]\d+[\ue001]|\s+|[\s\S]/g;
 
 function inlineHtml(raw, lineDirection) {
   const groups = [];
   raw = raw.replace(/\(([^()]*)\)/g, (m, inner) => {
     groups.push(inner);
-    return '\u0000' + (groups.length - 1) + '\u0000';
+    return PAREN_OPEN + (groups.length - 1) + PAREN_CLOSE;
   });
-  const tokens = raw.match(new RegExp(
-    '[\u0600-\u06FF][\u0600-\u06FF\u200c\u200d\u060c\u061b\u061f\u066b\u066c]*'
-    + "|[A-Za-z][A-Za-z0-9'\u2019._\\-\\/]*"
-    + '|' + PAREN_TOKEN + '|\\s+|[\\s\\S]', 'g')) || [];
   const runs = [];
-  for (const tk of tokens) {
+  for (const tk of raw.match(TOKEN_RE) || []) {
     const kind = FA_TOKEN.test(tk) ? 'fa' : EN_TOKEN.test(tk) ? 'en'
-      : /^\u0000\d+\u0000$/.test(tk) ? 'paren' : 'n';
+      : tk[0] === PAREN_OPEN ? 'paren' : 'n';
     const prev = runs[runs.length - 1];
     if (prev && prev.kind === kind && kind !== 'paren') prev.text += tk;
     else runs.push({kind, text: tk});
   }
   // fold the spaces between Persian words into the Persian run
-  for (let i = 2; i < runs.length - 1; i++) {
+  for (let i = 1; i < runs.length - 1; i++) {
     const space = runs[i], before = runs[i - 1], after = runs[i + 1];
     if (space.kind === 'n' && !space.text.trim() && before.kind === 'fa' &&
         after.kind === 'fa') {
@@ -3261,12 +3268,12 @@ function inlineHtml(raw, lineDirection) {
     }
   }
   return runs.map((run) => {
-    const esc = escapeHtml(run.text);
     if (run.kind === 'paren') {
-      const inner = groups[Number(esc.match(/^\u0000(\d+)\u0000$/)[1])];
+      const inner = groups[Number(run.text.slice(1, -1))];
       return `<bdi class="paren" dir="${lineDirection}">(${
         inlineHtml(inner, lineDirection)})</bdi>`;
     }
+    const esc = escapeHtml(run.text);
     if (run.kind === 'fa') {
       return `<bdi class="fa" lang="fa" dir="rtl">${esc}</bdi>`;
     }
@@ -5400,7 +5407,7 @@ async function loadListening() {
       list.innerHTML = '';
       const blurb = document.createElement('div');
       blurb.className = 'lblurb';
-      blurb.textContent = lv.blurb_en + ' — ' + lv.blurb_fa;
+      blurb.innerHTML = renderText(lv.blurb_en + ' — ' + lv.blurb_fa);
       list.appendChild(blurb);
       lv.sentences.forEach((s) => {
         const row = document.createElement('div');
@@ -5736,7 +5743,12 @@ function showWord(entry) {
 
   const mean = document.createElement('div');
   mean.className = 'wd-mean';
-  mean.innerHTML = '<b>' + escapeHtml(entry.en) + '</b> — ' + escapeHtml(entry.fa);
+  // One line, two scripts: the word is English, the meaning is Persian. The
+  // meaning is its own island, so its letters read right to left and its full
+  // stop stays at its end instead of jumping to the line's start.
+  mean.setAttribute('dir', 'ltr');
+  mean.innerHTML = '<b>' + escapeHtml(entry.en) + '</b> — ' +
+    '<bdi class="fa" lang="fa" dir="rtl">' + escapeHtml(entry.fa) + '</bdi>';
 
   card.append(head, mean);
 
@@ -6346,7 +6358,8 @@ const Daily = (() => {
       faLine(t.fa) + '</div></div>').join('') + '</div>';
     if ((entry.key || []).length) {
       html += '<div class="dchips">' + entry.key.map((k) =>
-        '<span class="dchip">' + esc(k.en) + ' — ' + esc(k.fa) + '</span>').join('') + '</div>';
+        '<span class="dchip">' + esc(k.en) + ' — ' +
+          '<bdi class="fa" lang="fa" dir="rtl">' + esc(k.fa) + '</bdi></span>').join('') + '</div>';
     }
     (entry.notes || []).forEach((n) => {
       if (n.en) html += '<div class="dnote">' + esc(n.en) + '</div>';

@@ -303,6 +303,8 @@ tools/build_brand.py        cuts every mascot picture + the launcher icons
 brand/                      fox-source.png (art) → fox-mark/fox-face (the app)
 tools/build_lexicon.py      builds lexicon/ from the cached sources
 tools/check_lexicon.py      the dictionary's data, answers and invisibility
+tools/check_bidi.py         mixed English/Persian lines: no character lost,
+                            each script in its own direction
 
 lexicon/                    generated dictionary: 739 shards + _meta/_fa/_index
   <prefix>.json               headwords, forms, senses for one prefix
