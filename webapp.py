@@ -1323,6 +1323,39 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      English definition is ltr and a Persian meaning is rtl, so the pair can
      never reorder each other the way the dictionary senses did. */
   .bbooks { display: flex; flex-direction: column; gap: 7px; }
+  /* Lessons are a grid, not a column: a book of forty lessons was forty rows
+     of scroll before the first word, and the number is what a learner looks
+     for, so the tile leads with it. */
+  .bgrid {
+    display: grid; gap: 7px;
+    grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
+  }
+  .bgrid .blesson {
+    flex-direction: column; align-items: flex-start; gap: 0;
+    padding: 7px 10px 8px;
+  }
+  .bgrid .blesson .n { margin-inline-start: 0; margin-top: 3px; }
+  /* The breadcrumb stays put: twelve word cards is more than a phone screen,
+     and once you have scrolled past them you should still know which book and
+     lesson you are reading. */
+  .bstick {
+    position: sticky; top: 0; z-index: 3; display: flex; align-items: center;
+    gap: 8px; padding: 1px 0 7px; margin-top: -2px;
+    background: linear-gradient(#fffcef 76%, rgba(255,252,239,0));
+  }
+  .bstick .bback { padding: 0; }
+  .bstick .bcrumb {
+    font-size: 10.5px; color: var(--muted); overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap; direction: ltr;
+  }
+  .bnum {
+    font-size: 9.5px; color: var(--muted); background: rgba(43,48,73,.07);
+    border-radius: 5px; padding: 1px 5px; font-variant-numeric: tabular-nums;
+  }
+  .bday {
+    font-size: 9.5px; color: #8a5a00; background: rgba(138,90,0,.10);
+    border-radius: 5px; padding: 1px 6px;
+  }
   .bbook {
     display: grid; gap: 2px; width: 100%; text-align: start; cursor: pointer;
     font-family: inherit; color: var(--ink);
@@ -7847,7 +7880,7 @@ const Books = {
       box.appendChild(about);
     }
     const list = document.createElement('div');
-    list.className = 'bbooks';
+    list.className = 'bgrid';
     (book.lessons || []).forEach((lesson) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -7889,26 +7922,39 @@ const Books = {
       this.paintLessons(box, book);
       return;
     }
-    box.appendChild(this.back('Lessons · درس‌ها', () => {
+    // one sticky row instead of a back button and then a heading that scrolls
+    // away: the lesson is twelve cards long on a phone
+    const bar = document.createElement('div');
+    bar.className = 'bstick';
+    bar.appendChild(this.back('Lessons · درس‌ها', () => {
       this.lesson = null;
       this.paint();
     }));
-    const head = document.createElement('div');
-    head.className = 'bhead2';
-    head.dir = 'ltr';
-    head.textContent = book.title + ' · ' + (lesson.title || ('Lesson ' + lesson.n)) +
-      ' · ' + (lesson.words || []).length + ' words';
-    box.appendChild(head);
+    const crumb = document.createElement('span');
+    crumb.className = 'bcrumb';
+    crumb.textContent = book.title + ' · ' +
+      (lesson.title || ('Lesson ' + lesson.n));
+    bar.appendChild(crumb);
+    const count = document.createElement('span');
+    count.className = 'bnum';
+    count.textContent = (lesson.words || []).length + ' words';
+    bar.appendChild(count);
+    box.appendChild(bar);
 
     const list = document.createElement('div');
     list.className = 'bwords';
-    (lesson.words || []).forEach((w) => {
+    (lesson.words || []).forEach((w, index) => {
       const card = document.createElement('div');
       card.className = 'bword';
 
       const h = document.createElement('div');
       h.className = 'bwh';
       h.dir = 'ltr';
+      const num = document.createElement('span');
+      num.className = 'bnum';
+      num.textContent = String(index + 1);
+      num.setAttribute('aria-hidden', 'true');
+      h.appendChild(num);
       const word = document.createElement('b');
       word.textContent = w.word;
       h.appendChild(word);
@@ -7923,6 +7969,13 @@ const Books = {
         pos.className = 'pos';
         pos.textContent = w.pos;
         h.appendChild(pos);
+      }
+      // a book that teaches in days says which day the word belongs to
+      if (w.day) {
+        const day = document.createElement('span');
+        day.className = 'bday';
+        day.textContent = 'Day ' + w.day;
+        h.appendChild(day);
       }
       const say = document.createElement('button');
       say.type = 'button';

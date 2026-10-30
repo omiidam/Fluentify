@@ -702,6 +702,137 @@
               ]
             }
           ]
+        },
+        {
+          "n": 6,
+          "title": "Lesson 6",
+          "title_fa": "درس ۶",
+          "words": [
+            {"word": "thorough", "pos": "adjective", "ipa": "/ˈθʌrə/", "fa": "کامل، همه‌جانبه", "def_en": "complete, with nothing missed out", "examples": ["The mechanic gave the car a thorough check.", "She made a thorough study of the case."]},
+            {"word": "undoubtedly", "pos": "adverb", "ipa": "/ʌnˈdaʊtɪdli/", "fa": "بدون شک، قطعاً", "def_en": "without any doubt at all", "examples": ["Undoubtedly the best film of the year.", "He is undoubtedly the strongest player here."]},
+            {"word": "approach", "pos": "verb", "ipa": "/əˈprəʊtʃ/", "fa": "نزدیک شدن، روی آوردن", "def_en": "to come near to someone or something, or to begin to deal with a problem", "examples": ["A stranger approached me at the station.", "They approached the problem in a new way."]},
+            {"word": "popular", "pos": "adjective", "ipa": "/ˈpɒpjələ/", "fa": "محبوب، پرطرفدار", "def_en": "liked by a lot of people", "examples": ["She is popular with her students.", "That song was popular for years."]},
+            {"word": "neglect", "pos": "verb", "ipa": "/nɪˈɡlekt/", "fa": "غفلت کردن، رها کردن", "def_en": "to fail to give care or attention to something", "examples": ["He neglected his health for years.", "The garden was neglected all summer."]},
+            {"word": "employee", "pos": "noun", "ipa": "/ɪmˈplɔɪiː/", "fa": "کارمند", "def_en": "a person who is paid to work for a company", "examples": ["Every employee gets a badge.", "The company hired fifty new employees."]},
+            {"word": "defect", "pos": "noun", "ipa": "/ˈdiːfekt/", "fa": "عیب، نقص", "def_en": "a fault in something that makes it less than perfect", "examples": ["The car was returned because of a defect in the brakes.", "Tests found no defect in the steel."]},
+            {"word": "deceive", "pos": "verb", "ipa": "/dɪˈsiːv/", "fa": "فریب دادن، گول زدن", "def_en": "to make someone believe something that is not true", "examples": ["He deceived the buyer with a false document.", "Do not let the price deceive you."]},
+            {"word": "defraud", "pos": "verb", "ipa": "/dɪˈfrɔːd/", "fa": "کلاهبرداری کردن", "def_en": "to take money from someone by cheating them", "examples": ["They defrauded the bank of two million.", "He was jailed for defrauding elderly clients."]},
+            {"word": "detect", "pos": "verb", "ipa": "/dɪˈtekt/", "fa": "کشف کردن، تشخیص دادن", "def_en": "to notice or find something that is not easy to see", "examples": ["The alarm detects smoke within seconds.", "Nobody detected the mistake until March."]},
+            {"word": "client", "pos": "noun", "ipa": "/ˈklaɪənt/", "fa": "مشتری، موکل", "def_en": "a person who pays for a service or for advice", "examples": ["The lawyer called his client back.", "Our clients expect a quick answer."]},
+            {"word": "comprehensive", "pos": "adjective", "ipa": "/ˌkɒmprɪˈhensɪv/", "fa": "جامع، فراگیر", "def_en": "including everything that is needed", "examples": ["The report is comprehensive and easy to read.", "She gave a comprehensive account of the trip."]}
+          ]
+        },
+        {
+          "n": 7,
+          "title": "Lesson 7",
+          "title_fa": "درس ۷",
+          "words": [
+            {"word": "preserve", "pos": "verb", "ipa": "/prɪˈzɜːv/", "fa": "حفظ کردن، نگه داشتن", "def_en": "to keep something in good condition over time", "examples": ["Salt was used to preserve the fish.", "The town has preserved its old houses."]},
+            {"word": "gloomy", "pos": "adjective", "ipa": "/ˈɡluːmi/", "fa": "تاریک، دلگیر", "def_en": "dark and sad, or without hope", "examples": ["The room was gloomy after the sun went down.", "He looked gloomy when he heard the news."]},
+            {"word": "consent", "pos": "noun", "ipa": "/kənˈsent/", "fa": "رضایت، اجازه", "def_en": "permission given by someone who is able to refuse", "examples": ["She gave her consent to the operation.", "The work cannot begin without your consent."]},
+            {"word": "unique", "pos": "adjective", "ipa": "/juˈniːk/", "fa": "یکتا، بی‌همتا", "def_en": "being the only one of its kind", "examples": ["Every fingerprint is unique.", "The village has a unique charm."]},
+            {"word": "resent", "pos": "verb", "ipa": "/rɪˈzent/", "fa": "دلخور بودن، آزرده شدن", "def_en": "to feel angry about something you think is unfair", "examples": ["She resented the extra work.", "He resented being called a beginner."]},
+            {"word": "denounce", "pos": "verb", "ipa": "/dɪˈnaʊns/", "fa": "محکوم کردن، افشا کردن", "def_en": "to say publicly that something is wrong or evil", "examples": ["The council denounced the plan as dangerous.", "They denounced the attack in strong words."]},
+            {"word": "molest", "pos": "verb", "ipa": "/məˈlest/", "fa": "آزار دادن", "def_en": "to attack or touch someone in a way that harms or frightens them", "examples": ["The dog will not molest anyone who stays calm.", "He was accused of molesting a neighbour."]},
+            {"word": "unforeseen", "pos": "adjective", "ipa": "/ˌʌnfɔːˈsiːn/", "fa": "پیش‌بینی‌نشده", "def_en": "not expected, so not prepared for", "examples": ["The delay was caused by unforeseen problems.", "We kept some money for unforeseen costs."]},
+            {"word": "torrent", "pos": "noun", "ipa": "/ˈtɒrənt/", "fa": "سیل، رگبار", "def_en": "a fast, heavy flow of water, or a stream of words", "examples": ["A torrent of water came down the hill.", "She let out a torrent of complaints."]},
+            {"word": "postpone", "pos": "verb", "ipa": "/pəˈspəʊn/", "fa": "به تعویق انداختن", "def_en": "to move something to a later time", "examples": ["We postponed the match until Sunday.", "The meeting was postponed twice."]},
+            {"word": "capsule", "pos": "noun", "ipa": "/ˈkæpsjuːl/", "fa": "کپسول", "def_en": "a small closed case, often one you swallow", "examples": ["Take one capsule with water.", "The crew sat inside a small capsule."]},
+            {"word": "massive", "pos": "adjective", "ipa": "/ˈmæsɪv/", "fa": "عظیم، بسیار بزرگ", "def_en": "very large and heavy", "examples": ["A massive rock blocked the road.", "The storm caused massive damage."]}
+          ]
+        },
+        {
+          "n": 8,
+          "title": "Lesson 8",
+          "title_fa": "درس ۸",
+          "words": [
+            {"word": "weird", "pos": "adjective", "ipa": "/wɪəd/", "fa": "عجیب و غریب", "def_en": "strange in a way that is hard to explain", "examples": ["A weird noise came from the attic.", "It is weird that nobody called."]},
+            {"word": "valid", "pos": "adjective", "ipa": "/ˈvælɪd/", "fa": "معتبر، درست", "def_en": "based on truth or on the rules, so it cannot be refused", "examples": ["Your ticket is valid for one month.", "That is a valid reason to be late."]},
+            {"word": "obvious", "pos": "adjective", "ipa": "/ˈɒbviəs/", "fa": "واضح، پیدا", "def_en": "easy to see or understand", "examples": ["The answer was obvious to everyone.", "There was an obvious mistake in the first line."]},
+            {"word": "mediocre", "pos": "adjective", "ipa": "/ˌmiːdiˈəʊkə/", "fa": "متوسط، نه خوب نه بد", "def_en": "only of average quality, not good", "examples": ["The food was mediocre and cold.", "He gave a mediocre performance."]},
+            {"word": "reluctant", "pos": "adjective", "ipa": "/rɪˈlʌktənt/", "fa": "بی‌میل، کراهت‌مند", "def_en": "not willing to do something", "examples": ["She was reluctant to lend the car.", "He gave a reluctant smile."]},
+            {"word": "exaggerate", "pos": "verb", "ipa": "/ɪɡˈzædʒəreɪt/", "fa": "اغراق کردن", "def_en": "to make something seem bigger or worse than it is", "examples": ["Do not exaggerate the danger.", "He exaggerated the size of the fish."]},
+            {"word": "security", "pos": "noun", "ipa": "/sɪˈkjʊərəti/", "fa": "امنیت؛ نگهبانی", "def_en": "safety from danger, or the people and systems that keep it", "examples": ["Security at the airport was slow.", "The building has good security."]},
+            {"word": "bulky", "pos": "adjective", "ipa": "/ˈbʌlki/", "fa": "حجیم، تنومند", "def_en": "large and difficult to carry or wear", "examples": ["The parcel was bulky but light.", "He wore a bulky winter coat."]},
+            {"word": "amateur", "pos": "noun", "ipa": "/ˈæmətə/", "fa": "آماتور، تازه‌کار", "def_en": "someone who does something for pleasure, not as a job", "examples": ["The match was open to amateurs.", "He is an amateur photographer."]},
+            {"word": "variety", "pos": "noun", "ipa": "/vəˈraɪəti/", "fa": "تنوع، گوناگونی", "def_en": "a collection of different kinds of the same thing", "examples": ["The shop sells a variety of breads.", "Her work shows great variety."]},
+            {"word": "prominent", "pos": "adjective", "ipa": "/ˈprɒmɪnənt/", "fa": "برجسته، سرشناس", "def_en": "important and well known, or easy to see", "examples": ["She is a prominent doctor in the city.", "The tower is prominent on the skyline."]},
+            {"word": "survive", "pos": "verb", "ipa": "/səˈvaɪv/", "fa": "زنده ماندن، جان به در بردن", "def_en": "to stay alive or to continue after something hard", "examples": ["Two passengers survived the crash.", "The old bridge survived the flood."]}
+          ]
+        },
+        {
+          "n": 9,
+          "title": "Lesson 9",
+          "title_fa": "درس ۹",
+          "words": [
+            {"word": "vicinity", "pos": "noun", "ipa": "/vɪˈsɪnəti/", "fa": "حومه، نزدیکی", "def_en": "the area near a place", "examples": ["There is a school in the vicinity.", "Police searched the vicinity of the station."]},
+            {"word": "document", "pos": "noun", "ipa": "/ˈdɒkjumənt/", "fa": "سند، مدرک", "def_en": "a paper or file that records information", "examples": ["Keep all your documents in one folder.", "The document was signed in June."]},
+            {"word": "century", "pos": "noun", "ipa": "/ˈsentʃəri/", "fa": "قرن", "def_en": "a period of one hundred years", "examples": ["The church was built in the last century.", "A century of rain has worn the stones."]},
+            {"word": "conclude", "pos": "verb", "ipa": "/kənˈkluːd/", "fa": "نتیجه گرفتن، به پایان بردن", "def_en": "to decide something after thinking, or to end something", "examples": ["We concluded that the plan would fail.", "He concluded his talk with a joke."]},
+            {"word": "undeniable", "pos": "adjective", "ipa": "/ˌʌndɪˈnaɪəbl/", "fa": "انکارناپذیر", "def_en": "clearly true, so that nobody can deny it", "examples": ["There is undeniable proof of the change.", "Her talent is undeniable."]},
+            {"word": "resist", "pos": "verb", "ipa": "/rɪˈzɪst/", "fa": "مقاومت کردن", "def_en": "to fight against something, or to stop yourself doing something", "examples": ["The bridge resisted the flood.", "I could not resist the cake."]},
+            {"word": "lack", "pos": "noun", "ipa": "/læk/", "fa": "کمبود، نبودن", "def_en": "the state of not having something, or not having enough of it", "examples": ["The plants died from lack of water.", "There is no lack of ideas here."]},
+            {"word": "ignore", "pos": "verb", "ipa": "/ɪɡˈnɔː/", "fa": "نادیده گرفتن", "def_en": "to pay no attention to something on purpose", "examples": ["He ignored my question and left.", "Do not ignore the warning light."]},
+            {"word": "challenge", "pos": "noun", "ipa": "/ˈtʃælɪndʒ/", "fa": "چالش، دشواری", "def_en": "something difficult that tests your ability", "examples": ["The climb was a real challenge.", "She enjoys the challenge of a new language."]},
+            {"word": "miniature", "pos": "adjective", "ipa": "/ˈmɪnətʃə/", "fa": "کوچک، مینیاتوری", "def_en": "made as a very small copy of something", "examples": ["He builds miniature trains.", "A miniature village stood on the table."]},
+            {"word": "source", "pos": "noun", "ipa": "/sɔːs/", "fa": "منبع، سرچشمه", "def_en": "the place something comes from", "examples": ["The river is a source of drinking water.", "The newspaper would not name its source."]},
+            {"word": "rage", "pos": "noun", "ipa": "/reɪdʒ/", "fa": "خشم شدید", "def_en": "very strong anger that is hard to control", "examples": ["He was shaking with rage.", "The rage in her voice surprised us."]}
+          ]
+        },
+        {
+          "n": 10,
+          "title": "Lesson 10",
+          "title_fa": "درس ۱۰",
+          "words": [
+            {"word": "excel", "pos": "verb", "ipa": "/ɪkˈsel/", "fa": "برتری داشتن، درخشیدن", "def_en": "to be very good at something, better than others", "examples": ["She excels at mathematics.", "He excelled in every sport he tried."]},
+            {"word": "feminine", "pos": "adjective", "ipa": "/ˈfemənɪn/", "fa": "زنانه", "def_en": "having the qualities people expect of women", "examples": ["The room had a feminine touch.", "That name sounds feminine in English."]},
+            {"word": "mount", "pos": "verb", "ipa": "/maʊnt/", "fa": "بالا رفتن، افزایش یافتن", "def_en": "to climb onto something, or to grow in size or amount", "examples": ["He mounted the horse in one movement.", "Pressure mounted on the manager."]},
+            {"word": "compete", "pos": "verb", "ipa": "/kəmˈpiːt/", "fa": "رقابت کردن", "def_en": "to try to win against others", "examples": ["Ten teams competed for the cup.", "Small shops compete with the big chains."]},
+            {"word": "dread", "pos": "verb", "ipa": "/dred/", "fa": "وحشت داشتن از، ترسیدن", "def_en": "to fear something that is going to happen", "examples": ["She dreaded the phone call.", "I dread the winter every year."]},
+            {"word": "masculine", "pos": "adjective", "ipa": "/ˈmæskjəlɪn/", "fa": "مردانه", "def_en": "having the qualities people expect of men", "examples": ["The voice on the phone was masculine.", "It is a very masculine style of writing."]},
+            {"word": "menace", "pos": "noun", "ipa": "/ˈmenəs/", "fa": "تهدید، خطر", "def_en": "a person or thing that is likely to cause harm", "examples": ["The dog was a menace to the postman.", "Drunk drivers are a menace on the road."]},
+            {"word": "tendency", "pos": "noun", "ipa": "/ˈtendənsi/", "fa": "گرایش، تمایل", "def_en": "a habit of behaving in a particular way", "examples": ["He has a tendency to arrive late.", "There is a tendency for prices to rise in spring."]},
+            {"word": "underestimate", "pos": "verb", "ipa": "/ˌʌndərˈestɪmeɪt/", "fa": "دست‌کم گرفتن", "def_en": "to think something is smaller or weaker than it really is", "examples": ["Never underestimate the power of a short walk.", "They underestimated the cost by half."]},
+            {"word": "victorious", "pos": "adjective", "ipa": "/vɪkˈtɔːriəs/", "fa": "پیروز", "def_en": "having won a game, a fight or a competition", "examples": ["The victorious team came home at dawn.", "She left the court victorious."]},
+            {"word": "numerous", "pos": "adjective", "ipa": "/ˈnjuːmərəs/", "fa": "پرشمار، زیاد", "def_en": "existing in large numbers", "examples": ["There were numerous complaints about the noise.", "He has written numerous short stories."]},
+            {"word": "flexible", "pos": "adjective", "ipa": "/ˈfleksəbl/", "fa": "انعطاف‌پذیر", "def_en": "able to bend, or able to change to suit new needs", "examples": ["The hose is flexible and easy to store.", "We keep flexible hours at work."]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1100-words",
+      "title": "1100 Words You Need to Know",
+      "title_fa": "۱۱۰۰ واژه‌ای که باید بدانید",
+      "author": "Murray Bromberg & Melvin Gordon",
+      "about_fa": "برنامه‌ی هفتگی واژگان برای آمادگی آزمون‌های پیشرفته: هر هفته چند روز و هر روز پنج واژه. درس‌ها اکنون از هفته‌ی ۱ آغاز می‌شوند.",
+      "lessons": [
+        {
+          "n": 1,
+          "title": "Week 1",
+          "title_fa": "هفته ۱",
+          "words": [
+            {"word": "voracious", "pos": "adjective", "ipa": "/vəˈreɪʃəs/", "fa": "شکم‌برو، حریص", "def_en": "wanting or eating very large amounts", "day": 1, "examples": ["She is a voracious reader of history.", "The puppies had voracious appetites."]},
+            {"word": "indiscriminate", "pos": "adjective", "ipa": "/ˌɪndɪˈskrɪmɪnət/", "fa": "بی‌گزینش، بی‌تفکیک", "def_en": "done without choosing carefully, so good and bad are mixed", "day": 1, "examples": ["The bombing was indiscriminate and killed civilians.", "His reading was indiscriminate, but wide."]},
+            {"word": "eminent", "pos": "adjective", "ipa": "/ˈemɪnənt/", "fa": "سرشناس، بلندآوازه", "def_en": "famous and respected in a particular field", "day": 1, "examples": ["An eminent lawyer took the case.", "She became an eminent surgeon."]},
+            {"word": "steeped", "pos": "adjective", "ipa": "/stiːpt/", "fa": "غرق در، آغشته", "def_en": "deeply filled or soaked with something, often an idea", "day": 1, "examples": ["He is steeped in the literature of the period.", "The town is steeped in old stories."]},
+            {"word": "replete", "pos": "adjective", "ipa": "/rɪˈpliːt/", "fa": "پر، لبریز", "def_en": "completely full or well supplied with something", "day": 1, "examples": ["The shelves are replete with rare books.", "The evening was replete with good food and talk."]},
+            {"word": "abound", "pos": "verb", "ipa": "/əˈbaʊnd/", "fa": "فراوان بودن، پرشدن از", "def_en": "to exist in very large numbers", "day": 2, "examples": ["Wild flowers abound in these hills.", "Rumours abound about the new manager."]},
+            {"word": "technology", "pos": "noun", "ipa": "/tekˈnɒlədʒi/", "fa": "فناوری", "def_en": "the use of science in machines and systems that do practical work", "day": 2, "examples": ["Modern technology has changed farming.", "The school invested in new technology."]},
+            {"word": "prognosticate", "pos": "verb", "ipa": "/prɒɡˈnɒstɪkeɪt/", "fa": "پیش‌بینی کردن", "def_en": "to say what will happen in the future", "day": 2, "examples": ["The paper prognosticates a cold winter.", "Nobody can prognosticate the result of the election."]},
+            {"word": "automaton", "pos": "noun", "ipa": "/ɔːˈtɒmətən/", "fa": "آدم‌آهنی، ماشین خودکار", "def_en": "a machine that moves by itself, or someone who acts mechanically", "day": 2, "examples": ["The automaton lifted its arm and bowed.", "He worked like an automaton for ten hours."]},
+            {"word": "matron", "pos": "noun", "ipa": "/ˈmeɪtrən/", "fa": "زن سالخورده و موقر؛ مدیر داخلی", "def_en": "an older married woman, often one in charge of a household or a school", "day": 2, "examples": ["The matron of the house welcomed us.", "A strict matron ran the dormitory."]},
+            {"word": "paradox", "pos": "noun", "ipa": "/ˈpærədɒks/", "fa": "ناسازگاری، تناقض", "def_en": "a statement or situation that seems to contradict itself", "day": 3, "examples": ["It is a paradox that the richest country has hungry children.", "The paradox of his story is its truth."]},
+            {"word": "realm", "pos": "noun", "ipa": "/relm/", "fa": "قلمرو، حوزه", "def_en": "a kingdom, or a field of activity or knowledge", "day": 3, "examples": ["The idea belongs to the realm of science fiction.", "The kingdom was a peaceful realm for a century."]},
+            {"word": "annals", "pos": "noun", "ipa": "/ˈænəlz/", "fa": "سالنامه، تاریخچه", "def_en": "the written record of events, year by year", "day": 3, "examples": ["His name is in the annals of the club.", "That storm is written in the annals of the town."]},
+            {"word": "compound", "pos": "noun", "ipa": "/ˈkɒmpaʊnd/", "fa": "ترکیب، آمیزه", "def_en": "something made of two or more parts put together", "day": 3, "examples": ["Salt is a simple compound of sodium and chlorine.", "The yard is a compound of three buildings."]},
+            {"word": "tinge", "pos": "noun", "ipa": "/tɪndʒ/", "fa": "رنگ ملایم، ته‌مایه", "def_en": "a small amount of a colour or of a feeling", "day": 3, "examples": ["There is a tinge of sadness in her voice.", "The sky had a tinge of pink."]},
+            {"word": "badger", "pos": "verb", "ipa": "/ˈbædʒə/", "fa": "پیله کردن، پافشاری کردن", "def_en": "to keep asking or bothering someone until they agree", "day": 4, "examples": ["The children badgered me for a second story.", "Stop badgering the manager about the bill."]},
+            {"word": "implore", "pos": "verb", "ipa": "/ɪmˈplɔː/", "fa": "التماس کردن", "def_en": "to beg someone urgently and emotionally", "day": 4, "examples": ["She implored him to stay in touch.", "He implored the court to be patient."]},
+            {"word": "drudgery", "pos": "noun", "ipa": "/ˈdrʌdʒəri/", "fa": "کار سخت و یکنواخت", "def_en": "dull, hard work with no interest in it", "day": 4, "examples": ["Housework was pure drudgery for him.", "The machine took the drudgery out of the job."]},
+            {"word": "interminable", "pos": "adjective", "ipa": "/ɪnˈtɜːmɪnəbl/", "fa": "بی‌پایان، بسیار طولانی", "def_en": "so long that it seems to have no end", "day": 4, "examples": ["The interminable wait ended at midnight.", "We sat through an interminable speech."]},
+            {"word": "perceive", "pos": "verb", "ipa": "/pəˈsiːv/", "fa": "ادراک کردن، دریافتن", "def_en": "to notice something, or to understand it in a particular way", "day": 4, "examples": ["He perceived a change in her tone.", "The problem is perceived as a threat."]}
+          ]
         }
       ]
     }

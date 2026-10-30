@@ -64,6 +64,36 @@ PINNED_LESSONS = {
         "rural", "campus", "evade", "majority", "assemble", "tradition",
         "burden", "explore", "reform", "topic", "probe", "debate",
     ],
+    6: [
+        "thorough", "undoubtedly", "approach", "popular", "neglect",
+        "employee", "defect", "deceive", "defraud", "detect", "client",
+        "comprehensive",
+    ],
+    7: [
+        "preserve", "gloomy", "consent", "unique", "resent", "denounce",
+        "molest", "unforeseen", "torrent", "postpone", "capsule", "massive",
+    ],
+    8: [
+        "weird", "valid", "obvious", "mediocre", "reluctant", "exaggerate",
+        "security", "bulky", "amateur", "variety", "prominent", "survive",
+    ],
+    9: [
+        "vicinity", "document", "century", "conclude", "undeniable", "resist",
+        "lack", "ignore", "challenge", "miniature", "source", "rage",
+    ],
+    10: [
+        "excel", "feminine", "mount", "compete", "dread", "masculine",
+        "menace", "tendency", "underestimate", "victorious", "numerous",
+        "flexible",
+    ],
+}
+
+# The second book is organised by week, and week 1 is four days of five words.
+PINNED_1100 = {
+    1: ["voracious", "indiscriminate", "eminent", "steeped", "replete",
+        "abound", "technology", "prognosticate", "automaton", "matron",
+        "paradox", "realm", "annals", "compound", "tinge",
+        "badger", "implore", "drudgery", "interminable", "perceive"],
 }
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}
@@ -260,6 +290,22 @@ def check_offline() -> None:
 def main() -> int:
     data = load()
     stats = check_catalogue(data) if data else {"books": 0, "lessons": 0, "words": 0}
+
+    other = next((b for b in data.get("books", []) if b.get("id") == "1100-words"),
+                 None)
+    if check(other is not None, "the 1100 book is not in the library"):
+        lessons = {l.get("n"): l for l in other.get("lessons") or []}
+        for number, roster in PINNED_1100.items():
+            lesson = lessons.get(number)
+            if not check(lesson is not None,
+                         f"1100 week {number} is missing"):
+                continue
+            words = [w.get("word") for w in lesson.get("words") or []]
+            check(words == roster,
+                  f"1100 week {number} is not its words in order: {words}")
+            days = {w.get("day") for w in lesson.get("words") or []}
+            check(days and None not in days,
+                  f"1100 week {number} has words with no day")
 
     book = next((b for b in data.get("books", []) if b.get("id") == "essential-504"), None)
     if check(book is not None, "the 504 book is not in the library"):
