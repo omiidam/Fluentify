@@ -129,6 +129,101 @@ PINNED_LESSONS = {
         "perish", "jagged", "captive", "crafty", "linger", "defiant",
         "ambush", "prosper", "emerge", "devour", "vigor", "fragile",
     ],
+    21: [
+        "transmit", "confirm", "verify", "detour", "weary", "merit",
+        "plea", "collide", "relieve", "dilemma", "baffle", "anticipate",
+    ],
+    22: [
+        "delinquent", "penalize", "vocation", "homicide", "acknowledge",
+        "reject", "warden", "spouse", "unstable", "deprived", "justice",
+        "beneficiary",
+    ],
+    23: [
+        "embrace", "forbid", "proceed", "reptile", "partial", "logical",
+        "rarely", "exhibit", "prior", "precaution", "valiant", "extract",
+    ],
+    24: [
+        "authority", "encourage", "symbol", "vermin", "neutral", "consider",
+        "fierce", "wail", "trifle", "detest", "scowl", "sneer",
+    ],
+    25: [
+        "baggage", "calamity", "pauper", "collapse", "architect",
+        "prosecute", "squander", "fugitive", "bigamy", "abroad", "envy",
+        "matrimony",
+    ],
+    26: [
+        "quench", "guide", "respond", "beckon", "venture", "compel",
+        "awesome", "betray", "possible", "pacify", "utter", "awkward",
+    ],
+    27: [
+        "feeble", "cease", "rash", "exhausted", "monarch", "disrupt",
+        "thrifty", "rapidly", "severity", "unite", "despite", "miserly",
+    ],
+    28: [
+        "undernourished", "disclose", "disaster", "outlaw", "excessive",
+        "culprit", "promote", "illustrate", "insist", "censor", "juvenile",
+        "bait",
+    ],
+    29: [
+        "exempt", "repetition", "blunder", "comprehend", "toil", "maim",
+        "commend", "final", "mourning", "vain", "subside", "daze",
+    ],
+    30: [
+        "appoint", "mortal", "occupant", "depict", "site", "verse",
+        "quarter", "quote", "novel", "attract", "morality", "roam",
+    ],
+    31: [
+        "idle", "dispute", "commuter", "valor", "vein", "uneventful",
+        "lunatic", "jest", "confine", "patriotic", "fertile", "idol",
+    ],
+    32: [
+        "distress", "maximum", "flee", "torment", "loyalty", "apologize",
+        "colleague", "signify", "refer", "diminish", "mythology",
+        "vulnerable",
+    ],
+    33: [
+        "mumble", "wad", "retain", "volunteer", "jolly", "prejudice",
+        "hinder", "mute", "abuse", "shrill", "lecture", "witty",
+    ],
+    34: [
+        "adolescent", "candidate", "radical", "spontaneous", "vaccinate",
+        "utensil", "sensitive", "temperate", "untidy", "coeducational",
+        "precede", "skim",
+    ],
+    35: [
+        "lottery", "obtain", "cinema", "event", "soar", "stationary",
+        "subsequent", "discard", "relate", "vague", "finance", "elevate",
+    ],
+    36: [
+        "prompt", "soothe", "redeem", "refrain", "harmony", "hasty",
+        "tempest", "scorch", "sympathetic", "resume", "illegal", "narcotic",
+    ],
+    37: [
+        "dwindle", "heir", "deliberate", "surplus", "heed", "unify",
+        "vandal", "abide", "drought", "summit", "traitor", "majestic",
+    ],
+    38: [
+        "tumult", "swarm", "verdict", "biography", "recede", "charity",
+        "kneel", "dejected", "tyrant", "drench", "wobble", "obedient",
+    ],
+    39: [
+        "depart", "cancel", "placard", "contagious", "unearth", "customary",
+        "scald", "transparent", "legible", "clergy", "debtor", "coincide",
+    ],
+    40: [
+        "obesity", "epidemic", "chiropractor", "ventilated", "oral",
+        "magnifying", "obstacle", "pension", "jeopardize", "negative",
+        "municipal", "vital",
+    ],
+    41: [
+        "wasp", "parole", "rehabilitate", "multitude", "potential",
+        "upholstery", "indifference", "preoccupied", "vertical", "nominate",
+        "morgue", "complacent",
+    ],
+    42: [
+        "snub", "wrath", "ponder", "maintain", "endure", "expose", "legend",
+        "ballot", "wharf", "resign", "amend", "drastic",
+    ],
 }
 
 # The second book is organised by week; each week is four days of five words.
@@ -145,6 +240,22 @@ PINNED_1100 = {
         "infamous", "jostle", "dupe", "incipient", "inadvertent",
         "ominous", "tremulous", "repudiate", "cessation", "bristle",
         "euphemism", "mundane", "incongruous", "condolence", "stipulate"],
+    4: ["alacrity", "disdain", "belligerent", "intimidate", "feint",
+        "pugnacious", "promulgate", "brash", "scoff", "belittle",
+        "tangible", "laceration", "castigate", "sordid", "octogenarian",
+        "solace", "aspirant", "dregs", "frenzy", "scurrilous"],
+    5: ["rampant", "inane", "ethics", "concur", "clandestine",
+        "flagrant", "admonish", "duress", "culprit", "inexorable",
+        "egregious", "distraught", "duplicity", "acrimonious", "paucity",
+        "elicit", "pernicious", "tolerate", "construe", "impunity"],
+    6: ["affluent", "feasible", "discern", "sally", "consternation",
+        "precocious", "perfunctory", "chagrin", "perverse", "deride",
+        "disparage", "laudable", "fiasco", "masticate", "eschew",
+        "quell", "voluble", "confidant", "obsolescence", "dubious"],
+    7: ["implacable", "paroxysm", "reprehensible", "jurisdiction",
+        "skirmish", "harass", "monolithic", "indigent", "arbitrary", "fray",
+        "stymie", "effigy", "flout", "cognizant", "turbulent",
+        "terminate", "forthwith", "exacerbate", "revert", "oust"],
 }
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}
