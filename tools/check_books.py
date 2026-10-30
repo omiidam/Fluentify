@@ -108,6 +108,27 @@ PINNED_LESSONS = {
         "casual", "pursue", "unanimous", "fortunate", "pioneer",
         "innovative",
     ],
+    16: [
+        "grateful", "doubt", "slender", "cautious", "accurate", "penetrate",
+        "pierce", "vast", "surpass", "capacity", "confident", "microscope",
+    ],
+    17: [
+        "avoid", "aware", "quantity", "appeal", "wretched", "harsh",
+        "misfortune", "opt", "wary", "keg", "nourish", "addict",
+    ],
+    18: [
+        "reckless", "ingenious", "economical", "rave", "glance", "budget",
+        "manipulate", "lubricate", "tragedy", "horrid", "pedestrian",
+        "nimble",
+    ],
+    19: [
+        "ban", "quota", "abundant", "absorbed", "appropriate", "estimate",
+        "uneasy", "panic", "harvest", "calculated", "morsel", "threat",
+    ],
+    20: [
+        "perish", "jagged", "captive", "crafty", "linger", "defiant",
+        "ambush", "prosper", "emerge", "devour", "vigor", "fragile",
+    ],
 }
 
 # The second book is organised by week; each week is four days of five words.
@@ -120,6 +141,10 @@ PINNED_1100 = {
         "furtive", "felon", "plethora", "hapless", "irate",
         "pretext", "fabricate", "adroit", "gesticulate", "vigilant",
         "avid", "cajole", "rudimentary", "enhance", "nuance"],
+    3: ["loathe", "reprimand", "lackluster", "caustic", "wrest",
+        "infamous", "jostle", "dupe", "incipient", "inadvertent",
+        "ominous", "tremulous", "repudiate", "cessation", "bristle",
+        "euphemism", "mundane", "incongruous", "condolence", "stipulate"],
 }
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}
