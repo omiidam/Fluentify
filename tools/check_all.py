@@ -50,6 +50,11 @@ Four suites, each answering a different question:
                 is it still invisible? No route, no panel, no tab: it is
                 knowledge behind the existing conversation, and this refuses
                 both a malformed shard and a new dictionary surface.
+  check_books     is the library sound, and is the Books panel wired to it?
+                Every word needs a Persian meaning, an English definition and
+                examples that actually use the word; the tile, the panel, the
+                route and the APK's own copy of the file must all be present,
+                because each one alone leaves a button that does nothing.
   check_analyser  is the bundled grammar engine accurate and honest? It runs
                 the shipped 3.5 MB bundle over the sentences the feature was
                 specified against plus contractions, unpunctuated input,
@@ -87,6 +92,7 @@ SUITES = [
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
+    ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 

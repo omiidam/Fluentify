@@ -1,0 +1,153 @@
+{
+  "books": [
+    {
+      "id": "essential-504",
+      "title": "504 Absolutely Essential Words",
+      "title_fa": "۵۰۴ واژهٔ کاملاً ضروری",
+      "author": "Murray Bromberg · Julius Liebb · Arthur Traiger",
+      "about_en": "The classic word list every learner meets first: twelve words a lesson, each with a meaning, a plain definition and sentences that show it working.",
+      "about_fa": "فهرست کلاسیک واژه‌ها؛ در هر درس دوازده واژه، با معنی، تعریف ساده و چند جمله که کاربردش را نشان می‌دهد.",
+      "lessons": [
+        {
+          "n": 1,
+          "title": "Lesson 1",
+          "title_fa": "درس ۱",
+          "words": [
+            {
+              "word": "abandon",
+              "pos": "verb",
+              "ipa": "/əˈbændən/",
+              "fa": "رها کردن، ترک کردن",
+              "def_en": "to leave someone or something behind for good, with no plan to come back",
+              "examples": [
+                "They abandoned the car when the road flooded.",
+                "She abandoned her plan to study law after one term."
+              ]
+            },
+            {
+              "word": "keen",
+              "pos": "adjective",
+              "ipa": "/kiːn/",
+              "fa": "مشتاق؛ تیز",
+              "def_en": "very eager to do something; or sharp, as a mind, an eye or a sense",
+              "examples": [
+                "He is keen to start his new job.",
+                "A keen eye will notice the small difference."
+              ]
+            },
+            {
+              "word": "jealous",
+              "pos": "adjective",
+              "ipa": "/ˈdʒeləs/",
+              "fa": "حسود",
+              "def_en": "unhappy because someone has what you want, or afraid of losing someone you love",
+              "examples": [
+                "He was jealous of his brother's new bike.",
+                "She felt jealous when her friend was chosen instead of her."
+              ]
+            },
+            {
+              "word": "tact",
+              "pos": "noun",
+              "ipa": "/tækt/",
+              "fa": "تدبیر در رفتار، زیرکی",
+              "def_en": "the skill of saying a difficult thing without upsetting the person who hears it",
+              "examples": [
+                "She told him about the mistake with great tact.",
+                "A teacher needs tact as much as knowledge."
+              ]
+            },
+            {
+              "word": "oath",
+              "pos": "noun",
+              "ipa": "/əʊθ/",
+              "fa": "سوگند",
+              "def_en": "a formal promise, often made before a judge, that what you say is true",
+              "examples": [
+                "The witness took an oath before speaking.",
+                "He broke his oath and lost their trust."
+              ]
+            },
+            {
+              "word": "vacant",
+              "pos": "adjective",
+              "ipa": "/ˈveɪkənt/",
+              "fa": "خالی، بی‌صاحب",
+              "def_en": "empty; not occupied by anyone, or not being used",
+              "examples": [
+                "The seat next to me was vacant.",
+                "They moved into a vacant office on the second floor."
+              ]
+            },
+            {
+              "word": "hardship",
+              "pos": "noun",
+              "ipa": "/ˈhɑːdʃɪp/",
+              "fa": "سختی، مشقت",
+              "def_en": "serious difficulty and suffering, usually over a long time",
+              "examples": [
+                "The family faced years of hardship after the factory closed.",
+                "She never forgot the hardships of her first winter there."
+              ]
+            },
+            {
+              "word": "gallant",
+              "pos": "adjective",
+              "ipa": "/ˈɡælənt/",
+              "fa": "شجاع، جوانمرد",
+              "def_en": "brave and polite, especially towards someone in danger or in need of help",
+              "examples": [
+                "A gallant young officer carried the child out of the fire.",
+                "His gallant attempt to save the boat was praised by everyone."
+              ]
+            },
+            {
+              "word": "data",
+              "pos": "noun",
+              "ipa": "/ˈdeɪtə/",
+              "fa": "داده‌ها، اطلاعات",
+              "def_en": "facts and numbers collected so that they can be studied",
+              "examples": [
+                "The data show that the new method works.",
+                "We collected data from two hundred students."
+              ]
+            },
+            {
+              "word": "unaccustomed",
+              "pos": "adjective",
+              "ipa": "/ˌʌnəˈkʌstəmd/",
+              "fa": "ناآشنا، عادت‌نکرده",
+              "def_en": "not used to something, so that it feels strange to you",
+              "examples": [
+                "He was unaccustomed to speaking in public.",
+                "Her eyes were unaccustomed to the bright light."
+              ]
+            },
+            {
+              "word": "bachelor",
+              "pos": "noun",
+              "ipa": "/ˈbætʃələ/",
+              "fa": "مرد مجرد؛ کارشناسی",
+              "def_en": "an unmarried man; also the first university degree",
+              "examples": [
+                "My uncle stayed a bachelor until he was forty.",
+                "She finished her bachelor's degree last spring."
+              ]
+            },
+            {
+              "word": "qualify",
+              "pos": "verb",
+              "ipa": "/ˈkwɒlɪfaɪ/",
+              "fa": "واجد شرایط شدن",
+              "def_en": "to reach the standard that a job, a course or a competition asks for",
+              "examples": [
+                "He qualified as a doctor after six years.",
+                "Only two runners qualified for the final."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

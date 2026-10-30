@@ -30,6 +30,13 @@ BUNDLED_DATA = [
     "daily.json",
 ]
 
+# Files a panel fetches the first time it is opened, not at boot. The library
+# reads books.json when the Books panel opens, so a copy here is what makes
+# lesson words available offline without costing every start-up the read.
+LAZY_DATA = [
+    "books.json",
+]
+
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
 html = re.search(r'HTML_TEMPLATE = r"""(.*?)"""', src, re.S).group(1)
 
@@ -409,14 +416,15 @@ print("wrote", OUT, len(html), "chars")
 # ---------------------------------------------------------------------------
 DATA.mkdir(parents=True, exist_ok=True)
 missing = []
-for name in BUNDLED_DATA:
+for name in BUNDLED_DATA + LAZY_DATA:
     src = ROOT / name
     dest = DATA / name
     if not src.exists():
         missing.append(name)
         continue
     shutil.copyfile(src, dest)
-print(f"synced {len(BUNDLED_DATA) - len(missing)}/{len(BUNDLED_DATA)} data files -> {DATA}")
+print(f"synced {len(BUNDLED_DATA) + len(LAZY_DATA) - len(missing)}"
+      f"/{len(BUNDLED_DATA) + len(LAZY_DATA)} data files -> {DATA}")
 if missing:
     for name in missing:
         print(f"  ! {name} is missing from the repository root")

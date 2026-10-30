@@ -874,7 +874,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* A cue that the panels scroll, or they just stop mid-button and read as a
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -1048,7 +1048,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      daily feature did not sit beside the conversation, it was the page.
      tools/check_ui.py now derives the list from the markup and fails on any
      panel that is missing here. */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
     display: none; padding: 14px 20px;
     background: #fffcef;
     border-bottom: 1px solid rgba(43,48,73,.12);
@@ -1059,10 +1059,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
-  #dpanel.open, #npanel.open { display: block; }
+  #dpanel.open, #npanel.open, #bpanel.open { display: block; }
   /* #phpanel gets its own flex layout below, so it is not listed here */
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
-  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
+  #bpanel h3 {
     font-size: 13px; color: var(--ink); margin-bottom: 9px; font-weight: 700;
     font-family: var(--font-display); letter-spacing: .1px;
   }
@@ -1074,6 +1075,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #fpanel h3  { border-inline-start: 3px solid var(--rose);    padding-inline-start: 9px; }
   #lpanel h3  { border-inline-start: 3px solid var(--cyan);    padding-inline-start: 9px; }
   #phpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
+  #bpanel h3 { border-inline-start: 3px solid var(--navy);   padding-inline-start: 9px; }
   #rpanel h3  { border-inline-start: 3px solid var(--amber);   padding-inline-start: 9px; }
 
   /* ---------- listening: level tabs + playable sentences ---------- */
@@ -1299,6 +1301,78 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .go:hover { background: rgba(232,191,95,.62); }
   .gsep { color: var(--muted); font-size: 10px; width: 100%; }
+
+  /* ---------- the library: books → lessons → words ----------
+     One panel, three depths. A book opens its lessons, a lesson opens its
+     words, and every depth carries a way back: a list you cannot leave reads
+     as the end of the app, not as a page of it.
+
+     Direction is declared per element rather than left to the browser. An
+     English definition is ltr and a Persian meaning is rtl, so the pair can
+     never reorder each other the way the dictionary senses did. */
+  .bbooks { display: flex; flex-direction: column; gap: 7px; }
+  .bbook {
+    display: grid; gap: 2px; width: 100%; text-align: start; cursor: pointer;
+    font-family: inherit; color: var(--ink);
+    background: #fffcef; border: 1px solid rgba(43,48,73,.13);
+    border-radius: 12px; padding: 9px 11px 10px;
+    border-inline-start: 3px solid var(--navy); transition: .15s;
+  }
+  .bbook:hover { transform: translateY(-1px); border-color: rgba(60,64,91,.42); }
+  .bbook b { font-size: 13.5px; font-weight: 700; }
+  .bbook .bfa { font-size: 12px; color: #3f4a6b; line-height: 1.9; }
+  .bbook .bmeta { font-size: 10.5px; color: var(--muted); }
+  .bback {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: none; border: none; cursor: pointer; font-family: inherit;
+    color: #4a4fa0; font-size: 11.5px; font-weight: 700; padding: 0 0 7px;
+  }
+  .bback:hover { text-decoration: underline; }
+  .bhead2 { font-size: 12px; font-weight: 700; color: var(--ink); padding-bottom: 6px; }
+  .blesson {
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    font-family: inherit; cursor: pointer; text-align: start;
+    background: #fffcef; border: 1px solid rgba(43,48,73,.13);
+    border-radius: 10px; padding: 8px 11px; color: var(--ink);
+  }
+  .blesson:hover { border-color: rgba(60,64,91,.42); }
+  .blesson .bn { font-size: 12.5px; font-weight: 700; }
+  .blesson .bfa { font-size: 11.5px; color: var(--muted); }
+  .blesson .n {
+    margin-inline-start: auto; font-size: 10px; color: var(--muted);
+    background: rgba(43,48,73,.085); border-radius: 5px; padding: 0 5px;
+  }
+  .bwords { display: flex; flex-direction: column; gap: 8px; }
+  .bword {
+    background: #fffcef; border: 1px solid rgba(43,48,73,.11);
+    border-radius: 12px; padding: 9px 11px 10px;
+    border-inline-start: 3px solid var(--teal);
+  }
+  .bwh { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .bwh b { font-size: 15px; }
+  .bwh .ipa { font-size: 11px; color: var(--muted); }
+  .bwh .pos {
+    font-size: 9.5px; font-style: normal; color: #4a4fa0;
+    background: rgba(79,70,160,.10); border-radius: 5px; padding: 1px 6px;
+  }
+  .bwh .bsay {
+    margin-inline-start: auto; background: none; cursor: pointer;
+    border: 1px solid rgba(43,48,73,.16); border-radius: 8px;
+    font-size: 11px; line-height: 1; padding: 4px 6px; color: var(--ink);
+  }
+  .bwh .bsay:hover { background: rgba(43,48,73,.07); }
+  .bword .bfa { font-size: 12.5px; color: #3f4a6b; margin-top: 3px; line-height: 1.95; }
+  .bword .bdef { font-size: 12px; color: var(--ink); margin-top: 3px; }
+  .bex { margin: 5px 0 0; padding: 0; list-style: none; }
+  .bex li {
+    display: flex; gap: 6px; align-items: baseline;
+    font-size: 11.5px; color: #3f4a6b;
+    padding: 2px 0 2px 9px; border-inline-start: 2px solid #e6dcc4;
+  }
+  .bex li button {
+    flex: none; background: none; border: none; cursor: pointer;
+    color: #4a4fa0; font-size: 10px; padding: 0; font-family: inherit;
+  }
 
   /* ---------- chat area ---------- */
   #chat {
@@ -2394,7 +2468,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .app { background: #fffcef; }
     header { background: #fffcef; }
-    #vpanel, #gpanel, #fpanel, #phpanel, #rpanel, #dpanel, #npanel { background: #fffcef; }
+    #vpanel, #gpanel, #fpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel { background: #fffcef; }
     .msg.bot { background: #fffcef; }
     #input { background: #fffdf4; }
     .hb { display: none; }
@@ -2480,13 +2554,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
   }
 
-  /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel {
+  /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
     padding: 10px calc(var(--pad) + var(--sar)) 11px calc(var(--pad) + var(--sal));
     max-height: 66%;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
-  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3 {
+  #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
+  #bpanel h3 {
     font-size: 11.5px; margin-bottom: 8px; line-height: 1.5;
   }
   .domains { max-height: 46vh; }
@@ -2788,7 +2863,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .mav { width: 32px; height: 32px; border-radius: 11px; }
     .mav svg, .mav img { width: 26px; height: 26px; }
     .msg { padding: 12px 16px; font-size: 16px; }
-    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel { padding: 14px 20px; max-height: 52%; }
+    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel { padding: 14px 20px; max-height: 52%; }
     .domains { max-height: 230px; }
     form { padding: 14px 20px 18px; gap: 8px; }
     #input { padding: 10px 14px; font-size: 15.5px; }
@@ -3097,6 +3172,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyse</span></button>
       <button class="hbtn" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
+      <button class="hbtn" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 5.2a1.8 1.8 0 0 1 1.8-1.8h3.2A1.8 1.8 0 0 1 11.2 5.2v13.4H6.2a1.8 1.8 0 0 0-1.8 1.8Z"/><path d="M19.6 5.2a1.8 1.8 0 0 0-1.8-1.8h-3.2a1.8 1.8 0 0 0-1.8 1.8v13.4h5a1.8 1.8 0 0 1 1.8 1.8Z"/></svg></i><span>Books</span></button>
       <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
       <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
@@ -3166,6 +3243,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
     <div class="domains" id="domains"></div>
     <div class="pempty" id="vempty" hidden>No domain matches that search. / دسته‌ای با این جست‌وجو پیدا نشد.</div>
+  </div>
+
+  <div id="bpanel">
+    <h3>Books — کتاب‌ها</h3>
+    <div class="bbooks" id="bbooks" aria-live="polite"></div>
   </div>
 
   <div id="gpanel">
@@ -4768,7 +4850,7 @@ const Panels = (() => {
   const TILES = {
     dpanel: 'dtoggle', npanel: 'ntoggle', vpanel: 'vtoggle', gpanel: 'gtoggle',
     fpanel: 'ftoggle', lpanel: 'ltoggle', phpanel: 'phtoggle',
-    rpanel: 'rtoggle',
+    bpanel: 'btoggle', rpanel: 'rtoggle',
   };
   let openId = null;
 
@@ -6284,6 +6366,9 @@ const PANEL_ON_OPEN = {
   },
   lpanel: () => PanelSearch.attachAll(),
   phpanel: () => PanelSearch.attachAll(),
+  // the library loads its catalogue on first open, then remembers where the
+  // reader was, so reopening the panel does not walk them back to the shelf
+  bpanel: () => Books.load(),
 };
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
@@ -6292,6 +6377,7 @@ document.getElementById('gtoggle').onclick = () => togglePanel('gpanel', 'gtoggl
 document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggle');
 document.getElementById('ltoggle').onclick = () => togglePanel('lpanel', 'ltoggle');
 document.getElementById('phtoggle').onclick = () => togglePanel('phpanel', 'phtoggle');
+document.getElementById('btoggle').onclick = () => togglePanel('bpanel', 'btoggle');
 document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
 
 /* ============================================================================
@@ -7623,6 +7709,260 @@ const Review = {
   },
 };
 
+/* ============================================================================
+ * THE LIBRARY
+ * Books → lessons → words. The catalogue is books.json: one entry per book,
+ * its lessons, and each lesson's words with a Persian meaning, an English
+ * definition and sentences that use them. Nothing here is generated - what is
+ * on screen is what the file says - so a definition can be corrected in one
+ * place and the web page and the APK both follow.
+ *
+ * Every line declares its own direction, the way the chat does it: an English
+ * definition in an ltr block, a Persian meaning in an rtl one. A single mixed
+ * line would be laid out by its first strong character and turn the other
+ * language around; that is exactly how the dictionary senses went wrong.
+ * ==========================================================================*/
+const Books = {
+  data: null,
+  bookId: null,
+  lesson: null,
+
+  box() { return document.getElementById('bbooks'); },
+
+  async load() {
+    const box = this.box();
+    if (!box) return;
+    if (!this.data) {
+      box.innerHTML = '<div class="pblurb">Reading the library… / در حال خواندن کتاب‌ها…</div>';
+      try {
+        this.data = await loadJSON('books');
+      } catch (e) {
+        box.innerHTML = '<div class="pblurb">The books could not be read. / کتاب‌ها خوانده نشدند.</div>';
+        return;
+      }
+    }
+    this.paint();
+  },
+
+  paint() {
+    const box = this.box();
+    if (!box) return;
+    box.innerHTML = '';
+    if (!this.data) return;
+    const books = this.data.books || [];
+    const book = books.find((b) => b.id === this.bookId);
+    if (!book) {
+      this.bookId = null;
+      this.lesson = null;
+      this.paintBooks(box, books);
+      return;
+    }
+    if (this.lesson == null) this.paintLessons(box, book);
+    else this.paintWords(box, book);
+  },
+
+  /* the word count of a book, computed once so all three depths agree */
+  wordsOf(book) {
+    return (book.lessons || []).reduce((n, l) => n + (l.words || []).length, 0);
+  },
+
+  back(label, fn) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'bback';
+    b.textContent = '← ' + label;
+    b.onclick = fn;
+    return b;
+  },
+
+  /* shelf: one card per book */
+  paintBooks(box, books) {
+    if (!books.length) {
+      box.innerHTML = '<div class="pblurb">No book is in the library yet. / هنوز کتابی در کتابخانه نیست.</div>';
+      return;
+    }
+    books.forEach((book) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'bbook';
+      card.setAttribute('aria-label', book.title);
+      const title = document.createElement('b');
+      title.dir = 'ltr';
+      title.textContent = book.title;
+      card.appendChild(title);
+      if (book.title_fa) {
+        const fa = document.createElement('span');
+        fa.className = 'bfa';
+        fa.dir = 'rtl';
+        fa.lang = 'fa';
+        fa.textContent = book.title_fa;
+        card.appendChild(fa);
+      }
+      const lessons = (book.lessons || []).length;
+      const meta = document.createElement('span');
+      meta.className = 'bmeta';
+      meta.dir = 'ltr';
+      meta.textContent = (book.author ? book.author + ' · ' : '') + lessons +
+        (lessons === 1 ? ' lesson' : ' lessons') + ' · ' + this.wordsOf(book) + ' words';
+      card.appendChild(meta);
+      card.onclick = () => {
+        this.bookId = book.id;
+        this.lesson = null;
+        this.paint();
+      };
+      box.appendChild(card);
+    });
+  },
+
+  /* one book: its lessons */
+  paintLessons(box, book) {
+    box.appendChild(this.back('Books · کتاب‌ها', () => {
+      this.bookId = null;
+      this.lesson = null;
+      this.paint();
+    }));
+    const head = document.createElement('div');
+    head.className = 'bhead2';
+    head.dir = 'ltr';
+    head.textContent = book.title;
+    box.appendChild(head);
+    if (book.about_fa) {
+      const about = document.createElement('div');
+      about.className = 'pblurb';
+      about.dir = 'rtl';
+      about.lang = 'fa';
+      about.textContent = book.about_fa;
+      box.appendChild(about);
+    }
+    const list = document.createElement('div');
+    list.className = 'bbooks';
+    (book.lessons || []).forEach((lesson) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'blesson';
+      const name = document.createElement('span');
+      name.className = 'bn';
+      name.dir = 'ltr';
+      name.textContent = lesson.title || ('Lesson ' + lesson.n);
+      b.appendChild(name);
+      if (lesson.title_fa) {
+        const fa = document.createElement('span');
+        fa.className = 'bfa';
+        fa.dir = 'rtl';
+        fa.lang = 'fa';
+        fa.textContent = lesson.title_fa;
+        b.setAttribute('aria-label', name.textContent + ' — ' + lesson.title_fa);
+        b.appendChild(fa);
+      }
+      const n = document.createElement('span');
+      n.className = 'n';
+      n.textContent = (lesson.words || []).length + ' words';
+      b.appendChild(n);
+      b.onclick = () => {
+        this.lesson = lesson.n;
+        this.paint();
+        const p = this.box();
+        if (p) p.scrollTop = 0;
+      };
+      list.appendChild(b);
+    });
+    box.appendChild(list);
+  },
+
+  /* one lesson: the words, each with meaning, definition and examples */
+  paintWords(box, book) {
+    const lesson = (book.lessons || []).find((l) => l.n === this.lesson);
+    if (!lesson) {
+      this.lesson = null;
+      this.paintLessons(box, book);
+      return;
+    }
+    box.appendChild(this.back('Lessons · درس‌ها', () => {
+      this.lesson = null;
+      this.paint();
+    }));
+    const head = document.createElement('div');
+    head.className = 'bhead2';
+    head.dir = 'ltr';
+    head.textContent = book.title + ' · ' + (lesson.title || ('Lesson ' + lesson.n)) +
+      ' · ' + (lesson.words || []).length + ' words';
+    box.appendChild(head);
+
+    const list = document.createElement('div');
+    list.className = 'bwords';
+    (lesson.words || []).forEach((w) => {
+      const card = document.createElement('div');
+      card.className = 'bword';
+
+      const h = document.createElement('div');
+      h.className = 'bwh';
+      h.dir = 'ltr';
+      const word = document.createElement('b');
+      word.textContent = w.word;
+      h.appendChild(word);
+      if (w.ipa) {
+        const ipa = document.createElement('span');
+        ipa.className = 'ipa';
+        ipa.textContent = w.ipa;
+        h.appendChild(ipa);
+      }
+      if (w.pos) {
+        const pos = document.createElement('i');
+        pos.className = 'pos';
+        pos.textContent = w.pos;
+        h.appendChild(pos);
+      }
+      const say = document.createElement('button');
+      say.type = 'button';
+      say.className = 'bsay';
+      say.title = 'Say it — بشنو';
+      say.setAttribute('aria-label', 'Say ' + w.word);
+      say.textContent = '🔊';
+      say.onclick = () => Speech.speak(w.word);
+      h.appendChild(say);
+      card.appendChild(h);
+
+      if (w.fa) {
+        const fa = document.createElement('div');
+        fa.className = 'bfa';
+        fa.dir = 'rtl';
+        fa.lang = 'fa';
+        fa.textContent = w.fa;
+        card.appendChild(fa);
+      }
+      if (w.def_en) {
+        const def = document.createElement('div');
+        def.className = 'bdef';
+        def.dir = 'ltr';
+        def.textContent = w.def_en;
+        card.appendChild(def);
+      }
+      const examples = w.examples || [];
+      if (examples.length) {
+        const ul = document.createElement('ul');
+        ul.className = 'bex';
+        examples.forEach((sentence) => {
+          const li = document.createElement('li');
+          li.dir = 'ltr';
+          const play = document.createElement('button');
+          play.type = 'button';
+          play.textContent = '▶';
+          play.title = 'Hear the sentence — شنیدن جمله';
+          play.setAttribute('aria-label', 'Hear: ' + sentence);
+          play.onclick = () => Speech.speak(sentence);
+          const line = document.createElement('span');
+          line.textContent = sentence;
+          li.append(play, line);
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      }
+      list.appendChild(card);
+    });
+    box.appendChild(list);
+  },
+};
+
 /* ---------- open a panel by typing its name ----------
    "open grammar section", "بخش شنیدن را باز کن" → the topbar panel slides
    open, exactly as if the button had been tapped. Navigation is not practice,
@@ -7652,6 +7992,11 @@ const SECTIONS = {
     panel: 'lpanel', btn: 'ltoggle', en: 'Listening', fa: 'گوش دادن', icon: '🎧',
     kw: ['listening', 'audio', 'voice', 'sound', 'pronunciation practice',
          'گوش دادن', 'شنیدن', 'صدا', 'آواز', 'ضبط'],
+  },
+  books: {
+    panel: 'bpanel', btn: 'btoggle', en: 'Books', fa: 'کتاب‌ها', icon: '📚',
+    kw: ['books', 'book', 'library', '504', 'essential words', 'lesson', 'lessons',
+         'کتاب', 'کتاب‌ها', 'کتابخانه', 'درس', 'دروس', '۵۰۴'],
   },
   phonetics: {
     panel: 'phpanel', btn: 'phtoggle', en: 'Phonetics', fa: 'تلفظ', icon: '🗣',
@@ -8140,7 +8485,7 @@ input.addEventListener('keydown', (ev) => {
 document.addEventListener('keydown', (ev) => {
   if (ev.key === 'Escape') {
     // Esc closes whichever panel is open, then stops any audio
-    const open = document.querySelector('#vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open, #phpanel.open');
+    const open = document.querySelector('#vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open, #phpanel.open, #bpanel.open');
     if (open) { open.classList.remove('open'); return; }
     Speech.stop();
   }
@@ -8330,6 +8675,18 @@ class Handler(BaseHTTPRequestHandler):
             # build has no data/ directory to fetch from.
             self._send_json(json.loads((ROOT / "emojis.json").read_text(encoding="utf-8")),
                             3600)
+        elif self.path.startswith("/api/books"):
+            # The library: books, their lessons, and each lesson's words with a
+            # Persian meaning, a definition and examples. Served off disk
+            # rather than through the bot - it is content the page draws - and
+            # the offline APK reads the same file out of assets/www/data, so the
+            # two cannot drift apart about what a word means.
+            body = (ROOT / "books.json").read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
         elif self.path.startswith("/api/vocabulary"):
             # Vocabulary domains for the UI panel, grouped for a tidy layout
             groups = []
