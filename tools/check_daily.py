@@ -695,7 +695,9 @@ def wiring(src: str, cat: dict) -> None:
     build = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")
     check('"daily.json"' in build, "build_apk_ui.py does not bundle daily.json")
     check("loadJSON('daily')" in build, "the offline boot does not read daily.json")
-    check(re.search(r"\bword_arch,\s*daily\]", build) is not None,
+    # daily is the last file the panel needs, but not the last the boot reads:
+    # anything added after it (slang.json) is still a name in this list
+    check(re.search(r"\bword_arch,\s*daily(?:\s*,[^\]]*)?\]", build) is not None,
           "the offline destructure does not take daily")
 
     if BUILT.exists():

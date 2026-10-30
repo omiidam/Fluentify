@@ -3135,7 +3135,7 @@
   </form>
 </div>
 
-<script src="bot.js?v=e22a1686"></script>
+<script src="bot.js?v=cb5cb79b"></script>
 <script>
 /* Fluentify's mascot — the fox, cut from the one brand picture
    (brand/fox-source.png, via tools/build_brand.py). The header, the boot
@@ -7285,15 +7285,15 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
              loadJSON('foxes'), loadJSON('bbc_6min'), loadJSON('word_arch'),
-             loadJSON('daily')])
+             loadJSON('daily'), loadJSON('slang')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
           distinctions, idioms, corrections, stt, register, foxes, bbc_6min,
-          word_arch, daily]) => {
+          word_arch, daily, slang]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
                          phonetics, distinctions, idioms, corrections, register,
-                         daily});
+                         daily, slang});
 
     // The Listen panel's catalogue, links only: no transcript is ever served.
     _bbc = bbc_6min;

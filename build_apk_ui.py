@@ -27,7 +27,7 @@ BUNDLED_DATA = [
     "jokes.json", "listening.json", "phonetics.json", "word_arch.json",
     "distinctions.json", "idioms.json", "corrections.json",
     "stt.json", "bbc_6min.json", "register.json", "foxes.json",
-    "daily.json",
+    "daily.json", "slang.json",
 ]
 
 # Files a panel fetches the first time it is opened, not at boot. The library
@@ -256,15 +256,15 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
              loadJSON('phonetics'), loadJSON('distinctions'), loadJSON('idioms'),
              loadJSON('corrections'), loadJSON('stt'), loadJSON('register'),
              loadJSON('foxes'), loadJSON('bbc_6min'), loadJSON('word_arch'),
-             loadJSON('daily')])
+             loadJSON('daily'), loadJSON('slang')])
   .then(([memory, glossary, grammar, phrases, jokes, listening, phonetics,
           distinctions, idioms, corrections, stt, register, foxes, bbc_6min,
-          word_arch, daily]) => {
+          word_arch, daily, slang]) => {
     // every file the engine can read must be handed to it, or a section
     // silently comes back empty offline
     bot = new Fluentify({memory, glossary, grammar, phrases, jokes, listening,
                          phonetics, distinctions, idioms, corrections, register,
-                         daily});
+                         daily, slang});
 
     // The Listen panel's catalogue, links only: no transcript is ever served.
     _bbc = bbc_6min;

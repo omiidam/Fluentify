@@ -104,6 +104,24 @@ const dailyIndex = (day, size, salt) =>
  * "lesson" alone to the grammar menu, so only these phrases name the daily
  * rotation and none of them can take a request from the section that had it. */
 const DAILY_WORD_RE = /\b(?:today'?s? word|word of the day|(?:today'?s?|the) vocabulary word|daily word)\b/;
+/* Persian is typed two ways; the matching key settles on the Persian forms.
+ * Same table as FA_FOLD in chatbot.py, character for character. It is its own
+ * table, not foldFa above: that one drops the zero-width non-joiner, and an
+ * idiom typed with it has to match one typed with a space, so here it becomes
+ * one. */
+const SLANG_FA_FOLD = {
+  'ي': 'ی', 'ك': 'ک', 'ۀ': 'ه', 'أ': 'ا', 'إ': 'ا', 'ؤ': 'و',
+  '\u200c': ' ', '\u200f': ' ', '\u200e': ' ', '\u0640': '',
+};
+const SLANG_REG_FA = { informal: 'عامیانه', slang: 'خودمانی', formal: 'رسمی',
+                       neutral: 'خنثی', idiom: 'اصطلاح', archaic: 'کهن' };
+const SLANG_CAT_FA = { internet: 'اینترنت', social: 'روابط اجتماعی',
+                       communication: 'ارتباط', workplace: 'محیط کار',
+                       texting: 'چت و پیامک', gaming: 'بازی',
+                       regional: 'انگلیسی محلی', fandom: 'فندام',
+                       digital: 'دنیای دیجیتال', aesthetics: 'سبک',
+                       pets: 'حیوانات' };
+
 const DAILY_EXPRESSION_RE = /\b(?:today'?s? (?:expression|phrase|sentence)|(?:expression|phrase|sentence|idiom) of the day|daily (?:expression|phrase))\b/;
 const DAILY_CONVERSATION_RE = /\b(?:today'?s? (?:conversation|dialogue)|(?:conversation|dialogue) of the day|daily (?:conversation|dialogue))\b/;
 const DAILY_ANY_RE = /\b(?:daily english|daily lesson|daily practice|english of the day|today'?s? (?:lesson|english)|what(?:'s| is) today)\b/;
@@ -611,6 +629,13 @@ class Fluentify {
     this.idioms = {};
     if (data.idioms)
       for (const t of (data.idioms.topics || data.idioms)) this.idioms[t.id] = t;
+    /* The slang and idiom bank (slang.json) - content, not a panel: it is
+     * read at startup and answers through the conversation. */
+    this.slangRows = [];
+    this.slangIndex = new Map();
+    this.faIdioms = [];
+    this.faIdiomIndex = new Map();
+    if (data.slang) this.loadSlang(data.slang);
     this.corrections = (data.corrections && data.corrections.rules) ||
       data.corrections || [];
     this.phonetics = (data.phonetics && data.phonetics.sections) ||
@@ -2058,6 +2083,153 @@ class Fluentify {
       "Ask: 'difference between affect and effect' or 'تفاوت since و for'";
   }
 
+  /* ---------------------------------------------- slang & idiom bank */
+
+  /* Persian is typed two ways - Arabic yeh and kaf, or the Persian ones -
+   * and often with a zero-width non-joiner where a space belongs. Same
+   * folding as the Python engine and as Dadma Tools' normaliser. */
+  _faKey(text) {
+    const s = String(text || '').replace(/[«»"'?؟!.,،:؛]+/g, ' ');
+    const folded = s.replace(/[يكۀأإؤ\u200c\u200f\u200e\u0640]/g,
+      (ch) => SLANG_FA_FOLD[ch]);
+    return folded.split(/\s+/).filter(Boolean).join(' ');
+  }
+
+  _slangKey(text) {
+    const s = String(text || '').toLowerCase().replace(/[’`]/g, "'")
+      .replace(/[^a-z0-9' \-]+/g, ' ').split(/\s+/).filter(Boolean).join(' ');
+    return s.replace(/^(?:the|a|an) /, '');
+  }
+
+  loadSlang(data) {
+    for (const row of (data.slang || [])) {
+      const entry = { kind: 'slang', term: row.t || '', gloss: row.en || '',
+                      fa: row.fa || '', reg: row.reg || '', cat: row.cat || '',
+                      ex: '', exfa: '', al: row.al || [] };
+      this.slangRows.push(entry);
+      for (const key of [entry.term].concat(entry.al)) {
+        const k = this._slangKey(key);
+        if (k && !this.slangIndex.has(k)) this.slangIndex.set(k, entry);
+      }
+    }
+    for (const row of (data.idioms || [])) {
+      const entry = { kind: 'idiom', term: row.en || '', gloss: row.meaning || '',
+                      fa: row.fa || '', reg: row.reg || '', cat: '',
+                      ex: row.ex || '', exfa: row.exfa || '', al: [] };
+      if (!entry.term) continue;
+      this.slangRows.push(entry);
+      const k = this._slangKey(entry.term);
+      if (k && !this.slangIndex.has(k)) this.slangIndex.set(k, entry);
+    }
+    for (const row of (data.fa_idioms || [])) {
+      const key = this._faKey(row.fa || '');
+      if (!key || this.faIdiomIndex.has(key)) continue;
+      this.faIdioms.push(row);
+      this.faIdiomIndex.set(key, row);
+    }
+  }
+
+  _bankTag(row) {
+    const reg = SLANG_REG_FA[row.reg] || '';
+    const cat = SLANG_CAT_FA[row.cat] || '';
+    return [reg, cat].filter(Boolean).join(' · ');
+  }
+
+  formatBank(row) {
+    let head = `🗯  “${row.term}”`;
+    if (row.fa) head += ` — ${row.fa}`;
+    const lines = [head];
+    if (row.gloss) lines.push(`   ↲ ${row.gloss}`);
+    if (row.ex) lines.push(`   e.g. ${row.ex}`);
+    if (row.exfa) lines.push(`   در جمله: ${row.exfa}`);
+    const tag = this._bankTag(row);
+    if (tag) lines.push(`   🏷 ${tag}`);
+    return lines.join('\n');
+  }
+
+  formatFaIdiom(row) {
+    const lines = [`🗯  «${row.fa}»`];
+    if (row.exfa) lines.push(`   ↲ در جمله: ${row.exfa}`);
+    if (row.exen) lines.push(`   ↗ به انگلیسی: ${row.exen}`);
+    return lines.join('\n');
+  }
+
+  matchBank(word) {
+    const key = this._slangKey(word);
+    if (!key) return null;
+    const hit = this.slangIndex.get(key);
+    if (hit) return hit;
+    const parts = key.split(' ');
+    if (parts.length >= 2) {
+      const want = new Set(parts);
+      for (const [k, cand] of this.slangIndex) {
+        const got = new Set(k.split(' '));
+        if (got.size === want.size && [...got].every((w) => want.has(w)))
+          return cand;
+      }
+    }
+    return null;
+  }
+
+  matchFaIdiom(text) {
+    const key = this._faKey(text);
+    if (!key) return null;
+    const hit = this.faIdiomIndex.get(key);
+    if (hit) return hit;
+    for (const [k, cand] of this.faIdiomIndex) {
+      if (k.split(' ').length >= 2 && (key.includes(k) || k.includes(key)))
+        return cand;
+    }
+    return null;
+  }
+
+  _bankTarget(text, lowered) {
+    let m = /(?:what (?:does|do|is|are) |what's |meaning of |mean by )["'‘“]?([a-z][a-z' \-]{1,40}?)["'’”]?\s*(?:mean|means|stand for)?\s*[?!.]*$/
+      .exec(lowered.trim());
+    if (m) return m[1];
+    m = /(?:معنی|یعنی|مفهوم)\s*["'«]?([a-z][a-z' \-]{1,40}?)["'»]?\s*(?:چیست|چیه|چی|یعنی)?\s*[؟?!.]*$/
+      .exec(text.trim());
+    if (m) return m[1];
+    m = /(?:^|\s)([a-z][a-z' \-]{1,40}?)\s*(?:یعنی|به معنی|چه معنی|چه معنی‌ای)\s*(?:چی|چیه|چیست|دارد)?\s*[؟?!.]*$/
+      .exec(lowered.trim());
+    if (m) return m[1];
+    m = /["'“‘]([a-z][a-z' \-]{1,40})["'”’]/.exec(lowered);
+    if (m) return m[1];
+    return null;
+  }
+
+  handleSlang(text, lowered, lang) {
+    const faRow = this.matchFaIdiom(text);
+    if (faRow) return this.formatFaIdiom(faRow);
+
+    const bare = this._slangKey(lowered);
+    if (bare.split(' ').length >= 2) {
+      const hit = this.matchBank(bare);
+      if (hit) return this.formatBank(hit);
+    }
+
+    const target = this._bankTarget(text, lowered);
+    if (target) {
+      const row = this.matchBank(target);
+      if (row) return this.formatBank(row);
+      return null;
+    }
+
+    let wants = /\b(slang|street words?|internet words?)\b/.test(lowered);
+    if (!wants) wants = ['اسلنگ', 'عامیانه', 'خودمانی'].some((w) => text.includes(w));
+    if (!wants) return null;
+    const rows = this.slangRows.filter((r) => r.kind === 'slang');
+    const lines = ['💬 Slang — اصطلاح‌های عامیانه:'];
+    for (const row of rows.slice(0, 40)) {
+      const fa = row.fa ? `  —  ${row.fa}` : '';
+      lines.push(`   • ${row.term}${fa}`);
+    }
+    if (rows.length > 40) lines.push(`   … و ${rows.length - 40} مورد دیگر`);
+    lines.push('');
+    lines.push("Ask: 'what does no cap mean' or 'معنی bruh'");
+    return lines.join('\n');
+  }
+
   /* ------------------------------------------------------------- idioms */
 
   matchIdiom(word) {
@@ -2751,6 +2923,7 @@ class Fluentify {
     if (result === null) result = this.handlePronounce(text, lowered, lang);
     if (result === null) result = this.handleDistinction(text, lowered, lang);
     if (result === null) result = this.handleLifeMeaning(text, lang);
+    if (result === null) result = this.handleSlang(text, lowered, lang);
     if (result === null) result = this.handleIdioms(text, lowered, lang);
     if (result === null) result = this.handleCorrection(text, lowered, lang);
     if (result === null) result = this.handleStat(text, lowered, lang);

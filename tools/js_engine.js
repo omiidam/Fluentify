@@ -19,6 +19,7 @@ const data = {
   phonetics: JSON.parse(fs.readFileSync(path.join(root, 'phonetics.json'), 'utf8')),
   register: JSON.parse(fs.readFileSync(path.join(root, 'register.json'), 'utf8')),
   daily: JSON.parse(fs.readFileSync(path.join(root, 'daily.json'), 'utf8')),
+  slang: JSON.parse(fs.readFileSync(path.join(root, 'slang.json'), 'utf8')),
   // The daily rotation is a function of the local date, so pinning it keeps
   // the Python/JS comparison from depending on when the suite is run.
   today: process.env.FLUENTIFY_TODAY || null,

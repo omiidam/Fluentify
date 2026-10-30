@@ -50,6 +50,10 @@ Four suites, each answering a different question:
                 is it still invisible? No route, no panel, no tab: it is
                 knowledge behind the existing conversation, and this refuses
                 both a malformed shard and a new dictionary surface.
+  check_slang     is the slang and idiom bank sound, bilingual and reachable?
+                Four sources are assembled into one file; every way that can go
+                wrong ships silently, so the counts, the Persian coverage, the
+                filtering and the two engines that read it are all checked.
   check_books     is the library sound, and is the Books panel wired to it?
                 Every word needs a Persian meaning, an English definition and
                 examples that actually use the word; the tile, the panel, the
@@ -93,6 +97,7 @@ SUITES = [
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
+    ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 

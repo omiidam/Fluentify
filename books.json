@@ -285,6 +285,423 @@
               ]
             }
           ]
+        },
+        {
+          "n": 3,
+          "title": "Lesson 3",
+          "title_fa": "درس ۳",
+          "words": [
+            {
+              "word": "annual",
+              "pos": "adjective",
+              "ipa": "/ˈænjuəl/",
+              "fa": "سالانه",
+              "def_en": "happening once every year, or calculated over one year",
+              "examples": [
+                "The company holds an annual meeting in June.",
+                "Her annual income rose a little last year."
+              ]
+            },
+            {
+              "word": "blend",
+              "pos": "verb",
+              "ipa": "/blend/",
+              "fa": "مخلوط کردن، ترکیب کردن",
+              "def_en": "to mix two or more things so that they become one",
+              "examples": [
+                "Blend the flour and butter together.",
+                "The tea is blended from three kinds of leaf."
+              ]
+            },
+            {
+              "word": "minimum",
+              "pos": "noun",
+              "ipa": "/ˈmɪnɪməm/",
+              "fa": "حداقل، کمترین مقدار",
+              "def_en": "the smallest amount that is possible or allowed",
+              "examples": [
+                "We keep the cost to a minimum.",
+                "The minimum for the course is two hours a week."
+              ]
+            },
+            {
+              "word": "talent",
+              "pos": "noun",
+              "ipa": "/ˈtælənt/",
+              "fa": "استعداد، نعمت",
+              "def_en": "a natural ability to do something well",
+              "examples": [
+                "She has a talent for explaining difficult ideas.",
+                "The choir is full of young talent."
+              ]
+            },
+            {
+              "word": "persuade",
+              "pos": "verb",
+              "ipa": "/pəˈsweɪd/",
+              "fa": "متقاعد کردن، راضی کردن",
+              "def_en": "to make someone agree to do something by giving them reasons",
+              "examples": [
+                "He persuaded his brother to lend him the car.",
+                "I was persuaded by her argument."
+              ]
+            },
+            {
+              "word": "visible",
+              "pos": "adjective",
+              "ipa": "/ˈvɪzəbl/",
+              "fa": "قابل دیدن، پیدا",
+              "def_en": "able to be seen, or easy to notice",
+              "examples": [
+                "The mountain is visible from our window.",
+                "There was a visible change in his face."
+              ]
+            },
+            {
+              "word": "typical",
+              "pos": "adjective",
+              "ipa": "/ˈtɪpɪkl/",
+              "fa": "معمول، نمونه‌ای",
+              "def_en": "showing the usual qualities of a person, place or thing",
+              "examples": [
+                "It was a typical winter morning, cold and grey.",
+                "That answer is typical of him."
+              ]
+            },
+            {
+              "word": "devise",
+              "pos": "verb",
+              "ipa": "/dɪˈvaɪz/",
+              "fa": "طرح کردن، ابداع کردن",
+              "def_en": "to think of a plan, method or tool that did not exist before",
+              "examples": [
+                "They devised a cheap way to filter the water.",
+                "She devised a plan to finish the work in a week."
+              ]
+            },
+            {
+              "word": "essential",
+              "pos": "adjective",
+              "ipa": "/ɪˈsenʃl/",
+              "fa": "ضروری، اساسی",
+              "def_en": "completely necessary, so that something cannot work without it",
+              "examples": [
+                "Water is essential for life.",
+                "It is essential to check the figures twice."
+              ]
+            },
+            {
+              "word": "wholesale",
+              "pos": "adjective",
+              "ipa": "/ˈhəʊlseɪl/",
+              "fa": "عمده‌فروشی",
+              "def_en": "sold in large amounts to shops, which then sell it to others",
+              "examples": [
+                "He buys the fruit at wholesale prices.",
+                "The wholesale market opens before dawn."
+              ]
+            },
+            {
+              "word": "scarce",
+              "pos": "adjective",
+              "ipa": "/skeəs/",
+              "fa": "کمیاب، نایاب",
+              "def_en": "not available in enough quantity for everyone who needs it",
+              "examples": [
+                "Clean water is scarce in the region.",
+                "Tickets were scarce, so we bought them early."
+              ]
+            },
+            {
+              "word": "expensive",
+              "pos": "adjective",
+              "ipa": "/ɪkˈspensɪv/",
+              "fa": "گران، پرهزینه",
+              "def_en": "costing a lot of money",
+              "examples": [
+                "That restaurant is too expensive for a weeknight.",
+                "Repairing the roof was expensive."
+              ]
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "title": "Lesson 4",
+          "title_fa": "درس ۴",
+          "words": [
+            {
+              "word": "humid",
+              "pos": "adjective",
+              "ipa": "/ˈhjuːmɪd/",
+              "fa": "مرطوب و شرجی",
+              "def_en": "having a lot of water in the air, so that the heat feels heavy",
+              "examples": [
+                "The kitchen was hot and humid.",
+                "Summer here is humid from morning to night."
+              ]
+            },
+            {
+              "word": "vanish",
+              "pos": "verb",
+              "ipa": "/ˈvænɪʃ/",
+              "fa": "ناپدید شدن، غیب شدن",
+              "def_en": "to disappear suddenly, often without a sign",
+              "examples": [
+                "The keys vanished from the table.",
+                "He vanished into the crowd."
+              ]
+            },
+            {
+              "word": "dense",
+              "pos": "adjective",
+              "ipa": "/dens/",
+              "fa": "متراکم، غلیظ",
+              "def_en": "packed closely together, so that air or light hardly gets through",
+              "examples": [
+                "A dense fog covered the road.",
+                "The forest here is very dense."
+              ]
+            },
+            {
+              "word": "predict",
+              "pos": "verb",
+              "ipa": "/prɪˈdɪkt/",
+              "fa": "پیش‌بینی کردن",
+              "def_en": "to say what you think will happen before it happens",
+              "examples": [
+                "Nobody can predict the weather a month ahead.",
+                "They predicted a heavy harvest this year."
+              ]
+            },
+            {
+              "word": "villain",
+              "pos": "noun",
+              "ipa": "/ˈvɪlən/",
+              "fa": "تبهکار، آدم شرور",
+              "def_en": "the bad character in a story, or a person who does evil",
+              "examples": [
+                "The villain of the novel is never named.",
+                "He played the villain and enjoyed every minute."
+              ]
+            },
+            {
+              "word": "vapor",
+              "pos": "noun",
+              "ipa": "/ˈveɪpə/",
+              "fa": "بخار",
+              "def_en": "the gas that a liquid becomes when it is heated",
+              "examples": [
+                "Vapor rose from the boiling pot.",
+                "In cold air the vapor of your breath shows white."
+              ]
+            },
+            {
+              "word": "enormous",
+              "pos": "adjective",
+              "ipa": "/ɪˈnɔːməs/",
+              "fa": "بسیار بزرگ، عظیم",
+              "def_en": "extremely large in size or amount",
+              "examples": [
+                "An enormous tree stood in the garden.",
+                "The project cost an enormous amount of money."
+              ]
+            },
+            {
+              "word": "theory",
+              "pos": "noun",
+              "ipa": "/ˈθɪəri/",
+              "fa": "نظریه، فرضیه",
+              "def_en": "an idea or set of ideas offered to explain something",
+              "examples": [
+                "Darwin's theory changed biology.",
+                "In theory the plan works, but nobody has tried it."
+              ]
+            },
+            {
+              "word": "utilize",
+              "pos": "verb",
+              "ipa": "/ˈjuːtəlaɪz/",
+              "fa": "به کار بردن، استفاده کردن",
+              "def_en": "to use something in a practical way, especially a resource",
+              "examples": [
+                "The farm utilizes every drop of rain water.",
+                "We utilized the space under the stairs."
+              ]
+            },
+            {
+              "word": "descend",
+              "pos": "verb",
+              "ipa": "/dɪˈsend/",
+              "fa": "پایین رفتن، فرود آمدن",
+              "def_en": "to go down from a higher place to a lower one",
+              "examples": [
+                "The plane began to descend toward the runway.",
+                "We descended the stairs in the dark."
+              ]
+            },
+            {
+              "word": "eliminate",
+              "pos": "verb",
+              "ipa": "/ɪˈlɪmɪneɪt/",
+              "fa": "حذف کردن، از میان برداشتن",
+              "def_en": "to remove something completely, or to take a team out of a contest",
+              "examples": [
+                "The new rules eliminate most paperwork.",
+                "They were eliminated in the first round."
+              ]
+            },
+            {
+              "word": "circulate",
+              "pos": "verb",
+              "ipa": "/ˈsɜːkjəleɪt/",
+              "fa": "دور زدن، در گردش بودن",
+              "def_en": "to move around a system or a group, as air or news does",
+              "examples": [
+                "Warm air circulates through the room.",
+                "The story circulated for a week before anyone denied it."
+              ]
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "title": "Lesson 5",
+          "title_fa": "درس ۵",
+          "words": [
+            {
+              "word": "rural",
+              "pos": "adjective",
+              "ipa": "/ˈrʊərəl/",
+              "fa": "روستایی، خارج از شهر",
+              "def_en": "belonging to the countryside rather than a town",
+              "examples": [
+                "The clinic serves five rural villages.",
+                "He grew up in a rural area with no bus service."
+              ]
+            },
+            {
+              "word": "campus",
+              "pos": "noun",
+              "ipa": "/ˈkæmpəs/",
+              "fa": "محوطه دانشگاه",
+              "def_en": "the land and buildings of a university or a large school",
+              "examples": [
+                "The library stands in the middle of the campus.",
+                "Students live on campus in the first year."
+              ]
+            },
+            {
+              "word": "evade",
+              "pos": "verb",
+              "ipa": "/ɪˈveɪd/",
+              "fa": "گریز زدن، طفره رفتن",
+              "def_en": "to escape something by doing it in a clever, indirect way",
+              "examples": [
+                "He evaded the question with a joke.",
+                "The boat evaded the police and left the harbour."
+              ]
+            },
+            {
+              "word": "majority",
+              "pos": "noun",
+              "ipa": "/məˈdʒɒrəti/",
+              "fa": "اکثریت",
+              "def_en": "the larger part of a group, more than half the people",
+              "examples": [
+                "The majority of the class chose the earlier time.",
+                "She won by a large majority."
+              ]
+            },
+            {
+              "word": "assemble",
+              "pos": "verb",
+              "ipa": "/əˈsembl/",
+              "fa": "گرد هم آوردن، سرهم کردن",
+              "def_en": "to bring people together, or to put the parts of something together",
+              "examples": [
+                "The whole staff assembled in the hall.",
+                "It took an hour to assemble the new shelves."
+              ]
+            },
+            {
+              "word": "tradition",
+              "pos": "noun",
+              "ipa": "/trəˈdɪʃn/",
+              "fa": "سنت، آیین",
+              "def_en": "a habit or custom passed down through the years in a family or people",
+              "examples": [
+                "It is a tradition to eat fish on that night.",
+                "The school keeps the tradition alive."
+              ]
+            },
+            {
+              "word": "burden",
+              "pos": "noun",
+              "ipa": "/ˈbɜːdn/",
+              "fa": "بار سنگین، دشواری",
+              "def_en": "a heavy load of work, worry or cost that a person must carry",
+              "examples": [
+                "The cost became a burden on the family.",
+                "He carried the burden of the debt alone."
+              ]
+            },
+            {
+              "word": "explore",
+              "pos": "verb",
+              "ipa": "/ɪkˈsplɔː/",
+              "fa": "کاوش کردن، بررسی کردن",
+              "def_en": "to travel through a place to find out about it, or to examine an idea",
+              "examples": [
+                "They explored the caves north of the town.",
+                "We should explore every option before deciding."
+              ]
+            },
+            {
+              "word": "reform",
+              "pos": "noun",
+              "ipa": "/rɪˈfɔːm/",
+              "fa": "اصلاحات، تغییر",
+              "def_en": "a change made to improve a law, a system or an institution",
+              "examples": [
+                "The tax reform helped small businesses.",
+                "He spent his life calling for education reforms."
+              ]
+            },
+            {
+              "word": "topic",
+              "pos": "noun",
+              "ipa": "/ˈtɒpɪk/",
+              "fa": "موضوع، مبحث",
+              "def_en": "the subject that a talk, a lesson or a piece of writing is about",
+              "examples": [
+                "The topic of the lesson was food.",
+                "We changed the topic before it turned into an argument."
+              ]
+            },
+            {
+              "word": "probe",
+              "pos": "verb",
+              "ipa": "/prəʊb/",
+              "fa": "بررسی دقیق، کاویدن",
+              "def_en": "to ask careful questions or look closely into something hidden",
+              "examples": [
+                "The reporter probed the reasons for the delay.",
+                "Doctors probed the wound to see how deep it was."
+              ]
+            },
+            {
+              "word": "debate",
+              "pos": "noun",
+              "ipa": "/dɪˈbeɪt/",
+              "fa": "بحث و مناظره",
+              "def_en": "a formal discussion in which people give opposing reasons",
+              "examples": [
+                "The debate about the road lasted three hours.",
+                "She spoke well in the class debate."
+              ]
+            }
+          ]
         }
       ]
     }

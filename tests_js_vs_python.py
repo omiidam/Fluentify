@@ -64,6 +64,13 @@ CASES = [
     "what does hit the books mean", "what is a piece of cake",
     "meaning of under the weather", "what does the last straw mean",
     "معنی break the ice", "idioms", "اصطلاح",
+    # the slang and idiom bank: a phrase on its own, a phrase asked about in
+    # either language, a single word that is only slang when it is asked about,
+    # a Persian idiom, the listing, and a word that must stay a dictionary
+    # lookup because it never reached the bank
+    "no cap", "what does no cap mean", "معنی bruh", "ghosting یعنی چی",
+    "slang", "عامیانه", "دست خود را جایی بند کردن",
+    "what does bet mean", "bet",
     # the grammar checker
     "is this correct? I have went there", "correct this sentence: he don't like it",
     "I didn't went to school", "they doesn't like it", "I have many informations",

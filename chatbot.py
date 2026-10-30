@@ -25,6 +25,30 @@ JOKES_FILE = Path(__file__).parent / "jokes.json"
 LISTENING_FILE = Path(__file__).parent / "listening.json"
 DISTINCTIONS_FILE = Path(__file__).parent / "distinctions.json"
 IDIOMS_FILE = Path(__file__).parent / "idioms.json"
+# The slang and idiom bank (tools/build_slang.py): modern slang from SlangLane,
+# Wiktionary idioms from IdiomX, Persian idioms from the Idiom_Translation
+# parallel corpus, and the Persian glosses none of them carry.
+SLANG_FILE = Path(__file__).parent / "slang.json"
+
+# Persian is typed two ways: with the Arabic yeh and kaf, and with the Persian
+# ones (and often with a zero-width non-joiner where a space belongs). Dadma
+# Tools' normaliser settles on the Persian forms; so does this, and for the
+# same reason - "دست خود را جايي بند كردن" has to match the idiom as stored.
+FA_FOLD = str.maketrans({"ي": "ی", "ك": "ک", "ۀ": "ه", "أ": "ا",
+                         "إ": "ا", "ؤ": "و", "\u200c": " ", "\u200f": " ",
+                         "\u200e": " ", "\u0640": ""})
+
+# Register and category labels, translated once here: a reply that says
+# "informal" to a Persian learner has explained the slang in the wrong
+# language.
+SLANG_REG_FA = {"informal": "عامیانه", "slang": "خودمانی", "formal": "رسمی",
+                "neutral": "خنثی", "idiom": "اصطلاح", "archaic": "کهن"}
+SLANG_CAT_FA = {"internet": "اینترنت", "social": "روابط اجتماعی",
+                "communication": "ارتباط", "workplace": "محیط کار",
+                "texting": "چت و پیامک", "gaming": "بازی",
+                "regional": "انگلیسی محلی", "fandom": "فندام",
+                "digital": "دنیای دیجیتال", "aesthetics": "سبک",
+                "pets": "حیوانات"}
 REGISTER_FILE = Path(__file__).parent / "register.json"
 CORRECTIONS_FILE = Path(__file__).parent / "corrections.json"
 PHONETICS_FILE = Path(__file__).parent / "phonetics.json"
@@ -790,6 +814,7 @@ class ChatBot:
         listening_path: Path = LISTENING_FILE,
         distinctions_path: Path = DISTINCTIONS_FILE,
         idioms_path: Path = IDIOMS_FILE,
+        slang_path: Path = SLANG_FILE,
         corrections_path: Path = CORRECTIONS_FILE,
         phonetics_path: Path = PHONETICS_FILE,
         register_path: Path = REGISTER_FILE,
@@ -840,6 +865,15 @@ class ChatBot:
         if idioms_path.exists():
             with open(idioms_path, encoding="utf-8") as f:
                 self.idioms = {t["id"]: t for t in json.load(f)["topics"]}
+        # The bank is content, not a panel: it is read at startup and answers
+        # through the same conversation as everything else, so a learner who
+        # types "no cap" gets the entry that explains it rather than a miss.
+        self.slang_rows: list[dict] = []
+        self.slang_index: dict[str, dict] = {}
+        self.fa_idioms: list[dict] = []
+        self.fa_idiom_index: dict[str, dict] = {}
+        if slang_path.exists():
+            self._load_slang(slang_path)
         self.corrections = []      # rule-based checker for common learner errors
         if corrections_path.exists():
             with open(corrections_path, encoding="utf-8") as f:
@@ -1662,6 +1696,180 @@ class ChatBot:
             lines.append(f"   • {row['en']}  —  {row['fa']}")
         lines.append("")
         lines.append("Ask: 'meaning of once in a blue moon' or 'معنی hit the books'")
+        return "\n".join(lines)
+
+    # ------------------------------------------------------------------ #
+    #  The slang and idiom bank — modern usage in both directions
+    # ------------------------------------------------------------------ #
+    @staticmethod
+    def _slang_key(text: str) -> str:
+        """The shape a term is looked up under: lower case, no articles."""
+        s = text.lower().replace("’", "'").replace("`", "'")
+        s = re.sub(r"[^a-z0-9' \-]+", " ", s)
+        s = " ".join(s.split())
+        return re.sub(r"^(?:the|a|an) ", "", s)
+
+    @staticmethod
+    def _fa_key(text: str) -> str:
+        s = re.sub(r"[«»\"'?؟!.,،:؛]+", " ", text)
+        return " ".join(s.translate(FA_FOLD).split())
+
+    def _load_slang(self, path: Path) -> None:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        for row in data.get("slang") or []:
+            entry = {"kind": "slang", "term": row.get("t", ""),
+                     "gloss": row.get("en", ""), "fa": row.get("fa", ""),
+                     "reg": row.get("reg", ""), "cat": row.get("cat", ""),
+                     "ex": "", "exfa": "", "al": row.get("al") or []}
+            self.slang_rows.append(entry)
+            for key in [entry["term"], *entry["al"]]:
+                k = self._slang_key(key)
+                if k:
+                    self.slang_index.setdefault(k, entry)
+        for row in data.get("idioms") or []:
+            entry = {"kind": "idiom", "term": row.get("en", ""),
+                     "gloss": row.get("meaning", ""), "fa": row.get("fa", ""),
+                     "reg": row.get("reg", ""), "cat": "",
+                     "ex": row.get("ex", ""), "exfa": row.get("exfa", ""),
+                     "al": []}
+            if not entry["term"]:
+                continue
+            self.slang_rows.append(entry)
+            k = self._slang_key(entry["term"])
+            if k:
+                self.slang_index.setdefault(k, entry)
+        for row in data.get("fa_idioms") or []:
+            key = self._fa_key(row.get("fa", ""))
+            if not key:
+                continue
+            self.fa_idioms.append(row)
+            self.fa_idiom_index.setdefault(key, row)
+
+    @staticmethod
+    def _bank_tag(row: dict) -> str:
+        reg = SLANG_REG_FA.get(row.get("reg", ""), "")
+        cat = SLANG_CAT_FA.get(row.get("cat", ""), "")
+        return " · ".join(x for x in (reg, cat) if x)
+
+    def format_bank(self, row: dict) -> str:
+        head = f"🗯  “{row['term']}”"
+        if row.get("fa"):
+            head += f" — {row['fa']}"
+        lines = [head]
+        if row.get("gloss"):
+            lines.append(f"   ↲ {row['gloss']}")
+        if row.get("ex"):
+            lines.append(f"   e.g. {row['ex']}")
+        if row.get("exfa"):
+            lines.append(f"   در جمله: {row['exfa']}")
+        tag = self._bank_tag(row)
+        if tag:
+            lines.append(f"   🏷 {tag}")
+        return "\n".join(lines)
+
+    def format_fa_idiom(self, row: dict) -> str:
+        lines = [f"🗯  «{row['fa']}»"]
+        if row.get("exfa"):
+            lines.append(f"   ↲ در جمله: {row['exfa']}")
+        if row.get("exen"):
+            lines.append(f"   ↗ به انگلیسی: {row['exen']}")
+        return "\n".join(lines)
+
+    def match_bank(self, word: str) -> dict | None:
+        key = self._slang_key(word)
+        if not key:
+            return None
+        row = self.slang_index.get(key)
+        if row:
+            return row
+        # "spill beans" should find "spill the beans", as match_idiom does
+        parts = set(key.split())
+        if len(parts) >= 2:
+            for k, cand in self.slang_index.items():
+                if set(k.split()) == parts:
+                    return cand
+        return None
+
+    def match_fa_idiom(self, text: str) -> dict | None:
+        key = self._fa_key(text)
+        if not key:
+            return None
+        row = self.fa_idiom_index.get(key)
+        if row:
+            return row
+        # idioms are stored the way the corpus wrote them; a learner adds a
+        # subject or a verb ending around them, so a whole-phrase match either
+        # way is the useful reading
+        for k, cand in self.fa_idiom_index.items():
+            if len(k.split()) >= 2 and (k in key or key in k):
+                return cand
+        return None
+
+    @staticmethod
+    def _bank_target(text: str, lowered: str) -> str | None:
+        m = re.search(
+            r"(?:what (?:does|do|is|are) |what's |meaning of |mean by )"
+            r"[\"'‘“]?([a-z][a-z' \-]{1,40}?)[\"'’”]?\s*"
+            r"(?:mean|means|stand for)?\s*[?!.]*$", lowered.strip())
+        if m:
+            return m.group(1)
+        m = re.search(
+            r"(?:معنی|یعنی|مفهوم)\s*[\"'«]?([a-z][a-z' \-]{1,40}?)"
+            r"[\"'»]?\s*(?:چیست|چیه|چی|یعنی)?\s*[؟?!.]*$", text.strip())
+        if m:
+            return m.group(1)
+        # the other way round: "ghosting یعنی چی" asks about a word it has
+        # already said, which is how most Persian speakers phrase it
+        m = re.search(
+            r"(?:^|\s)([a-z][a-z' \-]{1,40}?)\s*"
+            r"(?:یعنی|به معنی|چه معنی|چه معنی‌ای)\s*(?:چی|چیه|چیست|دارد)?\s*[؟?!.]*$",
+            lowered.strip())
+        if m:
+            return m.group(1)
+        m = re.search(r"[\"'“‘]([a-z][a-z' \-]{1,40})[\"'”’]", lowered)
+        if m:
+            return m.group(1)
+        return None
+
+    def handle_slang(self, text: str, lowered: str, lang: str) -> str | None:
+        # A Persian idiom asked about in Persian is its own lookup: the answer
+        # is the English the learner would actually say.
+        fa_row = self.match_fa_idiom(text)
+        if fa_row:
+            return self.format_fa_idiom(fa_row)
+
+        bare = self._slang_key(lowered)
+        # A phrase on its own is a question about it. A single word is only a
+        # question when it is asked about - "fire", "bet" and "good" are
+        # ordinary words too, and a tutor that answered them with a slang
+        # entry would be pushing slang into every second message.
+        if len(bare.split()) >= 2:
+            row = self.match_bank(bare)
+            if row:
+                return self.format_bank(row)
+
+        target = self._bank_target(text, lowered)
+        if target:
+            row = self.match_bank(target)
+            if row:
+                return self.format_bank(row)
+            return None
+
+        wants = bool(re.search(
+            r"\b(slang|street words?|internet words?)\b", lowered))
+        wants = wants or any(w in text for w in ("اسلنگ", "عامیانه", "خودمانی"))
+        if not wants:
+            return None
+        rows = [r for r in self.slang_rows if r["kind"] == "slang"]
+        lines = ["💬 Slang — اصطلاح‌های عامیانه:"]
+        for row in rows[:40]:
+            fa = f"  —  {row['fa']}" if row["fa"] else ""
+            lines.append(f"   • {row['term']}{fa}")
+        if len(rows) > 40:
+            lines.append(f"   … و {len(rows) - 40} مورد دیگر")
+        lines.append("")
+        lines.append("Ask: 'what does no cap mean' or 'معنی bruh'")
         return "\n".join(lines)
 
     # ------------------------------------------------------------------ #
@@ -3313,6 +3521,12 @@ class ChatBot:
             result = self.handle_distinction(text, lowered, lang)
         if result is None:
             result = self.handle_life_meaning(text, lang)
+        # the bank comes first: it is where a phrase is looked up, and the
+        # curated idiom table is a listing surface that answers "اصطلاحات"
+        # with everything it has - which is the wrong reply to "معنی اصطلاح
+        # دل به دریا زدن یعنی چی", a question about one idiom
+        if result is None:
+            result = self.handle_slang(text, lowered, lang)
         if result is None:
             result = self.handle_idioms(text, lowered, lang)
         if result is None:

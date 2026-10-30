@@ -52,6 +52,18 @@ PINNED_LESSONS = {
         "dismal", "wager", "peril", "recline", "shriek", "sinister",
         "conceal", "inhabit", "frigid", "numb", "corpse", "tempt",
     ],
+    3: [
+        "annual", "blend", "minimum", "talent", "persuade", "visible",
+        "typical", "devise", "essential", "wholesale", "scarce", "expensive",
+    ],
+    4: [
+        "humid", "vanish", "dense", "predict", "villain", "vapor",
+        "enormous", "theory", "utilize", "descend", "eliminate", "circulate",
+    ],
+    5: [
+        "rural", "campus", "evade", "majority", "assemble", "tradition",
+        "burden", "explore", "reform", "topic", "probe", "debate",
+    ],
 }
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}
