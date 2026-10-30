@@ -1067,10 +1067,19 @@ class ChatBot:
         for shown, i in enumerate(range(shown_count), start=1):
             sense = (senses[i] + [""] * 5)[:5]
             _pos, definition, meaning, example = sense[:4]
-            lead = f"{meaning} — {definition}" if meaning and definition else (meaning or definition)
+            # Two scripts, two lines. "بانک — a financial institution" was one
+            # line, and a line whose first strong character is Persian is laid
+            # out right to left - which reversed the English definition after
+            # the dash. One language per line keeps each direction honest, and
+            # it is how the learner reads it anyway: the meaning, then the
+            # English definition under it.
             mark = " ★" if best is not None and i == best else ""
             num = to_persian_digits(shown) if lang == "fa" else str(shown)
-            lines.append(f"   {num}. {lead}{mark}")
+            if meaning and definition:
+                lines.append(f"   {num}. {meaning}{mark}")
+                lines.append(f"      {definition}")
+            else:
+                lines.append(f"   {num}. {(meaning or definition)}{mark}")
             if example:
                 lines.append(f"      ▸ {example}")
         if context and best is not None:

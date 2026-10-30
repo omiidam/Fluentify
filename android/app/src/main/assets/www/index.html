@@ -3046,7 +3046,7 @@
   </form>
 </div>
 
-<script src="bot.js?v=8f154acc"></script>
+<script src="bot.js?v=e22a1686"></script>
 <script>
 /* Fluentify's mascot — the fox, cut from the one brand picture
    (brand/fox-source.png, via tools/build_brand.py). The header, the boot
@@ -3181,8 +3181,13 @@ function stickerize(html) {
    letters instead would flip a Persian sentence to left-to-right as soon as the
    English term it quotes was longer than the Persian around it. */
 function lineDir(raw) {
-  const first = raw.match(/[\u0600-\u06FF]|[A-Za-z]/);
-  return first && /[\u0600-\u06FF]/.test(first[0]) ? 'rtl' : 'ltr';
+  /* A digit is not a script. "۳. a number of sheets" used to open on a Persian
+     numeral, which is inside the Arabic block, so the whole line was laid out
+     right to left and reversed the English after it. Only a letter decides,
+     and the Arabic-Indic digits (\u0660-\u0669, \u06F0-\u06F9) are excluded. */
+  const first = raw.match(/[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]|[A-Za-z]/);
+  return first && /[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]/.test(first[0])
+    ? 'rtl' : 'ltr';
 }
 
 /* A mixed line is tokenised once and rebuilt as three kinds of run: Persian,

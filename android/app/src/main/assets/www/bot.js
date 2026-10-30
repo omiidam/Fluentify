@@ -1672,11 +1672,17 @@ class Fluentify {
       const definition = sense[1] || '';
       const meaning = sense[2] || '';
       const example = sense[3] || '';
-      const lead = meaning && definition ? `${meaning} — ${definition}`
-        : (meaning || definition);
+      // One language per line: a line that opens with Persian is laid out
+      // right to left, which reversed the English definition after the dash.
+      // The meaning goes first and the English definition sits under it.
       const mark = best !== null && i === best ? ' ★' : '';
       const num = lang === 'fa' ? toPersianDigits(shown) : String(shown);
-      lines.push(`   ${num}. ${lead}${mark}`);
+      if (meaning && definition) {
+        lines.push(`   ${num}. ${meaning}${mark}`);
+        lines.push(`      ${definition}`);
+      } else {
+        lines.push(`   ${num}. ${meaning || definition}${mark}`);
+      }
       if (example) lines.push(`      ▸ ${example}`);
     }
     if (context && best !== null) {

@@ -3390,8 +3390,13 @@ function stickerize(html) {
    letters instead would flip a Persian sentence to left-to-right as soon as the
    English term it quotes was longer than the Persian around it. */
 function lineDir(raw) {
-  const first = raw.match(/[\u0600-\u06FF]|[A-Za-z]/);
-  return first && /[\u0600-\u06FF]/.test(first[0]) ? 'rtl' : 'ltr';
+  /* A digit is not a script. "۳. a number of sheets" used to open on a Persian
+     numeral, which is inside the Arabic block, so the whole line was laid out
+     right to left and reversed the English after it. Only a letter decides,
+     and the Arabic-Indic digits (\u0660-\u0669, \u06F0-\u06F9) are excluded. */
+  const first = raw.match(/[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]|[A-Za-z]/);
+  return first && /[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]/.test(first[0])
+    ? 'rtl' : 'ltr';
 }
 
 /* A mixed line is tokenised once and rebuilt as three kinds of run: Persian,

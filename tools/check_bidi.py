@@ -177,6 +177,17 @@ def samples() -> list[dict]:
             "raw": "↲ فقط در سوم‌شخص (he/she/it) می‌آید", "dir": "rtl",
             "has": ['<span class="trm">↲</span>'],
         },
+        {   # A Persian numeral is not a Persian word. A dictionary sense that
+            # has no Persian gloss reads "۳. a number of sheets..." in a
+            # Persian answer, and because the numeral sits inside the Arabic
+            # block it used to turn the whole line around.
+            "raw": "۳. a number of sheets (ticket or stamps etc.)", "dir": "ltr",
+            "has": ["a number of sheets"],
+        },
+        {   # ...while the sense that does have a gloss stays right to left
+            "raw": "۲. بانک", "dir": "rtl",
+            "has": ['<bdi class="fa" lang="fa" dir="rtl">بانک</bdi>'],
+        },
     ]
 
 
