@@ -995,15 +995,24 @@ def main() -> int:
                   if not (has_display(p, "block") or has_display(p, "flex"))]
     check("every panel has an .open rule that shows it", not unopenable,
           f"{unopenable} could never open")
-    # The close button is the only way out of a panel, so its size is a floor,
-    # not a style: it was 44px, was trimmed to 40 to give the bilingual titles
-    # their width back, and must not follow that trend any further.
+    # The close button is the only way out of a panel, so its hit area is a
+    # floor, not a style. The visible box has come down twice (44 -> 40 -> 32)
+    # to leave the bilingual titles their width, which is fine only as long as
+    # the target the thumb actually gets stays thumb-sized: after the last trim
+    # that job belongs to the transparent overlay under the glyph.
     close = re.search(r"\n  \.pclose \{(.*?)\n  \}", src, re.S)
     size = re.search(r"width: (\d+)px", close.group(1)) if close else None
-    check("the panel close button is still a thumb target",
-          bool(size) and int(size.group(1)) >= 40,
-          f"{size.group(1) + 'px' if size else 'no width'} is a lucky tap, and it "
-          "is the only way out of a panel")
+    chip = re.search(r"\n  \.pclose::before \{(.*?)\n  \}", src, re.S)
+    inset = (re.search(r"inset: (\d+)px", chip.group(1)) if chip else None)
+    box = int(size.group(1)) if size else 0
+    visible = box - 2 * int(inset.group(1)) if inset else box
+    check("the panel close button is still a thumb target", box >= 40,
+          f"the button box is {box}px - a lucky tap, and it is the only way"
+          " out of a panel")
+    check("the panel close chip is small enough to stay in its corner",
+          visible <= 32,
+          f"the visible chip is {visible}px, which is the size the corner was"
+          " asked to stop shouting at")
 
     # ------------------------------------------------------- review list --
     # The regression: opening the panel painted nothing.

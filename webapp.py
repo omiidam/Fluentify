@@ -819,21 +819,26 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .phead h3 { min-width: 0; overflow-wrap: anywhere; }
   .phead h3 { flex: 1 1 auto; margin: 0; min-width: 0; }
   .pclose {
-    /* 40px, not 44. A panel header is a title and one button, and at 44 the
-       button was the loudest thing in it - it took more width than the close
-       icon needs and left the bilingual titles with less room than they have
-       lines. 40 is still a comfortable thumb target and still clears --tap
-       once its own padding is counted. */
-    flex: 0 0 40px; width: 40px; height: 40px; border-radius: 12px;
-    display: grid; place-items: center; cursor: pointer;
-    background: var(--ice); border: 1px solid rgba(51,82,110,.22); color: var(--ice-ink);
-    font-size: 17px; line-height: 1;
-    transition: background .16s, border-color .16s, transform .14s;
+    /* The button the thumb gets is 40px. The chip the eye sees is 28px: it is
+       the ::before, inset inside it. A panel header is a title and one button,
+       and at 40 visible the button read louder than the title and took a sixth
+       of a phone's width. Shrinking the box instead shrank the target, so the
+       box stays and the paint got smaller. */
+    position: relative; flex: 0 0 40px; width: 40px; height: 40px;
+    border-radius: 12px; display: grid; place-items: center;
+    background: none; border: 0; padding: 0; cursor: pointer;
+    color: var(--ice-ink); font-size: 15px; line-height: 1;
   }
-  .pclose:hover { background: var(--navy); border-color: var(--navy); color: #fffcef; }
+  .pclose::before {
+    content: ''; position: absolute; inset: 6px; border-radius: 9px;
+    background: var(--ice); border: 1px solid rgba(51,82,110,.22);
+    transition: background .16s, border-color .16s;
+  }
+  .pclose:hover { color: #fffcef; }
+  .pclose:hover::before { background: var(--navy); border-color: var(--navy); }
   .pclose:focus-visible { outline: 2px solid #3c405b; outline-offset: 2px; }
   .pclose:active { transform: scale(.93); }
-  .pclose svg { width: 15px; height: 15px; display: block; }
+  .pclose svg { width: 11px; height: 11px; display: block; position: relative; }
 
   /* the search box every panel now shares */
   .psearch { margin-bottom: 10px; flex: none; }
@@ -1727,7 +1732,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .wd-close {
     background: none; border: none; color: var(--dim); cursor: pointer;
-    font-size: 14px; padding: 4px 6px; border-radius: 6px; line-height: 1;
+    font-size: 12px; padding: 2px 5px; border-radius: 6px; line-height: 1;
     font-family: inherit;
   }
   .wd-close:hover { color: var(--text); background: rgba(43,48,73,0.085); }
