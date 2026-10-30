@@ -146,6 +146,145 @@
               ]
             }
           ]
+        },
+        {
+          "n": 2,
+          "title": "Lesson 2",
+          "title_fa": "درس ۲",
+          "words": [
+            {
+              "word": "dismal",
+              "pos": "adjective",
+              "ipa": "/ˈdɪzməl/",
+              "fa": "تاریک و دلگیر، غم‌انگیز",
+              "def_en": "dark, dull and depressing, as a place, the weather or a mood can be",
+              "examples": [
+                "The room looked dismal after the storm.",
+                "It was a dismal morning, grey from the first light."
+              ]
+            },
+            {
+              "word": "wager",
+              "pos": "verb",
+              "ipa": "/ˈweɪdʒə/",
+              "fa": "شرط بستن",
+              "def_en": "to risk money on the result of a game or an event",
+              "examples": [
+                "He wagered ten dollars on the last race.",
+                "She wagered her brother that the train would be late."
+              ]
+            },
+            {
+              "word": "peril",
+              "pos": "noun",
+              "ipa": "/ˈperəl/",
+              "fa": "خطر، مخاطره",
+              "def_en": "serious danger, the kind that can harm or kill",
+              "examples": [
+                "The sailors were in peril when the storm struck.",
+                "He set out in the snow, blind to the peril ahead."
+              ]
+            },
+            {
+              "word": "recline",
+              "pos": "verb",
+              "ipa": "/rɪˈklaɪn/",
+              "fa": "دراز کشیدن، تکیه دادن",
+              "def_en": "to lie back or lean back in a relaxed position",
+              "examples": [
+                "She reclined on the sofa and closed her eyes.",
+                "The seat reclines almost flat for sleeping."
+              ]
+            },
+            {
+              "word": "shriek",
+              "pos": "verb",
+              "ipa": "/ʃriːk/",
+              "fa": "جیغ کشیدن، جیغ",
+              "def_en": "to give a loud, high cry, from fear or delight",
+              "examples": [
+                "The children shrieked with delight in the water.",
+                "We heard a shriek from the garden and ran out."
+              ]
+            },
+            {
+              "word": "sinister",
+              "pos": "adjective",
+              "ipa": "/ˈsɪnɪstə/",
+              "fa": "شوم، بدطینت",
+              "def_en": "seeming evil, dishonest or threatening without saying so plainly",
+              "examples": [
+                "There was something sinister about the empty house.",
+                "The letter carried a sinister warning."
+              ]
+            },
+            {
+              "word": "conceal",
+              "pos": "verb",
+              "ipa": "/kənˈsiːl/",
+              "fa": "پنهان کردن",
+              "def_en": "to hide something carefully so that it cannot be seen or found",
+              "examples": [
+                "He concealed the key under a loose stone.",
+                "She could not conceal her disappointment."
+              ]
+            },
+            {
+              "word": "inhabit",
+              "pos": "verb",
+              "ipa": "/ɪnˈhæbɪt/",
+              "fa": "سکونت داشتن، زیستن در",
+              "def_en": "to live in a place, as people or animals do",
+              "examples": [
+                "Few animals inhabit the desert.",
+                "The old house is no longer inhabited."
+              ]
+            },
+            {
+              "word": "frigid",
+              "pos": "adjective",
+              "ipa": "/ˈfrɪdʒɪd/",
+              "fa": "بسیار سرد؛ سرد و بی‌مهر",
+              "def_en": "extremely cold; also unfriendly in manner",
+              "examples": [
+                "A frigid wind came off the lake.",
+                "She gave him a frigid look and walked on."
+              ]
+            },
+            {
+              "word": "numb",
+              "pos": "adjective",
+              "ipa": "/nʌm/",
+              "fa": "بی‌حس، کرخ",
+              "def_en": "unable to feel or move a part of the body, from cold or shock",
+              "examples": [
+                "My fingers were numb with cold.",
+                "The injection made his arm go numb."
+              ]
+            },
+            {
+              "word": "corpse",
+              "pos": "noun",
+              "ipa": "/kɔːps/",
+              "fa": "جنازه، جسد",
+              "def_en": "the body of a dead person or animal",
+              "examples": [
+                "The police found a corpse beside the river.",
+                "A corpse lay under a sheet on the ground."
+              ]
+            },
+            {
+              "word": "tempt",
+              "pos": "verb",
+              "ipa": "/tempt/",
+              "fa": "وسوسه کردن",
+              "def_en": "to make someone want something, often something they should not have",
+              "examples": [
+                "The smell of fresh bread tempted me into the shop.",
+                "Do not tempt him with offers he cannot refuse."
+              ]
+            }
+          ]
         }
       ]
     }

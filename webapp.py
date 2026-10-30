@@ -508,7 +508,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 12.5px; letter-spacing: .2px; color: var(--muted);
     line-height: 1.5;
   }
-  .boot-tag em { color: #8a5a00; font-style: normal; }
+  /* The second line is the meaning of the first, not a second slogan, so it is
+     set as one block under it and isolated as Persian: its own punctuation has
+     to read right to left even though the line above it is English. */
+  .boot-tag em {
+    display: block; margin-top: 2px; color: #8a5a00; font-style: normal;
+    font-family: var(--font-fa); direction: rtl; unicode-bidi: isolate;
+    font-size: 12px; line-height: 1.95;
+  }
 
   /* A bouncing tile with its shadow on the floor. The shape is borrowed from
      a well-known loading animation; the colour is the tutor's. Transform
@@ -3128,8 +3135,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       </div>
       <div class="boot-brand">
         <div class="boot-name">Fluentify</div>
-        <div class="boot-tag">English, one small win at a time<br>
-          <em>انگلیسی، هر روز یک قدم کوچک</em></div>
+        <div class="boot-tag">A step a day, a win a day
+          <em dir="rtl" lang="fa">هرروز یک قدم هرروز یک برد</em></div>
       </div>
       <div class="boot-loading" aria-hidden="true">
         <div class="loader"></div>

@@ -40,13 +40,19 @@ FA_LETTER = re.compile(r"[\u0621-\u064A\u066E-\u06D3\u06FA-\u06FF]")
 LATIN = re.compile(r"[A-Za-z]")
 WORD_SHAPE = re.compile(r"^[a-z][a-z'’\- ]*[a-z]$")
 
-# The book this panel was built for. 504 Absolutely Essential Words opens with
-# these twelve; the list is pinned because a mistyped headword still passes
-# every shape check and only a reader would notice.
-FIRST_504_LESSON = [
-    "abandon", "keen", "jealous", "tact", "oath", "vacant",
-    "hardship", "gallant", "data", "unaccustomed", "bachelor", "qualify",
-]
+# The lessons this panel was built for, in the book's own order. A mistyped or
+# missing headword passes every shape check and only a reader would notice, so
+# the roster is pinned here and compared word by word.
+PINNED_LESSONS = {
+    1: [
+        "abandon", "keen", "jealous", "tact", "oath", "vacant",
+        "hardship", "gallant", "data", "unaccustomed", "bachelor", "qualify",
+    ],
+    2: [
+        "dismal", "wager", "peril", "recline", "shriek", "sinister",
+        "conceal", "inhabit", "frigid", "numb", "corpse", "tempt",
+    ],
+}
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}
 
@@ -245,12 +251,16 @@ def main() -> int:
 
     book = next((b for b in data.get("books", []) if b.get("id") == "essential-504"), None)
     if check(book is not None, "the 504 book is not in the library"):
-        lessons = book.get("lessons") or []
-        if check(bool(lessons), "the 504 book has no lessons"):
-            words = [w.get("word") for w in lessons[0].get("words") or []]
-            check(words == FIRST_504_LESSON,
-                  "504 lesson 1 is not the book's twelve words in order: "
-                  f"{words}")
+        lessons = {l.get("n"): l for l in book.get("lessons") or []}
+        for number, roster in PINNED_LESSONS.items():
+            lesson = lessons.get(number)
+            if not check(lesson is not None,
+                         f"504 lesson {number} is missing from the book"):
+                continue
+            words = [w.get("word") for w in lesson.get("words") or []]
+            check(words == roster,
+                  f"504 lesson {number} is not the book's twelve words in "
+                  f"order: {words}")
 
     check_panel()
     check_offline()
