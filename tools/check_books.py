@@ -86,14 +86,40 @@ PINNED_LESSONS = {
         "menace", "tendency", "underestimate", "victorious", "numerous",
         "flexible",
     ],
+    11: [
+        "evidence", "solitary", "vision", "frequent", "glimpse", "recent",
+        "decade", "hesitate", "absurd", "conflict", "minority", "fiction",
+    ],
+    12: [
+        "frank", "audible", "urgent", "urban", "ignite", "prohibit",
+        "pollute", "decrease", "abolish", "population", "reveal", "adequate",
+    ],
+    13: [
+        "commence", "migrate", "gleam", "famine", "vessel", "identify",
+        "observant", "editor", "revive", "persist", "hazy", "journalist",
+    ],
+    14: [
+        "unruly", "rival", "violent", "brutal", "opponent", "brawl",
+        "duplicate", "vicious", "whirling", "underdog", "thrust",
+        "bewildered",
+    ],
+    15: [
+        "expand", "alter", "mature", "sacred", "revise", "pledge",
+        "casual", "pursue", "unanimous", "fortunate", "pioneer",
+        "innovative",
+    ],
 }
 
-# The second book is organised by week, and week 1 is four days of five words.
+# The second book is organised by week; each week is four days of five words.
 PINNED_1100 = {
     1: ["voracious", "indiscriminate", "eminent", "steeped", "replete",
         "abound", "technology", "prognosticate", "automaton", "matron",
         "paradox", "realm", "annals", "compound", "tinge",
         "badger", "implore", "drudgery", "interminable", "perceive"],
+    2: ["laconic", "throng", "intrepid", "accost", "reticent",
+        "furtive", "felon", "plethora", "hapless", "irate",
+        "pretext", "fabricate", "adroit", "gesticulate", "vigilant",
+        "avid", "cajole", "rudimentary", "enhance", "nuance"],
 }
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}

@@ -797,6 +797,101 @@
             {"word": "numerous", "pos": "adjective", "ipa": "/ˈnjuːmərəs/", "fa": "پرشمار، زیاد", "def_en": "existing in large numbers", "examples": ["There were numerous complaints about the noise.", "He has written numerous short stories."]},
             {"word": "flexible", "pos": "adjective", "ipa": "/ˈfleksəbl/", "fa": "انعطاف‌پذیر", "def_en": "able to bend, or able to change to suit new needs", "examples": ["The hose is flexible and easy to store.", "We keep flexible hours at work."]}
           ]
+        },
+        {
+          "n": 11,
+          "title": "Lesson 11",
+          "title_fa": "درس ۱۱",
+          "words": [
+            {"word": "evidence", "pos": "noun", "ipa": "/ˈevɪdəns/", "fa": "مدرک، شاهد", "def_en": "facts or objects that show something is true", "examples": ["The police found evidence of a break-in.", "There is no evidence that he lied."]},
+            {"word": "solitary", "pos": "adjective", "ipa": "/ˈsɒlətri/", "fa": "تنها، انفرادی", "def_en": "alone, with no one else", "examples": ["He took a solitary walk along the beach.", "The prisoner was kept in solitary confinement."]},
+            {"word": "vision", "pos": "noun", "ipa": "/ˈvɪʒn/", "fa": "بینایی؛ دید؛ رؤیا", "def_en": "the ability to see, or an idea of what the future could be", "examples": ["Her vision is poor without glasses.", "The founder had a vision of a paperless office."]},
+            {"word": "frequent", "pos": "adjective", "ipa": "/ˈfriːkwənt/", "fa": "مکرر، پیوسته", "def_en": "happening often, or doing something often", "examples": ["He is a frequent visitor to the museum.", "Frequent delays made the train useless."]},
+            {"word": "glimpse", "pos": "noun", "ipa": "/ɡlɪmps/", "fa": "نگاه گذرا، دید کوتاه", "def_en": "a quick look at something you do not see fully", "examples": ["I caught a glimpse of her in the crowd.", "We glimpsed the sea through the trees."]},
+            {"word": "recent", "pos": "adjective", "ipa": "/ˈriːsnt/", "fa": "اخیر، تازه", "def_en": "happening a short time ago", "examples": ["In recent years the city has grown fast.", "His most recent book sold well."]},
+            {"word": "decade", "pos": "noun", "ipa": "/ˈdekeɪd/", "fa": "دهه", "def_en": "a period of ten years", "examples": ["Prices doubled within a decade.", "She worked there for nearly a decade."]},
+            {"word": "hesitate", "pos": "verb", "ipa": "/ˈhezɪteɪt/", "fa": "تردید کردن", "def_en": "to pause before doing something because you are not sure", "examples": ["Don't hesitate to ask questions.", "He hesitated before signing the contract."]},
+            {"word": "absurd", "pos": "adjective", "ipa": "/əbˈsɜːd/", "fa": "پوچ، بی‌معنی", "def_en": "so silly that it makes no sense", "examples": ["It is absurd to blame the weather for your lateness.", "The idea sounded absurd at first."]},
+            {"word": "conflict", "pos": "noun", "ipa": "/ˈkɒnflɪkt/", "fa": "تعارض، درگیری", "def_en": "a serious disagreement, or a state in which two things cannot both be true", "examples": ["The two reports are in conflict.", "Their stories conflict on one point."]},
+            {"word": "minority", "pos": "noun", "ipa": "/maɪˈnɒrəti/", "fa": "اقلیت", "def_en": "a small part of a group, less than half of it", "examples": ["Only a minority of students voted.", "The law protects religious minorities."]},
+            {"word": "fiction", "pos": "noun", "ipa": "/ˈfɪkʃn/", "fa": "داستان؛ خیال، ساختگی", "def_en": "stories about imagined people, or something that is not true", "examples": ["She writes science fiction.", "His excuse was pure fiction."]}
+          ]
+        },
+        {
+          "n": 12,
+          "title": "Lesson 12",
+          "title_fa": "درس ۱۲",
+          "words": [
+            {"word": "frank", "pos": "adjective", "ipa": "/fræŋk/", "fa": "صریح، رک", "def_en": "honest and direct, even when it is uncomfortable", "examples": ["To be frank, I don't like the plan.", "She gave a frank account of her mistakes."]},
+            {"word": "audible", "pos": "adjective", "ipa": "/ˈɔːdəbl/", "fa": "شنیدنی، قابل شنیدن", "def_en": "loud enough to be heard", "examples": ["His voice was barely audible.", "The signal is audible only at night."]},
+            {"word": "urgent", "pos": "adjective", "ipa": "/ˈɜːdʒənt/", "fa": "فوری، ضروری", "def_en": "needing action right away", "examples": ["I have an urgent message for the manager.", "The roof needs urgent repair."]},
+            {"word": "urban", "pos": "adjective", "ipa": "/ˈɜːbən/", "fa": "شهری", "def_en": "belonging to a city", "examples": ["Urban traffic gets worse every year.", "They moved from an urban area to a village."]},
+            {"word": "ignite", "pos": "verb", "ipa": "/ɪɡˈnaɪt/", "fa": "آتش زدن، برافروختن", "def_en": "to set something on fire, or to start something suddenly", "examples": ["A spark ignited the fuel.", "The speech ignited a debate."]},
+            {"word": "prohibit", "pos": "verb", "ipa": "/prəˈhɪbɪt/", "fa": "ممنوع کردن", "def_en": "to forbid something by law or rule", "examples": ["Smoking is prohibited in the building.", "The law prohibits selling alcohol to minors."]},
+            {"word": "pollute", "pos": "verb", "ipa": "/pəˈluːt/", "fa": "آلوده کردن", "def_en": "to make air, water or land dirty", "examples": ["Factories pollute the river.", "The bay was polluted by oil."]},
+            {"word": "decrease", "pos": "verb", "ipa": "/dɪˈkriːs/", "fa": "کاهش دادن، کم شدن", "def_en": "to become or make smaller", "examples": ["Sales decreased by ten percent.", "There was a decrease in accidents."]},
+            {"word": "abolish", "pos": "verb", "ipa": "/əˈbɒlɪʃ/", "fa": "لغو کردن، برانداختن", "def_en": "to end a law or system officially", "examples": ["Slavery was abolished in the nineteenth century.", "They voted to abolish the fee."]},
+            {"word": "population", "pos": "noun", "ipa": "/ˌpɒpjuˈleɪʃn/", "fa": "جمعیت", "def_en": "all the people living in a place", "examples": ["The population of the town has doubled.", "An ageing population needs more doctors."]},
+            {"word": "reveal", "pos": "verb", "ipa": "/rɪˈviːl/", "fa": "آشکار کردن، فاش کردن", "def_en": "to show or make known something that was hidden", "examples": ["The letter revealed the truth.", "He refused to reveal his sources."]},
+            {"word": "adequate", "pos": "adjective", "ipa": "/ˈædɪkwət/", "fa": "کافی، بسنده", "def_en": "enough for what is needed", "examples": ["The lighting is adequate for reading.", "Their pay is not adequate for the work."]}
+          ]
+        },
+        {
+          "n": 13,
+          "title": "Lesson 13",
+          "title_fa": "درس ۱۳",
+          "words": [
+            {"word": "commence", "pos": "verb", "ipa": "/kəˈmens/", "fa": "آغاز کردن، شروع شدن", "def_en": "to begin, in a formal or official way", "examples": ["The ceremony will commence at nine.", "Work on the bridge commenced in spring."]},
+            {"word": "migrate", "pos": "verb", "ipa": "/maɪˈɡreɪt/", "fa": "مهاجرت کردن، کوچ کردن", "def_en": "to move to another place, often with the seasons", "examples": ["Birds migrate south in winter.", "Many workers migrated to the cities."]},
+            {"word": "gleam", "pos": "noun", "ipa": "/ɡliːm/", "fa": "درخشش، برق", "def_en": "a small soft light, or the shine on a surface", "examples": ["A gleam of light showed under the door.", "The polished floor had a warm gleam."]},
+            {"word": "famine", "pos": "noun", "ipa": "/ˈfæmɪn/", "fa": "قحطی", "def_en": "a long period with very little food", "examples": ["The famine killed thousands.", "Aid arrived after two years of famine."]},
+            {"word": "vessel", "pos": "noun", "ipa": "/ˈvesl/", "fa": "کشتی، ظرف، رگ", "def_en": "a ship, a container for liquid, or a tube that carries blood", "examples": ["A fishing vessel entered the harbour.", "The doctor checked the blood vessels."]},
+            {"word": "identify", "pos": "verb", "ipa": "/aɪˈdentɪfaɪ/", "fa": "شناسایی کردن، مشخص کردن", "def_en": "to recognise or name someone or something", "examples": ["Can you identify the man in the photo?", "The body was identified by her ring."]},
+            {"word": "observant", "pos": "adjective", "ipa": "/əbˈzɜːvənt/", "fa": "تیزبین، نکته‌سنج", "def_en": "quick to notice things", "examples": ["An observant neighbour called the police.", "She is observant about small changes."]},
+            {"word": "editor", "pos": "noun", "ipa": "/ˈedɪtə(r)/", "fa": "ویراستار، سردبیر", "def_en": "the person who prepares text or runs a publication", "examples": ["The editor cut three paragraphs.", "She is the editor of a science magazine."]},
+            {"word": "revive", "pos": "verb", "ipa": "/rɪˈvaɪv/", "fa": "زنده کردن، جان تازه دادن", "def_en": "to bring something back to life, use or strength", "examples": ["They tried to revive the tired format.", "Rain revived the dying plants."]},
+            {"word": "persist", "pos": "verb", "ipa": "/pəˈsɪst/", "fa": "پافشاری کردن، ادامه دادن", "def_en": "to keep doing something in spite of difficulty", "examples": ["She persisted until she found an answer.", "The pain persisted for a week."]},
+            {"word": "hazy", "pos": "adjective", "ipa": "/ˈheɪzi/", "fa": "مه‌آلود، مبهم", "def_en": "not clear because of mist, or not clear in the mind", "examples": ["The valley was hazy at dawn.", "My memory of that day is hazy."]},
+            {"word": "journalist", "pos": "noun", "ipa": "/ˈdʒɜːnəlɪst/", "fa": "روزنامه‌نگار", "def_en": "a person who writes or reports the news", "examples": ["A journalist asked the first question.", "She worked as a journalist for ten years."]}
+          ]
+        },
+        {
+          "n": 14,
+          "title": "Lesson 14",
+          "title_fa": "درس ۱۴",
+          "words": [
+            {"word": "unruly", "pos": "adjective", "ipa": "/ʌnˈruːli/", "fa": "سرکش، نافرمان", "def_en": "hard to rule or control", "examples": ["The unruly crowd blocked the street.", "His unruly hair refused to stay flat."]},
+            {"word": "rival", "pos": "noun", "ipa": "/ˈraɪvl/", "fa": "رقیب، حریف", "def_en": "a person or group competing for the same thing", "examples": ["The two shops are rivals.", "She beat her closest rival by two seconds."]},
+            {"word": "violent", "pos": "adjective", "ipa": "/ˈvaɪələnt/", "fa": "خشن، شدید", "def_en": "using force to hurt someone, or very strong and sudden", "examples": ["The film contains violent scenes.", "A violent storm hit the coast."]},
+            {"word": "brutal", "pos": "adjective", "ipa": "/ˈbruːtl/", "fa": "بی‌رحمانه، وحشیانه", "def_en": "extremely cruel or harsh", "examples": ["The regime was brutal to its critics.", "The match was a brutal struggle."]},
+            {"word": "opponent", "pos": "noun", "ipa": "/əˈpəʊnənt/", "fa": "حریف، مخالف", "def_en": "the person you play against or argue with", "examples": ["He shook hands with his opponent.", "Opponents of the plan organised a protest."]},
+            {"word": "brawl", "pos": "noun", "ipa": "/brɔːl/", "fa": "زد و خورد، دعوای جمعی", "def_en": "a noisy fight among several people", "examples": ["A brawl broke out outside the bar.", "The brawl started over a parking space."]},
+            {"word": "duplicate", "pos": "verb", "ipa": "/ˈdjuːplɪkeɪt/", "fa": "تکثیر کردن، رونوشت ساختن", "def_en": "to make an exact copy of something", "examples": ["Please duplicate this key.", "The file was duplicated by mistake."]},
+            {"word": "vicious", "pos": "adjective", "ipa": "/ˈvɪʃəs/", "fa": "وحشی، بی‌رحم", "def_en": "cruel and violent", "examples": ["A vicious dog guarded the gate.", "The paper printed a vicious attack on her."]},
+            {"word": "whirling", "pos": "adjective", "ipa": "/ˈwɜːlɪŋ/", "fa": "چرخان، گردان", "def_en": "turning round and round very fast", "examples": ["Leaves rose in the whirling wind.", "Her whirling thoughts kept her awake."]},
+            {"word": "underdog", "pos": "noun", "ipa": "/ˈʌndədɒɡ/", "fa": "طرف ضعیف‌تر، بازندهٔ احتمالی", "def_en": "the side in a contest that is expected to lose", "examples": ["Everyone loves an underdog.", "The underdog team won two nil."]},
+            {"word": "thrust", "pos": "verb", "ipa": "/θrʌst/", "fa": "فشار دادن، هُل دادن", "def_en": "to push something suddenly and hard", "examples": ["He thrust the letter into my hand.", "She thrust the door open with her shoulder."]},
+            {"word": "bewildered", "pos": "adjective", "ipa": "/bɪˈwɪldəd/", "fa": "گیج، سرگشته", "def_en": "completely confused, not knowing what to do", "examples": ["The tourists looked bewildered.", "She was bewildered by the new rules."]}
+          ]
+        },
+        {
+          "n": 15,
+          "title": "Lesson 15",
+          "title_fa": "درس ۱۵",
+          "words": [
+            {"word": "expand", "pos": "verb", "ipa": "/ɪkˈspænd/", "fa": "گسترش دادن، بزرگ شدن", "def_en": "to become larger, or to make something larger", "examples": ["The company plans to expand abroad.", "Metal expands when it is heated."]},
+            {"word": "alter", "pos": "verb", "ipa": "/ˈɔːltə(r)/", "fa": "تغییر دادن، اصلاح کردن", "def_en": "to change something, usually a little", "examples": ["We had to alter our plans.", "The dress was altered to fit her."]},
+            {"word": "mature", "pos": "adjective", "ipa": "/məˈtʃʊə(r)/", "fa": "بالغ، رسیده", "def_en": "fully grown, or behaving in a sensible adult way", "examples": ["She is mature for her age.", "It was a mature and careful decision."]},
+            {"word": "sacred", "pos": "adjective", "ipa": "/ˈseɪkrɪd/", "fa": "مقدس", "def_en": "holy and treated with great respect", "examples": ["The temple is a sacred place.", "For them, Sunday lunch is a sacred ritual."]},
+            {"word": "revise", "pos": "verb", "ipa": "/rɪˈvaɪz/", "fa": "بازنگری کردن، اصلاح کردن", "def_en": "to change and improve a text, plan or opinion", "examples": ["They revised the budget twice.", "I need to revise my opinion of him."]},
+            {"word": "pledge", "pos": "noun", "ipa": "/pledʒ/", "fa": "تعهد، قول", "def_en": "a serious promise", "examples": ["The government broke its pledge.", "He gave his pledge to finish the work by Friday."]},
+            {"word": "casual", "pos": "adjective", "ipa": "/ˈkæʒuəl/", "fa": "غیررسمی، اتفاقی", "def_en": "relaxed and informal, or not planned", "examples": ["Wear casual clothes to the picnic.", "A casual remark started the argument."]},
+            {"word": "pursue", "pos": "verb", "ipa": "/pəˈsjuː/", "fa": "دنبال کردن، پیگیری کردن", "def_en": "to follow someone, or to work at something over time", "examples": ["She decided to pursue a career in law.", "The police pursued the car for miles."]},
+            {"word": "unanimous", "pos": "adjective", "ipa": "/juˈnænɪməs/", "fa": "هم‌آوا، یک‌دل", "def_en": "agreed by everyone", "examples": ["The vote was unanimous.", "The board reached a unanimous decision."]},
+            {"word": "fortunate", "pos": "adjective", "ipa": "/ˈfɔːtʃənət/", "fa": "خوش‌شانس، خوشبخت", "def_en": "lucky, especially in a way that helps you", "examples": ["We were fortunate to find seats.", "It was fortunate that nobody was hurt."]},
+            {"word": "pioneer", "pos": "noun", "ipa": "/ˌpaɪəˈnɪə(r)/", "fa": "پیشگام، پیشرو", "def_en": "the first person to do or develop something", "examples": ["She was a pioneer of heart surgery.", "The pioneers crossed the mountains on foot."]},
+            {"word": "innovative", "pos": "adjective", "ipa": "/ˈɪnəveɪtɪv/", "fa": "نوآورانه، بدیع", "def_en": "new and original in the way something is done", "examples": ["The design is simple and innovative.", "They rewarded innovative teaching."]}
+          ]
         }
       ]
     },
@@ -832,6 +927,33 @@
             {"word": "drudgery", "pos": "noun", "ipa": "/ˈdrʌdʒəri/", "fa": "کار سخت و یکنواخت", "def_en": "dull, hard work with no interest in it", "day": 4, "examples": ["Housework was pure drudgery for him.", "The machine took the drudgery out of the job."]},
             {"word": "interminable", "pos": "adjective", "ipa": "/ɪnˈtɜːmɪnəbl/", "fa": "بی‌پایان، بسیار طولانی", "def_en": "so long that it seems to have no end", "day": 4, "examples": ["The interminable wait ended at midnight.", "We sat through an interminable speech."]},
             {"word": "perceive", "pos": "verb", "ipa": "/pəˈsiːv/", "fa": "ادراک کردن، دریافتن", "def_en": "to notice something, or to understand it in a particular way", "day": 4, "examples": ["He perceived a change in her tone.", "The problem is perceived as a threat."]}
+          ]
+        },
+        {
+          "n": 2,
+          "title": "Week 2",
+          "title_fa": "هفته ۲",
+          "words": [
+            {"word": "laconic", "pos": "adjective", "ipa": "/ləˈkɒnɪk/", "fa": "کم‌حرف، کوتاه و پرمعنا", "def_en": "using very few words", "examples": ["His laconic reply ended the discussion.", "She is laconic on the phone."], "day": 1},
+            {"word": "throng", "pos": "noun", "ipa": "/θrɒŋ/", "fa": "جمعیت انبوه", "def_en": "a large crowd of people", "examples": ["A throng of fans waited outside.", "The market was filled with a noisy throng."], "day": 1},
+            {"word": "intrepid", "pos": "adjective", "ipa": "/ɪnˈtrepɪd/", "fa": "بی‌باک، نترس", "def_en": "brave in the face of danger", "examples": ["The intrepid climber reached the summit.", "An intrepid reporter asked the hard question."], "day": 1},
+            {"word": "accost", "pos": "verb", "ipa": "/əˈkɒst/", "fa": "سر راه کسی را گرفتن و حرف زدن", "def_en": "to approach someone and speak first, often in a bold way", "examples": ["A stranger accosted me at the station.", "Reporters accosted the minister on his way out."], "day": 1},
+            {"word": "reticent", "pos": "adjective", "ipa": "/ˈretɪsnt/", "fa": "کم‌حرف، سربسته", "def_en": "unwilling to say much about something", "examples": ["He was reticent about his plans.", "She stayed reticent during the meeting."], "day": 1},
+            {"word": "furtive", "pos": "adjective", "ipa": "/ˈfɜːtɪv/", "fa": "دزدانه، پنهانی", "def_en": "done quietly and secretly so as not to be noticed", "examples": ["He cast a furtive glance at the door.", "They had a furtive meeting in the car park."], "day": 2},
+            {"word": "felon", "pos": "noun", "ipa": "/ˈfelən/", "fa": "مجرم، تبهکار", "def_en": "a person guilty of a serious crime", "examples": ["The felon was sentenced to ten years.", "Police arrested the felon at the border."], "day": 2},
+            {"word": "plethora", "pos": "noun", "ipa": "/ˈpleθərə/", "fa": "فراوانی، انبوه", "def_en": "a very large amount of something, often more than is useful", "examples": ["A plethora of options makes choosing hard.", "There is a plethora of advice online."], "day": 2},
+            {"word": "hapless", "pos": "adjective", "ipa": "/ˈhæpləs/", "fa": "بدبخت، بخت‌برگشته", "def_en": "unlucky, in a way that invites pity", "examples": ["The hapless driver got two fines in one day.", "The hapless team lost again."], "day": 2},
+            {"word": "irate", "pos": "adjective", "ipa": "/aɪˈreɪt/", "fa": "خشمگین", "def_en": "very angry, in a way that shows it", "examples": ["Irate customers demanded a refund.", "The irate driver honked for a full minute."], "day": 2},
+            {"word": "pretext", "pos": "noun", "ipa": "/ˈpriːtekst/", "fa": "بهانه", "def_en": "a false reason given to hide the real one", "examples": ["He left early on the pretext of feeling ill.", "The check was a pretext for asking questions."], "day": 3},
+            {"word": "fabricate", "pos": "verb", "ipa": "/ˈfæbrɪkeɪt/", "fa": "جعل کردن، ساختن", "def_en": "to invent something false, or to make something", "examples": ["He fabricated an excuse on the spot.", "The parts are fabricated in a local workshop."], "day": 3},
+            {"word": "adroit", "pos": "adjective", "ipa": "/əˈdrɔɪt/", "fa": "چیره‌دست، زبردست", "def_en": "skilful, especially in handling people or awkward situations", "examples": ["She is adroit at avoiding awkward questions.", "An adroit negotiator got both sides to agree."], "day": 3},
+            {"word": "gesticulate", "pos": "verb", "ipa": "/dʒeˈstɪkjuleɪt/", "fa": "با دست و سر اشاره کردن", "def_en": "to move your arms and hands about while speaking", "examples": ["He gesticulated wildly to show the size of it.", "The driver gesticulated at the traffic."], "day": 3},
+            {"word": "vigilant", "pos": "adjective", "ipa": "/ˈvɪdʒɪlənt/", "fa": "هوشیار، مراقب", "def_en": "watchful and quick to notice danger", "examples": ["Nurses must stay vigilant all night.", "Be vigilant about phishing emails."], "day": 3},
+            {"word": "avid", "pos": "adjective", "ipa": "/ˈævɪd/", "fa": "مشتاق، پرشور", "def_en": "extremely keen or enthusiastic", "examples": ["She is an avid collector of old maps.", "He is an avid reader of detective novels."], "day": 4},
+            {"word": "cajole", "pos": "verb", "ipa": "/kəˈdʒəʊl/", "fa": "با چرب‌زبانی راضی کردن", "def_en": "to persuade someone with flattery and gentle pressure", "examples": ["She cajoled him into coming to the party.", "You cannot cajole a cat into a bath."], "day": 4},
+            {"word": "rudimentary", "pos": "adjective", "ipa": "/ˌruːdɪˈmentri/", "fa": "ابتدایی، مقدماتی", "def_en": "basic, at the simplest possible level", "examples": ["I have a rudimentary knowledge of Arabic.", "The camp had rudimentary toilets."], "day": 4},
+            {"word": "enhance", "pos": "verb", "ipa": "/ɪnˈhɑːns/", "fa": "بهبود بخشیدن، برجسته‌تر کردن", "def_en": "to make something better or stronger", "examples": ["Soft lighting enhances the room.", "Practice enhances your confidence over time."], "day": 4},
+            {"word": "nuance", "pos": "noun", "ipa": "/ˈnjuːɑːns/", "fa": "تفاوت ظریف، ظرافت معنا", "def_en": "a very small difference in meaning or tone", "examples": ["She caught a nuance in his voice.", "The translation loses the nuances of the original."], "day": 4}
           ]
         }
       ]
