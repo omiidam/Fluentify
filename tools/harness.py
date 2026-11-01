@@ -99,8 +99,14 @@ def run_vocabulary(verbose: bool) -> None:
     b = ChatBot()
     for en, _fa in WORD_PROBES:
         r = b.respond(f"translate {en}")
+        # A translation is now the English head with the Persian on the line
+        # beneath it, introduced by TRANSLATE. The check used to look for
+        # "word → meaning" on one line - the very interleaving the formatters
+        # were changed to stop producing - so it asks for the head and the
+        # marked translation line instead.
         check_reply("vocab-en", f"translate {en}", r,
-                    need=["\u2192"], banned=["don't have", "not sure"])
+                    want=[en], need=[TRANSLATE],
+                    banned=["don't have", "not sure"])
         r2 = b.respond(f"define {en}")
         check_reply("vocab-define", f"define {en}", r2,
                     banned=["don't have", "not sure"])

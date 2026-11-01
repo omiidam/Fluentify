@@ -1351,8 +1351,14 @@ class Fluentify {
     lines.push('');
     lines.push(...this._examplesBlock(entry, lang,
       lang === 'en' ? '  Examples — مثال‌ها:' : '  مثال‌ها — Examples:'));
-    if (entry.syn) lines.push(`  Synonyms — مترادف: ${entry.syn.join(' · ')}`);
-    if (entry.ant) lines.push(`  Antonyms — متضاد: ${entry.ant.join(' · ')}`);
+    if (entry.syn) {
+      lines.push('  Synonyms — مترادف:');
+      lines.push(`    ${entry.syn.join(' · ')}`);
+    }
+    if (entry.ant) {
+      lines.push('  Antonyms — متضاد:');
+      lines.push(`    ${entry.ant.join(' · ')}`);
+    }
     return lines.join('\n');
   }
 
@@ -1867,17 +1873,25 @@ class Fluentify {
       if (scored.length && scored[0][0] > 0) best = scored[0][1];
     }
 
+    // One language for the head line, whatever language the question came in.
+    // A Persian question used to put the Persian part of speech after the
+    // English head, so the line belonged to neither reader; the Persian goes
+    // on its own line under it instead.
     const askedNorm = normalizeWord(asked);
-    const label = askedNorm === head ? `**${head}**` : `**${asked}** → **${head}**`;
+    const askedFa = /[\u0600-\u06FF]/.test(asked);
+    const headOnly = askedNorm === head || askedFa;
+    const label = headOnly ? `**${head}**` : `**${asked}** → **${head}**`;
     let line = `📖 ${label}${this._lexIpa(entry)}`;
-    const posText = this._lexPosText(entry, lang);
-    if (posText) line += ` — ${posText}`;
-    if (senses.length > 1) {
-      line += lang === 'fa'
-        ? ` · ${toPersianDigits(senses.length)} معنی`
-        : ` · ${senses.length} meanings`;
-    }
+    const posEn = this._lexPosText(entry, 'en');
+    if (posEn) line += ` — ${posEn}`;
+    if (senses.length > 1) line += ` · ${senses.length} meanings`;
     const lines = [line];
+    const faBits = [];
+    if (askedFa && askedNorm !== head) faBits.push(asked);
+    const posFa = this._lexPosText(entry, 'fa');
+    if (posFa && lang === 'fa') faBits.push(posFa);
+    if (senses.length > 1 && lang === 'fa') faBits.push(`${toPersianDigits(senses.length)} معنی`);
+    if (faBits.length) lines.push(`   ↲ ${faBits.join(' · ')}`);
 
     const shownCount = Math.min(senses.length,
       Math.max(3, (best === null ? 0 : best) + 1));
@@ -1896,7 +1910,10 @@ class Fluentify {
         lines.push(`   ${num}. ${meaning}${mark}`);
         lines.push(`      ${definition}`);
       } else {
-        lines.push(`   ${num}. ${meaning || definition}${mark}`);
+        // A sense with no Persian gloss is an English line all the way
+        // through, so it takes an English number: "۳. a flight maneuver" put a
+        // Persian numeral at the head of English text.
+        lines.push(`   ${meaning ? num : shown}. ${meaning || definition}${mark}`);
       }
       if (example) lines.push(`      ▸ ${example}`);
     }
@@ -2206,19 +2223,33 @@ class Fluentify {
     return `I don't have "${target}" in my glossary yet 📚\n   ↲ ${hint}${example}`;
   }
 
+  /* A glossary word: the English head on its own line, then its Persian.
+     This used to be one line - '"bank" -> بانک (place / مکان) — also: bank
+     (بانک)' - so the reader's eye crossed the line twice and the brackets were
+     resolved by whichever script came first. */
+  /* The English head, then one Persian line per meaning. The head is the
+     English word even when the learner asked in Persian: asking «اتوبوس» used
+     to answer with اتوبوس as both head and meaning, so the English word never
+     appeared. Meanings from several domains share the head line, which is why
+     the domains are joined there instead of being repeated per line. */
   formatLookup(target, entries, lang) {
-    const [domId, en, fa] = entries[0];
-    const label = this.glossary[domId].label;
-    if (lang === 'fa') {
-      const extra = entries.length > 1
-        ? ' — چند معنی دیگر: ' + entries.slice(1, 3).map((e) => e[1] + '، ' + e[2]).join(', ')
-        : '';
-      return `«${target}» → ${en} / ${fa} (${label.fa} / ${label.en})${extra}`;
+    const showing = entries.slice(0, 3);
+    const en = showing[0][1];
+    const domains = [];
+    for (const [dom] of showing) {
+      const name = this.glossary[dom].label.en;
+      if (!domains.includes(name)) domains.push(name);
     }
-    const extra = entries.length > 1
-      ? ' — also: ' + entries.slice(1, 3).map((e) => e[1] + ' (' + e[2] + ')').join(', ')
-      : '';
-    return `"${target}" → ${fa}  (${label.en} / ${label.fa})${extra}`;
+    const lines = [`📖 **${en}** · ${domains.join(' · ')}`];
+    const seen = new Set();
+    for (const [dom, , fa] of showing) {
+      const pair = [fa, this.glossary[dom].label.fa];
+      const key = pair.join('\u0000');
+      if (seen.has(key)) continue;
+      seen.add(key);
+      lines.push(`   ↲ ${pair[0]} · ${pair[1]}`);
+    }
+    return lines.join('\n');
   }
 
   /* ------------------------------------------------------------ numbers */
@@ -2330,13 +2361,15 @@ class Fluentify {
     return [reg, cat].filter(Boolean).join(' · ');
   }
 
+  /* English head, Persian under it, one language per line. The gloss is an
+     English explanation and gets an English line - it used to carry the
+     translation arrow, which claimed the English sentence was the Persian. */
   formatBank(row) {
-    let head = `🗯  “${row.term}”`;
-    if (row.fa) head += ` — ${row.fa}`;
-    const lines = [head];
-    if (row.gloss) lines.push(`   ↲ ${row.gloss}`);
+    const lines = [`🗯  “${row.term}”`];
+    if (row.fa) lines.push(`   ↲ ${row.fa}`);
+    if (row.gloss) lines.push(`   ${row.gloss}`);
     if (row.ex) lines.push(`   e.g. ${row.ex}`);
-    if (row.exfa) lines.push(`   در جمله: ${row.exfa}`);
+    if (row.exfa) lines.push(`   ↲ در جمله: ${row.exfa}`);
     const tag = this._bankTag(row);
     if (tag) lines.push(`   🏷 ${tag}`);
     return lines.join('\n');
@@ -2421,7 +2454,10 @@ class Fluentify {
     }
     if (rows.length > 40) lines.push(`   … و ${rows.length - 40} مورد دیگر`);
     lines.push('');
-    lines.push("Ask: 'what does no cap mean' or 'معنی bruh'");
+    // One example question per line, English first: three scripts on one line
+    // read as none of them.
+    lines.push("Ask about one of them: 'what does no cap mean'");
+    lines.push('   ↲ یا به فارسی: «معنی bruh چیه»');
     return lines.join('\n');
   }
 

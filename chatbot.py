@@ -1106,15 +1106,31 @@ class ChatBot:
                 best = scored[0][1]
 
         asked_norm = normalize_word(asked)
-        label = f"**{head}**" if asked_norm == head else f"**{asked}** → **{head}**"
+        # One language for the head line, whatever language the question was
+        # in. Asking in Persian used to put the Persian part of speech after
+        # the English head - "**ضرب‌المثل** → **proverb** /.../ — اسم" - so the
+        # head line belonged to neither reader. The head is English, and the
+        # Persian reader gets its own line immediately under it.
+        asked_fa = detect_lang(asked) == "fa"
+        head_only = asked_norm == head or asked_fa
+        label = f"**{head}**" if head_only else f"**{asked}** → **{head}**"
         line = f"📖 {label}{self._lex_ipa(entry)}"
-        pos_text = self._lex_pos_text(entry, lang)
-        if pos_text:
-            line += f" — {pos_text}"
+        pos_en = self._lex_pos_text(entry, "en")
+        if pos_en:
+            line += f" — {pos_en}"
         if len(senses) > 1:
-            line += (f" · {to_persian_digits(len(senses))} معنی" if lang == "fa"
-                     else f" · {len(senses)} meanings")
+            line += f" · {len(senses)} meanings"
         lines = [line]
+        fa_line = []
+        if asked_fa and asked_norm != head:
+            fa_line.append(asked)
+        pos_fa = self._lex_pos_text(entry, "fa")
+        if pos_fa and lang == "fa":
+            fa_line.append(pos_fa)
+        if len(senses) > 1 and lang == "fa":
+            fa_line.append(f"{to_persian_digits(len(senses))} معنی")
+        if fa_line:
+            lines.append("   ↲ " + " · ".join(fa_line))
 
         # Senses keep the source's order - renumbering them so the matching one
         # comes first made "sense 4 fits best" point at a line numbered 1. The
@@ -1135,7 +1151,13 @@ class ChatBot:
                 lines.append(f"   {num}. {meaning}{mark}")
                 lines.append(f"      {definition}")
             else:
-                lines.append(f"   {num}. {(meaning or definition)}{mark}")
+                # A sense with no Persian gloss is an English line all the way
+                # through, so it takes an English number: "۳. a flight
+                # maneuver" put a Persian numeral at the head of English text,
+                # which reads as a fault to the Persian reader and as a
+                # stranger to the English one.
+                n = num if meaning else str(shown)
+                lines.append(f"   {n}. {(meaning or definition)}{mark}")
             if example:
                 lines.append(f"      ▸ {example}")
         if context and best is not None:
@@ -1823,16 +1845,21 @@ class ChatBot:
         return " · ".join(x for x in (reg, cat) if x)
 
     def format_bank(self, row: dict) -> str:
-        head = f"🗯  “{row['term']}”"
+        """A slang word or idiom: English head, Persian under it, one per line.
+
+        The gloss is an English explanation, so it goes on an English line - it
+        used to be marked with the translation arrow, which told the reader the
+        English sentence underneath was the Persian one.
+        """
+        lines = [f"🗯  “{row['term']}”"]
         if row.get("fa"):
-            head += f" — {row['fa']}"
-        lines = [head]
+            lines.append(f"   ↲ {row['fa']}")
         if row.get("gloss"):
-            lines.append(f"   ↲ {row['gloss']}")
+            lines.append(f"   {row['gloss']}")
         if row.get("ex"):
             lines.append(f"   e.g. {row['ex']}")
         if row.get("exfa"):
-            lines.append(f"   در جمله: {row['exfa']}")
+            lines.append(f"   ↲ در جمله: {row['exfa']}")
         tag = self._bank_tag(row)
         if tag:
             lines.append(f"   🏷 {tag}")
@@ -1939,7 +1966,11 @@ class ChatBot:
         if len(rows) > 40:
             lines.append(f"   … و {len(rows) - 40} مورد دیگر")
         lines.append("")
-        lines.append("Ask: 'what does no cap mean' or 'معنی bruh'")
+        # The two example questions are one per line, English then Persian: the
+        # old version put an English instruction, an English quote and a Persian
+        # quote on one line and read as three languages of nothing.
+        lines.append("Ask about one of them: 'what does no cap mean'")
+        lines.append("   ↲ یا به فارسی: «معنی bruh چیه»")
         return "\n".join(lines)
 
     # ------------------------------------------------------------------ #
@@ -2884,9 +2915,14 @@ class ChatBot:
             entry, lang,
             "  Examples — مثال‌ها:" if lang == "en" else "  مثال‌ها — Examples:")
         if entry.get("syn"):
-            lines.append("  Synonyms — مترادف: " + " · ".join(entry["syn"]))
+            # A label pair, then the words on a line of their own. "Synonyms —
+            # مترادف: in fact · really" put Persian in the middle of the line,
+            # so the English that followed it was read backwards.
+            lines.append("  Synonyms — مترادف:")
+            lines.append("    " + " · ".join(entry["syn"]))
         if entry.get("ant"):
-            lines.append("  Antonyms — متضاد: " + " · ".join(entry["ant"]))
+            lines.append("  Antonyms — متضاد:")
+            lines.append("    " + " · ".join(entry["ant"]))
         return "\n".join(lines)
 
     def format_daily_expression(self, entry: dict, lang: str,
@@ -3373,19 +3409,36 @@ class ChatBot:
         return f"I don't have \"{target}\" in my glossary yet 📚\n   ↲ {hint}{example}"
 
     def format_lookup(self, target: str, entries, lang: str) -> str:
-        dom_id, en, fa = entries[0]
-        label = self.glossary[dom_id]["label"]
-        if lang == "fa":
-            extra = (
-                f" — چند معنی دیگر: {', '.join(e[1] + '، ' + e[2] for e in entries[1:3])}"
-                if len(entries) > 1 else ""
-            )
-            return f"«{target}» → {en} / {fa} ({label['fa']} / {label['en']}){extra}"
-        extra = (
-            f" — also: {', '.join(e[1] + ' (' + e[2] + ')' for e in entries[1:3])}"
-            if len(entries) > 1 else ""
-        )
-        return f'"{target}" → {fa}  ({label["en"]} / {label["fa"]}){extra}'
+        """A glossary word: the English head, then its Persian, one language a line.
+
+        This used to be a single line - '"bank" -> بانک  (place / مکان) — also:
+        bank (بانک)' - and it was the worst line in the app to read: English,
+        Persian, English, Persian, with the reader's eye crossing itself twice
+        and the bracket direction resolved by whichever script came first. The
+        English head owns the first line, everything Persian sits under it on
+        a line that starts right to left, and a second meaning is another
+        "also" line in the same order.
+        """
+        # The head is the English word even when the learner asked in
+        # Persian: asking «اتوبوس» used to answer with اتوبوس as the head and
+        # اتوبوس as the meaning, so the English word - the thing that was
+        # asked for - never appeared at all.
+        showing = entries[:3]
+        en = showing[0][1]
+        domains = []
+        for dom, _en, _fa in showing:
+            name = self.glossary[dom]["label"]["en"]
+            if name not in domains:
+                domains.append(name)
+        lines = [f'📖 **{en}** · ' + ' · '.join(domains)]
+        seen = set()
+        for dom, _en, fa in showing:
+            pair = (fa, self.glossary[dom]["label"]["fa"])
+            if pair in seen:
+                continue
+            seen.add(pair)
+            lines.append(f'   ↲ {pair[0]} · {pair[1]}')
+        return "\n".join(lines)
 
     # ------------------------------------------------------------------ #
     #  Core

@@ -1010,9 +1010,22 @@
      renderer writes on a line, the islands it emits inside an English one, the
      translation lines, and any element the app marks as Persian. A font stack
      is easy to override by accident; naming the surfaces it applies to is not. */
-  [lang="fa"], .fa, .dfa, .bl[dir="rtl"], .dline.fa, .msg.rtl, .gsec-b bdi.fa {
+  /* A Persian element is a Persian element anywhere in the app, not only in
+     the conversation. The panels used to give every one of these spans the
+     Persian face and nothing else, so a Persian word sat in a left-to-right
+     box: left-aligned, with its own punctuation opening on the wrong side.
+     Direction belongs to the element, so it is declared once here for every
+     class the panels use. */
+  [lang="fa"], .fa, .dfa, .pfa, .bfa, .bl[dir="rtl"], .dline.fa, .msg.rtl,
+  .gsec-b bdi.fa {
     font-family: var(--font-fa);
+    direction: rtl;
+    unicode-bidi: isolate;
   }
+  /* A Persian sentence on its own line starts at the right edge, the way the
+     reader's eye enters it; inline Persian keeps its place inside the
+     English line and only its own text is right-to-left. */
+  div.fa, p.fa, .dline.fa, .dfa, .pfa, .bfa.block { text-align: right; }
   .bl .fa { font-family: var(--font-fa); font-size: .97em; line-height: 2; }
   .bl[dir="rtl"] { line-height: 2.05; }
   .bl[dir="rtl"] .lat {
@@ -1138,9 +1151,13 @@
     font-size: 10.5px; color: var(--muted); overflow: hidden;
     text-overflow: ellipsis; white-space: nowrap; direction: ltr;
   }
+  /* The number is a fixed column, not a chip that changes width with its
+     digits: entry 9 and entry 100 have to start their word at the same x,
+     otherwise the list marches sideways down the page. */
   .bnum {
+    flex: 0 0 20px; box-sizing: border-box; text-align: center;
     font-size: 9.5px; color: var(--muted); background: rgba(43,48,73,.07);
-    border-radius: 5px; padding: 1px 5px; font-variant-numeric: tabular-nums;
+    border-radius: 5px; padding: 1px 2px; font-variant-numeric: tabular-nums;
   }
   .bday {
     font-size: 9.5px; color: #8a5a00; background: rgba(138,90,0,.10);
@@ -1183,6 +1200,23 @@
     border-radius: 12px; padding: 9px 11px 10px;
     border-inline-start: 3px solid var(--teal);
   }
+  /* A book entry is laid out on one gutter. The number sits in it, so the
+     word, the Persian meaning, the definition and the examples all start at
+     the same left edge; before this the head was indented by its number while
+     the definition started at the card edge, and the Persian meaning floated
+     at the far right of a third, different line - three alignments in one
+     entry, which is what made the list look scattered. English stays left to
+     right, Persian right to left on its own line under the word. */
+  /* 20px number column + the head's 6px gap: the definition and the examples
+     begin exactly under the word itself. */
+  .bword .bfa, .bword .bdef, .bex { margin-inline-start: 26px; }
+  .bword .bfa {
+    /* in an RTL element the inline start is the right edge, so this insets
+       the Persian from the right by the same width as the number gutter:
+       two lanes, each with its own margin, neither touching the card edge */
+    direction: rtl; text-align: right; unicode-bidi: plaintext;
+    line-height: 1.8; margin-top: 1px;
+  }
   .bwh { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
   .bwh b { font-size: 15px; }
   .bwh .ipa { font-size: 11px; color: var(--muted); }
@@ -1196,9 +1230,9 @@
     font-size: 11px; line-height: 1; padding: 4px 6px; color: var(--ink);
   }
   .bwh .bsay:hover { background: rgba(43,48,73,.07); }
-  .bword .bfa { font-size: 12.5px; color: #3f4a6b; margin-top: 3px; line-height: 1.95; }
-  .bword .bdef { font-size: 12px; color: var(--ink); margin-top: 3px; }
-  .bex { margin: 5px 0 0; padding: 0; list-style: none; }
+  .bword .bfa { font-size: 12.5px; color: #3f4a6b; }
+  .bword .bdef { font-size: 12px; color: var(--ink); margin-top: 4px; }
+  .bex { margin: 5px 0 0; margin-inline-start: 26px; padding: 0; list-style: none; }
   .bex li {
     display: flex; gap: 6px; align-items: baseline;
     font-size: 11.5px; color: #3f4a6b;
@@ -3049,14 +3083,15 @@
       <input id="ninput" type="text" dir="ltr" autocomplete="off" spellcheck="false"
              placeholder="One English sentence… / یک جملهٔ انگلیسی…"
              aria-label="Sentence to analyse">
-      <button type="button" id="ngo" class="nbtn">Analyse · تحلیل</button>
+      <button type="button" id="ngo" class="nbtn">Analyse · <bdi class="fa" lang="fa" dir="rtl">تحلیل</bdi></button>
     </div>
     <div class="nexamples" id="nexamples"></div>
     <div class="nresult" id="nresult" aria-live="polite"></div>
   </div>
 
   <div id="dpanel">
-    <h3>Today's English: one word, one expression, one conversation — انگلیسی امروز</h3>
+    <h3>Today's English: one word, one expression, one conversation —
+      <bdi class="fa" lang="fa" dir="rtl">انگلیسی امروز</bdi></h3>
     <div class="dpanelbar">
       <span class="ddate" id="ddate"></span>
       <div class="dtrack" role="progressbar" aria-label="Today's progress"
@@ -3066,7 +3101,7 @@
     <div class="dcards" id="dcards"></div>
     <div class="disk">
       <button type="button" class="dibtn" id="dcardtoggle" aria-pressed="true">Keep
-      today&rsquo;s English out of the chat — پنهان کردن کارت روزانه</button>
+      today&rsquo;s English out of the chat — <bdi class="fa" lang="fa" dir="rtl">پنهان کردن کارت روزانه</bdi></button>
     </div>
   </div>
 
@@ -3077,11 +3112,11 @@
              autocomplete="off" aria-label="Search vocabulary domains">
     </div>
     <div class="domains" id="domains"></div>
-    <div class="pempty" id="vempty" hidden>No domain matches that search. / دسته‌ای با این جست‌وجو پیدا نشد.</div>
+    <div class="pempty" id="vempty" hidden>No domain matches that search. / <bdi class="fa" lang="fa" dir="rtl">دسته‌ای با این جست‌وجو پیدا نشد.</bdi></div>
   </div>
 
   <div id="bpanel">
-    <h3>Books — کتاب‌ها</h3>
+    <h3>Books — <bdi class="fa" lang="fa" dir="rtl">کتاب‌ها</bdi></h3>
     <div class="bbooks" id="bbooks" aria-live="polite"></div>
   </div>
 
@@ -3173,7 +3208,7 @@
   </form>
 </div>
 
-<script src="bot.js?v=8dc811a8"></script>
+<script src="bot.js?v=39abcd97"></script>
 <script>
 /* Fluentify's mascot — the fox, cut from the one brand picture
    (brand/fox-source.png, via tools/build_brand.py). The header, the boot
@@ -4311,8 +4346,8 @@ const Player = (() => {
         ? '🔇 That clip is blocked on this device — open it on the web ' +
           'version. / این کلیپ روی این دستگاه مسدود است.'
         : code === 3
-          ? '🔇 This clip could not be decoded. / این کلیپ پخش نشد.'
-          : '🔇 Could not reach the audio — check your connection. / ' +
+          ? '🔇 This clip could not be decoded — این کلیپ پخش نشد.'
+          : '🔇 Could not reach the audio, check your connection — ' +
             'اتصال را بررسی کن.', 4200);
     });
     return audio;
@@ -4914,9 +4949,13 @@ const PanelSearch = (() => {
 
     const node = document.getElementById(panelId + 'count');
     if (node) {
-      node.textContent = q
-        ? `${shown} of ${state.items.length} · ${needle}`
-        : `${state.items.length} · نمایش همه`;
+      // Count in English, then the Persian label as its own island: appending
+      // «نمایش همه» to an English count made one left-to-right run out of both
+      // scripts, so the Persian sat in the middle of the line reading left to
+      // right.
+      node.innerHTML = q
+        ? `${shown} of ${state.items.length} · <bdi class="fa" lang="fa" dir="rtl">${escapeHtml(needle)}</bdi>`
+        : `${state.items.length} · <bdi class="fa" lang="fa" dir="rtl">نمایش همه</bdi>`;
     }
   }
 
@@ -4972,8 +5011,9 @@ const PanelSearch = (() => {
 
     const live = document.getElementById(panelId + 'count');
     const q = panel._search ? panel._search.value : '';
-    live.textContent = q
-      ? `… · ${q}` : `${items.length} · نمایش همه`;
+    live.innerHTML = q
+      ? `… · <bdi class="fa" lang="fa" dir="rtl">${escapeHtml(q)}</bdi>`
+      : `${items.length} · <bdi class="fa" lang="fa" dir="rtl">نمایش همه</bdi>`;
     // keep whatever is already typed rather than dropping it on a refresh
     if (q) apply(panelId, q);
   }
@@ -5228,11 +5268,14 @@ const STT = {
 
   onError(code) {
     const messages = {
-      'not-allowed': 'دسترسی به میکروفون داده نشد. / Microphone permission was denied.',
-      'service-not-allowed': 'سرویس گفتار در دسترس نیست. / The speech service is unavailable.',
-      'no-speech': 'چیزی نشنیدم — دوباره بگو. / Nothing heard — try again.',
-      'audio-capture': 'میکروفون پیدا نشد. / No microphone found.',
-      'network': 'شبکه لازم است برای این مرورگر. / This browser needs a network connection.',
+      /* A toast is one left-to-right paragraph, so the English comes first
+         and the Persian follows it; the reverse put a right-to-left run at
+         the start of the line, hanging off the left edge. */
+      'not-allowed': 'Microphone permission was denied — دسترسی به میکروفون داده نشد.',
+      'service-not-allowed': 'The speech service is unavailable — سرویس گفتار در دسترس نیست.',
+      'no-speech': 'Nothing heard, try again — چیزی نشنیدم، دوباره بگو.',
+      'audio-capture': 'No microphone found — میکروفون پیدا نشد.',
+      'network': 'This browser needs a network connection — شبکه لازم است برای این مرورگر.',
       'aborted': '',
     };
     const msg = messages[code];
@@ -5253,7 +5296,8 @@ const STT = {
     panel.hidden = false;
     const bits = [];
     if (this.listening) {
-      bits.push('<span class="stt-dot"></span><span class="stt-label">در حال شنیدن… / listening</span>');
+      bits.push('<span class="stt-dot"></span><span class="stt-label">listening… · ' +
+        '<bdi class="fa" lang="fa" dir="rtl">در حال شنیدن…</bdi></span>');
     }
     if (this.interim)
       bits.push('<span class="stt-interim">' + escapeHtml(this.interim) + '</span>');
@@ -5311,7 +5355,7 @@ function mountMic() {
   btn.id = 'mic';
   btn.className = 'mic';
   btn.type = 'button';
-  const LABEL = 'با میکروفون تایپ کن / dictate';
+  const LABEL = 'Dictate with the microphone — با میکروفون تایپ کن';
   btn.title = LABEL;
   btn.setAttribute('aria-label', LABEL);
   btn.innerHTML = MIC_ICON;
@@ -5323,7 +5367,7 @@ function mountMic() {
     // muted state and explain itself on tap.
     btn.setAttribute('aria-disabled', 'true');
     btn.title = STT.cfg?.web?.unsupported_message
-      || 'این مرورگر گفتار را تشخیص نمی‌دهد — تایپ کن. / This browser has no speech recognition — type instead.';
+      || 'This browser has no speech recognition — type instead. / این مرورگر گفتار را تشخیص نمی‌دهد — تایپ کن.';
     btn.setAttribute('aria-label', btn.title);
     btn.addEventListener('click', () => toast(btn.title, 4200));
   } else {
@@ -5441,7 +5485,7 @@ async function loadPhonetics() {
   try {
     sections = phoneticSections;
   } catch (e) {
-    view.innerHTML = '<div class="pblurb">Phonetics unavailable offline. / آموزش تلفظ در دسترس نیست.</div>';
+    view.innerHTML = '<div class="pblurb">Phonetics unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">آموزش تلفظ در دسترس نیست.</bdi></div>';
     return;
   }
   if (!sections.length) return;
@@ -5721,7 +5765,7 @@ async function loadBBC() {
       ? `${episodes.length} BBC episodes — ${episodes.length - ungradedN} graded ` +
         `${spread}. Each grade is set from the episode's transcript: vocabulary, ` +
         `sentence length and speaking pace.${tail}${dropped} ` +
-        'Audio plays from the offline mirror. / صدا از نسخه آفلاین پخش می‌شود.'
+        'Audio plays from the offline mirror. / <bdi class="fa" lang="fa" dir="rtl">صدا از نسخه آفلاین پخش می‌شود.</bdi>'
       : `${episodes.length} episodes from BBC Learning English. ` +
         'Audio plays from the offline mirror.';
     head.appendChild(note);
@@ -5934,7 +5978,7 @@ function showWord(entry) {
   if (entry.forms && entry.forms.length) {
     const lab = document.createElement('div');
     lab.className = 'wd-lab';
-    lab.textContent = 'Word architecture / ساختار واژه';
+    lab.innerHTML = 'Word architecture / <bdi class="fa" lang="fa" dir="rtl">ساختار واژه</bdi>';
     const grid = document.createElement('div');
     grid.className = 'wd-forms';
     entry.forms.forEach((f) => {
@@ -6017,7 +6061,8 @@ function paintWordArch() {
       slot.innerHTML = '';
       const lab = document.createElement('div');
       lab.className = 'wd-lab';
-      lab.innerHTML = '🧩 New words / <b>واژه‌های این سطح</b> — tap one to see its architecture';
+      lab.innerHTML = '🧩 New words of this level — tap one to see its architecture' +
+        ' / <bdi class="fa" lang="fa" dir="rtl">واژه‌های این سطح</bdi>';
       slot.appendChild(lab);
 
       // A1 has ~800 words; rendering them all at once is slow on a phone, so
@@ -6109,7 +6154,7 @@ async function loadPhrases() {
     await loadWordArch();
     paintWordArch();
   } catch (e) {
-    box.innerHTML = '<div class="pblurb">Sentences unavailable offline. / جملات در دسترس نیست.</div>';
+    box.innerHTML = '<div class="pblurb">Sentences unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">جملات در دسترس نیست.</bdi></div>';
   }
 }
 
@@ -6143,15 +6188,27 @@ function levelHead(level, count, noun, nounFa) {
   const b = document.createElement('b');
   b.className = 'lv';
   b.textContent = level;
+  // The band, then the count in English. The Persian name is its own island
+  // and the Persian noun sits with it, so no line here mixes the two scripts
+  // into one text run: "27 domains · دسته" was a single left-to-right string
+  // with a Persian word dropped in the middle of it.
+  const count_ = document.createElement('span');
+  count_.className = 'count';
+  count_.textContent = count + (noun || '');
   head.append(
     b,
     document.createTextNode(name.en),
     Object.assign(document.createElement('span'), {className: 'fa', textContent: name.fa}),
-    Object.assign(document.createElement('span'), {
-      className: 'count',
-      textContent: count + (noun || '') + (nounFa ? ' · ' + nounFa : ''),
-    }),
+    count_,
   );
+  if (nounFa) {
+    // the noun only: the count is already on the line in English, and
+    // "27 domains · دسته 27" said the number twice
+    const faCount = document.createElement('span');
+    faCount.className = 'count fa';
+    faCount.textContent = nounFa;
+    head.append(faCount);
+  }
   return head;
 }
 
@@ -6182,7 +6239,9 @@ async function loadVocabulary() {
       shown.forEach((d) => {
         const b = document.createElement('button');
         b.className = 'vbtn';
-        b.title = d.title_fa + ' — ' + d.count + ' words';
+        // English first, Persian at the end: a tooltip that opens with Persian
+        // then says "words" reads backwards for the learner it is aimed at.
+        b.title = d.title_en + ' — ' + d.title_fa + ' · ' + d.count + ' words';
         b.append(
           Object.assign(document.createElement('span'), {textContent: d.title_en}),
           Object.assign(document.createElement('span'), {className: 'n', textContent: d.count}),
@@ -6198,7 +6257,7 @@ async function loadVocabulary() {
     const empty = document.getElementById('vempty');
     if (empty) empty.hidden = !(filter && !box.children.length);
   } catch (e) {
-    box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / واژگان در دسترس نیست.</div>';
+    box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">واژگان در دسترس نیست.</bdi></div>';
   }
 }
 /* only one panel open at a time; the active header button is highlighted */
@@ -6473,13 +6532,14 @@ const Daily = (() => {
       '<div class="exrow"><span class="n">' + (i + 1) + '</span>' +
       '<div class="grow"><div class="dline">' + esc(ex.en) + '</div>' +
       faLine(ex.fa, 'dline fa') + '</div></div>').join('');
-    return rows ? '<div class="dlabel">Examples — مثال‌ها</div><div class="dex">' +
+    return rows ? '<div class="dlabel">Examples — <bdi class="fa" lang="fa" dir="rtl">مثال‌ها</bdi></div><div class="dex">' +
       rows + '</div>' : '';
   }
 
   function cardShell(kind, level, extraHead, body) {
     return '<div class="dtop"><span class="dico">' + CARD_ICON[kind] + '</span>' +
-      '<span class="dkind">' + KIND_EN[kind] + '<small>' + KIND_FA[kind] +
+      '<span class="dkind">' + KIND_EN[kind] +
+      '<small dir="rtl" lang="fa">' + KIND_FA[kind] +
       '</small></span><span class="spacer"></span>' + (extraHead || '') +
       (level ? '<span class="dlvl">' + esc(level) + '</span>' : '') +
       '</div>' + body;
@@ -6489,7 +6549,7 @@ const Daily = (() => {
     let html = '';
     const def = entry.def || {};
     if (def.en || def.fa) {
-      html += '<div class="dlabel">Meaning — معنی</div>' +
+      html += '<div class="dlabel">Meaning — <bdi class="fa" lang="fa" dir="rtl">معنی</bdi></div>' +
         '<div class="dline">' + esc(def.en) + '</div>' + faLine(def.fa, 'dline fa');
     }
     html += examples(entry);
@@ -6506,7 +6566,8 @@ const Daily = (() => {
 
   function expressionBody(entry) {
     let html = '';
-    [['use', 'Means — یعنی'], ['when', 'When — کجا به کار می‌رود']].forEach(([f, label]) => {
+    [['use', 'Means — <bdi class="fa" lang="fa" dir="rtl">یعنی</bdi>'],
+      ['when', 'When — <bdi class="fa" lang="fa" dir="rtl">کجا به کار می‌رود</bdi>']].forEach(([f, label]) => {
       const body = entry[f] || {};
       if (!body.en && !body.fa) return;
       html += '<div class="dlabel">' + label + '</div><div class="dline">' +
@@ -6515,7 +6576,7 @@ const Daily = (() => {
     html += examples(entry);
     const alt = entry.alt || {};
     if (alt.en) {
-      html += '<div class="dlabel">Also say — این هم می‌شود</div><div class="drow">' +
+      html += '<div class="dlabel">Also say — <bdi class="fa" lang="fa" dir="rtl">این هم می‌شود</bdi></div><div class="drow">' +
         '<div class="grow"><div class="dline">“' + esc(alt.en) + '”</div>' +
         faLine(alt.fa, 'dline fa') + '</div></div>';
     }
@@ -6583,7 +6644,7 @@ const Daily = (() => {
   function tools(kind) {
     return kind === 'conversations'
       ? '<div class="dtools"><button type="button" class="dbtn" data-persian="1" ' +
-        'aria-pressed="true">فارسی: روشن / Persian: on</button></div>'
+        'aria-pressed="true">Persian: on · <bdi class="fa" lang="fa" dir="rtl">فارسی: روشن</bdi></button></div>'
       : '';
   }
 
@@ -6599,7 +6660,8 @@ const Daily = (() => {
       : kind === 'expressions' ? expressionBody(entry)
       : conversationBody(entry);
     const head = '<div class="dtop"><span class="dico">' + CARD_ICON[kind] + '</span>' +
-      '<span class="dkind">' + KIND_EN[kind] + '<small>' + KIND_FA[kind] +
+      '<span class="dkind">' + KIND_EN[kind] +
+      '<small dir="rtl" lang="fa">' + KIND_FA[kind] +
       '</small></span><span class="spacer"></span>' + extraHead +
       (entry.level ? '<span class="dlvl">' + esc(entry.level) + '</span>' : '') +
       doneTick(entry.id, done) +
@@ -6639,7 +6701,7 @@ const Daily = (() => {
       if (el.cards) {
         el.cards.innerHTML = '<div class="dcard"><div class="dnone">' +
           'Today&rsquo;s English could not be loaded. Check the connection and open ' +
-          'this panel again.<br>درس امروز بارگذاری نشد — یک بار دیگر این بخش را باز کن.' +
+          'this panel again.<br><bdi class="fa" lang="fa" dir="rtl">درس امروز بارگذاری نشد — یک بار دیگر این بخش را باز کن.</bdi>' +
           '</div></div>';
       }
       return;
@@ -6695,7 +6757,7 @@ const Daily = (() => {
       if (def.fa) html += faLine(def.fa, 'dline fa');
       const ex = (entry.examples || [])[0];
       if (ex) {
-        html += '<div class="dlabel">Example — مثال</div><div class="dline">' +
+        html += '<div class="dlabel">Example — <bdi class="fa" lang="fa" dir="rtl">مثال</bdi></div><div class="dline">' +
           esc(ex.en) + '</div>' + faLine(ex.fa, 'dline fa');
       }
       return html;
@@ -6706,7 +6768,7 @@ const Daily = (() => {
       if (use.fa) html += faLine(use.fa, 'dline fa');
       const ex = (entry.examples || [])[0];
       if (ex) {
-        html += '<div class="dlabel">Example — مثال</div><div class="dline">' +
+        html += '<div class="dlabel">Example — <bdi class="fa" lang="fa" dir="rtl">مثال</bdi></div><div class="dline">' +
           esc(ex.en) + '</div>' + faLine(ex.fa, 'dline fa');
       }
       return html;
@@ -6721,7 +6783,7 @@ const Daily = (() => {
       '</div>' + faLine(t.fa) + '</div></div>').join('') + '</div>';
     if (turns.length > 2) {
       html += '<div class="dnote">' + (turns.length - 2) +
-        ' more lines in the panel. / ادامهٔ مکالمه در بخش امروز.' + '</div>';
+        ' more lines in the panel. / <bdi class="fa" lang="fa" dir="rtl">ادامهٔ مکالمه در بخش امروز.</bdi>' + '</div>';
     }
     return html;
   }
@@ -6777,7 +6839,8 @@ const Daily = (() => {
       'aria-valuemin="0" aria-valuemax="3" aria-valuenow="' + done + '">' +
       '<i style="width:' + Math.round((done / 3) * 100) + '%"></i></div>' + rows +
       '<div class="difoot">' +
-      '<button type="button" class="dibtn ghost" data-learn="1">Read all three — هر سه</button>' +
+      '<button type="button" class="dibtn ghost" data-learn="1">Read all three — ' +
+      '<bdi class="fa" lang="fa" dir="rtl">هر سه</bdi></button>' +
       '<span class="spacer"></span>' +
       '<button type="button" class="dibtn ghost" data-hide="1" ' +
       'title="Don&rsquo;t show again — دیگر نشان نده" ' +
@@ -6870,7 +6933,9 @@ const Daily = (() => {
           const more = r.querySelector('[data-more]');
           if (more) more.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
-        b.textContent = open ? 'Close all — بستن همه' : 'Read all three — هر سه';
+        b.innerHTML = open
+          ? 'Close all — <bdi class="fa" lang="fa" dir="rtl">بستن همه</bdi>'
+          : 'Read all three — <bdi class="fa" lang="fa" dir="rtl">هر سه</bdi>';
         b.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
@@ -6951,9 +7016,11 @@ const Daily = (() => {
     const b = document.getElementById('dcardtoggle');
     if (!b) return;
     const hidden = DailyStore.readCard().hidden;
-    b.textContent = hidden
-      ? 'Show today\u2019s English in the chat — نمایش کارت روزانه'
-      : 'Keep today\u2019s English out of the chat — پنهان کردن کارت روزانه';
+    // English instruction, then the Persian on its own island: the two used to
+    // be one string, so the Persian half was laid out left to right.
+    b.innerHTML = hidden
+      ? 'Show today\u2019s English in the chat — <bdi class="fa" lang="fa" dir="rtl">نمایش کارت روزانه</bdi>'
+      : 'Keep today\u2019s English out of the chat — <bdi class="fa" lang="fa" dir="rtl">پنهان کردن کارت روزانه</bdi>';
     b.setAttribute('aria-pressed', hidden ? 'false' : 'true');
   }
 
@@ -6976,7 +7043,12 @@ const Daily = (() => {
       b.addEventListener('click', () => {
         const card = b.closest('.dcard');
         const off = card.classList.toggle('persian-off');
-        b.textContent = off ? 'فارسی: خاموش / Persian: off' : 'فارسی: روشن / Persian: on';
+        // English first, the Persian toggle word after it as its own island:
+        // "فارسی: روشن / Persian: on" opened with a right-to-left run inside
+        // a left-to-right button, so the Persian hung off the left edge.
+        b.innerHTML = off
+          ? 'Persian: off · <bdi class="fa" lang="fa" dir="rtl">فارسی: خاموش</bdi>'
+          : 'Persian: on · <bdi class="fa" lang="fa" dir="rtl">فارسی: روشن</bdi>';
         b.setAttribute('aria-pressed', off ? 'false' : 'true');
       });
     });
@@ -7040,13 +7112,16 @@ async function loadDaily() {
 }
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
+/* English name first, Persian second, each in its own script run: these were
+   one string that opened Persian and closed English, on a line the reader
+   enters from the left. */
 const LEVEL_NAMES = {
-  A1: 'مبانی · Beginner',
-  A2: 'پایه · Elementary',
-  B1: 'متوسط · Intermediate',
-  B2: 'پیشرفته · Upper-Int.',
-  C1: 'پیشرفته · Advanced',
-  C2: 'تسلط · Proficiency',
+  A1: ['Beginner', 'مبانی'],
+  A2: ['Elementary', 'پایه'],
+  B1: ['Intermediate', 'متوسط'],
+  B2: ['Upper-Int.', 'پیشرفته'],
+  C1: ['Advanced', 'پیشرفته'],
+  C2: ['Proficiency', 'تسلط'],
 };
 /* Online the server reports the unlock state; offline (APK) the flag lives on
    the local bot engine, so ask whichever one is present. */
@@ -7073,9 +7148,13 @@ async function loadGrammar() {
       wrap.className = 'glevel';
       const head = document.createElement('div');
       head.className = 'glevel-head';
+      const band = LEVEL_NAMES[lv];
       head.append(
         document.createTextNode(lv + ' · '),
-        Object.assign(document.createElement('b'), {textContent: LEVEL_NAMES[lv] || lv}),
+        Object.assign(document.createElement('b'), {textContent: band ? band[0] : lv}),
+        Object.assign(document.createElement('span'), {
+          className: 'fa', textContent: band ? band[1] : '',
+        }),
         Object.assign(document.createElement('span'), {
           className: 'count', textContent: groups[lv].length,
         }),
@@ -7536,7 +7615,8 @@ const Review = {
         '<div class="rempty"><span class="big">⭐</span>' +
         'No words saved yet.<br>Open any word card and tap <b>☆ Save</b> — or type ' +
         '<b>"save apple to review"</b>.<br>' +
-        'هنوز واژه‌ای ذخیره نشده. هر کارت واژه را باز کنید و ☆ را بزنید.</div>';
+        '<bdi class="fa" lang="fa" dir="rtl">هنوز واژه‌ای ذخیره نشده. هر کارت واژه را باز ' +
+        'کنید و ☆ را بزنید.</bdi></div>';
       return;
     }
     top.style.display = '';
@@ -7719,11 +7799,11 @@ const Books = {
     const box = this.box();
     if (!box) return;
     if (!this.data) {
-      box.innerHTML = '<div class="pblurb">Reading the library… / در حال خواندن کتاب‌ها…</div>';
+      box.innerHTML = '<div class="pblurb">Reading the library… / <bdi class="fa" lang="fa" dir="rtl">در حال خواندن کتاب‌ها…</bdi></div>';
       try {
         this.data = await loadJSON('books');
       } catch (e) {
-        box.innerHTML = '<div class="pblurb">The books could not be read. / کتاب‌ها خوانده نشدند.</div>';
+        box.innerHTML = '<div class="pblurb">The books could not be read. / <bdi class="fa" lang="fa" dir="rtl">کتاب‌ها خوانده نشدند.</bdi></div>';
         return;
       }
     }
@@ -7752,11 +7832,15 @@ const Books = {
     return (book.lessons || []).reduce((n, l) => n + (l.words || []).length, 0);
   },
 
-  back(label, fn) {
+  /* Back one level. The English word for where you are going, then the
+     Persian, isolated: "← Lessons · درس‌ها" was one text node, so the
+     Persian half of it ran left to right. */
+  back(en, fa, fn) {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'bback';
-    b.textContent = '← ' + label;
+    b.innerHTML = '← ' + escapeHtml(en) +
+      (fa ? ' · <bdi class="fa" lang="fa" dir="rtl">' + escapeHtml(fa) + '</bdi>' : '');
     b.onclick = fn;
     return b;
   },
@@ -7764,7 +7848,7 @@ const Books = {
   /* shelf: one card per book */
   paintBooks(box, books) {
     if (!books.length) {
-      box.innerHTML = '<div class="pblurb">No book is in the library yet. / هنوز کتابی در کتابخانه نیست.</div>';
+      box.innerHTML = '<div class="pblurb">No book is in the library yet. / <bdi class="fa" lang="fa" dir="rtl">هنوز کتابی در کتابخانه نیست.</bdi></div>';
       return;
     }
     books.forEach((book) => {
@@ -7802,7 +7886,7 @@ const Books = {
 
   /* one book: its lessons */
   paintLessons(box, book) {
-    box.appendChild(this.back('Books · کتاب‌ها', () => {
+    box.appendChild(this.back('Books', 'کتاب‌ها', () => {
       this.bookId = null;
       this.lesson = null;
       this.paint();
@@ -7867,7 +7951,7 @@ const Books = {
     // away: the lesson is twelve cards long on a phone
     const bar = document.createElement('div');
     bar.className = 'bstick';
-    bar.appendChild(this.back('Lessons · درس‌ها', () => {
+    bar.appendChild(this.back('Lessons', 'درس‌ها', () => {
       this.lesson = null;
       this.paint();
     }));
@@ -8176,7 +8260,7 @@ function renderAnalysis(r, opts) {
     '</b>' + (r.analysedSentence && r.analysedSentence !== r.originalSentence
       ? '<div class="dfa">فقط بخش انگلیسی همین جمله تحلیل شد.</div>' : '') + '</div>');
 
-  out.push('<div class="nlabel">Words — کلمات</div><div class="ntable">');
+  out.push('<div class="nlabel">Words — <bdi class="fa" lang="fa" dir="rtl">کلمات</bdi></div><div class="ntable">');
   for (const t of words) {
     out.push('<div class="nrow">' +
       '<span class="nw">' + escapeHtml(t.text) + '</span>' +
@@ -8192,7 +8276,7 @@ function renderAnalysis(r, opts) {
 
   const details = (r.structureDetails || []).filter((d) => d.label_en);
   if (details.length) {
-    out.push('<div class="nlabel">Structures — ساختارها</div>');
+    out.push('<div class="nlabel">Structures — <bdi class="fa" lang="fa" dir="rtl">ساختارها</bdi></div>');
     for (const d of details) {
       const topic = NLP.TOPIC[d.id];
       const words2 = (d.evidence || []).map((i) => (r.tokens[i] ? r.tokens[i].text : ''))
@@ -8203,7 +8287,7 @@ function renderAnalysis(r, opts) {
         '<div class="nnote2">' + escapeHtml(d.note_en || '') + '</div>' +
         (d.note_fa ? '<div class="dfa">' + escapeHtml(d.note_fa) + '</div>' : '') +
         (topic ? '<button type="button" class="nchip" data-ask="' + escapeHtml(topic) +
-          '">📘 ' + escapeHtml(topic) + ' · درس</button>' : '') +
+          '">📘 ' + escapeHtml(topic) + ' · <bdi class="fa" lang="fa" dir="rtl">درس</bdi></button>' : '') +
         '</div>');
     }
   }
@@ -8214,7 +8298,7 @@ function renderAnalysis(r, opts) {
      contraction the tagger expanded, a paste that was cut to length. */
   const caveats = (r.limitations || []).filter((l) => !/dependency parser/.test(l));
   if (caveats.length) {
-    out.push('<div class="nlabel">What this cannot do — محدودیت‌ها</div><ul class="nlim">');
+    out.push('<div class="nlabel">What this cannot do — <bdi class="fa" lang="fa" dir="rtl">محدودیت‌ها</bdi></div><ul class="nlim">');
     for (const l of caveats) out.push('<li>' + escapeHtml(l) + '</li>');
     out.push('</ul>');
   }
@@ -8251,11 +8335,12 @@ const Analyser = (() => {
     const text = (sentence || (box ? box.value : '') || '').trim();
     if (!text) { box && box.focus(); return; }
     if (box) box.value = text;
-    paint('<div class="nbusy">🔬 analysing on this device… · در حال تحلیل…</div>');
+    paint('<div class="nbusy">🔬 analysing on this device… · <bdi class="fa" lang="fa" dir="rtl">در حال تحلیل…</bdi></div>');
     try {
       paint(renderAnalysis(await NLP.analyze(text)));
     } catch (e) {
-      paint('<div class="nfail">⚠️ ' + escapeHtml(e.message) + '<br>تحلیل انجام نشد.</div>');
+      paint('<div class="nfail">⚠️ ' + escapeHtml(e.message) +
+        '<br><bdi class="fa" lang="fa" dir="rtl">تحلیل انجام نشد.</bdi></div>');
     }
   }
 
