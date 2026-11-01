@@ -133,6 +133,12 @@ CASES = [
     "معنی courage چیه", "معنی next چیه", "مترادف کلمه beautiful رو بگو",
     "چند مثال با achieve بزن", "can you explain معنی achieve",
     "what forms does go have", "merci", "next",
+    # a whole sentence stored in the phrase bank answers with its translation,
+    # in either direction; the typographic apostrophe in the bank must match a
+    # straight one from the keyboard
+    "spill the tea", "let's hit the road", "I'm swamped with work.",
+    "don't roast me", "بزن بریم تو جاده", "is this seat taken?",
+    "my hovercraft is full of eels",
 ]
 
 

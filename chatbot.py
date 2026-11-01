@@ -505,6 +505,26 @@ def normalize_word(text: str) -> str:
     return normalize_en(text)
 
 
+APOSTROPHES = str.maketrans({"’": "'", "‘": "'", "`": "'", "´": "'"})
+
+
+def phrase_key(text: str) -> str:
+    """A sentence's key: each word normalized, the words kept apart.
+
+    normalize_word() drops whitespace on purpose - it is comparing single
+    dictionary words, where "ice cream" and "icecream" should meet. Whole
+    sentences need the opposite: the spaces are the difference between one
+    sentence and another, so they are normalized word by word and rejoined.
+    Mirrored by phraseKey() in bot.js.
+    """
+    # The sentence bank is written with typographic apostrophes ("Don’t") and
+    # a learner types the straight one ("Don't"). normalize_en() keeps only the
+    # straight form, so without this the two never meet.
+    text = str(text or "").translate(APOSTROPHES)
+    words = [normalize_word(part) for part in text.split()]
+    return " ".join(w for w in words if w)
+
+
 def edit_distance(a: str, b: str) -> int:
     """Levenshtein distance, shared with the JavaScript engine."""
     if a == b:
@@ -2079,6 +2099,36 @@ class ChatBot:
     # ------------------------------------------------------------------ #
     #  Pronunciation — how do you SAY it
     # ------------------------------------------------------------------ #
+    def lookup_phrase_exact(self, text: str) -> dict | None:
+        """The whole sentence, as stored - "spill the tea", "چه خبر؟".
+
+        Exact, not substring, and only for something with more than one word:
+        a short question that happens to contain a stored sentence must not be
+        answered as that sentence, which is why lookup_phrase()'s containment
+        rule is not reused here. Either side matches, so a Persian sentence
+        answers with its English.
+        """
+        key = phrase_key(text)
+        if not key or len(key.split()) < 2:
+            return None
+        for topic in self.phrases.values():
+            for line in topic["phrases"]:
+                if (phrase_key(line["en"]) == key
+                        or phrase_key(line.get("fa", "")) == key):
+                    return line
+        return None
+
+    @staticmethod
+    def format_phrase_pair(line: dict, lang: str) -> str:
+        """One stored sentence: English shown first, translation beneath."""
+        if lang == "fa":
+            return (f"💬 «{line['fa']}»\n"
+                    f"   ↲ {line['en']}\n"
+                    f"   ↲ فهرست کامل جملات: «جملات»")
+        return (f"💬 “{line['en']}”\n"
+                f"   ↲ {line['fa']}\n"
+                f"   ↲ Full list: 'sentences'")
+
     def lookup_phrase(self, phrase: str) -> dict | None:
         """Find a whole sentence in phrases.json so 'thank you' still answers.
 
@@ -3629,6 +3679,12 @@ class ChatBot:
                 return self.format_lookup(word, entries, lang)
             if word and normalize_word(word):
                 return self.lex_or_not_found(word, lang)
+
+        # A whole sentence we hold, in either language: a learner who typed
+        # "spill the tea" wants that sentence's translation, not the menu.
+        pair = self.lookup_phrase_exact(text)
+        if pair:
+            return self.format_phrase_pair(pair, lang)
 
         # Language-specific fallbacks. The exact phrases "I'm not sure I
         # understand" / "متوجه نشدم" are kept as flow-test markers; the rest

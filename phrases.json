@@ -3756,6 +3756,1426 @@
      "fa": "در هر حال، کاری می‌کنیم که درست بشه."
     }
    ]
+  },
+  "informal_greetings": {
+   "title": {
+    "en": "Informal Greetings & Catching Up",
+    "fa": "احوال‌پرسی خودمانی"
+   },
+   "keywords": {
+    "en": [
+     "informal greetings",
+     "catch up",
+     "how's it going",
+     "long time no see"
+    ],
+    "fa": [
+     "سلام خودمانی",
+     "احوال‌پرسی",
+     "چه خبر",
+     "گپ زدن"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "Hey, how’s it going?",
+     "fa": "سلام، اوضاع چطوره؟"
+    },
+    {
+     "en": "What’s up?",
+     "fa": "چه خبر؟"
+    },
+    {
+     "en": "Long time no see!",
+     "fa": "خیلی وقته ندیدمت!"
+    },
+    {
+     "en": "How’ve you been?",
+     "fa": "این مدت چطور بودی؟"
+    },
+    {
+     "en": "Not much, just chilling.",
+     "fa": "خبر خاصی نیست، دارم استراحت می‌کنم."
+    },
+    {
+     "en": "Good to see you again.",
+     "fa": "خوشحالم دوباره می‌بینمت."
+    },
+    {
+     "en": "You look great today!",
+     "fa": "امروز خیلی خوب به نظر میای!"
+    },
+    {
+     "en": "What have you been up to?",
+     "fa": "این مدت مشغول چی بودی؟"
+    },
+    {
+     "en": "Same old, same old.",
+     "fa": "مثل همیشه، چیز خاصی نیست."
+    },
+    {
+     "en": "I’ve missed hanging out with you.",
+     "fa": "دلم برای وقت گذروندن باهات تنگ شده."
+    },
+    {
+     "en": "How’s everything at home?",
+     "fa": "خونه همه‌چی روبه‌راهه؟"
+    },
+    {
+     "en": "Can’t complain, really.",
+     "fa": "راستش جای شکایتی نیست."
+    },
+    {
+     "en": "It’s been a crazy week.",
+     "fa": "هفته خیلی شلوغی بود."
+    },
+    {
+     "en": "I’m glad we finally caught up.",
+     "fa": "خوشحالم بالاخره تونستیم گپ بزنیم."
+    },
+    {
+     "en": "Take care of yourself, okay?",
+     "fa": "مراقب خودت باش، باشه؟"
+    },
+    {
+     "en": "Catch you later!",
+     "fa": "بعداً می‌بینمت!"
+    },
+    {
+     "en": "See you around!",
+     "fa": "فعلاً، بازم می‌بینمت!"
+    },
+    {
+     "en": "Have a good one!",
+     "fa": "روز خوبی داشته باشی!"
+    },
+    {
+     "en": "Say hi to everyone for me.",
+     "fa": "از طرف من به همه سلام برسون."
+    },
+    {
+     "en": "Don’t be a stranger!",
+     "fa": "بی‌خبر نمون، گاهی خبر بده!"
+    }
+   ],
+   "level": "A2"
+  },
+  "informal_daily": {
+   "title": {
+    "en": "Daily Life & Routine",
+    "fa": "روزمرگی خودمانی"
+   },
+   "keywords": {
+    "en": [
+     "informal daily life",
+     "daily routine informal",
+     "my day"
+    ],
+    "fa": [
+     "روزمرگی",
+     "برنامه روزانه",
+     "زندگی روزمره"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I just woke up.",
+     "fa": "تازه بیدار شدم."
+    },
+    {
+     "en": "I’m running a little late.",
+     "fa": "یه کم دیرم شده."
+    },
+    {
+     "en": "I’m heading out now.",
+     "fa": "الان دارم می‌رم بیرون."
+    },
+    {
+     "en": "I’ll be back in a bit.",
+     "fa": "یه کم دیگه برمی‌گردم."
+    },
+    {
+     "en": "I’ve got a lot on my plate today.",
+     "fa": "امروز کلی کار ریخته سرم."
+    },
+    {
+     "en": "I need a quick break.",
+     "fa": "یه استراحت کوتاه لازم دارم."
+    },
+    {
+     "en": "I haven’t had coffee yet.",
+     "fa": "هنوز قهوه نخوردم."
+    },
+    {
+     "en": "I’m starving!",
+     "fa": "از گشنگی دارم می‌میرم!"
+    },
+    {
+     "en": "Let’s grab something to eat.",
+     "fa": "بیا یه چیزی بخوریم."
+    },
+    {
+     "en": "I’m too tired to cook.",
+     "fa": "انقدر خسته‌ام که حوصله آشپزی ندارم."
+    },
+    {
+     "en": "I’ll just order in.",
+     "fa": "یه چیزی سفارش می‌دم بیارن."
+    },
+    {
+     "en": "I’m gonna take a nap.",
+     "fa": "می‌خوام یه چرت بزنم."
+    },
+    {
+     "en": "I need to get some sleep.",
+     "fa": "باید یه کم بخوابم."
+    },
+    {
+     "en": "I slept through my alarm.",
+     "fa": "زنگ ساعت رو نشنیدم و خواب موندم."
+    },
+    {
+     "en": "My day’s been pretty chill.",
+     "fa": "امروزم نسبتاً آروم بوده."
+    },
+    {
+     "en": "I have errands to run.",
+     "fa": "باید چند تا کار بیرون انجام بدم."
+    },
+    {
+     "en": "I’m stuck in traffic.",
+     "fa": "تو ترافیک گیر کردم."
+    },
+    {
+     "en": "I’m almost home.",
+     "fa": "دیگه نزدیک خونه‌ام."
+    },
+    {
+     "en": "I’ll do it first thing tomorrow.",
+     "fa": "فردا اول وقت انجامش می‌دم."
+    },
+    {
+     "en": "I’m calling it a day.",
+     "fa": "دیگه کار امروز رو تموم می‌کنم."
+    }
+   ],
+   "level": "A2"
+  },
+  "informal_plans": {
+   "title": {
+    "en": "Plans & Invitations",
+    "fa": "قرار و دعوت"
+   },
+   "keywords": {
+    "en": [
+     "making plans",
+     "invitations",
+     "hanging out",
+     "are you free tonight"
+    ],
+    "fa": [
+     "قرار گذاشتن",
+     "دعوت کردن",
+     "بیرون رفتن"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "You free tonight?",
+     "fa": "امشب وقت داری؟"
+    },
+    {
+     "en": "Wanna hang out?",
+     "fa": "می‌خوای بریم بیرون یه دوری بزنیم؟"
+    },
+    {
+     "en": "I’m down!",
+     "fa": "من پایه‌ام!"
+    },
+    {
+     "en": "Count me in.",
+     "fa": "رو منم حساب کن."
+    },
+    {
+     "en": "Sounds like a plan.",
+     "fa": "به نظرم برنامه خوبیه."
+    },
+    {
+     "en": "Let’s play it by ear.",
+     "fa": "فعلاً ببینیم چی پیش میاد."
+    },
+    {
+     "en": "I might be able to make it.",
+     "fa": "شاید بتونم بیام."
+    },
+    {
+     "en": "I’ll let you know.",
+     "fa": "بهت خبر می‌دم."
+    },
+    {
+     "en": "Can we do it another day?",
+     "fa": "می‌شه یه روز دیگه انجامش بدیم؟"
+    },
+    {
+     "en": "Something came up.",
+     "fa": "یه کاری پیش اومد."
+    },
+    {
+     "en": "Sorry, I can’t make it.",
+     "fa": "ببخشید، نمی‌تونم بیام."
+    },
+    {
+     "en": "Rain check?",
+     "fa": "بذار برای یه وقت دیگه، باشه؟"
+    },
+    {
+     "en": "Let’s meet halfway.",
+     "fa": "بیا یه جای وسط راه همدیگه رو ببینیم."
+    },
+    {
+     "en": "What time works for you?",
+     "fa": "چه ساعتی برات مناسبه؟"
+    },
+    {
+     "en": "I’m flexible.",
+     "fa": "هر وقت باشه برام فرقی نداره."
+    },
+    {
+     "en": "Let’s keep it low-key.",
+     "fa": "بیا یه برنامه ساده و بی‌سروصدا داشته باشیم."
+    },
+    {
+     "en": "Bring whoever you want.",
+     "fa": "هر کی رو خواستی با خودت بیار."
+    },
+    {
+     "en": "Don’t forget to text me.",
+     "fa": "یادت نره بهم پیام بدی."
+    },
+    {
+     "en": "I’m on my way.",
+     "fa": "تو راهم."
+    },
+    {
+     "en": "See you there!",
+     "fa": "اونجا می‌بینمت!"
+    }
+   ],
+   "level": "A2"
+  },
+  "informal_opinions": {
+   "title": {
+    "en": "Opinions & Reactions",
+    "fa": "نظر و واکنش"
+   },
+   "keywords": {
+    "en": [
+     "informal opinions",
+     "reactions",
+     "what do you think casually"
+    ],
+    "fa": [
+     "نظر دادن خودمانی",
+     "واکنش",
+     "موافقت خودمانی"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "That’s awesome!",
+     "fa": "خیلی خفنه!"
+    },
+    {
+     "en": "No way!",
+     "fa": "نه بابا!"
+    },
+    {
+     "en": "Seriously?",
+     "fa": "جدی می‌گی؟"
+    },
+    {
+     "en": "You’ve gotta be kidding me.",
+     "fa": "داری شوخی می‌کنی دیگه!"
+    },
+    {
+     "en": "That makes sense.",
+     "fa": "منطقیه."
+    },
+    {
+     "en": "Fair enough.",
+     "fa": "قبول، حرفت منطقیه."
+    },
+    {
+     "en": "I see what you mean.",
+     "fa": "می‌فهمم منظورت چیه."
+    },
+    {
+     "en": "I’m not so sure about that.",
+     "fa": "خیلی مطمئن نیستم درسته باشه."
+    },
+    {
+     "en": "I’m with you on this one.",
+     "fa": "تو این مورد باهات موافقم."
+    },
+    {
+     "en": "I don’t buy it.",
+     "fa": "باورش نمی‌کنم."
+    },
+    {
+     "en": "That’s a bit much.",
+     "fa": "دیگه یه کم زیاده‌رویه."
+    },
+    {
+     "en": "It’s not a big deal.",
+     "fa": "چیز مهمی نیست."
+    },
+    {
+     "en": "That’s a game changer.",
+     "fa": "این دیگه همه‌چی رو عوض می‌کنه."
+    },
+    {
+     "en": "I couldn’t agree more.",
+     "fa": "کاملاً باهات موافقم."
+    },
+    {
+     "en": "You have a point.",
+     "fa": "حرفت حسابه."
+    },
+    {
+     "en": "That’s not really my thing.",
+     "fa": "خیلی باب میلم نیست."
+    },
+    {
+     "en": "I’m all for it.",
+     "fa": "کاملاً موافقشم."
+    },
+    {
+     "en": "I’m not feeling it.",
+     "fa": "خیلی به دلم نمی‌شینه."
+    },
+    {
+     "en": "That’s wild!",
+     "fa": "عجب چیز عجیبی!"
+    },
+    {
+     "en": "I’m honestly impressed.",
+     "fa": "واقعاً تحت تأثیر قرار گرفتم."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_friends": {
+   "title": {
+    "en": "Friends & Relationships",
+    "fa": "دوستی و رابطه"
+   },
+   "keywords": {
+    "en": [
+     "friendship talk",
+     "relationships informal",
+     "making up with a friend"
+    ],
+    "fa": [
+     "دوستی",
+     "رابطه",
+     "آشتی کردن"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "We go way back.",
+     "fa": "ما از خیلی وقت پیش همدیگه رو می‌شناسیم."
+    },
+    {
+     "en": "She’s got my back.",
+     "fa": "اون همیشه هوامو داره."
+    },
+    {
+     "en": "I’ve got your back.",
+     "fa": "من هواتو دارم."
+    },
+    {
+     "en": "Don’t take it personally.",
+     "fa": "به خودت نگیر."
+    },
+    {
+     "en": "I didn’t mean it like that.",
+     "fa": "منظورم اون چیزی نبود که فکر کردی."
+    },
+    {
+     "en": "We’re cool now.",
+     "fa": "الان دیگه با هم اوکی‌ایم."
+    },
+    {
+     "en": "Let’s clear the air.",
+     "fa": "بیا سوءتفاهم رو برطرف کنیم."
+    },
+    {
+     "en": "I need some space.",
+     "fa": "یه کم به تنهایی نیاز دارم."
+    },
+    {
+     "en": "We really hit it off.",
+     "fa": "از همون اول خیلی با هم جور شدیم."
+    },
+    {
+     "en": "He’s easy to talk to.",
+     "fa": "خیلی راحت می‌شه باهاش حرف زد."
+    },
+    {
+     "en": "I feel you.",
+     "fa": "کاملاً درکت می‌کنم."
+    },
+    {
+     "en": "You can count on me.",
+     "fa": "می‌تونی روم حساب کنی."
+    },
+    {
+     "en": "Thanks for being there.",
+     "fa": "ممنون که کنارم بودی."
+    },
+    {
+     "en": "I didn’t want to let you down.",
+     "fa": "نمی‌خواستم ناامیدت کنم."
+    },
+    {
+     "en": "I owe you one.",
+     "fa": "یه دونه بهت بدهکارم."
+    },
+    {
+     "en": "It’s on me this time.",
+     "fa": "این دفعه مهمون من."
+    },
+    {
+     "en": "We should talk more often.",
+     "fa": "باید بیشتر با هم حرف بزنیم."
+    },
+    {
+     "en": "I’m here if you need me.",
+     "fa": "اگه به من نیاز داشتی، هستم."
+    },
+    {
+     "en": "No hard feelings.",
+     "fa": "دلخوری‌ای نیست."
+    },
+    {
+     "en": "Let’s start fresh.",
+     "fa": "بیا از نو شروع کنیم."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_feelings": {
+   "title": {
+    "en": "Feelings & Support",
+    "fa": "احساس و دلجویی"
+   },
+   "keywords": {
+    "en": [
+     "feelings informal",
+     "supporting a friend",
+     "cheering someone up"
+    ],
+    "fa": [
+     "احساس",
+     "دلجویی",
+     "روحیه دادن"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I’m feeling a bit off today.",
+     "fa": "امروز یه کم حالم خوب نیست."
+    },
+    {
+     "en": "I’m in a great mood.",
+     "fa": "حسابی سرحالم."
+    },
+    {
+     "en": "I’m kind of stressed out.",
+     "fa": "یه کم استرس دارم."
+    },
+    {
+     "en": "I’m freaking out a little.",
+     "fa": "یه کم دارم دست‌وپامو گم می‌کنم."
+    },
+    {
+     "en": "That really got to me.",
+     "fa": "اون واقعاً روم اثر گذاشت."
+    },
+    {
+     "en": "I’m over the moon!",
+     "fa": "از خوشحالی رو ابرام!"
+    },
+    {
+     "en": "I’m bummed out.",
+     "fa": "حسابی تو ذوقم خورده."
+    },
+    {
+     "en": "I just need to vent.",
+     "fa": "فقط می‌خوام یه کم درد دل کنم."
+    },
+    {
+     "en": "That sounds rough.",
+     "fa": "خیلی سخت به نظر میاد."
+    },
+    {
+     "en": "Hang in there.",
+     "fa": "دووم بیار، درست می‌شه."
+    },
+    {
+     "en": "You’ve got this.",
+     "fa": "از پسش برمیای."
+    },
+    {
+     "en": "Take it easy.",
+     "fa": "به خودت سخت نگیر."
+    },
+    {
+     "en": "Don’t beat yourself up.",
+     "fa": "این‌قدر خودتو سرزنش نکن."
+    },
+    {
+     "en": "It’s okay to feel that way.",
+     "fa": "طبیعیه که این حس رو داشته باشی."
+    },
+    {
+     "en": "I’m rooting for you.",
+     "fa": "من طرفدارتم و برات آرزوی موفقیت دارم."
+    },
+    {
+     "en": "I needed to hear that.",
+     "fa": "لازم داشتم اینو بشنوم."
+    },
+    {
+     "en": "That means a lot to me.",
+     "fa": "این برام خیلی ارزش داره."
+    },
+    {
+     "en": "I’m proud of you.",
+     "fa": "بهت افتخار می‌کنم."
+    },
+    {
+     "en": "I’m feeling much better now.",
+     "fa": "الان خیلی بهترم."
+    },
+    {
+     "en": "One step at a time.",
+     "fa": "قدم‌به‌قدم پیش برو."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_work": {
+   "title": {
+    "en": "Work & Study",
+    "fa": "کار و درس خودمانی"
+   },
+   "keywords": {
+    "en": [
+     "work talk informal",
+     "study talk",
+     "office chat"
+    ],
+    "fa": [
+     "حرف کار",
+     "درس خواندن",
+     "محیط کار"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I’m swamped with work.",
+     "fa": "سرم خیلی با کار شلوغه."
+    },
+    {
+     "en": "I’m working on it.",
+     "fa": "دارم روش کار می‌کنم."
+    },
+    {
+     "en": "I’ll get back to you.",
+     "fa": "بعداً بهت جواب می‌دم."
+    },
+    {
+     "en": "Can you give me a hand?",
+     "fa": "می‌شه یه کم کمکم کنی؟"
+    },
+    {
+     "en": "I’m stuck on this part.",
+     "fa": "تو این قسمت گیر کردم."
+    },
+    {
+     "en": "I finally figured it out.",
+     "fa": "بالاخره فهمیدم چطوریه."
+    },
+    {
+     "en": "I’m still getting the hang of it.",
+     "fa": "هنوز دارم قلقش رو یاد می‌گیرم."
+    },
+    {
+     "en": "Let’s go over it again.",
+     "fa": "بیا یه بار دیگه مرورش کنیم."
+    },
+    {
+     "en": "I’m a little rusty.",
+     "fa": "یه کم از تمرین دور بودم."
+    },
+    {
+     "en": "I totally blanked during the test.",
+     "fa": "سر امتحان ذهنم کامل خالی شد."
+    },
+    {
+     "en": "I pulled an all-nighter.",
+     "fa": "کل شب بیدار موندم."
+    },
+    {
+     "en": "I’m behind on my homework.",
+     "fa": "از تکلیفام عقب افتادم."
+    },
+    {
+     "en": "I’ll catch up this weekend.",
+     "fa": "آخر هفته عقب‌افتادگی‌هام رو جبران می‌کنم."
+    },
+    {
+     "en": "That went over my head.",
+     "fa": "اون رو اصلاً نفهمیدم."
+    },
+    {
+     "en": "Can you break it down for me?",
+     "fa": "می‌شه ساده‌تر و مرحله‌به‌مرحله توضیحش بدی؟"
+    },
+    {
+     "en": "I nailed it!",
+     "fa": "ترکوندم!"
+    },
+    {
+     "en": "I messed that up.",
+     "fa": "اون رو خراب کردم."
+    },
+    {
+     "en": "Let’s wrap this up.",
+     "fa": "بیا دیگه جمعش کنیم."
+    },
+    {
+     "en": "I need to focus for a bit.",
+     "fa": "باید یه کم تمرکز کنم."
+    },
+    {
+     "en": "I’m making progress.",
+     "fa": "دارم پیشرفت می‌کنم."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_phone": {
+   "title": {
+    "en": "Phone, Chat & Internet",
+    "fa": "گوشی، چت و اینترنت"
+   },
+   "keywords": {
+    "en": [
+     "phone talk",
+     "texting",
+     "online chat",
+     "internet problems"
+    ],
+    "fa": [
+     "حرف تلفنی",
+     "پیام دادن",
+     "چت",
+     "اینترنت"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "Shoot me a text.",
+     "fa": "یه پیام بهم بده."
+    },
+    {
+     "en": "Hit me up later.",
+     "fa": "بعداً بهم پیام بده."
+    },
+    {
+     "en": "I’ll DM you.",
+     "fa": "دایرکت بهت می‌دم."
+    },
+    {
+     "en": "My phone’s about to die.",
+     "fa": "شارژ گوشیم داره تموم می‌شه."
+    },
+    {
+     "en": "My battery’s dead.",
+     "fa": "شارژ گوشیم تموم شده."
+    },
+    {
+     "en": "I’ve got no signal.",
+     "fa": "آنتن ندارم."
+    },
+    {
+     "en": "You’re breaking up.",
+     "fa": "صدات قطع‌و‌وصل می‌شه."
+    },
+    {
+     "en": "Can you hear me now?",
+     "fa": "الان صدامو می‌شنوی؟"
+    },
+    {
+     "en": "My internet’s acting up.",
+     "fa": "اینترنتم قاطی کرده."
+    },
+    {
+     "en": "The app keeps crashing.",
+     "fa": "برنامه هی می‌پره بیرون."
+    },
+    {
+     "en": "I’ll send you the link.",
+     "fa": "لینکش رو برات می‌فرستم."
+    },
+    {
+     "en": "Check your inbox.",
+     "fa": "صندوق پیام‌هات رو چک کن."
+    },
+    {
+     "en": "I left you on read by accident.",
+     "fa": "اتفاقی پیامت رو دیدم و جواب ندادم."
+    },
+    {
+     "en": "Sorry for the late reply.",
+     "fa": "ببخشید دیر جواب دادم."
+    },
+    {
+     "en": "I was AFK for a bit.",
+     "fa": "یه مدت پای سیستم نبودم."
+    },
+    {
+     "en": "That post went viral.",
+     "fa": "اون پست حسابی وایرال شد."
+    },
+    {
+     "en": "I’m just scrolling.",
+     "fa": "همین‌جوری دارم پست‌ها رو بالا پایین می‌کنم."
+    },
+    {
+     "en": "Don’t spoil it for me!",
+     "fa": "داستانشو برام لو نده!"
+    },
+    {
+     "en": "That meme cracked me up.",
+     "fa": "اون میم منو از خنده ترکوند."
+    },
+    {
+     "en": "Let’s hop on a call.",
+     "fa": "بیا یه تماس بگیریم."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_food": {
+   "title": {
+    "en": "Food & Shopping",
+    "fa": "خوراک و خرید خودمانی"
+   },
+   "keywords": {
+    "en": [
+     "ordering food informal",
+     "shopping talk",
+     "eating out casually"
+    ],
+    "fa": [
+     "سفارش غذا",
+     "خرید کردن",
+     "رستوران خودمانی"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I could eat a horse.",
+     "fa": "از گشنگی دارم می‌میرم."
+    },
+    {
+     "en": "What are you in the mood for?",
+     "fa": "هوس چی کردی؟"
+    },
+    {
+     "en": "I’m craving pizza.",
+     "fa": "خیلی هوس پیتزا کردم."
+    },
+    {
+     "en": "Let’s grab a bite.",
+     "fa": "بیا یه لقمه چیزی بخوریم."
+    },
+    {
+     "en": "This place is packed.",
+     "fa": "اینجا حسابی شلوغه."
+    },
+    {
+     "en": "The food was spot on.",
+     "fa": "غذا دقیقاً همون چیزی بود که می‌خواستم."
+    },
+    {
+     "en": "I’m stuffed.",
+     "fa": "دیگه جا ندارم."
+    },
+    {
+     "en": "Can we split the bill?",
+     "fa": "می‌شه دنگی حساب کنیم؟"
+    },
+    {
+     "en": "This one’s on me.",
+     "fa": "این یکی مهمون من."
+    },
+    {
+     "en": "That’s a steal!",
+     "fa": "با این قیمت واقعاً مفته!"
+    },
+    {
+     "en": "That’s way overpriced.",
+     "fa": "خیلی گرون‌تر از ارزششه."
+    },
+    {
+     "en": "I’m just browsing, thanks.",
+     "fa": "فقط دارم نگاه می‌کنم، ممنون."
+    },
+    {
+     "en": "Do you have this in another size?",
+     "fa": "از این سایز دیگه‌ای هم دارید؟"
+    },
+    {
+     "en": "I’ll think about it.",
+     "fa": "بذار یه کم فکر کنم."
+    },
+    {
+     "en": "I’m on a tight budget.",
+     "fa": "بودجه‌ام خیلی محدوده."
+    },
+    {
+     "en": "I’m trying to save up.",
+     "fa": "دارم سعی می‌کنم پول جمع کنم."
+    },
+    {
+     "en": "I got a pretty good deal.",
+     "fa": "خیلی خوب خریدمش."
+    },
+    {
+     "en": "It’s worth every penny.",
+     "fa": "به هر تومنش می‌ارزه."
+    },
+    {
+     "en": "I’ll pass this time.",
+     "fa": "این دفعه بی‌خیالش می‌شم."
+    },
+    {
+     "en": "Let’s get something to go.",
+     "fa": "بیا یه چیزی بیرون‌بر بگیریم."
+    }
+   ],
+   "level": "A2"
+  },
+  "informal_problems": {
+   "title": {
+    "en": "Problems & Requests",
+    "fa": "مشکل و خواهش"
+   },
+   "keywords": {
+    "en": [
+     "asking a favour",
+     "problems informal",
+     "sorting something out"
+    ],
+    "fa": [
+     "لطف خواستن",
+     "مشکل",
+     "حل کردن"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "Could you do me a favor?",
+     "fa": "می‌شه یه لطفی در حقم بکنی؟"
+    },
+    {
+     "en": "Give me a sec.",
+     "fa": "یه ثانیه صبر کن."
+    },
+    {
+     "en": "Hold on a minute.",
+     "fa": "یه دقیقه وایسا."
+    },
+    {
+     "en": "Bear with me.",
+     "fa": "یه کم بهم فرصت بده."
+    },
+    {
+     "en": "I’m on it.",
+     "fa": "الان انجامش می‌دم."
+    },
+    {
+     "en": "My bad!",
+     "fa": "اشتباه از من بود!"
+    },
+    {
+     "en": "No worries.",
+     "fa": "نگران نباش، مشکلی نیست."
+    },
+    {
+     "en": "It happens.",
+     "fa": "پیش میاد دیگه."
+    },
+    {
+     "en": "Let’s sort this out.",
+     "fa": "بیا اینو حل‌وفصل کنیم."
+    },
+    {
+     "en": "Something’s not right.",
+     "fa": "یه جای کار می‌لنگه."
+    },
+    {
+     "en": "I can’t put my finger on it.",
+     "fa": "نمی‌تونم دقیق بگم مشکل چیه."
+    },
+    {
+     "en": "I’m having second thoughts.",
+     "fa": "دارم تو تصمیمم شک می‌کنم."
+    },
+    {
+     "en": "I’ll figure something out.",
+     "fa": "یه راهی پیدا می‌کنم."
+    },
+    {
+     "en": "Let me double-check.",
+     "fa": "بذار یه بار دیگه چک کنم."
+    },
+    {
+     "en": "That’s not what I meant.",
+     "fa": "منظورم این نبود."
+    },
+    {
+     "en": "You got me wrong.",
+     "fa": "منظورمو اشتباه فهمیدی."
+    },
+    {
+     "en": "Let’s not jump to conclusions.",
+     "fa": "بیا زود قضاوت نکنیم."
+    },
+    {
+     "en": "We’ll cross that bridge when we get there.",
+     "fa": "وقتش که رسید، براش یه فکری می‌کنیم."
+    },
+    {
+     "en": "I’ll make it up to you.",
+     "fa": "جبرانش می‌کنم."
+    },
+    {
+     "en": "Thanks for the heads-up.",
+     "fa": "مرسی که از قبل خبرم کردی."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_decisions": {
+   "title": {
+    "en": "Agreeing, Disagreeing & Deciding",
+    "fa": "موافقت، مخالفت و تصمیم"
+   },
+   "keywords": {
+    "en": [
+     "agreeing informally",
+     "disagreeing politely",
+     "making a decision"
+    ],
+    "fa": [
+     "موافقت",
+     "مخالفت",
+     "تصمیم گرفتن"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "I’m on the fence.",
+     "fa": "هنوز دودلم."
+    },
+    {
+     "en": "I’m leaning toward the first option.",
+     "fa": "بیشتر نظرم روی گزینه اوله."
+    },
+    {
+     "en": "That’s a tough call.",
+     "fa": "تصمیم سختیه."
+    },
+    {
+     "en": "Let’s sleep on it.",
+     "fa": "بذار یه شب روش فکر کنیم."
+    },
+    {
+     "en": "I’ve made up my mind.",
+     "fa": "تصمیممو گرفتم."
+    },
+    {
+     "en": "I changed my mind.",
+     "fa": "نظرم عوض شد."
+    },
+    {
+     "en": "Let’s agree to disagree.",
+     "fa": "قبول کنیم که نظرمون فرق داره."
+    },
+    {
+     "en": "I’m not buying that argument.",
+     "fa": "اون استدلال رو قبول ندارم."
+    },
+    {
+     "en": "You’re not wrong.",
+     "fa": "بیراه هم نمی‌گی."
+    },
+    {
+     "en": "That’s a fair point.",
+     "fa": "نکته منصفانه‌ایه."
+    },
+    {
+     "en": "I’d rather not.",
+     "fa": "ترجیح می‌دم نه."
+    },
+    {
+     "en": "Whatever works for you.",
+     "fa": "هر چی برای تو بهتره."
+    },
+    {
+     "en": "I can go either way.",
+     "fa": "هر دو حالت برام اوکیه."
+    },
+    {
+     "en": "Let’s compromise.",
+     "fa": "بیا به یه توافق وسط برسیم."
+    },
+    {
+     "en": "I’m not convinced yet.",
+     "fa": "هنوز قانع نشدم."
+    },
+    {
+     "en": "I’ll take my chances.",
+     "fa": "ریسکش رو قبول می‌کنم."
+    },
+    {
+     "en": "Let’s give it a shot.",
+     "fa": "بیا امتحانش کنیم."
+    },
+    {
+     "en": "It’s worth a try.",
+     "fa": "ارزش امتحان کردن داره."
+    },
+    {
+     "en": "That’s a hard pass for me.",
+     "fa": "من که اصلاً زیر بارش نمی‌رم."
+    },
+    {
+     "en": "I’m sticking with my decision.",
+     "fa": "سر تصمیمم می‌مونم."
+    }
+   ],
+   "level": "B1"
+  },
+  "informal_slang": {
+   "title": {
+    "en": "Humour, Slang & Online Talk",
+    "fa": "شوخی، عامیانه و آنلاین"
+   },
+   "keywords": {
+    "en": [
+     "slang conversation",
+     "internet slang",
+     "joking around",
+     "funny comebacks"
+    ],
+    "fa": [
+     "اصطلاح عامیانه",
+     "شوخی کردن",
+     "زبان اینترنتی"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "No cap, that was amazing.",
+     "fa": "جدی می‌گم، محشر بود."
+    },
+    {
+     "en": "I’m low-key excited.",
+     "fa": "راستش یه‌کم هیجان‌زده‌ام."
+    },
+    {
+     "en": "That’s so random.",
+     "fa": "چقدر یهویی و بی‌ربط بود!"
+    },
+    {
+     "en": "I can’t even.",
+     "fa": "دیگه واقعاً موندم چی بگم!"
+    },
+    {
+     "en": "You crushed it!",
+     "fa": "ترکوندی!"
+    },
+    {
+     "en": "That’s a vibe.",
+     "fa": "چه حال‌وهوای باحالی داره."
+    },
+    {
+     "en": "I’m just messing with you.",
+     "fa": "دارم سر به سرت می‌ذارم."
+    },
+    {
+     "en": "Don’t roast me!",
+     "fa": "منو سوژه خنده نکن!"
+    },
+    {
+     "en": "I’m dead! That’s hilarious.",
+     "fa": "مُردم از خنده! خیلی بامزه بود."
+    },
+    {
+     "en": "That was awkward.",
+     "fa": "خیلی ضایع بود."
+    },
+    {
+     "en": "Big yikes.",
+     "fa": "اوه، چه سوتی بدی!"
+    },
+    {
+     "en": "I’m not gonna lie, I liked it.",
+     "fa": "دروغ چرا، خوشم اومد."
+    },
+    {
+     "en": "That’s a flex.",
+     "fa": "عجب پُز خفنی!"
+    },
+    {
+     "en": "You’re overthinking it.",
+     "fa": "داری زیادی بهش فکر می‌کنی."
+    },
+    {
+     "en": "I’m totally out of the loop.",
+     "fa": "کلاً از ماجرا بی‌خبرم."
+    },
+    {
+     "en": "Spill the tea!",
+     "fa": "بگو ببینم چه خبرای پشت پرده‌ایه!"
+    },
+    {
+     "en": "That’s none of my business.",
+     "fa": "به من ربطی نداره."
+    },
+    {
+     "en": "You do you.",
+     "fa": "هر جور خودت راحتی، همون کار رو بکن."
+    },
+    {
+     "en": "It’s giving main-character energy.",
+     "fa": "یه حس شخصیت اصلی داستان رو می‌ده."
+    },
+    {
+     "en": "I’m so done with this.",
+     "fa": "دیگه واقعاً از این قضیه خسته شدم."
+    }
+   ],
+   "level": "C1"
+  },
+  "informal_travel": {
+   "title": {
+    "en": "Travel & Getting Around",
+    "fa": "سفر و مسیر خودمانی"
+   },
+   "keywords": {
+    "en": [
+     "travel talk informal",
+     "getting around",
+     "road trip"
+    ],
+    "fa": [
+     "حرف سفر",
+     "مسیر رفتن",
+     "سفر جاده‌ای"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "Let’s hit the road.",
+     "fa": "بزن بریم تو جاده."
+    },
+    {
+     "en": "I’m on a road trip.",
+     "fa": "رفتم سفر جاده‌ای."
+    },
+    {
+     "en": "We took a wrong turn.",
+     "fa": "یه جا اشتباه پیچیدیم."
+    },
+    {
+     "en": "I think we’re lost.",
+     "fa": "فکر کنم گم شدیم."
+    },
+    {
+     "en": "Can you drop me off here?",
+     "fa": "می‌شه همین‌جا پیادم کنی؟"
+    },
+    {
+     "en": "I’ll pick you up at seven.",
+     "fa": "ساعت هفت میام دنبالت."
+    },
+    {
+     "en": "The train’s running late.",
+     "fa": "قطار تأخیر داره."
+    },
+    {
+     "en": "I barely made the flight.",
+     "fa": "به زور به پرواز رسیدم."
+    },
+    {
+     "en": "I need to pack light.",
+     "fa": "باید سبک سفر کنم."
+    },
+    {
+     "en": "This view is unreal.",
+     "fa": "این منظره محشره."
+    },
+    {
+     "en": "Let’s take a quick photo.",
+     "fa": "بیا یه عکس سریع بگیریم."
+    },
+    {
+     "en": "I need a change of scenery.",
+     "fa": "دلم یه تغییر آب‌وهوا می‌خواد."
+    },
+    {
+     "en": "I’m wiped out from the trip.",
+     "fa": "از سفر له شدم."
+    },
+    {
+     "en": "The hotel was nothing special.",
+     "fa": "هتل چیز خاصی نداشت."
+    },
+    {
+     "en": "We had a blast.",
+     "fa": "حسابی خوش گذشت."
+    },
+    {
+     "en": "Let’s explore the neighborhood.",
+     "fa": "بیا یه دور تو محله بزنیم."
+    },
+    {
+     "en": "Where’s the nearest bus stop?",
+     "fa": "نزدیک‌ترین ایستگاه اتوبوس کجاست؟"
+    },
+    {
+     "en": "Is this seat taken?",
+     "fa": "کسی اینجا نشسته؟"
+    },
+    {
+     "en": "I’ll meet you by the entrance.",
+     "fa": "دم ورودی می‌بینمت."
+    },
+    {
+     "en": "We should come back someday.",
+     "fa": "باید یه روز دوباره بیایم اینجا."
+    }
+   ],
+   "level": "A2"
+  },
+  "informal_learning": {
+   "title": {
+    "en": "Learning English & Chatbot Practice",
+    "fa": "یادگیری انگلیسی و تمرین با ربات"
+   },
+   "keywords": {
+    "en": [
+     "learning english talk",
+     "practice conversation",
+     "how do you say this"
+    ],
+    "fa": [
+     "یادگیری انگلیسی",
+     "تمرین مکالمه",
+     "این رو چطور بگم"
+    ]
+   },
+   "phrases": [
+    {
+     "en": "How do you say this in English?",
+     "fa": "این رو به انگلیسی چی می‌گن؟"
+    },
+    {
+     "en": "What does this phrase mean?",
+     "fa": "این عبارت یعنی چی؟"
+    },
+    {
+     "en": "Can you put it in simpler words?",
+     "fa": "می‌شه ساده‌تر بگی؟"
+    },
+    {
+     "en": "Can you give me a real-life example?",
+     "fa": "می‌شه یه مثال واقعی بزنی؟"
+    },
+    {
+     "en": "Is that how native speakers say it?",
+     "fa": "انگلیسی‌زبان‌ها واقعاً این‌طوری می‌گن؟"
+    },
+    {
+     "en": "Does this sound natural?",
+     "fa": "این جمله طبیعی به نظر میاد؟"
+    },
+    {
+     "en": "What’s a more casual way to say it?",
+     "fa": "خودمونی‌ترش چی می‌شه؟"
+    },
+    {
+     "en": "What’s the polite version?",
+     "fa": "مودبانه‌ترش چی می‌شه؟"
+    },
+    {
+     "en": "Can you correct me without interrupting?",
+     "fa": "می‌شه بدون اینکه حرفمو قطع کنی اشتباهامو اصلاح کنی؟"
+    },
+    {
+     "en": "Let’s practice a short conversation.",
+     "fa": "بیا یه مکالمه کوتاه تمرین کنیم."
+    },
+    {
+     "en": "Pretend you’re my friend.",
+     "fa": "فرض کن دوستم هستی."
+    },
+    {
+     "en": "Ask me a follow-up question.",
+     "fa": "یه سؤال مرتبط دیگه ازم بپرس."
+    },
+    {
+     "en": "Can we switch to Persian for a second?",
+     "fa": "می‌شه یه لحظه فارسی حرف بزنیم؟"
+    },
+    {
+     "en": "Let’s keep speaking English.",
+     "fa": "بیا انگلیسی حرف زدن رو ادامه بدیم."
+    },
+    {
+     "en": "I know the word, but I can’t use it.",
+     "fa": "کلمه رو بلدم، ولی نمی‌تونم ازش استفاده کنم."
+    },
+    {
+     "en": "I always mix these two words up.",
+     "fa": "من همیشه این دو تا کلمه رو قاطی می‌کنم."
+    },
+    {
+     "en": "How would you say it in everyday English?",
+     "fa": "تو انگلیسی روزمره چطوری می‌گن؟"
+    },
+    {
+     "en": "Can you explain the slang in this sentence?",
+     "fa": "می‌شه اصطلاح عامیانه این جمله رو توضیح بدی؟"
+    },
+    {
+     "en": "Let me try that again.",
+     "fa": "بذار یه بار دیگه امتحان کنم."
+    },
+    {
+     "en": "I think I’m getting better at this.",
+     "fa": "فکر کنم دارم تو این کار بهتر می‌شم."
+    }
+   ],
+   "level": "A2"
   }
  }
 }

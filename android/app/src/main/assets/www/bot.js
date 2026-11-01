@@ -30,6 +30,18 @@ function normalizeEn(text) {
 
 const normalizeWord = (text) => normalizeEn(normalizeFa(text));
 
+/* A sentence's key: each word normalized, the words kept apart. normalizeWord
+ * drops whitespace on purpose - single dictionary words, where "ice cream" and
+ * "icecream" should meet - and whole sentences need the opposite, so the words
+ * are normalized one at a time and rejoined. Mirrors phrase_key() in
+ * chatbot.py. */
+/* The sentence bank is written with typographic apostrophes ("Don’t") and a
+ * learner types the straight one ("Don't"), which normalizeEn keeps and drops
+ * respectively - so both forms are folded to the straight one first. */
+const phraseKey = (text) => String(text == null ? '' : text)
+  .replace(/[\u2018\u2019`\u00b4]/g, "'")
+  .split(/\s+/).map(normalizeWord).filter(Boolean).join(' ');
+
 /* Escape a string for literal use inside a RegExp. */
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -2765,6 +2777,27 @@ class Fluentify {
 
   /* ---------------------------------------------------------- pronounce */
 
+  /* The whole sentence, as stored - "spill the tea", "چه خبر؟". Exact, not
+   * substring, and only for more than one word: a short question that happens
+   * to contain a stored sentence must not be answered as that sentence. */
+  lookupPhraseExact(text) {
+    const key = phraseKey(text);
+    if (!key || key.split(' ').length < 2) return null;
+    for (const topic of Object.values(this.phrases)) {
+      for (const line of topic.phrases) {
+        if (phraseKey(line.en) === key || phraseKey(line.fa) === key) return line;
+      }
+    }
+    return null;
+  }
+
+  formatPhrasePair(line, lang) {
+    if (lang === 'fa') {
+      return `💬 «${line.fa}»\n   ↲ ${line.en}\n   ↲ فهرست کامل جملات: «جملات»`;
+    }
+    return `💬 “${line.en}”\n   ↲ ${line.fa}\n   ↲ Full list: 'sentences'`;
+  }
+
   lookupPhrase(phrase) {
     const key = normalizeWord(phrase);
     const bare = normalizeWord(stripArticle(phrase));
@@ -3140,6 +3173,11 @@ class Fluentify {
       if (entries.length) return this.formatLookup(word, entries, lang);
       if (word && normalizeWord(word)) return this.lexOrNotFound(word, lang);
     }
+
+    // A whole sentence we hold, in either language: a learner who typed
+    // "spill the tea" wants that sentence's translation, not the menu.
+    const pair = this.lookupPhraseExact(text);
+    if (pair) return this.formatPhrasePair(pair, lang);
 
     if (lang === 'fa') {
       return 'متوجه نشدم 😅 ترجیح می‌دهم حدس نزنم. یکی از این‌ها را امتحان کن:\n'

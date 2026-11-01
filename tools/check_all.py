@@ -65,6 +65,10 @@ Four suites, each answering a different question:
                 unknown names, a garden-path sentence and mixed script, and
                 refuses any dependency label, any invented offset, and any
                 lesson chip whose topic the Knowledge Base cannot answer.
+  check_informal  is the 280-pair informal sentence bank complete and
+                reachable? Every pair has both halves, no sentence is stored
+                twice, and typing a stored sentence answers with its
+                translation instead of the generic menu.
   check_web_dict  is the free-dictionary fallback honest and cheap? It only
                 asks about one real word, remembers a 404 but not a timeout,
                 says where the senses came from instead of inventing a
@@ -103,6 +107,7 @@ SUITES = [
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
+    ("informal sentence bank", [sys.executable, "tools/check_informal.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 
