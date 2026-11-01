@@ -3037,8 +3037,8 @@
     <nav class="tools" aria-label="Study panels">
       <button class="hbtn" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/><path d="M7.6 13.4h3.2v3.2H7.6z"/></svg></i><span>Today</span><span class="rbadge" id="dbadge" hidden>0</span></button>
-      <button class="hbtn" id="ntoggle" aria-expanded="false" title="Analyse a sentence — تحلیل گرامری جمله" aria-label="Analyse a sentence">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyse</span></button>
+      <button class="hbtn" id="ntoggle" aria-expanded="false" title="Analyze a sentence — تحلیل گرامری جمله" aria-label="Analyze a sentence">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyze</span></button>
       <button class="hbtn" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
       <button class="hbtn" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
@@ -3082,8 +3082,8 @@
     <div class="nbar">
       <input id="ninput" type="text" dir="ltr" autocomplete="off" spellcheck="false"
              placeholder="One English sentence… / یک جملهٔ انگلیسی…"
-             aria-label="Sentence to analyse">
-      <button type="button" id="ngo" class="nbtn">Analyse · <bdi class="fa" lang="fa" dir="rtl">تحلیل</bdi></button>
+             aria-label="Sentence to analyze">
+      <button type="button" id="ngo" class="nbtn">Analyze</button>
     </div>
     <div class="nexamples" id="nexamples"></div>
     <div class="nresult" id="nresult" aria-live="polite"></div>
@@ -8068,9 +8068,9 @@ const SECTIONS = {
     kw: ['grammar', 'grammer', 'دستور زبان', 'گرامر'],
   },
   analyser: {
-    panel: 'npanel', btn: 'ntoggle', en: 'Sentence analyser', fa: 'تحلیل جمله',
+    panel: 'npanel', btn: 'ntoggle', en: 'Sentence analyzer', fa: 'تحلیل جمله',
     icon: '🔬',
-    kw: ['analyser', 'analyzer', 'sentence analyser', 'sentence analyzer',
+    kw: ['analyser', 'analyzer', 'analyse', 'sentence analyser', 'sentence analyzer',
          'parts of speech', 'تجزیه جمله', 'تحلیل جمله', 'تحلیل گرامری'],
   },
   sentences: {
@@ -8335,7 +8335,7 @@ const Analyser = (() => {
     const text = (sentence || (box ? box.value : '') || '').trim();
     if (!text) { box && box.focus(); return; }
     if (box) box.value = text;
-    paint('<div class="nbusy">🔬 analysing on this device… · <bdi class="fa" lang="fa" dir="rtl">در حال تحلیل…</bdi></div>');
+    paint('<div class="nbusy">🔬 analyzing on this device… · <bdi class="fa" lang="fa" dir="rtl">در حال تحلیل…</bdi></div>');
     try {
       paint(renderAnalysis(await NLP.analyze(text)));
     } catch (e) {
@@ -8398,7 +8398,7 @@ async function matchAnalyseCommand(text) {
     add('🔬 Send me one English sentence and I will take it apart word by word. ' +
         'Nothing leaves your device.\n' +
         'یک جملهٔ انگلیسی بفرست تا کلمه‌به‌کلمه تحلیل کنم؛ همه‌چیز روی دستگاه خودت انجام می‌شود.\n' +
-        'Try: **analyse this: She has been learning English.**', 'bot');
+        'Try: **analyze this: She has been learning English.**', 'bot');
     return true;
   }
   showTyping();
