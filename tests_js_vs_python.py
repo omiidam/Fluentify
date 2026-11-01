@@ -181,6 +181,11 @@ def main() -> int:
     cases_file.write_text(
         json.dumps([{"input": c} for c in CASES], ensure_ascii=False))
 
+    # The APK engine has no network at respond() time (its dictionary fetch
+    # happens in the page, before respond), so the web dictionary is off here.
+    # Left on, one runtime would answer from dictionaryapi.dev and the other
+    # would not, and a real difference would hide behind a network one.
+    os.environ["FLUENTIFY_NO_WEB_DICT"] = "1"
     env = dict(os.environ, FLUENTIFY_TODAY=DAILY_TODAY)
     subprocess.run(
         ["node", str(ROOT / "tools/js_engine.js"), str(cases_file), str(js_out)],

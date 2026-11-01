@@ -36,3 +36,9 @@ android/app/src/main/assets/www/data/
 # (nlp/fluentify-nlp.js) IS committed: CI never runs npm, and the APK build
 # copies that file straight into the app.
 nlp/node_modules/
+
+# The web dictionary's cache (dictionary_api.py). It is a record of what this
+# machine has looked up so far - machine state, not content - so it is rebuilt
+# on demand and never committed.
+dictionary_cache.json
+dictionary_cache.tmp

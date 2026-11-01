@@ -98,6 +98,9 @@ engine = """    await sleep(160);                       // a beat so the typing 
     // the dictionary is 335 shards, so only the ones this message can touch
     // are read - and they are read before respond(), which is synchronous
     await bot.loadLexiconFor(text);
+    // the words the library does not hold come from a free dictionary, and
+    // that is a fetch - so it is asked here, before respond(), like the shards
+    await bot.loadWordApiFor(text);
     const reply = bot.respond(text);
     hideTyping();
     add(reply, 'bot');

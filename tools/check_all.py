@@ -65,6 +65,10 @@ Four suites, each answering a different question:
                 unknown names, a garden-path sentence and mixed script, and
                 refuses any dependency label, any invented offset, and any
                 lesson chip whose topic the Knowledge Base cannot answer.
+  check_web_dict  is the free-dictionary fallback honest and cheap? It only
+                asks about one real word, remembers a 404 but not a timeout,
+                says where the senses came from instead of inventing a
+                Persian gloss, and the two formatters produce one string.
   check_gec     is the grammar corrector still GEC-BART Base, on the server,
                 and absent from the app? gec.json must pin the checkpoint and
                 the ArvanCloud location, the APK must hold no weights and no
@@ -96,6 +100,7 @@ SUITES = [
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
+    ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),

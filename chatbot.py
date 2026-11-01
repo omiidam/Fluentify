@@ -17,6 +17,8 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
+import dictionary_api
+
 MEMORY_FILE = Path(__file__).parent / "memory.json"
 GLOSSARY_FILE = Path(__file__).parent / "glossary.json"
 PHRASES_FILE = Path(__file__).parent / "phrases.json"
@@ -1131,6 +1133,54 @@ class ChatBot:
             else:
                 lines.append(f"   ↲ I have no sense recorded for \u201c{said}\u201d "
                              f"— these are the meanings I have.")
+        return "\n".join(lines)
+
+    def format_api_entry(self, head: str, data: dict, asked: str,
+                         lang: str) -> str:
+        """A word from the free dictionary: senses, and where they came from.
+
+        The local dictionary pairs a meaning with its Persian translation.
+        Wiktionary is English only, so this shows the English senses and says
+        so rather than inventing a gloss - a made-up translation is worse than
+        no translation, because it is the part the learner would memorize.
+        """
+        asked_norm = normalize_word(asked)
+        head_norm = normalize_word(head)
+        label = (f"**{head}**" if asked_norm == head_norm
+                 else f"**{asked}** → **{head}**")
+        ipa = (data.get("ipa") or "").strip()
+        line = f"📖 {label}" + (f" {ipa}" if ipa else "")
+        meanings = data.get("meanings") or []
+        parts = list(dict.fromkeys(m.get("pos") for m in meanings if m.get("pos")))
+        if parts:
+            line += " — " + ", ".join(parts)
+        senses = [(m.get("pos") or "", s) for m in meanings
+                  for s in (m.get("senses") or [])]
+        if not senses:
+            return line
+        if len(senses) > 1:
+            line += (f" · {to_persian_digits(len(senses))} معنی" if lang == "fa"
+                     else f" · {len(senses)} meanings")
+        lines = [line]
+        shown = senses[:4]
+        mixed = len({pos for pos, _ in shown if pos}) > 1
+        for i, (pos, sense) in enumerate(shown, start=1):
+            num = to_persian_digits(i) if lang == "fa" else str(i)
+            text = sense.get("d") or ""
+            if mixed and pos:
+                text += f" ({pos})"
+            lines.append(f"   {num}. {text}")
+            if sense.get("ex"):
+                lines.append(f"      ▸ {sense['ex']}")
+        if len(senses) > len(shown):
+            rest = len(senses) - len(shown)
+            lines.append(f"   + {to_persian_digits(rest) if lang == 'fa' else rest}"
+                         + (" معنی دیگر" if lang == "fa" else " more"))
+        if lang == "fa":
+            lines.append("   ↲ از ویکی‌واژه (CC BY-SA)؛ ترجمه فارسی‌اش را ندارم.")
+        else:
+            lines.append("   ↲ From Wiktionary via dictionaryapi.dev (CC BY-SA)"
+                         " — no Persian gloss for this one.")
         return "\n".join(lines)
 
     def format_lex_relations(self, head: str, entry: dict, lang: str,
@@ -3093,6 +3143,12 @@ class ChatBot:
                 if found:
                     head, entry = found
                     return self.format_lex_entry(head, entry, word, lang)
+        # Not in the library either: ask the free dictionary. This is the one
+        # place the tutor needs a network, so it is last - and a word the
+        # dictionary lacks falls through to the typo suggestion below.
+        api = dictionary_api.lookup(word)
+        if api:
+            return self.format_api_entry(api.get("word") or word, api, word, lang)
         near = self.lex_near(word)
         if near:
             found = self.lex_find(near[0])

@@ -89,6 +89,9 @@ def main() -> int:
     js_out = ROOT / ".flow_js.json"
     cases_file.write_text(json.dumps(cases, ensure_ascii=False))
 
+    # Same reason as tests_js_vs_python: the web dictionary is a fetch in the
+    # page, not in respond(), so it is off for a parity run.
+    os.environ["FLUENTIFY_NO_WEB_DICT"] = "1"
     env = dict(os.environ, FLUENTIFY_TODAY=DAILY_TODAY)
     subprocess.run(["node", str(ROOT / "tools/js_engine.js"), str(cases_file),
                     str(js_out)], check=True, env=env)

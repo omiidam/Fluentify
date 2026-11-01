@@ -689,6 +689,15 @@ class Fluentify {
     this.lexFaCache = null;
     this.lexLoader = data.lexLoader || ((path) => fetch(`${data.lexBase || 'data/'}${path}.json`)
       .then((r) => (r.ok ? r.json() : null)));
+    // Words the library does not hold: dictionaryapi.dev, free and keyless.
+    // Asked by the page before respond() (a fetch cannot be synchronous) and
+    // kept in localStorage, so a word costs one request per phone rather than
+    // one per session.
+    this.apiBase = data.apiBase === undefined
+      ? 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+      : data.apiBase;
+    this.apiEntries = this._loadApiCache();
+    this.apiLoading = new Set();
   }
 
   /* Drop blank answer slots at load time. An empty string in a question's
@@ -1544,6 +1553,175 @@ class Fluentify {
       this.lexShards.set(name, shard);
   }
 
+  /* --------------------------------------------------------- web dictionary */
+  /* The free dictionary covers words the bundled library does not hold.
+   * respond() is synchronous, so the page calls loadWordApiFor() first and
+   * everything here only reads an answer that is already in hand. */
+
+  /* The key to ask about, or '' when this is not a single word. Kept in step
+   * with clean() in dictionary_api.py, whitespace rule included: "ice cream"
+   * must not become a request for "icecream". */
+  _apiKey(word) {
+    const raw = String(word || '').trim().toLowerCase();
+    if (!raw || /\s/.test(raw)) return '';
+    const key = raw.replace(/[^a-z'\-]/g, '');
+    return /^[a-z][a-z'\-]*$/.test(key) ? key : '';
+  }
+
+  _loadApiCache() {
+    const entries = new Map();
+    try {
+      if (typeof localStorage === 'undefined') return entries;
+      const raw = localStorage.getItem('fluentify.apiCache');
+      const saved = raw ? JSON.parse(raw) : null;
+      for (const [key, value] of Object.entries(saved || {})) {
+        if (typeof key === 'string' && key) entries.set(key, value);
+      }
+    } catch (err) {
+      return new Map();       // unreadable cache: start over, ask again
+    }
+    return entries;
+  }
+
+  _saveApiCache() {
+    try {
+      if (typeof localStorage === 'undefined') return;
+      const kept = Array.from(this.apiEntries.entries()).slice(-300);
+      localStorage.setItem('fluentify.apiCache',
+        JSON.stringify(Object.fromEntries(kept)));
+    } catch (err) {
+      /* a full or blocked storage must not break a reply */
+    }
+  }
+
+  /* The API's array reduced to what a learner is shown - the same shape
+   * _normalize() produces on the Python side. */
+  _normalizeApi(payload) {
+    if (!Array.isArray(payload) || !payload.length) return null;
+    const first = payload.find((it) => it && Array.isArray(it.meanings)
+      && it.meanings.length);
+    if (!first) return null;
+    let ipa = String(first.phonetic || '').trim();
+    if (!ipa) {
+      for (const p of (first.phonetics || [])) {
+        if (p && String(p.text || '').trim()) { ipa = String(p.text).trim(); break; }
+      }
+    }
+    const meanings = [];
+    for (const m of (first.meanings || []).slice(0, 3)) {
+      if (!m) continue;
+      const senses = [];
+      for (const d of (m.definitions || []).slice(0, 3)) {
+        const text = String((d && d.definition) || '').trim();
+        if (!text) continue;
+        senses.push({ d: text, ex: String((d && d.example) || '').trim() });
+      }
+      if (senses.length)
+        meanings.push({ pos: String(m.partOfSpeech || '').trim(), senses });
+    }
+    if (!meanings.length) return null;
+    return { word: String(first.word || '').trim(), ipa, meanings };
+  }
+
+  apiLookup(word) {
+    const key = this._apiKey(word);
+    return key ? (this.apiEntries.get(key) || null) : null;
+  }
+
+  /* Which word this message asks about. The same extraction
+   * handleGlossaryLookup() uses, so the prefetch cannot miss the word the
+   * reply then looks for. null means "nothing to ask the web about". */
+  wordApiTarget(text, lang) {
+    const raw = String(text || '').trim();
+    if (!raw) return null;
+    if (/\b(?:meaning|purpose) of life\b/i.test(raw)) return null;
+    if (SWITCH_ASK_RE.test(raw)) return null;
+    const patterns = lang === 'fa'
+      ? FA_LOOKUP_PATTERNS.concat(EN_LOOKUP_PATTERNS)
+      : EN_LOOKUP_PATTERNS.concat(FA_LOOKUP_PATTERNS);
+    let target = null;
+    for (const p of patterns) {
+      const m = raw.match(p);
+      if (m) { target = m[1].trim(); break; }
+    }
+    if (target === null && !/\s/.test(raw)) target = raw;   // a bare word
+    if (!target) return null;
+    target = target.replace(/^[\s.?!؟،,;:"'«»()[\]]+|[\s.?!؟،,;:"'«»()[\]]+$/g, '').trim();
+    if (!target || LOOKUP_STOPWORDS.has(normalizeWord(target))) return null;
+    if (detectLang(target) === 'fa') return null;
+    return this._apiKey(target) ? target : null;
+  }
+
+  /* Called by the page before respond(). One request, only for a word the
+   * local library has already missed, and never in the reply path itself. */
+  async loadWordApiFor(text) {
+    if (!this.apiBase) return;
+    const target = this.wordApiTarget(text, detectLang(String(text || '')));
+    if (!target) return;
+    const key = this._apiKey(target);
+    if (!key || this.apiEntries.has(key) || this.apiLoading.has(key)) return;
+    if (this.lookupWord(key).length || this.lexFind(key)) return;   // known locally
+    this.apiLoading.add(key);
+    try {
+      const r = await fetch(this.apiBase + encodeURIComponent(key),
+        { headers: { Accept: 'application/json' } });
+      if (r.status === 404) {          // an answer: no such word here
+        this.apiEntries.set(key, null);
+        this._saveApiCache();
+        return;
+      }
+      if (!r.ok) return;               // a failure: remember nothing
+      const entry = this._normalizeApi(await r.json());
+      if (!entry) return;
+      this.apiEntries.set(key, entry);
+      this._saveApiCache();
+    } catch (err) {
+      /* offline, or the service is down: the reply falls back to not-found */
+    } finally {
+      this.apiLoading.delete(key);
+    }
+  }
+
+  /* Mirrors format_api_entry() in chatbot.py: English senses, no invented
+   * Persian gloss, and the licence said out loud. */
+  formatApiEntry(head, data, asked, lang) {
+    const label = normalizeWord(asked) === normalizeWord(head)
+      ? `**${head}**` : `**${asked}** → **${head}**`;
+    const ipa = String(data.ipa || '').trim();
+    let line = `📖 ${label}${ipa ? ' ' + ipa : ''}`;
+    const parts = [];
+    for (const m of data.meanings)
+      if (m.pos && !parts.includes(m.pos)) parts.push(m.pos);
+    if (parts.length) line += ' — ' + parts.join(', ');
+    const senses = [];
+    for (const m of data.meanings)
+      for (const s of m.senses) senses.push([m.pos || '', s]);
+    if (!senses.length) return line;
+    if (senses.length > 1) {
+      line += lang === 'fa' ? ` · ${toPersianDigits(senses.length)} معنی`
+        : ` · ${senses.length} meanings`;
+    }
+    const lines = [line];
+    const shown = senses.slice(0, 4);
+    const posSet = new Set(shown.map(([p]) => p).filter(Boolean));
+    shown.forEach(([pos, sense], i) => {
+      const num = lang === 'fa' ? toPersianDigits(i + 1) : String(i + 1);
+      const text = sense.d + (posSet.size > 1 && pos ? ` (${pos})` : '');
+      lines.push(`   ${num}. ${text}`);
+      if (sense.ex) lines.push(`      ▸ ${sense.ex}`);
+    });
+    if (senses.length > shown.length) {
+      const rest = senses.length - shown.length;
+      lines.push(`   + ${lang === 'fa' ? toPersianDigits(rest) : rest}`
+        + (lang === 'fa' ? ' معنی دیگر' : ' more'));
+    }
+    lines.push(lang === 'fa'
+      ? '   ↲ از ویکی‌واژه (CC BY-SA)؛ ترجمه فارسی‌اش را ندارم.'
+      : '   ↲ From Wiktionary via dictionaryapi.dev (CC BY-SA)'
+        + ' — no Persian gloss for this one.');
+    return lines.join('\n');
+  }
+
   /* Fetch the shards this message could touch - and only those. Called by the
    * page before respond(), because a fetch cannot be synchronous and respond()
    * must stay so. Already-loaded shards resolve without a request. */
@@ -1846,6 +2024,11 @@ class Fluentify {
         if (found) return this.formatLexEntry(found[0], found[1], word, lang);
       }
     }
+    // Not in the library either: the free dictionary, fetched by the page.
+    // Before the typo suggestion on purpose - a real word that merely looks
+    // like a headword deserves its definition, and a miss falls through.
+    const api = this.apiLookup(word);
+    if (api) return this.formatApiEntry(api.word || word, api, word, lang);
     const near = this.lexNear(word);
     if (near.length) {
       found = this.lexFind(near[0]);
