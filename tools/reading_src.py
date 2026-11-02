@@ -1322,4 +1322,1761 @@ STRATEGIES = [
             ],
         },
     },
+    # ---------------------------------------------------------------- 7 -----
+    {
+        "id": "survey",
+        "icon": "🧭",
+        "level": "A2",
+        "minutes": 6,
+        "title": bi("Survey the text before you read it",
+                    "پیش از خواندن، متن را بررسی کن"),
+        "blurb": bi(
+            "Two minutes on the title, the headings and the shape, and you know "
+            "what kind of text you are holding.",
+            "دو دقیقه روی عنوان، تیترها و شکل متن، و می‌دانی چه نوع متنی در دست "
+            "داری."),
+        "what": bi(
+            "Surveying is looking at a text as an object before you read a "
+            "single full sentence. You read the title, the subtitle, the "
+            "headings, any picture or caption, the first and last line, and you "
+            "decide three things: what kind of text this is (a guide, a report, "
+            "a story, a notice), who wrote it for whom, and what it is probably "
+            "going to tell you. Then you predict. Those predictions are what "
+            "make the real reading fast, because you are checking guesses "
+            "instead of discovering everything from zero.",
+            "بررسی اولیه (survey) یعنی پیش از خواندن حتی یک جملهٔ کامل، به متن "
+            "مثل یک شیء نگاه کنی: عنوان، زیرعنوان، تیترها، تصویر و زیرنویس، خط "
+            "اول و آخر را بخوانی و سه چیز را تعیین کنی: این چه نوع متنی است "
+            "(راهنما، گزارش، داستان، اطلاعیه)، چه کسی برای چه کسی نوشته، و "
+            "احتمالاً چه چیزی به تو می‌گوید. بعد پیش‌بینی می‌کنی. همین پیش‌بینی‌ها "
+            "خواندن واقعی را سریع می‌کنند، چون دیگر از صفر کشف نمی‌کنی؛ حدس‌هایت "
+            "را می‌سنجی."),
+        "why": bi(
+            "A reader who knows what a text is for reads it differently. A "
+            "guide is scanned for the section you need; a report is read for its "
+            "conclusion; a story is read in order. Two minutes of surveying "
+            "tells you which of those you are doing, and stops the commonest "
+            "waste in reading: treating a list of rules as if it were an "
+            "argument and looking for a point it never makes.",
+            "خواننده‌ای که می‌داند متن برای چه نوشته شده، جور دیگری می‌خواند. "
+            "راهنما را برای پیدا کردن بخش لازم اسکن می‌کنی؛ گزارش را برای نتیجه‌اش "
+            "می‌خوانی؛ داستان را به ترتیب. دو دقیقه بررسی می‌گوید کدام‌یک را "
+            "انجام می‌دهی و جلوی رایج‌ترین هدررفت خواندن را می‌گیرد: برخورد با "
+            "فهرست قوانین مثل یک استدلال و گشتن دنبال نتیجه‌ای که هرگز نمی‌آید."),
+        "when": bi(
+            "At the start of any text you did not choose yourself: an exam "
+            "passage, a letter from an office, a page of instructions, a "
+            "website you have just landed on.",
+            "در شروع هر متنی که خودت انتخابش نکرده‌ای: متن امتحان، نامهٔ اداری، "
+            "صفحهٔ دستورالعمل، یا سایتی که تازه بازش کرده‌ای."),
+        "steps": [
+            bi("Read the title and subtitle and say the genre out loud: notice, "
+               "guide, report, review, story.",
+               "عنوان و زیرعنوان را بخوان و نوع متن را بلند بگو: اطلاعیه، راهنما، "
+               "گزارش، نقد، داستان."),
+            bi("List the headings in order. They are the author's own plan of "
+               "the text, printed for you.",
+               "تیترها را به ترتیب بنویس. آن‌ها نقشهٔ خود نویسنده از متن‌اند که "
+               "برای تو چاپ شده است."),
+            bi("Look for the small print: a date, a price, a name, a phone "
+               "number. They tell you who the text is for and how official it "
+               "is.",
+               "نوشته‌های ریز را ببین: تاریخ، قیمت، نام، شمارهٔ تلفن. همین‌ها "
+               "می‌گویند متن برای چه کسی و چقدر رسمی است."),
+            bi("Predict in one sentence what you expect to learn, then read to "
+               "check that sentence.",
+               "در یک جمله پیش‌بینی کن چه چیزی یاد می‌گیری، بعد بخوان تا همان "
+               "جمله را بسنجی."),
+        ],
+        "example": {
+            "text": "HILLTOWN SWIMMING POOL — winter timetable. From 1 October "
+                    "the pool opens at 7 am on weekdays and 8 am at weekends. "
+                    "Lanes 1-3 are reserved for clubs before 9 am. The learner "
+                    "pool is closed for repairs until 12 November; lessons move "
+                    "to the main pool. Prices: adult £5.20, under-16 £2.60, "
+                    "family £12.",
+            "steps": [
+                bi("Title first: 'winter timetable' plus a place name. This is a "
+                   "notice, not an article - so the useful reading is scanning "
+                   "for a day and a time, not looking for an argument.",
+                   "اول عنوان: «winter timetable» و نام یک مکان. این یک اطلاعیه "
+                   "است، نه مقاله؛ پس خواندن مفیدش اسکن کردن برای یک روز و ساعت "
+                   "است، نه گشتن دنبال استدلال."),
+                bi("The colon after 'Prices' tells you the last line is a list. "
+                   "In a notice, a colon almost always introduces the exact "
+                   "facts you came for.",
+                   "دونقطه بعد از «Prices» می‌گوید خط آخر یک فهرست است. در "
+                   "اطلاعیه‌ها دونقطه تقریباً همیشه همان واقعیت‌هایی را معرفی "
+                   "می‌کند که به‌خاطرش آمده‌ای."),
+                bi("Prediction: 'I will find out when it opens and what it "
+                   "costs, and something is closed.' Reading then confirms it "
+                   "in fifteen seconds.",
+                   "پیش‌بینی: «می‌فهمم کی باز است، چقدر هزینه دارد، و چیزی تعطیل "
+                   "است.» بعد خواندن در پانزده ثانیه تأییدش می‌کند."),
+            ],
+        },
+        "mistakes": [
+            bi("Reading the body first and the title afterwards. Titles and "
+               "headings are the cheapest information in the text.",
+               "اول متن را خواندن و بعد عنوان را. عنوان و تیترها ارزان‌ترین "
+               "اطلاعات متن‌اند."),
+            bi("Assuming every text has a main argument. A timetable, a recipe "
+               "and a set of rules do not; hunting for one wastes the reading.",
+               "فرض کردن اینکه هر متنی استدلال اصلی دارد. جدول زمانی، دستور "
+               "پخت و فهرست قوانین ندارند؛ گشتن دنبال آن، خواندن را هدر می‌دهد."),
+        ],
+        "tips": [
+            bi("Say the genre out loud before you read. Naming it changes how "
+               "you read the first paragraph.",
+               "نوع متن را پیش از خواندن بلند بگو. نام‌گذاری‌اش، خواندن پاراگراف "
+               "اول را عوض می‌کند."),
+            bi("Count the headings. Three headings mean three things to find; "
+               "that is your reading plan, given away for free.",
+               "تیترها را بشمار. سه تیتر یعنی سه چیز برای پیدا کردن؛ همین نقشهٔ "
+               "خواندن تو است که مجانی لو رفته."),
+        ],
+        "checklist": [
+            bi("Genre named before the first paragraph.",
+               "نام‌گذاری نوع متن پیش از پاراگراف اول."),
+            bi("Headings listed as a plan.",
+               "نوشتن تیترها به‌عنوان نقشه."),
+            bi("One prediction written down.",
+               "نوشتن یک پیش‌بینی."),
+            bi("Small print checked for date, price and audience.",
+               "بررسی نوشته‌های ریز برای تاریخ، قیمت و مخاطب."),
+        ],
+        "reading": {
+            "title": bi("Hilltown Community Garden: a guide for new members",
+                         "باغ محلی هیل‌تاون: راهنمای اعضای تازه"),
+            "level": "A2",
+            "genre": bi("Guide / notice", "راهنما / اطلاعیه"),
+            "paragraphs": [
+                "Hilltown Community Garden — a guide for new members. The "
+                "garden has forty plots on the site of an old railway yard, "
+                "behind the swimming pool on Mill Road. Membership costs £18 a "
+                "year and includes a key to the gate.",
+                "Opening times. The gate opens at 8 am and closes at dusk. It "
+                "is closed all day on Mondays for maintenance, and the water "
+                "taps are switched off in December and January.",
+                "Getting a plot. There is a waiting list of about two years. "
+                "New members are asked to work four hours a month on the shared "
+                "paths and hedges while they wait, which also earns them a "
+                "small raised bed in the meantime.",
+                "Rules. No bonfires between May and September. Tools must be "
+                "returned to the shed by 7 pm. Dogs are welcome on leads. "
+                "Contact the secretary, Mrs Okafor, at the shed on Sunday "
+                "mornings.",
+            ],
+            "summary": bi(
+                "A members' guide: where the garden is, when it is open, how to "
+                "get a plot, and the rules. It contains times, a price and a "
+                "contact name, but no argument.",
+                "راهنمای اعضا: باغ کجاست، چه وقت باز است، چطور زمین بگیری و "
+                "قوانین چیست. شامل ساعت‌ها، یک قیمت و نام یک نفر برای تماس "
+                "است، ولی استدلالی ندارد."),
+        },
+        "questions": {
+            "blanks": [
+                {"sentence": "Membership costs ___ pounds a year.",
+                 "answer": "18", "also": ["£18", "eighteen"],
+                 "hint": bi("A number in the first section.",
+                            "عددی در بخش اول."),
+                 "para": 1},
+                {"sentence": "The gate is closed all day on ___.",
+                 "answer": "Mondays", "also": ["monday"],
+                 "hint": bi("Look under 'Opening times'.",
+                            "زیر «Opening times» را ببین."),
+                 "para": 2},
+                {"sentence": "The waiting list is about ___ years long.",
+                 "answer": "two", "also": ["2"],
+                 "hint": bi("A word, not a digit.", "یک کلمه، نه رقم."),
+                 "para": 3},
+                {"sentence": "Tools must be back in the shed by ___.",
+                 "answer": "7 pm", "also": ["7pm", "seven pm"],
+                 "hint": bi("A time, in the rules.", "یک ساعت، در قوانین."),
+                 "para": 4},
+            ],
+            "mcq": [
+                {"q": "What kind of text is this?",
+                 "options": ["A news report about a garden",
+                             "A guide for people joining a garden",
+                             "A letter of complaint about a garden",
+                             "A job advertisement for a gardener"],
+                 "answer": 1,
+                 "why": bi("The title says 'a guide for new members', and every "
+                           "section gives instructions rather than news.",
+                           "عنوان می‌گوید «راهنمای اعضای تازه» و هر بخش دستورالعمل "
+                           "می‌دهد، نه خبر."),
+                 "para": 1},
+                {"q": "Which section tells you when you may visit?",
+                 "options": ["Getting a plot", "Rules", "Opening times",
+                             "The first section"],
+                 "answer": 2,
+                 "why": bi("'Opening times' is the heading that answers a "
+                           "question about time.",
+                           "تیتر «Opening times» همان تیتری است که به سؤال زمانی "
+                           "جواب می‌دهد."),
+                 "para": 2},
+                {"q": "While you are on the waiting list, what can you do?",
+                 "options": ["Pay an extra fee for a plot",
+                             "Work four hours a month and get a raised bed",
+                             "Use the shed but not the beds",
+                             "Nothing at all"],
+                 "answer": 1,
+                 "why": bi("The third section says the four hours 'also earns "
+                           "them a small raised bed in the meantime'.",
+                           "بخش سوم می‌گوید چهار ساعت کار «در این فاصله یک بستر "
+                           "کوچک» برایشان به دست می‌آورد."),
+                 "para": 3},
+                {"q": "Who should a member contact about a problem?",
+                 "options": ["The council on Mill Road", "Mrs Okafor",
+                             "The swimming pool", "The railway yard"],
+                 "answer": 1,
+                 "why": bi("The last line names the secretary and where to find "
+                           "her.",
+                           "خط آخر نام منشی و محل پیدا کردنش را می‌گوید."),
+                 "para": 4},
+            ],
+            "truefalse": [
+                {"statement": "The garden is on the site of an old railway yard.",
+                 "answer": True,
+                 "why": bi("'forty plots on the site of an old railway yard'.",
+                           "«چهل قطعه روی محل یک حیاط راه‌آهن قدیمی»."),
+                 "para": 1},
+                {"statement": "You can start digging as soon as you pay.",
+                 "answer": False,
+                 "why": bi("There is a waiting list of about two years.",
+                           "یک لیست انتظار حدوداً دوساله وجود دارد."),
+                 "para": 3},
+                {"statement": "Bonfires are allowed in July.",
+                 "answer": False,
+                 "why": bi("No bonfires between May and September.",
+                           "بین مه و سپتامبر آتش روشن نمی‌شود."),
+                 "para": 4},
+                {"statement": "Dogs must be kept on a lead.",
+                 "answer": True,
+                 "why": bi("'Dogs are welcome on leads.'", "«سگ‌ها با قلاده مجازند.»"),
+                 "para": 4},
+            ],
+            "essay": [
+                {"prompt": bi("You have just moved to Hilltown and want a plot. "
+                              "Using only the guide, describe what you would do "
+                              "in your first month and what you would expect.",
+                              "تازه به هیل‌تاون نقل مکان کرده‌ای و یک زمین می‌خواهی. "
+                              "فقط با استفاده از راهنما بگو در ماه اول چه می‌کنی و "
+                              "چه انتظاری داری."),
+                 "tips": [
+                     bi("Name the two things a new member must do: pay, and join "
+                        "the list.",
+                        "دو کاری را که عضو تازه باید بکند نام ببر: پرداخت و نوشتن "
+                        "در لیست."),
+                     bi("Use the guide's own times and price.",
+                        "از ساعت‌ها و قیمت خود راهنما استفاده کن."),
+                     bi("End with what you would ask that the guide does not "
+                        "answer.",
+                        "آخرش بگو چه چیزی می‌پرسی که راهنما جوابش را ندارد.")],
+                 "model": bi("First I would go to the shed on a Sunday morning "
+                             "and speak to Mrs Okafor, because that is where new "
+                             "members are told to go. I would pay the £18 and "
+                             "join the waiting list, which the guide says is about "
+                             "two years. While I waited I would work my four "
+                             "hours a month on the paths and use the raised bed "
+                             "that comes with it. What I would still want to know "
+                             "is whether the hours can be done at weekends only, "
+                             "and whether the raised bed has water in winter.",
+                             "اول صبح یکشنبه به انبار می‌رفتم و با خانم اوکافور حرف "
+                             "می‌زدم، چون راهنما می‌گوید اعضای تازه باید آنجا بروند. "
+                             "۱۸ پوند را می‌پرداختم و در لیست انتظار که راهنما "
+                             "حدوداً دوساله می‌گوید ثبت‌نام می‌کردم. تا آن موقع ماهی "
+                             "چهار ساعت روی مسیرها کار می‌کردم و از بستر بلندی که "
+                             "همراهش می‌آید استفاده می‌کردم. چیزی که هنوز می‌خواستم "
+                             "بدانم این بود که آیا ساعت‌ها فقط آخر هفته هم انجام "
+                             "می‌شود و آیا بستر در زمستان آب دارد.")},
+                {"prompt": bi("The guide gives times and prices but says nothing "
+                              "about seeds or tools. Write three questions you "
+                              "would ask the secretary, and say why the guide "
+                              "does not answer them.",
+                              "راهنما ساعت‌ها و قیمت‌ها را می‌گوید ولی از بذر و ابزار "
+                              "حرفی نمی‌زند. سه سؤال بنویس که از منشی می‌پرسی و "
+                              "بگو چرا راهنما جوابشان را ندارد."),
+                 "tips": [
+                     bi("Surveying is also noticing what a text leaves out.",
+                        "بررسی اولیه یعنی دیدن چیزهایی که متن جا انداخته است."),
+                     bi("Write real questions, with a question mark.",
+                        "سؤال واقعی بنویس، با علامت سؤال."),
+                     bi("Explain the gap: a guide is short on purpose.",
+                        "خلأ را توضیح بده: راهنما عمداً کوتاه است.")],
+                 "model": bi("Who supplies the seeds, and are they included in "
+                             "the £18? Are there tools in the shed for members "
+                             "who do not own any, and can they be borrowed "
+                             "overnight? Is there a tap that works in January? "
+                             "The guide does not answer these because it is "
+                             "written for someone who has already decided to "
+                             "join: it tells you how to get in, not how to "
+                             "garden once you are in.",
+                             "بذر را چه کسی می‌دهد و در همان ۱۸ پوند حساب شده است؟ "
+                             "در انبار برای اعضایی که ابزار ندارند ابزاری هست و "
+                             "می‌شود شبانه امانت گرفت؟ شیر آبی هست که در ژانویه کار "
+                             "کند؟ راهنما به این‌ها جواب نمی‌دهد چون برای کسی نوشته "
+                             "شده که تصمیمش را گرفته است: می‌گوید چطور وارد شوی، نه "
+                             "اینکه بعدش چطور باغبانی کنی.")},
+            ],
+        },
+    },
+    {
+        "id": "detail",
+        "icon": "🖐️",
+        "level": "B1",
+        "minutes": 8,
+        "title": bi("Read for detail and connect the sentences",
+                    "خواندن برای جزئیات و پیوند دادن جمله‌ها"),
+        "blurb": bi(
+            "Careful reading is not slow reading. It is reading with a question "
+            "in mind and a check after every fact.",
+            "خواندن دقیق یعنی خواندن کند نیست؛ یعنی خواندن با یک سؤال در ذهن و "
+            "بررسی بعد از هر واقعیت."),
+        "what": bi(
+            "Reading for detail means tracking individual facts and the links "
+            "between them. Most wrong answers in detailed reading come from "
+            "sentences that are true on their own but have been separated from "
+            "the one that controls them: a number without its unit, a cause "
+            "without its condition, a rule without its exception. Careful "
+            "reading, then, has two moves. First you fix each fact exactly - "
+            "what, how much, compared with what. Then you read the connecting "
+            "words that say how the facts relate: because, although, unless, "
+            "only, still. The second move is what turns a list of facts into "
+            "comprehension.",
+            "خواندن برای جزئیات یعنی دنبال کردن واقعیت‌های جداگانه و پیوندهای میان "
+            "آن‌ها. بیشتر جواب‌های غلط در این نوع خواندن از جمله‌هایی می‌آید که "
+            "تنهایی درست‌اند ولی از جمله‌ای که آن‌ها را کنترل می‌کند جدا شده‌اند: "
+            "عددی بدون واحدش، علتی بدون شرطش، قانونی بدون استثنایش. پس خواندن "
+            "دقیق دو حرکت دارد. اول هر واقعیت را مو‌به‌مو تثبیت می‌کنی: چه، چه "
+            "مقداری، در مقایسه با چه. بعد واژه‌های پیوند را می‌خوانی که می‌گویند "
+            "این واقعیت‌ها چه نسبتی دارند: because، although، unless، only، "
+            "still. حرکت دوم همان چیزی است که فهرست واقعیت‌ها را به فهم تبدیل "
+            "می‌کند."),
+        "why": bi(
+            "Exams and real documents both hide their answer in a relationship. "
+            "'The equipment cost 1.4 million euros' is easy; 'the equipment "
+            "cost 1.4 million and pays for itself in nine years, but only if the "
+            "neighbour keeps producing heat' is the sentence you actually have "
+            "to understand. Detailed reading is the habit of not stopping at "
+            "the first half.",
+            "هم امتحان و هم اسناد واقعی جواب را در یک رابطه پنهان می‌کنند. «تجهیزات "
+            "۱٫۴ میلیون یورو هزینه داشت» ساده است؛ «تجهیزات ۱٫۴ میلیون هزینه داشت و "
+            "در نه سال جبران می‌شود، ولی فقط اگر همسایه تولید گرما را ادامه دهد» "
+            "همان جمله‌ای است که واقعاً باید بفهمی. خواندن دقیق، عادت نایستادن در "
+            "نیمهٔ اول است."),
+        "when": bi(
+            "When the question asks for a number, a condition, a reason or a "
+            "comparison - and when the text is a report, a contract, a set of "
+            "instructions or an exam passage with several facts close together.",
+            "وقتی سؤال یک عدد، یک شرط، یک دلیل یا یک مقایسه می‌خواهد؛ و وقتی متن "
+            "گزارش، قرارداد، دستورالعمل یا متن امتحانی با چند واقعیت نزدیک به "
+            "هم است."),
+        "steps": [
+            bi("Turn the question into the shape of its answer: a temperature, "
+               "a percentage, a length of time.",
+               "سؤال را به شکل جوابش برگردان: یک دما، یک درصد، یک مدت زمان."),
+            bi("Find the sentence, then read the one before and the one after "
+               "it. Detail questions are usually answered across two sentences.",
+               "جمله را پیدا کن، بعد جملهٔ قبل و بعدش را بخوان. سؤال‌های جزئیات "
+               "معمولاً در دو جمله جواب داده می‌شوند."),
+            bi("Circle the qualifier: only, unless, at least, up to, compared "
+               "with. Most traps live in that word.",
+               "دور قید شرط خط بکش: only، unless، at least، up to، compared with. "
+               "بیشتر تله‌ها در همان کلمه‌اند."),
+            bi("Say the fact back in a full sentence with its condition "
+               "attached before you choose.",
+               "پیش از انتخاب، واقعیت را در یک جملهٔ کامل و همراه با شرطش بازگو "
+               "کن."),
+        ],
+        "example": {
+            "text": "The library closes at six on weekdays, except during exam "
+                    "weeks, when it stays open until ten. Students may borrow "
+                    "eight books at a time; staff may borrow twelve. Renewals "
+                    "are free twice, after which a fee of 40 pence a day applies.",
+            "steps": [
+                bi("Question: 'Until what time is the library open in exam "
+                   "weeks?' The first clause answers a different question - six "
+                   "on ordinary weekdays - and 'except' is the hinge.",
+                   "سؤال: «کتابخانه در هفته‌های امتحان تا چه ساعتی باز است؟» بند اول "
+                   "به سؤال دیگری جواب می‌دهد (شش در روزهای عادی) و except لولای "
+                   "مطلب است."),
+                bi("Question: 'How many books may a student borrow?' Eight, not "
+                   "twelve: the semicolon separates two groups, and the second "
+                   "number belongs to staff.",
+                   "سؤال: «دانشجو چند کتاب می‌تواند امانت بگیرد؟» هشت، نه دوازده: "
+                   "نقطه‌ویرگول دو گروه را جدا می‌کند و عدد دوم مال کارکنان است."),
+                bi("Question: 'Is the third renewal free?' No. Two renewals are "
+                   "free; from the third, 40 pence a day. 'After which' counts "
+                   "forwards.",
+                   "سؤال: «تمدید سوم مجانی است؟» نه. دو تمدید مجانی است؛ از سومی "
+                   "روزی ۴۰ پنس. عبارت after which رو به جلو می‌شمارد."),
+            ],
+        },
+        "mistakes": [
+            bi("Answering from the first sentence that contains the key word, "
+               "without reading its condition.",
+               "جواب دادن از اولین جمله‌ای که کلمهٔ کلیدی را دارد، بدون خواندن "
+               "شرطش."),
+            bi("Ignoring punctuation. A semicolon, a dash or a bracket usually "
+               "marks a change of subject or an exception.",
+               "نادیده گرفتن نقطه‌گذاری. نقطه‌ویرگول، خط تیره یا پرانتز معمولاً "
+               "تغییر موضوع یا استثنا را نشان می‌دهد."),
+            bi("Rushing because the topic is familiar. Familiarity is exactly "
+               "when you stop checking the numbers.",
+               "شتاب کردن چون موضوع آشناست. آشنایی دقیقاً همان وقتی است که بررسی "
+               "عددها را رها می‌کنی."),
+        ],
+        "tips": [
+            bi("Read numbers with their units out loud: 'twenty-seven degrees', "
+               "not 'twenty-seven'.",
+               "عددها را با واحدشان بلند بخوان: «بیست‌وهفت درجه»، نه «بیست‌وهفت»."),
+            bi("Mark every contrast in the margin with a single symbol. Six "
+               "marks on a page show you where the text is doing work.",
+               "هر تضاد را در حاشیه با یک نماد علامت بزن. شش علامت در صفحه نشان "
+               "می‌دهد متن کجا کار می‌کند."),
+        ],
+        "checklist": [
+            bi("Answer shape named before searching.",
+               "تعیین شکل جواب پیش از جست‌وجو."),
+            bi("Sentence plus its neighbour read together.",
+               "خواندن جمله همراه با جملهٔ کنارش."),
+            bi("Qualifier identified and included in the answer.",
+               "شناسایی قید شرط و آوردنش در جواب."),
+            bi("Fact restated as a full sentence before choosing.",
+               "بازگویی واقعیت در جملهٔ کامل پیش از انتخاب."),
+        ],
+        "reading": {
+            "title": bi("The swimming pool that heats itself",
+                         "استخری که خودش را گرم می‌کند"),
+            "level": "B1",
+            "genre": bi("Popular science report", "گزارش علمی عمومی"),
+            "paragraphs": [
+                "The swimming pool in the French town of Vitry replaced its gas "
+                "boiler in 2021 with a system that recovers heat from the "
+                "building next door. The neighbour is a data centre: a hall of "
+                "servers that runs all day and must be cooled. Its waste heat, "
+                "once released into the air, now passes through a heat "
+                "exchanger and warms the pool's water to 27 °C.",
+                "The engineering is less simple than the idea. The data "
+                "centre's cooling circuit uses a fluid at about 45 °C, while "
+                "the pool needs water at 27 °C, so a second circuit and a pump "
+                "station were needed to step the temperature down without "
+                "losing the difference. That equipment cost €1.4 million and "
+                "took eleven months to install.",
+                "The saving is measured in gas: the pool burned 420,000 cubic "
+                "metres a year before the change and 60,000 after, a fall of 86 "
+                "per cent. The remaining gas is used only in the coldest weeks, "
+                "when the data centre alone cannot meet demand.",
+                "Not every town can copy this. A pool needs a neighbour that "
+                "produces heat all year, within about 300 metres, and a council "
+                "willing to sign a fifteen-year contract. Vitry had all three. "
+                "The mayor's office says the payback period is nine years.",
+            ],
+            "summary": bi(
+                "A pool is warmed by the waste heat of a neighbouring data "
+                "centre. The idea is simple, the plumbing is not, and the "
+                "saving depends on conditions most towns do not have.",
+                "استخر با گرمای هدررفتهٔ یک مرکز دادهٔ همسایه گرم می‌شود. ایده "
+                "ساده است، لوله‌کشی نه، و صرفه‌جویی به شرایطی بند است که بیشتر "
+                "شهرها ندارند."),
+        },
+        "questions": {
+            "blanks": [
+                {"sentence": "The pool's water is warmed to ___ °C.",
+                 "answer": "27", "also": [],
+                 "hint": bi("The first paragraph gives the figure.",
+                            "پاراگراف اول عدد را می‌دهد."),
+                 "para": 1},
+                {"sentence": "The data centre's cooling fluid is at about ___ °C.",
+                 "answer": "45", "also": [],
+                 "hint": bi("Compare the two temperatures.",
+                            "دو دما را با هم مقایسه کن."),
+                 "para": 2},
+                {"sentence": "The new equipment cost €___ million.",
+                 "answer": "1.4", "also": ["1,4"],
+                 "hint": bi("A price, with a decimal point.",
+                            "یک قیمت، با ممیز."),
+                 "para": 2},
+                {"sentence": "Gas use fell by ___ per cent.",
+                 "answer": "86", "also": [],
+                 "hint": bi("The third paragraph does the arithmetic for you.",
+                            "پاراگراف سوم حساب را برایت انجام داده."),
+                 "para": 3},
+            ],
+            "mcq": [
+                {"q": "Why was a second circuit and pump station needed?",
+                 "options": ["Because the data centre is 300 metres away",
+                             "Because the two sides run at different "
+                             "temperatures",
+                             "Because the pool is open all year",
+                             "Because gas boilers cannot work with a heat "
+                             "exchanger"],
+                 "answer": 1,
+                 "why": bi("'45 °C ... while the pool needs water at 27 °C, so a "
+                           "second circuit ... was needed to step the temperature "
+                           "down'. The reason is the gap, not the distance.",
+                           "«۴۵ درجه... در حالی که استخر آب ۲۷ درجه می‌خواهد، پس "
+                           "مدار دومی لازم شد تا دما را پایین بیاورد». دلیل، فاصلهٔ "
+                           "دماست، نه مسافت."),
+                 "para": 2},
+                {"q": "When is the remaining gas used?",
+                 "options": ["Every night", "In the coldest weeks only",
+                             "All year, at a low rate", "During repairs"],
+                 "answer": 1,
+                 "why": bi("The passage says 'only in the coldest weeks, when the "
+                           "data centre alone cannot meet demand'. The word "
+                           "'only' is the whole answer.",
+                           "متن می‌گوید «فقط در سردترین هفته‌ها، وقتی مرکز داده "
+                           "تنها نمی‌تواند تقاضا را پوشش دهد». کلمهٔ only تمام "
+                           "جواب است."),
+                 "para": 3},
+                {"q": "Which of these is NOT given as a condition for copying "
+                       "the system?",
+                 "options": ["A neighbour that produces heat all year",
+                             "A distance of about 300 metres or less",
+                             "A national subsidy for green heating",
+                             "A fifteen-year contract"],
+                 "answer": 2,
+                 "why": bi("The last paragraph lists three conditions: heat all "
+                           "year, within 300 metres, a fifteen-year contract. No "
+                           "subsidy is mentioned anywhere.",
+                           "پاراگراف آخر سه شرط را می‌شمارد: گرمای تمام سال، فاصلهٔ "
+                           "حدود ۳۰۰ متر، قرارداد پانزده‌ساله. هیچ یارانه‌ای در متن "
+                           "نیست."),
+                 "para": 4},
+                {"q": "What does 'the payback period is nine years' mean?",
+                 "options": ["The contract lasts nine years",
+                             "The equipment will need replacing in nine years",
+                             "The money saved takes nine years to equal the money "
+                             "spent",
+                             "The pool was built nine years ago"],
+                 "answer": 2,
+                 "why": bi("Payback is the time for savings to repay the €1.4 "
+                           "million cost. The contract is fifteen years, which is "
+                           "a different number in the same paragraph.",
+                           "بازگشت سرمایه زمانی است که صرفه‌جویی هزینهٔ ۱٫۴ میلیون را "
+                           "بپوشاند. قرارداد پانزده‌ساله است و عدد دیگری در همان "
+                           "پاراگراف."),
+                 "para": 4},
+            ],
+            "truefalse": [
+                {"statement": "Before 2021 the data centre's waste heat went "
+                              "into the air.",
+                 "answer": True,
+                 "why": bi("'Its waste heat, once released into the air, now "
+                           "passes through a heat exchanger'.",
+                           "«گرمای هدررفته‌اش، که قبلاً در هوا رها می‌شد، حالا از "
+                           "مبدل گرما می‌گذرد»."),
+                 "para": 1},
+                {"statement": "Installing the new equipment took longer than a "
+                              "year.",
+                 "answer": False,
+                 "why": bi("It 'took eleven months', which is less than a year. A "
+                           "careless reader sees a big number and assumes 'over a "
+                           "year'.",
+                           "«یازده ماه» طول کشید که کمتر از یک سال است. خوانندهٔ "
+                           "بی‌دقت عدد بزرگ را می‌بیند و «بیش از یک سال» فرض "
+                           "می‌کند."),
+                 "para": 2},
+                {"statement": "The pool still burns some gas.",
+                 "answer": True,
+                 "why": bi("60,000 cubic metres remain, used in the coldest "
+                           "weeks. The saving is 86 per cent, not 100.",
+                           "۶۰٬۰۰۰ متر مکعب باقی مانده که در سردترین هفته‌ها مصرف "
+                           "می‌شود. صرفه‌جویی ۸۶ درصد است، نه ۱۰۰."),
+                 "para": 3},
+                {"statement": "Any town with a data centre can copy the system.",
+                 "answer": False,
+                 "why": bi("The passage says the opposite: 'Not every town can "
+                           "copy this', and requires three conditions at once.",
+                           "متن خلافش را می‌گوید: «هر شهری نمی‌تواند این را کپی کند» "
+                           "و سه شرط همزمان می‌خواهد."),
+                 "para": 4},
+            ],
+            "essay": [
+                {"prompt": bi("Explain, in your own words, why the temperature "
+                              "difference made the project harder. Use both "
+                              "temperatures in your answer.",
+                              "با کلمات خودت توضیح بده چرا اختلاف دما کار را سخت‌تر "
+                              "کرد. هر دو دما را در جواب بیاور."),
+                 "tips": [
+                     bi("State the two temperatures first, then the problem "
+                        "they create.",
+                        "اول دو دما را بگو، بعد مشکلی که می‌سازند."),
+                     bi("Use 'because' and 'so that' to show the link.",
+                        "برای نشان دادن پیوند از because و so that استفاده کن."),
+                     bi("Mention what would be wasted without the second "
+                        "circuit.",
+                        "بگو بدون مدار دوم چه چیزی هدر می‌رفت.")],
+                 "model": bi("The data centre's cooling fluid leaves at about 45 "
+                             "°C, but the pool only needs water at 27 °C. If the "
+                             "hot fluid went straight into the pool, the water "
+                             "would be too hot, and if it were simply left to "
+                             "cool, the extra heat would be wasted. So a second "
+                             "circuit and a pump station were added to bring the "
+                             "temperature down by about 18 degrees while keeping "
+                             "as much of the heat as possible. That is why the "
+                             "system cost more than a direct connection would "
+                             "have.",
+                             "سیال خنک‌کنندهٔ مرکز داده با حدود ۴۵ درجه بیرون می‌آید، "
+                             "ولی استخر فقط آب ۲۷ درجه می‌خواهد. اگر سیال داغ مستقیم "
+                             "به استخر می‌رفت، آب بیش از حد گرم می‌شد، و اگر فقط "
+                             "رها می‌شد تا سرد شود، گرمای اضافی هدر می‌رفت. پس یک "
+                             "مدار دوم و ایستگاه پمپ اضافه شد تا دما را حدود ۱۸ "
+                             "درجه پایین بیاورد و در همان حال بیشترین گرما را نگه "
+                             "دارد. همین باعث شد سیستم از یک اتصال مستقیم گران‌تر "
+                             "تمام شود.")},
+                {"prompt": bi("The passage says 'Vitry had all three'. List the "
+                              "three conditions and say which one you think is "
+                              "hardest for a small town to meet, and why.",
+                              "متن می‌گوید «ویتری هر سه را داشت». سه شرط را فهرست کن "
+                              "و بگو کدام‌یک برای یک شهر کوچک سخت‌ترین است و چرا."),
+                 "tips": [
+                     bi("Number the conditions exactly as the passage gives "
+                        "them.",
+                        "شرط‌ها را دقیقاً همان‌طور که متن می‌دهد شماره‌گذاری کن."),
+                     bi("Choose one and give a reason from the text, not from "
+                        "general opinion.",
+                        "یکی را انتخاب کن و دلیلت را از متن بیاور، نه از نظر "
+                        "عمومی."),
+                     bi("Keep it to five or six sentences.",
+                        "در پنج یا شش جمله نگهش دار.")],
+                 "model": bi("The three conditions are: a neighbour that produces "
+                             "heat all year, that neighbour within about 300 "
+                             "metres, and a council willing to sign a fifteen-year "
+                             "contract. I think the contract is hardest for a "
+                             "small town, because it commits the council to one "
+                             "supplier for longer than most councils plan ahead, "
+                             "and the passage shows the payback takes nine years, "
+                             "so the decision has to survive at least two "
+                             "elections.",
+                             "سه شرط این‌ها هستند: همسایه‌ای که تمام سال گرما تولید "
+                             "کند، فاصلهٔ حدود ۳۰۰ متر، و شورایی که حاضر باشد قرارداد "
+                             "پانزده‌ساله امضا کند. فکر می‌کنم قرارداد برای یک شهر "
+                             "کوچک سخت‌ترین است، چون شورا را بیشتر از افق برنامه‌ریزی "
+                             "معمولش به یک تأمین‌کننده گره می‌زند، و متن نشان می‌دهد "
+                             "بازگشت سرمایه نه سال طول می‌کشد؛ پس تصمیم باید حداقل "
+                             "دو دورهٔ انتخاباتی را دوام بیاورد.")},
+            ],
+        },
+    },
+    {
+        "id": "mainidea",
+        "icon": "🎯",
+        "level": "B1",
+        "minutes": 7,
+        "title": bi("Find the main idea and leave the details where they are",
+                    "ایدهٔ اصلی را پیدا کن و جزئیات را سر جایشان بگذار"),
+        "blurb": bi(
+            "A paragraph says one thing and proves it. Learning to hear the "
+            "difference is the whole skill.",
+            "هر پاراگراف یک چیز می‌گوید و آن را اثبات می‌کند. یاد گرفتن شنیدن "
+            "این تفاوت، تمام مهارت است."),
+        "what": bi(
+            "The topic of a paragraph is what it is about: pocket forests. The "
+            "main idea is what the paragraph says about that topic: cities "
+            "plant them mainly because they cool the air. Everything else - a "
+            "temperature in degrees, a date, a named botanist - is a supporting "
+            "detail, and its job is to make the main idea believable. A topic "
+            "is a noun or a phrase; a main idea is a full sentence that "
+            "somebody could disagree with. That test is the fastest one there "
+            "is: if nobody could argue with your sentence, it is a topic, not "
+            "an idea.",
+            "موضوع یک پاراگراف چیزی است که دربارهٔ آن حرف می‌زند: جنگل‌های جیبی. "
+            "ایدهٔ اصلی چیزی است که پاراگراف دربارهٔ آن موضوع می‌گوید: شهرها "
+            "اصولاً آن‌ها را می‌کارند چون هوا را خنک می‌کنند. بقیهٔ چیزها - دمایی "
+            "بر حسب درجه، یک تاریخ، نام یک گیاه‌شناس - جزئیات پشتیبان‌اند و کارشان "
+            "باورپذیر کردن ایدهٔ اصلی است. موضوع یک اسم یا عبارت است؛ ایدهٔ اصلی "
+            "یک جملهٔ کامل که کسی می‌تواند با آن مخالفت کند. همین آزمون سریع‌ترین "
+            "است: اگر هیچ‌کس نتواند با جملهٔ تو مخالفت کند، آن جمله موضوع است، "
+            "نه ایده."),
+        "why": bi(
+            "Almost every summary question, title question and 'what is the "
+            "passage mainly about' question is testing this one distinction. "
+            "Readers who cannot separate the two pick the answer that repeats "
+            "the most words from the text, which is usually a detail, and "
+            "usually correct in itself - which is what makes it a good trap.",
+            "تقریباً هر سؤال خلاصه، سؤال عنوان و سؤال «متن اصلاً دربارهٔ چیست» همین "
+            "یک تفکیک را می‌سنجد. خواننده‌ای که نمی‌تواند این دو را جدا کند، "
+            "گزینه‌ای را انتخاب می‌کند که بیشترین کلمه‌های متن را تکرار می‌کند؛ "
+            "که معمولاً یک جزئیات است و خودش هم درست است - و همین آن را به تلهٔ "
+            "خوبی تبدیل می‌کند."),
+        "when": bi(
+            "Whenever a question asks for the main idea, the best title, the "
+            "writer's purpose or a summary - and whenever you are taking notes "
+            "and need one line per paragraph instead of ten.",
+            "هر وقت سؤالی ایدهٔ اصلی، بهترین عنوان، هدف نویسنده یا خلاصه را "
+            "می‌پرسد؛ و هر وقت یادداشت برمی‌داری و به‌جای ده خط، یک خط برای هر "
+            "پاراگراف می‌خواهی."),
+        "steps": [
+            bi("Name the topic in one or two words. Wrong answers often share "
+               "the topic, so the topic alone decides nothing.",
+               "موضوع را در یک یا دو کلمه نام ببر. جواب‌های غلط هم معمولاً همان "
+               "موضوع را دارند، پس موضوع تنها چیزی را تعیین نمی‌کند."),
+            bi("Find the topic sentence - usually first, sometimes last - and "
+               "check that the other sentences support it rather than continue "
+               "it.",
+               "جملهٔ موضوع را پیدا کن - معمولاً اول، گاهی آخر - و بسنج که جمله‌های "
+               "دیگر پشتیبانی‌اش می‌کنند یا ادامه‌اش می‌دهند."),
+            bi("Write the idea as a sentence somebody could disagree with. "
+               "'Pocket forests are small' fails; 'cities plant them for heat' "
+               "passes.",
+               "ایده را به‌صورت جمله‌ای بنویس که کسی بتواند مخالفت کند. «جنگل‌های "
+               "جیبی کوچک‌اند» رد می‌شود؛ «شهرها آن‌ها را برای گرما می‌کارند» قبول "
+               "می‌شود."),
+            bi("Cover the details and check the idea still stands. If it needs "
+               "the numbers to make sense, it was a detail.",
+               "جزئیات را بپوشان و ببین ایده هنوز سرپاست. اگر برای معنی داشتن به "
+               "عددها نیاز دارد، جزئیات بوده."),
+        ],
+        "example": {
+            "text": "Many hospitals now clean their corridors at night. The "
+                    "change began in 2018, when a study found that daytime "
+                    "cleaning disturbed patients' sleep and slowed recovery. "
+                    "Night shifts cost eleven per cent more in wages, but the "
+                    "same study estimated that faster recovery saved more than "
+                    "that difference.",
+            "steps": [
+                bi("Topic: hospital cleaning times. That is not yet an idea - "
+                   "nobody would argue with a topic.",
+                   "موضوع: ساعت نظافت بیمارستان. این هنوز ایده نیست؛ هیچ‌کس با یک "
+                   "موضوع مخالفت نمی‌کند."),
+                bi("The first sentence is the claim: cleaning moved to night. "
+                   "The next two give the reason (sleep) and the price (wages), "
+                   "both supporting it.",
+                   "جملهٔ اول ادعاست: نظافت به شب منتقل شد. دو جملهٔ بعد دلیل "
+                   "(خواب) و قیمت (دستمزد) را می‌دهند و هر دو پشتیبان آن‌اند."),
+                bi("So the main idea is a trade: hospitals accept higher wages "
+                   "to protect sleep and shorten stays. 'A study in 2018' is a "
+                   "detail, however true.",
+                   "پس ایدهٔ اصلی یک معامله است: بیمارستان‌ها دستمزد بیشتر را "
+                   "می‌پذیرند تا خواب را حفظ کنند و مدت بستری را کوتاه کنند. "
+                   "«یک مطالعه در ۲۰۱۸» هرچقدر هم درست، جزئیات است."),
+            ],
+        },
+        "mistakes": [
+            bi("Choosing the longest, most complete-looking option. Length is "
+               "not importance.",
+               "انتخاب بلندترین و کامل‌ترین گزینه. بلندی نشانهٔ اهمیت نیست."),
+            bi("Choosing an option that is true but narrow - one paragraph's "
+               "detail offered as the whole passage's point.",
+               "انتخاب گزینه‌ای که درست ولی محدود است: جزئیات یک پاراگراف به‌جای "
+               "نکتهٔ کل متن."),
+            bi("Confusing the writer's topic with the writer's attitude. "
+               "'Pocket forests have limits' is an attitude about the topic.",
+               "اشتباه گرفتن موضوع با موضع نویسنده. «جنگل‌های جیبی محدودیت دارند» "
+               "موضعی دربارهٔ موضوع است."),
+        ],
+        "tips": [
+            bi("Write the main idea of each paragraph in the margin as you "
+               "read. Four lines at the end give you the whole passage.",
+               "موقع خواندن، ایدهٔ اصلی هر پاراگراف را در حاشیه بنویس. چهار خط در "
+               "پایان، تمام متن را به تو می‌دهد."),
+            bi("Ask 'so what?' after each paragraph. The answer is the idea; "
+               "the sentence you just read was probably the evidence.",
+               "بعد از هر پاراگراف بپرس «خب که چه؟». جواب همان ایده است؛ جمله‌ای "
+               "که خواندی احتمالاً شاهد بود."),
+        ],
+        "checklist": [
+            bi("Topic written as a word, idea written as a sentence.",
+               "نوشتن موضوع به‌صورت یک کلمه و ایده به‌صورت یک جمله."),
+            bi("The idea is something a reader could disagree with.",
+               "ایده چیزی است که خواننده می‌تواند با آن مخالفت کند."),
+            bi("Details covered and the idea still standing.",
+               "پوشاندن جزئیات و سرپا ماندن ایده."),
+        ],
+        "reading": {
+            "title": bi("A forest the size of a tennis court",
+                         "جنگلی به اندازهٔ یک زمین تنیس"),
+            "level": "B1",
+            "genre": bi("Feature article", "مقالهٔ گزارش‌گونه"),
+            "paragraphs": [
+                "A pocket forest is a patch of woodland the size of a tennis "
+                "court or two, planted densely in a school yard, beside a road "
+                "or on the corner of a car park. The method comes from the "
+                "Japanese botanist Akira Miyawaki, who argued in the 1970s that "
+                "a forest could be rebuilt from native species in decades "
+                "rather than centuries. The first European versions were "
+                "planted in the Netherlands in 2015.",
+                "The clearest reason to plant one is heat. A dense stand of "
+                "trees cools the air beneath it by shading the ground and by "
+                "releasing water through its leaves, and measurements in Dutch "
+                "and Belgian towns record differences of two to four degrees "
+                "on summer afternoons. In streets where most residents have no "
+                "garden, that difference is felt in the bedroom at night as "
+                "much as on the pavement at noon.",
+                "The second reason is rain. Concrete sends a storm straight "
+                "into the drains, while the roots and loose soil of a small "
+                "wood hold part of it back, so a single forest can keep "
+                "hundreds of litres out of an overloaded sewer in one "
+                "downpour.",
+                "Pocket forests are not a solution on their own. They need "
+                "about three years of watering before they survive without "
+                "help, they struggle on badly polluted ground, and a tennis "
+                "court of trees takes away parking that somebody was using. "
+                "The method's defenders answer that a forest is one of the few "
+                "pieces of city infrastructure that gets cheaper to keep every "
+                "year.",
+            ],
+            "summary": bi(
+                "Small dense woods cool streets, hold back rain and cost less "
+                "to keep as they age - but they need years of care and take up "
+                "space people were already using.",
+                "جنگل‌های کوچک و انبوه خیابان‌ها را خنک می‌کنند، آب باران را نگه "
+                "می‌دارند و هرچه پیرتر می‌شوند نگهداری‌شان ارزان‌تر می‌شود - ولی "
+                "سال‌ها مراقبت می‌خواهند و فضایی را می‌گیرند که مردم از قبل "
+                "استفاده می‌کردند."),
+        },
+        "questions": {
+            "blanks": [
+                {"sentence": "A pocket forest is about the size of a ___ court.",
+                 "answer": "tennis", "also": [],
+                 "hint": bi("The first line names the comparison.",
+                            "خط اول مقایسه را نام می‌برد."),
+                 "para": 1},
+                {"sentence": "The method comes from the botanist Akira ___.",
+                 "answer": "Miyawaki", "also": [],
+                 "hint": bi("A Japanese name, spelled in English letters.",
+                            "یک نام ژاپنی، با حروف انگلیسی."),
+                 "para": 1},
+                {"sentence": "Trees cool the air by ___ and by releasing water "
+                             "through their leaves.",
+                 "answer": "shading the ground", "also": ["shading", "shade"],
+                 "hint": bi("The verb is a form of 'shade'.",
+                            "فعل از ریشهٔ shade است."),
+                 "para": 2},
+                {"sentence": "New forests need about ___ years of watering.",
+                 "answer": "three", "also": ["3"],
+                 "hint": bi("A word, in the last paragraph.",
+                            "یک کلمه، در پاراگراف آخر."),
+                 "para": 4},
+            ],
+            "mcq": [
+                {"q": "Which sentence states the main idea of the second "
+                       "paragraph?",
+                 "options": ["Measurements in Dutch and Belgian towns record "
+                             "differences of two to four degrees",
+                             "The clearest reason to plant one is heat",
+                             "Most residents in these streets have no garden",
+                             "Trees release water through their leaves"],
+                 "answer": 1,
+                 "why": bi("The first sentence is the claim the rest of the "
+                           "paragraph supports. The measurements are the "
+                           "evidence; the garden detail explains who benefits.",
+                           "جملهٔ اول ادعایی است که بقیهٔ پاراگراف پشتیبانی‌اش می‌کند. "
+                           "اندازه‌گیری‌ها شاهدند و جزئیات باغ توضیح می‌دهد چه کسی "
+                           "سود می‌برد."),
+                 "para": 2},
+                {"q": "What is the passage mainly about?",
+                 "options": ["The life of the botanist Akira Miyawaki",
+                             "Why cities plant pocket forests, and what limits "
+                             "them",
+                             "How to plant a tree correctly",
+                             "Why concrete causes flooding in cities"],
+                 "answer": 1,
+                 "why": bi("Three paragraphs give reasons (heat, rain, low "
+                           "upkeep) and the last gives the limits. Each wrong "
+                           "option is one detail inflated into the whole.",
+                           "سه پاراگراف دلیل می‌دهند (گرما، باران، نگهداری ارزان) و "
+                           "پاراگراف آخر محدودیت‌ها را. هر گزینهٔ غلط یک جزئیات است "
+                           "که به کل متن باد شده."),
+                 "para": 4},
+                {"q": "Which of these is a supporting detail rather than a main "
+                       "idea?",
+                 "options": ["Small woods are worth planting in cities",
+                             "Pocket forests have real limits",
+                             "A stand of trees can keep hundreds of litres out of "
+                             "a sewer",
+                             "Trees get cheaper to keep as they age"],
+                 "answer": 2,
+                 "why": bi("The litres are a measurement inside the rain "
+                           "argument. The other three are claims a reader could "
+                           "disagree with.",
+                           "لیترها اندازه‌گیری‌ای درون استدلال باران‌اند. سه گزینهٔ "
+                           "دیگر ادعاهایی‌اند که خواننده می‌تواند با آن‌ها مخالفت "
+                           "کند."),
+                 "para": 3},
+                {"q": "What does the last sentence of the passage suggest?",
+                 "options": ["Forests are expensive to maintain",
+                             "The cost of looking after a forest falls as it "
+                             "matures",
+                             "Cities should not plant forests near car parks",
+                             "Infrastructure always gets more expensive"],
+                 "answer": 1,
+                 "why": bi("'Gets cheaper to keep every year' is the defenders' "
+                           "answer to the cost objection - the opposite of the "
+                           "first option.",
+                           "«هر سال نگهداری‌اش ارزان‌تر می‌شود» جواب مدافعان به اعتراض "
+                           "هزینه است - برعکس گزینهٔ اول."),
+                 "para": 4},
+            ],
+            "truefalse": [
+                {"statement": "The method uses trees native to the area.",
+                 "answer": True,
+                 "why": bi("The forest is 'rebuilt from native species'.",
+                           "جنگل «از گونه‌های بومی» بازسازی می‌شود."),
+                 "para": 1},
+                {"statement": "Once planted, a pocket forest needs no care.",
+                 "answer": False,
+                 "why": bi("It needs 'about three years of watering before they "
+                           "survive without help'.",
+                           "«حدود سه سال آبیاری» لازم است تا بدون کمک دوام بیاورد."),
+                 "para": 4},
+                {"statement": "The passage says such woods can lower summer "
+                              "temperatures by a few degrees.",
+                 "answer": True,
+                 "why": bi("'Differences of two to four degrees on summer "
+                           "afternoons'.",
+                           "«اختلاف دو تا چهار درجه در بعدازظهرهای تابستان»."),
+                 "para": 2},
+                {"statement": "The writer believes pocket forests can solve "
+                              "every city problem.",
+                 "answer": False,
+                 "why": bi("The fourth paragraph opens with the opposite claim: "
+                           "'not a solution on their own'.",
+                           "پاراگراف چهارم با ادعای مخالف شروع می‌شود: «به‌تنهایی راه‌حل "
+                           "نیستند»."),
+                 "para": 4},
+            ],
+            "essay": [
+                {"prompt": bi("Write one sentence for the main idea of each of "
+                              "the four paragraphs. Do not copy the topic "
+                              "sentences.",
+                              "برای ایدهٔ اصلی هر یک از چهار پاراگراف یک جمله "
+                              "بنویس. جمله‌های موضوع را کپی نکن."),
+                 "min_words": 55,
+                 "tips": [
+                     bi("One sentence per paragraph, four lines in total.",
+                        "یک جمله برای هر پاراگراف، در کل چهار خط."),
+                     bi("Paraphrase: change the verb and the order, not just "
+                        "one word.",
+                        "بازنویسی کن: فعل و ترتیب را عوض کن، نه فقط یک کلمه."),
+                     bi("Each sentence should be something a reader could "
+                        "disagree with.",
+                        "هر جمله باید چیزی باشد که خواننده بتواند با آن مخالفت "
+                        "کند.")],
+                 "model": bi("First, a very small wood can be built from local "
+                             "trees in a few decades rather than centuries. "
+                             "Second, the strongest argument for them is that "
+                             "they noticeably cool the streets around them. "
+                             "Third, they also protect drains by soaking up storm "
+                             "water. Fourth, they work only when someone pays "
+                             "for their first years, and their upkeep becomes "
+                             "easier as they grow.",
+                             "اول، یک جنگل بسیار کوچک را می‌توان در چند دهه، نه چند "
+                             "قرن، از درختان محلی ساخت. دوم، قوی‌ترین دلیل برای آن‌ها "
+                             "این است که خیابان‌های اطراف را به‌طور محسوس خنک "
+                             "می‌کنند. سوم، با جذب آب طوفان از فاضلاب هم محافظت "
+                             "می‌کنند. چهارم، فقط وقتی کار می‌کنند که کسی هزینهٔ "
+                             "سال‌های اول را بدهد، و با رشدشان نگهداری آسان‌تر "
+                             "می‌شود.")},
+                {"prompt": bi("The passage's title is a size, not an idea. "
+                              "Suggest a better title of no more than six words "
+                              "and explain in two sentences why it is more "
+                              "accurate.",
+                              "عنوان متن یک اندازه است، نه یک ایده. عنوان بهتری در "
+                              "حداکثر شش کلمه پیشنهاد بده و در دو جمله توضیح بده چرا "
+                              "دقیق‌تر است."),
+                 "min_words": 45,
+                 "tips": [
+                     bi("A title should carry the main idea, not the "
+                        "measurement.",
+                        "عنوان باید ایدهٔ اصلی را حمل کند، نه اندازه را."),
+                     bi("Keep it under six words - that is part of the task.",
+                        "زیر شش کلمه نگهش دار؛ این بخشی از تمرین است."),
+                     bi("Say what your title adds that the old one leaves out.",
+                        "بگو عنوان تو چه چیزی را اضافه می‌کند که عنوان قبلی جا "
+                        "انداخته.")],
+                 "model": bi("'Small Woods That Cool Whole Streets'. The "
+                             "original title gives the size of the forest, "
+                             "which is a detail, and says nothing about why "
+                             "anyone would plant one. A title that names the "
+                             "effect points the reader at the argument the "
+                             "passage actually makes, and the last paragraph's "
+                             "limits then read as a qualification of that "
+                             "claim.",
+                             "«جنگل‌های کوچکی که کل خیابان را خنک می‌کنند». عنوان "
+                             "اصلی اندازهٔ جنگل را می‌دهد که جزئیات است و نمی‌گوید "
+                             "چرا کسی باید یکی بکارد. عنوانی که نتیجه را نام می‌برد، "
+                             "خواننده را به همان استدلالی می‌برد که متن واقعاً می‌سازد، "
+                             "و آن‌وقت محدودیت‌های پاراگراف آخر به‌عنوان قید همان "
+                             "ادعا خوانده می‌شوند.")},
+            ],
+        },
+    },
+    {
+        "id": "summarize",
+        "icon": "📝",
+        "level": "B2",
+        "minutes": 9,
+        "title": bi("Summarise and paraphrase without copying",
+                    "خلاصه کردن و بازنویسی بدون کپی کردن"),
+        "blurb": bi(
+            "If your summary could have been written without the text, you "
+            "have not read it yet.",
+            "اگر خلاصه‌ات را می‌شد بدون خواندن متن نوشت، هنوز نخوانده‌ای."),
+        "what": bi(
+            "A paraphrase restates one sentence at roughly the same length, "
+            "with new words: same meaning, different surface. A summary "
+            "compresses a whole text and keeps only what a reader who has not "
+            "seen it needs: the central claim, the two or three supports that "
+            "carry it, and the limit the writer admits. The two skills "
+            "combine. You paraphrase sentence by sentence, then throw away "
+            "every sentence that only supports another one, which is how a "
+            "four-hundred-word article becomes sixty words that still say "
+            "something a reader could argue with.",
+            "بازنویسی (paraphrase) یک جمله را با همان طول تقریبی و واژه‌های تازه "
+            "بیان می‌کند: همان معنی، سطحی متفاوت. خلاصه (summary) کل متن را "
+            "فشرده می‌کند و فقط چیزی را نگه می‌دارد که خوانندهٔ ناآشنا لازم دارد: "
+            "ادعای مرکزی، دو یا سه پشتوانه‌ای که آن را حمل می‌کنند، و محدودیتی "
+            "که نویسنده می‌پذیرد. این دو مهارت با هم کار می‌کنند. جمله‌به‌جمله "
+            "بازنویسی می‌کنی، بعد هر جمله‌ای را که فقط پشتیبان جملهٔ دیگری است "
+            "دور می‌ریزی؛ این‌طور یک مقالهٔ چهارصد کلمه‌ای شصت کلمه می‌شود که هنوز "
+            "چیزی می‌گوید که کسی می‌تواند با آن مخالفت کند."),
+        "why": bi(
+            "Summarising is how you find out whether you understood. A reader "
+            "who can only repeat the sentences has stored the words, not the "
+            "argument. It is also the skill most examined: summary questions, "
+            "note-completion, 'which sentence best expresses...' and every "
+            "academic task you will meet later are the same operation in "
+            "different clothes.",
+            "خلاصه کردن راهی است که می‌فهمی آیا فهمیدی یا نه. خواننده‌ای که فقط "
+            "می‌تواند جمله‌ها را تکرار کند، واژه‌ها را ذخیره کرده، نه استدلال را. "
+            "همچنین این مهارت بیشترین کاربرد امتحانی را دارد: سؤال خلاصه، تکمیل "
+            "یادداشت، «کدام جمله بهتر بیان می‌کند...» و هر تکلیف دانشگاهی بعدی، "
+            "همان عملیات با لباس دیگری است."),
+        "when": bi(
+            "After a careful read, not during it - and whenever you need notes "
+            "you can actually revise from, or have to use a source without "
+            "copying its words.",
+            "بعد از خواندن دقیق، نه در حین آن؛ و هر وقت یادداشتی می‌خواهی که واقعاً "
+            "بشود از آن مرور کرد، یا باید از منبعی استفاده کنی بدون کپی کردن "
+            "واژه‌هایش."),
+        "steps": [
+            bi("Write the main idea of the text in one sentence, closed book. "
+               "That sentence is the spine of the summary.",
+               "با کتاب بسته، ایدهٔ اصلی متن را در یک جمله بنویس. همان جمله ستون "
+               "فقرات خلاصه است."),
+            bi("List the two or three points that would be lost without the "
+               "text. Two is usually enough; five is a rewrite.",
+               "دو یا سه نکته‌ای را که بدون متن از دست می‌رفت فهرست کن. دو تا "
+               "معمولاً کافی است؛ پنج تا یعنی بازنویسی."),
+            bi("Change the grammar, not just the vocabulary: a noun becomes a "
+               "verb, active becomes passive, two short sentences become one.",
+               "گرامر را عوض کن، نه فقط واژه‌ها را: اسم فعل شود، معلوم مجهول، دو "
+               "جملهٔ کوتاه یکی."),
+            bi("Compare with the original for copied phrases of four words or "
+               "more, and rewrite any you find.",
+               "با متن اصلی مقایسه کن و هر عبارت چهارکلمه‌ای یا بیشترِ کپی‌شده را "
+               "بازنویسی کن."),
+            bi("Check the length and the meaning: shorter than the original, "
+               "and no fact added that the writer did not say.",
+               "طول و معنی را بسنج: کوتاه‌تر از متن اصلی، و بدون هیچ واقعیتی که "
+               "نویسنده نگفته."),
+        ],
+        "example": {
+            "text": "The city's bike scheme lost money for six years. Last "
+                    "spring the council stopped replacing stolen bikes and "
+                    "began charging visitors a small daily fee instead. Use "
+                    "doubled within a season, and for the first time the "
+                    "scheme covered its own repairs.",
+            "steps": [
+                bi("Spine: a failing bike scheme became self-funding after two "
+                   "changes.",
+                   "ستون فقرات: یک طرح دوچرخهٔ زیان‌ده بعد از دو تغییر خودکفا شد."),
+                bi("Keep the two changes, drop the six years of losses - that "
+                   "is background, not information.",
+                   "دو تغییر را نگه دار و شش سال ضرر را بریز - آن زمینه است، نه "
+                   "اطلاع."),
+                bi("Summary: 'A city bike scheme that had lost money for years "
+                   "became self-funding within one season after the council "
+                   "stopped replacing stolen bikes and started charging "
+                   "visitors a daily fee.' Two sentences became one; nothing "
+                   "was added.",
+                   "خلاصه: «طرح دوچرخهٔ شهری که سال‌ها ضرر می‌داد، پس از اینکه "
+                   "شورا جایگزینی دوچرخه‌های دزدی را متوقف کرد و از گردشگران "
+                   "هزینهٔ روزانه گرفت، در یک فصل خودکفا شد.» دو جمله یکی شد و "
+                   "چیزی اضافه نشد."),
+            ],
+        },
+        "mistakes": [
+            bi("Copying the topic sentences in order and calling it a summary. "
+               "That is a quotation with the details removed.",
+               "کپی کردن جمله‌های موضوع به ترتیب و اسمش را خلاصه گذاشتن. این یک "
+               "نقل‌قول است که جزئیاتش حذف شده."),
+            bi("Swapping synonyms one at a time ('big' → 'large') and thinking "
+               "the sentence is now your own.",
+               "عوض کردن مترادف‌ها یکی‌یکی (بزرگ → وسیع) و فکر کردن اینکه جمله "
+               "حالا مال خودت است."),
+            bi("Adding your opinion. A summary reports the writer's claim, "
+               "including the limits the writer admits.",
+               "افزودن نظر خودت. خلاصه ادعای نویسنده را گزارش می‌کند، همراه با "
+               "محدودیت‌هایی که خودش می‌پذیرد."),
+        ],
+        "tips": [
+            bi("Aim for a quarter of the original for an exam summary, or one "
+               "sentence for a paragraph.",
+               "برای خلاصهٔ امتحانی یک‌چهارم متن اصلی را هدف بگیر، یا یک جمله برای "
+               "هر پاراگراف."),
+            bi("If a phrase feels easy to write, it is probably the original's. "
+               "The awkward version is usually yours.",
+               "اگر عبارتی راحت نوشته می‌شود، احتمالاً از خود متن است. نسخهٔ "
+               "ناهموار معمولاً مال خودت است."),
+        ],
+        "checklist": [
+            bi("Spine sentence written with the text closed.",
+               "نوشتن جملهٔ ستون فقرات با متن بسته."),
+            bi("Two or three supports kept, rest dropped.",
+               "نگه داشتن دو یا سه پشتوانه و حذف بقیه."),
+            bi("Grammar changed, not only vocabulary.",
+               "تغییر گرامر، نه فقط واژگان."),
+            bi("No copied run of four words.",
+               "هیچ رشتهٔ چهارکلمه‌ای کپی‌شده نداشتن."),
+            bi("Nothing added that the writer did not claim.",
+               "چیزی اضافه نشده که نویسنده نگفته باشد."),
+        ],
+        "reading": {
+            "title": bi("The four-day week: what the trial showed and what it "
+                         "did not",
+                         "هفتهٔ چهارروزه: آزمون چه نشان داد و چه نشان نداد"),
+            "level": "B2",
+            "genre": bi("Analysis / report", "تحلیل / گزارش"),
+            "paragraphs": [
+                "In 2022, 61 British companies took part in a trial of a "
+                "four-day week that lasted six months. Staff worked four days "
+                "instead of five "
+                "and kept their full pay. The trial was organised by a "
+                "research group and a campaign organisation, and the companies "
+                "chose to join - a fact worth remembering when you read the "
+                "results.",
+                "For most firms the results were better than expected. Revenue "
+                "stayed flat or rose in almost all of them, the number of "
+                "resignations fell sharply, and sick days dropped. Managers "
+                "reported that the hardest part was not the missing day but "
+                "the meetings they had to cancel to pay for it.",
+                "The caveats matter as much as the numbers. Sixty-one "
+                "companies is a small sample, and volunteers are never a random "
+                "sample: firms that expect a four-day week to fail do not "
+                "apply. Most were office employers with control over their own "
+                "hours, and the trial did not include hospitals, schools or "
+                "shops, where cover has to be arranged hour by hour.",
+                "How the participating firms paid for the fifth day is the most "
+                "transferable finding. They shortened meetings, replaced many "
+                "of them with written updates, and cut the time staff spent "
+                "waiting for approvals. None of these changes requires a "
+                "four-day week; any employer could try them tomorrow.",
+            ],
+            "summary": bi(
+                "A voluntary six-month trial found stable revenue, fewer "
+                "resignations and less sickness; its sample was small and "
+                "office-based, and its most reusable lesson is that meetings "
+                "and waiting time can be cut without changing the week at all.",
+                "یک آزمون داوطلبانهٔ شش‌ماهه درآمد پایدار، استعفای کمتر و بیماری "
+                "کمتر یافت؛ نمونه‌اش کوچک و اداری بود و قابل‌استفاده‌ترین درسش "
+                "این است که می‌توان جلسه‌ها و زمان انتظار را بدون هیچ تغییری در "
+                "هفته کم کرد."),
+        },
+        "questions": {
+            "blanks": [
+                {"sentence": "___ British companies joined the trial.",
+                 "answer": "61", "also": ["sixty-one", "sixty one"],
+                 "hint": bi("A number in the first line.",
+                            "عددی در خط اول."),
+                 "para": 1},
+                {"sentence": "The trial lasted six ___.",
+                 "answer": "months", "also": [],
+                 "hint": bi("A unit of time.", "یک واحد زمان."),
+                 "para": 1},
+                {"sentence": "Revenue stayed flat or ___ in almost all of the "
+                             "companies.",
+                 "answer": "rose", "also": [],
+                 "hint": bi("The opposite of 'fell'.", "متضاد fell."),
+                 "para": 2},
+                {"sentence": "Firms paid for the fifth day partly by shortening "
+                             "___.",
+                 "answer": "meetings", "also": [],
+                 "hint": bi("What managers had to cancel.",
+                            "چیزی که مدیران مجبور شدند لغو کنند."),
+                 "para": 4},
+            ],
+            "mcq": [
+                {"q": "What is the passage mainly about?",
+                 "options": ["Why the four-day week is better for everyone",
+                             "A trial's results, its limits, and what other "
+                             "employers can copy",
+                             "How to organise a meeting in less time",
+                             "Why British companies are short of staff"],
+                 "answer": 1,
+                 "why": bi("The passage gives results, then caveats, then the "
+                           "one transferable finding - and it never claims the "
+                           "week works everywhere.",
+                           "متن نتایج را می‌دهد، بعد قیدها، بعد تنها یافتهٔ قابل‌انتقال "
+                           "- و هیچ‌جا ادعا نمی‌کند هفته همه‌جا کار می‌کند."),
+                 "para": 4},
+                {"q": "Which of these is given as a limitation of the trial?",
+                 "options": ["Staff were paid less during the trial",
+                             "The companies volunteered rather than being "
+                             "chosen at random",
+                             "The trial lasted only three months",
+                             "Revenue fell in most firms"],
+                 "answer": 1,
+                 "why": bi("'Volunteers are never a random sample: firms that "
+                           "expect a four-day week to fail do not apply.' Pay "
+                           "was full and the term was six months, both stated as "
+                           "facts.",
+                           "«داوطلبان هرگز نمونهٔ تصادفی نیستند: شرکت‌هایی که انتظار "
+                           "شکست دارند درخواست نمی‌دهند.» دستمزد کامل بود و مدت شش "
+                           "ماه، که هر دو واقعیت‌اند."),
+                 "para": 3},
+                {"q": "According to the second paragraph, what was hardest for "
+                       "managers?",
+                 "options": ["Filling the fifth day with work",
+                             "Cancelling the meetings that paid for the missing "
+                             "day",
+                             "Recruiting new staff",
+                             "Measuring revenue"],
+                 "answer": 1,
+                 "why": bi("'The hardest part was not the missing day but the "
+                           "meetings they had to cancel to pay for it.' The "
+                           "sentence is built on a contrast, so the first half "
+                           "is the trap.",
+                           "«سخت‌ترین بخش روز غایب نبود، بلکه جلسه‌هایی بود که باید "
+                           "لغو می‌کردند تا هزینه‌اش را بدهند.» جمله بر یک تضاد "
+                           "ساخته شده، پس نیمهٔ اول تله است."),
+                 "para": 2},
+                {"q": "Which finding does the writer call most transferable?",
+                 "options": ["Full pay can be kept on four days",
+                             "Sick days fall when the week is shorter",
+                             "Cutting meetings and waiting time works without "
+                             "a four-day week",
+                             "Small samples are unreliable"],
+                 "answer": 2,
+                 "why": bi("The last paragraph says exactly that, and ends with "
+                           "'any employer could try them tomorrow'.",
+                           "پاراگراف آخر دقیقاً همین را می‌گوید و با «هر کارفرمایی "
+                           "می‌تواند فردا امتحانشان کند» تمام می‌شود."),
+                 "para": 4},
+            ],
+            "truefalse": [
+                {"statement": "Staff kept their full pay during the trial.",
+                 "answer": True,
+                 "why": bi("'Staff worked four days instead of five and kept "
+                           "their full pay.'",
+                           "«کارکنان چهار روز کار کردند و دستمزد کامل گرفتند.»"),
+                 "para": 1},
+                {"statement": "Sick days rose during the trial.",
+                 "answer": False,
+                 "why": bi("They 'dropped', and the number of resignations fell "
+                           "as well.",
+                           "«کم شد»، و تعداد استعفاها هم پایین آمد."),
+                 "para": 2},
+                {"statement": "Hospitals and schools took part in the trial.",
+                 "answer": False,
+                 "why": bi("'The trial did not include hospitals, schools or "
+                           "shops'.",
+                           "«آزمون شامل بیمارستان‌ها، مدرسه‌ها یا مغازه‌ها نبود»."),
+                 "para": 3},
+                {"statement": "Some of the changes could be tried without "
+                              "shortening the week.",
+                 "answer": True,
+                 "why": bi("'None of these changes requires a four-day week; "
+                           "any employer could try them tomorrow.'",
+                           "«هیچ‌کدام از این تغییرها به هفتهٔ چهارروزه نیاز ندارد؛ هر "
+                           "کارفرمایی می‌تواند فردا امتحانشان کند.»"),
+                 "para": 4},
+            ],
+            "essay": [
+                {"prompt": bi("Write a summary of the passage in 45-70 words. "
+                              "Keep the result, the main limitation and the "
+                              "transferable finding, and use your own words.",
+                              "خلاصه‌ای از متن در ۴۵ تا ۷۰ کلمه بنویس. نتیجه، "
+                              "محدودیت اصلی و یافتهٔ قابل‌انتقال را نگه دار و از "
+                              "واژه‌های خودت استفاده کن."),
+                 "min_words": 45,
+                 "tips": [
+                     bi("One sentence for the result, one for the caveat, "
+                        "one for the finding.",
+                        "یک جمله برای نتیجه، یکی برای قید، و یکی برای یافته."),
+                     bi("Say 'about 60 firms', not the exact figure - a "
+                        "summary rounds.",
+                        "بگو «حدود ۶۰ شرکت»، نه رقم دقیق؛ خلاصه گرد می‌کند."),
+                     bi("Do not evaluate. Save your opinion for another "
+                        "paragraph.",
+                        "ارزیابی نکن. نظرت را برای پاراگراف دیگری نگه دار.")],
+                 "model": bi("A six-month British trial of a four-day week, "
+                             "involving about sixty companies, found stable or "
+                             "rising revenue, fewer resignations and less "
+                             "sickness while pay stayed the same. The sample was "
+                             "small and entirely voluntary, and it covered office "
+                             "work rather than hospitals or shops. The most "
+                             "portable lesson is that shorter meetings and less "
+                             "waiting for approvals help any employer, with or "
+                             "without a shorter week. (70 words)",
+                             "یک آزمون شش‌ماههٔ بریتانیایی برای هفتهٔ چهارروزه با حدود "
+                             "شصت شرکت، درآمد پایدار یا رو‌به‌رشد، استعفای کمتر و "
+                             "بیماری کمتر یافت، در حالی که دستمزد ثابت بود. نمونه "
+                             "کوچک و کاملاً داوطلبانه بود و کار اداری را پوشش می‌داد، "
+                             "نه بیمارستان و مغازه. قابل‌انتقال‌ترین درس این است که "
+                             "جلسه‌های کوتاه‌تر و انتظار کمتر برای تأییدها به هر "
+                             "کارفرمایی کمک می‌کند، با هفتهٔ کوتاه‌تر یا بدون آن. "
+                             "(۷۰ کلمه)")},
+                {"prompt": bi("Paraphrase this sentence in one sentence of your "
+                              "own: 'Firms that expect a four-day week to fail "
+                              "do not apply.' Then explain in two sentences why a "
+                              "paraphrase is not a summary.",
+                              "این جمله را در یک جملهٔ خودت بازنویسی کن: «شرکت‌هایی "
+                              "که انتظار شکست هفتهٔ چهارروزه را دارند درخواست "
+                              "نمی‌دهند.» بعد در دو جمله توضیح بده چرا بازنویسی با "
+                              "خلاصه یکی نیست."),
+                 "min_words": 55,
+                 "tips": [
+                     bi("Keep the logic (only firms that expect success join) "
+                        "and change the structure.",
+                        "منطق را نگه دار (فقط شرکت‌هایی که انتظار موفقیت دارند "
+                        "می‌پیوندند) و ساختار را عوض کن."),
+                     bi("No run of four copied words.",
+                        "هیچ رشتهٔ چهارکلمه‌ای کپی نشود."),
+                     bi("Then state the difference in length and scope, not in "
+                        "quality.",
+                        "بعد تفاوت را در طول و گستره بگو، نه در کیفیت.")],
+                 "model": bi("Only employers who already believe the shorter "
+                             "week will work choose to enter such a trial, so "
+                             "the group is not representative. A paraphrase "
+                             "keeps the length and the single idea of one "
+                             "sentence, reworded. A summary covers a whole text "
+                             "and is deliberately much shorter, keeping only the "
+                             "points a new reader needs.",
+                             "فقط کارفرمایانی که از پیش باور دارند هفتهٔ کوتاه‌تر کار "
+                             "می‌کند در چنین آزمونی شرکت می‌کنند، پس این گروه "
+                             "نماینده نیست. بازنویسی طول و ایدهٔ یک جمله را نگه "
+                             "می‌دارد و واژه‌ها را عوض می‌کند. خلاصه کل یک متن را "
+                             "پوشش می‌دهد و عمداً بسیار کوتاه‌تر است و فقط نکته‌هایی "
+                             "را نگه می‌دارد که خوانندهٔ تازه لازم دارد.")},
+            ],
+        },
+    },
 ]
+
+
+# The order a learner should meet the strategies in: survey before reading at
+# all, summary last because it needs everything above it.
+ORDER = [
+    "survey", "skim", "scan", "detail", "context",
+    "reference", "inference", "mainidea", "signposts", "summarize",
+]
+
+
+# The rest of each lesson for the strategies written before the lesson had
+# these sections. Keyed by strategy id and merged by tools/build_reading.py.
+EXTRAS = {
+    "skim": {
+        "minutes": 7,
+        "when": bi(
+            "You have two minutes to decide whether a text is worth reading: an "
+            "exam passage, a news article, an email thread with forty replies.",
+            "دو دقیقه وقت داری تصمیم بگیری آیا یک متن ارزش خواندن دارد یا نه: "
+            "متن امتحان، یک خبر، یا زنجیرهٔ ایمیلی با چهل جواب."),
+        "example": {
+            "text": "Pontevedra banned cars from its centre in 1999. Shop "
+                    "owners expected to lose customers. Instead, sales rose, "
+                    "because people who walk stop and look in windows. Twenty "
+                    "years later the centre has no traffic and no empty shops. "
+                    "Other cities have come to copy the model, but few have "
+                    "banned cars outright: the political cost is too high. The "
+                    "mayor says the trick was never calling it a ban on cars.",
+            "steps": [
+                bi("Read only the first sentence of each paragraph. Banned in "
+                   "1999 · shops expected losses · sales rose · other cities "
+                   "hesitate · what did the mayor call it.",
+                   "فقط جملهٔ اول هر پاراگراف را بخوان: ممنوعیت در ۱۹۹۹ · انتظار "
+                   "ضرر · افزایش فروش · تردید شهرهای دیگر · شهردار چه نامی "
+                   "گذاشت."),
+                bi("The last sentence gives the writer's point: the policy "
+                   "worked because it was framed as something else.",
+                   "جملهٔ آخر نظر نویسنده را می‌دهد: سیاست موفق شد چون جور دیگری "
+                   "معرفی شد."),
+                bi("Say it in one line - 'how a small city took cars out of the "
+                   "centre and made its shops busier' - and only then read it "
+                   "properly.",
+                   "در یک خط بگو: «چگونه یک شهر کوچک ماشین‌ها را از مرکز بیرون "
+                   "کرد و مغازه‌ها را پرتر کرد»؛ و تنها بعد از آن کامل بخوان."),
+            ],
+        },
+        "mistakes": [
+            bi("Skimming the first sentences and then reading every word "
+               "anyway. That is reading slowly with extra steps.",
+               "جمله‌های اول را سریع خواندن و بعد با این حال کلمه‌به‌کلمه خواندن. "
+               "این همان خواندن کند است با چند قدم اضافه."),
+            bi("Skipping the last paragraph. It is where the writer usually "
+               "says what they actually think.",
+               "رد کردن پاراگراف آخر؛ همان‌جایی که نویسنده معمولاً نظر واقعی‌اش "
+               "را می‌گوید."),
+            bi("Answering with the topic instead of the idea: 'cars' is the "
+               "topic, 'a city that removed them and improved' is the idea.",
+               "جواب دادن با موضوع به‌جای ایده: «ماشین» موضوع است؛ «شهری که "
+               "ماشین‌ها را برد و بهتر شد» ایده است."),
+        ],
+        "tips": [
+            bi("Time it. Sixty seconds, then say the idea out loud before you "
+               "look at anything else.",
+               "زمان بگیر. شصت ثانیه، بعد پیش از هر چیز دیگری ایده را بلند بگو."),
+            bi("Trust the first sentence less than the last one when the two "
+               "disagree.",
+               "وقتی جملهٔ اول و آخر با هم نمی‌سازند، به جملهٔ آخر بیشتر اعتماد "
+               "کن."),
+        ],
+        "checklist": [
+            bi("Title, first line, first sentence of each paragraph, last "
+               "paragraph.",
+               "عنوان، خط اول، جملهٔ اول هر پاراگراف، پاراگراف آخر."),
+            bi("One sentence in your own words before the careful read.",
+               "یک جمله با کلمات خودت پیش از خواندن دقیق."),
+            bi("Topic named separately from the main idea.",
+               "تفکیک موضوع از ایدهٔ اصلی."),
+        ],
+    },
+    "scan": {
+        "minutes": 6,
+        "when": bi(
+            "A question names a year, a price or a person, and the answer is "
+            "somewhere on the page but you have no time to read all of it.",
+            "سؤالی یک سال، یک قیمت یا یک نام را می‌آورد و جواب جایی در صفحه "
+            "است، ولی وقت نداری همه‌اش را بخوانی."),
+        "example": {
+            "text": "The bridge opened in March 2018 after four years of work "
+                    "and cost 61 million euros. Its designer, Elena Ferraro, "
+                    "had proposed a cheaper wooden version in 2011, which the "
+                    "council rejected twice. The current span is 240 metres, "
+                    "the longest in the region, and carries 19,000 vehicles a "
+                    "day. Repairs in 2023 closed it for eleven weeks.",
+            "steps": [
+                bi("Underline the target first: 'eleven weeks' means you are "
+                   "hunting a duration, and durations sit next to 'for', "
+                   "'since' or a number plus a unit.",
+                   "اول هدف را خط بکش: «یازده هفته» یعنی دنبال یک مدت زمانی؛ و "
+                   "مدت‌ها کنار for، since یا یک عدد و واحد می‌آیند."),
+                bi("Sweep down the numbers column instead of reading: 2018, 61, "
+                   "2011, 240, 19,000, 2023 - the last one is followed by "
+                   "'closed it for eleven weeks'.",
+                   "به‌جای خواندن، ستون عددها را پایین برو: ۲۰۱۸، ۶۱، ۲۰۱۱، ۲۴۰، "
+                   "۱۹٬۰۰۰، ۲۰۲۳؛ عدد آخر با «closed it for eleven weeks» "
+                   "می‌آید."),
+                bi("Read that sentence in full before answering: the question "
+                   "was about repairs, and the number alone does not say what "
+                   "was closed.",
+                   "پیش از جواب دادن، آن جمله را کامل بخوان: سؤال دربارهٔ تعمیرات "
+                   "بود و عدد تنها نمی‌گوید چه چیزی بسته شد."),
+            ],
+        },
+        "mistakes": [
+            bi("Scanning for the exact words of the question. A text says "
+               "'eleven weeks'; the question says 'how long'.",
+               "جست‌وجوی عین کلمه‌های سؤال. متن می‌گوید eleven weeks و سؤال "
+               "می‌پرسد how long."),
+            bi("Stopping at the first number that fits. Bridges cost money and "
+               "open in years, and both look alike at speed.",
+               "توقف روی اولین عددی که جور درمی‌آید. پول و سال هر دو شبیه هم‌اند "
+               "وقتی سریع نگاه می‌کنی."),
+        ],
+        "tips": [
+            bi("Say what shape the answer has before you look: a date, a "
+               "number with a unit, a name in capitals.",
+               "پیش از نگاه کردن بگو جواب چه شکلی است: تاریخ، عدد با واحد، یا "
+               "نامی با حرف بزرگ."),
+            bi("Scan a narrow column, not the whole width - the eye finds "
+               "digits faster in a strip.",
+               "یک ستون باریک را بگرد، نه تمام عرض را؛ چشم در یک نوار باریک "
+               "رقم‌ها را سریع‌تر پیدا می‌کند."),
+        ],
+        "checklist": [
+            bi("Target named as a shape, not a paraphrase.",
+               "هدف را به شکل یک قالب نام ببر، نه با بازنویسی."),
+            bi("Zigzag sweep, digits and capitals as landmarks.",
+               "جاروب زیگزاگ، با رقم‌ها و حروف بزرگ به‌عنوان نشانه."),
+            bi("The whole sentence read before the answer is written.",
+               "خواندن کل جمله پیش از نوشتن جواب."),
+        ],
+    },
+    "context": {
+        "minutes": 8,
+        "when": bi(
+            "You meet an unfamiliar word in a text you otherwise follow, and "
+            "stopping now would cost you the paragraph.",
+            "به واژه‌ای ناشناس می‌رسی در متنی که بقیه‌اش را می‌فهمی، و توقف در "
+            "همین نقطه پاراگراف را از دستت می‌برد."),
+        "example": {
+            "text": "The village shop was failing. Then the owner began to "
+                    "stock small, cheap things people forget at the "
+                    "supermarket - a single battery, one candle, half a loaf - "
+                    "and trade began to burgeon. Within a year she had hired "
+                    "two assistants and opened a second till.",
+            "steps": [
+                bi("'Burgeon' is unknown, but the sentence after it is the "
+                   "proof: two assistants and a second till mean the trade "
+                   "grew.",
+                   "«burgeon» را نمی‌دانی، ولی جملهٔ بعد شاهدش است: دو کارمند و "
+                   "صندوق دوم یعنی فروش رشد کرد."),
+                bi("Test the guess by substitution: 'trade began to grow' fits "
+                   "the cause (small things people forget) and the result "
+                   "(hiring).",
+                   "حدس را با جای‌گذاری بسنج: «فروش شروع کرد به رشد» هم با علت "
+                   "جور است هم با نتیجه (استخدام)."),
+                bi("Note the shape: burgeon is a verb of growth, so it can be "
+                   "reused for cities, costs and interest rates.",
+                   "شکل واژه را یادداشت کن: burgeon فعل رشد است و برای شهر، هزینه "
+                   "و نرخ بهره هم به کار می‌رود."),
+            ],
+        },
+        "mistakes": [
+            bi("Using only the word's shape: 'burgeon' looks like 'burger', "
+               "and guessing from sound is how false friends are born.",
+               "فقط از شکل واژه حدس زدن: burgeon شبیه burger است، و حدس از روی "
+               "صدا همان جایی است که دوستان نادرست به دنیا می‌آیند."),
+            bi("Deciding that a guess is wrong because the dictionary gives a "
+               "different word. 'Grow' is not the translation; it is enough.",
+               "غلط دانستن حدس چون فرهنگ لغت واژهٔ دیگری می‌دهد. «رشد کردن» "
+               "ترجمهٔ دقیق نیست، اما کافی است."),
+        ],
+        "tips": [
+            bi("Guess a part of speech first - noun, verb, adjective - because "
+               "that alone fixes half the meaning.",
+               "اول نقش دستوری را حدس بزن: اسم، فعل، صفت؛ همین نصف معنی را "
+               "مشخص می‌کند."),
+            bi("Write the word on a card with the sentence, not the "
+               "translation. The sentence is what will bring it back.",
+               "واژه را با همان جمله روی کارت بنویس، نه با ترجمه؛ همان جمله "
+               "است که آن را برمی‌گرداند."),
+        ],
+        "checklist": [
+            bi("Word class guessed before meaning.",
+               "حدس نقش دستوری پیش از معنی."),
+            bi("One of the four signals found: definition, example, "
+               "opposite, result.",
+               "پیدا کردن یکی از چهار نشانه: تعریف، مثال، متضاد، نتیجه."),
+            bi("Guess substituted into the sentence and checked.",
+               "جای‌گذاری حدس در جمله و سنجیدنش."),
+            bi("Dictionary opened only after the third meeting.",
+               "باز کردن فرهنگ لغت فقط بعد از سومین برخورد."),
+        ],
+    },
+    "reference": {
+        "minutes": 6,
+        "when": bi(
+            "A paragraph stops making sense although you know every word in "
+            "it. Nine times out of ten a pronoun is pointing at the wrong "
+            "noun.",
+            "پاراگرافی بی‌معنی می‌شود هرچند همهٔ کلمه‌هایش را می‌دانی. نه بار از "
+            "ده بار یک ضمیر به اسم اشتباهی اشاره می‌کند."),
+        "example": {
+            "text": "The council voted to close the market on Sundays. This "
+                    "surprised nobody who had seen the empty stalls, but it "
+                    "angered the traders, who had asked for a later opening "
+                    "instead. They collected 4,000 signatures in a week.",
+            "steps": [
+                bi("'This' is not 'Sundays' and not 'the market': it stands for "
+                   "the whole decision in the first sentence.",
+                   "«This» نه «یکشنبه‌ها» است و نه «بازار»: به کل تصمیم جملهٔ "
+                   "اول برمی‌گردد."),
+                bi("'They' comes after 'the traders', and the verb 'collected "
+                   "signatures' only makes sense for the people who object.",
+                   "«They» بعد از «the traders» می‌آید و فعل «امضا جمع کردند» فقط "
+                   "برای معترضان معنی می‌دهد."),
+                bi("Replace each pronoun with its noun and read again: the "
+                   "sentence now says who was surprised and who was angry, "
+                   "which the pronouns were hiding.",
+                   "هر ضمیر را با اسمش عوض کن و دوباره بخوان: حالا جمله می‌گوید "
+                   "چه کسی تعجب کرد و چه کسی عصبانی شد؛ همان چیزی که ضمیرها "
+                   "پنهانش کرده بودند."),
+            ],
+        },
+        "mistakes": [
+            bi("Attaching a pronoun to the nearest noun. Distance is not "
+               "grammar; meaning is.",
+               "چسباندن ضمیر به نزدیک‌ترین اسم. فاصله گرامر نیست؛ معنی است."),
+            bi("Reading 'this' as one word instead of one sentence, which "
+               "turns a comment on a policy into a comment on a weekday.",
+               "خواندن this به‌عنوان یک کلمه و نه یک جمله؛ همین نظر دربارهٔ یک "
+               "سیاست را به نظر دربارهٔ یک روز هفته تبدیل می‌کند."),
+        ],
+        "tips": [
+            bi("Say the paragraph out loud with the nouns in place. Your ear "
+               "catches the wrong referent faster than your eye.",
+               "پاراگراف را با اسم‌ها بلند بخوان. گوش زودتر از چشم مرجع اشتباه "
+               "را می‌گیرد."),
+            bi("'Which' usually points at the whole clause before it, not at "
+               "the last noun.",
+               "«which» معمولاً به کل بند قبل برمی‌گردد، نه به آخرین اسم."),
+        ],
+        "checklist": [
+            bi("Every pronoun circled before complaining that the text is "
+               "unclear.",
+               "دور زدن همهٔ ضمیرها پیش از شکایت از مبهم بودن متن."),
+            bi("Noun substituted and the sentence re-read.",
+               "جای‌گذاری اسم و خواندن دوبارهٔ جمله."),
+            bi("'This' / 'that' read as a whole sentence, not a word.",
+               "خواندن this و that به‌عنوان کل جمله، نه یک کلمه."),
+        ],
+    },
+    "inference": {
+        "minutes": 8,
+        "when": bi(
+            "The question asks how someone felt, what they intended, or what "
+            "can be concluded - and the answer is nowhere in the words.",
+            "سؤال می‌پرسد کسی چه حسی داشت، چه قصدی داشت، یا چه می‌توان نتیجه "
+            "گرفت؛ و جواب در هیچ کلمه‌ای نیست."),
+        "example": {
+            "text": "My father read the letter twice, folded it along the "
+                    "same crease, and put it back in the envelope. 'Good "
+                    "news?' my mother asked. 'They want an answer by Friday,' "
+                    "he said, and went to make tea.",
+            "steps": [
+                bi("Notice what is missing: he never answers the question, "
+                   "and the deadline is the only fact he offers.",
+                   "به آنچه نیست توجه کن: او به سؤال جواب نمی‌دهد و تنها واقعیتی "
+                   "که می‌گوید مهلت است."),
+                bi("Two details point the same way - reading it twice, and "
+                   "folding it along the same crease - which suggests the "
+                   "news is not simple.",
+                   "دو جزئیات به یک جهت اشاره می‌کنند: دو بار خواندن و تا کردن "
+                   "روی همان خط قبلی؛ یعنی خبر ساده نیست."),
+                bi("Make the smallest claim the evidence supports: he is "
+                   "worried. Not 'he lost his job' - the passage does not say "
+                   "that, and an inference is not a guess.",
+                   "کوچک‌ترین ادعایی را بکن که شواهد پشتیبانی می‌کند: نگران است. "
+                   "نه «کارش را از دست داد»؛ متن این را نمی‌گوید و استنتاج حدس "
+                   "نیست."),
+            ],
+        },
+        "mistakes": [
+            bi("Choosing the option that repeats the passage's words. An "
+               "inference question almost never has a quoted answer.",
+               "انتخاب گزینه‌ای که کلمه‌های متن را تکرار می‌کند. سؤال استنتاج "
+               "تقریباً هیچ‌وقت جواب نقل‌قولی ندارد."),
+            bi("Going one step further than the text allows - inventing a "
+               "cause (a lost job, an illness) instead of describing the "
+               "feeling.",
+               "یک قدم جلوتر از متن رفتن: ساختن علت (اخراج، بیماری) به‌جای "
+               "توصیف احساس."),
+        ],
+        "tips": [
+            bi("Answer first, then find two details that support it. Reading "
+               "the options first is how the plausible wrong one gets chosen.",
+               "اول جواب بده، بعد دو جزئیات برای پشتیبانی‌اش پیدا کن. خواندن "
+               "گزینه‌ها از اول، همان راهی است که گزینهٔ غلطِ قابل‌قبول انتخاب "
+               "می‌شود."),
+            bi("Keep the claim small. 'He is worried' is defensible; 'he is "
+               "angry with his wife' needs evidence the passage does not "
+               "give.",
+               "ادعا را کوچک نگه دار. «نگران است» قابل دفاع است؛ «از همسرش "
+               "عصبانی است» شواهدی می‌خواهد که متن نمی‌دهد."),
+        ],
+        "checklist": [
+            bi("Own answer written before the options are read.",
+               "نوشتن جواب خودت پیش از خواندن گزینه‌ها."),
+            bi("Two details found that point the same way.",
+               "پیدا کردن دو جزئیات که به یک جهت اشاره می‌کنند."),
+            bi("The claim is the smallest one the evidence allows.",
+               "کوچک‌ترین ادعایی که شواهد اجازه می‌دهد."),
+        ],
+    },
+    "signposts": {
+        "minutes": 7,
+        "when": bi(
+            "You are reading an article, a report or an exam text and you can "
+            "follow every sentence but not the argument.",
+            "مقاله، گزارش یا متن امتحانی می‌خوانی و هر جمله را می‌فهمی ولی "
+            "استدلال را نه."),
+        "example": {
+            "text": "Remote work raises productivity. However, the studies "
+                    "that show this were mostly done with experienced staff. "
+                    "For example, one trial found a 13 per cent gain among "
+                    "engineers with five years' experience. Consequently, the "
+                    "result may not travel to a first job.",
+            "steps": [
+                bi("Three signposts, three jobs: however limits the first "
+                   "claim, for example supports the limit, consequently draws "
+                   "the conclusion.",
+                   "سه نشانه، سه کار: however ادعای اول را محدود می‌کند، for "
+                   "example آن محدودیت را پشتیبانی می‌کند، consequently نتیجه "
+                   "را می‌گیرد."),
+                bi("Predict before reading: after 'however' the writer must "
+                   "qualify the good news, so the next sentence should say "
+                   "under what conditions it holds.",
+                   "پیش از خواندن پیش‌بینی کن: بعد از however نویسنده باید خبر خوب "
+                   "را مشروط کند، پس جملهٔ بعد باید بگوید تحت چه شرطی درست است."),
+                bi("Read only the signposts in order and you already have the "
+                   "argument: claim, limit, evidence, conclusion.",
+                   "فقط نشانه‌ها را به ترتیب بخوان و استدلال را داری: ادعا، "
+                   "محدودیت، شاهد، نتیجه."),
+            ],
+        },
+        "mistakes": [
+            bi("Treating 'however' as decoration. It usually marks the "
+               "sentence the writer actually believes.",
+               "تزئینی دانستن however. این واژه معمولاً جمله‌ای را نشان می‌دهد "
+               "که نویسنده واقعاً باورش دارد."),
+            bi("Reading 'for example' as new information. It is evidence for "
+               "the sentence before it.",
+               "خواندن for example به‌عنوان اطلاعات تازه. این عبارت شاهد جملهٔ "
+               "قبل است."),
+        ],
+        "tips": [
+            bi("Learn them in families: contrast (however, yet, although), "
+               "cause (because, therefore), example (for instance, such as), "
+               "limit (unless, except).",
+               "آن‌ها را خانوادگی یاد بگیر: تضاد (however، yet، although)، علت "
+               "(because، therefore)، مثال (for instance، such as)، محدودیت "
+               "(unless، except)."),
+            bi("A paragraph that opens with a signpost is telling you how to "
+               "read it. Use the first word before the first sentence.",
+               "پاراگرافی که با یک نشانه شروع می‌شود، می‌گوید چطور بخوانش. پیش از "
+               "جملهٔ اول، کلمهٔ اول را ببین."),
+        ],
+        "checklist": [
+            bi("Signposts underlined before answering anything.",
+               "خط کشیدن زیر نشانه‌ها پیش از پاسخ دادن."),
+            bi("Each one labelled: contrast, example, cause, result, limit.",
+               "برچسب زدن به هر کدام: تضاد، مثال، علت، نتیجه، محدودیت."),
+            bi("The last paragraph read for the writer's own position.",
+               "خواندن پاراگراف آخر برای فهم موضع خود نویسنده."),
+        ],
+    },
+}
+
+
+# Which paragraph answers each of the questions whose explanation quotes the
+# text loosely enough that the builder cannot find it on its own. Keys are the
+# question's position in its group; a missing entry falls back to the builder's
+# search, and to no reference at all rather than a wrong one.
+EVIDENCE = {
+    "skim": {
+        "blanks": {2: 2},
+        "mcq": {0: 4},
+        "truefalse": {2: 1},
+    },
+    "scan": {
+        "mcq": {1: 2, 2: 3, 3: 4},
+        "truefalse": {2: 3, 3: 2},
+    },
+    "context": {
+        "mcq": {0: 1, 2: 3, 3: 3},
+        "truefalse": {2: 3, 3: 1},
+    },
+    "reference": {
+        "blanks": {0: 1},
+        "mcq": {0: 1, 1: 2, 2: 2, 3: 2},
+        "truefalse": {1: 2, 3: 1},
+    },
+    "inference": {
+        "blanks": {1: 1},
+        "mcq": {1: 3, 3: 2},
+        "truefalse": {1: 2, 2: 2},
+    },
+    "signposts": {
+        "mcq": {0: 2, 2: 3},
+        "truefalse": {0: 1, 1: 1, 2: 3, 3: 4},
+    },
+}

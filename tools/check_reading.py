@@ -90,6 +90,32 @@ def check_content(doc: dict) -> dict:
             check(bool(FA.search(step.get("fa", ""))),
                   f"{sid}: a step has no Persian")
 
+        # The lesson sections added after the first six strategies. A lesson
+        # that skips one of these is a lesson that stops at the definition.
+        check(bool(FA.search((s.get("when") or {}).get("fa", ""))) and
+              bool((s.get("when") or {}).get("en", "").strip()),
+              f"{sid}: no 'when to use it' section in both languages")
+        check(isinstance(s.get("minutes"), int) and 3 <= s["minutes"] <= 20,
+              f"{sid}: the lesson time is missing or implausible")
+
+        ex = s.get("example") or {}
+        check(len((ex.get("text") or "").split()) >= 25,
+              f"{sid}: the worked example is too short to demonstrate anything")
+        check(len(ex.get("steps") or []) >= 2,
+              f"{sid}: the worked example is never analysed")
+        for line in ex.get("steps") or []:
+            check(bool(FA.search(line.get("fa", ""))) and
+                  bool(line.get("en", "").strip()),
+                  f"{sid}: a worked-example line is missing a language")
+
+        for field, least in (("mistakes", 2), ("tips", 2), ("checklist", 3)):
+            rows = s.get(field) or []
+            check(len(rows) >= least, f"{sid}: {field} needs at least {least} entries")
+            for row in rows:
+                check(bool(FA.search(row.get("fa", ""))) and
+                      bool(row.get("en", "").strip()),
+                      f"{sid}: a {field} entry is missing a language")
+
         r = s.get("reading") or {}
         text = " ".join(r.get("paragraphs") or [])
         n = len(re.findall(r"[A-Za-z'’-]+", text))
@@ -100,6 +126,8 @@ def check_content(doc: dict) -> dict:
         check(bool(FA.search((r.get("summary") or {}).get("fa", ""))),
               f"{sid}: the passage has no Persian summary")
         check(r.get("words") == n, f"{sid}: the word count is stale ({r.get('words')} vs {n})")
+        check(r.get("minutes") == max(1, round(n / 170)),
+              f"{sid}: the reading time does not match the passage")
 
         q = s.get("questions") or {}
         for kind in ("blanks", "mcq", "truefalse", "essay"):
@@ -109,10 +137,30 @@ def check_content(doc: dict) -> dict:
         check(len(q.get("truefalse") or []) >= 3, f"{sid}: fewer than three true/false")
         check(len(q.get("essay") or []) >= 1, f"{sid}: no writing task")
 
+        objective = q.get("blanks", []) + q.get("mcq", []) + q.get("truefalse", [])
+        paras = len(r.get("paragraphs") or [])
+        with_evidence = 0
+        for item in objective:
+            para = item.get("para")
+            if para is None:
+                continue
+            check(isinstance(para, int) and 1 <= para <= paras,
+                  f"{sid}: a question points at paragraph {para} of {paras}")
+            with_evidence += 1
+        # Feedback that cannot name the paragraph is a red cross with a
+        # sentence next to it. Most questions must be able to point.
+        check(with_evidence >= 0.7 * len(objective),
+              f"{sid}: only {with_evidence} of {len(objective)} questions "
+              f"say which paragraph answers them")
+
         for b in q.get("blanks") or []:
             check("___" in b.get("sentence", ""), f"{sid}: a blank has no gap")
             check(b.get("answer", "").lower() in text.lower(),
                   f"{sid}: the answer {b.get('answer')!r} never appears in the passage")
+            for alt in b.get("also") or []:
+                check(isinstance(alt, str) and alt.strip() and
+                      alt.lower() != b["answer"].lower(),
+                      f"{sid}: a rejected-list alternative is empty or redundant")
             keys[b.get("answer")] += 1
 
         for m in q.get("mcq") or []:
@@ -130,6 +178,8 @@ def check_content(doc: dict) -> dict:
             keys["tf" + ("T" if t.get("answer") else "F")] += 1
 
         for e in q.get("essay") or []:
+            check(isinstance(e.get("min_words"), int) and e["min_words"] >= 40,
+                  f"{sid}: a writing task has no minimum length")
             model = e.get("model") or {}
             check(len(model.get("en", "").split()) >= 30,
                   f"{sid}: a model answer is too short to model anything")
@@ -148,6 +198,14 @@ def check_content(doc: dict) -> dict:
     if tf:
         check(min(tf.values()) / sum(tf.values()) >= 0.3,
               f"true/false is lopsided: {tf}")
+
+    # The order is part of the teaching: surveying first because it comes
+    # before reading, summarising last because it needs the other nine.
+    order = [s.get("id") for s in strategies]
+    check(order[0] == "survey" if "survey" in order else True,
+          f"the progression starts with {order[0]!r}, not surveying")
+    check(order[-1] == "summarize" if "summarize" in order else True,
+          f"the progression ends with {order[-1]!r}, not summarising")
 
     return {
         "strategies": len(strategies),

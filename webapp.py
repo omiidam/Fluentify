@@ -1511,6 +1511,29 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .rdblurb { font-size: 11.5px; color: #3f4a6b; line-height: 1.5; }
   .rdmeta { font-size: 10.5px; color: var(--muted); }
   .rdchev { flex: none; color: var(--leaf); font-size: 13px; opacity: .75; }
+  .rdcard.done { border-color: rgba(47,107,79,.42); background: #f7fcf7; }
+  .rdcard.done .rdnum { background: var(--leaf); color: #fffcef; border-color: var(--leaf); }
+
+  /* --- progress, above the cards --- */
+  .rdprog {
+    display: flex; flex-direction: column; gap: 6px;
+    background: #fffcef; border: 1px solid rgba(47,107,79,.25);
+    border-radius: 12px; padding: 9px 12px 10px;
+  }
+  .rdprogtop {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    font-size: 11px; color: #3f4a6b;
+  }
+  .rdprogtop b { font-size: 12px; color: var(--ink); }
+  .rdprogtop .pct { margin-inline-start: auto; font-weight: 700; color: var(--leaf); }
+  .rdtrack { height: 7px; border-radius: 999px; background: rgba(43,48,73,.1); overflow: hidden; }
+  .rdfill {
+    height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--leaf), #6aa57f);
+    transition: width .3s;
+  }
+  .rdstats { display: flex; gap: 10px; flex-wrap: wrap; font-size: 10.5px; color: var(--muted); }
+  .rdstats b { color: var(--ink); font-weight: 700; }
 
   /* --- the detail view --- */
   .rdbar {
@@ -1534,6 +1557,52 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--ink); display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
   }
   .rdhero .rdhero-fa { font-size: 12.5px; color: var(--leaf); margin-top: 3px; }
+  .rdherometa { font-size: 10.5px; color: var(--muted); margin-top: 3px; }
+
+  /* --- worked example, mistakes, tips, checklist --- */
+  .rdexample {
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.14);
+    border-inline-start: 3px solid var(--leaf);
+    border-radius: 11px; padding: 9px 12px;
+  }
+  .rdexample p { margin: 0; font-size: 12.5px; line-height: 1.72; color: #2f3550; }
+  .rdlist2 {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .rdlist2 li {
+    display: grid; grid-template-columns: 13px 1fr; gap: 6px;
+    font-size: 11.8px; line-height: 1.55; color: #333a56;
+  }
+  .rdlist2 li::before { font-weight: 700; line-height: 1.5; }
+  .rdlist2.mistakes li::before { content: '✗'; color: #a03a63; }
+  .rdlist2.checklist li::before { content: '✓'; color: var(--leaf); }
+  .rdlist2.tips li::before { content: '→'; color: var(--leaf); }
+  .rdlist2 li .fa {
+    display: block; direction: rtl; text-align: right;
+    color: #5c6482; font-size: 11.2px; line-height: 1.85;
+  }
+  .rdpara { transition: background .2s; }
+  .rdpara.flash { background: #eef7ef; box-shadow: 0 0 0 6px #eef7ef; border-radius: 3px; }
+  .rdev {
+    margin-top: 4px; padding: 0; background: none; border: none;
+    font-family: inherit; font-size: 10.5px; color: var(--leaf);
+    text-decoration: underline; cursor: pointer;
+  }
+  .rdev:hover { color: var(--ink); }
+  .rdresult {
+    display: flex; flex-direction: column; gap: 6px;
+    background: var(--leaf-soft); border: 1px solid rgba(47,107,79,.3);
+    border-radius: 12px; padding: 10px 12px;
+  }
+  .rdresult b { font-size: 13px; color: var(--ink); }
+  .rdresult .rdrows { display: flex; gap: 8px; flex-wrap: wrap; font-size: 10.8px; color: #3f4a6b; }
+  .rdresult .rdrows span {
+    background: #fffdf6; border-radius: 999px; padding: 1px 8px;
+    border: 1px solid rgba(47,107,79,.16);
+  }
+  .rdresult .rdp { font-size: 11.5px; }
+  .rdresult .rdp.fa { margin-top: 2px; }
 
   .rdsec { border-top: 1px dashed rgba(43,48,73,.16); padding-top: 9px; }
   .rdsec:first-of-type { border-top: none; padding-top: 0; }
@@ -6779,6 +6848,50 @@ const Reading = (() => {
   const total = (s) => s.counts.blanks + s.counts.mcq + s.counts.truefalse;
   const label = (n) => n === 1 ? 'question' : 'questions';
 
+  /* The three groups that can be marked. An essay is read against a model,
+     so it never counts as checked - pretending otherwise would be a lie. */
+  const GROUPS = ['blanks', 'mcq', 'truefalse'];
+
+  function progress() {
+    const all = read();
+    let done = 0, sets = 0;
+    doc.strategies.forEach((s) => {
+      const st = all[s.id] || {};
+      const got = GROUPS.filter((g) => st.checked && st.checked[g]).length;
+      if (got === GROUPS.length) done += 1;
+      sets += got;
+    });
+    const totalSets = doc.strategies.length * GROUPS.length;
+    return {
+      done, sets, totalSets,
+      pct: totalSets ? Math.round(sets * 100 / totalSets) : 0,
+    };
+  }
+
+  /* Marking a blank: case, full stops and stray spaces are not the skill
+     being tested, so they are folded away before the comparison. */
+  const tidy = (x) => String(x).toLowerCase()
+    .replace(/[.,!?;:'"«»()\u00a3\u20ac$]/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+  const accepts = (item, given) =>
+    [item.answer].concat(item.also || []).some((a) => tidy(a) === tidy(given));
+
+  /* Feedback says which paragraph answers the question, and the button takes
+     the reader there instead of asking them to count paragraphs. */
+  function showPara(n) {
+    const ps = body().querySelectorAll('.rdpassage .rdpara');
+    const p = ps[n - 1];
+    if (!p) return;
+    p.scrollIntoView({block: 'center', behavior: 'smooth'});
+    p.classList.add('flash');
+    setTimeout(() => p.classList.remove('flash'), 1400);
+  }
+  function evidence(n) {
+    if (!n) return null;
+    return h('button', {type: 'button', class: 'rdev', onclick: () => showPara(n)},
+      'See paragraph ' + n + ' in the passage');
+  }
+
   /* ---------------------------------------------------------------- list -- */
   function renderList() {
     const wrap = body();
@@ -6786,16 +6899,38 @@ const Reading = (() => {
     wrap.append(h('div', {class: 'rdintro'},
       doc.intro.en, faP(doc.intro.fa)));
 
+    const pr = progress();
+    const bar = h('div', {class: 'rdfill', style: 'width:' + pr.pct + '%'});
+    wrap.append(h('div', {class: 'rdprog'},
+      h('div', {class: 'rdprogtop'},
+        h('b', {}, 'Your progress'),
+        h('span', {}, pr.done + ' of ' + doc.strategies.length +
+          ' strategies finished'),
+        h('span', {class: 'pct'}, pr.pct + '%')),
+      h('div', {class: 'rdtrack', role: 'progressbar', 'aria-valuemin': '0',
+        'aria-valuemax': '100', 'aria-valuenow': String(pr.pct),
+        'aria-label': 'Reading progress'}, bar),
+      h('div', {class: 'rdstats'},
+        h('span', {}, h('b', {}, String(pr.sets)), ' of ' + pr.totalSets +
+          ' practice sets checked'),
+        h('span', {}, h('b', {}, String(doc.totals.questions)),
+          ' questions'),
+        h('span', {}, h('b', {}, String(doc.totals.words)),
+          ' words of reading'))));
+
     const list = h('div', {class: 'rdlist'});
     doc.strategies.forEach((s, i) => {
       const st = read()[s.id] || {};
-      const got = Object.keys(st.checked || {}).length;
+      const got = GROUPS.filter((g) => st.checked && st.checked[g]).length;
+      const done = got === GROUPS.length;
       list.append(h('button', {
-        type: 'button', class: 'rdcard',
-        'aria-label': s.title.en + ' - ' + s.title.fa,
+        type: 'button', class: 'rdcard' + (done ? ' done' : ''),
+        'aria-label': s.title.en + ' - ' + s.title.fa +
+          (done ? ' - finished' : ''),
         onclick: () => open(s.id),
       },
-        h('span', {class: 'rdnum', 'aria-hidden': 'true'}, String(i + 1)),
+        h('span', {class: 'rdnum', 'aria-hidden': 'true'},
+          done ? '✓' : String(i + 1)),
         h('span', {class: 'rdmain'},
           h('span', {class: 'rdname'},
             h('b', {}, s.title.en),
@@ -6803,8 +6938,10 @@ const Reading = (() => {
           h('span', {class: 'rdblurb'}, s.blurb.en),
           fa(s.blurb.fa, 'rdblurb'),
           h('span', {class: 'rdmeta'},
-            s.reading.words + ' words · ' + total(s) + ' ' + label(total(s)) +
-            ' · ' + (got ? got + ' of 3 parts checked' : 'not started'))),
+            s.minutes + ' min lesson · ' + s.reading.words + ' words · ' +
+            total(s) + ' ' + label(total(s)) + ' · ' +
+            (done ? 'finished' : got ? got + ' of 3 parts checked'
+                                     : 'not started'))),
         h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '›')));
     });
     wrap.append(list);
@@ -6920,10 +7057,12 @@ const Reading = (() => {
     });
     area.value = st.essays[id] || '';
     const count = h('span', {class: 'rdcount'});
+    const aim = q.min_words || 50;
     const tick = () => {
       const n = (area.value.trim().match(/\S+/g) || []).length;
-      count.textContent = n + ' words' + (n >= 50 ? ' ✓' : ' · aim for 60-80');
-      count.classList.toggle('ok', n >= 50);
+      count.textContent = n + ' words' +
+        (n >= aim ? ' ✓' : ' · aim for ' + aim + '-' + (aim + 30));
+      count.classList.toggle('ok', n >= aim);
     };
     area.addEventListener('input', () => {
       patch(currentId(), (x) => { x.essays[id] = area.value; });
@@ -6933,9 +7072,12 @@ const Reading = (() => {
 
     const showBtn = h('button', {type: 'button', class: 'rdsmall'}, 'Show a model answer');
     const bar = h('div', {class: 'rdessaybar'}, count, showBtn);
-    const tips = h('ul', {class: 'rdtips'});
+    const tips = h('div', {},
+      h('div', {class: 'rdlabel', style: 'margin:4px 0 2px'},
+        'What a good answer does', fa('جواب خوب چه می‌کند')),
+      h('ul', {class: 'rdtips'}));
     q.tips.forEach((t) => {
-      tips.append(h('li', {},
+      tips.lastChild.append(h('li', {},
         h('span', {class: 'ten'}, t.en),
         fa(t.fa, 'tfa')));
     });
@@ -6984,14 +7126,16 @@ const Reading = (() => {
       if (group === 'blanks') {
         const input = card.querySelector('.rdblank');
         const given = (st.picks['b' + i] || '').trim();
-        ok = given.toLowerCase().replace(/[.,]/g, '') ===
-             item.answer.toLowerCase().replace(/[.,]/g, '');
+        ok = accepts(item, given);
         input.classList.add(ok ? 'right' : 'wrong');
         if (!ok) input.value = given;   // keep what they wrote; the answer is below
         fb = h('div', {class: 'rdfb'},
           h('span', {class: ok ? 'ok' : 'no'},
-            ok ? '✓ Correct' : '✗ The answer is "' + item.answer + '"'),
-          fa(item.hint.fa));
+            ok ? '✓ Correct' : '✗ The word in the passage is "' +
+                               item.answer + '"'),
+          ok ? null : h('p', {}, item.hint.en), ok ? null : fa(item.hint.fa));
+        const ev = evidence(item.para);
+        if (ev) fb.append(ev);
       } else if (group === 'mcq') {
         const given = st.picks['m' + i];
         ok = given === item.answer;
@@ -7001,8 +7145,12 @@ const Reading = (() => {
         });
         fb = h('div', {class: 'rdfb'},
           h('span', {class: ok ? 'ok' : 'no'},
-            ok ? '✓ Correct' : '✗ The answer is ' + 'ABCD'[item.answer]),
+            ok ? '✓ Correct' : '✗ The answer is ' + 'ABCD'[item.answer] +
+                               (given === undefined ? '' : ' — you chose ' +
+                                'ABCD'[given])),
           h('p', {}, item.why.en), faP(item.why.fa));
+        const ev = evidence(item.para);
+        if (ev) fb.append(ev);
       } else {
         const given = st.picks['t' + i];
         ok = given === item.answer;
@@ -7015,6 +7163,8 @@ const Reading = (() => {
           h('span', {class: ok ? 'ok' : 'no'},
             ok ? '✓ Correct' : '✗ ' + (item.answer ? 'True' : 'False')),
           h('p', {}, item.why.en), faP(item.why.fa));
+        const ev = evidence(item.para);
+        if (ev) fb.append(ev);
       }
       card.classList.add(ok ? 'right' : 'wrong');
       card.append(fb);
@@ -7039,10 +7189,53 @@ const Reading = (() => {
     const sc = st.score || {};
     const done = Object.keys(sc).length;
     const right = Object.values(sc).reduce((a, b) => a + b, 0);
+    const all = total(s);
     badge.textContent = done
-      ? right + ' of ' + (s.counts.blanks + s.counts.mcq + s.counts.truefalse) +
-        ' right · ' + done + ' of 3 checked'
-      : s.counts.blanks + s.counts.mcq + s.counts.truefalse + ' answerable questions';
+      ? right + ' of ' + all + ' right · ' + done + ' of 3 checked'
+      : all + ' answerable questions';
+
+    /* Once all three groups have been marked there is a result to show, and
+       a next step. Until then the box stays away rather than showing zeros. */
+    const box = body().querySelector('.rdresult');
+    if (!box) return;
+    if (done < GROUPS.length) { box.hidden = true; return; }
+    const pct = Math.round(right * 100 / all);
+    box.hidden = false;
+    const head = pct >= 80
+      ? ['Strong reading. ' + right + ' of ' + all + ' right (' + pct + '%)',
+         'خواندن قوی. ' + right + ' از ' + all + ' درست (' + pct + '٪)',
+         'Look at the two or three you missed, then move on to the next '
+           + 'strategy - this one is doing its job.',
+         'به دو یا سه موردی که اشتباه شد نگاه کن و بعد سراغ راهبرد بعدی '
+           + 'برو؛ این یکی کارش را کرده.']
+      : pct >= 50
+      ? ['Getting there. ' + right + ' of ' + all + ' right (' + pct + '%)',
+         'نزدیک شدی. ' + right + ' از ' + all + ' درست (' + pct + '٪)',
+         'Re-read the paragraphs behind the questions you missed - they are '
+           + 'named under each answer - then check those two groups again.',
+         'پاراگراف‌های پشت سؤال‌های اشتباه را دوباره بخوان - زیر هر جواب '
+           + 'نامشان آمده - بعد آن دو بخش را دوباره بررسی کن.']
+      : ['Worth a second pass. ' + right + ' of ' + all + ' right (' +
+         pct + '%)',
+         'یک دور دیگر لازم است. ' + right + ' از ' + all + ' درست (' +
+         pct + '٪)',
+         'The passage is short: read it once with the strategy in mind, then '
+           + 'answer again. Every wrong answer here points at a paragraph you '
+           + 'can reread in thirty seconds.',
+         'متن کوتاه است: یک بار با راهبرد در ذهن بخوانش و بعد دوباره جواب '
+           + 'بده. هر جواب غلط به پاراگرافی اشاره می‌کند که در سی ثانیه '
+           + 'می‌توانی دوباره بخوانی.'];
+    box.replaceChildren(
+      h('b', {}, head[0]),
+      h('div', {class: 'rdrows'},
+        h('span', {}, 'Fill in the blanks ' + (sc.blanks ?? 0) + '/' +
+          s.counts.blanks),
+        h('span', {}, 'Multiple choice ' + (sc.mcq ?? 0) + '/' +
+          s.counts.mcq),
+        h('span', {}, 'True or false ' + (sc.truefalse ?? 0) + '/' +
+          s.counts.truefalse)),
+      h('p', {class: 'rdp'}, head[2]),
+      faP(head[3], 'rdp'));
   }
 
   /* ------------------------------------------------------------- detail -- */
@@ -7063,7 +7256,10 @@ const Reading = (() => {
     wrap.append(h('div', {class: 'rdhero'},
       h('h4', {}, h('span', {'aria-hidden': 'true'}, s.icon), s.title.en,
         h('span', {class: 'lvl'}, s.level)),
-      faP(s.title.fa, 'rdhero-fa')));
+      faP(s.title.fa, 'rdhero-fa'),
+      h('div', {class: 'rdherometa'},
+        s.minutes + ' min lesson · ' + s.reading.minutes + ' min read · ' +
+        s.reading.words + ' words')));
 
     /* what / why / steps */
     const sec1 = h('div', {class: 'rdsec'},
@@ -7081,21 +7277,62 @@ const Reading = (() => {
           h('span', {class: 'sfa fa', dir: 'rtl', lang: 'fa'}, step.fa))));
     });
     const sec3 = h('div', {class: 'rdsec'},
-      h('div', {class: 'rdlabel'}, 'How to do it', fa('چطور انجامش بدهیم')), steps);
+      h('div', {class: 'rdlabel'}, 'How it works', fa('چطور کار می‌کند')), steps);
+    const secWhen = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'When to use it', fa('کجا به کار می‌آید')),
+      h('p', {class: 'rdp'}, s.when.en), faP(s.when.fa, 'rdp'));
 
-    wrap.append(sec1, sec2, sec3);
+    /* worked example: the text, then the same text read by someone who
+       knows the strategy - the second half is what teaches. */
+    const analysis = h('ol', {class: 'rdsteps'});
+    s.example.steps.forEach((line, i) => {
+      analysis.append(h('li', {},
+        h('span', {class: 'sn', 'aria-hidden': 'true'}, String(i + 1)),
+        h('span', {class: 'stx'},
+          h('span', {class: 'sen'}, line.en),
+          h('span', {class: 'sfa fa', dir: 'rtl', lang: 'fa'}, line.fa))));
+    });
+    const secEx = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'Worked example', fa('نمونهٔ حل‌شده')),
+      h('div', {class: 'rdexample'}, h('p', {}, s.example.text)),
+      h('div', {class: 'rdlabel', style: 'margin:9px 0 5px'},
+        'Step-by-step analysis', fa('تحلیل گام‌به‌گام')), analysis);
+
+    /* one builder for the three short lists, so their bilingual rhythm is
+       identical: English line, Persian line under it, never side by side. */
+    const rows = (field, cls) => {
+      const ul = h('ul', {class: 'rdlist2 ' + cls});
+      s[field].forEach((row) => {
+        ul.append(h('li', {}, h('div', {},
+          h('span', {}, row.en), fa(row.fa))));
+      });
+      return ul;
+    };
+    const secMis = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'Common mistakes', fa('اشتباه‌های رایج')),
+      rows('mistakes', 'mistakes'));
+    const secTips = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'Practical tips', fa('نکته‌های عملی')),
+      rows('tips', 'tips'));
+    const secCheck = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'Checklist', fa('چک‌لیست')),
+      rows('checklist', 'checklist'));
+
+    wrap.append(sec1, sec2, secWhen, sec3, secEx, secMis, secTips, secCheck);
 
     /* the passage */
     const psg = h('div', {class: 'rdpassage'},
       h('div', {class: 'rdph'},
         h('b', {}, s.reading.title.en),
         fa(s.reading.title.fa, 'rdph-fa'),
-        h('span', {class: 'pill'}, s.reading.level + ' · ' + s.reading.words + ' words')));
+        h('span', {class: 'pill'}, s.reading.level + ' · ' + s.reading.words +
+          ' words · ' + s.reading.minutes + ' min read')));
     if (s.reading.note && s.reading.note.en) {
       psg.append(h('p', {class: 'rdnote'}, s.reading.note.en, ' ', fa(s.reading.note.fa)));
     }
-    s.reading.paragraphs.forEach((p) => {
-      psg.append(h('p', {class: 'rdpara', dir: 'ltr', lang: 'en'}, p));
+    s.reading.paragraphs.forEach((p, i) => {
+      psg.append(h('p', {class: 'rdpara', dir: 'ltr', lang: 'en',
+        'data-para': String(i + 1)}, p));
     });
     const sumBtn = h('button', {type: 'button', class: 'rdsumbtn'}, 'Show the Persian summary');
     const sumBox = h('div', {class: 'rdsum', hidden: true},
@@ -7148,6 +7385,7 @@ const Reading = (() => {
       wrap.append(sec);
     });
 
+    wrap.append(h('div', {class: 'rdresult', hidden: true}));
     wrap.append(h('div', {class: 'rdfoot'},
       h('button', {type: 'button', class: 'rdgo ghost', onclick: () => {
         patch(id, (x) => { x.picks = {}; x.checked = {}; x.essays = {}; x.models = {}; x.score = {}; });
