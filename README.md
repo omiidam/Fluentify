@@ -23,6 +23,8 @@ no network calls, no tracking.
 | 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
+| 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
+| 📚 Mini stories | 7 graded readers (very easy) — the whole story with the Persian under every sentence, vocabulary, expressions, grammar and 5 + 3 + 3 + 2 questions with answers and explanations |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
 | 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |

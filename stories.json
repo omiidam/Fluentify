@@ -32,10 +32,10 @@
   }
  ],
  "totals": {
-  "stories": 5,
-  "words": 1966,
-  "questions": 65,
-  "sentences": 266
+  "stories": 7,
+  "words": 3101,
+  "questions": 91,
+  "sentences": 415
  },
  "stories": [
   {
@@ -3106,6 +3106,1448 @@
       "tip": {
        "en": "Think about repetition and size, then answer in three sentences.",
        "fa": "به تکرار و اندازه فکر کن و در سه جمله جواب بده."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "goldilocks_and_the_three_bears",
+   "title": {
+    "en": "Goldilocks and the Three Bears",
+    "fa": "گلدلاکس و سه خرس"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "A girl finds an empty house, three bowls of porridge and three beds. The bears find her.",
+    "fa": "دختری خانه‌ای خالی، سه کاسه فرنی و سه تخت پیدا می‌کند. خرس‌ها او را پیدا می‌کنند."
+   },
+   "words": 542,
+   "minutes": 3,
+   "sentences": 70,
+   "chapters": [
+    {
+     "title": {
+      "en": "The Three Bears",
+      "fa": "سه خرس"
+     },
+     "pairs": [
+      {
+       "en": "Three bears lived in a house in a big wood.",
+       "fa": "سه خرس در خانه‌ای در جنگل بزرگی زندگی می‌کردند."
+      },
+      {
+       "en": "One was a big bear, one was a middle bear.",
+       "fa": "یکی خرس بزرگ بود، یکی خرس متوسط."
+      },
+      {
+       "en": "One was a little bear.",
+       "fa": "یکی خرس کوچک بود."
+      },
+      {
+       "en": "Every morning, the bears made hot porridge.",
+       "fa": "هر صبح خرس‌ها فرنی داغ درست می‌کردند."
+      },
+      {
+       "en": "But today, the porridge was too hot to eat.",
+       "fa": "اما امروز فرنی برای خوردن خیلی داغ بود."
+      },
+      {
+       "en": "\"Let's walk while it cools,\" said the big bear.",
+       "fa": "خرس بزرگ گفت: «بیایید قدم بزنیم تا خنک شود.»"
+      },
+      {
+       "en": "The three bears walked into the wood.",
+       "fa": "سه خرس به جنگل رفتند."
+      },
+      {
+       "en": "Nearby, a girl named Goldilocks walked through the wood too.",
+       "fa": "نزدیک آنجا دختری به نام گلدلاکس هم در جنگل قدم می‌زد."
+      },
+      {
+       "en": "She had golden hair, like her name.",
+       "fa": "موهای طلایی داشت، مثل اسمش."
+      },
+      {
+       "en": "Goldilocks saw a small house among the trees.",
+       "fa": "گلدلاکس خانه‌ای کوچک میان درختان دید."
+      },
+      {
+       "en": "She walked toward it.",
+       "fa": "به سمت آن رفت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Three Bowls of Porridge",
+      "fa": "سه کاسه فرنی"
+     },
+     "pairs": [
+      {
+       "en": "Goldilocks was hungry after her long walk.",
+       "fa": "گلدلاکس بعد از قدم طولانی گرسنه بود."
+      },
+      {
+       "en": "She knocked on the door, but no one answered.",
+       "fa": "در زد، اما کسی جواب نداد."
+      },
+      {
+       "en": "She pushed the door open and walked inside.",
+       "fa": "در را هل داد و داخل رفت."
+      },
+      {
+       "en": "Goldilocks saw three bowls of porridge on the table.",
+       "fa": "سه کاسه فرنی روی میز دید."
+      },
+      {
+       "en": "She tasted the porridge in the big bowl.",
+       "fa": "فرنی کاسهٔ بزرگ را چشید."
+      },
+      {
+       "en": "It burned her tongue.",
+       "fa": "زبانش سوخت."
+      },
+      {
+       "en": "\"This is too hot!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این خیلی داغ است!»"
+      },
+      {
+       "en": "Next, she tasted the porridge in the middle bowl.",
+       "fa": "بعد فرنی کاسهٔ وسطی را چشید."
+      },
+      {
+       "en": "\"This is too cold!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این خیلی سرد است!»"
+      },
+      {
+       "en": "Then she tasted the porridge in the little bowl.",
+       "fa": "بعد فرنی کاسهٔ کوچک را چشید."
+      },
+      {
+       "en": "\"This is just right!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این دقیقاً درست است!»"
+      },
+      {
+       "en": "Goldilocks ate up all the porridge in the little bowl.",
+       "fa": "گلدلاکس تمام فرنی کاسهٔ کوچک را خورد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Three Chairs",
+      "fa": "سه صندلی"
+     },
+     "pairs": [
+      {
+       "en": "After she ate, Goldilocks saw three chairs by the fire.",
+       "fa": "بعد از غذا، گلدلاکس سه صندلی کنار شومینه دید."
+      },
+      {
+       "en": "Then she climbed onto the big chair.",
+       "fa": "بعد روی صندلی بزرگ نشست."
+      },
+      {
+       "en": "\"This is too hard!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این خیلی سفت است!»"
+      },
+      {
+       "en": "Her back began to hurt.",
+       "fa": "کمرش شروع به درد کرد."
+      },
+      {
+       "en": "She climbed onto the middle chair.",
+       "fa": "روی صندلی وسطی نشست."
+      },
+      {
+       "en": "\"This is too soft!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این خیلی نرم است!»"
+      },
+      {
+       "en": "She climbed onto the little chair.",
+       "fa": "روی صندلی کوچک نشست."
+      },
+      {
+       "en": "\"This is just right!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این دقیقاً درست است!»"
+      },
+      {
+       "en": "But the little chair was too small for her.",
+       "fa": "اما صندلی کوچک برایش خیلی کوچک بود."
+      },
+      {
+       "en": "It broke into pieces under her weight.",
+       "fa": "زیر وزنش تکه‌تکه شد."
+      },
+      {
+       "en": "Goldilocks fell down onto the floor.",
+       "fa": "گلدلاکس روی زمین افتاد."
+      },
+      {
+       "en": "She stood up and looked at the broken chair.",
+       "fa": "بلند شد و به صندلی شکسته نگاه کرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Three Beds",
+      "fa": "سه تخت"
+     },
+     "pairs": [
+      {
+       "en": "Goldilocks was tired from her long walk.",
+       "fa": "گلدلاکس از قدم طولانی خسته بود."
+      },
+      {
+       "en": "No one else was in the house.",
+       "fa": "کس دیگری در خانه نبود."
+      },
+      {
+       "en": "She walked upstairs to look for a bed.",
+       "fa": "از پله‌ها بالا رفت تا تختی پیدا کند."
+      },
+      {
+       "en": "Goldilocks lay down on the big bed.",
+       "fa": "روی تخت بزرگ دراز کشید."
+      },
+      {
+       "en": "\"This is too hard!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این خیلی سفت است!»"
+      },
+      {
+       "en": "She lay down on the middle bed.",
+       "fa": "روی تخت وسطی دراز کشید."
+      },
+      {
+       "en": "\"This is too soft!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این خیلی نرم است!»"
+      },
+      {
+       "en": "She lay down on the little bed.",
+       "fa": "روی تخت کوچک دراز کشید."
+      },
+      {
+       "en": "\"This is just right!\" said Goldilocks.",
+       "fa": "گلدلاکس گفت: «این دقیقاً درست است!»"
+      },
+      {
+       "en": "Goldilocks pulled up the blanket and closed her eyes.",
+       "fa": "گلدلاکس پتو را بالا کشید و چشم‌هایش را بست."
+      },
+      {
+       "en": "Soon, she fell fast asleep in the little bed.",
+       "fa": "به‌زودی روی تخت کوچک خواب عمیقی کرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Bears Come Home",
+      "fa": "خرس‌ها به خانه می‌آیند"
+     },
+     "pairs": [
+      {
+       "en": "Soon, the three bears came home from their walk.",
+       "fa": "به‌زودی سه خرس از قدم زدن برگشتند."
+      },
+      {
+       "en": "The door of their house was open.",
+       "fa": "درِ خانه‌شان باز بود."
+      },
+      {
+       "en": "The hungry bears saw their empty bowls.",
+       "fa": "خرس‌های گرسنه کاسه‌های خالی را دیدند."
+      },
+      {
+       "en": "\"Someone ate my porridge!\" said the big bear.",
+       "fa": "خرس بزرگ گفت: «کسی فرنی من را خورد!»"
+      },
+      {
+       "en": "\"Someone ate my porridge too!\" said the middle bear.",
+       "fa": "خرس وسطی گفت: «کسی فرنی من را هم خورد!»"
+      },
+      {
+       "en": "\"Someone ate all my porridge!\" cried the little bear.",
+       "fa": "خرس کوچک گریه کرد: «کسی تمام فرنی من را خورد!»"
+      },
+      {
+       "en": "Then they saw their chairs by the fire.",
+       "fa": "بعد صندلی‌هایشان کنار شومینه را دیدند."
+      },
+      {
+       "en": "\"Someone sat in my chair!\" said the big bear.",
+       "fa": "خرس بزرگ گفت: «کسی روی صندلی من نشست!»"
+      },
+      {
+       "en": "\"Someone sat in my chair too!\" said the middle bear.",
+       "fa": "خرس وسطی گفت: «کسی روی صندلی من هم نشست!»"
+      },
+      {
+       "en": "The little bear looked at the pieces on the floor.",
+       "fa": "خرس کوچک به تکه‌های روی زمین نگاه کرد."
+      },
+      {
+       "en": "\"Someone broke my chair!\" he cried.",
+       "fa": "گریه کرد: «کسی صندلی من را شکست!»"
+      },
+      {
+       "en": "They did not know who came, so they walked upstairs.",
+       "fa": "نمی‌دانستند چه کسی آمده، پس از پله‌ها بالا رفتند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Goldilocks Runs Away",
+      "fa": "گلدلاکس فرار می‌کند"
+     },
+     "pairs": [
+      {
+       "en": "Upstairs, the three bears looked at their beds.",
+       "fa": "بالا، سه خرس به تخت‌هایشان نگاه کردند."
+      },
+      {
+       "en": "\"Someone slept in my bed!\" said the big bear.",
+       "fa": "خرس بزرگ گفت: «کسی در تخت من خوابیده!»"
+      },
+      {
+       "en": "\"Someone slept in my bed too!\" said the middle bear.",
+       "fa": "خرس وسطی گفت: «کسی در تخت من هم خوابیده!»"
+      },
+      {
+       "en": "\"Someone slept in my bed!\" cried the little bear.",
+       "fa": "خرس کوچک گریه کرد: «کسی در تخت من خوابیده!»"
+      },
+      {
+       "en": "Goldilocks was still asleep in the little bear's bed.",
+       "fa": "گلدلاکس هنوز در تخت خرس کوچک خواب بود."
+      },
+      {
+       "en": "The little bear cried, and Goldilocks woke up.",
+       "fa": "خرس کوچک گریه کرد و گلدلاکس بیدار شد."
+      },
+      {
+       "en": "She opened her eyes and saw the three bears.",
+       "fa": "چشم‌هایش را باز کرد و سه خرس را دید."
+      },
+      {
+       "en": "Goldilocks jumped up, scared of the bears.",
+       "fa": "گلدلاکس از ترس خرس‌ها از جا پرید."
+      },
+      {
+       "en": "Her heart beat fast.",
+       "fa": "قلبش تند می‌زد."
+      },
+      {
+       "en": "She ran out of the bed and down the stairs.",
+       "fa": "از تخت بیرون دوید و از پله‌ها پایین رفت."
+      },
+      {
+       "en": "Goldilocks ran out the door and into the wood.",
+       "fa": "گلدلاکس از در بیرون دوید و به جنگل رفت."
+      },
+      {
+       "en": "She never came back to the small house again.",
+       "fa": "دیگر هرگز به آن خانهٔ کوچک برنگشت."
+      }
+     ]
+    }
+   ],
+   "text": "Three bears lived in a house in a big wood. One was a big bear, one was a middle bear. One was a little bear. Every morning, the bears made hot porridge. But today, the porridge was too hot to eat. \"Let's walk while it cools,\" said the big bear. The three bears walked into the wood. Nearby, a girl named Goldilocks walked through the wood too. She had golden hair, like her name. Goldilocks saw a small house among the trees. She walked toward it. Goldilocks was hungry after her long walk. She knocked on the door, but no one answered. She pushed the door open and walked inside. Goldilocks saw three bowls of porridge on the table. She tasted the porridge in the big bowl. It burned her tongue. \"This is too hot!\" said Goldilocks. Next, she tasted the porridge in the middle bowl. \"This is too cold!\" said Goldilocks. Then she tasted the porridge in the little bowl. \"This is just right!\" said Goldilocks. Goldilocks ate up all the porridge in the little bowl. After she ate, Goldilocks saw three chairs by the fire. Then she climbed onto the big chair. \"This is too hard!\" said Goldilocks. Her back began to hurt. She climbed onto the middle chair. \"This is too soft!\" said Goldilocks. She climbed onto the little chair. \"This is just right!\" said Goldilocks. But the little chair was too small for her. It broke into pieces under her weight. Goldilocks fell down onto the floor. She stood up and looked at the broken chair. Goldilocks was tired from her long walk. No one else was in the house. She walked upstairs to look for a bed. Goldilocks lay down on the big bed. \"This is too hard!\" said Goldilocks. She lay down on the middle bed. \"This is too soft!\" said Goldilocks. She lay down on the little bed. \"This is just right!\" said Goldilocks. Goldilocks pulled up the blanket and closed her eyes. Soon, she fell fast asleep in the little bed. Soon, the three bears came home from their walk. The door of their house was open. The hungry bears saw their empty bowls. \"Someone ate my porridge!\" said the big bear. \"Someone ate my porridge too!\" said the middle bear. \"Someone ate all my porridge!\" cried the little bear. Then they saw their chairs by the fire. \"Someone sat in my chair!\" said the big bear. \"Someone sat in my chair too!\" said the middle bear. The little bear looked at the pieces on the floor. \"Someone broke my chair!\" he cried. They did not know who came, so they walked upstairs. Upstairs, the three bears looked at their beds. \"Someone slept in my bed!\" said the big bear. \"Someone slept in my bed too!\" said the middle bear. \"Someone slept in my bed!\" cried the little bear. Goldilocks was still asleep in the little bear's bed. The little bear cried, and Goldilocks woke up. She opened her eyes and saw the three bears. Goldilocks jumped up, scared of the bears. Her heart beat fast. She ran out of the bed and down the stairs. Goldilocks ran out the door and into the wood. She never came back to the small house again.",
+   "vocab": [
+    {
+     "word": "bears",
+     "pos": "n.",
+     "meaning": {
+      "en": "big wild animals with thick fur",
+      "fa": "خرس‌ها"
+     },
+     "example": "Three bears lived in a house in a big wood.",
+     "exampleFa": "سه خرس در خانه‌ای در جنگل بزرگی زندگی می‌کردند."
+    },
+    {
+     "word": "porridge",
+     "pos": "n.",
+     "meaning": {
+      "en": "hot soft food made from oats and milk",
+      "fa": "فرنی"
+     },
+     "example": "Every morning, the bears made hot porridge.",
+     "exampleFa": "هر صبح خرس‌ها فرنی داغ درست می‌کردند."
+    },
+    {
+     "word": "bowls",
+     "pos": "n.",
+     "meaning": {
+      "en": "deep round dishes for food",
+      "fa": "کاسه‌ها"
+     },
+     "example": "Goldilocks saw three bowls of porridge on the table.",
+     "exampleFa": "گلدلاکس سه کاسه فرنی روی میز دید."
+    },
+    {
+     "word": "blanket",
+     "pos": "n.",
+     "meaning": {
+      "en": "the warm cover on a bed",
+      "fa": "پتو"
+     },
+     "example": "Goldilocks pulled up the blanket.",
+     "exampleFa": "گلدلاکس پتو را بالا کشید."
+    },
+    {
+     "word": "wood",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small forest",
+      "fa": "جنگل"
+     },
+     "example": "She walked through the wood too.",
+     "exampleFa": "او هم در جنگل قدم می‌زد."
+    },
+    {
+     "word": "broke",
+     "pos": "v.",
+     "meaning": {
+      "en": "came apart in pieces",
+      "fa": "شکست"
+     },
+     "example": "It broke into pieces under her weight.",
+     "exampleFa": "زیر وزنش تکه‌تکه شد."
+    },
+    {
+     "word": "scared",
+     "pos": "adj.",
+     "meaning": {
+      "en": "afraid",
+      "fa": "ترسیده"
+     },
+     "example": "Goldilocks jumped up, scared of the bears.",
+     "exampleFa": "گلدلاکس از ترس خرس‌ها از جا پرید."
+    },
+    {
+     "word": "asleep",
+     "pos": "adj.",
+     "meaning": {
+      "en": "sleeping",
+      "fa": "خواب"
+     },
+     "example": "She fell fast asleep in the little bed.",
+     "exampleFa": "روی تخت کوچک خواب عمیقی کرد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "just right",
+     "meaning": {
+      "en": "exactly as it should be",
+      "fa": "دقیقاً همان‌طور که باید"
+     },
+     "example": "This is just right!",
+     "exampleFa": "این دقیقاً درست است!"
+    },
+    {
+     "phrase": "too hot to eat",
+     "meaning": {
+      "en": "so hot that you cannot eat it",
+      "fa": "آن‌قدر داغ که نمی‌شود خورد"
+     },
+     "example": "The porridge was too hot to eat.",
+     "exampleFa": "فرنی برای خوردن خیلی داغ بود."
+    },
+    {
+     "phrase": "fall asleep",
+     "meaning": {
+      "en": "begin to sleep",
+      "fa": "خوابیدن، به خواب رفتن"
+     },
+     "example": "Soon, she fell fast asleep.",
+     "exampleFa": "به‌زودی خواب عمیقی کرد."
+    },
+    {
+     "phrase": "scared of",
+     "meaning": {
+      "en": "afraid of something",
+      "fa": "ترسیده از"
+     },
+     "example": "Goldilocks jumped up, scared of the bears.",
+     "exampleFa": "گلدلاکس از ترس خرس‌ها از جا پرید."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "too + adjective (+ to)",
+      "fa": "too + صفت (+ to)"
+     },
+     "example": "The porridge was too hot to eat.",
+     "note": {
+      "en": "'Too hot to eat' means so hot that it cannot be eaten. 'Too' is always negative in this pattern.",
+      "fa": "«too hot to eat» یعنی آن‌قدر داغ که نمی‌شود خورد. در این ساختار «too» همیشه معنای منفی دارد."
+     }
+    },
+    {
+     "name": {
+      "en": "Let's + verb",
+      "fa": "Let's + فعل"
+     },
+     "example": "Let's walk while it cools.",
+     "note": {
+      "en": "'Let's' suggests doing something together: let us walk.",
+      "fa": "«Let's» پیشنهاد انجام کاری با هم است: بیایید قدم بزنیم."
+     }
+    },
+    {
+     "name": {
+      "en": "Past simple of lie and break",
+      "fa": "گذشتهٔ lie و break"
+     },
+     "example": "She lay down on the bed. It broke into pieces.",
+     "note": {
+      "en": "Lie → lay (not 'lay down' → 'lay'), break → broke.",
+      "fa": "lie → lay و break → broke."
+     }
+    },
+    {
+     "name": {
+      "en": "Possessive my in dialogue",
+      "fa": "مالکیت با my در دیالوگ"
+     },
+     "example": "Someone ate my porridge!",
+     "note": {
+      "en": "Each bear says 'my', which is how the story shows three different owners with one sentence shape.",
+      "fa": "هر خرس «my» می‌گوید و داستان با یک الگوی جمله سه صاحب مختلف را نشان می‌دهد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why did the bears leave the house?",
+       "fa": "خرس‌ها چرا خانه را ترک کردند؟"
+      },
+      "options": [
+       "To find Goldilocks",
+       "To buy more porridge",
+       "The porridge was too hot",
+       "To visit a friend"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The porridge was too hot to eat, so they walked while it cooled.",
+       "fa": "فرنی برای خوردن خیلی داغ بود، پس قدم زدند تا خنک شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Which bowl did Goldilocks finish?",
+       "fa": "کدام کاسه را گلدلاکس تمام کرد؟"
+      },
+      "options": [
+       "The big bowl",
+       "The middle bowl",
+       "The little bowl",
+       "None of them"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The little bowl was 'just right', so she ate it all.",
+       "fa": "کاسهٔ کوچک «دقیقاً درست» بود، پس همه‌اش را خورد."
+      }
+     },
+     {
+      "q": {
+       "en": "What happened to the little chair?",
+       "fa": "صندلی کوچک چه شد؟"
+      },
+      "options": [
+       "It broke under her weight.",
+       "It was too hard.",
+       "She moved it to the fire.",
+       "Nothing happened to it."
+      ],
+      "answer": 0,
+      "why": {
+       "en": "It was too small for her and broke into pieces.",
+       "fa": "برای او خیلی کوچک بود و تکه‌تکه شد."
+      }
+     },
+     {
+      "q": {
+       "en": "Where was Goldilocks when the bears came back?",
+       "fa": "وقتی خرس‌ها برگشتند گلدلاکس کجا بود؟"
+      },
+      "options": [
+       "In the wood",
+       "In the big bed",
+       "By the fire",
+       "Asleep in the little bed"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "She fell asleep in the little bear's bed and was still asleep when they came upstairs.",
+       "fa": "در تخت خرس کوچک خوابش برد و وقتی بالا آمدند هنوز خواب بود."
+      }
+     },
+     {
+      "q": {
+       "en": "How does Goldilocks react when she wakes?",
+       "fa": "گلدلاکس وقتی بیدار می‌شود چه می‌کند؟"
+      },
+      "options": [
+       "She says sorry.",
+       "She runs away and never returns.",
+       "She makes more porridge.",
+       "She goes back to sleep."
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She jumps up scared, runs out of the house and never comes back.",
+       "fa": "از ترس از جا می‌پرد، از خانه بیرون می‌دود و دیگر برنمی‌گردد."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Goldilocks knocked before she went in.",
+       "fa": "گلدلاکس قبل از وارد شدن در زد."
+      },
+      "answer": true,
+      "why": {
+       "en": "'She knocked on the door, but no one answered.'",
+       "fa": "«در زد، اما کسی جواب نداد.»"
+      }
+     },
+     {
+      "q": {
+       "en": "The middle chair was too hard.",
+       "fa": "صندلی وسطی خیلی سفت بود."
+      },
+      "answer": false,
+      "why": {
+       "en": "The big chair was too hard; the middle one was too soft.",
+       "fa": "صندلی بزرگ سفت بود؛ وسطی نرم."
+      }
+     },
+     {
+      "q": {
+       "en": "The bears knew who had come into their house.",
+       "fa": "خرس‌ها می‌دانستند چه کسی وارد خانه‌شان شده."
+      },
+      "answer": false,
+      "why": {
+       "en": "'They did not know who came', so they went upstairs.",
+       "fa": "«نمی‌دانستند چه کسی آمده»، پس بالا رفتند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Every morning, the bears made hot ___.",
+      "answer": "porridge",
+      "hint": {
+       "en": "The soft breakfast food in the bowls.",
+       "fa": "غذای نرم صبحانه در کاسه‌ها."
+      }
+     },
+     {
+      "sentence": "It broke into ___ under her weight.",
+      "answer": "pieces",
+      "hint": {
+       "en": "Small parts of something broken.",
+       "fa": "بخش‌های کوچک چیزی که شکسته است."
+      }
+     },
+     {
+      "sentence": "Goldilocks ran out the door and into the ___.",
+      "answer": "wood",
+      "hint": {
+       "en": "The trees around the house.",
+       "fa": "درختان اطراف خانه."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Was Goldilocks right to go into the house?",
+       "fa": "گلدلاکس حق داشت وارد خانه شود؟"
+      },
+      "model": {
+       "en": "No: knocking and getting no answer is not permission. She then ate the food, broke a chair and slept in a bed, and the story lets her pay for it with fright rather than a lesson in manners. Being hungry explains it; it does not make it right.",
+       "fa": "نه: در زدن و جواب نگرفتن اجازه نیست. بعد غذا خورد، صندلی شکست و در تختی خوابید، و داستان به جای درس ادب، با ترس جریمه‌اش می‌کند. گرسنگی توضیح می‌دهد اما توجیه نمی‌کند."
+      },
+      "tip": {
+       "en": "Give your verdict first, then the two actions that decide it.",
+       "fa": "اول حکمت را بگو، بعد دو کاری که آن را تعیین می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the story repeat 'too hard, too soft, just right'?",
+       "fa": "چرا داستان «خیلی سفت، خیلی نرم، دقیقاً درست» را تکرار می‌کند؟"
+      },
+      "model": {
+       "en": "The repetition is the lesson. Three tries with the same words teach 'too' and 'just right' without explaining them, and a learner can guess the third line before reading it. That is also why children ask for the same story again.",
+       "fa": "تکرار همان درس است. سه تلاش با همان کلمه‌ها «too» و «just right» را بدون توضیح یاد می‌دهند و زبان‌آموز می‌تواند جملهٔ سوم را قبل از خواندن حدس بزند. به همین دلیل بچه‌ها یک داستان را دوباره می‌خواهند."
+      },
+      "tip": {
+       "en": "Say what the pattern teaches, then give one example.",
+       "fa": "بگو این الگو چه یاد می‌دهد و یک مثال بیاور."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "little_red_riding_hood",
+   "title": {
+    "en": "Little Red Riding Hood",
+    "fa": "شنل قرمزی"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "A girl takes a basket through the woods. A wolf gets there first.",
+    "fa": "دختری سبدی را از جنگل می‌برد. گرگ زودتر به آنجا می‌رسد."
+   },
+   "words": 593,
+   "minutes": 3,
+   "sentences": 79,
+   "chapters": [
+    {
+     "title": {
+      "en": "A Basket for Grandmother",
+      "fa": "سبدی برای مادربزرگ"
+     },
+     "pairs": [
+      {
+       "en": "Little Red Riding Hood lived in a small village.",
+       "fa": "شنل قرمزی در دهکدهٔ کوچکی زندگی می‌کرد."
+      },
+      {
+       "en": "Her grandmother lived across the woods.",
+       "fa": "مادربزرگش آن‌طرف جنگل زندگی می‌کرد."
+      },
+      {
+       "en": "Grandmother gave her a red hood to wear.",
+       "fa": "مادربزرگ کلاهی سرخ به او داد."
+      },
+      {
+       "en": "She wore the red hood.",
+       "fa": "کلاه سرخ را می‌پوشید."
+      },
+      {
+       "en": "The village called her Little Red Riding Hood.",
+       "fa": "دهکده او را شنل قرمزی صدا می‌کرد."
+      },
+      {
+       "en": "One day, Grandmother was sick.",
+       "fa": "یک روز مادربزرگ بیمار شد."
+      },
+      {
+       "en": "Her mother filled a basket with food.",
+       "fa": "مادرش سبدی پر از غذا کرد."
+      },
+      {
+       "en": "She put cake and bread into the basket.",
+       "fa": "کیک و نان در سبد گذاشت."
+      },
+      {
+       "en": "\"Take this to Grandmother,\" said her mother.",
+       "fa": "مادرش گفت: «این را برای مادربزرگ ببر.»"
+      },
+      {
+       "en": "\"Do not leave the path,\" her mother called.",
+       "fa": "مادرش صدا زد: «از راه بیرون نرو.»"
+      },
+      {
+       "en": "\"I will be safe,\" said Little Red Riding Hood.",
+       "fa": "شنل قرمزی گفت: «در امان می‌مانم.»"
+      },
+      {
+       "en": "Then she took the basket and went into the woods.",
+       "fa": "بعد سبد را برداشت و به جنگل رفت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Wolf in the Woods",
+      "fa": "گرگ در جنگل"
+     },
+     "pairs": [
+      {
+       "en": "Little Red Riding Hood walked down the path.",
+       "fa": "شنل قرمزی در راه پیش می‌رفت."
+      },
+      {
+       "en": "A wolf came out of the woods.",
+       "fa": "گرگی از جنگل بیرون آمد."
+      },
+      {
+       "en": "\"Good day,\" said the wolf with a smile.",
+       "fa": "گرگ با لبخند گفت: «روز خوبی داشته باشی.»"
+      },
+      {
+       "en": "\"Why do you have that basket?\" he called.",
+       "fa": "صدا زد: «آن سبد را برای چه داری؟»"
+      },
+      {
+       "en": "\"This food is for my sick grandmother,\" she said.",
+       "fa": "گفت: «این غذا برای مادربزرگ بیمارم است.»"
+      },
+      {
+       "en": "Grandmother lived across the woods.",
+       "fa": "مادربزرگ آن‌طرف جنگل زندگی می‌کرد."
+      },
+      {
+       "en": "The wolf saw the flowers.",
+       "fa": "گرگ گل‌ها را دید."
+      },
+      {
+       "en": "\"Why not pick flowers for her?\" he said.",
+       "fa": "گفت: «چرا برایش گل نمی‌چینی؟»"
+      },
+      {
+       "en": "Little Red Riding Hood left the path to pick flowers.",
+       "fa": "شنل قرمزی از راه بیرون رفت تا گل بچیند."
+      },
+      {
+       "en": "The wolf ran through the woods.",
+       "fa": "گرگ از میان جنگل دوید."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Wolf at Grandmother's House",
+      "fa": "گرگ در خانهٔ مادربزرگ"
+     },
+     "pairs": [
+      {
+       "en": "The wolf reached the small house.",
+       "fa": "گرگ به خانهٔ کوچک رسید."
+      },
+      {
+       "en": "He knocked on the door two times.",
+       "fa": "دو بار به در زد."
+      },
+      {
+       "en": "\"Who is there?\" called Grandmother from her bed.",
+       "fa": "مادربزرگ از تختش صدا زد: «کیست؟»"
+      },
+      {
+       "en": "\"It is me, Little Red Riding Hood,\" said the wolf.",
+       "fa": "گرگ گفت: «منم، شنل قرمزی.»"
+      },
+      {
+       "en": "\"Come in, the door is open,\" said Grandmother.",
+       "fa": "مادربزرگ گفت: «بیا داخل، در باز است.»"
+      },
+      {
+       "en": "The wolf opened the door and went inside.",
+       "fa": "گرگ در را باز کرد و داخل رفت."
+      },
+      {
+       "en": "The wolf swallowed Grandmother in one bite.",
+       "fa": "گرگ مادربزرگ را با یک لقمه بلعید."
+      },
+      {
+       "en": "He wore Grandmother's cap.",
+       "fa": "کلاه مادربزرگ را سرش گذاشت."
+      },
+      {
+       "en": "He climbed into Grandmother's bed to hide.",
+       "fa": "در تخت مادربزرگ رفت تا پنهان شود."
+      },
+      {
+       "en": "He pulled the blanket up to hide.",
+       "fa": "پتو را بالا کشید تا پنهان شود."
+      },
+      {
+       "en": "Then the wolf waited for Little Red Riding Hood.",
+       "fa": "بعد منتظر شنل قرمزی ماند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "What Big Teeth You Have",
+      "fa": "چه دندان‌های بزرگی"
+     },
+     "pairs": [
+      {
+       "en": "Soon Little Red Riding Hood reached the quiet house.",
+       "fa": "به‌زودی شنل قرمزی به خانهٔ ساکت رسید."
+      },
+      {
+       "en": "She knocked gently on the wooden door two times.",
+       "fa": "آرام دو بار به در چوبی زد."
+      },
+      {
+       "en": "\"Come in, the door is open,\" said the wolf.",
+       "fa": "گرگ گفت: «بیا داخل، در باز است.»"
+      },
+      {
+       "en": "Little Red Riding Hood walked slowly through the door.",
+       "fa": "شنل قرمزی آهسته از در داخل رفت."
+      },
+      {
+       "en": "She saw her grandmother under the blanket.",
+       "fa": "مادربزرگش را زیر پتو دید."
+      },
+      {
+       "en": "But her grandmother's face looked strange today.",
+       "fa": "اما صورت مادربزرگ امروز عجیب بود."
+      },
+      {
+       "en": "\"Grandmother, what big eyes you have!\" she said.",
+       "fa": "گفت: «مادربزرگ، چه چشم‌های بزرگی داری!»"
+      },
+      {
+       "en": "\"All the better to see you with,\" said the wolf.",
+       "fa": "گرگ گفت: «تا بهتر ببینمت.»"
+      },
+      {
+       "en": "\"Grandmother, what big ears you have!\" she said.",
+       "fa": "گفت: «مادربزرگ، چه گوش‌های بزرگی داری!»"
+      },
+      {
+       "en": "\"All the better to hear you with,\" said the wolf.",
+       "fa": "گرگ گفت: «تا بهتر بشنومت.»"
+      },
+      {
+       "en": "\"Grandmother, what big teeth you have!\" she said.",
+       "fa": "گفت: «مادربزرگ، چه دندان‌های بزرگی داری!»"
+      },
+      {
+       "en": "\"All the better to eat you with!\" said the wolf.",
+       "fa": "گرگ گفت: «تا بهتر بخورمت!»"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Saved by the Huntsman",
+      "fa": "نجات به دست شکارچی"
+     },
+     "pairs": [
+      {
+       "en": "The wolf jumped up and swallowed Little Red Riding Hood.",
+       "fa": "گرگ پرید و شنل قرمزی را بلعید."
+      },
+      {
+       "en": "The wolf's stomach was full, and he fell asleep.",
+       "fa": "شکم گرگ پر بود و خوابش برد."
+      },
+      {
+       "en": "A huntsman walked past the small house.",
+       "fa": "شکارچی از کنار خانهٔ کوچک گذشت."
+      },
+      {
+       "en": "He heard snores from inside the house.",
+       "fa": "صدای خروپف از داخل خانه شنید."
+      },
+      {
+       "en": "The huntsman thought Grandmother lived in that house.",
+       "fa": "شکارچی فکر کرد مادربزرگ در آن خانه زندگی می‌کند."
+      },
+      {
+       "en": "He knocked, but no one came to the door.",
+       "fa": "در زد، اما کسی به در نیامد."
+      },
+      {
+       "en": "The huntsman opened the door and looked inside.",
+       "fa": "شکارچی در را باز کرد و داخل را نگاه کرد."
+      },
+      {
+       "en": "He saw the wolf asleep in Grandmother's bed.",
+       "fa": "گرگ را دید که در تخت مادربزرگ خوابیده."
+      },
+      {
+       "en": "The wolf's stomach looked big.",
+       "fa": "شکم گرگ بزرگ به نظر می‌رسید."
+      },
+      {
+       "en": "The huntsman thought Grandmother might be inside.",
+       "fa": "شکارچی فکر کرد شاید مادربزرگ داخل باشد."
+      },
+      {
+       "en": "He took out a knife and cut open the wolf.",
+       "fa": "چاقویی بیرون آورد و شکم گرگ را باز کرد."
+      },
+      {
+       "en": "Little Red Riding Hood jumped out safe!",
+       "fa": "شنل قرمزی سالم بیرون پرید!"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The End of the Wolf",
+      "fa": "پایان گرگ"
+     },
+     "pairs": [
+      {
+       "en": "Then Grandmother climbed out of the wolf too.",
+       "fa": "بعد مادربزرگ هم از شکم گرگ بیرون آمد."
+      },
+      {
+       "en": "She was safe.",
+       "fa": "سالم بود."
+      },
+      {
+       "en": "Little Red Riding Hood hugged her grandmother.",
+       "fa": "شنل قرمزی مادربزرگش را در آغوش گرفت."
+      },
+      {
+       "en": "The huntsman found heavy stones.",
+       "fa": "شکارچی سنگ‌های سنگین پیدا کرد."
+      },
+      {
+       "en": "Grandmother and Little Red Riding Hood filled the wolf.",
+       "fa": "مادربزرگ و شنل قرمزی گرگ را پر کردند."
+      },
+      {
+       "en": "They put the heavy stones inside him.",
+       "fa": "سنگ‌های سنگین را داخل او گذاشتند."
+      },
+      {
+       "en": "Soon the wolf woke up.",
+       "fa": "به‌زودی گرگ بیدار شد."
+      },
+      {
+       "en": "He wanted to run from the house.",
+       "fa": "می‌خواست از خانه فرار کند."
+      },
+      {
+       "en": "But the stones were too heavy to carry.",
+       "fa": "اما سنگ‌ها برای حمل کردن خیلی سنگین بودند."
+      },
+      {
+       "en": "The wolf fell down and died in the woods.",
+       "fa": "گرگ افتاد و در جنگل مرد."
+      },
+      {
+       "en": "Little Red Riding Hood was safe.",
+       "fa": "شنل قرمزی در امان بود."
+      },
+      {
+       "en": "The huntsman smiled.",
+       "fa": "شکارچی لبخند زد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Safe at Home",
+      "fa": "سالم در خانه"
+     },
+     "pairs": [
+      {
+       "en": "They all went inside Grandmother's small house.",
+       "fa": "همه به خانهٔ کوچک مادربزرگ رفتند."
+      },
+      {
+       "en": "Little Red Riding Hood gave her the basket.",
+       "fa": "شنل قرمزی سبد را به او داد."
+      },
+      {
+       "en": "Grandmother ate the cake and the bread.",
+       "fa": "مادربزرگ کیک و نان را خورد."
+      },
+      {
+       "en": "\"Thank you,\" said Grandmother to the huntsman.",
+       "fa": "مادربزرگ به شکارچی گفت: «متشکرم.»"
+      },
+      {
+       "en": "\"It was my pleasure,\" said the huntsman.",
+       "fa": "شکارچی گفت: «خواهش می‌کنم.»"
+      },
+      {
+       "en": "The huntsman left.",
+       "fa": "شکارچی رفت."
+      },
+      {
+       "en": "\"I will never leave the path,\" she said.",
+       "fa": "گفت: «هرگز از راه بیرون نمی‌روم.»"
+      },
+      {
+       "en": "\"That is a good lesson,\" said Grandmother.",
+       "fa": "مادربزرگ گفت: «این درس خوبی است.»"
+      },
+      {
+       "en": "Little Red Riding Hood smiled and kissed her grandmother.",
+       "fa": "شنل قرمزی لبخند زد و مادربزرگش را بوسید."
+      },
+      {
+       "en": "From that day on, she never left the path.",
+       "fa": "از آن روز به بعد، هرگز از راه بیرون نرفت."
+      }
+     ]
+    }
+   ],
+   "text": "Little Red Riding Hood lived in a small village. Her grandmother lived across the woods. Grandmother gave her a red hood to wear. She wore the red hood. The village called her Little Red Riding Hood. One day, Grandmother was sick. Her mother filled a basket with food. She put cake and bread into the basket. \"Take this to Grandmother,\" said her mother. \"Do not leave the path,\" her mother called. \"I will be safe,\" said Little Red Riding Hood. Then she took the basket and went into the woods. Little Red Riding Hood walked down the path. A wolf came out of the woods. \"Good day,\" said the wolf with a smile. \"Why do you have that basket?\" he called. \"This food is for my sick grandmother,\" she said. Grandmother lived across the woods. The wolf saw the flowers. \"Why not pick flowers for her?\" he said. Little Red Riding Hood left the path to pick flowers. The wolf ran through the woods. The wolf reached the small house. He knocked on the door two times. \"Who is there?\" called Grandmother from her bed. \"It is me, Little Red Riding Hood,\" said the wolf. \"Come in, the door is open,\" said Grandmother. The wolf opened the door and went inside. The wolf swallowed Grandmother in one bite. He wore Grandmother's cap. He climbed into Grandmother's bed to hide. He pulled the blanket up to hide. Then the wolf waited for Little Red Riding Hood. Soon Little Red Riding Hood reached the quiet house. She knocked gently on the wooden door two times. \"Come in, the door is open,\" said the wolf. Little Red Riding Hood walked slowly through the door. She saw her grandmother under the blanket. But her grandmother's face looked strange today. \"Grandmother, what big eyes you have!\" she said. \"All the better to see you with,\" said the wolf. \"Grandmother, what big ears you have!\" she said. \"All the better to hear you with,\" said the wolf. \"Grandmother, what big teeth you have!\" she said. \"All the better to eat you with!\" said the wolf. The wolf jumped up and swallowed Little Red Riding Hood. The wolf's stomach was full, and he fell asleep. A huntsman walked past the small house. He heard snores from inside the house. The huntsman thought Grandmother lived in that house. He knocked, but no one came to the door. The huntsman opened the door and looked inside. He saw the wolf asleep in Grandmother's bed. The wolf's stomach looked big. The huntsman thought Grandmother might be inside. He took out a knife and cut open the wolf. Little Red Riding Hood jumped out safe! Then Grandmother climbed out of the wolf too. She was safe. Little Red Riding Hood hugged her grandmother. The huntsman found heavy stones. Grandmother and Little Red Riding Hood filled the wolf. They put the heavy stones inside him. Soon the wolf woke up. He wanted to run from the house. But the stones were too heavy to carry. The wolf fell down and died in the woods. Little Red Riding Hood was safe. The huntsman smiled. They all went inside Grandmother's small house. Little Red Riding Hood gave her the basket. Grandmother ate the cake and the bread. \"Thank you,\" said Grandmother to the huntsman. \"It was my pleasure,\" said the huntsman. The huntsman left. \"I will never leave the path,\" she said. \"That is a good lesson,\" said Grandmother. Little Red Riding Hood smiled and kissed her grandmother. From that day on, she never left the path.",
+   "vocab": [
+    {
+     "word": "village",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small town in the country",
+      "fa": "دهکده"
+     },
+     "example": "Little Red Riding Hood lived in a small village.",
+     "exampleFa": "شنل قرمزی در دهکدهٔ کوچکی زندگی می‌کرد."
+    },
+    {
+     "word": "hood",
+     "pos": "n.",
+     "meaning": {
+      "en": "a soft hat that covers the head and neck",
+      "fa": "کلاه سرخ، شنل"
+     },
+     "example": "Grandmother gave her a red hood to wear.",
+     "exampleFa": "مادربزرگ کلاهی سرخ به او داد."
+    },
+    {
+     "word": "basket",
+     "pos": "n.",
+     "meaning": {
+      "en": "a container with a handle for carrying things",
+      "fa": "سبد"
+     },
+     "example": "Her mother filled a basket with food.",
+     "exampleFa": "مادرش سبدی پر از غذا کرد."
+    },
+    {
+     "word": "path",
+     "pos": "n.",
+     "meaning": {
+      "en": "a narrow way for walking",
+      "fa": "راه باریک"
+     },
+     "example": "Do not leave the path.",
+     "exampleFa": "از راه بیرون نرو."
+    },
+    {
+     "word": "grandmother",
+     "pos": "n.",
+     "meaning": {
+      "en": "the mother of your mother or father",
+      "fa": "مادربزرگ"
+     },
+     "example": "Her grandmother lived across the woods.",
+     "exampleFa": "مادربزرگش آن‌طرف جنگل زندگی می‌کرد."
+    },
+    {
+     "word": "teeth",
+     "pos": "n.",
+     "meaning": {
+      "en": "the hard white things in your mouth",
+      "fa": "دندان‌ها"
+     },
+     "example": "Grandmother, what big teeth you have!",
+     "exampleFa": "مادربزرگ، چه دندان‌های بزرگی داری!"
+    },
+    {
+     "word": "huntsman",
+     "pos": "n.",
+     "meaning": {
+      "en": "a man who hunts animals",
+      "fa": "شکارچی"
+     },
+     "example": "A huntsman walked past the small house.",
+     "exampleFa": "شکارچی از کنار خانهٔ کوچک گذشت."
+    },
+    {
+     "word": "swallowed",
+     "pos": "v.",
+     "meaning": {
+      "en": "made food go down the throat",
+      "fa": "بلعید"
+     },
+     "example": "The wolf swallowed Grandmother in one bite.",
+     "exampleFa": "گرگ مادربزرگ را با یک لقمه بلعید."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "Good day",
+     "meaning": {
+      "en": "an old, polite hello",
+      "fa": "روز بخیر (سلام مؤدبانه و قدیمی)"
+     },
+     "example": "\"Good day,\" said the wolf with a smile.",
+     "exampleFa": "گرگ با لبخند گفت: «روز خوبی داشته باشی.»"
+    },
+    {
+     "phrase": "Why not ...?",
+     "meaning": {
+      "en": "a suggestion: there is no good reason not to",
+      "fa": "چرا که نه؟"
+     },
+     "example": "Why not pick flowers for her?",
+     "exampleFa": "چرا برایش گل نمی‌چینی؟"
+    },
+    {
+     "phrase": "all the better to ...",
+     "meaning": {
+      "en": "the old fairy-tale answer: this is why it is big",
+      "fa": "برای اینکه بهتر بتوانم ..."
+     },
+     "example": "All the better to see you with.",
+     "exampleFa": "تا بهتر ببینمت."
+    },
+    {
+     "phrase": "from that day on",
+     "meaning": {
+      "en": "starting then and continuing",
+      "fa": "از آن روز به بعد"
+     },
+     "example": "From that day on, she never left the path.",
+     "exampleFa": "از آن روز به بعد هرگز از راه بیرون نرفت."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "too + adjective + to",
+      "fa": "too + صفت + to"
+     },
+     "example": "The stones were too heavy to carry.",
+     "note": {
+      "en": "'Too heavy to carry' means so heavy that nobody could carry them.",
+      "fa": "«too heavy to carry» یعنی آن‌قدر سنگین که کسی نمی‌توانست حملشان کند."
+     }
+    },
+    {
+     "name": {
+      "en": "to + verb for purpose",
+      "fa": "to + فعل برای هدف"
+     },
+     "example": "She left the path to pick flowers.",
+     "note": {
+      "en": "The infinitive answers 'why?': she left the path in order to pick flowers.",
+      "fa": "مصدر به پرسش «چرا؟» جواب می‌دهد: از راه بیرون رفت تا گل بچیند."
+     }
+    },
+    {
+     "name": {
+      "en": "Negative command",
+      "fa": "امر منفی"
+     },
+     "example": "Do not leave the path.",
+     "note": {
+      "en": "'Do not' + verb tells someone not to do something; in reported form it becomes 'told her not to leave'.",
+      "fa": "«Do not» + فعل از کسی می‌خواهد کاری نکند؛ در نقل قول غیرمستقیم به told her not to leave تبدیل می‌شود."
+     }
+    },
+    {
+     "name": {
+      "en": "What + adjective + noun!",
+      "fa": "What + صفت + اسم!"
+     },
+     "example": "What big eyes you have!",
+     "note": {
+      "en": "'What' + adjective + noun is an exclamation of surprise, not a question.",
+      "fa": "«What» + صفت + اسم جملهٔ تعجبی است، نه پرسشی."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why did the mother send her into the woods?",
+       "fa": "مادر چرا او را به جنگل فرستاد؟"
+      },
+      "options": [
+       "To take food to her sick grandmother",
+       "To pick flowers for the village",
+       "To find the wolf",
+       "To visit a friend"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "Grandmother was sick and the basket was full of cake and bread for her.",
+       "fa": "مادربزرگ بیمار بود و سبد پر از کیک و نان برای او."
+      }
+     },
+     {
+      "q": {
+       "en": "What did the mother tell her not to do?",
+       "fa": "مادر به او گفت چه کاری نکند؟"
+      },
+      "options": [
+       "Talk to anyone",
+       "Open the basket",
+       "Leave the path",
+       "Knock on the door"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "'Do not leave the path,' her mother called.",
+       "fa": "مادرش صدا زد: «از راه بیرون نرو.»"
+      }
+     },
+     {
+      "q": {
+       "en": "How did the wolf get into the house?",
+       "fa": "گرگ چطور وارد خانه شد؟"
+      },
+      "options": [
+       "He broke the door.",
+       "He climbed the chimney.",
+       "He pretended to be the girl.",
+       "He waited outside."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "He said 'It is me, Little Red Riding Hood', and Grandmother told him to come in.",
+       "fa": "گفت «منم، شنل قرمزی» و مادربزرگ گفت بیا داخل."
+      }
+     },
+     {
+      "q": {
+       "en": "Who saved Little Red Riding Hood?",
+       "fa": "چه کسی شنل قرمزی را نجات داد؟"
+      },
+      "options": [
+       "Her mother",
+       "Grandmother",
+       "The village",
+       "A huntsman"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "A huntsman heard the snoring, came in and cut the wolf open.",
+       "fa": "شکارچی صدای خروپف را شنید، داخل شد و شکم گرگ را باز کرد."
+      }
+     },
+     {
+      "q": {
+       "en": "What did Grandmother and the girl do with the stones?",
+       "fa": "مادربزرگ و دختر با سنگ‌ها چه کردند؟"
+      },
+      "options": [
+       "They built a wall.",
+       "They threw them at the wolf.",
+       "They put them inside the wolf.",
+       "They left them outside."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They filled the sleeping wolf with heavy stones, so he could not run.",
+       "fa": "گرگ خوابیده را با سنگ‌های سنگین پر کردند تا نتواند فرار کند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The wolf reached the house before the girl.",
+       "fa": "گرگ قبل از دختر به خانه رسید."
+      },
+      "answer": true,
+      "why": {
+       "en": "He ran through the woods while she picked flowers.",
+       "fa": "او از میان جنگل دوید وقتی دختر گل می‌چید."
+      }
+     },
+     {
+      "q": {
+       "en": "Grandmother's face looked normal to the girl.",
+       "fa": "صورت مادربزرگ به نظر دختر عادی بود."
+      },
+      "answer": false,
+      "why": {
+       "en": "'Her grandmother's face looked strange today.'",
+       "fa": "«صورت مادربزرگ امروز عجیب بود.»"
+      }
+     },
+     {
+      "q": {
+       "en": "The wolf escaped into the woods at the end.",
+       "fa": "گرگ در پایان به جنگل فرار کرد."
+      },
+      "answer": false,
+      "why": {
+       "en": "The stones were too heavy; he fell down and died.",
+       "fa": "سنگ‌ها خیلی سنگین بودند؛ افتاد و مرد."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Grandmother gave her a red ___ to wear.",
+      "answer": "hood",
+      "hint": {
+       "en": "The hat that gave her the name.",
+       "fa": "کلاهی که نامش را ساخت."
+      }
+     },
+     {
+      "sentence": "Do not leave the ___.",
+      "answer": "path",
+      "hint": {
+       "en": "The narrow way through the woods.",
+       "fa": "راه باریک میان جنگل."
+      }
+     },
+     {
+      "sentence": "A ___ walked past the small house.",
+      "answer": "huntsman",
+      "hint": {
+       "en": "The man who hunts animals.",
+       "fa": "مردی که شکار می‌کند."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Was it the girl's fault that the wolf found Grandmother?",
+       "fa": "تقصیر دختر بود که گرگ مادربزرگ را پیدا کرد؟"
+      },
+      "model": {
+       "en": "Partly. The wolf was already in the woods and would have found the house anyway, but she told a stranger where her grandmother lived and left the path she was told to keep. The story blames the wolf for the cruelty and the girl for the mistake - both are true.",
+       "fa": "تا حدی. گرگ از قبل در جنگل بود و هر حال خانه را پیدا می‌کرد، اما او به یک غریبه گفت مادربزرگش کجا زندگی می‌کند و از راهی که گفته بودند بیرون رفت. داستان گرگ را برای بی‌رحمی و دختر را برای اشتباهش سرزنش می‌کند - هر دو درست است."
+      },
+      "tip": {
+       "en": "Split the blame and give one action for each side.",
+       "fa": "تقصیر را تقسیم کن و برای هر طرف یک کار بیاور."
+      }
+     },
+     {
+      "q": {
+       "en": "Why do you think this story is still told to children?",
+       "fa": "چرا فکر می‌کنی این داستان هنوز برای بچه‌ها گفته می‌شود؟"
+      },
+      "model": {
+       "en": "Because the warning is useful and the form is memorable: a red hood, a path, a wolf with a voice. Children remember 'do not leave the path' long after they forget a rule about strangers, and the huntsman promises that help can arrive.",
+       "fa": "چون هشدارش سودمند است و شکلش به‌یادماندنی: کلاه سرخ، یک راه، گرگی با صدا. بچه‌ها «از راه بیرون نرو» را سال‌ها بعد هم یادشان می‌ماند، و شکارچی این promise را می‌دهد که کمک می‌تواند برسد."
+      },
+      "tip": {
+       "en": "Give one reason about the lesson and one about the telling.",
+       "fa": "یک دلیل دربارهٔ درس داستان و یکی دربارهٔ شکل گفتنش بیاور."
       }
      }
     ]
