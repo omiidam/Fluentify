@@ -27,7 +27,12 @@ def L(en, fa):
 
 
 def P(*rows):
-    """Sentence pairs, in reading order."""
+    """Sentence pairs, in reading order.
+
+    Call it either as P((en, fa), (en, fa)) or as P(en, fa) for a single line.
+    """
+    if len(rows) == 2 and all(isinstance(r, str) for r in rows):
+        rows = [rows]
     return [L(en, fa) for en, fa in rows]
 
 
@@ -2164,5 +2169,1595 @@ HOOD = {
     },
 }
 
+# --------------------------------------------------------------------------
+# Crazy Paella, chapters 1-3 - a companion, not a copy.
+# The summaries below are written here; the chapter text stays in the book.
+# --------------------------------------------------------------------------
+PAELLA = {
+    "id": "crazy_paella_chapters_1_3",
+    "kind": "companion",
+    "level": "M",
+    "title": L("Crazy Paella, chapters 1-3: a reading companion",
+               "پائیا دیوانه، فصل‌های ۱ تا ۳: هم‌خوان"),
+    "blurb": L("A brother and sister fly to Barcelona, and one wrong bus turns "
+               "lunch into a day nobody planned.",
+               "برادر و خواهری به بارسلونا پرواز می‌کنند و یک اتوبوس اشتباه، "
+               "ناهار را به روزی تبدیل می‌کند که هیچ‌کس نقشه‌اش را نکشیده بود."),
+    "book": {
+        "title": "Short Stories in English for Beginners",
+        "author": "Olly Richards",
+        "publisher": "Teach Yourself (John Murray Press), 2018",
+        "note": L("A companion, not a copy. Read chapters 1-3 in your own copy "
+                  "of the book; this page gives summary, vocabulary, grammar "
+                  "and questions to work through afterwards. No chapter text is "
+                  "reproduced here.",
+                  "این صفحه همراهِ کتاب است، نه رونوشت آن. فصل‌های ۱ تا ۳ را در "
+                  "نسخهٔ خودتان بخوانید؛ اینجا خلاصه، واژگان، گرامر و پرسش "
+                  "می‌آید تا بعد از خواندن کار کنید. متنی از فصل‌ها بازتولید "
+                  "نشده است."),
+    },
+    "chapters": [
+        {"title": L("Chapter 1: getting ready", "فصل ۱: آماده شدن"),
+         "summary": L(
+             "Daniel and Julia are brother and sister, and they are both "
+             "university students in London, where they share a house. Their "
+             "parents are Arthur and Sarah, and both of them speak Spanish. The "
+             "two of them are packing for Barcelona, where they will spend a "
+             "term as exchange students. Their father comes into Daniel's room "
+             "with a pile of money that he and their mother have saved for the "
+             "trip, and their mother drives them to the airport. Julia is "
+             "nervous in the car, but the airport calms her down, and the two "
+             "of them board the plane.",
+             "دانیل و جولیا خواهر و برادرند و هر دو در لندن دانشجو هستند و "
+             "خانه‌ای را با هم شریک‌اند. پدر و مادرشان آرتور و سارا هستند و هر "
+             "دو اسپانیایی حرف می‌زنند. آن دو برای بارسلونا بار می‌بندند تا یک "
+             "ترم به‌عنوان دانشجوی تبادلی آنجا باشند. پدرشان با پولی که خودش و "
+             "مادر پس‌انداز کرده‌اند به اتاق دانیل می‌آید و مادرشان آن دو را به "
+             "فرودگاه می‌برد. جولیا در ماشین مضطرب است، اما فرودگاه آرامش "
+             "می‌کند و هر دو سوار هواپیما می‌شوند.")},
+        {"title": L("Chapter 2: the wrong bus", "فصل ۲: اتوبوس اشتباه"),
+         "summary": L(
+             "They land in Barcelona, where Daniel's friend Armando is waiting. "
+             "He hugs Daniel and kisses Julia on both cheeks; Julia is shy, so "
+             "she goes quiet and her face turns red. A taxi takes the three of "
+             "them to Armando's flat, which will be home for the term. At "
+             "lunchtime Armando suggests two restaurants: a paella place called "
+             "La Paella Loca, and a fish restaurant next door. Julia does not "
+             "want a crowded bus, so they split up, and Daniel falls asleep on "
+             "his bus. He wakes up in Valencia. His phone battery is dead and "
+             "his sister's number is only in the phone, so he cannot call her. "
+             "He eats paella alone, is embarrassed by how strange the day is, "
+             "then phones his parents in London and asks them to tell Julia "
+             "where he is. He pays for a hotel room in cash and sleeps.",
+             "در بارسلونا فرود می‌آیند و آرماندو، دوست دانیل، آنجاست. دانیل را "
+             "در آغوش می‌گیرد و جولیا را بر دو گونه می‌بوسد؛ جولیا خجالتی است، "
+             "ساکت می‌شود و صورتش سرخ. تاکسی هر سه را به آپارتمان آرماندو "
+             "می‌برد که خانهٔ آن ترم خواهد بود. وقت ناهار آرماندو دو رستوران "
+             "پیشنهاد می‌دهد: پائیا فروشی به نام لا پائیا لوکا و رستوران ماهی "
+             "که کنار آن است. جولیا اتوبوس شلوغ نمی‌خواهد، پس جدا می‌شوند و "
+             "دانیل در اتوبوس خوابش می‌برد. در والنسیا بیدار می‌شود. باتری "
+             "گوشی‌اش تمام شده و شمارهٔ خواهرش فقط در گوشی است، پس نمی‌تواند "
+             "زنگ بزند. تنها پائیا می‌خورد، از عجیب بودن روز خجالت‌زده می‌شود، "
+             "بعد به پدر و مادرش در لندن زنگ می‌زند و می‌خواهد به جولیا "
+             "بگویند کجاست. پول اتاق هتل را نقد می‌دهد و می‌خوابد.")},
+        {"title": L("Chapter 3: the lorry", "فصل ۳: کامیون"),
+         "summary": L(
+             "In the morning Daniel eats in his hotel room and works out that he "
+             "has very little money left. Outside he sees a lorry with a picture "
+             "of paella on the side: it belongs to La Paella Loca and brings "
+             "rice to Barcelona every week. He persuades the driver to take him "
+             "back, and rides between the rice boxes in the dark. Something "
+             "moves: an old man is hiding there. The driver stops to warn Daniel "
+             "to be quiet, and the old man stays hidden. He then tells Daniel "
+             "why he is travelling: years ago he left for a job in the United "
+             "States and lost touch with the woman he loved and the son he has "
+             "never met, and he has just found out that the son, whose name is "
+             "Armando, lives in Barcelona near the restaurant.",
+             "صبح دانیل در اتاق هتل غذا می‌خورد و می‌فهمد پول کمی برایش مانده. "
+             "بیرون کامیونی با تصویر پائیا می‌بیند: مال لا پائیا لوکاست و هر "
+             "هفته برنج به بارسلونا می‌برد. راننده را راضی می‌کند او را برگرداند "
+             "و در تاریکی میان جعبه‌های برنج می‌نشیند. چیزی حرکت می‌کند: پیرمردی "
+             "آنجا پنهان شده. راننده می‌ایستد تا به دانیل هشدار دهد ساکت باشد و "
+             "پیرمرد پنهان می‌ماند. بعد برای دانیل می‌گوید چرا سفر می‌کند: "
+             "سال‌ها پیش برای کاری به آمریکا رفت و ارتباطش را با زنی که "
+             "دوستش داشت و پسری که هرگز ندیده از دست داد، و تازه فهمیده پسر، "
+             "که نامش آرماندو است، در بارسلونا نزدیک همان رستوران زندگی می‌کند.")},
+    ],
+    "vocab": [
+        {"word": "exchange student", "pos": "n.",
+         "meaning": L("a student who studies for a time in another country",
+                      "دانشجوی تبادلی"),
+         "example": "They will spend a term in Barcelona as exchange students.",
+         "exampleFa": "آن دو یک ترم به‌عنوان دانشجوی تبادلی در بارسلونا "
+                      "خواهند بود."},
+        {"word": "nervous", "pos": "adj.", "meaning": L("worried and not calm", "مضطرب"),
+         "example": "Julia is nervous in the car on the way to the airport.",
+         "exampleFa": "جولیا در ماشین تا فرودگاه مضطرب است."},
+        {"word": "flat", "pos": "n.", "meaning": L("a set of rooms to live in, part of a larger building", "آپارتمان"),
+         "example": "A taxi takes them to Armando's flat.",
+         "exampleFa": "تاکسی آن‌ها را به آپارتمان آرماندو می‌برد."},
+        {"word": "taxi", "pos": "n.", "meaning": L("a car you pay to ride in", "تاکسی"),
+         "example": "The taxi costs forty-one euros.",
+         "exampleFa": "کرایهٔ تاکسی چهل‌و‌یک یورو است."},
+        {"word": "paella", "pos": "n.", "meaning": L("a Spanish rice dish with meat or seafood", "پائیا"),
+         "example": "He eats paella alone in Valencia.",
+         "exampleFa": "او در والنسیا تنها پائیا می‌خورد."},
+        {"word": "battery", "pos": "n.", "meaning": L("the part of a phone that holds power", "باتری"),
+         "example": "His phone battery is dead, so he cannot call.",
+         "exampleFa": "باتری گوشی‌اش تمام شده، پس نمی‌تواند زنگ بزند."},
+        {"word": "embarrassed", "pos": "adj.", "meaning": L("feeling foolish in front of people", "خجالت‌زده"),
+         "example": "He is embarrassed by how strange the day is.",
+         "exampleFa": "از عجیب بودن روز خجالت‌زده است."},
+        {"word": "son", "pos": "n.", "meaning": L("a male child", "پسر"),
+         "example": "The old man has never met his son.",
+         "exampleFa": "پیرمرد هرگز پسرش را ندیده است."},
+    ],
+    "expressions": [
+        {"phrase": "head for",
+         "meaning": L("go towards a place", "به سمت جایی رفتن"),
+         "example": "They head for the airport in their mother's car.",
+         "exampleFa": "با ماشین مادرشان به سمت فرودگاه می‌روند."},
+        {"phrase": "check in",
+         "meaning": L("tell the airport desk you have arrived", "کارهای فرودگاهی را انجام دادن"),
+         "example": "At the airport they check in for the flight.",
+         "exampleFa": "در فرودگاه کارهای پرواز را انجام می‌دهند."},
+        {"phrase": "it's all too much",
+         "meaning": L("more than a person can deal with", "بیش از حد تحمل است"),
+         "example": "He starts laughing because it's all too much.",
+         "exampleFa": "شروع می‌کند به خندیدن چون دیگر بیش از حد تحملش است."},
+        {"phrase": "reality sinks in",
+         "meaning": L("you finally understand what has really happened", "واقعیت جا می‌افتد"),
+         "example": "After dinner, reality sinks in: he is in the wrong city.",
+         "exampleFa": "بعد از شام واقعیت جا می‌افتد: او در شهر اشتباهی است."},
+    ],
+    "grammar": [
+        {"name": L("Present continuous for plans", "حال استمراری برای برنامه"),
+         "example": "We are leaving for Spain today.",
+         "note": L("A fixed arrangement uses the present continuous, not 'will': "
+                   "the ticket is bought, so it is happening.",
+                   "برای برنامهٔ قطعی از حال استمراری استفاده می‌شود، نه will: "
+                   "بلیت خریده شده، پس انجام می‌شود.")},
+        {"name": L("Past simple for the sequence", "گذشتهٔ ساده برای زنجیرهٔ رویدادها"),
+         "example": "He got on the bus, fell asleep and woke up in Valencia.",
+         "note": L("The story moves forward with past simple verbs, one action "
+                   "after another.",
+                   "داستان با فعل‌های گذشتهٔ ساده جلو می‌رود، کاری پس از کار دیگر.")},
+        {"name": L("Present perfect with never", "حال کامل با never"),
+         "example": "I have never met my son.",
+         "note": L("'Have/has never + past participle' covers all of life up to "
+                   "now, which is why it fits a man explaining his whole history.",
+                   "«have/has never + قسمت سوم فعل» تمام زندگی تا امروز را "
+                   "در بر می‌گیرد و به همین دلیل برای کسی که کل گذشته‌اش را "
+                   "توضیح می‌دهد مناسب است.")},
+        {"name": L("because + clause", "because + جمله"),
+         "example": "He cannot call because his battery is dead.",
+         "note": L("'Because' gives the reason for the sentence before it; the "
+                   "reason comes after.",
+                   "«because» دلیل جملهٔ قبل را می‌آورد و دلیل بعد از آن می‌آید.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("Where do Daniel and Julia study?", "دانیل و جولیا کجا درس می‌خوانند؟"),
+             "options": ["In Barcelona", "In London", "In Valencia",
+                         "In the United States"],
+             "answer": 1,
+             "why": L("They are students in London and go to Barcelona only for a "
+                      "term.",
+                      "آن‌ها در لندن دانشجو هستند و فقط یک ترم به بارسلونا "
+                      "می‌روند.")},
+            {"q": L("What do their parents give them for the trip?",
+                    "پدر و مادر برای سفر چه به آن‌ها می‌دهند؟"),
+             "options": ["A car", "A guidebook", "Money they have saved",
+                         "Two plane tickets"],
+             "answer": 2,
+             "why": L("Their father brings a pile of money saved for the trip.",
+                      "پدرشان پولی را که برای سفر پس‌انداز شده می‌آورد.")},
+            {"q": L("Why does Daniel end up in Valencia?",
+                    "چرا دانیل سر از والنسیا درمی‌آورد؟"),
+             "options": ["He takes an express bus by mistake",
+                         "He misses his stop on purpose",
+                         "The taxi driver takes him there",
+                         "He wants to see the city"],
+             "answer": 0,
+             "why": L("He sleeps on the bus and wakes at the end of the express "
+                      "route.",
+                      "در اتوبوس می‌خوابد و در پایان مسیر سریع بیدار می‌شود.")},
+            {"q": L("Why can he not telephone his sister?",
+                    "چرا نمی‌تواند به خواهرش زنگ بزند؟"),
+             "options": ["He has no money for a call",
+                         "She has no phone",
+                         "He is too shy to call",
+                         "The battery is dead and her number is in the phone"],
+             "answer": 3,
+             "why": L("The number is stored only in the phone, and the phone will "
+                      "not turn on.",
+                      "شماره فقط در گوشی ذخیره است و گوشی روشن نمی‌شود.")},
+            {"q": L("Who is the old man in the lorry?", "پیرمرد داخل کامیون کیست؟"),
+             "options": ["The lorry driver's father", "Armando's father",
+                         "Julia's teacher", "A waiter from the restaurant"],
+             "answer": 1,
+             "why": L("He is looking for a son called Armando who lives in "
+                      "Barcelona, and Armando is Daniel's friend.",
+                      "دنبال پسری به نام آرماندو در بارسلونا می‌گردد و آرماندو "
+                      "دوست دانیل است.")},
+        ],
+        "truefalse": [
+            {"q": L("Julia talks easily to new people.", "جولیا راحت با آدم‌های تازه حرف می‌زند."),
+             "answer": False,
+             "why": L("She is shy, goes quiet and her face turns red.",
+                      "خجالتی است، ساکت می‌شود و صورتش سرخ می‌شود.")},
+            {"q": L("Armando is a teacher.", "آرماندو معلم است."),
+             "answer": True,
+             "why": L("He cannot come to lunch because he has a class.",
+                      "نمی‌تواند برای ناهار بیاید چون کلاس دارد.")},
+            {"q": L("Daniel pays for the hotel with a credit card.",
+                    "دانیل هزینهٔ هتل را با کارت اعتباری می‌دهد."),
+             "answer": False,
+             "why": L("He has no credit cards and pays in cash.",
+                      "کارت اعتباری ندارد و نقد می‌پردازد.")},
+        ],
+        "blanks": [
+            {"sentence": "Julia is ___ in the car on the way to the airport.",
+             "answer": "nervous",
+             "hint": L("Worried, not calm.",
+                       "مضطرب، نه آرام.")},
+            {"sentence": "Daniel sleeps on the ___ and wakes up in Valencia.",
+             "answer": "bus",
+             "hint": L("The vehicle he takes to the paella restaurant.",
+                       "وسیله‌ای که با آن به رستوران پائیا می‌رود.")},
+            {"sentence": "The old man is looking for his ___.",
+             "answer": "son",
+             "hint": L("The child he has never met.",
+                       "فرزندی که هرگز ندیده است.")},
+        ],
+        "open": [
+            {"q": L("Whose mistake causes the worst part of the day?",
+                    "اشتباه چه کسی بدترین بخش روز را می‌سازد؟"),
+             "model": L("Mostly Daniel's, but not only his. He got on a bus "
+                        "without checking where it went and fell asleep, which "
+                        "is his mistake. Julia's refusal to take a crowded bus "
+                        "split them up, and the driver's assumption that a "
+                        "passenger knows the route did the rest. The story is "
+                        "funny because no single person is to blame.",
+                        "بیشتر اشتباه دانیل است، اما نه فقط او. بدون اینکه ببیند "
+                        "اتوبوس کجا می‌رود سوار شد و خوابید، و این اشتباه او "
+                        "بود. امتناع جولیا از اتوبوس شلوغ آن‌ها را جدا کرد و "
+                        "فرض راننده که مسافر مسیر را می‌داند بقیهٔ کار را کرد. "
+                        "داستان خنده‌دار است چون هیچ‌کس تنها مقصر نیست."),
+             "tip": L("Name the person, then one decision from each of them.",
+                      "نام شخص را بگو، بعد از هر کدام یک تصمیم بیاور.")},
+            {"q": L("Why is the meeting in the lorry the story's turning point?",
+                    "چرا دیدار در کامیون نقطهٔ چرخش داستان است؟"),
+             "model": L("Because it turns a comic accident into a human story. Up "
+                        "to that point the day is only an inconvenience; the old "
+                        "man's search gives it weight, and the coincidence that "
+                        "his son is Daniel's friend means the two plots have "
+                        "been the same plot all along.",
+                        "چون حادثه‌ای خنده‌دار را به داستانی انسانی تبدیل می‌کند. تا "
+                        "آن لحظه روز فقط یک دردسر است؛ جست‌وجوی پیرمرد به آن وزن "
+                        "می‌دهد و این تصادف که پسرش دوست دانیل است نشان می‌دهد "
+                        "دو خط داستان از اول یکی بوده‌اند."),
+             "tip": L("Say what changes for the reader, then point at the "
+                      "coincidence.",
+                      "بگو برای خواننده چه عوض می‌شود، بعد به آن تصادف اشاره کن.")},
+        ],
+    },
+}
 
-STORIES = [PEA, RED_HEN, ELVES, GOATS, PIGS, GOLDILOCKS, HOOD]
+# --------------------------------------------------------------------------
+# Seven more from the same graded-readers library (CC BY 4.0).
+# --------------------------------------------------------------------------
+FROG = {
+    "id": "frog_prince",
+    "level": "VE",
+    "title": L("The Frog Prince", "شاهزاده قورباغه"),
+    "blurb": L("A ball falls into a well, and a promise made beside it has to "
+               "be kept at the dinner table.",
+               "توپی در چاه می‌افتد و قولی که کنار چاه داده شده باید سر سفره "
+               "نگه داشته شود."),
+    "chapters": [
+        {"title": L("The ball in the well", "توپ در چاه"),
+         "pairs": [
+             P("A princess lived in a big castle with her father, the king.",
+               "شاهزاده‌خانمی با پدرش، پادشاه، در قلعه‌ای بزرگ زندگی می‌کرد."),
+             P("She had a little ball of gold, and she loved to play with it.",
+               "توپ کوچکی از طلا داشت و دوست داشت با آن بازی کند."),
+             P("One day she played by an old well that was deep and full of water.",
+               "روزی کنار چاه قدیمی و عمیقی که پر از آب بود بازی می‌کرد."),
+             P("She threw the ball up high, but it fell into the well.",
+               "توپ را بالا انداخت، اما توپ در چاه افتاد."),
+             P("The ball went down and did not come back, so the princess cried.",
+               "توپ پایین رفت و برنگشت، پس شاهزاده گریه کرد."),
+             P("Then a green frog came up out of the well and asked why she was crying.",
+               "آنگاه قورباغهٔ سبزی از چاه بیرون آمد و پرسید چرا گریه می‌کند."),
+             P("\"I can get your ball,\" said the frog, \"but you must be my friend.\"",
+               "قورباغه گفت: «می‌توانم توپت را بیاورم، اما باید دوستم باشی.»"),
+             P("\"Let me eat with you and live with you,\" he said.",
+               "گفت: «بگذار با تو غذا بخورم و با تو زندگی کنم.»"),
+             P("\"Yes, yes! I promise!\" the princess said.",
+               "شاهزاده گفت: «بله، بله! قول می‌دهم!»"),
+             P("The frog went down and came back up with the gold ball.",
+               "قورباغه پایین رفت و با توپ طلا بالا آمد."),
+         ]},
+        {"title": L("The promise at dinner", "قول سر شام"),
+         "pairs": [
+             P("The princess took the ball and ran to the castle, and she forgot the frog.",
+               "شاهزاده توپ را گرفت و به قلعه دوید و قورباغه را فراموش کرد."),
+             P("The next day, at dinner, they heard a tap at the door.",
+               "روز بعد، سر شام، صدای تق‌تق در را شنیدند."),
+             P("The frog sat on the step and said, \"You made a promise to me.\"",
+               "قورباغه روی پله نشسته بود و گفت: «به من قول دادی.»"),
+             P("The king said, \"A princess must keep her promise. Open the door.\"",
+               "پادشاه گفت: «شاهزاده باید به قولش وفا کند. در را باز کن.»"),
+             P("So the frog came in and ate from the gold plate, but the princess did not like it.",
+               "پس قورباغه داخل آمد و از بشقاب طلایی غذا خورد، اما شاهزاده خوشش نیامد."),
+             P("Later the frog asked to sleep in her room, and the king told her to take him up.",
+               "بعد قورباغه خواست در اتاقش بخوابد و پادشاه گفت او را بالا ببرد."),
+             P("The frog was kind, and soon she was not afraid and gave him a kiss.",
+               "قورباغه مهربان بود و او به‌زودی نترسید و قورباغه را بوسید."),
+             P("The frog became a young prince: a witch had put a spell on him.",
+               "قورباغه شاهزادهٔ جوانی شد: جادوگری او را طلسم کرده بود."),
+             P("They were married in the castle and lived happily for many years.",
+               "در همان قلعه ازدواج کردند و سال‌ها خوشبخت زندگی کردند."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "well", "pos": "n.", "meaning": L("a deep hole dug for water", "چاه"),
+         "example": "The ball fell into the deep well.", "exampleFa": "توپ در چاه عمیق افتاد."},
+        {"word": "promise", "pos": "n.", "meaning": L("something you say you will surely do", "قول"),
+         "example": "You made a promise to me.", "exampleFa": "تو به من قول دادی."},
+        {"word": "step", "pos": "n.", "meaning": L("the flat part you put your foot on to go up", "پله"),
+         "example": "The frog sat on the step outside the door.",
+         "exampleFa": "قورباغه روی پلهٔ بیرون در نشسته بود."},
+        {"word": "plate", "pos": "n.", "meaning": L("a flat dish for food", "بشقاب"),
+         "example": "The frog ate from a gold plate.", "exampleFa": "قورباغه از بشقاب طلایی غذا خورد."},
+        {"word": "spell", "pos": "n.", "meaning": L("magic words that change someone", "طلسم"),
+         "example": "A witch had put a spell on the prince.", "exampleFa": "جادوگری شاهزاده را طلسم کرده بود."},
+        {"word": "kind", "pos": "adj.", "meaning": L("gentle and good to other people", "مهربان"),
+         "example": "The frog was kind, so she stopped being afraid.",
+         "exampleFa": "قورباغه مهربان بود، پس او دیگر نمی‌ترسید."},
+    ],
+    "expressions": [
+        {"phrase": "make a promise",
+         "meaning": L("say that you will certainly do something", "قول دادن"),
+         "example": "She made a promise by the well.",
+         "exampleFa": "او کنار چاه قول داد."},
+        {"phrase": "be afraid of",
+         "meaning": L("feel fear about something", "ترسیدن از"),
+         "example": "At first she was afraid of the frog.",
+         "exampleFa": "اول از قورباغه می‌ترسید."},
+        {"phrase": "put a spell on",
+         "meaning": L("use magic to change somebody", "طلسم کردن"),
+         "example": "The witch put a spell on the young man.",
+         "exampleFa": "جادوگر مرد جوان را طلسم کرد."},
+        {"phrase": "keep a promise",
+         "meaning": L("do what you said you would do", "به قول وفا کردن"),
+         "example": "The king said a princess must keep her promise.",
+         "exampleFa": "پادشاه گفت شاهزاده باید به قولش وفا کند."},
+    ],
+    "grammar": [
+        {"name": L("Past simple story verbs", "فعل‌های گذشتهٔ ساده در داستان"),
+         "example": "She threw the ball, it fell, and she cried.",
+         "note": L("Regular -ed and irregular forms (threw, fell, came) carry the "
+                   "story forward, one finished action at a time.",
+                   "شکل‌های باقاعده با -ed و بی‌قاعده (threw, fell, came) داستان "
+                   "را جلو می‌برند، هر بار یک کار تمام‌شده.")},
+        {"name": L("must for obligation", "must برای اجبار"),
+         "example": "You must be my friend.",
+         "note": L("'Must' is stronger than 'should': the frog sets a condition, "
+                   "and the king repeats it as a rule.",
+                   "«must» از «should» قوی‌تر است: قورباغه شرط می‌گذارد و پادشاه "
+                   "همان را به‌صورت قانون تکرار می‌کند.")},
+        {"name": L("said + direct speech", "said با گفتار مستقیم"),
+         "example": "\"Open the door,\" the king said.",
+         "note": L("The comma goes before the closing quotation mark, and 'said' "
+                   "can come before or after the words.",
+                   "کاما پیش از بسته شدن گیومه می‌آید و «said» می‌تواند پیش یا پس "
+                   "از جمله بیاید.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("What did the princess lose in the well?", "شاهزاده چه چیزی را در چاه گم کرد؟"),
+             "options": ["Her ring", "Her ball of gold", "Her crown", "Her shoe"],
+             "answer": 1,
+             "why": L("She was playing with her little ball of gold when it fell in.",
+                      "با توپ کوچک طلایی‌اش بازی می‌کرد که در چاه افتاد.")},
+            {"q": L("What did the frog ask for in return?", "قورباغه در عوض چه خواست؟"),
+             "options": ["Money", "The ball", "To be her friend and live with her",
+                         "A new well"],
+             "answer": 2,
+             "why": L("He asked to eat with her and live with her.",
+                      "خواست با او غذا بخورد و با او زندگی کند.")},
+            {"q": L("What did the princess do as soon as she had the ball?",
+                    "شاهزاده به‌محض گرفتن توپ چه کرد؟"),
+             "options": ["She ran to the castle and forgot the frog",
+                         "She thanked the frog", "She gave the frog the ball",
+                         "She called the king"],
+             "answer": 0,
+             "why": L("She took the ball and ran, leaving the frog behind.",
+                      "توپ را گرفت و دوید و قورباغه را جا گذاشت.")},
+            {"q": L("Why did the king make her open the door?",
+                    "چرا پادشاه او را مجبور کرد در را باز کند؟"),
+             "options": ["He liked frogs", "He wanted the ball back",
+                         "A princess must keep her promise", "He was afraid of the frog"],
+             "answer": 2,
+             "why": L("He said a promise has to be kept, even an awkward one.",
+                      "گفت قول باید نگه داشته شود، حتی اگر ناخوشایند باشد.")},
+            {"q": L("What broke the spell?", "چه چیزی طلسم را شکست؟"),
+             "options": ["A word from the king", "The gold ball",
+                         "A kind kiss from the princess", "A night in the castle"],
+             "answer": 2,
+             "why": L("Only a kind princess could break it, and she gave him a kiss.",
+                      "فقط شاهزاده‌ای مهربان می‌توانست آن را بشکند و او قورباغه را بوسید.")},
+        ],
+        "truefalse": [
+            {"q": L("The frog could not reach the ball.", "قورباغه نمی‌توانست به توپ برسد."),
+             "answer": False,
+             "why": L("He went down into the well and brought it back up.",
+                      "به ته چاه رفت و توپ را بالا آورد.")},
+            {"q": L("The princess was happy to see the frog at dinner.",
+                    "شاهزاده از دیدن قورباغه سر شام خوشحال شد."),
+             "answer": False,
+             "why": L("She shut the door on him and did not like him at the table.",
+                      "در را به رویش بست و از بودنش سر سفره خوشش نیامد.")},
+            {"q": L("The frog turned out to be a prince.", "قورباغه در واقع شاهزاده بود."),
+             "answer": True,
+             "why": L("A witch had put a spell on him, and the kiss broke it.",
+                      "جادوگری او را طلسم کرده بود و بوسه طلسم را شکست.")},
+        ],
+        "blanks": [
+            {"sentence": "The ball fell into the deep ___.", "answer": "well",
+             "hint": L("The hole with water in it.", "چاله‌ای که آب دارد.")},
+            {"sentence": "A princess must keep her ___.", "answer": "promise",
+             "hint": L("What she gave the frog.", "چیزی که به قورباغه داد.")},
+            {"sentence": "A witch had put a ___ on the prince.", "answer": "spell",
+             "hint": L("Magic words that change a person.", "واژه‌های جادویی که آدم را دگرگون می‌کند.")},
+        ],
+        "open": [
+            {"q": L("Was the princess right to run away with the ball?",
+                    "آیا شاهزاده حق داشت با توپ فرار کند؟"),
+             "model": L("She had a promise, so running away was wrong, even though "
+                        "the frog was strange to her. But she was frightened and "
+                        "in a hurry, and the story does not punish her; it makes "
+                        "her keep the promise later, which is the point of the tale.",
+                        "او قول داده بود، پس فرار کردن درست نبود، هرچند قورباغه "
+                        "برای او عجیب بود. اما ترسیده و شتاب‌زده بود و داستان "
+                        "تنبیهش نمی‌کند؛ بعداً مجبور می‌شود به قولش وفا کند و "
+                        "پیام داستان همین است."),
+             "tip": L("Give one reason for each side, then say what the story decides.",
+                      "برای هر طرف یک دلیل بیاور، بعد بگو داستان چه تصمیمی می‌گیرد.")},
+            {"q": L("Why does the king matter more than the frog here?",
+                    "چرا در این داستان پادشاه از قورباغه مهم‌تر است؟"),
+             "model": L("Because the promise is tested at his table. The frog can "
+                        "only ask; the king is the one who turns a word given by a "
+                        "well into a rule for the house, and the princess obeys "
+                        "him, not the frog.",
+                        "چون قول سر سفرهٔ او آزموده می‌شود. قورباغه فقط می‌تواند "
+                        "درخواست کند؛ پادشاه است که قولی را که کنار چاه داده شده "
+                        "به قانون خانه تبدیل می‌کند و شاهزاده از او اطاعت می‌کند، "
+                        "نه از قورباغه."),
+             "tip": L("Say who has the power to enforce the promise.",
+                      "بگو چه کسی قدرت اجرای قول را دارد.")},
+        ],
+    },
+}
+
+HENNY = {
+    "id": "henny_penny",
+    "level": "VE",
+    "title": L("Henny Penny", "هنی پنی"),
+    "blurb": L("An acorn hits a hen on the head, and a rumour walks five birds "
+               "into a fox's den.",
+               "بلوطی به سر مرغی می‌خورد و شایعه‌ای پنج پرنده را به لانهٔ روباهی "
+               "می‌برد."),
+    "chapters": [
+        {"title": L("The sky is falling", "آسمان دارد می‌افتد"),
+         "pairs": [
+             P("Henny Penny lived on a farm and often stood under a big tree.",
+               "هنی پنی در مزرعه‌ای زندگی می‌کرد و اغلب زیر درخت بزرگی می‌ایستاد."),
+             P("One day an acorn fell from the tree and hit her on the head.",
+               "روزی بلوطی از درخت افتاد و به سرش خورد."),
+             P("She did not see it fall, so she was sure something terrible had happened.",
+               "ندید که افتاد، پس مطمئن بود اتفاقی هولناک افتاده است."),
+             P("\"The sky is falling!\" she cried. \"I must tell the king!\"",
+               "فریاد زد: «آسمان دارد می‌افتد! باید به پادشاه بگویم!»"),
+             P("She ran off the farm and down a road, and soon she met a rooster.",
+               "از مزرعه بیرون دوید و از جاده گذشت و به‌زودی خروسی دید."),
+             P("His name was Cocky Locky, and he asked her where she was going.",
+               "نامش کاکی لاکی بود و پرسید کجا می‌رود."),
+             P("\"The sky is falling,\" she said. \"I will come with you,\" he answered.",
+               "گفت: «آسمان دارد می‌افتد.» او پاسخ داد: «من هم با تو می‌آیم.»"),
+         ]},
+        {"title": L("Five birds and a fox", "پنج پرنده و یک روباه"),
+         "pairs": [
+             P("By a pond they met Ducky Lucky, and by a field they met Goosey Loosey.",
+               "کنار برکه‌ای به داکی لاکی رسیدند و کنار کشتزاری به گوسی لوسی."),
+             P("At a barn Turkey Lurkey joined them, so five birds walked on together.",
+               "نزدیک انبار ترکی لورکی هم به آن‌ها پیوست، پس پنج پرنده با هم راه افتادند."),
+             P("The road led into the woods, where Foxy Loxy came out to meet them.",
+               "جاده به جنگل می‌رفت و آنجا فوکسی لوکسی به دیدارشان آمد."),
+             P("\"I know a short way to the king,\" said the fox. \"Follow me.\"",
+               "روباه گفت: «راه کوتاهی به پادشاه می‌شناسم. دنبالم بیایید.»"),
+             P("The short way led to his den, but the birds did not know that.",
+               "راه کوتاه به لانهٔ او می‌رسید، اما پرنده‌ها نمی‌دانستند."),
+             P("\"Only one bird can go in at a time,\" said the fox at the den.",
+               "روباه کنار لانه گفت: «هر بار فقط یک پرنده می‌تواند داخل برود.»"),
+             P("Cocky Locky went in and did not come out; Ducky Lucky went in and did not come out.",
+               "کاکی لاکی داخل رفت و بیرون نیامد؛ داکی لاکی داخل رفت و بیرون نیامد."),
+             P("Goosey Loosey and Turkey Lurkey went in too, and neither came out.",
+               "گوسی لوسی و ترکی لورکی هم داخل رفتند و هیچ‌کدام بیرون نیامدند."),
+             P("Henny Penny heard a noise inside, and it scared her, so she did not go in.",
+               "هنی پنی صدایی از داخل شنید و ترسید، پس داخل نرفت."),
+             P("She ran all the way home, and she never told the king about the sky.",
+               "تا خانه دوید و هرگز دربارهٔ آسمان به پادشاه چیزی نگفت."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "acorn", "pos": "n.", "meaning": L("the small nut of an oak tree", "بلوط"),
+         "example": "An acorn fell from the tree and hit her head.",
+         "exampleFa": "بلوطی از درخت افتاد و به سرش خورد."},
+        {"word": "farm", "pos": "n.", "meaning": L("land where people grow food or keep animals", "مزرعه"),
+         "example": "Henny Penny lived on a farm.", "exampleFa": "هنی پنی در مزرعه زندگی می‌کرد."},
+        {"word": "rooster", "pos": "n.", "meaning": L("a male chicken", "خروس"),
+         "example": "A rooster named Cocky Locky walked with her.",
+         "exampleFa": "خروسی به نام کاکی لاکی با او راه افتاد."},
+        {"word": "pond", "pos": "n.", "meaning": L("a small area of still water", "برکه"),
+         "example": "Ducky Lucky stood by the pond.", "exampleFa": "داکی لاکی کنار برکه ایستاده بود."},
+        {"word": "den", "pos": "n.", "meaning": L("the home of a wild animal", "لانه"),
+         "example": "The short way led to the fox's den.",
+         "exampleFa": "راه کوتاه به لانهٔ روباه می‌رسید."},
+        {"word": "scared", "pos": "adj.", "meaning": L("frightened", "ترسیده"),
+         "example": "The noise scared Henny Penny.",
+         "exampleFa": "صدا هنی پنی را ترساند."},
+    ],
+    "expressions": [
+        {"phrase": "the sky is falling",
+         "meaning": L("a warning that something huge is going wrong (here, a rumour)",
+                      "آسمان دارد می‌افتد (هشدار بزرگ و بی‌پایه)"),
+         "example": "\"The sky is falling!\" she cried.",
+         "exampleFa": "فریاد زد: «آسمان دارد می‌افتد!»"},
+        {"phrase": "run off",
+         "meaning": L("leave quickly", "فرار کردن، دویدن"),
+         "example": "She ran off the farm without looking back.",
+         "exampleFa": "بی‌آنکه برگردد از مزرعه فرار کرد."},
+        {"phrase": "come with",
+         "meaning": L("go together with somebody", "همراه شدن"),
+         "example": "\"I will come with you,\" said the rooster.",
+         "exampleFa": "خروس گفت: «من هم با تو می‌آیم.»"},
+        {"phrase": "one at a time",
+         "meaning": L("one person or thing, then the next", "یکی‌یکی"),
+         "example": "The fox said only one bird could go in at a time.",
+         "exampleFa": "روباه گفت هر بار فقط یک پرنده می‌تواند داخل برود."},
+    ],
+    "grammar": [
+        {"name": L("Past simple with irregular verbs", "گذشتهٔ ساده با فعل‌های بی‌قاعده"),
+         "example": "An acorn fell and hit her on the head.",
+         "note": L("'Fall' becomes 'fell' and 'hit' does not change; these forms "
+                   "have to be learned as they are.",
+                   "«fall» به «fell» تبدیل می‌شود و «hit» تغییر نمی‌کند؛ این شکل‌ها "
+                   "را باید همان‌گونه یاد گرفت.")},
+        {"name": L("so for result", "so برای نتیجه"),
+         "example": "She did not see it fall, so she was sure something had happened.",
+         "note": L("'So' joins a cause to its result: the second half happens "
+                   "because of the first.",
+                   "«so» علت را به نتیجه وصل می‌کند: نیمهٔ دوم به‌خاطر نیمهٔ اول "
+                   "اتفاق می‌افتد.")},
+        {"name": L("neither ... nor", "نه این و نه آن"),
+         "example": "Neither bird came out of the den.",
+         "note": L("'Neither ... nor' says the same negative thing about two "
+                   "people or things.",
+                   "«neither ... nor» همان چیز منفی را دربارهٔ دو چیز یا دو نفر "
+                   "می‌گوید.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("What hit Henny Penny on the head?", "چه چیزی به سر هنی پنی خورد؟"),
+             "options": ["A stone", "An acorn", "A stick", "A bucket"],
+             "answer": 1,
+             "why": L("An acorn fell from the tree above her.",
+                      "بلوطی از درخت بالای سرش افتاد.")},
+            {"q": L("Why did she think the sky was falling?",
+                    "چرا فکر کرد آسمان دارد می‌افتد؟"),
+             "options": ["She saw the sky move", "The king told her",
+                         "She did not see what hit her", "A fox said so"],
+             "answer": 2,
+             "why": L("She did not see it fall, so she guessed the worst.",
+                      "ندید چه افتاد، پس بدترین حدس را زد.")},
+            {"q": L("What did she want to do?", "او می‌خواست چه کند؟"),
+             "options": ["Tell the king", "Find the acorn", "Go back to sleep",
+                         "Ask the fox for help"],
+             "answer": 0,
+             "why": L("She said she must tell the king.", "گفت باید به پادشاه بگوید.")},
+            {"q": L("Where did Foxy Loxy lead the birds?", "فوکسی لوکسی پرنده‌ها را کجا برد؟"),
+             "options": ["To the king's home", "To the farm", "Into his den",
+                         "To the pond"],
+             "answer": 2,
+             "why": L("The short way was his den, and the birds did not know.",
+                      "راه کوتاه همان لانهٔ او بود و پرنده‌ها نمی‌دانستند.")},
+            {"q": L("Why is Henny Penny still alive at the end?",
+                    "چرا هنی پنی در پایان زنده است؟"),
+             "options": ["The fox liked her", "The king saved her",
+                         "She heard a noise and stayed outside", "She flew away"],
+             "answer": 2,
+             "why": L("The noise scared her, so she did not go into the den.",
+                      "صدا ترساندش، پس داخل لانه نرفت.")},
+        ],
+        "truefalse": [
+            {"q": L("Four birds walked into the woods together.",
+                    "چهار پرنده با هم به جنگل رفتند."),
+             "answer": False,
+             "why": L("Five birds were walking by then: Henny, Cocky, Ducky, Goosey "
+                      "and Turkey.",
+                      "آن موقع پنج پرنده بودند: هنی، کاکی، داکی، گوسی و ترکی.")},
+            {"q": L("The fox told the truth about the short way.",
+                    "روباه دربارهٔ راه کوتاه راست گفت."),
+             "answer": False,
+             "why": L("The short way led to his den, where the birds disappeared.",
+                      "راه کوتاه به لانهٔ او می‌رسید و پرنده‌ها همان‌جا ناپدید شدند.")},
+            {"q": L("Henny Penny never told the king.", "هنی پنی هرگز به پادشاه نگفت."),
+             "answer": True,
+             "why": L("She ran home instead and never gave the message.",
+                      "به‌جایش به خانه دوید و پیام را نرساند.")},
+        ],
+        "blanks": [
+            {"sentence": "An ___ fell from the tree.", "answer": "acorn",
+             "hint": L("The nut of an oak tree.", "میوهٔ درخت بلوط.")},
+            {"sentence": "The short way led to the fox's ___.", "answer": "den",
+             "hint": L("A wild animal's home.", "خانهٔ جانور وحشی.")},
+            {"sentence": "The noise ___ Henny Penny, so she stayed outside.",
+             "answer": "scared",
+             "hint": L("Made her afraid.", "او را ترساند.")},
+        ],
+        "open": [
+            {"q": L("Who is to blame for what happens to the birds?",
+                    "تقصیر اتفاقی که برای پرنده‌ها می‌افتد گردن کیست؟"),
+             "model": L("Foxy Loxy does the harm, but the rumour starts it. Henny "
+                        "Penny never checks what hit her, and each bird repeats "
+                        "her words without asking a question, so five birds "
+                        "follow a stranger into a den. The fox only has to offer "
+                        "a short way.",
+                        "آسیب را فوکسی لوکسی می‌زند، اما شایعه کار را شروع می‌کند. "
+                        "هنی پنی هرگز بررسی نمی‌کند چه به او خورده و هر پرنده "
+                        "حرف او را بی‌پرسش تکرار می‌کند، پس پنج پرنده دنبال یک "
+                        "غریبه به لانه می‌روند. روباه فقط باید راه کوتاه پیشنهاد "
+                        "دهد."),
+             "tip": L("Separate who does the harm from who makes it possible.",
+                      "کسی که آسیب می‌زند را از کسی که زمینه را می‌سازد جدا کن.")},
+            {"q": L("What should Henny Penny have done differently?",
+                    "هنی پنی باید چه کار دیگری می‌کرد؟"),
+             "model": L("She should have looked up. One second of looking would "
+                        "have shown her the tree and the acorn, and there would "
+                        "have been no message, no march and no den. The story is "
+                        "about checking before you frighten other people.",
+                        "باید سرش را بالا می‌گرفت. یک لحظه نگاه کردن درخت و بلوط را "
+                        "نشانش می‌داد و نه پیامی بود، نه راهپیمایی‌ای و نه "
+                        "لانه‌ای. داستان دربارهٔ بررسی کردن پیش از ترساندن "
+                        "دیگران است."),
+             "tip": L("Name the smallest action that would change everything.",
+                      "کوچک‌ترین کاری را نام ببر که همه‌چیز را عوض می‌کرد.")},
+        ],
+    },
+}
+
+
+def _flat(story):
+    """One sentence pair per entry, whether they were written one by one or
+    collected into P() groups."""
+    for ch in story.get("chapters", []):
+        if "pairs" in ch:
+            ch["pairs"] = [p for item in ch["pairs"]
+                           for p in (item if isinstance(item, list) else [item])]
+    return story
+
+
+
+GINGER = {
+    "id": "gingerbread_man",
+    "level": "VE",
+    "title": L("The Gingerbread Man", "مرد زنجفیلی"),
+    "blurb": L("A biscuit runs out of an oven and outruns everyone, until a "
+               "river and a helpful fox.",
+               "شیرینی‌ای از فر بیرون می‌دود و از همه جلو می‌زند، تا به رودخانه و "
+               "روباهی مهربان می‌رسد."),
+    "chapters": [
+        {"title": L("Out of the oven", "از فر بیرون"),
+         "pairs": [
+             P("An old woman baked a gingerbread man in her small kitchen.",
+               "پیرزنی در آشپزخانهٔ کوچکش مرد زنجفیلی پخت."),
+             P("She shaped the dough into a little man, gave him eyes and a smile, and put him in the oven.",
+               "خمیر را به شکل مرد کوچکی درآورد، چشم و لبخند به او داد و در فر گذاشت."),
+             P("When she opened the oven door, he jumped out and ran out of the house.",
+               "وقتی در فر را باز کرد، او بیرون پرید و از خانه دوید."),
+             P("\"Run, run, as fast as you can! You can't catch me, I'm the Gingerbread Man!\"",
+               "«بدو، بدو، هرچه می‌توانی! نمی‌توانی مرا بگیری، من مرد زنجفیلی‌ام!»"),
+             P("The old woman and the old man chased him, but they were slow and soon out of breath.",
+               "پیرزن و پیرمرد دنبالش دویدند، اما کند بودند و به‌زودی نفسشان بند آمد."),
+             P("A cow in a field called, \"Stop! I want to eat you!\"",
+               "گاوی در کشتزار صدا زد: «بایست! می‌خواهم تو را بخورم!»"),
+             P("He did not stop; he called back that he had already run from two people.",
+               "او نایستاد؛ جواب داد که از دست دو نفر هم فرار کرده است."),
+         ]},
+        {"title": L("The river and the fox", "رودخانه و روباه"),
+         "pairs": [
+             P("A horse by a barn could not catch him either, so he ran on alone.",
+               "اسب کنار انبار هم نتوانست بگیردش، پس تنها دوید."),
+             P("Then he came to a wide river that was too deep to cross.",
+               "بعد به رودخانهٔ پهنی رسید که عبور از آن خیلی عمیق بود."),
+             P("He could not swim, and water would make him soft and ruin him.",
+               "شنا نمی‌دانست و آب نرم و تباهش می‌کرد."),
+             P("A fox came out of the woods and asked why he was standing there.",
+               "روباهی از جنگل بیرون آمد و پرسید چرا آنجا ایستاده است."),
+             P("\"I can carry you across,\" said the fox. \"I only want to help.\"",
+               "روباه گفت: «می‌توانم تو را رد کنم. فقط می‌خواهم کمک کنم.»"),
+             P("\"You will not eat me?\" asked the Gingerbread Man.",
+               "مرد زنجفیلی پرسید: «مرا نمی‌خوری؟»"),
+             P("He climbed onto the fox's back, then onto his head, then onto his nose as the water rose.",
+               "روی پشت روباه نشست، بعد روی سرش و بعد روی بینی‌اش، هرچه آب بالا آمد."),
+             P("The fox opened his mouth wide and ate him in one bite.",
+               "روباه دهانش را باز کرد و او را با یک لقمه خورد."),
+             P("The chase was over, and the fox was not hungry any more.",
+               "تعقیب تمام شد و روباه دیگر گرسنه نبود."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "dough", "pos": "n.", "meaning": L("the soft mixture before baking", "خمیر"),
+         "example": "She shaped the dough into a little man.",
+         "exampleFa": "خمیر را به شکل مرد کوچکی درآورد."},
+        {"word": "oven", "pos": "n.", "meaning": L("the hot box you bake in", "فر"),
+         "example": "She put the gingerbread man into the oven.",
+         "exampleFa": "مرد زنجفیلی را در فر گذاشت."},
+        {"word": "chase", "pos": "v.", "meaning": L("run after somebody to catch them", "دنبال کسی دویدن"),
+         "example": "The old man chased him out of the house.",
+         "exampleFa": "پیرمرد او را از خانه بیرون دنبال کرد."},
+        {"word": "river", "pos": "n.", "meaning": L("a long line of water moving to the sea", "رودخانه"),
+         "example": "He came to a wide river.", "exampleFa": "به رودخانهٔ پهنی رسید."},
+        {"word": "fox", "pos": "n.", "meaning": L("a wild animal with a long tail, known for being clever", "روباه"),
+         "example": "A fox came out of the woods.", "exampleFa": "روباهی از جنگل بیرون آمد."},
+        {"word": "bite", "pos": "n.", "meaning": L("the act of cutting food with your teeth", "لقمه"),
+         "example": "He ate the gingerbread man in one bite.",
+         "exampleFa": "مرد زنجفیلی را با یک لقمه خورد."},
+    ],
+    "expressions": [
+        {"phrase": "as fast as you can",
+         "meaning": L("at your greatest speed", "هرچه سریع‌تر"),
+         "example": "Run, run, as fast as you can!",
+         "exampleFa": "بدو، بدو، هرچه می‌توانی!"},
+        {"phrase": "out of breath",
+         "meaning": L("breathing hard because you ran", "نفس‌بریده"),
+         "example": "The old man was soon out of breath.",
+         "exampleFa": "پیرمرد به‌زودی نفس‌بریده شد."},
+        {"phrase": "run on",
+         "meaning": L("keep running without stopping", "به دویدن ادامه دادن"),
+         "example": "He ran on alone down the road.",
+         "exampleFa": "تنها به دویدن در جاده ادامه داد."},
+        {"phrase": "in one bite",
+         "meaning": L("with a single mouthful", "با یک لقمه"),
+         "example": "The fox ate him in one bite.",
+         "exampleFa": "روباه او را با یک لقمه خورد."},
+    ],
+    "grammar": [
+        {"name": L("Imperatives", "فعل امری"),
+         "example": "Run! Stop! Come here!",
+         "note": L("The bare verb gives an order; the story uses it to make the "
+                   "chase feel fast.",
+                   "فعل بدون to دستور می‌دهد؛ داستان از آن استفاده می‌کند تا تعقیب "
+                   "تند به نظر برسد.")},
+        {"name": L("could not + verb", "ناتوانی در گذشته با could not"),
+         "example": "A horse could not catch him.",
+         "note": L("'Could not' is the past of 'cannot': the ability was not there.",
+                   "«could not» گذشتهٔ «cannot» است: توانایی وجود نداشت.")},
+        {"name": L("too ... to", "ساختار too ... to"),
+         "example": "The river was too deep to cross.",
+         "note": L("'Too + adjective + to + verb' says the action is impossible.",
+                   "«too + صفت + to + فعل» می‌گوید آن کار ناممکن است.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("Who baked the gingerbread man?", "چه کسی مرد زنجفیلی را پخت؟"),
+             "options": ["An old man", "An old woman", "A baker in a shop", "A farmer"],
+             "answer": 1,
+             "why": L("The old woman mixed the dough and put him in the oven.",
+                      "پیرزن خمیر را آماده کرد و او را در فر گذاشت.")},
+            {"q": L("What happened as soon as the oven door opened?",
+                    "به‌محض باز شدن در فر چه شد؟"),
+             "options": ["He jumped out and ran", "He fell over", "He began to sing",
+                         "He went back to sleep"],
+             "answer": 0,
+             "why": L("He jumped out of the oven and ran out of the house.",
+                      "از فر بیرون پرید و از خانه دوید.")},
+            {"q": L("Why could the gingerbread man not cross the river?",
+                    "چرا مرد زنجفیلی نتوانست از رودخانه بگذرد؟"),
+             "options": ["It was too wide to see", "He had no boat",
+                         "He could not swim and water would ruin him",
+                         "The bridge was closed"],
+             "answer": 2,
+             "why": L("Water makes him soft, and he cannot swim.",
+                      "آب نرمش می‌کند و او شنا نمی‌داند.")},
+            {"q": L("What did the fox say he wanted?", "روباه گفت چه می‌خواهد؟"),
+             "options": ["To eat him", "To help him cross", "To race him",
+                         "To take him home"],
+             "answer": 1,
+             "why": L("He promised to carry him across and asked for nothing.",
+                      "قول داد او را رد کند و چیزی نخواست.")},
+            {"q": L("How does the story end for the gingerbread man?",
+                    "داستان برای مرد زنجفیلی چگونه تمام می‌شود؟"),
+             "options": ["He escapes across the river", "He goes back to the oven",
+                         "The fox eats him", "The cow catches him"],
+             "answer": 2,
+             "why": L("The fox eats him in one bite at the end.",
+                      "روباه در پایان او را با یک لقمه می‌خورد.")},
+        ],
+        "truefalse": [
+            {"q": L("The cow and the horse both failed to catch him.",
+                    "گاو و اسب هر دو نتوانستند بگیرندش."),
+             "answer": True,
+             "why": L("He outran the cow and then the horse.",
+                      "از گاو و بعد از اسب جلو زد.")},
+            {"q": L("The old woman caught him at the door.",
+                    "پیرزن او را دم در گرفت."),
+             "answer": False,
+             "why": L("She chased him but was too slow.", "دنبالش دوید اما کند بود.")},
+            {"q": L("The fox was honest about wanting to help.",
+                    "روباه دربارهٔ کمک خواستن صادق بود."),
+             "answer": False,
+             "why": L("He carried him only to get him close enough to eat.",
+                      "او را برد تا به اندازهٔ کافی نزدیک شود و بخوردش.")},
+        ],
+        "blanks": [
+            {"sentence": "She put the gingerbread man into the ___.", "answer": "oven",
+             "hint": L("Where you bake.", "جایی که در آن می‌پزند.")},
+            {"sentence": "He came to a wide ___ that was too deep to cross.",
+             "answer": "river", "hint": L("Moving water, not a lake.",
+                                          "آب روان، نه دریاچه.")},
+            {"sentence": "The ___ ate him in one bite.", "answer": "fox",
+             "hint": L("The animal that offered to carry him.",
+                       "جانوری که پیشنهاد حملش را داد.")},
+        ],
+        "open": [
+            {"q": L("Why does the gingerbread man trust the fox?",
+                    "چرا مرد زنجفیلی به روباه اعتماد می‌کند؟"),
+             "model": L("Because he has no choice. The water will ruin him, the fox "
+                        "is the only one who offers a way across, and the fox says "
+                        "he only wants to help. He asks one question and accepts "
+                        "the answer, because he is tired of running and afraid of "
+                        "the river more than of the fox.",
+                        "چون چاره‌ای ندارد. آب تباهش می‌کند، روباه تنها کسی است که "
+                        "راه عبور پیشنهاد می‌دهد و می‌گوید فقط می‌خواهد کمک کند. "
+                        "یک سؤال می‌پرسد و جواب را می‌پذیرد، چون از دویدن خسته "
+                        "است و از رودخانه بیشتر از روباه می‌ترسد."),
+             "tip": L("Say what his choices were, then why he took this one.",
+                      "بگو چه انتخاب‌هایی داشت، بعد چرا این یکی را گرفت.")},
+            {"q": L("Is the gingerbread man brave or foolish?", "مرد زنجفیلی شجاع است یا نادان؟"),
+             "model": L("Both. Running from the oven is brave, and outrunning a cow "
+                        "and a horse is impressive. But he treats every warning as "
+                        "a game and boasts while he runs, and that boasting is what "
+                        "makes the ending funny rather than sad.",
+                        "هر دو. فرار از فر شجاعانه است و جلو زدن از گاو و اسب "
+                        "تحسین‌برانگیز. اما هر هشدار را بازی می‌گیرد و هنگام دویدن "
+                        "لاف می‌زند، و همین لاف است که پایان را خنده‌دار می‌کند، نه "
+                        "غمگین."),
+             "tip": L("Answer 'both', then give evidence for each word.",
+                      "بگو «هر دو»، بعد برای هر کلمه شاهد بیاور.")},
+        ],
+    },
+}
+
+RUMPEL = {
+    "id": "rumpelstiltskin",
+    "level": "VE",
+    "title": L("Rumpelstiltskin", "رومپل‌استیلتسکین"),
+    "blurb": L("A boast about spinning gold buys a girl a crown, and costs her a "
+               "promise she cannot keep.",
+               "لافی دربارهٔ ریسیدن طلا برای دختری تاج می‌خرد و برایش قولی می‌گذارد "
+               "که نمی‌تواند نگه دارد."),
+    "chapters": [
+        {"title": L("Straw into gold", "کاه به طلا"),
+         "pairs": [
+             P("A miller told the king that his daughter could spin straw into gold.",
+               "آسیابانی به پادشاه گفت دخترش می‌تواند کاه را به طلا بریسد."),
+             P("The king called the girl to the castle and locked her in a room full of straw.",
+               "پادشاه دختر را به قلعه خواست و در اتاقی پر از کاه حبس کرد."),
+             P("\"Spin this into gold by morning,\" he said, \"or you must die.\"",
+               "گفت: «تا صبح این را به طلا بریس، وگرنه باید بمیری.»"),
+             P("The girl did not know what to do, so she sat down and cried.",
+               "دختر نمی‌دانست چه کند، پس نشست و گریه کرد."),
+             P("A little man came in through the window and asked what she would give him.",
+               "مرد کوچکی از پنجره داخل آمد و پرسید چه چیزی به او می‌دهد."),
+             P("She gave him her necklace, and by morning all the straw was gold.",
+               "گردنبندش را به او داد و تا صبح همهٔ کاه طلا شد."),
+             P("The king wanted more, so he gave her a bigger room and the same promise.",
+               "پادشاه بیشتر خواست، پس اتاق بزرگ‌تری داد و همان شرط را گذاشت."),
+             P("She had nothing left, so she promised her first child, and the little man spun the straw.",
+               "چیزی برایش نمانده بود، پس اولین فرزندش را وعده داد و مرد کوچک کاه را ریسید."),
+         ]},
+        {"title": L("The name", "نام"),
+         "pairs": [
+             P("The king married her, and a year later she had a baby.",
+               "پادشاه با او ازدواج کرد و یک سال بعد بچه‌دار شد."),
+             P("The little man came for the child, and she begged him to leave it.",
+               "مرد کوچک برای بچه آمد و او التماس کرد بچه را بگذارد."),
+             P("He said she could keep it if she guessed his name in three days.",
+               "گفت اگر تا سه روز نامش را حدس بزند می‌تواند بچه را نگه دارد."),
+             P("She sent messengers all over the country to collect every name they heard.",
+               "پیک‌هایی به همهٔ کشور فرستاد تا هر نامی را که می‌شنوند جمع کنند."),
+             P("On the second night a messenger heard a little man singing by a fire.",
+               "شب دوم پیکی مرد کوچکی را دید که کنار آتشی آواز می‌خواند."),
+             P("\"Rumpelstiltskin is my name,\" the song said.",
+               "آواز می‌گفت: «رومپل‌استیلتسکین نام من است.»"),
+             P("The queen said the name, and the little man stamped his foot and tore himself in two.",
+               "ملکه نام را گفت و مرد کوچک پایش را کوبید و خودش را دو نیم کرد."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "miller", "pos": "n.", "meaning": L("a person who works in a mill grinding grain", "آسیابان"),
+         "example": "The miller was proud of his clever daughter.",
+         "exampleFa": "آسیابان به دختر باهوشش افتخار می‌کرد."},
+        {"word": "straw", "pos": "n.", "meaning": L("dried yellow stems of grain", "کاه"),
+         "example": "The room was full of straw.", "exampleFa": "اتاق پر از کاه بود."},
+        {"word": "spin", "pos": "v.", "meaning": L("twist fibres into thread; here, turn straw into gold", "ریسیدن"),
+         "example": "She could spin straw into gold.", "exampleFa": "می‌توانست کاه را به طلا بریسد."},
+        {"word": "necklace", "pos": "n.", "meaning": L("jewellery you wear around your neck", "گردنبند"),
+         "example": "She gave him her necklace.", "exampleFa": "گردنبندش را به او داد."},
+        {"word": "messenger", "pos": "n.", "meaning": L("a person who carries a message", "پیک"),
+         "example": "Messengers went all over the country.", "exampleFa": "پیک‌ها به همهٔ کشور رفتند."},
+        {"word": "guess", "pos": "v.", "meaning": L("say an answer without being sure", "حدس زدن"),
+         "example": "She had three days to guess his name.",
+         "exampleFa": "سه روز وقت داشت نامش را حدس بزند."},
+    ],
+    "expressions": [
+        {"phrase": "by morning",
+         "meaning": L("before the morning comes", "تا صبح"),
+         "example": "Spin this into gold by morning.",
+         "exampleFa": "این را تا صبح به طلا بریس."},
+        {"phrase": "have nothing left",
+         "meaning": L("nothing remains to give", "چیزی نماندن"),
+         "example": "She had nothing left to give him.",
+         "exampleFa": "چیزی برای دادن به او نمانده بود."},
+        {"phrase": "all over the country",
+         "meaning": L("everywhere in the country", "در سراسر کشور"),
+         "example": "She sent messengers all over the country.",
+         "exampleFa": "پیک‌هایی به سراسر کشور فرستاد."},
+        {"phrase": "tear in two",
+         "meaning": L("pull something apart into two pieces", "دو نیم کردن"),
+         "example": "He was so angry that he tore himself in two.",
+         "exampleFa": "آن‌قدر عصبانی بود که خودش را دو نیم کرد."},
+    ],
+    "grammar": [
+        {"name": L("or for a threat", "or برای تهدید"),
+         "example": "Spin this into gold, or you must die.",
+         "note": L("'Imperative + or + consequence' warns what happens if the "
+                   "order is not obeyed.",
+                   "«امر + or + نتیجه» هشدار می‌دهد اگر دستور اجرا نشود چه می‌شود.")},
+        {"name": L("if + present, can", "if + حال، can"),
+         "example": "You can keep the child if you guess my name.",
+         "note": L("The condition comes in the 'if' clause, and the result with "
+                   "'can' after it.",
+                   "شرط در جملهٔ if می‌آید و نتیجه با can بعد از آن.")},
+        {"name": L("so + result", "so + نتیجه"),
+         "example": "She had nothing left, so she promised her first child.",
+         "note": L("'So' introduces what happened because of the first clause.",
+                   "«so» چیزی را می‌آورد که به‌خاطر جملهٔ اول رخ داد.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("What did the miller say his daughter could do?",
+                    "آسیابان گفت دخترش چه کار می‌تواند بکند؟"),
+             "options": ["Sing beautifully", "Spin straw into gold",
+                         "Read the king's letters", "Make bread for the castle"],
+             "answer": 1,
+             "why": L("He boasted that she could spin straw into gold.",
+                      "لاف زد که می‌تواند کاه را به طلا بریسد.")},
+            {"q": L("What did she give the little man the first time?",
+                    "بار اول چه چیزی به مرد کوچک داد؟"),
+             "options": ["Her ring", "Her necklace", "Her shoes", "Her first child"],
+             "answer": 1,
+             "why": L("Her necklace was the first price.", "اولین بها گردنبندش بود.")},
+            {"q": L("Why did she promise her first child?",
+                    "چرا اولین فرزندش را وعده داد؟"),
+             "options": ["She had nothing else left", "The king told her to",
+                         "She wanted a baby", "The little man asked for gold"],
+             "answer": 0,
+             "why": L("She had already given her necklace and had nothing left.",
+                      "گردنبندش را داده بود و چیز دیگری نداشت.")},
+            {"q": L("How did she learn the name?", "چگونه نام را فهمید؟"),
+             "options": ["The king remembered it", "A messenger heard him singing",
+                         "The little man told her", "She read it in a book"],
+             "answer": 1,
+             "why": L("A messenger heard him singing by a fire on the second night.",
+                      "پیکی شب دوم او را دید که کنار آتش آواز می‌خواند.")},
+            {"q": L("What happened when she said the name?",
+                    "وقتی نام را گفت چه شد؟"),
+             "options": ["He laughed and left", "He gave her gold",
+                         "He stamped his foot and tore himself in two",
+                         "He took the baby"],
+             "answer": 2,
+             "why": L("He lost, and his anger destroyed him.",
+                      "باخت و خشمش نابودش کرد.")},
+        ],
+        "truefalse": [
+            {"q": L("The king asked for gold three times.", "پادشاه سه بار طلا خواست."),
+             "answer": True,
+             "why": L("First a room, then a bigger room, then the promise of a child.",
+                      "اول یک اتاق، بعد اتاقی بزرگ‌تر و بعد وعدهٔ فرزند.")},
+            {"q": L("The little man kept his side of the bargain.",
+                    "مرد کوچک به سهم خودش از معامله عمل کرد."),
+             "answer": True,
+             "why": L("Each time he spun the straw into gold as promised.",
+                      "هر بار کاه را همان‌طور که وعده داده بود به طلا ریسید.")},
+            {"q": L("She guessed the name on the first day.", "نام را روز اول حدس زد."),
+             "answer": False,
+             "why": L("The messenger heard it on the second night, and she had three days.",
+                      "پیک شب دوم شنید و او سه روز وقت داشت.")},
+        ],
+        "blanks": [
+            {"sentence": "The king locked her in a room full of ___.", "answer": "straw",
+             "hint": L("Dry yellow stems.", "ساقه‌های زرد و خشک.")},
+            {"sentence": "She gave the little man her ___.", "answer": "necklace",
+             "hint": L("Jewellery for the neck.", "زیوری برای گردن.")},
+            {"sentence": "She had three days to ___ his name.", "answer": "guess",
+             "hint": L("Say it without being sure.", "بی‌اطمینان گفتن.")},
+        ],
+        "open": [
+            {"q": L("Who is worse, the miller or the king?", "آسیابان بدتر است یا پادشاه؟"),
+             "model": L("The miller starts it with a lie, but he is only boasting. "
+                        "The king turns the lie into a threat of death, then into a "
+                        "trade for a child, and he never risks anything himself. "
+                        "The story blames the man with power, because he could have "
+                        "said no at any point.",
+                        "آسیابان با دروغ شروع می‌کند، اما فقط لاف می‌زند. پادشاه "
+                        "دروغ را به تهدید مرگ و بعد به معاملهٔ یک بچه تبدیل "
+                        "می‌کند و خودش هرگز چیزی را به خطر نمی‌اندازد. داستان "
+                        "مرد صاحب‌قدرت را سرزنش می‌کند، چون هر لحظه می‌توانست "
+                        "نه بگوید."),
+             "tip": L("Compare what each one risks losing.",
+                      "مقایسه کن هر کدام چه چیزی را ممکن است از دست بدهد.")},
+            {"q": L("Why must the little man's name be a secret?",
+                    "چرا نام مرد کوچک باید راز باشد؟"),
+             "model": L("Because his name is the only hold she has on him. He can "
+                        "spin gold and set any price, but a name lets another person "
+                        "call you, and calling him is how the queen wins. The story "
+                        "says that the one with no name has all the power, until "
+                        "somebody learns it.",
+                        "چون نامش تنها دستگیره‌ای است که او از مرد کوچک دارد. او "
+                        "می‌تواند طلا بریسد و هر بهایی بگذارد، اما نام اجازه می‌دهد "
+                        "کسی تو را صدا بزند و همین صدا زدن راه برد ملکه است. "
+                        "داستان می‌گوید کسی که نام ندارد همهٔ قدرت را دارد، تا "
+                        "وقتی کسی نامش را بفهمد."),
+             "tip": L("Say what a name lets one person do to another.",
+                      "بگو نام چه کاری را برای یک نفر نسبت به دیگری ممکن می‌کند.")},
+        ],
+    },
+}
+
+
+
+EMPEROR = {
+    "id": "emperors_new_clothes",
+    "level": "VE",
+    "title": L("The Emperor's New Clothes", "لباس‌های تازهٔ امپراتور"),
+    "blurb": L("Two strangers sell an emperor a cloth that only clever people can "
+               "see, and a child says what everyone is thinking.",
+               "دو غریبه به امپراتور پارچه‌ای می‌فروشند که فقط باهوش‌ها می‌بینند و "
+               "کودکی می‌گوید همه چه فکری می‌کنند."),
+    "chapters": [
+        {"title": L("The wonderful cloth", "پارچهٔ شگفت‌انگیز"),
+         "pairs": [
+             P("An emperor loved new clothes more than anything else in the world.",
+               "امپراتوری لباس تازه را بیشتر از هر چیز دیگری در دنیا دوست داشت."),
+             P("Two strangers came to the city and said they could weave a wonderful cloth.",
+               "دو غریبه به شهر آمدند و گفتند می‌توانند پارچهٔ شگفت‌انگیزی ببافند."),
+             P("The cloth, they said, was invisible to anyone stupid or bad at their job.",
+               "به گفتهٔ آن‌ها پارچه برای هر احمق یا هر کس که کارش را بد انجام دهد نامرئی بود."),
+             P("The emperor paid them a lot of gold and told them to begin at once.",
+               "امپراتور پول زیادی به آن‌ها داد و گفت بی‌درنگ شروع کنند."),
+             P("They put up an empty loom and worked all day, moving their hands over nothing.",
+               "دستگاهی خالی برپا کردند و تمام روز کار کردند و دست‌هایشان را روی هیچ حرکت می‌دادند."),
+         ]},
+        {"title": L("Nothing on", "هیچ چیز تنش نیست"),
+         "pairs": [
+             P("The emperor sent an old minister to look at the cloth first.",
+               "امپراتور اول وزیر سالخورده‌ای را فرستاد پارچه را ببیند."),
+             P("The minister saw nothing, but he did not want to look stupid, so he said it was beautiful.",
+               "وزیر هیچ ندید، اما نمی‌خواست احمق به نظر برسد، پس گفت زیباست."),
+             P("Another man was sent, and he told the same lie.",
+               "مرد دیگری فرستادند و او هم همان دروغ را گفت."),
+             P("At last the emperor went himself, and he saw nothing at all.",
+               "سرانجام خود امپراتور رفت و هیچ چیز ندید."),
+             P("\"How beautiful!\" he said, because he could not admit that he saw nothing.",
+               "گفت: «چه زیبا!» چون نمی‌توانست بپذیرد چیزی نمی‌بیند."),
+             P("The strangers helped him put on the new clothes, and he walked through the streets.",
+               "غریبه‌ها کمک کردند لباس تازه را بپوشد و او در خیابان‌ها راه افتاد."),
+             P("Everybody in the street shouted how beautiful the clothes were.",
+               "همه در خیابان فریاد می‌زدند که لباس‌ها چه زیبایند."),
+             P("Then a little child said, \"But he has nothing on!\"",
+               "آنگاه کودکی گفت: «اما هیچ چیز تنش نیست!»"),
+             P("People began to repeat it, and the emperor knew it was true, but he walked on.",
+               "مردم شروع کردند به تکرارش و امپراتور دانست راست است، اما به راه رفتن ادامه داد."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "emperor", "pos": "n.", "meaning": L("the ruler of an empire", "امپراتور"),
+         "example": "The emperor loved new clothes.", "exampleFa": "امپراتور لباس تازه را دوست داشت."},
+        {"word": "weave", "pos": "v.", "meaning": L("make cloth by crossing threads", "بافتن"),
+         "example": "They said they could weave a wonderful cloth.",
+         "exampleFa": "گفتند می‌توانند پارچهٔ شگفت‌انگیزی ببافند."},
+        {"word": "invisible", "pos": "adj.", "meaning": L("impossible to see", "نامرئی"),
+         "example": "The cloth was invisible to stupid people.",
+         "exampleFa": "پارچه برای آدم‌های احمق نامرئی بود."},
+        {"word": "loom", "pos": "n.", "meaning": L("a machine for weaving cloth", "دستگاه بافندگی"),
+         "example": "They put up an empty loom.", "exampleFa": "دستگاه بافندگی خالی برپا کردند."},
+        {"word": "minister", "pos": "n.", "meaning": L("a senior person in a government", "وزیر"),
+         "example": "The emperor sent an old minister.", "exampleFa": "امپراتور وزیر سالخورده‌ای فرستاد."},
+        {"word": "admit", "pos": "v.", "meaning": L("say that something is true, even if it is hard", "پذیرفتن"),
+         "example": "He could not admit that he saw nothing.",
+         "exampleFa": "نمی‌توانست بپذیرد چیزی نمی‌بیند."},
+    ],
+    "expressions": [
+        {"phrase": "more than anything else",
+         "meaning": L("above everything", "بیشتر از هر چیز دیگری"),
+         "example": "He loved new clothes more than anything else.",
+         "exampleFa": "لباس تازه را بیشتر از هر چیز دیگری دوست داشت."},
+        {"phrase": "put up",
+         "meaning": L("build or fix something in place", "برپا کردن"),
+         "example": "They put up a loom in the room.",
+         "exampleFa": "دستگاهی بافندگی در اتاق برپا کردند."},
+        {"phrase": "at last",
+         "meaning": L("finally, after a long time", "سرانجام"),
+         "example": "At last the emperor went to see the cloth.",
+         "exampleFa": "سرانجام امپراتور رفت پارچه را ببیند."},
+        {"phrase": "have nothing on",
+         "meaning": L("be wearing no clothes", "لباس تن نداشتن"),
+         "example": "The child said he had nothing on.",
+         "exampleFa": "کودک گفت او لباسی تنش نیست."},
+    ],
+    "grammar": [
+        {"name": L("said + that clause", "said + جملهٔ that"),
+         "example": "They said that the cloth was invisible.",
+         "note": L("In reported speech the verb moves back: 'is' becomes 'was'.",
+                   "در نقل قول غیرمستقیم فعل عقب می‌رود: is به was تبدیل می‌شود.")},
+        {"name": L("but for contrast", "but برای تضاد"),
+         "example": "He saw nothing, but he said it was beautiful.",
+         "note": L("'But' puts two opposite facts side by side; the story lives on "
+                   "that gap.",
+                   "«but» دو واقعیت متضاد را کنار هم می‌گذارد؛ داستان بر همین شکاف "
+                   "زنده است.")},
+        {"name": L("could not + verb", "could not + فعل"),
+         "example": "He could not admit that he saw nothing.",
+         "note": L("Here it is not about ability but about being unwilling.",
+                   "اینجا دربارهٔ توانایی نیست، بلکه دربارهٔ نخواستن است.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("What did the emperor love most?", "امپراتور بیشتر چه چیز را دوست داشت؟"),
+             "options": ["New clothes", "Gold", "His army", "Music"],
+             "answer": 0, "why": L("The first line says clothes came before everything else.",
+                                  "جملهٔ اول می‌گوید لباس از همه چیز مهم‌تر بود.")},
+            {"q": L("Who could see the cloth, according to the strangers?",
+                    "به گفتهٔ غریبه‌ها چه کسی می‌توانست پارچه را ببیند؟"),
+             "options": ["Only the emperor", "Only children", "Clever people good at their jobs",
+                         "Nobody at all"],
+             "answer": 2, "why": L("It was invisible to stupid people and bad workers.",
+                                  "برای احمق‌ها و کارگرهای بد نامرئی بود.")},
+            {"q": L("Why did the minister say the cloth was beautiful?",
+                    "چرا وزیر گفت پارچه زیباست؟"),
+             "options": ["He saw it clearly", "He did not want to look stupid",
+                         "The emperor ordered him to", "He was paid"],
+             "answer": 1, "why": L("He saw nothing but was afraid of looking foolish.",
+                                  "هیچ ندید اما می‌ترسید احمق به نظر برسد.")},
+            {"q": L("What did the child say?", "کودک چه گفت؟"),
+             "options": ["The cloth is gold", "The emperor is kind",
+                         "The clothes are ugly", "He has nothing on"],
+             "answer": 3, "why": L("The child said the emperor had no clothes on.",
+                                  "کودک گفت امپراتور لباسی تنش نیست.")},
+            {"q": L("How does the emperor react to the child?",
+                    "امپراتور به حرف کودک چه واکنشی نشان می‌دهد؟"),
+             "options": ["He laughs", "He goes home", "He knows it is true but walks on",
+                         "He punishes the child"],
+             "answer": 2, "why": L("He realises the truth and keeps walking anyway.",
+                                  "حقیقت را می‌فهمد و با این حال به راه رفتن ادامه می‌دهد.")},
+        ],
+        "truefalse": [
+            {"q": L("The strangers really wove a cloth.", "غریبه‌ها واقعاً پارچه بافتند."),
+             "answer": False,
+             "why": L("The loom was empty; they moved their hands over nothing.",
+                      "دستگاه خالی بود؛ دست‌هایشان را روی هیچ حرکت می‌دادند.")},
+            {"q": L("The emperor saw the cloth himself.", "امپراتور خودش پارچه را دید."),
+             "answer": False,
+             "why": L("He saw nothing at all.", "هیچ چیز ندید.")},
+            {"q": L("The crowd repeated the child's words.", "مردم حرف کودک را تکرار کردند."),
+             "answer": True,
+             "why": L("People began to repeat it in the street.",
+                      "مردم در خیابان شروع کردند به تکرارش.")},
+        ],
+        "blanks": [
+            {"sentence": "The cloth was ___ to stupid people.", "answer": "invisible",
+             "hint": L("You cannot see it.", "نمی‌توانی ببینیش.")},
+            {"sentence": "The emperor sent an old ___.", "answer": "minister",
+             "hint": L("A senior man in the government.", "مردی ارشد در دولت.")},
+            {"sentence": "He could not ___ that he saw nothing.", "answer": "admit",
+             "hint": L("Say that it is true.", "بگویی که راست است.")},
+        ],
+        "open": [
+            {"q": L("Why does nobody tell the emperor the truth?",
+                    "چرا هیچ‌کس حقیقت را به امپراتور نمی‌گوید؟"),
+             "model": L("Because the cloth is a test with only one safe answer. To "
+                        "say 'I see nothing' is to call yourself stupid, so each "
+                        "man repeats what the last one said. The child is free "
+                        "because nobody expects a child to protect his reputation.",
+                        "چون پارچه آزمونی است که فقط یک جواب بی‌خطر دارد. گفتن «هیچ "
+                        "نمی‌بینم» یعنی خودت را احمق خواندن، پس هر کس حرف نفر قبل "
+                        "را تکرار می‌کند. کودک آزاد است چون کسی از کودک انتظار "
+                        "حفظ آبرو ندارد."),
+             "tip": L("Say what each person is afraid of losing.",
+                      "بگو هر کس از دست دادن چه چیزی می‌ترسد.")},
+            {"q": L("What does the story say about pride?", "داستان دربارهٔ غرور چه می‌گوید؟"),
+             "model": L("That it can be more expensive than any cloth. The emperor "
+                        "would rather walk outside with nothing on than say three "
+                        "words that might make him look foolish, and his pride is "
+                        "the only thing keeping the trick alive.",
+                        "اینکه می‌تواند از هر پارچه‌ای گران‌تر باشد. امپراتور ترجیح "
+                        "می‌دهد برهنه بیرون برود تا سه کلمه بگوید که ممکن است "
+                        "احمقش نشان دهد، و غرور او تنها چیزی است که نیرنگ را "
+                        "زنده نگه می‌دارد."),
+             "tip": L("Name the cost of his pride in one concrete detail.",
+                      "هزینهٔ غرور او را با یک جزئیات روشن بگو.")},
+        ],
+    },
+}
+
+FISHER = {
+    "id": "fisherman_and_his_wife",
+    "level": "VE",
+    "title": L("The Fisherman and His Wife", "ماهیگیر و زنش"),
+    "blurb": L("A magic fish grants wish after wish, and the sea gets darker with "
+               "each one.",
+               "ماهی جادویی آرزو پس از آرزو را برمی‌آورد و دریا با هر آرزو تیره‌تر "
+               "می‌شود."),
+    "chapters": [
+        {"title": L("The golden fish", "ماهی طلایی"),
+         "pairs": [
+             P("A fisherman lived in a small hut by the sea with his wife.",
+               "ماهیگیری با زنش در کلبه‌ای کوچک کنار دریا زندگی می‌کرد."),
+             P("One day he caught a golden fish that asked to be set free.",
+               "روزی ماهی طلایی گرفت که خواست آزادش کند."),
+             P("\"Let me go, and I will grant you a wish,\" said the fish.",
+               "ماهی گفت: «رهایم کن، یک آرزو برایت برمی‌آورم.»"),
+             P("He let it go and went home with nothing at all.",
+               "او آزادش کرد و دست‌خالی به خانه رفت."),
+             P("His wife was angry and sent him back to ask for a cottage instead of the hut.",
+               "زنش عصبانی شد و او را برگرداند تا به‌جای کلبه خانهٔ کوچکی بخواهد."),
+             P("The fish granted it, and the wife was happy for a while.",
+               "ماهی آن را برآورد و زن مدتی خوشحال بود."),
+         ]},
+        {"title": L("Wish after wish", "آرزو پس از آرزو"),
+         "pairs": [
+             P("Soon she wanted a big house, then a castle, then to be king.",
+               "به‌زودی خانه‌ای بزرگ خواست، بعد قلعه، بعد پادشاه شدن."),
+             P("Each time the fisherman went back to the sea, and each time the fish granted the wish.",
+               "هر بار ماهیگیر به دریا برگشت و هر بار ماهی آرزو را برآورد."),
+             P("The sea grew darker and rougher with every wish.",
+               "دریا با هر آرزو تیره‌تر و مواج‌تر می‌شد."),
+             P("Then she wanted to be emperor, and after that pope.",
+               "بعد خواست امپراتور باشد و پس از آن پاپ."),
+             P("At last she wanted to be like God.",
+               "سرانجام خواست مثل خدا باشد."),
+             P("The fisherman went to the sea in a storm and told the fish.",
+               "ماهیگیر در طوفان به دریا رفت و به ماهی گفت."),
+             P("This time the fish said nothing and swam away.",
+               "این بار ماهی چیزی نگفت و شناکنان دور شد."),
+             P("When the fisherman came home, the castle was gone and they were back in the little hut.",
+               "وقتی ماهیگیر به خانه رسید، قلعه رفته بود و دوباره در همان کلبهٔ کوچک بودند."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "hut", "pos": "n.", "meaning": L("a small simple building", "کلبه"),
+         "example": "They lived in a small hut by the sea.",
+         "exampleFa": "در کلبه‌ای کوچک کنار دریا زندگی می‌کردند."},
+        {"word": "grant", "pos": "v.", "meaning": L("give what somebody asks for", "برآوردن"),
+         "example": "The fish granted every wish.", "exampleFa": "ماهی هر آرزویی را برآورد."},
+        {"word": "wish", "pos": "n.", "meaning": L("something you want very much", "آرزو"),
+         "example": "I will grant you a wish.", "exampleFa": "یک آرزو برایت برمی‌آورم."},
+        {"word": "castle", "pos": "n.", "meaning": L("a large strong building with thick walls", "قلعه"),
+         "example": "Soon she wanted a castle.", "exampleFa": "به‌زودی قلعه خواست."},
+        {"word": "storm", "pos": "n.", "meaning": L("very bad weather with strong wind", "طوفان"),
+         "example": "He went to the sea in a storm.", "exampleFa": "در طوفان به دریا رفت."},
+        {"word": "angry", "pos": "adj.", "meaning": L("feeling strongly that something is wrong", "عصبانی"),
+         "example": "His wife was angry with him.", "exampleFa": "زنش از او عصبانی بود."},
+    ],
+    "expressions": [
+        {"phrase": "set free",
+         "meaning": L("let somebody or something go", "آزاد کردن"),
+         "example": "The fish asked to be set free.",
+         "exampleFa": "ماهی خواست آزادش کنند."},
+        {"phrase": "wish after wish",
+         "meaning": L("one wish, then another, without end", "آرزو پس از آرزو"),
+         "example": "Wish after wish, the little hut became a castle.",
+         "exampleFa": "آرزو پس از آرزو، کلبهٔ کوچک قلعه شد."},
+        {"phrase": "at last",
+         "meaning": L("finally", "سرانجام"),
+         "example": "At last she wanted to be like God.",
+         "exampleFa": "سرانجام خواست مثل خدا باشد."},
+        {"phrase": "be back in",
+         "meaning": L("be in a place again", "دوباره در جایی بودن"),
+         "example": "They were back in the little hut.",
+         "exampleFa": "دوباره در همان کلبهٔ کوچک بودند."},
+    ],
+    "grammar": [
+        {"name": L("grew + comparative", "grew + صفت برتر"),
+         "example": "The sea grew darker and rougher.",
+         "note": L("'Grow' + comparative shows slow change over time.",
+                   "«grow» با صفت برتر تغییر تدریجی در طول زمان را نشان می‌دهد.")},
+        {"name": L("each time", "هر بار"),
+         "example": "Each time he went back, the fish granted the wish.",
+         "note": L("'Each time' repeats an event without naming how many times.",
+                   "«each time» رویدادی را بی‌آنکه تعدادش را بگوید تکرار می‌کند.")},
+        {"name": L("wanted to be", "خواستنِ چیزی بودن"),
+         "example": "She wanted to be king.",
+         "note": L("'Want to be + noun' says what role a person wants.",
+                   "«want to be + اسم» می‌گوید شخص چه نقشی می‌خواهد.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("What did the fisherman catch?", "ماهیگیر چه گرفت؟"),
+             "options": ["A golden fish", "An old boot", "A silver ring", "A small boat"],
+             "answer": 0, "why": L("The first catch of the story is a golden fish.",
+                                  "اولین صید داستان ماهی طلایی است.")},
+            {"q": L("What did his wife ask for first?", "زنش اول چه خواست؟"),
+             "options": ["A castle", "A cottage", "To be king", "Gold"],
+             "answer": 1, "why": L("She wanted a cottage instead of the hut.",
+                                  "به‌جای کلبه خانهٔ کوچکی خواست.")},
+            {"q": L("What happened to the sea as the wishes grew?",
+                    "با بزرگ‌تر شدن آرزوها دریا چه شد؟"),
+             "options": ["It became calm", "It dried up", "It grew darker and rougher",
+                         "It turned gold"],
+             "answer": 2, "why": L("The sea answered each wish with worse weather.",
+                                  "دریا به هر آرزو با هوای بدتری پاسخ می‌داد.")},
+            {"q": L("What was her last wish?", "آخرین آرزویش چه بود؟"),
+             "options": ["To be pope", "To be like God", "To be emperor", "To have a castle"],
+             "answer": 1, "why": L("She went one step too far and asked to be like God.",
+                                  "یک قدم زیاده رفت و خواست مثل خدا باشد.")},
+            {"q": L("How does the story end?", "داستان چگونه تمام می‌شود؟"),
+             "options": ["They keep the castle", "They move to a bigger hut",
+                         "They are back in the hut", "The fish lives with them"],
+             "answer": 2, "why": L("Everything is gone and they are in the little hut again.",
+                                  "همه چیز رفت و دوباره در همان کلبهٔ کوچک بودند.")},
+        ],
+        "truefalse": [
+            {"q": L("The fisherman asked for things himself.",
+                    "ماهیگیر خودش چیزی می‌خواست."),
+             "answer": False,
+             "why": L("He went back to the sea because his wife sent him.",
+                      "چون زنش فرستاد به دریا برمی‌گشت.")},
+            {"q": L("The fish refused the last wish.", "ماهی آخرین آرزو را نپذیرفت."),
+             "answer": True,
+             "why": L("It said nothing and swam away.", "چیزی نگفت و دور شد.")},
+            {"q": L("The wife was happy with the cottage.", "زن از خانهٔ کوچک راضی بود."),
+             "answer": False,
+             "why": L("Only for a while; then she wanted more.",
+                      "فقط مدتی؛ بعد بیشتر خواست.")},
+        ],
+        "blanks": [
+            {"sentence": "The fisherman lived in a small ___ by the sea.", "answer": "hut",
+             "hint": L("A very simple little house.", "خانهٔ کوچک و ساده.")},
+            {"sentence": "The fish could ___ a wish.", "answer": "grant",
+             "hint": L("Make it happen.", "آن را محقق کردن.")},
+            {"sentence": "He went to the sea in a ___.", "answer": "storm",
+             "hint": L("Very bad weather.", "هوای بسیار بد.")},
+        ],
+        "open": [
+            {"q": L("Is the wife greedy, or is she right to want more?",
+                    "زن حریص است یا حق دارد بیشتر بخواهد؟"),
+             "model": L("Wanting a better house is fair; a hut by the sea is a hard "
+                        "place to live. The problem is that no size ever satisfies "
+                        "her: cottage, house, castle, king, emperor, pope, and then "
+                        "God. She stops asking for comfort and starts asking for "
+                        "rank, and that is where the story turns.",
+                        "خواستن خانهٔ بهتر منصفانه است؛ کلبه‌ای کنار دریا جای سختی "
+                        "برای زندگی است. مشکل این است که هیچ اندازه‌ای راضی‌اش "
+                        "نمی‌کند: خانه، عمارت، قلعه، پادشاه، امپراتور، پاپ و بعد "
+                        "خدا. دیگر آسایش نمی‌خواهد و مقام می‌خواهد، و داستان همان‌جا "
+                        "می‌چرخد."),
+             "tip": L("Find the exact point where the wish stops being reasonable.",
+                      "دقیقاً همان جایی را پیدا کن که آرزو دیگر معقول نیست.")},
+            {"q": L("Why does the sea change through the story?",
+                    "چرا دریا در طول داستان تغییر می‌کند؟"),
+             "model": L("The sea is the one thing that cannot be granted. It starts "
+                        "calm and ends in a storm, so the reader can see the size of "
+                        "each wish without being told. The fish says nothing, but "
+                        "the water answers.",
+                        "دریا تنها چیزی است که نمی‌شود برآورد. آرام شروع می‌شود و "
+                        "به طوفان می‌رسد، تا خواننده بی‌آنکه به او گفته شود "
+                        "بزرگی هر آرزو را ببیند. ماهی چیزی نمی‌گوید، اما آب پاسخ "
+                        "می‌دهد."),
+             "tip": L("Pick one detail that carries the feeling, then explain it.",
+                      "یک جزئیات را که حس را حمل می‌کند انتخاب کن و توضیحش بده.")},
+        ],
+    },
+}
+
+PUSS = {
+    "id": "puss_in_boots",
+    "level": "E",
+    "title": L("Puss in Boots", "گربه چکمه‌پوش"),
+    "blurb": L("A cat asks for boots and turns a miller's youngest son into a "
+               "marquis, with presents, a river and one very small mouse.",
+               "گربه‌ای چکمه می‌خواهد و پسر کوچک آسیابان را با هدیه، رودخانه و "
+               "موشکی بسیار کوچک به یک مارکی تبدیل می‌کند."),
+    "chapters": [
+        {"title": L("A poor gift", "هدیهٔ بی‌ارزش"),
+         "pairs": [
+             P("A miller died and left his three sons his mill, his donkey, and his cat.",
+               "آسیابانی مرد و آسیاب، الاغ و گربه‌اش را برای سه پسرش گذاشت."),
+             P("The youngest son got the cat and thought it was a poor gift.",
+               "پسر کوچک گربه را گرفت و فکر کرد هدیهٔ بی‌ارزشی است."),
+             P("\"Give me a pair of boots,\" said the cat, \"and I will make you rich.\"",
+               "گربه گفت: «یک جفت چکمه به من بده و ثروتمندت می‌کنم.»"),
+             P("The cat put on the boots, filled a bag with carrots, and caught rabbits in a field.",
+               "گربه چکمه‌ها را پوشید، کیسه‌ای هویج پر کرد و در کشتزاری خرگوش گرفت."),
+             P("He took the rabbits to the king and said they were a present from the Marquis of Carabas.",
+               "خرگوش‌ها را نزد پادشاه برد و گفت هدیه‌ای از مارکی دو کاراباست."),
+             P("The king was pleased, and the presents kept coming.",
+               "پادشاه خشنود شد و هدیه‌ها ادامه یافت."),
+         ]},
+        {"title": L("The river and the ogre", "رودخانه و غول"),
+         "pairs": [
+             P("One day the cat told his master to swim in the river when the king's coach passed.",
+               "روزی گربه به اربابش گفت وقتی کالسکهٔ پادشاه می‌گذرد در رودخانه شنا کند."),
+             P("The cat shouted that the Marquis was drowning and that thieves had taken his clothes.",
+               "گربه فریاد زد مارکی دارد غرق می‌شود و دزدها لباس‌هایش را برده‌اند."),
+             P("The king gave him fine clothes, and the princess fell in love with him.",
+               "پادشاه لباس‌های فاخر داد و شاهزاده عاشقش شد."),
+             P("The cat ran ahead and told the farmers to say the fields belonged to the Marquis.",
+               "گربه جلوتر دوید و به کشاورزان گفت بگویند زمین‌ها مال مارکی است."),
+             P("When the king asked, they all said yes, so the Marquis seemed very rich.",
+               "وقتی پادشاه پرسید همه بله گفتند، پس مارکی بسیار ثروتمند به نظر می‌رسید."),
+             P("The cat came to a castle owned by an ogre who could change into any animal.",
+               "گربه به قلعه‌ای رسید که مال غولی بود که می‌توانست به هر جانوری تبدیل شود."),
+             P("\"Can you become a lion?\" asked the cat, and the ogre became a lion.",
+               "گربه پرسید: «می‌توانی شیر شوی؟» و غول شیر شد."),
+             P("\"Can you become something very small, like a mouse?\"",
+               "«می‌توانی چیزی بسیار کوچک شوی، مثل موش؟»"),
+             P("The ogre became a mouse, and the cat ate him in one bite.",
+               "غول موش شد و گربه او را با یک لقمه خورد."),
+             P("The Marquis married the princess, and the cat became a great lord.",
+               "مارکی با شاهزاده ازدواج کرد و گربه اربابی بزرگ شد."),
+         ]},
+    ],
+    "vocab": [
+        {"word": "miller", "pos": "n.", "meaning": L("a person who grinds grain in a mill", "آسیابان"),
+         "example": "The miller left his cat to his youngest son.",
+         "exampleFa": "آسیابان گربه‌اش را برای پسر کوچکش گذاشت."},
+        {"word": "donkey", "pos": "n.", "meaning": L("an animal like a small horse with long ears", "الاغ"),
+         "example": "The middle son got the donkey.", "exampleFa": "پسر وسطی الاغ را گرفت."},
+        {"word": "boots", "pos": "n.", "meaning": L("shoes that cover your ankles", "چکمه"),
+         "example": "The cat asked for a pair of boots.", "exampleFa": "گربه یک جفت چکمه خواست."},
+        {"word": "coach", "pos": "n.", "meaning": L("a large carriage pulled by horses", "کالسکه"),
+         "example": "The king's coach came down the road.",
+         "exampleFa": "کالسکهٔ پادشاه از جاده آمد."},
+        {"word": "ogre", "pos": "n.", "meaning": L("a giant in stories who eats people", "غول"),
+         "example": "The castle belonged to an ogre.", "exampleFa": "قلعه مال یک غول بود."},
+        {"word": "princess", "pos": "n.", "meaning": L("the daughter of a king", "شاهزاده‌خانم"),
+         "example": "The princess fell in love with the young man.",
+         "exampleFa": "شاهزاده عاشق مرد جوان شد."},
+    ],
+    "expressions": [
+        {"phrase": "make somebody rich",
+         "meaning": L("cause a person to have a lot of money", "کسی را ثروتمند کردن"),
+         "example": "The cat promised to make him rich.",
+         "exampleFa": "گربه قول داد ثروتمندش کند."},
+        {"phrase": "run ahead",
+         "meaning": L("go in front of others", "جلوتر دویدن"),
+         "example": "The cat ran ahead to the fields.",
+         "exampleFa": "گربه جلوتر به سوی کشتزارها دوید."},
+        {"phrase": "belong to",
+         "meaning": L("be owned by somebody", "مال کسی بودن"),
+         "example": "The farmers said the fields belonged to the Marquis.",
+         "exampleFa": "کشاورزان گفتند زمین‌ها مال مارکی است."},
+        {"phrase": "fall in love with",
+         "meaning": L("begin to love somebody", "عاشق شدن"),
+         "example": "The princess fell in love with him.",
+         "exampleFa": "شاهزاده عاشقش شد."},
+    ],
+    "grammar": [
+        {"name": L("tell somebody to do", "دستور دادن با to"),
+         "example": "The cat told his master to swim in the river.",
+         "note": L("Reported orders use 'tell + person + to + verb', with no 'that'.",
+                   "دستور غیرمستقیم با «tell + شخص + to + فعل» می‌آید، بدون that.")},
+        {"name": L("seem + adjective", "seem با صفت"),
+         "example": "The Marquis seemed very rich.",
+         "note": L("'Seem' describes how something looks to others, not what is true.",
+                   "«seem» می‌گوید چیزی به نظر دیگران چگونه است، نه حقیقت آن.")},
+        {"name": L("who / which relative clauses", "جملهٔ موصولی با who / which"),
+         "example": "A castle owned by an ogre who could change into any animal.",
+         "note": L("'Who' for people, 'which' for things; the clause adds information "
+                   "about the noun before it.",
+                   "«who» برای آدم‌ها و «which» برای چیزهاست؛ جمله اطلاعاتی دربارهٔ "
+                   "اسم قبل از خود اضافه می‌کند.")},
+    ],
+    "questions": {
+        "mcq": [
+            {"q": L("What did the youngest son inherit?", "پسر کوچک چه به ارث برد؟"),
+             "options": ["The mill", "The donkey", "The cat", "The house"],
+             "answer": 2, "why": L("The cat went to the youngest son.",
+                                  "گربه به پسر کوچک رسید.")},
+            {"q": L("What did the cat ask for?", "گربه چه خواست؟"),
+             "options": ["A bag of gold", "A pair of boots", "A horse", "A new name"],
+             "answer": 1, "why": L("Boots first, then a bag for his plan.",
+                                  "اول چکمه، بعد کیسه‌ای برای نقشه‌اش.")},
+            {"q": L("What name did the cat give his master?",
+                    "گربه چه نامی برای اربابش گذاشت؟"),
+             "options": ["The Duke of Carabas", "The Marquis of Carabas",
+                         "The King of Carabas", "The Miller of Carabas"],
+             "answer": 1, "why": L("Every present came from the Marquis of Carabas.",
+                                  "هر هدیه از مارکی دو کاراباس بود.")},
+            {"q": L("How did the cat get the ogre's castle?",
+                    "گربه چگونه قلعهٔ غول را گرفت؟"),
+             "options": ["He tricked the ogre into becoming a mouse and ate him",
+                         "He bought it", "He fought the ogre",
+                         "The king gave it to him"],
+             "answer": 0, "why": L("The ogre turned into a mouse and was eaten.",
+                                  "غول به موش تبدیل شد و خورده شد.")},
+            {"q": L("What is the cat's real skill?", "مهارت واقعی گربه چیست؟"),
+             "options": ["Fighting", "Swimming", "Talking people into things",
+                         "Finding gold"],
+             "answer": 2, "why": L("Every step works because somebody believes him.",
+                                  "هر قدم کار می‌کند چون کسی باورش می‌کند.")},
+        ],
+        "truefalse": [
+            {"q": L("The cat caught rabbits to give to the king.",
+                    "گربه خرگوش می‌گرفت تا به پادشاه بدهد."),
+             "answer": True, "why": L("The rabbits were presents from the Marquis.",
+                                      "خرگوش‌ها هدیهٔ مارکی بودند.")},
+            {"q": L("The princess met the son while he was working.",
+                    "شاهزاده او را هنگام کار دید."),
+             "answer": False, "why": L("She met him after the river trick, in fine clothes.",
+                                       "او را بعد از نیرنگ رودخانه و با لباس فاخر دید.")},
+            {"q": L("The farmers owned the fields the king saw.",
+                    "کشتزارهایی که پادشاه دید مال کشاورزان بود."),
+             "answer": True, "why": L("They said otherwise only because the cat told them to.",
+                                      "فقط چون گربه گفته بود چیز دیگری گفتند.")},
+        ],
+        "blanks": [
+            {"sentence": "The cat asked for a pair of ___.", "answer": "boots",
+             "hint": L("Shoes for the ankle.", "کفشی که تا مچ پا می‌آید.")},
+            {"sentence": "The castle belonged to an ___.", "answer": "ogre",
+             "hint": L("A giant who eats people.", "غولی که آدم می‌خورد.")},
+            {"sentence": "The cat ate the ogre when he became a ___.", "answer": "mouse",
+             "hint": L("Something very small.", "چیزی بسیار کوچک.")},
+        ],
+        "open": [
+            {"q": L("Is the cat a helper or a swindler?", "گربه یاری‌کننده است یا کلاهبردار؟"),
+             "model": L("Both, and the story does not mind. He lies to the king, "
+                        "scares farmers into lying and kills the ogre, but every "
+                        "lie is aimed at getting his master out of poverty, and the "
+                        "master never asks how. The tale sides with the clever "
+                        "servant, not with the truth.",
+                        "هر دو، و داستان اهمیتی نمی‌دهد. به پادشاه دروغ می‌گوید، "
+                        "کشاورزان را می‌ترساند تا دروغ بگویند و غول را می‌کشد، اما "
+                        "هر دروغ برای بیرون آوردن اربابش از فقر است و ارباب هرگز "
+                        "نمی‌پرسد چگونه. داستان طرف خدمتکار زیرک است، نه طرف "
+                        "حقیقت."),
+             "tip": L("Weigh the harm done against the purpose.",
+                      "آسیب واردشده را با هدف مقایسه کن.")},
+            {"q": L("Why does the youngest son deserve the cat more than his brothers?",
+                    "چرا پسر کوچک بیش از برادرانش سزاوار گربه است؟"),
+             "model": L("Because he listens. The mill and the donkey are already "
+                        "useful, so the older brothers have nothing to learn; the "
+                        "youngest has only a cat, and he does what the cat asks "
+                        "without arguing. The story rewards the person who takes "
+                        "advice, not the one who owns the most.",
+                        "چون گوش می‌دهد. آسیاب و الاغ از قبل به کار می‌آیند، پس "
+                        "برادران بزرگ‌تر چیزی برای یاد گرفتن ندارند؛ کوچک‌ترین فقط "
+                        "گربه‌ای دارد و بی‌بحث کاری را که گربه می‌گوید انجام می‌دهد. "
+                        "داستان کسی را پاداش می‌دهد که نصیحت می‌پذیرد، نه کسی که "
+                        "بیشترین دارایی را دارد."),
+             "tip": L("Compare what each son has to do with what he is given.",
+                      "مقایسه کن هر پسر با آنچه گرفته چه باید بکند.")},
+        ],
+    },
+}
+
+
+STORIES = [_flat(s) for s in
+           (PEA, RED_HEN, ELVES, GOATS, PIGS, GOLDILOCKS, HOOD, PAELLA,
+            FROG, HENNY, GINGER, RUMPEL, EMPEROR, FISHER, PUSS)]

@@ -1148,6 +1148,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .sts .en { font-size: 13px; line-height: 1.55; color: var(--ink); }
   .sts .fa { display: block; font-size: 11.5px; line-height: 1.7; color: #5c6480; margin-top: 1px; }
   .stbody.hidefa .sts .fa, .stbody.hidefa .stch .fa { display: none; }
+  .stch.comp { margin-top: 18px; font-size: 13.5px; }
+  .stbook {
+    border: 1px dashed rgba(47,107,79,.35); border-radius: 10px;
+    background: var(--leaf-soft, #f2f7f3); padding: 9px 11px; margin-bottom: 12px;
+  }
+  .stbookt { font-size: 12.5px; font-weight: 700; color: var(--ink); }
+  .stbooka { font-size: 10.5px; color: var(--muted); margin-top: 1px; }
+  .stbookn { font-size: 11px; line-height: 1.6; color: #4a5270; margin-top: 6px; }
+  .stbookn.fa { margin-top: 3px; }
+  .stsum { font-size: 13px; line-height: 1.6; color: var(--ink); }
+  .stsum .en { display: block; }
+  .stsum .stsumfa {
+    display: block; font-size: 11.5px; line-height: 1.85; color: #5c6480;
+    margin-top: 4px; padding-inline-start: 2px;
+  }
+  .stbody.hidefa .stsum .stsumfa, .stbody.hidefa .stbookn.fa { display: none; }
   .stv { padding: 7px 0; border-bottom: 1px solid rgba(43,48,73,.08); }
   .stv .w { font-size: 12.5px; font-weight: 700; color: var(--ink); }
   .stv .w i { font-style: normal; font-weight: 400; color: var(--muted); font-size: 10.5px; }
@@ -7717,8 +7733,10 @@ const Stories = (() => {
             h('span', {class: 'lvl'}, s.level), fa(s.title.fa, 'stbadge')),
           h('span', {class: 'stblurb'}, s.blurb.en),
           h('span', {class: 'stmeta'},
-            s.words + ' words \u00b7 ' + s.minutes + ' min read \u00b7 ' +
-            s.sentences + ' sentences \u00b7 ' +
+            (s.kind === 'companion'
+              ? 'companion \u00b7 ' + s.chapters.length + ' chapters \u00b7 '
+              : s.words + ' words \u00b7 ' + s.minutes + ' min read \u00b7 ' +
+                s.sentences + ' sentences \u00b7 ') +
             (done ? 'all three sets checked'
                   : c ? c + ' of 3 sets checked' : 'not started'))),
         h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '\u203a')));
@@ -7753,7 +7771,9 @@ const Stories = (() => {
       h('h4', {}, s.title.en, h('span', {class: 'lvl'}, levelOf(s.level).en)),
       faP(s.title.fa, 'rdhero-fa'),
       h('div', {class: 'rdherometa'},
-        s.words + ' words \u00b7 ' + s.minutes + ' min read \u00b7 ' +
+        (s.kind === 'companion'
+          ? 'reading companion \u00b7 '
+          : s.words + ' words \u00b7 ' + s.minutes + ' min read \u00b7 ') +
         s.chapters.length + ' chapter' + (s.chapters.length === 1 ? '' : 's') +
         ' \u00b7 ' + s.counts.all + ' questions')));
 
@@ -7767,10 +7787,25 @@ const Stories = (() => {
       },
     }, showFa ? 'Hide the Persian' : 'Show the Persian');
 
+    const comp = s.kind === 'companion';
     const story = h('div', {});
+    if (comp) {
+      story.append(h('div', {class: 'stbook'},
+        h('div', {class: 'stbookt'}, s.book.title),
+        h('div', {class: 'stbooka'},
+          s.book.author + ' \u00b7 ' + s.book.publisher),
+        h('div', {class: 'stbookn'}, s.book.note.en),
+        h('div', {class: 'stbookn fa', dir: 'rtl', lang: 'fa'}, s.book.note.fa)));
+    }
     s.chapters.forEach((ch) => {
-      story.append(h('div', {class: 'stch'},
+      story.append(h('div', {class: 'stch' + (comp ? ' comp' : '')},
         h('span', {}, ch.title.en), fa(ch.title.fa)));
+      if (comp) {
+        story.append(h('div', {class: 'stsum'},
+          h('p', {class: 'en', dir: 'ltr', lang: 'en'}, ch.summary.en),
+          faP(ch.summary.fa, 'stsumfa')));
+        return;
+      }
       ch.pairs.forEach((p, i) => {
         story.append(h('div', {class: 'sts'},
           h('span', {class: 'n', 'aria-hidden': 'true'}, String(i + 1)),
@@ -7781,7 +7816,10 @@ const Stories = (() => {
     });
     wrap.append(h('div', {class: 'rdsec'},
       h('div', {class: 'stbar'},
-        h('div', {class: 'rdlabel'}, 'The story', fa('\u062f\u0627\u0633\u062a\u0627\u0646')),
+        h('div', {class: 'rdlabel'},
+          comp ? 'Chapter summaries' : 'The story',
+          fa(comp ? '\u062e\u0644\u0627\u0635\u0647\u0654 \u0641\u0635\u0644\u200c\u0647\u0627'
+                  : '\u062f\u0627\u0633\u062a\u0627\u0646')),
         toggle),
       story));
 
