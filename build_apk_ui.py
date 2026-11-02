@@ -35,6 +35,9 @@ BUNDLED_DATA = [
 # lesson words available offline without costing every start-up the read.
 LAZY_DATA = [
     "books.json",
+    # the Reading panel's strategies, passage and answer keys: read when the
+    # panel opens, like the library
+    "reading.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")

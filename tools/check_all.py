@@ -3,7 +3,7 @@
 
     python3 tools/check_all.py
 
-Four suites, each answering a different question:
+Every suite answers a different question:
 
   harness        can the bot answer what a learner asks? (capability)
   harness_round5 is the content well-formed and the input handling safe?
@@ -59,6 +59,12 @@ Four suites, each answering a different question:
                 examples that actually use the word; the tile, the panel, the
                 route and the APK's own copy of the file must all be present,
                 because each one alone leaves a button that does nothing.
+  check_reading  are the six reading strategies teachable and wired? Each
+                one explains itself in both languages, carries a passage its
+                own questions are answered from, and holds blanks, choice,
+                true/false and a writing task with a model answer. A blank
+                whose answer is not in its passage, or a choice key that sits
+                on B every time, teaches the wrong thing silently.
   check_analyser  is the bundled grammar engine accurate and honest? It runs
                 the shipped 3.5 MB bundle over the sentences the feature was
                 specified against plus contractions, unpunctuated input,
@@ -106,6 +112,7 @@ SUITES = [
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
+    ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
     ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
     ("informal sentence bank", [sys.executable, "tools/check_informal.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),

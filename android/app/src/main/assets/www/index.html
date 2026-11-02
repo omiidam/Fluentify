@@ -88,6 +88,9 @@
        rather than a spectrum. */
     --teal: #2a5a7a; --cyan: #14607e; --violet: #4a5580;
     --indigo: #4a4fa0; --amber: #8a5a00; --rose: #a03a63;
+    /* the Reading panel's own accent: green, because every other section is
+       already using one and a shared colour reads as a shared section */
+    --leaf: #2f6b4f; --leaf-soft: #eaf3ec;
     --line: rgba(43,48,73,0.136);
     --line2: rgba(43,48,73,0.238);
     --shadow: 0 40px 100px rgba(74,58,30, .7);
@@ -676,7 +679,8 @@
   /* A cue that the panels scroll, or they just stop mid-button and read as a
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
+  #bpanel, #rdpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -850,7 +854,8 @@
      daily feature did not sit beside the conversation, it was the page.
      tools/check_ui.py now derives the list from the markup and fails on any
      panel that is missing here. */
-  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
+  #bpanel, #rdpanel {
     display: none; padding: 14px 20px;
     background: #fffcef;
     border-bottom: 1px solid rgba(43,48,73,.12);
@@ -862,10 +867,13 @@
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
   #dpanel.open, #npanel.open, #bpanel.open { display: block; }
+  /* Reading opens taller than the others: a passage and its questions are
+     read, not glanced at, and 52% of the window shows two lines of text. */
+  #rdpanel.open { display: block; max-height: 74%; overflow-y: auto; }
   /* #phpanel gets its own flex layout below, so it is not listed here */
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
   #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
-  #bpanel h3 {
+  #bpanel h3, #rdpanel h3 {
     font-size: 13px; color: var(--ink); margin-bottom: 9px; font-weight: 700;
     font-family: var(--font-display); letter-spacing: .1px;
   }
@@ -879,6 +887,7 @@
   #phpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
   #bpanel h3 { border-inline-start: 3px solid var(--navy);   padding-inline-start: 9px; }
   #rpanel h3  { border-inline-start: 3px solid var(--amber);   padding-inline-start: 9px; }
+  #rdpanel h3 { border-inline-start: 3px solid var(--leaf);    padding-inline-start: 9px; }
 
   /* ---------- listening: level tabs + playable sentences ---------- */
   .ltabs { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -1242,6 +1251,266 @@
     flex: none; background: none; border: none; cursor: pointer;
     color: #4a4fa0; font-size: 10px; padding: 0; font-family: inherit;
   }
+
+  /* ---------- reading: strategies, a passage, four kinds of question ----
+     One panel with two views. The list is a table of contents; the detail is
+     a lesson: explanation first, then the passage, then the questions. Both
+     are drawn into #rdbody by the Reading module, so every class here is used
+     by generated markup and none of it can be styled by a document selector
+     that does not exist yet. Green is this section's colour and appears in
+     exactly three places: the heading rule, the strategy numbers and the
+     "right answer" state. */
+  /* A lesson is read, not scanned, so the column has a measure: 640px on a
+     1178px panel keeps the questions together, and the passage is narrower
+     still. Full width on a desktop put 168 characters on a line, which is
+     three times the length an eye can track back from. */
+  .rdbody {
+    display: flex; flex-direction: column; gap: 10px;
+    width: 100%; max-width: 640px; margin-inline: auto;
+  }
+  .rdintro {
+    font-size: 11.5px; color: var(--muted); line-height: 1.6;
+    padding: 2px 0 2px 9px; border-inline-start: 2px solid rgba(47,107,79,.35);
+  }
+  .rdintro .fa { display: block; margin-top: 2px; }
+
+  .rdlist { display: flex; flex-direction: column; gap: 7px; }
+  .rdcard {
+    display: flex; align-items: center; gap: 11px; width: 100%;
+    text-align: start; font-family: inherit; cursor: pointer;
+    background: #fffcef; border: 1px solid rgba(43,48,73,.13);
+    border-radius: 12px; padding: 9px 12px 9px 10px; color: var(--ink);
+    transition: border-color .14s, transform .14s, background .14s;
+  }
+  .rdcard:hover { border-color: rgba(47,107,79,.55); transform: translateY(-1px); }
+  .rdcard:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .rdnum {
+    flex: 0 0 26px; height: 26px; border-radius: 8px;
+    display: grid; place-items: center; font-size: 13px;
+    background: var(--leaf-soft); color: var(--leaf);
+    border: 1px solid rgba(47,107,79,.22);
+  }
+  .rdmain { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .rdname { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .rdname b { font-size: 13.5px; font-weight: 700; }
+  .rdname .lvl {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .04em;
+    color: var(--leaf); background: var(--leaf-soft);
+    border-radius: 5px; padding: 1px 5px;
+  }
+  .rdblurb { font-size: 11.5px; color: #3f4a6b; line-height: 1.5; }
+  .rdmeta { font-size: 10.5px; color: var(--muted); }
+  .rdchev { flex: none; color: var(--leaf); font-size: 13px; opacity: .75; }
+
+  /* --- the detail view --- */
+  .rdbar {
+    display: flex; align-items: center; gap: 8px;
+    padding-bottom: 2px;
+  }
+  .rdback {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: inherit; font-size: 11.5px; cursor: pointer;
+    background: none; border: 1px solid rgba(43,48,73,.18);
+    border-radius: 999px; padding: 4px 11px 4px 9px; color: var(--ink);
+  }
+  .rdback:hover { background: rgba(43,48,73,.06); }
+  .rdscore {
+    margin-inline-start: auto; font-size: 10.5px; color: var(--muted);
+    background: rgba(47,107,79,.09); border-radius: 999px; padding: 3px 9px;
+    border: 1px solid rgba(47,107,79,.2);
+  }
+  .rdhero h4 {
+    margin: 2px 0 0; font-size: 15px; font-family: var(--font-display);
+    color: var(--ink); display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+  }
+  .rdhero .rdhero-fa { font-size: 12.5px; color: var(--leaf); margin-top: 3px; }
+
+  .rdsec { border-top: 1px dashed rgba(43,48,73,.16); padding-top: 9px; }
+  .rdsec:first-of-type { border-top: none; padding-top: 0; }
+  .rdlabel {
+    display: flex; align-items: baseline; gap: 6px;
+    font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    color: #55607a; font-weight: 700; margin-bottom: 5px;
+  }
+  .rdlabel .fa { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--muted); }
+  .rdp { font-size: 12.5px; line-height: 1.65; color: #333a56; margin: 0; }
+  .rdp + .rdp { margin-top: 4px; }
+  .rdp.fa { direction: rtl; text-align: right; margin-top: 4px; color: #3f4a6b; }
+
+  .rdsteps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .rdsteps li { display: flex; gap: 8px; align-items: flex-start; }
+  .rdsteps .sn {
+    flex: 0 0 18px; height: 18px; border-radius: 50%; margin-top: 1px;
+    display: grid; place-items: center; font-size: 10px; font-weight: 700;
+    background: var(--leaf-soft); color: var(--leaf);
+    border: 1px solid rgba(47,107,79,.25);
+  }
+  .rdsteps .stx { flex: 1; min-width: 0; }
+  .rdsteps .sen { font-size: 12.5px; line-height: 1.55; color: #333a56; }
+  .rdsteps .sfa { font-size: 11.5px; line-height: 1.8; color: var(--muted); }
+
+  /* --- the passage --- */
+  .rdpassage {
+    background: #fffdf6; border: 1px solid rgba(47,107,79,.25);
+    border-radius: 13px; padding: 12px 14px 13px;
+    box-shadow: 0 2px 10px rgba(74,58,30,.05);
+  }
+  .rdph {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 8px; padding-bottom: 7px;
+    border-bottom: 1px solid rgba(43,48,73,.1);
+  }
+  .rdph b { font-size: 13.5px; font-family: var(--font-display); }
+  .rdph .rdph-fa { font-size: 11.5px; color: var(--leaf); }
+  .rdph .pill {
+    font-size: 9.5px; color: var(--muted); margin-inline-start: auto;
+    background: rgba(43,48,73,.06); border-radius: 999px; padding: 2px 8px;
+  }
+  .rdnote {
+    font-size: 11px; color: var(--muted); font-style: italic;
+    margin: 0 0 8px; line-height: 1.55;
+  }
+  .rdnote .fa { display: block; font-style: normal; text-align: right; margin-top: 2px; }
+  .rdpara {
+    font-size: 13px; line-height: 1.75; color: #2f3550;
+    margin: 0 0 9px; direction: ltr; text-align: left;
+    max-width: 36em;
+  }
+  .rdpara:last-of-type { margin-bottom: 0; }
+  .rdsum {
+    margin-top: 10px; padding-top: 9px; border-top: 1px dashed rgba(43,48,73,.16);
+  }
+  .rdsum .fa { display: block; margin-top: 4px; direction: rtl; text-align: right; }
+  .rdsumbtn {
+    font-family: inherit; font-size: 11.5px; cursor: pointer;
+    background: none; border: 1px dashed rgba(47,107,79,.45);
+    border-radius: 9px; padding: 5px 10px; color: var(--leaf);
+  }
+  .rdsumbtn:hover { background: var(--leaf-soft); }
+
+  /* --- questions --- */
+  .rdqhead { display: flex; align-items: center; gap: 8px; margin: 2px 0 7px; }
+  .rdqhead b { font-size: 12.5px; }
+  .rdqhead .n {
+    font-size: 10px; color: var(--muted); background: rgba(43,48,73,.07);
+    border-radius: 999px; padding: 1px 7px;
+  }
+  .rdqhead .fa { font-size: 11.5px; color: var(--muted); }
+  .rdq { display: flex; flex-direction: column; gap: 7px; }
+  .rditem {
+    background: #fffcef; border: 1px solid rgba(43,48,73,.12);
+    border-radius: 12px; padding: 10px 12px;
+  }
+  .rditem.right { border-color: rgba(47,107,79,.55); background: #f4faf3; }
+  .rditem.wrong { border-color: rgba(160,58,99,.5); background: #fdf3f6; }
+  .rdstem { font-size: 12.5px; line-height: 1.7; color: #2f3550; }
+  .rdnum2 {
+    display: inline-grid; place-items: center; width: 17px; height: 17px;
+    border-radius: 50%; font-size: 10px; font-weight: 700; margin-inline-end: 5px;
+    background: rgba(47,107,79,.1); color: var(--leaf);
+  }
+  .rdopt {
+    display: flex; align-items: flex-start; gap: 8px; width: 100%;
+    text-align: start; font-family: inherit; font-size: 12px; line-height: 1.5;
+    cursor: pointer; color: var(--ink);
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.14);
+    border-radius: 9px; padding: 6px 9px;
+    transition: background .12s, border-color .12s;
+  }
+  .rdopt + .rdopt { margin-top: 5px; }
+  .rdopt:hover { border-color: rgba(47,107,79,.5); background: #fbfdf9; }
+  .rdopt .k {
+    flex: 0 0 16px; font-weight: 700; color: var(--muted);
+    font-size: 10.5px; text-align: center;
+  }
+  .rdopt.on { border-color: var(--leaf); background: var(--leaf-soft); }
+  .rdopt.right { border-color: var(--leaf); background: #e8f5ea; }
+  .rdopt.wrong { border-color: rgba(160,58,99,.55); background: #fbeef2; }
+  .rdopt:disabled { cursor: default; }
+  .rdtf { display: flex; gap: 6px; }
+  .rdtf button {
+    flex: 1; font-family: inherit; font-size: 12px; cursor: pointer;
+    padding: 6px 0; border-radius: 9px; color: var(--ink);
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.16);
+  }
+  .rdtf button:hover { border-color: rgba(47,107,79,.5); }
+  .rdtf button.on { background: var(--leaf-soft); border-color: var(--leaf); }
+  .rdtf button.right { background: #e8f5ea; border-color: var(--leaf); }
+  .rdtf button.wrong { background: #fbeef2; border-color: rgba(160,58,99,.55); }
+
+  .rdblank {
+    font-family: inherit; font-size: 12.5px; color: var(--ink);
+    background: #fffdf6; border: none; border-bottom: 1.5px solid rgba(47,107,79,.45);
+    border-radius: 3px 3px 0 0; padding: 1px 6px; min-width: 96px;
+    direction: ltr; text-align: center;
+  }
+  .rdblank:focus { outline: none; background: var(--leaf-soft); }
+  .rdblank.right { border-bottom-color: var(--leaf); background: #e8f5ea; }
+  .rdblank.wrong { border-bottom-color: rgba(160,58,99,.7); background: #fbeef2; }
+  .rdhint { font-size: 10.5px; color: var(--muted); margin-top: 5px; line-height: 1.6; }
+  .rdhint .fa { display: block; text-align: right; margin-top: 2px; }
+
+  .rdfb { margin-top: 7px; font-size: 11.5px; line-height: 1.6; }
+  .rdfb .ok { color: var(--leaf); font-weight: 700; }
+  .rdfb .no { color: #a03a63; font-weight: 700; }
+  .rdfb p { margin: 2px 0 0; color: #3f4a6b; }
+  .rdfb .fa { display: block; direction: rtl; text-align: right; margin-top: 2px; }
+
+  .rdessay { display: flex; flex-direction: column; gap: 6px; }
+  .rdarea {
+    font-family: inherit; font-size: 12.5px; line-height: 1.6; color: var(--ink);
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.16);
+    border-radius: 10px; padding: 8px 10px; resize: vertical; min-height: 74px;
+    direction: ltr; text-align: left;
+  }
+  .rdarea:focus { outline: none; border-color: var(--leaf); background: #fffef9; }
+  .rdessaybar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .rdcount { font-size: 10.5px; color: var(--muted); }
+  .rdcount.ok { color: var(--leaf); }
+  .rdsmall {
+    margin-inline-start: auto; font-family: inherit; font-size: 11px;
+    cursor: pointer; background: none; border: 1px solid rgba(43,48,73,.18);
+    border-radius: 999px; padding: 3px 9px; color: var(--ink);
+  }
+  .rdsmall:hover { background: rgba(43,48,73,.06); }
+  .rdtips { margin: 4px 0 0; padding: 0 0 0 2px; list-style: none; }
+  /* English on the first line, Persian under it: a tip that runs
+     'Name the subject: night trains. موضوع را نام ببر' turns the reader's
+     eye around mid-line, which is the one thing this page refuses to do. */
+  .rdtips li {
+    display: flex; gap: 6px; font-size: 11px; color: var(--muted);
+    line-height: 1.65; margin-bottom: 3px;
+  }
+  .rdtips li::before { content: '•'; color: var(--leaf); flex: none; }
+  .rdtips .ten { display: block; }
+  .rdtips .tfa {
+    display: block; color: #3f4a6b;
+    direction: rtl; text-align: right;
+  }
+  .rdmodel {
+    margin-top: 7px; padding: 9px 11px; border-radius: 10px;
+    background: var(--leaf-soft); border: 1px solid rgba(47,107,79,.22);
+  }
+  .rdmodel .lbl {
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--leaf); font-weight: 700; margin-bottom: 4px;
+  }
+  .rdmodel p { margin: 0; font-size: 12px; line-height: 1.7; color: #2f3550; }
+  .rdmodel p.fa { direction: rtl; text-align: right; margin-top: 5px; color: #3f4a6b; }
+
+  .rdfoot {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    padding-top: 10px; margin-top: 4px; border-top: 1px solid rgba(43,48,73,.12);
+  }
+  .rdgo {
+    font-family: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    background: var(--leaf); color: #fffcef; border: none;
+    border-radius: 999px; padding: 7px 14px;
+  }
+  .rdgo:hover { filter: brightness(1.1); }
+  .rdgo.ghost { background: none; color: var(--leaf); border: 1px solid rgba(47,107,79,.4); }
+  .rdgo.ghost:hover { background: var(--leaf-soft); }
+  .rderr { font-size: 12px; color: #a03a63; padding: 8px 0; }
 
   /* ---------- chat area ---------- */
   #chat {
@@ -3043,6 +3312,8 @@
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
       <button class="hbtn" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 5.2a1.8 1.8 0 0 1 1.8-1.8h3.2A1.8 1.8 0 0 1 11.2 5.2v13.4H6.2a1.8 1.8 0 0 0-1.8 1.8Z"/><path d="M19.6 5.2a1.8 1.8 0 0 0-1.8-1.8h-3.2a1.8 1.8 0 0 0-1.8 1.8v13.4h5a1.8 1.8 0 0 1 1.8 1.8Z"/></svg></i><span>Books</span></button>
+      <button class="hbtn" id="rdtoggle" aria-expanded="false" title="Reading strategies — راهبردهای خواندن" aria-label="Reading — strategies, a passage and questions">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.4 5.2 8.2 4.6 5 4.8v13.4c3.2-.2 5.4.4 7 1.6 1.6-1.2 3.8-1.8 7-1.6V4.8c-3.2-.2-5.4.4-7 1.8Z"/><path d="M12 6.6v13.2"/><path d="M8 8.6h1.6M8 11.6h1.6M14.4 8.6H16M14.4 11.6H16"/></svg></i><span>Reading</span></button>
       <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
       <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
@@ -3118,6 +3389,11 @@
   <div id="bpanel">
     <h3>Books — <bdi class="fa" lang="fa" dir="rtl">کتاب‌ها</bdi></h3>
     <div class="bbooks" id="bbooks" aria-live="polite"></div>
+  </div>
+
+  <div id="rdpanel">
+    <h3>Reading strategies — <bdi class="fa" lang="fa" dir="rtl">راهبردهای خواندن</bdi></h3>
+    <div class="rdbody" id="rdbody" aria-live="polite"></div>
   </div>
 
   <div id="gpanel">
@@ -4755,7 +5031,7 @@ const Panels = (() => {
   const TILES = {
     dpanel: 'dtoggle', npanel: 'ntoggle', vpanel: 'vtoggle', gpanel: 'gtoggle',
     fpanel: 'ftoggle', lpanel: 'ltoggle', phpanel: 'phtoggle',
-    bpanel: 'btoggle', rpanel: 'rtoggle',
+    bpanel: 'btoggle', rpanel: 'rtoggle', rdpanel: 'rdtoggle',
   };
   let openId = null;
 
@@ -6260,6 +6536,489 @@ async function loadVocabulary() {
     box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">واژگان در دسترس نیست.</bdi></div>';
   }
 }
+/* ============================================================================
+ * READING
+ * Six reading strategies. Each one is a short lesson - what the strategy is,
+ * why it earns its place, the moves that make it work - and then a passage
+ * that needs exactly that strategy, with four kinds of question on it.
+ *
+ * Two views, one container: the list is a table of contents and the lesson is
+ * what a tap on a row produces. Answers live in localStorage per strategy, so
+ * closing the panel to answer a message does not throw the work away - the
+ * page is a chat app, and every panel is closed the moment you type.
+ *
+ * Nothing here is generated at boot: reading.json is 83 KB and no other
+ * section needs it, so it is read the first time the panel opens.
+ * ==========================================================================*/
+const Reading = (() => {
+  const KEY = 'fluentify.reading.v1';
+  const body = () => document.getElementById('rdbody');
+  let doc = null;          // reading.json, once
+  let pending = null;      // the in-flight fetch
+  let view = 'list';       // 'list' | a strategy id
+
+  /* --- state: {strategyId: {picks:{qid:value}, checked:{group:true}, essays:{qid:text}, models:{qid:true}}} */
+  function read() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; }
+  }
+  function write(all) {
+    try { localStorage.setItem(KEY, JSON.stringify(all)); } catch (e) { /* private mode */ }
+  }
+  function state(id) {
+    const all = read();
+    all[id] = all[id] || {picks: {}, checked: {}, essays: {}, models: {} };
+    return all[id];
+  }
+  function patch(id, fn) {
+    const all = read();
+    all[id] = all[id] || {picks: {}, checked: {}, essays: {}, models: {} };
+    fn(all[id]);
+    write(all);
+  }
+
+  /* --- tiny DOM helper: h('div', {class: 'x'}, child, 'text') ------------ */
+  function h(tag, props, ...kids) {
+    const node = document.createElement(tag);
+    Object.entries(props || {}).forEach(([k, v]) => {
+      if (v === null || v === undefined || v === false) return;
+      if (k === 'class') node.className = v;
+      else if (k === 'html') node.innerHTML = v;
+      else if (k.startsWith('on')) node.addEventListener(k.slice(2), v);
+      else node.setAttribute(k, v === true ? '' : v);
+    });
+    kids.flat().forEach((kid) => {
+      if (kid === null || kid === undefined || kid === false) return;
+      node.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    });
+    return node;
+  }
+  /* Persian always in its own isolated run, never bare inside an English line */
+  const fa = (text, cls) => h('span', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
+  const faP = (text, cls) => h('p', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
+
+  const total = (s) => s.counts.blanks + s.counts.mcq + s.counts.truefalse;
+  const label = (n) => n === 1 ? 'question' : 'questions';
+
+  /* ---------------------------------------------------------------- list -- */
+  function renderList() {
+    const wrap = body();
+    wrap.replaceChildren();
+    wrap.append(h('div', {class: 'rdintro'},
+      doc.intro.en, faP(doc.intro.fa)));
+
+    const list = h('div', {class: 'rdlist'});
+    doc.strategies.forEach((s, i) => {
+      const st = read()[s.id] || {};
+      const got = Object.keys(st.checked || {}).length;
+      list.append(h('button', {
+        type: 'button', class: 'rdcard',
+        'aria-label': s.title.en + ' - ' + s.title.fa,
+        onclick: () => open(s.id),
+      },
+        h('span', {class: 'rdnum', 'aria-hidden': 'true'}, String(i + 1)),
+        h('span', {class: 'rdmain'},
+          h('span', {class: 'rdname'},
+            h('b', {}, s.title.en),
+            h('span', {class: 'lvl'}, s.level)),
+          h('span', {class: 'rdblurb'}, s.blurb.en),
+          fa(s.blurb.fa, 'rdblurb'),
+          h('span', {class: 'rdmeta'},
+            s.reading.words + ' words · ' + total(s) + ' ' + label(total(s)) +
+            ' · ' + (got ? got + ' of 3 parts checked' : 'not started'))),
+        h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '›')));
+    });
+    wrap.append(list);
+  }
+
+  /* ------------------------------------------------------------ question -- */
+  /* One blank: the sentence is split on ___ so the input sits inside it. */
+  function blankItem(s, q, i, st, repaint) {
+    const id = 'b' + i;
+    const card = h('div', {class: 'rditem'}, h('div', {class: 'rdstem'}));
+    const stem = card.firstChild;
+    stem.append(h('span', {class: 'rdnum2'}, String(i + 1)));
+    q.sentence.split('___').forEach((part, k) => {
+      if (k) {
+        // a narrow field: the gap is one word or a short phrase, and a
+        // 180px box breaks the sentence into two unreadable halves
+        const input = h('input', {
+          type: 'text', class: 'rdblank', inputmode: 'text', size: '10',
+          autocomplete: 'off', spellcheck: 'false', 'aria-label': 'Answer ' + (i + 1),
+        });
+        input.value = st.picks[id] || '';
+        input.addEventListener('input', () => {
+          st.picks[id] = input.value;
+          patch(currentId(), (s) => { s.picks[id] = input.value; });
+          card.classList.remove('right', 'wrong');
+          input.classList.remove('right', 'wrong');
+          const fb = card.querySelector('.rdfb');
+          if (fb) fb.remove();
+        });
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') { e.preventDefault(); check('blanks'); }
+        });
+        stem.append(input);
+      }
+      stem.append(document.createTextNode(part));
+    });
+    card.append(h('div', {class: 'rdhint'}, q.hint.en, fa(q.hint.fa)));
+    return card;
+  }
+
+  function mcqItem(q, i, st) {
+    const id = 'm' + i;
+    const card = h('div', {class: 'rditem'});
+    const stem = h('div', {class: 'rdstem'}, h('span', {class: 'rdnum2'}, String(i + 1)));
+    stem.append(document.createTextNode(q.q));
+    card.append(stem);
+    q.options.forEach((opt, k) => {
+      const btn = h('button', {
+        type: 'button', class: 'rdopt' + (st.picks[id] === k ? ' on' : ''),
+        'aria-pressed': st.picks[id] === k ? 'true' : 'false',
+      }, h('span', {class: 'k'}, 'ABCD'[k]), h('span', {}, opt));
+      btn.addEventListener('click', () => {
+        patch(currentId(), (s) => { s.picks[id] = k; delete s.checked.mcq; });
+        card.querySelectorAll('.rdopt').forEach((b) => {
+          b.classList.remove('on', 'right', 'wrong');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('on');
+        btn.setAttribute('aria-pressed', 'true');
+        card.classList.remove('right', 'wrong');
+        const fb = card.querySelector('.rdfb');
+        if (fb) fb.remove();
+        refreshScore();
+      });
+      card.append(btn);
+    });
+    card.dataset.key = id;
+    return card;
+  }
+
+  function tfItem(q, i, st) {
+    const id = 't' + i;
+    const card = h('div', {class: 'rditem'});
+    const stem = h('div', {class: 'rdstem'}, h('span', {class: 'rdnum2'}, String(i + 1)));
+    stem.append(document.createTextNode(q.statement));
+    const row = h('div', {class: 'rdtf', style: 'margin-top:7px'});
+    [['True', true], ['False', false]].forEach(([txt, val]) => {
+      const b = h('button', {
+        type: 'button', class: st.picks[id] === val ? 'on' : '',
+        'aria-pressed': st.picks[id] === val ? 'true' : 'false',
+      }, txt);
+      b.addEventListener('click', () => {
+        patch(currentId(), (s) => { s.picks[id] = val; delete s.checked.truefalse; });
+        row.querySelectorAll('button').forEach((x) => {
+          x.classList.remove('on', 'right', 'wrong');
+          x.setAttribute('aria-pressed', 'false');
+        });
+        b.classList.add('on');
+        b.setAttribute('aria-pressed', 'true');
+        card.classList.remove('right', 'wrong');
+        const fb = card.querySelector('.rdfb');
+        if (fb) fb.remove();
+        refreshScore();
+      });
+      row.append(b);
+    });
+    card.append(stem, row);
+    card.dataset.key = id;
+    return card;
+  }
+
+  function essayItem(s, q, i, st) {
+    const id = 'e' + i;
+    const card = h('div', {class: 'rditem'});
+    const stem = h('div', {class: 'rdstem'}, h('span', {class: 'rdnum2'}, String(i + 1)));
+    stem.append(document.createTextNode(q.prompt.en));
+    card.append(stem, h('div', {class: 'rdhint'}, fa(q.prompt.fa)));
+
+    const area = h('textarea', {
+      class: 'rdarea', rows: '4', spellcheck: 'true',
+      'aria-label': 'Your answer to question ' + (i + 1),
+      placeholder: 'Write here…',
+    });
+    area.value = st.essays[id] || '';
+    const count = h('span', {class: 'rdcount'});
+    const tick = () => {
+      const n = (area.value.trim().match(/\S+/g) || []).length;
+      count.textContent = n + ' words' + (n >= 50 ? ' ✓' : ' · aim for 60-80');
+      count.classList.toggle('ok', n >= 50);
+    };
+    area.addEventListener('input', () => {
+      patch(currentId(), (x) => { x.essays[id] = area.value; });
+      tick();
+    });
+    tick();
+
+    const showBtn = h('button', {type: 'button', class: 'rdsmall'}, 'Show a model answer');
+    const bar = h('div', {class: 'rdessaybar'}, count, showBtn);
+    const tips = h('ul', {class: 'rdtips'});
+    q.tips.forEach((t) => {
+      tips.append(h('li', {},
+        h('span', {class: 'ten'}, t.en),
+        fa(t.fa, 'tfa')));
+    });
+
+    const model = h('div', {class: 'rdmodel', hidden: true},
+      h('div', {class: 'lbl'}, 'Model answer'),
+      h('p', {}, q.model.en), faP(q.model.fa));
+
+    showBtn.addEventListener('click', () => {
+      const open = model.hidden;
+      model.hidden = !open;
+      showBtn.textContent = open ? 'Hide the model answer' : 'Show a model answer';
+      patch(currentId(), (x) => { x.models[id] = open; });
+    });
+    if (st.models[id]) {
+      model.hidden = false;
+      showBtn.textContent = 'Hide the model answer';
+    }
+
+    card.append(h('div', {class: 'rdessay', style: 'margin-top:8px'},
+      area, bar, tips, model));
+    return card;
+  }
+
+  /* -------------------------------------------------------------- checking - */
+  let _current = null;
+  const currentId = () => _current;
+
+  function check(group) {
+    const s = doc.strategies.find((x) => x.id === _current);
+    if (!s) return;
+    const q = s.questions[group];
+    const st = state(_current);
+    let right = 0;
+
+    const items = [...body().querySelectorAll('[data-group="' + group + '"] .rditem')];
+    items.forEach((card, i) => {
+      const item = q[i];
+      card.classList.remove('right', 'wrong');
+      card.querySelectorAll('.right, .wrong').forEach((x) => x.classList.remove('right', 'wrong'));
+      const old = card.querySelector('.rdfb');
+      if (old) old.remove();
+
+      let ok = false;
+      let fb;
+      if (group === 'blanks') {
+        const input = card.querySelector('.rdblank');
+        const given = (st.picks['b' + i] || '').trim();
+        ok = given.toLowerCase().replace(/[.,]/g, '') ===
+             item.answer.toLowerCase().replace(/[.,]/g, '');
+        input.classList.add(ok ? 'right' : 'wrong');
+        if (!ok) input.value = given;   // keep what they wrote; the answer is below
+        fb = h('div', {class: 'rdfb'},
+          h('span', {class: ok ? 'ok' : 'no'},
+            ok ? '✓ Correct' : '✗ The answer is "' + item.answer + '"'),
+          fa(item.hint.fa));
+      } else if (group === 'mcq') {
+        const given = st.picks['m' + i];
+        ok = given === item.answer;
+        card.querySelectorAll('.rdopt').forEach((b, k) => {
+          if (k === item.answer) b.classList.add('right');
+          else if (k === given) b.classList.add('wrong');
+        });
+        fb = h('div', {class: 'rdfb'},
+          h('span', {class: ok ? 'ok' : 'no'},
+            ok ? '✓ Correct' : '✗ The answer is ' + 'ABCD'[item.answer]),
+          h('p', {}, item.why.en), faP(item.why.fa));
+      } else {
+        const given = st.picks['t' + i];
+        ok = given === item.answer;
+        card.querySelectorAll('.rdtf button').forEach((b, k) => {
+          const val = k === 0;
+          if (val === item.answer) b.classList.add('right');
+          else if (val === given) b.classList.add('wrong');
+        });
+        fb = h('div', {class: 'rdfb'},
+          h('span', {class: ok ? 'ok' : 'no'},
+            ok ? '✓ Correct' : '✗ ' + (item.answer ? 'True' : 'False')),
+          h('p', {}, item.why.en), faP(item.why.fa));
+      }
+      card.classList.add(ok ? 'right' : 'wrong');
+      card.append(fb);
+      if (ok) right++;
+    });
+
+    patch(_current, (x) => { x.checked[group] = true; x.score = x.score || {}; x.score[group] = right; });
+
+    const btn = body().querySelector('[data-check="' + group + '"]');
+    if (btn) {
+      btn.textContent = right + ' of ' + q.length + ' correct';
+      btn.classList.remove('ghost');
+    }
+    refreshScore();
+  }
+
+  function refreshScore() {
+    const badge = body().querySelector('.rdscore');
+    const s = doc.strategies.find((x) => x.id === _current);
+    if (!badge || !s) return;
+    const st = read()[_current] || {};
+    const sc = st.score || {};
+    const done = Object.keys(sc).length;
+    const right = Object.values(sc).reduce((a, b) => a + b, 0);
+    badge.textContent = done
+      ? right + ' of ' + (s.counts.blanks + s.counts.mcq + s.counts.truefalse) +
+        ' right · ' + done + ' of 3 checked'
+      : s.counts.blanks + s.counts.mcq + s.counts.truefalse + ' answerable questions';
+  }
+
+  /* ------------------------------------------------------------- detail -- */
+  function renderStrategy(id) {
+    const s = doc.strategies.find((x) => x.id === id);
+    const wrap = body();
+    wrap.replaceChildren();
+    if (!s) { renderList(); return; }
+    _current = id;
+    const st = state(id);
+    const n = doc.strategies.indexOf(s);
+
+    wrap.append(h('div', {class: 'rdbar'},
+      h('button', {type: 'button', class: 'rdback', onclick: () => { view = 'list'; renderList(); }},
+        '‹ All strategies'),
+      h('span', {class: 'rdscore'})));
+
+    wrap.append(h('div', {class: 'rdhero'},
+      h('h4', {}, h('span', {'aria-hidden': 'true'}, s.icon), s.title.en,
+        h('span', {class: 'lvl'}, s.level)),
+      faP(s.title.fa, 'rdhero-fa')));
+
+    /* what / why / steps */
+    const sec1 = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'What it is', fa('چیست')),
+      h('p', {class: 'rdp'}, s.what.en), faP(s.what.fa, 'rdp'));
+    const sec2 = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'Why it works', fa('چرا جواب می‌دهد')),
+      h('p', {class: 'rdp'}, s.why.en), faP(s.why.fa, 'rdp'));
+    const steps = h('ol', {class: 'rdsteps'});
+    s.steps.forEach((step, i) => {
+      steps.append(h('li', {},
+        h('span', {class: 'sn', 'aria-hidden': 'true'}, String(i + 1)),
+        h('span', {class: 'stx'},
+          h('span', {class: 'sen'}, step.en),
+          h('span', {class: 'sfa fa', dir: 'rtl', lang: 'fa'}, step.fa))));
+    });
+    const sec3 = h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'How to do it', fa('چطور انجامش بدهیم')), steps);
+
+    wrap.append(sec1, sec2, sec3);
+
+    /* the passage */
+    const psg = h('div', {class: 'rdpassage'},
+      h('div', {class: 'rdph'},
+        h('b', {}, s.reading.title.en),
+        fa(s.reading.title.fa, 'rdph-fa'),
+        h('span', {class: 'pill'}, s.reading.level + ' · ' + s.reading.words + ' words')));
+    if (s.reading.note && s.reading.note.en) {
+      psg.append(h('p', {class: 'rdnote'}, s.reading.note.en, ' ', fa(s.reading.note.fa)));
+    }
+    s.reading.paragraphs.forEach((p) => {
+      psg.append(h('p', {class: 'rdpara', dir: 'ltr', lang: 'en'}, p));
+    });
+    const sumBtn = h('button', {type: 'button', class: 'rdsumbtn'}, 'Show the Persian summary');
+    const sumBox = h('div', {class: 'rdsum', hidden: true},
+      h('div', {class: 'rdlabel'}, 'In short', fa('خلاصهٔ فارسی')),
+      h('p', {class: 'rdp'}, s.reading.summary.en),
+      faP(s.reading.summary.fa, 'rdp'));
+    sumBtn.addEventListener('click', () => {
+      sumBox.hidden = !sumBox.hidden;
+      sumBtn.textContent = sumBox.hidden ? 'Show the Persian summary' : 'Hide the summary';
+    });
+    psg.append(sumBtn, sumBox);
+    wrap.append(h('div', {class: 'rdsec'},
+      h('div', {class: 'rdlabel'}, 'Practice reading', fa('متن تمرین')), psg));
+
+    /* questions: blank, choice, true/false, writing */
+    const order = [
+      ['blanks', 'Fill in the blank', 'جای خالی', 'a word or phrase from the text'],
+      ['mcq', 'Multiple choice', 'چندگزینه‌ای', 'one right answer each'],
+      ['truefalse', 'True or false', 'درست یا غلط', 'say if it follows from the text'],
+      ['essay', 'Write about it', 'نوشتن', 'checked by you, against a model'],
+    ];
+    order.forEach(([group, title, titleFa, sub]) => {
+      const sec = h('div', {class: 'rdsec', 'data-group': group});
+      const head = h('div', {class: 'rdqhead'},
+        h('b', {}, title), fa(titleFa),
+        h('span', {class: 'n'}, s.questions[group].length + ' · ' + sub));
+      sec.append(head);
+      const list = h('div', {class: 'rdq'});
+      s.questions[group].forEach((item, i) => {
+        let card;
+        if (group === 'blanks') card = blankItem(s, item, i, st);
+        else if (group === 'mcq') card = mcqItem(item, i, st);
+        else if (group === 'truefalse') card = tfItem(item, i, st);
+        else card = essayItem(s, item, i, st);
+        list.append(card);
+      });
+      sec.append(list);
+
+      if (group !== 'essay') {
+        const btn = h('button', {
+          type: 'button', class: 'rdgo ghost', 'data-check': group,
+          onclick: () => check(group),
+        }, 'Check these answers');
+        sec.append(h('div', {style: 'margin-top:9px'}, btn));
+        if (st.checked && st.checked[group]) {
+          /* repaint in the checked state without re-running the marking twice */
+          setTimeout(() => check(group), 0);
+        }
+      }
+      wrap.append(sec);
+    });
+
+    wrap.append(h('div', {class: 'rdfoot'},
+      h('button', {type: 'button', class: 'rdgo ghost', onclick: () => {
+        patch(id, (x) => { x.picks = {}; x.checked = {}; x.essays = {}; x.models = {}; x.score = {}; });
+        renderStrategy(id);
+      }}, 'Reset this practice'),
+      n < doc.strategies.length - 1
+        ? h('button', {type: 'button', class: 'rdgo', onclick: () => open(doc.strategies[n + 1].id)},
+            'Next: ' + doc.strategies[n + 1].title.en + ' ›')
+        : h('button', {type: 'button', class: 'rdgo', onclick: () => { view = 'list'; renderList(); }},
+            'Back to the list')));
+
+    refreshScore();
+  }
+
+  function open(id) {
+    view = id;
+    renderStrategy(id);
+    const panel = document.getElementById('rdpanel');
+    if (panel) panel.scrollTop = 0;
+  }
+
+  /* --------------------------------------------------------------- public -- */
+  async function load() {
+    if (doc) return doc;
+    if (!pending) {
+      pending = loadJSON('reading').then((d) => {
+        doc = d;
+        return d;
+      });
+    }
+    return pending;
+  }
+
+  async function mount() {
+    const wrap = body();
+    if (!wrap || wrap.dataset.ready) { if (doc) view === 'list' ? renderList() : renderStrategy(view); return; }
+    wrap.replaceChildren(h('div', {class: 'rdintro'}, 'Loading the strategies…'));
+    try {
+      await load();
+      wrap.dataset.ready = '1';
+      view === 'list' ? renderList() : renderStrategy(view);
+    } catch (e) {
+      wrap.replaceChildren(h('div', {class: 'rderr'},
+        'The reading strategies could not be read. ',
+        fa('راهبردهای خواندن خوانده نشد.')));
+    }
+  }
+
+  return {mount, load, open, renderList};
+})();
+
 /* only one panel open at a time; the active header button is highlighted */
 function togglePanel(panelId, btnId) {
   // All of the book-keeping - the open class, the tile, aria-expanded, focus -
@@ -6293,6 +7052,8 @@ const PANEL_ON_OPEN = {
   // the library loads its catalogue on first open, then remembers where the
   // reader was, so reopening the panel does not walk them back to the shelf
   bpanel: () => Books.load(),
+  // six strategies and their questions, 83 KB, read on the first open
+  rdpanel: () => Reading.mount(),
 };
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
@@ -6302,6 +7063,7 @@ document.getElementById('ftoggle').onclick = () => togglePanel('fpanel', 'ftoggl
 document.getElementById('ltoggle').onclick = () => togglePanel('lpanel', 'ltoggle');
 document.getElementById('phtoggle').onclick = () => togglePanel('phpanel', 'phtoggle');
 document.getElementById('btoggle').onclick = () => togglePanel('bpanel', 'btoggle');
+document.getElementById('rdtoggle').onclick = () => togglePanel('rdpanel', 'rdtoggle');
 document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
 
 /* ============================================================================
@@ -8087,6 +8849,16 @@ const SECTIONS = {
     panel: 'bpanel', btn: 'btoggle', en: 'Books', fa: 'کتاب‌ها', icon: '📚',
     kw: ['books', 'book', 'library', '504', 'essential words', 'lesson', 'lessons',
          'کتاب', 'کتاب‌ها', 'کتابخانه', 'درس', 'دروس', '۵۰۴'],
+  },
+  reading: {
+    panel: 'rdpanel', btn: 'rdtoggle', en: 'Reading', fa: 'خواندن', icon: '📖',
+    // "reading strategy", "skim", "scan" and "inference" are what a learner
+    // actually types, so the panel opens on the strategy rather than on an
+    // empty list. The Persian words are the ones the lessons use.
+    kw: ['reading', 'read', 'reading strategies', 'reading strategy',
+         'comprehension', 'skim', 'skimming', 'scan', 'scanning', 'inference',
+         'خواندن', 'مهارت خواندن', 'راهبرد خواندن',
+         'درک مطلب', 'سرمه‌کشی', 'اسکن', 'استنتاج'],
   },
   phonetics: {
     panel: 'phpanel', btn: 'phtoggle', en: 'Phonetics', fa: 'تلفظ', icon: '🗣',
