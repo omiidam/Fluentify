@@ -113,6 +113,7 @@ SUITES = [
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
+    ("mini stories panel", [sys.executable, "tools/check_stories.py"]),
     ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
     ("informal sentence bank", [sys.executable, "tools/check_informal.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),

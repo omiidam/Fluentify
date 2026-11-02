@@ -38,6 +38,9 @@ LAZY_DATA = [
     # the Reading panel's strategies, passage and answer keys: read when the
     # panel opens, like the library
     "reading.json",
+    # Mini stories: the story, its Persian and its answer keys, read when the
+    # panel opens
+    "stories.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")

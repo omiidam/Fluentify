@@ -1,0 +1,3122 @@
+{
+ "version": 1,
+ "credit": {
+  "en": "English stories: graded retellings by Nathan Schaumann (graded-readers, CC BY 4.0). Persian, notes and questions: Fluentify.",
+  "fa": "داستان‌های انگلیسی: بازنویسی ساده‌شده از نیتن شومان (graded-readers، مجوز CC BY 4.0). فارسی، توضیح‌ها و پرسش‌ها: فلوئنتیفای.",
+  "url": "https://github.com/nathanschaumann/graded-readers"
+ },
+ "levels": [
+  {
+   "id": "VE",
+   "name": {
+    "en": "Very easy",
+    "fa": "خیلی آسان"
+   },
+   "words": "150–400"
+  },
+  {
+   "id": "E",
+   "name": {
+    "en": "Easy",
+    "fa": "آسان"
+   },
+   "words": "400–700"
+  },
+  {
+   "id": "M",
+   "name": {
+    "en": "Medium",
+    "fa": "متوسط"
+   },
+   "words": "700–1200"
+  }
+ ],
+ "totals": {
+  "stories": 5,
+  "words": 1966,
+  "questions": 65,
+  "sentences": 266
+ },
+ "stories": [
+  {
+   "id": "princess_and_the_pea",
+   "title": {
+    "en": "The Princess and the Pea",
+    "fa": "شاهزاده و نخود"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "A prince wants a real princess. One rainy night, a girl knocks at the gate.",
+    "fa": "شاهزاده‌ای دنبال شاهزاده‌ای واقعی است. یک شب بارانی، دختری درِ قلعه را می‌زند."
+   },
+   "words": 98,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "The Princess in the Storm",
+      "fa": "شاهزاده در طوفان"
+     },
+     "pairs": [
+      {
+       "en": "A prince wanted to marry a real princess.",
+       "fa": "شاهزاده‌ای می‌خواست با یک شاهزادهٔ واقعی ازدواج کند."
+      },
+      {
+       "en": "He looked in every castle for a princess.",
+       "fa": "در هر قلعه‌ای دنبال شاهزاده گشت."
+      },
+      {
+       "en": "But he never found anyone.",
+       "fa": "اما هیچ‌کس را پیدا نکرد."
+      },
+      {
+       "en": "One night, a storm came to the castle.",
+       "fa": "یک شب، طوفانی به قلعه رسید."
+      },
+      {
+       "en": "Someone knocked at the castle gate in the rain.",
+       "fa": "کسی در باران به دروازهٔ قلعه کوبید."
+      },
+      {
+       "en": "A girl stood outside in the storm.",
+       "fa": "دختری در طوفان بیرون ایستاده بود."
+      },
+      {
+       "en": "\"I am a real princess,\" the girl said.",
+       "fa": "دختر گفت: «من یک شاهزادهٔ واقعی هستم.»"
+      },
+      {
+       "en": "The queen put a pea under twenty beds.",
+       "fa": "ملکه یک نخود زیر بیست تشک گذاشت."
+      },
+      {
+       "en": "That night, the girl lay on all the beds.",
+       "fa": "آن شب دختر روی همهٔ تشک‌ها خوابید."
+      },
+      {
+       "en": "She felt a hard pea under her all night.",
+       "fa": "تمام شب نخودی سخت را زیر خود حس می‌کرد."
+      },
+      {
+       "en": "\"I did not sleep at all,\" the princess said.",
+       "fa": "شاهزاده گفت: «اصلاً نخوابیدم.»"
+      },
+      {
+       "en": "So the prince married the real princess the next day.",
+       "fa": "پس شاهزاده روز بعد با آن شاهزادهٔ واقعی ازدواج کرد."
+      }
+     ]
+    }
+   ],
+   "text": "A prince wanted to marry a real princess. He looked in every castle for a princess. But he never found anyone. One night, a storm came to the castle. Someone knocked at the castle gate in the rain. A girl stood outside in the storm. \"I am a real princess,\" the girl said. The queen put a pea under twenty beds. That night, the girl lay on all the beds. She felt a hard pea under her all night. \"I did not sleep at all,\" the princess said. So the prince married the real princess the next day.",
+   "vocab": [
+    {
+     "word": "prince",
+     "pos": "n.",
+     "meaning": {
+      "en": "the son of a king",
+      "fa": "پسر پادشاه"
+     },
+     "example": "A prince wanted to marry a real princess.",
+     "exampleFa": "شاهزاده‌ای می‌خواست با شاهزاده‌ای واقعی ازدواج کند."
+    },
+    {
+     "word": "marry",
+     "pos": "v.",
+     "meaning": {
+      "en": "to become husband and wife",
+      "fa": "ازدواج کردن"
+     },
+     "example": "So the prince married the real princess.",
+     "exampleFa": "پس شاهزاده با شاهزادهٔ واقعی ازدواج کرد."
+    },
+    {
+     "word": "storm",
+     "pos": "n.",
+     "meaning": {
+      "en": "very bad weather with wind and rain",
+      "fa": "طوفان"
+     },
+     "example": "One night, a storm came to the castle.",
+     "exampleFa": "یک شب طوفانی به قلعه رسید."
+    },
+    {
+     "word": "gate",
+     "pos": "n.",
+     "meaning": {
+      "en": "the door in a wall around a castle",
+      "fa": "دروازه"
+     },
+     "example": "Someone knocked at the castle gate in the rain.",
+     "exampleFa": "کسی در باران به دروازهٔ قلعه کوبید."
+    },
+    {
+     "word": "pea",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small round green seed you eat",
+      "fa": "نخود"
+     },
+     "example": "The queen put a pea under twenty beds.",
+     "exampleFa": "ملکه یک نخود زیر بیست تشک گذاشت."
+    },
+    {
+     "word": "real",
+     "pos": "adj.",
+     "meaning": {
+      "en": "true, not pretend",
+      "fa": "واقعی"
+     },
+     "example": "I am a real princess.",
+     "exampleFa": "من یک شاهزادهٔ واقعی هستم."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "knock at the gate",
+     "meaning": {
+      "en": "hit the door to ask someone to open it",
+      "fa": "در زدن برای اینکه کسی در را باز کند"
+     },
+     "example": "Someone knocked at the castle gate.",
+     "exampleFa": "کسی به دروازهٔ قلعه کوبید."
+    },
+    {
+     "phrase": "in the rain",
+     "meaning": {
+      "en": "while it is raining",
+      "fa": "زیر باران"
+     },
+     "example": "The girl stood outside in the rain.",
+     "exampleFa": "دختر بیرون زیر باران ایستاده بود."
+    },
+    {
+     "phrase": "all night",
+     "meaning": {
+      "en": "for the whole night",
+      "fa": "تمام شب"
+     },
+     "example": "She felt the pea under her all night.",
+     "exampleFa": "تمام شب نخود را زیر خود حس می‌کرد."
+    },
+    {
+     "phrase": "not ... at all",
+     "meaning": {
+      "en": "not even a little; used to say no strongly",
+      "fa": "اصلاً؛ برای تأکید منفی"
+     },
+     "example": "I did not sleep at all.",
+     "exampleFa": "اصلاً نخوابیدم."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "Past simple",
+      "fa": "گذشتهٔ ساده"
+     },
+     "example": "A prince wanted to marry a real princess.",
+     "note": {
+      "en": "Finished actions in a story use the past: want → wanted, look → looked, marry → married.",
+      "fa": "کارهای تمام‌شده در داستان با گذشتهٔ ساده می‌آیند: want → wanted و marry → married."
+     }
+    },
+    {
+     "name": {
+      "en": "Direct speech",
+      "fa": "نقل قول مستقیم"
+     },
+     "example": "\"I am a real princess,\" the girl said.",
+     "note": {
+      "en": "The exact words go inside quotation marks, and the person who spoke comes after the comma.",
+      "fa": "جملهٔ دقیقِ گوینده داخل گیومه می‌آید و نام گوینده بعد از ویرگول قرار می‌گیرد."
+     }
+    },
+    {
+     "name": {
+      "en": "So + result",
+      "fa": "so برای نتیجه"
+     },
+     "example": "So the prince married the real princess the next day.",
+     "note": {
+      "en": "'So' introduces what happened because of everything before it: she felt the pea, so he married her.",
+      "fa": "«so» نتیجهٔ اتفاق‌های قبلی را می‌آورد: نخود را حس کرد، پس با او ازدواج کرد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What did the prince want?",
+       "fa": "شاهزاده چه می‌خواست؟"
+      },
+      "options": [
+       "A big castle",
+       "A real princess",
+       "Twenty beds",
+       "A pea"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The first sentence says he wanted to marry a real princess.",
+       "fa": "جملهٔ اول می‌گوید می‌خواست با شاهزاده‌ای واقعی ازدواج کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why did the girl come to the castle?",
+       "fa": "دختر چرا به قلعه آمد؟"
+      },
+      "options": [
+       "She was looking for work.",
+       "She was lost in the storm.",
+       "She said she was a real princess.",
+       "She wanted the pea."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "She stood in the rain and told them she was a real princess.",
+       "fa": "زیر باران ایستاد و گفت شاهزادهٔ واقعی است."
+      }
+     },
+     {
+      "q": {
+       "en": "Where did the queen put the pea?",
+       "fa": "ملکه نخود را کجا گذاشت؟"
+      },
+      "options": [
+       "Under twenty beds",
+       "In the garden",
+       "On the gate",
+       "In the bread"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "'The queen put a pea under twenty beds.'",
+       "fa": "«ملکه یک نخود زیر بیست تشک گذاشت.»"
+      }
+     },
+     {
+      "q": {
+       "en": "How was the test a success?",
+       "fa": "چرا این آزمایش جواب داد؟"
+      },
+      "options": [
+       "The girl found the pea and laughed.",
+       "The girl slept well all night.",
+       "The girl felt the pea and could not sleep.",
+       "The queen slept on the beds."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "A real princess is so delicate that a pea under twenty beds keeps her awake.",
+       "fa": "شاهزادهٔ واقعی آن‌قدر نازک‌طبع است که نخودی زیر بیست تشک بیدارش نگه می‌دارد."
+      }
+     },
+     {
+      "q": {
+       "en": "What happened at the end?",
+       "fa": "در پایان چه شد؟"
+      },
+      "options": [
+       "The prince sent the girl away.",
+       "The prince married the girl.",
+       "The queen married the prince.",
+       "The girl went home in the storm."
+      ],
+      "answer": 1,
+      "why": {
+       "en": "'So the prince married the real princess the next day.'",
+       "fa": "«پس شاهزاده روز بعد با شاهزادهٔ واقعی ازدواج کرد.»"
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The prince found a princess easily.",
+       "fa": "شاهزاده به‌راحتی شاهزاده‌ای پیدا کرد."
+      },
+      "answer": false,
+      "why": {
+       "en": "He looked in every castle but never found anyone.",
+       "fa": "در هر قلعه‌ای گشت اما هیچ‌کس را پیدا نکرد."
+      }
+     },
+     {
+      "q": {
+       "en": "The girl arrived during a storm.",
+       "fa": "دختر هنگام طوفان رسید."
+      },
+      "answer": true,
+      "why": {
+       "en": "'A storm came to the castle' and she knocked in the rain.",
+       "fa": "«طوفانی به قلعه رسید» و او زیر باران در زد."
+      }
+     },
+     {
+      "q": {
+       "en": "The girl slept well on the beds.",
+       "fa": "دختر روی تشک‌ها خوب خوابید."
+      },
+      "answer": false,
+      "why": {
+       "en": "She said she did not sleep at all because of the pea.",
+       "fa": "گفت به‌خاطر نخود اصلاً نخوابید."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The queen put a ___ under twenty beds.",
+      "answer": "pea",
+      "hint": {
+       "en": "The small round vegetable that gave the story its name.",
+       "fa": "همان سبزی کوچک و گردی که نام داستان از آن آمده."
+      }
+     },
+     {
+      "sentence": "Someone knocked at the castle ___ in the rain.",
+      "answer": "gate",
+      "hint": {
+       "en": "The door in the wall around a castle.",
+       "fa": "درِ داخل دیوار قلعه."
+      }
+     },
+     {
+      "sentence": "So the prince ___ the real princess the next day.",
+      "answer": "married",
+      "hint": {
+       "en": "Past simple of the verb that means becoming husband and wife.",
+       "fa": "گذشتهٔ سادهٔ فعل ازدواج کردن."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why did the queen hide a pea under the beds?",
+       "fa": "چرا ملکه نخودی زیر تشک‌ها پنهان کرد؟"
+      },
+      "model": {
+       "en": "She wanted to test the girl. Only a real princess would feel a pea under twenty beds and lose her sleep, so the pea was a question the girl had to answer with her body.",
+       "fa": "می‌خواست دختر را بیازماید. فقط شاهزادهٔ واقعی نخودی زیر بیست تشک را حس می‌کرد و خوابش نمی‌برد؛ پس نخود پرسشی بود که دختر باید با تن خود پاسخش را می‌داد."
+      },
+      "tip": {
+       "en": "Say what the queen was testing, and what the answer proved.",
+       "fa": "بگو ملکه چه چیزی را می‌آزمود و پاسخ چه چیزی را ثابت کرد."
+      }
+     },
+     {
+      "q": {
+       "en": "Is a pea a good test of being a princess? Why?",
+       "fa": "آیا نخود آزمایش خوبی برای شاهزاده بودن است؟ چرا؟"
+      },
+      "model": {
+       "en": "It is a clever story, not a fair test. Everybody feels a pea under twenty beds, princess or not; the story only works because we agree that being delicate means being royal.",
+       "fa": "این یک داستان هوشمندانه است، نه آزمایش منصفانه. هر کسی زیر بیست تشک نخود را حس می‌کند، شاهزاده باشد یا نه؛ داستان فقط وقتی کار می‌کند که بپذیریم نازک‌طبعی یعنی شاهزاده بودن."
+      },
+      "tip": {
+       "en": "Give your opinion, then one reason from the story.",
+       "fa": "نظرت را بگو و یک دلیل از خود داستان بیاور."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "little_red_hen",
+   "title": {
+    "en": "The Little Red Hen",
+    "fa": "مرغ سرخ کوچک"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "A hen asks for help to make bread. Nobody helps, and the bread smells very good.",
+    "fa": "مرغی برای پختن نان کمک می‌خواهد. هیچ‌کس کمک نمی‌کند و بوی نان خیلی خوب است."
+   },
+   "words": 413,
+   "minutes": 2,
+   "sentences": 56,
+   "chapters": [
+    {
+     "title": {
+      "en": "Seeds in the Farmyard",
+      "fa": "دانه‌ها در حیاط مزرعه"
+     },
+     "pairs": [
+      {
+       "en": "A little red hen lived in a small farmyard.",
+       "fa": "مرغ سرخ کوچکی در حیاط مزرعهٔ کوچکی زندگی می‌کرد."
+      },
+      {
+       "en": "She lived there with her chicks.",
+       "fa": "با جوجه‌هایش آنجا زندگی می‌کرد."
+      },
+      {
+       "en": "The chicks were too small to work.",
+       "fa": "جوجه‌ها برای کار کردن خیلی کوچک بودند."
+      },
+      {
+       "en": "A cat, a dog, and a pig lived nearby.",
+       "fa": "یک گربه، یک سگ و یک خوک نزدیک آنجا زندگی می‌کردند."
+      },
+      {
+       "en": "The hen wanted fresh bread for her hungry chicks.",
+       "fa": "مرغ برای جوجه‌های گرسنه‌اش نان تازه می‌خواست."
+      },
+      {
+       "en": "One day, she found wheat seeds on the ground.",
+       "fa": "یک روز دانه‌های گندم را روی زمین پیدا کرد."
+      },
+      {
+       "en": "\"Who will help me plant the wheat?\" she asked.",
+       "fa": "پرسید: «چه کسی کمکم می‌کند گندم بکارم؟»"
+      },
+      {
+       "en": "\"Not I,\" said the cat.",
+       "fa": "گربه گفت: «من نه.»"
+      },
+      {
+       "en": "\"Not I,\" said the dog.",
+       "fa": "سگ گفت: «من نه.»"
+      },
+      {
+       "en": "\"Not I,\" said the pig.",
+       "fa": "خوک گفت: «من نه.»"
+      },
+      {
+       "en": "\"Then I will plant it myself,\" said the hen.",
+       "fa": "مرغ گفت: «پس خودم می‌کارم.»"
+      },
+      {
+       "en": "So she planted the wheat in a small field.",
+       "fa": "پس گندم را در زمین کوچکی کاشت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Wheat Grows Tall",
+      "fa": "گندم بلند می‌شود"
+     },
+     "pairs": [
+      {
+       "en": "Sun and rain fell on the small field every day.",
+       "fa": "هر روز آفتاب و باران بر زمین کوچک می‌بارید."
+      },
+      {
+       "en": "The hen pulled the weeds herself.",
+       "fa": "مرغ خودش علف‌های هرز را می‌کند."
+      },
+      {
+       "en": "The wheat grew tall in the sun.",
+       "fa": "گندم زیر آفتاب بلند شد."
+      },
+      {
+       "en": "Soon the wheat turned a golden color.",
+       "fa": "به‌زودی گندم رنگ طلایی گرفت."
+      },
+      {
+       "en": "The hen looked at the tall wheat.",
+       "fa": "مرغ به گندم بلند نگاه کرد."
+      },
+      {
+       "en": "\"The wheat is ready to cut,\" she said.",
+       "fa": "گفت: «گندم برای درو کردن آماده است.»"
+      },
+      {
+       "en": "\"Who will help me cut the wheat?\" she asked.",
+       "fa": "پرسید: «چه کسی کمکم می‌کند گندم را درو کنم؟»"
+      },
+      {
+       "en": "\"Not I,\" said the dog.",
+       "fa": "سگ گفت: «من نه.»"
+      },
+      {
+       "en": "\"Not I,\" said the pig.",
+       "fa": "خوک گفت: «من نه.»"
+      },
+      {
+       "en": "\"Not I,\" said the cat.",
+       "fa": "گربه گفت: «من نه.»"
+      },
+      {
+       "en": "\"Then I will cut it myself,\" she said.",
+       "fa": "گفت: «پس خودم درو می‌کنم.»"
+      },
+      {
+       "en": "The hen cut the wheat alone.",
+       "fa": "مرغ تنها گندم را درو کرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Grinding the Flour",
+      "fa": "آرد کردن"
+     },
+     "pairs": [
+      {
+       "en": "The cut wheat lay in a big pile.",
+       "fa": "گندم دروشده در تودهٔ بزرگی افتاده بود."
+      },
+      {
+       "en": "The hen wanted to grind it into flour.",
+       "fa": "مرغ می‌خواست آن را آرد کند."
+      },
+      {
+       "en": "\"Who will help me grind the wheat?\" she asked.",
+       "fa": "پرسید: «چه کسی کمکم می‌کند گندم را آرد کنم؟»"
+      },
+      {
+       "en": "She looked at the cat, dog, and pig.",
+       "fa": "به گربه و سگ و خوک نگاه کرد."
+      },
+      {
+       "en": "\"Not I,\" they all said.",
+       "fa": "همه گفتند: «من نه.»"
+      },
+      {
+       "en": "\"Then I will grind it myself,\" said the hen.",
+       "fa": "مرغ گفت: «پس خودم آرد می‌کنم.»"
+      },
+      {
+       "en": "The hen had to grind the wheat alone.",
+       "fa": "مرغ مجبور شد تنها گندم را آرد کند."
+      },
+      {
+       "en": "Soon the wheat became white flour.",
+       "fa": "به‌زودی گندم آرد سفید شد."
+      },
+      {
+       "en": "The hen put the flour into a bag.",
+       "fa": "مرغ آرد را در کیسه‌ای ریخت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Baking the Bread",
+      "fa": "پختن نان"
+     },
+     "pairs": [
+      {
+       "en": "The hen mixed the flour with water.",
+       "fa": "مرغ آرد را با آب مخلوط کرد."
+      },
+      {
+       "en": "She made a soft dough.",
+       "fa": "خمیر نرمی درست کرد."
+      },
+      {
+       "en": "\"Who will help me bake the bread?\" she asked.",
+       "fa": "پرسید: «چه کسی کمکم می‌کند نان بپزم؟»"
+      },
+      {
+       "en": "\"Not I,\" said the pig.",
+       "fa": "خوک گفت: «من نه.»"
+      },
+      {
+       "en": "\"Not I,\" said the cat.",
+       "fa": "گربه گفت: «من نه.»"
+      },
+      {
+       "en": "\"Not I,\" said the dog.",
+       "fa": "سگ گفت: «من نه.»"
+      },
+      {
+       "en": "\"Then I will bake it myself,\" she said.",
+       "fa": "گفت: «پس خودم می‌پزم.»"
+      },
+      {
+       "en": "The hen had to bake the bread alone.",
+       "fa": "مرغ مجبور شد تنها نان بپزد."
+      },
+      {
+       "en": "She put the dough into a hot oven.",
+       "fa": "خمیر را در تنور داغ گذاشت."
+      },
+      {
+       "en": "Soon a warm smell filled the small house.",
+       "fa": "به‌زودی بوی گرمی خانهٔ کوچک را پر کرد."
+      },
+      {
+       "en": "The cat, dog, and pig smelled it from far away.",
+       "fa": "گربه و سگ و خوک از دور بوی آن را حس کردند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Who Will Eat It?",
+      "fa": "چه کسی آن را می‌خورد؟"
+     },
+     "pairs": [
+      {
+       "en": "The cat, dog, and pig came to the house.",
+       "fa": "گربه و سگ و خوک به خانه آمدند."
+      },
+      {
+       "en": "\"That smells so good,\" said the cat.",
+       "fa": "گربه گفت: «چه بوی خوبی دارد.»"
+      },
+      {
+       "en": "\"Who will eat this bread?\" asked the hen.",
+       "fa": "مرغ پرسید: «چه کسی این نان را می‌خورد؟»"
+      },
+      {
+       "en": "\"Give it to me!\" said the cat.",
+       "fa": "گربه گفت: «به من بده!»"
+      },
+      {
+       "en": "\"I want some too!\" said the dog.",
+       "fa": "سگ گفت: «من هم می‌خواهم!»"
+      },
+      {
+       "en": "\"Share it with us!\" said the pig.",
+       "fa": "خوک گفت: «با ما قسمت کن!»"
+      },
+      {
+       "en": "\"You did not help me,\" said the hen.",
+       "fa": "مرغ گفت: «شما کمکم نکردید.»"
+      },
+      {
+       "en": "\"My chicks and I will eat it,\" she said.",
+       "fa": "گفت: «من و جوجه‌هایم آن را می‌خوریم.»"
+      },
+      {
+       "en": "So the hen ate the warm bread with her chicks.",
+       "fa": "پس مرغ نان گرم را با جوجه‌هایش خورد."
+      },
+      {
+       "en": "The bread tasted sweet.",
+       "fa": "نان شیرین بود."
+      },
+      {
+       "en": "The chicks pecked every crumb from the plate.",
+       "fa": "جوجه‌ها هر خرده‌ای را از بشقاب برداشتند."
+      },
+      {
+       "en": "The cat, dog, and pig walked away hungry.",
+       "fa": "گربه و سگ و خوک گرسنه راهشان را کشیدند و رفتند."
+      }
+     ]
+    }
+   ],
+   "text": "A little red hen lived in a small farmyard. She lived there with her chicks. The chicks were too small to work. A cat, a dog, and a pig lived nearby. The hen wanted fresh bread for her hungry chicks. One day, she found wheat seeds on the ground. \"Who will help me plant the wheat?\" she asked. \"Not I,\" said the cat. \"Not I,\" said the dog. \"Not I,\" said the pig. \"Then I will plant it myself,\" said the hen. So she planted the wheat in a small field. Sun and rain fell on the small field every day. The hen pulled the weeds herself. The wheat grew tall in the sun. Soon the wheat turned a golden color. The hen looked at the tall wheat. \"The wheat is ready to cut,\" she said. \"Who will help me cut the wheat?\" she asked. \"Not I,\" said the dog. \"Not I,\" said the pig. \"Not I,\" said the cat. \"Then I will cut it myself,\" she said. The hen cut the wheat alone. The cut wheat lay in a big pile. The hen wanted to grind it into flour. \"Who will help me grind the wheat?\" she asked. She looked at the cat, dog, and pig. \"Not I,\" they all said. \"Then I will grind it myself,\" said the hen. The hen had to grind the wheat alone. Soon the wheat became white flour. The hen put the flour into a bag. The hen mixed the flour with water. She made a soft dough. \"Who will help me bake the bread?\" she asked. \"Not I,\" said the pig. \"Not I,\" said the cat. \"Not I,\" said the dog. \"Then I will bake it myself,\" she said. The hen had to bake the bread alone. She put the dough into a hot oven. Soon a warm smell filled the small house. The cat, dog, and pig smelled it from far away. The cat, dog, and pig came to the house. \"That smells so good,\" said the cat. \"Who will eat this bread?\" asked the hen. \"Give it to me!\" said the cat. \"I want some too!\" said the dog. \"Share it with us!\" said the pig. \"You did not help me,\" said the hen. \"My chicks and I will eat it,\" she said. So the hen ate the warm bread with her chicks. The bread tasted sweet. The chicks pecked every crumb from the plate. The cat, dog, and pig walked away hungry.",
+   "vocab": [
+    {
+     "word": "hen",
+     "pos": "n.",
+     "meaning": {
+      "en": "a female chicken",
+      "fa": "مرغ"
+     },
+     "example": "A little red hen lived in a small farmyard.",
+     "exampleFa": "مرغ سرخ کوچکی در حیاط مزرعهٔ کوچکی زندگی می‌کرد."
+    },
+    {
+     "word": "wheat",
+     "pos": "n.",
+     "meaning": {
+      "en": "the plant whose seeds make flour",
+      "fa": "گندم"
+     },
+     "example": "She planted the wheat in a small field.",
+     "exampleFa": "گندم را در زمین کوچکی کاشت."
+    },
+    {
+     "word": "seeds",
+     "pos": "n.",
+     "meaning": {
+      "en": "the small parts a plant grows from",
+      "fa": "دانه‌ها"
+     },
+     "example": "She found wheat seeds on the ground.",
+     "exampleFa": "دانه‌های گندم را روی زمین پیدا کرد."
+    },
+    {
+     "word": "grind",
+     "pos": "v.",
+     "meaning": {
+      "en": "to crush something into powder",
+      "fa": "آرد کردن، ساییدن"
+     },
+     "example": "Who will help me grind the wheat?",
+     "exampleFa": "چه کسی کمکم می‌کند گندم را آرد کنم؟"
+    },
+    {
+     "word": "flour",
+     "pos": "n.",
+     "meaning": {
+      "en": "the white powder made from wheat",
+      "fa": "آرد"
+     },
+     "example": "Soon the wheat became white flour.",
+     "exampleFa": "به‌زودی گندم آرد سفید شد."
+    },
+    {
+     "word": "dough",
+     "pos": "n.",
+     "meaning": {
+      "en": "the soft mixture before it is baked",
+      "fa": "خمیر"
+     },
+     "example": "She made a soft dough.",
+     "exampleFa": "خمیر نرمی درست کرد."
+    },
+    {
+     "word": "oven",
+     "pos": "n.",
+     "meaning": {
+      "en": "the hot box you bake in",
+      "fa": "تنور، فر"
+     },
+     "example": "She put the dough into a hot oven.",
+     "exampleFa": "خمیر را در تنور داغ گذاشت."
+    },
+    {
+     "word": "crumb",
+     "pos": "n.",
+     "meaning": {
+      "en": "a very small piece of bread",
+      "fa": "خردهٔ نان"
+     },
+     "example": "The chicks pecked every crumb from the plate.",
+     "exampleFa": "جوجه‌ها هر خرده‌ای را از بشقاب برداشتند."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "Not I",
+     "meaning": {
+      "en": "a short, old way of saying 'not me' when you refuse",
+      "fa": "«من نه»؛ راه کوتاه و قدیمی رد کردن"
+     },
+     "example": "\"Not I,\" said the dog.",
+     "exampleFa": "سگ گفت: «من نه.»"
+    },
+    {
+     "phrase": "have to",
+     "meaning": {
+      "en": "must, because there is no other way",
+      "fa": "مجبور بودن"
+     },
+     "example": "The hen had to bake the bread alone.",
+     "exampleFa": "مرغ مجبور شد تنها نان بپزد."
+    },
+    {
+     "phrase": "from far away",
+     "meaning": {
+      "en": "from a long distance",
+      "fa": "از دور"
+     },
+     "example": "The pig smelled it from far away.",
+     "exampleFa": "خوک از دور بوی آن را حس کرد."
+    },
+    {
+     "phrase": "walk away",
+     "meaning": {
+      "en": "to leave a place, often disappointed",
+      "fa": "دور شدن، رفتن"
+     },
+     "example": "The cat, dog, and pig walked away hungry.",
+     "exampleFa": "گربه و سگ و خوک گرسنه رفتند."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "too + adjective + to",
+      "fa": "too + صفت + to"
+     },
+     "example": "The chicks were too small to work.",
+     "note": {
+      "en": "'Too small to work' means so small that they could not work.",
+      "fa": "«too small to work» یعنی آن‌قدر کوچک که نمی‌توانستند کار کنند."
+     }
+    },
+    {
+     "name": {
+      "en": "will for a decision",
+      "fa": "will برای تصمیم"
+     },
+     "example": "Then I will plant it myself.",
+     "note": {
+      "en": "When nobody helps, the hen decides on the spot; 'will' introduces that decision.",
+      "fa": "وقتی کسی کمک نمی‌کند، مرغ همان‌جا تصمیم می‌گیرد؛ «will» آن تصمیم را نشان می‌دهد."
+     }
+    },
+    {
+     "name": {
+      "en": "Who will ...?",
+      "fa": "پرسش با Who will ...?"
+     },
+     "example": "Who will help me plant the wheat?",
+     "note": {
+      "en": "The question word comes first, then 'will', then the verb: we do not use 'do' with 'will'.",
+      "fa": "اول کلمهٔ پرسشی، بعد will و بعد فعل؛ با will از do استفاده نمی‌کنیم."
+     }
+    },
+    {
+     "name": {
+      "en": "Past simple, regular and irregular",
+      "fa": "گذشتهٔ سادهٔ باقاعده و بی‌قاعده"
+     },
+     "example": "She planted the wheat. The wheat grew tall.",
+     "note": {
+      "en": "Most verbs add -ed (plant → planted); some change shape (grow → grew, put → put).",
+      "fa": "بیشتر فعل‌ها -ed می‌گیرند (plant → planted) و بعضی شکل عوض می‌کنند (grow → grew)."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Who lived in the farmyard?",
+       "fa": "چه کسی در حیاط مزرعه زندگی می‌کرد؟"
+      },
+      "options": [
+       "A cat and a dog",
+       "A red hen and her chicks",
+       "A prince",
+       "A pig and his children"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The first two sentences place the hen there with her chicks.",
+       "fa": "دو جملهٔ اول مرغ و جوجه‌هایش را آنجا قرار می‌دهند."
+      }
+     },
+     {
+      "q": {
+       "en": "What did the hen find on the ground?",
+       "fa": "مرغ روی زمین چه پیدا کرد؟"
+      },
+      "options": [
+       "Bread",
+       "Flour",
+       "Wheat seeds",
+       "A bag"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "'One day, she found wheat seeds on the ground.'",
+       "fa": "«یک روز دانه‌های گندم را روی زمین پیدا کرد.»"
+      }
+     },
+     {
+      "q": {
+       "en": "What did the other animals say each time?",
+       "fa": "حیوان‌های دیگر هر بار چه گفتند؟"
+      },
+      "options": [
+       "They said they were too busy.",
+       "They said 'Not I.'",
+       "They said they would help later.",
+       "They said nothing."
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Each one answers with the same two words: 'Not I.'",
+       "fa": "هر کدام با همان دو کلمه جواب می‌دهند: «من نه.»"
+      }
+     },
+     {
+      "q": {
+       "en": "How did the hen get the bread?",
+       "fa": "مرغ نان را چطور به دست آورد؟"
+      },
+      "options": [
+       "She bought it at the market.",
+       "The cat baked it for her.",
+       "She did every step herself.",
+       "The farmer brought it."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "She planted, cut, ground and baked alone.",
+       "fa": "تنها کاشت، درو کرد، آرد کرد و پخت."
+      }
+     },
+     {
+      "q": {
+       "en": "Why did the animals get no bread?",
+       "fa": "چرا حیوان‌ها نان نگرفتند؟"
+      },
+      "options": [
+       "They had not helped to make it.",
+       "There was not enough bread.",
+       "They were not hungry.",
+       "The chicks ate it all quickly."
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The hen says 'You did not help me', so she and the chicks eat it.",
+       "fa": "مرغ می‌گوید «شما کمکم نکردید»، پس خودش و جوجه‌ها نان را می‌خورند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The chicks were old enough to help.",
+       "fa": "جوجه‌ها به‌قدر کافی بزرگ بودند که کمک کنند."
+      },
+      "answer": false,
+      "why": {
+       "en": "They were too small to work.",
+       "fa": "آن‌ها برای کار کردن خیلی کوچک بودند."
+      }
+     },
+     {
+      "q": {
+       "en": "The hen asked for help five times.",
+       "fa": "مرغ پنج بار کمک خواست."
+      },
+      "answer": true,
+      "why": {
+       "en": "She asks for help with planting, cutting, grinding and baking - and then asks who will eat.",
+       "fa": "برای کاشتن، درو کردن، آرد کردن و پختن کمک می‌خواهد و بعد می‌پرسد چه کسی نان را می‌خورد."
+      }
+     },
+     {
+      "q": {
+       "en": "The cat, dog, and pig ate some bread.",
+       "fa": "گربه و سگ و خوک کمی نان خوردند."
+      },
+      "answer": false,
+      "why": {
+       "en": "They walked away hungry while the hen ate with her chicks.",
+       "fa": "آن‌ها گرسنه رفتند و مرغ با جوجه‌هایش نان را خورد."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The chicks were too ___ to work.",
+      "answer": "small",
+      "hint": {
+       "en": "The opposite of big.",
+       "fa": "متضاد بزرگ."
+      }
+     },
+     {
+      "sentence": "Soon the wheat turned a ___ color.",
+      "answer": "golden",
+      "hint": {
+       "en": "The colour of ripe wheat in the sun.",
+       "fa": "رنگ گندم رسیده زیر آفتاب."
+      }
+     },
+     {
+      "sentence": "She put the dough into a hot ___.",
+      "answer": "oven",
+      "hint": {
+       "en": "Where bread is baked.",
+       "fa": "جایی که نان پخته می‌شود."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Was the hen right not to share the bread?",
+       "fa": "آیا مرغ درست کرد که نان را قسمت نکرد؟"
+      },
+      "model": {
+       "en": "Most readers say yes. The animals refused four times, and the hen did all the work alone, so the bread is the fair reward for her work. A kinder hen might have given them a small piece, but the story wants us to feel that helping matters.",
+       "fa": "بیشتر خواننده‌ها می‌گویند بله. حیوان‌ها چهار بار کمک را رد کردند و مرغ همهٔ کار را تنها انجام داد؛ پس نان پاداش منصفانهٔ کار اوست. مرغ مهربان‌تری شاید تکهٔ کوچکی می‌داد، اما داستان می‌خواهد ما حس کنیم که کمک کردن مهم است."
+      },
+      "tip": {
+       "en": "Answer yes or no in your first sentence, then give two reasons from the story.",
+       "fa": "در جملهٔ اول بله یا نه بگو، بعد دو دلیل از داستان بیاور."
+      }
+     },
+     {
+      "q": {
+       "en": "What lesson does this story teach about teamwork?",
+       "fa": "این داستان دربارهٔ کار گروهی چه درسی می‌دهد؟"
+      },
+      "model": {
+       "en": "It shows that people who share the work should share the result. The animals wanted the good smell without the planting, and the story says that is not how it works: help comes first, then the bread.",
+       "fa": "نشان می‌دهد کسانی که در کار شریک‌اند باید در نتیجه هم شریک باشند. حیوان‌ها بوی خوب را می‌خواستند بی‌آنکه در کاشتن کاری کرده باشند، و داستان می‌گوید این‌طور نیست: اول کمک، بعد نان."
+      },
+      "tip": {
+       "en": "Name the lesson in one sentence, then point at what the animals did and did not do.",
+       "fa": "درس را در یک جمله بگو، بعد نشان بده حیوان‌ها چه کردند و چه نکردند."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "elves_and_the_shoemaker",
+   "title": {
+    "en": "The Elves and the Shoemaker",
+    "fa": "جن‌ها و کفاش"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "A poor shoemaker leaves leather on the table and finds perfect shoes in the morning.",
+    "fa": "کفاش فقیری شب چرم را روی میز می‌گذارد و صبح کفش‌های بی‌عیب پیدا می‌کند."
+   },
+   "words": 420,
+   "minutes": 2,
+   "sentences": 52,
+   "chapters": [
+    {
+     "title": {
+      "en": "The Last Piece of Leather",
+      "fa": "آخرین تکهٔ چرم"
+     },
+     "pairs": [
+      {
+       "en": "A poor shoemaker had only one piece of leather.",
+       "fa": "کفاش فقیری فقط یک تکه چرم داشت."
+      },
+      {
+       "en": "He lived with his wife in a small shop.",
+       "fa": "او با همسرش در دکان کوچکی زندگی می‌کرد."
+      },
+      {
+       "en": "That evening, he cut the leather into shapes for shoes.",
+       "fa": "آن شب چرم را به شکل‌های کفش برید."
+      },
+      {
+       "en": "He left the pieces on the table.",
+       "fa": "تکه‌ها را روی میز گذاشت."
+      },
+      {
+       "en": "The shoemaker went to bed.",
+       "fa": "کفاش به رختخواب رفت."
+      },
+      {
+       "en": "In the morning, he came back to the shop.",
+       "fa": "صبح به دکان برگشت."
+      },
+      {
+       "en": "Two perfect shoes stood on the table.",
+       "fa": "دو کفش بی‌عیب روی میز ایستاده بود."
+      },
+      {
+       "en": "Soon a rich man came into the shop.",
+       "fa": "به‌زودی مرد ثروتمندی وارد دکان شد."
+      },
+      {
+       "en": "He tried on the shoes and loved them.",
+       "fa": "کفش‌ها را پوشید و خیلی دوستشان داشت."
+      },
+      {
+       "en": "He paid the shoemaker a lot of gold for them.",
+       "fa": "بابت آن‌ها پول زیادی طلا به کفاش داد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "More Shoes, More Gold",
+      "fa": "کفش بیشتر، طلا بیشتر"
+     },
+     "pairs": [
+      {
+       "en": "The shoemaker bought leather for two pairs of shoes.",
+       "fa": "کفاش برای دو جفت کفش چرم خرید."
+      },
+      {
+       "en": "That night, he cut the leather into shapes again.",
+       "fa": "آن شب دوباره چرم را به شکل کفش برید."
+      },
+      {
+       "en": "He left the pieces on the table.",
+       "fa": "تکه‌ها را روی میز گذاشت."
+      },
+      {
+       "en": "In the morning, two pairs of shoes stood there.",
+       "fa": "صبح دو جفت کفش آنجا ایستاده بود."
+      },
+      {
+       "en": "Two more customers came and bought them.",
+       "fa": "دو مشتری دیگر آمدند و آن‌ها را خریدند."
+      },
+      {
+       "en": "Soon the shoemaker had gold for leather for four pairs.",
+       "fa": "به‌زودی کفاش طلای کافی برای چرم چهار جفت را داشت."
+      },
+      {
+       "en": "Every night, he cut leather for more shoes.",
+       "fa": "هر شب برای کفش‌های بیشتری چرم می‌برید."
+      },
+      {
+       "en": "Every morning, shoes stood on the table.",
+       "fa": "هر صبح کفش‌ها روی میز بودند."
+      },
+      {
+       "en": "People came from other towns to buy his shoes.",
+       "fa": "مردم از شهرهای دیگر برای خرید کفش‌هایش می‌آمدند."
+      },
+      {
+       "en": "The shoemaker and his wife became rich from the shoes.",
+       "fa": "کفاش و همسرش از این کفش‌ها ثروتمند شدند."
+      },
+      {
+       "en": "But the shoemaker never saw who made the shoes.",
+       "fa": "اما کفاش هیچ‌وقت ندید چه کسی کفش‌ها را می‌سازد."
+      },
+      {
+       "en": "He wanted to know who helped him every night.",
+       "fa": "می‌خواست بداند هر شب چه کسی کمکش می‌کند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Two Little Elves",
+      "fa": "دو جن کوچک"
+     },
+     "pairs": [
+      {
+       "en": "\"Let us hide and know who helps us,\" he said.",
+       "fa": "گفت: «بیا پنهان شویم و بفهمیم چه کسی کمکمان می‌کند.»"
+      },
+      {
+       "en": "That night, he cut leather again.",
+       "fa": "آن شب دوباره چرم برید."
+      },
+      {
+       "en": "He left the pieces on the table.",
+       "fa": "تکه‌ها را روی میز گذاشت."
+      },
+      {
+       "en": "Then the shoemaker and his wife hid.",
+       "fa": "بعد کفاش و همسرش پنهان شدند."
+      },
+      {
+       "en": "They waited quietly for midnight.",
+       "fa": "آرام تا نیمه‌شب منتظر ماندند."
+      },
+      {
+       "en": "At midnight, two little elves ran into the shop.",
+       "fa": "نیمه‌شب دو جن کوچک به دکان دویدند."
+      },
+      {
+       "en": "The elves had no clothes on.",
+       "fa": "جن‌ها لباس نداشتند."
+      },
+      {
+       "en": "They climbed on the table.",
+       "fa": "روی میز بالا رفتند."
+      },
+      {
+       "en": "The elves cut and sewed the leather into shoes.",
+       "fa": "چرم را بریدند و به کفش دوختند."
+      },
+      {
+       "en": "Before the sun came up, the elves ran out.",
+       "fa": "پیش از طلوع آفتاب، جن‌ها بیرون دویدند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "A Gift for the Elves",
+      "fa": "هدیه‌ای برای جن‌ها"
+     },
+     "pairs": [
+      {
+       "en": "\"We must thank the two little elves,\" said the wife.",
+       "fa": "همسرش گفت: «باید از دو جن کوچک تشکر کنیم.»"
+      },
+      {
+       "en": "\"They have no clothes, even in the cold,\" she said.",
+       "fa": "گفت: «آن‌ها حتی در سرما لباس ندارند.»"
+      },
+      {
+       "en": "She took cloth and sewed tiny shirts and coats.",
+       "fa": "پارچه برداشت و پیراهن‌ها و کت‌های کوچک دوخت."
+      },
+      {
+       "en": "The shoemaker cut leather for two shoes to match.",
+       "fa": "کفاش چرم دو کفش جور آن‌ها برید."
+      },
+      {
+       "en": "That night, they put the clothes on the table.",
+       "fa": "آن شب لباس‌ها را روی میز گذاشتند."
+      },
+      {
+       "en": "They put the tiny shoes with the clothes.",
+       "fa": "کفش‌های کوچک را هم کنار لباس‌ها گذاشتند."
+      },
+      {
+       "en": "This time, they left no leather on the table.",
+       "fa": "این بار هیچ چرمی روی میز نگذاشتند."
+      },
+      {
+       "en": "Then the shoemaker and his wife hid and watched again.",
+       "fa": "بعد پنهان شدند و دوباره تماشا کردند."
+      },
+      {
+       "en": "They waited quietly for the elves to come.",
+       "fa": "آرام منتظر آمدن جن‌ها ماندند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Elves Dance Away",
+      "fa": "جن‌ها می‌رقصند و می‌روند"
+     },
+     "pairs": [
+      {
+       "en": "At midnight, the two elves ran into the shop.",
+       "fa": "نیمه‌شب دو جن به دکان دویدند."
+      },
+      {
+       "en": "But no leather was on the table.",
+       "fa": "اما هیچ چرمی روی میز نبود."
+      },
+      {
+       "en": "They saw tiny shirts, coats, and shoes.",
+       "fa": "پیراهن‌ها، کت‌ها و کفش‌های کوچک را دیدند."
+      },
+      {
+       "en": "The shoemaker and his wife watched.",
+       "fa": "کفاش و همسرش تماشا می‌کردند."
+      },
+      {
+       "en": "The elves put on the shirts and the coats.",
+       "fa": "جن‌ها پیراهن‌ها و کت‌ها را پوشیدند."
+      },
+      {
+       "en": "They put the shoes on.",
+       "fa": "کفش‌ها را پوشیدند."
+      },
+      {
+       "en": "The two elves laughed and danced around the room.",
+       "fa": "دو جن خندیدند و در اتاق رقصیدند."
+      },
+      {
+       "en": "They danced out the door.",
+       "fa": "رقص‌کنان از در بیرون رفتند."
+      },
+      {
+       "en": "The elves ran out and never came back.",
+       "fa": "جن‌ها رفتند و دیگر برنگشتند."
+      },
+      {
+       "en": "The shoemaker did not need help again.",
+       "fa": "کفاش دیگر به کمک نیاز نداشت."
+      },
+      {
+       "en": "He stayed rich and lived for many years.",
+       "fa": "ثروتمند ماند و سال‌ها زندگی کرد."
+      }
+     ]
+    }
+   ],
+   "text": "A poor shoemaker had only one piece of leather. He lived with his wife in a small shop. That evening, he cut the leather into shapes for shoes. He left the pieces on the table. The shoemaker went to bed. In the morning, he came back to the shop. Two perfect shoes stood on the table. Soon a rich man came into the shop. He tried on the shoes and loved them. He paid the shoemaker a lot of gold for them. The shoemaker bought leather for two pairs of shoes. That night, he cut the leather into shapes again. He left the pieces on the table. In the morning, two pairs of shoes stood there. Two more customers came and bought them. Soon the shoemaker had gold for leather for four pairs. Every night, he cut leather for more shoes. Every morning, shoes stood on the table. People came from other towns to buy his shoes. The shoemaker and his wife became rich from the shoes. But the shoemaker never saw who made the shoes. He wanted to know who helped him every night. \"Let us hide and know who helps us,\" he said. That night, he cut leather again. He left the pieces on the table. Then the shoemaker and his wife hid. They waited quietly for midnight. At midnight, two little elves ran into the shop. The elves had no clothes on. They climbed on the table. The elves cut and sewed the leather into shoes. Before the sun came up, the elves ran out. \"We must thank the two little elves,\" said the wife. \"They have no clothes, even in the cold,\" she said. She took cloth and sewed tiny shirts and coats. The shoemaker cut leather for two shoes to match. That night, they put the clothes on the table. They put the tiny shoes with the clothes. This time, they left no leather on the table. Then the shoemaker and his wife hid and watched again. They waited quietly for the elves to come. At midnight, the two elves ran into the shop. But no leather was on the table. They saw tiny shirts, coats, and shoes. The shoemaker and his wife watched. The elves put on the shirts and the coats. They put the shoes on. The two elves laughed and danced around the room. They danced out the door. The elves ran out and never came back. The shoemaker did not need help again. He stayed rich and lived for many years.",
+   "vocab": [
+    {
+     "word": "shoemaker",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who makes shoes",
+      "fa": "کفاش"
+     },
+     "example": "A poor shoemaker had only one piece of leather.",
+     "exampleFa": "کفاش فقیری فقط یک تکه چرم داشت."
+    },
+    {
+     "word": "leather",
+     "pos": "n.",
+     "meaning": {
+      "en": "the material shoes are made from",
+      "fa": "چرم"
+     },
+     "example": "He cut the leather into shapes for shoes.",
+     "exampleFa": "چرم را به شکل‌های کفش برید."
+    },
+    {
+     "word": "sew",
+     "pos": "v.",
+     "meaning": {
+      "en": "to join cloth with a needle and thread",
+      "fa": "دوختن"
+     },
+     "example": "The elves cut and sewed the leather into shoes.",
+     "exampleFa": "جن‌ها چرم را بریدند و به کفش دوختند."
+    },
+    {
+     "word": "elves",
+     "pos": "n.",
+     "meaning": {
+      "en": "small magical people (one elf, two elves)",
+      "fa": "جن‌ها"
+     },
+     "example": "Two little elves ran into the shop.",
+     "exampleFa": "دو جن کوچک به دکان دویدند."
+    },
+    {
+     "word": "rich",
+     "pos": "adj.",
+     "meaning": {
+      "en": "having a lot of money",
+      "fa": "ثروتمند"
+     },
+     "example": "The shoemaker and his wife became rich.",
+     "exampleFa": "کفاش و همسرش ثروتمند شدند."
+    },
+    {
+     "word": "customers",
+     "pos": "n.",
+     "meaning": {
+      "en": "people who buy from a shop",
+      "fa": "مشتری‌ها"
+     },
+     "example": "Two more customers came and bought them.",
+     "exampleFa": "دو مشتری دیگر آمدند و آن‌ها را خریدند."
+    },
+    {
+     "word": "midnight",
+     "pos": "n.",
+     "meaning": {
+      "en": "twelve o'clock at night",
+      "fa": "نیمه‌شب"
+     },
+     "example": "At midnight, two little elves ran into the shop.",
+     "exampleFa": "نیمه‌شب دو جن کوچک به دکان دویدند."
+    },
+    {
+     "word": "cloth",
+     "pos": "n.",
+     "meaning": {
+      "en": "material used to make clothes",
+      "fa": "پارچه"
+     },
+     "example": "She took cloth and sewed tiny shirts.",
+     "exampleFa": "پارچه برداشت و پیراهن‌های کوچک دوخت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "try on",
+     "meaning": {
+      "en": "put clothes on for a moment to see if they fit",
+      "fa": "پوشیدن برای امتحان کردن"
+     },
+     "example": "He tried on the shoes and loved them.",
+     "exampleFa": "کفش‌ها را پوشید و خیلی دوستشان داشت."
+    },
+    {
+     "phrase": "a lot of",
+     "meaning": {
+      "en": "much; a large amount",
+      "fa": "خیلی، مقدار زیاد"
+     },
+     "example": "He paid the shoemaker a lot of gold.",
+     "exampleFa": "پول زیادی طلا به کفاش داد."
+    },
+    {
+     "phrase": "come up",
+     "meaning": {
+      "en": "rise; used about the sun",
+      "fa": "طلوع کردن"
+     },
+     "example": "Before the sun came up, the elves ran out.",
+     "exampleFa": "پیش از طلوع آفتاب، جن‌ها بیرون دویدند."
+    },
+    {
+     "phrase": "never came back",
+     "meaning": {
+      "en": "did not return at any time",
+      "fa": "هرگز برنگشتند"
+     },
+     "example": "The elves ran out and never came back.",
+     "exampleFa": "جن‌ها رفتند و هرگز برنگشتند."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "Past simple, irregular verbs",
+      "fa": "گذشتهٔ سادهٔ فعل‌های بی‌قاعده"
+     },
+     "example": "He left the pieces on the table. Two shoes stood there.",
+     "note": {
+      "en": "Leave → left, stand → stood, buy → bought, see → saw. The story is told in the past, so these forms repeat.",
+      "fa": "leave → left، stand → stood، buy → bought و see → saw. داستان در گذشته روایت می‌شود، پس این شکل‌ها تکرار می‌شوند."
+     }
+    },
+    {
+     "name": {
+      "en": "Past habit with every",
+      "fa": "عادت گذشته با every"
+     },
+     "example": "Every night, he cut leather for more shoes.",
+     "note": {
+      "en": "'Every night' plus the past simple describes something done again and again in the past.",
+      "fa": "«every night» با گذشتهٔ ساده کاری را توصیف می‌کند که در گذشته بارها تکرار می‌شد."
+     }
+    },
+    {
+     "name": {
+      "en": "Embedded question",
+      "fa": "پرسش درون جمله"
+     },
+     "example": "He wanted to know who helped him every night.",
+     "note": {
+      "en": "After 'know', the question keeps statement order: who helped him, not who did he help.",
+      "fa": "بعد از know ترتیب جمله تغییر نمی‌کند: who helped him، نه who did he help."
+     }
+    },
+    {
+     "name": {
+      "en": "before + clause",
+      "fa": "before + جمله"
+     },
+     "example": "Before the sun came up, the elves ran out.",
+     "note": {
+      "en": "'Before' joins two past actions and says which one happened first.",
+      "fa": "«before» دو کار گذشته را به هم می‌بندد و می‌گوید کدام اول اتفاق افتاد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What did the shoemaker have at the start?",
+       "fa": "کفاش در آغاز چه داشت؟"
+      },
+      "options": [
+       "One piece of leather",
+       "Gold for four pairs of shoes",
+       "Two elves",
+       "A big shop"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The first sentence says he had only one piece of leather.",
+       "fa": "جملهٔ اول می‌گوید فقط یک تکه چرم داشت."
+      }
+     },
+     {
+      "q": {
+       "en": "What did he find in the morning?",
+       "fa": "صبح چه پیدا کرد؟"
+      },
+      "options": [
+       "His leather, cut badly",
+       "Two perfect shoes",
+       "A rich customer",
+       "A note from the elves"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "'Two perfect shoes stood on the table.'",
+       "fa": "«دو کفش بی‌عیب روی میز ایستاده بود.»"
+      }
+     },
+     {
+      "q": {
+       "en": "Who made the shoes?",
+       "fa": "چه کسی کفش‌ها را می‌ساخت؟"
+      },
+      "options": [
+       "The shoemaker's wife",
+       "A rich man",
+       "Two little elves with no clothes",
+       "The customers"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "When they hid, they saw two little elves sewing at midnight.",
+       "fa": "وقتی پنهان شدند، دو جن کوچک را دیدند که نیمه‌شب می‌دوختند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why did the wife sew tiny clothes?",
+       "fa": "همسر کفاش چرا لباس‌های کوچک دوخت؟"
+      },
+      "options": [
+       "To sell them for gold",
+       "To thank the elves",
+       "For her own children",
+       "To keep the elves away"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She says 'We must thank the two little elves'.",
+       "fa": "می‌گوید «باید از دو جن کوچک تشکر کنیم»."
+      }
+     },
+     {
+      "q": {
+       "en": "What happened after the elves got clothes?",
+       "fa": "بعد از اینکه جن‌ها لباس گرفتند چه شد؟"
+      },
+      "options": [
+       "They made more shoes than before.",
+       "They asked for gold.",
+       "They danced and never came back.",
+       "They moved into the shop."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They laughed, danced out the door, and never returned.",
+       "fa": "خندیدند، رقص‌کنان بیرون رفتند و دیگر برنگشتند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The shoemaker was rich at the beginning.",
+       "fa": "کفاش در آغاز ثروتمند بود."
+      },
+      "answer": false,
+      "why": {
+       "en": "He was poor and had only one piece of leather.",
+       "fa": "فقیر بود و فقط یک تکه چرم داشت."
+      }
+     },
+     {
+      "q": {
+       "en": "The elves worked at midnight.",
+       "fa": "جن‌ها نیمه‌شب کار می‌کردند."
+      },
+      "answer": true,
+      "why": {
+       "en": "'At midnight, two little elves ran into the shop.'",
+       "fa": "«نیمه‌شب دو جن کوچک به دکان دویدند.»"
+      }
+     },
+     {
+      "q": {
+       "en": "The elves came back the next night for more work.",
+       "fa": "جن‌ها شب بعد برای کار بیشتر برگشتند."
+      },
+      "answer": false,
+      "why": {
+       "en": "They danced out and never came back.",
+       "fa": "رقص‌کنان رفتند و هرگز برنگشتند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "A poor shoemaker had only one piece of ___.",
+      "answer": "leather",
+      "hint": {
+       "en": "The material shoes are made from.",
+       "fa": "ماده‌ای که کفش از آن ساخته می‌شود."
+      }
+     },
+     {
+      "sentence": "At midnight, two little ___ ran into the shop.",
+      "answer": "elves",
+      "hint": {
+       "en": "Small magical people, in the plural.",
+       "fa": "موجودهای جادویی کوچک، به‌صورت جمع."
+      }
+     },
+     {
+      "sentence": "They danced out the ___.",
+      "answer": "door",
+      "hint": {
+       "en": "Where you leave a room.",
+       "fa": "جایی که از اتاق بیرون می‌روی."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why did the elves leave for ever after the gift?",
+       "fa": "چرا جن‌ها بعد از هدیه برای همیشه رفتند؟"
+      },
+      "model": {
+       "en": "The story does not say. One reading is that they came only because they were cold and had nothing; once they had clothes they were free, so they danced and went home. Another is that the shoemaker no longer needed them, and the help was never meant to last.",
+       "fa": "داستان نمی‌گوید. یک خوانش این است که آن‌ها فقط چون سردشان بود و چیزی نداشتند می‌آمدند؛ وقتی لباس داشتند آزاد شدند، پس رقصیدند و رفتند. خوانش دیگر این است که کفاش دیگر به آن‌ها نیاز نداشت و این کمک قرار نبود همیشگی باشد."
+      },
+      "tip": {
+       "en": "Say what the story shows, then offer one explanation of your own.",
+       "fa": "بگو داستان چه نشان می‌دهد، بعد یک توضیح از خودت بیاور."
+      }
+     },
+     {
+      "q": {
+       "en": "Was hiding to watch the elves a good idea?",
+       "fa": "پنهان شدن برای دیدن جن‌ها کار درستی بود؟"
+      },
+      "model": {
+       "en": "It was fair: he wanted to thank whoever helped him, and the secret was his own shop. It did end the help, but the story treats that as a happy ending - the elves got what they needed and the shoemaker had enough gold to live well.",
+       "fa": "منصفانه بود: می‌خواست از کسی که کمکش می‌کرد تشکر کند و آن راز مال دکان خودش بود. درست است که کمک تمام شد، اما داستان آن را پایان خوش می‌داند: جن‌ها آنچه لازم داشتند گرفتند و کفاش طلای کافی برای زندگی خوب داشت."
+      },
+      "tip": {
+       "en": "Give a yes or no, then weigh what was gained and lost.",
+       "fa": "بله یا نه بگو، بعد بسنج چه چیزی به دست آمد و چه چیزی از دست رفت."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "three_little_pigs",
+   "title": {
+    "en": "The Three Little Pigs",
+    "fa": "سه خوک کوچک"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "Three pigs build three houses. The wolf can blow two of them down, but not the third.",
+    "fa": "سه خوک سه خانه می‌سازند. گرگ دو تا را خراب می‌کند، اما سومی را نه."
+   },
+   "words": 516,
+   "minutes": 3,
+   "sentences": 71,
+   "chapters": [
+    {
+     "title": {
+      "en": "The Three Pigs Leave Home",
+      "fa": "سه خوک خانه را ترک می‌کنند"
+     },
+     "pairs": [
+      {
+       "en": "Three little pigs lived with their mother.",
+       "fa": "سه خوک کوچک با مادرشان زندگی می‌کردند."
+      },
+      {
+       "en": "They lived in a small home in the woods.",
+       "fa": "در خانه‌ای کوچک در جنگل زندگی می‌کردند."
+      },
+      {
+       "en": "One day, their mother called the three pigs.",
+       "fa": "یک روز مادر سه خوک را صدا زد."
+      },
+      {
+       "en": "\"You are big pigs now,\" she said.",
+       "fa": "گفت: «شما حالا خوک‌های بزرگی هستید.»"
+      },
+      {
+       "en": "\"Go and build houses of your own,\" she said.",
+       "fa": "گفت: «بروید و خانه‌های خودتان را بسازید.»"
+      },
+      {
+       "en": "\"But watch out for the wolf!\" she called.",
+       "fa": "با صدای بلند گفت: «اما مراقب گرگ باشید!»"
+      },
+      {
+       "en": "A wolf lived deep in the woods.",
+       "fa": "گرگی در عمق جنگل زندگی می‌کرد."
+      },
+      {
+       "en": "The wolf liked to eat little pigs.",
+       "fa": "گرگ دوست داشت خوک‌های کوچک بخورد."
+      },
+      {
+       "en": "The three pigs said goodbye to their mother.",
+       "fa": "سه خوک با مادرشان خداحافظی کردند."
+      },
+      {
+       "en": "They left home to build their own houses.",
+       "fa": "خانه را ترک کردند تا خانه‌های خودشان را بسازند."
+      },
+      {
+       "en": "Each pig went a different way.",
+       "fa": "هر خوک به راهی دیگر رفت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Three New Houses",
+      "fa": "سه خانهٔ تازه"
+     },
+     "pairs": [
+      {
+       "en": "The first pig found a pile of straw.",
+       "fa": "خوک اول توده‌ای کاه پیدا کرد."
+      },
+      {
+       "en": "He built a house of straw in one day.",
+       "fa": "در یک روز خانه‌ای از کاه ساخت."
+      },
+      {
+       "en": "\"Now I can play all day,\" he said.",
+       "fa": "گفت: «حالا می‌توانم تمام روز بازی کنم.»"
+      },
+      {
+       "en": "The second pig found sticks in the woods.",
+       "fa": "خوک دوم در جنگل چوب‌های نازک پیدا کرد."
+      },
+      {
+       "en": "He built a house of sticks in two days.",
+       "fa": "در دو روز خانه‌ای از چوب ساخت."
+      },
+      {
+       "en": "The stick house was stronger than the straw house.",
+       "fa": "خانهٔ چوبی از خانهٔ کاهی محکم‌تر بود."
+      },
+      {
+       "en": "The third pig remembered the wolf.",
+       "fa": "خوک سوم گرگ را به یاد آورد."
+      },
+      {
+       "en": "He wanted a strong house, so he gathered many bricks.",
+       "fa": "خانهٔ محکمی می‌خواست، پس آجرهای زیادی جمع کرد."
+      },
+      {
+       "en": "The bricks were heavy and slow to carry.",
+       "fa": "آجرها سنگین بودند و حملشان کند بود."
+      },
+      {
+       "en": "The brick house took many days to build.",
+       "fa": "ساختن خانهٔ آجری روزهای زیادی طول کشید."
+      },
+      {
+       "en": "But the third pig was tired and did not stop.",
+       "fa": "اما خوک سوم خسته بود و دست نکشید."
+      },
+      {
+       "en": "At last, the brick house was done.",
+       "fa": "سرانجام خانهٔ آجری تمام شد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Wolf and the Straw House",
+      "fa": "گرگ و خانهٔ کاهی"
+     },
+     "pairs": [
+      {
+       "en": "Soon, the wolf was hungry.",
+       "fa": "به‌زودی گرگ گرسنه شد."
+      },
+      {
+       "en": "He went to find the three pigs.",
+       "fa": "به دنبال سه خوک رفت."
+      },
+      {
+       "en": "The wolf found the house of straw.",
+       "fa": "گرگ خانهٔ کاهی را پیدا کرد."
+      },
+      {
+       "en": "He knocked on the door.",
+       "fa": "به در زد."
+      },
+      {
+       "en": "\"Little pig, let me come in!\" called the wolf.",
+       "fa": "گرگ صدا زد: «خوک کوچک، بگذار بیایم داخل!»"
+      },
+      {
+       "en": "\"No, I won't let you in!\" said the first pig.",
+       "fa": "خوک اول گفت: «نه، نمی‌گذارم بیایی!»"
+      },
+      {
+       "en": "\"I'll huff and puff and blow your house down!\"",
+       "fa": "«فوت می‌کنم و پف می‌کنم و خانه‌ات را خراب می‌کنم!»"
+      },
+      {
+       "en": "The wolf huffed.",
+       "fa": "گرگ فوت کرد."
+      },
+      {
+       "en": "The wolf puffed.",
+       "fa": "گرگ پف کرد."
+      },
+      {
+       "en": "The straw house fell down.",
+       "fa": "خانهٔ کاهی فرو ریخت."
+      },
+      {
+       "en": "The first pig ran to the second pig's house.",
+       "fa": "خوک اول به خانهٔ خوک دوم دوید."
+      },
+      {
+       "en": "He was safe inside the stick house.",
+       "fa": "داخل خانهٔ چوبی امن بود."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Wolf and the Stick House",
+      "fa": "گرگ و خانهٔ چوبی"
+     },
+     "pairs": [
+      {
+       "en": "The wolf was still hungry.",
+       "fa": "گرگ هنوز گرسنه بود."
+      },
+      {
+       "en": "He went to find the pigs.",
+       "fa": "به دنبال خوک‌ها رفت."
+      },
+      {
+       "en": "Soon, the wolf found the stick house.",
+       "fa": "به‌زودی خانهٔ چوبی را پیدا کرد."
+      },
+      {
+       "en": "Two little pigs were inside.",
+       "fa": "دو خوک کوچک داخل بودند."
+      },
+      {
+       "en": "\"Little pigs, let me come in!\" called the wolf.",
+       "fa": "گرگ صدا زد: «خوک‌های کوچک، بگذارید بیایم داخل!»"
+      },
+      {
+       "en": "\"No, we won't let you in!\" said the pigs.",
+       "fa": "خوک‌ها گفتند: «نه، نمی‌گذاریم بیایی!»"
+      },
+      {
+       "en": "\"I'll huff and puff and blow your house down!\"",
+       "fa": "«فوت می‌کنم و پف می‌کنم و خانه‌تان را خراب می‌کنم!»"
+      },
+      {
+       "en": "The wolf huffed and puffed hard.",
+       "fa": "گرگ محکم فوت و پف کرد."
+      },
+      {
+       "en": "This time, the house did not fall fast.",
+       "fa": "این بار خانه سریع فرو نریخت."
+      },
+      {
+       "en": "But the stick house fell down too.",
+       "fa": "اما خانهٔ چوبی هم فرو ریخت."
+      },
+      {
+       "en": "Both pigs ran to the third pig's house.",
+       "fa": "هر دو خوک به خانهٔ خوک سوم دویدند."
+      },
+      {
+       "en": "They were safe inside the brick house.",
+       "fa": "داخل خانهٔ آجری امن بودند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Wolf and the Brick House",
+      "fa": "گرگ و خانهٔ آجری"
+     },
+     "pairs": [
+      {
+       "en": "All three pigs were inside the brick house.",
+       "fa": "هر سه خوک داخل خانهٔ آجری بودند."
+      },
+      {
+       "en": "The wolf found them.",
+       "fa": "گرگ آن‌ها را پیدا کرد."
+      },
+      {
+       "en": "\"Little pigs, let me come in!\" called the wolf.",
+       "fa": "گرگ صدا زد: «خوک‌های کوچک، بگذارید بیایم داخل!»"
+      },
+      {
+       "en": "\"No, we won't let you in!\" said the pigs.",
+       "fa": "خوک‌ها گفتند: «نه، نمی‌گذاریم بیایی!»"
+      },
+      {
+       "en": "\"I'll huff and puff and blow your house down!\"",
+       "fa": "«فوت می‌کنم و پف می‌کنم و خانه‌تان را خراب می‌کنم!»"
+      },
+      {
+       "en": "The wolf huffed and puffed hard.",
+       "fa": "گرگ محکم فوت و پف کرد."
+      },
+      {
+       "en": "But the brick house did not move.",
+       "fa": "اما خانهٔ آجری تکان نخورد."
+      },
+      {
+       "en": "The wolf huffed and puffed.",
+       "fa": "گرگ فوت و پف کرد."
+      },
+      {
+       "en": "Still, the house did not fall.",
+       "fa": "با این حال خانه فرو نریخت."
+      },
+      {
+       "en": "The wolf stopped to rest.",
+       "fa": "گرگ ایستاد تا استراحت کند."
+      },
+      {
+       "en": "He wanted another way into the house.",
+       "fa": "راه دیگری برای ورود به خانه می‌خواست."
+      },
+      {
+       "en": "The wolf saw the chimney on the roof.",
+       "fa": "گرگ دودکش روی پشت‌بام را دید."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Down the Chimney",
+      "fa": "پایین دودکش"
+     },
+     "pairs": [
+      {
+       "en": "The wolf climbed up onto the roof.",
+       "fa": "گرگ از پشت‌بام بالا رفت."
+      },
+      {
+       "en": "The third pig heard him up there.",
+       "fa": "خوک سوم او را آن بالا شنید."
+      },
+      {
+       "en": "\"He will come down the chimney,\" said the third pig.",
+       "fa": "خوک سوم گفت: «از دودکش پایین می‌آید.»"
+      },
+      {
+       "en": "The third pig heated a pot of water.",
+       "fa": "خوک سوم قابلمه‌ای آب را گرم کرد."
+      },
+      {
+       "en": "Soon, the water in the pot was hot.",
+       "fa": "به‌زودی آب داخل قابلمه داغ شد."
+      },
+      {
+       "en": "The wolf climbed down the dark chimney.",
+       "fa": "گرگ از دودکش تاریک پایین آمد."
+      },
+      {
+       "en": "Splash!",
+       "fa": "چلپ!"
+      },
+      {
+       "en": "The wolf fell into the hot water.",
+       "fa": "گرگ در آب داغ افتاد."
+      },
+      {
+       "en": "He jumped out with a yelp.",
+       "fa": "با فریاد بیرون پرید."
+      },
+      {
+       "en": "The wolf ran out through the door.",
+       "fa": "گرگ از در بیرون دوید."
+      },
+      {
+       "en": "He ran into the woods and never came back.",
+       "fa": "به جنگل دوید و هرگز برنگشت."
+      },
+      {
+       "en": "Now the three pigs were safe forever.",
+       "fa": "حالا سه خوک برای همیشه امن بودند."
+      }
+     ]
+    }
+   ],
+   "text": "Three little pigs lived with their mother. They lived in a small home in the woods. One day, their mother called the three pigs. \"You are big pigs now,\" she said. \"Go and build houses of your own,\" she said. \"But watch out for the wolf!\" she called. A wolf lived deep in the woods. The wolf liked to eat little pigs. The three pigs said goodbye to their mother. They left home to build their own houses. Each pig went a different way. The first pig found a pile of straw. He built a house of straw in one day. \"Now I can play all day,\" he said. The second pig found sticks in the woods. He built a house of sticks in two days. The stick house was stronger than the straw house. The third pig remembered the wolf. He wanted a strong house, so he gathered many bricks. The bricks were heavy and slow to carry. The brick house took many days to build. But the third pig was tired and did not stop. At last, the brick house was done. Soon, the wolf was hungry. He went to find the three pigs. The wolf found the house of straw. He knocked on the door. \"Little pig, let me come in!\" called the wolf. \"No, I won't let you in!\" said the first pig. \"I'll huff and puff and blow your house down!\" The wolf huffed. The wolf puffed. The straw house fell down. The first pig ran to the second pig's house. He was safe inside the stick house. The wolf was still hungry. He went to find the pigs. Soon, the wolf found the stick house. Two little pigs were inside. \"Little pigs, let me come in!\" called the wolf. \"No, we won't let you in!\" said the pigs. \"I'll huff and puff and blow your house down!\" The wolf huffed and puffed hard. This time, the house did not fall fast. But the stick house fell down too. Both pigs ran to the third pig's house. They were safe inside the brick house. All three pigs were inside the brick house. The wolf found them. \"Little pigs, let me come in!\" called the wolf. \"No, we won't let you in!\" said the pigs. \"I'll huff and puff and blow your house down!\" The wolf huffed and puffed hard. But the brick house did not move. The wolf huffed and puffed. Still, the house did not fall. The wolf stopped to rest. He wanted another way into the house. The wolf saw the chimney on the roof. The wolf climbed up onto the roof. The third pig heard him up there. \"He will come down the chimney,\" said the third pig. The third pig heated a pot of water. Soon, the water in the pot was hot. The wolf climbed down the dark chimney. Splash! The wolf fell into the hot water. He jumped out with a yelp. The wolf ran out through the door. He ran into the woods and never came back. Now the three pigs were safe forever.",
+   "vocab": [
+    {
+     "word": "pigs",
+     "pos": "n.",
+     "meaning": {
+      "en": "farm animals with a flat nose",
+      "fa": "خوک‌ها"
+     },
+     "example": "Three little pigs lived with their mother.",
+     "exampleFa": "سه خوک کوچک با مادرشان زندگی می‌کردند."
+    },
+    {
+     "word": "straw",
+     "pos": "n.",
+     "meaning": {
+      "en": "dry yellow plant stems",
+      "fa": "کاه"
+     },
+     "example": "The first pig found a pile of straw.",
+     "exampleFa": "خوک اول توده‌ای کاه پیدا کرد."
+    },
+    {
+     "word": "sticks",
+     "pos": "n.",
+     "meaning": {
+      "en": "thin pieces of wood",
+      "fa": "چوب‌های نازک"
+     },
+     "example": "The second pig found sticks in the woods.",
+     "exampleFa": "خوک دوم در جنگل چوب‌های نازک پیدا کرد."
+    },
+    {
+     "word": "bricks",
+     "pos": "n.",
+     "meaning": {
+      "en": "hard blocks used to build strong walls",
+      "fa": "آجرها"
+     },
+     "example": "The bricks were heavy and slow to carry.",
+     "exampleFa": "آجرها سنگین بودند و حملشان کند بود."
+    },
+    {
+     "word": "wolf",
+     "pos": "n.",
+     "meaning": {
+      "en": "a wild animal that hunts other animals",
+      "fa": "گرگ"
+     },
+     "example": "A wolf lived deep in the woods.",
+     "exampleFa": "گرگی در عمق جنگل زندگی می‌کرد."
+    },
+    {
+     "word": "huff",
+     "pos": "v.",
+     "meaning": {
+      "en": "blow out air hard",
+      "fa": "فوت کردن"
+     },
+     "example": "The wolf huffed and puffed.",
+     "exampleFa": "گرگ فوت و پف کرد."
+    },
+    {
+     "word": "chimney",
+     "pos": "n.",
+     "meaning": {
+      "en": "the pipe that carries smoke out of a roof",
+      "fa": "دودکش"
+     },
+     "example": "The wolf saw the chimney on the roof.",
+     "exampleFa": "گرگ دودکش روی پشت‌بام را دید."
+    },
+    {
+     "word": "roof",
+     "pos": "n.",
+     "meaning": {
+      "en": "the top cover of a house",
+      "fa": "پشت‌بام"
+     },
+     "example": "The wolf climbed up onto the roof.",
+     "exampleFa": "گرگ از پشت‌بام بالا رفت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "watch out",
+     "meaning": {
+      "en": "be careful; danger is near",
+      "fa": "مراقب باش"
+     },
+     "example": "But watch out for the wolf!",
+     "exampleFa": "اما مراقب گرگ باش!"
+    },
+    {
+     "phrase": "let me come in",
+     "meaning": {
+      "en": "allow me to enter",
+      "fa": "بگذار بیایم داخل"
+     },
+     "example": "Little pig, let me come in!",
+     "exampleFa": "خوک کوچک، بگذار بیایم داخل!"
+    },
+    {
+     "phrase": "blow down",
+     "meaning": {
+      "en": "make something fall with air",
+      "fa": "با فوت خراب کردن"
+     },
+     "example": "I'll huff and puff and blow your house down!",
+     "exampleFa": "فوت می‌کنم و پف می‌کنم و خانه‌ات را خراب می‌کنم!"
+    },
+    {
+     "phrase": "all day",
+     "meaning": {
+      "en": "for the whole day",
+      "fa": "تمام روز"
+     },
+     "example": "Now I can play all day.",
+     "exampleFa": "حالا می‌توانم تمام روز بازی کنم."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "won't = will not",
+      "fa": "شکل کوتاه won't"
+     },
+     "example": "No, I won't let you in!",
+     "note": {
+      "en": "'Won't' is the short form of 'will not'. It appears in refusals and promises.",
+      "fa": "«won't» شکل کوتاه «will not» است و در رد کردن و قول دادن می‌آید."
+     }
+    },
+    {
+     "name": {
+      "en": "Comparative with -er",
+      "fa": "صفت مقایسه‌ای با -er"
+     },
+     "example": "The stick house was stronger than the straw house.",
+     "note": {
+      "en": "Strong → stronger + than. One-syllable adjectives take -er.",
+      "fa": "strong → stronger + than. صفت‌های یک‌هجایی -er می‌گیرند."
+     }
+    },
+    {
+     "name": {
+      "en": "so for a result",
+      "fa": "so برای نتیجه"
+     },
+     "example": "He wanted a strong house, so he gathered many bricks.",
+     "note": {
+      "en": "'So' joins the reason to the result: he wanted it, so he did it.",
+      "fa": "«so» دلیل را به نتیجه وصل می‌کند: می‌خواست، پس انجام داد."
+     }
+    },
+    {
+     "name": {
+      "en": "Past simple, regular",
+      "fa": "گذشتهٔ سادهٔ باقاعده"
+     },
+     "example": "He knocked on the door. The straw house fell down.",
+     "note": {
+      "en": "Knock → knocked, want → wanted (regular -ed); fall → fell is irregular.",
+      "fa": "knock → knocked و want → wanted باقاعده‌اند؛ fall → fell بی‌قاعده است."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why did the pigs leave home?",
+       "fa": "خوک‌ها چرا خانه را ترک کردند؟"
+      },
+      "options": [
+       "The wolf broke their house.",
+       "Their mother sent them to build their own.",
+       "They wanted to play in the woods.",
+       "They were lost."
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She says 'You are big pigs now' and tells them to build houses of their own.",
+       "fa": "می‌گوید «شما حالا خوک‌های بزرگی هستید» و از آن‌ها می‌خواهد خانه‌های خودشان را بسازند."
+      }
+     },
+     {
+      "q": {
+       "en": "Which house took the longest to build?",
+       "fa": "ساخت کدام خانه بیشتر طول کشید؟"
+      },
+      "options": [
+       "The straw house",
+       "The stick house",
+       "The brick house",
+       "All three took one day."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The brick house took many days because bricks are heavy and slow to carry.",
+       "fa": "خانهٔ آجری روزهای زیادی طول کشید چون آجرها سنگین و حملشان کند بود."
+      }
+     },
+     {
+      "q": {
+       "en": "What did the wolf do to the first two houses?",
+       "fa": "گرگ با دو خانهٔ اول چه کرد؟"
+      },
+      "options": [
+       "He blew them down.",
+       "He knocked politely.",
+       "He could not touch them.",
+       "He climbed the chimney."
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He huffed and puffed and both houses fell down.",
+       "fa": "فوت و پف کرد و هر دو خانه فرو ریختند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why did the brick house stand?",
+       "fa": "چرا خانهٔ آجری ایستاد؟"
+      },
+      "options": [
+       "It was very small.",
+       "The pigs held the door.",
+       "The wolf was too tired.",
+       "Bricks are strong and heavy."
+      ],
+      "answer": 3,
+      "why": {
+       "en": "Bricks made a strong house, so huffing and puffing could not move it.",
+       "fa": "آجرها خانهٔ محکمی ساخته بودند، پس فوت و پف تکانش نداد."
+      }
+     },
+     {
+      "q": {
+       "en": "How did the third pig beat the wolf?",
+       "fa": "خوک سوم گرگ را چطور شکست داد؟"
+      },
+      "options": [
+       "He called the hunter.",
+       "He heated a pot of water.",
+       "He ran to his mother.",
+       "He opened the door."
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He guessed the chimney and put hot water under it.",
+       "fa": "حدس زد از دودکش می‌آید و زیرش آب داغ گذاشت."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The second pig built his house in one day.",
+       "fa": "خوک دوم خانه‌اش را در یک روز ساخت."
+      },
+      "answer": false,
+      "why": {
+       "en": "The stick house took two days; the straw house took one.",
+       "fa": "خانهٔ چوبی دو روز طول کشید؛ خانهٔ کاهی یک روز."
+      }
+     },
+     {
+      "q": {
+       "en": "The wolf came down the chimney.",
+       "fa": "گرگ از دودکش پایین آمد."
+      },
+      "answer": true,
+      "why": {
+       "en": "He climbed onto the roof and climbed down the chimney.",
+       "fa": "از پشت‌بام بالا رفت و از دودکش پایین آمد."
+      }
+     },
+     {
+      "q": {
+       "en": "The wolf came back another day.",
+       "fa": "گرگ روز دیگری برگشت."
+      },
+      "answer": false,
+      "why": {
+       "en": "He ran into the woods and never came back.",
+       "fa": "به جنگل دوید و هرگز برنگشت."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The first pig found a pile of ___.",
+      "answer": "straw",
+      "hint": {
+       "en": "Dry yellow plant stems.",
+       "fa": "ساقه‌های خشک و زرد گیاه."
+      }
+     },
+     {
+      "sentence": "The wolf saw the ___ on the roof.",
+      "answer": "chimney",
+      "hint": {
+       "en": "Smoke comes out of it.",
+       "fa": "دود از آن بیرون می‌آید."
+      }
+     },
+     {
+      "sentence": "The wolf fell into the hot ___.",
+      "answer": "water",
+      "hint": {
+       "en": "What was in the pot.",
+       "fa": "آنچه در قابلمه بود."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Was the first pig lazy or just in a hurry?",
+       "fa": "خوک اول تنبل بود یا فقط عجله داشت؟"
+      },
+      "model": {
+       "en": "The story says he wanted to play all day, so lazy is fairer than hurried. He chose the fastest house because he wanted the afternoon free, and that choice is exactly what the wolf punished.",
+       "fa": "داستان می‌گوید می‌خواست تمام روز بازی کند، پس «تنبل» منصفانه‌تر از «عجله» است. سریع‌ترین خانه را انتخاب کرد چون بعدازظهر آزاد می‌خواست، و همان انتخاب بود که گرگ تنبیهش کرد."
+      },
+      "tip": {
+       "en": "Pick one word, then show the sentence that supports it.",
+       "fa": "یک کلمه انتخاب کن و جمله‌ای را نشان بده که تأییدش می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "What would you have built, and why?",
+       "fa": "تو چه خانه‌ای می‌ساختی و چرا؟"
+      },
+      "model": {
+       "en": "Probably brick as well, but the interesting answer is about time. Bricks cost days of heavy work and save you from one wolf. A student with an exam next week may choose the sticks and fix the roof later - the story only works because the wolf really does come.",
+       "fa": "احتمالاً آجری، اما پاسخ جالب دربارهٔ زمان است. آجر روزها کار سنگین می‌خواهد و از یک گرگ نجاتت می‌دهد. دانش‌آموزی که هفتهٔ بعد امتحان دارد شاید چوب را انتخاب کند و بعد پشت‌بام را درست کند؛ داستان فقط کار می‌کند چون گرگ واقعاً می‌آید."
+      },
+      "tip": {
+       "en": "Answer with your own choice and one reason from the story.",
+       "fa": "با انتخاب خودت و یک دلیل از داستان جواب بده."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "three_billy_goats_gruff",
+   "title": {
+    "en": "The Three Billy Goats Gruff",
+    "fa": "سه بز نر"
+   },
+   "level": "VE",
+   "blurb": {
+    "en": "Three hungry goats want the grass across the bridge. A troll wants the goats.",
+    "fa": "سه بز گرسنه علف آن‌طرف پل را می‌خواهند. ترولی هم خودِ بزها را می‌خواهد."
+   },
+   "words": 519,
+   "minutes": 3,
+   "sentences": 75,
+   "chapters": [
+    {
+     "title": {
+      "en": "The Bare Hill",
+      "fa": "تپهٔ خشک"
+     },
+     "pairs": [
+      {
+       "en": "Three goats lived on a bare hill.",
+       "fa": "سه بز روی تپه‌ای خشک زندگی می‌کردند."
+      },
+      {
+       "en": "Little Goat, Middle Goat, and Big Goat were hungry.",
+       "fa": "بز کوچک، بز وسطی و بز بزرگ گرسنه بودند."
+      },
+      {
+       "en": "The grass on their hill was thin and dry.",
+       "fa": "علف تپهٔ آن‌ها کم و خشک بود."
+      },
+      {
+       "en": "Across the bridge, a green hill stood tall.",
+       "fa": "آن‌طرف پل، تپه‌ای سبز و بلند بود."
+      },
+      {
+       "en": "Middle Goat: Look at that fresh grass!",
+       "fa": "بز وسطی: به آن علف تازه نگاه کن!"
+      },
+      {
+       "en": "Big Goat: We will go across the bridge.",
+       "fa": "بز بزرگ: از پل رد می‌شویم."
+      },
+      {
+       "en": "Little Goat: I will go first.",
+       "fa": "بز کوچک: اول من می‌روم."
+      },
+      {
+       "en": "Middle Goat: Good. We will wait here.",
+       "fa": "بز وسطی: خوب است. ما اینجا منتظر می‌مانیم."
+      },
+      {
+       "en": "Little Goat walked down to the bridge.",
+       "fa": "بز کوچک به سمت پل راه افتاد."
+      },
+      {
+       "en": "Under the bridge, a troll lived in the dark.",
+       "fa": "زیر پل، ترولی در تاریکی زندگی می‌کرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Little Goat Crosses",
+      "fa": "بز کوچک رد می‌شود"
+     },
+     "pairs": [
+      {
+       "en": "Little Goat's hooves went trip-trap on the bridge.",
+       "fa": "سم‌های بز کوچک روی پل تق‌تق کردند."
+      },
+      {
+       "en": "Troll: Who is trip-trapping over my bridge?",
+       "fa": "ترول: چه کسی روی پل من تق‌تق می‌کند؟"
+      },
+      {
+       "en": "Little Goat: It is only me, the little goat.",
+       "fa": "بز کوچک: فقط منم، بز کوچک."
+      },
+      {
+       "en": "Troll: I will eat you up!",
+       "fa": "ترول: تو را می‌خورم!"
+      },
+      {
+       "en": "Little Goat: Do not eat me, Troll.",
+       "fa": "بز کوچک: من را نخور، ترول."
+      },
+      {
+       "en": "Little Goat: Wait for my brother, Middle Goat.",
+       "fa": "بز کوچک: منتظر برادرم، بز وسطی، بمان."
+      },
+      {
+       "en": "Little Goat: He is bigger than me.",
+       "fa": "بز کوچک: او از من بزرگ‌تر است."
+      },
+      {
+       "en": "Troll: Bigger, you say?",
+       "fa": "ترول: بزرگ‌تر، می‌گویی؟"
+      },
+      {
+       "en": "Troll: Then go, little goat.",
+       "fa": "ترول: پس برو، بز کوچک."
+      },
+      {
+       "en": "Little Goat trotted over the bridge to the green hill.",
+       "fa": "بز کوچک یورتمه‌کنان از پل گذشت و به تپهٔ سبز رسید."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Middle Goat Crosses",
+      "fa": "بز وسطی رد می‌شود"
+     },
+     "pairs": [
+      {
+       "en": "Middle Goat walked down to the bridge.",
+       "fa": "بز وسطی به سمت پل راه افتاد."
+      },
+      {
+       "en": "He was careful and quick.",
+       "fa": "او محتاط و سریع بود."
+      },
+      {
+       "en": "Middle Goat's horns were still small.",
+       "fa": "شاخ‌های بز وسطی هنوز کوچک بود."
+      },
+      {
+       "en": "Middle Goat's hooves went trip-trap on the bridge.",
+       "fa": "سم‌های بز وسطی روی پل تق‌تق کردند."
+      },
+      {
+       "en": "Troll: Who is trip-trapping over my bridge?",
+       "fa": "ترول: چه کسی روی پل من تق‌تق می‌کند؟"
+      },
+      {
+       "en": "Middle Goat: It is only me, the middle goat.",
+       "fa": "بز وسطی: فقط منم، بز وسطی."
+      },
+      {
+       "en": "Troll: I will eat you up!",
+       "fa": "ترول: تو را می‌خورم!"
+      },
+      {
+       "en": "Middle Goat: Do not eat me, Troll.",
+       "fa": "بز وسطی: من را نخور، ترول."
+      },
+      {
+       "en": "Middle Goat: Wait for my brother, Big Goat.",
+       "fa": "بز وسطی: منتظر برادرم، بز بزرگ، بمان."
+      },
+      {
+       "en": "Middle Goat: He is bigger than me.",
+       "fa": "بز وسطی: او از من بزرگ‌تر است."
+      },
+      {
+       "en": "Troll: Bigger still?",
+       "fa": "ترول: هنوز بزرگ‌تر؟"
+      },
+      {
+       "en": "Troll: Then go, middle goat.",
+       "fa": "ترول: پس برو، بز وسطی."
+      },
+      {
+       "en": "Middle Goat trotted over the bridge to the green hill.",
+       "fa": "بز وسطی یورتمه‌کنان از پل گذشت و به تپهٔ سبز رسید."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Troll Waits, Angry",
+      "fa": "ترول خشمگین منتظر می‌ماند"
+     },
+     "pairs": [
+      {
+       "en": "The troll was still hungry.",
+       "fa": "ترول هنوز گرسنه بود."
+      },
+      {
+       "en": "Two goats had crossed to the green hill.",
+       "fa": "دو بز به تپهٔ سبز گذر کرده بودند."
+      },
+      {
+       "en": "The troll had eaten nothing all day.",
+       "fa": "ترول تمام روز چیزی نخورده بود."
+      },
+      {
+       "en": "Troll: No more goats will trick me.",
+       "fa": "ترول: دیگر هیچ بزی فریبم نمی‌دهد."
+      },
+      {
+       "en": "The troll waited under the dark bridge.",
+       "fa": "ترول زیر پل تاریک منتظر ماند."
+      },
+      {
+       "en": "He listened hard for more hooves.",
+       "fa": "با دقت به صدای سم‌های بیشتر گوش داد."
+      },
+      {
+       "en": "Big Goat was the biggest of the three.",
+       "fa": "بز بزرگ بزرگ‌ترینِ آن سه بود."
+      },
+      {
+       "en": "Troll: The next goat, I will eat.",
+       "fa": "ترول: بز بعدی را می‌خورم."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Big Goat Crosses",
+      "fa": "بز بزرگ رد می‌شود"
+     },
+     "pairs": [
+      {
+       "en": "Big Goat walked down to the bridge.",
+       "fa": "بز بزرگ به سمت پل راه افتاد."
+      },
+      {
+       "en": "Big Goat's hooves went trip-trap on the bridge.",
+       "fa": "سم‌های بز بزرگ روی پل تق‌تق کردند."
+      },
+      {
+       "en": "Troll: Who is trip-trapping over my bridge?",
+       "fa": "ترول: چه کسی روی پل من تق‌تق می‌کند؟"
+      },
+      {
+       "en": "Big Goat: It is I, the big goat.",
+       "fa": "بز بزرگ: منم، بز بزرگ."
+      },
+      {
+       "en": "Troll: I will eat you up!",
+       "fa": "ترول: تو را می‌خورم!"
+      },
+      {
+       "en": "Big Goat: Come and try, Troll.",
+       "fa": "بز بزرگ: بیا و امتحان کن، ترول."
+      },
+      {
+       "en": "Troll: You are not small like your brothers.",
+       "fa": "ترول: تو مثل برادرانت کوچک نیستی."
+      },
+      {
+       "en": "Big Goat: No, I am big and strong.",
+       "fa": "بز بزرگ: نه، من بزرگ و قوی‌ام."
+      },
+      {
+       "en": "Troll: I will eat you now!",
+       "fa": "ترول: همین حالا می‌خورمت!"
+      },
+      {
+       "en": "The troll jumped onto the bridge.",
+       "fa": "ترول روی پل پرید."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The Fight on the Bridge",
+      "fa": "نبرد روی پل"
+     },
+     "pairs": [
+      {
+       "en": "The troll was hungry and angry.",
+       "fa": "ترول گرسنه و خشمگین بود."
+      },
+      {
+       "en": "The troll ran at Big Goat.",
+       "fa": "ترول به سمت بز بزرگ دوید."
+      },
+      {
+       "en": "Big Goat did not run.",
+       "fa": "بز بزرگ فرار نکرد."
+      },
+      {
+       "en": "Big Goat lowered his sharp horns.",
+       "fa": "بز بزرگ شاخ‌های تیزش را پایین آورد."
+      },
+      {
+       "en": "He charged at the troll.",
+       "fa": "به ترول حمله کرد."
+      },
+      {
+       "en": "Big Goat's horns hit the troll hard.",
+       "fa": "شاخ‌های بز بزرگ محکم به ترول خورد."
+      },
+      {
+       "en": "The troll flew off the bridge.",
+       "fa": "ترول از پل پرت شد."
+      },
+      {
+       "en": "The troll fell into the water below.",
+       "fa": "ترول در آبِ پایین افتاد."
+      },
+      {
+       "en": "Troll: Help me, I am falling!",
+       "fa": "ترول: کمکم کن، دارم می‌افتم!"
+      },
+      {
+       "en": "The water carried the troll away.",
+       "fa": "آب ترول را با خود برد."
+      },
+      {
+       "en": "Big Goat stood alone on the bridge.",
+       "fa": "بز بزرگ تنها روی پل ایستاد."
+      },
+      {
+       "en": "Big Goat's legs were strong.",
+       "fa": "پاهای بز بزرگ قوی بود."
+      },
+      {
+       "en": "Big Goat: The bridge is safe now.",
+       "fa": "بز بزرگ: پل حالا امن است."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Grass on the Green Hill",
+      "fa": "علف روی تپهٔ سبز"
+     },
+     "pairs": [
+      {
+       "en": "Big Goat trotted to the green hill.",
+       "fa": "بز بزرگ یورتمه‌کنان به تپهٔ سبز رسید."
+      },
+      {
+       "en": "Little Goat: You crossed the bridge!",
+       "fa": "بز کوچک: از پل گذشتی!"
+      },
+      {
+       "en": "Middle Goat: Is the troll gone?",
+       "fa": "بز وسطی: ترول رفته؟"
+      },
+      {
+       "en": "Big Goat: The troll fell in the water.",
+       "fa": "بز بزرگ: ترول در آب افتاد."
+      },
+      {
+       "en": "Big Goat: He will not come back.",
+       "fa": "بز بزرگ: برنمی‌گردد."
+      },
+      {
+       "en": "Little Goat: We can eat all day now.",
+       "fa": "بز کوچک: حالا می‌توانیم تمام روز بخوریم."
+      },
+      {
+       "en": "The three goats ate the fresh grass.",
+       "fa": "سه بز علف تازه خوردند."
+      },
+      {
+       "en": "They grew fat on the green hill.",
+       "fa": "روی تپهٔ سبز چاق شدند."
+      },
+      {
+       "en": "Middle Goat: This grass is the best.",
+       "fa": "بز وسطی: این علف بهترین است."
+      },
+      {
+       "en": "Big Goat: We are safe and full.",
+       "fa": "بز بزرگ: ما امن و سیریم."
+      },
+      {
+       "en": "The three goats lived happily on the green hill.",
+       "fa": "سه بز خوشحال روی تپهٔ سبز زندگی کردند."
+      }
+     ]
+    }
+   ],
+   "text": "Three goats lived on a bare hill. Little Goat, Middle Goat, and Big Goat were hungry. The grass on their hill was thin and dry. Across the bridge, a green hill stood tall. Middle Goat: Look at that fresh grass! Big Goat: We will go across the bridge. Little Goat: I will go first. Middle Goat: Good. We will wait here. Little Goat walked down to the bridge. Under the bridge, a troll lived in the dark. Little Goat's hooves went trip-trap on the bridge. Troll: Who is trip-trapping over my bridge? Little Goat: It is only me, the little goat. Troll: I will eat you up! Little Goat: Do not eat me, Troll. Little Goat: Wait for my brother, Middle Goat. Little Goat: He is bigger than me. Troll: Bigger, you say? Troll: Then go, little goat. Little Goat trotted over the bridge to the green hill. Middle Goat walked down to the bridge. He was careful and quick. Middle Goat's horns were still small. Middle Goat's hooves went trip-trap on the bridge. Troll: Who is trip-trapping over my bridge? Middle Goat: It is only me, the middle goat. Troll: I will eat you up! Middle Goat: Do not eat me, Troll. Middle Goat: Wait for my brother, Big Goat. Middle Goat: He is bigger than me. Troll: Bigger still? Troll: Then go, middle goat. Middle Goat trotted over the bridge to the green hill. The troll was still hungry. Two goats had crossed to the green hill. The troll had eaten nothing all day. Troll: No more goats will trick me. The troll waited under the dark bridge. He listened hard for more hooves. Big Goat was the biggest of the three. Troll: The next goat, I will eat. Big Goat walked down to the bridge. Big Goat's hooves went trip-trap on the bridge. Troll: Who is trip-trapping over my bridge? Big Goat: It is I, the big goat. Troll: I will eat you up! Big Goat: Come and try, Troll. Troll: You are not small like your brothers. Big Goat: No, I am big and strong. Troll: I will eat you now! The troll jumped onto the bridge. The troll was hungry and angry. The troll ran at Big Goat. Big Goat did not run. Big Goat lowered his sharp horns. He charged at the troll. Big Goat's horns hit the troll hard. The troll flew off the bridge. The troll fell into the water below. Troll: Help me, I am falling! The water carried the troll away. Big Goat stood alone on the bridge. Big Goat's legs were strong. Big Goat: The bridge is safe now. Big Goat trotted to the green hill. Little Goat: You crossed the bridge! Middle Goat: Is the troll gone? Big Goat: The troll fell in the water. Big Goat: He will not come back. Little Goat: We can eat all day now. The three goats ate the fresh grass. They grew fat on the green hill. Middle Goat: This grass is the best. Big Goat: We are safe and full. The three goats lived happily on the green hill.",
+   "vocab": [
+    {
+     "word": "goats",
+     "pos": "n.",
+     "meaning": {
+      "en": "farm animals with horns and hooves",
+      "fa": "بزها"
+     },
+     "example": "Three goats lived on a bare hill.",
+     "exampleFa": "سه بز روی تپه‌ای خشک زندگی می‌کردند."
+    },
+    {
+     "word": "bare",
+     "pos": "adj.",
+     "meaning": {
+      "en": "with nothing growing on it",
+      "fa": "خشک، بی‌گیاه"
+     },
+     "example": "Three goats lived on a bare hill.",
+     "exampleFa": "سه بز روی تپه‌ای خشک زندگی می‌کردند."
+    },
+    {
+     "word": "bridge",
+     "pos": "n.",
+     "meaning": {
+      "en": "a road over water or a valley",
+      "fa": "پل"
+     },
+     "example": "We will go across the bridge.",
+     "exampleFa": "از پل رد می‌شویم."
+    },
+    {
+     "word": "troll",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large, unfriendly creature in stories",
+      "fa": "ترول"
+     },
+     "example": "Under the bridge, a troll lived in the dark.",
+     "exampleFa": "زیر پل، ترولی در تاریکی زندگی می‌کرد."
+    },
+    {
+     "word": "hooves",
+     "pos": "n.",
+     "meaning": {
+      "en": "the hard feet of animals like goats (one hoof)",
+      "fa": "سم‌ها"
+     },
+     "example": "Little Goat's hooves went trip-trap on the bridge.",
+     "exampleFa": "سم‌های بز کوچک روی پل تق‌تق کردند."
+    },
+    {
+     "word": "horns",
+     "pos": "n.",
+     "meaning": {
+      "en": "the hard, pointed parts on a goat's head",
+      "fa": "شاخ‌ها"
+     },
+     "example": "Big Goat lowered his sharp horns.",
+     "exampleFa": "بز بزرگ شاخ‌های تیزش را پایین آورد."
+    },
+    {
+     "word": "charged",
+     "pos": "v.",
+     "meaning": {
+      "en": "ran quickly at somebody to attack",
+      "fa": "حمله کرد"
+     },
+     "example": "He charged at the troll.",
+     "exampleFa": "به ترول حمله کرد."
+    },
+    {
+     "word": "grass",
+     "pos": "n.",
+     "meaning": {
+      "en": "the green plant that covers a field",
+      "fa": "علف"
+     },
+     "example": "The three goats ate the fresh grass.",
+     "exampleFa": "سه بز علف تازه خوردند."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "trip-trap",
+     "meaning": {
+      "en": "the sound of hooves on wood",
+      "fa": "صدای تق‌تق سم‌ها"
+     },
+     "example": "Who is trip-trapping over my bridge?",
+     "exampleFa": "چه کسی روی پل من تق‌تق می‌کند؟"
+    },
+    {
+     "phrase": "eat you up",
+     "meaning": {
+      "en": "eat you completely",
+      "fa": "تو را کامل خوردن"
+     },
+     "example": "I will eat you up!",
+     "exampleFa": "تو را می‌خورم!"
+    },
+    {
+     "phrase": "go across",
+     "meaning": {
+      "en": "move from one side to the other",
+      "fa": "رد شدن از طرفی به طرف دیگر"
+     },
+     "example": "We will go across the bridge.",
+     "exampleFa": "از پل رد می‌شویم."
+    },
+    {
+     "phrase": "come and try",
+     "meaning": {
+      "en": "a challenge: try to do it if you can",
+      "fa": "بیا و امتحان کن"
+     },
+     "example": "Come and try, Troll.",
+     "exampleFa": "بیا و امتحان کن، ترول."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "Comparative with -er",
+      "fa": "صفت مقایسه‌ای با -er"
+     },
+     "example": "He is bigger than me. Big Goat was the biggest of the three.",
+     "note": {
+      "en": "Add -er to compare two things, -est for the most of all: big → bigger → biggest.",
+      "fa": "برای مقایسهٔ دو چیز -er و برای برترین -est اضافه می‌شود: big → bigger → biggest."
+     }
+    },
+    {
+     "name": {
+      "en": "will for the future",
+      "fa": "will برای آینده"
+     },
+     "example": "We will go across the bridge. I will eat you up!",
+     "note": {
+      "en": "'Will' + verb for what will happen, including threats.",
+      "fa": "will + فعل برای کاری که در آینده رخ می‌دهد، از جمله تهدید."
+     }
+    },
+    {
+     "name": {
+      "en": "Past simple irregulars",
+      "fa": "گذشتهٔ سادهٔ بی‌قاعده"
+     },
+     "example": "The troll flew off the bridge. He fell into the water.",
+     "note": {
+      "en": "Fly → flew, fall → fell, stand → stood, eat → ate.",
+      "fa": "fly → flew، fall → fell، stand → stood و eat → ate."
+     }
+    },
+    {
+     "name": {
+      "en": "Dialogue without quotation marks",
+      "fa": "دیالوگ بدون گیومه"
+     },
+     "example": "Troll: I will eat you up!",
+     "note": {
+      "en": "The name, a colon, then the exact words. Readers know who is speaking without pages of speech marks.",
+      "fa": "نام، دو نقطه و بعد جملهٔ دقیق. خواننده بدون انبوه گیومه می‌فهمد چه کسی حرف می‌زند."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why did the goats want to cross the bridge?",
+       "fa": "بزها چرا می‌خواستند از پل رد شوند؟"
+      },
+      "options": [
+       "To find the troll",
+       "To eat the grass on the green hill",
+       "To swim in the water",
+       "To visit their mother"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Their hill was bare and dry, and the hill across the bridge was green.",
+       "fa": "تپهٔ آن‌ها خشک بود و تپهٔ آن‌طرف پل سبز."
+      }
+     },
+     {
+      "q": {
+       "en": "Who crossed the bridge first?",
+       "fa": "چه کسی اول از پل رد شد؟"
+      },
+      "options": [
+       "Big Goat",
+       "Middle Goat",
+       "Little Goat",
+       "The troll"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "Little Goat says 'I will go first' and walks down.",
+       "fa": "بز کوچک می‌گوید «اول من می‌روم» و راه می‌افتد."
+      }
+     },
+     {
+      "q": {
+       "en": "How did the small goats save themselves?",
+       "fa": "بزهای کوچک چطور خودشان را نجات دادند؟"
+      },
+      "options": [
+       "They ran back home.",
+       "They offered the troll grass.",
+       "They sent the troll after a bigger brother.",
+       "They pushed the troll into the water."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "Each one says a bigger brother is coming, so the troll waits for a better meal.",
+       "fa": "هر کدام می‌گوید برادر بزرگ‌تری می‌آید، پس ترول منتظر شکار بهتری می‌ماند."
+      }
+     },
+     {
+      "q": {
+       "en": "What did Big Goat do to the troll?",
+       "fa": "بز بزرگ با ترول چه کرد؟"
+      },
+      "options": [
+       "He charged it with his horns.",
+       "He gave it the fresh grass.",
+       "He ran away with his brothers.",
+       "He asked it to leave politely."
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He lowered his horns, charged, and the troll flew off the bridge.",
+       "fa": "شاخ‌هایش را پایین آورد، حمله کرد و ترول از پل پرت شد."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the story end?",
+       "fa": "داستان چطور تمام می‌شود؟"
+      },
+      "options": [
+       "The troll eats the goats.",
+       "The goats go home hungry.",
+       "The three goats eat and live happily.",
+       "The bridge breaks."
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They eat the fresh grass, grow fat and live happily on the green hill.",
+       "fa": "علف تازه می‌خورند، چاق می‌شوند و خوشحال روی تپهٔ سبز زندگی می‌کنند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The troll lived under the bridge.",
+       "fa": "ترول زیر پل زندگی می‌کرد."
+      },
+      "answer": true,
+      "why": {
+       "en": "'Under the bridge, a troll lived in the dark.'",
+       "fa": "«زیر پل، ترولی در تاریکی زندگی می‌کرد.»"
+      }
+     },
+     {
+      "q": {
+       "en": "Middle Goat had large horns.",
+       "fa": "بز وسطی شاخ‌های بزرگی داشت."
+      },
+      "answer": false,
+      "why": {
+       "en": "'Middle Goat's horns were still small.'",
+       "fa": "«شاخ‌های بز وسطی هنوز کوچک بود.»"
+      }
+     },
+     {
+      "q": {
+       "en": "The troll came back after the fight.",
+       "fa": "ترول بعد از نبرد برگشت."
+      },
+      "answer": false,
+      "why": {
+       "en": "Big Goat says 'He will not come back', and the water carried him away.",
+       "fa": "بز بزرگ می‌گوید «برنمی‌گردد» و آب او را با خود برد."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Across the bridge, a green ___ stood tall.",
+      "answer": "hill",
+      "hint": {
+       "en": "A small mountain; the goats' home is one.",
+       "fa": "تپه؛ خانهٔ بزها هم یکی از آن‌هاست."
+      }
+     },
+     {
+      "sentence": "Who is trip-trapping over my ___?",
+      "answer": "bridge",
+      "hint": {
+       "en": "What the goats must cross.",
+       "fa": "چیزی که بزها باید از آن رد شوند."
+      }
+     },
+     {
+      "sentence": "Big Goat lowered his sharp ___.",
+      "answer": "horns",
+      "hint": {
+       "en": "The pointed things on a goat's head.",
+       "fa": "چیزهای نوک‌تیز روی سر بز."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Was Big Goat brave or just strong?",
+       "fa": "بز بزرگ شجاع بود یا فقط قوی؟"
+      },
+      "model": {
+       "en": "Both, and the story needs both. Strong horns mean nothing if he runs, and not running means nothing if the troll just walks over him. He stands still, warns nobody, and uses what he has.",
+       "fa": "هر دو، و داستان به هر دو نیاز دارد. شاخ قوی اگر فرار کند بی‌فایده است و ایستادن هم اگر ترول از رویش رد شود بی‌فایده. او می‌ایستد و از آنچه دارد استفاده می‌کند."
+      },
+      "tip": {
+       "en": "Choose one, then use two moments from the story.",
+       "fa": "یکی را انتخاب کن و دو لحظه از داستان را شاهد بیاور."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the story have three goats and not one?",
+       "fa": "چرا داستان سه بز دارد و نه یکی؟"
+      },
+      "model": {
+       "en": "The three sizes make the trick work twice and give the ending weight. The small ones show that words can save you; the big one shows that words are not always enough. One goat could not teach both.",
+       "fa": "سه اندازه باعث می‌شود حقه دو بار جواب دهد و پایان وزن بگیرد. کوچک‌ترها نشان می‌دهند حرف می‌تواند نجاتت دهد و بزرگ نشان می‌دهد حرف همیشه کافی نیست. با یک بز هر دو درس ممکن نبود."
+      },
+      "tip": {
+       "en": "Think about repetition and size, then answer in three sentences.",
+       "fa": "به تکرار و اندازه فکر کن و در سه جمله جواب بده."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  }
+ ]
+}
