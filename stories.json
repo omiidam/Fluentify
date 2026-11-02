@@ -32,10 +32,10 @@
   }
  ],
  "totals": {
-  "stories": 21,
-  "words": 5939,
-  "questions": 273,
-  "sentences": 626
+  "stories": 31,
+  "words": 7565,
+  "questions": 403,
+  "sentences": 743
  },
  "stories": [
   {
@@ -7077,6 +7077,1214 @@
    }
   },
   {
+   "id": "pied_piper",
+   "title": {
+    "en": "The Pied Piper of Hamelin",
+    "fa": "نی‌زن هاملین"
+   },
+   "level": "E",
+   "blurb": {
+    "en": "A piper clears a town of rats for a promised price, is refused, and plays a second time.",
+    "fa": "نی‌زنی شهر را از موش‌ها پاک می‌کند، پولش را نمی‌دهند و بار دوم می‌نوازد."
+   },
+   "words": 113,
+   "minutes": 1,
+   "sentences": 11,
+   "chapters": [
+    {
+     "title": {
+      "en": "The rats",
+      "fa": "موش‌ها"
+     },
+     "pairs": [
+      {
+       "en": "Rats filled every house in Hamelin and ate the food.",
+       "fa": "موش‌ها هر خانهٔ هاملین را پر کرده بودند و غذا می‌خوردند."
+      },
+      {
+       "en": "The mayor offered gold to anyone who could clear them.",
+       "fa": "شهردار به هر کس که پاکشان کند طلا پیشنهاد داد."
+      },
+      {
+       "en": "A piper in bright clothes said he could do it with music.",
+       "fa": "نی‌زنی با لباس‌های رنگارنگ گفت با موسیقی می‌تواند."
+      },
+      {
+       "en": "He played, and every rat followed him to the river and drowned.",
+       "fa": "نواخت و هر موشی دنبالش به رودخانه رفت و غرق شد."
+      },
+      {
+       "en": "The council decided to pay him much less than promised.",
+       "fa": "شورا تصمیم گرفت خیلی کمتر از وعده بپردازد."
+      },
+      {
+       "en": "He returned and said a broken promise has a price.",
+       "fa": "برگشت و گفت قول شکسته بها دارد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The second tune",
+      "fa": "آهنگ دوم"
+     },
+     "pairs": [
+      {
+       "en": "He played again, and this time the children followed him.",
+       "fa": "باز نواخت و این بار بچه‌ها دنبالش رفتند."
+      },
+      {
+       "en": "They went out of the town towards the mountain.",
+       "fa": "از شهر بیرون رفتند به سمت کوه."
+      },
+      {
+       "en": "One boy was lame and fell behind, so he came back.",
+       "fa": "پسری لنگ بود و عقب ماند، پس برگشت."
+      },
+      {
+       "en": "The rocks opened and closed, and the children were gone.",
+       "fa": "سنگ‌ها باز و بسته شدند و بچه‌ها رفتند."
+      },
+      {
+       "en": "The mayor admitted his broken promise had done this.",
+       "fa": "شهردار پذیرفت قول شکسته‌اش این کار را کرده."
+      }
+     ]
+    }
+   ],
+   "text": "Rats filled every house in Hamelin and ate the food. The mayor offered gold to anyone who could clear them. A piper in bright clothes said he could do it with music. He played, and every rat followed him to the river and drowned. The council decided to pay him much less than promised. He returned and said a broken promise has a price. He played again, and this time the children followed him. They went out of the town towards the mountain. One boy was lame and fell behind, so he came back. The rocks opened and closed, and the children were gone. The mayor admitted his broken promise had done this.",
+   "vocab": [
+    {
+     "word": "rats",
+     "pos": "n.",
+     "meaning": {
+      "en": "large grey animals that live in towns",
+      "fa": "موش‌ها"
+     },
+     "example": "The rats ate everything.",
+     "exampleFa": "موش‌ها همه چیز را خوردند."
+    },
+    {
+     "word": "mayor",
+     "pos": "n.",
+     "meaning": {
+      "en": "the head of a town",
+      "fa": "شهردار"
+     },
+     "example": "The mayor offered gold.",
+     "exampleFa": "شهردار طلا پیشنهاد داد."
+    },
+    {
+     "word": "piper",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who plays a pipe",
+      "fa": "نی‌زن"
+     },
+     "example": "A piper in bright clothes arrived.",
+     "exampleFa": "نی‌زنی با لباس رنگارنگ رسید."
+    },
+    {
+     "word": "promise",
+     "pos": "n.",
+     "meaning": {
+      "en": "a statement that you will do something",
+      "fa": "قول"
+     },
+     "example": "A broken promise has a price.",
+     "exampleFa": "قول شکسته بها دارد."
+    },
+    {
+     "word": "drown",
+     "pos": "v.",
+     "meaning": {
+      "en": "die under water",
+      "fa": "غرق شدن"
+     },
+     "example": "The rats drowned in the river.",
+     "exampleFa": "موش‌ها در رودخانه غرق شدند."
+    },
+    {
+     "word": "lame",
+     "pos": "adj.",
+     "meaning": {
+      "en": "unable to walk well",
+      "fa": "لنگ"
+     },
+     "example": "One boy was lame and fell behind.",
+     "exampleFa": "پسری لنگ بود و عقب ماند."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "break a promise",
+     "meaning": {
+      "en": "not do what you said you would do",
+      "fa": "قول را شکستن"
+     },
+     "example": "The town broke its promise.",
+     "exampleFa": "شهر قولش را شکست."
+    },
+    {
+     "phrase": "fall behind",
+     "meaning": {
+      "en": "move more slowly than the others",
+      "fa": "عقب ماندن"
+     },
+     "example": "The lame boy fell behind.",
+     "exampleFa": "پسر لنگ عقب ماند."
+    },
+    {
+     "phrase": "play a tune",
+     "meaning": {
+      "en": "make music",
+      "fa": "آهنگ نواختن"
+     },
+     "example": "The piper played a second tune.",
+     "exampleFa": "نی‌زن آهنگ دومی نواخت."
+    },
+    {
+     "phrase": "at a price",
+     "meaning": {
+      "en": "with a cost attached",
+      "fa": "با هزینه‌ای"
+     },
+     "example": "The silence came at a price.",
+     "exampleFa": "آن سکوت هزینه‌ای داشت."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "past simple chain",
+      "fa": "زنجیرهٔ گذشتهٔ ساده"
+     },
+     "example": "He played, they followed, and they drowned.",
+     "note": {
+      "en": "Three short clauses carry the whole scene.",
+      "fa": "سه جملهٔ کوتاه تمام صحنه را پیش می‌برد."
+     }
+    },
+    {
+     "name": {
+      "en": "had + past participle",
+      "fa": "had + قسمت سوم فعل"
+     },
+     "example": "The mayor admitted his promise had done this.",
+     "note": {
+      "en": "The broken promise happened before the admission.",
+      "fa": "قول شکسته پیش از اعتراف رخ داده بود."
+     }
+    },
+    {
+     "name": {
+      "en": "this time",
+      "fa": "this time یعنی این بار"
+     },
+     "example": "This time the children followed him.",
+     "note": {
+      "en": "'This time' marks a repeat that is different.",
+      "fa": "«this time» تکرار متفاوتی را نشان می‌دهد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What is the town's problem?",
+       "fa": "مشکل شهر چیست؟"
+      },
+      "options": [
+       "A flood",
+       "Too many rats",
+       "A war",
+       "No money"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Rats are in every house.",
+       "fa": "موش‌ها در هر خانه‌اند."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the piper clear the rats?",
+       "fa": "نی‌زن چگونه موش‌ها را پاک می‌کند؟"
+      },
+      "options": [
+       "With poison",
+       "With cats",
+       "With music",
+       "With fire"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They follow his tune to the river.",
+       "fa": "دنبال آهنگش به رودخانه می‌روند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does he come back?",
+       "fa": "چرا برمی‌گردد؟"
+      },
+      "options": [
+       "The town pays him less than promised",
+       "He lost his pipe",
+       "The rats return",
+       "The mayor invites him"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The council breaks the agreement.",
+       "fa": "شورا توافق را می‌شکند."
+      }
+     },
+     {
+      "q": {
+       "en": "Who follows him the second time?",
+       "fa": "بار دوم چه کسانی دنبالش می‌روند؟"
+      },
+      "options": [
+       "The rats",
+       "The children",
+       "The council",
+       "The soldiers"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The children leave the town.",
+       "fa": "بچه‌ها شهر را ترک می‌کنند."
+      }
+     },
+     {
+      "q": {
+       "en": "Who comes back?",
+       "fa": "چه کسی برمی‌گردد؟"
+      },
+      "options": [
+       "A lame boy",
+       "The mayor's son",
+       "A girl",
+       "Nobody"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The boy cannot keep up.",
+       "fa": "پسر نمی‌تواند همراه شود."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The town pays the full price.",
+       "fa": "شهر تمام پول را می‌دهد."
+      },
+      "answer": false,
+      "why": {
+       "en": "They pay far less.",
+       "fa": "خیلی کمتر می‌دهند."
+      }
+     },
+     {
+      "q": {
+       "en": "The rats drown in the river.",
+       "fa": "موش‌ها در رودخانه غرق می‌شوند."
+      },
+      "answer": true,
+      "why": {
+       "en": "The music leads them into the water.",
+       "fa": "موسیقی آن‌ها را به آب می‌برد."
+      }
+     },
+     {
+      "q": {
+       "en": "All the children go into the mountain.",
+       "fa": "همهٔ بچه‌ها به کوه می‌روند."
+      },
+      "answer": false,
+      "why": {
+       "en": "The lame boy is left behind.",
+       "fa": "پسر لنگ جا می‌ماند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The ___ offered gold for help.",
+      "answer": "mayor",
+      "hint": {
+       "en": "The head of the town.",
+       "fa": "رئیس شهر."
+      }
+     },
+     {
+      "sentence": "The rats followed the music to the river and ___.",
+      "answer": "drowned",
+      "hint": {
+       "en": "Died in the water.",
+       "fa": "در آب مردند."
+      }
+     },
+     {
+      "sentence": "One boy was ___ and fell behind.",
+      "answer": "lame",
+      "hint": {
+       "en": "He could not walk well.",
+       "fa": "خوب نمی‌توانست راه برود."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Who is worse: the piper or the town?",
+       "fa": "نی‌زن بدتر است یا شهر؟"
+      },
+      "model": {
+       "en": "The town breaks a promise to a stranger who has already done the work, which is a small, ordinary cruelty. The piper answers it by taking children, which is not a punishment but a crime. Both are wrong, and the story refuses to excuse either.",
+       "fa": "شهر قولش را به غریبه‌ای که کار را کرده می‌شکند و این بی‌رحمی کوچک و معمولی است. نی‌زن با بردن بچه‌ها پاسخ می‌دهد که تنبیه نیست، جنایت است. هر دو اشتباه‌اند و داستان هیچ‌کدام را توجیه نمی‌کند."
+      },
+      "tip": {
+       "en": "Judge each act on its own, then say which is worse and why.",
+       "fa": "هر کار را جدا بسنج، بعد بگو کدام بدتر است و چرا."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the lame boy prove?",
+       "fa": "پسر لنگ چه چیزی را ثابت می‌کند؟"
+      },
+      "model": {
+       "en": "That the door was real and the story can be told. Everyone else disappears, so the town has to live with a mystery; one witness turns it into a fact and a warning. His weakness is what keeps the memory.",
+       "fa": "اینکه آن در واقعی بود و داستان را می‌توان تعریف کرد. بقیه ناپدید می‌شوند و شهر با رازی زندگی می‌کند؛ یک شاهد آن را به واقعیت و هشدار تبدیل می‌کند. ضعف او همان چیزی است که خاطره را نگه می‌دارد."
+      },
+      "tip": {
+       "en": "Say what a single witness changes for the town.",
+       "fa": "بگو یک شاهد چه چیزی را برای شهر عوض می‌کند."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "steadfast_tin_soldier",
+   "title": {
+    "en": "The Steadfast Tin Soldier",
+    "fa": "سرباز قلعی استوار"
+   },
+   "level": "E",
+   "blurb": {
+    "en": "A one-legged toy soldier loves a paper dancer, and a goblin, a gutter and a fish carry him away from her.",
+    "fa": "سرباز قلعی تک‌پا عاشق رقاص کاغذی می‌شود و جن، جوی و ماهی او را از او دور می‌کنند."
+   },
+   "words": 153,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "One leg",
+      "fa": "یک پا"
+     },
+     "pairs": [
+      {
+       "en": "A toy maker made twenty-five tin soldiers from one spoon, and the last had only one leg.",
+       "fa": "اسباب‌بازسازی از یک قاشق قلعی بیست‌و‌پنج سرباز ساخت و آخری فقط یک پا داشت."
+      },
+      {
+       "en": "The boy lined them on a table with a paper castle, where a paper dancer stood on one leg.",
+       "fa": "پسر آن‌ها را روی میزی با قلعه‌ای کاغذی چید که رقاصی کاغذی روی یک پا در آن ایستاده بود."
+      },
+      {
+       "en": "The soldier loved her because she seemed like him.",
+       "fa": "سرباز عاشقش شد چون او را مانند خودش دید."
+      },
+      {
+       "en": "A goblin in a box warned him to stop looking at her.",
+       "fa": "جنی در جعبه هشدارش داد که دیگر به او نگاه نکند."
+      },
+      {
+       "en": "In the morning a wind blew him out of the window into the street.",
+       "fa": "صبح بادی او را از پنجره به خیابان انداخت."
+      },
+      {
+       "en": "Two boys put him in a paper boat, and it sailed into a dark tunnel.",
+       "fa": "دو پسر او را در قایقی کاغذی گذاشتند و قایق به تونلی تاریک رفت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The fish and the stove",
+      "fa": "ماهی و بخاری"
+     },
+     "pairs": [
+      {
+       "en": "A rat demanded a toll, but the soldier said nothing and held his gun.",
+       "fa": "موشی عوارض خواست، اما سرباز چیزی نگفت و تفنگش را نگه داشت."
+      },
+      {
+       "en": "The boat sank, and a fish ate him.",
+       "fa": "قایق غرق شد و ماهی او را خورد."
+      },
+      {
+       "en": "The fish was caught and sold to the boy's mother.",
+       "fa": "ماهی را گرفتند و به مادر پسر فروختند."
+      },
+      {
+       "en": "He was found in the fish and put back on the table.",
+       "fa": "او را در ماهی یافتند و دوباره روی میز گذاشتند."
+      },
+      {
+       "en": "The goblin made the wind blow him into the stove.",
+       "fa": "جن کاری کرد باد او را به بخاری بیندازد."
+      },
+      {
+       "en": "He melted, and the dancer burned, leaving a tin heart and a spangle.",
+       "fa": "او ذوب شد و رقاص سوخت و قلبی قلعی و یک تکهٔ فلز براق بر جای ماند."
+      }
+     ]
+    }
+   ],
+   "text": "A toy maker made twenty-five tin soldiers from one spoon, and the last had only one leg. The boy lined them on a table with a paper castle, where a paper dancer stood on one leg. The soldier loved her because she seemed like him. A goblin in a box warned him to stop looking at her. In the morning a wind blew him out of the window into the street. Two boys put him in a paper boat, and it sailed into a dark tunnel. A rat demanded a toll, but the soldier said nothing and held his gun. The boat sank, and a fish ate him. The fish was caught and sold to the boy's mother. He was found in the fish and put back on the table. The goblin made the wind blow him into the stove. He melted, and the dancer burned, leaving a tin heart and a spangle.",
+   "vocab": [
+    {
+     "word": "tin",
+     "pos": "n.",
+     "meaning": {
+      "en": "a soft light metal",
+      "fa": "قلع"
+     },
+     "example": "The soldiers were made of tin.",
+     "exampleFa": "سربازها از قلع بودند."
+    },
+    {
+     "word": "soldier",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person in an army",
+      "fa": "سرباز"
+     },
+     "example": "The last tin soldier had one leg.",
+     "exampleFa": "آخرین سرباز قلعی یک پا داشت."
+    },
+    {
+     "word": "dancer",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who dances",
+      "fa": "رقاص"
+     },
+     "example": "A paper dancer stood at the castle door.",
+     "exampleFa": "رقاصی کاغذی کنار در قلعه ایستاده بود."
+    },
+    {
+     "word": "goblin",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small ugly creature in stories",
+      "fa": "جن"
+     },
+     "example": "A goblin lived in the little box.",
+     "exampleFa": "جنی در جعبهٔ کوچک زندگی می‌کرد."
+    },
+    {
+     "word": "stove",
+     "pos": "n.",
+     "meaning": {
+      "en": "a metal box that holds a fire",
+      "fa": "بخاری"
+     },
+     "example": "He fell into the stove.",
+     "exampleFa": "در بخاری افتاد."
+    },
+    {
+     "word": "melt",
+     "pos": "v.",
+     "meaning": {
+      "en": "become liquid with heat",
+      "fa": "ذوب شدن"
+     },
+     "example": "The tin soldier melted.",
+     "exampleFa": "سرباز قلعی ذوب شد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "hold your gun",
+     "meaning": {
+      "en": "stay firm and say nothing",
+      "fa": "محکم ایستادن"
+     },
+     "example": "He held his gun and said nothing.",
+     "exampleFa": "تفنگش را نگه داشت و چیزی نگفت."
+    },
+    {
+     "phrase": "blow out",
+     "meaning": {
+      "en": "move something outside with wind",
+      "fa": "با باد بیرون انداختن"
+     },
+     "example": "The wind blew him out of the window.",
+     "exampleFa": "باد او را از پنجره بیرون انداخت."
+    },
+    {
+     "phrase": "be found",
+     "meaning": {
+      "en": "be discovered",
+      "fa": "پیدا شدن"
+     },
+     "example": "He was found inside the fish.",
+     "exampleFa": "او را داخل ماهی یافتند."
+    },
+    {
+     "phrase": "leave behind",
+     "meaning": {
+      "en": "remain after something ends",
+      "fa": "بر جای گذاشتن"
+     },
+     "example": "Only a tin heart was left behind.",
+     "exampleFa": "فقط یک قلب قلعی بر جای ماند."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "make ... from",
+      "fa": "ساختن از ماده با make ... from"
+     },
+     "example": "They made twenty-five soldiers from one spoon.",
+     "note": {
+      "en": "'From' names the material that changes shape.",
+      "fa": "«from» ماده‌ای را می‌گوید که شکلش عوض می‌شود."
+     }
+    },
+    {
+     "name": {
+      "en": "because + clause",
+      "fa": "because + جمله"
+     },
+     "example": "He loved her because she seemed like him.",
+     "note": {
+      "en": "The reason follows 'because' at the end.",
+      "fa": "دلیل پس از «because» در پایان می‌آید."
+     }
+    },
+    {
+     "name": {
+      "en": "past passive",
+      "fa": "مجهول گذشته"
+     },
+     "example": "The fish was caught and sold.",
+     "note": {
+      "en": "Who did it does not matter; what happened does.",
+      "fa": "چه کسی کرد مهم نیست؛ چه شد مهم است."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why has the last soldier one leg?",
+       "fa": "چرا آخرین سرباز یک پا دارد؟"
+      },
+      "options": [
+       "It broke",
+       "He was made last on purpose",
+       "A dog took it",
+       "There was not enough tin"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "The spoon ran out of metal.",
+       "fa": "قلع قاشق تمام شده بود."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does he love the dancer?",
+       "fa": "چرا عاشق رقاص می‌شود؟"
+      },
+      "options": [
+       "She is beautiful",
+       "She also stands on one leg",
+       "She is made of tin",
+       "She sings"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He thinks they are the same.",
+       "fa": "فکر می‌کند آن‌ها مثل هم‌اند."
+      }
+     },
+     {
+      "q": {
+       "en": "Who threatens him?",
+       "fa": "چه کسی تهدیدش می‌کند؟"
+      },
+      "options": [
+       "The boy",
+       "The goblin in the box",
+       "The rat",
+       "The fish"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The goblin warns him to stop looking.",
+       "fa": "جن هشدار می‌دهد که نگاه نکند."
+      }
+     },
+     {
+      "q": {
+       "en": "How does he get back to the table?",
+       "fa": "چگونه به میز برمی‌گردد؟"
+      },
+      "options": [
+       "The boys bring him",
+       "He is found inside a fish",
+       "The rat carries him",
+       "The dancer finds him"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "A fish swallows him and is sold to the house.",
+       "fa": "ماهی او را می‌بلعد و به خانه فروخته می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "What is left after the fire?",
+       "fa": "پس از آتش چه می‌ماند؟"
+      },
+      "options": [
+       "A tin heart",
+       "A paper castle",
+       "A boot",
+       "A spoon"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "His tin melts into a small heart shape.",
+       "fa": "قلعش به شکل قلب کوچکی ذوب می‌شود."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The soldier speaks to the goblin.",
+       "fa": "سرباز با جن حرف می‌زند."
+      },
+      "answer": false,
+      "why": {
+       "en": "He stays silent and holds his gun.",
+       "fa": "ساکت می‌ماند و تفنگش را نگه می‌دارد."
+      }
+     },
+     {
+      "q": {
+       "en": "He leaves the room through the window.",
+       "fa": "از پنجره از اتاق بیرون می‌رود."
+      },
+      "answer": true,
+      "why": {
+       "en": "The wind blows him out.",
+       "fa": "باد بیرونش می‌اندازد."
+      }
+     },
+     {
+      "q": {
+       "en": "The dancer survives the fire.",
+       "fa": "رقاص از آتش جان به در می‌برد."
+      },
+      "answer": false,
+      "why": {
+       "en": "She burns and only a spangle is left.",
+       "fa": "می‌سوزد و فقط یک تکهٔ براق می‌ماند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The soldiers were made from one ___.",
+      "answer": "spoon",
+      "hint": {
+       "en": "The tin thing they came from.",
+       "fa": "چیز قلعی که از آن ساخته شدند."
+      }
+     },
+     {
+      "sentence": "The ___ in the box warned him.",
+      "answer": "goblin",
+      "hint": {
+       "en": "A small ugly creature.",
+       "fa": "موجودی کوچک و زشت."
+      }
+     },
+     {
+      "sentence": "The tin soldier ___ in the fire.",
+      "answer": "melted",
+      "hint": {
+       "en": "Became liquid.",
+       "fa": "مایع شد."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why is the soldier's silence not weakness?",
+       "fa": "چرا سکوت سرباز ضعف نیست؟"
+      },
+      "model": {
+       "en": "Because he cannot win any argument and does not try. He has one leg, no voice that anyone obeys, and a gun that is part of his body. Standing still is the only thing he can choose, and he chooses it every time he is moved.",
+       "fa": "چون نمی‌تواند هیچ بحثی را ببرد و تلاشی هم نمی‌کند. یک پا دارد، صدایی که کسی اطاعتش کند ندارد و تفنگش بخشی از بدنش است. بی‌حرکت ایستادن تنها چیزی است که می‌تواند انتخاب کند و هر بار که جابه‌جا می‌شود همان را انتخاب می‌کند."
+      },
+      "tip": {
+       "en": "List what he cannot do, then the one thing he can.",
+       "fa": "بگو چه کارهایی نمی‌تواند بکند، بعد تنها کاری که می‌تواند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the tin heart at the end mean?",
+       "fa": "قلب قلعی در پایان چه معنایی دارد؟"
+      },
+      "model": {
+       "en": "It is the only part of him that survives heat, which is a joke and a kindness at once: the toy that never spoke is reduced to a shape that says everything. The story ends with proof that the feeling was real, not with a rescue.",
+       "fa": "تنها بخشی از اوست که از گرما جان به در می‌برد، و هم شوخی است هم مهربانی: اسباب‌بازی‌ای که هرگز حرف نزد به شکلی تبدیل می‌شود که همه چیز را می‌گوید. داستان با گواهی بر واقعی بودن آن احساس تمام می‌شود، نه با نجات."
+      },
+      "tip": {
+       "en": "Say what the object proves that words could not.",
+       "fa": "بگو آن شیء چه چیزی را ثابت می‌کند که کلمات نمی‌توانستند."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "six_swans",
+   "title": {
+    "en": "The Six Swans",
+    "fa": "شش قو"
+   },
+   "level": "E",
+   "blurb": {
+    "en": "A sister may not speak or laugh for six years while she sews the shirts that will turn six swans back into her brothers.",
+    "fa": "خواهری شش سال نباید حرف بزند یا بخندد تا پیراهن‌هایی بدوزد که شش قو را به برادرانش بازگرداند."
+   },
+   "words": 157,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "Six shirts",
+      "fa": "شش پیراهن"
+     },
+     "pairs": [
+      {
+       "en": "A king had six sons and one daughter, and he married a new queen who was a witch.",
+       "fa": "پادشاهی شش پسر و یک دختر داشت و با ملکه‌ای تازه ازدواج کرد که جادوگر بود."
+      },
+      {
+       "en": "She sewed six white shirts and threw one over each brother, and they became swans.",
+       "fa": "شش پیراهن سفید دوخت و یکی را روی هر برادر انداخت و آن‌ها قو شدند."
+      },
+      {
+       "en": "The sister found them in a hut in the forest with six beds.",
+       "fa": "خواهر آن‌ها را در کلبه‌ای در جنگل با شش تخت یافت."
+      },
+      {
+       "en": "They could be human for only fifteen minutes each night.",
+       "fa": "آن‌ها هر شب فقط پانزده دقیقه انسان می‌شدند."
+      },
+      {
+       "en": "She had to sew six shirts of starwort, and not speak or laugh for six years.",
+       "fa": "او باید شش پیراهن از گیاه می‌دوخت و شش سال حرف نمی‌زد و نمی‌خندید."
+      },
+      {
+       "en": "She sat in a tree and sewed in silence.",
+       "fa": "در درختی نشست و در سکوت دوخت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The last minute",
+      "fa": "آخرین لحظه"
+     },
+     "pairs": [
+      {
+       "en": "A king found her and married her, though she never said a word.",
+       "fa": "پادشاهی او را یافت و با او ازدواج کرد، هرچند او یک کلمه هم نگفت."
+      },
+      {
+       "en": "His mother disliked her and took away her babies, blaming her.",
+       "fa": "مادرش او را دوست نداشت و بچه‌هایش را برداشت و تقصیر را گردن او انداخت."
+      },
+      {
+       "en": "She was told she would be burned, and she kept sewing.",
+       "fa": "به او گفتند سوزانده می‌شود و او به دوختن ادامه داد."
+      },
+      {
+       "en": "In the last minutes the six shirts were ready, and she threw them over the swans.",
+       "fa": "در آخرین لحظه‌ها شش پیراهن آماده شد و آن‌ها را روی قوها انداخت."
+      },
+      {
+       "en": "The brothers became men again, though the youngest kept a wing for one arm.",
+       "fa": "برادران دوباره مرد شدند، هرچند کوچک‌ترین یک بال به‌جای یک بازو داشت."
+      },
+      {
+       "en": "She spoke, the truth came out, and they were all saved.",
+       "fa": "حرف زد، حقیقت آشکار شد و همه نجات یافتند."
+      }
+     ]
+    }
+   ],
+   "text": "A king had six sons and one daughter, and he married a new queen who was a witch. She sewed six white shirts and threw one over each brother, and they became swans. The sister found them in a hut in the forest with six beds. They could be human for only fifteen minutes each night. She had to sew six shirts of starwort, and not speak or laugh for six years. She sat in a tree and sewed in silence. A king found her and married her, though she never said a word. His mother disliked her and took away her babies, blaming her. She was told she would be burned, and she kept sewing. In the last minutes the six shirts were ready, and she threw them over the swans. The brothers became men again, though the youngest kept a wing for one arm. She spoke, the truth came out, and they were all saved.",
+   "vocab": [
+    {
+     "word": "swan",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large white bird with a long neck",
+      "fa": "قو"
+     },
+     "example": "The six brothers became swans.",
+     "exampleFa": "شش برادر قو شدند."
+    },
+    {
+     "word": "shirt",
+     "pos": "n.",
+     "meaning": {
+      "en": "clothing for the top of your body",
+      "fa": "پیراهن"
+     },
+     "example": "She sewed six white shirts.",
+     "exampleFa": "شش پیراهن سفید دوخت."
+    },
+    {
+     "word": "hut",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small simple building",
+      "fa": "کلبه"
+     },
+     "example": "They lived in a hut in the forest.",
+     "exampleFa": "در کلبه‌ای در جنگل زندگی می‌کردند."
+    },
+    {
+     "word": "silence",
+     "pos": "n.",
+     "meaning": {
+      "en": "the state of making no sound",
+      "fa": "سکوت"
+     },
+     "example": "She sewed in silence.",
+     "exampleFa": "در سکوت می‌دوخت."
+    },
+    {
+     "word": "burn",
+     "pos": "v.",
+     "meaning": {
+      "en": "destroy with fire",
+      "fa": "سوزاندن"
+     },
+     "example": "They said she would be burned.",
+     "exampleFa": "گفتند سوزانده می‌شود."
+    },
+    {
+     "word": "wing",
+     "pos": "n.",
+     "meaning": {
+      "en": "the part a bird uses to fly",
+      "fa": "بال"
+     },
+     "example": "The youngest kept a wing for one arm.",
+     "exampleFa": "کوچک‌ترین یک بال به‌جای یک بازو داشت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "say a word",
+     "meaning": {
+      "en": "speak at all",
+      "fa": "یک کلمه گفتن"
+     },
+     "example": "She never said a word.",
+     "exampleFa": "او یک کلمه هم نگفت."
+    },
+    {
+     "phrase": "take away",
+     "meaning": {
+      "en": "remove something from somebody",
+      "fa": "گرفتن و بردن"
+     },
+     "example": "The queen took away her babies.",
+     "exampleFa": "ملکه بچه‌هایش را برد."
+    },
+    {
+     "phrase": "blame",
+     "meaning": {
+      "en": "say that somebody did the bad thing",
+      "fa": "تقصیر را گردن کسی انداختن"
+     },
+     "example": "They blamed her for everything.",
+     "exampleFa": "همه چیز را گردن او انداختند."
+    },
+    {
+     "phrase": "come out",
+     "meaning": {
+      "en": "become known",
+      "fa": "آشکار شدن"
+     },
+     "example": "The truth came out at the end.",
+     "exampleFa": "حقیقت در پایان آشکار شد."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "had to",
+      "fa": "اجبار گذشته با had to"
+     },
+     "example": "She had to sew six shirts.",
+     "note": {
+      "en": "'Had to' is the past of 'must': there was no choice.",
+      "fa": "«had to» گذشتهٔ must است: چاره‌ای نبود."
+     }
+    },
+    {
+     "name": {
+      "en": "not ... or ...",
+      "fa": "منفی با or"
+     },
+     "example": "She must not speak or laugh.",
+     "note": {
+      "en": "One 'not' covers both verbs.",
+      "fa": "یک «not» هر دو فعل را پوشش می‌دهد."
+     }
+    },
+    {
+     "name": {
+      "en": "though + clause",
+      "fa": "though + جمله"
+     },
+     "example": "He married her, though she never spoke.",
+     "note": {
+      "en": "'Though' introduces the surprising part.",
+      "fa": "«though» بخش شگفت‌انگیز را می‌آورد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why do the brothers become swans?",
+       "fa": "چرا برادرها قو می‌شوند؟"
+      },
+      "options": [
+       "They drink magic water",
+       "The queen throws enchanted shirts over them",
+       "They are cursed at birth",
+       "They touch a lamp"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The witch-queen's shirts carry the charm.",
+       "fa": "پیراهن‌های ملکهٔ جادوگر طلسم را دارد."
+      }
+     },
+     {
+      "q": {
+       "en": "What must the sister do?",
+       "fa": "خواهر چه باید بکند؟"
+      },
+      "options": [
+       "Find a magician",
+       "Sew shirts and keep silent",
+       "Fight the queen",
+       "Leave the kingdom"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Six shirts, six years, no speaking or laughing.",
+       "fa": "شش پیراهن، شش سال، بی‌حرف و بی‌خنده."
+      }
+     },
+     {
+      "q": {
+       "en": "How long can the brothers be human?",
+       "fa": "برادرها چقدر انسان می‌مانند؟"
+      },
+      "options": [
+       "All night",
+       "An hour",
+       "Fifteen minutes",
+       "A day"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "Only fifteen minutes each night.",
+       "fa": "هر شب فقط پانزده دقیقه."
+      }
+     },
+     {
+      "q": {
+       "en": "What goes wrong for her at the castle?",
+       "fa": "در قلعه چه بدی بر سرش می‌آید؟"
+      },
+      "options": [
+       "She is blamed for losing her babies",
+       "She forgets how to sew",
+       "The king finds the shirts",
+       "Her brothers arrive"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The king's mother takes the children and blames her.",
+       "fa": "مادر پادشاه بچه‌ها را می‌برد و تقصیر را گردن او می‌اندازد."
+      }
+     },
+     {
+      "q": {
+       "en": "What is left wrong after the spell breaks?",
+       "fa": "پس از شکستن طلسم چه چیز نادرست می‌ماند؟"
+      },
+      "options": [
+       "One brother is still a swan",
+       "One arm stays a wing",
+       "The sister cannot speak",
+       "The shirts burn"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The last shirt was missing a sleeve.",
+       "fa": "آستین آخرین پیراهن ناقص بود."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The sister speaks during the six years.",
+       "fa": "خواهر در این شش سال حرف می‌زند."
+      },
+      "answer": false,
+      "why": {
+       "en": "Speaking would keep them swans forever.",
+       "fa": "حرف زدن آن‌ها را برای همیشه قو نگه می‌داشت."
+      }
+     },
+     {
+      "q": {
+       "en": "She marries a king.",
+       "fa": "با پادشاهی ازدواج می‌کند."
+      },
+      "answer": true,
+      "why": {
+       "en": "The king finds her in the tree.",
+       "fa": "پادشاه او را در درخت می‌یابد."
+      }
+     },
+     {
+      "q": {
+       "en": "The brothers stay swans at the end.",
+       "fa": "برادرها در پایان قو می‌مانند."
+      },
+      "answer": false,
+      "why": {
+       "en": "They become men again.",
+       "fa": "دوباره مرد می‌شوند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "She sewed six shirts of ___.",
+      "answer": "starwort",
+      "hint": {
+       "en": "The plant the shirts are made from.",
+       "fa": "گیاهی که پیراهن‌ها از آن است."
+      }
+     },
+     {
+      "sentence": "The brothers could be human for fifteen ___.",
+      "answer": "minutes",
+      "hint": {
+       "en": "Less than an hour.",
+       "fa": "کمتر از یک ساعت."
+      }
+     },
+     {
+      "sentence": "The youngest kept a ___ for one arm.",
+      "answer": "wing",
+      "hint": {
+       "en": "A bird's arm.",
+       "fa": "بازوی پرنده."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why does the story make silence the price?",
+       "fa": "چرا داستان سکوت را بها می‌کند؟"
+      },
+      "model": {
+       "en": "Because silence is the hardest thing for a person who is being accused. She could clear her name in one sentence and chooses not to, so the reader sees how much the brothers cost her. A task with hands would not hurt; a task with the mouth does.",
+       "fa": "چون سکوت سخت‌ترین چیز برای کسی است که متهم می‌شود. می‌توانست با یک جمله خودش را تبرئه کند و نمی‌کند، پس خواننده می‌بیند برادران چقدر برایش هزینه دارند. کاری که با دست باشد درد ندارد؛ کاری که با دهان باشد دارد."
+      },
+      "tip": {
+       "en": "Say what she could do with one sentence, and why she does not.",
+       "fa": "بگو با یک جمله چه می‌توانست بکند و چرا نمی‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Is the new queen the only villain?",
+       "fa": "ملکهٔ تازه تنها بدکار است؟"
+      },
+      "model": {
+       "en": "No. The king's mother takes the babies and lies, and the king believes her without asking his silent wife a single question. The spell is magic; the cruelty at the castle is ordinary and could happen without any witch.",
+       "fa": "نه. مادر پادشاه بچه‌ها را می‌گیرد و دروغ می‌گوید و پادشاه بی‌آنکه یک سؤال از همسر ساکتش بپرسد باورش می‌کند. طلسم جادویی است؛ بی‌رحمی قلعه معمولی است و بی‌جادوگر هم می‌توانست رخ دهد."
+      },
+      "tip": {
+       "en": "Separate the magic harm from the human harm.",
+       "fa": "آسیب جادویی را از آسیب انسانی جدا کن."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
    "id": "ugly_duckling",
    "title": {
     "en": "The Ugly Duckling",
@@ -8708,6 +9916,1218 @@
       "tip": {
        "en": "Compare the two behaviours, not the two labels.",
        "fa": "دو رفتار را مقایسه کن، نه دو برچسب را."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "goose_girl",
+   "title": {
+    "en": "The Goose Girl",
+    "fa": "دختر غازچران"
+   },
+   "level": "E",
+   "blurb": {
+    "en": "A maid takes her mistress's clothes, and the real princess says nothing until an iron stove hears the truth.",
+    "fa": "کنیزی لباس بانویش را می‌پوشد و شاهزادهٔ واقعی سکوت می‌کند تا تنوری آهنی حقیقت را می‌شنود."
+   },
+   "words": 189,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "On the road",
+      "fa": "در راه"
+     },
+     "pairs": [
+      {
+       "en": "A queen sent her daughter to marry a prince in a far kingdom, with a maid and a talking horse called Falada.",
+       "fa": "ملکه دخترش را با کنیزی و اسبی سخن‌گو به نام فالادا به پادشاهی دور فرستاد تا با شاهزاده‌ای ازدواج کند."
+      },
+      {
+       "en": "On the way the maid refused to bring water and made the princess change clothes and horses.",
+       "fa": "در راه کنیز از آوردن آب سر باز زد و شاهزاده را وادار کرد لباس و اسب عوض کند."
+      },
+      {
+       "en": "She made her swear never to tell anyone, and at the castle the maid was taken for the bride.",
+       "fa": "او را قسم داد هرگز به کسی نگوید، و در قلعه کنیز را عروس پنداشتند."
+      },
+      {
+       "en": "The real princess was sent to help the goose boy, and she said nothing.",
+       "fa": "شاهزادهٔ واقعی را به کمک پسر غازچران فرستادند و او چیزی نگفت."
+      },
+      {
+       "en": "The false bride had Falada killed, and his head was nailed over the gate.",
+       "fa": "عروس دروغین دستور کشتن فالادا را داد و سرش را بالای دروازه میخ کردند."
+      },
+      {
+       "en": "Every morning the head spoke to the goose girl as she passed, and she cried quietly.",
+       "fa": "هر صبح سر با دختر غازچران حرف می‌زد که می‌گذشت و او آرام گریه می‌کرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The iron stove",
+      "fa": "تنور آهنی"
+     },
+     "pairs": [
+      {
+       "en": "The goose boy tried to pull her golden hair, and she called the wind to blow his hat away.",
+       "fa": "پسر غازچران خواست موهای طلایی‌اش را بکشد و او باد را خواند تا کلاهش را ببرد."
+      },
+      {
+       "en": "The boy complained to the old king, who watched and saw the truth.",
+       "fa": "پسر به پادشاه پیر شکایت کرد و پادشاه تماشا کرد و حقیقت را دید."
+      },
+      {
+       "en": "The king asked her to tell her story, and she said she had sworn not to.",
+       "fa": "پادشاه خواست داستانش را بگوید و او گفت قسم خورده نگوید."
+      },
+      {
+       "en": "He told her to tell it to the iron stove instead, and she did.",
+       "fa": "گفت به‌جایش به تنور آهنی بگوید و او گفت."
+      },
+      {
+       "en": "The king heard every word and brought the truth to the feast.",
+       "fa": "پادشاه هر کلمه را شنید و حقیقت را به ضیافت آورد."
+      },
+      {
+       "en": "The false bride was sent away, and the goose girl married the prince.",
+       "fa": "عروس دروغین را فرستادند و دختر غازچران با شاهزاده ازدواج کرد."
+      }
+     ]
+    }
+   ],
+   "text": "A queen sent her daughter to marry a prince in a far kingdom, with a maid and a talking horse called Falada. On the way the maid refused to bring water and made the princess change clothes and horses. She made her swear never to tell anyone, and at the castle the maid was taken for the bride. The real princess was sent to help the goose boy, and she said nothing. The false bride had Falada killed, and his head was nailed over the gate. Every morning the head spoke to the goose girl as she passed, and she cried quietly. The goose boy tried to pull her golden hair, and she called the wind to blow his hat away. The boy complained to the old king, who watched and saw the truth. The king asked her to tell her story, and she said she had sworn not to. He told her to tell it to the iron stove instead, and she did. The king heard every word and brought the truth to the feast. The false bride was sent away, and the goose girl married the prince.",
+   "vocab": [
+    {
+     "word": "maid",
+     "pos": "n.",
+     "meaning": {
+      "en": "a woman who works for another woman",
+      "fa": "کنیز، خدمتکار"
+     },
+     "example": "The maid rode beside the princess.",
+     "exampleFa": "کنیز کنار شاهزاده می‌راند."
+    },
+    {
+     "word": "bride",
+     "pos": "n.",
+     "meaning": {
+      "en": "a woman on her wedding day",
+      "fa": "عروس"
+     },
+     "example": "The castle believed the maid was the bride.",
+     "exampleFa": "قلعه گمان کرد کنیز عروس است."
+    },
+    {
+     "word": "gate",
+     "pos": "n.",
+     "meaning": {
+      "en": "the door in a wall or fence",
+      "fa": "دروازه"
+     },
+     "example": "His head was nailed over the gate.",
+     "exampleFa": "سرش را بالای دروازه میخ کردند."
+    },
+    {
+     "word": "wind",
+     "pos": "n.",
+     "meaning": {
+      "en": "air that moves",
+      "fa": "باد"
+     },
+     "example": "She called the wind to blow his hat away.",
+     "exampleFa": "باد را خواند تا کلاهش را ببرد."
+    },
+    {
+     "word": "stove",
+     "pos": "n.",
+     "meaning": {
+      "en": "a metal box that holds a fire",
+      "fa": "تنور، بخاری"
+     },
+     "example": "She told her story to the iron stove.",
+     "exampleFa": "داستانش را به تنور آهنی گفت."
+    },
+    {
+     "word": "truth",
+     "pos": "n.",
+     "meaning": {
+      "en": "what is really true",
+      "fa": "حقیقت"
+     },
+     "example": "The king heard the truth at last.",
+     "exampleFa": "پادشاه سرانجام حقیقت را شنید."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "on the way",
+     "meaning": {
+      "en": "during a journey",
+      "fa": "در راه"
+     },
+     "example": "On the way the maid changed the plan.",
+     "exampleFa": "در راه کنیز نقشه را عوض کرد."
+    },
+    {
+     "phrase": "take for",
+     "meaning": {
+      "en": "believe somebody is somebody else",
+      "fa": "کسی را دیگری پنداشتن"
+     },
+     "example": "They took the maid for the bride.",
+     "exampleFa": "کنیز را عروس پنداشتند."
+    },
+    {
+     "phrase": "blow away",
+     "meaning": {
+      "en": "move something with wind",
+      "fa": "باد بردن"
+     },
+     "example": "The wind blew his hat away.",
+     "exampleFa": "باد کلاهش را برد."
+    },
+    {
+     "phrase": "tell the truth",
+     "meaning": {
+      "en": "say what really happened",
+      "fa": "حقیقت را گفتن"
+     },
+     "example": "She had to tell the truth to somebody.",
+     "exampleFa": "باید به کسی حقیقت را می‌گفت."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "make somebody do",
+      "fa": "make + مفعول + فعل ساده"
+     },
+     "example": "The maid made the princess change clothes.",
+     "note": {
+      "en": "The bare verb after 'make' shows force, not a request.",
+      "fa": "فعل بدون to پس از «make» زور را نشان می‌دهد، نه درخواست."
+     }
+    },
+    {
+     "name": {
+      "en": "swear + to",
+      "fa": "قسم خوردن با to"
+     },
+     "example": "She swore never to tell anyone.",
+     "note": {
+      "en": "'Swear to + verb' is a promise made under pressure.",
+      "fa": "«swear to + فعل» قولی است که زیر فشار داده می‌شود."
+     }
+    },
+    {
+     "name": {
+      "en": "passive: was taken for",
+      "fa": "مجهول: کسی را دیگری پنداشتن"
+     },
+     "example": "The maid was taken for the bride.",
+     "note": {
+      "en": "The passive hides who made the mistake, which is the point.",
+      "fa": "مجهول پنهان می‌کند چه کسی اشتباه کرد و همین نکتهٔ داستان است."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What does the maid take from the princess?",
+       "fa": "کنیز چه چیزی را از شاهزاده می‌گیرد؟"
+      },
+      "options": [
+       "Her gold",
+       "Her clothes and her horse",
+       "Her ring",
+       "Her letter"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She swaps clothes and horses by the stream.",
+       "fa": "کنار جوی لباس و اسب را عوض می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the princess say nothing?",
+       "fa": "چرا شاهزاده چیزی نمی‌گوید؟"
+      },
+      "options": [
+       "She swore an oath",
+       "She has lost her voice",
+       "She is ashamed",
+       "She wants to be a goose girl"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The maid made her swear not to tell.",
+       "fa": "کنیز او را قسم داد نگوید."
+      }
+     },
+     {
+      "q": {
+       "en": "What speaks to her every morning?",
+       "fa": "هر صبح چه چیزی با او حرف می‌زند؟"
+      },
+      "options": [
+       "The goose boy",
+       "The old king",
+       "Falada's head",
+       "The wind"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The horse's head is nailed over the gate.",
+       "fa": "سر اسب بالای دروازه میخ شده است."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the wind help her?",
+       "fa": "باد چگونه کمکش می‌کند؟"
+      },
+      "options": [
+       "It dries her clothes",
+       "It blows the boy's hat away",
+       "It opens the gate",
+       "It carries a message"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The boy runs after his hat instead of her hair.",
+       "fa": "پسر به‌جای موهای او دنبال کلاهش می‌دود."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the king learn the truth?",
+       "fa": "پادشاه چگونه حقیقت را می‌فهمد؟"
+      },
+      "options": [
+       "The maid confesses",
+       "He listens at the stove",
+       "Falada tells him",
+       "The prince guesses"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She tells the story to the stove and he hears it.",
+       "fa": "او داستان را به تنور می‌گوید و پادشاه می‌شنود."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Falada can talk.",
+       "fa": "فالادا می‌تواند حرف بزند."
+      },
+      "answer": true,
+      "why": {
+       "en": "Only the queen and the princess know.",
+       "fa": "فقط ملکه و شاهزاده می‌دانند."
+      }
+     },
+     {
+      "q": {
+       "en": "The princess fights the maid on the road.",
+       "fa": "شاهزاده در راه با کنیز می‌جنگد."
+      },
+      "answer": false,
+      "why": {
+       "en": "She obeys and swears the oath.",
+       "fa": "اطاعت می‌کند و قسم می‌خورد."
+      }
+     },
+     {
+      "q": {
+       "en": "The goose boy helps her keep her secret.",
+       "fa": "پسر غازچران کمکش می‌کند رازش را نگه دارد."
+      },
+      "answer": false,
+      "why": {
+       "en": "He complains about her to the king.",
+       "fa": "او از او به پادشاه شکایت می‌کند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The maid made the princess change ___ and horses.",
+      "answer": "clothes",
+      "hint": {
+       "en": "What you wear.",
+       "fa": "آنچه می‌پوشی."
+      }
+     },
+     {
+      "sentence": "Falada's head was nailed over the ___.",
+      "answer": "gate",
+      "hint": {
+       "en": "The door in the wall.",
+       "fa": "درِ دیوار."
+      }
+     },
+     {
+      "sentence": "She told the story to the iron ___.",
+      "answer": "stove",
+      "hint": {
+       "en": "A metal box with a fire.",
+       "fa": "جعبهٔ فلزی با آتش."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why does the princess keep her oath when breaking it would help?",
+       "fa": "چرا شاهزاده به قسمش وفادار می‌ماند، در حالی که شکستنش کمک می‌کرد؟"
+      },
+      "model": {
+       "en": "Because the oath is the last thing she owns. Her clothes, her horse and her name are gone, and her word is what is left. The story finds a way for her to keep it and still be heard, which is the clever part: the stove is not a person.",
+       "fa": "چون قسم آخرین چیزی است که دارد. لباس، اسب و نامش رفته و  تنها چیزی که مانده حرفش است. داستان راهی پیدا می‌کند که هم قسمش را نگه دارد و هم شنیده شود، و بخش هوشمندانه همین است: تنور آدم نیست."
+      },
+      "tip": {
+       "en": "Say what she has already lost, then what is left.",
+       "fa": "بگو چه از دست داده، بعد چه مانده است."
+      }
+     },
+     {
+      "q": {
+       "en": "Is the maid a villain or an ambitious servant?",
+       "fa": "کنیز بدکار است یا خدمتکاری جاه‌طلب؟"
+      },
+      "model": {
+       "en": "She is both, and the story shows the difference between wanting more and taking it. A servant with no future is not a monster; but she takes another woman's name by force and threatens her with death, and the ending is about that threat, not about her ambition.",
+       "fa": "هر دو، و داستان تفاوت «بیشتر خواستن» و «گرفتن» را نشان می‌دهد. خدمتکاری بی‌آینده هیولا نیست؛ اما نام زن دیگری را به زور می‌گیرد و او را به مرگ تهدید می‌کند، و پایان داستان دربارهٔ همین تهدید است، نه جاه‌طلبی او."
+      },
+      "tip": {
+       "en": "Separate the ambition from the method.",
+       "fa": "جاه‌طلبی را از روش جدا کن."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "brave_little_tailor",
+   "title": {
+    "en": "The Brave Little Tailor",
+    "fa": "خیاط کوچک شجاع"
+   },
+   "level": "E",
+   "blurb": {
+    "en": "A tailor kills seven flies at one blow, and then has to live up to the words on his belt.",
+    "fa": "خیاطی هفت مگس را با یک ضربه می‌کشد و بعد باید حرف کمربندش را ثابت کند."
+   },
+   "words": 197,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "Seven at one blow",
+      "fa": "هفت با یک ضربه"
+     },
+     "pairs": [
+      {
+       "en": "A little tailor sat sewing by his window and spread jam on his bread.",
+       "fa": "خیاط کوچکی کنار پنجره می‌دوخت و روی نانش مربا مالید."
+      },
+      {
+       "en": "Seven flies came to the jam, and he killed them all with one blow of a cloth.",
+       "fa": "هفت مگس به مربا آمدند و او همه را با یک ضربهٔ پارچه کشت."
+      },
+      {
+       "en": "He made a belt that said \"Seven at one blow\" and went out to see the world.",
+       "fa": "کمربندی ساخت که رویش نوشته بود «هفت با یک ضربه» و برای دیدن دنیا راه افتاد."
+      },
+      {
+       "en": "A giant read the belt and thought the little man had killed seven men.",
+       "fa": "غولی کمربند را خواند و گمان کرد مرد کوچک هفت آدم کشته است."
+      },
+      {
+       "en": "The giant squeezed a stone until water ran out; the tailor squeezed a cheese from his coat and water ran out.",
+       "fa": "غول سنگی را چنان فشرد که آب از آن چکید؛ خیاط پنیری از کتش درآورد و آب از آن چکید."
+      },
+      {
+       "en": "The giant threw a stone high in the air; the tailor threw a bird, which flew away and never came down.",
+       "fa": "غول سنگی را به هوا انداخت؛ خیاط پرنده‌ای انداخت که پرواز کرد و هرگز پایین نیامد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The king's task",
+      "fa": "کار پادشاه"
+     },
+     "pairs": [
+      {
+       "en": "At night the giant tried to kill him in his bed, but the tailor slept in a corner.",
+       "fa": "شب غول خواست در تخت بکشدش، اما خیاط در گوشه خوابیده بود."
+      },
+      {
+       "en": "In the morning he walked out alive, and the other giants ran away.",
+       "fa": "صبح زنده بیرون آمد و غول‌های دیگر فرار کردند."
+      },
+      {
+       "en": "The king read the belt and gave him a place in the army, but the soldiers were afraid of him.",
+       "fa": "پادشاه کمربند را خواند و او را به سپاه برد، اما سربازها از او می‌ترسیدند."
+      },
+      {
+       "en": "So the king promised him half the kingdom and his daughter if he killed two giants in the forest.",
+       "fa": "پس پادشاه وعده داد اگر دو غول جنگل را بکشد نیمی از کشور و دخترش را می‌دهد."
+      },
+      {
+       "en": "The tailor climbed a tree, dropped stones on the giants and made them fight each other.",
+       "fa": "خیاط از درخت بالا رفت، سنگ روی غول‌ها انداخت و کاری کرد با هم بجنگند."
+      },
+      {
+       "en": "He married the princess and became king.",
+       "fa": "با شاهزاده ازدواج کرد و پادشاه شد."
+      }
+     ]
+    }
+   ],
+   "text": "A little tailor sat sewing by his window and spread jam on his bread. Seven flies came to the jam, and he killed them all with one blow of a cloth. He made a belt that said \"Seven at one blow\" and went out to see the world. A giant read the belt and thought the little man had killed seven men. The giant squeezed a stone until water ran out; the tailor squeezed a cheese from his coat and water ran out. The giant threw a stone high in the air; the tailor threw a bird, which flew away and never came down. At night the giant tried to kill him in his bed, but the tailor slept in a corner. In the morning he walked out alive, and the other giants ran away. The king read the belt and gave him a place in the army, but the soldiers were afraid of him. So the king promised him half the kingdom and his daughter if he killed two giants in the forest. The tailor climbed a tree, dropped stones on the giants and made them fight each other. He married the princess and became king.",
+   "vocab": [
+    {
+     "word": "tailor",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who makes clothes",
+      "fa": "خیاط"
+     },
+     "example": "The tailor worked in a small shop.",
+     "exampleFa": "خیاط در کارگاهی کوچک کار می‌کرد."
+    },
+    {
+     "word": "belt",
+     "pos": "n.",
+     "meaning": {
+      "en": "a band you wear around your waist",
+      "fa": "کمربند"
+     },
+     "example": "He made a belt with words on it.",
+     "exampleFa": "کمربندی با نوشته ساخت."
+    },
+    {
+     "word": "giant",
+     "pos": "n.",
+     "meaning": {
+      "en": "a very big person in stories",
+      "fa": "غول"
+     },
+     "example": "A giant sat by the road.",
+     "exampleFa": "غولی کنار راه نشسته بود."
+    },
+    {
+     "word": "cheese",
+     "pos": "n.",
+     "meaning": {
+      "en": "a solid food made from milk",
+      "fa": "پنیر"
+     },
+     "example": "He took a cheese from his coat.",
+     "exampleFa": "پنیری از کتش درآورد."
+    },
+    {
+     "word": "army",
+     "pos": "n.",
+     "meaning": {
+      "en": "the soldiers of a country",
+      "fa": "سپاه"
+     },
+     "example": "The king gave him a place in the army.",
+     "exampleFa": "پادشاه او را در سپاه جای داد."
+    },
+    {
+     "word": "kingdom",
+     "pos": "n.",
+     "meaning": {
+      "en": "a country ruled by a king",
+      "fa": "پادشاهی"
+     },
+     "example": "The king offered half his kingdom.",
+     "exampleFa": "پادشاه نیمی از پادشاهی‌اش را پیشنهاد کرد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "at one blow",
+     "meaning": {
+      "en": "with a single hit",
+      "fa": "با یک ضربه"
+     },
+     "example": "He killed seven flies at one blow.",
+     "exampleFa": "هفت مگس را با یک ضربه کشت."
+    },
+    {
+     "phrase": "see the world",
+     "meaning": {
+      "en": "travel and look at other places",
+      "fa": "دیدن دنیا"
+     },
+     "example": "He left home to see the world.",
+     "exampleFa": "برای دیدن دنیا از خانه رفت."
+    },
+    {
+     "phrase": "run out",
+     "meaning": {
+      "en": "flow out of something",
+      "fa": "بیرون آمدن، چکیدن"
+     },
+     "example": "Water ran out of the stone.",
+     "exampleFa": "آب از سنگ بیرون آمد."
+    },
+    {
+     "phrase": "each other",
+     "meaning": {
+      "en": "one the other, and the other the one",
+      "fa": "یکدیگر"
+     },
+     "example": "The giants began to fight each other.",
+     "exampleFa": "غول‌ها شروع کردند به جنگیدن با یکدیگر."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "if + present, will promise",
+      "fa": "if + حال، وعده"
+     },
+     "example": "If you kill the giants, you may marry my daughter.",
+     "note": {
+      "en": "The condition comes first and the reward after it.",
+      "fa": "شرط اول می‌آید و پاداش بعد از آن."
+     }
+    },
+    {
+     "name": {
+      "en": "make somebody do",
+      "fa": "make + مفعول + فعل ساده"
+     },
+     "example": "He made the giants fight each other.",
+     "note": {
+      "en": "'Make' takes the bare verb, with no 'to'.",
+      "fa": "«make» فعل بدون to می‌گیرد."
+     }
+    },
+    {
+     "name": {
+      "en": "past simple in order",
+      "fa": "گذشتهٔ ساده به ترتیب"
+     },
+     "example": "He climbed, he dropped stones, and they fought.",
+     "note": {
+      "en": "Three clauses, three finished actions, in time order.",
+      "fa": "سه جمله، سه کار تمام‌شده، به ترتیب زمان."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "How many flies did he kill?",
+       "fa": "چند مگس کشت؟"
+      },
+      "options": [
+       "One",
+       "Twelve",
+       "Seven",
+       "Twenty"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "Seven flies came to the jam at once.",
+       "fa": "هفت مگس یک‌جا به مربا آمدند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the belt say?",
+       "fa": "روی کمربند چه نوشته است؟"
+      },
+      "options": [
+       "Seven at one blow",
+       "The best tailor",
+       "A friend of the king",
+       "No fear"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He writes his one great achievement on it.",
+       "fa": "تنها کار بزرگش را روی آن می‌نویسد."
+      }
+     },
+     {
+      "q": {
+       "en": "How does he beat the giant's stone trick?",
+       "fa": "چگونه نیرنگ سنگ غول را می‌برد؟"
+      },
+      "options": [
+       "He squeezes a harder stone",
+       "He squeezes a cheese",
+       "He throws the stone further",
+       "He calls the king"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Soft cheese looks like a stone giving water.",
+       "fa": "پنیر نرم مانند سنگی است که آب می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Why do the other giants run away?",
+       "fa": "چرا غول‌های دیگر فرار می‌کنند؟"
+      },
+      "options": [
+       "They see him alive after the night",
+       "He shouts at them",
+       "The king sends soldiers",
+       "He breaks a tree"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The bed was hit, yet he walks out unhurt.",
+       "fa": "به تخت ضربه زده‌اند اما او بی‌آسیب بیرون می‌آید."
+      }
+     },
+     {
+      "q": {
+       "en": "How does he kill the two giants?",
+       "fa": "چگونه دو غول را می‌کشد؟"
+      },
+      "options": [
+       "With a sword",
+       "By making them fight each other",
+       "With the army",
+       "With fire"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He drops stones so each blames the other.",
+       "fa": "سنگ می‌اندازد تا هر کدام دیگری را سرزنش کند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "He really killed seven men.",
+       "fa": "او واقعاً هفت آدم کشت."
+      },
+      "answer": false,
+      "why": {
+       "en": "The seven were flies.",
+       "fa": "آن هفت، مگس بودند."
+      }
+     },
+     {
+      "q": {
+       "en": "The soldiers were glad to have him.",
+       "fa": "سربازها از آمدنش خوشحال بودند."
+      },
+      "answer": false,
+      "why": {
+       "en": "They were afraid of him.",
+       "fa": "آن‌ها از او می‌ترسیدند."
+      }
+     },
+     {
+      "q": {
+       "en": "He marries the princess.",
+       "fa": "با شاهزاده ازدواج می‌کند."
+      },
+      "answer": true,
+      "why": {
+       "en": "He completes the task and gets the reward.",
+       "fa": "کار را تمام می‌کند و پاداش می‌گیرد."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "He killed seven flies at one ___.",
+      "answer": "blow",
+      "hint": {
+       "en": "A single hit.",
+       "fa": "یک ضربه."
+      }
+     },
+     {
+      "sentence": "The giant thought he had killed seven ___.",
+      "answer": "men",
+      "hint": {
+       "en": "People, not flies.",
+       "fa": "آدم‌ها، نه مگس‌ها."
+      }
+     },
+     {
+      "sentence": "The king offered half his ___.",
+      "answer": "kingdom",
+      "hint": {
+       "en": "What a king rules.",
+       "fa": "آنچه پادشاه بر آن حکومت می‌کند."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Is the tailor brave or just lucky?",
+       "fa": "خیاط شجاع است یا فقط خوش‌شانس؟"
+      },
+      "model": {
+       "en": "He is neither, exactly: he is quick. Every danger is solved by noticing what the other person expects and giving them something else. A cheese for a stone, a bird for a stone, a corner instead of a bed. That is a kind of courage, but it is mostly invention.",
+       "fa": "دقیقاً هیچ‌کدام نیست: او چابک‌است. هر خطر با فهمیدن انتظار طرف مقابل و دادن چیز دیگری حل می‌شود. پنیر به‌جای سنگ، پرنده به‌جای سنگ، گوشه به‌جای تخت. این نوعی شجاعت است، اما بیشتر ابتکار است."
+      },
+      "tip": {
+       "en": "Show that his wins come from expecting the trick.",
+       "fa": "نشان بده بردهایش از پیش‌بینی نیرنگ می‌آید."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the belt really change?",
+       "fa": "کمربند واقعاً چه چیزی را عوض می‌کند؟"
+      },
+      "model": {
+       "en": "Not his strength; only what people believe about him. He kills four giants without a weapon because each one has already decided who he is. The story is about a sentence being stronger than a sword.",
+       "fa": "نه نیروی او؛ فقط باور آدم‌ها را. او چهار غول را بی‌سلاح می‌کشد چون هر کدام از قبل تصمیم گرفته‌اند او کیست. داستان دربارهٔ جمله‌ای است که از شمشیر قوی‌تر است."
+      },
+      "tip": {
+       "en": "Say what others believe, then what that belief lets him do.",
+       "fa": "بگو دیگران چه باور می‌کنند، بعد آن باور چه اجازه‌ای به او می‌دهد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "thumbelina",
+   "title": {
+    "en": "Thumbelina",
+    "fa": "جوجه‌تیزی"
+   },
+   "level": "E",
+   "blurb": {
+    "en": "A girl no bigger than a thumb is carried from a flower to a lily pad to a hole in the ground, and finds her own size at last.",
+    "fa": "دختری به اندازهٔ یک بند انگشت از گلی به برگ نیلوفر و از آنجا به سوراخی در زمین برده می‌شود و سرانجام هم‌اندازهٔ خودش را می‌یابد."
+   },
+   "words": 199,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "A girl in a flower",
+      "fa": "دختری در گل"
+     },
+     "pairs": [
+      {
+       "en": "A woman wanted a child, so she asked an old witch for help.",
+       "fa": "زنی بچه می‌خواست، پس از پیرزنی جادوگر کمک خواست."
+      },
+      {
+       "en": "The witch gave her a seed, and from the flower came a tiny girl as small as a thumb.",
+       "fa": "پیرزن دانه‌ای داد و از گل، دختری ریز به کوچکی بند انگشت بیرون آمد."
+      },
+      {
+       "en": "The woman called her Thumbelina and made her a bed from a walnut shell.",
+       "fa": "زن او را جوجه‌تیزی نامید و از پوست گردو تختی برایش ساخت."
+      },
+      {
+       "en": "One night a toad carried her away to a lily pad on a stream, because she wanted her for her son.",
+       "fa": "شبی وزغی او را به برگ نیلوفری روی جوی برد، چون او را برای پسرش می‌خواست."
+      },
+      {
+       "en": "The fish bit through the stem, and the leaf floated away with Thumbelina on it.",
+       "fa": "ماهی‌ها ساقه را جویدند و برگ با جوجه‌تیزی رویش شناکنان رفت."
+      },
+      {
+       "en": "A beetle carried her into a tree, but the other beetles said she was not pretty, so he put her on a daisy.",
+       "fa": "سوسکی او را به درختی برد، اما سوسک‌های دیگر گفتند زیبا نیست، پس روی گل مینایی گذاشتش."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Winter and spring",
+      "fa": "زمستان و بهار"
+     },
+     "pairs": [
+      {
+       "en": "She lived alone all summer and drank water from the flowers.",
+       "fa": "تمام تابستان تنها زندگی کرد و از گل‌ها آب می‌نوشید."
+      },
+      {
+       "en": "When winter came she was cold, so she asked a field mouse for help.",
+       "fa": "زمستان که آمد سردش شد، پس از موش صحرایی کمک خواست."
+      },
+      {
+       "en": "The mouse let her stay if she kept the home and sang, and Thumbelina agreed.",
+       "fa": "موش گذاشت بماند به شرط آنکه خانه را نگه دارد و آواز بخواند و جوجه‌تیزی پذیرفت."
+      },
+      {
+       "en": "The mouse's friend, a mole, wanted to marry her, and she did not want to live under the ground.",
+       "fa": "دوست موش، خال‌موشی، می‌خواست با او ازدواج کند و او نمی‌خواست زیر زمین زندگی کند."
+      },
+      {
+       "en": "In spring she found a swallow that she had helped, and it flew her away to a warm country.",
+       "fa": "در بهار پرستویی یافت که کمکش کرده بود و او را به سرزمینی گرم برد."
+      },
+      {
+       "en": "There she met a tiny man her own size, and they lived together among the flowers.",
+       "fa": "آنجا مرد کوچکی هم‌اندازهٔ خودش دید و با هم میان گل‌ها زندگی کردند."
+      }
+     ]
+    }
+   ],
+   "text": "A woman wanted a child, so she asked an old witch for help. The witch gave her a seed, and from the flower came a tiny girl as small as a thumb. The woman called her Thumbelina and made her a bed from a walnut shell. One night a toad carried her away to a lily pad on a stream, because she wanted her for her son. The fish bit through the stem, and the leaf floated away with Thumbelina on it. A beetle carried her into a tree, but the other beetles said she was not pretty, so he put her on a daisy. She lived alone all summer and drank water from the flowers. When winter came she was cold, so she asked a field mouse for help. The mouse let her stay if she kept the home and sang, and Thumbelina agreed. The mouse's friend, a mole, wanted to marry her, and she did not want to live under the ground. In spring she found a swallow that she had helped, and it flew her away to a warm country. There she met a tiny man her own size, and they lived together among the flowers.",
+   "vocab": [
+    {
+     "word": "seed",
+     "pos": "n.",
+     "meaning": {
+      "en": "the small thing a plant grows from",
+      "fa": "دانه"
+     },
+     "example": "The witch gave her a seed.",
+     "exampleFa": "جادوگر دانه‌ای به او داد."
+    },
+    {
+     "word": "walnut",
+     "pos": "n.",
+     "meaning": {
+      "en": "a nut with a hard shell",
+      "fa": "گردو"
+     },
+     "example": "Her bed was made from a walnut shell.",
+     "exampleFa": "تختش از پوست گردو ساخته شده بود."
+    },
+    {
+     "word": "toad",
+     "pos": "n.",
+     "meaning": {
+      "en": "an animal like a frog with dry skin",
+      "fa": "وزغ"
+     },
+     "example": "A toad took her to the stream.",
+     "exampleFa": "وزغی او را به جوی برد."
+    },
+    {
+     "word": "beetle",
+     "pos": "n.",
+     "meaning": {
+      "en": "an insect with a hard shiny back",
+      "fa": "سوسک"
+     },
+     "example": "A beetle carried her into a tree.",
+     "exampleFa": "سوسکی او را به درختی برد."
+    },
+    {
+     "word": "mole",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small animal that lives under the ground",
+      "fa": "خال‌موش"
+     },
+     "example": "A mole wanted to marry her.",
+     "exampleFa": "خال‌موشی می‌خواست با او ازدواج کند."
+    },
+    {
+     "word": "swallow",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small bird with a forked tail",
+      "fa": "پرستو"
+     },
+     "example": "A swallow flew her to a warm country.",
+     "exampleFa": "پرستویی او را به سرزمینی گرم برد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "as small as",
+     "meaning": {
+      "en": "the same size as",
+      "fa": "به کوچکیِ"
+     },
+     "example": "She was as small as a thumb.",
+     "exampleFa": "به کوچکی بند انگشت بود."
+    },
+    {
+     "phrase": "carry away",
+     "meaning": {
+      "en": "take somebody or something from a place",
+      "fa": "بردن"
+     },
+     "example": "The toad carried her away at night.",
+     "exampleFa": "وزغ شب او را برد."
+    },
+    {
+     "phrase": "ask for help",
+     "meaning": {
+      "en": "say that you need somebody to help you",
+      "fa": "کمک خواستن"
+     },
+     "example": "She asked the mouse for help.",
+     "exampleFa": "از موش کمک خواست."
+    },
+    {
+     "phrase": "under the ground",
+     "meaning": {
+      "en": "below the surface of the earth",
+      "fa": "زیر زمین"
+     },
+     "example": "The mole lived under the ground.",
+     "exampleFa": "خال‌موش زیر زمین زندگی می‌کرد."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "as ... as",
+      "fa": "ساختار as ... as"
+     },
+     "example": "She was as small as a thumb.",
+     "note": {
+      "en": "Two 'as' words with an adjective between them compare size.",
+      "fa": "دو «as» با صفت میانشان اندازه را مقایسه می‌کند."
+     }
+    },
+    {
+     "name": {
+      "en": "let somebody do",
+      "fa": "let + مفعول + فعل ساده"
+     },
+     "example": "The mouse let her stay for the winter.",
+     "note": {
+      "en": "'Let' takes the bare verb and means 'allow'.",
+      "fa": "«let» فعل بدون to می‌گیرد و یعنی اجازه دادن."
+     }
+    },
+    {
+     "name": {
+      "en": "if + present, can",
+      "fa": "if + حال، can"
+     },
+     "example": "You can stay if you keep the house.",
+     "note": {
+      "en": "The condition and the permission, in that order.",
+      "fa": "شرط و اجازه، به همین ترتیب."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Where does Thumbelina come from?",
+       "fa": "جوجه‌تیزی از کجا می‌آید؟"
+      },
+      "options": [
+       "A walnut",
+       "The stream",
+       "A tree",
+       "A flower grown from a seed"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "The witch's seed grows into the flower.",
+       "fa": "دانهٔ جادوگر به گل تبدیل می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the toad take her?",
+       "fa": "چرا وزغ او را می‌برد؟"
+      },
+      "options": [
+       "She wants a wife for her son",
+       "She is hungry",
+       "She wants the flower",
+       "She is lost"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The toad wants her for her son.",
+       "fa": "وزغ او را برای پسرش می‌خواهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Who frees the lily pad?",
+       "fa": "چه کسی برگ نیلوفر را آزاد می‌کند؟"
+      },
+      "options": [
+       "The beetle",
+       "The fish",
+       "The wind",
+       "The mouse"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Fish bite through the stem.",
+       "fa": "ماهی‌ها ساقه را می‌جوند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the beetle leave her?",
+       "fa": "چرا سوسک رهایش می‌کند؟"
+      },
+      "options": [
+       "She is too heavy",
+       "The other beetles say she is not pretty",
+       "She asks to go",
+       "Winter comes"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He listens to the other beetles.",
+       "fa": "به حرف سوسک‌های دیگر گوش می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Who takes her to a warm country?",
+       "fa": "چه کسی او را به سرزمین گرم می‌برد؟"
+      },
+      "options": [
+       "A mole",
+       "A swallow",
+       "A field mouse",
+       "A prince"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The swallow she helped carries her away.",
+       "fa": "پرستویی که کمکش کرده بود او را می‌برد."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The field mouse is unkind to her.",
+       "fa": "موش صحرایی با او بدرفتار است."
+      },
+      "answer": false,
+      "why": {
+       "en": "The mouse gives her food and a bed for the winter.",
+       "fa": "موش غذا و تخت زمستانی به او می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "She wants to marry the mole.",
+       "fa": "می‌خواهد با خال‌موش ازدواج کند."
+      },
+      "answer": false,
+      "why": {
+       "en": "She does not want to live under the ground.",
+       "fa": "نمی‌خواهد زیر زمین زندگی کند."
+      }
+     },
+     {
+      "q": {
+       "en": "She ends up with someone her own size.",
+       "fa": "سرانجام با هم‌اندازهٔ خودش است."
+      },
+      "answer": true,
+      "why": {
+       "en": "She meets a tiny man among the flowers.",
+       "fa": "میان گل‌ها مرد کوچکی می‌بیند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The witch gave her a ___.",
+      "answer": "seed",
+      "hint": {
+       "en": "A plant grows from it.",
+       "fa": "گیاه از آن می‌روید."
+      }
+     },
+     {
+      "sentence": "Her bed was made from a ___ shell.",
+      "answer": "walnut",
+      "hint": {
+       "en": "A nut with a hard shell.",
+       "fa": "مغزی با پوست سخت."
+      }
+     },
+     {
+      "sentence": "A ___ flew her to a warm country.",
+      "answer": "swallow",
+      "hint": {
+       "en": "A small bird with a forked tail.",
+       "fa": "پرنده‌ای کوچک با دم دوشاخه."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why is every animal's home wrong for her?",
+       "fa": "چرا خانهٔ هر جانوری برای او نادرست است؟"
+      },
+      "model": {
+       "en": "Because each home belongs to a different size and a different element: water for the toad, air for the beetle, earth for the mole. She is offered a place in each and none fits. The story is about a girl who has to keep refusing until the last offer is her own size.",
+       "fa": "چون هر خانه به اندازه و عنصری دیگر تعلق دارد: آب برای وزغ، هوا برای سوسک، خاک برای خال‌موش. در هر کدام جایی به او پیشنهاد می‌شود و هیچ‌کدام نمی‌سازد. داستان دربارهٔ دختری است که باید «نه» بگوید تا آخرین پیشنهاد هم‌اندازهٔ خودش باشد."
+      },
+      "tip": {
+       "en": "Group the offers by where they are, then say what none of them has.",
+       "fa": "پیشنهادها را بر اساس جا دسته کن، بعد بگو چه چیزی در هیچ‌کدام نیست."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the swallow represent in the story?",
+       "fa": "پرستو در داستان نمایندهٔ چیست؟"
+      },
+      "model": {
+       "en": "The one kindness she gave for nothing. She helps the swallow before she needs anything, and the swallow returns years later when she has no other way out. Every escape in this story comes from a small act of care.",
+       "fa": "تنها مهربانی‌ای که بی‌چشمداشت کرد. پیش از آنکه چیزی لازم داشته باشد به پرستو کمک می‌کند و پرستو سال‌ها بعد برمی‌گردد وقتی راه دیگری ندارد. هر رهایی در این داستان از یک کار کوچک مهربانانه می‌آید."
+      },
+      "tip": {
+       "en": "Point at the help she gives before she needs any.",
+       "fa": "به کمکی اشاره کن که پیش از نیازش کرده است."
       }
      }
     ]
@@ -10376,6 +12796,1614 @@
       "tip": {
        "en": "Compare what each son has to do with what he is given.",
        "fa": "مقایسه کن هر پسر با آنچه گرفته چه باید بکند."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "ali_baba",
+   "title": {
+    "en": "Ali Baba and the Forty Thieves",
+    "fa": "علی‌بابا و چهل دزد"
+   },
+   "level": "M",
+   "blurb": {
+    "en": "Two words open a rock full of gold, and one clever servant has to keep forty thieves out of the house.",
+    "fa": "دو کلمه سنگی پر از طلا را باز می‌کند و یک خدمتکار زیرک باید چهل دزد را از خانه دور نگه دارد."
+   },
+   "words": 152,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "Open Sesame",
+      "fa": "باز شو، کنجد"
+     },
+     "pairs": [
+      {
+       "en": "Ali Baba was a poor woodcutter who took his donkeys into the forest every day.",
+       "fa": "علی‌بابا هیزم‌شکنی فقیر بود که هر روز الاغ‌هایش را به جنگل می‌برد."
+      },
+      {
+       "en": "One day he saw forty robbers stop at a great rock.",
+       "fa": "روزی چهل دزد را دید که کنار سنگی بزرگ ایستادند."
+      },
+      {
+       "en": "The captain said \"Open Sesame\", and the rock opened onto a cave.",
+       "fa": "سرکرده گفت «باز شو»، و سنگ به روی غاری باز شد."
+      },
+      {
+       "en": "When they left, Ali Baba said the words, took some gold and went home.",
+       "fa": "وقتی رفتند، علی‌بابا کلمه‌ها را گفت، مقداری طلا برداشت و به خانه رفت."
+      },
+      {
+       "en": "His rich brother Cassim went into the cave and forgot the words when he was inside.",
+       "fa": "برادر ثروتمندش قاسم به غار رفت و وقتی داخل بود کلمه‌ها را فراموش کرد."
+      },
+      {
+       "en": "The robbers found him there and killed him.",
+       "fa": "دزدها او را آنجا یافتند و کشتند."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Morgiana",
+      "fa": "مرجانه"
+     },
+     "pairs": [
+      {
+       "en": "Morgiana, the clever servant, hid the death and kept the family out of questions.",
+       "fa": "مرجانه، خدمتکار زیرک، مرگ را پنهان کرد و خانواده را از پرسش‌ها دور نگه داشت."
+      },
+      {
+       "en": "A robber marked the door with chalk, and she marked every door in the street.",
+       "fa": "دزدی در را با گچ علامت زد و او همهٔ درهای کوچه را علامت زد."
+      },
+      {
+       "en": "The captain came back as an oil merchant with thirty-nine men hidden in jars.",
+       "fa": "سرکرده به شکل تاجر روغن برگشت با سی‌و‌نه مرد که در خمره‌ها پنهان بودند."
+      },
+      {
+       "en": "Morgiana found the men in the jars and killed them one by one.",
+       "fa": "مرجانه مردها را در خمره‌ها یافت و یکی‌یکی کشتشان."
+      },
+      {
+       "en": "She danced for the captain and stabbed him.",
+       "fa": "برای سرکرده رقصید و او را با خنجر زد."
+      },
+      {
+       "en": "Ali Baba's son married her, and the treasure stayed with the family.",
+       "fa": "پسر علی‌بابا با او ازدواج کرد و گنج در خانواده ماند."
+      }
+     ]
+    }
+   ],
+   "text": "Ali Baba was a poor woodcutter who took his donkeys into the forest every day. One day he saw forty robbers stop at a great rock. The captain said \"Open Sesame\", and the rock opened onto a cave. When they left, Ali Baba said the words, took some gold and went home. His rich brother Cassim went into the cave and forgot the words when he was inside. The robbers found him there and killed him. Morgiana, the clever servant, hid the death and kept the family out of questions. A robber marked the door with chalk, and she marked every door in the street. The captain came back as an oil merchant with thirty-nine men hidden in jars. Morgiana found the men in the jars and killed them one by one. She danced for the captain and stabbed him. Ali Baba's son married her, and the treasure stayed with the family.",
+   "vocab": [
+    {
+     "word": "cave",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large hole in a hill",
+      "fa": "غار"
+     },
+     "example": "The rock opened onto a cave.",
+     "exampleFa": "سنگ به روی غاری باز شد."
+    },
+    {
+     "word": "treasure",
+     "pos": "n.",
+     "meaning": {
+      "en": "gold and valuable things",
+      "fa": "گنج"
+     },
+     "example": "The cave was full of treasure.",
+     "exampleFa": "غار پر از گنج بود."
+    },
+    {
+     "word": "servant",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who works in a house",
+      "fa": "خدمتکار"
+     },
+     "example": "Morgiana was a clever servant.",
+     "exampleFa": "مرجانه خدمتکاری زیرک بود."
+    },
+    {
+     "word": "chalk",
+     "pos": "n.",
+     "meaning": {
+      "en": "a soft white stick for writing",
+      "fa": "گچ"
+     },
+     "example": "He marked the door with chalk.",
+     "exampleFa": "در را با گچ علامت زد."
+    },
+    {
+     "word": "jars",
+     "pos": "n.",
+     "meaning": {
+      "en": "containers with wide mouths",
+      "fa": "خمره‌ها"
+     },
+     "example": "The men were hidden in jars.",
+     "exampleFa": "مردها در خمره‌ها پنهان بودند."
+    },
+    {
+     "word": "stab",
+     "pos": "v.",
+     "meaning": {
+      "en": "push a knife into somebody",
+      "fa": "با خنجر زدن"
+     },
+     "example": "She stabbed the captain.",
+     "exampleFa": "سرکرده را با خنجر زد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "open onto",
+     "meaning": {
+      "en": "lead into a place",
+      "fa": "باز شدن به"
+     },
+     "example": "The rock opened onto a dark cave.",
+     "exampleFa": "سنگ به غاری تاریک باز شد."
+    },
+    {
+     "phrase": "go off",
+     "meaning": {
+      "en": "leave a place",
+      "fa": "رفتن"
+     },
+     "example": "The robbers went off into the forest.",
+     "exampleFa": "دزدها به جنگل رفتند."
+    },
+    {
+     "phrase": "one by one",
+     "meaning": {
+      "en": "first one, then the next",
+      "fa": "یکی‌یکی"
+     },
+     "example": "She killed them one by one.",
+     "exampleFa": "یکی‌یکی کشتشان."
+    },
+    {
+     "phrase": "keep out of",
+     "meaning": {
+      "en": "stay away from something",
+      "fa": "دور ماندن از"
+     },
+     "example": "She kept the family out of trouble.",
+     "exampleFa": "خانواده را از دردسر دور نگه داشت."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "imperative as a password",
+      "fa": "فعل امری به‌عنوان رمز"
+     },
+     "example": "Open Sesame!",
+     "note": {
+      "en": "A bare verb with no subject is an order; here it is a key.",
+      "fa": "فعل بدون فاعل دستور است؛ اینجا کلید است."
+     }
+    },
+    {
+     "name": {
+      "en": "when + past, past",
+      "fa": "when + گذشته، گذشته"
+     },
+     "example": "When they left, Ali Baba went in.",
+     "note": {
+      "en": "One action is the signal for the other.",
+      "fa": "یک کار نشانهٔ کار دیگر است."
+     }
+    },
+    {
+     "name": {
+      "en": "past passive with 'was'",
+      "fa": "مجهول گذشته با was"
+     },
+     "example": "The men were hidden in jars.",
+     "note": {
+      "en": "The passive hides them from anyone looking in.",
+      "fa": "مجهول آن‌ها را از چشم هر بیننده‌ای پنهان می‌کند."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What do the words open?",
+       "fa": "کلمه‌ها چه چیزی را باز می‌کنند؟"
+      },
+      "options": [
+       "A door in the town",
+       "A rock",
+       "A well",
+       "A chest"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The rock covers the cave mouth.",
+       "fa": "سنگ دهانهٔ غار را می‌پوشاند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does Cassim die?",
+       "fa": "چرا قاسم می‌میرد؟"
+      },
+      "options": [
+       "He forgets the words inside",
+       "He is caught by soldiers",
+       "He falls from the rock",
+       "His brother betrays him"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He cannot get out of the cave.",
+       "fa": "نمی‌تواند از غار بیرون بیاید."
+      }
+     },
+     {
+      "q": {
+       "en": "How does Morgiana spoil the first plan?",
+       "fa": "مرجانه نقشهٔ اول را چگونه خراب می‌کند؟"
+      },
+      "options": [
+       "She tells the king",
+       "She moves house",
+       "She marks every door",
+       "She locks the door"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "Every door looks like the right one.",
+       "fa": "همهٔ درها مثل درِ درست به نظر می‌رسند."
+      }
+     },
+     {
+      "q": {
+       "en": "Where are the thieves hidden the second time?",
+       "fa": "بار دوم دزدها کجا پنهان می‌شوند؟"
+      },
+      "options": [
+       "Under the floor",
+       "In jars",
+       "In the garden",
+       "In a cart"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Thirty-nine men wait in oil jars.",
+       "fa": "سی‌و‌نه مرد در خمره‌های روغن منتظرند."
+      }
+     },
+     {
+      "q": {
+       "en": "What happens to Morgiana?",
+       "fa": "بر سر مرجانه چه می‌آید؟"
+      },
+      "options": [
+       "She is sent away",
+       "She marries Ali Baba's son",
+       "She takes the treasure",
+       "She becomes a robber"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She is rewarded with marriage into the family.",
+       "fa": "پاداشش ازدواج با پسر خانواده است."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Ali Baba is rich at the start.",
+       "fa": "علی‌بابا در آغاز ثروتمند است."
+      },
+      "answer": false,
+      "why": {
+       "en": "He is a poor woodcutter.",
+       "fa": "هیزم‌شکنی فقیر است."
+      }
+     },
+     {
+      "q": {
+       "en": "Morgiana notices the chalk mark.",
+       "fa": "مرجانه علامت گچ را می‌بیند."
+      },
+      "answer": true,
+      "why": {
+       "en": "That is why she marks the other doors.",
+       "fa": "به همین دلیل درهای دیگر را علامت می‌زند."
+      }
+     },
+     {
+      "q": {
+       "en": "The robbers get the treasure in the end.",
+       "fa": "دزدها در پایان گنج را می‌برند."
+      },
+      "answer": false,
+      "why": {
+       "en": "The treasure stays with Ali Baba's family.",
+       "fa": "گنج نزد خانوادهٔ علی‌بابا می‌ماند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The captain said \"Open ___.\"",
+      "answer": "Sesame",
+      "hint": {
+       "en": "The password word.",
+       "fa": "واژهٔ رمز."
+      }
+     },
+     {
+      "sentence": "The robber marked the door with ___.",
+      "answer": "chalk",
+      "hint": {
+       "en": "A white writing stick.",
+       "fa": "چوب سفید نوشتن."
+      }
+     },
+     {
+      "sentence": "The men were hidden in ___.",
+      "answer": "jars",
+      "hint": {
+       "en": "Wide containers for oil.",
+       "fa": "ظرف‌های دهان‌گشاد روغن."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why is Morgiana the real hero?",
+       "fa": "چرا مرجانه قهرمان واقعی است؟"
+      },
+      "model": {
+       "en": "Because she is the only one who looks. Ali Baba finds the cave by accident and Cassim dies of greed, but every danger after that is noticed by a servant: a chalk mark, a jar that breathes, a guest who counts his men. The story gives the cleverness to the person with the least power.",
+       "fa": "چون تنها کسی است که نگاه می‌کند. علی‌بابا تصادفی غار را می‌یابد و قاسم از طمع می‌میرد، اما هر خطر بعدی را خدمتکاری می‌بیند: یک علامت گچ، خمره‌ای که نفس می‌کشد، مهمانی که مردانش را می‌شمارد. داستان زیرکی را به کسی می‌دهد که کمترین قدرت را دارد."
+      },
+      "tip": {
+       "en": "List the clues she notices that others miss.",
+       "fa": "نشانه‌هایی را که او می‌بیند و دیگران نمی‌بینند فهرست کن."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the password really protect?",
+       "fa": "رمز واقعاً از چه چیزی محافظت می‌کند؟"
+      },
+      "model": {
+       "en": "Nothing much. Two words are enough to open the cave, so the treasure is guarded by secrecy rather than strength, and one man hearing a sentence destroys that. The thieves' real security was that nobody knew the rock was a door.",
+       "fa": "چیز زیادی نه. دو کلمه برای باز کردن غار کافی است، پس گنج با پنهان‌کاری محافظت می‌شود نه با زور، و یک نفر که جمله‌ای را بشنود آن را نابود می‌کند. امنیت واقعی دزدها این بود که کسی نمی‌دانست سنگ یک در است."
+      },
+      "tip": {
+       "en": "Say what actually keeps the gold safe, and how thin it is.",
+       "fa": "بگو واقعاً چه چیزی طلا را ایمن نگه می‌دارد و چقدر شکننده است."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "snow_queen",
+   "title": {
+    "en": "The Snow Queen",
+    "fa": "ملکه برفی"
+   },
+   "level": "M",
+   "blurb": {
+    "en": "A piece of a broken mirror turns a boy cruel, and a girl walks north to melt it with her tears.",
+    "fa": "تکه‌ای از آینه‌ای شکسته پسری را بی‌رحم می‌کند و دختری به شمال می‌رود تا آن را با اشکش آب کند."
+   },
+   "words": 155,
+   "minutes": 1,
+   "sentences": 11,
+   "chapters": [
+    {
+     "title": {
+      "en": "The mirror",
+      "fa": "آینه"
+     },
+     "pairs": [
+      {
+       "en": "A troll made a mirror that made good things look bad, and it broke in the sky.",
+       "fa": "جنّی آینه‌ای ساخت که خوبی‌ها را بد نشان می‌داد و آینه در آسمان شکست."
+      },
+      {
+       "en": "A piece of it went into Kai's eye and heart, and he became cruel.",
+       "fa": "تکه‌ای از آن به چشم و قلب کای رفت و او بی‌رحم شد."
+      },
+      {
+       "en": "He called the roses ugly and went off with a woman in a white sledge: the Snow Queen.",
+       "fa": "گل‌های سرخ را زشت خواند و با زنی در سورتمه‌ای سفید رفت: ملکهٔ برفی."
+      },
+      {
+       "en": "Gerda went to look for him, and a river, an old woman and a prince helped her on the way.",
+       "fa": "گردا به جست‌وجویش رفت و رودخانه، پیرزنی و شاهزاده‌ای در راه کمکش کردند."
+      },
+      {
+       "en": "A robber girl gave her a reindeer and her own mittens.",
+       "fa": "دختری دزد به او گوزن شمالی و دستکش‌های خودش را داد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The ice palace",
+      "fa": "قصر یخی"
+     },
+     "pairs": [
+      {
+       "en": "The reindeer carried her north to the ice palace.",
+       "fa": "گوزن شمالی او را به شمال و قصر یخی برد."
+      },
+      {
+       "en": "Kai was trying to make a word out of pieces of ice, and he could not.",
+       "fa": "کای می‌خواست از تکه‌های یخ کلمه‌ای بسازد و نمی‌توانست."
+      },
+      {
+       "en": "He did not know her, because the mirror was still in his heart.",
+       "fa": "او را نمی‌شناخت، چون آینه هنوز در قلبش بود."
+      },
+      {
+       "en": "Gerda cried, and her tears washed the piece out of his eye.",
+       "fa": "گردا گریه کرد و اشکش تکه را از چشمش شست."
+      },
+      {
+       "en": "He cried too, and the glass left his heart.",
+       "fa": "او هم گریه کرد و شیشه از قلبش بیرون رفت."
+      },
+      {
+       "en": "The ice pieces fell into the word eternity, and they went home, and it was summer.",
+       "fa": "تکه‌های یخ به شکل واژهٔ «ابدیت» درآمدند و به خانه رفتند و تابستان بود."
+      }
+     ]
+    }
+   ],
+   "text": "A troll made a mirror that made good things look bad, and it broke in the sky. A piece of it went into Kai's eye and heart, and he became cruel. He called the roses ugly and went off with a woman in a white sledge: the Snow Queen. Gerda went to look for him, and a river, an old woman and a prince helped her on the way. A robber girl gave her a reindeer and her own mittens. The reindeer carried her north to the ice palace. Kai was trying to make a word out of pieces of ice, and he could not. He did not know her, because the mirror was still in his heart. Gerda cried, and her tears washed the piece out of his eye. He cried too, and the glass left his heart. The ice pieces fell into the word eternity, and they went home, and it was summer.",
+   "vocab": [
+    {
+     "word": "mirror",
+     "pos": "n.",
+     "meaning": {
+      "en": "glass that shows your reflection",
+      "fa": "آینه"
+     },
+     "example": "The mirror made good things look bad.",
+     "exampleFa": "آینه خوبی‌ها را بد نشان می‌داد."
+    },
+    {
+     "word": "sledge",
+     "pos": "n.",
+     "meaning": {
+      "en": "a vehicle that slides on snow",
+      "fa": "سورتمه"
+     },
+     "example": "She came in a white sledge.",
+     "exampleFa": "با سورتمه‌ای سفید آمد."
+    },
+    {
+     "word": "reindeer",
+     "pos": "n.",
+     "meaning": {
+      "en": "a deer that lives in cold countries",
+      "fa": "گوزن شمالی"
+     },
+     "example": "A reindeer carried her north.",
+     "exampleFa": "گوزنی شمالی او را به شمال برد."
+    },
+    {
+     "word": "palace",
+     "pos": "n.",
+     "meaning": {
+      "en": "a very large house for a ruler",
+      "fa": "قصر"
+     },
+     "example": "The Snow Queen lived in an ice palace.",
+     "exampleFa": "ملکهٔ برفی در قصری یخی زندگی می‌کرد."
+    },
+    {
+     "word": "tears",
+     "pos": "n.",
+     "meaning": {
+      "en": "water from your eyes when you cry",
+      "fa": "اشک"
+     },
+     "example": "Her tears washed the glass away.",
+     "exampleFa": "اشکش شیشه را شست."
+    },
+    {
+     "word": "eternity",
+     "pos": "n.",
+     "meaning": {
+      "en": "time that never ends",
+      "fa": "ابدیت"
+     },
+     "example": "The ice formed the word eternity.",
+     "exampleFa": "یخ واژهٔ ابدیت را ساخت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "go off with",
+     "meaning": {
+      "en": "leave together with somebody",
+      "fa": "با کسی رفتن"
+     },
+     "example": "He went off with the woman in white.",
+     "exampleFa": "با زن سفیدپوش رفت."
+    },
+    {
+     "phrase": "look for",
+     "meaning": {
+      "en": "try to find",
+      "fa": "جست‌وجو کردن"
+     },
+     "example": "Gerda went to look for him.",
+     "exampleFa": "گردا به جست‌وجوی او رفت."
+    },
+    {
+     "phrase": "on the way",
+     "meaning": {
+      "en": "during the journey",
+      "fa": "در راه"
+     },
+     "example": "Three strangers helped her on the way.",
+     "exampleFa": "سه غریبه در راه کمکش کردند."
+    },
+    {
+     "phrase": "make out of",
+     "meaning": {
+      "en": "build something from material",
+      "fa": "ساختن از"
+     },
+     "example": "He tried to make a word out of ice.",
+     "exampleFa": "می‌خواست از یخ کلمه‌ای بسازد."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "make somebody + adjective",
+      "fa": "make somebody + صفت"
+     },
+     "example": "The glass made him cruel.",
+     "note": {
+      "en": "'Make' + person + adjective describes a change in a person.",
+      "fa": "«make» + شخص + صفت تغییری در شخص را می‌گوید."
+     }
+    },
+    {
+     "name": {
+      "en": "past continuous + when",
+      "fa": "گذشتهٔ استمراری با when"
+     },
+     "example": "He was trying to make a word when she came in.",
+     "note": {
+      "en": "The long action is interrupted by the short one.",
+      "fa": "کار طولانی با کار کوتاه قطع می‌شود."
+     }
+    },
+    {
+     "name": {
+      "en": "too, at the end",
+      "fa": "too در پایان"
+     },
+     "example": "He cried too.",
+     "note": {
+      "en": "'Too' adds him to the person who already cried.",
+      "fa": "«too» او را به کسی که پیش‌تر گریه کرد اضافه می‌کند."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What does the mirror do?",
+       "fa": "آینه چه می‌کند؟"
+      },
+      "options": [
+       "Makes good things look bad",
+       "Shows the future",
+       "Makes people rich",
+       "Tells the truth"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "It turns good into bad and bad into worse.",
+       "fa": "خوب را بد و بد را بدتر می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the glass get into Kai?",
+       "fa": "شیشه چگونه به کای می‌رسد؟"
+      },
+      "options": [
+       "He swallows it",
+       "A piece flies into his eye",
+       "The queen gives it to him",
+       "He finds it in the snow"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "A piece of the broken mirror hits him.",
+       "fa": "تکه‌ای از آینهٔ شکسته به او می‌خورد."
+      }
+     },
+     {
+      "q": {
+       "en": "Who takes Kai away?",
+       "fa": "چه کسی کای را می‌برد؟"
+      },
+      "options": [
+       "A troll",
+       "The Snow Queen",
+       "A robber",
+       "A prince"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She takes him in her sledge.",
+       "fa": "او را در سورتمه‌اش می‌برد."
+      }
+     },
+     {
+      "q": {
+       "en": "What melts the glass in his heart?",
+       "fa": "چه چیزی شیشهٔ قلبش را آب می‌کند؟"
+      },
+      "options": [
+       "Fire",
+       "Her tears",
+       "The sun",
+       "A magic word"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Her crying washes it away.",
+       "fa": "گریهٔ او آن را می‌شوید."
+      }
+     },
+     {
+      "q": {
+       "en": "What word do the ice pieces make?",
+       "fa": "تکه‌های یخ چه واژه‌ای می‌سازند؟"
+      },
+      "options": [
+       "Love",
+       "Home",
+       "Eternity",
+       "Gerda"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The pieces fall into the word eternity.",
+       "fa": "تکه‌ها به شکل واژهٔ ابدیت درمی‌آیند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Kai recognises Gerda at once.",
+       "fa": "کای فوراً گردا را می‌شناسد."
+      },
+      "answer": false,
+      "why": {
+       "en": "The glass in his heart hides her from him.",
+       "fa": "شیشهٔ قلبش او را از او پنهان می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Gerda travels a long way to find him.",
+       "fa": "گردا راه طولانی می‌رود."
+      },
+      "answer": true,
+      "why": {
+       "en": "She goes all the way north.",
+       "fa": "تا شمال می‌رود."
+      }
+     },
+     {
+      "q": {
+       "en": "The Snow Queen is defeated in a fight.",
+       "fa": "ملکهٔ برفی در نبردی شکست می‌خورد."
+      },
+      "answer": false,
+      "why": {
+       "en": "Nothing is fought; the glass simply leaves him.",
+       "fa": "هیچ نبردی نیست؛ شیشه ساده بیرون می‌رود."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "A piece of ___ went into his eye.",
+      "answer": "mirror",
+      "hint": {
+       "en": "The broken glass.",
+       "fa": "شیشهٔ شکسته."
+      }
+     },
+     {
+      "sentence": "The Snow Queen came in a white ___.",
+      "answer": "sledge",
+      "hint": {
+       "en": "It slides on snow.",
+       "fa": "روی برف می‌لغزد."
+      }
+     },
+     {
+      "sentence": "Her ___ washed the glass out of his eye.",
+      "answer": "tears",
+      "hint": {
+       "en": "Water from crying.",
+       "fa": "آب گریه."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why can only Gerda free him?",
+       "fa": "چرا فقط گردا می‌تواند آزادش کند؟"
+      },
+      "model": {
+       "en": "Because the glass is beaten by warmth, and she is the one person who keeps walking towards him without a reason. A stronger character could not help: the spell has no enemy to fight, only a cold heart to thaw, and patience is the only weapon that works.",
+       "fa": "چون شیشه با گرما شکست می‌خورد و او تنها کسی است که بی‌دلیل به سویش راه می‌رود. قهرمان قوی‌تر نمی‌توانست کمک کند: طلسم دشمنی برای جنگیدن ندارد، فقط قلبی سرد برای آب شدن، و صبر تنها سلاح کارآمد است."
+      },
+      "tip": {
+       "en": "Say what kind of weapon the spell cannot resist.",
+       "fa": "بگو طلسم در برابر چه سلاحی مقاومت نمی‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the mirror say about how cruelty starts?",
+       "fa": "آینه دربارهٔ آغاز بی‌رحمی چه می‌گوید؟"
+      },
+      "model": {
+       "en": "That it can be a small piece of glass. Kai is not a bad boy; he is a boy with something in his eye, and everyone who knew him keeps treating him as if he were still himself. The story is careful to say the cruelty came from outside him.",
+       "fa": "اینکه می‌تواند تکهٔ کوچکی شیشه باشد. کای پسر بدی نیست؛ پسری است که چیزی در چشمش رفته و همهٔ آشناهایش با او طوری رفتار می‌کنند که انگار هنوز خودش است. داستان دقیق است که بگوید بی‌رحمی از بیرون او آمده."
+      },
+      "tip": {
+       "en": "Separate the person from what was put into him.",
+       "fa": "شخص را از چیزی که در او گذاشته شده جدا کن."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "twelve_dancing_princesses",
+   "title": {
+    "en": "The Twelve Dancing Princesses",
+    "fa": "دوازده شاهزادهٔ رقصنده"
+   },
+   "level": "M",
+   "blurb": {
+    "en": "Twelve pairs of shoes are worn out every night behind a locked door, and a soldier with a cloak has three nights to find out why.",
+    "fa": "هر شب دوازده جفت کفش پشت دری قفل‌شده کهنه می‌شود و سربازی با یک شنل سه شب وقت دارد بفهمد چرا."
+   },
+   "words": 155,
+   "minutes": 1,
+   "sentences": 11,
+   "chapters": [
+    {
+     "title": {
+      "en": "Worn-out shoes",
+      "fa": "کفش‌های کهنه"
+     },
+     "pairs": [
+      {
+       "en": "A king had twelve daughters who slept in one room, and he locked the door himself every night.",
+       "fa": "پادشاهی دوازده دختر داشت که در یک اتاق می‌خوابیدند و هر شب خودش در را قفل می‌کرد."
+      },
+      {
+       "en": "Every morning their shoes were worn out, and nobody knew why.",
+       "fa": "هر صبح کفش‌هایشان کهنه بود و هیچ‌کس نمی‌دانست چرا."
+      },
+      {
+       "en": "He promised a prince could marry one of them if he found the secret, and sent away anyone who failed.",
+       "fa": "وعده داد هر شاهزاده‌ای که راز را پیدا کند می‌تواند با یکی از آن‌ها ازدواج کند و هر که شکست می‌خورد را می‌فرستاد."
+      },
+      {
+       "en": "An old soldier came home with little money and took the task.",
+       "fa": "سربازی پیر با پول کم به خانه برگشت و کار را پذیرفت."
+      },
+      {
+       "en": "A woman gave him a cloak that made him invisible and told him not to drink the wine.",
+       "fa": "زنی شنلی به او داد که نامرئی‌اش می‌کرد و گفت شراب را ننوشد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Under the floor",
+      "fa": "زیر زمین"
+     },
+     "pairs": [
+      {
+       "en": "He pretended to sleep, and the eldest opened a door in the floor.",
+       "fa": "خودش را به خواب زد و بزرگ‌ترین دختر دری در زمین باز کرد."
+      },
+      {
+       "en": "He followed them down to a wood of gold trees and a lake with twelve boats.",
+       "fa": "دنبالشان به جنگلی با درختان طلایی و دریاچه‌ای با دوازده قایق رفت."
+      },
+      {
+       "en": "Twelve princes rowed them across, and they danced until morning.",
+       "fa": "دوازده شاهزاده آن‌ها را رد کردند و تا صبح رقصیدند."
+      },
+      {
+       "en": "He took a gold cup as proof, and stepped on the youngest one's dress.",
+       "fa": "جامی طلایی به‌عنوان مدرک برداشت و روی پیراهن کوچک‌ترین پا گذاشت."
+      },
+      {
+       "en": "On the third night he brought the cup to the king.",
+       "fa": "شب سوم جام را نزد پادشاه برد."
+      },
+      {
+       "en": "The princesses had to admit the truth, and he married the eldest.",
+       "fa": "شاهزاده‌ها مجبور شدند حقیقت را بپذیرند و او با بزرگ‌ترین ازدواج کرد."
+      }
+     ]
+    }
+   ],
+   "text": "A king had twelve daughters who slept in one room, and he locked the door himself every night. Every morning their shoes were worn out, and nobody knew why. He promised a prince could marry one of them if he found the secret, and sent away anyone who failed. An old soldier came home with little money and took the task. A woman gave him a cloak that made him invisible and told him not to drink the wine. He pretended to sleep, and the eldest opened a door in the floor. He followed them down to a wood of gold trees and a lake with twelve boats. Twelve princes rowed them across, and they danced until morning. He took a gold cup as proof, and stepped on the youngest one's dress. On the third night he brought the cup to the king. The princesses had to admit the truth, and he married the eldest.",
+   "vocab": [
+    {
+     "word": "shoes",
+     "pos": "n.",
+     "meaning": {
+      "en": "what you wear on your feet",
+      "fa": "کفش‌ها"
+     },
+     "example": "Their shoes were worn out every morning.",
+     "exampleFa": "هر صبح کفش‌هایشان کهنه بود."
+    },
+    {
+     "word": "cloak",
+     "pos": "n.",
+     "meaning": {
+      "en": "a loose coat with no sleeves",
+      "fa": "شنل"
+     },
+     "example": "She gave him a cloak.",
+     "exampleFa": "شنلی به او داد."
+    },
+    {
+     "word": "invisible",
+     "pos": "adj.",
+     "meaning": {
+      "en": "not able to be seen",
+      "fa": "نامرئی"
+     },
+     "example": "The cloak made him invisible.",
+     "exampleFa": "شنل نامرئی‌اش کرد."
+    },
+    {
+     "word": "boats",
+     "pos": "n.",
+     "meaning": {
+      "en": "small vehicles for water",
+      "fa": "قایق‌ها"
+     },
+     "example": "Twelve boats waited on the lake.",
+     "exampleFa": "دوازده قایق روی دریاچه منتظر بودند."
+    },
+    {
+     "word": "cup",
+     "pos": "n.",
+     "meaning": {
+      "en": "a small container for drinking",
+      "fa": "جام"
+     },
+     "example": "He took a gold cup as proof.",
+     "exampleFa": "جامی طلایی به‌عنوان مدرک برداشت."
+    },
+    {
+     "word": "secret",
+     "pos": "n.",
+     "meaning": {
+      "en": "something hidden from others",
+      "fa": "راز"
+     },
+     "example": "He found the princesses' secret.",
+     "exampleFa": "راز شاهزاده‌ها را یافت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "wear out",
+     "meaning": {
+      "en": "damage something by using it",
+      "fa": "کهنه کردن"
+     },
+     "example": "They wore out their shoes every night.",
+     "exampleFa": "هر شب کفش‌هایشان را کهنه می‌کردند."
+    },
+    {
+     "phrase": "pretend to",
+     "meaning": {
+      "en": "act as if something is true",
+      "fa": "تظاهر کردن"
+     },
+     "example": "He pretended to be asleep.",
+     "exampleFa": "تظاهر کرد خواب است."
+    },
+    {
+     "phrase": "find out",
+     "meaning": {
+      "en": "discover a hidden thing",
+      "fa": "فهمیدن"
+     },
+     "example": "He found out where they went.",
+     "exampleFa": "فهمید کجا می‌روند."
+    },
+    {
+     "phrase": "admit the truth",
+     "meaning": {
+      "en": "agree that something is true",
+      "fa": "حقیقت را پذیرفتن"
+     },
+     "example": "They had to admit the truth.",
+     "exampleFa": "مجبور شدند حقیقت را بپذیرند."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "every + singular noun",
+      "fa": "every + اسم مفرد"
+     },
+     "example": "Every morning their shoes were worn out.",
+     "note": {
+      "en": "'Every' takes a singular noun but a plural idea.",
+      "fa": "«every» اسم مفرد می‌گیرد اما معنای جمع دارد."
+     }
+    },
+    {
+     "name": {
+      "en": "made him invisible",
+      "fa": "make + شخص + صفت"
+     },
+     "example": "The cloak made him invisible.",
+     "note": {
+      "en": "'Make' + person + adjective shows the change it causes.",
+      "fa": "«make» + شخص + صفت تغییری را که ایجاد می‌کند نشان می‌دهد."
+     }
+    },
+    {
+     "name": {
+      "en": "if + past, could",
+      "fa": "if + گذشته، could"
+     },
+     "example": "A prince could marry one of them if he found the secret.",
+     "note": {
+      "en": "The reward and its condition, both in the past.",
+      "fa": "پاداش و شرطش، هر دو در گذشته."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What is strange every morning?",
+       "fa": "هر صبح چه چیز عجیبی است؟"
+      },
+      "options": [
+       "The door is open",
+       "The shoes are worn out",
+       "The princesses are ill",
+       "The room is cold"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Twelve pairs are ruined overnight.",
+       "fa": "دوازده جفت در یک شب کهنه می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the woman give the soldier?",
+       "fa": "زن چه چیزی به سرباز می‌دهد؟"
+      },
+      "options": [
+       "A sword",
+       "A cloak that makes him invisible",
+       "Gold",
+       "A boat"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The cloak lets him follow unseen.",
+       "fa": "شنل می‌گذارد نادیده دنبالشان برود."
+      }
+     },
+     {
+      "q": {
+       "en": "Where do the princesses go?",
+       "fa": "شاهزاده‌ها کجا می‌روند؟"
+      },
+      "options": [
+       "To a wood and a lake underground",
+       "To the town",
+       "To another castle",
+       "To the mountains"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "A door in the floor leads to a gold wood and a lake.",
+       "fa": "دری در زمین به جنگل طلایی و دریاچه می‌رسد."
+      }
+     },
+     {
+      "q": {
+       "en": "What proof does he bring back?",
+       "fa": "چه مدرکی برمی‌گرداند؟"
+      },
+      "options": [
+       "A gold cup",
+       "A branch",
+       "A shoe",
+       "A ring"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He takes a cup from the underground hall.",
+       "fa": "جامی از تالار زیرزمینی می‌برد."
+      }
+     },
+     {
+      "q": {
+       "en": "What is his reward?",
+       "fa": "پاداشش چیست؟"
+      },
+      "options": [
+       "Gold",
+       "A cloak",
+       "Marriage to the eldest princess",
+       "A ship"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "He marries one of the twelve and inherits later.",
+       "fa": "با یکی از دوازده ازدواج می‌کند و بعداً وارث می‌شود."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The king knows the secret from the start.",
+       "fa": "پادشاه از اول راز را می‌داند."
+      },
+      "answer": false,
+      "why": {
+       "en": "He locks the door himself and still cannot explain it.",
+       "fa": "خودش در را قفل می‌کند و باز توضیحش را ندارد."
+      }
+     },
+     {
+      "q": {
+       "en": "The soldier drinks the wine they bring.",
+       "fa": "سرباز شراب را می‌نوشد."
+      },
+      "answer": false,
+      "why": {
+       "en": "The woman warns him not to.",
+       "fa": "زن هشدار می‌دهد که ننوشد."
+      }
+     },
+     {
+      "q": {
+       "en": "Other princes had failed before him.",
+       "fa": "شاهزاده‌های دیگر پیش از او شکست خوردند."
+      },
+      "answer": true,
+      "why": {
+       "en": "They were sent away from the kingdom.",
+       "fa": "از پادشاهی رانده شدند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Every morning their ___ were worn out.",
+      "answer": "shoes",
+      "hint": {
+       "en": "What you wear on your feet.",
+       "fa": "آنچه به پا می‌پوشی."
+      }
+     },
+     {
+      "sentence": "The cloak made him ___.",
+      "answer": "invisible",
+      "hint": {
+       "en": "Nobody could see him.",
+       "fa": "هیچ‌کس نمی‌دیدش."
+      }
+     },
+     {
+      "sentence": "He took a gold ___ as proof.",
+      "answer": "cup",
+      "hint": {
+       "en": "You drink from it.",
+       "fa": "از آن می‌نوشند."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why is the locked door useless?",
+       "fa": "چرا درِ قفل‌شده بی‌فایده است؟"
+      },
+      "model": {
+       "en": "Because the king is guarding the wrong thing. He checks the door every night, and the way out is in the floor, under the bed, in the room he believes is sealed. A lock only works if you know where the opening is.",
+       "fa": "چون پادشاه از چیز اشتباهی نگهبانی می‌کند. هر شب در را بازرسی می‌کند و راه خروج در زمین است، زیر تخت، در همان اتاقی که فکر می‌کند بسته است. قفل فقط وقتی کار می‌کند که بدانی درز کجاست."
+      },
+      "tip": {
+       "en": "Say what he checks, then where the opening really is.",
+       "fa": "بگو چه چیزی را بازرسی می‌کند، بعد درز واقعی کجاست."
+      }
+     },
+     {
+      "q": {
+       "en": "Are the princesses prisoners or rule-breakers?",
+       "fa": "شاهزاده‌ها زندانی‌اند یا قانون‌شکن؟"
+      },
+      "model": {
+       "en": "Both. They are locked in one room every night, which is a prison however comfortable it is; but they also lie to their father for years and let other men be banished for failing. The story is less interested in judging them than in showing what a locked room teaches people to do.",
+       "fa": "هر دو. هر شب در یک اتاق قفل می‌شوند، که هر چقدر هم راحت باشد زندان است؛ اما سال‌ها به پدرشان دروغ هم می‌گویند و می‌گذارند مردهای دیگر به‌خاطر شکست رانده شوند. داستان بیشتر از داوری دربارهٔ آن‌ها، نشان می‌دهد اتاق قفل‌شده به آدم‌ها چه یاد می‌دهد."
+      },
+      "tip": {
+       "en": "Give the case for each word before you decide.",
+       "fa": "برای هر دو واژه دلیل بیاور، بعد تصمیم بگیر."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "aladdin",
+   "title": {
+    "en": "Aladdin and the Lamp",
+    "fa": "علاءالدین و چراغ جادو"
+   },
+   "level": "M",
+   "blurb": {
+    "en": "A poor boy is shut in a cave with a lamp, and the spirit inside it gives him everything except the one thing he must keep.",
+    "fa": "پسری فقیر با چراغی در غاری زندانی می‌شود و جنِ درونش همه چیز به او می‌دهد، جز تنها چیزی که باید نگه دارد."
+   },
+   "words": 156,
+   "minutes": 1,
+   "sentences": 12,
+   "chapters": [
+    {
+     "title": {
+      "en": "The cave",
+      "fa": "غار"
+     },
+     "pairs": [
+      {
+       "en": "Aladdin was poor, and a magician told him a cave held treasure that only he could open.",
+       "fa": "علاءالدین فقیر بود و جادوگری به او گفت غاری گنجی دارد که فقط او می‌تواند بازش کند."
+      },
+      {
+       "en": "He went down, took the lamp, and the magician shut him in.",
+       "fa": "پایین رفت، چراغ را برداشت و جادوگر در را بست."
+      },
+      {
+       "en": "He rubbed his hands, and a spirit of the ring took him home.",
+       "fa": "دست‌هایش را مالید و جنِ انگشتر او را به خانه برد."
+      },
+      {
+       "en": "His mother cleaned the lamp, and a spirit appeared and granted wishes.",
+       "fa": "مادرش چراغ را پاک کرد و جنی پیدا شد و آرزوها را برآورد."
+      },
+      {
+       "en": "They asked for food, and it came on a silver table.",
+       "fa": "غذا خواستند و روی میزی نقره‌ای آمد."
+      },
+      {
+       "en": "Aladdin asked for gold, fine clothes and a horse, and he went to the palace.",
+       "fa": "علاءالدین طلا، لباس فاخر و اسب خواست و به قصر رفت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The lamp again",
+      "fa": "باز هم چراغ"
+     },
+     "pairs": [
+      {
+       "en": "The Sultan said he could marry the princess if he sent forty bowls of gold and stones.",
+       "fa": "سلطان گفت اگر چهل کاسهٔ طلا و سنگ بفرستد می‌تواند با شاهزاده ازدواج کند."
+      },
+      {
+       "en": "The lamp answered, and forty men carried them.",
+       "fa": "چراغ پاسخ داد و چهل مرد آن‌ها را بردند."
+      },
+      {
+       "en": "The magician came back, bought the old lamp for a new one, and took palace and princess away.",
+       "fa": "جادوگر برگشت، چراغ کهنه را با چراغی نو خرید و قصر و شاهزاده را برد."
+      },
+      {
+       "en": "Aladdin followed with the ring and found them far away.",
+       "fa": "علاءالدین با انگشتر دنبالشان رفت و دور یافتشان."
+      },
+      {
+       "en": "He took the lamp back and asked the spirit to bring everything home.",
+       "fa": "چراغ را پس گرفت و از جن خواست همه چیز را به خانه بازگرداند."
+      },
+      {
+       "en": "He returned to the palace and lived with the princess.",
+       "fa": "به قصر بازگشت و با شاهزاده زندگی کرد."
+      }
+     ]
+    }
+   ],
+   "text": "Aladdin was poor, and a magician told him a cave held treasure that only he could open. He went down, took the lamp, and the magician shut him in. He rubbed his hands, and a spirit of the ring took him home. His mother cleaned the lamp, and a spirit appeared and granted wishes. They asked for food, and it came on a silver table. Aladdin asked for gold, fine clothes and a horse, and he went to the palace. The Sultan said he could marry the princess if he sent forty bowls of gold and stones. The lamp answered, and forty men carried them. The magician came back, bought the old lamp for a new one, and took palace and princess away. Aladdin followed with the ring and found them far away. He took the lamp back and asked the spirit to bring everything home. He returned to the palace and lived with the princess.",
+   "vocab": [
+    {
+     "word": "cave",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large hole in a hill or under the ground",
+      "fa": "غار"
+     },
+     "example": "The treasure was in a cave.",
+     "exampleFa": "گنج در غاری بود."
+    },
+    {
+     "word": "treasure",
+     "pos": "n.",
+     "meaning": {
+      "en": "gold and valuable things",
+      "fa": "گنج"
+     },
+     "example": "The cave held treasure.",
+     "exampleFa": "غار گنج داشت."
+    },
+    {
+     "word": "lamp",
+     "pos": "n.",
+     "meaning": {
+      "en": "a thing that makes light",
+      "fa": "چراغ"
+     },
+     "example": "The magician wanted the lamp.",
+     "exampleFa": "جادوگر چراغ را می‌خواست."
+    },
+    {
+     "word": "spirit",
+     "pos": "n.",
+     "meaning": {
+      "en": "a magic being in a story",
+      "fa": "جن"
+     },
+     "example": "A spirit came out of the lamp.",
+     "exampleFa": "جنی از چراغ بیرون آمد."
+    },
+    {
+     "word": "palace",
+     "pos": "n.",
+     "meaning": {
+      "en": "the large house of a king",
+      "fa": "قصر"
+     },
+     "example": "He went to the palace.",
+     "exampleFa": "به قصر رفت."
+    },
+    {
+     "word": "magician",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who does magic",
+      "fa": "جادوگر"
+     },
+     "example": "The magician shut him in.",
+     "exampleFa": "جادوگر او را زندانی کرد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "shut in",
+     "meaning": {
+      "en": "close somebody inside a place",
+      "fa": "زندانی کردن"
+     },
+     "example": "The magician shut him in the cave.",
+     "exampleFa": "جادوگر او را در غار زندانی کرد."
+    },
+    {
+     "phrase": "grant a wish",
+     "meaning": {
+      "en": "make a wish happen",
+      "fa": "آرزو را برآوردن"
+     },
+     "example": "The spirit granted every wish.",
+     "exampleFa": "جن هر آرزویی را برآورد."
+    },
+    {
+     "phrase": "come back",
+     "meaning": {
+      "en": "return",
+      "fa": "برگشتن"
+     },
+     "example": "The magician came back years later.",
+     "exampleFa": "جادوگر سال‌ها بعد برگشت."
+    },
+    {
+     "phrase": "far away",
+     "meaning": {
+      "en": "at a great distance",
+      "fa": "دوردست"
+     },
+     "example": "The palace was far away.",
+     "exampleFa": "قصر دوردست بود."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "only + noun + could",
+      "fa": "only + اسم + could"
+     },
+     "example": "Only Aladdin could open the stone.",
+     "note": {
+      "en": "'Only' limits who is able to do the action.",
+      "fa": "«only» محدود می‌کند چه کسی می‌تواند آن کار را بکند."
+     }
+    },
+    {
+     "name": {
+      "en": "if + past, could",
+      "fa": "if + گذشته، could"
+     },
+     "example": "He could marry her if he sent forty bowls.",
+     "note": {
+      "en": "The condition is the Sultan's price, and 'could' is the permission.",
+      "fa": "شرط بهای سلطان است و «could» اجازه را نشان می‌دهد."
+     }
+    },
+    {
+     "name": {
+      "en": "ask somebody to do",
+      "fa": "درخواست با ask somebody to do"
+     },
+     "example": "He asked the spirit to bring everything home.",
+     "note": {
+      "en": "'Ask + person + to + verb' is a request, not an order.",
+      "fa": "«ask + شخص + to + فعل» درخواست است، نه دستور."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Who can open the cave?",
+       "fa": "چه کسی می‌تواند غار را باز کند؟"
+      },
+      "options": [
+       "The magician",
+       "Aladdin's mother",
+       "Only Aladdin",
+       "The Sultan"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The magician needs Aladdin to lift the stone.",
+       "fa": "جادوگر به علاءالدین نیاز دارد تا سنگ را بردارد."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the magician trap him?",
+       "fa": "چرا جادوگر او را زندانی می‌کند؟"
+      },
+      "options": [
+       "For the lamp",
+       "For the gold",
+       "For revenge",
+       "By mistake"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He wants the lamp and does not get it.",
+       "fa": "چراغ را می‌خواهد و به دستش نمی‌آید."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the ring do?",
+       "fa": "انگشتر چه می‌کند؟"
+      },
+      "options": [
+       "Nothing",
+       "Calls a spirit that takes him home",
+       "Opens the palace",
+       "Makes him invisible"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The ring's spirit carries him out.",
+       "fa": "جن انگشتر او را بیرون می‌برد."
+      }
+     },
+     {
+      "q": {
+       "en": "What price does the Sultan set?",
+       "fa": "سلطان چه بهایی می‌گذارد؟"
+      },
+      "options": [
+       "A horse",
+       "Forty bowls of gold and stones",
+       "The lamp",
+       "A palace"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Forty bowls, carried by forty men.",
+       "fa": "چهل کاسه که چهل مرد می‌برند."
+      }
+     },
+     {
+      "q": {
+       "en": "How does he lose everything?",
+       "fa": "چگونه همه چیز را از دست می‌دهد؟"
+      },
+      "options": [
+       "The palace burns",
+       "The magician tricks him out of the lamp",
+       "The princess leaves",
+       "The Sultan takes it back"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "A new lamp for an old one is the whole trick.",
+       "fa": "چراغ نو به‌جای کهنه تمام نیرنگ است."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The lamp is worth more than the treasure.",
+       "fa": "چراغ از گنج ارزشمندتر است."
+      },
+      "answer": true,
+      "why": {
+       "en": "Everything he has comes from it.",
+       "fa": "هر چه دارد از آن است."
+      }
+     },
+     {
+      "q": {
+       "en": "The magician takes the lamp by force.",
+       "fa": "جادوگر چراغ را به زور می‌گیرد."
+      },
+      "answer": false,
+      "why": {
+       "en": "He trades a new lamp for the old one.",
+       "fa": "چراغ نو را با کهنه معاوضه می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Aladdin gets the princess in the end.",
+       "fa": "علاءالدین در پایان شاهزاده را دارد."
+      },
+      "answer": true,
+      "why": {
+       "en": "He brings everything back and stays with her.",
+       "fa": "همه چیز را برمی‌گرداند و با او می‌ماند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The magician shut him in a ___.",
+      "answer": "cave",
+      "hint": {
+       "en": "A hole in the ground.",
+       "fa": "حفره‌ای در زمین."
+      }
+     },
+     {
+      "sentence": "A ___ came out of the lamp.",
+      "answer": "spirit",
+      "hint": {
+       "en": "A magic being.",
+       "fa": "موجودی جادویی."
+      }
+     },
+     {
+      "sentence": "He went to the ___ to ask for the princess.",
+      "answer": "palace",
+      "hint": {
+       "en": "Where the Sultan lives.",
+       "fa": "جایی که سلطان زندگی می‌کند."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Is Aladdin's luck really his?",
+       "fa": "بخت علاءالدین واقعاً از خودش است؟"
+      },
+      "model": {
+       "en": "No, and the story knows it. He is chosen for a cave he did not find, given a ring he did not ask for, and reminded to keep a lamp only by accident. His one real skill is listening quickly and using what is in his hand.",
+       "fa": "نه، و داستان این را می‌داند. برای غاری انتخاب می‌شود که خودش پیدا نکرده، انگشتری می‌گیرد که نخواسته و فقط تصادفی به یاد می‌آورد چراغ را نگه دارد. تنها مهارت واقعی‌اش زود شنیدن و به کار بردن چیزی است که در دست دارد."
+      },
+      "tip": {
+       "en": "List what is given, then find the one thing he does himself.",
+       "fa": "بگو چه چیزهایی داده شده، بعد تنها کاری که خودش می‌کند را پیدا کن."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the lamp change hands so easily?",
+       "fa": "چرا چراغ این‌قدر راحت دست‌به‌دست می‌شود؟"
+      },
+      "model": {
+       "en": "Because its power belongs to whoever holds it, not to whoever deserves it. There is no test and no loyalty; the spirit obeys the object. That is why the story's ending is about getting the lamp back rather than defeating the magician.",
+       "fa": "چون قدرتش از آنِ کسی است که در دستش دارد، نه کسی که سزاوارش است. نه آزمونی هست و نه وفاداری؛ جن از شیء اطاعت می‌کند. به همین دلیل پایان داستان دربارهٔ پس گرفتن چراغ است، نه شکست دادن جادوگر."
+      },
+      "tip": {
+       "en": "Say who the power actually obeys.",
+       "fa": "بگو قدرت واقعاً از چه کسی اطاعت می‌کند."
       }
      }
     ]
