@@ -3080,3 +3080,299 @@ EVIDENCE = {
         "truefalse": {0: 1, 1: 1, 2: 3, 3: 4},
     },
 }
+
+
+# Two further practices for every strategy, so a technique is met on one
+# passage and then used on two more. Filled in below; the builder refuses to
+# ship a strategy with fewer than three.
+MORE: dict = {}
+
+
+MORE["survey"] = [
+    {
+        "title": bi("Riverside Museum: what is on this autumn",
+                    "موزهٔ ریورساید: برنامهٔ پاییز"),
+        "level": "A2",
+        "genre": bi("Programme / listings", "برنامهٔ رویدادها"),
+        "paragraphs": [
+            "RIVERSIDE MUSEUM — Autumn programme. The museum is open Tuesday "
+            "to Sunday, 10 am to 6 pm, and until 9 pm on Thursdays. Entry to "
+            "the permanent collection is free; the exhibitions are ticketed.",
+            "Exhibitions. 'Rivers and Railways' runs until 30 November and "
+            "traces how the city grew along the river. Tickets cost £9, or £5 "
+            "for students, and entry is free on the first Sunday of the month.",
+            "Talks. On 12 October the curator speaks about the museum's boat "
+            "collection at 6 pm; tickets are £4. On 9 November a local "
+            "historian asks why the docks closed, at 7 pm. That talk is free "
+            "but must be booked.",
+            "Families. Every Saturday at 11 am there is a free story hour in "
+            "the old ticket hall, for children aged four to eight. No booking "
+            "is needed; places are given on arrival. The café closes at 5 pm.",
+        ],
+        "summary": bi(
+            "A listings page: opening times, one exhibition, two talks and a "
+            "weekly children's event, each with its own price and condition.",
+            "یک صفحهٔ برنامه: ساعت کار، یک نمایشگاه، دو سخنرانی و یک رویداد "
+            "هفتگی کودکان، هر کدام با قیمت و شرط خودش."),
+        "questions": {
+            "blanks": [
+                {"sentence": "On Thursdays the museum stays open until ___ pm.",
+                 "answer": "9", "also": ["nine"],
+                 "hint": bi("In the first section, with the opening hours.",
+                            "در بخش اول، کنار ساعت کار."),
+                 "para": 1},
+                {"sentence": "An exhibition ticket costs £___ for adults.",
+                 "answer": "9", "also": [],
+                 "hint": bi("The student price is given next to it.",
+                            "قیمت دانشجویی کنارش آمده."),
+                 "para": 2},
+                {"sentence": "'Rivers and Railways' runs until 30 ___.",
+                 "answer": "November", "also": [],
+                 "hint": bi("A month, in capitals in the listing.",
+                            "یک ماه، در فهرست."),
+                 "para": 2},
+            ],
+            "mcq": [
+                {"q": "What kind of text is this?",
+                 "options": ["A review of an exhibition",
+                             "A programme of events with times and prices",
+                             "A letter to museum members",
+                             "A history of the docks"],
+                 "answer": 1,
+                 "why": bi("Every section lists something to attend, with a "
+                           "time and often a price. Nothing is evaluated, which "
+                           "a review would do.", 
+                           "هر بخش چیزی برای رفتن فهرست می‌کند، با ساعت و "
+                           "معمولاً قیمت. هیچ‌چیز ارزیابی نمی‌شود، کاری که یک "
+                           "نقد می‌کرد."),
+                 "para": 1},
+                {"q": "Where would you look for something to do with a "
+                       "seven-year-old?",
+                 "options": ["Exhibitions", "Talks", "Families",
+                             "The first paragraph"],
+                 "answer": 2,
+                 "why": bi("The 'Families' heading is the author's own label "
+                           "for the audience, and it names ages four to eight.",
+                           "تیتر «Families» برچسب خود نویسنده برای مخاطب است و "
+                           "سن چهار تا هشت را نام می‌برد."),
+                 "para": 4},
+                {"q": "Which event must be booked?",
+                 "options": ["The story hour", "The talk on 12 October",
+                             "The talk on 9 November", "The exhibition"],
+                 "answer": 2,
+                 "why": bi("Only the November talk says it 'is free but must "
+                           "be booked'. The others say 'no booking' or give a "
+                           "price instead.",
+                           "فقط سخنرانی نوامبر می‌گوید «مجانی است ولی باید رزرو "
+                           "شود». بقیه می‌گویند «رزرو لازم نیست» یا فقط قیمت "
+                           "می‌دهند."),
+                 "para": 3},
+            ],
+            "truefalse": [
+                {"statement": "The permanent collection is free to enter.",
+                 "answer": True,
+                 "why": bi("'Entry to the permanent collection is free; the "
+                           "exhibitions are ticketed.'",
+                           "«ورود به مجموعهٔ دائمی آزاد است؛ نمایشگاه‌ها بلیت "
+                           "دارند.»"),
+                 "para": 1},
+                {"statement": "Both talks are free.",
+                 "answer": False,
+                 "why": bi("The October talk costs £4; only the November one "
+                           "is free.",
+                           "سخنرانی اکتبر ۴ پوند است؛ فقط سخنرانی نوامبر "
+                           "مجانی است."),
+                 "para": 3},
+                {"statement": "Children must be booked into the story hour.",
+                 "answer": False,
+                 "why": bi("'No booking is needed; places are given on "
+                           "arrival.'",
+                           "«رزرو لازم نیست؛ جا به ترتیبِ رسیدن داده می‌شود.»"),
+                 "para": 4},
+            ],
+            "essay": [
+                {"prompt": bi("You have one free afternoon and a ten-year-old "
+                              "niece. Which two parts of the programme would "
+                              "you choose, and what would you check first?",
+                              "یک بعدازظهر آزاد داری و یک برادرزادهٔ ده‌ساله. "
+                              "کدام دو بخش برنامه را انتخاب می‌کنی و اول چه "
+                              "چیزی را بررسی می‌کنی؟"),
+                 "min_words": 45,
+                 "tips": [
+                     bi("Name the age limit and say whether she fits it.",
+                        "محدودیت سنی را بگو و بگو آیا او جا می‌گیرد یا نه."),
+                     bi("Give one reason from the text for each choice.",
+                        "برای هر انتخاب یک دلیل از متن بیاور."),
+                     bi("Say what a listing does not tell you.",
+                        "بگو یک برنامه چه چیزی را نمی‌گوید.")],
+                 "model": bi("I would take her to the story hour on Saturday "
+                             "at 11 am, because it is free, needs no booking "
+                             "and is for children aged four to eight, so a "
+                             "ten-year-old is just outside it - I would ask at "
+                             "the desk first. Then the exhibition, since it is "
+                             "free on the first Sunday. What the listing does "
+                             "not say is how long either visit takes.",
+                             "او را شنبه ساعت ۱۱ به ساعت قصه می‌بردم، چون مجانی "
+                             "است، رزرو نمی‌خواهد و برای چهار تا هشت سال است؛ "
+                             "پس ده‌ساله کمی بیرون این محدوده است و اول از "
+                             "پذیرش می‌پرسیدم. بعد نمایشگاه را می‌دیدیم، چون "
+                             "یکشنبهٔ اول مجانی است. چیزی که فهرست نمی‌گوید این "
+                             "است که هر بازدید چقدر طول می‌کشد.")},
+            ],
+        },
+    },
+    {
+        "title": bi("Volunteer mechanics wanted", "به مکانیک داوطلب نیاز داریم"),
+        "level": "A2",
+        "genre": bi("Advertisement", "آگهی"),
+        "paragraphs": [
+            "The Yellow Bike Workshop is looking for two volunteer mechanics. "
+            "We repair donated bicycles and give them to people who cannot "
+            "afford one. Last year we gave away 214 bicycles, and we have room "
+            "for a hundred more.",
+            "What we ask. You do not need to be an expert. You will work one "
+            "evening a fortnight, from 6 to 9 pm, for at least six months. "
+            "During your first month we teach you to fix brakes, gears and "
+            "punctures, and you will always work beside someone experienced.",
+            "What you get. Tools, gloves and a workshop coat are provided. "
+            "Travel costs up to £8 a week are paid, and after three months "
+            "every volunteer may build one bicycle to keep.",
+            "How to apply. Write to the coordinator, Sam Idris, at "
+            "volunteer@yellowbike.org before 15 September. Say which evening "
+            "suits you and why you want to join. Everyone who applies is "
+            "invited to a trial evening, so nobody is chosen on paper alone.",
+        ],
+        "summary": bi(
+            "An advertisement: what the workshop does, what it asks of a "
+            "volunteer, what it gives back, and how to apply before a date.",
+            "یک آگهی: کارگاه چه می‌کند، از داوطلب چه می‌خواهد، چه می‌دهد و "
+            "چطور تا یک تاریخ مشخص درخواست بدهی."),
+        "questions": {
+            "blanks": [
+                {"sentence": "Last year the workshop gave away ___ bicycles.",
+                 "answer": "214", "also": [],
+                 "hint": bi("A number in the first section.",
+                            "عددی در بخش اول."),
+                 "para": 1},
+                {"sentence": "Volunteers work for at least ___ months.",
+                 "answer": "six", "also": ["6"],
+                 "hint": bi("A word, in 'What we ask'.",
+                            "یک کلمه، در بخش «What we ask»."),
+                 "para": 2},
+                {"sentence": "Applications close on 15 ___.",
+                 "answer": "September", "also": [],
+                 "hint": bi("A month, near the email address.",
+                            "یک ماه، نزدیک نشانی ایمیل."),
+                 "para": 4},
+            ],
+            "mcq": [
+                {"q": "What is the writer trying to do?",
+                 "options": ["Sell bicycles to the public",
+                             "Find two people to work as volunteer mechanics",
+                             "Report last year's results",
+                             "Ask the council for money"],
+                 "answer": 1,
+                 "why": bi("The first line states the purpose, and every "
+                           "section answers a question a candidate would ask.",
+                           "خط اول هدف را می‌گوید و هر بخش به سؤالی جواب "
+                           "می‌دهد که یک داوطلب می‌پرسد."),
+                 "para": 1},
+                {"q": "What happens to everyone who applies?",
+                 "options": ["They start work immediately",
+                             "They are chosen on paper",
+                             "They are invited to a trial evening",
+                             "They receive a free bicycle"],
+                 "answer": 2,
+                 "why": bi("'Everyone who applies is invited to a trial "
+                           "evening, so nobody is chosen on paper alone.'",
+                           "«هر کسی که درخواست بدهد به یک شب آزمایشی دعوت "
+                           "می‌شود، پس هیچ‌کس فقط روی کاغذ انتخاب نمی‌شود.»"),
+                 "para": 4},
+                {"q": "After three months, a volunteer may",
+                 "options": ["keep the tools they used",
+                             "build one bicycle to keep",
+                             "be paid £8 an hour",
+                             "choose their own hours"],
+                 "answer": 1,
+                 "why": bi("The third section promises one bicycle after "
+                           "three months; the £8 is travel money, not pay.",
+                           "بخش سوم پس از سه ماه یک دوچرخه وعده می‌دهد؛ ۸ پوند "
+                           "پول رفت‌وآمد است، نه دستمزد."),
+                 "para": 3},
+            ],
+            "truefalse": [
+                {"statement": "You must already know how to repair bicycles.",
+                 "answer": False,
+                 "why": bi("'You do not need to be an expert', and training is "
+                           "given in the first month.",
+                           "«لازم نیست متخصص باشی» و آموزش در ماه اول داده "
+                           "می‌شود."),
+                 "para": 2},
+                {"statement": "Volunteers work every evening.",
+                 "answer": False,
+                 "why": bi("It is 'one evening a fortnight', not every evening.",
+                           "«یک شب در هر دو هفته» است، نه هر شب."),
+                 "para": 2},
+                {"statement": "Travel costs are partly paid.",
+                 "answer": True,
+                 "why": bi("'Travel costs up to £8 a week are paid.'",
+                           "«هزینهٔ رفت‌وآمد تا ۸ پوند در هفته پرداخت می‌شود.»"),
+                 "para": 3},
+            ],
+            "essay": [
+                {"prompt": bi("Write the email the advertisement asks for: "
+                              "which evening suits you, and why you want to "
+                              "join. Keep it under 80 words.",
+                              "ایمیلی را که آگهی می‌خواهد بنویس: کدام شب برایت "
+                              "مناسب است و چرا می‌خواهی بپیوندی. زیر ۸۰ کلمه."),
+                 "min_words": 45,
+                 "tips": [
+                     bi("Answer both questions in the advertisement.",
+                        "به هر دو سؤال آگهی جواب بده."),
+                     bi("Mention one fact from the text to show you read it.",
+                        "یک واقعیت از متن بیاور تا نشان دهی خوانده‌ای."),
+                     bi("Close with a sentence that asks for the trial evening.",
+                        "با جمله‌ای تمام کن که شب آزمایشی را بخواهد.")],
+                 "model": bi("Dear Sam, I would like to volunteer as a "
+                             "mechanic. Thursday evenings suit me best, and I "
+                             "could also do Saturdays. I have never repaired a "
+                             "bicycle, but the advertisement says training is "
+                             "given in the first month, and I would like to "
+                             "help the workshop give away a hundred more "
+                             "bikes. Please tell me when the trial evening is. "
+                             "Yours, Mina.",
+                             "سم عزیز، می‌خواهم به‌عنوان مکانیک داوطلب کار کنم. "
+                             "شب‌های پنجشنبه برایم مناسب‌تر است و شنبه‌ها هم "
+                             "می‌توانم. تا حالا دوچرخه تعمیر نکرده‌ام، ولی آگهی "
+                             "می‌گوید در ماه اول آموزش می‌دهند و دوست دارم کمک "
+                             "کنم کارگاه صد دوچرخهٔ دیگر هم ببخشد. لطفاً بگو "
+                             "شب آزمایشی چه زمانی است. با احترام، مینا.")},
+            ],
+        },
+    },
+]
+
+
+from reading_more1 import MORE as _more1  # noqa: E402
+
+MORE.update(_more1)
+
+
+from reading_more2 import MORE as _more2  # noqa: E402
+
+MORE.update(_more2)
+
+
+from reading_more3 import MORE as _more3  # noqa: E402
+
+MORE.update(_more3)
+
+
+from reading_more4 import MORE as _more4  # noqa: E402
+
+MORE.update(_more4)
+
+
+from reading_more5 import MORE as _more5  # noqa: E402
+
+MORE.update(_more5)

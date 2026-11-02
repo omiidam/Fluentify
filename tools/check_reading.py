@@ -66,14 +66,95 @@ def check_fresh() -> None:
           "(run python3 tools/build_reading.py)")
 
 
+def check_reading(sid: str, label: str, r: dict, keys: Counter) -> dict:
+    """One passage: is it long enough to practise on, and are its keys sound?"""
+    text = " ".join(r.get("paragraphs") or [])
+    n = len(re.findall(r"[A-Za-z'\u2019-]+", text))
+    check(120 <= n <= 300, f"{label}: the passage is {n} words")
+    check(all(len(p) > 80 for p in r.get("paragraphs") or []),
+          f"{label}: a passage paragraph is a fragment")
+    check(bool(r.get("title", {}).get("en")), f"{label}: the passage has no title")
+    check(bool(FA.search((r.get("summary") or {}).get("fa", ""))),
+          f"{label}: the passage has no Persian summary")
+    check(r.get("words") == n, f"{label}: the word count is stale ({r.get('words')} vs {n})")
+    check(r.get("minutes") == max(1, round(n / 170)),
+          f"{label}: the reading time does not match the passage")
+
+    q = r.get("questions") or {}
+    for kind in ("blanks", "mcq", "truefalse", "essay"):
+        check(bool(q.get(kind)), f"{label}: no {kind} questions")
+    check(len(q.get("blanks") or []) >= 3, f"{label}: fewer than three blanks")
+    check(len(q.get("mcq") or []) >= 3, f"{label}: fewer than three choice questions")
+    check(len(q.get("truefalse") or []) >= 3, f"{label}: fewer than three true/false")
+    check(len(q.get("essay") or []) >= 1, f"{label}: no writing task")
+
+    objective = q.get("blanks", []) + q.get("mcq", []) + q.get("truefalse", [])
+    paras = len(r.get("paragraphs") or [])
+    with_evidence = 0
+    for item in objective:
+        para = item.get("para")
+        if para is None:
+            continue
+        check(isinstance(para, int) and 1 <= para <= paras,
+              f"{label}: a question points at paragraph {para} of {paras}")
+        with_evidence += 1
+    # Feedback that cannot name the paragraph is a red cross with a sentence
+    # next to it. Most questions must be able to point.
+    check(with_evidence >= 0.7 * len(objective),
+          f"{label}: only {with_evidence} of {len(objective)} questions say "
+          f"which paragraph answers them")
+
+    for item in q.get("blanks") or []:
+        check("___" in item.get("sentence", ""), f"{label}: a blank has no gap")
+        check(item.get("answer", "").lower() in text.lower(),
+              f"{label}: the answer {item.get('answer')!r} never appears in "
+              f"the passage")
+        for alt in item.get("also") or []:
+            check(isinstance(alt, str) and alt.strip() and
+                  alt.lower() != item["answer"].lower(),
+                  f"{label}: a rejected-list alternative is empty or redundant")
+        keys[item.get("answer")] += 1
+
+    for item in q.get("mcq") or []:
+        opts = item.get("options") or []
+        check(len(opts) == 4, f"{label}: a choice question has {len(opts)} options")
+        check(isinstance(item.get("answer"), int) and 0 <= item["answer"] < len(opts),
+              f"{label}: a choice key points outside its options")
+        check(bool(FA.search((item.get("why") or {}).get("fa", ""))),
+              f"{label}: a choice explanation has no Persian")
+        keys["mcq" + "ABCD"[item["answer"]]] += 1
+
+    for item in q.get("truefalse") or []:
+        check(isinstance(item.get("answer"), bool),
+              f"{label}: a true/false key is not a boolean")
+        keys["tf" + ("T" if item["answer"] else "F")] += 1
+
+    for item in q.get("essay") or []:
+        check(isinstance(item.get("min_words"), int) and item["min_words"] >= 40,
+              f"{label}: a writing task has no minimum length")
+        model = item.get("model") or {}
+        check(len(model.get("en", "").split()) >= 30,
+              f"{label}: a model answer is too short to model anything")
+        check(bool(FA.search(model.get("fa", ""))),
+              f"{label}: a model answer has no Persian")
+        check(bool(item.get("tips")), f"{label}: a writing task has no tips")
+
+    return {
+        "questions": sum(len(q.get(k) or []) for k in
+                         ("blanks", "mcq", "truefalse", "essay")),
+        "words": n,
+    }
+
+
 def check_content(doc: dict) -> dict:
     strategies = doc.get("strategies")
     if not check(isinstance(strategies, list) and strategies,
                  "reading.json has no strategies"):
-        return {"strategies": 0, "questions": 0, "words": 0}
+        return {"strategies": 0, "questions": 0, "words": 0, "passages": 0}
 
     keys = Counter()
     ids = set()
+    questions = words_total = passages = 0
     for s in strategies:
         sid = s.get("id")
         check(bool(sid) and sid not in ids, f"duplicate or missing strategy id {sid!r}")
@@ -116,76 +197,20 @@ def check_content(doc: dict) -> dict:
                       bool(row.get("en", "").strip()),
                       f"{sid}: a {field} entry is missing a language")
 
-        r = s.get("reading") or {}
-        text = " ".join(r.get("paragraphs") or [])
-        n = len(re.findall(r"[A-Za-z'’-]+", text))
-        check(120 <= n <= 300, f"{sid}: the passage is {n} words")
-        check(all(len(p) > 80 for p in r.get("paragraphs") or []),
-              f"{sid}: a passage paragraph is a fragment")
-        check(bool(r.get("title", {}).get("en")), f"{sid}: the passage has no title")
-        check(bool(FA.search((r.get("summary") or {}).get("fa", ""))),
-              f"{sid}: the passage has no Persian summary")
-        check(r.get("words") == n, f"{sid}: the word count is stale ({r.get('words')} vs {n})")
-        check(r.get("minutes") == max(1, round(n / 170)),
-              f"{sid}: the reading time does not match the passage")
-
-        q = s.get("questions") or {}
-        for kind in ("blanks", "mcq", "truefalse", "essay"):
-            check(bool(q.get(kind)), f"{sid}: no {kind} questions")
-        check(len(q.get("blanks") or []) >= 3, f"{sid}: fewer than three blanks")
-        check(len(q.get("mcq") or []) >= 3, f"{sid}: fewer than three choice questions")
-        check(len(q.get("truefalse") or []) >= 3, f"{sid}: fewer than three true/false")
-        check(len(q.get("essay") or []) >= 1, f"{sid}: no writing task")
-
-        objective = q.get("blanks", []) + q.get("mcq", []) + q.get("truefalse", [])
-        paras = len(r.get("paragraphs") or [])
-        with_evidence = 0
-        for item in objective:
-            para = item.get("para")
-            if para is None:
-                continue
-            check(isinstance(para, int) and 1 <= para <= paras,
-                  f"{sid}: a question points at paragraph {para} of {paras}")
-            with_evidence += 1
-        # Feedback that cannot name the paragraph is a red cross with a
-        # sentence next to it. Most questions must be able to point.
-        check(with_evidence >= 0.7 * len(objective),
-              f"{sid}: only {with_evidence} of {len(objective)} questions "
-              f"say which paragraph answers them")
-
-        for b in q.get("blanks") or []:
-            check("___" in b.get("sentence", ""), f"{sid}: a blank has no gap")
-            check(b.get("answer", "").lower() in text.lower(),
-                  f"{sid}: the answer {b.get('answer')!r} never appears in the passage")
-            for alt in b.get("also") or []:
-                check(isinstance(alt, str) and alt.strip() and
-                      alt.lower() != b["answer"].lower(),
-                      f"{sid}: a rejected-list alternative is empty or redundant")
-            keys[b.get("answer")] += 1
-
-        for m in q.get("mcq") or []:
-            opts = m.get("options") or []
-            check(len(opts) == 4, f"{sid}: a choice question has {len(opts)} options")
-            check(isinstance(m.get("answer"), int) and 0 <= m["answer"] < len(opts),
-                  f"{sid}: a choice key points outside its options")
-            check(bool(FA.search((m.get("why") or {}).get("fa", ""))),
-                  f"{sid}: a choice explanation has no Persian")
-            keys["mcq" + "ABCD"[m["answer"]]] += 1
-
-        for t in q.get("truefalse") or []:
-            check(isinstance(t.get("answer"), bool),
-                  f"{sid}: a true/false key is not a boolean")
-            keys["tf" + ("T" if t.get("answer") else "F")] += 1
-
-        for e in q.get("essay") or []:
-            check(isinstance(e.get("min_words"), int) and e["min_words"] >= 40,
-                  f"{sid}: a writing task has no minimum length")
-            model = e.get("model") or {}
-            check(len(model.get("en", "").split()) >= 30,
-                  f"{sid}: a model answer is too short to model anything")
-            check(bool(FA.search(model.get("fa", ""))),
-                  f"{sid}: a model answer has no Persian")
-            check(bool(e.get("tips")), f"{sid}: a writing task has no tips")
+        readings = s.get("readings") or []
+        check(len(readings) >= 3, f"{sid}: {len(readings)} practice passages, "
+                                  f"not three")
+        mine = {"questions": 0, "words": 0}
+        for i, r in enumerate(readings, 1):
+            label = sid if i == 1 else f"{sid} practice {i}"
+            got = check_reading(sid, label, r, keys)
+            mine["questions"] += got["questions"]
+            mine["words"] += got["words"]
+        passages += len(readings)
+        questions += mine["questions"]
+        words_total += mine["words"]
+        check(sum(s.get("counts", {}).values()) == mine["questions"],
+              f"{sid}: the question count does not match its passages")
 
     # A key that always sits on the same letter teaches pattern-spotting, not
     # reading. True/false is held to the same rule for the same reason.
@@ -209,8 +234,9 @@ def check_content(doc: dict) -> dict:
 
     return {
         "strategies": len(strategies),
-        "questions": sum(sum((s.get("counts") or {}).values()) for s in strategies),
-        "words": sum((s.get("reading") or {}).get("words", 0) for s in strategies),
+        "passages": passages,
+        "questions": questions,
+        "words": words_total,
     }
 
 
@@ -246,7 +272,8 @@ def check_offline() -> None:
 def main() -> int:
     check_fresh()
     doc = load()
-    stats = check_content(doc) if doc else {"strategies": 0, "questions": 0, "words": 0}
+    stats = check_content(doc) if doc else {"strategies": 0, "passages": 0,
+                                            "questions": 0, "words": 0}
     check_panel()
     check_offline()
 
@@ -258,9 +285,10 @@ def main() -> int:
         print(f"\nFAIL  {len(problems)} problem(s) with the reading strategies")
         return 1
 
-    print(f"PASS  {stats['strategies']} strategies, {stats['questions']} questions "
-          f"over {stats['words']} words of reading; every key is answerable from "
-          f"its passage, and the panel, the route and the APK bundle are wired")
+    print(f"PASS  {stats['strategies']} strategies, {stats['passages']} passages, "
+          f"{stats['questions']} questions over {stats['words']} words of reading; "
+          f"every key is answerable from its passage, and the panel, the route "
+          f"and the APK bundle are wired")
     return 0
 
 

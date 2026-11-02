@@ -1418,6 +1418,32 @@
   .rdsteps .sen { font-size: 12.5px; line-height: 1.55; color: #333a56; }
   .rdsteps .sfa { font-size: 11.5px; line-height: 1.8; color: var(--muted); }
 
+  /* --- the three practices, as a row of chips --- */
+  .rdprac {
+    display: flex; gap: 6px; margin-bottom: 9px;
+    overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin;
+  }
+  .rdpracbtn {
+    display: flex; align-items: center; gap: 6px; flex: 0 0 auto;
+    max-width: 46%; font-family: inherit; font-size: 11px; cursor: pointer;
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.16);
+    border-radius: 999px; padding: 4px 10px 4px 4px; color: var(--ink);
+  }
+  .rdpracbtn:hover { border-color: rgba(47,107,79,.5); }
+  .rdpracbtn:focus-visible { outline: 2px solid var(--leaf); outline-offset: 2px; }
+  .rdpracbtn.on { border-color: var(--leaf); background: var(--leaf-soft); }
+  .rdpracbtn .pn {
+    flex: none; width: 17px; height: 17px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 10px; font-weight: 700;
+    background: rgba(47,107,79,.12); color: var(--leaf);
+  }
+  .rdpracbtn .pt {
+    max-width: 150px; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; color: #3f4a6b;
+  }
+  .rdpracbtn .ps { flex: none; font-size: 10px; color: var(--muted); }
+  .rdpracbtn.done .ps { color: var(--leaf); font-weight: 700; }
+
   /* --- the passage --- */
   .rdpassage {
     background: #fffdf6; border: 1px solid rgba(47,107,79,.25);
@@ -6625,25 +6651,34 @@ const Reading = (() => {
   let doc = null;          // reading.json, once
   let pending = null;      // the in-flight fetch
   let view = 'list';       // 'list' | a strategy id
+  let pi = 1;              // which of the strategy's three passages is open
 
-  /* --- state: {strategyId: {picks:{qid:value}, checked:{group:true}, essays:{qid:text}, models:{qid:true}}} */
+  /* --- state, one entry per (strategy, practice). Practice 1 keeps the plain
+     strategy id, so every answer a learner gave before the section grew a
+     second and third passage is still where it was.
+     {id: {picks:{qid:value}, checked:{group:true}, essays:{qid:text}, models:{qid:true}}} */
+  const skey = (id, p) => p === 1 ? id : id + '#' + p;
   function read() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; }
   }
   function write(all) {
     try { localStorage.setItem(KEY, JSON.stringify(all)); } catch (e) { /* private mode */ }
   }
-  function state(id) {
+  function state(id, p) {
     const all = read();
-    all[id] = all[id] || {picks: {}, checked: {}, essays: {}, models: {} };
-    return all[id];
+    const k = skey(id, p || 1);
+    all[k] = all[k] || {picks: {}, checked: {}, essays: {}, models: {}};
+    return all[k];
   }
-  function patch(id, fn) {
+  function patch(id, p, fn) {
     const all = read();
-    all[id] = all[id] || {picks: {}, checked: {}, essays: {}, models: {} };
-    fn(all[id]);
+    const k = skey(id, p || 1);
+    all[k] = all[k] || {picks: {}, checked: {}, essays: {}, models: {}};
+    fn(all[k]);
     write(all);
   }
+  const patchCur = (fn) => patch(_current, pi, fn);
+  const stateCur = () => state(_current, pi);
 
   /* --- tiny DOM helper: h('div', {class: 'x'}, child, 'text') ------------ */
   function h(tag, props, ...kids) {
@@ -6665,6 +6700,7 @@ const Reading = (() => {
   const fa = (text, cls) => h('span', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
   const faP = (text, cls) => h('p', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
 
+  const opening = (r) => r.counts.blanks + r.counts.mcq + r.counts.truefalse;
   const total = (s) => s.counts.blanks + s.counts.mcq + s.counts.truefalse;
   const label = (n) => n === 1 ? 'question' : 'questions';
 
@@ -6672,18 +6708,51 @@ const Reading = (() => {
      so it never counts as checked - pretending otherwise would be a lie. */
   const GROUPS = ['blanks', 'mcq', 'truefalse'];
 
-  function progress() {
-    const all = read();
-    let done = 0, sets = 0;
-    doc.strategies.forEach((s) => {
-      const st = all[s.id] || {};
-      const got = GROUPS.filter((g) => st.checked && st.checked[g]).length;
-      if (got === GROUPS.length) done += 1;
-      sets += got;
+  /* How far through one passage a learner is: 0-3 groups marked. */
+  function marked(id, p) {
+    const st = read()[skey(id, p)] || {};
+    return GROUPS.filter((g) => st.checked && st.checked[g]).length;
+  }
+  function passageCounts(s) {
+    let full = 0, markedGroups = 0;
+    s.readings.forEach((r, k) => {
+      const got = marked(s.id, k + 1);
+      if (got === GROUPS.length) full += 1;
+      markedGroups += got;
     });
-    const totalSets = doc.strategies.length * GROUPS.length;
+    return {full, markedGroups};
+  }
+
+  /* Repaint the passage chips in place. Checking a group must not redraw the
+     page, or the feedback that was just appended would go with it. */
+  function refreshTabs() {
+    const s = doc.strategies.find((x) => x.id === _current);
+    if (!s) return;
+    body().querySelectorAll('.rdpracbtn').forEach((btn, k) => {
+      if (!s.readings[k]) return;
+      const c = marked(_current, k + 1);
+      const fin = c === GROUPS.length;
+      const ps = btn.querySelector('.ps');
+      if (ps) ps.textContent = fin ? '\u2713' : c + '/3';
+      btn.classList.toggle('done', fin);
+      btn.setAttribute('aria-label', 'Passage ' + (k + 1) + ': ' +
+        s.readings[k].title.en + ' - ' +
+        (fin ? 'finished' : c + ' of 3 parts checked'));
+    });
+  }
+
+  function progress() {
+    let strategies = 0, passages = 0, sets = 0;
+    doc.strategies.forEach((s) => {
+      const c = passageCounts(s);
+      passages += c.full;
+      sets += c.markedGroups;
+      if (c.full === s.readings.length) strategies += 1;
+    });
+    const allPassages = doc.totals.practices;
+    const totalSets = allPassages * GROUPS.length;
     return {
-      done, sets, totalSets,
+      strategies, passages, allPassages, sets, totalSets,
       pct: totalSets ? Math.round(sets * 100 / totalSets) : 0,
     };
   }
@@ -6724,8 +6793,8 @@ const Reading = (() => {
     wrap.append(h('div', {class: 'rdprog'},
       h('div', {class: 'rdprogtop'},
         h('b', {}, 'Your progress'),
-        h('span', {}, pr.done + ' of ' + doc.strategies.length +
-          ' strategies finished'),
+        h('span', {}, pr.passages + ' of ' + pr.allPassages +
+          ' passages finished'),
         h('span', {class: 'pct'}, pr.pct + '%')),
       h('div', {class: 'rdtrack', role: 'progressbar', 'aria-valuemin': '0',
         'aria-valuemax': '100', 'aria-valuenow': String(pr.pct),
@@ -6733,6 +6802,8 @@ const Reading = (() => {
       h('div', {class: 'rdstats'},
         h('span', {}, h('b', {}, String(pr.sets)), ' of ' + pr.totalSets +
           ' practice sets checked'),
+        h('span', {}, h('b', {}, String(pr.strategies)), ' of ' +
+          doc.strategies.length + ' strategies finished'),
         h('span', {}, h('b', {}, String(doc.totals.questions)),
           ' questions'),
         h('span', {}, h('b', {}, String(doc.totals.words)),
@@ -6740,14 +6811,13 @@ const Reading = (() => {
 
     const list = h('div', {class: 'rdlist'});
     doc.strategies.forEach((s, i) => {
-      const st = read()[s.id] || {};
-      const got = GROUPS.filter((g) => st.checked && st.checked[g]).length;
-      const done = got === GROUPS.length;
+      const pc = passageCounts(s);
+      const done = pc.full === s.readings.length;
       list.append(h('button', {
         type: 'button', class: 'rdcard' + (done ? ' done' : ''),
         'aria-label': s.title.en + ' - ' + s.title.fa +
           (done ? ' - finished' : ''),
-        onclick: () => open(s.id),
+        onclick: () => open(s.id, 1),
       },
         h('span', {class: 'rdnum', 'aria-hidden': 'true'},
           done ? '✓' : String(i + 1)),
@@ -6758,10 +6828,12 @@ const Reading = (() => {
           h('span', {class: 'rdblurb'}, s.blurb.en),
           fa(s.blurb.fa, 'rdblurb'),
           h('span', {class: 'rdmeta'},
-            s.minutes + ' min lesson · ' + s.reading.words + ' words · ' +
+            s.minutes + ' min lesson · ' + s.readings.length + ' passages · ' +
             total(s) + ' ' + label(total(s)) + ' · ' +
-            (done ? 'finished' : got ? got + ' of 3 parts checked'
-                                     : 'not started'))),
+            (done ? 'finished'
+                  : pc.full ? pc.full + ' of ' + s.readings.length +
+                              ' passages finished'
+                            : pc.markedGroups ? 'in progress' : 'not started'))),
         h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '›')));
     });
     wrap.append(list);
@@ -6785,7 +6857,7 @@ const Reading = (() => {
         input.value = st.picks[id] || '';
         input.addEventListener('input', () => {
           st.picks[id] = input.value;
-          patch(currentId(), (s) => { s.picks[id] = input.value; });
+          patchCur((s) => { s.picks[id] = input.value; });
           card.classList.remove('right', 'wrong');
           input.classList.remove('right', 'wrong');
           const fb = card.querySelector('.rdfb');
@@ -6814,7 +6886,7 @@ const Reading = (() => {
         'aria-pressed': st.picks[id] === k ? 'true' : 'false',
       }, h('span', {class: 'k'}, 'ABCD'[k]), h('span', {}, opt));
       btn.addEventListener('click', () => {
-        patch(currentId(), (s) => { s.picks[id] = k; delete s.checked.mcq; });
+        patchCur((s) => { s.picks[id] = k; delete s.checked.mcq; });
         card.querySelectorAll('.rdopt').forEach((b) => {
           b.classList.remove('on', 'right', 'wrong');
           b.setAttribute('aria-pressed', 'false');
@@ -6844,7 +6916,7 @@ const Reading = (() => {
         'aria-pressed': st.picks[id] === val ? 'true' : 'false',
       }, txt);
       b.addEventListener('click', () => {
-        patch(currentId(), (s) => { s.picks[id] = val; delete s.checked.truefalse; });
+        patchCur((s) => { s.picks[id] = val; delete s.checked.truefalse; });
         row.querySelectorAll('button').forEach((x) => {
           x.classList.remove('on', 'right', 'wrong');
           x.setAttribute('aria-pressed', 'false');
@@ -6885,7 +6957,7 @@ const Reading = (() => {
       count.classList.toggle('ok', n >= aim);
     };
     area.addEventListener('input', () => {
-      patch(currentId(), (x) => { x.essays[id] = area.value; });
+      patchCur((x) => { x.essays[id] = area.value; });
       tick();
     });
     tick();
@@ -6910,7 +6982,7 @@ const Reading = (() => {
       const open = model.hidden;
       model.hidden = !open;
       showBtn.textContent = open ? 'Hide the model answer' : 'Show a model answer';
-      patch(currentId(), (x) => { x.models[id] = open; });
+      patchCur((x) => { x.models[id] = open; });
     });
     if (st.models[id]) {
       model.hidden = false;
@@ -6929,8 +7001,8 @@ const Reading = (() => {
   function check(group) {
     const s = doc.strategies.find((x) => x.id === _current);
     if (!s) return;
-    const q = s.questions[group];
-    const st = state(_current);
+    const q = s.readings[pi - 1].questions[group];
+    const st = stateCur();
     let right = 0;
 
     const items = [...body().querySelectorAll('[data-group="' + group + '"] .rditem')];
@@ -6991,13 +7063,14 @@ const Reading = (() => {
       if (ok) right++;
     });
 
-    patch(_current, (x) => { x.checked[group] = true; x.score = x.score || {}; x.score[group] = right; });
+    patchCur((x) => { x.checked[group] = true; x.score = x.score || {}; x.score[group] = right; });
 
     const btn = body().querySelector('[data-check="' + group + '"]');
     if (btn) {
       btn.textContent = right + ' of ' + q.length + ' correct';
       btn.classList.remove('ghost');
     }
+    refreshTabs();
     refreshScore();
   }
 
@@ -7005,11 +7078,12 @@ const Reading = (() => {
     const badge = body().querySelector('.rdscore');
     const s = doc.strategies.find((x) => x.id === _current);
     if (!badge || !s) return;
-    const st = read()[_current] || {};
+    const st = read()[skey(_current, pi)] || {};
     const sc = st.score || {};
     const done = Object.keys(sc).length;
     const right = Object.values(sc).reduce((a, b) => a + b, 0);
-    const all = total(s);
+    const r = s.readings[pi - 1];
+    const all = opening(r);
     badge.textContent = done
       ? right + ' of ' + all + ' right · ' + done + ' of 3 checked'
       : all + ' answerable questions';
@@ -7025,8 +7099,8 @@ const Reading = (() => {
       ? ['Strong reading. ' + right + ' of ' + all + ' right (' + pct + '%)',
          'خواندن قوی. ' + right + ' از ' + all + ' درست (' + pct + '٪)',
          'Look at the two or three you missed, then move on to the next '
-           + 'strategy - this one is doing its job.',
-         'به دو یا سه موردی که اشتباه شد نگاه کن و بعد سراغ راهبرد بعدی '
+           + 'passage - this one is doing its job.',
+         'به دو یا سه موردی که اشتباه شد نگاه کن و بعد سراغ متن بعدی '
            + 'برو؛ این یکی کارش را کرده.']
       : pct >= 50
       ? ['Getting there. ' + right + ' of ' + all + ' right (' + pct + '%)',
@@ -7049,28 +7123,30 @@ const Reading = (() => {
       h('b', {}, head[0]),
       h('div', {class: 'rdrows'},
         h('span', {}, 'Fill in the blanks ' + (sc.blanks ?? 0) + '/' +
-          s.counts.blanks),
+          r.counts.blanks),
         h('span', {}, 'Multiple choice ' + (sc.mcq ?? 0) + '/' +
-          s.counts.mcq),
+          r.counts.mcq),
         h('span', {}, 'True or false ' + (sc.truefalse ?? 0) + '/' +
-          s.counts.truefalse)),
+          r.counts.truefalse)),
       h('p', {class: 'rdp'}, head[2]),
       faP(head[3], 'rdp'));
   }
 
   /* ------------------------------------------------------------- detail -- */
-  function renderStrategy(id) {
+  function renderStrategy(id, p) {
     const s = doc.strategies.find((x) => x.id === id);
     const wrap = body();
     wrap.replaceChildren();
     if (!s) { renderList(); return; }
     _current = id;
-    const st = state(id);
+    pi = Math.min(Math.max(1, p || pi || 1), s.readings.length);
+    const r = s.readings[pi - 1];
+    const st = stateCur();
     const n = doc.strategies.indexOf(s);
 
     wrap.append(h('div', {class: 'rdbar'},
       h('button', {type: 'button', class: 'rdback', onclick: () => { view = 'list'; renderList(); }},
-        '‹ All strategies'),
+        '\u2039 All strategies'),
       h('span', {class: 'rdscore'})));
 
     wrap.append(h('div', {class: 'rdhero'},
@@ -7078,8 +7154,8 @@ const Reading = (() => {
         h('span', {class: 'lvl'}, s.level)),
       faP(s.title.fa, 'rdhero-fa'),
       h('div', {class: 'rdherometa'},
-        s.minutes + ' min lesson · ' + s.reading.minutes + ' min read · ' +
-        s.reading.words + ' words')));
+        s.minutes + ' min lesson \u00b7 ' + s.readings.length + ' passages \u00b7 ' +
+        total(s) + ' questions')));
 
     /* what / why / steps */
     const sec1 = h('div', {class: 'rdsec'},
@@ -7140,32 +7216,53 @@ const Reading = (() => {
 
     wrap.append(sec1, sec2, secWhen, sec3, secEx, secMis, secTips, secCheck);
 
-    /* the passage */
+    /* the three passages. Each keeps its own answers, so switching practice
+       is not the same as losing work. */
+    const tabs = h('div', {class: 'rdprac', role: 'tablist',
+      'aria-label': 'Practice passages'});
+    s.readings.forEach((rd, k) => {
+      const c = marked(id, k + 1);
+      const on = k + 1 === pi;
+      tabs.append(h('button', {
+        type: 'button', role: 'tab',
+        class: 'rdpracbtn' + (on ? ' on' : '') + (c === GROUPS.length ? ' done' : ''),
+        'aria-selected': on ? 'true' : 'false',
+        title: rd.title.en,
+        'aria-label': 'Passage ' + (k + 1) + ': ' + rd.title.en + ' - ' +
+          (c === GROUPS.length ? 'finished' : c + ' of 3 parts checked'),
+        onclick: () => open(id, k + 1),
+      },
+        h('span', {class: 'pn'}, String(k + 1)),
+        h('span', {class: 'pt'}, rd.title.en),
+        h('span', {class: 'ps'}, c === GROUPS.length ? '\u2713' : c + '/3')));
+    });
+
     const psg = h('div', {class: 'rdpassage'},
       h('div', {class: 'rdph'},
-        h('b', {}, s.reading.title.en),
-        fa(s.reading.title.fa, 'rdph-fa'),
-        h('span', {class: 'pill'}, s.reading.level + ' · ' + s.reading.words +
-          ' words · ' + s.reading.minutes + ' min read')));
-    if (s.reading.note && s.reading.note.en) {
-      psg.append(h('p', {class: 'rdnote'}, s.reading.note.en, ' ', fa(s.reading.note.fa)));
+        h('b', {}, r.title.en),
+        fa(r.title.fa, 'rdph-fa'),
+        h('span', {class: 'pill'}, r.level + ' \u00b7 ' + r.words +
+          ' words \u00b7 ' + r.minutes + ' min read')));
+    if (r.note && r.note.en) {
+      psg.append(h('p', {class: 'rdnote'}, r.note.en, ' ', fa(r.note.fa)));
     }
-    s.reading.paragraphs.forEach((p, i) => {
+    r.paragraphs.forEach((p, i) => {
       psg.append(h('p', {class: 'rdpara', dir: 'ltr', lang: 'en',
         'data-para': String(i + 1)}, p));
     });
     const sumBtn = h('button', {type: 'button', class: 'rdsumbtn'}, 'Show the Persian summary');
     const sumBox = h('div', {class: 'rdsum', hidden: true},
       h('div', {class: 'rdlabel'}, 'In short', fa('خلاصهٔ فارسی')),
-      h('p', {class: 'rdp'}, s.reading.summary.en),
-      faP(s.reading.summary.fa, 'rdp'));
+      h('p', {class: 'rdp'}, r.summary.en),
+      faP(r.summary.fa, 'rdp'));
     sumBtn.addEventListener('click', () => {
       sumBox.hidden = !sumBox.hidden;
       sumBtn.textContent = sumBox.hidden ? 'Show the Persian summary' : 'Hide the summary';
     });
     psg.append(sumBtn, sumBox);
     wrap.append(h('div', {class: 'rdsec'},
-      h('div', {class: 'rdlabel'}, 'Practice reading', fa('متن تمرین')), psg));
+      h('div', {class: 'rdlabel'}, 'Practice reading', fa('متن تمرین')),
+      tabs, psg));
 
     /* questions: blank, choice, true/false, writing */
     const order = [
@@ -7178,15 +7275,15 @@ const Reading = (() => {
       const sec = h('div', {class: 'rdsec', 'data-group': group});
       const head = h('div', {class: 'rdqhead'},
         h('b', {}, title), fa(titleFa),
-        h('span', {class: 'n'}, s.questions[group].length + ' · ' + sub));
+        h('span', {class: 'n'}, r.questions[group].length + ' \u00b7 ' + sub));
       sec.append(head);
       const list = h('div', {class: 'rdq'});
-      s.questions[group].forEach((item, i) => {
+      r.questions[group].forEach((item, i) => {
         let card;
-        if (group === 'blanks') card = blankItem(s, item, i, st);
+        if (group === 'blanks') card = blankItem(r, item, i, st);
         else if (group === 'mcq') card = mcqItem(item, i, st);
         else if (group === 'truefalse') card = tfItem(item, i, st);
-        else card = essayItem(s, item, i, st);
+        else card = essayItem(r, item, i, st);
         list.append(card);
       });
       sec.append(list);
@@ -7205,24 +7302,29 @@ const Reading = (() => {
       wrap.append(sec);
     });
 
+    const lastPractice = pi === s.readings.length;
     wrap.append(h('div', {class: 'rdresult', hidden: true}));
     wrap.append(h('div', {class: 'rdfoot'},
       h('button', {type: 'button', class: 'rdgo ghost', onclick: () => {
-        patch(id, (x) => { x.picks = {}; x.checked = {}; x.essays = {}; x.models = {}; x.score = {}; });
-        renderStrategy(id);
-      }}, 'Reset this practice'),
-      n < doc.strategies.length - 1
-        ? h('button', {type: 'button', class: 'rdgo', onclick: () => open(doc.strategies[n + 1].id)},
-            'Next: ' + doc.strategies[n + 1].title.en + ' ›')
-        : h('button', {type: 'button', class: 'rdgo', onclick: () => { view = 'list'; renderList(); }},
-            'Back to the list')));
+        patch(id, pi, (x) => { x.picks = {}; x.checked = {}; x.essays = {}; x.models = {}; x.score = {}; });
+        renderStrategy(id, pi);
+      }}, 'Reset this passage'),
+      !lastPractice
+        ? h('button', {type: 'button', class: 'rdgo', onclick: () => open(id, pi + 1)},
+            'Next passage \u203a')
+        : n < doc.strategies.length - 1
+          ? h('button', {type: 'button', class: 'rdgo', onclick: () => open(doc.strategies[n + 1].id, 1)},
+              'Next strategy: ' + doc.strategies[n + 1].title.en + ' \u203a')
+          : h('button', {type: 'button', class: 'rdgo', onclick: () => { view = 'list'; renderList(); }},
+              'Back to the list')));
 
     refreshScore();
   }
 
-  function open(id) {
+  function open(id, p) {
     view = id;
-    renderStrategy(id);
+    pi = p || 1;
+    renderStrategy(id, pi);
     const panel = document.getElementById('rdpanel');
     if (panel) panel.scrollTop = 0;
   }
@@ -7248,6 +7350,7 @@ const Reading = (() => {
       wrap.dataset.ready = '1';
       view === 'list' ? renderList() : renderStrategy(view);
     } catch (e) {
+      console.error('reading:', e);
       wrap.replaceChildren(h('div', {class: 'rderr'},
         'The reading strategies could not be read. ',
         fa('راهبردهای خواندن خوانده نشد.')));
