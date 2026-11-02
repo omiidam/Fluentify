@@ -94,30 +94,10 @@ def check_content(doc: dict) -> dict:
 
         chapters = s.get("chapters") or []
         check(len(chapters) >= 1, f"{sid}: no chapters")
-        companion = s.get("kind") == "companion"
-        if companion:
-            book = s.get("book") or {}
-            check(bool(book.get("title")) and bool(book.get("author")),
-                  f"{sid}: the companion names no book")
-            check(bool(FA.search((book.get("note") or {}).get("fa", ""))),
-                  f"{sid}: the book note has no Persian")
         count = 0
         for ci, ch in enumerate(chapters, 1):
             check(bool(FA.search((ch.get("title") or {}).get("fa", ""))),
                   f"{sid} chapter {ci}: the title has no Persian")
-            if companion:
-                # no passage here at all: our summary stands in for the text,
-                # and it has to be long enough to be worth reading
-                summary = ch.get("summary") or {}
-                check(bool(summary.get("en", "").strip()),
-                      f"{sid} chapter {ci}: no English summary")
-                check(bool(FA.search(summary.get("fa", ""))),
-                      f"{sid} chapter {ci}: no Persian summary")
-                check(len(summary.get("en", "").split()) >= 40,
-                      f"{sid} chapter {ci}: the summary is too short")
-                check("pairs" not in ch,
-                      f"{sid} chapter {ci}: a companion carries no chapter text")
-                continue
             pairs = ch.get("pairs") or []
             check(len(pairs) >= 3, f"{sid} chapter {ci}: fewer than three sentences")
             for pi, pair in enumerate(pairs, 1):

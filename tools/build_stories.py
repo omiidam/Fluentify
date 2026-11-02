@@ -59,59 +59,33 @@ def build_story(s: dict, seen: set[str]) -> dict:
     need(level in {lv["id"] for lv in LEVELS}, where, f"unknown level {level!r}")
     check_bilingual(where, s.get("blurb"), "blurb")
 
-    # A companion is study material for a chapter somebody already owns: the
-    # summary is written here, the chapter text is not reproduced, so the
-    # sentence rules below do not apply to it.
-    kind = s.get("kind", "story")
-    need(kind in ("story", "companion"), where, f"unknown kind {kind!r}")
-    book = None
-    if kind == "companion":
-        book = s.get("book") or {}
-        need(bool(book.get("title")) and bool(book.get("author")), where,
-             "a companion needs the book it belongs to")
-        need(bool(book.get("publisher")), where, "the book has no publisher")
-        check_bilingual(where, book.get("note"), "book note")
-
     chapters = s.get("chapters") or []
     need(len(chapters) >= 1, where, "has no chapters")
     total_words = 0
     sentences = 0
-
-    if kind == "companion":
-        need(len(chapters) <= 8, where, "a companion covers too many chapters")
-        for ci, ch in enumerate(chapters, 1):
-            cw = f"{where} chapter {ci}"
-            check_bilingual(cw, ch.get("title"), "title")
-            check_bilingual(cw, ch.get("summary"), "summary")
-            need(len(ch.get("summary", {}).get("en", "").split()) >= 40, cw,
-                 "the summary is too short to describe the chapter")
-        total_words = sum(len(ch["summary"]["en"].split()) for ch in chapters)
-        plain = " ".join(ch["summary"]["en"] for ch in chapters)
-    else:
-        for ci, ch in enumerate(chapters, 1):
-            cw = f"{where} chapter {ci}"
-            check_bilingual(cw, ch.get("title"), "title")
-            pairs = ch.get("pairs") or []
-            need(len(pairs) >= 3, cw, "has fewer than three sentences")
-            for pi, pair in enumerate(pairs, 1):
-                check_bilingual(cw, pair, f"sentence {pi}")
-                sentence = pair["en"].strip()
-                need(bool(sentence) and sentence[-1] in ".!?\"'", cw,
-                     f"sentence {pi} has no closing punctuation")
-                need(len(sentence.split()) <= 30, cw,
-                     f"sentence {pi} is {len(sentence.split())} words long")
-                total_words += words(sentence)
-            sentences += len(pairs)
-        plain = " ".join(p["en"] for ch in chapters for p in ch["pairs"])
+    for ci, ch in enumerate(chapters, 1):
+        cw = f"{where} chapter {ci}"
+        check_bilingual(cw, ch.get("title"), "title")
+        pairs = ch.get("pairs") or []
+        need(len(pairs) >= 3, cw, "has fewer than three sentences")
+        for pi, pair in enumerate(pairs, 1):
+            check_bilingual(cw, pair, f"sentence {pi}")
+            sentence = pair["en"].strip()
+            need(bool(sentence) and sentence[-1] in ".!?\"'", cw,
+                 f"sentence {pi} has no closing punctuation")
+            need(len(sentence.split()) <= 30, cw,
+                 f"sentence {pi} is {len(sentence.split())} words long")
+            total_words += words(sentence)
+        sentences += len(pairs)
+    plain = " ".join(p["en"] for ch in chapters for p in ch["pairs"])
 
     vocab = s.get("vocab") or []
     need(len(vocab) >= 6, where, f"{len(vocab)} vocabulary items, want 6 or more")
     for item in vocab:
         vw = f"{where} vocab {item.get('word')!r}"
         need(bool(item.get("word")), vw, "has no word")
-        if kind == "story":
-            need(item["word"].lower() in plain.lower(), vw,
-                 "the word never appears in the story")
+        need(item["word"].lower() in plain.lower(), vw,
+             "the word never appears in the story")
         need(item.get("pos") in ("n.", "v.", "adj.", "adv.", "phr."), vw,
              "has no part of speech")
         check_bilingual(vw, item.get("meaning"), "meaning")
@@ -183,7 +157,6 @@ def build_story(s: dict, seen: set[str]) -> dict:
 
     story = {
         "id": sid,
-        "kind": kind,
         "title": s["title"],
         "level": level,
         "blurb": s["blurb"],
@@ -198,8 +171,6 @@ def build_story(s: dict, seen: set[str]) -> dict:
         "questions": q,
         "counts": counts,
     }
-    if book:
-        story["book"] = book
     return story
 
 
