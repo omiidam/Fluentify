@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-"""Validate the level check and write level_test.json.
+"""Validate the level assessment and write level_test.json.
 
-The gate has to be strict about the things that silently break a test: an
-answer key outside its options, two identical options, a reading question
-pointing at a passage that is not there, a band with no items, a rubric whose
-scores do not run 1 to 4, a Persian line that is still English. It also has to
-be strict about the two-thirds rule being *possible* in every band - a band of
-three items where two correct is 66.7% passes, but a band of four needs three,
-and a band of two would need 1.33 and could never be scored.
+The gate is about the things that quietly break an assessment: a band with
+too few items to score, an answer key outside its options, a typed item with
+no accepted answers, a reading question pointing at a passage that is not
+there, an item missing the metadata the report depends on, a skill that is
+silently counted as assessed when it has no scorable items.
 """
 
 from __future__ import annotations
@@ -15,7 +13,7 @@ from __future__ import annotations
 import json
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -23,31 +21,29 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from level_test import LEVEL  # noqa: E402
 
-# Option order is shuffled once, here, seeded by the item itself: the same
-# build always ships the same bank, but the correct answer is not parked in
-# the same slot across a section, which is the cue a learner stops reading the
-# options for. The source keeps the author's order, where the distractors were
-# written in a deliberate sequence.
+# Option order is shuffled once, here, seeded by the item id: the same build
+# always ships the same bank, but the correct option is not parked in the same
+# slot down a column, which is the cue a learner stops reading options for.
 import copy  # noqa: E402
 import random  # noqa: E402
 
 _bank = copy.deepcopy(LEVEL)
-for _sec in _bank["sections"]:
-    for _item in _sec["items"]:
-        if "options" not in _item:
-            continue
-        _rng = random.Random(f'{_item["band"]}|{_item["stem"]["en"]}')
-        _correct = _item["options"][_item["answer"]]
-        _rng.shuffle(_item["options"])
-        _item["answer"] = _item["options"].index(_correct)
+for _item in _bank["items"]:
+    if "options" not in _item:
+        continue
+    _rng = random.Random(_item["id"])
+    _right = _item["options"][_item["answer"]]
+    _rng.shuffle(_item["options"])
+    _item["answer"] = _item["options"].index(_right)
 LEVEL = _bank
 
 OUT = ROOT / "level_test.json"
-BANDS = [b["id"] for b in LEVEL["bands"]]
-ORDER = {b: i for i, b in enumerate(BANDS)}
-OBJECTIVE = {"use", "reading", "listening"}
 PERSIAN = re.compile(r"[\u0600-\u06FF]")
-EXPECTED = {"use": 15, "reading": 15, "listening": 15, "writing": 4, "speaking": 4}
+KINDS = {"mcq", "cloze", "error", "transform", "order", "shortwriting", "speaking"}
+TYPED = {"cloze", "transform", "order"}
+DIFFICULTY = {"easy", "medium", "hard"}
+NEED_FIELDS = ("id", "skill", "band", "subskill", "kind", "difficulty", "ability",
+               "prompt", "why", "weight", "source", "review")
 
 problems: list[str] = []
 
@@ -68,108 +64,133 @@ def both_lang(value, where: str) -> None:
 
 
 def main() -> int:
-    sections = LEVEL["sections"]
-    ids = [s["id"] for s in sections]
-    need(ids == ["use", "reading", "listening", "writing", "speaking"],
-         f"section order is {ids}")
-    need(LEVEL["retakeDays"] == 30, "the retake window is not one month")
-    both_lang(LEVEL["title"], "title")
-    both_lang(LEVEL["blurb"], "blurb")
-    both_lang(LEVEL["method"], "method")
+    skills = LEVEL["skills"]
+    ids = [s["id"] for s in skills]
+    need(ids == ["grammar", "vocabulary", "reading", "listening", "writing", "speaking"],
+         f"skill order is {ids}")
+    assessed = [s["id"] for s in skills if s["assessed"]]
+    need(assessed == ["grammar", "vocabulary", "reading", "listening"],
+         f"assessed skills are {assessed}")
+    for s in skills:
+        both_lang(s["title"], f"skill {s['id']} title")
+        both_lang(s["blurb"], f"skill {s['id']} blurb")
 
-    for band in LEVEL["bands"]:
-        need(band["id"] in ORDER, f"unknown band {band['id']}")
-        need(len(band["can"]["en"]) > 20, f"{band['id']}: no can-do sentence")
-        both_lang(band["name"], f"{band['id']} name")
-        both_lang(band["can"], f"{band['id']} can")
+    bands = [b["id"] for b in LEVEL["bands"]]
+    need(bands == ["PRE", "A1", "A2", "B1", "B2", "C1", "C2"],
+         f"bands are {bands}")
+    tested = LEVEL["testedBands"]
+    need(tested == ["A1", "A2", "B1", "B2", "C1"],
+         f"tested bands are {tested}")
+    for b in LEVEL["bands"]:
+        both_lang(b["name"], f"band {b['id']} name")
+        both_lang(b["can"], f"band {b['id']} can-do")
+        need(b["label"] == b["id"] or b["id"] == "PRE",
+             f"band {b['id']} has label {b['label']}")
 
-    total = 0
+    bp = LEVEL["blueprint"]
+    need(bp["blocks"] * bp["perBlock"] == 9,
+         "each skill does not plan nine questions")
+    need(bp["startBand"] in tested, "the start band is not a tested band")
+    need(bp["assessed"] == assessed, "the blueprint and the skills disagree")
+
+    items = LEVEL["items"]
+    seen: set[str] = set()
+    per_band_skill: Counter[tuple[str, str]] = Counter()
+    kinds: Counter[str] = Counter()
     keys: list[int] = []
-    band_seen: Counter[str] = Counter()
 
-    for sec in sections:
-        sid = sec["id"]
-        both_lang(sec["title"], f"{sid} title")
-        both_lang(sec["instructions"], f"{sid} instructions")
-        items = sec["items"]
-        need(len(items) == EXPECTED[sid],
-             f"{sid}: {len(items)} items, expected {EXPECTED[sid]}")
-        total += len(items)
-
-        if sid == "reading":
-            passages = {p["id"]: p for p in sec["passages"]}
-            need(len(passages) >= 3, f"reading: only {len(passages)} passages")
-            for pid, p in passages.items():
-                both_lang(p["title"], f"reading/{pid} title")
-                both_lang(p["text"], f"reading/{pid} text")
-                # An A1 text is short by design: three or four sentences is
-                # the whole of A1 reading. Anything above it needs a real
-                # passage, or the questions test guessing rather than reading.
-                floor = 20 if p["band"] == "A1" else 60
-                need(len(p["text"]["en"].split()) >= floor,
-                     f"reading/{pid}: {len(p['text']['en'].split())} words, "
-                     f"below the {floor} this band needs")
-                need(p["band"] in ORDER, f"reading/{pid}: band {p['band']}")
-                used = sum(1 for it in items if it.get("passage") == pid)
-                need(used >= 3, f"reading/{pid}: only {used} questions")
-
-        if sid == "listening":
-            for i, it in enumerate(items):
-                words = len(str(it.get("say", "")).split())
-                need(words >= 6, f"listening[{i}]: spoken text is only {words} words")
-
-        if sid in ("writing", "speaking"):
-            for i, it in enumerate(items):
-                both_lang(it["prompt"], f"{sid}[{i}] prompt")
-                both_lang(it.get("hint", {}), f"{sid}[{i}] hint")
-                rub = it.get("rubric") or []
-                need([r["points"] for r in rub] == [1, 2, 3, 4],
-                     f"{sid}[{i}]: rubric points are "
-                     f"{[r.get('points') for r in rub]}")
-                for r in rub:
-                    both_lang(r["text"], f"{sid}[{i}] rubric {r.get('points')}")
-
-        for i, it in enumerate(items):
-            where = f"{sid}[{i}]"
-            need(it["band"] in ORDER, f"{where}: band {it['band']}")
-            band_seen[it["band"]] += 1
-            both_lang(it["stem"] if "stem" in it else it["prompt"], f"{where} stem")
-            if sid not in OBJECTIVE:
-                continue
+    for it in items:
+        where = it.get("id") or "an item with no id"
+        for field in NEED_FIELDS:
+            need(field in it, f"{where}: missing {field}")
+        need(it["id"] not in seen, f"{where}: duplicate id")
+        seen.add(it["id"])
+        need(it["skill"] in ids, f"{where}: unknown skill {it['skill']}")
+        need(it["band"] in tested, f"{where}: band {it['band']} is not tested")
+        need(it["kind"] in KINDS, f"{where}: unknown kind {it['kind']}")
+        need(it["difficulty"] in DIFFICULTY, f"{where}: difficulty {it['difficulty']}")
+        need(isinstance(it["weight"], (int, float)) and it["weight"] > 0,
+             f"{where}: weight is not positive")
+        need(it["review"] == "reviewed", f"{where}: not reviewed")
+        need(bool(it["source"].strip()), f"{where}: no source")
+        both_lang(it["subskill"], f"{where} subskill")
+        both_lang(it["ability"], f"{where} ability")
+        both_lang(it["prompt"], f"{where} prompt")
+        both_lang(it["why"], f"{where} why")
+        kinds[it["kind"]] += 1
+        if it["kind"] in ("mcq", "error"):
             opts = it.get("options") or []
             need(len(opts) == 4, f"{where}: {len(opts)} options")
             need(len(set(opts)) == len(opts), f"{where}: duplicate options")
-            need(all(isinstance(o, str) and o.strip() for o in opts),
-                 f"{where}: empty option")
             need(isinstance(it.get("answer"), int) and 0 <= it["answer"] < 4,
-                 f"{where}: answer {it.get('answer')} is not an option")
+                 f"{where}: answer is not one of the options")
             if isinstance(it.get("answer"), int) and 0 <= it["answer"] < 4:
                 keys.append(it["answer"])
-            both_lang(it["why"], f"{where} why")
-            if sid == "reading":
-                need(it.get("passage") in {p["id"] for p in sec["passages"]},
-                     f"{where}: passage {it.get('passage')} is missing")
-            if sid == "reading" and it.get("passage"):
-                p = next(p for p in sec["passages"] if p["id"] == it["passage"])
-                need(ORDER[it["band"]] >= ORDER[p["band"]],
-                     f"{where}: {it['band']} question on a {p['band']} passage")
+        if it["kind"] in TYPED:
+            accept = it.get("accept") or []
+            need(bool(accept), f"{where}: a typed item with nothing accepted")
+            need(all(isinstance(a, str) and a.strip() for a in accept),
+                 f"{where}: an empty accepted answer")
+        if it["kind"] == "order":
+            need(4 <= len(it["prompt"]["en"].split()) <= 6,
+                 f"{where}: word-order prompt is not a sentence to reorder")
+        if it["kind"] == "listening" or it.get("say"):
+            need(len((it.get("say") or "").split()) >= 6,
+                 f"{where}: spoken text is too short to test")
+        if it["skill"] in ("grammar", "vocabulary", "reading", "listening"):
+            per_band_skill[(it["skill"], it["band"])] += 1
 
-    need(total >= 40, f"only {total} questions in the whole test")
-    need(sum(band_seen.values()) == total, "band counting drifted")
-
-    # Every band from A1 to C1 must carry at least three scorable items, or the
-    # two-thirds rule either cannot be met or can be met by one lucky guess.
-    for band in BANDS:
-        n = band_seen[band]
-        need(n >= 3, f"band {band} has only {n} questions")
-        if n:
-            need(n * 2 // 3 >= 1 and n - (n * 2 + 2) // 3 >= 1,
-                 f"band {band}: two thirds of {n} is not a whole number of items")
-
+    need(len(kinds) >= 5, f"only {len(kinds)} question formats")
     need(len(set(keys)) >= 3, f"answer keys use only {len(set(keys))} letters")
     if keys:
-        need(Counter(keys).most_common(1)[0][1] <= len(keys) * 0.6,
-             "one answer letter dominates the multiple choice")
+        top = Counter(keys).most_common(1)[0][1]
+        need(top <= len(keys) * 0.55, "one answer letter dominates the bank")
+
+    # Three items per band per assessed skill: one block. A path can come back
+    # to a band it left, and the engine then closes that skill early rather
+    # than repeat a question, which the report discloses.
+    for skill in assessed:
+        for band in tested:
+            n = per_band_skill[(skill, band)]
+            need(n == bp["perBlock"],
+                 f"{skill}/{band}: {n} items, blueprint wants {bp['perBlock']}")
+
+    passages = {p["id"]: p for p in LEVEL["passages"]}
+    need(len(passages) >= 5, f"only {len(passages)} reading passages")
+    for pid, p in passages.items():
+        both_lang(p["title"], f"passage {pid} title")
+        both_lang(p["text"], f"passage {pid} text")
+        need(p["band"] in tested, f"passage {pid}: band {p['band']}")
+        words = len(p["text"]["en"].split())
+        floor = 20 if p["band"] == "A1" else 60
+        need(words >= floor, f"passage {pid}: {words} words, below {floor}")
+        asked = sum(1 for it in items if it.get("passage") == pid)
+        need(asked == 3, f"passage {pid}: {asked} questions, expected 3")
+
+    for it in items:
+        if it.get("passage"):
+            need(it["passage"] in passages,
+                 f"{it['id']}: points at missing passage {it['passage']}")
+            need(it["skill"] == "reading", f"{it['id']}: passage on a non-reading item")
+
+    for it in items:
+        if it["skill"] in ("writing", "speaking"):
+            need(it["kind"] in ("shortwriting", "speaking"),
+                 f"{it['id']}: a productive skill with a recognition format")
+    need(len([i for i in items if i["skill"] == "writing"]) >= 2,
+         "fewer than two writing tasks")
+    need(len([i for i in items if i["skill"] == "speaking"]) >= 2,
+         "fewer than two speaking tasks")
+
+    rubric = LEVEL["rubric"]
+    need([r["points"] for r in rubric] == [1, 2, 3, 4], "the rubric does not run 1-4")
+    for r in rubric:
+        both_lang(r["text"], f"rubric {r['points']}")
+
+    both_lang(LEVEL["title"], "title")
+    both_lang(LEVEL["blurb"], "blurb")
+    both_lang(LEVEL["method"], "method")
+    both_lang(LEVEL["caveat"], "caveat")
 
     if problems:
         for p in problems:
@@ -179,8 +200,6 @@ def main() -> int:
 
     payload = json.dumps(LEVEL, ensure_ascii=False, separators=(",", ":"))
 
-    # --check lets tools/check_level.py prove the shipped file still matches
-    # the source, without this script rewriting it as a side effect.
     if "--check" in sys.argv[1:]:
         if not OUT.exists() or OUT.read_text(encoding="utf-8") != payload:
             print("FAIL  level_test.json is out of date with tools/level_test.py")
@@ -189,11 +208,13 @@ def main() -> int:
         return 0
 
     OUT.write_text(payload, encoding="utf-8")
-    per_band = " ".join(f"{b}:{band_seen[b]}" for b in BANDS)
-    print(f"wrote level_test.json: {total} questions, {len(keys)} scored, "
-          f"{len(payload.encode())} bytes")
-    print(f"bands  {per_band}")
-    print("PASS  the level check holds together")
+    by_skill = defaultdict(int)
+    for it in items:
+        by_skill[it["skill"]] += 1
+    print(f"wrote level_test.json: {len(items)} items, {len(payload.encode())} bytes")
+    print("       " + "  ".join(f"{k}:{by_skill[k]}" for k in ids))
+    print("       formats " + " ".join(f"{k}:{v}" for k, v in sorted(kinds.items())))
+    print("PASS  the bank and the blueprint agree")
     return 0
 
 

@@ -1188,6 +1188,76 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #rdpanel h3 { border-inline-start: 3px solid var(--leaf);    padding-inline-start: 9px; }
   #stpanel h3 { border-inline-start: 3px solid var(--violet);  padding-inline-start: 9px; }
 
+  /* ---------- level assessment: rounds, the report, and the practice ------
+     The six skills are rows in one profile, so their bands line up and a weak
+     one is obvious without reading a number. */
+  .lv-sectiontitle {
+    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    font-weight: 700; color: #6b6386; margin: 4px 0 -2px;
+  }
+  .lv-insight {
+    display: grid; gap: 3px; margin-top: 12px; font-size: 11px;
+    line-height: 1.55; color: #4a5473;
+  }
+  .lv-insight b { color: var(--ink); font-weight: 700; }
+  .lv-skillblock { margin-top: 14px; }
+  .lv-caption {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 10px; padding: 0 2px 2px; font-family: var(--font-display);
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    border-bottom: 1px solid rgba(43,48,73,.12); margin-bottom: 2px;
+  }
+  .lv-caption .lv-fa { margin: 0; font-size: 11.5px; }
+  .lv-subskill { font-size: 10px; color: #7b829c; margin-inline-start: 2px; }
+  .lv-skband { display: flex; justify-content: flex-end; }
+  .lv-skev { grid-column: 1 / -1; font-size: 10.5px; color: #6b6386; line-height: 1.5; }
+  .lv-evidence { grid-column: 1 / -1; font-size: 10.5px; color: #6b6386; }
+  .lv-conf {
+    display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .05em;
+    text-transform: uppercase; padding: 2px 6px; border-radius: 999px;
+    background: rgba(43,48,73,.06); color: #6b6386; margin-top: 2px;
+  }
+  .lv-conf.c-high { background: #e8f3ec; color: #2f6b4f; }
+  .lv-conf.c-medium { background: #fbf3e4; color: #7d5510; }
+  .lv-conf.c-low { background: #fbe9ef; color: #a8456a; }
+  .lv-unassessed { opacity: .78; }
+  .lv-input {
+    width: 100%; font: inherit; font-size: 13.5px; padding: 9px 11px;
+    border-radius: 11px; border: 1px solid rgba(43,48,73,.2); background: #fff;
+    color: var(--ink); margin-top: 9px;
+  }
+  .lv-input:focus-visible { outline: 2px solid rgba(107,91,210,.45); outline-offset: 1px; }
+  .lv-compose { margin-top: 9px; display: grid; gap: 7px; }
+  .lv-built {
+    min-height: 42px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
+    padding: 8px; border-radius: 11px; border: 1px dashed rgba(43,48,73,.25);
+    background: #fff;
+  }
+  .lv-pool { display: flex; flex-wrap: wrap; gap: 5px; }
+  .lv-token {
+    font: inherit; font-size: 12.5px; cursor: pointer; padding: 5px 10px;
+    border-radius: 9px; border: 1px solid rgba(43,48,73,.18); background: #fffdf6;
+    color: #2f3651;
+  }
+  .lv-token:hover { border-color: rgba(107,91,210,.5); }
+  .lv-token.on { background: #f5f2ff; border-color: var(--violet); color: #4a3f9e; }
+  .lv-hintline { font-size: 11.5px; color: #8b8fa6; }
+  .lv-callout {
+    margin-top: 6px; padding: 11px 13px; border-radius: 13px;
+    background: #fbf3e4; border: 1px solid rgba(155,106,18,.22);
+  }
+  .lv-callout b { display: block; font-size: 12.5px; color: #7d5510; margin-bottom: 4px; }
+  .lv-callout p { margin: 0; font-size: 11.5px; line-height: 1.6; color: #6b551f; }
+  .lv-reliability {
+    margin-top: 10px; padding: 10px 12px; border-radius: 12px;
+    background: #fffdf8; border: 1px solid rgba(43,48,73,.12); font-size: 11px;
+    color: #55607e;
+  }
+  .lv-reliability b { display: block; font-size: 11px; color: var(--ink); margin-bottom: 4px; }
+  .lv-reliability ul { margin: 0 0 5px; padding-inline-start: 16px; }
+  .lv-reliability li { margin-bottom: 3px; }
+  .lv-reliability p { margin: 0; line-height: 1.55; }
+
   /* ---------- level check: the monthly CEFR assessment ---------------------
      One panel with three faces: the invitation, the paper, and the report.
      The colours are the app's own; the only new decision is that a band is
@@ -8851,28 +8921,36 @@ const Stories = (() => {
    retakeDays and then the check opens again; the last twelve results stay in
    the history so the trend is visible.
    ==========================================================================*/
+/* ==========================================================================
+   Level assessment: six skills, four of them measured, none of them guessed
+   from a percentage.
+
+   The attempt is a staircase, not a quiz. Each skill is asked three questions
+   at a time; after a block the band moves up when two of three are right and
+   down when they are not. Three blocks, so a skill is answered nine times at
+   most and never two questions in a row at a band that has already been
+   judged. One bad answer cannot move the estimate: the block decides.
+
+   A skill's level is the highest band cleared after every band below it, with
+   a margin that comes from the actual variance of the answers, not from a
+   label. Writing and speaking are practice - offered, read against a rubric,
+   reported as "not assessed" - because a self-rating is not a proficiency
+   score and averaging one in would be a lie with a number attached.
+   ==========================================================================*/
 const Level = (() => {
   const body = () => document.getElementById('lvlbody');
   const KEY = {
-    result: 'fluentify.level.result',
-    history: 'fluentify.level.history',
-    draft: 'fluentify.level.draft',
+    result: 'fluentify.level.v2.result',
+    history: 'fluentify.level.v2.history',
+    attempt: 'fluentify.level.v2.attempt',
+    items: 'fluentify.level.items',
   };
-  const IDS = ['A1', 'A2', 'B1', 'B2', 'C1'];
+  const BANDS = ['A1', 'A2', 'B1', 'B2', 'C1'];
   const DAY = 86400000;
-  /* How far a rubric score of 1..4 sits from the band the prompt was written
-     for. 3 means "did what the task asked", which is the band itself. */
-  const SHIFT = {1: -2, 2: -1, 3: 0, 4: 1};
   const LETTERS = ['A', 'B', 'C', 'D'];
-  const STORY_LEVEL = {A1: 'VE', A2: 'E', B1: 'M', B2: 'H', C1: 'VH'};
-  const SKILL_FA = {
-    use: 'کاربرد زبان', reading: 'خواندن', listening: 'شنیدن',
-    writing: 'نوشتن', speaking: 'گفتن',
-  };
 
-  let doc = null, pending = null, draft = null;
-  let view = 'intro', si = 0, warned = false;
-  let ticker = null, tickLeft = 0;
+  let doc = null, pending = null, state = null;
+  let view = 'intro', warned = false, ticker = null, tickLeft = 0;
   let saveTimer = null;
 
   const esc = (s) => String(s).replace(/[&<>"]/g,
@@ -8882,32 +8960,239 @@ const Level = (() => {
     catch (e) { return d; }
   };
   const write = (k, v) => {
-    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* full or private */ }
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* full */ }
   };
   const faLine = (text, cls) =>
     `<p class="lv-fa${cls ? ' ' + cls : ''}" dir="rtl" lang="fa">${esc(text)}</p>`;
-  const bandKey = (id) => (id ? id : 'none');
-  const bandLabel = (id) => (id ? id : 'Pre-A1');
 
-  const bandPill = (id, extra) => {
-    const name = id ? (doc.bands.find((b) => b.id === id) || {}).name : null;
-    return `<span class="lv-band" data-band="${bandKey(id)}">${bandLabel(id)}` +
-      (name && extra !== false ? `<small>${esc(name.en)}</small>` : '') + '</span>';
+  const bandLabel = (band) => (band ? band : 'Pre-A1');
+  const bandIndex = (band) => (band ? BANDS.indexOf(band) : -1);
+  const bandKey = (band) => (band ? band : 'PRE');
+  const bandName = (band) => {
+    const b = doc.bands.find((x) => x.id === bandKey(band));
+    return b ? b.name.en : '';
   };
+  const bandCan = (band) => {
+    const b = doc.bands.find((x) => x.id === bandKey(band));
+    return b ? b.can.en : '';
+  };
+  const skillTitle = (id) => {
+    const s = doc.skills.find((x) => x.id === id);
+    return s ? s.title : {en: id, fa: id};
+  };
+  const fmtDate = (iso) => new Date(iso).toLocaleDateString(undefined,
+    {day: 'numeric', month: 'short', year: 'numeric'});
 
-  /* The ladder, and the arrow the call to action carries. */
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
     'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M5 12h13m-5.5-5.5L18 12l-5.5 5.5"/></svg>';
   const TICK = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" ' +
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>';
 
+  /* ---------------------------------------------------------------- engine */
+
+  /* Same word, however it was typed: case, curly apostrophes, spacing and a
+     final full stop are not what a cloze is testing. */
+  const normalise = (value) => String(value == null ? '' : value)
+    .replace(/[’`]/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase()
+    .replace(/[.!?]+$/, '');
+
+  const typedKinds = new Set(['cloze', 'transform', 'order']);
+
+  function isCorrect(item, value) {
+    if (item.kind === 'mcq' || item.kind === 'error') {
+      return typeof value === 'number' && value === item.answer;
+    }
+    if (!typedKinds.has(item.kind)) return false;
+    if (value == null || value === '') return false;
+    const given = Array.isArray(value) ? value.join(' ') : value;
+    const wanted = (item.accept || []).map(normalise);
+    return wanted.includes(normalise(given));
+  }
+
+  function blankAttempt(bank, startBand) {
+    const from = startBand && BANDS.includes(startBand)
+      ? startBand : bank.blueprint.startBand;
+    const bands = {};
+    bank.blueprint.assessed.forEach((skill) => { bands[skill] = from; });
+    return {
+      startedAt: Date.now(),
+      bands,
+      block: 0,
+      used: {},
+      answers: {},
+      asked: {},
+      current: [],
+      practice: {writing: {}, speaking: {}},
+      finishedAt: 0,
+    };
+  }
+
+  const bandOrder = (band) => {
+    const at = BANDS.indexOf(band);
+    return BANDS
+      .map((b, i) => ({b, d: Math.abs(i - at)}))
+      .sort((x, y) => x.d - y.d || x.b.localeCompare(y.b))
+      .map((x) => x.b);
+  };
+
+  /* Three items per skill per block, at that skill's current band only. If
+     that band has no unused questions left - the staircase has come back to a
+     band it already judged, or it is sitting at the ceiling - the skill stops
+     rather than being given easier questions it did not earn. A short skill is
+     disclosed in the report, a wrong-band one would be silently invalid. */
+  function planBlock(bank, attempt) {
+    const out = [];
+    bank.blueprint.assessed.forEach((skill) => {
+      const band = attempt.bands[skill];
+      const pool = bank.items.filter((it) => it.skill === skill &&
+        it.band === band && !attempt.used[it.id]);
+      pool.slice(0, bank.blueprint.perBlock).forEach((it) => {
+        attempt.used[it.id] = true;
+        out.push({skill, id: it.id});
+      });
+    });
+    attempt.current = out.map((x) => x.id);
+    return out;
+  }
+
+  function blockCorrect(bank, attempt, ids) {
+    return ids.filter((id) => {
+      const item = bank.items.find((it) => it.id === id);
+      return item && isCorrect(item, attempt.answers[id]);
+    }).length;
+  }
+
+  /* After a block, not after an answer. */
+  function adjustBand(bank, attempt) {
+    const [num, den] = bank.blueprint.passRatio;
+    bank.blueprint.assessed.forEach((skill) => {
+      const ids = attempt.current.filter((id) => {
+        const it = bank.items.find((x) => x.id === id);
+        return it && it.skill === skill;
+      });
+      if (!ids.length) return;
+      const ratio = blockCorrect(bank, attempt, ids) / ids.length;
+      const at = BANDS.indexOf(attempt.bands[skill]);
+      attempt.bands[skill] = ratio >= num / den
+        ? BANDS[Math.min(BANDS.length - 1, at + 1)]
+        : BANDS[Math.max(0, at - 1)];
+    });
+  }
+
+  function skillResult(bank, attempt, skill) {
+    const asked = attempt.asked[skill] || [];
+    const rows = {};
+    asked.forEach((id) => {
+      const item = bank.items.find((it) => it.id === id);
+      if (!item) return;
+      rows[item.band] = rows[item.band] || {band: item.band, total: 0, right: 0};
+      rows[item.band].total++;
+      if (isCorrect(item, attempt.answers[id])) rows[item.band].right++;
+    });
+
+    const tested = BANDS.filter((b) => rows[b]);
+    const total = Object.values(rows).reduce((n, r) => n + r.total, 0);
+    const right = Object.values(rows).reduce((n, r) => n + r.right, 0);
+    let level = null;
+    let stoppedAt = null;
+    for (const band of tested) {
+      const row = rows[band];
+      if (row.right >= Math.ceil(row.total * 2 / 3)) {
+        level = band;
+      } else {
+        stoppedAt = band;
+        // Failing the lowest band tested means the band underneath it, which
+        // may be A1 or, for a learner asked at A1 first, Pre-A1.
+        if (level === null) {
+          level = BANDS[BANDS.indexOf(band) - 1] || null;
+        }
+        break;
+      }
+    }
+
+    const p = total ? right / total : 0;
+    const se = total ? Math.sqrt((p * (1 - p)) / total) : 0.5;
+    const confidence = total >= 9 && se <= 0.16 ? 'high'
+      : total >= 6 && se <= 0.2 ? 'medium' : 'low';
+    const margin = se > 0.16 ? 1 : 0;
+
+    return {
+      band: level,
+      bands: tested.map((b) => rows[b]),
+      right, total, se: Math.round(se * 100) / 100, confidence, margin,
+      stoppedAt,
+    };
+  }
+
+  function compute(bank, attempt) {
+    const skills = {};
+    bank.blueprint.assessed.forEach((skill) => {
+      skills[skill] = skillResult(bank, attempt, skill);
+    });
+    const idx = Object.values(skills).map((s) => bandIndex(s.band)).sort((a, b) => a - b);
+    const middle = idx.length ? idx[Math.floor((idx.length - 1) / 2)] : -1;
+    const questions = bank.blueprint.assessed.reduce(
+      (n, s) => n + ((attempt.asked[s] || []).length), 0);
+    const practice = {};
+    bank.blueprint.practice.forEach((skill) => {
+      const picks = (attempt.practice && attempt.practice[skill]) || {};
+      const tasks = bank.items.filter((it) => it.skill === skill);
+      practice[skill] = {
+        rated: Object.keys(picks).filter((k) => picks[k] && picks[k].rating).length,
+        total: tasks.length,
+        picks,
+      };
+    });
+    return {
+      at: new Date().toISOString(),
+      overall: middle < 0 ? null : BANDS[middle],
+      skills,
+      practice,
+      questions,
+      minutes: attempt.finishedAt && attempt.startedAt
+        ? Math.max(1, Math.round((attempt.finishedAt - attempt.startedAt) / 60000)) : 0,
+      completion: questions >= bank.blueprint.blocks * bank.blueprint.perBlock *
+        bank.blueprint.assessed.length ? 'complete' : 'partial',
+    };
+  }
+
+  /* --------------------------------------------------------------- storage */
+
+  function attemptState() {
+    if (state) return state;
+    state = read(KEY.attempt, null) || blankAttempt(doc, null);
+    return state;
+  }
+  function saveAttempt(now) {
+    clearTimeout(saveTimer);
+    if (now) { if (state) write(KEY.attempt, state); return; }
+    saveTimer = setTimeout(() => { if (state) write(KEY.attempt, state); }, 350);
+  }
+
+  function recordItems(result, attempt) {
+    const stats = read(KEY.items, {});
+    const bankIds = new Set(doc.blueprint.assessed.flatMap((s) => attempt.asked[s] || []));
+    bankIds.forEach((id) => {
+      const item = doc.items.find((it) => it.id === id);
+      if (!item) return;
+      const row = stats[id] || {a: 0, c: 0};
+      row.a++;
+      if (isCorrect(item, attempt.answers[id])) row.c++;
+      stats[id] = row;
+    });
+    write(KEY.items, stats);
+  }
+
+  /* ------------------------------------------------------------------ hero */
+
   const ladder = (active) => '<div class="lv-ladder" aria-hidden="true">' +
-    IDS.map((b) => `<span class="lv-rung${active && IDS.indexOf(b) <= IDS.indexOf(active) ? ' on' : ''}" data-band="${b}">${b}</span>`).join('') +
+    BANDS.map((b) => `<span class="lv-rung${active && bandIndex(active) >= bandIndex(b) ? ' on' : ''}" data-band="${b}">${b}</span>`).join('') +
     '</div>';
 
-  /* The retake window as a ring: the arc is how much of the month has gone,
-     the number is what is left. */
   const ring = (daysLeft) => {
     const c = 2 * Math.PI * 26;
     const gone = Math.max(0, Math.min(1, 1 - daysLeft / doc.retakeDays));
@@ -8921,118 +9206,486 @@ const Level = (() => {
     </div>`;
   };
 
-  const fmtDate = (iso) => {
-    const d = new Date(iso);
-    return d.toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'});
-  };
-
-  /* ---------------------------------------------------------------- state */
-  function draftState() {
-    if (draft) return draft;
-    draft = read(KEY.draft, null) || {at: Date.now(), answers: {}, texts: {}, self: {}, section: 0};
-    return draft;
+  function chips() {
+    const assessed = doc.blueprint.assessed.length;
+    return `<div class="lv-meta">
+      <span class="lv-chip"><b>${assessed}</b> skills measured</span>
+      <span class="lv-chip"><b>36</b> questions</span>
+      <span class="lv-chip">about <b>${doc.minutes}</b> min</span>
+      <span class="lv-chip">adaptive</span>
+    </div>`;
   }
-  const answerKey = (secId, i) => secId + ':' + i;
 
-  function progress() {
-    const d = draftState();
-    let done = 0, total = 0;
-    doc.sections.forEach((sec) => {
-      sec.items.forEach((it, i) => {
-        total++;
-        if ('options' in it) { if (d.answers[answerKey(sec.id, i)] !== undefined) done++; }
-        else if (d.self[answerKey(sec.id, i)] !== undefined) done++;
-      });
+  function renderIntro() {
+    const result = read(KEY.result, null);
+    const history = read(KEY.history, []);
+    const until = result ? Date.parse(result.at) + doc.retakeDays * DAY : 0;
+    const locked = !!result && Date.now() < until;
+    const days = Math.max(1, Math.ceil((until - Date.now()) / DAY));
+    const resumed = read(KEY.attempt, null);
+    const touched = resumed && Object.keys(resumed.answers || {}).length > 0;
+
+    const hero = result
+      ? `<div class="lv-bigband" data-band="${bandKey(result.overall)}">
+           <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
+           <div>
+             <b>${esc(bandName(result.overall))}</b>
+             <p>${esc(bandCan(result.overall))}</p>
+           </div>
+         </div>
+         ${ladder(result.overall)}
+         ${locked ? `<div class="lv-wait">
+             ${ring(days)}
+             <div>
+               <b>Next check opens in ${days} ${days === 1 ? 'day' : 'days'}.</b>
+               <p class="lv-fa" dir="rtl" lang="fa">سنجش بعدی ${days} روز دیگر باز می‌شود.</p>
+             </div>
+           </div>` : ''}`
+      : `${ladder(null)}${chips()}`;
+
+    const actions = locked
+      ? `<button class="lv-btn lv-cta" data-act="result">
+           <span>See the full report
+             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.questions} questions · ${result.minutes} min</small>
+           </span>${ARROW}</button>`
+      : `<button class="lv-btn lv-cta" data-act="start">
+           <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}
+             <small>${touched ? 'Your place is saved' : '36 questions · about ' + doc.minutes + ' minutes · four skills measured'}</small>
+           </span>${ARROW}</button>
+         ${touched ? `<button class="lv-btn ghost" data-act="restart">Start over</button>` : ''}
+         ${result ? `<button class="lv-btn ghost" data-act="result">Last report</button>` : ''}`;
+
+    const skills = doc.skills.map((s) => `<div class="lv-skillrow" data-band="${result && s.assessed && result.skills[s.id] ? bandKey(result.skills[s.id].band) : 'none'}">
+        <span class="lv-skname">${esc(s.title.en)}
+          <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
+        <span class="lv-skself">${s.assessed ? 'measured' : 'practice only'}</span>
+        <span class="lv-skev">${esc(s.blurb.en)}</span>
+      </div>`).join('');
+
+    const hist = history.length > 1
+      ? `<div class="lv-hist"><h4>Earlier assessments</h4>${history.slice(1, 7).map((h) => `
+          <div class="lv-histrow" data-band="${bandKey(h.overall)}">
+            <span>${fmtDate(h.at)}</span>
+            <span class="lv-dots">${BANDS.map((b) =>
+              `<i style="opacity:${h.overall && bandIndex(h.overall) >= bandIndex(b) ? 1 : .18}"></i>`).join('')}</span>
+            <span>${bandLabel(h.overall)}</span>
+          </div>`).join('')}</div>`
+      : '';
+
+    body().innerHTML = `<div class="lv-wrap">
+      <section class="lv-hero">
+        <div class="lv-eyebrow">${locked ? 'This month' : 'Level assessment'} · ${doc.retakeDays} days apart</div>
+        <h2 class="lv-h">${locked ? 'Your level this month' : 'Where does your English actually sit?'}</h2>
+        <p class="lv-sub">${esc(doc.blurb.en)}</p>
+        ${faLine(doc.blurb.fa)}
+        ${hero}
+        <div class="lv-actions">${actions}</div>
+      </section>
+      <div class="lv-sectiontitle">What gets measured</div>
+      <div class="lv-game">${skills}</div>
+      <details class="lv-method">
+        <summary>How the level is worked out</summary>
+        <p>${esc(doc.method.en)}</p>
+        ${faLine(doc.method.fa)}
+        <p class="lv-note">${esc(doc.caveat.en)}</p>
+      </details>
+      ${hist}
+    </div>`;
+  }
+
+  /* ------------------------------------------------------------------ test */
+
+  function groupBySkill(ids) {
+    const groups = [];
+    ids.forEach((id) => {
+      const item = doc.items.find((it) => it.id === id);
+      if (!item) return;
+      let g = groups.find((x) => x.skill === item.skill);
+      if (!g) { g = {skill: item.skill, ids: []}; groups.push(g); }
+      g.ids.push(id);
     });
-    return {done, total, pct: total ? done / total : 0};
+    return groups;
   }
 
-  function saveDraft() {
-    if (!draft) return;
-    clearTimeout(saveTimer);
-    write(KEY.draft, draft);
+  function passageBlock(item) {
+    const p = doc.passages.find((x) => x.id === item.passage);
+    if (!p) return '';
+    return `<div class="lv-passage">
+      <h4>${esc(p.title.en)}</h4>
+      <p>${esc(p.text.en)}</p>
+      <details><summary>Persian — ترجمهٔ فارسی</summary>${faLine(p.text.fa)}</details>
+    </div>`;
   }
 
-  /* Typing and tapping are not saves: one write per keystroke made a fifty-
-     three question paper feel heavy on a phone. The draft is flushed for real
-     when the section changes, the panel is paused, or the result is marked. */
-  function saveSoon() {
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => { if (draft) write(KEY.draft, draft); }, 350);
+  function answerOf(id) {
+    return attemptState().answers[id];
   }
 
-  /* --------------------------------------------------------------- scoring */
-  function objectiveLevel(sec, snapshot) {
-    const d = snapshot;
-    const rows = IDS.map((b) => ({band: b, total: 0, right: 0}));
-    sec.items.forEach((it, i) => {
-      const row = rows.find((r) => r.band === it.band);
-      if (!row || !('options' in it)) return;
-      row.total++;
-      if (d.answers[answerKey(sec.id, i)] === it.answer) row.right++;
-    });
-    let level = null;
-    for (const row of rows) {
-      if (!row.total) continue;
-      const need = Math.ceil(row.total * 2 / 3);
-      if (row.right >= need) level = row.band;
-      else break;                       // a failed band stops the ladder
+  function questionCard(item, number) {
+    const value = answerOf(item.id);
+    const done = value !== undefined && value !== '';
+    const read = item.kind === 'reading' || item.passage;
+    const head = `<div class="lv-qh">
+        <span class="lv-qn">${number}</span>
+        ${bandPill(item.band)}
+        <span class="lv-subskill">${esc(item.subskill.en)}</span>
+        ${done ? `<span class="lv-tick" role="img" aria-label="answered">${TICK}</span>` : ''}
+      </div>`;
+
+    const audio = item.say
+      ? `<button class="lv-play" type="button" data-rec="${item.id}">
+           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M8 5.4v13.2L19 12Z"/></svg>
+           Play the recording
+         </button>
+         <details class="lv-transcript"><summary>Transcript (try without it)</summary>
+           <p>${esc(item.say)}</p></details>`
+      : '';
+
+    let answerUi = '';
+    if (item.kind === 'mcq' || item.kind === 'error') {
+      answerUi = `<div class="lv-opts">${item.options.map((opt, k) => `
+        <label class="lv-opt${value === k ? ' on' : ''}">
+          <input type="radio" name="lv-${item.id}" value="${k}" data-answer="${item.id}"
+            ${value === k ? 'checked' : ''}>
+          <span class="lv-od" aria-hidden="true">${LETTERS[k]}</span>
+          <span class="lv-ot">${esc(opt)}</span>
+        </label>`).join('')}</div>`;
+    } else if (item.kind === 'cloze') {
+      answerUi = `<input class="lv-input" type="text" data-typed="${item.id}"
+        value="${esc(value || '')}" autocomplete="off" spellcheck="false"
+        placeholder="Type the missing word — واژهٔ جاافتاده" aria-label="Your answer">`;
+    } else if (item.kind === 'transform') {
+      answerUi = `<textarea class="lv-textarea" data-typed="${item.id}" dir="auto"
+        placeholder="Write the full sentence — جملهٔ کامل را بنویس"
+        aria-label="Your answer">${esc(value || '')}</textarea>`;
+    } else if (item.kind === 'order') {
+      const picked = Array.isArray(value) ? value : [];
+      const rest = item.tokens.filter((t) => !picked.includes(t));
+      answerUi = `<div class="lv-compose" data-compose="${item.id}">
+          <div class="lv-built">${picked.length
+            ? picked.map((t, k) => `<button type="button" class="lv-token on" data-pick="${item.id}" data-k="${k}">${esc(t)}</button>`).join('')
+            : '<span class="lv-hintline">Tap the words in order</span>'}</div>
+          <div class="lv-pool">${rest.map((t) => `<button type="button" class="lv-token" data-add="${item.id}" data-token="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+        </div>`;
     }
-    return level;
+
+    return `${read ? '' : ''}<div class="lv-q${done ? ' answered' : ''}" id="lvq-${item.id}">
+      ${head}
+      <p class="lv-stem">${esc(item.prompt.en)}</p>
+      ${faLine(item.prompt.fa)}
+      ${audio}
+      ${answerUi}
+    </div>`;
   }
 
-  function selfLevel(sec, snapshot) {
-    const d = snapshot;
-    const reached = [];
-    sec.items.forEach((it, i) => {
-      const points = d.self[answerKey(sec.id, i)];
-      if (!points) return;
-      const at = IDS.indexOf(it.band) + (SHIFT[points] || 0);
-      reached.push(IDS[Math.max(0, Math.min(IDS.length - 1, at))]);
+  function bandPill(band) {
+    return `<span class="lv-band" data-band="${bandKey(band)}">${bandLabel(band)}</span>`;
+  }
+
+  function renderTest() {
+    const a = attemptState();
+    if (!a.current.length) planBlock(doc, a);
+    if (!a.current.length) { view = 'practice'; renderPractice(); return; }
+    const groups = groupBySkill(a.current);
+    const total = a.current.length;
+    const answered = a.current.filter((id) => {
+      const v = a.answers[id];
+      return v !== undefined && v !== '' && (!Array.isArray(v) || v.length);
+    }).length;
+    const blockNo = a.block + 1;
+    let n = 0;
+
+    const blocks = groups.map((g) => {
+      /* One passage per passage, not one per question: three questions share
+         the text they are about, and repeating it three times buries them. */
+      const shown = new Set();
+      return `<div class="lv-skillblock">
+        <div class="lv-caption">
+          <span>${esc(skillTitle(g.skill).en)}</span>
+          <span class="lv-fa" dir="rtl" lang="fa">${esc(skillTitle(g.skill).fa)}</span>
+        </div>
+        ${g.ids.map((id) => {
+          const item = doc.items.find((it) => it.id === id);
+          n++;
+          let text = '';
+          if (item.passage && !shown.has(item.passage)) {
+            shown.add(item.passage);
+            text = passageBlock(item);
+          }
+          return text + questionCard(item, n);
+        }).join('')}
+      </div>`;
+    }).join('');
+
+    body().innerHTML = `<div class="lv-wrap">
+      <div class="lv-top">
+        <div class="lv-toprow">
+          <span class="lv-step">Round ${blockNo} of ${doc.blueprint.blocks}</span>
+          <span class="lv-secttl">${groups.map((g) => skillTitle(g.skill).en).join(' · ')}</span>
+          <span class="lv-count" data-count>${answered} of ${total} answered</span>
+        </div>
+        <div class="lv-toptrack"><i data-track style="width:${total ? Math.round(answered / total * 100) : 0}%"></i></div>
+        <button class="lv-exit" type="button" data-act="pause">Pause and keep my place</button>
+      </div>
+      <p class="lv-secnote">Three questions per skill this round. The next round moves up or down a band
+        depending on how these three go, so a single mistake cannot change your level.</p>
+      ${faLine('این دور برای هر مهارت سه پرسش دارد. دور بعد بسته به همین سه پرسش یک سطح بالا یا پایین می‌رود، پس یک اشتباه سطح را عوض نمی‌کند.')}
+      ${blocks}
+      <div class="lv-foot">
+        <button class="lv-btn" data-act="block" type="button">
+          ${blockNo === doc.blueprint.blocks ? 'Practice tasks' : 'Next round'}
+        </button>
+        <span class="lv-menu" data-hint>${answered} of ${total} in this round</span>
+        <span class="lv-keys"><kbd>1</kbd>–<kbd>4</kbd> answer</span>
+      </div>
+    </div>`;
+    warned = false;
+  }
+
+  /* -------------------------------------------------------------- practice */
+
+  function renderPractice() {
+    const a = attemptState();
+    const tasks = doc.items.filter((it) => it.skill === 'writing' || it.skill === 'speaking');
+    const cards = tasks.map((item, k) => {
+      const pick = (a.practice[item.skill] || {})[item.id] || {};
+      const speaking = item.kind === 'speaking';
+      return `<div class="lv-q${pick.rating ? ' answered' : ''}" id="lvq-${item.id}">
+        <div class="lv-qh">
+          <span class="lv-qn">${k + 1}</span>
+          ${bandPill(item.band)}
+          <span class="lv-skself">${speaking ? 'speaking' : 'writing'} · not assessed</span>
+        </div>
+        <p class="lv-stem">${esc(item.prompt.en)}</p>
+        ${faLine(item.prompt.fa)}
+        <p class="lv-note">${esc(item.why.en)}</p>
+        ${speaking
+          ? `<button class="lv-btn ghost" type="button" data-timer="${item.id}">
+               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+               30-second timer
+             </button>
+             <span class="lv-timer" hidden>speaking… <b>30s</b></span>`
+          : `<textarea class="lv-textarea" data-practice="${item.id}" dir="auto"
+               placeholder="Write your answer here — بنویس">${esc(pick.text || '')}</textarea>`}
+        <div class="lv-rublabel">Optional: which describes your answer?</div>
+        <div class="lv-rubric">${doc.rubric.map((r) => `
+          <label class="lv-opt${pick.rating === r.points ? ' on' : ''}">
+            <input type="radio" name="pr-${item.id}" value="${r.points}" data-rating="${item.id}"
+              ${pick.rating === r.points ? 'checked' : ''}>
+            <span class="lv-od" aria-hidden="true">${r.points}</span>
+            <span class="lv-ot">${esc(r.text.en)}<br><span class="fa" dir="rtl" lang="fa">${esc(r.text.fa)}</span></span>
+          </label>`).join('')}
+        </div>
+      </div>`;
+    }).join('');
+
+    body().innerHTML = `<div class="lv-wrap">
+      <div class="lv-top">
+        <div class="lv-toprow">
+          <span class="lv-step">Practice</span>
+          <span class="lv-secttl">Writing and speaking</span>
+          <span class="lv-count">not part of the level</span>
+        </div>
+      </div>
+      <div class="lv-callout">
+        <b>These two skills are reported as not assessed.</b>
+        <p>Your answers are here to practise and to rate yourself against a rubric. They are never
+          averaged into your level, because a self-rating is not a proficiency score.</p>
+        ${faLine('این دو مهارت «سنجیده‌نشده» گزارش می‌شوند. پاسخ‌هایت برای تمرین و سنجش خودت با معیار است و هرگز در سطح کلی میانگین نمی‌شود، چون خودسنجی نمرهٔ مهارت نیست.')}
+      </div>
+      ${cards}
+      <div class="lv-foot">
+        <button class="lv-btn" data-act="finish" type="button">See my level</button>
+        <span class="lv-menu">you can skip this part</span>
+      </div>
+    </div>`;
+  }
+
+  /* ---------------------------------------------------------------- report */
+
+  function confidenceChip(skill) {
+    const words = {high: 'high confidence', medium: 'moderate confidence', low: 'low confidence'};
+    return `<span class="lv-conf c-${skill.confidence}">${words[skill.confidence]}` +
+      (skill.margin ? ' · ±1 band' : '') + `</span>`;
+  }
+
+  function renderResult() {
+    const result = read(KEY.result, null);
+    if (!result) { view = 'intro'; renderIntro(); return; }
+    const until = Date.parse(result.at) + doc.retakeDays * DAY;
+    const days = Math.max(0, Math.ceil((until - Date.now()) / DAY));
+    const history = read(KEY.history, []);
+    const prev = history[1] || null;
+
+    const rows = doc.skills.map((s) => {
+      const r = result.skills[s.id];
+      if (!s.assessed || !r) {
+        return `<div class="lv-skillrow lv-unassessed" data-band="none">
+          <span class="lv-skname">${esc(s.title.en)}
+            <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
+          <span class="lv-skband"><span class="lv-band" data-band="none">not assessed</span></span>
+          <span class="lv-skev">${esc(s.blurb.en)}</span>
+        </div>`;
+      }
+      return `<div class="lv-skillrow" data-band="${bandKey(r.band)}">
+        <span class="lv-skname">${esc(s.title.en)}
+          <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
+        <span class="lv-skband">${bandPill(r.band)}</span>
+        <span class="lv-evidence">${r.right} of ${r.total} correct · bands ${r.bands.map((b) => b.band).join(', ')}</span>
+        ${confidenceChip(r)}
+        <span class="lv-scale">${BANDS.map((b, k) =>
+          `<i class="${k <= bandIndex(r.band) ? 'on' : ''}"></i>`).join('')}</span>
+      </div>`;
+    }).join('');
+
+    const measured = doc.blueprint.assessed
+      .map((id) => ({id, ...result.skills[id]}))
+      .filter((x) => x.total);
+    const strongest = measured.slice().sort((a, b) => bandIndex(b.band) - bandIndex(a.band))[0];
+    const weakest = measured.slice().sort((a, b) => bandIndex(a.band) - bandIndex(b.band))[0];
+    const tied = strongest && weakest &&
+      bandIndex(strongest.band) === bandIndex(weakest.band);
+    const advice = tied
+      ? ['Stories at my level', 'stories']
+      : {
+        grammar: ['Open grammar', 'grammar'],
+        vocabulary: ['Open vocabulary', 'vocab'],
+        reading: ['Read a story', 'stories'],
+        listening: ['Open listening', 'listen'],
+      }[weakest ? weakest.id : 'reading'];
+
+    const delta = prev && prev.overall && result.overall
+      ? bandIndex(result.overall) - bandIndex(prev.overall) : 0;
+    const stats = read(KEY.items, {});
+    const weakItems = Object.entries(stats)
+      .filter(([, r]) => r.a >= 2 && r.c / r.a <= 0.5)
+      .map(([id]) => doc.items.find((it) => it.id === id))
+      .filter(Boolean).slice(0, 3);
+
+    body().innerHTML = `<div class="lv-wrap">
+      <section class="lv-hero" data-band="${bandKey(result.overall)}">
+        <div class="lv-eyebrow">Report · ${fmtDate(result.at)} · ${result.questions} questions · ${result.minutes} min</div>
+        <div class="lv-bigband" style="margin-top:4px">
+          <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
+          <div>
+            <b>${esc(bandName(result.overall))}</b>
+            <p>${esc(bandCan(result.overall))}</p>
+            ${faLine(bandCan(result.overall) ? '' : '')}
+          </div>
+        </div>
+        ${ladder(result.overall)}
+        <div class="lv-insight">
+          <span><b>Based on</b> ${measured.length} of 6 skills. Writing and speaking are not assessed.</span>
+          ${prev ? `<span><b>Last time</b> ${fmtDate(prev.at)} · ${bandLabel(prev.overall)}${delta
+            ? ` (${delta > 0 ? '+' : ''}${delta} band${Math.abs(delta) === 1 ? '' : 's'})` : ' (no change)'}</span>` : ''}
+          <span><b>Completed</b> ${result.completion === 'complete' ? 'all three rounds' : 'part of the assessment'}${result.completion !== 'complete' ? ' — the level is provisional' : ''}</span>
+        </div>
+      </section>
+
+      <div class="lv-sectiontitle">Skill profile</div>
+      <div class="lv-game">${rows}</div>
+
+      <div class="lv-next" data-band="${bandKey(result.overall)}">
+        <h4>Next</h4>
+        <p>${tied
+          ? `An even profile: all four measured skills sit at <b>${bandLabel(result.overall)}</b>.
+             The next step is material at that level rather than repair of one skill.`
+          : `${strongest ? `Strongest: <b>${esc(skillTitle(strongest.id).en)}</b> (${bandLabel(strongest.band)}). ` : ''}${
+            weakest ? `Work next on <b>${esc(skillTitle(weakest.id).en)}</b> (${bandLabel(weakest.band)}).` : ''}`}</p>
+        ${faLine('قوی‌ترین مهارت و مهارتی که باید رویش کار کنی در بالا آمده است.')}
+        <div class="lv-actions">
+          <button class="lv-btn ghost" data-act="open" data-panel="${advice[1]}" data-band="${bandKey(result.overall)}">${advice[0]}</button>
+          <button class="lv-btn ghost" data-act="intro">Done</button>
+        </div>
+      </div>
+
+      ${weakItems.length ? `<div class="lv-reliability">
+        <b>Questions you have missed more than once</b>
+        <ul>${weakItems.map((it) => `<li>${esc(it.subskill.en)} <span class="lv-band" data-band="${it.band}">${it.band}</span></li>`).join('')}</ul>
+        <p>Kept on this device only, to aim the next attempt. Item difficulty is tracked from your own
+          answers; it is not a calibrated item bank.</p>
+      </div>` : ''}
+
+      <p class="lv-note">${esc(doc.caveat.en)}</p>
+      <p class="lv-note">${days > 0
+        ? `The next assessment opens in <b>${days} ${days === 1 ? 'day' : 'days'}</b>, on ${fmtDate(new Date(until).toISOString())}.`
+        : 'This assessment is a month old — you can take it again.'}</p>
+      ${days > 0 ? '' : '<div class="lv-actions"><button class="lv-btn" data-act="restart">Take this month\'s assessment</button></div>'}
+    </div>`;
+  }
+
+  /* ----------------------------------------------------------------- flow */
+
+  function render() {
+    if (ticker) { clearInterval(ticker); ticker = null; }
+    if (view === 'test') renderTest();
+    else if (view === 'practice') renderPractice();
+    else if (view === 'result') renderResult();
+    else renderIntro();
+  }
+
+  function start(fresh) {
+    if (fresh || !read(KEY.attempt, null)) {
+      const last = read(KEY.result, null);
+      state = blankAttempt(doc, last && last.overall);
+      write(KEY.attempt, state);
+    } else {
+      state = read(KEY.attempt, null);
+    }
+    view = 'test';
+    render();
+    body().scrollIntoView({block: 'start'});
+  }
+
+  function nextBlock() {
+    const a = attemptState();
+    const answered = a.current.filter((id) => a.answers[id] !== undefined && a.answers[id] !== '').length;
+    if (answered < a.current.length && !warned) {
+      warned = true;
+      const hint = body().querySelector('[data-hint]');
+      if (hint) hint.innerHTML = `<span class="lv-warn">${a.current.length - answered} unanswered — press again</span>`;
+      return;
+    }
+    a.current.forEach((id) => {
+      const item = doc.items.find((it) => it.id === id);
+      if (!item) return;
+      (a.asked[item.skill] = a.asked[item.skill] || []).push(id);
     });
-    if (!reached.length) return null;
-    reached.sort((a, b) => IDS.indexOf(a) - IDS.indexOf(b));
-    return reached[Math.floor((reached.length - 1) / 2)];
+    adjustBand(doc, a);
+    a.block++;
+    warned = false;
+
+    if (a.block >= doc.blueprint.blocks) {
+      view = 'practice';
+      saveAttempt(true);
+      render();
+      body().scrollIntoView({block: 'start'});
+      return;
+    }
+    planBlock(doc, a);
+    saveAttempt(true);
+    render();
+    body().scrollIntoView({block: 'start'});
   }
 
-  /* Marking is a pure function of a snapshot of answers and a bank, so
-     tools/check_level.py can run it in node against synthetic attempts. That
-     is the only reason it is reachable from outside this module. */
-  function compute(snapshot, bank) {
-    const data = bank || doc;
-    const skills = {};
-    data.sections.forEach((sec) => {
-      skills[sec.id] = (sec.kind === 'writing' || sec.kind === 'speaking')
-        ? selfLevel(sec, snapshot) : objectiveLevel(sec, snapshot);
-    });
-    /* A skill the learner never rated is left out, the way a skipped section
-       is left out of any placement result. An objective skill that returns
-       null is a real outcome, not a gap: it means below A1. */
-    const at = data.sections
-      .map((sec) => {
-        const band = skills[sec.id];
-        const self = sec.kind === 'writing' || sec.kind === 'speaking';
-        if (!band && self) return null;
-        return band ? IDS.indexOf(band) : -1;
-      })
-      .filter((v) => v !== null)
-      .sort((a, b) => a - b);
-    const middle = at.length ? at[Math.floor((at.length - 1) / 2)] : -1;
-    return {
-      overall: middle < 0 ? null : IDS[middle],
-      skills,
-      minutes: data.minutes,
-      questions: data.sections.reduce((n, s) => n + s.items.length, 0),
-    };
+  function finish() {
+    const a = attemptState();
+    a.finishedAt = Date.now();
+    const result = compute(doc, a);
+    write(KEY.result, result);
+    recordItems(result, a);
+    const history = read(KEY.history, []);
+    history.unshift({at: result.at, overall: result.overall,
+                     skills: Object.fromEntries(Object.entries(result.skills).map(([k, v]) => [k, v.band]))});
+    write(KEY.history, history.slice(0, 12));
+    try { localStorage.removeItem(KEY.attempt); } catch (e) { /* private */ }
+    state = null;
+    view = 'result';
+    paintBadge();
+    render();
+    body().scrollIntoView({block: 'start'});
   }
 
-  function score() {
-    const result = compute(draftState());
-    result.at = new Date().toISOString();
-    return result;
-  }
-
-  /* --------------------------------------------------------------- header */
   function paintBadge() {
     const badge = document.getElementById('lvlbadge');
     const result = read(KEY.result, null);
@@ -9048,433 +9701,69 @@ const Level = (() => {
     }
   }
 
-  /* ---------------------------------------------------------------- intro */
-  function metaChips() {
-    const counts = doc.sections.map((s) => `${s.items.length}`).reduce((a, b) => a + Number(b), 0);
-    return `<div class="lv-meta">
-      <span class="lv-chip"><b>${counts}</b> questions</span>
-      <span class="lv-chip"><b>5</b> skills</span>
-      <span class="lv-chip">about <b>${doc.minutes}</b> min</span>
-      <span class="lv-chip">once a month</span>
-    </div>`;
+  /* ---------------------------------------------------------------- input */
+
+  function markCard(id) {
+    const card = document.getElementById('lvq-' + id);
+    if (!card) return;
+    card.classList.add('answered');
+    if (card.querySelector('.lv-tick')) return;
+    const head = card.querySelector('.lv-qh');
+    if (!head) return;
+    const tick = document.createElement('span');
+    tick.className = 'lv-tick';
+    tick.setAttribute('role', 'img');
+    tick.setAttribute('aria-label', 'answered');
+    tick.innerHTML = TICK;
+    head.append(tick);
   }
 
-  function skillSummary() {
-    return `<div class="lv-game">` + doc.sections.map((sec) => {
-      const n = sec.items.length;
-      return `<div class="lv-skillrow">
-        <span class="lv-skname">${esc(sec.title.en)}
-          <small dir="rtl" lang="fa">${esc(sec.title.fa)}</small></span>
-        <span class="lv-skself">${n} ${n === 1 ? 'question' : 'questions'} ·
-          ${sec.kind === 'writing' || sec.kind === 'speaking' ? 'self-rated' : 'marked'}</span>
-      </div>`;
-    }).join('') + `</div>`;
-  }
-
-  function perks() {
-    const items = [
-      ['A level for each skill', 'سطح جدا برای هر مهارت',
-       'M4 19.5h16M6.5 15.5V9m5.5 6.5V5m5.5 10.5v-4'],
-      ['A next step, not just a number', 'قدم بعدی، نه فقط یک عدد',
-       'M12 4.5 14.6 10l6 .9-4.4 4.2 1 6-5.2-2.8L6.8 21l1-6L3.4 11l6-.9Z'],
-      ['Kept for 30 days', '۳۰ روز نگه داشته می‌شود',
-       'M12 7.5V12l3.2 2M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z'],
-    ];
-    return `<div class="lv-perks">` + items.map(([en, fa, d]) => `
-      <div class="lv-perk">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>
-        <b>${esc(en)}</b>
-        <small dir="rtl" lang="fa">${esc(fa)}</small>
-      </div>`).join('') + `</div>`;
-  }
-
-  function renderIntro() {
-    const result = read(KEY.result, null);
-    const history = read(KEY.history, []);
-    const until = result ? Date.parse(result.at) + doc.retakeDays * DAY : 0;
-    const locked = !!result && Date.now() < until;
-    const days = Math.max(1, Math.ceil((until - Date.now()) / DAY));
-    const d = draftState();
-    const touched = Object.keys(d.answers).length + Object.keys(d.self).length +
-      Object.keys(d.texts).length;
-    const meta = progress();
-    const bandInfo = result && result.overall
-      ? doc.bands.find((x) => x.id === result.overall) || {name: {en: ''}, can: {en: ''}}
-      : null;
-
-    const hero = result
-      ? `<div class="lv-bigband" data-band="${bandKey(result.overall)}">
-           <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
-           <div>
-             <b>${esc(result.overall ? bandInfo.name.en : 'Below A1')}</b>
-             <p>${esc(result.overall ? bandInfo.can.en
-               : 'You are starting out: greetings and very short sentences.')}</p>
-           </div>
-         </div>
-         ${ladder(result.overall)}
-         ${locked ? `<div class="lv-wait">
-             ${ring(days)}
-             <div>
-               <b>Next check opens in ${days} ${days === 1 ? 'day' : 'days'}.</b>
-               <p class="lv-fa" dir="rtl" lang="fa">سنجش بعدی ${days} روز دیگر باز می‌شود.</p>
-             </div>
-           </div>` : ''}`
-      : `${ladder(null)}
-         ${metaChips()}`;
-
-    const actions = locked
-      ? `<button class="lv-btn lv-cta" data-act="result">
-           <span>See the full result
-             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · kept until ${fmtDate(new Date(until).toISOString())}</small>
-           </span>${ARROW}</button>`
-      : `<button class="lv-btn lv-cta" data-act="start">
-           <span>${touched ? 'Continue the check' : result ? "Take this month's check" : 'Start the check'}
-             <small>${touched
-               ? meta.done + ' of ' + meta.total + ' answered so far'
-               : meta.total + ' questions · about ' + doc.minutes + ' minutes · five skills'}</small>
-           </span>${ARROW}</button>
-         ${touched ? `<button class="lv-btn ghost" data-act="restart">Start over</button>` : ''}
-         ${result ? `<button class="lv-btn ghost" data-act="result">Last result</button>` : ''}`;
-
-    const hist = history.length > 1
-      ? `<div class="lv-hist"><h4>Earlier checks</h4>${history.slice(1, 7).map((h) => `
-          <div class="lv-histrow" data-band="${bandKey(h.overall)}">
-            <span>${fmtDate(h.at)}</span>
-            <span class="lv-dots">${IDS.map((b) =>
-              `<i style="opacity:${h.overall && IDS.indexOf(b) <= IDS.indexOf(h.overall) ? 1 : .18}"></i>`).join('')}</span>
-            <span>${bandLabel(h.overall)}</span>
-          </div>`).join('')}</div>`
-      : '';
-
-    body().innerHTML = `<div class="lv-wrap">
-      <section class="lv-hero">
-        <div class="lv-eyebrow">${locked ? 'This month' : 'Monthly check'} · ${doc.retakeDays} days apart</div>
-        <h2 class="lv-h">${locked ? 'Your level this month' : 'Find your level in five skills'}</h2>
-        <p class="lv-sub">${esc(doc.blurb.en)}</p>
-        ${faLine(doc.blurb.fa)}
-        ${hero}
-        <div class="lv-actions">${actions}</div>
-      </section>
-      ${locked ? '' : perks()}
-      ${locked ? '' : skillSummary()}
-      <details class="lv-method">
-        <summary>How the level is worked out</summary>
-        <p>${esc(doc.method.en)}</p>
-        ${faLine(doc.method.fa)}
-      </details>
-      ${hist}
-    </div>`;
-  }
-
-  /* ----------------------------------------------------------------- test */
-  function globalIndex() {
-    const map = new Map();
-    let n = 0;
-    doc.sections.forEach((sec) => sec.items.forEach((it, i) => {
-      map.set(answerKey(sec.id, i), ++n);
-    }));
-    return map;
-  }
-
-  function crumbRow() {
-    return `<div class="lv-crumbs" role="tablist" aria-label="Sections">` +
-      doc.sections.map((sec, k) => {
-        const doneCount = sec.items.filter((it, i) => {
-          const key = answerKey(sec.id, i);
-          return 'options' in it ? draftState().answers[key] !== undefined
-                                 : draftState().self[key] !== undefined;
-        }).length;
-        return `<button class="lv-crumb${k === si ? ' on' : ''}${doneCount === sec.items.length ? ' done' : ''}"
-          role="tab" aria-selected="${k === si}" data-goto="${k}"
-          title="${esc(sec.title.en)} — ${doneCount} of ${sec.items.length} answered">${k + 1}. ${esc(sec.title.en)}</button>`;
-      }).join('') + `</div>`;
-  }
-
-  function questionCard(sec, it, i, n) {
-    const key = answerKey(sec.id, i);
-    const picked = draftState().answers[key];
-    const done = picked !== undefined;
-    const audio = sec.kind === 'listening'
-      ? `<button class="lv-play" type="button" data-rec="${key}">
-           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M8 5.4v13.2L19 12Z"/></svg>
-           Play the recording
-         </button>
-         <details class="lv-transcript"><summary>Transcript (try without it)</summary>
-           <p>${esc(it.say)}</p></details>`
-      : '';
-    return `<div class="lv-q${done ? ' answered' : ''}" id="lvq-${key}">
-      <div class="lv-qh">
-        <span class="lv-qn">${n}</span>
-        ${bandPill(it.band, false)}
-        ${done ? `<span class="lv-tick" role="img" aria-label="answered">${TICK}</span>` : ''}
-      </div>
-      <p class="lv-stem">${esc(it.stem.en)}</p>
-      ${faLine(it.stem.fa)}
-      ${audio}
-      <div class="lv-opts">${it.options.map((opt, k) => `
-        <label class="lv-opt${picked === k ? ' on' : ''}">
-          <input type="radio" name="lv-${key}" value="${k}" data-answer="${key}"
-            ${picked === k ? 'checked' : ''}>
-          <span class="lv-od" aria-hidden="true">${LETTERS[k]}</span>
-          <span class="lv-ot">${esc(opt)}</span>
-        </label>`).join('')}
-      </div>
-    </div>`;
-  }
-
-  function gradedCard(sec, it, i, n) {
-    const key = answerKey(sec.id, i);
-    const d = draftState();
-    const self = sec.kind === 'speaking';
-    const done = d.self[key] !== undefined;
-    return `<div class="lv-q${done ? ' answered' : ''}" id="lvq-${key}">
-      <div class="lv-qh">
-        <span class="lv-qn">${n}</span>
-        ${bandPill(it.band, false)}
-        <span class="lv-skself">rated by you</span>
-        ${done ? `<span class="lv-tick" role="img" aria-label="rated">${TICK}</span>` : ''}
-      </div>
-      <p class="lv-stem">${esc(it.prompt.en)}</p>
-      ${faLine(it.prompt.fa)}
-      <p class="lv-note">${esc(it.hint.en)}</p>
-      ${faLine(it.hint.fa)}
-      ${self
-        ? `<button class="lv-btn ghost" type="button" data-timer="${key}">
-             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-             30-second timer
-           </button>
-           <span class="lv-timer" hidden>speaking… <b>30s</b></span>`
-        : `<textarea class="lv-textarea" data-text="${key}" dir="auto"
-             placeholder="Write your answer here — بنویس"
-             aria-label="Your answer">${esc(d.texts[key] || '')}</textarea>`}
-      <div class="lv-rublabel">Which describes your answer?</div>
-      <div class="lv-rubric">${it.rubric.map((r) => `
-        <label class="lv-opt${d.self[key] === r.points ? ' on' : ''}">
-          <input type="radio" name="lv-${key}" value="${r.points}" data-self="${key}"
-            ${d.self[key] === r.points ? 'checked' : ''}>
-          <span class="lv-od" aria-hidden="true">${r.points}</span>
-          <span class="lv-ot">${esc(r.text.en)}<br><span class="fa" dir="rtl" lang="fa">${esc(r.text.fa)}</span></span>
-        </label>`).join('')}
-      </div>
-    </div>`;
-  }
-
-  function sectionHtml(sec, indexMap) {
-    const blocks = [];
-    if (sec.kind === 'reading') {
-      sec.passages.forEach((p) => {
-        const qs = sec.items.map((it, i) => ({it, i}))
-          .filter(({it}) => it.passage === p.id);
-        blocks.push(`<div class="lv-passage">
-          <h4>${esc(p.title.en)}</h4>
-          <p>${esc(p.text.en)}</p>
-          <details><summary>Persian — ترجمهٔ فارسی</summary>
-            ${faLine(p.text.fa)}</details>
-        </div>`);
-        qs.forEach(({it, i}) => blocks.push(
-          questionCard(sec, it, i, indexMap.get(answerKey(sec.id, i)))));
-      });
-      return blocks.join('');
+  /* A word-ordering answer repaints only its own block: rerendering the round
+     would throw the reader back to the top of it. */
+  function paintCompose(id) {
+    const host = body().querySelector('[data-compose="' + id + '"]');
+    if (!host) return;
+    const item = doc.items.find((it) => it.id === id);
+    const a = attemptState();
+    const picked = Array.isArray(a.answers[id]) ? a.answers[id] : [];
+    const rest = item.tokens.filter((t) => !picked.includes(t));
+    host.innerHTML = `
+      <div class="lv-built">${picked.length
+        ? picked.map((t, k) => `<button type="button" class="lv-token on" data-pick="${id}" data-k="${k}">${esc(t)}</button>`).join('')
+        : '<span class="lv-hintline">Tap the words in order</span>'}</div>
+      <div class="lv-pool">${rest.map((t) => `<button type="button" class="lv-token" data-add="${id}" data-token="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
+    const card = host.closest('.lv-q');
+    if (picked.length) {
+      if (card && !card.classList.contains('answered')) {
+        card.classList.add('answered');
+        const head = card.querySelector('.lv-qh');
+        if (head && !head.querySelector('.lv-tick')) {
+          const tick = document.createElement('span');
+          tick.className = 'lv-tick';
+          tick.setAttribute('role', 'img');
+          tick.setAttribute('aria-label', 'answered');
+          tick.innerHTML = TICK;
+          head.append(tick);
+        }
+      }
     }
-    sec.items.forEach((it, i) => {
-      const n = indexMap.get(answerKey(sec.id, i));
-      blocks.push(sec.kind === 'writing' || sec.kind === 'speaking'
-        ? gradedCard(sec, it, i, n) : questionCard(sec, it, i, n));
-    });
-    return blocks.join('');
+    refreshProgress();
   }
 
-  function renderTest() {
-    const sec = doc.sections[si];
-    const indexMap = globalIndex();
-    const p = progress();
-    const d = draftState();
-    const answered = sec.items.filter((it, i) => {
-      const key = answerKey(sec.id, i);
-      return 'options' in it ? d.answers[key] !== undefined : d.self[key] !== undefined;
+  function refreshProgress() {
+    if (view !== 'test') return;
+    const a = attemptState();
+    const total = a.current.length;
+    const answered = a.current.filter((id) => {
+      const v = a.answers[id];
+      return v !== undefined && v !== '' && (!Array.isArray(v) || v.length);
     }).length;
-
-    body().innerHTML = `<div class="lv-wrap">
-      <div class="lv-top">
-        <div class="lv-toprow">
-          <span class="lv-step">Section ${si + 1} of ${doc.sections.length}</span>
-          <span class="lv-secttl">${esc(sec.title.en)}</span>
-          <span class="lv-count" data-count>${p.done} of ${p.total} answered</span>
-        </div>
-        <div class="lv-toptrack"><i data-track style="width:${Math.round(p.pct * 100)}%"></i></div>
-        ${crumbRow()}
-        <button class="lv-exit" type="button" data-act="pause">Pause and keep my place</button>
-      </div>
-      <p class="lv-secnote">${esc(sec.instructions.en)}</p>
-      ${faLine(sec.instructions.fa)}
-      ${sectionHtml(sec, indexMap)}
-      <div class="lv-foot">
-        ${si > 0 ? `<button class="lv-btn ghost" data-goto="${si - 1}" type="button">Back</button>` : ''}
-        <button class="lv-btn" data-act="${si === doc.sections.length - 1 ? 'finish' : 'next'}" type="button">
-          ${si === doc.sections.length - 1 ? 'See my level' : 'Next section'}
-        </button>
-        <span class="lv-menu" data-hint>${answered} of ${sec.items.length} in this section</span>
-        <span class="lv-keys"><kbd>1</kbd>–<kbd>4</kbd> answer · <kbd>←</kbd><kbd>→</kbd> sections</span>
-      </div>
-    </div>`;
-    warned = false;
-  }
-
-  /* --------------------------------------------------------------- results */
-  function scaleFor(band) {
-    const at = band ? IDS.indexOf(band) : -1;
-    return IDS.map((b, k) => `<i class="${k <= at ? 'on' : ''}"></i>`).join('');
-  }
-
-  function nextStep(result) {
-    const order = ['use', 'reading', 'listening', 'writing', 'speaking'];
-    const rated = order.filter((k) => result.skills[k]);
-    const weakest = rated.sort((a, b) =>
-      IDS.indexOf(result.skills[a]) - IDS.indexOf(result.skills[b]))[0] || 'reading';
-    const advice = {
-      use: {
-        panel: 'grammar', btn: 'Open grammar',
-        en: 'Your grammar and vocabulary are the narrowest part of the profile. Work through one lesson a day and say the examples aloud.',
-        fa: 'گرامر و واژگان باریک‌ترین بخش نمایهٔ توست. روزی یک درس را کار کن و مثال‌ها را بلند بگو.',
-      },
-      reading: {
-        panel: 'stories', btn: 'Read a story',
-        en: 'Reading is the place to gain ground. A graded story at your level, one chapter a day, moves faster than lists of words.',
-        fa: 'خواندن جایی است که می‌توانی زمین بگیری. روزی یک فصل از داستانی هم‌سطح خودت، از فهرست واژه سریع‌تر جواب می‌دهد.',
-      },
-      listening: {
-        panel: 'listen', btn: 'Open listening',
-        en: 'Listening is lowest. Ten minutes of something just above your level, played twice, beats an hour of reading about it.',
-        fa: 'شنیدن پایین‌ترین مهارت است. ده دقیقه شنیدن چیزی کمی بالاتر از سطحت، دو بار، از یک ساعت خواندنِ درباره‌اش بهتر است.',
-      },
-      writing: {
-        panel: 'analyze', btn: 'Analyze a sentence',
-        en: 'Writing is your weakest rating. Write four sentences a day and check one of them in the analyser.',
-        fa: 'نوشتن ضعیف‌ترین ارزیابی توست. روزی چهار جمله بنویس و یکی را در تحلیل‌گر بررسی کن.',
-      },
-      speaking: {
-        panel: 'say', btn: 'Open sentences',
-        en: 'Speaking is your weakest rating. Say the everyday sentences aloud, then record thirty seconds of your own answer.',
-        fa: 'گفتن ضعیف‌ترین ارزیابی توست. جمله‌های روزمره را بلند بگو، بعد سی ثانیه پاسخ خودت را ضبط کن.',
-      },
-    }[weakest];
-    return `<div class="lv-next" data-band="${bandKey(result.skills[weakest])}">
-      <h4>Start with ${esc(weakest === 'use' ? 'grammar and vocabulary' : weakest)}</h4>
-      <p>${esc(advice.en)}</p>
-      ${faLine(advice.fa)}
-      <div class="lv-actions">
-        <button class="lv-btn ghost" data-act="open" data-panel="${advice.panel}" data-band="${bandKey(result.skills.reading)}">${advice.btn}</button>
-      </div>
-    </div>`;
-  }
-
-  function renderResult() {
-    const result = read(KEY.result, null);
-    if (!result) { view = 'intro'; renderIntro(); return; }
-    const until = Date.parse(result.at) + doc.retakeDays * DAY;
-    const days = Math.max(0, Math.ceil((until - Date.now()) / DAY));
-    const canBand = result.overall
-      ? (doc.bands.find((b) => b.id === result.overall) || {name: {en: ''}, can: {en: ''}})
-      : {name: {en: 'Below A1'}, can: {en: 'Greetings, numbers and very short sentences.'}};
-
-    const rows = doc.sections.map((sec) => {
-      const band = result.skills[sec.id];
-      const self = sec.kind === 'writing' || sec.kind === 'speaking';
-      const pill = band === null && self
-        ? '<span class="lv-band" data-band="none">not rated</span>'
-        : bandPill(band);
-      return `<div class="lv-skillrow" data-band="${bandKey(band)}">
-        <span class="lv-skname">${esc(sec.title.en)}
-          <small dir="rtl" lang="fa">${esc(SKILL_FA[sec.id] || sec.title.fa)}</small></span>
-        <span>${pill}<span class="lv-skself"> ${self ? 'self-rated' : 'marked'}</span></span>
-        <span class="lv-scale">${scaleFor(band)}</span>
-      </div>`;
-    }).join('');
-
-    body().innerHTML = `<div class="lv-wrap">
-      <section class="lv-hero" data-band="${bandKey(result.overall)}">
-        <div class="lv-eyebrow">Result · ${fmtDate(result.at)}</div>
-        <div class="lv-bigband" style="margin-top:4px">
-          <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
-          <div>
-            <b>${esc(canBand.name.en)}</b>
-            <p>${esc(canBand.can.en)}</p>
-            ${faLine(canBand.can.fa || '')}
-          </div>
-        </div>
-        ${ladder(result.overall)}
-        <div class="lv-note">Overall is the median of the five skills, so one
-          weak area is visible without erasing the rest.</div>
-      </section>
-      <div class="lv-game">${rows}</div>
-      ${nextStep(result)}
-      <p class="lv-note"><b>How much to trust this:</b> grammar, vocabulary,
-        reading and listening were marked from your answers. Writing and
-        speaking were rated by you against the rubric, so they say how you
-        judge your own work — useful, but not the same as a teacher.</p>
-      ${faLine('گرامر، واژگان، خواندن و شنیدن از پاسخ‌هایت نمره گرفته‌اند. نوشتن و گفتن را خودت بر پایهٔ معیارها سنجیده‌ای؛ این هم سودمند است، اما با داوری آموزگار یکی نیست.', 'lv-note')}
-      <div class="lv-actions">
-        <button class="lv-btn ghost" data-act="stories" data-band="${bandKey(result.overall)}">Stories at my level</button>
-        <button class="lv-btn ghost" data-act="intro">Done</button>
-      </div>
-      ${days > 0
-        ? `<p class="lv-note">The next check opens in <b>${days} ${days === 1 ? 'day' : 'days'}</b>, on ${fmtDate(new Date(until).toISOString())}.</p>`
-        : `<div class="lv-actions"><button class="lv-btn" data-act="restart">Take this month's check</button></div>`}
-    </div>`;
-  }
-
-  /* ------------------------------------------------------------- the shell */
-  function render() {
-    if (ticker) { clearInterval(ticker); ticker = null; }
-    if (view === 'test') renderTest();
-    else if (view === 'result') renderResult();
-    else renderIntro();
-  }
-
-  function start(fromScratch) {
-    if (fromScratch || !read(KEY.draft, null)) {
-      draft = {at: Date.now(), answers: {}, texts: {}, self: {}, section: 0};
-      saveDraft();
-    } else {
-      draft = read(KEY.draft, null);
-    }
-    si = Math.max(0, Math.min(doc.sections.length - 1, draft.section || 0));
-    view = 'test';
-    render();
-    body().scrollIntoView({block: 'start'});
-  }
-
-  function finish() {
-    const p = progress();
-    if (p.done < p.total && !warned) {
-      warned = true;
-      const hint = body().querySelector('[data-hint]');
-      if (hint) hint.innerHTML =
-        `<span class="lv-warn">${p.total - p.done} unanswered — press again to finish</span>`;
-      return;
-    }
-    const result = score();
-    write(KEY.result, result);
-    const history = read(KEY.history, []);
-    history.unshift({at: result.at, overall: result.overall, skills: result.skills});
-    write(KEY.history, history.slice(0, 12));
-    try { localStorage.removeItem(KEY.draft); } catch (e) { /* private mode */ }
-    draft = null;
-    warned = false;
-    view = 'result';
-    paintBadge();
-    render();
-    body().scrollIntoView({block: 'start'});
-  }
-
-  function goSection(k) {
-    draftState().section = k;
-    saveDraft();
-    si = k;
-    render();
-    const panel = document.getElementById('lvlpanel');
-    if (panel) panel.scrollTop = 0;
+    const track = body().querySelector('[data-track]');
+    const count = body().querySelector('[data-count]');
+    const hint = body().querySelector('[data-hint]');
+    if (track) track.style.width = (total ? Math.round(answered / total * 100) : 0) + '%';
+    if (count) count.textContent = `${answered} of ${total} answered`;
+    if (hint && !warned) hint.textContent = `${answered} of ${total} in this round`;
   }
 
   function startTicker(btn) {
@@ -9498,7 +9787,6 @@ const Level = (() => {
     ticker = setInterval(tick, 1000);
   }
 
-  /* ----------------------------------------------------------- one listener */
   function bind() {
     const wrap = body();
     if (wrap.dataset.ready) return;
@@ -9506,94 +9794,86 @@ const Level = (() => {
 
     wrap.addEventListener('change', (e) => {
       const input = e.target;
-      const d = draftState();
-      /* The card acknowledges the answer at once, rather than at the next
-         section change: a fifty-three question paper needs to feel like it is
-         filling up. */
-      const markAnswered = (card) => {
-        if (!card) return;
-        card.classList.add('answered');
-        if (card.querySelector('.lv-tick')) return;
-        const head = card.querySelector('.lv-qh');
-        if (!head) return;
-        const tick = document.createElement('span');
-        tick.className = 'lv-tick';
-        tick.setAttribute('role', 'img');
-        tick.setAttribute('aria-label', 'answered');
-        tick.innerHTML = TICK;
-        head.append(tick);
-      };
-
+      const a = attemptState();
       if (input.matches('input[data-answer]')) {
-        d.answers[input.dataset.answer] = Number(input.value);
+        a.answers[input.dataset.answer] = Number(input.value);
         const card = input.closest('.lv-q');
         card.querySelectorAll('.lv-opt').forEach((label) => {
           label.classList.toggle('on', label.contains(input));
         });
-        markAnswered(card);
-        saveSoon();
+        markCard(input.dataset.answer);
+        saveAttempt();
         refreshProgress();
-      } else if (input.matches('input[data-self]')) {
-        d.self[input.dataset.self] = Number(input.value);
+      } else if (input.matches('input[data-rating]')) {
+        const id = input.dataset.rating;
+        const item = doc.items.find((it) => it.id === id);
+        a.practice[item.skill] = a.practice[item.skill] || {};
+        a.practice[item.skill][id] = Object.assign({}, a.practice[item.skill][id],
+          {rating: Number(input.value)});
         const card = input.closest('.lv-q');
         card.querySelectorAll('.lv-opt').forEach((label) => {
           label.classList.toggle('on', label.contains(input));
         });
-        markAnswered(card);
-        saveSoon();
-        refreshProgress();
-      }
-    });
-
-    let saveTimer = null;
-    /* Keys, for a test with fifty-three questions: 1-4 answer the focused
-       question (or the next unanswered one), and the arrows change section.
-       Ignored inside a textarea, where a digit is a digit. */
-    document.addEventListener('keydown', (e) => {
-      const panel = document.getElementById('lvlpanel');
-      if (view !== 'test' || !panel || !panel.classList.contains('open')) return;
-      if (e.target.matches('textarea, input[type="text"]')) return;
-      if (/^[1-4]$/.test(e.key)) {
-        const card = (document.activeElement && document.activeElement.closest('.lv-q')) ||
-          wrap.querySelector('.lv-q:not(.answered)');
-        if (!card) return;
-        const box = card.querySelectorAll('input[data-answer], input[data-self]')[Number(e.key) - 1];
-        if (!box) return;
-        e.preventDefault();
-        box.checked = true;
-        box.dispatchEvent(new Event('change', {bubbles: true}));
-        card.scrollIntoView({block: 'nearest'});
-      } else if (e.key === 'ArrowRight' && si < doc.sections.length - 1) {
-        goSection(si + 1);
-      } else if (e.key === 'ArrowLeft' && si > 0) {
-        goSection(si - 1);
+        markCard(id);
+        saveAttempt();
       }
     });
 
     wrap.addEventListener('input', (e) => {
-      if (!e.target.matches('[data-text]')) return;
-      draftState().texts[e.target.dataset.text] = e.target.value;
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(saveDraft, 400);       // typing is not a save button
+      const a = attemptState();
+      if (e.target.matches('[data-typed]')) {
+        a.answers[e.target.dataset.typed] = e.target.value;
+        const card = e.target.closest('.lv-q');
+        if (e.target.value.trim()) markCard(e.target.closest('.lv-q').id.replace('lvq-', ''));
+        else {
+          card.classList.remove('answered');
+          const tick = card.querySelector('.lv-tick');
+          if (tick) tick.remove();
+        }
+        saveAttempt();
+        refreshProgress();
+      } else if (e.target.matches('[data-practice]')) {
+        const id = e.target.dataset.practice;
+        const item = doc.items.find((it) => it.id === id);
+        a.practice[item.skill][id] = a.practice[item.skill][id] || {};
+        a.practice[item.skill][id].text = e.target.value;
+        saveAttempt();
+      }
     });
 
     wrap.addEventListener('click', (e) => {
-      const play = e.target.closest('[data-rec]');
-      if (play) {
-        const sec = doc.sections.find((s) => s.id === play.dataset.play.split(':')[0]);
-        const item = sec.items[Number(play.dataset.play.split(':')[1])];
-        play.classList.add('on');
-        Speech.speak(item.say, () => play.classList.remove('on'));
+      const rec = e.target.closest('[data-rec]');
+      if (rec) {
+        const item = doc.items.find((it) => it.id === rec.dataset.rec);
+        if (item && item.say) {
+          rec.classList.add('on');
+          Speech.speak(item.say, () => rec.classList.remove('on'));
+        }
         return;
       }
 
       const timerBtn = e.target.closest('[data-timer]');
       if (timerBtn) { startTicker(timerBtn); return; }
 
-      const goto = e.target.closest('[data-goto]');
-      if (goto) {
-        if (goto.classList.contains('lv-btn') && !e.target.closest('.lv-foot')) return;
-        goSection(Number(goto.dataset.goto));
+      const add = e.target.closest('[data-add]');
+      if (add) {
+        const a = attemptState();
+        const id = add.dataset.add;
+        const cur = Array.isArray(a.answers[id]) ? a.answers[id] : [];
+        a.answers[id] = cur.concat(add.dataset.token);
+        saveAttempt();
+        paintCompose(id);
+        return;
+      }
+
+      const pick = e.target.closest('[data-pick]');
+      if (pick) {
+        const a = attemptState();
+        const id = pick.dataset.pick;
+        const cur = Array.isArray(a.answers[id]) ? a.answers[id] : [];
+        a.answers[id] = cur.filter((_, k) => k !== Number(pick.dataset.k));
+        saveAttempt();
+        paintCompose(id);
         return;
       }
 
@@ -9602,48 +9882,43 @@ const Level = (() => {
       const kind = act.dataset.act;
       if (kind === 'start') start(false);
       else if (kind === 'restart') start(true);
-      else if (kind === 'pause') { saveDraft(); view = 'intro'; render(); }
-      else if (kind === 'next') goSection(Math.min(doc.sections.length - 1, si + 1));
+      else if (kind === 'pause') { saveAttempt(true); view = 'intro'; render(); }
+      else if (kind === 'block') nextBlock();
       else if (kind === 'finish') finish();
       else if (kind === 'result') { view = 'result'; render(); }
       else if (kind === 'intro') { view = 'intro'; render(); }
-      else if (kind === 'stories') {
-        const lv = STORY_LEVEL[act.dataset.band] || 'all';
-        togglePanel('lvlpanel', 'lvltoggle');
-        togglePanel('stpanel', 'stoggle');
-        Stories.openLevel(lv);
-      } else if (kind === 'open') {
+      else if (kind === 'open') {
         const target = act.dataset.panel;
-        const tiles = {grammar: 'gtoggle', listen: 'ltoggle', say: 'ftoggle', analyze: 'ntoggle'};
         togglePanel('lvlpanel', 'lvltoggle');
         if (target === 'stories') {
           togglePanel('stpanel', 'stoggle');
-          Stories.openLevel(STORY_LEVEL[act.dataset.band] || 'all');
-        } else if (tiles[target]) {
-          togglePanel(target === 'grammar' ? 'gpanel' : target === 'listen' ? 'lpanel'
-            : target === 'say' ? 'fpanel' : 'npanel', tiles[target]);
+          Stories.openLevel({A1: 'VE', A2: 'E', B1: 'M', B2: 'H', C1: 'VH'}[act.dataset.band] || 'all');
+        } else {
+          const map = {grammar: ['gpanel', 'gtoggle'], vocab: ['vpanel', 'vtoggle'],
+                       listen: ['lpanel', 'ltoggle'], say: ['fpanel', 'ftoggle']};
+          const pair = map[target];
+          if (pair) togglePanel(pair[0], pair[1]);
         }
       }
     });
-  }
 
-  function refreshProgress() {
-    if (view !== 'test') return;
-    const p = progress();
-    const track = body().querySelector('[data-track]');
-    const count = body().querySelector('[data-count]');
-    if (track) track.style.width = Math.round(p.pct * 100) + '%';
-    if (count) count.textContent = `${p.done} of ${p.total} answered`;
-    const sec = doc.sections[si];
-    const hint = body().querySelector('[data-hint]');
-    if (hint && !warned) {
-      const d = draftState();
-      const here = sec.items.filter((it, i) => {
-        const key = answerKey(sec.id, i);
-        return 'options' in it ? d.answers[key] !== undefined : d.self[key] !== undefined;
-      }).length;
-      hint.textContent = `${here} of ${sec.items.length} in this section`;
-    }
+    /* Keys for a paper of this length: 1-4 answers the question in focus, or
+       the next unanswered one. Ignored while typing. */
+    document.addEventListener('keydown', (e) => {
+      const panel = document.getElementById('lvlpanel');
+      if (view !== 'test' || !panel || !panel.classList.contains('open')) return;
+      if (e.target.matches('textarea, input')) return;
+      if (!/^[1-4]$/.test(e.key)) return;
+      const card = (document.activeElement && document.activeElement.closest('.lv-q')) ||
+        wrap.querySelector('.lv-q:not(.answered)');
+      if (!card) return;
+      const box = card.querySelectorAll('input[data-answer]')[Number(e.key) - 1];
+      if (!box) return;
+      e.preventDefault();
+      box.checked = true;
+      box.dispatchEvent(new Event('change', {bubbles: true}));
+      card.scrollIntoView({block: 'nearest'});
+    });
   }
 
   async function mount() {
@@ -9651,7 +9926,7 @@ const Level = (() => {
     if (!doc) {
       pending ||= loadJSON('level_test').then((d) => { doc = d; return d; });
       body().innerHTML = `<div class="lv-wrap"><section class="lv-hero">
-        <div class="lv-eyebrow">Monthly check</div>
+        <div class="lv-eyebrow">Level assessment</div>
         <h2 class="lv-h">Loading the questions…</h2>
         ${faLine('پرسش‌ها در حال بارگذاری‌اند…')}
       </section></div>`;
@@ -9660,7 +9935,7 @@ const Level = (() => {
       } catch (e) {
         console.error('level:', e);
         body().innerHTML = `<div class="lv-wrap"><section class="lv-hero">
-          <h2 class="lv-h">The level check could not be loaded</h2>
+          <h2 class="lv-h">The assessment could not be loaded</h2>
           <p class="lv-sub">The question bank is missing from this build.</p>
           ${faLine('بانک پرسش‌ها در این نسخه نیست.')}
         </section></div>`;
@@ -9668,20 +9943,25 @@ const Level = (() => {
         return;
       }
     }
-    draftState();
-    if (view === 'test' && !read(KEY.draft, null)) view = 'intro';
+    attemptState();
+    if (state && state.block >= doc.blueprint.blocks) view = 'practice';
     render();
   }
 
-  return {mount, paintBadge, compute, reset() {
-    try {
-      localStorage.removeItem(KEY.result);
-      localStorage.removeItem(KEY.draft);
-      localStorage.removeItem(KEY.history);
-    } catch (e) { /* private mode */ }
-    draft = null; view = 'intro'; paintBadge();
-    if (doc && document.getElementById('lvlbody').dataset.ready) render();
-  }};
+  return {
+    mount, paintBadge, compute, blankAttempt, planBlock, adjustBand, isCorrect,
+    normalise,
+    reset() {
+      try {
+        localStorage.removeItem(KEY.result);
+        localStorage.removeItem(KEY.attempt);
+        localStorage.removeItem(KEY.history);
+        localStorage.removeItem(KEY.items);
+      } catch (e) { /* private */ }
+      state = null; view = 'intro'; paintBadge();
+      if (doc && document.getElementById('lvlbody').dataset.ready) render();
+    },
+  };
 })();
 
 /* only one panel open at a time; the active header button is highlighted */
