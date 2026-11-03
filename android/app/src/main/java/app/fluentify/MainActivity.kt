@@ -5,8 +5,11 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.Context
 import android.media.AudioAttributes
 import android.os.Bundle
+import android.print.PrintAttributes
+import android.print.PrintManager
 import android.speech.RecognitionListener
 import android.speech.RecognitionService
 import android.speech.RecognizerIntent
@@ -302,6 +305,7 @@ class MainActivity : AppCompatActivity() {
             settings.useWideViewPort = true
             addJavascriptInterface(TtsBridge(), "AndroidTTS")
             addJavascriptInterface(SttBridge(), "AndroidSTT")
+            addJavascriptInterface(PrintBridge(), "AndroidPrint")
             webViewClient = object : WebViewClient() {
                 override fun shouldInterceptRequest(
                     view: WebView,
@@ -373,6 +377,40 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val PAGE_URL =
             "https://appassets.androidplatform.net/assets/www/index.html"
+    }
+
+    /**
+     * JS → the system print dialog, which is where "Save as PDF" lives on
+     * Android. The page's print stylesheet strips everything but the
+     * certificate, so what comes out of this is the certificate and not a
+     * screenshot of the app. WebView has no window.print(), which is why the
+     * page calls this bridge first and only falls back to window.print().
+     */
+    inner class PrintBridge {
+        @JavascriptInterface
+        fun print() {
+            runOnUiThread {
+                val live = web ?: return@runOnUiThread
+                val manager = getSystemService(Context.PRINT_SERVICE) as? PrintManager
+                    ?: return@runOnUiThread
+                try {
+                    val adapter = live.createPrintDocumentAdapter("Fluentify certificate")
+                    manager.print(
+                        "Fluentify certificate",
+                        adapter,
+                        PrintAttributes.Builder()
+                            .setMediaSize(PrintAttributes.MediaSize.ISO_A4.asLandscape())
+                            .build()
+                    )
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Printing is not available on this device.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
 
     /** JS → native speech. Called from the page via window.AndroidTTS. */

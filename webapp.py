@@ -978,7 +978,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #acpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -1153,7 +1153,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      tools/check_ui.py now derives the list from the markup and fails on any
      panel that is missing here. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #acpanel {
     display: none; padding: 14px 20px;
     background: #fffcef;
     border-bottom: 1px solid rgba(43,48,73,.12);
@@ -1187,6 +1187,216 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   #rpanel h3  { border-inline-start: 3px solid var(--amber);   padding-inline-start: 9px; }
   #rdpanel h3 { border-inline-start: 3px solid var(--leaf);    padding-inline-start: 9px; }
   #stpanel h3 { border-inline-start: 3px solid var(--violet);  padding-inline-start: 9px; }
+  #lvlpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
+  #acpanel h3 { border-inline-start: 3px solid var(--amber);  padding-inline-start: 9px; }
+  #acpanel.open { display: block; max-height: 70%; overflow-y: auto; }
+
+  /* ---------- sign in: the first thing after the loading screen -----------
+     It sits under the boot overlay (9998) and over everything else, so the
+     loader finishes in front of it and the page is ready behind it: the first
+     thing a returning reader does is not watching a spinner. */
+  .auth {
+    position: fixed; inset: 0; z-index: 9990;
+    /* Flex with margin:auto on the card, not grid centring: a centred grid
+       item taller than the viewport is clipped at the top and its first field
+       cannot be scrolled to. Auto margins collapse to zero instead, so the
+       card starts at the top edge and scrolls on a short phone. */
+    display: flex; flex-direction: column; padding: 18px;
+    overflow-y: auto;
+    background:
+      radial-gradient(90% 70% at 50% -10%, #fffaf0 0%, transparent 60%),
+      radial-gradient(80% 60% at 108% 108%, #f4ead7 0%, transparent 55%),
+      linear-gradient(158deg, #fbf7ee 0%, #f4ecdc 55%, #eee3ce 100%);
+  }
+  .auth[hidden] { display: none; }
+  .authcard {
+    width: min(100%, 428px); margin: auto;
+    background: rgba(255, 253, 247, .92);
+    border: 1px solid rgba(43,48,73,.12); border-radius: 20px;
+    box-shadow: 0 24px 60px -34px rgba(43,48,73,.7), 0 2px 0 rgba(255,255,255,.8) inset;
+    padding: 18px 18px 16px;
+    backdrop-filter: blur(8px);
+  }
+  .authbrand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .authbrand img { width: 36px; height: 36px; border-radius: 10px; background: #fff; }
+  .authbrand b {
+    display: block; font-family: var(--font-display); font-size: 16px;
+    letter-spacing: .2px; color: var(--ink); line-height: 1.2;
+  }
+  .authbrand span { display: block; font-size: 10.5px; color: var(--muted); margin-top: 1px; }
+  .authh { font-family: var(--font-display); font-size: 19px; color: var(--ink); margin: 0 0 3px; }
+  .authsub { font-size: 12px; line-height: 1.5; color: #55607e; margin: 0 0 10px; }
+  .authtabs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 3px;
+    background: rgba(43,48,73,.06); border-radius: 11px; margin-bottom: 12px;
+  }
+  .authtab {
+    font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+    border: 0; border-radius: 8px; padding: 7px 6px; color: #5b6485;
+    background: transparent;
+  }
+  .authtab.on { background: #fffdf7; color: var(--ink); box-shadow: 0 2px 8px -5px rgba(43,48,73,.6); }
+  .authtab[disabled] { opacity: .45; cursor: not-allowed; }
+  .authfield { display: block; margin-bottom: 7px; }
+  /* The display rule above beats the browser's [hidden] default, so the
+     sign-in card was still as tall as the sign-up card: two fields were
+     invisible but still taking up their space. */
+  .authfield[hidden] { display: none; }
+  .authfield > span {
+    display: block; font-size: 10.5px; font-weight: 600; color: #6b6386;
+    margin-bottom: 3px; letter-spacing: .02em;
+  }
+  .authfield input {
+    width: 100%; font: inherit; font-size: 13px; padding: 9px 11px;
+    border-radius: 11px; border: 1px solid rgba(43,48,73,.2);
+    background: #fff; color: var(--ink);
+  }
+  .authfield input:focus-visible { outline: 2px solid rgba(107,91,210,.5); outline-offset: 1px; }
+  .authfield .hint { display: block; font-size: 10px; color: #8b8fa6; margin-top: 3px; }
+  .autherr {
+    font-size: 11.5px; line-height: 1.5; color: #a8456a; min-height: 16px;
+    margin: 2px 0 6px;
+  }
+  .autherr.ok { color: #2f6b4f; }
+  .authsubmit {
+    width: 100%; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+    padding: 10px 14px; border-radius: 12px; border: 1px solid transparent;
+    background: var(--ink); color: #fffdf6; display: flex; align-items: center;
+    justify-content: center; gap: 8px;
+  }
+  .authsubmit[disabled] { opacity: .6; cursor: wait; }
+  .authnote {
+    margin-top: 11px; padding-top: 10px; border-top: 1px solid rgba(43,48,73,.1);
+    font-size: 10.5px; line-height: 1.55; color: #7b829c;
+  }
+  .authnote b { color: #55607e; }
+  .authlink {
+    font: inherit; font-size: 10.5px; background: none; border: 0; padding: 0;
+    color: #6b5bd2; cursor: pointer; text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .authexpired {
+    display: flex; gap: 8px; align-items: flex-start; margin-bottom: 11px;
+    padding: 9px 11px; border-radius: 11px; font-size: 11.5px; line-height: 1.5;
+    background: #fbf3e4; border: 1px solid rgba(155,106,18,.24); color: #7d5510;
+  }
+  .authexpired[hidden] { display: none; }
+
+  /* ---------- the account panel ----------------------------------------- */
+  .ac-name {
+    font-family: var(--font-display); font-size: 16px; color: var(--ink);
+    margin: 0 0 2px; line-height: 1.3;
+  }
+  .ac-user { font-size: 11.5px; color: #6b6386; margin: 0 0 10px; }
+  .ac-rows { display: grid; gap: 6px; margin-bottom: 12px; }
+  .ac-row {
+    display: flex; justify-content: space-between; gap: 10px; font-size: 11.5px;
+    padding: 7px 10px; border-radius: 10px; background: #fffdf8;
+    border: 1px solid rgba(43,48,73,.1); color: #55607e;
+  }
+  .ac-row b { color: var(--ink); font-weight: 600; }
+  .ac-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+  .ac-danger {
+    font: inherit; font-size: 11.5px; cursor: pointer; padding: 8px 12px;
+    border-radius: 10px; border: 1px solid rgba(168,69,106,.35);
+    background: #fdf4f7; color: #a8456a;
+  }
+
+  /* ---------- the certificate ------------------------------------------- */
+  .certwrap {
+    position: fixed; inset: 0; z-index: 9995; display: grid;
+    grid-template-rows: 1fr auto; gap: 10px; padding: 14px;
+    background: rgba(24, 26, 40, .58); backdrop-filter: blur(5px);
+    overflow: auto;
+  }
+  .certwrap[hidden] { display: none; }
+  .certsheet {
+    width: min(100%, 780px); aspect-ratio: 1.414 / 1; margin: auto;
+    background:
+      radial-gradient(120% 90% at 50% -20%, #fffdf6 0%, #fffaf0 55%, #fbf3e3 100%);
+    border-radius: 8px; padding: 6px; position: relative;
+    box-shadow: 0 30px 70px -38px rgba(0,0,0,.8);
+  }
+  .certinner {
+    position: relative; height: 100%; border-radius: 5px;
+    border: 1.5px solid rgba(155,106,18,.55);
+    padding: 4.2% 5.2%; display: flex; flex-direction: column;
+    color: #2b3049; overflow: hidden;
+  }
+  .certinner::before {
+    content: ''; position: absolute; inset: 8px; border: 1px solid rgba(155,106,18,.28);
+    border-radius: 3px; pointer-events: none;
+  }
+  .certhead { display: flex; align-items: center; gap: 10px; }
+  .certhead img { width: 34px; height: 34px; border-radius: 9px; }
+  .certhead b {
+    font-family: var(--font-display); font-size: 15px; letter-spacing: .3px;
+    color: #6b4f14;
+  }
+  .certhead span {
+    display: block; font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+    color: #8a7a55;
+  }
+  .certbody { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+  .certkick {
+    font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase;
+    color: #8a7a55; margin-bottom: 4%;
+  }
+  .certname {
+    font-family: var(--font-display); font-size: clamp(18px, 4.4vw, 34px);
+    line-height: 1.15; color: #232840; margin: 0 0 2%;
+    unicode-bidi: plaintext;
+  }
+  .certline { font-size: clamp(9px, 1.5vw, 12px); color: #55607e; margin: 0 0 3%; }
+  .certband {
+    display: inline-flex; align-items: baseline; gap: 8px; align-self: center;
+    padding: 1.4% 4%; border-radius: 999px; margin-bottom: 3%;
+    background: rgba(155,106,18,.10); border: 1px solid rgba(155,106,18,.35);
+    color: #6b4f14;
+  }
+  .certband b { font-family: var(--font-display); font-size: clamp(22px, 5vw, 38px); line-height: 1; }
+  .certband span { font-size: clamp(9px, 1.6vw, 12px); font-weight: 600; }
+  .certfa {
+    font-family: var(--font-fa); direction: rtl; font-size: clamp(10px, 1.8vw, 14px);
+    line-height: 2; color: #4a5473; margin: 0 0 2%;
+  }
+  .certmeta {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: clamp(7.5px, 1.3vw, 10px); color: #7b829c;
+    border-top: 1px solid rgba(155,106,18,.25); padding-top: 2.5%; margin-top: auto;
+  }
+  .certmeta b { display: block; color: #4a5473; font-size: .95em; }
+  .certseal {
+    position: absolute; right: 5%; top: 18%; width: 15%; aspect-ratio: 1;
+    border-radius: 50%; border: 1.5px solid rgba(155,106,18,.5);
+    display: grid; place-items: center; transform: rotate(-9deg);
+    color: #8a7a55; font-size: 7px; letter-spacing: .12em; text-align: center;
+  }
+  .certbar {
+    display: flex; gap: 8px; justify-content: center; align-items: center;
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+  }
+  .certbar .lv-btn { font-size: 12.5px; }
+  .certnote { font-size: 10px; color: #d8d2c2; margin: 0; text-align: center; }
+
+  /* Printing the certificate alone: the screen behind it is a page of panels,
+     and a PDF of that is not a certificate. */
+  @media print {
+    @page { size: A4 landscape; margin: 6mm; }
+    body > *:not(.certwrap) { display: none !important; }
+    .certwrap {
+      position: static; display: block; background: #fff; padding: 0;
+      backdrop-filter: none;
+    }
+    .certwrap[hidden] { display: none !important; }
+    .certsheet {
+      width: 100%; height: auto; box-shadow: none; margin: 0;
+      background: #fffdf6;
+    }
+    .certinner { border-color: #9b6a12; }
+    .certbar { display: none !important; }
+    .certwrap, .certsheet, .certinner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
 
   /* ---------- level assessment: rounds, the report, and the practice ------
      The six skills are rows in one profile, so their bands line up and a weak
@@ -4251,6 +4461,60 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       </div>
     </div>
   </div>
+
+<div id="auth" class="auth" hidden>
+  <div class="authcard" role="dialog" aria-modal="true" aria-labelledby="authh">
+    <div class="authbrand">
+      <img src="brand/fox-mark.png" alt="" width="42" height="42" decoding="async">
+      <div><b>Fluentify</b><span>A step a day, a win a day — هر روز یک قدم</span></div>
+    </div>
+    <h2 class="authh" id="authh">Welcome back</h2>
+    <p class="authsub" id="authsub">Sign in to keep your level, your certificate and your place in the stories.</p>
+    <div class="authexpired" id="authexpired" hidden>
+      <span>Your session ended after seven days without use. Sign in again to continue —
+        <bdi dir="rtl" lang="fa">نشست پس از هفت روز بی‌استفاده بسته شد؛ دوباره وارد شو.</bdi></span>
+    </div>
+    <div class="authtabs" role="tablist" aria-label="Sign in or create an account">
+      <button class="authtab on" type="button" role="tab" aria-selected="true" data-authtab="signin">Sign in</button>
+      <button class="authtab" type="button" role="tab" aria-selected="false" data-authtab="signup">Create account</button>
+    </div>
+    <form id="authform" novalidate>
+      <label class="authfield" data-only="signup">
+        <span>Full name — نام و نام خانوادگی</span>
+        <input id="authname" type="text" autocomplete="name" placeholder="Sara Ahmadi" maxlength="60">
+        <small class="hint">Printed on your certificate. — روی گواهی چاپ می‌شود.</small>
+      </label>
+      <label class="authfield">
+        <span>Username — نام کاربری</span>
+        <input id="authuser" type="text" autocomplete="username" placeholder="sara" maxlength="32"
+               autocapitalize="none" spellcheck="false">
+      </label>
+      <label class="authfield">
+        <span>Password — گذرواژه</span>
+        <input id="authpass" type="password" autocomplete="current-password" maxlength="72">
+      </label>
+      <label class="authfield" data-only="signup">
+        <span>Repeat password — تکرار گذرواژه</span>
+        <input id="authpass2" type="password" autocomplete="new-password" maxlength="72">
+      </label>
+      <p class="autherr" id="autherr" role="alert"></p>
+      <button class="authsubmit" id="authsubmit" type="submit">Sign in</button>
+    </form>
+    <p class="authnote"><b>Stored on this device only.</b> No server account, no reset by email:
+      only a salted hash is kept. The session lasts seven days after you last use the app.
+      <span dir="rtl" lang="fa" style="display:block;margin-top:3px">حساب فقط روی همین دستگاه می‌ماند و
+      بازیابی با ایمیل ندارد؛ نشست، هفت روز پس از آخرین استفاده بسته می‌شود.</span></p>
+  </div>
+</div>
+
+<div id="cert" class="certwrap" hidden>
+  <div class="certsheet" id="certsheet" role="dialog" aria-label="Certificate"></div>
+  <div class="certbar">
+    <button class="lv-btn" id="certpdf" type="button" data-cert="pdf">Download PDF</button>
+    <button class="lv-btn ghost" type="button" data-cert="close">Close</button>
+    <p class="certnote">In the print dialog choose “Save as PDF”.</p>
+  </div>
+</div>
   <div class="motes" id="motes" aria-hidden="true"></div>
   <div class="toast-host" id="toasthost" aria-live="polite"></div>
 <div class="backdrop"></div>
@@ -4290,6 +4554,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <button class="hbtn" id="stoggle" aria-expanded="false" title="Mini stories — داستان‌های کوتاه" aria-label="Mini stories — an English story, its Persian, and questions">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 5.4a1.6 1.6 0 0 1 1.6-1.6h5.2v16.4H6.2a1.6 1.6 0 0 1-1.6-1.6Z"/><path d="M19.4 5.4a1.6 1.6 0 0 0-1.6-1.6h-5.2v16.4h5.2a1.6 1.6 0 0 0 1.6-1.6Z"/><path d="M14.8 7.4h2M14.8 10.4h2"/><path d="m8.6 7.6.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6L6.3 9.3l1.6-.2Z"/></svg></i><span>Stories</span></button>
       <button class="hbtn" id="lvltoggle" aria-expanded="false" title="Level check — سنجش سطح" aria-label="Level check — a monthly assessment across grammar, vocabulary, reading, listening, writing and speaking"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 19.4h15.2"/><path d="M6.4 15.6v-4.2"/><path d="M11 15.6V7.6"/><path d="M15.6 15.6v-3"/><path d="M20.2 15.6V4.6"/></svg></i><span>Level</span><span class="rbadge" id="lvlbadge" hidden>B1</span></button>
+      <button class="hbtn" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
       <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
       <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
@@ -4379,6 +4645,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="lvlpanel">
     <h3>Level check — <bdi class="fa" lang="fa" dir="rtl">سنجش سطح</bdi></h3>
     <div id="lvlbody" aria-live="polite"></div>
+  </div>
+  <div id="acpanel">
+    <h3>Account — <bdi class="fa" lang="fa" dir="rtl">حساب</bdi></h3>
+    <div id="acbody" aria-live="polite"></div>
   </div>
 
   <div id="gpanel">
@@ -5984,6 +6254,7 @@ const Panels = (() => {
     bpanel: 'btoggle', rpanel: 'rtoggle', rdpanel: 'rdtoggle',
     stpanel: 'stoggle',
     lvlpanel: 'lvltoggle',
+    acpanel: 'actoggle',
   };
   let openId = null;
 
@@ -9595,6 +9866,7 @@ const Level = (() => {
         ${faLine('قوی‌ترین مهارت و مهارتی که باید رویش کار کنی در بالا آمده است.')}
         <div class="lv-actions">
           <button class="lv-btn ghost" data-act="open" data-panel="${advice[1]}" data-band="${bandKey(result.overall)}">${advice[0]}</button>
+          <button class="lv-btn" data-act="certificate">Get certificate</button>
           <button class="lv-btn ghost" data-act="intro">Done</button>
         </div>
       </div>
@@ -9886,6 +10158,22 @@ const Level = (() => {
       else if (kind === 'block') nextBlock();
       else if (kind === 'finish') finish();
       else if (kind === 'result') { view = 'result'; render(); }
+      else if (kind === 'certificate') {
+        const result = read(KEY.result, null);
+        if (!result) return;
+        const band = doc.bands.find((b) => b.id === bandKey(result.overall)) || doc.bands[0];
+        Cert.open({
+          name: (Auth.profile() || {}).name || 'Fluentify learner',
+          band: result.overall,
+          label: band.name.en,
+          labelFa: band.name.fa,
+          can: band.can.en,
+          at: result.at,
+          questions: result.questions,
+          minutes: result.minutes,
+          completion: result.completion,
+        });
+      }
       else if (kind === 'intro') { view = 'intro'; render(); }
       else if (kind === 'open') {
         const target = act.dataset.panel;
@@ -9964,6 +10252,446 @@ const Level = (() => {
   };
 })();
 
+/* ==========================================================================
+   Account, session and certificate.
+
+   Fluentify runs offline, so there is no server to hold a password. What it
+   can do honestly is keep the credential on the device: a random salt and a
+   PBKDF2-SHA256 hash of the password (150,000 iterations), never the password
+   itself, and a session that stays open for seven days after the last time
+   the app was used. The overlay sits under the boot screen, so signing in is
+   the first thing after loading and never in front of a spinner.
+
+   What this is not: an account that follows you to another device, or one
+   that can be recovered by email. Both limits are written on the card, because
+   a learner who thinks this is a server login will one day lose a password and
+   blame the app.
+   ==========================================================================*/
+const Auth = (() => {
+  const ACCOUNT = 'fluentify.auth.account';
+  const SESSION = 'fluentify.auth.session';
+  const DAYS = 7;
+  const DAY = 86400000;
+  const ITER = 150000;
+
+  let account = null, session = null, tab = 'signin';
+  let lastTouch = 0, confirmReset = false;
+
+  const $ = (id) => document.getElementById(id);
+  const read = (k, d) => {
+    try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }
+    catch (e) { return d; }
+  };
+  const write = (k, v) => {
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private */ }
+  };
+  const drop = (k) => { try { localStorage.removeItem(k); } catch (e) { /* private */ } };
+
+  const b64 = (bytes) => btoa(String.fromCharCode.apply(null, Array.from(bytes)));
+  const unb64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+
+  const canHash = () => !!(window.crypto && crypto.subtle && crypto.getRandomValues);
+
+  async function derive(password, salt, iterations) {
+    const key = await crypto.subtle.importKey(
+      'raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits']);
+    const bits = await crypto.subtle.deriveBits(
+      {name: 'PBKDF2', salt: unb64(salt), iterations, hash: 'SHA-256'}, key, 256);
+    return b64(new Uint8Array(bits));
+  }
+
+  const newSalt = () => {
+    const a = new Uint8Array(16);
+    crypto.getRandomValues(a);
+    return b64(a);
+  };
+
+  /* ---- pure arithmetic, tested by tools/check_auth.py ------------------- */
+  function sessionLeft(st, now) {
+    return st && typeof st.seen === 'number' ? Math.max(0, st.seen + DAYS * DAY - now) : 0;
+  }
+  const isOpen = (st, now) => sessionLeft(st, now) > 0;
+
+  function validate(fields, hasAccount) {
+    const name = String(fields.name || '').trim().replace(/\s+/g, ' ');
+    const user = String(fields.user || '').trim();
+    const pass = String(fields.pass || '');
+    const pass2 = String(fields.pass2 || '');
+    const errors = [];
+    if (!hasAccount) {
+      if (name.length < 2) errors.push(['Enter your full name.', 'نام و نام خانوادگی را وارد کن.']);
+      /* No \p{L}: unicode property escapes throw at parse time on older
+         WebViews, which would take the whole gate down. Digits are the only
+         thing a name must not carry, and a name in any script must pass. */
+      if (/[\d<>]/.test(name)) {
+        errors.push(['The name cannot contain digits.', 'نام نمی‌تواند رقم داشته باشد.']);
+      }
+    }
+    if (!/^[a-zA-Z0-9._-]{3,32}$/.test(user)) {
+      errors.push(['Username: 3–32 letters, digits, dot, dash or underscore.',
+                   'نام کاربری: ۳ تا ۳۲ حرف یا رقم، نقطه، خط تیره یا زیرخط.']);
+    }
+    if (pass.length < 8) {
+      errors.push(['Password: at least 8 characters.', 'گذرواژه: دست‌کم ۸ نویسه.']);
+    }
+    if (!hasAccount && pass !== pass2) {
+      errors.push(['The two passwords do not match.', 'دو گذرواژه یکسان نیستند.']);
+    }
+    return {ok: errors.length === 0, errors, name, user, pass};
+  }
+
+  /* ---- the overlay ------------------------------------------------------ */
+  function setTab(next) {
+    tab = next;
+    document.querySelectorAll('[data-authtab]').forEach((b) => {
+      const on = b.dataset.authtab === tab;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      if (b.dataset.authtab === 'signup') b.disabled = !!account;
+    });
+    document.querySelectorAll('[data-only="signup"]').forEach((n) => {
+      n.hidden = tab !== 'signup';
+    });
+    $('authh').textContent = tab === 'signup' ? 'Create your account' : 'Welcome back';
+    $('authsub').textContent = tab === 'signup'
+      ? 'One account on this device, so your level and certificate have a name on them.'
+      : 'Sign in to keep your level, your certificate and your place in the stories.';
+    $('authsubmit').textContent = tab === 'signup' ? 'Create account' : 'Sign in';
+    $('authpass').setAttribute('autocomplete', tab === 'signup' ? 'new-password' : 'current-password');
+    error('');
+  }
+
+  function error(pair, ok) {
+    const box = $('autherr');
+    if (!box) return;
+    if (!pair) { box.textContent = ''; box.classList.remove('ok'); return; }
+    box.classList.toggle('ok', !!ok);
+    box.innerHTML = `<div>${pair[0]}</div><div dir="rtl" lang="fa">${pair[1]}</div>`;
+  }
+
+  function show(nextTab, expired) {
+    account = read(ACCOUNT, null) || account;
+    $('auth').hidden = false;
+    $('authexpired').hidden = !expired;
+    setTab(account ? (nextTab || 'signin') : 'signup');
+    $('authname').value = account ? account.name : '';
+    $('authuser').value = account ? account.user : '';
+    setTimeout(() => {
+      const target = tab === 'signup' ? $('authname') : $('authuser');
+      if (target) target.focus({preventScroll: true});
+    }, 60);
+  }
+
+  function hide() {
+    $('auth').hidden = true;
+    $('authpass').value = '';
+    if ($('authpass2')) $('authpass2').value = '';
+    error('');
+  }
+
+  function touch(force) {
+    if (!session || !isOpen(session, Date.now())) return;
+    const now = Date.now();
+    if (!force && now - lastTouch < 60000) return;
+    lastTouch = now;
+    session.seen = now;
+    write(SESSION, session);
+  }
+
+  async function submit(e) {
+    e.preventDefault();
+    const submitBtn = $('authsubmit');
+    const has = tab === 'signin';
+    const fields = {
+      name: $('authname').value,
+      user: $('authuser').value,
+      pass: $('authpass').value,
+      pass2: $('authpass2').value,
+    };
+    const {ok, errors, name, user, pass} = validate(
+      {name: fields.name, user: fields.user, pass: fields.pass, pass2: fields.pass2}, has);
+    if (!ok) { error(errors[0]); return; }
+
+    if (!canHash()) {
+      error(['This browser cannot store a password securely. Open Fluentify over https or localhost.',
+             'این مرورگر نمی‌تواند گذرواژه را امن نگه دارد. برنامه را روی https یا localhost باز کن.']);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    const label = submitBtn.textContent;
+    submitBtn.textContent = 'Working…';
+    try {
+      if (has) {
+        const stored = read(ACCOUNT, null);
+        if (!stored) { error(['No account on this device yet. Create one.', 'هنوز حسابی روی این دستگاه نیست. یکی بساز.']); return; }
+        if (stored.user.toLowerCase() !== user.toLowerCase()) {
+          error(['That username is not the one saved here.', 'این نام کاربری با نام ذخیره‌شده یکی نیست.']);
+          return;
+        }
+        const digest = await derive(pass, stored.salt, stored.iter || ITER);
+        if (digest !== stored.hash) {
+          error(['Wrong password. Passwords are case-sensitive.', 'گذرواژه نادرست است. گذرواژه به بزرگی و کوچکی حرف حساس است.']);
+          return;
+        }
+        account = stored;
+      } else {
+        if (read(ACCOUNT, null)) {
+          error(['An account already exists on this device. Sign in instead.',
+                 'روی این دستگاه حسابی هست. به جای ساختن، وارد شو.']);
+          return;
+        }
+        const salt = newSalt();
+        const hash = await derive(pass, salt, ITER);
+        account = {name, user, salt, hash, iter: ITER, at: new Date().toISOString()};
+        write(ACCOUNT, account);
+      }
+      session = {at: Date.now(), seen: Date.now(), user: account.user};
+      write(SESSION, session);
+      lastTouch = Date.now();
+      hide();
+      document.dispatchEvent(new CustomEvent('fluentify:signed-in', {detail: {name: account.name}}));
+      if (document.getElementById('acbody')) paintAccount();
+    } catch (err) {
+      console.error('auth:', err);
+      error(['Could not save the account: ' + (err && err.message ? err.message : 'unknown error'),
+             'ذخیرهٔ حساب انجام نشد.']);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = label;
+    }
+  }
+
+  function signOut() {
+    drop(SESSION);
+    session = null;
+    show('signin', false);
+  }
+
+  function resetDevice() {
+    if (!confirmReset) {
+      confirmReset = true;
+      const btn = $('acreset');
+      if (btn) btn.textContent = 'Press again to erase this device';
+      setTimeout(() => {
+        confirmReset = false;
+        if (btn) btn.textContent = 'Reset this device';
+      }, 5000);
+      return;
+    }
+    ['fluentify.auth.account', 'fluentify.auth.session',
+     'fluentify.level.v2.result', 'fluentify.level.v2.history',
+     'fluentify.level.v2.attempt', 'fluentify.level.items'].forEach(drop);
+    account = null; session = null; confirmReset = false;
+    hide();
+    show('signup', false);
+    if (document.getElementById('lvlbody')) Level.mount();
+  }
+
+  /* ---- the account panel ------------------------------------------------ */
+  function paintAccount() {
+    const body = $('acbody');
+    if (!body) return;
+    account = read(ACCOUNT, null) || account;
+    session = read(SESSION, null) || session;
+    if (!account) {
+      body.innerHTML = `<p class="lv-sub">No account on this device.</p>
+        <div class="ac-actions"><button class="lv-btn" data-ac="open">Create one</button></div>`;
+      return;
+    }
+    const left = sessionLeft(session, Date.now());
+    const days = Math.ceil(left / DAY);
+    const signed = session ? new Date(session.seen) : null;
+    body.innerHTML = `
+      <p class="ac-name">${account.name.replace(/[<>&]/g, '')}</p>
+      <p class="ac-user">@${account.user.replace(/[<>&]/g, '')} · joined ${new Date(account.at).toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'})}</p>
+      <div class="ac-rows">
+        <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
+        <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
+        <div class="ac-row"><span>Stored</span><b>on this device only</b></div>
+      </div>
+      <label class="authfield"><span>Name on the certificate — نام روی گواهی</span>
+        <input id="acname" type="text" maxlength="60" value="${account.name.replace(/"/g, '&quot;')}"></label>
+      <div class="ac-actions">
+        <button class="lv-btn" data-ac="save">Save name</button>
+        <button class="lv-btn ghost" data-ac="signout">Sign out</button>
+        <button class="ac-danger" id="acreset" data-ac="reset">Reset this device</button>
+      </div>
+      <p class="authnote">Signing out keeps the account: your username and password still work, and the
+        session clock restarts when you sign in. Resetting erases the account, the level results and the
+        certificate history from this device.</p>`;
+  }
+
+  function bind() {
+    const overlay = $('auth');
+    if (!overlay || overlay.dataset.ready) return;
+    overlay.dataset.ready = '1';
+    $('authform').addEventListener('submit', submit);
+    document.querySelectorAll('[data-authtab]').forEach((b) => {
+      b.addEventListener('click', () => { if (!b.disabled) setTab(b.dataset.authtab); });
+    });
+    /* Delegated, because paintAccount() replaces the panel's markup: binding
+       the buttons once at boot bound the ones that were about to be thrown
+       away, and every action in the account panel was silently dead. */
+    const accountBody = $('acbody');
+    if (accountBody) {
+      accountBody.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-ac]');
+        if (!b) return;
+        const act = b.dataset.ac;
+        if (act === 'signout') signOut();
+        else if (act === 'reset') resetDevice();
+        else if (act === 'open') show('signup', false);
+        else if (act === 'save') {
+          const input = $('acname');
+          const name = input.value.trim().replace(/\s+/g, ' ');
+          if (name.length < 2) { input.focus(); return; }
+          account = read(ACCOUNT, null);
+          account.name = name;
+          write(ACCOUNT, account);
+          paintAccount();
+        }
+      });
+    }
+    /* The session clock is "seven days since you last used it", so use counts:
+       a tap, a key, a panel opened, the tab coming back into view. */
+    ['pointerdown', 'keydown'].forEach((evt) =>
+      document.addEventListener(evt, () => touch(false), {passive: true}));
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) touch(true); });
+    window.addEventListener('pagehide', () => touch(true));
+    setInterval(() => {
+      if (!session) return;
+      if (!isOpen(session, Date.now())) {
+        session = null;
+        drop(SESSION);
+        if ($('auth').hidden) show('signin', true);
+      }
+    }, 30000);
+  }
+
+  function init() {
+    bind();
+    account = read(ACCOUNT, null);
+    session = read(SESSION, null);
+    if (!account) { show('signup', false); return; }
+    if (!isOpen(session, Date.now())) { show('signin', !!session); return; }
+    hide();
+    touch(true);
+  }
+
+  return {
+    init, touch, paintAccount, signOut, resetDevice,
+    sessionLeft, isOpen, validate,
+    profile: () => read(ACCOUNT, null),
+    signedIn: () => isOpen(read(SESSION, null), Date.now()),
+  };
+})();
+
+/* ==========================================================================
+   The certificate. Rendered on the page, printed by the platform's own print
+   path: window.print() on the web, PrintManager in the APK. No PDF library
+   and no canvas screenshot, so the text stays text and the layout stays the
+   one on screen.
+   ==========================================================================*/
+const Cert = (() => {
+  let current = null;
+
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  function code(text) {
+    let h = 2166136261;
+    for (let i = 0; i < text.length; i++) {
+      h ^= text.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(36).toUpperCase().padStart(6, '0').slice(0, 6);
+  }
+
+  function ident(data) {
+    const d = new Date(data.at);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    return `FL-${d.getFullYear()}${month}${day}-${code(data.name + '|' + data.band + '|' + data.at)}`;
+  }
+
+  function render(data) {
+    const id = ident(data);
+    const date = new Date(data.at).toLocaleDateString(undefined,
+      {day: 'numeric', month: 'long', year: 'numeric'});
+    return `
+      <div class="certinner">
+        <div class="certhead">
+          <img src="brand/fox-mark.png" alt="" width="34" height="34">
+          <div>
+            <b>Fluentify</b>
+            <span>Level assessment</span>
+          </div>
+        </div>
+        <div class="certbody">
+          <div class="certkick">Certificate of level</div>
+          <h2 class="certname" dir="auto">${esc(data.name)}</h2>
+          <p class="certline">has completed the Fluentify level assessment and reached</p>
+          <div class="certband">
+            <b>${esc(data.band || 'Pre-A1')}</b>
+            <span>${esc(data.label)} · CEFR</span>
+          </div>
+          <p class="certline">${esc(data.can)}</p>
+          <p class="certfa" dir="rtl" lang="fa">سطح ${esc(data.band || 'Pre-A1')} در چارچوب مرجع اروپایی (CEFR) — ${esc(data.labelFa || '')}</p>
+        </div>
+        <div class="certseal">SELF<br>ASSESSED</div>
+        <div class="certmeta">
+          <div><b>Issued</b>${esc(date)}</div>
+          <div><b>Assessment</b>${data.questions} questions · ${data.minutes} min</div>
+          <div><b>Certificate ID</b>${esc(id)}</div>
+        </div>
+        <div class="certmeta" style="border-top:0;padding-top:1%;margin-top:0">
+          <span>Based on grammar, vocabulary, reading and listening. Writing and speaking were not assessed.</span>
+          <span>Self-assessment built on a reviewed item bank — not a certified examination.</span>
+        </div>
+      </div>`;
+  }
+
+  function open(data) {
+    current = data;
+    const sheet = document.getElementById('certsheet');
+    const wrap = document.getElementById('cert');
+    if (!sheet || !wrap) return;
+    sheet.innerHTML = render(data);
+    wrap.hidden = false;
+    document.getElementById('certpdf').focus({preventScroll: true});
+  }
+
+  function close() {
+    const wrap = document.getElementById('cert');
+    if (wrap) wrap.hidden = true;
+  }
+
+  function pdf() {
+    /* Android has no window.print(); the WebView's print adapter does the
+       same job and the same print stylesheet applies inside it. */
+    if (window.AndroidPrint && typeof window.AndroidPrint.print === 'function') {
+      try { window.AndroidPrint.print(); return; } catch (e) { /* fall through */ }
+    }
+    window.print();
+  }
+
+  function bind() {
+    const wrap = document.getElementById('cert');
+    if (!wrap || wrap.dataset.ready) return;
+    wrap.dataset.ready = '1';
+    wrap.addEventListener('click', (e) => {
+      if (e.target === wrap) { close(); return; }
+      const btn = e.target.closest('[data-cert]');
+      if (!btn) return;
+      if (btn.dataset.cert === 'close') close();
+      if (btn.dataset.cert === 'pdf') pdf();
+    });
+  }
+
+  return {open, close, pdf, bind, render, ident};
+})();
+
 /* only one panel open at a time; the active header button is highlighted */
 function togglePanel(panelId, btnId) {
   // All of the book-keeping - the open class, the tile, aria-expanded, focus -
@@ -10003,6 +10731,8 @@ const PANEL_ON_OPEN = {
   stpanel: () => Stories.mount(),
   // the monthly level check: a banded item bank, read the first time it opens
   lvlpanel: () => Level.mount(),
+  // the account panel is local: a name, a session clock, and the exit
+  acpanel: () => Auth.paintAccount(),
 };
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
@@ -10015,9 +10745,15 @@ document.getElementById('btoggle').onclick = () => togglePanel('bpanel', 'btoggl
 document.getElementById('rdtoggle').onclick = () => togglePanel('rdpanel', 'rdtoggle');
 document.getElementById('stoggle').onclick = () => togglePanel('stpanel', 'stoggle');
 document.getElementById('lvltoggle').onclick = () => togglePanel('lvlpanel', 'lvltoggle');
+document.getElementById('actoggle').onclick = () => togglePanel('acpanel', 'actoggle');
 /* The tile carries the level from the last check, which is only a localStorage
    read, so it can be painted before the bank is ever fetched. */
 Level.paintBadge();
+/* The gate: a stored credential and a session younger than seven days go
+   straight through; anything else meets the sign-in card when the loader
+   lifts, because the overlay sits under the boot screen. */
+Auth.init();
+Cert.bind();
 document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
 
 /* ============================================================================

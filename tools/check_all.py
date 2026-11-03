@@ -105,6 +105,7 @@ SUITES = [
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
     ("level check", [sys.executable, "tools/check_level.py"]),
+    ("account + certificate", [sys.executable, "tools/check_auth.py"]),
     ("mixed english/persian lines", [sys.executable, "tools/check_bidi.py"]),
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
