@@ -9104,119 +9104,94 @@ const Level = (() => {
     return wanted.includes(normalise(given));
   }
 
-  function blankAttempt(bank, startBand) {
-    const from = startBand && BANDS.includes(startBand)
-      ? startBand : bank.blueprint.startBand;
-    const bands = {};
-    bank.blueprint.assessed.forEach((skill) => { bands[skill] = from; });
+  /* One paper for everyone: ten questions from each band, climbing A1 to C1.
+     Nothing is chosen from the learner's answers, which is exactly what makes
+     a raw count comparable between two people. */
+  let paperIds = null;
+  function paper(bank) {
+    if (paperIds) return paperIds;
+    const ids = [];
+    bank.blueprint.bands.forEach((band) => {
+      bank.blueprint.assessed.forEach((skill) => {
+        bank.items.forEach((it) => {
+          if (it.skill === skill && it.band === band) ids.push(it.id);
+        });
+      });
+    });
+    paperIds = ids;
+    return ids;
+  }
+  const partSize = (bank) => bank.blueprint.perBandTotal;
+  const partCount = (bank) => bank.blueprint.bands.length;
+  const partBand = (bank, n) => bank.blueprint.bands[n] || null;
+  function partIds(bank, n) {
+    const size = partSize(bank);
+    return paper(bank).slice(n * size, (n + 1) * size);
+  }
+
+  function blankAttempt() {
     return {
       startedAt: Date.now(),
-      bands,
-      block: 0,
-      used: {},
+      part: 0,
       answers: {},
-      asked: {},
-      current: [],
       practice: {writing: {}, speaking: {}},
       finishedAt: 0,
     };
   }
 
-  const bandOrder = (band) => {
-    const at = BANDS.indexOf(band);
-    return BANDS
-      .map((b, i) => ({b, d: Math.abs(i - at)}))
-      .sort((x, y) => x.d - y.d || x.b.localeCompare(y.b))
-      .map((x) => x.b);
+  const hasAnswer = (attempt, id) => {
+    const v = attempt.answers[id];
+    return v !== undefined && v !== '' && (!Array.isArray(v) || v.length > 0);
   };
 
-  /* Three items per skill per block, at that skill's current band only. If
-     that band has no unused questions left - the staircase has come back to a
-     band it already judged, or it is sitting at the ceiling - the skill stops
-     rather than being given easier questions it did not earn. A short skill is
-     disclosed in the report, a wrong-band one would be silently invalid. */
-  function planBlock(bank, attempt) {
-    const out = [];
-    bank.blueprint.assessed.forEach((skill) => {
-      const band = attempt.bands[skill];
-      const pool = bank.items.filter((it) => it.skill === skill &&
-        it.band === band && !attempt.used[it.id]);
-      pool.slice(0, bank.blueprint.perBlock).forEach((it) => {
-        attempt.used[it.id] = true;
-        out.push({skill, id: it.id});
-      });
-    });
-    attempt.current = out.map((x) => x.id);
-    return out;
+  /* The level is the count, read against the cutoffs in the bank: eight right
+     out of fifty is A1, seventeen A2, twenty-six B1, thirty-five B2, forty-four
+     C1. The same fractions are applied to a skill's own total, so grammar out
+     of fifteen and reading out of ten are read on one ruler. */
+  function levelFromCorrect(right, total, cutoffs) {
+    if (!total) return null;
+    const share = right / total;
+    let level = null;
+    BANDS.forEach((band, k) => { if (share >= cutoffs[k]) level = band; });
+    return level;
   }
 
-  function blockCorrect(bank, attempt, ids) {
-    return ids.filter((id) => {
-      const item = bank.items.find((it) => it.id === id);
-      return item && isCorrect(item, attempt.answers[id]);
-    }).length;
-  }
-
-  /* After a block, not after an answer. */
-  function adjustBand(bank, attempt) {
-    const [num, den] = bank.blueprint.passRatio;
-    bank.blueprint.assessed.forEach((skill) => {
-      const ids = attempt.current.filter((id) => {
-        const it = bank.items.find((x) => x.id === id);
-        return it && it.skill === skill;
-      });
-      if (!ids.length) return;
-      const ratio = blockCorrect(bank, attempt, ids) / ids.length;
-      const at = BANDS.indexOf(attempt.bands[skill]);
-      attempt.bands[skill] = ratio >= num / den
-        ? BANDS[Math.min(BANDS.length - 1, at + 1)]
-        : BANDS[Math.max(0, at - 1)];
-    });
+  /* How much a count lets us claim: a score that sits within one standard
+     error of a cutoff could be a band either way. */
+  function confidenceFor(right, total, cutoffs) {
+    const p = total ? right / total : 0;
+    const se = total ? Math.sqrt((p * (1 - p)) / total) : 0.5;
+    const near = cutoffs.some((c) => Math.abs(p - c) <= se);
+    return {
+      se: Math.round(se * 100) / 100,
+      confidence: near ? 'medium' : 'high',
+      margin: near ? 1 : 0,
+    };
   }
 
   function skillResult(bank, attempt, skill) {
-    const asked = attempt.asked[skill] || [];
     const rows = {};
-    asked.forEach((id) => {
+    let right = 0;
+    let total = 0;
+    paper(bank).forEach((id) => {
       const item = bank.items.find((it) => it.id === id);
-      if (!item) return;
+      if (!item || item.skill !== skill) return;
       rows[item.band] = rows[item.band] || {band: item.band, total: 0, right: 0};
       rows[item.band].total++;
-      if (isCorrect(item, attempt.answers[id])) rows[item.band].right++;
-    });
-
-    const tested = BANDS.filter((b) => rows[b]);
-    const total = Object.values(rows).reduce((n, r) => n + r.total, 0);
-    const right = Object.values(rows).reduce((n, r) => n + r.right, 0);
-    let level = null;
-    let stoppedAt = null;
-    for (const band of tested) {
-      const row = rows[band];
-      if (row.right >= Math.ceil(row.total * 2 / 3)) {
-        level = band;
-      } else {
-        stoppedAt = band;
-        // Failing the lowest band tested means the band underneath it, which
-        // may be A1 or, for a learner asked at A1 first, Pre-A1.
-        if (level === null) {
-          level = BANDS[BANDS.indexOf(band) - 1] || null;
-        }
-        break;
+      total++;
+      if (isCorrect(item, attempt.answers[id])) {
+        rows[item.band].right++;
+        right++;
       }
-    }
-
-    const p = total ? right / total : 0;
-    const se = total ? Math.sqrt((p * (1 - p)) / total) : 0.5;
-    const confidence = total >= 9 && se <= 0.16 ? 'high'
-      : total >= 6 && se <= 0.2 ? 'medium' : 'low';
-    const margin = se > 0.16 ? 1 : 0;
-
-    return {
-      band: level,
-      bands: tested.map((b) => rows[b]),
-      right, total, se: Math.round(se * 100) / 100, confidence, margin,
-      stoppedAt,
-    };
+    });
+    const cutoffs = bank.blueprint.cutoffs;
+    return Object.assign({
+      band: levelFromCorrect(right, total, cutoffs),
+      bands: BANDS.filter((b) => rows[b]).map((b) => rows[b]),
+      right,
+      total,
+      share: total ? Math.round((right / total) * 100) : 0,
+    }, confidenceFor(right, total, cutoffs));
   }
 
   function compute(bank, attempt) {
@@ -9224,10 +9199,10 @@ const Level = (() => {
     bank.blueprint.assessed.forEach((skill) => {
       skills[skill] = skillResult(bank, attempt, skill);
     });
-    const idx = Object.values(skills).map((s) => bandIndex(s.band)).sort((a, b) => a - b);
-    const middle = idx.length ? idx[Math.floor((idx.length - 1) / 2)] : -1;
-    const questions = bank.blueprint.assessed.reduce(
-      (n, s) => n + ((attempt.asked[s] || []).length), 0);
+    const cutoffs = bank.blueprint.cutoffs;
+    const right = Object.values(skills).reduce((n, s) => n + s.right, 0);
+    const total = Object.values(skills).reduce((n, s) => n + s.total, 0);
+    const questions = paper(bank).filter((id) => hasAnswer(attempt, id)).length;
     const practice = {};
     bank.blueprint.practice.forEach((skill) => {
       const picks = (attempt.practice && attempt.practice[skill]) || {};
@@ -9240,14 +9215,16 @@ const Level = (() => {
     });
     return {
       at: new Date().toISOString(),
-      overall: middle < 0 ? null : BANDS[middle],
+      overall: levelFromCorrect(right, total, cutoffs),
+      right,
+      total,
+      share: total ? Math.round((right / total) * 100) : 0,
       skills,
       practice,
       questions,
       minutes: attempt.finishedAt && attempt.startedAt
         ? Math.max(1, Math.round((attempt.finishedAt - attempt.startedAt) / 60000)) : 0,
-      completion: questions >= bank.blueprint.blocks * bank.blueprint.perBlock *
-        bank.blueprint.assessed.length ? 'complete' : 'partial',
+      completion: questions >= total ? 'complete' : 'partial',
     };
   }
 
@@ -9255,7 +9232,7 @@ const Level = (() => {
 
   function attemptState() {
     if (state) return state;
-    state = read(KEY.attempt, null) || blankAttempt(doc, null);
+    state = read(KEY.attempt, null) || blankAttempt();
     return state;
   }
   function saveAttempt(now) {
@@ -9266,8 +9243,7 @@ const Level = (() => {
 
   function recordItems(result, attempt) {
     const stats = read(KEY.items, {});
-    const bankIds = new Set(doc.blueprint.assessed.flatMap((s) => attempt.asked[s] || []));
-    bankIds.forEach((id) => {
+    paper(doc).filter((id) => hasAnswer(attempt, id)).forEach((id) => {
       const item = doc.items.find((it) => it.id === id);
       if (!item) return;
       const row = stats[id] || {a: 0, c: 0};
@@ -9301,9 +9277,9 @@ const Level = (() => {
     const assessed = doc.blueprint.assessed.length;
     return `<div class="lv-meta">
       <span class="lv-chip"><b>${assessed}</b> skills measured</span>
-      <span class="lv-chip"><b>36</b> questions</span>
+      <span class="lv-chip"><b>${doc.blueprint.questions}</b> questions</span>
       <span class="lv-chip">about <b>${doc.minutes}</b> min</span>
-      <span class="lv-chip">adaptive</span>
+      <span class="lv-chip">same paper for everyone</span>
     </div>`;
   }
 
@@ -9337,11 +9313,11 @@ const Level = (() => {
     const actions = locked
       ? `<button class="lv-btn lv-cta" data-act="result">
            <span>See the full report
-             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.questions} questions · ${result.minutes} min</small>
+             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.right}/${result.total} correct · ${result.minutes} min</small>
            </span>${ARROW}</button>`
       : `<button class="lv-btn lv-cta" data-act="start">
            <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}
-             <small>${touched ? 'Your place is saved' : '36 questions · about ' + doc.minutes + ' minutes · four skills measured'}</small>
+             <small>${touched ? 'Your place is saved' : doc.blueprint.questions + ' questions · about ' + doc.minutes + ' minutes · four skills measured'}</small>
            </span>${ARROW}</button>
          ${touched ? `<button class="lv-btn ghost" data-act="restart">Start over</button>` : ''}
          ${result ? `<button class="lv-btn ghost" data-act="result">Last report</button>` : ''}`;
@@ -9475,20 +9451,18 @@ const Level = (() => {
 
   function renderTest() {
     const a = attemptState();
-    if (!a.current.length) planBlock(doc, a);
-    if (!a.current.length) { view = 'practice'; renderPractice(); return; }
-    const groups = groupBySkill(a.current);
-    const total = a.current.length;
-    const answered = a.current.filter((id) => {
-      const v = a.answers[id];
-      return v !== undefined && v !== '' && (!Array.isArray(v) || v.length);
-    }).length;
-    const blockNo = a.block + 1;
-    let n = 0;
+    const band = partBand(doc, a.part);
+    const ids = partIds(doc, a.part);
+    const parts = partCount(doc);
+    const paperTotal = paper(doc).length;
+    const answered = ids.filter((id) => hasAnswer(a, id)).length;
+    const answeredAll = paper(doc).filter((id) => hasAnswer(a, id)).length;
+    const groups = groupBySkill(ids);
+    let n = a.part * partSize(doc);
 
     const blocks = groups.map((g) => {
-      /* One passage per passage, not one per question: three questions share
-         the text they are about, and repeating it three times buries them. */
+      /* One passage, not one per question: the questions that share a text sit
+         right under it. */
       const shown = new Set();
       return `<div class="lv-skillblock">
         <div class="lv-caption">
@@ -9511,22 +9485,23 @@ const Level = (() => {
     body().innerHTML = `<div class="lv-wrap">
       <div class="lv-top">
         <div class="lv-toprow">
-          <span class="lv-step">Round ${blockNo} of ${doc.blueprint.blocks}</span>
+          <span class="lv-step">Part ${a.part + 1} of ${parts} · ${band}</span>
           <span class="lv-secttl">${groups.map((g) => skillTitle(g.skill).en).join(' · ')}</span>
-          <span class="lv-count" data-count>${answered} of ${total} answered</span>
+          <span class="lv-count" data-count>${answered} of ${ids.length} answered</span>
         </div>
-        <div class="lv-toptrack"><i data-track style="width:${total ? Math.round(answered / total * 100) : 0}%"></i></div>
+        <div class="lv-toptrack"><i data-track style="width:${ids.length ? Math.round(answered / ids.length * 100) : 0}%"></i></div>
         <button class="lv-exit" type="button" data-act="pause">Pause and keep my place</button>
       </div>
-      <p class="lv-secnote">Three questions per skill this round. The next round moves up or down a band
-        depending on how these three go, so a single mistake cannot change your level.</p>
-      ${faLine('این دور برای هر مهارت سه پرسش دارد. دور بعد بسته به همین سه پرسش یک سطح بالا یا پایین می‌رود، پس یک اشتباه سطح را عوض نمی‌کند.')}
+      <p class="lv-secnote">${answeredAll} of ${paperTotal} answered so far. This part is the ${band} band:
+        the paper starts at A1 and climbs to C1, so later parts are meant to feel hard.</p>
+      ${faLine(`تا اینجا ${answeredAll} پرسش از ${paperTotal} پاسخ داده شده. این بخش سطح ${band} است: ` +
+        'برگه از A1 شروع می‌شود و تا C1 بالا می‌رود، پس بخش‌های بعدی باید سخت به نظر برسند.')}
       ${blocks}
       <div class="lv-foot">
-        <button class="lv-btn" data-act="block" type="button">
-          ${blockNo === doc.blueprint.blocks ? 'Practice tasks' : 'Next round'}
+        <button class="lv-btn" data-act="part" type="button">
+          ${a.part + 1 >= parts ? 'Practice tasks' : 'Next part'}
         </button>
-        <span class="lv-menu" data-hint>${answered} of ${total} in this round</span>
+        <span class="lv-menu" data-hint>${answered} of ${ids.length} in this part</span>
         <span class="lv-keys"><kbd>1</kbd>–<kbd>4</kbd> answer</span>
       </div>
     </div>`;
@@ -9622,7 +9597,7 @@ const Level = (() => {
         <span class="lv-skname">${esc(s.title.en)}
           <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
         <span class="lv-skband">${bandPill(r.band)}</span>
-        <span class="lv-evidence">${r.right} of ${r.total} correct · bands ${r.bands.map((b) => b.band).join(', ')}</span>
+        <span class="lv-evidence">${r.right} of ${r.total} correct (${r.share}%)</span>
         ${confidenceChip(r)}
         <span class="lv-scale">${BANDS.map((b, k) =>
           `<i class="${k <= bandIndex(r.band) ? 'on' : ''}"></i>`).join('')}</span>
@@ -9655,7 +9630,7 @@ const Level = (() => {
 
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero" data-band="${bandKey(result.overall)}">
-        <div class="lv-eyebrow">Report · ${fmtDate(result.at)} · ${result.questions} questions · ${result.minutes} min</div>
+        <div class="lv-eyebrow">Report · ${fmtDate(result.at)} · ${result.right} of ${result.total} correct · ${result.minutes} min</div>
         <div class="lv-bigband" style="margin-top:4px">
           <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
           <div>
@@ -9666,10 +9641,11 @@ const Level = (() => {
         </div>
         ${ladder(result.overall)}
         <div class="lv-insight">
+          <span><b>Score</b> ${result.right} of ${result.total} correct (${result.share}%)</span>
           <span><b>Based on</b> ${measured.length} of 6 skills. Writing and speaking are not assessed.</span>
           ${prev ? `<span><b>Last time</b> ${fmtDate(prev.at)} · ${bandLabel(prev.overall)}${delta
             ? ` (${delta > 0 ? '+' : ''}${delta} band${Math.abs(delta) === 1 ? '' : 's'})` : ' (no change)'}</span>` : ''}
-          <span><b>Completed</b> ${result.completion === 'complete' ? 'all three rounds' : 'part of the assessment'}${result.completion !== 'complete' ? ' — the level is provisional' : ''}</span>
+          <span><b>Completed</b> ${result.completion === 'complete' ? `all ${result.questions} questions` : `${result.questions} of ${result.total} questions`}${result.completion !== 'complete' ? ' — unanswered questions count as wrong, so the level is provisional' : ''}</span>
         </div>
       </section>
 
@@ -9718,8 +9694,7 @@ const Level = (() => {
 
   function start(fresh) {
     if (fresh || !read(KEY.attempt, null)) {
-      const last = read(KEY.result, null);
-      state = blankAttempt(doc, last && last.overall);
+      state = blankAttempt();
       write(KEY.attempt, state);
     } else {
       state = read(KEY.attempt, null);
@@ -9729,32 +9704,26 @@ const Level = (() => {
     body().scrollIntoView({block: 'start'});
   }
 
-  function nextBlock() {
+  function nextPart() {
     const a = attemptState();
-    const answered = a.current.filter((id) => a.answers[id] !== undefined && a.answers[id] !== '').length;
-    if (answered < a.current.length && !warned) {
+    const ids = partIds(doc, a.part);
+    const answered = ids.filter((id) => hasAnswer(a, id)).length;
+    if (answered < ids.length && !warned) {
       warned = true;
       const hint = body().querySelector('[data-hint]');
-      if (hint) hint.innerHTML = `<span class="lv-warn">${a.current.length - answered} unanswered — press again</span>`;
+      if (hint) hint.innerHTML = `<span class="lv-warn">${ids.length - answered} unanswered — press again</span>`;
       return;
     }
-    a.current.forEach((id) => {
-      const item = doc.items.find((it) => it.id === id);
-      if (!item) return;
-      (a.asked[item.skill] = a.asked[item.skill] || []).push(id);
-    });
-    adjustBand(doc, a);
-    a.block++;
+    a.part++;
     warned = false;
 
-    if (a.block >= doc.blueprint.blocks) {
+    if (a.part >= partCount(doc)) {
       view = 'practice';
       saveAttempt(true);
       render();
       body().scrollIntoView({block: 'start'});
       return;
     }
-    planBlock(doc, a);
     saveAttempt(true);
     render();
     body().scrollIntoView({block: 'start'});
@@ -9845,17 +9814,15 @@ const Level = (() => {
   function refreshProgress() {
     if (view !== 'test') return;
     const a = attemptState();
-    const total = a.current.length;
-    const answered = a.current.filter((id) => {
-      const v = a.answers[id];
-      return v !== undefined && v !== '' && (!Array.isArray(v) || v.length);
-    }).length;
+    const ids = partIds(doc, a.part);
+    const total = ids.length;
+    const answered = ids.filter((id) => hasAnswer(a, id)).length;
     const track = body().querySelector('[data-track]');
     const count = body().querySelector('[data-count]');
     const hint = body().querySelector('[data-hint]');
     if (track) track.style.width = (total ? Math.round(answered / total * 100) : 0) + '%';
     if (count) count.textContent = `${answered} of ${total} answered`;
-    if (hint && !warned) hint.textContent = `${answered} of ${total} in this round`;
+    if (hint && !warned) hint.textContent = `${answered} of ${total} in this part`;
   }
 
   function startTicker(btn) {
@@ -9975,7 +9942,7 @@ const Level = (() => {
       if (kind === 'start') start(false);
       else if (kind === 'restart') start(true);
       else if (kind === 'pause') { saveAttempt(true); view = 'intro'; render(); }
-      else if (kind === 'block') nextBlock();
+      else if (kind === 'part') nextPart();
       else if (kind === 'finish') finish();
       else if (kind === 'result') { view = 'result'; render(); }
       else if (kind === 'certificate') {
@@ -10052,13 +10019,13 @@ const Level = (() => {
       }
     }
     attemptState();
-    if (state && state.block >= doc.blueprint.blocks) view = 'practice';
+    if (state && state.part >= partCount(doc)) view = 'practice';
     render();
   }
 
   return {
-    mount, paintBadge, compute, blankAttempt, planBlock, adjustBand, isCorrect,
-    normalise,
+    mount, paintBadge, compute, blankAttempt, paper, partIds, partCount,
+    levelFromCorrect, isCorrect, normalise,
     reset() {
       try {
         localStorage.removeItem(KEY.result);

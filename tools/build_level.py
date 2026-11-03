@@ -88,10 +88,18 @@ def main() -> int:
              f"band {b['id']} has label {b['label']}")
 
     bp = LEVEL["blueprint"]
-    need(bp["blocks"] * bp["perBlock"] == 9,
-         "each skill does not plan nine questions")
-    need(bp["startBand"] in tested, "the start band is not a tested band")
+    need(bp["bands"] == tested, "the blueprint tests a different set of bands")
     need(bp["assessed"] == assessed, "the blueprint and the skills disagree")
+    need(list(bp["perBand"]) == assessed, "the blueprint does not count each skill")
+    need(sum(bp["perBand"].values()) == bp["perBandTotal"],
+         "the per-band counts do not add up to the band total")
+    need(bp["perBandTotal"] * len(tested) == bp["questions"],
+         "the paper is not one band total per band")
+    cut = bp["cutoffs"]
+    need(len(cut) == len(tested), "there is not one cutoff per band")
+    need(all(0 < c < 1 for c in cut), "a cutoff is outside the paper")
+    need(cut == sorted(cut) and len(set(cut)) == len(cut),
+         "the cutoffs do not climb")
 
     items = LEVEL["items"]
     seen: set[str] = set()
@@ -146,14 +154,20 @@ def main() -> int:
         top = Counter(keys).most_common(1)[0][1]
         need(top <= len(keys) * 0.55, "one answer letter dominates the bank")
 
-    # Three items per band per assessed skill: one block. A path can come back
-    # to a band it left, and the engine then closes that skill early rather
-    # than repeat a question, which the report discloses.
-    for skill in assessed:
-        for band in tested:
+    # The paper is fixed, so the bank must hold exactly the questions it
+    # promises: ten per band, in the four assessed skills.
+    total = 0
+    for band in tested:
+        in_band = 0
+        for skill in assessed:
             n = per_band_skill[(skill, band)]
-            need(n == bp["perBlock"],
-                 f"{skill}/{band}: {n} items, blueprint wants {bp['perBlock']}")
+            want = bp["perBand"][skill]
+            need(n == want, f"{skill}/{band}: {n} items, blueprint wants {want}")
+            in_band += n
+        need(in_band == bp["perBandTotal"],
+             f"band {band}: {in_band} questions, blueprint wants {bp['perBandTotal']}")
+        total += in_band
+    need(total == bp["questions"], f"the bank holds {total} questions, not {bp['questions']}")
 
     passages = {p["id"]: p for p in LEVEL["passages"]}
     need(len(passages) >= 5, f"only {len(passages)} reading passages")
@@ -165,7 +179,8 @@ def main() -> int:
         floor = 20 if p["band"] == "A1" else 60
         need(words >= floor, f"passage {pid}: {words} words, below {floor}")
         asked = sum(1 for it in items if it.get("passage") == pid)
-        need(asked == 3, f"passage {pid}: {asked} questions, expected 3")
+        need(asked == bp["perBand"]["reading"],
+             f"passage {pid}: {asked} questions, expected {bp['perBand']['reading']}")
 
     for it in items:
         if it.get("passage"):

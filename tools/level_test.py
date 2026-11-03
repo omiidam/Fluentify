@@ -469,13 +469,6 @@ READING = [
       "جمعه‌ها روزی است که برای این دیدار گفته شده.",
       options=["On Mondays", "Every day", "On Fridays", "In summer"],
       answer=2, passage="p-a1", difficulty="easy"),
-    q("r-a1-3", "reading", "A1", ("Detail", "جزئیات"), "mcq",
-      "Who does an action", "چه کسی کاری را انجام می‌دهد",
-      "Who makes the bread?", "چه کسی نان می‌پزد؟",
-      "The last sentence says her grandmother makes it.",
-      "جملهٔ آخر می‌گوید مادربزرگش نان می‌پزد.",
-      options=["Sara", "Her brother", "Her mother", "Her grandmother"],
-      answer=3, passage="p-a1", difficulty="easy"),
     q("r-a2-1", "reading", "A2", ("Detail", "جزئیات"), "mcq",
       "Who did something", "چه کسی کاری کرد",
       "Who asked the city for the land?", "چه کسی زمین را از شهرداری خواست؟",
@@ -490,13 +483,6 @@ READING = [
       "هر روز از هشت باز می‌شود و هنگام غروب بسته می‌شود.",
       options=["Only on Saturdays", "Every day until sunset",
                "From eight until noon", "Only in spring"], answer=1, passage="p-a2"),
-    q("r-a2-3", "reading", "A2", ("Condition", "شرط"), "mcq",
-      "Understanding a stated rule", "فهم یک قانون گفته‌شده",
-      "What must you do if you pick something?", "اگر چیزی بچینی چه باید بکنی؟",
-      "One rule: pick something, water something.",
-      "یک قانون: چیزی بچین، چیزی را آب بده.",
-      options=["Pay at the gate", "Tell the city", "Water something",
-               "Leave a seed"], answer=2, passage="p-a2"),
     q("r-b1-1", "reading", "B1", ("Detail", "جزئیات"), "mcq",
       "Reading a schedule", "خواندن یک برنامه",
       "How often does the course meet?", "دوره چند بار در هفته برگزار می‌شود؟",
@@ -512,13 +498,6 @@ READING = [
       options=["To choose the best students", "To set the price",
                "To start the group at one level", "To replace the exam"],
       answer=2, passage="p-b1"),
-    q("r-b1-3", "reading", "B1", ("Detail", "جزئیات"), "mcq",
-      "What a price includes", "شهریه چه چیزی را شامل می‌شود",
-      "What does the fee not include?", "شهریه شامل چه چیزی نیست؟",
-      "It covers the workbook but not the exam.",
-      "کتاب کار را شامل می‌شود اما آزمون را نه.",
-      options=["The workbook", "The exam", "The first two sessions", "The test"],
-      answer=1, passage="p-b1"),
     q("r-b2-1", "reading", "B2", ("Main idea", "ایدهٔ اصلی"), "mcq",
       "The writer's central claim", "ادعای اصلی نویسنده",
       "What is the writer's main claim about forgetting names?",
@@ -537,15 +516,6 @@ READING = [
       options=["Hearing the name again", "Repeating it silently",
                "Saying it and using it", "Writing it hours later"],
       answer=2, passage="p-b2"),
-    q("r-b2-3", "reading", "B2", ("Cohesion", "انسجام"), "mcq",
-      "Why a parallel is introduced", "چرا مقایسه‌ای آورده می‌شود",
-      "Why does the writer mention second-language vocabulary?",
-      "چرا نویسنده واژگان زبان دوم را مثال می‌آورد؟",
-      "The same gap between recognition and knowledge.",
-      "همان فاصله میان آشنا بودن و دانستن.",
-      options=["To show the same pattern elsewhere", "To recommend a course",
-               "To disagree with the experiments", "To explain memory loss"],
-      answer=0, passage="p-b2", difficulty="hard"),
     q("r-c1-1", "reading", "C1", ("Inference", "استنباط"), "mcq",
       "What the findings actually show", "یافته‌ها واقعاً چه نشان می‌دهند",
       "What did the studies find about removing walls?",
@@ -564,18 +534,8 @@ READING = [
       options=["They are worthless", "They are a reasonable idea with a real cost",
                "They always improve friendship", "They are too expensive to build"],
       answer=1, passage="p-c1", difficulty="hard"),
-    q("r-c1-3", "reading", "C1", ("Reference", "ارجاع"), "mcq",
-      "What a noun phrase points back to", "ضمیر یا عبارت به چه چیزی برمی‌گردد",
-      "In the last sentence, 'the price' is paid by",
-      "در جملهٔ آخر، «the price» را چه کسانی می‌پردازند؟",
-      "The final clause names the people whose work is hardest to watch.",
-      "بند آخر کسانی را نام می‌برد که کارشان سخت‌ترین کار برای تماشا کردن است.",
-      options=["the employers", "everyone in the room",
-               "the people who need to concentrate", "the visitors"],
-      answer=2, passage="p-c1", difficulty="hard"),
 ]
 
-# ---------------------------------------------------------------- listening
 LISTENING = [
     q("l-a1-1", "listening", "A1", ("Numbers and times", "عدد و ساعت"), "mcq",
       "Catching a time in a short announcement", "گرفتن ساعت در اعلامیه‌ای کوتاه",
@@ -591,13 +551,6 @@ LISTENING = [
       "دو گربه؛ سگ حیوان دیگری است.",
       options=["One", "Two", "Three", "Four"], answer=1, difficulty="easy",
       say="My brother has two cats and a dog."),
-    q("l-a1-3", "listening", "A1", ("Requests", "درخواست"), "cloze",
-      "Understanding a simple request", "فهم یک درخواست ساده",
-      "Type the thing the speaker wants closed.", "چیزی را که گوینده می‌خواهد بسته شود بنویس.",
-      "The speaker asks for the window to be closed.",
-      "گوینده می‌خواهد پنجره بسته شود.",
-      accept=["window", "the window"], difficulty="easy",
-      say="Please close the window. It's very cold in here."),
     q("l-a2-1", "listening", "A2", ("Details", "جزئیات"), "mcq",
       "Platform and destination", "سکو و مقصد",
       "Which platform does the Bristol train leave from?",
@@ -615,14 +568,6 @@ LISTENING = [
       options=["Tea and a sandwich", "Coffee and a sandwich",
                "Coffee and a cake", "A sandwich only"], answer=1,
       say="Could I have a coffee and a cheese sandwich, please?"),
-    q("l-a2-3", "listening", "A2", ("Exceptions", "استثنا"), "mcq",
-      "A closing day", "روز تعطیل",
-      "When is the museum shut?", "موزه چه زمانی بسته است؟",
-      "Closed on Mondays is the only closing time given.",
-      "«closed on Mondays» تنها زمان بسته بودن است.",
-      options=["Every morning", "On Mondays", "At nine", "On Sundays"],
-      answer=1,
-      say="The museum is closed on Mondays, but it opens at nine every other day."),
     q("l-b1-1", "listening", "B1", ("Narrative", "روایت"), "mcq",
       "What actually happened", "واقعاً چه اتفاقی افتاد",
       "How did the speaker travel?", "گوینده چگونه سفر کرد؟",
@@ -638,14 +583,6 @@ LISTENING = [
       options=["The room was busy", "The client was away",
                "Thursday suited everyone", "The report was late"], answer=1,
       say="We've put the meeting back to Thursday because the client is away until Wednesday."),
-    q("l-b1-3", "listening", "B1", ("Deadlines", "مهلت"), "mcq",
-      "Two dates that are easy to swap", "دو تاریخی که جابه‌جا می‌شوند",
-      "When must you register?", "تا چه زمانی باید ثبت‌نام کنی؟",
-      "Register by the first, start on the fifth.",
-      "ثبت‌نام تا اول، شروع در پنجم.",
-      options=["By the first", "On the fifth", "After the fifth", "By the tenth"],
-      answer=0,
-      say="The course starts on the fifth, but you need to register by the first."),
     q("l-b2-1", "listening", "B2", ("Hypotheticals", "فرض"), "mcq",
       "A counterfactual the speaker did not experience", "فرضی که رخ نداد",
       "What does the speaker mean?", "منظور گوینده چیست؟",
@@ -664,15 +601,6 @@ LISTENING = [
                "Angry about the figures", "Ready to invest more"], answer=1,
       difficulty="hard",
       say="The figures look encouraging, though the board remains cautious about the second quarter."),
-    q("l-b2-3", "listening", "B2", ("Time reference", "ارجاع زمانی"), "mcq",
-      "When something was understood", "چه زمانی چیزی فهمیده شد",
-      "When did people understand the problem?", "مردم چه زمانی مشکل را فهمیدند؟",
-      "Not until ... published means understanding came afterwards.",
-      "«not until ... published» یعنی درک پس از انتشار آمد.",
-      options=["Before the report", "While writing the report",
-               "After the report came out", "When the problem started"],
-      answer=2, difficulty="hard",
-      say="Not until the report was published did anyone realise how serious the problem was."),
     q("l-c1-1", "listening", "C1", ("Emphasis", "تأکید"), "mcq",
       "Where the speaker puts the emphasis", "گوینده کجا تأکید می‌کند",
       "What is the speaker's main point?", "نکتهٔ اصلی گوینده چیست؟",
@@ -691,17 +619,8 @@ LISTENING = [
                "She replaced someone modest", "She talks about her work a lot"],
       answer=1, difficulty="hard",
       say="She's every bit as capable as her predecessor, if rather less inclined to say so."),
-    q("l-c1-3", "listening", "C1", ("Irony", "طنز"), "mcq",
-      "Hearing a reproach inside a polite frame", "شنیدن سرزنش در قالب مؤدبانه",
-      "How does the speaker sound?", "لحن گوینده چگونه است؟",
-      "You'd have thought signals a reproach delivered with irony.",
-      "«You'd have thought» سرزنشی است که با طعنه گفته می‌شود.",
-      options=["Genuinely puzzled", "Mildly sarcastic", "Openly furious",
-               "Completely neutral"], answer=1, difficulty="hard",
-      say="You'd have thought a company of that size could afford to answer an email within a week."),
 ]
 
-# ------------------------------------------------- writing and speaking
 RUBRIC = [
     {"points": 1, "text": L("A few words, or one short sentence.",
                             "چند واژه، یا یک جملهٔ کوتاه.")},
@@ -762,33 +681,40 @@ LEVEL = {
                "شش مهارت جدا سنجیده می‌شود. گرامر، واژگان، خواندن و شنیدن از "
                "پاسخ‌هایت نمره می‌گیرند؛ نوشتن و گفتن تمرین‌اند و «سنجیده "
                "نشده» گزارش می‌شوند."),
-    "minutes": 24,
+    "minutes": 30,
     "retakeDays": 30,
     "skills": SKILLS,
     "bands": BANDS,
     "testedBands": TESTED,
+    # One paper for everyone, ten questions per band, so a count means the
+    # same thing for every learner. The level comes from that count.
     "blueprint": {
-        "blocks": 3,
-        "perBlock": 3,
-        "startBand": "B1",
-        "passRatio": [2, 3],
+        "bands": TESTED,
+        "perBand": {"grammar": 3, "vocabulary": 3, "reading": 2, "listening": 2},
+        "perBandTotal": 10,
+        "questions": 50,
         "assessed": ["grammar", "vocabulary", "reading", "listening"],
         "practice": ["writing", "speaking"],
+        # Share of the paper that must be right to claim each band, in order:
+        # 8, 17, 26, 35 and 44 of 50. The same fractions apply to a skill with
+        # its own item count, so a score of 11 of 15 in grammar and 8 of 10 in
+        # reading are read against the same ruler.
+        "cutoffs": [0.16, 0.34, 0.52, 0.70, 0.88],
     },
     "passages": READING_PASSAGES,
     "items": ITEMS,
     "rubric": RUBRIC,
-    "method": L("Each skill is asked three questions at a time. If two of the "
-                "three are right the next block moves up a band; if one or none "
-                "is right it moves down. A skill's level is the highest band "
-                "cleared after every band below it, and the overall level is "
-                "the median of the four assessed skills. Writing and speaking "
-                "are not scored.",
-                "هر مهارت هر بار سه پرسش می‌گیرد. اگر دو پرسش از سه درست باشد، "
-                "دستهٔ بعد یک سطح بالاتر می‌رود؛ اگر یکی یا هیچ‌کدام درست نباشد، "
-                "یک سطح پایین می‌آید. سطح هر مهارت بالاترین سطحی است که پس از "
-                "گذر از همهٔ سطح‌های پایین‌تر رد شده باشد، و سطح کلی میانهٔ چهار "
-                "مهارت سنجیده‌شده است. نوشتن و گفتن نمره نمی‌گیرند."),
+    "method": L("Everyone answers the same fifty questions: ten from each band, "
+                "A1 to C1, spread across grammar, vocabulary, reading and "
+                "listening. Your level comes from how many you get right - 8 of "
+                "50 is A1, 17 is A2, 26 is B1, 35 is B2, 44 is C1 - and each "
+                "skill is read against the same fractions of its own total. "
+                "Writing and speaking are not scored.",
+                "همه همان پنجاه پرسش را پاسخ می‌دهند: از هر سطح، از A1 تا C1، ده "
+                "پرسش در گرامر، واژگان، خواندن و شنیدن. سطح از تعداد پاسخ‌های "
+                "درست می‌آید: ۸ از ۵۰ یعنی A1، ۱۷ یعنی A2، ۲۶ یعنی B1، ۳۵ یعنی "
+                "B2 و ۴۴ یعنی C1. هر مهارت هم با همان نسبت‌ها از مجموع خودش "
+                "خوانده می‌شود. نوشتن و گفتن نمره نمی‌گیرند."),
     "caveat": L("This is a self-assessment built on a reviewed item bank, not a "
                 "validated certification. Item difficulty is tracked from your "
                 "own attempts, and the level is an estimate with a margin - "

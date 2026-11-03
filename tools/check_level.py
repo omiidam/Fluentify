@@ -5,10 +5,10 @@
     has a full block for every assessed skill, every Persian line is Persian;
   * the wiring - a tile, a panel, a route, a retake window, and the offline
     APK carrying the file;
-  * the engine - the module's own staircase is run in node over synthetic
-    learners: a perfect one, a hopeless one, one who is exactly B1, and one who
-    should never see the same question twice. A placement test whose bands do
-    not move is a quiz with a diagram.
+  * the engine - the module's own paper and marking are run in node over
+    synthetic learners: a perfect one, a hopeless one, one who is exactly B1,
+    and one who stops after the first part. The level has to follow the count,
+    and unanswered questions have to count as wrong.
 """
 
 from __future__ import annotations
@@ -77,10 +77,17 @@ def check_content(doc: dict) -> dict:
     check(doc.get("testedBands") == BANDS, "the tested bands are not A1 to C1")
 
     bp = doc.get("blueprint") or {}
-    check(bp.get("blocks") == 3 and bp.get("perBlock") == 3,
-          "the blueprint is not three blocks of three")
-    check(bp.get("startBand") in BANDS, "the start band is not a tested band")
-    check(bp.get("passRatio") == [2, 3], "a block is not decided at two thirds")
+    check(bp.get("bands") == BANDS, f"the blueprint tests {bp.get('bands')}")
+    check(bp.get("questions") == 50, f"the paper is {bp.get('questions')} questions")
+    check(sum((bp.get("perBand") or {}).values()) == bp.get("perBandTotal"),
+          "the per-band counts do not add up to a band")
+    check(bp.get("perBandTotal") * len(BANDS) == bp.get("questions"),
+          "ten questions a band does not make the paper")
+    cut = bp.get("cutoffs") or []
+    check(len(cut) == len(BANDS) and cut == sorted(cut) and all(0 < c < 1 for c in cut),
+          f"the cutoffs are {cut}")
+    check(round(cut[0] * 50) == 8 and round(cut[4] * 50) == 44,
+          f"the first cutoff is {cut[0] * 50:.0f} of 50, the last {cut[4] * 50:.0f}")
 
     items = doc.get("items") or []
     by_skill = Counter(it.get("skill") for it in items)
@@ -119,20 +126,22 @@ def check_content(doc: dict) -> dict:
         if it.get("say"):
             check(len(it["say"].split()) >= 6, f"{where}: spoken text too short")
 
-    check(len(items) >= 60, f"only {len(items)} items in the bank")
+    check(len(items) >= 54, f"only {len(items)} items in the bank")
     check(len(kinds) >= 5, f"only {len(kinds)} question formats")
     check(kinds.get("mcq", 0) < len(items) * 0.65,
           "the bank is mostly multiple choice")
+    per_band = bp.get("perBand") or {}
     for skill in assessed:
         for band in BANDS:
             n = by_band[(skill, band)]
-            check(n == bp.get("perBlock"),
-                  f"{skill}/{band}: {n} items, a block needs {bp.get('perBlock')}")
+            check(n == per_band.get(skill),
+                  f"{skill}/{band}: {n} items, the paper wants {per_band.get(skill)}")
+    for band in BANDS:
+        n = sum(by_band[(s, band)] for s in assessed)
+        check(n == bp.get("perBandTotal"),
+              f"band {band}: {n} questions, the paper wants {bp.get('perBandTotal')}")
     check(by_skill["writing"] >= 2 and by_skill["speaking"] >= 2,
           "fewer than two productive tasks per practice skill")
-    check(sum(by_skill[s] for s in bp.get("assessed", [])) >=
-          bp.get("blocks", 3) * bp.get("perBlock", 3) * 4,
-          "the bank cannot fill three rounds for four skills")
 
     passages = {p["id"]: p for p in doc.get("passages") or []}
     check(len(passages) >= 5, "fewer than five reading passages")
@@ -142,7 +151,8 @@ def check_content(doc: dict) -> dict:
         floor = 20 if p["band"] == "A1" else 60
         check(words >= floor, f"passage {pid}: {words} words, below {floor}")
         asked = sum(1 for it in items if it.get("passage") == pid)
-        check(asked == 3, f"passage {pid}: {asked} questions, expected 3")
+        check(asked == per_band.get("reading", 2),
+              f"passage {pid}: {asked} questions")
     for it in items:
         if it.get("passage"):
             check(it["passage"] in passages,
@@ -153,8 +163,9 @@ def check_content(doc: dict) -> dict:
         check(Counter(keys).most_common(1)[0][1] <= len(keys) * 0.55,
               "one answer letter dominates the test")
 
-    total_session = bp.get("blocks", 3) * bp.get("perBlock", 3) * len(assessed)
-    check(total_session == 36, f"a full session is {total_session} questions")
+    total_session = sum(by_band[(s, b)] for s in assessed for b in BANDS)
+    check(total_session == bp.get("questions"),
+          f"the bank holds {total_session} questions, the paper is {bp.get('questions')}")
     return {"items": len(items), "kinds": kinds, "session": total_session}
 
 
@@ -174,7 +185,7 @@ def check_wiring() -> None:
         ("fluentify.level.v2.result", "nothing is stored under the result key"),
         ("fluentify.level.v2.attempt", "a half-finished assessment has nowhere to live"),
         ("fluentify.level.items", "item difficulty is not tracked locally"),
-        ("adjustBand(", "nothing moves the difficulty between blocks"),
+        ("levelFromCorrect(", "the reporting never turns a count into a band"),
         ("not assessed", "the report never says which skills were not assessed"),
     ):
         check(needle in src, what)
@@ -194,10 +205,10 @@ def check_engine() -> None:
     start = src.index("const Level = (() => {")
     end = src.index("\n})();", start) + len("\n})();")
     module = src[start:end]
-    check("function planBlock(bank, attempt)" in module,
-          "the engine no longer plans blocks")
-    check("function adjustBand(bank, attempt)" in module,
-          "the engine no longer adjusts the band")
+    check("function levelFromCorrect(right, total, cutoffs)" in module,
+          "the engine no longer turns a count into a band")
+    check("function paper(bank)" in module,
+          "the engine no longer builds one paper for everyone")
 
     CACHE.mkdir(parents=True, exist_ok=True)
     script = CACHE / "level_engine.js"
@@ -219,23 +230,20 @@ __MODULE__
 const right = (item) => item.options ? item.answer : (item.accept || [])[0];
 const wrong = (item) => item.options ? (item.answer + 1) % 4 : 'zzz';
 
-/* A synthetic learner: `good(item)` decides each answer. This runs the real
-   planBlock/adjustBand staircase, not a copy of it. */
-function session(good) {
-  const a = Level.blankAttempt(bank, null);
+/* Sits the paper, answering `good(item)` correctly, and stopping after part
+   `stopAfterPart` when one is given. */
+function sit(good, stopAfterPart) {
+  const a = Level.blankAttempt();
   const seen = [];
-  for (let block = 0; block < bank.blueprint.blocks; block++) {
-    Level.planBlock(bank, a);
-    if (!a.current.length) break;
-    a.current.forEach((id) => {
+  for (let p = 0; p < Level.partCount(bank); p++) {
+    if (stopAfterPart != null && p > stopAfterPart) break;
+    Level.partIds(bank, p).forEach((id) => {
       const item = bank.items.find((i) => i.id === id);
       seen.push(id);
       a.answers[id] = good(item) ? right(item) : wrong(item);
-      (a.asked[item.skill] = a.asked[item.skill] || []).push(id);
     });
-    Level.adjustBand(bank, a);
   }
-  a.finishedAt = a.startedAt + 12 * 60 * 1000;
+  a.finishedAt = a.startedAt + 22 * 60 * 1000;
   return {result: Level.compute(bank, a), seen, attempt: a};
 }
 
@@ -243,59 +251,48 @@ let problems = 0;
 const say = (ok, line) => { if (!ok) problems++; console.log(`${ok ? '  ok  ' : '  FAIL'}  ${line}`); };
 const overall = (r) => r.overall || 'Pre-A1';
 
-const perfect = session(() => true);
-say(overall(perfect.result) === 'C1', `an advanced learner placed at C1 (got ${overall(perfect.result)})`);
-say(perfect.result.skills.grammar.band === 'C1', 'advanced learner cleared grammar at C1');
-say(perfect.result.questions === 36, `a full session asks 36 questions (asked ${perfect.result.questions})`);
-say(new Set(perfect.seen).size === perfect.seen.length, 'no question is asked twice');
+const ids = Level.paper(bank);
+say(ids.length === 50, `the paper is fifty questions (got ${ids.length})`);
+say(new Set(ids).size === ids.length, 'no question appears twice');
+say(Level.partCount(bank) === 5, `the paper is in five parts (got ${Level.partCount(bank)})`);
+say(Level.partIds(bank, 0).length === 10 && Level.partIds(bank, 4).length === 10,
+    'each part is ten questions');
+say(Level.partIds(bank, 0).every((id) => bank.items.find((i) => i.id === id).band === 'A1'),
+    'the first part is the A1 band');
+say(Level.partIds(bank, 4).every((id) => bank.items.find((i) => i.id === id).band === 'C1'),
+    'the last part is the C1 band');
 
-const hopeless = session(() => false);
-say(overall(hopeless.result) === 'Pre-A1', `a beginner placed at Pre-A1 (got ${overall(hopeless.result)})`);
+/* The count is the whole rule, so the edges of every cutoff are pinned. */
+const cut = bank.blueprint.cutoffs;
+const at = (n) => Level.levelFromCorrect(n, 50, cut) || 'Pre-A1';
+[[0, 'Pre-A1'], [7, 'Pre-A1'], [8, 'A1'], [16, 'A1'], [17, 'A2'], [25, 'A2'],
+ [26, 'B1'], [34, 'B1'], [35, 'B2'], [43, 'B2'], [44, 'C1'], [50, 'C1']]
+  .forEach(([n, band]) => say(at(n) === band, `${n} of 50 is ${band} (got ${at(n)})`));
 
-const b1 = session((item) => ['A1', 'A2', 'B1'].includes(item.band));
-say(overall(b1.result) === 'B1', `a B1 learner placed at B1 (got ${overall(b1.result)})`);
-say(b1.result.skills.listening.band === 'B1', 'each skill is placed on its own evidence');
+const perfect = sit(() => true);
+say(perfect.result.right === 50, `a perfect paper scores 50 (got ${perfect.result.right})`);
+say(overall(perfect.result) === 'C1', `an advanced learner is placed at C1 (got ${overall(perfect.result)})`);
+say(perfect.result.completion === 'complete', 'a full paper is reported as complete');
+say(perfect.result.questions === 50, `all fifty answers are counted (got ${perfect.result.questions})`);
+say(perfect.result.startedAt === undefined, 'the report carries no raw attempt state');
 
-const first = Level.blankAttempt(bank, null);
-const opened = Level.planBlock(bank, first);
-say(opened.length === 12, `round one is twelve questions (got ${opened.length})`);
-say(opened.every((x) => bank.items.find((i) => i.id === x.id).band === bank.blueprint.startBand),
-    'round one opens at the start band');
+const hopeless = sit(() => false);
+say(hopeless.result.right === 0, `an empty paper scores 0 (got ${hopeless.result.right})`);
+say(overall(hopeless.result) === 'Pre-A1', `a beginner is placed at Pre-A1 (got ${overall(hopeless.result)})`);
 
-const twoSteps = Level.blankAttempt(bank, null);
-Level.planBlock(bank, twoSteps);
-twoSteps.current.forEach((id) => {
-  const item = bank.items.find((i) => i.id === id);
-  twoSteps.answers[id] = right(item);
-  (twoSteps.asked[item.skill] = twoSteps.asked[item.skill] || []).push(id);
-});
-Level.adjustBand(bank, twoSteps);
-say(Object.values(twoSteps.bands).every((b) => b === 'B2'),
-    `a perfect block moves one band up (now ${Object.values(twoSteps.bands).join(',')})`);
+const b1 = sit((item) => ['A1', 'A2', 'B1'].includes(item.band));
+say(b1.result.right === 30, `a B1 learner is right thirty times (got ${b1.result.right})`);
+say(overall(b1.result) === 'B1', `a B1 learner is placed at B1 (got ${overall(b1.result)})`);
+say(b1.result.skills.listening.band === 'B1', 'each skill is read on its own count');
+say(b1.result.skills.grammar.total === 15 && b1.result.skills.reading.total === 10,
+    'grammar is out of fifteen and reading out of ten');
 
-const half = Level.blankAttempt(bank, null);
-Level.planBlock(bank, half);
-half.current.forEach((id) => {
-  const item = bank.items.find((i) => i.id === id);
-  half.answers[id] = wrong(item);
-  (half.asked[item.skill] = half.asked[item.skill] || []).push(id);
-});
-Level.adjustBand(bank, half);
-say(Object.values(half.bands).every((b) => b === 'A2'),
-    `three misses move one band down (now ${Object.values(half.bands).join(',')})`);
+const part = sit(() => true, 0);
+say(part.result.questions === 10, `a learner who stops early answered 10 (got ${part.result.questions})`);
+say(part.result.right === 10, `only ten answers are credited (got ${part.result.right})`);
+say(overall(part.result) === 'A1', `ten of fifty reads as A1, not as a perfect part (got ${overall(part.result)})`);
+say(part.result.completion === 'partial', 'a half-finished paper is reported as partial');
 
-const almost = Level.blankAttempt(bank, null);
-Level.planBlock(bank, almost);
-almost.current.forEach((id, k) => {
-  const item = bank.items.find((i) => i.id === id);
-  almost.answers[id] = k % 3 === 0 ? right(item) : wrong(item);
-  (almost.asked[item.skill] = almost.asked[item.skill] || []).push(id);
-});
-Level.adjustBand(bank, almost);
-say(Object.values(almost.bands).every((b) => b === 'A2'),
-    'one of three right still moves down, not up');
-
-// The four assessed skills only: writing and speaking cannot reach a band.
 say(!('writing' in perfect.result.skills) && !('speaking' in perfect.result.skills),
     'writing and speaking are absent from the scored skills');
 say(perfect.result.practice.writing.total === 2, 'writing tasks are counted as practice');
