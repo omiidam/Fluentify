@@ -922,6 +922,22 @@
     background: rgba(47,107,79,.12); color: var(--leaf);
   }
   .stbar { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  /* text size and the Persian switch, on their own quiet row under the bar */
+  .sttools {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .stsizegrp {
+    display: inline-flex; align-items: stretch; border: 1px solid rgba(43,48,73,.16);
+    border-radius: 9px; overflow: hidden; background: #fffdf6;
+  }
+  .stsize {
+    font-family: inherit; font-size: 11px; font-weight: 700; cursor: pointer;
+    border: 0; background: none; color: #3f4a6b; padding: 4px 9px; line-height: 1.4;
+  }
+  .stsize + .stsize { border-inline-start: 1px solid rgba(43,48,73,.12); }
+  .stsize:hover:not(:disabled) { background: var(--leaf-soft); color: var(--leaf); }
+  .stsize:disabled { color: rgba(43,48,73,.25); cursor: default; }
   .sttoggle {
     margin-inline-start: auto; font-family: inherit; font-size: 11px; cursor: pointer;
     background: none; border: 1px dashed rgba(47,107,79,.45); border-radius: 9px;
@@ -935,14 +951,69 @@
   .sts { display: flex; gap: 7px; margin: 0 0 4px; }
   .sts .n { flex: none; width: 18px; text-align: end; font-size: 10px; color: var(--muted); padding-top: 2px; }
   .sts .tx { min-width: 0; }
-  .sts .en { font-size: 13px; line-height: 1.55; color: var(--ink); }
-  .sts .fa { display: block; font-size: 11.5px; line-height: 1.7; color: #5c6480; margin-top: 1px; }
+  .sts .en { font-size: calc(13px * var(--stzoom, 1)); line-height: 1.55; color: var(--ink); }
+  .sts .fa {
+    display: block; font-size: calc(11.5px * var(--stzoom, 1)); line-height: 1.7;
+    color: #5c6480; margin-top: 1px;
+  }
   .stbody.hidefa .sts .fa, .stbody.hidefa .stch .fa { display: none; }
   .stv { padding: 7px 0; border-bottom: 1px solid rgba(43,48,73,.08); }
   .stv .w { font-size: 12.5px; font-weight: 700; color: var(--ink); }
   .stv .w i { font-style: normal; font-weight: 400; color: var(--muted); font-size: 10.5px; }
   .stv .m { font-size: 11.5px; color: #4a5270; }
   .stv .ex { font-size: 11.5px; color: #2f3550; margin-top: 2px; }
+  /* ---------- shelf: how far in, and the way to a single story ------------ */
+  .stprog { margin: 2px 0 10px; }
+  .stprogbar {
+    height: 5px; border-radius: 999px; background: rgba(47,107,79,.13);
+    overflow: hidden;
+  }
+  .stprogbar i {
+    display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--leaf), #6aa98a);
+    transition: width .3s ease;
+  }
+  .stprogline {
+    display: flex; justify-content: space-between; gap: 8px; margin-top: 4px;
+    font-size: 10.5px; color: var(--muted);
+  }
+  .stprogline b { color: var(--leaf); }
+  .stsearchrow { margin-bottom: 8px; }
+  .stsearch {
+    width: 100%; font-family: inherit; font-size: 12px; color: var(--ink);
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.16);
+    border-radius: 10px; padding: 7px 11px;
+  }
+  .stsearch:focus { outline: 2px solid rgba(47,107,79,.35); outline-offset: 1px; border-color: var(--leaf); }
+  .stcount { font-size: 10.5px; color: var(--muted); margin: 0 0 6px; }
+  .stdots { display: inline-flex; gap: 3px; vertical-align: middle; margin-inline-start: 2px; }
+  .stdots i {
+    width: 5px; height: 5px; border-radius: 50%; background: rgba(43,48,73,.18);
+  }
+  .stdots i.on { background: var(--leaf); }
+  .stcard.lv-VE { border-inline-start: 3px solid #8fbf8f; }
+  .stcard.lv-E  { border-inline-start: 3px solid #5f9cc4; }
+  .stcard.lv-M  { border-inline-start: 3px solid #8a76c0; }
+  .stcard.lv-H  { border-inline-start: 3px solid #c1835f; }
+  .stempty {
+    text-align: center; color: var(--muted); font-size: 12px;
+    padding: 18px 8px; border: 1px dashed rgba(43,48,73,.18); border-radius: 12px;
+  }
+  .stempty p { margin: 0 0 4px; }
+  .stnext { display: flex; gap: 8px; margin-top: 14px; }
+  .stnext > span { flex: 1; }
+  .stjump {
+    flex: 1; min-width: 0; text-align: start; font-family: inherit; cursor: pointer;
+    background: #fffdf6; border: 1px solid rgba(43,48,73,.14); border-radius: 11px;
+    padding: 8px 10px; color: var(--ink); display: flex; flex-direction: column; gap: 2px;
+  }
+  .stjump.next { text-align: end; align-items: flex-end; margin-inline-start: auto; }
+  .stjump:hover { border-color: rgba(47,107,79,.5); background: #fbfdf9; }
+  .stjump .k { font-size: 10px; color: var(--leaf); font-weight: 700; }
+  .stjump b {
+    font-size: 11.5px; font-weight: 600; color: #3f4a6b;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;
+  }
   .stcu { font-size: 10.5px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
   .stcu a { color: var(--leaf); }
 
@@ -7457,7 +7528,23 @@ const Stories = (() => {
     h('p', {class: (cls || '') + ' fa', dir: 'rtl', lang: 'fa'}, text);
 
   let doc = null, pending = null, view = 'list', filter = 'all', openId = null;
-  let showFa = true;
+  let showFa = true, query = '';
+
+  /* Reading preferences outlive the panel, and the story: someone who turns
+     the Persian off to test themselves wants it off in the next story too. */
+  const PREFS = 'fluentify.story.prefs';
+  const readPrefs = () => {
+    try { return JSON.parse(localStorage.getItem(PREFS) || '{}'); }
+    catch (e) { return {}; }
+  };
+  const savePrefs = () => {
+    try { localStorage.setItem(PREFS, JSON.stringify({fa: showFa, zoom})); }
+    catch (e) { /* full or private */ }
+  };
+  const firstPrefs = readPrefs();
+  showFa = firstPrefs.fa !== false;
+  let zoom = [0.9, 1, 1.15, 1.3].includes(firstPrefs.zoom) ? firstPrefs.zoom : 1;
+  const ZOOMS = [0.9, 1, 1.15, 1.3];
 
   const read = () => {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
@@ -7496,57 +7583,114 @@ const Stories = (() => {
     const wrap = body();
     wrap.replaceChildren();
     wrap.classList.remove('hidefa');
+    wrap.style.removeProperty('--stzoom');
     view = 'list';
+
+    const total = doc.stories.length;
+    const finished = doc.stories.filter((s) => marked(s.id) === GROUPS.length).length;
+    const started = doc.stories.filter((s) => marked(s.id) > 0).length;
 
     wrap.append(h('div', {class: 'rdintro'},
       h('p', {}, 'An English story at your level, the Persian beside every '
         + 'sentence, then the words, the grammar and the questions that make '
         + 'it stick.'),
-      faP('\u06cc\u06a9 \u062f\u0627\u0633\u062a\u0627\u0646 \u0627\u0646\u06af\u0644\u06cc\u0633\u06cc '
-        + '\u062f\u0631 \u0633\u0637\u062d \u062e\u0648\u062f\u062a\u060c '
-        + '\u0641\u0627\u0631\u0633\u06cc \u0632\u06cc\u0631 \u0647\u0631 '
-        + '\u062c\u0645\u0644\u0647\u060c \u0648 \u0628\u0639\u062f '
-        + '\u0648\u0627\u0698\u0647\u200c\u0647\u0627\u060c \u06af\u0631\u0627\u0645\u0631 '
-        + '\u0648 \u067e\u0631\u0633\u0634\u200c\u0647\u0627.')));
+      faP('یک داستان انگلیسی در سطح خودت، فارسی زیر هر جمله، و بعد واژه‌ها، '
+        + 'گرامر و پرسش‌ها.')));
+
+    /* how far the shelf has got - finished is the number that matters */
+    wrap.append(h('div', {class: 'stprog'},
+      h('div', {class: 'stprogbar'},
+        h('i', {style: 'width:' + Math.round(finished * 100 / total) + '%'})),
+      h('div', {class: 'stprogline'},
+        h('b', {}, finished + ' of ' + total + ' finished'),
+        h('span', {}, finished === total ? 'the whole shelf'
+          : started > finished ? started - finished + ' started'
+          : started ? started + ' started' : 'nothing started yet'))));
+
+    const search = h('input', {
+      type: 'search', class: 'stsearch', value: query,
+      placeholder: 'Search a title or a subject',
+      'aria-label': 'Search the stories',
+    });
+    search.addEventListener('input', () => { query = search.value.trim(); paint(); });
+    wrap.append(h('div', {class: 'stsearchrow'}, search));
 
     const levels = h('div', {class: 'stlevels', role: 'tablist',
       'aria-label': 'Story level'});
-    const chip = (id, label) => h('button', {
-      type: 'button', role: 'tab', class: 'stlv' + (filter === id ? ' on' : ''),
-      'aria-selected': filter === id ? 'true' : 'false',
-      onclick: () => { filter = id; renderList(); },
-    }, label);
-    levels.append(chip('all', 'All ' + doc.stories.length));
+    const rows = [['all', 'All ' + total]];
     doc.levels.forEach((lv) => {
       const n = doc.stories.filter((s) => s.level === lv.id).length;
-      if (n) levels.append(chip(lv.id, lv.name.en + ' \u00b7 ' + n));
+      if (n) rows.push([lv.id, lv.name.en + ' · ' + n]);
+    });
+    rows.forEach(([id, label]) => {
+      const b = h('button', {
+        type: 'button', role: 'tab', class: 'stlv' + (filter === id ? ' on' : ''),
+        'aria-selected': filter === id ? 'true' : 'false',
+        onclick: () => {
+          filter = id;
+          [...levels.children].forEach((x) => {
+            x.classList.toggle('on', x === b);
+            x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+          });
+          paint();
+        },
+      }, label);
+      levels.append(b);
     });
     wrap.append(levels);
 
-    const shown = doc.stories.filter((s) => filter === 'all' || s.level === filter);
+    const note = h('p', {class: 'stcount'});
     const cards = h('div', {class: 'stcards'});
-    shown.forEach((s, i) => {
-      const c = marked(s.id);
-      const done = c === GROUPS.length;
-      cards.append(h('button', {
-        type: 'button', class: 'stcard', onclick: () => open(s.id),
-      },
-        h('span', {class: 'stnum', 'aria-hidden': 'true'}, done ? '\u2713' : String(i + 1)),
-        h('span', {class: 'stmain'},
-          h('span', {class: 'stname'}, s.title.en,
-            h('span', {class: 'lvl'}, s.level), fa(s.title.fa, 'stbadge')),
-          h('span', {class: 'stblurb'}, s.blurb.en),
-          h('span', {class: 'stmeta'},
-            s.words + ' words \u00b7 ' + s.minutes + ' min read \u00b7 ' +
-            s.sentences + ' sentences \u00b7 ' +
-            (done ? 'all three sets checked'
-                  : c ? c + ' of 3 sets checked' : 'not started'))),
-        h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '\u203a')));
-    });
-    wrap.append(cards);
+    wrap.append(note, cards);
 
-    const credit = h('p', {class: 'stcu'},
-      doc.credit.en + ' ');
+    const needle = () => tidy(query);
+    const matches = (s) => {
+      if (filter !== 'all' && s.level !== filter) return false;
+      const q = needle();
+      if (!q) return true;
+      return tidy([s.title.en, s.title.fa, s.blurb.en, s.blurb.fa, s.id].join(' '))
+        .includes(q);
+    };
+
+    function paint() {
+      const shown = doc.stories.filter(matches);
+      cards.replaceChildren();
+      shown.forEach((s, i) => {
+        const c = marked(s.id);
+        const done = c === GROUPS.length;
+        const checked = st(s.id).checked || {};
+        const dots = h('span', {class: 'stdots', 'aria-hidden': 'true'});
+        GROUPS.forEach((g) => dots.append(h('i', {class: checked[g] ? 'on' : ''})));
+        cards.append(h('button', {
+          type: 'button', class: 'stcard lv-' + s.level, onclick: () => open(s.id),
+        },
+          h('span', {class: 'stnum', 'aria-hidden': 'true'},
+            done ? '✓' : String(i + 1)),
+          h('span', {class: 'stmain'},
+            h('span', {class: 'stname'}, s.title.en,
+              h('span', {class: 'lvl'}, levelOf(s.level).en),
+              fa(s.title.fa, 'stbadge')),
+            h('span', {class: 'stblurb'}, s.blurb.en),
+            h('span', {class: 'stmeta'},
+              s.words + ' words · ' + s.minutes + ' min · ' +
+              s.sentences + ' sentences · ', dots,
+              done ? ' finished' : c ? ' ' + c + ' of 3 sets checked'
+                                     : ' not started')),
+          h('span', {class: 'rdchev', 'aria-hidden': 'true'}, '›')));
+      });
+      if (!shown.length) {
+        cards.append(h('div', {class: 'stempty'},
+          h('p', {}, 'No story has that word.'),
+          faP('داستانی با این واژه پیدا نشد.')));
+      }
+      note.textContent = shown.length === total ? ''
+        : shown.length + (shown.length === 1 ? ' story' : ' stories') +
+          ' of ' + total;
+      note.hidden = !note.textContent;
+    }
+    paint();
+
+    const credit = h('p', {class: 'stcu'}, doc.credit.en + ' ');
     credit.append(h('a', {href: doc.credit.url, target: '_blank',
       rel: 'noopener'}, 'Source'));
     wrap.append(credit);
@@ -7563,30 +7707,55 @@ const Stories = (() => {
     wrap.classList.toggle('hidefa', !showFa);
     const one = st(id);
 
-    wrap.append(h('div', {class: 'stbar'},
-      h('button', {type: 'button', class: 'rdback',
-        onclick: () => { view = 'list'; renderList(); }},
-        '\u2039 All stories'),
-      h('span', {class: 'rdscore'})));
+    const back = h('button', {type: 'button', class: 'rdback',
+      onclick: () => { view = 'list'; renderList(); }}, '‹ All stories');
 
-    wrap.append(h('div', {class: 'rdhero'},
-      h('h4', {}, s.title.en, h('span', {class: 'lvl'}, levelOf(s.level).en)),
-      faP(s.title.fa, 'rdhero-fa'),
-      h('div', {class: 'rdherometa'},
-        s.words + ' words \u00b7 ' + s.minutes + ' min read \u00b7 ' +
-        s.chapters.length + ' chapter' + (s.chapters.length === 1 ? '' : 's') +
-        ' \u00b7 ' + s.counts.all + ' questions')));
+    const applyZoom = () => wrap.style.setProperty('--stzoom', String(zoom));
 
-    /* the story itself, sentence by sentence, with its Persian underneath */
+    /* text size: four steps, kept between stories and across visits */
+    const sizeStep = (label, delta, title) => h('button', {
+      type: 'button', class: 'stsize', title, 'aria-label': title,
+      onclick: () => {
+        const at = ZOOMS.indexOf(zoom);
+        const to = Math.min(ZOOMS.length - 1, Math.max(0, at + delta));
+        if (to === at) return;
+        zoom = ZOOMS[to];
+        applyZoom();
+        savePrefs();
+        sizeA.disabled = to === 0;
+        sizeB.disabled = to === ZOOMS.length - 1;
+      },
+    }, label);
+    const sizeA = sizeStep('A−', -1, 'Smaller text');
+    const sizeB = sizeStep('A+', 1, 'Larger text');
+    sizeA.disabled = zoom === ZOOMS[0];
+    sizeB.disabled = zoom === ZOOMS[ZOOMS.length - 1];
+
     const toggle = h('button', {
       type: 'button', class: 'sttoggle',
       onclick: () => {
         showFa = !showFa;
         wrap.classList.toggle('hidefa', !showFa);
         toggle.textContent = showFa ? 'Hide the Persian' : 'Show the Persian';
+        savePrefs();
       },
     }, showFa ? 'Hide the Persian' : 'Show the Persian');
 
+    wrap.append(h('div', {class: 'stbar'}, back, h('span', {class: 'rdscore'})));
+    wrap.append(h('div', {class: 'sttools'},
+      h('span', {class: 'stsizegrp', role: 'group', 'aria-label': 'Text size'},
+        sizeA, sizeB),
+      toggle));
+
+    wrap.append(h('div', {class: 'rdhero'},
+      h('h4', {}, s.title.en, h('span', {class: 'lvl'}, levelOf(s.level).en)),
+      faP(s.title.fa, 'rdhero-fa'),
+      h('div', {class: 'rdherometa'},
+        s.words + ' words · ' + s.minutes + ' min read · ' +
+        s.chapters.length + ' chapter' + (s.chapters.length === 1 ? '' : 's') +
+        ' · ' + s.counts.all + ' questions')));
+
+    /* the story itself, sentence by sentence, with its Persian underneath */
     const story = h('div', {});
     s.chapters.forEach((ch) => {
       story.append(h('div', {class: 'stch'},
@@ -7600,10 +7769,9 @@ const Stories = (() => {
       });
     });
     wrap.append(h('div', {class: 'rdsec'},
-      h('div', {class: 'stbar'},
-        h('div', {class: 'rdlabel'}, 'The story', fa('\u062f\u0627\u0633\u062a\u0627\u0646')),
-        toggle),
+      h('div', {class: 'rdlabel'}, 'The story', fa('داستان')),
       story));
+    applyZoom();
 
     /* vocabulary: the word, what it means, and the line it came from */
     const vocab = h('div', {});
@@ -7675,6 +7843,16 @@ const Stories = (() => {
     });
 
     wrap.append(h('div', {class: 'rdresult', hidden: true}));
+    const at = doc.stories.indexOf(s);
+    const prev = doc.stories[at - 1];
+    const next = doc.stories[at + 1];
+    const jump = (other) => {
+      view = other.id;
+      renderStory(other.id);
+      const panel = document.getElementById('stpanel');
+      if (panel) panel.scrollTop = 0;
+    };
+
     wrap.append(h('div', {class: 'rdfoot'},
       h('button', {type: 'button', class: 'rdgo ghost', onclick: () => {
         patch(id, (x) => {
@@ -7683,7 +7861,17 @@ const Stories = (() => {
         renderStory(id);
       }}, 'Reset this story'),
       h('button', {type: 'button', class: 'rdgo', onclick: () => { view = 'list'; renderList(); }},
-        'All stories \u203a')));
+        'All stories ›')));
+
+    wrap.append(h('div', {class: 'stnext'},
+      prev ? h('button', {type: 'button', class: 'stjump',
+        onclick: () => jump(prev)},
+        h('span', {class: 'k'}, '‹ Previous'), h('b', {}, prev.title.en))
+        : h('span', {}),
+      next ? h('button', {type: 'button', class: 'stjump next',
+        onclick: () => jump(next)},
+        h('span', {class: 'k'}, 'Next ›'), h('b', {}, next.title.en))
+        : h('span', {})));
 
     refreshHead();
     if (one.checked) {
@@ -7969,6 +8157,15 @@ const Stories = (() => {
         fa('\u062f\u0627\u0633\u062a\u0627\u0646\u200c\u0647\u0627 \u062e\u0648\u0627\u0646\u062f\u0647 \u0646\u0634\u062f.')));
     }
   }
+
+  /* Escape is the one key a panel reader expects to work. */
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || view === 'list') return;
+    const panel = document.getElementById('stpanel');
+    if (!panel || !panel.classList.contains('open')) return;
+    view = 'list';
+    renderList();
+  });
 
   return {mount, load};
 })();
