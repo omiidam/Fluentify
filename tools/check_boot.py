@@ -130,7 +130,10 @@ def main() -> int:
         print("FAIL  the Boot module is not where this check looks for it")
         return 1
 
-    if "step(done, total)" not in boot or "paint()" not in boot:
+    # step() gained a third argument (the section name painted under the bar),
+    # so the signature is matched up to its second parameter, not to the
+    # closing bracket. paint() is still the single writer of both readouts.
+    if "step(done, total" not in boot or "paint()" not in boot:
         print("FAIL  the Boot module no longer exposes step() / paint()")
         return 1
 

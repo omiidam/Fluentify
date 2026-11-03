@@ -37,13 +37,21 @@
     "fa": "سخت‌تر"
    },
    "words": "1200+"
+  },
+  {
+   "id": "VH",
+   "name": {
+    "en": "Very hard",
+    "fa": "خیلی سخت"
+   },
+   "words": "2000+"
   }
  ],
  "totals": {
-  "stories": 41,
-  "words": 9864,
-  "questions": 533,
-  "sentences": 893
+  "stories": 50,
+  "words": 11811,
+  "questions": 650,
+  "sentences": 1037
  },
  "stories": [
   {
@@ -16485,6 +16493,426 @@
    }
   },
   {
+   "id": "odyssey",
+   "title": {
+    "en": "The Odyssey",
+    "fa": "ادیسه"
+   },
+   "level": "H",
+   "blurb": {
+    "en": "A king sails home from Troy with twelve ships, and every island on the way wants to keep him.",
+    "fa": "پادشاهی با دوازده کشتی از تروا به خانه بازمی‌گردد و هر جزیره‌ای در راه می‌خواهد نگهش دارد."
+   },
+   "words": 225,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "Ten years of waiting",
+      "fa": "ده سال انتظار"
+     },
+     "pairs": [
+      {
+       "en": "The war at Troy ended, and the Greek kings sailed home, but Odysseus did not.",
+       "fa": "جنگ تروا پایان یافت و پادشاهان یونان به خانه رفتند، اما اودیسئوس نرفت."
+      },
+      {
+       "en": "His wife Penelope and his son Telemachus waited for him in Ithaca.",
+       "fa": "همسرش پنه‌لوپه و پسرش تلماخوس در ایتاکا منتظرش بودند."
+      },
+      {
+       "en": "Suitors filled his hall, ate his food and told Penelope her husband was dead.",
+       "fa": "خواستگاران تالارش را پر کردند، غذایش را خوردند و به پنه‌لوپه گفتند شوهرش مرده است."
+      },
+      {
+       "en": "She refused them all, and Telemachus set out to look for news of his father.",
+       "fa": "او همه را رد کرد و تلماخوس به جست‌وجوی خبری از پدرش رفت."
+      },
+      {
+       "en": "Odysseus had sailed with twelve ships, and a storm drove them to a far country.",
+       "fa": "اودیسئوس با دوازده کشتی رفته بود و طوفان آن‌ها را به سرزمینی دور راند."
+      },
+      {
+       "en": "There the people ate only lotus fruit, and three of his men tasted it.",
+       "fa": "آنجا مردم فقط میوهٔ لوتوس می‌خوردند و سه تن از مردانش از آن چشیدند."
+      },
+      {
+       "en": "The fruit made them forget their homes, and they wanted to stay and eat for ever.",
+       "fa": "میوه آن‌ها را از خانه‌هایشان فراموشاند و خواستند بمانند و همیشه بخورند."
+      },
+      {
+       "en": "Odysseus pulled them back to the ship and sailed on.",
+       "fa": "اودیسئوس آن‌ها را به کشتی برگرداند و راه افتاد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The cave of the Cyclops",
+      "fa": "غار سایکلوپ"
+     },
+     "pairs": [
+      {
+       "en": "They reached an island, and Odysseus took wine and men up to a great cave.",
+       "fa": "به جزیره‌ای رسیدند و اودیسئوس شراب و چند مرد را به غاری بزرگ برد."
+      },
+      {
+       "en": "The cave belonged to a Cyclops, a giant with one eye, who rolled a stone across the door.",
+       "fa": "غار از آنِ سایکلوپ بود، غولی یک‌چشم که سنگی بزرگ جلوی در غلتاند."
+      },
+      {
+       "en": "The giant ate two of the men and promised to eat more.",
+       "fa": "غول دو تن از مردان را خورد و وعده داد بیشتر بخورد."
+      },
+      {
+       "en": "Odysseus gave him strong wine, and the giant fell asleep.",
+       "fa": "اودیسئوس شراب قوی به او داد و غول خوابش برد."
+      },
+      {
+       "en": "They drove a sharp stake into his single eye and hid under the sheep.",
+       "fa": "میله‌ای تیز در تنها چشمش کردند و زیر گوسفندان پنهان شدند."
+      },
+      {
+       "en": "The blinded giant opened the door for his flock, and the men escaped under the animals.",
+       "fa": "غول کور در را برای گله‌اش باز کرد و مردها زیر حیوانات بیرون رفتند."
+      },
+      {
+       "en": "The Cyclops threw rocks at the ship and called on his father, the sea god.",
+       "fa": "سایکلوپ به سوی کشتی سنگ انداخت و پدرش، خدای دریا، را صدا زد."
+      },
+      {
+       "en": "The god heard him, and Odysseus did not reach home for ten more years.",
+       "fa": "خدا صدایش را شنید و اودیسئوس ده سال دیگر به خانه نرسید."
+      }
+     ]
+    }
+   ],
+   "text": "The war at Troy ended, and the Greek kings sailed home, but Odysseus did not. His wife Penelope and his son Telemachus waited for him in Ithaca. Suitors filled his hall, ate his food and told Penelope her husband was dead. She refused them all, and Telemachus set out to look for news of his father. Odysseus had sailed with twelve ships, and a storm drove them to a far country. There the people ate only lotus fruit, and three of his men tasted it. The fruit made them forget their homes, and they wanted to stay and eat for ever. Odysseus pulled them back to the ship and sailed on. They reached an island, and Odysseus took wine and men up to a great cave. The cave belonged to a Cyclops, a giant with one eye, who rolled a stone across the door. The giant ate two of the men and promised to eat more. Odysseus gave him strong wine, and the giant fell asleep. They drove a sharp stake into his single eye and hid under the sheep. The blinded giant opened the door for his flock, and the men escaped under the animals. The Cyclops threw rocks at the ship and called on his father, the sea god. The god heard him, and Odysseus did not reach home for ten more years.",
+   "vocab": [
+    {
+     "word": "suitors",
+     "pos": "n.",
+     "meaning": {
+      "en": "men who want to marry a woman",
+      "fa": "خواستگاران"
+     },
+     "example": "Suitors filled his hall.",
+     "exampleFa": "خواستگاران تالارش را پر کردند."
+    },
+    {
+     "word": "hall",
+     "pos": "n.",
+     "meaning": {
+      "en": "the big room of a house",
+      "fa": "تالار"
+     },
+     "example": "They ate his food in the hall.",
+     "exampleFa": "در تالار غذایش را خوردند."
+    },
+    {
+     "word": "giant",
+     "pos": "n.",
+     "meaning": {
+      "en": "a very large person",
+      "fa": "غول"
+     },
+     "example": "A giant with one eye lived there.",
+     "exampleFa": "غولی یک‌چشم آنجا زندگی می‌کرد."
+    },
+    {
+     "word": "wine",
+     "pos": "n.",
+     "meaning": {
+      "en": "a strong drink made from grapes",
+      "fa": "شراب"
+     },
+     "example": "Odysseus gave the giant strong wine.",
+     "exampleFa": "اودیسئوس به غول شراب قوی داد."
+    },
+    {
+     "word": "stake",
+     "pos": "n.",
+     "meaning": {
+      "en": "a sharp pointed stick",
+      "fa": "میلهٔ نوک‌تیز"
+     },
+     "example": "They drove a stake into his eye.",
+     "exampleFa": "میله‌ای در چشمش کردند."
+    },
+    {
+     "word": "flock",
+     "pos": "n.",
+     "meaning": {
+      "en": "a group of sheep",
+      "fa": "گله"
+     },
+     "example": "The giant opened the door for his flock.",
+     "exampleFa": "غول در را برای گله‌اش باز کرد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "set out",
+     "meaning": {
+      "en": "start a journey",
+      "fa": "راه افتادن"
+     },
+     "example": "Telemachus set out to find news.",
+     "exampleFa": "تلماخوس برای یافتن خبر راه افتاد."
+    },
+    {
+     "phrase": "sail on",
+     "meaning": {
+      "en": "continue a voyage",
+      "fa": "به راه ادامه دادن"
+     },
+     "example": "They sailed on to the next island.",
+     "exampleFa": "به سوی جزیرهٔ بعدی رفتند."
+    },
+    {
+     "phrase": "fall asleep",
+     "meaning": {
+      "en": "start sleeping",
+      "fa": "خوابش بردن"
+     },
+     "example": "The giant fell asleep after the wine.",
+     "exampleFa": "غول بعد از شراب خوابش برد."
+    },
+    {
+     "phrase": "call on",
+     "meaning": {
+      "en": "ask a god or person for help loudly",
+      "fa": "به کمک خواندن"
+     },
+     "example": "The Cyclops called on his father.",
+     "exampleFa": "سایکلوپ پدرش را به کمک خواند."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "past perfect had sailed",
+      "fa": "گذشتهٔ کامل had sailed"
+     },
+     "example": "He had sailed with twelve ships.",
+     "note": {
+      "en": "The sailing happened before the island in the story.",
+      "fa": "رفتن با کشتی پیش از رسیدن به جزیره رخ داده بود."
+     }
+    },
+    {
+     "name": {
+      "en": "make somebody + verb",
+      "fa": "make + مفعول + فعل"
+     },
+     "example": "The fruit made them forget their homes.",
+     "note": {
+      "en": "Make plus a bare verb says what something caused.",
+      "fa": "make با فعل بدون to می‌گوید چیزی چه کاری را باعث شد."
+     }
+    },
+    {
+     "name": {
+      "en": "refuse somebody",
+      "fa": "refuse + شخص"
+     },
+     "example": "She refused them all.",
+     "note": {
+      "en": "Refuse takes the person directly, with no to.",
+      "fa": "refuse شخص را بی‌واسطه و بدون to می‌گیرد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Who waits for Odysseus in Ithaca?",
+       "fa": "چه کسی در ایتاکا منتظر اودیسئوس است؟"
+      },
+      "options": [
+       "His brother",
+       "His wife and son",
+       "His sailors",
+       "The sea god"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Penelope and Telemachus keep the house for him.",
+       "fa": "پنه‌لوپه و تلماخوس خانه را برایش نگه می‌دارند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the lotus fruit do?",
+       "fa": "میوهٔ لوتوس چه می‌کند؟"
+      },
+      "options": [
+       "It makes the men strong",
+       "It makes them rich",
+       "It kills them",
+       "It makes them forget home"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "It trades the journey for sweetness.",
+       "fa": "سفر را با شیرینی معاوضه می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "What is a Cyclops?",
+       "fa": "سایکلوپ چیست؟"
+      },
+      "options": [
+       "A giant with one eye",
+       "A sea god",
+       "A king",
+       "A sheep"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "One eye, one door, and a stone across it.",
+       "fa": "یک چشم، یک در و سنگی روی آن."
+      }
+     },
+     {
+      "q": {
+       "en": "How do the men get out of the cave?",
+       "fa": "مردها چگونه از غار بیرون می‌آیند؟"
+      },
+      "options": [
+       "They fight the giant",
+       "They dig a tunnel",
+       "They hide under the sheep",
+       "The god lifts the stone"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The giant lets his flock out and they go with it.",
+       "fa": "غول گله را بیرون می‌برد و آن‌ها با آن بیرون می‌آیند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why is Odysseus so late?",
+       "fa": "چرا اودیسئوس این‌قدر دیر می‌رسد؟"
+      },
+      "options": [
+       "He is lost",
+       "The sea god is angry",
+       "His ship sinks",
+       "He stays with the lotus eaters"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The blinded giant's father answers the call.",
+       "fa": "پدر غول کورشده آن دعا را پاسخ می‌دهد."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Penelope refuses the suitors.",
+       "fa": "پنه‌لوپه خواستگاران را رد می‌کند."
+      },
+      "answer": true,
+      "why": {
+       "en": "She waits while he may still be alive.",
+       "fa": "تا وقتی ممکن است زنده باشد منتظر می‌ماند."
+      }
+     },
+     {
+      "q": {
+       "en": "The lotus fruit makes the men remember home.",
+       "fa": "میوهٔ لوتوس خانه را به یاد مردها می‌آورد."
+      },
+      "answer": false,
+      "why": {
+       "en": "It makes them forget it.",
+       "fa": "آن را فراموششان می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "The giant is killed in the cave.",
+       "fa": "غول در غار کشته می‌شود."
+      },
+      "answer": false,
+      "why": {
+       "en": "He is blinded, not killed.",
+       "fa": "کور می‌شود، نه کشته."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Three men tasted the ___ fruit.",
+      "answer": "lotus",
+      "hint": {
+       "en": "The sweet fruit of forgetfulness.",
+       "fa": "میوهٔ شیرین فراموشی."
+      }
+     },
+     {
+      "sentence": "The men escaped under the ___.",
+      "answer": "sheep",
+      "hint": {
+       "en": "The giant's animals.",
+       "fa": "حیوانات غول."
+      }
+     },
+     {
+      "sentence": "Odysseus gave the giant strong ___.",
+      "answer": "wine",
+      "hint": {
+       "en": "It made him sleep.",
+       "fa": "خوابش را برد."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why does the lotus fruit matter more than the giant?",
+       "fa": "چرا میوهٔ لوتوس از غول مهم‌تر است؟"
+      },
+      "model": {
+       "en": "Because a giant can be escaped and forgetting cannot. The men are dragged out of the cave by force, but nobody can be dragged back to a home they no longer want. The story puts the sweet danger first, and the monster second.",
+       "fa": "چون از غول می‌توان گریخت و از فراموشی نه. مردها را به زور از غار بیرون می‌کشند، اما هیچ‌کس را نمی‌توان به خانه‌ای برد که دیگر نمی‌خواهد. داستان خطر شیرین را اول می‌گذارد و هیولا را دوم."
+      },
+      "tip": {
+       "en": "Say which danger a person can resist, and which one wins.",
+       "fa": "بگو در برابر کدام خطر می‌توان مقاومت کرد و کدام پیروز می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Was Odysseus right to tell the Cyclops his name?",
+       "fa": "اودیسئوس درست کرد که نامش را به سایکلوپ گفت؟"
+      },
+      "model": {
+       "en": "No, and he pays for it for ten years. He shouts his name from the ship because he wants the credit, and the giant uses that name to ask his father for revenge. The cleverest man in the story loses the whole voyage to one proud sentence.",
+       "fa": "نه، و ده سال تاوانش را می‌دهد. از کشتی نامش را فریاد می‌زند چون می‌خواهد شناخته شود، و غول همان نام را برای انتقام از پدرش به کار می‌برد. زیرک‌ترین مرد داستان تمام سفر را با یک جملهٔ مغرورانه از دست می‌دهد."
+      },
+      "tip": {
+       "en": "Find the sentence that costs him the voyage.",
+       "fa": "جمله‌ای را پیدا کن که سفر را از او می‌گیرد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
    "id": "gullivers_travels",
    "title": {
     "en": "Gulliver in Lilliput",
@@ -18627,6 +19055,3366 @@
       "tip": {
        "en": "Give one example of each and say which the story rewards.",
        "fa": "برای هر کدام یک نمونه بیاور و بگو داستان کدام را پاداش می‌دهد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "the_time_machine",
+   "title": {
+    "en": "The Time Machine",
+    "fa": "ماشین زمان"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A scientist builds a machine that carries him to the year 802,701, where the people are gentle and something else lives below.",
+    "fa": "دانشمندی ماشینی می‌سازد که او را به سال ۸۰۲۷۰۱ می‌برد، جایی که مردم مهربان‌اند و چیزی دیگر زیر زمین زندگی می‌کند."
+   },
+   "words": 209,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The fourth dimension",
+      "fa": "بُعد چهارم"
+     },
+     "pairs": [
+      {
+       "en": "The Time Traveller had friends to dinner and told them time was a fourth dimension.",
+       "fa": "مسافر زمان دوستانی را به شام دعوت کرده بود و گفت زمان بُعد چهارم است."
+      },
+      {
+       "en": "They laughed, and he brought out a small machine of metal and ivory.",
+       "fa": "خندیدند و او ماشینی کوچک از فلز و عاج بیرون آورد."
+      },
+      {
+       "en": "He pushed the lever, and the machine disappeared from the table.",
+       "fa": "اهرم را فشار داد و ماشین از روی میز ناپدید شد."
+      },
+      {
+       "en": "The next week he came to dinner late, dirty and tired, and told them where he had been.",
+       "fa": "هفتهٔ بعد دیر، خاک‌آلود و خسته به شام آمد و گفت کجا بوده."
+      },
+      {
+       "en": "He had travelled to the year 802,701 and found a warm green world.",
+       "fa": "به سال ۸۰۲۷۰۱ سفر کرده و دنیایی گرم و سبز یافته بود."
+      },
+      {
+       "en": "The people there were small and gentle, and they played all day and ate fruit.",
+       "fa": "مردم آنجا کوچک و مهربان بودند و تمام روز بازی می‌کردند و میوه می‌خوردند."
+      },
+      {
+       "en": "They had no books, no fire and no fear, and he thought they had won.",
+       "fa": "نه کتابی داشتند، نه آتشی و نه ترسی و او فکر کرد پیروز شده‌اند."
+      },
+      {
+       "en": "Then he found that his machine had been taken.",
+       "fa": "بعد دید ماشینش برده شده است."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Below and beyond",
+      "fa": "زیر و آن‌سوتر"
+     },
+     "pairs": [
+      {
+       "en": "He met the Morlocks, who lived underground and came up only at night.",
+       "fa": "با مورلاک‌ها روبه‌رو شد که زیر زمین زندگی می‌کردند و فقط شب بیرون می‌آمدند."
+      },
+      {
+       "en": "They were pale, strong and hungry, and they took the little people for food.",
+       "fa": "رنگ‌پریده، نیرومند و گرسنه بودند و مردم کوچک را برای خوردن می‌بردند."
+      },
+      {
+       "en": "He followed them down and found his machine in a great hall of machines.",
+       "fa": "دنبالشان به زیر رفت و ماشینش را در تالاری بزرگ از ماشین‌ها یافت."
+      },
+      {
+       "en": "He escaped through a fire and travelled further into the future.",
+       "fa": "از میان آتشی گریخت و دورتر به آینده سفر کرد."
+      },
+      {
+       "en": "There he found a cold red sun, a silent sea and a dying world.",
+       "fa": "آنجا خورشیدی سرخ و سرد، دریایی خاموش و جهانی در حال مرگ یافت."
+      },
+      {
+       "en": "He came back to his own dinner table, and the friends did not believe him.",
+       "fa": "به سفرهٔ شام خودش بازگشت و دوستانش باورش نکردند."
+      },
+      {
+       "en": "He showed them two strange flowers from the future.",
+       "fa": "دو گل عجیب از آینده نشانشان داد."
+      },
+      {
+       "en": "Then he left again with a camera and never came back.",
+       "fa": "بعد دوباره با دوربینی رفت و هرگز برنگشت."
+      }
+     ]
+    }
+   ],
+   "text": "The Time Traveller had friends to dinner and told them time was a fourth dimension. They laughed, and he brought out a small machine of metal and ivory. He pushed the lever, and the machine disappeared from the table. The next week he came to dinner late, dirty and tired, and told them where he had been. He had travelled to the year 802,701 and found a warm green world. The people there were small and gentle, and they played all day and ate fruit. They had no books, no fire and no fear, and he thought they had won. Then he found that his machine had been taken. He met the Morlocks, who lived underground and came up only at night. They were pale, strong and hungry, and they took the little people for food. He followed them down and found his machine in a great hall of machines. He escaped through a fire and travelled further into the future. There he found a cold red sun, a silent sea and a dying world. He came back to his own dinner table, and the friends did not believe him. He showed them two strange flowers from the future. Then he left again with a camera and never came back.",
+   "vocab": [
+    {
+     "word": "dimension",
+     "pos": "n.",
+     "meaning": {
+      "en": "one direction of space or time",
+      "fa": "بُعد"
+     },
+     "example": "Time is a fourth dimension.",
+     "exampleFa": "زمان بُعد چهارم است."
+    },
+    {
+     "word": "lever",
+     "pos": "n.",
+     "meaning": {
+      "en": "a bar you push to work a machine",
+      "fa": "اهرم"
+     },
+     "example": "He pushed the lever.",
+     "exampleFa": "اهرم را فشار داد."
+    },
+    {
+     "word": "machine",
+     "pos": "n.",
+     "meaning": {
+      "en": "a thing built to do work",
+      "fa": "ماشین"
+     },
+     "example": "The small machine disappeared.",
+     "exampleFa": "ماشین کوچک ناپدید شد."
+    },
+    {
+     "word": "underground",
+     "pos": "adv.",
+     "meaning": {
+      "en": "below the surface of the earth",
+      "fa": "زیر زمین"
+     },
+     "example": "The Morlocks lived underground.",
+     "exampleFa": "مورلاک‌ها زیر زمین زندگی می‌کردند."
+    },
+    {
+     "word": "future",
+     "pos": "n.",
+     "meaning": {
+      "en": "the time that has not come yet",
+      "fa": "آینده"
+     },
+     "example": "He travelled into the future.",
+     "exampleFa": "به آینده سفر کرد."
+    },
+    {
+     "word": "camera",
+     "pos": "n.",
+     "meaning": {
+      "en": "a machine that takes pictures",
+      "fa": "دوربین"
+     },
+     "example": "He left with a camera.",
+     "exampleFa": "با دوربینی رفت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "bring out",
+     "meaning": {
+      "en": "show something you had kept",
+      "fa": "بیرون آوردن"
+     },
+     "example": "He brought out a small machine.",
+     "exampleFa": "ماشینی کوچک بیرون آورد."
+    },
+    {
+     "phrase": "come back",
+     "meaning": {
+      "en": "return",
+      "fa": "بازگشتن"
+     },
+     "example": "He came back to his own table.",
+     "exampleFa": "به سفرهٔ خودش بازگشت."
+    },
+    {
+     "phrase": "far into",
+     "meaning": {
+      "en": "a long way inside or beyond",
+      "fa": "دورتر به درون"
+     },
+     "example": "He travelled further into the future.",
+     "exampleFa": "دورتر به آینده سفر کرد."
+    },
+    {
+     "phrase": "never came back",
+     "meaning": {
+      "en": "did not return at all",
+      "fa": "هرگز برنگشت"
+     },
+     "example": "He left and never came back.",
+     "exampleFa": "رفت و هرگز برنگشت."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "had travelled, past perfect",
+      "fa": "گذشتهٔ کامل had travelled"
+     },
+     "example": "He had travelled to the year 802,701.",
+     "note": {
+      "en": "The journey is finished before he tells the story.",
+      "fa": "سفر پیش از تعریف کردن داستان تمام شده است."
+     }
+    },
+    {
+     "name": {
+      "en": "thought they had won",
+      "fa": "thought + گذشتهٔ کامل"
+     },
+     "example": "He thought they had won.",
+     "note": {
+      "en": "The winning happened before he thought about it.",
+      "fa": "پیروزی پیش از اندیشیدن او رخ داده بود."
+     }
+    },
+    {
+     "name": {
+      "en": "further into",
+      "fa": "further into، دورتر به درون"
+     },
+     "example": "He travelled further into the future.",
+     "note": {
+      "en": "Further marks how far the movement went.",
+      "fa": "further می‌گوید حرکت تا کجا رفت."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What is time, for the Traveller?",
+       "fa": "زمان از نظر مسافر چیست؟"
+      },
+      "options": [
+       "A river",
+       "A fourth dimension",
+       "A dream",
+       "A machine"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He says men should move in it like the other three.",
+       "fa": "می‌گوید آدم‌ها باید مثل سه بُعد دیگر در آن حرکت کنند."
+      }
+     },
+     {
+      "q": {
+       "en": "What happens to the small machine?",
+       "fa": "بر سر ماشین کوچک چه می‌آید؟"
+      },
+      "options": [
+       "It disappears",
+       "It breaks",
+       "It grows",
+       "It burns"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "It leaves the table in front of them.",
+       "fa": "جلوی چشمشان از میز می‌رود."
+      }
+     },
+     {
+      "q": {
+       "en": "Who are the Morlocks?",
+       "fa": "مورلاک‌ها کیستند؟"
+      },
+      "options": [
+       "Farmers",
+       "The little people",
+       "Pale people underground",
+       "His friends"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They come up only at night.",
+       "fa": "فقط شب بیرون می‌آیند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does he bring back?",
+       "fa": "چه چیزی با خود برمی‌گرداند؟"
+      },
+      "options": [
+       "Gold",
+       "A machine",
+       "A camera",
+       "Two flowers"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "Two strange flowers are his proof.",
+       "fa": "دو گل عجیب مدرک اوست."
+      }
+     },
+     {
+      "q": {
+       "en": "How do the friends react?",
+       "fa": "دوستانش چه واکنشی نشان می‌دهند؟"
+      },
+      "options": [
+       "They do not believe him",
+       "They cheer",
+       "They are angry",
+       "They leave"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "Only the flowers make them wonder.",
+       "fa": "فقط گل‌ها به فکرشام می‌اندازند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The little people are gentle.",
+       "fa": "مردم کوچک مهربان‌اند."
+      },
+      "answer": true,
+      "why": {
+       "en": "They play and eat fruit all day.",
+       "fa": "تمام روز بازی می‌کنند و میوه می‌خورند."
+      }
+     },
+     {
+      "q": {
+       "en": "The Morlocks live in the sun.",
+       "fa": "مورلاک‌ها در آفتاب زندگی می‌کنند."
+      },
+      "answer": false,
+      "why": {
+       "en": "They live underground, away from light.",
+       "fa": "زیر زمین و دور از نور زندگی می‌کنند."
+      }
+     },
+     {
+      "q": {
+       "en": "He leaves again and never returns.",
+       "fa": "دوباره می‌رود و هرگز برنمی‌گردد."
+      },
+      "answer": true,
+      "why": {
+       "en": "The last line says he did not come back.",
+       "fa": "جملهٔ آخر می‌گوید برنگشت."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "He pushed the ___.",
+      "answer": "lever",
+      "hint": {
+       "en": "A bar on the machine.",
+       "fa": "میله‌ای روی ماشین."
+      }
+     },
+     {
+      "sentence": "The small ___ disappeared.",
+      "answer": "machine",
+      "hint": {
+       "en": "What he built.",
+       "fa": "چیزی که ساخت."
+      }
+     },
+     {
+      "sentence": "He travelled into the ___.",
+      "answer": "future",
+      "hint": {
+       "en": "Time that has not come yet.",
+       "fa": "زمانی که هنوز نیامده."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why are the gentle people a warning, not a happy ending?",
+       "fa": "چرا مردم مهربان هشدارند، نه پایان خوش؟"
+      },
+      "model": {
+       "en": "Because they have no curiosity left. They laugh, eat fruit and play, and they cannot answer a single question about their own world; the machines below keep them fed. A people with no struggle has lost the thing that made it a people, and the Traveller's first impression turns out to be the horror.",
+       "fa": "چون کنجکاوی‌شان تمام شده است. می‌خندند، میوه می‌خورند و بازی می‌کنند و نمی‌توانند به یک پرسش دربارهٔ دنیای خودشان پاسخ دهند؛ ماشین‌های زیر زمین غذا را نگه می‌دارند. مردمی بی‌کوشش چیزی را از دست داده‌اند که آن‌ها را مردم می‌کرد و برداشت نخست مسافر وحشت می‌شود."
+      },
+      "tip": {
+       "en": "Ask what they have lost, not what they have gained.",
+       "fa": "بپرس چه از دست داده‌اند، نه چه به دست آورده‌اند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the empty future at the end add to the story?",
+       "fa": "آیندهٔ خالی پایان چه چیزی به داستان می‌افزاید؟"
+      },
+      "model": {
+       "en": "It takes away the last comfort. Even the struggle between the two peoples ends, and what remains is a red sun and a silent sea, with no one to notice it. The machine that was a party trick now shows the Traveller that his own species is a short moment.",
+       "fa": "آخرین آسودگی را هم می‌گیرد. حتی ستیز دو قوم پایان می‌یابد و آنچه می‌ماند خورشیدی سرخ و دریایی خاموش است بی کسی که ببیندش. ماشینی که شعبدهٔ یک مهمانی بود اکنون نشان می‌دهد گونهٔ خود او لحظه‌ای کوتاه است."
+      },
+      "tip": {
+       "en": "Say what the far future removes that the near future still had.",
+       "fa": "بگو آیندهٔ دور چه چیزی را برمی‌دارد که آیندهٔ نزدیک هنوز داشت."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "hound_of_the_baskervilles",
+   "title": {
+    "en": "The Hound of the Baskervilles",
+    "fa": "سگ باسکرویل‌ها"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A family dies of fear on the moor, and the print beside the body belongs to a dog nobody has seen.",
+    "fa": "خانواده‌ای در دشت از ترس می‌میرد و رد پای کنار جنازه از سگی است که کسی ندیده."
+   },
+   "words": 211,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The curse",
+      "fa": "نفرین"
+     },
+     "pairs": [
+      {
+       "en": "Holmes and Watson sat in Baker Street when a visitor left a stick with a gold band.",
+       "fa": "هولمز و واتسون در خیابان بیکر نشسته بودند که مهمانی عصایی با حلقهٔ طلا جا گذاشت."
+      },
+      {
+       "en": "Holmes read a name on the band and knew the man before he arrived.",
+       "fa": "هولمز نامی روی حلقه خواند و مرد را پیش از رسیدنش شناخت."
+      },
+      {
+       "en": "Doctor Mortimer came in and read an old paper about a family curse.",
+       "fa": "دکتر مورتیمر وارد شد و کاغذی کهن دربارهٔ نفرین خانواده خواند."
+      },
+      {
+       "en": "A cruel Baskerville had once chased a girl across the moor.",
+       "fa": "باسکرویلی بی‌رحم روزی دختری را در دشت دنبال کرده بود."
+      },
+      {
+       "en": "A great hound had killed him, and the family had feared it ever since.",
+       "fa": "سگی بزرگ او را کشته بود و خانواده از آن پس از آن می‌ترسید."
+      },
+      {
+       "en": "Sir Charles Baskerville died on the path, and a hound's print was near him.",
+       "fa": "سر چارلز باسکرویل در راه مرد و رد سگی نزدیکش بود."
+      },
+      {
+       "en": "His heir, Sir Henry, was coming from America to take the house.",
+       "fa": "وارث او، سر هنری، از آمریکا می‌آمد تا خانه را بگیرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The light on the moor",
+      "fa": "نور روی دشت"
+     },
+     "pairs": [
+      {
+       "en": "Holmes could not leave London, so he sent Watson to Devon with Sir Henry.",
+       "fa": "هولمز نمی‌توانست لندن را ترک کند، پس واتسون را با سر هنری به دون فرستاد."
+      },
+      {
+       "en": "On the moor Watson heard a long cry at night and saw a light on the hills.",
+       "fa": "در دشت واتسون شب فریادی طولانی شنید و نوری روی تپه‌ها دید."
+      },
+      {
+       "en": "A convict had escaped and was hiding on the moor.",
+       "fa": "زندانی‌ای گریخته بود و در دشت پنهان می‌شد."
+      },
+      {
+       "en": "Watson met Stapleton, a quiet man who knew every bird and plant there.",
+       "fa": "واتسون با استپلتون آشنا شد، مردی آرام که هر پرنده و گیاه آنجا را می‌شناخت."
+      },
+      {
+       "en": "Stapleton's sister warned Sir Henry to go back to London.",
+       "fa": "خواهر استپلتون به سر هنری هشدار داد به لندن برگردد."
+      },
+      {
+       "en": "Holmes came in secret and found that Stapleton kept a hound in a hut.",
+       "fa": "هولمز پنهانی آمد و یافت که استپلتون سگی در کلبه‌ای نگه می‌دارد."
+      },
+      {
+       "en": "Stapleton was a Baskerville himself and wanted the house and the money.",
+       "fa": "استپلتون خودش باسکرویل بود و خانه و پول را می‌خواست."
+      },
+      {
+       "en": "He painted the dog with phosphorus so it shone in the dark.",
+       "fa": "سگ را با فسفر رنگ کرد تا در تاریکی بدرخشد."
+      },
+      {
+       "en": "The hound ran at Sir Henry, and Holmes shot it before it reached him.",
+       "fa": "سگ به سوی سر هنری دوید و هولمز پیش از رسیدنش تیر زد."
+      }
+     ]
+    }
+   ],
+   "text": "Holmes and Watson sat in Baker Street when a visitor left a stick with a gold band. Holmes read a name on the band and knew the man before he arrived. Doctor Mortimer came in and read an old paper about a family curse. A cruel Baskerville had once chased a girl across the moor. A great hound had killed him, and the family had feared it ever since. Sir Charles Baskerville died on the path, and a hound's print was near him. His heir, Sir Henry, was coming from America to take the house. Holmes could not leave London, so he sent Watson to Devon with Sir Henry. On the moor Watson heard a long cry at night and saw a light on the hills. A convict had escaped and was hiding on the moor. Watson met Stapleton, a quiet man who knew every bird and plant there. Stapleton's sister warned Sir Henry to go back to London. Holmes came in secret and found that Stapleton kept a hound in a hut. Stapleton was a Baskerville himself and wanted the house and the money. He painted the dog with phosphorus so it shone in the dark. The hound ran at Sir Henry, and Holmes shot it before it reached him.",
+   "vocab": [
+    {
+     "word": "hound",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large hunting dog",
+      "fa": "سگ شکاری"
+     },
+     "example": "A great hound had killed him.",
+     "exampleFa": "سگی بزرگ او را کشته بود."
+    },
+    {
+     "word": "curse",
+     "pos": "n.",
+     "meaning": {
+      "en": "a magic words that brings bad luck",
+      "fa": "نفرین"
+     },
+     "example": "The paper told of a family curse.",
+     "exampleFa": "کاغذ از نفرین خانواده می‌گفت."
+    },
+    {
+     "word": "moor",
+     "pos": "n.",
+     "meaning": {
+      "en": "open wild land with grass and hills",
+      "fa": "دشت"
+     },
+     "example": "She ran across the moor.",
+     "exampleFa": "در دشت دوید."
+    },
+    {
+     "word": "heir",
+     "pos": "n.",
+     "meaning": {
+      "en": "the person who gets a family's things",
+      "fa": "وارث"
+     },
+     "example": "His heir was coming from America.",
+     "exampleFa": "وارثش از آمریکا می‌آمد."
+    },
+    {
+     "word": "convict",
+     "pos": "n.",
+     "meaning": {
+      "en": "a prisoner",
+      "fa": "زندانی"
+     },
+     "example": "A convict was hiding on the moor.",
+     "exampleFa": "زندانی‌ای در دشت پنهان می‌شد."
+    },
+    {
+     "word": "phosphorus",
+     "pos": "n.",
+     "meaning": {
+      "en": "a substance that glows in the dark",
+      "fa": "فسفر"
+     },
+     "example": "He painted the dog with phosphorus.",
+     "exampleFa": "سگ را با فسفر رنگ کرد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "ever since",
+     "meaning": {
+      "en": "from that time until now",
+      "fa": "از آن زمان تا حالا"
+     },
+     "example": "The family had feared it ever since.",
+     "exampleFa": "خانواده از آن زمان از آن می‌ترسید."
+    },
+    {
+     "phrase": "take the house",
+     "meaning": {
+      "en": "become the owner of a house",
+      "fa": "خانه را تحویل گرفتن"
+     },
+     "example": "He came to take the house.",
+     "exampleFa": "آمد تا خانه را تحویل بگیرد."
+    },
+    {
+     "phrase": "in secret",
+     "meaning": {
+      "en": "without telling anyone",
+      "fa": "پنهانی"
+     },
+     "example": "Holmes came in secret.",
+     "exampleFa": "هولمز پنهانی آمد."
+    },
+    {
+     "phrase": "run at",
+     "meaning": {
+      "en": "move quickly towards somebody",
+      "fa": "به سوی کسی دویدن"
+     },
+     "example": "The hound ran at Sir Henry.",
+     "exampleFa": "سگ به سوی سر هنری دوید."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "had killed, past perfect",
+      "fa": "گذشتهٔ کامل had killed"
+     },
+     "example": "A hound had killed him long before.",
+     "note": {
+      "en": "The killing happened generations before the story.",
+      "fa": "کشتن نسل‌ها پیش از داستان رخ داده بود."
+     }
+    },
+    {
+     "name": {
+      "en": "so + clause, result",
+      "fa": "so + جمله برای نتیجه"
+     },
+     "example": "Holmes could not leave, so he sent Watson.",
+     "note": {
+      "en": "So joins the reason to what it caused.",
+      "fa": "so سبب را به نتیجه‌اش می‌چسباند."
+     }
+    },
+    {
+     "name": {
+      "en": "warn somebody to + verb",
+      "fa": "warn somebody to + فعل"
+     },
+     "example": "She warned him to go back to London.",
+     "note": {
+      "en": "Warn to names the action that avoids the danger.",
+      "fa": "warn to کاری را می‌گوید که خطر را دور می‌کند."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What is the family curse?",
+       "fa": "نفرین خانواده چیست؟"
+      },
+      "options": [
+       "A flood",
+       "A fire",
+       "A great hound",
+       "A ghost"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "A dog that killed the first cruel Baskerville.",
+       "fa": "سگی که نخستین باسکرویل بی‌رحم را کشت."
+      }
+     },
+     {
+      "q": {
+       "en": "Who goes to Devon?",
+       "fa": "چه کسی به دون می‌رود؟"
+      },
+      "options": [
+       "Holmes",
+       "Watson",
+       "Lanyon",
+       "Mortimer"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "Holmes stays in London and sends his friend.",
+       "fa": "هولمز در لندن می‌ماند و دوستش را می‌فرستد."
+      }
+     },
+     {
+      "q": {
+       "en": "Who keeps the hound?",
+       "fa": "چه کسی سگ را نگه می‌دارد؟"
+      },
+      "options": [
+       "Sir Henry",
+       "The convict",
+       "Mortimer",
+       "Stapleton"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "It is in a hut on his land.",
+       "fa": "در کلبه‌ای در زمین اوست."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the dog shine?",
+       "fa": "چرا سگ می‌درخشد؟"
+      },
+      "options": [
+       "It is painted with phosphorus",
+       "It is wet",
+       "It is a ghost",
+       "It carries a lamp"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The paint makes it look like fire in the dark.",
+       "fa": "رنگ آن را در تاریکی مثل آتش نشان می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does Stapleton want the house?",
+       "fa": "چرا استپلتون خانه را می‌خواهد؟"
+      },
+      "options": [
+       "He is a Baskerville and wants the money",
+       "He wants a garden",
+       "He is afraid of London",
+       "He works for Sir Henry"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He is a hidden heir with nothing.",
+       "fa": "وارثی پنهان و بی‌چیز."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Watson hears a cry at night on the moor.",
+       "fa": "واتسون شب در دشت فریادی می‌شنود."
+      },
+      "answer": true,
+      "why": {
+       "en": "It is the hound, and he does not know it yet.",
+       "fa": "همان سگ است و هنوز نمی‌داند."
+      }
+     },
+     {
+      "q": {
+       "en": "Holmes goes to Devon at once.",
+       "fa": "هولمز فوراً به دون می‌رود."
+      },
+      "answer": false,
+      "why": {
+       "en": "He sends Watson first and comes in secret.",
+       "fa": "اول واتسون را می‌فرستد و پنهانی می‌آید."
+      }
+     },
+     {
+      "q": {
+       "en": "Stapleton is a Baskerville.",
+       "fa": "استپلتون باسکرویل است."
+      },
+      "answer": true,
+      "why": {
+       "en": "That is his reason for the whole plot.",
+       "fa": "دلیل تمام نقشه همین است."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "A great ___ killed the first Baskerville.",
+      "answer": "hound",
+      "hint": {
+       "en": "A large hunting dog.",
+       "fa": "سگ شکاری بزرگ."
+      }
+     },
+     {
+      "sentence": "She ran across the ___.",
+      "answer": "moor",
+      "hint": {
+       "en": "Open wild land.",
+       "fa": "زمین باز و وحشی."
+      }
+     },
+     {
+      "sentence": "The paper told of a family ___.",
+      "answer": "curse",
+      "hint": {
+       "en": "Bad luck laid on a family.",
+       "fa": "بدبیاری بر یک خانواده."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why does the legend work better than the dog?",
+       "fa": "چرا افسانه از خود سگ بهتر کار می‌کند؟"
+      },
+      "model": {
+       "en": "Because a dog can be shot and a story cannot. The Baskervilles have been afraid for generations before anything appears, and Sir Charles dies of running from something he expected to see. Stapleton only has to keep the story alive and add a light in the dark.",
+       "fa": "چون سگ را می‌توان زد و داستان را نه. باسکرویل‌ها نسل‌ها پیش از اینکه چیزی پیدا شود می‌ترسیدند و سر چارلز از ترس چیزی می‌میرد که انتظار دیدنش را داشت. استپلتون فقط باید داستان را زنده نگه دارد و نوری در تاریکی بیفزاید."
+      },
+      "tip": {
+       "en": "Separate what the family fears from what is actually there.",
+       "fa": "آنچه خانواده از آن می‌ترسد را از آنچه واقعاً هست جدا کن."
+      }
+     },
+     {
+      "q": {
+       "en": "Why is Watson a good narrator for the middle of the book?",
+       "fa": "چرا واتسون راوی خوبی برای میانهٔ کتاب است؟"
+      },
+      "model": {
+       "en": "Because he is brave, honest and a little slow. He walks the moor, writes down what he sees and misses the answer that Holmes sees from London, so the reader has someone to stand beside. A clever narrator would have solved it on page twenty.",
+       "fa": "چون شجاع، صادق و کمی کند است. در دشت قدم می‌زند، آنچه می‌بیند می‌نویسد و پاسخ را نمی‌بیند، همان پاسخی که هولمز از لندن می‌بیند، پس خواننده کسی را دارد که کنارش بایستد. راوی زیرک در صفحهٔ بیستم معما را حل کرده بود."
+      },
+      "tip": {
+       "en": "Say what the story gains from a narrator who is not the detective.",
+       "fa": "بگو داستان از راوی‌ای که کارآگاه نیست چه به دست می‌آورد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "the_war_of_the_worlds",
+   "title": {
+    "en": "The War of the Worlds",
+    "fa": "جنگ دنیاها"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "Cylinders fall on England, machines walk over the towns, and the army cannot stop them for a single day.",
+    "fa": "استوانه‌هایی روی انگلستان می‌افتند، ماشین‌ها از شهرها می‌گذرند و ارتش یک روز هم مقاومت نمی‌کند."
+   },
+   "words": 212,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The falling star",
+      "fa": "ستارهٔ افتاده"
+     },
+     "pairs": [
+      {
+       "en": "On Mars, minds in a dying world planned a move to the warm Earth.",
+       "fa": "روی مریخ، اندیشه‌هایی در جهانی در حال مرگ نقشهٔ رفتن به زمین گرم را کشیدند."
+      },
+      {
+       "en": "On Earth nobody was afraid, and people watched the red light with interest.",
+       "fa": "روی زمین کسی نمی‌ترسید و مردم با کنجکاوی نور سرخ را می‌دیدند."
+      },
+      {
+       "en": "Ogilvy the astronomer saw a flame on the planet and said it was burning gas.",
+       "fa": "اُگیلوی ستاره‌شناس شراره‌ای روی سیاره دید و گفت گاز سوزان است."
+      },
+      {
+       "en": "A green star fell near Horsell, and in the morning Ogilvy took the narrator to see it.",
+       "fa": "ستاره‌ای سبز نزدیک هورسل افتاد و صبح اُگیلوی راوی را برای دیدنش برد."
+      },
+      {
+       "en": "A great metal cylinder lay half buried in the hot sand.",
+       "fa": "استوانه‌ای بزرگ فلزی نیمه‌دفن در ماسهٔ داغ افتاده بود."
+      },
+      {
+       "en": "The top unscrewed, and something grey and wet climbed out slowly.",
+       "fa": "سرش باز شد و چیزی خاکستری و خیس آهسته بیرون آمد."
+      },
+      {
+       "en": "It was a machine with long metal legs and a hood, taller than a house.",
+       "fa": "ماشینی بود با پاهای فلزی بلند و سرپوشی، بلندتر از یک خانه."
+      },
+      {
+       "en": "The people ran, and the army came with guns.",
+       "fa": "مردم گریختند و ارتش با تفنگ آمد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The smallest enemy",
+      "fa": "کوچک‌ترین دشمن"
+     },
+     "pairs": [
+      {
+       "en": "A flag party went forward under a white flag, and the machine burned them with a beam.",
+       "fa": "گروهی با پرچم سفید جلو رفتند و ماشین آن‌ها را با پرتویی سوزاند."
+      },
+      {
+       "en": "The narrator ran home and found his wife, and they left the town.",
+       "fa": "راوی به خانه دوید و همسرش را یافت و شهر را ترک کردند."
+      },
+      {
+       "en": "The machines walked across England, burning towns and breaking bridges.",
+       "fa": "ماشین‌ها از انگلستان گذشتند، شهرها را سوزاندند و پل‌ها را شکستند."
+      },
+      {
+       "en": "The narrator hid in a house with a curate, and they watched a machine day and night.",
+       "fa": "راوی با کشیشی در خانه‌ای پنهان شد و شبانه‌روز ماشینی را می‌پاییدند."
+      },
+      {
+       "en": "Ships were sunk, and people filled the roads with carts and children.",
+       "fa": "کشتی‌ها غرق شدند و مردم جاده‌ها را با گاری و کودک پر کردند."
+      },
+      {
+       "en": "Then the machines stopped, and the narrator found one fallen in a field.",
+       "fa": "بعد ماشین‌ها ایستادند و راوی یکی را افتاده در کشتزاری یافت."
+      },
+      {
+       "en": "The Martians had no defence against the smallest living things on Earth.",
+       "fa": "مریخی‌ها هیچ دفاعی در برابر کوچک‌ترین موجودات زندهٔ زمین نداشتند."
+      },
+      {
+       "en": "They died of a common cold, and the planet was saved by bacteria.",
+       "fa": "از سرماخوردگی معمولی مردند و سیاره با باکتری نجات یافت."
+      }
+     ]
+    }
+   ],
+   "text": "On Mars, minds in a dying world planned a move to the warm Earth. On Earth nobody was afraid, and people watched the red light with interest. Ogilvy the astronomer saw a flame on the planet and said it was burning gas. A green star fell near Horsell, and in the morning Ogilvy took the narrator to see it. A great metal cylinder lay half buried in the hot sand. The top unscrewed, and something grey and wet climbed out slowly. It was a machine with long metal legs and a hood, taller than a house. The people ran, and the army came with guns. A flag party went forward under a white flag, and the machine burned them with a beam. The narrator ran home and found his wife, and they left the town. The machines walked across England, burning towns and breaking bridges. The narrator hid in a house with a curate, and they watched a machine day and night. Ships were sunk, and people filled the roads with carts and children. Then the machines stopped, and the narrator found one fallen in a field. The Martians had no defence against the smallest living things on Earth. They died of a common cold, and the planet was saved by bacteria.",
+   "vocab": [
+    {
+     "word": "cylinder",
+     "pos": "n.",
+     "meaning": {
+      "en": "a long round object with flat ends",
+      "fa": "استوانه"
+     },
+     "example": "A cylinder lay in the sand.",
+     "exampleFa": "استوانه‌ای در ماسه افتاده بود."
+    },
+    {
+     "word": "astronomer",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who studies the stars",
+      "fa": "ستاره‌شناس"
+     },
+     "example": "Ogilvy was an astronomer.",
+     "exampleFa": "اُگیلوی ستاره‌شناس بود."
+    },
+    {
+     "word": "machine",
+     "pos": "n.",
+     "meaning": {
+      "en": "a thing built to do work",
+      "fa": "ماشین"
+     },
+     "example": "The machine was taller than a house.",
+     "exampleFa": "ماشین بلندتر از یک خانه بود."
+    },
+    {
+     "word": "beam",
+     "pos": "n.",
+     "meaning": {
+      "en": "a line of light or heat",
+      "fa": "پرتوی"
+     },
+     "example": "It burned them with a beam.",
+     "exampleFa": "با پرتویی سوزاندشان."
+    },
+    {
+     "word": "bacteria",
+     "pos": "n.",
+     "meaning": {
+      "en": "the smallest living things, too small to see",
+      "fa": "باکتری"
+     },
+     "example": "Bacteria saved the planet.",
+     "exampleFa": "باکتری سیاره را نجات داد."
+    },
+    {
+     "word": "defence",
+     "pos": "n.",
+     "meaning": {
+      "en": "something that keeps you safe",
+      "fa": "دفاع"
+     },
+     "example": "They had no defence against it.",
+     "exampleFa": "هیچ دفاعی در برابرش نداشتند."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "half buried",
+     "meaning": {
+      "en": "partly under the ground",
+      "fa": "نیمه‌دفن"
+     },
+     "example": "It lay half buried in the sand.",
+     "exampleFa": "نیمه‌دفن در ماسه افتاده بود."
+    },
+    {
+     "phrase": "climb out",
+     "meaning": {
+      "en": "come out slowly and with effort",
+      "fa": "بیرون آمدن"
+     },
+     "example": "Something grey climbed out.",
+     "exampleFa": "چیزی خاکستری بیرون آمد."
+    },
+    {
+     "phrase": "go forward",
+     "meaning": {
+      "en": "move towards the enemy",
+      "fa": "جلو رفتن"
+     },
+     "example": "A flag party went forward.",
+     "exampleFa": "گروهی با پرچم جلو رفتند."
+    },
+    {
+     "phrase": "day and night",
+     "meaning": {
+      "en": "all the time",
+      "fa": "شبانه‌روز"
+     },
+     "example": "They watched it day and night.",
+     "exampleFa": "شبانه‌روز می‌پاییدندش."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "had no defence against",
+      "fa": "هیچ دفاعی نداشتن در برابر"
+     },
+     "example": "They had no defence against bacteria.",
+     "note": {
+      "en": "Have no defence against names the thing that wins.",
+      "fa": "have no defence against چیزی را نام می‌برد که پیروز می‌شود."
+     }
+    },
+    {
+     "name": {
+      "en": "was saved by",
+      "fa": "مجهول گذشته with by"
+     },
+     "example": "The planet was saved by bacteria.",
+     "note": {
+      "en": "The passive with by names the unexpected helper.",
+      "fa": "مجهول با by کنندهٔ غافلگیرکننده را می‌گوید."
+     }
+    },
+    {
+     "name": {
+      "en": "taller than a house",
+      "fa": "صفت تفضیلی با than"
+     },
+     "example": "The machine was taller than a house.",
+     "note": {
+      "en": "Comparative plus than compares two things.",
+      "fa": "صفت تفضیلی با than دو چیز را مقایسه می‌کند."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Where do the invaders come from?",
+       "fa": "مهاجمان از کجا می‌آیند؟"
+      },
+      "options": [
+       "The moon",
+       "The sea",
+       "The sun",
+       "Mars"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "A dying world next to Earth.",
+       "fa": "جهانی در حال مرگ کنار زمین."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the cylinder arrive?",
+       "fa": "استوانه چگونه می‌رسد؟"
+      },
+      "options": [
+       "By ship",
+       "It falls from the sky",
+       "By train",
+       "In a box"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "It is a green star that lands in the sand.",
+       "fa": "ستاره‌ای سبز است که در ماسه می‌نشیند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the machine do to the flag party?",
+       "fa": "ماشین با گروه پرچم سفید چه می‌کند؟"
+      },
+      "options": [
+       "It burns them",
+       "It takes them",
+       "It helps them",
+       "It hides"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The white flag makes no difference.",
+       "fa": "پرچم سفید هیچ تفاوتی نمی‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "How do the Martians die?",
+       "fa": "مریخی‌ها چگونه می‌میرند؟"
+      },
+      "options": [
+       "In a battle",
+       "Of hunger",
+       "From Earth's smallest living things",
+       "In the sea"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "A common cold is enough.",
+       "fa": "یک سرماخوردگی کافی است."
+      }
+     },
+     {
+      "q": {
+       "en": "Who is Ogilvy?",
+       "fa": "اُگیلوی کیست؟"
+      },
+      "options": [
+       "A soldier",
+       "An astronomer",
+       "A curate",
+       "The narrator's brother"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He owns the telescope on the roof.",
+       "fa": "تلسکوپ روی بام از آنِ اوست."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The Martians have no defence against bacteria.",
+       "fa": "مریخی‌ها در برابر باکتری دفاعی ندارند."
+      },
+      "answer": true,
+      "why": {
+       "en": "That is what ends the war.",
+       "fa": "همان چیزی است که جنگ را تمام می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "The army defeats the machines.",
+       "fa": "ارتش ماشین‌ها را شکست می‌دهد."
+      },
+      "answer": false,
+      "why": {
+       "en": "Guns do nothing against them.",
+       "fa": "تفنگ‌ها هیچ کاری نمی‌کنند."
+      }
+     },
+     {
+      "q": {
+       "en": "People flee the towns.",
+       "fa": "مردم شهرها را ترک می‌کنند."
+      },
+      "answer": true,
+      "why": {
+       "en": "The roads fill with carts and children.",
+       "fa": "جاده‌ها پر از گاری و کودک می‌شود."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "A great metal ___ lay in the sand.",
+      "answer": "cylinder",
+      "hint": {
+       "en": "A long round object.",
+       "fa": "شیء بلند و گرد."
+      }
+     },
+     {
+      "sentence": "It burned the men with a ___.",
+      "answer": "beam",
+      "hint": {
+       "en": "A line of heat.",
+       "fa": "خطی از گرما."
+      }
+     },
+     {
+      "sentence": "They died of a cold caused by ___.",
+      "answer": "bacteria",
+      "hint": {
+       "en": "The smallest living things.",
+       "fa": "کوچک‌ترین موجودات زنده."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why is the ending quiet rather than heroic?",
+       "fa": "چرا پایان آرام است و نه پهلوانی؟"
+      },
+      "model": {
+       "en": "Because nobody earns it. The guns fail, the ships sink and the narrator spends the last days in a cupboard; the invaders are killed by a cold, which is the least dramatic weapon possible. The story is saying that being at the top of the world was luck, not a right.",
+       "fa": "چون کسی به دستش نمی‌آورد. تفنگ‌ها کار نمی‌کنند، کشتی‌ها غرق می‌شوند و راوی روزهای آخر را در گنجه‌ای می‌گذراند؛ مهاجمان را سرماخوردگی می‌کشد که کم‌دراماتیک‌ترین سلاح ممکن است. داستان می‌گوید صدرنشینی در جهان بخت بود، نه حق."
+      },
+      "tip": {
+       "en": "Name who does the saving, and whether anyone chose it.",
+       "fa": "بگو چه کسی نجات می‌دهد و آیا کسی آن را انتخاب کرد."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does the narrator stay with the curate?",
+       "fa": "چرا راوی با کشیش می‌ماند؟"
+      },
+      "model": {
+       "en": "Because fear needs company, and the curate is the worst company available. He argues with God while the machines walk past the window, and his noise nearly gets them killed. The narrator stays because leaving a frightened man alone in a ruined town is its own kind of cruelty.",
+       "fa": "چون ترس همدم می‌خواهد و کشیش بدترین همدم ممکن است. با خدا بحث می‌کند در حالی که ماشین‌ها از برابر پنجره می‌گذرند و سر و صدایش نزدیک است هر دو را بکشد. راوی می‌ماند چون رها کردن مردی ترسیده در شهری ویران خودش نوعی بی‌رحمی است."
+      },
+      "tip": {
+       "en": "Weigh the danger against the reason for staying.",
+       "fa": "خطر را با دلیل ماندن بسنج."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "dracula",
+   "title": {
+    "en": "Dracula",
+    "fa": "دراکولا"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A lawyer travels to a castle in the mountains, and the man who greets him has no reflection in the mirror.",
+    "fa": "وکیلی به قصری در کوهستان می‌رود و مردی که به پیشوازش می‌آید در آینه انعکاسی ندارد."
+   },
+   "words": 215,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The castle",
+      "fa": "قصر"
+     },
+     "pairs": [
+      {
+       "en": "Jonathan Harker was sent to Transylvania to help a rich Count buy a house in England.",
+       "fa": "جاناتان هارکر به ترانسیلوانیا فرستاده شد تا به کنتی ثروتمند برای خریدن خانه‌ای در انگلستان کمک کند."
+      },
+      {
+       "en": "He left his wife Mina and travelled east, and the people at the inn were afraid.",
+       "fa": "همسرش مینا را ترک کرد و به شرق رفت و مردم مهمان‌خانه ترسیده بودند."
+      },
+      {
+       "en": "An old woman begged him not to go to the castle and gave him a cross.",
+       "fa": "پیرزنی التماس کرد به قصر نرود و صلیبی به او داد."
+      },
+      {
+       "en": "A tall driver with red eyes brought him to a dark castle in the mountains.",
+       "fa": "راننده‌ای بلندقد با چشمان سرخ او را به قصری تاریک در کوهستان برد."
+      },
+      {
+       "en": "The Count was polite, but he had no reflection in the mirror and no food at the table.",
+       "fa": "کنت مؤدب بود، اما در آینه انعکاسی نداشت و بر سفره غذایی نبود."
+      },
+      {
+       "en": "Jonathan found that he was a prisoner, and the door was locked.",
+       "fa": "جاناتان فهمید زندانی است و در قفل بود."
+      },
+      {
+       "en": "Three women came to his room at night, and the Count sent them away.",
+       "fa": "شب سه زن به اتاقش آمدند و کنت آن‌ها را فرستاد بروند."
+      },
+      {
+       "en": "He climbed down the wall and escaped, and he wrote to Mina from a hospital.",
+       "fa": "از دیوار پایین رفت و گریخت و از بیمارستانی به مینا نامه نوشت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The boxes of earth",
+      "fa": "صندوق‌های خاک"
+     },
+     "pairs": [
+      {
+       "en": "In England the Count arrived in a ship with a dead crew.",
+       "fa": "در انگلستان کنت با کشتی‌ای رسید که خدمه‌اش مرده بودند."
+      },
+      {
+       "en": "He met Lucy, whose blood grew weaker every night.",
+       "fa": "به لوسی رسید که خونش هر شب کم‌تر می‌شد."
+      },
+      {
+       "en": "Doctor Van Helsing came and said a vampire was drinking her blood.",
+       "fa": "دکتر ون هلسینگ آمد و گفت خون‌آشامی خونش را می‌نوشد."
+      },
+      {
+       "en": "Lucy died and came back, and they had to kill her again.",
+       "fa": "لوسی مرد و بازگشت و ناچار شدند دوباره بکشندش."
+      },
+      {
+       "en": "They found the Count's boxes of earth and destroyed them one by one.",
+       "fa": "صندوق‌های خاک کنت را یافتند و یکی‌یکی نابود کردند."
+      },
+      {
+       "en": "Mina was bitten, and they used her eyes to follow him.",
+       "fa": "مینا گزیده شد و با چشم‌های او ردش را گرفتند."
+      },
+      {
+       "en": "They chased him back to his castle and cut him down at the door.",
+       "fa": "تا قصرش دنبالش کردند و دم در از پای درآوردندش."
+      },
+      {
+       "en": "The mark on Mina's face faded, and the danger ended.",
+       "fa": "نشان روی صورت مینا محو شد و خطر پایان یافت."
+      }
+     ]
+    }
+   ],
+   "text": "Jonathan Harker was sent to Transylvania to help a rich Count buy a house in England. He left his wife Mina and travelled east, and the people at the inn were afraid. An old woman begged him not to go to the castle and gave him a cross. A tall driver with red eyes brought him to a dark castle in the mountains. The Count was polite, but he had no reflection in the mirror and no food at the table. Jonathan found that he was a prisoner, and the door was locked. Three women came to his room at night, and the Count sent them away. He climbed down the wall and escaped, and he wrote to Mina from a hospital. In England the Count arrived in a ship with a dead crew. He met Lucy, whose blood grew weaker every night. Doctor Van Helsing came and said a vampire was drinking her blood. Lucy died and came back, and they had to kill her again. They found the Count's boxes of earth and destroyed them one by one. Mina was bitten, and they used her eyes to follow him. They chased him back to his castle and cut him down at the door. The mark on Mina's face faded, and the danger ended.",
+   "vocab": [
+    {
+     "word": "castle",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large strong building with towers",
+      "fa": "قصر"
+     },
+     "example": "He was taken to a dark castle.",
+     "exampleFa": "او را به قصری تاریک بردند."
+    },
+    {
+     "word": "prisoner",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person kept somewhere by force",
+      "fa": "زندانی"
+     },
+     "example": "Jonathan found that he was a prisoner.",
+     "exampleFa": "جاناتان فهمید زندانی است."
+    },
+    {
+     "word": "vampire",
+     "pos": "n.",
+     "meaning": {
+      "en": "a dead person who drinks blood",
+      "fa": "خون‌آشام"
+     },
+     "example": "A vampire was drinking her blood.",
+     "exampleFa": "خون‌آشامی خونش را می‌نوشید."
+    },
+    {
+     "word": "blood",
+     "pos": "n.",
+     "meaning": {
+      "en": "the red liquid in the body",
+      "fa": "خون"
+     },
+     "example": "Her blood grew weaker every night.",
+     "exampleFa": "خونش هر شب کم‌تر می‌شد."
+    },
+    {
+     "word": "crew",
+     "pos": "n.",
+     "meaning": {
+      "en": "the people who work a ship",
+      "fa": "خدمه"
+     },
+     "example": "The ship came in with a dead crew.",
+     "exampleFa": "کشتی با خدمه‌ای مرده رسید."
+    },
+    {
+     "word": "earth",
+     "pos": "n.",
+     "meaning": {
+      "en": "soil, the ground",
+      "fa": "خاک"
+     },
+     "example": "He slept in boxes of earth.",
+     "exampleFa": "در صندوق‌های خاک می‌خوابید."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "send away",
+     "meaning": {
+      "en": "tell somebody to leave",
+      "fa": "فرستادن و راندن"
+     },
+     "example": "The Count sent the women away.",
+     "exampleFa": "کنت زنان را فرستاد بروند."
+    },
+    {
+     "phrase": "come back",
+     "meaning": {
+      "en": "return",
+      "fa": "بازگشتن"
+     },
+     "example": "Lucy died and came back.",
+     "exampleFa": "لوسی مرد و بازگشت."
+    },
+    {
+     "phrase": "one by one",
+     "meaning": {
+      "en": "first one, then the next",
+      "fa": "یکی‌یکی"
+     },
+     "example": "They destroyed the boxes one by one.",
+     "exampleFa": "صندوق‌ها را یکی‌یکی نابود کردند."
+    },
+    {
+     "phrase": "cut down",
+     "meaning": {
+      "en": "kill or knock to the ground",
+      "fa": "از پای درآوردن"
+     },
+     "example": "They cut him down at the door.",
+     "exampleFa": "دم در از پای درآوردندش."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "was sent to",
+      "fa": "مجهول گذشتهٔ send"
+     },
+     "example": "Jonathan was sent to Transylvania.",
+     "note": {
+      "en": "The passive puts the traveller first because the journey happened to him.",
+      "fa": "مجهول مسافر را اول می‌آورد چون سفر بر او رفته است."
+     }
+    },
+    {
+     "name": {
+      "en": "found that he was",
+      "fa": "find that + جمله"
+     },
+     "example": "He found that he was a prisoner.",
+     "note": {
+      "en": "Find that reports a discovery rather than a thing.",
+      "fa": "find that کشف را گزارش می‌کند نه چیز را."
+     }
+    },
+    {
+     "name": {
+      "en": "whose + noun",
+      "fa": "whose + اسم"
+     },
+     "example": "He met Lucy, whose blood grew weaker.",
+     "note": {
+      "en": "Whose links the person to the thing that belongs to her.",
+      "fa": "whose شخص را به چیزی که از اوست وصل می‌کند."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why does Jonathan travel?",
+       "fa": "چرا جاناتان سفر می‌کند؟"
+      },
+      "options": [
+       "To help a Count buy a house",
+       "To see the mountains",
+       "To find gold",
+       "To visit Mina"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The Count is buying a house in England.",
+       "fa": "کنت خانه‌ای در انگلستان می‌خرد."
+      }
+     },
+     {
+      "q": {
+       "en": "What is strange in the castle?",
+       "fa": "در قصر چه چیز عجیبی است؟"
+      },
+      "options": [
+       "The food",
+       "The garden",
+       "The music",
+       "The Count has no reflection"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "He stands before the mirror and is not in it.",
+       "fa": "جلوی آینه می‌ایستد و در آن نیست."
+      }
+     },
+     {
+      "q": {
+       "en": "Who is Lucy?",
+       "fa": "لوسی کیست؟"
+      },
+      "options": [
+       "A vampire hunter",
+       "A woman whose blood grows weak",
+       "The Count's wife",
+       "A doctor"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "She is the first person he feeds on in England.",
+       "fa": "نخستین کسی است که در انگلستان از او تغذیه می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "How is the Count destroyed?",
+       "fa": "کنت چگونه نابود می‌شود؟"
+      },
+      "options": [
+       "By fire",
+       "By a cross",
+       "He is cut down at his door",
+       "By water"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They catch him at the castle he came from.",
+       "fa": "در همان قصری که از آن آمده بود گیرش می‌آورند."
+      }
+     },
+     {
+      "q": {
+       "en": "What happens to the mark on Mina's face?",
+       "fa": "بر سر نشان صورت مینا چه می‌آید؟"
+      },
+      "options": [
+       "It fades",
+       "It grows",
+       "It moves",
+       "It kills her"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "It goes when the Count goes.",
+       "fa": "با رفتن کنت از میان می‌رود."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The Count has no reflection.",
+       "fa": "کنت انعکاسی در آینه ندارد."
+      },
+      "answer": true,
+      "why": {
+       "en": "Jonathan notices it on the first evening.",
+       "fa": "جاناتان نخستین شب متوجه می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Lucy survives the story.",
+       "fa": "لوسی در داستان زنده می‌ماند."
+      },
+      "answer": false,
+      "why": {
+       "en": "She dies and has to be killed again.",
+       "fa": "می‌میرد و باید دوباره کشته شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Jonathan is a free guest in the castle.",
+       "fa": "جاناتان مهمان آزاد قصر است."
+      },
+      "answer": false,
+      "why": {
+       "en": "The doors are locked and he is a prisoner.",
+       "fa": "درها قفل‌اند و او زندانی است."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Jonathan was held in a dark ___.",
+      "answer": "castle",
+      "hint": {
+       "en": "A big stone building with towers.",
+       "fa": "ساختمانی سنگی با برج‌ها."
+      }
+     },
+     {
+      "sentence": "Doctor Van Helsing said a ___ was drinking her blood.",
+      "answer": "vampire",
+      "hint": {
+       "en": "A dead person who drinks blood.",
+       "fa": "مرده‌ای که خون می‌نوشد."
+      }
+     },
+     {
+      "sentence": "The Count slept in boxes of ___.",
+      "answer": "earth",
+      "hint": {
+       "en": "Soil from his own country.",
+       "fa": "خاک سرزمین خودش."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why is the castle scene told through a diary?",
+       "fa": "چرا صحنهٔ قصر از زبان دفتر خاطرات گفته می‌شود؟"
+      },
+      "model": {
+       "en": "Because nobody would believe it otherwise. Jonathan is a lawyer on a business trip, and his notes are dated, plain and full of small facts: no reflection, no food, a locked door. The horror arrives in the voice of a man writing things down carefully, which is more frightening than a scream.",
+       "fa": "چون وگرنه کسی باورش نمی‌کرد. جاناتان وکیلی در سفر کاری است و یادداشت‌هایش تاریخ‌دار، ساده و پر از جزئیات کوچک است: بی‌انعکاس، بی‌غذا، دری قفل. وحشت با صدای مردی می‌آید که با دقت چیزها را می‌نویسد و این از فریاد ترسناک‌تر است."
+      },
+      "tip": {
+       "en": "Say what a calm list of facts does that a scream cannot.",
+       "fa": "بگو فهرست آرام واقعیت‌ها چه می‌کند که فریاد نمی‌تواند."
+      }
+     },
+     {
+      "q": {
+       "en": "Why must Lucy be killed twice?",
+       "fa": "چرا لوسی باید دو بار کشته شود؟"
+      },
+      "model": {
+       "en": "Because the first death is not the end of her. She comes back changed, and the men who loved her have to choose between the friend they remember and the thing drinking children in the night. The second killing is the harder one, and that is the point of it.",
+       "fa": "چون مرگ اول پایان او نیست. دگرگون بازمی‌گردد و مردانی که دوستش داشتند باید میان دوستی که به یاد می‌آورند و چیزی که شب‌ها خون کودکان را می‌نوشد یکی را انتخاب کنند. کشتن دوم سخت‌تر است و منظور همین است."
+      },
+      "tip": {
+       "en": "Name what the second death asks of the people who loved her.",
+       "fa": "بگو کشتن دوم از کسانی که دوستش داشتند چه می‌خواهد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "frankenstein",
+   "title": {
+    "en": "Frankenstein",
+    "fa": "فرانکنشتاین"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A student builds a living body, runs from it in fear, and spends the rest of his life being followed by it.",
+    "fa": "دانشجویی بدنی زنده می‌سازد، از ترس از آن می‌گریزد و باقی عمرش را در تعقیب آن می‌گذراند."
+   },
+   "words": 216,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The ice",
+      "fa": "یخ"
+     },
+     "pairs": [
+      {
+       "en": "Walton sailed north to find a new sea road and wrote letters to his sister.",
+       "fa": "والتون برای یافتن راهی تازه در دریا به شمال رفت و به خواهرش نامه نوشت."
+      },
+      {
+       "en": "Ice trapped the ship, and the men could only wait in the cold.",
+       "fa": "یخ کشتی را گرفت و مردها فقط می‌توانستند در سرما منتظر بمانند."
+      },
+      {
+       "en": "On the ice they saw a giant man on a sledge, and later a sick man on another.",
+       "fa": "روی یخ مردی غول‌آسا بر سورتمه‌ای دیدند و بعد مردی بیمار بر سورتمه‌ای دیگر."
+      },
+      {
+       "en": "The sick man was Victor Frankenstein, and he warned Walton against wanting to know everything.",
+       "fa": "مرد بیمار ویکتور فرانکنشتاین بود و والتون را از خواستنِ دانستن همه‌چیز برحذر داشت."
+      },
+      {
+       "en": "Victor grew up in Geneva with a kind family and a cousin, Elizabeth.",
+       "fa": "ویکتور در ژنو با خانواده‌ای مهربان و دخترخاله‌ای به نام الیزابت بزرگ شد."
+      },
+      {
+       "en": "He read old books about making life and believed he could do it.",
+       "fa": "کتاب‌های کهن دربارهٔ ساختن زندگی خواند و باور کرد که می‌تواند."
+      },
+      {
+       "en": "At university he built a body from dead parts and gave it life.",
+       "fa": "در دانشگاه از اندام‌های مرده بدنی ساخت و به آن زندگی داد."
+      },
+      {
+       "en": "The creature was huge and ugly, and Victor ran away from it in fear.",
+       "fa": "آفریده بزرگ و زشت بود و ویکتور از ترس از آن گریخت."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The promise",
+      "fa": "وعده"
+     },
+     "pairs": [
+      {
+       "en": "The creature learned to speak, read and think, and it wanted a friend.",
+       "fa": "آفریده سخن گفتن، خواندن و اندیشیدن آموخت و دوستی می‌خواست."
+      },
+      {
+       "en": "It asked Victor to make a woman like itself, and Victor began the work.",
+       "fa": "از ویکتور خواست زنی مثل خودش بسازد و ویکتور کار را آغاز کرد."
+      },
+      {
+       "en": "He destroyed the half-made body, and the creature swore revenge.",
+       "fa": "بدن نیمه‌ساخته را نابود کرد و آفریده قسم خورد انتقام بگیرد."
+      },
+      {
+       "en": "It killed Victor's brother, then his wife on their wedding night.",
+       "fa": "برادر ویکتور را کشت و بعد همسرش را در شب عروسی."
+      },
+      {
+       "en": "Victor chased the creature across the ice and told his story to Walton.",
+       "fa": "ویکتور آفریده را روی یخ دنبال کرد و داستانش را برای والتون گفت."
+      },
+      {
+       "en": "He died on the ship, still asking Walton to kill the thing he had made.",
+       "fa": "در کشتی مرد و همچنان از والتون می‌خواست چیزی را که ساخته بود بکشد."
+      },
+      {
+       "en": "Walton turned the ship south, because his men were afraid.",
+       "fa": "والتون کشتی را به سوی جنوب برگرداند، چون مردانش می‌ترسیدند."
+      },
+      {
+       "en": "The creature came to the ship, cried over Victor's body and walked away into the dark.",
+       "fa": "آفریده به کشتی آمد، بر بدن ویکتور گریست و در تاریکی از میان رفت."
+      }
+     ]
+    }
+   ],
+   "text": "Walton sailed north to find a new sea road and wrote letters to his sister. Ice trapped the ship, and the men could only wait in the cold. On the ice they saw a giant man on a sledge, and later a sick man on another. The sick man was Victor Frankenstein, and he warned Walton against wanting to know everything. Victor grew up in Geneva with a kind family and a cousin, Elizabeth. He read old books about making life and believed he could do it. At university he built a body from dead parts and gave it life. The creature was huge and ugly, and Victor ran away from it in fear. The creature learned to speak, read and think, and it wanted a friend. It asked Victor to make a woman like itself, and Victor began the work. He destroyed the half-made body, and the creature swore revenge. It killed Victor's brother, then his wife on their wedding night. Victor chased the creature across the ice and told his story to Walton. He died on the ship, still asking Walton to kill the thing he had made. Walton turned the ship south, because his men were afraid. The creature came to the ship, cried over Victor's body and walked away into the dark.",
+   "vocab": [
+    {
+     "word": "sledge",
+     "pos": "n.",
+     "meaning": {
+      "en": "a vehicle that slides on snow",
+      "fa": "سورتمه"
+     },
+     "example": "A giant man crossed the ice on a sledge.",
+     "exampleFa": "مردی غول‌آسا با سورتمه از یخ گذشت."
+    },
+    {
+     "word": "creature",
+     "pos": "n.",
+     "meaning": {
+      "en": "a living thing, here one that was made",
+      "fa": "آفریده"
+     },
+     "example": "The creature was huge and ugly.",
+     "exampleFa": "آفریده بزرگ و زشت بود."
+    },
+    {
+     "word": "revenge",
+     "pos": "n.",
+     "meaning": {
+      "en": "hurting someone who hurt you",
+      "fa": "انتقام"
+     },
+     "example": "The creature swore revenge.",
+     "exampleFa": "آفریده قسم خورد انتقام بگیرد."
+    },
+    {
+     "word": "body",
+     "pos": "n.",
+     "meaning": {
+      "en": "the whole physical form of a person",
+      "fa": "بدن"
+     },
+     "example": "He built a body from dead parts.",
+     "exampleFa": "از اندام‌های مرده بدنی ساخت."
+    },
+    {
+     "word": "ice",
+     "pos": "n.",
+     "meaning": {
+      "en": "frozen water",
+      "fa": "یخ"
+     },
+     "example": "Ice trapped the ship.",
+     "exampleFa": "یخ کشتی را گرفت."
+    },
+    {
+     "word": "fear",
+     "pos": "n.",
+     "meaning": {
+      "en": "the feeling you have when afraid",
+      "fa": "ترس"
+     },
+     "example": "Victor ran away from it in fear.",
+     "exampleFa": "ویکتور از ترس از آن گریخت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "grow up",
+     "meaning": {
+      "en": "spend your childhood",
+      "fa": "بزرگ شدن"
+     },
+     "example": "Victor grew up in Geneva.",
+     "exampleFa": "ویکتور در ژنو بزرگ شد."
+    },
+    {
+     "phrase": "give life",
+     "meaning": {
+      "en": "make something alive",
+      "fa": "زندگی بخشیدن"
+     },
+     "example": "He gave the body life.",
+     "exampleFa": "به بدن زندگی بخشید."
+    },
+    {
+     "phrase": "run away from",
+     "meaning": {
+      "en": "escape something",
+      "fa": "گریختن از"
+     },
+     "example": "He ran away from the creature.",
+     "exampleFa": "از آفریده گریخت."
+    },
+    {
+     "phrase": "swear revenge",
+     "meaning": {
+      "en": "promise to punish somebody",
+      "fa": "قسم خوردن به انتقام"
+     },
+     "example": "It swore revenge on its maker.",
+     "exampleFa": "قسم خورد از سازنده‌اش انتقام بگیرد."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "warn somebody against",
+      "fa": "هشدار دادن دربارهٔ کاری with against"
+     },
+     "example": "He warned Walton against wanting to know everything.",
+     "note": {
+      "en": "Warn against plus an -ing verb names the danger.",
+      "fa": "warn against با فعل ing خطر را نام می‌برد."
+     }
+    },
+    {
+     "name": {
+      "en": "had made, past perfect",
+      "fa": "گذشتهٔ کامل had made"
+     },
+     "example": "He asked Walton to kill the thing he had made.",
+     "note": {
+      "en": "The making came before the asking.",
+      "fa": "ساختن پیش از درخواست رخ داده بود."
+     }
+    },
+    {
+     "name": {
+      "en": "because + clause",
+      "fa": "because + جمله"
+     },
+     "example": "Walton turned south because his men were afraid.",
+     "note": {
+      "en": "The reason follows the decision.",
+      "fa": "دلیل پس از تصمیم می‌آید."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Who is Victor?",
+       "fa": "ویکتور کیست؟"
+      },
+      "options": [
+       "A captain",
+       "A creature",
+       "The sick man on the ice",
+       "A doctor"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "They find him half frozen on a sledge.",
+       "fa": "او را نیمه‌یخ‌زده روی سورتمه‌ای می‌یابند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does Victor build?",
+       "fa": "ویکتور چه می‌سازد؟"
+      },
+      "options": [
+       "A body and gives it life",
+       "A ship",
+       "A sledge",
+       "A house"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "Dead parts, and then life.",
+       "fa": "اندام مرده، و بعد زندگی."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the creature ask for?",
+       "fa": "آفریده چه می‌خواهد؟"
+      },
+      "options": [
+       "Money",
+       "A ship",
+       "Revenge on Walton",
+       "A woman like itself"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "It asks for a companion, and is refused.",
+       "fa": "همدمی می‌خواهد و رد می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Who dies on the wedding night?",
+       "fa": "چه کسی در شب عروسی می‌میرد؟"
+      },
+      "options": [
+       "Victor's brother",
+       "Victor's wife",
+       "Elizabeth's father",
+       "Walton"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The creature takes her instead of Victor.",
+       "fa": "آفریده به‌جای ویکتور او را می‌گیرد."
+      }
+     },
+     {
+      "q": {
+       "en": "What does Walton do in the end?",
+       "fa": "والتون در پایان چه می‌کند؟"
+      },
+      "options": [
+       "He stays in the ice",
+       "He kills the creature",
+       "He turns south",
+       "He dies on the ship"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "His crew will not go on, so he gives up the voyage.",
+       "fa": "خدمه ادامه نمی‌دهند، پس سفر را رها می‌کند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "The creature is beautiful.",
+       "fa": "آفریده زیباست."
+      },
+      "answer": false,
+      "why": {
+       "en": "It is huge and ugly, and that is the problem.",
+       "fa": "بزرگ و زشت است و مشکل همین است."
+      }
+     },
+     {
+      "q": {
+       "en": "Victor destroys the half-made woman.",
+       "fa": "ویکتور زن نیمه‌ساخته را نابود می‌کند."
+      },
+      "answer": true,
+      "why": {
+       "en": "That is the moment the revenge starts.",
+       "fa": "همان لحظه است که انتقام آغاز می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "The creature cries over Victor's body.",
+       "fa": "آفریده بر بدن ویکتور می‌گرید."
+      },
+      "answer": true,
+      "why": {
+       "en": "It loses the only person who knew it.",
+       "fa": "تنها کسی را از دست می‌دهد که می‌شناختش."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "They saw a giant man on a ___.",
+      "answer": "sledge",
+      "hint": {
+       "en": "It slides on snow.",
+       "fa": "روی برف می‌لغزد."
+      }
+     },
+     {
+      "sentence": "Victor built a ___ from dead parts.",
+      "answer": "body",
+      "hint": {
+       "en": "The whole physical form.",
+       "fa": "شکل جسمانی کامل."
+      }
+     },
+     {
+      "sentence": "The creature swore ___.",
+      "answer": "revenge",
+      "hint": {
+       "en": "It wanted to punish its maker.",
+       "fa": "می‌خواست سازنده‌اش را تنبیه کند."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why does the creature become cruel?",
+       "fa": "چرا آفریده بی‌رحم می‌شود؟"
+      },
+      "model": {
+       "en": "Because it is never once looked at kindly. It teaches itself to speak, to read and to want company, and every person it meets screams or throws something. The killing starts after the woman is destroyed, which is the moment it is told it will always be alone.",
+       "fa": "چون حتی یک بار با مهربانی به آن نگاه نمی‌شود. خودش سخن گفتن و خواندن می‌آموزد و همدم می‌خواهد و هر کسی که می‌بیند فریاد می‌زند یا چیزی پرتاب می‌کند. کشتن پس از نابودی زن آغاز می‌شود، همان لحظه‌ای که به آن گفته می‌شود همیشه تنها خواهد بود."
+      },
+      "tip": {
+       "en": "Find the moment the story turns, and what happened just before it.",
+       "fa": "لحظهٔ چرخش داستان و چیزی را که پیش از آن رخ داد پیدا کن."
+      }
+     },
+     {
+      "q": {
+       "en": "Who is more responsible, the maker or the creature?",
+       "fa": "چه کسی مسئول‌تر است، سازنده یا آفریده؟"
+      },
+      "model": {
+       "en": "The maker, because he could have stayed in the room. The creature is born with no language, no company and no idea what it is, and the first thing it learns about itself is the face of the man running away. Everything after that is a consequence of one night of abandoning something that could think.",
+       "fa": "سازنده، چون می‌توانست در اتاق بماند. آفریده با هیچ زبان و همدمی و هیچ تصوری از خودش به دنیا می‌آید و نخستین چیزی که دربارهٔ خودش می‌آموزد صورت مردی است که می‌گریزد. هر چه بعد می‌آید نتیجهٔ یک شب رها کردن چیزی است که می‌تواند بیندیشد."
+      },
+      "tip": {
+       "en": "Point to the first decision that could have gone the other way.",
+       "fa": "نخستین تصمیمی را نشان بده که می‌توانست جور دیگری باشد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "jekyll_and_hyde",
+   "title": {
+    "en": "Doctor Jekyll and Mr Hyde",
+    "fa": "دکتر جکیل و آقای هاید"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A kind doctor writes a will that leaves everything to a small cruel man, and a drink is the only thing that connects them.",
+    "fa": "پزشکی مهربان وصیت‌نامه‌ای می‌نویسد که همه‌چیز را به مردی کوچک و بی‌رحم می‌دهد و تنها نوشیدنی‌ای آن دو را به هم می‌بندد."
+   },
+   "words": 217,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The door",
+      "fa": "در"
+     },
+     "pairs": [
+      {
+       "en": "Utterson the lawyer walked through London with his cousin Enfield.",
+       "fa": "آترسونِ وکیل با پسرخاله‌اش انفیلد در لندن قدم می‌زد."
+      },
+      {
+       "en": "Enfield told him how a small cruel man had walked over a girl in the street.",
+       "fa": "انفیلد تعریف کرد مردی کوچک و بی‌رحم در خیابان از روی دختری گذشت."
+      },
+      {
+       "en": "The crowd made the man pay, and he opened a door with a key and brought out money.",
+       "fa": "جمعیت او را به پرداخت واداشت و او دری را با کلید باز کرد و پول آورد."
+      },
+      {
+       "en": "The check carried a good name, and the man was called Hyde.",
+       "fa": "چک نامی نیک داشت و نام مرد هاید بود."
+      },
+      {
+       "en": "Utterson read his friend Jekyll's will, which left everything to Hyde.",
+       "fa": "آترسون وصیت‌نامهٔ دوستش جکیل را خواند که همه‌چیز را به هاید می‌داد."
+      },
+      {
+       "en": "He asked Doctor Lanyon about Hyde, and Lanyon said he had quarrelled with Jekyll about science.",
+       "fa": "از دکتر لنیون دربارهٔ هاید پرسید و لنیون گفت بر سر علم با جکیل قهر کرده است."
+      },
+      {
+       "en": "Hyde came to Utterson's office, and the lawyer thought him ugly without knowing why.",
+       "fa": "هاید به دفتر آترسون آمد و وکیل بی‌آنکه بداند چرا او را زشت دانست."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The laboratory",
+      "fa": "آزمایشگاه"
+     },
+     "pairs": [
+      {
+       "en": "A year later a knife killed a good man in the street, and the knife was Jekyll's.",
+       "fa": "یک سال بعد چاقویی مردی خوب را در خیابان کشت و چاقو از آنِ جکیل بود."
+      },
+      {
+       "en": "Hyde disappeared, and Jekyll became friendly again for two months.",
+       "fa": "هاید ناپدید شد و جکیل دو ماه دوباره خوش‌رفتار شد."
+      },
+      {
+       "en": "Then Jekyll shut himself in his laboratory and would not come out.",
+       "fa": "بعد جکیل خودش را در آزمایشگاهش حبس کرد و بیرون نمی‌آمد."
+      },
+      {
+       "en": "Lanyon died of a shock, and he left a letter that was not to be opened.",
+       "fa": "لنیون از شوک مرد و نامه‌ای گذاشت که نباید باز می‌شد."
+      },
+      {
+       "en": "Utterson broke into the laboratory and found Hyde dead on the floor.",
+       "fa": "آترسون به آزمایشگاه زور زد و هاید را مرده روی زمین یافت."
+      },
+      {
+       "en": "Beside him was a letter from Jekyll, and it explained everything.",
+       "fa": "کنارش نامه‌ای از جکیل بود که همه‌چیز را توضیح می‌داد."
+      },
+      {
+       "en": "Jekyll had made a drink that turned him into a second self, smaller and cruel.",
+       "fa": "جکیل نوشیدنی‌ای ساخته بود که او را به خودی دوم بدل می‌کرد، کوچک‌تر و بی‌رحم."
+      },
+      {
+       "en": "At first he could choose the change, and then the drug chose for him.",
+       "fa": "در آغاز می‌توانست تغییر را انتخاب کند و بعد دارو به‌جای او انتخاب کرد."
+      },
+      {
+       "en": "He took it one last time rather than face the police as Hyde.",
+       "fa": "بار آخر آن را نوشید تا به‌عنوان هاید با پلیس روبه‌رو نشود."
+      }
+     ]
+    }
+   ],
+   "text": "Utterson the lawyer walked through London with his cousin Enfield. Enfield told him how a small cruel man had walked over a girl in the street. The crowd made the man pay, and he opened a door with a key and brought out money. The check carried a good name, and the man was called Hyde. Utterson read his friend Jekyll's will, which left everything to Hyde. He asked Doctor Lanyon about Hyde, and Lanyon said he had quarrelled with Jekyll about science. Hyde came to Utterson's office, and the lawyer thought him ugly without knowing why. A year later a knife killed a good man in the street, and the knife was Jekyll's. Hyde disappeared, and Jekyll became friendly again for two months. Then Jekyll shut himself in his laboratory and would not come out. Lanyon died of a shock, and he left a letter that was not to be opened. Utterson broke into the laboratory and found Hyde dead on the floor. Beside him was a letter from Jekyll, and it explained everything. Jekyll had made a drink that turned him into a second self, smaller and cruel. At first he could choose the change, and then the drug chose for him. He took it one last time rather than face the police as Hyde.",
+   "vocab": [
+    {
+     "word": "lawyer",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who works with laws and wills",
+      "fa": "وکیل"
+     },
+     "example": "Utterson was a lawyer.",
+     "exampleFa": "آترسون وکیل بود."
+    },
+    {
+     "word": "will",
+     "pos": "n.",
+     "meaning": {
+      "en": "a paper saying who gets your things after death",
+      "fa": "وصیت‌نامه"
+     },
+     "example": "Jekyll's will left everything to Hyde.",
+     "exampleFa": "وصیت‌نامهٔ جکیل همه‌چیز را به هاید می‌داد."
+    },
+    {
+     "word": "laboratory",
+     "pos": "n.",
+     "meaning": {
+      "en": "a room for scientific work",
+      "fa": "آزمایشگاه"
+     },
+     "example": "He shut himself in his laboratory.",
+     "exampleFa": "خودش را در آزمایشگاهش حبس کرد."
+    },
+    {
+     "word": "drug",
+     "pos": "n.",
+     "meaning": {
+      "en": "a substance that changes the body or mind",
+      "fa": "دارو"
+     },
+     "example": "At last the drug chose for him.",
+     "exampleFa": "سرانجام دارو به‌جای او انتخاب کرد."
+    },
+    {
+     "word": "shock",
+     "pos": "n.",
+     "meaning": {
+      "en": "a sudden very strong feeling",
+      "fa": "شوک"
+     },
+     "example": "Lanyon died of a shock.",
+     "exampleFa": "لنیون از شوک مرد."
+    },
+    {
+     "word": "cruel",
+     "pos": "adj.",
+     "meaning": {
+      "en": "willing to hurt people",
+      "fa": "بی‌رحم"
+     },
+     "example": "A small cruel man walked over a girl.",
+     "exampleFa": "مردی کوچک و بی‌رحم از روی دختری گذشت."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "walk over",
+     "meaning": {
+      "en": "step on somebody without caring",
+      "fa": "از روی کسی گذشتن"
+     },
+     "example": "He walked over a girl in the street.",
+     "exampleFa": "در خیابان از روی دختری گذشت."
+    },
+    {
+     "phrase": "shut himself in",
+     "meaning": {
+      "en": "stay inside and refuse to come out",
+      "fa": "خود را حبس کردن"
+     },
+     "example": "He shut himself in his laboratory.",
+     "exampleFa": "خودش را در آزمایشگاهش حبس کرد."
+    },
+    {
+     "phrase": "break into",
+     "meaning": {
+      "en": "enter by force",
+      "fa": "به زور وارد شدن"
+     },
+     "example": "Utterson broke into the laboratory.",
+     "exampleFa": "آترسون به زور وارد آزمایشگاه شد."
+    },
+    {
+     "phrase": "rather than",
+     "meaning": {
+      "en": "instead of",
+      "fa": "به‌جای آنکه"
+     },
+     "example": "He took it rather than face the police.",
+     "exampleFa": "آن را نوشید به‌جای آنکه با پلیس روبه‌رو شود."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "had made, past perfect",
+      "fa": "گذشتهٔ کامل had made"
+     },
+     "example": "Jekyll had made a drink.",
+     "note": {
+      "en": "The drink existed before the deaths in the story.",
+      "fa": "نوشیدنی پیش از مرگ‌های داستان وجود داشت."
+     }
+    },
+    {
+     "name": {
+      "en": "turn somebody into",
+      "fa": "turn somebody into، دگرگون کردن کسی"
+     },
+     "example": "It turned him into a second self.",
+     "note": {
+      "en": "Turn into names the new shape of a person or thing.",
+      "fa": "turn into شکل تازهٔ شخص یا چیز را می‌گوید."
+     }
+    },
+    {
+     "name": {
+      "en": "rather than + verb",
+      "fa": "rather than + فعل"
+     },
+     "example": "He took it rather than face the police.",
+     "note": {
+      "en": "Rather than offers the choice that was refused.",
+      "fa": "rather than گزینه‌ای را می‌آورد که رد شد."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "What does Jekyll's will do?",
+       "fa": "وصیت‌نامهٔ جکیل چه می‌کند؟"
+      },
+      "options": [
+       "Gives money to Utterson",
+       "Leaves everything to Hyde",
+       "Gives the house to Lanyon",
+       "Leaves nothing"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "A respected doctor leaves it all to a stranger.",
+       "fa": "پزشکی محترم همه را به غریبه‌ای می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Who is killed in the street?",
+       "fa": "در خیابان چه کسی کشته می‌شود؟"
+      },
+      "options": [
+       "A girl",
+       "Hyde",
+       "A good man",
+       "Lanyon"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The knife that kills him belongs to Jekyll.",
+       "fa": "چاقویی که او را می‌کشد از آنِ جکیل است."
+      }
+     },
+     {
+      "q": {
+       "en": "What turns Jekyll into Hyde?",
+       "fa": "چه چیزی جکیل را به هاید بدل می‌کند؟"
+      },
+      "options": [
+       "A drink",
+       "A dream",
+       "A knife",
+       "A letter"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "A drink he made himself.",
+       "fa": "نوشیدنی‌ای که خودش ساخته بود."
+      }
+     },
+     {
+      "q": {
+       "en": "How does the story end?",
+       "fa": "داستان چگونه تمام می‌شود؟"
+      },
+      "options": [
+       "Hyde escapes",
+       "Jekyll marries",
+       "Lanyon arrests Hyde",
+       "Hyde is found dead"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "Utterson breaks in and finds the body.",
+       "fa": "آترسون به زور وارد می‌شود و جسد را می‌یابد."
+      }
+     },
+     {
+      "q": {
+       "en": "Why does Jekyll lose control?",
+       "fa": "چرا جکیل کنترل را از دست می‌دهد؟"
+      },
+      "options": [
+       "He forgets the drink",
+       "The drug chooses for him",
+       "He dies of a shock",
+       "Lanyon stops him"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "The change stops needing his permission.",
+       "fa": "تغییر دیگر اجازهٔ او را نمی‌خواهد."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Hyde is smaller and cruel.",
+       "fa": "هاید کوچک‌تر و بی‌رحم است."
+      },
+      "answer": true,
+      "why": {
+       "en": "He is the second self, with the good parts left out.",
+       "fa": "او خودِ دوم است، بی بخش‌های خوب."
+      }
+     },
+     {
+      "q": {
+       "en": "Utterson knows the reason from the start.",
+       "fa": "آترسون از آغاز دلیل را می‌داند."
+      },
+      "answer": false,
+      "why": {
+       "en": "He reads the letter at the very end.",
+       "fa": "نامه را در همان پایان می‌خواند."
+      }
+     },
+     {
+      "q": {
+       "en": "Jekyll takes the drink one last time.",
+       "fa": "جکیل آخرین بار نوشیدنی را می‌نوشد."
+      },
+      "answer": true,
+      "why": {
+       "en": "He chooses that over being caught as Hyde.",
+       "fa": "آن را به گرفتار شدن به‌عنوان هاید ترجیح می‌دهد."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Jekyll's ___ left everything to Hyde.",
+      "answer": "will",
+      "hint": {
+       "en": "A paper about who gets your things.",
+       "fa": "کاغذی دربارهٔ اینکه اموالت به که برسد."
+      }
+     },
+     {
+      "sentence": "Utterson broke into the ___.",
+      "answer": "laboratory",
+      "hint": {
+       "en": "Where the doctor worked.",
+       "fa": "جای کار پزشک."
+      }
+     },
+     {
+      "sentence": "At last the ___ chose for him.",
+      "answer": "drug",
+      "hint": {
+       "en": "What he drank.",
+       "fa": "چیزی که می‌نوشید."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why does Jekyll think he is safe?",
+       "fa": "چرا جکیل فکر می‌کند امن است؟"
+      },
+      "model": {
+       "en": "Because he believes a good name is a wall. He keeps his house, his friends and his reputation, and he thinks the ugly part of himself can be put in a bottle and taken out on his own terms. The story takes that belief apart one piece at a time.",
+       "fa": "چون باور دارد نام نیک دیوار است. خانه، دوستان و آبرویش را نگه می‌دارد و فکر می‌کند بخش زشت خودش را می‌توان در بطری گذاشت و هر وقت خودش خواست بیرون آورد. داستان این باور را تکه‌تکه از هم می‌پاشد."
+      },
+      "tip": {
+       "en": "Name what he is protecting, and how the story removes it.",
+       "fa": "بگو از چه محافظت می‌کند و داستان چگونه آن را برمی‌دارد."
+      }
+     },
+     {
+      "q": {
+       "en": "Is Hyde a different person or the same one?",
+       "fa": "هاید شخص دیگری است یا همان شخص؟"
+      },
+      "model": {
+       "en": "The same one, without the parts Jekyll values. Hyde is not a stranger who moved in; he has Jekyll's memories, his handwriting and his money, and he shrinks as Jekyll's conscience grows. That is why the story is frightening: nothing new arrives, something old is uncovered.",
+       "fa": "همان شخص، بی بخش‌هایی که جکیل برایشان ارزش قائل است. هاید غریبه‌ای نیست که آمده باشد؛ حافظه، دست‌خط و پول جکیل را دارد و هر چه وجدان جکیل بزرگ‌تر می‌شود او کوچک‌تر می‌شود. ترس داستان همین است: چیز تازه‌ای نمی‌آید، چیزی کهنه آشکار می‌شود."
+      },
+      "tip": {
+       "en": "List what Hyde shares with Jekyll, then what he lacks.",
+       "fa": "فهرست کن هاید چه چیزی با جکیل مشترک دارد و چه چیزی ندارد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "a_christmas_carol",
+   "title": {
+    "en": "A Christmas Carol",
+    "fa": "سرود کریسمس"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A man who gives nothing to anyone is visited by three spirits in one long Christmas night.",
+    "fa": "مردی که به هیچ‌کس چیزی نمی‌دهد در یک شب طولانی کریسمس به دیدار سه روح می‌رود."
+   },
+   "words": 219,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "A tight fist",
+      "fa": "مشت بسته"
+     },
+     "pairs": [
+      {
+       "en": "Marley had been dead seven years, and his partner Scrooge still worked under both names.",
+       "fa": "مارلی هفت سال بود مرده بود و شریکش اسکروج هنوز با نام هر دو کار می‌کرد."
+      },
+      {
+       "en": "Scrooge gave nothing to anyone and kept his clerk Bob in a cold little room.",
+       "fa": "اسکروج به هیچ‌کس چیزی نمی‌داد و کارمندش باب را در اتاقی سرد و کوچک نگه می‌داشت."
+      },
+      {
+       "en": "On Christmas Eve his nephew Fred came in and wished him a merry Christmas.",
+       "fa": "شب کریسمس برادرزاده‌اش فرد آمد و کریسمس خوشی برایش آرزو کرد."
+      },
+      {
+       "en": "Scrooge said the poor should go to prison, and Fred left without his dinner.",
+       "fa": "اسکروج گفت فقیرها باید به زندان بروند و فرد بی شام رفت."
+      },
+      {
+       "en": "Two men asked him for money for the poor, and he refused them too.",
+       "fa": "دو مرد برای فقیرها از او پول خواستند و آن‌ها را هم رد کرد."
+      },
+      {
+       "en": "That night Marley's ghost came in, dragging a chain of cash boxes and keys.",
+       "fa": "آن شب روح مارلی وارد شد، زنجیری از صندوق‌های پول و کلیدها را می‌کشید."
+      },
+      {
+       "en": "It said three spirits would visit, and Scrooge could not sleep.",
+       "fa": "گفت سه روح به دیدارش می‌آیند و اسکروج خوابش نبرد."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Three spirits",
+      "fa": "سه روح"
+     },
+     "pairs": [
+      {
+       "en": "The first spirit showed him Christmas at his old school and a party he had loved.",
+       "fa": "روح اول کریسمس را در مدرسهٔ قدیمی‌اش و مهمانی‌ای را که دوست داشت نشانش داد."
+      },
+      {
+       "en": "It showed him the girl he had lost because he loved money more.",
+       "fa": "دختری را نشانش داد که از دست داده بود، چون پول را بیشتر دوست داشت."
+      },
+      {
+       "en": "The second spirit showed Bob's house, where Tiny Tim was ill and the family still laughed.",
+       "fa": "روح دوم خانهٔ باب را نشان داد که تیم کوچک بیمار بود و خانواده باز می‌خندید."
+      },
+      {
+       "en": "It warned that the boy would die unless things changed.",
+       "fa": "هشدار داد پسر خواهد مرد مگر اینکه چیزی عوض شود."
+      },
+      {
+       "en": "The third spirit showed a grave with Scrooge's own name on it, and nobody sorry.",
+       "fa": "روح سوم قبری را نشان داد با نام خود اسکروج که هیچ‌کس برایش غمگین نبود."
+      },
+      {
+       "en": "Scrooge woke in his own bed on Christmas morning and laughed with relief.",
+       "fa": "اسکروج صبح کریسمس در تخت خودش بیدار شد و از شادی خندید."
+      },
+      {
+       "en": "He sent a great turkey to Bob's house and went to his nephew's dinner.",
+       "fa": "بوقلمونی بزرگ به خانهٔ باب فرستاد و به مهمانی برادرزاده‌اش رفت."
+      },
+      {
+       "en": "He gave money to the men he had refused and raised Bob's pay.",
+       "fa": "به مردانی که ردشان کرده بود پول داد و حقوق باب را بالا برد."
+      },
+      {
+       "en": "And Tiny Tim lived, because Scrooge became a second father to him.",
+       "fa": "و تیم کوچک زنده ماند، چون اسکروج پدر دومی برایش شد."
+      }
+     ]
+    }
+   ],
+   "text": "Marley had been dead seven years, and his partner Scrooge still worked under both names. Scrooge gave nothing to anyone and kept his clerk Bob in a cold little room. On Christmas Eve his nephew Fred came in and wished him a merry Christmas. Scrooge said the poor should go to prison, and Fred left without his dinner. Two men asked him for money for the poor, and he refused them too. That night Marley's ghost came in, dragging a chain of cash boxes and keys. It said three spirits would visit, and Scrooge could not sleep. The first spirit showed him Christmas at his old school and a party he had loved. It showed him the girl he had lost because he loved money more. The second spirit showed Bob's house, where Tiny Tim was ill and the family still laughed. It warned that the boy would die unless things changed. The third spirit showed a grave with Scrooge's own name on it, and nobody sorry. Scrooge woke in his own bed on Christmas morning and laughed with relief. He sent a great turkey to Bob's house and went to his nephew's dinner. He gave money to the men he had refused and raised Bob's pay. And Tiny Tim lived, because Scrooge became a second father to him.",
+   "vocab": [
+    {
+     "word": "clerk",
+     "pos": "n.",
+     "meaning": {
+      "en": "a person who writes and keeps records in an office",
+      "fa": "کارمند"
+     },
+     "example": "Bob was his clerk.",
+     "exampleFa": "باب کارمندش بود."
+    },
+    {
+     "word": "ghost",
+     "pos": "n.",
+     "meaning": {
+      "en": "the spirit of a dead person",
+      "fa": "روح"
+     },
+     "example": "Marley's ghost came in.",
+     "exampleFa": "روح مارلی وارد شد."
+    },
+    {
+     "word": "chain",
+     "pos": "n.",
+     "meaning": {
+      "en": "metal rings joined together",
+      "fa": "زنجیر"
+     },
+     "example": "The ghost dragged a chain of cash boxes.",
+     "exampleFa": "روح زنجیری از صندوق‌های پول می‌کشید."
+    },
+    {
+     "word": "grave",
+     "pos": "n.",
+     "meaning": {
+      "en": "the place where a dead person lies",
+      "fa": "قبر"
+     },
+     "example": "The spirit showed him a grave.",
+     "exampleFa": "روح قبری را نشانش داد."
+    },
+    {
+     "word": "turkey",
+     "pos": "n.",
+     "meaning": {
+      "en": "a large bird eaten at Christmas",
+      "fa": "بوقلمون"
+     },
+     "example": "He sent a great turkey to Bob.",
+     "exampleFa": "بوقلمونی بزرگ به باب فرستاد."
+    },
+    {
+     "word": "pay",
+     "pos": "n.",
+     "meaning": {
+      "en": "the money you get for work",
+      "fa": "حقوق"
+     },
+     "example": "He raised Bob's pay.",
+     "exampleFa": "حقوق باب را بالا برد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "wish somebody a merry Christmas",
+     "meaning": {
+      "en": "say you hope they have a happy Christmas",
+      "fa": "کریسمس خوش آرزو کردن"
+     },
+     "example": "Fred wished him a merry Christmas.",
+     "exampleFa": "فرد کریسمس خوشی برایش آرزو کرد."
+    },
+    {
+     "phrase": "with relief",
+     "meaning": {
+      "en": "because a worry has gone",
+      "fa": "از سر آسودگی"
+     },
+     "example": "He laughed with relief.",
+     "exampleFa": "از سر آسودگی خندید."
+    },
+    {
+     "phrase": "go to prison",
+     "meaning": {
+      "en": "be sent to jail",
+      "fa": "به زندان رفتن"
+     },
+     "example": "He said the poor should go to prison.",
+     "exampleFa": "گفت فقیرها باید به زندان بروند."
+    },
+    {
+     "phrase": "second father",
+     "meaning": {
+      "en": "a man who takes a father's place",
+      "fa": "پدر دوم"
+     },
+     "example": "Scrooge became a second father to Tim.",
+     "exampleFa": "اسکروج پدر دومی برای تیم شد."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "had been dead seven years",
+      "fa": "گذشتهٔ کامل با had been"
+     },
+     "example": "Marley had been dead seven years.",
+     "note": {
+      "en": "The state began long before the story starts.",
+      "fa": "این وضعیت خیلی پیش از آغاز داستان شروع شده بود."
+     }
+    },
+    {
+     "name": {
+      "en": "unless + clause",
+      "fa": "unless + جمله"
+     },
+     "example": "The boy would die unless things changed.",
+     "note": {
+      "en": "Unless means if not, in one word.",
+      "fa": "unless یعنی اگر ... نه، در یک واژه."
+     }
+    },
+    {
+     "name": {
+      "en": "showed him + noun",
+      "fa": "show + شخص + چیز"
+     },
+     "example": "The spirit showed him a grave.",
+     "note": {
+      "en": "Show takes two objects, person first.",
+      "fa": "show دو مفعول می‌گیرد، اول شخص."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Who is Bob?",
+       "fa": "باب کیست؟"
+      },
+      "options": [
+       "His clerk",
+       "His nephew",
+       "His partner",
+       "A spirit"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "He works in Scrooge's office for little money.",
+       "fa": "با پول کم در دفتر اسکروج کار می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "What does Marley's ghost drag?",
+       "fa": "روح مارلی چه چیزی می‌کشد؟"
+      },
+      "options": [
+       "A heavy coat",
+       "Bags of gold",
+       "A chain of cash boxes",
+       "A dog"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The chain is made of the things he cared about.",
+       "fa": "زنجیر از چیزهایی ساخته شده که به آن‌ها دل بسته بود."
+      }
+     },
+     {
+      "q": {
+       "en": "What is wrong with Tiny Tim?",
+       "fa": "تیم کوچک چه مشکلی دارد؟"
+      },
+      "options": [
+       "He is lost",
+       "He is rich",
+       "He is a ghost",
+       "He is ill"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "The second spirit says he will die.",
+       "fa": "روح دوم می‌گوید خواهد مرد."
+      }
+     },
+     {
+      "q": {
+       "en": "What does the third spirit show him?",
+       "fa": "روح سوم چه چیزی نشانش می‌دهد؟"
+      },
+      "options": [
+       "A party",
+       "His own grave",
+       "A turkey",
+       "The office"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "A grave nobody visits with sorrow.",
+       "fa": "قبری که کسی با اندوه به آن نمی‌آید."
+      }
+     },
+     {
+      "q": {
+       "en": "What does Scrooge do on Christmas morning?",
+       "fa": "اسکروج صبح کریسمس چه می‌کند؟"
+      },
+      "options": [
+       "He sends a turkey to Bob",
+       "He goes to work",
+       "He sells his house",
+       "He goes back to sleep"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The first thing he does is feed someone else.",
+       "fa": "نخستین کارش غذا دادن به دیگری است."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Scrooge gives money gladly at the start.",
+       "fa": "اسکروج در آغاز با خوشحالی پول می‌دهد."
+      },
+      "answer": false,
+      "why": {
+       "en": "He refuses both his nephew and the two men.",
+       "fa": "هم برادرزاده‌اش و هم آن دو مرد را رد می‌کند."
+      }
+     },
+     {
+      "q": {
+       "en": "Tiny Tim lives in the end.",
+       "fa": "تیم کوچک در پایان زنده می‌ماند."
+      },
+      "answer": true,
+      "why": {
+       "en": "Scrooge becoming a second father saves him.",
+       "fa": "پدر دوم شدن اسکروج نجاتش می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Scrooge raises Bob's pay.",
+       "fa": "اسکروج حقوق باب را بالا می‌برد."
+      },
+      "answer": true,
+      "why": {
+       "en": "That is the last change the story reports.",
+       "fa": "این آخرین تغییری است که داستان می‌گوید."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "Bob was Scrooge's ___.",
+      "answer": "clerk",
+      "hint": {
+       "en": "He works in the office.",
+       "fa": "در دفتر کار می‌کند."
+      }
+     },
+     {
+      "sentence": "He sent a great ___ to Bob's house.",
+      "answer": "turkey",
+      "hint": {
+       "en": "A large bird for Christmas.",
+       "fa": "پرندهٔ بزرگ کریسمس."
+      }
+     },
+     {
+      "sentence": "The third spirit showed him a ___.",
+      "answer": "grave",
+      "hint": {
+       "en": "Where a dead person lies.",
+       "fa": "جای خوابیدن مرده."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Why do the spirits show rather than tell?",
+       "fa": "چرا روح‌ها نشان می‌دهند و نمی‌گویند؟"
+      },
+      "model": {
+       "en": "Because Scrooge argues with words and cannot argue with a scene. He has a reply for every sentence, and he says nothing at all when he is standing in Bob's little house. A picture of a child's empty chair does what no argument about charity ever did.",
+       "fa": "چون اسکروج با حرف بحث می‌کند و با یک صحنه نمی‌تواند. برای هر جمله جوابی دارد، اما وقتی در خانهٔ کوچک باب ایستاده هیچ نمی‌گوید. تصویر صندلی خالی یک کودک کاری می‌کند که هیچ بحثی دربارهٔ بخشش نکرد."
+      },
+      "tip": {
+       "en": "Compare what he does with an argument and with a scene.",
+       "fa": "مقایسه کن با یک بحث چه می‌کند و با یک صحنه چه."
+      }
+     },
+     {
+      "q": {
+       "en": "Is Scrooge a bad man or a frightened one?",
+       "fa": "اسکروج مرد بدی است یا ترسیده؟"
+      },
+      "model": {
+       "en": "Frightened, mostly. He hoards money because he is afraid of being poor, and he is rude to Fred because kindness costs him something he does not want to spend. The story never says he enjoys other people's suffering, only that he has decided not to look at it.",
+       "fa": "بیشتر ترسیده. پول را احتکار می‌کند چون از فقیر شدن می‌ترسد و با فرد بدرفتاری می‌کند چون مهربانی چیزی از او می‌گیرد که نمی‌خواهد خرج کند. داستان هرگز نمی‌گوید از رنج دیگران لذت می‌برد، فقط می‌گوید تصمیم گرفته به آن نگاه نکند."
+      },
+      "tip": {
+       "en": "Ask what he is protecting, not what he enjoys.",
+       "fa": "بپرس از چه چیزی محافظت می‌کند، نه از چه لذت می‌برد."
+      }
+     }
+    ]
+   },
+   "counts": {
+    "mcq": 5,
+    "truefalse": 3,
+    "blanks": 3,
+    "open": 2,
+    "all": 13
+   }
+  },
+  {
+   "id": "the_call_of_the_wild",
+   "title": {
+    "en": "The Call of the Wild",
+    "fa": "آوای وحش"
+   },
+   "level": "VH",
+   "blurb": {
+    "en": "A farm dog is sold north to pull a sledge, and every week on the snow takes him further from the fire.",
+    "fa": "سگی خانگی برای کشیدن سورتمه به شمال فروخته می‌شود و هر هفته در برف او را از آتش دورتر می‌کند."
+   },
+   "words": 223,
+   "minutes": 1,
+   "sentences": 16,
+   "chapters": [
+    {
+     "title": {
+      "en": "The rope",
+      "fa": "ریسمان"
+     },
+     "pairs": [
+      {
+       "en": "Buck was a big strong dog who ruled the farm of Judge Miller in California.",
+       "fa": "باک سگی بزرگ و نیرومند بود که بر مزرعهٔ قاضی میلر در کالیفرنیا فرمان می‌راند."
+      },
+      {
+       "en": "A worker who had lost money at cards sold him to a stranger for gold.",
+       "fa": "کارگری که در قمار پول باخته بود او را با طلا به غریبه‌ای فروخت."
+      },
+      {
+       "en": "Buck was put in a box on a train, with no food and no water.",
+       "fa": "باک را در جعبه‌ای در قطار گذاشتند، بی آب و بی غذا."
+      },
+      {
+       "en": "In a city a man in a red sweater opened the box and hit him with a club.",
+       "fa": "در شهری مردی با پلیور سرخ جعبه را باز کرد و با چماق زدش."
+      },
+      {
+       "en": "Buck learned that a man with a club was a master to obey.",
+       "fa": "باک آموخت مردی با چماق اربابی است که باید اطاعتش کرد."
+      },
+      {
+       "en": "He was sold again, to two men who took him north to the snow.",
+       "fa": "دوباره فروخته شد، به دو مردی که او را به شمال و به برف بردند."
+      },
+      {
+       "en": "There he saw snow for the first time and slept in a hole to keep warm.",
+       "fa": "آنجا نخستین بار برف دید و برای گرم ماندن در چاله‌ای خوابید."
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "The leader of the team",
+      "fa": "سرکردهٔ گله"
+     },
+     "pairs": [
+      {
+       "en": "He learned to pull a sledge, and the other dogs taught him the law of the pack.",
+       "fa": "کشیدن سورتمه را آموخت و سگ‌های دیگر قانون گله را یادش دادند."
+      },
+      {
+       "en": "The lead dog, Spitz, fought him for the place at the front.",
+       "fa": "سگ پیشرو، اسپیتز، بر سر جای جلو با او جنگید."
+      },
+      {
+       "en": "Buck killed Spitz and became the leader of the team.",
+       "fa": "باک اسپیتز را کشت و سرکردهٔ گله شد."
+      },
+      {
+       "en": "He was sold to a man who beat the dogs and did not feed them.",
+       "fa": "به مردی فروخته شد که سگ‌ها را می‌زد و غذا نمی‌داد."
+      },
+      {
+       "en": "John Thornton took him away from that man and was kind to him.",
+       "fa": "جان تورنتون او را از آن مرد گرفت و به او مهربانی کرد."
+      },
+      {
+       "en": "Buck loved Thornton and would not leave his side.",
+       "fa": "باک تورنتون را دوست داشت و از کنارش نمی‌رفت."
+      },
+      {
+       "en": "Thornton was killed by people on the road, and Buck avenged him.",
+       "fa": "تورنتون را مردمی در راه کشتند و باک انتقامش را گرفت."
+      },
+      {
+       "en": "Buck ran with the wolves of the forest and forgot the farm and the fire.",
+       "fa": "باک با گرگ‌های جنگل دوید و مزرعه و آتش را فراموش کرد."
+      },
+      {
+       "en": "He became the wild dog the old songs had been calling him to be.",
+       "fa": "او همان سگ وحشی شد که آوازهای کهن او را به آن می‌خواندند."
+      }
+     ]
+    }
+   ],
+   "text": "Buck was a big strong dog who ruled the farm of Judge Miller in California. A worker who had lost money at cards sold him to a stranger for gold. Buck was put in a box on a train, with no food and no water. In a city a man in a red sweater opened the box and hit him with a club. Buck learned that a man with a club was a master to obey. He was sold again, to two men who took him north to the snow. There he saw snow for the first time and slept in a hole to keep warm. He learned to pull a sledge, and the other dogs taught him the law of the pack. The lead dog, Spitz, fought him for the place at the front. Buck killed Spitz and became the leader of the team. He was sold to a man who beat the dogs and did not feed them. John Thornton took him away from that man and was kind to him. Buck loved Thornton and would not leave his side. Thornton was killed by people on the road, and Buck avenged him. Buck ran with the wolves of the forest and forgot the farm and the fire. He became the wild dog the old songs had been calling him to be.",
+   "vocab": [
+    {
+     "word": "club",
+     "pos": "n.",
+     "meaning": {
+      "en": "a heavy stick used as a weapon",
+      "fa": "چماق"
+     },
+     "example": "The man hit him with a club.",
+     "exampleFa": "مرد با چماق زدش."
+    },
+    {
+     "word": "sledge",
+     "pos": "n.",
+     "meaning": {
+      "en": "a vehicle that slides on snow",
+      "fa": "سورتمه"
+     },
+     "example": "He learned to pull a sledge.",
+     "exampleFa": "کشیدن سورتمه را آموخت."
+    },
+    {
+     "word": "pack",
+     "pos": "n.",
+     "meaning": {
+      "en": "a group of animals that hunt together",
+      "fa": "گله"
+     },
+     "example": "The dogs taught him the law of the pack.",
+     "exampleFa": "سگ‌ها قانون گله را یادش دادند."
+    },
+    {
+     "word": "wolves",
+     "pos": "n.",
+     "meaning": {
+      "en": "wild animals like large dogs",
+      "fa": "گرگ‌ها"
+     },
+     "example": "He ran with the wolves.",
+     "exampleFa": "با گرگ‌ها دوید."
+    },
+    {
+     "word": "master",
+     "pos": "n.",
+     "meaning": {
+      "en": "a man who owns and controls",
+      "fa": "ارباب"
+     },
+     "example": "A man with a club was a master.",
+     "exampleFa": "مردی با چماق ارباب بود."
+    },
+    {
+     "word": "leader",
+     "pos": "n.",
+     "meaning": {
+      "en": "the one at the front",
+      "fa": "سرکرده"
+     },
+     "example": "Buck became the leader of the team.",
+     "exampleFa": "باک سرکردهٔ گله شد."
+    }
+   ],
+   "expressions": [
+    {
+     "phrase": "at cards",
+     "meaning": {
+      "en": "in a card game for money",
+      "fa": "در بازی ورق"
+     },
+     "example": "He lost money at cards.",
+     "exampleFa": "در بازی ورق پول باخت."
+    },
+    {
+     "phrase": "keep warm",
+     "meaning": {
+      "en": "stay warm",
+      "fa": "گرم ماندن"
+     },
+     "example": "He slept in a hole to keep warm.",
+     "exampleFa": "برای گرم ماندن در چاله‌ای خوابید."
+    },
+    {
+     "phrase": "take away from",
+     "meaning": {
+      "en": "remove somebody from a place or person",
+      "fa": "گرفتن از"
+     },
+     "example": "Thornton took him away from that man.",
+     "exampleFa": "تورنتون او را از آن مرد گرفت."
+    },
+    {
+     "phrase": "at his side",
+     "meaning": {
+      "en": "next to him",
+      "fa": "کنار او"
+     },
+     "example": "Buck would not leave his side.",
+     "exampleFa": "باک از کنارش نمی‌رفت."
+    }
+   ],
+   "grammar": [
+    {
+     "name": {
+      "en": "who had lost money",
+      "fa": "who + گذشتهٔ کامل"
+     },
+     "example": "A worker who had lost money sold him.",
+     "note": {
+      "en": "The who-clause explains the man before we meet the sale.",
+      "fa": "جملهٔ who مرد را پیش از فروش توضیح می‌دهد."
+     }
+    },
+    {
+     "name": {
+      "en": "learned that",
+      "fa": "learned that + جمله"
+     },
+     "example": "Buck learned that a man with a club was a master.",
+     "note": {
+      "en": "Learn that reports what experience taught.",
+      "fa": "learn that می‌گوید تجربه چه آموزاند."
+     }
+    },
+    {
+     "name": {
+      "en": "would not leave",
+      "fa": "would not + فعل"
+     },
+     "example": "Buck would not leave his side.",
+     "note": {
+      "en": "Would not here means refused, not a future.",
+      "fa": "would not اینجا یعنی امتناع کرد، نه آینده."
+     }
+    }
+   ],
+   "questions": {
+    "mcq": [
+     {
+      "q": {
+       "en": "Why is Buck sold?",
+       "fa": "چرا باک فروخته می‌شود؟"
+      },
+      "options": [
+       "He is ill",
+       "He bites the Judge",
+       "A worker lost money at cards",
+       "He runs away"
+      ],
+      "answer": 2,
+      "why": {
+       "en": "The debt is paid with the dog.",
+       "fa": "بدهی با سگ پرداخت می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "What does Buck learn in the city?",
+       "fa": "باک در شهر چه می‌آموزد؟"
+      },
+      "options": [
+       "A man with a club is a master",
+       "To pull a sledge",
+       "To swim",
+       "To sing"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The club teaches him before anything else.",
+       "fa": "چماق پیش از هر چیز درسش می‌دهد."
+      }
+     },
+     {
+      "q": {
+       "en": "Who is Spitz?",
+       "fa": "اسپیتز کیست؟"
+      },
+      "options": [
+       "A man",
+       "The lead dog",
+       "A wolf",
+       "A sledge"
+      ],
+      "answer": 1,
+      "why": {
+       "en": "He holds the front place until Buck takes it.",
+       "fa": "جای جلو را دارد تا باک بگیردش."
+      }
+     },
+     {
+      "q": {
+       "en": "Who is kind to Buck?",
+       "fa": "چه کسی به باک مهربانی می‌کند؟"
+      },
+      "options": [
+       "The man in red",
+       "The two men",
+       "The Judge",
+       "John Thornton"
+      ],
+      "answer": 3,
+      "why": {
+       "en": "He takes him from the man who beats him.",
+       "fa": "او را از مردی که می‌زندش می‌گیرد."
+      }
+     },
+     {
+      "q": {
+       "en": "What happens at the end?",
+       "fa": "در پایان چه می‌شود؟"
+      },
+      "options": [
+       "Buck joins the wolves",
+       "He goes home",
+       "He dies",
+       "He pulls a sledge again"
+      ],
+      "answer": 0,
+      "why": {
+       "en": "The forest takes him, as the songs promised.",
+       "fa": "جنگل او را می‌گیرد، همان‌گونه که آوازها وعده داده بودند."
+      }
+     }
+    ],
+    "truefalse": [
+     {
+      "q": {
+       "en": "Buck stays on the farm.",
+       "fa": "باک در مزرعه می‌ماند."
+      },
+      "answer": false,
+      "why": {
+       "en": "He is sold in the first pages.",
+       "fa": "در صفحه‌های نخست فروخته می‌شود."
+      }
+     },
+     {
+      "q": {
+       "en": "Buck becomes the leader of the team.",
+       "fa": "باک سرکردهٔ گله می‌شود."
+      },
+      "answer": true,
+      "why": {
+       "en": "He takes the front place from Spitz.",
+       "fa": "جای جلو را از اسپیتز می‌گیرد."
+      }
+     },
+     {
+      "q": {
+       "en": "Thornton is killed.",
+       "fa": "تورنتون کشته می‌شود."
+      },
+      "answer": true,
+      "why": {
+       "en": "His death is what frees Buck completely.",
+       "fa": "مرگش باک را کامل آزاد می‌کند."
+      }
+     }
+    ],
+    "blanks": [
+     {
+      "sentence": "The man in the red sweater hit him with a ___.",
+      "answer": "club",
+      "hint": {
+       "en": "A heavy stick.",
+       "fa": "چوب سنگین."
+      }
+     },
+     {
+      "sentence": "Buck learned to pull a ___.",
+      "answer": "sledge",
+      "hint": {
+       "en": "It slides on snow.",
+       "fa": "روی برف می‌لغزد."
+      }
+     },
+     {
+      "sentence": "He ran with the ___ of the forest.",
+      "answer": "wolves",
+      "hint": {
+       "en": "Wild animals like large dogs.",
+       "fa": "حیوانات وحشی مثل سگ‌های بزرگ."
+      }
+     }
+    ],
+    "open": [
+     {
+      "q": {
+       "en": "Is Buck's change a loss or a return?",
+       "fa": "تغییر باک از دست دادن است یا بازگشت؟"
+      },
+      "model": {
+       "en": "A return, in the story's own voice, and a loss in ours. He learns cruelty because he is beaten into it, and every step north makes the farm quieter in his memory. The last chapter calls it a call he was born to answer, which is a grand way of describing a dog who has nothing left to stay for.",
+       "fa": "بازگشت، به زبان خود داستان، و از دست دادن به نظر ما. بی‌رحمی را می‌آموزد چون با زدن به او آموخته می‌شود و هر قدم به شمال مزرعه را در خاطرش آرام‌تر می‌کند. فصل آخر آن را آوازی می‌داند که برای پاسخش زاده شده و این توصیف باشکوهی است از سگی که چیزی برای ماندن ندارد."
+      },
+      "tip": {
+       "en": "Compare the story's word for it with what actually happened.",
+       "fa": "واژهٔ داستان را با آنچه واقعاً رخ داد مقایسه کن."
+      }
+     },
+     {
+      "q": {
+       "en": "Why is Thornton's kindness the turning point?",
+       "fa": "چرا مهربانی تورنتون نقطهٔ چرخش است؟"
+      },
+      "model": {
+       "en": "Because it is the only kindness that asks nothing. The other men feed him to work him, and Thornton takes him back from a beating without knowing whether he is worth anything. After that Buck can be loyal rather than obedient, and the ending means something because he has something to lose.",
+       "fa": "چون تنها مهربانی‌ای است که چیزی نمی‌خواهد. مردهای دیگر غذایش می‌دهند تا کار کند و تورنتون او را از زیر کتک بازمی‌گرداند بی‌آنکه بداند ارزشی دارد. بعد از آن باک می‌تواند وفادار باشد نه مطیع، و پایان معنا پیدا می‌کند چون چیزی برای از دست دادن دارد."
+      },
+      "tip": {
+       "en": "Compare kindness that wants something with kindness that does not.",
+       "fa": "مهربانی طلبکار را با مهربانی بی‌طلب مقایسه کن."
       }
      }
     ]

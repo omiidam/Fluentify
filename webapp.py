@@ -435,18 +435,41 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     100% { transform: translate3d(-1%, 5%, 0) scale(1.03); }
   }
 
+  /* The card is most of the screen on purpose. A loader that is a small badge
+     in the middle of a large field reads as a stalled page; one that fills the
+     frame, names the section it is on and shows how much is left reads as
+     work in progress. 62vh, not 100: the aurora still has edges to show. */
   .boot-in {
-    position: relative; width: min(100%, 384px);
-    display: grid; justify-items: center; gap: 18px;
-    padding: 34px 28px 24px;
-    border-radius: 30px;
-    background: linear-gradient(160deg, #fffdf4, #fbf3df);
-    border: 1px solid rgba(205,159,60,.28);
+    position: relative; width: min(100%, 460px);
+    min-height: min(66vh, 620px);
+    display: grid; grid-template-rows: auto auto 1fr auto;
+    justify-items: center; align-items: center; gap: 14px;
+    padding: 30px 26px 20px;
+    border-radius: 32px;
+    background: linear-gradient(168deg, #fffdf6, #fdf6e4 58%, #fbf0d8);
+    border: 1px solid rgba(205,159,60,.30);
     box-shadow:
-      0 34px 80px rgba(74,58,30,.18),
-      0 2px 0 rgba(255,255,255,.9) inset;
+      0 40px 90px -28px rgba(74,58,30,.42),
+      0 2px 0 rgba(255,255,255,.95) inset;
+    overflow: hidden;
     animation: bootCardIn .72s cubic-bezier(.22,1,.36,1) both;
   }
+  /* One slow band of light crosses the card, so the surface is never still
+     even while the bar is waiting. Transform only, and behind the content. */
+  .boot-in::after {
+    content: ""; position: absolute; inset: -40% -10%;
+    background: linear-gradient(104deg, transparent 38%,
+      rgba(255,255,255,.55) 50%, transparent 62%);
+    transform: translateX(-70%) rotate(0.001deg);
+    animation: bootSweep 6.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes bootSweep {
+    0%, 55% { transform: translateX(-70%); opacity: 0; }
+    70%     { opacity: .9; }
+    100%    { transform: translateX(70%); opacity: 0; }
+  }
+  .boot-in > * { position: relative; z-index: 1; }
   @keyframes bootCardIn {
     from { opacity: 0; transform: translateY(14px) scale(.975); }
     to   { opacity: 1; transform: none; }
@@ -455,7 +478,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* The mark: the mascot inside a slowly turning gradient ring, with a soft
      inner well so the bird reads against the card rather than floating. */
   .boot-mark {
-    position: relative; width: 108px; height: 108px;
+    position: relative; width: 126px; height: 126px;
     display: grid; place-items: center;
   }
   .boot-halo {
@@ -491,8 +514,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      picture is 79px of figure inside the well's 100px - the first cut at
      100px put the beret and the tail through the ring. */
   .boot-fox {
-    width: 86px; height: 86px; display: block;
-    filter: drop-shadow(0 7px 12px rgba(74,58,30,.30));
+    width: 100px; height: 100px; display: block;
+    filter: drop-shadow(0 8px 14px rgba(74,58,30,.32));
   }
   @keyframes bootBob {
     0%, 100% { transform: translateY(0) rotate(-1.5deg); }
@@ -501,7 +524,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   .boot-brand { display: grid; justify-items: center; gap: 5px; text-align: center; }
   .boot-name {
-    font-size: 29px; font-weight: 700; letter-spacing: -.6px;
+    font-size: 33px; font-weight: 700; letter-spacing: -.7px;
     line-height: 1.05;
     background: linear-gradient(102deg, #2b3049 8%, #3c405b 58%, #b8872a 96%);
     -webkit-background-clip: text; background-clip: text;
@@ -523,6 +546,54 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* A bouncing tile with its shadow on the floor. The shape is borrowed from
      a well-known loading animation; the colour is the tutor's. Transform
      only, so it stays on the compositor. */
+  /* The three things the app does every day, as a preview of the product
+     rather than as decoration: a loading screen is the one place a first-time
+     reader sees the shape of the app before anything has loaded. */
+  .boot-trio {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    width: 100%;
+  }
+  .boot-tile {
+    display: grid; justify-items: center; gap: 3px; text-align: center;
+    padding: 10px 4px 9px; border-radius: 14px;
+    background: rgba(255,253,244,.72);
+    border: 1px solid rgba(205,159,60,.22);
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  }
+  .boot-tile svg { width: 17px; height: 17px; color: #8a5a00; opacity: .85; }
+  .boot-tile b {
+    font-size: 10.5px; font-weight: 700; color: var(--navy2);
+    letter-spacing: .2px;
+  }
+  .boot-tile small {
+    font-family: var(--font-fa); font-size: 10px; color: var(--muted);
+    direction: rtl; line-height: 1.85;
+  }
+  /* What is being read right now, in both languages. The bar says how much;
+     this says what, which is the difference between a wait and a stall. */
+  .boot-wait { width: 100%; display: grid; gap: 7px; }
+  .boot-stage {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 10px; min-height: 18px;
+  }
+  .boot-stage b {
+    font-size: 11.5px; font-weight: 700; color: #6b4f14;
+    letter-spacing: .1px; white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .boot-stage span {
+    font-family: var(--font-fa); font-size: 10.5px; color: var(--muted);
+    direction: rtl; line-height: 1.9; white-space: nowrap;
+  }
+  .boot-foot {
+    width: 100%; display: grid; justify-items: center; gap: 2px;
+    padding-top: 6px; border-top: 1px solid rgba(205,159,60,.20);
+    font-size: 10.5px; color: var(--muted); text-align: center;
+  }
+  .boot-foot span {
+    font-family: var(--font-fa); font-size: 10.5px; direction: rtl;
+    line-height: 1.9; color: #7a6234;
+  }
   .boot-loading {
     width: 100%; display: flex; align-items: center; gap: 15px;
     margin-top: 2px;
@@ -562,24 +633,39 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      only, so filling it costs no layout on a phone. */
   .boot-track {
     position: relative; flex: 1 1 auto;
-    height: 5px; border-radius: 999px;
-    background: rgba(43,48,73,.14); overflow: hidden;
+    height: 8px; border-radius: 999px;
+    background: rgba(43,48,73,.12); overflow: hidden;
     box-shadow: 0 1px 0 rgba(43,48,73,.06) inset;
+  }
+  /* A stripe moving inside the filled part, so a bar that is waiting on a slow
+     read still looks alive. Kept to the bar's own painted width. */
+  .boot-track i::after {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(115deg,
+      rgba(255,255,255,.38) 0 6px, rgba(255,255,255,0) 6px 14px);
+    animation: bootStripe 1.1s linear infinite;
+  }
+  @keyframes bootStripe {
+    from { transform: translateX(-14px); }
+    to   { transform: translateX(0); }
   }
   /* No transition here: the bar is repainted from the one eased ratio every
      frame (see Boot), and a transition on top of that would put the bar and
      the percentage back on two different clocks. */
   .boot-track i {
+    position: relative;
     display: block; width: 100%; height: 100%; border-radius: inherit;
     background: linear-gradient(90deg, #3c405b, #8a5a00 55%, #e8bf5f 100%);
     box-shadow: 0 0 12px rgba(232,191,95,.55);
     transform: scaleX(0); transform-origin: 0 50%;
   }
   .boot-meta {
-    width: 100%; display: flex; justify-content: flex-end;
-    margin-top: -6px;
+    width: 100%; display: flex; justify-content: space-between;
+    align-items: baseline; gap: 8px;
+    margin-top: -3px;
     font-size: 11.5px; color: var(--muted);
   }
+  .boot-meta .boot-left { font-size: 10.5px; color: #7a6234; }
   .boot-meta #bootpct {
     flex: none; color: #8a5a00; font-weight: 700;
     font-variant-numeric: tabular-nums;
@@ -588,6 +674,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @media (prefers-reduced-motion: reduce) {
     .boot { transition: none; }
     .boot-in { animation: none; }
+    .boot-in::after { animation: none; opacity: 0; }
+    .boot-track i::after { animation: none; }
     .boot-aurora i, .boot-halo { animation: none; }
     .boot-fox-bob { animation: none; }
     .loader::before, .loader::after { animation: none; }
@@ -1128,8 +1216,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .stblurb { font-size: 11.5px; color: #5a6076; line-height: 1.5; }
   .stmeta { font-size: 10.5px; color: var(--muted); }
   .stbadge {
-    font-size: 9.5px; font-weight: 700; padding: 1px 7px; border-radius: 999px;
+    font-size: 9.5px; font-weight: 700; padding: 3px 7px; border-radius: 999px;
     background: rgba(47,107,79,.12); color: var(--leaf);
+    line-height: 1.5;
   }
   .stbar { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
   /* text size and the Persian switch, on their own quiet row under the bar */
@@ -1163,8 +1252,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .sts .tx { min-width: 0; }
   .sts .en { font-size: calc(13px * var(--stzoom, 1)); line-height: 1.55; color: var(--ink); }
   .sts .fa {
-    display: block; font-size: calc(11.5px * var(--stzoom, 1)); line-height: 1.7;
-    color: #5c6480; margin-top: 1px;
+    display: block; font-size: calc(11.5px * var(--stzoom, 1)); line-height: 2.15;
+    color: #5c6480; margin-top: 0;
   }
   .stbody.hidefa .sts .fa, .stbody.hidefa .stch .fa { display: none; }
   .stv { padding: 7px 0; border-bottom: 1px solid rgba(43,48,73,.08); }
@@ -1562,7 +1651,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        the Persian from the right by the same width as the number gutter:
        two lanes, each with its own margin, neither touching the card edge */
     direction: rtl; text-align: right; unicode-bidi: plaintext;
-    line-height: 1.8; margin-top: 1px;
+    line-height: 2.2; margin-top: 0;
   }
   .bwh { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
   .bwh b { font-size: 15px; }
@@ -1742,7 +1831,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .rdlabel .fa { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--muted); }
   .rdp { font-size: 12.5px; line-height: 1.65; color: #333a56; margin: 0; }
   .rdp + .rdp { margin-top: 4px; }
-  .rdp.fa { direction: rtl; text-align: right; margin-top: 4px; color: #3f4a6b; }
+  .rdp.fa {
+    direction: rtl; text-align: right; margin-top: 2px; color: #3f4a6b;
+    line-height: 2.15;
+  }
 
   .rdsteps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
   .rdsteps li { display: flex; gap: 8px; align-items: flex-start; }
@@ -1813,7 +1905,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .rdsum {
     margin-top: 10px; padding-top: 9px; border-top: 1px dashed rgba(43,48,73,.16);
   }
-  .rdsum .fa { display: block; margin-top: 4px; direction: rtl; text-align: right; }
+  .rdsum .fa { display: block; margin-top: 2px; direction: rtl; text-align: right; line-height: 2.15; }
   .rdsumbtn {
     font-family: inherit; font-size: 11.5px; cursor: pointer;
     background: none; border: 1px dashed rgba(47,107,79,.45);
@@ -1887,7 +1979,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .rdfb .ok { color: var(--leaf); font-weight: 700; }
   .rdfb .no { color: #a03a63; font-weight: 700; }
   .rdfb p { margin: 2px 0 0; color: #3f4a6b; }
-  .rdfb .fa { display: block; direction: rtl; text-align: right; margin-top: 2px; }
+  .rdfb .fa { display: block; direction: rtl; text-align: right; margin-top: 2px; line-height: 2.15; }
 
   .rdessay { display: flex; flex-direction: column; gap: 6px; }
   .rdarea {
@@ -1929,7 +2021,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--leaf); font-weight: 700; margin-bottom: 4px;
   }
   .rdmodel p { margin: 0; font-size: 12px; line-height: 1.7; color: #2f3550; }
-  .rdmodel p.fa { direction: rtl; text-align: right; margin-top: 5px; color: #3f4a6b; }
+  .rdmodel p.fa { direction: rtl; text-align: right; margin-top: 3px; color: #3f4a6b; line-height: 2.15; }
 
   .rdfoot {
     display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -2396,9 +2488,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        font also claims Arabic glyphs, and at 12px they read as a wobble. */
     font-family: var(--font-fa);
   }
-  .dfa { font-size: 13px; color: var(--text); line-height: 1.55; margin-top: 3px; }
+  .dfa { font-size: 13px; color: var(--text); line-height: 2.2; margin-top: 0; }
   .dline { font-size: 13px; color: var(--text); line-height: 1.5; }
-  .dline.fa { font-size: 12.5px; color: var(--muted); }
+  .dline.fa { font-size: 12.5px; color: var(--muted); line-height: 2.15; }
   .dlabel {
     font-size: 9.5px; font-weight: 800; letter-spacing: .5px;
     text-transform: uppercase; color: var(--dim); margin-top: 9px;
@@ -2584,11 +2676,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--navy2); line-height: 1.3; word-break: break-word;
   }
   .dirow.done .dimain { color: #3d4289; }
+  /* Gulzar is a Nastaliq: the tallest initials (ا ل ک گ) rise about 1.37em
+     above the baseline while the line box only allows 0.89em. With
+     line-height 1.55 and overflow hidden for the ellipsis, the top of the
+     first letter of the word was cut off - "گران" read as "ران". Persian
+     needs ~2em of leading here, and it must not be clipped vertically, so the
+     row wraps instead of truncating. */
   .disub {
     direction: rtl; text-align: right; unicode-bidi: plaintext;
     font-family: var(--font-fa);
-    font-size: 12px; color: var(--muted); margin-top: 3px;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 12px; color: var(--muted); margin-top: 2px;
+    line-height: 2.2;
+    overflow-wrap: anywhere;
   }
   /* The opened body is an inset of the card, not a second card: warm paper,
      a hairline, and slightly looser leading than the rows above it. */
@@ -2703,6 +2802,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .npos small, .nrole small {
     display: block; direction: rtl; text-align: right; unicode-bidi: plaintext;
     font-size: 10.5px; color: var(--muted); font-weight: 400;
+    line-height: 1.9; overflow-wrap: anywhere;
   }
   .nlemma { font-size: 11.5px; color: var(--dim); }
   .nunknown { font-size: 10.5px; color: var(--dim); font-style: italic; }
@@ -2713,7 +2813,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .ntitle { font-family: var(--font-display); font-size: 13.5px; font-weight: 700; color: var(--navy2); }
   .ntitle small {
     display: block; direction: rtl; text-align: right; unicode-bidi: plaintext;
-    font-family: var(--font-body); font-size: 11px; font-weight: 400; color: var(--muted);
+    font-family: var(--font-fa); font-size: 11px; font-weight: 400; color: var(--muted);
+    line-height: 1.9;
   }
   .nev {
     font-size: 11.5px; color: var(--gold-ink, #8a6d1f); margin-top: 4px;
@@ -3693,21 +3794,59 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <div class="boot-mark" aria-hidden="true">
         <span class="boot-halo"></span>
         <span class="boot-fox-bob">
-          <img class="boot-fox" src="brand/fox-mark.png" alt="" width="86"
-               height="86" decoding="async">
+          <img class="boot-fox" src="brand/fox-mark.png" alt="" width="100"
+               height="100" decoding="async">
         </span>
       </div>
       <div class="boot-brand">
         <div class="boot-name">Fluentify</div>
         <div class="boot-tag">A step a day, a win a day
-          <em dir="rtl" lang="fa">هرروز یک قدم هرروز یک برد</em></div>
+          <em dir="rtl" lang="fa">هر روز یک قدم، هر روز یک برد</em></div>
       </div>
-      <div class="boot-loading" aria-hidden="true">
-        <div class="loader"></div>
-        <div class="boot-track"><i id="bootfill"></i></div>
+      <div class="boot-trio" aria-hidden="true">
+        <span class="boot-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 5.5A1.5 1.5 0 0 1 6 4h5v15H6a1.5 1.5 0 0 1-1.5-1.5Z"/>
+            <path d="M19.5 5.5A1.5 1.5 0 0 0 18 4h-5v15h5a1.5 1.5 0 0 0 1.5-1.5Z"/>
+          </svg>
+          <b>A word</b><small>یک واژه</small>
+        </span>
+        <span class="boot-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 7H6.5A1.5 1.5 0 0 0 5 8.5v0A1.5 1.5 0 0 0 6.5 10H9V6.5A1.5 1.5 0 0 0 7.5 5"/>
+            <path d="M15 17h2.5a1.5 1.5 0 0 0 1.5-1.5v0a1.5 1.5 0 0 0-1.5-1.5H15v3.5a1.5 1.5 0 0 0 1.5 1.5"/>
+            <path d="M9 17H6.5A1.5 1.5 0 0 1 5 15.5v0A1.5 1.5 0 0 1 6.5 14H9v3.5A1.5 1.5 0 0 1 7.5 19"/>
+            <path d="M15 7h2.5A1.5 1.5 0 0 1 19 8.5v0A1.5 1.5 0 0 1 17.5 10H15V6.5A1.5 1.5 0 0 1 16.5 5"/>
+          </svg>
+          <b>An expression</b><small>یک عبارت</small>
+        </span>
+        <span class="boot-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H9l-4 4v-4.2A2.5 2.5 0 0 1 4 13.5Z"/>
+          </svg>
+          <b>A conversation</b><small>یک گفت‌وگو</small>
+        </span>
       </div>
-      <div class="boot-meta">
-        <span id="bootpct">0%</span>
+      <div class="boot-wait">
+        <div class="boot-stage">
+          <b id="bootstage">Preparing</b>
+          <span id="bootstagefa" dir="rtl" lang="fa">آماده‌سازی</span>
+        </div>
+        <div class="boot-loading" aria-hidden="true">
+          <div class="loader"></div>
+          <div class="boot-track"><i id="bootfill"></i></div>
+        </div>
+        <div class="boot-meta">
+          <span class="boot-left">Getting your day ready</span>
+          <span id="bootpct">0%</span>
+        </div>
+      </div>
+      <div class="boot-foot">
+        Reading, listening and stories at your level
+        <span dir="rtl" lang="fa">خواندن، شنیدن و داستان، در سطح خودت</span>
       </div>
     </div>
   </div>
@@ -9335,6 +9474,28 @@ const Boot = (() => {
 
   const fill = document.getElementById('bootfill');
   const pct = document.getElementById('bootpct');
+  const stage = document.getElementById('bootstage');
+  const stageFa = document.getElementById('bootstagefa');
+  /* The sections report their own names, so the line under the bar says what
+     is being read instead of a fixed "Loading". Persian is written here rather
+     than in the loader so the two cannot drift apart. */
+  const STAGE_FA = {
+    Today: 'واژه و عبارت امروز',
+    Stickers: 'استیکرها',
+    Vocabulary: 'واژگان',
+    Grammar: 'گرامر',
+    Sentences: 'جمله‌ها',
+    Listening: 'شنیدن',
+    Sounds: 'آواها',
+    'Word index': 'نمایهٔ واژه‌ها',
+    Audio: 'صداها',
+    Preparing: 'آماده‌سازی',
+  };
+  function showStage(label) {
+    if (!label) return;
+    if (stage) stage.textContent = label;
+    if (stageFa) stageFa.textContent = STAGE_FA[label] || 'آماده‌سازی';
+  }
   const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
   let gone = false;
   let floorUp = false;
@@ -9424,7 +9585,10 @@ const Boot = (() => {
     /* Kept for callers that want to explain the wait; the card itself now
        shows only the bar and its percentage. */
     say() {},
-    step(done, total) { aim(total ? done / total : 0); },
+    step(done, total, label) {
+      showStage(label);
+      aim(total ? done / total : 0);
+    },
     /* Every section is in. The overlay still holds until the floor passes. */
     ready() { dataIn = true; maybe(); },
     hide,
