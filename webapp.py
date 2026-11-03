@@ -4500,10 +4500,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <p class="autherr" id="autherr" role="alert"></p>
       <button class="authsubmit" id="authsubmit" type="submit">Sign in</button>
     </form>
-    <p class="authnote"><b>Stored on this device only.</b> No server account, no reset by email:
-      only a salted hash is kept. The session lasts seven days after you last use the app.
-      <span dir="rtl" lang="fa" style="display:block;margin-top:3px">حساب فقط روی همین دستگاه می‌ماند و
-      بازیابی با ایمیل ندارد؛ نشست، هفت روز پس از آخرین استفاده بسته می‌شود.</span></p>
   </div>
 </div>
 
