@@ -104,6 +104,7 @@ SUITES = [
     ("android manifest", [sys.executable, "tools/check_manifest.py"]),
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
+    ("level check", [sys.executable, "tools/check_level.py"]),
     ("mixed english/persian lines", [sys.executable, "tools/check_bidi.py"]),
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),

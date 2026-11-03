@@ -41,6 +41,8 @@ LAZY_DATA = [
     # Mini stories: the story, its Persian and its answer keys, read when the
     # panel opens
     "stories.json",
+    # The monthly level check: 47 banded questions, marked in the page
+    "level_test.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
