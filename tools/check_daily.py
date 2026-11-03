@@ -567,7 +567,10 @@ def wiring(src: str, cat: dict) -> None:
         ("dpanel: 'dtoggle'", "the panel-to-tile map"),
         ("dpanel: () => Daily.refresh(true)", "the repaint-on-open hook"),
         ("document.getElementById('dtoggle').onclick", "the tile's click handler"),
-        ("['Today', loadDaily]", "the boot step that fills it"),
+        # The boot list is now a plain array of readers - the labels went with
+        # the line that used to name the file being read - so what matters is
+        # that loadDaily is in it, not how it is written.
+        ("loadDaily,", "the boot step that fills it"),
         ("Daily.init();", "the midnight/resume watcher"),
         ('self.path.startswith("/api/daily")', "the /api/daily route"),
     ):

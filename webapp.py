@@ -569,22 +569,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-family: var(--font-fa); font-size: 10px; color: var(--muted);
     direction: rtl; line-height: 1.85;
   }
-  /* What is being read right now, in both languages. The bar says how much;
-     this says what, which is the difference between a wait and a stall. */
+  /* One thing the app actually does, said while the day is being read. The
+     section name that used to sit here ("Sentences") repeated the three tiles
+     above it and told the reader nothing they could use; a fact about the app
+     earns the line instead. */
   .boot-wait { width: 100%; display: grid; gap: 7px; }
-  .boot-stage {
-    display: flex; align-items: baseline; justify-content: space-between;
-    gap: 10px; min-height: 18px;
+  .boot-facts { display: grid; justify-items: center; gap: 1px; min-height: 34px; }
+  .boot-fact, .boot-factfa { transition: opacity .45s ease; }
+  .boot-fact {
+    font-size: 11px; font-weight: 600; color: #6b4f14; letter-spacing: .1px;
+    text-align: center; line-height: 1.5;
   }
-  .boot-stage b {
-    font-size: 11.5px; font-weight: 700; color: #6b4f14;
-    letter-spacing: .1px; white-space: nowrap; overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .boot-stage span {
+  .boot-factfa {
     font-family: var(--font-fa); font-size: 10.5px; color: var(--muted);
-    direction: rtl; line-height: 1.9; white-space: nowrap;
+    direction: rtl; line-height: 1.9; text-align: center;
   }
+  .boot-facts.swap .boot-fact, .boot-facts.swap .boot-factfa { opacity: 0; }
   .boot-foot {
     width: 100%; display: grid; justify-items: center; gap: 2px;
     padding-top: 6px; border-top: 1px solid rgba(205,159,60,.20);
@@ -1438,8 +1438,73 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .lv-lock b { color: #7d5510; }
   .lv-lock .lv-fa { margin: 0; font-size: 12px; }
 
+  /* --- the ladder: one strip that says where you are, A1 to C1 ---------- */
+  .lv-ladder { display: flex; gap: 3px; margin-top: 12px; }
+  .lv-rung {
+    flex: 1; height: 25px; display: grid; place-items: center; border-radius: 8px;
+    background: rgba(43,48,73,.06); color: #8b8fa6; font-size: 10.5px;
+    font-weight: 700; letter-spacing: .02em;
+  }
+  .lv-rung.on { background: var(--lvc); color: #fff; box-shadow: 0 6px 14px -10px var(--lvc); }
+
+  /* --- the month, as a ring -------------------------------------------- */
+  .lv-wait {
+    display: flex; align-items: center; gap: 12px; margin-top: 12px;
+    padding: 10px 13px; border-radius: 14px;
+    background: rgba(255,255,255,.74); border: 1px solid rgba(155,106,18,.22);
+  }
+  .lv-wait b { display: block; font-size: 12.5px; color: #7d5510; }
+  .lv-wait .lv-fa { margin: 2px 0 0; font-size: 11.5px; color: #6b551f; }
+  .lv-ringwrap { position: relative; width: 60px; height: 60px; flex: none; display: grid; place-items: center; }
+  .lv-ring { position: absolute; inset: 0; width: 60px; height: 60px; transform: rotate(-90deg); }
+  .lv-ringbg { fill: none; stroke: rgba(155,106,18,.16); stroke-width: 6; }
+  .lv-ringfg {
+    fill: none; stroke: #c9a13f; stroke-width: 6; stroke-linecap: round;
+    transition: stroke-dashoffset .5s ease;
+  }
+  .lv-ringwrap b {
+    position: relative; font-family: var(--font-display); font-size: 17px;
+    color: #7d5510; line-height: 1; text-align: center;
+  }
+  .lv-ringwrap small { display: block; font-size: 8.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
+
+  /* --- what you get, in three tiles ------------------------------------ */
+  .lv-perks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+  .lv-perk {
+    background: #fffdf8; border: 1px solid rgba(43,48,73,.10); border-radius: 13px;
+    padding: 10px 7px 9px; text-align: center;
+  }
+  .lv-perk svg { width: 17px; height: 17px; color: #6b5bd2; }
+  .lv-perk b { display: block; font-size: 10.5px; line-height: 1.35; color: var(--ink); margin-top: 5px; }
+  .lv-perk small {
+    display: block; font-family: var(--font-fa); font-size: 10px; color: #6b6386;
+    direction: rtl; line-height: 1.7; margin-top: 3px;
+  }
+
+  /* --- the one button that matters -------------------------------------- */
+  .lv-cta {
+    flex: 1 1 100%; justify-content: space-between; gap: 10px;
+    padding: 12px 16px; border-radius: 14px; font-size: 13.5px; text-align: start;
+  }
+  .lv-cta span { display: block; }
+  .lv-cta small { display: block; font-weight: 500; font-size: 10.5px; opacity: .78; margin-top: 2px; }
+  .lv-cta svg { width: 17px; height: 17px; flex: none; opacity: .85; }
+
+  /* --- a question answers itself back ----------------------------------- */
+  .lv-q { transition: border-color .15s ease, box-shadow .15s ease, background .15s ease; }
+  .lv-q:hover { box-shadow: 0 10px 22px -20px rgba(43,48,73,.85); }
+  .lv-q.answered { border-color: rgba(47,107,79,.34); background: linear-gradient(180deg, #f8fbf8, #fffdf8); }
+  .lv-q.answered .lv-qn { background: rgba(47,107,79,.15); color: #2f6b4f; }
+  .lv-tick { margin-inline-start: auto; color: #2f6b4f; display: inline-flex; }
+  .lv-tick svg { width: 13px; height: 13px; }
+  .lv-keys { font-size: 10px; color: #8b8fa6; margin-top: 2px; }
+  .lv-keys kbd {
+    font: inherit; font-size: 9.5px; padding: 1px 4px; border-radius: 4px;
+    border: 1px solid rgba(43,48,73,.18); background: #fff; color: #55607e;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .lv-btn, .lv-toptrack i { transition: none; }
+    .lv-btn, .lv-toptrack i, .lv-q, .lv-ringfg { transition: none; }
   }
   @media (max-width: 420px) {
     .lv-h { font-size: 18px; }
@@ -4097,9 +4162,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </span>
       </div>
       <div class="boot-wait">
-        <div class="boot-stage">
-          <b id="bootstage">Preparing</b>
-          <span id="bootstagefa" dir="rtl" lang="fa">آماده‌سازی</span>
+        <div class="boot-facts" id="bootfacts">
+          <span class="boot-fact" id="bootfact">50 graded stories, A1 to C1</span>
+          <span class="boot-factfa" id="bootfactfa" dir="rtl" lang="fa">۵۰ داستان سطح‌بندی‌شده، از A1 تا C1</span>
         </div>
         <div class="boot-loading" aria-hidden="true">
           <div class="loader"></div>
@@ -8808,6 +8873,7 @@ const Level = (() => {
   let doc = null, pending = null, draft = null;
   let view = 'intro', si = 0, warned = false;
   let ticker = null, tickLeft = 0;
+  let saveTimer = null;
 
   const esc = (s) => String(s).replace(/[&<>"]/g,
     (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
@@ -8827,6 +8893,32 @@ const Level = (() => {
     const name = id ? (doc.bands.find((b) => b.id === id) || {}).name : null;
     return `<span class="lv-band" data-band="${bandKey(id)}">${bandLabel(id)}` +
       (name && extra !== false ? `<small>${esc(name.en)}</small>` : '') + '</span>';
+  };
+
+  /* The ladder, and the arrow the call to action carries. */
+  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M5 12h13m-5.5-5.5L18 12l-5.5 5.5"/></svg>';
+  const TICK = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>';
+
+  const ladder = (active) => '<div class="lv-ladder" aria-hidden="true">' +
+    IDS.map((b) => `<span class="lv-rung${active && IDS.indexOf(b) <= IDS.indexOf(active) ? ' on' : ''}" data-band="${b}">${b}</span>`).join('') +
+    '</div>';
+
+  /* The retake window as a ring: the arc is how much of the month has gone,
+     the number is what is left. */
+  const ring = (daysLeft) => {
+    const c = 2 * Math.PI * 26;
+    const gone = Math.max(0, Math.min(1, 1 - daysLeft / doc.retakeDays));
+    return `<div class="lv-ringwrap" aria-hidden="true">
+      <svg class="lv-ring" viewBox="0 0 64 64">
+        <circle class="lv-ringbg" cx="32" cy="32" r="26"/>
+        <circle class="lv-ringfg" cx="32" cy="32" r="26"
+          stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - gone)).toFixed(1)}"/>
+      </svg>
+      <b>${daysLeft}<small>${daysLeft === 1 ? 'day' : 'days'}</small></b>
+    </div>`;
   };
 
   const fmtDate = (iso) => {
@@ -8857,7 +8949,16 @@ const Level = (() => {
 
   function saveDraft() {
     if (!draft) return;
+    clearTimeout(saveTimer);
     write(KEY.draft, draft);
+  }
+
+  /* Typing and tapping are not saves: one write per keystroke made a fifty-
+     three question paper feel heavy on a phone. The draft is flushed for real
+     when the section changes, the panel is paused, or the result is marked. */
+  function saveSoon() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => { if (draft) write(KEY.draft, draft); }, 350);
   }
 
   /* --------------------------------------------------------------- scoring */
@@ -8970,6 +9071,24 @@ const Level = (() => {
     }).join('') + `</div>`;
   }
 
+  function perks() {
+    const items = [
+      ['A level for each skill', 'سطح جدا برای هر مهارت',
+       'M4 19.5h16M6.5 15.5V9m5.5 6.5V5m5.5 10.5v-4'],
+      ['A next step, not just a number', 'قدم بعدی، نه فقط یک عدد',
+       'M12 4.5 14.6 10l6 .9-4.4 4.2 1 6-5.2-2.8L6.8 21l1-6L3.4 11l6-.9Z'],
+      ['Kept for 30 days', '۳۰ روز نگه داشته می‌شود',
+       'M12 7.5V12l3.2 2M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z'],
+    ];
+    return `<div class="lv-perks">` + items.map(([en, fa, d]) => `
+      <div class="lv-perk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>
+        <b>${esc(en)}</b>
+        <small dir="rtl" lang="fa">${esc(fa)}</small>
+      </div>`).join('') + `</div>`;
+  }
+
   function renderIntro() {
     const result = read(KEY.result, null);
     const history = read(KEY.history, []);
@@ -8979,36 +9098,42 @@ const Level = (() => {
     const d = draftState();
     const touched = Object.keys(d.answers).length + Object.keys(d.self).length +
       Object.keys(d.texts).length;
+    const meta = progress();
+    const bandInfo = result && result.overall
+      ? doc.bands.find((x) => x.id === result.overall) || {name: {en: ''}, can: {en: ''}}
+      : null;
 
-    const head = locked
-      ? `<h2 class="lv-h">Your level this month</h2>`
-      : `<h2 class="lv-h">Find your level in five skills</h2>`;
-
-    const badge = result
+    const hero = result
       ? `<div class="lv-bigband" data-band="${bandKey(result.overall)}">
            <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
            <div>
-             <b>${result.overall
-               ? esc((doc.bands.find((x) => x.id === result.overall) || {name: {en: ''}}).name.en)
-               : 'Below A1'}</b>
-             <p>${esc(result.overall
-               ? (doc.bands.find((x) => x.id === result.overall) || {can: {en: ''}}).can.en
+             <b>${esc(result.overall ? bandInfo.name.en : 'Below A1')}</b>
+             <p>${esc(result.overall ? bandInfo.can.en
                : 'You are starting out: greetings and very short sentences.')}</p>
            </div>
-         </div>`
-      : '';
-
-    const lockRow = locked
-      ? `<div class="lv-lock" data-band="B2">
-           <span>Next check opens in <b>${days} ${days === 1 ? 'day' : 'days'}</b>.</span>
-           ${faLine('سنجش بعدی ' + days + ' روز دیگر باز می‌شود.')}
-         </div>`
-      : '';
+         </div>
+         ${ladder(result.overall)}
+         ${locked ? `<div class="lv-wait">
+             ${ring(days)}
+             <div>
+               <b>Next check opens in ${days} ${days === 1 ? 'day' : 'days'}.</b>
+               <p class="lv-fa" dir="rtl" lang="fa">سنجش بعدی ${days} روز دیگر باز می‌شود.</p>
+             </div>
+           </div>` : ''}`
+      : `${ladder(null)}
+         ${metaChips()}`;
 
     const actions = locked
-      ? `<button class="lv-btn" data-act="result">See the full result</button>
-         <button class="lv-btn ghost" disabled>Starts again in ${days} ${days === 1 ? 'day' : 'days'}</button>`
-      : `<button class="lv-btn" data-act="start">${touched ? 'Continue the check' : 'Start the check'}</button>
+      ? `<button class="lv-btn lv-cta" data-act="result">
+           <span>See the full result
+             <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · kept until ${fmtDate(new Date(until).toISOString())}</small>
+           </span>${ARROW}</button>`
+      : `<button class="lv-btn lv-cta" data-act="start">
+           <span>${touched ? 'Continue the check' : result ? "Take this month's check" : 'Start the check'}
+             <small>${touched
+               ? meta.done + ' of ' + meta.total + ' answered so far'
+               : meta.total + ' questions · about ' + doc.minutes + ' minutes · five skills'}</small>
+           </span>${ARROW}</button>
          ${touched ? `<button class="lv-btn ghost" data-act="restart">Start over</button>` : ''}
          ${result ? `<button class="lv-btn ghost" data-act="result">Last result</button>` : ''}`;
 
@@ -9024,14 +9149,14 @@ const Level = (() => {
 
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero">
-        <div class="lv-eyebrow">Monthly check · ${doc.retakeDays} days apart</div>
-        ${head}
+        <div class="lv-eyebrow">${locked ? 'This month' : 'Monthly check'} · ${doc.retakeDays} days apart</div>
+        <h2 class="lv-h">${locked ? 'Your level this month' : 'Find your level in five skills'}</h2>
         <p class="lv-sub">${esc(doc.blurb.en)}</p>
         ${faLine(doc.blurb.fa)}
-        ${result ? badge : metaChips()}
-        ${lockRow}
+        ${hero}
         <div class="lv-actions">${actions}</div>
       </section>
+      ${locked ? '' : perks()}
       ${locked ? '' : skillSummary()}
       <details class="lv-method">
         <summary>How the level is worked out</summary>
@@ -9069,6 +9194,7 @@ const Level = (() => {
   function questionCard(sec, it, i, n) {
     const key = answerKey(sec.id, i);
     const picked = draftState().answers[key];
+    const done = picked !== undefined;
     const audio = sec.kind === 'listening'
       ? `<button class="lv-play" type="button" data-rec="${key}">
            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M8 5.4v13.2L19 12Z"/></svg>
@@ -9077,10 +9203,11 @@ const Level = (() => {
          <details class="lv-transcript"><summary>Transcript (try without it)</summary>
            <p>${esc(it.say)}</p></details>`
       : '';
-    return `<div class="lv-q" id="lvq-${key}">
+    return `<div class="lv-q${done ? ' answered' : ''}" id="lvq-${key}">
       <div class="lv-qh">
         <span class="lv-qn">${n}</span>
         ${bandPill(it.band, false)}
+        ${done ? `<span class="lv-tick" role="img" aria-label="answered">${TICK}</span>` : ''}
       </div>
       <p class="lv-stem">${esc(it.stem.en)}</p>
       ${faLine(it.stem.fa)}
@@ -9100,11 +9227,13 @@ const Level = (() => {
     const key = answerKey(sec.id, i);
     const d = draftState();
     const self = sec.kind === 'speaking';
-    return `<div class="lv-q" id="lvq-${key}">
+    const done = d.self[key] !== undefined;
+    return `<div class="lv-q${done ? ' answered' : ''}" id="lvq-${key}">
       <div class="lv-qh">
         <span class="lv-qn">${n}</span>
         ${bandPill(it.band, false)}
         <span class="lv-skself">rated by you</span>
+        ${done ? `<span class="lv-tick" role="img" aria-label="rated">${TICK}</span>` : ''}
       </div>
       <p class="lv-stem">${esc(it.prompt.en)}</p>
       ${faLine(it.prompt.fa)}
@@ -9186,6 +9315,7 @@ const Level = (() => {
           ${si === doc.sections.length - 1 ? 'See my level' : 'Next section'}
         </button>
         <span class="lv-menu" data-hint>${answered} of ${sec.items.length} in this section</span>
+        <span class="lv-keys"><kbd>1</kbd>–<kbd>4</kbd> answer · <kbd>←</kbd><kbd>→</kbd> sections</span>
       </div>
     </div>`;
     warned = false;
@@ -9273,6 +9403,7 @@ const Level = (() => {
             ${faLine(canBand.can.fa || '')}
           </div>
         </div>
+        ${ladder(result.overall)}
         <div class="lv-note">Overall is the median of the five skills, so one
           weak area is visible without erasing the rest.</div>
       </section>
@@ -9376,26 +9507,69 @@ const Level = (() => {
     wrap.addEventListener('change', (e) => {
       const input = e.target;
       const d = draftState();
+      /* The card acknowledges the answer at once, rather than at the next
+         section change: a fifty-three question paper needs to feel like it is
+         filling up. */
+      const markAnswered = (card) => {
+        if (!card) return;
+        card.classList.add('answered');
+        if (card.querySelector('.lv-tick')) return;
+        const head = card.querySelector('.lv-qh');
+        if (!head) return;
+        const tick = document.createElement('span');
+        tick.className = 'lv-tick';
+        tick.setAttribute('role', 'img');
+        tick.setAttribute('aria-label', 'answered');
+        tick.innerHTML = TICK;
+        head.append(tick);
+      };
+
       if (input.matches('input[data-answer]')) {
         d.answers[input.dataset.answer] = Number(input.value);
         const card = input.closest('.lv-q');
         card.querySelectorAll('.lv-opt').forEach((label) => {
           label.classList.toggle('on', label.contains(input));
         });
-        saveDraft();
+        markAnswered(card);
+        saveSoon();
         refreshProgress();
       } else if (input.matches('input[data-self]')) {
         d.self[input.dataset.self] = Number(input.value);
-        const card = input.closest('.lv-rubric');
+        const card = input.closest('.lv-q');
         card.querySelectorAll('.lv-opt').forEach((label) => {
           label.classList.toggle('on', label.contains(input));
         });
-        saveDraft();
+        markAnswered(card);
+        saveSoon();
         refreshProgress();
       }
     });
 
     let saveTimer = null;
+    /* Keys, for a test with fifty-three questions: 1-4 answer the focused
+       question (or the next unanswered one), and the arrows change section.
+       Ignored inside a textarea, where a digit is a digit. */
+    document.addEventListener('keydown', (e) => {
+      const panel = document.getElementById('lvlpanel');
+      if (view !== 'test' || !panel || !panel.classList.contains('open')) return;
+      if (e.target.matches('textarea, input[type="text"]')) return;
+      if (/^[1-4]$/.test(e.key)) {
+        const card = (document.activeElement && document.activeElement.closest('.lv-q')) ||
+          wrap.querySelector('.lv-q:not(.answered)');
+        if (!card) return;
+        const box = card.querySelectorAll('input[data-answer], input[data-self]')[Number(e.key) - 1];
+        if (!box) return;
+        e.preventDefault();
+        box.checked = true;
+        box.dispatchEvent(new Event('change', {bubbles: true}));
+        card.scrollIntoView({block: 'nearest'});
+      } else if (e.key === 'ArrowRight' && si < doc.sections.length - 1) {
+        goSection(si + 1);
+      } else if (e.key === 'ArrowLeft' && si > 0) {
+        goSection(si - 1);
+      }
+    });
+
     wrap.addEventListener('input', (e) => {
       if (!e.target.matches('[data-text]')) return;
       draftState().texts[e.target.dataset.text] = e.target.value;
@@ -10501,29 +10675,38 @@ const Boot = (() => {
 
   const fill = document.getElementById('bootfill');
   const pct = document.getElementById('bootpct');
-  const stage = document.getElementById('bootstage');
-  const stageFa = document.getElementById('bootstagefa');
-  /* The sections report their own names, so the line under the bar says what
-     is being read instead of a fixed "Loading". Persian is written here rather
-     than in the loader so the two cannot drift apart. */
-  const STAGE_FA = {
-    Today: 'واژه و عبارت امروز',
-    Stickers: 'استیکرها',
-    Vocabulary: 'واژگان',
-    Grammar: 'گرامر',
-    Sentences: 'جمله‌ها',
-    Listening: 'شنیدن',
-    Sounds: 'آواها',
-    'Word index': 'نمایهٔ واژه‌ها',
-    Audio: 'صداها',
-    Preparing: 'آماده‌سازی',
-  };
-  function showStage(label) {
-    if (!label) return;
-    if (stage) stage.textContent = label;
-    if (stageFa) stageFa.textContent = STAGE_FA[label] || 'آماده‌سازی';
-  }
+  const factBox = document.getElementById('bootfacts');
+  const fact = document.getElementById('bootfact');
+  const factFa = document.getElementById('bootfactfa');
+  /* What the app is, not which file is being read: the three tiles above say
+     what the day holds, and this line says what the rest of the shelf does.
+     Both languages are written here so they cannot drift apart. */
+  const FACTS = [
+    ['50 graded stories, A1 to C1', '۵۰ داستان سطح‌بندی‌شده، از A1 تا C1'],
+    ['A word, an expression, a conversation — every day',
+     'هر روز یک واژه، یک عبارت، یک گفت‌وگو'],
+    ['A level check across five skills, once a month',
+     'سنجش سطح در پنج مهارت، ماهی یک بار'],
+    ['Listening from A1 to C2, read aloud on your device',
+     'شنیدن از A1 تا C2، با صدای دستگاه'],
+    ['48 grammar lessons and an analyser that runs offline',
+     '۴۸ درس گرامر و تحلیل‌گری که آفلاین کار می‌کند'],
+  ];
   const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let factAt = 0;
+  let factTimer = 0;
+  function showFact(k) {
+    const pair = FACTS[k % FACTS.length];
+    factBox.classList.add('swap');
+    setTimeout(() => {
+      fact.textContent = pair[0];
+      factFa.textContent = pair[1];
+      factBox.classList.remove('swap');
+    }, 320);
+  }
+  if (!calm.matches && FACTS.length > 1) {
+    factTimer = setInterval(() => showFact(++factAt), 2100);
+  }
   let gone = false;
   let floorUp = false;
   let dataIn = false;
@@ -10586,6 +10769,7 @@ const Boot = (() => {
     clearTimeout(timer);
     timer = 0;
     clearTimeout(deadline);
+    clearInterval(factTimer);
     el.classList.add('gone');
     // Removed as well as faded: left in the tree it stays a full-screen
     // element that a later focus can land on.
@@ -10612,8 +10796,7 @@ const Boot = (() => {
     /* Kept for callers that want to explain the wait; the card itself now
        shows only the bar and its percentage. */
     say() {},
-    step(done, total, label) {
-      showStage(label);
+    step(done, total) {
       aim(total ? done / total : 0);
     },
     /* Every section is in. The overlay still holds until the floor passes. */
@@ -10635,22 +10818,26 @@ const Boot = (() => {
  * nobody was waiting on and made those two sections feel broken.
  */
 async function loadAllSections() {
+  /* An ordered list of readers, counted so the bar reflects work done. The
+     names used to be here as well, for a line that told the reader which file
+     was open; that line now carries a fact about the app instead, so the
+     labels would only be a second copy of the order below. */
   const steps = [
-    ['Today', loadDaily],
-    ['Stickers', () => Stickers.load()],
-    ['Vocabulary', loadVocabulary],
-    ['Grammar', loadGrammar],
-    ['Sentences', loadPhrases],
-    ['Listening', loadListening],
-    ['Sounds', loadPhonetics],
-    ['Word index', loadWordArch],
-    ['Audio', bbcDoc],
+    loadDaily,
+    () => Stickers.load(),
+    loadVocabulary,
+    loadGrammar,
+    loadPhrases,
+    loadListening,
+    loadPhonetics,
+    loadWordArch,
+    bbcDoc,
   ];
   let done = 0;
-  Boot.step(0, steps.length, 'Preparing');
-  await Promise.all(steps.map(async ([label, run]) => {
+  Boot.step(0, steps.length);
+  await Promise.all(steps.map(async (run) => {
     try { await run(); } catch (e) { /* one thin section beats no app */ }
-    Boot.step(++done, steps.length, label);
+    Boot.step(++done, steps.length);
   }));
 }
 
