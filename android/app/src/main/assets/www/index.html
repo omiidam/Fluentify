@@ -160,6 +160,13 @@
        reads as glass over cream reads as a grey bar slid across graphite. */
     --glint: rgba(255,255,255,.55);
     --glint-soft: rgba(255,255,255,.38);
+    /* The tutor's portrait is a cut-out on a transparent file, so the tile
+       behind it is the backdrop the picture was drawn against: cream paper.
+       The same cream on graphite is a white disc with a fox dropped on it,
+       which is the square this token removes - in dark the tile becomes the
+       warm graphite the gold accents are already built on. */
+    --tile-bot: linear-gradient(150deg, rgba(235,226,183,.95), rgba(221,210,162,.9));
+    --tile-bot-edge: rgba(205,159,60,.38);
     /* ink, darkest first. --ink-1 is body copy, --ink-5 is a hint. */
     --ink-1: #2b3049; --ink-2: #3f4a6b; --ink-3: #55607e;
     --ink-4: #7b829c; --ink-5: #666d84;
@@ -251,6 +258,8 @@
     --lift-warm: rgba(255,255,255,.025);
     --glint: rgba(255,255,255,.07);
     --glint-soft: rgba(255,255,255,.05);
+    --tile-bot: linear-gradient(150deg, var(--gold-soft), var(--sand));
+    --tile-bot-edge: rgba(217,180,108,.42);
     --ink-1: #eef2f9; --ink-2: #d6dded; --ink-3: #b3bccf;
     --ink-4: #98a1b5; --ink-5: #8a94a8;
     --on-fill: #fffcef;
@@ -2858,8 +2867,8 @@
   /* the tutor's face is a round portrait, so the tile reads as a frame */
   .mav img { border-radius: 50%; }
   .mav.bot {
-    background: linear-gradient(150deg, rgba(235,226,183,.95), rgba(221,210,162,.9));
-    border-color: rgba(205,159,60,.38);
+    background: var(--tile-bot);
+    border-color: var(--tile-bot-edge);
     /* The tutor's portrait is round, so its tile is too: a circle sitting in a
        rounded square reads as a picture that missed its frame. The picture
        fills the tile, so the gold edge is the only frame it gets. */

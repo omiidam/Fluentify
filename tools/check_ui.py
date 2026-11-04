@@ -845,7 +845,7 @@ def main() -> int:
                               "wash-ice", "wash-leaf", "wash-violet",
                               "gold-line", "focus", "btn-fill", "mask",
                               "lift", "lift-soft", "lift-warm", "glint",
-                              "glint-soft")]
+                              "glint-soft", "tile-bot", "tile-bot-edge")]
         root = re.search(r":root \{(.*?)\n  \}", src, re.S)
         root_src = root.group(1) if root else ""
         missing = [n for n in ladder
