@@ -995,6 +995,30 @@ def main() -> int:
                   if not (has_display(p, "block") or has_display(p, "flex"))]
     check("every panel has an .open rule that shows it", not unopenable,
           f"{unopenable} could never open")
+
+    # The section words are the other way into a panel, and the only one that
+    # works without aiming at the top bar. Level and Account had no word at
+    # all: every other section opened on its name and these two did not, which
+    # read as two panels that were broken rather than two that were unlisted.
+    # Each entry has to point at a panel and a tile that actually exist.
+    table = re.search(r"const SECTIONS = \{(.*?)\n\};", src, re.S)
+    check("the section table is where this check can read it",
+          table is not None, "const SECTIONS is not in the page")
+    if table:
+        entries = re.findall(r"\n  (\w+): \{\s*\n?\s*panel: '(\w+)', btn: '(\w+)'",
+                             table.group(1))
+        check("every section entry parses", len(entries) >= 8, f"found {entries}")
+        for name, panel, btn in entries:
+            check(f"the {name} section points at a real panel and tile",
+                  f'id="{panel}"' in src and f'id="{btn}"' in src,
+                  f"{panel} / {btn} is not in the markup, so the section word "
+                  "opens nothing")
+        names = [e[0] for e in entries]
+        for want in ("level", "account"):
+            check(f'"{want}" is a section the chat can open',
+                  want in names,
+                  "it is a panel with a tile but no word, which is the state "
+                  "this check exists to prevent")
     # The close button is the only way out of a panel, so its hit area is a
     # floor, not a style. The visible box has come down twice (44 -> 40 -> 32)
     # to leave the bilingual titles their width, which is fine only as long as

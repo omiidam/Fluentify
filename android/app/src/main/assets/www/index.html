@@ -31,17 +31,21 @@
       U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
       U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
-  /* Gulzar (googlefonts/Gulzar, OFL) is the Persian face of the whole app. It
-     is a Nastaliq, so it sits deeper than a naskh face and the Persian surfaces
-     carry the line height to match (below). The unicode-range keeps it to the
-     Arabic script, so Latin stays in Baloo2/Kalam and a mixed line keeps two
-     voices on purpose. */
+  /* Vazirmatn (rastikerdar/vazirmatn, OFL) is the Persian face of the whole
+     app: a modern naskh drawn for screens, with the weights a UI needs and none
+     of Nastaliq's depth, which had the Persian lines sitting lower than their
+     Latin neighbours and reading as calligraphy where the app wanted plain
+     text. One variable file covers 100-900, so bold Persian is bold rather
+     than a synthesised smear. The unicode-range keeps it to the Arabic script,
+     so Latin stays in Baloo2/Kalam and a mixed line keeps two voices on
+     purpose. */
   @font-face {
-    font-family: 'Gulzar';
+    font-family: 'Vazirmatn';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100 900;
     font-display: swap;
-    src: url('fonts/gulzar.woff2') format('woff2');
+    src: url('fonts/vazirmatn.woff2') format('woff2-variations'),
+         url('fonts/vazirmatn.woff2') format('woff2');
     unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF,
       U+FE70-FEFF, U+200C-200D, U+0640;
   }
@@ -75,11 +79,15 @@
     /* the poster's water: the cool note the lavender chip used to carry */
     --ice: #e4ecf3; --ice2: #d4e1ed; --ice-ink: #33526e;
     --success: #4a4fa0; --red: #a8493a;
-    /* Kalam is the handwritten body face of the reference; Baloo 2 the
-       rounded display face of its headings. Tahoma carries the Persian. */
-    --font-body: 'Gulzar', 'Kalam', 'Segoe Print', 'Comic Sans MS', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
-    --font-fa: 'Gulzar', Tahoma, 'Vazirmatn', 'IranSans', sans-serif;
-    --font-display: 'Gulzar', 'Baloo2', 'Trebuchet MS', Tahoma, 'Vazirmatn', 'IranSans',
+    /* Two scripts, two faces, one stack each: Kalam is the handwritten Latin
+       body of the reference, Baloo 2 the rounded Latin display face, and
+       Vazirmatn carries every Persian glyph in both, because its unicode-range
+       claims the Arabic script and nothing else. Tahoma stays behind it for a
+       device that cannot load the file. */
+    --font-body: 'Kalam', 'Vazirmatn', 'Segoe Print', 'Comic Sans MS', Tahoma,
+      'IranSans', sans-serif;
+    --font-fa: 'Vazirmatn', Tahoma, 'IranSans', sans-serif;
+    --font-display: 'Baloo2', 'Vazirmatn', 'Trebuchet MS', Tahoma, 'IranSans',
       sans-serif;
     /* The learner's own side, in the poster's slate. One bubble is dark and
        the other is paper, which is the contrast the eye actually uses to tell
@@ -792,8 +800,12 @@
     width: min(1180px, 100%); height: min(94vh, 980px);
     display: flex; flex-direction: column; overflow: hidden;
     border-radius: 26px;
+    /* Three stops, and none of them white. A near-white top edge above a warm
+       foot is what made the frame glare at the top of every screen; the sheet
+       now darkens as it falls, which is how paper actually behaves under a
+       lamp and what the eye reads as depth without a single hard line. */
     background:
-      linear-gradient(150deg, #fffdf4, #fffcef 45%, #fbf4e1);
+      linear-gradient(152deg, #fffdf6 0%, #fdf8ea 42%, #f7eeda 100%);
     border: 1px solid rgba(205,159,60,.30);
     box-shadow:
       0 30px 70px rgba(74,58,30,.16),
@@ -817,6 +829,8 @@
        the surface, the gold hairline its printed edge. */
     background: linear-gradient(180deg, #fdf8e7 0%, #f8f0d8 100%);
     border-bottom: 1px solid rgba(205,159,60,.32);
+    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset,
+                0 10px 24px -22px rgba(74,58,30,.9);
     flex: none;
   }
   /* the frosted layer belonged to the glass theme; paper needs no refraction */
@@ -960,7 +974,8 @@
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
   #bpanel, #rdpanel, #stpanel, #lvlpanel, #acpanel {
     display: none; padding: 14px 20px;
-    background: #fffcef;
+    background: linear-gradient(180deg, #fffdf6 0%, #fdf8ea 55%, #fbf4e3 100%);
+    box-shadow: inset 0 1px 0 #ffffff;
     border-bottom: 1px solid rgba(43,48,73,.12);
     flex: none; animation: fade .18s ease;
     max-height: 52%; overflow-y: auto;
@@ -1010,73 +1025,150 @@
        card starts at the top edge and scrolls on a short phone. */
     display: flex; flex-direction: column; padding: 18px;
     overflow-y: auto;
+    /* Two washes and a base, the same construction as the app behind it, so
+       the gate looks like the room it opens into rather than a modal pasted
+       over it. */
     background:
-      radial-gradient(90% 70% at 50% -10%, #fffaf0 0%, transparent 60%),
-      radial-gradient(80% 60% at 108% 108%, #f4ead7 0%, transparent 55%),
-      linear-gradient(158deg, #fbf7ee 0%, #f4ecdc 55%, #eee3ce 100%);
+      radial-gradient(70% 50% at 18% 0%, rgba(34,55,94,.10) 0%, transparent 62%),
+      radial-gradient(60% 45% at 100% 100%, rgba(232,191,95,.30) 0%, transparent 60%),
+      linear-gradient(158deg, #fbf6ea 0%, #f4ecda 55%, #eee2cb 100%);
   }
   .auth[hidden] { display: none; }
   .authcard {
-    width: min(100%, 428px); margin: auto;
-    background: rgba(255, 253, 247, .92);
-    border: 1px solid rgba(43,48,73,.12); border-radius: 20px;
-    box-shadow: 0 24px 60px -34px rgba(43,48,73,.7), 0 2px 0 rgba(255,255,255,.8) inset;
-    padding: 18px 18px 16px;
+    /* flex: none, or the column flex parent shrinks the card below its own
+       content and `overflow: hidden` then clips the submit button off the
+       bottom of the gate on a short viewport. The gate scrolls instead. */
+    flex: none;
+    width: min(100%, 432px); margin: auto;
+    background: linear-gradient(180deg, #fffefa 0%, #fdf9ef 62%, #fbf5e7 100%);
+    border: 1px solid rgba(43,48,73,.14); border-radius: 22px;
+    box-shadow: 0 30px 70px -38px rgba(24,32,52,.75), 0 1px 0 rgba(255,255,255,.9) inset;
+    overflow: hidden;
     backdrop-filter: blur(8px);
   }
-  .authbrand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .authbrand img { width: 36px; height: 36px; border-radius: 10px; background: #fff; }
-  .authbrand b {
-    display: block; font-family: var(--font-display); font-size: 16px;
-    letter-spacing: .2px; color: var(--ink); line-height: 1.2;
+  /* The hero is the card's one dark surface. Navy at the top and cream below
+     gives the gate a header instead of a wall of fields, and it is the same
+     navy the open section tile and every panel heading already use. */
+  .authhero {
+    position: relative; display: flex; align-items: center; gap: 12px;
+    padding: 16px 18px 15px;
+    background:
+      radial-gradient(120% 130% at 88% -30%, rgba(232,191,95,.34) 0%, transparent 58%),
+      linear-gradient(150deg, #2f4a78 0%, #22375e 55%, #182a4a 100%);
+    color: #fffdf5;
   }
-  .authbrand span { display: block; font-size: 10.5px; color: var(--muted); margin-top: 1px; }
-  .authh { font-family: var(--font-display); font-size: 19px; color: var(--ink); margin: 0 0 3px; }
-  .authsub { font-size: 12px; line-height: 1.5; color: #55607e; margin: 0 0 10px; }
+  .authhero::after {
+    content: ''; position: absolute; inset: auto 0 0 0; height: 3px;
+    background: linear-gradient(90deg, #e8bf5f, rgba(232,191,95,0), #cf9f3c);
+  }
+  .authbadge {
+    width: 50px; height: 50px; flex: none; border-radius: 16px;
+    display: grid; place-items: center;
+    background: linear-gradient(160deg, #fffdf6, #f6ecd2);
+    box-shadow: 0 6px 16px -8px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.7);
+  }
+  .authbadge img { width: 42px; height: 42px; display: block; }
+  .authhero-t b {
+    display: block; font-family: var(--font-display); font-size: 19px;
+    letter-spacing: .2px; line-height: 1.15;
+  }
+  .authhero-t span {
+    display: block; font-size: 10.5px; line-height: 1.55; margin-top: 3px;
+    color: rgba(255,253,245,.82);
+  }
+  .authbody { padding: 16px 18px 14px; }
+  .authh {
+    font-family: var(--font-display); font-size: 20px; color: var(--ink);
+    margin: 0 0 3px; letter-spacing: -.1px;
+  }
+  .authsub { font-size: 12px; line-height: 1.55; color: #55607e; margin: 0 0 12px; }
   .authtabs {
     display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 3px;
-    background: rgba(43,48,73,.06); border-radius: 11px; margin-bottom: 12px;
+    background: rgba(43,48,73,.07); border-radius: 12px; margin-bottom: 13px;
   }
   .authtab {
-    font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
-    border: 0; border-radius: 8px; padding: 7px 6px; color: #5b6485;
-    background: transparent;
+    font: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
+    border: 0; border-radius: 9px; padding: 8px 6px; color: #5b6485;
+    background: transparent; transition: background .15s, color .15s, box-shadow .15s;
   }
-  .authtab.on { background: #fffdf7; color: var(--ink); box-shadow: 0 2px 8px -5px rgba(43,48,73,.6); }
+  .authtab:hover { color: var(--ink); }
+  .authtab.on {
+    background: linear-gradient(180deg, #fffefa, #fbf4e4); color: var(--navy);
+    box-shadow: 0 2px 8px -4px rgba(43,48,73,.55), inset 0 0 0 1px rgba(43,48,73,.08);
+  }
   .authtab[disabled] { opacity: .45; cursor: not-allowed; }
-  .authfield { display: block; margin-bottom: 7px; }
+  .authfield { display: block; margin-bottom: 8px; }
   /* The display rule above beats the browser's [hidden] default, so the
      sign-in card was still as tall as the sign-up card: two fields were
      invisible but still taking up their space. */
-  .authfield[hidden] { display: none; }
-  .authfield > span {
-    display: block; font-size: 10.5px; font-weight: 600; color: #6b6386;
-    margin-bottom: 3px; letter-spacing: .02em;
+  .authfield[hidden], .authmeter[hidden] { display: none; }
+  .authfield > span:first-child {
+    display: block; font-size: 10.5px; font-weight: 700; color: #5b6485;
+    margin-bottom: 4px; letter-spacing: .02em;
   }
   .authfield input {
-    width: 100%; font: inherit; font-size: 13px; padding: 9px 11px;
-    border-radius: 11px; border: 1px solid rgba(43,48,73,.2);
-    background: #fff; color: var(--ink);
+    width: 100%; font: inherit; font-size: 13.5px; padding: 10px 12px;
+    border-radius: 12px; border: 1px solid rgba(43,48,73,.18);
+    background: linear-gradient(180deg, #ffffff, #fffdf6);
+    color: var(--ink); box-shadow: inset 0 1px 2px rgba(43,48,73,.05);
   }
-  .authfield input:focus-visible { outline: 2px solid rgba(107,91,210,.5); outline-offset: 1px; }
+  .authfield input::placeholder { color: #a6a9b8; }
+  .authfield input:focus-visible {
+    outline: 2px solid rgba(34,55,94,.55); outline-offset: 1px;
+    border-color: rgba(34,55,94,.45);
+  }
   .authfield .hint { display: block; font-size: 10px; color: #8b8fa6; margin-top: 3px; }
+  /* The reveal button sits inside the field's own box, so the field is still
+     one control rather than an input plus a stranger beside it. */
+  .authwrap { position: relative; display: block; }
+  .authwrap input { padding-inline-end: 62px; }
+  .authreveal {
+    position: absolute; inset-inline-end: 6px; top: 50%; transform: translateY(-50%);
+    font: inherit; font-size: 10.5px; font-weight: 700; cursor: pointer;
+    padding: 5px 8px; border-radius: 8px; border: 1px solid rgba(43,48,73,.14);
+    background: rgba(255,255,255,.9); color: var(--ice-ink);
+  }
+  .authreveal:hover { background: var(--ice); }
+  .authreveal[aria-pressed="true"] { background: var(--ice); border-color: rgba(51,82,110,.35); }
+  /* Strength: four segments rather than a percentage bar, because the score is
+     a band, not a measurement, and a bar that fills to 87% pretends otherwise. */
+  .authmeter { margin: 2px 0 9px; }
+  .authtrack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .authtrack i {
+    height: 4px; border-radius: 999px; background: rgba(43,48,73,.12);
+    transition: background .2s;
+  }
+  .authmeter[data-score="1"] .authtrack i:nth-child(-n+1) { background: #b4452f; }
+  .authmeter[data-score="2"] .authtrack i:nth-child(-n+2) { background: #c08a1c; }
+  .authmeter[data-score="3"] .authtrack i:nth-child(-n+3) { background: #3f6a8a; }
+  .authmeter[data-score="4"] .authtrack i { background: linear-gradient(90deg, #2f6b4f, #22375e); }
+  .authlabel {
+    display: block; margin-top: 5px; font-size: 10px; line-height: 1.6; color: #7b829c;
+  }
+  .authlabel b { color: #55607e; }
+  .authlabel .fa { display: block; }
   .autherr {
     font-size: 11.5px; line-height: 1.5; color: #a8456a; min-height: 16px;
     margin: 2px 0 6px;
   }
   .autherr.ok { color: #2f6b4f; }
   .authsubmit {
-    width: 100%; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
-    padding: 10px 14px; border-radius: 12px; border: 1px solid transparent;
-    background: var(--ink); color: #fffdf6; display: flex; align-items: center;
-    justify-content: center; gap: 8px;
+    width: 100%; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;
+    padding: 12px 14px; border-radius: 13px; border: 1px solid rgba(24,42,74,.5);
+    background:
+      radial-gradient(120% 130% at 12% -20%, rgba(232,191,95,.35) 0%, transparent 55%),
+      linear-gradient(150deg, #2f4a78, #22375e 60%, #182a4a);
+    color: #fffdf5; display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 10px 22px -14px rgba(24,42,74,.9), inset 0 1px 0 rgba(255,255,255,.16);
+    transition: transform .14s, box-shadow .18s, filter .18s;
   }
-  .authsubmit[disabled] { opacity: .6; cursor: wait; }
-  .authnote {
-    margin-top: 11px; padding-top: 10px; border-top: 1px solid rgba(43,48,73,.1);
-    font-size: 10.5px; line-height: 1.55; color: #7b829c;
+  .authsubmit:hover { transform: translateY(-1px); filter: brightness(1.06); }
+  .authsubmit:active { transform: translateY(0); }
+  .authsubmit[disabled] { opacity: .6; cursor: wait; transform: none; }
+  .authfoot {
+    margin: 11px 0 0; text-align: center; font-size: 10px; color: #8b8fa6;
   }
-  .authnote b { color: #55607e; }
+  .authfoot .fa { unicode-bidi: plaintext; }
   .authlink {
     font: inherit; font-size: 10.5px; background: none; border: 0; padding: 0;
     color: #6b5bd2; cursor: pointer; text-decoration: underline;
@@ -1088,6 +1180,13 @@
     background: #fbf3e4; border: 1px solid rgba(155,106,18,.24); color: #7d5510;
   }
   .authexpired[hidden] { display: none; }
+
+  /* The account panel keeps the small grey note the gate used to carry. */
+  .authnote {
+    margin-top: 11px; padding-top: 10px; border-top: 1px solid rgba(43,48,73,.1);
+    font-size: 10.5px; line-height: 1.55; color: #7b829c;
+  }
+  .authnote b { color: #55607e; }
 
   /* ---------- the account panel ----------------------------------------- */
   .ac-name {
@@ -1860,7 +1959,7 @@
      wants, and the Latin inside it is marked as its own run with a hair of
      space around it so a borrowed term does not collide with the Persian
      around it. */
-  /* Gulzar is the Persian face wherever Persian appears: the language the
+  /* Vazirmatn is the Persian face wherever Persian appears: the language the
      renderer writes on a line, the islands it emits inside an English one, the
      translation lines, and any element the app marks as Persian. A font stack
      is easy to override by accident; naming the surfaces it applies to is not. */
@@ -2462,7 +2561,10 @@
     /* The transcript is its own sheet, a shade deeper than the card it sits
        in: without it the header, the conversation and the composer were one
        unbroken field of cream with three horizontal rules in it. */
-    background: #faf4e2;
+    /* Shaded, not painted: a flat fill this close to the frame made the
+       boundary read as a seam. The gradient goes slightly deeper downwards, so
+       the conversation settles against the composer instead of floating. */
+    background: linear-gradient(180deg, #f8f1de 0%, #fbf5e6 46%, #f9f1dd 100%);
     scroll-behavior: smooth;
     /* Android's WebView keeps momentum scrolling only when asked, and the
        daily card is taller than a phone screen once its rows are open: the
@@ -2528,9 +2630,13 @@
      styling measurably raises perceived empathy and trust, and trust is what
      drives whether people stay in a tutor (Frontiers 2025, n=160). */
   .msg.bot {
-    background: #fffcef;
+    /* A gradient of two creams rather than one: a 1.5px step over a bubble's
+       height is enough to round it, and it stops the wall of identical white
+       cards that made a long conversation tiring to scan. The border carries
+       the edge so the gradient never has to. */
+    background: linear-gradient(180deg, #fffdf6 0%, #fdf8ea 100%);
     color: var(--ink);
-    border: 1px solid rgba(43,48,73,.13);
+    border: 1px solid rgba(43,48,73,.14);
     border-bottom-left-radius: 6px;
     box-shadow: 0 4px 16px rgba(74,58,30,.09), inset 0 1px 0 #ffffff;
   }
@@ -2711,9 +2817,10 @@
   .messageBox {
     display: flex; align-items: center; gap: 4px;
     padding: 3px 4px 3px 6px; border-radius: 999px;
-    background: #fffcef;
-    border: 1px solid rgba(205,159,60,.30);
-    box-shadow: 0 2px 8px rgba(74,58,30,.07), inset 0 1px 0 #ffffff;
+    background: linear-gradient(180deg, #fffefa 0%, #fdf8ea 100%);
+    border: 1px solid rgba(205,159,60,.34);
+    box-shadow: 0 2px 8px rgba(74,58,30,.08), inset 0 1px 0 #ffffff,
+                0 8px 20px -18px rgba(43,48,73,.8);
     transition: border-color .18s, box-shadow .18s;
   }
   .messageBox:focus-within {
@@ -3100,12 +3207,11 @@
     color: var(--navy2); line-height: 1.3; word-break: break-word;
   }
   .dirow.done .dimain { color: #3d4289; }
-  /* Gulzar is a Nastaliq: the tallest initials (ا ل ک گ) rise about 1.37em
-     above the baseline while the line box only allows 0.89em. With
-     line-height 1.55 and overflow hidden for the ellipsis, the top of the
-     first letter of the word was cut off - "گران" read as "ران". Persian
-     needs ~2em of leading here, and it must not be clipped vertically, so the
-     row wraps instead of truncating. */
+  /* Persian gets more leading than Latin here, and it keeps it: the Nastaliq
+     this face replaced needed ~2em of it to stop its tallest initials being
+     clipped by an ellipsis, and Vazirmatn - a naskh - reads comfortably at the
+     same setting rather than tightly. The row wraps instead of truncating, so
+     the leading is never the thing that decides whether a word fits. */
   .disub {
     direction: rtl; text-align: right; unicode-bidi: plaintext;
     font-family: var(--font-fa);
@@ -4311,42 +4417,59 @@
 
 <div id="auth" class="auth" hidden>
   <div class="authcard" role="dialog" aria-modal="true" aria-labelledby="authh">
-    <div class="authbrand">
-      <img src="brand/fox-mark.png" alt="" width="42" height="42" decoding="async">
-      <div><b>Fluentify</b><span>A step a day, a win a day — هر روز یک قدم</span></div>
+    <div class="authhero">
+      <span class="authbadge"><img src="brand/fox-mark.png" alt="" width="46" height="46" decoding="async"></span>
+      <div class="authhero-t">
+        <b>Fluentify</b>
+        <span>A step a day, a win a day<br><bdi dir="rtl" lang="fa">هر روز یک قدم، هر روز یک برد</bdi></span>
+      </div>
     </div>
-    <h2 class="authh" id="authh">Welcome back</h2>
-    <p class="authsub" id="authsub">Sign in to keep your level, your certificate and your place in the stories.</p>
-    <div class="authexpired" id="authexpired" hidden>
-      <span>Your session ended after seven days without use. Sign in again to continue —
-        <bdi dir="rtl" lang="fa">نشست پس از هفت روز بی‌استفاده بسته شد؛ دوباره وارد شو.</bdi></span>
+    <div class="authbody">
+      <h2 class="authh" id="authh">Welcome back</h2>
+      <p class="authsub" id="authsub">Sign in to keep your level, your certificate and your place in the stories.</p>
+      <div class="authexpired" id="authexpired" hidden>
+        <span>Your session ended after seven days without use. Sign in again to continue —
+          <bdi dir="rtl" lang="fa">نشست پس از هفت روز بی‌استفاده بسته شد؛ دوباره وارد شو.</bdi></span>
+      </div>
+      <div class="authtabs" role="tablist" aria-label="Sign in or create an account">
+        <button class="authtab on" type="button" role="tab" aria-selected="true" data-authtab="signin">Sign in</button>
+        <button class="authtab" type="button" role="tab" aria-selected="false" data-authtab="signup">Create account</button>
+      </div>
+      <form id="authform" novalidate>
+        <label class="authfield" data-only="signup">
+          <span>Full name — نام و نام خانوادگی</span>
+          <input id="authname" type="text" autocomplete="name" placeholder="Sara Ahmadi" maxlength="60">
+          <small class="hint">Printed on your certificate. — روی گواهی چاپ می‌شود.</small>
+        </label>
+        <label class="authfield">
+          <span>Username — نام کاربری</span>
+          <input id="authuser" type="text" autocomplete="username" placeholder="sara" maxlength="32"
+                 autocapitalize="none" spellcheck="false">
+        </label>
+        <label class="authfield">
+          <span>Password — گذرواژه</span>
+          <span class="authwrap">
+            <input id="authpass" type="password" autocomplete="current-password" maxlength="128">
+            <button class="authreveal" id="authreveal" type="button" aria-label="Show password"
+                    aria-pressed="false" title="Show password — نمایش گذرواژه">Show</button>
+          </span>
+        </label>
+        <div class="authmeter" id="authmeter" hidden>
+          <div class="authtrack" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <span class="authlabel" id="authlabel">
+            <b>Use a phrase</b> — three or four words, 12 characters or more.
+            <bdi dir="rtl" lang="fa">یک عبارت چندکلمه‌ای بساز؛ دست‌کم ۱۲ نویسه.</bdi>
+          </span>
+        </div>
+        <label class="authfield" data-only="signup">
+          <span>Repeat password — تکرار گذرواژه</span>
+          <input id="authpass2" type="password" autocomplete="new-password" maxlength="128">
+        </label>
+        <p class="autherr" id="autherr" role="alert"></p>
+        <button class="authsubmit" id="authsubmit" type="submit">Sign in</button>
+      </form>
+      <p class="authfoot">Stored on this device only · <bdi dir="rtl" lang="fa">فقط روی همین دستگاه</bdi></p>
     </div>
-    <div class="authtabs" role="tablist" aria-label="Sign in or create an account">
-      <button class="authtab on" type="button" role="tab" aria-selected="true" data-authtab="signin">Sign in</button>
-      <button class="authtab" type="button" role="tab" aria-selected="false" data-authtab="signup">Create account</button>
-    </div>
-    <form id="authform" novalidate>
-      <label class="authfield" data-only="signup">
-        <span>Full name — نام و نام خانوادگی</span>
-        <input id="authname" type="text" autocomplete="name" placeholder="Sara Ahmadi" maxlength="60">
-        <small class="hint">Printed on your certificate. — روی گواهی چاپ می‌شود.</small>
-      </label>
-      <label class="authfield">
-        <span>Username — نام کاربری</span>
-        <input id="authuser" type="text" autocomplete="username" placeholder="sara" maxlength="32"
-               autocapitalize="none" spellcheck="false">
-      </label>
-      <label class="authfield">
-        <span>Password — گذرواژه</span>
-        <input id="authpass" type="password" autocomplete="current-password" maxlength="72">
-      </label>
-      <label class="authfield" data-only="signup">
-        <span>Repeat password — تکرار گذرواژه</span>
-        <input id="authpass2" type="password" autocomplete="new-password" maxlength="72">
-      </label>
-      <p class="autherr" id="autherr" role="alert"></p>
-      <button class="authsubmit" id="authsubmit" type="submit">Sign in</button>
-    </form>
   </div>
 </div>
 
@@ -10229,6 +10352,117 @@ const Auth = (() => {
   }
   const isOpen = (st, now) => sessionLeft(st, now) > 0;
 
+  /* ---- the password rule ------------------------------------------------
+     NIST SP 800-63B, followed rather than decorated: length is the requirement,
+     composition rules are not (they push people to "Password1!" and buy
+     nothing), spaces and any script are allowed because a passphrase is what
+     people actually remember, a blocklist catches the passwords that are
+     guessed first, and the hash is already PBKDF2-SHA-256 at 150k iterations.
+     The ceiling exists so a pasted novel cannot stall the KDF; 128 is double
+     the 64 that the guideline requires a verifier to accept. */
+  const MIN_PASS = 12, MAX_PASS = 128;
+
+  /* The passwords a cracker tries first. Short on purpose - a real blocklist
+     is megabytes and this file ships offline - but it covers the shapes people
+     reach for: the classics, their keyboard-walk cousins, and the padded ones
+     ("password123456") that a length rule alone would wave through. Compared
+     after folding: case, separators and the usual leet substitutions. */
+  const WEAK_PASSWORDS = [
+    'password', 'passw0rd', 'passwordpassword', 'qwerty', 'qwertyuiop',
+    'letmein', 'welcome', 'iloveyou', 'admin', 'administrator', 'monkey',
+    'dragon', 'sunshine', 'princess', 'football', 'baseball', 'superman',
+    'trustnoone', 'abc123', 'abcdefghijk', '123456789012', '1234567890123',
+    'qwertyuiopas', 'asdfghjklzxc', 'zxcvbnmasdf', 'correcthorsebattery',
+    'changeme', 'secretpassword', 'mypassword', 'thisismypassword',
+    'fluentify', 'iraniraniran', 'iran123456789', 'tehran1234567',
+  ];
+
+  /* One normal form for both jobs: lower-case, fold the substitutions that turn
+     a blocked word into a "new" one, then drop everything that is not a letter
+     or a digit. "@" becomes "a" before it can be stripped, which is the whole
+     point - P@ssw0rd is a password, not a consonant cluster.
+     A second form drops trailing digits, so "password1234" and
+     "qwertyuiop2024" stop being different passwords. */
+  function leetFold(pass) {
+    let raw = String(pass).toLowerCase();
+    /* A trailing run of digits is padding, not spelling - but only when a word
+       is left behind it, so "123456789012" is still its own password. */
+    const tail = raw.match(/\d{2,}$/);
+    if (tail && raw.length - tail[0].length >= 3) raw = raw.slice(0, -tail[0].length);
+    return raw
+      .replace(/[0]/g, 'o').replace(/[1!|]/g, 'l').replace(/[3]/g, 'e')
+      .replace(/[4@]/g, 'a').replace(/[5$]/g, 's').replace(/[7]/g, 't')
+      .replace(/[^a-z0-9\u0600-\u06FF]/g, '');
+  }
+  function passForms(pass) {
+    /* Three readings, because all three are real: the password as typed, the
+       same with the padded digits off ("password123456"), and the folded one
+       ("P@ssw0rd1234"). A blocked word is blocked in any of them. */
+    const raw = String(pass).toLowerCase();
+    const plain = raw.replace(/[^a-z0-9\u0600-\u06FF]/g, '');
+    return [plain, plain.replace(/\d+$/, ''), leetFold(pass)];
+  }
+
+  function weakReason(pass, user, name) {
+    const forms = passForms(pass);
+    if (!forms[0]) return ['Choose a password, not punctuation.', 'یک گذرواژه انتخاب کن، نه فقط نشانه.'];
+    for (const form of forms) {
+      if (form && WEAK_PASSWORDS.indexOf(form) !== -1) {
+        return ['That password is on every list a cracker tries first. Pick another.',
+                'این گذرواژه در اولین فهرستی است که هر نفوذگر امتحان می‌کند؛ یکی دیگر انتخاب کن.'];
+      }
+    }
+    if (/^(.)\1+$/.test(pass)) {
+      return ['One repeated character is not a password.', 'یک نویسهٔ تکراری گذرواژه نیست.'];
+    }
+    const u = leetFold(user || '');
+    if (u.length >= 3 && forms[0].indexOf(u) !== -1) {
+      return ['Do not build the password out of your username.',
+              'گذرواژه را از نام کاربری نساز.'];
+    }
+    const parts = String(name || '').toLowerCase().split(/\s+/)
+      .map((w) => leetFold(w)).filter((w) => w.length >= 3);
+    for (const part of parts) {
+      if (forms[0].indexOf(part) !== -1) {
+        return ['Do not build the password out of your name.',
+                'گذرواژه را از نام خودت نساز.'];
+      }
+    }
+    /* A run of one key is the other thing a length rule waves through:
+       "aaaaaaaaaaaa" is caught above, "abcdabcdabcd" and "qwertyqwerty" here. */
+    if (/^(.{2,6})\1+$/.test(pass)) {
+      return ['A repeated pattern is easy to guess. Use a phrase instead.',
+              'الگوی تکراری حدس‌زدنی است؛ یک عبارت به کار ببر.'];
+    }
+    return null;
+  }
+
+  /* 0-4 for the meter. Length is most of it, because length is most of the
+     strength; variety and the blocklist adjust it. Nothing here is a promise
+     about entropy, which is why the label says "strong", not "unbreakable". */
+  function strength(pass, user, name) {
+    const p = String(pass || '');
+    if (!p) return {score: 0, label: 'Empty', labelFa: 'خالی', ok: false};
+    let score = 0;
+    if (p.length >= MIN_PASS) score++;
+    if (p.length >= 16) score++;
+    if (p.length >= 24) score++;
+    const kinds = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/,
+                   /[\u0600-\u06FF]/].filter((re) => re.test(p)).length;
+    if (kinds >= 3 && p.length >= MIN_PASS) score++;
+    if (p.length < MIN_PASS) score = Math.min(score, 1);
+    const weak = weakReason(p, user, name);
+    if (weak) score = 0;
+    score = Math.max(0, Math.min(4, score));
+    const labels = [['Too short', 'کوتاه'], ['Weak', 'ضعیف'], ['Fair', 'قابل قبول'],
+                    ['Good', 'خوب'], ['Strong', 'قوی']];
+    /* A blocked password is not "too short" - it can be 40 characters and still
+       score zero - so the word for it has to say why. */
+    if (score === 0 && p.length >= MIN_PASS) labels[0] = ['Too common', 'رایج'];
+    return {score, label: labels[score][0], labelFa: labels[score][1],
+            ok: !weak && p.length >= MIN_PASS && p.length <= MAX_PASS, weak: !!weak};
+  }
+
   function validate(fields, hasAccount) {
     const name = String(fields.name || '').trim().replace(/\s+/g, ' ');
     const user = String(fields.user || '').trim();
@@ -10248,8 +10482,14 @@ const Auth = (() => {
       errors.push(['Username: 3–32 letters, digits, dot, dash or underscore.',
                    'نام کاربری: ۳ تا ۳۲ حرف یا رقم، نقطه، خط تیره یا زیرخط.']);
     }
-    if (pass.length < 8) {
-      errors.push(['Password: at least 8 characters.', 'گذرواژه: دست‌کم ۸ نویسه.']);
+    if (pass.length < MIN_PASS) {
+      errors.push(['Password: at least ' + MIN_PASS + ' characters. A phrase of three or four words is ideal.',
+                   'گذرواژه: دست‌کم ۱۲ نویسه. عبارتی از سه یا چهار کلمه بهترین گزینه است.']);
+    } else if (pass.length > MAX_PASS) {
+      errors.push(['Password: ' + MAX_PASS + ' characters at most.', 'گذرواژه: حداکثر ۱۲۸ نویسه.']);
+    } else {
+      const weak = weakReason(pass, user, name);
+      if (weak) errors.push(weak);
     }
     if (!hasAccount && pass !== pass2) {
       errors.push(['The two passwords do not match.', 'دو گذرواژه یکسان نیستند.']);
@@ -10275,7 +10515,34 @@ const Auth = (() => {
       : 'Sign in to keep your level, your certificate and your place in the stories.';
     $('authsubmit').textContent = tab === 'signup' ? 'Create account' : 'Sign in';
     $('authpass').setAttribute('autocomplete', tab === 'signup' ? 'new-password' : 'current-password');
+    const meter = $('authmeter');
+    if (meter) meter.hidden = tab !== 'signup';
+    paintStrength();
     error('');
+  }
+
+  /* The meter is the rule, drawn: same function the submit path calls, so the
+     bar cannot say "strong" about something the button will refuse. */
+  function paintStrength() {
+    const meter = $('authmeter');
+    if (!meter) return;
+    const label = $('authlabel');
+    const pass = $('authpass') ? $('authpass').value : '';
+    const res = strength(pass, $('authuser') ? $('authuser').value : '',
+                        $('authname') ? $('authname').value : '');
+    meter.dataset.score = String(pass ? res.score : 0);
+    if (!label) return;
+    if (!pass) {
+      label.innerHTML = '<b>Use a phrase</b> — three or four words, 12 characters or more.' +
+        '<bdi class="fa" dir="rtl" lang="fa">یک عبارت چندکلمه‌ای بساز؛ دست‌کم ۱۲ نویسه.</bdi>';
+      return;
+    }
+    label.innerHTML = '<b>' + res.label + ' · ' + res.labelFa + '</b>' +
+      '<bdi class="fa" dir="rtl" lang="fa">' +
+      (res.ok ? 'خوب است؛ همین را نگه دار.'
+              : res.weak ? 'این یکی را کنار بگذار؛ یک عبارت چندکلمه‌ای بساز.'
+              : 'دست‌کم ۱۲ نویسه؛ یک عبارت چندکلمه‌ای بهترین گزینه است.') +
+      '</bdi>';
   }
 
   function error(pair, ok) {
@@ -10303,6 +10570,10 @@ const Auth = (() => {
     $('auth').hidden = true;
     $('authpass').value = '';
     if ($('authpass2')) $('authpass2').value = '';
+    if ($('authpass')) $('authpass').type = 'password';
+    const reveal = $('authreveal');
+    if (reveal) { reveal.textContent = 'Show'; reveal.setAttribute('aria-pressed', 'false'); }
+    paintStrength();
     error('');
   }
 
@@ -10444,6 +10715,21 @@ const Auth = (() => {
     if (!overlay || overlay.dataset.ready) return;
     overlay.dataset.ready = '1';
     $('authform').addEventListener('submit', submit);
+    ['authpass', 'authuser', 'authname'].forEach((id) => {
+      const el = $(id);
+      if (el) el.addEventListener('input', paintStrength);
+    });
+    const reveal = $('authreveal');
+    if (reveal) {
+      reveal.addEventListener('click', () => {
+        const box = $('authpass');
+        const showing = box.type === 'text';
+        box.type = showing ? 'password' : 'text';
+        reveal.textContent = showing ? 'Show' : 'Hide';
+        reveal.setAttribute('aria-pressed', showing ? 'false' : 'true');
+        reveal.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      });
+    }
     document.querySelectorAll('[data-authtab]').forEach((b) => {
       b.addEventListener('click', () => { if (!b.disabled) setTab(b.dataset.authtab); });
     });
@@ -10498,7 +10784,7 @@ const Auth = (() => {
 
   return {
     init, touch, paintAccount, signOut, resetDevice,
-    sessionLeft, isOpen, validate,
+    sessionLeft, isOpen, validate, strength, MIN_PASS,
     profile: () => read(ACCOUNT, null),
     signedIn: () => isOpen(read(SESSION, null), Date.now()),
   };
@@ -12522,6 +12808,20 @@ const SECTIONS = {
     kw: ['review', 'reviews', 'flashcards', 'flash cards', 'starred words',
          'saved words', 'my words', 'مرور', 'مرور کلمات', 'کارت های مرور',
          'واژه های ذخیره شده'],
+  },
+  /* The two panels about the learner were the only two a name could not open.
+     Same contract as the rest: a bare "level" or "account" opens it, "open my
+     account" opens it, and a question that merely mentions either goes to the
+     tutor as before - the bare-word test below is what decides. */
+  level: {
+    panel: 'lvlpanel', btn: 'lvltoggle', en: 'Level check', fa: 'سنجش سطح', icon: '📊',
+    kw: ['level', 'levels', 'level check', 'level test', 'cefr', 'my level',
+         'سنجش سطح', 'آزمون سطح', 'تست سطح', 'سطح'],
+  },
+  account: {
+    panel: 'acpanel', btn: 'actoggle', en: 'Account', fa: 'حساب', icon: '👤',
+    kw: ['account', 'my account', 'sign in', 'signin', 'log in', 'login',
+         'profile', 'حساب', 'حساب کاربری', 'پروفایل', 'ورود'],
   },
 };
 

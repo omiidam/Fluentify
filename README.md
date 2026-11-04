@@ -24,7 +24,7 @@ no network calls, no tracking.
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
-| 👤 Account | sign-up and sign-in that happen **after the loading page** and before the app: full name, username, and a password stretched with PBKDF2-SHA256 (150,000 iterations) into a salted hash in this device's storage — no server, no plain text. The session stays open for **seven days after the last time the app was used**, then asks for the password again; sign out keeps the account, reset erases it |
+| 👤 Account | sign-up and sign-in that happen **after the loading page** and before the app: full name, username, and a password stretched with PBKDF2-SHA256 (150,000 iterations) into a salted hash in this device's storage — no server, no plain text. The password rule is **NIST SP 800-63B**: 12 characters minimum and 128 maximum, no composition rules, spaces and any script allowed, and instead of "one capital and one symbol" it rejects the passwords a cracker tries first — a bundled blocklist (case, separators and leet substitutions folded), the username, the learner's own name, a single repeated character and a repeated pattern — with a live four-segment strength meter that is drawn from the same function the submit button enforces. The session stays open for **seven days after the last time the app was used**, then asks for the password again; sign out keeps the account, reset erases it |
 | 🎓 Certificate | at the end of the assessment, a printable certificate carrying the learner's **full name, CEFR level, date, question count and certificate ID** — downloaded as PDF through the browser's print dialog on the web and through `PrintManager` in the APK, with the print stylesheet stripping everything but the sheet |
 | 📈 Level check | a **monthly CEFR assessment on one fixed fifty-question paper**: ten questions from each band, A1 to C1, across grammar, vocabulary, reading and listening, in five parts that climb in difficulty. The level is read straight off the **count of correct answers** — 8 of 50 is A1, 17 A2, 26 B1, 35 B2, 44 C1 — and each skill is read on the same fractions of its own total (grammar and vocabulary out of 15, reading and listening out of 10). Unanswered questions count as wrong, a score that lands within one standard error of a cutoff is shown as ±1 band, and writing and speaking stay practice and are reported as **not assessed**, with a 30-day retake window |
 | 📚 Mini stories | 50 graded readers (very easy → very hard) — the whole story with the Persian under every sentence, vocabulary, expressions, grammar and 5 + 3 + 3 + 2 questions with answers and explanations, plus a companion for a chapter of a book you own |
@@ -260,12 +260,29 @@ serves.
 Two flat bands, sand and slate, with gold linework and the steel blue of the
 illustration's water — the four colours of the poster the theme is cut from.
 The page is sand-cream (`#f7f1e0`), the transcript is its own slightly deeper
-sheet (`#faf4e2`), slate (`#3c405b`) is the only dark surface (the learner's own
-bubbles, the mic, the send button), gold (`#e8bf5f`) marks what the tutor is
-pointing at, and the steel blue (`#e4ecf3` / `#33526e`) carries the chips and
-pills the lavender used to hold. **Baloo 2** carries headings and the top-bar
-buttons, **Kalam** carries the transcript — the two faces of the design, both
-SIL OFL and vendored in `fonts/` so the APK has them offline.
+sheet (`#f8f1de` falling to `#f9f1dd`), slate (`#3c405b`) is the only dark
+surface (the learner's own bubbles, the mic, the send button), gold (`#e8bf5f`)
+marks what the tutor is pointing at, and the steel blue (`#e4ecf3` / `#33526e`)
+carries the chips and pills the lavender used to hold.
+
+No surface is a flat fill. The frame darkens as it falls from `#fffdf6` to
+`#f7eeda`, the tutor's bubbles run `#fffdf6 → #fdf8ea`, the panels do the same
+and the composer is the lightest of the set — a page of flat near-white cards
+above a flat cream field is what made a long session glare, and the gradients
+also remove the seam where two creams of nearly the same value met. Contrast
+went the other way: the bubble border is `rgba(43,48,73,.14)` and the header
+carries a navy-tinted shadow, so the edges that define a surface are drawn by
+value rather than by another expensive white.
+
+**Baloo 2** carries Latin headings and the top-bar buttons, **Kalam** carries
+the Latin transcript, and **Vazirmatn** carries every Persian glyph in both —
+one variable file (weight 100–900) whose `unicode-range` claims the Arabic
+script, so a mixed line still keeps two voices on purpose. Vazirmatn replaced
+the Nastaliq the app used to be set in: a Nastaliq drops below its own baseline
+and needed ~2em of leading to stop its initials being clipped, which read as
+calligraphy where the app wanted plain text. All three faces are SIL OFL and
+vendored in `fonts/` so the APK has them offline (`build_apk_ui.py` refuses to
+build if a face or its licence is missing).
 
 The palette and both families are declared once in the `:root` block at the top
 of [webapp.py](webapp.py); the surfaces below repeat those values, so a re-theme

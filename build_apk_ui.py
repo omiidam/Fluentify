@@ -481,8 +481,8 @@ if leftovers:
 FONT_DIR = ROOT / "fonts"
 # The two licences travel with the files: both faces are SIL OFL, and the
 # terms require the licence to ship wherever the font is redistributed.
-FONTS = ["baloo2-latin.woff2", "kalam-latin.woff2",
-         "OFL-baloo2.txt", "OFL-kalam.txt"]
+FONTS = ["baloo2-latin.woff2", "kalam-latin.woff2", "vazirmatn.woff2",
+         "OFL-baloo2.txt", "OFL-kalam.txt", "OFL-vazirmatn.txt"]
 missing_fonts = [f for f in FONTS if not (FONT_DIR / f).exists()]
 if missing_fonts:
     raise SystemExit("build_apk_ui: fonts missing from fonts/: "

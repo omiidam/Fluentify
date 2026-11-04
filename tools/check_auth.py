@@ -111,20 +111,50 @@ ok(!Auth.isOpen({seen}, seen + 7 * DAY + 1), 'seven days and a second locks it')
 ok(Auth.sessionLeft(null, seen) === 0, 'no session means no time left');
 ok(Auth.sessionLeft({seen}, seen - DAY) === 8 * DAY, 'a clock that went backwards cannot extend it');
 
-const good = Auth.validate({name: 'Sara Ahmadi', user: 'sara.a', pass: 'correct horse', pass2: 'correct horse'}, false);
-ok(good.ok, 'a full sign-up is accepted');
-ok(!Auth.validate({name: 'Sara', user: 'sara.a', pass: 'short', pass2: 'short'}, false).ok,
-   'a short password is refused');
-ok(!Auth.validate({name: 'Sara', user: 'sara.a', pass: 'long enough', pass2: 'long enough2'}, false).ok,
-   'two different passwords are refused');
-ok(!Auth.validate({name: 'Sara', user: 's!', pass: 'long enough', pass2: 'long enough'}, false).ok,
-   'a username with symbols is refused');
-ok(!Auth.validate({name: 'Sara 9', user: 'sara', pass: 'long enough', pass2: 'long enough'}, false).ok,
-   'a name with digits is refused');
-ok(Auth.validate({name: 'سارا احمدی', user: 'sara', pass: 'long enough', pass2: 'long enough'}, false).ok,
-   'a Persian name is accepted');
-ok(Auth.validate({name: '', user: 'sara', pass: 'long enough', pass2: 'long enough'}, true).ok,
+const P = 'nine small rivers run';
+const sign = (pass, extra) => Auth.validate(Object.assign(
+  {name: 'Sara Ahmadi', user: 'sara.a', pass, pass2: pass}, extra || {}), false);
+const okPass = (pass) => sign(pass).ok;
+const reason = (pass, extra) => {
+  const r = Auth.validate(Object.assign(
+    {name: 'Sara Ahmadi', user: 'sara.a', pass, pass2: pass}, extra || {}), false);
+  return r.errors.length ? r.errors[0][0] : '';
+};
+
+ok(P.length >= Auth.MIN_PASS, 'the harness passphrase clears the stated minimum');
+ok(okPass(P), 'a full sign-up is accepted');
+ok(!okPass('short'), 'a short password is refused');
+ok(!sign(P, {pass2: P + '2'}).ok, 'two different passwords are refused');
+ok(!sign(P, {user: 's!'}).ok, 'a username with symbols is refused');
+ok(!sign(P, {name: 'Sara 9'}).ok, 'a name with digits is refused');
+ok(sign('یک عبارت طولانی فارسی', {name: 'سارا احمدی', user: 'sara'}).ok,
+   'a Persian name and a Persian passphrase are accepted');
+ok(Auth.validate({name: '', user: 'sara', pass: P, pass2: P}, true).ok,
    'signing in does not ask for the name again');
+
+// the policy itself: length is the rule, composition is not
+ok(!okPass('Ab1!'), 'no composition rule can rescue a four-character password');
+ok(okPass('all lowercase words here'), 'a long passphrase with no digits or symbols passes');
+ok(okPass('pass with spaces and 12345'), 'spaces and digits are allowed');
+ok(!okPass('a'.repeat(11)), 'eleven characters is one short of the minimum');
+ok(okPass('a'.repeat(0) + 'many many words in a row'), 'a long sentence is a password');
+ok(!okPass('x'.repeat(200)), 'a password over the ceiling is refused');
+ok(!okPass('password123456'), 'a common password padded with digits is refused');
+ok(!okPass('P@ssw0rd1234'), 'leet substitutions do not launder a common password');
+ok(!okPass('qwertyuiop1234'), 'a keyboard walk is refused');
+ok(!okPass('abcdabcdabcd'), 'a repeated pattern is refused');
+ok(!okPass('sarasara1234'), 'a password built from the username is refused');
+ok(!okPass('ahmadiah madi'), 'a password built from the name is refused');
+ok(okPass('the river runs past our house'), 'an ordinary sentence the blocklist misses is accepted');
+ok(Auth.strength('', 'sara', 'Sara')['score'] === 0, 'an empty password scores zero');
+ok(Auth.strength('abc', 'sara', 'Sara')['score'] <= 1, 'a short password cannot score above one');
+ok(Auth.strength(P, 'sara', 'Sara')['score'] >= 2, 'a twelve-character passphrase scores at least fair');
+ok(Auth.strength('a much longer passphrase entirely', 'sara', 'Sara')['score']
+   > Auth.strength(P, 'sara', 'Sara')['score'],
+   'more length scores higher, because length is the strength');
+ok(Auth.strength('password123456', 'sara', 'Sara')['score'] === 0,
+   'a blocked password scores zero whatever its length');
+ok(/at least 12/.test(reason('short')), 'the refusal says what the minimum is');
 
 const id1 = Cert.ident({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'});
 const id2 = Cert.ident({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'});
