@@ -48,6 +48,10 @@ def check_wiring() -> None:
         ("const SPECIAL = '@#$%!'", "the symbol set is not the stated default"),
         ('data-authtab="signin"', "no sign-in tab"),
         ('data-authtab="signup"', "no create-account tab"),
+        ('id="resetopen"', "sign-in offers no way to recover a forgotten password"),
+        ('id="authreset"', "there is no recovery panel"),
+        ('id="resetsubmit"', "the recovery panel has no submit"),
+        ('id="resetback"', "recovery has no way back to sign-in"),
         ('id="authexpired"', "an expired session has no message"),
         ('id="cert"', "there is no certificate view"),
         ('data-cert="pdf"', "the certificate has no download control"),
@@ -78,6 +82,12 @@ def check_wiring() -> None:
           "the password field accepts paste, cut, copy or the context menu")
     check(re.search(r"account = \{name, user, email,", src) is not None,
           "the email is collected but never stored with the account")
+    # Recovery is proved against what the account already holds, not against
+    # whatever is typed into the box.
+    check(re.search(r"known\.indexOf\(typedMail\)", src) is not None,
+          "recovery accepts any address instead of the one on the account")
+    check("passwordProblems" in src,
+          "recovery does not run the password rule the gate enforces")
     kt = MAIN.read_text(encoding="utf-8") if MAIN.exists() else ""
     check("PrintBridge" in kt and '"AndroidPrint"' in kt,
           "MainActivity has no print bridge")
@@ -94,6 +104,11 @@ def check_engine() -> None:
     start = src.index("const Auth = (() => {")
     end = src.index("/* only one panel open at a time", start)
     module = src[start:end].rstrip()
+
+    # Nothing in the gate may reach the network: there is no server holding an
+    # account, so a request would be a promise the app cannot keep.
+    check("fetch(" not in module and "XMLHttpRequest" not in module,
+          "the account gate talks to a network")
 
     CACHE.mkdir(parents=True, exist_ok=True)
     script = CACHE / "auth.js"
@@ -182,6 +197,14 @@ ok(Auth.strength('Abcdefg1', 'sara', 'Sara')['score'] === 3, 'a missing symbol l
 ok(Auth.strength('Password1!', 'sara', 'Sara')['score'] === 0, 'a blocked password scores zero');
 ok(Auth.strength('Abcdef1!', 'sara', 'Sara')['ok'], 'the meter agrees with the submit path');
 ok(/at least 8/.test(reason('short')), 'the refusal says what the minimum is');
+
+// recovery must not be a weaker door than the gate
+ok(Auth.passwordProblems('Abcdef1!', 'sara', 'Sara').length === 0,
+   'a new password for recovery meets the same four rules');
+ok(Auth.passwordProblems('Abcdefg1', 'sara', 'Sara').length === 1,
+   'recovery refuses what the gate would refuse');
+ok(Auth.passwordProblems('password1!', 'sara', 'Sara').length === 1,
+   'recovery runs the blocklist too');
 
 const id1 = Cert.ident({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'});
 const id2 = Cert.ident({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'});

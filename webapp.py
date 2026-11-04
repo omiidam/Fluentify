@@ -1572,6 +1572,26 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     margin: 2px 0 6px;
   }
   .autherr.ok { color: var(--green-ink); }
+  /* Recovery, kept to the card the learner is already looking at: no second
+     modal, no back button into a different screen. The link sits under the
+     button where "I cannot get in" is the thought that is forming. */
+  .authlink {
+    display: block; width: 100%; margin: 9px 0 0; padding: 4px;
+    font: inherit; font-size: 11px; font-weight: 600; cursor: pointer;
+    background: none; border: 0; color: var(--ice-ink); text-decoration: underline;
+    text-underline-offset: 3px; text-decoration-thickness: 1px;
+    text-decoration-color: var(--line2);
+  }
+  .authlink:hover { color: var(--navy-ink); text-decoration-color: var(--ink-4); }
+  .authback {
+    display: block; width: 100%; margin: 8px 0 0; padding: 9px 12px;
+    font: inherit; font-size: 11.5px; font-weight: 600; cursor: pointer;
+    border-radius: 11px; border: 1px solid var(--line2);
+    background: var(--raise); color: var(--ink-2);
+  }
+  .authback:hover { background: var(--surf-3); }
+  .authreset[hidden] { display: none; }
+  .authreset .authh { margin-bottom: 4px; }
   .authsubmit {
     width: 100%; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;
     padding: 12px 14px; border-radius: 13px; border: 1px solid rgba(24,42,74,.5);
@@ -4933,7 +4953,47 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </label>
         <p class="autherr" id="autherr" role="alert"></p>
         <button class="authsubmit" id="authsubmit" type="submit">Sign in</button>
+        <button class="authlink" id="resetopen" type="button" data-only="signin">
+          Forgot password? — گذرواژه را فراموش کرده‌ای؟
+        </button>
       </form>
+      <section class="authreset" id="authreset" hidden aria-labelledby="reseth">
+        <h3 class="authh" id="reseth">Reset your password</h3>
+        <p class="authsub" id="resetsubtext">Confirm what this device already knows about the
+          account, then choose a new password. Nothing is sent anywhere — there is nowhere to send it.</p>
+        <div class="authfield">
+          <span>Username — نام کاربری</span>
+          <input id="resetuser" type="text" maxlength="32" autocapitalize="none" spellcheck="false">
+        </div>
+        <div class="authfield">
+          <span>Email — ایمیل</span>
+          <input id="resetmail" type="text" maxlength="254" autocapitalize="none" spellcheck="false">
+          <small class="hint">The address on this account. — نشانی ثبت‌شده روی این حساب.</small>
+        </div>
+        <div class="authfield" id="resetnew" hidden>
+          <span>New password — گذرواژهٔ تازه</span>
+          <span class="authwrap">
+            <input id="resetpass" type="password" autocomplete="new-password" maxlength="128"
+                   data-secret="1">
+            <button class="authreveal" id="resetreveal" type="button" aria-label="Show password"
+                    aria-pressed="false" title="Show password — نمایش گذرواژه">Show</button>
+          </span>
+        </div>
+        <div class="authfield" id="resetnew2" hidden>
+          <span>Repeat the new password — تکرار گذرواژهٔ تازه</span>
+          <input id="resetpass2" type="password" autocomplete="new-password" maxlength="128"
+                 data-secret="1">
+        </div>
+        <div class="authmeter" id="resetmeter" hidden>
+          <div class="authtrack" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <ul class="authrules" id="resetrules"></ul>
+          <p class="authrule-fa" lang="fa">دست‌کم ۸ نویسه؛ حرف بزرگ و کوچک؛ حرف و رقم؛ یکی از @#$%!</p>
+        </div>
+        <p class="autherr" id="reseterr" role="alert"></p>
+        <button class="authsubmit" id="resetsubmit" type="button">Continue</button>
+        <button class="authback" id="resetback" type="button">
+          Back to sign in — بازگشت به ورود</button>
+      </section>
       <p class="authfoot">Stored on this device only · <bdi dir="rtl" lang="fa">فقط روی همین دستگاه</bdi></p>
     </div>
   </div>
@@ -11001,6 +11061,35 @@ const Auth = (() => {
             ok: !weak && score === 4, weak: !!weak, rules};
   }
 
+  /* Everything the password has to satisfy, in one list of complaints, so the
+     gate and the recovery screen cannot drift apart: resetting a forgotten
+     password is no more allowed to be weaker than choosing one. */
+  function passwordProblems(pass, user, name) {
+    const errors = [];
+    if (pass.length < MIN_PASS) {
+      errors.push(['Password: at least ' + MIN_PASS + ' characters.',
+                   'گذرواژه: دست‌کم ۸ نویسه.']);
+      return errors;
+    }
+    if (pass.length > MAX_PASS) {
+      errors.push(['Password: ' + MAX_PASS + ' characters at most.',
+                   'گذرواژه: حداکثر ۱۲۸ نویسه.']);
+      return errors;
+    }
+    const weak = weakReason(pass, user, name);
+    if (weak) { errors.push(weak); return errors; }
+    /* The message names the rule that is actually missing, because "use a
+       stronger password" tells the learner nothing about which of the four
+       bars is not met. */
+    const rules = ruleCheck(pass);
+    const missing = RULES.filter(([key]) => !rules[key]).map(([, text]) => text.toLowerCase());
+    if (missing.length) {
+      errors.push(['Password: also needs ' + missing.join(', ') + '.',
+                   'گذرواژه باید حرف بزرگ و کوچک، حرف و رقم، و یکی از @#$%! را داشته باشد.']);
+    }
+    return errors;
+  }
+
   function validate(fields, hasAccount) {
     const name = String(fields.name || '').trim().replace(/\s+/g, ' ');
     const user = String(fields.user || '').trim();
@@ -11023,26 +11112,7 @@ const Auth = (() => {
       errors.push(['Username: 3–32 letters, digits, dot, dash or underscore.',
                    'نام کاربری: ۳ تا ۳۲ حرف یا رقم، نقطه، خط تیره یا زیرخط.']);
     }
-    if (pass.length < MIN_PASS) {
-      errors.push(['Password: at least ' + MIN_PASS + ' characters.',
-                   'گذرواژه: دست‌کم ۸ نویسه.']);
-    } else if (pass.length > MAX_PASS) {
-      errors.push(['Password: ' + MAX_PASS + ' characters at most.', 'گذرواژه: حداکثر ۱۲۸ نویسه.']);
-    } else {
-      const weak = weakReason(pass, user, name);
-      if (weak) errors.push(weak);
-      else {
-        const rules = ruleCheck(pass);
-        /* The message names the rule that is actually missing, because "use a
-           stronger password" tells the learner nothing about which of the four
-           bars is not met. */
-        const missing = RULES.filter(([key]) => !rules[key]).map(([, text]) => text.toLowerCase());
-        if (missing.length) {
-          errors.push(['Password: also needs ' + missing.join(', ') + '.',
-                       'گذرواژه باید حرف بزرگ و کوچک، حرف و رقم، و یکی از @#$%! را داشته باشد.']);
-        }
-      }
-    }
+    errors.push(...passwordProblems(pass, user, name));
     if (!hasAccount && pass !== pass2) {
       errors.push(['The two passwords do not match.', 'دو گذرواژه یکسان نیستند.']);
     }
@@ -11058,8 +11128,10 @@ const Auth = (() => {
       b.setAttribute('aria-selected', on ? 'true' : 'false');
       if (b.dataset.authtab === 'signup') b.disabled = !!account;
     });
-    document.querySelectorAll('[data-only="signup"]').forEach((n) => {
-      n.hidden = tab !== 'signup';
+    /* One rule for every element that belongs to a single tab, so a new
+       sign-in-only control cannot silently show up while signing up. */
+    document.querySelectorAll('[data-only]').forEach((n) => {
+      n.hidden = n.dataset.only !== tab;
     });
     $('authh').textContent = tab === 'signup' ? 'Create your account' : 'Welcome back';
     $('authsub').textContent = tab === 'signup'
@@ -11075,6 +11147,14 @@ const Auth = (() => {
 
   /* The meter is the rule, drawn: same function the submit path calls, so the
      bar cannot say "strong" about something the button will refuse. */
+  function paintRulesInto(id, res) {
+    const list = $(id);
+    if (!list) return;
+    list.innerHTML = RULES.map(([key, text]) =>
+      '<li class="authrule' + (res.rules[key] ? ' on' : '') + '">' +
+      '<i aria-hidden="true">✓</i>' + text + '</li>').join('');
+  }
+
   function paintStrength() {
     const meter = $('authmeter');
     if (!meter) return;
@@ -11083,12 +11163,7 @@ const Auth = (() => {
     const res = strength(pass, $('authuser') ? $('authuser').value : '',
                         $('authname') ? $('authname').value : '');
     meter.dataset.score = String(pass ? res.score : 0);
-    const list = $('authrules');
-    if (list) {
-      list.innerHTML = RULES.map(([key, text]) =>
-        '<li class="authrule' + (res.rules[key] ? ' on' : '') + '">' +
-        '<i aria-hidden="true">✓</i>' + text + '</li>').join('');
-    }
+    paintRulesInto('authrules', res);
     if (!label) return;
     if (!pass) {
       label.innerHTML = '<b>Choose a password</b> — all four rules below have to tick.';
@@ -11133,6 +11208,7 @@ const Auth = (() => {
     if (reveal) { reveal.textContent = 'Show'; reveal.setAttribute('aria-pressed', 'false'); }
     paintStrength();
     error('');
+    showReset(false);
   }
 
   function touch(force) {
@@ -11142,6 +11218,151 @@ const Auth = (() => {
     lastTouch = now;
     session.seen = now;
     write(SESSION, session);
+  }
+
+  /* ---- recovery ---------------------------------------------------------
+     A forgotten password on a device-local account has one honest shape: the
+     device already holds the account, so ownership is proved by knowing what
+     the account is - its username and the address on it - and not by a link.
+     The two steps are separated so the new password fields only appear once
+     the first answer was right. */
+  let resetStep = 0, resetWho = null;
+
+  function resetError(pair) {
+    const box = $('reseterr');
+    if (!box) return;
+    box.innerHTML = pair
+      ? `<div>${pair[0]}</div><div dir="rtl" lang="fa">${pair[1]}</div>` : '';
+  }
+
+  function paintReset() {
+    const meter = $('resetmeter');
+    if (!meter) return;
+    const pass = $('resetpass') ? $('resetpass').value : '';
+    const res = strength(pass, resetWho ? resetWho.user : '', resetWho ? resetWho.name : '');
+    meter.dataset.score = String(pass ? res.score : 0);
+    paintRulesInto('resetrules', res);
+  }
+
+  function paintResetStep() {
+    const second = resetStep === 1;
+    ['resetnew', 'resetnew2'].forEach((id) => {
+      const el = $(id);
+      if (el) el.hidden = !second;
+    });
+    const meter = $('resetmeter');
+    if (meter) meter.hidden = !second;
+    ['resetuser', 'resetmail'].forEach((id) => {
+      const el = $(id);
+      if (el) el.disabled = second;
+    });
+    const btn = $('resetsubmit');
+    if (btn) btn.textContent = second ? 'Set the new password' : 'Continue';
+    const head = $('reseth');
+    if (head) head.textContent = second ? 'Choose a new password' : 'Reset your password';
+    const sub = $('resetsubtext');
+    if (sub) {
+      sub.textContent = second
+        ? 'The four rules are the ones sign-up asks for; the salt is new, so the old hash is gone.'
+        : 'Confirm what this device already knows about the account, then choose a new password. ' +
+          'Nothing is sent anywhere — there is nowhere to send it.';
+    }
+    paintReset();
+  }
+
+  function showReset(on) {
+    const box = $('authreset');
+    if (!box) return;
+    box.hidden = !on;
+    $('authform').hidden = !!on;
+    const tabs = document.querySelector('.authtabs');
+    if (tabs) tabs.hidden = !!on;
+    resetStep = 0;
+    resetWho = null;
+    ['resetuser', 'resetmail', 'resetpass', 'resetpass2'].forEach((id) => {
+      const el = $(id);
+      if (el) el.value = '';
+    });
+    resetError(null);
+    paintResetStep();
+    if (on) {
+      const first = $('resetuser');
+      if (first) setTimeout(() => first.focus({preventScroll: true}), 40);
+    }
+  }
+
+  async function resetSubmit() {
+    resetError(null);
+    if (resetStep === 0) {
+      const stored = read(ACCOUNT, null);
+      if (!stored) {
+        resetError(['There is no account on this device to recover.',
+                    'روی این دستگاه حسابی برای بازیابی نیست.']);
+        return;
+      }
+      const typedUser = String(($('resetuser') || {}).value || '').trim().toLowerCase();
+      if (typedUser !== String(stored.user).toLowerCase()) {
+        resetError(['That username is not the one saved here.',
+                    'این نام کاربری با نام ذخیره‌شده یکی نیست.']);
+        return;
+      }
+      /* The address, or the name for an account made before an email was
+         asked for. Both are things only the owner of the account knows, and
+         there is no server here that could verify anything stronger. */
+      const typedMail = String(($('resetmail') || {}).value || '').trim().toLowerCase();
+      const known = [stored.email, stored.name]
+        .map((v) => String(v || '').trim().toLowerCase()).filter(Boolean);
+      if (!typedMail || known.indexOf(typedMail) === -1) {
+        resetError(['That is not the email on this account.',
+                    'این نشانی، ایمیل این حساب نیست.']);
+        return;
+      }
+      resetWho = stored;
+      resetStep = 1;
+      paintResetStep();
+      const next = $('resetpass');
+      if (next) setTimeout(() => next.focus({preventScroll: true}), 40);
+      return;
+    }
+
+    const pass = $('resetpass').value;
+    const pass2 = $('resetpass2').value;
+    const problems = passwordProblems(pass, resetWho.user, resetWho.name);
+    if (problems.length) { resetError(problems[0]); return; }
+    if (pass !== pass2) {
+      resetError(['The two passwords do not match.', 'دو گذرواژه یکسان نیستند.']);
+      return;
+    }
+    if (!canHash()) {
+      resetError(['This browser cannot store a password securely.',
+                  'این مرورگر نمی‌تواند گذرواژه را امن نگه دارد.']);
+      return;
+    }
+    const go = $('resetsubmit');
+    const label = go ? go.textContent : '';
+    if (go) { go.disabled = true; go.textContent = 'Working…'; }
+    try {
+      /* A new salt as well as a new hash: the old salt is what made the old
+         hash checkable, so it does not survive the reset. */
+      const salt = newSalt();
+      const hash = await derive(pass, salt, ITER);
+      const next = Object.assign({}, resetWho, {salt, hash, iter: ITER});
+      write(ACCOUNT, next);
+      account = next;
+      session = {at: Date.now(), seen: Date.now(), user: next.user};
+      write(SESSION, session);
+      lastTouch = Date.now();
+      showReset(false);
+      hide();
+      document.dispatchEvent(new CustomEvent('fluentify:signed-in', {detail: {name: next.name}}));
+      if (document.getElementById('acbody')) paintAccount();
+    } catch (err) {
+      console.error('reset:', err);
+      resetError(['Could not save the new password.',
+                  'ذخیرهٔ گذرواژهٔ تازه انجام نشد.']);
+    } finally {
+      if (go) { go.disabled = false; go.textContent = label; }
+    }
   }
 
   async function submit(e) {
@@ -11316,6 +11537,29 @@ const Auth = (() => {
         reveal.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
       });
     }
+    /* Recovery is a second face of the same card, so it is bound here rather
+       than as a modal of its own. */
+    const resetOpen = $('resetopen');
+    if (resetOpen) resetOpen.addEventListener('click', () => showReset(true));
+    const resetBack = $('resetback');
+    if (resetBack) resetBack.addEventListener('click', () => { showReset(false); setTab('signin'); });
+    const resetGo = $('resetsubmit');
+    if (resetGo) resetGo.addEventListener('click', resetSubmit);
+    ['resetpass', 'resetpass2'].forEach((id) => {
+      const el = $(id);
+      if (el) el.addEventListener('input', paintReset);
+    });
+    const resetReveal = $('resetreveal');
+    if (resetReveal) {
+      resetReveal.addEventListener('click', () => {
+        const box = $('resetpass');
+        const showing = box.type === 'text';
+        box.type = showing ? 'password' : 'text';
+        resetReveal.textContent = showing ? 'Show' : 'Hide';
+        resetReveal.setAttribute('aria-pressed', showing ? 'false' : 'true');
+        resetReveal.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+      });
+    }
     document.querySelectorAll('[data-authtab]').forEach((b) => {
       b.addEventListener('click', () => { if (!b.disabled) setTab(b.dataset.authtab); });
     });
@@ -11375,6 +11619,7 @@ const Auth = (() => {
     init, touch, paintAccount, signOut, resetDevice,
     sessionLeft, isOpen, validate, strength, MIN_PASS,
     emailProblem, ruleCheck, RULES, SPECIAL,
+    passwordProblems,
     profile: () => read(ACCOUNT, null),
     signedIn: () => isOpen(read(SESSION, null), Date.now()),
   };
