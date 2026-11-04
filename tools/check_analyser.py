@@ -154,6 +154,31 @@ EXTRACTED = [
     ("open grammar section", ""),
     ("grammar", ""),
     ("analyse this", ""),
+    # the same request in the words people use, and the shapes that are not a
+    # request at all
+    ("check my grammar: I have went to school.", "I have went to school."),
+    ("can you check the grammar of this sentence? She don't like coffee.",
+     "She don't like coffee."),
+    ("is this sentence correct? He go to school every day.",
+     "He go to school every day."),
+    ("is this grammatically right: They was happy.", "They was happy."),
+    ("fix this sentence: I seen him yesterday.", "I seen him yesterday."),
+    ("proofread this: The dogs is barking.", "The dogs is barking."),
+    ("what's wrong with this sentence: She have a car.", "She have a car."),
+    ("explain this sentence: If I had known, I would have left.",
+     "If I had known, I would have left."),
+    ("grammar check: We was going home.", "We was going home."),
+    ("گرامر این جمله درسته؟ He go to school every day.",
+     "He go to school every day."),
+    ("گرامر این جمله رو بررسی کن: They was happy.", "They was happy."),
+    ("اشکال گرامری این جمله چیه؟ I seen him yesterday.",
+     "I seen him yesterday."),
+    ("اصلاح گرامری کن: She have a car.", "She have a car."),
+    # a bare offer to check is a promise to send a sentence, not a sentence
+    ("check my grammar", ""),
+    ("grammar check", ""),
+    ("grammar", ""),
+    ("open grammar section", ""),
 ]
 
 EXTRACT_HARNESS = r"""
@@ -429,6 +454,20 @@ def static_checks() -> list[str]:
         problems.append("the page never calls the analyser")
     if "ANALYSE_INTENT" not in page and "matchAnalyseCommand" not in page:
         problems.append("no intent decides when a sentence should be analysed")
+    # A word table answers "what is each word"; the request is "what is this
+    # sentence", so the readout has to be there and has to use the tagger's own
+    # tense claim rather than inventing one.
+    if "grammarReadout" not in page or "structureDetails" not in page:
+        problems.append("the analysis never writes out the sentence's grammar")
+    # Context: a request with no sentence in it has to remember it is waiting
+    # for one, and "the sentence I just sent" needs a referent.
+    for needle, complaint in (
+        ("analyseWaiting", "a bare 'check my grammar' does not wait for the sentence"),
+        ("lastAnalysed", "a follow-up has nothing to follow up on"),
+        ("lastTyped", "\"the sentence I just sent\" has no referent"),
+    ):
+        if needle not in page:
+            problems.append(complaint)
     if (ROOT / "webapp.py").read_text(encoding="utf-8").count("/nlp/") < 1:
         problems.append("the server has no route for the analyser bundle")
 

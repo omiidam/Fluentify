@@ -2713,9 +2713,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* One rule, not three. The two lavender ones above were dead - a later rule
      with the same selector always won - and the shadow that survived was the
      old indigo rgba(79,110,247): a blue glow on the calmer, warmer page. */
+  /* The learner's tile is the bird's own season: paper washed in the season's
+     tint, ringed in the season's edge colour. It used to be a navy block, which
+     swallowed the one coloured thing drawn for the learner - at 26px the bird
+     was a yellow shape on a dark square, and the colour carried no meaning. */
   .row.user .mav {
-    background: linear-gradient(135deg, var(--user1), var(--user2));
-    border: none; box-shadow: 0 4px 12px rgba(43,48,73,.22);
+    background: radial-gradient(circle at 32% 24%, #fffdf7 0%,
+                var(--season-wash, rgba(232,191,95,.22)) 62%, #f6efdd 100%);
+    border: 1px solid var(--season-ring, #e0b15a);
+    box-shadow: 0 3px 10px rgba(74,58,30,.14), inset 0 1px 0 #fff;
   }
   .bubble-wrap { max-width: min(78%, 760px); display: flex; flex-direction: column; gap: 5px; }
   .row.user .bubble-wrap { align-items: flex-end; }
@@ -3411,6 +3417,40 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .nfail { color: #a4451f; }
   .nhead b { font-family: var(--font-display); font-size: 15px; color: var(--navy2); }
   .nhead { margin-bottom: 2px; }
+  /* The grammar readout: the one thing a learner asked for, before the
+     evidence. A gold rule on the leading edge ties it to the theme's own
+     accent, and the pattern line is set in the display face because it is the
+     line people copy. */
+  .ngram {
+    border: 1px solid rgba(205,159,60,.38); border-inline-start: 3px solid var(--gold);
+    border-radius: 12px; background: linear-gradient(150deg, #fffdf2, #fbf5e2);
+    padding: 9px 12px; margin: 8px 0 4px;
+  }
+  .ngram-kind {
+    font-family: var(--font-display); font-size: 14px; font-weight: 700;
+    color: var(--navy2); line-height: 1.3;
+  }
+  .ngram-kind small {
+    display: block; direction: rtl; text-align: right; unicode-bidi: plaintext;
+    font-family: var(--font-fa); font-size: 11px; font-weight: 400;
+    color: var(--muted); line-height: 1.9;
+  }
+  .ngram-form {
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700;
+    color: #8a5a00; margin-top: 4px; word-break: break-word;
+  }
+  .ngram-note { font-size: 12.5px; color: var(--text); margin-top: 4px; line-height: 1.5; }
+  .ngram-note.fa {
+    direction: rtl; text-align: right; font-family: var(--font-fa);
+    font-size: 11.5px; color: var(--muted); line-height: 1.9;
+  }
+  .ngram-type {
+    display: inline-block; margin-top: 6px; font-size: 10px; font-weight: 800;
+    letter-spacing: .4px; text-transform: uppercase; color: var(--ice-ink);
+    background: var(--ice); border: 1px solid rgba(51,82,110,.22);
+    border-radius: 999px; padding: 2px 8px;
+  }
+  .msg .ngram { background: transparent; }
   .nlabel {
     font-size: 9.5px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
     color: var(--dim); margin: 13px 0 6px;
@@ -4789,25 +4829,95 @@ const sendbtn = document.getElementById('sendbtn');
 const isFa = s => /[\u0600-\u06FF]/.test(s);
 /* The learner's own marker: a sunny bird, so the two sides of the conversation
    never look alike. This is not the brand mark - the fox is. */
-const YELLOW_BIRD =
-  '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
-  '<defs>' +
-  '<linearGradient id="ybA" x1="0" y1="0" x2="1" y2="1">' +
-  '<stop offset="0" stop-color="#ffe9a8"/><stop offset="55%" stop-color="#ffd257"/>' +
-  '<stop offset="100%" stop-color="#b8872a"/></linearGradient>' +
-  '<linearGradient id="ylA" x1="0" y1="0" x2="0" y2="1">' +
-  '<stop offset="0" stop-color="#fffdf2"/><stop offset="100%" stop-color="#fff0c2"/>' +
-  '</linearGradient></defs>' +
-  '<path d="M10 27 L3.5 20 L5.5 31 Z" fill="#b8872a"/>' +
-  '<ellipse cx="23" cy="27" rx="16" ry="13.5" fill="url(#ybA)"/>' +
-  '<ellipse cx="23" cy="30.5" rx="9.5" ry="7.5" fill="url(#ylA)" opacity=".95"/>' +
-  '<path d="M13 23.5 q8.5 2.5 8.5 10.5 q-8.5-2.5-8.5-10.5Z" fill="#ffbe3d"/>' +
-  '<path d="M21.5 13.5 q1-6.5 4.5-6.5 q-1.2 4-2 6 q2.8-4 6-3 q-2 3-4.5 4.2Z" fill="#ffd979"/>' +
-  '<path d="M36 22.5 L42.5 25.5 L36 28.5 Z" fill="#b8872a"/>' +
-  '<circle cx="31" cy="21.5" r="3.3" fill="#4a2b00"/>' +
-  '<circle cx="32.3" cy="20.3" r="1.15" fill="#fff"/>' +
-  '<ellipse cx="34.5" cy="27.5" rx="3.2" ry="2.1" fill="#b8872a" opacity=".35"/>' +
+/* The learner's own avatar is this bird, and it wears the season the device's
+   calendar is in: pink in spring, yellow in summer, orange in fall, ice blue in
+   winter. The season is read from the local clock rather than a server, the
+   same reason the daily rotation is - there is no server to ask, and a bird
+   that is always yellow says "summer" in November.
+
+   One palette drives both halves: the SVG's own gradients and the tile it sits
+   on, so the ring around the bird is never a colour the bird isn't. */
+const SEASONS = {
+  spring: { season: 'spring', fa: 'بهار',
+            body: ['#ffe6f1', '#ffb0d0', '#c26088'], wing: '#ff9dc3',
+            belly: '#fff7fb', beak: '#a84f74', crest: '#ffc9e0', eye: '#3d1d2c',
+            ring: '#eda6c4', wash: 'rgba(255,176,208,.22)' },
+  summer: { season: 'summer', fa: 'تابستان',
+            body: ['#ffe9a8', '#ffd257', '#b8872a'], wing: '#ffbe3d',
+            belly: '#fffdf2', beak: '#b8872a', crest: '#ffd979', eye: '#4a2b00',
+            ring: '#dfb457', wash: 'rgba(255,210,87,.24)' },
+  fall:   { season: 'fall', fa: 'پاییز',
+            body: ['#ffd9ab', '#f0913c', '#a3541a'], wing: '#e8812c',
+            belly: '#fff2e2', beak: '#8e4512', crest: '#f6a95c', eye: '#3d1f06',
+            ring: '#e08f45', wash: 'rgba(240,145,60,.22)' },
+  winter: { season: 'winter', fa: 'زمستان',
+            body: ['#eef8ff', '#c3e2f7', '#6f9dc2'], wing: '#b7dcf4',
+            belly: '#ffffff', beak: '#5b829e', crest: '#d9eefc', eye: '#17324a',
+            ring: '#9ac4e0', wash: 'rgba(158,201,230,.24)' },
+};
+
+/* Months are 0-based; the seasons turn on the first of March, June, September
+   and December, which is the meteorological year and the one a learner's own
+   calendar shows. */
+function seasonOf(when) {
+  const m = (when || new Date()).getMonth();
+  if (m === 11 || m < 2) return 'winter';   // Dec, Jan, Feb
+  if (m < 5) return 'spring';               // Mar, Apr, May
+  if (m < 8) return 'summer';               // Jun, Jul, Aug
+  return 'fall';                            // Sep, Oct, Nov
+}
+
+const SEASON = seasonOf();
+const BIRD_PAL = SEASONS[SEASON];
+/* Handed to CSS so the tile behind the bird is the same season as the bird. */
+try {
+  document.documentElement.dataset.season = SEASON;
+  document.documentElement.style.setProperty('--season-ring', BIRD_PAL.ring);
+  document.documentElement.style.setProperty('--season-wash', BIRD_PAL.wash);
+} catch (e) { /* a browser without dataset is not worth failing the page for */ }
+
+/* The bird itself. One silhouette, drawn in five pieces - tail, body, wing,
+   breast, head - so the gradient has something to fall across and the 20px
+   phone version still reads as a bird rather than a blob: bold shapes, no
+   hairline detail that disappears below 24px, and a single highlight in the
+   eye where the light comes from. */
+function birdSVG(p) {
+  return '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
+    '<defs>' +
+      '<linearGradient id="bBody" x1="0" y1="0" x2="1" y2="1">' +
+        '<stop offset="0" stop-color="' + p.body[0] + '"/>' +
+        '<stop offset="55%" stop-color="' + p.body[1] + '"/>' +
+        '<stop offset="100%" stop-color="' + p.body[2] + '"/>' +
+      '</linearGradient>' +
+      '<radialGradient id="bBelly" cx="42%" cy="30%" r="72%">' +
+        '<stop offset="0" stop-color="#ffffff"/>' +
+        '<stop offset="100%" stop-color="' + p.belly + '"/>' +
+      '</radialGradient>' +
+    '</defs>' +
+    /* tail, kept to one wedge so it does not read as a second bird */
+    '<path d="M11.2 28.4 L4.2 20.6 L6.2 31.8 Z" fill="' + p.body[2] + '"/>' +
+    /* body */
+    '<ellipse cx="24" cy="27" rx="15.2" ry="12.9" fill="url(#bBody)"/>' +
+    /* breast: the light side, which is what makes it look round rather than flat */
+    '<ellipse cx="24" cy="30.4" rx="9.3" ry="7.3" fill="url(#bBelly)" opacity=".95"/>' +
+    /* folded wing */
+    '<path d="M13.4 23.5 q8.7 2.7 8.5 10.8 q-8.7-2.6-8.5-10.8Z" fill="' + p.wing + '"/>' +
+    /* crest, two feathers and a gap between them */
+    '<path d="M22.4 14 q.5-7.1 4.6-7.3 q-.6 4.2-1.8 6.6 q2.8-3.4 6-2.1 q-2.4 3-5 4.1Z" fill="' + p.crest + '"/>' +
+    /* beak, upper and lower halves split by the seam */
+    '<path d="M37 22.7 L44.2 26 L37 29.1 Z" fill="' + p.beak + '"/>' +
+    '<path d="M37.2 25.9 h6.4" stroke="' + p.body[2] + '" stroke-width=".7" opacity=".55"/>' +
+    /* eye, with the catch-light up and left of centre */
+    '<circle cx="31.3" cy="21" r="3.4" fill="' + p.eye + '"/>' +
+    '<circle cx="32.7" cy="19.7" r="1.15" fill="#fff"/>' +
+    /* cheek, at 22% so it is a warmth rather than a spot */
+    '<ellipse cx="34.5" cy="27.7" rx="2.9" ry="1.8" fill="' + p.body[2] + '" opacity=".22"/>' +
+    /* feet, two strokes: the phone size cannot hold toes */
+    '<path d="M20.8 39.3 v2.3 M27.2 39.3 v2.3" stroke="' + p.beak + '" stroke-width="1.5" stroke-linecap="round"/>' +
   '</svg>';
+}
+
+const USER_BIRD = birdSVG(BIRD_PAL);
 
 const WELCOME = "Hey! Fluentify here. Let's learn English together.";
 
@@ -5117,7 +5227,7 @@ function add(text, who, opts = {}) {
 
   const av = document.createElement('div');
   av.className = 'mav' + (who === 'bot' ? ' bot' : ' me');
-  av.innerHTML = who === 'bot' ? MASCOT : YELLOW_BIRD;
+  av.innerHTML = who === 'bot' ? MASCOT : USER_BIRD;
 
   const wrap = document.createElement('div');
   wrap.className = 'bubble-wrap';
@@ -5269,6 +5379,10 @@ async function send(text) {
   // answers it on the device. Runs before the section commands, because both
   // match words like "grammar".
   if (await matchAnalyseCommand(text)) { input.value = ''; return; }
+  // A request that asked for a sentence without giving one ("check my
+  // grammar") gets the next sentence typed, before the sections and the tutor
+  // can claim it. This is the context half of the analyser.
+  if (await takePendingSentence(text)) { input.value = ''; return; }
   // "listening", "open grammar section", "بخش واژگان" → open the topbar panel
   const section = matchSectionCommand(text);
   if (section) {
@@ -5279,6 +5393,9 @@ async function send(text) {
   // "save apple to review" / "open my review list" — also not chat messages.
   // matchReviewCommand does the work itself and returns true when it handled it.
   if (await matchReviewCommand(text)) { input.value = ''; return; }
+  // Remember a plain sentence, so "check the sentence I just sent" has a
+  // referent at the moment it is asked.
+  if (looksLikeSentence(text)) lastTyped = text;
   if (busy) return;                      // real message, but one is in flight
   // daily limit reached — refuse the message, don't queue it
   if (Seed.spent()) { Seed.block(); return; }
@@ -12561,7 +12678,27 @@ const ANALYSE_INTENT = new RegExp(
   'sentence\\s+structure|structure\\s+of\\s+th(?:is|e)\\s+sentence|' +
   '(?:find|list)\\s+the\\s+(?:verbs?|nouns?)|nouns?\\s+and\\s+verbs?|' +
   'verbs?\\s+and\\s+nouns?|grammar\\s+(?:analyse|analyze|analysis)|' +
-  'تحلیل\\s*گرامری|آنالیز\\s*گرامری|گرامر\\s*این\\s*جمله|' +
+  // "check my grammar", "fix this sentence", "is this sentence right?" - the
+  // same request in the words people actually use, which is why they are here
+  // and not left to the tutor's general grammar topic, which would answer with
+  // a lesson instead of taking the sentence apart
+  '\\b(?:check|fix|correct|proofread|review)\\s+(?:the\\s+|my\\s+|this\\s+|that\\s+)?' +
+  '(?:grammar|sentences?|english|writing|text)|' +
+  '\\bgrammar\\s*(?:check|correction|mistakes?)|' +
+  '\\b(?:is|are|was|were)\\s+(?:(?:this|that|it|these|those|the)\\s+)?sentences?\\s+' +
+  '(?:grammatically\\s+)?(?:correct|right|wrong|ok|okay|fine)|' +
+  '\\bproofread\\s+(?:this|that|it|below)|' +
+  '\\bgrammatically\\s+(?:correct|right|wrong)|' +
+  "\\b(?:what(?:'s|\\s+is)|anything)\\s+(?:wrong|the\\s+problem|the\\s+mistake)\\s+" +
+  'with\\s+(?:this|that|my|the)\\s+(?:sentences?|writing|text)|' +
+  '\\bhow\\s+(?:is|was)\\s+(?:this|that|the)\\s+sentence\\s+' +
+  '(?:built|formed|structured|made)|' +
+  '\\bexplain\\s+(?:this|that|my|the)\\s+sentence|' +
+  'گرامر\\s*(?:این|اون|آن|جمله|من|مو)|گرامر\\s*(?:رو|را)|' +
+  'این\\s*جمله\\s*(?:رو|را)?\\s*(?:از\\s*نظر\\s*گرامری\\s*)?' +
+  '(?:درست|غلط|صحیح)|' +
+  '(?:غلط|اشکال|مشکل|خطای)\\s*گرامری|اصلاح\\s*گرامری|' +
+  'بررسی\\s*(?:کن|کنید)?\\s*گرامر|تحلیل\\s*گرامری|آنالیز\\s*گرامری|گرامر\\s*این\\s*جمله|' +
   'تجزیه\\s*(?:کن|گرامری)?|نقش\\s*دستوری\\s*کلمات?|نقش\\s*کلمه\\w*|' +
   'از\\s*نظر\\s*گرامری|ساختار\\s*این\\s*جمله|اجزای\\s*جمله|' +
   'فاعل\\s*و\\s*فعل|تحلیل\\s*(?:کن|کنید|این\\s*جمله)?', 'i');
@@ -12616,12 +12753,73 @@ function extractSentence(text) {
   return /[A-Za-z]/.test(best) && best.split(/\s+/).length > 1 ? best : '';
 }
 
+/* The sentence types the analyser can name, in the order they beat each other:
+   "Can you help me?" is a question whatever else is true of it. */
+const SENTENCE_TYPES = ['question', 'yes_no_question', 'imperative', 'exclamative',
+                        'declarative'];
+
+/* Structures that describe a word class rather than the sentence's grammar.
+   They are still listed under Structures; they are not what "check my
+   grammar" is asking about. */
+const GRAMMAR_GENERIC = ['pronouns', 'articles', 'adjectives', 'adverbs',
+                         'conjunction', 'prepositional_phrase', 'negation',
+                         'third_person_s', 'gerund', 'infinitive', 'past_participle',
+                         'comparison', 'modal_verbs', 'wh_question'];
+
+/* The grammar of the sentence, written out as words: what kind of sentence it
+   is, which construction it uses, and the pattern to copy. A word table answers
+   "what is each word?" - it never answers "what is this sentence?", which is
+   what was actually asked.
+
+   The construction is the tagger's own claim, never ours. Among the claims
+   that state a form ("has/have been + -ing: ...") the last one wins, because
+   the tagger adds a structure once it covers more of the sentence: a
+   conditional is claimed after the tenses of its two halves, so "If it rains,
+   we will stay home" is a First conditional rather than a Future Simple. With
+   no stated form, the first specific claim stands, so a copular "They was
+   happy" is told it is "be + complement" rather than being told nothing. */
+function grammarReadout(r) {
+  const details = (r.structureDetails || []).filter((d) => d.label_en);
+  const type = details.filter((d) => SENTENCE_TYPES.indexOf(d.id) !== -1)[0];
+  const specific = details.filter((d) =>
+    (!type || d.id !== type.id) && GRAMMAR_GENERIC.indexOf(d.id) === -1);
+  const stated = specific.filter((d) =>
+    d.note_en && d.note_en.indexOf(':') !== -1 && /\+/.test(d.note_en.split(':')[0]));
+  const form = stated[stated.length - 1] || specific[0];
+
+  const out = ['<div class="ngram">'];
+  if (form) {
+    const bits = form.note_en ? form.note_en.split(':') : [''];
+    const pattern = (bits.length > 1 ? bits[0] : '').trim();
+    const rest = (bits.length > 1 ? bits.slice(1).join(':') : bits[0] || '').trim();
+    out.push('<div class="ngram-kind">' + escapeHtml(form.label_en) +
+      '<small>' + escapeHtml(form.label_fa || '') + '</small></div>');
+    if (pattern) out.push('<div class="ngram-form">' + escapeHtml(pattern) + '</div>');
+    if (rest) out.push('<div class="ngram-note">' + escapeHtml(rest) + '</div>');
+    if (form.note_fa) out.push('<div class="ngram-note fa">' + escapeHtml(form.note_fa) + '</div>');
+  } else {
+    out.push('<div class="ngram-kind">Simple sentence<small>جملهٔ ساده</small></div>');
+    out.push('<div class="ngram-note">No tense or construction is claimed for this ' +
+      'sentence — the words are below.</div>');
+    out.push('<div class="ngram-note fa">برای این جمله ساختار خاصی ادعا نمی‌شود؛ ' +
+      'کلمه‌ها در جدول پایین آمده‌اند.</div>');
+  }
+  if (type) {
+    out.push('<div class="ngram-type">' + escapeHtml(type.label_en) +
+      (type.label_fa ? ' · ' + escapeHtml(type.label_fa) : '') + '</div>');
+  }
+  out.push('</div>');
+  return out.join('');
+}
+
 /* The analysis, rendered once and used twice: in the chat and in the panel.
    Every field is escaped; nothing from the tagger is trusted as markup. */
 function renderAnalysis(r, opts) {
   const o = opts || {};
   const words = r.tokens.filter((t) => ['PUNCT', 'SYM'].indexOf(t.pos) === -1);
   const out = [];
+
+  out.push(grammarReadout(r));
 
   out.push('<div class="nhead"><b>' + escapeHtml(r.analysedSentence || r.originalSentence) +
     '</b>' + (r.analysedSentence && r.analysedSentence !== r.originalSentence
@@ -12752,26 +12950,52 @@ const Analyser = (() => {
 
 /* A grammar-analysis request is answered here, on the device, before the
    Knowledge Base is consulted at all: it costs nothing from the daily seed
-   and it works with the aeroplane mode on. */
-async function matchAnalyseCommand(text) {
-  const t = (text || '').trim();
-  if (!t || t.length > 300 || !ANALYSE_INTENT.test(t)) return false;
-  add(t, 'user');
-  // Only the request itself: a request with no sentence in it asks for one
-  // rather than silently re-analysing whatever the panel last held.
-  const sentence = extractSentence(t);
-  if (!sentence) {
-    Analyser.open();
-    add('🔬 Send me one English sentence and I will take it apart word by word. ' +
-        'Nothing leaves your device.\n' +
-        'یک جملهٔ انگلیسی بفرست تا کلمه‌به‌کلمه تحلیل کنم؛ همه‌چیز روی دستگاه خودت انجام می‌شود.\n' +
-        'Try: **analyze this: She has been learning English.**', 'bot');
-    return true;
-  }
+   and it works with the aeroplane mode on.
+
+   Three pieces of context matter, and keywords alone cannot see any of them:
+   a request with no sentence in it is a promise to send one, "what about this
+   one" means the sentence in the same message, and "that sentence" means the
+   one the learner just sent. Each is tracked below. */
+
+/* Asked for a sentence and not given one yet: one message, then forgotten. */
+let analyseWaiting = false;
+/* The sentence taken apart most recently, so a follow-up has something to
+   compare against and "what about it?" is not a dead end. */
+let lastAnalysed = '';
+/* The last ordinary message the learner typed - the sentence "the one I just
+   sent" points at. */
+let lastTyped = '';
+
+const ANALYSE_CANCEL = /^(?:no|cancel|never\s*mind|forget\s*it|stop|not\s*now|بیخیال|نه|لغو|ولش|الان\s*نه)$/i;
+
+/* Follow-ups: "what about this one", "and this:", «و این یکی». Only counts
+   when something is already in play, so a cold "what about" is still chat. */
+const ANALYSE_FOLLOWUP = new RegExp(
+  '^(?:and|what\\s+about|how\\s+about|also|now)\\b|' +
+  '^(?:و|در\\s*مورد|حالا)\\b|' +
+  '(?:this|that|it|these|those)\\s+one|همین\\s*(?:یکی|جمله)|این\\s*یکی', 'i');
+
+/* "the sentence I just sent", "my last message", «جملهٔ قبلی». */
+const ANALYSE_PREVIOUS = new RegExp(
+  '(?:the\\s+)?(?:sentence|message|text|one)\\s+(?:that\\s+)?(?:i\\s+)?(?:just\\s+)?' +
+  '(?:sent|typed|wrote|said|pasted)|previous\\s+(?:sentence|message)|' +
+  'last\\s+(?:sentence|message)|جمله(?:\\u0654|\\s)*(?:قبلی|اخیر|بالا)|پیام\\s*قبلی', 'i');
+
+/* Two Latin words are the floor for "this is a sentence to analyse": one word
+   is a lookup, and a Persian-only message is not something the English tagger
+   can take apart. */
+function looksLikeSentence(text) {
+  const latin = ((text || '').match(/[A-Za-z][A-Za-z0-9'’-]*/g) || []);
+  return latin.length > 1 && String(text).length <= 300;
+}
+
+/* Run the tagger, show the analysis, keep the context straight. */
+async function analyseSentence(sentence) {
   showTyping();
   try {
     const result = await NLP.analyze(sentence);
     hideTyping();
+    lastAnalysed = sentence;
     Analyser.show(result, sentence);
     add(renderAnalysis(result), 'bot', {html: true});
   } catch (e) {
@@ -12779,6 +13003,68 @@ async function matchAnalyseCommand(text) {
     add('⚠️ ' + e.message + '\n' +
         'تحلیل انجام نشد — این بخش نباید به اینترنت نیاز داشته باشد.', 'bot', {err: true});
   }
+}
+
+/* The message after a bare "check my grammar" is the sentence. It is taken
+   before the sections and the tutor, because at that moment the learner has
+   already told us what the message is. */
+async function takePendingSentence(text) {
+  if (!analyseWaiting) return false;
+  const t = (text || '').trim();
+  if (!t) return false;
+  if (ANALYSE_CANCEL.test(t)) {
+    analyseWaiting = false;
+    add(t, 'user');
+    add('No problem — nothing analysed. Ask again whenever you like.\n' +
+        'باشه، تحلیلی انجام نشد. هر وقت خواستی دوباره بپرس.', 'bot');
+    return true;
+  }
+  /* One message is the window: if it is not a sentence, the request lapses
+     rather than lying in wait for a sentence an hour later. */
+  if (!looksLikeSentence(t) || ANALYSE_INTENT.test(t)) { analyseWaiting = false; return false; }
+  add(t, 'user');
+  analyseWaiting = false;
+  await analyseSentence(t);
+  return true;
+}
+
+async function matchAnalyseCommand(text) {
+  const t = (text || '').trim();
+  if (!t || t.length > 300) return false;
+  const asked = ANALYSE_INTENT.test(t);
+  /* A follow-up only counts when there is something to follow up on. */
+  const followUp = !asked && (lastAnalysed || analyseWaiting) && ANALYSE_FOLLOWUP.test(t);
+  if (!asked && !followUp) return false;
+
+  add(t, 'user');
+  let sentence = extractSentence(t);
+
+  /* "check the grammar of the sentence I just sent" - the sentence is not in
+     this message, so the last thing they typed is the subject. The extractor
+     happily reports "I just sent" as a sentence, which is why the reference
+     wins over whatever it found: a message pointing at a previous sentence has
+     no sentence of its own unless one follows a colon. */
+  if (ANALYSE_PREVIOUS.test(t) && !/:\s*\S/.test(t)) {
+    if (lastTyped && looksLikeSentence(lastTyped)) sentence = lastTyped;
+    else if (lastAnalysed) sentence = lastAnalysed;
+  }
+  /* "what about it?" with nothing new in the message: re-open the last
+     analysis rather than pretend the learner pasted something. */
+  if (!sentence && followUp && lastAnalysed && !/[A-Za-z]{2,}/.test(t.replace(ANALYSE_FOLLOWUP, ''))) {
+    sentence = lastAnalysed;
+  }
+
+  if (!sentence) {
+    analyseWaiting = true;
+    Analyser.open();
+    add('🔬 Send me one English sentence and I will take it apart word by word: ' +
+        'the grammar, the tense, and what each word is doing. Nothing leaves your device.\n' +
+        'یک جملهٔ انگلیسی بفرست تا گرامر و نقش کلمه‌هایش را بگویم؛ همه‌چیز روی دستگاه خودت انجام می‌شود.\n' +
+        'Try: **check my grammar: She has been learning English.**', 'bot');
+    return true;
+  }
+  analyseWaiting = false;
+  await analyseSentence(sentence);
   return true;
 }
 

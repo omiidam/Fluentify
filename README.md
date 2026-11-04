@@ -197,7 +197,21 @@ analyse this sentence: She has been learning English.
 این جمله رو از نظر گرامری تحلیل کن: She has been learning English.
 ```
 
-Both answer with a table — each word, its part of speech in English *and*
+The request itself is read loosely on purpose, in both languages: *check my
+grammar*, *fix this sentence*, *is this sentence correct?*, *what's wrong with
+this sentence*, *proofread this*, *grammar check*, *explain this sentence*,
+«گرامر این جمله رو بررسی کن», «اشکال گرامری این جمله چیه؟», «اصلاح گرامری کن».
+It also follows the conversation: a bare *check my grammar* waits for the next
+sentence instead of answering with a menu, *check the grammar of the sentence I
+just sent* takes the last thing typed, and *what about this one: …* analyses the
+new sentence with the previous one still on screen.
+
+The answer opens with the grammar written out — the construction the sentence
+carries (*Present Perfect Continuous*), the pattern to copy (*has/have been +
+-ing*) and a one-line explanation in both languages — then the sentence type,
+and after that the evidence:
+
+a table of each word, its part of speech in English *and*
 Persian, its lemma, and whether it is the subject or the object — followed by
 the structures the sentence carries (here: Declarative, Present Perfect
 Continuous, Pronouns), a lesson chip per structure that opens the matching
