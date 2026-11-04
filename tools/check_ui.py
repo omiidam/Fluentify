@@ -843,7 +843,9 @@ def main() -> int:
                               "fill-navy2", "fill-navy3", "fill-slate",
                               "send-1", "send-2", "wash-amber", "wash-rose",
                               "wash-ice", "wash-leaf", "wash-violet",
-                              "gold-line", "focus", "btn-fill", "mask")]
+                              "gold-line", "focus", "btn-fill", "mask",
+                              "lift", "lift-soft", "lift-warm", "glint",
+                              "glint-soft")]
         root = re.search(r":root \{(.*?)\n  \}", src, re.S)
         root_src = root.group(1) if root else ""
         missing = [n for n in ladder
@@ -864,6 +866,24 @@ def main() -> int:
         check("no rule outside the two palette blocks hard-codes a colour",
               not stray,
               f"{stray} would keep its light value in the dark theme")
+
+        # A translucent white is a surface too, and a surface that stays 78%
+        # white stays a light card carrying dark-theme text: the grammar lesson
+        # was a lavender slab under pale blue words, and no hex was involved.
+        # Any translucent white or cream a rule paints has to come from a token
+        # that knows which theme it is in.
+        leaks = set()
+        for prop, val in re.findall(r"([a-zA-Z-]+)\s*:\s*([^;{}]+)", outside):
+            if not prop.startswith("background"):
+                continue
+            for alpha in re.findall(
+                    r"rgba\(\s*255\s*,\s*(?:255\s*,\s*255|252\s*,\s*239)\s*,"
+                    r"\s*(0?\.\d+|1)\s*\)", val):
+                if float(alpha) >= .2:
+                    leaks.add(f"{prop}: {val.strip()[:64]}")
+        check("no rule paints a bright translucent white or cream of its own",
+              not leaks,
+              f"{sorted(leaks)} is a light surface on a dark page")
 
     # ------------------------------------------------- the account panel --
     # The actions fell below the panel's own box once the appearance block was
