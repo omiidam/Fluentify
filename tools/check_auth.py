@@ -42,6 +42,10 @@ def check_wiring() -> None:
         ('id="auth"', "there is no sign-in overlay"),
         ('id="authform"', "the sign-in form is missing"),
         ('id="authname"', "there is nowhere to collect the full name"),
+        ('id="authemail"', "sign-up does not ask for an email"),
+        ('data-secret="1"', "the password field is not marked as secret"),
+        ("const MIN_PASS = 8", "the minimum is not eight characters"),
+        ("const SPECIAL = '@#$%!'", "the symbol set is not the stated default"),
         ('data-authtab="signin"', "no sign-in tab"),
         ('data-authtab="signup"', "no create-account tab"),
         ('id="authexpired"', "an expired session has no message"),
@@ -67,6 +71,13 @@ def check_wiring() -> None:
         check(needle in src, what)
 
     check("AndroidPrint" in src, "the page never asks Android to print")
+    # A password is typed, never carried in from a clipboard and never carried
+    # out: the fields are marked secret and the binder refuses the events.
+    check(re.search(r"\['paste', 'cut', 'copy', 'drop', 'dragover', 'contextmenu'\]", src)
+          is not None and "e.preventDefault()" in src,
+          "the password field accepts paste, cut, copy or the context menu")
+    check(re.search(r"account = \{name, user, email,", src) is not None,
+          "the email is collected but never stored with the account")
     kt = MAIN.read_text(encoding="utf-8") if MAIN.exists() else ""
     check("PrintBridge" in kt and '"AndroidPrint"' in kt,
           "MainActivity has no print bridge")
@@ -111,50 +122,66 @@ ok(!Auth.isOpen({seen}, seen + 7 * DAY + 1), 'seven days and a second locks it')
 ok(Auth.sessionLeft(null, seen) === 0, 'no session means no time left');
 ok(Auth.sessionLeft({seen}, seen - DAY) === 8 * DAY, 'a clock that went backwards cannot extend it');
 
-const P = 'nine small rivers run';
+const P = 'Nine small rivers 7!';
 const sign = (pass, extra) => Auth.validate(Object.assign(
-  {name: 'Sara Ahmadi', user: 'sara.a', pass, pass2: pass}, extra || {}), false);
+  {name: 'Sara Ahmadi', user: 'sara.a', email: 'sara@example.com', pass, pass2: pass}, extra || {}), false);
 const okPass = (pass) => sign(pass).ok;
 const reason = (pass, extra) => {
   const r = Auth.validate(Object.assign(
-    {name: 'Sara Ahmadi', user: 'sara.a', pass, pass2: pass}, extra || {}), false);
+    {name: 'Sara Ahmadi', user: 'sara.a', email: 'sara@example.com', pass, pass2: pass}, extra || {}), false);
   return r.errors.length ? r.errors[0][0] : '';
 };
 
-ok(P.length >= Auth.MIN_PASS, 'the harness passphrase clears the stated minimum');
+ok(P.length >= Auth.MIN_PASS, 'the harness password clears the stated minimum');
 ok(okPass(P), 'a full sign-up is accepted');
 ok(!okPass('short'), 'a short password is refused');
+ok(!okPass('Sh0r7!y'), 'seven characters is one short of the floor');
 ok(!sign(P, {pass2: P + '2'}).ok, 'two different passwords are refused');
 ok(!sign(P, {user: 's!'}).ok, 'a username with symbols is refused');
 ok(!sign(P, {name: 'Sara 9'}).ok, 'a name with digits is refused');
-ok(sign('یک عبارت طولانی فارسی', {name: 'سارا احمدی', user: 'sara'}).ok,
-   'a Persian name and a Persian passphrase are accepted');
 ok(Auth.validate({name: '', user: 'sara', pass: P, pass2: P}, true).ok,
-   'signing in does not ask for the name again');
+   'signing in asks for neither the name nor the email again');
 
-// the policy itself: length is the rule, composition is not
-ok(!okPass('Ab1!'), 'no composition rule can rescue a four-character password');
-ok(okPass('all lowercase words here'), 'a long passphrase with no digits or symbols passes');
-ok(okPass('pass with spaces and 12345'), 'spaces and digits are allowed');
-ok(!okPass('a'.repeat(11)), 'eleven characters is one short of the minimum');
-ok(okPass('a'.repeat(0) + 'many many words in a row'), 'a long sentence is a password');
-ok(!okPass('x'.repeat(200)), 'a password over the ceiling is refused');
-ok(!okPass('password123456'), 'a common password padded with digits is refused');
+// the four stated characteristics, one at a time
+ok(okPass('Abcdef1!'), 'eight characters with all four kinds is accepted');
+ok(!okPass('Abcdefg1'), 'a password with no @ # $ % ! is refused');
+ok(!okPass('Abcdefg!'), 'a password with no number is refused');
+ok(!okPass('abcdef1!'), 'a password with no capital is refused');
+ok(!okPass('ABCDEF1!'), 'a password with no lower case is refused');
+ok(!okPass('Ab1!'), 'composition cannot rescue a short password');
+ok(okPass('Spaces are fine 12!'), 'spaces are still allowed inside the policy');
+ok(Auth.SPECIAL === '@#$%!', 'the symbol set is the stated default');
+ok(Auth.ruleCheck('Abcdef1!').special && Auth.ruleCheck('Abcdef1!').digits,
+   'the rule check reports which characteristics are met');
+ok(sign('یک جملهٔ بلند دیگر 4!', {name: 'سارا احمدی', user: 'sara'}).ok,
+   'a Persian password passes once it carries a number and a symbol');
+ok(!okPass('یک عبارت طولانی فارسی'), 'a Persian password of letters alone is refused');
+
+// the email the account is recovered with
+ok(!sign(P, {email: ''}).ok, 'sign-up asks for an email');
+ok(!sign(P, {email: 'sara.example.com'}).ok, 'an address with no @ is refused');
+ok(!sign(P, {email: 'sara@localhost'}).ok, 'a domain with no dot is refused');
+ok(!sign(P, {email: 'sara @example.com'}).ok, 'an address with a space is refused');
+ok(Auth.emailProblem('sara@example.com') === null, 'an ordinary address is accepted');
+ok(Auth.emailProblem('sara@localhost') !== null, 'the email check names the fault');
+
+// the blocklist still runs under the composition rule
+ok(!okPass('Password1!'), 'Password1! meets every rule and is still refused');
 ok(!okPass('P@ssw0rd1234'), 'leet substitutions do not launder a common password');
-ok(!okPass('qwertyuiop1234'), 'a keyboard walk is refused');
-ok(!okPass('abcdabcdabcd'), 'a repeated pattern is refused');
-ok(!okPass('sarasara1234'), 'a password built from the username is refused');
-ok(!okPass('ahmadiah madi'), 'a password built from the name is refused');
-ok(okPass('the river runs past our house'), 'an ordinary sentence the blocklist misses is accepted');
+ok(!okPass('Qwertyuiop1!'), 'a keyboard walk is refused');
+ok(!okPass('Ab1!Ab1!Ab1!'), 'a repeated pattern is refused');
+ok(!okPass('Saraa1!xyz'), 'a password built from the username is refused');
+ok(!okPass('Ahmadi1!Xyz'), 'a password built from the name is refused');
+ok(okPass('The river runs past us 5!'), 'an ordinary sentence the blocklist misses is accepted');
+ok(!okPass('Xx1!' + 'x'.repeat(200)), 'a password over the ceiling is refused');
+
+// the meter
 ok(Auth.strength('', 'sara', 'Sara')['score'] === 0, 'an empty password scores zero');
-ok(Auth.strength('abc', 'sara', 'Sara')['score'] <= 1, 'a short password cannot score above one');
-ok(Auth.strength(P, 'sara', 'Sara')['score'] >= 2, 'a twelve-character passphrase scores at least fair');
-ok(Auth.strength('a much longer passphrase entirely', 'sara', 'Sara')['score']
-   > Auth.strength(P, 'sara', 'Sara')['score'],
-   'more length scores higher, because length is the strength');
-ok(Auth.strength('password123456', 'sara', 'Sara')['score'] === 0,
-   'a blocked password scores zero whatever its length');
-ok(/at least 12/.test(reason('short')), 'the refusal says what the minimum is');
+ok(Auth.strength('Abcdef1!', 'sara', 'Sara')['score'] === 4, 'all four rules light the whole meter');
+ok(Auth.strength('Abcdefg1', 'sara', 'Sara')['score'] === 3, 'a missing symbol leaves one segment dark');
+ok(Auth.strength('Password1!', 'sara', 'Sara')['score'] === 0, 'a blocked password scores zero');
+ok(Auth.strength('Abcdef1!', 'sara', 'Sara')['ok'], 'the meter agrees with the submit path');
+ok(/at least 8/.test(reason('short')), 'the refusal says what the minimum is');
 
 const id1 = Cert.ident({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'});
 const id2 = Cert.ident({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'});

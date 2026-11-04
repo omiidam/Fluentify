@@ -1537,6 +1537,36 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .authlabel b { color: var(--ink-3); }
   .authlabel .fa { display: block; }
+  /* The rule, spelled out. A meter that says "weak" without naming what is
+     missing makes the learner guess at four constraints; four lines that tick
+     as they are met do not. */
+  .authrules { list-style: none; margin: 6px 0 0; padding: 0; }
+  .authrule {
+    display: flex; align-items: flex-start; gap: 6px;
+    font-size: 10px; line-height: 1.5; color: var(--ink-4);
+    transition: color .15s;
+  }
+  .authrule i {
+    flex: none; width: 11px; height: 11px; margin-top: 1px; border-radius: 50%;
+    border: 1px solid var(--line-strong); font-style: normal; font-size: 8px;
+    line-height: 10px; text-align: center; color: transparent;
+    transition: background .15s, border-color .15s;
+  }
+  .authrule.on { color: var(--ink-2); }
+  .authrule.on i {
+    background: var(--green-ink); border-color: var(--green-ink); color: var(--surf-1);
+  }
+  .authrule-fa {
+    margin: 5px 0 0; font-size: 10px; line-height: 1.6; color: var(--ink-5);
+    direction: rtl; text-align: right;
+  }
+  /* A password has to be typed. Selection is off in the field so the text
+     cannot be swept and copied, and the event blockers in Auth.bind() stop
+     paste, cut, drag and the context menu. */
+  .authfield input[data-secret] {
+    -webkit-user-select: none; user-select: none;
+    -webkit-touch-callout: none;
+  }
   .autherr {
     font-size: 11.5px; line-height: 1.5; color: var(--pink-ink); min-height: 16px;
     margin: 2px 0 6px;
@@ -4872,24 +4902,34 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <input id="authuser" type="text" autocomplete="username" placeholder="sara" maxlength="32"
                  autocapitalize="none" spellcheck="false">
         </label>
+        <label class="authfield" data-only="signup">
+          <span>Email — ایمیل</span>
+          <input id="authemail" type="email" autocomplete="email" placeholder="sara@example.com"
+                 maxlength="254" inputmode="email" autocapitalize="none" spellcheck="false"
+                 dir="ltr">
+          <small class="hint">Recovers this account. — برای بازیابی حساب.</small>
+        </label>
         <label class="authfield">
           <span>Password — گذرواژه</span>
           <span class="authwrap">
-            <input id="authpass" type="password" autocomplete="current-password" maxlength="128">
+            <input id="authpass" type="password" autocomplete="current-password" maxlength="128"
+                   data-secret="1">
             <button class="authreveal" id="authreveal" type="button" aria-label="Show password"
                     aria-pressed="false" title="Show password — نمایش گذرواژه">Show</button>
           </span>
+          <small class="hint">Typed only, never pasted. — فقط تایپ؛ چسباندن ممکن نیست.</small>
         </label>
         <div class="authmeter" id="authmeter" hidden>
           <div class="authtrack" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <span class="authlabel" id="authlabel">
-            <b>Use a phrase</b> — three or four words, 12 characters or more.
-            <bdi dir="rtl" lang="fa">یک عبارت چندکلمه‌ای بساز؛ دست‌کم ۱۲ نویسه.</bdi>
-          </span>
+          <span class="authlabel" id="authlabel"><b>Choose a password</b></span>
+          <ul class="authrules" id="authrules"></ul>
+          <p class="authrule-fa" id="authrulesfa" lang="fa">
+            دست‌کم ۸ نویسه؛ حرف بزرگ و کوچک؛ حرف و رقم؛ یکی از @#$%!</p>
         </div>
         <label class="authfield" data-only="signup">
           <span>Repeat password — تکرار گذرواژه</span>
-          <input id="authpass2" type="password" autocomplete="new-password" maxlength="128">
+          <input id="authpass2" type="password" autocomplete="new-password" maxlength="128"
+                 data-secret="1">
         </label>
         <p class="autherr" id="autherr" role="alert"></p>
         <button class="authsubmit" id="authsubmit" type="submit">Sign in</button>
@@ -10812,14 +10852,56 @@ const Auth = (() => {
   const isOpen = (st, now) => sessionLeft(st, now) > 0;
 
   /* ---- the password rule ------------------------------------------------
-     NIST SP 800-63B, followed rather than decorated: length is the requirement,
-     composition rules are not (they push people to "Password1!" and buy
-     nothing), spaces and any script are allowed because a passphrase is what
-     people actually remember, a blocklist catches the passwords that are
-     guessed first, and the hash is already PBKDF2-SHA-256 at 150k iterations.
-     The ceiling exists so a pasted novel cannot stall the KDF; 128 is double
-     the 64 that the guideline requires a verifier to accept. */
-  const MIN_PASS = 12, MAX_PASS = 128;
+     Four requirements, and they are requirements rather than hints: eight
+     characters at least, both cases, letters with digits, and one symbol from
+     @#$%!. The blocklist below still runs on top, because a policy that only
+     counts character classes is satisfied by "Password1!" - the first line of
+     every cracking dictionary. The ceiling exists so a novel cannot stall the
+     KDF; 128 is double the 64 a verifier is required to accept.
+
+     One concession to the Persian half of the app: a password with no Latin
+     letters cannot be mixed-case, because the script has no case at all. The
+     case rule counts as met when there is no Latin to case, and every other
+     rule still applies, so a Persian password is asked for a number and a
+     symbol exactly like an English one. */
+  const MIN_PASS = 8, MAX_PASS = 128;
+  const SPECIAL = '@#$%!';
+  const SPECIAL_RE = /[@#$%!]/;
+
+  /* The rules in the order the card draws them: one segment of the meter and
+     one line of the list each, so the bar and the ticks cannot disagree. */
+  const RULES = [
+    ['length', 'At least 8 characters'],
+    ['case', 'Upper and lower case'],
+    ['digits', 'Letters and numbers'],
+    ['special', 'One of @ # $ % !'],
+  ];
+
+  function ruleCheck(pass) {
+    const p = String(pass || '');
+    const latin = /[A-Za-z]/.test(p);
+    return {
+      length: p.length >= MIN_PASS && p.length <= MAX_PASS,
+      case: latin ? /[A-Z]/.test(p) && /[a-z]/.test(p) : p.length > 0,
+      digits: /[A-Za-z\u0600-\u06FF]/.test(p) && /[0-9]/.test(p),
+      special: SPECIAL_RE.test(p),
+    };
+  }
+
+  /* An address, checked as far as it can be without a mail server: one @, a
+     dotted domain, no spaces. Anything stricter rejects addresses that are
+     legal, and anything looser accepts typos that make recovery impossible. */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+  function emailProblem(email) {
+    const e = String(email || '').trim();
+    if (!e) return ['Enter your email, so this account can be recovered.',
+                    'ایمیلت را وارد کن تا این حساب قابل بازیابی باشد.'];
+    if (e.length > 254) return ['That email is longer than any address can be.',
+                                'این ایمیل از بلندترین نشانی ممکن هم بلندتر است.'];
+    if (!EMAIL_RE.test(e)) return ['That does not look like an email address.',
+                                   'این شکل یک نشانی ایمیل نیست.'];
+    return null;
+  }
 
   /* The passwords a cracker tries first. Short on purpose - a real blocklist
      is megabytes and this file ships offline - but it covers the shapes people
@@ -10896,30 +10978,27 @@ const Auth = (() => {
     return null;
   }
 
-  /* 0-4 for the meter. Length is most of it, because length is most of the
-     strength; variety and the blocklist adjust it. Nothing here is a promise
-     about entropy, which is why the label says "strong", not "unbreakable". */
+  /* 0-4 for the meter: one segment per requirement met, so the bar says the
+     same thing as the tick list. Nothing here is a promise about entropy,
+     which is why the top label says "strong", not "unbreakable". */
   function strength(pass, user, name) {
     const p = String(pass || '');
-    if (!p) return {score: 0, label: 'Empty', labelFa: 'خالی', ok: false};
-    let score = 0;
-    if (p.length >= MIN_PASS) score++;
-    if (p.length >= 16) score++;
-    if (p.length >= 24) score++;
-    const kinds = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/,
-                   /[\u0600-\u06FF]/].filter((re) => re.test(p)).length;
-    if (kinds >= 3 && p.length >= MIN_PASS) score++;
-    if (p.length < MIN_PASS) score = Math.min(score, 1);
+    const rules = ruleCheck(p);
+    if (!p) {
+      return {score: 0, label: 'Empty', labelFa: 'خالی', ok: false,
+              weak: false, rules};
+    }
+    let score = RULES.filter(([key]) => rules[key]).length;
     const weak = weakReason(p, user, name);
     if (weak) score = 0;
     score = Math.max(0, Math.min(4, score));
-    const labels = [['Too short', 'کوتاه'], ['Weak', 'ضعیف'], ['Fair', 'قابل قبول'],
-                    ['Good', 'خوب'], ['Strong', 'قوی']];
-    /* A blocked password is not "too short" - it can be 40 characters and still
-       score zero - so the word for it has to say why. */
-    if (score === 0 && p.length >= MIN_PASS) labels[0] = ['Too common', 'رایج'];
+    const labels = [['Too weak', 'بسیار ضعیف'], ['Weak', 'ضعیف'],
+                    ['Fair', 'قابل قبول'], ['Good', 'خوب'], ['Strong', 'قوی']];
+    /* A blocked password is not "too weak" - it can meet all four rules and
+       still be the first thing a cracker tries - so the word has to say why. */
+    if (weak) labels[0] = ['Too common', 'رایج'];
     return {score, label: labels[score][0], labelFa: labels[score][1],
-            ok: !weak && p.length >= MIN_PASS && p.length <= MAX_PASS, weak: !!weak};
+            ok: !weak && score === 4, weak: !!weak, rules};
   }
 
   function validate(fields, hasAccount) {
@@ -10927,6 +11006,7 @@ const Auth = (() => {
     const user = String(fields.user || '').trim();
     const pass = String(fields.pass || '');
     const pass2 = String(fields.pass2 || '');
+    const email = String(fields.email || '').trim();
     const errors = [];
     if (!hasAccount) {
       if (name.length < 2) errors.push(['Enter your full name.', 'نام و نام خانوادگی را وارد کن.']);
@@ -10936,24 +11016,37 @@ const Auth = (() => {
       if (/[\d<>]/.test(name)) {
         errors.push(['The name cannot contain digits.', 'نام نمی‌تواند رقم داشته باشد.']);
       }
+      const mail = emailProblem(email);
+      if (mail) errors.push(mail);
     }
     if (!/^[a-zA-Z0-9._-]{3,32}$/.test(user)) {
       errors.push(['Username: 3–32 letters, digits, dot, dash or underscore.',
                    'نام کاربری: ۳ تا ۳۲ حرف یا رقم، نقطه، خط تیره یا زیرخط.']);
     }
     if (pass.length < MIN_PASS) {
-      errors.push(['Password: at least ' + MIN_PASS + ' characters. A phrase of three or four words is ideal.',
-                   'گذرواژه: دست‌کم ۱۲ نویسه. عبارتی از سه یا چهار کلمه بهترین گزینه است.']);
+      errors.push(['Password: at least ' + MIN_PASS + ' characters.',
+                   'گذرواژه: دست‌کم ۸ نویسه.']);
     } else if (pass.length > MAX_PASS) {
       errors.push(['Password: ' + MAX_PASS + ' characters at most.', 'گذرواژه: حداکثر ۱۲۸ نویسه.']);
     } else {
       const weak = weakReason(pass, user, name);
       if (weak) errors.push(weak);
+      else {
+        const rules = ruleCheck(pass);
+        /* The message names the rule that is actually missing, because "use a
+           stronger password" tells the learner nothing about which of the four
+           bars is not met. */
+        const missing = RULES.filter(([key]) => !rules[key]).map(([, text]) => text.toLowerCase());
+        if (missing.length) {
+          errors.push(['Password: also needs ' + missing.join(', ') + '.',
+                       'گذرواژه باید حرف بزرگ و کوچک، حرف و رقم، و یکی از @#$%! را داشته باشد.']);
+        }
+      }
     }
     if (!hasAccount && pass !== pass2) {
       errors.push(['The two passwords do not match.', 'دو گذرواژه یکسان نیستند.']);
     }
-    return {ok: errors.length === 0, errors, name, user, pass};
+    return {ok: errors.length === 0, errors, name, user, email, pass};
   }
 
   /* ---- the overlay ------------------------------------------------------ */
@@ -10990,17 +11083,22 @@ const Auth = (() => {
     const res = strength(pass, $('authuser') ? $('authuser').value : '',
                         $('authname') ? $('authname').value : '');
     meter.dataset.score = String(pass ? res.score : 0);
+    const list = $('authrules');
+    if (list) {
+      list.innerHTML = RULES.map(([key, text]) =>
+        '<li class="authrule' + (res.rules[key] ? ' on' : '') + '">' +
+        '<i aria-hidden="true">✓</i>' + text + '</li>').join('');
+    }
     if (!label) return;
     if (!pass) {
-      label.innerHTML = '<b>Use a phrase</b> — three or four words, 12 characters or more.' +
-        '<bdi class="fa" dir="rtl" lang="fa">یک عبارت چندکلمه‌ای بساز؛ دست‌کم ۱۲ نویسه.</bdi>';
+      label.innerHTML = '<b>Choose a password</b> — all four rules below have to tick.';
       return;
     }
     label.innerHTML = '<b>' + res.label + ' · ' + res.labelFa + '</b>' +
       '<bdi class="fa" dir="rtl" lang="fa">' +
       (res.ok ? 'خوب است؛ همین را نگه دار.'
-              : res.weak ? 'این یکی را کنار بگذار؛ یک عبارت چندکلمه‌ای بساز.'
-              : 'دست‌کم ۱۲ نویسه؛ یک عبارت چندکلمه‌ای بهترین گزینه است.') +
+              : res.weak ? 'این یکی در فهرست گذرواژه‌های رایج است؛ یکی دیگر بساز.'
+              : 'قاعده‌ای که تیک نخورده باقی مانده است.') +
       '</bdi>';
   }
 
@@ -11019,6 +11117,7 @@ const Auth = (() => {
     setTab(account ? (nextTab || 'signin') : 'signup');
     $('authname').value = account ? account.name : '';
     $('authuser').value = account ? account.user : '';
+    if ($('authemail')) $('authemail').value = account && account.email ? account.email : '';
     setTimeout(() => {
       const target = tab === 'signup' ? $('authname') : $('authuser');
       if (target) target.focus({preventScroll: true});
@@ -11052,11 +11151,13 @@ const Auth = (() => {
     const fields = {
       name: $('authname').value,
       user: $('authuser').value,
+      email: $('authemail') ? $('authemail').value : '',
       pass: $('authpass').value,
       pass2: $('authpass2').value,
     };
-    const {ok, errors, name, user, pass} = validate(
-      {name: fields.name, user: fields.user, pass: fields.pass, pass2: fields.pass2}, has);
+    const {ok, errors, name, user, email, pass} = validate(
+      {name: fields.name, user: fields.user, email: fields.email,
+       pass: fields.pass, pass2: fields.pass2}, has);
     if (!ok) { error(errors[0]); return; }
 
     if (!canHash()) {
@@ -11090,7 +11191,7 @@ const Auth = (() => {
         }
         const salt = newSalt();
         const hash = await derive(pass, salt, ITER);
-        account = {name, user, salt, hash, iter: ITER, at: new Date().toISOString()};
+        account = {name, user, email, salt, hash, iter: ITER, at: new Date().toISOString()};
         write(ACCOUNT, account);
       }
       session = {at: Date.now(), seen: Date.now(), user: account.user};
@@ -11153,6 +11254,7 @@ const Auth = (() => {
       <p class="ac-name">${account.name.replace(/[<>&]/g, '')}</p>
       <p class="ac-user">@${account.user.replace(/[<>&]/g, '')} · joined ${new Date(account.at).toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'})}</p>
       <div class="ac-rows">
+        <div class="ac-row"><span>Email</span><b>${(account.email || '—').replace(/[<>&]/g, '')}</b></div>
         <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
         <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
         <div class="ac-row"><span>Stored</span><b>on this device only</b></div>
@@ -11190,9 +11292,18 @@ const Auth = (() => {
     if (!overlay || overlay.dataset.ready) return;
     overlay.dataset.ready = '1';
     $('authform').addEventListener('submit', submit);
-    ['authpass', 'authuser', 'authname'].forEach((id) => {
+    ['authpass', 'authpass2', 'authuser', 'authname', 'authemail'].forEach((id) => {
       const el = $(id);
       if (el) el.addEventListener('input', paintStrength);
+    });
+    /* A password is typed, never carried in from a clipboard and never carried
+       out: paste, cut, copy, drop and the context menu are all refused on the
+       secret fields, and the CSS keeps the text from being swept as well.
+       preventDefault() rather than return false, so the listener stays passive
+       where the browser allows it. */
+    document.querySelectorAll('[data-secret]').forEach((el) => {
+      ['paste', 'cut', 'copy', 'drop', 'dragover', 'contextmenu'].forEach((evt) =>
+        el.addEventListener(evt, (e) => { e.preventDefault(); }));
     });
     const reveal = $('authreveal');
     if (reveal) {
@@ -11263,6 +11374,7 @@ const Auth = (() => {
   return {
     init, touch, paintAccount, signOut, resetDevice,
     sessionLeft, isOpen, validate, strength, MIN_PASS,
+    emailProblem, ruleCheck, RULES, SPECIAL,
     profile: () => read(ACCOUNT, null),
     signedIn: () => isOpen(read(SESSION, null), Date.now()),
   };
