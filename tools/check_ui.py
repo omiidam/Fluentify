@@ -865,6 +865,29 @@ def main() -> int:
               not stray,
               f"{stray} would keep its light value in the dark theme")
 
+    # ------------------------------------------------- the account panel --
+    # The actions fell below the panel's own box once the appearance block was
+    # added above them, and the panel clips: "Save name" was not scrolled out
+    # of reach, it was simply not there. Two rules keep that from returning.
+    panel_rule = re.search(r"#acpanel\.open\s*\{([^}]*)\}", src)
+    check("the account panel keeps a pad clear of its own fade",
+          panel_rule is not None
+          and re.search(r"padding-bottom:\s*(\d+)px", panel_rule.group(1)) is not None
+          and int(re.search(r"padding-bottom:\s*(\d+)px", panel_rule.group(1)).group(1)) >= 22,
+          "the panel fades its last 22px, so a row with no pad under it is "
+          "painted at zero opacity")
+    check("the account panel is taller than it was, not shorter",
+          panel_rule is not None and "max-height" in panel_rule.group(1),
+          "a fixed 70% clipped the actions; the height has to be a clamp")
+    paint = re.search(r"function paintAccount\(\) \{(.*?)\n  \}", src, re.S)
+    body_tpl = paint.group(1) if paint else ""
+    actions_at = body_tpl.find('class="ac-actions"')
+    theme_at = body_tpl.find('class="ac-theme"')
+    check("the account actions come before the settings block",
+          actions_at != -1 and theme_at != -1 and actions_at < theme_at,
+          "a settings block above the buttons pushes them out of the panel "
+          "on a short window, which is the bug this replaces")
+
     # ------------------------------------------------------- the switch ----
     check("the appearance control offers both themes",
           src.count('data-theme-set="light"') == 1
