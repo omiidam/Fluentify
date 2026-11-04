@@ -375,12 +375,15 @@ def run_bundle() -> None:
     # the real check: page and bot.js share one global scope
     if not shutil.which("node"):
         return
-    script = _re.search(r"<script>\n(.*)\n</script>", html, _re.S)
-    check("the page has an inline script", script is not None)
-    if not script:
+    # the last block, not the first: the head carries a small pre-paint script
+    # (the theme, read before the stylesheet resolves) and a greedy match from
+    # the first <script> would swallow the whole document with it
+    scripts = _re.findall(r"<script>\n(.*?)\n</script>", html, _re.S)
+    check("the page has an inline script", bool(scripts))
+    if not scripts:
         return
     combined = (bot_js.read_text(encoding="utf-8") + "\n;"
-                if bot_js.exists() else "") + script.group(1)
+                if bot_js.exists() else "") + scripts[-1]
     tmp = ROOT / "tools/.cache/bundle_check.js"
     tmp.parent.mkdir(parents=True, exist_ok=True)
     tmp.write_text(combined, encoding="utf-8")

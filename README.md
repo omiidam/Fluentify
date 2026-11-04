@@ -24,7 +24,7 @@ no network calls, no tracking.
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
-| 👤 Account | sign-up and sign-in that happen **after the loading page** and before the app: full name, username, and a password stretched with PBKDF2-SHA256 (150,000 iterations) into a salted hash in this device's storage — no server, no plain text. The password rule is **NIST SP 800-63B**: 12 characters minimum and 128 maximum, no composition rules, spaces and any script allowed, and instead of "one capital and one symbol" it rejects the passwords a cracker tries first — a bundled blocklist (case, separators and leet substitutions folded), the username, the learner's own name, a single repeated character and a repeated pattern — with a live four-segment strength meter that is drawn from the same function the submit button enforces. The session stays open for **seven days after the last time the app was used**, then asks for the password again; sign out keeps the account, reset erases it |
+| 👤 Account | sign-up and sign-in that happen **after the loading page** and before the app; the panel also carries the **light/dark theme switch**, remembered on the device. Full name, username, and a password stretched with PBKDF2-SHA256 (150,000 iterations) into a salted hash in this device's storage — no server, no plain text. The password rule is **NIST SP 800-63B**: 12 characters minimum and 128 maximum, no composition rules, spaces and any script allowed, and instead of "one capital and one symbol" it rejects the passwords a cracker tries first — a bundled blocklist (case, separators and leet substitutions folded), the username, the learner's own name, a single repeated character and a repeated pattern — with a live four-segment strength meter that is drawn from the same function the submit button enforces. The session stays open for **seven days after the last time the app was used**, then asks for the password again; sign out keeps the account, reset erases it |
 | 🎓 Certificate | at the end of the assessment, a printable certificate carrying the learner's **full name, CEFR level, date, question count and certificate ID** — downloaded as PDF through the browser's print dialog on the web and through `PrintManager` in the APK, with the print stylesheet stripping everything but the sheet |
 | 📈 Level check | a **monthly CEFR assessment on one fixed fifty-question paper**: ten questions from each band, A1 to C1, across grammar, vocabulary, reading and listening, in five parts that climb in difficulty. The level is read straight off the **count of correct answers** — 8 of 50 is A1, 17 A2, 26 B1, 35 B2, 44 C1 — and each skill is read on the same fractions of its own total (grammar and vocabulary out of 15, reading and listening out of 10). Unanswered questions count as wrong, a score that lands within one standard error of a cutoff is shown as ±1 band, and writing and speaking stay practice and are reported as **not assessed**, with a 30-day retake window |
 | 📚 Mini stories | 50 graded readers (very easy → very hard) — the whole story with the Persian under every sentence, vocabulary, expressions, grammar and 5 + 3 + 3 + 2 questions with answers and explanations, plus a companion for a chapter of a book you own |
@@ -273,6 +273,47 @@ also remove the seam where two creams of nearly the same value met. Contrast
 went the other way: the bubble border is `rgba(43,48,73,.14)` and the header
 carries a navy-tinted shadow, so the edges that define a surface are drawn by
 value rather than by another expensive white.
+
+### Two themes, one palette
+
+The switch lives in the **Account** panel (`Appearance — ظاهر`), because that is
+where the learner's settings already are. It stores the *choice*, not the
+resolved colour: pick dark and it stays dark when the device switches to light
+at sunrise. A learner who has never chosen gets the device's own
+`prefers-color-scheme`, read by a three-line script in `<head>` so the boot
+screen never paints light and then flips.
+
+Everything downstream of the switch is one attribute, `data-theme` on `<html>`,
+and one block of custom properties. The palette is a ladder of *jobs* rather
+than colours — `--surf-1..6` are six surfaces from raised to deepest,
+`--ink-1..5` five inks from body copy to hint, `--line` / `--line-soft` /
+`--edge-light` are edges — and each job is answered twice:
+
+```css
+:root                 { --surf-1: #fffcef; --ink-1: #2b3049; /* … */ }
+[data-theme="dark"]   { --surf-1: #252a35; --ink-1: #eef2f9; /* … */ }
+```
+
+Three things are deliberately **not** mirrored in the dark block:
+
+1. **Surfaces are near-black, never black** (`#12141a`). Cream type on `#000`
+   haloes, and a theme chosen at 1am should not be the one that glares.
+2. **Accents are lifted and desaturated, not darkened.** A navy that reads as
+   text on cream is invisible on graphite, so `--navy-ink` becomes a pale blue
+   while `--fill-navy` stays a filled navy: the same family, two jobs, two
+   answers. Filled buttons use `--btn-fill`, not `--ink`, for exactly this
+   reason.
+3. **Elevation is lightness, not shadow.** A 30px black drop shadow on `#12141a`
+   is nothing; a one-value step up in the ladder is everything.
+
+The certificate is the one surface that does **not** follow the theme. It is a
+document, its job is to be printed, and it keeps `--doc-paper` in both themes.
+
+The rule that keeps this honest is in [tools/check_ui.py](tools/check_ui.py):
+no rule outside the two palette blocks may hard-code a colour, every rung of the
+ladder must exist on both sides, and the dark inks, section accents and bubble
+fills are held to the same AA ratios as the light ones. Light and dark are
+measured, not eyeballed.
 
 **Baloo 2** carries Latin headings and the top-bar buttons, **Kalam** carries
 the Latin transcript, and **Vazirmatn** carries every Persian glyph in both —

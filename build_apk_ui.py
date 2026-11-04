@@ -550,9 +550,13 @@ print(f"synced the grammar engine ({NLP_FILE.stat().st_size / (1024*1024):.2f} M
 import shutil
 import subprocess
 
-script = re.search(r"<script>\n(.*)\n</script>", html, re.S)
-if not script:
+# The *last* script block, not the first: the head carries a small pre-paint
+# block (the theme, read before the stylesheet resolves) and a greedy first
+# match swallowed the whole document between the two.
+blocks = re.findall(r"<script>\n(.*?)\n</script>", html, re.S)
+if not blocks:
     raise SystemExit("could not find the page script to parse")
+script = re.match(r"(?s)(.*)", blocks[-1])
 # Both scripts share one global scope, so the collision only appears when
 # they are checked together - which is exactly why checking the page on its
 # own would have missed this.

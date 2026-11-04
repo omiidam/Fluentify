@@ -468,16 +468,35 @@ def main() -> int:
     # alone has to carry them now, so they must differ by hue rather than by
     # a shade of the same blue - which is invisible to anyone who glances at
     # it, and "is it listening?" is exactly what a glance is asking.
-    mic_fills: dict[str, str | None] = {}
-    for state, pat in (("idle", r"\.mic\s*\{"),
-                       ("listening", r"\.mic\.rec\s*\{"),
-                       ("unavailable", r"\.mic\[aria-disabled=.true.\]\s*\{")):
-        m = re.search(pat + r"([^}]*)\}", src)
-        bg = re.search(r"background:\s*(#[0-9a-f]{3,8})", m.group(1)) if m else None
-        mic_fills[state] = bg.group(1).lower() if bg else None
-    check("the microphone's states differ by colour, not just by brightness",
-          all(mic_fills.values()) and len(set(mic_fills.values())) == 3,
-          f"{mic_fills}: these were told apart by border colour, which is gone")    # -------------------------------------------------------------- boot --
+    # The fills are tokens now, so the check resolves them in both themes
+    # rather than reading a hex that may no longer be there. A state that
+    # collapses onto another in the dark theme is the same bug as one that
+    # collapses in the light theme, and only the light one used to be caught.
+    root_block = re.search(r":root \{(.*?)\n  \}", src, re.S)
+    dark_block = re.search(r'\[data-theme="dark"\]\s*\{(.*?)\n  \}', src, re.S)
+
+    def token_table(block):
+        if not block:
+            return {}
+        return {m.group(1): m.group(2) for m in
+                re.finditer(r"(--[a-z0-9-]+):\s*(#[0-9a-fA-F]{3,8})", block.group(1))}
+
+    def resolve(value, table):
+        m = re.search(r"var\((--[a-z0-9-]+)\)", value or "")
+        return table.get(m.group(1), "").lower() if m else (value or "").strip().lower()
+
+    for theme, table in (("light", token_table(root_block)),
+                         ("dark", token_table(dark_block))):
+        mic_fills = {}
+        for state, pat in (("idle", r"\.mic\s*\{"),
+                           ("listening", r"\.mic\.rec\s*\{"),
+                           ("unavailable", r"\.mic\[aria-disabled=.true.\]\s*\{")):
+            m = re.search(pat + r"([^}]*)\}", src)
+            bg = re.search(r"background:\s*([^;]+);", m.group(1)) if m else None
+            mic_fills[state] = resolve(bg.group(1), table) if bg else None
+        check(f"the microphone's {theme} states differ by colour, not just brightness",
+              all(mic_fills.values()) and len(set(mic_fills.values())) == 3,
+              f"{mic_fills}: these were told apart by border colour, which is gone")
     # The loader is in the markup rather than added by script: boot reads about
     # a megabyte of JSON, and a script-added overlay lands after the first long
     # frame - the blank screen it was meant to cover.
@@ -730,6 +749,145 @@ def main() -> int:
               ratio(m.group(1), card) >= 3,
               f"{m.group(1)} is {ratio(m.group(1), card):.2f}:1 against the "
               "tutor card: the two speakers would read alike")
+
+    # ---------------------------------------------------- the dark theme --
+    # The dark palette is held to the light palette's standard, not to a
+    # looser one: a second theme is where contrast usually rots, because the
+    # rules that were measured were measured on cream.
+    dark = re.search(r'\[data-theme="dark"\]\s*\{(.*?)\n  \}', src, re.S)
+    check("the dark theme is a block a reader can find", dark is not None,
+          "no [data-theme=\"dark\"] block: the switch would change one "
+          "attribute and nothing else")
+    if dark:
+        block = dark.group(1)
+
+        def dark_of(name):
+            m = re.search(r"--" + name + r":\s*(#[0-9a-fA-F]{3,6}|rgba\([^)]*\))", block)
+            return m.group(1) if m else None
+
+        def lum_of(c: str) -> float:
+            if c.startswith("rgba") or c.startswith("rgb"):
+                parts = re.findall(r"[\d.]+", c)[:3]
+                ch = [float(x) / 255 for x in parts]
+            else:
+                hexv = c.lstrip("#")
+                if len(hexv) == 3:
+                    hexv = "".join(x * 2 for x in hexv)
+                ch = [int(hexv[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+            f = lambda v: v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+            return 0.2126 * f(ch[0]) + 0.7152 * f(ch[1]) + 0.0722 * f(ch[2])
+
+        def dark_ratio(a: str, b: str) -> float:
+            la, lb = lum_of(a), lum_of(b)
+            hi, lo = max(la, lb), min(la, lb)
+            return (hi + 0.05) / (lo + 0.05)
+
+        dbase = dark_of("base")
+        dcard = dark_of("card")
+        check("the dark page and card are both declared",
+              dbase is not None and dcard is not None,
+              "a surface one theme forgot is a surface that stays cream")
+        check("the dark page is near-black, never black",
+              lum_of(dbase) > 0.004,
+              f"{dbase} is black enough to halo light text: the complaint a "
+              "dark theme exists to answer")
+        check("the dark card is lifted above the dark page",
+              lum_of(dcard) > lum_of(dbase),
+              "elevation in dark is shown by a lighter surface; a card the "
+              "same value as the page has no edge at all")
+        if dbase:
+            for name in ("ink-1", "ink-2", "ink-3", "ink-4"):
+                val = dark_of(name)
+                check(f"dark --{name} clears AA on the dark page",
+                      val is not None and dark_ratio(val, dbase) >= 4.5,
+                      f"{val} is {dark_ratio(val, dbase):.2f}:1 on {dbase}"
+                      if val else f"no dark --{name}")
+            for name in ("teal", "cyan", "violet", "indigo", "amber", "rose"):
+                val = dark_of(name)
+                check(f"dark --{name} clears AA on the dark page",
+                      val is not None and dark_ratio(val, dbase) >= 4.5,
+                      f"{val} is {dark_ratio(val, dbase):.2f}:1 on {dbase}"
+                      if val else f"no dark --{name}")
+            for name in ("gold-ink", "green-ink", "red-ink", "pink-ink",
+                         "purple-ink", "navy-ink", "blue-ink"):
+                val = dark_of(name)
+                check(f"dark --{name} is legible on a dark card",
+                      val is not None and dark_ratio(val, dcard) >= 4.5,
+                      f"{val} is {dark_ratio(val, dcard):.2f}:1 on {dcard}"
+                      if val else f"no dark --{name}")
+            # The learner's bubble in dark is a *raised* fill rather than a dark
+            # one: #26395c on #232833 is a 1.6:1 step, and demanding 3:1 there
+            # would mean either a pale bubble that stops looking like the
+            # learner's own side or a page lifted until it is not dark. What
+            # has to hold is that the fill is above the card, is cooler than
+            # it, and carries cream text at AA.
+            for name in ("user1", "user2", "user3"):
+                val = dark_of(name)
+                check(f"dark --{name} is a raised fill above the dark card",
+                      val is not None and lum_of(val) > lum_of(dcard)
+                      and dark_ratio(val, dcard) >= 1.3,
+                      f"{val} is {dark_ratio(val, dcard):.2f}:1 on {dcard}"
+                      if val else f"no dark --{name}")
+                check(f"dark --{name} carries the cream bubble text",
+                      val is not None and dark_ratio("#fdf7ea", val) >= 4.5,
+                      f"cream on {val} is {dark_ratio('#fdf7ea', val):.2f}:1")
+
+        # Every rung of the ladder has to exist on both sides, or a surface
+        # silently keeps its light value in the dark theme.
+        ladder = [n for n in ("surf-1", "surf-2", "surf-3", "surf-4", "surf-5",
+                              "surf-6", "raise", "raise-2", "line-soft",
+                              "line-strong", "edge-light", "chat-bg", "ink-1",
+                              "ink-2", "ink-3", "ink-4", "ink-5", "on-fill",
+                              "gold-ink", "green-ink", "red-ink", "pink-ink",
+                              "purple-ink", "blue-ink", "navy-ink", "fill-navy",
+                              "fill-navy2", "fill-navy3", "fill-slate",
+                              "send-1", "send-2", "wash-amber", "wash-rose",
+                              "wash-ice", "wash-leaf", "wash-violet",
+                              "gold-line", "focus", "btn-fill", "mask")]
+        root = re.search(r":root \{(.*?)\n  \}", src, re.S)
+        root_src = root.group(1) if root else ""
+        missing = [n for n in ladder
+                   if not re.search(r"--" + n + r":", root_src)
+                   or not re.search(r"--" + n + r":", block)]
+        check("every rung of the theme ladder is defined in both themes",
+              not missing, f"{missing} exists on one side only")
+
+        # The whole point of the pass: no rule may carry a colour of its own.
+        # A literal that escapes the tokens is a rule that stays cream in the
+        # dark theme, and there is no way to find it by reading.
+        outside = re.sub(r"/\*.*?\*/", " ", src, flags=re.S)
+        outside = outside[outside.index("<style>"):outside.index("</style>")]
+        outside = re.sub(r":root \{.*?\n  \}", " ", outside, flags=re.S)
+        outside = re.sub(r'\[data-theme="dark"\]\s*\{.*?\n  \}', " ", outside, flags=re.S)
+        outside = re.sub(r"/\*.*?\*/", " ", outside, flags=re.S)
+        stray = sorted(set(re.findall(r"#[0-9a-fA-F]{3,8}\b", outside)))
+        check("no rule outside the two palette blocks hard-codes a colour",
+              not stray,
+              f"{stray} would keep its light value in the dark theme")
+
+    # ------------------------------------------------------- the switch ----
+    check("the appearance control offers both themes",
+          src.count('data-theme-set="light"') == 1
+          and src.count('data-theme-set="dark"') == 1,
+          "the Account panel needs exactly one button per theme")
+    check("the switch writes the choice where the head reads it",
+          "fluentify.theme" in src
+          and re.search(r"localStorage\.setItem\(KEY", src) is not None
+          and re.search(r"getItem\('fluentify\.theme'\)", src) is not None,
+          "a choice that is not persisted is a choice you re-make every launch")
+    check("the theme is applied before the first paint",
+          re.search(r"<script>\s*\n\s*\(\)\s*=>", src) is not None
+          or "document.documentElement.dataset.theme" in src.split("<style>")[0],
+          "the attribute has to be set in the head, or the boot screen paints "
+          "light and then flips")
+    check("the browser chrome follows the theme",
+          re.search(r'name="theme-color"', src) is not None
+          and re.search(r"META = \{light: '#", src) is not None,
+          "the address bar keeps the light colour in the dark theme")
+    check("the certificate keeps its paper in both themes",
+          re.search(r"--doc-paper:", block) is not None
+          and re.search(r"--doc-paper: #fffdf6", root_src) is not None,
+          "a certificate is printed; it cannot turn navy with the app")
 
     # ------------------------------------------------------------- player --
     # One bar under the header for everything that makes a sound. The failure
