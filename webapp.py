@@ -275,7 +275,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --text: #2b3049; --muted: #55607a; --dim: #5b6478;
     --bot: #fffcef;
     --paper: #f7f1e0; --paper2: #efe5cd; --card: #fffcef;
-    --ink: #2b3049; --navy: #3c405b; --navy2: #2a2d45;
+    /* The dark side of the theme is navy now, not the poster's slate:
+       deeper and bluer, which is what lets a toolbar icon, a panel rule
+       and an open tile all be navy without reading as four greys. */
+    --ink: #2b3049; --navy: #22375e; --navy2: #182a4a;
     --gold: #e8bf5f; --gold2: #cf9f3c; --gold-soft: #f7e6bd;
     /* the poster's first band, as a surface rather than an accent */
     --sand: #ebe2b7; --sand2: #ddd2a2;
@@ -1116,6 +1119,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 18px; height: 18px; display: grid; place-items: center;
   }
   .hbtn i svg { width: 18px; height: 18px; display: block; }
+  /* One hue per section, the same hue that section's panel header carries, so
+     the toolbar works as a colour key: thirteen grey glyphs said nothing about
+     where you were going, and the paper theme had almost no colour above the
+     fold. The label stays muted; only the icon speaks. */
+  .hbtn.tint-teal   i { color: var(--teal); }
+  .hbtn.tint-cyan   i { color: var(--cyan); }
+  .hbtn.tint-violet i { color: var(--violet); }
+  .hbtn.tint-indigo i { color: var(--indigo); }
+  .hbtn.tint-amber  i { color: var(--amber); }
+  .hbtn.tint-rose   i { color: var(--rose); }
+  .hbtn.tint-leaf   i { color: var(--leaf); }
+  .hbtn.tint-navy   i { color: var(--navy); }
   .hbtn span {
     font-size: 8.5px; font-weight: 700; letter-spacing: -.05px;
     line-height: 1; color: var(--muted); max-width: 100%;
@@ -1127,14 +1142,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: 0 6px 14px rgba(74,58,30,.12);
   }
   .hbtn.on {
-    background: linear-gradient(150deg, #464b69, #3c405b 60%, #2a2d45);
+    background: linear-gradient(150deg, #2f4a78, #22375e 60%, #182a4a);
     border-color: transparent;
-    box-shadow: 0 6px 16px rgba(60,64,91,.26), inset 0 1px 0 rgba(255,255,255,.12);
+    box-shadow: 0 6px 16px rgba(34,55,94,.30), inset 0 1px 0 rgba(255,255,255,.12);
   }
   .hbtn.on i, .hbtn.on span { color: #fffcef; }
   .hbtn.on i svg { stroke-width: 1.85; }
   .hbtn:focus-visible {
-    outline: 2px solid #3c405b;
+    outline: 2px solid var(--navy);
     outline-offset: 2px;
     box-shadow: 0 0 0 4px rgba(232,191,95,.45);
   }
@@ -1178,6 +1193,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* A coloured rule per section. Only one panel is ever open, so this is a
      wayfinding cue rather than a palette to look at - it tells you where you
      are before you have read a word. */
+  #dpanel h3  { border-inline-start: 3px solid var(--amber);   padding-inline-start: 9px; }
+  #npanel h3  { border-inline-start: 3px solid var(--violet);  padding-inline-start: 9px; }
   #vpanel h3  { border-inline-start: 3px solid var(--teal);    padding-inline-start: 9px; }
   #gpanel h3  { border-inline-start: 3px solid var(--violet);  padding-inline-start: 9px; }
   #fpanel h3  { border-inline-start: 3px solid var(--rose);    padding-inline-start: 9px; }
@@ -4537,31 +4554,31 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
-      <button class="hbtn" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
+      <button class="hbtn tint-amber" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/><path d="M7.6 13.4h3.2v3.2H7.6z"/></svg></i><span>Today</span><span class="rbadge" id="dbadge" hidden>0</span></button>
-      <button class="hbtn" id="ntoggle" aria-expanded="false" title="Analyze a sentence — تحلیل گرامری جمله" aria-label="Analyze a sentence">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyze</span></button>
-      <button class="hbtn" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
+      <button class="hbtn tint-teal" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
-      <button class="hbtn" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 5.2a1.8 1.8 0 0 1 1.8-1.8h3.2A1.8 1.8 0 0 1 11.2 5.2v13.4H6.2a1.8 1.8 0 0 0-1.8 1.8Z"/><path d="M19.6 5.2a1.8 1.8 0 0 0-1.8-1.8h-3.2a1.8 1.8 0 0 0-1.8 1.8v13.4h5a1.8 1.8 0 0 1 1.8 1.8Z"/></svg></i><span>Books</span></button>
-      <button class="hbtn" id="rdtoggle" aria-expanded="false" title="Reading strategies — راهبردهای خواندن" aria-label="Reading — strategies, a passage and questions">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.4 5.2 8.2 4.6 5 4.8v13.4c3.2-.2 5.4.4 7 1.6 1.6-1.2 3.8-1.8 7-1.6V4.8c-3.2-.2-5.4.4-7 1.8Z"/><path d="M12 6.6v13.2"/><path d="M8 8.6h1.6M8 11.6h1.6M14.4 8.6H16M14.4 11.6H16"/></svg></i><span>Reading</span></button>
-      <button class="hbtn" id="stoggle" aria-expanded="false" title="Mini stories — داستان‌های کوتاه" aria-label="Mini stories — an English story, its Persian, and questions">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 5.4a1.6 1.6 0 0 1 1.6-1.6h5.2v16.4H6.2a1.6 1.6 0 0 1-1.6-1.6Z"/><path d="M19.4 5.4a1.6 1.6 0 0 0-1.6-1.6h-5.2v16.4h5.2a1.6 1.6 0 0 0 1.6-1.6Z"/><path d="M14.8 7.4h2M14.8 10.4h2"/><path d="m8.6 7.6.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6L6.3 9.3l1.6-.2Z"/></svg></i><span>Stories</span></button>
-      <button class="hbtn" id="lvltoggle" aria-expanded="false" title="Level check — سنجش سطح" aria-label="Level check — a monthly assessment across grammar, vocabulary, reading, listening, writing and speaking"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 19.4h15.2"/><path d="M6.4 15.6v-4.2"/><path d="M11 15.6V7.6"/><path d="M15.6 15.6v-3"/><path d="M20.2 15.6V4.6"/></svg></i><span>Level</span><span class="rbadge" id="lvlbadge" hidden>B1</span></button>
-      <button class="hbtn" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
-      <button class="hbtn" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
-      <button class="hbtn" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 11.6a8.2 8.2 0 0 1-8.4 8.2 8.6 8.6 0 0 1-3.2-.6l-4.6 1.4 1.4-4.2a8.2 8.2 0 1 1 14.8-4.8Z"/><path d="M8.8 11.6h.01M12.2 11.6h.01M15.6 11.6h.01"/></svg></i><span>Say</span></button>
-      <button class="hbtn" id="ltoggle" aria-expanded="false" title="Listening A1–C2 — شنیدن" aria-label="Listening">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 15.2v-3.4a7.6 7.6 0 0 1 15.2 0v3.4"/><rect x="2.6" y="13.8" width="4.4" height="6.6" rx="2.2"/><rect x="17" y="13.8" width="4.4" height="6.6" rx="2.2"/></svg></i><span>Listen</span></button>
-      <button class="hbtn" id="phtoggle" aria-expanded="false" title="Phonetics — تلفظ و آهنگ" aria-label="Sounds — pronunciation and rhythm / تلفظ و آهنگ">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 12h1.4M7.2 7.6v8.8M11.4 4.6v14.8M15.6 8.6v6.8M19.8 10.6v2.8"/></svg></i><span>Sounds</span></button>
-      <button class="hbtn" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
+      <button class="hbtn tint-amber" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.4l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"/></svg></i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
+      <button class="hbtn tint-rose" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 11.6a8.2 8.2 0 0 1-8.4 8.2 8.6 8.6 0 0 1-3.2-.6l-4.6 1.4 1.4-4.2a8.2 8.2 0 1 1 14.8-4.8Z"/><path d="M8.8 11.6h.01M12.2 11.6h.01M15.6 11.6h.01"/></svg></i><span>Say</span></button>
+      <button class="hbtn tint-indigo" id="phtoggle" aria-expanded="false" title="Phonetics — تلفظ و آهنگ" aria-label="Sounds — pronunciation and rhythm / تلفظ و آهنگ">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 12h1.4M7.2 7.6v8.8M11.4 4.6v14.8M15.6 8.6v6.8M19.8 10.6v2.8"/></svg></i><span>Sounds</span></button>
+      <button class="hbtn tint-cyan" id="ltoggle" aria-expanded="false" title="Listening A1–C2 — شنیدن" aria-label="Listening">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 15.2v-3.4a7.6 7.6 0 0 1 15.2 0v3.4"/><rect x="2.6" y="13.8" width="4.4" height="6.6" rx="2.2"/><rect x="17" y="13.8" width="4.4" height="6.6" rx="2.2"/></svg></i><span>Listen</span></button>
+      <button class="hbtn tint-violet" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
+      <button class="hbtn tint-violet" id="ntoggle" aria-expanded="false" title="Analyze a sentence — تحلیل گرامری جمله" aria-label="Analyze a sentence">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyze</span></button>
+      <button class="hbtn tint-navy" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 5.2a1.8 1.8 0 0 1 1.8-1.8h3.2A1.8 1.8 0 0 1 11.2 5.2v13.4H6.2a1.8 1.8 0 0 0-1.8 1.8Z"/><path d="M19.6 5.2a1.8 1.8 0 0 0-1.8-1.8h-3.2a1.8 1.8 0 0 0-1.8 1.8v13.4h5a1.8 1.8 0 0 1 1.8 1.8Z"/></svg></i><span>Books</span></button>
+      <button class="hbtn tint-leaf" id="rdtoggle" aria-expanded="false" title="Reading strategies — راهبردهای خواندن" aria-label="Reading — strategies, a passage and questions">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.4 5.2 8.2 4.6 5 4.8v13.4c3.2-.2 5.4.4 7 1.6 1.6-1.2 3.8-1.8 7-1.6V4.8c-3.2-.2-5.4.4-7 1.8Z"/><path d="M12 6.6v13.2"/><path d="M8 8.6h1.6M8 11.6h1.6M14.4 8.6H16M14.4 11.6H16"/></svg></i><span>Reading</span></button>
+      <button class="hbtn tint-violet" id="stoggle" aria-expanded="false" title="Mini stories — داستان‌های کوتاه" aria-label="Mini stories — an English story, its Persian, and questions">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 5.4a1.6 1.6 0 0 1 1.6-1.6h5.2v16.4H6.2a1.6 1.6 0 0 1-1.6-1.6Z"/><path d="M19.4 5.4a1.6 1.6 0 0 0-1.6-1.6h-5.2v16.4h5.2a1.6 1.6 0 0 0 1.6-1.6Z"/><path d="M14.8 7.4h2M14.8 10.4h2"/><path d="m8.6 7.6.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6L6.3 9.3l1.6-.2Z"/></svg></i><span>Stories</span></button>
+      <button class="hbtn tint-indigo" id="lvltoggle" aria-expanded="false" title="Level check — سنجش سطح" aria-label="Level check — a monthly assessment across grammar, vocabulary, reading, listening, writing and speaking"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 19.4h15.2"/><path d="M6.4 15.6v-4.2"/><path d="M11 15.6V7.6"/><path d="M15.6 15.6v-3"/><path d="M20.2 15.6V4.6"/></svg></i><span>Level</span><span class="rbadge" id="lvlbadge" hidden>B1</span></button>
+      <button class="hbtn tint-amber" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
       <button class="hbtn danger" id="clear" title="Clear conversation — پاک کردن گفتگو" aria-label="Clear conversation">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.8h16.4M9.4 6.8V4.4h5.2v2.4"/><path d="M6.2 6.8l.9 12.4a2 2 0 0 0 2 1.9h5.8a2 2 0 0 0 2-1.9l.9-12.4"/><path d="M10.4 10.8v6M13.6 10.8v6"/></svg></i><span>Clear</span></button>
     </nav>
