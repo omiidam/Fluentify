@@ -2425,7 +2425,17 @@ class ChatBot:
         total = len(questions)
         n = to_persian_digits(index + 1) if lang == "fa" else str(index + 1)
         total_s = to_persian_digits(total) if lang == "fa" else str(total)
-        question = q["q"].get(lang, q["q"]["en"])
+        # The task is an English one - put the word in the right form - so the
+        # English line is always the question, in either interface language.
+        # The Persian line is the translation underneath it: asked on its own,
+        # it sometimes had no gap at all, so a Persian reader was shown a
+        # finished sentence and told to fill in a blank that was not there.
+        english = q["q"]["en"]
+        persian = q["q"].get("fa") or ""
+        if lang == "fa" and persian:
+            question = english + "\n" + persian
+        else:
+            question = english
         if lang == "fa":
             head = "🎓 آزمون" if stage == "exam" else "✏️ تمرین"
             hint = "پاسخ خودت رو بنویس. ('جواب' برای دیدن جواب، 'گرامر' برای خروج)"

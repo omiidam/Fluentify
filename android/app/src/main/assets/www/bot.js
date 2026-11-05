@@ -949,7 +949,14 @@ class Fluentify {
     const total = questions.length;
     const n = lang === 'fa' ? toPersianDigits(index + 1) : String(index + 1);
     const totalS = lang === 'fa' ? toPersianDigits(total) : String(total);
-    const question = q.q[lang] || q.q.en;
+    // The task is an English one - put the word in the right form - so the
+    // English line is always the question, in either interface language. The
+    // Persian line is the translation underneath it: asked on its own, it
+    // sometimes had no gap at all, so a Persian reader was shown a finished
+    // sentence and told to fill in a blank that was not there.
+    const english = q.q.en;
+    const persian = q.q.fa || '';
+    const question = lang === 'fa' && persian ? english + '\n' + persian : english;
     if (lang === 'fa') {
       const head = stage === 'exam' ? '🎓 آزمون' : '✏️ تمرین';
       return `${head} ${n} از ${totalS}\n${question}\n` +
