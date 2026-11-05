@@ -69,6 +69,8 @@ def check_wiring() -> None:
          "the account panel is not registered"),
         ("@media print", "the certificate has no print rules"),
         ("body > *:not(.certwrap)", "printing would include the whole app"),
+        ("paper: paperSize", "the result does not record the size of the paper"),
+        ("questions: result.paper ||", "the certificate is handed the answered count as the size"),
         ("Self-assessment built on a reviewed item bank",
          "the certificate does not say it is a self-assessment"),
     ):
@@ -214,11 +216,24 @@ ok(id1 === id2 && id1 !== id3, 'the same result keeps its id, a different level 
 
 const sheet = Cert.render({name: '<b>Sara</b>', band: 'B2', label: 'Upper intermediate',
   labelFa: 'میانی بالا', can: 'You read an article quickly.', at: '2026-11-03T10:00:00.000Z',
-  questions: 36, minutes: 17});
+  questions: 50, answered: 50, minutes: 17});
 ok(!sheet.includes('<b>Sara</b>'), 'a name is escaped on the certificate');
-ok(sheet.includes('B2') && sheet.includes('36') && sheet.includes('17'),
+ok(sheet.includes('B2') && sheet.includes('50 questions') && sheet.includes('17'),
    'the certificate carries the level and the assessment counts');
 ok(sheet.includes('not a certified examination'), 'the certificate states its own limits');
+ok(!/questions were answered/.test(sheet), 'a complete run is not described as short');
+
+// A run that skipped a part is this attempt, not a smaller assessment: the
+// sheet keeps the size of the paper and says what was actually answered. The
+// certificate used to print the answered count as the size, so a half-finished
+// run issued a sheet for "36 questions" while the test is fifty.
+const half = Cert.render({name: 'Sara', band: 'B2', label: 'Upper intermediate',
+  labelFa: 'میانی بالا', can: 'You read an article quickly.', at: '2026-11-03T10:00:00.000Z',
+  questions: 50, answered: 36, minutes: 17});
+ok(/50 questions/.test(half), 'a short run still states the size of the assessment');
+ok(half.includes('36 of 50 questions were answered'),
+   'a short run says how many questions it answered');
+ok(!/\b36 questions/.test(half), 'the answered count is never printed as the size');
 
 process.exit(bad ? 1 : 0);
 """

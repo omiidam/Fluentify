@@ -1487,6 +1487,132 @@
     background: var(--surf-1); color: var(--pink-ink);
   }
 
+  /* The panel is a profile now, and a profile is read before it is edited:
+     who you are and what you have done at the top, then the things that change
+     something - face, password, appearance - then the two doors out. */
+  .ac-hero {
+    display: flex; align-items: center; gap: 11px; padding: 11px 12px;
+    border-radius: 14px; margin-bottom: 9px;
+    background: linear-gradient(150deg, var(--surf-1), var(--surf-3));
+    border: 1px solid var(--line);
+  }
+  .ac-face {
+    width: 54px; height: 54px; border-radius: 17px; flex: none;
+    display: grid; place-items: center; cursor: pointer;
+    background: radial-gradient(circle at 32% 24%, var(--surf-1) 0%,
+                var(--season-wash, rgba(232,191,95,.22)) 62%, var(--surf-3) 100%);
+    border: 1px solid var(--season-ring, var(--gold-line));
+    box-shadow: inset 0 1px 0 var(--raise), 0 6px 16px -12px rgba(0,0,0,.6);
+  }
+  .ac-face svg { width: 42px; height: 42px; display: block; }
+  .ac-heroid { min-width: 0; }
+  .ac-heroid .ac-name { margin-bottom: 1px; }
+  .ac-heroid .ac-user { margin: 0 0 2px; }
+  .ac-mail {
+    display: block; font-size: 10.5px; color: var(--ink-4);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  /* Four numbers, one hairline grid: time studied, today, the run of days, and
+     the level the last assessment reported. */
+  .ac-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden;
+  }
+  .ac-stat { background: var(--surf-1); padding: 8px 3px 7px; text-align: center; }
+  .ac-stat b {
+    display: block; font-family: var(--font-display); font-size: 13.5px;
+    line-height: 1.15; color: var(--ink);
+  }
+  .ac-stat span { display: block; font-size: 8.5px; color: var(--ink-4); line-height: 1.3; }
+  .ac-stat span .fa { display: block; }
+  /* The last seven days as bars: the numbers above say how much, this says how
+     regularly - which is the part a streak is trying to teach. */
+  .ac-week {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; align-items: end;
+    height: 46px; padding: 8px 10px 5px; margin: 7px 0 10px;
+    border-radius: 12px; background: var(--surf-1); border: 1px solid var(--line);
+  }
+  .ac-bar {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: center; gap: 3px; height: 100%;
+  }
+  .ac-bar i {
+    display: block; width: 100%; max-width: 18px; min-height: 3px;
+    border-radius: 3px 3px 2px 2px; background: var(--line2);
+  }
+  .ac-bar.on i { background: linear-gradient(180deg, var(--gold), var(--gold2)); }
+  .ac-bar span {
+    font-size: 7px; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--ink-5);
+  }
+  .ac-bar.on span { color: var(--ink-3); }
+  .ac-block { margin: 0 0 11px; }
+  .ac-blockh {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .ac-blockh b {
+    font-family: var(--font-display); font-size: 11.5px; font-weight: 700;
+    color: var(--ink-2);
+  }
+  .ac-blockh small { font-size: 9.5px; color: var(--ink-4); }
+  .ac-avatars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .ac-av {
+    font: inherit; cursor: pointer; display: grid; justify-items: center;
+    gap: 2px; padding: 7px 4px 6px; border-radius: 12px;
+    background: var(--surf-1); border: 1px solid var(--line);
+    color: var(--ink-4); transition: border-color .15s, background .15s;
+  }
+  .ac-av svg { width: 34px; height: 34px; display: block; }
+  .ac-av b { font-size: 9.5px; font-weight: 600; color: var(--ink-3); }
+  .ac-av i { font-style: normal; font-size: 9px; }
+  .ac-av:hover { border-color: var(--line2); }
+  .ac-av.on {
+    background: var(--raise); border-color: var(--focus);
+    box-shadow: 0 5px 14px -10px rgba(0,0,0,.6);
+  }
+  .ac-av.on b { color: var(--ink); }
+  .ac-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .ac-badge {
+    display: grid; grid-template-columns: 22px 1fr; gap: 7px; align-items: start;
+    padding: 8px 9px; border-radius: 12px;
+    background: var(--surf-1); border: 1px solid var(--line);
+  }
+  .ac-badge svg {
+    width: 20px; height: 20px; margin-top: 1px; fill: none; stroke: currentColor;
+    stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round;
+    color: var(--ink-4);
+  }
+  .ac-badge b {
+    display: block; font-size: 9.5px; font-weight: 600; color: var(--ink-3);
+    line-height: 1.3;
+  }
+  .ac-badge i { display: block; font-style: normal; font-size: 8.5px; color: var(--ink-4); line-height: 1.4; }
+  .ac-badge .ac-prog {
+    display: block; height: 3px; margin-top: 5px; border-radius: 2px;
+    background: var(--line); overflow: hidden;
+  }
+  .ac-badge .ac-prog i { display: block; height: 100%; background: var(--focus); }
+  .ac-badge .ac-pct { display: block; margin-top: 3px; font-size: 8px; color: var(--ink-4); }
+  .ac-badge .ac-earned {
+    display: inline-block; margin-top: 5px; font-size: 7.5px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .ac-badge.on { background: var(--raise); border-color: var(--focus); }
+  .ac-badge.on svg { color: var(--gold); }
+  .ac-badge.on b { color: var(--ink); }
+  .ac-pass {
+    display: grid; gap: 7px; padding: 10px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  .ac-pass .authfield { margin: 0; }
+  .ac-pass .authrules { margin: 0; }
+  .ac-passerr { margin: 0; font-size: 10px; line-height: 1.5; color: var(--pink-ink); }
+  .ac-passerr[hidden] { display: none; }
+  .ac-passerr > div[dir="rtl"] { direction: rtl; }
+  .ac-ok { margin: 0; font-size: 10px; line-height: 1.5; color: var(--ink-2); font-weight: 600; }
+
   /* ---------- the certificate ------------------------------------------- */
   .certwrap {
     position: fixed; inset: 0; z-index: 9995; display: grid;
@@ -1501,6 +1627,16 @@
     border-radius: 8px; padding: 6px; position: relative;
     box-shadow: 0 30px 70px -38px rgba(0,0,0,.8);
   }
+  /* A phone cannot show a landscape sheet at a readable size: at 390px wide the
+     ratio leaves 276px of height, and the name, the level, the facts and the
+     two signatures need more than that - so the bottom of the page, where the
+     signature is, would be the part that fell off. Below this width the sheet
+     keeps its margins and grows downwards instead, the way a PDF viewer shows
+     a wide page on a narrow screen. The ratio is kept wherever there is room. */
+  @media (max-width: 700px) {
+    .certsheet { aspect-ratio: auto; }
+    .certinner { height: auto; }
+  }
   .certinner {
     position: relative; height: 100%; border-radius: 5px;
     border: 1.5px solid rgba(155,106,18,.55);
@@ -1511,57 +1647,145 @@
     content: ''; position: absolute; inset: 8px; border: 1px solid rgba(155,106,18,.28);
     border-radius: 3px; pointer-events: none;
   }
-  .certhead { display: flex; align-items: center; gap: 10px; }
-  .certhead img { width: 34px; height: 34px; border-radius: 9px; }
-  .certhead b {
-    font-family: var(--font-display); font-size: 15px; letter-spacing: .3px;
+  /* The head is a letterhead: the mark and the wordmark at the start of the
+     line, the stamp that says what this sheet is at the end of it. The stamp
+     used to float in the middle of the page, where it sat on the recipient's
+     name and read as a watermark; a seal belongs in the corner of a letter. */
+  .certhead { display: flex; align-items: center; gap: 9px; }
+  .certhead img { width: 30px; height: 30px; border-radius: 8px; }
+  .certword { display: flex; flex-direction: column; gap: 2px; line-height: 1.1; }
+  .certword b {
+    font-family: var(--font-display); font-size: 14px; letter-spacing: .2px;
     color: var(--doc-gold);
   }
-  .certhead span {
-    display: block; font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--doc-gold);
+  .certword span {
+    font-size: 7px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--doc-ink4);
   }
-  .certbody { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+  .certseal {
+    margin-inline-start: auto; width: clamp(34px, 6.4vw, 48px); aspect-ratio: 1;
+    border-radius: 50%; border: 1px solid rgba(155,106,18,.45);
+    box-shadow: inset 0 0 0 3px var(--doc-paper), inset 0 0 0 4px rgba(155,106,18,.24);
+    display: grid; place-content: center; justify-items: center; gap: 1px;
+    transform: rotate(-7deg); text-align: center;
+  }
+  .certseal b {
+    font-family: var(--font-display); font-size: clamp(7px, 1.25vw, 9px);
+    letter-spacing: .1em; color: var(--doc-gold); line-height: 1;
+  }
+  .certseal span {
+    font-size: clamp(3.6px, .66vw, 5px); letter-spacing: .07em;
+    text-transform: uppercase; color: var(--doc-ink4); line-height: 1.25;
+  }
+  /* The middle is the claim: who, what, and how well. It is centred because
+     that is the one line of the page a reader looks for first. */
+  .certbody {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; gap: 4px; padding: 1.2% 0;
+  }
   .certkick {
-    font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase;
-    color: var(--doc-gold); margin-bottom: 4%;
+    display: flex; align-items: center; gap: 9px; margin: 0;
+    font-size: 8px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--doc-gold);
+  }
+  .certkick::before, .certkick::after {
+    content: ''; width: clamp(12px, 3vw, 24px); height: 1px;
+    background: rgba(155,106,18,.45);
   }
   .certname {
-    font-family: var(--font-display); font-size: clamp(18px, 4.4vw, 34px);
-    line-height: 1.15; color: var(--doc-navy); margin: 0 0 2%;
-    unicode-bidi: plaintext;
+    font-family: var(--font-display); font-size: clamp(19px, 4.6vw, 33px);
+    line-height: 1.1; color: var(--doc-navy); margin: 0;
+    unicode-bidi: plaintext; letter-spacing: -.2px;
   }
-  .certline { font-size: clamp(9px, 1.5vw, 12px); color: var(--doc-ink3); margin: 0 0 3%; }
+  .certlead { font-size: clamp(8.5px, 1.4vw, 11.5px); color: var(--doc-ink3); margin: 0; }
   .certband {
-    display: inline-flex; align-items: baseline; gap: 8px; align-self: center;
-    padding: 1.4% 4%; border-radius: 999px; margin-bottom: 3%;
-    background: rgba(155,106,18,.10); border: 1px solid rgba(155,106,18,.35);
-    color: var(--doc-gold);
+    display: inline-flex; align-items: baseline; gap: 8px; margin: .8% 0;
+    padding: .9% 3.2%; border-radius: 999px;
+    background: linear-gradient(180deg, rgba(155,106,18,.13), rgba(155,106,18,.06));
+    border: 1px solid rgba(155,106,18,.34); color: var(--doc-gold);
   }
-  .certband b { font-family: var(--font-display); font-size: clamp(22px, 5vw, 38px); line-height: 1; }
-  .certband span { font-size: clamp(9px, 1.6vw, 12px); font-weight: 600; }
+  .certband b { font-family: var(--font-display); font-size: clamp(20px, 4.3vw, 31px); line-height: 1; }
+  .certband span { font-size: clamp(8px, 1.4vw, 11px); font-weight: 600; }
+  .certline {
+    font-size: clamp(8.5px, 1.4vw, 11.5px); line-height: 1.5;
+    color: var(--doc-ink3); margin: 0; max-width: 88%;
+  }
   .certfa {
-    font-family: var(--font-fa); direction: rtl; font-size: clamp(10px, 1.8vw, 14px);
-    line-height: 2; color: var(--doc-ink2); margin: 0 0 2%;
+    font-family: var(--font-fa); direction: rtl; font-size: clamp(9px, 1.55vw, 12px);
+    line-height: 1.8; color: var(--doc-ink3); margin: 0;
   }
-  .certmeta {
-    display: flex; justify-content: space-between; gap: 12px;
-    font-size: clamp(7.5px, 1.3vw, 10px); color: var(--doc-ink4);
-    border-top: 1px solid rgba(155,106,18,.25); padding-top: 2.5%; margin-top: auto;
+  /* The facts are a ruled row rather than a sentence: three items, each with
+     its label above the value, divided by hairlines. */
+  .certfacts {
+    display: grid; grid-template-columns: 1fr 1.15fr 1.3fr;
+    border-top: 1px solid rgba(155,106,18,.22); padding-top: 1.5%;
+    margin: 1.5% 0 1.3%;
   }
-  .certmeta b { display: block; color: var(--doc-ink2); font-size: .95em; }
-  .certseal {
-    position: absolute; right: 5%; top: 18%; width: 15%; aspect-ratio: 1;
-    border-radius: 50%; border: 1.5px solid rgba(155,106,18,.5);
-    display: grid; place-items: center; transform: rotate(-9deg);
-    color: var(--doc-gold); font-size: 7px; letter-spacing: .12em; text-align: center;
+  .certfacts > div {
+    padding-inline: 3%; min-width: 0;
+    border-inline-start: 1px solid rgba(155,106,18,.14);
   }
+  .certfacts > div:first-child { padding-inline-start: 0; border-inline-start: 0; }
+  .certfacts > div:last-child { padding-inline-end: 0; }
+  .certfacts dt {
+    font-size: 6.2px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--doc-ink4); margin: 0 0 2px;
+  }
+  .certfacts dd {
+    margin: 0; font-size: clamp(7.5px, 1.28vw, 10px); font-weight: 600;
+    color: var(--doc-ink2); white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* The foot is what makes the sheet a certificate: a hand at the start of the
+     line and the name and office at the end of it, with the rule between them
+     running under each. */
+  .certfoot {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 14px; margin-top: auto;
+  }
+  .certsign {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    min-width: 0;
+  }
+  .certwho {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
+    min-width: 0; text-align: end;
+  }
+  /* Kalam is the handwriting face the app already ships, so the signature is
+     drawn with a font and not an image: it stays crisp at print size and adds
+     nothing to the bundle. */
+  .certink {
+    font-family: 'Kalam', 'Segoe Script', cursive;
+    font-size: clamp(14px, 2.7vw, 21px); line-height: 1;
+    color: var(--doc-navy); opacity: .9; white-space: nowrap;
+    transform: rotate(-2.2deg); transform-origin: left bottom;
+    padding: 0 3px 1px;
+  }
+  .certsignrule {
+    display: block; height: 1px; width: clamp(88px, 20vw, 138px); margin-bottom: 3px;
+    background: linear-gradient(90deg, rgba(43,48,73,.42), rgba(43,48,73,.14));
+  }
+  .certwho .certsignrule {
+    background: linear-gradient(270deg, rgba(43,48,73,.42), rgba(43,48,73,.14));
+  }
+  .certwho b {
+    font-family: var(--font-display); font-size: clamp(9px, 1.6vw, 12px);
+    color: var(--doc-navy); letter-spacing: .2px; line-height: 1.2;
+  }
+  .certlab {
+    font-size: 6.2px; letter-spacing: .11em; text-transform: uppercase;
+    color: var(--doc-ink4); line-height: 1.45;
+  }
+  .certlab .fa { text-transform: none; letter-spacing: 0; }
   .certbar {
     display: flex; gap: 8px; justify-content: center; align-items: center;
     padding-bottom: max(6px, env(safe-area-inset-bottom));
   }
   .certbar .lv-btn { font-size: 12.5px; }
-  .certnote { font-size: 10px; color: var(--doc-ink4); margin: 0; text-align: center; }
+  .certnote {
+    font-size: 7px; line-height: 1.55; color: var(--doc-ink4);
+    margin: 1.8% 0 0; text-align: center; align-self: center; max-width: 96%;
+  }
 
   /* Printing the certificate alone: the screen behind it is a page of panels,
      and a PDF of that is not a certificate. */
@@ -1574,7 +1798,7 @@
     }
     .certwrap[hidden] { display: none !important; }
     .certsheet {
-      width: 100%; height: auto; box-shadow: none; margin: 0;
+      width: 100%; height: auto; aspect-ratio: auto; box-shadow: none; margin: 0;
       background: var(--doc-paper);
     }
     .certinner { border-color: var(--gold-line); }
@@ -5120,15 +5344,19 @@ try {
    phone version still reads as a bird rather than a blob: bold shapes, no
    hairline detail that disappears below 24px, and a single highlight in the
    eye where the light comes from. */
-function birdSVG(p) {
+function birdSVG(p, key) {
+  /* Every bird carries its own gradient id. The ids used to be the same for
+     every copy, and a page showing six palettes at once drew all six with the
+     first one's gradient - one bird in six costumes. */
+  const ns = 'b' + (key || 'x');
   return '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
     '<defs>' +
-      '<linearGradient id="bBody" x1="0" y1="0" x2="1" y2="1">' +
+      '<linearGradient id="' + ns + 'Body" x1="0" y1="0" x2="1" y2="1">' +
         '<stop offset="0" stop-color="' + p.body[0] + '"/>' +
         '<stop offset="55%" stop-color="' + p.body[1] + '"/>' +
         '<stop offset="100%" stop-color="' + p.body[2] + '"/>' +
       '</linearGradient>' +
-      '<radialGradient id="bBelly" cx="42%" cy="30%" r="72%">' +
+      '<radialGradient id="' + ns + 'Belly" cx="42%" cy="30%" r="72%">' +
         '<stop offset="0" stop-color="#ffffff"/>' +
         '<stop offset="100%" stop-color="' + p.belly + '"/>' +
       '</radialGradient>' +
@@ -5136,9 +5364,9 @@ function birdSVG(p) {
     /* tail, kept to one wedge so it does not read as a second bird */
     '<path d="M11.2 28.4 L4.2 20.6 L6.2 31.8 Z" fill="' + p.body[2] + '"/>' +
     /* body */
-    '<ellipse cx="24" cy="27" rx="15.2" ry="12.9" fill="url(#bBody)"/>' +
+    '<ellipse cx="24" cy="27" rx="15.2" ry="12.9" fill="url(#' + ns + 'Body)"/>' +
     /* breast: the light side, which is what makes it look round rather than flat */
-    '<ellipse cx="24" cy="30.4" rx="9.3" ry="7.3" fill="url(#bBelly)" opacity=".95"/>' +
+    '<ellipse cx="24" cy="30.4" rx="9.3" ry="7.3" fill="url(#' + ns + 'Belly)" opacity=".95"/>' +
     /* folded wing */
     '<path d="M13.4 23.5 q8.7 2.7 8.5 10.8 q-8.7-2.6-8.5-10.8Z" fill="' + p.wing + '"/>' +
     /* crest, two feathers and a gap between them */
@@ -5156,7 +5384,52 @@ function birdSVG(p) {
   '</svg>';
 }
 
-const USER_BIRD = birdSVG(BIRD_PAL);
+/* ---- the learner's face -------------------------------------------------
+   The tile beside the learner's messages is a bird, and a bird is a palette:
+   body gradient, wing, breast, beak, crest, eye, ring, wash. Six are offered -
+   the four seasons the app already dresses itself in, plus a dawn and a dusk
+   drawn for the pick - so the face is chosen rather than assigned. The choice
+   is stored once and read wherever a message is drawn. */
+const AVATARS = {
+  spring: {en: 'Spring', fa: 'بهار', pal: SEASONS.spring},
+  summer: {en: 'Summer', fa: 'تابستان', pal: SEASONS.summer},
+  fall:   {en: 'Autumn', fa: 'پاییز', pal: SEASONS.fall},
+  winter: {en: 'Winter', fa: 'زمستان', pal: SEASONS.winter},
+  dawn:   {en: 'Dawn', fa: 'سپیده', pal: {
+    body: ['#ffe9c7', '#f5b978', '#c9743a'], wing: '#efc08a', belly: '#fff6ea',
+    beak: '#b8622f', crest: '#ffe0b0', eye: '#3a2415', ring: '#e6a866',
+    wash: 'rgba(240,180,120,.22)'}},
+  dusk:   {en: 'Dusk', fa: 'غروب', pal: {
+    body: ['#e6e1ff', '#b3a8e8', '#6b5fa8'], wing: '#c6bdf0', belly: '#fbf9ff',
+    beak: '#5c4f8c', crest: '#ded7ff', eye: '#241d43', ring: '#a99cdb',
+    wash: 'rgba(160,144,220,.22)'}},
+};
+const AVATAR_KEY = 'fluentify.avatar';
+
+function avatarId() {
+  try {
+    const saved = localStorage.getItem(AVATAR_KEY);
+    if (saved && AVATARS[saved]) return saved;
+  } catch (e) { /* private mode: the season is a fine default */ }
+  return SEASON;
+}
+
+function avatarSVG(id) {
+  const key = AVATARS[id] ? id : SEASON;
+  return birdSVG(AVATARS[key].pal, 'a' + key);
+}
+
+/* The tile behind the bird is ringed in the bird's own ring colour, so a
+   chosen face changes the frame too and not just the animal inside it. */
+function applyAvatarSkin(id) {
+  const key = AVATARS[id] ? id : SEASON;
+  try {
+    document.documentElement.dataset.avatar = key;
+    document.documentElement.style.setProperty('--season-ring', AVATARS[key].pal.ring);
+    document.documentElement.style.setProperty('--season-wash', AVATARS[key].pal.wash);
+  } catch (e) { /* no dataset, no ring: the bird is still drawn */ }
+}
+applyAvatarSkin(avatarId());
 
 const WELCOME = "Hey! Fluentify here. Let's learn English together.";
 
@@ -5466,7 +5739,7 @@ function add(text, who, opts = {}) {
 
   const av = document.createElement('div');
   av.className = 'mav' + (who === 'bot' ? ' bot' : ' me');
-  av.innerHTML = who === 'bot' ? MASCOT : USER_BIRD;
+  av.innerHTML = who === 'bot' ? MASCOT : avatarSVG(avatarId());
 
   const wrap = document.createElement('div');
   wrap.className = 'bubble-wrap';
@@ -9780,7 +10053,14 @@ const Level = (() => {
     const cutoffs = bank.blueprint.cutoffs;
     const right = Object.values(skills).reduce((n, s) => n + s.right, 0);
     const total = Object.values(skills).reduce((n, s) => n + s.total, 0);
+    /* Two numbers, kept apart because they mean different things. `questions`
+       is how many this attempt answered - a run that skipped a part has fewer,
+       and the report has to say so. `paper` is how many the assessment asks,
+       which is the bank's own blueprint and never a property of one attempt:
+       the certificate printed the answered count as if it were the size of the
+       test, so a half-finished run issued a sheet for "36 questions". */
     const questions = paper(bank).filter((id) => hasAnswer(attempt, id)).length;
+    const paperSize = paper(bank).length;
     const practice = {};
     bank.blueprint.practice.forEach((skill) => {
       const picks = (attempt.practice && attempt.practice[skill]) || {};
@@ -9800,6 +10080,7 @@ const Level = (() => {
       skills,
       practice,
       questions,
+      paper: paperSize,
       minutes: attempt.finishedAt && attempt.startedAt
         ? Math.max(1, Math.round((attempt.finishedAt - attempt.startedAt) / 60000)) : 0,
       completion: questions >= total ? 'complete' : 'partial',
@@ -10534,7 +10815,11 @@ const Level = (() => {
           labelFa: band.name.fa,
           can: band.can.en,
           at: result.at,
-          questions: result.questions,
+          /* The size of the assessment, not the number this run answered: a
+             certificate that says "36 questions" because a part was skipped
+             describes the attempt, not the test. */
+          questions: result.paper || doc.blueprint.questions || result.total || result.questions,
+          answered: result.questions,
           minutes: result.minutes,
           completion: result.completion,
         });
@@ -10695,6 +10980,108 @@ const Theme = (() => {
   return {KEY, current, apply, init, paint};
 })();
 
+/* ==========================================================================
+   How long the learner has studied.
+
+   "Studied" here means the app was open and being used: a heartbeat adds
+   fifteen seconds while the page is visible and something was touched in the
+   last three minutes. A tab left open overnight therefore adds nothing after
+   the first three minutes, and a phone in a pocket adds nothing at all - a
+   timer that runs while nobody is looking would report a number that is not
+   about learning.
+
+   Kept per day, because the streak and the week's bars are the same data read
+   two ways, and a day counts toward a streak once it holds a full minute.
+   ==========================================================================*/
+const Study = (() => {
+  const KEY = 'fluentify.time.v1';
+  const TICK = 15;          // seconds added per heartbeat
+  const IDLE = 180;         // no input for three minutes = not studying
+  const MIN_DAY = 60;       // a minute is what makes a day count
+  let state = null, timer = null, last = Date.now();
+
+  const dayKey = (when) => {
+    const d = new Date(when);
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') +
+      '-' + String(d.getDate()).padStart(2, '0');
+  };
+
+  function read() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      const s = raw ? JSON.parse(raw) : null;
+      if (s && typeof s.total === 'number' && s.days && typeof s.days === 'object') {
+        return {total: s.total, days: s.days};
+      }
+    } catch (e) { /* a corrupt record is simply a new one */ }
+    return {total: 0, days: {}};
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(
+        {total: Math.round(state.total), days: state.days}));
+    } catch (e) { /* private mode: the minutes just do not persist */ }
+  }
+
+  function add(sec) {
+    if (!state) state = read();
+    state.total += sec;
+    const k = dayKey(Date.now());
+    state.days[k] = Math.round((state.days[k] || 0) + sec);
+    save();
+  }
+
+  function mount() {
+    if (timer) return;
+    state = read();
+    ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((evt) =>
+      document.addEventListener(evt, () => { last = Date.now(); }, {passive: true}));
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) last = Date.now();
+    });
+    timer = setInterval(() => {
+      if (document.hidden) return;
+      if (Date.now() - last > IDLE * 1000) return;
+      add(TICK);
+    }, TICK * 1000);
+  }
+
+  function stats(now) {
+    const s = state || (state = read());
+    const t = now || Date.now();
+    let streak = 0;
+    for (let i = 0; i < 500; i++) {
+      const d = new Date(t);
+      d.setDate(d.getDate() - i);
+      const sec = s.days[dayKey(d)] || 0;
+      if (sec >= MIN_DAY) { streak++; continue; }
+      if (i === 0) continue;      // today can still be earned before midnight
+      break;
+    }
+    const week = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(t);
+      d.setDate(d.getDate() - i);
+      week.push({sec: s.days[dayKey(d)] || 0, day: d.getDay()});
+    }
+    return {
+      total: s.total,
+      today: s.days[dayKey(t)] || 0,
+      streak,
+      week,
+      activeDays: Object.keys(s.days).filter((k) => (s.days[k] || 0) >= MIN_DAY).length,
+    };
+  }
+
+  function clear() {
+    state = {total: 0, days: {}};
+    save();
+  }
+
+  return {mount, stats, add, clear, KEY, dayKey};
+})();
+
 const Auth = (() => {
   const ACCOUNT = 'fluentify.auth.account';
   const SESSION = 'fluentify.auth.session';
@@ -10714,6 +11101,8 @@ const Auth = (() => {
     try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private */ }
   };
   const drop = (k) => { try { localStorage.removeItem(k); } catch (e) { /* private */ } };
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 
   const b64 = (bytes) => btoa(String.fromCharCode.apply(null, Array.from(bytes)));
   const unb64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
@@ -11279,14 +11668,93 @@ const Auth = (() => {
     }
     ['fluentify.auth.account', 'fluentify.auth.session',
      'fluentify.level.v2.result', 'fluentify.level.v2.history',
-     'fluentify.level.v2.attempt', 'fluentify.level.items'].forEach(drop);
+     'fluentify.level.v2.attempt', 'fluentify.level.items',
+     AVATAR_KEY, Study.KEY].forEach(drop);
+    Study.clear();
     account = null; session = null; confirmReset = false;
     hide();
     show('signup', false);
+    applyAvatarSkin(avatarId());
     if (document.getElementById('lvlbody')) Level.mount();
   }
 
-  /* ---- the account panel ------------------------------------------------ */
+  /* ---- the account panel ------------------------------------------------
+     A profile is read before it is edited, so the panel opens on who the
+     learner is and what the time in the app has bought, and everything that
+     changes something sits below it: the face, the badges, the password, the
+     appearance, then the session facts and the two doors out. */
+
+  const ICONS = {
+    seed: '<path d="M12 20.4V10"/><path d="M12 10C9.2 10 7 8.2 6.4 5.4 9.2 5 11.4 6.8 12 10Z"/><path d="M12 12.6c2.8 0 5-1.8 5.6-4.6-2.8.4-5 2.2-5.6 4.6Z"/>',
+    clock: '<circle cx="12" cy="12" r="8.4"/><path d="M12 7.6V12l3 1.9"/>',
+    moon: '<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/>',
+    flame: '<path d="M12 3.6c3.2 2.9 4.9 5.4 4.9 8.1a4.9 4.9 0 0 1-9.8 0c0-1.6.6-3.1 1.9-4.6.3 1.2.8 2 1.6 2.4.5-1.9.9-3.8 1.4-5.9Z"/>',
+    flag: '<path d="M6.6 20V4.6"/><path d="M6.6 5.4c3.9-1.9 7 1.9 10.8 0v6.9c-3.8 1.9-6.9-1.9-10.8 0Z"/>',
+    book: '<path d="M4.6 5.8c2.7-.8 5-.3 7.4 1.1 2.4-1.4 4.7-1.9 7.4-1.1v12c-2.7-.8-5-.3-7.4 1.1-2.4-1.4-4.7-1.9-7.4-1.1Z"/><path d="M12 6.9v12"/>',
+    star: '<path d="M12 3.9l2.4 5 5.5.8-4 3.9 1 5.5-4.9-2.6-4.9 2.6 1-5.5-4-3.9 5.5-.8Z"/>',
+    medal: '<circle cx="12" cy="14.4" r="4.5"/><path d="M8.7 3.8l1.9 4.8M15.3 3.8l-1.9 4.8"/>',
+  };
+
+  /* Says so once, right after the change lands; cleared by the next paint. */
+  let passNotice = '';
+
+  function fmtDur(sec) {
+    const m = Math.round((sec || 0) / 60);
+    if (m < 60) return m + 'm';
+    const h = Math.floor(m / 60), r = m % 60;
+    return r ? h + 'h ' + r + 'm' : h + 'h';
+  }
+
+  function savedWords() {
+    try {
+      const raw = localStorage.getItem('fluentify.review');
+      const list = raw ? JSON.parse(raw) : [];
+      return Array.isArray(list) ? list.length : 0;
+    } catch (e) { return 0; }
+  }
+
+  function levelBand() {
+    try {
+      const raw = localStorage.getItem('fluentify.level.v2.result');
+      const r = raw ? JSON.parse(raw) : null;
+      return r && r.overall ? String(r.overall) : '';
+    } catch (e) { return ''; }
+  }
+
+  /* Every badge is a number this device already keeps, never a reward for
+     pressing a button: minutes studied, days in a row, words saved, and the
+     band the assessment last reported. A badge that cannot be reached by
+     learning would be decoration. */
+  function achievements(study) {
+    const words = savedWords();
+    const band = levelBand();
+    const rank = {'Pre-A1': 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5};
+    return [
+      {icon: 'seed',  en: 'First five minutes', fa: 'نخستین پنج دقیقه', got: study.total, goal: 300, time: true},
+      {icon: 'clock', en: 'One hour studied', fa: 'یک ساعت مطالعه', got: study.total, goal: 3600, time: true},
+      {icon: 'moon',  en: 'Five hours studied', fa: 'پنج ساعت مطالعه', got: study.total, goal: 18000, time: true},
+      {icon: 'flame', en: 'Three days running', fa: 'سه روز پیاپی', got: study.streak, goal: 3},
+      {icon: 'flag',  en: 'A week of habit', fa: 'یک هفته پیوستگی', got: study.streak, goal: 7},
+      {icon: 'book',  en: '25 words saved', fa: '۲۵ واژهٔ ذخیره‌شده', got: words, goal: 25},
+      {icon: 'star',  en: 'Level checked', fa: 'سنجش سطح', got: band ? 1 : 0, goal: 1},
+      {icon: 'medal', en: 'Reached B1', fa: 'رسیدن به B1', got: rank[band] || 0, goal: 3},
+    ];
+  }
+
+  function badgeHTML(a) {
+    const done = a.got >= a.goal;
+    const got = Math.min(a.got, a.goal);
+    const pct = Math.max(0, Math.min(100, Math.round((got / a.goal) * 100)));
+    const now = a.time ? fmtDur(got) : String(got);
+    const goal = a.time ? fmtDur(a.goal) : String(a.goal);
+    const foot = done
+      ? '<span class="ac-earned">Earned</span>'
+      : `<span class="ac-prog"><i style="width:${pct}%"></i></span><span class="ac-pct">${now} / ${goal}</span>`;
+    return `<div class="ac-badge${done ? ' on' : ''}">
+      <svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[a.icon] || ''}</svg>
+      <div><b>${a.en}</b><i lang="fa" dir="rtl">${a.fa}</i>${foot}</div></div>`;
+  }
+
   function paintAccount() {
     const body = $('acbody');
     if (!body) return;
@@ -11297,25 +11765,77 @@ const Auth = (() => {
         <div class="ac-actions"><button class="lv-btn" data-ac="open">Create one</button></div>`;
       return;
     }
+    const study = Study.stats();
+    const band = levelBand();
+    const face = avatarId();
     const left = sessionLeft(session, Date.now());
     const days = Math.ceil(left / DAY);
     const signed = session ? new Date(session.seen) : null;
+    const peak = Math.max(60, ...study.week.map((d) => d.sec));
+    const LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+    const week = study.week.map((d) => {
+      const h = Math.max(4, Math.round((d.sec / peak) * 100));
+      return `<div class="ac-bar${d.sec >= 60 ? ' on' : ''}" title="${fmtDur(d.sec)}">` +
+        `<i style="height:${h}%"></i><span>${LETTERS[d.day]}</span></div>`;
+    }).join('');
+    const badges = achievements(study);
+    const earned = badges.filter((a) => a.got >= a.goal).length;
+    const faces = Object.keys(AVATARS).map((id) =>
+      `<button class="ac-av${id === face ? ' on' : ''}" type="button" data-avatar="${id}" ` +
+      `aria-pressed="${id === face}">${avatarSVG(id)}<b>${AVATARS[id].en}</b>` +
+      `<i lang="fa" dir="rtl">${AVATARS[id].fa}</i></button>`).join('');
+
     body.innerHTML = `
-      <p class="ac-name">${account.name.replace(/[<>&]/g, '')}</p>
-      <p class="ac-user">@${account.user.replace(/[<>&]/g, '')} · joined ${new Date(account.at).toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'})}</p>
-      <div class="ac-rows">
-        <div class="ac-row"><span>Email</span><b>${(account.email || '—').replace(/[<>&]/g, '')}</b></div>
-        <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
-        <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
-        <div class="ac-row"><span>Stored</span><b>on this device only</b></div>
+      <section class="ac-hero">
+        <div class="ac-face" data-ac="avatar-focus" role="img" aria-label="${AVATARS[face].en}">
+          ${avatarSVG(face)}</div>
+        <div class="ac-heroid">
+          <p class="ac-name">${esc(account.name)}</p>
+          <p class="ac-user">@${esc(account.user)} · joined ${new Date(account.at).toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'})}</p>
+          <span class="ac-mail">${esc(account.email || 'no email on this account')}</span>
+        </div>
+      </section>
+
+      <div class="ac-stats">
+        <div class="ac-stat"><b>${fmtDur(study.total)}</b><span>Studied<span class="fa" dir="rtl" lang="fa">مطالعه</span></span></div>
+        <div class="ac-stat"><b>${fmtDur(study.today)}</b><span>Today<span class="fa" dir="rtl" lang="fa">امروز</span></span></div>
+        <div class="ac-stat"><b>${study.streak}</b><span>Day streak<span class="fa" dir="rtl" lang="fa">روز پیاپی</span></span></div>
+        <div class="ac-stat"><b>${esc(band || '—')}</b><span>Level<span class="fa" dir="rtl" lang="fa">سطح</span></span></div>
       </div>
+      <div class="ac-week" aria-label="The last seven days">${week}</div>
+
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Avatar — نمایه</b><small>${AVATARS[face].en}</small></div>
+        <div class="ac-avatars">${faces}</div>
+      </div>
+
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Achievements — دستاوردها</b><small>${earned} of ${badges.length}</small></div>
+        <div class="ac-badges">${badges.map(badgeHTML).join('')}</div>
+      </div>
+
       <label class="authfield"><span>Name on the certificate — نام روی گواهی</span>
-        <input id="acname" type="text" maxlength="60" value="${account.name.replace(/"/g, '&quot;')}"></label>
-      <div class="ac-actions">
+        <input id="acname" type="text" maxlength="60" value="${esc(account.name)}"></label>
+      <div class="ac-actions" style="margin:0 0 10px">
         <button class="lv-btn" data-ac="save">Save name</button>
-        <button class="lv-btn ghost" data-ac="signout">Sign out</button>
-        <button class="ac-danger" id="acreset" data-ac="reset">Reset this device</button>
       </div>
+
+      <div class="ac-block">
+        <div class="ac-blockh"><b>Password — گذرواژه</b><small>the same four rules as sign-up</small></div>
+        <form class="ac-pass" id="acpass" autocomplete="off">
+          <label class="authfield"><span>Current password — گذرواژهٔ کنونی</span>
+            <input id="acpass0" type="password" data-secret autocomplete="current-password"></label>
+          <label class="authfield"><span>New password — گذرواژهٔ تازه</span>
+            <input id="acpass1" type="password" data-secret autocomplete="new-password"></label>
+          <div class="authrules" id="acpassrules" aria-live="polite"></div>
+          <label class="authfield"><span>Repeat the new password — تکرار گذرواژهٔ تازه</span>
+            <input id="acpass2" type="password" data-secret autocomplete="new-password"></label>
+          <div class="ac-actions"><button class="lv-btn" type="submit">Change password</button></div>
+          <p class="ac-passerr" id="acpasserr" role="alert" hidden></p>
+          ${passNotice ? `<p class="ac-ok">${passNotice}</p>` : ''}
+        </form>
+      </div>
+
       <div class="ac-theme">
         <div class="ac-theme-h">
           <span class="ac-theme-t">Appearance — ظاهر</span>
@@ -11332,9 +11852,69 @@ const Auth = (() => {
           </button>
         </div>
       </div>
-      <p class="authnote">Signing out keeps the account; resetting erases it, the level results and the
-        certificate history from this device.</p>`;
+
+      <div class="ac-rows" style="margin-top:10px">
+        <div class="ac-row"><span>Email</span><b>${esc(account.email || '—')}</b></div>
+        <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
+        <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
+        <div class="ac-row"><span>Studied on</span><b>${study.activeDays} day${study.activeDays === 1 ? '' : 's'}</b></div>
+        <div class="ac-row"><span>Stored</span><b>on this device only</b></div>
+      </div>
+      <div class="ac-actions" style="margin-top:10px">
+        <button class="lv-btn ghost" data-ac="signout">Sign out</button>
+        <button class="ac-danger" data-ac="reset">Reset this device</button>
+      </div>
+      <p class="authnote">Signing out keeps the account; resetting erases it, the level results, the
+        certificate history, the study time and the chosen avatar from this device.</p>`;
     Theme.paint();
+  }
+
+  /* ---- changing the password from inside the panel -----------------------
+     The same rule set as the gate, a fresh salt, and the current password
+     asked for first: an unlocked phone should not be enough to lock its owner
+     out of their own account. */
+  function passError(pair) {
+    const box = $('acpasserr');
+    if (!box) return;
+    box.hidden = !pair;
+    box.innerHTML = pair
+      ? `<div>${pair[0]}</div><div dir="rtl" lang="fa">${pair[1]}</div>` : '';
+  }
+
+  async function changePassword() {
+    const cur = $('acpass0') ? $('acpass0').value : '';
+    const next = $('acpass1') ? $('acpass1').value : '';
+    const again = $('acpass2') ? $('acpass2').value : '';
+    const stored = read(ACCOUNT, null);
+    if (!stored) return;
+    passError(null);
+    if (!canHash()) {
+      passError(['This browser cannot hash a password, so nothing was changed.',
+                 'این مرورگر نمی‌تواند گذرواژه را ذخیره کند؛ چیزی تغییر نکرد.']);
+      return;
+    }
+    if (!cur) {
+      passError(['Type the password you are using now.', 'گذرواژهٔ کنونی را بنویسید.']);
+      return;
+    }
+    const digest = await derive(cur, stored.salt, stored.iter || ITER);
+    if (digest !== stored.hash) {
+      passError(['That is not the current password.', 'این گذرواژهٔ کنونی نیست.']);
+      return;
+    }
+    const problems = passwordProblems(next, stored.user, stored.name);
+    if (problems.length) { passError(problems[0]); return; }
+    if (next !== again) {
+      passError(['The two new passwords do not match.', 'دو گذرواژهٔ تازه یکی نیستند.']);
+      return;
+    }
+    const salt = newSalt();
+    const hash = await derive(next, salt, ITER);
+    write(ACCOUNT, Object.assign({}, stored, {salt, hash, iter: ITER}));
+    account = read(ACCOUNT, null);
+    passNotice = 'Password changed — گذرواژه عوض شد.';
+    paintAccount();
+    passNotice = '';
   }
 
   function bind() {
@@ -11351,10 +11931,15 @@ const Auth = (() => {
        secret fields, and the CSS keeps the text from being swept as well.
        preventDefault() rather than return false, so the listener stays passive
        where the browser allows it. */
-    document.querySelectorAll('[data-secret]').forEach((el) => {
-      ['paste', 'cut', 'copy', 'drop', 'dragover', 'contextmenu'].forEach((evt) =>
-        el.addEventListener(evt, (e) => { e.preventDefault(); }));
-    });
+    /* Delegated to the document and listened for on the way down, because the
+       password fields in the account panel are painted long after this runs: a
+       per-field binding made at boot would have left those three fields happy
+       to accept a paste. */
+    ['paste', 'cut', 'copy', 'drop', 'dragover', 'contextmenu'].forEach((evt) =>
+      document.addEventListener(evt, (e) => {
+        const field = e.target && e.target.closest ? e.target.closest('[data-secret]') : null;
+        if (field) e.preventDefault();
+      }, true));
     const reveal = $('authreveal');
     if (reveal) {
       reveal.addEventListener('click', () => {
@@ -11398,12 +11983,29 @@ const Auth = (() => {
     const accountBody = $('acbody');
     if (accountBody) {
       accountBody.addEventListener('click', (e) => {
+        const face = e.target.closest('[data-avatar]');
+        if (face) {
+          const id = face.dataset.avatar;
+          if (AVATARS[id]) {
+            try { localStorage.setItem(AVATAR_KEY, id); } catch (err) { /* private */ }
+            applyAvatarSkin(id);
+            paintAccount();
+          }
+          return;
+        }
         const sw = e.target.closest('[data-theme-set]');
         if (sw) { Theme.apply(sw.dataset.themeSet, true); return; }
         const b = e.target.closest('[data-ac]');
         if (!b) return;
         const act = b.dataset.ac;
         if (act === 'theme') Theme.apply(b.dataset.themeSet, true);
+        else if (act === 'avatar-focus') {
+          const pick = accountBody.querySelector('.ac-av.on') || accountBody.querySelector('.ac-av');
+          if (pick) {
+            pick.scrollIntoView({block: 'nearest'});
+            pick.focus({preventScroll: true});
+          }
+        }
         else if (act === 'signout') signOut();
         else if (act === 'reset') resetDevice();
         else if (act === 'open') show('signup', false);
@@ -11416,6 +12018,20 @@ const Auth = (() => {
           write(ACCOUNT, account);
           paintAccount();
         }
+      });
+      /* The password form is replaced on every paint, so its input and submit
+         are delegated to the panel rather than bound to the fields. */
+      accountBody.addEventListener('input', (e) => {
+        if (!e.target || e.target.id !== 'acpass1') return;
+        const acc = read(ACCOUNT, null);
+        const res = strength(e.target.value, acc ? acc.user : '', acc ? acc.name : '');
+        paintRulesInto('acpassrules', res);
+        passError(null);
+      });
+      accountBody.addEventListener('submit', (e) => {
+        if (!e.target || e.target.id !== 'acpass') return;
+        e.preventDefault();
+        changePassword();
       });
     }
     /* The session clock is "seven days since you last used it", so use counts:
@@ -11482,23 +12098,40 @@ const Cert = (() => {
     return `FL-${d.getFullYear()}${month}${day}-${code(data.name + '|' + data.band + '|' + data.at)}`;
   }
 
+  /* Who signs the sheet, and the office the signature stands for. One
+     constant, so the hand at the start of the line and the printed name at the
+     end of it can never drift apart. */
+  const HEAD = {
+    name: 'Ghazal Poortaghi',
+    title: 'Head of Fluentify',
+    titleFa: 'سرپرست فلوئنتیفای',
+  };
+
   function render(data) {
     const id = ident(data);
     const date = new Date(data.at).toLocaleDateString(undefined,
       {day: 'numeric', month: 'long', year: 'numeric'});
+    /* A run that skipped a part is not a smaller assessment; it is this
+       attempt. The size comes from the bank, and the shortfall is stated rather
+       than quietly printed as the size. */
+    const asked = Number(data.questions) || 0;
+    const answered = Number(data.answered) || 0;
+    const short = asked && answered && answered < asked
+      ? ` ${answered} of ${asked} questions were answered; the rest counted as wrong.` : '';
     return `
       <div class="certinner">
-        <div class="certhead">
-          <img src="brand/fox-mark.png" alt="" width="34" height="34">
-          <div>
+        <header class="certhead">
+          <img src="brand/fox-mark.png" alt="" width="30" height="30">
+          <div class="certword">
             <b>Fluentify</b>
-            <span>Level assessment</span>
+            <span>Level assessment · سنجش سطح</span>
           </div>
-        </div>
+          <div class="certseal" aria-hidden="true"><b>CEFR</b><span>self<br>assessed</span></div>
+        </header>
         <div class="certbody">
-          <div class="certkick">Certificate of level</div>
+          <p class="certkick">Certificate of level</p>
           <h2 class="certname" dir="auto">${esc(data.name)}</h2>
-          <p class="certline">has completed the Fluentify level assessment and reached</p>
+          <p class="certlead">has completed the Fluentify level assessment and reached</p>
           <div class="certband">
             <b>${esc(data.band || 'Pre-A1')}</b>
             <span>${esc(data.label)} · CEFR</span>
@@ -11506,16 +12139,25 @@ const Cert = (() => {
           <p class="certline">${esc(data.can)}</p>
           <p class="certfa" dir="rtl" lang="fa">سطح ${esc(data.band || 'Pre-A1')} در چارچوب مرجع اروپایی (CEFR) — ${esc(data.labelFa || '')}</p>
         </div>
-        <div class="certseal">SELF<br>ASSESSED</div>
-        <div class="certmeta">
-          <div><b>Issued</b>${esc(date)}</div>
-          <div><b>Assessment</b>${data.questions} questions · ${data.minutes} min</div>
-          <div><b>Certificate ID</b>${esc(id)}</div>
-        </div>
-        <div class="certmeta" style="border-top:0;padding-top:1%;margin-top:0">
-          <span>Based on grammar, vocabulary, reading and listening. Writing and speaking were not assessed.</span>
-          <span>Self-assessment built on a reviewed item bank — not a certified examination.</span>
-        </div>
+        <dl class="certfacts">
+          <div><dt>Issued</dt><dd>${esc(date)}</dd></div>
+          <div><dt>Assessment</dt><dd>${asked || '—'} questions · ${data.minutes} min</dd></div>
+          <div><dt>Certificate ID</dt><dd>${esc(id)}</dd></div>
+        </dl>
+        <footer class="certfoot">
+          <div class="certsign">
+            <span class="certink" aria-hidden="true">${HEAD.name}</span>
+            <span class="certsignrule"></span>
+            <span class="certlab">Signature · <span class="fa" dir="rtl" lang="fa">امضا</span></span>
+          </div>
+          <div class="certwho">
+            <span class="certsignrule"></span>
+            <b>${HEAD.name}</b>
+            <span class="certlab">${HEAD.title} · <span class="fa" dir="rtl" lang="fa">${HEAD.titleFa}</span></span>
+          </div>
+        </footer>
+        <p class="certnote">Based on grammar, vocabulary, reading and listening; writing and speaking were not assessed.${short}
+          Self-assessment built on a reviewed item bank — not a certified examination.</p>
       </div>`;
   }
 
@@ -11619,6 +12261,7 @@ Level.paintBadge();
 /* The gate: a stored credential and a session younger than seven days go
    straight through; anything else meets the sign-in card when the loader
    lifts, because the overlay sits under the boot screen. */
+Study.mount();
 Auth.init();
 Cert.bind();
 document.getElementById('rtoggle').onclick = () => togglePanel('rpanel', 'rtoggle');
