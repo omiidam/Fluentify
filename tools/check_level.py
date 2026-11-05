@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -64,10 +65,10 @@ def check_content(doc: dict) -> dict:
 
     skills = doc.get("skills") or []
     assessed = [s["id"] for s in skills if s.get("assessed")]
-    check(assessed == ["grammar", "vocabulary", "reading", "listening"],
+    check(assessed == ["grammar", "vocabulary", "reading", "listening", "writing"],
           f"assessed skills are {assessed}")
-    check([s["id"] for s in skills if not s.get("assessed")] == ["writing", "speaking"],
-          "writing and speaking are not the practice-only skills")
+    check([s["id"] for s in skills if not s.get("assessed")] == ["speaking"],
+          "speaking is not the only practice-only skill")
     for s in skills:
         check(bool(FA.search(s.get("blurb", {}).get("fa", ""))),
               f"skill {s['id']}: the blurb has no Persian")
@@ -78,16 +79,27 @@ def check_content(doc: dict) -> dict:
 
     bp = doc.get("blueprint") or {}
     check(bp.get("bands") == BANDS, f"the blueprint tests {bp.get('bands')}")
-    check(bp.get("questions") == 50, f"the paper is {bp.get('questions')} questions")
+    check(bp.get("questions") == 55, f"the paper is {bp.get('questions')} questions")
     check(sum((bp.get("perBand") or {}).values()) == bp.get("perBandTotal"),
           "the per-band counts do not add up to a band")
     check(bp.get("perBandTotal") * len(BANDS) == bp.get("questions"),
-          "ten questions a band does not make the paper")
+          "eleven questions a band does not make the paper")
+    check(bp.get("objective") == [s for s in assessed if s != "writing"],
+          f"the recognition questions are {bp.get('objective')}")
+    check(bp.get("writingPoints") == 4, "a writing task is not worth four points")
     cut = bp.get("cutoffs") or []
     check(len(cut) == len(BANDS) and cut == sorted(cut) and all(0 < c < 1 for c in cut),
           f"the cutoffs are {cut}")
-    check(round(cut[0] * 50) == 8 and round(cut[4] * 50) == 44,
-          f"the first cutoff is {cut[0] * 50:.0f} of 50, the last {cut[4] * 50:.0f}")
+    # The cutoffs are shares, so the count a band needs is the first whole
+    # question at or above it: 8.8 of 55 is nine right, 48.4 is forty-nine.
+    check(math.ceil(cut[0] * 55) == 9 and math.ceil(cut[4] * 55) == 49,
+          f"the first cutoff is {math.ceil(cut[0] * 55)} of 55, "
+          f"the last {math.ceil(cut[4] * 55)}")
+    scale = doc.get("writingScale") or {}
+    check(list(scale) == BANDS, f"the writing scale covers {list(scale)}")
+    for band, row in scale.items():
+        check(row.get("words", 0) >= 20 and row.get("sentences", 0) >= 2,
+              f"writing scale {band}: {row} is not a task worth marking")
 
     items = doc.get("items") or []
     by_skill = Counter(it.get("skill") for it in items)
@@ -140,8 +152,16 @@ def check_content(doc: dict) -> dict:
         n = sum(by_band[(s, band)] for s in assessed)
         check(n == bp.get("perBandTotal"),
               f"band {band}: {n} questions, the paper wants {bp.get('perBandTotal')}")
-    check(by_skill["writing"] >= 2 and by_skill["speaking"] >= 2,
-          "fewer than two productive tasks per practice skill")
+    check(by_skill["speaking"] >= 2, "fewer than two speaking tasks")
+    # One marked writing task per band, each naming the linking the rubric
+    # point is looking for - without it there is nothing to check but length.
+    for band in BANDS:
+        tasks = [it for it in items
+                 if it.get("skill") == "writing" and it.get("band") == band]
+        check(len(tasks) == 1, f"band {band} has {len(tasks)} marked writing tasks")
+        for task in tasks:
+            check(len(task.get("needs") or []) >= 2,
+                  f"{task['id']}: no linking words to look for")
 
     passages = {p["id"]: p for p in doc.get("passages") or []}
     check(len(passages) >= 5, "fewer than five reading passages")
@@ -230,8 +250,19 @@ __MODULE__
 const right = (item) => item.options ? item.answer : (item.accept || [])[0];
 const wrong = (item) => item.options ? (item.answer + 1) % 4 : 'zzz';
 
+/* A model answer per band, written to earn all four rubric points. The
+   harness asserts that it does: a marker that cannot give full marks to a
+   good paragraph is a marker nobody can pass. */
+const MODEL = {
+  A1: 'My family is small and we are close. I live with my mother and my sister in a flat near the park. We cook dinner together on Friday and then we watch a film.',
+  A2: 'Last weekend I went to the park with my friend. We walked by the river and then we ate lunch outside. The weather was sunny and warm. I liked the afternoon because we talked for hours.',
+  B1: 'The old bazaar is the best place to start because the building is beautiful. Then walk down to the river and take a boat for an hour. The food near the bridge is cheap and very good. Visit the museum if it rains, since it is indoors. Two days is enough for all of this.',
+  B2: 'I think phones should be banned in classrooms. They distract students and they stop conversation between lessons. However, a phone is a useful tool for research when the teacher allows it. Most schools already have laptops, so the loss is small. A ban with clear exceptions is better than a total one, although it needs enforcing. Teachers should decide when a screen is allowed. That keeps the rule simple and it keeps the lesson moving.',
+  C1: 'Remote work arguably harms young employees, although the effect is not uniform. Junior staff may miss the informal learning that happens in an office, and they might not build the networks that promotion depends on. However, to some extent this reflects poor management rather than remote work itself. Companies that invest in mentoring tend to keep their young staff, and those that do not lose them whether the desk is at home or in the building. The problem is solvable, but not by attendance alone. Training does more than proximity, and it can be measured.',
+};
+
 /* Sits the paper, answering `good(item)` correctly, and stopping after part
-   `stopAfterPart` when one is given. */
+   `stopAfterPart` when one is given. A full sit also writes the five tasks. */
 function sit(good, stopAfterPart) {
   const a = Level.blankAttempt();
   const seen = [];
@@ -241,6 +272,12 @@ function sit(good, stopAfterPart) {
       const item = bank.items.find((i) => i.id === id);
       seen.push(id);
       a.answers[id] = good(item) ? right(item) : wrong(item);
+    });
+  }
+  if (stopAfterPart == null) {
+    Level.writingIds(bank).forEach((id) => {
+      const item = bank.items.find((i) => i.id === id);
+      a.practice.writing[id] = {text: MODEL[item.band]};
     });
   }
   a.finishedAt = a.startedAt + 22 * 60 * 1000;
@@ -271,9 +308,11 @@ const at = (n) => Level.levelFromCorrect(n, 50, cut) || 'Pre-A1';
 
 const perfect = sit(() => true);
 say(perfect.result.right === 50, `a perfect paper scores 50 (got ${perfect.result.right})`);
+say(perfect.result.paper === 55, `the paper is 55 questions with writing (got ${perfect.result.paper})`);
 say(overall(perfect.result) === 'C1', `an advanced learner is placed at C1 (got ${overall(perfect.result)})`);
 say(perfect.result.completion === 'complete', 'a full paper is reported as complete');
-say(perfect.result.questions === 50, `all fifty answers are counted (got ${perfect.result.questions})`);
+say(perfect.result.questions === 55,
+    `all fifty answers and five written tasks are counted (got ${perfect.result.questions})`);
 say(perfect.result.startedAt === undefined, 'the report carries no raw attempt state');
 
 const hopeless = sit(() => false);
@@ -293,9 +332,33 @@ say(part.result.right === 10, `only ten answers are credited (got ${part.result.
 say(overall(part.result) === 'A1', `ten of fifty reads as A1, not as a perfect part (got ${overall(part.result)})`);
 say(part.result.completion === 'partial', 'a half-finished paper is reported as partial');
 
-say(!('writing' in perfect.result.skills) && !('speaking' in perfect.result.skills),
-    'writing and speaking are absent from the scored skills');
-say(perfect.result.practice.writing.total === 2, 'writing tasks are counted as practice');
+say('writing' in perfect.result.skills, 'writing is one of the scored skills');
+say(!('speaking' in perfect.result.skills), 'speaking is still absent from the scored skills');
+say(perfect.result.skills.writing.total === 20,
+    `writing is out of twenty rubric points (got ${perfect.result.skills.writing.total})`);
+say(perfect.result.skills.writing.right === 20,
+    `a model answer earns every point (got ${perfect.result.skills.writing.right})`);
+say(perfect.result.skills.writing.band === 'C1',
+    `a full-marks writer is placed at C1 in writing (got ${perfect.result.skills.writing.band})`);
+say(perfect.result.skills.writing.scored === 'rubric',
+    'the report can tell a rubric mark from a count');
+
+/* The marker itself: an empty task scores nothing, a stub scores little, and
+   the same text always earns the same points. */
+const a1 = bank.items.find((i) => i.id === 'w-a1-1');
+const empty = Level.markWriting(bank, a1, '');
+const stub = Level.markWriting(bank, a1, 'i like cats');
+say(empty.points === 0, `an empty task scores nothing (got ${empty.points})`);
+say(stub.points <= 1, `a three-word answer cannot score (got ${stub.points})`);
+say(Level.markWriting(bank, a1, MODEL.A1).points === 4, 'the A1 model answer earns four points');
+say(JSON.stringify(Level.markWriting(bank, a1, MODEL.A1)) ===
+    JSON.stringify(Level.markWriting(bank, a1, MODEL.A1)), 'the mark is deterministic');
+
+/* Writing has to change the total, or assessing it is decoration. */
+const noWriting = sit(() => true, 4);
+say(noWriting.result.earned === 50 && noWriting.result.outOf === 55,
+    `fifty right and nothing written is 50 of 55 (got ${noWriting.result.earned} of ${noWriting.result.outOf})`);
+say(overall(noWriting.result) === 'C1', 'fifty right still reads as C1 with writing blank');
 
 process.exit(problems ? 1 : 0);
 """

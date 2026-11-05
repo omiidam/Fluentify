@@ -69,8 +69,10 @@ def main() -> int:
     need(ids == ["grammar", "vocabulary", "reading", "listening", "writing", "speaking"],
          f"skill order is {ids}")
     assessed = [s["id"] for s in skills if s["assessed"]]
-    need(assessed == ["grammar", "vocabulary", "reading", "listening"],
+    need(assessed == ["grammar", "vocabulary", "reading", "listening", "writing"],
          f"assessed skills are {assessed}")
+    need([s["id"] for s in skills if not s["assessed"]] == ["speaking"],
+         "speaking is not the only practice-only skill")
     for s in skills:
         both_lang(s["title"], f"skill {s['id']} title")
         both_lang(s["blurb"], f"skill {s['id']} blurb")
@@ -93,6 +95,16 @@ def main() -> int:
     need(list(bp["perBand"]) == assessed, "the blueprint does not count each skill")
     need(sum(bp["perBand"].values()) == bp["perBandTotal"],
          "the per-band counts do not add up to the band total")
+    need(bp.get("objective") == [s for s in assessed if s != "writing"],
+         f"the objective skills are {bp.get('objective')}")
+    need(bp.get("practice") == [s for s in ids if s not in assessed],
+         f"the practice skills are {bp.get('practice')}")
+    need(bp.get("writingPoints") == 4, "a writing task is not worth four points")
+    scale = LEVEL.get("writingScale") or {}
+    need(list(scale) == tested, f"the writing scale covers {list(scale)}")
+    for band, row in scale.items():
+        need(row.get("words", 0) >= 20 and row.get("sentences", 0) >= 2,
+             f"writing scale {band}: {row} is not a task worth marking")
     need(bp["perBandTotal"] * len(tested) == bp["questions"],
          "the paper is not one band total per band")
     cut = bp["cutoffs"]
@@ -145,7 +157,7 @@ def main() -> int:
         if it["kind"] == "listening" or it.get("say"):
             need(len((it.get("say") or "").split()) >= 6,
                  f"{where}: spoken text is too short to test")
-        if it["skill"] in ("grammar", "vocabulary", "reading", "listening"):
+        if it["skill"] in assessed:
             per_band_skill[(it["skill"], it["band"])] += 1
 
     need(len(kinds) >= 5, f"only {len(kinds)} question formats")
@@ -192,8 +204,15 @@ def main() -> int:
         if it["skill"] in ("writing", "speaking"):
             need(it["kind"] in ("shortwriting", "speaking"),
                  f"{it['id']}: a productive skill with a recognition format")
-    need(len([i for i in items if i["skill"] == "writing"]) >= 2,
-         "fewer than two writing tasks")
+    # One marked writing task per band, and each has to say what the task
+    # itself demands - the linking the rubric point 3 is looking for - or the
+    # marker has nothing to check beyond length.
+    for band in tested:
+        tasks = [i for i in items if i["skill"] == "writing" and i["band"] == band]
+        need(len(tasks) == 1, f"band {band} has {len(tasks)} marked writing tasks")
+        for task in tasks:
+            need(len(task.get("needs") or []) >= 2,
+                 f"{task['id']}: no linking words to look for")
     need(len([i for i in items if i["skill"] == "speaking"]) >= 2,
          "fewer than two speaking tasks")
 

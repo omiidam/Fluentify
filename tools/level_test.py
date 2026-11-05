@@ -46,10 +46,12 @@ SKILLS = [
      "title": L("Listening", "شنیدن"),
      "blurb": L("Announcements, short exchanges and what the speaker means.",
                 "اعلامیه‌ها، گفت‌وگوهای کوتاه و منظور گوینده.")},
-    {"id": "writing", "assessed": False,
+    {"id": "writing", "assessed": True,
      "title": L("Writing", "نوشتن"),
-     "blurb": L("Practice tasks with a rubric. Not scored into the level.",
-                "تمرین با معیار. در سطح محاسبه نمی‌شود.")},
+     "blurb": L("Five tasks, one per band, marked on the same rubric the "
+                "report shows: length, sentences, linking and accuracy.",
+                "پنج تمرین، یکی از هر سطح، با همان معیاری که گزارش نشان "
+                "می‌دهد سنجیده می‌شود: طول، جمله‌ها، پیوند و دقت.")},
     {"id": "speaking", "assessed": False,
      "title": L("Speaking", "گفتن"),
      "blurb": L("Practice tasks with a rubric. Not scored into the level.",
@@ -100,7 +102,7 @@ TESTED = ["A1", "A2", "B1", "B2", "C1"]
 def q(qid, skill, band, subskill, kind, ability_en, ability_fa,
       prompt_en, prompt_fa, why_en, why_fa, *, options=None, answer=None,
       accept=None, difficulty="medium", passage=None, say=None, tokens=None,
-      weight=1):
+      needs=None, weight=1):
     item = {
         "id": qid,
         "skill": skill,
@@ -126,6 +128,8 @@ def q(qid, skill, band, subskill, kind, ability_en, ability_fa,
         item["say"] = say
     if tokens is not None:
         item["tokens"] = tokens
+    if needs is not None:
+        item["needs"] = needs
     return item
 
 
@@ -632,24 +636,70 @@ RUBRIC = [
                             "سازمان‌یافته و طبیعی، با تنوع ساختار.")},
 ]
 
+# What each band's task has to reach before it earns its points. The engine
+# reads this table, so the floors are part of the bank rather than constants
+# buried in the page: changing a band's demand is a data edit.
+WRITING_SCALE = {
+    "A1": {"words": 20, "sentences": 3},
+    "A2": {"words": 35, "sentences": 4},
+    "B1": {"words": 50, "sentences": 5},
+    "B2": {"words": 70, "sentences": 6},
+    "C1": {"words": 90, "sentences": 6},
+}
+
 WRITING = [
+    q("w-a1-1", "writing", "A1", ("Sentences about yourself", "جمله دربارهٔ خودت"),
+      "shortwriting",
+      "Writing three connected sentences", "نوشتن سه جملهٔ پیوسته",
+      "Write three sentences about your family: who is in it, where you live, "
+      "and one thing you do together.",
+      "سه جمله دربارهٔ خانواده‌ات بنویس: چه کسانی در آن هستند، کجا زندگی می‌کنید "
+      "و یک کار که با هم می‌کنید.",
+      "Three sentences that join with and or but is the whole task at A1.",
+      "در A1 همین کافی است که سه جمله با and یا but به هم وصل شوند.",
+      difficulty="easy", needs=["and", "but", "with"]),
+    q("w-a2-1", "writing", "A2", ("Weekend narrative", "روایت آخر هفته"),
+      "shortwriting",
+      "Narrating past events in sequence", "روایت پی‌درپی رخدادهای گذشته",
+      "Write four or five sentences about last weekend: where you went, what "
+      "you did, and what you liked.",
+      "چهار یا پنج جمله دربارهٔ آخر هفتهٔ گذشته بنویس: کجا رفتی، چه کار کردی و "
+      "چه چیزی را دوست داشتی.",
+      "Past simple, in order, with at least one linking word.",
+      "گذشتهٔ ساده، به ترتیب، با دست‌کم یک واژهٔ پیوند.",
+      difficulty="medium", needs=["and", "then", "because", "but", "after"]),
     q("w-b1-1", "writing", "B1", ("Short message", "پیام کوتاه"), "shortwriting",
       "Writing a connected message with a reason", "نوشتن پیامی پیوسته با دلیل",
       "A friend is coming to your city for two days. Write five or six sentences "
       "telling them what to see and why.",
       "دوستی دو روز به شهرت می‌آید. پنج یا شش جمله بنویس که چه ببیند و چرا.",
-      "Compare your answer with the rubric, not with a key: this task is not marked.",
-      "پاسخ خود را با معیار بسنج، نه با کلید: این تمرین نمره نمی‌گیرد.",
-      difficulty="medium"),
+      "Five sentences and one reason: because or so has to appear.",
+      "پنج جمله و یک دلیل: باید because یا so بیاید.",
+      difficulty="medium", needs=["because", "so", "since", "as"]),
     q("w-b2-1", "writing", "B2", ("Opinion paragraph", "بند نظر"), "shortwriting",
       "Balancing a claim and a counter-argument", "سنجش یک ادعا و استدلال مخالف",
       "Some people think phones should be banned in classrooms. Write a short "
       "paragraph giving your view and one counter-argument.",
       "بعضی می‌گویند گوشی در کلاس باید ممنوع شود. بندی کوتاه بنویس با نظر خودت "
       "و یک استدلال مخالف.",
-      "Concede one point, then answer it. This task is not marked.",
-      "یک نکته را بپذیر، بعد پاسخش را بده. این تمرین نمره نمی‌گیرد.",
-      difficulty="hard"),
+      "Concede one point, then answer it: however or although has to appear.",
+      "یک نکته را بپذیر، بعد پاسخش را بده: باید however یا although بیاید.",
+      difficulty="hard",
+      needs=["however", "although", "though", "on the other hand", "while",
+             "even though", "but"]),
+    q("w-c1-1", "writing", "C1", ("Qualified argument", "استدلال سنجیده"),
+      "shortwriting",
+      "Qualifying a claim rather than stating it", "سنجیدن یک ادعا نه فقط گفتن آن",
+      "Write a paragraph of about ninety words: does remote work harm the "
+      "careers of young employees? Take a position and qualify it.",
+      "بندی حدود نود واژه بنویس: آیا کار از راه دور به پیشرفت شغلی کارمندان جوان "
+      "آسیب می‌زند؟ نظری بگیر و آن را محدود و سنجیده بیان کن.",
+      "A hedge (may, tends to, arguably) and a concession lift it above B2.",
+      "یک تعبیر سنجیده (may، tends to، arguably) و یک پذیرش مخالف آن را از B2 "
+      "بالاتر می‌برد.",
+      difficulty="hard",
+      needs=["arguably", "may", "might", "tend", "tends", "to some extent",
+             "however", "while", "although"]),
 ]
 
 SPEAKING = [
@@ -675,13 +725,12 @@ ITEMS = GRAMMAR + VOCABULARY + READING + LISTENING + WRITING + SPEAKING
 LEVEL = {
     "version": 2,
     "title": L("Level assessment", "سنجش سطح"),
-    "blurb": L("Six skills measured separately. Grammar, vocabulary, reading "
-               "and listening are marked from your answers; writing and "
-               "speaking are practice and are reported as not assessed.",
-               "شش مهارت جدا سنجیده می‌شود. گرامر، واژگان، خواندن و شنیدن از "
-               "پاسخ‌هایت نمره می‌گیرند؛ نوشتن و گفتن تمرین‌اند و «سنجیده "
-               "نشده» گزارش می‌شوند."),
-    "minutes": 30,
+    "blurb": L("Six skills measured separately. Grammar, vocabulary, reading, "
+               "listening and writing are marked; speaking is practice and is "
+               "reported as not assessed.",
+               "شش مهارت جدا سنجیده می‌شود. گرامر، واژگان، خواندن، شنیدن و نوشتن "
+               "نمره می‌گیرند؛ گفتن تمرین است و «سنجیده نشده» گزارش می‌شود."),
+    "minutes": 40,
     "retakeDays": 30,
     "skills": SKILLS,
     "bands": BANDS,
@@ -690,13 +739,23 @@ LEVEL = {
     # same thing for every learner. The level comes from that count.
     "blueprint": {
         "bands": TESTED,
-        "perBand": {"grammar": 3, "vocabulary": 3, "reading": 2, "listening": 2},
-        "perBandTotal": 10,
-        "questions": 50,
-        "assessed": ["grammar", "vocabulary", "reading", "listening"],
-        "practice": ["writing", "speaking"],
+        "perBand": {"grammar": 3, "vocabulary": 3, "reading": 2, "listening": 2,
+                    "writing": 1},
+        "perBandTotal": 11,
+        "questions": 55,
+        # Two counts, kept apart on purpose. `objective` is the fifty
+        # recognition questions the parts are built from, ten a band.
+        # `assessed` adds writing, which is marked against the rubric rather
+        # than answered, so it is its own part and is added to the total only
+        # after it has been read on the same ruler.
+        "objective": ["grammar", "vocabulary", "reading", "listening"],
+        "assessed": ["grammar", "vocabulary", "reading", "listening", "writing"],
+        "practice": ["speaking"],
+        # A writing task is worth up to one question: four rubric points, each
+        # a quarter of a question in the count the level is read from.
+        "writingPoints": 4,
         # Share of the paper that must be right to claim each band, in order:
-        # 8, 17, 26, 35 and 44 of 50. The same fractions apply to a skill with
+        # 9, 19, 29, 39 and 49 of 55. The same fractions apply to a skill with
         # its own item count, so a score of 11 of 15 in grammar and 8 of 10 in
         # reading are read against the same ruler.
         "cutoffs": [0.16, 0.34, 0.52, 0.70, 0.88],
@@ -704,17 +763,23 @@ LEVEL = {
     "passages": READING_PASSAGES,
     "items": ITEMS,
     "rubric": RUBRIC,
-    "method": L("Everyone answers the same fifty questions: ten from each band, "
-                "A1 to C1, spread across grammar, vocabulary, reading and "
-                "listening. Your level comes from how many you get right - 8 of "
-                "50 is A1, 17 is A2, 26 is B1, 35 is B2, 44 is C1 - and each "
-                "skill is read against the same fractions of its own total. "
-                "Writing and speaking are not scored.",
-                "همه همان پنجاه پرسش را پاسخ می‌دهند: از هر سطح، از A1 تا C1، ده "
-                "پرسش در گرامر، واژگان، خواندن و شنیدن. سطح از تعداد پاسخ‌های "
-                "درست می‌آید: ۸ از ۵۰ یعنی A1، ۱۷ یعنی A2، ۲۶ یعنی B1، ۳۵ یعنی "
-                "B2 و ۴۴ یعنی C1. هر مهارت هم با همان نسبت‌ها از مجموع خودش "
-                "خوانده می‌شود. نوشتن و گفتن نمره نمی‌گیرند."),
+    "writingScale": WRITING_SCALE,
+    "method": L("Everyone answers the same paper: ten questions from each band, "
+                "A1 to C1, across grammar, vocabulary, reading and listening, "
+                "then one writing task per band. Your level comes from that "
+                "count - 9 of 55 is A1, 19 is A2, 29 is B1, 39 is B2, 49 is C1 "
+                "- and each skill is read against the same fractions of its own "
+                "total. A writing task is marked on four things - enough words, "
+                "enough sentences, the linking word the task asks for, and a "
+                "spot check for slips - and is worth up to one question. "
+                "Speaking is not scored.",
+                "همه یک برگه را پاسخ می‌دهند: از هر سطح، از A1 تا C1، ده پرسش در "
+                "گرامر، واژگان، خواندن و شنیدن و سپس یک تمرین نوشتن. سطح از همین "
+                "شمار می‌آید: ۹ از ۵۵ یعنی A1، ۱۹ یعنی A2، ۲۹ یعنی B1، ۳۹ یعنی B2 "
+                "و ۴۹ یعنی C1. هر مهارت هم با همان نسبت‌ها از مجموع خودش خوانده "
+                "می‌شود. تمرین نوشتن روی چهار چیز سنجیده می‌شود — واژهٔ کافی، "
+                "جملهٔ کافی، واژهٔ پیوندی که تمرین می‌خواهد و یک بررسی نمونه‌ای "
+                "برای لغزش‌ها — و حداکثر یک پرسش می‌ارزد. گفتن نمره نمی‌گیرد."),
     "caveat": L("This is a self-assessment built on a reviewed item bank, not a "
                 "validated certification. Item difficulty is tracked from your "
                 "own attempts, and the level is an estimate with a margin - "

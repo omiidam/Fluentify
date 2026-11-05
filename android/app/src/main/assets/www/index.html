@@ -15,7 +15,7 @@
      the same key the Account panel writes. Reading it inside the app instead
      meant the boot screen painted light and then flipped: a white flash on a
      dark theme, which is exactly the thing a dark theme exists to avoid. -->
-<script src="bot.js?v=39abcd97"></script>
+<script src="bot.js?v=971e58bb"></script>
 <script>
   (function () {
     var dark = false;
@@ -1114,6 +1114,9 @@
   .hbtn.tint-rose   i { color: var(--rose); }
   .hbtn.tint-leaf   i { color: var(--leaf); }
   .hbtn.tint-navy   i { color: var(--navy); }
+  /* The theme tile is about the app rather than the lesson, so its icon is the
+     one that stays muted: it is a utility sitting at the end of the strip. */
+  .hbtn.tint-slate  i { color: var(--muted); }
   .hbtn span {
     font-size: 8.5px; font-weight: 700; letter-spacing: -.05px;
     line-height: 1; color: var(--muted); max-width: 100%;
@@ -2056,6 +2059,27 @@
     margin-top: 9px;
   }
   .lv-textarea:focus-visible { outline: 2px solid rgba(107,91,210,.45); outline-offset: 1px; }
+  /* The four rubric points, shown while the answer is being written. A point
+     that is not earned yet is not an error: it says what the next sentence
+     could add. */
+  .lv-wmark {
+    margin-top: 9px; padding: 9px 10px; border-radius: 12px;
+    background: var(--surf-2); border: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .lv-wmh { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline;
+    font-size: 11.5px; color: var(--ink-2); }
+  .lv-wmh b { color: var(--navy-ink); font-variant-numeric: tabular-nums; }
+  .lv-wmh i { font-style: normal; font-size: 10.5px; color: var(--ink-3); }
+  .lv-wms { display: flex; flex-wrap: wrap; gap: 5px; }
+  .lv-wmk {
+    display: inline-flex; align-items: baseline; gap: 4px; font-size: 11px;
+    padding: 3px 7px; border-radius: 999px; border: 1px solid var(--line2);
+    color: var(--ink-3); background: var(--raise);
+  }
+  .lv-wmk.on { color: var(--navy-ink); border-color: var(--line2); background: var(--surf-3); }
+  .lv-wmk svg { width: 10px; height: 10px; flex: none; }
+  .lv-wmk i { font-style: normal; color: var(--ink-3); }
   .lv-rublabel { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--purple-ink); margin: 12px 0 6px; }
   .lv-rubric { display: flex; flex-direction: column; gap: 6px; }
   .lv-rubric .lv-opt { font-size: 12.5px; }
@@ -5057,31 +5081,33 @@
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
+            <button class="hbtn tint-amber" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.4l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"/></svg></i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
       <button class="hbtn tint-amber" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/><path d="M7.6 13.4h3.2v3.2H7.6z"/></svg></i><span>Today</span><span class="rbadge" id="dbadge" hidden>0</span></button>
       <button class="hbtn tint-teal" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3.2" width="12.4" height="13.6" rx="2.2"/><path d="M15.4 19.4h.6a2 2 0 0 0 2-2V8"/><path d="M16 20.8H5.6a2 2 0 0 1-2-2V8.4"/></svg></i><span>Vocab</span></button>
-      <button class="hbtn tint-amber" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.4l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"/></svg></i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
+      <button class="hbtn tint-violet" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
+      <button class="hbtn tint-cyan" id="ltoggle" aria-expanded="false" title="Listening A1–C2 — شنیدن" aria-label="Listening">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 15.2v-3.4a7.6 7.6 0 0 1 15.2 0v3.4"/><rect x="2.6" y="13.8" width="4.4" height="6.6" rx="2.2"/><rect x="17" y="13.8" width="4.4" height="6.6" rx="2.2"/></svg></i><span>Listen</span></button>
       <button class="hbtn tint-rose" id="ftoggle" aria-expanded="false" title="Sentences — جملات کاربردی" aria-label="Say — everyday sentences / جملات کاربردی">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 11.6a8.2 8.2 0 0 1-8.4 8.2 8.6 8.6 0 0 1-3.2-.6l-4.6 1.4 1.4-4.2a8.2 8.2 0 1 1 14.8-4.8Z"/><path d="M8.8 11.6h.01M12.2 11.6h.01M15.6 11.6h.01"/></svg></i><span>Say</span></button>
       <button class="hbtn tint-indigo" id="phtoggle" aria-expanded="false" title="Phonetics — تلفظ و آهنگ" aria-label="Sounds — pronunciation and rhythm / تلفظ و آهنگ">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 12h1.4M7.2 7.6v8.8M11.4 4.6v14.8M15.6 8.6v6.8M19.8 10.6v2.8"/></svg></i><span>Sounds</span></button>
-      <button class="hbtn tint-cyan" id="ltoggle" aria-expanded="false" title="Listening A1–C2 — شنیدن" aria-label="Listening">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 15.2v-3.4a7.6 7.6 0 0 1 15.2 0v3.4"/><rect x="2.6" y="13.8" width="4.4" height="6.6" rx="2.2"/><rect x="17" y="13.8" width="4.4" height="6.6" rx="2.2"/></svg></i><span>Listen</span></button>
-      <button class="hbtn tint-violet" id="gtoggle" aria-expanded="false" title="Grammar — گرامر" aria-label="Grammar">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 19.4V5.6a1.8 1.8 0 0 1 1.8-1.8h8.6l4.6 4.6v11a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M14.2 3.8v4.8h4.6"/><path d="M8 12.4h7M8 16.2h4.6"/></svg></i><span>Grammar</span></button>
-      <button class="hbtn tint-violet" id="ntoggle" aria-expanded="false" title="Analyze a sentence — تحلیل گرامری جمله" aria-label="Analyze a sentence">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyze</span></button>
-      <button class="hbtn tint-navy" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 5.2a1.8 1.8 0 0 1 1.8-1.8h3.2A1.8 1.8 0 0 1 11.2 5.2v13.4H6.2a1.8 1.8 0 0 0-1.8 1.8Z"/><path d="M19.6 5.2a1.8 1.8 0 0 0-1.8-1.8h-3.2a1.8 1.8 0 0 0-1.8 1.8v13.4h5a1.8 1.8 0 0 1 1.8 1.8Z"/></svg></i><span>Books</span></button>
       <button class="hbtn tint-leaf" id="rdtoggle" aria-expanded="false" title="Reading strategies — راهبردهای خواندن" aria-label="Reading — strategies, a passage and questions">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.4 5.2 8.2 4.6 5 4.8v13.4c3.2-.2 5.4.4 7 1.6 1.6-1.2 3.8-1.8 7-1.6V4.8c-3.2-.2-5.4.4-7 1.8Z"/><path d="M12 6.6v13.2"/><path d="M8 8.6h1.6M8 11.6h1.6M14.4 8.6H16M14.4 11.6H16"/></svg></i><span>Reading</span></button>
       <button class="hbtn tint-violet" id="stoggle" aria-expanded="false" title="Mini stories — داستان‌های کوتاه" aria-label="Mini stories — an English story, its Persian, and questions">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 5.4a1.6 1.6 0 0 1 1.6-1.6h5.2v16.4H6.2a1.6 1.6 0 0 1-1.6-1.6Z"/><path d="M19.4 5.4a1.6 1.6 0 0 0-1.6-1.6h-5.2v16.4h5.2a1.6 1.6 0 0 0 1.6-1.6Z"/><path d="M14.8 7.4h2M14.8 10.4h2"/><path d="m8.6 7.6.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6L6.3 9.3l1.6-.2Z"/></svg></i><span>Stories</span></button>
+      <button class="hbtn tint-navy" id="btoggle" aria-expanded="false" title="Books — کتاب‌ها" aria-label="Books — lesson words from the course books">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 5.2a1.8 1.8 0 0 1 1.8-1.8h3.2A1.8 1.8 0 0 1 11.2 5.2v13.4H6.2a1.8 1.8 0 0 0-1.8 1.8Z"/><path d="M19.6 5.2a1.8 1.8 0 0 0-1.8-1.8h-3.2a1.8 1.8 0 0 0-1.8 1.8v13.4h5a1.8 1.8 0 0 1 1.8 1.8Z"/></svg></i><span>Books</span></button>
+      <button class="hbtn tint-violet" id="ntoggle" aria-expanded="false" title="Analyze a sentence — تحلیل گرامری جمله" aria-label="Analyze a sentence">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyze</span></button>
       <button class="hbtn tint-indigo" id="lvltoggle" aria-expanded="false" title="Level check — سنجش سطح" aria-label="Level check — a monthly assessment across grammar, vocabulary, reading, listening, writing and speaking"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 19.4h15.2"/><path d="M6.4 15.6v-4.2"/><path d="M11 15.6V7.6"/><path d="M15.6 15.6v-3"/><path d="M20.2 15.6V4.6"/></svg></i><span>Level</span><span class="rbadge" id="lvlbadge" hidden>B1</span></button>
       <button class="hbtn tint-amber" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
+      <button class="hbtn tint-slate" id="themetoggle" aria-pressed="false" title="Theme — پوسته" aria-label="Theme — light or dark / پوسته">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.2M12 19v2.2M2.8 12h2.2M19 12h2.2M5.5 5.5l1.6 1.6M16.9 16.9l1.6 1.6M18.5 5.5l-1.6 1.6M7.1 16.9l-1.6 1.6"/></svg></i><span>Theme</span></button>
       <button class="hbtn danger" id="clear" title="Clear conversation — پاک کردن گفتگو" aria-label="Clear conversation">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.8 6.8h16.4M9.4 6.8V4.4h5.2v2.4"/><path d="M6.2 6.8l.9 12.4a2 2 0 0 0 2 1.9h5.8a2 2 0 0 0 2-1.9l.9-12.4"/><path d="M10.4 10.8v6M13.6 10.8v6"/></svg></i><span>Clear</span></button>
     </nav>
@@ -9961,9 +9987,14 @@ const Level = (() => {
   let paperIds = null;
   function paper(bank) {
     if (paperIds) return paperIds;
+    /* The recognition questions only. Writing is assessed, but it is marked
+       against a rubric rather than answered, so it is not one of a band's ten:
+       it has its own part, and joins the total there. */
+    const skills = bank.blueprint.objective ||
+      bank.blueprint.assessed.filter((s) => s !== 'writing');
     const ids = [];
     bank.blueprint.bands.forEach((band) => {
-      bank.blueprint.assessed.forEach((skill) => {
+      skills.forEach((skill) => {
         bank.items.forEach((it) => {
           if (it.skill === skill && it.band === band) ids.push(it.id);
         });
@@ -9972,13 +10003,19 @@ const Level = (() => {
     paperIds = ids;
     return ids;
   }
-  const partSize = (bank) => bank.blueprint.perBandTotal;
+  const partSize = (bank) => bank.blueprint.perBandTotal -
+    ((bank.blueprint.perBand || {}).writing || 0);
   const partCount = (bank) => bank.blueprint.bands.length;
   const partBand = (bank, n) => bank.blueprint.bands[n] || null;
   function partIds(bank, n) {
     const size = partSize(bank);
     return paper(bank).slice(n * size, (n + 1) * size);
   }
+  /* One marked task per band, in band order, so a weak writer is met where
+     they are rather than at the top of the ladder. */
+  const writingIds = (bank) => bank.blueprint.bands
+    .map((band) => (bank.items.find((it) => it.skill === 'writing' && it.band === band) || {}).id)
+    .filter(Boolean);
 
   function blankAttempt() {
     return {
@@ -10005,6 +10042,86 @@ const Level = (() => {
     let level = null;
     BANDS.forEach((band, k) => { if (share >= cutoffs[k]) level = band; });
     return level;
+  }
+
+  /* ------------------------------------------------------------ writing mark
+
+     A written answer cannot be marked by a key, so it is marked by the four
+     things the rubric on screen already names: enough words, enough sentences,
+     the linking the task asked for, and a spot check for slips. Everything
+     here is deterministic and visible to the learner - the same text always
+     earns the same points, and the card says which point failed and why.
+
+     What this is not: a judge of style. It cannot hear whether a sentence is
+     natural, so it never claims to. The report calls the result "rubric
+     points", which is what it is. */
+
+  const SLIPS = [
+    [/\b(he|she|it)\s+don'?t\b/i, "he/she/it with don't"],
+    [/\b(i|you|we|they)\s+doesn'?t\b/i, "doesn't after a plural subject"],
+    [/\b(i|you|we|they)\s+(is|was)\b/i, 'is/was after a plural subject'],
+    [/\b(he|she|it)\s+(are|were)\b/i, 'are/were after a singular subject'],
+    [/\ba\s+(?!(user|university|useful|usual|one|euro))[aeiou]\w*/i, 'a before a vowel'],
+    [/\ban\s+(?!(hour|honest|honour|heir))[^aeiou\s]\w*/i, 'an before a consonant'],
+    [/\bmore\s+\w+er\b/i, 'double comparative'],
+    [/\bmost\s+\w+est\b/i, 'double superlative'],
+  ];
+
+  function writingSlips(text) {
+    const t = String(text || '').trim();
+    if (!t) return ['nothing written yet'];
+    const slips = [];
+    if (/^[a-z]/.test(t)) slips.push('the first word is not capitalised');
+    if (!/[.!?]\s*$/.test(t)) slips.push('no full stop at the end');
+    if (/(^|\s)i(\s|$|[,.])/.test(t)) slips.push('"i" in lower case');
+    if (/ {2,}/.test(t)) slips.push('double spaces');
+    if (/\s+[,.!?;:]/.test(t)) slips.push('a space before punctuation');
+    SLIPS.forEach(([re, label]) => { if (re.test(t)) slips.push(label); });
+    return slips;
+  }
+
+  function markWriting(bank, item, text) {
+    const scale = (bank.writingScale || {})[item.band] || {words: 30, sentences: 3};
+    const body = String(text || '');
+    const words = (body.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length;
+    const sentences = body.split(/[.!?]+/).filter((s) => s.trim().length > 1).length;
+    const lower = ' ' + body.toLowerCase().replace(/[’]/g, "'") + ' ';
+    const needs = item.needs || [];
+    const linked = needs.filter((n) => lower.includes(n));
+    const slips = writingSlips(text);
+    const parts = [
+      {id: 'length', ok: words >= scale.words, note: `${words}/${scale.words} words`},
+      {id: 'sentences', ok: sentences >= scale.sentences,
+       note: `${sentences}/${scale.sentences} sentences`},
+      {id: 'link', ok: linked.length > 0,
+       note: linked.length ? `found "${linked[0]}"` : `wanted ${needs.slice(0, 2).join(' / ') || 'a link'}`},
+      /* Nothing written is not "clean": it is empty, and an empty task has
+         to count as wrong or a skipped paper would score. */
+      {id: 'accuracy', ok: words > 0 && slips.length <= 1,
+       note: words ? (slips.length ? slips[0] : 'no slips found') : 'nothing to check'},
+    ];
+    return {points: parts.filter((p) => p.ok).length, total: parts.length,
+            parts, words, sentences, slips};
+  }
+
+  function writingResult(bank, attempt) {
+    const picks = (attempt.practice && attempt.practice.writing) || {};
+    const marks = writingIds(bank).map((id) => {
+      const item = bank.items.find((it) => it.id === id);
+      const text = ((picks[id] || {}).text) || '';
+      return {id, band: item.band, text, mark: markWriting(bank, item, text)};
+    });
+    const points = marks.reduce((n, m) => n + m.mark.points, 0);
+    const total = marks.reduce((n, m) => n + m.mark.total, 0);
+    const cutoffs = bank.blueprint.cutoffs;
+    return Object.assign({
+      scored: 'rubric',
+      band: levelFromCorrect(points, total, cutoffs),
+      right: points,
+      total,
+      share: total ? Math.round((points / total) * 100) : 0,
+      marks,
+    }, confidenceFor(points, total, cutoffs));
   }
 
   /* How much a count lets us claim: a score that sits within one standard
@@ -10046,21 +10163,31 @@ const Level = (() => {
   }
 
   function compute(bank, attempt) {
+    const objective = bank.blueprint.objective ||
+      bank.blueprint.assessed.filter((s) => s !== 'writing');
     const skills = {};
-    bank.blueprint.assessed.forEach((skill) => {
+    objective.forEach((skill) => {
       skills[skill] = skillResult(bank, attempt, skill);
     });
+    const writing = writingResult(bank, attempt);
+    skills.writing = writing;
     const cutoffs = bank.blueprint.cutoffs;
-    const right = Object.values(skills).reduce((n, s) => n + s.right, 0);
-    const total = Object.values(skills).reduce((n, s) => n + s.total, 0);
+    const right = objective.reduce((n, s) => n + skills[s].right, 0);
+    const total = objective.reduce((n, s) => n + skills[s].total, 0);
+    /* One ruler for both: a task is worth up to one question, marked in
+       quarters, so fifty recognition questions and five tasks make 55. */
+    const perTask = bank.blueprint.writingPoints || 4;
+    const earned = right + (perTask ? writing.right / perTask : 0);
+    const outOf = total + writing.marks.length;
     /* Two numbers, kept apart because they mean different things. `questions`
        is how many this attempt answered - a run that skipped a part has fewer,
        and the report has to say so. `paper` is how many the assessment asks,
        which is the bank's own blueprint and never a property of one attempt:
        the certificate printed the answered count as if it were the size of the
        test, so a half-finished run issued a sheet for "36 questions". */
-    const questions = paper(bank).filter((id) => hasAnswer(attempt, id)).length;
-    const paperSize = paper(bank).length;
+    const questions = paper(bank).filter((id) => hasAnswer(attempt, id)).length +
+      writing.marks.filter((m) => m.text.trim()).length;
+    const paperSize = paper(bank).length + writing.marks.length;
     const practice = {};
     bank.blueprint.practice.forEach((skill) => {
       const picks = (attempt.practice && attempt.practice[skill]) || {};
@@ -10073,10 +10200,12 @@ const Level = (() => {
     });
     return {
       at: new Date().toISOString(),
-      overall: levelFromCorrect(right, total, cutoffs),
+      overall: levelFromCorrect(earned, outOf, cutoffs),
       right,
       total,
-      share: total ? Math.round((right / total) * 100) : 0,
+      earned: Math.round(earned * 100) / 100,
+      outOf,
+      share: outOf ? Math.round((earned / outOf) * 100) : 0,
       skills,
       practice,
       questions,
@@ -10358,10 +10487,77 @@ const Level = (() => {
       ${blocks}
       <div class="lv-foot">
         <button class="lv-btn" data-act="part" type="button">
-          ${a.part + 1 >= parts ? 'Practice tasks' : 'Next part'}
+          ${a.part + 1 >= parts ? 'Writing tasks' : 'Next part'}
         </button>
         <span class="lv-menu" data-hint>${answered} of ${ids.length} in this part</span>
         <span class="lv-keys"><kbd>1</kbd>–<kbd>4</kbd> answer</span>
+      </div>
+    </div>`;
+    warned = false;
+  }
+
+  /* --------------------------------------------------------------- writing */
+
+  const MARK_LABEL = {length: 'enough words', sentences: 'enough sentences',
+                      link: 'links its ideas', accuracy: 'no slips'};
+
+  function markChips(mark, scale) {
+    return `<span class="lv-wmh">Marked on the rubric — <b>${mark.points}/4</b>` +
+      `<i>${scale.words}+ words, ${scale.sentences}+ sentences</i></span>` +
+      `<span class="lv-wms">${mark.parts.map((p) =>
+        `<span class="lv-wmk${p.ok ? ' on' : ''}">${p.ok ? TICK : ''}` +
+        `${MARK_LABEL[p.id]} <i>${esc(p.note)}</i></span>`).join('')}</span>`;
+  }
+
+  function renderWriting() {
+    const a = attemptState();
+    const picks = a.practice.writing || (a.practice.writing = {});
+    const tasks = writingIds(doc).map((id) => doc.items.find((it) => it.id === id));
+    const written = tasks.filter((it) => String((picks[it.id] || {}).text || '').trim()).length;
+    const cards = tasks.map((item, k) => {
+      const pick = picks[item.id] || {};
+      const text = pick.text || '';
+      const scale = (doc.writingScale || {})[item.band] || {words: 30, sentences: 3};
+      const mark = markWriting(doc, item, text);
+      const done = String(text).trim().length > 0;
+      return `<div class="lv-q${done ? ' answered' : ''}" id="lvq-${item.id}">
+        <div class="lv-qh">
+          <span class="lv-qn">${k + 1}</span>
+          ${bandPill(item.band)}
+          <span class="lv-subskill">${esc(item.subskill.en)}</span>
+          ${done ? `<span class="lv-tick" role="img" aria-label="answered">${TICK}</span>` : ''}
+        </div>
+        <p class="lv-stem">${esc(item.prompt.en)}</p>
+        ${faLine(item.prompt.fa)}
+        <textarea class="lv-textarea" data-practice="${item.id}" dir="auto"
+          placeholder="Write your answer here — بنویس">${esc(text)}</textarea>
+        <div class="lv-wmark" data-mark="${item.id}">${markChips(mark, scale)}</div>
+      </div>`;
+    }).join('');
+
+    body().innerHTML = `<div class="lv-wrap">
+      <div class="lv-top">
+        <div class="lv-toprow">
+          <span class="lv-step">Writing</span>
+          <span class="lv-secttl">One task per band</span>
+          <span class="lv-count" data-wcount>${written} of ${tasks.length} written</span>
+        </div>
+        <div class="lv-toptrack"><i data-wtrack style="width:${tasks.length ? Math.round(written / tasks.length * 100) : 0}%"></i></div>
+        <button class="lv-exit" type="button" data-act="pause">Pause and keep my place</button>
+      </div>
+      <div class="lv-callout">
+        <b>Writing is scored, and you can see the marks as you type.</b>
+        <p>Each task is worth four points: enough words for the band, enough sentences, the linking
+          the task asks for, and a spot check for slips. One task is worth one question in the total,
+          so a strong paragraph cannot outweigh fifty answers — and a blank one counts as wrong.</p>
+        ${faLine('نوشتن نمره می‌گیرد و نمره را همان‌طور که می‌نویسی می‌بینی. هر تمرین چهار امتیاز دارد: ' +
+          'واژهٔ کافی برای سطح، جملهٔ کافی، پیوندی که تمرین می‌خواهد و یک بررسی نمونه‌ای. هر تمرین ' +
+          'به اندازهٔ یک پرسش در مجموع می‌ارزد و تمرین خالی اشتباه حساب می‌شود.')}
+      </div>
+      ${cards}
+      <div class="lv-foot">
+        <button class="lv-btn" data-act="finish" type="button">See my level</button>
+        <span class="lv-menu">${tasks.length - written} still empty</span>
       </div>
     </div>`;
     warned = false;
@@ -10371,7 +10567,7 @@ const Level = (() => {
 
   function renderPractice() {
     const a = attemptState();
-    const tasks = doc.items.filter((it) => it.skill === 'writing' || it.skill === 'speaking');
+    const tasks = doc.items.filter((it) => it.skill === 'speaking');
     const cards = tasks.map((item, k) => {
       const pick = (a.practice[item.skill] || {})[item.id] || {};
       const speaking = item.kind === 'speaking';
@@ -10408,15 +10604,16 @@ const Level = (() => {
       <div class="lv-top">
         <div class="lv-toprow">
           <span class="lv-step">Practice</span>
-          <span class="lv-secttl">Writing and speaking</span>
+          <span class="lv-secttl">Speaking</span>
           <span class="lv-count">not part of the level</span>
         </div>
       </div>
       <div class="lv-callout">
-        <b>These two skills are reported as not assessed.</b>
-        <p>Your answers are here to practise and to rate yourself against a rubric. They are never
-          averaged into your level, because a self-rating is not a proficiency score.</p>
-        ${faLine('این دو مهارت «سنجیده‌نشده» گزارش می‌شوند. پاسخ‌هایت برای تمرین و سنجش خودت با معیار است و هرگز در سطح کلی میانگین نمی‌شود، چون خودسنجی نمرهٔ مهارت نیست.')}
+        <b>Speaking is reported as not assessed.</b>
+        <p>These tasks are here to practise, and to rate yourself against a rubric. They are never
+          averaged into your level, because a self-rating is not a proficiency score. Writing is
+          scored, on the page before this one.</p>
+        ${faLine('گفتن «سنجیده‌نشده» گزارش می‌شود. این تمرین‌ها برای تمرین و سنجش خودت با معیار است و هرگز در سطح کلی میانگین نمی‌شود، چون خودسنجی نمرهٔ مهارت نیست. نوشتن در صفحهٔ پیش نمره می‌گیرد.')}
       </div>
       ${cards}
       <div class="lv-foot">
@@ -10452,11 +10649,16 @@ const Level = (() => {
           <span class="lv-skev">${esc(s.blurb.en)}</span>
         </div>`;
       }
+      /* Writing is counted, not answered, so its evidence is rubric points -
+         saying "9 of 20 correct" there would describe the wrong thing. */
+      const evidence = r.scored === 'rubric'
+        ? `${r.right} of ${r.total} rubric points (${r.share}%)`
+        : `${r.right} of ${r.total} correct (${r.share}%)`;
       return `<div class="lv-skillrow" data-band="${bandKey(r.band)}">
         <span class="lv-skname">${esc(s.title.en)}
           <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
         <span class="lv-skband">${bandPill(r.band)}</span>
-        <span class="lv-evidence">${r.right} of ${r.total} correct (${r.share}%)</span>
+        <span class="lv-evidence">${evidence}</span>
         ${confidenceChip(r)}
         <span class="lv-scale">${BANDS.map((b, k) =>
           `<i class="${k <= bandIndex(r.band) ? 'on' : ''}"></i>`).join('')}</span>
@@ -10470,14 +10672,16 @@ const Level = (() => {
     const weakest = measured.slice().sort((a, b) => bandIndex(a.band) - bandIndex(b.band))[0];
     const tied = strongest && weakest &&
       bandIndex(strongest.band) === bandIndex(weakest.band);
-    const advice = tied
+    const      advice = tied
       ? ['Stories at my level', 'stories']
       : {
         grammar: ['Open grammar', 'grammar'],
         vocabulary: ['Open vocabulary', 'vocab'],
         reading: ['Read a story', 'stories'],
         listening: ['Open listening', 'listen'],
+        writing: ['Practice writing', 'writing'],
       }[weakest ? weakest.id : 'reading'];
+    const speakingTasks = doc.items.filter((it) => it.skill === 'speaking').length;
 
     const delta = prev && prev.overall && result.overall
       ? bandIndex(result.overall) - bandIndex(prev.overall) : 0;
@@ -10501,10 +10705,10 @@ const Level = (() => {
         ${ladder(result.overall)}
         <div class="lv-insight">
           <span><b>Score</b> ${result.right} of ${result.total} correct (${result.share}%)</span>
-          <span><b>Based on</b> ${measured.length} of 6 skills. Writing and speaking are not assessed.</span>
+          <span><b>Based on</b> ${measured.length} of 6 skills. Speaking is not assessed.</span>
           ${prev ? `<span><b>Last time</b> ${fmtDate(prev.at)} · ${bandLabel(prev.overall)}${delta
             ? ` (${delta > 0 ? '+' : ''}${delta} band${Math.abs(delta) === 1 ? '' : 's'})` : ' (no change)'}</span>` : ''}
-          <span><b>Completed</b> ${result.completion === 'complete' ? `all ${result.questions} questions` : `${result.questions} of ${result.total} questions`}${result.completion !== 'complete' ? ' — unanswered questions count as wrong, so the level is provisional' : ''}</span>
+          <span><b>Completed</b> ${result.completion === 'complete' ? `all ${result.questions} questions` : `${result.questions} of ${result.paper} questions`}${result.completion !== 'complete' ? ' — unanswered questions count as wrong, so the level is provisional' : ''}</span>
         </div>
       </section>
 
@@ -10521,6 +10725,7 @@ const Level = (() => {
         ${faLine('قوی‌ترین مهارت و مهارتی که باید رویش کار کنی در بالا آمده است.')}
         <div class="lv-actions">
           <button class="lv-btn ghost" data-act="open" data-panel="${advice[1]}" data-band="${bandKey(result.overall)}">${advice[0]}</button>
+          ${speakingTasks ? '<button class="lv-btn ghost" data-act="practice">Speaking practice</button>' : ''}
           <button class="lv-btn" data-act="certificate">Get certificate</button>
           <button class="lv-btn ghost" data-act="intro">Done</button>
         </div>
@@ -10546,6 +10751,7 @@ const Level = (() => {
   function render() {
     if (ticker) { clearInterval(ticker); ticker = null; }
     if (view === 'test') renderTest();
+    else if (view === 'writing') renderWriting();
     else if (view === 'practice') renderPractice();
     else if (view === 'result') renderResult();
     else renderIntro();
@@ -10577,7 +10783,7 @@ const Level = (() => {
     warned = false;
 
     if (a.part >= partCount(doc)) {
-      view = 'practice';
+      view = 'writing';
       saveAttempt(true);
       render();
       body().scrollIntoView({block: 'start'});
@@ -10756,6 +10962,26 @@ const Level = (() => {
         a.practice[item.skill][id] = a.practice[item.skill][id] || {};
         a.practice[item.skill][id].text = e.target.value;
         saveAttempt();
+        /* A marked answer shows its marks while it is written, not after the
+           paper is handed in: the point of a rubric is that the learner can
+           act on it in the next sentence. */
+        if (item.skill === 'writing') {
+          const host = wrap.querySelector('[data-mark="' + id + '"]');
+          if (host) {
+            host.innerHTML = markChips(markWriting(doc, item, e.target.value),
+                                       (doc.writingScale || {})[item.band] || {words: 30, sentences: 3});
+          }
+          const written = writingIds(doc).filter((tid) => {
+            const pick = (a.practice.writing || {})[tid] || {};
+            return String(pick.text || '').trim().length > 0;
+          }).length;
+          const count = wrap.querySelector('[data-wcount]');
+          if (count) count.textContent = `${written} of ${writingIds(doc).length} written`;
+          const track = wrap.querySelector('[data-wtrack]');
+          if (track) {
+            track.style.width = Math.round(written / writingIds(doc).length * 100) + '%';
+          }
+        }
       }
     });
 
@@ -10825,8 +11051,20 @@ const Level = (() => {
         });
       }
       else if (kind === 'intro') { view = 'intro'; render(); }
+      /* The speaking tasks are practice, so they are opened from the report
+         rather than forced into the paper. */
+      else if (kind === 'practice') {
+        view = 'practice'; render(); body().scrollIntoView({block: 'start'});
+      }
       else if (kind === 'open') {
         const target = act.dataset.panel;
+        /* Writing lives inside this panel, so it is a view change rather than
+           a panel switch - toggling here would close the panel the learner is
+           standing in. */
+        if (target === 'writing') {
+          view = 'writing'; render(); body().scrollIntoView({block: 'start'});
+          return;
+        }
         togglePanel('lvlpanel', 'lvltoggle');
         if (target === 'stories') {
           togglePanel('stpanel', 'stoggle');
@@ -10882,12 +11120,13 @@ const Level = (() => {
       }
     }
     attemptState();
-    if (state && state.part >= partCount(doc)) view = 'practice';
+    if (state && state.part >= partCount(doc)) view = 'writing';
     render();
   }
 
   return {
     mount, paintBadge, compute, blankAttempt, paper, partIds, partCount,
+    writingIds, markWriting, writingResult,
     levelFromCorrect, isCorrect, normalise,
     reset() {
       try {
@@ -10945,6 +11184,15 @@ const Theme = (() => {
     });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', META[now]);
+    /* The header tile is a switch, not a panel button: it says which theme is
+       on, and it works whether or not there is an account to open. */
+    const tile = document.getElementById('themetoggle');
+    if (tile) {
+      const dark = now === 'dark';
+      tile.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      tile.title = dark ? 'Theme: dark — tap for light / پوستهٔ تیره' :
+        'Theme: light — tap for dark / پوستهٔ روشن';
+    }
     const note = document.getElementById('acthemenote');
     if (note) {
       /* Bilingual, and Persian on its own line, like every other label. */
@@ -12156,7 +12404,7 @@ const Cert = (() => {
             <span class="certlab">${HEAD.title} · <span class="fa" dir="rtl" lang="fa">${HEAD.titleFa}</span></span>
           </div>
         </footer>
-        <p class="certnote">Based on grammar, vocabulary, reading and listening; writing and speaking were not assessed.${short}
+        <p class="certnote">Based on grammar, vocabulary, reading, listening and a marked writing task. Speaking was not assessed.${short}
           Self-assessment built on a reviewed item bank — not a certified examination.</p>
       </div>`;
   }
@@ -12255,6 +12503,13 @@ document.getElementById('rdtoggle').onclick = () => togglePanel('rdpanel', 'rdto
 document.getElementById('stoggle').onclick = () => togglePanel('stpanel', 'stoggle');
 document.getElementById('lvltoggle').onclick = () => togglePanel('lvlpanel', 'lvltoggle');
 document.getElementById('actoggle').onclick = () => togglePanel('acpanel', 'actoggle');
+/* Theme is a preference, not a section, so its switch sits in the header too:
+   a learner should not have to open Account - or be signed in at all - to
+   change how the app looks, and the choice is remembered the moment it is
+   made. */
+document.getElementById('themetoggle').onclick = () => {
+  Theme.apply(Theme.current() === 'dark' ? 'light' : 'dark', true);
+};
 /* The tile carries the level from the last check, which is only a localStorage
    read, so it can be painted before the bank is ever fetched. */
 Level.paintBadge();
