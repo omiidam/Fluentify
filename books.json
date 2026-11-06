@@ -2656,17 +2656,18 @@
       "title_fa": "درک و کاربرد دستور زبان انگلیسی",
       "author": "Betty S. Azar & Stacy A. Hagen",
       "edition": "Fifth edition · Pearson",
-      "about_en": "The grammar of the whole course, chapter by chapter: thirty-six structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. The explanations and sentences are written for this app; the book is the reference text.",
-      "about_fa": "دستور زبان تمام دوره، فصل به فصل: سی‌وشش ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+      "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: thirty-eight structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapter one is complete, chart 1-1 to 1-6. The explanations and sentences are written for this app; the book is the reference text.",
+      "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: سی‌وهشت ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل یک کامل است، از نمودار ۱-۱ تا ۱-۶. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
       "lessons": [
         {
           "n": 1,
           "title": "Simple present and present progressive",
           "title_fa": "حال ساده و حال استمراری",
           "chapter": "Chapter 1",
-          "use_en": "The simple present is for habits, routines and things that are always true. The present progressive is for what is happening now, or around now for a limited time.",
-          "use_fa": "حال ساده برای عادت، کارهای روزمره و واقعیت‌های همیشگی است. حال استمراری برای کاری است که همین حالا — یا این روزها به‌طور موقت — در جریان است.",
-          "form_en": "subject + verb (+ -s with he/she/it)  |  am / is / are + verb-ing",
+          "section": "1-1",
+          "use_en": "The simple present states general truths and habits: water boils, I get up at seven. The present progressive is an activity in progress at the moment of speaking, or a temporary situation that lasts for a while around now.",
+          "use_fa": "حال ساده واقعیت‌های کلی و عادت‌ها را می‌گوید: آب می‌جوشد، من ساعت هفت بیدار می‌شوم. حال استمراری کاری است که در لحظهٔ گفتن در جریان است، یا وضعیت موقتی که این روزها ادامه دارد.",
+          "form_en": "subject + verb (+ -s with he/she/it)   |   am / is / are + verb-ing",
           "examples": [
             {
               "en": "She works in a bank in the city centre.",
@@ -2685,20 +2686,20 @@
             {
               "prompt": "My brother usually ___ (walk) to school.",
               "answer": "walks",
-              "why_en": "A habit, and the subject is he: the verb takes -s.",
-              "why_fa": "عادت است و فاعل سوم‌شخص مفرد؛ پس فعل -s می‌گیرد."
+              "why_en": "Usually marks a habit, and the subject is he: the verb takes -s.",
+              "why_fa": "usually نشانهٔ عادت است و فاعل سوم‌شخص مفرد؛ پس فعل -s می‌گیرد."
             },
             {
-              "prompt": "Be quiet — the baby ___ (sleep).",
+              "prompt": "Be quiet, the baby ___ (sleep).",
               "answer": "is sleeping",
               "why_en": "It is happening at this moment, so the progressive is right.",
               "why_fa": "همین لحظه در جریان است، پس حال استمراری درست است."
             },
             {
-              "prompt": "I ___ (not / believe) his story.",
-              "answer": "don't believe",
-              "why_en": "Believe is a stative verb: it describes a state, not an action, so it stays simple.",
-              "why_fa": "believe فعل حالتی است و کنش نیست، پس استمراری نمی‌شود."
+              "prompt": "Look, the bus ___ (come) around the corner.",
+              "answer": "is coming",
+              "why_en": "Look points at an action in progress now.",
+              "why_fa": "look به کاری اشاره دارد که همین حالا در جریان است."
             }
           ],
           "exam": [
@@ -2710,8 +2711,8 @@
                 "rain"
               ],
               "answer": "is raining",
-              "why_en": "Look! points at this moment.",
-              "why_fa": "«Look!» به همین لحظه اشاره دارد."
+              "why_en": "Look points at this moment.",
+              "why_fa": "look به همین لحظه اشاره دارد."
             },
             {
               "q": "She ___ coffee every morning before work.",
@@ -2722,7 +2723,7 @@
               ],
               "answer": "drinks",
               "why_en": "Every morning is a routine.",
-              "why_fa": "«Every morning» عادت روزمره است."
+              "why_fa": "every morning عادت روزمره است."
             },
             {
               "q": "They ___ TV at the moment, so call later.",
@@ -2733,17 +2734,97 @@
               ],
               "answer": "are watching",
               "why_en": "At the moment is now, and they takes are.",
-              "why_fa": "«At the moment» یعنی همین حالا، و با they فعل are می‌گیرد."
+              "why_fa": "at the moment یعنی همین حالا، و با they فعل are می‌گیرد."
             }
           ]
         },
         {
           "n": 2,
+          "title": "Present simple and progressive: affirmative, negative and question forms",
+          "title_fa": "حال ساده و استمراری: شکل مثبت، منفی و پرسشی",
+          "chapter": "Chapter 1",
+          "section": "1-2",
+          "use_en": "Both present tenses change shape three ways. The affirmative carries -s or a form of be, the negative needs do not or does not or a be + not, and the question puts do, does, am, is or are first.",
+          "use_fa": "هر دو زمان حال سه شکل می‌گیرند. مثبت -s یا شکل be می‌گیرد، منفی به do not یا does not یا be + not نیاز دارد، و پرسشی do یا does یا am/is/are را به ابتدای جمله می‌آورد.",
+          "form_en": "she works / she does not work / does she work?   |   she is working / she is not working / is she working?",
+          "examples": [
+            {
+              "en": "He works at the airport, but he is not working today.",
+              "fa": "او در فرودگاه کار می‌کند، ولی امروز کار نمی‌کند."
+            },
+            {
+              "en": "Does he work on Fridays?",
+              "fa": "او جمعه‌ها کار می‌کند؟"
+            },
+            {
+              "en": "Is he working now?",
+              "fa": "او همین حالا کار می‌کند؟"
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "___ she live near here?",
+              "answer": "Does",
+              "why_en": "A question in the simple present starts with does before she.",
+              "why_fa": "پرسش در حال ساده با does پیش از she شروع می‌شود."
+            },
+            {
+              "prompt": "They ___ (not / watch) TV at the moment.",
+              "answer": "are not watching",
+              "why_en": "The negative progressive puts not after are.",
+              "why_fa": "منفیِ استمراری، not را پس از are می‌آورد."
+            },
+            {
+              "prompt": "The train ___ (not / leave) until eight.",
+              "answer": "doesn't leave",
+              "why_en": "A timetable is a routine, so does not with the base verb.",
+              "why_fa": "برنامهٔ حرکت عادت است، پس does not با فعل ساده."
+            }
+          ],
+          "exam": [
+            {
+              "q": "___ your brother working today?",
+              "options": [
+                "Is",
+                "Does",
+                "Do"
+              ],
+              "answer": "Is",
+              "why_en": "The progressive question begins with a form of be.",
+              "why_fa": "پرسش استمراری با شکل be شروع می‌شود."
+            },
+            {
+              "q": "She ___ like coffee.",
+              "options": [
+                "doesn't",
+                "don't",
+                "isn't"
+              ],
+              "answer": "doesn't",
+              "why_en": "A negative with she takes does not, then the base verb.",
+              "why_fa": "منفی با she شکل does not می‌گیرد و بعد فعل ساده می‌آید."
+            },
+            {
+              "q": "What time ___ the shop open?",
+              "options": [
+                "does",
+                "is",
+                "do"
+              ],
+              "answer": "does",
+              "why_en": "A simple present question about the shop takes does.",
+              "why_fa": "پرسش حال ساده دربارهٔ مغازه با does ساخته می‌شود."
+            }
+          ]
+        },
+        {
+          "n": 3,
           "title": "Stative verbs: verbs not used in the progressive",
           "title_fa": "فعل‌های حالتی: فعل‌هایی که استمراری نمی‌شوند",
           "chapter": "Chapter 1",
-          "use_en": "Some verbs describe a state rather than an action: knowing, believing, belonging, wanting, seeming. They stay in the simple present even when the meaning is now.",
-          "use_fa": "بعضی فعل‌ها حالت را توصیف می‌کنند، نه کار را: دانستن، باور داشتن، تعلق داشتن، خواستن، به نظر رسیدن. این فعل‌ها حتی وقتی به «همین حالا» اشاره دارند، ساده می‌مانند.",
+          "section": "1-3",
+          "use_en": "Some verbs describe a state rather than an action: knowing, believing, belonging, wanting, seeming. They stay in the simple present. A few change meaning in the progressive: he is having lunch is eating, but he has a car is owning.",
+          "use_fa": "بعضی فعل‌ها حالت را توصیف می‌کنند، نه کار را: دانستن، باور داشتن، تعلق داشتن، خواستن، به نظر رسیدن. این فعل‌ها ساده می‌مانند. چند فعل در حالت استمراری معنا عوض می‌کنند: he is having lunch یعنی ناهار می‌خورد، ولی he has a car یعنی ماشین دارد.",
           "form_en": "subject + know / like / want / own / seem   (not: am knowing, is wanting)",
           "examples": [
             {
@@ -2816,58 +2897,149 @@
           ]
         },
         {
-          "n": 3,
+          "n": 4,
+          "title": "Simple past tense",
+          "title_fa": "گذشتهٔ ساده",
+          "chapter": "Chapter 1",
+          "section": "1-4",
+          "use_en": "The simple past reports an action that began and ended at a particular time in the past. Regular verbs add -ed, irregular verbs change form, and be has was and were. A series of past actions keeps the same tense.",
+          "use_fa": "گذشتهٔ ساده کاری را می‌گوید که در زمان مشخصی در گذشته شروع شد و تمام شد. فعل‌های باقاعده -ed می‌گیرند، فعل‌های بی‌قاعده شکل عوض می‌کنند و be به was و were تبدیل می‌شود. زنجیرهٔ کارهای گذشته همه یک زمان دارند.",
+          "form_en": "helped / went / ate   |   did not help   |   Did you help?   |   was / were",
+          "examples": [
+            {
+              "en": "It snowed yesterday, so the roads were quiet.",
+              "fa": "دیروز برف آمد، پس جاده‌ها خلوت بود."
+            },
+            {
+              "en": "She went to work early and came home late.",
+              "fa": "او زود به سر کار رفت و دیر به خانه برگشت."
+            },
+            {
+              "en": "Were you at the office this morning?",
+              "fa": "امروز صبح در دفتر بودی؟"
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "They ___ (watch) a film last night.",
+              "answer": "watched",
+              "why_en": "A regular verb adds -ed for a finished past action.",
+              "why_fa": "فعل باقاعده برای کار تمام‌شدهٔ گذشته -ed می‌گیرد."
+            },
+            {
+              "prompt": "He ___ (not / come) to the meeting yesterday.",
+              "answer": "didn't come",
+              "why_en": "The negative past uses did not with the base verb.",
+              "why_fa": "منفیِ گذشته با did not و فعل ساده ساخته می‌شود."
+            },
+            {
+              "prompt": "We ___ (be) tired after the trip.",
+              "answer": "were",
+              "why_en": "The past of be with we is were.",
+              "why_fa": "گذشتهٔ be با we شکل were است."
+            }
+          ],
+          "exam": [
+            {
+              "q": "Andrew ___ the ball and scored a point.",
+              "options": [
+                "caught",
+                "catches",
+                "was catching"
+              ],
+              "answer": "caught",
+              "why_en": "A series of finished actions stays in the simple past.",
+              "why_fa": "زنجیرهٔ کارهای تمام‌شده در گذشتهٔ ساده می‌ماند."
+            },
+            {
+              "q": "___ you see the film last night?",
+              "options": [
+                "Did",
+                "Do",
+                "Were"
+              ],
+              "answer": "Did",
+              "why_en": "A past question about an action starts with did.",
+              "why_fa": "پرسش گذشته دربارهٔ یک کار با did شروع می‌شود."
+            },
+            {
+              "q": "She ___ at home yesterday.",
+              "options": [
+                "was",
+                "were",
+                "is"
+              ],
+              "answer": "was",
+              "why_en": "The past of be with she is was.",
+              "why_fa": "گذشتهٔ be با she شکل was است."
+            }
+          ]
+        },
+        {
+          "n": 5,
           "title": "Simple past and past progressive",
           "title_fa": "گذشتهٔ ساده و گذشتهٔ استمراری",
           "chapter": "Chapter 1",
-          "use_en": "The simple past reports a finished action. The past progressive sets a scene in progress, and often shows what was interrupted.",
-          "use_fa": "گذشتهٔ ساده کاری تمام‌شده را می‌گوید. گذشتهٔ استمراری صحنه‌ای را نشان می‌دهد که در جریان بود و اغلب با کاری قطع می‌شود.",
-          "form_en": "verb + -ed (or the irregular form)  |  was / were + verb-ing",
+          "section": "1-5",
+          "use_en": "The past progressive sets a scene that was in progress; the simple past reports the shorter action that interrupted it or happened at that time. While and when join the two.",
+          "use_fa": "گذشتهٔ استمراری صحنه‌ای را نشان می‌دهد که در جریان بود؛ گذشتهٔ ساده کار کوتاه‌تری را می‌گوید که آن را قطع کرد یا در همان زمان رخ داد. while و when این دو را به هم وصل می‌کنند.",
+          "form_en": "was / were + verb-ing (in progress)   |   verb + -ed (the event)   |   while / when",
           "examples": [
             {
-              "en": "We watched a film last night.",
-              "fa": "دیشب فیلمی دیدیم."
-            },
-            {
               "en": "I was cooking when she called.",
-              "fa": "وقتی او زنگ زد، من داشتم آشپزی می‌کردم."
+              "fa": "وقتی زنگ زد داشتم آشپزی می‌کردم."
             },
             {
-              "en": "It was raining all morning.",
-              "fa": "تمام صبح باران می‌بارید."
+              "en": "While they were waiting, the lights went out.",
+              "fa": "وقتی منتظر بودند، برق رفت."
+            },
+            {
+              "en": "It was raining all morning, so we stayed in.",
+              "fa": "تمام صبح باران می‌بارید، پس خانه ماندیم."
             }
           ],
           "exercises": [
             {
               "prompt": "When I arrived, they ___ (have) dinner.",
               "answer": "were having",
-              "why_en": "Their dinner was already in progress when I arrived.",
-              "why_fa": "شام آن‌ها وقتی رسیدم در جریان بود."
+              "why_en": "The dinner was already in progress when I arrived.",
+              "why_fa": "وقتی رسیدم، شام در جریان بود."
+            },
+            {
+              "prompt": "While she ___ (read), the phone rang.",
+              "answer": "was reading",
+              "why_en": "While marks the action that was going on.",
+              "why_fa": "while کاری را نشان می‌دهد که در جریان بود."
             },
             {
               "prompt": "He ___ (break) the window yesterday.",
               "answer": "broke",
-              "why_en": "A single finished event, and break is irregular.",
-              "why_fa": "یک رویداد تمام‌شده است و break بی‌قاعده است."
-            },
-            {
-              "prompt": "She ___ (not / come) to the party.",
-              "answer": "didn't come",
-              "why_en": "After did not the verb returns to its base form.",
-              "why_fa": "بعد از did not فعل به شکل ساده برمی‌گردد."
+              "why_en": "One finished event at a past time takes the simple past.",
+              "why_fa": "یک رخداد تمام‌شده در زمان گذشته، گذشتهٔ ساده می‌گیرد."
             }
           ],
           "exam": [
             {
               "q": "While I ___ , the phone rang.",
               "options": [
-                "studied",
                 "was studying",
+                "studied",
                 "study"
               ],
               "answer": "was studying",
-              "why_en": "While marks the action that was going on.",
-              "why_fa": "while نشان می‌دهد کاری در جریان بوده است."
+              "why_en": "While marks the action that was in progress.",
+              "why_fa": "while کاری را نشان می‌دهد که در جریان بود."
+            },
+            {
+              "q": "We ___ dinner when the lights went out.",
+              "options": [
+                "were having",
+                "had",
+                "have"
+              ],
+              "answer": "were having",
+              "why_en": "The dinner was interrupted by the lights.",
+              "why_fa": "شام با رفتن برق قطع شد."
             },
             {
               "q": "They ___ to Tabriz three years ago.",
@@ -2878,28 +3050,18 @@
               ],
               "answer": "moved",
               "why_en": "A finished move at a fixed past time.",
-              "why_fa": "این جابه‌جایی در زمان مشخصی در گذشته تمام شده است."
-            },
-            {
-              "q": "We ___ dinner when the lights went out.",
-              "options": [
-                "had",
-                "were having",
-                "have"
-              ],
-              "answer": "were having",
-              "why_en": "The dinner was interrupted by the lights.",
-              "why_fa": "شام با خاموش‌شدن برق قطع شد؛ کاری در جریانِ گذشته."
+              "why_fa": "اسباب‌کشی در زمان مشخصی در گذشته تمام شد."
             }
           ]
         },
         {
-          "n": 4,
+          "n": 6,
           "title": "Was going to: intentions that did not happen",
           "title_fa": "was/were going to: تصمیم‌هایی که عملی نشد",
           "chapter": "Chapter 1",
-          "use_en": "Use was or were going to for a plan you had in the past that did not happen. The sentence usually adds but and the reason it failed.",
-          "use_fa": "از was یا were going to برای برنامه‌ای در گذشته استفاده می‌کنیم که انجام نشد. جمله معمولاً با but و دلیل انجام‌نشدن ادامه پیدا می‌کند.",
+          "section": "1-6",
+          "use_en": "Was or were going to reports an intention in the past that was not carried out. Other verbs work the same way: was planning to, was hoping to, was intending to, was thinking about.",
+          "use_fa": "was یا were going to قصدی را در گذشته می‌گوید که عملی نشد. فعل‌های دیگری هم همین کار را می‌کنند: was planning to، was hoping to، was intending to، was thinking about.",
           "form_en": "subject + was / were + going to + verb",
           "examples": [
             {
@@ -2911,8 +3073,8 @@
               "fa": "قرار بود با ماشین برویم، ولی جاده بسته بود."
             },
             {
-              "en": "She was going to study medicine before she chose law.",
-              "fa": "او می‌خواست پزشکی بخواند، تا اینکه حقوق را انتخاب کرد."
+              "en": "She was planning to study medicine before she chose law.",
+              "fa": "او قصد داشت پزشکی بخواند، تا اینکه حقوق را انتخاب کرد."
             }
           ],
           "exercises": [
@@ -2972,10 +3134,11 @@
           ]
         },
         {
-          "n": 5,
+          "n": 7,
           "title": "Present perfect with since and for",
           "title_fa": "حال کامل با since و for",
           "chapter": "Chapter 2",
+          "section": "2-3",
           "use_en": "The present perfect joins the past to now: something started earlier and is still true, or an experience still matters. Since names a starting point; for names a length of time.",
           "use_fa": "حال کامل گذشته را به حالا وصل می‌کند: کاری پیش‌تر شروع شده و هنوز ادامه دارد، یا تجربه‌ای که هنوز مهم است. since نقطهٔ شروع را می‌گوید و for مدت را.",
           "form_en": "have / has + past participle  (+ since 2019  |  for six years)",
@@ -3050,10 +3213,11 @@
           ]
         },
         {
-          "n": 6,
+          "n": 8,
           "title": "Present perfect or simple past: which one?",
           "title_fa": "حال کامل یا گذشتهٔ ساده: کدام را انتخاب کنیم؟",
           "chapter": "Chapter 2",
+          "section": "2-6",
           "use_en": "The present perfect connects a past action to now and names no finished time. The simple past names a finished time: yesterday, in 2019, two hours ago.",
           "use_fa": "حال کامل کاری در گذشته را به «الان» وصل می‌کند و زمان تمام‌شده‌ای نمی‌آورد. گذشتهٔ ساده زمان تمام‌شده را می‌گوید: دیروز، در ۲۰۱۹، دو ساعت پیش.",
           "form_en": "have / has + past participle   |   verb + -ed + finished time",
@@ -3128,10 +3292,11 @@
           ]
         },
         {
-          "n": 7,
+          "n": 9,
           "title": "Present perfect progressive: how long an action has lasted",
           "title_fa": "حال کامل استمراری: مدتِ ادامهٔ یک کار",
           "chapter": "Chapter 2",
+          "section": "2-7",
           "use_en": "Use have or has been with -ing for an action that started in the past and is still going on, or has just stopped with a visible result.",
           "use_fa": "از have یا has been با ing برای کاری استفاده می‌کنیم که از گذشته شروع شده و هنوز ادامه دارد، یا همین حالا تمام شده و اثرش دیده می‌شود.",
           "form_en": "have / has + been + verb-ing",
@@ -3206,10 +3371,11 @@
           ]
         },
         {
-          "n": 8,
+          "n": 10,
           "title": "Past perfect",
           "title_fa": "گذشتهٔ کامل",
           "chapter": "Chapter 2",
+          "section": "2-8",
           "use_en": "The past perfect is the earlier of two past events. It tells the listener which one came first without adding another word.",
           "use_fa": "گذشتهٔ کامل، گذشتهٔ پیش‌تر از گذشته است. می‌گوید کدام رویداد اول رخ داده، بی‌آنکه کلمهٔ دیگری لازم باشد.",
           "form_en": "had + past participle",
@@ -3284,10 +3450,11 @@
           ]
         },
         {
-          "n": 9,
+          "n": 11,
           "title": "Past perfect progressive: how long before another past action",
           "title_fa": "گذشتهٔ کامل استمراری: مدتِ ادامهٔ کار پیش از رخدادی در گذشته",
           "chapter": "Chapter 2",
+          "section": "2-10",
           "use_en": "Use had been with -ing for an action that had been going on for some time when something else happened in the past.",
           "use_fa": "از had been با ing برای کاری استفاده می‌کنیم که مدتی در جریان بود تا وقتی اتفاق دیگری در گذشته رخ داد.",
           "form_en": "had + been + verb-ing",
@@ -3362,10 +3529,11 @@
           ]
         },
         {
-          "n": 10,
+          "n": 12,
           "title": "Future: will and be going to",
           "title_fa": "آینده: will و be going to",
           "chapter": "Chapter 3",
+          "section": "3-1",
           "use_en": "Use will for a decision made as you speak, an offer or a prediction. Use be going to for a plan made earlier, or for something the evidence already shows.",
           "use_fa": "will برای تصمیمی که همان لحظه می‌گیری، برای پیشنهاد یا پیش‌بینی است. be going to برای برنامه‌ای که از قبل داشته‌ای یا نشانه‌ای که در همین حالا دیده می‌شود.",
           "form_en": "will + base verb  |  am / is / are going to + base verb",
@@ -3440,10 +3608,11 @@
           ]
         },
         {
-          "n": 11,
+          "n": 13,
           "title": "Future in time clauses: after when, before and as soon as",
           "title_fa": "آینده در جمله‌واره‌های زمانی: with when، before و as soon as",
           "chapter": "Chapter 3",
+          "section": "3-3",
           "use_en": "After when, before, after, as soon as, until and while, English uses the present, not will, even when the meaning is future.",
           "use_fa": "پس از when، before، after، as soon as، until و while در انگلیسی حال می‌آید، نه will، حتی وقتی معنی آینده است.",
           "form_en": "I will call you when I arrive.   (not: when I will arrive)",
@@ -3518,10 +3687,11 @@
           ]
         },
         {
-          "n": 12,
+          "n": 14,
           "title": "Future progressive and future perfect",
           "title_fa": "آیندهٔ استمراری و آیندهٔ کامل",
           "chapter": "Chapter 3",
+          "section": "3-5",
           "use_en": "Will be with -ing describes an action in progress at a future moment. Will have with the past participle describes something finished before a future moment.",
           "use_fa": "will be با ing کاری را نشان می‌دهد که در لحظه‌ای در آینده در جریان است. will have با اسم مفعول کاری را نشان می‌دهد که پیش از لحظه‌ای در آینده تمام شده است.",
           "form_en": "will + be + verb-ing   |   will + have + past participle",
@@ -3596,10 +3766,11 @@
           ]
         },
         {
-          "n": 13,
+          "n": 15,
           "title": "Tense review: choosing the tense a sentence needs",
           "title_fa": "مرور زمان‌ها: انتخاب زمان درست برای هر جمله",
           "chapter": "Chapter 4",
+          "section": "4",
           "use_en": "Two questions choose the tense: when did it happen, and is it finished, repeated, or still going on? The book's review chapter gathers the twelve tenses that answer them.",
           "use_fa": "دو پرسش زمان فعل را انتخاب می‌کند: کِی اتفاق افتاد، و آیا تمام شده، تکرار می‌شود یا هنوز ادامه دارد؟ فصل مرور کتاب همان دوازده زمانی را کنار هم می‌آورد که به این پرسش‌ها پاسخ می‌دهند.",
           "form_en": "past  -  now  -  future  x  simple / progressive / perfect",
@@ -3674,10 +3845,11 @@
           ]
         },
         {
-          "n": 14,
+          "n": 16,
           "title": "Subject-verb agreement",
           "title_fa": "هم‌خوانی نهاد و فعل",
           "chapter": "Chapter 5",
+          "section": "5-2",
           "use_en": "The verb agrees with the subject, not with the phrase that sits next to it. Expressions of quantity and there + be follow their own small rules.",
           "use_fa": "فعل با نهاد هم‌خوان می‌شود، نه با عبارتی که کنارش آمده است. عبارت‌های مقدار و ساخت there + be قاعدهٔ کوچک خودشان را دارند.",
           "form_en": "singular subject + singular verb  |  plural subject + plural verb",
@@ -3752,10 +3924,11 @@
           ]
         },
         {
-          "n": 15,
+          "n": 17,
           "title": "Plural and possessive nouns",
           "title_fa": "اسم‌های جمع و ملکی",
           "chapter": "Chapter 6",
+          "section": "6-1",
           "use_en": "Regular plurals add -s or -es and irregular ones change their form. A possessive adds 's to a person, or only ' when the plural already ends in -s.",
           "use_fa": "جمع‌های باقاعده -s یا -es می‌گیرند و جمع‌های بی‌قاعده شکلشان تغییر می‌کند. مالکیت با 's به اسم شخص اضافه می‌شود، یا فقط با ' وقتی جمع به -s ختم می‌شود.",
           "form_en": "one book -> two books   |   the girl's bag   |   the girls' bags",
@@ -3830,10 +4003,11 @@
           ]
         },
         {
-          "n": 16,
+          "n": 18,
           "title": "Count and noncount nouns: a few and a little",
           "title_fa": "اسم‌های قابل‌شمارش و غیرقابل‌شمارش: a few و a little",
           "chapter": "Chapter 6",
+          "section": "6-9",
           "use_en": "Count nouns have a plural and take a few. Noncount nouns have no plural and take a little. Some noncount nouns are the ones learners expect to count: advice, information, furniture, news, money.",
           "use_fa": "اسم‌های قابل‌شمارش جمع می‌بندند و با a few می‌آیند. اسم‌های غیرقابل‌شمارش جمع ندارند و با a little می‌آیند. بعضی از این اسم‌ها همان‌هایی هستند که زبان‌آموز می‌خواهد بشمارد: advice، information، furniture، news، money.",
           "form_en": "a few + plural count noun  |  a little + noncount noun",
@@ -3908,10 +4082,11 @@
           ]
         },
         {
-          "n": 17,
+          "n": 19,
           "title": "Articles: a, an and the",
           "title_fa": "حروف تعریف: a، an و the",
           "chapter": "Chapter 7",
+          "section": "7-1",
           "use_en": "A and an introduce one thing the listener does not know yet. The points at something both of you can identify. No article is used for plurals and noncount nouns spoken about in general.",
           "use_fa": "a و an چیزی را معرفی می‌کنند که شنونده هنوز نمی‌شناسد. the به چیزی اشاره می‌کند که هر دو طرف می‌توانند تشخیص دهند. برای جمع و اسم‌های غیرقابل‌شمارش در معنای کلی، حرف تعریف نمی‌آید.",
           "form_en": "a / an + singular count noun  |  the + known noun  |  no article + plural or noncount (general)",
@@ -3986,10 +4161,11 @@
           ]
         },
         {
-          "n": 18,
+          "n": 20,
           "title": "Pronouns, possessive adjectives and other",
           "title_fa": "ضمیرها، صفت‌های ملکی و other",
           "chapter": "Chapter 8",
+          "section": "8-1",
           "use_en": "A subject pronoun does the action, an object pronoun receives it, and a possessive adjective stands before a noun. Other becomes others when it stands alone.",
           "use_fa": "ضمیر فاعلی کار را انجام می‌دهد، ضمیر مفعولی آن را می‌گیرد، و صفت ملکی پیش از اسم می‌آید. other وقتی تنها و بدون اسم بیاید، others می‌شود.",
           "form_en": "I / me / my   |   other + noun   |   others (alone)",
@@ -4064,10 +4240,11 @@
           ]
         },
         {
-          "n": 19,
+          "n": 21,
           "title": "Reflexive pronouns",
           "title_fa": "ضمیرهای بازتابی",
           "chapter": "Chapter 8",
+          "section": "8-4",
           "use_en": "A reflexive pronoun points back to the subject: the subject and the object are the same person. It can also add emphasis, meaning “that person and nobody else”.",
           "use_fa": "ضمیر بازتابی به نهاد برمی‌گردد: فاعل و مفعول یک نفرند. همچنین می‌تواند تأکید بیفزاید، یعنی «خودِ همان شخص و نه کس دیگر».",
           "form_en": "myself, yourself, himself, herself, itself, ourselves, yourselves, themselves",
@@ -4142,10 +4319,11 @@
           ]
         },
         {
-          "n": 20,
+          "n": 22,
           "title": "Modals of necessity and advice: must, have to, should",
           "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
           "chapter": "Chapters 9 and 10",
+          "section": "9-2",
           "use_en": "Must and have to say something is necessary; must not forbids and do not have to says it is not necessary. Should and ought to give advice. Had better warns that something bad follows if you do not.",
           "use_fa": "must و have to الزام را می‌گویند؛ must not ممنوعیت است و do not have to یعنی لازم نیست. should و ought to توصیه می‌دهند. had better هشدار می‌دهد که بی‌توجهی پیامد بدی دارد.",
           "form_en": "modal + base verb (no to after must, should, had better)",
@@ -4220,10 +4398,11 @@
           ]
         },
         {
-          "n": 21,
+          "n": 23,
           "title": "Ability and possibility: can, could, may, might",
           "title_fa": "توانایی و احتمال: can، could، may، might",
           "chapter": "Chapter 9",
+          "section": "9-6",
           "use_en": "Can is ability or permission now, could is past ability, and may or might is possibility, with might a little less certain.",
           "use_fa": "can توانایی یا اجازه در حال است، could توانایی در گذشته، و may یا might احتمال است، با این تفاوت که might کمی کمتر مطمئن است.",
           "form_en": "can / could + verb   |   may / might + verb",
@@ -4298,10 +4477,11 @@
           ]
         },
         {
-          "n": 22,
+          "n": 24,
           "title": "Requests and suggestions: could you, would you mind, let's",
           "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
           "chapter": "Chapter 9",
+          "section": "9-8",
           "use_en": "A polite request uses could you or would you; would you mind is followed by -ing; a suggestion uses let's, why don't we or shall we.",
           "use_fa": "درخواست مؤدبانه با could you یا would you می‌آید؛ پس از would you mind فعل ing می‌گیرد؛ پیشنهاد با let's، why don't we یا shall we ساخته می‌شود.",
           "form_en": "Could you + verb?   |   Would you mind + verb-ing?   |   Let's + verb",
@@ -4376,10 +4556,11 @@
           ]
         },
         {
-          "n": 23,
+          "n": 25,
           "title": "Degrees of certainty: must be, may be, can't be",
           "title_fa": "درجات اطمینان: must be، may be، can't be",
           "chapter": "Chapter 10",
+          "section": "10-4",
           "use_en": "Must be means you are almost sure; may be or might be means possible; can't be means you are sure it is not true. For the past, add have and the past participle.",
           "use_fa": "must be یعنی تقریباً مطمئنید؛ may be یا might be یعنی ممکن است؛ can't be یعنی مطمئنید که درست نیست. برای گذشته، have و اسم مفعول اضافه می‌شود.",
           "form_en": "must / may / might / can't + be   |   must have + past participle",
@@ -4454,10 +4635,11 @@
           ]
         },
         {
-          "n": 24,
+          "n": 26,
           "title": "The passive",
           "title_fa": "جملات مجهول",
           "chapter": "Chapter 11",
+          "section": "11-1",
           "use_en": "The passive puts the action or the result first and the doer last, or leaves the doer out when it is unknown or unimportant.",
           "use_fa": "مجهول کنش یا نتیجه را اول می‌آورد و کنندهٔ کار را آخر، یا وقتی کننده ناشناخته یا بی‌اهمیت است حذف می‌کند.",
           "form_en": "be (in the right tense) + past participle  (+ by + agent)",
@@ -4532,10 +4714,11 @@
           ]
         },
         {
-          "n": 25,
+          "n": 27,
           "title": "The passive with modals, get and stative verbs",
           "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
           "chapter": "Chapter 11",
+          "section": "11-4",
           "use_en": "After a modal the passive is modal + be + past participle. Get with the past participle is a less formal passive, and some verbs are passive in meaning.",
           "use_fa": "پس از افعال کمکی، مجهول به شکل کمکی + be + اسم مفعول می‌آید. get با اسم مفعول مجهولِ غیررسمی‌تر است و بعضی فعل‌ها معنای مجهولی دارند.",
           "form_en": "must / can / will + be + past participle   |   get + past participle",
@@ -4610,10 +4793,11 @@
           ]
         },
         {
-          "n": 26,
+          "n": 28,
           "title": "Noun clauses and reported speech",
           "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
           "chapter": "Chapter 12",
+          "section": "12-2",
           "use_en": "A noun clause is a whole sentence doing the job of a noun: it can be the object of know, ask or say. In reported speech the tense usually steps back one, and question word order becomes statement order.",
           "use_fa": "جملهٔ اسمی، جمله‌ای کامل است که نقش اسم را بازی می‌کند: مفعول know، ask یا say می‌شود. در نقل قول غیرمستقیم زمان معمولاً یک پله عقب می‌رود و ترتیب پرسشی به ترتیب خبری تبدیل می‌شود.",
           "form_en": "I don't know + where/what/if (subject + verb)  |  He said (that) + subject + verb",
@@ -4688,10 +4872,11 @@
           ]
         },
         {
-          "n": 27,
+          "n": 29,
           "title": "The subjunctive in noun clauses: insist that he be",
           "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
           "chapter": "Chapter 12",
+          "section": "12-9",
           "use_en": "After insist, recommend, suggest, request and demand, the that-clause uses the base verb for every person: that he be, that they go.",
           "use_fa": "پس از insist، recommend، suggest، request و demand، در جمله‌وارهٔ that فعل برای همهٔ اشخاص به شکل ساده می‌آید: that he be، that they go.",
           "form_en": "insist / suggest / recommend + that + subject + base verb",
@@ -4766,10 +4951,11 @@
           ]
         },
         {
-          "n": 28,
+          "n": 30,
           "title": "Adjective clauses",
           "title_fa": "جملات وصفی (موصولی)",
           "chapter": "Chapter 13",
+          "section": "13-1",
           "use_en": "An adjective clause describes a noun and follows it: who for people, which for things, whose for possession, where for places. The clause pronoun can be left out when it is the object.",
           "use_fa": "جملهٔ وصفی اسم را توصیف می‌کند و بعد از آن می‌آید: who برای افراد، which برای اشیا، whose برای مالکیت و where برای مکان. اگر ضمیر موصولی مفعول باشد، می‌توان آن را حذف کرد.",
           "form_en": "noun + who / which / that / whose / where + subject + verb",
@@ -4844,10 +5030,11 @@
           ]
         },
         {
-          "n": 29,
+          "n": 31,
           "title": "Reducing adjective clauses to phrases",
           "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
           "chapter": "Chapter 13",
+          "section": "13-11",
           "use_en": "An adjective clause with be can drop the pronoun and be: the man who is standing there becomes the man standing there. Without be, the verb becomes -ing.",
           "use_fa": "جمله‌وارهٔ وصفی که فعل be دارد می‌تواند ضمیر و be را حذف کند: the man who is standing there به the man standing there تبدیل می‌شود. اگر be نباشد، فعل به ing تبدیل می‌شود.",
           "form_en": "the girl who is singing -> the girl singing   |   the car that was stolen -> the car stolen",
@@ -4922,10 +5109,11 @@
           ]
         },
         {
-          "n": 30,
+          "n": 32,
           "title": "Gerunds and infinitives",
           "title_fa": "اسم‌های مصدری و مصدر با to",
           "chapter": "Chapters 14 and 15",
+          "section": "14-2",
           "use_en": "Some verbs are followed by -ing, some by to + verb, and a few by either with a change of meaning. After a preposition the form is always -ing.",
           "use_fa": "برخی فعل‌ها با ing- می‌آیند، برخی با to + فعل، و چند فعل با هر دو — با تغییری در معنا. بعد از حرف اضافه همیشه ing- می‌آید.",
           "form_en": "verb + -ing  |  verb + to + base  |  preposition + -ing",
@@ -5000,10 +5188,11 @@
           ]
         },
         {
-          "n": 31,
+          "n": 33,
           "title": "Causative verbs: make, have, get, let and help",
           "title_fa": "فعل‌های سببی: make، have، get، let و help",
           "chapter": "Chapter 15",
+          "section": "15-9",
           "use_en": "Make, have and let take the base verb; get takes the infinitive with to; help accepts either form.",
           "use_fa": "make، have و let فعل ساده می‌گیرند؛ get مصدر با to می‌گیرد؛ help هر دو شکل را می‌پذیرد.",
           "form_en": "make / have / let + person + verb   |   get + person + to + verb",
@@ -5078,10 +5267,11 @@
           ]
         },
         {
-          "n": 32,
+          "n": 34,
           "title": "Paired conjunctions and parallel structure",
           "title_fa": "حروف ربط جفتی و ساختار موازی",
           "chapter": "Chapter 16",
+          "section": "16-4",
           "use_en": "Both ... and, not only ... but also, either ... or and neither ... nor join two things of the same grammatical kind. Whatever follows the first half must match whatever follows the second.",
           "use_fa": "both ... and، not only ... but also، either ... or و neither ... nor دو چیز از یک نوع دستوری را به هم وصل می‌کنند. آنچه بعد از بخش اول می‌آید باید با بخش دوم هم‌شکل باشد.",
           "form_en": "both A and B  |  not only A but also B  |  either A or B  |  neither A nor B",
@@ -5156,10 +5346,11 @@
           ]
         },
         {
-          "n": 33,
+          "n": 35,
           "title": "Adverb clauses: time, cause, contrast and condition",
           "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
           "chapter": "Chapter 17",
+          "section": "17-2",
           "use_en": "An adverb clause answers when, why, in spite of what, or under what condition. It can come before the main clause (with a comma) or after it (without one).",
           "use_fa": "جملهٔ قیدی می‌گوید کِی، چرا، با وجود چه چیزی، یا تحت چه شرطی. می‌تواند پیش از جملهٔ اصلی بیاید (با ویرگول) یا پس از آن (بدون ویرگول).",
           "form_en": "when / while / because / although / if / unless + subject + verb",
@@ -5234,10 +5425,11 @@
           ]
         },
         {
-          "n": 34,
+          "n": 36,
           "title": "Reducing adverb clauses to modifying phrases",
           "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
           "chapter": "Chapter 18",
+          "section": "18-2",
           "use_en": "When the adverb clause and the main clause share a subject, drop the subject and change the verb: Before I left, I called becomes Before leaving, I called. With be, drop the pronoun and be.",
           "use_fa": "وقتی جمله‌وارهٔ قیدی و جملهٔ اصلی فاعل یکسان دارند، فاعل حذف می‌شود و فعل تغییر می‌کند: Before I left, I called به Before leaving, I called تبدیل می‌شود. با be، ضمیر و be حذف می‌شوند.",
           "form_en": "Before leaving, ...   |   While walking home, ...   |   Having finished, ...",
@@ -5312,10 +5504,11 @@
           ]
         },
         {
-          "n": 35,
+          "n": 37,
           "title": "Connectives: because of, therefore, so that, otherwise",
           "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
           "chapter": "Chapter 19",
+          "section": "19-2",
           "use_en": "Because of and due to take a noun; therefore, consequently and so join a result; so that gives a purpose; otherwise and or else give a condition.",
           "use_fa": "because of و due to اسم می‌گیرند؛ therefore، consequently و so نتیجه را وصل می‌کنند؛ so that هدف را می‌گوید؛ otherwise و or else شرط را می‌سازند.",
           "form_en": "because of + noun   |   sentence; therefore, sentence   |   so that + subject + modal",
@@ -5390,10 +5583,11 @@
           ]
         },
         {
-          "n": 36,
+          "n": 38,
           "title": "Conditionals and wishes",
           "title_fa": "جملات شرطی و آرزو",
           "chapter": "Chapter 20",
+          "section": "20-3",
           "use_en": "The first conditional is a real possibility: if + present, will + verb. The second is unreal in the present: if + past, would + verb. The third is unreal in the past: if + had + participle, would have + participle. Wish follows the same steps backwards.",
           "use_fa": "شرطی نوع اول امکان واقعی است: if + حال، will + فعل. نوع دوم در زمان حال غیرواقعی است: if + گذشته، would + فعل. نوع سوم در گذشته غیرواقعی است: if + had + اسم مفعول، would have + اسم مفعول. wish هم همین پله‌ها را به عقب می‌رود.",
           "form_en": "if + present → will  |  if + past → would  |  if + had + p.p. → would have + p.p.",

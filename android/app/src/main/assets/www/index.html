@@ -14260,7 +14260,10 @@ const Books = {
       const name = document.createElement('span');
       name.className = 'bn';
       name.dir = 'ltr';
-      name.textContent = lesson.title || ('Lesson ' + lesson.n);
+      // a book that numbers its charts is read chart first, like its contents
+      // page: "1-2" then the heading it belongs to
+      name.textContent = (lesson.section ? lesson.section + '  ' : '') +
+        (lesson.title || ('Lesson ' + lesson.n));
       b.appendChild(name);
       if (lesson.title_fa) {
         const fa = document.createElement('span');
@@ -14446,7 +14449,11 @@ const Books = {
     if (lesson.chapter) {
       const ch = document.createElement('span');
       ch.className = 'bchap';
-      ch.textContent = lesson.chapter;
+      // the book calls its numbered sections charts, and that is the name a
+      // learner will look for when they go back to the printed page
+      ch.textContent = /\d-\d/.test(lesson.section || '')
+        ? 'Chart ' + lesson.section
+        : lesson.chapter;
       h.appendChild(ch);
     }
     card.appendChild(h);

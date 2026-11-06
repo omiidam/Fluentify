@@ -430,7 +430,9 @@ PINNED_1100 = {
 # would notice.
 PINNED_GRAMMAR = [
     "Simple present and present progressive",
+    "Present simple and progressive: affirmative, negative and question forms",
     "Stative verbs: verbs not used in the progressive",
+    "Simple past tense",
     "Simple past and past progressive",
     "Was going to: intentions that did not happen",
     "Present perfect with since and for",
@@ -626,6 +628,25 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
           f"{bid}: no structure from chapter(s) {missing}" if missing
           else f"all 20 chapters, {len(lessons)} structures")
 
+    # Every structure points at the chart it follows, so a learner can find the
+    # page again. The numbers must be unique and in reading order.
+    sections = [str(l.get("section") or "") for l in lessons]
+    bad_section = [f"{l.get('n')}:{l.get('section')!r}"
+                   for l in lessons
+                   if not re.fullmatch(r"\d+(?:-\d+)?", str(l.get("section") or ""))]
+    check(not bad_section,
+          f"{bid}: a structure has no chart number ({', '.join(bad_section[:6])})"
+          if bad_section else f"{len(sections)} chart references")
+    check(len(sections) == len(set(sections)),
+          f"{bid}: two structures claim the same chart")
+
+    # Chapter one is the chapter the book opens with, and its six charts are
+    # what a learner meets first: all of them, in the book's own order.
+    first = [str(l.get("section")) for l in lessons
+             if l.get("chapter") == "Chapter 1"]
+    check(first == ["1-1", "1-2", "1-3", "1-4", "1-5", "1-6"],
+          f"{bid}: chapter one is not its six charts in order (got {first})")
+
     titles: list[str] = []
     for lesson in lessons:
         where = f"{bid} structure {lesson.get('n')}"
@@ -711,6 +732,15 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
     check(len(titles) == len(set(titles)),
           f"{bid}: a structure is taught twice")
 
+    # Every chapter-one structure stands on its own: the rule, the pattern,
+    # three examples, three exercises and three exam questions.
+    thin = [f"{l.get('section')}: {len(l.get('examples') or [])}/"
+            f"{len(l.get('exercises') or [])}/{len(l.get('exam') or [])}"
+            for l in lessons
+            if min(len(l.get("examples") or []), len(l.get("exercises") or []),
+                   len(l.get("exam") or [])) < 3]
+    check(not thin, f"{bid}: a structure is missing practice ({', '.join(thin[:6])})")
+
 
 def check_panel() -> None:
     """The four anchors that make the tile open a filled panel."""
@@ -792,6 +822,12 @@ def check_panel() -> None:
           "the shelf still calls a grammar book's structures lessons")
     check("this.examplesOf(book)" in src,
           "the shelf does not say how many examples a grammar book holds")
+    # the list and the structure both carry the book's own chart number, so a
+    # lesson can be found in the printed chapter it came from
+    check("lesson.section" in src,
+          "the panel never shows which chart a structure follows")
+    check("'Chart ' + lesson.section" in src,
+          "a structure does not name its chart")
 
 
 def check_offline() -> None:
