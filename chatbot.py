@@ -3317,6 +3317,31 @@ class ChatBot:
                                                      context_text=context.group(1))
         return None
 
+    def handle_domain_exact(self, text: str, lang: str) -> str | None:
+        """A vocabulary domain named on its own answers with its own list.
+
+        The panel's buttons send the domain's keyword, and a learner may type
+        it. Everything below this point claims a word near a domain - the
+        phrase banks answer "shopping words" with a shopping dialogue, the
+        idiom table answers "کار" with a proverb, the dictionary answers
+        "معنی look after" with one entry - so a domain named exactly has to be
+        read here, before they speak, or the tile quietly answers with the
+        wrong bank.
+        """
+        raw = re.sub(r"^(?:open|show|باز کن|نشان بده|نمایش)\s+", "",
+                     text.strip(), flags=re.IGNORECASE)
+        key = normalize_word(re.sub(r"[.!?؟,;:\"'«»()\[\]]", " ", raw))
+        if not key:
+            return None
+        for dom in self.glossary.values():
+            names = [dom["label"]["en"], dom["list_label"]["en"],
+                     dom["label"]["fa"], dom["list_label"]["fa"]]
+            names += list(dom["keywords"].get("en") or [])
+            names += list(dom["keywords"].get("fa") or [])
+            if any(normalize_word(n) == key for n in names if str(n).strip()):
+                return self.format_domain(dom, lang)
+        return None
+
     def handle_glossary_lookup(self, text: str, lang: str) -> str | None:
         """Translate/define a word: 'translate apple', 'سیب به انگلیسی', ..."""
         # Philosophy, not vocabulary: otherwise "meaning of life" becomes a
@@ -3653,6 +3678,14 @@ class ChatBot:
         section = self.handle_section(text, lowered, lang)
         if section is not None:
             return section
+
+        # A domain named on its own, ahead of every bank that claims nearby
+        # words: the Vocabulary tile sends exactly this, and a tile that
+        # answers with a dialogue about shopping instead of the shopping words
+        # is a tile that does not work.
+        domain = self.handle_domain_exact(text, lang)
+        if domain is not None:
+            return domain
 
         followup = self.handle_followup(text, lowered, lang)
         if followup is not None:

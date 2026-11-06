@@ -4765,7 +4765,7 @@
         "fa": [
           "خرید",
           "سایز",
-          "اندازه"
+          "پوشاک"
         ]
       },
       "words": [
@@ -4836,10 +4836,6 @@
         [
           "exchange",
           "تعویض"
-        ],
-        [
-          "receipt",
-          "رسید"
         ],
         [
           "customer",
@@ -5853,12 +5849,11 @@
         "en": [
           "doctor",
           "health problems",
-          "symptoms",
           "at the doctor"
         ],
         "fa": [
           "پزشک",
-          "سلامت",
+          "مطب",
           "علائم بیماری",
           "بیمارستان"
         ]
@@ -6014,7 +6009,7 @@
       "level": "B1",
       "keywords": {
         "en": [
-          "education",
+          "learning and exams",
           "study",
           "university",
           "exams",
@@ -6022,7 +6017,7 @@
         ],
         "fa": [
           "تحصیل",
-          "مدرسه",
+          "یادگیری",
           "دانشگاه",
           "امتحان",
           "درس خواندن"
@@ -6727,10 +6722,6 @@
           "تبلیغات سیاسی"
         ],
         [
-          "coverage",
-          "پوشش"
-        ],
-        [
           "commentator",
           "نظریه‌پرداز"
         ],
@@ -7009,18 +7000,18 @@
       "level": "B2",
       "keywords": {
         "en": [
-          "emotions",
-          "feelings",
+          "inner life",
+          "mind words",
           "psychology",
-          "mood",
-          "anxiety"
+          "anxiety",
+          "mood"
         ],
         "fa": [
-          "احساسات",
-          "حال",
-          "روانشناسی",
+          "حال درون",
+          "روان‌شناسی",
           "اضطراب",
-          "خلق"
+          "خلق",
+          "درون"
         ]
       },
       "words": [
@@ -7415,18 +7406,16 @@
       "level": "B2",
       "keywords": {
         "en": [
-          "money",
-          "finance",
+          "finance words",
           "investment",
           "savings",
-          "banking"
+          "interest rates"
         ],
         "fa": [
-          "پول",
           "مالیه",
           "سرمایه‌گذاری",
           "پس‌انداز",
-          "بانک"
+          "نرخ بهره"
         ]
       },
       "words": [
@@ -7612,17 +7601,14 @@
       "level": "B2",
       "keywords": {
         "en": [
-          "idioms",
+          "idioms you hear",
           "idiom",
-          "expressions",
-          "phrases",
-          "meaning"
+          "expressions"
         ],
         "fa": [
           "اصطلاح",
           "اصطلاحات",
-          "تعبیر",
-          "عبارت"
+          "تعبیر"
         ]
       },
       "words": [
@@ -7725,10 +7711,6 @@
         [
           "down to earth",
           "ساده و بی‌ریا"
-        ],
-        [
-          "get cold feet",
-          "دل‌سرد شدن"
         ],
         [
           "in hot water",
@@ -8274,10 +8256,6 @@
           "نیاز داشتن"
         ],
         [
-          "require",
-          "لازم داشتن"
-        ],
-        [
           "provide",
           "ارائه دادن"
         ],
@@ -8771,10 +8749,6 @@
           "مذاکره کردن"
         ],
         [
-          "leverage",
-          "بهره‌برداری"
-        ],
-        [
           "exploit",
           "بهره‌کشی"
         ],
@@ -8807,10 +8781,6 @@
           "هزینه‌های بالا"
         ],
         [
-          "turnover",
-          "گردش"
-        ],
-        [
           "deficit",
           "کسری"
         ],
@@ -8821,10 +8791,6 @@
         [
           "liquidity",
           "نقدینگی"
-        ],
-        [
-          "acquisition",
-          "اکتساب"
         ],
         [
           "merger",
@@ -8845,10 +8811,6 @@
         [
           "governance",
           "حاکمیت"
-        ],
-        [
-          "compliance",
-          "رعایت"
         ],
         [
           "due diligence",
@@ -9547,16 +9509,8 @@
           "گرچه"
         ],
         [
-          "inasmuch as",
-          "زیرا که"
-        ],
-        [
           "whereas",
           "در حالی که"
-        ],
-        [
-          "albeit",
-          "هرچند"
         ],
         [
           "notwithstandin",
@@ -9589,14 +9543,6 @@
         [
           "forsooth",
           "به حق"
-        ],
-        [
-          "notwithstanding",
-          "علی‌رغم"
-        ],
-        [
-          "albeit",
-          "اگرچه"
         ],
         [
           "what is more",
@@ -9663,14 +9609,6 @@
           "که پس از آن"
         ],
         [
-          "inasmuch",
-          "چنانچه"
-        ],
-        [
-          "notwithstanding",
-          "اگرچه"
-        ],
-        [
           "to wit",
           "یعنی"
         ],
@@ -9685,14 +9623,6 @@
         [
           "subsequently",
           "پس از آن"
-        ],
-        [
-          "thereby",
-          "به این ترتیب"
-        ],
-        [
-          "albeit",
-          "با وجود"
         ],
         [
           "save",

@@ -1550,6 +1550,22 @@ class Fluentify {
 
   /* ---------------------------------------------------------- glossary */
 
+  /* A domain named on its own answers with its own list. The panel sends the
+   * domain's keyword, and the phrase, idiom and dictionary banks all answer
+   * words that sit near a domain - so an exact name is read before them. */
+  handleDomainExact(text, lang) {
+    const raw = String(text).trim().replace(/^(?:open|show|باز کن|نشان بده|نمایش)\s+/i, '');
+    const key = normalizeWord(raw.replace(/[.!?؟,;:"'«»()\[\]]/g, ' '));
+    if (!key) return null;
+    for (const dom of Object.values(this.glossary)) {
+      const names = [dom.label.en, dom.list_label.en, dom.label.fa, dom.list_label.fa,
+                     ...(dom.keywords.en || []), ...(dom.keywords.fa || [])];
+      if (names.some((n) => String(n || '').trim() && normalizeWord(n) === key))
+        return this.formatDomain(dom, lang);
+    }
+    return null;
+  }
+
   handleDomainList(text, lowered, lang) {
     const normText = normalizeWord(text);
     for (const dom of Object.values(this.glossary)) {
@@ -3155,6 +3171,11 @@ class Fluentify {
 
     const section = this.handleSection(text, lowered, lang);
     if (section !== null) return section;
+
+    // A domain named on its own, ahead of every bank that claims nearby
+    // words - the Vocabulary tile sends exactly this.
+    const domainExact = this.handleDomainExact(text, lang);
+    if (domainExact !== null) return domainExact;
 
     const followup = this.handleFollowup(text, lowered, lang);
     if (followup !== null) return followup;
