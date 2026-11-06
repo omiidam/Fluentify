@@ -3333,6 +3333,17 @@ class ChatBot:
         key = normalize_word(re.sub(r"[.!?؟,;:\"'«»()\[\]]", " ", raw))
         if not key:
             return None
+        # A grammar lesson owns the name of its structure. Three domains are
+        # labelled with a lesson's name - "Question words", "Prepositions of
+        # place", "Phrasal verbs" - and the lesson is the answer to that name:
+        # the domain's own tile sends a keyword that is not a lesson name, so
+        # yielding here costs the button nothing and gives the learner the
+        # rule, the examples and the exercises instead of a bare word list.
+        for topic in self.grammar.values():
+            names = (list(topic["keywords"].get("en") or [])
+                     + list(topic["keywords"].get("fa") or []))
+            if any(normalize_word(n) == key for n in names if str(n).strip()):
+                return None
         for dom in self.glossary.values():
             names = [dom["label"]["en"], dom["list_label"]["en"],
                      dom["label"]["fa"], dom["list_label"]["fa"]]

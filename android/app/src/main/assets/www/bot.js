@@ -1557,6 +1557,17 @@ class Fluentify {
     const raw = String(text).trim().replace(/^(?:open|show|باز کن|نشان بده|نمایش)\s+/i, '');
     const key = normalizeWord(raw.replace(/[.!?؟,;:"'«»()\[\]]/g, ' '));
     if (!key) return null;
+    // A grammar lesson owns the name of its structure. Three domains are
+    // labelled with a lesson's name - "Question words", "Prepositions of
+    // place", "Phrasal verbs" - and the lesson is the answer to that name:
+    // the domain's own tile sends a keyword that is not a lesson name, so
+    // yielding here costs the button nothing and gives the learner the rule,
+    // the examples and the exercises instead of a bare word list.
+    for (const topic of Object.values(this.grammar)) {
+      const names = [...(topic.keywords.en || []), ...(topic.keywords.fa || [])];
+      if (names.some((n) => String(n || '').trim() && normalizeWord(n) === key))
+        return null;
+    }
     for (const dom of Object.values(this.glossary)) {
       const names = [dom.label.en, dom.list_label.en, dom.label.fa, dom.list_label.fa,
                      ...(dom.keywords.en || []), ...(dom.keywords.fa || [])];
