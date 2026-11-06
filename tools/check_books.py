@@ -2,10 +2,12 @@
 """The library: are the books sound, and is the panel wired to them?
 
 books.json is content, so the first thing this suite does is read it the way a
-learner would: a book has lessons, a lesson has words, and a word has a Persian
-meaning, an English definition and sentences that use it. A word with no
-example is a word the page can only show half of, and that is the kind of gap
-that is invisible in a diff and obvious on the screen.
+learner would. A word book has lessons, a lesson has words, and a word has a
+Persian meaning, an English definition and sentences that use it - a word with
+no example is a word the page can only show half of. The grammar book teaches
+structures instead: a rule, a pattern, examples, exercises and a short exam,
+and it is judged on whether a learner could practise from it. Both kinds of gap
+are invisible in a diff and obvious on the screen.
 
 The second half is the wiring, because the panel is built from four separate
 anchors - the tile in the header, the entry in Panels.TILES, the rule that
@@ -422,6 +424,30 @@ PINNED_1100 = {
          "tyro", "sophistry", "factitious", "encomium", "obloquy",
          "hyperbole", "munificent", "prevarication", "charisma", "genocide"],
 }
+# The grammar book carries no headwords to pin, so its syllabus is pinned
+# instead: the seventeen structures, in the book's own chapter order. A lesson
+# dropped or renamed still passes every shape check, and only a reader would
+# notice.
+PINNED_GRAMMAR = [
+    "Simple present and present progressive",
+    "Simple past and past progressive",
+    "Present perfect with since and for",
+    "Past perfect",
+    "Future: will and be going to",
+    "Subject-verb agreement",
+    "Count and noncount nouns: a few and a little",
+    "Articles: a, an and the",
+    "Reflexive pronouns",
+    "Modals of necessity and advice: must, have to, should",
+    "The passive",
+    "Noun clauses and reported speech",
+    "Adjective clauses",
+    "Gerunds and infinitives",
+    "Paired conjunctions and parallel structure",
+    "Adverb clauses: time, cause, contrast and condition",
+    "Conditionals and wishes",
+]
+
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
        "pronoun", "determiner", "interjection", "phrase", "expression"}
 
@@ -452,10 +478,12 @@ def check_catalogue(data: dict) -> dict:
     """Every book, lesson and word, field by field."""
     books = data.get("books")
     if not check(isinstance(books, list) and books, "books.json has no books"):
-        return {"books": 0, "lessons": 0, "words": 0}
+        return {"books": 0, "lessons": 0, "words": 0,
+                "structures": 0, "examples": 0, "exercises": 0, "exam": 0}
 
     ids: set[str] = set()
-    stats = {"books": 0, "lessons": 0, "words": 0}
+    stats = {"books": 0, "lessons": 0, "words": 0,
+             "structures": 0, "examples": 0, "exercises": 0, "exam": 0}
 
     for book in books:
         bid = book.get("id") or "<no id>"
@@ -473,6 +501,11 @@ def check_catalogue(data: dict) -> dict:
         check(bool(FA_LETTER.search(book.get("about_fa") or "")),
               f"{bid}: the Persian blurb has no Persian letters")
 
+        kind = book.get("kind")
+        check(kind in (None, "grammar"),
+              f"{bid}: kind is {kind!r}, and the panel only knows word books "
+              f"and 'grammar'")
+
         lessons = book.get("lessons")
         if not check(isinstance(lessons, list) and lessons,
                      f"{bid}: has no lessons"):
@@ -482,6 +515,11 @@ def check_catalogue(data: dict) -> dict:
         check(numbers == list(range(1, len(lessons) + 1)),
               f"{bid}: lessons are not numbered 1..{len(lessons)} in order "
               f"(got {numbers})")
+
+        if kind == "grammar":
+            stats["structures"] += len(lessons)
+            check_structures(book, lessons, stats)
+            continue
 
         seen_words: dict[str, int] = {}
         for lesson in lessons:
@@ -542,6 +580,92 @@ def check_catalogue(data: dict) -> dict:
     return stats
 
 
+def check_structures(book: dict, lessons: list, stats: dict) -> None:
+    """A grammar book is judged differently from a word book.
+
+    There are no headwords here to pin; what makes this book useful is that
+    every structure can be practised from the page. That means a rule that is
+    more than a label, examples of the rule in both languages, and exercises
+    and an exam whose key exists - an exercise with no answer, or a question
+    whose key is not among its options, looks complete in the JSON and teaches
+    nothing on the screen.
+    """
+    bid = book.get("id")
+    check(bool(LATIN.search(book.get("about_en") or "")),
+          f"{bid}: no English blurb")
+    check(bool((book.get("edition") or "").strip()),
+          f"{bid}: does not say which edition or publisher it follows")
+
+    titles: list[str] = []
+    for lesson in lessons:
+        where = f"{bid} structure {lesson.get('n')}"
+        title = (lesson.get("title") or "").strip()
+        titles.append(title.lower())
+        check(bool(title), f"{where}: no title")
+        check(bool(FA_LETTER.search(lesson.get("title_fa") or "")),
+              f"{where}: the Persian title has no Persian letters")
+        check(bool((lesson.get("chapter") or "").strip()),
+              f"{where}: does not say which chapter of the book it follows")
+
+        use_en = (lesson.get("use_en") or "").strip()
+        check(LATIN.search(use_en) is not None and len(use_en.split()) >= 10,
+              f"{where}: the rule is thinner than a sentence ({use_en!r})")
+        check(bool(FA_LETTER.search(lesson.get("use_fa") or "")),
+              f"{where}: the Persian rule has no Persian letters")
+        form = (lesson.get("form_en") or "").strip()
+        check(LATIN.search(form) is not None and len(form.split()) >= 3,
+              f"{where}: no pattern line ({form!r})")
+
+        examples = lesson.get("examples") or []
+        stats["examples"] += len(examples)
+        if check(isinstance(examples, list) and len(examples) >= 3,
+                 f"{where}: fewer than three examples"):
+            for ex in examples:
+                en = (ex.get("en") or "").strip()
+                check(len(en.split()) >= 4 and en[-1:] in ".?!",
+                      f"{where}: an example is not a sentence ({en!r})")
+                check(bool(FA_LETTER.search(ex.get("fa") or "")),
+                      f"{where}: an example has no Persian ({en!r})")
+
+        exercises = lesson.get("exercises") or []
+        stats["exercises"] += len(exercises)
+        if check(isinstance(exercises, list) and len(exercises) >= 3,
+                 f"{where}: fewer than three exercises"):
+            for ex in exercises:
+                prompt = (ex.get("prompt") or "").strip()
+                check(len(prompt.split()) >= 3,
+                      f"{where}: an exercise prompt is too short ({prompt!r})")
+                answer = (ex.get("answer") or "").strip()
+                check(bool(answer) and len(answer.split()) <= 8,
+                      f"{where}: an exercise has no usable answer ({prompt!r})")
+                check(bool((ex.get("why_en") or "").strip()),
+                      f"{where}: an exercise answer is not explained ({prompt!r})")
+                check(bool(FA_LETTER.search(ex.get("why_fa") or "")),
+                      f"{where}: an exercise explanation has no Persian")
+
+        exam = lesson.get("exam") or []
+        stats["exam"] += len(exam)
+        if check(isinstance(exam, list) and len(exam) >= 3,
+                 f"{where}: fewer than three exam questions"):
+            for q in exam:
+                text = (q.get("q") or "").strip()
+                check(len(text.split()) >= 4 and text[-1:] in "?.",
+                      f"{where}: an exam question is not a question ({text!r})")
+                options = q.get("options") or []
+                check(isinstance(options, list) and len(options) == 3,
+                      f"{where}: not three options ({text!r})")
+                answer = (q.get("answer") or "").strip()
+                check(answer in [str(o).strip() for o in options],
+                      f"{where}: the key {answer!r} is not one of {options}")
+                check(bool((q.get("why_en") or "").strip())
+                      and bool(FA_LETTER.search(q.get("why_fa") or "")),
+                      f"{where}: an exam answer is not explained in both "
+                      f"languages ({text!r})")
+
+    check(len(titles) == len(set(titles)),
+          f"{bid}: a structure is taught twice")
+
+
 def check_panel() -> None:
     """The four anchors that make the tile open a filled panel."""
     src = PAGE.read_text(encoding="utf-8")
@@ -591,6 +715,38 @@ def check_panel() -> None:
     check(re.search(r"\bbooks: \{\s*panel: 'bpanel'", src) is not None,
           "the library is not reachable by typing its name")
 
+    # ---- the grammar book draws a structure, not a word ------------------
+    check("paintStructure(box, book)" in src,
+          "the panel never draws a structure, so a grammar lesson opens blank")
+    check(re.search(r"book\.kind === 'grammar'", src) is not None,
+          "the panel does not tell a grammar book from a word book")
+    check("isGrammar(book)" in src,
+          "the shelf counts a grammar book's contents as words")
+    # each structure carries its rule, its pattern, examples, exercises and an
+    # exam; every one of those has to be drawn or the data is wasted
+    check("class = 'bform'" in src or "className = 'bform'" in src,
+          "the pattern line of a structure is never drawn")
+    check("label('Examples', 'مثال‌ها')" in src,
+          "the examples of a structure are never drawn")
+    check("label('Exercises', 'تمرین‌ها')" in src,
+          "the exercises of a structure are never drawn")
+    check("label('Exam', 'آزمون')" in src,
+          "the exam questions of a structure are never drawn")
+    check("this.answer(item.answer" in src,
+          "an exercise or exam question has no answer attached")
+    # the key is folded away, not merely styled away
+    check("ans.setAttribute('hidden', '')" in src,
+          "the answer is not hidden until the learner asks for it")
+    check("ans.removeAttribute('hidden')" in src,
+          "the answer can never be unfolded once hidden")
+    check("item.options || []" in src,
+          "the three options of an exam question are never drawn")
+    # the shelf has to name the book by what it teaches, and its author
+    check("' structure' : ' structures'" in src,
+          "the shelf still calls a grammar book's structures lessons")
+    check("this.examplesOf(book)" in src,
+          "the shelf does not say how many examples a grammar book holds")
+
 
 def check_offline() -> None:
     """The APK has no server, so the same file has to be in its assets."""
@@ -616,7 +772,9 @@ def check_offline() -> None:
 
 def main() -> int:
     data = load()
-    stats = check_catalogue(data) if data else {"books": 0, "lessons": 0, "words": 0}
+    blank = {"books": 0, "lessons": 0, "words": 0,
+             "structures": 0, "examples": 0, "exercises": 0, "exam": 0}
+    stats = check_catalogue(data) if data else blank
 
     other = next((b for b in data.get("books", []) if b.get("id") == "1100-words"),
                  None)
@@ -647,6 +805,16 @@ def main() -> int:
                   f"504 lesson {number} is not the book's twelve words in "
                   f"order: {words}")
 
+    grammar = next((b for b in data.get("books", []) if b.get("kind") == "grammar"),
+                   None)
+    if check(grammar is not None, "the grammar book is not in the library"):
+        check(grammar.get("author") == "Betty S. Azar & Stacy A. Hagen",
+              "the grammar book is not credited to its authors "
+              f"(got {grammar.get('author')!r})")
+        titles = [l.get("title") for l in grammar.get("lessons") or []]
+        check(titles == PINNED_GRAMMAR,
+              f"the grammar book is not the pinned syllabus in order: {titles}")
+
     check_panel()
     check_offline()
 
@@ -660,7 +828,10 @@ def main() -> int:
 
     print(f"PASS  {stats['books']} book(s), {stats['lessons']} lesson(s), "
           f"{stats['words']} words with a meaning, a definition and examples; "
-          f"the panel is wired to them on the page and in the APK bundle")
+          f"{stats['structures']} grammar structure(s) with "
+          f"{stats['examples']} examples, {stats['exercises']} exercises and "
+          f"{stats['exam']} exam questions; the panel is wired to them on the "
+          f"page and in the APK bundle")
     return 0
 
 

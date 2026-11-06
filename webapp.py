@@ -2889,6 +2889,86 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     flex: none; background: none; border: none; cursor: pointer;
     color: var(--indigo-ink); font-size: 10px; padding: 0; font-family: inherit;
   }
+  /* ---- a book of structures --------------------------------------------
+     The grammar book is a different animal from the word books: a lesson is a
+     rule with examples of it and then something to do. Same card, same gutter,
+     one more layer for the exercises - the pattern line sits in a monospace
+     strip because a form is not a sentence, and an answer stays folded until
+     the learner asks for it. */
+  .bform {
+    margin-top: 6px; padding: 6px 9px; border-radius: 8px;
+    background: var(--surf-2); border: 1px dashed var(--line-strong);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11.5px; line-height: 1.7; color: var(--ink-2);
+    direction: ltr; text-align: left; overflow-wrap: anywhere;
+  }
+  /* the rule, the labels and the pattern line start where the body of a word
+     entry starts, under the title and not at the card edge */
+  .bstruct .bform, .bstruct .blabel { margin-inline-start: 26px; }
+  .bstruct .bchap {
+    font-size: 9.5px; color: var(--muted); letter-spacing: .02em;
+    border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px;
+  }
+  .blabel {
+    display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;
+    margin: 11px 0 5px; font-family: var(--font-display);
+    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+  .blabel .bfa { font-size: 10.5px; font-weight: 500; text-transform: none;
+    letter-spacing: 0; color: var(--muted); }
+  .bexg { display: flex; flex-direction: column; gap: 6px; margin-inline-start: 26px; }
+  .bexrow { padding: 4px 0 4px 9px; border-inline-start: 2px solid var(--line-strong); }
+  .bexrow .en {
+    display: flex; gap: 6px; align-items: baseline;
+    font-size: 12px; color: var(--ink); direction: ltr; text-align: left;
+  }
+  .bexrow .en button {
+    flex: none; background: none; border: none; cursor: pointer;
+    color: var(--indigo-ink); font-size: 10px; padding: 0; font-family: inherit;
+  }
+  .bexrow .fa {
+    direction: rtl; text-align: right; unicode-bidi: plaintext;
+    font-size: 11.5px; line-height: 1.95; color: var(--ink-2);
+  }
+  /* exercise and exam cards: the prompt, then the answer behind a button */
+  .bexr {
+    margin-inline-start: 26px; margin-bottom: 6px; padding: 8px 10px;
+    border-radius: 10px; background: var(--surf-2); border: 1px solid var(--line);
+  }
+  .bexr .q {
+    font-size: 12px; line-height: 1.6; color: var(--ink);
+    direction: ltr; text-align: left;
+  }
+  .bexr .q .num {
+    display: inline-block; min-width: 15px; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .bexr .opts {
+    display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px;
+    direction: ltr; text-align: left;
+  }
+  .bexr .opt {
+    font-size: 11px; padding: 2px 7px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--surf-1); color: var(--ink-2);
+  }
+  .bexr .peek {
+    font: inherit; font-size: 10.5px; cursor: pointer; margin-top: 6px;
+    padding: 3px 9px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--surf-1); color: var(--ink-3);
+  }
+  .bexr .peek:hover { border-color: var(--line2); color: var(--ink); }
+  .bexr .ans {
+    margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--line);
+    font-size: 11.5px; line-height: 1.75; color: var(--ink);
+    direction: ltr; text-align: left;
+  }
+  .bexr .ans[hidden] { display: none; }
+  .bexr .ans b { color: var(--teal); }
+  .bexr .ans .why-fa {
+    display: block; direction: rtl; text-align: right; unicode-bidi: plaintext;
+    color: var(--ink-2); font-size: 11.5px;
+  }
 
   /* ---------- reading: strategies, a passage, four kinds of question ----
      One panel with two views. The list is a table of contents; the detail is
@@ -14110,12 +14190,31 @@ const Books = {
       return;
     }
     if (this.lesson == null) this.paintLessons(box, book);
+    else if (book.kind === 'grammar') this.paintStructure(box, book);
     else this.paintWords(box, book);
   },
 
   /* the word count of a book, computed once so all three depths agree */
   wordsOf(book) {
     return (book.lessons || []).reduce((n, l) => n + (l.words || []).length, 0);
+  },
+
+  /* A grammar book teaches structures, not words, so the shelf cannot call
+     both kinds "lessons" and both contents "words". */
+  isGrammar(book) { return (book || {}).kind === 'grammar'; },
+
+  examplesOf(book) {
+    return (book.lessons || []).reduce((n, l) => n + (l.examples || []).length, 0);
+  },
+
+  /* what a grammar lesson holds, for its tile and its heading */
+  counts(lesson) {
+    const ex = (lesson.examples || []).length;
+    const pr = (lesson.exercises || []).length;
+    const qs = (lesson.exam || []).length;
+    const one = (n, s) => n + ' ' + s + (n === 1 ? '' : 's');
+    return one(ex, 'example') + ' · ' + one(pr, 'exercise') +
+      (qs ? ' · ' + one(qs, 'exam question') : '');
   },
 
   /* Back one level. The English word for where you are going, then the
@@ -14158,8 +14257,12 @@ const Books = {
       const meta = document.createElement('span');
       meta.className = 'bmeta';
       meta.dir = 'ltr';
-      meta.textContent = (book.author ? book.author + ' · ' : '') + lessons +
-        (lessons === 1 ? ' lesson' : ' lessons') + ' · ' + this.wordsOf(book) + ' words';
+      meta.textContent = (book.author ? book.author + ' · ' : '') +
+        (this.isGrammar(book)
+          ? lessons + (lessons === 1 ? ' structure' : ' structures') +
+            ' · ' + this.examplesOf(book) + ' examples'
+          : lessons + (lessons === 1 ? ' lesson' : ' lessons') +
+            ' · ' + this.wordsOf(book) + ' words');
       card.appendChild(meta);
       card.onclick = () => {
         this.bookId = book.id;
@@ -14182,6 +14285,23 @@ const Books = {
     head.dir = 'ltr';
     head.textContent = book.title;
     box.appendChild(head);
+    // the blurb in both languages: the English one first, on its own line,
+    // then the Persian, because a mixed line is laid out by its first strong
+    // character and would drag the Persian half left to right
+    if (book.author) {
+      const by = document.createElement('div');
+      by.className = 'bmeta';
+      by.dir = 'ltr';
+      by.textContent = book.author + (book.edition ? ' · ' + book.edition : '');
+      box.appendChild(by);
+    }
+    if (book.about_en) {
+      const about = document.createElement('div');
+      about.className = 'pblurb';
+      about.dir = 'ltr';
+      about.textContent = book.about_en;
+      box.appendChild(about);
+    }
     if (book.about_fa) {
       const about = document.createElement('div');
       about.className = 'pblurb';
@@ -14212,7 +14332,9 @@ const Books = {
       }
       const n = document.createElement('span');
       n.className = 'n';
-      n.textContent = (lesson.words || []).length + ' words';
+      n.textContent = this.isGrammar(book)
+        ? this.counts(lesson)
+        : (lesson.words || []).length + ' words';
       b.appendChild(n);
       b.onclick = () => {
         this.lesson = lesson.n;
@@ -14336,6 +14458,210 @@ const Books = {
       list.appendChild(card);
     });
     box.appendChild(list);
+  },
+
+  /* one structure: the rule and its form, examples of it in both languages,
+     then something to do. A grammar book has no third depth below this, so
+     this is the leaf the whole panel ends on. Answers stay folded behind a
+     button: a learner who wants to try a gap-fill first should not read the
+     answer on the way past. */
+  paintStructure(box, book) {
+    const lesson = (book.lessons || []).find((l) => l.n === this.lesson);
+    if (!lesson) {
+      this.lesson = null;
+      this.paintLessons(box, book);
+      return;
+    }
+    const bar = document.createElement('div');
+    bar.className = 'bstick';
+    bar.appendChild(this.back('Structures', 'ساختارها', () => {
+      this.lesson = null;
+      this.paint();
+    }));
+    const crumb = document.createElement('span');
+    crumb.className = 'bcrumb';
+    crumb.textContent = book.title + ' · ' + (lesson.title || ('Structure ' + lesson.n));
+    bar.appendChild(crumb);
+    const count = document.createElement('span');
+    count.className = 'bnum';
+    count.textContent = (lesson.examples || []).length + ' examples';
+    bar.appendChild(count);
+    box.appendChild(bar);
+
+    const card = document.createElement('div');
+    card.className = 'bword bstruct';
+
+    const h = document.createElement('div');
+    h.className = 'bwh';
+    h.dir = 'ltr';
+    const num = document.createElement('span');
+    num.className = 'bnum';
+    num.textContent = String(lesson.n);
+    num.setAttribute('aria-hidden', 'true');
+    h.appendChild(num);
+    const title = document.createElement('b');
+    title.textContent = lesson.title || ('Structure ' + lesson.n);
+    h.appendChild(title);
+    if (lesson.chapter) {
+      const ch = document.createElement('span');
+      ch.className = 'bchap';
+      ch.textContent = lesson.chapter;
+      h.appendChild(ch);
+    }
+    card.appendChild(h);
+
+    const faLine = (text, cls) => {
+      const el = document.createElement('div');
+      el.className = cls;
+      el.dir = 'rtl';
+      el.lang = 'fa';
+      el.textContent = text;
+      return el;
+    };
+    if (lesson.title_fa) card.appendChild(faLine(lesson.title_fa, 'bfa'));
+    if (lesson.use_en) {
+      const use = document.createElement('div');
+      use.className = 'bdef';
+      use.dir = 'ltr';
+      use.textContent = lesson.use_en;
+      card.appendChild(use);
+    }
+    if (lesson.use_fa) card.appendChild(faLine(lesson.use_fa, 'bfa'));
+    if (lesson.form_en) {
+      const form = document.createElement('div');
+      form.className = 'bform';
+      form.dir = 'ltr';
+      form.textContent = lesson.form_en;
+      card.appendChild(form);
+    }
+
+    const label = (en, fa) => {
+      const el = document.createElement('div');
+      el.className = 'blabel';
+      el.innerHTML = escapeHtml(en) +
+        (fa ? ' <bdi class="fa" lang="fa" dir="rtl">' + escapeHtml(fa) + '</bdi>' : '');
+      return el;
+    };
+
+    const examples = lesson.examples || [];
+    if (examples.length) {
+      card.appendChild(label('Examples', 'مثال‌ها'));
+      const group = document.createElement('div');
+      group.className = 'bexg';
+      examples.forEach((ex) => {
+        const row = document.createElement('div');
+        row.className = 'bexrow';
+        const en = document.createElement('div');
+        en.className = 'en';
+        en.dir = 'ltr';
+        const play = document.createElement('button');
+        play.type = 'button';
+        play.textContent = '▶';
+        play.title = 'Hear the sentence — شنیدن جمله';
+        play.setAttribute('aria-label', 'Hear: ' + ex.en);
+        play.onclick = () => Speech.speak(ex.en);
+        const line = document.createElement('span');
+        line.textContent = ex.en;
+        en.append(play, line);
+        row.appendChild(en);
+        if (ex.fa) row.appendChild(faLine(ex.fa, 'fa'));
+        group.appendChild(row);
+      });
+      card.appendChild(group);
+    }
+
+    const exercises = lesson.exercises || [];
+    if (exercises.length) {
+      card.appendChild(label('Exercises', 'تمرین‌ها'));
+      exercises.forEach((item, index) => {
+        const r = document.createElement('div');
+        r.className = 'bexr';
+        const q = document.createElement('div');
+        q.className = 'q';
+        q.dir = 'ltr';
+        const n = document.createElement('span');
+        n.className = 'num';
+        n.textContent = (index + 1) + '.';
+        q.append(n, document.createTextNode(' ' + item.prompt));
+        r.appendChild(q);
+        r.appendChild(this.answer(item.answer, item.why_en, item.why_fa));
+        card.appendChild(r);
+      });
+    }
+
+    const exam = lesson.exam || [];
+    if (exam.length) {
+      card.appendChild(label('Exam', 'آزمون'));
+      exam.forEach((item, index) => {
+        const r = document.createElement('div');
+        r.className = 'bexr';
+        const q = document.createElement('div');
+        q.className = 'q';
+        q.dir = 'ltr';
+        const n = document.createElement('span');
+        n.className = 'num';
+        n.textContent = (index + 1) + '.';
+        q.append(n, document.createTextNode(' ' + item.q));
+        r.appendChild(q);
+        const opts = document.createElement('div');
+        opts.className = 'opts';
+        opts.dir = 'ltr';
+        (item.options || []).forEach((option) => {
+          const o = document.createElement('span');
+          o.className = 'opt';
+          o.textContent = option;
+          opts.appendChild(o);
+        });
+        r.appendChild(opts);
+        r.appendChild(this.answer(item.answer, item.why_en, item.why_fa));
+        card.appendChild(r);
+      });
+    }
+    box.appendChild(card);
+  },
+
+  /* the folded answer of one exercise or exam question */
+  answer(text, whyEn, whyFa) {
+    const wrap = document.createElement('div');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'peek';
+    btn.setAttribute('aria-expanded', 'false');
+    const ans = document.createElement('div');
+    ans.className = 'ans';
+    ans.dir = 'ltr';
+    ans.setAttribute('hidden', '');
+    const key = document.createElement('b');
+    key.textContent = text || '—';
+    ans.appendChild(key);
+    if (whyEn) {
+      const why = document.createElement('div');
+      why.textContent = whyEn;
+      ans.appendChild(why);
+    }
+    if (whyFa) {
+      const why = document.createElement('div');
+      why.className = 'why-fa';
+      why.dir = 'rtl';
+      why.lang = 'fa';
+      why.textContent = whyFa;
+      ans.appendChild(why);
+    }
+    const paint = (open) => {
+      btn.innerHTML = escapeHtml(open ? 'Hide the answer' : 'Show the answer') +
+        ' · <bdi class="fa" lang="fa" dir="rtl">' +
+        escapeHtml(open ? 'پنهان کن' : 'پاسخ') + '</bdi>';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    paint(false);
+    btn.onclick = () => {
+      const open = ans.hasAttribute('hidden');
+      if (open) ans.removeAttribute('hidden');
+      else ans.setAttribute('hidden', '');
+      paint(open);
+    };
+    wrap.append(btn, ans);
+    return wrap;
   },
 };
 
