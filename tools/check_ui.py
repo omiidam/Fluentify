@@ -902,17 +902,21 @@ def main() -> int:
     paint = re.search(r"function paintAccount\(\) \{(.*?)\n  \}", src, re.S)
     body_tpl = paint.group(1) if paint else ""
     actions_at = body_tpl.find('class="ac-actions"')
-    theme_at = body_tpl.find('class="ac-theme"')
-    check("the account actions come before the settings block",
-          actions_at != -1 and theme_at != -1 and actions_at < theme_at,
-          "a settings block above the buttons pushes them out of the panel "
-          "on a short window, which is the bug this replaces")
+    check("the account panel still draws its actions",
+          actions_at != -1,
+          "the panel's buttons have to be in the markup it repaints")
 
     # ------------------------------------------------------- the switch ----
-    check("the appearance control offers both themes",
-          src.count('data-theme-set="light"') == 1
-          and src.count('data-theme-set="dark"') == 1,
-          "the Account panel needs exactly one button per theme")
+    # The switch lives in the header now. Account had a second copy of it, which
+    # is two controls for one setting - and the panel one went stale the moment
+    # the header was used.
+    check("the theme switch is the header tile and only the header tile",
+          src.count('id="themetoggle"') == 1
+          and src.count('data-theme-set=') == 0,
+          "a second appearance control in Account duplicated the header tile")
+    check("the header tile is wired, not just drawn",
+          re.search(r"getElementById\('themetoggle'\)\.onclick", src) is not None,
+          "an unwired tile is a button that does nothing")
     check("the switch writes the choice where the head reads it",
           "fluentify.theme" in src
           and re.search(r"localStorage\.setItem\(KEY", src) is not None

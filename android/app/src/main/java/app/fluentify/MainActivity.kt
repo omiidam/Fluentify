@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.Context
 import android.media.AudioAttributes
+import android.os.Build
 import android.os.Bundle
 import android.print.PrintAttributes
 import android.print.PrintManager
@@ -303,6 +304,15 @@ class MainActivity : AppCompatActivity() {
             settings.allowContentAccess = false
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
+            // The renderer is a separate process, and by default it is only as
+            // important as any other background process: Android killed it
+            // with reason=LOW_MEMORY repeatedly *while the app was on screen*,
+            // which is the white page and the sudden jump out of the app.
+            // Saying that this WebView is important does not give it memory,
+            // but it tells the low-memory killer to look elsewhere first.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                setRendererPriorityPolicy(WebView.RENDERER_PRIORITY_IMPORTANT, true)
+            }
             addJavascriptInterface(TtsBridge(), "AndroidTTS")
             addJavascriptInterface(SttBridge(), "AndroidSTT")
             addJavascriptInterface(PrintBridge(), "AndroidPrint")

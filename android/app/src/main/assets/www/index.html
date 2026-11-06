@@ -1444,46 +1444,6 @@
   }
   .ac-row b { color: var(--ink); font-weight: 600; }
   .ac-actions { display: flex; flex-wrap: wrap; gap: 7px; }
-  /* The appearance control. Two states, both named in both languages, both
-     showing the icon of the thing they turn on - a switch labelled "Dark"
-     with a sun beside it is a switch that argues with itself. */
-  .ac-theme {
-    margin: 12px 0 10px; padding: 9px 10px; border-radius: 12px;
-    background: var(--surf-2); border: 1px solid var(--line);
-  }
-  .ac-theme-h {
-    display: flex; justify-content: space-between; align-items: baseline;
-    gap: 8px; margin-bottom: 8px;
-  }
-  .ac-theme-t {
-    font-family: var(--font-display); font-size: 11.5px; font-weight: 700;
-    color: var(--ink-2);
-  }
-  .ac-theme-h small {
-    font-size: 10px; line-height: 1.5; color: var(--ink-4); text-align: end;
-  }
-  .ac-theme-h small .fa { display: block; }
-  .ac-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .ac-th {
-    font: inherit; cursor: pointer; display: flex; flex-direction: row;
-    justify-content: center; align-items: center; gap: 6px; padding: 7px 8px;
-    border-radius: 10px;
-    background: var(--surf-1); border: 1px solid var(--line);
-    color: var(--ink-3); transition: background .15s, border-color .15s, color .15s;
-  }
-  .ac-th svg {
-    width: 18px; height: 18px; fill: none; stroke: currentColor;
-    stroke-width: 1.7; stroke-linecap: round;
-  }
-  .ac-th b { font-family: var(--font-display); font-size: 11.5px; font-weight: 700; }
-  .ac-th i { font-style: normal; font-size: 10.5px; color: var(--ink-4); }
-  .ac-th.on i { color: var(--ink-3); }
-  .ac-th:hover { border-color: var(--line2); color: var(--ink-2); }
-  .ac-th.on {
-    background: var(--raise); border-color: var(--focus); color: var(--navy-ink);
-    box-shadow: 0 4px 12px -8px rgba(0,0,0,.55);
-  }
-  .ac-th.on i { color: var(--ink-3); }
   .ac-danger {
     font: inherit; font-size: 11.5px; cursor: pointer; padding: 8px 12px;
     border-radius: 10px; border: 1px solid rgba(168,69,106,.35);
@@ -5370,11 +5330,16 @@ try {
    phone version still reads as a bird rather than a blob: bold shapes, no
    hairline detail that disappears below 24px, and a single highlight in the
    eye where the light comes from. */
-function birdSVG(p, key) {
-  /* Every bird carries its own gradient id. The ids used to be the same for
-     every copy, and a page showing six palettes at once drew all six with the
-     first one's gradient - one bird in six costumes. */
-  const ns = 'b' + (key || 'x');
+let birdSeq = 0;
+function birdSVG(p) {
+  /* Every bird carries its own gradient id, and its own means *every copy*: a
+     name taken from the palette was still a shared id, so the hero and the
+     button that picked it - same palette, two elements - claimed one id, and a
+     third copy elsewhere replaced the gradients the first two were pointing
+     at. A page that draws the learner's face in the chat, in the picker and on
+     the hero repaints all of them, and a gradient id that is reused across
+     repaints is how a bird comes back bald. A counter cannot collide. */
+  const ns = 'bird' + (++birdSeq);
   return '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
     '<defs>' +
       '<linearGradient id="' + ns + 'Body" x1="0" y1="0" x2="1" y2="1">' +
@@ -5442,7 +5407,16 @@ function avatarId() {
 
 function avatarSVG(id) {
   const key = AVATARS[id] ? id : SEASON;
-  return birdSVG(AVATARS[key].pal, 'a' + key);
+  return birdSVG(AVATARS[key].pal);
+}
+
+/* A face belongs to the learner, not to the message it was drawn beside. The
+   bubbles written before a change kept the old bird, so the chat showed two
+   different people - the new face on the next line, the old one above it. */
+function repaintAvatarTiles() {
+  document.querySelectorAll('#chat .row.user .mav').forEach((tile) => {
+    if (tile.querySelector('svg')) tile.innerHTML = avatarSVG(avatarId());
+  });
 }
 
 /* The tile behind the bird is ringed in the bird's own ring colour, so a
@@ -10221,6 +10195,19 @@ const Level = (() => {
   function attemptState() {
     if (state) return state;
     state = read(KEY.attempt, null) || blankAttempt();
+    /* A half-finished paper is read back after an update, and the paper it was
+       written on may not have had the shape it has now: no writing box, no
+       speaking box, no part number. Reading those as if they were this
+       build's is how a saved attempt came back as a blank sheet - the first
+       tap on a question threw on `undefined`, and on the phone a throw inside
+       a paint is an empty panel with nothing to scroll. */
+    state.answers = state.answers || {};
+    state.practice = state.practice || {};
+    ['writing', 'speaking'].forEach((k) => { state.practice[k] = state.practice[k] || {}; });
+    const rooms = doc ? partCount(doc) : 0;
+    if (typeof state.part !== 'number' || state.part < 0 || (rooms && state.part >= rooms)) {
+      state.part = 0;
+    }
     return state;
   }
   function saveAttempt(now) {
@@ -10750,11 +10737,28 @@ const Level = (() => {
 
   function render() {
     if (ticker) { clearInterval(ticker); ticker = null; }
-    if (view === 'test') renderTest();
-    else if (view === 'writing') renderWriting();
-    else if (view === 'practice') renderPractice();
-    else if (view === 'result') renderResult();
-    else renderIntro();
+    try {
+      if (view === 'test') renderTest();
+      else if (view === 'writing') renderWriting();
+      else if (view === 'practice') renderPractice();
+      else if (view === 'result') renderResult();
+      else renderIntro();
+    } catch (e) {
+      /* A paint that throws used to leave the panel half-built, which on a
+         phone is a white sheet with nothing on it and no way forward. The
+         answers are already written down, so say that and offer the door back
+         rather than a dead panel. */
+      console.error('level:', e);
+      const host = body();
+      if (!host) return;
+      host.innerHTML = `<div class="lv-wrap"><section class="lv-hero">
+        <div class="lv-eyebrow">Level assessment</div>
+        <h2 class="lv-h">This part could not be drawn</h2>
+        <p class="lv-sub">Your answers are saved. Open the level check again to carry on where you were.</p>
+        ${faLine('پاسخ‌هایت ذخیره شده‌اند. بخش سنجش سطح را دوباره باز کن تا از همان‌جا ادامه دهی.')}
+        <div class="lv-actions"><button class="lv-btn" data-act="intro">Back to the start</button></div>
+      </section></div>`;
+    }
   }
 
   function start(fresh) {
@@ -11177,11 +11181,6 @@ const Theme = (() => {
 
   function paint() {
     const now = current();
-    document.querySelectorAll('[data-theme-set]').forEach((b) => {
-      const on = b.dataset.themeSet === now;
-      b.classList.toggle('on', on);
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', META[now]);
     /* The header tile is a switch, not a panel button: it says which theme is
@@ -11192,15 +11191,6 @@ const Theme = (() => {
       tile.setAttribute('aria-pressed', dark ? 'true' : 'false');
       tile.title = dark ? 'Theme: dark — tap for light / پوستهٔ تیره' :
         'Theme: light — tap for dark / پوستهٔ روشن';
-    }
-    const note = document.getElementById('acthemenote');
-    if (note) {
-      /* Bilingual, and Persian on its own line, like every other label. */
-      note.innerHTML = now === 'dark'
-        ? 'Dark is remembered on this device.' +
-          '<bdi class="fa" dir="rtl" lang="fa">تیره روی این دستگاه ذخیره می‌شود.</bdi>'
-        : 'Light is remembered on this device.' +
-          '<bdi class="fa" dir="rtl" lang="fa">روشن روی این دستگاه ذخیره می‌شود.</bdi>';
     }
   }
 
@@ -11923,6 +11913,7 @@ const Auth = (() => {
     hide();
     show('signup', false);
     applyAvatarSkin(avatarId());
+    repaintAvatarTiles();
     if (document.getElementById('lvlbody')) Level.mount();
   }
 
@@ -12006,6 +11997,12 @@ const Auth = (() => {
   function paintAccount() {
     const body = $('acbody');
     if (!body) return;
+    /* Repainting replaces every node in the panel, and a replaced panel starts
+       at its top: picking a face three rows down threw the learner back to the
+       name they had already read. Where the panel was standing is part of what
+       the panel showed. */
+    const panel = document.getElementById('acpanel');
+    const keep = panel ? panel.scrollTop : 0;
     account = read(ACCOUNT, null) || account;
     session = read(SESSION, null) || session;
     if (!account) {
@@ -12084,23 +12081,6 @@ const Auth = (() => {
         </form>
       </div>
 
-      <div class="ac-theme">
-        <div class="ac-theme-h">
-          <span class="ac-theme-t">Appearance — ظاهر</span>
-          <small id="acthemenote">Light is remembered on this device.</small>
-        </div>
-        <div class="ac-seg" role="group" aria-label="Appearance">
-          <button class="ac-th" type="button" data-theme-set="light" aria-pressed="false">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.4 5.4l1.7 1.7M16.9 16.9l1.7 1.7M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7"/></svg>
-            <b>Light</b><i lang="fa" dir="rtl">روشن</i>
-          </button>
-          <button class="ac-th" type="button" data-theme-set="dark" aria-pressed="false">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/></svg>
-            <b>Dark</b><i lang="fa" dir="rtl">تیره</i>
-          </button>
-        </div>
-      </div>
-
       <div class="ac-rows" style="margin-top:10px">
         <div class="ac-row"><span>Email</span><b>${esc(account.email || '—')}</b></div>
         <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
@@ -12115,6 +12095,7 @@ const Auth = (() => {
       <p class="authnote">Signing out keeps the account; resetting erases it, the level results, the
         certificate history, the study time and the chosen avatar from this device.</p>`;
     Theme.paint();
+    if (panel && keep) panel.scrollTop = keep;
   }
 
   /* ---- changing the password from inside the panel -----------------------
@@ -12237,17 +12218,15 @@ const Auth = (() => {
           if (AVATARS[id]) {
             try { localStorage.setItem(AVATAR_KEY, id); } catch (err) { /* private */ }
             applyAvatarSkin(id);
+            repaintAvatarTiles();
             paintAccount();
           }
           return;
         }
-        const sw = e.target.closest('[data-theme-set]');
-        if (sw) { Theme.apply(sw.dataset.themeSet, true); return; }
         const b = e.target.closest('[data-ac]');
         if (!b) return;
         const act = b.dataset.ac;
-        if (act === 'theme') Theme.apply(b.dataset.themeSet, true);
-        else if (act === 'avatar-focus') {
+        if (act === 'avatar-focus') {
           const pick = accountBody.querySelector('.ac-av.on') || accountBody.querySelector('.ac-av');
           if (pick) {
             pick.scrollIntoView({block: 'nearest'});
