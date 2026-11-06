@@ -4126,7 +4126,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* ---------- review: saved words + flashcards ---------- */
   /* Inside the tile. A negative offset puts it outside a 46px button, and
      being a span it then inherits .hbtn span's overflow:hidden and is clipped
-     in half - a sliver on the edge rather than a badge. */
+     in half - a sliver on the edge rather than a badge. Today's outstanding
+     items and the month's level are the two that earn one: a count of saved
+     words said nothing the Review panel did not already say. */
   .rbadge {
     position: absolute; top: 3px; inset-inline-end: 3px; z-index: 1;
     display: inline-flex; align-items: center; justify-content: center;
@@ -5251,7 +5253,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
             <button class="hbtn tint-amber" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
-        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.4l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"/></svg></i><span>Review</span><span class="rbadge" id="rbadge" hidden>0</span></button>
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.4l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"/></svg></i><span>Review</span></button>
       <button class="hbtn tint-amber" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="4.8" width="17.2" height="16" rx="2.4"/><path d="M3.4 9.6h17.2M8.2 3.2v3.2M15.8 3.2v3.2"/><path d="M7.6 13.4h3.2v3.2H7.6z"/></svg></i><span>Today</span><span class="rbadge" id="dbadge" hidden>0</span></button>
       <button class="hbtn tint-teal" id="vtoggle" aria-expanded="false" title="Vocabulary — واژگان" aria-label="Vocabulary">
@@ -13848,11 +13850,9 @@ const Review = {
       const raw = localStorage.getItem(this.KEY);
       if (raw) this.items = JSON.parse(raw) || [];
     } catch (e) { this.items = []; }
-    this.paintBadge();
   },
   save() {
     try { localStorage.setItem(this.KEY, JSON.stringify(this.items)); } catch (e) {}
-    this.paintBadge();
   },
   has(word) {
     const w = (word || '').toLowerCase();
@@ -13887,13 +13887,6 @@ const Review = {
   clear() { this.items = []; this.at = 0; this.flipped = false; this.save(); this.paint(); },
   get mastered() { return this.items.filter((i) => i.ok).length; },
   current() { return this.items[this.at] || null; },
-  paintBadge() {
-    const b = document.getElementById('rbadge');
-    if (!b) return;
-    b.textContent = this.items.length;
-    b.hidden = !this.items.length;
-  },
-
   /* ---------- rendering ---------- */
   paint() {
     const top = document.getElementById('rtop');

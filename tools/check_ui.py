@@ -210,19 +210,24 @@ def main() -> int:
           "transcript_url" not in bbc and "Transcript" not in bbc,
           "a transcript button that opens a retired PDF reads as a broken app")
 
-    # ---------------------------------------------------- review count badge --
+    # ------------------------------------------------------- the tile badge --
     # It was at top:-3px / inset-inline-end:-3px, which is outside a 46px
     # button - and being a <span> it inherited .hbtn span's overflow:hidden,
     # so the tile clipped it in half and it read as a sliver on the edge.
     rbadge = re.search(r"\n  \.rbadge \{(.*?)\n  \}", src, re.S)
     rb = re.sub(r"/\*.*?\*/", "", rbadge.group(1), flags=re.S) if rbadge else ""
-    check("the review badge sits inside its tile",
+    check("the tile badge sits inside its tile",
           not re.search(r"(top|inset-inline-end|right|left)\s*:\s*-\d", rb),
           "a negative offset puts it outside the button, where it is clipped "
           "into a sliver by the label's overflow:hidden")
-    check("the review badge overrides the label's ellipsis",
+    check("the tile badge overrides the label's ellipsis",
           "text-overflow: clip" in rb,
           ".hbtn span sets ellipsis and nowrap, which is for labels not counts")
+    # The count of saved words went: every word already shows in Today's Words
+    # and in Review, so a running total on the tile was a number about nothing.
+    check("the review tile carries no saved-word count",
+          'id="rbadge"' not in src and "Review.paintBadge" not in src,
+          "a count of saved words duplicated what the Review panel showed")
 
     # ---------------------------------------------------------- the backdrop --
     # The drifting background layer had `filter: blur(40px) saturate(140%)` on
@@ -1281,9 +1286,12 @@ def main() -> int:
            "No words saved yet" in paint,
            "an empty list must say what to do, not show nothing")
 
-    badge = obj_method(src, "Review", "paintBadge")
-    check("the badge reflects the saved count",
-           "this.items.length" in badge)
+    # The saved-word count on the tile is gone: it counted words the Review
+    # panel already lists, so it was a number that told the learner nothing.
+    check("the review list does not repaint a tile badge",
+           obj_method(src, "Review", "paintBadge") == ""
+           and "paintBadge" not in obj_method(src, "Review", "save"),
+           "a saved-word count on the tile duplicated the panel's own list")
 
     # ---------------------------------------------------------- mic button --
     check("the mic icon is an SVG, not an emoji",
