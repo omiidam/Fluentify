@@ -157,10 +157,14 @@ def main() -> int:
     apk = ROOT / "android/app/src/main/assets/www/data/glossary.json"
     if apk.exists():
         same = json.loads(apk.read_text(encoding="utf-8"))["domains"]
-        check("the APK bundle carries the same domains",
-              {k: len(v["words"]) for k, v in same.items() if k != "_groups"}
-              == {k: len(v["words"]) for k, v in domains.items()},
-              "domain counts differ between the web and the APK")
+        def counts(block: dict) -> dict:
+            return {k: len(v["words"]) for k, v in block.items()
+                    if k != "_groups"}
+
+        web, offline = counts(domains), counts(same)
+        check("the APK bundle carries the same domains", web == offline,
+              f"{len(web)} domains, the same counts in both" if web == offline
+              else f"web {len(web)}, APK {len(offline)} domains; counts differ")
     else:
         notes.append("the APK bundle has not been built; run build_apk_ui.py")
 

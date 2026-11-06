@@ -113,6 +113,7 @@ SUITES = [
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
+    ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
     ("mini stories panel", [sys.executable, "tools/check_stories.py"]),
