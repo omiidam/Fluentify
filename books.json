@@ -2656,8 +2656,8 @@
       "title_fa": "درک و کاربرد دستور زبان انگلیسی",
       "author": "Betty S. Azar & Stacy A. Hagen",
       "edition": "Fifth edition · Pearson",
-      "about_en": "The syllabus of the standard intermediate-to-advanced grammar course, kept to what a learner actually uses: seventeen structures, each with the rule, examples, exercises and a short exam. The explanations and sentences here are written for this app; the book is the reference text.",
-      "about_fa": "سرفصل درس‌نامهٔ استاندارد دستور زبان برای سطح متوسط تا پیشرفته، فقط بخش‌هایی که به کار می‌آید: هفده ساختار، هر یک با قاعده، مثال، تمرین و یک آزمون کوتاه. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+      "about_en": "The grammar of the whole course, chapter by chapter: thirty-six structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. The explanations and sentences are written for this app; the book is the reference text.",
+      "about_fa": "دستور زبان تمام دوره، فصل به فصل: سی‌وشش ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
       "lessons": [
         {
           "n": 1,
@@ -2739,6 +2739,84 @@
         },
         {
           "n": 2,
+          "title": "Stative verbs: verbs not used in the progressive",
+          "title_fa": "فعل‌های حالتی: فعل‌هایی که استمراری نمی‌شوند",
+          "chapter": "Chapter 1",
+          "use_en": "Some verbs describe a state rather than an action: knowing, believing, belonging, wanting, seeming. They stay in the simple present even when the meaning is now.",
+          "use_fa": "بعضی فعل‌ها حالت را توصیف می‌کنند، نه کار را: دانستن، باور داشتن، تعلق داشتن، خواستن، به نظر رسیدن. این فعل‌ها حتی وقتی به «همین حالا» اشاره دارند، ساده می‌مانند.",
+          "form_en": "subject + know / like / want / own / seem   (not: am knowing, is wanting)",
+          "examples": [
+            {
+              "en": "I know the answer, so do not explain it again.",
+              "fa": "جواب را می‌دانم، پس دوباره توضیحش نده."
+            },
+            {
+              "en": "This bag belongs to my sister.",
+              "fa": "این کیف مال خواهرم است."
+            },
+            {
+              "en": "She wants a cup of tea right now.",
+              "fa": "او همین حالا یک فنجان چای می‌خواهد."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "He ___ (know) the way to the station.",
+              "answer": "knows",
+              "why_en": "Knowing is a state, so the simple present takes -s with he.",
+              "why_fa": "دانستن یک حالت است، پس حال ساده با فاعل he شکل -s می‌گیرد."
+            },
+            {
+              "prompt": "I ___ (not / believe) that story.",
+              "answer": "don't believe",
+              "why_en": "Belief is a state; the progressive is not used.",
+              "why_fa": "باور یک حالت است و استمراری نمی‌گیرد."
+            },
+            {
+              "prompt": "They ___ (own) two shops in the city.",
+              "answer": "own",
+              "why_en": "Owning is a state, not an action happening now.",
+              "why_fa": "مالک بودن حالت است، نه کاری که همین حالا در جریان باشد."
+            }
+          ],
+          "exam": [
+            {
+              "q": "___ you ___ my new address?",
+              "options": [
+                "Do ... know",
+                "Are ... knowing",
+                "Do ... knowing"
+              ],
+              "answer": "Do ... know",
+              "why_en": "Know is stative, so the question uses the simple present.",
+              "why_fa": "know فعل حالتی است، پس پرسش با حال ساده ساخته می‌شود."
+            },
+            {
+              "q": "This jacket ___ to my brother.",
+              "options": [
+                "belongs",
+                "is belonging",
+                "belong"
+              ],
+              "answer": "belongs",
+              "why_en": "Belong is a state and takes -s with this jacket.",
+              "why_fa": "belong حالت است و با فاعل مفرد -s می‌گیرد."
+            },
+            {
+              "q": "She ___ to leave early today.",
+              "options": [
+                "wants",
+                "is wanting",
+                "want"
+              ],
+              "answer": "wants",
+              "why_en": "Want stays stative even about this moment.",
+              "why_fa": "want حتی دربارهٔ همین لحظه هم حالتی می‌ماند."
+            }
+          ]
+        },
+        {
+          "n": 3,
           "title": "Simple past and past progressive",
           "title_fa": "گذشتهٔ ساده و گذشتهٔ استمراری",
           "chapter": "Chapter 1",
@@ -2816,7 +2894,85 @@
           ]
         },
         {
-          "n": 3,
+          "n": 4,
+          "title": "Was going to: intentions that did not happen",
+          "title_fa": "was/were going to: تصمیم‌هایی که عملی نشد",
+          "chapter": "Chapter 1",
+          "use_en": "Use was or were going to for a plan you had in the past that did not happen. The sentence usually adds but and the reason it failed.",
+          "use_fa": "از was یا were going to برای برنامه‌ای در گذشته استفاده می‌کنیم که انجام نشد. جمله معمولاً با but و دلیل انجام‌نشدن ادامه پیدا می‌کند.",
+          "form_en": "subject + was / were + going to + verb",
+          "examples": [
+            {
+              "en": "I was going to call you, but my phone died.",
+              "fa": "می‌خواستم بهت زنگ بزنم، ولی گوشی‌ام خاموش شد."
+            },
+            {
+              "en": "We were going to drive, but the road was closed.",
+              "fa": "قرار بود با ماشین برویم، ولی جاده بسته بود."
+            },
+            {
+              "en": "She was going to study medicine before she chose law.",
+              "fa": "او می‌خواست پزشکی بخواند، تا اینکه حقوق را انتخاب کرد."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "They ___ (leave) on Friday, but the flight was cancelled.",
+              "answer": "were going to leave",
+              "why_en": "The plan existed and the cancelled flight stopped it.",
+              "why_fa": "برنامه وجود داشت و لغو پرواز مانع انجامش شد."
+            },
+            {
+              "prompt": "I ___ (buy) the tickets yesterday, but I forgot.",
+              "answer": "was going to buy",
+              "why_en": "The intention was real and was not carried out.",
+              "why_fa": "قصد واقعی بود، ولی انجام نشد."
+            },
+            {
+              "prompt": "He ___ (tell) her, but she had already heard.",
+              "answer": "was going to tell",
+              "why_en": "He intended to tell her before he learned she knew.",
+              "why_fa": "قصد داشت به او بگوید، ولی پیش از آن فهمید که او می‌داند."
+            }
+          ],
+          "exam": [
+            {
+              "q": "We ___ move house last month, but we changed our minds.",
+              "options": [
+                "were going to",
+                "are going to",
+                "will"
+              ],
+              "answer": "were going to",
+              "why_en": "A past plan that did not happen.",
+              "why_fa": "برنامه‌ای در گذشته که انجام نشد."
+            },
+            {
+              "q": "I ___ phone you, but I lost your number.",
+              "options": [
+                "was going to",
+                "am going to",
+                "would go to"
+              ],
+              "answer": "was going to",
+              "why_en": "The intention belongs to the past and failed.",
+              "why_fa": "قصد مربوط به گذشته است و عملی نشد."
+            },
+            {
+              "q": "They ___ open a shop, but the rent was too high.",
+              "options": [
+                "were going to",
+                "were going",
+                "are going to"
+              ],
+              "answer": "were going to",
+              "why_en": "Going to followed by the verb gives the unfulfilled plan.",
+              "why_fa": "going to با فعل ساده، برنامهٔ انجام‌نشده را می‌سازد."
+            }
+          ]
+        },
+        {
+          "n": 5,
           "title": "Present perfect with since and for",
           "title_fa": "حال کامل با since و for",
           "chapter": "Chapter 2",
@@ -2894,7 +3050,163 @@
           ]
         },
         {
-          "n": 4,
+          "n": 6,
+          "title": "Present perfect or simple past: which one?",
+          "title_fa": "حال کامل یا گذشتهٔ ساده: کدام را انتخاب کنیم؟",
+          "chapter": "Chapter 2",
+          "use_en": "The present perfect connects a past action to now and names no finished time. The simple past names a finished time: yesterday, in 2019, two hours ago.",
+          "use_fa": "حال کامل کاری در گذشته را به «الان» وصل می‌کند و زمان تمام‌شده‌ای نمی‌آورد. گذشتهٔ ساده زمان تمام‌شده را می‌گوید: دیروز، در ۲۰۱۹، دو ساعت پیش.",
+          "form_en": "have / has + past participle   |   verb + -ed + finished time",
+          "examples": [
+            {
+              "en": "I have seen this film, so I can tell you the ending.",
+              "fa": "این فیلم را دیده‌ام، پس می‌توانم پایانش را بگویم."
+            },
+            {
+              "en": "I saw this film last night with my brother.",
+              "fa": "دیشب این فیلم را با برادرم دیدم."
+            },
+            {
+              "en": "She has lived in Tehran all her life.",
+              "fa": "او تمام عمرش در تهران زندگی کرده است."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "We ___ (finish) the report two hours ago.",
+              "answer": "finished",
+              "why_en": "Two hours ago is a finished time, so the simple past.",
+              "why_fa": "«دو ساعت پیش» زمان تمام‌شده است، پس گذشتهٔ ساده."
+            },
+            {
+              "prompt": "I ___ (never / eat) sushi in my life.",
+              "answer": "have never eaten",
+              "why_en": "Never with a life experience uses the perfect.",
+              "why_fa": "never با تجربهٔ زندگی، حال کامل می‌گیرد."
+            },
+            {
+              "prompt": "You ___ (be) at the party last night.",
+              "answer": "were",
+              "why_en": "Last night is finished, so the simple past of be.",
+              "why_fa": "«دیشب» تمام شده است، پس گذشتهٔ سادهٔ be."
+            }
+          ],
+          "exam": [
+            {
+              "q": "I ___ my keys, so I cannot open the door.",
+              "options": [
+                "have lost",
+                "lost",
+                "lose"
+              ],
+              "answer": "have lost",
+              "why_en": "The loss matters now; no finished time is named.",
+              "why_fa": "گم‌شدن همین حالا مهم است و زمان تمام‌شده‌ای گفته نشده."
+            },
+            {
+              "q": "We ___ the match 3-1 last Sunday.",
+              "options": [
+                "won",
+                "have won",
+                "win"
+              ],
+              "answer": "won",
+              "why_en": "Last Sunday is a finished time.",
+              "why_fa": "«یکشنبهٔ گذشته» زمان تمام‌شده است."
+            },
+            {
+              "q": "Have you ever ___ to Shiraz?",
+              "options": [
+                "been",
+                "be",
+                "went"
+              ],
+              "answer": "been",
+              "why_en": "Ever with the perfect asks about experience.",
+              "why_fa": "ever با حال کامل دربارهٔ تجربه می‌پرسد."
+            }
+          ]
+        },
+        {
+          "n": 7,
+          "title": "Present perfect progressive: how long an action has lasted",
+          "title_fa": "حال کامل استمراری: مدتِ ادامهٔ یک کار",
+          "chapter": "Chapter 2",
+          "use_en": "Use have or has been with -ing for an action that started in the past and is still going on, or has just stopped with a visible result.",
+          "use_fa": "از have یا has been با ing برای کاری استفاده می‌کنیم که از گذشته شروع شده و هنوز ادامه دارد، یا همین حالا تمام شده و اثرش دیده می‌شود.",
+          "form_en": "have / has + been + verb-ing",
+          "examples": [
+            {
+              "en": "I have been waiting for the bus for twenty minutes.",
+              "fa": "بیست دقیقه است که منتظر اتوبوس هستم."
+            },
+            {
+              "en": "It has been raining since morning.",
+              "fa": "از صبح باران می‌بارد."
+            },
+            {
+              "en": "Her eyes are red; she has been crying.",
+              "fa": "چشم‌هایش سرخ است؛ گریه می‌کرده."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "They ___ (play) football for an hour.",
+              "answer": "have been playing",
+              "why_en": "The game started an hour ago and is still going.",
+              "why_fa": "بازی یک ساعت پیش شروع شده و هنوز ادامه دارد."
+            },
+            {
+              "prompt": "She ___ (study) English since she was ten.",
+              "answer": "has been studying",
+              "why_en": "Since marks the starting point of an action still running.",
+              "why_fa": "since نقطهٔ شروع کاری را می‌گوید که هنوز ادامه دارد."
+            },
+            {
+              "prompt": "The ground is wet. It ___ (rain).",
+              "answer": "has been raining",
+              "why_en": "The rain has stopped but its result is still here.",
+              "why_fa": "باران بند آمده ولی اثرش هنوز هست."
+            }
+          ],
+          "exam": [
+            {
+              "q": "How long ___ you ___ in this city?",
+              "options": [
+                "have ... been living",
+                "are ... living",
+                "did ... live"
+              ],
+              "answer": "have ... been living",
+              "why_en": "How long with an action still going takes the perfect progressive.",
+              "why_fa": "«how long» با کاری که ادامه دارد، حال کامل استمراری می‌گیرد."
+            },
+            {
+              "q": "He ___ all morning, so he is tired.",
+              "options": [
+                "has been working",
+                "is working",
+                "works"
+              ],
+              "answer": "has been working",
+              "why_en": "The morning is up to now, and the result is tiredness.",
+              "why_fa": "از صبح تا حالا کار کرده و نتیجه‌اش خستگی است."
+            },
+            {
+              "q": "My hands are dirty because I ___ the garden.",
+              "options": [
+                "have been digging",
+                "dig",
+                "dug"
+              ],
+              "answer": "have been digging",
+              "why_en": "The digging explains the dirt right now.",
+              "why_fa": "کندن باغ، کثیفیِ همین حالا را توضیح می‌دهد."
+            }
+          ]
+        },
+        {
+          "n": 8,
           "title": "Past perfect",
           "title_fa": "گذشتهٔ کامل",
           "chapter": "Chapter 2",
@@ -2972,7 +3284,85 @@
           ]
         },
         {
-          "n": 5,
+          "n": 9,
+          "title": "Past perfect progressive: how long before another past action",
+          "title_fa": "گذشتهٔ کامل استمراری: مدتِ ادامهٔ کار پیش از رخدادی در گذشته",
+          "chapter": "Chapter 2",
+          "use_en": "Use had been with -ing for an action that had been going on for some time when something else happened in the past.",
+          "use_fa": "از had been با ing برای کاری استفاده می‌کنیم که مدتی در جریان بود تا وقتی اتفاق دیگری در گذشته رخ داد.",
+          "form_en": "had + been + verb-ing",
+          "examples": [
+            {
+              "en": "She had been studying for hours when the lights went out.",
+              "fa": "ساعت‌ها درس می‌خواند که برق رفت."
+            },
+            {
+              "en": "They had been waiting since noon when the doctor arrived.",
+              "fa": "از ظهر منتظر بودند که دکتر رسید."
+            },
+            {
+              "en": "The road was wet because it had been raining all night.",
+              "fa": "جاده خیس بود چون تمام شب باران باریده بود."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "He ___ (work) there for ten years when he resigned.",
+              "answer": "had been working",
+              "why_en": "The working lasted up to the resignation.",
+              "why_fa": "کار کردن تا لحظهٔ استعفا ادامه داشت."
+            },
+            {
+              "prompt": "We ___ (drive) for four hours before we found the village.",
+              "answer": "had been driving",
+              "why_en": "The driving was in progress until the village appeared.",
+              "why_fa": "رانندگی تا پیدا شدن روستا در جریان بود."
+            },
+            {
+              "prompt": "Her voice was tired: she ___ (teach) all day.",
+              "answer": "had been teaching",
+              "why_en": "The teaching explains her tired voice in the past.",
+              "why_fa": "درس دادن، خستگیِ صدای او را در گذشته توضیح می‌دهد."
+            }
+          ],
+          "exam": [
+            {
+              "q": "They ___ for an hour when the film finally started.",
+              "options": [
+                "had been waiting",
+                "have been waiting",
+                "were waiting"
+              ],
+              "answer": "had been waiting",
+              "why_en": "The waiting came before another past action.",
+              "why_fa": "انتظار پیش از رخداد دیگری در گذشته بود."
+            },
+            {
+              "q": "The team ___ badly all season before the new coach came.",
+              "options": [
+                "had been playing",
+                "has been playing",
+                "was playing"
+              ],
+              "answer": "had been playing",
+              "why_en": "All season ran up to the arrival of the coach.",
+              "why_fa": "تمام فصل تا رسیدن مربی جدید ادامه داشت."
+            },
+            {
+              "q": "I ___ the letter all afternoon before I posted it.",
+              "options": [
+                "had been writing",
+                "have been writing",
+                "wrote"
+              ],
+              "answer": "had been writing",
+              "why_en": "The writing lasted until the posting.",
+              "why_fa": "نوشتن تا لحظهٔ پست کردن ادامه داشت."
+            }
+          ]
+        },
+        {
+          "n": 10,
           "title": "Future: will and be going to",
           "title_fa": "آینده: will و be going to",
           "chapter": "Chapter 3",
@@ -3050,7 +3440,241 @@
           ]
         },
         {
-          "n": 6,
+          "n": 11,
+          "title": "Future in time clauses: after when, before and as soon as",
+          "title_fa": "آینده در جمله‌واره‌های زمانی: with when، before و as soon as",
+          "chapter": "Chapter 3",
+          "use_en": "After when, before, after, as soon as, until and while, English uses the present, not will, even when the meaning is future.",
+          "use_fa": "پس از when، before، after، as soon as، until و while در انگلیسی حال می‌آید، نه will، حتی وقتی معنی آینده است.",
+          "form_en": "I will call you when I arrive.   (not: when I will arrive)",
+          "examples": [
+            {
+              "en": "I will call you when I arrive at the hotel.",
+              "fa": "وقتی به هتل رسیدم بهت زنگ می‌زنم."
+            },
+            {
+              "en": "We will start as soon as everyone is ready.",
+              "fa": "به‌محض اینکه همه آماده شوند شروع می‌کنیم."
+            },
+            {
+              "en": "She will wait until the rain stops.",
+              "fa": "او صبر می‌کند تا باران بند بیاید."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "We ___ (leave) before the traffic gets bad.",
+              "answer": "will leave",
+              "why_en": "The main clause carries will; the time clause stays present.",
+              "why_fa": "will در جملهٔ اصلی می‌آید و جمله‌وارهٔ زمانی حال می‌ماند."
+            },
+            {
+              "prompt": "As soon as the shop ___ (open), I will buy the tickets.",
+              "answer": "opens",
+              "why_en": "After as soon as the future is expressed with the present.",
+              "why_fa": "بعد از as soon as آینده با حال بیان می‌شود."
+            },
+            {
+              "prompt": "They will wait until the manager ___ (come) back.",
+              "answer": "comes",
+              "why_en": "Until takes the present when the meaning is future.",
+              "why_fa": "until وقتی معنی آینده دارد، حال می‌گیرد."
+            }
+          ],
+          "exam": [
+            {
+              "q": "I ___ you when the taxi ___ .",
+              "options": [
+                "will text ... arrives",
+                "will text ... will arrive",
+                "text ... arrives"
+              ],
+              "answer": "will text ... arrives",
+              "why_en": "Will in the main clause, present in the time clause.",
+              "why_fa": "will در جملهٔ اصلی و حال در جمله‌وارهٔ زمانی."
+            },
+            {
+              "q": "We will eat after the children ___ to bed.",
+              "options": [
+                "go",
+                "will go",
+                "are going"
+              ],
+              "answer": "go",
+              "why_en": "After a time word, the present carries the future.",
+              "why_fa": "پس از واژهٔ زمانی، حال آینده را می‌رساند."
+            },
+            {
+              "q": "Call me as soon as you ___ at the airport.",
+              "options": [
+                "arrive",
+                "will arrive",
+                "arrived"
+              ],
+              "answer": "arrive",
+              "why_en": "As soon as never takes will in the time clause.",
+              "why_fa": "as soon as در جمله‌وارهٔ زمانی هرگز will نمی‌گیرد."
+            }
+          ]
+        },
+        {
+          "n": 12,
+          "title": "Future progressive and future perfect",
+          "title_fa": "آیندهٔ استمراری و آیندهٔ کامل",
+          "chapter": "Chapter 3",
+          "use_en": "Will be with -ing describes an action in progress at a future moment. Will have with the past participle describes something finished before a future moment.",
+          "use_fa": "will be با ing کاری را نشان می‌دهد که در لحظه‌ای در آینده در جریان است. will have با اسم مفعول کاری را نشان می‌دهد که پیش از لحظه‌ای در آینده تمام شده است.",
+          "form_en": "will + be + verb-ing   |   will + have + past participle",
+          "examples": [
+            {
+              "en": "At eight tonight I will be driving to the airport.",
+              "fa": "امشب ساعت هشت در راه فرودگاه خواهم بود."
+            },
+            {
+              "en": "By next June she will have finished her degree.",
+              "fa": "تا ژوئن آینده مدرکش را گرفته است."
+            },
+            {
+              "en": "Do not call at noon; we will be having lunch.",
+              "fa": "ظهر زنگ نزن؛ ما در حال ناهار خوردن هستیم."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "This time tomorrow we ___ (fly) over the desert.",
+              "answer": "will be flying",
+              "why_en": "An action in progress at a future moment.",
+              "why_fa": "کاری که در لحظه‌ای در آینده در جریان است."
+            },
+            {
+              "prompt": "By the time you read this, I ___ (leave).",
+              "answer": "will have left",
+              "why_en": "By the time marks a future point the action will be finished before.",
+              "why_fa": "by the time لحظه‌ای در آینده است که کار پیش از آن تمام می‌شود."
+            },
+            {
+              "prompt": "At midnight they ___ (still / dance).",
+              "answer": "will still be dancing",
+              "why_en": "Still shows the dancing is going on at that future moment.",
+              "why_fa": "still نشان می‌دهد رقصیدن در آن لحظهٔ آینده ادامه دارد."
+            }
+          ],
+          "exam": [
+            {
+              "q": "By 2030 the city ___ its new metro line.",
+              "options": [
+                "will have opened",
+                "will be opening",
+                "opens"
+              ],
+              "answer": "will have opened",
+              "why_en": "By 2030 is a point the opening will be finished before.",
+              "why_fa": "by 2030 لحظه‌ای است که افتتاح پیش از آن تمام می‌شود."
+            },
+            {
+              "q": "At nine tomorrow she ___ her exam.",
+              "options": [
+                "will be taking",
+                "will have taken",
+                "takes"
+              ],
+              "answer": "will be taking",
+              "why_en": "At nine is a moment when the exam is in progress.",
+              "why_fa": "ساعت نه لحظه‌ای است که آزمون در جریان است."
+            },
+            {
+              "q": "By Friday we ___ the whole report.",
+              "options": [
+                "will have written",
+                "will be writing",
+                "write"
+              ],
+              "answer": "will have written",
+              "why_en": "By Friday, the writing will be complete.",
+              "why_fa": "تا جمعه، نوشتن تمام شده است."
+            }
+          ]
+        },
+        {
+          "n": 13,
+          "title": "Tense review: choosing the tense a sentence needs",
+          "title_fa": "مرور زمان‌ها: انتخاب زمان درست برای هر جمله",
+          "chapter": "Chapter 4",
+          "use_en": "Two questions choose the tense: when did it happen, and is it finished, repeated, or still going on? The book's review chapter gathers the twelve tenses that answer them.",
+          "use_fa": "دو پرسش زمان فعل را انتخاب می‌کند: کِی اتفاق افتاد، و آیا تمام شده، تکرار می‌شود یا هنوز ادامه دارد؟ فصل مرور کتاب همان دوازده زمانی را کنار هم می‌آورد که به این پرسش‌ها پاسخ می‌دهند.",
+          "form_en": "past  -  now  -  future  x  simple / progressive / perfect",
+          "examples": [
+            {
+              "en": "I read the news every morning.",
+              "fa": "هر صبح خبرها را می‌خوانم."
+            },
+            {
+              "en": "I was reading when you called.",
+              "fa": "وقتی زنگ زدی داشتم می‌خواندم."
+            },
+            {
+              "en": "I have read that book twice.",
+              "fa": "آن کتاب را دو بار خوانده‌ام."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "Look at the sky! It ___ (rain) soon.",
+              "answer": "is going to rain",
+              "why_en": "Evidence now points at a future event, so be going to.",
+              "why_fa": "شواهدِ همین حالا به رخدادی در آینده اشاره دارد، پس be going to."
+            },
+            {
+              "prompt": "She ___ (teach) for twenty years before she retired.",
+              "answer": "had taught",
+              "why_en": "The teaching was complete before another past action.",
+              "why_fa": "درس دادن پیش از رخداد دیگری در گذشته تمام شده بود."
+            },
+            {
+              "prompt": "We ___ (meet) at the cafe every Friday.",
+              "answer": "meet",
+              "why_en": "Every Friday is a routine, so the simple present.",
+              "why_fa": "«هر جمعه» عادت است، پس حال ساده."
+            }
+          ],
+          "exam": [
+            {
+              "q": "While I ___ dinner, the phone rang.",
+              "options": [
+                "was cooking",
+                "cook",
+                "have cooked"
+              ],
+              "answer": "was cooking",
+              "why_en": "While marks the action that was in progress.",
+              "why_fa": "while کاری را نشان می‌دهد که در جریان بود."
+            },
+            {
+              "q": "They ___ in this house since 2015.",
+              "options": [
+                "have lived",
+                "lived",
+                "live"
+              ],
+              "answer": "have lived",
+              "why_en": "Since 2015 up to now takes the perfect.",
+              "why_fa": "از ۲۰۱۵ تا حالا، حال کامل می‌گیرد."
+            },
+            {
+              "q": "By the time we arrived, the film ___ .",
+              "options": [
+                "had started",
+                "has started",
+                "starts"
+              ],
+              "answer": "had started",
+              "why_en": "The start came before the arrival.",
+              "why_fa": "شروع فیلم پیش از رسیدن ما بود."
+            }
+          ]
+        },
+        {
+          "n": 14,
           "title": "Subject-verb agreement",
           "title_fa": "هم‌خوانی نهاد و فعل",
           "chapter": "Chapter 5",
@@ -3128,7 +3752,85 @@
           ]
         },
         {
-          "n": 7,
+          "n": 15,
+          "title": "Plural and possessive nouns",
+          "title_fa": "اسم‌های جمع و ملکی",
+          "chapter": "Chapter 6",
+          "use_en": "Regular plurals add -s or -es and irregular ones change their form. A possessive adds 's to a person, or only ' when the plural already ends in -s.",
+          "use_fa": "جمع‌های باقاعده -s یا -es می‌گیرند و جمع‌های بی‌قاعده شکلشان تغییر می‌کند. مالکیت با 's به اسم شخص اضافه می‌شود، یا فقط با ' وقتی جمع به -s ختم می‌شود.",
+          "form_en": "one book -> two books   |   the girl's bag   |   the girls' bags",
+          "examples": [
+            {
+              "en": "Two children are playing in the garden.",
+              "fa": "دو کودک در باغ بازی می‌کنند."
+            },
+            {
+              "en": "My sister's car is in the garage.",
+              "fa": "ماشین خواهرم در پارکینگ است."
+            },
+            {
+              "en": "The students' books are on the shelf.",
+              "fa": "کتاب‌های دانش‌آموزان روی قفسه است."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "There are three ___ (box) on the table.",
+              "answer": "boxes",
+              "why_en": "A noun ending in -x takes -es.",
+              "why_fa": "اسمی که به -x ختم می‌شود -es می‌گیرد."
+            },
+            {
+              "prompt": "The ___ (baby) bottle is on the counter.",
+              "answer": "baby's",
+              "why_en": "One baby owns the bottle, so 's.",
+              "why_fa": "بطری مال یک نوزاد است، پس 's."
+            },
+            {
+              "prompt": "Both ___ (man) work in the same office.",
+              "answer": "men",
+              "why_en": "Man has an irregular plural.",
+              "why_fa": "جمع man بی‌قاعده است."
+            }
+          ],
+          "exam": [
+            {
+              "q": "The ___ toys are everywhere.",
+              "options": [
+                "children's",
+                "childrens'",
+                "childrens"
+              ],
+              "answer": "children's",
+              "why_en": "Children is already plural and does not end in -s, so 's.",
+              "why_fa": "children خودش جمع است و به -s ختم نمی‌شود، پس 's."
+            },
+            {
+              "q": "We need two more ___ for the salad.",
+              "options": [
+                "tomatoes",
+                "tomatos",
+                "tomato"
+              ],
+              "answer": "tomatoes",
+              "why_en": "Tomato takes -es in the plural.",
+              "why_fa": "جمع tomato با -es ساخته می‌شود."
+            },
+            {
+              "q": "That is my ___ office.",
+              "options": [
+                "parents'",
+                "parent's'",
+                "parents"
+              ],
+              "answer": "parents'",
+              "why_en": "A plural ending in -s takes only the apostrophe.",
+              "why_fa": "جمعی که به -s ختم می‌شود فقط apostrophe می‌گیرد."
+            }
+          ]
+        },
+        {
+          "n": 16,
           "title": "Count and noncount nouns: a few and a little",
           "title_fa": "اسم‌های قابل‌شمارش و غیرقابل‌شمارش: a few و a little",
           "chapter": "Chapter 6",
@@ -3206,7 +3908,7 @@
           ]
         },
         {
-          "n": 8,
+          "n": 17,
           "title": "Articles: a, an and the",
           "title_fa": "حروف تعریف: a، an و the",
           "chapter": "Chapter 7",
@@ -3284,7 +3986,85 @@
           ]
         },
         {
-          "n": 9,
+          "n": 18,
+          "title": "Pronouns, possessive adjectives and other",
+          "title_fa": "ضمیرها، صفت‌های ملکی و other",
+          "chapter": "Chapter 8",
+          "use_en": "A subject pronoun does the action, an object pronoun receives it, and a possessive adjective stands before a noun. Other becomes others when it stands alone.",
+          "use_fa": "ضمیر فاعلی کار را انجام می‌دهد، ضمیر مفعولی آن را می‌گیرد، و صفت ملکی پیش از اسم می‌آید. other وقتی تنها و بدون اسم بیاید، others می‌شود.",
+          "form_en": "I / me / my   |   other + noun   |   others (alone)",
+          "examples": [
+            {
+              "en": "She gave me her notebook.",
+              "fa": "او دفترش را به من داد."
+            },
+            {
+              "en": "Some students left early; others stayed.",
+              "fa": "بعضی دانش‌آموزان زود رفتند؛ بقیه ماندند."
+            },
+            {
+              "en": "I have two pens: one is blue, the other is black.",
+              "fa": "دو خودکار دارم: یکی آبی است، دیگری مشکی."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "This is Ali and this is ___ sister.",
+              "answer": "his",
+              "why_en": "Ali is male singular, so the possessive adjective is his.",
+              "why_fa": "علی مفرد و مذکر است، پس صفت ملکی his می‌شود."
+            },
+            {
+              "prompt": "We called the doctor, but ___ was busy.",
+              "answer": "he",
+              "why_en": "A singular person in subject position takes a subject pronoun.",
+              "why_fa": "یک شخص مفرد در جایگاه فاعل، ضمیر فاعلی می‌گیرد."
+            },
+            {
+              "prompt": "Some of the cakes are fresh; ___ are old.",
+              "answer": "others",
+              "why_en": "The pronoun stands alone for other cakes.",
+              "why_fa": "ضمیر به‌تنهایی جانشین other cakes می‌شود."
+            }
+          ],
+          "exam": [
+            {
+              "q": "___ bag is this?",
+              "options": [
+                "Whose",
+                "Who's",
+                "Who"
+              ],
+              "answer": "Whose",
+              "why_en": "Possession before a noun is whose.",
+              "why_fa": "مالکیت پیش از اسم با whose بیان می‌شود."
+            },
+            {
+              "q": "I like these shoes. Could I try ___ on?",
+              "options": [
+                "them",
+                "they",
+                "their"
+              ],
+              "answer": "them",
+              "why_en": "After a verb the object pronoun is used.",
+              "why_fa": "پس از فعل، ضمیر مفعولی می‌آید."
+            },
+            {
+              "q": "Two girls were waiting; ___ were laughing.",
+              "options": [
+                "they",
+                "them",
+                "their"
+              ],
+              "answer": "they",
+              "why_en": "The subject of the sentence needs a subject pronoun.",
+              "why_fa": "فاعل جمله ضمیر فاعلی می‌خواهد."
+            }
+          ]
+        },
+        {
+          "n": 19,
           "title": "Reflexive pronouns",
           "title_fa": "ضمیرهای بازتابی",
           "chapter": "Chapter 8",
@@ -3362,7 +4142,7 @@
           ]
         },
         {
-          "n": 10,
+          "n": 20,
           "title": "Modals of necessity and advice: must, have to, should",
           "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
           "chapter": "Chapters 9 and 10",
@@ -3440,7 +4220,241 @@
           ]
         },
         {
-          "n": 11,
+          "n": 21,
+          "title": "Ability and possibility: can, could, may, might",
+          "title_fa": "توانایی و احتمال: can، could، may، might",
+          "chapter": "Chapter 9",
+          "use_en": "Can is ability or permission now, could is past ability, and may or might is possibility, with might a little less certain.",
+          "use_fa": "can توانایی یا اجازه در حال است، could توانایی در گذشته، و may یا might احتمال است، با این تفاوت که might کمی کمتر مطمئن است.",
+          "form_en": "can / could + verb   |   may / might + verb",
+          "examples": [
+            {
+              "en": "She can speak three languages.",
+              "fa": "او می‌تواند سه زبان صحبت کند."
+            },
+            {
+              "en": "When I was a child I could swim very well.",
+              "fa": "وقتی بچه بودم خوب شنا می‌کردم."
+            },
+            {
+              "en": "It might rain later, so take a coat.",
+              "fa": "شاید بعداً باران بیاید، پس کاپشن بردار."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "He ___ (not / can) come today; he is ill.",
+              "answer": "can't come",
+              "why_en": "Can is followed by the base verb, and not makes it cannot.",
+              "why_fa": "پس از can فعل ساده می‌آید و not آن را به cannot تبدیل می‌کند."
+            },
+            {
+              "prompt": "You ___ use my phone if you need it.",
+              "answer": "may",
+              "why_en": "Permission is given with may or can.",
+              "why_fa": "اجازه دادن با may یا can انجام می‌شود."
+            },
+            {
+              "prompt": "She ___ read at the age of four.",
+              "answer": "could",
+              "why_en": "Past ability uses could.",
+              "why_fa": "توانایی در گذشته با could بیان می‌شود."
+            }
+          ],
+          "exam": [
+            {
+              "q": "Take an umbrella; it ___ rain.",
+              "options": [
+                "might",
+                "can",
+                "must to"
+              ],
+              "answer": "might",
+              "why_en": "A possibility, not a certainty.",
+              "why_fa": "احتمال است، نه قطعیت."
+            },
+            {
+              "q": "I ___ drive a car, but I cannot drive a truck.",
+              "options": [
+                "can",
+                "may",
+                "must"
+              ],
+              "answer": "can",
+              "why_en": "Ability uses can.",
+              "why_fa": "توانایی با can بیان می‌شود."
+            },
+            {
+              "q": "After the accident he ___ not walk for a month.",
+              "options": [
+                "could",
+                "can",
+                "may"
+              ],
+              "answer": "could",
+              "why_en": "The inability belongs to the past.",
+              "why_fa": "ناتوانی مربوط به گذشته است."
+            }
+          ]
+        },
+        {
+          "n": 22,
+          "title": "Requests and suggestions: could you, would you mind, let's",
+          "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
+          "chapter": "Chapter 9",
+          "use_en": "A polite request uses could you or would you; would you mind is followed by -ing; a suggestion uses let's, why don't we or shall we.",
+          "use_fa": "درخواست مؤدبانه با could you یا would you می‌آید؛ پس از would you mind فعل ing می‌گیرد؛ پیشنهاد با let's، why don't we یا shall we ساخته می‌شود.",
+          "form_en": "Could you + verb?   |   Would you mind + verb-ing?   |   Let's + verb",
+          "examples": [
+            {
+              "en": "Could you open the window, please?",
+              "fa": "می‌شود لطفاً پنجره را باز کنید؟"
+            },
+            {
+              "en": "Would you mind waiting a few minutes?",
+              "fa": "ناراحت می‌شوید چند دقیقه صبر کنید؟"
+            },
+            {
+              "en": "Let's take a taxi; it is raining.",
+              "fa": "بیا تاکسی بگیریم؛ باران می‌آید."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "___ you close the door, please?",
+              "answer": "Could",
+              "why_en": "Could you makes the request polite.",
+              "why_fa": "could you درخواست را مؤدبانه می‌کند."
+            },
+            {
+              "prompt": "Would you mind ___ (turn) the music down?",
+              "answer": "turning",
+              "why_en": "Mind takes an -ing form.",
+              "why_fa": "پس از mind فعل ing می‌آید."
+            },
+            {
+              "prompt": "___ go to the beach this weekend?",
+              "answer": "Shall we",
+              "why_en": "Shall we with the base verb makes a suggestion.",
+              "why_fa": "shall we با فعل ساده پیشنهاد می‌سازد."
+            }
+          ],
+          "exam": [
+            {
+              "q": "___ you mind speaking more slowly?",
+              "options": [
+                "Would",
+                "Do",
+                "Are"
+              ],
+              "answer": "Would",
+              "why_en": "The fixed polite form is would you mind.",
+              "why_fa": "شکل مؤدبانهٔ ثابت would you mind است."
+            },
+            {
+              "q": "Why ___ we meet at seven?",
+              "options": [
+                "don't",
+                "not",
+                "doesn't"
+              ],
+              "answer": "don't",
+              "why_en": "Why don't we is the suggestion pattern.",
+              "why_fa": "why don't we الگوی پیشنهاد است."
+            },
+            {
+              "q": "Could you ___ me the salt?",
+              "options": [
+                "pass",
+                "to pass",
+                "passing"
+              ],
+              "answer": "pass",
+              "why_en": "A modal is followed by the base verb.",
+              "why_fa": "پس از فعل کمکی، فعل ساده می‌آید."
+            }
+          ]
+        },
+        {
+          "n": 23,
+          "title": "Degrees of certainty: must be, may be, can't be",
+          "title_fa": "درجات اطمینان: must be، may be، can't be",
+          "chapter": "Chapter 10",
+          "use_en": "Must be means you are almost sure; may be or might be means possible; can't be means you are sure it is not true. For the past, add have and the past participle.",
+          "use_fa": "must be یعنی تقریباً مطمئنید؛ may be یا might be یعنی ممکن است؛ can't be یعنی مطمئنید که درست نیست. برای گذشته، have و اسم مفعول اضافه می‌شود.",
+          "form_en": "must / may / might / can't + be   |   must have + past participle",
+          "examples": [
+            {
+              "en": "The lights are on, so she must be at home.",
+              "fa": "چراغ‌ها روشن است، پس او باید خانه باشد."
+            },
+            {
+              "en": "He may be in a meeting; I am not sure.",
+              "fa": "شاید در جلسه باشد؛ مطمئن نیستم."
+            },
+            {
+              "en": "They can't be serious about closing the shop.",
+              "fa": "آن‌ها نمی‌توانند جدی باشند که مغازه را می‌بندند."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "She is not answering. She ___ (must / be) asleep.",
+              "answer": "must be",
+              "why_en": "The silence is strong evidence, so must be.",
+              "why_fa": "بی‌پاسخ ماندن شاهد قوی است، پس must be."
+            },
+            {
+              "prompt": "He ___ (can't / finish) already; he started an hour ago.",
+              "answer": "can't have finished",
+              "why_en": "Certainty about the past uses can't have + past participle.",
+              "why_fa": "اطمینان دربارهٔ گذشته با can't have + اسم مفعول بیان می‌شود."
+            },
+            {
+              "prompt": "They ___ (may / leave) yesterday, but I did not check.",
+              "answer": "may have left",
+              "why_en": "A past possibility uses may have + past participle.",
+              "why_fa": "احتمال در گذشته با may have + اسم مفعول می‌آید."
+            }
+          ],
+          "exam": [
+            {
+              "q": "The ground is wet; it ___ last night.",
+              "options": [
+                "must have rained",
+                "must rain",
+                "can rain"
+              ],
+              "answer": "must have rained",
+              "why_en": "A past event inferred with certainty.",
+              "why_fa": "رخدادی در گذشته که با اطمینان استنباط می‌شود."
+            },
+            {
+              "q": "That ___ be Sara at the door; she is in Tabriz.",
+              "options": [
+                "can't",
+                "must",
+                "may"
+              ],
+              "answer": "can't",
+              "why_en": "Knowing where she is makes the other possibility impossible.",
+              "why_fa": "وقتی می‌دانیم او کجاست، احتمال دیگر ممکن نیست."
+            },
+            {
+              "q": "He ___ the message; his phone was off.",
+              "options": [
+                "might not have seen",
+                "might not see",
+                "didn't might see"
+              ],
+              "answer": "might not have seen",
+              "why_en": "A negative past possibility takes might not have.",
+              "why_fa": "احتمال منفی در گذشته با might not have می‌آید."
+            }
+          ]
+        },
+        {
+          "n": 24,
           "title": "The passive",
           "title_fa": "جملات مجهول",
           "chapter": "Chapter 11",
@@ -3518,7 +4532,85 @@
           ]
         },
         {
-          "n": 12,
+          "n": 25,
+          "title": "The passive with modals, get and stative verbs",
+          "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
+          "chapter": "Chapter 11",
+          "use_en": "After a modal the passive is modal + be + past participle. Get with the past participle is a less formal passive, and some verbs are passive in meaning.",
+          "use_fa": "پس از افعال کمکی، مجهول به شکل کمکی + be + اسم مفعول می‌آید. get با اسم مفعول مجهولِ غیررسمی‌تر است و بعضی فعل‌ها معنای مجهولی دارند.",
+          "form_en": "must / can / will + be + past participle   |   get + past participle",
+          "examples": [
+            {
+              "en": "This form must be signed by the manager.",
+              "fa": "این فرم باید به امضای مدیر برسد."
+            },
+            {
+              "en": "The window got broken during the storm.",
+              "fa": "پنجره در طوفان شکست."
+            },
+            {
+              "en": "She is interested in old films.",
+              "fa": "او به فیلم‌های قدیمی علاقه دارد."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "The report ___ (must / write) before Friday.",
+              "answer": "must be written",
+              "why_en": "A modal passive is modal + be + past participle.",
+              "why_fa": "مجهول با فعل کمکی، کمکی + be + اسم مفعول است."
+            },
+            {
+              "prompt": "His bike ___ (get / steal) last week.",
+              "answer": "got stolen",
+              "why_en": "Get in the past with the past participle is an informal passive.",
+              "why_fa": "get در گذشته با اسم مفعول، مجهولِ غیررسمی می‌سازد."
+            },
+            {
+              "prompt": "We ___ (be / satisfy) with the result.",
+              "answer": "are satisfied",
+              "why_en": "Satisfied is a stative passive adjective.",
+              "why_fa": "satisfied صفت مجهولیِ حالتی است."
+            }
+          ],
+          "exam": [
+            {
+              "q": "All the tickets ___ before the show.",
+              "options": [
+                "must be sold",
+                "must sell",
+                "must been sold"
+              ],
+              "answer": "must be sold",
+              "why_en": "The tickets are sold by someone, so the passive after must.",
+              "why_fa": "بلیت‌ها به دست کسی فروخته می‌شوند، پس پس از must مجهول می‌آید."
+            },
+            {
+              "q": "She ___ in modern art.",
+              "options": [
+                "is interested",
+                "is interesting",
+                "interests"
+              ],
+              "answer": "is interested",
+              "why_en": "-ed describes how she feels; -ing would describe the art.",
+              "why_fa": "شکل -ed احساس او را می‌گوید و شکل -ing خودِ هنر را توصیف می‌کند."
+            },
+            {
+              "q": "The letters ___ yesterday.",
+              "options": [
+                "got posted",
+                "get posted",
+                "got post"
+              ],
+              "answer": "got posted",
+              "why_en": "A past informal passive needs got and the past participle.",
+              "why_fa": "مجهول غیررسمی در گذشته به got و اسم مفعول نیاز دارد."
+            }
+          ]
+        },
+        {
+          "n": 26,
           "title": "Noun clauses and reported speech",
           "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
           "chapter": "Chapter 12",
@@ -3596,7 +4688,85 @@
           ]
         },
         {
-          "n": 13,
+          "n": 27,
+          "title": "The subjunctive in noun clauses: insist that he be",
+          "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
+          "chapter": "Chapter 12",
+          "use_en": "After insist, recommend, suggest, request and demand, the that-clause uses the base verb for every person: that he be, that they go.",
+          "use_fa": "پس از insist، recommend، suggest، request و demand، در جمله‌وارهٔ that فعل برای همهٔ اشخاص به شکل ساده می‌آید: that he be، that they go.",
+          "form_en": "insist / suggest / recommend + that + subject + base verb",
+          "examples": [
+            {
+              "en": "The doctor insists that he rest for a week.",
+              "fa": "دکتر اصرار دارد که او یک هفته استراحت کند."
+            },
+            {
+              "en": "They recommended that she apply again.",
+              "fa": "توصیه کردند که او دوباره درخواست بدهد."
+            },
+            {
+              "en": "It is essential that everyone be on time.",
+              "fa": "ضروری است که همه سر وقت باشند."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "The manager requested that the report ___ (be) ready by noon.",
+              "answer": "be",
+              "why_en": "The subjunctive uses the base form after requested that.",
+              "why_fa": "پس از requested that، وجه شرطی شکل سادهٔ فعل را می‌آورد."
+            },
+            {
+              "prompt": "I suggest that he ___ (take) the earlier train.",
+              "answer": "take",
+              "why_en": "Suggest that takes the base verb, without -s.",
+              "why_fa": "suggest that فعل ساده می‌گیرد، بدون -s."
+            },
+            {
+              "prompt": "It is important that she ___ (not / miss) the meeting.",
+              "answer": "not miss",
+              "why_en": "The negative subjunctive puts not before the base verb.",
+              "why_fa": "وجه شرطی منفی، not را پیش از فعل ساده می‌آورد."
+            }
+          ],
+          "exam": [
+            {
+              "q": "They insisted that the meeting ___ open to everyone.",
+              "options": [
+                "be",
+                "is",
+                "was"
+              ],
+              "answer": "be",
+              "why_en": "Insist that is followed by the base form.",
+              "why_fa": "پس از insist that شکل ساده می‌آید."
+            },
+            {
+              "q": "The committee recommended that he ___ the offer.",
+              "options": [
+                "accept",
+                "accepts",
+                "accepted"
+              ],
+              "answer": "accept",
+              "why_en": "No -s in the subjunctive, even with he.",
+              "why_fa": "در وجه شرطی حتی با he هم -s نمی‌آید."
+            },
+            {
+              "q": "It is vital that the door ___ locked at night.",
+              "options": [
+                "be",
+                "is",
+                "will be"
+              ],
+              "answer": "be",
+              "why_en": "It is vital that takes the subjunctive be.",
+              "why_fa": "it is vital that وجه شرطی be را می‌آورد."
+            }
+          ]
+        },
+        {
+          "n": 28,
           "title": "Adjective clauses",
           "title_fa": "جملات وصفی (موصولی)",
           "chapter": "Chapter 13",
@@ -3674,7 +4844,85 @@
           ]
         },
         {
-          "n": 14,
+          "n": 29,
+          "title": "Reducing adjective clauses to phrases",
+          "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
+          "chapter": "Chapter 13",
+          "use_en": "An adjective clause with be can drop the pronoun and be: the man who is standing there becomes the man standing there. Without be, the verb becomes -ing.",
+          "use_fa": "جمله‌وارهٔ وصفی که فعل be دارد می‌تواند ضمیر و be را حذف کند: the man who is standing there به the man standing there تبدیل می‌شود. اگر be نباشد، فعل به ing تبدیل می‌شود.",
+          "form_en": "the girl who is singing -> the girl singing   |   the car that was stolen -> the car stolen",
+          "examples": [
+            {
+              "en": "The woman standing at the gate is my aunt.",
+              "fa": "زنی که دم در ایستاده خالهٔ من است."
+            },
+            {
+              "en": "The letter written last week was never sent.",
+              "fa": "نامه‌ای که هفتهٔ پیش نوشته شد هرگز فرستاده نشد."
+            },
+            {
+              "en": "Students hoping to pass should read the notes.",
+              "fa": "دانش‌آموزانی که امید به قبولی دارند باید جزوه را بخوانند."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "The boy ___ (who / play) the guitar is my cousin.",
+              "answer": "playing",
+              "why_en": "The active verb becomes -ing when the pronoun is dropped.",
+              "why_fa": "فعل معلوم با حذف ضمیر به ing تبدیل می‌شود."
+            },
+            {
+              "prompt": "The houses ___ (that / build) last year are already sold.",
+              "answer": "built",
+              "why_en": "A passive clause reduces to the past participle.",
+              "why_fa": "جمله‌وارهٔ مجهول به اسم مفعول کوتاه می‌شود."
+            },
+            {
+              "prompt": "Anyone ___ (who / need) help can ask me.",
+              "answer": "needing",
+              "why_en": "The clause who needs becomes the -ing phrase needing.",
+              "why_fa": "جمله‌وارهٔ who needs به عبارت ing یعنی needing تبدیل می‌شود."
+            }
+          ],
+          "exam": [
+            {
+              "q": "The car ___ outside belongs to the doctor.",
+              "options": [
+                "parked",
+                "parking",
+                "parks"
+              ],
+              "answer": "parked",
+              "why_en": "The car is parked, so the passive participle is used.",
+              "why_fa": "ماشین پارک شده است، پس اسم مفعول مجهول می‌آید."
+            },
+            {
+              "q": "People ___ in the queue waited for hours.",
+              "options": [
+                "standing",
+                "stood",
+                "stand"
+              ],
+              "answer": "standing",
+              "why_en": "The people were standing, so the active -ing phrase fits.",
+              "why_fa": "مردم ایستاده بودند، پس عبارت ing معلوم درست است."
+            },
+            {
+              "q": "The report ___ yesterday was excellent.",
+              "options": [
+                "submitted",
+                "submitting",
+                "submits"
+              ],
+              "answer": "submitted",
+              "why_en": "The report was submitted, so the past participle.",
+              "why_fa": "گزارش ارائه شده بود، پس اسم مفعول."
+            }
+          ]
+        },
+        {
+          "n": 30,
           "title": "Gerunds and infinitives",
           "title_fa": "اسم‌های مصدری و مصدر با to",
           "chapter": "Chapters 14 and 15",
@@ -3752,7 +5000,85 @@
           ]
         },
         {
-          "n": 15,
+          "n": 31,
+          "title": "Causative verbs: make, have, get, let and help",
+          "title_fa": "فعل‌های سببی: make، have، get، let و help",
+          "chapter": "Chapter 15",
+          "use_en": "Make, have and let take the base verb; get takes the infinitive with to; help accepts either form.",
+          "use_fa": "make، have و let فعل ساده می‌گیرند؛ get مصدر با to می‌گیرد؛ help هر دو شکل را می‌پذیرد.",
+          "form_en": "make / have / let + person + verb   |   get + person + to + verb",
+          "examples": [
+            {
+              "en": "The teacher made us rewrite the essay.",
+              "fa": "معلم ما را مجبور کرد انشا را دوباره بنویسیم."
+            },
+            {
+              "en": "I had the mechanic check the brakes.",
+              "fa": "از مکانیک خواستم ترمزها را بررسی کند."
+            },
+            {
+              "en": "She got her brother to carry the boxes.",
+              "fa": "او برادرش را راضی کرد جعبه‌ها را حمل کند."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "Let me ___ (help) you with that.",
+              "answer": "help",
+              "why_en": "Let takes the base verb without to.",
+              "why_fa": "پس از let فعل ساده و بدون to می‌آید."
+            },
+            {
+              "prompt": "They got the children ___ (clean) the room.",
+              "answer": "to clean",
+              "why_en": "Get takes the infinitive with to.",
+              "why_fa": "پس از get مصدر با to می‌آید."
+            },
+            {
+              "prompt": "His joke made everyone ___ (laugh).",
+              "answer": "laugh",
+              "why_en": "Make takes the base verb.",
+              "why_fa": "پس از make فعل ساده می‌آید."
+            }
+          ],
+          "exam": [
+            {
+              "q": "The manager had the contract ___ by a lawyer.",
+              "options": [
+                "checked",
+                "to check",
+                "checking"
+              ],
+              "answer": "checked",
+              "why_en": "Have something done uses the past participle.",
+              "why_fa": "ساختار have something done اسم مفعول می‌گیرد."
+            },
+            {
+              "q": "I will get him ___ the car.",
+              "options": [
+                "to wash",
+                "wash",
+                "washing"
+              ],
+              "answer": "to wash",
+              "why_en": "Get a person to do something takes the to-infinitive.",
+              "why_fa": "get someone to do something مصدر با to می‌گیرد."
+            },
+            {
+              "q": "Her story made me ___ .",
+              "options": [
+                "cry",
+                "to cry",
+                "crying"
+              ],
+              "answer": "cry",
+              "why_en": "Make takes the base verb, never to.",
+              "why_fa": "پس از make فعل ساده می‌آید، هرگز to."
+            }
+          ]
+        },
+        {
+          "n": 32,
           "title": "Paired conjunctions and parallel structure",
           "title_fa": "حروف ربط جفتی و ساختار موازی",
           "chapter": "Chapter 16",
@@ -3830,7 +5156,7 @@
           ]
         },
         {
-          "n": 16,
+          "n": 33,
           "title": "Adverb clauses: time, cause, contrast and condition",
           "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
           "chapter": "Chapter 17",
@@ -3908,7 +5234,163 @@
           ]
         },
         {
-          "n": 17,
+          "n": 34,
+          "title": "Reducing adverb clauses to modifying phrases",
+          "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
+          "chapter": "Chapter 18",
+          "use_en": "When the adverb clause and the main clause share a subject, drop the subject and change the verb: Before I left, I called becomes Before leaving, I called. With be, drop the pronoun and be.",
+          "use_fa": "وقتی جمله‌وارهٔ قیدی و جملهٔ اصلی فاعل یکسان دارند، فاعل حذف می‌شود و فعل تغییر می‌کند: Before I left, I called به Before leaving, I called تبدیل می‌شود. با be، ضمیر و be حذف می‌شوند.",
+          "form_en": "Before leaving, ...   |   While walking home, ...   |   Having finished, ...",
+          "examples": [
+            {
+              "en": "After finishing the report, she went home.",
+              "fa": "پس از تمام‌کردن گزارش، به خانه رفت."
+            },
+            {
+              "en": "While walking to work, I met an old friend.",
+              "fa": "در راه رفتن به سر کار، دوست قدیمی‌ای دیدم."
+            },
+            {
+              "en": "Having eaten, the children went out to play.",
+              "fa": "بعد از غذا، بچه‌ها برای بازی بیرون رفتند."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "Before ___ (leave), turn off the lights.",
+              "answer": "leaving",
+              "why_en": "The subject you is shared, so the clause becomes before + -ing.",
+              "why_fa": "فاعل you مشترک است، پس جمله‌واره به before + ing تبدیل می‌شود."
+            },
+            {
+              "prompt": "While ___ (wait) for the bus, he read the news.",
+              "answer": "waiting",
+              "why_en": "While with a shared subject takes the -ing form.",
+              "why_fa": "while با فاعل مشترک شکل ing می‌گیرد."
+            },
+            {
+              "prompt": "___ (finish) the work, they closed the office.",
+              "answer": "Having finished",
+              "why_en": "Having + past participle shows the first action was complete.",
+              "why_fa": "having + اسم مفعول نشان می‌دهد کار اول تمام شده بود."
+            }
+          ],
+          "exam": [
+            {
+              "q": "After ___ the letter, he posted it.",
+              "options": [
+                "writing",
+                "write",
+                "wrote"
+              ],
+              "answer": "writing",
+              "why_en": "After with a shared subject takes -ing.",
+              "why_fa": "after با فاعل مشترک ing می‌گیرد."
+            },
+            {
+              "q": "___ driving home, she listened to music.",
+              "options": [
+                "While",
+                "During",
+                "When she"
+              ],
+              "answer": "While",
+              "why_en": "While introduces the -ing phrase; during takes a noun.",
+              "why_fa": "while عبارت ing را می‌آورد؛ during اسم می‌گیرد."
+            },
+            {
+              "q": "___ seen the film twice, he knew the ending.",
+              "options": [
+                "Having",
+                "Have",
+                "After"
+              ],
+              "answer": "Having",
+              "why_en": "Having + past participle marks the earlier completed action.",
+              "why_fa": "having + اسم مفعول کارِ قبلیِ تمام‌شده را نشان می‌دهد."
+            }
+          ]
+        },
+        {
+          "n": 35,
+          "title": "Connectives: because of, therefore, so that, otherwise",
+          "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
+          "chapter": "Chapter 19",
+          "use_en": "Because of and due to take a noun; therefore, consequently and so join a result; so that gives a purpose; otherwise and or else give a condition.",
+          "use_fa": "because of و due to اسم می‌گیرند؛ therefore، consequently و so نتیجه را وصل می‌کنند؛ so that هدف را می‌گوید؛ otherwise و or else شرط را می‌سازند.",
+          "form_en": "because of + noun   |   sentence; therefore, sentence   |   so that + subject + modal",
+          "examples": [
+            {
+              "en": "The flight was cancelled because of the fog.",
+              "fa": "پرواز به‌خاطر مه لغو شد."
+            },
+            {
+              "en": "The road was closed; therefore, we took the train.",
+              "fa": "جاده بسته بود؛ بنابراین با قطار رفتیم."
+            },
+            {
+              "en": "Leave now, otherwise you will miss the bus.",
+              "fa": "حالا راه بیفت، وگرنه اتوبوس را از دست می‌دهی."
+            }
+          ],
+          "exercises": [
+            {
+              "prompt": "We stayed home ___ the heavy rain.",
+              "answer": "because of",
+              "why_en": "A noun phrase (the heavy rain) follows, so because of.",
+              "why_fa": "پس از آن عبارت اسمی (the heavy rain) می‌آید، پس because of."
+            },
+            {
+              "prompt": "She studied hard; ___, she passed easily.",
+              "answer": "therefore",
+              "why_en": "A result after a semicolon takes therefore.",
+              "why_fa": "نتیجه پس از نقطه‌ویرگول با therefore می‌آید."
+            },
+            {
+              "prompt": "Write it down ___ you do not forget.",
+              "answer": "so that",
+              "why_en": "A purpose before a subject and modal takes so that.",
+              "why_fa": "هدف پیش از فاعل و فعل کمکی با so that بیان می‌شود."
+            }
+          ],
+          "exam": [
+            {
+              "q": "___ the strike, all trains stopped.",
+              "options": [
+                "Because of",
+                "Because",
+                "Although"
+              ],
+              "answer": "Because of",
+              "why_en": "A noun follows, so the two-word preposition is needed.",
+              "why_fa": "پس از آن اسم می‌آید، پس حرف اضافهٔ دوکلمه‌ای لازم است."
+            },
+            {
+              "q": "He left early, ___ he would not miss the flight.",
+              "options": [
+                "so that",
+                "because of",
+                "therefore"
+              ],
+              "answer": "so that",
+              "why_en": "Purpose before a subject and modal is so that.",
+              "why_fa": "هدف پیش از فاعل و فعل کمکی با so that می‌آید."
+            },
+            {
+              "q": "Take a map; ___ you will get lost.",
+              "options": [
+                "otherwise",
+                "therefore",
+                "because"
+              ],
+              "answer": "otherwise",
+              "why_en": "The warning about what happens if not is otherwise.",
+              "why_fa": "هشدار دربارهٔ نتیجهٔ انجام‌ندادن با otherwise می‌آید."
+            }
+          ]
+        },
+        {
+          "n": 36,
           "title": "Conditionals and wishes",
           "title_fa": "جملات شرطی و آرزو",
           "chapter": "Chapter 20",

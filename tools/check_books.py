@@ -425,26 +425,45 @@ PINNED_1100 = {
          "hyperbole", "munificent", "prevarication", "charisma", "genocide"],
 }
 # The grammar book carries no headwords to pin, so its syllabus is pinned
-# instead: the seventeen structures, in the book's own chapter order. A lesson
-# dropped or renamed still passes every shape check, and only a reader would
-# notice.
+# instead: every structure the book teaches, in the book's own chapter order. A
+# lesson dropped or renamed still passes every shape check, and only a reader
+# would notice.
 PINNED_GRAMMAR = [
     "Simple present and present progressive",
+    "Stative verbs: verbs not used in the progressive",
     "Simple past and past progressive",
+    "Was going to: intentions that did not happen",
     "Present perfect with since and for",
+    "Present perfect or simple past: which one?",
+    "Present perfect progressive: how long an action has lasted",
     "Past perfect",
+    "Past perfect progressive: how long before another past action",
     "Future: will and be going to",
+    "Future in time clauses: after when, before and as soon as",
+    "Future progressive and future perfect",
+    "Tense review: choosing the tense a sentence needs",
     "Subject-verb agreement",
+    "Plural and possessive nouns",
     "Count and noncount nouns: a few and a little",
     "Articles: a, an and the",
+    "Pronouns, possessive adjectives and other",
     "Reflexive pronouns",
     "Modals of necessity and advice: must, have to, should",
+    "Ability and possibility: can, could, may, might",
+    "Requests and suggestions: could you, would you mind, let's",
+    "Degrees of certainty: must be, may be, can't be",
     "The passive",
+    "The passive with modals, get and stative verbs",
     "Noun clauses and reported speech",
+    "The subjunctive in noun clauses: insist that he be",
     "Adjective clauses",
+    "Reducing adjective clauses to phrases",
     "Gerunds and infinitives",
+    "Causative verbs: make, have, get, let and help",
     "Paired conjunctions and parallel structure",
     "Adverb clauses: time, cause, contrast and condition",
+    "Reducing adverb clauses to modifying phrases",
+    "Connectives: because of, therefore, so that, otherwise",
     "Conditionals and wishes",
 ]
 
@@ -596,6 +615,17 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
     check(bool((book.get("edition") or "").strip()),
           f"{bid}: does not say which edition or publisher it follows")
 
+    # The book has twenty chapters. A syllabus that skips one leaves the learner
+    # with a gap they cannot see, because the rest of the book still reads well.
+    chapters: set[int] = set()
+    for lesson in lessons:
+        for number in re.findall(r"\d+", lesson.get("chapter") or ""):
+            chapters.add(int(number))
+    missing = sorted(set(range(1, 21)) - chapters)
+    check(not missing,
+          f"{bid}: no structure from chapter(s) {missing}" if missing
+          else f"all 20 chapters, {len(lessons)} structures")
+
     titles: list[str] = []
     for lesson in lessons:
         where = f"{bid} structure {lesson.get('n')}"
@@ -616,6 +646,15 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
         check(LATIN.search(form) is not None and len(form.split()) >= 3,
               f"{where}: no pattern line ({form!r})")
 
+        # English first, then Persian: every block is read from the top down, so
+        # the order of the fields is the order a learner sees, and a Persian
+        # line that slipped above its English is a block read backwards.
+        keys = list(lesson)
+        check(keys.index("title") < keys.index("title_fa")
+              and keys.index("use_en") < keys.index("use_fa")
+              and keys.index("form_en") < keys.index("examples"),
+              f"{where}: the English fields do not come before the Persian")
+
         examples = lesson.get("examples") or []
         stats["examples"] += len(examples)
         if check(isinstance(examples, list) and len(examples) >= 3,
@@ -626,6 +665,8 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
                       f"{where}: an example is not a sentence ({en!r})")
                 check(bool(FA_LETTER.search(ex.get("fa") or "")),
                       f"{where}: an example has no Persian ({en!r})")
+                check(list(ex)[:2] == ["en", "fa"],
+                      f"{where}: an example is not English then Persian ({en!r})")
 
         exercises = lesson.get("exercises") or []
         stats["exercises"] += len(exercises)
@@ -642,6 +683,8 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
                       f"{where}: an exercise answer is not explained ({prompt!r})")
                 check(bool(FA_LETTER.search(ex.get("why_fa") or "")),
                       f"{where}: an exercise explanation has no Persian")
+                check(list(ex).index("why_en") < list(ex).index("why_fa"),
+                      f"{where}: an exercise explains in Persian before English")
 
         exam = lesson.get("exam") or []
         stats["exam"] += len(exam)
@@ -661,6 +704,9 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
                       and bool(FA_LETTER.search(q.get("why_fa") or "")),
                       f"{where}: an exam answer is not explained in both "
                       f"languages ({text!r})")
+                check(list(q).index("why_en") < list(q).index("why_fa"),
+                      f"{where}: an exam answer explains in Persian before "
+                      f"English ({text!r})")
 
     check(len(titles) == len(set(titles)),
           f"{bid}: a structure is taught twice")
