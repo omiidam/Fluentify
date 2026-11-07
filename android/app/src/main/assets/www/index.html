@@ -1845,6 +1845,25 @@
      always the same colour wherever it appears, so the badge in the header,
      the row in the result and the tag on a question agree at a glance. */
   #lvlpanel.open { display: block; max-height: 88%; overflow-y: auto; }
+  /* A mask over a scroller this tall becomes one composited layer the height
+     of the whole paper - four thousand pixels on a phone - and the raster
+     budget runs out before the questions are drawn. In logcat that is "tile
+     memory limits exceeded, some content may not draw", and on the phone it
+     is a blank sheet in the middle of the check. The fade is only the cue that
+     there is more to scroll, so the tall panels keep the inset shadow cue and
+     spend nothing on a mask. */
+  #lvlpanel.open, #rdpanel.open {
+    -webkit-mask-image: none; mask-image: none;
+    box-shadow: inset 0 -22px 18px -18px rgba(74,58,30,.72);
+    scroll-padding-top: 84px; scroll-padding-bottom: 66px;
+    /* The panel is a child of the app's column, and the column is not a
+       scroller: a sheet taller than the space left above the composer does not
+       stop at the top of the window, it grows past it, and the question under
+       the status bar is the part that is cut off. Given a share of the column
+       and its own scroll box, the sheet stops at the window edge and the
+       sticky header stays whole. */
+    flex: 1 1 auto; min-height: 0;
+  }
   #lvlpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
   #lvlbody { max-width: 660px; margin: 0 auto; padding-bottom: 8px; }
 
@@ -1936,11 +1955,11 @@
 
   /* --- the paper: sticky header, questions, sticky footer ------------------ */
   .lv-top {
-    position: sticky; top: -14px; z-index: 3; margin: -2px 0 0;
+    position: sticky; top: 0; z-index: 3; margin: 0;
     padding: 9px 0 10px; background: var(--surf-1);
     border-bottom: 1px solid var(--line);
   }
-  .lv-toprow { display: flex; align-items: baseline; gap: 8px; margin-bottom: 7px; }
+  .lv-toprow { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; margin-bottom: 6px; }
   .lv-step { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-ink); }
   .lv-secttl { font-family: var(--font-display); font-size: 13.5px; color: var(--ink); font-weight: 700; }
   .lv-count { margin-inline-start: auto; font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
@@ -2051,7 +2070,7 @@
   .lv-timer b { font-size: 13px; color: var(--ink); }
 
   .lv-foot {
-    position: sticky; bottom: -14px; z-index: 3; margin-top: 12px;
+    position: sticky; bottom: 0; z-index: 3; margin-top: 12px;
     display: flex; gap: 8px; align-items: center;
     padding: 10px 0 12px; background: linear-gradient(180deg, var(--lift-warm), var(--surf-1) 42%);
     border-top: 1px solid var(--line);
@@ -9946,7 +9965,7 @@ const Stories = (() => {
    the history so the trend is visible.
    ==========================================================================*/
 /* ==========================================================================
-   Level assessment: six skills, four of them measured, none of them guessed
+   Level assessment: six skills, five of them measured, none of them guessed
    from a percentage.
 
    The attempt is a staircase, not a quiz. Each skill is asked three questions
@@ -9975,10 +9994,18 @@ const Level = (() => {
 
   let doc = null, pending = null, state = null;
   let view = 'intro', warned = false, ticker = null, tickLeft = 0;
-  let saveTimer = null;
+  let saveTimer = null, healed = false;
 
   const esc = (s) => String(s).replace(/[&<>"]/g,
     (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  /* A count in running copy is a word, not a digit: "five skills measured"
+     reads as a sentence. The number itself always comes from the blueprint, so
+     the button, the chip and the report can never disagree about how many
+     skills this paper marks. */
+  const NUM_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six',
+    'seven', 'eight', 'nine', 'ten'];
+  const numWord = (n) => NUM_WORDS[n] || String(n);
   const read = (k, d) => {
     try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }
     catch (e) { return d; }
@@ -10333,7 +10360,7 @@ const Level = (() => {
   function chips() {
     const assessed = doc.blueprint.assessed.length;
     return `<div class="lv-meta">
-      <span class="lv-chip"><b>${assessed}</b> skills measured</span>
+      <span class="lv-chip"><b>${numWord(assessed)}</b> skills measured</span>
       <span class="lv-chip"><b>${doc.blueprint.questions}</b> questions</span>
       <span class="lv-chip">about <b>${doc.minutes}</b> min</span>
       <span class="lv-chip">same paper for everyone</span>
@@ -10373,8 +10400,7 @@ const Level = (() => {
              <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.right}/${result.total} correct · ${result.minutes} min</small>
            </span>${ARROW}</button>`
       : `<button class="lv-btn lv-cta" data-act="start">
-           <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}
-             <small>${touched ? 'Your place is saved' : doc.blueprint.questions + ' questions · about ' + doc.minutes + ' minutes · four skills measured'}</small>
+           <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}              <small>${touched ? 'Your place is saved' : doc.blueprint.questions + ' questions · about ' + doc.minutes + ' minutes · ' + numWord(doc.blueprint.assessed.length) + ' skills measured'}</small>
            </span>${ARROW}</button>
          ${touched ? `<button class="lv-btn ghost" data-act="restart">Start over</button>` : ''}
          ${result ? `<button class="lv-btn ghost" data-act="result">Last report</button>` : ''}`;
@@ -10787,7 +10813,7 @@ const Level = (() => {
       <div class="lv-next" data-band="${bandKey(result.overall)}">
         <h4>Next</h4>
         <p>${tied
-          ? `An even profile: all four measured skills sit at <b>${bandLabel(result.overall)}</b>.
+          ? `An even profile: all ${numWord(measured.length)} measured skills sit at <b>${bandLabel(result.overall)}</b>.
              The next step is material at that level rather than repair of one skill.`
           : `${strongest ? `Strongest: <b>${esc(skillTitle(strongest.id).en)}</b> (${bandLabel(strongest.band)}). ` : ''}${
             weakest ? `Work next on <b>${esc(skillTitle(weakest.id).en)}</b> (${bandLabel(weakest.band)}).` : ''}`}</p>
@@ -10831,16 +10857,33 @@ const Level = (() => {
          answers are already written down, so say that and offer the door back
          rather than a dead panel. */
       console.error('level:', e);
-      const host = body();
-      if (!host) return;
-      host.innerHTML = `<div class="lv-wrap"><section class="lv-hero">
-        <div class="lv-eyebrow">Level assessment</div>
-        <h2 class="lv-h">This part could not be drawn</h2>
-        <p class="lv-sub">Your answers are saved. Open the level check again to carry on where you were.</p>
-        ${faLine('پاسخ‌هایت ذخیره شده‌اند. بخش سنجش سطح را دوباره باز کن تا از همان‌جا ادامه دهی.')}
-        <div class="lv-actions"><button class="lv-btn" data-act="intro">Back to the start</button></div>
-      </section></div>`;
+      fallbackSheet();
     }
+    /* A paint that draws nothing at all leaves the panel as it found it, which
+       on the phone is the same empty sheet as a throw. If the paper was meant
+       to have questions and the body has none, say so instead of showing a
+       blank panel. */
+    if (view !== 'practice') {
+      const host = body();
+      if (host && !host.childElementCount) {
+        console.error('level: the panel came out empty (' + view + ')');
+        fallbackSheet();
+      }
+    }
+  }
+
+  /* The one door out of a paper that cannot be drawn: the answers are already
+     written down, so the learner is told that and offered a way back. */
+  function fallbackSheet() {
+    const host = body();
+    if (!host) return;
+    host.innerHTML = `<div class="lv-wrap"><section class="lv-hero">
+      <div class="lv-eyebrow">Level assessment</div>
+      <h2 class="lv-h">This part could not be drawn</h2>
+      <p class="lv-sub">Your answers are saved. Open the level check again to carry on where you were.</p>
+      ${faLine('پاسخ‌هایت ذخیره شده‌اند. بخش سنجش سطح را دوباره باز کن تا از همان‌جا ادامه دهی.')}
+      <div class="lv-actions"><button class="lv-btn" data-act="intro">Back to the start</button></div>
+    </section></div>`;
   }
 
   function start(fresh) {
@@ -11181,6 +11224,36 @@ const Level = (() => {
       box.dispatchEvent(new Event('change', {bubbles: true}));
       card.scrollIntoView({block: 'nearest'});
     });
+
+    /* The soft keyboard takes half the screen, and the box the learner is
+       typing in was left under it: the paper looked empty with only the
+       keyboard in view. A box that takes focus brings its own question back
+       to the top of the panel, above the keyboard rather than behind it. */
+    document.addEventListener('focusin', (e) => {
+      const card = e.target.closest && e.target.closest('.lv-q');
+      if (!card) return;
+      setTimeout(() => {
+        try { card.scrollIntoView({block: 'start', behavior: 'smooth'}); } catch (err) { /* old WebView */ }
+      }, 260);
+    });
+
+    /* A throw inside a handler - a tap on an option, a keystroke in a box, a
+       tap on the footer - never reaches the paint guard. If it leaves the
+       panel with nothing in it, draw the paper again rather than showing a
+       blank sheet. Once, so a repeat failure cannot spin. */
+    if (!healed) {
+      healed = true;
+      const heal = () => {
+        const panel = document.getElementById('lvlpanel');
+        const host = body();
+        if (!panel || !panel.classList.contains('open') || !host) return;
+        if (host.childElementCount) return;
+        console.error('level: the panel was emptied outside a paint');
+        try { render(); } catch (err) { fallbackSheet(); }
+      };
+      window.addEventListener('error', heal);
+      window.addEventListener('unhandledrejection', heal);
+    }
   }
 
   async function mount() {
