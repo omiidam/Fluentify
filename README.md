@@ -381,6 +381,27 @@ went the other way: the bubble border is `rgba(43,48,73,.14)` and the header
 carries a navy-tinted shadow, so the edges that define a surface are drawn by
 value rather than by another expensive white.
 
+### Sections are pages
+
+Every section — Today, Vocabulary, Grammar, Listening, Say, Sounds, Reading,
+Stories, Books, Analyse, Review, Level, Account, and the two that have no tile
+of their own — is a page, not a band above the conversation. It used to be the
+latter: the panels were flex children capped at half the window and parked over
+the transcript, so the section you had chosen shared the screen with a strip of
+chat you were not reading, and a long list scrolled inside a box the height of
+a phone's keyboard. The cap is gone at the source: one rule gives every panel
+the whole column between the header and the foot of the shell, the transcript
+and the composer leave the room while a section is open (`.app.section`), and
+the title and close button are pinned to the top of the page they belong to.
+
+The three sheets that were different — the level check, the weekly quiz and the
+practice drills hung over the chat as bottom drawers — are pages too. A drawer
+is a thing you look at while doing something else; these are destinations.
+
+The gutter is one named number (`--secpad`) used by both the page padding and
+the band behind the sticky header, because two copies of it were two pixels
+apart on a phone and made every section scroll sideways.
+
 ### Two themes, one palette
 
 The switch lives in the **Account** panel (`Appearance — ظاهر`), because that is

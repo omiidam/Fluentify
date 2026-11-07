@@ -883,8 +883,21 @@
      button. Before this each panel had its own h3 and its own idea of how to
      be dismissed. */
   .phead {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 10px; flex: none;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px; flex: none;
+    /* A section page scrolls; its title and its way out must not scroll with
+       the content, or the close button is only reachable by remembering where
+       the top was. The band behind it is the panel's own first gradient stop,
+       so at rest it is invisible and while scrolled it covers what passes
+       under it - no second colour, no hairline drawn when nothing is behind. */
+    position: sticky; top: 0; z-index: 5;
+    padding-block: 12px;
+  }
+  .phead::before {
+    content: ''; position: absolute; z-index: -1;
+    top: -14px; bottom: -14px;
+    inset-inline: calc(-1 * var(--secpad, 20px));
+    background: var(--surf-1);
   }
   /* The titles are bilingual and can be long. Without min-width: 0 the h3
      refuses to shrink below its content and pushes the close button past the
@@ -1153,30 +1166,52 @@
      daily feature did not sit beside the conversation, it was the page.
      tools/check_ui.py now derives the list from the markup and fails on any
      panel that is missing here. */
+  /* A section is a page, not a band above the chat. These used to be flex
+     children capped at 52% of the window and parked above the transcript -
+     which is why every section looked confined to the top half of the screen
+     with a strip of conversation under it. Now an open panel takes the whole
+     column between the header and the bottom of the shell, and the transcript
+     and the composer step aside (see `.app.section` below). One rule here, so
+     no panel can drift back to a half-screen height of its own. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
   #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel {
-    display: none; padding: 14px 20px;
+    display: none; padding: 14px var(--secpad) 30px;
+    /* The page gutter, named once: the header band has to reach exactly the
+       panel's edges, and a second copy of this number was two pixels wider on
+       a phone - enough to make the whole page scroll sideways. */
+    --secpad: clamp(16px, 3.2vw, 34px);
     background: linear-gradient(180deg, var(--surf-1) 0%, var(--surf-2) 55%, var(--surf-2) 100%);
     box-shadow: inset 0 1px 0 var(--raise);
     border-bottom: 1px solid var(--line);
-    flex: none; animation: fade .18s ease;
-    max-height: 52%; overflow-y: auto;
-    /* fade the bottom edge so it reads as scrollable rather than clipped */
-    -webkit-mask-image: linear-gradient(to bottom, var(--mask) calc(100% - 22px), transparent);
-    mask-image: linear-gradient(to bottom, var(--mask) calc(100% - 22px), transparent);
+    flex: 1 1 auto; min-height: 0; animation: fade .18s ease;
+    max-height: none; overflow-y: auto; overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    /* No bottom mask: it existed to say "this band scrolls", and on a page
+       that is the whole column the fade would shade the last row of real
+       content instead of a sliver of it. */
+    -webkit-mask-image: none; mask-image: none;
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
-  #dpanel.open, #npanel.open, #bpanel.open, #wqpanel.open,
-  #prpanel.open { display: block; }
-  /* Reading opens taller than the others: a passage and its questions are
-     read, not glanced at, and 52% of the window shows two lines of text. */
-  #rdpanel.open { display: block; max-height: 74%; overflow-y: auto; }
+  #dpanel.open, #npanel.open, #bpanel.open, #stpanel.open,
+  #lvlpanel.open, #wqpanel.open, #prpanel.open { display: block; }
+  #rdpanel.open { display: block; max-height: none; overflow-y: auto; }
+  /* The transcript and the composer belong to the conversation, not to a
+     section page. Opening a section is a change of destination, so they are
+     not squeezed to nothing beside it - they leave the room. Closing the
+     section brings both back exactly as they were. */
+  .app.section .chatwrap,
+  .app.section .stt-panel,
+  .app.section #composer { display: none; }
   /* #phpanel gets its own flex layout below, so it is not listed here */
   @keyframes fade { from { opacity: 0; transform: translateY(-4px); } }
+  /* A section's title is the page's title now, not a label on a band: at
+     13px it named a strip of the screen, and on a full page that reads as a
+     caption someone forgot to finish. */
   #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
-  #bpanel h3, #rdpanel h3, #stpanel h3 {
-    font-size: 13px; color: var(--ink); margin-bottom: 9px; font-weight: 700;
-    font-family: var(--font-display); letter-spacing: .1px;
+  #bpanel h3, #rdpanel h3, #stpanel h3, #lvlpanel h3, #wqpanel h3,
+  #prpanel h3, #acpanel h3, #dpanel h3, #npanel h3 {
+    font-size: 19px; color: var(--ink); margin-bottom: 4px; font-weight: 700;
+    font-family: var(--font-display); letter-spacing: -.2px; line-height: 1.28;
   }
   /* A coloured rule per section. Only one panel is ever open, so this is a
      wayfinding cue rather than a palette to look at - it tells you where you
@@ -1201,12 +1236,10 @@
      clears the mask fade, and the actions now sit above the two blocks that
      can scroll. */
   #acpanel.open {
-    display: block; overflow-y: auto; padding-bottom: 24px;
-    /* 88% of the viewport is the shape the panel wants; the subtraction is
-       the floor that keeps the composer and the open tile on screen in a
-       short window, where 88% of 400px would push the panel past the frame
-       and the frame clips it. */
-    max-height: min(88%, calc(100% - 132px));
+    display: block; overflow-y: auto; padding-bottom: 30px;
+    /* The offsets that used to keep a share of the chat and the composer
+       visible are gone with the chat: the account page owns the column now. */
+    max-height: none;
   }
 
   /* ---------- sign in: the first thing after the loading screen -----------
@@ -1845,20 +1878,16 @@
      The colours are the app's own; the only new decision is that a band is
      always the same colour wherever it appears, so the badge in the header,
      the row in the result and the tag on a question agree at a glance. */
-  #lvlpanel.open { display: block; max-height: 88%; overflow-y: auto; }
-  /* Both papers - the level check and the weekly quiz - lift out of the app's
-     column and sit over the conversation instead of sharing their height with
-     it. As a flex child the sheet was handed whatever was left after the
-     transcript and the composer, which on a phone is a couple of hundred
-     pixels: the question card was cut in half and the rest scrolled under a
-     sticky header that had nothing left to pin against. */
+  #lvlpanel.open { display: block; max-height: none; overflow-y: auto; }
+  /* The level check, the weekly quiz and the practice sheet used to lift out
+     of the column and hang over the conversation as bottom sheets. A sheet is
+     a drawer, and a drawer is not a destination: they now take the same page
+     as every other section, with the shell's own edges rather than a floating
+     card of their own. */
   #lvlpanel.open, #wqpanel.open, #prpanel.open {
-    position: absolute; inset-inline: 0; bottom: 0; height: auto;
-    max-height: 86%;
-    z-index: 7; border-start-start-radius: 18px; border-start-end-radius: 18px;
-    box-shadow:
-      0 -20px 44px -32px rgba(74,58,30,.85),
-      inset 0 -22px 18px -18px rgba(74,58,30,.72);
+    position: relative; inset: auto; height: auto; max-height: none;
+    z-index: auto; border-start-start-radius: 0; border-start-end-radius: 0;
+    box-shadow: inset 0 1px 0 var(--raise);
   }
   /* A mask over a scroller this tall becomes one composited layer the height
      of the whole paper - four thousand pixels on a phone - and the raster
@@ -1869,8 +1898,7 @@
      spend nothing on a mask. */
   #lvlpanel.open, #rdpanel.open, #wqpanel.open, #prpanel.open {
     -webkit-mask-image: none; mask-image: none;
-    box-shadow: inset 0 -22px 18px -18px rgba(74,58,30,.72);
-    scroll-padding-top: 84px; scroll-padding-bottom: 66px;
+    scroll-padding-top: 96px; scroll-padding-bottom: 40px;
     /* The panel is a child of the app's column, and the column is not a
        scroller: a sheet taller than the space left above the composer does not
        stop at the top of the window, it grows past it, and the question under
@@ -2225,7 +2253,7 @@
   .lv-crumb.done { border-color: rgba(47,107,79,.5); color: var(--green-ink); }
 
   /* ---------- mini stories: a reader, then the drills that go with it ------ */
-  #stpanel.open { display: block; max-height: 80%; overflow-y: auto; }
+  #stpanel.open { display: block; max-height: none; overflow-y: auto; }
   .stlevels { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
   .stlv {
     font-family: inherit; font-size: 11px; cursor: pointer; border-radius: 999px;
@@ -4313,6 +4341,12 @@
     .dword { font-size: 23px; }
     .dwho { min-width: 74px; }
   }
+  /* The Today page is the width of the shell now, and a word card stretched
+     to eleven hundred pixels is a one-line card with a horizon in it. Three
+     columns where there is room, one where there is not. */
+  @media (min-width: 900px) {
+    .dcards { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start; }
+  }
   @media (max-width: 420px) {
     .dwho { min-width: 46px; font-size: 10px; }
     .dturn { gap: 6px; }
@@ -4474,7 +4508,7 @@
             overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
   #phpanel, #rpanel { display: none; flex-direction: column; }
   #phpanel.open, #rpanel.open { display: flex; }
-  .phead { margin-bottom: 12px; }
+  .phead { margin-bottom: 14px; }
   .phead .ptitle {
     display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     font-size: 16px; font-weight: 700; letter-spacing: .2px;
@@ -4680,17 +4714,22 @@
     }
   }
 
-  /* ---- panels: nearly full height, edge-to-edge, own scroll area ---- */    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
-    padding: 10px calc(var(--pad) + var(--sar)) 11px calc(var(--pad) + var(--sal));
-    max-height: 66%;
+  /* ---- panels: edge-to-edge, own scroll area, the height of the column ---- */
+  #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel {
+    padding: 10px calc(var(--pad) + var(--sar)) 24px calc(var(--pad) + var(--sal));
+    --secpad: calc(var(--pad) + var(--sar));
+    max-height: none;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
   #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
-  #bpanel h3 {
-    font-size: 11.5px; margin-bottom: 8px; line-height: 1.5;
+  #bpanel h3, #rdpanel h3, #stpanel h3, #lvlpanel h3, #wqpanel h3,
+  #prpanel h3, #acpanel h3, #dpanel h3, #npanel h3 {
+    margin-bottom: 4px; line-height: 1.28;
   }
-  .domains { max-height: 46vh; }
+  /* The chip cloud is the panel's own content now: the page scroller does the
+     scrolling, and a second scroll box inside it trapped the last row. */
+  .domains { max-height: none; }
 
   /* every tappable pill in a panel gets a real touch target */
   .vbtn, .gbtn, .ftopic, .ltab {
@@ -4742,6 +4781,12 @@
   #input { min-width: 0; }
   @media (max-width: 420px) {
     .messageBox { gap: 2px; padding: 3px 4px 3px 3px; }
+    /* A page title at 19px on a 360px phone is three lines of Persian before
+       the first row of content. It steps down rather than the whole panel
+       stepping back to the old 13px caption size. */
+    #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
+    #bpanel h3, #rdpanel h3, #stpanel h3, #lvlpanel h3, #wqpanel h3,
+    #prpanel h3, #acpanel h3, #dpanel h3, #npanel h3 { font-size: 16.5px; }
   }
 
   /* ---- daily limit reached: the composer goes quiet ---- */
@@ -4989,8 +5034,8 @@
     .mav { width: 32px; height: 32px; border-radius: 11px; }
     .mav svg, .mav img { width: 26px; height: 26px; }
     .msg { padding: 12px 16px; font-size: 16px; }
-    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel { padding: 14px 20px; max-height: 52%; }
-    .domains { max-height: 230px; }
+    #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel { padding: 12px 18px 24px; --secpad: 18px; max-height: none; }
+    .domains { max-height: none; }
     form { padding: 14px 20px 18px; gap: 8px; }
     #input { padding: 10px 14px; font-size: 15.5px; }
     .send { width: 36px; height: 36px; padding: 0; }
@@ -7426,6 +7471,7 @@ const Panels = (() => {
       tile?.classList.remove('on');
       tile?.setAttribute('aria-expanded', 'false');
       if (openId === panelId) openId = null;
+      paintShell();
       // Only pull focus back if it is still inside the panel being closed -
       // otherwise Escape from the composer would steal it. The destination is
       // the panel's own tile rather than whatever was focused on open, because
@@ -7444,6 +7490,7 @@ const Panels = (() => {
     tile?.classList.add('on');
     tile?.setAttribute('aria-expanded', 'true');
     openId = panelId;
+    paintShell();
 
     // A panel whose content is generated rather than static has to be told to
     // redraw when it opens. Without this the Review panel opened blank.
@@ -7452,6 +7499,14 @@ const Panels = (() => {
     // focus the close button, not the first field: opening a panel should not
     // drop a keyboard user into a search box they did not ask for
     (panel.querySelector('.pclose') || panel).focus?.();
+  }
+
+  /* One flag on the shell, not a class per panel: whether a section owns the
+     column is a fact about the app, and the transcript and composer hide from
+     it rather than from a list of fifteen panel ids that must stay in step. */
+  function paintShell() {
+    const app = document.querySelector('.app');
+    if (app) app.classList.toggle('section', !!openId);
   }
 
   function toggle(panelId, hook) {
@@ -14526,8 +14581,6 @@ const Weekly = (() => {
         '<div class="wq-toprow"><span class="wq-chip">Question ' + (i + 1) + ' of ' +
           quiz.questions.length + '</span><span class="wq-chip ghost">' +
           (q.kind === 'word' ? 'Word' : 'Expression') + '</span>' +
-          '<span class="spacer"></span>' +
-          '<button type="button" class="wq-x" data-wq-exit="1" aria-label="Close the quiz">✕</button>' +
         '</div>' +
         '<div class="wq-bar" role="progressbar" aria-valuemin="0" aria-valuemax="' +
           quiz.questions.length + '" aria-valuenow="' + (i + 1) + '">' +
@@ -14574,9 +14627,6 @@ const Weekly = (() => {
         ? 'A good week. The ones that slipped are below, with their meanings.'
         : 'A hard week, and that is all right: every miss below is a word you have already met.';
     body().innerHTML = '<div class="wq-wrap">' +
-      '<div class="wq-top"><div class="wq-toprow"><span class="wq-chip">Weekly quiz</span>' +
-        '<span class="spacer"></span><button type="button" class="wq-x" data-wq-exit="1" ' +
-        'aria-label="Close the quiz">✕</button></div></div>' +
       '<section class="wq-hero">' +
         '<div class="wq-eyebrow">This week&rsquo;s review</div>' +
         '<div class="wq-score"><b>' + result.right + '</b><span>of ' + result.total + '</span>' +
