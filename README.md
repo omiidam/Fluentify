@@ -21,6 +21,7 @@ no network calls, no tracking.
 | Area | Details |
 |---|---|
 | 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
+| 🗓️ Weekly quiz | a **weekly review drawn only from what was ticked off in the last seven days** — up to ten questions on those words and expressions, four options each, one paper per Monday-to-Sunday week, scored on submit and kept — **optional**: skip it and nothing changes, and fewer than five learned items means no paper rather than a thin one |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
@@ -141,6 +142,37 @@ does not repeat for **1,320 days**. Extending the catalogue only lengthens the
 cycle, and each category steps through every entry before reusing one.
 Completion is stored per date (`fluentify.daily.v1` in `localStorage`) and is
 never cleared, so yesterday's ticks survive the new day.
+
+### Weekly quiz
+
+The daily card is the day; the weekly quiz is the week. A card under the daily
+one offers a review of **the words and expressions ticked off in the last seven
+days** — the tick the daily card already keeps is the only eligibility record,
+so there is no second vocabulary list and no second progress store. Up to ten
+questions, one per learned item, formats rotated between English meaning,
+Persian-to-English, a blank in the item's own example sentence, and which
+expression fits a situation. Distractors are other entries from the same
+catalogue, the key is the item's own translation or its own word, and nothing
+is generated: the page has no model and no network in this path.
+
+The card states how much content it has and what the quiz will hold, with
+**Start quiz** and **Skip**. Skipping is final for the period and is not a
+failure — it touches no streak, level or record. Fewer than five learned items
+means **no paper at all**: the card says how many of the five are learned
+instead of drawing an incomplete quiz.
+
+One period is one Monday-to-Sunday block of the device's calendar. The paper is
+built once from the seven days that end at build time and frozen into
+`fluentify.weekly.quiz.v1`, so a refresh, a restart or a second tab opens the
+same questions; the next Monday opens a new period with a new paper. The build
+is seeded by the period and the sorted item ids, so the same week and the same
+ticks always give byte-identical questions, and the record keeps twelve periods.
+Results are scored against the key (`n of 10`, percentage, and every missed
+question with its correct answer and the item's own definition), and submitting
+twice, or reloading after submitting, lands on the same stored result.
+`tools/check_weekly.py` runs the page's own block in node over eligibility,
+determinism, scoring, the skip/finish store and the pruning, and the page's
+wiring.
 
 ### Fox stickers
 

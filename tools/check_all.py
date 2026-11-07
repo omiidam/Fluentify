@@ -40,6 +40,8 @@ Every suite answers a different question:
                 day and both sides of midnight in Tehran (20:30 UTC), and
                 refuses a countdown that is written once and then freezes, or
                 a session that needs a reload to unlock.
+  check_weekly  does the weekly quiz review the last seven days and only those,
+                the same paper for the same week and a score that needs answers
   check_daily   is the Daily English catalogue sound, and do the CLI, the APK
                 engine and the page pick the same three items for the same
                 local date? The rotation exists in three places, one per
@@ -109,6 +111,7 @@ SUITES = [
     ("mixed english/persian lines", [sys.executable, "tools/check_bidi.py"]),
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
+    ("weekly quiz", [sys.executable, "tools/check_weekly.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),

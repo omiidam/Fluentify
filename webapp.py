@@ -1169,7 +1169,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel, #acpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #acpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -1363,7 +1363,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      tools/check_ui.py now derives the list from the markup and fails on any
      panel that is missing here. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel, #acpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #acpanel {
     display: none; padding: 14px 20px;
     background: linear-gradient(180deg, var(--surf-1) 0%, var(--surf-2) 55%, var(--surf-2) 100%);
     box-shadow: inset 0 1px 0 var(--raise);
@@ -1375,7 +1375,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     mask-image: linear-gradient(to bottom, var(--mask) calc(100% - 22px), transparent);
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
-  #dpanel.open, #npanel.open, #bpanel.open { display: block; }
+  #dpanel.open, #npanel.open, #bpanel.open, #wqpanel.open { display: block; }
   /* Reading opens taller than the others: a passage and its questions are
      read, not glanced at, and 52% of the window shows two lines of text. */
   #rdpanel.open { display: block; max-height: 74%; overflow-y: auto; }
@@ -2054,6 +2054,20 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      always the same colour wherever it appears, so the badge in the header,
      the row in the result and the tag on a question agree at a glance. */
   #lvlpanel.open { display: block; max-height: 88%; overflow-y: auto; }
+  /* Both papers - the level check and the weekly quiz - lift out of the app's
+     column and sit over the conversation instead of sharing their height with
+     it. As a flex child the sheet was handed whatever was left after the
+     transcript and the composer, which on a phone is a couple of hundred
+     pixels: the question card was cut in half and the rest scrolled under a
+     sticky header that had nothing left to pin against. */
+  #lvlpanel.open, #wqpanel.open {
+    position: absolute; inset-inline: 0; bottom: 0; height: auto;
+    max-height: 86%;
+    z-index: 7; border-start-start-radius: 18px; border-start-end-radius: 18px;
+    box-shadow:
+      0 -20px 44px -32px rgba(74,58,30,.85),
+      inset 0 -22px 18px -18px rgba(74,58,30,.72);
+  }
   /* A mask over a scroller this tall becomes one composited layer the height
      of the whole paper - four thousand pixels on a phone - and the raster
      budget runs out before the questions are drawn. In logcat that is "tile
@@ -2061,7 +2075,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      is a blank sheet in the middle of the check. The fade is only the cue that
      there is more to scroll, so the tall panels keep the inset shadow cue and
      spend nothing on a mask. */
-  #lvlpanel.open, #rdpanel.open {
+  #lvlpanel.open, #rdpanel.open, #wqpanel.open {
     -webkit-mask-image: none; mask-image: none;
     box-shadow: inset 0 -22px 18px -18px rgba(74,58,30,.72);
     scroll-padding-top: 84px; scroll-padding-bottom: 66px;
@@ -3737,6 +3751,212 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @media (max-width: 420px) {
     .wd-form b { min-width: 92px; font-size: 12.5px; }
   }
+
+  /* ---------- weekly quiz: the week's card, and the paper behind it ------
+     The daily card is the day; this is the week, and it is deliberately the
+     same object one size up: a card in the transcript, an indigo rule instead
+     of a gold one so the two are told apart at a glance, and a sheet that
+     opens over the page for the questions themselves. */
+  .wqcard {
+    position: relative; overflow: hidden; flex: 0 0 auto;
+    max-width: 980px; width: 100%; margin: 2px auto 10px;
+    border-radius: 18px; border: 1px solid rgba(79,70,160,.26);
+    background: var(--card);
+    box-shadow:
+      0 1px 0 var(--edge-light) inset,
+      0 2px 5px rgba(74,58,30,.055),
+      0 20px 38px -26px rgba(74,58,30,.75);
+    font-family: var(--font-body);
+  }
+  .wqcard::before {
+    content: ""; position: absolute; inset: 0 0 auto; height: 3px; z-index: 1;
+    background: linear-gradient(90deg, var(--indigo), var(--violet) 46%, var(--surf-4));
+  }
+  .wqhead {
+    display: flex; align-items: flex-start; gap: 9px;
+    padding: 13px 12px 9px 14px;
+    background: radial-gradient(130% 160% at 0% 0%, rgba(107,91,210,.20), transparent 64%),
+      linear-gradient(180deg, var(--surf-2), var(--surf-3));
+  }
+  .wqico {
+    width: 28px; height: 28px; border-radius: 9px; flex: none;
+    display: grid; place-items: center;
+    background: linear-gradient(180deg, var(--surf-3), var(--ice));
+    border: 1px solid rgba(79,70,160,.26); color: var(--indigo);
+    box-shadow: 0 1px 2px rgba(79,70,160,.14);
+  }
+  .wqico svg { width: 16px; height: 16px; }
+  .wqtitle {
+    font-family: var(--font-display); font-size: 14px; font-weight: 700;
+    color: var(--navy2); line-height: 1.25; letter-spacing: .1px;
+  }
+  .wqtitle small {
+    display: block; font-family: var(--font-body); font-size: 10px;
+    font-weight: 400; color: var(--muted); margin-top: 2px;
+  }
+  .wqhead .spacer { flex: 1 1 auto; }
+  .wqscore {
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    color: var(--indigo); background: rgba(74,79,160,.12);
+    border: 1px solid rgba(74,79,160,.24); border-radius: 999px;
+    padding: 3px 9px; white-space: nowrap; font-variant-numeric: tabular-nums;
+  }
+  .wqline {
+    margin: 11px 14px 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-2);
+  }
+  .wqline b { color: var(--navy2); }
+  .wqfa {
+    margin: 4px 14px 0; font-family: var(--font-fa); font-size: 12px;
+    line-height: 1.65; color: var(--muted);
+  }
+  .wqmeta {
+    margin: 9px 14px 0; font-size: 10.5px; font-weight: 700; letter-spacing: .2px;
+    color: var(--indigo); font-variant-numeric: tabular-nums;
+  }
+  .wqnote {
+    margin: 8px 14px 0; font-size: 12px; line-height: 1.55; color: var(--ink-2);
+  }
+  .wqnote.fa { font-family: var(--font-fa); font-size: 11.5px; color: var(--muted); }
+  .wqacts { display: flex; flex-wrap: wrap; gap: 8px; padding: 11px 14px 13px; }
+  .wqbtn {
+    font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 7px;
+    border-radius: 12px; padding: 9px 14px; border: 1px solid transparent;
+    background: var(--indigo); color: var(--on-fill);
+    box-shadow: 0 8px 18px -12px rgba(74,79,160,.9);
+  }
+  .wqbtn.ghost {
+    background: transparent; color: var(--ink-2);
+    border-color: var(--line2); box-shadow: none;
+  }
+  .wqbtn bdi { font-family: var(--font-fa); font-size: 11px; font-weight: 400; opacity: .85; }
+  .wqbtn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  @media (max-width: 520px) {
+    .wqacts .wqbtn { flex: 1 1 auto; justify-content: center; }
+  }
+
+  /* ---- the paper: the same sheet the level check uses ------------------ */
+  .wq-wrap { display: flex; flex-direction: column; gap: 11px; max-width: 660px; margin: 0 auto; }
+  .wq-top {
+    position: sticky; top: 0; z-index: 3; margin: 0;
+    padding: 8px 0 9px; background: var(--surf-1);
+    border-bottom: 1px solid var(--line);
+  }
+  .wq-toprow {
+    display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px;
+    margin-bottom: 6px;
+  }
+  .wq-toprow .spacer { flex: 1 1 auto; }
+  .wq-chip {
+    font-size: 10.5px; font-weight: 800; letter-spacing: .5px;
+    text-transform: uppercase; color: var(--indigo);
+    background: rgba(74,79,160,.12); border-radius: 999px; padding: 3px 9px;
+  }
+  .wq-chip.ghost { color: var(--muted); background: rgba(43,48,73,.07); }
+  .wq-x {
+    font: inherit; font-size: 13px; line-height: 1; cursor: pointer;
+    width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--surf-2); color: var(--muted); align-self: center;
+  }
+  .wq-bar {
+    height: 4px; border-radius: 999px; overflow: hidden;
+    background: var(--line); box-shadow: inset 0 1px 2px var(--line);
+  }
+  .wq-bar i {
+    display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--indigo), var(--violet));
+    transition: width .3s cubic-bezier(.22,1,.36,1);
+  }
+  .wq-q {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; padding: 14px 14px 12px;
+    box-shadow: 0 1px 0 var(--edge-light) inset, 0 2px 5px rgba(74,58,30,.05);
+  }
+  .wq-prompt {
+    margin: 0 0 4px; font-size: 14.5px; line-height: 1.55; color: var(--navy2);
+    font-family: var(--font-display); font-weight: 600;
+  }
+  .wq-prompt.fa {
+    font-family: var(--font-fa); font-weight: 400; font-size: 12.5px;
+    color: var(--muted); line-height: 1.7;
+  }
+  .wq-opts { display: flex; flex-direction: column; gap: 7px; margin-top: 11px; }
+  .wq-opt {
+    display: flex; align-items: flex-start; gap: 9px; text-align: left;
+    font: inherit; font-size: 13px; line-height: 1.45; cursor: pointer;
+    padding: 9px 11px; border-radius: 12px;
+    border: 1px solid var(--line2); background: var(--surf-1); color: var(--ink);
+    transition: border-color .14s ease, background .14s ease;
+  }
+  .wq-opt:hover { background: var(--surf-2); }
+  .wq-opt.on {
+    border-color: var(--indigo); background: rgba(74,79,160,.10); color: var(--navy2);
+    box-shadow: 0 0 0 1px rgba(74,79,160,.35) inset;
+  }
+  .wq-opt:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .wq-letter {
+    flex: none; width: 20px; height: 20px; border-radius: 7px;
+    display: grid; place-items: center; font-size: 10.5px; font-weight: 800;
+    background: var(--line); color: var(--ink-2);
+  }
+  .wq-opt.on .wq-letter { background: var(--indigo); color: var(--on-fill); }
+  .wq-text { flex: 1 1 auto; }
+  .wq-foot {
+    position: sticky; bottom: 0; z-index: 3; margin-top: 12px;
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 0 10px; background: var(--surf-1);
+    border-top: 1px solid var(--line); flex-wrap: wrap;
+  }
+  .wq-foot .wq-note { flex: 1 1 auto; font-size: 10.5px; color: var(--muted); }
+  .wq-foot .lv-btn[disabled] { opacity: .45; cursor: default; }
+  .wq-hero {
+    border-radius: 16px; padding: 16px 15px;
+    border: 1px solid var(--line);
+    background: radial-gradient(120% 90% at 100% 0%, rgba(107,91,210,.12), transparent 58%),
+      linear-gradient(160deg, var(--surf-1), var(--surf-1) 70%, var(--surf-2));
+    box-shadow: 0 10px 26px -20px var(--line2);
+  }
+  .wq-eyebrow {
+    font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--indigo); font-weight: 700; margin-bottom: 7px;
+  }
+  .wq-h {
+    font-family: var(--font-display); font-size: 18px; font-weight: 700;
+    color: var(--navy2); margin: 0 0 6px; line-height: 1.3;
+  }
+  .wq-sub { margin: 0 0 5px; font-size: 12.5px; line-height: 1.6; color: var(--ink-2); }
+  .wq-fa {
+    margin: 0 0 6px; font-family: var(--font-fa); font-size: 12px;
+    line-height: 1.75; color: var(--muted);
+  }
+  .wq-score {
+    display: flex; align-items: baseline; gap: 8px; margin: 2px 0 8px;
+  }
+  .wq-score b {
+    font-family: var(--font-display); font-size: 34px; line-height: 1;
+    color: var(--indigo);
+  }
+  .wq-score span { font-size: 12px; color: var(--muted); }
+  .wq-score em {
+    font-style: normal; font-size: 11px; font-weight: 800;
+    color: var(--indigo); background: rgba(74,79,160,.12);
+    border-radius: 999px; padding: 3px 9px; margin-inline-start: auto;
+  }
+  .wq-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .wq-h4 {
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    margin: 4px 0 0;
+  }
+  .wq-miss {
+    border: 1px solid var(--line); border-inline-start: 3px solid var(--red);
+    border-radius: 12px; background: var(--surf-1); padding: 10px 12px;
+  }
+  .wq-missq { margin: 0 0 5px; font-size: 12.5px; line-height: 1.5; color: var(--navy2); font-weight: 600; }
+  .wq-said { margin: 0 0 2px; font-size: 12px; color: var(--red); }
+  .wq-right { margin: 0 0 4px; font-size: 12.5px; color: var(--success); font-weight: 700; }
+  .wq-detail { margin: 0; font-size: 11.5px; line-height: 1.55; color: var(--muted); }
+  .wq-detail.fa { font-family: var(--font-fa); line-height: 1.75; }
 
   /* ---------- daily english: word, expression, conversation ----------
      Three cards, one per daily item. Everything is built from the page's own
@@ -5457,6 +5677,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="lvlpanel">
     <h3>Level check — <bdi class="fa" lang="fa" dir="rtl">سنجش سطح</bdi></h3>
     <div id="lvlbody" aria-live="polite"></div>
+  </div>
+  <div id="wqpanel">
+    <h3>Weekly quiz — <bdi class="fa" lang="fa" dir="rtl">آزمون هفتگی</bdi></h3>
+    <div id="wqbody" aria-live="polite"></div>
   </div>
   <div id="acpanel">
     <h3>Account — <bdi class="fa" lang="fa" dir="rtl">حساب</bdi></h3>
@@ -7206,6 +7430,8 @@ const Panels = (() => {
     bpanel: 'btoggle', rpanel: 'rtoggle', rdpanel: 'rdtoggle',
     stpanel: 'stoggle',
     lvlpanel: 'lvltoggle',
+    // the weekly quiz has no tile: the landing-page card is its way in
+    wqpanel: null,
     acpanel: 'actoggle',
   };
   let openId = null;
@@ -13012,6 +13238,757 @@ const DailyStore = {
 };
 /* --- end daily store ---------------------------------------------------- */
 
+/* --- weekly quiz: pure, executed by tools/check_weekly.py ---------------
+   The quiz reviews what the learner actually ticked off in the last seven
+   days, so its only content source is the daily store. Everything in here is
+   arithmetic over that record and the daily catalogue: no clock of its own, no
+   network, no randomness that is not seeded by the period - the same week and
+   the same ticks must always give the same paper, or a refresh would rewrite
+   the questions under the reader.
+
+   A week is a Monday-to-Sunday block of the device's own calendar: one paper
+   per block, frozen when it is built, so reopening the page cannot draw a new
+   one and next Monday cannot keep the old. */
+/* A word from the catalogue is put into a regular expression to find the
+   sentence it belongs in, so its own punctuation must not become a pattern. */
+const weeklyEscapeRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const WeeklyQuiz = {
+  KEY: 'fluentify.weekly.quiz.v1',
+  MIN_ITEMS: 5,
+  MAX_QUESTIONS: 10,
+  WINDOW: 7,
+  KEEP: 12,
+  /* A word can be asked three ways; an expression is a whole sentence, so it
+     is asked what it means and when it fits rather than with a blank in it. */
+  TYPES: {
+    word: ['meaning', 'reverse', 'cloze'],
+    expression: ['situation', 'meaning'],
+  },
+
+  pad(n) { return String(n).padStart(2, '0'); },
+
+  /* The device's local calendar date as YYYY-MM-DD, the same shape the daily
+     store is keyed on. Not toISOString(), which answers with yesterday's date
+     all morning east of Greenwich. */
+  keyOf(date) {
+    return date.getFullYear() + '-' + this.pad(date.getMonth() + 1) + '-' +
+      this.pad(date.getDate());
+  },
+
+  /* A date key back to the local midnight it names. */
+  dateOf(key) {
+    const p = String(key).split('-').map(Number);
+    return new Date(p[0], p[1] - 1, p[2]);
+  },
+
+  addDays(key, n) {
+    const d = this.dateOf(key);
+    return this.keyOf(new Date(d.getFullYear(), d.getMonth(), d.getDate() + n));
+  },
+
+  /* Monday of the week the given day belongs to. The period is the week, not
+     a rolling seven days: a rolling window changes every morning, and a quiz
+     that rewrites itself at midnight is not a quiz for the week. */
+  periodStart(now) {
+    const key = this.keyOf(now);
+    const d = this.dateOf(key);
+    return this.addDays(key, -((d.getDay() + 6) % 7));
+  },
+
+  /* The seven local dates that end today, oldest first - the learning the
+     paper is drawn from. */
+  window(now) {
+    const today = this.keyOf(now);
+    const out = [];
+    for (let i = this.WINDOW - 1; i >= 0; i -= 1) out.push(this.addDays(today, -i));
+    return out;
+  },
+
+  /* The kind of a daily-store id: w001 is a word, e001 an expression, c001 a
+     conversation. A conversation is not quizzed, so it drops out here. */
+  kindOf(id) {
+    const s = String(id || '');
+    if (/^w\d+$/.test(s)) return 'word';
+    if (/^e\d+$/.test(s)) return 'expression';
+    return null;
+  },
+
+  /* Every distinct item ticked off inside the window, oldest first. The daily
+     store is keyed by date, so this is also the only place the days are read:
+     a tick outside the window is a tick from last month and is not reviewed. */
+  eligible(days, now) {
+    const out = [];
+    const seen = new Set();
+    const store = days && typeof days === 'object' ? days : {};
+    this.window(now).forEach((day) => {
+      const list = Array.isArray(store[day]) ? store[day] : [];
+      list.forEach((id) => {
+        const kind = this.kindOf(id);
+        if (!kind || seen.has(id)) return;
+        seen.add(id);
+        out.push({id: id, kind: kind, day: day});
+      });
+    });
+    return out;
+  },
+
+  /* FNV-1a: the seed for one period, so the paper is a function of the week
+     and its items and of nothing else. */
+  hash(text) {
+    let h = 2166136261;
+    const s = String(text);
+    for (let i = 0; i < s.length; i += 1) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  },
+
+  /* mulberry32, seeded: small, deterministic, and good enough to shuffle ten
+     options without looking like a pattern. */
+  rand(seed) {
+    let a = seed >>> 0;
+    return () => {
+      a = (a + 0x6D2B79F5) >>> 0;
+      let t = a;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  },
+
+  shuffle(list, rand) {
+    const out = list.slice();
+    for (let i = out.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(rand() * (i + 1));
+      const t = out[i];
+      out[i] = out[j];
+      out[j] = t;
+    }
+    return out;
+  },
+
+  rows(cat, kind) {
+    const rows = (cat || {})[kind === 'word' ? 'words' : 'expressions'];
+    return Array.isArray(rows) ? rows : [];
+  },
+
+  find(cat, kind, id) {
+    return this.rows(cat, kind).find((r) => r && r.id === id) || null;
+  },
+
+  /* The answer plus up to three wrong ones drawn from the same kind, all
+     distinct: two options that both read as right would make the question
+     unanswerable, and the key is the item's own translation, never invented. */
+  options(answer, others, rand) {
+    if (!answer) return null;
+    const texts = [answer];
+    const seen = new Set(texts);
+    this.shuffle(others, rand).forEach((t) => {
+      if (texts.length >= 4) return;
+      if (typeof t !== 'string' || !t.trim() || seen.has(t)) return;
+      seen.add(t);
+      texts.push(t);
+    });
+    if (texts.length < 3) return null;
+    const order = this.shuffle(texts, rand);
+    return {options: order, answer: order.indexOf(answer)};
+  },
+
+  /* One question, or null when the entry cannot carry this format - a word
+     with no example sentence cannot be asked with a blank in it. */
+  make(cat, item, type, rand) {
+    const row = this.find(cat, item.kind, item.id);
+    if (!row) return null;
+    const others = this.rows(cat, item.kind).filter((r) => r && r.id !== row.id);
+    const word = item.kind === 'word';
+    const fa = (t) => String(t || '');
+
+    if (type === 'meaning') {
+      const answer = row.fa;
+      if (!answer) return null;
+      const set = this.options(answer, others.map((r) => r.fa), rand);
+      if (!set) return null;
+      return {
+        id: row.id + ':meaning',
+        item: row.id,
+        kind: item.kind,
+        type: 'meaning',
+        prompt: {
+          en: 'What does \u201c' + row.en + '\u201d mean?',
+          fa: '\u00ab' + row.en + '\u00bb چه معنایی دارد؟',
+        },
+        options: set.options,
+        answer: set.answer,
+        detail: {
+          en: row.en + ' \u2014 ' + fa(row.fa) +
+            (row.def && row.def.en ? '. ' + row.def.en : ''),
+          fa: fa(row.fa) + (row.def && row.def.fa ? ' \u2014 ' + row.def.fa : ''),
+        },
+      };
+    }
+
+    if (type === 'reverse') {
+      if (!row.en || !row.fa) return null;
+      const set = this.options(row.en, others.map((r) => r.en), rand);
+      if (!set) return null;
+      return {
+        id: row.id + ':reverse',
+        item: row.id,
+        kind: item.kind,
+        type: 'reverse',
+        prompt: {
+          en: 'Which word means \u201c' + row.fa + '\u201d?',
+          fa: '\u00ab' + row.fa + '\u00bb کدام واژه است؟',
+        },
+        options: set.options,
+        answer: set.answer,
+        detail: {
+          en: row.en + ' \u2014 ' + row.fa,
+          fa: row.fa + ' \u2014 ' + row.en,
+        },
+      };
+    }
+
+    if (type === 'cloze') {
+      const examples = word ? (row.examples || []) : [];
+      const example = examples.find((ex) => ex && typeof ex.en === 'string' &&
+        new RegExp('(^|[^A-Za-z])' + weeklyEscapeRe(row.en) + '([^A-Za-z]|$)', 'i')
+          .test(ex.en));
+      if (!example) return null;
+      const re = new RegExp('(^|[^A-Za-z])(' + weeklyEscapeRe(row.en) + ')([^A-Za-z]|$)', 'i');
+      const blank = example.en.replace(re, (m, a, b, c) => a + '____' + c);
+      const set = this.options(row.en, others.map((r) => r.en), rand);
+      if (!set) return null;
+      return {
+        id: row.id + ':cloze',
+        item: row.id,
+        kind: item.kind,
+        type: 'cloze',
+        prompt: {
+          en: 'Choose the word that fills the gap: ' + blank,
+          fa: 'واژه‌ای که جای خالی را پر می‌کند انتخاب کن: ' + blank,
+        },
+        options: set.options,
+        answer: set.answer,
+        detail: {
+          en: example.en + ' (' + row.en + ' \u2014 ' + row.fa + ')',
+          fa: (example.fa || '') + ' (' + row.en + ' \u2014 ' + row.fa + ')',
+        },
+      };
+    }
+
+    if (type === 'situation') {
+      const when = row.when && row.when.en ? row.when.en : '';
+      if (!when || !row.en) return null;
+      const set = this.options(row.en, others.map((r) => r.en), rand);
+      if (!set) return null;
+      return {
+        id: row.id + ':situation',
+        item: row.id,
+        kind: item.kind,
+        type: 'situation',
+        prompt: {
+          en: 'Which expression fits? ' + when,
+          fa: 'کدام عبارت مناسب است؟ ' + ((row.when && row.when.fa) || ''),
+        },
+        options: set.options,
+        answer: set.answer,
+        detail: {
+          en: row.en + ' \u2014 ' + fa(row.fa),
+          fa: fa(row.fa),
+        },
+      };
+    }
+
+    return null;
+  },
+
+  /* The paper for one period: at most ten items, words and expressions taken
+     in turn so one kind cannot crowd the other out, each item asked once, and
+     the format rotated so ten questions are not ten of the same shape. */
+  build(cat, items, period, todayKey) {
+    /* Sorted before anything else: the paper is a function of the set of
+       items, not of the order the store happened to hand them over, so a
+       record rewritten from a different path cannot reword the week. */
+    const list = Array.isArray(items)
+      ? items.slice().sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
+      : [];
+    if (list.length < this.MIN_ITEMS) return null;
+
+    const seed = this.hash(period + '|' +
+      list.map((i) => i.id).sort().join(','));
+    const rand = this.rand(seed);
+
+    let words = this.shuffle(list.filter((i) => i.kind === 'word'), rand);
+    let exprs = this.shuffle(list.filter((i) => i.kind === 'expression'), rand);
+    const order = [];
+    while (words.length || exprs.length) {
+      const tail = order.slice(-2);
+      let pick;
+      if (words.length && exprs.length) {
+        const stuck = tail.length === 2 && tail[0].kind === tail[1].kind;
+        if (stuck && tail[0].kind === 'word') pick = exprs.shift();
+        else if (stuck) pick = words.shift();
+        else pick = words.length >= exprs.length ? words.shift() : exprs.shift();
+      } else {
+        pick = words.length ? words.shift() : exprs.shift();
+      }
+      order.push(pick);
+    }
+
+    const chosen = order.slice(0, this.MAX_QUESTIONS);
+    const questions = [];
+    chosen.forEach((item, n) => {
+      const types = this.TYPES[item.kind] || [];
+      for (let k = 0; k < types.length; k += 1) {
+        const type = types[(n + k) % types.length];
+        const q = this.make(cat, item, type, rand);
+        if (q) { questions.push(q); break; }
+      }
+    });
+    if (questions.length < this.MIN_ITEMS) return null;
+
+    return {
+      period: period,
+      made: todayKey,
+      items: chosen.map((i) => ({id: i.id, kind: i.kind, day: i.day})),
+      questions: questions,
+    };
+  },
+
+  /* Every answer checked against the key, never against the reader's own
+     memory of what they chose. */
+  grade(quiz, answers) {
+    const qs = (quiz && quiz.questions) || [];
+    const picked = answers && typeof answers === 'object' ? answers : {};
+    const missed = [];
+    let right = 0;
+    qs.forEach((q, i) => {
+      const pick = picked[i] != null ? Number(picked[i]) : null;
+      if (pick != null && pick === q.answer) right += 1;
+      else missed.push(i);
+    });
+    return {total: qs.length, right: right, missed: missed,
+            percent: qs.length ? Math.round((right / qs.length) * 100) : 0};
+  },
+
+  /* ---- the record of the periods ------------------------------------- */
+
+  read() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      const state = raw ? JSON.parse(raw) : null;
+      const periods = state && state.periods && typeof state.periods === 'object'
+        ? state.periods : {};
+      const clean = {};
+      Object.keys(periods).forEach((k) => {
+        const p = periods[k];
+        if (!p || typeof p !== 'object') return;
+        const status = ['available', 'started', 'completed', 'skipped'].includes(p.status)
+          ? p.status : 'available';
+        clean[k] = {
+          status: status,
+          quiz: p.quiz && Array.isArray(p.quiz.questions) ? p.quiz : null,
+          answers: p.answers && typeof p.answers === 'object' ? p.answers : {},
+          result: p.result && typeof p.result === 'object' ? p.result : null,
+          cursor: typeof p.cursor === 'number' && p.cursor >= 0 ? p.cursor : 0,
+          at: typeof p.at === 'string' ? p.at : '',
+        };
+      });
+      return {periods: clean};
+    } catch (e) {
+      return {periods: {}};      // a corrupt record must not take the page down
+    }
+  },
+
+  write(state) {
+    const periods = (state && state.periods) || {};
+    const kept = {};
+    Object.keys(periods).sort().reverse().slice(0, this.KEEP)
+      .forEach((k) => { kept[k] = periods[k]; });
+    try {
+      localStorage.setItem(this.KEY, JSON.stringify({periods: kept}));
+    } catch (e) { /* private mode or a full disk: the paper still plays */ }
+    return {periods: kept};
+  },
+
+  record(state, period) {
+    return (state.periods && state.periods[period]) || null;
+  },
+
+  /* One way, like the daily skip: there is no argument that takes a learner
+     back out of a finished week, because the paper is over and its score is
+     history. */
+  setSkipped(state, period) {
+    state.periods = state.periods || {};
+    state.periods[period] = {
+      status: 'skipped', quiz: null, answers: {}, result: null,
+      at: this.keyOf(new Date()),
+    };
+    return state;
+  },
+
+  setStarted(state, period, quiz) {
+    state.periods = state.periods || {};
+    const prev = state.periods[period] || {};
+    state.periods[period] = {
+      status: 'started', quiz: quiz || prev.quiz || null,
+      answers: prev.answers || {}, result: prev.result || null,
+      at: prev.at || this.keyOf(new Date()),
+    };
+    return state;
+  },
+
+  setCompleted(state, period, quiz, answers, result) {
+    state.periods = state.periods || {};
+    state.periods[period] = {
+      status: 'completed', quiz: quiz, answers: answers || {},
+      result: result, at: this.keyOf(new Date()),
+    };
+    return state;
+  },
+};
+/* --- end weekly quiz ---------------------------------------------------- */
+
+/* ============================================================================
+ * WEEKLY QUIZ
+ * The daily set is what you meet today; this is what you met this week. It
+ * draws on nothing but the ticks the daily store already keeps, so there is no
+ * second vocabulary list, no second progress record and no network: the paper
+ * is frozen into the same record the moment it is built, which is what stops a
+ * refresh from drawing a new one and what makes it survive a restart.
+ * ==========================================================================*/
+const Weekly = (() => {
+  const PANEL = 'wqpanel';
+  let cat = null;
+  let picks = {};
+  let view = 'quiz';
+  let warned = false;
+
+  const body = () => document.getElementById('wqbody');
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
+    (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  /* The week as the page sees it right now: the period, the record already
+     kept for it, and the items learned inside the trailing seven days. */
+  function snapshot() {
+    const now = new Date();
+    const state = WeeklyQuiz.read();
+    const period = WeeklyQuiz.periodStart(now);
+    const days = DailyStore.read().days;
+    const items = WeeklyQuiz.eligible(days, now);
+    return {now: now, state: state, period: period, items: items,
+            rec: WeeklyQuiz.record(state, period)};
+  }
+
+  function counts(items) {
+    const words = items.filter((i) => i.kind === 'word').length;
+    return {words: words, expressions: items.length - words};
+  }
+
+  /* ---- the card in the landing page ----------------------------------- */
+
+  function cardHtml(snap) {
+    const c = counts(snap.items);
+    const rec = snap.rec;
+    const status = rec ? rec.status : 'available';
+    const enough = snap.items.length >= WeeklyQuiz.MIN_ITEMS;
+    const lead = rec && rec.result
+      ? 'You scored <b>' + rec.result.right + ' of ' + rec.result.total + '</b> (' +
+        rec.result.percent + '%) on this week&rsquo;s review.'
+      : 'Ten questions at most on the words and expressions you learned in the '
+        + 'last seven days. It is optional: skip it and nothing changes.';
+    const meta = enough
+      ? c.words + ' word' + (c.words === 1 ? '' : 's') + ' · ' +
+        c.expressions + ' expression' + (c.expressions === 1 ? '' : 's') +
+        ' · up to ' + WeeklyQuiz.MAX_QUESTIONS + ' questions'
+      : snap.items.length + ' of ' + WeeklyQuiz.MIN_ITEMS + ' learned so far';
+    const actions = !enough
+      ? ''
+      : status === 'completed'
+        ? '<button type="button" class="wqbtn" data-wq="review">See the review' +
+          '<bdi class="fa" lang="fa" dir="rtl">مرور پاسخ‌ها</bdi></button>'
+        : '<button type="button" class="wqbtn" data-wq="start">' +
+          (status === 'started' ? 'Resume the quiz' : 'Start quiz') +
+          '<bdi class="fa" lang="fa" dir="rtl">' +
+          (status === 'started' ? 'ادامهٔ آزمون' : 'شروع آزمون') + '</bdi></button>' +
+          '<button type="button" class="wqbtn ghost" data-wq="skip">Skip' +
+          '<bdi class="fa" lang="fa" dir="rtl">رد کردن</bdi></button>';
+    const note = !enough
+      ? '<p class="wqnote" dir="ltr">Keep learning! Your weekly quiz will be ready ' +
+        'once you&rsquo;ve learned enough new words and expressions.</p>' +
+        '<p class="wqnote fa" dir="rtl" lang="fa">به یادگیری ادامه بده! آزمون هفتگی ' +
+        'وقتی به اندازهٔ کافی واژه و عبارت تازه یاد بگیری آماده می‌شود.</p>'
+      : '';
+    return '<div class="wqhead">' +
+        '<span class="wqico" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+        'stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M4.6 5.6h14.8v12.8H4.6z"/><path d="M8 3.4v4.4M16 3.4v4.4"/>' +
+        '<path d="m8.6 13.4 2 2 4.4-4.4"/></svg></span>' +
+        '<span class="wqtitle">Weekly quiz<small dir="rtl" lang="fa">آزمون هفتگی</small></span>' +
+        '<span class="spacer"></span>' +
+        (status === 'completed'
+          ? '<span class="wqscore">' + rec.result.right + '/' + rec.result.total + '</span>'
+          : '') +
+        '</div>' +
+      '<p class="wqline" dir="ltr">' + lead + '</p>' +
+      '<p class="wqfa" dir="rtl" lang="fa">' +
+        (rec && rec.result
+          ? 'در مرور این هفته ' + rec.result.right + ' از ' + rec.result.total +
+            ' پاسخ درست بود.'
+          : 'حداکثر ده پرسش از واژه‌ها و عبارت‌هایی که در هفت روز گذشته یاد گرفته‌ای. ' +
+            'اختیاری است: اگر رد کنی هیچ چیز تغییر نمی‌کند.') + '</p>' +
+      '<div class="wqmeta" dir="ltr">' + meta + '</div>' + note +
+      (actions ? '<div class="wqacts">' + actions + '</div>' : '');
+  }
+
+  function mountWeek() {
+    const chatEl = document.getElementById('chat');
+    const old = document.getElementById('weeklyquiz');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    if (!chatEl || !cat) return;
+    const snap = snapshot();
+    /* A week turned down stays turned down: the card is gone until the next
+       period, exactly as the daily card behaves, and no repaint brings it
+       back. */
+    if (snap.rec && snap.rec.status === 'skipped') return;
+    const node = document.createElement('div');
+    node.className = 'wqcard';
+    node.id = 'weeklyquiz';
+    node.setAttribute('role', 'region');
+    node.setAttribute('aria-label', 'Weekly quiz — آزمون هفتگی');
+    node.innerHTML = cardHtml(snap);
+    const daily = document.getElementById('dailyset');
+    if (daily && daily.parentNode === chatEl) chatEl.insertBefore(node, daily.nextSibling);
+    else chatEl.appendChild(node);
+    bindCard(node);
+  }
+
+  function bindCard(root) {
+    root.querySelectorAll('[data-wq]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const act = b.dataset.wq;
+        if (act === 'skip') skip();
+        else if (act === 'review') open('result');
+        else open('quiz');
+      });
+    });
+  }
+
+  function skip() {
+    const snap = snapshot();
+    WeeklyQuiz.write(WeeklyQuiz.setSkipped(snap.state, snap.period));
+    mountWeek();
+  }
+
+  /* ---- opening the paper ---------------------------------------------- */
+
+  function start() {
+    const snap = snapshot();
+    if (snap.items.length < WeeklyQuiz.MIN_ITEMS) return null;
+    const existing = snap.rec && snap.rec.quiz;
+    const quiz = existing || WeeklyQuiz.build(cat, snap.items, snap.period,
+      WeeklyQuiz.keyOf(snap.now));
+    if (!quiz) return null;
+    const state = WeeklyQuiz.setStarted(snap.state, snap.period, quiz);
+    WeeklyQuiz.write(state);
+    return quiz;
+  }
+
+  function open(which) {
+    const snap = snapshot();
+    const quiz = (snap.rec && snap.rec.quiz) || start();
+    if (!quiz) { Panels.set(PANEL, true); renderInsufficient(snap); return; }
+    picks = Object.assign({}, (snap.rec && snap.rec.answers) || {});
+    view = which === 'result' || (snap.rec && snap.rec.status === 'completed')
+      ? 'result' : 'quiz';
+    warned = false;
+    Panels.set(PANEL, true, render);
+  }
+
+  function renderInsufficient(snap) {
+    const c = counts(snap.items);
+    body().innerHTML = '<div class="wq-wrap"><section class="wq-hero">' +
+      '<div class="wq-eyebrow">Weekly quiz · <bdi class="fa" lang="fa" dir="rtl">آزمون هفتگی</bdi></div>' +
+      '<h2 class="wq-h">Not enough learned yet</h2>' +
+      '<p class="wq-sub" dir="ltr">You have learned ' + snap.items.length + ' of the ' +
+      WeeklyQuiz.MIN_ITEMS + ' items a review needs (' + c.words + ' words, ' +
+      c.expressions + ' expressions).</p>' +
+      '<p class="wq-fa" dir="rtl" lang="fa">از ' + WeeklyQuiz.MIN_ITEMS +
+      ' مورد لازم، ' + snap.items.length + ' مورد را یاد گرفته‌ای. به یادگیری ادامه بده؛ ' +
+      'آزمون هفتگی وقتی آماده می‌شود که به اندازهٔ کافی یاد گرفته باشی.</p>' +
+      '<div class="wq-actions"><button type="button" class="lv-btn ghost" data-wq-close="1">' +
+      'Close</button></div></section></div>';
+    bindPanel();
+  }
+
+  /* ---- the questions --------------------------------------------------- */
+
+  function render() {
+    const snap = snapshot();
+    const rec = snap.rec;
+    if (!rec || !rec.quiz) { renderInsufficient(snap); return; }
+    if (view === 'result') renderResult(rec);
+    else renderQuiz(rec);
+    bindPanel();
+  }
+
+  function renderQuiz(rec) {
+    const quiz = rec.quiz;
+    const i = Math.min(Math.max(0, Number(rec.cursor || 0)), quiz.questions.length - 1);
+    const q = quiz.questions[i];
+    const last = i === quiz.questions.length - 1;
+    body().innerHTML = '<div class="wq-wrap">' +
+      '<div class="wq-top">' +
+        '<div class="wq-toprow"><span class="wq-chip">Question ' + (i + 1) + ' of ' +
+          quiz.questions.length + '</span><span class="wq-chip ghost">' +
+          (q.kind === 'word' ? 'Word' : 'Expression') + '</span>' +
+          '<span class="spacer"></span>' +
+          '<button type="button" class="wq-x" data-wq-exit="1" aria-label="Close the quiz">✕</button>' +
+        '</div>' +
+        '<div class="wq-bar" role="progressbar" aria-valuemin="0" aria-valuemax="' +
+          quiz.questions.length + '" aria-valuenow="' + (i + 1) + '">' +
+          '<i style="width:' + Math.round(((i + 1) / quiz.questions.length) * 100) + '%"></i></div>' +
+      '</div>' +
+      '<div class="wq-q" dir="ltr"><p class="wq-prompt">' + esc(q.prompt.en) + '</p>' +
+        '<p class="wq-prompt fa" dir="rtl" lang="fa">' + esc(q.prompt.fa) + '</p>' +
+        '<div class="wq-opts" role="radiogroup" aria-label="Answer options">' +
+        q.options.map((t, n) =>
+          '<button type="button" class="wq-opt' + (picks[i] === n ? ' on' : '') +
+          '" data-wq-pick="' + n + '" role="radio" aria-checked="' +
+          (picks[i] === n ? 'true' : 'false') + '">' +
+          '<span class="wq-letter">' + 'ABCD'[n] + '</span>' +
+          '<span class="wq-text"' + (/[\u0600-\u06FF]/.test(t) ? ' dir="rtl" lang="fa"' : '') +
+          '>' + esc(t) + '</span></button>').join('') +
+        '</div></div>' +
+      '<div class="wq-foot">' +
+        '<button type="button" class="lv-btn ghost" data-wq-go="-1"' +
+          (i === 0 ? ' disabled' : '') + '>Back</button>' +
+        '<span class="wq-note">' + Object.keys(picks).length + ' of ' +
+          quiz.questions.length + ' answered</span>' +
+        '<button type="button" class="lv-btn" data-wq-go="1">' +
+          (last ? 'See my score' : 'Next') + '</button>' +
+      '</div></div>';
+  }
+
+  function renderResult(rec) {
+    const quiz = rec.quiz;
+    const result = rec.result || WeeklyQuiz.grade(quiz, rec.answers);
+    const missed = result.missed || [];
+    const rows = missed.map((i) => {
+      const q = quiz.questions[i];
+      const said = q.options[rec.answers[i]] || 'no answer';
+      return '<div class="wq-miss"><p class="wq-missq" dir="ltr">' + esc(q.prompt.en) + '</p>' +
+        '<p class="wq-said" dir="ltr">You chose: ' + esc(said) + '</p>' +
+        '<p class="wq-right" dir="ltr">Answer: ' + esc(q.options[q.answer]) + '</p>' +
+        '<p class="wq-detail" dir="ltr">' + esc(q.detail.en) + '</p>' +
+        (q.detail.fa ? '<p class="wq-detail fa" dir="rtl" lang="fa">' +
+          esc(q.detail.fa) + '</p>' : '') + '</div>';
+    }).join('');
+    const line = result.percent >= 80
+      ? 'Strong week. These are staying with you.'
+      : result.percent >= 50
+        ? 'A good week. The ones that slipped are below, with their meanings.'
+        : 'A hard week, and that is all right: every miss below is a word you have already met.';
+    body().innerHTML = '<div class="wq-wrap">' +
+      '<div class="wq-top"><div class="wq-toprow"><span class="wq-chip">Weekly quiz</span>' +
+        '<span class="spacer"></span><button type="button" class="wq-x" data-wq-exit="1" ' +
+        'aria-label="Close the quiz">✕</button></div></div>' +
+      '<section class="wq-hero">' +
+        '<div class="wq-eyebrow">This week&rsquo;s review</div>' +
+        '<div class="wq-score"><b>' + result.right + '</b><span>of ' + result.total + '</span>' +
+          '<em>' + result.percent + '%</em></div>' +
+        '<p class="wq-sub" dir="ltr">' + esc(line) + '</p>' +
+        '<p class="wq-fa" dir="rtl" lang="fa">' +
+          (result.percent >= 80 ? 'هفتهٔ خوبی بود؛ این‌ها در ذهنت می‌مانند.'
+            : result.percent >= 50 ? 'هفتهٔ خوبی بود؛ مواردی که از دست رفت پایین‌تر آمده‌اند.'
+            : 'هفتهٔ سختی بود و اشکالی ندارد؛ هر پاسخ نادرست واژه‌ای است که قبلاً دیده‌ای.') +
+        '</p>' +
+        '<p class="wq-sub" dir="ltr">' + result.right + ' correct · ' +
+          (result.total - result.right) + ' to review</p>' +
+      '</section>' +
+      (rows ? '<h4 class="wq-h4" dir="ltr">Words to look at again</h4>' + rows : '') +
+      '<div class="wq-actions"><button type="button" class="lv-btn ghost" data-wq-exit="1">' +
+        'Back to the chat</button></div></div>';
+  }
+
+  function bindPanel() {
+    const box = body();
+    if (!box) return;
+    box.querySelectorAll('[data-wq-close]').forEach((b) => {
+      b.addEventListener('click', () => Panels.set(PANEL, false));
+    });
+    box.querySelectorAll('[data-wq-exit]').forEach((b) => {
+      b.addEventListener('click', () => Panels.set(PANEL, false));
+    });
+    box.querySelectorAll('[data-wq-pick]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const snap = snapshot();
+        if (!snap.rec || !snap.rec.quiz) return;
+        const cursor = Number(snap.rec.cursor || 0);
+        picks[cursor] = Number(b.dataset.wqPick);
+        warned = false;
+        const state = snap.state;
+        state.periods[snap.period].answers = picks;
+        WeeklyQuiz.write(state);
+        render();
+      });
+    });
+    box.querySelectorAll('[data-wq-go]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const snap = snapshot();
+        if (!snap.rec || !snap.rec.quiz) return;
+        const quiz = snap.rec.quiz;
+        const step = Number(b.dataset.wqGo);
+        const cursor = Number(snap.rec.cursor || 0);
+        if (step > 0 && cursor === quiz.questions.length - 1) { submit(snap, quiz); return; }
+        const next = Math.min(Math.max(0, cursor + step), quiz.questions.length - 1);
+        snap.state.periods[snap.period].cursor = next;
+        WeeklyQuiz.write(snap.state);
+        render();
+        body().scrollTop = 0;
+      });
+    });
+  }
+
+  /* One submission per week. The record holds the status, so a double tap, a
+     reload or a second tab lands on the same result rather than two. */
+  function submit(snap, quiz) {
+    if (snap.rec && snap.rec.status === 'completed') { view = 'result'; render(); return; }
+    const answered = quiz.questions.filter((q, i) => picks[i] != null).length;
+    if (answered < quiz.questions.length && !warned) {
+      warned = true;
+      const foot = body().querySelector('.wq-note');
+      if (foot) foot.textContent = (quiz.questions.length - answered) +
+        ' still unanswered — tap again to finish anyway';
+      return;
+    }
+    const result = WeeklyQuiz.grade(quiz, picks);
+    result.at = WeeklyQuiz.keyOf(new Date());
+    WeeklyQuiz.write(WeeklyQuiz.setCompleted(snap.state, snap.period, quiz, picks, result));
+    view = 'result';
+    render();
+    body().scrollTop = 0;
+  }
+
+  /* Today's card is mounted by Daily; the week's card goes right after it, and
+     is rebuilt with it when the day turns over. */
+  async function init() {
+    try {
+      cat = await loadJSON('daily');
+    } catch (e) {
+      cat = null;
+    }
+    mountWeek();
+  }
+
+  return {init, mountCard: mountWeek, start, open, skip, refresh: mountWeek,
+          PANEL: PANEL};
+})();
+
 const Daily = (() => {
   /* Line icons in the toolbar's own family, drawn in currentColor. The three
      emoji these replace rendered differently on every platform and read as
@@ -13411,6 +14388,8 @@ const Daily = (() => {
        is still at the bottom: scrolling a transcript someone has scrolled up
        in is the one thing a chat must never do. */
     if (pinned) node.scrollIntoView({block: 'nearest'});
+    /* the week's card sits under the day's, and moves with it */
+    Weekly.refresh();
   }
 
   function removeCard() {
@@ -13640,6 +14619,8 @@ async function loadDaily() {
   // the daily set is offered in the conversation itself, and skipped or
   // switched off entirely by the learner
   Daily.mountCard();
+  // the week's review sits under the day's card, and reads the same catalogue
+  await Weekly.init();
 }
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
