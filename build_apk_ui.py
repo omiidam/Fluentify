@@ -46,6 +46,9 @@ LAZY_DATA = [
     # Word partners for the practice sheet: read when a drill is opened, not at
     # boot, and only about 40 KB
     "collocations.json",
+    # The learning path: the seven level spaces, the A1 course and its
+    # examination. Read when the section opens, never at boot
+    "path.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")

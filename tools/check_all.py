@@ -31,6 +31,13 @@ Every suite answers a different question:
                 ahead of the bar it was reporting. Runs the shipped Boot code
                 against a two-element stub, and refuses a CSS transition on
                 the bar, because that is what put the two on separate clocks.
+  check_path    is there a learning path? Seven CEFR level spaces, one written
+                course, and a final examination whose six skills are each
+                marked by something that can actually mark them. Refuses a
+                second course while its curriculum is unwritten, a level with
+                no space, a lesson with nothing in it, and - the one that
+                matters - an exam result that reports speaking as passed when
+                no speech was ever heard.
   check_bidi    does a line carrying both languages keep every character,
                 each script in its own direction? It runs the shipped
                 renderer, because a dropped parenthesis is invisible in a
@@ -115,6 +122,7 @@ SUITES = [
     ("page wiring (static)", [sys.executable, "tools/check_ui.py"]),
     ("boot loading meter", [sys.executable, "tools/check_boot.py"]),
     ("level check", [sys.executable, "tools/check_level.py"]),
+    ("learning path", [sys.executable, "tools/check_path.py"]),
     ("account + certificate", [sys.executable, "tools/check_auth.py"]),
     ("mixed english/persian lines", [sys.executable, "tools/check_bidi.py"]),
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),

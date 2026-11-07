@@ -973,7 +973,8 @@
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel,
+  #pathpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -1174,7 +1175,8 @@
      and the composer step aside (see `.app.section` below). One rule here, so
      no panel can drift back to a half-screen height of its own. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel,
+  #pathpanel {
     display: none; padding: 14px var(--secpad) 30px;
     /* The page gutter, named once: the header band has to reach exactly the
        panel's edges, and a second copy of this number was two pixels wider on
@@ -1193,7 +1195,7 @@
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
   #dpanel.open, #npanel.open, #bpanel.open, #stpanel.open,
-  #lvlpanel.open, #wqpanel.open, #prpanel.open { display: block; }
+  #lvlpanel.open, #wqpanel.open, #prpanel.open, #pathpanel.open { display: block; }
   #rdpanel.open { display: block; max-height: none; overflow-y: auto; }
   /* The transcript and the composer belong to the conversation, not to a
      section page. Opening a section is a change of destination, so they are
@@ -1209,7 +1211,7 @@
      caption someone forgot to finish. */
   #vpanel h3, #gpanel h3, #fpanel h3, #lpanel h3, #phpanel h3, #rpanel h3,
   #bpanel h3, #rdpanel h3, #stpanel h3, #lvlpanel h3, #wqpanel h3,
-  #prpanel h3, #acpanel h3, #dpanel h3, #npanel h3 {
+  #prpanel h3, #acpanel h3, #dpanel h3, #npanel h3, #pathpanel h3 {
     font-size: 19px; color: var(--ink); margin-bottom: 4px; font-weight: 700;
     font-family: var(--font-display); letter-spacing: -.2px; line-height: 1.28;
   }
@@ -1229,6 +1231,7 @@
   #stpanel h3 { border-inline-start: 3px solid var(--violet);  padding-inline-start: 9px; }
   #lvlpanel h3 { border-inline-start: 3px solid var(--indigo); padding-inline-start: 9px; }
   #acpanel h3 { border-inline-start: 3px solid var(--amber);  padding-inline-start: 9px; }
+  #pathpanel h3 { border-inline-start: 3px solid var(--leaf); padding-inline-start: 9px; }
   /* Account is the tallest panel: a name, three rows, the password-named
      certificate field, two settings and three actions. At 70% the actions fell
      below the box and were clipped, not merely scrolled - the one thing on the
@@ -5266,6 +5269,318 @@
     .toast-host { bottom: 96px; }
   }
 
+  /* ---------- 12. the learning path ------------------------------------
+     A page of seven level spaces, one written course, and its examination.
+     Everything here is keyed on the page's own grid, so a level with a course
+     and a level without look like the same kind of thing - which is the point:
+     the difference is the button, not the card. */
+  /* The header tiles are flex boxes, and a class rule beats the browser's
+     [hidden] default - so the path tile, which only appears after a level
+     check, needs saying twice. */
+  .hbtn[hidden] { display: none; }
+  .path-wrap { width: 100%; max-width: 1060px; margin: 0 auto; }
+  .path-head { margin-bottom: 18px; }
+  .path-kicker {
+    font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+    font-weight: 800; color: var(--muted); margin: 0 0 6px;
+  }
+  .path-h {
+    font-size: clamp(21px, 2.4vw, 27px); line-height: 1.25; margin: 0 0 8px;
+    font-family: var(--font-display); color: var(--ink); letter-spacing: -.3px;
+  }
+  .path-h-fa { font-size: 15px; color: var(--muted); font-weight: 600; margin: -4px 0 8px; }
+  .path-sub {
+    font-size: 13.5px; line-height: 1.75; color: var(--muted);
+    margin: 0 0 6px; max-width: 74ch;
+  }
+  .path-sub b { color: var(--ink); }
+  .path-meta { font-size: 12px; color: var(--dim); margin: 6px 0 0; }
+  .path-foot { font-size: 12px; line-height: 1.7; color: var(--dim); margin-top: 18px; max-width: 74ch; }
+  .path-empty { font-size: 13.5px; color: var(--muted); padding: 18px 0; }
+  .path-back {
+    background: none; border: 0; padding: 0 0 12px; cursor: pointer;
+    font-family: inherit; font-size: 12.5px; font-weight: 700; color: var(--navy-ink);
+  }
+  .path-back:hover { color: var(--focus); }
+  .path-back:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+  .path-btn {
+    font-family: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer;
+    padding: 9px 15px; border-radius: 11px; border: 1px solid transparent;
+    background: var(--fill-navy); color: var(--on-fill);
+    transition: background .16s, border-color .16s, transform .12s;
+  }
+  .path-btn:hover { background: var(--navy); }
+  .path-btn:active { transform: scale(.97); }
+  .path-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .path-btn.ghost { background: rgba(60,64,91,.10); color: var(--navy-ink); border-color: rgba(60,64,91,.28); }
+  .path-btn.ghost:hover { background: rgba(60,64,91,.18); }
+  .path-btn[disabled] { opacity: .5; cursor: not-allowed; background: rgba(60,64,91,.10); color: var(--muted); }
+  .path-link {
+    background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit;
+    font-size: 13px; font-weight: 700; color: var(--navy-ink); text-align: start;
+  }
+  .path-link:hover { color: var(--focus); text-decoration: underline; }
+
+  .path-bar {
+    display: block; height: 8px; border-radius: 99px; overflow: hidden;
+    background: rgba(60,64,91,.16);
+  }
+  .path-bar.big { height: 12px; }
+  .path-bar i {
+    display: block; height: 100%; border-radius: inherit;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    transition: width .3s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* ---- the seven level cards ---- */
+  .plv-grid {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+  }
+  .plv {
+    display: flex; flex-direction: column; gap: 7px;
+    border: 1px solid var(--line); border-radius: 16px; padding: 15px 16px 14px;
+    background: var(--card); box-shadow: 0 1px 2px rgba(74,58,30,.05);
+  }
+  .plv-current { border-color: rgba(232,191,95,.85); box-shadow: 0 0 0 3px rgba(232,191,95,.22); }
+  .plv-done { border-color: rgba(88,140,84,.55); }
+  .plv-locked, .plv-awaiting, .plv-past { background: rgba(60,64,91,.04); }
+  .plv-locked .plv-name, .plv-awaiting .plv-name, .plv-past .plv-name { color: var(--muted); }
+  .plv-top { display: flex; align-items: center; gap: 8px; }
+  .plv-badge {
+    font-size: 12.5px; font-weight: 800; letter-spacing: .02em;
+    padding: 3px 9px; border-radius: 999px; color: var(--navy-ink);
+    background: rgba(60,64,91,.12); border: 1px solid rgba(60,64,91,.24);
+  }
+  .plv-current .plv-badge { background: rgba(232,191,95,.32); border-color: rgba(201,138,22,.5); }
+  .plv-done .plv-badge { background: rgba(88,140,84,.20); border-color: rgba(88,140,84,.5); }
+  .plv-state { margin-inline-start: auto; font-size: 10.5px; font-weight: 700; color: var(--muted); text-align: end; }
+  .plv-state .fa { display: block; font-size: 10px; font-weight: 500; opacity: .85; }
+  .plv-name { font-size: 16.5px; margin: 2px 0 0; font-family: var(--font-display); color: var(--ink); }
+  .plv-fa { display: block; font-size: 12.5px; font-weight: 500; color: var(--muted); }
+  .plv-can { font-size: 12px; line-height: 1.65; color: var(--muted); margin: 0; }
+  .plv-note { font-size: 11.5px; line-height: 1.6; color: var(--dim); margin: 2px 0 0; }
+  .plv-prog { margin-top: 4px; }
+  .plv-foot { font-size: 11px; color: var(--dim); margin: 2px 0 0; }
+  .plv-actions { margin-top: auto; padding-top: 8px; }
+  .plv-actions .path-btn { width: 100%; }
+
+  /* ---- the course page ---- */
+  .path-total { margin: 14px 0 4px; max-width: 520px; }
+  .path-total-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; color: var(--muted); margin-bottom: 6px;
+  }
+  .path-total-top b { font-size: 13px; color: var(--ink); }
+  .pskills {
+    display: grid; gap: 11px 18px; margin: 18px 0 22px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+  .psk { display: flex; flex-direction: column; gap: 5px; }
+  .psk-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .psk-name { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .psk-num { font-size: 10.5px; color: var(--dim); }
+  .punits { display: flex; flex-direction: column; gap: 14px; }
+  .punit {
+    border: 1px solid var(--line); border-radius: 16px; padding: 15px 17px 12px;
+    background: var(--card);
+  }
+  .punit-head { display: flex; align-items: baseline; gap: 10px; }
+  .punit-n {
+    font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .punit-title { font-size: 16px; margin: 0; font-family: var(--font-display); color: var(--ink); }
+  .punit-fa { font-size: 12px; font-weight: 500; color: var(--muted); margin-inline-start: 8px; }
+  .punit-goal { font-size: 12px; line-height: 1.65; color: var(--muted); margin: 5px 0 0; }
+  .plessons { list-style: none; margin: 11px 0 0; padding: 0; }
+  .plesson {
+    display: grid; grid-template-columns: 26px minmax(0, 1fr) auto 42px;
+    align-items: center; gap: 10px; padding: 7px 0;
+    border-top: 1px solid var(--line2);
+  }
+  .plesson:first-child { border-top: 0; }
+  .pdot {
+    width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 10.5px; font-weight: 800; color: var(--muted);
+    background: rgba(60,64,91,.10); border: 1px solid rgba(60,64,91,.18);
+  }
+  .plesson.done .pdot { color: var(--on-fill); background: var(--fill-navy); border-color: transparent; }
+  .plesson-main {
+    display: flex; flex-direction: column; gap: 1px; min-width: 0;
+    background: none; border: 0; padding: 2px 0; cursor: pointer; text-align: start;
+    font-family: inherit;
+  }
+  .plesson-title { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+  .plesson-main:hover .plesson-title { color: var(--focus); }
+  .plesson-main:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+  .plesson-fa { font-size: 11.5px; color: var(--muted); }
+  .pskill {
+    font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 999px; color: var(--navy-ink);
+    background: rgba(60,64,91,.10); white-space: nowrap;
+  }
+  .pskill-grammar { background: rgba(168,122,30,.16); color: var(--gold-ink); }
+  .pskill-vocabulary { background: rgba(96,88,160,.16); color: var(--violet-ink, var(--navy-ink)); }
+  .pskill-reading { background: rgba(70,120,84,.16); color: var(--leaf-ink, var(--navy-ink)); }
+  .pskill-listening { background: rgba(44,112,132,.16); color: var(--cyan-ink, var(--navy-ink)); }
+  .pskill-writing { background: rgba(150,70,96,.16); color: var(--rose-ink, var(--navy-ink)); }
+  .pskill-speaking { background: rgba(70,86,150,.16); color: var(--indigo-ink, var(--navy-ink)); }
+  .pskill-review { background: rgba(60,64,91,.12); color: var(--muted); }
+  .plesson-score { font-size: 11px; color: var(--dim); text-align: end; }
+
+  .pexam {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    margin-top: 18px; padding: 15px 17px; border-radius: 16px;
+    border: 1px solid var(--line); background: var(--card);
+  }
+  .pexam-ready { border-color: rgba(232,191,95,.7); }
+  .pexam-done { border-color: rgba(88,140,84,.55); }
+  .pexam-k { font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  .pexam-t { font-size: 14px; margin: 4px 0 0; color: var(--ink); }
+  .pexam-lock { font-size: 18px; opacity: .6; }
+
+  /* ---- a lesson ---- */
+  .pblock { margin: 0 0 18px; }
+  .pblock-h {
+    font-size: 11px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 10px;
+  }
+  .pblock-sub { font-size: 12px; color: var(--dim); margin: -4px 0 10px; }
+  .plx-en { font-size: 13.5px; line-height: 1.8; color: var(--ink); margin: 0 0 4px; max-width: 74ch; }
+  .plx-fa { font-size: 12.5px; line-height: 1.9; color: var(--muted); margin: 0 0 14px; max-width: 74ch; }
+  .plexs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .plex {
+    display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 10px;
+    align-items: center; padding: 9px 12px; border-radius: 12px;
+    background: rgba(60,64,91,.05); border: 1px solid var(--line2);
+  }
+  .plex-en { font-size: 13.5px; color: var(--ink); grid-column: 1; }
+  .plex-fa { font-size: 12px; color: var(--muted); grid-column: 1; }
+  .path-play {
+    grid-column: 2; grid-row: 1 / span 2; justify-self: end;
+    border: 1px solid rgba(60,64,91,.24); background: rgba(60,64,91,.07);
+    border-radius: 10px; width: 34px; height: 34px; cursor: pointer;
+    font-size: 13px; color: var(--navy-ink);
+  }
+  .path-play:hover { background: rgba(60,64,91,.16); }
+  .path-play.big { width: auto; height: 36px; padding: 0 14px; font-size: 12.5px; font-weight: 700; margin-bottom: 10px; }
+  .path-play:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .ppass {
+    border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+    background: rgba(60,64,91,.045); margin: 0 0 18px;
+  }
+  .pexam-pass { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; background: var(--card); }
+  .ppass-t { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .ppass-en { font-size: 14px; line-height: 1.85; color: var(--ink); margin: 0 0 8px; max-width: 74ch; }
+  .ppass-fa { font-size: 12.5px; line-height: 1.95; color: var(--muted); margin: 0; max-width: 74ch; }
+
+  .pdia { border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px; margin: 0 0 18px; background: var(--card); }
+  .pdia-k { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .pdia-row {
+    display: grid; grid-template-columns: 18px minmax(0,1fr) 34px; gap: 2px 8px;
+    padding: 5px 0; border-top: 1px solid var(--line2); align-items: center;
+  }
+  .pdia-row:first-of-type { border-top: 0; }
+  .pdia-who { font-size: 11px; font-weight: 800; color: var(--muted); }
+  .pdia-en { font-size: 13px; color: var(--ink); }
+  .pdia-fa { grid-column: 2; font-size: 11.5px; color: var(--muted); }
+  .pdia-row .path-play { width: 28px; height: 28px; font-size: 11px; }
+
+  .pguide, .pex {
+    border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px;
+    background: var(--card); margin-bottom: 11px;
+  }
+  .pex.ok { border-color: rgba(88,140,84,.6); }
+  .pex.bad { border-color: rgba(182,72,72,.6); }
+  .pex-top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .pex-n {
+    width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 11px; font-weight: 800; color: var(--muted);
+    background: rgba(60,64,91,.10);
+  }
+  .pex-kind { font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--dim); }
+  .pq { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0 0 4px; }
+  .pq-fa { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 0 0 10px; }
+  .pops { display: flex; flex-direction: column; gap: 6px; }
+  .popt {
+    display: flex; align-items: center; gap: 9px; text-align: start;
+    font-family: inherit; font-size: 13px; color: var(--ink); cursor: pointer;
+    padding: 9px 12px; border-radius: 11px; border: 1px solid rgba(60,64,91,.22);
+    background: rgba(60,64,91,.04);
+  }
+  .popt:hover { background: rgba(60,64,91,.10); }
+  .popt.on { border-color: var(--focus); background: rgba(232,191,95,.18); }
+  .popt.right { border-color: rgba(88,140,84,.75); background: rgba(88,140,84,.14); }
+  .popt.wrong { border-color: rgba(182,72,72,.7); background: rgba(182,72,72,.12); }
+  .popt[disabled] { cursor: default; }
+  .popt-k { font-size: 10.5px; font-weight: 800; color: var(--muted); width: 12px; }
+  .pwhy { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 9px 0 0; }
+  .pgap {
+    font-family: inherit; font-size: 14px; width: 8.5em; padding: 4px 8px;
+    border-radius: 8px; border: 1px dashed rgba(60,64,91,.4);
+    background: rgba(60,64,91,.06); color: var(--ink); margin: 0 4px;
+  }
+  .pgap:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .phint { font-size: 11.5px; color: var(--dim); margin: 8px 0 0; }
+  .pwrite {
+    font-family: inherit; font-size: 13.5px; line-height: 1.7; width: 100%;
+    padding: 10px 12px; border-radius: 11px; resize: vertical;
+    border: 1px solid rgba(60,64,91,.28); background: rgba(60,64,91,.06); color: var(--ink);
+  }
+  .pwrite:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .pcount { font-size: 11px; color: var(--dim); margin: 5px 0 0; text-align: end; }
+  .psay { font-size: 16px; color: var(--ink); margin: 0 0 3px; font-family: var(--font-display); }
+  .psay-fa { font-size: 12px; color: var(--muted); margin: 0 0 10px; }
+  .prow { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pheard { font-size: 12px; color: var(--muted); margin: 8px 0 0; min-height: 16px; }
+  .pfoot { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 18px; }
+  .pok-line { font-size: 12px; color: var(--muted); margin: 0; }
+  .presult { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(60,64,91,.06); }
+  .pres-h { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+  .pres-s { font-size: 12px; line-height: 1.65; color: var(--muted); margin: 0; }
+  .pnote { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 0 0 12px; }
+  .plexs .prec { padding: 7px 0; border-top: 1px solid var(--line2); }
+  .plexs .prec:first-child { border-top: 0; }
+  .prec-fa { display: block; font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+
+  /* ---- the exam and its report ---- */
+  .pexam-paper { display: flex; flex-direction: column; gap: 12px; }
+  .prep {
+    border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px 16px;
+    margin-bottom: 16px; background: var(--card);
+  }
+  .prep-pass { border-color: rgba(88,140,84,.6); background: rgba(88,140,84,.06); }
+  .prep-fail { border-color: rgba(201,138,22,.5); }
+  .prep-k { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  .prep-score { font-size: 42px; font-weight: 800; color: var(--ink); margin: 4px 0 0; line-height: 1; }
+  .prep-verdict { font-size: 14px; font-weight: 700; color: var(--ink); margin: 6px 0 6px; }
+  .prep-line { font-size: 12.5px; line-height: 1.7; color: var(--muted); margin: 0; max-width: 74ch; }
+  .preps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+  .prep-row {
+    display: grid; grid-template-columns: minmax(0,1fr) 42px;
+    grid-template-areas: 'name num' 'bar bar'; gap: 5px 10px; align-items: center;
+  }
+  .prep-name { grid-area: name; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+  .prep-num { grid-area: num; font-size: 12px; color: var(--muted); text-align: end; }
+  .prep-row .path-bar { grid-area: bar; }
+  .prep-weak .prep-num { color: rgba(182,72,72,.95); font-weight: 700; }
+  .prep-ok .prep-num { color: rgba(88,140,84,.95); font-weight: 700; }
+  .prep-not .path-bar i { background: repeating-linear-gradient(45deg, var(--line), var(--line) 4px, transparent 4px, transparent 8px); }
+
+  @media (max-width: 560px) {
+    .path-wrap { max-width: none; }
+    .plv-grid { grid-template-columns: 1fr; }
+    .pskills { grid-template-columns: 1fr; gap: 10px; }
+    .plesson { grid-template-columns: 24px minmax(0,1fr) auto; }
+    .plesson-score { display: none; }
+    .pexam { flex-direction: column; align-items: flex-start; }
+    .prep-score { font-size: 34px; }
+    .pgap { width: 6.5em; }
+  }
+
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
      not an entrance or a tap response should be listed here too. */
@@ -5515,6 +5830,9 @@
       <button class="hbtn tint-violet" id="ntoggle" aria-expanded="false" title="Analyze a sentence — تحلیل گرامری جمله" aria-label="Analyze a sentence">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.6" r="5.8"/><path d="M15.2 15.2 20 20"/><path d="M8 12.4V9.2M10.8 12.4V7.4M13.6 12.4v-3"/></svg></i><span>Analyze</span></button>
       <button class="hbtn tint-indigo" id="lvltoggle" aria-expanded="false" title="Level check — سنجش سطح" aria-label="Level check — a monthly assessment across grammar, vocabulary, reading, listening, writing and speaking"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 19.4h15.2"/><path d="M6.4 15.6v-4.2"/><path d="M11 15.6V7.6"/><path d="M15.6 15.6v-3"/><path d="M20.2 15.6V4.6"/></svg></i><span>Level</span><span class="rbadge" id="lvlbadge" hidden>B1</span></button>
+      <button class="hbtn tint-leaf" id="pathtoggle" aria-expanded="false" hidden
+              title="Learning path — مسیر یادگیری" aria-label="Learning path — seven CEFR levels, from Pre-A1 to C2">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 18.4c0-3.2 2.6-4.4 5-4.4h4.4c2.4 0 5-1.2 5-4.4"/><circle cx="4.8" cy="18.4" r="1.9"/><circle cx="19.2" cy="5.6" r="1.9"/></svg></i><span>Path</span><span class="rbadge" id="pathbadge" hidden></span></button>
       <button class="hbtn tint-amber" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
       <button class="hbtn tint-slate" id="themetoggle" aria-pressed="false" title="Theme — پوسته" aria-label="Theme — light or dark / پوسته">
@@ -5612,7 +5930,12 @@
     <div id="acbody" aria-live="polite"></div>
   </div>
 
-  <div id="gpanel">
+    <div id="pathpanel">
+    <h3>Learning path — <bdi class="fa" lang="fa" dir="rtl">مسیر یادگیری</bdi></h3>
+    <div id="pathbody"></div>
+  </div>
+
+<div id="gpanel">
     <h3>English grammar lessons &amp; practice (click = lesson · ✏️ = practice)</h3>
     <div class="domains" id="gtopics"></div>
   </div>
@@ -7395,6 +7718,9 @@ const Panels = (() => {
     // account panel routes into one of its tabs
     prpanel: null,
     acpanel: 'actoggle',
+    // the learning path has a tile, but it stays hidden until the level check
+    // has produced a placement
+    pathpanel: 'pathtoggle',
   };
   let openId = null;
 
@@ -11351,6 +11677,8 @@ const Level = (() => {
     state = null;
     view = 'result';
     paintBadge();
+    // a placement is what puts the learning path in the header
+    if (typeof Path !== 'undefined') Path.sync();
     render();
     body().scrollIntoView({block: 'start'});
   }
@@ -13021,6 +13349,9 @@ const PANEL_ON_OPEN = {
   // keeps whatever analysis is already on screen
   npanel: () => Analyser.mount(),
   rpanel: () => { Review.load(); Review.paint(); },
+  // seven level spaces, one course and its examination: read path.json on the
+  // first open, then paint the level list
+  pathpanel: () => Path.open(),
   // search is attached on first open rather than at boot, because the panels
   // are filled asynchronously and a search with nothing to filter is useless
   gpanel: () => PanelSearch.attachAll(),
@@ -13059,6 +13390,9 @@ document.getElementById('rdtoggle').onclick = () => togglePanel('rdpanel', 'rdto
 document.getElementById('stoggle').onclick = () => togglePanel('stpanel', 'stoggle');
 document.getElementById('lvltoggle').onclick = () => togglePanel('lvlpanel', 'lvltoggle');
 document.getElementById('actoggle').onclick = () => togglePanel('acpanel', 'actoggle');
+/* The learning path: hidden until a level check has placed the learner, and
+   the panel reads path.json on its first open. */
+document.getElementById('pathtoggle').onclick = () => togglePanel('pathpanel', 'pathtoggle');
 /* Theme is a preference, not a section, so its switch sits in the header too:
    a learner should not have to open Account - or be signed in at all - to
    change how the app looks, and the choice is remembered the moment it is
@@ -15260,6 +15594,1036 @@ const Slip = (() => {
   return {html, refresh, ranked, init};
 })();
 
+/* --- learning path: pure, executed by tools/check_path.py ---------------
+   One structure for every CEFR level, filled in for one of them. A level is a
+   course, a course is units, a unit is lessons, a lesson is explanation,
+   examples, guided practice and exercises. Nothing here knows the letter A1:
+   the page reads path.json, and the next level is a second entry in
+   `courses` with the same shape.
+
+   What the model does and the view does not:
+     - where the learner starts, read from the level check's own result
+     - what a level's status is (current, done, locked, awaiting)
+     - lesson and skill progress over a course
+     - the exam paper: the same questions the same way for every skill
+     - marking: objective answers, the writing rubric the level check already
+       uses, and the recogniser's word match for speaking
+   ==========================================================================*/
+const PathModel = {
+  ORDER: ['PRE', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+  SKILLS: ['grammar', 'vocabulary', 'reading', 'listening', 'writing', 'speaking'],
+  PASS: 0.6,
+  FLOOR: 0.5,
+
+  /* The starting level is the level check's own overall band, never a guess and
+     never a default of A1. A paper that scored below the first band is PRE. */
+  startLevel(result) {
+    const id = result && result.overall ? String(result.overall) : '';
+    return this.ORDER.indexOf(id) >= 0 ? id : 'PRE';
+  },
+
+  /* done     - its final exam has been passed
+     current  - the learner's assessed level, and there is a course for it
+     awaiting - a level whose curriculum is not written: the assessed level
+                itself, or the level that follows one the learner has passed
+     available- a lower level with a course, open to revisit
+     past     - a lower level with no course: behind them, nothing to open
+     locked   - above the learner, and nothing has been passed to reach it */
+  status(id, start, hasCourse, passed, belowPassed) {
+    if (passed) return 'done';
+    const at = this.ORDER.indexOf(id);
+    const from = this.ORDER.indexOf(start);
+    if (at < 0 || from < 0) return 'locked';
+    if (id === start) return hasCourse ? 'current' : 'awaiting';
+    if (at < from) return hasCourse ? 'available' : 'past';
+    /* Passing the level below makes this one next, not out of reach: it is a
+       real space with a real status, waiting for its curriculum. */
+    if (!hasCourse && belowPassed) return 'awaiting';
+    return 'locked';
+  },
+
+  /* Flat lesson list with its unit attached, in curriculum order. */
+  lessons(course) {
+    const out = [];
+    (course && course.units ? course.units : []).forEach((u) => {
+      (u.lessons || []).forEach((l) => out.push({unit: u, lesson: l}));
+    });
+    return out;
+  },
+
+  /* A lesson counts as done when its record says so; the record is written by
+     the lesson page only after its exercises are checked and passed. */
+  done(prog, lessonId) {
+    const lv = prog && prog.lessons ? prog.lessons[lessonId] : null;
+    return !!(lv && lv.done);
+  },
+
+  stats(course, prog) {
+    const rows = this.lessons(course);
+    const bySkill = {};
+    this.SKILLS.forEach((s) => { bySkill[s] = {done: 0, total: 0}; });
+    let done = 0;
+    rows.forEach((row) => {
+      const s = row.lesson.skill === 'review' ? null : row.lesson.skill;
+      if (s && bySkill[s]) bySkill[s].total += 1;
+      if (this.done(prog, row.lesson.id)) {
+        done += 1;
+        if (s && bySkill[s]) bySkill[s].done += 1;
+      }
+    });
+    return {
+      total: rows.length, done: done,
+      share: rows.length ? done / rows.length : 0,
+      bySkill: bySkill,
+      complete: rows.length > 0 && done === rows.length,
+    };
+  },
+
+  /* Every exam question, flattened, with a stable id and the skill it belongs
+     to. Reading questions live inside a passage group; listening items carry
+     their own sentence to speak. */
+  paper(exam) {
+    const out = [];
+    ((exam && exam.sections) || []).forEach((section) => {
+      (section.items || []).forEach((item, i) => {
+        if (section.skill === 'reading') {
+          (item.questions || []).forEach((q, k) => out.push({
+            id: 'reading.' + i + '.' + k, skill: 'reading', kind: 'mcq',
+            item: q, passage: item,
+          }));
+        } else {
+          out.push({id: section.skill + '.' + i, skill: section.skill,
+                    kind: item.kind, item: item});
+        }
+      });
+    });
+    return out;
+  },
+
+  answerRight(item, value) {
+    if (!item) return false;
+    if (item.kind === 'gap') {
+      const norm = (x) => SayMatch.clean(String(x == null ? '' : x));
+      const wanted = (item.answer || []).map(norm);
+      return wanted.indexOf(norm(value)) >= 0;
+    }
+    return Number(value) === Number(item.answer);
+  },
+
+  /* The writing rubric is the level check's own: length, sentences, one
+     required link, and fewer than two slips. Reusing it keeps one standard for
+     writing in the whole app instead of two. */
+  writingScore(item, text) {
+    const bank = {writingScale: {A1: {words: item.words || 30, sentences: 3}}};
+    return Level.markWriting(bank, {band: 'A1', needs: item.needs || []}, text || '');
+  },
+
+  /* Speaking is marked only from words the device actually heard. An empty
+     transcript is not a zero - it is no evidence at all. */
+  speakingScore(items, heard) {
+    const marks = items.map((item, i) => {
+      const said = (heard || {})[i] || '';
+      const cmp = SayMatch.compare(item.say, said);
+      return {id: 'speaking.' + i, said: said, percent: cmp.percent,
+              right: cmp.right, total: cmp.total, missing: cmp.missing,
+              empty: cmp.empty};
+    });
+    const assessed = marks.length > 0 && marks.every((m) => !m.empty);
+    const share = marks.length
+      ? marks.reduce((n, m) => n + m.percent, 0) / (marks.length * 100) : 0;
+    return {assessed: assessed, share: share, marks: marks};
+  },
+
+  /* One number per skill, then the paper's own rule: 60% overall, 50% in every
+     skill, and speaking actually measured. */
+  grade(exam, answers, texts, heard) {
+    const out = {skills: {}, missing: []};
+    const paper = this.paper(exam);
+    const objective = (skill) => {
+      const rows = paper.filter((q) => q.skill === skill);
+      const right = rows.filter((q) => this.answerRight(q.item, (answers || {})[q.id])).length;
+      return {right: right, total: rows.length,
+              share: rows.length ? right / rows.length : 0, assessed: true};
+    };
+    ['grammar', 'vocabulary', 'reading', 'listening'].forEach((s) => {
+      out.skills[s] = objective(s);
+    });
+    const writing = (exam.sections.find((x) => x.skill === 'writing') || {}).items || [];
+    const wMarks = writing.map((item, i) => this.writingScore(item, (texts || {})[i]));
+    const wRight = wMarks.reduce((n, m) => n + m.points, 0);
+    const wTotal = wMarks.reduce((n, m) => n + m.total, 0);
+    out.skills.writing = {right: wRight, total: wTotal,
+                          share: wTotal ? wRight / wTotal : 0, assessed: true,
+                          marks: wMarks};
+    const sayItems = (exam.sections.find((x) => x.skill === 'speaking') || {}).items || [];
+    const sp = this.speakingScore(sayItems, heard);
+    out.skills.speaking = {right: 0, total: sayItems.length,
+                           share: sp.share, assessed: sp.assessed, marks: sp.marks};
+    const shares = this.SKILLS.map((s) => out.skills[s].share);
+    out.overall = shares.reduce((n, x) => n + x, 0) / shares.length;
+    this.SKILLS.forEach((s) => {
+      const r = out.skills[s];
+      r.passed = r.assessed && r.share >= this.FLOOR;
+      if (!r.assessed) out.missing.push(s);
+    });
+    out.pass = out.overall >= this.PASS && out.missing.length === 0 &&
+      this.SKILLS.every((s) => out.skills[s].passed);
+    return out;
+  },
+
+  /* Which lessons to send someone back to, given the skills they missed. */
+  recommend(course, prog, weak) {
+    const wants = weak && weak.length ? weak : [];
+    if (!wants.length) return [];
+    const rows = this.lessons(course).filter((r) => wants.indexOf(r.lesson.skill) >= 0);
+    /* Lessons not done yet first. When the weak skill's lessons are all done,
+       the advice is still the right one - go back to them - so an empty list
+       is only for a skill the course does not teach. */
+    const open = rows.filter((r) => !this.done(prog, r.lesson.id));
+    return (open.length ? open : rows).slice(0, 4).map((r) => r.lesson);
+  },
+};
+
+/* The Learning Path page: seven level spaces, one written course, and the
+   final examination that closes it. The markup it draws is generated from
+   path.json, so the page has no A1 in it - adding A2 is adding a course. */
+const Path = (() => {
+  const PANEL = 'pathpanel';
+  const KEY = 'fluentify.path.v1';
+  const LEVEL_KEY = 'fluentify.level.v2.result';
+  const SKILL = {
+    grammar: ['Grammar', 'گرامر'], vocabulary: ['Vocabulary', 'واژگان'],
+    reading: ['Reading', 'خواندن'], listening: ['Listening', 'شنیدن'],
+    writing: ['Writing', 'نوشتن'], speaking: ['Speaking', 'گفتن'],
+    review: ['Review', 'مرور'],
+  };
+  const STATE = {
+    done: ['Passed', 'قبول‌شده'], current: ['Your level', 'سطح تو'],
+    awaiting: ['Curriculum not written yet', 'برنامهٔ درسی هنوز نوشته نشده'],
+    available: ['Open to revisit', 'برای مرور باز است'],
+    past: ['Below your level', 'پایین‌تر از سطح تو'],
+    locked: ['Opens later', 'بعداً باز می‌شود'],
+  };
+
+  let bank = null, loading = null, failed = '';
+  let screen = 'levels', levelId = null, unitId = null, lessonId = null;
+  let draft = null, examDraft = null, report = null, checked = false;
+
+  const body = () => document.getElementById('pathbody');
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const fa = (s) => '<span class="fa" dir="rtl" lang="fa">' + esc(s) + '</span>';
+  const read = (k, d) => {
+    try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }
+    catch (e) { return d; }
+  };
+  const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private */ } };
+  const pct = (x) => Math.round((x || 0) * 100) + '%';
+  const bar = (share, extra) => '<span class="path-bar' + (extra ? ' ' + extra : '') +
+    '" role="presentation"><i style="width:' + pct(share) + '"></i></span>';
+
+  /* ------------------------------------------------------------ progress */
+
+  function all() {
+    const raw = read(KEY, null);
+    const out = raw && typeof raw === 'object' ? raw : {};
+    out.v = 1;
+    out.levels = out.levels && typeof out.levels === 'object' ? out.levels : {};
+    out.exams = Array.isArray(out.exams) ? out.exams : [];
+    return out;
+  }
+
+  function prog(id) {
+    const a = all();
+    const p = a.levels[id] || (a.levels[id] = {lessons: {}, passed: false, at: 0});
+    p.lessons = p.lessons && typeof p.lessons === 'object' ? p.lessons : {};
+    return p;
+  }
+
+  function patch(id, fn) {
+    const a = all();
+    const p = a.levels[id] || (a.levels[id] = {lessons: {}, passed: false});
+    fn(p, a);
+    a.levels[id] = p;
+    save(KEY, a);
+  }
+
+  function placement() { return read(LEVEL_KEY, null); }
+  function start() { return PathModel.startLevel(placement()); }
+
+  /* --------------------------------------------------------------- data */
+
+  function load() {
+    if (bank) return Promise.resolve(bank);
+    if (loading) return loading;
+    /* Through loadJSON, because that is the one call the offline build
+       rewrites: on the web it is a request for /api/path, in the APK it is the
+       same file out of data/. */
+    loading = loadJSON('path').then((data) => {
+      if (!data || !(data.levels || []).length) throw new Error('path.json is empty');
+      bank = data;
+      failed = '';
+      return data;
+    }).catch((e) => {
+      failed = String((e && e.message) || e);
+      loading = null;
+      return null;
+    });
+    return loading;
+  }
+
+  const course = (id) => (bank && bank.courses ? bank.courses[id] : null) || null;
+  const levelRow = (id) => ((bank && bank.levels) || []).find((l) => l.id === id) || null;
+
+  /* ------------------------------------------------------------- chrome */
+
+  /* The tile exists only after the level check has been taken: a learning path
+     with no placement would be a path from nowhere. */
+  function sync() {
+    const tile = document.getElementById('pathtoggle');
+    if (!tile) return;
+    const result = placement();
+    tile.hidden = !(result && result.overall !== undefined);
+    const badge = document.getElementById('pathbadge');
+    if (badge && result) {
+      badge.textContent = String(result.overall || 'PRE');
+      badge.hidden = false;
+    }
+  }
+
+  function open() {
+    load().then(() => {
+      if (failed) return paintFailed();
+      screen = 'levels';
+      render();
+    });
+  }
+
+  /* -------------------------------------------------------------- pages */
+
+  function render() {
+    const host = body();
+    if (!host) return;
+    if (failed) { paintFailed(); return; }
+    if (screen === 'lesson') return paintLesson();
+    if (screen === 'exam') return paintExam();
+    if (screen === 'report') return paintReport();
+    if (screen === 'level') return paintLevel();
+    return paintLevels();
+  }
+
+  function paintFailed() {
+    const host = body();
+    if (host) {
+      host.innerHTML = '<div class="path-wrap"><p class="path-empty">' +
+        'The learning path could not be read: ' + esc(failed) + '</p></div>';
+    }
+  }
+
+  function paintLevels() {
+    const host = body();
+    const here = start();
+    const asked = placement();
+    const under = (asked && asked.overall) || 'PRE';
+    const cards = ((bank && bank.levels) || []).map((lv) => {
+      const c = course(lv.id);
+      const p = prog(lv.id);
+      const below = PathModel.ORDER[PathModel.ORDER.indexOf(lv.id) - 1];
+      const state = PathModel.status(lv.id, here, !!c, !!p.passed,
+        !!(below && prog(below).passed));
+      const st = PathModel.stats(c, p);
+      const action = state === 'current' || state === 'available'
+        ? '<button type="button" class="path-btn" data-path="level" data-id="' + lv.id + '">' +
+          (state === 'current' ? 'Start learning' : 'Open this level') + '</button>'
+        : state === 'done'
+          ? '<button type="button" class="path-btn ghost" data-path="level" data-id="' +
+            lv.id + '">Review the course</button>'
+          : '<button type="button" class="path-btn" disabled>' +
+            (state === 'awaiting' ? 'Coming soon'
+              : state === 'past' ? 'Not available' : 'Locked') + '</button>';
+      const note = state === 'awaiting'
+        ? (lv.id === here
+          ? '<p class="plv-note">Your assessed level. Its curriculum has not been written yet — ' +
+            'the courses below are the ones that exist today.</p>'
+          : '<p class="plv-note">Next level: the one below is passed. Its curriculum is not ' +
+            'written yet.</p>')
+        : state === 'locked'
+          ? '<p class="plv-note">Opens after the level below is passed.</p>'
+          : state === 'past'
+            ? '<p class="plv-note">Below the level this assessment placed you at.</p>'
+            : '';
+      return '<article class="plv plv-' + state + '">' +
+          '<div class="plv-top"><span class="plv-badge">' + esc(lv.label) + '</span>' +
+            '<span class="plv-state">' + esc(STATE[state][0]) + ' ' + fa(STATE[state][1]) + '</span>' +
+          '</div>' +
+          '<h4 class="plv-name" dir="ltr">' + esc(lv.name.en) +
+            '<span class="plv-fa">' + esc(lv.name.fa) + '</span></h4>' +
+          '<p class="plv-can" dir="ltr">' + esc(lv.can.en) + '</p>' +
+          '<p class="plv-can fa" dir="rtl" lang="fa">' + esc(lv.can.fa) + '</p>' +
+          note +
+          (c ? '<div class="plv-prog">' + bar(st.share) + '</div>' +
+            '<p class="plv-foot">' + st.done + ' of ' + st.total + ' lessons' +
+            (p.passed ? ' · passed' : '') + '</p>' : '') +
+          '<div class="plv-actions">' + action + '</div>' +
+        '</article>';
+    }).join('');
+
+    host.innerHTML = '<div class="path-wrap">' +
+      '<div class="path-head">' +
+        '<p class="path-kicker">Learning path · <bdi class="fa" dir="rtl" lang="fa">مسیر یادگیری</bdi></p>' +
+        '<h2 class="path-h">Seven levels, one step at a time</h2>' +
+        '<p class="path-sub" dir="ltr">Your level check placed you at <b>' + esc(under) +
+          '</b>. The path runs from Pre-A1 to C2; the A1 course and its examination are ' +
+          'written and ready, and the other levels have their place here.</p>' +
+        '<p class="path-sub fa" dir="rtl" lang="fa">سنجش سطح تو را در <b>' + esc(under) +
+          '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد؛ دورهٔ A1 و آزمون پایانی‌اش ' +
+          'آماده است و بقیهٔ سطح‌ها جای خود را در همین صفحه دارند.</p>' +
+      '</div>' +
+      '<div class="plv-grid">' + cards + '</div>' +
+      '<p class="path-foot" dir="ltr">Every level keeps the same shape: units, lessons ' +
+        'and a final examination over the six skills. A level with no course yet is a ' +
+        'place in the path, not a course.</p>' +
+    '</div>';
+  }
+
+  function paintLevel() {
+    const host = body();
+    const lv = levelRow(levelId);
+    const c = course(levelId);
+    if (!lv || !c) { screen = 'levels'; return paintLevels(); }
+    const p = prog(levelId);
+    const st = PathModel.stats(c, p);
+    const passed = !!p.passed;
+    const last = (p.exams || []).slice(-1)[0];
+
+    const skills = PathModel.SKILLS.map((s) => {
+      const row = st.bySkill[s];
+      const share = row.total ? row.done / row.total : 0;
+      return '<div class="psk"><div class="psk-top"><span class="psk-name">' +
+          esc(SKILL[s][0]) + ' · ' + esc(SKILL[s][1]) + '</span>' +
+        '<span class="psk-num" dir="ltr">' + row.done + '/' + row.total + ' lessons</span></div>' +
+        bar(share) + '</div>';
+    }).join('');
+
+    const units = (c.units || []).map((u, ui) => {
+      const rows = (u.lessons || []).map((l, li) => {
+        const done = PathModel.done(p, l.id);
+        const rec = p.lessons[l.id];
+        return '<li class="plesson' + (done ? ' done' : '') + '">' +
+          '<span class="pdot" aria-hidden="true">' + (done ? '✓' : (ui * 3 + li + 1)) + '</span>' +
+          '<button type="button" class="plesson-main" data-path="lesson" data-id="' + l.id + '">' +
+            '<span class="plesson-title" dir="ltr">' + esc(l.title.en) + '</span>' +
+            '<span class="plesson-fa">' + esc(l.title.fa) + '</span>' +
+          '</button>' +
+          '<span class="pskill pskill-' + l.skill + '">' + esc(SKILL[l.skill][0]) + '</span>' +
+          '<span class="plesson-score" dir="ltr">' +
+            (rec && rec.done ? Math.round((rec.right / Math.max(1, rec.total)) * 100) + '%' : '') +
+          '</span>' +
+        '</li>';
+      }).join('');
+      return '<section class="punit">' +
+        '<header class="punit-head"><span class="punit-n">Unit ' + (ui + 1) + '</span>' +
+          '<h4 class="punit-title" dir="ltr">' + esc(u.title.en) +
+          '<span class="punit-fa">' + esc(u.title.fa) + '</span></h4>' +
+        '</header>' +
+        '<p class="punit-goal" dir="ltr">' + esc(u.goal.en) + '</p>' +
+        '<p class="punit-goal fa" dir="rtl" lang="fa">' + esc(u.goal.fa) + '</p>' +
+        '<ol class="plessons">' + rows + '</ol></section>';
+    }).join('');
+
+    const exam = c.exam || {};
+    const left = st.total - st.done;
+    const examCard = passed
+      ? '<div class="pexam pexam-done">' +
+          '<div><p class="pexam-k">Final examination</p>' +
+          '<p class="pexam-t" dir="ltr">Passed' + (last ? ' at ' + pct(last.overall) : '') + '</p></div>' +
+          '<button type="button" class="path-btn ghost" data-path="exam" data-id="' + levelId + '">Retake</button>' +
+        '</div>'
+      : left > 0
+        ? '<div class="pexam">' +
+            '<div><p class="pexam-k">Final examination</p>' +
+            '<p class="pexam-t" dir="ltr">' + left + ' lesson' + (left === 1 ? '' : 's') +
+              ' left before the examination opens</p></div>' +
+            '<span class="pexam-lock" aria-hidden="true">🔒</span>' +
+          '</div>'
+        : '<div class="pexam pexam-ready">' +
+            '<div><p class="pexam-k">Final examination</p>' +
+            '<p class="pexam-t" dir="ltr">All lessons done. Six skills, one paper.</p></div>' +
+            '<button type="button" class="path-btn" data-path="exam" data-id="' + levelId + '">Open the exam</button>' +
+          '</div>';
+
+    host.innerHTML = '<div class="path-wrap">' +
+      '<button type="button" class="path-back" data-path="home">← All levels</button>' +
+      '<div class="path-head">' +
+        '<p class="path-kicker">' + esc(lv.label) + ' · ' + esc(lv.name.en) + '</p>' +
+        '<h2 class="path-h">' + esc(c.title.en) + ' <span class="path-h-fa">' + esc(c.title.fa) + '</span></h2>' +
+        '<p class="path-sub" dir="ltr">' + esc(c.blurb.en) + '</p>' +
+        '<p class="path-sub fa" dir="rtl" lang="fa">' + esc(c.blurb.fa) + '</p>' +
+        '<div class="path-total"><div class="path-total-top"><span dir="ltr">Course progress</span>' +
+          '<b dir="ltr">' + st.done + '/' + st.total + '</b></div>' + bar(st.share, 'big') + '</div>' +
+      '</div>' +
+      '<div class="pskills">' + skills + '</div>' +
+      '<div class="punits">' + units + '</div>' +
+      examCard +
+    '</div>';
+  }
+
+  /* -------------------------------------------------------------- lesson */
+
+  function begin(lid) {
+    lessonId = lid;
+    checked = false;
+    draft = {answers: {}, texts: {}, heard: {}, say: {}};
+    screen = 'lesson';
+    render();
+  }
+
+  function currentLesson() {
+    if (!levelId) return null;
+    return PathModel.lessons(course(levelId)).find((r) => r.lesson.id === lessonId) || null;
+  }
+
+  function paintLesson() {
+    const host = body();
+    const row = currentLesson();
+    if (!row) { screen = 'level'; return paintLevel(); }
+    const l = row.lesson;
+    const c = course(levelId);
+    const idx = PathModel.lessons(c).findIndex((r) => r.lesson.id === lessonId);
+    const rec = prog(levelId).lessons[lessonId];
+
+    const explain = (l.explain || []).map((p) =>
+      '<p class="plx-en" dir="ltr">' + esc(p.en) + '</p>' +
+      '<p class="plx-fa fa" dir="rtl" lang="fa">' + esc(p.fa) + '</p>').join('');
+
+    const examples = (l.examples || []).map((e, i) =>
+      '<li class="plex"><span class="plex-en" dir="ltr">' + esc(e.en) + '</span>' +
+      '<span class="plex-fa">' + esc(e.fa) + '</span>' +
+      '<button type="button" class="path-play" data-path="play" data-id="' + i +
+        '" aria-label="Play this example">🔊</button></li>').join('');
+
+    const passage = l.passage
+      ? '<div class="ppass"><p class="ppass-t" dir="ltr">' + esc(l.passage.title.en) +
+        '</p><p class="ppass-en" dir="ltr">' + esc(l.passage.text.en) + '</p>' +
+        '<p class="ppass-fa fa" dir="rtl" lang="fa">' + esc(l.passage.text.fa) + '</p></div>'
+      : '';
+
+    const dialogue = l.dialogue
+      ? '<div class="pdia"><p class="pdia-k" dir="ltr">Role-play · نقش‌بازی</p>' +
+        l.dialogue.map((d) => '<div class="pdia-row"><span class="pdia-who">' + esc(d.who) +
+          '</span><span class="pdia-en" dir="ltr">' + esc(d.en) + '</span>' +
+          '<button type="button" class="path-play" data-path="dialogue" data-id="' +
+          esc(d.en) + '" aria-label="Play this line">🔊</button>' +
+          '<span class="pdia-fa">' + esc(d.fa) + '</span></div>').join('') + '</div>'
+      : '';
+
+    const guided = (l.guided || []).map((q, i) =>
+      '<div class="pguide" data-guide="' + i + '"><p class="pq" dir="ltr">' +
+      esc(q.prompt.en) + '</p><p class="pq-fa fa" dir="rtl" lang="fa">' + esc(q.prompt.fa) +
+      '</p><div class="pops">' + q.options.map((o, k) =>
+        '<button type="button" class="popt" data-guide-opt="' + i + '" data-k="' + k + '">' +
+        '<span class="popt-k">' + 'ABCD'[k] + '</span>' + esc(o) + '</button>').join('') +
+      '</div><p class="pwhy" hidden dir="ltr">' + esc(q.why.en) + ' <span class="fa" dir="rtl" ' +
+      'lang="fa">' + esc(q.why.fa) + '</span></p></div>').join('');
+
+    const exercises = (l.exercises || []).map((e, i) => exerciseHtml(e, i)).join('');
+
+    const done = rec && rec.done;
+    host.innerHTML = '<div class="path-wrap">' +
+      '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
+        '">← ' + esc((levelRow(levelId) || {label: levelId}).label) + ' course</button>' +
+      '<div class="path-head">' +
+        '<p class="path-kicker">Lesson ' + (idx + 1) + ' of ' + PathModel.lessons(c).length +
+          ' · ' + esc(SKILL[l.skill][0]) + '</p>' +
+        '<h2 class="path-h" dir="ltr">' + esc(l.title.en) + '</h2>' +
+        '<p class="path-h-fa">' + esc(l.title.fa) + '</p>' +
+        '<p class="path-sub" dir="ltr"><b>Goal:</b> ' + esc(l.goal.en) + '</p>' +
+        '<p class="path-sub fa" dir="rtl" lang="fa">' + esc(l.goal.fa) + '</p>' +
+      '</div>' +
+      passage +
+      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Explanation</h3>' + explain + '</section>' +
+      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Examples</h3>' +
+        '<ul class="plexs">' + examples + '</ul></section>' +
+      dialogue +
+      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Guided practice</h3>' + guided + '</section>' +
+      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Exercises</h3>' +
+        '<p class="pblock-sub" dir="ltr">Answer all of them, then check. 60% or more and ' +
+        'the lesson is done.</p>' + exercises + '</section>' +
+      '<div class="pfoot" id="pfoot">' +
+        (done ? '<p class="pok-line">Done · ' + Math.round((rec.right / Math.max(1, rec.total)) * 100) +
+          '% on the exercises</p>' : '') +
+        '<button type="button" class="path-btn" data-path="check">Check my answers</button>' +
+        (done ? '' : '<button type="button" class="path-btn ghost" data-path="finish" hidden>' +
+          'Finish the lesson</button><button type="button" class="path-btn ghost" data-path="retry" ' +
+          'hidden>Try again</button>') +
+      '</div>' +
+      '<div class="presult" id="presult" hidden></div>' +
+    '</div>';
+    if (checked) checkLesson(false);
+  }
+
+  function exerciseHtml(e, i) {
+    const head = '<div class="pex" data-ex="' + i + '"><div class="pex-top">' +
+      '<span class="pex-n">' + (i + 1) + '</span>' +
+      '<span class="pex-kind">' + esc({mcq: 'Choose', gap: 'Fill the gap', listen: 'Listen',
+        write: 'Write', say: 'Say it'}[e.kind] || 'Exercise') + '</span></div>';
+    if (e.kind === 'mcq') {
+      return head + '<p class="pq" dir="ltr">' + esc(e.prompt.en) + '</p>' +
+        '<p class="pq-fa fa" dir="rtl" lang="fa">' + esc(e.prompt.fa) + '</p><div class="pops">' +
+        e.options.map((o, k) => '<button type="button" class="popt" data-ex-opt="' + i +
+          '" data-k="' + k + '"><span class="popt-k">' + 'ABCD'[k] + '</span>' + esc(o) +
+          '</button>').join('') + '</div><p class="pwhy" hidden dir="ltr">' + esc(e.why.en) +
+        ' <span class="fa" dir="rtl" lang="fa">' + esc(e.why.fa) + '</span></p></div>';
+    }
+    if (e.kind === 'listen') {
+      return head + '<button type="button" class="path-play big" data-path="playsay" data-id="' +
+        i + '">🔊 Play</button><p class="pq" dir="ltr">' + esc(e.prompt.en) + '</p>' +
+        '<p class="pq-fa fa" dir="rtl" lang="fa">' + esc(e.prompt.fa) + '</p><div class="pops">' +
+        e.options.map((o, k) => '<button type="button" class="popt" data-ex-opt="' + i +
+          '" data-k="' + k + '"><span class="popt-k">' + 'ABCD'[k] + '</span>' + esc(o) +
+          '</button>').join('') + '</div><p class="pwhy" hidden dir="ltr">' + esc(e.why.en) +
+        ' <span class="fa" dir="rtl" lang="fa">' + esc(e.why.fa) + '</span></p></div>';
+    }
+    if (e.kind === 'gap') {
+      const parts = String(e.text).split('___');
+      return head + '<p class="pq gapq" dir="ltr">' +
+        esc(parts[0]) + '<input type="text" class="pgap" data-ex-gap="' + i +
+        '" autocomplete="off" spellcheck="false" aria-label="Missing word">' +
+        esc(parts.slice(1).join('___')) + '</p>' +
+        (e.hint ? '<p class="phint" dir="ltr">' + esc(e.hint) + '</p>' : '') +
+        '<p class="pwhy" hidden dir="ltr">' + esc(e.why.en) + ' <span class="fa" dir="rtl" ' +
+        'lang="fa">' + esc(e.why.fa) + '</span></p></div>';
+    }
+    if (e.kind === 'write') {
+      return head + '<p class="pq" dir="ltr">' + esc(e.task.en) + '</p>' +
+        '<p class="pq-fa fa" dir="rtl" lang="fa">' + esc(e.task.fa) + '</p>' +
+        '<p class="phint" dir="ltr">' + esc(e.tips.en) + ' · at least ' + e.words + ' words' +
+        '</p><textarea class="pwrite" data-ex-write="' + i + '" rows="5" dir="ltr" ' +
+        'aria-label="Your answer"></textarea>' +
+        '<p class="pcount" data-count="' + i + '">0 words</p>' +
+        '<p class="pwhy" hidden dir="ltr"></p></div>';
+    }
+    /* say */
+    return head + '<p class="pq" dir="ltr">Say this aloud:</p>' +
+      '<p class="psay" dir="ltr">' + esc(e.say) + '</p>' +
+      '<p class="psay-fa fa" dir="rtl" lang="fa">' + esc(e.fa) + '</p>' +
+      '<div class="prow"><button type="button" class="path-btn ghost" data-path="playsay" ' +
+      'data-id="' + i + '">🔊 Hear it</button>' +
+      '<button type="button" class="path-btn" data-path="say" data-id="' + i + '">🎤 Say it</button></div>' +
+      '<p class="pheard" data-heard="' + i + '" dir="ltr"></p><p class="pwhy" hidden></p></div>';
+  }
+
+  /* ----------------------------------------------------------- checking */
+
+  function exValue(i) {
+    const e = currentLesson().lesson.exercises[i];
+    if (e.kind === 'write') return draft.texts[i] || '';
+    if (e.kind === 'say') return draft.heard[i] || '';
+    return draft.answers[i];
+  }
+
+  function exScore(e, i) {
+    if (e.kind === 'write') {
+      const m = PathModel.writingScore(e, draft.texts[i] || '');
+      return m.total ? m.points / m.total : 0;
+    }
+    if (e.kind === 'say') {
+      const c = SayMatch.compare(e.say, draft.heard[i] || '');
+      return c.empty ? 0 : c.percent / 100;
+    }
+    return PathModel.answerRight(e, draft.answers[i]) ? 1 : 0;
+  }
+
+  function checkLesson(record) {
+    const row = currentLesson();
+    if (!row) return;
+    const ex = row.lesson.exercises || [];
+    /* A speaking exercise on a device with no recogniser is not a failed
+       exercise - there is no way to hear the answer. It comes out of the
+       denominator rather than out of the score, and the paper says so. The
+       exam still requires the skill: this is only a lesson. */
+    const canSay = typeof STT !== 'undefined' && STT.supported();
+    const counted = ex.filter((e) => !(e.kind === 'say' && !canSay));
+    let sum = 0, answered = 0;
+    ex.forEach((e, i) => {
+      const sc = exScore(e, i);
+      if (counted.indexOf(e) >= 0) sum += sc;
+      if (e.kind === 'write' || e.kind === 'say' ? !!(draft.texts[i] || draft.heard[i]) : draft.answers[i] != null) answered += 1;
+      const node = document.querySelector('[data-ex="' + i + '"]');
+      if (!node) return;
+      node.classList.toggle('ok', sc >= 0.6);
+      node.classList.toggle('bad', sc < 0.6);
+      const why = node.querySelector('.pwhy');
+      if (why) {
+        why.hidden = false;
+        if (e.kind === 'write') {
+          const m = PathModel.writingScore(e, draft.texts[i] || '');
+          why.innerHTML = m.parts.map((p) => (p.ok ? '✓ ' : '✗ ') + esc(p.note)).join(' · ');
+        } else if (e.kind === 'say') {
+          const c = SayMatch.compare(e.say, draft.heard[i] || '');
+          why.textContent = c.empty ? 'Nothing was heard — try again or move on.'
+            : c.right + ' of ' + c.total + ' words heard' +
+              (c.missing.length ? ' · missing: ' + c.missing.join(', ') : '');
+        }
+      }
+      const gaps = node.querySelector('.pgap');
+      if (gaps && e.kind === 'gap') gaps.disabled = true;
+      if (e.kind === 'mcq' || e.kind === 'listen') {
+        [...node.querySelectorAll('[data-ex-opt]')].forEach((b) => {
+          b.disabled = true;
+          const k = Number(b.dataset.k);
+          if (k === Number(e.answer)) b.classList.add('right');
+          else if (Number(draft.answers[i]) === k) b.classList.add('wrong');
+        });
+      }
+    });
+    const total = counted.length || 1;
+    const share = sum / total;
+    const out = document.getElementById('presult');
+    if (out) {
+      out.hidden = false;
+      out.innerHTML = '<p class="pres-h" dir="ltr">' + Math.round(share * 100) + '% · ' +
+        answered + ' of ' + counted.length + ' answered</p>' +
+        (counted.length < ex.length
+          ? '<p class="pres-s" dir="ltr">The speaking exercise is not counted on this ' +
+            'device: there is no speech recogniser to hear it.</p>' : '') +
+        '<p class="pres-s" dir="ltr">' + (share >= 0.6
+          ? 'That is enough to finish the lesson. The ones marked in red come back in the review queue.'
+          : 'Not yet: 60% finishes a lesson. Read the explanation again and try the red ones.') + '</p>';
+    }
+    const fin = document.querySelector('[data-path="finish"]');
+    if (fin) fin.hidden = share < 0.6;
+    const again = document.querySelector('[data-path="retry"]');
+    if (again) again.hidden = false;
+    checked = true;
+
+    if (record && share >= 0.6) {
+      const right = ex.reduce((n, e, i) =>
+        n + (counted.indexOf(e) >= 0 && exScore(e, i) >= 0.6 ? 1 : 0), 0);
+      patch(levelId, (p) => {
+        p.lessons[lessonId] = {done: true, at: new Date().toISOString(),
+                               right: right, total: counted.length};
+      });
+      screen = 'level';
+      render();
+      toast('Lesson complete · درس کامل شد', 2600);
+    }
+  }
+
+  /* ----------------------------------------------------------- exam page */
+
+  function startExam() {
+    examDraft = {answers: {}, texts: {}, heard: {}};
+    report = null;
+    screen = 'exam';
+    render();
+  }
+
+  function paintExam() {
+    const host = body();
+    const c = course(levelId) || {};
+    const exam = c.exam || {};
+    const paper = PathModel.paper(exam);
+    const objective = paper.filter((q) => q.kind !== 'write' && q.kind !== 'say');
+    const sections = (exam.sections || []).map((section) => {
+      if (section.skill === 'reading') {
+        return section.items.map((g, gi) =>
+          '<div class="pexam-pass"><p class="ppass-t" dir="ltr">' + esc(g.passage.en) + '</p>' +
+          '<p class="ppass-en" dir="ltr">' + esc(g.text.en) + '</p>' +
+          '<p class="ppass-fa fa" dir="rtl" lang="fa">' + esc(g.text.fa) + '</p>' +
+          (g.questions || []).map((q, k) => examQuestion(q, 'reading.' + gi + '.' + k, 'r' + gi + k)).join('') +
+          '</div>').join('');
+      }
+      return (section.items || []).map((item, i) =>
+        examQuestion(item, section.skill + '.' + i, section.skill + i, section.skill)).join('');
+    }).join('');
+
+    host.innerHTML = '<div class="path-wrap">' +
+      '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
+        '">← Back to the course</button>' +
+      '<div class="path-head">' +
+        '<p class="path-kicker">A1 final examination · آزمون پایانی A1</p>' +
+        '<h2 class="path-h">Six skills, one paper</h2>' +
+        '<p class="path-sub" dir="ltr">' + esc(exam.blurb.en) + '</p>' +
+        '<p class="path-sub fa" dir="rtl" lang="fa">' + esc(exam.blurb.fa) + '</p>' +
+        '<p class="path-meta" dir="ltr">' + objective.length + ' marked questions · 2 writing ' +
+          'tasks · 3 speaking tasks · about ' + (exam.minutes || 35) + ' minutes</p>' +
+      '</div>' +
+      '<div class="pexam-paper">' + sections + '</div>' +
+      '<div class="pfoot"><button type="button" class="path-btn" data-path="exam-submit">' +
+        'Submit the paper</button></div>' +
+    '</div>';
+  }
+
+  function examQuestion(item, id, key, skill) {
+    const label = skill === 'listening'
+      ? '<button type="button" class="path-play" data-path="playsay" data-id="' + id +
+        '">🔊 Play</button>' : '';
+    const kind = item.kind;
+    if (kind === 'write') {
+      return '<div class="pex" data-exam="' + id + '"><div class="pex-top"><span class="pex-n">' +
+        '✎</span><span class="pex-kind">Write</span></div><p class="pq" dir="ltr">' +
+        esc(item.task.en) + '</p><p class="pq-fa fa" dir="rtl" lang="fa">' + esc(item.task.fa) +
+        '</p><p class="phint" dir="ltr">' + esc(item.tips.en) + ' · at least ' + item.words +
+        ' words</p><textarea class="pwrite" data-exam-write="' + id + '" rows="5" dir="ltr" ' +
+        'aria-label="Your answer"></textarea><p class="pcount" data-count="' + id + '">0 words</p></div>';
+    }
+    if (kind === 'say') {
+      return '<div class="pex" data-exam="' + id + '"><div class="pex-top"><span class="pex-n">' +
+        '🎤</span><span class="pex-kind">Speak</span></div><p class="pq" dir="ltr">' +
+        esc(item.say) + '</p><p class="pq-fa fa" dir="rtl" lang="fa">' + esc(item.fa) + '</p>' +
+        '<div class="prow"><button type="button" class="path-btn ghost" data-path="playsay" ' +
+        'data-id="say:' + id + '">🔊 Hear it</button>' +
+        '<button type="button" class="path-btn" data-path="exam-say" data-id="' + id +
+        '">🎤 Say it</button></div><p class="pheard" data-exam-heard="' + id + '" dir="ltr"></p></div>';
+    }
+    const prompt = kind === 'listen' ? item.prompt : item.prompt;
+    return '<div class="pex" data-exam="' + id + '"><div class="pex-top"><span class="pex-n">' +
+      '?</span><span class="pex-kind">' + esc(SKILL[skill] ? SKILL[skill][0] : 'Question') +
+      '</span></div>' + label + '<p class="pq" dir="ltr">' + esc(prompt.en) + '</p>' +
+      '<p class="pq-fa fa" dir="rtl" lang="fa">' + esc(prompt.fa) + '</p><div class="pops">' +
+      item.options.map((o, k) => '<button type="button" class="popt" data-exam-opt="' + id +
+        '" data-k="' + k + '"><span class="popt-k">' + 'ABCD'[k] + '</span>' + esc(o) +
+        '</button>').join('') + '</div></div>';
+  }
+
+  function submitExam() {
+    const c = course(levelId) || {};
+    const exam = c.exam || {};
+    const result = PathModel.grade(exam, examDraft.answers, examDraft.texts, examDraft.heard);
+    const weak = PathModel.SKILLS.filter((s) => !result.skills[s].passed);
+    const advice = PathModel.recommend(c, prog(levelId), weak);
+    const record = {
+      at: new Date().toISOString(), overall: result.overall, pass: result.pass,
+      missing: result.missing,
+      skills: Object.fromEntries(PathModel.SKILLS.map((s) => [s, {
+        share: result.skills[s].share, assessed: result.skills[s].assessed,
+        right: result.skills[s].right, total: result.skills[s].total,
+      }])),
+      advice: advice.map((l) => l.id),
+    };
+    patch(levelId, (p) => {
+      p.exams = (p.exams || []).concat([record]).slice(-8);
+      if (result.pass) { p.passed = true; p.passedAt = record.at; }
+    });
+    report = {result: result, advice: advice, record: record};
+    screen = 'report';
+    render();
+  }
+
+  function paintReport() {
+    const host = body();
+    if (!report) { screen = 'level'; return paintLevel(); }
+    const r = report.result;
+    const passed = r.pass;
+    const rows = PathModel.SKILLS.map((s) => {
+      const row = r.skills[s];
+      const share = row.share;
+      const state = !row.assessed ? 'not assessed' : (share >= 0.5 ? 'ok' : 'weak');
+      return '<div class="prep-row prep-' + state + '"><span class="prep-name">' +
+        esc(SKILL[s][0]) + ' · ' + esc(SKILL[s][1]) + '</span>' +
+        bar(share) +
+        '<span class="prep-num" dir="ltr">' + (row.assessed ? pct(share) : '—') + '</span></div>';
+    }).join('');
+    const advice = report.advice.length
+      ? '<div class="pblock"><h3 class="pblock-h" dir="ltr">Lessons to go back to</h3><ul class="plexs">' +
+        report.advice.map((l) => '<li class="prec"><button type="button" class="path-link" ' +
+          'data-path="lesson" data-id="' + l.id + '">' + esc(l.title.en) + '</button>' +
+          '<span class="prec-fa">' + esc(l.title.fa) + '</span></li>').join('') + '</ul></div>'
+      : '';
+    const missing = r.missing.length
+      ? '<p class="pnote" dir="ltr">Not assessed: ' + r.missing.map((s) => esc(SKILL[s][0])).join(', ') +
+        '. Speaking needs the device\'s speech recogniser — without it the paper cannot claim ' +
+        'the skill, and it is not reported as passed.</p>'
+      : '';
+    host.innerHTML = '<div class="path-wrap">' +
+      '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
+        '">← Back to the course</button>' +
+      '<div class="prep ' + (passed ? 'prep-pass' : 'prep-fail') + '">' +
+        '<p class="prep-k">A1 final examination</p>' +
+        '<p class="prep-score" dir="ltr">' + pct(r.overall) + '</p>' +
+        '<p class="prep-verdict">' + (passed ? 'Passed · قبول شدی' : 'Not passed yet · هنوز قبول نشدی') + '</p>' +
+        '<p class="prep-line" dir="ltr">' + (passed
+          ? 'Every skill is at or above 50% and the paper is above 60%. A1 is complete; A2 is the next level.'
+          : 'A pass needs 60% overall, 50% in every skill, and every skill assessed.') + '</p>' +
+      '</div>' + missing +
+      '<div class="preps">' + rows + '</div>' + advice +
+      '<div class="pfoot">' +
+        '<button type="button" class="path-btn ghost" data-path="exam-retake">Retake the exam</button>' +
+        '<button type="button" class="path-btn" data-path="level" data-id="' + levelId +
+          '">Back to the course</button>' +
+      '</div>' +
+    '</div>';
+  }
+
+  /* -------------------------------------------------------------- events */
+
+  function bind() {
+    const host = body();
+    if (!host || host._bound) return;
+    host._bound = true;
+
+    host.addEventListener('click', (ev) => {
+      const g = ev.target.closest('[data-guide-opt]');
+      if (g) return guide(g);
+      const o = ev.target.closest('[data-ex-opt]');
+      if (o) return pickExercise(o);
+      const eo = ev.target.closest('[data-exam-opt]');
+      if (eo) return pickExamOption(eo);
+      const act = ev.target.closest('[data-path]');
+      if (!act) return;
+      const id = act.dataset.id;
+      switch (act.dataset.path) {
+        case 'home': screen = 'levels'; return render();
+        case 'level': levelId = act.dataset.id || levelId; screen = 'level'; return render();
+        case 'lesson': screen = 'lesson'; begin(act.dataset.id); return;
+        case 'check': return checkLesson(false);
+        case 'finish': return checkLesson(true);
+        // checking locks the answers, so a lesson under 60% needs a way back
+        // into its own exercises that is not reopening it from the course
+        case 'retry': return begin(lessonId);
+        case 'exam': levelId = act.dataset.id || levelId; startExam(); return;
+        case 'exam-retake': startExam(); return;
+        case 'exam-submit': return submitExam();
+        case 'play': return playExample(id);
+        case 'dialogue': return Speech.speak(String(id));
+        case 'playsay': return playSay(id);
+        case 'say': return captureSay(id, false);
+        case 'exam-say': return captureSay(id, true);
+        default: return;
+      }
+    });
+
+    host.addEventListener('input', (ev) => {
+      const gapIn = ev.target.closest('[data-ex-gap]');
+      if (gapIn) { draft.answers[Number(gapIn.dataset.exGap)] = gapIn.value; return; }
+      const wr = ev.target.closest('[data-ex-write]');
+      if (wr) {
+        const i = Number(wr.dataset.exWrite);
+        draft.texts[i] = wr.value;
+        const c = host.querySelector('[data-count="' + i + '"]');
+        if (c) c.textContent = countWords(wr.value) + ' words';
+        return;
+      }
+      const ew = ev.target.closest('[data-exam-write]');
+      if (ew) {
+        const id2 = ew.dataset.examWrite;
+        examDraft.texts[Number(String(id2).split('.').pop())] = ew.value;
+        const c2 = host.querySelector('[data-count="' + id2 + '"]');
+        if (c2) c2.textContent = countWords(ew.value) + ' words';
+      }
+    });
+  }
+
+  function countWords(s) {
+    return (String(s || '').match(/[A-Za-z][A-Za-z'’-]*/g) || []).length;
+  }
+
+  function guide(btn) {
+    const i = Number(btn.dataset.guideOpt);
+    const block = btn.closest('[data-guide]');
+    const row = currentLesson();
+    const q = row && row.lesson.guided[i];
+    if (!q || !block) return;
+    [...block.querySelectorAll('[data-guide-opt]')].forEach((b) => {
+      b.disabled = true;
+      const k = Number(b.dataset.k);
+      if (k === Number(q.answer)) b.classList.add('right');
+      else if (b === btn) b.classList.add('wrong');
+    });
+    const why = block.querySelector('.pwhy');
+    if (why) why.hidden = false;
+  }
+
+  function pickExercise(btn) {
+    const i = Number(btn.dataset.exOpt);
+    draft.answers[i] = Number(btn.dataset.k);
+    [...document.querySelectorAll('[data-ex-opt="' + i + '"]')].forEach((b) => {
+      b.classList.toggle('on', b === btn);
+    });
+  }
+
+  function pickExamOption(btn) {
+    const id = btn.dataset.examOpt;
+    examDraft.answers[id] = Number(btn.dataset.k);
+    document.querySelectorAll('[data-exam-opt="' + id + '"]').forEach((b) => {
+      b.classList.toggle('on', b === btn);
+    });
+  }
+
+  function playExample(i) {
+    const row = currentLesson();
+    const ex = row && row.lesson.examples && row.lesson.examples[Number(i)];
+    if (ex && typeof Speech !== 'undefined') Speech.speak(ex.en);
+  }
+
+  function examItem(id) {
+    const c = course(levelId) || {};
+    const row = PathModel.paper(c.exam || {}).find((q) => q.id === String(id));
+    return row ? (row.skill === 'reading' ? row.passage : row.item) : null;
+  }
+
+  function playSay(id) {
+    if (typeof Speech === 'undefined') return;
+    const want = String(id).indexOf('say:') === 0 ? String(id).slice(4) : String(id);
+    if (screen === 'exam') {
+      const item = examItem(want);
+      if (item && item.say) Speech.speak(item.say);
+      return;
+    }
+    const row = currentLesson();
+    const e = row && row.lesson.exercises[Number(want)];
+    if (e && e.say) Speech.speak(e.say);
+  }
+
+  function captureSay(id, isExam) {
+    if (typeof STT === 'undefined' || !STT.supported()) {
+      toast('This device has no speech recognition — the paper cannot assess speaking here. ' +
+        'Try Chrome or the Android app. / این دستگاه تشخیص گفتار ندارد.', 4800);
+      return;
+    }
+    STT.sink = (text) => {
+      STT.sink = null;
+      if (isExam) {
+        examDraft.heard[Number(String(id).split('.').pop())] = text || '';
+        const out = document.querySelector('[data-exam-heard="' + id + '"]');
+        const item = examItem(id);
+        if (out && item) {
+          const cmp = SayMatch.compare(item.say, text || '');
+          out.textContent = cmp.empty ? 'Nothing was heard. Try again.'
+            : cmp.right + ' of ' + cmp.total + ' words heard';
+        }
+      } else {
+        const i = Number(id);
+        draft.heard[i] = text || '';
+        const row = currentLesson();
+        const item = row && row.lesson.exercises[i];
+        const out = document.querySelector('[data-heard="' + i + '"]');
+        if (out && item && item.say) {
+          const cmp = SayMatch.compare(item.say, text || '');
+          out.textContent = cmp.empty ? 'Nothing was heard. Try again.'
+            : cmp.right + ' of ' + cmp.total + ' words heard' +
+              (cmp.missing.length ? ' · missing: ' + cmp.missing.join(', ') : '');
+        }
+      }
+    };
+    if (!STT.begin()) {
+      STT.sink = null;
+      toast('The microphone did not start. / میکروفون شروع نشد.', 3200);
+    }
+  }
+
+  /* --------------------------------------------------------------- boot */
+
+  function init() {
+    bind();
+    sync();
+  }
+
+  return {init, open, sync, render, PANEL: PANEL, begin: begin};
+})();
+
+
 const Daily = (() => {
   /* Line icons in the toolbar's own family, drawn in currentColor. The three
      emoji these replace rendered differently on every platform and read as
@@ -16336,6 +17700,7 @@ Player.mount();
 Motion.init();
 Panels.init();
 PanelSearch.attachAll();
+Path.init();
 Daily.init();
 
 /* clear conversation */

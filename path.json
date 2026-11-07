@@ -1,0 +1,3439 @@
+{
+ "version": 1,
+ "levels": [
+  {
+   "id": "PRE",
+   "label": "Pre-A1",
+   "name": {
+    "en": "Starting out",
+    "fa": "شروع"
+   },
+   "can": {
+    "en": "You recognise greetings, numbers and a few everyday words.",
+    "fa": "سلام و احوال‌پرسی، عدد و چند واژهٔ روزمره را می‌شناسی."
+   },
+   "course": null
+  },
+  {
+   "id": "A1",
+   "label": "A1",
+   "name": {
+    "en": "Elementary beginner",
+    "fa": "مبتدی"
+   },
+   "can": {
+    "en": "You handle greetings, prices and short sentences about yourself.",
+    "fa": "سلام و احوال‌پرسی، قیمت و جمله‌های کوتاه دربارهٔ خودت را از عهده برمی‌آیی."
+   },
+   "course": "A1"
+  },
+  {
+   "id": "A2",
+   "label": "A2",
+   "name": {
+    "en": "Elementary",
+    "fa": "پایه"
+   },
+   "can": {
+    "en": "You manage shopping, travel and simple messages about everyday things.",
+    "fa": "خرید، سفر و پیام‌های سادهٔ کارهای روزمره را از عهده برمی‌آیی."
+   },
+   "course": null
+  },
+  {
+   "id": "B1",
+   "label": "B1",
+   "name": {
+    "en": "Intermediate",
+    "fa": "میانی"
+   },
+   "can": {
+    "en": "You follow the point of a news story and discuss plans and opinions.",
+    "fa": "نکتهٔ اصلی یک خبر را می‌گیری و دربارهٔ برنامه‌ها و نظرها گفت‌وگو می‌کنی."
+   },
+   "course": null
+  },
+  {
+   "id": "B2",
+   "label": "B2",
+   "name": {
+    "en": "Upper-intermediate",
+    "fa": "میانی بالا"
+   },
+   "can": {
+    "en": "You argue a position and read long articles without much trouble.",
+    "fa": "از موضع خود دفاع می‌کنی و مقاله‌های بلند را بی‌دشواری می‌خوانی."
+   },
+   "course": null
+  },
+  {
+   "id": "C1",
+   "label": "C1",
+   "name": {
+    "en": "Advanced",
+    "fa": "پیشرفته"
+   },
+   "can": {
+    "en": "You use English flexibly for study, work and long conversations.",
+    "fa": "انگلیسی را برای درس، کار و گفت‌وگوهای طولانی به‌شکل انعطاف‌پذیر به کار می‌بری."
+   },
+   "course": null
+  },
+  {
+   "id": "C2",
+   "label": "C2",
+   "name": {
+    "en": "Proficient",
+    "fa": "چیره"
+   },
+   "can": {
+    "en": "You understand almost everything you read or hear, and write with precision.",
+    "fa": "تقریباً هر چه می‌خوانی یا می‌شنوی را می‌فهمی و دقیق می‌نویسی."
+   },
+   "course": null
+  }
+ ],
+ "courses": {
+  "A1": {
+   "title": {
+    "en": "A1 · Elementary",
+    "fa": "A1 · مبتدی"
+   },
+   "blurb": {
+    "en": "Six units, eighteen lessons and a final examination over all six skills.",
+    "fa": "شش واحد، هجده درس و آزمون پایانی در هر شش مهارت."
+   },
+   "units": [
+    {
+     "id": "u1",
+     "title": {
+      "en": "First contact",
+      "fa": "اولین برخورد"
+     },
+     "goal": {
+      "en": "Say who you are, where you are from, and greet people.",
+      "fa": "بگویی کی هستی، اهل کجایی و به دیگران سلام کنی."
+     },
+     "lessons": [
+      {
+       "id": "a1-u1-l1",
+       "skill": "grammar",
+       "title": {
+        "en": "The verb to be: am, is, are",
+        "fa": "فعل to be: am، is، are"
+       },
+       "goal": {
+        "en": "Use am, is and are with the right person, in full and short forms.",
+        "fa": "am، is و are را با شخص درست به کار ببری، هم کامل و هم کوتاه."
+       },
+       "explain": [
+        {
+         "en": "Every English sentence needs a verb, and the verb to be is the one that connects a person to a name, a job or a place. I am a student. She is from Shiraz. We are ready.",
+         "fa": "هر جملهٔ انگلیسی فعلی دارد. فعل to be کسی را به نام، شغل یا جا وصل می‌کند: I am a student، She is from Shiraz، We are ready."
+        },
+        {
+         "en": "The form follows the person: I am, you are, he / she / it is, we are, they are. In speech and in writing people shorten it: I'm, you're, he's, she's, it's, we're, they're.",
+         "fa": "صورت فعل با شخص عوض می‌شود: I am، you are، he/she/it is، we are، they are. در گفتار و نوشتار کوتاه می‌شود: I'm، you're، he's، she's، it's، we're، they're."
+        },
+        {
+         "en": "For a question, the verb moves in front of the person: Are you a student? For a negative, put not after it: I am not tired. You are not late.",
+         "fa": "در پرسش، فعل پیش از شخص می‌آید: Are you a student? در منفی، not بعد از فعل: I am not tired. You are not late."
+        }
+       ],
+       "examples": [
+        {
+         "en": "Hello. I'm Sara.",
+         "fa": "سلام. من سارا هستم."
+        },
+        {
+         "en": "She is a nurse.",
+         "fa": "او پرستار است."
+        },
+        {
+         "en": "We are from Tabriz.",
+         "fa": "ما اهل تبریز هستیم."
+        },
+        {
+         "en": "Are you ready?",
+         "fa": "آماده‌ای؟"
+        },
+        {
+         "en": "They aren't at home.",
+         "fa": "آن‌ها خانه نیستند."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Sara ___ my sister.",
+          "fa": "سارا ___ خواهر من است."
+         },
+         "options": [
+          "am",
+          "is",
+          "are",
+          "be"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "One person - she - takes is.",
+          "fa": "یک نفر (she) با is می‌آید."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ you a teacher?",
+          "fa": "___ تو معلم هستی؟"
+         },
+         "options": [
+          "Am",
+          "Is",
+          "Are",
+          "Be"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "Questions put the verb first, and you takes are.",
+          "fa": "در پرسش فعل اول می‌آید و شما/تو با are."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "I ___ from Iran.",
+         "answer": [
+          "am",
+          "'m",
+          " i'm"
+         ],
+         "why": {
+          "en": "I always takes am, and I'm is the same word shortened.",
+          "fa": "I همیشه با am می‌آید و I'm شکل کوتاه آن است."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "My brother ___ ten years old.",
+         "answer": [
+          "is"
+         ],
+         "why": {
+          "en": "Your brother is he, so the verb is is.",
+          "fa": "برادرت he است، پس فعل is می‌شود."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the correct negative.",
+          "fa": "منفی درست را انتخاب کن."
+         },
+         "options": [
+          "I not am tired.",
+          "I amn't tired.",
+          "I am not tired.",
+          "I not tired."
+         ],
+         "answer": 2,
+         "why": {
+          "en": "not comes after the verb: I am not tired.",
+          "fa": "not بعد از فعل می‌آید: I am not tired."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "Hello, I'm Reza. I'm from Isfahan.",
+         "prompt": {
+          "en": "Who is speaking?",
+          "fa": "چه کسی صحبت می‌کند؟"
+         },
+         "options": [
+          "Reza",
+          "Sara",
+          "Nima",
+          "Maryam"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "The speaker says his own name first: I'm Reza.",
+          "fa": "گوينده اول نام خودش را می‌گويد: I'm Reza."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u1-l2",
+       "skill": "vocabulary",
+       "title": {
+        "en": "Greetings, introductions, countries",
+        "fa": "سلام و احوال‌پرسی، معرفی، کشورها"
+       },
+       "goal": {
+        "en": "Greet at the right level of formality and give your name, country and nationality.",
+        "fa": "با لحن مناسب سلام کنی و نام، کشور و ملیتت را بگویی."
+       },
+       "explain": [
+        {
+         "en": "English separates the greeting you use with friends from the one for a stranger or an office. Hi and Hello are friendly; Good morning and Good afternoon are safe with anyone; How do you do? is very formal and old.",
+         "fa": "انگلیسی سلام دوستانه را از سلام رسمی جدا می‌کند. Hi و Hello دوستانه‌اند؛ Good morning و Good afternoon با هر کسی بی‌خطرند؛ How do you do? بسیار رسمی و کهنه است."
+        },
+        {
+         "en": "After the greeting come the small questions: How are you? Fine, thanks. And you? To meet someone new, say Nice to meet you, and answer Nice to meet you too.",
+         "fa": "بعد از سلام، پرسش‌های کوتاه می‌آیند: How are you? Fine, thanks. And you? برای آشنایی می‌گویی Nice to meet you و پاسخ می‌دهی Nice to meet you too."
+        },
+        {
+         "en": "A country has a nationality: Iran - Iranian, England - English, Japan - Japanese, Turkey - Turkish. We say I'm from Iran, or I'm Iranian.",
+         "fa": "هر کشور ملیت دارد: Iran - Iranian، England - English، Japan - Japanese، Turkey - Turkish. می‌گوییم I'm from Iran یا I'm Iranian."
+        }
+       ],
+       "examples": [
+        {
+         "en": "Good morning, Mrs Ahmadi.",
+         "fa": "صبح بخیر، خانم احمدی."
+        },
+        {
+         "en": "How are you? — Fine, thanks.",
+         "fa": "حالت چطور است؟ — خوبم، ممنون."
+        },
+        {
+         "en": "Nice to meet you.",
+         "fa": "از آشنایی با شما خوشحالم."
+        },
+        {
+         "en": "I'm from Iran. I'm Iranian.",
+         "fa": "من اهل ایرانم. ایرانی‌ام."
+        },
+        {
+         "en": "Goodbye. See you tomorrow.",
+         "fa": "خداحافظ. فردا می‌بینمت."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "It is 9 a.m. and you meet your manager. What do you say?",
+          "fa": "ساعت ۹ صبح است و مدیرت را می‌بینی. چه می‌گویی؟"
+         },
+         "options": [
+          "Hi, mate!",
+          "Good morning.",
+          "Goodnight.",
+          "How do you do?"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Morning gets Good morning; it is formal enough for work and not strange.",
+          "fa": "صبح را با Good morning پاسخ می‌دهی؛ برای کار رسمی و طبیعی است."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Where is she from?",
+          "fa": "او اهل کجاست؟"
+         },
+         "options": [
+          "She is from Turkish.",
+          "She is Turkey.",
+          "She is Turkish.",
+          "She from Turkey."
+         ],
+         "answer": 2,
+         "why": {
+          "en": "A person is Turkish; the place is Turkey. You also need is.",
+          "fa": "انسان Turkish است و سرزمین Turkey. فعل is هم لازم است."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "A: ___ are you? B: I'm fine, thank you.",
+         "answer": [
+          "How"
+         ],
+         "why": {
+          "en": "The question about someone's state is How are you?",
+          "fa": "پرسش از حال کسی How are you? است."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "You meet a new colleague. Choose the pair.",
+          "fa": "با همکار جدید آشنا می‌شوی. جفت درست کدام است؟"
+         },
+         "options": [
+          "Nice to meet you. — Nice to meet you too.",
+          "Hello. — Goodnight.",
+          "How do you do. — I'm 25.",
+          "See you. — I'm fine."
+         ],
+         "answer": 0,
+         "why": {
+          "en": "The reply to Nice to meet you repeats it with too.",
+          "fa": "پاسخ Nice to meet you همان جمله با too است."
+         }
+        },
+        {
+         "kind": "gap",
+         "text": "Mehmet is from Istanbul. He is ___.",
+         "answer": [
+          "Turkish"
+         ],
+         "why": {
+          "en": "The nationality that matches Istanbul and Turkey is Turkish.",
+          "fa": "ملیتی که با استانبول و ترکیه می‌خواند Turkish است."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "listen",
+         "say": "Good afternoon. My name is Leila, and I'm from Tehran.",
+         "prompt": {
+          "en": "What is her name?",
+          "fa": "نام او چیست؟"
+         },
+         "options": [
+          "Leila",
+          "Narges",
+          "Tehran",
+          "Setareh"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "She introduces herself with My name is Leila.",
+          "fa": "با My name is Leila خودش را معرفی می‌کند."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u1-l3",
+       "skill": "speaking",
+       "title": {
+        "en": "Introduce yourself",
+        "fa": "خودت را معرفی کن"
+       },
+       "goal": {
+        "en": "Say four sentences about yourself, clearly enough to be understood.",
+        "fa": "چهار جمله دربارهٔ خودت بگویی، روشن و قابل‌فهم."
+       },
+       "explain": [
+        {
+         "en": "An introduction at A1 is a small set: name, age, country, job or studies. Keep the sentences short and finish one before you start the next.",
+         "fa": "معرفی در سطح A1 کوچک است: نام، سن، کشور، شغل یا تحصیل. جمله‌ها کوتاه باشند و هر کدام را کامل بگویی."
+        },
+        {
+         "en": "Say it aloud, not in your head. The microphone below hears the words you actually produced, and marks each one it did not catch.",
+         "fa": "بلند بگو، نه در ذهنت. میکروفون پایین کلمه‌هایی را که واقعاً گفتی می‌شنود و هر واژه‌ای را که نگرفته علامت می‌زند."
+        },
+        {
+         "en": "If the device has no speech recogniser, listen to the model, repeat it, and use the dialogue below as a role-play with a partner.",
+         "fa": "اگر دستگاه شنوندهٔ گفتار ندارد، نمونه را گوش کن، تکرار کن و گفت‌وگوی زیر را با یک هم‌صحبت نقش‌بازی کن."
+        }
+       ],
+       "examples": [
+        {
+         "en": "My name is Sara.",
+         "fa": "نام من سارا است."
+        },
+        {
+         "en": "I am twenty years old.",
+         "fa": "بیست سال دارم."
+        },
+        {
+         "en": "I am from Iran.",
+         "fa": "من اهل ایرانم."
+        },
+        {
+         "en": "I am a student.",
+         "fa": "دانشجو هستم."
+        },
+        {
+         "en": "I study English every day.",
+         "fa": "هر روز انگلیسی می‌خوانم."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which sentence introduces a job?",
+          "fa": "کدام جمله شغل را معرفی می‌کند؟"
+         },
+         "options": [
+          "I am from Iran.",
+          "I am a nurse.",
+          "I am twenty.",
+          "I am fine."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "A nurse is a job; the others are place, age and state.",
+          "fa": "nurse شغل است؛ بقیه جا، سن و حال‌اند."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which order sounds natural?",
+          "fa": "کدام ترتیب طبیعی است؟"
+         },
+         "options": [
+          "I'm Sara, I'm from Iran, I'm a student.",
+          "I'm from Iran, I'm Sara, I'm a student.",
+          "I'm a student, from Iran I'm Sara.",
+          "Sara I'm, Iran from I'm."
+         ],
+         "answer": 0,
+         "why": {
+          "en": "Name first, then place, then job is the ordinary order.",
+          "fa": "اول نام، بعد جا، بعد شغل ترتیب معمول است."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "say",
+         "say": "My name is Sara.",
+         "fa": "نام من سارا است."
+        },
+        {
+         "kind": "say",
+         "say": "I am from Iran and I am a student.",
+         "fa": "من اهل ایرانم و دانشجو هستم."
+        },
+        {
+         "kind": "say",
+         "say": "Nice to meet you.",
+         "fa": "از آشنایی با تو خوشحالم."
+        }
+       ],
+       "dialogue": [
+        {
+         "who": "A",
+         "en": "Hello, I'm Nima. And you?",
+         "fa": "سلام، من نیما هستم. تو؟"
+        },
+        {
+         "who": "B",
+         "en": "Hi Nima. I'm Sara.",
+         "fa": "سلام نیما. من سارا هستم."
+        },
+        {
+         "who": "A",
+         "en": "Where are you from?",
+         "fa": "اهل کجایی؟"
+        },
+        {
+         "who": "B",
+         "en": "I'm from Shiraz. Are you from Tehran?",
+         "fa": "اهل شیرازم. تو اهل تهرانی؟"
+        },
+        {
+         "who": "A",
+         "en": "Yes, I am. It's nice to meet you.",
+         "fa": "بله. از آشنایی با تو خوشحالم."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "u2",
+     "title": {
+      "en": "People and things",
+      "fa": "آدم‌ها و چیزها"
+     },
+     "goal": {
+      "en": "Talk about family, possessions and what things are.",
+      "fa": "دربارهٔ خانواده، دارایی‌ها و این‌که چیزها چیست حرف بزنی."
+     },
+     "lessons": [
+      {
+       "id": "a1-u2-l1",
+       "skill": "grammar",
+       "title": {
+        "en": "Articles, this/that, plurals",
+        "fa": "حرف تعریف، this/that، جمع"
+       },
+       "goal": {
+        "en": "Choose a, an or the, point at things with this and that, and make plurals.",
+        "fa": "a، an یا the را درست انتخاب کنی، با this و that به چیزها اشاره کنی و جمع بسازی."
+       },
+       "explain": [
+        {
+         "en": "a and an mean one of something, and an comes before a vowel sound: a book, an apple, an hour. the means a thing we both already know: the book on the table.",
+         "fa": "a و an یعنی یکی از چیزی؛ an پیش از صدای واکه می‌آید: a book، an apple، an hour. the يعني چيزي که هر دو از آن آگاهيم: the book on the table."
+        },
+        {
+         "en": "this is near you, that is away: this cup here, that cup over there. For more than one they become these and those.",
+         "fa": "this نزدیک است و that دور: this cup here، that cup over there. برای بیشتر از یکی these و those می‌شوند."
+        },
+        {
+         "en": "Most plurals add -s: book - books. Words ending in -s, -sh, -ch, -x add -es: box - boxes. A consonant plus y becomes -ies: city - cities. Some are irregular: man - men, child - children, woman - women.",
+         "fa": "بيشتر جمع‌ها -s می‌گيرند: book - books. واژه‌های پایانیافته به -s، -sh، -ch، -x پسوند -es: box - boxes. صامت + y به -ies: city - cities. بعضی بی‌قاعده‌اند: man - men، child - children، woman - women."
+        }
+       ],
+       "examples": [
+        {
+         "en": "This is a pen.",
+         "fa": "این یک خودکار است."
+        },
+        {
+         "en": "That is an old house.",
+         "fa": "آن خانهٔ قدیمی است."
+        },
+        {
+         "en": "These books are mine.",
+         "fa": "این کتاب‌ها مال من‌اند."
+        },
+        {
+         "en": "She has two children.",
+         "fa": "او دو فرزند دارد."
+        },
+        {
+         "en": "The bus is late.",
+         "fa": "اتوبوس دیر کرده است."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "I need ___ umbrella.",
+          "fa": "من ___ چتر لازم دارم."
+         },
+         "options": [
+          "a",
+          "an",
+          "the",
+          "some"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "umbrella starts with a vowel sound, so an.",
+          "fa": "umbrella با صدای واکه شروع می‌شود، پس an."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "One box, two ___.",
+          "fa": "یک جعبه، دو ___."
+         },
+         "options": [
+          "boxs",
+          "boxes",
+          "boxies",
+          "box"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Words ending in x take -es.",
+          "fa": "واژه‌های پایانیافته به x پسوند -es می‌گیرند."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "She is ___ engineer.",
+         "answer": [
+          "an"
+         ],
+         "why": {
+          "en": "engineer begins with a vowel sound, so an.",
+          "fa": "engineer با صدای واکه شروع می‌شود، پس an."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "One city, two ___.",
+         "answer": [
+          "cities"
+         ],
+         "why": {
+          "en": "A consonant plus y becomes -ies.",
+          "fa": "صامت + y به -ies تبدیل می‌شود."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ shoes over there are Ali's.",
+          "fa": "___ کفش‌های آن‌طرف مال علی است."
+         },
+         "options": [
+          "This",
+          "These",
+          "Those",
+          "That"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "Over there and plural: those.",
+          "fa": "دور و جمع: those."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the sentence about something already mentioned.",
+          "fa": "جمله‌ای را انتخاب کن که دربارهٔ چیز آشناست."
+         },
+         "options": [
+          "I saw a dog. The dog was black.",
+          "I saw the dog. A dog was black.",
+          "I saw dog. Dog was black.",
+          "I saw an dog. The dog black."
+         ],
+         "answer": 0,
+         "why": {
+          "en": "First mention takes a, the second takes the.",
+          "fa": "بار اول a و بار دوم the."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u2-l2",
+       "skill": "grammar",
+       "title": {
+        "en": "have got and possessives",
+        "fa": "have got و ملکی‌ها"
+       },
+       "goal": {
+        "en": "Say what people own with have got, and whose thing it is with my, your, his, hers.",
+        "fa": "با have got بگویی کسی چه دارد و با my، your، his، hers بگویی چیزی مال کیست."
+       },
+       "explain": [
+        {
+         "en": "have got means the same as have: I have got a car = I have a car. The forms are I / you / we / they have got, he / she / it has got.",
+         "fa": "have got همان have است: I have got a car = I have a car. صورت‌ها: I/you/we/they have got و he/she/it has got."
+        },
+        {
+         "en": "Possessive adjectives sit before the noun: my book, your pen, his bag, her coat, our house, their car. They never change with the thing: his books, her books.",
+         "fa": "صفت ملکی پیش از اسم می‌آید: my book، your pen، his bag، her coat، our house، their car. با مفرد و جمعِ چیز تغییر نمی‌کند: his books، her books."
+        },
+        {
+         "en": "Possessive pronouns stand alone: mine, yours, his, hers, ours, theirs. This book is mine. That one is yours.",
+         "fa": "ضمیر ملکی تنها می‌آید: mine، yours، his، hers، ours، theirs. This book is mine. That one is yours."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I have got two sisters.",
+         "fa": "من دو خواهر دارم."
+        },
+        {
+         "en": "She has got a small dog.",
+         "fa": "او یک سگ کوچک دارد."
+        },
+        {
+         "en": "His name is Reza.",
+         "fa": "نام او رضا است."
+        },
+        {
+         "en": "Our flat is near the park.",
+         "fa": "آپارتمان ما نزدیک پارک است."
+        },
+        {
+         "en": "Is this pen yours?",
+         "fa": "این خودکار مال توست؟"
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Maryam ___ got a new phone.",
+          "fa": "مریم ___ گوشی نو دارد."
+         },
+         "options": [
+          "have",
+          "has",
+          "is",
+          "are"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "She takes has got.",
+          "fa": "با she فعل has got می‌آید."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "This is Ali's bag. It is ___.",
+          "fa": "این کیف علی است. مال ___ است."
+         },
+         "options": [
+          "his",
+          "her",
+          "its",
+          "hers"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "Ali is a man, so the pronoun is his.",
+          "fa": "علی مرد است، پس ضمیر his است."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "We ___ got a big garden.",
+         "answer": [
+          "have"
+         ],
+         "why": {
+          "en": "We takes have got.",
+          "fa": "we با have got می‌آید."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "That coat is ___. (belongs to her)",
+         "answer": [
+          "hers"
+         ],
+         "why": {
+          "en": "The pronoun that stands alone for her is hers.",
+          "fa": "ضمیر مستقل برای her، hers است."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the correct sentence.",
+          "fa": "جملهٔ درست را انتخاب کن."
+         },
+         "options": [
+          "She have got a brother.",
+          "She has got a brother.",
+          "She has a got brother.",
+          "She got has a brother."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Third person singular takes has got.",
+          "fa": "سوم‌شخص مفرد has got می‌گیرد."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "'Their house' means the house belongs to ___.",
+          "fa": "'Their house' یعنی خانه مال ___ است."
+         },
+         "options": [
+          "him",
+          "them",
+          "her",
+          "us"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "their belongs to they / them.",
+          "fa": "their مال they/them است."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u2-l3",
+       "skill": "reading",
+       "title": {
+        "en": "Nima's family",
+        "fa": "خانوادهٔ نیما"
+       },
+       "goal": {
+        "en": "Read a short description and find the facts in it.",
+        "fa": "یک توصیف کوتاه را بخوانی و اطلاعاتش را پیدا کنی."
+       },
+       "explain": [
+        {
+         "en": "At A1 a reading is short and concrete: who lives where, what they do, how old they are. Read the questions first, then look for the same words in the text.",
+         "fa": "خواندن در A1 کوتاه و عینی است: چه کسی کجا زندگی می‌کند، چه می‌کند، چند سال دارد. اول پرسش‌ها را بخوان، بعد همان واژه‌ها را در متن پیدا کن."
+        },
+        {
+         "en": "Numbers, names and places are the easiest facts to find. A word you do not know is often not needed: the sentence usually says enough around it.",
+         "fa": "عدد، نام و جا آسان‌ترین اطلاعات‌اند. واژه‌ای که نمی‌دانی اغلب لازم نیست؛ جمله با واژه‌های اطرافش معنا می‌دهد."
+        }
+       ],
+       "examples": [
+        {
+         "en": "My name is Nima.",
+         "fa": "نام من نیماست."
+        },
+        {
+         "en": "I live with my parents and my sister.",
+         "fa": "من با پدر و مادرم و خواهرم زندگی می‌کنم."
+        },
+        {
+         "en": "My father works in a bank.",
+         "fa": "پدرم در بانک کار می‌کند."
+        },
+        {
+         "en": "My mother is a teacher.",
+         "fa": "مادرم معلم است."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Who works in a bank?",
+          "fa": "چه کسی در بانک کار می‌کند؟"
+         },
+         "options": [
+          "Nima",
+          "his mother",
+          "his father",
+          "his sister"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "The text says My father works in a bank.",
+          "fa": "متن می‌گوید پدرش در بانک کار می‌کند."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "How many children are in the family?",
+          "fa": "چند فرزند در خانواده هست؟"
+         },
+         "options": [
+          "one",
+          "two",
+          "three",
+          "four"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Nima and his sister: two children.",
+          "fa": "نیما و خواهرش: دو فرزند."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Where does Nima live?",
+          "fa": "نیما کجا زندگی می‌کند؟"
+         },
+         "options": [
+          "with his grandmother",
+          "with his parents and sister",
+          "alone",
+          "with his uncle"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "I live with my parents and my sister.",
+          "fa": "«با پدر و مادرم و خواهرم زندگی می‌کنم»."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "What is his mother's job?",
+          "fa": "شغل مادرش چیست؟"
+         },
+         "options": [
+          "teacher",
+          "nurse",
+          "bank clerk",
+          "student"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "My mother is a teacher.",
+          "fa": "«مادرم معلم است»."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which word tells us Nima has a sister?",
+          "fa": "کدام واژه می‌گوید نیما خواهر دارد؟"
+         },
+         "options": [
+          "parents",
+          "sister",
+          "works",
+          "live"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "sister is the word for a female sibling.",
+          "fa": "sister یعنی خواهر."
+         }
+        }
+       ],
+       "passage": {
+        "title": {
+         "en": "Nima's family",
+         "fa": "خانوادهٔ نیما"
+        },
+        "text": {
+         "en": "My name is Nima. I am twelve years old and I live in Karaj with my parents and my sister. My father works in a bank. My mother is a teacher at a small school. My sister is eight. We have got a cat, and her name is Pishi.",
+         "fa": "نام من نیماست. دوازده سال دارم و با پدر و مادرم و خواهرم در کرج زندگی می‌کنم. پدرم در بانک کار می‌کند. مادرم در مدرسهٔ کوچکی معلم است. خواهرم هشت سال دارد. یک گربه داریم و نامش پیشی است."
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "u3",
+     "title": {
+      "en": "Every day",
+      "fa": "هر روز"
+     },
+     "goal": {
+      "en": "Describe your routine, say the time and write about your day.",
+      "fa": "روزمرگی‌ات را توصیف کنی، ساعت بگویی و دربارهٔ روزت بنویسی."
+     },
+     "lessons": [
+      {
+       "id": "a1-u3-l1",
+       "skill": "grammar",
+       "title": {
+        "en": "Present simple",
+        "fa": "حال ساده"
+       },
+       "goal": {
+        "en": "Talk about habits with the present simple, including questions and negatives.",
+        "fa": "با حال ساده دربارهٔ عادت‌ها حرف بزنی، همراه پرسش و منفی."
+       },
+       "explain": [
+        {
+         "en": "The present simple is for things that happen again and again: I get up at seven. She works in a shop. It is not for what is happening right now.",
+         "fa": "حال ساده برای کارهایی است که تکرار می‌شوند: I get up at seven. She works in a shop. برای کاری که همین حالا در جریان است نیست."
+        },
+        {
+         "en": "With he, she and it the verb takes -s: he works, she studies, it rains. With I, you, we and they it does not: I work, they study.",
+         "fa": "با he، she و it فعل -s می‌گیرد: he works، she studies، it rains. با I، you، we و they نمی‌گیرد: I work، they study."
+        },
+        {
+         "en": "Questions and negatives borrow do: Do you work here? He does not work here. The -s moves to does, so the verb goes back to its plain form.",
+         "fa": "پرسش و منفی از do کمک می‌گیرند: Do you work here? He does not work here. ‏-s به does می‌رود و فعل ساده می‌ماند."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I get up at seven.",
+         "fa": "ساعت هفت بیدار می‌شوم."
+        },
+        {
+         "en": "She works in a hospital.",
+         "fa": "او در بیمارستان کار می‌کند."
+        },
+        {
+         "en": "We study English every evening.",
+         "fa": "ما هر شب انگلیسی می‌خوانیم."
+        },
+        {
+         "en": "Do you like tea?",
+         "fa": "چای دوست داری؟"
+        },
+        {
+         "en": "He doesn't eat meat.",
+         "fa": "او گوشت نمی‌خورد."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Ali ___ football every Friday.",
+          "fa": "علی هر جمعه فوتبال ___."
+         },
+         "options": [
+          "play",
+          "plays",
+          "playing",
+          "is play"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Ali is he, so the verb takes -s.",
+          "fa": "علی he است، پس فعل -s می‌گیرد."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ she live in Tehran?",
+          "fa": "آیا او در تهران زندگی می‌کند؟"
+         },
+         "options": [
+          "Do",
+          "Does",
+          "Is",
+          "Are"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Questions with she use does.",
+          "fa": "پرسش با she از does استفاده می‌کند."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "They ___ to school by bus.",
+         "answer": [
+          "go"
+         ],
+         "why": {
+          "en": "They takes the plain verb: go.",
+          "fa": "they فعل ساده می‌گیرد: go."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "My mother ___ dinner every night. (cook)",
+         "answer": [
+          "cooks"
+         ],
+         "why": {
+          "en": "My mother is she, so cook becomes cooks.",
+          "fa": "مادرم she است، پس cook به cooks تبدیل می‌شود."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the correct negative.",
+          "fa": "منفی درست را انتخاب کن."
+         },
+         "options": [
+          "He don't work here.",
+          "He doesn't work here.",
+          "He not work here.",
+          "He doesn't works here."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "doesn't + plain verb.",
+          "fa": "doesn't + فعل ساده."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which sentence is a habit?",
+          "fa": "کدام جمله عادت است؟"
+         },
+         "options": [
+          "I am reading now.",
+          "I read every night.",
+          "I read yesterday.",
+          "I will read."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "every night marks a repeated action: present simple.",
+          "fa": "every night نشانهٔ تکرار است: حال ساده."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u3-l2",
+       "skill": "vocabulary",
+       "title": {
+        "en": "Daily routines, numbers and time",
+        "fa": "روزمرگی، عدد و ساعت"
+       },
+       "goal": {
+        "en": "Name the parts of a day and say the time.",
+        "fa": "بخش‌های روز را نام ببری و ساعت را بگویی."
+       },
+       "explain": [
+        {
+         "en": "A day is divided in the clock, not in verbs: in the morning, in the afternoon, in the evening, at night. Midnight and noon are points, so they take at.",
+         "fa": "روز با ساعت تقسیم می‌شود: in the morning، in the afternoon، in the evening، at night. نیمه‌شب و ظهر نقطه‌اند، پس at می‌گیرند."
+        },
+        {
+         "en": "Two ways to say the time: It's seven fifteen, or It's a quarter past seven. After the half hour English counts down to the next hour: 7:40 is twenty to eight.",
+         "fa": "دو راه برای گفتن ساعت: It's seven fifteen یا It's a quarter past seven. بعد از نیم ساعت انگلیسی به ساعت بعد می‌شمارد: 7:40 یعنی twenty to eight."
+        },
+        {
+         "en": "Routine verbs come in pairs: get up / go to bed, have breakfast / have dinner, go to work / come home. Learn them with the noun, not alone.",
+         "fa": "فعل‌های روزمره جفت‌اند: get up / go to bed، have breakfast / have dinner، go to work / come home. آن‌ها را با اسمشان یاد بگیر."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I get up at half past six.",
+         "fa": "ساعت شش و نیم بیدار می‌شوم."
+        },
+        {
+         "en": "She has breakfast at eight.",
+         "fa": "او ساعت هشت صبحانه می‌خورد."
+        },
+        {
+         "en": "We go to work in the morning.",
+         "fa": "ما صبح به سر کار می‌رویم."
+        },
+        {
+         "en": "It's a quarter to nine.",
+         "fa": "ساعت نه ربع کم است."
+        },
+        {
+         "en": "He goes to bed at eleven.",
+         "fa": "او ساعت یازده می‌خوابد."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "7:30 is ___.",
+          "fa": "‏۷:۳۰ یعنی ___."
+         },
+         "options": [
+          "half past seven",
+          "half to seven",
+          "seven half",
+          "thirty seven"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "Half past + the hour that has passed.",
+          "fa": "Half past + ساعتی که گذشته است."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "We sleep ___ night.",
+          "fa": "ما ___ شب می‌خوابیم."
+         },
+         "options": [
+          "in the",
+          "on the",
+          "at",
+          "to"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "at night is the fixed phrase.",
+          "fa": "at night عبارت ثابت است."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "I have lunch ___ the afternoon.",
+         "answer": [
+          "in"
+         ],
+         "why": {
+          "en": "Parts of the day take in: in the afternoon.",
+          "fa": "بخش‌های روز in می‌گیرند: in the afternoon."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "8:45 is a quarter ___ nine.",
+         "answer": [
+          "to"
+         ],
+         "why": {
+          "en": "After the half hour you count to the next hour: to.",
+          "fa": "بعد از نیم ساعت به ساعت بعد می‌شماریم: to."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which is a morning activity?",
+          "fa": "کدام کار صبح است؟"
+         },
+         "options": [
+          "go to bed",
+          "have breakfast",
+          "have dinner",
+          "watch the late film"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Breakfast is the morning meal.",
+          "fa": "صبحانه وعدهٔ صبح است."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "I get up at seven and I have breakfast at half past seven.",
+         "prompt": {
+          "en": "When does the speaker have breakfast?",
+          "fa": "گوينده چه ساعتی صبحانه می‌خورد؟"
+         },
+         "options": [
+          "7:00",
+          "7:30",
+          "8:00",
+          "8:30"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "half past seven is 7:30.",
+          "fa": "‏half past seven یعنی ۷:۳۰."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u3-l3",
+       "skill": "writing",
+       "title": {
+        "en": "Write about your day",
+        "fa": "دربارهٔ روزت بنویس"
+       },
+       "goal": {
+        "en": "Write five short sentences about your routine with correct capital letters and full stops.",
+        "fa": "پنج جملهٔ کوتاه دربارهٔ روزمرگی‌ات بنویسی، با حرف بزرگ و نقطهٔ درست."
+       },
+       "explain": [
+        {
+         "en": "A paragraph is sentences in order. Start with the time, then the action: I get up at seven. Then the next one: I have breakfast at eight.",
+         "fa": "پاراگراف جمله‌های مرتب است. اول زمان، بعد کار: I get up at seven. بعد جملهٔ بعد: I have breakfast at eight."
+        },
+        {
+         "en": "Use and to join two things that belong together, and because to give a reason: I go to bed early because I get up at six.",
+         "fa": "با and دو چیز مرتبط را وصل کن و با because دلیل بده: I go to bed early because I get up at six."
+        },
+        {
+         "en": "Every sentence starts with a capital letter and ends with a full stop. I is always a capital letter, wherever it sits.",
+         "fa": "هر جمله با حرف بزرگ شروع می‌شود و با نقطه تمام می‌شود. I همیشه حرف بزرگ است."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I get up at seven o'clock.",
+         "fa": "ساعت هفت بیدار می‌شوم."
+        },
+        {
+         "en": "I have breakfast with my family.",
+         "fa": "با خانواده‌ام صبحانه می‌خورم."
+        },
+        {
+         "en": "I go to school by bus because it is far.",
+         "fa": "با اتوبوس به مدرسه می‌روم چون دور است."
+        },
+        {
+         "en": "In the evening I study English.",
+         "fa": "عصر انگلیسی می‌خوانم."
+        },
+        {
+         "en": "I go to bed at eleven.",
+         "fa": "ساعت یازده می‌خوابم."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which sentence is written correctly?",
+          "fa": "کدام جمله درست نوشته شده است؟"
+         },
+         "options": [
+          "i get up at seven",
+          "I get up at seven.",
+          "I Get up at seven.",
+          "I get up at seven"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Capital I, capital first letter, full stop.",
+          "fa": "‏I بزرگ، حرف اول بزرگ و نقطهٔ پایان."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the best link.",
+          "fa": "بهترین پیوند را انتخاب کن."
+         },
+         "options": [
+          "I walk to work ___ it is near.",
+          "I walk to work and it is near.",
+          "I walk to work because it is near.",
+          "I walk to work or it is near."
+         ],
+         "answer": 2,
+         "why": {
+          "en": "The second half gives a reason, so because.",
+          "fa": "نیمهٔ دوم دلیل است، پس because."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "write",
+         "task": {
+          "en": "Write five sentences about your day. Say when you get up, what you eat, where you go and when you sleep. Use and or because once.",
+          "fa": "پنج جمله دربارهٔ روزت بنویس. بگو چه ساعتی بیدار می‌شوی، چه می‌خوری، کجا می‌روی و چه ساعتی می‌خوابی. یک بار از and یا because استفاده کن."
+         },
+         "words": 28,
+         "needs": [
+          "and",
+          "because"
+         ],
+         "tips": {
+          "en": "Start each sentence with a capital letter and end with a full stop.",
+          "fa": "هر جمله را با حرف بزرگ شروع کن و با نقطه تمام کن."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which is a good first sentence?",
+          "fa": "کدام جملهٔ اول مناسب است؟"
+         },
+         "options": [
+          "because I get up",
+          "I get up at seven o'clock.",
+          "get up seven",
+          "I up at seven."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "A full sentence with a subject, a verb and a time.",
+          "fa": "جملهٔ کامل با فاعل، فعل و زمان."
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "u4",
+     "title": {
+      "en": "Home and food",
+      "fa": "خانه و غذا"
+     },
+     "goal": {
+      "en": "Describe a home, ask for food politely and follow a simple order.",
+      "fa": "خانه را توصیف کنی، مؤدبانه غذا بخواهی و سفارش ساده را بفهمی."
+     },
+     "lessons": [
+      {
+       "id": "a1-u4-l1",
+       "skill": "grammar",
+       "title": {
+        "en": "there is / there are and place",
+        "fa": "there is / there are و مکان"
+       },
+       "goal": {
+        "en": "Say what exists in a place and where it is.",
+        "fa": "بگویی در جایی چه هست و کجاست."
+       },
+       "explain": [
+        {
+         "en": "there is says that one thing exists; there are says that several do. There is a table in the kitchen. There are two chairs near it.",
+         "fa": "there is می‌گوید یک چیز هست؛ there are می‌گوید چند چیز. There is a table in the kitchen. There are two chairs near it."
+        },
+        {
+         "en": "The negative is there isn't / there aren't, and the question flips them: Is there a shop near here? Are there any eggs?",
+         "fa": "منفی‌اش there isn't / there aren't است و پرسش جای آن‌ها را عوض می‌کند: Is there a shop near here? Are there any eggs?"
+        },
+        {
+         "en": "Place words: in, on, under, next to, behind, in front of, between. The book is on the table. The cat is under the chair.",
+         "fa": "واژه‌های مکان: in، on، under، next to، behind، in front of، between. The book is on the table. The cat is under the chair."
+        }
+       ],
+       "examples": [
+        {
+         "en": "There is a small garden behind the house.",
+         "fa": "باغ کوچکی پشت خانه هست."
+        },
+        {
+         "en": "There are three rooms in our flat.",
+         "fa": "آپارتمان ما سه اتاق دارد."
+        },
+        {
+         "en": "Is there a bank near here?",
+         "fa": "این نزدیکی بانکی هست؟"
+        },
+        {
+         "en": "The keys are on the table.",
+         "fa": "کلیدها روی میز هستند."
+        },
+        {
+         "en": "There isn't a lift in this building.",
+         "fa": "این ساختمان آسانسور ندارد."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ two windows in my room.",
+          "fa": "اتاق من ___ پنجره دارد."
+         },
+         "options": [
+          "There is",
+          "There are",
+          "It is",
+          "There have"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Two windows is plural, so there are.",
+          "fa": "دو پنجره جمع است، پس there are."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "The cat is ___ the table.",
+          "fa": "گربه ___ میز است."
+         },
+         "options": [
+          "on",
+          "under",
+          "in",
+          "between"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "A cat sits beneath a table: under.",
+          "fa": "گربه زیر میز است: under."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "There ___ a big shop on this street.",
+         "answer": [
+          "is"
+         ],
+         "why": {
+          "en": "One shop, so there is.",
+          "fa": "یک مغازه، پس there is."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "The book is ___ the bag. (inside)",
+         "answer": [
+          "in"
+         ],
+         "why": {
+          "en": "Inside a container is in.",
+          "fa": "داخل چیزی in است."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the question.",
+          "fa": "پرسش را انتخاب کن."
+         },
+         "options": [
+          "Is there a bank near here?",
+          "There is a bank near here?",
+          "Is a bank there near here?",
+          "There a bank is near here?"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "Questions with there is put is first.",
+          "fa": "پرسش با there is، فعل is را اول می‌آورد."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Where is the clock?",
+          "fa": "ساعت کجاست؟"
+         },
+         "options": [
+          "in the wall",
+          "on the wall",
+          "at the wall",
+          "to the wall"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Something fixed to a wall is on it.",
+          "fa": "چیزی که به دیوار نصب است on می‌گیرد."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u4-l2",
+       "skill": "vocabulary",
+       "title": {
+        "en": "Food, quantity and imperatives",
+        "fa": "غذا، مقدار و امر"
+       },
+       "goal": {
+        "en": "Count and measure food, and give simple instructions.",
+        "fa": "غذا را شمردن و اندازه گرفتن و دستور ساده دادن."
+       },
+       "explain": [
+        {
+         "en": "Countable things take a number: an apple, two apples. Uncountable things do not: water, rice, bread, milk. You measure them: a glass of water, a bowl of rice, a piece of bread.",
+         "fa": "چیزهای شمارش‌پذیر عدد می‌گیرند: an apple، two apples. ناشمارش‌پذیرها نه: water، rice، bread، milk. آن‌ها را اندازه می‌گیریم: a glass of water، a bowl of rice، a piece of bread."
+        },
+        {
+         "en": "Quantifiers: some for a positive amount, any in questions and negatives, a lot of for a large amount, a little for uncountable and a few for countable.",
+         "fa": "کمیت‌نماها: some برای مقدار مثبت، any در پرسش و منفی، a lot of برای مقدار زیاد، a little برای ناشمارش‌پذیر و a few برای شمارش‌پذیر."
+        },
+        {
+         "en": "The imperative is the verb alone, for instructions and recipes: Cut the bread. Add some salt. Don't put sugar in the tea.",
+         "fa": "امر همان فعل تنهاست، برای دستور و دستور پخت: Cut the bread. Add some salt. Don't put sugar in the tea."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I'd like a cup of tea, please.",
+         "fa": "لطفاً یک فنجان چای می‌خواهم."
+        },
+        {
+         "en": "There are some eggs in the fridge.",
+         "fa": "چند تخم‌مرغ در یخچال هست."
+        },
+        {
+         "en": "We haven't got any milk.",
+         "fa": "ما شیر نداریم."
+        },
+        {
+         "en": "Cut the bread and put it on the plate.",
+         "fa": "نان را ببر و در بشقاب بگذار."
+        },
+        {
+         "en": "A little salt, please.",
+         "fa": "کمی نمک، لطفاً."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ water is there?",
+          "fa": "چه مقدار آب هست؟"
+         },
+         "options": [
+          "How many",
+          "How much",
+          "How some",
+          "How any"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "water is uncountable, so how much.",
+          "fa": "water ناشمارش‌پذیر است، پس how much."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "I'd like ___ orange, please.",
+          "fa": "لطفاً ___ پرتقال می‌خواهم."
+         },
+         "options": [
+          "a",
+          "an",
+          "some",
+          "any"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "orange starts with a vowel sound.",
+          "fa": "orange با صدای واکه شروع می‌شود."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "There aren't ___ apples left.",
+         "answer": [
+          "any"
+         ],
+         "why": {
+          "en": "Negatives take any.",
+          "fa": "منفی any می‌گیرد."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "___ the door, please. (close)",
+         "answer": [
+          "Close"
+         ],
+         "why": {
+          "en": "The imperative is the plain verb.",
+          "fa": "امر همان فعل ساده است."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which is uncountable?",
+          "fa": "کدام ناشمارش‌پذیر است؟"
+         },
+         "options": [
+          "apple",
+          "egg",
+          "rice",
+          "sandwich"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "You say some rice, not two rices.",
+          "fa": "می‌گویی some rice، نه two rices."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "Can I have a cup of tea and a piece of cake, please?",
+         "prompt": {
+          "en": "What does the customer order?",
+          "fa": "مشتری چه سفارش می‌دهد؟"
+         },
+         "options": [
+          "tea and cake",
+          "coffee and bread",
+          "water and rice",
+          "milk and eggs"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "A cup of tea and a piece of cake.",
+          "fa": "یک فنجان چای و یک تکه کیک."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u4-l3",
+       "skill": "listening",
+       "title": {
+        "en": "At the café",
+        "fa": "در کافه"
+       },
+       "goal": {
+        "en": "Follow a short café order and pick out the price and the item.",
+        "fa": "سفارش کوتاه کافه را دنبال کنی و کالا و قیمت را تشخیص بدهی."
+       },
+       "explain": [
+        {
+         "en": "Listen once for the shape: greeting, order, price, thanks. You do not need every word to answer a question about the food.",
+         "fa": "یک بار برای کلیت گوش کن: سلام، سفارش، قیمت، تشکر. برای پاسخ دربارهٔ غذا به همهٔ واژه‌ها نیاز نداری."
+        },
+        {
+         "en": "Prices are numbers plus a currency: three pounds fifty, two dollars. Write the number down as you hear it.",
+         "fa": "قیمت‌ها عدد به‌همراه واحد پول‌اند: three pounds fifty، two dollars. عدد را همان‌طور که می‌شنوی بنویس."
+        },
+        {
+         "en": "Polite requests begin Can I have...? or I'd like... Please sits at the end.",
+         "fa": "درخواست مؤدبانه با Can I have...? یا I'd like... شروع می‌شود. please آخر جمله می‌آید."
+        }
+       ],
+       "examples": [
+        {
+         "en": "Can I have a sandwich, please?",
+         "fa": "می‌توانم یک ساندویچ بگیرم، لطفاً؟"
+        },
+        {
+         "en": "That's four pounds twenty.",
+         "fa": "می‌شود چهار پوند و بیست."
+        },
+        {
+         "en": "Here you are.",
+         "fa": "بفرمایید."
+        },
+        {
+         "en": "Anything to drink?",
+         "fa": "چیزی برای نوشیدن؟"
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Where does this happen?",
+          "fa": "این گفت‌وگو کجا رخ می‌دهد؟"
+         },
+         "options": [
+          "at a bank",
+          "at a café",
+          "at school",
+          "at a station"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Ordering food and a price means a café.",
+          "fa": "سفارش غذا و قیمت یعنی کافه."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which question asks for the price?",
+          "fa": "کدام پرسش قیمت را می‌پرسد؟"
+         },
+         "options": [
+          "How much is it?",
+          "How many is it?",
+          "What is it?",
+          "Where is it?"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "Price takes How much.",
+          "fa": "برای قیمت از How much استفاده می‌شود."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "listen",
+         "say": "Good morning. Can I have a coffee and a sandwich, please? — Sure. That's five pounds.",
+         "prompt": {
+          "en": "How much is the order?",
+          "fa": "سفارش چند است؟"
+         },
+         "options": [
+          "£3.50",
+          "£4.20",
+          "£5.00",
+          "£5.50"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "The server says five pounds.",
+          "fa": "فروشنده می‌گوید five pounds."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "Anything to drink? — Yes, a glass of water, please.",
+         "prompt": {
+          "en": "What does the customer drink?",
+          "fa": "مشتری چه می‌نوشد؟"
+         },
+         "options": [
+          "coffee",
+          "tea",
+          "water",
+          "juice"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "A glass of water.",
+          "fa": "یک لیوان آب."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Put the conversation in order.",
+          "fa": "گفت‌وگو را مرتب کن."
+         },
+         "options": [
+          "Order - greet - pay - thank",
+          "Greet - order - pay - thank",
+          "Pay - greet - order - thank",
+          "Greet - pay - order - thank"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "You greet, order, pay, then thank.",
+          "fa": "اول سلام، بعد سفارش، بعد پرداخت، بعد تشکر."
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "u5",
+     "title": {
+      "en": "Getting around",
+      "fa": "راه رفتن و رسیدن"
+     },
+     "goal": {
+      "en": "Ask for directions, use transport and talk about the weather.",
+      "fa": "مسیر بپرسی، از وسایل نقلیه استفاده کنی و دربارهٔ هوا حرف بزنی."
+     },
+     "lessons": [
+      {
+       "id": "a1-u5-l1",
+       "skill": "grammar",
+       "title": {
+        "en": "can / can't and the present continuous",
+        "fa": "can / can't و حال استمراری"
+       },
+       "goal": {
+        "en": "Say what you are able to do, and what is happening now.",
+        "fa": "بگویی چه کاری را می‌توانی و همین حالا چه در جریان است."
+       },
+       "explain": [
+        {
+         "en": "can is the same for every person: I can swim, she can swim. The negative is cannot or can't, and the question puts can first: Can you help me?",
+         "fa": "can برای همهٔ شخص‌ها یکسان است: I can swim، she can swim. منفی‌اش cannot یا can't است و پرسش can را اول می‌آورد: Can you help me?"
+        },
+        {
+         "en": "The present continuous is for now: am / is / are + verb-ing. I am waiting for the bus. She is working. They are not listening.",
+         "fa": "حال استمراری برای همین حالاست: am/is/are + فعل‌ing. I am waiting for the bus. She is working. They are not listening."
+        },
+        {
+         "en": "Remember the spelling: wait - waiting, run - running, make - making. The final e goes, and a short vowel doubles the consonant.",
+         "fa": "امل را یادت باشد: wait - waiting، run - running، make - making. e پایانی حذف می‌شود و واکهٔ کوتاه صامت را دوتا می‌کند."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I can drive, but I can't ride a motorbike.",
+         "fa": "رانندگی می‌توانم، ولی موتور نمی‌توانم."
+        },
+        {
+         "en": "Can you speak French?",
+         "fa": "می‌توانی فرانسه حرف بزنی؟"
+        },
+        {
+         "en": "She is waiting at the station.",
+         "fa": "او در ایستگاه منتظر است."
+        },
+        {
+         "en": "We aren't going by taxi.",
+         "fa": "ما با تاکسی نمی‌رویم."
+        },
+        {
+         "en": "It is raining now.",
+         "fa": "الان باران می‌بارد."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Look! The bus ___.",
+          "fa": "نگاه کن! اتوبوس ___."
+         },
+         "options": [
+          "comes",
+          "is coming",
+          "come",
+          "coming"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Happening now: is coming.",
+          "fa": "همین حالا: is coming."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "She ___ swim very well.",
+          "fa": "او خیلی خوب شنا ___."
+         },
+         "options": [
+          "can",
+          "cans",
+          "can to",
+          "is can"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "can never takes -s.",
+          "fa": "can هرگز -s نمی‌گیرد."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "They ___ watching television now.",
+         "answer": [
+          "are"
+         ],
+         "why": {
+          "en": "They takes are in the continuous.",
+          "fa": "they در حال استمراری are می‌گیرد."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "He can't ___ the guitar. (play)",
+         "answer": [
+          "play"
+         ],
+         "why": {
+          "en": "After can the verb is plain.",
+          "fa": "بعد از can فعل ساده می‌آید."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which spelling is correct?",
+          "fa": "کدام امل درست است؟"
+         },
+         "options": [
+          "runing",
+          "running",
+          "runnin",
+          "runingg"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Short vowel plus consonant doubles: running.",
+          "fa": "واکهٔ کوتاه + صامت دوتا می‌شود: running."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the sentence about now.",
+          "fa": "جمله‌ای دربارهٔ همین حالا را انتخاب کن."
+         },
+         "options": [
+          "I work every day.",
+          "I am working now.",
+          "I worked yesterday.",
+          "I will work."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "am working marks the present moment.",
+          "fa": "am working همین لحظه را نشان می‌دهد."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u5-l2",
+       "skill": "vocabulary",
+       "title": {
+        "en": "Places, directions, transport and weather",
+        "fa": "مکان‌ها، مسیر، وسایل نقلیه و هوا"
+       },
+       "goal": {
+        "en": "Ask and give simple directions, name transport and describe the weather.",
+        "fa": "مسیر بپرسی و بگویی، وسایل نقلیه را نام ببری و هوا را توصیف کنی."
+       },
+       "explain": [
+        {
+         "en": "Directions are a small set: go straight, turn left, turn right, take the first street, it is on your right. Add a landmark: next to the pharmacy.",
+         "fa": "مسیرها مجموعهٔ کوچکی‌اند: go straight، turn left، turn right، take the first street، it is on your right. یک نشانه هم اضافه کن: next to the pharmacy."
+        },
+        {
+         "en": "Transport takes by for the vehicle and on foot for walking: by bus, by train, by taxi, on the metro, on foot.",
+         "fa": "وسایل نقلیه by می‌گیرند و پیاده‌روی on foot: by bus، by train، by taxi، on the metro، on foot."
+        },
+        {
+         "en": "Weather: It is sunny, cloudy, windy, cold, hot. Rain and snow are verbs too: It is raining. It snows in winter.",
+         "fa": "هوا: It is sunny، cloudy، windy، cold، hot. باران و برف فعل هم می‌شوند: It is raining. It snows in winter."
+        }
+       ],
+       "examples": [
+        {
+         "en": "Go straight and turn left at the bank.",
+         "fa": "مستقیم برو و سر بانک به چپ بپیچ."
+        },
+        {
+         "en": "The pharmacy is next to the school.",
+         "fa": "داروخانه کنار مدرسه است."
+        },
+        {
+         "en": "I go to work by metro.",
+         "fa": "با مترو به سر کار می‌روم."
+        },
+        {
+         "en": "It is cold and windy today.",
+         "fa": "امروز سرد و بادی است."
+        },
+        {
+         "en": "Is it far? — No, ten minutes on foot.",
+         "fa": "دور است؟ — نه، ده دقیقه پیاده."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ left at the traffic lights.",
+          "fa": "سر چراغ راهنما ___ بپیچ."
+         },
+         "options": [
+          "Go",
+          "Turn",
+          "Take",
+          "Walk"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "turn left is the fixed phrase.",
+          "fa": "turn left عبارت ثابت است."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "I usually travel ___ train.",
+          "fa": "معمولاً با قطار سفر می‌کنم."
+         },
+         "options": [
+          "on",
+          "in",
+          "by",
+          "at"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "Vehicles take by: by train.",
+          "fa": "وسایل نقلیه by می‌گیرند: by train."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "The museum is ___ to the park. (beside)",
+         "answer": [
+          "next"
+         ],
+         "why": {
+          "en": "Beside is next to.",
+          "fa": "کنار یعنی next to."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "It is ___ today. Take an umbrella. (raining)",
+         "answer": [
+          "raining"
+         ],
+         "why": {
+          "en": "Rain as a verb in the continuous: raining.",
+          "fa": "باران به‌صورت فعل در حال استمراری: raining."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which is a direction?",
+          "fa": "کدام یک مسیر است؟"
+         },
+         "options": [
+          "umbrella",
+          "straight on",
+          "sunny",
+          "ticket"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "straight on tells you where to go.",
+          "fa": "straight on مسیر را می‌گوید."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "Excuse me, where is the station? — Go straight, then turn right.",
+         "prompt": {
+          "en": "Where should you turn?",
+          "fa": "کجا باید بپیچی؟"
+         },
+         "options": [
+          "left",
+          "right",
+          "straight",
+          "back"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "The answer says turn right.",
+          "fa": "پاسخ می‌گوید turn right."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u5-l3",
+       "skill": "reading",
+       "title": {
+        "en": "A postcard from Kish",
+        "fa": "کارت‌پستالی از کیش"
+       },
+       "goal": {
+        "en": "Read a short postcard and answer who, where and when.",
+        "fa": "کارت‌پستال کوتاهی را بخوانی و به پرسش‌های کی، کجا و چه‌وقت پاسخ بدهی."
+       },
+       "explain": [
+        {
+         "en": "A postcard has a place, a short description and a closing line. The date or the time words tell you when.",
+         "fa": "کارت‌پستال یک جا، یک توصیف کوتاه و یک جملهٔ پایانی دارد. تاریخ یا واژه‌های زمان، «چه‌وقت» را می‌گویند."
+        },
+        {
+         "en": "Read for the facts the question asks. A question about the weather needs one adjective, not the whole card.",
+         "fa": "برای همان اطلاعاتی بخوان که پرسش می‌خواهد. پرسش دربارهٔ هوا یک صفت می‌خواهد، نه تمام کارت."
+        }
+       ],
+       "examples": [
+        {
+         "en": "We are in Kish for three days.",
+         "fa": "ما سه روز در کیش هستیم."
+        },
+        {
+         "en": "The sea is warm and the sky is clear.",
+         "fa": "دریا گرم است و آسمان صاف."
+        },
+        {
+         "en": "We go to the beach every morning.",
+         "fa": "هر صبح به ساحل می‌رویم."
+        },
+        {
+         "en": "See you on Friday.",
+         "fa": "جمعه می‌بینمت."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "How long are they staying?",
+          "fa": "چند وقت می‌مانند؟"
+         },
+         "options": [
+          "two days",
+          "three days",
+          "a week",
+          "a month"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "For three days.",
+          "fa": "سه روز."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "What is the weather like?",
+          "fa": "هوا چگونه است؟"
+         },
+         "options": [
+          "cold and wet",
+          "warm and clear",
+          "windy and grey",
+          "hot and rainy"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "The sea is warm and the sky is clear.",
+          "fa": "دریا گرم است و آسمان صاف."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Where are they?",
+          "fa": "آن‌ها کجایند؟"
+         },
+         "options": [
+          "Kish",
+          "Tehran",
+          "Shiraz",
+          "Kerman"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "We are in Kish.",
+          "fa": "«ما در کیش هستیم»."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "What do they do every morning?",
+          "fa": "هر صبح چه می‌کنند؟"
+         },
+         "options": [
+          "go shopping",
+          "go to the beach",
+          "take a bus",
+          "stay in bed"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "We go to the beach every morning.",
+          "fa": "هر صبح به ساحل می‌رویم."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "When do they meet again?",
+          "fa": "چه وقت دوباره همدیگر را می‌بینند؟"
+         },
+         "options": [
+          "Monday",
+          "Wednesday",
+          "Friday",
+          "Saturday"
+         ],
+         "answer": 2,
+         "why": {
+          "en": "See you on Friday.",
+          "fa": "جمعه می‌بینمت."
+         }
+        }
+       ],
+       "passage": {
+        "title": {
+         "en": "A postcard from Kish",
+         "fa": "کارت‌پستالی از کیش"
+        },
+        "text": {
+         "en": "Dear Maryam, We are in Kish for three days. The hotel is small but very clean, and it is next to the beach. The sea is warm and the sky is clear. We go to the beach every morning and in the evening we eat fish in a little restaurant. I can swim here because the water is quiet. See you on Friday. Love, Hoda",
+         "fa": "مریم عزیز، ما سه روز در کیش هستیم. هتل کوچک است ولی خیلی تمیز، و کنار ساحل است. دریا گرم است و آسمان صاف. هر صبح به ساحل می‌رویم و عصر در رستوران کوچکی ماهی می‌خوریم. اینجا می‌توانم شنا کنم چون آب آرام است. جمعه می‌بینمت. با عشق، هدا"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "u6",
+     "title": {
+      "en": "Free time and people",
+      "fa": "وقت آزاد و آدم‌ها"
+     },
+     "goal": {
+      "en": "Talk about what you like, buy things and arrange to meet.",
+      "fa": "دربارهٔ چیزهایی که دوست داری حرف بزنی، خرید کنی و قرار بگذاری."
+     },
+     "lessons": [
+      {
+       "id": "a1-u6-l1",
+       "skill": "vocabulary",
+       "title": {
+        "en": "Hobbies, shopping and money",
+        "fa": "سرگرمی، خرید و پول"
+       },
+       "goal": {
+        "en": "Name free-time activities, ask the price and pay.",
+        "fa": "سرگرمی‌ها را نام ببری، قیمت بپرسی و پرداخت کنی."
+       },
+       "explain": [
+        {
+         "en": "Free-time verbs pair with a noun or an -ing form: play football, listen to music, go swimming, read a book, watch a film.",
+         "fa": "فعل‌های وقت آزاد با اسم یا فعل ing- می‌آیند: play football، listen to music، go swimming، read a book، watch a film."
+        },
+        {
+         "en": "Shopping language: How much is it? Can I try it on? I'll take it. Do you accept cards? Pay by card or in cash.",
+         "fa": "زبان خرید: How much is it? Can I try it on? I'll take it. Do you accept cards? پرداخت با کارت یا نقد."
+        },
+        {
+         "en": "like and love take -ing or a noun: I like reading. I love football. don't like means the same as dislike, but softer.",
+         "fa": "like و love با ing- یا اسم می‌آیند: I like reading. I love football. don't like همان dislike است ولی نرم‌تر."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I like listening to music in the evening.",
+         "fa": "عصرها دوست دارم موسیقی گوش کنم."
+        },
+        {
+         "en": "How much is this shirt?",
+         "fa": "این پیراهن چند است؟"
+        },
+        {
+         "en": "Can I pay by card?",
+         "fa": "می‌توانم با کارت پرداخت کنم؟"
+        },
+        {
+         "en": "We play volleyball on Fridays.",
+         "fa": "جمعه‌ها والیبال بازی می‌کنیم."
+        },
+        {
+         "en": "I'll take the blue one.",
+         "fa": "آبی‌اش را می‌خرم."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "I like ___ books before bed.",
+          "fa": "دوست دارم پیش از خواب کتاب ___."
+         },
+         "options": [
+          "read",
+          "reading",
+          "to reading",
+          "reads"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "like takes the -ing form.",
+          "fa": "like با شکل ing- می‌آید."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "___ much is this bag?",
+          "fa": "این کیف ___ است؟"
+         },
+         "options": [
+          "How",
+          "What",
+          "Which",
+          "Who"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "Price: How much.",
+          "fa": "قیمت: How much."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "We go ___ in the sea every summer. (swim)",
+         "answer": [
+          "swimming"
+         ],
+         "why": {
+          "en": "go plus an activity takes -ing.",
+          "fa": "go با فعالیت ing- می‌گیرد."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "I don't have any ___, so I'll pay by card. (money in notes)",
+         "answer": [
+          "cash",
+          "money"
+         ],
+         "why": {
+          "en": "Paying with notes is paying in cash.",
+          "fa": "پرداخت با اسکناس یعنی cash."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which sentence asks to try clothes?",
+          "fa": "کدام جمله درخواست پرو کردن است؟"
+         },
+         "options": [
+          "How much is it?",
+          "Can I try it on?",
+          "Do you have a bag?",
+          "I'll take it."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "try on is for clothes.",
+          "fa": "try on برای لباس است."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "Do you like football? — I love it. I play every week.",
+         "prompt": {
+          "en": "How often does he play?",
+          "fa": "هر چند وقت بازی می‌کند؟"
+         },
+         "options": [
+          "every day",
+          "every week",
+          "once a month",
+          "never"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "He says every week.",
+          "fa": "می‌گوید every week."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u6-l2",
+       "skill": "listening",
+       "title": {
+        "en": "A call about the weekend",
+        "fa": "تلفنی دربارهٔ آخر هفته"
+       },
+       "goal": {
+        "en": "Understand a short phone call: who, where and what time.",
+        "fa": "یک تماس کوتاه را بفهمی: کی، کجا و چه ساعتی."
+       },
+       "explain": [
+        {
+         "en": "Phone calls start with who is speaking: Hello, it's Sara. Then the point of the call: Are you free on Friday?",
+         "fa": "تماس با معرفی شروع می‌شود: Hello, it's Sara. بعد هدف تماس: Are you free on Friday?"
+        },
+        {
+         "en": "Times and places are the answer to most questions. Listen for at + time and at / in + place.",
+         "fa": "زمان و مکان پاسخ بیشتر پرسش‌هاست. به at + ساعت و at/in + مکان گوش کن."
+        },
+        {
+         "en": "Arranging something ends with a check: So, seven at the café? Great, see you then.",
+         "fa": "قرار گذاشتن با یک جمع‌بندی تمام می‌شود: So, seven at the café? Great, see you then."
+        }
+       ],
+       "examples": [
+        {
+         "en": "Hello, it's Sara. Are you free on Friday?",
+         "fa": "سلام، ساراست. جمعه آزادی؟"
+        },
+        {
+         "en": "Yes, in the evening.",
+         "fa": "بله، عصر."
+        },
+        {
+         "en": "Let's meet at seven at the café.",
+         "fa": "بیا ساعت هفت در کافه همدیگر را ببینیم."
+        },
+        {
+         "en": "See you then.",
+         "fa": "آن وقت می‌بینمت."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "What are they arranging?",
+          "fa": "چه قراری می‌گذارند؟"
+         },
+         "options": [
+          "a meeting",
+          "a party",
+          "a football match",
+          "a lesson"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "They agree a time and place to meet.",
+          "fa": "زمان و مکان دیدار را توافق می‌کنند."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "What does 'Are you free?' mean?",
+          "fa": "'Are you free?' یعنی چه؟"
+         },
+         "options": [
+          "Do you have time?",
+          "Are you alone?",
+          "Are you at home?",
+          "Is it free?"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "free here means not busy.",
+          "fa": "free اینجا یعنی وقت داشتن."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "listen",
+         "say": "Hello, it's Sara. Are you free on Friday evening? — Yes. — Let's meet at seven at the café near the park. — Great, see you then.",
+         "prompt": {
+          "en": "Where will they meet?",
+          "fa": "کجا همدیگر را می‌بینند؟"
+         },
+         "options": [
+          "at the park",
+          "at the café",
+          "at home",
+          "at the station"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "At the café near the park.",
+          "fa": "در کافه نزدیک پارک."
+         }
+        },
+        {
+         "kind": "listen",
+         "say": "I can't come on Friday. Can we meet on Saturday instead?",
+         "prompt": {
+          "en": "What does the speaker want?",
+          "fa": "گوينده چه می‌خواهد؟"
+         },
+         "options": [
+          "to cancel everything",
+          "to meet on Saturday",
+          "to meet earlier",
+          "to meet at home"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Meeting on Saturday instead.",
+          "fa": "به‌جای جمعه، شنبه."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which is a polite way to agree a time?",
+          "fa": "کدام راه مؤدبانه برای توافق زمان است؟"
+         },
+         "options": [
+          "Seven. Now.",
+          "So, seven at the café?",
+          "You come seven.",
+          "Seven is good?"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "A checking question with a place is natural.",
+          "fa": "پرسش جمع‌بندی همراه مکان طبیعی است."
+         }
+        }
+       ]
+      },
+      {
+       "id": "a1-u6-l3",
+       "skill": "review",
+       "title": {
+        "en": "Now and every day",
+        "fa": "همین حالا و هر روز"
+       },
+       "goal": {
+        "en": "Choose between the present simple and the present continuous, and put A1 together.",
+        "fa": "بین حال ساده و حال استمراری انتخاب کنی و سطح A1 را جمع‌بندی کنی."
+       },
+       "explain": [
+        {
+         "en": "Two questions decide it. Is it happening now, or again and again? Now takes am / is / are + -ing. Again and again takes the present simple.",
+         "fa": "دو پرسش تعیین می‌کند. همین حالا در جریان است یا تکراری است؟ «همین حالا» am/is/are + ing می‌گیرد. «تکراری» حال ساده."
+        },
+        {
+         "en": "Words help: now, today, at the moment point to the continuous; every day, usually, on Fridays point to the simple.",
+         "fa": "واژه‌ها کمک می‌کنند: now، today، at the moment به استمراری اشاره دارند؛ every day، usually، on Fridays به حال ساده."
+        },
+        {
+         "en": "This lesson is the whole of A1 in miniature: a person, a place, a habit, a thing that is happening, and a question about it.",
+         "fa": "این درس کل A1 در کوچک است: یک شخص، یک جا، یک عادت، کاری که در جریان است و پرسشی دربارهٔ آن."
+        }
+       ],
+       "examples": [
+        {
+         "en": "I usually walk to work, but today I am taking a taxi.",
+         "fa": "معمولاً پیاده به سر کار می‌روم، ولی امروز تاکسی می‌گیرم."
+        },
+        {
+         "en": "She is studying now.",
+         "fa": "او الان درس می‌خواند."
+        },
+        {
+         "en": "He plays tennis every Sunday.",
+         "fa": "او هر یکشنبه تنیس بازی می‌کند."
+        }
+       ],
+       "guided": [
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Every morning I ___ coffee.",
+          "fa": "هر صبح ___ قهوه می‌نوشم."
+         },
+         "options": [
+          "drink",
+          "am drinking",
+          "drinks",
+          "drinking"
+         ],
+         "answer": 0,
+         "why": {
+          "en": "every morning is a habit: present simple.",
+          "fa": "every morning عادت است: حال ساده."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Look, she ___ a letter right now.",
+          "fa": "نگاه کن، او همین حالا نامه ___."
+         },
+         "options": [
+          "writes",
+          "is writing",
+          "write",
+          "wrote"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "right now is the continuous.",
+          "fa": "right now استمراری است."
+         }
+        }
+       ],
+       "exercises": [
+        {
+         "kind": "gap",
+         "text": "He usually ___ at seven. (get up)",
+         "answer": [
+          "gets up"
+         ],
+         "why": {
+          "en": "usually plus he takes the -s form.",
+          "fa": "usually با he شکل -s می‌گیرد."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "gap",
+         "text": "They ___ playing football at the moment.",
+         "answer": [
+          "are"
+         ],
+         "why": {
+          "en": "at the moment is continuous: are playing.",
+          "fa": "at the moment استمراری است: are playing."
+         },
+         "hint": ""
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Which question is correct?",
+          "fa": "کدام پرسش درست است؟"
+         },
+         "options": [
+          "Where you are going?",
+          "Where are you going?",
+          "Where do you going?",
+          "Where you go?"
+         ],
+         "answer": 1,
+         "why": {
+          "en": "Continuous questions put are before you.",
+          "fa": "در پرسش استمراری are پیش از you می‌آید."
+         }
+        },
+        {
+         "kind": "mcq",
+         "prompt": {
+          "en": "Choose the sentence about a habit.",
+          "fa": "جمله‌ای دربارهٔ عادت انتخاب کن."
+         },
+         "options": [
+          "I am eating now.",
+          "I eat at eight every day.",
+          "I am eating at eight.",
+          "I eating at eight."
+         ],
+         "answer": 1,
+         "why": {
+          "en": "every day marks the habit.",
+          "fa": "every day نشانهٔ عادت است."
+         }
+        },
+        {
+         "kind": "say",
+         "say": "I usually walk to work, but today I am taking a taxi.",
+         "fa": "معمولاً پیاده به سر کار می‌روم، ولی امروز تاکسی می‌گیرم."
+        },
+        {
+         "kind": "say",
+         "say": "She is studying now, and she plays tennis every Sunday.",
+         "fa": "او الان درس می‌خواند و هر یکشنبه تنیس بازی می‌کند."
+        }
+       ],
+       "dialogue": [
+        {
+         "who": "A",
+         "en": "What are you doing?",
+         "fa": "چه می‌کنی؟"
+        },
+        {
+         "who": "B",
+         "en": "I am waiting for the bus. I go to work by bus every day.",
+         "fa": "منتظر اتوبوسم. هر روز با اتوبوس به سر کار می‌روم."
+        },
+        {
+         "who": "A",
+         "en": "Is it raining there?",
+         "fa": "آنجا باران می‌بارد؟"
+        },
+        {
+         "who": "B",
+         "en": "Yes, a little. I have got an umbrella.",
+         "fa": "بله، کمی. چتر دارم."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "exam": {
+    "minutes": 35,
+    "pass": 0.6,
+    "minSkill": 0.5,
+    "blurb": {
+     "en": "Six skills, each marked on its own. Grammar, vocabulary, reading and listening are marked from the answers; writing is marked against a rubric; speaking is marked from what the device hears you say. You need 60% overall, at least 50% in every skill, and all six skills must be assessed.",
+     "fa": "شش مهارت، هر یک جداگانه نمره می‌گیرد. گرامر، واژگان، خواندن و شنیدن از پاسخ‌ها نمره می‌گیرند؛ نوشتن با معیارهای مشخص و گفتن از آنچه دستگاه می‌شنود. برای قبولی ۶۰٪ کل و ۵۰٪ در هر مهارت لازم است و هر شش مهارت باید سنجیده شود."
+    },
+    "sections": [
+     {
+      "skill": "grammar",
+      "items": [
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "My father ___ a doctor.",
+         "fa": "پدرم ___ پزشک است."
+        },
+        "options": [
+         "are",
+         "is",
+         "am",
+         "be"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "He takes is.",
+         "fa": "با he فعل is می‌آید."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "___ there any milk in the fridge?",
+         "fa": "آیا شیری در یخچال هست؟"
+        },
+        "options": [
+         "Is",
+         "Are",
+         "Has",
+         "Do"
+        ],
+        "answer": 0,
+        "why": {
+         "en": "milk is uncountable: is there.",
+         "fa": "milk ناشمارشپذیر است: is there."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "She ___ to work by bus every day.",
+         "fa": "او هر روز با اتوبوس به سر کار ___."
+        },
+        "options": [
+         "go",
+         "goes",
+         "going",
+         "is go"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "every day plus she takes -s.",
+         "fa": "every day با she شکل -s می‌گیرد."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "Look! It ___.",
+         "fa": "نگاه کن! هوا ___."
+        },
+        "options": [
+         "rains",
+         "is raining",
+         "rain",
+         "raining"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "Look! is now, so the continuous.",
+         "fa": "Look! یعنی همین حالا، پس استمراری."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "I have got two ___.",
+         "fa": "من دو ___ دارم."
+        },
+        "options": [
+         "childs",
+         "children",
+         "childrens",
+         "child"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "child has an irregular plural.",
+         "fa": "جمع child بی‌قاعده است."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "We ___ swim in the sea yesterday.",
+         "fa": "دیروز ___ در دریا شنا کنیم."
+        },
+        "options": [
+         "can't",
+         "couldn't",
+         "don't can",
+         "not can"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "Yesterday takes the past form could.",
+         "fa": "دیروز شکل گذشته could می‌گیرد."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "This is my sister. ___ name is Mina.",
+         "fa": "این خواهر من است. نام ___ میناست."
+        },
+        "options": [
+         "His",
+         "Her",
+         "Its",
+         "Theirs"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "A sister takes her.",
+         "fa": "برای خواهر her می‌آید."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "___ the door, please.",
+         "fa": "لطفاً در را ___."
+        },
+        "options": [
+         "Open",
+         "You open",
+         "Opens",
+         "Opening"
+        ],
+        "answer": 0,
+        "why": {
+         "en": "The imperative is the plain verb.",
+         "fa": "امر همان فعل ساده است."
+        }
+       }
+      ]
+     },
+     {
+      "skill": "vocabulary",
+      "items": [
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "Which word is a family member?",
+         "fa": "کدام واژه عضو خانواده است؟"
+        },
+        "options": [
+         "window",
+         "uncle",
+         "bread",
+         "train"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "An uncle is a relative.",
+         "fa": "uncle یکی از بستگان است."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "We pay with money at a ___.",
+         "fa": "ما با پول در ___ پرداخت می‌کنیم."
+        },
+        "options": [
+         "library",
+         "shop",
+         "museum",
+         "park"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "A shop is where you buy things.",
+         "fa": "در مغازه خرید می‌کنی."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "It is cold and there is a lot of ___.",
+         "fa": "هوا سرد است و ___ زیاد است."
+        },
+        "options": [
+         "sun",
+         "snow",
+         "sand",
+         "soup"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "Cold weather brings snow.",
+         "fa": "هوای سرد برف می‌آورد."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "I go to school on ___.",
+         "fa": "من ___ به مدرسه می‌روم."
+        },
+        "options": [
+         "foot",
+         "by foot",
+         "feet",
+         "walking"
+        ],
+        "answer": 0,
+        "why": {
+         "en": "The fixed phrase is on foot.",
+         "fa": "عبارت ثابت on foot است."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "Can I have a ___ of water?",
+         "fa": "می‌توانم یک ___ آب بگیرم؟"
+        },
+        "options": [
+         "piece",
+         "glass",
+         "slice",
+         "sheet"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "Water is measured in glasses.",
+         "fa": "آب با لیوان اندازه‌گیری می‌شود."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "A doctor works in a ___.",
+         "fa": "پزشک در ___ کار می‌کند."
+        },
+        "options": [
+         "hospital",
+         "station",
+         "kitchen",
+         "library"
+        ],
+        "answer": 0,
+        "why": {
+         "en": "Hospitals employ doctors.",
+         "fa": "بیمارستان پزشک دارد."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "Which is a hobby?",
+         "fa": "کدام یک سرگرمی است؟"
+        },
+        "options": [
+         "platform",
+         "swimming",
+         "receipt",
+         "passport"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "Swimming is a free-time activity.",
+         "fa": "شنا کردن فعالیت وقت آزاد است."
+        }
+       },
+       {
+        "kind": "mcq",
+        "prompt": {
+         "en": "I'd like a ___ of bread, please.",
+         "fa": "لطفاً یک ___ نان می‌خواهم."
+        },
+        "options": [
+         "glass",
+         "piece",
+         "pair",
+         "cup"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "Bread is cut in pieces or slices.",
+         "fa": "نان را تکه یا ورقه می‌کنند."
+        }
+       }
+      ]
+     },
+     {
+      "skill": "reading",
+      "items": [
+       {
+        "passage": {
+         "en": "Sara's week",
+         "fa": "هفتهٔ سارا"
+        },
+        "text": {
+         "en": "Sara is a nurse. She lives in Tehran with her husband and one son. She gets up at five every morning and goes to the hospital by metro. She works from seven to three. In the afternoon she sleeps for one hour. On Fridays she cooks lunch for her family and they eat together.",
+         "fa": "سارا پرستار است. با شوهر و یک پسرش در تهران زندگی می‌کند. هر صبح ساعت پنج بیدار می‌شود و با مترو به بیمارستان می‌رود. از هفت تا سه کار می‌کند. بعدازظهر یک ساعت می‌خوابد. جمعه‌ها برای خانواده‌اش ناهار می‌پزد و با هم غذا می‌خورند."
+        },
+        "questions": [
+         {
+          "kind": "mcq",
+          "prompt": {
+           "en": "What is Sara's job?",
+           "fa": "شغل سارا چیست؟"
+          },
+          "options": [
+           "teacher",
+           "nurse",
+           "cook",
+           "driver"
+          ],
+          "answer": 1,
+          "why": {
+           "en": "The text opens with She is a nurse.",
+           "fa": "متن با «او پرستار است» شروع می‌شود."
+          }
+         },
+         {
+          "kind": "mcq",
+          "prompt": {
+           "en": "How does she go to work?",
+           "fa": "چگونه به سر کار می‌رود؟"
+          },
+          "options": [
+           "by car",
+           "on foot",
+           "by metro",
+           "by bus"
+          ],
+          "answer": 2,
+          "why": {
+           "en": "She goes to the hospital by metro.",
+           "fa": "با مترو به بیمارستان می‌رود."
+          }
+         },
+         {
+          "kind": "mcq",
+          "prompt": {
+           "en": "What does she do on Fridays?",
+           "fa": "جمعه‌ها چه می‌کند؟"
+          },
+          "options": [
+           "works at the hospital",
+           "cooks lunch",
+           "goes to the park",
+           "sleeps all day"
+          ],
+          "answer": 1,
+          "why": {
+           "en": "On Fridays she cooks lunch for her family.",
+           "fa": "جمعه‌ها برای خانواده ناهار می‌پزد."
+          }
+         }
+        ]
+       },
+       {
+        "passage": {
+         "en": "Café notice",
+         "fa": "اطلاعیهٔ کافه"
+        },
+        "text": {
+         "en": "THIS WEEK AT THE CAMBRIDGE CAFE. Monday: all sandwiches three pounds. Wednesday: free coffee with any cake after four o'clock. Friday: live music from seven in the evening. Saturday: breakfast is served from eight until eleven. We close at ten every night.",
+         "fa": "این هفته در کافهٔ کیمبریج. دوشنبه: همهٔ ساندویچ‌ها سه پوند. چهارشنبه: با هر کیک، قهوهٔ رایگان بعد از ساعت چهار. جمعه: موسیقی زنده از ساعت هفت عصر. شنبه: صبحانه از هشت تا یازده. هر شب ساعت ده می‌بندیم."
+        },
+        "questions": [
+         {
+          "kind": "mcq",
+          "prompt": {
+           "en": "When is the music?",
+           "fa": "موسیقی چه وقت است؟"
+          },
+          "options": [
+           "Monday morning",
+           "Wednesday afternoon",
+           "Friday evening",
+           "Saturday morning"
+          ],
+          "answer": 2,
+          "why": {
+           "en": "Live music from seven in the evening on Friday.",
+           "fa": "موسیقی زنده جمعه ساعت هفت عصر."
+          }
+         },
+         {
+          "kind": "mcq",
+          "prompt": {
+           "en": "What costs three pounds on Monday?",
+           "fa": "دوشنبه چه چیزی سه پوند است؟"
+          },
+          "options": [
+           "coffee",
+           "cake",
+           "sandwiches",
+           "breakfast"
+          ],
+          "answer": 2,
+          "why": {
+           "en": "All sandwiches three pounds.",
+           "fa": "همهٔ ساندویچ‌ها سه پوند."
+          }
+         },
+         {
+          "kind": "mcq",
+          "prompt": {
+           "en": "What time does the café close?",
+           "fa": "کافه چه ساعتی می‌بندد؟"
+          },
+          "options": [
+           "eight",
+           "ten",
+           "eleven",
+           "seven"
+          ],
+          "answer": 1,
+          "why": {
+           "en": "We close at ten every night.",
+           "fa": "هر شب ساعت ده می‌بندیم."
+          }
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "skill": "listening",
+      "items": [
+       {
+        "kind": "listen",
+        "say": "Hello, this is a message for Ali. Your English class on Tuesday is at four o'clock, not six. Please bring your book. Thank you.",
+        "prompt": {
+         "en": "When is the class?",
+         "fa": "کلاس چه ساعتی است؟"
+        },
+        "options": [
+         "at six",
+         "at four",
+         "at five",
+         "at seven"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "The message says four, not six.",
+         "fa": "پیام می‌گوید چهار، نه شش."
+        }
+       },
+       {
+        "kind": "listen",
+        "say": "Hello, this is a message for Ali. Your English class on Tuesday is at four o'clock, not six. Please bring your book. Thank you.",
+        "prompt": {
+         "en": "What should Ali bring?",
+         "fa": "علی چه باید بیاورد؟"
+        },
+        "options": [
+         "his book",
+         "his ticket",
+         "his lunch",
+         "his friend"
+        ],
+        "answer": 0,
+        "why": {
+         "en": "Please bring your book.",
+         "fa": "«لطفاً کتابت را بیاور»."
+        }
+       },
+       {
+        "kind": "listen",
+        "say": "Hello, this is a message for Ali. Your English class on Tuesday is at four o'clock, not six. Please bring your book. Thank you.",
+        "prompt": {
+         "en": "Which day is the class?",
+         "fa": "کلاس چه روزی است؟"
+        },
+        "options": [
+         "Monday",
+         "Tuesday",
+         "Thursday",
+         "Friday"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "On Tuesday.",
+         "fa": "سه‌شنبه."
+        }
+       },
+       {
+        "kind": "listen",
+        "say": "Excuse me, how much is this T-shirt? — Twelve pounds. — And the blue one? — That one is fifteen.",
+        "prompt": {
+         "en": "How much is the blue T-shirt?",
+         "fa": "پیراهن آبی چند است؟"
+        },
+        "options": [
+         "twelve",
+         "fifteen",
+         "ten",
+         "twenty"
+        ],
+        "answer": 1,
+        "why": {
+         "en": "That one is fifteen.",
+         "fa": "آن یکی پانزده است."
+        }
+       },
+       {
+        "kind": "listen",
+        "say": "Excuse me, how much is this T-shirt? — Twelve pounds. — And the blue one? — That one is fifteen.",
+        "prompt": {
+         "en": "Which one is twelve pounds?",
+         "fa": "کدام یک دوازده پوند است؟"
+        },
+        "options": [
+         "the blue one",
+         "the one in the window",
+         "the first T-shirt",
+         "both of them"
+        ],
+        "answer": 2,
+        "why": {
+         "en": "The first T-shirt asked about is twelve.",
+         "fa": "پیراهن اولی دوازده است."
+        }
+       },
+       {
+        "kind": "listen",
+        "say": "Good morning. The train to Shiraz leaves at nine fifteen from platform three.",
+        "prompt": {
+         "en": "Which platform?",
+         "fa": "کدام سکو؟"
+        },
+        "options": [
+         "one",
+         "two",
+         "three",
+         "nine"
+        ],
+        "answer": 2,
+        "why": {
+         "en": "From platform three.",
+         "fa": "از سکوی سه."
+        }
+       }
+      ]
+     },
+     {
+      "skill": "writing",
+      "items": [
+       {
+        "kind": "write",
+        "task": {
+         "en": "Write an email to a new friend. Say your name, where you are from, what you do every day and one thing you like.",
+         "fa": "به یک دوست جدید ایمیل بنویس. نامت، اهل کجایی، هر روز چه می‌کنی و یک چیزی که دوست داری را بگو."
+        },
+        "words": 40,
+        "needs": [
+         "like",
+         "every"
+        ],
+        "tips": {
+         "en": "Five or six short sentences. Capital letters, full stops.",
+         "fa": "پنج یا شش جملهٔ کوتاه. حرف بزرگ و نقطه."
+        }
+       },
+       {
+        "kind": "write",
+        "task": {
+         "en": "Describe your home. Say how many rooms there are, what is in your room and where your favourite thing is.",
+         "fa": "خانه‌ات را توصیف کن. بگو چند اتاق دارد، در اتاقت چه هست و چیز محبوبت کجاست."
+        },
+        "words": 35,
+        "needs": [
+         "there",
+         "in"
+        ],
+        "tips": {
+         "en": "Use there is / there are and a place word.",
+         "fa": "از there is / there are و واژهٔ مکان استفاده کن."
+        }
+       }
+      ]
+     },
+     {
+      "skill": "speaking",
+      "items": [
+       {
+        "kind": "say",
+        "say": "Good morning. My name is Sara and I am from Iran.",
+        "fa": "صبح بخیر. نام من سارا است و اهل ایرانم."
+       },
+       {
+        "kind": "say",
+        "say": "I get up at seven and I have breakfast with my family.",
+        "fa": "ساعت هفت بیدار می‌شوم و با خانواده صبحانه می‌خورم."
+       },
+       {
+        "kind": "say",
+        "say": "Can you tell me where the station is, please?",
+        "fa": "می‌توانید بگویید ایستگاه کجاست، لطفاً؟"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ }
+}
