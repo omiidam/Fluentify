@@ -960,7 +960,7 @@
      rendering fault. Painted on the clipping box rather than on :last-child,
      which PanelSearch appends to and so is not stable. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #acpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel {
     box-shadow: inset 0 -16px 16px -16px rgba(74,58,30,.62);
   }
 
@@ -1154,7 +1154,7 @@
      tools/check_ui.py now derives the list from the markup and fails on any
      panel that is missing here. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
-  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #acpanel {
+  #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel {
     display: none; padding: 14px 20px;
     background: linear-gradient(180deg, var(--surf-1) 0%, var(--surf-2) 55%, var(--surf-2) 100%);
     box-shadow: inset 0 1px 0 var(--raise);
@@ -1166,7 +1166,8 @@
     mask-image: linear-gradient(to bottom, var(--mask) calc(100% - 22px), transparent);
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
-  #dpanel.open, #npanel.open, #bpanel.open, #wqpanel.open { display: block; }
+  #dpanel.open, #npanel.open, #bpanel.open, #wqpanel.open,
+  #prpanel.open { display: block; }
   /* Reading opens taller than the others: a passage and its questions are
      read, not glanced at, and 52% of the window shows two lines of text. */
   #rdpanel.open { display: block; max-height: 74%; overflow-y: auto; }
@@ -1851,7 +1852,7 @@
      transcript and the composer, which on a phone is a couple of hundred
      pixels: the question card was cut in half and the rest scrolled under a
      sticky header that had nothing left to pin against. */
-  #lvlpanel.open, #wqpanel.open {
+  #lvlpanel.open, #wqpanel.open, #prpanel.open {
     position: absolute; inset-inline: 0; bottom: 0; height: auto;
     max-height: 86%;
     z-index: 7; border-start-start-radius: 18px; border-start-end-radius: 18px;
@@ -1866,7 +1867,7 @@
      is a blank sheet in the middle of the check. The fade is only the cue that
      there is more to scroll, so the tall panels keep the inset shadow cue and
      spend nothing on a mask. */
-  #lvlpanel.open, #rdpanel.open, #wqpanel.open {
+  #lvlpanel.open, #rdpanel.open, #wqpanel.open, #prpanel.open {
     -webkit-mask-image: none; mask-image: none;
     box-shadow: inset 0 -22px 18px -18px rgba(74,58,30,.72);
     scroll-padding-top: 84px; scroll-padding-bottom: 66px;
@@ -3691,6 +3692,14 @@
     background: var(--line); color: var(--ink-2);
   }
   .wq-opt.on .wq-letter { background: var(--indigo); color: var(--on-fill); }
+  /* a drill is marked straight away: the right option and the one that was
+     chosen, so a miss teaches the answer without a second screen */
+  .wq-opt.right {
+    border-color: var(--success); background: rgba(45,122,79,.10); color: var(--navy2);
+  }
+  .wq-opt.wrong {
+    border-color: var(--red); background: rgba(178,60,48,.09); color: var(--navy2);
+  }
   .wq-text { flex: 1 1 auto; }
   .wq-foot {
     position: sticky; bottom: 0; z-index: 3; margin-top: 12px;
@@ -3748,6 +3757,82 @@
   .wq-right { margin: 0 0 4px; font-size: 12.5px; color: var(--success); font-weight: 700; }
   .wq-detail { margin: 0; font-size: 11.5px; line-height: 1.55; color: var(--muted); }
   .wq-detail.fa { font-family: var(--font-fa); line-height: 1.75; }
+
+  /* ---------- practice: the drills that share one sheet ----------------
+     Same card and same question parts as the weekly quiz, because a second
+     visual language for "answer this" would be a second thing to learn. The
+     practice card is told apart by its gold rule, and by nothing else. */
+  .prcard::before {
+    background: linear-gradient(90deg, var(--gold), var(--gold2) 46%, var(--surf-4));
+  }
+  .prwrap { display: flex; flex-direction: column; gap: 10px; max-width: 660px; margin: 0 auto; }
+  .prtabs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .prtab {
+    font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    padding: 6px 11px; border-radius: 999px;
+    border: 1px solid var(--line2); background: var(--surf-1); color: var(--ink-2);
+  }
+  .prtab.on {
+    background: var(--gold-soft); border-color: rgba(138,90,0,.38); color: var(--gold-ink);
+  }
+  .prtab:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .prtype {
+    width: 100%; min-height: 68px; resize: vertical; margin-top: 10px;
+    font: inherit; font-size: 13.5px; line-height: 1.55; padding: 10px 11px;
+    border-radius: 12px; border: 1px solid var(--line2);
+    background: var(--surf-1); color: var(--ink);
+  }
+  .prtype:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .prdiff {
+    display: flex; flex-wrap: wrap; gap: 4px 7px; margin-top: 10px;
+    font-size: 13px; line-height: 1.9;
+  }
+  .prdiff .w { padding: 1px 5px; border-radius: 6px; background: rgba(45,122,79,.13); }
+  .prdiff .w.miss { background: rgba(178,60,48,.14); text-decoration: underline wavy rgba(178,60,48,.55); }
+  .prmic {
+    font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 13px; border-radius: 12px; border: 1px solid var(--line2);
+    background: var(--surf-2); color: var(--navy2);
+  }
+  .prmic.rec { background: rgba(178,60,48,.12); border-color: rgba(178,48,.4); }
+  .prnote { margin: 0; font-size: 11.5px; line-height: 1.6; color: var(--muted); }
+  .prnote.fa { font-family: var(--font-fa); line-height: 1.8; }
+
+  /* the four verdicts in the review queue: equal buttons, no "right" one */
+  .rgrade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .rgrade .rbtn { font-size: 12px; }
+  .rprog-line {
+    margin: 8px 0 0; font-size: 11.5px; line-height: 1.6; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* what keeps slipping, in the account panel */
+  .ac-slip { display: flex; flex-direction: column; gap: 6px; }
+  .ac-sliprow {
+    display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
+    padding: 8px 10px; border-radius: 11px;
+    border: 1px solid var(--line); background: var(--surf-1);
+  }
+  .ac-sliprow .n {
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    color: var(--navy2); flex: 1 1 120px; min-width: 0;
+  }
+  .ac-sliprow .n i {
+    display: block; font-style: normal; font-family: var(--font-fa);
+    font-size: 10.5px; color: var(--muted);
+  }
+  .ac-sliprow .c {
+    font-size: 11px; font-weight: 800; color: var(--red);
+    background: rgba(178,60,48,.10); border-radius: 999px; padding: 2px 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .ac-sliprow button {
+    font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    padding: 6px 10px; border-radius: 9px; border: 1px solid var(--line2);
+    background: var(--surf-2); color: var(--ink-2);
+  }
+  .ac-slip .empty { font-size: 12px; color: var(--muted); }
 
   /* ---------- daily english: word, expression, conversation ----------
      Three cards, one per daily item. Everything is built from the page's own
@@ -5472,6 +5557,10 @@
   <div id="wqpanel">
     <h3>Weekly quiz — <bdi class="fa" lang="fa" dir="rtl">آزمون هفتگی</bdi></h3>
     <div id="wqbody" aria-live="polite"></div>
+  </div>
+  <div id="prpanel">
+    <h3>Practice — <bdi class="fa" lang="fa" dir="rtl">تمرین</bdi></h3>
+    <div id="prbody" aria-live="polite"></div>
   </div>
   <div id="acpanel">
     <h3>Account — <bdi class="fa" lang="fa" dir="rtl">حساب</bdi></h3>
@@ -7257,6 +7346,9 @@ const Panels = (() => {
     lvlpanel: 'lvltoggle',
     // the weekly quiz has no tile: the landing-page card is its way in
     wqpanel: null,
+    // practice has no tile either: the transcript card is its way in, and the
+    // account panel routes into one of its tabs
+    prpanel: null,
     acpanel: 'actoggle',
   };
   let openId = null;
@@ -7582,6 +7674,12 @@ const STT = {
   language: null,
 
   /* Which engine is actually usable here, or null. */
+  /* A dictation that ends in a text field is one use of this; a sentence the
+     learner was asked to say aloud is another, and it must not land in the
+     composer. `sink` is that second destination: set, it receives the words and
+     the field is left alone. */
+  sink: null,
+
   engine() {
     if (window.AndroidSTT && window.AndroidSTT.available) return 'android';
     const R = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -7756,6 +7854,13 @@ const STT = {
       text = text.slice(this._written.length).trim();
     if (!text) { this.render(); return false; }
     this._written = this._written ? this._written + ' ' + text : text;
+    if (this.sink) {
+      const sink = this.sink;
+      this.sink = null;
+      this.render();
+      try { sink(text); } catch (e) { /* a paused drill must not break the mic */ }
+      return true;
+    }
     const box = document.getElementById('input');
     if (box) {
       /* Append, never replace. Assigning box.value meant that typing half a
@@ -10551,6 +10656,33 @@ const Level = (() => {
     saveTimer = setTimeout(() => { if (state) write(KEY.attempt, state); }, 350);
   }
 
+  /* Every missed item is a diagnosis the app already made and used to throw
+     away: the item knows its skill and its subskill, and the item itself has
+     the prompt, the options and the explanation. Writing those into the error
+     log is what turns one paper into a profile, and the drill can then ask the
+     same questions again without a second copy of the bank. */
+  function recordMisses(attempt) {
+    if (!doc || typeof ErrorLog === 'undefined') return;
+    let log = ErrorLog.read();
+    const today = Mastery.keyOf(new Date());
+    paper(doc).forEach((id) => {
+      if (!hasAnswer(attempt, id)) return;
+      const item = doc.items.find((it) => it.id === id);
+      if (!item || isCorrect(item, attempt.answers[id])) return;
+      if (!Array.isArray(item.options) || typeof item.answer !== 'number') return;
+      const sub = item.subskill || {};
+      const key = 'level:' + String(sub.en || item.skill || 'other')
+        .toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      log = ErrorLog.note(log,
+        {key: key, en: sub.en || item.skill || 'Other', fa: sub.fa || ''},
+        {id: item.id, kind: 'choice', prompt: item.prompt, options: item.options,
+         answer: item.answer, why: item.why || {en: '', fa: ''},
+         detail: item.ability || {en: '', fa: ''}}, today);
+    });
+    ErrorLog.write(log);
+    if (typeof Slip !== 'undefined') Slip.refresh();
+  }
+
   function recordItems(result, attempt) {
     const stats = read(KEY.items, {});
     paper(doc).filter((id) => hasAnswer(attempt, id)).forEach((id) => {
@@ -11155,6 +11287,7 @@ const Level = (() => {
     const result = compute(doc, a);
     write(KEY.result, result);
     recordItems(result, a);
+    recordMisses(a);
     const history = read(KEY.history, []);
     history.unshift({at: result.at, overall: result.overall,
                      skills: Object.fromEntries(Object.entries(result.skills).map(([k, v]) => [k, v.band]))});
@@ -12440,6 +12573,12 @@ const Auth = (() => {
         <div class="ac-badges">${badges.map(badgeHTML).join('')}</div>
       </div>
 
+      <div class="ac-block">
+        <div class="ac-blockh"><b>What keeps slipping — اشتباه‌های تکرارشده</b>
+          <small>${ErrorLog.total(ErrorLog.read())} misses</small></div>
+        <div id="acslip">${Slip.html()}</div>
+      </div>
+
       <label class="authfield"><span>Name on the certificate — نام روی گواهی</span>
         <input id="acname" type="text" maxlength="60" value="${esc(account.name)}"></label>
       <div class="ac-actions" style="margin:0 0 10px">
@@ -12850,6 +12989,8 @@ const PANEL_ON_OPEN = {
   lvlpanel: () => Level.mount(),
   // the account panel is local: a name, a session clock, and the exit
   acpanel: () => Auth.paintAccount(),
+  // the drills read their data on first open and then keep it
+  prpanel: () => Practice.open(),
 };
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
@@ -13066,9 +13207,18 @@ const DailyStore = {
    the same ticks must always give the same paper, or a refresh would rewrite
    the questions under the reader.
 
-   A week is a Monday-to-Sunday block of the device's own calendar: one paper
-   per block, frozen when it is built, so reopening the page cannot draw a new
-   one and next Monday cannot keep the old. */
+   The week here is the Iranian one, Friday to Thursday, and the clock is
+   Tehran's rather than the device's: this is an app for Iranian learners, and
+   a quiz that opens at a different hour in Dubai than in Tehran is a quiz two
+   people cannot talk about. Iran has had no daylight saving since 2022, so
+   the offset is a constant 3:30, not a table.
+
+   The paper is offered on Friday from 09:00 Tehran (05:30 UTC) until midnight
+   (20:30 UTC): the Friday morning after the week's learning, which is the
+   weekend morning people actually have. What it asks is the seven days that
+   ended on Thursday - the Friday-to-Thursday week that just closed - so a
+   word met on Friday is not asked on that same Friday but on the next one.
+   One paper per Friday, frozen when built, so reopening cannot redraw it. */
 /* A word from the catalogue is put into a regular expression to find the
    sentence it belongs in, so its own punctuation must not become a pattern. */
 const weeklyEscapeRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -13079,6 +13229,11 @@ const WeeklyQuiz = {
   MAX_QUESTIONS: 10,
   WINDOW: 7,
   KEEP: 12,
+  /* Tehran is UTC+3:30 all year. Written as hours so the shift is one number:
+     9:00 in Tehran is 5:30 UTC and midnight is 20:30 UTC. */
+  TZ_HOURS: 3.5,
+  OPEN_HOUR: 9,
+  FRIDAY: 5,
   /* A word can be asked three ways; an expression is a whole sentence, so it
      is asked what it means and when it fits rather than with a blank in it. */
   TYPES: {
@@ -13107,22 +13262,69 @@ const WeeklyQuiz = {
     return this.keyOf(new Date(d.getFullYear(), d.getMonth(), d.getDate() + n));
   },
 
-  /* Monday of the week the given day belongs to. The period is the week, not
-     a rolling seven days: a rolling window changes every morning, and a quiz
-     that rewrites itself at midnight is not a quiz for the week. */
-  periodStart(now) {
-    const key = this.keyOf(now);
-    const d = this.dateOf(key);
-    return this.addDays(key, -((d.getDay() + 6) % 7));
+  /* The device's clock, moved to Tehran. Every getter below reads this the way
+     it would read a local date, so the calendar arithmetic never has to know
+     which zone the phone is in. */
+  tehran(now) { return new Date(now.getTime() + this.TZ_HOURS * 3600000); },
+
+  /* Today's date in Tehran, which is the date the week and the quiz key on.
+     Read through the UTC fields of the shifted date: the shift already put the
+     wall clock in the hours, so reading the *local* hours as well would add the
+     device's offset a second time - which on a Tehran phone is a quiz that
+     opens three and a half hours early. */
+  tehranKey(now) {
+    const t = this.tehran(now);
+    return t.getUTCFullYear() + '-' + this.pad(t.getUTCMonth() + 1) + '-' +
+      this.pad(t.getUTCDate());
   },
 
-  /* The seven local dates that end today, oldest first - the learning the
-     paper is drawn from. */
-  window(now) {
-    const today = this.keyOf(now);
+  weekday(key) {
+    const p = String(key).split('-').map(Number);
+    return new Date(Date.UTC(p[0], p[1] - 1, p[2])).getUTCDay();
+  },
+
+  /* The most recent Friday, today included: the identity of one quiz. It stays
+     the same all week, so a paper opened on Friday evening and looked at again
+     on Monday is still the same paper - the card is simply not offered after
+     the Friday. */
+  periodStart(now) {
+    const key = this.tehranKey(now);
+    return this.addDays(key, -(((this.weekday(key) - this.FRIDAY) + 7) % 7));
+  },
+
+  /* The seven dates the paper is drawn from: the week that ended on the
+     Thursday before this Friday. That is the Friday-to-Thursday week Iranian
+     learners just finished, and it is why a word met on the quiz Friday waits
+     for the next quiz instead of being asked the same morning. */
+  contentWindow(period) {
     const out = [];
-    for (let i = this.WINDOW - 1; i >= 0; i -= 1) out.push(this.addDays(today, -i));
+    for (let i = this.WINDOW; i >= 1; i -= 1) out.push(this.addDays(period, -i));
     return out;
+  },
+
+  /* Offered on Friday only, from 09:00 Tehran until midnight. Before nine the
+     week is not over for anyone who is still asleep; after midnight the day
+     has turned and the next paper is the one that matters. */
+  isOpen(now) {
+    const t = this.tehran(now);
+    return t.getUTCDay() === this.FRIDAY && t.getUTCHours() >= this.OPEN_HOUR;
+  },
+
+  /* When the card next becomes available, as a Date in the device's clock. The
+     page uses it to set one timer instead of polling, so the card appears in
+     the window it belongs to without a reload. */
+  opensAt(now) {
+    const t = this.tehran(now);
+    const key = this.tehranKey(now);
+    let at;
+    if (t.getUTCDay() === this.FRIDAY && t.getUTCHours() < this.OPEN_HOUR) {
+      at = key;
+    } else {
+      at = this.addDays(key, (this.FRIDAY - this.weekday(key) + 7) % 7 || 7);
+    }
+    const p = at.split('-').map(Number);
+    const wall = Date.UTC(p[0], p[1] - 1, p[2], this.OPEN_HOUR, 0, 0);
+    return new Date(wall - this.TZ_HOURS * 3600000);
   },
 
   /* The kind of a daily-store id: w001 is a word, e001 an expression, c001 a
@@ -13134,14 +13336,14 @@ const WeeklyQuiz = {
     return null;
   },
 
-  /* Every distinct item ticked off inside the window, oldest first. The daily
+  /* Every distinct item ticked off inside the week, oldest first. The daily
      store is keyed by date, so this is also the only place the days are read:
-     a tick outside the window is a tick from last month and is not reviewed. */
+     a tick outside the week is a tick from last month and is not reviewed. */
   eligible(days, now) {
     const out = [];
     const seen = new Set();
     const store = days && typeof days === 'object' ? days : {};
-    this.window(now).forEach((day) => {
+    this.contentWindow(this.periodStart(now)).forEach((day) => {
       const list = Array.isArray(store[day]) ? store[day] : [];
       list.forEach((id) => {
         const kind = this.kindOf(id);
@@ -13472,6 +13674,658 @@ const WeeklyQuiz = {
 };
 /* --- end weekly quiz ---------------------------------------------------- */
 
+/* --- mastery: pure, executed by tools/check_mastery.py -----------------
+   One record per thing the learner has met, and one date on which it should
+   come back. Before this the Review panel had `ok` and `streak` and no dates
+   at all: a saved word was either due on every visit or, if the reader never
+   reached it, due on none. "Mastered" was a tick, and nothing ever measured
+   whether the word was still there a week later.
+
+   The schedule is the well-known SM-2 shape (interval, ease, lapses), kept
+   deliberately small: four verdicts, an interval in whole days, and a hard cap
+   of 180 days so a single confident answer cannot bury an item for a year.
+
+   Retention is not a promise, it is a measurement: every review that comes
+   after a gap of six to ten days (or twenty-five to thirty-five) is counted
+   in r7 / r30 together with whether it was recalled. Those two counters are
+   the only claim this feature makes about memory, and they are earned by
+   answers, never by opening the app. */
+const Mastery = {
+  KEY: 'fluentify.mastery.v1',
+  KEEP: 600,
+  MAX_DAYS: 180,
+  DUE_NOW: 0,
+  VERDICTS: ['again', 'hard', 'good', 'easy'],
+
+  pad(n) { return String(n).padStart(2, '0'); },
+
+  keyOf(date) {
+    return date.getFullYear() + '-' + this.pad(date.getMonth() + 1) + '-' +
+      this.pad(date.getDate());
+  },
+
+  /* Days as integers on the UTC grid: date keys are calendar labels, so adding
+     a day must not depend on the device's zone or on a daylight-saving night. */
+  dayOf(key) {
+    const p = String(key).split('-').map(Number);
+    return Math.round(Date.UTC(p[0], p[1] - 1, p[2]) / 86400000);
+  },
+
+  keyOfDay(n) {
+    const d = new Date(n * 86400000);
+    return d.getUTCFullYear() + '-' + this.pad(d.getUTCMonth() + 1) + '-' +
+      this.pad(d.getUTCDate());
+  },
+
+  addDays(key, n) { return this.keyOfDay(this.dayOf(key) + n); },
+
+  itemKey(kind, id) { return String(kind || 'word') + ':' + String(id); },
+
+  read() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      const state = raw ? JSON.parse(raw) : null;
+      const src = state && state.items && typeof state.items === 'object'
+        ? state.items : {};
+      const items = {};
+      Object.keys(src).forEach((k) => {
+        const it = src[k];
+        if (!it || typeof it !== 'object') return;
+        items[k] = {
+          k: k,
+          kind: typeof it.kind === 'string' ? it.kind : 'word',
+          en: typeof it.en === 'string' ? it.en : '',
+          fa: typeof it.fa === 'string' ? it.fa : '',
+          level: typeof it.level === 'string' ? it.level : '',
+          first: typeof it.first === 'string' ? it.first : '',
+          due: typeof it.due === 'string' ? it.due : '',
+          iv: Number(it.iv) >= 0 ? Number(it.iv) : 0,
+          ease: Number(it.ease) >= 1.3 ? Number(it.ease) : 2.5,
+          reps: Number(it.reps) >= 0 ? Number(it.reps) : 0,
+          lapses: Number(it.lapses) >= 0 ? Number(it.lapses) : 0,
+          last: typeof it.last === 'string' ? it.last : '',
+          r7: Array.isArray(it.r7) ? [Number(it.r7[0]) || 0, Number(it.r7[1]) || 0] : [0, 0],
+          r30: Array.isArray(it.r30) ? [Number(it.r30[0]) || 0, Number(it.r30[1]) || 0] : [0, 0],
+        };
+      });
+      return {items: items};
+    } catch (e) {
+      return {items: {}};   // a corrupt record must not take the panel down
+    }
+  },
+
+  write(state) {
+    const items = (state && state.items) || {};
+    /* Bounded: the newest six hundred by the day they were first met. An
+       unbounded ledger is a record that eventually cannot be written. */
+    const keys = Object.keys(items).sort((a, b) => {
+      const x = items[a].first || '', y = items[b].first || '';
+      return x < y ? 1 : x > y ? -1 : (a < b ? -1 : 1);
+    }).slice(0, this.KEEP);
+    const kept = {};
+    keys.forEach((k) => { kept[k] = items[k]; });
+    try {
+      localStorage.setItem(this.KEY, JSON.stringify({items: kept}));
+    } catch (e) { /* private mode or a full disk: the queue still plays */ }
+    return {items: kept};
+  },
+
+  /* A new item is due immediately: it was just met in the daily set and has
+     never been recalled once, so the first thing the queue should ask is
+     whether any of it stuck. `seed` never overwrites a record that already
+     exists, so a saved word and a daily word cannot reset each other's dates. */
+  seed(state, seeds, today) {
+    const items = (state && state.items) || {};
+    const day = today || '';
+    (Array.isArray(seeds) ? seeds : []).forEach((s) => {
+      if (!s || !s.key || items[s.key]) return;
+      items[s.key] = {
+        k: s.key,
+        kind: s.kind || 'word',
+        en: s.en || '',
+        fa: s.fa || '',
+        level: s.level || '',
+        first: s.day || day,
+        due: day || s.day || '',
+        iv: 0, ease: 2.5, reps: 0, lapses: 0, last: '',
+        r7: [0, 0], r30: [0, 0],
+      };
+    });
+    return state;
+  },
+
+  /* Everything the daily store has ticked, as seeds. A tick is the only proof
+     the app has that the item was met, so it is the only thing that can put an
+     item in the queue. */
+  seedDaily(state, cat, days, today) {
+    const seeds = [];
+    const store = days && typeof days === 'object' ? days : {};
+    const rows = (kind) => (cat && Array.isArray(cat[kind]) ? cat[kind] : []);
+    Object.keys(store).sort().forEach((day) => {
+      (Array.isArray(store[day]) ? store[day] : []).forEach((id) => {
+        const kind = /^w\d+$/.test(id) ? 'word' : /^e\d+$/.test(id) ? 'expression' : null;
+        if (!kind) return;
+        const row = rows(kind === 'word' ? 'words' : 'expressions')
+          .find((r) => r && r.id === id);
+        if (!row || !row.en) return;
+        seeds.push({key: this.itemKey(kind, id), kind: kind, en: row.en,
+                    fa: row.fa || '', level: row.level || '', day: day});
+      });
+    });
+    return this.seed(state, seeds, today);
+  },
+
+  /* One answer, one new date. `gap` is how long the item actually survived
+     since it was last asked, which is what the retention counters record - not
+     how the learner feels about the word. */
+  grade(state, key, verdict, today) {
+    const items = (state && state.items) || {};
+    const v = Math.max(0, Math.min(3, Number(verdict) || 0));
+    let it = items[key];
+    if (!it) {
+      it = items[key] = {k: key, kind: 'word', en: '', fa: '', level: '',
+        first: today, due: today, iv: 0, ease: 2.5, reps: 0, lapses: 0,
+        last: '', r7: [0, 0], r30: [0, 0]};
+    }
+    const todayN = this.dayOf(today);
+    if (it.last) {
+      const gap = todayN - this.dayOf(it.last);
+      const recall = v >= 2 ? 1 : 0;
+      if (gap >= 6 && gap <= 10) { it.r7[0] += 1; it.r7[1] += recall; }
+      if (gap >= 25 && gap <= 35) { it.r30[0] += 1; it.r30[1] += recall; }
+    }
+
+    let iv = Number(it.iv) || 0;
+    let ease = Number(it.ease) || 2.5;
+    if (v === 0) {
+      iv = this.DUE_NOW; ease = Math.max(1.3, ease - 0.2);
+      it.lapses = (it.lapses || 0) + 1;
+    } else if (v === 1) {
+      iv = Math.max(1, Math.round((iv || 1) * 1.2));
+      ease = Math.max(1.3, ease - 0.15);
+    } else if (v === 2) {
+      iv = iv ? Math.max(iv + 1, Math.round(iv * ease)) : 1;
+    } else {
+      iv = Math.max(2, Math.round((iv || 1) * ease * 1.3));
+      ease = Math.min(3.2, ease + 0.1);
+    }
+    it.iv = Math.min(this.MAX_DAYS, iv);
+    it.ease = Math.round(ease * 100) / 100;
+    it.reps = (it.reps || 0) + 1;
+    it.last = today;
+    it.due = this.addDays(today, it.iv);
+    items[key] = it;
+    return state;
+  },
+
+  /* Everything whose date has arrived, oldest first. An item with no date is
+     due: it has never been scheduled, so it is not something to skip. */
+  due(state, today) {
+    const items = (state && state.items) || {};
+    const out = [];
+    Object.keys(items).forEach((k) => {
+      const it = items[k];
+      if (!it) return;
+      /* An item with no date has never been scheduled, so it is not something
+         to skip: it is the oldest thing in the queue. */
+      if (it.due && it.due > today) return;
+      out.push(it);
+    });
+    out.sort((a, b) => (a.due < b.due ? -1 : a.due > b.due ? 1 :
+      (a.k < b.k ? -1 : 1)));
+    return out;
+  },
+
+  /* When the queue next has something in it, or null when it is empty. */
+  next(state) {
+    const items = (state && state.items) || {};
+    const keys = Object.keys(items).filter((k) => items[k] && items[k].due);
+    if (!keys.length) return null;
+    keys.sort((a, b) => (items[a].due < items[b].due ? -1 : 1));
+    return items[keys[0]].due;
+  },
+
+  /* The measured claim: of the reviews that happened after a real gap, how
+     many were recalled. n is the count, good the ones answered good or easy. */
+  retention(state) {
+    const items = (state && state.items) || {};
+    const at7 = {n: 0, good: 0}, at30 = {n: 0, good: 0};
+    Object.keys(items).forEach((k) => {
+      const it = items[k];
+      if (!it) return;
+      at7.n += it.r7[0]; at7.good += it.r7[1];
+      at30.n += it.r30[0]; at30.good += it.r30[1];
+    });
+    const pct = (x) => (x.n ? Math.round((x.good / x.n) * 100) : null);
+    return {at7: at7, at30: at30, pct7: pct(at7), pct30: pct(at30)};
+  },
+
+  stats(state, today) {
+    const items = (state && state.items) || {};
+    const keys = Object.keys(items);
+    return {
+      total: keys.length,
+      due: this.due(state, today).length,
+      learning: keys.filter((k) => (items[k].iv || 0) < 21).length,
+      mature: keys.filter((k) => (items[k].iv || 0) >= 21).length,
+    };
+  },
+};
+/* --- end mastery -------------------------------------------------------- */
+
+/* --- error log: pure, executed by tools/check_errors.py -----------------
+   The app already diagnoses mistakes and then throws the diagnosis away: a
+   level-check item knows its subskill, the weekly quiz knows which word it
+   asked, a drill knows which partner it wanted - and each one shows a line and
+   forgets it. This is the smallest structure that lets those diagnoses add up:
+   an event per miss (class, item, day) and the card itself so the drill can ask
+   it again without a second copy of the content.
+
+   Nothing here scores the learner. It counts what the app has already been
+   told, ranks it, and hands the same questions back. */
+const ErrorLog = {
+  KEY: 'fluentify.errors.v1',
+  EVENTS: 400,
+  CARDS: 80,
+
+  read() {
+    try {
+      const raw = localStorage.getItem(this.KEY);
+      const s = raw ? JSON.parse(raw) : null;
+      const events = Array.isArray(s && s.events) ? s.events : [];
+      const cardsIn = s && s.cards && typeof s.cards === 'object' ? s.cards : {};
+      const events_ = [], cards = {};
+      events.forEach((e) => {
+        if (!e || typeof e !== 'object' || typeof e.c !== 'string') return;
+        events_.push({c: e.c, e: typeof e.e === 'string' ? e.e : '',
+                      f: typeof e.f === 'string' ? e.f : '',
+                      d: typeof e.d === 'string' ? e.d : ''});
+      });
+      Object.keys(cardsIn).forEach((k) => {
+        const c = cardsIn[k];
+        if (!c || typeof c !== 'object' || !c.prompt) return;
+        cards[k] = {
+          id: typeof c.id === 'string' ? c.id : k,
+          c: typeof c.c === 'string' ? c.c : '',
+          kind: c.kind === 'type' ? 'type' : 'choice',
+          prompt: {en: String((c.prompt || {}).en || ''),
+                   fa: String((c.prompt || {}).fa || '')},
+          options: Array.isArray(c.options) ? c.options.filter((o) => typeof o === 'string') : [],
+          answer: typeof c.answer === 'string' || typeof c.answer === 'number'
+            ? c.answer : 0,
+          why: {en: String((c.why || {}).en || ''), fa: String((c.why || {}).fa || '')},
+          detail: {en: String((c.detail || {}).en || ''),
+                   fa: String((c.detail || {}).fa || '')},
+          d: typeof c.d === 'string' ? c.d : '',
+          seq: Number(c.seq) || 0,
+        };
+      });
+      return {events: events_.slice(-this.EVENTS), cards: cards,
+              seq: Number(s && s.seq) || 0};
+    } catch (e) {
+      return {events: [], cards: {}, seq: 0};
+    }
+  },
+
+  write(state) {
+    const events = (state.events || []).slice(-this.EVENTS);
+    const all = Object.keys(state.cards || {}).map((k) => state.cards[k]);
+    /* Newest cards kept: an item answered correctly later is not deleted, it
+       just stops being the newest, and the cap keeps the record writable. */
+    all.sort((a, b) => (b.seq || 0) - (a.seq || 0));
+    const keep = all.slice(0, this.CARDS);
+    const cards = {};
+    keep.forEach((c) => { cards[c.c + '|' + c.id] = c; });
+    const out = {events: events, cards: cards, seq: Number(state.seq) || 0};
+    try {
+      localStorage.setItem(this.KEY, JSON.stringify(out));
+    } catch (e) { /* private mode: the profile just does not grow */ }
+    return out;
+  },
+
+  /* One miss. A card with the same class and id replaces the older copy, so
+     the drill always shows the most recent wording of the same question. */
+  note(state, cls, card, today) {
+    const key = String((cls && cls.key) || 'other');
+    const st = state || {events: [], cards: {}, seq: 0};
+    st.events = Array.isArray(st.events) ? st.events : [];
+    st.cards = st.cards && typeof st.cards === 'object' ? st.cards : {};
+    st.seq = Number(st.seq) || 0;
+    st.events.push({c: key, e: (cls && cls.en) || key, f: (cls && cls.fa) || '',
+                    d: today || ''});
+    if (st.events.length > this.EVENTS) st.events = st.events.slice(-this.EVENTS);
+    if (card && card.id) {
+      st.seq += 1;
+      st.cards[key + '|' + card.id] = {
+        id: String(card.id), c: key,
+        kind: card.kind === 'type' ? 'type' : 'choice',
+        prompt: card.prompt || {en: '', fa: ''},
+        options: Array.isArray(card.options) ? card.options : [],
+        answer: card.answer, why: card.why || {en: '', fa: ''},
+        detail: card.detail || {en: '', fa: ''},
+        d: today || '', seq: st.seq,
+      };
+    }
+    return st;
+  },
+
+  /* Classes, most frequent first, then most recent. This is the whole profile:
+     a count the learner can check against their own memory of the month. */
+  rank(state) {
+    const events = (state && state.events) || [];
+    const seen = {};
+    const order = [];
+    events.forEach((e) => {
+      if (!e || !e.c) return;
+      if (!seen[e.c]) {
+        seen[e.c] = {key: e.c, en: e.e || e.c, fa: e.f || '', count: 0, last: ''};
+        order.push(e.c);
+      }
+      seen[e.c].count += 1;
+      if (!seen[e.c].last || e.d > seen[e.c].last) seen[e.c].last = e.d;
+    });
+    return order.map((k) => seen[k]).sort((a, b) =>
+      b.count - a.count || (a.last < b.last ? 1 : -1));
+  },
+
+  /* The questions behind one class, newest first, so "practise this" asks the
+     exact items that were missed rather than an invented set. */
+  drill(state, key, limit) {
+    const cards = (state && state.cards) || {};
+    const out = Object.keys(cards)
+      .map((k) => cards[k])
+      .filter((c) => c && c.c === key && c.prompt && c.prompt.en)
+      .sort((a, b) => (b.seq || 0) - (a.seq || 0));
+    return out.slice(0, Math.max(1, Number(limit) || 5));
+  },
+
+  total(state) { return ((state && state.events) || []).length; },
+
+  clear() {
+    try { localStorage.removeItem(this.KEY); } catch (e) { /* private */ }
+    return {events: [], cards: {}, seq: 0};
+  },
+};
+/* --- end error log ------------------------------------------------------ */
+
+/* --- say match: pure, executed by tools/check_speech.py -----------------
+   Comparing what the app asked the learner to say with what the recogniser
+   heard. This is not a phoneme score and must never be shown as one: it is a
+   word-level report of which words came back, and a missing word is a real
+   signal about intelligibility rather than a grade.
+
+   Order matters, so the alignment is longest-common-subsequence rather than a
+   position-by-position zip: a recogniser that drops one word would otherwise
+   mark every word after it wrong. */
+/* Written out, not compared as strings: "don't" and "do not" are the same
+   words, and calling one of them missing would be the app's mistake rather
+   than the speaker's. */
+const SAY_CONTRACTIONS = {
+  "don't": 'do not', "doesn't": 'does not', "didn't": 'did not',
+  "can't": 'cannot', "won't": 'will not', "isn't": 'is not',
+  "aren't": 'are not', "wasn't": 'was not', "weren't": 'were not',
+  "haven't": 'have not', "hasn't": 'has not', "hadn't": 'had not',
+  "i'm": 'i am', "i've": 'i have', "i'll": 'i will', "i'd": 'i would',
+  "you're": 'you are', "we're": 'we are', "they're": 'they are',
+  "it's": 'it is', "that's": 'that is', "there's": 'there is',
+  "he's": 'he is', "she's": 'she is', "let's": 'let us',
+  "you'll": 'you will', "we'll": 'we will', "they'll": 'they will',
+  "you've": 'you have', "we've": 'we have', "they've": 'they have',
+};
+
+const SayMatch = {
+  clean(s) {
+    return String(s == null ? '' : s)
+      .toLowerCase()
+      .replace(/[\u2018\u2019]/g, "'")
+      .replace(/[^a-z0-9'\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ')
+      .filter((w) => w)
+      .map((w) => SAY_CONTRACTIONS[w] || w)
+      .join(' ');
+  },
+
+  words(s) { const c = this.clean(s); return c ? c.split(' ') : []; },
+
+  /* The same tolerance the chat drill uses for contractions, applied here so
+     "do not" and "don't" are not called a missed word. */
+  same(a, b) {
+    if (a === b) return true;
+    const flat = (w) => w.replace(/'/g, '');
+    if (flat(a) === flat(b)) return true;
+    return false;
+  },
+
+  compare(target, said) {
+    const t = this.words(target);
+    const s = this.words(said);
+    const n = t.length, m = s.length;
+    const lcs = [];
+    for (let i = 0; i <= n; i += 1) lcs.push(new Array(m + 1).fill(0));
+    for (let i = 1; i <= n; i += 1) {
+      for (let j = 1; j <= m; j += 1) {
+        lcs[i][j] = this.same(t[i - 1], s[j - 1])
+          ? lcs[i - 1][j - 1] + 1
+          : Math.max(lcs[i - 1][j], lcs[i][j - 1]);
+      }
+    }
+    const hit = new Array(n).fill(false);
+    let i = n, j = m;
+    while (i > 0 && j > 0) {
+      if (this.same(t[i - 1], s[j - 1])) { hit[i - 1] = true; i -= 1; j -= 1; }
+      else if (lcs[i - 1][j] >= lcs[i][j - 1]) i -= 1;
+      else j -= 1;
+    }
+    const words = t.map((w, k) => ({w: w, ok: hit[k]}));
+    const right = words.filter((x) => x.ok).length;
+    const matched = new Set(t.map((w, k) => (hit[k] ? w : null)).filter(Boolean));
+    const extra = s.filter((w) => !matched.has(w));
+    return {
+      total: n, right: right,
+      percent: n ? Math.round((right / n) * 100) : 0,
+      words: words, missing: words.filter((x) => !x.ok).map((x) => x.w),
+      extra: extra, empty: s.length === 0,
+    };
+  },
+};
+/* --- end say match ------------------------------------------------------ */
+
+/* --- drills: pure, executed by tools/check_speech.py --------------------
+   Three mini-drills over data the app already ships: word partners from
+   collocations.json, register from register.json, and the minimal pairs the
+   phonetics reference has always listed but never tested. Seeded, so the same
+   day asks the same question and a test can check the answer key. */
+const Drills = {
+  rand(seed) {
+    let a = seed >>> 0;
+    return () => {
+      a = (a + 0x6D2B79F5) >>> 0;
+      let t = a;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  },
+
+  hash(text) {
+    let h = 2166136261;
+    const s = String(text);
+    for (let i = 0; i < s.length; i += 1) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  },
+
+  shuffle(list, rand) {
+    const out = list.slice();
+    for (let i = out.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(rand() * (i + 1));
+      const t = out[i]; out[i] = out[j]; out[j] = t;
+    }
+    return out;
+  },
+
+  pick(list, seed) {
+    if (!Array.isArray(list) || !list.length) return null;
+    return list[Math.abs(seed) % list.length];
+  },
+
+  /* A word partner. The blank is authored, the alternatives are authored -
+     grammatical but not English - so the question teaches the difference and
+     not merely which string is in a file. */
+  collocation(cat, seed) {
+    const entries = (cat && Array.isArray(cat.entries) ? cat.entries : [])
+      .filter((e) => e && e.blank && e.answer && Array.isArray(e.wrong) && e.wrong.length);
+    const e = this.pick(entries, seed);
+    if (!e) return null;
+    const rand = this.rand(seed + 1);
+    const opts = this.shuffle([e.answer].concat(e.wrong.slice(0, 2)), rand);
+    return {
+      id: 'coll:' + e.id,
+      cls: {key: 'collocation', en: 'Word partners', fa: 'هم‌نشینی واژه‌ها'},
+      kind: 'choice',
+      prompt: {
+        en: 'Which word completes it? ' + e.blank,
+        fa: 'کدام واژه کامل می‌کند؟ ' + e.blank,
+      },
+      options: opts,
+      answer: opts.indexOf(e.answer),
+      why: {
+        en: "'" + e.phrase + "' is the pairing English uses.",
+        fa: 'در انگلیسی همین ترکیب به کار می‌رود: «' + e.phrase + '».',
+      },
+      detail: {
+        en: e.phrase + ' — ' + (e.fa || '') + (e.example && e.example.en
+          ? ' · ' + e.example.en : ''),
+        fa: (e.example && e.example.fa) || e.fa || '',
+      },
+    };
+  },
+
+  /* Register: one meaning, three ways to say it. Asking which one is formal is
+     the only question here that has one right answer, so it is the one asked. */
+  register(cat, seed) {
+    const pairs = (cat && Array.isArray(cat.pairs) ? cat.pairs : [])
+      .filter((p) => p && p.formal && p.formal.en && p.casual && p.consultative);
+    const p = this.pick(pairs, seed);
+    if (!p) return null;
+    const rand = this.rand(seed + 7);
+    const want = p.formal.en;
+    const asc = Math.abs(seed) % 2 === 1;
+    if (asc) {
+      const opts = this.shuffle([p.formal.en, p.consultative.en, p.casual.en], rand);
+      return {
+        id: 'reg:' + p.id,
+        cls: {key: 'register', en: 'Register', fa: 'لحن و رسمیت'},
+        kind: 'choice',
+        prompt: {
+          en: 'Which one would you put in a formal email? ' +
+            ((p.meaning || {}).en || ''),
+          fa: 'کدام را در یک ایمیل رسمی می‌نویسی؟ ' +
+            ((p.meaning || {}).fa || ''),
+        },
+        options: opts, answer: opts.indexOf(want),
+        why: {
+          en: 'That is the formal register. The other two are consultative and ' +
+            'casual - both correct, both wrong for an email you sign.',
+          fa: 'این لحن رسمی است. دو گزینهٔ دیگر نیمه‌رسمی و محاوره‌ای‌اند: هر دو درست‌اند، ' +
+            'ولی برای ایمیل رسمی نه.',
+        },
+        detail: {
+          en: p.formal.en + ' · ' + p.consultative.en + ' · ' + p.casual.en,
+          fa: ((p.note || {}).fa || p.formal.fa || ''),
+        },
+      };
+    }
+    const opts = ['Formal', 'Consultative', 'Casual'];
+    return {
+      id: 'reg:' + p.id + ':casual',
+      cls: {key: 'register', en: 'Register', fa: 'لحن و رسمیت'},
+      kind: 'choice',
+      prompt: {
+        en: 'Which register is this? “' + p.casual.en + '”',
+        fa: 'این جمله در چه لحنی است؟ «' + p.casual.en + '»',
+      },
+      options: opts, answer: 2,
+      why: {
+        en: 'It is the casual form of: ' + ((p.meaning || {}).en || ''),
+        fa: 'این شکل محاوره‌ای «' + ((p.meaning || {}).fa || '') + '» است.',
+      },
+      detail: {
+        en: p.formal.en + ' (formal) · ' + p.consultative.en + ' (consultative) · ' +
+          p.casual.en + ' (casual)',
+        fa: ((p.note || {}).fa || ''),
+      },
+    };
+  },
+
+  /* The phonetics reference has always carried the pairs - "eat·it · seat·sit" -
+     and never asked anyone to tell them apart. This turns those strings into a
+     listening test that needs no microphone, so it works on every device. */
+  pairs(phonetics) {
+    const out = [];
+    const seen = {};
+    /* Two shapes reach this: the file (sections) and the page's own route,
+       which serves the bare list. Accepting both is what keeps the drill alive
+       on the web build and in the APK, where the same call reads a file. */
+    const sections = Array.isArray(phonetics) ? phonetics
+      : (phonetics && Array.isArray(phonetics.sections) ? phonetics.sections : []);
+    sections.forEach((s) => {
+      (s.groups || []).forEach((g) => {
+        (g.rows || []).forEach((r) => {
+          /* Only the rows that set one sound against another. A row headed
+             /ɑː/ lists words that all share the sound - park and star are not a
+             pair to tell apart, and asking which was played would teach the
+             learner nothing about a contrast they cannot hear. */
+          if (!/\bvs\b/i.test(String(r.ip || ''))) return;
+          const words = String(r.words || '').split(/[\u00b7\u2022|]/)
+            .map((w) => w.trim())
+            .filter((w) => w && /^[a-z']+$/i.test(w) && w.length <= 14)
+            .map((w) => w.toLowerCase());
+          for (let i = 0; i + 1 < words.length; i += 2) {
+            const a = words[i].toLowerCase(), b = words[i + 1].toLowerCase();
+            if (!a || !b || a === b) continue;
+            const k = a + '|' + b;
+            if (seen[k]) continue;
+            seen[k] = true;
+            out.push({a: a, b: b, ip: r.ip || '', sub: r.sub || ''});
+          }
+        });
+      });
+    });
+    return out;
+  },
+
+  /* Play one of the two and ask which. `say` is the word that is played, so the
+     caller must play question.say, not question.options[question.answer]. */
+  pairQuestion(bank, seed) {
+    const list = Array.isArray(bank) ? bank : [];
+    const p = this.pick(list, seed);
+    if (!p) return null;
+    const which = Math.abs(seed >> 1) % 2 === 0;
+    const say = which ? p.b : p.a;
+    const opts = this.shuffle([p.a, p.b], this.rand(seed + 3));
+    return {
+      id: 'pair:' + p.a + ':' + p.b,
+      cls: {key: 'listening', en: 'Sound contrasts', fa: 'تقابل صداها'},
+      kind: 'choice',
+      say: say,
+      prompt: {en: 'Which word did you hear?', fa: 'کدام واژه را شنیدی؟'},
+      options: opts, answer: opts.indexOf(say),
+      why: {en: p.ip + (p.sub ? ' — ' + p.sub : ''), fa: ''},
+      detail: {
+        en: 'Played: ' + say + ' · ' + p.a + ' / ' + p.b +
+          (p.ip ? ' (' + p.ip + ')' : ''),
+        fa: 'پخش شد: ' + say,
+      },
+    };
+  },
+};
+/* --- end drills --------------------------------------------------------- */
+
 /* ============================================================================
  * WEEKLY QUIZ
  * The daily set is what you meet today; this is what you met this week. It
@@ -13519,12 +14373,13 @@ const Weekly = (() => {
       ? 'You scored <b>' + rec.result.right + ' of ' + rec.result.total + '</b> (' +
         rec.result.percent + '%) on this week&rsquo;s review.'
       : 'Ten questions at most on the words and expressions you learned in the '
-        + 'last seven days. It is optional: skip it and nothing changes.';
+        + 'week that ended on Thursday. It is offered on Friday and it is '
+        + 'optional: skip it and nothing changes.';
     const meta = enough
       ? c.words + ' word' + (c.words === 1 ? '' : 's') + ' · ' +
         c.expressions + ' expression' + (c.expressions === 1 ? '' : 's') +
         ' · up to ' + WeeklyQuiz.MAX_QUESTIONS + ' questions'
-      : snap.items.length + ' of ' + WeeklyQuiz.MIN_ITEMS + ' learned so far';
+      : snap.items.length + ' of ' + WeeklyQuiz.MIN_ITEMS + ' learned this week';
     const actions = !enough
       ? ''
       : status === 'completed'
@@ -13559,7 +14414,7 @@ const Weekly = (() => {
         (rec && rec.result
           ? 'در مرور این هفته ' + rec.result.right + ' از ' + rec.result.total +
             ' پاسخ درست بود.'
-          : 'حداکثر ده پرسش از واژه‌ها و عبارت‌هایی که در هفت روز گذشته یاد گرفته‌ای. ' +
+          : 'حداکثر ده پرسش از واژه‌ها و عبارت‌هایی که تا پنجشنبهٔ همین هفته یاد گرفته‌ای. ' +
             'اختیاری است: اگر رد کنی هیچ چیز تغییر نمی‌کند.') + '</p>' +
       '<div class="wqmeta" dir="ltr">' + meta + '</div>' + note +
       (actions ? '<div class="wqacts">' + actions + '</div>' : '');
@@ -13570,6 +14425,11 @@ const Weekly = (() => {
     const old = document.getElementById('weeklyquiz');
     if (old && old.parentNode) old.parentNode.removeChild(old);
     if (!chatEl || !cat) return;
+    /* Friday only, from nine in the morning Tehran time. Outside that window
+       the card does not exist at all - not greyed out, not counting down: the
+       week's review is a Friday morning, and a disabled card sitting in the
+       transcript all week is a nag. */
+    if (!WeeklyQuiz.isOpen(new Date())) return;
     const snap = snapshot();
     /* A week turned down stays turned down: the card is gone until the next
        period, exactly as the daily card behaves, and no repaint brings it
@@ -13774,6 +14634,33 @@ const Weekly = (() => {
     });
   }
 
+  /* The week's answers are also the best evidence the app will ever have about
+     what is still in memory: a right answer is a recall after at least a day,
+     a wrong one is a lapse. So the paper feeds the mastery ledger, and each
+     miss is handed to the error log as a recall question the drill can ask
+     again. Nothing here is scored twice - Mastery reads the verdict, ErrorLog
+     reads the card. */
+  function recordWeek(quiz, answers) {
+    const today = WeeklyQuiz.tehranKey(new Date());
+    let state = Mastery.seedDaily(Mastery.read(), cat, DailyStore.read().days, today);
+    let log = ErrorLog.read();
+    quiz.questions.forEach((q, i) => {
+      const key = Mastery.itemKey(q.kind, q.item);
+      if (!state.items[key]) return;
+      const right = answers[i] != null && Number(answers[i]) === q.answer;
+      state = Mastery.grade(state, key, right ? 2 : 0, today);
+      if (!right) {
+        log = ErrorLog.note(log,
+          {key: 'recall', en: 'Vocabulary recall', fa: 'یادآوری واژه'},
+          {id: q.id, kind: 'choice', prompt: q.prompt, options: q.options,
+           answer: q.answer, why: q.detail, detail: q.detail}, today);
+      }
+    });
+    Mastery.write(state);
+    ErrorLog.write(log);
+    if (typeof Slip !== 'undefined') Slip.refresh();
+  }
+
   /* One submission per week. The record holds the status, so a double tap, a
      reload or a second tab lands on the same result rather than two. */
   function submit(snap, quiz) {
@@ -13789,13 +14676,16 @@ const Weekly = (() => {
     const result = WeeklyQuiz.grade(quiz, picks);
     result.at = WeeklyQuiz.keyOf(new Date());
     WeeklyQuiz.write(WeeklyQuiz.setCompleted(snap.state, snap.period, quiz, picks, result));
+    recordWeek(quiz, picks);
     view = 'result';
     render();
     body().scrollTop = 0;
   }
 
   /* Today's card is mounted by Daily; the week's card goes right after it, and
-     is rebuilt with it when the day turns over. */
+     is rebuilt with it when the day turns over. One timer is set for the next
+     Friday 09:00, so the card appears in the window it belongs to without the
+     learner reloading the page. */
   async function init() {
     try {
       cat = await loadJSON('daily');
@@ -13803,10 +14693,521 @@ const Weekly = (() => {
       cat = null;
     }
     mountWeek();
+    arm();
+  }
+
+  let timer = 0;
+  function arm() {
+    clearTimeout(timer);
+    const wait = WeeklyQuiz.opensAt(new Date()).getTime() - Date.now();
+    // a long wait is left to the next launch: setTimeout is signed 32-bit and
+    // overflows at about 24 days, and a week-long timer adds nothing here
+    if (!(wait > 0) || wait > 6 * 86400000) return;
+    timer = setTimeout(() => { mountWeek(); arm(); }, wait + 1000);
   }
 
   return {init, mountCard: mountWeek, start, open, skip, refresh: mountWeek,
           PANEL: PANEL};
+})();
+/* ============================================================================
+ * PRACTICE
+ * Five drills that use content the app already ships, in one sheet, reached
+ * from one card in the transcript. Each of them tests something the app could
+ * not test before:
+ *
+ *   Word partners  collocations.json - "heavy rain", not "strong rain"
+ *   Register       register.json - one meaning, three levels of formality
+ *   Ear test       the minimal pairs the phonetics panel only ever listed
+ *   Dictation      hearing a sentence and writing it, word by word
+ *   Say it         reading a sentence aloud and seeing which words the
+ *                  recogniser did not hear
+ *
+ * None of it is generated and none of it needs the network: the questions are
+ * drawn from the files, seeded by the local date so a day asks the same five
+ * questions twice, and every miss is handed to the error log so the account
+ * panel can show what keeps slipping.
+ * ==========================================================================*/
+const Practice = (() => {
+  const PANEL = 'prpanel';
+  const TABS = [
+    ['coll', 'Word partners', 'هم‌نشینی'],
+    ['reg', 'Register', 'لحن'],
+    ['ear', 'Ear test', 'جفت‌های صوتی'],
+    ['dict', 'Dictation', 'دیکته'],
+    ['say', 'Say it', 'بگو'],
+    ['slip', 'What slips', 'اشتباه‌ها'],
+  ];
+  const cls = (key, en, fa) => ({key: key, en: en, fa: fa});
+
+  let loaded = false;
+  let data = {coll: null, reg: null, pairs: null, listen: null};
+  let tab = 'coll';
+  let idx = 0;
+  let picked = null;
+  let typed = '';
+  let checked = null;
+  let said = '';
+  let level = 0;
+  let slipKey = null;
+  let slipAt = 0;
+
+  const body = () => document.getElementById('prbody');
+  const today = () => Mastery.keyOf(new Date());
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
+    (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const seed = (salt) => Mastery.dayOf(today()) + idx * 13 + salt;
+
+  async function load() {
+    if (loaded) return;
+    loaded = true;
+    try { data.coll = await loadJSON('collocations'); } catch (e) { data.coll = {entries: []}; }
+    try { data.reg = await loadJSON('register'); } catch (e) { data.reg = {pairs: []}; }
+    try { data.pairs = Drills.pairs(await loadJSON('phonetics')); } catch (e) { data.pairs = []; }
+    try { data.listen = await loadJSON('listening'); } catch (e) { data.listen = []; }
+  }
+
+  /* ---- the card in the transcript ------------------------------------- */
+
+  function cardHtml() {
+    const due = Mastery.stats(Mastery.read(), today()).due;
+    const log = ErrorLog.read();
+    const rows = ErrorLog.rank(log).slice(0, 2);
+    const line = rows.length
+      ? 'You have missed ' + rows.map((r) => esc(r.en) + ' ' + r.count +
+        (r.count === 1 ? ' time' : ' times')).join(' and ') + '.'
+      : 'Six short drills on the things grammar cannot fix on its own: word '
+        + 'partners, register, sound contrasts, dictation and speaking.';
+    return '<div class="wqhead">' +
+        '<span class="wqico" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+        'stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M12 3.4 20 7v10l-8 3.6L4 17V7z"/><path d="m4 7 8 3.6L20 7"/>' +
+        '<path d="M12 10.6v10"/></svg></span>' +
+        '<span class="wqtitle">Practice<small dir="rtl" lang="fa">تمرین</small></span>' +
+        '<span class="spacer"></span>' +
+        (due ? '<span class="wqscore">' + due + ' due</span>' : '') +
+        '</div>' +
+      '<p class="wqline" dir="ltr">' + line + '</p>' +
+      '<p class="wqfa" dir="rtl" lang="fa">شش تمرین کوتاه برای چیزهایی که دستور زبان ' +
+        'تنها از پسشان برنمی‌آید: هم‌نشینی واژه، لحن، تقابل صداها، دیکته و گفتار.</p>' +
+      '<div class="wqacts">' +
+        TABS.filter((t) => t[0] !== 'slip').map(([k, en, fa]) =>
+          '<button type="button" class="wqbtn' + (k === 'coll' ? '' : ' ghost') +
+          '" data-pr-open="' + k + '">' + en +
+          '<bdi class="fa" lang="fa" dir="rtl">' + fa + '</bdi></button>').join('') +
+      '</div>';
+  }
+
+  function mountPractice() {
+    const chatEl = document.getElementById('chat');
+    const old = document.getElementById('practicecard');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    if (!chatEl) return;
+    const node = document.createElement('div');
+    node.className = 'wqcard prcard';
+    node.id = 'practicecard';
+    node.setAttribute('role', 'region');
+    node.setAttribute('aria-label', 'Practice — تمرین');
+    node.innerHTML = cardHtml();
+    const daily = document.getElementById('dailyset');
+    const week = document.getElementById('weeklyquiz');
+    const after = (week && week.parentNode === chatEl) ? week : daily;
+    if (after && after.parentNode === chatEl) chatEl.insertBefore(node, after.nextSibling);
+    else chatEl.appendChild(node);
+    node.querySelectorAll('[data-pr-open]').forEach((b) => {
+      b.addEventListener('click', () => open(b.dataset.prOpen));
+    });
+  }
+
+  /* ---- the sheet ------------------------------------------------------- */
+
+  function setTab(which) {
+    if (!TABS.some((t) => t[0] === which)) return;
+    tab = which;
+    idx = 0; picked = null; typed = ''; checked = null; said = '';
+  }
+
+  async function open(which, key) {
+    await load();
+    if (which) setTab(which);
+    if (key) {
+      slipKey = key;
+      slipAt = 0;
+      tab = 'slip';
+    }
+    Panels.set(PANEL, true, render);
+  }
+
+  function listeningSet() {
+    const levels = Array.isArray(data.listen) ? data.listen : [];
+    if (!levels.length) return [];
+    const lv = levels[Math.min(level, levels.length - 1)];
+    return (lv && Array.isArray(lv.sentences)) ? lv.sentences : [];
+  }
+
+  function sentenceFor(salt) {
+    const list = listeningSet();
+    if (!list.length) return null;
+    return list[Mastery.dayOf(today()) * 7 % list.length + (idx * 3 + salt) % list.length];
+  }
+
+  function tabsHtml() {
+    return '<div class="prtabs">' + TABS.map(([k, en, fa]) =>
+      '<button type="button" class="prtab' + (tab === k ? ' on' : '') +
+      '" data-pr-tab="' + k + '">' + en +
+      '<span class="fa" dir="rtl" lang="fa"> · ' + fa + '</span></button>').join('') +
+      '</div>';
+  }
+
+  const optionsHtml = (q, choice) =>
+    '<div class="wq-opts" role="radiogroup">' + q.options.map((t, n) => {
+      let state = '';
+      if (choice != null) {
+        if (n === q.answer) state = ' right';
+        else if (n === choice) state = ' wrong';
+      }
+      return '<button type="button" class="wq-opt' + (choice === n ? ' on' : '') +
+        state + '" data-pr-opt="' + n + '" role="radio">' +
+        '<span class="wq-letter">' + 'ABCD'[n] + '</span>' +
+        '<span class="wq-text"' + (/[\u0600-\u06FF]/.test(t) ? ' dir="rtl" lang="fa"' : '') +
+        '>' + esc(t) + '</span></button>';
+    }).join('') + '</div>';
+
+  function feedbackHtml(q, choice) {
+    if (choice == null) return '';
+    const ok = choice === q.answer;
+    return '<div class="wq-miss" style="margin-top:10px">' +
+      '<p class="wq-said" dir="ltr">' + (ok ? '✓ Correct' : '✗ The answer is ' +
+        esc(q.options[q.answer])) + '</p>' +
+      '<p class="wq-detail" dir="ltr">' + esc(q.why && q.why.en ? q.why.en : '') + '</p>' +
+      (q.detail && q.detail.en ? '<p class="wq-detail" dir="ltr">' + esc(q.detail.en) + '</p>' : '') +
+      (q.detail && q.detail.fa ? '<p class="wq-detail fa" dir="rtl" lang="fa">' +
+        esc(q.detail.fa) + '</p>' : '') + '</div>';
+  }
+
+  function questionHtml(q, choice, playLabel) {
+    return '<div class="wq-q">' +
+      '<p class="wq-prompt" dir="ltr">' + esc(q.prompt.en) + '</p>' +
+      '<p class="wq-prompt fa" dir="rtl" lang="fa">' + esc(q.prompt.fa) + '</p>' +
+      (playLabel ? '<div class="wq-foot" style="border:0;padding:8px 0 0">' +
+        '<button type="button" class="prmic" data-pr-play="1">🔊 ' + playLabel +
+        '</button></div>' : '') +
+      optionsHtml(q, choice) + feedbackHtml(q, choice) + '</div>';
+  }
+
+  function dictationHtml() {
+    const s = sentenceFor(1);
+    if (!s) return '<p class="prnote">The listening bank is not on this device.</p>';
+    return '<div class="wq-q">' +
+      '<p class="wq-prompt" dir="ltr">Type the sentence you hear.</p>' +
+      '<p class="wq-prompt fa" dir="rtl" lang="fa">جمله‌ای را که می‌شنوی بنویس.</p>' +
+      '<button type="button" class="prmic" data-pr-play="1">🔊 Play again · دوباره</button>' +
+      '<textarea class="prtype" data-pr-type="1" dir="ltr" spellcheck="false" ' +
+        'placeholder="Type what you heard…">' + esc(typed) + '</textarea>' +
+      (checked ? '<div class="prdiff">' + checked.words.map((w) =>
+        '<span class="w' + (w.ok ? '' : ' miss') + '">' +
+        esc(w.w) + '</span>').join('') + '</div>' +
+        '<p class="wq-detail" dir="ltr">' + checked.right + ' of ' + checked.total +
+        ' words (' + checked.percent + '%)</p>' +
+        '<p class="wq-detail" dir="ltr">' + esc(s.en) + '</p>' +
+        '<p class="wq-detail fa" dir="rtl" lang="fa">' + esc(s.fa || '') + '</p>' : '') +
+      '<div class="wq-actions">' +
+        (checked ? '<button type="button" class="lv-btn" data-pr-next="1">Next</button>'
+          : '<button type="button" class="lv-btn" data-pr-check="1">Check</button>') +
+      '</div></div>';
+  }
+
+  function sayHtml() {
+    const s = sentenceFor(2);
+    if (!s) return '<p class="prnote">The listening bank is not on this device.</p>';
+    const diff = said ? SayMatch.compare(s.en, said) : null;
+    return '<div class="wq-q">' +
+      '<p class="wq-prompt" dir="ltr">' + esc(s.en) + '</p>' +
+      '<p class="wq-prompt fa" dir="rtl" lang="fa">' + esc(s.fa || '') + '</p>' +
+      '<p class="prnote" dir="ltr">Read it aloud. The app compares the words it '
+      + 'heard with the words on screen - it is not a phoneme score.</p>' +
+      '<p class="prnote fa" dir="rtl" lang="fa">بلند بخوان. برنامه واژه‌هایی را که '
+      + 'شنیده با واژه‌های روی صفحه مقایسه می‌کند، نه امتیاز تک‌تک صداها را.</p>' +
+      '<div class="wq-actions" style="margin-top:8px">' +
+        '<button type="button" class="prmic" data-pr-play="1">🔊 Listen · گوش بده</button>' +
+        '<button type="button" class="prmic' + (STT.listening ? ' rec' : '') +
+        '" data-pr-mic="1">🎙 ' + (STT.listening ? 'Listening…' : 'Say it') + '</button>' +
+      '</div>' +
+      (diff ? '<div class="prdiff">' + diff.words.map((w) =>
+        '<span class="w' + (w.ok ? '' : ' miss') + '">' + esc(w.w) + '</span>').join('') +
+        '</div>' +
+        '<p class="wq-detail" dir="ltr">' + diff.right + ' of ' + diff.total +
+        ' words heard (' + diff.percent + '%)' +
+        (diff.missing.length ? ' · not heard: ' + esc(diff.missing.join(', ')) : '') +
+        '</p>' : '') +
+      '<div class="wq-actions">' +
+        '<button type="button" class="lv-btn" data-pr-next="1">Next sentence</button>' +
+      '</div></div>';
+  }
+
+  function slipHtml() {
+    const log = ErrorLog.read();
+    const ranked = ErrorLog.rank(log);
+    if (!ranked.length) {
+      return '<p class="prnote" dir="ltr">Nothing has been missed yet. The level '
+        + 'check, the weekly quiz and these drills all feed this list.</p>' +
+        '<p class="prnote fa" dir="rtl" lang="fa">هنوز چیزی از دست نرفته است. سنجش سطح، '
+        + 'آزمون هفتگی و همین تمرین‌ها این فهرست را می‌سازند.</p>';
+    }
+    const key = slipKey && ranked.some((r) => r.key === slipKey) ? slipKey : ranked[0].key;
+    const cardsNow = ErrorLog.drill(log, key, 6);
+    const head = ranked.map((r) =>
+      '<button type="button" class="prtab' + (r.key === key ? ' on' : '') +
+      '" data-pr-class="' + esc(r.key) + '">' + esc(r.en) + ' · ' + r.count + '</button>').join('');
+    const card = cardsNow[Math.min(slipAt, cardsNow.length - 1)];
+    if (!card) {
+      return '<div class="prtabs">' + head + '</div>' +
+        '<p class="prnote">No question was kept for this class.</p>';
+    }
+    const isType = card.kind === 'type';
+    const diff = checked && isType ? checked : null;
+    return '<div class="prtabs">' + head + '</div>' +
+      '<div class="wq-q" style="margin-top:10px">' +
+        '<p class="wq-prompt" dir="ltr">' + esc(card.prompt.en) + '</p>' +
+        (card.prompt.fa ? '<p class="wq-prompt fa" dir="rtl" lang="fa">' +
+          esc(card.prompt.fa) + '</p>' : '') +
+        (isType
+          ? '<textarea class="prtype" data-pr-type="1" dir="ltr" spellcheck="false">' +
+            esc(typed) + '</textarea>' +
+            (diff ? '<div class="prdiff">' + diff.words.map((w) =>
+              '<span class="w' + (w.ok ? '' : ' miss') + '">' + esc(w.w) +
+              '</span>').join('') + '</div>' +
+              '<p class="wq-detail" dir="ltr">' + esc(String(card.answer)) + '</p>' : '')
+          : (picked == null ? '' : optionsHtml({
+              options: card.options, answer: Number(card.answer)}, picked))) +
+        (picked != null && !isType
+          ? '<div class="wq-miss" style="margin-top:10px"><p class="wq-said" dir="ltr">' +
+            (picked === Number(card.answer) ? '✓ Correct' : '✗ The answer is ' +
+              esc(String(card.options[Number(card.answer)] || ''))) + '</p>' +
+            '<p class="wq-detail" dir="ltr">' + esc(card.why.en || '') + '</p>' +
+            (card.detail.en ? '<p class="wq-detail" dir="ltr">' + esc(card.detail.en) +
+              '</p>' : '') + '</div>'
+          : '') +
+        (picked == null && !isType ? optionsHtml({
+            options: card.options, answer: Number(card.answer)}, null) : '') +
+        '<div class="wq-actions">' +
+          ((isType && !diff)
+            ? '<button type="button" class="lv-btn" data-pr-check="1">Check</button>'
+            : '<button type="button" class="lv-btn" data-pr-next="1">Next</button>') +
+        '</div></div>';
+  }
+
+  function levelRow() {
+    const levels = Array.isArray(data.listen) ? data.listen : [];
+    if (!levels.length || (tab !== 'dict' && tab !== 'say')) return '';
+    return '<div class="prtabs">' + levels.map((lv, n) =>
+      '<button type="button" class="prtab' + (n === level ? ' on' : '') +
+      '" data-pr-level="' + n + '">' + esc(lv.id) + '</button>').join('') + '</div>';
+  }
+
+  function render() {
+    const box = body();
+    if (!box) return;
+    let inner = '';
+    if (tab === 'coll') {
+      const q = Drills.collocation(data.coll, seed(1));
+      inner = q ? questionHtml(q, picked) : '<p class="prnote">No word partners are on this device.</p>';
+    } else if (tab === 'reg') {
+      const q = Drills.register(data.reg, seed(2));
+      inner = q ? questionHtml(q, picked) : '<p class="prnote">Register data is not on this device.</p>';
+    } else if (tab === 'ear') {
+      const q = Drills.pairQuestion(data.pairs, seed(3));
+      inner = q ? questionHtml(q, picked, 'Play · پخش') :
+        '<p class="prnote">No sound pairs were found in the phonetics bank.</p>';
+    } else if (tab === 'dict') {
+      inner = dictationHtml();
+    } else if (tab === 'say') {
+      inner = sayHtml();
+    } else {
+      inner = slipHtml();
+    }
+    box.innerHTML = '<div class="prwrap">' + tabsHtml() + levelRow() + inner + '</div>';
+  }
+
+  /* ---- answers --------------------------------------------------------- */
+
+  function currentQuestion() {
+    if (tab === 'coll') return Drills.collocation(data.coll, seed(1));
+    if (tab === 'reg') return Drills.register(data.reg, seed(2));
+    if (tab === 'ear') return Drills.pairQuestion(data.pairs, seed(3));
+    return null;
+  }
+
+  function note(clsObj, card) {
+    ErrorLog.write(ErrorLog.note(ErrorLog.read(), clsObj, card, today()));
+    if (typeof Slip !== 'undefined') Slip.refresh();
+  }
+
+  function choose(n) {
+    if (tab === 'slip') {
+      const log = ErrorLog.read();
+      const ranked = ErrorLog.rank(log);
+      const key = slipKey && ranked.some((r) => r.key === slipKey) ? slipKey : (ranked[0] || {}).key;
+      const cards = ErrorLog.drill(log, key, 6);
+      const card = cards[Math.min(slipAt, cards.length - 1)];
+      if (!card) return;
+      picked = n;
+      render();
+      return;
+    }
+    const q = currentQuestion();
+    if (!q) return;
+    picked = n;
+    if (n !== q.answer) {
+      note(q.cls, {id: q.id, kind: 'choice', prompt: q.prompt, options: q.options,
+                   answer: q.answer, why: q.why, detail: q.detail});
+    }
+    render();
+  }
+
+  function check() {
+    if (tab === 'slip') {
+      const log = ErrorLog.read();
+      const ranked = ErrorLog.rank(log);
+      const key = slipKey && ranked.some((r) => r.key === slipKey) ? slipKey : (ranked[0] || {}).key;
+      const cards = ErrorLog.drill(log, key, 6);
+      const card = cards[Math.min(slipAt, cards.length - 1)];
+      if (!card || card.kind !== 'type') return;
+      checked = SayMatch.compare(String(card.answer), typed);
+      if (checked.percent < 80) {
+        note(cls(card.c || 'recall', 'Recall', 'یادآوری'),
+          {id: card.id, kind: 'type', prompt: card.prompt, answer: String(card.answer),
+           why: card.why, detail: card.detail});
+      }
+      render();
+      return;
+    }
+    const s = sentenceFor(tab === 'dict' ? 1 : 2);
+    if (!s) return;
+    const heard = tab === 'dict' ? typed : said;
+    checked = SayMatch.compare(s.en, heard);
+    if (checked.percent < 80) {
+      note(tab === 'dict' ? cls('dictation', 'Dictation', 'دیکته')
+                          : cls('speaking', 'Speaking', 'گفتار'),
+        {id: (tab === 'dict' ? 'dict:' : 'say:') + Drills.hash(s.en),
+         kind: 'type', prompt: {en: s.en, fa: s.fa || ''}, answer: s.en,
+         why: {en: 'Hear it again and say it in one breath.', fa: ''},
+         detail: {en: s.en, fa: s.fa || ''}});
+    }
+    render();
+  }
+
+  function next() {
+    idx += 1;
+    picked = null; typed = ''; checked = null; said = '';
+    if (tab === 'slip') slipAt += 1;
+    render();
+  }
+
+  function play() {
+    if (tab === 'ear') {
+      const q = Drills.pairQuestion(data.pairs, seed(3));
+      if (q) Speech.speak(q.say);
+      return;
+    }
+    if (tab === 'dict') { const s = sentenceFor(1); if (s) Speech.speak(s.en); return; }
+    if (tab === 'say') { const s = sentenceFor(2); if (s) Speech.speak(s.en); }
+  }
+
+  function mic() {
+    if (STT.listening) { STT.stop(); render(); return; }
+    if (!STT.supported()) {
+      toast('This device has no speech recognition — the ear test and dictation ' +
+        'work without a microphone. / این دستگاه تشخیص گفتار ندارد.', 4200);
+      return;
+    }
+    STT.sink = (text) => {
+      said = text || '';
+      STT.sink = null;
+      if (tab === 'say' && said) check();
+      else render();
+    };
+    if (!STT.begin()) {
+      STT.sink = null;
+      toast('Could not start the microphone — check the permission.', 3600);
+    }
+    render();
+  }
+
+  function bind() {
+    const box = body();
+    if (!box || box.dataset.prBound) return;
+    box.dataset.prBound = '1';
+    box.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-pr-tab],[data-pr-opt],[data-pr-next],[data-pr-play],' +
+        '[data-pr-check],[data-pr-level],[data-pr-mic],[data-pr-class]');
+      if (!t) return;
+      if (t.dataset.prTab != null) { setTab(t.dataset.prTab); render(); return; }
+      if (t.dataset.prOpt != null) { choose(Number(t.dataset.prOpt)); return; }
+      if (t.dataset.prNext != null) { next(); return; }
+      if (t.dataset.prPlay != null) { play(); return; }
+      if (t.dataset.prCheck != null) { check(); return; }
+      if (t.dataset.prLevel != null) { level = Number(t.dataset.prLevel); idx = 0; typed = ''; said = ''; checked = null; render(); return; }
+      if (t.dataset.prMic != null) { mic(); return; }
+      if (t.dataset.prClass != null) { slipKey = t.dataset.prClass; slipAt = 0; picked = null; checked = null; typed = ''; render(); }
+    });
+    box.addEventListener('input', (e) => {
+      if (!e.target || e.target.dataset.prType == null) return;
+      typed = e.target.value;
+    });
+  }
+
+  async function init() {
+    bind();
+    await load();
+    mountPractice();
+  }
+
+  return {init, open, mountCard: mountPractice, refresh: mountPractice, setTab,
+          PANEL: PANEL, TABS: TABS};
+})();
+
+/* The account panel's "what keeps slipping" list. It is a view of one file,
+   the error log, and it routes straight into the drill for a class. */
+const Slip = (() => {
+  function ranked() { return ErrorLog.rank(ErrorLog.read()); }
+
+  function html() {
+    const rows = ranked().slice(0, 4);
+    if (!rows.length) {
+      return '<div class="ac-slip"><p class="empty" dir="ltr">Nothing recorded yet. ' +
+        'The level check, the weekly quiz and the practice drills feed this list.' +
+        '</p><p class="empty fa" dir="rtl" lang="fa">هنوز چیزی ثبت نشده؛ سنجش سطح، ' +
+        'آزمون هفتگی و تمرین‌ها این فهرست را می‌سازند.</p></div>';
+    }
+    return '<div class="ac-slip">' + rows.map((r) =>
+      '<div class="ac-sliprow"><span class="n">' + escapeHtml(r.en) +
+      '<i lang="fa" dir="rtl">' + escapeHtml(r.fa || '') + '</i></span>' +
+      '<span class="c">' + r.count + '×</span>' +
+      '<button type="button" data-slip="' + escapeHtml(r.key) + '">Practise</button></div>')
+      .join('') + '</div>';
+  }
+
+  /* Only the panel that is on screen needs repainting; this is called from a
+     drill on a tab the account panel cannot see. */
+  function refresh() {
+    const host = document.getElementById('acslip');
+    if (host) host.innerHTML = html();
+  }
+
+  /* The rows are inside the account panel, which repaints itself on every
+     change, so the routing is delegated from the document rather than bound to
+     the buttons that are about to be replaced. */
+  function init() {
+    document.addEventListener('click', (e) => {
+      if (!e.target || !e.target.closest) return;
+      const btn = e.target.closest('[data-slip]');
+      if (!btn) return;
+      Practice.open('slip', btn.dataset.slip);
+    });
+  }
+
+  return {html, refresh, ranked, init};
 })();
 
 const Daily = (() => {
@@ -14210,6 +15611,7 @@ const Daily = (() => {
     if (pinned) node.scrollIntoView({block: 'nearest'});
     /* the week's card sits under the day's, and moves with it */
     Weekly.refresh();
+    Practice.refresh();
   }
 
   function removeCard() {
@@ -14282,6 +15684,13 @@ const Daily = (() => {
     const next = !DailyStore.isDone(state, key, id);
     DailyStore.setDone(state, key, id, next);
     DailyStore.write(state);
+    /* A tick is the app's only proof that the item was met, so the mastery
+       ledger is updated here rather than on a schedule: today's word enters the
+       review queue the moment it is ticked, due today. */
+    try {
+      const today = Mastery.keyOf(new Date());
+      Mastery.write(Mastery.seedDaily(Mastery.read(), cat, DailyStore.read().days, today));
+    } catch (e) { /* the tick is worth more than the schedule */ }
     document.querySelectorAll('[data-done="' + id + '"]').forEach((b) => {
       b.classList.toggle('on', next);
       b.setAttribute('aria-pressed', next ? 'true' : 'false');
@@ -14441,6 +15850,9 @@ async function loadDaily() {
   Daily.mountCard();
   // the week's review sits under the day's card, and reads the same catalogue
   await Weekly.init();
+  // the drills are a card of their own, under both of those
+  await Practice.init();
+  Slip.init();
 }
 
 /* grammar lessons panel (fetched from grammar.json via the server) */
@@ -14925,6 +16337,17 @@ const Review = {
       const raw = localStorage.getItem(this.KEY);
       if (raw) this.items = JSON.parse(raw) || [];
     } catch (e) { this.items = []; }
+    /* A word saved here is a word the learner chose to keep, so it belongs in
+       the mastery queue as well. Seeded once; a record that already exists
+       keeps its schedule. */
+    if (this.items.length) {
+      const today = Mastery.keyOf(new Date());
+      const seeds = this.items.filter((i) => i && i.en).map((i) => ({
+        key: Mastery.itemKey('saved', String(i.en).toLowerCase()),
+        kind: 'saved', en: i.en, fa: i.fa || '', level: i.level || '',
+      }));
+      Mastery.write(Mastery.seed(Mastery.read(), seeds, today));
+    }
   },
   save() {
     try { localStorage.setItem(this.KEY, JSON.stringify(this.items)); } catch (e) {}
@@ -14989,8 +16412,14 @@ const Review = {
       if (txt != null) n.textContent = txt;
       return n;
     };
+    const today = Mastery.keyOf(new Date());
+    const mastery = Mastery.read();
+    const dueNow = Mastery.due(mastery, today).length;
     const cardsTab = mk('button', 'rtab' + (this.mode === 'cards' ? ' on' : ''), '🃏 Cards');
     cardsTab.onclick = () => { this.mode = 'cards'; this.at = 0; this.flipped = false; this.paint(); };
+    const dueTab = mk('button', 'rtab' + (this.mode === 'due' ? ' on' : ''),
+      '⏰ Due' + (dueNow ? ' · ' + dueNow : ''));
+    dueTab.onclick = () => { this.mode = 'due'; this.dueAt = 0; this.flipped = false; this.paint(); };
     const listTab = mk('button', 'rtab' + (this.mode === 'list' ? ' on' : ''), '📋 List');
     listTab.onclick = () => { this.mode = 'list'; this.paint(); };
     const restart = mk('button', 'rtab rdanger', '↻ Restart');
@@ -15005,8 +16434,108 @@ const Review = {
     const count = mk('div', 'rcount',
       `${this.mastered}/${this.items.length} mastered · ${pct}%`);
 
-    top.append(cardsTab, listTab, prog, count, restart, wipe);
-    (this.mode === 'cards' ? this.paintCard : this.paintList).call(this, body);
+    top.append(cardsTab, dueTab, listTab, prog, count, restart, wipe);
+    if (this.mode === 'due') this.paintDue(body);
+    else (this.mode === 'cards' ? this.paintCard : this.paintList).call(this, body);
+  },
+
+  /* ---- the queue the schedule asks for, not the one the list happens to be
+     in. Four verdicts rather than the old known/not-known pair, because the
+     difference between "hard" and "again" is exactly what decides the next
+     interval. */
+  paintDue(body) {
+    const today = Mastery.keyOf(new Date());
+    const state = Mastery.read();
+    const due = Mastery.due(state, today);
+    const stat = Mastery.stats(state, today);
+    const ret = Mastery.retention(state);
+
+    const head = document.createElement('div');
+    head.className = 'rprog-line';
+    head.textContent = stat.due + ' due today · ' + stat.learning + ' learning · ' +
+      stat.mature + ' at three weeks or more';
+    body.appendChild(head);
+    if (ret.pct7 != null) {
+      const retLine = document.createElement('div');
+      retLine.className = 'rprog-line';
+      retLine.textContent = 'Recall after a week: ' + ret.pct7 + '% of ' +
+        ret.at7.n + ' reviews (' + ret.at7.good + ' right).';
+      body.appendChild(retLine);
+    }
+
+    if (!due.length) {
+      const next = Mastery.next(state);
+      const empty = document.createElement('div');
+      empty.className = 'rempty';
+      empty.innerHTML = '<span class="big">🌤</span>' +
+        'Nothing is due today.' +
+        (next ? '<br>Next: ' + escapeHtml(next) : '') +
+        '<br><bdi class="fa" lang="fa" dir="rtl">امروز چیزی برای مرور نیست — ' +
+        'بر اساس تاریخ‌های خودت زمان‌بندی شده است، نه برای پر کردن وقت تو.</bdi>';
+      body.appendChild(empty);
+      return;
+    }
+
+    if (this.dueAt >= due.length) this.dueAt = 0;
+    const item = due[this.dueAt] || due[0];
+    const card = document.createElement('div');
+    card.className = 'rcard';
+    const word = document.createElement('div');
+    word.className = 'rword';
+    word.textContent = item.en || item.k;
+    card.appendChild(word);
+    const kind = document.createElement('span');
+    kind.className = 'rpos';
+    kind.textContent = item.kind === 'expression' ? 'عبارت' :
+      item.kind === 'saved' ? 'ذخیره‌شده' : 'واژه';
+    card.appendChild(kind);
+    const fa = document.createElement('div');
+    fa.className = 'rfa' + (this.flipped ? '' : ' rhidden');
+    fa.textContent = item.fa || '—';
+    card.appendChild(fa);
+    const meta = document.createElement('div');
+    meta.className = 'rlvl';
+    meta.textContent = 'interval ' + (item.iv || 0) + 'd · seen ' + (item.reps || 0) +
+      '×' + (item.lapses ? ' · lapsed ' + item.lapses + '×' : '');
+    card.appendChild(meta);
+    body.appendChild(card);
+
+    const acts = document.createElement('div');
+    acts.className = 'racts';
+    const play = document.createElement('button');
+    play.className = 'rbtn play';
+    play.textContent = '🔊';
+    play.title = 'Listen — گوش بده';
+    play.onclick = () => Speech.speak(item.en || item.k);
+    const flip = document.createElement('button');
+    flip.className = 'rbtn';
+    flip.style.background = 'rgba(43,48,73,0.085)';
+    flip.textContent = this.flipped ? '🙈 Hide' : '👁 Show meaning';
+    flip.onclick = () => { this.flipped = !this.flipped; this.paint(); };
+    acts.append(play, flip);
+    body.appendChild(acts);
+
+    if (this.flipped) {
+      const grade = document.createElement('div');
+      grade.className = 'racts rgrade';
+      [['Again', 0], ['Hard', 1], ['Good', 2], ['Easy', 3]].forEach(([label, v]) => {
+        const b = document.createElement('button');
+        b.className = 'rbtn';
+        b.textContent = label;
+        b.dataset.verdict = String(v);
+        b.onclick = () => this.gradeDue(item.k, v);
+        grade.appendChild(b);
+      });
+      body.appendChild(grade);
+    }
+  },
+
+  gradeDue(key, verdict) {
+    const today = Mastery.keyOf(new Date());
+    Mastery.write(Mastery.grade(Mastery.read(), key, verdict, today));
+    this.dueAt += 1;
+    this.flipped = false;
+    this.paint();
   },
 
   paintCard(body) {

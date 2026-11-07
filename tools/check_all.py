@@ -40,8 +40,16 @@ Every suite answers a different question:
                 day and both sides of midnight in Tehran (20:30 UTC), and
                 refuses a countdown that is written once and then freezes, or
                 a session that needs a reload to unlock.
-  check_weekly  does the weekly quiz review the last seven days and only those,
-                the same paper for the same week and a score that needs answers
+  check_weekly  does the weekly quiz open on Friday morning Tehran time and ask
+                the Friday-to-Thursday week that just closed, the same paper for
+                the same week and a score that needs answers
+  check_mastery does anything come back, and on time? The spaced-repetition
+                ledger over the daily ticks, the weekly quiz and Review
+  check_errors  does a mistake the app diagnosed ever add up? One log fed by the
+                level check, the quiz and the drills, and a profile that says so
+  check_practice are the four new drills sound? Word partners, register, the ear
+                test over the phonetics pairs, and the word-level comparison
+                behind dictation and speaking
   check_daily   is the Daily English catalogue sound, and do the CLI, the APK
                 engine and the page pick the same three items for the same
                 local date? The rotation exists in three places, one per
@@ -112,6 +120,9 @@ SUITES = [
     ("daily seed clock", [sys.executable, "tools/check_seed_clock.py"]),
     ("daily english rotation", [sys.executable, "tools/check_daily.py"]),
     ("weekly quiz", [sys.executable, "tools/check_weekly.py"]),
+    ("mastery schedule", [sys.executable, "tools/check_mastery.py"]),
+    ("error log & profile", [sys.executable, "tools/check_errors.py"]),
+    ("practice drills", [sys.executable, "tools/check_practice.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),

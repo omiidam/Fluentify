@@ -43,6 +43,9 @@ LAZY_DATA = [
     "stories.json",
     # The monthly level check: 47 banded questions, marked in the page
     "level_test.json",
+    # Word partners for the practice sheet: read when a drill is opened, not at
+    # boot, and only about 40 KB
+    "collocations.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")

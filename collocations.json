@@ -1,0 +1,1343 @@
+{
+  "_readme": [
+    "Word partners an Iranian learner gets wrong in English even when the grammar is perfect:",
+    "'strong rain' for heavy rain, 'do a decision' for make a decision, 'depend of'.",
+    "",
+    "Every entry is written by hand. The blank is the sentence the drill shows, the",
+    "answer is the one word that belongs in it, and `wrong` holds partners that are",
+    "grammatical but not English - which is the whole point, because a distractor",
+    "that is ungrammatical teaches nothing. The phrase and the example exist so the",
+    "drill can show the finished sentence with its Persian after the answer.",
+    "",
+    "Nothing here is generated from the dictionary or the word list: a collocation",
+    "bank that invents pairs is worse than no bank at all."
+  ],
+  "entries": [
+    {
+      "id": "make-decision",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a decision",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make a decision",
+      "fa": "تصمیم گرفتن",
+      "example": {
+        "en": "It took her a week to make a decision.",
+        "fa": "یک هفته طول کشید تا تصمیم بگیرد."
+      }
+    },
+    {
+      "id": "do-homework",
+      "tag": "verb+noun",
+      "level": "A1",
+      "blank": "___ your homework",
+      "answer": "do",
+      "wrong": [
+        "make",
+        "take"
+      ],
+      "phrase": "do your homework",
+      "fa": "تکلیف را انجام دادن",
+      "example": {
+        "en": "I do my homework before dinner.",
+        "fa": "تکلیفم را پیش از شام انجام می‌دهم."
+      }
+    },
+    {
+      "id": "take-photo",
+      "tag": "verb+noun",
+      "level": "A1",
+      "blank": "___ a photo",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take a photo",
+      "fa": "عکس گرفتن",
+      "example": {
+        "en": "Can I take a photo of the garden?",
+        "fa": "می‌توانم از باغ عکس بگیرم؟"
+      }
+    },
+    {
+      "id": "have-breakfast",
+      "tag": "verb+noun",
+      "level": "A1",
+      "blank": "___ breakfast",
+      "answer": "have",
+      "wrong": [
+        "take",
+        "do"
+      ],
+      "phrase": "have breakfast",
+      "fa": "صبحانه خوردن",
+      "example": {
+        "en": "We have breakfast at seven.",
+        "fa": "ما ساعت هفت صبحانه می‌خوریم."
+      }
+    },
+    {
+      "id": "make-mistake",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a mistake",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make a mistake",
+      "fa": "اشتباه کردن",
+      "example": {
+        "en": "Everyone makes a mistake now and then.",
+        "fa": "همه گاهی اشتباه می‌کنند."
+      }
+    },
+    {
+      "id": "do-dishes",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ the dishes",
+      "answer": "do",
+      "wrong": [
+        "make",
+        "take"
+      ],
+      "phrase": "do the dishes",
+      "fa": "ظرف‌ها را شستن",
+      "example": {
+        "en": "He does the dishes every evening.",
+        "fa": "او هر شب ظرف‌ها را می‌شوید."
+      }
+    },
+    {
+      "id": "take-break",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a break",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take a break",
+      "fa": "استراحت کردن",
+      "example": {
+        "en": "Let us take a break for ten minutes.",
+        "fa": "بیا ده دقیقه استراحت کنیم."
+      }
+    },
+    {
+      "id": "have-shower",
+      "tag": "verb+noun",
+      "level": "A1",
+      "blank": "___ a shower",
+      "answer": "have",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "have a shower",
+      "fa": "دوش گرفتن",
+      "example": {
+        "en": "I have a shower before work.",
+        "fa": "پیش از کار دوش می‌گیرم."
+      }
+    },
+    {
+      "id": "make-progress",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ progress",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make progress",
+      "fa": "پیشرفت کردن",
+      "example": {
+        "en": "Your reading is making progress every week.",
+        "fa": "خواندنت هر هفته پیشرفت می‌کند."
+      }
+    },
+    {
+      "id": "do-business",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ business",
+      "answer": "do",
+      "wrong": [
+        "make",
+        "take"
+      ],
+      "phrase": "do business",
+      "fa": "تجارت کردن",
+      "example": {
+        "en": "They do business with three countries.",
+        "fa": "آن‌ها با سه کشور تجارت می‌کنند."
+      }
+    },
+    {
+      "id": "take-responsibility",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ responsibility",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take responsibility",
+      "fa": "مسئولیت پذیرفتن",
+      "example": {
+        "en": "She took responsibility for the delay.",
+        "fa": "او مسئولیت تأخیر را پذیرفت."
+      }
+    },
+    {
+      "id": "give-presentation",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ a presentation",
+      "answer": "give",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "give a presentation",
+      "fa": "ارائه دادن",
+      "example": {
+        "en": "He gave a presentation to forty people.",
+        "fa": "او برای چهل نفر ارائه داد."
+      }
+    },
+    {
+      "id": "pay-attention",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ attention",
+      "answer": "pay",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "pay attention",
+      "fa": "توجه کردن",
+      "example": {
+        "en": "Pay attention to the ending of the verb.",
+        "fa": "به پایانِ فعل توجه کن."
+      }
+    },
+    {
+      "id": "make-appointment",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ an appointment",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make an appointment",
+      "fa": "وقت گرفتن",
+      "example": {
+        "en": "I made an appointment with the dentist.",
+        "fa": "از دندان‌پزشک وقت گرفتم."
+      }
+    },
+    {
+      "id": "do-research",
+      "tag": "verb+noun",
+      "level": "B2",
+      "blank": "___ research",
+      "answer": "do",
+      "wrong": [
+        "make",
+        "take"
+      ],
+      "phrase": "do research",
+      "fa": "پژوهش کردن",
+      "example": {
+        "en": "She is doing research on memory.",
+        "fa": "او دربارهٔ حافظه پژوهش می‌کند."
+      }
+    },
+    {
+      "id": "make-friends",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ friends",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make friends",
+      "fa": "دوست پیدا کردن",
+      "example": {
+        "en": "He made friends at the language school.",
+        "fa": "او در آموزشگاه زبان دوست پیدا کرد."
+      }
+    },
+    {
+      "id": "have-good-time",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a good time",
+      "answer": "have",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "have a good time",
+      "fa": "خوش گذراندن",
+      "example": {
+        "en": "We had a good time at the party.",
+        "fa": "در مهمانی خوش گذشت."
+      }
+    },
+    {
+      "id": "take-part",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ part in",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take part in",
+      "fa": "شرکت کردن در",
+      "example": {
+        "en": "Two hundred students took part in the exam.",
+        "fa": "دویست دانش‌آموز در آزمون شرکت کردند."
+      }
+    },
+    {
+      "id": "do-best",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ your best",
+      "answer": "do",
+      "wrong": [
+        "make",
+        "take"
+      ],
+      "phrase": "do your best",
+      "fa": "نهایت تلاشت را بکن",
+      "example": {
+        "en": "Just do your best and stop worrying.",
+        "fa": "فقط نهایت تلاشت را بکن و نگران نباش."
+      }
+    },
+    {
+      "id": "make-effort",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ an effort",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make an effort",
+      "fa": "تلاش کردن",
+      "example": {
+        "en": "She makes an effort to speak slowly.",
+        "fa": "او تلاش می‌کند آهسته حرف بزند."
+      }
+    },
+    {
+      "id": "give-example",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ an example",
+      "answer": "give",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "give an example",
+      "fa": "مثال دادن",
+      "example": {
+        "en": "Give an example of the past perfect.",
+        "fa": "یک مثال از ماضی بعید بده."
+      }
+    },
+    {
+      "id": "take-risk",
+      "tag": "verb+noun",
+      "level": "B2",
+      "blank": "___ a risk",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take a risk",
+      "fa": "ریسک کردن",
+      "example": {
+        "en": "He took a risk and it worked.",
+        "fa": "او ریسک کرد و جواب داد."
+      }
+    },
+    {
+      "id": "make-difference",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ a difference",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make a difference",
+      "fa": "تفاوت ایجاد کردن",
+      "example": {
+        "en": "Ten minutes a day makes a difference.",
+        "fa": "روزی ده دقیقه تفاوت ایجاد می‌کند."
+      }
+    },
+    {
+      "id": "do-favour",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ me a favour",
+      "answer": "do",
+      "wrong": [
+        "make",
+        "take"
+      ],
+      "phrase": "do me a favour",
+      "fa": "یک لطف به من بکن",
+      "example": {
+        "en": "Could you do me a favour?",
+        "fa": "می‌شود یک لطف به من بکنی؟"
+      }
+    },
+    {
+      "id": "have-idea",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ an idea",
+      "answer": "have",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "have an idea",
+      "fa": "فکری به سر داشتن",
+      "example": {
+        "en": "I have an idea for the title.",
+        "fa": "برای عنوان یک فکر دارم."
+      }
+    },
+    {
+      "id": "take-seat",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a seat",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take a seat",
+      "fa": "جا گرفتن / نشستن",
+      "example": {
+        "en": "Please take a seat by the window.",
+        "fa": "لطفاً کنار پنجره بنشین."
+      }
+    },
+    {
+      "id": "make-complaint",
+      "tag": "verb+noun",
+      "level": "B2",
+      "blank": "___ a complaint",
+      "answer": "make",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "make a complaint",
+      "fa": "شکایت کردن",
+      "example": {
+        "en": "He made a complaint about the noise.",
+        "fa": "او از سر و صدا شکایت کرد."
+      }
+    },
+    {
+      "id": "break-rules",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ the rules",
+      "answer": "break",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "break the rules",
+      "fa": "قوانین را شکستن",
+      "example": {
+        "en": "You break the rules when you park here.",
+        "fa": "اگر اینجا پارک کنی قانون را شکسته‌ای."
+      }
+    },
+    {
+      "id": "draw-conclusion",
+      "tag": "verb+noun",
+      "level": "C1",
+      "blank": "___ a conclusion",
+      "answer": "draw",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "draw a conclusion",
+      "fa": "نتیجه گرفتن",
+      "example": {
+        "en": "We cannot draw a conclusion from one case.",
+        "fa": "از یک نمونه نمی‌توانیم نتیجه بگیریم."
+      }
+    },
+    {
+      "id": "raise-money",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ money",
+      "answer": "raise",
+      "wrong": [
+        "rise",
+        "take"
+      ],
+      "phrase": "raise money",
+      "fa": "پول جمع کردن",
+      "example": {
+        "en": "The school raised money for a library.",
+        "fa": "مدرسه برای یک کتابخانه پول جمع کرد."
+      }
+    },
+    {
+      "id": "keep-record",
+      "tag": "verb+noun",
+      "level": "B2",
+      "blank": "___ a record",
+      "answer": "keep",
+      "wrong": [
+        "do",
+        "take"
+      ],
+      "phrase": "keep a record",
+      "fa": "سابقه نگه داشتن",
+      "example": {
+        "en": "Keep a record of every new word.",
+        "fa": "از هر واژهٔ تازه سابقه‌ای نگه دار."
+      }
+    },
+    {
+      "id": "hold-meeting",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ a meeting",
+      "answer": "hold",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "hold a meeting",
+      "fa": "جلسه برگزار کردن",
+      "example": {
+        "en": "They hold a meeting every Monday.",
+        "fa": "آن‌ها هر دوشنبه جلسه برگزار می‌کنند."
+      }
+    },
+    {
+      "id": "set-goal",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ a goal",
+      "answer": "set",
+      "wrong": [
+        "put",
+        "do"
+      ],
+      "phrase": "set a goal",
+      "fa": "هدف تعیین کردن",
+      "example": {
+        "en": "Set a goal you can reach in a month.",
+        "fa": "هدفی بگذار که در یک ماه به آن برسی."
+      }
+    },
+    {
+      "id": "solve-problem",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a problem",
+      "answer": "solve",
+      "wrong": [
+        "do",
+        "make"
+      ],
+      "phrase": "solve a problem",
+      "fa": "مسئله را حل کردن",
+      "example": {
+        "en": "We solved the problem in ten minutes.",
+        "fa": "مسئله را در ده دقیقه حل کردیم."
+      }
+    },
+    {
+      "id": "tell-truth",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ the truth",
+      "answer": "tell",
+      "wrong": [
+        "say",
+        "speak"
+      ],
+      "phrase": "tell the truth",
+      "fa": "راست گفتن",
+      "example": {
+        "en": "Tell the truth and nothing else.",
+        "fa": "راستش را بگو و بس."
+      }
+    },
+    {
+      "id": "say-word",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ a word",
+      "answer": "say",
+      "wrong": [
+        "tell",
+        "speak"
+      ],
+      "phrase": "say a word",
+      "fa": "کلمه‌ای گفتن",
+      "example": {
+        "en": "He did not say a word all evening.",
+        "fa": "تمام شب یک کلمه هم نگفت."
+      }
+    },
+    {
+      "id": "catch-bus",
+      "tag": "verb+noun",
+      "level": "A2",
+      "blank": "___ the bus",
+      "answer": "catch",
+      "wrong": [
+        "do",
+        "make"
+      ],
+      "phrase": "catch the bus",
+      "fa": "به اتوبوس رسیدن",
+      "example": {
+        "en": "Run, or we will not catch the bus.",
+        "fa": "بدو، وگرنه به اتوبوس نمی‌رسیم."
+      }
+    },
+    {
+      "id": "lose-weight",
+      "tag": "verb+noun",
+      "level": "B1",
+      "blank": "___ weight",
+      "answer": "lose",
+      "wrong": [
+        "fall",
+        "do"
+      ],
+      "phrase": "lose weight",
+      "fa": "وزن کم کردن",
+      "example": {
+        "en": "He lost weight without trying.",
+        "fa": "بدون تلاش وزن کم کرد."
+      }
+    },
+    {
+      "id": "take-care",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "___ care of",
+      "answer": "take",
+      "wrong": [
+        "make",
+        "do"
+      ],
+      "phrase": "take care of",
+      "fa": "مراقبت کردن از",
+      "example": {
+        "en": "She takes care of her grandmother.",
+        "fa": "او از مادربزرگش مراقبت می‌کند."
+      }
+    },
+    {
+      "id": "heavy-rain",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ rain",
+      "answer": "heavy",
+      "wrong": [
+        "strong",
+        "big"
+      ],
+      "phrase": "heavy rain",
+      "fa": "باران شدید",
+      "example": {
+        "en": "Heavy rain closed the road.",
+        "fa": "باران شدید راه را بست."
+      }
+    },
+    {
+      "id": "strong-coffee",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ coffee",
+      "answer": "strong",
+      "wrong": [
+        "heavy",
+        "big"
+      ],
+      "phrase": "strong coffee",
+      "fa": "قهوهٔ غلیظ",
+      "example": {
+        "en": "That is very strong coffee.",
+        "fa": "این قهوه خیلی غلیظ است."
+      }
+    },
+    {
+      "id": "high-price",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ prices",
+      "answer": "high",
+      "wrong": [
+        "tall",
+        "big"
+      ],
+      "phrase": "high prices",
+      "fa": "قیمت‌های بالا",
+      "example": {
+        "en": "High prices are driving people away.",
+        "fa": "قیمت‌های بالا مردم را فراری می‌دهد."
+      }
+    },
+    {
+      "id": "heavy-traffic",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ traffic",
+      "answer": "heavy",
+      "wrong": [
+        "strong",
+        "big"
+      ],
+      "phrase": "heavy traffic",
+      "fa": "ترافیک سنگین",
+      "example": {
+        "en": "We were late because of heavy traffic.",
+        "fa": "به‌خاطر ترافیک سنگین دیر رسیدیم."
+      }
+    },
+    {
+      "id": "severe-weather",
+      "tag": "adj+noun",
+      "level": "B2",
+      "blank": "___ weather",
+      "answer": "severe",
+      "wrong": [
+        "strong",
+        "big"
+      ],
+      "phrase": "severe weather",
+      "fa": "هوای بسیار بد",
+      "example": {
+        "en": "Flights stopped in the severe weather.",
+        "fa": "در هوای بسیار بد پروازها متوقف شد."
+      }
+    },
+    {
+      "id": "close-friend",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ friend",
+      "answer": "close",
+      "wrong": [
+        "near",
+        "nearby"
+      ],
+      "phrase": "close friend",
+      "fa": "دوست نزدیک",
+      "example": {
+        "en": "Sara is a close friend of mine.",
+        "fa": "سارا دوست نزدیک من است."
+      }
+    },
+    {
+      "id": "high-temperature",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ temperature",
+      "answer": "high",
+      "wrong": [
+        "hot",
+        "tall"
+      ],
+      "phrase": "high temperature",
+      "fa": "دمای بالا",
+      "example": {
+        "en": "The engine runs at a high temperature.",
+        "fa": "موتور در دمای بالا کار می‌کند."
+      }
+    },
+    {
+      "id": "light-meal",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ meal",
+      "answer": "light",
+      "wrong": [
+        "soft",
+        "weak"
+      ],
+      "phrase": "light meal",
+      "fa": "غذای سبک",
+      "example": {
+        "en": "Have a light meal before the flight.",
+        "fa": "پیش از پرواز غذای سبکی بخور."
+      }
+    },
+    {
+      "id": "strong-wind",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ wind",
+      "answer": "strong",
+      "wrong": [
+        "heavy",
+        "hard"
+      ],
+      "phrase": "strong wind",
+      "fa": "باد شدید",
+      "example": {
+        "en": "A strong wind blew the door shut.",
+        "fa": "باد شدیدی در را بست."
+      }
+    },
+    {
+      "id": "sharp-knife",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ knife",
+      "answer": "sharp",
+      "wrong": [
+        "pointed",
+        "strong"
+      ],
+      "phrase": "sharp knife",
+      "fa": "چاقوی تیز",
+      "example": {
+        "en": "Use a sharp knife for tomatoes.",
+        "fa": "برای گوجه از چاقوی تیز استفاده کن."
+      }
+    },
+    {
+      "id": "narrow-escape",
+      "tag": "adj+noun",
+      "level": "B2",
+      "blank": "___ escape",
+      "answer": "narrow",
+      "wrong": [
+        "thin",
+        "small"
+      ],
+      "phrase": "narrow escape",
+      "fa": "فرار به‌موقع / جان سالم به در بردن",
+      "example": {
+        "en": "It was a narrow escape on the motorway.",
+        "fa": "در بزرگراه جان سالم به در بردیم."
+      }
+    },
+    {
+      "id": "loud-noise",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ noise",
+      "answer": "loud",
+      "wrong": [
+        "strong",
+        "high"
+      ],
+      "phrase": "loud noise",
+      "fa": "صدای بلند",
+      "example": {
+        "en": "A loud noise woke the whole street.",
+        "fa": "صدای بلندی تمام کوچه را بیدار کرد."
+      }
+    },
+    {
+      "id": "heavy-smoker",
+      "tag": "adj+noun",
+      "level": "B2",
+      "blank": "___ smoker",
+      "answer": "heavy",
+      "wrong": [
+        "strong",
+        "high"
+      ],
+      "phrase": "heavy smoker",
+      "fa": "سیگاری قهار",
+      "example": {
+        "en": "He is a heavy smoker and knows it.",
+        "fa": "او سیگاری قهاری است و خودش هم می‌داند."
+      }
+    },
+    {
+      "id": "strong-smell",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ smell",
+      "answer": "strong",
+      "wrong": [
+        "heavy",
+        "high"
+      ],
+      "phrase": "strong smell",
+      "fa": "بوی تند",
+      "example": {
+        "en": "There was a strong smell of paint.",
+        "fa": "بوی تند رنگ می‌آمد."
+      }
+    },
+    {
+      "id": "fresh-air",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ air",
+      "answer": "fresh",
+      "wrong": [
+        "new",
+        "young"
+      ],
+      "phrase": "fresh air",
+      "fa": "هوای تازه",
+      "example": {
+        "en": "Open the window and let in some fresh air.",
+        "fa": "پنجره را باز کن و کمی هوای تازه بده داخل."
+      }
+    },
+    {
+      "id": "big-mistake",
+      "tag": "adj+noun",
+      "level": "A2",
+      "blank": "___ mistake",
+      "answer": "big",
+      "wrong": [
+        "tall",
+        "heavy"
+      ],
+      "phrase": "big mistake",
+      "fa": "اشتباه بزرگ",
+      "example": {
+        "en": "Skipping the review was a big mistake.",
+        "fa": "رد کردن مرور اشتباه بزرگی بود."
+      }
+    },
+    {
+      "id": "great-success",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ success",
+      "answer": "great",
+      "wrong": [
+        "high",
+        "large"
+      ],
+      "phrase": "great success",
+      "fa": "موفقیت بزرگ",
+      "example": {
+        "en": "The evening was a great success.",
+        "fa": "آن شب موفقیت بزرگی بود."
+      }
+    },
+    {
+      "id": "deep-sleep",
+      "tag": "adj+noun",
+      "level": "B1",
+      "blank": "___ sleep",
+      "answer": "deep",
+      "wrong": [
+        "strong",
+        "high"
+      ],
+      "phrase": "deep sleep",
+      "fa": "خواب عمیق",
+      "example": {
+        "en": "He fell into a deep sleep.",
+        "fa": "به خواب عمیقی رفت."
+      }
+    },
+    {
+      "id": "depend-on",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "depend ___",
+      "answer": "on",
+      "wrong": [
+        "of",
+        "in"
+      ],
+      "phrase": "depend on",
+      "fa": "بستگی داشتن به",
+      "example": {
+        "en": "It depends on the weather.",
+        "fa": "به هوا بستگی دارد."
+      }
+    },
+    {
+      "id": "listen-to",
+      "tag": "verb+prep",
+      "level": "A1",
+      "blank": "listen ___",
+      "answer": "to",
+      "wrong": [
+        "at",
+        "for"
+      ],
+      "phrase": "listen to",
+      "fa": "گوش دادن به",
+      "example": {
+        "en": "I listen to the news in English.",
+        "fa": "به خبرهای انگلیسی گوش می‌دهم."
+      }
+    },
+    {
+      "id": "apologise-for",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "apologise ___",
+      "answer": "for",
+      "wrong": [
+        "to",
+        "of"
+      ],
+      "phrase": "apologise for",
+      "fa": "عذرخواهی کردن برای",
+      "example": {
+        "en": "He apologised for being late.",
+        "fa": "او برای دیر رسیدن عذرخواهی کرد."
+      }
+    },
+    {
+      "id": "apply-for",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "apply ___ a job",
+      "answer": "for",
+      "wrong": [
+        "to",
+        "on"
+      ],
+      "phrase": "apply for a job",
+      "fa": "برای کاری درخواست دادن",
+      "example": {
+        "en": "She applied for a job in Tehran.",
+        "fa": "او برای کاری در تهران درخواست داد."
+      }
+    },
+    {
+      "id": "consist-of",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "consist ___",
+      "answer": "of",
+      "wrong": [
+        "in",
+        "from"
+      ],
+      "phrase": "consist of",
+      "fa": "تشکیل شدن از",
+      "example": {
+        "en": "The test consists of fifty questions.",
+        "fa": "آزمون از پنجاه پرسش تشکیل شده است."
+      }
+    },
+    {
+      "id": "suffer-from",
+      "tag": "verb+prep",
+      "level": "B2",
+      "blank": "suffer ___",
+      "answer": "from",
+      "wrong": [
+        "of",
+        "with"
+      ],
+      "phrase": "suffer from",
+      "fa": "رنج بردن از",
+      "example": {
+        "en": "Many learners suffer from stage fright.",
+        "fa": "بسیاری از زبان‌آموزان از ترس صحنه رنج می‌برند."
+      }
+    },
+    {
+      "id": "belong-to",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "belong ___",
+      "answer": "to",
+      "wrong": [
+        "in",
+        "for"
+      ],
+      "phrase": "belong to",
+      "fa": "تعلق داشتن به",
+      "example": {
+        "en": "This book belongs to the library.",
+        "fa": "این کتاب مال کتابخانه است."
+      }
+    },
+    {
+      "id": "look-forward-to",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "look forward ___",
+      "answer": "to",
+      "wrong": [
+        "for",
+        "at"
+      ],
+      "phrase": "look forward to",
+      "fa": "بی‌صبرانه منتظر بودن",
+      "example": {
+        "en": "I look forward to your reply.",
+        "fa": "منتظر پاسخ شما هستم."
+      }
+    },
+    {
+      "id": "good-at",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "good ___",
+      "answer": "at",
+      "wrong": [
+        "in",
+        "on"
+      ],
+      "phrase": "good at",
+      "fa": "ماهر در",
+      "example": {
+        "en": "She is good at explaining grammar.",
+        "fa": "او در توضیح دستور زبان ماهر است."
+      }
+    },
+    {
+      "id": "interested-in",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "interested ___",
+      "answer": "in",
+      "wrong": [
+        "on",
+        "at"
+      ],
+      "phrase": "interested in",
+      "fa": "علاقه‌مند به",
+      "example": {
+        "en": "I am interested in old films.",
+        "fa": "من به فیلم‌های قدیمی علاقه دارم."
+      }
+    },
+    {
+      "id": "concentrate-on",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "concentrate ___",
+      "answer": "on",
+      "wrong": [
+        "in",
+        "at"
+      ],
+      "phrase": "concentrate on",
+      "fa": "تمرکز کردن روی",
+      "example": {
+        "en": "Concentrate on one sound at a time.",
+        "fa": "هر بار روی یک صدا تمرکز کن."
+      }
+    },
+    {
+      "id": "congratulate-on",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "congratulate somebody ___",
+      "answer": "on",
+      "wrong": [
+        "for",
+        "to"
+      ],
+      "phrase": "congratulate somebody on",
+      "fa": "به کسی برای چیزی تبریک گفتن",
+      "example": {
+        "en": "They congratulated her on the result.",
+        "fa": "آن‌ها برای نتیجه به او تبریک گفتند."
+      }
+    },
+    {
+      "id": "prevent-from",
+      "tag": "verb+prep",
+      "level": "B2",
+      "blank": "prevent somebody ___",
+      "answer": "from",
+      "wrong": [
+        "of",
+        "to"
+      ],
+      "phrase": "prevent somebody from",
+      "fa": "جلوی کسی را گرفتن از",
+      "example": {
+        "en": "Fear prevented him from speaking.",
+        "fa": "ترس او را از حرف زدن بازداشت."
+      }
+    },
+    {
+      "id": "worried-about",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "worried ___",
+      "answer": "about",
+      "wrong": [
+        "of",
+        "on"
+      ],
+      "phrase": "worried about",
+      "fa": "نگرانِ",
+      "example": {
+        "en": "Do not be worried about mistakes.",
+        "fa": "نگران اشتباه‌ها نباش."
+      }
+    },
+    {
+      "id": "agree-with",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "agree ___ somebody",
+      "answer": "with",
+      "wrong": [
+        "at",
+        "for"
+      ],
+      "phrase": "agree with somebody",
+      "fa": "با کسی موافق بودن",
+      "example": {
+        "en": "I agree with you about the plan.",
+        "fa": "دربارهٔ این برنامه با تو موافقم."
+      }
+    },
+    {
+      "id": "pay-for",
+      "tag": "verb+prep",
+      "level": "A2",
+      "blank": "pay ___",
+      "answer": "for",
+      "wrong": [
+        "to",
+        "on"
+      ],
+      "phrase": "pay for",
+      "fa": "پول دادن برای",
+      "example": {
+        "en": "Who paid for the tickets?",
+        "fa": "چه کسی پول بلیت‌ها را داد؟"
+      }
+    },
+    {
+      "id": "wait-for",
+      "tag": "verb+prep",
+      "level": "A1",
+      "blank": "wait ___",
+      "answer": "for",
+      "wrong": [
+        "to",
+        "on"
+      ],
+      "phrase": "wait for",
+      "fa": "منتظر ماندن برای",
+      "example": {
+        "en": "Wait for me at the corner.",
+        "fa": "سر نبش منتظرم بمان."
+      }
+    },
+    {
+      "id": "rely-on",
+      "tag": "verb+prep",
+      "level": "B2",
+      "blank": "rely ___",
+      "answer": "on",
+      "wrong": [
+        "in",
+        "at"
+      ],
+      "phrase": "rely on",
+      "fa": "اتکا کردن به",
+      "example": {
+        "en": "You can rely on the offline dictionary.",
+        "fa": "می‌توانی به واژه‌نامهٔ آفلاین اتکا کنی."
+      }
+    },
+    {
+      "id": "succeed-in",
+      "tag": "verb+prep",
+      "level": "B2",
+      "blank": "succeed ___",
+      "answer": "in",
+      "wrong": [
+        "on",
+        "to"
+      ],
+      "phrase": "succeed in",
+      "fa": "موفق شدن در",
+      "example": {
+        "en": "He succeeded in finishing the course.",
+        "fa": "او در تمام کردن دوره موفق شد."
+      }
+    },
+    {
+      "id": "complain-about",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "complain ___",
+      "answer": "about",
+      "wrong": [
+        "on",
+        "to"
+      ],
+      "phrase": "complain about",
+      "fa": "شکایت کردن از",
+      "example": {
+        "en": "They complained about the noise.",
+        "fa": "آن‌ها از سر و صدا شکایت کردند."
+      }
+    },
+    {
+      "id": "translate-into",
+      "tag": "verb+prep",
+      "level": "B1",
+      "blank": "translate ___ English",
+      "answer": "into",
+      "wrong": [
+        "in",
+        "to"
+      ],
+      "phrase": "translate into English",
+      "fa": "به انگلیسی ترجمه کردن",
+      "example": {
+        "en": "Translate the sentence into English.",
+        "fa": "جمله را به انگلیسی ترجمه کن."
+      }
+    }
+  ]
+}

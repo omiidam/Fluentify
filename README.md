@@ -21,7 +21,10 @@ no network calls, no tracking.
 | Area | Details |
 |---|---|
 | 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
-| 🗓️ Weekly quiz | a **weekly review drawn only from what was ticked off in the last seven days** — up to ten questions on those words and expressions, four options each, one paper per Monday-to-Sunday week, scored on submit and kept — **optional**: skip it and nothing changes, and fewer than five learned items means no paper rather than a thin one |
+| 🗓️ Weekly quiz | a **Friday-morning review of the Iranian week** — the words and expressions ticked off from the previous Friday to Thursday, up to ten questions, four options each. It appears **on Friday from 09:00 until midnight Tehran time** (05:30–20:30 UTC) whatever the phone's own zone says, one paper per Friday, frozen when built and scored on submit. **Optional**: skip it and nothing changes, and fewer than five learned items means no paper rather than a thin one |
+| ⏰ Due today | a **spaced-repetition queue over everything already met** — the daily ticks, the weekly quiz answers and the words saved to Review feed one ledger with an interval, an ease and a lapse count. Four verdicts (again / hard / good / easy) move the next date, and the panel reports **recall after a week** from the reviews that actually happened six to ten days later. Nothing is scheduled by opening the app |
+| 🧩 What keeps slipping | one **error log fed by the level check, the weekly quiz and the drills**: each miss keeps its class (present simple, word partners, register…), the question and its explanation, so the account panel can rank what repeats and ask the same questions again |
+| 🎯 Practice | five drills in one sheet — **word partners** (78 curated collocations, *heavy rain* not *strong rain*), **register** (the same meaning in three levels of formality), an **ear test** over the phonetics bank's minimal pairs, **dictation** (hear it, write it, marked word by word), and **say it** (read aloud; the words the recogniser did not hear are marked). No model, no network, no scoring theatre |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
@@ -146,9 +149,19 @@ never cleared, so yesterday's ticks survive the new day.
 ### Weekly quiz
 
 The daily card is the day; the weekly quiz is the week. A card under the daily
-one offers a review of **the words and expressions ticked off in the last seven
-days** — the tick the daily card already keeps is the only eligibility record,
-so there is no second vocabulary list and no second progress store. Up to ten
+one offers a review of **the words and expressions ticked off in the week that
+just closed** — the tick the daily card already keeps is the only eligibility
+record, so there is no second vocabulary list and no second progress store.
+
+The week here is the Iranian one, **Friday to Thursday**, and the clock is
+Tehran's, not the device's: this app is for Iranian learners, and a quiz that
+opens at a different hour in Dubai than in Tehran is a quiz two people cannot
+talk about. The card appears **on Friday between 09:00 and midnight Tehran
+time** — 05:30 to 20:30 UTC — and nowhere else. A word met on the quiz Friday
+belongs to the *next* paper; the paper asks the seven days that ended on
+Thursday. Iran has had no daylight saving since 2022, so the offset is one
+constant rather than a table, and `tools/check_weekly.py` runs the block twice,
+in Tehran and in New York, and fails if the two disagree. Up to ten
 questions, one per learned item, formats rotated between English meaning,
 Persian-to-English, a blank in the item's own example sentence, and which
 expression fits a situation. Distractors are other entries from the same
@@ -161,18 +174,80 @@ failure — it touches no streak, level or record. Fewer than five learned items
 means **no paper at all**: the card says how many of the five are learned
 instead of drawing an incomplete quiz.
 
-One period is one Monday-to-Sunday block of the device's calendar. The paper is
-built once from the seven days that end at build time and frozen into
-`fluentify.weekly.quiz.v1`, so a refresh, a restart or a second tab opens the
-same questions; the next Monday opens a new period with a new paper. The build
+One period is one Friday. The paper is built once from the seven days that
+ended on the Thursday before it and frozen into `fluentify.weekly.quiz.v1`, so a
+refresh, a restart or a second tab opens the same questions; the next Friday
+opens a new period with a new paper. The build
 is seeded by the period and the sorted item ids, so the same week and the same
 ticks always give byte-identical questions, and the record keeps twelve periods.
 Results are scored against the key (`n of 10`, percentage, and every missed
 question with its correct answer and the item's own definition), and submitting
 twice, or reloading after submitting, lands on the same stored result.
-`tools/check_weekly.py` runs the page's own block in node over eligibility,
-determinism, scoring, the skip/finish store and the pruning, and the page's
-wiring.
+`tools/check_weekly.py` runs the page's own block in node over the Friday
+window, the week, determinism, scoring, the skip/finish store and the pruning,
+in two timezones, and checks the page's wiring.
+
+### Due today
+
+The review panel used to hold a word and a tick: nothing was scheduled, and
+"mastered" meant the learner had tapped the right button once. Now every item
+the app has met — a ticked daily word, a ticked expression, a word saved to
+Review — enters one ledger (`fluentify.mastery.v1`) with an interval, an ease,
+a lapse count and the date it should come back.
+
+The **⏰ Due** tab asks what is due today and offers four verdicts. *Again*
+keeps the item due now and counts a lapse; *hard*, *good* and *easy* grow the
+interval by increasingly large steps, capped at 180 days so one confident
+answer cannot bury an item for a year, with the ease held between 1.3 and 3.2.
+The weekly quiz feeds the same ledger: a right answer is a recall, a wrong one
+is a lapse, so the schedule learns from the review as well as from the queue.
+
+The header is a measurement, not a promise: **recall after a week** counts only
+the reviews that happened six to ten days after the previous one, and only the
+ones answered *good* or *easy*, and the panel prints how many that was. A month
+counter does the same for twenty-five to thirty-five days. Opening the app
+counts for nothing.
+
+### What keeps slipping
+
+A level-check item knows its subskill; the quiz knows which word it asked; a
+drill knows which partner it wanted. Each of those was shown once and thrown
+away. Now every miss writes an event (class, item, day) and the question itself
+into `fluentify.errors.v1` — a same-question repeat replaces the older copy, and
+the record is bounded at four hundred events and eighty questions.
+
+The account panel ranks the classes by how often they happen, and **Practise**
+opens that class in the drill sheet: the same questions that were missed, with
+the explanation the exercise already carried. Nothing here scores the learner;
+it counts what the app was already told.
+
+### Practice
+
+Five drills in one sheet, reached from one card in the transcript — a card, not
+a toolbar tile, because none of them is a section of its own:
+
+| drill | what it tests | where the content comes from |
+| --- | --- | --- |
+| **Word partners** | *heavy rain*, *make a decision*, *depend on* — the collocation, not the grammar | `collocations.json`, 78 authored entries with the partners English does not use as distractors |
+| **Register** | one meaning, three levels of formality, one right answer | `register.json`, the same bank the chat answers from |
+| **Ear test** | ship/sheep, ten/den, cheap/jeep — with no microphone | the `vs` rows of `phonetics.json`, which the panel had only ever listed |
+| **Dictation** | hear a sentence, write it, marked word by word | `listening.json`, the six CEFR sets |
+| **Say it** | read a sentence aloud; the words the recogniser did not hear are marked | the same sentences, through the device's own recogniser |
+
+Dictation and *say it* share one comparison: case, punctuation and contractions
+are normalised, and the alignment is a longest common subsequence, so a dropped
+word costs itself and not every word after it. A recogniser miss is presented as
+exactly that — which words came back — and never as a phoneme score.
+
+Every drill is seeded by the local date, so a day asks the same questions twice,
+and every miss goes to the error log, so the profile knows about it.
+
+### `collocations.json`
+
+One entry per pair: a blank, the one word that completes it, two partners that
+are grammatical but not English, the finished phrase, its Persian, an example in
+both languages, a tag and a level. Hand-written, because a collocation bank
+generated from a dictionary invents pairs and teaches them.
 
 ### Fox stickers
 
@@ -735,6 +810,10 @@ Thirteen suites:
 | BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
 | offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
 | dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licences still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
+| weekly quiz | does it open on Friday morning Tehran time and ask the Friday-to-Thursday week that just closed? Run twice, in two timezones, which must not disagree. |
+| mastery schedule | does anything come back, and on time? The interval/ease/lapse arithmetic, the recall counters, the queue, the cap and the corrupt record. |
+| error log & profile | does a diagnosed mistake ever add up? One log from the level check, the quiz and the drills, ranked, bounded, and re-askable. |
+| practice drills | are the four drills sound? Word partners, register, the ear test over the phonetics pairs, and the word-level comparison behind dictation and speaking, plus the authored bank itself. |
 | grammar corrector | is it GEC-BART Base, on the server, and absent from the app? `gec.json` must pin the checkpoint and the ArvanCloud location and carry no global switch; the page, `bot.js` and the Kotlin must name no checkpoint and hold no weights, and the bundle must stay under 60 MB; the default chat reply must stay identical with `FLUENTIFY_GEC` unset; and the installed model must repair the bench and the 73-sentence corpus. |
 
 That last one matters more than its size suggests. A duplicate top-level name
