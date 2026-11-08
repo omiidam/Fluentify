@@ -318,6 +318,8 @@ say(perfect.result.startedAt === undefined, 'the report carries no raw attempt s
 const hopeless = sit(() => false);
 say(hopeless.result.right === 0, `an empty paper scores 0 (got ${hopeless.result.right})`);
 say(overall(hopeless.result) === 'Pre-A1', `a beginner is placed at Pre-A1 (got ${overall(hopeless.result)})`);
+say(hopeless.result.overall === 'Pre-A1',
+    `a paper under the A1 cutoff does not name its band (got ${hopeless.result.overall})`);
 
 const b1 = sit((item) => ['A1', 'A2', 'B1'].includes(item.band));
 say(b1.result.right === 30, `a B1 learner is right thirty times (got ${b1.result.right})`);

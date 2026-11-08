@@ -3409,6 +3409,71 @@
   .jump:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
   .jump svg { width: 17px; height: 17px; display: block; }
 
+  /* ---------- practice drawer: the quick way into the drills --------------
+     A circular control in the corner of the transcript that unfolds the same
+     sheet the Practice section shows - not a second set of drills. It is a
+     child of .chatwrap, so it is clipped with the transcript when a section is
+     open and it cannot cover the composer, which is a sibling below it. The
+     jump button owns the bottom centre; this owns the right. */
+  .prfab {
+    position: absolute; right: 14px; bottom: 14px; z-index: 8;
+    width: 48px; height: 48px; border-radius: 50%; cursor: pointer;
+    display: grid; place-items: center; font-family: inherit; line-height: 1;
+    color: var(--on-fill); border: 1px solid var(--line2);
+    background: linear-gradient(135deg, var(--gold-ink), var(--fill-navy3));
+    box-shadow: 0 8px 20px rgba(74,58,30,.34);
+    transition: transform .18s cubic-bezier(.22,1,.36,1), filter .15s,
+                box-shadow .18s;
+  }
+  .prfab:hover { filter: brightness(1.1); }
+  .prfab:active { transform: scale(.94); }
+  .prfab:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .prfab svg { width: 21px; height: 21px; display: block; }
+  .prfab[aria-expanded="true"] {
+    transform: rotate(90deg);
+    background: linear-gradient(135deg, var(--fill-navy3), var(--fill-slate));
+  }
+  .prdrawer {
+    position: absolute; right: 12px; bottom: 72px; z-index: 9;
+    width: min(346px, calc(100% - 24px));
+    max-height: calc(100% - 86px);
+    display: flex; flex-direction: column;
+    border: 1px solid var(--line2); border-radius: 16px;
+    background: var(--surf-2);
+    box-shadow: 0 18px 44px rgba(34,32,28,.30);
+    transform-origin: bottom right;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateY(10px) scale(.97);
+    transition: opacity .18s, transform .22s cubic-bezier(.22,1,.36,1),
+                visibility 0s .22s;
+  }
+  .prdrawer.on {
+    opacity: 1; visibility: visible; pointer-events: auto; transform: none;
+    transition: opacity .18s, transform .22s cubic-bezier(.22,1,.36,1);
+  }
+  .prdhead {
+    flex: none; display: flex; align-items: center; gap: 8px;
+    padding: 9px 10px 9px 13px; border-bottom: 1px solid var(--line);
+  }
+  .prdtitle { font-size: 12.5px; font-weight: 800; color: var(--navy2); }
+  .prdtitle .fa { font-family: var(--font-fa); font-weight: 600; color: var(--muted); }
+  .prdclose {
+    margin-inline-start: auto; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer; font-family: inherit;
+    color: var(--ink-2); background: var(--surf-1); border: 1px solid var(--line2);
+  }
+  .prdclose:hover { background: var(--surf-3); }
+  .prdclose:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .prdclose svg { width: 13px; height: 13px; display: block; }
+  /* The sheet keeps its own parts - the same tabs, prompt, options and diff -
+     and only loses the page margins it had when it owned a whole section. */
+  .prdbody { padding: 10px 12px 13px; overflow: auto; overscroll-behavior: contain; }
+  .prdbody .prwrap { max-width: none; margin: 0; }
+  .prdbody .wq-prompt { font-size: 13px; }
+  @media (prefers-reduced-motion: reduce) {
+    .prfab, .prdrawer, .prdrawer.on { transition: none; }
+  }
+
   /* typing indicator */
   .typing { display: inline-flex; gap: 5px; padding: 13px 16px !important; }
   .typing span {
@@ -5970,6 +6035,29 @@
             title="Latest ↓"><svg viewBox="0 0 16 16" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></button>
+    <!-- Practice, one tap away: the drills that live in the transcript also
+         unfold from here, in place, without leaving the conversation. -->
+    <section id="prdrawer" class="prdrawer" role="dialog" aria-modal="false"
+             aria-label="Practice — تمرین" aria-hidden="true">
+      <div class="prdhead">
+        <span class="prdtitle">Practice<small class="fa" dir="rtl" lang="fa"> · تمرین</small></span>
+        <button type="button" class="prdclose" data-pr-drawer="close"
+                aria-label="Close practice / بستن تمرین" title="Close / بستن">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </div>
+      <div class="prdbody" id="prdbody"></div>
+    </section>
+    <button type="button" id="prfab" class="prfab" aria-expanded="false"
+            aria-controls="prdrawer" aria-label="Practice — تمرین"
+            title="Practice — تمرین">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="7.6"/><circle cx="12" cy="12" r="3.1"/>
+        <path d="M12 1.9v2.6M12 19.5v2.6M1.9 12h2.6M19.5 12h2.6"/>
+      </svg>
+    </button>
   </div>
 
   <div class="stt-panel" id="stt" hidden></div>
@@ -10701,6 +10789,11 @@ const Level = (() => {
     items: 'fluentify.level.items',
   };
   const BANDS = ['A1', 'A2', 'B1', 'B2', 'C1'];
+  /* Below the first tested band is a level of its own, not an absence. The
+     paper cannot measure under A1 - its first part is A1 - so a finished paper
+     that stays under the A1 cutoff is reported as Pre-A1, and the learning path
+     opens on Pre-A1's own card rather than on A1. */
+  const PRE = 'Pre-A1';
   const DAY = 86400000;
   const LETTERS = ['A', 'B', 'C', 'D'];
 
@@ -10728,9 +10821,10 @@ const Level = (() => {
   const faLine = (text, cls) =>
     `<p class="lv-fa${cls ? ' ' + cls : ''}" dir="rtl" lang="fa">${esc(text)}</p>`;
 
-  const bandLabel = (band) => (band ? band : 'Pre-A1');
-  const bandIndex = (band) => (band ? BANDS.indexOf(band) : -1);
-  const bandKey = (band) => (band ? band : 'PRE');
+  const isPre = (band) => !band || band === PRE || band === 'PRE';
+  const bandLabel = (band) => (isPre(band) ? PRE : band);
+  const bandIndex = (band) => (isPre(band) ? -1 : BANDS.indexOf(band));
+  const bandKey = (band) => (isPre(band) ? 'PRE' : band);
   const bandName = (band) => {
     const b = doc.bands.find((x) => x.id === bandKey(band));
     return b ? b.name.en : '';
@@ -10995,7 +11089,7 @@ const Level = (() => {
     });
     return {
       at: new Date().toISOString(),
-      overall: levelFromCorrect(earned, outOf, cutoffs),
+      overall: levelFromCorrect(earned, outOf, cutoffs) || PRE,
       right,
       total,
       earned: Math.round(earned * 100) / 100,
@@ -11688,10 +11782,10 @@ const Level = (() => {
     const result = read(KEY.result, null);
     if (!badge) return;
     if (result && result.overall) {
-      badge.textContent = result.overall;
+      badge.textContent = bandKey(result.overall);
       badge.hidden = false;
     } else if (result) {
-      badge.textContent = 'A1-';
+      badge.textContent = 'PRE';
       badge.hidden = false;
     } else {
       badge.hidden = true;
@@ -14562,6 +14656,18 @@ const Drills = {
     return list[Math.abs(seed) % list.length];
   },
 
+  /* The listening bank is one object - {levels: [...]} - and every reader of
+     it has to unwrap the same way. The chat engine writes that unwrap inline
+     ((data.listening && data.listening.levels) || data.listening); the practice
+     sheet read the file as though it were already the array, so both dictation
+     and say-it found no sentences and told the learner the bank was missing.
+     One unwrapper, and the tests feed it the real file. */
+  levels(raw) {
+    if (Array.isArray(raw)) return raw;
+    if (raw && Array.isArray(raw.levels)) return raw.levels;
+    return [];
+  },
+
   /* A word partner. The blank is authored, the alternatives are authored -
      grammatical but not English - so the question teaches the difference and
      not merely which string is in a file. */
@@ -15147,7 +15253,7 @@ const Practice = (() => {
     try { data.coll = await loadJSON('collocations'); } catch (e) { data.coll = {entries: []}; }
     try { data.reg = await loadJSON('register'); } catch (e) { data.reg = {pairs: []}; }
     try { data.pairs = Drills.pairs(await loadJSON('phonetics')); } catch (e) { data.pairs = []; }
-    try { data.listen = await loadJSON('listening'); } catch (e) { data.listen = []; }
+    try { data.listen = Drills.levels(await loadJSON('listening')); } catch (e) { data.listen = []; }
   }
 
   /* ---- the card in the transcript ------------------------------------- */
@@ -15223,10 +15329,17 @@ const Practice = (() => {
   }
 
   function listeningSet() {
-    const levels = Array.isArray(data.listen) ? data.listen : [];
+    const levels = Drills.levels(data.listen);
     if (!levels.length) return [];
-    const lv = levels[Math.min(level, levels.length - 1)];
-    return (lv && Array.isArray(lv.sentences)) ? lv.sentences : [];
+    /* the chosen level first, then the nearest one that actually has lines, so
+       a level that was emptied cannot take dictation down with it */
+    const at = Math.min(level, levels.length - 1);
+    const order = [at].concat(levels.map((_, n) => n).filter((n) => n !== at));
+    for (const n of order) {
+      const lv = levels[n];
+      if (lv && Array.isArray(lv.sentences) && lv.sentences.length) return lv.sentences;
+    }
+    return [];
   }
 
   function sentenceFor(salt) {
@@ -15389,9 +15502,10 @@ const Practice = (() => {
       '" data-pr-level="' + n + '">' + esc(lv.id) + '</button>').join('') + '</div>';
   }
 
-  function render() {
-    const box = body();
-    if (!box) return;
+  /* The sheet, as markup. The section draws it into #prbody; the drawer in the
+     transcript draws the same string into its own box, so the two can never
+     drift into two versions of one drill. */
+  function sheetHtml() {
     let inner = '';
     if (tab === 'coll') {
       const q = Drills.collocation(data.coll, seed(1));
@@ -15410,7 +15524,14 @@ const Practice = (() => {
     } else {
       inner = slipHtml();
     }
-    box.innerHTML = '<div class="prwrap">' + tabsHtml() + levelRow() + inner + '</div>';
+    return '<div class="prwrap">' + tabsHtml() + levelRow() + inner + '</div>';
+  }
+
+  function render() {
+    const box = body();
+    if (box) box.innerHTML = sheetHtml();
+    /* the drawer may be showing the same drill in the transcript */
+    if (typeof PracticeDrawer !== 'undefined') PracticeDrawer.paint();
   }
 
   /* ---- answers --------------------------------------------------------- */
@@ -15518,8 +15639,10 @@ const Practice = (() => {
     render();
   }
 
-  function bind() {
-    const box = body();
+  /* One set of handlers, bound to whichever box is showing the sheet: the
+     section's body, the drawer's, or both. */
+  function bindTo(el) {
+    const box = el;
     if (!box || box.dataset.prBound) return;
     box.dataset.prBound = '1';
     box.addEventListener('click', (e) => {
@@ -15541,6 +15664,8 @@ const Practice = (() => {
     });
   }
 
+  function bind() { bindTo(body()); }
+
   async function init() {
     bind();
     await load();
@@ -15548,7 +15673,112 @@ const Practice = (() => {
   }
 
   return {init, open, mountCard: mountPractice, refresh: mountPractice, setTab,
-          PANEL: PANEL, TABS: TABS};
+          bindTo, sheetHtml, ensure: load, PANEL: PANEL, TABS: TABS};
+})();
+
+/* ============================================================================
+ * PRACTICE DRAWER
+ *
+ * The circular control in the corner of the transcript. It unfolds the sheet
+ * the Practice section shows, in place, so a drill can be picked up without
+ * leaving the conversation - the same tabs, the same questions, the same
+ * marking, drawn from Practice.sheetHtml(). Nothing is duplicated: the drawer
+ * owns where the sheet is put, Practice owns what it says, and the module's
+ * state lives outside both, so folding the drawer away mid-exercise loses
+ * nothing and the tab comes back where it was left.
+ *
+ * Closed, the drawer is visibility:hidden and takes no pointer events, so it
+ * is neither a tab stop nor an invisible target over the transcript.
+ * ==========================================================================*/
+const PracticeDrawer = (() => {
+  let open = false;
+  let bound = false;
+
+  const root = () => document.getElementById('prdrawer');
+  const fab = () => document.getElementById('prfab');
+  const box = () => document.getElementById('prdbody');
+
+  function paint() {
+    const b = box();
+    if (!b || !open) return;
+    b.innerHTML = Practice.sheetHtml();
+  }
+
+  function setOpen(on, refocus) {
+    const r = root(), f = fab();
+    if (!r || !f) return;
+    open = !!on;
+    r.classList.toggle('on', open);
+    r.setAttribute('aria-hidden', open ? 'false' : 'true');
+    f.setAttribute('aria-expanded', open ? 'true' : 'false');
+    f.setAttribute('aria-label', open ? 'Close practice — بستن تمرین'
+                                       : 'Practice — تمرین');
+    f.title = f.getAttribute('aria-label');
+    if (open) {
+      paint();
+      const first = box() && box().querySelector('button');
+      if (first) first.focus({preventScroll: true});
+    } else if (refocus) {
+      f.focus({preventScroll: true});
+    }
+  }
+
+  /* The banks are read before the drawer is drawn, so it never opens onto a
+     sheet that is still empty and then flips. */
+  async function toggle() {
+    if (open) { setOpen(false, true); return; }
+    await Practice.ensure();
+    setOpen(true);
+  }
+
+  /* used by anything that wants a particular drill: the card in the transcript,
+     the account panel's "what slips" rows */
+  async function openTab(which) {
+    await Practice.ensure();
+    Practice.setTab(which);
+    setOpen(true);
+    paint();
+  }
+
+  function bind() {
+    if (bound) return;
+    const r = root(), f = fab(), b = box();
+    if (!r || !f || !b) return;
+    bound = true;
+    f.addEventListener('click', () => { toggle(); });
+    r.addEventListener('click', (e) => {
+      if (e.target.closest('[data-pr-drawer="close"]')) setOpen(false, true);
+    });
+    /* the same delegated handlers the section uses, on the drawer's box */
+    Practice.bindTo(b);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && open) setOpen(false, true);
+    });
+    /* A tap outside folds it away. The path is read from the event, not from
+       the target's ancestors: answering a question re-draws the drawer, so by
+       the time the event reaches document the button that was tapped is no
+       longer connected to anything and closest() would call that "outside". */
+    document.addEventListener('click', (e) => {
+      if (!open) return;
+      const path = typeof e.composedPath === 'function' ? e.composedPath() : [];
+      if (path.includes(r) || path.includes(f)) return;
+      if (e.target && e.target.closest &&
+          (e.target.closest('#prdrawer') || e.target.closest('#prfab'))) return;
+      setOpen(false);
+    });
+  }
+
+  async function init() {
+    bind();
+    await Practice.ensure();
+  }
+
+  /* Bound at definition, not at boot: the control is on screen the moment the
+     transcript is, and waiting for the banks to load before it answers a tap
+     made the first tap of a cold start do nothing. */
+  bind();
+
+  return {init, toggle, setOpen, paint, openTab, isOpen: () => open};
 })();
 
 /* The account panel's "what keeps slipping" list. It is a view of one file,
@@ -15616,9 +15846,13 @@ const PathModel = {
   FLOOR: 0.5,
 
   /* The starting level is the level check's own overall band, never a guess and
-     never a default of A1. A paper that scored below the first band is PRE. */
+     never a default of A1. A paper that scored below the first band is
+     reported as 'Pre-A1' and opens on the PRE card - the name and the id are
+     both accepted, because the assessment writes one and path.json the other. */
   startLevel(result) {
-    const id = result && result.overall ? String(result.overall) : '';
+    const raw = result && (result.overall || result.band);
+    const id = raw == null ? '' : String(raw).trim().toUpperCase();
+    if (id === 'PRE' || id === 'PRE-A1' || id === 'PRE A1') return 'PRE';
     return this.ORDER.indexOf(id) >= 0 ? id : 'PRE';
   },
 
@@ -15628,8 +15862,14 @@ const PathModel = {
                 itself, or the level that follows one the learner has passed
      available- a lower level with a course, open to revisit
      past     - a lower level with no course: behind them, nothing to open
-     locked   - above the learner, and nothing has been passed to reach it */
-  status(id, start, hasCourse, passed, belowPassed) {
+     locked   - above the learner, and nothing has been passed to reach it
+
+     `nearest` is the level a learner who has nothing to start should be
+     offered: when the assessed level's own course is not written yet (Pre-A1
+     today) the nearest written level above it is open, under its own name and
+     with its own button - an offer, not a redirect. Everything else above the
+     learner stays locked. */
+  status(id, start, hasCourse, passed, belowPassed, nearest = null) {
     if (passed) return 'done';
     const at = this.ORDER.indexOf(id);
     const from = this.ORDER.indexOf(start);
@@ -15639,6 +15879,7 @@ const PathModel = {
     /* Passing the level below makes this one next, not out of reach: it is a
        real space with a real status, waiting for its curriculum. */
     if (!hasCourse && belowPassed) return 'awaiting';
+    if (hasCourse && nearest && id === nearest) return 'available';
     return 'locked';
   },
 
@@ -15875,6 +16116,19 @@ const Path = (() => {
   const course = (id) => (bank && bank.courses ? bank.courses[id] : null) || null;
   const levelRow = (id) => ((bank && bank.levels) || []).find((l) => l.id === id) || null;
 
+  /* A learner placed on a level whose course is not written yet (Pre-A1 today)
+     has nothing to open there. The nearest written level above is offered, by
+     name and with its own button - the assessed card is not replaced, and the
+     learner is not moved without being told. */
+  const nearestOffer = (here) => {
+    const from = PathModel.ORDER.indexOf(here);
+    if (!here || from < 0 || course(here)) return null;
+    const above = ((bank && bank.levels) || [])
+      .filter((l) => PathModel.ORDER.indexOf(l.id) > from && course(l.id));
+    above.sort((a, b) => PathModel.ORDER.indexOf(a.id) - PathModel.ORDER.indexOf(b.id));
+    return above.length ? above[0].id : null;
+  };
+
   /* ------------------------------------------------------------- chrome */
 
   /* The tile exists only after the level check has been taken: a learning path
@@ -15886,7 +16140,7 @@ const Path = (() => {
     tile.hidden = !(result && result.overall !== undefined);
     const badge = document.getElementById('pathbadge');
     if (badge && result) {
-      badge.textContent = String(result.overall || 'PRE');
+      badge.textContent = PathModel.startLevel(result);
       badge.hidden = false;
     }
   }
@@ -15925,12 +16179,13 @@ const Path = (() => {
     const here = start();
     const asked = placement();
     const under = (asked && asked.overall) || 'PRE';
+    const offer = nearestOffer(here);
     const cards = ((bank && bank.levels) || []).map((lv) => {
       const c = course(lv.id);
       const p = prog(lv.id);
       const below = PathModel.ORDER[PathModel.ORDER.indexOf(lv.id) - 1];
       const state = PathModel.status(lv.id, here, !!c, !!p.passed,
-        !!(below && prog(below).passed));
+        !!(below && prog(below).passed), offer);
       const st = PathModel.stats(c, p);
       const action = state === 'current' || state === 'available'
         ? '<button type="button" class="path-btn" data-path="level" data-id="' + lv.id + '">' +
@@ -15951,7 +16206,10 @@ const Path = (() => {
           ? '<p class="plv-note">Opens after the level below is passed.</p>'
           : state === 'past'
             ? '<p class="plv-note">Below the level this assessment placed you at.</p>'
-            : '';
+            : state === 'available' && lv.id === offer
+              ? '<p class="plv-note">The written course to start with; your own '
+                + 'level\u2019s curriculum is still being written.</p>'
+              : '';
       return '<article class="plv plv-' + state + '">' +
           '<div class="plv-top"><span class="plv-badge">' + esc(lv.label) + '</span>' +
             '<span class="plv-state">' + esc(STATE[state][0]) + ' ' + fa(STATE[state][1]) + '</span>' +
@@ -17266,6 +17524,8 @@ async function loadDaily() {
   await Weekly.init();
   // the drills are a card of their own, under both of those
   await Practice.init();
+  // and the circular control in the transcript folds the same sheet out
+  await PracticeDrawer.init();
   Slip.init();
 }
 

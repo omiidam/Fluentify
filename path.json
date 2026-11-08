@@ -5,8 +5,8 @@
    "id": "PRE",
    "label": "Pre-A1",
    "name": {
-    "en": "Starting out",
-    "fa": "شروع"
+    "en": "Absolute beginner",
+    "fa": "مبتدی مطلق"
    },
    "can": {
     "en": "You recognise greetings, numbers and a few everyday words.",
@@ -18,7 +18,7 @@
    "id": "A1",
    "label": "A1",
    "name": {
-    "en": "Elementary beginner",
+    "en": "Beginner",
     "fa": "مبتدی"
    },
    "can": {

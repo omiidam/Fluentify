@@ -32,6 +32,7 @@ CACHE = ROOT / "tools/.cache"
 COLL = ROOT / "collocations.json"
 REGISTER = ROOT / "register.json"
 PHON = ROOT / "phonetics.json"
+LISTEN = ROOT / "listening.json"
 
 problems: list[str] = []
 
@@ -186,6 +187,31 @@ const phon = JSON.parse(fs.readFileSync(__PHON__, 'utf8'));
   }
 }
 
+/* ---- the listening bank ------------------------------------------------
+   listening.json is one object, {levels: [...]}, and both dictation and say-it
+   read it through Drills.levels. Read as though it were already the array, the
+   file looks empty and the sheet says the bank is not on the device - which is
+   what it said on every platform until this test existed. */
+const listen = JSON.parse(fs.readFileSync(__LISTEN__, 'utf8'));
+{
+  check(Array.isArray(listen.levels) && listen.levels.length >= 4,
+    'listening.json no longer carries a levels array');
+  const levels = Drills.levels(listen);
+  check(levels.length === (listen.levels || []).length,
+    'the unwrapper dropped levels: ' + levels.length);
+  check(levels.every((lv) => Array.isArray(lv.sentences) && lv.sentences.length),
+    'a level carries no sentences');
+  check(levels.every((lv) => lv.sentences.every((s) => s.en && s.fa)),
+    'a listening line is missing one of its languages');
+  check(Drills.levels(levels) === levels, 'an already-unwrapped bank was rewrapped');
+  check(Drills.levels([]).length === 0 && Drills.levels({}).length === 0,
+    'an empty bank became something else');
+  check(Drills.levels(null).length === 0, 'a missing bank threw');
+  out.listenLevels = levels.length;
+  out.listenLines = levels.reduce((n, lv) => n + lv.sentences.length, 0);
+  check(out.listenLines >= 24, 'the bank is only ' + out.listenLines + ' lines long');
+}
+
 out.problems = problems;
 fs.writeFileSync(outPath, JSON.stringify(out));
 console.log('pairs', out.pairs, 'partners', out.entries);
@@ -210,7 +236,8 @@ def run_block() -> dict:
         .replace("__DRILLS__", drills)
         .replace("__COLL__", json.dumps(str(COLL)))
         .replace("__REGISTER__", json.dumps(str(REGISTER)))
-        .replace("__PHON__", json.dumps(str(PHON))),
+        .replace("__PHON__", json.dumps(str(PHON)))
+        .replace("__LISTEN__", json.dumps(str(LISTEN))),
         encoding="utf-8")
     out = CACHE / "practice_out.json"
     proc = subprocess.run(["node", str(script), str(out)], capture_output=True, text=True)
@@ -292,12 +319,58 @@ def wiring() -> None:
         check("practicecard" in built, "the built page has no practice card")
     build = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")
     check('"collocations.json"' in build, "the APK bundle does not copy the collocation bank")
+    check('"listening.json"' in build, "the APK bundle does not copy the listening bank")
+    check((ROOT / "android/app/src/main/assets/www/data/listening.json").exists(),
+          "the built APK data folder has no listening.json")
+
+
+def drawer() -> None:
+    """The circular control in the transcript is a way in, not a second set."""
+    src = WEBAPP.read_text(encoding="utf-8")
+    start = src.index("const Practice = (() => {")
+    end = src.index("const PracticeDrawer = (() => {")
+    sheet = src[start:end]
+    tail = src[end:]
+    board = tail[:tail.index("\n})();")]
+
+    check("Drills.levels(await loadJSON('listening'))" in sheet,
+          "the sheet still reads listening.json as though it were the level array")
+    check("Drills.levels(data.listen)" in sheet,
+          "the sheet does not unwrap the bank when it draws")
+
+    check('id="prdrawer"' in src, "the transcript has no practice drawer")
+    check('id="prfab"' in src, "the transcript has no circular practice control")
+    check('aria-controls="prdrawer"' in src,
+          "the control does not name what it opens")
+    check('aria-expanded' in src, "the control never says whether it is open")
+    check("Practice.sheetHtml()" in board,
+          "the drawer does not draw the practice sheet")
+    check("Practice.bindTo(b)" in board,
+          "the drawer's buttons are not wired to the practice sheet's handlers")
+    check("Practice.ensure()" in board, "the drawer can open before the banks are read")
+    check("PracticeDrawer.paint()" in sheet,
+          "an answer in the section never reaches the drawer")
+    check("await PracticeDrawer.init()" in src,
+          "the drawer is never started")
+    check("if (e.key === 'Escape' && open)" in board,
+          "Escape does not fold the drawer away")
+    check("data-pr-drawer=\"close\"" in board + src,
+          "the drawer has no close control")
+    for own in ("Drills.collocation(", "Drills.register(", "Drills.pairQuestion(",
+                "SayMatch.compare("):
+        check(own not in board,
+              "the drawer builds its own " + own + " instead of using the sheet")
+    if BUILT.exists():
+        built = BUILT.read_text(encoding="utf-8")
+        check('id="prfab"' in built, "the built page has no practice control")
+        check('id="prdrawer"' in built, "the built page has no practice drawer")
 
 
 def main() -> int:
     result = run_block()
     content()
     wiring()
+    drawer()
     if problems:
         for p in problems[:40]:
             print("FAIL  " + p)
@@ -305,8 +378,9 @@ def main() -> int:
         return 1
     print("PASS  practice: what was heard is compared word by word, the word partners "
           "are a curated bank asked with the partners English does not use, register "
-          "has one right answer per question, and the ear test asks the pairs the "
-          "phonetics panel only listed")
+          "has one right answer per question, the ear test asks the pairs the "
+          "phonetics panel only listed, and the listening bank unwraps to sentences "
+          "for dictation and say-it")
     return 0
 
 

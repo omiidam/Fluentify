@@ -59,7 +59,7 @@ SKILLS = [
 ]
 
 BANDS = [
-    {"id": "PRE", "label": "Pre-A1", "name": L("Starting out", "شروع"),
+    {"id": "PRE", "label": "Pre-A1", "name": L("Absolute beginner", "مبتدی مطلق"),
      "can": L("You recognise greetings, numbers and a few everyday words.",
               "سلام و احوال‌پرسی، عدد و چند واژهٔ روزمره را می‌شناسی.")},
     {"id": "A1", "label": "A1", "name": L("Beginner", "مبتدی"),

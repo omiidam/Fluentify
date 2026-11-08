@@ -75,6 +75,14 @@ def check_shape(doc: dict) -> dict:
     levels = doc.get("levels") or []
     check([lv.get("id") for lv in levels] == LEVEL_IDS,
           f"levels are {[lv.get('id') for lv in levels]}")
+    check(bool(levels) and levels[0].get("id") == "PRE",
+          "Pre-A1 is not the first level of the path")
+    check(bool(levels) and levels[0].get("label") == "Pre-A1",
+          f"the first level is labelled {levels[0].get('label') if levels else None!r}")
+    check(bool(levels) and levels[0].get("course") is None,
+          "Pre-A1 claims a course it does not have")
+    check("PRE" not in (doc.get("courses") or {}),
+          "an unwritten Pre-A1 course was invented")
 
     seen = set()
     for lv in levels:
@@ -354,7 +362,8 @@ const fresh = {lessons: {}, passed: false};
 /* ---- where a learner starts: the placement, never a default of A1 ---- */
 [[{overall: 'A1'}, 'A1'], [{overall: 'A2'}, 'A2'], [{overall: 'B1'}, 'B1'],
  [{overall: 'B2'}, 'B2'], [{overall: 'C1'}, 'C1'], [{overall: 'C2'}, 'C2'],
- [{overall: 'PRE'}, 'PRE'], [null, 'PRE'], [{overall: 'X9'}, 'PRE']].forEach(([r, want]) => {
+ [{overall: 'PRE'}, 'PRE'], [{overall: 'Pre-A1'}, 'PRE'], [{overall: 'PRE-A1'}, 'PRE'],
+ [{overall: 'pre-a1'}, 'PRE'], [null, 'PRE'], [{overall: 'X9'}, 'PRE']].forEach(([r, want]) => {
   say(PathModel.startLevel(r) === want,
       `a placement of ${r && r.overall} starts at ${want}, got ${PathModel.startLevel(r)}`);
 });
@@ -377,6 +386,18 @@ say(PathModel.status('A2', 'A1', false, false, false) === 'locked',
     'A2 opens before A1 is passed');
 say(PathModel.status('A2', 'A1', true, false, true) === 'locked',
     'a written A2 above an A1 learner is open without the pass');
+
+/* A learner placed on a level whose course is not written has nothing to open,
+   so the nearest written level above is offered by name - and the assessed
+   card still says its own curriculum is missing. */
+say(PathModel.status('PRE', 'PRE', false, false) === 'awaiting',
+    'Pre-A1 with no course is not shown as awaiting');
+say(PathModel.status('A1', 'PRE', true, false, false, 'A1') === 'available',
+    'a Pre-A1 learner is not offered the A1 course');
+say(PathModel.status('B1', 'PRE', false, false, false, 'A1') === 'locked',
+    'a Pre-A1 learner is offered a level with no course');
+say(PathModel.status('A2', 'PRE', true, false, false, 'A1') === 'locked',
+    'a Pre-A1 learner is offered a level above the written one');
 
 /* ---- progress ---- */
 const s0 = PathModel.stats(course, fresh);
