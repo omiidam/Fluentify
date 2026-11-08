@@ -302,7 +302,17 @@ def wiring() -> None:
     check('id="prpanel"' in src, "the practice sheet has no markup")
     check("prpanel: null" in src, "the practice sheet is not registered with Panels")
     check("Practice.init()" in src, "the practice card is never mounted")
-    check("practicecard" in src, "the practice card has no id to replace on a repaint")
+    # one Practice, one way in: the transcript card was the second interface
+    check("practicecard" not in src,
+          "the transcript practice card is still here - there must be one way in")
+    check("mountPractice" not in src,
+          "the practice card is still mounted alongside the drawer")
+    check(src.count("const Practice = (() =>") == 1,
+          "there is more than one Practice module")
+    check(src.count("const PracticeDrawer = (() =>") == 1,
+          "there is more than one practice navigation")
+    check('#prpanel.open' in src,
+          "the practice page is not opened as a section")
     check("data-pr-open" in src, "the card has no way into a drill")
     check("/api/collocations" in src, "the collocation bank has no route")
     check("/api/register" in src, "the register bank has no route")
@@ -316,7 +326,8 @@ def wiring() -> None:
     if BUILT.exists():
         built = BUILT.read_text(encoding="utf-8")
         check("const Practice = (() => {" in built, "the built page has no practice sheet")
-        check("practicecard" in built, "the built page has no practice card")
+        check("practicecard" not in built,
+              "the built page still carries the duplicate practice card")
     build = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")
     check('"collocations.json"' in build, "the APK bundle does not copy the collocation bank")
     check('"listening.json"' in build, "the APK bundle does not copy the listening bank")
@@ -325,45 +336,68 @@ def wiring() -> None:
 
 
 def drawer() -> None:
-    """The circular control in the transcript is a way in, not a second set."""
+    """One practice navigation: the circle, the list, and a page per activity."""
     src = WEBAPP.read_text(encoding="utf-8")
-    start = src.index("const Practice = (() => {")
-    end = src.index("const PracticeDrawer = (() => {")
-    sheet = src[start:end]
-    tail = src[end:]
+    start = src.index("const PracticeDrawer = (() => {")
+    tail = src[start:]
     board = tail[:tail.index("\n})();")]
 
-    check("Drills.levels(await loadJSON('listening'))" in sheet,
-          "the sheet still reads listening.json as though it were the level array")
-    check("Drills.levels(data.listen)" in sheet,
-          "the sheet does not unwrap the bank when it draws")
-
     check('id="prdrawer"' in src, "the transcript has no practice drawer")
+    check('id="prdnav"' in src, "the drawer has no place for the activities")
     check('id="prfab"' in src, "the transcript has no circular practice control")
     check('aria-controls="prdrawer"' in src,
           "the control does not name what it opens")
     check('aria-expanded' in src, "the control never says whether it is open")
-    check("Practice.sheetHtml()" in board,
-          "the drawer does not draw the practice sheet")
-    check("Practice.bindTo(b)" in board,
-          "the drawer's buttons are not wired to the practice sheet's handlers")
-    check("Practice.ensure()" in board, "the drawer can open before the banks are read")
-    check("PracticeDrawer.paint()" in sheet,
-          "an answer in the section never reaches the drawer")
+
+    # the list is the sheet's own list, not a second one
+    check("Practice.TABS.map(" in board,
+          "the drawer does not build its rows from Practice.TABS")
+    check("Practice.open(which)" in board,
+          "choosing an activity does not open the practice page")
+    check("data-pr-open" in board, "the rows are not wired to an activity")
+    check("Panels.onClose(Practice.PANEL" in board,
+          "closing a drill does not come back to the list")
+
+    # and it is navigation only: no questions, no textarea, no marking
+    for own in ("sheetHtml", "bindTo", "SayMatch.compare(", "Drills.collocation(",
+                "Drills.register(", "Drills.pairQuestion(", "<textarea"):
+        check(own not in board,
+              "the drawer still renders the sheet itself (" + own + ")")
+
+    # the page carries the way back, not a second row of drill tabs
+    check("function backRow()" in src, "the drill page has no way back to the list")
+    check("tabsHtml" not in src,
+          "the drill page still has its own row of tabs beside the drawer")
+    check("[data-pr-back]" in src,
+          "the way back to the list is not wired to a click")
+    check("Panels.set(PANEL, false)" in src,
+          "the way back does not leave the page")
+    check("PracticeDrawer.paint" not in src,
+          "the page still asks the drawer to draw a drill")
+
+    check("e.key !== 'Escape' || !open" in board,
+          "Escape does not fold the drawer away")
+    check(", true);" in board,
+          "the drawer's Escape is not captured before the panel shell's")
+    check('data-pr-drawer="close"' in src,
+          "the drawer has no close control")
     check("await PracticeDrawer.init()" in src,
           "the drawer is never started")
-    check("if (e.key === 'Escape' && open)" in board,
-          "Escape does not fold the drawer away")
-    check("data-pr-drawer=\"close\"" in board + src,
-          "the drawer has no close control")
-    for own in ("Drills.collocation(", "Drills.register(", "Drills.pairQuestion(",
-                "SayMatch.compare("):
-        check(own not in board,
-              "the drawer builds its own " + own + " instead of using the sheet")
+    check("Panels.onClose" in src and "ON_CLOSE[panelId]()" in src,
+          "the panel shell has no close hook")
+
+    # every activity is a page, none is a half-page
+    check('id="prpanel"' in src, "there is no practice page")
+    check("#prpanel.open { display: block; }" in src or
+          "#prpanel.open" in src, "the practice page never becomes a page")
+    for panel in ("#prpanel",):
+        check(f"{panel} h3" in src, f"{panel} has no page heading")
+
     if BUILT.exists():
         built = BUILT.read_text(encoding="utf-8")
         check('id="prfab"' in built, "the built page has no practice control")
         check('id="prdrawer"' in built, "the built page has no practice drawer")
+        check('id="prdnav"' in built, "the built page has no activity list")
 
 
 def main() -> int:

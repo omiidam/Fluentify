@@ -3618,12 +3618,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .jump:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
   .jump svg { width: 17px; height: 17px; display: block; }
 
-  /* ---------- practice drawer: the quick way into the drills --------------
-     A circular control in the corner of the transcript that unfolds the same
-     sheet the Practice section shows - not a second set of drills. It is a
-     child of .chatwrap, so it is clipped with the transcript when a section is
-     open and it cannot cover the composer, which is a sibling below it. The
-     jump button owns the bottom centre; this owns the right. */
+  /* ---------- practice drawer: the one way into the drills ---------------
+     A circular control in the corner of the transcript that unfolds the
+     activities. It is the navigation, not a second sheet: picking an item
+     opens that drill as a page of its own, and closing the page folds this
+     back open on the list. It is a child of .chatwrap, so it is clipped with
+     the transcript when a section is open and it cannot cover the composer,
+     which is a sibling below it. The jump button owns the bottom centre; this
+     owns the right. */
   .prfab {
     position: absolute; right: 14px; bottom: 14px; z-index: 8;
     width: 48px; height: 48px; border-radius: 50%; cursor: pointer;
@@ -3661,26 +3663,91 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     transition: opacity .18s, transform .22s cubic-bezier(.22,1,.36,1);
   }
   .prdhead {
-    flex: none; display: flex; align-items: center; gap: 8px;
-    padding: 9px 10px 9px 13px; border-bottom: 1px solid var(--line);
+    flex: none; display: flex; align-items: center; gap: 9px;
+    padding: 11px 10px 11px 13px; border-bottom: 1px solid var(--line);
   }
-  .prdtitle { font-size: 12.5px; font-weight: 800; color: var(--navy2); }
+  .prdmark {
+    width: 26px; height: 26px; border-radius: 50%; flex: none;
+    display: grid; place-items: center; color: var(--on-fill);
+    background: linear-gradient(135deg, var(--gold-ink), var(--fill-navy3));
+  }
+  .prdmark svg { width: 15px; height: 15px; display: block; }
+  .prdtitle {
+    display: flex; align-items: baseline; gap: 6px;
+    font-size: 13px; font-weight: 800; color: var(--navy2); letter-spacing: .01em;
+  }
   .prdtitle .fa { font-family: var(--font-fa); font-weight: 600; color: var(--muted); }
   .prdclose {
     margin-inline-start: auto; width: 30px; height: 30px; border-radius: 50%;
     display: grid; place-items: center; cursor: pointer; font-family: inherit;
     color: var(--ink-2); background: var(--surf-1); border: 1px solid var(--line2);
+    transition: background .15s, transform .15s;
   }
   .prdclose:hover { background: var(--surf-3); }
+  .prdclose:active { transform: scale(.94); }
   .prdclose:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   .prdclose svg { width: 13px; height: 13px; display: block; }
-  /* The sheet keeps its own parts - the same tabs, prompt, options and diff -
-     and only loses the page margins it had when it owned a whole section. */
-  .prdbody { padding: 10px 12px 13px; overflow: auto; overscroll-behavior: contain; }
-  .prdbody .prwrap { max-width: none; margin: 0; }
-  .prdbody .wq-prompt { font-size: 13px; }
+
+  /* One row per activity: a mark, the name in both languages, and what the
+     drill actually asks. The row is the target, so it is 46px tall with the
+     whole width live, not a 30px word. */
+  .prdnav {
+    padding: 6px; overflow: auto; overscroll-behavior: contain;
+    scrollbar-width: thin; scrollbar-color: var(--surf-5) transparent;
+  }
+  .prdnav::-webkit-scrollbar { width: 6px; }
+  .prdnav::-webkit-scrollbar-thumb { background: var(--surf-5); border-radius: 6px; }
+  .prdnav::-webkit-scrollbar-track { background: transparent; }
+  .prditem {
+    width: 100%; display: grid; grid-template-columns: 34px 1fr 12px;
+    align-items: center; gap: 10px; padding: 7px 9px; min-height: 46px;
+    border: 0; border-radius: 12px; background: transparent;
+    font: inherit; text-align: start; cursor: pointer; color: var(--ink);
+    transition: background .14s, transform .14s;
+  }
+  .prditem:hover { background: var(--surf-3); }
+  .prditem:active { transform: scale(.99); }
+  .prditem:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  .prdico {
+    width: 34px; height: 34px; border-radius: 10px; flex: none;
+    display: grid; place-items: center; color: var(--gold-ink);
+    background: var(--gold-soft); border: 1px solid rgba(138,90,0,.14);
+  }
+  .prdico svg { width: 17px; height: 17px; display: block; }
+  .prdtxt { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .prden {
+    display: flex; align-items: baseline; gap: 6px; min-width: 0;
+    font-size: 12.5px; font-weight: 750; color: var(--navy2); line-height: 1.3;
+  }
+  .prden .fa {
+    font-family: var(--font-fa); font-weight: 500; font-size: 11px;
+    color: var(--muted); white-space: nowrap;
+  }
+  .prdsub {
+    font-size: 11px; line-height: 1.45; color: var(--dim);
+    /* one line, clipped rather than wrapped: a row that grows to three lines
+       makes the list a paragraph */
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .prdchev { width: 12px; height: 12px; color: var(--ink-4); }
+  .prdfoot {
+    flex: none; margin: 0; padding: 8px 13px 10px; border-top: 1px solid var(--line);
+    font-size: 10.5px; line-height: 1.5; color: var(--dim);
+  }
+  .prdfoot .fa { font-family: var(--font-fa); display: block; }
+  /* The list arrives in order, a few milliseconds apart, so the eye is led down
+     it instead of being handed six rows at once. */
+  .prdrawer.on .prditem {
+    animation: prdIn .2s cubic-bezier(.22,1,.36,1) both;
+    animation-delay: calc(var(--i, 0) * 18ms);
+  }
+  @keyframes prdIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .prfab, .prdrawer, .prdrawer.on { transition: none; }
+    .prfab, .prdrawer, .prdrawer.on, .prditem, .prdclose { transition: none; }
+    .prdrawer.on .prditem { animation: none; }
   }
 
   /* typing indicator */
@@ -4070,8 +4137,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .prcard::before {
     background: linear-gradient(90deg, var(--gold), var(--gold2) 46%, var(--surf-4));
   }
-  .prwrap { display: flex; flex-direction: column; gap: 10px; max-width: 660px; margin: 0 auto; }
+  /* The drills are a page now, so they take a reading column wide enough for a
+     sentence and its options without the eye travelling the whole window. */
+  .prwrap { display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin: 0 auto; }
   .prtabs { display: flex; flex-wrap: wrap; gap: 6px; }
+  /* The way back to the drawer, at the top of every drill page. */
+  .prback {
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 6px;
+    font: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
+    padding: 6px 12px 6px 9px; border-radius: 999px;
+    border: 1px solid var(--line2); background: var(--surf-1); color: var(--ink-2);
+    transition: background .15s, border-color .15s;
+  }
+  .prback:hover { background: var(--surf-3); border-color: rgba(138,90,0,.34); }
+  .prback:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .prback svg { width: 13px; height: 13px; display: block; }
+  .prback .fa { font-family: var(--font-fa); font-weight: 600; color: var(--muted); }
   .prtab {
     font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
     padding: 6px 11px; border-radius: 999px;
@@ -6244,19 +6325,28 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             title="Latest ↓"><svg viewBox="0 0 16 16" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></button>
-    <!-- Practice, one tap away: the drills that live in the transcript also
-         unfold from here, in place, without leaving the conversation. -->
+    <!-- The one way into Practice: a circular control that unfolds the six
+         activities, each a full page of its own. -->
     <section id="prdrawer" class="prdrawer" role="dialog" aria-modal="false"
              aria-label="Practice — تمرین" aria-hidden="true">
       <div class="prdhead">
-        <span class="prdtitle">Practice<small class="fa" dir="rtl" lang="fa"> · تمرین</small></span>
+        <span class="prdmark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="7.6"/><circle cx="12" cy="12" r="3.1"/>
+            <path d="M12 1.9v2.6M12 19.5v2.6M1.9 12h2.6M19.5 12h2.6"/></svg>
+        </span>
+        <span class="prdtitle">Practice
+          <small class="fa" dir="rtl" lang="fa">تمرین</small></span>
         <button type="button" class="prdclose" data-pr-drawer="close"
                 aria-label="Close practice / بستن تمرین" title="Close / بستن">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
         </button>
       </div>
-      <div class="prdbody" id="prdbody"></div>
+      <nav class="prdnav" id="prdnav" aria-label="Practice activities — تمرین"></nav>
+      <p class="prdfoot">Each drill opens as a full page.
+        <span class="fa" dir="rtl" lang="fa">هر تمرین در برگهٔ کامل باز می‌شود.</span></p>
     </section>
     <button type="button" id="prfab" class="prfab" aria-expanded="false"
             aria-controls="prdrawer" aria-label="Practice — تمرین"
@@ -7986,6 +8076,9 @@ const Panels = (() => {
     pathpanel: 'pathtoggle',
   };
   let openId = null;
+  /* Panels that lead somewhere when they close, rather than back to the
+     transcript: the practice page returns to the list it was chosen from. */
+  const ON_CLOSE = {};
 
   const CLOSE_ICON =
     '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" ' +
@@ -8069,6 +8162,8 @@ const Panels = (() => {
       if (panel.contains(document.activeElement)) {
         document.getElementById(TILES[panelId])?.focus();
       }
+      // ...and then whatever this panel returns to, if it is not the column
+      if (ON_CLOSE[panelId]) ON_CLOSE[panelId]();
       return;
     }
 
@@ -8129,7 +8224,13 @@ const Panels = (() => {
     });
   }
 
-  return {init, set, toggle, ensureShell, addSearch, isOpen: () => openId,
+  function onClose(panelId, fn) {
+    if (fn) ON_CLOSE[panelId] = fn;
+    else delete ON_CLOSE[panelId];
+  }
+
+  return {init, set, toggle, ensureShell, addSearch, onClose,
+          isOpen: () => openId,
           closeAll: () => { if (openId) set(openId, false); }};
 })();
 
@@ -15399,13 +15500,21 @@ const Weekly = (() => {
  * ==========================================================================*/
 const Practice = (() => {
   const PANEL = 'prpanel';
+  /* key, English, Persian, and one line saying what the drill asks - the last
+     of which is what the drawer's rows are built from. */
   const TABS = [
-    ['coll', 'Word partners', 'هم‌نشینی'],
-    ['reg', 'Register', 'لحن'],
-    ['ear', 'Ear test', 'جفت‌های صوتی'],
-    ['dict', 'Dictation', 'دیکته'],
-    ['say', 'Say it', 'بگو'],
-    ['slip', 'What slips', 'اشتباه‌ها'],
+    ['coll', 'Word partners', 'هم‌نشینی',
+      'Which word goes with which — heavy rain, not strong rain.'],
+    ['reg', 'Register', 'لحن',
+      'One meaning at three levels of formality.'],
+    ['ear', 'Ear test', 'جفت‌های صوتی',
+      'Hear a word, pick it from a pair that sounds alike.'],
+    ['dict', 'Dictation', 'دیکته',
+      'Hear a sentence, type it, marked word by word.'],
+    ['say', 'Say it', 'بگو',
+      'Read aloud; see which words were heard.'],
+    ['slip', 'What slips', 'اشتباه‌ها',
+      'The questions you missed, asked again.'],
   ];
   const cls = (key, en, fa) => ({key: key, en: en, fa: fa});
 
@@ -15436,59 +15545,6 @@ const Practice = (() => {
     try { data.listen = Drills.levels(await loadJSON('listening')); } catch (e) { data.listen = []; }
   }
 
-  /* ---- the card in the transcript ------------------------------------- */
-
-  function cardHtml() {
-    const due = Mastery.stats(Mastery.read(), today()).due;
-    const log = ErrorLog.read();
-    const rows = ErrorLog.rank(log).slice(0, 2);
-    const line = rows.length
-      ? 'You have missed ' + rows.map((r) => esc(r.en) + ' ' + r.count +
-        (r.count === 1 ? ' time' : ' times')).join(' and ') + '.'
-      : 'Six short drills on the things grammar cannot fix on its own: word '
-        + 'partners, register, sound contrasts, dictation and speaking.';
-    return '<div class="wqhead">' +
-        '<span class="wqico" aria-hidden="true">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
-        'stroke-linecap="round" stroke-linejoin="round">' +
-        '<path d="M12 3.4 20 7v10l-8 3.6L4 17V7z"/><path d="m4 7 8 3.6L20 7"/>' +
-        '<path d="M12 10.6v10"/></svg></span>' +
-        '<span class="wqtitle">Practice<small dir="rtl" lang="fa">تمرین</small></span>' +
-        '<span class="spacer"></span>' +
-        (due ? '<span class="wqscore">' + due + ' due</span>' : '') +
-        '</div>' +
-      '<p class="wqline" dir="ltr">' + line + '</p>' +
-      '<p class="wqfa" dir="rtl" lang="fa">شش تمرین کوتاه برای چیزهایی که دستور زبان ' +
-        'تنها از پسشان برنمی‌آید: هم‌نشینی واژه، لحن، تقابل صداها، دیکته و گفتار.</p>' +
-      '<div class="wqacts">' +
-        TABS.filter((t) => t[0] !== 'slip').map(([k, en, fa]) =>
-          '<button type="button" class="wqbtn' + (k === 'coll' ? '' : ' ghost') +
-          '" data-pr-open="' + k + '">' + en +
-          '<bdi class="fa" lang="fa" dir="rtl">' + fa + '</bdi></button>').join('') +
-      '</div>';
-  }
-
-  function mountPractice() {
-    const chatEl = document.getElementById('chat');
-    const old = document.getElementById('practicecard');
-    if (old && old.parentNode) old.parentNode.removeChild(old);
-    if (!chatEl) return;
-    const node = document.createElement('div');
-    node.className = 'wqcard prcard';
-    node.id = 'practicecard';
-    node.setAttribute('role', 'region');
-    node.setAttribute('aria-label', 'Practice — تمرین');
-    node.innerHTML = cardHtml();
-    const daily = document.getElementById('dailyset');
-    const week = document.getElementById('weeklyquiz');
-    const after = (week && week.parentNode === chatEl) ? week : daily;
-    if (after && after.parentNode === chatEl) chatEl.insertBefore(node, after.nextSibling);
-    else chatEl.appendChild(node);
-    node.querySelectorAll('[data-pr-open]').forEach((b) => {
-      b.addEventListener('click', () => open(b.dataset.prOpen));
-    });
-  }
-
   /* ---- the sheet ------------------------------------------------------- */
 
   function setTab(which) {
@@ -15499,11 +15555,15 @@ const Practice = (() => {
 
   async function open(which, key) {
     await load();
-    if (which) setTab(which);
+    /* coming back to the drill that is already selected keeps what was typed,
+       answered or heard; choosing a different one starts it clean */
+    if (which && which !== tab) setTab(which);
     if (key) {
       slipKey = key;
       slipAt = 0;
       tab = 'slip';
+      // the class changed, so an answer given to the last one is not this one's
+      picked = null; checked = null; typed = '';
     }
     Panels.set(PANEL, true, render);
   }
@@ -15528,12 +15588,15 @@ const Practice = (() => {
     return list[Mastery.dayOf(today()) * 7 % list.length + (idx * 3 + salt) % list.length];
   }
 
-  function tabsHtml() {
-    return '<div class="prtabs">' + TABS.map(([k, en, fa]) =>
-      '<button type="button" class="prtab' + (tab === k ? ' on' : '') +
-      '" data-pr-tab="' + k + '">' + en +
-      '<span class="fa" dir="rtl" lang="fa"> · ' + fa + '</span></button>').join('') +
-      '</div>';
+  /* The drill is the page now, and the list of drills is the drawer - so the
+     page carries the way back rather than a second row of tabs. */
+  function backRow() {
+    return '<button type="button" class="prback" data-pr-back="1" ' +
+      'aria-label="Back to the practice list — بازگشت به فهرست تمرین">' +
+      '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" ' +
+      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M9.5 3.5 5 8l4.5 4.5"/></svg>' +
+      'All drills<span class="fa" dir="rtl" lang="fa">همهٔ تمرین‌ها</span></button>';
   }
 
   const optionsHtml = (q, choice) =>
@@ -15682,9 +15745,8 @@ const Practice = (() => {
       '" data-pr-level="' + n + '">' + esc(lv.id) + '</button>').join('') + '</div>';
   }
 
-  /* The sheet, as markup. The section draws it into #prbody; the drawer in the
-     transcript draws the same string into its own box, so the two can never
-     drift into two versions of one drill. */
+  /* The sheet, as markup - the page's own body. The drawer only lists the
+     drills, so this string is drawn in exactly one place: #prbody. */
   function sheetHtml() {
     let inner = '';
     if (tab === 'coll') {
@@ -15704,14 +15766,13 @@ const Practice = (() => {
     } else {
       inner = slipHtml();
     }
-    return '<div class="prwrap">' + tabsHtml() + levelRow() + inner + '</div>';
+    return '<div class="prwrap">' + backRow() + levelRow() + inner + '</div>';
   }
 
   function render() {
     const box = body();
     if (box) box.innerHTML = sheetHtml();
-    /* the drawer may be showing the same drill in the transcript */
-    if (typeof PracticeDrawer !== 'undefined') PracticeDrawer.paint();
+    /* the drawer is navigation only: nothing of the drill is drawn there */
   }
 
   /* ---- answers --------------------------------------------------------- */
@@ -15826,9 +15887,10 @@ const Practice = (() => {
     if (!box || box.dataset.prBound) return;
     box.dataset.prBound = '1';
     box.addEventListener('click', (e) => {
-      const t = e.target.closest('[data-pr-tab],[data-pr-opt],[data-pr-next],[data-pr-play],' +
+      const t = e.target.closest('[data-pr-back],[data-pr-tab],[data-pr-opt],[data-pr-next],[data-pr-play],' +
         '[data-pr-check],[data-pr-level],[data-pr-mic],[data-pr-class]');
       if (!t) return;
+      if (t.dataset.prBack != null) { Panels.set(PANEL, false); return; }
       if (t.dataset.prTab != null) { setTab(t.dataset.prTab); render(); return; }
       if (t.dataset.prOpt != null) { choose(Number(t.dataset.prOpt)); return; }
       if (t.dataset.prNext != null) { next(); return; }
@@ -15849,23 +15911,20 @@ const Practice = (() => {
   async function init() {
     bind();
     await load();
-    mountPractice();
   }
 
-  return {init, open, mountCard: mountPractice, refresh: mountPractice, setTab,
-          bindTo, sheetHtml, ensure: load, PANEL: PANEL, TABS: TABS};
+  return {init, open, setTab, bindTo, sheetHtml, ensure: load, PANEL: PANEL, TABS: TABS};
 })();
 
 /* ============================================================================
  * PRACTICE DRAWER
  *
- * The circular control in the corner of the transcript. It unfolds the sheet
- * the Practice section shows, in place, so a drill can be picked up without
- * leaving the conversation - the same tabs, the same questions, the same
- * marking, drawn from Practice.sheetHtml(). Nothing is duplicated: the drawer
- * owns where the sheet is put, Practice owns what it says, and the module's
- * state lives outside both, so folding the drawer away mid-exercise loses
- * nothing and the tab comes back where it was left.
+ * The only way into Practice: a circular control in the corner of the
+ * transcript that unfolds the list of activities. It is navigation, not a
+ * second sheet - choosing an item opens that drill as a full page, the same
+ * #prpanel every other section uses, and closing the page folds the list back
+ * open. The rows are built from Practice.TABS, so the navigation and the sheet
+ * cannot drift into two different sets of drills.
  *
  * Closed, the drawer is visibility:hidden and takes no pointer events, so it
  * is neither a tab stop nor an invisible target over the transcript.
@@ -15873,16 +15932,45 @@ const Practice = (() => {
 const PracticeDrawer = (() => {
   let open = false;
   let bound = false;
+  /* true while the panel on screen was opened from this list, which is what
+     makes closing it come back here rather than drop to the transcript */
+  let fromList = false;
 
   const root = () => document.getElementById('prdrawer');
   const fab = () => document.getElementById('prfab');
-  const box = () => document.getElementById('prdbody');
+  const nav = () => document.getElementById('prdnav');
 
-  function paint() {
-    const b = box();
-    if (!b || !open) return;
-    b.innerHTML = Practice.sheetHtml();
+  const ICONS = {
+    coll: '<circle cx="9.2" cy="12" r="5.2"/><circle cx="14.8" cy="12" r="5.2"/>',
+    reg: '<path d="M5 19V9.5M12 19V5M19 19v-6.5"/><path d="M3 19h18"/>',
+    ear: '<path d="M3.4 10.6v2.8M7.6 7.4v9.2M12 4.2v15.6M16.4 7.4v9.2M20.6 10.6v2.8"/>',
+    dict: '<path d="M3.8 20.2h16.4"/><path d="M6.4 16.4l9-9a1.9 1.9 0 0 1 2.7 2.7l-9 9-3.6.9z"/>',
+    say: '<rect x="9" y="3" width="6" height="10.5" rx="3"/><path d="M5.6 11.4a6.4 6.4 0 0 0 12.8 0"/><path d="M12 17.8V21"/>',
+    slip: '<path d="M5.4 21V3.4"/><path d="M5.4 4.4h11.2l-2.4 4 2.4 4H5.4z"/>',
+  };
+
+  /* Built once, from the sheet's own list: an activity added to Practice.TABS
+     appears here without a second edit. */
+  function rowsHtml() {
+    return Practice.TABS.map(([k, en, fa, sub], i) =>
+      '<button type="button" class="prditem" data-pr-open="' + k + '" ' +
+      'style="--i:' + i + '" title="' + escAttr(en + ' — ' + fa) + '">' +
+        '<span class="prdico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" ' +
+          'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" ' +
+          'stroke-linejoin="round">' + (ICONS[k] || '') + '</svg></span>' +
+        '<span class="prdtxt">' +
+          '<span class="prden">' + en +
+            '<span class="fa" dir="rtl" lang="fa">' + fa + '</span></span>' +
+          '<span class="prdsub">' + (sub || '') + '</span>' +
+        '</span>' +
+        '<svg class="prdchev" viewBox="0 0 16 16" fill="none" stroke="currentColor" ' +
+          'stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+          '<path d="M6 3.5 10.5 8 6 12.5"/></svg>' +
+      '</button>').join('');
   }
+
+  const escAttr = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 
   function setOpen(on, refocus) {
     const r = root(), f = fab();
@@ -15895,56 +15983,61 @@ const PracticeDrawer = (() => {
                                        : 'Practice — تمرین');
     f.title = f.getAttribute('aria-label');
     if (open) {
-      paint();
-      const first = box() && box().querySelector('button');
+      const first = nav() && nav().querySelector('.prditem');
       if (first) first.focus({preventScroll: true});
     } else if (refocus) {
       f.focus({preventScroll: true});
     }
   }
 
-  /* The banks are read before the drawer is drawn, so it never opens onto a
-     sheet that is still empty and then flips. */
-  async function toggle() {
-    if (open) { setOpen(false, true); return; }
-    await Practice.ensure();
-    setOpen(true);
-  }
+  function toggle() { setOpen(!open, true); }
 
-  /* used by anything that wants a particular drill: the card in the transcript,
-     the account panel's "what slips" rows */
-  async function openTab(which) {
+  /* Choosing an item: the list folds away and the drill takes the page. */
+  async function choose(which) {
     await Practice.ensure();
-    Practice.setTab(which);
-    setOpen(true);
-    paint();
+    fromList = true;
+    setOpen(false);
+    Practice.open(which);
   }
 
   function bind() {
     if (bound) return;
-    const r = root(), f = fab(), b = box();
-    if (!r || !f || !b) return;
+    const r = root(), f = fab(), n = nav();
+    if (!r || !f || !n) return;
     bound = true;
-    f.addEventListener('click', () => { toggle(); });
+    n.innerHTML = rowsHtml();
+    f.addEventListener('click', toggle);
     r.addEventListener('click', (e) => {
-      if (e.target.closest('[data-pr-drawer="close"]')) setOpen(false, true);
+      if (e.target.closest('[data-pr-drawer="close"]')) { setOpen(false, true); return; }
+      const item = e.target.closest('[data-pr-open]');
+      if (item) choose(item.dataset.prOpen);
     });
-    /* the same delegated handlers the section uses, on the drawer's box */
-    Practice.bindTo(b);
+    /* Captured, and before the panel shell's own Escape: closing a drill
+       reopens this list, and an Escape that then reached the shell would be
+       the second handler to act on one keypress. */
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && open) setOpen(false, true);
-    });
-    /* A tap outside folds it away. The path is read from the event, not from
-       the target's ancestors: answering a question re-draws the drawer, so by
-       the time the event reaches document the button that was tapped is no
-       longer connected to anything and closest() would call that "outside". */
+      if (e.key !== 'Escape' || !open) return;
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(false, true);
+    }, true);
     document.addEventListener('click', (e) => {
       if (!open) return;
       const path = typeof e.composedPath === 'function' ? e.composedPath() : [];
+      /* the drawer, the control - and the page itself, because closing a drill
+         reopens this list from inside the panel's own close button, and that
+         same click must not then read as a click outside */
       if (path.includes(r) || path.includes(f)) return;
+      if (path.some((el) => el && el.id === Practice.PANEL)) return;
       if (e.target && e.target.closest &&
           (e.target.closest('#prdrawer') || e.target.closest('#prfab'))) return;
       setOpen(false);
+    });
+    /* Closing a drill returns to the list it was chosen from. */
+    Panels.onClose(Practice.PANEL, () => {
+      if (!fromList) return;
+      fromList = false;
+      setOpen(true);
     });
   }
 
@@ -15958,7 +16051,7 @@ const PracticeDrawer = (() => {
      made the first tap of a cold start do nothing. */
   bind();
 
-  return {init, toggle, setOpen, paint, openTab, isOpen: () => open};
+  return {init, toggle, setOpen, choose, isOpen: () => open};
 })();
 
 /* The account panel's "what keeps slipping" list. It is a view of one file,
@@ -17463,7 +17556,6 @@ const Daily = (() => {
     if (pinned) node.scrollIntoView({block: 'nearest'});
     /* the week's card sits under the day's, and moves with it */
     Weekly.refresh();
-    Practice.refresh();
   }
 
   function removeCard() {

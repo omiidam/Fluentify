@@ -24,7 +24,7 @@ no network calls, no tracking.
 | 🗓️ Weekly quiz | a **Friday-morning review of the Iranian week** — the words and expressions ticked off from the previous Friday to Thursday, up to ten questions, four options each. It appears **on Friday from 09:00 until midnight Tehran time** (05:30–20:30 UTC) whatever the phone's own zone says, one paper per Friday, frozen when built and scored on submit. **Optional**: skip it and nothing changes, and fewer than five learned items means no paper rather than a thin one |
 | ⏰ Due today | a **spaced-repetition queue over everything already met** — the daily ticks, the weekly quiz answers and the words saved to Review feed one ledger with an interval, an ease and a lapse count. Four verdicts (again / hard / good / easy) move the next date, and the panel reports **recall after a week** from the reviews that actually happened six to ten days later. Nothing is scheduled by opening the app |
 | 🧩 What keeps slipping | one **error log fed by the level check, the weekly quiz and the drills**: each miss keeps its class (present simple, word partners, register…), the question and its explanation, so the account panel can rank what repeats and ask the same questions again |
-| 🎯 Practice | five drills in one sheet — **word partners** (78 curated collocations, *heavy rain* not *strong rain*), **register** (the same meaning in three levels of formality), an **ear test** over the phonetics bank's minimal pairs, **dictation** (hear it, write it, marked word by word), and **say it** (read aloud; the words the recogniser did not hear are marked). No model, no network, no scoring theatre |
+| 🎯 Practice | six drills behind **one circular control** in the transcript: it folds out into the list, each drill opens as a **full page**, and closing it comes back to the list — **word partners** (78 curated collocations, *heavy rain* not *strong rain*), **register** (the same meaning in three levels of formality), an **ear test** over the phonetics bank's minimal pairs, **dictation** (hear it, write it, marked word by word), and **say it** (read aloud; the words the recogniser did not hear are marked). No model, no network, no scoring theatre |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
@@ -224,16 +224,21 @@ it counts what the app was already told.
 
 ### Practice
 
-Five drills in one sheet, reached from one card in the transcript — a card, not
-a toolbar tile, because none of them is a section of its own. The same sheet
-also folds out of the **circular control in the corner of the transcript**: a
-48px button that opens into a drawer in place, above the composer, never over
-it. It draws `Practice.sheetHtml()` — the section's own markup and the section's
-own handlers — so there is one set of drills with two doors, and the module's
-state lives outside both: folding the drawer away mid-exercise loses nothing,
-and reopening it comes back on the tab and the sentence it was left on. Escape,
-the ✕ and a tap outside all close it, and closed it is `visibility:hidden`, so
-it is neither a tab stop nor an invisible target:
+One entry, and it is the **circular control in the corner of the transcript**:
+a 48px button that folds out, in place, above the composer and never over it,
+into a drawer listing every activity — English name, Persian name, and one line
+saying what it asks. The rows are `Practice.TABS.map(…)`, the same list the
+drills are read from, so an activity cannot exist in one and not the other, and
+the drawer holds no drill of its own: it navigates.
+
+Choosing a row folds the drawer away and opens that activity as a page — the
+whole column between the header and the foot of the shell, transcript and
+composer out of the room — and the page carries its own way back (**All
+drills**), as do the ✕ and Escape. Both routes reopen the list, so the next
+activity is one tap away, and the module's state lives outside the page:
+returning to a drill you left comes back on the tab, the sentence and the
+marking it was left on. Closed, the drawer is `visibility:hidden`, so it is
+neither a tab stop nor an invisible target:
 
 | drill | what it tests | where the content comes from |
 | --- | --- | --- |
@@ -854,7 +859,7 @@ Twenty-nine suites:
 | learning path | are there seven level spaces, one written course, and an exam whose six skills are each marked by something that can mark them? The content is validated (units, lessons, exercises, both languages, every answer in range), the model is run in node over placements from Pre-A1 to C2, and the one rule that matters is asserted: a paper with nothing heard on it does not report speaking as passed. |
 | mastery schedule | does anything come back, and on time? The interval/ease/lapse arithmetic, the recall counters, the queue, the cap and the corrupt record. |
 | error log & profile | does a diagnosed mistake ever add up? One log from the level check, the quiz and the drills, ranked, bounded, and re-askable. |
-| practice drills | are the drills sound, and does the circular control in the transcript open the *same* sheet rather than a second one? Word partners, register, the ear test over the phonetics pairs, and the word-level comparison behind dictation and speaking, plus the authored bank itself, `Drills.levels` against the real `listening.json` so dictation and say-it can never go empty again, and the drawer, which must draw `Practice.sheetHtml()`, share its handlers and build no drill of its own. |
+| practice drills | are the drills sound, and is there exactly one way into them — the circular control that folds out into the list of activities and opens each as a full page, with no second card and no drill inside the drawer? Word partners, register, the ear test over the phonetics pairs, and the word-level comparison behind dictation and speaking, plus the authored bank itself, `Drills.levels` against the real `listening.json` so dictation and say-it can never go empty again, and the drawer, which must build its rows from `Practice.TABS`, open all six as pages, come back to the list on close, and draw no drill of its own. |
 | grammar corrector | is it GEC-BART Base, on the server, and absent from the app? `gec.json` must pin the checkpoint and the ArvanCloud location and carry no global switch; the page, `bot.js` and the Kotlin must name no checkpoint and hold no weights, and the bundle must stay under 60 MB; the default chat reply must stay identical with `FLUENTIFY_GEC` unset; and the installed model must repair the bench and the 73-sentence corpus. |
 
 That last one matters more than its size suggests. A duplicate top-level name
