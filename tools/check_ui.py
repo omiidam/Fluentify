@@ -451,9 +451,22 @@ def main() -> int:
 
     fox_markup = re.search(r'<div class="foxslot"[^>]*>(.*?)</div>\s*</div>\s*</div>',
                            src, re.S)
-    check("the fox in the box is the app's own mascot",
-          fox_markup is not None and 'src="brand/fox-face.png"' in fox_markup.group(1),
-          "a second animal drawn for the composer is how two mascots start")
+    check("the fox in the box is a drawn ghost, not the brand face",
+          fox_markup is not None and 'class="foxghost"' in fox_markup.group(1)
+          and 'class="foxeyes"' in fox_markup.group(1)
+          and 'brand/fox-face.png' not in fox_markup.group(1),
+          "she is the mascot as a ghost - a white body, one mint line, two eyes - "
+          "and the colourful picture stays in the header where it belongs")
+    check("her glow is painted, not filtered",
+          ".foxghost {" in src and "drop-shadow" not in
+          src[src.index(".foxpic {"):src.index(".foxpic {") + 400],
+          "a filter on an animated node is re-rasterised every frame, so the "
+          "glow is a gradient behind the body instead")
+    check("she is white and green in both themes",
+          src.count("--ghost-body:") == 2 and src.count("--ghost-line:") == 2
+          and src.count("--ghost-ink:") == 2,
+          "the ghost's colours are declared with the palette, once per theme, "
+          "not hard-coded into the drawing")
     check("the fox is decoration and not a target",
           '<div class="foxslot" aria-hidden="true">' in src
           and re.search(r"\.foxslot \{[^}]*pointer-events: none", src) is not None,
@@ -478,7 +491,7 @@ def main() -> int:
     check("the fox's idle motion switches off with prefers-reduced-motion",
           re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*"
                     r"\.foxpeek \{ transition: none; \}\s*"
-                    r"\.foxhead, \.foxpic, \.foxlids i, \.foxhead\.nod \{ animation: none; \}",
+                    r"\.foxhead, \.foxpic, \.foxeyes, \.foxhead\.nod \{ animation: none; \}",
                     src) is not None,
           "a companion that keeps bobbing after the setting is on is a "
           "companion nobody can switch off")

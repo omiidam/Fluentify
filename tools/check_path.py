@@ -36,6 +36,9 @@ FA = re.compile(r"[\u0600-\u06FF]")
 SKILLS = ["grammar", "vocabulary", "reading", "listening", "writing", "speaking"]
 KINDS = {"mcq", "gap", "listen", "write", "say"}
 LEVEL_IDS = ["PRE", "A1", "A2", "B1", "B2", "C1", "C2"]
+# What each written course is: units, lessons, exercises. A1 is the reference
+# course and must not change; A2 and B1 are the two this task added.
+COURSE_SHAPE = {"A1": (6, 18, 67), "A2": (8, 24, 95), "B1": (8, 24, 94)}
 
 problems: list[str] = []
 
@@ -96,19 +99,30 @@ def check_shape(doc: dict) -> dict:
         seen.add(lid)
 
     courses = doc.get("courses") or {}
-    check(list(courses) == ["A1"],
-          f"courses are {list(courses)} - only A1 is written, the rest are spaces")
+    written = [lv.get("id") for lv in levels if lv.get("course")]
+    check(list(courses) == written,
+          f"the courses {list(courses)} do not match the levels claiming one ({written})")
+    for lid, course in courses.items():
+        row = next((lv for lv in levels if lv.get("id") == lid), None)
+        check(bool(row), f"a course was written for {lid}, which is not a level")
+        check(bool(row) and row.get("course") == lid,
+              f"level {lid} does not point at its own course")
+        check(len(course.get("units") or []) >= 6, f"{lid} has fewer than six units")
+    for lid in ("A1", "A2", "B1"):
+        check(lid in courses, f"{lid} has no course")
+    for lid in ("B2", "C1", "C2"):
+        check(lid not in courses, f"{lid} was implemented, and this task stops at B1")
 
     return {"levels": len(levels), "courses": list(courses)}
 
 
-def check_course(doc: dict) -> dict:
-    course = (doc.get("courses") or {}).get("A1") or {}
-    fa_pair(True, "the A1 title", course.get("title"))
-    fa_pair(True, "the A1 blurb", course.get("blurb"))
+def check_one_course(lid: str, course: dict) -> dict:
+    want_units, want_lessons, want_exercises = COURSE_SHAPE.get(lid, (6, 18, 67))
+    fa_pair(True, f"the {lid} title", course.get("title"))
+    fa_pair(True, f"the {lid} blurb", course.get("blurb"))
 
     units = course.get("units") or []
-    check(len(units) == 6, f"A1 has {len(units)} units, not six")
+    check(len(units) == want_units, f"{lid} has {len(units)} units, not {want_units}")
 
     ids: set[str] = set()
     by_skill: dict[str, int] = {}
@@ -205,10 +219,12 @@ def check_course(doc: dict) -> dict:
     }
 
     for skill in SKILLS:
-        check(by_skill.get(skill, 0) >= 1, f"no {skill} lesson in the course")
-    check(lessons == 18, f"A1 has {lessons} lessons, not eighteen")
-    check(exercises == 67, f"A1 has {exercises} exercises, not sixty-seven")
-    check(by_skill.get("grammar", 0) >= 6, "the grammar thread is thinner than six lessons")
+        check(by_skill.get(skill, 0) >= 1, f"no {skill} lesson in the {lid} course")
+    check(lessons == want_lessons, f"{lid} has {lessons} lessons, not {want_lessons}")
+    check(exercises == want_exercises,
+          f"{lid} has {exercises} exercises, not {want_exercises}")
+    check(by_skill.get("grammar", 0) >= 6, f"the {lid} grammar thread is thinner than six lessons")
+    check(by_skill.get("vocabulary", 0) >= 5, f"the {lid} vocabulary thread is thinner than five lessons")
 
     exam = course.get("exam") or {}
     check(exam.get("pass") == 0.6, "the pass mark is not 60%")
@@ -270,7 +286,47 @@ def check_course(doc: dict) -> dict:
         check(counts.get(skill) == n, f"the exam has {counts.get(skill)} {skill} marks, not {n}")
     stats["paper"] = counts
     stats["exam"] = sum(counts.values())
+    stats["id"] = lid
+    stats["ids"] = ids
+    stats["titles"] = [l.get("title", {}).get("en", "") for u in units for l in u["lessons"]]
+    stats["lines"] = [p.get("en", "") for u in units for l in u["lessons"]
+                      for p in (l.get("explain") or [])]
     return stats
+
+
+def check_course(doc: dict) -> dict:
+    """Every course on its own, then the three of them against each other."""
+    courses = doc.get("courses") or {}
+    total = {"units": 0, "lessons": 0, "exercises": 0, "guided": 0,
+             "exam": 0, "by_skill": {}}
+    ids: set[str] = set()
+    titles: dict[str, str] = {}
+    lines: dict[str, str] = {}
+
+    for lid, course in courses.items():
+        stats = check_one_course(lid, course)
+        for key in ("units", "lessons", "exercises", "guided", "exam"):
+            total[key] += stats[key]
+        for skill, n in stats["by_skill"].items():
+            total["by_skill"][skill] = total["by_skill"].get(skill, 0) + n
+
+        for lesson_id in stats["ids"]:
+            check(lesson_id not in ids, f"lesson id {lesson_id} is reused across courses")
+            ids.add(lesson_id)
+        for title in stats["titles"]:
+            if not title:
+                continue
+            check(title not in titles,
+                  f"{lid} repeats the lesson title {title!r} from {titles.get(title)}")
+            titles.setdefault(title, lid)
+        for line in stats["lines"]:
+            if not line.strip():
+                continue
+            check(line not in lines,
+                  f"{lid} repeats an explanation from {lines.get(line)}")
+            lines.setdefault(line, lid)
+
+    return total
 
 
 def check_wiring() -> None:
@@ -355,10 +411,6 @@ __MODEL__
 const say = (ok, what) => { if (!ok) { problems.push(what); } };
 const problems = [];
 
-const course = doc.courses.A1;
-const exam = course.exam;
-const fresh = {lessons: {}, passed: false};
-
 /* ---- where a learner starts: the placement, never a default of A1 ---- */
 [[{overall: 'A1'}, 'A1'], [{overall: 'A2'}, 'A2'], [{overall: 'B1'}, 'B1'],
  [{overall: 'B2'}, 'B2'], [{overall: 'C1'}, 'C1'], [{overall: 'C2'}, 'C2'],
@@ -381,11 +433,31 @@ say(PathModel.status('C2', 'C2', false, false) === 'awaiting',
     'the assessed top level with no course does not offer its space');
 say(PathModel.status('B1', 'PRE', false, false) === 'locked', 'nothing above PRE should be open');
 say(PathModel.status('A2', 'A1', false, false, true) === 'awaiting',
-    'passing A1 does not make A2 the next level');
+    'passing A1 does not make an unwritten A2 the next level');
 say(PathModel.status('A2', 'A1', false, false, false) === 'locked',
     'A2 opens before A1 is passed');
-say(PathModel.status('A2', 'A1', true, false, true) === 'locked',
-    'a written A2 above an A1 learner is open without the pass');
+say(PathModel.status('A2', 'A1', true, false, false) === 'locked',
+    'a written A2 is open to an A1 learner who has not passed A1');
+
+/* ---- the progression A2 and B1 exist for ---- */
+say(PathModel.status('A2', 'A1', true, false, true) === 'available',
+    'passing A1 does not open the A2 course');
+say(PathModel.status('B1', 'A1', true, false, false) === 'locked',
+    'a pass at A1 opens B1 directly');
+say(PathModel.status('B1', 'A2', true, false, true) === 'available',
+    'passing A2 does not open the B1 course');
+say(PathModel.status('B2', 'B1', false, false, true) === 'awaiting',
+    'passing B1 does not make B2 the next level');
+say(PathModel.status('B2', 'B1', false, false, false) === 'locked',
+    'B2 opens before B1 is passed');
+
+/* An assessed A2 or B1 learner starts there, not at A1. */
+say(PathModel.status('A2', 'A2', true, false) === 'current',
+    'an assessed A2 learner does not start on A2');
+say(PathModel.status('B1', 'B1', true, false) === 'current',
+    'an assessed B1 learner does not start on B1');
+say(PathModel.status('A1', 'B1', true, false) === 'available',
+    'a B1 learner cannot go back to the A1 course');
 
 /* A learner placed on a level whose course is not written has nothing to open,
    so the nearest written level above is offered by name - and the assessed
@@ -399,26 +471,35 @@ say(PathModel.status('B1', 'PRE', false, false, false, 'A1') === 'locked',
 say(PathModel.status('A2', 'PRE', true, false, false, 'A1') === 'locked',
     'a Pre-A1 learner is offered a level above the written one');
 
+/* Every written course is walked with the same expectations: the paper is the
+   same thirty-three marks, the pass rule is the same, and a course that cannot
+   be completed and passed is not a course. */
+const runCourse = (lid, course) => {
+const exam = course.exam;
+const fresh = {lessons: {}, passed: false};
+const total = PathModel.lessons(course).length;
+
 /* ---- progress ---- */
 const s0 = PathModel.stats(course, fresh);
-say(s0.total === 18, `the course counts ${s0.total} lessons, not eighteen`);
-say(s0.done === 0 && s0.share === 0, 'a fresh course already has progress');
-say(s0.complete === false, 'a fresh course reads as complete');
+say(s0.total === total, `${lid} counts ${s0.total} lessons, not ${total}`);
+say(s0.done === 0 && s0.share === 0, `a fresh ${lid} course already has progress`);
+say(s0.complete === false, `a fresh ${lid} course reads as complete`);
 say(PathModel.SKILLS.every((k) => s0.bySkill[k].total > 0),
-    'a skill has no lesson in the progress rows');
+    `a skill has no lesson in the ${lid} progress rows`);
 
 const oneLesson = PathModel.lessons(course)[0].lesson;
 const part = {lessons: {[oneLesson.id]: {done: true, at: '2026-01-01', right: 4, total: 5}},
               passed: false};
 const s1 = PathModel.stats(course, part);
 say(s1.done === 1, 'one marked lesson does not count as one');
-say(Math.abs(s1.share - 1 / 18) < 1e-9, 'one of eighteen is not the share it reports');
+say(Math.abs(s1.share - 1 / total) < 1e-9,
+    `one of ${total} is not the share it reports`);
 say(s1.bySkill[oneLesson.skill].done === 1, 'the skill bar did not move');
 
 /* ---- the paper ---- */
 const paper = PathModel.paper(exam);
 const ids = new Set(paper.map((q) => q.id));
-say(paper.length === 33, `the paper is ${paper.length} questions, not thirty-three`);
+say(paper.length === 33, `the ${lid} paper is ${paper.length} questions, not thirty-three`);
 say(ids.size === paper.length, 'two questions share an id');
 PathModel.SKILLS.forEach((s) => {
   const n = paper.filter((q) => q.skill === s).length;
@@ -439,12 +520,22 @@ const BASE = ['My name is Sara and I am from Iran.',
   'I live in a small flat with my family.',
   'I get up at seven and I have breakfast.',
   'I go to school by bus and I come home at four.',
-  'In the evening I read a book and I go to bed at eleven.'];
+  'In the evening I read a book and I go to bed at eleven.',
+  'Last summer I travelled to the north with two friends.'];
 const CLAUSE = {
   like: 'I like my room very much.',
   every: 'I study English every day.',
   there: 'There is a desk in my room.',
   in: 'My books are in the box.',
+  went: 'I went there by train and stayed four days.',
+  because: 'I chose the early train because it was cheaper.',
+  could: 'Could you send me the address?',
+  if: 'If the weather is good, we will walk to the village.',
+  would: 'I would like to go back next spring.',
+  worth: 'The old market is worth a visit in the morning.',
+  although: 'Although the hotel was small, the staff were helpful.',
+  so: 'It was raining, so we stayed inside.',
+  but: 'The food was good, but the music was too loud.',
 };
 /* A model answer per writing task, built from that task's own required link
    words: the paper asks for different things in its two tasks, and a marker
@@ -463,12 +554,12 @@ const texts = writing.map((item) => compose(item));
 const heard = paper.filter((q) => q.skill === 'speaking').map((q) => q.item.say);
 
 const good = PathModel.grade(exam, answers, texts, heard);
-say(good.pass === true, 'a perfect paper does not pass');
-say(good.missing.length === 0, `a perfect paper is missing ${good.missing}`);
-say(Math.abs(good.overall - 1) < 1e-9, `a perfect paper scores ${good.overall}`);
+say(good.pass === true, `a perfect ${lid} paper does not pass`);
+say(good.missing.length === 0, `a perfect ${lid} paper is missing ${good.missing}`);
+say(Math.abs(good.overall - 1) < 1e-9, `a perfect ${lid} paper scores ${good.overall}`);
 
 const blank = PathModel.grade(exam, {}, [], []);
-say(blank.pass === false, 'an untouched paper passes');
+say(blank.pass === false, `an untouched ${lid} paper passes`);
 say(blank.overall < 0.2, `an untouched paper scores ${blank.overall}`);
 say(blank.missing.indexOf('speaking') >= 0,
     'a paper with no speaking on it does not report speaking as missing');
@@ -507,13 +598,18 @@ say(told.length > 0, 'a weak skill whose lessons are all done gets no advice at 
 say(told.every((l) => l.skill === 'grammar'), 'the advice drifts off the weak skill');
 say(PathModel.recommend(course, fresh, ['nothing']).length === 0,
     'a skill the course does not teach produced advice');
+};
+
+Object.keys(doc.courses).forEach((lid) => runCourse(lid, doc.courses[lid]));
 
 if (problems.length) {
   problems.forEach((p) => console.log('FAIL  ' + p));
   process.exit(1);
 }
-console.log(`PASS  ${paper.length} exam marks over six skills, ` +
-  `${PathModel.lessons(course).length} lessons, one pass rule`);
+const courses = Object.keys(doc.courses);
+const lessons = courses.reduce((n, id) => n + PathModel.lessons(doc.courses[id]).length, 0);
+console.log(`PASS  ${courses.length} courses (${courses.join(', ')}), ${lessons} lessons, ` +
+  `33 marks each, one pass rule`);
 """
 
 

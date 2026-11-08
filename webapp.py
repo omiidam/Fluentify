@@ -393,6 +393,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --band-b2: #9b6a12; --band-c1: #6b5bd2; --band-pre: #a8456a;
     --band-a1-soft: #e6f5ef; --band-a2-soft: #e6f2f7; --band-b1-soft: #e8f3ec;
     --band-b2-soft: #fbf1dc; --band-c1-soft: #eeebfd; --band-pre-soft: #fbe9ef;
+    /* The ghost in the composer. Three tokens, because she is white on cream
+       here and white on graphite there: the body, the one line drawn round
+       her, and the mint she glows in. */
+    --ghost-body: #ffffff; --ghost-line: #58c39a; --ghost-ink: #1f7455;
+    --ghost-halo: rgba(111, 208, 166, .5);
     --fill-navy: #22375e; --fill-navy2: #182a4a; --fill-navy3: #2f4a78;
     --fill-slate: #3c405b; --fill-slate2: #262b44;
     --fill-red: #a8493a;
@@ -480,6 +485,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --band-b2: #dfb268; --band-c1: #b3a9f0; --band-pre: #f2a3c0;
     --band-a1-soft: #17251f; --band-a2-soft: #17242c; --band-b1-soft: #18251d;
     --band-b2-soft: #2a2519; --band-c1-soft: #202338; --band-pre-soft: #2b1e26;
+    /* The same ghost, read against graphite: the white is barely off-white so
+       it does not glare, and the mint carries the glow on its own. */
+    --ghost-body: #f4fffa; --ghost-line: #7ef0c1; --ghost-ink: #3fa882;
+    --ghost-halo: rgba(126, 240, 193, .5);
     --fill-navy: #26395c; --fill-navy2: #1e2d4b; --fill-navy3: #30466e;
     --fill-slate: #3b4256; --fill-slate2: #2b3140;
     --fill-red: #8a3f34;
@@ -3833,7 +3842,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     position: absolute; left: 26px; bottom: -4px; width: 64px; height: 12px;
     border-radius: 50%;
     background: radial-gradient(50% 50% at 50% 50%,
-                rgba(74,58,30,.30), rgba(74,58,30,0) 74%);
+                var(--ghost-halo), rgba(255,255,255,0) 74%);
   }
   /* Left 30px, not 12: the pill's corner is a 26px radius, so anything nearer
      the end would end above the curve rather than above the box, and the cut
@@ -3845,13 +3854,30 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     animation: foxBob 6.5s ease-in-out infinite;
   }
   /* No drop-shadow: a filter on an animated element is re-rasterised every
-     frame, which is the note the boot card's cut-out already carries. The
-     cut-out has its own dark line, and the shade below does the grounding. */
+     frame, which is the note the boot card's cut-out already carries. Her
+     glow is therefore painted rather than filtered - a radial gradient behind
+     the body, and a mint line round it - so the whole drawing is one cheap
+     SVG that the bob can move without repainting. */
   .foxpic {
     width: 100%; height: 100%; display: block;
     transform-origin: 50% 92%;
     animation: foxLook 11.3s ease-in-out infinite;
   }
+  /* A ghost, in three strokes: white body, one green line, and a face made of
+     two eyes, a nose and a smile - no fur, no hat, no colour but these. */
+  .foxghost {
+    fill: var(--ghost-body); stroke: var(--ghost-line); stroke-width: 1.6;
+    stroke-linejoin: round; stroke-linecap: round;
+  }
+  .foxglow .g1 { stop-color: var(--ghost-body); stop-opacity: .9; }
+  .foxglow .g2 { stop-color: var(--ghost-line); stop-opacity: .34; }
+  .foxglow .g3 { stop-color: var(--ghost-line); stop-opacity: 0; }
+  .foxeyes { fill: var(--ghost-ink); transform-box: view-box;
+             transform-origin: 30px 32.4px;
+             animation: foxBlink 6.8s ease-in-out infinite; }
+  .foxnose { fill: var(--ghost-line); }
+  .foxsmile { fill: none; stroke: var(--ghost-line); stroke-width: 1.4;
+              stroke-linecap: round; opacity: .85; }
   @keyframes foxBob {
     0%, 100% { transform: translateY(0) rotate(0); }
     50%      { transform: translateY(-1.6px) rotate(0); }
@@ -3872,24 +3898,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     55%  { transform: rotate(2.4deg); }
     60%  { transform: rotate(0); }
   }
-  /* The lids, not the eyes: the picture is the mascot and is not redrawn, so a
-     blink is two small ovals the colour of her fur, sitting inside the lenses
-     and closed from the top. At this size they are visible exactly as long as
-     a blink lasts. */
-  .foxlids { position: absolute; inset: 0; }
-  .foxlids i {
-    position: absolute; display: block; border-radius: 50%;
-    /* a lid, not a colour: the illustration's own fur is not a token, and a
-       token here would be the wrong fur in the other theme */
-    background: rgba(72,38,14,.82);
-    transform: scaleY(.06); transform-origin: 50% 0;
-    animation: foxBlink 6.8s ease-in-out infinite;
-  }
-  .foxlids i:nth-child(1) { left: 16%; top: 48.4%; width: 7%; height: 7.8%; }
-  .foxlids i:nth-child(2) { left: 32%; top: 57.4%; width: 9.8%; height: 11%; }
+  /* The eyes are hers now, so the blink is the eyes closing: two small ovals
+     squashed to a line and opened again, on the same slow cycle as the look
+     around. */
   @keyframes foxBlink {
-    0%, 88%, 100% { transform: scaleY(.06); }
-    91%, 94%      { transform: scaleY(1); }
+    0%, 86%, 100% { transform: scaleY(1); }
+    89%, 93%      { transform: scaleY(.12); }
   }
   /* A message goes out: she nods, once, and settles back to the bob. */
   .foxhead.nod { animation: foxNod .52s cubic-bezier(.3,1.6,.5,1); }
@@ -3912,7 +3926,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      the point of the design - she just does not move. */
   @media (prefers-reduced-motion: reduce) {
     .foxpeek { transition: none; }
-    .foxhead, .foxpic, .foxlids i, .foxhead.nod { animation: none; }
+    .foxhead, .foxpic, .foxeyes, .foxhead.nod { animation: none; }
   }
   .ico {
     flex: 0 0 auto; width: 36px; height: 36px; padding: 0;
@@ -6485,9 +6499,27 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <div class="foxpeek" id="chatfox">
         <span class="foxshade"></span>
         <div class="foxhead">
-          <img class="foxpic" src="brand/fox-face.png" alt="" width="52"
-               height="52" draggable="false" decoding="async">
-          <span class="foxlids"><i></i><i></i></span>
+          <!-- Drawn rather than photographed: she is a white ghost with one
+               mint line, and the glow is her own gradient. The mascot's ears,
+               cheeks and muzzle are kept, and nothing else is. -->
+          <svg class="foxpic" viewBox="0 0 60 60" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient class="foxglow" id="foxglow" cx="50%" cy="52%" r="52%">
+                <stop class="g1" offset="0"/>
+                <stop class="g2" offset=".58"/>
+                <stop class="g3" offset="1"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="30" cy="33" rx="29" ry="28" fill="url(#foxglow)"/>
+            <path class="foxghost"
+                  d="M10.6 4.6 L19.4 13.4 C22.5 12.3 26.2 11.9 30 11.9 C33.8 11.9 37.5 12.3 40.6 13.4 L49.4 4.6 L50 26 C50.6 38 41 49 30 49 C19 49 10.4 38 10 26 Z"/>
+            <g class="foxeyes">
+              <ellipse cx="23.4" cy="32.4" rx="2.7" ry="3.5"/>
+              <ellipse cx="36.6" cy="32.4" rx="2.7" ry="3.5"/>
+            </g>
+            <path class="foxnose" d="M30 36.8 l-2.1 2 h4.2 Z"/>
+            <path class="foxsmile" d="M26.8 40.8 c1.5 1.9 5.4 1.9 6.9 0"/>
+          </svg>
         </div>
       </div>
     </div>
@@ -16336,8 +16368,11 @@ const PathModel = {
     if (at < 0 || from < 0) return 'locked';
     if (id === start) return hasCourse ? 'current' : 'awaiting';
     if (at < from) return hasCourse ? 'available' : 'past';
-    /* Passing the level below makes this one next, not out of reach: it is a
-       real space with a real status, waiting for its curriculum. */
+    /* Passing the level directly below opens this one: with a course it is
+       open to start, and without one it is the next space, waiting for its
+       curriculum. Only the level immediately below counts, so a pass at A1
+       never opens B1. */
+    if (belowPassed && hasCourse) return 'available';
     if (!hasCourse && belowPassed) return 'awaiting';
     if (hasCourse && nearest && id === nearest) return 'available';
     return 'locked';
@@ -16413,10 +16448,15 @@ const PathModel = {
 
   /* The writing rubric is the level check's own: length, sentences, one
      required link, and fewer than two slips. Reusing it keeps one standard for
-     writing in the whole app instead of two. */
-  writingScore(item, text) {
-    const bank = {writingScale: {A1: {words: item.words || 30, sentences: 3}}};
-    return Level.markWriting(bank, {band: 'A1', needs: item.needs || []}, text || '');
+     writing in the whole app instead of two. The sentence count rises with the
+     level, so a B1 task is not marked as if it were A1. */
+  SENTENCES: {PRE: 3, A1: 3, A2: 4, B1: 5, B2: 6, C1: 6, C2: 6},
+
+  writingScore(item, text, level) {
+    const band = item.band || level || 'A1';
+    const sentences = this.SENTENCES[band] || 3;
+    const bank = {writingScale: {[band]: {words: item.words || 30, sentences: sentences}}};
+    return Level.markWriting(bank, {band: band, needs: item.needs || []}, text || '');
   },
 
   /* Speaking is marked only from words the device actually heard. An empty
@@ -16437,7 +16477,7 @@ const PathModel = {
 
   /* One number per skill, then the paper's own rule: 60% overall, 50% in every
      skill, and speaking actually measured. */
-  grade(exam, answers, texts, heard) {
+  grade(exam, answers, texts, heard, level) {
     const out = {skills: {}, missing: []};
     const paper = this.paper(exam);
     const objective = (skill) => {
@@ -16450,7 +16490,7 @@ const PathModel = {
       out.skills[s] = objective(s);
     });
     const writing = (exam.sections.find((x) => x.skill === 'writing') || {}).items || [];
-    const wMarks = writing.map((item, i) => this.writingScore(item, (texts || {})[i]));
+    const wMarks = writing.map((item, i) => this.writingScore(item, (texts || {})[i], level));
     const wRight = wMarks.reduce((n, m) => n + m.points, 0);
     const wTotal = wMarks.reduce((n, m) => n + m.total, 0);
     out.skills.writing = {right: wRight, total: wTotal,
@@ -16647,9 +16687,16 @@ const Path = (() => {
       const state = PathModel.status(lv.id, here, !!c, !!p.passed,
         !!(below && prog(below).passed), offer);
       const st = PathModel.stats(c, p);
+      /* A course below the learner is open to revisit; one above the learner
+         was opened by passing the level below it, so it is next in the path
+         rather than something being revisited. */
+      const ahead = PathModel.ORDER.indexOf(lv.id) > PathModel.ORDER.indexOf(here);
+      const stateText = state === 'available' && ahead
+        ? ['Next in the path', 'قدم بعدی مسیر'] : STATE[state];
       const action = state === 'current' || state === 'available'
         ? '<button type="button" class="path-btn" data-path="level" data-id="' + lv.id + '">' +
-          (state === 'current' ? 'Start learning' : 'Open this level') + '</button>'
+          (state === 'current' ? 'Start learning'
+            : ahead ? 'Start this level' : 'Open this level') + '</button>'
         : state === 'done'
           ? '<button type="button" class="path-btn ghost" data-path="level" data-id="' +
             lv.id + '">Review the course</button>'
@@ -16672,7 +16719,7 @@ const Path = (() => {
               : '';
       return '<article class="plv plv-' + state + '">' +
           '<div class="plv-top"><span class="plv-badge">' + esc(lv.label) + '</span>' +
-            '<span class="plv-state">' + esc(STATE[state][0]) + ' ' + fa(STATE[state][1]) + '</span>' +
+            '<span class="plv-state">' + esc(stateText[0]) + ' ' + fa(stateText[1]) + '</span>' +
           '</div>' +
           '<h4 class="plv-name" dir="ltr">' + esc(lv.name.en) +
             '<span class="plv-fa">' + esc(lv.name.fa) + '</span></h4>' +
@@ -16686,16 +16733,27 @@ const Path = (() => {
         '</article>';
     }).join('');
 
+    /* Which courses actually exist today, so the page never advertises a level
+       whose curriculum is not written. */
+    const written = ((bank && bank.levels) || []).filter((lv) => course(lv.id)).map((lv) => lv.label);
+    const named = written.length > 1
+      ? written.slice(0, -1).join(', ') + ' and ' + written[written.length - 1]
+      : String(written[0] || '');
+    /* The same names, joined the way Persian joins a list. */
+    const namedFa = written.length > 1
+      ? written.slice(0, -1).join('، ') + ' و ' + written[written.length - 1]
+      : String(written[0] || '');
+
     host.innerHTML = '<div class="path-wrap">' +
       '<div class="path-head">' +
         '<p class="path-kicker">Learning path · <bdi class="fa" dir="rtl" lang="fa">مسیر یادگیری</bdi></p>' +
         '<h2 class="path-h">Seven levels, one step at a time</h2>' +
         '<p class="path-sub" dir="ltr">Your level check placed you at <b>' + esc(under) +
-          '</b>. The path runs from Pre-A1 to C2; the A1 course and its examination are ' +
-          'written and ready, and the other levels have their place here.</p>' +
+          '</b>. The path runs from Pre-A1 to C2; the courses for ' + esc(named) +
+          ' and their examinations are written and ready, and the other levels have their place here.</p>' +
         '<p class="path-sub fa" dir="rtl" lang="fa">سنجش سطح تو را در <b>' + esc(under) +
-          '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد؛ دورهٔ A1 و آزمون پایانی‌اش ' +
-          'آماده است و بقیهٔ سطح‌ها جای خود را در همین صفحه دارند.</p>' +
+          '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد؛ دوره‌های ' + esc(namedFa) +
+          ' و آزمون‌هایشان آماده‌اند و بقیهٔ سطح‌ها جای خود را در همین صفحه دارند.</p>' +
       '</div>' +
       '<div class="plv-grid">' + cards + '</div>' +
       '<p class="path-foot" dir="ltr">Every level keeps the same shape: units, lessons ' +
@@ -16942,7 +17000,7 @@ const Path = (() => {
 
   function exScore(e, i) {
     if (e.kind === 'write') {
-      const m = PathModel.writingScore(e, draft.texts[i] || '');
+      const m = PathModel.writingScore(e, draft.texts[i] || '', levelId);
       return m.total ? m.points / m.total : 0;
     }
     if (e.kind === 'say') {
@@ -16975,7 +17033,7 @@ const Path = (() => {
       if (why) {
         why.hidden = false;
         if (e.kind === 'write') {
-          const m = PathModel.writingScore(e, draft.texts[i] || '');
+          const m = PathModel.writingScore(e, draft.texts[i] || '', levelId);
           why.innerHTML = m.parts.map((p) => (p.ok ? '✓ ' : '✗ ') + esc(p.note)).join(' · ');
         } else if (e.kind === 'say') {
           const c = SayMatch.compare(e.say, draft.heard[i] || '');
@@ -17040,9 +17098,13 @@ const Path = (() => {
   function paintExam() {
     const host = body();
     const c = course(levelId) || {};
+    const lv = levelRow(levelId) || {};
+    const label = lv.label || levelId || '';
     const exam = c.exam || {};
     const paper = PathModel.paper(exam);
     const objective = paper.filter((q) => q.kind !== 'write' && q.kind !== 'say');
+    const count = (skill) => (((exam.sections || []).find((s) => s.skill === skill) || {}).items || []).length;
+    const tasks = count('writing') + ' writing ' + (count('writing') === 1 ? 'task · ' : 'tasks · ');
     const sections = (exam.sections || []).map((section) => {
       if (section.skill === 'reading') {
         return section.items.map((g, gi) =>
@@ -17060,12 +17122,14 @@ const Path = (() => {
       '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
         '">← Back to the course</button>' +
       '<div class="path-head">' +
-        '<p class="path-kicker">A1 final examination · آزمون پایانی A1</p>' +
+        '<p class="path-kicker">' + esc(label) + ' final examination · آزمون پایانی ' +
+          esc(label) + '</p>' +
         '<h2 class="path-h">Six skills, one paper</h2>' +
         '<p class="path-sub" dir="ltr">' + esc(exam.blurb.en) + '</p>' +
         '<p class="path-sub fa" dir="rtl" lang="fa">' + esc(exam.blurb.fa) + '</p>' +
-        '<p class="path-meta" dir="ltr">' + objective.length + ' marked questions · 2 writing ' +
-          'tasks · 3 speaking tasks · about ' + (exam.minutes || 35) + ' minutes</p>' +
+        '<p class="path-meta" dir="ltr">' + objective.length + ' marked questions · ' + tasks +
+          count('speaking') + ' speaking ' + (count('speaking') === 1 ? 'task' : 'tasks') +
+          ' · about ' + (exam.minutes || 35) + ' minutes</p>' +
       '</div>' +
       '<div class="pexam-paper">' + sections + '</div>' +
       '<div class="pfoot"><button type="button" class="path-btn" data-path="exam-submit">' +
@@ -17108,7 +17172,8 @@ const Path = (() => {
   function submitExam() {
     const c = course(levelId) || {};
     const exam = c.exam || {};
-    const result = PathModel.grade(exam, examDraft.answers, examDraft.texts, examDraft.heard);
+    const result = PathModel.grade(exam, examDraft.answers, examDraft.texts,
+      examDraft.heard, levelId);
     const weak = PathModel.SKILLS.filter((s) => !result.skills[s].passed);
     const advice = PathModel.recommend(c, prog(levelId), weak);
     const record = {
@@ -17134,6 +17199,17 @@ const Path = (() => {
     if (!report) { screen = 'level'; return paintLevel(); }
     const r = report.result;
     const passed = r.pass;
+    const lv = levelRow(levelId) || {};
+    const label = lv.label || levelId || '';
+    /* What passing this paper opens next, named from the path itself. */
+    const up = PathModel.ORDER[PathModel.ORDER.indexOf(levelId) + 1];
+    const upLv = up ? levelRow(up) : null;
+    const above = upLv && upLv.label ? upLv.label : up;
+    const next = !up
+      ? 'That is the end of the path.'
+      : upLv && course(up)
+        ? label + ' is complete; ' + above + ' is the next level.'
+        : label + ' is complete. The next level, ' + above + ', has no course yet.';
     const rows = PathModel.SKILLS.map((s) => {
       const row = r.skills[s];
       const share = row.share;
@@ -17158,11 +17234,11 @@ const Path = (() => {
       '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
         '">← Back to the course</button>' +
       '<div class="prep ' + (passed ? 'prep-pass' : 'prep-fail') + '">' +
-        '<p class="prep-k">A1 final examination</p>' +
+        '<p class="prep-k">' + esc(label) + ' final examination</p>' +
         '<p class="prep-score" dir="ltr">' + pct(r.overall) + '</p>' +
         '<p class="prep-verdict">' + (passed ? 'Passed · قبول شدی' : 'Not passed yet · هنوز قبول نشدی') + '</p>' +
         '<p class="prep-line" dir="ltr">' + (passed
-          ? 'Every skill is at or above 50% and the paper is above 60%. A1 is complete; A2 is the next level.'
+          ? 'Every skill is at or above 50% and the paper is above 60%. ' + next
           : 'A pass needs 60% overall, 50% in every skill, and every skill assessed.') + '</p>' +
       '</div>' + missing +
       '<div class="preps">' + rows + '</div>' + advice +

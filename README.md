@@ -31,7 +31,7 @@ no network calls, no tracking.
 | 👤 Account | sign-up and sign-in that happen **after the loading page** and before the app; the panel also carries the **light/dark theme switch**, remembered on the device. Full name, **email**, username, and a password stretched with PBKDF2-SHA256 (150,000 iterations) into a salted hash in this device's storage — no server, no plain text. The password rule is the stated four-part policy: **8 characters minimum** and 128 maximum, both cases, letters with digits, and at least one of `@#$%!`, with a live four-segment meter and a checklist that tick from the same function the submit button enforces; the bundled blocklist still runs underneath it, so `Password1!` meets every rule and is still refused, as are the username, the learner's own name, a repeated character and a repeated pattern. The password cannot be copied or pasted — paste, cut, copy, drag and the context menu are refused, and the text cannot be selected. A forgotten password is recovered on the sign-in card — no link is mailed, because a device-local account has no server to mail it from: “Forgot password?” asks for the username and the email on the account, then takes a new password under the same four rules with a fresh salt, and signs the learner back in. The session stays open for **seven days after the last time the app was used**, then asks for the password again; sign out keeps the account, reset erases it |
 | 🎓 Certificate | at the end of the assessment, a printable certificate carrying the learner's **full name, CEFR level, date, question count and certificate ID** — downloaded as PDF through the browser's print dialog on the web and through `PrintManager` in the APK, with the print stylesheet stripping everything but the sheet |
 | 📈 Level check | a **monthly CEFR assessment on one fixed 55-question paper**: ten questions from each band, A1 to C1, across grammar, vocabulary, reading and listening, in five parts that climb in difficulty, then **one marked writing task per band**. The level is read straight off the **count** — 9 of 55 is A1, 19 A2, 29 B1, 39 B2, 49 C1 — and each skill is read on the same fractions of its own total (grammar and vocabulary out of 15, reading and listening out of 10, writing out of 20 rubric points). A writing task earns up to four points for enough words, enough sentences, the linking the task asks for and a spot check for slips, is worth one question in the total, and is marked while it is typed. Unanswered questions count as wrong, a score that lands within one standard error of a cutoff is shown as ±1 band, speaking stays practice and is reported as **not assessed**, and the retake window is 30 days |
-| 🧭 Learning path | **seven CEFR level spaces, one written course.** The section appears in the header only after a level check has run, and the level it opens on is the one the check awarded — an A2 learner starts at A2, never at A1. A1 is a real course: **6 units, 18 lessons, 67 exercises** over the six skills — grammar from *to be* through quantifiers and imperatives, vocabulary from greetings to hobbies, two reading passages with their Persian, two listening lessons read aloud offline, a writing lesson marked by the **same rubric the level check uses**, and a speaking lesson marked by the words the recogniser actually heard. A lesson is explanation → examples → two guided questions → exercises → a check; 60% finishes it, and a lesson under that keeps its exercises open. Progress is per lesson, per skill and for the course, kept in `fluentify.path.v1`. The **A1 final examination** is 33 marks across all six skills (8 grammar, 8 vocabulary, 2 reading passages × 3, 6 listening, 2 writing tasks, 3 speaking tasks) and passes at 60% overall **with 50% in every skill and every skill actually assessed** — silent speaking is not a pass, and the report says so rather than scoring it. Passing A1 marks the level done and makes A2 the next level. **Pre-A1 is the first of the seven**, an absolute-beginner space of its own with no course written: a paper that stays under the A1 cutoff is reported as **Pre-A1**, and the path opens there rather than on A1 — the card says its curriculum is not written yet, and the nearest written level above is *offered* by name (the A1 course, with its own button) instead of silently substituting for the learner's level. **The other levels exist as their own spaces with their own status** — assessed, next, locked or below you — and say their curriculum is not written yet; they have no invented lessons, no fake progress and no exam, and adding one is adding a course to `path.json`, not a second page |
+| 🧭 Learning path | **seven CEFR level spaces, three written courses.** The section appears in the header only after a level check has run, and the level it opens on is the one the check awarded — an A2 learner starts at A2, never at A1. **A1** is 6 units, 18 lessons and 67 exercises. **A2** is 8 units, 24 lessons and 95 exercises across the six skills: the past simple and the past continuous, the present perfect for experience, the three future forms, comparatives, quantifiers, the modals and the first conditional, with vocabulary for relationships, travel, food, work, shopping, health, technology and the town, three reading passages with their Persian, three listening lessons read aloud offline, a writing lesson and a speaking role-play. **B1** develops A2 instead of repeating it — 8 units, 24 lessons and 94 exercises on the perfect against the past, first and second conditionals, the passive, relative clauses, reported speech, *used to*, the modals of obligation and deduction, and gerunds against infinitives, with two passages, three listening lessons, two writing tasks and a discussion lesson. A lesson is explanation → examples → guided questions → exercises → a check; 60% finishes it, and a lesson under that keeps its exercises open. Progress is per lesson, per skill and for the course, kept in `fluentify.path.v1`; the writing rubric is the level check's own, with a sentence count that rises with the level. **Each level's final examination is its own 33-mark paper** (8 grammar, 8 vocabulary, 2 reading passages × 3, 6 listening, 2 writing tasks, 3 speaking tasks) and passes at 60% overall **with 50% in every skill and every skill actually assessed** — silent speaking is not a pass, and the report says so rather than scoring it. Passing A1 opens A2 and passing A2 opens B1; passing B1 makes B2 the next level, which has no course yet, and any course below the learner's own level stays open to revisit. **Pre-A1 is the first of the seven**, an absolute-beginner space with no course written: a paper that stays under the A1 cutoff is reported as **Pre-A1**, the card says its curriculum is not written yet, and the nearest written level above is *offered* by name (its own course, with its own button) instead of silently substituting for the learner's level. **The levels without a course exist as their own spaces with their own status** — assessed, next, locked or below you — and have no invented lessons, no fake progress and no exam; adding one is adding a course to `path.json`, not a second page |
 | 📚 Mini stories | 50 graded readers (very easy → very hard) — the whole story with the Persian under every sentence, vocabulary, expressions, grammar and 5 + 3 + 3 + 2 questions with answers and explanations, plus a companion for a chapter of a book you own |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
 | 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
@@ -428,11 +428,14 @@ apart on a phone and made every section scroll sideways.
 
 ### The companion in the send box
 
-The mascot climbs out of the message box. She is the same cut-out the launcher
-and the header use — `brand/fox-face.png`, the head from
-[tools/build_brand.py](tools/build_brand.py), not a second drawing — and she
-lives in a band of her own at the top of the composer (`#composer > .foxslot`),
-not floating beside it.
+The mascot climbs out of the message box, as a ghost. The composer's fox is
+drawn rather than photographed: one inline SVG (`svg.foxpic`) with a white body,
+a single mint line round it and two green eyes — the mascot's ears, cheeks and
+muzzle kept, and every other colour dropped. Her glow is painted, not filtered:
+a radial gradient sits behind the body (`#foxglow`) and its three stops read the
+palette's `--ghost-body`, `--ghost-line` and `--ghost-halo`, because a `filter`
+on an animated node is re-rasterised every frame. She lives in a band of her own
+at the top of the composer (`#composer > .foxslot`), not floating beside it.
 
 What makes it read as *inside* is three lines of geometry. The band's bottom
 edge is the box's top edge: the form's own `gap` sits between two fixed
@@ -445,11 +448,11 @@ clip line is the pill's own top edge, which is why she is set in from the left
 corner (`left: 30px`, `28px` on a phone) — above the 26px radius the box's edge
 falls away and the cut at her chin would show daylight.
 
-Everything after that is CSS on the picture: a slow bob with one flick of a
-degree and a half a cycle (her ears are painted, so the whole head twitches),
-a glance left and right every eleven seconds, and a blink every seven — two fur-
-coloured ovals inside the lenses closed from the top, because the mascot is not
-redrawn at 52px. A sent message adds `.nod` for half a second, and
+Everything after that is CSS on the drawing: a slow bob with one flick of a
+degree and a half a cycle (the ears move with the head), a glance left and right
+every eleven seconds, and a blink every seven — the eyes are one group,
+`g.foxeyes`, squashed to a line and opened again. A sent message adds `.nod` for
+half a second, and
 the class comes off on `animationend` so the bob resumes; opening a section
 hides the composer, and closing it brings her back without ceremony. The
 dictation panel opens directly above the box, so `body.stt-open` ducks her out
@@ -459,9 +462,10 @@ outside her band: the field, the buttons and the transcript are untouched.
 Under `prefers-reduced-motion` she is still there — a still fox at the lip of
 the box is the whole idea — but her transition and all four animations are
 off. [tools/check_ui.py](tools/check_ui.py) holds this: the band clips, it
-cancels the gap, she starts below the clip, she clears the corner, she is the
-brand's own picture drawn before the box, and the reduced-motion block lists
-every animation she has.
+cancels the gap, she starts below the clip, she clears the corner, the drawing in
+the box is a ghost rather than the brand's coloured face (which stays in the
+header), her glow is a gradient and not a filter, her three colours are declared
+once per theme, and the reduced-motion block lists every animation she has.
 
 ### Two themes, one palette
 
@@ -644,6 +648,8 @@ Everything lives in JSON — no code changes needed:
   (wrap the taught part in `**like this**`), `practice` (the 6 warm-up questions the
   exam gate waits on) and `exam` (the 20 scored ones)
 * **small talk** → add an intent to `memory.json` with EN/FA keywords and responses
+* **a learning-path course** → write its units in `tools/course_<level>_*.py` on `tools/course_kit.py` and run
+  `python3 tools/build_path.py`; A1 is hand-written in `path.json` and is never rewritten
 
 Then re-run `python3 build_apk_ui.py` and `cp *.json android/app/src/main/assets/www/data/`.
 
@@ -893,7 +899,7 @@ Twenty-nine suites:
 | offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
 | dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licences still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
 | weekly quiz | does it open on Friday morning Tehran time and ask the Friday-to-Thursday week that just closed? Run twice, in two timezones, which must not disagree. |
-| learning path | are there seven level spaces, one written course, and an exam whose six skills are each marked by something that can mark them? The content is validated (units, lessons, exercises, both languages, every answer in range), the model is run in node over placements from Pre-A1 to C2, and the one rule that matters is asserted: a paper with nothing heard on it does not report speaking as passed. |
+| learning path | are there seven level spaces, three written courses, and an exam whose six skills are each marked by something that can mark them? Every course is validated on its own — units, lessons, exercises, both languages, every answer in range — and against the other two, so a lesson title or an explanation cannot be reused across levels. The model is then run in node over placements from Pre-A1 to C2 and over each course's paper: a perfect paper passes at 100%, a blank one fails, five wrong grammar answers cannot slip through the 50% floor, passing A1 opens A2, passing A2 opens B1, and the one rule that matters is asserted for every paper — a paper with nothing heard on it does not report speaking as passed. |
 | mastery schedule | does anything come back, and on time? The interval/ease/lapse arithmetic, the recall counters, the queue, the cap and the corrupt record. |
 | error log & profile | does a diagnosed mistake ever add up? One log from the level check, the quiz and the drills, ranked, bounded, and re-askable. |
 | practice drills | are the drills sound, and is there exactly one way into them — the circular control that folds out into the list of activities and opens each as a full page, with no second card and no drill inside the drawer? Word partners, register, the ear test over the phonetics pairs, and the word-level comparison behind dictation and speaking, plus the authored bank itself, `Drills.levels` against the real `listening.json` so dictation and say-it can never go empty again, and the drawer, which must build its rows from `Practice.TABS`, open all six as pages, come back to the list on close, and draw no drill of its own. |
