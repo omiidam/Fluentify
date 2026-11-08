@@ -3553,7 +3553,11 @@
 
   /* ---------- input ---------- */
   form {
-    display: flex; gap: 10px; padding: 14px 20px 18px;
+    /* --fgap is the same number as the gap, named because the fox's band sits
+       on the box's lip: it has to cancel the space between them exactly, and
+       there is no other way to reach a gap from an item. */
+    --fgap: 10px;
+    display: flex; gap: var(--fgap); padding: 14px 20px 18px;
     /* the sand rises from the floor of the app, the way the poster's band
        closes its card at the bottom */
     background: linear-gradient(0deg, rgba(235,226,183,.6), rgba(235,226,183,0));
@@ -3588,6 +3592,118 @@
   .messageBox:focus-within {
     border-color: rgba(60,64,91,.45);
     box-shadow: 0 0 0 4px rgba(232,191,95,.30), 0 2px 10px rgba(74,58,30,.10);
+  }
+  /* ---------- the fox in the send box -----------------------------------
+     She is not beside the composer, she is inside it: the band above the pill
+     is the hole she climbs out of, its bottom edge is the pill's top edge,
+     and the band clips. Whatever is still in the box is simply not drawn, so
+     the head that shows is the part that has risen - no floating portrait,
+     no second avatar.
+
+     The band is a fixed height, so the climb is a transform: no layout shift,
+     nothing pushed, and it cannot cover the input, the buttons or a message -
+     the transcript ends above it. It hangs on the form rather than on the
+     window, so it leaves with the composer when a section is open. */
+  .foxslot {
+    position: relative; flex: none;
+    /* Its bottom edge must be the box's top edge, and the form's own gap sits
+       between the two: the negative margin is that gap, cancelled, so the clip
+       line is the lip of the box and not a band above it. */
+    height: 46px; margin: 0 0 calc(-1 * var(--fgap, 10px));
+    overflow: hidden; pointer-events: none;
+  }
+  .foxpeek {
+    position: absolute; inset: 0;
+    transform: translateY(100%);
+    transition: transform .62s cubic-bezier(.22,.9,.3,1);
+  }
+  /* Risen. Everything else - the bob, the look around, the blink - is an
+     animation inside it, so none of them fights the climb for `transform`. */
+  .foxpeek.on { transform: none; }
+  .foxshade {
+    position: absolute; left: 26px; bottom: -4px; width: 64px; height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%,
+                rgba(74,58,30,.30), rgba(74,58,30,0) 74%);
+  }
+  /* Left 30px, not 12: the pill's corner is a 26px radius, so anything nearer
+     the end would end above the curve rather than above the box, and the cut
+     at her chin would show daylight instead of the lip she is climbing out
+     of. Past the curve the top edge is flat, and the cut reads as the box. */
+  .foxhead {
+    position: absolute; left: 30px; bottom: -14px;
+    width: 58px; height: 58px; transform-origin: 50% 100%;
+    animation: foxBob 6.5s ease-in-out infinite;
+  }
+  /* No drop-shadow: a filter on an animated element is re-rasterised every
+     frame, which is the note the boot card's cut-out already carries. The
+     cut-out has its own dark line, and the shade below does the grounding. */
+  .foxpic {
+    width: 100%; height: 100%; display: block;
+    transform-origin: 50% 92%;
+    animation: foxLook 11.3s ease-in-out infinite;
+  }
+  @keyframes foxBob {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50%      { transform: translateY(-1.6px) rotate(0); }
+    /* Once a cycle, a flick of a degree and a half. Her ears are part of the
+       picture, so the whole head twitches - at this size that is read as the
+       ears, and it is the only motion here that is over in a fifth of a
+       second. */
+    62%      { transform: translateY(-1.6px) rotate(-1.5deg); }
+    66%      { transform: translateY(-1.5px) rotate(1.1deg); }
+    70%      { transform: translateY(-1.4px) rotate(0); }
+  }
+  /* Slow, and mostly still: a companion that looks around on a loop is a gif,
+     one that glances every eleven seconds is alive. */
+  @keyframes foxLook {
+    0%, 38%, 64%, 100% { transform: rotate(0); }
+    45%  { transform: rotate(-3deg); }
+    52%  { transform: rotate(0); }
+    55%  { transform: rotate(2.4deg); }
+    60%  { transform: rotate(0); }
+  }
+  /* The lids, not the eyes: the picture is the mascot and is not redrawn, so a
+     blink is two small ovals the colour of her fur, sitting inside the lenses
+     and closed from the top. At this size they are visible exactly as long as
+     a blink lasts. */
+  .foxlids { position: absolute; inset: 0; }
+  .foxlids i {
+    position: absolute; display: block; border-radius: 50%;
+    /* a lid, not a colour: the illustration's own fur is not a token, and a
+       token here would be the wrong fur in the other theme */
+    background: rgba(72,38,14,.82);
+    transform: scaleY(.06); transform-origin: 50% 0;
+    animation: foxBlink 6.8s ease-in-out infinite;
+  }
+  .foxlids i:nth-child(1) { left: 16%; top: 48.4%; width: 7%; height: 7.8%; }
+  .foxlids i:nth-child(2) { left: 32%; top: 57.4%; width: 9.8%; height: 11%; }
+  @keyframes foxBlink {
+    0%, 88%, 100% { transform: scaleY(.06); }
+    91%, 94%      { transform: scaleY(1); }
+  }
+  /* A message goes out: she nods, once, and settles back to the bob. */
+  .foxhead.nod { animation: foxNod .52s cubic-bezier(.3,1.6,.5,1); }
+  @keyframes foxNod {
+    0%   { transform: translateY(0) rotate(0); }
+    32%  { transform: translateY(4px) rotate(2.5deg); }
+    70%  { transform: translateY(-2px) rotate(-1.6deg); }
+    100% { transform: translateY(0) rotate(0); }
+  }
+  /* Dictation opens its own box directly above this one, and she would sit on
+     the words: she ducks until it is gone. */
+  body.stt-open .foxpeek { transform: translateY(100%); }
+  @media (max-width: 560px) {
+    .foxslot { height: 42px; }
+    .foxhead { left: 28px; width: 54px; height: 54px; bottom: -14px; }
+    .foxshade { left: 22px; width: 60px; }
+  }
+  /* The animation block below switches the app's motion off wholesale; these
+     are listed there too. She stays - a still fox in the corner of the box is
+     the point of the design - she just does not move. */
+  @media (prefers-reduced-motion: reduce) {
+    .foxpeek { transition: none; }
+    .foxhead, .foxpic, .foxlids i, .foxhead.nod { animation: none; }
   }
   .ico {
     flex: 0 0 auto; width: 36px; height: 36px; padding: 0;
@@ -4921,7 +5037,7 @@
   form {
     padding: 8px calc(var(--pad) + var(--sar))
              calc(8px + var(--sab)) calc(var(--pad) + var(--sal));
-    gap: 8px; flex-direction: column;
+    --fgap: 8px; gap: var(--fgap); flex-direction: column;
   }
   /* The composer holds three things: the input, the mic and Send. The input is
      the only one allowed to shrink, so the mic can never be squeezed off a
@@ -5185,7 +5301,7 @@
     .msg { padding: 12px 16px; font-size: 16px; }
     #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel, #bpanel { padding: 12px 18px 24px; --secpad: 18px; max-height: none; }
     .domains { max-height: none; }
-    form { padding: 14px 20px 18px; gap: 8px; }
+    form { padding: 14px 20px 18px; --fgap: 8px; gap: var(--fgap); }
     #input { padding: 10px 14px; font-size: 15.5px; }
     .send { width: 36px; height: 36px; padding: 0; }
   }
@@ -6152,6 +6268,20 @@
 
   <div class="stt-panel" id="stt" hidden></div>
   <form id="composer">
+    <!-- The band the little fox climbs into. Its bottom edge is the top edge
+         of the send box, and it clips: everything below that line is inside
+         the box and stays out of sight, so she is only ever drawn in the part
+         that has risen out of it. -->
+    <div class="foxslot" aria-hidden="true">
+      <div class="foxpeek" id="chatfox">
+        <span class="foxshade"></span>
+        <div class="foxhead">
+          <img class="foxpic" src="brand/fox-face.png" alt="" width="52"
+               height="52" draggable="false" decoding="async">
+          <span class="foxlids"><i></i><i></i></span>
+        </div>
+      </div>
+    </div>
     <div class="messageBox" id="messageBox">
       <button type="button" class="ico" id="gecbtn"
               aria-label="Check my English / گرامر جمله را چک کن"
@@ -6831,6 +6961,58 @@ let busy = false;
 const history = [];      // ↑/↓ recall, like every real messenger
 let historyAt = -1;
 
+/* The fox in the send box.
+ *
+ * She is the app's own mascot - the same cut-out the launcher, the header and
+ * the boot card use - put where a companion belongs: inside the composer,
+ * with only her head above its lip. The climb, the bob, the glance and the
+ * blink are all CSS; this only decides when they start and adds the nod when a
+ * message goes out. Nothing here is announced: she is aria-hidden decoration,
+ * she takes no pointer events, and she never covers the field she lives in. */
+const ChatFox = (() => {
+  let timer = 0;
+  const el = () => document.getElementById('chatfox');
+  /* Reduced motion is read live: the pref can be switched while the page is
+     open, and an OS-level switch should not need a reload. */
+  const still = () => !!(window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* The nod is a class, so it can be replayed on the next message - but it
+     has to come off again or it would hold the head still: while it is on it
+     replaces the bob. */
+  function bindHead(head) {
+    if (!head || head.dataset.foxBound) return;
+    head.dataset.foxBound = '1';
+    head.addEventListener('animationend', (e) => {
+      if (e.animationName === 'foxNod') head.classList.remove('nod');
+    });
+  }
+
+  function mount() {
+    const f = el();
+    if (!f) return;
+    bindHead(f.querySelector('.foxhead'));
+    clearTimeout(timer);
+    if (still()) { f.classList.add('on'); return; }  // present, never moving
+    /* After the boot card, not during it: she should be found, not waiting. */
+    timer = setTimeout(() => f.classList.add('on'), 900);
+  }
+
+  function nod() {
+    const f = el();
+    if (!f || still()) return;
+    f.classList.add('on');
+    const head = f.querySelector('.foxhead');
+    if (!head) return;
+    bindHead(head);
+    head.classList.remove('nod');
+    void head.offsetWidth;          // two messages in a row nod twice
+    head.classList.add('nod');
+  }
+
+  return {mount, nod};
+})();
+
 async function send(text) {
   // the opening prompt has done its job once the learner says anything
   const starters = document.getElementById('starters');
@@ -6875,6 +7057,7 @@ async function send(text) {
   sendbtn.disabled = true;
   lastUserText = text;
   add(text, 'user');
+  ChatFox.nod();
   input.value = '';
   history.push(text);
   historyAt = history.length;
@@ -8465,6 +8648,10 @@ const STT = {
     if (mic) mic.classList.toggle('rec', this.listening);
     const panel = document.getElementById('stt');
     if (!panel) return;
+    /* The fox lives in the band directly under this box, so she ducks while
+       there are words in it rather than sitting on them. */
+    document.body.classList.toggle('stt-open',
+      !!(this.listening || this.interim || this.final));
     if (!this.listening && !this.interim && !this.final) {
       panel.hidden = true;
       panel.innerHTML = '';
@@ -17847,6 +18034,10 @@ const Boot = (() => {
     // Removed as well as faded: left in the tree it stays a full-screen
     // element that a later focus can land on.
     setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
+    /* The page is hers now: she climbs out of the composer once the boot card
+       is off the screen, so the first thing seen after loading is not a
+       static corner. */
+    try { ChatFox.mount(); } catch (e) { /* a boot without a composer */ }
     try { input.focus(); } catch (e) { /* the field may not exist yet */ }
   }
 

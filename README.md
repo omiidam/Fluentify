@@ -426,6 +426,43 @@ The gutter is one named number (`--secpad`) used by both the page padding and
 the band behind the sticky header, because two copies of it were two pixels
 apart on a phone and made every section scroll sideways.
 
+### The companion in the send box
+
+The mascot climbs out of the message box. She is the same cut-out the launcher
+and the header use — `brand/fox-face.png`, the head from
+[tools/build_brand.py](tools/build_brand.py), not a second drawing — and she
+lives in a band of her own at the top of the composer (`#composer > .foxslot`),
+not floating beside it.
+
+What makes it read as *inside* is three lines of geometry. The band's bottom
+edge is the box's top edge: the form's own `gap` sits between two fixed
+children, so the band carries `margin-bottom: calc(-1 * var(--fgap))` to cancel
+it — without that there is a 8–10px strip of page under her chin and she
+hovers. The band clips (`overflow: hidden`), and she is taller than it and
+starts at `translateY(100%)`, so at rest nothing of her is drawn above the lip;
+`.on` lifts her in over 0.62s, about a second after the boot card leaves. The
+clip line is the pill's own top edge, which is why she is set in from the left
+corner (`left: 30px`, `28px` on a phone) — above the 26px radius the box's edge
+falls away and the cut at her chin would show daylight.
+
+Everything after that is CSS on the picture: a slow bob with one flick of a
+degree and a half a cycle (her ears are painted, so the whole head twitches),
+a glance left and right every eleven seconds, and a blink every seven — two fur-
+coloured ovals inside the lenses closed from the top, because the mascot is not
+redrawn at 52px. A sent message adds `.nod` for half a second, and
+the class comes off on `animationend` so the bob resumes; opening a section
+hides the composer, and closing it brings her back without ceremony. The
+dictation panel opens directly above the box, so `body.stt-open` ducks her out
+of its way. She is `aria-hidden`, takes no pointer events, and draws nothing
+outside her band: the field, the buttons and the transcript are untouched.
+
+Under `prefers-reduced-motion` she is still there — a still fox at the lip of
+the box is the whole idea — but her transition and all four animations are
+off. [tools/check_ui.py](tools/check_ui.py) holds this: the band clips, it
+cancels the gap, she starts below the clip, she clears the corner, she is the
+brand's own picture drawn before the box, and the reduced-motion block lists
+every animation she has.
+
 ### Two themes, one palette
 
 The switch lives in the **Account** panel (`Appearance — ظاهر`), because that is

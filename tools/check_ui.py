@@ -418,6 +418,71 @@ def main() -> int:
           "height of the input and the microphone too")
 
 
+    # ---------------------------------------------------------- the send-box fox --
+    # The mascot climbs out of the message box. What makes that read as climbing
+    # rather than as a picture parked above the composer is geometry: a band
+    # whose bottom edge is the box's top edge, a clip on that band, and a fox
+    # taller than it that starts entirely below the line. Every one of those is
+    # a declaration someone could delete while "tidying", and the result would
+    # still look plausible as a floating head.
+    slot = re.search(r"\.foxslot \{([^}]*)\}", src)
+    peek = re.search(r"\.foxpeek \{([^}]*)\}", src)
+    head = re.search(r"\.foxhead \{([^}]*)\}", src)
+    check("the fox has a band of her own in the composer",
+          slot is not None and peek is not None and head is not None,
+          "no .foxslot/.foxpeek/.foxhead: the mascot has nowhere to climb out of")
+    check("the band clips, so nothing inside the box is ever drawn",
+          bool(slot) and "overflow: hidden" in slot.group(1),
+          "without the clip she hovers over the composer instead of rising out "
+          "of it")
+    check("the band sits on the box's lip, not above it",
+          "calc(-1 * var(--fgap" in (slot.group(1) if slot else ""),
+          "the form's gap would leave a strip of page between her chin and the "
+          "box, which is the difference between emerging and floating")
+    check("she starts below the clip and rises into it",
+          bool(peek) and "translateY(100%)" in peek.group(1)
+          and re.search(r"\.foxpeek\.on \{ transform: none; \}", src) is not None,
+          "a fox that is simply placed there has nowhere to come from")
+    check("she clears the pill's rounded end",
+          bool(head) and re.search(r"left: (\d+)px", head.group(1)) is not None
+          and int(re.search(r"left: (\d+)px", head.group(1)).group(1)) >= 26,
+          "above the 26px corner the box's top edge falls away, and the cut at "
+          "her chin would show daylight instead of the lip")
+
+    fox_markup = re.search(r'<div class="foxslot"[^>]*>(.*?)</div>\s*</div>\s*</div>',
+                           src, re.S)
+    check("the fox in the box is the app's own mascot",
+          fox_markup is not None and 'src="brand/fox-face.png"' in fox_markup.group(1),
+          "a second animal drawn for the composer is how two mascots start")
+    check("the fox is decoration and not a target",
+          '<div class="foxslot" aria-hidden="true">' in src
+          and re.search(r"\.foxslot \{[^}]*pointer-events: none", src) is not None,
+          "she is announced to no one and must not swallow a tap meant for the "
+          "field under her")
+    check("she is drawn before the box, so the box is the thing hiding her",
+          src.index('id="chatfox"') < src.index('id="messageBox"'),
+          "after the box she would paint over the input and the buttons")
+
+    check("she climbs once the boot card is gone, not during it",
+          "ChatFox.mount()" in src and "clearInterval(factTimer);" in src,
+          "the only moment to meet her is the moment the page is handed over")
+    check("a sent message earns a nod",
+          "ChatFox.nod();" in src
+          and src.index("add(text, 'user');") < src.index("ChatFox.nod();"),
+          "the reaction has to follow the message that caused it")
+    check("she ducks while dictation has words in its box",
+          re.search(r"body\.stt-open \.foxpeek \{ transform: translateY\(100%\)", src)
+          is not None,
+          "the speech panel opens directly above the composer and she would sit "
+          "on the words")
+    check("the fox's idle motion switches off with prefers-reduced-motion",
+          re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*"
+                    r"\.foxpeek \{ transition: none; \}\s*"
+                    r"\.foxhead, \.foxpic, \.foxlids i, \.foxhead\.nod \{ animation: none; \}",
+                    src) is not None,
+          "a companion that keeps bobbing after the setting is on is a "
+          "companion nobody can switch off")
+
     # -------------------------------------------------------------- borderless --
     # Seven outlined boxes in a row is a rack of buttons, not a toolbar, and
     # the same outline around the mic and the send button made the composer
