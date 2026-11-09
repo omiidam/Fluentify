@@ -2,8 +2,8 @@
 """What the learning path has to be true of, before anyone walks it.
 
   * the path - seven CEFR spaces in order, each with an English and a Persian
-    name and a line about what the level can do, and exactly one of them with a
-    course. A second course is a second entry, not a second page;
+    name and a line about what the level can do, and five of them with a course
+    (A1 to C1). A second course is a second entry, not a second page;
   * the course - six units, eighteen lessons, every one with an explanation, an
     example, guided practice and exercises, all six skills represented, and no
     lesson anywhere that is a heading with nothing under it;
@@ -37,8 +37,17 @@ SKILLS = ["grammar", "vocabulary", "reading", "listening", "writing", "speaking"
 KINDS = {"mcq", "gap", "listen", "write", "say"}
 LEVEL_IDS = ["PRE", "A1", "A2", "B1", "B2", "C1", "C2"]
 # What each written course is: units, lessons, exercises. A1 is the reference
-# course and must not change; A2 and B1 are the two this task added.
-COURSE_SHAPE = {"A1": (6, 18, 67), "A2": (8, 24, 95), "B1": (8, 24, 94)}
+# course and must not change; A2 and B1 came next, then B2 and C1.
+COURSE_SHAPE = {"A1": (6, 18, 67), "A2": (8, 24, 95), "B1": (8, 24, 94),
+                "B2": (8, 24, 94), "C1": (8, 24, 89)}
+# The length a writing task may ask for. A1 to B1 write a short paragraph; B2 and
+# C1 write a report or an essay, and marking a hundred and fifty words against a
+# sixty-word ceiling would fail every correct answer.
+WRITE_CAP = {"A1": 60, "A2": 60, "B1": 60, "B2": 160, "C1": 160}
+
+
+def word_cap(lid: str) -> int:
+    return WRITE_CAP.get(lid, 60)
 
 problems: list[str] = []
 
@@ -108,10 +117,10 @@ def check_shape(doc: dict) -> dict:
         check(bool(row) and row.get("course") == lid,
               f"level {lid} does not point at its own course")
         check(len(course.get("units") or []) >= 6, f"{lid} has fewer than six units")
-    for lid in ("A1", "A2", "B1"):
+    for lid in ("A1", "A2", "B1", "B2", "C1"):
         check(lid in courses, f"{lid} has no course")
-    for lid in ("B2", "C1", "C2"):
-        check(lid not in courses, f"{lid} was implemented, and this task stops at B1")
+    check("C2" not in courses,
+          "C2 was implemented, and this task stops at C1")
 
     return {"levels": len(levels), "courses": list(courses)}
 
@@ -139,10 +148,10 @@ def check_one_course(lid: str, course: dict) -> dict:
         check(len(rows) >= 2, f"{where} has {len(rows)} lesson(s)")
         for lesson in rows:
             lessons += 1
-            lid = lesson.get("id") or f"unit{ui}.lesson?"
-            lw = f"lesson {lid}"
-            check(lid not in ids, f"{lw} appears twice")
-            ids.add(lid)
+            lesson_id = lesson.get("id") or f"unit{ui}.lesson?"
+            lw = f"lesson {lesson_id}"
+            check(lesson_id not in ids, f"{lw} appears twice")
+            ids.add(lesson_id)
             skill = lesson.get("skill")
             check(skill in SKILLS + ["review"], f"{lw} has skill {skill!r}")
             by_skill[skill] = by_skill.get(skill, 0) + 1
@@ -182,7 +191,7 @@ def check_one_course(lid: str, course: dict) -> dict:
             exs = lesson.get("exercises") or []
             check(len(exs) >= 2, f"{lw} has {len(exs)} exercise(s)")
             if skill in ("grammar", "vocabulary"):
-                grammars.append(lid)
+                grammars.append(lesson_id)
             for k, e in enumerate(exs):
                 exercises += 1
                 ew = f"{lw} exercise {k + 1}"
@@ -204,7 +213,8 @@ def check_one_course(lid: str, course: dict) -> dict:
                 elif e.get("kind") == "write":
                     fa_pair(True, ew + " task", e.get("task"))
                     fa_pair(True, ew + " tips", e.get("tips"))
-                    check(0 < int(e.get("words") or 0) <= 60, f"{ew} asks for {e.get('words')} words")
+                    check(0 < int(e.get("words") or 0) <= word_cap(lid),
+                          f"{ew} asks for {e.get('words')} words")
                     check(bool(e.get("needs")), f"{ew} does not ask for a link word")
                 else:
                     check(bool(str(e.get("say") or "").strip()), f"{ew} has nothing to say")
@@ -264,7 +274,8 @@ def check_one_course(lid: str, course: dict) -> dict:
             if kind == "write":
                 fa_pair(True, iw + " task", item.get("task"))
                 fa_pair(True, iw + " tips", item.get("tips"))
-                check(0 < int(item.get("words") or 0) <= 60, f"{iw} asks for {item.get('words')} words")
+                check(0 < int(item.get("words") or 0) <= word_cap(lid),
+                      f"{iw} asks for {item.get('words')} words")
                 check(bool(item.get("needs")), f"{iw} does not ask for a link word")
             elif kind == "say":
                 check(bool(str(item.get("say") or "").strip()), f"{iw} has nothing to say")
@@ -295,7 +306,7 @@ def check_one_course(lid: str, course: dict) -> dict:
 
 
 def check_course(doc: dict) -> dict:
-    """Every course on its own, then the three of them against each other."""
+    """Every course on its own, then all of them against each other."""
     courses = doc.get("courses") or {}
     total = {"units": 0, "lessons": 0, "exercises": 0, "guided": 0,
              "exam": 0, "by_skill": {}}
@@ -447,7 +458,23 @@ say(PathModel.status('B1', 'A1', true, false, false) === 'locked',
 say(PathModel.status('B1', 'A2', true, false, true) === 'available',
     'passing A2 does not open the B1 course');
 say(PathModel.status('B2', 'B1', false, false, true) === 'awaiting',
-    'passing B1 does not make B2 the next level');
+    'passing B1 does not make an unwritten B2 the next level');
+/* From B2 upwards the courses exist, so the pass above opens the next one by
+   name - and C2, the only space with no curriculum, stays a space. */
+say(PathModel.status('B2', 'B1', true, false, true) === 'available',
+    'passing B1 does not open the B2 course');
+say(PathModel.status('C1', 'B2', true, false, true) === 'available',
+    'passing B2 does not open the C1 course');
+say(PathModel.status('C1', 'B1', true, false, false) === 'locked',
+    'C1 is open two levels early');
+say(PathModel.status('C2', 'C1', false, false, true) === 'awaiting',
+    'passing C1 does not leave C2 waiting for its curriculum');
+say(PathModel.status('B2', 'B2', true, false) === 'current',
+    'an assessed B2 learner does not start on B2');
+say(PathModel.status('C1', 'C1', true, false) === 'current',
+    'an assessed C1 learner does not start on C1');
+say(PathModel.status('B1', 'C1', true, false) === 'available',
+    'a C1 learner cannot go back to the B1 course');
 say(PathModel.status('B2', 'B1', false, false, false) === 'locked',
     'B2 opens before B1 is passed');
 
@@ -541,9 +568,27 @@ const CLAUSE = {
    words: the paper asks for different things in its two tasks, and a marker
    that cannot give full marks to an answer written to the brief is a marker
    nobody can pass. */
-const compose = (item) => BASE.concat(
-  (item.needs || []).filter((n) => !BASE.join(' ').toLowerCase().includes(n))
-    .map((n) => CLAUSE[n] || (n + ' is here.'))).join(' ');
+const EXTRA = [
+  'The report was written after the meeting and the figures were checked twice.',
+  'Although the trial was short, the effect was consistent at every site.',
+  'What matters most is not the cost but the assumption behind the plan.',
+  'Having read both proposals, the committee recommended the cheaper one.',
+  'The evidence suggests a modest improvement, though the sample was small.',
+  'Far from settling the question, the second study widened it considerably.',
+  'The pilot ran for six weeks before anyone asked whether it had worked.',
+];
+const wordCount = (t) => t.split(/\s+/).filter(Boolean).length;
+const compose = (item) => {
+  let text = BASE.concat(
+    (item.needs || []).filter((n) => !BASE.join(' ').toLowerCase().includes(n))
+      .map((n) => CLAUSE[n] || (n + ' is here.'))).join(' ');
+  /* A B2 or C1 report asks for more words than the base paragraph carries; the
+     model answer has to be written to the brief, not to A1's. */
+  for (let i = 0; wordCount(text) < (item.words || 30) && i < 40; i += 1) {
+    text += ' ' + EXTRA[i % EXTRA.length];
+  }
+  return text;
+};
 const answers = {};
 paper.forEach((q) => {
   if (q.kind === 'gap') answers[q.id] = q.item.answer[0];

@@ -5641,6 +5641,96 @@
   .plv-foot { font-size: 11px; color: var(--dim); margin: 2px 0 0; }
   .plv-actions { margin-top: auto; padding-top: 8px; }
   .plv-actions .path-btn { width: 100%; }
+  .plv-unit-meta { font-size: 11px; font-weight: 600; color: var(--dim); }
+
+  /* ---- where you are, and what to open next ----
+     One band above the seven cards: the assessed level on the left, the
+     progress through its course in the middle, and the one button a learner
+     should press on the right. The band is the answer to "what now?"; the
+     grid below is the map. */
+  .path-band {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+    border: 1px solid var(--line); border-radius: 18px; padding: 15px 18px;
+    margin: 0 0 16px; background: var(--card);
+    box-shadow: 0 1px 2px rgba(74,58,30,.05);
+  }
+  .path-band-l { min-width: 0; flex: 1 1 220px; }
+  .path-band-k {
+    font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    font-weight: 800; color: var(--muted); margin: 0 0 4px;
+  }
+  .path-band-v {
+    font-size: 17px; font-weight: 700; color: var(--ink); margin: 0;
+    font-family: var(--font-display); letter-spacing: -.2px;
+  }
+  .path-band-s { font-size: 11.5px; color: var(--muted); margin: 3px 0 0; line-height: 1.55; }
+  .path-band-m { flex: 1 1 240px; min-width: 0; }
+  .path-band-p { font-size: 11px; color: var(--dim); margin: 5px 0 0; }
+  .path-band-r { flex: 0 0 auto; }
+
+  /* ---- the level dashboard ----
+     Units in the reading column, the state of the level beside them. On a
+     phone the aside stacks under the units; on a laptop it stays in view while
+     the units scroll, because the examination and the next lesson are the two
+     things a learner looks for between lessons. */
+  .pldash { display: grid; gap: 18px; align-items: start; }
+  .pldash-main { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .pldash-side { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  @media (min-width: 980px) {
+    .pldash { grid-template-columns: minmax(0, 1fr) 300px; }
+    .pldash-side { position: sticky; top: 14px; }
+  }
+  .pcard {
+    border: 1px solid var(--line); border-radius: 16px; padding: 14px 15px 15px;
+    background: var(--card); box-shadow: 0 1px 2px rgba(74,58,30,.05);
+  }
+  .pcard-h {
+    font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+    font-weight: 800; color: var(--muted); margin: 0 0 10px;
+  }
+  .pcard .psk + .psk { margin-top: 9px; }
+  .pnext-t { font-size: 13.5px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.45; }
+  .pnext-u { font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+  .pnext-s { font-size: 11.5px; line-height: 1.65; color: var(--muted); margin: 6px 0 10px; }
+  .pcard .path-btn { width: 100%; }
+
+  /* ---- a unit, with its number and its own count ---- */
+  .punit-head { display: flex; align-items: flex-start; gap: 11px; }
+  .punit-badge {
+    flex: 0 0 auto; width: 30px; height: 30px; border-radius: 10px;
+    display: grid; place-items: center; font-size: 12px; font-weight: 800;
+    color: var(--gold-ink); background: rgba(232,191,95,.22);
+    border: 1px solid rgba(201,138,22,.32);
+  }
+  .punit-head-t { min-width: 0; flex: 1 1 auto; }
+  .punit-head .punit-n { display: block; margin: 0 0 3px; }
+  .punit-count {
+    flex: 0 0 auto; font-size: 10.5px; font-weight: 700; color: var(--dim);
+    padding: 3px 8px; border-radius: 999px; background: rgba(60,64,91,.07);
+    white-space: nowrap;
+  }
+
+  /* ---- the examination card, inside the aside ---- */
+  .pldash-side .pexam { margin-top: 0; flex-wrap: wrap; }
+  .pldash-side .pexam .path-btn { width: 100%; }
+
+  /* ---- a lesson page reads across the panel, not down a column ----
+     Prose keeps a readable measure; the rail beside it carries the things a
+     learner looks for between exercises - where they are, what is in the
+     lesson, and what comes next - so the page fills the panel instead of
+     leaving half of it empty. */
+  .path-wrap.pwide { max-width: 1180px; }
+  .pwide .plx-en, .pwide .plx-fa,
+  .pwide .ppass-en, .pwide .ppass-fa { max-width: 82ch; }
+  .pwide .punit-goal, .pwide .path-sub { max-width: 84ch; }
+  .plesson-cols { display: grid; gap: 18px; align-items: start; }
+  .plesson-main { min-width: 0; }
+  .plesson-rail { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  @media (min-width: 1040px) {
+    .plesson-cols { grid-template-columns: minmax(0, 1fr) 262px; }
+    .plesson-rail { position: sticky; top: 14px; }
+  }
+  .plesson-rail .path-btn { width: 100%; }
 
   /* ---- the course page ---- */
   .path-total { margin: 14px 0 4px; max-width: 520px; }
@@ -16547,7 +16637,9 @@ const Path = (() => {
           '<p class="plv-can fa" dir="rtl" lang="fa">' + esc(lv.can.fa) + '</p>' +
           note +
           (c ? '<div class="plv-prog">' + bar(st.share) + '</div>' +
-            '<p class="plv-foot">' + st.done + ' of ' + st.total + ' lessons' +
+            '<p class="plv-foot" dir="ltr">' + (c.units || []).length + ' units · ' +
+            st.total + ' lessons · six skills</p>' +
+            '<p class="plv-foot" dir="ltr">' + st.done + ' done' +
             (p.passed ? ' · passed' : '') + '</p>' : '') +
           '<div class="plv-actions">' + action + '</div>' +
         '</article>';
@@ -16564,6 +16656,36 @@ const Path = (() => {
       ? written.slice(0, -1).join('، ') + ' و ' + written[written.length - 1]
       : String(written[0] || '');
 
+    /* The band answers the one question the grid cannot: what should I open
+       now? It names the level the learner is on - or, when that curriculum is
+       not written, the written level offered instead - and gives the single
+       next action. */
+    const target = course(here) ? here : offer;
+    const tRow = target ? levelRow(target) : null;
+    const tC = target ? course(target) : null;
+    const tP = target ? prog(target) : null;
+    const tSt = PathModel.stats(tC, tP);
+    const band = (tRow && tC)
+      ? '<div class="path-band">' +
+          '<div class="path-band-l">' +
+            '<p class="path-band-k">Your level · ' +
+              '<span class="fa" dir="rtl" lang="fa">سطح تو</span></p>' +
+            '<p class="path-band-v" dir="ltr">' + esc(tRow.label) + ' · ' +
+              esc(tRow.name.en) + '</p>' +
+            '<p class="path-band-s" dir="ltr">' + tSt.done + ' of ' + tSt.total +
+              ' lessons · ' + (tP.passed ? 'examination passed' : 'examination not yet passed') +
+            '</p>' +
+          '</div>' +
+          '<div class="path-band-m">' + bar(tSt.share, 'big') +
+            '<p class="path-band-p" dir="ltr">' + pct(tSt.share) + ' of the course complete</p>' +
+          '</div>' +
+          '<div class="path-band-r"><button type="button" class="path-btn" ' +
+            'data-path="level" data-id="' + tRow.id + '">' +
+            (tP.passed ? 'Review the course' : tSt.done ? 'Continue' : 'Start learning') +
+          '</button></div>' +
+        '</div>'
+      : '';
+
     host.innerHTML = '<div class="path-wrap">' +
       '<div class="path-head">' +
         '<p class="path-kicker">Learning path · <bdi class="fa" dir="rtl" lang="fa">مسیر یادگیری</bdi></p>' +
@@ -16575,6 +16697,7 @@ const Path = (() => {
           '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد؛ دوره‌های ' + esc(namedFa) +
           ' و آزمون‌هایشان آماده‌اند و بقیهٔ سطح‌ها جای خود را در همین صفحه دارند.</p>' +
       '</div>' +
+      band +
       '<div class="plv-grid">' + cards + '</div>' +
       '<p class="path-foot" dir="ltr">Every level keeps the same shape: units, lessons ' +
         'and a final examination over the six skills. A level with no course yet is a ' +
@@ -16617,13 +16740,20 @@ const Path = (() => {
           '</span>' +
         '</li>';
       }).join('');
+      const unitDone = (u.lessons || []).filter((l) => PathModel.done(p, l.id)).length;
+      const unitAll = (u.lessons || []).length;
       return '<section class="punit">' +
-        '<header class="punit-head"><span class="punit-n">Unit ' + (ui + 1) + '</span>' +
-          '<h4 class="punit-title" dir="ltr">' + esc(u.title.en) +
-          '<span class="punit-fa">' + esc(u.title.fa) + '</span></h4>' +
+        '<header class="punit-head">' +
+          '<span class="punit-badge" aria-hidden="true">' + (ui + 1) + '</span>' +
+          '<div class="punit-head-t">' +
+            '<span class="punit-n">Unit ' + (ui + 1) + '</span>' +
+            '<h4 class="punit-title" dir="ltr">' + esc(u.title.en) +
+            '<span class="punit-fa">' + esc(u.title.fa) + '</span></h4>' +
+            '<p class="punit-goal" dir="ltr">' + esc(u.goal.en) + '</p>' +
+            '<p class="punit-goal fa" dir="rtl" lang="fa">' + esc(u.goal.fa) + '</p>' +
+          '</div>' +
+          '<span class="punit-count" dir="ltr">' + unitDone + '/' + unitAll + ' done</span>' +
         '</header>' +
-        '<p class="punit-goal" dir="ltr">' + esc(u.goal.en) + '</p>' +
-        '<p class="punit-goal fa" dir="rtl" lang="fa">' + esc(u.goal.fa) + '</p>' +
         '<ol class="plessons">' + rows + '</ol></section>';
     }).join('');
 
@@ -16648,6 +16778,33 @@ const Path = (() => {
             '<button type="button" class="path-btn" data-path="exam" data-id="' + levelId + '">Open the exam</button>' +
           '</div>';
 
+    /* The one thing to do next: the first lesson not yet marked, and the
+       examination once every lesson is. A dashboard that lists twenty-four
+       lessons without saying which one to open is a table of contents, not a
+       dashboard. */
+    const rows = PathModel.lessons(c);
+    const nextRow = rows.find((r) => !PathModel.done(p, r.lesson.id)) || null;
+    const nextUnit = nextRow
+      ? (c.units || []).indexOf(nextRow.unit) + 1 : 0;
+    const nextCard = '<div class="pcard">' +
+      '<p class="pcard-h">Recommended next · <span class="fa" dir="rtl" lang="fa">' +
+        'قدم بعدی</span></p>' +
+      (nextRow
+        ? '<p class="pnext-u">Unit ' + nextUnit + ' · ' + esc(SKILL[nextRow.lesson.skill][0]) + '</p>' +
+          '<p class="pnext-t" dir="ltr">' + esc(nextRow.lesson.title.en) + '</p>' +
+          '<p class="pnext-s" dir="ltr">' + esc(nextRow.lesson.goal.en) + '</p>' +
+          '<button type="button" class="path-btn" data-path="lesson" data-id="' +
+            nextRow.lesson.id + '">Open the lesson</button>'
+        : '<p class="pnext-t" dir="ltr">' +
+            (passed ? 'Every lesson is done and the examination is passed.'
+              : 'Every lesson is done. The paper is waiting.') + '</p>' +
+          '<p class="pnext-s" dir="ltr">' +
+            (passed ? 'You can retake it whenever you want a higher mark.'
+              : 'The final examination covers all six skills at this level.') + '</p>' +
+          '<button type="button" class="path-btn" data-path="exam" data-id="' + levelId + '">' +
+            (passed ? 'Retake the exam' : 'Open the exam') + '</button>') +
+      '</div>';
+
     host.innerHTML = '<div class="path-wrap">' +
       '<button type="button" class="path-back" data-path="home">← All levels</button>' +
       '<div class="path-head">' +
@@ -16656,11 +16813,18 @@ const Path = (() => {
         '<p class="path-sub" dir="ltr">' + esc(c.blurb.en) + '</p>' +
         '<p class="path-sub fa" dir="rtl" lang="fa">' + esc(c.blurb.fa) + '</p>' +
         '<div class="path-total"><div class="path-total-top"><span dir="ltr">Course progress</span>' +
-          '<b dir="ltr">' + st.done + '/' + st.total + '</b></div>' + bar(st.share, 'big') + '</div>' +
+          '<b dir="ltr">' + st.done + '/' + st.total + ' lessons · ' + pct(st.share) + '</b></div>' +
+          bar(st.share, 'big') + '</div>' +
       '</div>' +
-      '<div class="pskills">' + skills + '</div>' +
-      '<div class="punits">' + units + '</div>' +
-      examCard +
+      '<div class="pldash">' +
+        '<div class="pldash-main">' + units + '</div>' +
+        '<aside class="pldash-side">' +
+          '<div class="pcard"><p class="pcard-h">Six skills · ' +
+            '<span class="fa" dir="rtl" lang="fa">شش مهارت</span></p>' + skills + '</div>' +
+          examCard +
+          nextCard +
+        '</aside>' +
+      '</div>' +
     '</div>';
   }
 
@@ -16725,35 +16889,69 @@ const Path = (() => {
     const exercises = (l.exercises || []).map((e, i) => exerciseHtml(e, i)).join('');
 
     const done = rec && rec.done;
-    host.innerHTML = '<div class="path-wrap">' +
+    const flat = PathModel.lessons(c);
+    const after = flat[idx + 1] || null;
+    const unitNo = (c.units || []).indexOf(row.unit) + 1;
+    const rail = '<aside class="plesson-rail">' +
+      '<div class="pcard">' +
+        '<p class="pcard-h">This lesson · <span class="fa" dir="rtl" lang="fa">این درس</span></p>' +
+        '<p class="pnext-u">Unit ' + unitNo + ' · ' + esc(SKILL[l.skill][0]) + '</p>' +
+        '<p class="pnext-t" dir="ltr">' + (idx + 1) + ' of ' + flat.length + ' in this level</p>' +
+        '<p class="pnext-s" dir="ltr">' + (l.exercises || []).length + ' exercises · ' +
+          (done ? 'marked done' : 'not yet done') + '</p>' +
+      '</div>' +
+      (after
+        ? '<div class="pcard">' +
+            '<p class="pcard-h">Next lesson · <span class="fa" dir="rtl" lang="fa">درس بعد</span></p>' +
+            '<p class="pnext-t" dir="ltr">' + esc(after.lesson.title.en) + '</p>' +
+            '<p class="pnext-s" dir="ltr">' + esc(SKILL[after.lesson.skill][0]) + ' · ' +
+              esc(after.unit.title.en) + '</p>' +
+            '<button type="button" class="path-btn ghost" data-path="lesson" data-id="' +
+              after.lesson.id + '">Go to it</button>' +
+          '</div>'
+        : '<div class="pcard">' +
+            '<p class="pcard-h">After this · <span class="fa" dir="rtl" lang="fa">بعد از این</span></p>' +
+            '<p class="pnext-t" dir="ltr">The final examination</p>' +
+            '<p class="pnext-s" dir="ltr">Six skills, thirty-three marks, one pass rule.</p>' +
+            '<button type="button" class="path-btn ghost" data-path="exam" data-id="' +
+              levelId + '">See the paper</button>' +
+          '</div>') +
+    '</aside>';
+
+    host.innerHTML = '<div class="path-wrap pwide">' +
       '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
         '">← ' + esc((levelRow(levelId) || {label: levelId}).label) + ' course</button>' +
       '<div class="path-head">' +
-        '<p class="path-kicker">Lesson ' + (idx + 1) + ' of ' + PathModel.lessons(c).length +
+        '<p class="path-kicker">Lesson ' + (idx + 1) + ' of ' + flat.length +
           ' · ' + esc(SKILL[l.skill][0]) + '</p>' +
         '<h2 class="path-h" dir="ltr">' + esc(l.title.en) + '</h2>' +
         '<p class="path-h-fa">' + esc(l.title.fa) + '</p>' +
         '<p class="path-sub" dir="ltr"><b>Goal:</b> ' + esc(l.goal.en) + '</p>' +
         '<p class="path-sub fa" dir="rtl" lang="fa">' + esc(l.goal.fa) + '</p>' +
       '</div>' +
-      passage +
-      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Explanation</h3>' + explain + '</section>' +
-      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Examples</h3>' +
-        '<ul class="plexs">' + examples + '</ul></section>' +
-      dialogue +
-      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Guided practice</h3>' + guided + '</section>' +
-      '<section class="pblock"><h3 class="pblock-h" dir="ltr">Exercises</h3>' +
-        '<p class="pblock-sub" dir="ltr">Answer all of them, then check. 60% or more and ' +
-        'the lesson is done.</p>' + exercises + '</section>' +
-      '<div class="pfoot" id="pfoot">' +
-        (done ? '<p class="pok-line">Done · ' + Math.round((rec.right / Math.max(1, rec.total)) * 100) +
-          '% on the exercises</p>' : '') +
-        '<button type="button" class="path-btn" data-path="check">Check my answers</button>' +
-        (done ? '' : '<button type="button" class="path-btn ghost" data-path="finish" hidden>' +
-          'Finish the lesson</button><button type="button" class="path-btn ghost" data-path="retry" ' +
-          'hidden>Try again</button>') +
+      '<div class="plesson-cols">' +
+        '<div class="plesson-main">' +
+          passage +
+          '<section class="pblock"><h3 class="pblock-h" dir="ltr">Explanation</h3>' + explain + '</section>' +
+          '<section class="pblock"><h3 class="pblock-h" dir="ltr">Examples</h3>' +
+            '<ul class="plexs">' + examples + '</ul></section>' +
+          dialogue +
+          '<section class="pblock"><h3 class="pblock-h" dir="ltr">Guided practice</h3>' + guided + '</section>' +
+          '<section class="pblock"><h3 class="pblock-h" dir="ltr">Exercises</h3>' +
+            '<p class="pblock-sub" dir="ltr">Answer all of them, then check. 60% or more and ' +
+            'the lesson is done.</p>' + exercises + '</section>' +
+          '<div class="pfoot" id="pfoot">' +
+            (done ? '<p class="pok-line">Done · ' + Math.round((rec.right / Math.max(1, rec.total)) * 100) +
+              '% on the exercises</p>' : '') +
+            '<button type="button" class="path-btn" data-path="check">Check my answers</button>' +
+            (done ? '' : '<button type="button" class="path-btn ghost" data-path="finish" hidden>' +
+              'Finish the lesson</button><button type="button" class="path-btn ghost" data-path="retry" ' +
+              'hidden>Try again</button>') +
+          '</div>' +
+          '<div class="presult" id="presult" hidden></div>' +
+        '</div>' +
+        rail +
       '</div>' +
-      '<div class="presult" id="presult" hidden></div>' +
     '</div>';
     if (checked) checkLesson(false);
   }
@@ -16938,7 +17136,7 @@ const Path = (() => {
         examQuestion(item, section.skill + '.' + i, section.skill + i, section.skill)).join('');
     }).join('');
 
-    host.innerHTML = '<div class="path-wrap">' +
+    host.innerHTML = '<div class="path-wrap pwide">' +
       '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
         '">← Back to the course</button>' +
       '<div class="path-head">' +
@@ -17050,7 +17248,7 @@ const Path = (() => {
         '. Speaking needs the device\'s speech recogniser — without it the paper cannot claim ' +
         'the skill, and it is not reported as passed.</p>'
       : '';
-    host.innerHTML = '<div class="path-wrap">' +
+    host.innerHTML = '<div class="path-wrap pwide">' +
       '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
         '">← Back to the course</button>' +
       '<div class="prep ' + (passed ? 'prep-pass' : 'prep-fail') + '">' +

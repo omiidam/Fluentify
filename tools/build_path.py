@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write the A2 and B1 courses into path.json.
+"""Write the A2, B1, B2 and C1 courses into path.json.
 
 path.json is the single source of the learning path: a list of the seven level
 spaces and a `courses` map keyed by level id. A1 was written by hand; A2 and B1
@@ -22,6 +22,8 @@ sys.path.insert(0, HERE)
 
 from course_a2 import COURSE as A2  # noqa: E402
 from course_b1 import COURSE as B1  # noqa: E402
+from course_b2 import COURSE as B2  # noqa: E402
+from course_c1 import COURSE as C1  # noqa: E402
 
 
 def main() -> int:
@@ -34,9 +36,11 @@ def main() -> int:
 
     courses["A2"] = A2
     courses["B1"] = B1
+    courses["B2"] = B2
+    courses["C1"] = C1
 
     for level in doc.get("levels", []):
-        if level.get("id") in ("A2", "B1"):
+        if level.get("id") in ("A2", "B1", "B2", "C1"):
             level["course"] = level["id"]
 
     after = json.dumps(courses["A1"], sort_keys=True)
@@ -47,7 +51,7 @@ def main() -> int:
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
 
-    for key in ("A1", "A2", "B1"):
+    for key in ("A1", "A2", "B1", "B2", "C1"):
         course = courses[key]
         lessons = sum(len(u["lessons"]) for u in course["units"])
         exercises = sum(len(l["exercises"]) for u in course["units"] for l in u["lessons"])
