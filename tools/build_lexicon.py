@@ -6,7 +6,7 @@
 Output is a sharded lexicon, not one file:
 
     lexicon/<aa>.json      one shard per two-letter prefix of the headword
-    lexicon/_meta.json     counts, source versions, licences, attribution
+    lexicon/_meta.json     counts, source versions, licenses, attribution
 
 Sharding is the point of the whole design. The page fetches the shard for the
 words in the current message and nothing else, so the dictionary never has to
@@ -21,13 +21,13 @@ lexicon/_meta.json and in the app's About/help text):
   OpenJam            MIT.  English lemmas, senses, definitions, examples,
                      Persian sense translations, IPA, inflected forms.
                      https://github.com/amirj4m/openjam
-  Princeton WordNet  WordNet licence (BSD-style).  Synonyms and antonyms.
+  Princeton WordNet  WordNet license (BSD-style).  Synonyms and antonyms.
                      Copyright 2006, 2011 by Princeton University.
 
 Not imported, deliberately: the English-Persian compilation whose README warns
-that its upstream sources carry unnamed licences, and the VahidN dictionary
+that its upstream sources carry unnamed licenses, and the VahidN dictionary
 collection whose repository is Apache-2.0 but whose individual dictionaries
-publish no licence of their own. Two sources we can stand behind beat five we
+publish no license of their own. Two sources we can stand behind beat five we
 cannot.
 
 What the source does *not* provide, this file does not invent: no entry gets a
@@ -133,7 +133,7 @@ def read_wordnet() -> list[dict]:
             raise SystemExit(f"wordnet file missing: {path}")
         for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
             if not line or line.startswith("  "):
-                continue          # the licence header
+                continue          # the license header
             head_line, _, gloss = line.partition(" | ")
             blocks = head_line.split()
             if len(blocks) < 6:
@@ -598,7 +598,7 @@ def main() -> int:
             {"name": "OpenJam", "url": "https://github.com/amirj4m/openjam",
              "used_for": "lemmas, senses, definitions, examples, Persian "
                          "sense translations, IPA, inflected forms",
-             "licence": "MIT License",
+             "license": "MIT License",
              "notice": "Copyright (c) Openjam contributors. MIT-licensed, "
                        "including the data."},
             {"name": "Princeton WordNet 3.1",
@@ -606,7 +606,7 @@ def main() -> int:
              "used_for": "synonyms and antonyms; definitions, parts of "
                          "speech and examples for the headwords the "
                          "other source does not carry",
-             "licence": "WordNet License (BSD-style), redistribution "
+             "license": "WordNet License (BSD-style), redistribution "
                         "permitted with notice",
              "notice": "WordNet 3.0/3.1 Copyright 2006, 2011 by Princeton "
                        "University. All rights reserved. Provided AS IS, "
@@ -614,10 +614,10 @@ def main() -> int:
                        "of merchantability or fitness for purpose."},
         ],
         "not_used": [
-            "english-persian-dictionary-dataset: no dataset licence, and its "
-            "README warns that upstream dictionaries carry unnamed licences.",
+            "english-persian-dictionary-dataset: no dataset license, and its "
+            "README warns that upstream dictionaries carry unnamed licenses.",
             "EnglishToPersianDictionaries: repository is Apache-2.0, but the "
-            "individual dictionaries publish no licence of their own.",
+            "individual dictionaries publish no license of their own.",
             "kaikki.org / Wiktionary: CC BY-SA 4.0, whose share-alike terms "
             "would relicense the whole app's data; also a 3.2 GB extract.",
         ],

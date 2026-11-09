@@ -36,7 +36,7 @@ FUNCTION_WORDS = {
     "the", "a", "an", "and", "or", "but", "if", "of", "to", "in", "on", "at",
     "for", "with", "is", "are", "was", "were", "be", "been", "being", "am",
     "do", "does", "did", "doing", "have", "has", "had", "having", "will",
-    "would", "shall", "can", "could", "should", "may", "might", "must",
+    "would", "should", "can", "could", "should", "may", "might", "must",
     "that", "this", "these", "those", "it", "its", "he", "she", "they", "them",
     "we", "us", "you", "your", "i", "me", "my", "as", "so", "than", "then",
     "not", "no", "yes", "there", "here", "what", "who", "whom", "whose",
@@ -111,10 +111,10 @@ def clean_transcript(text: str) -> str:
     """Turn a PDF transcript dump into readable prose.
 
     The extracted text is a stream of short line fragments with the speakers'
-    names repeated and a licence header in front, which wrecks any sentence
+    names repeated and a license header in front, which wrecks any sentence
     statistic. Joining the fragments and dropping the furniture fixes both.
     """
-    # licence / production header, everything before the first real utterance
+    # license / production header, everything before the first real utterance
     cut = re.search(r"(?:^|\s)((?:Hi|Hello|Hello there)[,.]?\s)", text)
     if cut:
         text = text[cut.start(1):]

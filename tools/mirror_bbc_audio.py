@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mirror BBC audio to object storage and repoint the catalogue at it.
+"""Mirror BBC audio to object storage and repoint the catalog at it.
 
 Why this exists
 ---------------
@@ -36,7 +36,7 @@ that PDF and serves it from our own bucket, so the reader can read along on a
 phone instead of being handed a link that a WebView cannot open and a system
 browser has to fetch over the network anyway. The audio is already
 redistributed by this tool; the text is BBC's copyright in exactly the same
-way, and the same judgement applies to it.
+way, and the same judgment applies to it.
 
 Credentials come from .bbc-storage.env (gitignored) or the environment.
 Never hardcode them: webapp.py's HTML is bundled into the APK, so a key in a
@@ -46,7 +46,7 @@ One honest caveat, stated here rather than buried: BBC Learning English audio
 is BBC's copyright. Mirroring it means this project is redistributing it.
 That is a decision for the person running this, not something this tool can
 make safe by being clever, and it is the reason the default limit is 100
-rather than the full catalogue.
+rather than the full catalog.
 """
 
 from __future__ import annotations
@@ -62,7 +62,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CATALOGUE = ROOT / "bbc_6min.json"
+CATALOG = ROOT / "bbc_6min.json"
 ENVFILE = ROOT / ".bbc-storage.env"
 CACHE = ROOT / "tools/.cache"
 
@@ -137,7 +137,7 @@ def source_for(ep: dict) -> str:
 
 
 def key_for(ep: dict) -> str:
-    """A stable object name. The catalogue id already encodes series and date,
+    """A stable object name. The catalog id already encodes series and date,
     so it survives a rebuild and a re-run."""
     ident = str(ep.get("id") or ep.get("slug") or "").strip()
     ident = "".join(c if c.isalnum() or c in "-_." else "-" for c in ident)
@@ -159,7 +159,7 @@ def encode(raw: Path, dest: Path, exe: str | None = None) -> bool:
     if not exe:
         return False
     dest.parent.mkdir(parents=True, exist_ok=True)
-    # The temp name ends in .part, which is not a container ffmpeg recognises,
+    # The temp name ends in .part, which is not a container ffmpeg recognizes,
     # so the muxer is named explicitly - without this every transcode fails
     # with "unable to choose an output format" and the tool reports it as a
     # per-episode error rather than as what it is.
@@ -288,7 +288,7 @@ def put_transcript(s3, bucket: str, public: str, ep: dict) -> bool:
 def spread(episodes: list, n: int) -> list:
     """The first n, but one from each CEFR band before a second from any.
 
-    Catalogue order is chronological within a series, and BBC runs each series
+    Catalog order is chronological within a series, and BBC runs each series
     at one level, so the first ten of anything are ten clips of the same
     difficulty. Ten of one level is a worse listening course than three, and a
     listener who works through the list in order needs to get somewhere.
@@ -329,7 +329,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true",
                     help="list what would be mirrored and change nothing")
     ap.add_argument("--verify", action="store_true",
-                    help="check the catalogue against what is actually stored")
+                    help="check the catalog against what is actually stored")
     ap.add_argument("--no-transcripts", action="store_true",
                     help="mirror the audio only, leaving out the transcript "
                          "text the app reads on the Transcript tap")
@@ -340,7 +340,7 @@ def main() -> int:
     ap.add_argument("--delay", type=float, default=1.5,
                     help="seconds between downloads (BBC rate-limits bursts)")
     ap.add_argument("--prune-only", action="store_true",
-                    help="skip downloading entirely and just cut the catalogue "
+                    help="skip downloading entirely and just cut the catalog "
                          "down to what is already stored")
     ap.add_argument("--reset", action="store_true",
                     help="empty the bucket first, so the stored set is exactly "
@@ -349,7 +349,7 @@ def main() -> int:
                     help="pick across CEFR levels instead of taking the first N, "
                          "so a short list still spans A1-C1")
     ap.add_argument("--prune", action="store_true",
-                    help="cut the catalogue down to what is actually mirrored, so "
+                    help="cut the catalog down to what is actually mirrored, so "
                          "the section lists what you can listen to")
     args = ap.parse_args()
 
@@ -360,11 +360,11 @@ def main() -> int:
     if args.add:
         args.keep_others = True
 
-    doc = json.loads(CATALOGUE.read_text(encoding="utf-8"))
+    doc = json.loads(CATALOG.read_text(encoding="utf-8"))
     episodes = doc.get("episodes") or []
 
-    # Episodes with audio, in catalogue order so a partial run is a stable
-    # subset rather than whichever the network happened to favour.
+    # Episodes with audio, in catalog order so a partial run is a stable
+    # subset rather than whichever the network happened to favor.
     # Every episode is a candidate, including ones already pointing at our own
     # mirror. The fix for re-fetching those is not to skip them - skipping
     # them emptied the selection once every candidate was ours - it is to
@@ -373,7 +373,7 @@ def main() -> int:
 
     # --add has to ask the bucket what is already there, because "add five
     # more" means five more than the ones stored, not the first five of the
-    # catalogue. Everything else picks from the catalogue alone and stays
+    # catalog. Everything else picks from the catalog alone and stays
     # offline until it starts downloading.
     stored: set[str] = set()
     if args.add:
@@ -422,7 +422,7 @@ def main() -> int:
                 s3.head_object(Bucket=bucket, Key=key_for(e))
             except Exception:
                 bad.append(e.get("id"))
-        print(f"catalogue points at the mirror for {mirrored} episodes")
+        print(f"catalog points at the mirror for {mirrored} episodes")
         print(f"missing from storage: {len(bad)}")
         for b in bad[:20]:
             print("  ", b)
@@ -543,7 +543,7 @@ def main() -> int:
 
     if args.prune and failed and not args.prune_only:
         print("refusing to prune: some episodes failed to mirror, and\n"
-              "  cutting the catalogue to a partial set would hide them\n"
+              "  cutting the catalog to a partial set would hide them\n"
               "  for good")
         return 1
 
@@ -554,7 +554,7 @@ def main() -> int:
         # truth. Re-running with a larger --limit brings more back.
         before = len(doc["episodes"])
         # What is actually stored, not what this run happened to touch. The
-        # question the catalogue has to answer is "what can I play", and only
+        # question the catalog has to answer is "what can I play", and only
         # the bucket knows that.
         stored = {o["Key"] for o in
                   s3.list_objects_v2(Bucket=bucket).get("Contents", [])}
@@ -575,7 +575,7 @@ def main() -> int:
             keep.append(e)
         if not keep:
             print("refusing to prune: nothing was mirrored this run, and cutting "
-                  "the catalogue to an empty list would hide everything")
+                  "the catalog to an empty list would hide everything")
             return 1
         dropped = before - len(keep)
         doc["episodes"] = keep
@@ -583,7 +583,7 @@ def main() -> int:
         from collections import Counter
         dist = Counter((e.get("level") or "?") for e in keep)
         doc["distribution"] = dict(dist)
-        print(f"catalogue pruned: {before} -> {len(keep)} episodes "
+        print(f"catalog pruned: {before} -> {len(keep)} episodes "
               f"({dropped} unplayable entries removed)")
 
     doc["mirrored"] = {
@@ -595,12 +595,12 @@ def main() -> int:
         "note": "every episode listed here is mirrored and plays offline of "
                 "the BBC; the list is the set that exists, not a sample",
     }
-    CATALOGUE.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    CATALOG.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print(f"\nmirrored {done} of {len(todo)}  ({human(bytes_up)} uploaded)"
           f"{f', {failed} failed' if failed else ''}")
     print(f"transcripts stored for {texts} episode(s)")
-    print(f"catalogue updated: {len(doc['episodes'])} episodes now stream "
+    print(f"catalog updated: {len(doc['episodes'])} episodes now stream "
           f"from {public}")
     return 1 if failed else 0
 

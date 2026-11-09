@@ -70,7 +70,7 @@ def check_data(shards: dict[str, dict]) -> dict:
               f"shard {name}.json has no w/f maps")
         for key, entry in shard["w"].items():
             stats["words"] += 1
-            check(key == key.lower().strip(), f"{name}: key {key!r} is not normalised")
+            check(key == key.lower().strip(), f"{name}: key {key!r} is not normalized")
             check(bool(LATIN.search(key)), f"{name}: key {key!r} is not English")
             pos = entry.get("p") or []
             check(bool(pos) and set(pos) <= POS,
@@ -167,14 +167,14 @@ def check_data(shards: dict[str, dict]) -> dict:
           f"{stats['senses'] - stats['fa'] - wn_only} senses lack Persian "
           "that WordNet does not account for")
 
-    # the licence and provenance travel with the data: the import is only
+    # the license and provenance travel with the data: the import is only
     # legitimate while the notice that says where it came from ships with it
     check(bool(meta.get("sources")), "_meta.json carries no source block")
     for src in (meta.get("sources") or []):
-        check(bool(src.get("name")) and bool(src.get("licence")),
-              f"source {src.get('name')!r} has no licence recorded")
-        check("wordnet" in (src.get("licence", "") + src.get("notice", "")).lower()
-              or "mit" in (src.get("licence", "")).lower(),
+        check(bool(src.get("name")) and bool(src.get("license")),
+              f"source {src.get('name')!r} has no license recorded")
+        check("wordnet" in (src.get("license", "") + src.get("notice", "")).lower()
+              or "mit" in (src.get("license", "")).lower(),
               f"source {src.get('name')!r} is neither MIT nor WordNet-licensed")
     return stats
 
@@ -260,7 +260,7 @@ def check_answers() -> int:
     check("resilient" in reply,
           "resilent: the typo did not resolve to the headword it now holds")
 
-    # ...and a typo with no exact match still offers its nearest neighbour.
+    # ...and a typo with no exact match still offers its nearest neighbor.
     reply = ask("what does beautifull mean")
     check("beautifull" in reply, "beautifull: the word was not named")
     check("did you mean" in reply.lower(),

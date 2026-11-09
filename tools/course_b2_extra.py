@@ -357,7 +357,7 @@ EXTRA = {
                 mcq("The call is mainly about ___.", "تماس عمدتاً دربارهٔ ___ "
                     "است.",
                     ["what went wrong", "who does what by when",
-                     "the cost", "the holiday"], 1,
+                     "the cost", "the vacation"], 1,
                     "Responsibility and dates.", "مسئولیت و تاریخ‌ها."),
             ],
             [
@@ -577,7 +577,7 @@ EXTRA = {
             [
                 mcq("The first move in answering a hostile question is ___.",
                     "نخستین حرکت در پاسخ به پرسش خصمانه ___ است.",
-                    ["apologising", "naming its premise", "changing the "
+                    ["apologizing", "naming its premise", "changing the "
                      "subject", "repeating your point"], 1,
                     "The premise is where the disagreement lives.",
                     "پیش‌فرض جای اختلاف است."),

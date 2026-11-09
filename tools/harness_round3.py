@@ -238,7 +238,7 @@ def main() -> None:
             "name": "fine",
             "keywords": {"en": add["fine"][:11], "fa": add["fine"][11:]},
             "responses": {
-                "en": ["Good to hear! Want to practise something while you're here?",
+                "en": ["Good to hear! Want to practice something while you're here?",
                        "Nice! Let's use that energy — ask me for a lesson, a word, or a joke.",
                        "Great! Say 'grammar' for a lesson or 'vocabulary' for words."],
                 "fa": ["خوبه که اینطوره! می‌خوای چیزی تمرین کنیم؟",

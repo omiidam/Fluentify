@@ -50,12 +50,12 @@ U7 = unit(
             "c1-u7-l2",
             "vocabulary",
             ("Psychology, relationships and motive", "روان‌شناسی، روابط و انگیزه"),
-            ("Name a motive precisely, and describe behaviour without diagnosing the person.", "انگیزه را دقیق نام ببر و رفتار را بی‌تشخیص دادن به شخص توصیف کن."),
+            ("Name a motive precisely, and describe behavior without diagnosing the person.", "انگیزه را دقیق نام ببر و رفتار را بی‌تشخیص دادن به شخص توصیف کن."),
             [
-                ("Psychology vocabulary: a motive, an incentive, a bias, a heuristic, cognitive load, confirmation bias, loss aversion, a defence mechanism, an attachment, a trigger, resilience, burnout. These are technical terms with published meanings; using 'bias' for 'opinion' loses the precision that makes them useful.", "واژگان روان‌شناسی: motive، incentive، bias، heuristic، cognitive load، confirmation bias، loss aversion، defence mechanism، attachment، trigger، resilience، burnout. این‌ها اصطلاحات فنی با معانی منتشرشده‌اند؛ استفاده از «bias» به‌جای «opinion» همان دقتی را از دست می‌دهد که سودمندشان می‌کند."),
+                ("Psychology vocabulary: a motive, an incentive, a bias, a heuristic, cognitive load, confirmation bias, loss aversion, a defense mechanism, an attachment, a trigger, resilience, burnout. These are technical terms with published meanings; using 'bias' for 'opinion' loses the precision that makes them useful.", "واژگان روان‌شناسی: motive، incentive، bias، heuristic، cognitive load، confirmation bias، loss aversion، defense mechanism، attachment، trigger، resilience، burnout. این‌ها اصطلاحات فنی با معانی منتشرشده‌اند؛ استفاده از «bias» به‌جای «opinion» همان دقتی را از دست می‌دهد که سودمندشان می‌کند."),
                 ("Relationship vocabulary: mutual, reciprocal, one-sided, to confide in, to drift apart, to reconcile, to set a boundary, to take something personally, an unspoken expectation. 'Reciprocal' is the precise word for what 'mutual' often means loosely — mutual respect is shared, reciprocal effort is returned.", "واژگان روابط: mutual، reciprocal، one-sided، confide in، drift apart، reconcile، set a boundary، take something personally، unspoken expectation. «reciprocal» واژهٔ دقیق برای چیزی است که «mutual» اغلب سست می‌گوید — احترام متقابل مشترک است و تلاش دوسویه پاسخ‌داده."),
-                ("Describing behaviour without diagnosis: 'she withdrew from the discussion' rather than 'she was being passive-aggressive'; 'he avoided the question' rather than 'he is in denial'. The first kind of sentence can be checked against evidence; the second requires a clinical claim the speaker cannot support.", "توصیف رفتار بی تشخیص: «she withdrew from the discussion» به‌جای «she was being passive-aggressive»؛ «he avoided the question» به‌جای «he is in denial». جملهٔ نوع اول را می‌توان با شواهد سنجید و دومی ادعای بالینی می‌خواهد که گوینده از عهده‌اش برنمی‌آید."),
-                ("Word formation and confusables: empathise / sympathy / empathy, insecure / unsure, anxious / eager, sensible / sensitive, to motivate / motivation / a motive. 'Anxious' is worry; 'eager' is enthusiasm — a distinction that changes the meaning of a whole sentence.", "ساخت واژه و اشتباه‌ها: empathise / sympathy / empathy، insecure / unsure، anxious / eager، sensible / sensitive، motivate / motivation / motive. «anxious» نگرانی است و «eager» شوق — تفاوتی که معنای کل جمله را عوض می‌کند."),
+                ("Describing behavior without diagnosis: 'she withdrew from the discussion' rather than 'she was being passive-aggressive'; 'he avoided the question' rather than 'he is in denial'. The first kind of sentence can be checked against evidence; the second requires a clinical claim the speaker cannot support.", "توصیف رفتار بی تشخیص: «she withdrew from the discussion» به‌جای «she was being passive-aggressive»؛ «he avoided the question» به‌جای «he is in denial». جملهٔ نوع اول را می‌توان با شواهد سنجید و دومی ادعای بالینی می‌خواهد که گوینده از عهده‌اش برنمی‌آید."),
+                ("Word formation and confusables: empathize / sympathy / empathy, insecure / unsure, anxious / eager, sensible / sensitive, to motivate / motivation / a motive. 'Anxious' is worry; 'eager' is enthusiasm — a distinction that changes the meaning of a whole sentence.", "ساخت واژه و اشتباه‌ها: empathize / sympathy / empathy، insecure / unsure، anxious / eager، sensible / sensitive، motivate / motivation / motive. «anxious» نگرانی است و «eager» شوق — تفاوتی که معنای کل جمله را عوض می‌کند."),
             ],
             [
                 ("The resistance was less about the plan than about being consulted too late.", "مقاومت کمتر دربارهٔ طرح بود و بیشتر دربارهٔ دیر مشورت شدن."),
@@ -67,7 +67,7 @@ U7 = unit(
                 mcq("'Reciprocal' effort is effort that is ___.", "تلاش «reciprocal» تلاشی است که ___.", ["shared equally at once", "returned by the other side", "one-sided", "unspoken"], 1,
                     "It is given back, not merely shared.", "پاسخ داده می‌شود، نه فقط مشترک."),
                 mcq("Which sentence avoids diagnosing?", "کدام جمله از تشخیص پرهیز می‌کند؟", ["He is in denial.", "He avoided the question twice.", "She is passive-aggressive.", "They have attachment issues."], 1,
-                    "It reports observable behaviour.", "رفتار قابل مشاهده را گزارش می‌کند."),
+                    "It reports observable behavior.", "رفتار قابل مشاهده را گزارش می‌کند."),
             ],
             [
                 gap("Loss ___ explains why people keep a failing project alive.", ["aversion"], "The preference for avoiding loss.", "ترجیح پرهیز از زیان."),
@@ -85,7 +85,7 @@ U7 = unit(
             ("Take a position in a discussion, build on another speaker, and manage the turn.", "در بحث موضع بگیر، بر گفتهٔ دیگری بساز و نوبت را مدیریت کن."),
             [
                 ("A seminar turn has three jobs: take a position, connect it to what was just said, and leave an opening for the next speaker. The connection is what distinguishes a discussion from a series of monologues — 'building on what Sara said' is not politeness, it is the argument's structure.", "نوبت سمینار سه کار دارد: موضع گرفتن، وصل کردنش به آنچه همین حالا گفته شد، و باز گذاشتن دری برای گویندهٔ بعد. همین وصل کردن بحث را از زنجیرهٔ تک‌گویی جدا می‌کند — «building on what Sara said» تعارف نیست، ساختار استدلال است."),
-                ("Thinking aloud is allowed and marks a strong speaker: 'I'm not sure I can defend that yet, but it seems to me…', 'let me test that against the second case'. The alternative — silence until certainty — reads as absence of thought rather than rigour.", "بلند فکر کردن مجاز است و گویندهٔ قوی را نشان می‌دهد: «I'm not sure I can defend that yet, but it seems to me…»، «let me test that against the second case». جایگزینش — سکوت تا قطعیت — غیبت اندیشه خوانده می‌شود، نه دقت."),
+                ("Thinking aloud is allowed and marks a strong speaker: 'I'm not sure I can defend that yet, but it seems to me…', 'let me test that against the second case'. The alternative — silence until certainty — reads as absence of thought rather than rigor.", "بلند فکر کردن مجاز است و گویندهٔ قوی را نشان می‌دهد: «I'm not sure I can defend that yet, but it seems to me…»، «let me test that against the second case». جایگزینش — سکوت تا قطعیت — غیبت اندیشه خوانده می‌شود، نه دقت."),
                 ("Disagreeing with the idea while keeping the person intact: 'I'd put it differently', 'I think that understates the cost', 'the part I'd question is the second step'. Note that each names what is questioned; 'I disagree' names nothing and stops the exchange.", "مخالفت با ایده و سالم نگه داشتن شخص: «I'd put it differently»، «I think that understates the cost»، «the part I'd question is the second step». هر کدام چیزی را که زیر سؤال است نام می‌برند؛ «I disagree» چیزی را نام نمی‌برد و بحث را می‌بندد."),
                 ("Handing over and reformulating: 'does that answer your question, or have I moved off it?', 'to put it more carefully', 'what I meant was narrower than that'. Reformulation is a C1 skill, not an admission of failure — it shows the speaker can hear their own sentence as the listener did.", "نوبت دادن و بازسازی: «does that answer your question, or have I moved off it?»، «to put it more carefully»، «what I meant was narrower than that». بازسازی مهارت C1 است، نه اعتراف به شکست — نشان می‌دهد گوینده می‌تواند جملهٔ خودش را آن‌طور که شنونده شنید بشنود."),
             ],
@@ -105,7 +105,7 @@ U7 = unit(
                 say("I'd take a slightly different view: the evidence points to timing rather than design.", "من کمی متفاوت می‌بینم: شواهد به زمان‌بندی اشاره می‌کند، نه طراحی."),
                 say("Building on that, I'd want to distinguish between the pilot and the policy.", "بر همان پایه، می‌خواهم بین آزمایش و سیاست تفکیک کنم."),
                 say("I'm not sure I can defend that yet, but it seems to me the sample was too narrow.", "مطمئن نیستم بتوانم از آن دفاع کنم، اما به نظرم نمونه بیش از حد باریک بود."),
-                say("Let me reformulate — I meant the second phase, not the whole programme.", "بگذار بازسازی کنم — منظورم مرحلهٔ دوم بود، نه کل برنامه."),
+                say("Let me reformulate — I meant the second phase, not the whole program.", "بگذار بازسازی کنم — منظورم مرحلهٔ دوم بود، نه کل برنامه."),
             ],
             dialogue=dialogue([
                 ("A", "I'd argue the reform failed because it was designed too quickly.", "استدلال می‌کنم اصلاح شکست خورد چون با شتاب طراحی شد."),
@@ -120,7 +120,7 @@ U7 = unit(
 U8 = unit(
     "c1-u8",
     ("Never has it mattered more", "هرگز این‌قدر مهم نبوده"),
-    ("Emphasise with inversion and comparatives that argue, then review a work critically.", "با جابه‌جایی و مقایسه‌های استدلالی تأکید کن و بعد اثری را نقد کن."),
+    ("Emphasize with inversion and comparatives that argue, then review a work critically.", "با جابه‌جایی و مقایسه‌های استدلالی تأکید کن و بعد اثری را نقد کن."),
     [
         lesson(
             "c1-u8-l1",
@@ -161,14 +161,14 @@ U8 = unit(
             ("Evaluate a work with terms that describe technique rather than taste.", "اثری را با واژه‌هایی بسنج که فن را توصیف کنند، نه سلیقه را."),
             [
                 ("Critical vocabulary: a motif, a trope, an idiom, a register, a narrator, a persona, a subtext, an allusion, a juxtaposition, an arc, pacing, a conceit. These let a review say how a work is built; 'beautiful' and 'boring' say only how the reviewer felt.", "واژگان نقد: motif، trope، idiom، register، narrator، persona، subtext، allusion، juxtaposition، arc، pacing، conceit. این‌ها می‌گویند اثر چگونه ساخته شده؛ «beautiful» و «boring» فقط حس منتقد را می‌گویند."),
-                ("Evaluation with reasons attached: the prose is restrained to the point of withholding; the structure promises a resolution it declines to deliver; the humour depends on a register the translation cannot carry. Each is a judgement with its mechanism visible, which is what makes it arguable.", "ارزش‌گذاری با دلیل پیوسته: the prose is restrained to the point of withholding؛ the structure promises a resolution it declines to deliver؛ the humour depends on a register the translation cannot carry. هر کدام داوری‌ای است با سازوکار آشکار و همین قابل بحثش می‌کند."),
+                ("Evaluation with reasons attached: the prose is restrained to the point of withholding; the structure promises a resolution it declines to deliver; the humor depends on a register the translation cannot carry. Each is a judgment with its mechanism visible, which is what makes it arguable.", "ارزش‌گذاری با دلیل پیوسته: the prose is restrained to the point of withholding؛ the structure promises a resolution it declines to deliver؛ the humor depends on a register the translation cannot carry. هر کدام داوری‌ای است با سازوکار آشکار و همین قابل بحثش می‌کند."),
                 ("Distinguishing the work from its reception: 'the novel was read as a political allegory' is not 'the novel is an allegory'. Reviews that blur the two end up arguing with readers instead of with the book. 'Read as', 'taken as', 'received as' keep the distinction available.", "تفکیک اثر از دریافتش: «the novel was read as a political allegory» همان «the novel is an allegory» نیست. نقدهایی که این دو را یکی می‌کنند در نهایت با خوانندگان بحث می‌کنند، نه با کتاب. «read as»، «taken as»، «received as» این تفکیک را نگه می‌دارند."),
                 ("Word formation and confusables: irony / sarcasm (irony need not wound), a critic / critical / criticism / critique (a critique is a systematic analysis), literal / literary, artistic / artful (artful can mean cunning), pretentious / ambitious. The last pair is where reviews do the most damage.", "ساخت واژه و اشتباه‌ها: irony / sarcasm (طعنه لازم نیست زخم بزند)، critic / critical / criticism / critique (critique تحلیلی نظام‌مند است)، literal / literary، artistic / artful (artful می‌تواند به معنای مکار باشد)، pretentious / ambitious. جفت آخر جایی است که نقدها بیشترین آسیب را می‌زنند."),
             ],
             [
                 ("The novel's central motif is a door that is never opened.", "بن‌مایهٔ اصلی رمان دری است که هرگز باز نمی‌شود."),
                 ("The pacing is deliberate: the first hundred pages refuse to advance.", "ضرب‌آهنگ آگاهانه است: صد صفحهٔ نخست پیش نمی‌رود."),
-                ("The film was received as a comedy, which its director disputes.", "فیلم به‌عنوان کمدی دریافت شد و کارگردانش این را رد می‌کند."),
+                ("The movie was received as a comedy, which its director disputes.", "فیلم به‌عنوان کمدی دریافت شد و کارگردانش این را رد می‌کند."),
                 ("The critique is of the adaptation, not of the novel.", "نقد بر اقتباس است، نه بر رمان."),
             ],
             [
@@ -178,10 +178,10 @@ U8 = unit(
                     "It analyses rather than complains.", "تحلیل می‌کند، نه شکایت."),
             ],
             [
-                gap("The humour depends on a ___ that the translation cannot carry.", ["register"], "A level of formality or tone.", "سطح رسمیت یا لحن."),
+                gap("The humor depends on a ___ that the translation cannot carry.", ["register"], "A level of formality or tone.", "سطح رسمیت یا لحن."),
                 gap("The poem is usually read ___ an elegy.", ["as"], "Read something as something.", "چیزی را چیزی خواندن."),
                 mcq("'Artful' can carry the sense of ___.", "«Artful» می‌تواند معنای ___ را داشته باشد.", ["cunning", "beautiful", "expensive", "simple"], 0,
-                    "It can mean skilfully deceptive.", "می‌تواند به معنای فریب ماهرانه باشد."),
+                    "It can mean skillfully deceptive.", "می‌تواند به معنای فریب ماهرانه باشد."),
                 mcq("Which distinction does 'the novel was read as an allegory' protect?", "«The novel was read as an allegory» کدام تفکیک را حفظ می‌کند؟", ["author and narrator", "work and reception", "irony and sarcasm", "literal and literary"], 1,
                     "It reports an interpretation, not a property.", "تفسیر را گزارش می‌کند، نه ویژگی را."),
             ],
@@ -190,10 +190,10 @@ U8 = unit(
             "c1-u8-l3",
             "reading",
             ("The review that argues with the work", "نقدی که با اثر بحث می‌کند"),
-            ("Read a critical review for its criteria, and separate judgement from evidence.", "نقدی را برای معیارهایش بخوان و داوری را از شواهد جدا کن."),
+            ("Read a critical review for its criteria, and separate judgment from evidence.", "نقدی را برای معیارهایش بخوان و داوری را از شواهد جدا کن."),
             [
                 ("A review argues two things at once: what the work is doing (description) and whether it succeeds (evaluation). Confusing the two is the standard weakness — a reviewer who disliked the aim will report it as a failure of execution.", "نقد هم‌زمان دو چیز را استدلال می‌کند: اثر چه می‌کند (توصیف) و آیا موفق است (ارزش‌گذاری). یکی گرفتن این دو ضعف استاندارد است — منتقدی که هدف را نپسندیده آن را شکست اجرا گزارش می‌کند."),
-                ("Every evaluation implies a criterion; a strong review states it. 'The book is too long' is taste until the reviewer adds 'for a argument that could be made in a third of the pages'. After that sentence the judgement can be tested, and a reader who disagrees knows exactly what they are disagreeing with.", "هر ارزش‌گذاری معیاری را مفروض می‌گیرد و نقد قوی آن را می‌گوید. «The book is too long» سلیقه است تا وقتی منتقد بیفزاید «for an argument that could be made in a third of the pages». پس از آن جمله داوری آزمون‌پذیر می‌شود و خواننده‌ای که مخالف است دقیقاً می‌داند با چه مخالف است."),
+                ("Every evaluation implies a criterion; a strong review states it. 'The book is too long' is taste until the reviewer adds 'for a argument that could be made in a third of the pages'. After that sentence the judgment can be tested, and a reader who disagrees knows exactly what they are disagreeing with.", "هر ارزش‌گذاری معیاری را مفروض می‌گیرد و نقد قوی آن را می‌گوید. «The book is too long» سلیقه است تا وقتی منتقد بیفزاید «for an argument that could be made in a third of the pages». پس از آن جمله داوری آزمون‌پذیر می‌شود و خواننده‌ای که مخالف است دقیقاً می‌داند با چه مخالف است."),
                 ("Quote sparingly and quote exactly. One short quotation that carries the claim does more than four that establish the reviewer read the book. Paraphrase is where interpretation shows; quotation is where it gets checked.", "کم نقل کن و دقیق نقل کن. یک نقل کوتاه که ادعا را حمل کند بیشتر از چهار نقلی است که نشان دهد منتقد کتاب را خوانده. بازگویی جایی است که تفسیر خودش را نشان می‌دهد و نقل جایی که بررسی می‌شود."),
                 ("A review needs a reader in mind: 'for anyone who has read the earlier books' is not a marketing line, it is a criterion of relevance. The same novel can be ambitious and unnecessary depending on who is being addressed, and saying so is more honest than a verdict without a reader.", "نقد خواننده‌ای در ذهن دارد: «for anyone who has read the earlier books» جملهٔ تبلیغاتی نیست، معیاری از مربوط بودن است. همان رمان بسته به مخاطب می‌تواند جسورانه یا بی‌لزوم باشد و گفتنش از حکمی بی‌مخاطب صادقانه‌تر است."),
             ],
@@ -204,7 +204,7 @@ U8 = unit(
             ],
             [
                 mcq("What does a strong review state that a weak one leaves implicit?", "نقد قوی چه چیزی را می‌گوید که نقد ضعیف مبهم می‌گذارد؟", ["its criterion", "the price", "the author's biography", "the publisher"], 0,
-                    "Without a criterion the judgement is taste.", "بی معیار، داوری سلیقه است."),
+                    "Without a criterion the judgment is taste.", "بی معیار، داوری سلیقه است."),
                 mcq("Why quote sparingly?", "چرا کم نقل کنیم؟", ["space is limited", "one exact quotation is checkable and sufficient", "quotations are unreliable", "readers skip them"], 1,
                     "Interpretation shows in paraphrase, precision in quotation.", "تفسیر در بازگویی و دقت در نقل دیده می‌شود."),
             ],

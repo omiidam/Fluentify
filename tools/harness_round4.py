@@ -32,7 +32,7 @@ CORRECT = [
     "I have a few pieces of advice.", "She has a car.", "They were here.",
     "I can go now.", "He will come.", "They must leave.", "I was tired.",
     "She didn't go to the party.", "It doesn't matter.", "We have finished.",
-    "The film is interesting and I am interested in it.",
+    "The movie is interesting and I am interested in it.",
     "I need some information.", "She is more experienced than me.",
     "This is the best day.", "My father has a car.", "They are late.",
     "We have many friends.", "It has started to rain.", "I am tired.",

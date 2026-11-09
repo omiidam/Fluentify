@@ -58,7 +58,7 @@ U1 = unit(
             [
                 ("Moving abroad was a turning point for me; I became much more independent.", "رفتن به خارج برای من نقطهٔ چرخش بود؛ بسیار مستقل‌تر شدم."),
                 ("She overcame her fear of speaking in public and now runs a team.", "بر ترس از سخنرانی در جمع غلبه کرد و حالا سرپرست یک تیم است."),
-                ("I've made a lot of progress since I started practising every day.", "از وقتی هر روز تمرین می‌کنم پیشرفت زیادی کرده‌ام."),
+                ("I've made a lot of progress since I started practicing every day.", "از وقتی هر روز تمرین می‌کنم پیشرفت زیادی کرده‌ام."),
                 ("He gave up his second job to spend more time with his children.", "کار دومش را رها کرد تا وقت بیشتری با بچه‌هایش بگذراند."),
             ],
             [
@@ -72,7 +72,7 @@ U1 = unit(
                 gap("I've ___ a lot of progress with my pronunciation this year.", ["made"], "Make progress, present perfect made.", "make progress و حال کامل made."),
                 mcq("'He is determined' is closest to ___.", "«He is determined» نزدیک‌ترین معنا به ___ است.", ["he gives up easily", "he will not let difficulties stop him", "he is unsure", "he is lazy"], 1,
                     "Determination is the refusal to be stopped.", "determination یعنی تن ندادن به توقف."),
-                listen("Two years ago I couldn't speak in meetings at all. I joined a club and practised every week, and last month I gave a presentation to forty people.", "What has the speaker achieved?", "گوینده به چه چیزی رسیده است؟", ["a new job", "confidence in speaking in public", "a bigger team", "a degree"], 1,
+                listen("Two years ago I couldn't speak in meetings at all. I joined a club and practiced every week, and last month I gave a presentation to forty people.", "What has the speaker achieved?", "گوینده به چه چیزی رسیده است؟", ["a new job", "confidence in speaking in public", "a bigger team", "a degree"], 1,
                        "She went from silence to presenting to forty people.", "از سکوت به ارائه برای چهل نفر رسیده است."),
             ],
         ),
@@ -101,10 +101,10 @@ U1 = unit(
                     "She says she felt the younger students were far ahead of her.", "می‌گوید حس می‌کرد دانش‌آموزان جوان‌تر خیلی از او جلوترند."),
                 mcq("What does 'I was not behind; I had simply taken a longer road' mean?", "«I was not behind; I had simply taken a longer road» یعنی چه؟", ["She was slower than everyone.", "Her experience was different, not worse.", "She had taken the wrong road.", "She wanted to stop studying."], 1,
                     "She reframes her late start as a different route, not a deficit.", "شروع دیرهنگام را مسیری متفاوت می‌بیند، نه کمبود."),
-                mcq("What is the writer's purpose?", "هدف نویسنده چیست؟", ["to advertise a school", "to encourage people who think it is too late", "to criticise teachers", "to describe a shop"], 1,
+                mcq("What is the writer's purpose?", "هدف نویسنده چیست؟", ["to advertise a school", "to encourage people who think it is too late", "to criticize teachers", "to describe a shop"], 1,
                     "The story is offered as encouragement to late returners.", "داستان تشویقی است برای کسانی که دیر شروع می‌کنند."),
                 mcq("Which sentence shows the writer's attitude most clearly?", "کدام جمله نگرش نویسنده را روشن‌تر نشان می‌دهد؟", ["I left school at fifteen.", "I worked in a shop.", "I had simply taken a longer road.", "The shop closed in 2019."], 2,
-                    "The metaphor is her judgement about her own path.", "این استعاره داوری او دربارهٔ مسیر خودش است."),
+                    "The metaphor is her judgment about her own path.", "این استعاره داوری او دربارهٔ مسیر خودش است."),
             ],
             passage=passage(("A second chance at school", "فرصت دوم در مدرسه"),
                             ("I left school at fifteen and worked in a shop for eleven years. I was good at the job, but I never stopped thinking about the classrooms I had walked out of.\n\nWhen the shop closed in 2019, I decided to finish the education I had missed. I was thirty-one and the youngest student in my class was sixteen. For the first month I was sure everyone knew more than I did. I nearly stopped twice.\n\nWhat helped was arithmetic. In the shop I had calculated prices, discounts and change for eleven years without a calculator, and suddenly the numbers on the board made sense in a way they never had at school.\n\nI finished the course last summer with the second highest mark in the class. I don't think I was behind all those years. I had simply taken a longer road, and I arrived with something my classmates did not have yet.",
@@ -133,7 +133,7 @@ U2 = unit(
                 ("If the train is on time, we'll be there by six.", "اگر قطار سر وقت باشد، تا شش آنجا هستیم."),
                 ("If I had a car, I would drive to work instead of taking two buses.", "اگر ماشین داشتم، به‌جای دو اتوبوس با ماشین به کار می‌رفتم."),
                 ("If I were you, I'd ask for the salary in writing.", "جای تو بودم، حقوق را کتبی می‌خواستم."),
-                ("Unless we leave now, we'll miss the beginning of the film.", "اگر الان راه نیفتیم، ابتدای فیلم را از دست می‌دهیم."),
+                ("Unless we leave now, we'll miss the beginning of the movie.", "اگر الان راه نیفتیم، ابتدای فیلم را از دست می‌دهیم."),
                 ("I wish I had more patience with my students.", "ای کاش با دانش‌آموزانم صبورتر بودم."),
             ],
             [
@@ -159,7 +159,7 @@ U2 = unit(
             [
                 ("The process has named stages: a vacancy is advertised, you apply for the post, send a CV and a covering letter, and are shortlisted for an interview. The employer checks your references and makes an offer; you accept or turn it down.", "فرایند مرحله‌های نام‌دار دارد: vacancy آگهی می‌شود، برای post درخواست می‌دهی، CV و نامهٔ همراه می‌فرستی و برای مصاحبه shortlist می‌شوی. کارفرما references را بررسی می‌کند و offer می‌دهد؛ تو قبول می‌کنی یا رد می‌کنی."),
                 ("Say what you bring: I have five years' experience in sales. I'm good at working under pressure. I'm responsible for a team of four. Strengths and weaknesses are the interview words; a probation period is the first three months.", "بگو چه چیزی می‌آوری: I have five years' experience in sales. I'm good at working under pressure. I'm responsible for a team of four. strengths و weaknesses واژه‌های مصاحبه‌اند و probation period سه ماه اول است."),
-                ("Money and conditions: salary (monthly or yearly), a raise, benefits (insurance, holidays), a permanent or temporary contract, flexible hours, to be promoted, to resign. 'I'm between jobs' is the neutral way to say you are unemployed.", "پول و شرایط: salary (ماهانه یا سالانه)، raise، benefits (بیمه، مرخصی)، قرارداد permanent یا temporary، ساعت منعطف، promote شدن و resign کردن. «I'm between jobs» راه خنثی برای گفتن بیکاری است."),
+                ("Money and conditions: salary (monthly or yearly), a raise, benefits (health insurance, paid vacation), a permanent or temporary contract, flexible hours, to be promoted, to resign. 'I'm between jobs' is the neutral way to say you are unemployed.", "پول و شرایط: salary (ماهانه یا سالانه)، raise، benefits (بیمه، مرخصی)، قرارداد permanent یا temporary، ساعت منعطف، promote شدن و resign کردن. «I'm between jobs» راه خنثی برای گفتن بیکاری است."),
             ],
             [
                 ("I applied for the post of assistant manager and was shortlisted.", "برای سمت کمک‌مدیر درخواست دادم و به مرحلهٔ مصاحبه رسیدم."),

@@ -283,7 +283,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
                          phonetics, distinctions, idioms, corrections, register,
                          daily, slang});
 
-    // The Listen panel's catalogue, links only: no transcript is ever served.
+    // The Listen panel's catalog, links only: no transcript is ever served.
     _bbc = bbc_6min;
 
     // The Sentences panel's word chips, banded by level. Built here rather
@@ -370,7 +370,7 @@ html = sub(html, _offline_boot, _offline_block, "the offline boot block")
 assert "\n<script>\n" in html
 # bot.js gets a content hash. Without one the browser keeps serving the
 # previous engine after a rebuild, and the offline app silently runs old
-# behaviour against new data - which is exactly how the register feature
+# behavior against new data - which is exactly how the register feature
 # looked absent on the offline bundle when the file on disk plainly had it.
 _bot_file = ROOT / "android/app/src/main/assets/www/bot.js"
 _bot_sha = hashlib.sha1(_bot_file.read_bytes()).hexdigest()[:8] \
@@ -382,7 +382,7 @@ html = sub(html, "\n<script>\n",
 OUT.parent.mkdir(parents=True, exist_ok=True)
 # The offline page has no server, so the corrector's fetch becomes one function
 # that tries a configured backend and otherwise answers from the rules. The
-# button keeps its behaviour: it never charges a daily message and never edits
+# button keeps its behavior: it never charges a daily message and never edits
 # the conversation.
 CORRECTOR = r'''/* Correction. The app holds no model: the corrector is 558 MB and runs on the
    server. If a backend was configured at build time (FLUENTIFY_GEC_API) the
@@ -485,8 +485,8 @@ if leftovers:
 # the offline app keeps the theme's typography instead of falling back to
 # whatever the phone happens to ship.
 FONT_DIR = ROOT / "fonts"
-# The two licences travel with the files: both faces are SIL OFL, and the
-# terms require the licence to ship wherever the font is redistributed.
+# The two licenses travel with the files: both faces are SIL OFL, and the
+# terms require the license to ship wherever the font is redistributed.
 FONTS = ["baloo2-latin.woff2", "kalam-latin.woff2", "vazirmatn.woff2",
          "OFL-baloo2.txt", "OFL-kalam.txt", "OFL-vazirmatn.txt"]
 missing_fonts = [f for f in FONTS if not (FONT_DIR / f).exists()]

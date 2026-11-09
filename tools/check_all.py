@@ -57,7 +57,7 @@ Every suite answers a different question:
   check_practice are the four new drills sound? Word partners, register, the ear
                 test over the phonetics pairs, and the word-level comparison
                 behind dictation and speaking
-  check_daily   is the Daily English catalogue sound, and do the CLI, the APK
+  check_daily   is the Daily English catalog sound, and do the CLI, the APK
                 engine and the page pick the same three items for the same
                 local date? The rotation exists in three places, one per
                 runtime, and this compares all three over a year of dates and

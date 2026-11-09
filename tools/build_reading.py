@@ -5,7 +5,7 @@ The Reading panel is only as good as its questions, and a question with the
 wrong answer key teaches the wrong thing silently. This script refuses to write
 the file if a question is unanswerable: every blank must appear in its passage,
 every multiple-choice key must be one of its options, every strategy must carry
-all four question types and three readings that practise it.
+all four question types and three readings that practice it.
 
     python3 tools/build_reading.py           # write reading.json
     python3 tools/build_reading.py --check   # fail if reading.json is stale
@@ -185,7 +185,7 @@ def build() -> dict:
         if len((ex.get("text") or "").split()) < 25:
             fail(f"{sid}: the worked example is too short to demonstrate anything")
         if len(ex.get("steps") or []) < 2:
-            fail(f"{sid}: the worked example is shown but never analysed")
+            fail(f"{sid}: the worked example is shown but never analyzed")
         for line in ex["steps"]:
             checked_text(line, f"{sid}: a worked-example line")
         for field, least in (("mistakes", 2), ("tips", 2), ("checklist", 3)):
@@ -260,7 +260,7 @@ def build() -> dict:
             "counts": counts,
         })
     # The order a learner should meet them in, not the order they were written
-    # in: survey before skim, skim before scan, and summarising last because it
+    # in: survey before skim, skim before scan, and summarizing last because it
     # is the only strategy that needs the other nine.
     rank = {sid: i for i, sid in enumerate(ORDER)}
     out.sort(key=lambda s: rank.get(s["id"], len(ORDER)))
@@ -269,7 +269,7 @@ def build() -> dict:
         "version": 3,
         "intro": {
             "en": f"{len(out)} reading strategies, and {PRACTICES} passages with "
-                  "questions for each one. Learn the strategy, then practise it "
+                  "questions for each one. Learn the strategy, then practice it "
                   "on all three.",
             "fa": f"{len(out)} راهبرد خواندن، و برای هر کدام {PRACTICES} متن با "
                   "سؤال. اول راهبرد را یاد بگیر، بعد هر سه متن را تمرین کن.",

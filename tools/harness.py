@@ -89,7 +89,7 @@ def check_no_crash(kind: str, case: str, fn) -> None:
 # a spot-check of words across every CEFR band: EN lookup, FA lookup, define
 WORD_PROBES = [
     ("apple", "سیب"), ("negotiate", "مذاکره کردن"), ("resilient", None),
-    ("idempotent", None), ("schwa", None), ("anthropomorphise", None),
+    ("idempotent", None), ("schwa", None), ("anthropomorphize", None),
     ("ubiquitous", None), ("ephemeral", None), ("candid", None),
     ("meticulous", None), ("pragmatic", None), ("tenacious", None),
 ]
@@ -575,7 +575,7 @@ def run_bilingual(verbose: bool) -> None:
 # Pinned to a fixed date, so the answers are the same on every run: the whole
 # feature is "the same three items all day", and a suite that used the real
 # clock would be checking something else. These cases are about the *chat*;
-# tools/check_daily.py owns the catalogue and the three engines.
+# tools/check_daily.py owns the catalog and the three engines.
 DAILY_PROBES = [
     ("today's word", ["Word of the Day"], ["متوجه نشدم", "not sure"]),
     ("explain today's word", ["Word of the Day"], ["متوجه نشدم"]),

@@ -58,8 +58,8 @@ EXTRA = {
             "a1-u2-l4", "writing",
             ("Four sentences about your family",
              "چهار جمله دربارهٔ خانواده‌ات"),
-            ("Describe three people with have got and one possession each.",
-             "سه نفر را با have got و یک دارایی برای هرکدام توصیف کن."),
+            ("Describe three people with have or has and one possession each.",
+             "سه نفر را با have یا has و یک دارایی برای هرکدام توصیف کن."),
             [
                 ("Have got is the everyday way to say what someone owns or "
                  "has: she has got two brothers. In negatives and questions it "
@@ -68,26 +68,26 @@ EXTRA = {
                  "brothers. در منفی و پرسش مثل have رفتار می‌کند: she hasn't "
                  "got a car، has he got a phone?"),
                 ("Keep one person per sentence and put the number or the "
-                 "object at the end: My sister has got a new phone. The end of "
+                 "object at the end: My sister has a new phone. The end of "
                  "the sentence is where English puts the new information.",
                  "در هر جمله یک نفر و عدد یا شیء را در پایان بگذار: My sister "
                  "has got a new phone. انگلیسی اطلاعات تازه را در پایان "
                  "می‌گذارد."),
             ],
             [
-                ("My brother has got a bike.", "برادرم دوچرخه دارد."),
-                ("My parents have got a small shop.",
+                ("My brother has a bike.", "برادرم دوچرخه دارد."),
+                ("My parents have a small shop.",
                  "پدر و مادرم مغازهٔ کوچکی دارند."),
             ],
             [
-                mcq("She ___ got two sisters.", "او دو خواهر دارد.",
+                mcq("She ___ two sisters.", "او دو خواهر دارد.",
                     ["have", "has", "is", "are"], 1,
                     "She takes has.", "she با has می‌آید."),
                 mcq("Which sentence is correct?", "کدام جمله درست است؟",
-                    ["My brother have got a bike.", "My brother has got a "
+                    ["My brother have a bike.", "My brother has got a "
                      "bike.", "My brother has get a bike.", "My brother got "
                      "have a bike."], 1,
-                    "He takes has got.", "he با has got می‌آید."),
+                    "He takes has.", "he با has می‌آید."),
             ],
             [
                 write("Write four sentences about your family. Use have got "
@@ -98,11 +98,11 @@ EXTRA = {
                       40, ["and"], "Four sentences, one person each, have got "
                       "correct, the object last.", "چهار جمله، در هر یک یک نفر، "
                       "have got درست و شیء در پایان."),
-                gap("My sister ___ got a new phone.", ["has"],
+                gap("My sister ___ a new phone.", ["has"],
                     "Third person takes has.", "سوم‌شخص has می‌گیرد.", "one word"),
-                mcq("Which is a question with have got?", "کدام پرسش با have "
+                mcq("Which is a question with have?", "کدام پرسش با have "
                     "got است؟",
-                    ["Has he got a car?", "He has got a car?", "Does he got a "
+                    ["Does he have a car?", "He has a car?", "Does he got a "
                      "car?", "Is he got a car?"], 0,
                     "Has comes first in the question.",
                     "has در پرسش اول می‌آید."),
@@ -114,7 +114,7 @@ EXTRA = {
             "a1-u3-l4", "listening",
             ("What time does it open?",
              "چه ساعتی باز می‌شود؟"),
-            ("Understand opening times and simple timetables.",
+            ("Understand opening times and simple schedules.",
              "ساعت باز شدن و جدول‌های زمانی ساده را بفهم."),
             [
                 ("Times are said two ways: seven o'clock and seven. For "
@@ -122,7 +122,7 @@ EXTRA = {
                  "quarter past or a quarter to.",
                  "ساعت‌ها دو جور گفته می‌شوند: seven o'clock و seven. برای نیم، "
                  "half past seven و برای ربع، a quarter past یا a quarter to."),
-                ("A timetable question usually asks about the difference "
+                ("A schedule question usually asks about the difference "
                  "between two times: it opens at nine and closes at five is "
                  "eight hours.",
                  "پرسش جدول زمانی معمولاً تفاوت دو ساعت را می‌پرسد: از نُه باز "
@@ -276,7 +276,7 @@ EXTRA = {
     "u6": [
         lesson(
             "a1-u6-l4", "speaking",
-            ("What did you do at the weekend?",
+            ("What did you do on the weekend?",
              "آخر هفته چه کردی؟"),
             ("Talk about a past weekend with three short sentences.",
              "دربارهٔ آخر هفتهٔ گذشته با سه جملهٔ کوتاه حرف بزن."),
@@ -307,7 +307,7 @@ EXTRA = {
             [
                 say("On Saturday I went to the market with my sister.",
                     "شنبه با خواهرم به بازار رفتم."),
-                say("We saw a film and ate lunch near the park.",
+                say("We saw a movie and ate lunch near the park.",
                     "فیلمی دیدیم و نزدیک پارک ناهار خوردیم."),
                 say("On Sunday I stayed at home because it was raining.",
                     "یکشنبه خانه ماندم چون باران می‌آمد."),
@@ -331,10 +331,10 @@ U7 = unit(
              "به چیزی که می‌خواهی اشاره کن بی‌آنکه نامش را تکرار کنی."),
             [
                 ("One replaces a singular noun and ones replaces a plural: "
-                 "this shirt is large, have you got a smaller one? The blue "
+                 "this shirt is large, do you have a smaller one? The blue "
                  "shoes are nice; I like those ones.",
                  "one جای اسم مفرد و ones جای اسم جمع می‌نشیند: this shirt is "
-                 "large, have you got a smaller one? The blue shoes are nice; "
+                 "large, do you have a smaller one? The blue shoes are nice; "
                  "I like those ones."),
                 ("I would like is the polite way to ask for something in a "
                  "shop, and it is followed by a noun or by one: I would like "
@@ -349,7 +349,7 @@ U7 = unit(
                  "این‌ها خوب‌اند، ولی آن‌ها را ترجیح می‌دهم."),
             ],
             [
-                mcq("Have you got a smaller ___?", "کوچک‌ترش را دارید؟",
+                mcq("Do you have a smaller ___?", "کوچک‌ترش را دارید؟",
                     ["one", "ones", "it", "them"], 0,
                     "One replaces a singular noun.", "one جای اسم مفرد است."),
                 mcq("I like those ___.", "آن‌ها را دوست دارم.",
@@ -391,7 +391,7 @@ U7 = unit(
                  "twelve pounds fifty."),
             ],
             [
-                ("Have you got this jacket in medium?",
+                ("Do you have this jacket in medium?",
                  "این کاپشن را در سایز متوسط دارید؟"),
                 ("The trousers are forty pounds.",
                  "شلوار چهل پوند است."),
@@ -409,7 +409,7 @@ U7 = unit(
                 mcq("Which is a piece of clothing?", "کدام لباس است؟",
                     ["price", "jacket", "size", "shop"], 1,
                     "A jacket is worn.", "jacket پوشیده می‌شود."),
-                gap("Have you got this shirt in ___?", ["medium", "large",
+                gap("Do you have this shirt in ___?", ["medium", "large",
                     "small"], "Sizes take in.", "اندازه‌ها in می‌گیرند.",
                     "one word"),
                 mcq("Which sentence is correct?", "کدام جمله درست است؟",
@@ -421,15 +421,15 @@ U7 = unit(
         lesson(
             "a1-u7-l3", "listening",
             ("At the shop", "در مغازه"),
-            ("Follow a shop conversation and note the size, colour and price.",
+            ("Follow a shop conversation and note the size, color and price.",
              "گفت‌وگوی مغازه را دنبال کن و اندازه، رنگ و قیمت را یادداشت کن."),
             [
                 ("Shop conversations have a fixed shape: what you want, the "
-                 "size or colour, the price, and the payment. You only need "
+                 "size or color, the price, and the payment. You only need "
                  "to catch one detail per turn.",
                  "گفت‌وگوی مغازه شکل ثابتی دارد: چه می‌خواهی، اندازه یا رنگ، قیمت "
                  "و پرداخت. در هر نوبت فقط یک جزئیات را باید بگیرت."),
-                ("Colours come before the noun: a blue shirt, black shoes. "
+                ("Colors come before the noun: a blue shirt, black shoes. "
                  "Sizes come after in: in medium.",
                  "رنگ‌ها پیش از اسم می‌آیند: a blue shirt، black shoes. اندازه‌ها "
                  "پس از in: in medium."),
@@ -451,7 +451,7 @@ U7 = unit(
             ],
             [
                 listen("I would like these shoes in black, size forty.",
-                       "What colour?", "چه رنگی؟",
+                       "What color?", "چه رنگی؟",
                        ["blue", "black", "brown", "white"], 1,
                        "Black, size forty.", "مشکی، سایز چهل."),
                 listen("The coat is sixty pounds and the hat is twelve.",
@@ -468,7 +468,7 @@ U7 = unit(
              "یک گفت‌وگوی کامل مغازه را در پنج نوبت کوتاه انجام بده."),
             [
                 ("The five turns: greet, ask for the thing, give the size or "
-                 "colour, ask the price, pay and thank. You can do all five "
+                 "color, ask the price, pay and thank. You can do all five "
                  "with the phrases you already have.",
                  "پنج نوبت: سلام، خواستن چیزی، گفتن اندازه یا رنگ، پرسیدن قیمت، "
                  "پرداخت و تشکر. هر پنج را با عبارت‌هایی که داری می‌توانی "
@@ -696,7 +696,7 @@ U8 = unit(
             [
                 ("Yesterday I visited my grandmother.",
                  "دیروز مادربزرگم را دیدم."),
-                ("In the evening I watched a film.", "عصر فیلمی دیدم."),
+                ("In the evening I watched a movie.", "عصر فیلمی دیدم."),
             ],
             [
                 mcq("Which sentence is in the past?", "کدام جمله در گذشته "
@@ -720,7 +720,7 @@ U8 = unit(
                       "person, no present tense.",
                       "پنج جملهٔ گذشته، یک was، یک عبارت زمانی، یک نفر و بدون "
                       "حال."),
-                gap("I ___ (watch) a film in the evening.", ["watched"],
+                gap("I ___ (watch) a movie in the evening.", ["watched"],
                     "Regular past adds -ed.", "گذشتهٔ باقاعده -ed می‌گیرد.",
                     "one word"),
                 mcq("Which is a past sentence with a state?", "کدام جملهٔ "

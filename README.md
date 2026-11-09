@@ -20,21 +20,21 @@ no network calls, no tracking.
 
 | Area | Details |
 |---|---|
-| 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalogue (60 / 55 / 24), with a per-day tick — reading only, no audio |
+| 📅 Daily English | one word + one expression + one conversation per **local calendar day**, from a curated catalog (60 / 55 / 24), with a per-day tick — reading only, no audio |
 | 🗓️ Weekly quiz | a **Friday-morning review of the Iranian week** — the words and expressions ticked off from the previous Friday to Thursday, up to ten questions, four options each. It appears **on Friday from 09:00 until midnight Tehran time** (05:30–20:30 UTC) whatever the phone's own zone says, one paper per Friday, frozen when built and scored on submit. **Optional**: skip it and nothing changes, and fewer than five learned items means no paper rather than a thin one |
-| ⏰ Due today | a **spaced-repetition queue over everything already met** — the daily ticks, the weekly quiz answers and the words saved to Review feed one ledger with an interval, an ease and a lapse count. Four verdicts (again / hard / good / easy) move the next date, and the panel reports **recall after a week** from the reviews that actually happened six to ten days later. Nothing is scheduled by opening the app |
+| ⏰ Due today | a **spaced-repetition line over everything already met** — the daily ticks, the weekly quiz answers and the words saved to Review feed one ledger with an interval, an ease and a lapse count. Four verdicts (again / hard / good / easy) move the next date, and the panel reports **recall after a week** from the reviews that actually happened six to ten days later. Nothing is scheduled by opening the app |
 | 🧩 What keeps slipping | one **error log fed by the level check, the weekly quiz and the drills**: each miss keeps its class (present simple, word partners, register…), the question and its explanation, so the account panel can rank what repeats and ask the same questions again |
-| 🎯 Practice | six drills behind **one circular control** in the transcript: it folds out into the list, each drill opens as a **full page**, and closing it comes back to the list — **word partners** (78 curated collocations, *heavy rain* not *strong rain*), **register** (the same meaning in three levels of formality), an **ear test** over the phonetics bank's minimal pairs, **dictation** (hear it, write it, marked word by word), and **say it** (read aloud; the words the recogniser did not hear are marked). No model, no network, no scoring theatre |
+| 🎯 Practice | six drills behind **one circular control** in the transcript: it folds out into the list, each drill opens as a **full page**, and closing it comes back to the list — **word partners** (78 curated collocations, *heavy rain* not *strong rain*), **register** (the same meaning in three levels of formality), an **ear test** over the phonetics bank's minimal pairs, **dictation** (hear it, write it, marked word by word), and **say it** (read aloud; the words the recogniser did not hear are marked). No model, no network, no scoring theater |
 | 💬 Small talk | 42 bilingual intents: feelings, health, work, boredom, encouragement, riddles, fun facts… |
 | 📚 Vocabulary | 2,314 curated words across 64 grouped domains, translate & define in both languages — and behind them a **70,392-headword dictionary** with definitions, Persian meanings, IPA, inflected forms, synonyms/antonyms and examples, all offline |
 | 📖 Reading | 10 strategies, each with a lesson and **3 practice passages** — fill-in-the-blank, multiple choice, true/false and a writing task, marked inline with the paragraph that answers it |
 | 👤 Account | sign-up and sign-in that happen **after the loading page** and before the app; the panel also carries the **light/dark theme switch**, remembered on the device. Full name, **email**, username, and a password stretched with PBKDF2-SHA256 (150,000 iterations) into a salted hash in this device's storage — no server, no plain text. The password rule is the stated four-part policy: **8 characters minimum** and 128 maximum, both cases, letters with digits, and at least one of `@#$%!`, with a live four-segment meter and a checklist that tick from the same function the submit button enforces; the bundled blocklist still runs underneath it, so `Password1!` meets every rule and is still refused, as are the username, the learner's own name, a repeated character and a repeated pattern. The password cannot be copied or pasted — paste, cut, copy, drag and the context menu are refused, and the text cannot be selected. A forgotten password is recovered on the sign-in card — no link is mailed, because a device-local account has no server to mail it from: “Forgot password?” asks for the username and the email on the account, then takes a new password under the same four rules with a fresh salt, and signs the learner back in. The session stays open for **seven days after the last time the app was used**, then asks for the password again; sign out keeps the account, reset erases it |
 | 🎓 Certificate | at the end of the assessment, a printable certificate carrying the learner's **full name, CEFR level, date, question count and certificate ID** — downloaded as PDF through the browser's print dialog on the web and through `PrintManager` in the APK, with the print stylesheet stripping everything but the sheet |
 | 📈 Level check | a **monthly CEFR assessment on one fixed 55-question paper**: ten questions from each band, A1 to C1, across grammar, vocabulary, reading and listening, in five parts that climb in difficulty, then **one marked writing task per band**. The level is read straight off the **count** — 9 of 55 is A1, 19 A2, 29 B1, 39 B2, 49 C1 — and each skill is read on the same fractions of its own total (grammar and vocabulary out of 15, reading and listening out of 10, writing out of 20 rubric points). A writing task earns up to four points for enough words, enough sentences, the linking the task asks for and a spot check for slips, is worth one question in the total, and is marked while it is typed. Unanswered questions count as wrong, a score that lands within one standard error of a cutoff is shown as ±1 band, speaking stays practice and is reported as **not assessed**, and the retake window is 30 days |
-| 🧭 Learning path | **seven CEFR levels, seven written courses.** The section appears in the header only after a level check has run, and the level it opens on is the one the check awarded — an A2 learner starts at A2, never at A1. Every level runs Pre-A1 → A1 → A2 → B1 → B2 → C1 → C2, and every one of the seven now carries a full course and a final paper: **Pre-A1** (6 units, 24 lessons, 69 exercises), **A1** (8 units, 32 lessons, 105), **A2** (8/32/117), **B1** (8/32/116), **B2** (8/32/115), **C1** (8/32/111) and **C2** (8/32/116) — **216 lessons and 749 exercises** in all. **Pre-A1** starts from nothing: hello, a name and a country, numbers and days, pointing at people and things, ordering food, describing a day, four short lessons per unit across all six skills. **A1** is greetings, prices and short sentences about yourself, plus units on shopping and money and on yesterday and tomorrow. **A2** is the past simple and continuous, the present perfect for experience, the three future forms, comparatives, quantifiers, the modals and the first conditional, with vocabulary for relationships, travel, food, work, shopping, health, technology and the town. **B1** develops A2 instead of repeating it — the perfect against the past, first and second conditionals, the passive, relative clauses, reported speech, *used to*, the modals of obligation and deduction, and gerunds against infinitives. **B2** is for a learner who can already hold a conversation and now has to sound precise — the past perfect and its continuous form, the future continuous and future perfect, third and **mixed conditionals with *wish* and *if only***, the passive across tenses and reporting passives, causatives, relative clauses and reduced relatives, **inversion after negative adverbials**, and gerunds, infinitives and participle clauses. **C1** is academic and professional English — **cleft sentences**, modal perfects and the grammar of certainty, **nominalisation** and the complex noun phrase, **ellipsis and substitution**, reporting passives, the **subjunctive** and formal recommendation, **participle clauses** with advanced relatives, and **inversion with emphatic comparison**. **C2** is the level for someone who can already do everything and now has to do it precisely — **end weight and given-new**, **hedging** and the grammar of certainty, **litotes, understatement and irony**, **attribution** (who says so, and how sure they are), **cohesion** through reference, substitution and ellipsis, **fronting and clefts**, parallelism and antithesis, and the confusables a spellchecker lets through. The vocabulary of C2 is lexical precision rather than new topics: estimate/assess/evaluate/appraise, concede/refute/rebut/qualify, euphemism, irony and innuendo, metaphor literal and dead, register shifting, collocation and idioms that survive a second look. Every level is balanced across the six skills — each has at least three reading lessons, three listening lessons, three writing tasks and three speaking tasks, and C2 adds literary and satirical reading, lectures and debates, editorials, synthesis and review writing, negotiation, presentation and Q&A. A lesson is explanation → examples → guided questions → exercises → a check; 60% finishes it, and a lesson under that keeps its exercises open. Progress is per lesson, per skill and for the course, kept in `fluentify.path.v1` and keyed by lesson id, so adding lessons to a level neither erases nor renumbers what a learner has already done. **Each level's final examination is its own 33-mark paper** (8 grammar, 8 vocabulary, 2 reading passages × 3, 6 listening, 2 writing tasks, 3 speaking tasks) and passes at 60% overall **with 50% in every skill and every skill actually assessed** — silent speaking is not a pass, and the report says so rather than scoring it. Passing a level unlocks the one above it: Pre-A1 opens A1, A1 opens A2, and so on to C2, which is the end of the path — passing C2 shows the completion band on the path page and leaves every course open to revisit. Any course below the learner's own level stays open too, so a learner the check places at B2 starts at B2 and can still walk back into A2. Placement is not an examination: the check says where to start, and only a level's own paper marks that level passed. The section is laid out to be read: a band over the list saying which level you are on and how far through it you are, one card per level carrying its state and what the course actually holds (units, lessons, six skills, lessons done), a **level dashboard** with the units down one side and the six skill bars, the examination gate and a **recommended next step** down the other, and a lesson page that uses the width of the panel instead of a narrow column — prose held at a readable measure with a rail beside it for where you are, what the lesson contains and what comes after it — the same markup stacking to one column on a phone with no sideways scroll |
+| 🧭 Learning path | **seven CEFR levels, seven written courses.** The section appears in the header only after a level check has run, and the level it opens on is the one the check awarded — an A2 learner starts at A2, never at A1. Every level runs Pre-A1 → A1 → A2 → B1 → B2 → C1 → C2, and every one of the seven now carries a full course and a final paper: **Pre-A1** (6 units, 24 lessons, 69 exercises), **A1** (8 units, 32 lessons, 105), **A2** (8/32/117), **B1** (8/32/116), **B2** (8/32/115), **C1** (8/32/111) and **C2** (8/32/116) — **216 lessons and 749 exercises** in all. **Pre-A1** starts from nothing: hello, a name and a country, numbers and days, pointing at people and things, ordering food, describing a day, four short lessons per unit across all six skills. **A1** is greetings, prices and short sentences about yourself, plus units on shopping and money and on yesterday and tomorrow. **A2** is the past simple and continuous, the present perfect for experience, the three future forms, comparatives, quantifiers, the modals and the first conditional, with vocabulary for relationships, travel, food, work, shopping, health, technology and the town. **B1** develops A2 instead of repeating it — the perfect against the past, first and second conditionals, the passive, relative clauses, reported speech, *used to*, the modals of obligation and deduction, and gerunds against infinitives. **B2** is for a learner who can already hold a conversation and now has to sound precise — the past perfect and its continuous form, the future continuous and future perfect, third and **mixed conditionals with *wish* and *if only***, the passive across tenses and reporting passives, causatives, relative clauses and reduced relatives, **inversion after negative adverbials**, and gerunds, infinitives and participle clauses. **C1** is academic and professional English — **cleft sentences**, modal perfects and the grammar of certainty, **nominalization** and the complex noun phrase, **ellipsis and substitution**, reporting passives, the **subjunctive** and formal recommendation, **participle clauses** with advanced relatives, and **inversion with emphatic comparison**. **C2** is the level for someone who can already do everything and now has to do it precisely — **end weight and given-new**, **hedging** and the grammar of certainty, **litotes, understatement and irony**, **attribution** (who says so, and how sure they are), **cohesion** through reference, substitution and ellipsis, **fronting and clefts**, parallelism and antithesis, and the confusables a spellchecker lets through. The vocabulary of C2 is lexical precision rather than new topics: estimate/assess/evaluate/appraise, concede/refute/rebut/qualify, euphemism, irony and innuendo, metaphor literal and dead, register shifting, collocation and idioms that survive a second look. Every level is balanced across the six skills — each has at least three reading lessons, three listening lessons, three writing tasks and three speaking tasks, and C2 adds literary and satirical reading, lectures and debates, editorials, synthesis and review writing, negotiation, presentation and Q&A. A lesson is explanation → examples → guided questions → exercises → a check; 60% finishes it, and a lesson under that keeps its exercises open. Progress is per lesson, per skill and for the course, kept in `fluentify.path.v1` and keyed by lesson id, so adding lessons to a level neither erases nor renumbers what a learner has already done. **Each level's final examination is its own 33-mark paper** (8 grammar, 8 vocabulary, 2 reading passages × 3, 6 listening, 2 writing tasks, 3 speaking tasks) and passes at 60% overall **with 50% in every skill and every skill actually assessed** — silent speaking is not a pass, and the report says so rather than scoring it. Passing a level unlocks the one above it: Pre-A1 opens A1, A1 opens A2, and so on to C2, which is the end of the path — passing C2 shows the completion band on the path page and leaves every course open to revisit. Any course below the learner's own level stays open too, so a learner the check places at B2 starts at B2 and can still walk back into A2. Placement is not an examination: the check says where to start, and only a level's own paper marks that level passed. The section is laid out to be read: a band over the list saying which level you are on and how far through it you are, one card per level carrying its state and what the course actually holds (units, lessons, six skills, lessons done), a **level dashboard** with the units down one side and the six skill bars, the examination gate and a **recommended next step** down the other, and a lesson page that uses the width of the panel instead of a narrow column — prose held at a readable measure with a rail beside it for where you are, what the lesson contains and what comes after it — the same markup stacking to one column on a phone with no sideways scroll |
 | 📚 Mini stories | 50 graded readers (very easy → very hard) — the whole story with the Persian under every sentence, vocabulary, expressions, grammar and 5 + 3 + 3 + 2 questions with answers and explanations, plus a companion for a chapter of a book you own |
 | 📘 Grammar | 48 lessons (A1→C2) — structure → explanation → function → **6 practice questions the exam gate waits on → a 20-question exam**, with a themed result card |
-| 🔬 Analyse | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
+| 🔬 Analyze | an **offline grammar analyser**: parts of speech, lemmas and the tense/aspect a sentence carries, word by word, on the device — a real tagger bundled in the page and the APK, with no server |
 | 💬 Sentences | 517 ready-to-use sentences across 45 real-life situations |
 | 🎧 Listening | 48 spoken sentences graded A1 → C2, read aloud offline (tap ▶ to play) |
 | 🌱 Daily seed | 50 messages per session; the session rolls over at **00:00 Tehran (GMT+3:30)**, fill the seed and the bird blooms |
@@ -75,15 +75,15 @@ bank separately, and a sentence picks the sense by scoring the entry's own
 glosses against it. If no sense matches the sentence, the answer says so instead
 of guessing.
 
-Sources and licences (full text in `lexicon/_meta.json`, which the suite
+Sources and licenses (full text in `lexicon/_meta.json`, which the suite
 cross-checks against the shards on disk):
 
-| source | licence | what came from it |
+| source | license | what came from it |
 |---|---|---|
 | [OpenJam](https://github.com/amirj4m/openjam) | MIT, data included | lemmas, senses, definitions, examples, Persian sense translations, IPA, inflected forms |
 | [Princeton WordNet 3.1](https://wordnet.princeton.edu/) | WordNet (BSD-style) | synonyms and antonyms; definitions, parts of speech and examples for the headwords OpenJam does not carry |
 
-Deliberately **not** imported: the English–Persian dataset with no licence, the
+Deliberately **not** imported: the English–Persian dataset with no license, the
 VahidN dictionaries whose individual contents publish none, and the Wiktionary
 extract whose CC BY-SA share-alike would relicense the app's data. Nothing the
 sources lack is invented — no entry carries a CEFR level (OpenJam's field is
@@ -129,7 +129,7 @@ available in chat (`today's word`, `لغت امروز`).
 
 The choice is a pure function of the local date: `daily_index()` in
 `chatbot.py`, `dailyIndex` in `bot.js` and `dayIndex` in the page walk the same
-catalogue from the same epoch, so the CLI, the web preview and the offline APK
+catalog from the same epoch, so the CLI, the web preview and the offline APK
 show the same three items on the same day with no server involved.
 `tools/check_daily.py` compares all three over 365 dates and five timezones,
 including both 2026 daylight-saving nights, where the wait to midnight is not
@@ -138,11 +138,11 @@ skip one day and stay skipped (the store has no un-skip to call), a corrupt
 record must not hide the feature, and the per-day list is pruned so years of
 daily use cannot fill storage.
 
-The catalogue in `daily.json` is curated, never generated at runtime: 60 words,
+The catalog in `daily.json` is curated, never generated at runtime: 60 words,
 55 expressions, 24 conversations. To be exact about coverage, that is **not**
 365 distinct entries per category — a word returns after 60 days and a
 conversation after 24 — while the whole word + expression + conversation set
-does not repeat for **1,320 days**. Extending the catalogue only lengthens the
+does not repeat for **1,320 days**. Extending the catalog only lengthens the
 cycle, and each category steps through every entry before reusing one.
 Completion is stored per date (`fluentify.daily.v1` in `localStorage`) and is
 never cleared, so yesterday's ticks survive the new day.
@@ -166,7 +166,7 @@ in Tehran and in New York, and fails if the two disagree. Up to ten
 questions, one per learned item, formats rotated between English meaning,
 Persian-to-English, a blank in the item's own example sentence, and which
 expression fits a situation. Distractors are other entries from the same
-catalogue, the key is the item's own translation or its own word, and nothing
+catalog, the key is the item's own translation or its own word, and nothing
 is generated: the page has no model and no network in this path.
 
 The card states how much content it has and what the quiz will hold, with
@@ -201,7 +201,7 @@ keeps the item due now and counts a lapse; *hard*, *good* and *easy* grow the
 interval by increasingly large steps, capped at 180 days so one confident
 answer cannot bury an item for a year, with the ease held between 1.3 and 3.2.
 The weekly quiz feeds the same ledger: a right answer is a recall, a wrong one
-is a lapse, so the schedule learns from the review as well as from the queue.
+is a lapse, so the schedule learns from the review as well as from the line.
 
 The header is a measurement, not a promise: **recall after a week** counts only
 the reviews that happened six to ten days after the previous one, and only the
@@ -217,7 +217,7 @@ away. Now every miss writes an event (class, item, day) and the question itself
 into `fluentify.errors.v1` — a same-question repeat replaces the older copy, and
 the record is bounded at four hundred events and eighty questions.
 
-The account panel ranks the classes by how often they happen, and **Practise**
+The account panel ranks the classes by how often they happen, and **Practice**
 opens that class in the drill sheet: the same questions that were missed, with
 the explanation the exercise already carried. Nothing here scores the learner;
 it counts what the app was already told.
@@ -259,7 +259,7 @@ Android TTS on the APK, Web Speech on the web), so there are no audio files to
 package or lose.
 
 Dictation and *say it* share one comparison: case, punctuation and contractions
-are normalised, and the alignment is a longest common subsequence, so a dropped
+are normalized, and the alignment is a longest common subsequence, so a dropped
 word costs itself and not every word after it. A recogniser miss is presented as
 exactly that — which words came back — and never as a phoneme score.
 
@@ -280,7 +280,7 @@ palette — the whole reference sheet, six rows of six. One flat style, composed
 from a single front head, a single side head and four bodies, so the set reads
 as one hand rather than thirty-six.
 
-`foxes.json` is the whole catalogue — id, English name, Persian name, search
+`foxes.json` is the whole catalog — id, English name, Persian name, search
 keywords and the finished SVG — so the page never draws a fox itself. The
 finished SVG is generated: `tools/build_foxes.py` holds the poses and writes the
 file, which is why the palette and the eyes are one constant each. Edit a pose
@@ -289,7 +289,7 @@ languages: `sleep` and «خواب» find the same sticker.
 
 A sticker is a picture and the composer is a text field, so a picked fox goes in
 as `[fox:cute]` and is expanded back into the drawing when the message renders —
-after the text has been escaped, so the artwork always comes from the catalogue
+after the text has been escaped, so the artwork always comes from the catalog
 and never from what someone typed. The drawings are original: the reference set
 that prompted the feature is a watermarked stock sheet, so nothing is traced or
 copied from it. `tools/check_ui.py` fails if a sticker id could not survive its
@@ -324,7 +324,7 @@ is half-regenerated.
 Ask for it and the sentence is taken apart on the device:
 
 ```
-analyse this sentence: She has been learning English.
+analyze this sentence: She has been learning English.
 این جمله رو از نظر گرامری تحلیل کن: She has been learning English.
 ```
 
@@ -334,7 +334,7 @@ this sentence*, *proofread this*, *grammar check*, *explain this sentence*,
 «گرامر این جمله رو بررسی کن», «اشکال گرامری این جمله چیه؟», «اصلاح گرامری کن».
 It also follows the conversation: a bare *check my grammar* waits for the next
 sentence instead of answering with a menu, *check the grammar of the sentence I
-just sent* takes the last thing typed, and *what about this one: …* analyses the
+just sent* takes the last thing typed, and *what about this one: …* analyzes the
 new sentence with the previous one still on screen.
 
 The answer opens with the grammar written out — the construction the sentence
@@ -347,7 +347,7 @@ Persian, its lemma, and whether it is the subject or the object — followed by
 the structures the sentence carries (here: Declarative, Present Perfect
 Continuous, Pronouns), a lesson chip per structure that opens the matching
 lesson from the Knowledge Base, and a plain statement of what the method cannot
-do. The same analysis is kept in the **Analyse** panel, where a sentence can
+do. The same analysis is kept in the **Analyze** panel, where a sentence can
 also be typed or picked from an example.
 
 The engine is [winkNLP](https://github.com/winkjs/wink-nlp) 2.4.0 with the
@@ -389,7 +389,7 @@ serves.
 ## Look and feel
 
 Two flat bands, sand and slate, with gold linework and the steel blue of the
-illustration's water — the four colours of the poster the theme is cut from.
+illustration's water — the four colors of the poster the theme is cut from.
 The page is sand-cream (`#f7f1e0`), the transcript is its own slightly deeper
 sheet (`#f8f1de` falling to `#f9f1dd`), slate (`#3c405b`) is the only dark
 surface (the learner's own bubbles, the mic, the send button), gold (`#e8bf5f`)
@@ -408,7 +408,7 @@ value rather than by another expensive white.
 ### Sections are pages
 
 Every section — Today, Vocabulary, Grammar, Listening, Say, Sounds, Reading,
-Stories, Books, Analyse, Review, Level, Account, and the two that have no tile
+Stories, Books, Analyze, Review, Level, Account, and the two that have no tile
 of their own — is a page, not a band above the conversation. It used to be the
 latter: the panels were flex children capped at half the window and parked over
 the transcript, so the section you had chosen shared the screen with a strip of
@@ -431,7 +431,7 @@ apart on a phone and made every section scroll sideways.
 The mascot climbs out of the message box, as a ghost. The composer's fox is
 drawn rather than photographed: one inline SVG (`svg.foxpic`) with a white body,
 a single mint line round it and two green eyes — the mascot's ears, cheeks and
-muzzle kept, and every other colour dropped. Her glow is painted, not filtered:
+muzzle kept, and every other color dropped. Her glow is painted, not filtered:
 a radial gradient sits behind the body (`#foxglow`) and its three stops read the
 palette's `--ghost-body`, `--ghost-line` and `--ghost-halo`, because a `filter`
 on an animated node is re-rasterised every frame. She lives in a band of her own
@@ -463,22 +463,22 @@ Under `prefers-reduced-motion` she is still there — a still fox at the lip of
 the box is the whole idea — but her transition and all four animations are
 off. [tools/check_ui.py](tools/check_ui.py) holds this: the band clips, it
 cancels the gap, she starts below the clip, she clears the corner, the drawing in
-the box is a ghost rather than the brand's coloured face (which stays in the
-header), her glow is a gradient and not a filter, her three colours are declared
+the box is a ghost rather than the brand's colored face (which stays in the
+header), her glow is a gradient and not a filter, her three colors are declared
 once per theme, and the reduced-motion block lists every animation she has.
 
 ### Two themes, one palette
 
 The switch lives in the **Account** panel (`Appearance — ظاهر`), because that is
 where the learner's settings already are. It stores the *choice*, not the
-resolved colour: pick dark and it stays dark when the device switches to light
+resolved color: pick dark and it stays dark when the device switches to light
 at sunrise. A learner who has never chosen gets the device's own
 `prefers-color-scheme`, read by a three-line script in `<head>` so the boot
 screen never paints light and then flips.
 
 Everything downstream of the switch is one attribute, `data-theme` on `<html>`,
 and one block of custom properties. The palette is a ladder of *jobs* rather
-than colours — `--surf-1..6` are six surfaces from raised to deepest,
+than colors — `--surf-1..6` are six surfaces from raised to deepest,
 `--ink-1..5` five inks from body copy to hint, `--line` / `--line-soft` /
 `--edge-light` are edges — and each job is answered twice:
 
@@ -503,7 +503,7 @@ The certificate is the one surface that does **not** follow the theme. It is a
 document, its job is to be printed, and it keeps `--doc-paper` in both themes.
 
 The rule that keeps this honest is in [tools/check_ui.py](tools/check_ui.py):
-no rule outside the two palette blocks may hard-code a colour, every rung of the
+no rule outside the two palette blocks may hard-code a color, every rung of the
 ladder must exist on both sides, and the dark inks, section accents and bubble
 fills are held to the same AA ratios as the light ones. Light and dark are
 measured, not eyeballed.
@@ -516,7 +516,7 @@ the Nastaliq the app used to be set in: a Nastaliq drops below its own baseline
 and needed ~2em of leading to stop its initials being clipped, which read as
 calligraphy where the app wanted plain text. All three faces are SIL OFL and
 vendored in `fonts/` so the APK has them offline (`build_apk_ui.py` refuses to
-build if a face or its licence is missing).
+build if a face or its license is missing).
 
 The palette and both families are declared once in the `:root` block at the top
 of [webapp.py](webapp.py); the surfaces below repeat those values, so a re-theme
@@ -579,7 +579,7 @@ tools/check_bidi.py         mixed English/Persian lines: no character lost,
 lexicon/                    generated dictionary: 739 shards + _meta/_fa/_index
   <prefix>.json               headwords, forms, senses for one prefix
   _fa.json                    Persian meaning → English headwords
-  _meta.json                  counts, sources, licences
+  _meta.json                  counts, sources, licenses
 
 memory.json                 42 intents + both alphabets
 glossary.json               2,314 words in 64 domains
@@ -637,6 +637,53 @@ The 20-question exam is graded into a themed band:
 Revealing an answer with *show answer* moves on **without** scoring it, so the
 number reflects what you actually got right.
 
+## English standard: American English
+
+Fluentify teaches **American English** as its only default standard: spelling, vocabulary,
+grammar models, dates, currency in examples, IPA, and every recorded voice. The Persian side is
+unchanged; the English a learner copies is General American.
+
+What that means in the content:
+
+* **Spelling** is American throughout — *color, center, organize, traveling, canceled, defense,
+  license, practice* (verb and noun), *program, math, catalog*. `tools/americanize.py` holds the
+  one-to-one map and runs over the JSON, the Python sources and this file.
+* **Vocabulary** is the American word where the British one means something else: *gas* (petrol),
+  *apartment* (flat), *elevator* (lift), *line* (queue), *cookie* (biscuit), *fall* (autumn),
+  *vacation* (holiday), *schedule* (timetable), *sidewalk* (pavement), *parking lot* (car park),
+  *highway* (motorway), *sweater* (jumper), *trash* (rubbish), *two weeks* (fortnight), *movie* and
+  *movie theater* (film, cinema), *conductor* (guard, on a train). `tools/american_usage.py` holds
+  these as whole-sentence rules, because *flat*, *marks* and *chips* have other senses that a
+  word-level swap would break.
+* **Grammar models** are American: *have / has* is the model for possession (*have got* is named as
+  the British variant in the lesson that compares them), *should we* for suggestions, *must not*
+  and *don't have to* for obligation, *didn't need to* for unnecessary past actions, *on the weekend*.
+* **Dates and money** read American: *May 3*, not *3 May*; prices in examples are dollars.
+* **Pronunciation** is General American. The speech engine prefers an `en-US` voice and falls back
+  to `en-GB` only when no American voice exists; Android asks for `Locale.US`; speech-to-text
+  defaults to `en-US`; IPA in the dictionary and the pronunciation handbook uses rhotic General
+  American (`/ˈwɔtər/`, `/kɑr/`) with the cot–caught vowels kept apart.
+* **The chatbot** looks British words up in the same knowledge base and adds the American
+  equivalent to the answer (*petrol → gas*, *colour → color*); its bilingual replies are unchanged.
+
+Kept British on purpose, and labeled where it appears:
+
+* **BBC Learning English** audio is authentic British speech. The catalog says so, and the app's
+  own lessons and voices remain American.
+* **`distinctions.json`** exists to contrast the two standards (*practise / practice*, *American and
+  British spelling*), so those records keep British forms — American first.
+* **Quotations, proper nouns and place names** (*Earl Grey*, *Grey's Anatomy*, *Centre Pompidou*)
+  keep their own spelling, as does any sentence a learner asks the grammar analyser to check.
+
+Before shipping content, run:
+
+```bash
+python3 tools/americanize.py --check      # spelling
+python3 tools/american_usage.py --check   # vocabulary and usage
+python3 build_apk_ui.py                   # regenerate the APK's www/data copies
+python3 tools/check_all.py                # the full suite
+```
+
 ## Adding content
 
 Everything lives in JSON — no code changes needed:
@@ -669,7 +716,7 @@ Memory and content structures were informed by these open-source projects:
 
 The dictionary's content comes from [OpenJam](https://github.com/amirj4m/openjam)
 (MIT, data included) and [Princeton WordNet 3.1](https://wordnet.princeton.edu/)
-(WordNet licence, BSD-style); the notices travel with the data in
+(WordNet license, BSD-style); the notices travel with the data in
 `lexicon/_meta.json`.
 
 ## License
@@ -678,15 +725,17 @@ MIT
 
 ## 🎧 BBC listening, graded A2 → C1
 
-The 🎧 Listening panel carries a catalogue of **BBC Learning English** episodes,
-each graded by how hard it is to *hear*, not just to read.
+The 🎧 Listening panel carries a catalog of **BBC Learning English** episodes,
+each graded by how hard it is to *hear*, not just to read. These are authentic
+**British** recordings, from outside Fluentify; the app labels them that way and
+keeps its own lessons and voices American.
 
 ### Three series, because one is not enough
 
 > **On the name.** BBC ran a series called *5 Minute English* until 2014 and
 > relaunched it as *6 Minute English*. That series is indexed here — but it is
 > only one of three, and it is **intermediate throughout**. A single series
-> cannot give a graded spread, so the catalogue takes all three that BBC runs at
+> cannot give a graded spread, so the catalog takes all three that BBC runs at
 > different levels:
 
 | series | episodes | BBC targets | what it is |
@@ -697,7 +746,7 @@ each graded by how hard it is to *hear*, not just to read.
 
 > **On the audio.** Every clip, transcript and worksheet is BBC copyright. The
 > repository stores **links only**, and no BBC media is committed to git or
-> bundled into the APK. The 20 episodes in the shipped catalogue are mirrored to
+> bundled into the APK. The 20 episodes in the shipped catalog are mirrored to
 > an ArvanCloud storage bucket for reliable streaming; the app still keeps the
 > canonical BBC page URL for each episode.
 
@@ -741,7 +790,7 @@ audited 603 tagged episodes
 **BBC tags all three series "intermediate"**, including Real Easy English,
 whose whole premise is deliberately simple speech. So their tag is a
 course-track label, not a difficulty measurement, and it cannot validate a
-graded catalogue — the low numbers above are the tag being too coarse, not the
+graded catalog — the low numbers above are the tag being too coarse, not the
 grader being wrong.
 
 The grader is validated by `tools/harness_stt.py` instead, on properties that
@@ -777,7 +826,7 @@ python3 tools/transcribe.py clip.mp3 --model small     # better accuracy
 ```
 
 The CLI also grades its own output with the same CEFR grader, so a clip you
-record yourself lands on the same scale as the BBC catalogue.
+record yourself lands on the same scale as the BBC catalog.
 
 Nothing is uploaded by this project: recognition is done by the browser or the
 OS. `tools/transcribe.py` says plainly which backends are missing instead of
@@ -902,10 +951,10 @@ Twenty-nine suites:
 | Python/JS conversation parity | do they agree over a *conversation*? Memory only shows up across several messages. |
 | BBC grader & speech-to-text | is the CEFR grader still calibrated, is `stt.json` still what all three surfaces read, and does the offline bundle actually start? |
 | offline grammar analyser | is the bundled tagger accurate and honest? It runs the shipped 3.5 MB file over the sentences the feature was specified against plus contractions, unpunctuated input, unknown names and mixed script, and refuses a fabricated dependency label, a bad offset, a lesson chip the Knowledge Base cannot answer, or a request whose sentence it cannot find. |
-| dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licences still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
+| dictionary knowledge | is every shard the shape the engine reads, does every count in `_meta.json` match the files, are the licenses still recorded, do the brief's questions answer through the *existing* chat, and is there still no dictionary route, panel or tab? |
 | weekly quiz | does it open on Friday morning Tehran time and ask the Friday-to-Thursday week that just closed? Run twice, in two timezones, which must not disagree. |
 | learning path | are there seven level spaces, seven written courses, and an exam whose six skills are each marked by something that can mark them? Every course is validated on its own — units, lessons, exercises, both languages, every answer in range, every skill represented — and against the others, so a lesson id, a lesson title or an explanation cannot be reused across levels. The seven courses are pinned to their exact shape (units, lessons, exercises) so a mistyped merge cannot quietly drop a lesson, and each is checked for a real six-skill balance rather than dozens of grammar lessons and one listening. The model is then run in node over placements from Pre-A1 to C2 and over each course's paper: a perfect paper passes at 100%, a blank one fails, five wrong grammar answers cannot slip through the 50% floor, every level's 33 marks are asserted, passing each level opens the one above it from Pre-A1 through C1, a C2 pass is the end of the path, an assessed B2 or C2 learner opens on their own level with everything below still open, and the one rule that matters is asserted for every paper — a paper with nothing heard on it does not report speaking as passed. |
-| mastery schedule | does anything come back, and on time? The interval/ease/lapse arithmetic, the recall counters, the queue, the cap and the corrupt record. |
+| mastery schedule | does anything come back, and on time? The interval/ease/lapse arithmetic, the recall counters, the line, the cap and the corrupt record. |
 | error log & profile | does a diagnosed mistake ever add up? One log from the level check, the quiz and the drills, ranked, bounded, and re-askable. |
 | practice drills | are the drills sound, and is there exactly one way into them — the circular control that folds out into the list of activities and opens each as a full page, with no second card and no drill inside the drawer? Word partners, register, the ear test over the phonetics pairs, and the word-level comparison behind dictation and speaking, plus the authored bank itself, `Drills.levels` against the real `listening.json` so dictation and say-it can never go empty again, and the drawer, which must build its rows from `Practice.TABS`, open all six as pages, come back to the list on close, and draw no drill of its own. |
 | grammar corrector | is it GEC-BART Base, on the server, and absent from the app? `gec.json` must pin the checkpoint and the ArvanCloud location and carry no global switch; the page, `bot.js` and the Kotlin must name no checkpoint and hold no weights, and the bundle must stay under 60 MB; the default chat reply must stay identical with `FLUENTIFY_GEC` unset; and the installed model must repair the bench and the 73-sentence corpus. |

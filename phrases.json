@@ -1078,11 +1078,11 @@
      "fa": "شوفاژ درست کار نمی‌کند."
     },
     {
-     "en": "I'd like to see the flat again.",
+     "en": "I'd like to see the apartment again.",
      "fa": "می‌خواهم دوباره خانه را ببینم."
     },
     {
-     "en": "Is the flat furnished?",
+     "en": "Is the apartment furnished?",
      "fa": "خانه مبلمان است؟"
     }
    ],
@@ -1318,7 +1318,7 @@
      "taste sentences",
      "food preferences",
      "do you like",
-     "favourite",
+     "favorite",
      "diet",
      "taste phrases"
     ],
@@ -1347,7 +1347,7 @@
      "fa": "رژیم کم‌کربوهیدرات دارم."
     },
     {
-     "en": "My favourite dish is kebab.",
+     "en": "My favorite dish is kebab.",
      "fa": "غذای محبوبم کباب است."
     },
     {
@@ -1443,7 +1443,7 @@
    },
    "phrases": [
     {
-     "en": "Could you do me a favour?",
+     "en": "Could you do me a favor?",
      "fa": "می‌شه یه لطفی در حقم بکنی؟"
     },
     {
@@ -1612,7 +1612,7 @@
      "fa": "قرار است پزشکی بخوانم."
     },
     {
-     "en": "We're moving to a bigger flat.",
+     "en": "We're moving to a bigger apartment.",
      "fa": "داریم به خانه بزرگ‌تری نقل مکان می‌کنیم."
     },
     {
@@ -1926,7 +1926,7 @@
    },
    "phrases": [
     {
-     "en": "My flight was cancelled at the last minute.",
+     "en": "My flight was canceled at the last minute.",
      "fa": "پروازم در آخرین لحظه لغو شد."
     },
     {
@@ -2462,15 +2462,15 @@
     }
    ]
   },
-  "summarising_c1": {
+  "summarizing_c1": {
    "title": {
-    "en": "Summarising & paraphrasing",
+    "en": "Summarizing & paraphrasing",
     "fa": "خلاصه‌گویی و بازنویسی"
    },
    "level": "C1",
    "keywords": {
     "en": [
-     "summarise",
+     "summarize",
      "paraphrase",
      "in other words",
      "put it another way"
@@ -2507,7 +2507,7 @@
      "fa": "در essence، هر دو مسیر به یک جا می‌رسند."
     },
     {
-     "en": "Let me summarise the argument so far.",
+     "en": "Let me summarize the argument so far.",
      "fa": "بگذارید استدلال تا اینجا را خلاصه کنم."
     },
     {
@@ -2816,14 +2816,14 @@
    ],
    "level": "A2"
   },
-  "neighbours": {
+  "neighbors": {
    "title": {
-    "en": "Neighbours & building life",
+    "en": "Neighbors & building life",
     "fa": "همسایه‌ها و ساختمان"
    },
    "keywords": {
     "en": [
-     "neighbour problems",
+     "neighbor problems",
      "building repair",
      "noise complaint",
      "lost parcel"
@@ -2841,11 +2841,11 @@
      "fa": "لطفاً بعد از ساعت ده سر و صدا را کم می‌کنید؟"
     },
     {
-     "en": "The lift isn't working again.",
+     "en": "The elevator isn't working again.",
      "fa": "آسانسور دوباره کار نمی‌کند."
     },
     {
-     "en": "My parcel was left with the neighbour.",
+     "en": "My parcel was left with the neighbor.",
      "fa": "بسته من پیش همسایه گذاشته شده است."
     },
     {
@@ -2896,7 +2896,7 @@
     "en": [
      "relationship talk",
      "setting boundaries",
-     "apologise to a friend",
+     "apologize to a friend",
      "checking in with someone"
     ],
     "fa": [
@@ -3100,16 +3100,16 @@
    ],
    "level": "B2"
   },
-  "apologising": {
+  "apologizing": {
    "title": {
-    "en": "Apologising & making up",
+    "en": "Apologizing & making up",
     "fa": "عذرخواهی و آشتی"
    },
    "keywords": {
     "en": [
-     "apologise",
      "apologize",
-     "apologising",
+     "apologize",
+     "apologizing",
      "apologizing",
      "making up",
      "saying sorry",
@@ -4678,7 +4678,7 @@
    },
    "keywords": {
     "en": [
-     "asking a favour",
+     "asking a favor",
      "problems informal",
      "sorting something out"
     ],
@@ -4875,7 +4875,7 @@
   },
   "informal_slang": {
    "title": {
-    "en": "Humour, Slang & Online Talk",
+    "en": "Humor, Slang & Online Talk",
     "fa": "شوخی، عامیانه و آنلاین"
    },
    "keywords": {

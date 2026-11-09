@@ -23,7 +23,7 @@ MORE = {
                 "streets found that takings changed little, while the number "
                 "of children walking to school rose by a third.",
                 "The clearest gain is air. Monitoring on four streets "
-                "recorded nitrogen dioxide falling by up to 24 per cent during "
+                "recorded nitrogen dioxide falling by up to 24 percent during "
                 "the closure, and the improvement lasted into the afternoon. "
                 "Noise fell too, although the council never measured it.",
                 "School streets are not free. Each one needs signs, a camera "
@@ -51,7 +51,7 @@ MORE = {
                      "hint": bi("A fraction, not a percentage.",
                                 "یک کسر، نه درصد."),
                      "para": 2},
-                    {"sentence": "Nitrogen dioxide fell by up to ___ per cent.",
+                    {"sentence": "Nitrogen dioxide fell by up to ___ percent.",
                      "answer": "24", "also": [],
                      "hint": bi("A figure from the monitoring.",
                                 "عددی از اندازه‌گیری‌ها."),
@@ -296,9 +296,9 @@ MORE = {
             "level": "A2",
             "genre": bi("Event information", "اطلاعات رویداد"),
             "paragraphs": [
-                "Harvest Festival, Saturday 14 September, Mill Field. Gates "
-                "open at 10 am and the last entry is at 8 pm. Tickets cost £12 "
-                "for adults, £7 for students, and children under twelve go "
+                "Harvest Festival, Saturday September 14, Mill Field. Gates "
+                "open at 10 am and the last entry is at 8 pm. Tickets cost $12 "
+                "for adults, $7 for students, and children under twelve go "
                 "free; buy them at the gate or in advance at the library.",
                 "On stage: the Bracken Band at 1 pm, Salma Roy at 4 pm, and "
                 "the Hilltown Youth Orchestra closing the day at 7 pm. The "
@@ -307,7 +307,7 @@ MORE = {
                 "at the information tent on the day; cider pressing at 2 pm "
                 "and again at 5 pm; beekeeping at 3 pm, no booking needed.",
                 "Getting there: the number 14 bus stops on Mill Lane every "
-                "twenty minutes. Parking costs £3 and must be booked online "
+                "twenty minutes. Parking costs $3 and must be booked online "
                 "before Friday. Dogs are welcome on leads. No glass on the "
                 "field.",
             ],
@@ -323,12 +323,12 @@ MORE = {
                      "hint": bi("The first line gives it.",
                                 "خط اول می‌گوید."),
                      "para": 1},
-                    {"sentence": "A student ticket costs £___.",
+                    {"sentence": "A student ticket costs $___.",
                      "answer": "7", "also": ["seven"],
                      "hint": bi("Between the adult and child prices.",
                                 "بین قیمت بزرگسال و کودک."),
                      "para": 1},
-                    {"sentence": "Parking costs £___.",
+                    {"sentence": "Parking costs $___.",
                      "answer": "3", "also": ["three"],
                      "hint": bi("In the last paragraph, with the bus.",
                                 "در پاراگراف آخر، کنار اتوبوس."),
@@ -338,7 +338,7 @@ MORE = {
                     {"q": "How do you get a place at the bread workshop?",
                      "options": ["Book online before Friday",
                                  "Book at the information tent on the day",
-                                 "Pay £12 at the gate",
+                                 "Pay $12 at the gate",
                                  "Write to the library"],
                      "answer": 1,
                      "why": bi("'Twelve places, booked at the information tent "
@@ -372,7 +372,7 @@ MORE = {
                      "para": 1},
                     {"statement": "Parking is free if you arrive early.",
                      "answer": False,
-                     "why": bi("Parking costs £3 whatever the time, and must "
+                     "why": bi("Parking costs $3 whatever the time, and must "
                                "be booked online.",
                                "پارکینگ هر ساعتی که برسی ۳ پوند است و باید آنلاین "
                                "رزرو شود."),
@@ -393,7 +393,7 @@ MORE = {
                                   "و موقع رسیدن باید چه ترتیبی بدهی؟"),
                      "min_words": 45,
                      "tips": [
-                         bi("Use the times in the programme, in order.",
+                         bi("Use the times in the program, in order.",
                             "از ساعت‌های برنامه به ترتیب استفاده کن."),
                          bi("The bread workshop needs action on arrival - say "
                             "so first.",
@@ -423,18 +423,18 @@ MORE = {
             },
         },
         {
-            "title": bi("The Coast Line timetable", "جدول زمانی خط ساحلی"),
+            "title": bi("The Coast Line schedule", "جدول زمانی خط ساحلی"),
             "level": "B1",
-            "genre": bi("Timetable / travel information", "جدول زمانی / اطلاعات سفر"),
+            "genre": bi("Schedule / travel information", "جدول زمانی / اطلاعات سفر"),
             "paragraphs": [
                 "Weekday trains from Hilltown to Seahaven leave at 06:45, "
                 "07:30, 09:10, 12:05, 15:40 and 18:25. The 07:30 is the only "
                 "direct service; the others require a change at Marston, where "
                 "the connection usually waits four minutes.",
                 "Journey time is 58 minutes on the direct train and 1 hour 24 "
-                "minutes with the change. A return ticket costs £14.60, or "
-                "£9.20 with a railcard. Single tickets are not sold after 6 "
-                "pm on Sundays.",
+                "minutes with the change. A round-trip ticket costs $14.60, "
+                "or $9.20 with a discount card. One-way tickets are not sold "
+                "after 6 pm on Sundays.",
                 "Bicycles travel free, but only two are allowed on each train "
                 "and none on the 07:30, which is the busiest service. Folding "
                 "bicycles count as luggage and are always allowed.",
@@ -442,10 +442,10 @@ MORE = {
                 "machine on platform 2 takes cards only, and there is no "
                 "machine on platform 1. Seat reservations are free but "
                 "recommended for the 18:25, and a ticket bought on the train "
-                "costs £2 more than one bought at the office.",
+                "costs $2 more than one bought at the office.",
             ],
             "summary": bi(
-                "A timetable: six trains, one of them direct, with fares, a "
+                "A schedule: six trains, one of them direct, with fares, a "
                 "bicycle rule that excludes the busiest train, and where to "
                 "buy a ticket.",
                 "یک جدول زمانی: شش قطار که یکی مستقیم است، با قیمت‌ها، قانون "
@@ -458,9 +458,9 @@ MORE = {
                      "hint": bi("A time, in the first sentence.",
                                 "یک ساعت، در جملهٔ اول."),
                      "para": 1},
-                    {"sentence": "A return ticket costs £___.",
+                    {"sentence": "A round-trip ticket costs $___.",
                      "answer": "14.60", "also": ["14,60"],
-                     "hint": bi("The full fare, before the railcard.",
+                     "hint": bi("The full fare, before the discount card.",
                                 "قیمت کامل، پیش از کارت تخفیف."),
                      "para": 2},
                     {"sentence": "The ticket office opens at ___.",
@@ -526,7 +526,7 @@ MORE = {
                             "قطار مستقیم و دوچرخه با هم نمی‌شوند؛ بگو چه "
                             "می‌کنی."),
                          bi("Give a departure and a return time from the "
-                            "timetable.",
+                            "schedule.",
                             "یک ساعت رفت و یک ساعت برگشت از جدول بده."),
                          bi("Mention the ticket office closing time.",
                             "ساعت بسته شدن بلیت‌فروشی را بیاور.")],
@@ -534,7 +534,7 @@ MORE = {
                                  "07:30, I would take the 09:10 and change at "
                                  "Marston, which takes about an hour and "
                                  "twenty-four minutes. I would come back on "
-                                 "the 15:40 so that I could buy the return "
+                                 "the 15:40 so that I could buy the round-trip "
                                  "ticket at the office, which closes at 19:00, "
                                  "and I would check the connection time at "
                                  "Marston before leaving, since four minutes "

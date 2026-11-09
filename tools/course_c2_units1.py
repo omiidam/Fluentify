@@ -45,7 +45,7 @@ U1 = unit(
                  "hold. 'The plan had been rejected by every department. That "
                  "it surprised nobody says more about the departments than "
                  "about the plan' — the second sentence opens on the known and "
-                 "ends on the judgement.",
+                 "ends on the judgment.",
                  "قاعده نیمهٔ دومی هم دارد. آنچه خواننده از پیش می‌داند به آغاز "
                  "تعلق دارد، چون اطلاعات کهنه ارزان نگه داشته می‌شود. «The "
                  "plan had been rejected by every department. That it "
@@ -124,7 +124,7 @@ U1 = unit(
                     "برای پرهیز از آن هست."),
                 gap("The proposal was rejected. ___ it was rejected for "
                     "reasons nobody published is the part that matters.",
-                    ["That"], "Old information first, then the new judgement.",
+                    ["That"], "Old information first, then the new judgment.",
                     "معلوم در آغاز و داوری تازه پس از آن.", "one word"),
             ],
         ),
@@ -165,8 +165,8 @@ U1 = unit(
                  "و تصمیمی در پایانش. نویسنده‌ای که واژهٔ نادرست را به کار ببرد "
                  "یا حدسی را بیش از اندازه می‌فروشد یا یافته‌ای را کم."),
                 ("The same discipline applies across the abstract nouns: an "
-                 "estimate is a figure, an assessment is a judgement, an "
-                 "evaluation is a judgement with a purpose, an appraisal is a "
+                 "estimate is a figure, an assessment is a judgment, an "
+                 "evaluation is a judgment with a purpose, an appraisal is a "
                  "valuation. Collocations keep them apart: a rough estimate, a "
                  "risk assessment, a performance evaluation, an insurance "
                  "appraisal.",
@@ -232,8 +232,8 @@ U1 = unit(
              "برای آنچه راوی از گفتنش سر باز می‌زند بخوان و برای جزئیاتی که "
              "ظاهر را نقض می‌کند."),
             [
-                ("A literary passage rarely states its judgement. It arranges "
-                 "detail so that the reader arrives at the judgement alone, and "
+                ("A literary passage rarely states its judgment. It arranges "
+                 "detail so that the reader arrives at the judgment alone, and "
                  "the questions that follow usually ask about that arrangement "
                  "rather than about the plot.",
                  "متن ادبی به‌ندرت داوری‌اش را بیان می‌کند. جزئیات را چنان "
@@ -406,7 +406,7 @@ U1 = unit(
                     ["effect"], "The third element is what the technique does "
                     "to the reader.", "عنصر سوم آن است که شگرد با خواننده چه "
                     "می‌کند.", "one word"),
-                write("Write about 140 words analysing how a writer makes a "
+                write("Write about 140 words analyzing how a writer makes a "
                       "reader distrust a narrator. Name two techniques, quote "
                       "a short phrase for each, and say what each makes the "
                       "reader do.",
@@ -476,7 +476,7 @@ U2 = unit(
                  "شوند فرار از پاسخ‌اند و خواننده تفاوت را می‌بیند."),
             ],
             [
-                ("The programme is likely to cost more than the estimate.",
+                ("The program is likely to cost more than the estimate.",
                  "احتمالاً برنامه بیش از برآورد هزینه خواهد برداشت."),
                 ("The results would appear to support the earlier study.",
                  "به نظر می‌رسد نتایج مطالعهٔ پیشین را تأیید می‌کنند."),
@@ -513,8 +513,8 @@ U2 = unit(
                     "است، نه محتاط."),
                 gap("The second trial is ___ to finish before December.",
                     ["unlikely", "expected"],
-                    "Both fit the frame; 'unlikely' hedges towards no, "
-                    "'expected' hedges towards yes.",
+                    "Both fit the frame; 'unlikely' hedges toward no, "
+                    "'expected' hedges toward yes.",
                     "هر دو در این ساخت جا می‌شوند: unlikely به سمت نه و "
                     "expected به سمت بله.", "one word"),
                 mcq("Which hedge is placed where it does least work?",
@@ -564,11 +564,11 @@ U2 = unit(
                  "که رخ داده. در نوشتار دانشگاهی refute واژهٔ قوی است: یعنی "
                  "استدلال مرده است، نه فقط محبوب نبودنش."),
                 ("The nouns behave the same way: a concession, a rebuttal, a "
-                 "refutation, a qualification, an acknowledgement. 'A "
+                 "refutation, a qualification, an acknowledgment. 'A "
                  "qualified acceptance' is acceptance with conditions, which "
                  "is exactly what a careful committee writes.",
                  "اسم‌ها هم همین‌طورند: a concession، a rebuttal، a "
-                 "refutation، a qualification، an acknowledgement. «A "
+                 "refutation، a qualification، an acknowledgment. «A "
                  "qualified acceptance» پذیرشی است با شرط، که دقیقاً همان "
                  "چیزی است که کمیتهٔ محتاط می‌نویسد."),
             ],
@@ -665,7 +665,7 @@ U2 = unit(
                     "cover. Why?", "سخنرانی عددی می‌دهد و بعد می‌گوید چه "
                     "چیزی را پوشش نمی‌دهد. چرا؟",
                     ["to fill time", "to keep the claim inside its evidence",
-                     "to avoid giving the number", "to criticise funders"], 1,
+                     "to avoid giving the number", "to criticize funders"], 1,
                     "The scope is part of the claim, not an apology for it.",
                     "دامنه بخشی از ادعاست، نه عذرخواهی برای آن."),
                 mcq("A cautious speaker's limits usually come ___.",

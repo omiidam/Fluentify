@@ -1,14 +1,14 @@
 {
  "version": 3,
  "intro": {
-  "en": "10 reading strategies, and 3 passages with questions for each one. Learn the strategy, then practise it on all three.",
+  "en": "10 reading strategies, and 3 passages with questions for each one. Learn the strategy, then practice it on all three.",
   "fa": "10 راهبرد خواندن، و برای هر کدام 3 متن با سؤال. اول راهبرد را یاد بگیر، بعد هر سه متن را تمرین کن."
  },
  "totals": {
   "strategies": 10,
   "practices": 30,
   "readings_per_strategy": 3,
-  "words": 5105,
+  "words": 5103,
   "questions": 340
  },
  "strategies": [
@@ -55,11 +55,11 @@
     }
    ],
    "example": {
-    "text": "HILLTOWN SWIMMING POOL — winter timetable. From 1 October the pool opens at 7 am on weekdays and 8 am at weekends. Lanes 1-3 are reserved for clubs before 9 am. The learner pool is closed for repairs until 12 November; lessons move to the main pool. Prices: adult £5.20, under-16 £2.60, family £12.",
+    "text": "HILLTOWN SWIMMING POOL — winter schedule. From October 1 the pool opens at 7 am on weekdays and 8 am on weekends. Lanes 1-3 are reserved for clubs before 9 am. The learner pool is closed for repairs until November 12; lessons move to the main pool. Prices: adult $5.20, under-16 $2.60, family $12.",
     "steps": [
      {
-      "en": "Title first: 'winter timetable' plus a place name. This is a notice, not an article - so the useful reading is scanning for a day and a time, not looking for an argument.",
-      "fa": "اول عنوان: «winter timetable» و نام یک مکان. این یک اطلاعیه است، نه مقاله؛ پس خواندن مفیدش اسکن کردن برای یک روز و ساعت است، نه گشتن دنبال استدلال."
+      "en": "Title first: 'winter schedule' plus a place name. This is a notice, not an article - so the useful reading is scanning for a day and a time, not looking for an argument.",
+      "fa": "اول عنوان: «winter schedule» و نام یک مکان. این یک اطلاعیه است، نه مقاله؛ پس خواندن مفیدش اسکن کردن برای یک روز و ساعت است، نه گشتن دنبال استدلال."
      },
      {
       "en": "The colon after 'Prices' tells you the last line is a list. In a notice, a colon almost always introduces the exact facts you came for.",
@@ -77,7 +77,7 @@
      "fa": "اول متن را خواندن و بعد عنوان را. عنوان و تیترها ارزان‌ترین اطلاعات متن‌اند."
     },
     {
-     "en": "Assuming every text has a main argument. A timetable, a recipe and a set of rules do not; hunting for one wastes the reading.",
+     "en": "Assuming every text has a main argument. A schedule, a recipe and a set of rules do not; hunting for one wastes the reading.",
      "fa": "فرض کردن اینکه هر متنی استدلال اصلی دارد. جدول زمانی، دستور پخت و فهرست قوانین ندارند؛ گشتن دنبال آن، خواندن را هدر می‌دهد."
     }
    ],
@@ -125,7 +125,7 @@
      "words": 144,
      "minutes": 1,
      "paragraphs": [
-      "Hilltown Community Garden — a guide for new members. The garden has forty plots on the site of an old railway yard, behind the swimming pool on Mill Road. Membership costs £18 a year and includes a key to the gate.",
+      "Hilltown Community Garden — a guide for new members. The garden has forty plots on the site of an old rail yard, behind the swimming pool on Mill Road. Membership costs $18 a year and includes a key to the gate.",
       "Opening times. The gate opens at 8 am and closes at dusk. It is closed all day on Mondays for maintenance, and the water taps are switched off in December and January.",
       "Getting a plot. There is a waiting list of about two years. New members are asked to work four hours a month on the shared paths and hedges while they wait, which also earns them a small raised bed in the meantime.",
       "Rules. No bonfires between May and September. Tools must be returned to the shed by 7 pm. Dogs are welcome on leads. Contact the secretary, Mrs Okafor, at the shed on Sunday mornings."
@@ -144,7 +144,7 @@
         "sentence": "Membership costs ___ pounds a year.",
         "answer": "18",
         "also": [
-         "£18",
+         "$18",
          "eighteen"
         ],
         "hint": {
@@ -242,7 +242,7 @@
         "options": [
          "The council on Mill Road",
          "The swimming pool",
-         "The railway yard",
+         "The rail yard",
          "Mrs Okafor"
         ],
         "answer": 3,
@@ -255,10 +255,10 @@
       ],
       "truefalse": [
        {
-        "statement": "The garden is on the site of an old railway yard.",
+        "statement": "The garden is on the site of an old rail yard.",
         "answer": true,
         "why": {
-         "en": "'forty plots on the site of an old railway yard'.",
+         "en": "'forty plots on the site of an old rail yard'.",
          "fa": "«چهل قطعه روی محل یک حیاط راه‌آهن قدیمی»."
         },
         "para": 1
@@ -312,7 +312,7 @@
          }
         ],
         "model": {
-         "en": "First I would go to the shed on a Sunday morning and speak to Mrs Okafor, because that is where new members are told to go. I would pay the £18 and join the waiting list, which the guide says is about two years. While I waited I would work my four hours a month on the paths and use the raised bed that comes with it. What I would still want to know is whether the hours can be done at weekends only, and whether the raised bed has water in winter.",
+         "en": "First I would go to the shed on a Sunday morning and speak to Mrs Okafor, because that is where new members are told to go. I would pay the $18 and join the waiting list, which the guide says is about two years. While I waited I would work my four hours a month on the paths and use the raised bed that comes with it. What I would still want to know is whether the hours can be done on weekends only, and whether the raised bed has water in winter.",
          "fa": "اول صبح یکشنبه به انبار می‌رفتم و با خانم اوکافور حرف می‌زدم، چون راهنما می‌گوید اعضای تازه باید آنجا بروند. ۱۸ پوند را می‌پرداختم و در لیست انتظار که راهنما حدوداً دوساله می‌گوید ثبت‌نام می‌کردم. تا آن موقع ماهی چهار ساعت روی مسیرها کار می‌کردم و از بستر بلندی که همراهش می‌آید استفاده می‌کردم. چیزی که هنوز می‌خواستم بدانم این بود که آیا ساعت‌ها فقط آخر هفته هم انجام می‌شود و آیا بستر در زمستان آب دارد."
         },
         "min_words": 50
@@ -337,7 +337,7 @@
          }
         ],
         "model": {
-         "en": "Who supplies the seeds, and are they included in the £18? Are there tools in the shed for members who do not own any, and can they be borrowed overnight? Is there a tap that works in January? The guide does not answer these because it is written for someone who has already decided to join: it tells you how to get in, not how to garden once you are in.",
+         "en": "Who supplies the seeds, and are they included in the $18? Are there tools in the shed for members who do not own any, and can they be borrowed overnight? Is there a tap that works in January? The guide does not answer these because it is written for someone who has already decided to join: it tells you how to get in, not how to garden once you are in.",
          "fa": "بذر را چه کسی می‌دهد و در همان ۱۸ پوند حساب شده است؟ در انبار برای اعضایی که ابزار ندارند ابزاری هست و می‌شود شبانه امانت گرفت؟ شیر آبی هست که در ژانویه کار کند؟ راهنما به این‌ها جواب نمی‌دهد چون برای کسی نوشته شده که تصمیمش را گرفته است: می‌گوید چطور وارد شوی، نه اینکه بعدش چطور باغبانی کنی."
         },
         "min_words": 50
@@ -359,15 +359,15 @@
      },
      "level": "A2",
      "genre": {
-      "en": "Programme / listings",
+      "en": "Program / listings",
       "fa": "برنامهٔ رویدادها"
      },
      "words": 133,
      "minutes": 1,
      "paragraphs": [
-      "RIVERSIDE MUSEUM — Autumn programme. The museum is open Tuesday to Sunday, 10 am to 6 pm, and until 9 pm on Thursdays. Entry to the permanent collection is free; the exhibitions are ticketed.",
-      "Exhibitions. 'Rivers and Railways' runs until 30 November and traces how the city grew along the river. Tickets cost £9, or £5 for students, and entry is free on the first Sunday of the month.",
-      "Talks. On 12 October the curator speaks about the museum's boat collection at 6 pm; tickets are £4. On 9 November a local historian asks why the docks closed, at 7 pm. That talk is free but must be booked.",
+      "RIVERSIDE MUSEUM — Autumn program. The museum is open Tuesday to Sunday, 10 am to 6 pm, and until 9 pm on Thursdays. Entry to the permanent collection is free; the exhibitions are ticketed.",
+      "Exhibitions. 'Rivers and Railways' runs until November 30 and traces how the city grew along the river. Tickets cost $9, or $5 for students, and entry is free on the first Sunday of the month.",
+      "Talks. On October 12 the curator speaks about the museum's boat collection at 6 pm; tickets are $4. On November 9 a local historian asks why the docks closed, at 7 pm. That talk is free but must be booked.",
       "Families. Every Saturday at 11 am there is a free story hour in the old ticket hall, for children aged four to eight. No booking is needed; places are given on arrival. The café closes at 5 pm."
      ],
      "summary": {
@@ -393,7 +393,7 @@
         "para": 1
        },
        {
-        "sentence": "An exhibition ticket costs £___ for adults.",
+        "sentence": "An exhibition ticket costs $___ for adults.",
         "answer": "9",
         "also": [],
         "hint": {
@@ -418,7 +418,7 @@
         "q": "What kind of text is this?",
         "options": [
          "A review of an exhibition",
-         "A programme of events with times and prices",
+         "A program of events with times and prices",
          "A letter to museum members",
          "A history of the docks"
         ],
@@ -447,9 +447,9 @@
        {
         "q": "Which event must be booked?",
         "options": [
-         "The talk on 9 November",
+         "The talk on November 9",
          "The story hour",
-         "The talk on 12 October",
+         "The talk on October 12",
          "The exhibition"
         ],
         "answer": 0,
@@ -474,7 +474,7 @@
         "statement": "Both talks are free.",
         "answer": false,
         "why": {
-         "en": "The October talk costs £4; only the November one is free.",
+         "en": "The October talk costs $4; only the November one is free.",
          "fa": "سخنرانی اکتبر ۴ پوند است؛ فقط سخنرانی نوامبر مجانی است."
         },
         "para": 3
@@ -492,7 +492,7 @@
       "essay": [
        {
         "prompt": {
-         "en": "You have one free afternoon and a ten-year-old niece. Which two parts of the programme would you choose, and what would you check first?",
+         "en": "You have one free afternoon and a ten-year-old niece. Which two parts of the program would you choose, and what would you check first?",
          "fa": "یک بعدازظهر آزاد داری و یک برادرزادهٔ ده‌ساله. کدام دو بخش برنامه را انتخاب می‌کنی و اول چه چیزی را بررسی می‌کنی؟"
         },
         "min_words": 45,
@@ -535,13 +535,13 @@
       "en": "Advertisement",
       "fa": "آگهی"
      },
-     "words": 157,
+     "words": 158,
      "minutes": 1,
      "paragraphs": [
       "The Yellow Bike Workshop is looking for two volunteer mechanics. We repair donated bicycles and give them to people who cannot afford one. Last year we gave away 214 bicycles, and we have room for a hundred more.",
-      "What we ask. You do not need to be an expert. You will work one evening a fortnight, from 6 to 9 pm, for at least six months. During your first month we teach you to fix brakes, gears and punctures, and you will always work beside someone experienced.",
-      "What you get. Tools, gloves and a workshop coat are provided. Travel costs up to £8 a week are paid, and after three months every volunteer may build one bicycle to keep.",
-      "How to apply. Write to the coordinator, Sam Idris, at volunteer@yellowbike.org before 15 September. Say which evening suits you and why you want to join. Everyone who applies is invited to a trial evening, so nobody is chosen on paper alone."
+      "What we ask. You do not need to be an expert. You will work one evening a two weeks, from 6 to 9 pm, for at least six months. During your first month we teach you to fix brakes, gears and punctures, and you will always work beside someone experienced.",
+      "What you get. Tools, gloves and a workshop coat are provided. Travel costs up to $8 a week are paid, and after three months every volunteer may build one bicycle to keep.",
+      "How to apply. Write to the coordinator, Sam Idris, at volunteer@yellowbike.org before September 15. Say which evening suits you and why you want to join. Everyone who applies is invited to a trial evening, so nobody is chosen on paper alone."
      ],
      "summary": {
       "en": "An advertisement: what the workshop does, what it asks of a volunteer, what it gives back, and how to apply before a date.",
@@ -621,13 +621,13 @@
         "q": "After three months, a volunteer may",
         "options": [
          "keep the tools they used",
-         "be paid £8 an hour",
+         "be paid $8 an hour",
          "build one bicycle to keep",
          "choose their own hours"
         ],
         "answer": 2,
         "why": {
-         "en": "The third section promises one bicycle after three months; the £8 is travel money, not pay.",
+         "en": "The third section promises one bicycle after three months; the $8 is travel money, not pay.",
          "fa": "بخش سوم پس از سه ماه یک دوچرخه وعده می‌دهد؛ ۸ پوند پول رفت‌وآمد است، نه دستمزد."
         },
         "para": 3
@@ -647,7 +647,7 @@
         "statement": "Volunteers work every evening.",
         "answer": false,
         "why": {
-         "en": "It is 'one evening a fortnight', not every evening.",
+         "en": "It is 'one evening every two weeks', not every evening.",
          "fa": "«یک شب در هر دو هفته» است، نه هر شب."
         },
         "para": 2
@@ -656,7 +656,7 @@
         "statement": "Travel costs are partly paid.",
         "answer": true,
         "why": {
-         "en": "'Travel costs up to £8 a week are paid.'",
+         "en": "'Travel costs up to $8 a week are paid.'",
          "fa": "«هزینهٔ رفت‌وآمد تا ۸ پوند در هفته پرداخت می‌شود.»"
         },
         "para": 3
@@ -748,7 +748,7 @@
     }
    ],
    "example": {
-    "text": "Pontevedra banned cars from its centre in 1999. Shop owners expected to lose customers. Instead, sales rose, because people who walk stop and look in windows. Twenty years later the centre has no traffic and no empty shops. Other cities have come to copy the model, but few have banned cars outright: the political cost is too high. The mayor says the trick was never calling it a ban on cars.",
+    "text": "Pontevedra banned cars from its center in 1999. Shop owners expected to lose customers. Instead, sales rose, because people who walk stop and look in windows. Twenty years later the center has no traffic and no empty shops. Other cities have come to copy the model, but few have banned cars outright: the political cost is too high. The mayor says the trick was never calling it a ban on cars.",
     "steps": [
      {
       "en": "Read only the first sentence of each paragraph. Banned in 1999 · shops expected losses · sales rose · other cities hesitate · what did the mayor call it.",
@@ -759,7 +759,7 @@
       "fa": "جملهٔ آخر نظر نویسنده را می‌دهد: سیاست موفق شد چون جور دیگری معرفی شد."
      },
      {
-      "en": "Say it in one line - 'how a small city took cars out of the centre and made its shops busier' - and only then read it properly.",
+      "en": "Say it in one line - 'how a small city took cars out of the center and made its shops busier' - and only then read it properly.",
       "fa": "در یک خط بگو: «چگونه یک شهر کوچک ماشین‌ها را از مرکز بیرون کرد و مغازه‌ها را پرتر کرد»؛ و تنها بعد از آن کامل بخوان."
      }
     ]
@@ -815,16 +815,16 @@
       "en": "",
       "fa": ""
      },
-     "words": 196,
+     "words": 197,
      "minutes": 1,
      "paragraphs": [
       "Europe's night trains are coming back. A decade ago sleeper services were closing one by one: they were slow, they lost money, and budget airlines were cheaper. Today new routes link Vienna to Paris, Berlin to Stockholm and Amsterdam to Zurich, and tickets for the best cabins sell out weeks in advance.",
-      "The reason is not only the climate. Air travel has become less pleasant: airports are crowded, security queues are long, and a short flight often costs a whole day once you count the trip to the airport. A night train turns that wasted day into sleep. You leave a city centre after dinner and arrive in another city centre in time for breakfast, with a bed, a window and no luggage limit.",
-      "Operators still face hard problems. Carriages are old, tracks are shared with freight, and a train that crosses four countries needs four sets of paperwork. Two of the new routes have already been cancelled.",
-      "Even so, the direction is clear. When a journey of twelve hours can be spent asleep instead of in an airport, a growing number of travellers are choosing the slower way, and arriving more rested than they left."
+      "The reason is not only the climate. Air travel has become less pleasant: airports are crowded, security lines are long, and a short flight often costs a whole day once you count the trip to the airport. A night train turns that wasted day into sleep. You leave a city center after dinner and arrive in another city center in time for breakfast, with a bed, a window and no luggage limit.",
+      "Operators still face hard problems. Train cars are old, tracks are shared with freight, and a train that crosses four countries needs four sets of paperwork. Two of the new routes have already been canceled.",
+      "Even so, the direction is clear. When a journey of twelve hours can be spent asleep instead of in an airport, a growing number of travelers are choosing the slower way, and arriving more rested than they left."
      ],
      "summary": {
-      "en": "Night trains are returning because a flight wastes a day at the airport, while a sleeper turns the same hours into sleep. Old carriages and borders still make the business difficult, but travellers are choosing the train anyway.",
+      "en": "Night trains are returning because a flight wastes a day at the airport, while a sleeper turns the same hours into sleep. Old train cars and borders still make the business difficult, but travelers are choosing the train anyway.",
       "fa": "قطارهای شبانه برمی‌گردند چون پرواز یک روز را در فرودگاه تلف می‌کند، در حالی که قطار همان ساعت‌ها را به خواب تبدیل می‌کند. واگن‌های قدیمی و مرزها کار را سخت می‌کنند، اما مسافران با این حال قطار را انتخاب می‌کنند."
      },
      "note": {
@@ -864,7 +864,7 @@
         "para": 2
        },
        {
-        "sentence": "Carriages are old and the tracks are shared with ___.",
+        "sentence": "Train cars are old and the tracks are shared with ___.",
         "answer": "freight",
         "hint": {
          "en": "Goods carried by train - paragraph 3.",
@@ -926,7 +926,7 @@
          "driving across Europe",
          "taking a long flight with a stop",
          "walking to the station",
-         "travelling overnight by train"
+         "traveling overnight by train"
         ],
         "answer": 3,
         "why": {
@@ -995,7 +995,7 @@
          }
         ],
         "model": {
-         "en": "Night trains, which were closing across Europe ten years ago, are opening new routes again. Travellers are coming back to them because sleeping through a journey is better use of a day than waiting in an airport.",
+         "en": "Night trains, which were closing across Europe ten years ago, are opening new routes again. Travelers are coming back to them because sleeping through a journey is better use of a day than waiting in an airport.",
          "fa": "قطارهای شبانه‌ای که ده سال پیش در اروپا یکی‌یکی تعطیل می‌شدند، دوباره مسیرهای تازه باز می‌کنند. مسافران به این دلیل برمی‌گردند که خوابیدن در سفر استفادهٔ بهتری از یک روز است تا انتظار در فرودگاه."
         },
         "min_words": 50
@@ -1011,7 +1011,7 @@
           "fa": "در جملهٔ اول موضع بگیر."
          },
          {
-          "en": "Quote or paraphrase one detail: old carriages, or four sets of paperwork.",
+          "en": "Quote or paraphrase one detail: old train cars, or four sets of paperwork.",
           "fa": "یک جزئیات را نقل کن: واگن‌های قدیمی یا چهار دسته کاغذبازی."
          },
          {
@@ -1020,7 +1020,7 @@
          }
         ],
         "model": {
-         "en": "I partly agree. The demand is real: the passage says the best cabins sell out weeks in advance, and that is a market, not a fashion. But old carriages and four sets of paperwork across four borders are not small costs. In my country the same route is cheap to fly, so until night trains are cheaper than planes, they will stay a choice for people with time.",
+         "en": "I partly agree. The demand is real: the passage says the best cabins sell out weeks in advance, and that is a market, not a fashion. But old train cars and four sets of paperwork across four borders are not small costs. In my country the same route is cheap to fly, so until night trains are cheaper than planes, they will stay a choice for people with time.",
          "fa": "تا حدی موافقم. تقاضا واقعی است: متن می‌گوید بهترین کابین‌ها هفته‌ها قبل تمام می‌شوند و این یک بازار است، نه مد. اما واگن‌های قدیمی و کاغذبازی چهار کشور هزینهٔ کمی نیست. در کشور من پرواز در همان مسیر ارزان است، پس تا وقتی قطار شبانه از هواپیما ارزان‌تر نشود، انتخابی برای کسانی می‌ماند که وقت دارند."
         },
         "min_words": 50
@@ -1045,12 +1045,12 @@
       "en": "News feature",
       "fa": "گزارش خبری"
      },
-     "words": 175,
+     "words": 174,
      "minutes": 1,
      "paragraphs": [
       "At eight o'clock on a Tuesday, the road outside Hilltown's largest primary school has no cars on it. Since 2019 the street has been closed to traffic for forty minutes at the start and end of the school day. Parents walk, children cycle, and the crossing guard has much less to do.",
       "The first closures were small and unpopular with some shopkeepers, who feared losing deliveries and customers. That fear turned out to be mostly unfounded: a survey of sixty streets found that takings changed little, while the number of children walking to school rose by a third.",
-      "The clearest gain is air. Monitoring on four streets recorded nitrogen dioxide falling by up to 24 per cent during the closure, and the improvement lasted into the afternoon. Noise fell too, although the council never measured it.",
+      "The clearest gain is air. Monitoring on four streets recorded nitrogen dioxide falling by up to 24 percent during the closure, and the improvement lasted into the afternoon. Noise fell too, although the council never measured it.",
       "School streets are not free. Each one needs signs, a camera or a volunteer at the barrier, and a council willing to enforce the rule. Hilltown now runs eleven, and its transport officer says the limit is staff time, not money."
      ],
      "summary": {
@@ -1086,7 +1086,7 @@
         "para": 2
        },
        {
-        "sentence": "Nitrogen dioxide fell by up to ___ per cent.",
+        "sentence": "Nitrogen dioxide fell by up to ___ percent.",
         "answer": "24",
         "also": [],
         "hint": {
@@ -1433,7 +1433,7 @@
     }
    ],
    "example": {
-    "text": "The bridge opened in March 2018 after four years of work and cost 61 million euros. Its designer, Elena Ferraro, had proposed a cheaper wooden version in 2011, which the council rejected twice. The current span is 240 metres, the longest in the region, and carries 19,000 vehicles a day. Repairs in 2023 closed it for eleven weeks.",
+    "text": "The bridge opened in March 2018 after four years of work and cost 61 million euros. Its designer, Elena Ferraro, had proposed a cheaper wooden version in 2011, which the council rejected twice. The current span is 240 meters, the longest in the region, and carries 19,000 vehicles a day. Repairs in 2023 closed it for eleven weeks.",
     "steps": [
      {
       "en": "Underline the target first: 'eleven weeks' means you are hunting a duration, and durations sit next to 'for', 'since' or a number plus a unit.",
@@ -1496,16 +1496,16 @@
       "en": "",
       "fa": ""
      },
-     "words": 214,
+     "words": 212,
      "minutes": 1,
      "paragraphs": [
       "Forty years ago the central library of Medellín had 12,000 books and one reading room. Today it holds 620,000 books across nine buildings, and its evening classes have a waiting list.",
-      "The change began in 2004, when the city decided that its five poorest neighbourhoods would each get a library before they got a new road. The first one, in Santo Domingo, opened in 2007 on a hilltop reached by two outdoor escalators. It was designed by the architect Giancarlo Mazzanti and cost four million dollars, a sum that critics said should have been spent on housing.",
-      "Fifteen years later the numbers are hard to argue with. Visits to the Santo Domingo library rose from 300 a week to more than 4,000. In the same period reported thefts in the neighbourhood fell by half, and the share of teenagers who said they had never read a book for pleasure dropped from 61 per cent to 22 per cent. The libraries now run 1,100 free computer courses a year.",
-      "Not every promise was kept. Two of the five buildings were delayed by years and one was never built. But the city's head librarian, María Restrepo, says the lesson is simple: 'A library is not a building with books. It is a place where a neighbourhood decides what it wants to become.'"
+      "The change began in 2004, when the city decided that its five poorest neighborhoods would each get a library before they got a new road. The first one, in Santo Domingo, opened in 2007 on a hilltop reached by two outdoor escalators. It was designed by the architect Giancarlo Mazzanti and cost four million dollars, a sum that critics said should have been spent on housing.",
+      "Fifteen years later the numbers are hard to argue with. Visits to the Santo Domingo library rose from 300 a week to more than 4,000. In the same period reported thefts in the neighborhood fell by half, and the share of teenagers who said they had never read a book for pleasure dropped from 61 percent to 22 percent. The libraries now run 1,100 free computer courses a year.",
+      "Not every promise was kept. Two of the five buildings were delayed by years and one was never built. But the city's head librarian, María Restrepo, says the lesson is simple: 'A library is not a building with books. It is a place where a neighborhood decides what it wants to become.'"
      ],
      "summary": {
-      "en": "Medellín moved its library budget to its poorest neighbourhoods: five library buildings were promised, three were finished. Visits, reading and computer courses rose sharply, and crime in the area halved.",
+      "en": "Medellín moved its library budget to its poorest neighborhoods: five library buildings were promised, three were finished. Visits, reading and computer courses rose sharply, and crime in the area halved.",
       "fa": "مدیین بودجهٔ کتابخانه‌اش را به فقیرترین محله‌ها برد: پنج ساختمان وعده داده شد و سه‌تا ساخته شد. رفت‌وآمد، کتاب‌خواندن و دوره‌های کامپیوتر به‌شدت بالا رفت و جرم در آن محله نصف شد."
      },
      "note": {
@@ -1606,8 +1606,8 @@
         "options": [
          "a building full of books",
          "a cheap alternative to a road",
-         "a place where a neighbourhood decides its future",
-         "a centre for computer courses"
+         "a place where a neighborhood decides its future",
+         "a center for computer courses"
         ],
         "answer": 2,
         "why": {
@@ -1637,7 +1637,7 @@
         "para": 2
        },
        {
-        "statement": "Reported thefts in the neighbourhood fell by half.",
+        "statement": "Reported thefts in the neighborhood fell by half.",
         "answer": true,
         "why": {
          "en": "Stated in paragraph 3.",
@@ -1671,12 +1671,12 @@
           "fa": "بعد یک جمله با «because»."
          },
          {
-          "en": "A change in behaviour (visits, reading) usually convinces more than money spent.",
+          "en": "A change in behavior (visits, reading) usually convinces more than money spent.",
           "fa": "تغییر در رفتار (بازدید، کتاب‌خواندن) معمولاً از پولِ خرج‌شده قانع‌کننده‌تر است."
          }
         ],
         "model": {
-         "en": "Three numbers: 12,000 books became 620,000; visits rose from 300 a week to more than 4,000; and the share of teenagers who never read for pleasure fell from 61 to 22 per cent. The last one convinces me most, because it describes a habit changing, not a building opening.",
+         "en": "Three numbers: 12,000 books became 620,000; visits rose from 300 a week to more than 4,000; and the share of teenagers who never read for pleasure fell from 61 to 22 percent. The last one convinces me most, because it describes a habit changing, not a building opening.",
          "fa": "سه عدد: ۱۲٬۰۰۰ کتاب به ۶۲۰٬۰۰۰ رسید؛ بازدید هفتگی از ۳۰۰ به بیش از ۴٬۰۰۰ رسید؛ و سهم نوجوانانی که هرگز برای لذت نمی‌خواندند از ۶۱ به ۲۲ درصد رسید. عدد آخر بیشتر قانعم می‌کند، چون از عوض شدن یک عادت حرف می‌زند، نه از باز شدن یک ساختمان."
         },
         "min_words": 50
@@ -1701,7 +1701,7 @@
          }
         ],
         "model": {
-         "en": "I think it was the right choice, but only because the money bought something people use. The passage shows visits rising from 300 a week to over 4,000, and crime falling by half in the same streets. Housing would have helped too, and four million dollars is not a small sum. Still, a library that is open every day changes what children in a poor neighbourhood can imagine for themselves.",
+         "en": "I think it was the right choice, but only because the money bought something people use. The passage shows visits rising from 300 a week to over 4,000, and crime falling by half in the same streets. Housing would have helped too, and four million dollars is not a small sum. Still, a library that is open every day changes what children in a poor neighborhood can imagine for themselves.",
          "fa": "فکر می‌کنم انتخاب درستی بود، اما فقط چون پول صرف چیزی شد که مردم استفاده می‌کنند. متن نشان می‌دهد بازدید از ۳۰۰ در هفته به بیش از ۴٬۰۰۰ رسید و جرم در همان خیابان‌ها نصف شد. مسکن هم کمک می‌کرد و چهار میلیون دلار مبلغ کمی نیست. با این حال، کتابخانه‌ای که هر روز باز است، تصویری که بچه‌های یک محلهٔ فقیر از آیندهٔ خود دارند را عوض می‌کند."
         },
         "min_words": 50
@@ -1729,10 +1729,10 @@
      "words": 133,
      "minutes": 1,
      "paragraphs": [
-      "Harvest Festival, Saturday 14 September, Mill Field. Gates open at 10 am and the last entry is at 8 pm. Tickets cost £12 for adults, £7 for students, and children under twelve go free; buy them at the gate or in advance at the library.",
+      "Harvest Festival, Saturday September 14, Mill Field. Gates open at 10 am and the last entry is at 8 pm. Tickets cost $12 for adults, $7 for students, and children under twelve go free; buy them at the gate or in advance at the library.",
       "On stage: the Bracken Band at 1 pm, Salma Roy at 4 pm, and the Hilltown Youth Orchestra closing the day at 7 pm. The stage is covered, and the field is lit after dark.",
       "Workshops: bread making at 11 am, with twelve places, booked at the information tent on the day; cider pressing at 2 pm and again at 5 pm; beekeeping at 3 pm, no booking needed.",
-      "Getting there: the number 14 bus stops on Mill Lane every twenty minutes. Parking costs £3 and must be booked online before Friday. Dogs are welcome on leads. No glass on the field."
+      "Getting there: the number 14 bus stops on Mill Lane every twenty minutes. Parking costs $3 and must be booked online before Friday. Dogs are welcome on leads. No glass on the field."
      ],
      "summary": {
       "en": "One day, one field: prices, stage times, three workshops and the rules for arriving.",
@@ -1757,7 +1757,7 @@
         "para": 1
        },
        {
-        "sentence": "A student ticket costs £___.",
+        "sentence": "A student ticket costs $___.",
         "answer": "7",
         "also": [
          "seven"
@@ -1769,7 +1769,7 @@
         "para": 1
        },
        {
-        "sentence": "Parking costs £___.",
+        "sentence": "Parking costs $___.",
         "answer": "3",
         "also": [
          "three"
@@ -1787,7 +1787,7 @@
         "options": [
          "Book at the information tent on the day",
          "Book online before Friday",
-         "Pay £12 at the gate",
+         "Pay $12 at the gate",
          "Write to the library"
         ],
         "answer": 0,
@@ -1842,7 +1842,7 @@
         "statement": "Parking is free if you arrive early.",
         "answer": false,
         "why": {
-         "en": "Parking costs £3 whatever the time, and must be booked online.",
+         "en": "Parking costs $3 whatever the time, and must be booked online.",
          "fa": "پارکینگ هر ساعتی که برسی ۳ پوند است و باید آنلاین رزرو شود."
         },
         "para": 4
@@ -1866,7 +1866,7 @@
         "min_words": 45,
         "tips": [
          {
-          "en": "Use the times in the programme, in order.",
+          "en": "Use the times in the program, in order.",
           "fa": "از ساعت‌های برنامه به ترتیب استفاده کن."
          },
          {
@@ -1895,24 +1895,24 @@
     {
      "index": 3,
      "title": {
-      "en": "The Coast Line timetable",
+      "en": "The Coast Line schedule",
       "fa": "جدول زمانی خط ساحلی"
      },
      "level": "B1",
      "genre": {
-      "en": "Timetable / travel information",
+      "en": "Schedule / travel information",
       "fa": "جدول زمانی / اطلاعات سفر"
      },
-     "words": 134,
+     "words": 135,
      "minutes": 1,
      "paragraphs": [
       "Weekday trains from Hilltown to Seahaven leave at 06:45, 07:30, 09:10, 12:05, 15:40 and 18:25. The 07:30 is the only direct service; the others require a change at Marston, where the connection usually waits four minutes.",
-      "Journey time is 58 minutes on the direct train and 1 hour 24 minutes with the change. A return ticket costs £14.60, or £9.20 with a railcard. Single tickets are not sold after 6 pm on Sundays.",
+      "Journey time is 58 minutes on the direct train and 1 hour 24 minutes with the change. A round-trip ticket costs $14.60, or $9.20 with a discount card. One-way tickets are not sold after 6 pm on Sundays.",
       "Bicycles travel free, but only two are allowed on each train and none on the 07:30, which is the busiest service. Folding bicycles count as luggage and are always allowed.",
-      "The ticket office opens at 06:15 and closes at 19:00. The machine on platform 2 takes cards only, and there is no machine on platform 1. Seat reservations are free but recommended for the 18:25, and a ticket bought on the train costs £2 more than one bought at the office."
+      "The ticket office opens at 06:15 and closes at 19:00. The machine on platform 2 takes cards only, and there is no machine on platform 1. Seat reservations are free but recommended for the 18:25, and a ticket bought on the train costs $2 more than one bought at the office."
      ],
      "summary": {
-      "en": "A timetable: six trains, one of them direct, with fares, a bicycle rule that excludes the busiest train, and where to buy a ticket.",
+      "en": "A schedule: six trains, one of them direct, with fares, a bicycle rule that excludes the busiest train, and where to buy a ticket.",
       "fa": "یک جدول زمانی: شش قطار که یکی مستقیم است، با قیمت‌ها، قانون دوچرخه که پرترددترین قطار را کنار می‌گذارد، و محل خرید بلیت."
      },
      "note": {
@@ -1935,13 +1935,13 @@
         "para": 1
        },
        {
-        "sentence": "A return ticket costs £___.",
+        "sentence": "A round-trip ticket costs $___.",
         "answer": "14.60",
         "also": [
          "14,60"
         ],
         "hint": {
-         "en": "The full fare, before the railcard.",
+         "en": "The full fare, before the discount card.",
          "fa": "قیمت کامل، پیش از کارت تخفیف."
         },
         "para": 2
@@ -2049,7 +2049,7 @@
           "fa": "قطار مستقیم و دوچرخه با هم نمی‌شوند؛ بگو چه می‌کنی."
          },
          {
-          "en": "Give a departure and a return time from the timetable.",
+          "en": "Give a departure and a return time from the schedule.",
           "fa": "یک ساعت رفت و یک ساعت برگشت از جدول بده."
          },
          {
@@ -2058,7 +2058,7 @@
          }
         ],
         "model": {
-         "en": "Because bicycles are not allowed on the 07:30, I would take the 09:10 and change at Marston, which takes about an hour and twenty-four minutes. I would come back on the 15:40 so that I could buy the return ticket at the office, which closes at 19:00, and I would check the connection time at Marston before leaving, since four minutes is short with a bicycle.",
+         "en": "Because bicycles are not allowed on the 07:30, I would take the 09:10 and change at Marston, which takes about an hour and twenty-four minutes. I would come back on the 15:40 so that I could buy the round-trip ticket at the office, which closes at 19:00, and I would check the connection time at Marston before leaving, since four minutes is short with a bicycle.",
          "fa": "چون دوچرخه در قطار ۰۷:۳۰ مجاز نیست، با قطار ۰۹:۱۰ می‌رفتم و در مارستون تعویض می‌کردم که حدود یک ساعت و بیست‌وچهار دقیقه طول می‌کشد. با قطار ۱۵:۴۰ برمی‌گشتم تا بلیت برگشت را از بلیت‌فروشی که ساعت ۱۹ می‌بندد بخرم، و پیش از راه افتادن زمان تعویض در مارستون را بررسی می‌کردم، چون چهار دقیقه با دوچرخه کم است."
         }
        }
@@ -2096,7 +2096,7 @@
     "fa": "خواندن برای جزئیات یعنی دنبال کردن واقعیت‌های جداگانه و پیوندهای میان آن‌ها. بیشتر جواب‌های غلط در این نوع خواندن از جمله‌هایی می‌آید که تنهایی درست‌اند ولی از جمله‌ای که آن‌ها را کنترل می‌کند جدا شده‌اند: عددی بدون واحدش، علتی بدون شرطش، قانونی بدون استثنایش. پس خواندن دقیق دو حرکت دارد. اول هر واقعیت را مو‌به‌مو تثبیت می‌کنی: چه، چه مقداری، در مقایسه با چه. بعد واژه‌های پیوند را می‌خوانی که می‌گویند این واقعیت‌ها چه نسبتی دارند: because، although، unless، only، still. حرکت دوم همان چیزی است که فهرست واقعیت‌ها را به فهم تبدیل می‌کند."
    },
    "why": {
-    "en": "Exams and real documents both hide their answer in a relationship. 'The equipment cost 1.4 million euros' is easy; 'the equipment cost 1.4 million and pays for itself in nine years, but only if the neighbour keeps producing heat' is the sentence you actually have to understand. Detailed reading is the habit of not stopping at the first half.",
+    "en": "Exams and real documents both hide their answer in a relationship. 'The equipment cost 1.4 million euros' is easy; 'the equipment cost 1.4 million and pays for itself in nine years, but only if the neighbor keeps producing heat' is the sentence you actually have to understand. Detailed reading is the habit of not stopping at the first half.",
     "fa": "هم امتحان و هم اسناد واقعی جواب را در یک رابطه پنهان می‌کنند. «تجهیزات ۱٫۴ میلیون یورو هزینه داشت» ساده است؛ «تجهیزات ۱٫۴ میلیون هزینه داشت و در نه سال جبران می‌شود، ولی فقط اگر همسایه تولید گرما را ادامه دهد» همان جمله‌ای است که واقعاً باید بفهمی. خواندن دقیق، عادت نایستادن در نیمهٔ اول است."
    },
    "when": {
@@ -2168,7 +2168,7 @@
      "fa": "تعیین شکل جواب پیش از جست‌وجو."
     },
     {
-     "en": "Sentence plus its neighbour read together.",
+     "en": "Sentence plus its neighbor read together.",
      "fa": "خواندن جمله همراه با جملهٔ کنارش."
     },
     {
@@ -2193,16 +2193,16 @@
       "en": "Popular science report",
       "fa": "گزارش علمی عمومی"
      },
-     "words": 202,
+     "words": 201,
      "minutes": 1,
      "paragraphs": [
-      "The swimming pool in the French town of Vitry replaced its gas boiler in 2021 with a system that recovers heat from the building next door. The neighbour is a data centre: a hall of servers that runs all day and must be cooled. Its waste heat, once released into the air, now passes through a heat exchanger and warms the pool's water to 27 °C.",
+      "The swimming pool in the French town of Vitry replaced its gas boiler in 2021 with a system that recovers heat from the building next door. The neighbor is a data center: a hall of servers that runs all day and must be cooled. Its waste heat, once released into the air, now passes through a heat exchanger and warms the pool's water to 27 °C.",
       "The engineering is less simple than the idea. The data centre's cooling circuit uses a fluid at about 45 °C, while the pool needs water at 27 °C, so a second circuit and a pump station were needed to step the temperature down without losing the difference. That equipment cost €1.4 million and took eleven months to install.",
-      "The saving is measured in gas: the pool burned 420,000 cubic metres a year before the change and 60,000 after, a fall of 86 per cent. The remaining gas is used only in the coldest weeks, when the data centre alone cannot meet demand.",
-      "Not every town can copy this. A pool needs a neighbour that produces heat all year, within about 300 metres, and a council willing to sign a fifteen-year contract. Vitry had all three. The mayor's office says the payback period is nine years."
+      "The saving is measured in gas: the pool burned 420,000 cubic meters a year before the change and 60,000 after, a fall of 86 percent. The remaining gas is used only in the coldest weeks, when the data center alone cannot meet demand.",
+      "Not every town can copy this. A pool needs a neighbor that produces heat all year, within about 300 meters, and a council willing to sign a fifteen-year contract. Vitry had all three. The mayor's office says the payback period is nine years."
      ],
      "summary": {
-      "en": "A pool is warmed by the waste heat of a neighbouring data centre. The idea is simple, the plumbing is not, and the saving depends on conditions most towns do not have.",
+      "en": "A pool is warmed by the waste heat of a neighboring data center. The idea is simple, the plumbing is not, and the saving depends on conditions most towns do not have.",
       "fa": "استخر با گرمای هدررفتهٔ یک مرکز دادهٔ همسایه گرم می‌شود. ایده ساده است، لوله‌کشی نه، و صرفه‌جویی به شرایطی بند است که بیشتر شهرها ندارند."
      },
      "note": {
@@ -2244,7 +2244,7 @@
         "para": 2
        },
        {
-        "sentence": "Gas use fell by ___ per cent.",
+        "sentence": "Gas use fell by ___ percent.",
         "answer": "86",
         "also": [],
         "hint": {
@@ -2259,7 +2259,7 @@
         "q": "Why was a second circuit and pump station needed?",
         "options": [
          "Because the two sides run at different temperatures",
-         "Because the data centre is 300 metres away",
+         "Because the data center is 300 meters away",
          "Because the pool is open all year",
          "Because gas boilers cannot work with a heat exchanger"
         ],
@@ -2280,7 +2280,7 @@
         ],
         "answer": 3,
         "why": {
-         "en": "The passage says 'only in the coldest weeks, when the data centre alone cannot meet demand'. The word 'only' is the whole answer.",
+         "en": "The passage says 'only in the coldest weeks, when the data center alone cannot meet demand'. The word 'only' is the whole answer.",
          "fa": "متن می‌گوید «فقط در سردترین هفته‌ها، وقتی مرکز داده تنها نمی‌تواند تقاضا را پوشش دهد». کلمهٔ only تمام جواب است."
         },
         "para": 3
@@ -2288,14 +2288,14 @@
        {
         "q": "Which of these is NOT given as a condition for copying the system?",
         "options": [
-         "A neighbour that produces heat all year",
+         "A neighbor that produces heat all year",
          "A national subsidy for green heating",
-         "A distance of about 300 metres or less",
+         "A distance of about 300 meters or less",
          "A fifteen-year contract"
         ],
         "answer": 1,
         "why": {
-         "en": "The last paragraph lists three conditions: heat all year, within 300 metres, a fifteen-year contract. No subsidy is mentioned anywhere.",
+         "en": "The last paragraph lists three conditions: heat all year, within 300 meters, a fifteen-year contract. No subsidy is mentioned anywhere.",
          "fa": "پاراگراف آخر سه شرط را می‌شمارد: گرمای تمام سال، فاصلهٔ حدود ۳۰۰ متر، قرارداد پانزده‌ساله. هیچ یارانه‌ای در متن نیست."
         },
         "para": 4
@@ -2339,13 +2339,13 @@
         "statement": "The pool still burns some gas.",
         "answer": true,
         "why": {
-         "en": "60,000 cubic metres remain, used in the coldest weeks. The saving is 86 per cent, not 100.",
+         "en": "60,000 cubic meters remain, used in the coldest weeks. The saving is 86 percent, not 100.",
          "fa": "۶۰٬۰۰۰ متر مکعب باقی مانده که در سردترین هفته‌ها مصرف می‌شود. صرفه‌جویی ۸۶ درصد است، نه ۱۰۰."
         },
         "para": 3
        },
        {
-        "statement": "Any town with a data centre can copy the system.",
+        "statement": "Any town with a data center can copy the system.",
         "answer": false,
         "why": {
          "en": "The passage says the opposite: 'Not every town can copy this', and requires three conditions at once.",
@@ -2400,7 +2400,7 @@
          }
         ],
         "model": {
-         "en": "The three conditions are: a neighbour that produces heat all year, that neighbour within about 300 metres, and a council willing to sign a fifteen-year contract. I think the contract is hardest for a small town, because it commits the council to one supplier for longer than most councils plan ahead, and the passage shows the payback takes nine years, so the decision has to survive at least two elections.",
+         "en": "The three conditions are: a neighbor that produces heat all year, that neighbor within about 300 meters, and a council willing to sign a fifteen-year contract. I think the contract is hardest for a small town, because it commits the council to one supplier for longer than most councils plan ahead, and the passage shows the payback takes nine years, so the decision has to survive at least two elections.",
          "fa": "سه شرط این‌ها هستند: همسایه‌ای که تمام سال گرما تولید کند، فاصلهٔ حدود ۳۰۰ متر، و شورایی که حاضر باشد قرارداد پانزده‌ساله امضا کند. فکر می‌کنم قرارداد برای یک شهر کوچک سخت‌ترین است، چون شورا را بیشتر از افق برنامه‌ریزی معمولش به یک تأمین‌کننده گره می‌زند، و متن نشان می‌دهد بازگشت سرمایه نه سال طول می‌کشد؛ پس تصمیم باید حداقل دو دورهٔ انتخاباتی را دوام بیاورد."
         },
         "min_words": 50
@@ -2430,8 +2430,8 @@
      "paragraphs": [
       "Hilltown's sewage has been cleaned by reeds since 2004. Rather than a concrete tank, the town built three shallow beds planted with common reed, each about the size of a football pitch, and let the plants and the gravel do the work.",
       "Water flows slowly through the beds for nine days. Bacteria on the gravel break down the waste, the reeds take up nitrogen and phosphorus through their roots, and the gravel filters what is left. No chemicals are added at any stage.",
-      "The beds cost £1.9 million to build and about £40,000 a year to run, roughly a third of the running cost of the mechanical plant they replaced. They use no electricity except for one pump, which runs for six hours a day.",
-      "The limit is land. A reed bed needs about ten times the area of a mechanical plant for the same population, and it works poorly in frost. Hilltown can serve 9,000 people this way; the neighbouring town of Ashby, with 60,000, cannot."
+      "The beds cost $1.9 million to build and about $40,000 a year to run, roughly a third of the running cost of the mechanical plant they replaced. They use no electricity except for one pump, which runs for six hours a day.",
+      "The limit is land. A reed bed needs about ten times the area of a mechanical plant for the same population, and it works poorly in frost. Hilltown can serve 9,000 people this way; the neighboring town of Ashby, with 60,000, cannot."
      ],
      "summary": {
       "en": "Reed beds clean sewage with plants, gravel and time, run on a third of the cost - and need ten times the land.",
@@ -2456,7 +2456,7 @@
         "para": 2
        },
        {
-        "sentence": "The beds cost £___ million to build.",
+        "sentence": "The beds cost $___ million to build.",
         "answer": "1.9",
         "also": [
          "1,9"
@@ -2578,7 +2578,7 @@
          }
         ],
         "model": {
-         "en": "Reed beds need about ten times the area of a mechanical plant for the same population, so they only work where land is cheap and plentiful. Hilltown, with 9,000 people, has that space, and its running cost of about £40,000 a year is a third of the old plant's. Ashby has 60,000 people and would need an enormous site, and frost would slow the beds in winter, so the town must keep a mechanical plant.",
+         "en": "Reed beds need about ten times the area of a mechanical plant for the same population, so they only work where land is cheap and plentiful. Hilltown, with 9,000 people, has that space, and its running cost of about $40,000 a year is a third of the old plant's. Ashby has 60,000 people and would need an enormous site, and frost would slow the beds in winter, so the town must keep a mechanical plant.",
          "fa": "بسترهای نی برای همان جمعیت حدود ده برابر مساحت یک کارخانهٔ مکانیکی می‌خواهند، پس فقط جایی کار می‌کنند که زمین ارزان و فراوان باشد. هیل‌تاون با ۹٬۰۰۰ نفر این فضا را دارد و هزینهٔ جاری حدود ۴۰٬۰۰۰ پوند در سالش یک‌سوم کارخانهٔ قبلی است. اشبی ۶۰٬۰۰۰ نفر دارد و به زمینی عظیم نیاز داشت، و یخبندان در زمستان بسترها را کند می‌کند، پس باید کارخانهٔ مکانیکی را نگه دارد."
         }
        }
@@ -2605,9 +2605,9 @@
      "words": 168,
      "minutes": 1,
      "paragraphs": [
-      "The tenancy of Flat 4, 12 Mill Lane begins on 1 March and runs for twelve months. Rent is £780 a month, payable on the first working day of the month. The deposit is £900 and is held by a government protection scheme, not by the landlord.",
-      "The tenant may keep one cat but no dogs. Visitors may stay for up to fourteen nights in any three-month period; any longer stay must be reported to the landlord in writing. The flat may not be sublet, and no more than two people may live in it.",
-      "Repairs. The landlord is responsible for the roof, the boiler and the windows. The tenant must report a fault within 48 hours and must be at home for the appointment, or pay £25 for a missed visit.",
+      "The tenancy of Flat 4, 12 Mill Lane begins on March 1 and runs for twelve months. Rent is $780 a month, payable on the first working day of the month. The deposit is $900 and is held by a government protection scheme, not by the landlord.",
+      "The tenant may keep one cat but no dogs. Visitors may stay for up to fourteen nights in any three-month period; any longer stay must be reported to the landlord in writing. The apartment may not be sublet, and no more than two people may live in it.",
+      "Repairs. The landlord is responsible for the roof, the boiler and the windows. The tenant must report a fault within 48 hours and must be at home for the appointment, or pay $25 for a missed visit.",
       "Ending the tenancy. After six months the tenant may leave by giving two months' written notice. The landlord may end it earlier only for rent more than two months overdue or for serious damage. Notice must be sent by post, not by message."
      ],
      "summary": {
@@ -2621,7 +2621,7 @@
      "questions": {
       "blanks": [
        {
-        "sentence": "The rent is £___ a month.",
+        "sentence": "The rent is $___ a month.",
         "answer": "780",
         "also": [],
         "hint": {
@@ -2690,13 +2690,13 @@
         "q": "What does a missed repair appointment cost?",
         "options": [
          "Nothing",
-         "£48",
-         "£900",
-         "£25"
+         "$48",
+         "$900",
+         "$25"
         ],
         "answer": 3,
         "why": {
-         "en": "'Or pay £25 for a missed visit.'",
+         "en": "'Or pay $25 for a missed visit.'",
          "fa": "«یا ۲۵ پوند برای ویزیت ازدست‌رفته بپردازد.»"
         },
         "para": 3
@@ -2707,7 +2707,7 @@
         "statement": "The tenant may sublet the flat.",
         "answer": false,
         "why": {
-         "en": "'The flat may not be sublet.'",
+         "en": "'The apartment may not be sublet.'",
          "fa": "«اجارهٔ دوبارهٔ آپارتمان مجاز نیست.»"
         },
         "para": 2
@@ -2734,7 +2734,7 @@
       "essay": [
        {
         "prompt": {
-         "en": "A friend is about to sign this agreement and wants to keep a dog, work abroad for two months and rent the flat to a cousin. Using the text, tell them what is and is not allowed.",
+         "en": "A friend is about to sign this agreement and wants to keep a dog, work abroad for two months and rent the apartment to a cousin. Using the text, tell them what is and is not allowed.",
          "fa": "دوستی می‌خواهد این قرارداد را امضا کند و سگی نگه دارد، دو ماه خارج کار کند و آپارتمان را به پسرخاله‌اش اجاره بدهد. با استفاده از متن بگو چه چیزی مجاز است و چه چیزی نه."
         },
         "min_words": 55,
@@ -2753,7 +2753,7 @@
          }
         ],
         "model": {
-         "en": "The dog is not allowed: one cat is permitted and dogs are not. Working abroad for two months is probably fine, because the agreement only restricts how long visitors stay, but the rent must still be paid on the first working day and someone must be at home for repairs within 48 hours of a report. Renting the flat to a cousin is not allowed at all, because the flat may not be sublet, and telling the landlord in writing would not change that.",
+         "en": "The dog is not allowed: one cat is permitted and dogs are not. Working abroad for two months is probably fine, because the agreement only restricts how long visitors stay, but the rent must still be paid on the first working day and someone must be at home for repairs within 48 hours of a report. Renting the flat to a cousin is not allowed at all, because the apartment may not be sublet, and telling the landlord in writing would not change that.",
          "fa": "سگ مجاز نیست: یک گربه اجازه دارد و سگ نه. دو ماه کار در خارج احتمالاً اشکالی ندارد، چون قرارداد فقط مدت اقامت مهمان‌ها را محدود می‌کند، ولی اجاره باید در اولین روز کاری ماه پرداخت شود و کسی باید تا ۴۸ ساعت پس از گزارش برای تعمیرات خانه باشد. اجاره دادن آپارتمان به پسرخاله اصلاً مجاز نیست، چون اجارهٔ دوباره ممنوع است و اطلاع کتبی به صاحب‌خانه هم این را عوض نمی‌کند."
         }
        }
@@ -2887,7 +2887,7 @@
      "words": 215,
      "minutes": 1,
      "paragraphs": [
-      "The first repair café opened in Amsterdam in 2009. Neighbours bring broken toasters, lamps, bicycles and radios to a community hall, where volunteers with toolboxes try to fix them for free. The idea was a response to a throwaway culture: goods are cheap, so they are replaced rather than mended, and the skills needed to mend them are dwindling. In many families nobody under forty has ever opened the back of a radio.",
+      "The first repair café opened in Amsterdam in 2009. Neighbors bring broken toasters, lamps, bicycles and radios to a community hall, where volunteers with toolboxes try to fix them for free. The idea was a response to a throwaway culture: goods are cheap, so they are replaced rather than mended, and the skills needed to mend them are dwindling. In many families nobody under forty has ever opened the back of a radio.",
       "A repair café works because it is social before it is technical. You sit next to the person repairing your machine, you watch, and you learn. Volunteers salvage what they can from devices that cannot be saved - a switch here, a cable there - and those parts go into a shared box. Nothing is thrown away while it might still be useful, which is the whole point.",
       "Critics say the movement is sentimental: a toaster costs less than the bus fare to the café. That misses the arithmetic. The café saves the price of the machine, but it also saves the trip to the shop, the wait for delivery and, above all, the habit of not bothering. The movement has thrived: there are now more than 2,500 repair cafés worldwide, and some manufacturers send their own engineers to learn what breaks first."
      ],
@@ -3088,7 +3088,7 @@
          }
         ],
         "model": {
-         "en": "The critics are counting only money, and the writer is right that this is the wrong sum. More than 2,500 cafés exist because people keep coming, and nobody queues on a Saturday morning for something they could buy. That said, the bus fare argument is not silly: for a cheap kettle, the café is a hobby, not an economy.",
+         "en": "The critics are counting only money, and the writer is right that this is the wrong sum. More than 2,500 cafés exist because people keep coming, and nobody lines on a Saturday morning for something they could buy. That said, the bus fare argument is not silly: for a cheap kettle, the café is a hobby, not an economy.",
          "fa": "منتقدان فقط پول را می‌شمارند و نویسنده درست می‌گوید که این جمعِ اشتباهی است. بیش از ۲٬۵۰۰ کافه وجود دارد چون مردم همچنان می‌آیند و کسی صبح شنبه برای چیزی که می‌تواند بخرد صف نمی‌بندد. با این حال، حرف کرایهٔ اتوبوس بی‌معنی نیست: برای یک کتری ارزان، کافه یک سرگرمی است، نه صرفه‌جویی."
         },
         "min_words": 50
@@ -3119,7 +3119,7 @@
       "At half past four in the morning the bakery on Rye Lane is already warm. Ama takes a jar from the shelf - the levain, a paste of flour and water that has been kept alive for eleven years - and stirs it into the dough.",
       "Nothing in the shop is bought ready-made. The dough is left to proof, covered, for six hours; when it has doubled, it is shaped and left again. The last stage, in the oven, is what gives the bread its open crumb - the holes that a supermarket loaf never has.",
       "The levain is the reason the bread tastes slightly sour. Wild yeasts and bacteria live in it, and they change with the weather: in July it rises in four hours, in January it may need eight. Ama feeds it twice a day and has never washed the jar.",
-      "This is why the loaves cost £5.50. Three people work through the night, and the oven is on for nine hours. 'You cannot hurry it,' Ama says. 'You can only wait, and then sell it before it goes stale.'"
+      "This is why the loaves cost $5.50. Three people work through the night, and the oven is on for nine hours. 'You cannot hurry it,' Ama says. 'You can only wait, and then sell it before it goes stale.'"
      ],
      "summary": {
       "en": "A bakery raised by a living paste of flour and water, where speed is impossible and the price reflects the night's work.",
@@ -3156,7 +3156,7 @@
         "para": 2
        },
        {
-        "sentence": "A loaf costs £___.",
+        "sentence": "A loaf costs $___.",
         "answer": "5.50",
         "also": [
          "5,50"
@@ -3200,7 +3200,7 @@
         "para": 3
        },
        {
-        "q": "Why does a loaf cost £5.50?",
+        "q": "Why does a loaf cost $5.50?",
         "options": [
          "Three people work all night and the oven runs for nine hours",
          "The flour is imported",
@@ -3209,7 +3209,7 @@
         ],
         "answer": 0,
         "why": {
-         "en": "The price is explained by the labour and the oven time, not by ingredients.",
+         "en": "The price is explained by the labor and the oven time, not by ingredients.",
          "fa": "قیمت با کار و زمان پخت توضیح داده می‌شود، نه با مواد اولیه."
         },
         "para": 4
@@ -3296,7 +3296,7 @@
       "The first lesson is on the water, not in a classroom. You will learn to read the wind: a dark line moving across the lake is a gust, a sudden push that can tip the boat if you are not ready for it.",
       "Sailing upwind means tacking - turning the front of the boat through the wind again and again, in a zigzag, because a boat cannot sail straight into the wind. Downwind you simply let the sail out and the boat runs before the wind.",
       "Beginners capsize, and the course plans for it. The water is shallow, the boats are unsinkable, and the instructor stands beside you in a second boat. Bring a change of clothes; you will need them.",
-      "Courses run on Saturdays from April to October, cost £120 for six sessions, and are limited to eight people. Nobody has ever been asked to leave for falling in."
+      "Courses run on Saturdays from April to October, cost $120 for six sessions, and are limited to eight people. Nobody has ever been asked to leave for falling in."
      ],
      "summary": {
       "en": "A beginner's course: reading gusts, zigzagging upwind, and turning over being an expected part of the afternoon.",
@@ -3331,7 +3331,7 @@
         "para": 2
        },
        {
-        "sentence": "Six sessions cost £___.",
+        "sentence": "Six sessions cost $___.",
         "answer": "120",
         "also": [],
         "hint": {
@@ -3474,7 +3474,7 @@
    },
    "what": {
     "en": "English hates repeating a noun, so it replaces it: 'the programme' becomes 'it', 'the cities that copied it' becomes 'those', a whole clause becomes 'this'. These words are what holds a paragraph together, and they are where comprehension quietly breaks: you read a correct sentence and understand the wrong thing, because you attached 'it' to the nearest noun instead of the right one.",
-    "fa": "انگلیسی از تکرار اسم خوشش نمی‌آید، پس جایش می‌گذارد: «the programme» می‌شود it، «شهرهایی که از آن کپی کردند» می‌شود those، و یک بند کامل می‌شود this. همین واژه‌ها پاراگراف را به هم می‌چسبانند و دقیقاً همان جایی هستند که فهم بی‌صدا می‌شکند: جملهٔ درست را می‌خوانی و چیز اشتباهی می‌فهمی، چون it را به نزدیک‌ترین اسم چسبانده‌ای، نه به اسم درست."
+    "fa": "انگلیسی از تکرار اسم خوشش نمی‌آید، پس جایش می‌گذارد: «the program» می‌شود it، «شهرهایی که از آن کپی کردند» می‌شود those، و یک بند کامل می‌شود this. همین واژه‌ها پاراگراف را به هم می‌چسبانند و دقیقاً همان جایی هستند که فهم بی‌صدا می‌شکند: جملهٔ درست را می‌خوانی و چیز اشتباهی می‌فهمی، چون it را به نزدیک‌ترین اسم چسبانده‌ای، نه به اسم درست."
    },
    "why": {
     "en": "A pronoun is a promise that the writer has already told you what it means. When a paragraph stops making sense, the answer is almost never vocabulary - it is one 'it' pointing at the wrong thing. Naming the referent out loud, in your own words, is the fastest repair there is.",
@@ -3569,8 +3569,8 @@
      "words": 175,
      "minutes": 1,
      "paragraphs": [
-      "Bogotá closes 120 kilometres of roads to cars every Sunday. The programme, called Ciclovía, began in 1974, when a group of cyclists rode through the city centre to protest about air pollution. The police tried to stop them; the mayor, instead, asked whether the roads could be closed once a week. Few people expected it to last. It has now run for fifty years, and on a sunny Sunday more than a million people use it - cyclists, runners, families with prams, and vendors who sell mangoes and coffee from carts they push along the route.",
-      "Cities from Los Angeles to Jakarta have copied the idea. Most found that the hardest part was not closing the roads but keeping them closed: a single complaint from a shop owner, or a change of government, can end a programme that took years to build. Those that survived share one habit. They measure who uses the space, they publish the numbers, and they let residents see what a street looks like when it belongs to people rather than engines."
+      "Bogotá closes 120 kilometers of roads to cars every Sunday. The program, called Ciclovía, began in 1974, when a group of cyclists rode through the city center to protest about air pollution. The police tried to stop them; the mayor, instead, asked whether the roads could be closed once a week. Few people expected it to last. It has now run for fifty years, and on a sunny Sunday more than a million people use it - cyclists, runners, families with prams, and vendors who sell mangoes and coffee from carts they push along the route.",
+      "Cities from Los Angeles to Jakarta have copied the idea. Most found that the hardest part was not closing the roads but keeping them closed: a single complaint from a shop owner, or a change of government, can end a program that took years to build. Those that survived share one habit. They measure who uses the space, they publish the numbers, and they let residents see what a street looks like when it belongs to people rather than engines."
      ],
      "summary": {
       "en": "Bogotá has closed 120 km of roads to cars every Sunday since 1974. Other cities copied the idea, and most discovered that keeping the roads closed was harder than closing them; the ones that lasted measured and published who used the space.",
@@ -3583,10 +3583,10 @@
      "questions": {
       "blanks": [
        {
-        "sentence": "Few people expected ___ to last. (the programme)",
+        "sentence": "Few people expected ___ to last. (the program)",
         "answer": "it",
         "hint": {
-         "en": "One word - the programme again.",
+         "en": "One word - the program again.",
          "fa": "یک کلمه؛ همان برنامه."
         },
         "also": [],
@@ -3628,7 +3628,7 @@
         "q": "In 'Few people expected it to last', 'it' means",
         "options": [
          "the Sunday road closure",
-         "the city centre",
+         "the city center",
          "the protest",
          "the traffic"
         ],
@@ -3744,7 +3744,7 @@
          }
         ],
         "model": {
-         "en": "The paragraph opens with 'the idea', which points back to Ciclovía, the Sunday closure of 120 kilometres of road. 'Them' in 'keeping them closed' means the roads. 'Those that survived' replaces the copying cities, and the three 'they's in the last sentence keep the same group as the subject. The chain lets the writer move from one city to many without ever repeating the noun.",
+         "en": "The paragraph opens with 'the idea', which points back to Ciclovía, the Sunday closure of 120 kilometers of road. 'Them' in 'keeping them closed' means the roads. 'Those that survived' replaces the copying cities, and the three 'they's in the last sentence keep the same group as the subject. The chain lets the writer move from one city to many without ever repeating the noun.",
          "fa": "پاراگراف با «the idea» شروع می‌شود که به Ciclovía برمی‌گردد؛ همان بستن ۱۲۰ کیلومتر جاده در یکشنبه‌ها. «them» در «keeping them closed» یعنی جاده‌ها. «Those that survived» جانشین شهرهایی است که کپی کردند، و سه «they» در جملهٔ آخر همان گروه را فاعل نگه می‌دارد. این زنجیره اجازه می‌دهد نویسنده از یک شهر به شهرهای بسیار برود بدون اینکه اسم را تکرار کند."
         },
         "min_words": 50
@@ -3769,7 +3769,7 @@
          }
         ],
         "model": {
-         "en": "It could work, but only on a smaller scale. In my city the main road is the only way to the hospital, so closing it would be dangerous - this is exactly the objection that ended several programmes in the passage. A better start is one street, on Friday mornings in summer. That habit, as the writer says, has to be measured and published, or nobody will believe it helped.",
+         "en": "It could work, but only on a smaller scale. In my city the main road is the only way to the hospital, so closing it would be dangerous - this is exactly the objection that ended several programs in the passage. A better start is one street, on Friday mornings in summer. That habit, as the writer says, has to be measured and published, or nobody will believe it helped.",
          "fa": "می‌تواند جواب بدهد، اما فقط در مقیاس کوچک‌تر. در شهر من جادهٔ اصلی تنها راه رسیدن به بیمارستان است، پس بستنش خطرناک می‌شود؛ این دقیقاً همان اعتراضی است که در متن چند برنامه را تمام کرد. شروع بهتر، یک خیابان است، صبح‌های جمعه در تابستان. همان‌طور که نویسنده می‌گوید، این عادت باید اندازه‌گیری و منتشر شود، وگرنه هیچ‌کس باور نمی‌کند که فایده داشته است."
         },
         "min_words": 50
@@ -3797,7 +3797,7 @@
      "words": 172,
      "minutes": 1,
      "paragraphs": [
-      "In 1897 a British officer took a carved mask from a village in what is now Nigeria and gave it to a museum in Bristol. For more than a century it sat in a glass case, labelled only with a number.",
+      "In 1897 a British officer took a carved mask from a village in what is now Nigeria and gave it to a museum in Bristol. For more than a century it sat in a glass case, labeled only with a number.",
       "Last year the museum agreed to return it. The decision was not easy: some trustees argued that the mask was safer in Bristol, where the building is dry and the insurance is paid. Others said that argument proved the point - the mask had never been theirs to protect.",
       "The village sent three elders to collect it. They arrived in April, were shown the case, and asked for the label to be removed before the mask was packed. The museum kept the label; it is now displayed beside an empty case, with a note explaining where the mask went.",
       "Since the return, two other museums have begun similar talks. Their directors say the precedent matters more than the object: once one return is possible, the question stops being whether and becomes how."
@@ -3897,7 +3897,7 @@
         "statement": "The mask was displayed with its name on it.",
         "answer": false,
         "why": {
-         "en": "It was 'labelled only with a number'.",
+         "en": "It was 'labeled only with a number'.",
          "fa": "«فقط با یک شماره برچسب خورده بود»."
         },
         "para": 1
@@ -3970,13 +3970,13 @@
      "words": 143,
      "minutes": 1,
      "paragraphs": [
-      "The council has voted to close the swimming pool on Tuesdays. This surprised the staff, who had been told the change would affect only the car park, but it delighted the residents who had complained about the noise of the pumps.",
+      "The council has voted to close the swimming pool on Tuesdays. This surprised the staff, who had been told the change would affect only the parking lot, but it delighted the residents who had complained about the noise of the pumps.",
       "The pool's manager, Dario Rossi, says the decision was made without a proper survey. He has asked for the figures the council used; they have not been published, and the council says it will release them in June.",
       "The residents' group, however, says its members were never against the pool itself, only the pumps, which run all night. They have offered to pay for a quieter pump if the Tuesday closure is dropped.",
-      "The council's cabinet meets on 4 May. Its chair, Councillor Rehana Ali, told this newspaper that she would listen, but that the budget for the year had already been set."
+      "The council's cabinet meets on May 4. Its chair, Councillor Rehana Ali, told this newspaper that she would listen, but that the budget for the year had already been set."
      ],
      "summary": {
-      "en": "A Tuesday closure pleases the neighbours, shocks the staff and leaves the manager asking for figures nobody has published.",
+      "en": "A Tuesday closure pleases the neighbors, shocks the staff and leaves the manager asking for figures nobody has published.",
       "fa": "بستن سه‌شنبه‌ها همسایه‌ها را خوشحال می‌کند، کارکنان را شوکه و مدیر را در پی ارقامی می‌گذارد که کسی منتشر نکرده است."
      },
      "note": {
@@ -4023,7 +4023,7 @@
         "q": "In 'This surprised the staff', what does 'This' refer to?",
         "options": [
          "The noise of the pumps",
-         "The car park change",
+         "The parking lot change",
          "The vote to close the pool on Tuesdays",
          "The survey"
         ],
@@ -4059,7 +4059,7 @@
         ],
         "answer": 3,
         "why": {
-         "en": "'The council's cabinet meets on 4 May. Its chair...' - 'its' belongs to the cabinet.",
+         "en": "'The council's cabinet meets on May 4. Its chair...' - 'its' belongs to the cabinet.",
          "fa": "«کابینهٔ شورا ۴ مه جلسه دارد. رئیس آن...»؛ «its» مال کابینه است."
         },
         "para": 4
@@ -4067,10 +4067,10 @@
       ],
       "truefalse": [
        {
-        "statement": "The staff expected only the car park to change.",
+        "statement": "The staff expected only the parking lot to change.",
         "answer": true,
         "why": {
-         "en": "'Who had been told the change would affect only the car park'.",
+         "en": "'Who had been told the change would affect only the parking lot'.",
          "fa": "«که به آن‌ها گفته شده بود تغییر فقط پارکینگ را تحت تأثیر می‌گذارد»."
         },
         "para": 1
@@ -4246,12 +4246,12 @@
      "words": 137,
      "minutes": 1,
      "paragraphs": [
-      "The last bus left at 11:40, and I was at the stop at 11:20 with two bags and a paper cup of tea. A man in a grey coat was already there, reading a newspaper under the light.",
+      "The last bus left at 11:40, and I was at the stop at 11:20 with two bags and a paper cup of tea. A man in a gray coat was already there, reading a newspaper under the light.",
       "At 11:35 a bus came, stopped and opened its doors. The driver looked at us, then at the empty street, and shut them again. 'Not this one,' the man said, without looking up. 'This one goes to the depot.' He turned a page.",
       "I had lived in the city for six years and had never once checked which bus went where. At 11:41 the last bus arrived, and it was full. The man folded his newspaper, and I understood that he had been waiting, patiently, for exactly this bus, and that he had probably been doing so every night for years."
      ],
      "summary": {
-      "en": "A narrator waiting for the last bus is quietly corrected by a stranger who knows the routes. The narrator, six years in the city, realises how little attention they have paid to it.",
+      "en": "A narrator waiting for the last bus is quietly corrected by a stranger who knows the routes. The narrator, six years in the city, realizes how little attention they have paid to it.",
       "fa": "راوی که منتظر آخرین اتوبوس است، بی‌صدا از غریبه‌ای که مسیرها را می‌شناسد درس می‌گیرد. راوی که شش سال در شهر زندگی کرده، می‌فهمد چقدر کم به شهرش توجه کرده است."
      },
      "note": {
@@ -4271,7 +4271,7 @@
         "para": 1
        },
        {
-        "sentence": "A man in a grey coat was reading a ___.",
+        "sentence": "A man in a gray coat was reading a ___.",
         "answer": "newspaper",
         "hint": {
          "en": "He folds it at the end.",
@@ -4318,7 +4318,7 @@
         "para": 3
        },
        {
-        "q": "What can we infer about the man in the grey coat?",
+        "q": "What can we infer about the man in the gray coat?",
         "options": [
          "He works for the bus company",
          "He is waiting for someone",
@@ -4342,7 +4342,7 @@
         ],
         "answer": 0,
         "why": {
-         "en": "The realisation lands on the narrator, not on the man: 'I understood that...'. Nothing in the text is angry.",
+         "en": "The realization lands on the narrator, not on the man: 'I understood that...'. Nothing in the text is angry.",
          "fa": "این فهم به خود راوی می‌رسد، نه به آن مرد: «فهمیدم که…». در متن هیچ خشمگی نیست."
         },
         "para": 3
@@ -4351,7 +4351,7 @@
         "q": "The man's short answer 'Not this one' suggests he is",
         "options": [
          "rude and impatient",
-         "unsure about the timetable",
+         "unsure about the schedule",
          "trying to keep a seat for himself",
          "helpful but not interested in a conversation"
         ],
@@ -4365,7 +4365,7 @@
       ],
       "truefalse": [
        {
-        "statement": "The narrator checked the timetable before leaving home.",
+        "statement": "The narrator checked the schedule before leaving home.",
         "answer": false,
         "why": {
          "en": "'never once checked which bus went where.'",
@@ -4422,7 +4422,7 @@
          }
         ],
         "model": {
-         "en": "The narrator is well-meaning but careless about ordinary things. They arrive twenty minutes early and hold a cup of tea, which suggests someone organised about the journey; but six years in the city and never knowing which bus goes where shows a habit of letting other people do the noticing. The final realisation - understanding the stranger's nightly routine only after being helped - suggests a person who is honest with themselves once the evidence is in front of them.",
+         "en": "The narrator is well-meaning but careless about ordinary things. They arrive twenty minutes early and hold a cup of tea, which suggests someone organized about the journey; but six years in the city and never knowing which bus goes where shows a habit of letting other people do the noticing. The final realization - understanding the stranger's nightly routine only after being helped - suggests a person who is honest with themselves once the evidence is in front of them.",
          "fa": "راوی خوش‌نیت است ولی به چیزهای معمولی بی‌توجه. بیست دقیقه زودتر می‌رسد و چای در دست دارد، که نشان می‌دهد در سفر منظم است؛ اما شش سال در شهر زندگی کرده و نمی‌داند کدام اتوبوس کجا می‌رود، که نشانهٔ عادت به این است که دیگران حواسشان باشد. فهمِ آخر — اینکه تازه بعد از کمک، برنامهٔ هرشبِ آن غریبه را می‌فهمد — نشان می‌دهد آدمی است که وقتی شاهد جلوی چشمش باشد، با خودش صادق است."
         },
         "min_words": 50
@@ -4468,11 +4468,11 @@
       "en": "Short story",
       "fa": "داستان کوتاه"
      },
-     "words": 168,
+     "words": 169,
      "minutes": 1,
      "paragraphs": [
       "My sister arrived on Friday with a folder of papers and a bottle of wine, which she put on the table without opening. She asked how the roof was. I said it was the same as last year, and she looked at the ceiling as though it had answered her.",
-      "We walked the boundaries after lunch. At the old gate she stopped and said the estate agent had valued the whole plot at less than I had hoped. She said it quickly, the way people say a thing they have rehearsed in the car.",
+      "We walked the boundaries after lunch. At the old gate she stopped and said the real estate agent had valued the whole plot at less than I had hoped. She said it quickly, the way people say a thing they have rehearsed in the car.",
       "I asked whether she wanted to sell. She said she wanted us both to be able to sleep, which was not an answer, and we walked back without talking. The bottle stayed on the table.",
       "On Sunday she made tea and put two cups down, then took one away again. 'I'll write to you,' she said at the door. The letter came on Thursday, four pages, and the first line was an apology."
      ],
@@ -4528,7 +4528,7 @@
         ],
         "answer": 1,
         "why": {
-         "en": "She rehearses bad news, avoids the question, takes a cup away and apologises by letter - every sign points to reluctance, not eagerness.",
+         "en": "She rehearses bad news, avoids the question, takes a cup away and apologizes by letter - every sign points to reluctance, not eagerness.",
          "fa": "خبر بد را از پیش تمرین می‌کند، از سؤال می‌گریزد، یکی از فنجان‌ها را برمی‌دارد و در نامه عذرخواهی می‌کند؛ همهٔ نشانه‌ها به اکراه اشاره دارد، نه اشتیاق."
         },
         "para": 3
@@ -4642,7 +4642,7 @@
      "words": 148,
      "minutes": 1,
      "paragraphs": [
-      "The office was on the fourth floor and the lift was out of order. By the time I reached the desk I had rehearsed my opening line four times and could no longer hear it.",
+      "The office was on the fourth floor and the elevator was out of order. By the time I reached the desk I had rehearsed my opening line four times and could no longer hear it.",
       "The interviewer did not look up from my CV for the first minute. Then she asked why I had left my last job, and I heard myself give the answer I had promised not to give: the honest one.",
       "She wrote something. 'We have three other people at this stage,' she said, and then, unexpectedly, 'What would you change about this office?' I looked at the empty desk by the window and said the truth again.",
       "On the bus home I decided I had not got it. The email came that evening, and I read it twice before I understood that the sentence beginning 'We are pleased' was addressed to me."
@@ -4695,7 +4695,7 @@
         "q": "How did the candidate feel when they reached the desk?",
         "options": [
          "Confident and prepared",
-         "Angry about the lift",
+         "Angry about the elevator",
          "Certain they would be rejected",
          "Nervous, with a prepared line they had lost confidence in"
         ],
@@ -4739,10 +4739,10 @@
       ],
       "truefalse": [
        {
-        "statement": "The lift was working.",
+        "statement": "The elevator was working.",
         "answer": false,
         "why": {
-         "en": "'The lift was out of order.'",
+         "en": "'The elevator was out of order.'",
          "fa": "«آسانسور خراب بود.»"
         },
         "para": 1
@@ -4779,7 +4779,7 @@
           "fa": "«خودم را شنیدم» یعنی بدون تصمیم اتفاق افتاد؛ همین را بگو."
          },
          {
-          "en": "Use one detail about the interviewer's behaviour.",
+          "en": "Use one detail about the interviewer's behavior.",
           "fa": "یک جزئیات از رفتار مصاحبه‌کننده بیاور."
          },
          {
@@ -4852,7 +4852,7 @@
     }
    ],
    "example": {
-    "text": "Many hospitals now clean their corridors at night. The change began in 2018, when a study found that daytime cleaning disturbed patients' sleep and slowed recovery. Night shifts cost eleven per cent more in wages, but the same study estimated that faster recovery saved more than that difference.",
+    "text": "Many hospitals now clean their corridors at night. The change began in 2018, when a study found that daytime cleaning disturbed patients' sleep and slowed recovery. Night shifts cost eleven percent more in wages, but the same study estimated that faster recovery saved more than that difference.",
     "steps": [
      {
       "en": "Topic: hospital cleaning times. That is not yet an idea - nobody would argue with a topic.",
@@ -4922,9 +4922,9 @@
      "words": 250,
      "minutes": 1,
      "paragraphs": [
-      "A pocket forest is a patch of woodland the size of a tennis court or two, planted densely in a school yard, beside a road or on the corner of a car park. The method comes from the Japanese botanist Akira Miyawaki, who argued in the 1970s that a forest could be rebuilt from native species in decades rather than centuries. The first European versions were planted in the Netherlands in 2015.",
-      "The clearest reason to plant one is heat. A dense stand of trees cools the air beneath it by shading the ground and by releasing water through its leaves, and measurements in Dutch and Belgian towns record differences of two to four degrees on summer afternoons. In streets where most residents have no garden, that difference is felt in the bedroom at night as much as on the pavement at noon.",
-      "The second reason is rain. Concrete sends a storm straight into the drains, while the roots and loose soil of a small wood hold part of it back, so a single forest can keep hundreds of litres out of an overloaded sewer in one downpour.",
+      "A pocket forest is a patch of woodland the size of a tennis court or two, planted densely in a school yard, beside a road or on the corner of a parking lot. The method comes from the Japanese botanist Akira Miyawaki, who argued in the 1970s that a forest could be rebuilt from native species in decades rather than centuries. The first European versions were planted in the Netherlands in 2015.",
+      "The clearest reason to plant one is heat. A dense stand of trees cools the air beneath it by shading the ground and by releasing water through its leaves, and measurements in Dutch and Belgian towns record differences of two to four degrees on summer afternoons. In streets where most residents have no garden, that difference is felt in the bedroom at night as much as on the sidewalk at noon.",
+      "The second reason is rain. Concrete sends a storm straight into the drains, while the roots and loose soil of a small wood hold part of it back, so a single forest can keep hundreds of liters out of an overloaded sewer in one downpour.",
       "Pocket forests are not a solution on their own. They need about three years of watering before they survive without help, they struggle on badly polluted ground, and a tennis court of trees takes away parking that somebody was using. The method's defenders answer that a forest is one of the few pieces of city infrastructure that gets cheaper to keep every year."
      ],
      "summary": {
@@ -5017,14 +5017,14 @@
        {
         "q": "Which of these is a supporting detail rather than a main idea?",
         "options": [
-         "A stand of trees can keep hundreds of litres out of a sewer",
+         "A stand of trees can keep hundreds of liters out of a sewer",
          "Small woods are worth planting in cities",
          "Pocket forests have real limits",
          "Trees get cheaper to keep as they age"
         ],
         "answer": 0,
         "why": {
-         "en": "The litres are a measurement inside the rain argument. The other three are claims a reader could disagree with.",
+         "en": "The liters are a measurement inside the rain argument. The other three are claims a reader could disagree with.",
          "fa": "لیترها اندازه‌گیری‌ای درون استدلال باران‌اند. سه گزینهٔ دیگر ادعاهایی‌اند که خواننده می‌تواند با آن‌ها مخالفت کند."
         },
         "para": 3
@@ -5033,7 +5033,7 @@
         "q": "What does the last sentence of the passage suggest?",
         "options": [
          "Forests are expensive to maintain",
-         "Cities should not plant forests near car parks",
+         "Cities should not plant forests near parking lots",
          "Infrastructure always gets more expensive",
          "The cost of looking after a forest falls as it matures"
         ],
@@ -5160,7 +5160,7 @@
       "A white roof is not a new idea, but the measurements are. In Los Angeles, streets coated with a pale reflective surface measured up to 2.1 degrees Fahrenheit cooler in the air above them on sunny days, and about half a degree cooler at night.",
       "The mechanism is simple. Dark surfaces absorb sunlight and release it as heat; pale ones reflect part of it away. In Phoenix, coated asphalt has measured up to twelve degrees Fahrenheit cooler at the surface at noon, which matters to anyone who has to touch it.",
       "The limits are equally simple. A reflective street is bright, and drivers have complained about glare. Coatings wear away and must be reapplied every few years, and the effect on air temperature, though real, is small next to planting trees, which also provide shade.",
-      "So painting is best understood as one measure among several. Cities that have done it report the same thing: the pavement cools, the street looks different, and nobody claims the town is cool. For that you need shade, water and fewer cars."
+      "So painting is best understood as one measure among several. Cities that have done it report the same thing: the sidewalk cools, the street looks different, and nobody claims the town is cool. For that you need shade, water and fewer cars."
      ],
      "summary": {
       "en": "Pale coatings measurably cool a road surface and slightly cool the air, but they are one small measure among several.",
@@ -5241,7 +5241,7 @@
        {
         "q": "What do the cities that have done it report?",
         "options": [
-         "The pavement cools, but nobody claims the town is cool",
+         "The sidewalk cools, but nobody claims the town is cool",
          "The whole town is cooler",
          "Drivers prefer the brighter streets",
          "The paint never needs replacing"
@@ -5333,7 +5333,7 @@
      "minutes": 1,
      "paragraphs": [
       "Ten years ago buying used clothes was a way of saving money. Today it is also a way of being seen: resale platforms advertise vintage labels, and a jacket that someone else has worn can cost more than a new one.",
-      "The environmental argument is the one most often made. A new cotton shirt uses thousands of litres of water before it reaches a shop; a second-hand shirt uses almost none. On that measure, buying used is clearly better.",
+      "The environmental argument is the one most often made. A new cotton shirt uses thousands of liters of water before it reaches a shop; a second-hand shirt uses almost none. On that measure, buying used is clearly better.",
       "The catch is that the argument only holds while people buy fewer new clothes. If a shopper buys second-hand in addition to everything they bought before, the water saved by the used shirt is spent on the new one in the same bag.",
       "Resale has therefore changed the second-hand shop more than it has changed consumption. The shops now compete for the best donations, prices have risen, and the cheapest clothes - the ones that used to clothe people who needed them - are the hardest to find."
      ],
@@ -5348,7 +5348,7 @@
      "questions": {
       "blanks": [
        {
-        "sentence": "A new cotton shirt uses thousands of litres of ___.",
+        "sentence": "A new cotton shirt uses thousands of liters of ___.",
         "answer": "water",
         "also": [],
         "hint": {
@@ -5476,7 +5476,7 @@
          }
         ],
         "model": {
-         "en": "My friend is right about the shirt: a new cotton one uses thousands of litres of water and a second-hand one uses almost none, so per garment the used shirt is better. What the claim misses is addition. If the same shopper also buys everything they bought before, the water saved on the shirt is spent on the new clothes in the same bag. The passage also shows a side effect nobody advertised: resale has pushed prices up, so the cheapest clothes are now the hardest to find.",
+         "en": "My friend is right about the shirt: a new cotton one uses thousands of liters of water and a second-hand one uses almost none, so per garment the used shirt is better. What the claim misses is addition. If the same shopper also buys everything they bought before, the water saved on the shirt is spent on the new clothes in the same bag. The passage also shows a side effect nobody advertised: resale has pushed prices up, so the cheapest clothes are now the hardest to find.",
          "fa": "دستم دربارهٔ پیراهن درست است: پیراهن نوی پنبه‌ای هزاران لیتر آب می‌خواهد و دست‌دوم تقریباً هیچ، پس به‌ازای هر لباس دست‌دوم بهتر است. چیزی که این ادعا جا می‌اندازد «اضافه شدن» است. اگر همان خریدار همهٔ چیزهایی را که قبلاً می‌خرید هم بخرد، آبی که در پیراهن صرفه‌جویی شد صرف لباس‌های نو در همان سبد می‌شود. متن یک عارضهٔ تبلیغ‌نشده هم نشان می‌دهد: فروش دوباره قیمت‌ها را بالا برده، پس ارزان‌ترین لباس‌ها حالا سخت‌ترین برای پیدا کردن‌اند."
         }
        }
@@ -5540,7 +5540,7 @@
     }
    ],
    "example": {
-    "text": "Remote work raises productivity. However, the studies that show this were mostly done with experienced staff. For example, one trial found a 13 per cent gain among engineers with five years' experience. Consequently, the result may not travel to a first job.",
+    "text": "Remote work raises productivity. However, the studies that show this were mostly done with experienced staff. For example, one trial found a 13 percent gain among engineers with five years' experience. Consequently, the result may not travel to a first job.",
     "steps": [
      {
       "en": "Three signposts, three jobs: however limits the first claim, for example supports the limit, consequently draws the conclusion.",
@@ -5582,7 +5582,7 @@
      "fa": "خط کشیدن زیر نشانه‌ها پیش از پاسخ دادن."
     },
     {
-     "en": "Each one labelled: contrast, example, cause, result, limit.",
+     "en": "Each one labeled: contrast, example, cause, result, limit.",
      "fa": "برچسب زدن به هر کدام: تضاد، مثال، علت، نتیجه، محدودیت."
     },
     {
@@ -5833,11 +5833,11 @@
       "en": "Analysis",
       "fa": "تحلیل"
      },
-     "words": 138,
+     "words": 137,
      "minutes": 1,
      "paragraphs": [
       "Remote work raises productivity. However, the studies showing this were mostly done with experienced staff doing tasks that need concentration rather than coordination.",
-      "For example, one trial of data-entry staff found a 13 per cent gain when they worked from home four days a week; a second study of software teams found no measurable change in output but slower decisions.",
+      "For example, one trial of data-entry staff found a 13 percent gain when they worked from home four days a week; a second study of software teams found no measurable change in output but slower decisions.",
       "Therefore the useful question is not whether remote work is productive but for whom. Consequently, a manager who reads only the first result will expect gains that a mixed team may never see.",
       "Nevertheless, the pattern is not random. Tasks that are individual, measurable and already well defined travel well; work that depends on quick, unplanned conversation does not. Unless a team's tasks are sorted into those two groups, any general claim will be wrong for half of it."
      ],
@@ -5852,7 +5852,7 @@
      "questions": {
       "blanks": [
        {
-        "sentence": "The data-entry trial found a ___ per cent gain.",
+        "sentence": "The data-entry trial found a ___ percent gain.",
         "answer": "13",
         "also": [
          "thirteen"
@@ -5945,7 +5945,7 @@
         "statement": "The writer says remote work never raises productivity.",
         "answer": false,
         "why": {
-         "en": "The trial did raise it by 13 per cent; the writer limits the claim, not denies it.",
+         "en": "The trial did raise it by 13 percent; the writer limits the claim, not denies it.",
          "fa": "آزمون ۱۳ درصد افزایش داد؛ نویسنده ادعا را محدود می‌کند، انکار نمی‌کند."
         },
         "para": 2
@@ -5982,7 +5982,7 @@
          }
         ],
         "model": {
-         "en": "Claim: remote work raises productivity. However - the studies used experienced staff on concentrated tasks. For example - data entry gained 13 per cent, while software teams saw slower decisions. Therefore - the question is not whether but for whom. Consequently - managers expecting the same gain will be disappointed. Nevertheless - the pattern is regular, and unless tasks are sorted, general claims fail.",
+         "en": "Claim: remote work raises productivity. However - the studies used experienced staff on concentrated tasks. For example - data entry gained 13 percent, while software teams saw slower decisions. Therefore - the question is not whether but for whom. Consequently - managers expecting the same gain will be disappointed. Nevertheless - the pattern is regular, and unless tasks are sorted, general claims fail.",
          "fa": "ادعا: کار از راه دور بهره‌وری را بالا می‌برد. However - پژوهش‌ها با کارکنان باتجربه روی کارهای متمرکز انجام شده بود. For example - ورود داده ۱۳ درصد سود داشت، در حالی که تیم‌های نرم‌افزار تصمیم‌های کندتر داشتند. Therefore - سؤال «آیا» نیست، «برای چه کسی» است. Consequently - مدیری که همان سود را انتظار دارد ناامید می‌شود. Nevertheless - الگو منظم است و تا کارها دسته‌بندی نشوند، ادعاهای کلی شکست می‌خورند."
         }
        }
@@ -6080,7 +6080,7 @@
         "options": [
          "A different, independent problem",
          "A repeat of the first problem",
-         "A defence of the study",
+         "A defense of the study",
          "The newspaper's reaction"
         ],
         "answer": 0,
@@ -6138,7 +6138,7 @@
       "essay": [
        {
         "prompt": {
-         "en": "Summarise the passage's argument in three sentences, one for the finding, one for the two problems, one for the conclusion.",
+         "en": "Summarize the passage's argument in three sentences, one for the finding, one for the two problems, one for the conclusion.",
          "fa": "استدلال متن را در سه جمله خلاصه کن: یکی برای یافته، یکی برای دو مشکل، یکی برای نتیجه."
         },
         "min_words": 50,
@@ -6183,7 +6183,7 @@
    "icon": "📝",
    "level": "B2",
    "title": {
-    "en": "Summarise and paraphrase without copying",
+    "en": "Summarize and paraphrase without copying",
     "fa": "خلاصه کردن و بازنویسی بدون کپی کردن"
    },
    "blurb": {
@@ -6195,7 +6195,7 @@
     "fa": "بازنویسی (paraphrase) یک جمله را با همان طول تقریبی و واژه‌های تازه بیان می‌کند: همان معنی، سطحی متفاوت. خلاصه (summary) کل متن را فشرده می‌کند و فقط چیزی را نگه می‌دارد که خوانندهٔ ناآشنا لازم دارد: ادعای مرکزی، دو یا سه پشتوانه‌ای که آن را حمل می‌کنند، و محدودیتی که نویسنده می‌پذیرد. این دو مهارت با هم کار می‌کنند. جمله‌به‌جمله بازنویسی می‌کنی، بعد هر جمله‌ای را که فقط پشتیبان جملهٔ دیگری است دور می‌ریزی؛ این‌طور یک مقالهٔ چهارصد کلمه‌ای شصت کلمه می‌شود که هنوز چیزی می‌گوید که کسی می‌تواند با آن مخالفت کند."
    },
    "why": {
-    "en": "Summarising is how you find out whether you understood. A reader who can only repeat the sentences has stored the words, not the argument. It is also the skill most examined: summary questions, note-completion, 'which sentence best expresses...' and every academic task you will meet later are the same operation in different clothes.",
+    "en": "Summarizing is how you find out whether you understood. A reader who can only repeat the sentences has stored the words, not the argument. It is also the skill most examined: summary questions, note-completion, 'which sentence best expresses...' and every academic task you will meet later are the same operation in different clothes.",
     "fa": "خلاصه کردن راهی است که می‌فهمی آیا فهمیدی یا نه. خواننده‌ای که فقط می‌تواند جمله‌ها را تکرار کند، واژه‌ها را ذخیره کرده، نه استدلال را. همچنین این مهارت بیشترین کاربرد امتحانی را دارد: سؤال خلاصه، تکمیل یادداشت، «کدام جمله بهتر بیان می‌کند...» و هر تکلیف دانشگاهی بعدی، همان عملیات با لباس دیگری است."
    },
    "when": {
@@ -6303,7 +6303,7 @@
      "words": 215,
      "minutes": 1,
      "paragraphs": [
-      "In 2022, 61 British companies took part in a trial of a four-day week that lasted six months. Staff worked four days instead of five and kept their full pay. The trial was organised by a research group and a campaign organisation, and the companies chose to join - a fact worth remembering when you read the results.",
+      "In 2022, 61 British companies took part in a trial of a four-day week that lasted six months. Staff worked four days instead of five and kept their full pay. The trial was organized by a research group and a campaign organization, and the companies chose to join - a fact worth remembering when you read the results.",
       "For most firms the results were better than expected. Revenue stayed flat or rose in almost all of them, the number of resignations fell sharply, and sick days dropped. Managers reported that the hardest part was not the missing day but the meetings they had to cancel to pay for it.",
       "The caveats matter as much as the numbers. Sixty-one companies is a small sample, and volunteers are never a random sample: firms that expect a four-day week to fail do not apply. Most were office employers with control over their own hours, and the trial did not include hospitals, schools or shops, where cover has to be arranged hour by hour.",
       "How the participating firms paid for the fifth day is the most transferable finding. They shortened meetings, replaced many of them with written updates, and cut the time staff spent waiting for approvals. None of these changes requires a four-day week; any employer could try them tomorrow."
@@ -6368,7 +6368,7 @@
         "options": [
          "A trial's results, its limits, and what other employers can copy",
          "Why the four-day week is better for everyone",
-         "How to organise a meeting in less time",
+         "How to organize a meeting in less time",
          "Why British companies are short of staff"
         ],
         "answer": 0,
@@ -6397,7 +6397,7 @@
         "q": "According to the second paragraph, what was hardest for managers?",
         "options": [
          "Filling the fifth day with work",
-         "Cancelling the meetings that paid for the missing day",
+         "Canceling the meetings that paid for the missing day",
          "Recruiting new staff",
          "Measuring revenue"
         ],
@@ -6533,16 +6533,16 @@
       "en": "Education report",
       "fa": "گزارش آموزشی"
      },
-     "words": 161,
+     "words": 160,
      "minutes": 1,
      "paragraphs": [
       "For twenty years, sleep researchers have argued that secondary schools start too early. The recommendation most often quoted is 8.30 am, because at that hour most teenagers can have had eight hours of sleep.",
-      "The evidence is stronger than the argument suggests. In one district that moved its start time from 7.25 to 8.45, average sleep rose by about an hour, attendance improved, and car accidents involving teenage drivers fell by 16 per cent over the first two years.",
-      "The obstacles are practical rather than scientific. Buses run two or three school routes each morning, sport and after-school jobs are arranged around the old timetable, and parents on early shifts depend on schools opening early.",
+      "The evidence is stronger than the argument suggests. In one district that moved its start time from 7.25 to 8.45, average sleep rose by about an hour, attendance improved, and car accidents involving teenage drivers fell by 16 percent over the first two years.",
+      "The obstacles are practical rather than scientific. Buses run two or three school routes each morning, sport and after-school jobs are arranged around the old schedule, and parents on early shifts depend on schools opening early.",
       "Where change has succeeded, it was made slowly: one district moved its start time by ten minutes a year for five years, and nobody noticed until the change was complete. The lesson for a summariser is the same as for a school board - the smallest true statement carries furthest."
      ],
      "summary": {
-      "en": "Starting school later clearly helps teenagers, the obstacles are timetables rather than evidence, and slow ten-minute steps get past them.",
+      "en": "Starting school later clearly helps teenagers, the obstacles are schedules rather than evidence, and slow ten-minute steps get past them.",
       "fa": "دیرتر شروع شدن مدرسه آشکارا به نوجوانان کمک می‌کند، موانع جدول زمانی است نه شواهد، و قدم‌های آرام ده‌دقیقه‌ای از آن‌ها می‌گذرند."
      },
      "note": {
@@ -6565,7 +6565,7 @@
         "para": 1
        },
        {
-        "sentence": "Car accidents among teenage drivers fell by ___ per cent.",
+        "sentence": "Car accidents among teenage drivers fell by ___ percent.",
         "answer": "16",
         "also": [
          "sixteen"
@@ -6595,12 +6595,12 @@
         "options": [
          "Evidence for later starts, the practical obstacles, and a way through them",
          "Why teenagers need less sleep",
-         "How school buses are organised",
+         "How school buses are organized",
          "Why parents disagree with researchers"
         ],
         "answer": 0,
         "why": {
-         "en": "One paragraph of evidence, one of obstacles, one of the method that worked - and the last sentence generalises it.",
+         "en": "One paragraph of evidence, one of obstacles, one of the method that worked - and the last sentence generalizes it.",
          "fa": "یک پاراگراف شواهد، یکی موانع، یکی روشی که جواب داد؛ و جملهٔ آخر آن را کلی می‌کند."
         },
         "para": 4
@@ -6611,7 +6611,7 @@
          "They are scientific disagreements",
          "They affect only rural districts",
          "They were solved by the trial",
-         "They are timetables and habits, not evidence"
+         "They are schedules and habits, not evidence"
         ],
         "answer": 3,
         "why": {
@@ -6668,7 +6668,7 @@
       "essay": [
        {
         "prompt": {
-         "en": "Summarise the passage in 45-70 words: the evidence, the obstacle, the method. Use no sentence from the original.",
+         "en": "Summarize the passage in 45-70 words: the evidence, the obstacle, the method. Use no sentence from the original.",
          "fa": "متن را در ۴۵ تا ۷۰ کلمه خلاصه کن: شواهد، مانع، روش. هیچ جمله‌ای از متن اصلی را به کار نبر."
         },
         "min_words": 45,
@@ -6714,7 +6714,7 @@
      "words": 148,
      "minutes": 1,
      "paragraphs": [
-      "The fox on the bin at two in the morning is not lost. Urban foxes have lived in British cities since the 1930s, and studies suggest densities of up to thirty adults per square kilometre in some suburbs.",
+      "The fox on the bin at two in the morning is not lost. Urban foxes have lived in British cities since the 1930s, and studies suggest densities of up to thirty adults per square kilometer in some suburbs.",
       "The city suits them. Gardens offer shelter, food waste is reliable, and there are fewer large predators. A fox's territory in a town is smaller than in the countryside, and town foxes are often heavier.",
       "Conflict is real but narrower than the headlines imply. Most complaints concern noise and fouled gardens; attacks on pets are rare and mostly involve outdoor rabbits. Council advice is consistent: do not feed them, secure bins, and block the gaps under sheds.",
       "Culling has been tried repeatedly and has not worked: numbers return within two years, because the survivors breed earlier. The measure that does reduce complaints is the dull one - bins that close."
@@ -6742,14 +6742,14 @@
         "para": 1
        },
        {
-        "sentence": "Densities can reach ___ adults per square kilometre.",
+        "sentence": "Densities can reach ___ adults per square kilometer.",
         "answer": "thirty",
         "also": [
          "30"
         ],
         "hint": {
          "en": "A word, near 'per square kilometre'.",
-         "fa": "یک کلمه، کنار «per square kilometre»."
+         "fa": "یک کلمه، کنار «per square kilometer»."
         },
         "para": 1
        },
@@ -6864,7 +6864,7 @@
          }
         ],
         "model": {
-         "en": "Foxes have lived in British cities since the 1930s and are now a normal part of them, reaching up to thirty adults per square kilometre in some suburbs. The usual problem is noise and fouled gardens; attacks on pets are rare and mostly involve outdoor rabbits. Do not feed them and keep bins closed - that reduces complaints, while culling has failed wherever it has been tried.",
+         "en": "Foxes have lived in British cities since the 1930s and are now a normal part of them, reaching up to thirty adults per square kilometer in some suburbs. The usual problem is noise and fouled gardens; attacks on pets are rare and mostly involve outdoor rabbits. Do not feed them and keep bins closed - that reduces complaints, while culling has failed wherever it has been tried.",
          "fa": "روباه‌ها از دههٔ ۱۹۳۰ در شهرهای بریتانیا زندگی می‌کنند و حالا بخش عادی آن‌اند؛ در برخی حومه‌ها تا سی روباه بالغ در هر کیلومتر مربع. مشکل معمول سر و صدا و آلوده شدن باغ‌هاست؛ حمله به حیوان خانگی نادر است و بیشتر دربارهٔ خرگوش‌های بیرونی. به آن‌ها غذا ندهید و سطل‌ها را بسته نگه دارید؛ همین شکایت‌ها را کم می‌کند، در حالی که کشتار جمعی هر جا امتحان شده شکست خورده است."
         }
        }

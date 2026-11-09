@@ -123,7 +123,7 @@ DISTINCTIONS = [
     ("interesting", "interested", "A2",
      "'Interesting' describes the thing. 'Interested' describes the person's "
      "feeling. This is the classic Persian-speaker mistake (از کلمه علاقه).",
-     [("The film was very **interesting**.  ↲ فیلم خیلی جالب بود.",
+     [("The movie was very **interesting**.  ↲ فیلم خیلی جالب بود.",
       "I'm **interested** in history.  ↲ من به تاریخ علاقه‌مند هستم.")]),
     ("used to", "get used to", "B2",
      "'Used to + verb' is a habit in the past that is gone. 'Get used to + "
@@ -188,7 +188,7 @@ DISTINCTIONS = [
       ("We can **infer** that he agreed.", "می‌توانیم نتیجه بگیریم که او موافقت کرد.")]),
     ("comprised of", "comprise", "C2",
      "'Comprise' is a verb (the whole comprises the parts). It is not a "
-     "passive participle, so 'comprised of' is informal and often criticised.",
+     "passive participle, so 'comprised of' is informal and often criticized.",
      [("The team **comprises** ten members.", "تیم از ده عضو تشکیل شده است."),
       ("The committee **is comprised of** five people.", "کمیته از پنج نفر تشکیل شده است.")]),
     ("due to", "because of", "C1",
@@ -216,10 +216,10 @@ DISTINCTIONS = [
      "and it never takes an 's'.",
      [("Let me give you some **advice**.  ↲ بگذار به تو یک مشاوره بدهم.",
       "I **advise** you to rest.  ↲ به تو توصیه می‌کنم استراحت کنی.")]),
-    ("practise", "practice", "B2",
+    ("practice", "practice", "B2",
      "British English: 'practise' is the verb, 'practice' the noun. American "
      "English uses 'practice' for both.",
-     [("She **practises** the piano daily.  ↲ او هر روز پیانو می‌نوازد.",
+     [("She **practices** the piano daily.  ↲ او هر روز پیانو می‌نوازد.",
       "She has a daily piano **practice**.  ↲ او یک تمرین روزانه پیانو دارد.")]),
     ("affect", "effect", "C1",
      "Also as a verb: 'to effect a change' is formal and rarer than 'to "
@@ -227,7 +227,7 @@ DISTINCTIONS = [
      [("The new law **effects** many changes.  ↲ قانون جدید تغییرات زیادی ایجاد می‌کند.",
       "The new law **affects** many people.  ↲ قانون جدید بر مردم زیادی تأثیر می‌گذارد.")]),
     ("at the end", "in the end", "B1",
-     "'At the end' = at the final point of something (at the end of the film). "
+     "'At the end' = at the final point of something (at the end of the movie). "
      "'In the end' = after considering everything (in the end, she said no).",
      [("Turn left **at the end** of the street.", "در انتهای خیابان بپیچ چپ."),
       ("**In the end**, it was not important.", "در نهایت، مهم نبود.")]),
@@ -315,7 +315,7 @@ IDIOMS = [
     ("under control", "تحت کنترل", "idiom",
      "being managed well", "Everything is under control."),
     ("by heart", "از حفظ", "idiom",
-     "memorised", "I know the poem by heart."),
+     "memorized", "I know the poem by heart."),
     ("day by day", "روز به روز", "idiom",
      "gradually, a little each day", "He gets better day by day."),
 ]
@@ -472,7 +472,7 @@ def main() -> None:
     # ---------------------------------------------------------- distinctions
     topics = []
     for a, b, level, why, pairs in DISTINCTIONS:
-        # Normalise every entry to a list of {en, fa} sides. A side may be
+        # Normalize every entry to a list of {en, fa} sides. A side may be
         # written as one string carrying its own "\u21b2 ..." translation.
         sides = []
         for item in pairs:

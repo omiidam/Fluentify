@@ -160,7 +160,7 @@ U4 = unit(
             ("Describe a job or a course with the phrases people actually use at work.", "کار یا دوره‌ای را با عبارت‌هایی توصیف کن که در محل کار واقعاً به کار می‌روند."),
             [
                 ("Jobs are described by duty, not only by title: I'm responsible for the morning orders. I deal with customers. I work in a team of five. The verb changes with the preposition, so learn them together.", "کارها با وظیفه توصیف می‌شوند، نه فقط عنوان: I'm responsible for the morning orders. I deal with customers. I work in a team of five. فعل با حرف اضافه عوض می‌شود، پس آن‌ها را با هم یاد بگیر."),
-                ("Study has its own set: apply for a course, enrol on a course, attend a class, hand in an assignment, take an exam, pass or fail it. You apply *for* a job and *to* a university.", "درس مجموعهٔ خودش را دارد: apply for a course، enrol on a course، attend a class، hand in an assignment، take an exam، pass یا fail. برای کار apply for و برای دانشگاه apply to می‌گوییم."),
+                ("Study has its own set: apply for a course, enroll on a course, attend a class, hand in an assignment, take an exam, pass or fail it. You apply *for* a job and *to* a university.", "درس مجموعهٔ خودش را دارد: apply for a course، enroll on a course، attend a class، hand in an assignment، take an exam، pass یا fail. برای کار apply for و برای دانشگاه apply to می‌گوییم."),
                 ("Time at work: a deadline is the last day, a shift is your block of hours, overtime is extra hours, a day off is a free day. Part-time is fewer hours; full-time is the whole week.", "زمان در کار: deadline آخرین روز، shift بلوک کاری تو، overtime ساعت اضافه و a day off روز آزاد است. part-time ساعت کمتر و full-time تمام هفته است."),
             ],
             [
@@ -180,7 +180,7 @@ U4 = unit(
                 gap("She is ___ for the whole sales team this month.", ["responsible"], "be responsible for.", "be responsible for یعنی مسئول چیزی بودن."),
                 mcq("'I'm on the night shift' means ___.", "«I'm on the night shift» یعنی ___.", ["I finish at night", "I work during the night", "I sleep at night", "I have the night off"], 1,
                     "A shift is the block of hours you work.", "shift بلوک ساعتی است که کار می‌کنی."),
-                listen("I'm sorry, I can't come on Thursday. I have to hand in my project by Friday and I'm still working on it.", "Why can't she come on Thursday?", "چرا پنجشنبه نمی‌تواند بیاید؟", ["she is on holiday", "she has to finish a project for Friday", "she is ill", "she is working overtime on Friday"], 1,
+                listen("I'm sorry, I can't come on Thursday. I have to hand in my project by Friday and I'm still working on it.", "Why can't she come on Thursday?", "چرا پنجشنبه نمی‌تواند بیاید؟", ["she is on vacation", "she has to finish a project for Friday", "she is ill", "she is working overtime on Friday"], 1,
                        "Her project is due on Friday and it is not finished.", "پروژه‌اش جمعه موعد دارد و تمام نشده است."),
             ],
         ),

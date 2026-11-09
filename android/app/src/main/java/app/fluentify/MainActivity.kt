@@ -439,7 +439,11 @@ class MainActivity : AppCompatActivity() {
                                 .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                                 .build()
                         )
-                        engine.language = Locale.UK
+                        // General American is the course model; fall back to
+                        // plain English only on a device with no US voice.
+                        engine.language =
+                            if (engine.isLanguageAvailable(Locale.US) >= TextToSpeech.LANG_AVAILABLE)
+                                Locale.US else Locale.ENGLISH
                         engine.setSpeechRate(0.95f)
                         engine.setPitch(1.0f)
                     } catch (ignored: Exception) {
@@ -540,7 +544,11 @@ class MainActivity : AppCompatActivity() {
         if (tts == null) {
             tts = TextToSpeech(this) { status ->
                 ttsReady = status == TextToSpeech.SUCCESS
-                if (ttsReady) tts?.language = Locale.UK
+                if (ttsReady) {
+                    tts?.language =
+                        if (tts!!.isLanguageAvailable(Locale.US) >= TextToSpeech.LANG_AVAILABLE)
+                            Locale.US else Locale.ENGLISH
+                }
             }
         }
     }

@@ -25,7 +25,7 @@ U5 = unit(
                 ("Say how big the difference is: much, far and a lot go before the comparative, a bit and slightly too, and (not) as … as says two things are equal: this one isn't as good as that one.", "اندازهٔ تفاوت را بگو: much، far و a lot قبل از صفت برتر می‌آیند، a bit و slightly هم همین‌طور، و (not) as … as برابری دو چیز را می‌گوید: this one isn't as good as that one."),
             ],
             [
-                ("This flat is cheaper than the one near the park.", "این آپارتمان از آن یکی نزدیک پارک ارزان‌تر است."),
+                ("This apartment is cheaper than the one near the park.", "این آپارتمان از آن یکی نزدیک پارک ارزان‌تر است."),
                 ("Today is much colder than yesterday.", "امروز از دیروز خیلی سردتر است."),
                 ("It's the best restaurant in the city, but it's also the most expensive.", "بهترین رستوران شهر است، اما گران‌ترین هم هست."),
                 ("My new phone is slightly bigger but not as fast as the old one.", "گوشی جدیدم کمی بزرگ‌تر است اما به سرعت قبلی نیست."),
@@ -52,7 +52,7 @@ U5 = unit(
             [
                 ("The paper trail of a purchase: you pay by card or in cash, and you keep the receipt. The receipt is your proof, so without it a return is difficult.", "ردّ کاغذی خرید: با کارت یا نقد پول می‌دهی و رسید را نگه می‌داری. رسید مدرک توست، پس بدون آن پس دادن سخت است."),
                 ("Problems: it doesn't fit, it's the wrong size, it's faulty, it's broken. You ask for a refund (money back), an exchange (another one), or a repair. A warranty covers faults for a period.", "مشکل‌ها: اندازه نیست، سایز اشتباه است، معیوب است، شکسته است. refund (پس دادن پول)، exchange (تعویض) یا repair (تعمیر) می‌خواهی. warranty خرابی را برای مدتی پوشش می‌دهد."),
-                ("Prices and value: a discount is a reduction, a bargain is something cheap for its value, and 'on sale' means the shop has reduced it. Queue is the line you wait in; changing room is where you try clothes.", "قیمت و ارزش: discount تخفیف، bargain چیزی ارزان نسبت به ارزشش و on sale یعنی فروشگاه قیمت را کم کرده است. queue صفی است که در آن می‌ایستی و changing room اتاق پرو است."),
+                ("Prices and value: a discount is a reduction, a bargain is something cheap for its value, and 'on sale' means the shop has reduced it. A line is what you wait in; a fitting room is where you try clothes.", "قیمت و ارزش: discount تخفیف، bargain چیزی ارزان نسبت به ارزشش و on sale یعنی فروشگاه قیمت را کم کرده است. line صفی است که در آن می‌ایستی و fitting room اتاق پرو است."),
             ],
             [
                 ("Can I pay by card, or is it cash only?", "می‌توانم با کارت پرداخت کنم یا فقط نقدی است؟"),
@@ -61,7 +61,7 @@ U5 = unit(
                 ("It was half price, so it was a real bargain.", "نصف قیمت بود، پس واقعاً ارزان و به‌صرفه بود."),
             ],
             [
-                mcq("You want your money back. You ask for a ___.", "پولت را می‌خواهی. ___ می‌خواهی.", ["receipt", "refund", "discount", "queue"], 1,
+                mcq("You want your money back. You ask for a ___.", "پولت را می‌خواهی. ___ می‌خواهی.", ["receipt", "refund", "discount", "line"], 1,
                     "A refund returns the money you paid.", "refund پولی را که داده‌ای برمی‌گرداند."),
                 mcq("A product with a problem is ___.", "محصولی که مشکل دارد ___ است.", ["faulty", "bargain", "receipt", "warranty"], 0,
                     "Faulty means it has a fault.", "faulty یعنی عیب دارد."),
@@ -69,7 +69,7 @@ U5 = unit(
             [
                 gap("Keep the ___ , or you can't return the item.", ["receipt"], "The receipt is the proof of purchase.", "رسید مدرک خرید است."),
                 gap("There's a 20% ___ on everything this week.", ["discount"], "A reduction in price is a discount.", "کاهش قیمت discount است."),
-                mcq("'It's faulty' means ___.", "«It's faulty» یعنی ___.", ["it is expensive", "it does not work properly", "it is the wrong colour", "it is on sale"], 1,
+                mcq("'It's faulty' means ___.", "«It's faulty» یعنی ___.", ["it is expensive", "it does not work properly", "it is the wrong color", "it is on sale"], 1,
                     "Faulty: it does not work as it should.", "faulty: آن‌طور که باید کار نمی‌کند."),
                 listen("I bought this kettle last week and it stopped working yesterday. — Do you have the receipt? — Yes, here it is. — Then I can give you a refund or an exchange.", "What does the shop offer?", "فروشگاه چه پیشنهاد می‌دهد؟", ["only a repair", "a refund or an exchange", "nothing without a warranty", "a discount"], 1,
                        "With the receipt, the shop offers a refund or an exchange.", "با رسید، فروشگاه بازپرداخت یا تعویض پیشنهاد می‌دهد."),
@@ -82,23 +82,23 @@ U5 = unit(
             ("Read a short article about a market and separate the writer's facts from her opinion.", "مقالهٔ کوتاهی دربارهٔ یک بازار بخوان و واقعیت‌ها را از نظر نویسنده جدا کن."),
             [
                 ("A short article gives facts (where, when, what is sold, how much) and opinions (better, best, I love). Facts can be checked; opinions carry the writer's view.", "مقالهٔ کوتاه واقعیت‌ها (کجا، کِی، چه چیزی، چند) و نظرها (better، best، I love) را با هم می‌آورد. واقعیت‌ها را می‌توان بررسی کرد؛ نظرها دید نویسنده را دارند."),
-                ("Comparatives are the writer's tool for recommending: cheaper than the supermarket, the freshest vegetables, busier in the morning. Read them as judgement, not measurement.", "صفت‌های برتر ابزار توصیهٔ نویسنده‌اند: cheaper than the supermarket، the freshest vegetables، busier in the morning. آن‌ها را داوری بخوان، نه اندازه‌گیری."),
+                ("Comparatives are the writer's tool for recommending: cheaper than the supermarket, the freshest vegetables, busier in the morning. Read them as judgment, not measurement.", "صفت‌های برتر ابزار توصیهٔ نویسنده‌اند: cheaper than the supermarket، the freshest vegetables، busier in the morning. آن‌ها را داوری بخوان، نه اندازه‌گیری."),
             ],
             [
-                ("Facts: it opens at seven on Thursday mornings, behind the old cinema.", "واقعیت: پنجشنبه‌ها ساعت هفت صبح، پشت سینمای قدیمی باز می‌شود."),
+                ("Facts: it opens at seven on Thursday mornings, behind the old movie theater.", "واقعیت: پنجشنبه‌ها ساعت هفت صبح، پشت سینمای قدیمی باز می‌شود."),
                 ("Opinion: it is the friendliest market in the city.", "نظر: صمیمی‌ترین بازار شهر است."),
                 ("Recommendation: arrive before nine, because the best bread goes first.", "توصیه: قبل از نه برس، چون بهترین نان اول تمام می‌شود."),
             ],
             [
                 mcq("When is the market open?", "بازار کِی باز است؟", ["every morning", "on Thursday mornings", "on Thursday evenings", "on Fridays"], 1,
                     "It opens at seven on Thursday mornings.", "پنجشنبه‌ها ساعت هفت صبح باز می‌شود."),
-                mcq("Which sentence is an opinion, not a fact?", "کدام جمله نظر است، نه واقعیت؟", ["It opens at seven.", "It is behind the old cinema.", "It is the friendliest market in the city.", "It sells vegetables."], 2,
-                    "'Friendly' is a judgement the writer makes.", "«صمیمی» داوری نویسنده است."),
+                mcq("Which sentence is an opinion, not a fact?", "کدام جمله نظر است، نه واقعیت؟", ["It opens at seven.", "It is behind the old movie theater.", "It is the friendliest market in the city.", "It sells vegetables."], 2,
+                    "'Friendly' is a judgment the writer makes.", "«صمیمی» داوری نویسنده است."),
             ],
             [
-                mcq("Why should you arrive before nine?", "چرا باید قبل از نه برسی؟", ["the market closes at nine", "the best bread sells quickly", "prices rise at nine", "the cinema opens"], 1,
+                mcq("Why should you arrive before nine?", "چرا باید قبل از نه برسی؟", ["the market closes at nine", "the best bread sells quickly", "prices rise at nine", "the movie theater opens"], 1,
                     "'The best bread goes first' — it sells out early.", "«بهترین نان اول می‌رود» یعنی زود تمام می‌شود."),
-                mcq("What does the writer compare the market with?", "نویسنده بازار را با چه چیزی مقایسه می‌کند؟", ["the cinema", "a supermarket", "a restaurant", "another city"], 1,
+                mcq("What does the writer compare the market with?", "نویسنده بازار را با چه چیزی مقایسه می‌کند؟", ["the movie theater", "a supermarket", "a restaurant", "another city"], 1,
                     "She says the vegetables are cheaper than at the supermarket.", "می‌گوید سبزی‌ها از سوپرمارکت ارزان‌ترند."),
                 mcq("How does the writer feel about the market?", "نویسنده دربارهٔ بازار چه حسی دارد؟", ["She dislikes the crowds.", "She thinks it is the best place to shop.", "She thinks it is too expensive.", "She has never been there."], 1,
                     "She calls it the friendliest and recommends it.", "آن را صمیمی‌ترین می‌خواند و توصیه می‌کند."),
@@ -106,7 +106,7 @@ U5 = unit(
                     "Goes first here means it is sold earliest.", "goes first اینجا یعنی زودتر فروخته می‌شود."),
             ],
             passage=passage(("The Thursday market", "بازار پنجشنبه"),
-                            ("Every Thursday morning, behind the old cinema, the market opens at seven. There are about forty stalls: vegetables, bread, cheese, second-hand books and one very good coffee cart.\n\nThe vegetables are cheaper than at the supermarket and much fresher, because most of them come from farms outside the city. The cheese stall is the most popular, and the queue is longest at about eight.\n\nIt is the friendliest market in the city. Come before nine if you want the best bread — it always goes first.",
+                            ("Every Thursday morning, behind the old movie theater, the market opens at seven. There are about forty stalls: vegetables, bread, cheese, second-hand books and one very good coffee cart.\n\nThe vegetables are cheaper than at the supermarket and much fresher, because most of them come from farms outside the city. The cheese stall is the most popular, and the line is longest at about eight.\n\nIt is the friendliest market in the city. Come before nine if you want the best bread — it always goes first.",
                              "هر پنجشنبه صبح، پشت سینمای قدیمی، بازار ساعت هفت باز می‌شود. حدود چهل غرفه هست: سبزی، نان، پنیر، کتاب دست‌دوم و یک چرخ قهوهٔ خیلی خوب.\n\nسبزی‌ها از سوپرمارکت ارزان‌تر و بسیار تازه‌ترند، چون بیشترشان از مزرعه‌های بیرون شهر می‌آیند. غرفهٔ پنیر محبوب‌ترین است و صف حدود ساعت هشت بلندترین است.\n\nصمیمی‌ترین بازار شهر است. اگر بهترین نان را می‌خواهی قبل از نه بیا؛ همیشه اول تمام می‌شود.")),
         ),
     ],
@@ -156,8 +156,8 @@ U6 = unit(
             ("Health: symptoms, the pharmacy and advice", "سلامت: نشانه‌ها، داروخانه و توصیه"),
             ("Describe how you feel, buy the right medicine and understand the instructions.", "بگو چه حسی داری، داروی درست را بخر و دستورها را بفهم."),
             [
-                ("Say what hurts with have got: I've got a headache, a sore throat, a cough, a temperature. A pain is in a place: a pain in my back. Dizzy and sick describe how you feel.", "درد را با have got بگو: I've got a headache، a sore throat، a cough، a temperature. pain در یک نقطه است: a pain in my back. dizzy و sick حال تو را توصیف می‌کنند."),
-                ("The pharmacy (chemist's in British English) sells medicine; a prescription is the doctor's paper you need for stronger medicine. Tablets, capsules, syrup; a dose is how much you take at one time.", "داروخانه (chemist's در انگلیسی بریتانیایی) دارو می‌فروشد؛ prescription کاغذ پزشک برای داروهای قوی‌تر است. tablet، capsule، syrup؛ dose مقدار مصرف در هر نوبت است."),
+                ("Say what hurts with have: I have a headache, a sore throat, a cough, a temperature. A pain is in a place: a pain in my back. Dizzy and sick describe how you feel.", "درد را با have بگو: I have a headache، a sore throat، a cough، a temperature. pain در یک نقطه است: a pain in my back. dizzy و sick حال تو را توصیف می‌کنند."),
+                ("The pharmacy, also called a drugstore, sells medicine; in British English it is the chemist's. A prescription is the doctor's paper you need for stronger medicine. Tablets, capsules, syrup; a dose is how much you take at one time.", "داروخانه (در انگلیسی بریتانیایی chemist's) دارو می‌فروشد؛ prescription کاغذ پزشک برای داروهای قوی‌تر است. tablet، capsule، syrup؛ dose مقدار مصرف در هر نوبت است."),
                 ("Instructions are fixed phrases: take one tablet twice a day, after food, with water, do not exceed the dose, keep out of reach of children. Miss a dose? Take it when you remember, unless it is nearly time for the next one.", "دستورها عبارت‌های ثابت دارند: take one tablet twice a day، after food، with water، do not exceed the dose، keep out of reach of children. اگر یک نوبت را فراموش کردی، وقتی یادت آمد بخور، مگر اینکه نوبت بعدی نزدیک باشد."),
             ],
             [

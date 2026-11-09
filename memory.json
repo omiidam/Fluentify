@@ -1463,7 +1463,7 @@
       },
       "responses": {
         "en": [
-          "Try something new! 🎯 Learn a word, watch a short film, or cook something.",
+          "Try something new! 🎯 Learn a word, watch a short movie, or cook something.",
           "Bored? Great time to learn! Want a quick quiz or a new phrase?",
           "Go for a walk, call a friend, or try that hobby you keep postponing. ☕"
         ],
@@ -1553,7 +1553,7 @@
       "responses": {
         "en": [
           "🧹 Conversation cleared — a clean slate.",
-          "🧹 Cleared! What shall we start with?"
+          "🧹 Cleared! What should we start with?"
         ],
         "fa": [
           "🧹 گفتگو پاک شد — صفحه تازه است.",
@@ -1676,7 +1676,7 @@
       },
       "responses": {
         "en": [
-          "Good to hear! Want to practise something while you're here?",
+          "Good to hear! Want to practice something while you're here?",
           "Nice! Let's use that energy — ask me for a lesson, a word, or a joke.",
           "Great! Say 'grammar' for a lesson or 'vocabulary' for words."
         ],

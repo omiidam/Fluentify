@@ -19,13 +19,13 @@ U7 = unit(
             ("Modals of obligation, advice and probability", "افعال وجهی اجبار، توصیه و احتمال"),
             ("Use must, have to, should, might and can't for rules, advice and deductions.", "must، have to، should، might و can't را برای قانون، توصیه و استنباط به کار ببر."),
             [
-                ("Obligation: must (strong, often the speaker's own view), have to (an outside rule), need to (a practical necessity). No obligation is don't have to; prohibition is mustn't. I must call my mother / I have to wear a uniform / You don't have to come / You mustn't smoke here.", "اجبار: must (شدید، اغلب نظر گوینده)، have to (قانون بیرونی)، need to (ضرورت عملی). نبودِ اجبار don't have to و ممنوعیت mustn't است."),
+                ("Obligation: must (strong, often the speaker's own view), have to (an outside rule), need to (a practical necessity). No obligation is don't have to; prohibition is must not. I must call my mother / I have to wear a uniform / You don't have to come / You must not smoke here.", "اجبار: must (شدید، اغلب نظر گوینده)، have to (قانون بیرونی)، need to (ضرورت عملی). نبودِ اجبار don't have to و ممنوعیت must not است."),
                 ("Advice: should / ought to / had better. Had better carries a warning — something bad follows if you don't: You'd better take an umbrella. Should is neutral advice.", "توصیه: should / ought to / had better. had better هشدار دارد: You'd better take an umbrella. should توصیهٔ خنثی است."),
                 ("Deduction about the present: must be (I'm certain it is true), might/may/could be (possible), can't be (I'm certain it is not). 'He must be tired' is a conclusion from evidence, not an obligation — the opposite of 'He must rest'.", "استنباط دربارهٔ حال: must be (مطمئنم درست است)، might/may/could be (ممکن)، can't be (مطمئنم نیست). «He must be tired» نتیجه‌گیری از شاهد است، نه اجبار؛ متضاد «He must rest»."),
                 ("Past deduction: must have + participle (it certainly happened), might have (perhaps), can't have (certainly not). She must have missed the train. Permission uses can, may (formal) and be allowed to.", "استنباط گذشته: must have + اسم مفعول، might have، can't have. She must have missed the train. اجازه با can، may (رسمی) و be allowed to گفته می‌شود."),
             ],
             [
-                ("You mustn't use your phone while you're driving — it's illegal.", "هنگام رانندگی نباید از گوشی استفاده کنی؛ غیرقانونی است."),
+                ("You must not use your phone while you're driving — it's illegal.", "هنگام رانندگی نباید از گوشی استفاده کنی؛ غیرقانونی است."),
                 ("You don't have to book, but it's cheaper if you do.", "لازم نیست رزرو کنی، اما اگر بکنی ارزان‌تر است."),
                 ("You'd better leave now if you want to catch the last metro.", "اگر می‌خواهی به آخرین مترو برسی بهتر است الان راه بیفتی."),
                 ("The lights are off — they must have gone to bed.", "چراغ‌ها خاموش است؛ حتماً خوابیده‌اند."),
@@ -34,14 +34,14 @@ U7 = unit(
             [
                 mcq("The office is dark and the door is locked. Everyone ___ gone home.", "دفتر تاریک است و در قفل. همه ___ رفته‌اند.", ["must have", "must", "should have", "can't have"], 0,
                     "Certainty about the past: must have + participle.", "اطمینان دربارهٔ گذشته: must have + اسم مفعول."),
-                mcq("You ___ bring a towel; the hotel provides them.", "لازم نیست حوله بیاوری؛ هتل حوله می‌دهد.", ["mustn't", "don't have to", "shouldn't", "can't"], 1,
+                mcq("You ___ bring a towel; the hotel provides them.", "لازم نیست حوله بیاوری؛ هتل حوله می‌دهد.", ["must not", "don't have to", "shouldn't", "can't"], 1,
                     "No obligation is don't have to.", "نبودِ اجبار با don't have to است."),
             ],
             [
                 gap("She's been working since six. She ___ be exhausted.", ["must"], "A deduction from evidence: must be.", "استنباط از شاهد: must be."),
                 gap("You ___ better see a doctor if the pain continues.", ["had", "'d"], "Had better + plain verb, a warning.", "had better + فعل ساده، همراه هشدار."),
-                mcq("Which sentence is a prohibition?", "کدام جمله ممنوعیت است؟", ["You don't have to pay.", "You mustn't park here.", "You should rest.", "You might be right."], 1,
-                    "Mustn't forbids; don't have to permits.", "mustn't منع می‌کند و don't have to اجازه می‌دهد."),
+                mcq("Which sentence is a prohibition?", "کدام جمله ممنوعیت است؟", ["You don't have to pay.", "You must not park here.", "You should rest.", "You might be right."], 1,
+                    "Must not forbids; don't have to permits.", "must not منع می‌کند و don't have to اجازه می‌دهد."),
                 listen("The train left at seven and it's only half past six now. — Then we can't have missed it; we're early.", "What do they conclude?", "به چه نتیجه‌ای می‌رسند؟", ["they missed the train", "they are early", "the train is late", "they are on the wrong platform"], 1,
                        "Can't have missed it — the time has not come.", "can't have missed it، چون زمان نرسیده است."),
             ],
@@ -54,11 +54,11 @@ U7 = unit(
             [
                 ("Money verbs carry their prepositions: pay for something, pay back a loan, spend money on, save up for, afford (no preposition), owe someone, be worth. 'I can't afford it' needs no 'to'.", "فعل‌های پول حرف اضافهٔ خودشان را دارند: pay for، pay back، spend on، save up for، afford (بدون حرف اضافه)، owe، be worth. «I can't afford it» به to نیاز ندارد."),
                 ("Accounts and services: open an account, transfer money, withdraw cash, set up a direct debit, cancel a subscription, be charged for, be refunded. 'They charged me twice' is the complaint pattern.", "حساب و خدمات: open an account، transfer money، withdraw cash، set up a direct debit، cancel a subscription، be charged for، be refunded. «They charged me twice» الگوی شکایت است."),
-                ("Complaint language escalates in three steps: state the facts, state the effect, state what you want. I cancelled on the 3rd. I was still charged on the 5th. I'd like the money back and the subscription closed.", "زبان شکایت سه پله دارد: واقعیت را بگو، اثرش را بگو و آنچه می‌خواهی را بگو. I cancelled on the 3rd. I was still charged on the 5th. I'd like the money back."),
+                ("Complaint language escalates in three steps: state the facts, state the effect, state what you want. I canceled on the 3rd. I was still charged on the 5th. I'd like the money back and the subscription closed.", "زبان شکایت سه پله دارد: واقعیت را بگو، اثرش را بگو و آنچه می‌خواهی را بگو. I canceled on the 3rd. I was still charged on the 5th. I'd like the money back."),
             ],
             [
                 ("I'm saving up for a course next year.", "برای دوره‌ای در سال آینده پول پس‌انداز می‌کنم."),
-                ("They charged me for a service I had already cancelled.", "برای خدمتی که قبلاً لغو کرده بودم از من پول گرفتند."),
+                ("They charged me for a service I had already canceled.", "برای خدمتی که قبلاً لغو کرده بودم از من پول گرفتند."),
                 ("Could you transfer the amount back to my account?", "می‌شود مبلغ را به حسابم برگردانید؟"),
                 ("It's not worth arguing about five thousand toman.", "ارزش ندارد بر سر پنج هزار تومان بحث کنیم."),
             ],
@@ -71,7 +71,7 @@ U7 = unit(
             [
                 gap("I ___ him fifty pounds until payday.", ["owe"], "Owe someone money.", "owe somebody money یعنی به کسی بدهکار بودن."),
                 gap("They ___ me twice for the same order.", ["charged"], "Charge someone for something.", "charge somebody for something یعنی از کسی پول گرفتن."),
-                mcq("Which sentence states the effect of a problem?", "کدام جمله اثر مشکل را می‌گوید؟", ["I cancelled on the 3rd.", "I was still charged on the 5th.", "I'd like a refund.", "Hello."], 1,
+                mcq("Which sentence states the effect of a problem?", "کدام جمله اثر مشکل را می‌گوید؟", ["I canceled on the 3rd.", "I was still charged on the 5th.", "I'd like a refund.", "Hello."], 1,
                     "The effect is what the error did to you.", "اثر همان چیزی است که خطا با تو کرد."),
                 mcq("'Set up a direct debit' means ___.", "«Set up a direct debit» یعنی ___.", ["pay in cash", "arrange an automatic payment", "cancel a payment", "borrow money"], 1,
                     "A direct debit pays automatically from your account.", "direct debit به‌طور خودکار از حساب پرداخت می‌کند."),
@@ -92,9 +92,9 @@ U7 = unit(
                 ("'It might take five working days to appear in your account.'", "«ممکن است پنج روز کاری طول بکشد تا در حسابت دیده شود»."),
             ],
             [
-                listen("I cancelled my subscription on the third of May, but I was charged twice on the fifth. — I can see two payments here. I can refund the second one today.", "What is the problem?", "مشکل چیست؟", ["the subscription never started", "she was charged twice after cancelling", "the app does not work", "she was charged too little"], 1,
+                listen("I canceled my subscription on the third of May, but I was charged twice on the fifth. — I can see two payments here. I can refund the second one today.", "What is the problem?", "مشکل چیست؟", ["the subscription never started", "she was charged twice after canceling", "the app does not work", "she was charged too little"], 1,
                        "Two payments after a cancellation.", "دو پرداخت بعد از لغو."),
-                listen("I cancelled my subscription on the third of May, but I was charged twice on the fifth. — I can see two payments here. I can refund the second one today.", "What does the agent offer?", "کارشناس چه پیشنهاد می‌دهد؟", ["to refund both payments", "to refund the second payment", "a free month", "nothing"], 1,
+                listen("I canceled my subscription on the third of May, but I was charged twice on the fifth. — I can see two payments here. I can refund the second one today.", "What does the agent offer?", "کارشناس چه پیشنهاد می‌دهد؟", ["to refund both payments", "to refund the second payment", "a free month", "nothing"], 1,
                        "'I can refund the second one today.'", "«پرداخت دوم را امروز برمی‌گردانم»."),
             ],
             [
@@ -132,7 +132,7 @@ U8 = unit(
                 ("She suggested taking the earlier train.", "پیشنهاد کرد قطار زودتر را بگیریم."),
                 ("It's not worth waiting for a better price.", "ارزش ندارد برای قیمت بهتر صبر کنیم."),
                 ("I was too tired to finish the report, so I left it for the morning.", "آن‌قدر خسته بودم که گزارش را تمام نکنم، پس برای صبح گذاشتم."),
-                ("It was such a good film that we watched it twice.", "آن‌قدر فیلم خوبی بود که دو بار دیدیمش."),
+                ("It was such a good movie that we watched it twice.", "آن‌قدر فیلم خوبی بود که دو بار دیدیمش."),
             ],
             [
                 mcq("I'm interested in ___ how languages are learned.", "به ___ اینکه زبان‌ها چطور یاد گرفته می‌شوند علاقه دارم.", ["learn", "learning", "to learn", "learned"], 1,
@@ -209,7 +209,7 @@ U8 = unit(
                 say("That's a fair point, but I'd still choose the cheaper option.", "نکتهٔ درستی است، اما من باز هم گزینهٔ ارزان‌تر را انتخاب می‌کنم."),
             ],
             dialogue=dialogue([
-                ("A", "Do you think the city should ban cars in the centre?", "فکر می‌کنی شهر باید ماشین‌ها را در مرکز ممنوع کند؟"),
+                ("A", "Do you think the city should ban cars in the center?", "فکر می‌کنی شهر باید ماشین‌ها را در مرکز ممنوع کند؟"),
                 ("B", "On the whole, yes. The air is terrible in summer.", "در کل بله. هوا در تابستان افتضاح است."),
                 ("A", "But what about people who work there?", "اما کسانی که آنجا کار می‌کنند چه؟"),
                 ("B", "That's a fair point. I'd say deliveries should still be allowed before nine.", "نکتهٔ درستی است. به نظر من تحویل بار تا قبل از نه باید مجاز باشد."),

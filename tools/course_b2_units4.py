@@ -13,7 +13,7 @@ from course_kit import gap, lesson, mcq, unit, write
 U7 = unit(
     "b2-u7",
     ("Never have I seen", "هرگز ندیده‌ام"),
-    ("Emphasise with inversion, argue about the environment, and hold the floor in a debate.", "با جابه‌جایی تأکید کن، دربارهٔ محیط بحث کن و در مناظره نوبت را نگه دار."),
+    ("Emphasize with inversion, argue about the environment, and hold the floor in a debate.", "با جابه‌جایی تأکید کن، دربارهٔ محیط بحث کن و در مناظره نوبت را نگه دار."),
     [
         lesson(
             "b2-u7-l1",
@@ -40,7 +40,7 @@ U7 = unit(
                     "No sooner + inverted past perfect + than.", "no sooner + ماضی بعید جابه‌جاشده + than."),
             ],
             [
-                gap("Not only ___ she apologise, but she also paid for the damage.", ["did"], "Do-support for a fronted 'not only'.", "do برای «not only» در آغاز."),
+                gap("Not only ___ she apologize, but she also paid for the damage.", ["did"], "Do-support for a fronted 'not only'.", "do برای «not only» در آغاز."),
                 gap("Under no circumstances ___ you share this password.", ["should", "must"], "Modal before the subject.", "فعل وجهی پیش از نهاد."),
                 mcq("Which is wrong?", "کدام نادرست است؟", ["Little did he know.", "Seldom have I seen it.", "Never I have been there.", "Only then did she speak."], 2,
                     "Inversion is obligatory after a fronted 'never'.", "پس از «never» در آغاز، جابه‌جایی اجباری است."),
@@ -107,7 +107,7 @@ U7 = unit(
                 gap("Sorry to ___ in, but that's the crux of it.", ["jump"], "Jump in = interrupt.", "jump in یعنی میان حرف آمدن."),
                 mcq("What marks the end of a turn?", "چه چیزی پایان نوبت را نشان می‌دهد؟", ["a new argument", "a summary sentence", "a question to yourself", "silence"], 1,
                     "Close explicitly so the listener knows.", "صریح ببند تا شنونده بداند."),
-                write("Write the ninety-second turn you would deliver for the motion 'Cities should phase out private cars from the centre.' Claim, mechanism, one piece of evidence, one pre-empted objection.",
+                write("Write the ninety-second turn you would deliver for the motion 'Cities should phase out private cars from the center.' Claim, mechanism, one piece of evidence, one pre-empted objection.",
                       "نوبت نودثانیه‌ای خود را برای موضوع «شهرها باید خودروهای شخصی را از مرکز کنار بگذارند» بنویس. ادعا، سازوکار، یک شاهد و یک اعتراض پیش‌دستی‌شده.",
                       90, ["although"],
                       "Spoken register: contractions are fine, but keep the four moves visible.",
@@ -132,7 +132,7 @@ U8 = unit(
                 ("Try + -ing means experiment with a method; try + to do means attempt something difficult: try restarting it (test a solution) / try to lift it (attempt and maybe fail). Go on + -ing continues the same activity; go on + to do moves to the next one.", "try + ing یعنی روشی را آزمودن؛ try + to do یعنی تلاش برای کار سخت: try restarting it (راه‌حلی را آزمودن) / try to lift it (تلاش و شاید شکست). go on + ing همان فعالیت را ادامه می‌دهد و go on + to do به مورد بعدی می‌رود."),
                 ("Some verbs take only the gerund: enjoy, avoid, mind, suggest, admit, deny, consider, involve, look forward to, be used to. Some take only the infinitive: decide, promise, refuse, manage, afford, fail, seem, tend. A handful take both with no change: begin, start, continue, prefer. After a preposition it is always the gerund.", "برخی فعل‌ها فقط gerund می‌گیرند: enjoy، avoid، mind، suggest، admit، deny، consider، involve، look forward to، be used to. برخی فقط infinitive: decide، promise، refuse، manage، afford، fail، seem، tend. چندتا هر دو را بی تغییر می‌گیرند: begin، start، continue، prefer. پس از حرف اضافه همیشه gerund."),
                 ("A participle clause compresses a whole clause into a phrase: Having finished the report, she left; Written in 1520, the letter still reads clearly; Arriving early, he waited outside. The participle carries time, reason or result without naming it, and the reader infers the link from the content.", "بند وجه وصفی کل بند را به عبارت فشرده می‌کند: Having finished the report, she left؛ Written in 1520, the letter still reads clearly؛ Arriving early, he waited outside. وجه وصفی زمان، علت یا نتیجه را بی نام بردن حمل می‌کند و خواننده پیوند را از محتوا می‌فهمد."),
-                ("The one rule that cannot be broken: the participle's subject must be the subject of the main clause. 'Walking home, the notice caught my eye' makes the notice walk. If the subjects differ, keep the full clause — a dangling participle is the error examiners recognise fastest at this level.", "تنها قاعدهٔ نشکستنی: نهاد وجه وصفی باید نهاد بند اصلی باشد. «Walking home, the notice caught my eye» باعث می‌شود تابلو راه برود. اگر نهادها متفاوت‌اند، بند کامل را نگه دار — وجه وصفی آویزان خطایی است که داور در این سطح زودتر از همه می‌شناسد."),
+                ("The one rule that cannot be broken: the participle's subject must be the subject of the main clause. 'Walking home, the notice caught my eye' makes the notice walk. If the subjects differ, keep the full clause — a dangling participle is the error examiners recognize fastest at this level.", "تنها قاعدهٔ نشکستنی: نهاد وجه وصفی باید نهاد بند اصلی باشد. «Walking home, the notice caught my eye» باعث می‌شود تابلو راه برود. اگر نهادها متفاوت‌اند، بند کامل را نگه دار — وجه وصفی آویزان خطایی است که داور در این سطح زودتر از همه می‌شناسد."),
             ],
             [
                 ("I'll never forget arriving in Tehran at dawn.", "هرگز رسیدن به تهران در سپیده‌دم را فراموش نمی‌کنم."),
@@ -164,10 +164,10 @@ U8 = unit(
             ("Psychology, the arts and the words of evaluation", "روان‌شناسی، هنر و واژه‌های ارزش‌گذاری"),
             ("Describe a mind and judge a work with terms that can be checked.", "ذهن را توصیف کن و اثری را با واژه‌هایی بسنج که قابل بررسی‌اند."),
             [
-                ("Psychology vocabulary: behaviour, a habit, a motive, an emotion, stress, anxiety, confidence, resilience, burnout, a bias, a coping strategy, a trigger. A motive is why someone acted; an emotion is what they felt; a bias is a systematic tilt in judgement, not an opinion.", "واژگان روان‌شناسی: behaviour، habit، motive، emotion، stress، anxiety، confidence، resilience، burnout، bias، coping strategy، trigger. motive دلیل عمل است، emotion احساس و bias کج‌شدگی نظام‌مند در داوری، نه نظر."),
+                ("Psychology vocabulary: behavior, a habit, a motive, an emotion, stress, anxiety, confidence, resilience, burnout, a bias, a coping strategy, a trigger. A motive is why someone acted; an emotion is what they felt; a bias is a systematic tilt in judgment, not an opinion.", "واژگان روان‌شناسی: behavior، habit، motive، emotion، stress، anxiety، confidence، resilience، burnout، bias، coping strategy، trigger. motive دلیل عمل است، emotion احساس و bias کج‌شدگی نظام‌مند در داوری، نه نظر."),
                 ("Describing people precisely: to be prone to, to be aware of, to cope with, to open up, to bottle something up, to take something to heart, to come to terms with. The phrasal verbs here carry most of the emotional meaning, and each has a register — 'bottle up' is conversational, 'come to terms with' is neutral.", "توصیف دقیق آدم‌ها: be prone to، be aware of، cope with، open up، bottle something up، take something to heart، come to terms with. فعل‌های عبارتی اینجا بیشتر معنای عاطفی را حمل می‌کنند و هر کدام لحنی دارند — «bottle up» گفتاری و «come to terms with» خنثی است."),
                 ("Arts vocabulary: a novel, a plot, a character, a setting, a theme, a style, a genre, a performance, an exhibition, a review, a masterpiece, an adaptation. A theme is what the work is about; a plot is what happens; a setting is where and when. Reviews that confuse the three are summaries with adjectives.", "واژگان هنر: novel، plot، character، setting، theme، style، genre، performance، exhibition، review، masterpiece، adaptation. theme موضوع اثر است، plot آنچه رخ می‌دهد و setting کجا و کِی. نقدی که این سه را یکی کند خلاصه‌ای است با صفت."),
-                ("Evaluative adjectives with reasons attached: moving, gripping, predictable, contrived, uneven, subtle, heavy-handed, overlong. Each is a judgement about craft, and each can be supported by a detail — 'the ending is contrived' is arguable in a way that 'the ending is bad' is not.", "صفت‌های ارزشی با دلیل پیوسته: moving، gripping، predictable، contrived، uneven، subtle، heavy-handed، overlong. هر کدام داوری دربارهٔ فن است و با جزئیات پشتیبانی می‌شود — «the ending is contrived» قابل بحث است، برخلاف «the ending is bad»."),
+                ("Evaluative adjectives with reasons attached: moving, gripping, predictable, contrived, uneven, subtle, heavy-handed, overlong. Each is a judgment about craft, and each can be supported by a detail — 'the ending is contrived' is arguable in a way that 'the ending is bad' is not.", "صفت‌های ارزشی با دلیل پیوسته: moving، gripping، predictable، contrived، uneven، subtle، heavy-handed، overlong. هر کدام داوری دربارهٔ فن است و با جزئیات پشتیبانی می‌شود — «the ending is contrived» قابل بحث است، برخلاف «the ending is bad»."),
             ],
             [
                 ("He is prone to taking criticism personally.", "او مستعد است نقد را به خود بگیرد."),
@@ -176,15 +176,15 @@ U8 = unit(
                 ("The performance was subtle, but the second act was overlong.", "اجرا ظریف بود، اما پردهٔ دوم بیش از حد طولانی."),
             ],
             [
-                mcq("A 'bias' in psychology is ___.", "«bias» در روان‌شناسی ___ است.", ["an opinion", "a systematic tilt in judgement", "a strong emotion", "a habit"], 1,
+                mcq("A 'bias' in psychology is ___.", "«bias» در روان‌شناسی ___ است.", ["an opinion", "a systematic tilt in judgment", "a strong emotion", "a habit"], 1,
                     "It is a pattern, not a preference.", "الگوست، نه ترجیح."),
                 mcq("Which word describes where a story happens?", "کدام واژه جای رخداد داستان را می‌گوید؟", ["theme", "plot", "setting", "genre"], 2,
                     "Setting is time and place.", "setting زمان و مکان است."),
             ],
             [
                 gap("She found it hard to ___ up about the loss.", ["open"], "Open up = speak about feelings.", "open up یعنی از احساسات گفتن."),
-                gap("The film is an ___ of a novel published in 1998.", ["adaptation"], "A work made from another work.", "اثری ساخته‌شده از اثری دیگر."),
-                mcq("Which judgement can be supported by a detail?", "کدام داوری را می‌توان با جزئیات پشتیبانی کرد؟", ["The book is boring.", "The middle section repeats the opening chapter.", "The author is untalented.", "Nobody likes it."], 1,
+                gap("The movie is an ___ of a novel published in 1998.", ["adaptation"], "A work made from another work.", "اثری ساخته‌شده از اثری دیگر."),
+                mcq("Which judgment can be supported by a detail?", "کدام داوری را می‌توان با جزئیات پشتیبانی کرد؟", ["The book is boring.", "The middle section repeats the opening chapter.", "The author is untalented.", "Nobody likes it."], 1,
                     "It names something checkable in the text.", "چیزی قابل بررسی در متن را نام می‌برد."),
                 mcq("'Burnout' is best described as ___.", "«Burnout» بهتر است ___ توصیف شود.", ["a single bad day", "exhaustion from prolonged stress", "a lack of skill", "a conflict with a manager"], 1,
                     "It is cumulative, not episodic.", "انباشته است، نه رویدادی."),

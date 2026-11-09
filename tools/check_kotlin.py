@@ -56,12 +56,12 @@ DANGEROUS: list[tuple[str, str, str]] = [
     ),
     (
         r"\bstartActivityForResult\s*\(",
-        "removed in favour of the Activity Result API",
+        "removed in favor of the Activity Result API",
         None,
     ),
     (
         r"onActivityResult\s*\(",
-        "removed in favour of the Activity Result API",
+        "removed in favor of the Activity Result API",
         None,
     ),
     (
@@ -72,7 +72,7 @@ DANGEROUS: list[tuple[str, str, str]] = [
     ),
     (
         r"Resources\.getColor\s*\(",
-        "removed in API 23 in favour of ContextCompat.getColor",
+        "removed in API 23 in favor of ContextCompat.getColor",
         None,
     ),
     (
@@ -164,7 +164,7 @@ def main() -> int:
 
         # --- speech recognition -------------------------------------------------
         # A SpeechRecognizer that is never destroyed holds the microphone, and
-        # one that is not cancelled when the activity stops keeps dictating with
+        # one that is not canceled when the activity stops keeps dictating with
         # no UI showing it. Both are invisible from JavaScript, which is how the
         # mic got stuck in the first place.
         if "SpeechRecognizer" in src:

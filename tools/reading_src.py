@@ -68,26 +68,26 @@ STRATEGIES = [
                 "Vienna to Paris, Berlin to Stockholm and Amsterdam to Zurich, "
                 "and tickets for the best cabins sell out weeks in advance.",
                 "The reason is not only the climate. Air travel has become less "
-                "pleasant: airports are crowded, security queues are long, and a "
+                "pleasant: airports are crowded, security lines are long, and a "
                 "short flight often costs a whole day once you count the trip to "
                 "the airport. A night train turns that wasted day into sleep. You "
-                "leave a city centre after dinner and arrive in another city "
-                "centre in time for breakfast, with a bed, a window and no "
+                "leave a city center after dinner and arrive in another city "
+                "center in time for breakfast, with a bed, a window and no "
                 "luggage limit.",
-                "Operators still face hard problems. Carriages are old, tracks "
+                "Operators still face hard problems. Train cars are old, tracks "
                 "are shared with freight, and a train that crosses four countries "
                 "needs four sets of paperwork. Two of the new routes have already "
-                "been cancelled.",
+                "been canceled.",
                 "Even so, the direction is clear. When a journey of twelve hours "
                 "can be spent asleep instead of in an airport, a growing number "
-                "of travellers are choosing the slower way, and arriving more "
+                "of travelers are choosing the slower way, and arriving more "
                 "rested than they left.",
             ],
             "summary": bi(
                 "Night trains are returning because a flight wastes a day at the "
                 "airport, while a sleeper turns the same hours into sleep. Old "
-                "carriages and borders still make the business difficult, but "
-                "travellers are choosing the train anyway.",
+                "train cars and borders still make the business difficult, but "
+                "travelers are choosing the train anyway.",
                 "قطارهای شبانه برمی‌گردند چون پرواز یک روز را در فرودگاه تلف "
                 "می‌کند، در حالی که قطار همان ساعت‌ها را به خواب تبدیل می‌کند. "
                 "واگن‌های قدیمی و مرزها کار را سخت می‌کنند، اما مسافران با این "
@@ -106,7 +106,7 @@ STRATEGIES = [
                 {"sentence": "A night train turns that wasted day into ___.",
                  "answer": "sleep",
                  "hint": bi("One noun, paragraph 2.", "یک اسم، پاراگراف دوم.")},
-                {"sentence": "Carriages are old and the tracks are shared with ___.",
+                {"sentence": "Train cars are old and the tracks are shared with ___.",
                  "answer": "freight",
                  "hint": bi("Goods carried by train - paragraph 3.",
                             "بارهایی که با قطار حمل می‌شوند؛ پاراگراف سوم.")},
@@ -144,7 +144,7 @@ STRATEGIES = [
                            "این پذیرشِ ایراد، مقدمهٔ نتیجه‌گیری است.")},
                 {"q": "The phrase 'the slower way' refers to",
                  "options": ["driving across Europe",
-                             "travelling overnight by train",
+                             "traveling overnight by train",
                              "taking a long flight with a stop",
                              "walking to the station"],
                  "answer": 1,
@@ -184,7 +184,7 @@ STRATEGIES = [
                           bi("Say why, in four or five words.",
                              "دلیل را در چهار پنج کلمه بگو.")],
                  "model": bi("Night trains, which were closing across Europe ten "
-                             "years ago, are opening new routes again. Travellers "
+                             "years ago, are opening new routes again. Travelers "
                              "are coming back to them because sleeping through a "
                              "journey is better use of a day than waiting in an "
                              "airport.",
@@ -200,7 +200,7 @@ STRATEGIES = [
                               "متن و یک ایدهٔ خودت را بیاور."),
                  "tips": [bi("Take a side in the first sentence.",
                              "در جملهٔ اول موضع بگیر."),
-                          bi("Quote or paraphrase one detail: old carriages, or "
+                          bi("Quote or paraphrase one detail: old train cars, or "
                              "four sets of paperwork.",
                              "یک جزئیات را نقل کن: واگن‌های قدیمی یا چهار دسته "
                              "کاغذبازی."),
@@ -210,7 +210,7 @@ STRATEGIES = [
                              "کشور خودت.")],
                  "model": bi("I partly agree. The demand is real: the passage says "
                              "the best cabins sell out weeks in advance, and that "
-                             "is a market, not a fashion. But old carriages and "
+                             "is a market, not a fashion. But old train cars and "
                              "four sets of paperwork across four borders are not "
                              "small costs. In my country the same route is cheap "
                              "to fly, so until night trains are cheaper than "
@@ -281,25 +281,25 @@ STRATEGIES = [
                 "and one reading room. Today it holds 620,000 books across nine "
                 "buildings, and its evening classes have a waiting list.",
                 "The change began in 2004, when the city decided that its five "
-                "poorest neighbourhoods would each get a library before they got "
+                "poorest neighborhoods would each get a library before they got "
                 "a new road. The first one, in Santo Domingo, opened in 2007 on a "
                 "hilltop reached by two outdoor escalators. It was designed by the "
                 "architect Giancarlo Mazzanti and cost four million dollars, a sum "
                 "that critics said should have been spent on housing.",
                 "Fifteen years later the numbers are hard to argue with. Visits to "
                 "the Santo Domingo library rose from 300 a week to more than 4,000. "
-                "In the same period reported thefts in the neighbourhood fell by "
+                "In the same period reported thefts in the neighborhood fell by "
                 "half, and the share of teenagers who said they had never read a "
-                "book for pleasure dropped from 61 per cent to 22 per cent. The "
+                "book for pleasure dropped from 61 percent to 22 percent. The "
                 "libraries now run 1,100 free computer courses a year.",
                 "Not every promise was kept. Two of the five buildings were "
                 "delayed by years and one was never built. But the city's head "
                 "librarian, María Restrepo, says the lesson is simple: 'A library "
-                "is not a building with books. It is a place where a neighbourhood "
+                "is not a building with books. It is a place where a neighborhood "
                 "decides what it wants to become.'",
             ],
             "summary": bi(
-                "Medellín moved its library budget to its poorest neighbourhoods: "
+                "Medellín moved its library budget to its poorest neighborhoods: "
                 "five library buildings were promised, three were finished. Visits, "
                 "reading and computer courses rose sharply, and crime in the area "
                 "halved.",
@@ -349,9 +349,9 @@ STRATEGIES = [
                            "۳۰۰ عدد قبلی بود؛ ۱۱۰۰ تعداد دوره‌هاست، نه بازدیدها.")},
                 {"q": "According to María Restrepo, a library is",
                  "options": ["a building full of books",
-                             "a place where a neighbourhood decides its future",
+                             "a place where a neighborhood decides its future",
                              "a cheap alternative to a road",
-                             "a centre for computer courses"],
+                             "a center for computer courses"],
                  "answer": 1,
                  "why": bi("Her quotation is the last sentence of the passage.",
                            "نقل‌قول او جملهٔ آخر متن است.")},
@@ -366,7 +366,7 @@ STRATEGIES = [
                  "answer": True,
                  "why": bi("'on a hilltop reached by two outdoor escalators.'",
                            "«روی تپه‌ای که با دو پله‌برقی روباز به آن می‌رسند.»")},
-                {"statement": "Reported thefts in the neighbourhood fell by half.",
+                {"statement": "Reported thefts in the neighborhood fell by half.",
                  "answer": True,
                  "why": bi("Stated in paragraph 3.", "در پاراگراف سوم گفته شده است.")},
                 {"statement": "The first library was built before 2004.",
@@ -385,14 +385,14 @@ STRATEGIES = [
                              "اول فقط عددها؛ لازم نیست جمله بنویسی."),
                           bi("Then one sentence with 'because'.",
                              "بعد یک جمله با «because»."),
-                          bi("A change in behaviour (visits, reading) usually "
+                          bi("A change in behavior (visits, reading) usually "
                              "convinces more than money spent.",
                              "تغییر در رفتار (بازدید، کتاب‌خواندن) معمولاً از پولِ "
                              "خرج‌شده قانع‌کننده‌تر است.")],
                  "model": bi("Three numbers: 12,000 books became 620,000; visits "
                              "rose from 300 a week to more than 4,000; and the "
                              "share of teenagers who never read for pleasure fell "
-                             "from 61 to 22 per cent. The last one convinces me "
+                             "from 61 to 22 percent. The last one convinces me "
                              "most, because it describes a habit changing, not a "
                              "building opening.",
                              "سه عدد: ۱۲٬۰۰۰ کتاب به ۶۲۰٬۰۰۰ رسید؛ بازدید هفتگی از "
@@ -419,7 +419,7 @@ STRATEGIES = [
                              "Housing would have helped too, and four million "
                              "dollars is not a small sum. Still, a library that is "
                              "open every day changes what children in a poor "
-                             "neighbourhood can imagine for themselves.",
+                             "neighborhood can imagine for themselves.",
                              "فکر می‌کنم انتخاب درستی بود، اما فقط چون پول صرف چیزی "
                              "شد که مردم استفاده می‌کنند. متن نشان می‌دهد بازدید "
                              "از ۳۰۰ در هفته به بیش از ۴٬۰۰۰ رسید و جرم در همان "
@@ -488,7 +488,7 @@ STRATEGIES = [
             "title": bi("The repair café", "کافهٔ تعمیر"),
             "level": "B2",
             "paragraphs": [
-                "The first repair café opened in Amsterdam in 2009. Neighbours "
+                "The first repair café opened in Amsterdam in 2009. Neighbors "
                 "bring broken toasters, lamps, bicycles and radios to a community "
                 "hall, where volunteers with toolboxes try to fix them for free. "
                 "The idea was a response to a throwaway culture: goods are cheap, "
@@ -651,7 +651,7 @@ STRATEGIES = [
                  "model": bi("The critics are counting only money, and the writer "
                              "is right that this is the wrong sum. More than 2,500 "
                              "cafés exist because people keep coming, and nobody "
-                             "queues on a Saturday morning for something they "
+                             "lines on a Saturday morning for something they "
                              "could buy. That said, the bus fare argument is not "
                              "silly: for a cheap kettle, the café is a hobby, not "
                              "an economy.",
@@ -682,7 +682,7 @@ STRATEGIES = [
             "together, and they are where comprehension quietly breaks: you read "
             "a correct sentence and understand the wrong thing, because you "
             "attached 'it' to the nearest noun instead of the right one.",
-            "انگلیسی از تکرار اسم خوشش نمی‌آید، پس جایش می‌گذارد: «the programme» "
+            "انگلیسی از تکرار اسم خوشش نمی‌آید، پس جایش می‌گذارد: «the program» "
             "می‌شود it، «شهرهایی که از آن کپی کردند» می‌شود those، و یک بند کامل "
             "می‌شود this. همین واژه‌ها پاراگراف را به هم می‌چسبانند و دقیقاً همان "
             "جایی هستند که فهم بی‌صدا می‌شکند: جملهٔ درست را می‌خوانی و چیز "
@@ -721,9 +721,9 @@ STRATEGIES = [
                          "یک روز در هفته بدون ماشین"),
             "level": "B2",
             "paragraphs": [
-                "Bogotá closes 120 kilometres of roads to cars every Sunday. The "
-                "programme, called Ciclovía, began in 1974, when a group of "
-                "cyclists rode through the city centre to protest about air "
+                "Bogotá closes 120 kilometers of roads to cars every Sunday. The "
+                "program, called Ciclovía, began in 1974, when a group of "
+                "cyclists rode through the city center to protest about air "
                 "pollution. The police tried to stop them; the mayor, instead, "
                 "asked whether the roads could be closed once a week. Few people "
                 "expected it to last. It has now run for fifty years, and on a "
@@ -733,7 +733,7 @@ STRATEGIES = [
                 "Cities from Los Angeles to Jakarta have copied the idea. Most "
                 "found that the hardest part was not closing the roads but keeping "
                 "them closed: a single complaint from a shop owner, or a change of "
-                "government, can end a programme that took years to build. Those "
+                "government, can end a program that took years to build. Those "
                 "that survived share one habit. They measure who uses the space, "
                 "they publish the numbers, and they let residents see what a "
                 "street looks like when it belongs to people rather than engines.",
@@ -750,9 +750,9 @@ STRATEGIES = [
         },
         "questions": {
             "blanks": [
-                {"sentence": "Few people expected ___ to last. (the programme)",
+                {"sentence": "Few people expected ___ to last. (the program)",
                  "answer": "it",
-                 "hint": bi("One word - the programme again.",
+                 "hint": bi("One word - the program again.",
                             "یک کلمه؛ همان برنامه.")},
                 {"sentence": "Cities from Los Angeles to Jakarta have copied ___.",
                  "answer": "the idea",
@@ -769,7 +769,7 @@ STRATEGIES = [
             ],
             "mcq": [
                 {"q": "In 'Few people expected it to last', 'it' means",
-                 "options": ["the city centre", "the protest",
+                 "options": ["the city center", "the protest",
                              "the Sunday road closure", "the traffic"],
                  "answer": 2,
                  "why": bi("The nearest sensible referent is the mayor's idea of "
@@ -834,7 +834,7 @@ STRATEGIES = [
                              "می‌کند و فاعل را به حرکت ادامه می‌دهد.")],
                  "model": bi("The paragraph opens with 'the idea', which points "
                              "back to Ciclovía, the Sunday closure of 120 "
-                             "kilometres of road. 'Them' in 'keeping them closed' "
+                             "kilometers of road. 'Them' in 'keeping them closed' "
                              "means the roads. 'Those that survived' replaces the "
                              "copying cities, and the three 'they's in the last "
                              "sentence keep the same group as the subject. The "
@@ -866,7 +866,7 @@ STRATEGIES = [
                  "model": bi("It could work, but only on a smaller scale. In my "
                              "city the main road is the only way to the hospital, "
                              "so closing it would be dangerous - this is exactly "
-                             "the objection that ended several programmes in the "
+                             "the objection that ended several programs in the "
                              "passage. A better start is one street, on Friday "
                              "mornings in summer. That habit, as the writer says, "
                              "has to be measured and published, or nobody will "
@@ -931,7 +931,7 @@ STRATEGIES = [
             "level": "B2",
             "paragraphs": [
                 "The last bus left at 11:40, and I was at the stop at 11:20 with "
-                "two bags and a paper cup of tea. A man in a grey coat was already "
+                "two bags and a paper cup of tea. A man in a gray coat was already "
                 "there, reading a newspaper under the light.",
                 "At 11:35 a bus came, stopped and opened its doors. The driver "
                 "looked at us, then at the empty street, and shut them again. "
@@ -946,7 +946,7 @@ STRATEGIES = [
             "summary": bi(
                 "A narrator waiting for the last bus is quietly corrected by a "
                 "stranger who knows the routes. The narrator, six years in the "
-                "city, realises how little attention they have paid to it.",
+                "city, realizes how little attention they have paid to it.",
                 "راوی که منتظر آخرین اتوبوس است، بی‌صدا از غریبه‌ای که مسیرها را "
                 "می‌شناسد درس می‌گیرد. راوی که شش سال در شهر زندگی کرده، می‌فهمد "
                 "چقدر کم به شهرش توجه کرده است."),
@@ -956,7 +956,7 @@ STRATEGIES = [
                 {"sentence": "The last bus left at ___.",
                  "answer": "11:40",
                  "hint": bi("A time, first line.", "یک ساعت، خط اول.")},
-                {"sentence": "A man in a grey coat was reading a ___.",
+                {"sentence": "A man in a gray coat was reading a ___.",
                  "answer": "newspaper",
                  "hint": bi("He folds it at the end.", "آخر متن آن را تا می‌زند.")},
                 {"sentence": "'This one goes to the ___,' the man said.",
@@ -979,7 +979,7 @@ STRATEGIES = [
                            "the point, and it is never stated.",
                            "شش سال و «حتی یک بار هم نگاه نکرده بودم»؛ همین تضاد "
                            "مقصود است و هیچ‌جا صریح گفته نمی‌شود.")},
-                {"q": "What can we infer about the man in the grey coat?",
+                {"q": "What can we infer about the man in the gray coat?",
                  "options": ["He works for the bus company",
                              "He is waiting for someone",
                              "He takes this bus often and knows the routes well",
@@ -995,14 +995,14 @@ STRATEGIES = [
                              "A little ashamed of their own inattention",
                              "Afraid of missing the bus"],
                  "answer": 2,
-                 "why": bi("The realisation lands on the narrator, not on the man: "
+                 "why": bi("The realization lands on the narrator, not on the man: "
                            "'I understood that...'. Nothing in the text is angry.",
                            "این فهم به خود راوی می‌رسد، نه به آن مرد: «فهمیدم "
                            "که…». در متن هیچ خشمگی نیست.")},
                 {"q": "The man's short answer 'Not this one' suggests he is",
                  "options": ["rude and impatient",
                              "helpful but not interested in a conversation",
-                             "unsure about the timetable",
+                             "unsure about the schedule",
                              "trying to keep a seat for himself"],
                  "answer": 1,
                  "why": bi("He gives the information and adds a reason, then "
@@ -1011,7 +1011,7 @@ STRATEGIES = [
                            "برمی‌گرداند؛ کمک بدون گفتگو.")},
             ],
             "truefalse": [
-                {"statement": "The narrator checked the timetable before leaving home.",
+                {"statement": "The narrator checked the schedule before leaving home.",
                  "answer": False,
                  "why": bi("'never once checked which bus went where.'",
                            "«حتی یک بار هم نگاه نکرده بودم کدام اتوبوس کجا "
@@ -1043,11 +1043,11 @@ STRATEGIES = [
                              "یک توصیف شخصیت هم عیب می‌خواهد هم حسن.")],
                  "model": bi("The narrator is well-meaning but careless about "
                              "ordinary things. They arrive twenty minutes early and "
-                             "hold a cup of tea, which suggests someone organised "
+                             "hold a cup of tea, which suggests someone organized "
                              "about the journey; but six years in the city and "
                              "never knowing which bus goes where shows a habit of "
                              "letting other people do the noticing. The final "
-                             "realisation - understanding the stranger's nightly "
+                             "realization - understanding the stranger's nightly "
                              "routine only after being helped - suggests a person "
                              "who is honest with themselves once the evidence is "
                              "in front of them.",
@@ -1389,17 +1389,17 @@ STRATEGIES = [
                "جمله را بسنجی."),
         ],
         "example": {
-            "text": "HILLTOWN SWIMMING POOL — winter timetable. From 1 October "
-                    "the pool opens at 7 am on weekdays and 8 am at weekends. "
+            "text": "HILLTOWN SWIMMING POOL — winter schedule. From October 1 "
+                    "the pool opens at 7 am on weekdays and 8 am on weekends. "
                     "Lanes 1-3 are reserved for clubs before 9 am. The learner "
-                    "pool is closed for repairs until 12 November; lessons move "
-                    "to the main pool. Prices: adult £5.20, under-16 £2.60, "
-                    "family £12.",
+                    "pool is closed for repairs until November 12; lessons move "
+                    "to the main pool. Prices: adult $5.20, under-16 $2.60, "
+                    "family $12.",
             "steps": [
-                bi("Title first: 'winter timetable' plus a place name. This is a "
+                bi("Title first: 'winter schedule' plus a place name. This is a "
                    "notice, not an article - so the useful reading is scanning "
                    "for a day and a time, not looking for an argument.",
-                   "اول عنوان: «winter timetable» و نام یک مکان. این یک اطلاعیه "
+                   "اول عنوان: «winter schedule» و نام یک مکان. این یک اطلاعیه "
                    "است، نه مقاله؛ پس خواندن مفیدش اسکن کردن برای یک روز و ساعت "
                    "است، نه گشتن دنبال استدلال."),
                 bi("The colon after 'Prices' tells you the last line is a list. "
@@ -1420,7 +1420,7 @@ STRATEGIES = [
                "headings are the cheapest information in the text.",
                "اول متن را خواندن و بعد عنوان را. عنوان و تیترها ارزان‌ترین "
                "اطلاعات متن‌اند."),
-            bi("Assuming every text has a main argument. A timetable, a recipe "
+            bi("Assuming every text has a main argument. A schedule, a recipe "
                "and a set of rules do not; hunting for one wastes the reading.",
                "فرض کردن اینکه هر متنی استدلال اصلی دارد. جدول زمانی، دستور "
                "پخت و فهرست قوانین ندارند؛ گشتن دنبال آن، خواندن را هدر می‌دهد."),
@@ -1452,8 +1452,8 @@ STRATEGIES = [
             "genre": bi("Guide / notice", "راهنما / اطلاعیه"),
             "paragraphs": [
                 "Hilltown Community Garden — a guide for new members. The "
-                "garden has forty plots on the site of an old railway yard, "
-                "behind the swimming pool on Mill Road. Membership costs £18 a "
+                "garden has forty plots on the site of an old rail yard, "
+                "behind the swimming pool on Mill Road. Membership costs $18 a "
                 "year and includes a key to the gate.",
                 "Opening times. The gate opens at 8 am and closes at dusk. It "
                 "is closed all day on Mondays for maintenance, and the water "
@@ -1478,7 +1478,7 @@ STRATEGIES = [
         "questions": {
             "blanks": [
                 {"sentence": "Membership costs ___ pounds a year.",
-                 "answer": "18", "also": ["£18", "eighteen"],
+                 "answer": "18", "also": ["$18", "eighteen"],
                  "hint": bi("A number in the first section.",
                             "عددی در بخش اول."),
                  "para": 1},
@@ -1530,7 +1530,7 @@ STRATEGIES = [
                  "para": 3},
                 {"q": "Who should a member contact about a problem?",
                  "options": ["The council on Mill Road", "Mrs Okafor",
-                             "The swimming pool", "The railway yard"],
+                             "The swimming pool", "The rail yard"],
                  "answer": 1,
                  "why": bi("The last line names the secretary and where to find "
                            "her.",
@@ -1538,9 +1538,9 @@ STRATEGIES = [
                  "para": 4},
             ],
             "truefalse": [
-                {"statement": "The garden is on the site of an old railway yard.",
+                {"statement": "The garden is on the site of an old rail yard.",
                  "answer": True,
-                 "why": bi("'forty plots on the site of an old railway yard'.",
+                 "why": bi("'forty plots on the site of an old rail yard'.",
                            "«چهل قطعه روی محل یک حیاط راه‌آهن قدیمی»."),
                  "para": 1},
                 {"statement": "You can start digging as soon as you pay.",
@@ -1577,12 +1577,12 @@ STRATEGIES = [
                         "آخرش بگو چه چیزی می‌پرسی که راهنما جوابش را ندارد.")],
                  "model": bi("First I would go to the shed on a Sunday morning "
                              "and speak to Mrs Okafor, because that is where new "
-                             "members are told to go. I would pay the £18 and "
+                             "members are told to go. I would pay the $18 and "
                              "join the waiting list, which the guide says is about "
                              "two years. While I waited I would work my four "
                              "hours a month on the paths and use the raised bed "
                              "that comes with it. What I would still want to know "
-                             "is whether the hours can be done at weekends only, "
+                             "is whether the hours can be done on weekends only, "
                              "and whether the raised bed has water in winter.",
                              "اول صبح یکشنبه به انبار می‌رفتم و با خانم اوکافور حرف "
                              "می‌زدم، چون راهنما می‌گوید اعضای تازه باید آنجا بروند. "
@@ -1607,7 +1607,7 @@ STRATEGIES = [
                      bi("Explain the gap: a guide is short on purpose.",
                         "خلأ را توضیح بده: راهنما عمداً کوتاه است.")],
                  "model": bi("Who supplies the seeds, and are they included in "
-                             "the £18? Are there tools in the shed for members "
+                             "the $18? Are there tools in the shed for members "
                              "who do not own any, and can they be borrowed "
                              "overnight? Is there a tap that works in January? "
                              "The guide does not answer these because it is "
@@ -1659,7 +1659,7 @@ STRATEGIES = [
             "Exams and real documents both hide their answer in a relationship. "
             "'The equipment cost 1.4 million euros' is easy; 'the equipment "
             "cost 1.4 million and pays for itself in nine years, but only if the "
-            "neighbour keeps producing heat' is the sentence you actually have "
+            "neighbor keeps producing heat' is the sentence you actually have "
             "to understand. Detailed reading is the habit of not stopping at "
             "the first half.",
             "هم امتحان و هم اسناد واقعی جواب را در یک رابطه پنهان می‌کنند. «تجهیزات "
@@ -1741,7 +1741,7 @@ STRATEGIES = [
         "checklist": [
             bi("Answer shape named before searching.",
                "تعیین شکل جواب پیش از جست‌وجو."),
-            bi("Sentence plus its neighbour read together.",
+            bi("Sentence plus its neighbor read together.",
                "خواندن جمله همراه با جملهٔ کنارش."),
             bi("Qualifier identified and included in the answer.",
                "شناسایی قید شرط و آوردنش در جواب."),
@@ -1756,7 +1756,7 @@ STRATEGIES = [
             "paragraphs": [
                 "The swimming pool in the French town of Vitry replaced its gas "
                 "boiler in 2021 with a system that recovers heat from the "
-                "building next door. The neighbour is a data centre: a hall of "
+                "building next door. The neighbor is a data center: a hall of "
                 "servers that runs all day and must be cooled. Its waste heat, "
                 "once released into the air, now passes through a heat "
                 "exchanger and warms the pool's water to 27 °C.",
@@ -1767,17 +1767,17 @@ STRATEGIES = [
                 "losing the difference. That equipment cost €1.4 million and "
                 "took eleven months to install.",
                 "The saving is measured in gas: the pool burned 420,000 cubic "
-                "metres a year before the change and 60,000 after, a fall of 86 "
-                "per cent. The remaining gas is used only in the coldest weeks, "
-                "when the data centre alone cannot meet demand.",
-                "Not every town can copy this. A pool needs a neighbour that "
-                "produces heat all year, within about 300 metres, and a council "
+                "meters a year before the change and 60,000 after, a fall of 86 "
+                "percent. The remaining gas is used only in the coldest weeks, "
+                "when the data center alone cannot meet demand.",
+                "Not every town can copy this. A pool needs a neighbor that "
+                "produces heat all year, within about 300 meters, and a council "
                 "willing to sign a fifteen-year contract. Vitry had all three. "
                 "The mayor's office says the payback period is nine years.",
             ],
             "summary": bi(
-                "A pool is warmed by the waste heat of a neighbouring data "
-                "centre. The idea is simple, the plumbing is not, and the "
+                "A pool is warmed by the waste heat of a neighboring data "
+                "center. The idea is simple, the plumbing is not, and the "
                 "saving depends on conditions most towns do not have.",
                 "استخر با گرمای هدررفتهٔ یک مرکز دادهٔ همسایه گرم می‌شود. ایده "
                 "ساده است، لوله‌کشی نه، و صرفه‌جویی به شرایطی بند است که بیشتر "
@@ -1800,7 +1800,7 @@ STRATEGIES = [
                  "hint": bi("A price, with a decimal point.",
                             "یک قیمت، با ممیز."),
                  "para": 2},
-                {"sentence": "Gas use fell by ___ per cent.",
+                {"sentence": "Gas use fell by ___ percent.",
                  "answer": "86", "also": [],
                  "hint": bi("The third paragraph does the arithmetic for you.",
                             "پاراگراف سوم حساب را برایت انجام داده."),
@@ -1808,7 +1808,7 @@ STRATEGIES = [
             ],
             "mcq": [
                 {"q": "Why was a second circuit and pump station needed?",
-                 "options": ["Because the data centre is 300 metres away",
+                 "options": ["Because the data center is 300 meters away",
                              "Because the two sides run at different "
                              "temperatures",
                              "Because the pool is open all year",
@@ -1827,7 +1827,7 @@ STRATEGIES = [
                              "All year, at a low rate", "During repairs"],
                  "answer": 1,
                  "why": bi("The passage says 'only in the coldest weeks, when the "
-                           "data centre alone cannot meet demand'. The word "
+                           "data center alone cannot meet demand'. The word "
                            "'only' is the whole answer.",
                            "متن می‌گوید «فقط در سردترین هفته‌ها، وقتی مرکز داده "
                            "تنها نمی‌تواند تقاضا را پوشش دهد». کلمهٔ only تمام "
@@ -1835,13 +1835,13 @@ STRATEGIES = [
                  "para": 3},
                 {"q": "Which of these is NOT given as a condition for copying "
                        "the system?",
-                 "options": ["A neighbour that produces heat all year",
-                             "A distance of about 300 metres or less",
+                 "options": ["A neighbor that produces heat all year",
+                             "A distance of about 300 meters or less",
                              "A national subsidy for green heating",
                              "A fifteen-year contract"],
                  "answer": 2,
                  "why": bi("The last paragraph lists three conditions: heat all "
-                           "year, within 300 metres, a fifteen-year contract. No "
+                           "year, within 300 meters, a fifteen-year contract. No "
                            "subsidy is mentioned anywhere.",
                            "پاراگراف آخر سه شرط را می‌شمارد: گرمای تمام سال، فاصلهٔ "
                            "حدود ۳۰۰ متر، قرارداد پانزده‌ساله. هیچ یارانه‌ای در متن "
@@ -1883,12 +1883,12 @@ STRATEGIES = [
                  "para": 2},
                 {"statement": "The pool still burns some gas.",
                  "answer": True,
-                 "why": bi("60,000 cubic metres remain, used in the coldest "
-                           "weeks. The saving is 86 per cent, not 100.",
+                 "why": bi("60,000 cubic meters remain, used in the coldest "
+                           "weeks. The saving is 86 percent, not 100.",
                            "۶۰٬۰۰۰ متر مکعب باقی مانده که در سردترین هفته‌ها مصرف "
                            "می‌شود. صرفه‌جویی ۸۶ درصد است، نه ۱۰۰."),
                  "para": 3},
-                {"statement": "Any town with a data centre can copy the system.",
+                {"statement": "Any town with a data center can copy the system.",
                  "answer": False,
                  "why": bi("The passage says the opposite: 'Not every town can "
                            "copy this', and requires three conditions at once.",
@@ -1944,9 +1944,9 @@ STRATEGIES = [
                         "عمومی."),
                      bi("Keep it to five or six sentences.",
                         "در پنج یا شش جمله نگهش دار.")],
-                 "model": bi("The three conditions are: a neighbour that produces "
-                             "heat all year, that neighbour within about 300 "
-                             "metres, and a council willing to sign a fifteen-year "
+                 "model": bi("The three conditions are: a neighbor that produces "
+                             "heat all year, that neighbor within about 300 "
+                             "meters, and a council willing to sign a fifteen-year "
                              "contract. I think the contract is hardest for a "
                              "small town, because it commits the council to one "
                              "supplier for longer than most councils plan ahead, "
@@ -2036,7 +2036,7 @@ STRATEGIES = [
             "text": "Many hospitals now clean their corridors at night. The "
                     "change began in 2018, when a study found that daytime "
                     "cleaning disturbed patients' sleep and slowed recovery. "
-                    "Night shifts cost eleven per cent more in wages, but the "
+                    "Night shifts cost eleven percent more in wages, but the "
                     "same study estimated that faster recovery saved more than "
                     "that difference.",
             "steps": [
@@ -2096,7 +2096,7 @@ STRATEGIES = [
             "paragraphs": [
                 "A pocket forest is a patch of woodland the size of a tennis "
                 "court or two, planted densely in a school yard, beside a road "
-                "or on the corner of a car park. The method comes from the "
+                "or on the corner of a parking lot. The method comes from the "
                 "Japanese botanist Akira Miyawaki, who argued in the 1970s that "
                 "a forest could be rebuilt from native species in decades "
                 "rather than centuries. The first European versions were "
@@ -2107,11 +2107,11 @@ STRATEGIES = [
                 "and Belgian towns record differences of two to four degrees "
                 "on summer afternoons. In streets where most residents have no "
                 "garden, that difference is felt in the bedroom at night as "
-                "much as on the pavement at noon.",
+                "much as on the sidewalk at noon.",
                 "The second reason is rain. Concrete sends a storm straight "
                 "into the drains, while the roots and loose soil of a small "
                 "wood hold part of it back, so a single forest can keep "
-                "hundreds of litres out of an overloaded sewer in one "
+                "hundreds of liters out of an overloaded sewer in one "
                 "downpour.",
                 "Pocket forests are not a solution on their own. They need "
                 "about three years of watering before they survive without "
@@ -2188,11 +2188,11 @@ STRATEGIES = [
                        "idea?",
                  "options": ["Small woods are worth planting in cities",
                              "Pocket forests have real limits",
-                             "A stand of trees can keep hundreds of litres out of "
+                             "A stand of trees can keep hundreds of liters out of "
                              "a sewer",
                              "Trees get cheaper to keep as they age"],
                  "answer": 2,
-                 "why": bi("The litres are a measurement inside the rain "
+                 "why": bi("The liters are a measurement inside the rain "
                            "argument. The other three are claims a reader could "
                            "disagree with.",
                            "لیترها اندازه‌گیری‌ای درون استدلال باران‌اند. سه گزینهٔ "
@@ -2203,7 +2203,7 @@ STRATEGIES = [
                  "options": ["Forests are expensive to maintain",
                              "The cost of looking after a forest falls as it "
                              "matures",
-                             "Cities should not plant forests near car parks",
+                             "Cities should not plant forests near parking lots",
                              "Infrastructure always gets more expensive"],
                  "answer": 1,
                  "why": bi("'Gets cheaper to keep every year' is the defenders' "
@@ -2312,7 +2312,7 @@ STRATEGIES = [
         "icon": "📝",
         "level": "B2",
         "minutes": 9,
-        "title": bi("Summarise and paraphrase without copying",
+        "title": bi("Summarize and paraphrase without copying",
                     "خلاصه کردن و بازنویسی بدون کپی کردن"),
         "blurb": bi(
             "If your summary could have been written without the text, you "
@@ -2337,7 +2337,7 @@ STRATEGIES = [
             "دور می‌ریزی؛ این‌طور یک مقالهٔ چهارصد کلمه‌ای شصت کلمه می‌شود که هنوز "
             "چیزی می‌گوید که کسی می‌تواند با آن مخالفت کند."),
         "why": bi(
-            "Summarising is how you find out whether you understood. A reader "
+            "Summarizing is how you find out whether you understood. A reader "
             "who can only repeat the sentences has stored the words, not the "
             "argument. It is also the skill most examined: summary questions, "
             "note-completion, 'which sentence best expresses...' and every "
@@ -2448,8 +2448,8 @@ STRATEGIES = [
                 "In 2022, 61 British companies took part in a trial of a "
                 "four-day week that lasted six months. Staff worked four days "
                 "instead of five "
-                "and kept their full pay. The trial was organised by a "
-                "research group and a campaign organisation, and the companies "
+                "and kept their full pay. The trial was organized by a "
+                "research group and a campaign organization, and the companies "
                 "chose to join - a fact worth remembering when you read the "
                 "results.",
                 "For most firms the results were better than expected. Revenue "
@@ -2507,7 +2507,7 @@ STRATEGIES = [
                  "options": ["Why the four-day week is better for everyone",
                              "A trial's results, its limits, and what other "
                              "employers can copy",
-                             "How to organise a meeting in less time",
+                             "How to organize a meeting in less time",
                              "Why British companies are short of staff"],
                  "answer": 1,
                  "why": bi("The passage gives results, then caveats, then the "
@@ -2534,7 +2534,7 @@ STRATEGIES = [
                 {"q": "According to the second paragraph, what was hardest for "
                        "managers?",
                  "options": ["Filling the fifth day with work",
-                             "Cancelling the meetings that paid for the missing "
+                             "Canceling the meetings that paid for the missing "
                              "day",
                              "Recruiting new staff",
                              "Measuring revenue"],
@@ -2680,10 +2680,10 @@ EXTRAS = {
             "دو دقیقه وقت داری تصمیم بگیری آیا یک متن ارزش خواندن دارد یا نه: "
             "متن امتحان، یک خبر، یا زنجیرهٔ ایمیلی با چهل جواب."),
         "example": {
-            "text": "Pontevedra banned cars from its centre in 1999. Shop "
+            "text": "Pontevedra banned cars from its center in 1999. Shop "
                     "owners expected to lose customers. Instead, sales rose, "
                     "because people who walk stop and look in windows. Twenty "
-                    "years later the centre has no traffic and no empty shops. "
+                    "years later the center has no traffic and no empty shops. "
                     "Other cities have come to copy the model, but few have "
                     "banned cars outright: the political cost is too high. The "
                     "mayor says the trick was never calling it a ban on cars.",
@@ -2699,7 +2699,7 @@ EXTRAS = {
                    "جملهٔ آخر نظر نویسنده را می‌دهد: سیاست موفق شد چون جور دیگری "
                    "معرفی شد."),
                 bi("Say it in one line - 'how a small city took cars out of the "
-                   "centre and made its shops busier' - and only then read it "
+                   "center and made its shops busier' - and only then read it "
                    "properly.",
                    "در یک خط بگو: «چگونه یک شهر کوچک ماشین‌ها را از مرکز بیرون "
                    "کرد و مغازه‌ها را پرتر کرد»؛ و تنها بعد از آن کامل بخوان."),
@@ -2749,7 +2749,7 @@ EXTRAS = {
             "text": "The bridge opened in March 2018 after four years of work "
                     "and cost 61 million euros. Its designer, Elena Ferraro, "
                     "had proposed a cheaper wooden version in 2011, which the "
-                    "council rejected twice. The current span is 240 metres, "
+                    "council rejected twice. The current span is 240 meters, "
                     "the longest in the region, and carries 19,000 vehicles a "
                     "day. Repairs in 2023 closed it for eleven weeks.",
             "steps": [
@@ -2992,7 +2992,7 @@ EXTRAS = {
         "example": {
             "text": "Remote work raises productivity. However, the studies "
                     "that show this were mostly done with experienced staff. "
-                    "For example, one trial found a 13 per cent gain among "
+                    "For example, one trial found a 13 percent gain among "
                     "engineers with five years' experience. Consequently, the "
                     "result may not travel to a first job.",
             "steps": [
@@ -3038,7 +3038,7 @@ EXTRAS = {
         "checklist": [
             bi("Signposts underlined before answering anything.",
                "خط کشیدن زیر نشانه‌ها پیش از پاسخ دادن."),
-            bi("Each one labelled: contrast, example, cause, result, limit.",
+            bi("Each one labeled: contrast, example, cause, result, limit.",
                "برچسب زدن به هر کدام: تضاد، مثال، علت، نتیجه، محدودیت."),
             bi("The last paragraph read for the writer's own position.",
                "خواندن پاراگراف آخر برای فهم موضع خود نویسنده."),
@@ -3093,16 +3093,16 @@ MORE["survey"] = [
         "title": bi("Riverside Museum: what is on this autumn",
                     "موزهٔ ریورساید: برنامهٔ پاییز"),
         "level": "A2",
-        "genre": bi("Programme / listings", "برنامهٔ رویدادها"),
+        "genre": bi("Program / listings", "برنامهٔ رویدادها"),
         "paragraphs": [
-            "RIVERSIDE MUSEUM — Autumn programme. The museum is open Tuesday "
+            "RIVERSIDE MUSEUM — Autumn program. The museum is open Tuesday "
             "to Sunday, 10 am to 6 pm, and until 9 pm on Thursdays. Entry to "
             "the permanent collection is free; the exhibitions are ticketed.",
-            "Exhibitions. 'Rivers and Railways' runs until 30 November and "
-            "traces how the city grew along the river. Tickets cost £9, or £5 "
+            "Exhibitions. 'Rivers and Railways' runs until November 30 and "
+            "traces how the city grew along the river. Tickets cost $9, or $5 "
             "for students, and entry is free on the first Sunday of the month.",
-            "Talks. On 12 October the curator speaks about the museum's boat "
-            "collection at 6 pm; tickets are £4. On 9 November a local "
+            "Talks. On October 12 the curator speaks about the museum's boat "
+            "collection at 6 pm; tickets are $4. On November 9 a local "
             "historian asks why the docks closed, at 7 pm. That talk is free "
             "but must be booked.",
             "Families. Every Saturday at 11 am there is a free story hour in "
@@ -3121,7 +3121,7 @@ MORE["survey"] = [
                  "hint": bi("In the first section, with the opening hours.",
                             "در بخش اول، کنار ساعت کار."),
                  "para": 1},
-                {"sentence": "An exhibition ticket costs £___ for adults.",
+                {"sentence": "An exhibition ticket costs $___ for adults.",
                  "answer": "9", "also": [],
                  "hint": bi("The student price is given next to it.",
                             "قیمت دانشجویی کنارش آمده."),
@@ -3135,7 +3135,7 @@ MORE["survey"] = [
             "mcq": [
                 {"q": "What kind of text is this?",
                  "options": ["A review of an exhibition",
-                             "A programme of events with times and prices",
+                             "A program of events with times and prices",
                              "A letter to museum members",
                              "A history of the docks"],
                  "answer": 1,
@@ -3157,8 +3157,8 @@ MORE["survey"] = [
                            "سن چهار تا هشت را نام می‌برد."),
                  "para": 4},
                 {"q": "Which event must be booked?",
-                 "options": ["The story hour", "The talk on 12 October",
-                             "The talk on 9 November", "The exhibition"],
+                 "options": ["The story hour", "The talk on October 12",
+                             "The talk on November 9", "The exhibition"],
                  "answer": 2,
                  "why": bi("Only the November talk says it 'is free but must "
                            "be booked'. The others say 'no booking' or give a "
@@ -3178,7 +3178,7 @@ MORE["survey"] = [
                  "para": 1},
                 {"statement": "Both talks are free.",
                  "answer": False,
-                 "why": bi("The October talk costs £4; only the November one "
+                 "why": bi("The October talk costs $4; only the November one "
                            "is free.",
                            "سخنرانی اکتبر ۴ پوند است؛ فقط سخنرانی نوامبر "
                            "مجانی است."),
@@ -3192,7 +3192,7 @@ MORE["survey"] = [
             ],
             "essay": [
                 {"prompt": bi("You have one free afternoon and a ten-year-old "
-                              "niece. Which two parts of the programme would "
+                              "niece. Which two parts of the program would "
                               "you choose, and what would you check first?",
                               "یک بعدازظهر آزاد داری و یک برادرزادهٔ ده‌ساله. "
                               "کدام دو بخش برنامه را انتخاب می‌کنی و اول چه "
@@ -3231,14 +3231,14 @@ MORE["survey"] = [
             "afford one. Last year we gave away 214 bicycles, and we have room "
             "for a hundred more.",
             "What we ask. You do not need to be an expert. You will work one "
-            "evening a fortnight, from 6 to 9 pm, for at least six months. "
+            "evening a two weeks, from 6 to 9 pm, for at least six months. "
             "During your first month we teach you to fix brakes, gears and "
             "punctures, and you will always work beside someone experienced.",
             "What you get. Tools, gloves and a workshop coat are provided. "
-            "Travel costs up to £8 a week are paid, and after three months "
+            "Travel costs up to $8 a week are paid, and after three months "
             "every volunteer may build one bicycle to keep.",
             "How to apply. Write to the coordinator, Sam Idris, at "
-            "volunteer@yellowbike.org before 15 September. Say which evening "
+            "volunteer@yellowbike.org before September 15. Say which evening "
             "suits you and why you want to join. Everyone who applies is "
             "invited to a trial evening, so nobody is chosen on paper alone.",
         ],
@@ -3291,11 +3291,11 @@ MORE["survey"] = [
                 {"q": "After three months, a volunteer may",
                  "options": ["keep the tools they used",
                              "build one bicycle to keep",
-                             "be paid £8 an hour",
+                             "be paid $8 an hour",
                              "choose their own hours"],
                  "answer": 1,
                  "why": bi("The third section promises one bicycle after "
-                           "three months; the £8 is travel money, not pay.",
+                           "three months; the $8 is travel money, not pay.",
                            "بخش سوم پس از سه ماه یک دوچرخه وعده می‌دهد؛ ۸ پوند "
                            "پول رفت‌وآمد است، نه دستمزد."),
                  "para": 3},
@@ -3310,12 +3310,12 @@ MORE["survey"] = [
                  "para": 2},
                 {"statement": "Volunteers work every evening.",
                  "answer": False,
-                 "why": bi("It is 'one evening a fortnight', not every evening.",
+                 "why": bi("It is 'one evening every two weeks', not every evening.",
                            "«یک شب در هر دو هفته» است، نه هر شب."),
                  "para": 2},
                 {"statement": "Travel costs are partly paid.",
                  "answer": True,
-                 "why": bi("'Travel costs up to £8 a week are paid.'",
+                 "why": bi("'Travel costs up to $8 a week are paid.'",
                            "«هزینهٔ رفت‌وآمد تا ۸ پوند در هفته پرداخت می‌شود.»"),
                  "para": 3},
             ],

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Eight lessons that deepen B1: one per unit, so every unit ends in a skill
-the learner has to perform rather than a rule they have to recognise."""
+the learner has to perform rather than a rule they have to recognize."""
 
 from course_kit import gap, lesson, listen, mcq, passage, say, write
 
@@ -86,11 +86,11 @@ EXTRA = {
                  "برای واقعیت‌ها به کار نبر."),
             ],
             [
-                ("I am writing to apply for the post of shop assistant.",
+                ("I am writing to apply for the position of sales associate.",
                  "برای شغل دستیار فروش درخواست می‌دهم."),
-                ("I have worked in a shop for two years, mostly at weekends.",
+                ("I have worked in a shop for two years, mostly on weekends.",
                  "دو سال در مغازه کار کرده‌ام، بیشتر آخر هفته‌ها."),
-                ("If I were offered the post, I could start on 1 June.",
+                ("If I were offered the post, I could start on June 1.",
                  "اگر این شغل به من پیشنهاد شود، می‌توانم اول ژوئن شروع کنم."),
             ],
             [
@@ -210,7 +210,7 @@ EXTRA = {
                  "می‌خواهد را به دست می‌آورد."),
                 ("Relative clauses keep the review compact: the episode which "
                  "everyone argues about, the actor whose scenes are the best. "
-                 "They let one sentence carry a fact and a judgement.",
+                 "They let one sentence carry a fact and a judgment.",
                  "بندهای موصولی نقد را جمع‌وجور نگه می‌دارند: the episode which "
                  "everyone argues about، the actor whose scenes are the best. "
                  "یک جمله را حامل واقعیت و داوری می‌کنند."),
@@ -225,7 +225,7 @@ EXTRA = {
                 mcq("Where is the verdict?", "داوری کجاست؟",
                     ["the first line", "the middle", "the last line",
                      "the title"], 2,
-                    "The closing line gives the judgement.",
+                    "The closing line gives the judgment.",
                     "سطر پایانی داوری را می‌دهد."),
                 mcq("What do the two viewers disagree about?",
                     "دو بیننده بر سر چه اختلاف دارند؟",
@@ -259,7 +259,7 @@ EXTRA = {
                  "to speed up: two people sit in a kitchen for forty minutes "
                  "and say almost nothing. My brother found it unbearable. I "
                  "found it the only honest scene in the season, because it is "
-                 "the one place where the programme stops explaining and lets "
+                 "the one place where the program stops explaining and lets "
                  "the silence work.\n\n"
                 "The last episode pays for that patience, and whether it pays "
                 "enough is the real disagreement. It is a series whose ending "
@@ -394,12 +394,12 @@ EXTRA = {
                  "شهری که از راه رفتن دست کشید"),
                 ("My grandmother used to walk to the shops every morning, and "
                  "so did most of the street. There was a baker, a butcher and "
-                 "a small supermarket within four hundred metres, and the walk "
+                 "a small supermarket within four hundred meters, and the walk "
                  "was part of the morning rather than a way of getting "
                  "somewhere. Then the bypass was built in 1998, and the traffic "
-                 "that used to come through the centre went round it. The shops "
+                 "that used to come through the center went round it. The shops "
                  "lost the passing trade, the baker closed, and the supermarket "
-                 "moved to a retail park two kilometres away.\n\n"
+                 "moved to a retail park two kilometers away.\n\n"
                 "People did not stop shopping. They started driving, because "
                  "the walk now ended at an empty building. What the bypass "
                  "improved was the air and the noise. What it cost was the "
@@ -445,7 +445,7 @@ EXTRA = {
                  "را بخواهی."),
             ],
             [
-                ("On 3 May I was told the repair would take two days.",
+                ("On May 3 I was told the repair would take two days.",
                  "سوم مه به من گفتند تعمیر دو روز طول می‌کشد."),
                 ("I must ask you to confirm a date in writing.",
                  "باید بخواهم تاریخ را کتبی تأیید کنید."),
@@ -534,7 +534,7 @@ EXTRA = {
                     "Name it, then answer it.", "اول نامش ببر، بعد پاسخ بده."),
             ],
             [
-                say("I think cities should charge for parking in the centre.",
+                say("I think cities should charge for parking in the center.",
                     "فکر می‌کنم شهرها باید برای پارکینگ مرکز شهر پول بگیرند."),
                 say("It works because it moves short trips onto buses, and "
                     "short trips are most of the traffic.",

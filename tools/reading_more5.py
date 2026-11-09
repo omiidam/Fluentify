@@ -1,4 +1,4 @@
-"""Two further practices for summarising and paraphrasing."""
+"""Two further practices for summarizing and paraphrasing."""
 from reading_src import bi
 
 MORE = {
@@ -16,11 +16,11 @@ MORE = {
                 "The evidence is stronger than the argument suggests. In one "
                 "district that moved its start time from 7.25 to 8.45, average "
                 "sleep rose by about an hour, attendance improved, and car "
-                "accidents involving teenage drivers fell by 16 per cent over "
+                "accidents involving teenage drivers fell by 16 percent over "
                 "the first two years.",
                 "The obstacles are practical rather than scientific. Buses run "
                 "two or three school routes each morning, sport and after-school "
-                "jobs are arranged around the old timetable, and parents on "
+                "jobs are arranged around the old schedule, and parents on "
                 "early shifts depend on schools opening early.",
                 "Where change has succeeded, it was made slowly: one district "
                 "moved its start time by ten minutes a year for five years, and "
@@ -30,7 +30,7 @@ MORE = {
             ],
             "summary": bi(
                 "Starting school later clearly helps teenagers, the obstacles "
-                "are timetables rather than evidence, and slow ten-minute steps "
+                "are schedules rather than evidence, and slow ten-minute steps "
                 "get past them.",
                 "دیرتر شروع شدن مدرسه آشکارا به نوجوانان کمک می‌کند، موانع جدول "
                 "زمانی است نه شواهد، و قدم‌های آرام ده‌دقیقه‌ای از آن‌ها می‌گذرند."),
@@ -43,7 +43,7 @@ MORE = {
                                 "یک ساعت، در پاراگراف اول."),
                      "para": 1},
                     {"sentence": "Car accidents among teenage drivers fell by "
-                                 "___ per cent.",
+                                 "___ percent.",
                      "answer": "16", "also": ["sixteen"],
                      "hint": bi("A figure, in the second paragraph.",
                                 "عددی در پاراگراف دوم."),
@@ -60,18 +60,18 @@ MORE = {
                      "options": ["Why teenagers need less sleep",
                                  "Evidence for later starts, the practical "
                                  "obstacles, and a way through them",
-                                 "How school buses are organised",
+                                 "How school buses are organized",
                                  "Why parents disagree with researchers"],
                      "answer": 1,
                      "why": bi("One paragraph of evidence, one of obstacles, one "
                                "of the method that worked - and the last "
-                               "sentence generalises it.",
+                               "sentence generalizes it.",
                                "یک پاراگراف شواهد، یکی موانع، یکی روشی که جواب "
                                "داد؛ و جملهٔ آخر آن را کلی می‌کند."),
                      "para": 4},
                     {"q": "What do the obstacles have in common?",
                      "options": ["They are scientific disagreements",
-                                 "They are timetables and habits, not evidence",
+                                 "They are schedules and habits, not evidence",
                                  "They affect only rural districts",
                                  "They were solved by the trial"],
                      "answer": 1,
@@ -119,7 +119,7 @@ MORE = {
                      "para": 4},
                 ],
                 "essay": [
-                    {"prompt": bi("Summarise the passage in 45-70 words: the "
+                    {"prompt": bi("Summarize the passage in 45-70 words: the "
                                   "evidence, the obstacle, the method. Use no "
                                   "sentence from the original.",
                                   "متن را در ۴۵ تا ۷۰ کلمه خلاصه کن: شواهد، مانع، "
@@ -160,7 +160,7 @@ MORE = {
             "paragraphs": [
                 "The fox on the bin at two in the morning is not lost. Urban "
                 "foxes have lived in British cities since the 1930s, and studies "
-                "suggest densities of up to thirty adults per square kilometre "
+                "suggest densities of up to thirty adults per square kilometer "
                 "in some suburbs.",
                 "The city suits them. Gardens offer shelter, food waste is "
                 "reliable, and there are fewer large predators. A fox's "
@@ -190,10 +190,10 @@ MORE = {
                                 "یک دهه، در پاراگراف اول."),
                      "para": 1},
                     {"sentence": "Densities can reach ___ adults per square "
-                                 "kilometre.",
+                                 "kilometer.",
                      "answer": "thirty", "also": ["30"],
                      "hint": bi("A word, near 'per square kilometre'.",
-                                "یک کلمه، کنار «per square kilometre»."),
+                                "یک کلمه، کنار «per square kilometer»."),
                      "para": 1},
                     {"sentence": "After culling, numbers return within ___ "
                                  "years.",
@@ -280,7 +280,7 @@ MORE = {
                      "model": bi("Foxes have lived in British cities since the "
                                  "1930s and are now a normal part of them, "
                                  "reaching up to thirty adults per square "
-                                 "kilometre in some suburbs. The usual problem "
+                                 "kilometer in some suburbs. The usual problem "
                                  "is noise and fouled gardens; attacks on pets "
                                  "are rare and mostly involve outdoor rabbits. "
                                  "Do not feed them and keep bins closed - that "

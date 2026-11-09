@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """C1 · units 3-4: packing meaning into nouns, and leaving words out.
 
-Unit 3 is nominalisation — the move that makes academic prose sound like itself,
+Unit 3 is nominalization — the move that makes academic prose sound like itself,
 for better and for worse — and the summary that has to compress a source without
 distorting it. Unit 4 is ellipsis and substitution, which is what makes a debate
 sound like a conversation rather than a series of statements.
@@ -17,11 +17,11 @@ U3 = unit(
         lesson(
             "c1-u3-l1",
             "grammar",
-            ("Nominalisation and the complex noun phrase", "اسم‌سازی و گروه اسمی پیچیده"),
-            ("Compress a clause into a noun phrase, and recognise when that compression hides the agent.", "بند را به گروه اسمی فشرده کن و ببین این فشردگی کِی عامل را پنهان می‌کند."),
+            ("Nominalization and the complex noun phrase", "اسم‌سازی و گروه اسمی پیچیده"),
+            ("Compress a clause into a noun phrase, and recognize when that compression hides the agent.", "بند را به گروه اسمی فشرده کن و ببین این فشردگی کِی عامل را پنهان می‌کند."),
             [
-                ("Nominalisation turns a verb or adjective into a noun: prices rose because demand increased → the rise in prices was driven by an increase in demand. Two clauses become one, and the sentence gains density and loses directness. That trade is the whole issue.", "اسم‌سازی فعل یا صفت را به اسم تبدیل می‌کند: prices rose because demand increased ← the rise in prices was driven by an increase in demand. دو بند یکی می‌شود و جمله چگالی می‌گیرد و صراحت را از دست می‌دهد. همین بده‌بستان کل مسئله است."),
-                ("The cost is agency. 'Mistakes were made' has no subject; 'the implementation of the policy resulted in unintended outcomes' has no actor either. Nominalisation is the grammatical form of institutional distance, and a C1 writer uses it when the distance is meant and avoids it when it is a hiding place.", "بهایش از دست رفتن عامل است. «Mistakes were made» نهاد ندارد و «the implementation of the policy resulted in unintended outcomes» هم کنشگر ندارد. اسم‌سازی شکل دستوری فاصلهٔ نهادی است؛ نویسندهٔ C1 وقتی فاصله مقصود است به کارش می‌برد و وقتی پناهگاه است رهایش می‌کند."),
+                ("Nominalization turns a verb or adjective into a noun: prices rose because demand increased → the rise in prices was driven by an increase in demand. Two clauses become one, and the sentence gains density and loses directness. That trade is the whole issue.", "اسم‌سازی فعل یا صفت را به اسم تبدیل می‌کند: prices rose because demand increased ← the rise in prices was driven by an increase in demand. دو بند یکی می‌شود و جمله چگالی می‌گیرد و صراحت را از دست می‌دهد. همین بده‌بستان کل مسئله است."),
+                ("The cost is agency. 'Mistakes were made' has no subject; 'the implementation of the policy resulted in unintended outcomes' has no actor either. Nominalization is the grammatical form of institutional distance, and a C1 writer uses it when the distance is meant and avoids it when it is a hiding place.", "بهایش از دست رفتن عامل است. «Mistakes were made» نهاد ندارد و «the implementation of the policy resulted in unintended outcomes» هم کنشگر ندارد. اسم‌سازی شکل دستوری فاصلهٔ نهادی است؛ نویسندهٔ C1 وقتی فاصله مقصود است به کارش می‌برد و وقتی پناهگاه است رهایش می‌کند."),
                 ("Complex noun phrases build leftwards: the premodifiers stack before the head noun (a long-delayed, under-funded regional transport review) and the postmodifiers follow it (the review of regional transport that was delayed by two years). English tolerates about three premodifiers before the reader slows down.", "گروه‌های اسمی پیچیده به چپ ساخته می‌شوند: پیش‌آیندها پیش از اسم هسته انباشته می‌شوند (a long-delayed, under-funded regional transport review) و پس‌آیندها پس از آن می‌آیند (the review of regional transport that was delayed by two years). انگلیسی تا حدود سه پیش‌آیند را تحمل می‌کند و بعد خواننده کند می‌شود."),
                 ("Precision tools in the noun phrase: of-phrases for possession and topic, compound nouns for category (a transport review, a review board), and hyphenated premodifiers where ambiguity would otherwise occur (a two-year delay, a well-run service). Hyphens disappear when the phrase moves after the noun: the delay lasted two years.", "ابزار دقت در گروه اسمی: عبارت‌های of برای مالکیت و موضوع، اسم‌های مرکب برای مقوله (a transport review، a review board) و پیش‌آیندهای خط‌تیره‌دار جایی که ابهام پیش می‌آید (a two-year delay، a well-run service). خط تیره وقتی عبارت پس از اسم می‌آید حذف می‌شود: the delay lasted two years."),
             ],
@@ -32,13 +32,13 @@ U3 = unit(
                 ("There was a marked decline in the number of applicants.", "کاهش چشمگیری در شمار متقاضیان رخ داد."),
             ],
             [
-                mcq("Which sentence has been nominalised?", "کدام جمله اسم‌سازی شده است؟", ["The council decided quickly.", "The council's quick decision surprised nobody.", "The council decided, and it was quick.", "Quickly, the council decided."], 1,
+                mcq("Which sentence has been nominalized?", "کدام جمله اسم‌سازی شده است؟", ["The council decided quickly.", "The council's quick decision surprised nobody.", "The council decided, and it was quick.", "Quickly, the council decided."], 1,
                     "The verb became a noun phrase with a possessive agent.", "فعل به گروه اسمی با عامل ملکی تبدیل شده است."),
-                mcq("What does nominalisation tend to hide?", "اسم‌سازی معمولاً چه چیزی را پنهان می‌کند؟", ["the time", "the agent", "the object", "the number"], 1,
+                mcq("What does nominalization tend to hide?", "اسم‌سازی معمولاً چه چیزی را پنهان می‌کند؟", ["the time", "the agent", "the object", "the number"], 1,
                     "The actor becomes optional.", "کنشگر اختیاری می‌شود."),
             ],
             [
-                gap("The ___ (fail) of the negotiations was never explained.", ["failure"], "Nominalise the verb.", "فعل را اسم کن."),
+                gap("The ___ (fail) of the negotiations was never explained.", ["failure"], "Nominalize the verb.", "فعل را اسم کن."),
                 gap("It was a well-___ service before the cuts. (hyphenated premodifier)", ["run"], "A compound premodifier keeps its hyphen.", "پیش‌آیند مرکب خط تیره‌اش را نگه می‌دارد."),
                 mcq("Which is the most natural complex noun phrase?", "کدام گروه اسمی پیچیده طبیعی‌تر است؟", ["the review of transport regional long-delayed", "the long-delayed review of regional transport", "the regional long transport delayed review", "review the regional transport long-delayed"], 1,
                     "Premodifiers before the head, postmodifiers after it.", "پیش‌آیند پیش از هسته و پس‌آیند پس از آن."),
@@ -101,7 +101,7 @@ U3 = unit(
                     "Concede marks a point granted against interest.", "concede نکته‌ای را می‌پذیرد که به زیان خودش است."),
             ],
             [
-                write("Summarise in about 120 words the argument that case studies persuade more than they prove. Keep its claim, its strongest support and the limitation it accepts, and attribute the position to its author.",
+                write("Summarize in about 120 words the argument that case studies persuade more than they prove. Keep its claim, its strongest support and the limitation it accepts, and attribute the position to its author.",
                        "استدلالی را که می‌گوید مطالعات موردی بیشتر متقاعد می‌کنند تا اثبات، در حدود ۱۲۰ واژه خلاصه کن. ادعا، قوی‌ترین پشتوانه و محدودیتی که می‌پذیرد را نگه دار و موضع را به نویسنده‌اش نسبت بده.",
                        120, ["argues", "although"],
                        "Four sentences: claim, support, limitation, evaluation. Cut every example.",
@@ -179,7 +179,7 @@ U4 = unit(
                 gap("To ___ the record straight, the figure was 12%, not 21%.", ["set"], "Fixed phrase.", "عبارت ثابت."),
                 mcq("A 'false equivalence' is ___.", "«false equivalence» ___ است.", ["a comparison that hides a relevant difference", "an outright lie", "a correction", "a quotation"], 0,
                     "Two things treated as alike that are not.", "دو چیز که همانند فرض شده‌اند و نیستند."),
-                mcq("'Whataboutism' answers a criticism by ___.", "«Whataboutism» به نقد پاسخ می‌دهد با ___.", ["conceding it", "raising another criticism", "providing evidence", "apologising"], 1,
+                mcq("'Whataboutism' answers a criticism by ___.", "«Whataboutism» به نقد پاسخ می‌دهد با ___.", ["conceding it", "raising another criticism", "providing evidence", "apologizing"], 1,
                     "It deflects rather than replies.", "منحرف می‌کند، پاسخ نمی‌دهد."),
             ],
         ),
@@ -192,7 +192,7 @@ U4 = unit(
                 ("In a debate, the most important moment is usually the one where a speaker stops answering the question that was asked. Listen for the pivot: 'the real issue is…', 'that's not what's at stake', 'you're comparing two different things'. A pivot is not automatically a fallacy, but it is always a change of subject that needs checking.", "در مناظره مهم‌ترین لحظه معمولاً همان است که گوینده پاسخ پرسش پرسیده‌شده را رها می‌کند. به محور گوش کن: «the real issue is…»، «that's not what's at stake»، «you're comparing two different things». محور همیشه مغالطه نیست، اما همیشه تغییر موضوع است و باید بررسی شود."),
                 ("Concessions are quiet in speech: a short 'fair enough', a 'I'd accept that', a rise in pitch on 'true'. A listener who only tracks the main verbs misses them, and then reports a debate as more hostile than it was.", "امتیازها در گفتار آهسته‌اند: یک «fair enough» کوتاه، یک «I'd accept that»، بالا رفتن لحن روی «true». شنونده‌ای که فقط فعل‌های اصلی را دنبال کند آن‌ها را از دست می‌دهد و بعد مناظره را خصمانه‌تر از آنچه بود گزارش می‌کند."),
                 ("Turn-taking signals carry the argument's shape: 'if I could finish', 'let me come back to that', 'go on', 'no, you had your turn'. Interruptions cluster where the disagreement is sharpest, which is a useful map of the actual dispute.", "نشانه‌های نوبت‌گیری شکل استدلال را حمل می‌کنند: «if I could finish»، «let me come back to that»، «go on»، «no, you had your turn». میان‌حرف‌ها جایی جمع می‌شوند که اختلاف تیزتر است و این نقشهٔ خوبی از نزاع واقعی است."),
-                ("Numbers in speech are round and repeated: 'about a third', 'roughly forty per cent'. When a speaker repeats a figure with more precision the second time, they are usually being challenged; when they round it further, they are usually conceding uncertainty. Both are information.", "عددها در گفتار گرد و تکرارشده‌اند: «about a third»، «roughly forty per cent». وقتی گوینده عدد را بار دوم دقیق‌تر تکرار می‌کند، معمولاً به چالش کشیده شده و وقتی بیشتر گردش می‌کند، معمولاً عدم قطعیت را می‌پذیرد. هر دو اطلاعات‌اند."),
+                ("Numbers in speech are round and repeated: 'about a third', 'roughly forty percent'. When a speaker repeats a figure with more precision the second time, they are usually being challenged; when they round it further, they are usually conceding uncertainty. Both are information.", "عددها در گفتار گرد و تکرارشده‌اند: «about a third»، «roughly forty percent». وقتی گوینده عدد را بار دوم دقیق‌تر تکرار می‌کند، معمولاً به چالش کشیده شده و وقتی بیشتر گردش می‌کند، معمولاً عدم قطعیت را می‌پذیرد. هر دو اطلاعات‌اند."),
             ],
             [
                 ("With respect, that's not what's at stake here.", "با احترام، مسئله اینجا آن نیست."),
@@ -209,7 +209,7 @@ U4 = unit(
             [
                 listen("Look, I'd accept that the sample was small. But the direction of the effect was the same in all four regions, and that's not something a small sample invents.",
                        "What does the speaker concede, and what do they defend?", "گوینده چه را می‌پذیرد و از چه دفاع می‌کند؟", ["size of the sample; consistency of the effect", "the conclusion; the method", "nothing; everything", "the regions; the sample"], 0,
-                       "The sample is granted; the consistency is the defence.", "نمونه پذیرفته می‌شود و سازگاری دفاع است."),
+                       "The sample is granted; the consistency is the defense.", "نمونه پذیرفته می‌شود و سازگاری دفاع است."),
                 gap("So we agree on the diagnosis and ___ on the remedy.", ["disagree"], "The pair is agree / disagree.", "جفت agree / disagree است."),
             ],
             dialogue=dialogue([

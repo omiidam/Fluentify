@@ -70,7 +70,7 @@ def check_bank(data: dict) -> dict:
     for source in ("SlangLane", "IdiomX", "Idiom_Translation", "DadmaTools"):
         check(source in names, f"{source} is not credited in the bank's sources")
     for s in meta.get("sources") or []:
-        check(bool(s.get("license")), f"{s.get('name')} has no licence recorded")
+        check(bool(s.get("license")), f"{s.get('name')} has no license recorded")
 
     check(len(slang) >= FLOOR_SLANG,
           f"only {len(slang)} slang terms, the source holds {FLOOR_SLANG}+")
@@ -88,14 +88,14 @@ def check_bank(data: dict) -> dict:
                   f"_meta says {counts[key]} {key} but the file holds {actual}")
 
     # The source's register is a phrase, and the build reduces it to a key. A
-    # substring test over those phrases labelled every "informal" term as
+    # substring test over those phrases labeled every "informal" term as
     # "formal" once, because "informal" contains "formal"; the bank has to
     # look like the thing it describes.
     regs = {"informal": 0, "slang": 0, "formal": 0, "neutral": 0}
     for row in slang:
         regs[row.get("reg", "")] = regs.get(row.get("reg", ""), 0) + 1
     check(regs.get("formal", 0) < len(slang) // 2,
-          f"{regs.get('formal', 0)} of {len(slang)} slang terms are labelled "
+          f"{regs.get('formal', 0)} of {len(slang)} slang terms are labeled "
           "formal: the register mapping is matching the wrong substring")
     check(regs.get("informal", 0) + regs.get("slang", 0) > len(slang) // 2,
           "most of the bank is not marked informal or slang")

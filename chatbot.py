@@ -32,6 +32,27 @@ IDIOMS_FILE = Path(__file__).parent / "idioms.json"
 # parallel corpus, and the Persian glosses none of them carry.
 SLANG_FILE = Path(__file__).parent / "slang.json"
 
+# Fluentify teaches American English, so a British word in a question gets its
+# American equivalent on the answer. These are vocabulary and spelling pairs
+# only; the definitions themselves stay in the lexicon, and the explicit
+# British/American comparison lessons live in distinctions.json.
+BRITISH_TO_AMERICAN = {
+    "petrol": "gas", "queue": "line", "lift": "elevator",
+    "flat": "apartment", "biscuit": "cookie", "autumn": "fall",
+    "fortnight": "two weeks", "chips": "fries", "crisps": "chips",
+    "sweets": "candy", "rubbish": "trash", "timetable": "schedule",
+    "holiday": "vacation", "film": "movie", "cinema": "movie theater",
+    "jumper": "sweater", "nappy": "diaper", "pram": "stroller",
+    "cooker": "stove", "tap": "faucet", "bin": "trash can",
+    "wardrobe": "closet", "torch": "flashlight", "chemist": "pharmacy",
+    "postcode": "zip code", "maths": "math", "lorry": "truck",
+    "motorway": "highway", "pavement": "sidewalk", "trainers": "sneakers",
+    "colour": "color", "favourite": "favorite", "centre": "center",
+    "theatre": "theater", "organise": "organize", "realise": "realize",
+    "travelling": "traveling", "cancelled": "canceled", "programme": "program",
+    "practise": "practice", "licence": "license", "defence": "defense",
+}
+
 # Persian is typed two ways: with the Arabic yeh and kaf, and with the Persian
 # ones (and often with a zero-width non-joiner where a space belongs). Dadma
 # Tools' normaliser settles on the Persian forms; so does this, and for the
@@ -66,7 +87,7 @@ LEXICON_DIR = Path(__file__).parent / "lexicon"
 DAILY_EPOCH = date(2024, 1, 1)
 
 # One salt per category, so the word, the expression and the conversation do
-# not march through their catalogues in step with each other.
+# not march through their catalogs in step with each other.
 DAILY_SALTS = {"words": 3, "expressions": 11, "conversations": 5}
 
 
@@ -76,7 +97,7 @@ def daily_day_number(date_key: str) -> int:
 
 
 def daily_step(size: int, salt: int) -> int:
-    """A step that is coprime with the catalogue size.
+    """A step that is coprime with the catalog size.
 
     With a coprime step, `day * step % size` walks every entry before it comes
     back to one it has used, whatever the size is - so nothing repeats inside a
@@ -93,7 +114,7 @@ def daily_step(size: int, salt: int) -> int:
 
 
 def daily_index(day: int, size: int, salt: int) -> int:
-    """The catalogue slot for a day, or 0 when there is nothing to pick."""
+    """The catalog slot for a day, or 0 when there is nothing to pick."""
     if size <= 0:
         return 0
     return (day * daily_step(size, salt) + salt) % size
@@ -1031,7 +1052,7 @@ class ChatBot:
                 if dist and dist <= max_dist:
                     # "resilent" is one edit from both "resident" and
                     # "resilient"; the longer shared prefix is the one the
-                    # learner was typing towards.
+                    # learner was typing toward.
                     shared = 0
                     for a, b in zip(key, candidate):
                         if a != b:
@@ -1121,6 +1142,13 @@ class ChatBot:
         if len(senses) > 1:
             line += f" · {len(senses)} meanings"
         lines = [line]
+        # A British headword still gets the American term, so a learner who
+        # asks about "petrol" is never left thinking it is the default word.
+        american = (BRITISH_TO_AMERICAN.get(asked_norm)
+                    or BRITISH_TO_AMERICAN.get(head.lower()))
+        if american:
+            lines.append(f"   ↲ American English: **{american}**"
+                         + (" (British English)" if asked_fa else ""))
         fa_line = []
         if asked_fa and asked_norm != head:
             fa_line.append(asked)
@@ -2446,7 +2474,7 @@ class ChatBot:
 
     @staticmethod
     def norm_answer(s: str) -> str:
-        """Normalise an exercise answer: lowercase, drop punctuation and
+        """Normalize an exercise answer: lowercase, drop punctuation and
         apostrophes (so "wasn't" == "wasnt"), collapse whitespace."""
         s = s.lower().replace("’", "'").replace("‘", "'")
         s = re.sub(r"['`]", "", s)  # wasn't -> wasnt, don't -> dont
@@ -2558,7 +2586,7 @@ class ChatBot:
 
         Without this, anything typed mid-quiz ("what's the capital of
         France?") is rejected with "Not quite" instead of being answered.
-        A question, or anything another handler recognises (intent, phrase
+        A question, or anything another handler recognizes (intent, phrase
         bank, grammar topic, vocabulary domain), is clearly not an answer.
         """
         if "?" in text or "؟" in text:
@@ -3051,7 +3079,7 @@ class ChatBot:
                 return self.start_daily_practice(picked["conversations"], lang)
             return self.format_daily_conversation(picked["conversations"], lang)
         if not any(picked.get(k) for k in DAILY_SALTS):
-            return ("The daily catalogue is empty. / کاتالوگ روزانه خالی است.")
+            return ("The daily catalog is empty. / کاتالوگ روزانه خالی است.")
         return self.format_daily_digest(picked, lang)
 
     def start_daily_practice(self, entry: dict, lang: str) -> str:
@@ -3334,7 +3362,7 @@ class ChatBot:
         if not key:
             return None
         # A grammar lesson owns the name of its structure. Three domains are
-        # labelled with a lesson's name - "Question words", "Prepositions of
+        # labeled with a lesson's name - "Question words", "Prepositions of
         # place", "Phrasal verbs" - and the lesson is the answer to that name:
         # the domain's own tile sends a keyword that is not a lesson name, so
         # yielding here costs the button nothing and gives the learner the
@@ -3477,6 +3505,9 @@ class ChatBot:
             if name not in domains:
                 domains.append(name)
         lines = [f'📖 **{en}** · ' + ' · '.join(domains)]
+        american = BRITISH_TO_AMERICAN.get(en.lower())
+        if american:
+            lines.append(f'   ↲ American English: **{american}**')
         seen = set()
         for dom, _en, fa in showing:
             pair = (fa, self.glossary[dom]["label"]["fa"])

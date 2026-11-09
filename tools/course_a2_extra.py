@@ -132,8 +132,8 @@ EXTRA = {
                 ("I arrived at the station at nine and the board said the "
                  "train was on time. At half past nine I was standing near the "
                  "door with my bag when an announcement said the train had "
-                 "been cancelled. While everyone was asking the guard what had "
-                 "happened, I looked at the queue for the buses outside and "
+                 "been canceled. While everyone was asking the guard what had "
+                 "happened, I looked at the line for the buses outside and "
                  "decided to walk. I was still walking at eleven, and the rain "
                  "had started, and I was laughing at myself for believing a "
                  "board.",
@@ -214,20 +214,20 @@ EXTRA = {
              "بده."),
             [
                 ("An arrangement has four moves: suggest, check, confirm and "
-                 "repeat. Shall we meet at six? Does that work for you? "
+                 "repeat. Should we meet at six? Does that work for you? "
                  "Perfect. So, six at the cafe.",
-                 "قرار چهار حرکت دارد: پیشنهاد، بررسی، تأیید و تکرار. Shall we "
+                 "قرار چهار حرکت دارد: پیشنهاد، بررسی، تأیید و تکرار. Should we "
                  "meet at six? Does that work for you? Perfect. So, six at the "
                  "cafe."),
                 ("When you move a plan, say the new time and the reason in one "
                  "sentence: Can we make it seven instead? I am finishing late. "
-                 "That is softer than cancelling and starting again.",
+                 "That is softer than canceling and starting again.",
                  "وقتی قراری را جابه‌جا می‌کنی، زمان تازه و دلیل را در یک جمله "
                  "بگو: Can we make it seven instead? I am finishing late. این "
                  "از لغو کردن و از نو شروع کردن نرم‌تر است."),
             ],
             [
-                ("Shall we meet at six?", "ساعت شش همدیگر را ببینیم؟"),
+                ("Should we meet at six?", "ساعت شش همدیگر را ببینیم؟"),
                 ("Can we make it seven instead?", "می‌شود به‌جایش هفت بگذاریم؟"),
                 ("So, seven at the cafe. See you then.",
                  "پس هفت در کافه. آن‌وقت می‌بینمت."),
@@ -235,18 +235,18 @@ EXTRA = {
             [
                 mcq("Which word makes a suggestion?", "کدام واژه پیشنهاد "
                     "می‌سازد؟",
-                    ["Shall", "Must", "Do", "Are"], 0,
-                    "Shall we is the standard suggestion.", "Shall we پیشنهاد "
+                    ["Should", "Must", "Do", "Are"], 0,
+                    "Should we is the standard suggestion.", "Should we پیشنهاد "
                     "استاندارد است."),
                 mcq("The last move in an arrangement is ___.", "آخرین حرکت در "
                     "قرار ___ است.",
-                    ["suggesting", "repeating the details", "cancelling",
-                     "apologising"], 1,
+                    ["suggesting", "repeating the details", "canceling",
+                     "apologizing"], 1,
                     "Repeating confirms both sides heard the same thing.",
                     "تکرار تأیید می‌کند که هر دو یک چیز شنیده‌اند."),
             ],
             [
-                say("Shall we meet at six at the cafe?",
+                say("Should we meet at six at the cafe?",
                     "ساعت شش در کافه همدیگر را ببینیم؟"),
                 say("Can we make it seven instead? I am finishing work late.",
                     "می‌شود به‌جایش هفت بگذاریم؟ کارم دیر تمام می‌شود."),
@@ -277,7 +277,7 @@ EXTRA = {
                  "نامه را رسمی نگه می‌دارند در حالی که درخواست دقیق می‌ماند."),
             ],
             [
-                ("I am writing about a kettle I bought on 3 May.",
+                ("I am writing about a kettle I bought on May 3.",
                  "دربارهٔ کتری‌ای می‌نویسم که سوم مه خریدم."),
                 ("I would like a refund, not a replacement.",
                  "پول را می‌خواهم، نه تعویض."),
@@ -311,7 +311,7 @@ EXTRA = {
                     "one word"),
                 mcq("Which sentence gives a deadline?", "کدام جمله مهلت "
                     "می‌دهد؟",
-                    ["The kettle is bad.", "Please reply by 20 June.",
+                    ["The kettle is bad.", "Please reply by June 20.",
                      "I bought it in May.", "It does not work."], 1,
                     "By + date is a deadline.", "by + تاریخ یعنی مهلت."),
             ],

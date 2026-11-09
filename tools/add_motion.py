@@ -93,7 +93,7 @@ CSS = r'''
   body.speaking .mav.bot { animation: talkPulse .62s ease-in-out infinite; }
 
   /* ---------- 4. typing indicator ------------------------------------
-     Three dots with a light travelling through them, plus a small lift so
+     Three dots with a light traveling through them, plus a small lift so
      the row breathes while the bot composes. */
   @keyframes typingLift { 0%,100% { opacity:.85; } 50% { opacity:1; } }
   @keyframes typingWave {

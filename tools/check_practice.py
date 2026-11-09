@@ -3,7 +3,7 @@
 
 Everything here answers a question the app could not answer before:
 
-  say match    which words of a spoken sentence came back, after normalising
+  say match    which words of a spoken sentence came back, after normalizing
                case, punctuation and contractions, and aligned by longest common
                subsequence so a dropped word does not mark the rest wrong
   word partners a curated bank - heavy rain, make a decision - asked with

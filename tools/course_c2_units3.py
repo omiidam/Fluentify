@@ -109,7 +109,7 @@ U5 = unit(
              "شود."),
             [
                 ("Register is a set of consistent choices: vocabulary, "
-                 "contraction, nominalisation, directness. 'We need to talk "
+                 "contraction, nominalization, directness. 'We need to talk "
                  "about the budget' and 'a discussion of the budget is "
                  "required' carry the same content into different rooms. "
                  "Mixing the choices is what sounds wrong — a legal noun in a "
@@ -120,9 +120,9 @@ U5 = unit(
                  "اتاق متفاوت می‌برند. درهم‌کردن انتخاب‌هاست که نادرست به گوش "
                  "می‌رسد — اسم حقوقی در ایمیلی دوستانه مثل تهدید خوانده "
                  "می‌شود."),
-                ("The usual direction in professional writing is towards "
+                ("The usual direction in professional writing is toward "
                  "verbs: 'make a decision' becomes 'decide', 'conduct an "
-                 "investigation' becomes 'investigate'. Nominalisation is not "
+                 "investigation' becomes 'investigate'. Nominalization is not "
                  "wrong — it is how you keep a process at a distance, which is "
                  "sometimes exactly what a report needs — but it costs the "
                  "reader energy.",
@@ -151,7 +151,7 @@ U5 = unit(
                  "می‌زنیم."),
             ],
             [
-                mcq("Which is the least nominalised version?", "کدام کمترین "
+                mcq("Which is the least nominalized version?", "کدام کمترین "
                     "اسم‌سازی را دارد؟",
                     ["We conducted an evaluation of the proposal.",
                      "We evaluated the proposal.",
@@ -167,7 +167,7 @@ U5 = unit(
                     "این ساخت به مکاتبهٔ رسمی تعلق دارد."),
             ],
             [
-                mcq("Nominalisation is useful when you want to ___.",
+                mcq("Nominalization is useful when you want to ___.",
                     "اسم‌سازی وقتی سودمند است که بخواهی ___.",
                     ["sound friendly", "keep a process at a distance",
                      "shorten the text", "add examples"], 1,
@@ -229,7 +229,7 @@ U5 = unit(
                  "داشته باشد."),
             ],
             [
-                mcq("What does Account A emphasise?", "روایت الف بر چه تأکید "
+                mcq("What does Account A emphasize?", "روایت الف بر چه تأکید "
                     "می‌کند؟",
                     ["the message on the wall", "the size and timing of the "
                      "gathering", "the police decision", "the rain"],
@@ -239,7 +239,7 @@ U5 = unit(
                     "___ است.",
                     ["the crowd", "a written demand ignored for a year",
                      "the weather", "the number of police"], 1,
-                    "The letter and its reception organise the account.",
+                    "The letter and its reception organize the account.",
                     "نامه و نحوهٔ دریافتش روایت را سازمان می‌دهند."),
             ],
             [
@@ -266,9 +266,9 @@ U5 = unit(
             passage=passage(
                 ("Two accounts of one afternoon",
                  "دو روایت از یک بعدازظهر"),
-                ("**Account A.** By three o'clock the pavement outside the "
+                ("**Account A.** By three o'clock the sidewalk outside the "
                  "office held perhaps sixty people, which was more than the "
-                 "organisers had expected and fewer than the police had "
+                 "organizers had expected and fewer than the police had "
                  "prepared for. The banners were hand-painted. A man with a "
                  "megaphone read out four names and the crowd repeated them. "
                  "At ten past three the rain began, and the gathering, having "
@@ -277,7 +277,7 @@ U5 = unit(
                  "year earlier went unmentioned by everyone, including me.\n\n"
                  "**Account B.** The letter was sent in March and acknowledged "
                  "in April. It asked for one meeting and named three "
-                 "questions. The acknowledgement said the questions would be "
+                 "questions. The acknowledgment said the questions would be "
                  "considered. Twelve months later, on a wet afternoon, sixty "
                  "people stood outside the building to say the twelve months "
                  "had happened. That was the whole of the event: not the "
@@ -517,11 +517,11 @@ U6 = unit(
                  "that، in so far as، a growing body of evidence. یکی در هر "
                  "بند کافی است و دو تا در یک جمله پرکردن فضا."),
                 ("Watch the prepositions inside chunks: an increase in "
-                 "waiting times, a decrease of ten per cent, a rise from nine "
+                 "waiting times, a decrease of ten percent, a rise from nine "
                  "to fourteen. The preposition carries the direction, and it "
                  "is the part learners most often get wrong.",
                  "حروف اضافهٔ درون خوشه را ببین: an increase in waiting "
-                 "times، a decrease of ten per cent، a rise from nine to "
+                 "times، a decrease of ten percent، a rise from nine to "
                  "fourteen. حرف اضافه جهت را حمل می‌کند و همان بخشی است که "
                  "زبان‌آموزان بیشتر اشتباه می‌کنند."),
             ],
@@ -554,12 +554,12 @@ U6 = unit(
                     ["agree", "effective", "increase", "decide"], 1,
                     "We strongly agree but a highly effective method.",
                     "می‌گوییم strongly agree ولی a highly effective method."),
-                gap("A decrease ___ ten per cent is a fall of that size.",
+                gap("A decrease ___ ten percent is a fall of that size.",
                     ["of"], "Decrease of + amount.",
                     "decrease of + مقدار.", "one word"),
                 mcq("Two academic chunks in one sentence usually read as "
                     "___.", "دو خوشهٔ دانشگاهی در یک جمله معمولاً ___",
-                    ["precision", "padding", "formality", "humour"], 1,
+                    ["precision", "padding", "formality", "humor"], 1,
                     "One does the work; the second fills space.",
                     "یکی کار را می‌کند و دومی فضا را پر می‌کند."),
                 gap("The ban was imposed on the ___ that the risk was "
@@ -651,7 +651,7 @@ U6 = unit(
                 mcq("Which word most clearly carries evaluation rather than "
                     "measurement?", "کدام واژه داوری را حمل می‌کند و نه "
                     "سنجش را؟",
-                    ["nine", "median", "merely", "per cent"], 2,
+                    ["nine", "median", "merely", "percent"], 2,
                     "'Merely' tells you what to think about the size.",
                     "«merely» می‌گوید دربارهٔ اندازه چه فکر کن."),
             ],

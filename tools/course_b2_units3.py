@@ -26,7 +26,7 @@ U5 = unit(
             ],
             [
                 ("We had the kitchen painted last spring.", "بهار گذشته آشپزخانه را رنگ کردیم (کسی برایمان رنگ کرد)."),
-                ("I need to get my eyes tested before I renew my licence.", "پیش از تمدید گواهینامه باید چشمانم را معاینه کنم."),
+                ("I need to get my eyes tested before I renew my license.", "پیش از تمدید گواهینامه باید چشمانم را معاینه کنم."),
                 ("She had the whole team rewrite the section.", "او کل تیم را واداشت بخش را بازنویسی کند."),
                 ("He got his bag stolen on the metro.", "در مترو کیفش دزدیده شد."),
                 ("Could you get someone to look at the heating?", "می‌شود کسی را بفرستی به شوفاژ نگاه کند؟"),
@@ -38,7 +38,7 @@ U5 = unit(
                     "Only the causative leaves the doer out.", "فقط سببی کننده را حذف می‌کند."),
             ],
             [
-                gap("We're going to ___ the flat decorated before we move in.", ["have", "get"], "Have/get + object + participle.", "have/get + مفعول + اسم مفعول."),
+                gap("We're going to ___ the apartment decorated before we move in.", ["have", "get"], "Have/get + object + participle.", "have/get + مفعول + اسم مفعول."),
                 gap("She got a colleague ___ check the figures. (active, with to)", ["to"], "Get someone to do something.", "get somebody to do something یعنی از کسی بخواهی کاری کند."),
                 mcq("'He got his wallet stolen' suggests ___.", "«He got his wallet stolen» نشان می‌دهد ___.", ["he arranged it", "it happened to him", "he stole it", "he found it"], 1,
                     "A mishap, not an arrangement.", "حادثه است، نه ترتیب دادن."),
@@ -59,7 +59,7 @@ U5 = unit(
             ],
             [
                 ("The warehouse automated its sorting, which displaced twelve jobs and created three.", "انبار مرتب‌سازی را خودکار کرد؛ دوازده شغل حذف و سه شغل ایجاد شد."),
-                ("The recommendation engine optimises for time spent, not for satisfaction.", "موتور پیشنهاد برای زمان صرف‌شده بهینه می‌شود، نه برای رضایت."),
+                ("The recommendation engine optimizes for time spent, not for satisfaction.", "موتور پیشنهاد برای زمان صرف‌شده بهینه می‌شود، نه برای رضایت."),
                 ("Users consent to the policy without reading it, which is the whole business model.", "کاربران بدون خواندن به سیاست رضایت می‌دهند و همین کل مدل کسب‌وکار است."),
                 ("In exchange for free storage, we give up the right to be forgotten.", "در برابر فضای رایگان، حق فراموش شدن را از دست می‌دهیم."),
             ],

@@ -51,9 +51,9 @@
   /* Vazirmatn (rastikerdar/vazirmatn, OFL) is the Persian face of the whole
      app: a modern naskh drawn for screens, with the weights a UI needs and none
      of Nastaliq's depth, which had the Persian lines sitting lower than their
-     Latin neighbours and reading as calligraphy where the app wanted plain
+     Latin neighbors and reading as calligraphy where the app wanted plain
      text. One variable file covers 100-900, so bold Persian is bold rather
-     than a synthesised smear. The unicode-range keeps it to the Arabic script,
+     than a synthesized smear. The unicode-range keeps it to the Arabic script,
      so Latin stays in Baloo2/Kalam and a mixed line keeps two voices on
      purpose. */
   @font-face {
@@ -68,7 +68,7 @@
   }
 
   :root {
-    /* Four colours, taken from the poster this theme is set in: its sand band
+    /* Four colors, taken from the poster this theme is set in: its sand band
        (#EBE2B7), its slate band (#3C405B), the gold of its linework (#E8BF5F)
        and the steel blue of its water (#33526E, #E4ECF3). Everything below is
        one of those four, used in the ratios the poster uses them: slate only
@@ -80,7 +80,7 @@
     --bg1: #f7f1e0; --bg2: #f2ead6; --bg3: #efe5cd;
     --panel: rgba(20, 26, 50, .9); --panel2: #fffcef;
     --accent: #3c405b; --accent2: #4a4fa0; --accent3: #3f6a8a;
-    /* Both greys are darker than the paper first suggests: --muted lands at
+    /* Both grays are darker than the paper first suggests: --muted lands at
        5.3:1 on the blue chips (not just on white) and --dim at 5.0:1 there,
        so the 9-11px counters and timestamps clear AA wherever they sit. */
     --text: #2b3049; --muted: #55607a; --dim: #5b6478;
@@ -88,7 +88,7 @@
     --paper: #f7f1e0; --paper2: #efe5cd; --card: #fffcef;
     /* The dark side of the theme is navy now, not the poster's slate:
        deeper and bluer, which is what lets a toolbar icon, a panel rule
-       and an open tile all be navy without reading as four greys. */
+       and an open tile all be navy without reading as four grays. */
     --ink: #2b3049; --navy: #22375e; --navy2: #182a4a;
     --gold: #e8bf5f; --gold2: #cf9f3c; --gold-soft: #f7e6bd;
     /* the poster's first band, as a surface rather than an accent */
@@ -117,14 +117,14 @@
     --teal: #2a5a7a; --cyan: #14607e; --violet: #4a5580;
     --indigo: #4a4fa0; --amber: #8a5a00; --rose: #a03a63;
     /* the Reading panel's own accent: green, because every other section is
-       already using one and a shared colour reads as a shared section */
+       already using one and a shared color reads as a shared section */
     --leaf: #2f6b4f; --leaf-soft: #eaf3ec;
     --line: rgba(43,48,73,0.136);
     --line2: rgba(43,48,73,0.238);
     --shadow: 0 40px 100px rgba(74,58,30, .7);
 
     /* ---- the theme ladder ------------------------------------------------
-       Everything above names a colour. Everything from here names a *job*, and
+       Everything above names a color. Everything from here names a *job*, and
        every job is answered twice: once by this block and once by the dark
        block below it. A surface is a step on a ladder rather than a hex value,
        so "the frame, one step darker than the card" survives a palette change
@@ -137,7 +137,7 @@
          --surf-3  the page itself                    --surf-6  deepest wash
        In the dark block the same ladder runs the other way: --surf-1 is the
        *highest* surface and therefore the lightest, because elevation in a
-       dark theme is shown by lifting a surface towards the light, not by a
+       dark theme is shown by lifting a surface toward the light, not by a
        shadow nobody can see. */
     --surf-1: #fffcef; --surf-2: #fdf8ea; --surf-3: #f7f1e0;
     --surf-4: #f5eedb; --surf-5: #efe5cd; --surf-6: #eadfc7;
@@ -157,7 +157,7 @@
     --lift-warm: rgba(255,252,239,.34);
     /* A sheen is a highlight, not a surface, and a highlight only reads in
        proportion to how dark the thing under it is. The same 55% white that
-       reads as glass over cream reads as a grey bar slid across graphite. */
+       reads as glass over cream reads as a gray bar slid across graphite. */
     --glint: rgba(255,255,255,.55);
     --glint-soft: rgba(255,255,255,.38);
     /* The tutor's portrait is a cut-out on a transparent file, so the tile
@@ -171,7 +171,7 @@
     --ink-1: #2b3049; --ink-2: #3f4a6b; --ink-3: #55607e;
     --ink-4: #7b829c; --ink-5: #666d84;
     --on-fill: #fffcef;
-    /* accents, separated into the two jobs a colour can do: --x-ink is text
+    /* accents, separated into the two jobs a color can do: --x-ink is text
        and must clear 4.5:1 on its surface, --x-fill is a filled surface and
        must clear it against the text that sits on it. */
     --gold-ink: #8a5a00; --green-ink: #2f6b4f; --red-ink: #a8493a;
@@ -197,7 +197,7 @@
     --wash-leaf: #e8f5ea; --wash-violet: #e4e6f8; --wash-slate: #f5eedb;
     --gold-line: #e8bf5f;
     --focus: #3c405b;
-    /* masks read alpha, not colour, so this stays black in both themes */
+    /* masks read alpha, not color, so this stays black in both themes */
     --mask: #000000;
     /* The primary button's fill. It shares --ink's value in light and must not
        share its *token*: --ink becomes pale text in the dark theme, and a
@@ -313,7 +313,7 @@
     padding: 18px;
     overflow: hidden;
   }
-  /* Layered gradient field — the glass needs colour behind it to refract. */
+  /* Layered gradient field — the glass needs color behind it to refract. */
   /* ---- the backdrop ----------------------------------------------------
      Everything here is a gradient fading to transparent, moving only with
      `transform`. Nothing carries a filter.
@@ -323,7 +323,7 @@
      frame, on a full-viewport element - the most expensive thing this page
      could do - and it bought nothing, because radial-gradient stops fading
      to transparent are already soft. Dropping it is the performance fix and
-     the reason the colours below can be richer. */
+     the reason the colors below can be richer. */
   .backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
 
   .backdrop::before {
@@ -397,7 +397,7 @@
   }
   .boot.gone { opacity: 0; visibility: hidden; pointer-events: none; }
 
-  /* Static colour, moving light. No filter on an animated layer: a blur here
+  /* Static color, moving light. No filter on an animated layer: a blur here
      is re-rasterised every frame on the one screen that must stay smooth. */
   .boot-aurora { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
   .boot-aurora i {
@@ -535,7 +535,7 @@
   }
 
   /* A bouncing tile with its shadow on the floor. The shape is borrowed from
-     a well-known loading animation; the colour is the tutor's. Transform
+     a well-known loading animation; the color is the tutor's. Transform
      only, so it stays on the compositor. */
   /* The three things the app does every day, as a preview of the product
      rather than as decoration: a loading screen is the one place a first-time
@@ -733,7 +733,7 @@
      visible at all. Whatever draws here has to be a child of .app to be seen,
      and a child is painted after the backdrop-filter, so it stays crisp.
 
-     One mark, dead centre, and it is the brand picture itself rather than a
+     One mark, dead center, and it is the brand picture itself rather than a
      redrawn silhouette of it: two drawings of one mascot drift apart, and did
      when this was a hand-cut copy of the header's bird.
 
@@ -898,7 +898,7 @@
        the content, or the close button is only reachable by remembering where
        the top was. The band behind it is the panel's own first gradient stop,
        so at rest it is invisible and while scrolled it covers what passes
-       under it - no second colour, no hairline drawn when nothing is behind. */
+       under it - no second color, no hairline drawn when nothing is behind. */
     position: sticky; top: 0; z-index: 5;
     padding-block: 12px;
   }
@@ -1100,7 +1100,7 @@
   /* Borderless on purpose. Seven outlined boxes in a row is a rack of
      buttons, not a toolbar; what separates them is the fill and the space
      between, which is what a toolbar actually is. The states carry
-     themselves on background and shadow instead of on a coloured outline. */
+     themselves on background and shadow instead of on a colored outline. */
   /* A card, not a pill: white paper on cream, one hairline, one soft shadow.
      The emoji these replaced were seven different icons from seven different
      fonts and read as clip art next to the navy wordmark; these are one
@@ -1126,8 +1126,8 @@
   }
   .hbtn i svg { width: 18px; height: 18px; display: block; }
   /* One hue per section, the same hue that section's panel header carries, so
-     the toolbar works as a colour key: thirteen grey glyphs said nothing about
-     where you were going, and the paper theme had almost no colour above the
+     the toolbar works as a color key: thirteen gray glyphs said nothing about
+     where you were going, and the paper theme had almost no color above the
      fold. The label stays muted; only the icon speaks. */
   .hbtn.tint-teal   i { color: var(--teal); }
   .hbtn.tint-cyan   i { color: var(--cyan); }
@@ -1224,7 +1224,7 @@
     font-size: 19px; color: var(--ink); margin-bottom: 4px; font-weight: 700;
     font-family: var(--font-display); letter-spacing: -.2px; line-height: 1.28;
   }
-  /* A coloured rule per section. Only one panel is ever open, so this is a
+  /* A colored rule per section. Only one panel is ever open, so this is a
      wayfinding cue rather than a palette to look at - it tells you where you
      are before you have read a word. */
   #dpanel h3  { border-inline-start: 3px solid var(--amber);   padding-inline-start: 9px; }
@@ -1260,7 +1260,7 @@
      thing a returning reader does is not watching a spinner. */
   .auth {
     position: fixed; inset: 0; z-index: 9990;
-    /* Flex with margin:auto on the card, not grid centring: a centred grid
+    /* Flex with margin:auto on the card, not grid centring: a centered grid
        item taller than the viewport is clipped at the top and its first field
        cannot be scrolled to. Auto margins collapse to zero instead, so the
        card starts at the top edge and scrolls on a short phone. */
@@ -1469,7 +1469,7 @@
   }
   .authexpired[hidden] { display: none; }
 
-  /* The account panel keeps the small grey note the gate used to carry. */
+  /* The account panel keeps the small gray note the gate used to carry. */
   .authnote {
     margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--line);
     font-size: 10.5px; line-height: 1.55; color: var(--ink-4);
@@ -1686,7 +1686,7 @@
     font-size: clamp(3.6px, .66vw, 5px); letter-spacing: .07em;
     text-transform: uppercase; color: var(--doc-ink4); line-height: 1.25;
   }
-  /* The middle is the claim: who, what, and how well. It is centred because
+  /* The middle is the claim: who, what, and how well. It is centered because
      that is the one line of the page a reader looks for first. */
   .certbody {
     flex: 1; display: flex; flex-direction: column; align-items: center;
@@ -1887,8 +1887,8 @@
 
   /* ---------- level check: the monthly CEFR assessment ---------------------
      One panel with three faces: the invitation, the paper, and the report.
-     The colours are the app's own; the only new decision is that a band is
-     always the same colour wherever it appears, so the badge in the header,
+     The colors are the app's own; the only new decision is that a band is
+     always the same color wherever it appears, so the badge in the header,
      the row in the result and the tag on a question agree at a glance. */
   #lvlpanel.open { display: block; max-height: none; overflow-y: auto; }
   /* The level check, the weekly quiz and the practice sheet used to lift out
@@ -1955,7 +1955,7 @@
   }
   .lv-chip b { color: var(--ink); font-weight: 700; }
 
-  /* --- a band, in one place, with one colour ------------------------------ */
+  /* --- a band, in one place, with one color ------------------------------ */
   [data-band="A1"] { --lvc: var(--band-a1); --lvcs: var(--band-a1-soft); }
   [data-band="A2"] { --lvc: var(--band-a2); --lvcs: var(--band-a2-soft); }
   [data-band="B1"] { --lvc: var(--band-b1); --lvcs: var(--band-b1-soft); }
@@ -2460,7 +2460,7 @@
   }
   /* A lesson is six things - structure, tip, explanation, function, examples,
      exercises - and they used to arrive as one pre-wrap wall of text. Each is
-     its own bordered card now, with a rail whose colour says which part of the
+     its own bordered card now, with a rail whose color says which part of the
      lesson you are in. The engine's text is untouched: this is the page's
      parsing of the same words the CLI and the APK print. */
   .glesson { white-space: normal; }
@@ -2552,7 +2552,7 @@
   /* the quiet marker that opens a translation line */
   .trm { color: var(--muted); margin-inline-end: 5px; font-size: .92em; }
   .gsec-b b { color: var(--navy); }
-  /* one rail colour per part, drawn from the theme's own accents */
+  /* one rail color per part, drawn from the theme's own accents */
   .gsec[data-kind="structure"]   .gsec-h { border-inline-start-color: var(--violet); }
   .gsec[data-kind="tip"]         .gsec-h { border-inline-start-color: var(--amber); }
   .gsec[data-kind="explanation"] .gsec-h { border-inline-start-color: var(--indigo); }
@@ -2840,7 +2840,7 @@
      a lesson: explanation first, then the passage, then the questions. Both
      are drawn into #rdbody by the Reading module, so every class here is used
      by generated markup and none of it can be styled by a document selector
-     that does not exist yet. Green is this section's colour and appears in
+     that does not exist yet. Green is this section's color and appears in
      exactly three places: the heading rule, the strategy numbers and the
      "right answer" state. */
   /* A lesson is read, not scanned, so the column has a measure: 640px on a
@@ -3245,9 +3245,9 @@
      with the same selector always won - and the shadow that survived was the
      old indigo rgba(79,110,247): a blue glow on the calmer, warmer page. */
   /* The learner's tile is the bird's own season: paper washed in the season's
-     tint, ringed in the season's edge colour. It used to be a navy block, which
-     swallowed the one coloured thing drawn for the learner - at 26px the bird
-     was a yellow shape on a dark square, and the colour carried no meaning. */
+     tint, ringed in the season's edge color. It used to be a navy block, which
+     swallowed the one colored thing drawn for the learner - at 26px the bird
+     was a yellow shape on a dark square, and the color carried no meaning. */
   .row.user .mav {
     background: radial-gradient(circle at 32% 24%, var(--surf-1) 0%,
                 var(--season-wash, rgba(232,191,95,.22)) 62%, var(--surf-3) 100%);
@@ -3263,7 +3263,7 @@
     font-size: 16px; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word;
     border: 1px solid var(--line);
   }
-  /* The tutor's own bubbles carry the bird's colour. Neutral white glass made
+  /* The tutor's own bubbles carry the bird's color. Neutral white glass made
      every reply look like a system message; the tutor is the one voice in the
      conversation and should be the one that looks like a voice. Anthropomorphic
      styling measurably raises perceived empathy and trust, and trust is what
@@ -3348,7 +3348,7 @@
   }
   .schips { display: flex; flex-wrap: wrap; gap: 7px; }
   /* Steel blue, not paper: these are the first thing a learner can touch, and
-     the one cool colour in the palette belongs on them - it is the poster's
+     the one cool color in the palette belongs on them - it is the poster's
      water against its sand. */
   .schip {
     background: var(--ice); color: var(--ice-ink);
@@ -3387,9 +3387,9 @@
     overflow: hidden;
   }
 
-  /* scroll-to-latest — bottom centre of the transcript. Centred rather than
+  /* scroll-to-latest — bottom center of the transcript. Centered rather than
      over the right-hand edge, which is the usual convention: the transcript
-     is a single centred reading column here, and a button on one side pulls
+     is a single centered reading column here, and a button on one side pulls
      the eye away from it. Carries a count of what has arrived below. */
   .jump {
     position: absolute; left: 50%; bottom: 14px; z-index: 6;
@@ -3424,7 +3424,7 @@
      opens that drill as a page of its own, and closing the page folds this
      back open on the list. It is a child of .chatwrap, so it is clipped with
      the transcript when a section is open and it cannot cover the composer,
-     which is a sibling below it. The jump button owns the bottom centre; this
+     which is a sibling below it. The jump button owns the bottom center; this
      owns the right. */
   .prfab {
     position: absolute; right: 14px; bottom: 14px; z-index: 8;
@@ -3585,7 +3585,7 @@
   /* ---------- the message box ----------
      The shape is borrowed from a plain chat composer: one rounded container
      with the controls inside it rather than a row of separate pills. The
-     greys are the app's own - the shell is the same paper as the panels, and
+     grays are the app's own - the shell is the same paper as the panels, and
      the focus ring is the theme's gold, so typing into it reads the same way
      as the rest of the page lighting up.
   */
@@ -3616,7 +3616,7 @@
   .foxslot {
     position: relative; flex: none;
     /* Its bottom edge must be the box's top edge, and the form's own gap sits
-       between the two: the negative margin is that gap, cancelled, so the clip
+       between the two: the negative margin is that gap, canceled, so the clip
        line is the lip of the box and not a band above it. */
     height: 46px; margin: 0 0 calc(-1 * var(--fgap, 10px));
     overflow: hidden; pointer-events: none;
@@ -3655,7 +3655,7 @@
     animation: foxLook 11.3s ease-in-out infinite;
   }
   /* A ghost, in three strokes: white body, one green line, and a face made of
-     two eyes, a nose and a smile - no fur, no hat, no colour but these. */
+     two eyes, a nose and a smile - no fur, no hat, no color but these. */
   .foxghost {
     fill: var(--ghost-body); stroke: var(--ghost-line); stroke-width: 1.6;
     stroke-linejoin: round; stroke-linecap: round;
@@ -4059,7 +4059,7 @@
     background: linear-gradient(90deg, var(--gold), var(--gold2) 46%, var(--surf-4));
   }
   /* The drills are a page now, so they take a reading column wide enough for a
-     sentence and its options without the eye travelling the whole window. */
+     sentence and its options without the eye traveling the whole window. */
   .prwrap { display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin: 0 auto; }
   .prtabs { display: flex; flex-wrap: wrap; gap: 6px; }
   /* The way back to the drawer, at the top of every drill page. */
@@ -4106,7 +4106,7 @@
   .prnote { margin: 0; font-size: 11.5px; line-height: 1.6; color: var(--muted); }
   .prnote.fa { font-family: var(--font-fa); line-height: 1.8; }
 
-  /* the four verdicts in the review queue: equal buttons, no "right" one */
+  /* the four verdicts in the review line: equal buttons, no "right" one */
   .rgrade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
   .rgrade .rbtn { font-size: 12px; }
   .rprog-line {
@@ -4272,7 +4272,7 @@
      background and read as loose text wedged into the conversation. */
   .dinline {
     position: relative; overflow: hidden;
-    /* The transcript's own width, centred: the day's material is not a side
+    /* The transcript's own width, centered: the day's material is not a side
        note, and at 760px it read as a narrow insert beside full-width
        bubbles. Capped so a wide monitor does not stretch three short rows
        into one long line, and auto margins do the centring. */
@@ -4373,7 +4373,7 @@
     transition: background .15s, color .15s;
   }
   /* The header band is warm, so the ✕ darkens toward the navy on hover rather
-     than sitting in the flat grey the rows below use. */
+     than sitting in the flat gray the rows below use. */
   .dix:hover { background: rgba(138,90,0,.12); color: var(--navy); }
   .dirow {
     display: flex; align-items: flex-start; gap: 8px;
@@ -4648,7 +4648,7 @@
     text-overflow: clip; max-width: none;
   }
   /* .hbtn span (0,1,1) outranked .rbadge (0,1,0), so the count inherited the
-     label's grey on a gold pill - 3.8:1 at 9px. The badge needs its own ink. */
+     label's gray on a gold pill - 3.8:1 at 9px. The badge needs its own ink. */
   .hbtn span.rbadge { color: var(--gold-ink); }
   .rbadge[hidden] { display: none; }
   .rtop { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -5026,7 +5026,7 @@
   .go.exam:not(.locked):hover { background: rgba(201,138,22,.34); }
   .go.exam.locked {
     /* --muted, not --dim: the locked chip sits on the lavender bar, where the
-       lighter grey measured 4.1:1 at 11.5px. */
+       lighter gray measured 4.1:1 at 11.5px. */
     background: rgba(43,48,73,0.102); color: var(--muted);
     border-left-color: var(--line2);
   }
@@ -5176,7 +5176,7 @@
   .mic:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   .mic:active { transform: scale(.94); }
   /* Teal, not pink. Pink is the tutor; when the mic pulses in the tutor's
-     own colour it reads as though the app is talking at you. */
+     own color it reads as though the app is talking at you. */
   .mic.rec {
     background: var(--fill-red); color: var(--on-fill);
     box-shadow: 0 2px 10px rgba(168,73,58,.3), 0 0 0 1px rgba(168,73,58,.35);
@@ -5393,7 +5393,7 @@
   body.speaking .mav.bot { animation: talkPulse .62s ease-in-out infinite; }
 
   /* ---------- 4. typing indicator ------------------------------------
-     Three dots with a light travelling through them, plus a small lift so
+     Three dots with a light traveling through them, plus a small lift so
      the row breathes while the bot composes. */
   @keyframes typingLift { 0%,100% { opacity:.85; } 50% { opacity:1; } }
   @keyframes typingWave {
@@ -6507,7 +6507,7 @@ const isFa = s => /[\u0600-\u06FF]/.test(s);
    that is always yellow says "summer" in November.
 
    One palette drives both halves: the SVG's own gradients and the tile it sits
-   on, so the ring around the bird is never a colour the bird isn't. */
+   on, so the ring around the bird is never a color the bird isn't. */
 const SEASONS = {
   spring: { season: 'spring', fa: 'بهار',
             body: ['#ffe6f1', '#ffb0d0', '#c26088'], wing: '#ff9dc3',
@@ -6587,7 +6587,7 @@ function birdSVG(p) {
     /* beak, upper and lower halves split by the seam */
     '<path d="M37 22.7 L44.2 26 L37 29.1 Z" fill="' + p.beak + '"/>' +
     '<path d="M37.2 25.9 h6.4" stroke="' + p.body[2] + '" stroke-width=".7" opacity=".55"/>' +
-    /* eye, with the catch-light up and left of centre */
+    /* eye, with the catch-light up and left of center */
     '<circle cx="31.3" cy="21" r="3.4" fill="' + p.eye + '"/>' +
     '<circle cx="32.7" cy="19.7" r="1.15" fill="#fff"/>' +
     /* cheek, at 22% so it is a warmth rather than a spot */
@@ -6641,7 +6641,7 @@ function repaintAvatarTiles() {
   });
 }
 
-/* The tile behind the bird is ringed in the bird's own ring colour, so a
+/* The tile behind the bird is ringed in the bird's own ring color, so a
    chosen face changes the frame too and not just the animal inside it. */
 function applyAvatarSkin(id) {
   const key = AVATARS[id] ? id : SEASON;
@@ -6656,7 +6656,7 @@ applyAvatarSkin(avatarId());
 const WELCOME = "Hey! Fluentify here. Let's learn English together.";
 
 /* The four things this tutor does well, offered as the first move. Each one
-   is a sentence the engine already recognises, so a tap gets a real answer
+   is a sentence the engine already recognizes, so a tap gets a real answer
    rather than a polite "I don't know that one". */
 const STARTERS = [
   ['colors', 'Colors', 'واژگان رنگ‌ها'],
@@ -6700,7 +6700,7 @@ function escapeHtml(s) {
 }
 /* ---------------------------------------------------------------- stickers
    A fox travels through a message as [fox:cute]: the composer holds the
-   token, and the bubble holds the drawing. The catalogue registers itself
+   token, and the bubble holds the drawing. The catalog registers itself
    when it loads, and the swap happens after the text has been escaped, so the
    picture always comes from our own data and never from what someone typed. */
 const FOX_STICKERS = Object.create(null);
@@ -7161,7 +7161,7 @@ async function send(text) {
     clearChat();
     return;
   }
-  // "analyse this sentence …" / «نقش دستوری کلمات چیه؟» — the bundled tagger
+  // "analyze this sentence …" / «نقش دستوری کلمات چیه؟» — the bundled tagger
   // answers it on the device. Runs before the section commands, because both
   // match words like "grammar".
   if (await matchAnalyseCommand(text)) { input.value = ''; return; }
@@ -7183,7 +7183,7 @@ async function send(text) {
   // referent at the moment it is asked.
   if (looksLikeSentence(text)) lastTyped = text;
   if (busy) return;                      // real message, but one is in flight
-  // daily limit reached — refuse the message, don't queue it
+  // daily limit reached — refuse the message, don't line it
   if (Seed.spent()) { Seed.block(); return; }
   busy = true;
   sendbtn.disabled = true;
@@ -7510,8 +7510,9 @@ const Seed = {
 const Speech = {
   playing: null,
   voice: null,
-  /* Prefer the most natural-sounding voice the device actually has, instead of
-     taking whatever the engine happens to default to (often the worst one). */
+  /* General American is the model accent, so a US English voice wins even when
+     the device also ships a British one. The name bonus still decides between
+     two US voices; the language bonus only decides which accent is used. */
   pickVoice() {
     if (!('speechSynthesis' in window)) return null;
     const list = speechSynthesis.getVoices();
@@ -7521,17 +7522,18 @@ const Speech = {
       const n = (v.name || '').toLowerCase();
       if (/natural|neural|premium|enhanced/.test(n)) s += 100;
       if (/google/.test(n)) s += 60;
-      if (/(samantha|karen|daniel|serena|moira|tessa|zira|aria|jenny|libby|sonia)/.test(n)) s += 45;
+      if (/(samantha|ava|allison|susan|zira|aria|jenny|michelle|libby|sonia|joanna|matthew|guy|alex)/.test(n)) s += 45;
       if (v.localService) s += 25;           // offline = instant, no network
-      if (/^en[-_]GB/i.test(v.lang)) s += 22;
-      else if (/^en[-_]AU|^en[-_]IE/i.test(v.lang)) s += 14;
-      else if (/^en[-_]US/i.test(v.lang)) s += 12;
+      if (/^en[-_]US/i.test(v.lang)) s += 40;
+      else if (/^en[-_]CA/i.test(v.lang)) s += 10;
+      else if (/^en[-_]GB/i.test(v.lang)) s -= 10;
       if (/female|woman|woman/.test(n)) s += 8;
       if (/(compact|eloquence|espeak)/.test(n)) s -= 50;   // robotic engines
       return s;
     };
     const en = list.filter((v) => /^en/i.test(v.lang));
-    const pool = en.length ? en : list;
+    const us = en.filter((v) => /^en[-_]US/i.test(v.lang));
+    const pool = us.length ? us : (en.length ? en : list);
     return pool.slice().sort((a, b) => score(b) - score(a))[0] || null;
   },
   speak(text, onEnd) {
@@ -7549,7 +7551,7 @@ const Speech = {
     const u = new SpeechSynthesisUtterance(text);
     if (!this.voice) this.voice = this.pickVoice();
     if (this.voice) u.voice = this.voice;
-    u.lang = this.voice ? this.voice.lang : 'en-GB';
+    u.lang = this.voice ? this.voice.lang : 'en-US';
     u.rate = 0.95;      // a touch slower than default = clearer
     u.pitch = 1.0;      // neutral, avoids the chipmunk effect
     u.volume = 1;
@@ -8035,14 +8037,14 @@ const Stickers = (() => {
       data = null;
       return false;
     }
-    /* The same catalogue feeds the bubbles, so a sticker already in the
+    /* The same catalog feeds the bubbles, so a sticker already in the
        transcript still paints when the picker is never opened. */
     registerFoxes(data.stickers);
     return true;
   }
 
   return { mount: build, open: show, close, load,
-           get open() { return open; }, get catalogue() { return data; } };
+           get open() { return open; }, get catalog() { return data; } };
 })();
 /* ==================================================================== MOTION
  * One IIFE, no top-level names, so it cannot collide with bot.js - which is
@@ -8196,7 +8198,7 @@ const Motion = (() => {
  * PANEL SHELL
  * Close button, Esc, focus in on open and back to the tile on close, and
  * aria-expanded - for all six panels, which had otherwise drifted into six
- * behaviours. togglePanel routes through here so they cannot diverge again.
+ * behaviors. togglePanel routes through here so they cannot diverge again.
  * ==========================================================================*/
 const Panels = (() => {
   const TILES = {
@@ -8576,7 +8578,7 @@ const STT = {
   lang() {
     if (this.language) return this.language;
     const l = this.cfg.language || {};
-    return l.default || l.fallback || 'en-GB';
+    return l.default || l.fallback || 'en-US';
   },
 
   setLanguage(code) { this.language = code; },
@@ -8705,7 +8707,7 @@ const STT = {
              away what was said: this fires after the engine has already
              delivered its result, and nothing else would ever commit it. A
              tap that started dictation then goes quiet had the same effect -
-             the words were recognised, held in final, and dropped. */
+             the words were recognized, held in final, and dropped. */
           this.commit();
         } else {
           this._idle = setTimeout(watch, 500);
@@ -8829,7 +8831,7 @@ function toast(text, ms = 2600) {
 /* A single mic button in the composer: tap to talk, tap to stop.
  *
  * The icon is an inline SVG rather than the 🎙 emoji. The emoji depends on the
- * platform having a colour-emoji font, and where it does not the button renders
+ * platform having a color-emoji font, and where it does not the button renders
  * as an empty circle - which reads as a broken control, or as no control.
  */
 const MIC_ICON =
@@ -9169,7 +9171,7 @@ async function loadListening() {
             btn.textContent = '▶';
             // a system notice, not the tutor speaking
             toast('🔇 No speech engine on this device — the sentence is still ' +
-                  'here to practise. / روی این دستگاه صدایی در دسترس نیست.', 4000);
+                  'here to practice. / روی این دستگاه صدایی در دسترس نیست.', 4000);
           }
         };
         row.onclick = (ev) => btn.onclick(ev);   // the row is just a bigger play target
@@ -9189,7 +9191,7 @@ async function loadListening() {
     const toBbc = document.createElement('button');
     toBbc.className = 'bbc-open';
     toBbc.textContent = '📻  BBC 6 Minute English — graded A2 → C1';
-    toBbc.title = 'Real BBC episodes, graded by listening difficulty';
+    toBbc.title = 'Authentic British recordings from BBC Learning English, graded by listening difficulty. Our own lessons use General American.';
     toBbc.onclick = () => loadBBC();
 
     box.innerHTML = '';
@@ -9201,7 +9203,7 @@ async function loadListening() {
 
 
 /* ---------- BBC 6 Minute English ----------
-   An audio catalogue: the mirrored clips and the episode links are what this
+   An audio catalog: the mirrored clips and the episode links are what this
    section offers. The transcript PDFs are not shown at all - BBC's download
    links are unreliable from a WebView and several have been retired, so a
    "Transcript" control that opens a dead PDF is worse than no control.
@@ -9212,7 +9214,7 @@ async function loadListening() {
    from the transcript, so the band is what you actually hear, not the topic;
    the transcript is simply not surfaced as a download. */
 let bbcDocCache = null;
-/* The graded catalogue, cached. It is about a megabyte, and the boot warms it
+/* The graded catalog, cached. It is about a megabyte, and the boot warms it
    so the first tap on the Listen tab is not the thing that discovers it. */
 async function bbcDoc() {
   bbcDocCache ||= bbcCatalogue();
@@ -9251,7 +9253,7 @@ async function loadBBC() {
     const ungradedN = episodes.filter((e) => !e.level).length;
     const tail = ungradedN ? ` ${ungradedN} are still ungraded.` : '';
     // Count what is actually listed, not doc.count. Episodes with no playable
-    // stream are filtered out above, so quoting the catalogue total would
+    // stream are filtered out above, so quoting the catalog total would
     // claim more episodes are on screen than any level tab can add up to.
     const hidden = (doc.count || 0) - episodes.length;
     const dropped = hidden > 0
@@ -9261,9 +9263,12 @@ async function loadBBC() {
       ? `${episodes.length} BBC episodes — ${episodes.length - ungradedN} graded ` +
         `${spread}. Each grade is set from the episode's transcript: vocabulary, ` +
         `sentence length and speaking pace.${tail}${dropped} ` +
-        'Audio plays from the offline mirror. / <bdi class="fa" lang="fa" dir="rtl">صدا از نسخه آفلاین پخش می‌شود.</bdi>'
+        'Audio plays from the offline mirror. These are authentic British recordings; ' +
+        'Fluentify\'s own lessons and audio use General American. / ' +
+        '<bdi class="fa" lang="fa" dir="rtl">صدا از نسخه آفلاین پخش می‌شود. این‌ها ضبط‌های اصیل بریتانیایی‌اند؛ درس‌ها و صدای خود فلوئنتیفای آمریکایی است.</bdi>'
       : `${episodes.length} episodes from BBC Learning English. ` +
-        'Audio plays from the offline mirror.';
+        'Audio plays from the offline mirror. These are authentic British recordings; ' +
+        'Fluentify\'s own lessons and audio use General American.';
     head.appendChild(note);
     wrap.appendChild(head);
 
@@ -9284,7 +9289,7 @@ async function loadBBC() {
     const PAGE = 80;
     let shown = PAGE;
     const matching = () => episodes
-      // an ungraded episode has level === null, not '?', so normalise
+      // an ungraded episode has level === null, not '?', so normalize
       // before comparing or the "Not graded" tab comes back empty
       .filter((e) => current === 'all' || (e.level || '?') === current);
 
@@ -11270,7 +11275,7 @@ const Level = (() => {
 
   /* Same word, however it was typed: case, curly apostrophes, spacing and a
      final full stop are not what a cloze is testing. */
-  const normalise = (value) => String(value == null ? '' : value)
+  const normalize = (value) => String(value == null ? '' : value)
     .replace(/[’`]/g, "'")
     .replace(/\s+/g, ' ')
     .trim()
@@ -11286,8 +11291,8 @@ const Level = (() => {
     if (!typedKinds.has(item.kind)) return false;
     if (value == null || value === '') return false;
     const given = Array.isArray(value) ? value.join(' ') : value;
-    const wanted = (item.accept || []).map(normalise);
-    return wanted.includes(normalise(given));
+    const wanted = (item.accept || []).map(normalize);
+    return wanted.includes(normalize(given));
   }
 
   /* One paper for everyone: ten questions from each band, climbing A1 to C1.
@@ -11371,7 +11376,7 @@ const Level = (() => {
     [/\b(i|you|we|they)\s+(is|was)\b/i, 'is/was after a plural subject'],
     [/\b(he|she|it)\s+(are|were)\b/i, 'are/were after a singular subject'],
     [/\ba\s+(?!(user|university|useful|usual|one|euro))[aeiou]\w*/i, 'a before a vowel'],
-    [/\ban\s+(?!(hour|honest|honour|heir))[^aeiou\s]\w*/i, 'an before a consonant'],
+    [/\ban\s+(?!(hour|honest|honor|heir))[^aeiou\s]\w*/i, 'an before a consonant'],
     [/\bmore\s+\w+er\b/i, 'double comparative'],
     [/\bmost\s+\w+est\b/i, 'double superlative'],
   ];
@@ -11958,7 +11963,7 @@ const Level = (() => {
       </div>
       <div class="lv-callout">
         <b>Speaking is reported as not assessed.</b>
-        <p>These tasks are here to practise, and to rate yourself against a rubric. They are never
+        <p>These tasks are here to practice, and to rate yourself against a rubric. They are never
           averaged into your level, because a self-rating is not a proficiency score. Writing is
           scored, on the page before this one.</p>
         ${faLine('گفتن «سنجیده‌نشده» گزارش می‌شود. این تمرین‌ها برای تمرین و سنجش خودت با معیار است و هرگز در سطح کلی میانگین نمی‌شود، چون خودسنجی نمرهٔ مهارت نیست. نوشتن در صفحهٔ پیش نمره می‌گیرد.')}
@@ -12542,7 +12547,7 @@ const Level = (() => {
   return {
     mount, paintBadge, compute, blankAttempt, paper, partIds, partCount,
     writingIds, markWriting, writingResult,
-    levelFromCorrect, isCorrect, normalise,
+    levelFromCorrect, isCorrect, normalize,
     reset() {
       try {
         localStorage.removeItem(KEY.result);
@@ -12578,7 +12583,7 @@ const Level = (() => {
    downstream of it - including the ones written months ago - follows without
    knowing a theme exists.
 
-   What is stored is the *choice*, not the resolved colour: "dark" stays dark
+   What is stored is the *choice*, not the resolved color: "dark" stays dark
    after the device switches to light at sunrise, which is what someone who
    picked a theme is asking for. A learner who has never chosen gets whatever
    the device is set to, and gets it without a flash (the head script). */
@@ -13878,7 +13883,7 @@ const PANEL_ON_OPEN = {
   },
   lpanel: () => PanelSearch.attachAll(),
   phpanel: () => PanelSearch.attachAll(),
-  // the library loads its catalogue on first open, then remembers where the
+  // the library loads its catalog on first open, then remembers where the
   // reader was, so reopening the panel does not walk them back to the shelf
   bpanel: () => Books.load(),
   // six strategies and their questions, 83 KB, read on the first open
@@ -13976,7 +13981,7 @@ function dayGcd(a, b) {
   return Math.abs(a);
 }
 
-/* A step coprime with the catalogue size, so `day * step % size` walks every
+/* A step coprime with the catalog size, so `day * step % size` walks every
    entry before it repeats one, whatever the size happens to be. */
 function dayStep(size, salt) {
   if (size <= 1) return 1;
@@ -14004,7 +14009,7 @@ function untilLocalMidnight(now) {
 /* --- daily store: pure, executed by tools/check_daily.py ----------------
    Completion lives beside the date it belongs to and is never cleared, so
    yesterday's record survives and "today" simply has no entries yet. Keyed on
-   the content id rather than the position, so extending the catalogue cannot
+   the content id rather than the position, so extending the catalog cannot
    move a tick onto a different word. */
 const DailyStore = {
   KEY: 'fluentify.daily.v1',
@@ -14039,7 +14044,7 @@ const DailyStore = {
     return state;
   },
   /* Counted against the ids on screen, so an id left over from an older
-     catalogue can never make a card look finished or the day look complete. */
+     catalog can never make a card look finished or the day look complete. */
   count(state, date, ids) {
     return ids.filter((id) => this.isDone(state, date, id)).length;
   },
@@ -14105,7 +14110,7 @@ const DailyStore = {
 /* --- weekly quiz: pure, executed by tools/check_weekly.py ---------------
    The quiz reviews what the learner actually ticked off in the last seven
    days, so its only content source is the daily store. Everything in here is
-   arithmetic over that record and the daily catalogue: no clock of its own, no
+   arithmetic over that record and the daily catalog: no clock of its own, no
    network, no randomness that is not seeded by the period - the same week and
    the same ticks must always give the same paper, or a refresh would rewrite
    the questions under the reader.
@@ -14122,7 +14127,7 @@ const DailyStore = {
    ended on Thursday - the Friday-to-Thursday week that just closed - so a
    word met on Friday is not asked on that same Friday but on the next one.
    One paper per Friday, frozen when built, so reopening cannot redraw it. */
-/* A word from the catalogue is put into a regular expression to find the
+/* A word from the catalog is put into a regular expression to find the
    sentence it belongs in, so its own punctuation must not become a pattern. */
 const weeklyEscapeRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -14669,12 +14674,12 @@ const Mastery = {
     keys.forEach((k) => { kept[k] = items[k]; });
     try {
       localStorage.setItem(this.KEY, JSON.stringify({items: kept}));
-    } catch (e) { /* private mode or a full disk: the queue still plays */ }
+    } catch (e) { /* private mode or a full disk: the line still plays */ }
     return {items: kept};
   },
 
   /* A new item is due immediately: it was just met in the daily set and has
-     never been recalled once, so the first thing the queue should ask is
+     never been recalled once, so the first thing the line should ask is
      whether any of it stuck. `seed` never overwrites a record that already
      exists, so a saved word and a daily word cannot reset each other's dates. */
   seed(state, seeds, today) {
@@ -14699,7 +14704,7 @@ const Mastery = {
 
   /* Everything the daily store has ticked, as seeds. A tick is the only proof
      the app has that the item was met, so it is the only thing that can put an
-     item in the queue. */
+     item in the line. */
   seedDaily(state, cat, days, today) {
     const seeds = [];
     const store = days && typeof days === 'object' ? days : {};
@@ -14770,7 +14775,7 @@ const Mastery = {
       const it = items[k];
       if (!it) return;
       /* An item with no date has never been scheduled, so it is not something
-         to skip: it is the oldest thing in the queue. */
+         to skip: it is the oldest thing in the line. */
       if (it.due && it.due > today) return;
       out.push(it);
     });
@@ -14779,7 +14784,7 @@ const Mastery = {
     return out;
   },
 
-  /* When the queue next has something in it, or null when it is empty. */
+  /* When the line next has something in it, or null when it is empty. */
   next(state) {
     const items = (state && state.items) || {};
     const keys = Object.keys(items).filter((k) => items[k] && items[k].due);
@@ -14931,7 +14936,7 @@ const ErrorLog = {
       b.count - a.count || (a.last < b.last ? 1 : -1));
   },
 
-  /* The questions behind one class, newest first, so "practise this" asks the
+  /* The questions behind one class, newest first, so "practice this" asks the
      exact items that were missed rather than an invented set. */
   drill(state, key, limit) {
     const cards = (state && state.cards) || {};
@@ -15341,7 +15346,7 @@ const Weekly = (() => {
     if (old && old.parentNode) old.parentNode.removeChild(old);
     if (!chatEl || !cat) return;
     /* Friday only, from nine in the morning Tehran time. Outside that window
-       the card does not exist at all - not greyed out, not counting down: the
+       the card does not exist at all - not grayed out, not counting down: the
        week's review is a Friday morning, and a disabled card sitting in the
        transcript all week is a nag. */
     if (!WeeklyQuiz.isOpen(new Date())) return;
@@ -16210,7 +16215,7 @@ const Slip = (() => {
       '<div class="ac-sliprow"><span class="n">' + escapeHtml(r.en) +
       '<i lang="fa" dir="rtl">' + escapeHtml(r.fa || '') + '</i></span>' +
       '<span class="c">' + r.count + '×</span>' +
-      '<button type="button" data-slip="' + escapeHtml(r.key) + '">Practise</button></div>')
+      '<button type="button" data-slip="' + escapeHtml(r.key) + '">Practice</button></div>')
       .join('') + '</div>';
   }
 
@@ -17108,7 +17113,7 @@ const Path = (() => {
           ? '<p class="pres-s" dir="ltr">The speaking exercise is not counted on this ' +
             'device: there is no speech recogniser to hear it.</p>' : '') +
         '<p class="pres-s" dir="ltr">' + (share >= 0.6
-          ? 'That is enough to finish the lesson. The ones marked in red come back in the review queue.'
+          ? 'That is enough to finish the lesson. The ones marked in red come back in the review line.'
           : 'Not yet: 60% finishes a lesson. Read the explanation again and try the red ones.') + '</p>';
     }
     const fin = document.querySelector('[data-path="finish"]');
@@ -17487,7 +17492,7 @@ const Daily = (() => {
                    conversations: 'مکالمه امروز'};
   const ORDER = ['words', 'expressions', 'conversations'];
 
-  let cat = null;          // the catalogue, read once
+  let cat = null;          // the catalog, read once
   let failed = false;
   let shown = null;        // the date currently painted
   let picked = null;       // the three items currently painted
@@ -17633,7 +17638,7 @@ const Daily = (() => {
     if (!entry) {
       return '<div class="dcard" data-kind="' + kind + '">' +
         cardShell(kind, '', '', '<div class="dnone">This item is missing from the ' +
-          'catalogue. / این مورد در کاتالوگ نیست.</div>') + '</div>';
+          'catalog. / این مورد در کاتالوگ نیست.</div>') + '</div>';
     }
     const extraHead = kind === 'expressions' && entry.register
       ? '<span class="dreg">' + esc(entry.register) + '</span>' : '';
@@ -17878,7 +17883,7 @@ const Daily = (() => {
         b.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
-    /* Tapping a row opens it. The chevron stays the labelled control for
+    /* Tapping a row opens it. The chevron stays the labeled control for
        keyboards and screen readers; this is the same toggle for a thumb, and
        it ignores clicks inside the opened body so selecting a line does not
        fold the row shut under the reader. */
@@ -17937,7 +17942,7 @@ const Daily = (() => {
     DailyStore.write(state);
     /* A tick is the app's only proof that the item was met, so the mastery
        ledger is updated here rather than on a schedule: today's word enters the
-       review queue the moment it is ticked, due today. */
+       review line the moment it is ticked, due today. */
     try {
       const today = Mastery.keyOf(new Date());
       Mastery.write(Mastery.seedDaily(Mastery.read(), cat, DailyStore.read().days, today));
@@ -17999,7 +18004,7 @@ const Daily = (() => {
     }
   }
 
-  /* The panel's own switch, labelled with what it will do next rather than
+  /* The panel's own switch, labeled with what it will do next rather than
      with the current state - a button that says "hidden" and does nothing is
      the usual way this goes wrong. */
   function paintCardToggle() {
@@ -18044,7 +18049,7 @@ const Daily = (() => {
     });
   }
 
-  /* Everything about the day is already in the catalogue, so "loading" is one
+  /* Everything about the day is already in the catalog, so "loading" is one
      file read that happens behind the boot screen. */
   async function load() {
     if (cat || failed) return cat;
@@ -18099,7 +18104,7 @@ async function loadDaily() {
   // the daily set is offered in the conversation itself, and skipped or
   // switched off entirely by the learner
   Daily.mountCard();
-  // the week's review sits under the day's card, and reads the same catalogue
+  // the week's review sits under the day's card, and reads the same catalog
   await Weekly.init();
   // the drills are a card of their own, under both of those
   await Practice.init();
@@ -18377,7 +18382,7 @@ const Boot = (() => {
  * real work instead of animating a fixed fiction.
  *
  * The last two are the heavy ones and the ones that used to be deferred: the
- * word index is about 450 KB and feeds the chips in Sentences, the catalogue
+ * word index is about 450 KB and feeds the chips in Sentences, the catalog
  * is about a megabyte and feeds the Listen tab. Deferring them saved time
  * nobody was waiting on and made those two sections feel broken.
  */
@@ -18454,7 +18459,7 @@ Promise.all([loadJSON('memory'), loadJSON('glossary'), loadJSON('grammar'),
                          phonetics, distinctions, idioms, corrections, register,
                          daily, slang});
 
-    // The Listen panel's catalogue, links only: no transcript is ever served.
+    // The Listen panel's catalog, links only: no transcript is ever served.
     _bbc = bbc_6min;
 
     // The Sentences panel's word chips, banded by level. Built here rather
@@ -18596,7 +18601,7 @@ const Review = {
       if (raw) this.items = JSON.parse(raw) || [];
     } catch (e) { this.items = []; }
     /* A word saved here is a word the learner chose to keep, so it belongs in
-       the mastery queue as well. Seeded once; a record that already exists
+       the mastery line as well. Seeded once; a record that already exists
        keeps its schedule. */
     if (this.items.length) {
       const today = Mastery.keyOf(new Date());
@@ -18697,7 +18702,7 @@ const Review = {
     else (this.mode === 'cards' ? this.paintCard : this.paintList).call(this, body);
   },
 
-  /* ---- the queue the schedule asks for, not the one the list happens to be
+  /* ---- the line the schedule asks for, not the one the list happens to be
      in. Four verdicts rather than the old known/not-known pair, because the
      difference between "hard" and "again" is exactly what decides the next
      interval. */
@@ -18925,7 +18930,7 @@ const Review = {
 
 /* ============================================================================
  * THE LIBRARY
- * Books → lessons → words. The catalogue is books.json: one entry per book,
+ * Books → lessons → words. The catalog is books.json: one entry per book,
  * its lessons, and each lesson's words with a Persian meaning, an English
  * definition and sentences that use them. Nothing here is generated - what is
  * on screen is what the file says - so a definition can be corrected in one
@@ -19543,7 +19548,7 @@ const SECTIONS = {
  * is served from /nlp/ on the web and sits next to index.html inside the
  * APK. It is fetched on the first request only, and the model itself is built
  * when it is first asked a question (~80 ms, once), so the sentence is handed
- * over after the browser has painted the "analysing" bubble.
+ * over after the browser has painted the "analyzing" bubble.
  * ==========================================================================*/
 const NLP = (() => {
   /* Relative on purpose. On the web this is /nlp/fluentify-nlp.js; inside the
@@ -19572,7 +19577,7 @@ const NLP = (() => {
   async function analyze(sentence) {
     const api = await load();
     /* The first call builds the model. One yield, so the bubble that says the
-       sentence is being analysed is on screen before the main thread goes
+       sentence is being analyzed is on screen before the main thread goes
        busy; after that the model is cached and a bounded sentence costs about
        a millisecond. */
     await new Promise((r) => setTimeout(r, 0));
@@ -19614,10 +19619,10 @@ const NLP = (() => {
 /* Does this message ask for a sentence to be taken apart? Kept to explicit
    request wording in both languages, because a message that merely mentions
    grammar is a question for the tutor, not a parse. */
-const ANALYSE_INTENT = new RegExp(
-  // "analyse [this / the sentence / it]" — the request words are consumed with
+const ANALYZE_INTENT = new RegExp(
+  // "analyze [this / the sentence / it]" — the request words are consumed with
   // the verb, so the sentence that follows is left whole
-  '(?:analyse|analyze|analysis|parse)\\s*' +
+  '(?:analyze|analyze|analysis|parse)\\s*' +
   '(?:this|that|it|these|those|the\\s+sentences?|my\\s+sentences?|' +
   'the\\s+following|below)?|' +
   'break\\s+(?:this|that|it|the)\\s+(?:sentence\\s+)?down|' +
@@ -19626,7 +19631,7 @@ const ANALYSE_INTENT = new RegExp(
   '(?:explain|show)\\s+the\\s+structure|grammar\\s+of\\s+th(?:is|e)\\s+sentence|' +
   'sentence\\s+structure|structure\\s+of\\s+th(?:is|e)\\s+sentence|' +
   '(?:find|list)\\s+the\\s+(?:verbs?|nouns?)|nouns?\\s+and\\s+verbs?|' +
-  'verbs?\\s+and\\s+nouns?|grammar\\s+(?:analyse|analyze|analysis)|' +
+  'verbs?\\s+and\\s+nouns?|grammar\\s+(?:analyze|analyze|analysis)|' +
   // "check my grammar", "fix this sentence", "is this sentence right?" - the
   // same request in the words people actually use, which is why they are here
   // and not left to the tutor's general grammar topic, which would answer with
@@ -19654,7 +19659,7 @@ const ANALYSE_INTENT = new RegExp(
 
 /* The words that ask for the analysis rather than belong to the sentence, and
    the lead-ins a learner naturally types in front of it. */
-const ANALYSE_NOISE = new RegExp(
+const ANALYZE_NOISE = new RegExp(
   '^(?:this|that|these|those|the|a|an|of|for|in|on|about|please|below|following|' +
   'sentence|sentences|grammar|structure|role|roles|word|words|verb|verbs|noun|nouns|' +
   'subject|object|me|it|and|to|do|does|can|you|my|its|its\\s+grammar|sentence\\s+grammar|' +
@@ -19662,9 +19667,9 @@ const ANALYSE_NOISE = new RegExp(
 
 /* A determiner is only the request's, never the sentence's: "the structure of
    this sentence: The book was written by George" loses the first "the", while
-   "analyse this: The book was written by George" keeps the one that belongs to
+   "analyze this: The book was written by George" keeps the one that belongs to
    the sentence. */
-const ANALYSE_DETERMINER = ['the', 'this', 'that', 'these', 'those', 'a', 'an'];
+const ANALYZE_DETERMINER = ['the', 'this', 'that', 'these', 'those', 'a', 'an'];
 
 /* Pull the sentence out of the request. The sentence is what the learner
    pasted: the longest run of Latin words left once the request itself is
@@ -19678,9 +19683,9 @@ function extractSentence(text) {
   if (colon !== -1) {
     const tail = raw.slice(colon + 1).trim();
     const words = (tail.match(/[A-Za-z][A-Za-z0-9'’\-]*/g) || []);
-    if (words.length > 1) return tail.replace(ANALYSE_INTENT, ' ').replace(/\s+/g, ' ').trim();
+    if (words.length > 1) return tail.replace(ANALYZE_INTENT, ' ').replace(/\s+/g, ' ').trim();
   }
-  let rest = raw.replace(ANALYSE_INTENT, ' ').replace(/[؟?،,]+/g, ' ');
+  let rest = raw.replace(ANALYZE_INTENT, ' ').replace(/[؟?،,]+/g, ' ');
   const runs = (rest.match(/[A-Za-z][A-Za-z0-9'’\-]*(?:[ \t]+[A-Za-z0-9'’\-]+)*[.!?…]*/g) || [])
     .map((s) => s.replace(/[ \t]+/g, ' ').trim())
     .filter((s) => s.length > 1);
@@ -19688,17 +19693,17 @@ function extractSentence(text) {
   let best = runs.reduce((a, b) => (b.length > a.length ? b : a), '');
   let guard = 0;
   while (guard++ < 14) {
-    const m = best.match(ANALYSE_NOISE);
+    const m = best.match(ANALYZE_NOISE);
     if (!m) break;
     const word = m[0].trim().toLowerCase();
     const next = best.slice(m[0].length).trim().split(/\s+/)[0].toLowerCase();
-    if (ANALYSE_DETERMINER.indexOf(word) !== -1 && !ANALYSE_NOISE.test(next + ' ')) break;
+    if (ANALYZE_DETERMINER.indexOf(word) !== -1 && !ANALYZE_NOISE.test(next + ' ')) break;
     best = best.slice(m[0].length);
   }
   // The learner's own punctuation is part of the sentence, so only the
   // separators the request left behind come off.
   best = best.replace(/[\s:;,]+$/, '').trim();
-  // one Latin word on its own is not a sentence to analyse
+  // one Latin word on its own is not a sentence to analyze
   return /[A-Za-z]/.test(best) && best.split(/\s+/).length > 1 ? best : '';
 }
 
@@ -19832,7 +19837,7 @@ document.addEventListener('click', (ev) => {
 /* The sentences the panel offers as a first click: three the analyser is
    confidently right about, and one question, which is the shape learners
    most often want explained. */
-const ANALYSE_EXAMPLES = [
+const ANALYZE_EXAMPLES = [
   'She has been learning English.',
   'The book was written by George.',
   'If it rains, we will stay home.',
@@ -19877,7 +19882,7 @@ const Analyser = (() => {
     const row = document.getElementById('nexamples');
     if (row) {
       row.textContent = '';
-      ANALYSE_EXAMPLES.forEach((s) => {
+      ANALYZE_EXAMPLES.forEach((s) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'nex';
@@ -19899,7 +19904,7 @@ const Analyser = (() => {
 
 /* A grammar-analysis request is answered here, on the device, before the
    Knowledge Base is consulted at all: it costs nothing from the daily seed
-   and it works with the aeroplane mode on.
+   and it works with the airplane mode on.
 
    Three pieces of context matter, and keywords alone cannot see any of them:
    a request with no sentence in it is a promise to send one, "what about this
@@ -19915,22 +19920,22 @@ let lastAnalysed = '';
    sent" points at. */
 let lastTyped = '';
 
-const ANALYSE_CANCEL = /^(?:no|cancel|never\s*mind|forget\s*it|stop|not\s*now|بیخیال|نه|لغو|ولش|الان\s*نه)$/i;
+const ANALYZE_CANCEL = /^(?:no|cancel|never\s*mind|forget\s*it|stop|not\s*now|بیخیال|نه|لغو|ولش|الان\s*نه)$/i;
 
 /* Follow-ups: "what about this one", "and this:", «و این یکی». Only counts
    when something is already in play, so a cold "what about" is still chat. */
-const ANALYSE_FOLLOWUP = new RegExp(
+const ANALYZE_FOLLOWUP = new RegExp(
   '^(?:and|what\\s+about|how\\s+about|also|now)\\b|' +
   '^(?:و|در\\s*مورد|حالا)\\b|' +
   '(?:this|that|it|these|those)\\s+one|همین\\s*(?:یکی|جمله)|این\\s*یکی', 'i');
 
 /* "the sentence I just sent", "my last message", «جملهٔ قبلی». */
-const ANALYSE_PREVIOUS = new RegExp(
+const ANALYZE_PREVIOUS = new RegExp(
   '(?:the\\s+)?(?:sentence|message|text|one)\\s+(?:that\\s+)?(?:i\\s+)?(?:just\\s+)?' +
   '(?:sent|typed|wrote|said|pasted)|previous\\s+(?:sentence|message)|' +
   'last\\s+(?:sentence|message)|جمله(?:\\u0654|\\s)*(?:قبلی|اخیر|بالا)|پیام\\s*قبلی', 'i');
 
-/* Two Latin words are the floor for "this is a sentence to analyse": one word
+/* Two Latin words are the floor for "this is a sentence to analyze": one word
    is a lookup, and a Persian-only message is not something the English tagger
    can take apart. */
 function looksLikeSentence(text) {
@@ -19961,16 +19966,16 @@ async function takePendingSentence(text) {
   if (!analyseWaiting) return false;
   const t = (text || '').trim();
   if (!t) return false;
-  if (ANALYSE_CANCEL.test(t)) {
+  if (ANALYZE_CANCEL.test(t)) {
     analyseWaiting = false;
     add(t, 'user');
-    add('No problem — nothing analysed. Ask again whenever you like.\n' +
+    add('No problem — nothing analyzed. Ask again whenever you like.\n' +
         'باشه، تحلیلی انجام نشد. هر وقت خواستی دوباره بپرس.', 'bot');
     return true;
   }
   /* One message is the window: if it is not a sentence, the request lapses
      rather than lying in wait for a sentence an hour later. */
-  if (!looksLikeSentence(t) || ANALYSE_INTENT.test(t)) { analyseWaiting = false; return false; }
+  if (!looksLikeSentence(t) || ANALYZE_INTENT.test(t)) { analyseWaiting = false; return false; }
   add(t, 'user');
   analyseWaiting = false;
   await analyseSentence(t);
@@ -19980,9 +19985,9 @@ async function takePendingSentence(text) {
 async function matchAnalyseCommand(text) {
   const t = (text || '').trim();
   if (!t || t.length > 300) return false;
-  const asked = ANALYSE_INTENT.test(t);
+  const asked = ANALYZE_INTENT.test(t);
   /* A follow-up only counts when there is something to follow up on. */
-  const followUp = !asked && (lastAnalysed || analyseWaiting) && ANALYSE_FOLLOWUP.test(t);
+  const followUp = !asked && (lastAnalysed || analyseWaiting) && ANALYZE_FOLLOWUP.test(t);
   if (!asked && !followUp) return false;
 
   add(t, 'user');
@@ -19993,13 +19998,13 @@ async function matchAnalyseCommand(text) {
      happily reports "I just sent" as a sentence, which is why the reference
      wins over whatever it found: a message pointing at a previous sentence has
      no sentence of its own unless one follows a colon. */
-  if (ANALYSE_PREVIOUS.test(t) && !/:\s*\S/.test(t)) {
+  if (ANALYZE_PREVIOUS.test(t) && !/:\s*\S/.test(t)) {
     if (lastTyped && looksLikeSentence(lastTyped)) sentence = lastTyped;
     else if (lastAnalysed) sentence = lastAnalysed;
   }
   /* "what about it?" with nothing new in the message: re-open the last
      analysis rather than pretend the learner pasted something. */
-  if (!sentence && followUp && lastAnalysed && !/[A-Za-z]{2,}/.test(t.replace(ANALYSE_FOLLOWUP, ''))) {
+  if (!sentence && followUp && lastAnalysed && !/[A-Za-z]{2,}/.test(t.replace(ANALYZE_FOLLOWUP, ''))) {
     sentence = lastAnalysed;
   }
 

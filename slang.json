@@ -28,9 +28,9 @@
    }
   ],
   "counts": {
-   "slang": 338,
+   "slang": 337,
    "slang_with_fa": 330,
-   "idioms": 2922,
+   "idioms": 2916,
    "idioms_with_fa": 68,
    "idioms_with_fa_example": 196,
    "fa_idioms": 200
@@ -1862,15 +1862,6 @@
    "fa": "ستاره‌ی ساختگی و حمایت‌شده"
   },
   {
-   "t": "ionk",
-   "al": [],
-   "cat": "internet",
-   "reg": "informal",
-   "tone": "informal",
-   "en": "I don't know.",
-   "fa": "من نمی‌دونم (I don't know)"
-  },
-  {
    "t": "iPhone face",
    "al": [],
    "cat": "internet",
@@ -3425,10 +3416,10 @@
    "src": "idiomx"
   },
   {
-   "en": "absolute cinema",
+   "en": "absolute movie theater",
    "meaning": "An event or situation that is highly entertaining or dramatically remarkable, often unexpectedly amusing or absurd.",
    "reg": "slang",
-   "ex": "He works for Absolute Cinema, the new independent movie house downtown.",
+   "ex": "He works for Absolute Movie theater, the new independent movie house downtown.",
    "fa": "",
    "src": "idiomx"
   },
@@ -4573,7 +4564,7 @@
    "en": "beat feet",
    "meaning": "To leave quickly or flee.",
    "reg": "informal",
-   "ex": "As the gangsters spotted the police, they beat feet towards the back alley.",
+   "ex": "As the gangsters spotted the police, they beat feet toward the back alley.",
    "fa": "",
    "src": "idiomx"
   },
@@ -4711,7 +4702,7 @@
    "en": "because reasons",
    "meaning": "for reasons that are unclear, unstated, or considered not worthy of explanation",
    "reg": "informal",
-   "ex": "He cancelled the appointment because reasons related to scheduling conflicts.",
+   "ex": "He canceled the appointment because reasons related to scheduling conflicts.",
    "fa": "",
    "src": "idiomx"
   },
@@ -4875,7 +4866,7 @@
    "en": "beyond the black stump",
    "meaning": "In an extremely isolated place, far from civilization or populated areas, typically referring to remote rural or outback locations.",
    "reg": "informal",
-   "ex": "Camping spot was actually beyond the black stump, right next to the old burnt tree.",
+   "ex": "Camping spot was actually beyond the black stump, right next to the old burned tree.",
    "fa": "",
    "src": "idiomx"
   },
@@ -5118,7 +5109,7 @@
   },
   {
    "en": "bless someone's cotton socks",
-   "meaning": "To express affection, fondness, or warm approval towards someone, often in a slightly humorous or affectionate way.",
+   "meaning": "To express affection, fondness, or warm approval toward someone, often in a slightly humorous or affectionate way.",
    "reg": "informal",
    "ex": "Did you bless his cotton socks with detergent to remove the stains?",
    "fa": "",
@@ -5142,7 +5133,7 @@
   },
   {
    "en": "blood and guts",
-   "meaning": "Graphic and bloody violence or gore depicted in media such as films or literature.",
+   "meaning": "Graphic and bloody violence or gore depicted in media such as movies or literature.",
    "reg": "informal",
    "ex": "After the deer was hunted, its blood and guts were carefully removed in the forest clearing.",
    "fa": "",
@@ -5544,7 +5535,7 @@
    "en": "brassed off",
    "meaning": "Feeling fed up, annoyed, or irritated.",
    "reg": "informal",
-   "ex": "Can't believe the concert got cancelled – totally brassed off right now! #disappointed",
+   "ex": "Can't believe the concert got canceled – totally brassed off right now! #disappointed",
    "fa": "",
    "src": "idiomx"
   },
@@ -6083,7 +6074,7 @@
   },
   {
    "en": "by heart",
-   "meaning": "memorised",
+   "meaning": "memorized",
    "reg": "idiom",
    "ex": "I know the poem by heart.",
    "fa": "از حفظ",
@@ -6145,14 +6136,6 @@
    "meaning": "To decide to stop an activity; to quit or end something.",
    "reg": "informal",
    "ex": "After hours of gaming without progress, I’ve got to call it stumps for tonight. #burnedout",
-   "fa": "",
-   "src": "idiomx"
-  },
-  {
-   "en": "can a duck swim",
-   "meaning": "An emphatic affirmative response indicating that something is obviously possible or true.",
-   "reg": "informal",
-   "ex": "Can a duck? Of course I will join the party!",
    "fa": "",
    "src": "idiomx"
   },
@@ -6367,7 +6350,7 @@
   },
   {
    "en": "catch feelings",
-   "meaning": "To suddenly begin to feel romantic attraction towards someone.",
+   "meaning": "To suddenly begin to feel romantic attraction toward someone.",
    "reg": "informal",
    "ex": "Be careful not to catch feelings for the person you're negotiating with.",
    "fa": "",
@@ -6570,7 +6553,7 @@
   },
   {
    "en": "cheap-arse Tuesday",
-   "meaning": "A particular Tuesday when businesses like cinemas and restaurants offer products or services at reduced prices, attracting budget-conscious customers.",
+   "meaning": "A particular Tuesday when businesses like movie theaters and restaurants offer products or services at reduced prices, attracting budget-conscious customers.",
    "reg": "informal",
    "ex": "Do you know if the cheap-arse Tuesday discounts apply to food courts?",
    "fa": "",
@@ -6641,10 +6624,10 @@
    "src": "idiomx"
   },
   {
-   "en": "Cheque, please",
+   "en": "Check, please",
    "meaning": "A humorous or ironic way to signal that one wants to leave or end an embarrassing, awkward, or unpleasant situation immediately.",
    "reg": "informal",
-   "ex": "After a series of tense negotiations, the ambassador subtly said, 'Cheque, please,' signaling his readiness to conclude.",
+   "ex": "After a series of tense negotiations, the ambassador subtly said, 'Check, please,' signaling his readiness to conclude.",
    "fa": "",
    "src": "idiomx"
   },
@@ -7415,7 +7398,7 @@
   },
   {
    "en": "cry me a river",
-   "meaning": "To sarcastically express disbelief or annoyance towards someone who is complaining or seeking sympathy.",
+   "meaning": "To sarcastically express disbelief or annoyance toward someone who is complaining or seeking sympathy.",
    "reg": "informal",
    "ex": "Can you tell me if crying a lot means 'cry me a river' literally or figuratively?",
    "fa": "",
@@ -7700,7 +7683,7 @@
    "en": "Delhi belly",
    "meaning": "A digestive illness causing diarrhea, especially experienced by travelers in India or similar regions.",
    "reg": "informal",
-   "ex": "After eating street food, he quickly got Delhi belly and cancelled his plans.",
+   "ex": "After eating street food, he quickly got Delhi belly and canceled his plans.",
    "fa": "",
    "src": "idiomx"
   },
@@ -7874,7 +7857,7 @@
   },
   {
    "en": "do not want",
-   "meaning": "An emphatic expression used to indicate strong dislike or refusal towards something seen or heard.",
+   "meaning": "An emphatic expression used to indicate strong dislike or refusal toward something seen or heard.",
    "reg": "informal",
    "ex": "Despite the formal tone, the report concluded with a clear 'do not want' to accept the current terms, signaling strong opposition.",
    "fa": "",
@@ -9278,10 +9261,10 @@
    "src": "parallel"
   },
   {
-   "en": "film at 11",
+   "en": "movie at 11",
    "meaning": "More information will be provided later, often in a follow-up report or update.",
    "reg": "informal",
-   "ex": "Are you really going to film at 11 as planned?",
+   "ex": "Are you really going to movie at 11 as planned?",
    "fa": "",
    "src": "idiomx"
   },
@@ -9666,7 +9649,7 @@
   },
   {
    "en": "for the chop",
-   "meaning": "About to be stopped, cancelled, or eliminated; not allowed to continue or remain.",
+   "meaning": "About to be stopped, canceled, or eliminated; not allowed to continue or remain.",
    "reg": "informal",
    "ex": "Are these wooden sticks for the chop or just for crafting?",
    "fa": "",
@@ -9931,7 +9914,7 @@
   },
   {
    "en": "fuck you",
-   "meaning": "An offensive phrase used to express anger, rejection, or contempt towards someone.",
+   "meaning": "An offensive phrase used to express anger, rejection, or contempt toward someone.",
    "reg": "slang",
    "ex": "An Instagram post showed a new dish labeled 'yuck fou' as a joke about bad taste.",
    "fa": "",
@@ -10147,10 +10130,10 @@
    "src": "idiomx"
   },
   {
-   "en": "get amongst it",
+   "en": "get among it",
    "meaning": "To enthusiastically engage in an activity or task, often with vigor and full involvement.",
    "reg": "informal",
-   "ex": "Did the kids get amongst it while playing in the yard?",
+   "ex": "Did the kids get among it while playing in the yard?",
    "fa": "",
    "src": "idiomx"
   },
@@ -10268,7 +10251,7 @@
   },
   {
    "en": "get it up",
-   "meaning": "To become enthusiastic or regain enthusiasm about something; to increase one's motivation or energy towards a task or goal.",
+   "meaning": "To become enthusiastic or regain enthusiasm about something; to increase one's motivation or energy toward a task or goal.",
    "reg": "informal",
    "ex": "Can you get it up that high on the ladder without assistance?",
    "fa": "",
@@ -10476,7 +10459,7 @@
   },
   {
    "en": "get rekt",
-   "meaning": "To be soundly defeated or destroyed, especially in gaming or online contexts, often used mockingly towards opponents.",
+   "meaning": "To be soundly defeated or destroyed, especially in gaming or online contexts, often used mockingly toward opponents.",
    "reg": "slang",
    "ex": "After the final round, the champion told the loser, 'Better luck next time, you got rekt.'",
    "fa": "",
@@ -11533,7 +11516,7 @@
   },
   {
    "en": "God love you",
-   "meaning": "Used to express affectionate feelings that can range from sincere goodwill to gentle teasing or pity towards someone.",
+   "meaning": "Used to express affectionate feelings that can range from sincere goodwill to gentle teasing or pity toward someone.",
    "reg": "informal",
    "ex": "Does God love him more than others according to that faith?",
    "fa": "",
@@ -13183,7 +13166,7 @@
   },
   {
    "en": "I got two phones",
-   "meaning": "An expression used to signal indifference or lack of concern towards what someone else just said, implying that the speaker is unbothered or unaffected.",
+   "meaning": "An expression used to signal indifference or lack of concern toward what someone else just said, implying that the speaker is unbothered or unaffected.",
    "reg": "informal",
    "ex": "After hearing the bad news, he shrugged and said, 'I got 2 phones.'",
    "fa": "",
@@ -13199,7 +13182,7 @@
   },
   {
    "en": "I hate you",
-   "meaning": "This phrase is a straightforward, literal expression of intense dislike or hatred towards someone rather than an idiomatic expression.",
+   "meaning": "This phrase is a straightforward, literal expression of intense dislike or hatred toward someone rather than an idiomatic expression.",
    "reg": "informal",
    "ex": "Asked about their feelings, she joked, 'I hate you,' clearly not serious but teasing.",
    "fa": "",
@@ -13417,7 +13400,7 @@
    "en": "I'm hot",
    "meaning": "The speaker indicates they feel strong attraction, desire, or sexual arousal.",
    "reg": "informal",
-   "ex": "After touching the hot stove, I'm hot and burnt my finger!",
+   "ex": "After touching the hot stove, I'm hot and burned my finger!",
    "fa": "",
    "src": "idiomx"
   },
@@ -13956,14 +13939,6 @@
    "src": "idiomx"
   },
   {
-   "en": "Is the Pope Catholic?",
-   "meaning": "An emphatic and rhetorical way of saying 'obviously yes' or confirming something unmistakably true.",
-   "reg": "informal",
-   "ex": "In the report, the analyst rhetorically asked, 'Is the Pope Catholic?' to stress the certainty of the data.",
-   "fa": "",
-   "src": "idiomx"
-  },
-  {
    "en": "is this a safe space",
    "meaning": "A phrase used to ask if it is acceptable to express unpopular, potentially controversial, or vulnerable opinions without facing judgment or hostility.",
    "reg": "informal",
@@ -13991,7 +13966,7 @@
    "en": "it's a date",
    "meaning": "An expression used to confirm an agreement, usually for a meeting at a specified time and place.",
    "reg": "informal",
-   "ex": "A: Shall we meet this Friday? B: Great, it’s a date!",
+   "ex": "A: Should we meet this Friday? B: Great, it’s a date!",
    "fa": "",
    "src": "idiomx"
   },
@@ -15278,7 +15253,7 @@
   },
   {
    "en": "lick someone's balls",
-   "meaning": "To act in a subservient and excessively flattering manner towards someone, often to gain favor.",
+   "meaning": "To act in a subservient and excessively flattering manner toward someone, often to gain favor.",
    "reg": "slang",
    "ex": "Can a dog really lick his balls, or is that just a myth?",
    "fa": "",
@@ -15724,7 +15699,7 @@
   },
   {
    "en": "love ya",
-   "meaning": "An informal, affectionate way of saying 'I love you' expressing strong fondness or affection towards someone.",
+   "meaning": "An informal, affectionate way of saying 'I love you' expressing strong fondness or affection toward someone.",
    "reg": "informal",
    "ex": "Although informal, the phrase 'love ya' conveys deep emotional bonds.",
    "fa": "",
@@ -15772,7 +15747,7 @@
   },
   {
    "en": "lucky you",
-   "meaning": "An expression used to convey envy or admiration towards someone else's fortunate situation or success.",
+   "meaning": "An expression used to convey envy or admiration toward someone else's fortunate situation or success.",
    "reg": "informal",
    "ex": "You’re lucky, you",
    "fa": "",
@@ -15796,7 +15771,7 @@
   },
   {
    "en": "Mad Max",
-   "meaning": "Describing a chaotic, anarchic, or dystopian environment reminiscent of the 'Mad Max' film series.",
+   "meaning": "Describing a chaotic, anarchic, or dystopian environment reminiscent of the 'Mad Max' movie series.",
    "reg": "informal",
    "ex": "After the festival started, it was pure Mad Max chaos everywhere! #wildnight",
    "fa": "",
@@ -16055,7 +16030,7 @@
   },
   {
    "en": "make time with",
-   "meaning": "To court or flirt with someone, to make sexual advances towards someone.",
+   "meaning": "To court or flirt with someone, to make sexual advances toward someone.",
    "reg": "informal",
    "ex": "Can you make time with me next week for the meeting?",
    "fa": "",
@@ -16482,7 +16457,7 @@
   },
   {
    "en": "move on",
-   "meaning": "To begin a new romantic or sexual relationship, often viewed as disloyal or insensitive towards an existing partner's feelings.",
+   "meaning": "To begin a new romantic or sexual relationship, often viewed as disloyal or insensitive toward an existing partner's feelings.",
    "reg": "informal",
    "ex": "After the discussion, the committee will move on to the budget review.",
    "fa": "",
@@ -16490,7 +16465,7 @@
   },
   {
    "en": "movie jail",
-   "meaning": "A figurative situation in which a film industry professional, such as a director or actor, is effectively prevented from working on further films due to the failure or poor reception of a previous project.",
+   "meaning": "A figurative situation in which a movie industry professional, such as a director or actor, is effectively prevented from working on further movies due to the failure or poor reception of a previous project.",
    "reg": "informal",
    "ex": "After directing that flop, he feels like he's in movie jail, with no new offers coming his way.",
    "fa": "",
@@ -16561,7 +16536,7 @@
    "src": "idiomx"
   },
   {
-   "en": "mustn't grumble",
+   "en": "must not grumble",
    "meaning": "Expressing that things are generally satisfactory and there is no real cause for complaint.",
    "reg": "informal",
    "ex": "Employees must not grumble about their workload according to company policy.",
@@ -17054,7 +17029,7 @@
   },
   {
    "en": "no worries",
-   "meaning": "that's fine; don't apologise",
+   "meaning": "that's fine; don't apologize",
    "reg": "idiom",
    "ex": "“Sorry for the delay.” “No worries.”",
    "fa": "مشکلی نیست",
@@ -17158,7 +17133,7 @@
   },
   {
    "en": "not feeling it",
-   "meaning": "Lacking motivation, enthusiasm, or emotional engagement towards an activity or situation.",
+   "meaning": "Lacking motivation, enthusiasm, or emotional engagement toward an activity or situation.",
    "reg": "informal",
    "ex": "After the accident, her hand was not feeling it due to numbness.",
    "fa": "",
@@ -17320,7 +17295,7 @@
    "en": "nuke the fridge",
    "meaning": "To introduce a bizarre or illogical event that disrupts and often ruins the narrative credibility of a movie or story.",
    "reg": "informal",
-   "ex": "Critics claim the final act effectively nuked the fridge, undermining the film's coherence.",
+   "ex": "Critics claim the final act effectively nuked the fridge, undermining the movie's coherence.",
    "fa": "",
    "src": "idiomx"
   },
@@ -17334,7 +17309,7 @@
   },
   {
    "en": "nuts to",
-   "meaning": "An informal expression used to show strong disregard or contempt towards something or someone, often dismissing them as unimportant or irrelevant.",
+   "meaning": "An informal expression used to show strong disregard or contempt toward something or someone, often dismissing them as unimportant or irrelevant.",
    "reg": "informal",
    "ex": "Are you saying nuts to the whole project idea?",
    "fa": "",
@@ -17342,7 +17317,7 @@
   },
   {
    "en": "nuts to butts",
-   "meaning": "Arranged very closely together in a tight, continuous line, usually with no space between individuals or objects, often in a queue or formation.",
+   "meaning": "Arranged very closely together in a tight, continuous line, usually with no space between individuals or objects, often in a line or formation.",
    "reg": "informal",
    "ex": "At the concert, we were packed nuts to butts but the energy was amazing! #crowded #fun",
    "fa": "",
@@ -19029,7 +19004,7 @@
    "en": "plow the back forty",
    "meaning": "To engage in sexual intercourse.",
    "reg": "slang",
-   "ex": "Got up early to plough the back forty before the rain hits. #farmwork",
+   "ex": "Got up early to plow the back forty before the rain hits. #farmwork",
    "fa": "",
    "src": "idiomx"
   },
@@ -20014,7 +19989,7 @@
   },
   {
    "en": "rich bitch",
-   "meaning": "A person, regardless of gender, who is wealthy and exhibits entitled, arrogant, or abusive behavior towards others.",
+   "meaning": "A person, regardless of gender, who is wealthy and exhibits entitled, arrogant, or abusive behavior toward others.",
    "reg": "slang",
    "ex": "Everyone knew the rich bitch who dominated the social scene with her ruthless attitude and expensive tastes.",
    "fa": "",
@@ -20450,10 +20425,10 @@
    "src": "idiomx"
   },
   {
-   "en": "sail under false colours",
+   "en": "sail under false colors",
    "meaning": "",
    "reg": "idiom",
-   "ex": "Still, he feels that the waiters know that he comes from Dearborn and they can see that is sailing under false colours.",
+   "ex": "Still, he feels that the waiters know that he comes from Dearborn and they can see that is sailing under false colors.",
    "fa": "",
    "exfa": "با اینحال احساس می کند که گارسون ها می دانند که او از دیربورن آمده و دارد ظاهرسازی می کند.",
    "src": "parallel"
@@ -20756,7 +20731,7 @@
   },
   {
    "en": "second banana",
-   "meaning": "A person who plays a secondary or supporting role to the main figure, especially in entertainment contexts like comedy or theatre.",
+   "meaning": "A person who plays a secondary or supporting role to the main figure, especially in entertainment contexts like comedy or theater.",
    "reg": "informal",
    "ex": "After the lead quit, I refused to be the second banana anymore and took the lead role.",
    "fa": "",
@@ -21168,7 +21143,7 @@
   },
   {
    "en": "shoot 'em up",
-   "meaning": "A type of film, video game, or media that prominently features frequent and intense gunfights or shooting scenes.",
+   "meaning": "A type of movie, video game, or media that prominently features frequent and intense gunfights or shooting scenes.",
    "reg": "informal",
    "ex": "Can you shoot 'em up targets accurately during archery practice?",
    "fa": "",
@@ -21683,7 +21658,7 @@
   },
   {
    "en": "sling off",
-   "meaning": "To express criticism or mockery towards someone, often in a sharp or disrespectful manner.",
+   "meaning": "To express criticism or mockery toward someone, often in a sharp or disrespectful manner.",
    "reg": "informal",
    "ex": "Don't you sling off at me anymore!",
    "fa": "",
@@ -22077,17 +22052,9 @@
   },
   {
    "en": "spare tire",
-   "meaning": "Excess body fat, especially around the waist, often viewed as unwanted or unhealthy.",
-   "reg": "informal",
-   "ex": "Even after training, John couldn’t get rid of his spare tire around the waist.",
-   "fa": "",
-   "src": "idiomx"
-  },
-  {
-   "en": "spare tyre",
    "meaning": "Excess fat around the waist, especially in the form of a large paunch or rolls, often noticeable when wearing tight clothing.",
    "reg": "informal",
-   "ex": "After the long trip, they found the spare tyre flat and unusable.",
+   "ex": "After the long trip, they found the spare tire flat and unusable.",
    "fa": "",
    "src": "idiomx"
   },
@@ -22150,7 +22117,7 @@
   },
   {
    "en": "spit on",
-   "meaning": "To show contempt or disrespect towards someone or something.",
+   "meaning": "To show contempt or disrespect toward someone or something.",
    "reg": "informal",
    "ex": "Be careful not to spit on your food plate during dinner.",
    "fa": "",
@@ -22242,7 +22209,7 @@
    "en": "squeaky clean",
    "meaning": "",
    "reg": "idiom",
-   "ex": "I don't suppose your behaviour has been all bright and squeaky clean since you got married.",
+   "ex": "I don't suppose your behavior has been all bright and squeaky clean since you got married.",
    "fa": "",
    "exfa": "تصور نمی کنم که رفتار تو هم از وقتی که ازدواج کردی کاملا عالی و بی نقص بوده است.",
    "src": "parallel"
@@ -22802,7 +22769,7 @@
   },
   {
    "en": "Sure, Jan",
-   "meaning": "A sarcastic phrase used to express disbelief, dismissal, or doubt towards a statement, implying it is unlikely or untrue.",
+   "meaning": "A sarcastic phrase used to express disbelief, dismissal, or doubt toward a statement, implying it is unlikely or untrue.",
    "reg": "informal",
    "ex": "No, sure, Jan, I actually believe you this time.",
    "fa": "",
@@ -23139,14 +23106,6 @@
    "fa": "",
    "exfa": "یکی از آن لحظات هست که تو را شگفت زده میکند.",
    "src": "parallel"
-  },
-  {
-   "en": "take the biscuit",
-   "meaning": "To be the most surprising, outrageous, or unacceptable example of something bad or undesirable.",
-   "reg": "informal",
-   "ex": "Among all the unfair decisions, this one really takes the biscuit.",
-   "fa": "",
-   "src": "idiomx"
   },
   {
    "en": "take the cake",
@@ -23703,10 +23662,10 @@
    "src": "idiomx"
   },
   {
-   "en": "the cat's pyjamas",
+   "en": "the cat's pajamas",
    "meaning": "An outstanding person or thing; something excellent or highly admired.",
    "reg": "informal",
-   "ex": "Are the cat's pyjamas comfortable to sleep in during winter?",
+   "ex": "Are the cat's pajamas comfortable to sleep in during winter?",
    "fa": "",
    "src": "idiomx"
   },
@@ -23752,7 +23711,7 @@
   },
   {
    "en": "the finger",
-   "meaning": "An obscene hand gesture, usually showing disrespect or contempt by extending the middle finger towards someone.",
+   "meaning": "An obscene hand gesture, usually showing disrespect or contempt by extending the middle finger toward someone.",
    "reg": "slang",
    "ex": "He didn't give me the finger, he just waved his hand awkwardly.",
    "fa": "",
@@ -24028,14 +23987,6 @@
    "meaning": "An unwelcome change or undesirable presence has appeared in a community or group, often implying that its quality or reputation will deteriorate.",
    "reg": "informal",
    "ex": "Captured a time-lapse of there goes the neighborhood as the old park vanished under construction.",
-   "fa": "",
-   "src": "idiomx"
-  },
-  {
-   "en": "there goes the neighbourhood",
-   "meaning": "An expression used to lament or sarcastically acknowledge that a place is being spoiled or ruined by unwanted newcomers or changes.",
-   "reg": "informal",
-   "ex": "Ah, there goes the neighbourhood with all these new bars opening.",
    "fa": "",
    "src": "idiomx"
   },
@@ -25026,7 +24977,7 @@
    "en": "up and running",
    "meaning": "",
    "reg": "idiom",
-   "ex": "The Legal Centre was up and running and ready for business.",
+   "ex": "The Legal Center was up and running and ready for business.",
    "fa": "",
    "exfa": "مرکز حقوقی فعال و آماده کار است.",
    "src": "parallel"
@@ -25112,10 +25063,10 @@
    "src": "idiomx"
   },
   {
-   "en": "upper storey",
+   "en": "upper story",
    "meaning": "A person's brain or mental faculties, especially implying intelligence or sanity.",
    "reg": "informal",
-   "ex": "Do you think his upper storey is functioning properly after so much stress?",
+   "ex": "Do you think his upper story is functioning properly after so much stress?",
    "fa": "",
    "src": "idiomx"
   },
@@ -25477,17 +25428,9 @@
   },
   {
    "en": "what color is your Bugatti",
-   "meaning": "An expression used to boast about luxurious possessions and simultaneously mock someone for lacking similar status symbols.",
-   "reg": "slang",
-   "ex": "“Could you tell me what color is your Bugatti? I heard they come in many shades.”",
-   "fa": "",
-   "src": "idiomx"
-  },
-  {
-   "en": "what colour is your Bugatti",
    "meaning": "A rhetorical question used to imply boasting or showing off, often about wealth or luxury possessions, challenging someone's status or material success.",
    "reg": "informal",
-   "ex": "After hearing his flashy stories, she just asked, 'what colour is your Bugatti?'",
+   "ex": "After hearing his flashy stories, she just asked, 'what color is your Bugatti?'",
    "fa": "",
    "src": "idiomx"
   },
@@ -26062,7 +26005,7 @@
   },
   {
    "en": "whoops, there go my trousers",
-   "meaning": "Refers to a type of farcical theatre or comedy characterized by improbable, absurd, and slapstick situations, often involving physical comedy mishaps.",
+   "meaning": "Refers to a type of farcical theater or comedy characterized by improbable, absurd, and slapstick situations, often involving physical comedy mishaps.",
    "reg": "informal",
    "ex": "Can you help me? Whoops, there go my trousers! I accidentally ripped them before my presentation.",
    "fa": "",
@@ -26772,7 +26715,7 @@
    "en": "zero fucks given",
    "meaning": "Used to strongly indicate that someone does not care at all about a matter or situation.",
    "reg": "slang",
-   "ex": "Despite controversies, the director showed zero fucks given towards critics’ opinions.",
+   "ex": "Despite controversies, the director showed zero fucks given toward critics’ opinions.",
    "fa": "",
    "src": "idiomx"
   },
@@ -26906,7 +26849,7 @@
   {
    "fa": "ارث بابای خود را طلبکار بودن",
    "exfa": "طوری به من پرخاش میکند مثل اینکه ارث باباش را از من می خواهد",
-   "exen": "He is aggressive towards me as if I owe him something."
+   "exen": "He is aggressive toward me as if I owe him something."
   },
   {
    "fa": "از اب کره گرفتن",
@@ -27226,7 +27169,7 @@
   {
    "fa": "حال گیری کردن",
    "exfa": "حال گیری نکن دیگه می خوایم همگی بریم سینما و خوش باشیم تو هم باید بیای",
-   "exen": "Don’t rain on our parade, we all want to go to the cinema and have fun, you should come too."
+   "exen": "Don’t rain on our parade, we all want to go to the movie theater and have fun, you should come too."
   },
   {
    "fa": "حالی به حالی شدن",
@@ -27746,7 +27689,7 @@
   {
    "fa": "چپ نگاه کردن به کسی",
    "exfa": "از ترس برادرش کسی جرات نداشت به او چپ نگاه کند",
-   "exen": "Out of fear of his brother, no one dared to show any hostility towards him."
+   "exen": "Out of fear of his brother, no one dared to show any hostility toward him."
   },
   {
    "fa": "چیزی را جلوی بچه بگذاری قهر می کند",

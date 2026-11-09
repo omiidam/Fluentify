@@ -27,7 +27,7 @@ NEW = [
   {"name": {"en": "Where the beat lands", "fa": "ضربه کجا می‌نشیند"},
    "rows": [
     {"ip": "content words", "sub": "noun · verb · adjective · adverb", "say": "I bought a new car last week.", "fa": "ماشین نو خریدم — روی «خریدم» و «نو» ضربه بزن.", "note": "function words ride in between, unstressed"},
-    {"ip": "stress shift", "sub": "when a word becomes the verb", "say": "I can run ten kilometres.", "fa": "می‌توانم ده کیلومتر بدوم — «run» برجسته می‌شود.", "words": "light·to light · second·a second · present·to present"},
+    {"ip": "stress shift", "sub": "when a word becomes the verb", "say": "I can run ten kilometers.", "fa": "می‌توانم ده کیلومتر بدوم — «run» برجسته می‌شود.", "words": "light·to light · second·a second · present·to present"},
     {"ip": "unstressed words", "sub": "they vanish", "say": "Would you like to come?", "fa": "می‌آیی؟ — of, to, would تقریباً حذف می‌شوند."},
     {"ip": "chunking", "sub": "phrase > word > sound", "say": "I'd like to book a table for two.", "fa": "می‌خواهم میز دو نفره رزرو کنم — چهار گروه."},
     {"ip": "weak + strong", "sub": "the rhythm pattern", "say": "Can you see the sea?", "fa": "می‌بینی دریا را؟ — CAN you SEE the SEA."},
@@ -54,7 +54,7 @@ NEW = [
   {"name": {"en": "Presenting", "fa": "ارائه"},
    "rows": [
     {"ip": "signpost", "sub": "pause, then drop", "say": "Three things happened last quarter.", "fa": "سه اتفاق افتاد — مکث، سپس افت."},
-    {"ip": "the number", "sub": "isolated and loud", "say": "Revenue rose by forty per cent.", "fa": "درآمد چهل درصد رشد کرد — روی عدد تأکید کن."},
+    {"ip": "the number", "sub": "isolated and loud", "say": "Revenue rose by forty percent.", "fa": "درآمد چهل درصد رشد کرد — روی عدد تأکید کن."},
     {"ip": "contrast", "sub": "the other half falls", "say": "Costs rose. Profits fell.", "fa": "هزینه‌ها بالا رفت. | سود پایین آمد."},
     {"ip": "closing", "sub": "fall, then hold", "say": "That is where we are today.", "fa": "اینجاییم که امروز هستیم — پایین و ثابت."}]},
   {"name": {"en": "Persuading & managing", "fa": "متقاعد کردن و مدیریت"},
@@ -90,7 +90,7 @@ NEW = [
     {"ip": "the → ðə", "sub": "or just /ə/", "say": "the other one", "fa": "آن یکی دیگر — «the» تقریباً حذف می‌شود."}]},
   {"name": {"en": "Where to stop reducing", "fa": "کجا دیگر کم نکن"},
    "rows": [
-    {"ip": "content words", "sub": "keep every sound", "say": "Reorganisation is unavoidable.", "fa": "بازسازی سازمان اجتناب‌ناپذیر است — محتوا کامل."},
+    {"ip": "content words", "sub": "keep every sound", "say": "Reorganization is unavoidable.", "fa": "بازسازی سازمان اجتناب‌ناپذیر است — محتوا کامل."},
     {"ip": "numbers & names", "sub": "always clear", "say": "Room seven, please.", "fa": "اتاق هفت، لطفاً."},
     {"ip": "negatives", "sub": "don't lose the contrast", "say": "I said no, not maybe.", "fa": "گفتم نه، نه شاید — تفاوت حیاتی است."},
     {"ip": "instructions", "sub": "clarity beats speed", "say": "Turn left after the bridge.", "fa": "بعد از پل بپیچ چپ — دستور باید واضح بماند."},

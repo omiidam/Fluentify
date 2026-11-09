@@ -349,10 +349,10 @@
       "why": "«سرما خوردم» is 'I have a cold' — the illness is countable here, so it needs 'a'."
     },
     {
-      "pattern": "\\b(go|goes|went|come|comes|came|work|works|worked|study|studies|studied|see|sees|saw|do|does|did|eat|eats|ate|walk|walks|walked|practise|practises|practised|practice|practices|practiced)\\s+everyday\\b",
+      "pattern": "\\b(go|goes|went|come|comes|came|work|works|worked|study|studies|studied|see|sees|saw|do|does|did|eat|eats|ate|walk|walks|walked|practice|practices|practiced|practice|practices|practiced)\\s+everyday\\b",
       "label": "Every day is two words",
       "fix": "{0} every day",
-      "why": "'Everyday' is an adjective ('everyday English'). When it answers *when*, it is two words: 'I practise every day'."
+      "why": "'Everyday' is an adjective ('everyday English'). When it answers *when*, it is two words: 'I practice every day'."
     },
     {
       "pattern": "\\b(going|go|went|come|coming|came|get|getting|got|drive|driving|drove|walk|walking|walked)\\s+to\\s+home\\b",
@@ -400,7 +400,7 @@
       "pattern": "\\bdid\\s+a\\s+mistake\\b",
       "label": "Mistakes are made",
       "fix": "made a mistake",
-      "why": "English makes mistakes and does favours — the reverse of Persian «اشتباه کردن»."
+      "why": "English makes mistakes and does favors — the reverse of Persian «اشتباه کردن»."
     },
     {
       "pattern": "\\b(am|is|are)\\s+interesting\\s+in\\b",

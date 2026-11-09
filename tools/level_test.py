@@ -14,7 +14,7 @@ The design follows the four things a placement test needs and a quiz does not:
   3. Format varies with the ability: multiple choice, cloze, error
      correction, sentence transformation, word ordering, comprehension and
      listening. Four of those need the learner to produce language, not
-     recognise it.
+     recognize it.
   4. Difficulty is chosen, not fixed. Each skill is asked three questions at a
      time; the band moves only after a whole block, so one lucky or unlucky
      answer cannot move the estimate.
@@ -60,7 +60,7 @@ SKILLS = [
 
 BANDS = [
     {"id": "PRE", "label": "Pre-A1", "name": L("Absolute beginner", "مبتدی مطلق"),
-     "can": L("You recognise greetings, numbers and a few everyday words.",
+     "can": L("You recognize greetings, numbers and a few everyday words.",
               "سلام و احوال‌پرسی، عدد و چند واژهٔ روزمره را می‌شناسی.")},
     {"id": "A1", "label": "A1", "name": L("Beginner", "مبتدی"),
      "can": L("You handle greetings, prices and very short sentences about "
@@ -78,7 +78,7 @@ BANDS = [
               "می‌کنی.")},
     {"id": "B2", "label": "B2", "name": L("Upper intermediate", "میانی بالا"),
      "can": L("You read an article quickly, argue a position and follow most "
-              "films without subtitles.",
+              "movies without subtitles.",
               "مقاله را سریع می‌خوانی، از موضعت دفاع می‌کنی و بیشتر فیلم‌ها را "
               "بی‌زیرنویس می‌فهمی.")},
     {"id": "C1", "label": "C1", "name": L("Advanced", "پیشرفته"),
@@ -87,7 +87,7 @@ BANDS = [
               "انگلیسی را در کار و تحصیل منعطف به کار می‌بری و تفاوت لحن و "
               "ظرافت‌ها را می‌شنوی.")},
     {"id": "C2", "label": "C2", "name": L("Proficient", "تسلط"),
-     "can": L("You read and hear almost everything effortlessly and summarise "
+     "can": L("You read and hear almost everything effortlessly and summarize "
               "it precisely.",
               "تقریباً هر چیزی را بی‌زحمت می‌خوانی و می‌شنوی و دقیق خلاصه "
               "می‌کنی.")},
@@ -158,7 +158,7 @@ GRAMMAR = [
       difficulty="easy"),
     q("g-a2-1", "grammar", "A2", ("Past simple", "گذشتهٔ ساده"), "cloze",
       "Producing a finished past verb", "ساختن فعل گذشتهٔ ساده",
-      "We ___ to the cinema last night.", "دیشب به سینما ___.",
+      "We ___ to the movie theater last night.", "دیشب به سینما ___.",
       "Last night needs the past simple: went.",
       "«last night» گذشتهٔ ساده می‌خواهد: went.",
       accept=["went"], difficulty="easy"),
@@ -300,10 +300,10 @@ VOCABULARY = [
       "Telling the -ing and -ed adjectives apart", "تفکیک صفت‌های ing و ed",
       "Which sentence uses the adjective correctly?",
       "کدام جمله صفت را درست به کار برده است؟",
-      "A boring film bores people; bored describes the person.",
+      "A boring movie bores people; bored describes the person.",
       "فیلم boring است و آدم bored می‌شود.",
-      options=["I was boring during the film.", "The film was boring, so I slept.",
-               "The film was bored.", "I was so boring that I slept."],
+      options=["I was boring during the movie.", "The movie was boring, so I slept.",
+               "The movie was bored.", "I was so boring that I slept."],
       answer=1),
     q("v-b2-1", "vocabulary", "B2", ("Idioms", "اصطلاح‌ها"), "mcq",
       "Understanding a common idiom", "فهم یک اصطلاح رایج",
@@ -365,7 +365,7 @@ READING_PASSAGES = [
     {"id": "p-a2", "band": "A2",
      "title": L("The garden on Mill Street", "باغ خیابان میل"),
      "text": L("Mill Street had no garden until last spring. A group of "
-               "neighbours asked the city for the empty land behind the old "
+               "neighbors asked the city for the empty land behind the old "
                "school, and the city said yes. On the first Saturday in April, "
                "twenty people came with spades and seeds. By July there were "
                "tomatoes, beans and a lot of sunflowers. The garden is open "
@@ -389,7 +389,7 @@ READING_PASSAGES = [
                "fee is 240 pounds, which covers the workbook but not the exam. "
                "If you decide not to continue after the first two sessions, we "
                "will return all but 40 pounds. Please confirm your place by "
-               "Friday, 12 September, as we cannot hold it after that date.",
+               "Friday, September 12, as we cannot hold it after that date.",
                "خانم فرهادی عزیز، از علاقهٔ شما به دورهٔ عصرِ حسابداری "
                "سپاسگزاریم. دوره ده هفته است، سه‌شنبه‌ها و پنجشنبه‌ها، از ۶:۳۰ "
                "تا ۸:۳۰. چون متقاضی بیش از ظرفیت بوده، از همه می‌خواهیم هفتهٔ "
@@ -438,8 +438,8 @@ READING_PASSAGES = [
                "a fixed gaze. What the layout does produce reliably is a keener "
                "awareness of status: who is on the phone with whom, who leaves "
                "early, whose desk sits nearest the window. The lesson is not "
-               "that openness is worthless. It is that a space optimised for "
-               "visibility will be optimised for visibility, and concentration "
+               "that openness is worthless. It is that a space optimized for "
+               "visibility will be optimized for visibility, and concentration "
                "is the price, paid quietly by the people whose work is hardest "
                "to watch.",
                "دفترهای باز به نسل مدیران به‌عنوان راهی برای از میان برداشتن "
@@ -476,9 +476,9 @@ READING = [
     q("r-a2-1", "reading", "A2", ("Detail", "جزئیات"), "mcq",
       "Who did something", "چه کسی کاری کرد",
       "Who asked the city for the land?", "چه کسی زمین را از شهرداری خواست؟",
-      "The neighbours asked, and the city agreed.",
+      "The neighbors asked, and the city agreed.",
       "همسایه‌ها خواستند و شهرداری موافقت کرد.",
-      options=["The old school", "A group of neighbours", "The city", "A shop"],
+      options=["The old school", "A group of neighbors", "The city", "A shop"],
       answer=1, passage="p-a2", difficulty="easy"),
     q("r-a2-2", "reading", "A2", ("Detail", "جزئیات"), "mcq",
       "Opening hours", "ساعت کار",
@@ -632,7 +632,7 @@ RUBRIC = [
                             "جمله‌های ساده با چند اشتباه؛ معنا روشن است.")},
     {"points": 3, "text": L("Connected sentences with reasons or details, mostly accurate.",
                             "جمله‌های پیوسته با دلیل و جزئیات، بیشترشان درست.")},
-    {"points": 4, "text": L("Well organised, natural, with a range of structures.",
+    {"points": 4, "text": L("Well organized, natural, with a range of structures.",
                             "سازمان‌یافته و طبیعی، با تنوع ساختار.")},
 ]
 

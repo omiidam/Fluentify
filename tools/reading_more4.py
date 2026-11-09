@@ -23,7 +23,7 @@ MORE = {
                 "temperature, though real, is small next to planting trees, "
                 "which also provide shade.",
                 "So painting is best understood as one measure among several. "
-                "Cities that have done it report the same thing: the pavement "
+                "Cities that have done it report the same thing: the sidewalk "
                 "cools, the street looks different, and nobody claims the town "
                 "is cool. For that you need shade, water and fewer cars.",
             ],
@@ -79,7 +79,7 @@ MORE = {
                      "para": 2},
                     {"q": "What do the cities that have done it report?",
                      "options": ["The whole town is cooler",
-                                 "The pavement cools, but nobody claims the town "
+                                 "The sidewalk cools, but nobody claims the town "
                                  "is cool",
                                  "Drivers prefer the brighter streets",
                                  "The paint never needs replacing"],
@@ -160,7 +160,7 @@ MORE = {
                 "advertise vintage labels, and a jacket that someone else has "
                 "worn can cost more than a new one.",
                 "The environmental argument is the one most often made. A new "
-                "cotton shirt uses thousands of litres of water before it "
+                "cotton shirt uses thousands of liters of water before it "
                 "reaches a shop; a second-hand shirt uses almost none. On that "
                 "measure, buying used is clearly better.",
                 "The catch is that the argument only holds while people buy "
@@ -180,7 +180,7 @@ MORE = {
                 "خرید تازه را بگیرد؛ در عمل بیشتر قیمت‌ها را بالا برده است."),
             "questions": {
                 "blanks": [
-                    {"sentence": "A new cotton shirt uses thousands of litres "
+                    {"sentence": "A new cotton shirt uses thousands of liters "
                                  "of ___.",
                      "answer": "water", "also": [],
                      "hint": bi("The resource named in paragraph two.",
@@ -281,7 +281,7 @@ MORE = {
                             "با سرنوشت قیمت‌ها تمام کن، چیزی که دوستت احتمالاً "
                             "متوجهش نشده.")],
                      "model": bi("My friend is right about the shirt: a new "
-                                 "cotton one uses thousands of litres of water "
+                                 "cotton one uses thousands of liters of water "
                                  "and a second-hand one uses almost none, so "
                                  "per garment the used shirt is better. What the "
                                  "claim misses is addition. If the same shopper "
@@ -315,7 +315,7 @@ MORE = {
                 "Remote work raises productivity. However, the studies showing "
                 "this were mostly done with experienced staff doing tasks that "
                 "need concentration rather than coordination.",
-                "For example, one trial of data-entry staff found a 13 per cent "
+                "For example, one trial of data-entry staff found a 13 percent "
                 "gain when they worked from home four days a week; a second "
                 "study of software teams found no measurable change in output "
                 "but slower decisions.",
@@ -337,7 +337,7 @@ MORE = {
                 "پشتیبانی می‌کند، نه برای کاری که با گفت‌وگوی سریع پیش می‌رود."),
             "questions": {
                 "blanks": [
-                    {"sentence": "The data-entry trial found a ___ per cent "
+                    {"sentence": "The data-entry trial found a ___ percent "
                                  "gain.",
                      "answer": "13", "also": ["thirteen"],
                      "hint": bi("A number in the second paragraph.",
@@ -409,7 +409,7 @@ MORE = {
                     {"statement": "The writer says remote work never raises "
                                   "productivity.",
                      "answer": False,
-                     "why": bi("The trial did raise it by 13 per cent; the "
+                     "why": bi("The trial did raise it by 13 percent; the "
                                "writer limits the claim, not denies it.",
                                "آزمون ۱۳ درصد افزایش داد؛ نویسنده ادعا را محدود "
                                "می‌کند، انکار نمی‌کند."),
@@ -440,7 +440,7 @@ MORE = {
                      "model": bi("Claim: remote work raises productivity. "
                                  "However - the studies used experienced staff "
                                  "on concentrated tasks. For example - data "
-                                 "entry gained 13 per cent, while software "
+                                 "entry gained 13 percent, while software "
                                  "teams saw slower decisions. Therefore - the "
                                  "question is not whether but for whom. "
                                  "Consequently - managers expecting the same "
@@ -524,7 +524,7 @@ MORE = {
                     {"q": "What does 'Moreover' add?",
                      "options": ["A repeat of the first problem",
                                  "A different, independent problem",
-                                 "A defence of the study",
+                                 "A defense of the study",
                                  "The newspaper's reaction"],
                      "answer": 1,
                      "why": bi("'Moreover' marks a second point of a different "
@@ -567,7 +567,7 @@ MORE = {
                      "para": 4},
                 ],
                 "essay": [
-                    {"prompt": bi("Summarise the passage's argument in three "
+                    {"prompt": bi("Summarize the passage's argument in three "
                                   "sentences, one for the finding, one for the "
                                   "two problems, one for the conclusion.",
                                   "استدلال متن را در سه جمله خلاصه کن: یکی برای "

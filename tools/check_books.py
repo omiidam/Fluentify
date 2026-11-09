@@ -6,12 +6,12 @@ learner would. A word book has lessons, a lesson has words, and a word has a
 Persian meaning, an English definition and sentences that use it - a word with
 no example is a word the page can only show half of. The grammar book teaches
 structures instead: a rule, a pattern, examples, exercises and a short exam,
-and it is judged on whether a learner could practise from it. Both kinds of gap
+and it is judged on whether a learner could practice from it. Both kinds of gap
 are invisible in a diff and obvious on the screen.
 
 The second half is the wiring, because the panel is built from four separate
 anchors - the tile in the header, the entry in Panels.TILES, the rule that
-shows it, and the loader that fetches the catalogue - and any one of them going
+shows it, and the loader that fetches the catalog - and any one of them going
 missing leaves a button that does nothing or a panel that opens blank. That has
 happened once here already, to the Review panel.
 
@@ -193,7 +193,7 @@ PINNED_LESSONS = {
         "precede", "skim",
     ],
     35: [
-        "lottery", "obtain", "cinema", "event", "soar", "stationary",
+        "lottery", "obtain", "movie theater", "event", "soar", "stationary",
         "subsequent", "discard", "relate", "vague", "finance", "elevate",
     ],
     36: [
@@ -228,7 +228,7 @@ PINNED_LESSONS = {
     ],
 }
 
-# The second book is organised by week; each week is four days of five words.
+# The second book is organized by week; each week is four days of five words.
 PINNED_1100 = {
     1: ["voracious", "indiscriminate", "eminent", "steeped", "replete",
         "abound", "technology", "prognosticate", "automaton", "matron",
@@ -495,7 +495,7 @@ def load() -> dict:
     return {}
 
 
-def check_catalogue(data: dict) -> dict:
+def check_catalog(data: dict) -> dict:
     """Every book, lesson and word, field by field."""
     books = data.get("books")
     if not check(isinstance(books, list) and books, "books.json has no books"):
@@ -605,7 +605,7 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
     """A grammar book is judged differently from a word book.
 
     There are no headwords here to pin; what makes this book useful is that
-    every structure can be practised from the page. That means a rule that is
+    every structure can be practiced from the page. That means a rule that is
     more than a label, examples of the rule in both languages, and exercises
     and an exam whose key exists - an exercise with no answer, or a question
     whose key is not among its options, looks complete in the JSON and teaches
@@ -758,7 +758,7 @@ def check_panel() -> None:
     check("getElementById('btoggle').onclick" in src,
           "the Books tile has no click handler")
     check(re.search(r"bpanel: \(\) => Books\.load\(\)", src) is not None,
-          "opening the panel does not load the catalogue")
+          "opening the panel does not load the catalog")
     check(re.search(r"loadJSON\('books'\)", src) is not None,
           "the panel does not read books.json")
 
@@ -856,7 +856,7 @@ def main() -> int:
     data = load()
     blank = {"books": 0, "lessons": 0, "words": 0,
              "structures": 0, "examples": 0, "exercises": 0, "exam": 0}
-    stats = check_catalogue(data) if data else blank
+    stats = check_catalog(data) if data else blank
 
     other = next((b for b in data.get("books", []) if b.get("id") == "1100-words"),
                  None)

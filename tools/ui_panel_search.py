@@ -27,7 +27,7 @@ PANELS = [
      "Greetings and Introducing  Daily Routine  Travel & Airport  Directions"),
     ("loadPhrases", "fpanel", ".fcat",
      "Search 39 sentence banks… / جست‌وجوی موضوع‌ها…",
-     "Vocabulary  Numbers  Time  Days  Months  Family  Food  Colours"),
+     "Vocabulary  Numbers  Time  Days  Months  Family  Food  Colors"),
     ("loadListening", "lpanel", ".lrow",
      None, None),          # handled separately: it has level tabs
     ("loadPhonetics", "phpanel", ".phsec, .phrow",

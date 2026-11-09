@@ -52,7 +52,7 @@ U5 = unit(
             ("Discuss people's relationships and social problems with precise, neutral language.", "روابط آدم‌ها و مشکلات اجتماعی را با زبان دقیق و بی‌طرف بحث کن."),
             [
                 ("Relationships progress through verbs: get to know, become close, fall out (argue and stop being friendly), make up, drift apart, break up, get back together. 'We fell out over money' names the cause; 'we drifted apart' means no single cause.", "روابط با فعل‌ها پیش می‌روند: get to know، become close، fall out (قهر کردن)، make up، drift apart، break up، get back together. «We fell out over money» علت را می‌گوید؛ «we drifted apart» یعنی علت مشخصی نبود."),
-                ("Social issues are named in noun phrases: poverty, inequality, unemployment, discrimination, loneliness, housing costs, an ageing population. Discuss them with 'the' for the general problem: the rise in housing costs, not 'a rise of housing costs'.", "مسائل اجتماعی در عبارت‌های اسمی نام می‌گیرند: poverty، inequality، unemployment، discrimination، loneliness، housing costs، an ageing population. برای مشکل کلی از the استفاده کن: the rise in housing costs."),
+                ("Social issues are named in noun phrases: poverty, inequality, unemployment, discrimination, loneliness, housing costs, an aging population. Discuss them with 'the' for the general problem: the rise in housing costs, not 'a rise of housing costs'.", "مسائل اجتماعی در عبارت‌های اسمی نام می‌گیرند: poverty، inequality، unemployment، discrimination، loneliness، housing costs، an aging population. برای مشکل کلی از the استفاده کن: the rise in housing costs."),
                 ("Opinion language stays tentative: it seems to me that, I'd say, there's a tendency to, one reason may be, this is partly because. Strong claims need evidence: research suggests, according to a recent survey.", "زبان نظر محتاط می‌ماند: it seems to me that، I'd say، there's a tendency to، one reason may be، this is partly because. ادعای قوی شواهد می‌خواهد: research suggests، according to a recent survey."),
             ],
             [
@@ -82,7 +82,7 @@ U5 = unit(
             ("The email that changes a plan", "ایمیل تغییر برنامه"),
             ("Postpone, decline and renegotiate in writing without sounding rude.", "به تعویق انداختن، رد کردن و دوباره توافق کردن را مکتوب و بی‌بی‌ادبی انجام بده."),
             [
-                ("Bad news needs four moves: acknowledge the arrangement, give the reason briefly, apologise once, offer an alternative. An apology repeated three times weakens the email; a solution strengthens it.", "خبر بد چهار حرکت دارد: قرار را یادآوری کن، دلیل را کوتاه بگو، یک بار عذرخواهی کن و جایگزین پیشنهاد بده. عذرخواهی سه‌باره ایمیل را ضعیف و راه‌حل آن را قوی می‌کند."),
+                ("Bad news needs four moves: acknowledge the arrangement, give the reason briefly, apologize once, offer an alternative. An apology repeated three times weakens the email; a solution strengthens it.", "خبر بد چهار حرکت دارد: قرار را یادآوری کن، دلیل را کوتاه بگو، یک بار عذرخواهی کن و جایگزین پیشنهاد بده. عذرخواهی سه‌باره ایمیل را ضعیف و راه‌حل آن را قوی می‌کند."),
                 ("Formal register: I'm afraid, unfortunately, due to, I would like to, would it be possible to, I appreciate. Informal: sorry, I can't make it, can we move it? Use I'm afraid to soften, not to hide: I'm afraid I can't make Friday.", "لحن رسمی: I'm afraid، unfortunately، due to، I would like to، would it be possible to، I appreciate. غیررسمی: sorry، I can't make it، can we move it? از I'm afraid برای نرم کردن استفاده کن، نه پنهان کردن: I'm afraid I can't make Friday."),
                 ("Linking devices give the email its logic: however, therefore, as a result, in addition, on the other hand. One per paragraph is enough; three in a sentence is a style problem.", "واژه‌های ربط منطق ایمیل را می‌سازند: however، therefore، as a result، in addition، on the other hand. در هر پاراگراف یکی کافی است؛ سه تا در یک جمله مشکل سبکی است."),
             ],
@@ -99,12 +99,12 @@ U5 = unit(
                     "An alternative turns an apology into a solution.", "جایگزین عذرخواهی را به راه‌حل تبدیل می‌کند."),
             ],
             [
-                write("Write an email to a colleague. You cannot attend a meeting on Wednesday because of a family matter. Apologise once, explain briefly, propose another time and ask them to send the notes.",
+                write("Write an email to a colleague. You cannot attend a meeting on Wednesday because of a family matter. Apologize once, explain briefly, propose another time and ask them to send the notes.",
                        "به همکاری ایمیل بنویس. به‌دلیل مسئلهٔ خانوادگی نمی‌توانی چهارشنبه در جلسه شرکت کنی. یک بار عذرخواهی کن، کوتاه توضیح بده، زمان دیگری پیشنهاد بده و بخواه صورت‌جلسه را بفرستد.",
                        60, ["afraid", "could"],
                        "Four short paragraphs: the problem, the reason, the alternative, the request. One linking word per paragraph.",
                        "چهار پاراگراف کوتاه: مشکل، دلیل، جایگزین، درخواست. در هر پاراگراف یک واژهٔ ربط."),
-                gap("___ to the weather, the flight was cancelled.", ["Due"], "Due to + noun introduces a reason.", "due to + اسم دلیل را می‌آورد."),
+                gap("___ to the weather, the flight was canceled.", ["Due"], "Due to + noun introduces a reason.", "due to + اسم دلیل را می‌آورد."),
                 mcq("Which sentence is too direct for a formal email?", "کدام جمله برای ایمیل رسمی زیادی مستقیم است؟", ["I'm afraid I can't attend.", "Unfortunately I won't be able to come.", "I can't come.", "Would it be possible to meet on Monday?"], 2,
                     "Bare 'I can't come' has no softening.", "«I can't come» هیچ نرم‌کننده‌ای ندارد."),
             ],
@@ -130,7 +130,7 @@ U6 = unit(
             ],
             [
                 ("We used to spend every summer at my grandmother's house.", "هر تابستان را در خانهٔ مادربزرگم می‌گذراندیم."),
-                ("There used to be a cinema on this street, but it closed years ago.", "قبلاً در این خیابان سینمایی بود، اما سال‌ها پیش بسته شد."),
+                ("There used to be a movie theater on this street, but it closed years ago.", "قبلاً در این خیابان سینمایی بود، اما سال‌ها پیش بسته شد."),
                 ("Did you use to play football when you were a child?", "وقتی بچه بودی فوتبال بازی می‌کردی؟"),
                 ("She would read to us every night before we slept.", "هر شب قبل از خواب برایمان کتاب می‌خواند."),
                 ("I'm used to working in a noisy office now.", "الان به کار در دفتر شلوغ عادت کرده‌ام."),

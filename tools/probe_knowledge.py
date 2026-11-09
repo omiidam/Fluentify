@@ -126,7 +126,7 @@ def scan_file(path: Path) -> dict:
         has_fa, has_en = bool(ARABIC.search(text)), bool(LATIN.search(text))
         persian += has_fa
         # A line that carries both scripts is not a mistake in itself - the
-        # catalogue note is bilingual on purpose - but it is the shape that
+        # catalog note is bilingual on purpose - but it is the shape that
         # needs an isolation rule, so it is counted and shown.
         if has_fa and has_en and " " in text:
             mixed += 1

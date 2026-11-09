@@ -2,7 +2,7 @@
 """Compares the Python bot and the JS engine on the same inputs.
 
 The JS engine is what ships inside the APK, so the two must agree. Inputs that
-are randomised (jokes, time, date) are compared on *kind* rather than text.
+are randomized (jokes, time, date) are compared on *kind* rather than text.
 """
 
 import json
@@ -142,7 +142,7 @@ CASES = [
 ]
 
 
-def normalise(reply: str) -> str:
+def normalize(reply: str) -> str:
     """Blur out the parts that legitimately differ between runtimes."""
     out = reply.strip()
     if "😂" in out:  # jokes are randomly picked
@@ -209,7 +209,7 @@ def main() -> int:
 
     mismatches = 0
     for case, p, j in zip(CASES, py, js):
-        np_, nj = normalise(p), normalise(j)
+        np_, nj = normalize(p), normalize(j)
         if np_ != nj:
             mismatches += 1
             print("MISMATCH for", repr(case))

@@ -94,7 +94,7 @@ def run_config() -> dict:
     revision = str(model.get("revision", ""))
     check("the revision is pinned to a commit", bool(re.fullmatch(r"[0-9a-f]{40}", revision)),
           revision or "(unset) - 'main' can move under a running service")
-    check("the licence is recorded", model.get("license") == "MIT",
+    check("the license is recorded", model.get("license") == "MIT",
           str(model.get("license")))
     check("the architecture is BART's",
           model.get("architecture") == "BartForConditionalGeneration",
@@ -317,7 +317,7 @@ def run_optin(cfg: dict) -> None:
         line = chatbot.second_opinion("I have went there")
         check("with the flag, asking never raises", isinstance(line, str))
         if line:
-            check("an opt-in line is labelled", "🧠" in line, line[:80])
+            check("an opt-in line is labeled", "🧠" in line, line[:80])
             check("an opt-in line carries a participle correction",
                   any(w in line.lower() for w in ("have gone", "have been")),
                   line[:120])

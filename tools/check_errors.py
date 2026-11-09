@@ -180,7 +180,7 @@ def wiring() -> None:
     check("ErrorLog.drill(" in src, "nothing can ask the missed questions again")
     check('id="acslip"' in src, "the account panel has no place for the profile")
     check("Slip.html()" in src, "the profile is never painted into the account panel")
-    check("Practice.open('slip'" in src, "the profile's Practise button goes nowhere")
+    check("Practice.open('slip'" in src, "the profile's Practice button goes nowhere")
     check("fluentify.errors.v1" in src, "the log has no storage key")
     if BUILT.exists():
         built = BUILT.read_text(encoding="utf-8")

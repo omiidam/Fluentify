@@ -50,7 +50,7 @@ FLOWS = [
     ['adjective order', 'exercises', 'show answer', 'red', 'confusing',
      'annoyed', 'lovely', 'enough', 'adjective order exam'],
     # the checker's corpus, walked one message at a time like a learner would
-['I have two brothers.', 'She works in a hospital.', "They don't live here.", "I didn't go to school.", 'He went to Paris last year.', 'The book is on the table.', 'This is interesting.', "I'm interested in history.", 'I have some information.', 'I need much help.', 'She is taller than me.', 'You should have told me.', 'I have been waiting for an hour.', 'He has gone home.', 'We were tired.', 'I have a few pieces of advice.', 'She has a car.', 'They were here.', 'I can go now.', 'He will come.', 'They must leave.', 'I was tired.', "She didn't go to the party.", "It doesn't matter.", 'We have finished.', 'The film is interesting and I am interested in it.', 'I need some information.', 'She is more experienced than me.', 'This is the best day.', 'My father has a car.', 'They are late.', 'We have many friends.', 'It has started to rain.', 'I am tired.', 'He was at home.', 'They have arrived.', 'It is cold today.', "I don't think so.", "She won't come.", "You shouldn't do that.", 'There is a problem.', 'There were many people.', 'The keys are here.', 'I have seen him before.', 'He has written the letter.', 'She studied hard yesterday.', 'They arrived late.', 'We can start now.', "I'm going to the shop.", 'She has been working since 2020.', 'Everyone is ready.', 'Nobody knows.', 'Something is wrong.', 'She have a car', 'they was here', 'they was happy', 'He go to school', 'can to go', 'will to come', "she don't like it", 'I have many informations', 'I is tired', 'they is here', 'we was late', 'it have a handle', 'I am agree', "I didn't went", 'he have two cars', 'she have finished', 'more better', 'most best', 'discuss about the plan', 'despite of rain', 'I no understand', 'depend of you', 'marry with Ali', 'advices are useful']
+['I have two brothers.', 'She works in a hospital.', "They don't live here.", "I didn't go to school.", 'He went to Paris last year.', 'The book is on the table.', 'This is interesting.', "I'm interested in history.", 'I have some information.', 'I need much help.', 'She is taller than me.', 'You should have told me.', 'I have been waiting for an hour.', 'He has gone home.', 'We were tired.', 'I have a few pieces of advice.', 'She has a car.', 'They were here.', 'I can go now.', 'He will come.', 'They must leave.', 'I was tired.', "She didn't go to the party.", "It doesn't matter.", 'We have finished.', 'The movie is interesting and I am interested in it.', 'I need some information.', 'She is more experienced than me.', 'This is the best day.', 'My father has a car.', 'They are late.', 'We have many friends.', 'It has started to rain.', 'I am tired.', 'He was at home.', 'They have arrived.', 'It is cold today.', "I don't think so.", "She won't come.", "You shouldn't do that.", 'There is a problem.', 'There were many people.', 'The keys are here.', 'I have seen him before.', 'He has written the letter.', 'She studied hard yesterday.', 'They arrived late.', 'We can start now.', "I'm going to the shop.", 'She has been working since 2020.', 'Everyone is ready.', 'Nobody knows.', 'Something is wrong.', 'She have a car', 'they was here', 'they was happy', 'He go to school', 'can to go', 'will to come', "she don't like it", 'I have many informations', 'I is tired', 'they is here', 'we was late', 'it have a handle', 'I am agree', "I didn't went", 'he have two cars', 'she have finished', 'more better', 'most best', 'discuss about the plan', 'despite of rain', 'I no understand', 'depend of you', 'marry with Ali', 'advices are useful']
 ]
 
 # Replies that legitimately vary between runs get blurred out: jokes, the
@@ -70,7 +70,7 @@ def _canned_replies() -> list[str]:
 CANNED = _canned_replies()
 
 
-def normalise(reply: str) -> str:
+def normalize(reply: str) -> str:
     out = (reply or "").strip()
     # A canned reply first: small talk picks one at random, so the two engines
     # legitimately differ here. Two of those responses open with "امروز" or
@@ -108,11 +108,11 @@ def main() -> int:
         for step, (msg, js) in enumerate(zip(flow, js_replies)):
             py = bot.respond(msg)
             checked += 1
-            if normalise(py) != normalise(js):
+            if normalize(py) != normalize(js):
                 mismatches += 1
                 print(f"MISMATCH  step {step} of {len(flow)}  {msg!r}")
-                print("  py:", normalise(py)[:130].replace("\n", "\\n"))
-                print("  js:", normalise(js)[:130].replace("\n", "\\n"))
+                print("  py:", normalize(py)[:130].replace("\n", "\\n"))
+                print("  js:", normalize(js)[:130].replace("\n", "\\n"))
 
     print(f"\n{checked - mismatches}/{checked} replies identical "
           f"across {len(FLOWS)} flows")

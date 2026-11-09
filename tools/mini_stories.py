@@ -475,7 +475,7 @@ RED_HEN = {
              "hint": L("The opposite of big.",
                        "متضاد بزرگ.")},
             {"sentence": "Soon the wheat turned a ___ color.", "answer": "golden",
-             "hint": L("The colour of ripe wheat in the sun.",
+             "hint": L("The color of ripe wheat in the sun.",
                        "رنگ گندم رسیده زیر آفتاب.")},
             {"sentence": "She put the dough into a hot ___.", "answer": "oven",
              "hint": L("Where bread is baked.",
@@ -2373,7 +2373,7 @@ HENNY = {
     "id": "henny_penny",
     "level": "VE",
     "title": L("Henny Penny", "هنی پنی"),
-    "blurb": L("An acorn hits a hen on the head, and a rumour walks five birds "
+    "blurb": L("An acorn hits a hen on the head, and a rumor walks five birds "
                "into a fox's den.",
                "بلوطی به سر مرغی می‌خورد و شایعه‌ای پنج پرنده را به لانهٔ روباهی "
                "می‌برد."),
@@ -2439,7 +2439,7 @@ HENNY = {
     ],
     "expressions": [
         {"phrase": "the sky is falling",
-         "meaning": L("a warning that something huge is going wrong (here, a rumour)",
+         "meaning": L("a warning that something huge is going wrong (here, a rumor)",
                       "آسمان دارد می‌افتد (هشدار بزرگ و بی‌پایه)"),
          "example": "\"The sky is falling!\" she cried.",
          "exampleFa": "فریاد زد: «آسمان دارد می‌افتد!»"},
@@ -2538,7 +2538,7 @@ HENNY = {
         "open": [
             {"q": L("Who is to blame for what happens to the birds?",
                     "تقصیر اتفاقی که برای پرنده‌ها می‌افتد گردن کیست؟"),
-             "model": L("Foxy Loxy does the harm, but the rumour starts it. Henny "
+             "model": L("Foxy Loxy does the harm, but the rumor starts it. Henny "
                         "Penny never checks what hit her, and each bird repeats "
                         "her words without asking a question, so five birds "
                         "follow a stranger into a den. The fox only has to offer "
@@ -2582,7 +2582,7 @@ GINGER = {
     "id": "gingerbread_man",
     "level": "VE",
     "title": L("The Gingerbread Man", "مرد زنجفیلی"),
-    "blurb": L("A biscuit runs out of an oven and outruns everyone, until a "
+    "blurb": L("A cookie runs out of an oven and outruns everyone, until a "
                "river and a helpful fox.",
                "شیرینی‌ای از فر بیرون می‌دود و از همه جلو می‌زند، تا به رودخانه و "
                "روباهی مهربان می‌رسد."),
@@ -2821,9 +2821,9 @@ RUMPEL = {
          "exampleFa": "آسیابان به دختر باهوشش افتخار می‌کرد."},
         {"word": "straw", "pos": "n.", "meaning": L("dried yellow stems of grain", "کاه"),
          "example": "The room was full of straw.", "exampleFa": "اتاق پر از کاه بود."},
-        {"word": "spin", "pos": "v.", "meaning": L("twist fibres into thread; here, turn straw into gold", "ریسیدن"),
+        {"word": "spin", "pos": "v.", "meaning": L("twist fibers into thread; here, turn straw into gold", "ریسیدن"),
          "example": "She could spin straw into gold.", "exampleFa": "می‌توانست کاه را به طلا بریسد."},
-        {"word": "necklace", "pos": "n.", "meaning": L("jewellery you wear around your neck", "گردنبند"),
+        {"word": "necklace", "pos": "n.", "meaning": L("jewelry you wear around your neck", "گردنبند"),
          "example": "She gave him her necklace.", "exampleFa": "گردنبندش را به او داد."},
         {"word": "messenger", "pos": "n.", "meaning": L("a person who carries a message", "پیک"),
          "example": "Messengers went all over the country.", "exampleFa": "پیک‌ها به همهٔ کشور رفتند."},
@@ -2920,7 +2920,7 @@ RUMPEL = {
             {"sentence": "The king locked her in a room full of ___.", "answer": "straw",
              "hint": L("Dry yellow stems.", "ساقه‌های زرد و خشک.")},
             {"sentence": "She gave the little man her ___.", "answer": "necklace",
-             "hint": L("Jewellery for the neck.", "زیوری برای گردن.")},
+             "hint": L("Jewelry for the neck.", "زیوری برای گردن.")},
             {"sentence": "She had three days to ___ his name.", "answer": "guess",
              "hint": L("Say it without being sure.", "بی‌اطمینان گفتن.")},
         ],
@@ -3080,7 +3080,7 @@ EMPEROR = {
                     "امپراتور به حرف کودک چه واکنشی نشان می‌دهد؟"),
              "options": ["He laughs", "He goes home", "He knows it is true but walks on",
                          "He punishes the child"],
-             "answer": 2, "why": L("He realises the truth and keeps walking anyway.",
+             "answer": 2, "why": L("He realizes the truth and keeps walking anyway.",
                                   "حقیقت را می‌فهمد و با این حال به راه رفتن ادامه می‌دهد.")},
         ],
         "truefalse": [
@@ -3619,7 +3619,7 @@ CINDERELLA = {
             {"q": L("Cinderella asked to go to the ball.", "سیندرلا خواست به مهمانی برود."),
              "answer": True, "why": L("She asked twice and was refused both times.",
                                       "دو بار پرسید و هر دو بار رد شد.")},
-            {"q": L("The stepsisters recognised her at the ball.",
+            {"q": L("The stepsisters recognized her at the ball.",
                     "خواهران ناتنی او را در مهمانی شناختند."),
              "answer": False, "why": L("Nobody knew who she was in the gown.",
                                       "هیچ‌کس نمی‌دانست او در آن پیراهن کیست.")},
@@ -4183,7 +4183,7 @@ DUCKLING = {
     "id": "ugly_duckling",
     "level": "E",
     "title": L("The Ugly Duckling", "جوجه‌اردک زشت"),
-    "blurb": L("A grey bird is laughed at all winter, and in spring the water "
+    "blurb": L("A gray bird is laughed at all winter, and in spring the water "
                "shows him who he really is.",
                "پرنده‌ای خاکستری تمام زمستان مسخره می‌شود و در بهار آب نشانش می‌دهد "
                "که واقعاً کیست."),
@@ -4192,7 +4192,7 @@ DUCKLING = {
          "pairs": [
              P("A duck sat on her eggs in a farmyard and waited for them to open.",
                "اردکی در محوطهٔ مزرعه روی تخم‌هایش نشست و منتظر ماند تا باز شوند."),
-             P("One egg was bigger than the others, and the bird that came out was big and grey.",
+             P("One egg was bigger than the others, and the bird that came out was big and gray.",
                "یکی از تخم‌ها از بقیه بزرگ‌تر بود و پرنده‌ای که بیرون آمد بزرگ و خاکستری بود."),
              P("The other birds laughed at him and called him ugly.",
                "پرنده‌های دیگر به او خندیدند و زشت صدایش زدند."),
@@ -4209,7 +4209,7 @@ DUCKLING = {
          "pairs": [
              P("When spring came, he saw the same white birds on the water.",
                "وقتی بهار آمد، همان پرنده‌های سفید را روی آب دید."),
-             P("He swam towards them, ready to be laughed at again.",
+             P("He swam toward them, ready to be laughed at again.",
                "به سویشان شنا کرد، آمادهٔ آنکه باز مسخره شود."),
              P("But they swam to meet him and called to him kindly.",
                "اما آن‌ها به پیشوازش شنا کردند و مهربان صدایش زدند."),
@@ -4266,14 +4266,14 @@ DUCKLING = {
          "note": L("Here 'would not' means refused, not simply the past.",
                    "اینجا «would not» یعنی امتناع کرد، نه فقط گذشته.")},
         {"name": L("ready to be + past participle", "ready to be + قسمت سوم فعل"),
-         "example": "He swam towards them, ready to be laughed at.",
+         "example": "He swam toward them, ready to be laughed at.",
          "note": L("The passive after 'ready to be' says what he expects will happen to him.",
                    "مجهول پس از «ready to be» می‌گوید انتظار دارد چه چیزی بر سرش بیاید.")},
     ],
     "questions": {
         "mcq": [
             {"q": L("Why did the other birds laugh at him?", "چرا پرنده‌های دیگر مسخره‌اش کردند؟"),
-             "options": ["He was too small", "He looked big and grey",
+             "options": ["He was too small", "He looked big and gray",
                          "He could not swim", "He had no mother"],
              "answer": 1, "why": L("He came out of the biggest egg and looked different.",
                                   "از بزرگ‌ترین تخم بیرون آمد و متفاوت به نظر می‌رسید.")},
@@ -4293,7 +4293,7 @@ DUCKLING = {
             {"q": L("How do the swans treat him?", "قوها با او چگونه رفتار می‌کنند؟"),
              "options": ["They chase him away", "They ignore him",
                          "They swim to meet him kindly", "They laugh at him"],
-             "answer": 2, "why": L("They come towards him and call to him.",
+             "answer": 2, "why": L("They come toward him and call to him.",
                                   "به سویش می‌آیند و صدایش می‌زنند.")},
         ],
         "truefalse": [
@@ -4506,7 +4506,7 @@ GOOSE = {
                         "را نگه می‌دارند و آن که ساده‌لوح خوانده می‌شود نانش را می‌بخشد، "
                         "و این تنها کاری در داستان است که چیزی به بار می‌آورد. داستان "
                         "آرام آرام دو واژه را جابه‌جا می‌کند."),
-             "tip": L("Compare the two behaviours, not the two labels.",
+             "tip": L("Compare the two behaviors, not the two labels.",
                       "دو رفتار را مقایسه کن، نه دو برچسب را.")},
         ],
     },
@@ -4608,7 +4608,7 @@ BREMEN = {
              "answer": 0, "why": L("Each one is too weak or old for its job.",
                                   "هر کدام برای کارش پیر یا ناتوان شده است.")},
             {"q": L("What do they plan to be?", "می‌خواهند چه بشوند؟"),
-             "options": ["Farm animals", "Town musicians", "Guards", "Travellers"],
+             "options": ["Farm animals", "Town musicians", "Guards", "Travelers"],
              "answer": 1, "why": L("The donkey suggests musicians in Bremen.",
                                   "الاغ پیشنهاد نوازندگی در برمن را می‌دهد.")},
             {"q": L("How do they frighten the robbers?",
@@ -5508,7 +5508,7 @@ PIPER = {
          "pairs": [
              P("He played again, and this time the children followed him.",
                "باز نواخت و این بار بچه‌ها دنبالش رفتند."),
-             P("They went out of the town towards the mountain.",
+             P("They went out of the town toward the mountain.",
                "از شهر بیرون رفتند به سمت کوه."),
              P("One boy was lame and fell behind, so he came back.",
                "پسری لنگ بود و عقب ماند، پس برگشت."),
@@ -5519,7 +5519,7 @@ PIPER = {
          ]},
     ],
     "vocab": [
-        {"word": "rats", "pos": "n.", "meaning": L("large grey animals that live in towns", "موش‌ها"),
+        {"word": "rats", "pos": "n.", "meaning": L("large gray animals that live in towns", "موش‌ها"),
          "example": "The rats ate everything.", "exampleFa": "موش‌ها همه چیز را خوردند."},
         {"word": "mayor", "pos": "n.", "meaning": L("the head of a town", "شهردار"),
          "example": "The mayor offered gold.", "exampleFa": "شهردار طلا پیشنهاد داد."},
@@ -6062,7 +6062,7 @@ SNOWQ = {
                                   "تکه‌ها به شکل واژهٔ ابدیت درمی‌آیند.")},
         ],
         "truefalse": [
-            {"q": L("Kai recognises Gerda at once.", "کای فوراً گردا را می‌شناسد."),
+            {"q": L("Kai recognizes Gerda at once.", "کای فوراً گردا را می‌شناسد."),
              "answer": False, "why": L("The glass in his heart hides her from him.",
                                       "شیشهٔ قلبش او را از او پنهان می‌کند.")},
             {"q": L("Gerda travels a long way to find him.", "گردا راه طولانی می‌رود."),
@@ -6083,7 +6083,7 @@ SNOWQ = {
         "open": [
             {"q": L("Why can only Gerda free him?", "چرا فقط گردا می‌تواند آزادش کند؟"),
              "model": L("Because the glass is beaten by warmth, and she is the one person "
-                        "who keeps walking towards him without a reason. A stronger "
+                        "who keeps walking toward him without a reason. A stronger "
                         "character could not help: the spell has no enemy to fight, only "
                         "a cold heart to thaw, and patience is the only weapon that works.",
                         "چون شیشه با گرما شکست می‌خورد و او تنها کسی است که بی‌دلیل "
@@ -6361,7 +6361,7 @@ EAST = {
     "questions": {
         "mcq": [
             {"q": L("Who comes to the door in the storm?", "در طوفان چه کسی به در می‌آید؟"),
-             "options": ["A neighbour", "A great white bear", "A prince", "Her mother"],
+             "options": ["A neighbor", "A great white bear", "A prince", "Her mother"],
              "answer": 1, "why": L("A bear knocks, and he speaks.",
                                   "خرسی در می‌زند و حرف می‌زند.")},
             {"q": L("Why does the daughter agree to go?", "چرا دختر قبول می‌کند برود؟"),
@@ -6419,7 +6419,7 @@ EAST = {
             {"q": L("Why do the winds help her?", "چرا بادها کمکش می‌کنند؟"),
              "model": L("Because she asks each of them in turn and never gives up, and "
                         "they can see that she has nothing to offer. In this kind of "
-                        "story help comes from the patient traveller, not from strength: "
+                        "story help comes from the patient traveler, not from strength: "
                         "she has no sword and no gold, only a long walk and one shirt as "
                         "proof.",
                         "چون از هر کدام به ترتیب می‌خواهد و هرگز رها نمی‌کند و آن‌ها "
@@ -6483,7 +6483,7 @@ GOLDBIRD = {
         {"word": "fox", "pos": "n.", "meaning": L("a wild animal like a small dog with a long tail", "روباه"),
          "example": "A fox met the eldest son on the road.",
          "exampleFa": "روباهی در راه به پسر بزرگ رسید."},
-        {"word": "inn", "pos": "n.", "meaning": L("a small hotel for travellers", "مهمان‌خانه"),
+        {"word": "inn", "pos": "n.", "meaning": L("a small hotel for travelers", "مهمان‌خانه"),
          "example": "He stayed at the merry inn.", "exampleFa": "در مهمان‌خانهٔ شاد ماند."},
         {"word": "jealous", "pos": "adj.", "meaning": L("unhappy because someone else has something", "حسود"),
          "example": "His brothers were jealous.", "exampleFa": "برادرانش حسود شدند."},
@@ -6629,7 +6629,7 @@ NUTCRACKER = {
                "کلارا کفشش را به سوی پادشاه موش‌ها انداخت و موش‌ها فرار کردند."),
              P("In the morning the nutcracker was a young man, and he thanked her.",
                "صبح فندق‌شکن مردی جوان بود و از او تشکر کرد."),
-             P("He took her to a land of sweets, where the snow was sugar and the river was honey.",
+             P("He took her to a land of candy, where the snow was sugar and the river was honey.",
                "او را به سرزمین شیرینی‌ها برد، جایی که برف شکر بود و رود عسل."),
              P("They danced there, and by the time she woke she was home again.",
                "آنجا رقصیدند و تا بیدار شد دوباره در خانه بود."),
@@ -6706,7 +6706,7 @@ NUTCRACKER = {
                                   "کفشش به پادشاه موش‌ها می‌خورد.")},
             {"q": L("What is the land of sweets like?", "سرزمین شیرینی‌ها چگونه است؟"),
              "options": ["Sugar snow and a honey river", "A cold dark forest",
-                         "A castle of gold", "A wide grey sea"],
+                         "A castle of gold", "A wide gray sea"],
              "answer": 0, "why": L("Everything there is made of something sweet.",
                                   "همه‌چیز آنجا از چیزی شیرین ساخته شده.")},
         ],
@@ -7465,7 +7465,7 @@ OZ = {
     "chapters": [
         {"title": L("The yellow brick road", "راه آجرفرش زرد"),
          "pairs": [
-             P("Dorothy lived on a grey farm in Kansas with her aunt, her uncle and a small dog called Toto.",
+             P("Dorothy lived on a gray farm in Kansas with her aunt, her uncle and a small dog called Toto.",
                "دوروتی در مزرعه‌ای خاکستری در کانزاس با خاله، عمو و سگی کوچک به نام توتو زندگی می‌کرد."),
              P("A cyclone lifted the house into the air with Dorothy and Toto still inside.",
                "گردبادی خانه را با دوروتی و توتو که هنوز داخل بودند به هوا بلند کرد."),
@@ -7582,7 +7582,7 @@ OZ = {
         "truefalse": [
             {"q": L("Dorothy lives in a big city at the start.",
                     "دوروتی در آغاز در شهری بزرگ زندگی می‌کند."),
-             "answer": False, "why": L("She lives on a grey farm in Kansas.",
+             "answer": False, "why": L("She lives on a gray farm in Kansas.",
                                        "در مزرعه‌ای خاکستری در کانزاس زندگی می‌کند.")},
             {"q": L("The wizard gives them tokens, not real magic.",
                     "جادوگر به آن‌ها نشانه می‌دهد، نه جادوی واقعی."),
@@ -7604,7 +7604,7 @@ OZ = {
             {"q": L("Why does Oz give gifts instead of magic?", "چرا اُز به‌جای جادو هدیه می‌دهد؟"),
              "model": L("Because none of the three friends needs magic. The Scarecrow has "
                         "been solving every problem on the road, the Woodman cries over "
-                        "small things, and the Lion keeps walking towards danger. Oz is "
+                        "small things, and the Lion keeps walking toward danger. Oz is "
                         "a fraud, but he is an honest one: he gives them something to "
                         "hold so they can believe what was already true.",
                         "چون هیچ‌کدام از سه دوست به جادو نیاز ندارند. مترسک تمام "
@@ -7784,7 +7784,7 @@ GULLIVER = {
                     "چرا تفاوت اندازه تمام منظور داستان است؟"),
              "model": L("Because it changes nothing except power. Gulliver is kind, "
                         "curious and polite, and the Lilliputians are clever and "
-                        "organised, so the only real difference between them is scale, "
+                        "organized, so the only real difference between them is scale, "
                         "and that decides who is chained. Put the same people at the "
                         "same size and the story has no plot, which is the joke.",
                         "چون جز قدرت چیزی را عوض نمی‌کند. گالیور مهربان، کنجکاو و "
@@ -7840,7 +7840,7 @@ SINBAD = {
          ]},
         {"title": L("The ship that came back", "کشتی‌ای که برگشت"),
          "pairs": [
-             P("The king of that island gave him work at the harbour, and he watched every ship that came in.",
+             P("The king of that island gave him work at the harbor, and he watched every ship that came in.",
                "پادشاه آن جزیره در بندر کاری به او داد و او هر کشتی را که می‌آمد می‌پایید."),
              P("At last his own ship arrived, and the captain did not believe he was alive.",
                "سرانجام کشتی خودش رسید و ناخدا باور نمی‌کرد زنده باشد."),
@@ -7865,8 +7865,8 @@ SINBAD = {
         {"word": "whale", "pos": "n.", "meaning": L("the largest animal in the sea", "نهنگ"),
          "example": "The island was a sleeping whale.",
          "exampleFa": "جزیره نهنگی خوابیده بود."},
-        {"word": "harbour", "pos": "n.", "meaning": L("a safe place where ships stop", "بندر"),
-         "example": "The king gave him work at the harbour.",
+        {"word": "harbor", "pos": "n.", "meaning": L("a safe place where ships stop", "بندر"),
+         "example": "The king gave him work at the harbor.",
          "exampleFa": "پادشاه در بندر کاری به او داد."},
         {"word": "bale", "pos": "n.", "meaning": L("a large bundle of goods tied up", "عدل"),
          "example": "He named what was inside each bale.",
@@ -7942,7 +7942,7 @@ SINBAD = {
             {"q": L("The fire wakes the whale.", "آتش نهنگ را بیدار می‌کند."),
              "answer": True, "why": L("It dives and the men run for the ship.",
                                       "به زیر آب می‌رود و مردها به کشتی می‌گریزند.")},
-            {"q": L("The captain recognises him at once.", "ناخدا فوراً او را می‌شناسد."),
+            {"q": L("The captain recognizes him at once.", "ناخدا فوراً او را می‌شناسد."),
              "answer": False, "why": L("He thinks Sinbad went down with the whale.",
                                        "فکر می‌کند سندباد با نهنگ غرق شد.")},
             {"q": L("Each voyage leaves him richer.", "هر سفر او را ثروتمندتر می‌کند."),
@@ -7952,7 +7952,7 @@ SINBAD = {
         "blanks": [
             {"sentence": "The island was a sleeping ___.", "answer": "whale",
              "hint": L("The largest animal in the sea.", "بزرگ‌ترین جانور دریا.")},
-            {"sentence": "The king gave him work at the ___.", "answer": "harbour",
+            {"sentence": "The king gave him work at the ___.", "answer": "harbor",
              "hint": L("Where ships stop.", "جای ایستادن کشتی‌ها.")},
             {"sentence": "He came home with ___.", "answer": "jewels",
              "hint": L("Precious stones.", "سنگ‌های گران‌بها.")},
@@ -8355,7 +8355,7 @@ FRANKENSTEIN = {
                "ویکتور در ژنو با خانواده‌ای مهربان و دخترخاله‌ای به نام الیزابت بزرگ شد."),
              P("He read old books about making life and believed he could do it.",
                "کتاب‌های کهن دربارهٔ ساختن زندگی خواند و باور کرد که می‌تواند."),
-             P("At university he built a body from dead parts and gave it life.",
+             P("In college he built a body from dead parts and gave it life.",
                "در دانشگاه از اندام‌های مرده بدنی ساخت و به آن زندگی داد."),
              P("The creature was huge and ugly, and Victor ran away from it in fear.",
                "آفریده بزرگ و زشت بود و ویکتور از ترس از آن گریخت."),
@@ -8516,7 +8516,7 @@ DRACULA = {
          "pairs": [
              P("Jonathan Harker was sent to Transylvania to help a rich Count buy a house in England.",
                "جاناتان هارکر به ترانسیلوانیا فرستاده شد تا به کنتی ثروتمند برای خریدن خانه‌ای در انگلستان کمک کند."),
-             P("He left his wife Mina and travelled east, and the people at the inn were afraid.",
+             P("He left his wife Mina and traveled east, and the people at the inn were afraid.",
                "همسرش مینا را ترک کرد و به شرق رفت و مردم مهمان‌خانه ترسیده بودند."),
              P("An old woman begged him not to go to the castle and gave him a cross.",
                "پیرزنی التماس کرد به قصر نرود و صلیبی به او داد."),
@@ -8592,7 +8592,7 @@ DRACULA = {
     "grammar": [
         {"name": L("was sent to", "مجهول گذشتهٔ send"),
          "example": "Jonathan was sent to Transylvania.",
-         "note": L("The passive puts the traveller first because the journey happened to him.",
+         "note": L("The passive puts the traveler first because the journey happened to him.",
                    "مجهول مسافر را اول می‌آورد چون سفر بر او رفته است.")},
         {"name": L("found that he was", "find that + جمله"),
          "example": "He found that he was a prisoner.",
@@ -8932,7 +8932,7 @@ HOUND = {
          "meaning": L("without telling anyone", "پنهانی"),
          "example": "Holmes came in secret.", "exampleFa": "هولمز پنهانی آمد."},
         {"phrase": "run at",
-         "meaning": L("move quickly towards somebody", "به سوی کسی دویدن"),
+         "meaning": L("move quickly toward somebody", "به سوی کسی دویدن"),
          "example": "The hound ran at Sir Henry.",
          "exampleFa": "سگ به سوی سر هنری دوید."},
     ],
@@ -9033,7 +9033,7 @@ TIME = {
     "chapters": [
         {"title": L("The fourth dimension", "بُعد چهارم"),
          "pairs": [
-             P("The Time Traveller had friends to dinner and told them time was a fourth dimension.",
+             P("The Time Traveler had friends to dinner and told them time was a fourth dimension.",
                "مسافر زمان دوستانی را به شام دعوت کرده بود و گفت زمان بُعد چهارم است."),
              P("They laughed, and he brought out a small machine of metal and ivory.",
                "خندیدند و او ماشینی کوچک از فلز و عاج بیرون آورد."),
@@ -9041,7 +9041,7 @@ TIME = {
                "اهرم را فشار داد و ماشین از روی میز ناپدید شد."),
              P("The next week he came to dinner late, dirty and tired, and told them where he had been.",
                "هفتهٔ بعد دیر، خاک‌آلود و خسته به شام آمد و گفت کجا بوده."),
-             P("He had travelled to the year 802,701 and found a warm green world.",
+             P("He had traveled to the year 802,701 and found a warm green world.",
                "به سال ۸۰۲۷۰۱ سفر کرده و دنیایی گرم و سبز یافته بود."),
              P("The people there were small and gentle, and they played all day and ate fruit.",
                "مردم آنجا کوچک و مهربان بودند و تمام روز بازی می‌کردند و میوه می‌خوردند."),
@@ -9058,7 +9058,7 @@ TIME = {
                "رنگ‌پریده، نیرومند و گرسنه بودند و مردم کوچک را برای خوردن می‌بردند."),
              P("He followed them down and found his machine in a great hall of machines.",
                "دنبالشان به زیر رفت و ماشینش را در تالاری بزرگ از ماشین‌ها یافت."),
-             P("He escaped through a fire and travelled further into the future.",
+             P("He escaped through a fire and traveled further into the future.",
                "از میان آتشی گریخت و دورتر به آینده سفر کرد."),
              P("There he found a cold red sun, a silent sea and a dying world.",
                "آنجا خورشیدی سرخ و سرد، دریایی خاموش و جهانی در حال مرگ یافت."),
@@ -9080,7 +9080,7 @@ TIME = {
         {"word": "underground", "pos": "adv.", "meaning": L("below the surface of the earth", "زیر زمین"),
          "example": "The Morlocks lived underground.", "exampleFa": "مورلاک‌ها زیر زمین زندگی می‌کردند."},
         {"word": "future", "pos": "n.", "meaning": L("the time that has not come yet", "آینده"),
-         "example": "He travelled into the future.", "exampleFa": "به آینده سفر کرد."},
+         "example": "He traveled into the future.", "exampleFa": "به آینده سفر کرد."},
         {"word": "camera", "pos": "n.", "meaning": L("a machine that takes pictures", "دوربین"),
          "example": "He left with a camera.", "exampleFa": "با دوربینی رفت."},
     ],
@@ -9095,7 +9095,7 @@ TIME = {
          "exampleFa": "به سفرهٔ خودش بازگشت."},
         {"phrase": "far into",
          "meaning": L("a long way inside or beyond", "دورتر به درون"),
-         "example": "He travelled further into the future.",
+         "example": "He traveled further into the future.",
          "exampleFa": "دورتر به آینده سفر کرد."},
         {"phrase": "never came back",
          "meaning": L("did not return at all", "هرگز برنگشت"),
@@ -9103,8 +9103,8 @@ TIME = {
          "exampleFa": "رفت و هرگز برنگشت."},
     ],
     "grammar": [
-        {"name": L("had travelled, past perfect", "گذشتهٔ کامل had travelled"),
-         "example": "He had travelled to the year 802,701.",
+        {"name": L("had traveled, past perfect", "گذشتهٔ کامل had traveled"),
+         "example": "He had traveled to the year 802,701.",
          "note": L("The journey is finished before he tells the story.",
                    "سفر پیش از تعریف کردن داستان تمام شده است.")},
         {"name": L("thought they had won", "thought + گذشتهٔ کامل"),
@@ -9112,13 +9112,13 @@ TIME = {
          "note": L("The winning happened before he thought about it.",
                    "پیروزی پیش از اندیشیدن او رخ داده بود.")},
         {"name": L("further into", "further into، دورتر به درون"),
-         "example": "He travelled further into the future.",
+         "example": "He traveled further into the future.",
          "note": L("Further marks how far the movement went.",
                    "further می‌گوید حرکت تا کجا رفت.")},
     ],
     "questions": {
         "mcq": [
-            {"q": L("What is time, for the Traveller?", "زمان از نظر مسافر چیست؟"),
+            {"q": L("What is time, for the Traveler?", "زمان از نظر مسافر چیست؟"),
              "options": ["A river", "A fourth dimension", "A dream", "A machine"],
              "answer": 1, "why": L("He says men should move in it like the other three.",
                                   "می‌گوید آدم‌ها باید مثل سه بُعد دیگر در آن حرکت کنند.")},
@@ -9156,7 +9156,7 @@ TIME = {
              "hint": L("A bar on the machine.", "میله‌ای روی ماشین.")},
             {"sentence": "The small ___ disappeared.", "answer": "machine",
              "hint": L("What he built.", "چیزی که ساخت.")},
-            {"sentence": "He travelled into the ___.", "answer": "future",
+            {"sentence": "He traveled into the ___.", "answer": "future",
              "hint": L("Time that has not come yet.", "زمانی که هنوز نیامده.")},
         ],
         "open": [
@@ -9179,7 +9179,7 @@ TIME = {
              "model": L("It takes away the last comfort. Even the struggle between the "
                         "two peoples ends, and what remains is a red sun and a silent "
                         "sea, with no one to notice it. The machine that was a party "
-                        "trick now shows the Traveller that his own species is a short "
+                        "trick now shows the Traveler that his own species is a short "
                         "moment.",
                         "آخرین آسودگی را هم می‌گیرد. حتی ستیز دو قوم پایان می‌یابد و "
                         "آنچه می‌ماند خورشیدی سرخ و دریایی خاموش است بی کسی که "
@@ -9212,7 +9212,7 @@ WAR = {
                "ستاره‌ای سبز نزدیک هورسل افتاد و صبح اُگیلوی راوی را برای دیدنش برد."),
              P("A great metal cylinder lay half buried in the hot sand.",
                "استوانه‌ای بزرگ فلزی نیمه‌دفن در ماسهٔ داغ افتاده بود."),
-             P("The top unscrewed, and something grey and wet climbed out slowly.",
+             P("The top unscrewed, and something gray and wet climbed out slowly.",
                "سرش باز شد و چیزی خاکستری و خیس آهسته بیرون آمد."),
              P("It was a machine with long metal legs and a hood, taller than a house.",
                "ماشینی بود با پاهای فلزی بلند و سرپوشی، بلندتر از یک خانه."),
@@ -9233,7 +9233,7 @@ WAR = {
                "کشتی‌ها غرق شدند و مردم جاده‌ها را با گاری و کودک پر کردند."),
              P("Then the machines stopped, and the narrator found one fallen in a field.",
                "بعد ماشین‌ها ایستادند و راوی یکی را افتاده در کشتزاری یافت."),
-             P("The Martians had no defence against the smallest living things on Earth.",
+             P("The Martians had no defense against the smallest living things on Earth.",
                "مریخی‌ها هیچ دفاعی در برابر کوچک‌ترین موجودات زندهٔ زمین نداشتند."),
              P("They died of a common cold, and the planet was saved by bacteria.",
                "از سرماخوردگی معمولی مردند و سیاره با باکتری نجات یافت."),
@@ -9251,8 +9251,8 @@ WAR = {
          "example": "It burned them with a beam.", "exampleFa": "با پرتویی سوزاندشان."},
         {"word": "bacteria", "pos": "n.", "meaning": L("the smallest living things, too small to see", "باکتری"),
          "example": "Bacteria saved the planet.", "exampleFa": "باکتری سیاره را نجات داد."},
-        {"word": "defence", "pos": "n.", "meaning": L("something that keeps you safe", "دفاع"),
-         "example": "They had no defence against it.",
+        {"word": "defense", "pos": "n.", "meaning": L("something that keeps you safe", "دفاع"),
+         "example": "They had no defense against it.",
          "exampleFa": "هیچ دفاعی در برابرش نداشتند."},
     ],
     "expressions": [
@@ -9262,9 +9262,9 @@ WAR = {
          "exampleFa": "نیمه‌دفن در ماسه افتاده بود."},
         {"phrase": "climb out",
          "meaning": L("come out slowly and with effort", "بیرون آمدن"),
-         "example": "Something grey climbed out.", "exampleFa": "چیزی خاکستری بیرون آمد."},
+         "example": "Something gray climbed out.", "exampleFa": "چیزی خاکستری بیرون آمد."},
         {"phrase": "go forward",
-         "meaning": L("move towards the enemy", "جلو رفتن"),
+         "meaning": L("move toward the enemy", "جلو رفتن"),
          "example": "A flag party went forward.", "exampleFa": "گروهی با پرچم جلو رفتند."},
         {"phrase": "day and night",
          "meaning": L("all the time", "شبانه‌روز"),
@@ -9272,10 +9272,10 @@ WAR = {
          "exampleFa": "شبانه‌روز می‌پاییدندش."},
     ],
     "grammar": [
-        {"name": L("had no defence against", "هیچ دفاعی نداشتن در برابر"),
-         "example": "They had no defence against bacteria.",
-         "note": L("Have no defence against names the thing that wins.",
-                   "have no defence against چیزی را نام می‌برد که پیروز می‌شود.")},
+        {"name": L("had no defense against", "هیچ دفاعی نداشتن در برابر"),
+         "example": "They had no defense against bacteria.",
+         "note": L("Have no defense against names the thing that wins.",
+                   "have no defense against چیزی را نام می‌برد که پیروز می‌شود.")},
         {"name": L("was saved by", "مجهول گذشته with by"),
          "example": "The planet was saved by bacteria.",
          "note": L("The passive with by names the unexpected helper.",
@@ -9309,7 +9309,7 @@ WAR = {
                                   "تلسکوپ روی بام از آنِ اوست.")},
         ],
         "truefalse": [
-            {"q": L("The Martians have no defence against bacteria.",
+            {"q": L("The Martians have no defense against bacteria.",
                     "مریخی‌ها در برابر باکتری دفاعی ندارند."),
              "answer": True, "why": L("That is what ends the war.",
                                       "همان چیزی است که جنگ را تمام می‌کند.")},

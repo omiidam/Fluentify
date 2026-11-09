@@ -1169,7 +1169,7 @@
       ],
       "answer": 2,
       "why": {
-       "en": "He realises the truth and keeps walking anyway.",
+       "en": "He realizes the truth and keeps walking anyway.",
        "fa": "حقیقت را می‌فهمد و با این حال به راه رفتن ادامه می‌دهد."
       }
      }
@@ -1392,7 +1392,7 @@
      "word": "spin",
      "pos": "v.",
      "meaning": {
-      "en": "twist fibres into thread; here, turn straw into gold",
+      "en": "twist fibers into thread; here, turn straw into gold",
       "fa": "ریسیدن"
      },
      "example": "She could spin straw into gold.",
@@ -1402,7 +1402,7 @@
      "word": "necklace",
      "pos": "n.",
      "meaning": {
-      "en": "jewellery you wear around your neck",
+      "en": "jewelry you wear around your neck",
       "fa": "گردنبند"
      },
      "example": "She gave him her necklace.",
@@ -1638,7 +1638,7 @@
       "sentence": "She gave the little man her ___.",
       "answer": "necklace",
       "hint": {
-       "en": "Jewellery for the neck.",
+       "en": "Jewelry for the neck.",
        "fa": "زیوری برای گردن."
       }
      },
@@ -1698,7 +1698,7 @@
    },
    "level": "VE",
    "blurb": {
-    "en": "A biscuit runs out of an oven and outruns everyone, until a river and a helpful fox.",
+    "en": "A cookie runs out of an oven and outruns everyone, until a river and a helpful fox.",
     "fa": "شیرینی‌ای از فر بیرون می‌دود و از همه جلو می‌زند، تا به رودخانه و روباهی مهربان می‌رسد."
    },
    "words": 225,
@@ -2118,7 +2118,7 @@
    },
    "level": "VE",
    "blurb": {
-    "en": "An acorn hits a hen on the head, and a rumour walks five birds into a fox's den.",
+    "en": "An acorn hits a hen on the head, and a rumor walks five birds into a fox's den.",
     "fa": "بلوطی به سر مرغی می‌خورد و شایعه‌ای پنج پرنده را به لانهٔ روباهی می‌برد."
    },
    "words": 238,
@@ -2277,7 +2277,7 @@
     {
      "phrase": "the sky is falling",
      "meaning": {
-      "en": "a warning that something huge is going wrong (here, a rumour)",
+      "en": "a warning that something huge is going wrong (here, a rumor)",
       "fa": "آسمان دارد می‌افتد (هشدار بزرگ و بی‌پایه)"
      },
      "example": "\"The sky is falling!\" she cried.",
@@ -2502,7 +2502,7 @@
        "fa": "تقصیر اتفاقی که برای پرنده‌ها می‌افتد گردن کیست؟"
       },
       "model": {
-       "en": "Foxy Loxy does the harm, but the rumour starts it. Henny Penny never checks what hit her, and each bird repeats her words without asking a question, so five birds follow a stranger into a den. The fox only has to offer a short way.",
+       "en": "Foxy Loxy does the harm, but the rumor starts it. Henny Penny never checks what hit her, and each bird repeats her words without asking a question, so five birds follow a stranger into a den. The fox only has to offer a short way.",
        "fa": "آسیب را فوکسی لوکسی می‌زند، اما شایعه کار را شروع می‌کند. هنی پنی هرگز بررسی نمی‌کند چه به او خورده و هر پرنده حرف او را بی‌پرسش تکرار می‌کند، پس پنج پرنده دنبال یک غریبه به لانه می‌روند. روباه فقط باید راه کوتاه پیشنهاد دهد."
       },
       "tip": {
@@ -3549,7 +3549,7 @@
       "sentence": "Soon the wheat turned a ___ color.",
       "answer": "golden",
       "hint": {
-       "en": "The colour of ripe wheat in the sun.",
+       "en": "The color of ripe wheat in the sun.",
        "fa": "رنگ گندم رسیده زیر آفتاب."
       }
      },
@@ -7150,7 +7150,7 @@
        "fa": "باز نواخت و این بار بچه‌ها دنبالش رفتند."
       },
       {
-       "en": "They went out of the town towards the mountain.",
+       "en": "They went out of the town toward the mountain.",
        "fa": "از شهر بیرون رفتند به سمت کوه."
       },
       {
@@ -7168,13 +7168,13 @@
      ]
     }
    ],
-   "text": "Rats filled every house in Hamelin and ate the food. The mayor offered gold to anyone who could clear them. A piper in bright clothes said he could do it with music. He played, and every rat followed him to the river and drowned. The council decided to pay him much less than promised. He returned and said a broken promise has a price. He played again, and this time the children followed him. They went out of the town towards the mountain. One boy was lame and fell behind, so he came back. The rocks opened and closed, and the children were gone. The mayor admitted his broken promise had done this.",
+   "text": "Rats filled every house in Hamelin and ate the food. The mayor offered gold to anyone who could clear them. A piper in bright clothes said he could do it with music. He played, and every rat followed him to the river and drowned. The council decided to pay him much less than promised. He returned and said a broken promise has a price. He played again, and this time the children followed him. They went out of the town toward the mountain. One boy was lame and fell behind, so he came back. The rocks opened and closed, and the children were gone. The mayor admitted his broken promise had done this.",
    "vocab": [
     {
      "word": "rats",
      "pos": "n.",
      "meaning": {
-      "en": "large grey animals that live in towns",
+      "en": "large gray animals that live in towns",
       "fa": "موش‌ها"
      },
      "example": "The rats ate everything.",
@@ -8308,7 +8308,7 @@
    },
    "level": "E",
    "blurb": {
-    "en": "A grey bird is laughed at all winter, and in spring the water shows him who he really is.",
+    "en": "A gray bird is laughed at all winter, and in spring the water shows him who he really is.",
     "fa": "پرنده‌ای خاکستری تمام زمستان مسخره می‌شود و در بهار آب نشانش می‌دهد که واقعاً کیست."
    },
    "words": 159,
@@ -8326,7 +8326,7 @@
        "fa": "اردکی در محوطهٔ مزرعه روی تخم‌هایش نشست و منتظر ماند تا باز شوند."
       },
       {
-       "en": "One egg was bigger than the others, and the bird that came out was big and grey.",
+       "en": "One egg was bigger than the others, and the bird that came out was big and gray.",
        "fa": "یکی از تخم‌ها از بقیه بزرگ‌تر بود و پرنده‌ای که بیرون آمد بزرگ و خاکستری بود."
       },
       {
@@ -8362,7 +8362,7 @@
        "fa": "وقتی بهار آمد، همان پرنده‌های سفید را روی آب دید."
       },
       {
-       "en": "He swam towards them, ready to be laughed at again.",
+       "en": "He swam toward them, ready to be laughed at again.",
        "fa": "به سویشان شنا کرد، آمادهٔ آنکه باز مسخره شود."
       },
       {
@@ -8388,7 +8388,7 @@
      ]
     }
    ],
-   "text": "A duck sat on her eggs in a farmyard and waited for them to open. One egg was bigger than the others, and the bird that came out was big and grey. The other birds laughed at him and called him ugly. Even his own brothers and sisters would not walk with him. So he ran away and lived alone through the cold winter. He hid in the reeds and watched the beautiful white birds fly south. He wished he could be as beautiful as them. When spring came, he saw the same white birds on the water. He swam towards them, ready to be laughed at again. But they swam to meet him and called to him kindly. He looked at his reflection in the water and saw that he was a swan. He had never been an ugly duckling at all. The other swans were his family, and they flew away together. He was happy at last.",
+   "text": "A duck sat on her eggs in a farmyard and waited for them to open. One egg was bigger than the others, and the bird that came out was big and gray. The other birds laughed at him and called him ugly. Even his own brothers and sisters would not walk with him. So he ran away and lived alone through the cold winter. He hid in the reeds and watched the beautiful white birds fly south. He wished he could be as beautiful as them. When spring came, he saw the same white birds on the water. He swam toward them, ready to be laughed at again. But they swam to meet him and called to him kindly. He looked at his reflection in the water and saw that he was a swan. He had never been an ugly duckling at all. The other swans were his family, and they flew away together. He was happy at last.",
    "vocab": [
     {
      "word": "farmyard",
@@ -8517,7 +8517,7 @@
       "en": "ready to be + past participle",
       "fa": "ready to be + قسمت سوم فعل"
      },
-     "example": "He swam towards them, ready to be laughed at.",
+     "example": "He swam toward them, ready to be laughed at.",
      "note": {
       "en": "The passive after 'ready to be' says what he expects will happen to him.",
       "fa": "مجهول پس از «ready to be» می‌گوید انتظار دارد چه چیزی بر سرش بیاید."
@@ -8533,7 +8533,7 @@
       },
       "options": [
        "He was too small",
-       "He looked big and grey",
+       "He looked big and gray",
        "He could not swim",
        "He had no mother"
       ],
@@ -8607,7 +8607,7 @@
       ],
       "answer": 2,
       "why": {
-       "en": "They come towards him and call to him.",
+       "en": "They come toward him and call to him.",
        "fa": "به سویش می‌آیند و صدایش می‌زنند."
       }
      }
@@ -9368,7 +9368,7 @@
        "Farm animals",
        "Town musicians",
        "Guards",
-       "Travellers"
+       "Travelers"
       ],
       "answer": 1,
       "why": {
@@ -9930,7 +9930,7 @@
        "fa": "اینکه نام اشتباه است. برادرانی که باهوش خوانده می‌شوند داشته‌هایشان را نگه می‌دارند و آن که ساده‌لوح خوانده می‌شود نانش را می‌بخشد، و این تنها کاری در داستان است که چیزی به بار می‌آورد. داستان آرام آرام دو واژه را جابه‌جا می‌کند."
       },
       "tip": {
-       "en": "Compare the two behaviours, not the two labels.",
+       "en": "Compare the two behaviors, not the two labels.",
        "fa": "دو رفتار را مقایسه کن، نه دو برچسب را."
       }
      }
@@ -11501,7 +11501,7 @@
      },
      {
       "q": {
-       "en": "The stepsisters recognised her at the ball.",
+       "en": "The stepsisters recognized her at the ball.",
        "fa": "خواهران ناتنی او را در مهمانی شناختند."
       },
       "answer": false,
@@ -13531,7 +13531,7 @@
     "truefalse": [
      {
       "q": {
-       "en": "Kai recognises Gerda at once.",
+       "en": "Kai recognizes Gerda at once.",
        "fa": "کای فوراً گردا را می‌شناسد."
       },
       "answer": false,
@@ -13596,7 +13596,7 @@
        "fa": "چرا فقط گردا می‌تواند آزادش کند؟"
       },
       "model": {
-       "en": "Because the glass is beaten by warmth, and she is the one person who keeps walking towards him without a reason. A stronger character could not help: the spell has no enemy to fight, only a cold heart to thaw, and patience is the only weapon that works.",
+       "en": "Because the glass is beaten by warmth, and she is the one person who keeps walking toward him without a reason. A stronger character could not help: the spell has no enemy to fight, only a cold heart to thaw, and patience is the only weapon that works.",
        "fa": "چون شیشه با گرما شکست می‌خورد و او تنها کسی است که بی‌دلیل به سویش راه می‌رود. قهرمان قوی‌تر نمی‌توانست کمک کند: طلسم دشمنی برای جنگیدن ندارد، فقط قلبی سرد برای آب شدن، و صبر تنها سلاح کارآمد است."
       },
       "tip": {
@@ -14910,7 +14910,7 @@
        "fa": "صبح فندق‌شکن مردی جوان بود و از او تشکر کرد."
       },
       {
-       "en": "He took her to a land of sweets, where the snow was sugar and the river was honey.",
+       "en": "He took her to a land of candy, where the snow was sugar and the river was honey.",
        "fa": "او را به سرزمین شیرینی‌ها برد، جایی که برف شکر بود و رود عسل."
       },
       {
@@ -14928,7 +14928,7 @@
      ]
     }
    ],
-   "text": "On Christmas Eve, Clara and her brother waited by the tree while the guests arrived. Their godfather came in with a box, an old clockmaker who made wonderful toys. He gave Clara a small wooden soldier with a big jaw and a red coat. It was a nutcracker, and it could crack nuts with its jaw. Her brother forced a nut that was too big, and the jaw broke. Clara tied a ribbon around the jaw and put him to bed in a little wooden bed. At midnight mice came from under the floor, led by a mouse with a small crown. The nutcracker stood up with a sword, and the toys fought the mice all night. Clara threw her shoe at the mouse king, and the mice ran away. In the morning the nutcracker was a young man, and he thanked her. He took her to a land of sweets, where the snow was sugar and the river was honey. They danced there, and by the time she woke she was home again. But the little wooden soldier was still under the tree, whole again. She kept him all her life, and told the story to her own children.",
+   "text": "On Christmas Eve, Clara and her brother waited by the tree while the guests arrived. Their godfather came in with a box, an old clockmaker who made wonderful toys. He gave Clara a small wooden soldier with a big jaw and a red coat. It was a nutcracker, and it could crack nuts with its jaw. Her brother forced a nut that was too big, and the jaw broke. Clara tied a ribbon around the jaw and put him to bed in a little wooden bed. At midnight mice came from under the floor, led by a mouse with a small crown. The nutcracker stood up with a sword, and the toys fought the mice all night. Clara threw her shoe at the mouse king, and the mice ran away. In the morning the nutcracker was a young man, and he thanked her. He took her to a land of candy, where the snow was sugar and the river was honey. They danced there, and by the time she woke she was home again. But the little wooden soldier was still under the tree, whole again. She kept him all her life, and told the story to her own children.",
    "vocab": [
     {
      "word": "jaw",
@@ -15143,7 +15143,7 @@
        "Sugar snow and a honey river",
        "A cold dark forest",
        "A castle of gold",
-       "A wide grey sea"
+       "A wide gray sea"
       ],
       "answer": 0,
       "why": {
@@ -15366,7 +15366,7 @@
      "word": "inn",
      "pos": "n.",
      "meaning": {
-      "en": "a small hotel for travellers",
+      "en": "a small hotel for travelers",
       "fa": "مهمان‌خانه"
      },
      "example": "He stayed at the merry inn.",
@@ -16312,7 +16312,7 @@
        "fa": "در طوفان چه کسی به در می‌آید؟"
       },
       "options": [
-       "A neighbour",
+       "A neighbor",
        "A great white bear",
        "A prince",
        "Her mother"
@@ -16474,7 +16474,7 @@
        "fa": "چرا بادها کمکش می‌کنند؟"
       },
       "model": {
-       "en": "Because she asks each of them in turn and never gives up, and they can see that she has nothing to offer. In this kind of story help comes from the patient traveller, not from strength: she has no sword and no gold, only a long walk and one shirt as proof.",
+       "en": "Because she asks each of them in turn and never gives up, and they can see that she has nothing to offer. In this kind of story help comes from the patient traveler, not from strength: she has no sword and no gold, only a long walk and one shirt as proof.",
        "fa": "چون از هر کدام به ترتیب می‌خواهد و هرگز رها نمی‌کند و آن‌ها می‌بینند چیزی برای دادن ندارد. در این نوع داستان کمک از مسافر صبور می‌آید نه از زور: او شمشیر و طلا ندارد، فقط راهی طولانی و یک پیراهن به‌عنوان مدرک."
       },
       "tip": {
@@ -17311,7 +17311,7 @@
        "fa": "چرا تفاوت اندازه تمام منظور داستان است؟"
       },
       "model": {
-       "en": "Because it changes nothing except power. Gulliver is kind, curious and polite, and the Lilliputians are clever and organised, so the only real difference between them is scale, and that decides who is chained. Put the same people at the same size and the story has no plot, which is the joke.",
+       "en": "Because it changes nothing except power. Gulliver is kind, curious and polite, and the Lilliputians are clever and organized, so the only real difference between them is scale, and that decides who is chained. Put the same people at the same size and the story has no plot, which is the joke.",
        "fa": "چون جز قدرت چیزی را عوض نمی‌کند. گالیور مهربان، کنجکاو و مؤدب است و لیلیپوتی‌ها زیرک و سازمان‌یافته، پس تنها تفاوت واقعی مقیاس است و همان تعیین می‌کند چه کسی زنجیر شود. همان آدم‌ها را هم‌اندازه کن و داستان دیگر طرحی ندارد؛ و همین شوخی ماجراست."
       },
       "tip": {
@@ -17796,7 +17796,7 @@
      },
      "pairs": [
       {
-       "en": "Dorothy lived on a grey farm in Kansas with her aunt, her uncle and a small dog called Toto.",
+       "en": "Dorothy lived on a gray farm in Kansas with her aunt, her uncle and a small dog called Toto.",
        "fa": "دوروتی در مزرعه‌ای خاکستری در کانزاس با خاله، عمو و سگی کوچک به نام توتو زندگی می‌کرد."
       },
       {
@@ -17870,7 +17870,7 @@
      ]
     }
    ],
-   "text": "Dorothy lived on a grey farm in Kansas with her aunt, her uncle and a small dog called Toto. A cyclone lifted the house into the air with Dorothy and Toto still inside. The house came down on the Wicked Witch of the East and killed her. The little people of that land were free, and the Good Witch of the North thanked Dorothy. She gave Dorothy the dead witch's silver shoes and told her to follow the yellow brick road. On the road Dorothy met a Scarecrow, who wanted brains instead of straw. Then she met a Tin Woodman, who wanted a heart, and a Lion who wanted courage. They walked to the Emerald City to ask the great wizard Oz for what they lacked. Oz appeared as a huge head and said he would help if they killed the Wicked Witch of the West. The witch sent wolves, crows and bees, and each time her plans failed. She caught Dorothy with flying monkeys and took one of her silver shoes. Dorothy threw water on the witch in anger, and the witch melted away. Back in the city the wizard was found to be a small man behind a curtain. He gave them a diploma, a heart and a medal, because they had those things already. He offered to take Dorothy home in a balloon, but it left without her. She went home with the silver shoes, and woke on the farm with Aunt Em beside her.",
+   "text": "Dorothy lived on a gray farm in Kansas with her aunt, her uncle and a small dog called Toto. A cyclone lifted the house into the air with Dorothy and Toto still inside. The house came down on the Wicked Witch of the East and killed her. The little people of that land were free, and the Good Witch of the North thanked Dorothy. She gave Dorothy the dead witch's silver shoes and told her to follow the yellow brick road. On the road Dorothy met a Scarecrow, who wanted brains instead of straw. Then she met a Tin Woodman, who wanted a heart, and a Lion who wanted courage. They walked to the Emerald City to ask the great wizard Oz for what they lacked. Oz appeared as a huge head and said he would help if they killed the Wicked Witch of the West. The witch sent wolves, crows and bees, and each time her plans failed. She caught Dorothy with flying monkeys and took one of her silver shoes. Dorothy threw water on the witch in anger, and the witch melted away. Back in the city the wizard was found to be a small man behind a curtain. He gave them a diploma, a heart and a medal, because they had those things already. He offered to take Dorothy home in a balloon, but it left without her. She went home with the silver shoes, and woke on the farm with Aunt Em beside her.",
    "vocab": [
     {
      "word": "cyclone",
@@ -18113,7 +18113,7 @@
       },
       "answer": false,
       "why": {
-       "en": "She lives on a grey farm in Kansas.",
+       "en": "She lives on a gray farm in Kansas.",
        "fa": "در مزرعه‌ای خاکستری در کانزاس زندگی می‌کند."
       }
      },
@@ -18173,7 +18173,7 @@
        "fa": "چرا اُز به‌جای جادو هدیه می‌دهد؟"
       },
       "model": {
-       "en": "Because none of the three friends needs magic. The Scarecrow has been solving every problem on the road, the Woodman cries over small things, and the Lion keeps walking towards danger. Oz is a fraud, but he is an honest one: he gives them something to hold so they can believe what was already true.",
+       "en": "Because none of the three friends needs magic. The Scarecrow has been solving every problem on the road, the Woodman cries over small things, and the Lion keeps walking toward danger. Oz is a fraud, but he is an honest one: he gives them something to hold so they can believe what was already true.",
        "fa": "چون هیچ‌کدام از سه دوست به جادو نیاز ندارند. مترسک تمام مشکل‌های راه را حل کرده، مرد حلبی برای چیزهای کوچک گریه می‌کند و شیر همچنان به سوی خطر می‌رود. اُز شارلاتان است، اما صادق است: چیزی به دستشان می‌دهد تا بتوانند باور کنند چیزی را که از پیش درست بود."
       },
       "tip": {
@@ -18267,7 +18267,7 @@
      },
      "pairs": [
       {
-       "en": "The king of that island gave him work at the harbour, and he watched every ship that came in.",
+       "en": "The king of that island gave him work at the harbor, and he watched every ship that came in.",
        "fa": "پادشاه آن جزیره در بندر کاری به او داد و او هر کشتی را که می‌آمد می‌پایید."
       },
       {
@@ -18301,7 +18301,7 @@
      ]
     }
    ],
-   "text": "A poor porter carried loads through the streets of Baghdad and rested at the gate of a rich house. The master of the house heard him complain and invited him in to eat. The master was Sinbad the Sailor, and he said the sea had nearly killed him seven times. His father left him gold, but he spent it all on feasts with rich young men. He sold what was left, bought trade goods and went to sea. One day the ship stopped at an island, and the men lit a fire on the sand. The island was a sleeping whale, and the fire woke it and it dived. Sinbad was left in the water, and he held a wooden tub until the waves threw him on a shore. The king of that island gave him work at the harbour, and he watched every ship that came in. At last his own ship arrived, and the captain did not believe he was alive. Sinbad named what was inside each bale, and the captain gave back all his goods. He sold them, sailed home rich and gave a hundred pieces of gold to the porter. On his second voyage he fell asleep on an island and the ship sailed without him. He tied himself to the leg of a great bird, and it carried him out of a valley of diamonds. He came home with jewels, and each voyage made him richer and less able to stay at home. The porter left that night with gold in his hand and a story in his head.",
+   "text": "A poor porter carried loads through the streets of Baghdad and rested at the gate of a rich house. The master of the house heard him complain and invited him in to eat. The master was Sinbad the Sailor, and he said the sea had nearly killed him seven times. His father left him gold, but he spent it all on feasts with rich young men. He sold what was left, bought trade goods and went to sea. One day the ship stopped at an island, and the men lit a fire on the sand. The island was a sleeping whale, and the fire woke it and it dived. Sinbad was left in the water, and he held a wooden tub until the waves threw him on a shore. The king of that island gave him work at the harbor, and he watched every ship that came in. At last his own ship arrived, and the captain did not believe he was alive. Sinbad named what was inside each bale, and the captain gave back all his goods. He sold them, sailed home rich and gave a hundred pieces of gold to the porter. On his second voyage he fell asleep on an island and the ship sailed without him. He tied himself to the leg of a great bird, and it carried him out of a valley of diamonds. He came home with jewels, and each voyage made him richer and less able to stay at home. The porter left that night with gold in his hand and a story in his head.",
    "vocab": [
     {
      "word": "porter",
@@ -18324,13 +18324,13 @@
      "exampleFa": "جزیره نهنگی خوابیده بود."
     },
     {
-     "word": "harbour",
+     "word": "harbor",
      "pos": "n.",
      "meaning": {
       "en": "a safe place where ships stop",
       "fa": "بندر"
      },
-     "example": "The king gave him work at the harbour.",
+     "example": "The king gave him work at the harbor.",
      "exampleFa": "پادشاه در بندر کاری به او داد."
     },
     {
@@ -18550,7 +18550,7 @@
      },
      {
       "q": {
-       "en": "The captain recognises him at once.",
+       "en": "The captain recognizes him at once.",
        "fa": "ناخدا فوراً او را می‌شناسد."
       },
       "answer": false,
@@ -18582,7 +18582,7 @@
      },
      {
       "sentence": "The king gave him work at the ___.",
-      "answer": "harbour",
+      "answer": "harbor",
       "hint": {
        "en": "Where ships stop.",
        "fa": "جای ایستادن کشتی‌ها."
@@ -19089,7 +19089,7 @@
      },
      "pairs": [
       {
-       "en": "The Time Traveller had friends to dinner and told them time was a fourth dimension.",
+       "en": "The Time Traveler had friends to dinner and told them time was a fourth dimension.",
        "fa": "مسافر زمان دوستانی را به شام دعوت کرده بود و گفت زمان بُعد چهارم است."
       },
       {
@@ -19105,7 +19105,7 @@
        "fa": "هفتهٔ بعد دیر، خاک‌آلود و خسته به شام آمد و گفت کجا بوده."
       },
       {
-       "en": "He had travelled to the year 802,701 and found a warm green world.",
+       "en": "He had traveled to the year 802,701 and found a warm green world.",
        "fa": "به سال ۸۰۲۷۰۱ سفر کرده و دنیایی گرم و سبز یافته بود."
       },
       {
@@ -19141,7 +19141,7 @@
        "fa": "دنبالشان به زیر رفت و ماشینش را در تالاری بزرگ از ماشین‌ها یافت."
       },
       {
-       "en": "He escaped through a fire and travelled further into the future.",
+       "en": "He escaped through a fire and traveled further into the future.",
        "fa": "از میان آتشی گریخت و دورتر به آینده سفر کرد."
       },
       {
@@ -19163,7 +19163,7 @@
      ]
     }
    ],
-   "text": "The Time Traveller had friends to dinner and told them time was a fourth dimension. They laughed, and he brought out a small machine of metal and ivory. He pushed the lever, and the machine disappeared from the table. The next week he came to dinner late, dirty and tired, and told them where he had been. He had travelled to the year 802,701 and found a warm green world. The people there were small and gentle, and they played all day and ate fruit. They had no books, no fire and no fear, and he thought they had won. Then he found that his machine had been taken. He met the Morlocks, who lived underground and came up only at night. They were pale, strong and hungry, and they took the little people for food. He followed them down and found his machine in a great hall of machines. He escaped through a fire and travelled further into the future. There he found a cold red sun, a silent sea and a dying world. He came back to his own dinner table, and the friends did not believe him. He showed them two strange flowers from the future. Then he left again with a camera and never came back.",
+   "text": "The Time Traveler had friends to dinner and told them time was a fourth dimension. They laughed, and he brought out a small machine of metal and ivory. He pushed the lever, and the machine disappeared from the table. The next week he came to dinner late, dirty and tired, and told them where he had been. He had traveled to the year 802,701 and found a warm green world. The people there were small and gentle, and they played all day and ate fruit. They had no books, no fire and no fear, and he thought they had won. Then he found that his machine had been taken. He met the Morlocks, who lived underground and came up only at night. They were pale, strong and hungry, and they took the little people for food. He followed them down and found his machine in a great hall of machines. He escaped through a fire and traveled further into the future. There he found a cold red sun, a silent sea and a dying world. He came back to his own dinner table, and the friends did not believe him. He showed them two strange flowers from the future. Then he left again with a camera and never came back.",
    "vocab": [
     {
      "word": "dimension",
@@ -19212,7 +19212,7 @@
       "en": "the time that has not come yet",
       "fa": "آینده"
      },
-     "example": "He travelled into the future.",
+     "example": "He traveled into the future.",
      "exampleFa": "به آینده سفر کرد."
     },
     {
@@ -19251,7 +19251,7 @@
       "en": "a long way inside or beyond",
       "fa": "دورتر به درون"
      },
-     "example": "He travelled further into the future.",
+     "example": "He traveled further into the future.",
      "exampleFa": "دورتر به آینده سفر کرد."
     },
     {
@@ -19267,10 +19267,10 @@
    "grammar": [
     {
      "name": {
-      "en": "had travelled, past perfect",
-      "fa": "گذشتهٔ کامل had travelled"
+      "en": "had traveled, past perfect",
+      "fa": "گذشتهٔ کامل had traveled"
      },
-     "example": "He had travelled to the year 802,701.",
+     "example": "He had traveled to the year 802,701.",
      "note": {
       "en": "The journey is finished before he tells the story.",
       "fa": "سفر پیش از تعریف کردن داستان تمام شده است."
@@ -19292,7 +19292,7 @@
       "en": "further into",
       "fa": "further into، دورتر به درون"
      },
-     "example": "He travelled further into the future.",
+     "example": "He traveled further into the future.",
      "note": {
       "en": "Further marks how far the movement went.",
       "fa": "further می‌گوید حرکت تا کجا رفت."
@@ -19303,7 +19303,7 @@
     "mcq": [
      {
       "q": {
-       "en": "What is time, for the Traveller?",
+       "en": "What is time, for the Traveler?",
        "fa": "زمان از نظر مسافر چیست؟"
       },
       "options": [
@@ -19440,7 +19440,7 @@
       }
      },
      {
-      "sentence": "He travelled into the ___.",
+      "sentence": "He traveled into the ___.",
       "answer": "future",
       "hint": {
        "en": "Time that has not come yet.",
@@ -19469,7 +19469,7 @@
        "fa": "آیندهٔ خالی پایان چه چیزی به داستان می‌افزاید؟"
       },
       "model": {
-       "en": "It takes away the last comfort. Even the struggle between the two peoples ends, and what remains is a red sun and a silent sea, with no one to notice it. The machine that was a party trick now shows the Traveller that his own species is a short moment.",
+       "en": "It takes away the last comfort. Even the struggle between the two peoples ends, and what remains is a red sun and a silent sea, with no one to notice it. The machine that was a party trick now shows the Traveler that his own species is a short moment.",
        "fa": "آخرین آسودگی را هم می‌گیرد. حتی ستیز دو قوم پایان می‌یابد و آنچه می‌ماند خورشیدی سرخ و دریایی خاموش است بی کسی که ببیندش. ماشینی که شعبدهٔ یک مهمانی بود اکنون نشان می‌دهد گونهٔ خود او لحظه‌ای کوتاه است."
       },
       "tip": {
@@ -19677,7 +19677,7 @@
     {
      "phrase": "run at",
      "meaning": {
-      "en": "move quickly towards somebody",
+      "en": "move quickly toward somebody",
       "fa": "به سوی کسی دویدن"
      },
      "example": "The hound ran at Sir Henry.",
@@ -19949,7 +19949,7 @@
        "fa": "استوانه‌ای بزرگ فلزی نیمه‌دفن در ماسهٔ داغ افتاده بود."
       },
       {
-       "en": "The top unscrewed, and something grey and wet climbed out slowly.",
+       "en": "The top unscrewed, and something gray and wet climbed out slowly.",
        "fa": "سرش باز شد و چیزی خاکستری و خیس آهسته بیرون آمد."
       },
       {
@@ -19993,7 +19993,7 @@
        "fa": "بعد ماشین‌ها ایستادند و راوی یکی را افتاده در کشتزاری یافت."
       },
       {
-       "en": "The Martians had no defence against the smallest living things on Earth.",
+       "en": "The Martians had no defense against the smallest living things on Earth.",
        "fa": "مریخی‌ها هیچ دفاعی در برابر کوچک‌ترین موجودات زندهٔ زمین نداشتند."
       },
       {
@@ -20003,7 +20003,7 @@
      ]
     }
    ],
-   "text": "On Mars, minds in a dying world planned a move to the warm Earth. On Earth nobody was afraid, and people watched the red light with interest. Ogilvy the astronomer saw a flame on the planet and said it was burning gas. A green star fell near Horsell, and in the morning Ogilvy took the narrator to see it. A great metal cylinder lay half buried in the hot sand. The top unscrewed, and something grey and wet climbed out slowly. It was a machine with long metal legs and a hood, taller than a house. The people ran, and the army came with guns. A flag party went forward under a white flag, and the machine burned them with a beam. The narrator ran home and found his wife, and they left the town. The machines walked across England, burning towns and breaking bridges. The narrator hid in a house with a curate, and they watched a machine day and night. Ships were sunk, and people filled the roads with carts and children. Then the machines stopped, and the narrator found one fallen in a field. The Martians had no defence against the smallest living things on Earth. They died of a common cold, and the planet was saved by bacteria.",
+   "text": "On Mars, minds in a dying world planned a move to the warm Earth. On Earth nobody was afraid, and people watched the red light with interest. Ogilvy the astronomer saw a flame on the planet and said it was burning gas. A green star fell near Horsell, and in the morning Ogilvy took the narrator to see it. A great metal cylinder lay half buried in the hot sand. The top unscrewed, and something gray and wet climbed out slowly. It was a machine with long metal legs and a hood, taller than a house. The people ran, and the army came with guns. A flag party went forward under a white flag, and the machine burned them with a beam. The narrator ran home and found his wife, and they left the town. The machines walked across England, burning towns and breaking bridges. The narrator hid in a house with a curate, and they watched a machine day and night. Ships were sunk, and people filled the roads with carts and children. Then the machines stopped, and the narrator found one fallen in a field. The Martians had no defense against the smallest living things on Earth. They died of a common cold, and the planet was saved by bacteria.",
    "vocab": [
     {
      "word": "cylinder",
@@ -20056,13 +20056,13 @@
      "exampleFa": "باکتری سیاره را نجات داد."
     },
     {
-     "word": "defence",
+     "word": "defense",
      "pos": "n.",
      "meaning": {
       "en": "something that keeps you safe",
       "fa": "دفاع"
      },
-     "example": "They had no defence against it.",
+     "example": "They had no defense against it.",
      "exampleFa": "هیچ دفاعی در برابرش نداشتند."
     }
    ],
@@ -20082,13 +20082,13 @@
       "en": "come out slowly and with effort",
       "fa": "بیرون آمدن"
      },
-     "example": "Something grey climbed out.",
+     "example": "Something gray climbed out.",
      "exampleFa": "چیزی خاکستری بیرون آمد."
     },
     {
      "phrase": "go forward",
      "meaning": {
-      "en": "move towards the enemy",
+      "en": "move toward the enemy",
       "fa": "جلو رفتن"
      },
      "example": "A flag party went forward.",
@@ -20107,13 +20107,13 @@
    "grammar": [
     {
      "name": {
-      "en": "had no defence against",
+      "en": "had no defense against",
       "fa": "هیچ دفاعی نداشتن در برابر"
      },
-     "example": "They had no defence against bacteria.",
+     "example": "They had no defense against bacteria.",
      "note": {
-      "en": "Have no defence against names the thing that wins.",
-      "fa": "have no defence against چیزی را نام می‌برد که پیروز می‌شود."
+      "en": "Have no defense against names the thing that wins.",
+      "fa": "have no defense against چیزی را نام می‌برد که پیروز می‌شود."
      }
     },
     {
@@ -20230,7 +20230,7 @@
     "truefalse": [
      {
       "q": {
-       "en": "The Martians have no defence against bacteria.",
+       "en": "The Martians have no defense against bacteria.",
        "fa": "مریخی‌ها در برابر باکتری دفاعی ندارند."
       },
       "answer": true,
@@ -20353,7 +20353,7 @@
        "fa": "جاناتان هارکر به ترانسیلوانیا فرستاده شد تا به کنتی ثروتمند برای خریدن خانه‌ای در انگلستان کمک کند."
       },
       {
-       "en": "He left his wife Mina and travelled east, and the people at the inn were afraid.",
+       "en": "He left his wife Mina and traveled east, and the people at the inn were afraid.",
        "fa": "همسرش مینا را ترک کرد و به شرق رفت و مردم مهمان‌خانه ترسیده بودند."
       },
       {
@@ -20423,7 +20423,7 @@
      ]
     }
    ],
-   "text": "Jonathan Harker was sent to Transylvania to help a rich Count buy a house in England. He left his wife Mina and travelled east, and the people at the inn were afraid. An old woman begged him not to go to the castle and gave him a cross. A tall driver with red eyes brought him to a dark castle in the mountains. The Count was polite, but he had no reflection in the mirror and no food at the table. Jonathan found that he was a prisoner, and the door was locked. Three women came to his room at night, and the Count sent them away. He climbed down the wall and escaped, and he wrote to Mina from a hospital. In England the Count arrived in a ship with a dead crew. He met Lucy, whose blood grew weaker every night. Doctor Van Helsing came and said a vampire was drinking her blood. Lucy died and came back, and they had to kill her again. They found the Count's boxes of earth and destroyed them one by one. Mina was bitten, and they used her eyes to follow him. They chased him back to his castle and cut him down at the door. The mark on Mina's face faded, and the danger ended.",
+   "text": "Jonathan Harker was sent to Transylvania to help a rich Count buy a house in England. He left his wife Mina and traveled east, and the people at the inn were afraid. An old woman begged him not to go to the castle and gave him a cross. A tall driver with red eyes brought him to a dark castle in the mountains. The Count was polite, but he had no reflection in the mirror and no food at the table. Jonathan found that he was a prisoner, and the door was locked. Three women came to his room at night, and the Count sent them away. He climbed down the wall and escaped, and he wrote to Mina from a hospital. In England the Count arrived in a ship with a dead crew. He met Lucy, whose blood grew weaker every night. Doctor Van Helsing came and said a vampire was drinking her blood. Lucy died and came back, and they had to kill her again. They found the Count's boxes of earth and destroyed them one by one. Mina was bitten, and they used her eyes to follow him. They chased him back to his castle and cut him down at the door. The mark on Mina's face faded, and the danger ended.",
    "vocab": [
     {
      "word": "castle",
@@ -20532,7 +20532,7 @@
      },
      "example": "Jonathan was sent to Transylvania.",
      "note": {
-      "en": "The passive puts the traveller first because the journey happened to him.",
+      "en": "The passive puts the traveler first because the journey happened to him.",
       "fa": "مجهول مسافر را اول می‌آورد چون سفر بر او رفته است."
      }
     },
@@ -20793,7 +20793,7 @@
        "fa": "کتاب‌های کهن دربارهٔ ساختن زندگی خواند و باور کرد که می‌تواند."
       },
       {
-       "en": "At university he built a body from dead parts and gave it life.",
+       "en": "In college he built a body from dead parts and gave it life.",
        "fa": "در دانشگاه از اندام‌های مرده بدنی ساخت و به آن زندگی داد."
       },
       {
@@ -20843,7 +20843,7 @@
      ]
     }
    ],
-   "text": "Walton sailed north to find a new sea road and wrote letters to his sister. Ice trapped the ship, and the men could only wait in the cold. On the ice they saw a giant man on a sledge, and later a sick man on another. The sick man was Victor Frankenstein, and he warned Walton against wanting to know everything. Victor grew up in Geneva with a kind family and a cousin, Elizabeth. He read old books about making life and believed he could do it. At university he built a body from dead parts and gave it life. The creature was huge and ugly, and Victor ran away from it in fear. The creature learned to speak, read and think, and it wanted a friend. It asked Victor to make a woman like itself, and Victor began the work. He destroyed the half-made body, and the creature swore revenge. It killed Victor's brother, then his wife on their wedding night. Victor chased the creature across the ice and told his story to Walton. He died on the ship, still asking Walton to kill the thing he had made. Walton turned the ship south, because his men were afraid. The creature came to the ship, cried over Victor's body and walked away into the dark.",
+   "text": "Walton sailed north to find a new sea road and wrote letters to his sister. Ice trapped the ship, and the men could only wait in the cold. On the ice they saw a giant man on a sledge, and later a sick man on another. The sick man was Victor Frankenstein, and he warned Walton against wanting to know everything. Victor grew up in Geneva with a kind family and a cousin, Elizabeth. He read old books about making life and believed he could do it. In college he built a body from dead parts and gave it life. The creature was huge and ugly, and Victor ran away from it in fear. The creature learned to speak, read and think, and it wanted a friend. It asked Victor to make a woman like itself, and Victor began the work. He destroyed the half-made body, and the creature swore revenge. It killed Victor's brother, then his wife on their wedding night. Victor chased the creature across the ice and told his story to Walton. He died on the ship, still asking Walton to kill the thing he had made. Walton turned the ship south, because his men were afraid. The creature came to the ship, cried over Victor's body and walked away into the dark.",
    "vocab": [
     {
      "word": "sledge",

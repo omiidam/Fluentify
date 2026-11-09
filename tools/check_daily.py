@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Daily English: is the catalogue sound, does every engine pick the same day?
+"""Daily English: is the catalog sound, does every engine pick the same day?
 
 The feature has three copies of one idea - which three items a local date gets:
 daily_index() in chatbot.py, dailyIndex() in bot.js, and dayIndex() in the page.
 Copying is what makes the offline APK work at all, and it is also how the three
 drift apart without anybody noticing, so this suite ties them together:
 
-  catalogue     every entry has the fields its renderer reads, ids are unique,
+  catalog     every entry has the fields its renderer reads, ids are unique,
                 English is English and Persian is Persian, no placeholders
   coverage      how long the rotation really runs before it reuses anything,
-                reported as the numbers are - the catalogue does NOT hold 365
+                reported as the numbers are - the catalog does NOT hold 365
                 distinct entries per category and this says so out loud
   rotation      each category steps through every entry before repeating, and
                 the three engines pick the same item for 365 dates
@@ -17,9 +17,9 @@ drift apart without anybody noticing, so this suite ties them together:
                 timezones, including both 2026 daylight-saving changes, run in
                 node with that zone as the process timezone
   store         completion survives a new day, a corrupt record does not throw,
-                and an id that is no longer in the catalogue cannot tick a card
+                and an id that is no longer in the catalog cannot tick a card
   wiring        the panel, its tile, the /api/daily route and the offline bundle
-                all exist, and the built page carries the catalogue
+                all exist, and the built page carries the catalog
 
     python3 tools/check_daily.py
 """
@@ -41,7 +41,7 @@ BOT = ROOT / "android/app/src/main/assets/www/bot.js"
 BUILT = ROOT / "android/app/src/main/assets/www/index.html"
 DATA = ROOT / "android/app/src/main/assets/www/data"
 CACHE = ROOT / "tools/.cache"
-CATALOGUE = ROOT / "daily.json"
+CATALOG = ROOT / "daily.json"
 
 KINDS = ("words", "expressions", "conversations")
 LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
@@ -102,7 +102,7 @@ def pair_list_ok(value, where: str, minimum: int, maximum: int = 99) -> bool:
 
 
 # --------------------------------------------------------------------------
-#  catalogue
+#  catalog
 # --------------------------------------------------------------------------
 def validate(cat: dict) -> None:
     for key in ("version",) + KINDS:
@@ -208,7 +208,7 @@ def coverage(cat: dict) -> dict:
     counts = {k: len(cat.get(k) or []) for k in KINDS}
     spans = {k: counts[k] for k in KINDS}
     triple = math.lcm(*[max(1, counts[k]) for k in KINDS])
-    # Honest floors: the catalogue may grow, but it must not quietly shrink.
+    # Honest floors: the catalog may grow, but it must not quietly shrink.
     # 24 conversations is what the rotation was verified with.
     for kind, floor in (("words", 60), ("expressions", 55),
                         ("conversations", 24)):
@@ -344,7 +344,7 @@ check(DailyStore.count(s, DAY1, IDS1) === 2, 'count should be 2, got ' +
 check(DailyStore.count(s, DAY2, IDS1) === 0, 'a new day should start unmarked');
 check(DailyStore.count(s, DAY1, IDS1) === 2, 'the new day erased the old record');
 
-// an id that is no longer in the catalogue cannot tick a card
+// an id that is no longer in the catalog cannot tick a card
 check(DailyStore.count(s, DAY1, ['gone', 'gone2']) === 0,
   'ids that are not on screen were counted');
 
@@ -692,9 +692,9 @@ def wiring(src: str, cat: dict) -> None:
               "collapses instead of letting the transcript scroll")
         check('auto' in rule.split('margin:')[1].split(';')[0]
               if 'margin:' in rule else False,
-              "the daily card is not centred in the transcript")
+              "the daily card is not centered in the transcript")
 
-    # the offline bundle has to carry the catalogue and hand it to the engine
+    # the offline bundle has to carry the catalog and hand it to the engine
     build = (ROOT / "build_apk_ui.py").read_text(encoding="utf-8")
     check('"daily.json"' in build, "build_apk_ui.py does not bundle daily.json")
     check("loadJSON('daily')" in build, "the offline boot does not read daily.json")
@@ -706,7 +706,7 @@ def wiring(src: str, cat: dict) -> None:
     if BUILT.exists():
         built = BUILT.read_text(encoding="utf-8")
         check("loadJSON('daily')" in built,
-              "the built page never loads the daily catalogue")
+              "the built page never loads the daily catalog")
         check("const Daily = (() =>" in built, "the built page has no Daily module")
         check("id=\"dcards\"" in built, "the built page has no card container")
         check("data/daily.json" not in built, "the built page hard-codes a data path")
@@ -722,7 +722,7 @@ def wiring(src: str, cat: dict) -> None:
 
 # --------------------------------------------------------------------------
 def main() -> int:
-    raw = CATALOGUE.read_text(encoding="utf-8")
+    raw = CATALOG.read_text(encoding="utf-8")
     cat = json.loads(raw)
     validate(cat)
 

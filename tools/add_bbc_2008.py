@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Add a local folder of BBC 6 Minute English episodes to the catalogue.
+"""Add a local folder of BBC 6 Minute English episodes to the catalog.
 
 Why this exists
 ---------------
@@ -9,13 +9,13 @@ from those feeds entirely, and the only copy on this machine is a folder of
 pairs: a 3 MB mp3 and the printed worksheet page as a PDF.
 
 This turns each pair into the same thing the mirror tool produces - audio and
-read-along text in the bucket, one episode in the catalogue - so the 2008
+read-along text in the bucket, one episode in the catalog - so the 2008
 episodes appear in the app beside the ones fetched from the feed, with the
 same play button, the same transcript reader and the same level tabs.
 
     python3 tools/add_bbc_2008.py --dir "/path/to/6 Minute English 2008 [www.languagecentre.ir]/6 Minute English 2008 [www.languagecentre.ir]"
     python3 tools/add_bbc_2008.py --dir ... --dry-run     # show the plan
-    python3 tools/add_bbc_2008.py --verify                # catalogue vs bucket
+    python3 tools/add_bbc_2008.py --verify                # catalog vs bucket
 
 On the audio: these mp3s are already mono 64 kb/s, which is exactly what
 mirror_bbc_audio.py encodes to, so the bytes are uploaded as they are. Running
@@ -23,7 +23,7 @@ them through ffmpeg would spend twenty minutes to re-encode 64 kb/s to 64 kb/s
 and lose a little to generation loss on the way.
 
 On the transcript: the 2008 pages print the introduction, the question and the
-"Vocabulary from the programme" list, not a verbatim script - the scripts only
+"Vocabulary from the program" list, not a verbatim script - the scripts only
 started with the relaunch. So the reader shows what the page actually has,
 which is still the useful half: every phrase with its explanation and example.
 The page is a browser printout, so it arrives wrapped in site navigation; the
@@ -45,7 +45,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CATALOGUE = ROOT / "bbc_6min.json"
+CATALOG = ROOT / "bbc_6min.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import mirror_bbc_audio as mirror  # noqa: E402  (connect, load_env, key rules)
@@ -71,7 +71,7 @@ BOILERPLATE = [
         r"^- .+$",
         r"^Listen$",
         r"^\[an error occurred while processing this directive\]$",
-        r"^Download this programme",
+        r"^Download this program",
         r"^Extras$",
         r"^\*?The BBC is not responsible for the content",
         r"^\^+ ?Back to top.*$",
@@ -185,7 +185,7 @@ def pairs(folder: Path) -> list[tuple[Path, Path, str, str]]:
 
 
 def build(folder: Path, cefr: dict, limit: int = 0) -> list[dict]:
-    """Catalogue entries for the folder, graded and with the text attached."""
+    """Catalog entries for the folder, graded and with the text attached."""
     entries = []
     for mp3, pdf, date, title in pairs(folder):
         text = read_pdf(pdf, title) if pdf else ""
@@ -258,7 +258,7 @@ def upload(s3, bucket: str, public: str, mp3: Path, ep: dict) -> bool:
 
 
 def merge(doc: dict, entries: list[dict]) -> tuple[int, int]:
-    """Fold the entries into the catalogue, keeping one entry per id.
+    """Fold the entries into the catalog, keeping one entry per id.
 
     New 2008 episodes go after the last episode of the same series rather than
     at the end of the file, so the section stays grouped by series instead of
@@ -314,14 +314,14 @@ def main() -> int:
                     help="read and grade the folder, change nothing, upload nothing")
     ap.add_argument("--limit", type=int, default=0, help="how many pairs to take")
     ap.add_argument("--no-upload", action="store_true",
-                    help="write the catalogue without touching the bucket")
+                    help="write the catalog without touching the bucket")
     ap.add_argument("--verify", action="store_true",
-                    help="check every mirrored URL in the catalogue")
+                    help="check every mirrored URL in the catalog")
     ap.add_argument("--delay", type=float, default=0.4,
                     help="seconds between uploads")
     args = ap.parse_args()
 
-    doc = json.loads(CATALOGUE.read_text(encoding="utf-8"))
+    doc = json.loads(CATALOG.read_text(encoding="utf-8"))
     if args.verify:
         return verify(doc)
 
@@ -358,9 +358,9 @@ def main() -> int:
                 time.sleep(args.delay)
 
     added, updated = merge(doc, entries)
-    CATALOGUE.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n",
+    CATALOG.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n",
                          encoding="utf-8")
-    print(f"catalogue: {added} added, {updated} updated, "
+    print(f"catalog: {added} added, {updated} updated, "
           f"{len(doc['episodes'])} episodes total")
     return 0
 

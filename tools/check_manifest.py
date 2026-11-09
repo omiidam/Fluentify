@@ -119,7 +119,7 @@ CONFIG_FLAGS = {
 }
 
 # android: attributes that exist but are almost never what someone means.
-# Each of these is a real attribute with a near-neighbour, which is exactly
+# Each of these is a real attribute with a near-neighbor, which is exactly
 # how windowSoftKeyboardMode happened.
 LOOKALIKES = {
     "windowSoftKeyboardMode": "windowSoftInputMode",

@@ -195,7 +195,7 @@ def sparkle(cx: float, cy: float, r: float, o: float = .9) -> str:
 
 
 def bow(cx: float, cy: float, s: float = 1.0, on_cream: bool = False) -> str:
-    """A bow. It changes colour with what is under it: cream on the red body,
+    """A bow. It changes color with what is under it: cream on the red body,
     shade on the cream chest, or it disappears into its own background."""
     fill, line = (SHADE, DARK) if on_cream else (CREAM, SHADE)
     wing = (f'fill="{fill}" stroke="{line}" stroke-width="1.2" '
@@ -208,7 +208,7 @@ def bow(cx: float, cy: float, s: float = 1.0, on_cream: bool = False) -> str:
 
 
 def fit(art: str, s: float = .9) -> str:
-    """Scale a finished drawing about the box's centre.
+    """Scale a finished drawing about the box's center.
 
     The poses are composed from parts, so a head lifted onto a body can push
     an ear past y=0 - which the SVG viewport then cuts flat. Every sticker goes
@@ -221,7 +221,7 @@ def fit(art: str, s: float = .9) -> str:
 
 # The seated poses all lift the same head onto the same bell of a body.
 #
-# Scaled about the face's own centre, not the box corner: scale(.84) alone
+# Scaled about the face's own center, not the box corner: scale(.84) alone
 # multiplies every x by .84 too, so the head slid 5px left of the body it was
 # standing on - visible as a fox leaning away from its own chest.
 SIT_HEAD = 'translate(32,19) scale(.84) translate(-32,-21)'
@@ -375,7 +375,7 @@ def build() -> list[dict]:
     add("nice-view", "nice view", "منظره قشنگ",
         "nice view behind back looking away منظره پشت روباه",
         # From behind: the back of the head, and the tail held up in front of
-        # it. The tail is a shade darker on purpose - same colour on same body
+        # it. The tail is a shade darker on purpose - same color on same body
         # was an egg with ears, not a fox.
         f'<path d="M12 40 C12 26 21 17 32 17 C43 17 52 26 52 40 C52 54 43 61 32 61 '
         f'C21 61 12 54 12 40 Z" fill="{RED}"/>'

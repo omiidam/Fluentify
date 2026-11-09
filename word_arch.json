@@ -8553,8 +8553,8 @@
     "clothing"
    ]
   },
-  "pyjamas": {
-   "en": "pyjamas",
+  "pajamas": {
+   "en": "pajamas",
    "fa": "لباس خواب",
    "pos": "noun",
    "forms": [
@@ -8963,17 +8963,17 @@
     "school"
    ]
   },
-  "timetable": {
-   "en": "timetable",
+  "schedule": {
+   "en": "schedule",
    "fa": "برنامه کلاسی",
    "pos": "noun",
    "forms": [
     {
-     "f": "timetable's",
+     "f": "schedule's",
      "n": "possessive"
     },
     {
-     "f": "timetables",
+     "f": "schedules",
      "n": "plural"
     }
    ],
@@ -9484,17 +9484,17 @@
     "city"
    ]
   },
-  "cinema": {
-   "en": "cinema",
+  "movie theater": {
+   "en": "movie theater",
    "fa": "سینما",
    "pos": "noun",
    "forms": [
     {
-     "f": "cinema's",
+     "f": "movie theater's",
      "n": "possessive"
     },
     {
-     "f": "cinemas",
+     "f": "movie theaters",
      "n": "plural"
     }
    ],
@@ -9830,8 +9830,8 @@
     "places"
    ]
   },
-  "neighbourhood": {
-   "en": "neighbourhood",
+  "neighborhood": {
+   "en": "neighborhood",
    "fa": "محله",
    "pos": "noun",
    "forms": [
@@ -17241,17 +17241,17 @@
     "shopping_clothes"
    ]
   },
-  "queue": {
-   "en": "queue",
+  "line": {
+   "en": "line",
    "fa": "صف",
    "pos": "noun",
    "forms": [
     {
-     "f": "queue's",
+     "f": "line's",
      "n": "possessive"
     },
     {
-     "f": "queues",
+     "f": "lines",
      "n": "plural"
     }
    ],
@@ -21597,8 +21597,8 @@
     "education_b1"
    ]
   },
-  "memorise": {
-   "en": "memorise",
+  "memorize": {
+   "en": "memorize",
    "fa": "از بر حفظ کردن",
    "pos": "noun",
    "forms": [
@@ -21670,8 +21670,8 @@
     "education_b1"
    ]
   },
-  "enrol": {
-   "en": "enrol",
+  "enroll": {
+   "en": "enroll",
    "fa": "ثبت‌نام کردن",
    "pos": "noun",
    "forms": [
@@ -22134,8 +22134,8 @@
     "education_b1"
    ]
   },
-  "thesis defence": {
-   "en": "thesis defence",
+  "thesis defense": {
+   "en": "thesis defense",
    "fa": "دفاع از پایان‌نامه",
    "pos": "noun",
    "forms": [
@@ -22144,7 +22144,7 @@
      "n": "possessive"
     },
     {
-     "f": "defences",
+     "f": "defenses",
      "n": "plural"
     }
    ],
@@ -22769,8 +22769,8 @@
     "quantities"
    ]
   },
-  "litre": {
-   "en": "litre",
+  "liter": {
+   "en": "liter",
    "fa": "لیتر",
    "pos": "noun",
    "forms": [
@@ -22779,7 +22779,7 @@
      "n": "possessive"
     },
     {
-     "f": "litres",
+     "f": "liters",
      "n": "plural"
     }
    ],
@@ -22807,8 +22807,8 @@
     "quantities"
    ]
   },
-  "metre": {
-   "en": "metre",
+  "meter": {
+   "en": "meter",
    "fa": "متر",
    "pos": "noun",
    "forms": [
@@ -22817,7 +22817,7 @@
      "n": "possessive"
     },
     {
-     "f": "metres",
+     "f": "meters",
      "n": "plural"
     }
    ],
@@ -22864,8 +22864,8 @@
     "quantities"
    ]
   },
-  "per cent": {
-   "en": "per cent",
+  "percent": {
+   "en": "percent",
    "fa": "درصد",
    "pos": "noun",
    "forms": [
@@ -23495,8 +23495,8 @@
     "workplace"
    ]
   },
-  "prioritise": {
-   "en": "prioritise",
+  "prioritize": {
+   "en": "prioritize",
    "fa": "اولویت‌بندی کردن",
    "pos": "noun",
    "forms": [
@@ -26012,8 +26012,8 @@
     "public_services"
    ]
   },
-  "offence": {
-   "en": "offence",
+  "offense": {
+   "en": "offense",
    "fa": "جرم",
    "pos": "noun",
    "forms": [
@@ -26022,7 +26022,7 @@
      "n": "possessive"
     },
     {
-     "f": "offences",
+     "f": "offenses",
      "n": "plural"
     }
    ],
@@ -26183,8 +26183,8 @@
     "law_rights"
    ]
   },
-  "licence": {
-   "en": "licence",
+  "license": {
+   "en": "license",
    "fa": "پروانه",
    "pos": "noun",
    "forms": [
@@ -26193,7 +26193,7 @@
      "n": "possessive"
     },
     {
-     "f": "licences",
+     "f": "licenses",
      "n": "plural"
     }
    ],
@@ -26551,8 +26551,8 @@
     "business_vocab"
    ]
   },
-  "instalment": {
-   "en": "instalment",
+  "installment": {
+   "en": "installment",
    "fa": "قسط",
    "pos": "noun",
    "forms": [
@@ -27016,8 +27016,8 @@
     "finance_b2"
    ]
   },
-  "analyse": {
-   "en": "analyse",
+  "analyze": {
+   "en": "analyze",
    "fa": "تحلیل کردن",
    "pos": "noun",
    "forms": [
@@ -27305,21 +27305,21 @@
     "academic_wordlist"
    ]
   },
-  "utilise": {
-   "en": "utilise",
+  "utilize": {
+   "en": "utilize",
    "fa": "استفاده کردن",
    "pos": "verb",
    "forms": [
     {
-     "f": "utilises",
+     "f": "utilizes",
      "n": "3rd person"
     },
     {
-     "f": "utilising",
+     "f": "utilizing",
      "n": "-ing"
     },
     {
-     "f": "utilised",
+     "f": "utilized",
      "n": "past"
     }
    ],
@@ -27371,17 +27371,17 @@
     "academic_wordlist"
    ]
   },
-  "emphasise": {
-   "en": "emphasise",
+  "emphasize": {
+   "en": "emphasize",
    "fa": "تاکید کردن",
    "pos": "verb",
    "forms": [
     {
-     "f": "emphasising",
+     "f": "emphasizing",
      "n": "-ing"
     },
     {
-     "f": "emphasised",
+     "f": "emphasized",
      "n": "past"
     }
    ],
@@ -29798,21 +29798,21 @@
     "business_vocab"
    ]
   },
-  "optimise": {
-   "en": "optimise",
+  "optimize": {
+   "en": "optimize",
    "fa": "بهینه‌سازی کردن",
    "pos": "verb",
    "forms": [
     {
-     "f": "optimises",
+     "f": "optimizes",
      "n": "3rd person"
     },
     {
-     "f": "optimising",
+     "f": "optimizing",
      "n": "-ing"
     },
     {
-     "f": "optimised",
+     "f": "optimized",
      "n": "past"
     }
    ],
@@ -31778,8 +31778,8 @@
     "advanced_adjectives"
    ]
   },
-  "sceptical": {
-   "en": "sceptical",
+  "skeptical": {
+   "en": "skeptical",
    "fa": "شکاک",
    "pos": "adj",
    "forms": [
@@ -31788,11 +31788,11 @@
      "n": "adverb"
     },
     {
-     "f": "more sceptical",
+     "f": "more skeptical",
      "n": "comparative (long)"
     },
     {
-     "f": "most sceptical",
+     "f": "most skeptical",
      "n": "superlative (long)"
     }
    ],
@@ -32753,17 +32753,17 @@
     "academic_vocab"
    ]
   },
-  "synthesise": {
-   "en": "synthesise",
+  "synthesize": {
+   "en": "synthesize",
    "fa": "ترکیب و یکپارچه کردن",
    "pos": "adj",
    "forms": [
     {
-     "f": "more synthesise",
+     "f": "more synthesize",
      "n": "comparative (long)"
     },
     {
-     "f": "most synthesise",
+     "f": "most synthesize",
      "n": "superlative (long)"
     }
    ],
@@ -32791,17 +32791,17 @@
     "academic_vocab"
    ]
   },
-  "anthropomorphise": {
-   "en": "anthropomorphise",
+  "anthropomorphize": {
+   "en": "anthropomorphize",
    "fa": "انسان‌انگاری کردن",
    "pos": "adj",
    "forms": [
     {
-     "f": "more anthropomorphise",
+     "f": "more anthropomorphize",
      "n": "comparative (long)"
     },
     {
-     "f": "most anthropomorphise",
+     "f": "most anthropomorphize",
      "n": "superlative (long)"
     }
    ],
@@ -34078,8 +34078,8 @@
     "relationships"
    ]
   },
-  "neighbour": {
-   "en": "neighbour",
+  "neighbor": {
+   "en": "neighbor",
    "fa": "همسایه",
    "pos": "noun",
    "forms": [
@@ -34088,7 +34088,7 @@
      "n": "possessive"
     },
     {
-     "f": "neighbours",
+     "f": "neighbors",
      "n": "plural"
     }
    ],
@@ -36069,8 +36069,8 @@
     "airport_flight"
    ]
   },
-  "cancelled": {
-   "en": "cancelled",
+  "canceled": {
+   "en": "canceled",
    "fa": "لغو شده",
    "pos": "noun",
    "forms": [
@@ -37283,8 +37283,8 @@
     "art_design"
    ]
   },
-  "colour": {
-   "en": "colour",
+  "color": {
+   "en": "color",
    "fa": "رنگ",
    "pos": "noun",
    "forms": [
@@ -37293,7 +37293,7 @@
      "n": "possessive"
     },
     {
-     "f": "colours",
+     "f": "colors",
      "n": "plural"
     }
    ],

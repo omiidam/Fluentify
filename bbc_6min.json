@@ -1,5 +1,5 @@
 {
- "_readme": "BBC Learning English — a curated catalogue built from 6 Minute English, The English We Speak and Real Easy English. This file stores links, not BBC media: the canonical BBC page and audio URLs stay with every episode. The 20 shipped episodes also have their audio mirrored to ArvanCloud so the app can stream reliably; no BBC media is committed to this repository or bundled into the APK. Rebuild with tools/fetch_bbc_6min.py, then mirror with tools/mirror_bbc_audio.py.",
+ "_readme": "BBC Learning English — a curated catalog built from 6 Minute English, The English We Speak and Real Easy English. This file stores links, not BBC media: the canonical BBC page and audio URLs stay with every episode. The 20 shipped episodes also have their audio mirrored to ArvanCloud so the app can stream reliably; no BBC media is committed to this repository or bundled into the APK. Rebuild with tools/fetch_bbc_6min.py, then mirror with tools/mirror_bbc_audio.py.",
  "_grading": "tools/listening_grade.py — CEFR-J word list (Maximax67/Words-CEFR-Dataset, MIT). A passage's band blends the 75th percentile of its content-word levels, the share of B2+ vocabulary, sentence length and clause density, and speaking rate. Audited against BBC's own level tag with --audit.",
  "levels": [
   "A2",

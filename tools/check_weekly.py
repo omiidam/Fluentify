@@ -14,7 +14,7 @@ subtly wrong:
                Thursday.
 
 Then the paper is the same paper every time it is opened in one week and a
-different one the next Friday, every question traces back to the catalogue, and
+different one the next Friday, every question traces back to the catalog, and
 a score cannot be earned without an answer. All of that is arithmetic over the
 daily store, so this suite runs the page's own block in node - twice, in two
 timezones - and compares.
@@ -326,7 +326,7 @@ def wiring() -> None:
     check('data-wq="start"' in src, "the card has no Start quiz button")
     check('data-wq="skip"' in src, "the card has no Skip button")
     check("isSkipped" in src and "status === 'skipped'" in src,
-          "a skipped week is not honoured on the next paint")
+          "a skipped week is not honored on the next paint")
     check("weeklyquiz" in src, "there is no card on the landing page")
     check("wqtoggle" not in src,
           "the quiz grew a toolbar tile - it belongs on the landing card")
@@ -340,7 +340,7 @@ def wiring() -> None:
 def main() -> int:
     cat = json.loads(DAILY.read_text(encoding="utf-8"))
     ids = {r["id"] for r in cat.get("words", [])} | {r["id"] for r in cat.get("expressions", [])}
-    check(len(ids) >= 20, "the daily catalogue is too small to draw distractors from")
+    check(len(ids) >= 20, "the daily catalog is too small to draw distractors from")
     first = run_block("Asia/Tehran")
     second = run_block("America/New_York")
     if first and second:

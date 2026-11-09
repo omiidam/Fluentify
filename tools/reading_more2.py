@@ -18,14 +18,14 @@ MORE = {
                 "on the gravel break down the waste, the reeds take up "
                 "nitrogen and phosphorus through their roots, and the gravel "
                 "filters what is left. No chemicals are added at any stage.",
-                "The beds cost £1.9 million to build and about £40,000 a year "
+                "The beds cost $1.9 million to build and about $40,000 a year "
                 "to run, roughly a third of the running cost of the mechanical "
                 "plant they replaced. They use no electricity except for one "
                 "pump, which runs for six hours a day.",
                 "The limit is land. A reed bed needs about ten times the area "
                 "of a mechanical plant for the same population, and it works "
                 "poorly in frost. Hilltown can serve 9,000 people this way; "
-                "the neighbouring town of Ashby, with 60,000, cannot.",
+                "the neighboring town of Ashby, with 60,000, cannot.",
             ],
             "summary": bi(
                 "Reed beds clean sewage with plants, gravel and time, run on a "
@@ -39,7 +39,7 @@ MORE = {
                      "hint": bi("A word, in the second paragraph.",
                                 "یک کلمه، در پاراگراف دوم."),
                      "para": 2},
-                    {"sentence": "The beds cost £___ million to build.",
+                    {"sentence": "The beds cost $___ million to build.",
                      "answer": "1.9", "also": ["1,9"],
                      "hint": bi("A decimal, with the building cost.",
                                 "یک عدد اعشاری، کنار هزینهٔ ساخت."),
@@ -128,7 +128,7 @@ MORE = {
                                  "so they only work where land is cheap and "
                                  "plentiful. Hilltown, with 9,000 people, has "
                                  "that space, and its running cost of about "
-                                 "£40,000 a year is a third of the old plant's. "
+                                 "$40,000 a year is a third of the old plant's. "
                                  "Ashby has 60,000 people and would need an "
                                  "enormous site, and frost would slow the beds "
                                  "in winter, so the town must keep a mechanical "
@@ -149,18 +149,18 @@ MORE = {
             "level": "B2",
             "genre": bi("Contract / terms", "قرارداد / شرایط"),
             "paragraphs": [
-                "The tenancy of Flat 4, 12 Mill Lane begins on 1 March and runs "
-                "for twelve months. Rent is £780 a month, payable on the first "
-                "working day of the month. The deposit is £900 and is held by "
+                "The tenancy of Flat 4, 12 Mill Lane begins on March 1 and runs "
+                "for twelve months. Rent is $780 a month, payable on the first "
+                "working day of the month. The deposit is $900 and is held by "
                 "a government protection scheme, not by the landlord.",
                 "The tenant may keep one cat but no dogs. Visitors may stay "
                 "for up to fourteen nights in any three-month period; any "
                 "longer stay must be reported to the landlord in writing. The "
-                "flat may not be sublet, and no more than two people may live "
+                "apartment may not be sublet, and no more than two people may live "
                 "in it.",
                 "Repairs. The landlord is responsible for the roof, the boiler "
                 "and the windows. The tenant must report a fault within 48 "
-                "hours and must be at home for the appointment, or pay £25 for "
+                "hours and must be at home for the appointment, or pay $25 for "
                 "a missed visit.",
                 "Ending the tenancy. After six months the tenant may leave by "
                 "giving two months' written notice. The landlord may end it "
@@ -175,7 +175,7 @@ MORE = {
                 "قرارداد را تمام کند."),
             "questions": {
                 "blanks": [
-                    {"sentence": "The rent is £___ a month.",
+                    {"sentence": "The rent is $___ a month.",
                      "answer": "780", "also": [],
                      "hint": bi("Three digits, in the first paragraph.",
                                 "سه رقم، در پاراگراف اول."),
@@ -217,16 +217,16 @@ MORE = {
                                "است."),
                      "para": 4},
                     {"q": "What does a missed repair appointment cost?",
-                     "options": ["Nothing", "£25", "£48", "£900"],
+                     "options": ["Nothing", "$25", "$48", "$900"],
                      "answer": 1,
-                     "why": bi("'Or pay £25 for a missed visit.'",
+                     "why": bi("'Or pay $25 for a missed visit.'",
                                "«یا ۲۵ پوند برای ویزیت ازدست‌رفته بپردازد.»"),
                      "para": 3},
                 ],
                 "truefalse": [
                     {"statement": "The tenant may sublet the flat.",
                      "answer": False,
-                     "why": bi("'The flat may not be sublet.'",
+                     "why": bi("'The apartment may not be sublet.'",
                                "«اجارهٔ دوبارهٔ آپارتمان مجاز نیست.»"),
                      "para": 2},
                     {"statement": "One late payment lets the landlord end the "
@@ -245,7 +245,7 @@ MORE = {
                 "essay": [
                     {"prompt": bi("A friend is about to sign this agreement and "
                                   "wants to keep a dog, work abroad for two "
-                                  "months and rent the flat to a cousin. Using "
+                                  "months and rent the apartment to a cousin. Using "
                                   "the text, tell them what is and is not "
                                   "allowed.",
                                   "دوستی می‌خواهد این قرارداد را امضا کند و سگی نگه "
@@ -269,7 +269,7 @@ MORE = {
                                  "first working day and someone must be at home "
                                  "for repairs within 48 hours of a report. "
                                  "Renting the flat to a cousin is not allowed "
-                                 "at all, because the flat may not be sublet, "
+                                 "at all, because the apartment may not be sublet, "
                                  "and telling the landlord in writing would not "
                                  "change that.",
                                  "سگ مجاز نیست: یک گربه اجازه دارد و سگ نه. دو ماه "
@@ -304,7 +304,7 @@ MORE = {
                 "weather: in July it rises in four hours, in January it may "
                 "need eight. Ama feeds it twice a day and has never washed the "
                 "jar.",
-                "This is why the loaves cost £5.50. Three people work through "
+                "This is why the loaves cost $5.50. Three people work through "
                 "the night, and the oven is on for nine hours. 'You cannot "
                 "hurry it,' Ama says. 'You can only wait, and then sell it "
                 "before it goes stale.'",
@@ -326,7 +326,7 @@ MORE = {
                      "hint": bi("Before it is shaped.",
                                 "پیش از شکل گرفتن."),
                      "para": 2},
-                    {"sentence": "A loaf costs £___.",
+                    {"sentence": "A loaf costs $___.",
                      "answer": "5.50", "also": ["5,50"],
                      "hint": bi("A price, in the last paragraph.",
                                 "یک قیمت، در پاراگراف آخر."),
@@ -358,14 +358,14 @@ MORE = {
                                "«با هوا تغییر می‌کنند: در ژوئیه در چهار ساعت "
                                "ورمی‌آید، در ژانویه ممکن است هشت ساعت بخواهد.»"),
                      "para": 3},
-                    {"q": "Why does a loaf cost £5.50?",
+                    {"q": "Why does a loaf cost $5.50?",
                      "options": ["The flour is imported",
                                  "The oven is expensive to buy",
                                  "Three people work all night and the oven runs "
                                  "for nine hours",
                                  "The shop is in a rich area"],
                      "answer": 2,
-                     "why": bi("The price is explained by the labour and the "
+                     "why": bi("The price is explained by the labor and the "
                                "oven time, not by ingredients.",
                                "قیمت با کار و زمان پخت توضیح داده می‌شود، نه با "
                                "مواد اولیه."),
@@ -444,7 +444,7 @@ MORE = {
                 "shallow, the boats are unsinkable, and the instructor stands "
                 "beside you in a second boat. Bring a change of clothes; you "
                 "will need them.",
-                "Courses run on Saturdays from April to October, cost £120 for "
+                "Courses run on Saturdays from April to October, cost $120 for "
                 "six sessions, and are limited to eight people. Nobody has ever "
                 "been asked to leave for falling in.",
             ],
@@ -466,7 +466,7 @@ MORE = {
                      "hint": bi("The -ing word before the dash.",
                                 "واژهٔ ing پیش از خط تیره."),
                      "para": 2},
-                    {"sentence": "Six sessions cost £___.",
+                    {"sentence": "Six sessions cost $___.",
                      "answer": "120", "also": [],
                      "hint": bi("In the last paragraph.",
                                 "در پاراگراف آخر."),

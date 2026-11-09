@@ -43,7 +43,7 @@ COURSE_SHAPE = {"PRE": (6, 24, 69), "A1": (8, 32, 105), "A2": (8, 32, 117),
                 "C2": (8, 32, 116)}
 # The length a writing task may ask for. Pre-A1 and A1 to B1 write a short
 # paragraph; B2 and C1 write a report or an essay, and C2 reviews and
-# synthesises, so marking a hundred and sixty words against a sixty-word
+# synthesizes, so marking a hundred and sixty words against a sixty-word
 # ceiling would fail every correct answer.
 WRITE_CAP = {"PRE": 40, "A1": 60, "A2": 60, "B1": 60, "B2": 160, "C1": 160,
              "C2": 200}
@@ -93,7 +93,7 @@ def check_shape(doc: dict) -> dict:
     check(bool(levels) and levels[0].get("id") == "PRE",
           "Pre-A1 is not the first level of the path")
     check(bool(levels) and levels[0].get("label") == "Pre-A1",
-          f"the first level is labelled {levels[0].get('label') if levels else None!r}")
+          f"the first level is labeled {levels[0].get('label') if levels else None!r}")
     check(bool(levels) and levels[0].get("course") == "PRE",
           "Pre-A1 does not point at its own course")
 
@@ -551,7 +551,7 @@ const BASE = ['My name is Sara and I am from Iran.',
   'I get up at seven and I have breakfast.',
   'I go to school by bus and I come home at four.',
   'In the evening I read a book and I go to bed at eleven.',
-  'Last summer I travelled to the north with two friends.'];
+  'Last summer I traveled to the north with two friends.'];
 const CLAUSE = {
   like: 'I like my room very much.',
   every: 'I study English every day.',

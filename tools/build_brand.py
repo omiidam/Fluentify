@@ -58,7 +58,7 @@ MARK_PAD = 0.04
 
 # The head: beret, spectacles, muzzle, and the neckerchief under it. In
 # fractions of the source, so it survives a re-export at another resolution.
-# Centred on the face rather than on the figure - at 26 px in a message row a
+# Centered on the face rather than on the figure - at 26 px in a message row a
 # full-length portrait reads as an orange smudge, a face reads as a fox.
 FACE_BOX = (0.235, 0.010, 0.645, 0.402)
 FACE_PAD = 0.020

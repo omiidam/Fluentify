@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetches the CEFR-J English word list used to verify word forms.
 
-Source: Maximax67/Words-CEFR-Dataset (MIT licence) — 170k+ English words, each
+Source: Maximax67/Words-CEFR-Dataset (MIT license) — 170k+ English words, each
 tagged with the CEFR band it first appears in. We only use it as a
 "is this a real word?" oracle, never as content.
 

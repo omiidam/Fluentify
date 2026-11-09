@@ -163,7 +163,7 @@ U7 = unit(
             [
                 mcq("Which idiom would be risky in a formal report?",
                     "کدام اصطلاح در گزارش رسمی پرخطر است؟",
-                    ["on the back foot", "a revised timetable",
+                    ["on the back foot", "a revised schedule",
                      "an interim finding", "a provisional figure"], 0,
                     "It describes a defensive position informally and "
                     "judgementally.", "موضع دفاعی را غیررسمی و داوری‌گرانه "
@@ -195,7 +195,7 @@ U7 = unit(
                 ("In a cultural essay the thesis often arrives late and "
                  "sideways, inside an anecdote. The first paragraph sets a "
                  "scene, not a claim, and the claim appears where the writer "
-                 "stops describing and starts generalising — usually with "
+                 "stops describing and starts generalizing — usually with "
                  "'what this suggests is'.",
                  "در مقالهٔ فرهنگی تز اغلب دیر و کج می‌آید، درون حکایتی. بند "
                  "اول صحنه می‌سازد نه ادعا، و ادعا جایی پیدا می‌شود که نویسنده "
@@ -210,7 +210,7 @@ U7 = unit(
                  "بود و اگر فرو بریزد شاهد."),
             ],
             [
-                ("Find the sentence that generalises; that is usually the "
+                ("Find the sentence that generalizes; that is usually the "
                  "thesis.", "جمله‌ای را بیاب که تعمیم می‌دهد؛ آن معمولاً تز "
                  "است."),
                 ("An essay can argue against its own title — check whether the "
@@ -236,7 +236,7 @@ U7 = unit(
                     "آن را بردار و تز چیزی برای ایستادن ندارد."),
             ],
             [
-                mcq("Which sentence is the generalising move?",
+                mcq("Which sentence is the generalizing move?",
                     "کدام جمله حرکت تعمیم‌دهنده است؟",
                     ["The menu was printed in three languages.",
                      "What this suggests is that understanding is a "
@@ -626,7 +626,7 @@ U8 = unit(
                 mcq("'What would change my mind' makes a review ___.",
                     "«چه چیزی نظرم را عوض می‌کند» نقد را ___ می‌کند.",
                     ["longer", "falsifiable", "polite", "informal"], 1,
-                    "It states the conditions under which the judgement "
+                    "It states the conditions under which the judgment "
                     "fails.", "شرایط شکست داوری را می‌گوید."),
             ],
             [
@@ -653,7 +653,7 @@ U8 = unit(
                      "The writing is dull."], 1,
                     "It names the evidential gap.",
                     "شکاف شاهدی را نام می‌برد."),
-                gap("A review should say what would ___ its own judgement.",
+                gap("A review should say what would ___ its own judgment.",
                     ["change", "falsify"], "Falsifiability is the mark of a "
                     "serious review.", "ابطال‌پذیری نشانهٔ نقد جدی است.",
                     "one word"),
@@ -663,7 +663,7 @@ U8 = unit(
             "c2-u8-l4", "speaking",
             ("Holding three positions at once",
              "نگه‌داشتن سه موضع هم‌زمان"),
-            ("Synthesise several perspectives aloud without flattening them "
+            ("Synthesize several perspectives aloud without flattening them "
              "into agreement.",
              "چند دیدگاه را با صدای بلند ترکیب کن بی‌آنکه به توافق تختشان "
              "کنی."),

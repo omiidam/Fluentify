@@ -92,7 +92,7 @@ def fold(text: str) -> str:
 # engines can translate for the learner, so the phrase is reduced to one of
 # these and the original is kept beside it in "tone".
 # "informal" has to be tested before "formal": it contains it, and the first
-# version of this list labelled every informal term as formal.
+# version of this list labeled every informal term as formal.
 REG_KEYS = ("archaic", "informal", "slang", "neutral", "idiom", "formal")
 
 

@@ -54,7 +54,7 @@ EXTRA = {
                     "first one made.",
                     "آنچه بند آخر می‌کند پس گرفتن وعده‌ای است که بند اول داد."),
                 say("It is the silence, not the sentence, that carries the "
-                    "judgement.", "این سکوت است، نه جمله، که داوری را حمل "
+                    "judgment.", "این سکوت است، نه جمله، که داوری را حمل "
                     "می‌کند."),
                 say("The text does not tell us why she leaves, and I would not "
                     "want it to; a reason would make it a different book.",
@@ -111,7 +111,7 @@ EXTRA = {
                     "been published» یعنی ___.",
                     ["it was published", "it was not, and that was wrong",
                      "it may be published", "it will be published"], 1,
-                    "Should have + participle criticises a past omission.",
+                    "Should have + participle criticizes a past omission.",
                     "should have + اسم مفعول یک کوتاهی گذشته را نقد می‌کند."),
                 mcq("Which sentence retreats from its own conclusion?",
                     "کدام جمله از نتیجهٔ خودش عقب می‌نشیند؟",
@@ -176,7 +176,7 @@ EXTRA = {
                  "در جلسهٔ توجیهی، انتساب خودِ اطلاعات است. یک جمله بسته به "
                  "اینکه پس از «the review found» بیاید یا «the department "
                  "believes» معنایی دیگر دارد."),
-                ("Nominalisations are the warning signs: an 'assessment of "
+                ("Nominalizations are the warning signs: an 'assessment of "
                  "options' usually means nobody has chosen. Listen for the "
                  "abstract noun and ask what concrete decision it replaces.",
                  "اسم‌سازی‌ها نشانهٔ هشدارند: «an assessment of options» معمولاً "
@@ -289,12 +289,12 @@ EXTRA = {
             "c1-u5-l4", "writing",
             ("The literature note",
              "یادداشت مروری"),
-            ("Summarise three sources in one paragraph that keeps their "
+            ("Summarize three sources in one paragraph that keeps their "
              "disagreement visible.",
              "سه منبع را در یک بند خلاصه کن که اختلافشان دیده شود."),
             [
                 ("A literature note is not three summaries in a row. It is one "
-                 "paragraph organised by the question, with each source "
+                 "paragraph organized by the question, with each source "
                  "attached to what it contributes and where it parts from the "
                  "others: two studies find a local effect; a third, using a "
                  "larger sample, finds none.",
@@ -316,7 +316,7 @@ EXTRA = {
                  "مطالعهٔ بزرگ‌تر ردِ نظریه خوانده شده است."),
             ],
             [
-                mcq("A literature note is organised by ___.", "یادداشت مروری "
+                mcq("A literature note is organized by ___.", "یادداشت مروری "
                     "با ___ سازمان می‌یابد.",
                     ["author", "date", "question", "length"], 2,
                     "The question holds the sources together.",
@@ -329,7 +329,7 @@ EXTRA = {
                     "چه کسی کرد از چه یافت شد کم‌اهمیت‌تر است."),
             ],
             [
-                write("Write a note of about 150 words summarising three "
+                write("Write a note of about 150 words summarizing three "
                       "studies of one question: two that agree and one that "
                       "does not. Keep the disagreement visible and use at "
                       "least two reporting passives.",
@@ -466,7 +466,7 @@ EXTRA = {
                 ("Participle clauses make the revision graceful: having "
                  "argued for a year, I now think six months would have shown "
                  "the same. The clause carries the old position so the new one "
-                 "does not have to apologise.",
+                 "does not have to apologize.",
                  "بندهای وجه وصفی بازنگری را نرم می‌کنند: having argued for a "
                  "year, I now think six months would have shown the same. بند، "
                  "موضع قدیم را حمل می‌کند تا موضع تازه مجبور به عذرخواهی نباشد."),
@@ -496,7 +496,7 @@ EXTRA = {
                        "and enough.",
                        "What has the speaker changed?", "گوینده چه را عوض "
                        "کرده است؟",
-                       ["the size of the pilot", "the judgement of the pilot",
+                       ["the size of the pilot", "the judgment of the pilot",
                         "the sites", "the year"], 1,
                        "Small and enough replaces too small.",
                        "«small and enough» جای «too small» را می‌گیرد."),
@@ -535,7 +535,7 @@ EXTRA = {
                  "بیانیهٔ پایانی در نود ثانیه سه کار می‌کند: چه توافق شد، چه نشد و "
                  "بعد چه می‌شود. جابه‌جایی اینجا جای خودش را می‌گیرد: rarely has "
                  "a decision been so well prepared and so little understood."),
-                ("Do not summarise the discussion; summarise the state. A "
+                ("Do not summarize the discussion; summarize the state. A "
                  "listener who missed the meeting needs to know what is now "
                  "true, not who said what.",
                  "بحث را خلاصه نکن؛ وضع را خلاصه کن. شنونده‌ای که جلسه را ندیده "
@@ -549,13 +549,13 @@ EXTRA = {
                  "فهمیده شده است."),
             ],
             [
-                mcq("A closing statement summarises ___.", "بیانیهٔ پایانی ___ "
+                mcq("A closing statement summarizes ___.", "بیانیهٔ پایانی ___ "
                     "را خلاصه می‌کند.",
                     ["who spoke", "the state of the question", "the agenda",
                      "the minutes"], 1,
                     "The state, not the conversation.",
                     "وضع، نه گفت‌وگو."),
-                mcq("The inversion in the example emphasises ___.",
+                mcq("The inversion in the example emphasizes ___.",
                     "جابه‌جایی در مثال ___ را تأکید می‌کند.",
                     ["the preparation", "the contrast between preparation and "
                      "understanding", "the decision", "the speaker"], 1,

@@ -15,7 +15,7 @@ add_lessons(UNITS, EXTRA)
 COURSE = course(
     ("C1 · Advanced", "C1 · پیشرفته"),
     (
-        "Eight units for a learner who argues fluently and now has to argue precisely: clefting and information structure, modal perfects and hedging, nominalisation, ellipsis, reporting passives, the formal subjunctive, advanced relatives and emphatic inversion. Thirty-two lessons across all six skills, a final examination of 33 marks, and B2 is assumed.",
+        "Eight units for a learner who argues fluently and now has to argue precisely: clefting and information structure, modal perfects and hedging, nominalization, ellipsis, reporting passives, the formal subjunctive, advanced relatives and emphatic inversion. Thirty-two lessons across all six skills, a final examination of 33 marks, and B2 is assumed.",
         "هشت درس‌نامه برای زبانی که روان استدلال می‌کند و حالا باید دقیق استدلال کند: cleft و ساختار اطلاعات، وجهی کامل و احتیاط، اسم‌سازی، حذف، مجهول نقل، وجه شرطی رسمی، موصولی پیشرفته و جابه‌جایی تأکیدی. سی‌ودو درس در هر شش مهارت، آزمون پایانی ۳۳ نمره‌ای، با فرض دانستن B2.",
     ),
     UNITS,

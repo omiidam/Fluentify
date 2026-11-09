@@ -2,7 +2,7 @@
 """Builds word "architecture" — the form family of every vocabulary word.
 
 Each entry gets its base, inflections and (where the dictionary confirms them)
-derivations, so a learner can see how the word behaves instead of memorising a
+derivations, so a learner can see how the word behaves instead of memorizing a
 flat list:
 
     decide →  decides · decided · deciding · decision · decisive
@@ -118,14 +118,14 @@ NOUN_DOMAINS = {
 # Function words have no form family: "above" takes no -s and no 's.
 FUNCTION_WORDS = {
     "above": "adv", "across": "prep", "after": "prep", "against": "prep",
-    "along": "adv", "among": "prep", "amongst": "prep", "around": "adv",
+    "along": "adv", "among": "prep", "among": "prep", "around": "adv",
     "before": "prep", "behind": "prep", "below": "prep", "beneath": "prep",
     "beside": "prep", "besides": "adv", "between": "prep", "beyond": "prep",
     "despite": "prep", "down": "adv", "during": "prep", "except": "prep",
     "inside": "prep", "into": "prep", "like": "prep", "near": "prep",
     "off": "adv", "onto": "prep", "outside": "prep", "over": "adv",
     "past": "prep", "regarding": "prep", "since": "prep", "through": "prep",
-    "throughout": "prep", "till": "prep", "toward": "prep", "towards": "prep",
+    "throughout": "prep", "till": "prep", "toward": "prep", "toward": "prep",
     "under": "prep", "underneath": "prep", "until": "prep", "up": "adv",
     "upon": "prep", "within": "prep", "without": "prep",
     "already": "adv", "almost": "adv", "also": "adv", "always": "adv",
@@ -139,7 +139,7 @@ FUNCTION_WORDS = {
     "were": "verb", "been": "verb", "being": "verb",
     "have": "verb", "has": "verb", "had": "verb",
     "do": "verb", "does": "verb", "did": "verb",
-    "will": "verb", "would": "verb", "shall": "verb", "should": "verb",
+    "will": "verb", "would": "verb", "should": "verb", "should": "verb",
     "can": "verb", "could": "verb", "may": "verb", "might": "verb",
     "must": "verb",
 }

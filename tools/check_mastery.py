@@ -6,7 +6,7 @@ measured, and "mastered" meant "the learner tapped the right button once".
 This suite runs the page's own scheduler in node and asks the questions that a
 scheduler gets wrong silently:
 
-  seed        a ticked daily item enters the queue; a conversation does not; an
+  seed        a ticked daily item enters the line; a conversation does not; an
               unknown id is not invented; an existing record keeps its dates
   schedule    every verdict moves the date the way it says: again keeps it due,
               hard grows slowly, good grows by the ease, easy faster; the
@@ -14,7 +14,7 @@ scheduler gets wrong silently:
   lapses      "again" is counted as a lapse, the others are not
   retention   only reviews after a real gap count, and only good/easy count as
               recalled - a count of sessions would be a count of nothing
-  queue       due() is sorted, excludes the future, includes an undated item
+  line       due() is sorted, excludes the future, includes an undated item
   bounded     six hundred items, twelve thousand would make the record
               unwritable; a corrupt record reads as empty
 
@@ -82,11 +82,11 @@ const cat = JSON.parse(fs.readFileSync(root + '/daily.json', 'utf8'));
   st = Mastery.seedDaily(st, cat, days, '2026-11-07');
   const keys = Object.keys(st.items);
   out.seeded = keys.sort();
-  check(keys.indexOf('word:w001') !== -1, 'a ticked word did not enter the queue');
-  check(keys.indexOf('expression:e001') !== -1, 'a ticked expression did not enter the queue');
+  check(keys.indexOf('word:w001') !== -1, 'a ticked word did not enter the line');
+  check(keys.indexOf('expression:e001') !== -1, 'a ticked expression did not enter the line');
   check(keys.indexOf('word:c001') === -1, 'a conversation was counted as quiz content');
   check(keys.every((k) => k.indexOf('nonsense') === -1), 'an unknown id was invented');
-  check(keys.length === 3, 'an unknown id was invented into the queue: ' + keys.join(','));
+  check(keys.length === 3, 'an unknown id was invented into the line: ' + keys.join(','));
   const row = cat.words.find((r) => r.id === 'w001');
   check(st.items['word:w001'].en === row.en, 'the item did not carry its own English');
   check(st.items['word:w001'].fa === row.fa, 'the item did not carry its Persian');
@@ -168,7 +168,7 @@ const cat = JSON.parse(fs.readFileSync(root + '/daily.json', 'utf8'));
   out.retention = r;
 }
 
-/* ---- the queue ----------------------------------------------------------- */
+/* ---- the line ----------------------------------------------------------- */
 {
   let st = {items: {}};
   st = Mastery.seed(st, [
@@ -180,12 +180,12 @@ const cat = JSON.parse(fs.readFileSync(root + '/daily.json', 'utf8'));
   const due = Mastery.due(st, '2026-03-01').map((i) => i.k);
   check(due.length === 1 && due[0] === 'a', 'due() returned the wrong set: ' + due.join(','));
   const due2 = Mastery.due(st, '2026-03-02').map((i) => i.k);
-  check(due2.length === 2, 'tomorrow\'s queue did not include both items');
+  check(due2.length === 2, 'tomorrow\'s line did not include both items');
   check(Mastery.next(st) === '2026-03-01', 'next() answered with the wrong date');
   check(Mastery.stats(st, '2026-03-01').due === 1, 'stats counted the wrong number due');
   st.items.a.due = '';
   check(Mastery.due(st, '2026-03-01').some((i) => i.k === 'a'),
-    'an item with no date is not in the queue, so it can never come back');
+    'an item with no date is not in the line, so it can never come back');
 }
 
 /* ---- bounded, and safe when corrupt -------------------------------------- */
@@ -251,14 +251,14 @@ def run_block() -> dict:
 def wiring() -> None:
     src = WEBAPP.read_text(encoding="utf-8")
     check("const Mastery = {" in src, "the mastery ledger is not in the page")
-    check("Mastery.seedDaily(" in src, "nothing seeds the queue from the daily ticks")
+    check("Mastery.seedDaily(" in src, "nothing seeds the line from the daily ticks")
     check("Mastery.seed(Mastery.read(), seeds" in src,
-          "a word saved to Review never enters the queue")
+          "a word saved to Review never enters the line")
     check("Mastery.grade(Mastery.read(), key, verdict" in src,
-          "the review queue has no way to grade an item")
+          "the review line has no way to grade an item")
     check("Mastery.due(mastery, today)" in src, "the panel never asks what is due")
     check("'⏰ Due'" in src or "⏰ Due" in src, "the Review panel has no due tab")
-    check("paintDue(" in src, "the due queue is not painted")
+    check("paintDue(" in src, "the due line is not painted")
     check("Mastery.grade(state, key, right ? 2 : 0" in src,
           "the weekly quiz does not feed the schedule")
     check("fluentify.mastery.v1" in src, "the ledger has no storage key")
@@ -274,7 +274,7 @@ def main() -> int:
         return 1
     print("PASS  mastery: items enter from the daily ticks and from Review, every "
           "verdict moves the date it says it does, recall is counted only after a "
-          "real gap, the queue is sorted and bounded, and the Review panel opens on it")
+          "real gap, the line is sorted and bounded, and the Review panel opens on it")
     return 0
 
 

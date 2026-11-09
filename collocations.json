@@ -405,19 +405,19 @@
       }
     },
     {
-      "id": "do-favour",
+      "id": "do-favor",
       "tag": "verb+noun",
       "level": "B1",
-      "blank": "___ me a favour",
+      "blank": "___ me a favor",
       "answer": "do",
       "wrong": [
         "make",
         "take"
       ],
-      "phrase": "do me a favour",
+      "phrase": "do me a favor",
       "fa": "یک لطف به من بکن",
       "example": {
-        "en": "Could you do me a favour?",
+        "en": "Could you do me a favor?",
         "fa": "می‌شود یک لطف به من بکنی؟"
       }
     },
@@ -859,7 +859,7 @@
       "phrase": "narrow escape",
       "fa": "فرار به‌موقع / جان سالم به در بردن",
       "example": {
-        "en": "It was a narrow escape on the motorway.",
+        "en": "It was a narrow escape on the highway.",
         "fa": "در بزرگراه جان سالم به در بردیم."
       }
     },
@@ -1017,19 +1017,19 @@
       }
     },
     {
-      "id": "apologise-for",
+      "id": "apologize-for",
       "tag": "verb+prep",
       "level": "B1",
-      "blank": "apologise ___",
+      "blank": "apologize ___",
       "answer": "for",
       "wrong": [
         "to",
         "of"
       ],
-      "phrase": "apologise for",
+      "phrase": "apologize for",
       "fa": "عذرخواهی کردن برای",
       "example": {
-        "en": "He apologised for being late.",
+        "en": "He apologized for being late.",
         "fa": "او برای دیر رسیدن عذرخواهی کرد."
       }
     },
@@ -1148,7 +1148,7 @@
       "phrase": "interested in",
       "fa": "علاقه‌مند به",
       "example": {
-        "en": "I am interested in old films.",
+        "en": "I am interested in old movies.",
         "fa": "من به فیلم‌های قدیمی علاقه دارم."
       }
     },

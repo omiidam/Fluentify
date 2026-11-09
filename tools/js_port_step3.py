@@ -2,7 +2,7 @@
 """Step 3 of the bot.js port: conversation memory, follow-up commands, sections.
 
 Round 3 of the harness drove multi-turn flows; the JS engine needs the same
-behaviour or the APK bot answers "exercises" with a dictionary miss.
+behavior or the APK bot answers "exercises" with a dictionary miss.
 """
 
 from pathlib import Path

@@ -127,17 +127,17 @@ FABRICATED = ["nsubj", "dobj", "iobj", "ROOT", "amod", "advmod", "det", "aux",
 # actually given, so the request words come off and the learner's own words,
 # articles and punctuation stay on.
 EXTRACTED = [
-    ("analyse this sentence: They have finished their homework.",
+    ("analyze this sentence: They have finished their homework.",
      "They have finished their homework."),
     ("analyze this: She has been learning English.",
      "She has been learning English."),
-    ("analyse this: The book was written by George.",
+    ("analyze this: The book was written by George.",
      "The book was written by George."),
     ("the structure of this sentence: The book was written by George.",
      "The book was written by George."),
     ("break this sentence down: I enjoy reading books.",
      "I enjoy reading books."),
-    ("Can you analyse The cat sat on the mat.",
+    ("Can you analyze The cat sat on the mat.",
      "The cat sat on the mat."),
     ("نقش دستوری کلمات این جمله چیه؟ The book was written by George.",
      "The book was written by George."),
@@ -153,7 +153,7 @@ EXTRACTED = [
     ("what does negotiate mean?", ""),
     ("open grammar section", ""),
     ("grammar", ""),
-    ("analyse this", ""),
+    ("analyze this", ""),
     # the same request in the words people use, and the shapes that are not a
     # request at all
     ("check my grammar: I have went to school.", "I have went to school."),
@@ -186,8 +186,8 @@ const cases = JSON.parse(process.argv[2]);
 let bad = [];
 let fired = 0;
 for (const [text, want] of cases) {
-  const requested = ANALYSE_INTENT.test(text);
-  if (want && !requested) { bad.push('not recognised as a request: ' + JSON.stringify(text)); continue; }
+  const requested = ANALYZE_INTENT.test(text);
+  if (want && !requested) { bad.push('not recognized as a request: ' + JSON.stringify(text)); continue; }
   if (!requested) continue;
   fired++;
   const got = extractSentence(text);
@@ -204,7 +204,7 @@ def extraction_checks(problems: list[str]) -> None:
     """Run the page's own intent + extractor, sliced out of webapp.py."""
     src = (ROOT / "webapp.py").read_text(encoding="utf-8")
     try:
-        start = src.index("const ANALYSE_INTENT = new RegExp(")
+        start = src.index("const ANALYZE_INTENT = new RegExp(")
         end = src.index("/* The analysis, rendered once and used twice")
     except ValueError:
         problems.append("the page no longer holds the analyser's request matcher")
@@ -452,8 +452,8 @@ def static_checks() -> list[str]:
         problems.append("the page never loads nlp/fluentify-nlp.js")
     if "analyzeEnglishGrammar" not in page and "NLP.analyze" not in page:
         problems.append("the page never calls the analyser")
-    if "ANALYSE_INTENT" not in page and "matchAnalyseCommand" not in page:
-        problems.append("no intent decides when a sentence should be analysed")
+    if "ANALYZE_INTENT" not in page and "matchAnalyseCommand" not in page:
+        problems.append("no intent decides when a sentence should be analyzed")
     # A word table answers "what is each word"; the request is "what is this
     # sentence", so the readout has to be there and has to use the tagger's own
     # tense claim rather than inventing one.
@@ -484,14 +484,14 @@ def static_checks() -> list[str]:
             if name not in text:
                 problems.append(f"the notices do not cover {name}")
         if "MIT" not in text:
-            problems.append("the notices do not state the licence")
+            problems.append("the notices do not state the license")
         if "Permission is hereby granted" not in text:
-            problems.append("the notices do not carry the licence text itself")
+            problems.append("the notices do not carry the license text itself")
         if "model" not in text:
             problems.append("the notices do not say which model is bundled")
 
     # The notice must travel inside the shipped file, not only beside it: the
-    # APK distributes the .js, and npm is never run in CI, so a licence that
+    # APK distributes the .js, and npm is never run in CI, so a license that
     # lives only in node_modules would not be present where it is needed.
     head = src[:1200]
     for needle in ("MIT", "wink-nlp", "wink-eng-lite-web-model"):

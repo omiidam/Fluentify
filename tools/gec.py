@@ -504,7 +504,7 @@ def report(cfg: dict) -> int:
     ident = model_identity(cfg)
     print("GEC-BART Base — grammatical error correction on this machine")
     print(f"  model      {ident['model']} @ {ident['revision']}")
-    print(f"  licence    {ident['license']} · {cfg['model'].get('architecture', '')}")
+    print(f"  license    {ident['license']} · {cfg['model'].get('architecture', '')}")
     print(f"  cache      {ident['dir']}")
     print(f"  storage    s3://{cfg['storage']['bucket']}/{cfg['storage']['prefix']}")
     for name in ("torch", "transformers", "safetensors", "boto3"):

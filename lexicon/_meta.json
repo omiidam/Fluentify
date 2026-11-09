@@ -761,15 +761,15 @@
    "name": "OpenJam",
    "url": "https://github.com/amirj4m/openjam",
    "used_for": "lemmas, senses, definitions, examples, Persian sense translations, IPA, inflected forms",
-   "licence": "MIT License",
-   "notice": "Copyright (c) Openjam contributors. MIT-licensed, including the data."
+   "notice": "Copyright (c) Openjam contributors. MIT-licensed, including the data.",
+   "license": "MIT License"
   },
   {
    "name": "Princeton WordNet 3.1",
    "url": "https://wordnet.princeton.edu/",
    "used_for": "synonyms and antonyms; definitions, parts of speech and examples for the headwords the other source does not carry",
-   "licence": "WordNet License (BSD-style), redistribution permitted with notice",
-   "notice": "WordNet 3.0/3.1 Copyright 2006, 2011 by Princeton University. All rights reserved. Provided AS IS, without warranty; Princeton makes no representations of merchantability or fitness for purpose."
+   "notice": "WordNet 3.0/3.1 Copyright 2006, 2011 by Princeton University. All rights reserved. Provided AS IS, without warranty; Princeton makes no representations of merchantability or fitness for purpose.",
+   "license": "WordNet License (BSD-style), redistribution permitted with notice"
   }
  ],
  "not_used": [

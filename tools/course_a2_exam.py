@@ -27,14 +27,14 @@ GRAMMAR = [
         "Long adjectives take more + adjective.", "صفت‌های بلند more + صفت می‌گیرند."),
     mcq("How ___ sugar do you take in your tea?", "چقدر شکر در چایت می‌ریزی؟", ["many", "much", "few", "a few"], 1,
         "Sugar is uncountable, so how much.", "شکر نشماردنی است، پس how much."),
-    mcq("You ___ park here — it's a bus stop.", "اینجا ___ پارک کنی؛ ایستگاه اتوبوس است.", ["don't have to", "mustn't", "shouldn't", "couldn't"], 1,
-        "A prohibition is mustn't; don't have to would mean it is allowed.", "ممنوعیت با mustn't است؛ don't have to یعنی مجاز است."),
+    mcq("You ___ park here — it's a bus stop.", "اینجا ___ پارک کنی؛ ایستگاه اتوبوس است.", ["don't have to", "must not", "shouldn't", "couldn't"], 1,
+        "A prohibition is must not; don't have to would mean it is allowed.", "ممنوعیت با must not است؛ don't have to یعنی مجاز است."),
     mcq("If the weather ___ good, we'll have lunch outside.", "اگر هوا ___، بیرون ناهار می‌خوریم.", ["will be", "is", "was", "were"], 1,
         "The if-clause takes the present simple.", "بند if حال ساده می‌گیرد."),
 ]
 
 VOCABULARY = [
-    mcq("The child of your aunt is your ___.", "فرزند خاله‌ات ___ تو است.", ["cousin", "colleague", "neighbour", "partner"], 0,
+    mcq("The child of your aunt is your ___.", "فرزند خاله‌ات ___ تو است.", ["cousin", "colleague", "neighbor", "partner"], 0,
         "A cousin is the child of an aunt or uncle.", "cousin فرزند خاله یا عمه است."),
     mcq("We ___ in touch by message since we left school.", "از وقتی مدرسه را ترک کردیم با پیام ___ مانده‌ایم.", ["kept", "keep", "have kept", "are keeping"], 2,
         "The phrase is keep in touch; with 'since' it takes the present perfect.", "عبارت keep in touch است و با since حال کامل می‌گیرد."),
@@ -44,7 +44,7 @@ VOCABULARY = [
         "A loaf is a whole bread.", "loaf یعنی یک نان کامل."),
     mcq("The last day to hand in the project is the ___.", "آخرین روز تحویل پروژه ___ است.", ["shift", "deadline", "warranty", "receipt"], 1,
         "The deadline is the final date.", "deadline تاریخ نهایی است."),
-    mcq("They gave me a ___ because the shoes were faulty.", "چون کفش‌ها معیوب بودند، ___ دادند.", ["discount", "refund", "queue", "receipt"], 1,
+    mcq("They gave me a ___ because the shoes were faulty.", "چون کفش‌ها معیوب بودند، ___ دادند.", ["discount", "refund", "line", "receipt"], 1,
         "A refund returns your money.", "refund پولت را برمی‌گرداند."),
     mcq("Take one tablet twice a day — that is the ___.", "روزی دو بار یک قرص؛ این ___ است.", ["prescription", "dose", "medicine", "syrup"], 1,
         "The dose is the amount you take at one time.", "dose مقدار مصرف در یک نوبت است."),
@@ -68,13 +68,13 @@ READING = [
     ),
     reading_item(
         ("A note from the building", "اطلاعیهٔ ساختمان"),
-        ("Dear residents,\n\nThe water will be off on Tuesday from nine in the morning until about four in the afternoon. Workers will repair the pipes on the ground floor. Please keep some water in your flat for the day, and do not use the washing machines during this time.\n\nThe lift will also be off between ten and eleven while the workers move their equipment. If you need help with shopping or with the stairs, please call the building office before Monday evening and we will arrange it.\n\nThank you for your patience,\nThe building office",
+        ("Dear residents,\n\nThe water will be off on Tuesday from nine in the morning until about four in the afternoon. Workers will repair the pipes on the ground floor. Please keep some water in your apartment for the day, and do not use the washing machines during this time.\n\nThe elevator will also be off between ten and eleven while the workers move their equipment. If you need help with shopping or with the stairs, please call the building office before Monday evening and we will arrange it.\n\nThank you for your patience,\nThe building office",
          "ساکنان محترم،\n\nروز سه‌شنبه از ساعت نه صبح تا حدود چهار بعدازظهر آب قطع خواهد بود. کارگران لوله‌های طبقهٔ همکف را تعمیر می‌کنند. لطفاً برای آن روز در آپارتمان خود آب نگه دارید و در این مدت از ماشین لباسشویی استفاده نکنید.\n\nآسانسور هم بین ده تا یازده قطع می‌شود، چون کارگران وسایلشان را جابه‌جا می‌کنند. اگر برای خرید یا پله‌ها کمک لازم دارید، تا دوشنبه عصر با دفتر ساختمان تماس بگیرید تا هماهنگ کنیم.\n\nاز صبر شما سپاسگزاریم،\nدفتر ساختمان"),
         [
             mcq("Why will the water be off?", "چرا آب قطع می‌شود؟", ["the building is empty", "workers are repairing pipes", "there is no water in the city", "the office is closed"], 1,
                 "The note says workers will repair the pipes.", "اطلاعیه می‌گوید کارگران لوله‌ها را تعمیر می‌کنند."),
             mcq("What should residents do before Tuesday?", "ساکنان قبل از سه‌شنبه چه کار باید بکنند؟", ["buy washing machines", "keep some water", "move their cars", "pay the bill"], 1,
-                "'Please keep some water in your flat for the day.'", "«برای آن روز در آپارتمان خود آب نگه دارید»."),
+                "'Please keep some water in your apartment for the day.'", "«برای آن روز در آپارتمان خود آب نگه دارید»."),
             mcq("When should someone ask for help with the stairs?", "کِی باید برای پله‌ها کمک بخواهد؟", ["after Tuesday", "before Monday evening", "at ten on Tuesday", "any time"], 1,
                 "Call the office before Monday evening so they can arrange it.", "تا دوشنبه عصر با دفتر تماس بگیر تا هماهنگ کنند."),
         ],
@@ -103,12 +103,12 @@ LISTENING = [
 ]
 
 WRITING = [
-    write("Write an email to a friend about a trip you took last month. Say where you went, how you travelled, what you did there and one thing you would do differently.",
+    write("Write an email to a friend about a trip you took last month. Say where you went, how you traveled, what you did there and one thing you would do differently.",
           "ایمیلی برای دوستت دربارهٔ سفر ماه گذشته بنویس. بگو کجا رفتی، چطور سفر کردی، آنجا چه کردی و یک چیز که دفعهٔ بعد جور دیگری انجام می‌دهی.",
           50, ["went", "because"],
           "Past simple for the trip; three or four short paragraphs; finish with a question for your friend.",
           "برای سفر از گذشتهٔ ساده استفاده کن؛ سه یا چهار پاراگراف کوتاه؛ با یک پرسش از دوستت تمام کن."),
-    write("Write a short message to your neighbour. You are going to be away for three days. Ask them to water your plants and explain what to do.",
+    write("Write a short message to your neighbor. You are going to be away for three days. Ask them to water your plants and explain what to do.",
           "پیام کوتاهی برای همسایه‌ات بنویس. سه روز خانه نیستی. از او بخواه گلدان‌ها را آب بدهد و توضیح بده چه کار کند.",
           40, ["could", "if"],
           "Make the request polite with could, and give one condition with if.",

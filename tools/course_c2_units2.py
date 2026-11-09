@@ -8,7 +8,7 @@ from course_kit import (dialogue, gap, lesson, listen, mcq, passage, say,
 U3 = unit(
     "c2-u3",
     ("Saying less than you mean", "کمتر از آنچه می‌گویی گفتن"),
-    ("Recognise and use understatement, irony and euphemism, and know what "
+    ("Recognize and use understatement, irony and euphemism, and know what "
      "each one asks the reader to do.",
      "کم‌گویی، طعنه و حسن‌تعابیر را بشناس و به کار ببر و بدان هر یک از "
      "خواننده چه می‌خواهد."),
@@ -76,7 +76,7 @@ U3 = unit(
                     "کدام جمله هم‌زمان احتیاط و داوری می‌کند؟",
                     ["The plan is bad.", "The plan is not unworkable.",
                      "The plan costs money.", "The plan was discussed."], 1,
-                    "A double negative with a judgement inside it.",
+                    "A double negative with a judgment inside it.",
                     "نفیِ دوگانه‌ای که داوری در آن هست."),
             ],
             [
@@ -240,7 +240,7 @@ U3 = unit(
             [
                 mcq("Which detail most clearly carries the criticism?",
                     "کدام جزئیات نقد را روشن‌تر حمل می‌کند؟",
-                    ["the length of the queue", "the phrase about the "
+                    ["the length of the line", "the phrase about the "
                      "assistant's unpaid overtime", "the name of the software",
                      "the time of day"], 1,
                     "It is the human cost mentioned in passing.",
@@ -257,7 +257,7 @@ U3 = unit(
             passage=passage(
                 ("The efficiency we deserve",
                  "کارایی‌ای که سزاوارش هستیم"),
-                ("Our new queue-management system is a triumph of "
+                ("Our new line-management system is a triumph of "
                  "measurement, and I say that as a customer who has now spent "
                  "forty minutes being measured. The screen above the counter "
                  "informs us that the average wait is nine minutes, which is "
@@ -270,12 +270,12 @@ U3 = unit(
                  "eight, and her break, the screen explains, is scheduled for "
                  "when demand allows.\n\n"
                  "What impresses me most is the vocabulary. We are no longer "
-                 "waiting; we are 'in queue', which sounds like a place rather "
+                 "waiting; we are 'in line', which sounds like a place rather "
                  "than a delay. The minutes we lose are not lost at all — they "
                  "are 'customer seconds', a resource, patiently donated. The "
                  "company has not made the wait shorter. It has made it "
                  "countable, and counting, as every manager knows, is the "
-                 "first step towards improving something.\n\n"
+                 "first step toward improving something.\n\n"
                  "I left before my number was called, which the system will "
                  "record as an abandonment. Somewhere a dashboard turned a "
                  "shade more efficient, and a service partner was relieved of "
@@ -316,7 +316,7 @@ U3 = unit(
             [
                 ("An editorial is an argument with a voice. The voice is not "
                  "decoration: it is how the reader knows what kind of claim "
-                 "this is — a warning, a defence, a demand. The structure "
+                 "this is — a warning, a defense, a demand. The structure "
                  "underneath is plain: the claim in the first two sentences, "
                  "three supports, the strongest objection acknowledged and "
                  "answered, and a last line the reader can repeat.",
@@ -631,7 +631,7 @@ U4 = unit(
                        "What is the speaker's objection?",
                        "اعتراض گوینده چیست؟",
                        ["the numbers are wrong", "the sample does not support "
-                        "the generalisation", "the office was closed",
+                        "the generalization", "the office was closed",
                         "December is busier"], 1,
                        "The figures are granted; their reach is denied.",
                        "ارقام پذیرفته و دامنهٔ آنها رد می‌شود."),
@@ -715,7 +715,7 @@ U4 = unit(
                     "تولید کند.",
                     ["two summaries", "a claim neither source makes alone",
                      "a list of quotations", "the stronger source"], 1,
-                    "The new claim is the reason to synthesise at all.",
+                    "The new claim is the reason to synthesize at all.",
                     "ادعای تازه همان دلیل ترکیب است."),
                 mcq("Which sentence keeps attribution clear?",
                     "کدام جمله انتساب را روشن نگه می‌دارد؟",
@@ -730,7 +730,7 @@ U4 = unit(
             [
                 write("Two sources disagree: a survey reports an average wait "
                       "of nine minutes, while interviews describe waits of "
-                      "about forty. Write about 160 words synthesising them "
+                      "about forty. Write about 160 words synthesizing them "
                       "into one position. Say what both accept, where they "
                       "part, and what should be measured next.",
                       "دو منبع اختلاف دارند: نظرسنجی میانگین انتظار نُه دقیقه "

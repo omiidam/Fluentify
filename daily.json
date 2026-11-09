@@ -12,7 +12,7 @@
   "conversations  topic{en,fa}, level, setting{en,fa}, turns[6-10]{who,en,fa},",
   "               key[]{en,fa}, notes[]{en,fa}",
   "",
-  "Longer catalogues simply mean a longer stretch before the rotation wraps.",
+  "Longer catalogs simply mean a longer stretch before the rotation wraps.",
   ""
  ],
  "version": 1,
@@ -49,7 +49,7 @@
    "id": "w002",
    "en": "cheap",
    "pos": "adjective",
-   "ipa": "/tʃiːp/",
+   "ipa": "/tʃip/",
    "fa": "ارزان",
    "def": {
     "en": "Costing little money.",
@@ -77,7 +77,7 @@
    "id": "w003",
    "en": "expensive",
    "pos": "adjective",
-   "ipa": "/ɪkˈspensɪv/",
+   "ipa": "/ɪkˈspɛnsɪv/",
    "fa": "گران",
    "def": {
     "en": "Costing a lot of money.",
@@ -114,7 +114,7 @@
    "level": "A2",
    "examples": [
     {
-     "en": "My neighbours are noisy at night.",
+     "en": "My neighbors are noisy at night.",
      "fa": "همسایه‌های من شب‌ها پرسروصدا هستند."
     },
     {
@@ -133,7 +133,7 @@
    "id": "w005",
    "en": "quiet",
    "pos": "adjective",
-   "ipa": "/ˈkwaɪət/",
+   "ipa": "/kwaɪət/",
    "fa": "ساکت، آرام",
    "def": {
     "en": "Making little or no sound.",
@@ -191,7 +191,7 @@
    "id": "w007",
    "en": "empty",
    "pos": "adjective",
-   "ipa": "/ˈempti/",
+   "ipa": "/ˈɛmti/",
    "fa": "خالی",
    "def": {
     "en": "Having nothing or nobody inside.",
@@ -247,7 +247,7 @@
    "id": "w009",
    "en": "healthy",
    "pos": "adjective",
-   "ipa": "/ˈhelθi/",
+   "ipa": "/ˈhɛlθi/",
    "fa": "سالم",
    "def": {
     "en": "Good for your body, or in good physical condition.",
@@ -285,7 +285,7 @@
    "level": "A2",
    "examples": [
     {
-     "en": "Is this neighbourhood safe at night?",
+     "en": "Is this neighborhood safe at night?",
      "fa": "این محله شب‌ها امن است؟"
     },
     {
@@ -304,7 +304,7 @@
    "id": "w011",
    "en": "boring",
    "pos": "adjective",
-   "ipa": "/ˈbɔːrɪŋ/",
+   "ipa": "/ˈbɔrɪŋ/",
    "fa": "خسته‌کننده، کسل‌کننده",
    "def": {
     "en": "Not interesting, so it makes you tired to watch or do.",
@@ -313,7 +313,7 @@
    "level": "A2",
    "examples": [
     {
-     "en": "The film was boring, so we left early.",
+     "en": "The movie was boring, so we left early.",
      "fa": "فیلم خسته‌کننده بود، پس زودتر رفتیم."
     },
     {
@@ -333,7 +333,7 @@
    "id": "w012",
    "en": "funny",
    "pos": "adjective",
-   "ipa": "/ˈfʌni/",
+   "ipa": "/ˈfəni/",
    "fa": "خنده‌دار، بامزه",
    "def": {
     "en": "Making you laugh.",
@@ -362,7 +362,7 @@
    "id": "w013",
    "en": "ready",
    "pos": "adjective",
-   "ipa": "/ˈredi/",
+   "ipa": "/ˈrɛdi/",
    "fa": "آماده",
    "def": {
     "en": "Prepared for what is going to happen.",
@@ -391,7 +391,7 @@
    "id": "w014",
    "en": "early",
    "pos": "adjective, adverb",
-   "ipa": "/ˈɜːli/",
+   "ipa": "/ˈɝːli/",
    "fa": "زود",
    "def": {
     "en": "Before the usual or expected time.",
@@ -447,7 +447,7 @@
    "id": "w016",
    "en": "borrow",
    "pos": "verb",
-   "ipa": "/ˈbɒrəʊ/",
+   "ipa": "/ˈbɑroʊ/",
    "fa": "قرض گرفتن",
    "def": {
     "en": "To take something for a short time and give it back.",
@@ -475,7 +475,7 @@
    "id": "w017",
    "en": "lend",
    "pos": "verb",
-   "ipa": "/lend/",
+   "ipa": "/lɛnd/",
    "fa": "قرض دادن",
    "def": {
     "en": "To give something to someone for a short time.",
@@ -522,7 +522,7 @@
    ],
    "syn": [
     "neat",
-    "organised"
+    "organized"
    ],
    "ant": [
     "messy"
@@ -532,7 +532,7 @@
    "id": "w019",
    "en": "messy",
    "pos": "adjective",
-   "ipa": "/ˈmesi/",
+   "ipa": "/ˈmɛsi/",
    "fa": "نامرتب، به‌هم‌ریخته",
    "def": {
     "en": "Untidy, or with things spread around.",
@@ -590,7 +590,7 @@
    "id": "w021",
    "en": "careful",
    "pos": "adjective",
-   "ipa": "/ˈkeəfl/",
+   "ipa": "/ˈkɛrfəl/",
    "fa": "مراقب، دقیق",
    "def": {
     "en": "Giving attention to what you are doing so nothing goes wrong.",
@@ -619,7 +619,7 @@
    "id": "w022",
    "en": "patient",
    "pos": "adjective",
-   "ipa": "/ˈpeɪʃnt/",
+   "ipa": "/ˈpeɪʃənt/",
    "fa": "صبور",
    "def": {
     "en": "Able to wait or keep trying without getting angry.",
@@ -647,7 +647,7 @@
    "id": "w023",
    "en": "generous",
    "pos": "adjective",
-   "ipa": "/ˈdʒenərəs/",
+   "ipa": "/ˈdʒɛnərəs/",
    "fa": "دست‌ودل‌باز، سخاوتمند",
    "def": {
     "en": "Happy to give money, time or help to others.",
@@ -676,7 +676,7 @@
    "id": "w024",
    "en": "curious",
    "pos": "adjective",
-   "ipa": "/ˈkjʊəriəs/",
+   "ipa": "/ˈkjʊriəs/",
    "fa": "کنجکاو",
    "def": {
     "en": "Wanting to know or understand something.",
@@ -705,7 +705,7 @@
    "id": "w025",
    "en": "reliable",
    "pos": "adjective",
-   "ipa": "/rɪˈlaɪəbl/",
+   "ipa": "/rɪˈlaɪəbəl/",
    "fa": "قابل اعتماد",
    "def": {
     "en": "Able to be trusted to do what is promised.",
@@ -734,7 +734,7 @@
    "id": "w026",
    "en": "awkward",
    "pos": "adjective",
-   "ipa": "/ˈɔːkwəd/",
+   "ipa": "/ˈɔkwərd/",
    "fa": "معذب، ناشیانه",
    "def": {
     "en": "Uncomfortable or embarrassing, often in a social situation.",
@@ -763,7 +763,7 @@
    "id": "w027",
    "en": "exhausting",
    "pos": "adjective",
-   "ipa": "/ɪɡˈzɔːstɪŋ/",
+   "ipa": "/ɪɡˈzɔstɪŋ/",
    "fa": "طاقت‌فرسا",
    "def": {
     "en": "Making you extremely tired.",
@@ -792,7 +792,7 @@
    "id": "w028",
    "en": "urgent",
    "pos": "adjective",
-   "ipa": "/ˈɜːdʒənt/",
+   "ipa": "/ˈɝːdʒənt/",
    "fa": "فوری",
    "def": {
     "en": "Needing attention straight away.",
@@ -821,7 +821,7 @@
    "id": "w029",
    "en": "convenient",
    "pos": "adjective",
-   "ipa": "/kənˈviːniənt/",
+   "ipa": "/kənˈvinjənt/",
    "fa": "به‌موقع و راحت",
    "def": {
     "en": "Easy to use, or fitting well with your plans.",
@@ -850,7 +850,7 @@
    "id": "w030",
    "en": "confusing",
    "pos": "adjective",
-   "ipa": "/kənˈfjuːzɪŋ/",
+   "ipa": "/kənfˈjuzɪŋ/",
    "fa": "گیج‌کننده",
    "def": {
     "en": "Hard to understand because it is not clear.",
@@ -879,7 +879,7 @@
    "id": "w031",
    "en": "impressive",
    "pos": "adjective",
-   "ipa": "/ɪmˈpresɪv/",
+   "ipa": "/ˌɪmˈprɛsɪv/",
    "fa": "تحسین‌برانگیز",
    "def": {
     "en": "So good that people notice and admire it.",
@@ -908,7 +908,7 @@
    "id": "w032",
    "en": "affordable",
    "pos": "adjective",
-   "ipa": "/əˈfɔːdəbl/",
+   "ipa": "/əˈfɔrdəbəl/",
    "fa": "مقرون‌به‌صرفه",
    "def": {
     "en": "Cheap enough for ordinary people to pay for.",
@@ -917,7 +917,7 @@
    "level": "B1",
    "examples": [
     {
-     "en": "They are looking for an affordable flat near work.",
+     "en": "They are looking for an affordable apartment near work.",
      "fa": "دنبال یک آپارتمان مقرون‌به‌صرفه نزدیک محل کارشان هستند."
     },
     {
@@ -936,7 +936,7 @@
    "id": "w033",
    "en": "stressful",
    "pos": "adjective",
-   "ipa": "/ˈstresfl/",
+   "ipa": "/ˈstrɛsfəl/",
    "fa": "پراسترس",
    "def": {
     "en": "Making you feel worried and under pressure.",
@@ -965,7 +965,7 @@
    "id": "w034",
    "en": "improve",
    "pos": "verb",
-   "ipa": "/ɪmˈpruːv/",
+   "ipa": "/ˌɪmˈpruv/",
    "fa": "بهتر کردن، پیشرفت کردن",
    "def": {
     "en": "To get better, or to make something better.",
@@ -1022,7 +1022,7 @@
    "id": "w036",
    "en": "remind",
    "pos": "verb",
-   "ipa": "/rɪˈmaɪnd/",
+   "ipa": "/riˈmaɪnd/",
    "fa": "یادآوری کردن",
    "def": {
     "en": "To help someone remember something.",
@@ -1050,7 +1050,7 @@
    "id": "w037",
    "en": "suggest",
    "pos": "verb",
-   "ipa": "/səˈdʒest/",
+   "ipa": "/səˈdʒɛst/",
    "fa": "پیشنهاد دادن",
    "def": {
     "en": "To give an idea for someone to think about.",
@@ -1137,7 +1137,7 @@
    "id": "w040",
    "en": "achieve",
    "pos": "verb",
-   "ipa": "/əˈtʃiːv/",
+   "ipa": "/əˈtʃiv/",
    "fa": "به دست آوردن، دست یافتن",
    "def": {
     "en": "To succeed in reaching a goal, usually with effort.",
@@ -1165,7 +1165,7 @@
   {
    "en": "confident",
    "pos": "adjective",
-   "ipa": "/ˈkɒnfɪdənt/",
+   "ipa": "/ˈkɑnfədənt/",
    "fa": "بااعتمادبه‌نفس، مطمئن",
    "def": {
     "en": "Sure that you can do something well, or sure that something is true.",
@@ -1195,7 +1195,7 @@
   {
    "en": "nervous",
    "pos": "adjective",
-   "ipa": "/ˈnɜːvəs/",
+   "ipa": "/ˈnərvəs/",
    "fa": "مضطرب، نگران",
    "def": {
     "en": "Worried or a little afraid about something that is going to happen.",
@@ -1253,7 +1253,7 @@
   {
    "en": "worth",
    "pos": "adjective",
-   "ipa": "/wɜːθ/",
+   "ipa": "/wərθ/",
    "fa": "ارزیدن، ارزش داشتن",
    "def": {
     "en": "Good or useful enough to justify the time, money or effort.",
@@ -1278,7 +1278,7 @@
   {
    "en": "reasonable",
    "pos": "adjective",
-   "ipa": "/ˈriːznəbl/",
+   "ipa": "/ˈrizənəbəl/",
    "fa": "معقول، منصفانه",
    "def": {
     "en": "Fair and sensible; about a price, not too expensive.",
@@ -1307,7 +1307,7 @@
   {
    "en": "brief",
    "pos": "adjective",
-   "ipa": "/briːf/",
+   "ipa": "/brif/",
    "fa": "کوتاه، مختصر",
    "def": {
     "en": "Lasting a short time, or using few words.",
@@ -1336,7 +1336,7 @@
   {
    "en": "obvious",
    "pos": "adjective",
-   "ipa": "/ˈɒbviəs/",
+   "ipa": "/ˈɑbviəs/",
    "fa": "واضح، بدیهی",
    "def": {
     "en": "Easy to see or understand; not hidden at all.",
@@ -1365,7 +1365,7 @@
   {
    "en": "slightly",
    "pos": "adverb",
-   "ipa": "/ˈslaɪtli/",
+   "ipa": "/sˈlaɪtli/",
    "fa": "کمی، تا حدی",
    "def": {
     "en": "A little, but not very much.",
@@ -1393,7 +1393,7 @@
   {
    "en": "actually",
    "pos": "adverb",
-   "ipa": "/ˈæktʃuəli/",
+   "ipa": "/ˈæˌktʃuəli/",
    "fa": "در واقع، راستش",
    "def": {
     "en": "Used to correct something or to say what is really true.",
@@ -1419,7 +1419,7 @@
   {
    "en": "eventually",
    "pos": "adverb",
-   "ipa": "/ɪˈventʃuəli/",
+   "ipa": "/ɪˈvɛntʃəwəli/",
    "fa": "سرانجام، در نهایت",
    "def": {
     "en": "In the end, after a long time or after several attempts.",
@@ -1432,7 +1432,7 @@
      "fa": "سرانجام در خیابان سومی که امتحان کردم مغازه را پیدا کردم."
     },
     {
-     "en": "Keep practising and you'll eventually get it.",
+     "en": "Keep practicing and you'll eventually get it.",
      "fa": "به تمرین ادامه بده و در نهایت یادش می‌گیری."
     }
    ],
@@ -1447,7 +1447,7 @@
   {
    "en": "apparently",
    "pos": "adverb",
-   "ipa": "/əˈpærəntli/",
+   "ipa": "/əˈpɛrəntli/",
    "fa": "ظاهراً، بنابر گفته‌ها",
    "def": {
     "en": "Used for something you have heard but are not sure about.",
@@ -1456,7 +1456,7 @@
    "level": "B2",
    "examples": [
     {
-     "en": "Apparently the train is cancelled, but they haven't announced it yet.",
+     "en": "Apparently the train is canceled, but they haven't announced it yet.",
      "fa": "ظاهراً قطار لغو شده، اما هنوز اعلام نکرده‌اند."
     },
     {
@@ -1472,7 +1472,7 @@
   {
    "en": "immediately",
    "pos": "adverb",
-   "ipa": "/ɪˈmiːdiətli/",
+   "ipa": "/ˌɪˈmiˌdiətli/",
    "fa": "فوراً، بی‌درنگ",
    "def": {
     "en": "At once, with no waiting at all.",
@@ -1501,7 +1501,7 @@
   {
    "en": "handle",
    "pos": "verb",
-   "ipa": "/ˈhændl/",
+   "ipa": "/ˈhændəl/",
    "fa": "از پس چیزی برآمدن، رسیدگی کردن",
    "def": {
     "en": "To deal with a situation, a problem or a task.",
@@ -1527,7 +1527,7 @@
   {
    "en": "arrange",
    "pos": "verb",
-   "ipa": "/əˈreɪndʒ/",
+   "ipa": "/əreɪndʒ/",
    "fa": "ترتیب دادن، هماهنگ کردن",
    "def": {
     "en": "To plan or organize something so that it happens.",
@@ -1545,7 +1545,7 @@
     }
    ],
    "syn": [
-    "organise",
+    "organize",
     "set up"
    ],
    "id": "w054"
@@ -1553,7 +1553,7 @@
   {
    "en": "postpone",
    "pos": "verb",
-   "ipa": "/pəˈspəʊn/",
+   "ipa": "/poʊstˈpoʊn/",
    "fa": "به تعویق انداختن، عقب انداختن",
    "def": {
     "en": "To move an event to a later time or date.",
@@ -1582,7 +1582,7 @@
   {
    "en": "recover",
    "pos": "verb",
-   "ipa": "/rɪˈkʌvə/",
+   "ipa": "/rɪˈkəvər/",
    "fa": "بهبود یافتن، حالش بهتر شدن",
    "def": {
     "en": "To become well again after an illness, or to get better after a problem.",
@@ -1606,9 +1606,9 @@
    "id": "w056"
   },
   {
-   "en": "apologise",
+   "en": "apologize",
    "pos": "verb",
-   "ipa": "/əˈpɒlədʒaɪz/",
+   "ipa": "/əˈpɑləˌdʒaɪz/",
    "fa": "عذرخواهی کردن",
    "def": {
     "en": "To say sorry for something you did.",
@@ -1617,11 +1617,11 @@
    "level": "A2",
    "examples": [
     {
-     "en": "I apologise for the delay — the traffic was terrible.",
+     "en": "I apologize for the delay — the traffic was terrible.",
      "fa": "برای تأخیر عذرخواهی می‌کنم — ترافیک وحشتناک بود."
     },
     {
-     "en": "He apologised to his neighbour for the noise.",
+     "en": "He apologized to his neighbor for the noise.",
      "fa": "او برای سر و صدا از همسایه‌اش عذرخواهی کرد."
     }
    ],
@@ -1661,7 +1661,7 @@
   {
    "en": "owe",
    "pos": "verb",
-   "ipa": "/əʊ/",
+   "ipa": "/oʊ/",
    "fa": "بدهکار بودن",
    "def": {
     "en": "To need to give somebody money or something else back.",
@@ -1670,7 +1670,7 @@
    "level": "B1",
    "examples": [
     {
-     "en": "I still owe you ten pounds from last week.",
+     "en": "I still owe you ten dollars from last week.",
      "fa": "از هفته پیش هنوز ده پوند به تو بدهکارم."
     },
     {
@@ -1750,7 +1750,7 @@
    "level": "A2",
    "register": "casual",
    "use": {
-    "en": "Said when someone apologises or thanks you, to show it is fine.",
+    "en": "Said when someone apologizes or thanks you, to show it is fine.",
     "fa": "وقتی کسی عذرخواهی می‌کند یا تشکر می‌کند، برای نشان دادن اینکه مشکلی نیست."
    },
    "when": {
@@ -1779,7 +1779,7 @@
    "level": "A2",
    "register": "neutral",
    "use": {
-    "en": "You have started travelling and will arrive soon.",
+    "en": "You have started traveling and will arrive soon.",
     "fa": "راه افتاده‌ای و به‌زودی می‌رسی."
    },
    "when": {
@@ -1966,7 +1966,7 @@
      "fa": "پیتزا یا برنج؟ به خودت بستگی دارد."
     },
     {
-     "en": "It's up to you how much you want to practise daily.",
+     "en": "It's up to you how much you want to practice daily.",
      "fa": "روزی چقدر تمرین کنی، به خودت بستگی دارد."
     }
    ],
@@ -2011,7 +2011,7 @@
    "level": "B1",
    "register": "polite",
    "use": {
-    "en": "Apologising for making someone wait.",
+    "en": "Apologizing for making someone wait.",
     "fa": "عذرخواهی برای اینکه کسی را منتظر گذاشته‌ای."
    },
    "when": {
@@ -2049,7 +2049,7 @@
    },
    "examples": [
     {
-     "en": "Are you kidding? The whole flat for that price?",
+     "en": "Are you kidding? The whole apartment for that price?",
      "fa": "شوخی می‌کنی؟ تمام آن آپارتمان با این قیمت؟"
     },
     {
@@ -2615,7 +2615,7 @@
   },
   {
    "id": "e032",
-   "en": "No offence, but...",
+   "en": "No offense, but...",
    "fa": "جسارتاً...، بی‌احترامی نباشد ولی...",
    "level": "B2",
    "register": "casual",
@@ -2629,11 +2629,11 @@
    },
    "examples": [
     {
-     "en": "No offence, but that jacket is very bright.",
+     "en": "No offense, but that jacket is very bright.",
      "fa": "جسارتاً، آن کت خیلی پررنگ است."
     },
     {
-     "en": "No offence, but I think the plan needs more work.",
+     "en": "No offense, but I think the plan needs more work.",
      "fa": "بی‌احترامی نباشد، اما فکر می‌کنم برنامه کار بیشتری لازم دارد."
     }
    ],
@@ -2855,7 +2855,7 @@
     "fa": "برای نشان دادن اینکه مسئله کوچک است و طرف مقابل نباید نگران شود."
    },
    "when": {
-    "en": "After someone apologises, or when something goes slightly wrong.",
+    "en": "After someone apologizes, or when something goes slightly wrong.",
     "fa": "بعد از عذرخواهی کسی، یا وقتی چیزی کمی خراب می‌شود."
    },
    "examples": [
@@ -2913,12 +2913,12 @@
     "fa": "وقتی از چیزی لذت نمی‌بری یا علاقه‌ای به آن نداری."
    },
    "when": {
-    "en": "Friends suggest a film, food or hobby you do not enjoy.",
+    "en": "Friends suggest a movie, food or hobby you do not enjoy.",
     "fa": "وقتی دوستان فیلم، غذا یا سرگرمی‌ای پیشنهاد می‌دهند که دوست نداری."
    },
    "examples": [
     {
-     "en": "A: Do you like horror films? — B: Not really, I'm not into them.",
+     "en": "A: Do you like horror movies? — B: Not really, I'm not into them.",
      "fa": "الف: فیلم ترسناک دوست داری؟ — ب: نه زیاد، خوشم نمی‌آید."
     },
     {
@@ -2947,7 +2947,7 @@
    },
    "examples": [
     {
-     "en": "A: Shall we meet at six? — B: That works for me.",
+     "en": "A: Should we meet at six? — B: That works for me.",
      "fa": "الف: ساعت شش ببینیم؟ — ب: برای من خوب است."
     },
     {
@@ -3029,7 +3029,7 @@
     "fa": "قبل از تصمیم‌گیری، موافقت طرف مقابل را می‌پرسد."
    },
    "when": {
-    "en": "After you suggest a time, a change or a favour.",
+    "en": "After you suggest a time, a change or a favor.",
     "fa": "بعد از پیشنهاد یک زمان، تغییر یا درخواست لطف."
    },
    "examples": [
@@ -3087,7 +3087,7 @@
     "fa": "قول می‌دهد مشکلی را حل کند تا کس دیگری لازم نباشد."
    },
    "when": {
-    "en": "At work, in a shared flat, or anywhere a task needs an owner.",
+    "en": "At work, in a shared apartment, or anywhere a task needs an owner.",
     "fa": "در محل کار، خانهٔ مشترک، یا هر جا که کاری مسئول لازم دارد."
    },
    "examples": [
@@ -3319,7 +3319,7 @@
    },
    "level": "A2",
    "setting": {
-    "en": "Two friends decide what to do at the weekend.",
+    "en": "Two friends decide what to do on the weekend.",
     "fa": "دو دوست تصمیم می‌گیرند آخر هفته چه کار کنند."
    },
    "turns": [
@@ -3350,7 +3350,7 @@
     },
     {
      "who": "Sara",
-     "en": "Saturday works for me. Where shall we meet?",
+     "en": "Saturday works for me. Where should we meet?",
      "fa": "شنبه برایم خوب است. کجا همدیگر را ببینیم؟"
     },
     {
@@ -3646,7 +3646,7 @@
    ],
    "notes": [
     {
-     "en": "Distances in a city are given in blocks or walking minutes, not metres.",
+     "en": "Distances in a city are given in blocks or walking minutes, not meters.",
      "fa": "فاصله‌ها در شهر با تقاطع یا دقیقهٔ پیاده گفته می‌شود، نه متر."
     },
     {
@@ -3658,18 +3658,18 @@
   {
    "id": "c005",
    "topic": {
-    "en": "Renting a flat",
+    "en": "Renting an apartment",
     "fa": "اجارهٔ خانه"
    },
    "level": "B1",
    "setting": {
-    "en": "A tenant asks about a flat he has seen online.",
+    "en": "A tenant asks about an apartment he has seen online.",
     "fa": "مستأجر دربارهٔ خانه‌ای که آنلاین دیده سؤال می‌کند."
    },
    "turns": [
     {
      "who": "Tenant",
-     "en": "Hi, I'm calling about the flat on Green Street.",
+     "en": "Hi, I'm calling about the apartment on Green Street.",
      "fa": "سلام، دربارهٔ آپارتمان خیابان گرین تماس گرفتم."
     },
     {
@@ -3934,52 +3934,52 @@
   {
    "id": "c008",
    "topic": {
-    "en": "Meeting a neighbour",
+    "en": "Meeting a neighbor",
     "fa": "گپ با همسایه"
    },
    "level": "B1",
    "setting": {
-    "en": "Two neighbours talk in the lift about the building.",
+    "en": "Two neighbors talk in the elevator about the building.",
     "fa": "دو همسایه در آسانسور دربارهٔ ساختمان حرف می‌زنند."
    },
    "turns": [
     {
-     "who": "Neighbour A",
+     "who": "Neighbor A",
      "en": "Morning! You moved in last month, right?",
      "fa": "صبح بخیر! ماه پیش اسباب‌کشی کردید، درست است؟"
     },
     {
-     "who": "Neighbour B",
-     "en": "That's right, flat four. I'm Mina.",
+     "who": "Neighbor B",
+     "en": "That's right, apartment four. I'm Mina.",
      "fa": "درست است، واحد چهار. من مینا هستم."
     },
     {
-     "who": "Neighbour A",
+     "who": "Neighbor A",
      "en": "I'm Reza. How are you finding the building?",
      "fa": "من رضا هستم. ساختمان چطور است؟"
     },
     {
-     "who": "Neighbour B",
-     "en": "Quiet, which I like. The lift is slow though.",
+     "who": "Neighbor B",
+     "en": "Quiet, which I like. The elevator is slow though.",
      "fa": "ساکت است، که دوست دارم. اما آسانسور کند است."
     },
     {
-     "who": "Neighbour A",
+     "who": "Neighbor A",
      "en": "It always has been. The stairs are faster.",
      "fa": "همیشه همین‌طور بوده. پله‌ها سریع‌ترند."
     },
     {
-     "who": "Neighbour B",
+     "who": "Neighbor B",
      "en": "Good to know. Is there a good bakery nearby?",
      "fa": "خوب است بدانم. نانوایی خوبی این نزدیکی هست؟"
     },
     {
-     "who": "Neighbour A",
+     "who": "Neighbor A",
      "en": "On the corner, two minutes. Their bread sells out by nine.",
      "fa": "سر کوچه، دو دقیقه. نانشان تا ساعت نه تمام می‌شود."
     },
     {
-     "who": "Neighbour B",
+     "who": "Neighbor B",
      "en": "I'll go early then. Thanks!",
      "fa": "پس زود می‌روم. ممنون!"
     }
@@ -4008,7 +4008,7 @@
      "fa": "«How are you finding it?» نظر می‌خواهد نه جست‌وجو: یعنی «چه نظری درباره‌اش داری؟»."
     },
     {
-     "en": "Small talk with a neighbour usually mixes one question with one piece of information about yourself.",
+     "en": "Small talk with a neighbor usually mixes one question with one piece of information about yourself.",
      "fa": "گپ با همسایه معمولاً یک سؤال و یک اطلاع دربارهٔ خودت را قاطی می‌کند."
     }
    ]
@@ -4021,12 +4021,12 @@
    },
    "level": "A2",
    "setting": {
-    "en": "A traveller buys a return ticket at the station.",
+    "en": "A traveler buys a round-trip ticket at the station.",
     "fa": "مسافر یک بلیت رفت‌وبرگشت از ایستگاه می‌خرد."
    },
    "turns": [
     {
-     "who": "Traveller",
+     "who": "Traveler",
      "en": "Hi, I'd like a ticket to Manchester, please.",
      "fa": "سلام، یک بلیت به منچستر لطفاً."
     },
@@ -4036,7 +4036,7 @@
      "fa": "یک‌طرفه یا رفت‌وبرگشت؟"
     },
     {
-     "who": "Traveller",
+     "who": "Traveler",
      "en": "Return, coming back tomorrow evening.",
      "fa": "رفت‌وبرگشت، فردا شب برمی‌گردم."
     },
@@ -4046,7 +4046,7 @@
      "fa": "قطار ۱۸:۴۰ آخرین مستقیم است."
     },
     {
-     "who": "Traveller",
+     "who": "Traveler",
      "en": "That works. Does it need a reservation?",
      "fa": "خوب است. رزرو لازم دارد؟"
     },
@@ -4056,7 +4056,7 @@
      "fa": "نه، اما اگر دیر بجنبی صندلی گیرت نمی‌آید."
     },
     {
-     "who": "Traveller",
+     "who": "Traveler",
      "en": "I'll take it. Card, please.",
      "fa": "همین را می‌خواهم. با کارت، لطفاً."
     },
@@ -4220,7 +4220,7 @@
     },
     {
      "who": "Operator",
-     "en": "The driver will be there in about ten minutes. The fare is around fifteen pounds.",
+     "en": "The driver will be there in about ten minutes. The fare is around fifteen dollars.",
      "fa": "راننده حدود ده دقیقهٔ دیگر آنجاست. کرایه حدوداً پانزده پوند می‌شود."
     },
     {
@@ -4492,7 +4492,7 @@
     },
     {
      "who": "Pharmacist",
-     "en": "Twice a day, morning and night. That comes to six pounds fifty.",
+     "en": "Twice a day, morning and night. That comes to six dollars fifty.",
      "fa": "دو بار در روز، صبح و شب. می‌شود شش پوند و پنجاه."
     }
    ],
@@ -4516,7 +4516,7 @@
    ],
    "notes": [
     {
-     "en": "'That comes to six pounds fifty' is the shop phrase for a total; 'It is six pounds fifty' is also fine.",
+     "en": "'That comes to six dollars fifty' is the shop phrase for a total; 'It is six dollars fifty' is also fine.",
      "fa": "«That comes to…» عبارت فروشگاه‌ها برای جمع کل است؛ «It is…» هم درست است."
     },
     {
@@ -4533,7 +4533,7 @@
    },
    "level": "B1",
    "setting": {
-    "en": "A customer brings back a jumper that is the wrong size.",
+    "en": "A customer brings back a sweater that is the wrong size.",
     "fa": "مشتری پلیوری را که اندازه‌اش نیست برمی‌گرداند."
    },
    "turns": [
@@ -4544,7 +4544,7 @@
     },
     {
      "who": "Kian",
-     "en": "Actually, I'd like to return this jumper. I bought it yesterday.",
+     "en": "Actually, I'd like to return this sweater. I bought it yesterday.",
      "fa": "راستش می‌خواهم این پلیور را برگردانم. دیروز خریدمش."
     },
     {
@@ -4972,7 +4972,7 @@
     },
     {
      "who": "Ali",
-     "en": "I've just moved here and I'd like to open a current account.",
+     "en": "I've just moved here and I'd like to open a checking account.",
      "fa": "تازه اینجا آمده‌ام و می‌خواهم حساب جاری باز کنم."
     },
     {
@@ -5018,7 +5018,7 @@
    ],
    "key": [
     {
-     "en": "open a current account",
+     "en": "open a checking account",
      "fa": "حساب جاری باز کردن"
     },
     {
@@ -5089,7 +5089,7 @@
     },
     {
      "who": "Agent",
-     "en": "Nine pounds, or you can move something into your hand luggage.",
+     "en": "Nine dollars, or you can move something into your carry-on bag.",
      "fa": "نُه پوند، یا می‌توانید چیزی را به بار دستی‌تان منتقل کنید."
     },
     {
@@ -5182,7 +5182,7 @@
     },
     {
      "who": "Sam",
-     "en": "We shared a flat in our first year and have been friends since.",
+     "en": "We shared an apartment in our first year and have been friends since.",
      "fa": "سال اول هم‌خانه بودیم و از آن وقت دوست هستیم."
     },
     {
@@ -5336,7 +5336,7 @@
     },
     {
      "who": "Ellie",
-     "en": "Same here. Shall we test each other on Friday?",
+     "en": "Same here. Should we test each other on Friday?",
      "fa": "من هم همین‌طور. جمعه از همدیگر بپرسیم؟"
     },
     {

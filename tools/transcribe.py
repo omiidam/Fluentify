@@ -19,7 +19,7 @@ you get told the duration before a model starts. Anything else is passed
 through to ffmpeg if it happens to be installed.
 
 The transcript is then graded A2→C1 with listening_grade.py — the same
-grader that grades the BBC catalogue, so a clip you record yourself lands on
+grader that grades the BBC catalog, so a clip you record yourself lands on
 the same scale.
 """
 

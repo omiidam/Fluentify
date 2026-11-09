@@ -86,7 +86,7 @@ def slice_seed(src: str) -> str:
 def expected(iso: str) -> tuple[str, int, str]:
     """The next midnight in Tehran after this instant, and its countdown."""
     t = datetime.fromisoformat(iso.replace("Z", "+00:00"))
-    # The local clock, carried as a UTC-labelled datetime: the wall time is what
+    # The local clock, carried as a UTC-labeled datetime: the wall time is what
     # matters here, not the zone it is measured against.
     local = t + timedelta(minutes=TZ_MIN)
     boundary = datetime(local.year, local.month, local.day,
@@ -122,7 +122,7 @@ def main() -> int:
         "2026-10-28T19:59:00Z",   # 23:29 Tehran, under the last half hour
         "2026-03-29T01:15:00Z",   # a European DST night, which is not Iran's
         "2026-12-31T19:45:00Z",   # New Year's Eve, 23:15 in Tehran
-        "2026-12-31T20:45:00Z",   # 00:15 on 1 January 2027 in Tehran
+        "2026-12-31T20:45:00Z",   # 00:15 on January 1 2027 in Tehran
     ]
     harness = HARNESS.replace("__SEED__", slice_seed(src))
     proc = subprocess.run(["node", "-e", harness], capture_output=True,

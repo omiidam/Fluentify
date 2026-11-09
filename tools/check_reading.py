@@ -8,7 +8,7 @@ and their answer keys live in tools/reading_src.py; a stale JSON is a lesson
 with yesterday's answers, which is worse than no lesson.
 
 Second, is the content teachable? Every strategy must explain itself in both
-languages, carry a passage long enough to practise on, and hold all four
+languages, carry a passage long enough to practice on, and hold all four
 question types. A multiple-choice key must point at one of its own options, a
 blank's answer must actually occur in the passage it is asked about, and no
 question may be answered correctly by picking the same letter every time -
@@ -67,7 +67,7 @@ def check_fresh() -> None:
 
 
 def check_reading(sid: str, label: str, r: dict, keys: Counter) -> dict:
-    """One passage: is it long enough to practise on, and are its keys sound?"""
+    """One passage: is it long enough to practice on, and are its keys sound?"""
     text = " ".join(r.get("paragraphs") or [])
     n = len(re.findall(r"[A-Za-z'\u2019-]+", text))
     check(120 <= n <= 300, f"{label}: the passage is {n} words")
@@ -183,7 +183,7 @@ def check_content(doc: dict) -> dict:
         check(len((ex.get("text") or "").split()) >= 25,
               f"{sid}: the worked example is too short to demonstrate anything")
         check(len(ex.get("steps") or []) >= 2,
-              f"{sid}: the worked example is never analysed")
+              f"{sid}: the worked example is never analyzed")
         for line in ex.get("steps") or []:
             check(bool(FA.search(line.get("fa", ""))) and
                   bool(line.get("en", "").strip()),
@@ -225,12 +225,12 @@ def check_content(doc: dict) -> dict:
               f"true/false is lopsided: {tf}")
 
     # The order is part of the teaching: surveying first because it comes
-    # before reading, summarising last because it needs the other nine.
+    # before reading, summarizing last because it needs the other nine.
     order = [s.get("id") for s in strategies]
     check(order[0] == "survey" if "survey" in order else True,
           f"the progression starts with {order[0]!r}, not surveying")
     check(order[-1] == "summarize" if "summarize" in order else True,
-          f"the progression ends with {order[-1]!r}, not summarising")
+          f"the progression ends with {order[-1]!r}, not summarizing")
 
     return {
         "strategies": len(strategies),

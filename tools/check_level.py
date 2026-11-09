@@ -254,7 +254,7 @@ const wrong = (item) => item.options ? (item.answer + 1) % 4 : 'zzz';
    harness asserts that it does: a marker that cannot give full marks to a
    good paragraph is a marker nobody can pass. */
 const MODEL = {
-  A1: 'My family is small and we are close. I live with my mother and my sister in a flat near the park. We cook dinner together on Friday and then we watch a film.',
+  A1: 'My family is small and we are close. I live with my mother and my sister in a flat near the park. We cook dinner together on Friday and then we watch a movie.',
   A2: 'Last weekend I went to the park with my friend. We walked by the river and then we ate lunch outside. The weather was sunny and warm. I liked the afternoon because we talked for hours.',
   B1: 'The old bazaar is the best place to start because the building is beautiful. Then walk down to the river and take a boat for an hour. The food near the bridge is cheap and very good. Visit the museum if it rains, since it is indoors. Two days is enough for all of this.',
   B2: 'I think phones should be banned in classrooms. They distract students and they stop conversation between lessons. However, a phone is a useful tool for research when the teacher allows it. Most schools already have laptops, so the loss is small. A ban with clear exceptions is better than a total one, although it needs enforcing. Teachers should decide when a screen is allowed. That keeps the rule simple and it keeps the lesson moving.',

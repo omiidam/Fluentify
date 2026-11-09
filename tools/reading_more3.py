@@ -10,7 +10,7 @@ MORE = {
             "paragraphs": [
                 "In 1897 a British officer took a carved mask from a village "
                 "in what is now Nigeria and gave it to a museum in Bristol. "
-                "For more than a century it sat in a glass case, labelled only "
+                "For more than a century it sat in a glass case, labeled only "
                 "with a number.",
                 "Last year the museum agreed to return it. The decision was not "
                 "easy: some trustees argued that the mask was safer in "
@@ -91,7 +91,7 @@ MORE = {
                 "truefalse": [
                     {"statement": "The mask was displayed with its name on it.",
                      "answer": False,
-                     "why": bi("It was 'labelled only with a number'.",
+                     "why": bi("It was 'labeled only with a number'.",
                                "«فقط با یک شماره برچسب خورده بود»."),
                      "para": 1},
                     {"statement": "The mask is now back in the village.",
@@ -152,7 +152,7 @@ MORE = {
             "paragraphs": [
                 "The council has voted to close the swimming pool on Tuesdays. "
                 "This surprised the staff, who had been told the change would "
-                "affect only the car park, but it delighted the residents who "
+                "affect only the parking lot, but it delighted the residents who "
                 "had complained about the noise of the pumps.",
                 "The pool's manager, Dario Rossi, says the decision was made "
                 "without a proper survey. He has asked for the figures the "
@@ -162,12 +162,12 @@ MORE = {
                 "against the pool itself, only the pumps, which run all night. "
                 "They have offered to pay for a quieter pump if the Tuesday "
                 "closure is dropped.",
-                "The council's cabinet meets on 4 May. Its chair, Councillor "
+                "The council's cabinet meets on May 4. Its chair, Councillor "
                 "Rehana Ali, told this newspaper that she would listen, but "
                 "that the budget for the year had already been set.",
             ],
             "summary": bi(
-                "A Tuesday closure pleases the neighbours, shocks the staff and "
+                "A Tuesday closure pleases the neighbors, shocks the staff and "
                 "leaves the manager asking for figures nobody has published.",
                 "بستن سه‌شنبه‌ها همسایه‌ها را خوشحال می‌کند، کارکنان را شوکه و "
                 "مدیر را در پی ارقامی می‌گذارد که کسی منتشر نکرده است."),
@@ -195,7 +195,7 @@ MORE = {
                            "refer to?",
                      "options": ["The noise of the pumps",
                                  "The vote to close the pool on Tuesdays",
-                                 "The car park change",
+                                 "The parking lot change",
                                  "The survey"],
                      "answer": 1,
                      "why": bi("'This' points at the whole first sentence - the "
@@ -218,18 +218,18 @@ MORE = {
                      "options": ["The residents' group", "The pool's",
                                  "The cabinet's", "The newspaper's"],
                      "answer": 2,
-                     "why": bi("'The council's cabinet meets on 4 May. Its "
+                     "why": bi("'The council's cabinet meets on May 4. Its "
                                "chair...' - 'its' belongs to the cabinet.",
                                "«کابینهٔ شورا ۴ مه جلسه دارد. رئیس آن...»؛ «its» "
                                "مال کابینه است."),
                      "para": 4},
                 ],
                 "truefalse": [
-                    {"statement": "The staff expected only the car park to "
+                    {"statement": "The staff expected only the parking lot to "
                                   "change.",
                      "answer": True,
                      "why": bi("'Who had been told the change would affect only "
-                               "the car park'.",
+                               "the parking lot'.",
                                "«که به آن‌ها گفته شده بود تغییر فقط پارکینگ را "
                                "تحت تأثیر می‌گذارد»."),
                      "para": 1},
@@ -296,7 +296,7 @@ MORE = {
                 "year, and she looked at the ceiling as though it had answered "
                 "her.",
                 "We walked the boundaries after lunch. At the old gate she "
-                "stopped and said the estate agent had valued the whole plot at "
+                "stopped and said the real estate agent had valued the whole plot at "
                 "less than I had hoped. She said it quickly, the way people say "
                 "a thing they have rehearsed in the car.",
                 "I asked whether she wanted to sell. She said she wanted us "
@@ -337,7 +337,7 @@ MORE = {
                                  "Angry about the roof"],
                      "answer": 1,
                      "why": bi("She rehearses bad news, avoids the question, "
-                               "takes a cup away and apologises by letter - "
+                               "takes a cup away and apologizes by letter - "
                                "every sign points to reluctance, not eagerness.",
                                "خبر بد را از پیش تمرین می‌کند، از سؤال می‌گریزد، "
                                "یکی از فنجان‌ها را برمی‌دارد و در نامه عذرخواهی "
@@ -436,7 +436,7 @@ MORE = {
             "level": "B2",
             "genre": bi("Personal narrative", "روایت شخصی"),
             "paragraphs": [
-                "The office was on the fourth floor and the lift was out of "
+                "The office was on the fourth floor and the elevator was out of "
                 "order. By the time I reached the desk I had rehearsed my "
                 "opening line four times and could no longer hear it.",
                 "The interviewer did not look up from my CV for the first "
@@ -481,7 +481,7 @@ MORE = {
                      "options": ["Confident and prepared",
                                  "Nervous, with a prepared line they had lost "
                                  "confidence in",
-                                 "Angry about the lift",
+                                 "Angry about the elevator",
                                  "Certain they would be rejected"],
                      "answer": 1,
                      "why": bi("Four floors of stairs and a line rehearsed four "
@@ -518,9 +518,9 @@ MORE = {
                      "para": 4},
                 ],
                 "truefalse": [
-                    {"statement": "The lift was working.",
+                    {"statement": "The elevator was working.",
                      "answer": False,
-                     "why": bi("'The lift was out of order.'",
+                     "why": bi("'The elevator was out of order.'",
                                "«آسانسور خراب بود.»"),
                      "para": 1},
                     {"statement": "The candidate gave the answers they had "
@@ -554,7 +554,7 @@ MORE = {
                             "decision - say so.",
                             "«خودم را شنیدم» یعنی بدون تصمیم اتفاق افتاد؛ همین را "
                             "بگو."),
-                         bi("Use one detail about the interviewer's behaviour.",
+                         bi("Use one detail about the interviewer's behavior.",
                             "یک جزئیات از رفتار مصاحبه‌کننده بیاور."),
                          bi("Avoid claiming to know what the interviewer "
                             "thought.",

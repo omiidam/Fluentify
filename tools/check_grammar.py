@@ -19,7 +19,7 @@ does not, so this reads all forty-eight lessons and reports:
     register the rest of the app uses
 
 The last one is reported, not repaired: deciding that "می‌کنه" should read
-"می‌کند" is a judgement about a sentence, and a script that makes it blindly
+"می‌کند" is a judgment about a sentence, and a script that makes it blindly
 will eventually change a sentence that was quoting speech.
 
     python3 tools/check_grammar.py           the summary

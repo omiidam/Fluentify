@@ -142,12 +142,12 @@ def main() -> int:
     check("empty rejected", dictionary_api.clean("  ") == "")
 
     # 2. the payload, reduced to what a learner is shown
-    normalised = dictionary_api._normalize(PAYLOAD)
-    check("payload normalised", bool(normalised) and normalised["word"] == "serendipity")
-    check("phonetic kept", normalised and normalised["ipa"] == "/ˌsɛɹənˈdɪpɪti/")
-    check("meanings kept", normalised and len(normalised["meanings"]) == 2)
+    normalized = dictionary_api._normalize(PAYLOAD)
+    check("payload normalized", bool(normalized) and normalized["word"] == "serendipity")
+    check("phonetic kept", normalized and normalized["ipa"] == "/ˌsɛɹənˈdɪpɪti/")
+    check("meanings kept", normalized and len(normalized["meanings"]) == 2)
     check("example kept",
-          normalised and normalised["meanings"][0]["senses"][0]["ex"]
+          normalized and normalized["meanings"][0]["senses"][0]["ex"]
           == "Meeting her was pure serendipity.")
     check("empty payload refused", dictionary_api._normalize([]) is None)
     check("junk payload refused", dictionary_api._normalize("nope") is None)

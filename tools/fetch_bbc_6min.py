@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the graded catalogue of BBC Learning English listening episodes.
+"""Build the graded catalog of BBC Learning English listening episodes.
 
     python3 tools/fetch_bbc_6min.py                 # index + grade, write bbc_6min.json
     python3 tools/fetch_bbc_6min.py --fetch 40      # download transcripts (resumable)
@@ -11,7 +11,7 @@ On the series name: BBC Learning English ran "5 Minute English" until 2014 and
 relaunched it as "6 Minute English". Same archive, longer episodes, weekly.
 
 On the audio: every clip, transcript and worksheet is BBC copyright. This tool
-stores a *catalogue* - title, blurb, year, and the canonical BBC URLs - and
+stores a *catalog* - title, blurb, year, and the canonical BBC URLs - and
 the app plays from those URLs. Nothing BBC publishes is copied into this
 repository or into the APK. Per-episode pages and PDFs are cached under
 tools/.cache/ (gitignored) purely so re-running is fast and offline.
@@ -385,7 +385,7 @@ def audit(episodes: list[dict]) -> None:
     alone, which really is intermediate throughout - and it turns out BBC tags
     all three series "intermediate", including Real Easy English, whose whole
     premise is simple everyday speech. So the tag is a course-track label, not
-    a difficulty measurement, and it cannot validate a graded catalogue.
+    a difficulty measurement, and it cannot validate a graded catalog.
 
     What it can still say is whether the grader is *plausible*: it should agree
     closely where the tag is narrow and disagree loudly where it is not, and
@@ -430,7 +430,7 @@ def main() -> int:
     ap.add_argument("--fetch", default="0",
                     help="N episodes to download transcripts for, or 'all'")
     ap.add_argument("--no-transcripts", action="store_true",
-                    help="keep the catalogue small: no transcript text")
+                    help="keep the catalog small: no transcript text")
     ap.add_argument("--audit", action="store_true", help="grade vs BBC's tag")
     ap.add_argument("--report", action="store_true", help="print and exit")
     args = ap.parse_args()
@@ -499,7 +499,7 @@ def main() -> int:
     doc = {
         "_readme": (
             "BBC Learning English — 6 Minute English (called 5 Minute English "
-            "until 2014). A catalogue only: the audio, transcripts and "
+            "until 2014). A catalog only: the audio, transcripts and "
             "worksheets stay on BBC's servers and the app plays from these "
             "canonical URLs. No BBC media is stored in this repository or "
             "shipped in the APK. Rebuild with tools/fetch_bbc_6min.py --fetch N."

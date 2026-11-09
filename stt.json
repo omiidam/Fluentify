@@ -4,11 +4,11 @@
   "enabled": true,
 
   "language": {
-    "default": "en-GB",
-    "fallback": "en-US",
+    "default": "en-US",
+    "fallback": "en-GB",
     "supported": [
-      { "code": "en-GB", "label": "English — British", "flag": "🇬🇧" },
       { "code": "en-US", "label": "English — American", "flag": "🇺🇸" },
+      { "code": "en-GB", "label": "English — British", "flag": "🇬🇧" },
       { "code": "en-AU", "label": "English — Australian", "flag": "🇦🇺" },
       { "code": "en-CA", "label": "English — Canadian", "flag": "🇨🇦" },
       { "code": "en-IN", "label": "English — Indian", "flag": "🇮🇳" },

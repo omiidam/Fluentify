@@ -97,19 +97,20 @@ def main() -> int:
     older = {tid: t for tid, t in themes.items() if not tid.startswith("informal_")}
     old_keys = {phrase_key(line["en"])
                 for t in older.values() for line in t["phrases"]}
-    # Eleven of the 280 were already in an earlier topic ("see you around",
-    # "is this seat taken"). Keeping them is right - the file is the source -
-    # but the count is pinned so a future edit cannot quietly make half the
-    # bank unreachable behind an older topic.
+    # Twelve of the 280 were already in an earlier topic ("see you around",
+    # "is this seat taken", "could you do me a favor"). Keeping them is right -
+    # the file is the source - but the count is pinned so a future edit cannot
+    # quietly make half the bank unreachable behind an older topic. The twelfth
+    # appeared when the American spelling of "favor" matched the older entry.
     overlap = sorted(k for k in seen if k in old_keys)
-    check("shared sentences stay at the known eleven", len(overlap) == 11,
+    check("shared sentences stay at the known twelve", len(overlap) == 12,
           f"{len(overlap)} shared: {overlap}")
 
     # The key rules the lookup depends on
     check("apostrophes folded", phrase_key("Don’t roast me!") == phrase_key("Don't roast me"))
     check("punctuation ignored", phrase_key("Let’s hit the road.") == phrase_key("Let's hit the road"))
     check("words stay apart", phrase_key("ice cream") != phrase_key("icecream"))
-    check("persian normalised", phrase_key("چه خبر؟") == phrase_key("چه خبر"))
+    check("persian normalized", phrase_key("چه خبر؟") == phrase_key("چه خبر"))
 
     bot = ChatBot()
     for asked, expected_fa in SAMPLES:

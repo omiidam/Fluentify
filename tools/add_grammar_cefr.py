@@ -3,7 +3,7 @@
 
 The bank stopped at B2. These are the structures that mark the jump from
 "competent" to "fluent" English: clefts, mixed conditionals, causatives,
-complex modals, ellipsis, nominalisation and formal inversion.
+complex modals, ellipsis, nominalization and formal inversion.
 
 Every topic carries the same shape as the existing ones:
     title, keywords, level, structure, function, examples (8), tip,
@@ -19,7 +19,7 @@ PATH = ROOT / "grammar.json"
 T = {
 "cleft_sentences": {
  "title": {"en": "Cleft sentences", "fa": "جملات شکافته"},
- "keywords": {"en": ["cleft sentences", "it is that", "what sentences", "emphasise a word"],
+ "keywords": {"en": ["cleft sentences", "it is that", "what sentences", "emphasize a word"],
               "fa": ["جمله شکافته", "تأکید کلمه", "جمله What"]},
  "level": "C1",
  "structure": [
@@ -27,7 +27,7 @@ T = {
    "fa": "جمله شکافته یک تکه از اطلاعات را از جمله معمولی جدا می‌کند"},
   {"en": "so you can **stress exactly that part** and nothing else.",
    "fa": "تا دقیقاً همان قسمت را — و فقط همان را — پررنگ کنی"},
-  {"en": "It is + the emphasised part + that + the rest.",
+  {"en": "It is + the emphasized part + that + the rest.",
    "fa": "تأکید روی اسم یا بند:  It is + قسمت مهم + that + بقیه"},
   {"en": "What + clause + is/was + the rest.",
    "fa": "تأکید روی بند:  What + بند + is/was + بقیه"},
@@ -36,7 +36,7 @@ T = {
   {"en": "It was in 2019 that she finally moved abroad.",
    "fa": "این در سال ۲۰۱۹ بود که بالاخره به خارج رفت"},
  ],
- "function": "Used to correct a misunderstanding, contrast, or emphasise one "
+ "function": "Used to correct a misunderstanding, contrast, or emphasize one "
               "element while the rest goes quiet. Very common in speech, "
               "writing and exam answers.",
  "examples": [
@@ -62,7 +62,7 @@ T = {
   {"q": {"en": "____ I want is ten minutes of quiet.", "fa": "آنچه می‌خواهم ده دقیقه سکوت است."}, "a": ["What"]},
   {"q": {"en": "It was Maria ____ designed the logo.", "fa": "این ماریا بود که لوگو را طراحی کرد."}, "a": ["who"]},
   {"q": {"en": "What happened is ____ the system crashed.", "fa": "آنچه رخ داد این بود که سیستم کرش کرد."}, "a": ["that"]},
-  {"q": {"en": "It is ____ for speed that we optimised.", "fa": "این سرعت است که برایش بهینه‌سازی کردیم."}, "a": ["speed"]},
+  {"q": {"en": "It is ____ for speed that we optimized.", "fa": "این سرعت است که برایش بهینه‌سازی کردیم."}, "a": ["speed"]},
   {"q": {"en": "What he wanted was ____ more time.", "fa": "آنچه می‌خواست کمی وقت بیشتر بود."}, "a": ["some", "a little"]},
   {"q": {"en": "It was not until midnight ____ they returned.", "fa": "تا نیمه‌شب نبود که برگشتند."}, "a": ["that"]},
   {"q": {"en": "____ I like about the job is the variety.", "fa": "آنچه در این کار دوست دارم تنوع آن است."}, "a": ["What"]},
@@ -71,7 +71,7 @@ T = {
   {"q": {"en": "It was my brother ____ lent me the car.", "fa": "این برادرم بود که ماشین را قرض داد."}, "a": ["who"]},
   {"q": {"en": "What happened is ____ simple: we ran out of time.", "fa": "آنچه رخ داد ساده بود: وقت تمام شد."}, "a": ["that"]},
   {"q": {"en": "It was her honesty ____ earned respect.", "fa": "این صداقتش بود که احترام کسب کرد."}, "a": ["that"]},
-  {"q": {"en": "What I mean is ____ you should apologise.", "fa": "منظورم این است که باید عذر بخواهی."}, "a": ["that"]},
+  {"q": {"en": "What I mean is ____ you should apologize.", "fa": "منظورم این است که باید عذر بخواهی."}, "a": ["that"]},
   {"q": {"en": "It was in 2018 ____ the company was founded.", "fa": "در سال ۲۰۱۸ بود که شرکت تأسیس شد."}, "a": ["that"]},
   {"q": {"en": "What annoys me is ____ of the noise.", "fa": "آنچه آزارم می‌دهد آن است که صدا بلند است."}, "a": ["the amount"]},
   {"q": {"en": "It was a lucky escape ____ nobody was hurt.", "fa": "این یک فرار خوش‌شانسانه بود که کسی آسیب ندید."}, "a": ["that"]},
@@ -108,7 +108,7 @@ T = {
   {"en": "If I **hadn't** ignored it, I **wouldn't be** in this mess now.", "fa": "اگر نادیده‌اش نگرفته بودم، الان در این دردسر نبودم."},
   {"en": "If we **had left** earlier, we **would have caught** the train.", "fa": "اگر زودتر رفته بودیم، قطار را می‌گرفتیم."},
   {"en": "If he **hadn't** drunk so much, he **would be** home by now.", "fa": "اگر زیاد نخورده بود، الان خانه بود."},
-  {"en": "If I **were** you, I **would have** apologised at the time.", "fa": "اگر جای تو بودم، همان موقع عذر می‌خواستم."},
+  {"en": "If I **were** you, I **would have** apologized at the time.", "fa": "اگر جای تو بودم، همان موقع عذر می‌خواستم."},
   {"en": "If they **had asked** me, I **would have helped** them.", "fa": "اگر از من می‌پرسیدند، کمکشان می‌کردم."},
   {"en": "If we **hadn't** moved, we **would still be** living there.", "fa": "اگر نقل مکان نکرده بودیم، هنوز آنجا زندگی می‌کردیم."},
  ],
@@ -183,7 +183,7 @@ T = {
   {"q": {"en": "I must get the roof ____ (repair) before winter.", "fa": "باید بام را قبل از زمستان تعمیر کنند."}, "a": ["repaired"]},
  ],
  "exam": [
-  {"q": {"en": "I want to ____ my flat ____ (paint) before moving in.", "fa": "می‌خواهم قبل از اسباب‌کشی خانه را رنگ کنند."}, "a": ["have painted"]},
+  {"q": {"en": "I want to ____ my apartment ____ (paint) before moving in.", "fa": "می‌خواهم قبل از اسباب‌کشی خانه را رنگ کنند."}, "a": ["have painted"]},
   {"q": {"en": "He had his portrait ____ (paint) by a famous artist.", "fa": "نقاشی‌اش را هنرمند مشهوری کشید."}, "a": ["painted"]},
   {"q": {"en": "We need to ____ the computer ____ (upgrade).", "fa": "باید کامپیوتر را ارتقا دهند."}, "a": ["have upgraded"]},
   {"q": {"en": "She is ____ her nails ____ (do) this week.", "fa": "این هفته ناخن‌هایش را می‌کند."}, "a": ["getting done"]},
@@ -291,7 +291,7 @@ T = {
               "Essential for natural rhythm in discussion.",
  "examples": [
   {"en": "\"I love Italian food.\" — \"**So do I**.\"", "fa": "— من هم همین‌طور."},
-  {"en": "\"I didn't enjoy the film.\" — \"**Neither did we**.\"", "fa": "— ما هم نه."},
+  {"en": "\"I didn't enjoy the movie.\" — \"**Neither did we**.\"", "fa": "— ما هم نه."},
   {"en": "She can drive a lorry, **and so can her brother**.", "fa": "او و برادرش هر دو کامیون می‌رانند."},
   {"en": "He's a doctor and **she's** a lawyer.", "fa": "او پزشک است و او وکیل."},
   {"en": "I think he'll come. — **I think so** too.", "fa": "من هم فکر می‌کنم بیاید."},
@@ -331,9 +331,9 @@ T = {
   {"q": {"en": "It doesn't matter. — ____ does he.", "fa": "او هم اهمیت نمی‌دهد."}, "a": ["Neither", "Nor"]},
  ],
 },
-"nominalisation": {
- "title": {"en": "Nominalisation", "fa": "اسم‌سازی"},
- "keywords": {"en": ["nominalisation", "nominalisation verbs", "formal nouns", "academic style"],
+"nominalization": {
+ "title": {"en": "Nominalization", "fa": "اسم‌سازی"},
+ "keywords": {"en": ["nominalization", "nominalization verbs", "formal nouns", "academic style"],
               "fa": ["اسم سازی", "اسم افزایشی", "نثر دانشگاهی"]},
  "level": "C2",
  "structure": [
@@ -360,7 +360,7 @@ T = {
   {"en": "Their **approval** was granted on the first attempt.", "fa": "تأییدشان در اولین تلاش داده شد."},
   {"en": "The **reduction** in costs was significant.", "fa": "کاهش هزینه‌ها چشمگیر بود."},
  ],
- "tip": {"en": "One nominalisation per sentence. Too many and the writing becomes impersonal and hard to follow.", "fa": "در هر جمله یک اسم‌سازی کافی است. زیادش کنی، نوشتار بی‌شخص و گیج‌کننده می‌شود."},
+ "tip": {"en": "One nominalization per sentence. Too many and the writing becomes impersonal and hard to follow.", "fa": "در هر جمله یک اسم‌سازی کافی است. زیادش کنی، نوشتار بی‌شخص و گیج‌کننده می‌شود."},
  "practice": [
   {"q": {"en": "The ____ of the new law took months.", "fa": "اجرای قانون جدید ماه‌ها طول کشید."}, "a": ["implementation"]},
   {"q": {"en": "Their ____ to the team was clear.", "fa": "تعهدشان به تیم روشن بود."}, "a": ["commitment"]},

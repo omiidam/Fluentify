@@ -52,8 +52,8 @@ U1 = unit(
             ("People and the things that happened to them", "آدم‌ها و چیزهایی که برایشان رخ داد"),
             ("Talk about family, friends and colleagues, and about the events that connect them.", "دربارهٔ خانواده، دوستان و همکاران و رویدادهایی که آن‌ها را به هم وصل می‌کند حرف بزن."),
             [
-                ("Family and friends are described by how they are connected to you: a cousin is the child of your aunt or uncle, a colleague works with you, a neighbour lives next door, and your partner is the person you share your life with.", "خویشاوندان با نسبتشان با تو توصیف می‌شوند: cousin فرزند عمه یا عمو است، colleague همکارت است، neighbour همسایهٔ بغلی است و partner کسی است که زندگی‌ات را با او شریک می‌شوی."),
-                ("Life events are told with the past simple: I met my wife at university. We moved to Tehran in 2019. I grew up in a small town near Isfahan.", "رویدادهای زندگی با گذشتهٔ ساده گفته می‌شوند: I met my wife at university. We moved to Tehran in 2019. I grew up in a small town."),
+                ("Family and friends are described by how they are connected to you: a cousin is the child of your aunt or uncle, a colleague works with you, a neighbor lives next door, and your partner is the person you share your life with.", "خویشاوندان با نسبتشان با تو توصیف می‌شوند: cousin فرزند عمه یا عمو است، colleague همکارت است، neighbor همسایهٔ بغلی است و partner کسی است که زندگی‌ات را با او شریک می‌شوی."),
+                ("Life events are told with the past simple: I met my wife in college. We moved to Tehran in 2019. I grew up in a small town near Isfahan.", "رویدادهای زندگی با گذشتهٔ ساده گفته می‌شوند: I met my wife in college. We moved to Tehran in 2019. I grew up in a small town."),
                 ("Learn the verb that belongs with each noun, not the noun alone: get married, fall in love, keep in touch, lose touch, be close to someone, get to know someone. We keep in touch *with* a friend; we do not 'keep relation'.", "فعلی را یاد بگیر که با هر اسم می‌آید، نه اسم را تنها: get married، fall in love، keep in touch، lose touch، be close to someone، get to know someone. با دوست keep in touch with می‌گوییم."),
             ],
             [
@@ -63,15 +63,15 @@ U1 = unit(
                 ("They fell in love in 2018 and got married two years later.", "سال ۲۰۱۸ عاشق هم شدند و دو سال بعد ازدواج کردند."),
             ],
             [
-                mcq("Your aunt's son is your ___.", "پسر خاله‌ات ___ تو است.", ["colleague", "neighbour", "cousin", "partner"], 2,
+                mcq("Your aunt's son is your ___.", "پسر خاله‌ات ___ تو است.", ["colleague", "neighbor", "cousin", "partner"], 2,
                     "The child of your aunt or uncle is your cousin.", "فرزند عمه، خاله، عمو یا دایی، cousin است."),
                 mcq("Which is the natural phrase?", "کدام عبارت طبیعی است؟", ["keep relation with a friend", "keep in touch with a friend", "keep touching a friend", "keep contact of a friend"], 1,
                     "The fixed phrase is keep in touch with someone.", "عبارت ثابت keep in touch with somebody است."),
             ],
             [
-                gap("We ___ in touch after university, but only by message.", ["kept"], "keep in touch, past simple kept.", "keep in touch و گذشتهٔ آن kept است."),
+                gap("We ___ in touch after college, but only by message.", ["kept"], "keep in touch, past simple kept.", "keep in touch و گذشتهٔ آن kept است."),
                 gap("My brother and his wife ___ married last spring.", ["got"], "get married → got married.", "get married و گذشتهٔ آن got married است."),
-                mcq("Choose the word for someone you work with.", "واژه‌ای را انتخاب کن که یعنی کسی که با او کار می‌کنی.", ["neighbour", "colleague", "cousin", "partner"], 1,
+                mcq("Choose the word for someone you work with.", "واژه‌ای را انتخاب کن که یعنی کسی که با او کار می‌کنی.", ["neighbor", "colleague", "cousin", "partner"], 1,
                     "A colleague is a person you work with.", "colleague کسی است که با او کار می‌کنی."),
                 mcq("'I grew up in Rasht' means ___.", "«I grew up in Rasht» یعنی ___.", ["I moved to Rasht", "I spent my childhood in Rasht", "I visited Rasht", "I worked in Rasht"], 1,
                     "Grow up is about childhood, not a single visit.", "grow up دربارهٔ کودکی است، نه یک دیدار کوتاه."),
@@ -87,7 +87,7 @@ U1 = unit(
                 ("Past time words carry the story: on Friday, yesterday, last night. Future words promise what follows: tomorrow, next week, I'll send.", "واژه‌های زمان گذشته داستان را پیش می‌برند: on Friday، yesterday، last night. واژه‌های آینده وعدهٔ ادامه را می‌دهند: tomorrow، next week، I'll send."),
             ],
             [
-                ("Message: 'Hi Sara, we arrived on Friday and the flat is small but lovely.'", "پیام: «سلام سارا، جمعه رسیدیم و آپارتمان کوچک است اما دوست‌داشتنی»."),
+                ("Message: 'Hi Sara, we arrived on Friday and the apartment is small but lovely.'", "پیام: «سلام سارا، جمعه رسیدیم و آپارتمان کوچک است اما دوست‌داشتنی»."),
                 ("'Yesterday it rained, so we stayed in and cooked.'", "«دیروز باران آمد، پس خانه ماندیم و غذا پختیم»."),
                 ("'I'll send photos when we're back.'", "«وقتی برگشتیم عکس می‌فرستم»."),
             ],
@@ -100,15 +100,15 @@ U1 = unit(
             [
                 mcq("What did they do on Saturday?", "شنبه چه کردند؟", ["they cooked at home", "they walked up to the castle", "they took the train to Sintra", "they stayed in bed"], 1,
                     "'On Saturday we walked up to the castle.'", "«شنبه تا قلعه پیاده رفتیم»."),
-                mcq("Why do her legs hurt?", "چرا پاهایش درد می‌کند؟", ["because of the rain", "because of the long walk up to the castle", "because she cooked all day", "because the flat is small"], 1,
+                mcq("Why do her legs hurt?", "چرا پاهایش درد می‌کند؟", ["because of the rain", "because of the long walk up to the castle", "because she cooked all day", "because the apartment is small"], 1,
                     "She walked up to the castle and says her legs still hurt.", "تا قلعه پیاده رفت و می‌گوید پاهایش هنوز درد می‌کند."),
                 mcq("What is she going to do tomorrow?", "فردا چه کار می‌کند؟", ["cook at home", "take the train to Sintra", "rain", "arrive in Lisbon"], 1,
                     "'Tomorrow we're going to take the train to Sintra.'", "«فردا با قطار به سینترا می‌رویم»."),
-                mcq("How does she feel about the flat?", "دربارهٔ آپارتمان چه حسی دارد؟", ["she hates it", "she thinks it is small but lovely", "she thinks it is too expensive", "she has not seen it"], 1,
-                    "'The flat is small but lovely.'", "«آپارتمان کوچک است اما دوست‌داشتنی»."),
+                mcq("How does she feel about the apartment?", "دربارهٔ آپارتمان چه حسی دارد؟", ["she hates it", "she thinks it is small but lovely", "she thinks it is too expensive", "she has not seen it"], 1,
+                    "'The apartment is small but lovely.'", "«آپارتمان کوچک است اما دوست‌داشتنی»."),
             ],
             passage=passage(("A message from Lisbon", "پیامی از لیسبون"),
-                            ("Hi Sara,\n\nWe arrived on Friday and the flat is small but lovely. On Saturday we walked up to the castle — the view was amazing, but my legs still hurt! Yesterday it rained, so we stayed in and cooked. Tomorrow we're going to take the train to Sintra.\n\nI'll send photos when we're back.\n\nLove,\nMina",
+                            ("Hi Sara,\n\nWe arrived on Friday and the apartment is small but lovely. On Saturday we walked up to the castle — the view was amazing, but my legs still hurt! Yesterday it rained, so we stayed in and cooked. Tomorrow we're going to take the train to Sintra.\n\nI'll send photos when we're back.\n\nLove,\nMina",
                              "سلام سارا،\n\nجمعه رسیدیم و آپارتمان کوچک است اما دوست‌داشتنی. شنبه تا قلعه پیاده رفتیم؛ منظره فوق‌العاده بود، اما پاهایم هنوز درد می‌کند! دیروز باران آمد، پس خانه ماندیم و غذا پختیم. فردا با قطار به سینترا می‌رویم.\n\nوقتی برگشتیم عکس می‌فرستم.\n\nبا عشق،\nمینا")),
         ),
     ],
@@ -154,11 +154,11 @@ U2 = unit(
         lesson(
             "a2-u2-l2",
             "vocabulary",
-            ("Travelling: from the ticket to the platform", "سفر: از بلیت تا سکو"),
+            ("Traveling: from the ticket to the platform", "سفر: از بلیت تا سکو"),
             ("Use the phrasal verbs and fixed phrases of a journey, and follow directions.", "فعل‌های عبارتی و عبارت‌های ثابت سفر را به کار ببر و مسیر را دنبال کن."),
             [
                 ("A journey is a chain of small actions, and each one has its own verb: set off (leave), get on / get off a bus or train, check in at a hotel or airport, book a ticket, miss a connection.", "سفر زنجیره‌ای از کارهای کوچک است و هر کدام فعل خودش را دارد: set off (راه افتادن)، get on / get off (سوار/پیاده شدن)، check in (پذیرش)، book a ticket (بلیت گرفتن)، miss a connection (از دست دادن پرواز یا قطار بعدی)."),
-                ("Problems travel with you: the car broke down, we ran out of petrol, the flight was delayed, I left my bag on the train. Notice that broke down and ran out of keep their particle.", "مشکل‌ها هم همراهت سفر می‌کنند: the car broke down، we ran out of petrol، the flight was delayed، I left my bag on the train. توجه کن که broke down و ran out of ذرهٔ خود را نگه می‌دارند."),
+                ("Problems travel with you: the car broke down, we ran out of gas, the flight was delayed, I left my bag on the train. Notice that broke down and ran out of keep their particle.", "مشکل‌ها هم همراهت سفر می‌کنند: the car broke down، we ran out of gas، the flight was delayed، I left my bag on the train. توجه کن که broke down و ran out of ذرهٔ خود را نگه می‌دارند."),
                 ("Directions: go straight on, turn left at the lights, take the second turning, it's opposite the bank, it's next to the station. Opposite means facing it; next to means beside it.", "مسیر: go straight on، turn left at the lights، take the second turning، it's opposite the bank، it's next to the station. opposite یعنی روبه‌روی آن و next to یعنی کنار آن."),
             ],
             [
@@ -174,7 +174,7 @@ U2 = unit(
                     "You get on and get off a train.", "با قطار get on و get off می‌گوییم."),
             ],
             [
-                gap("We ___ out of petrol outside Yazd and had to walk.", ["ran"], "run out of → ran out of.", "run out of و گذشتهٔ آن ran out of است."),
+                gap("We ___ out of gas outside Yazd and had to walk.", ["ran"], "run out of → ran out of.", "run out of و گذشتهٔ آن ran out of است."),
                 gap("Please ___ in at the desk before you go to the gate.", ["check"], "check in at the desk.", "در پذیرش هتل یا فرودگاه check in می‌گوییم."),
                 mcq("The bank is ___ the supermarket — they face each other across the road.", "بانک ___ سوپرمارکت است؛ روبه‌روی هم در دو طرف خیابان.", ["next to", "opposite", "behind", "inside"], 1,
                     "Opposite means facing something across a street or space.", "opposite یعنی روبه‌رو در آن سوی خیابان یا فضا."),
@@ -188,13 +188,13 @@ U2 = unit(
             ("At the station", "در ایستگاه"),
             ("Follow announcements and a short platform conversation, and pick out times, platforms and changes.", "اطلاعیه‌ها و گفت‌وگوی کوتاه سکو را دنبال کن و ساعت، سکو و تغییرها را پیدا کن."),
             [
-                ("Station announcements are formula: which train, from where, at what time, and what has changed. The change is the part you need: delayed, cancelled, platform three instead of five.", "اطلاعیه‌های ایستگاه قالبی‌اند: کدام قطار، از کجا، چه ساعتی و چه چیزی عوض شده است. همان تغییر، بخشی است که لازم داری: delayed، cancelled، platform three instead of five."),
+                ("Station announcements are formula: which train, from where, at what time, and what has changed. The change is the part you need: delayed, canceled, platform three instead of five.", "اطلاعیه‌های ایستگاه قالبی‌اند: کدام قطار، از کجا، چه ساعتی و چه چیزی عوض شده است. همان تغییر، بخشی است که لازم داری: delayed، canceled، platform three instead of five."),
                 ("Numbers are the hard part: half past, quarter to, ten fifteen, twenty past six. Listen for the hour first, then the minutes, and check the platform against the one on your ticket.", "سخت‌ترین بخش عددها هستند: half past، quarter to، ten fifteen، twenty past six. اول ساعت را بشنو، بعد دقیقه‌ها را و سکو را با سکوی بلیتت مقایسه کن."),
             ],
             [
                 ("'The 9:40 to Kashan is delayed by twenty minutes.'", "«قطار ۹:۴۰ به کاشان بیست دقیقه تأخیر دارد»."),
                 ("'Passengers for Qom should go to platform two.'", "«مسافران قم به سکوی دو بروند»."),
-                ("'This train is cancelled. Please take the next service.'", "«این قطار لغو شده است. لطفاً با قطار بعدی بروید»."),
+                ("'This train is canceled. Please take the next service.'", "«این قطار لغو شده است. لطفاً با قطار بعدی بروید»."),
             ],
             [
                 listen("The nine forty to Kashan is delayed by twenty minutes. It will now leave at ten o'clock from platform two.", "When does the train leave now?", "قطار حالا چه ساعتی حرکت می‌کند؟", ["9:40", "9:55", "10:00", "10:20"], 2,
@@ -203,7 +203,7 @@ U2 = unit(
                        "The announcement says platform two.", "اطلاعیه می‌گوید platform two."),
             ],
             [
-                listen("Excuse me, is this the train to Qom? — No, this one goes to Qom only on Fridays. Today you need platform five.", "What does the traveller learn?", "مسافر چه چیزی می‌فهمد؟", ["the train is cancelled", "this train does not go to Qom today", "the station is closed", "the train is late"], 1,
+                listen("Excuse me, is this the train to Qom? — No, this one goes to Qom only on Fridays. Today you need platform five.", "What does the traveler learn?", "مسافر چه چیزی می‌فهمد؟", ["the train is canceled", "this train does not go to Qom today", "the station is closed", "the train is late"], 1,
                        "This train goes to Qom only on Fridays, so today he needs another platform.", "این قطار فقط جمعه‌ها به قم می‌رود، پس امروز سکوی دیگری لازم است."),
                 listen("Your ticket is for the 6:15, but the 6:15 is full. You can take the 6:45 instead at no extra cost.", "What can the passenger do?", "مسافر چه کاری می‌تواند بکند؟", ["buy a new ticket", "take the 6:45 for the same price", "get a refund only", "wait until tomorrow"], 1,
                        "The 6:45 is offered at no extra cost.", "قطار ۶:۴۵ بدون هزینهٔ اضافه پیشنهاد می‌شود."),

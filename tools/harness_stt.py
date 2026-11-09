@@ -191,7 +191,7 @@ def run_audio() -> None:
         return
     clip = clips[0]
     seconds, kind = probe_duration(clip)
-    check("mp3 recognised", kind == "mp3", kind)
+    check("mp3 recognized", kind == "mp3", kind)
     # The series is six minutes; a VBR file read as CBR overshoots by minutes,
     # which is exactly the bug the Xing header fixes.
     check("duration is about six minutes", 240 < seconds < 480,
@@ -488,7 +488,7 @@ def run_motion() -> None:
           "the glyph depends on the platform having an emoji font")
     # The fill is compared against the theme's own navy rather than a literal
     # copy of it: the value moved with the palette and the check kept asking
-    # for the colour the page no longer had.
+    # for the color the page no longer had.
     navy = _re.search(r"--navy:\s*(#[0-9a-fA-F]{6})", html)
     navy = navy.group(1).lower() if navy else ""
     check("the mic has a visible fill, not one lost against the composer",
@@ -668,7 +668,7 @@ def run_mic() -> None:
         stt[stt.find("const watch = () => {"):stt.find("this._idle = setTimeout(watch, 500);")])
     check("the silence auto-stop writes what it heard",
           re.search(r"this\._stopped = true;\s*this\.stop\(\);\s*this\.commit\(\)", watch) is not None,
-          "after 8s of quiet the browser ends the session and the recognised "
+          "after 8s of quiet the browser ends the session and the recognized "
           "text was discarded")
     check("an engine that ends its own session writes what it heard",
           re.search(r"rec\.onend = \(\) => \{.*?this\.commit\(\);", stt, re.S) is not None,

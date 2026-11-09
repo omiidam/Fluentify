@@ -133,7 +133,7 @@ def main() -> int:
                     ("loadListening", "Listening"),
                     ("loadPhonetics", "Sounds"),
                     ("loadWordArch", "the word index behind the chips"),
-                    ("bbcDoc", "the audio catalogue")):
+                    ("bbcDoc", "the audio catalog")):
         check(f"{why} is read during boot",
               boot_sections is not None and fn in boot_body,
               f"{fn} is missing from loadAllSections(), so that section is "
@@ -456,7 +456,7 @@ def main() -> int:
           and 'class="foxeyes"' in fox_markup.group(1)
           and 'brand/fox-face.png' not in fox_markup.group(1),
           "she is the mascot as a ghost - a white body, one mint line, two eyes - "
-          "and the colourful picture stays in the header where it belongs")
+          "and the colorful picture stays in the header where it belongs")
     check("her glow is painted, not filtered",
           ".foxghost {" in src and "drop-shadow" not in
           src[src.index(".foxpic {"):src.index(".foxpic {") + 400],
@@ -465,7 +465,7 @@ def main() -> int:
     check("she is white and green in both themes",
           src.count("--ghost-body:") == 2 and src.count("--ghost-line:") == 2
           and src.count("--ghost-ink:") == 2,
-          "the ghost's colours are declared with the palette, once per theme, "
+          "the ghost's colors are declared with the palette, once per theme, "
           "not hard-coded into the drawing")
     check("the fox is decoration and not a target",
           '<div class="foxslot" aria-hidden="true">' in src
@@ -547,7 +547,7 @@ def main() -> int:
           "the border was doing that job: with no fill and no glow, the open "
           "panel looks exactly like the seven closed ones")
 
-    # The microphone told four states apart with four border colours. Fill
+    # The microphone told four states apart with four border colors. Fill
     # alone has to carry them now, so they must differ by hue rather than by
     # a shade of the same blue - which is invisible to anyone who glances at
     # it, and "is it listening?" is exactly what a glance is asking.
@@ -577,9 +577,9 @@ def main() -> int:
             m = re.search(pat + r"([^}]*)\}", src)
             bg = re.search(r"background:\s*([^;]+);", m.group(1)) if m else None
             mic_fills[state] = resolve(bg.group(1), table) if bg else None
-        check(f"the microphone's {theme} states differ by colour, not just brightness",
+        check(f"the microphone's {theme} states differ by color, not just brightness",
               all(mic_fills.values()) and len(set(mic_fills.values())) == 3,
-              f"{mic_fills}: these were told apart by border colour, which is gone")
+              f"{mic_fills}: these were told apart by border color, which is gone")
     # The loader is in the markup rather than added by script: boot reads about
     # a megabyte of JSON, and a script-added overlay lands after the first long
     # frame - the blank screen it was meant to cover.
@@ -680,7 +680,7 @@ def main() -> int:
     # Content lives in foxes.json, not in code. That is the rule the whole
     # project follows, and a picker with its artwork hardcoded here would break
     # it while looking like the feature works.
-    check("the sticker catalogue is a data file, not code",
+    check("the sticker catalog is a data file, not code",
           re.search(r"loadJSON\('foxes'\)", src) is not None
           and "😀" not in src,
           "adding a sticker must be an edit to foxes.json, never to webapp.py")
@@ -698,7 +698,7 @@ def main() -> int:
           and re.search(r"function renderText\([\s\S]{0,700}?stickerize\(", src)
           is not None,
           "[fox:id] would sit in the bubble as text")
-    check("the sticker catalogue is registered before it is drawn",
+    check("the sticker catalog is registered before it is drawn",
           "function registerFoxes(" in src and "registerFoxes(data.stickers)" in src,
           "a sticker already in the transcript would never paint")
     check("the picker inserts a token rather than a single character",
@@ -738,7 +738,7 @@ def main() -> int:
           re.search(r"b\.setAttribute\('aria-label', label\)", src) is not None,
           "a grid of unlabelled pictures is a wall of nothing to a screen reader")
 
-    # The catalogue itself. Its SVGs are inserted with innerHTML, so the file is
+    # The catalog itself. Its SVGs are inserted with innerHTML, so the file is
     # the thing that has to be well-formed: a stray <script> pasted into one
     # entry would be code execution on every page that draws a fox.
     import json as _json
@@ -778,11 +778,11 @@ def main() -> int:
                   'viewBox="0 0 64 64"' not in art,
                   "the 64x64 viewBox belongs on the wrapper the page draws")
 
-    # ------------------------------------------------------------- colour --
+    # ------------------------------------------------------------- color --
     # Contrast has to be computed, not eyeballed. The learner bubble was
     # indigo->violet and two of its three stops sat under 4.5:1 against the
     # white 15px text - 4.28 and 3.96 - and had been shipped that way. A
-    # check that only asked "is this a hex colour" would have passed it.
+    # check that only asked "is this a hex color" would have passed it.
     def lum(c: str) -> float:
         c = c.lstrip("#")
         if len(c) == 3:
@@ -804,10 +804,10 @@ def main() -> int:
             check(f"--{name} clears AA against the bubble text",
                   ratio(m.group(1), bubble_text) >= 4.5,
                   f"{m.group(1)} is {ratio(m.group(1), bubble_text):.2f}:1 on "
-                  "the bubble text colour, under the 4.5 that 16px body text "
+                  "the bubble text color, under the 4.5 that 16px body text "
                   "needs")
 
-    # The section accents are text-coloured on the paper base, so they owe it
+    # The section accents are text-colored on the paper base, so they owe it
     # the same 4.5. One is open at a time, but each is still read as text.
     # The base is read from the stylesheet rather than written here: a literal
     # copy of it survived two palette changes and kept testing the wrong paper.
@@ -937,7 +937,7 @@ def main() -> int:
         check("every rung of the theme ladder is defined in both themes",
               not missing, f"{missing} exists on one side only")
 
-        # The whole point of the pass: no rule may carry a colour of its own.
+        # The whole point of the pass: no rule may carry a color of its own.
         # A literal that escapes the tokens is a rule that stays cream in the
         # dark theme, and there is no way to find it by reading.
         outside = re.sub(r"/\*.*?\*/", " ", src, flags=re.S)
@@ -946,7 +946,7 @@ def main() -> int:
         outside = re.sub(r'\[data-theme="dark"\]\s*\{.*?\n  \}', " ", outside, flags=re.S)
         outside = re.sub(r"/\*.*?\*/", " ", outside, flags=re.S)
         stray = sorted(set(re.findall(r"#[0-9a-fA-F]{3,8}\b", outside)))
-        check("no rule outside the two palette blocks hard-codes a colour",
+        check("no rule outside the two palette blocks hard-codes a color",
               not stray,
               f"{stray} would keep its light value in the dark theme")
 
@@ -1013,7 +1013,7 @@ def main() -> int:
     check("the browser chrome follows the theme",
           re.search(r'name="theme-color"', src) is not None
           and re.search(r"META = \{light: '#", src) is not None,
-          "the address bar keeps the light colour in the dark theme")
+          "the address bar keeps the light color in the dark theme")
     check("the certificate keeps its paper in both themes",
           re.search(r"--doc-paper:", block) is not None
           and re.search(r"--doc-paper: #fffdf6", root_src) is not None,
@@ -1039,7 +1039,7 @@ def main() -> int:
           re.search(r"\.player\[hidden\]\s*\{\s*display:\s*none", src) is not None,
           "display:flex beats the hidden attribute, so the bar would never "
           "go away")
-    check("the seek track is a labelled slider",
+    check("the seek track is a labeled slider",
           re.search(r'id="plseek"[^>]*role="slider"', src) is not None
           and re.search(r'id="plseek"[^>]*aria-valuenow', src) is not None,
           "a progress bar you cannot operate by keyboard excludes people")
@@ -1087,7 +1087,7 @@ def main() -> int:
           "a bar sweeping back and forth forever is what that setting is for")
 
     # ---------------------------------------------------------- bbc mirror --
-    # The catalogue listed 1123 episodes of which 5 could be played, which
+    # The catalog listed 1123 episodes of which 5 could be played, which
     # reads as broken rather than as small. It now lists exactly what exists.
     cat = ROOT / "bbc_6min.json"
     if cat.exists():
@@ -1100,11 +1100,11 @@ def main() -> int:
               len(mirrored) == len(eps) and eps,
               f"{len(eps) - len(mirrored)} of {len(eps)} point at the BBC "
               "rather than the mirror; the list is meant to be what exists")
-        check("the catalogue count matches the episode list",
+        check("the catalog count matches the episode list",
               doc.get("count") == len(eps),
               "the header number and the list have to agree")
         levels = {e.get("level") for e in eps if e.get("level")}
-        check("a short catalogue still spans more than one CEFR level",
+        check("a short catalog still spans more than one CEFR level",
               len(levels) >= 3 or len(eps) < 6,
               f"levels present: {sorted(levels)} - ten clips of one band is a "
               "worse listening course than three")
@@ -1117,7 +1117,7 @@ def main() -> int:
     check("the mic is driven by pointer events, not click alone",
           "pointerdown" in mic and "pointerup" in mic,
           "a click is suppressed by the long-press callout on Android")
-    check("a cancelled press stops dictation",
+    check("a canceled press stops dictation",
           "pointercancel" in mic,
           "a gesture the system takes over ends the press without a click")
     check("the pointer is captured so a slide off the button still releases",
@@ -1188,9 +1188,9 @@ def main() -> int:
           and "position: absolute" in jb,
           "without a positioned wrapper, bottom: is measured from the app and "
           "lands on the composer again the moment the chrome changes height")
-    check("the jump button is centred on the transcript",
+    check("the jump button is centered on the transcript",
           "left: 50%" in jb and "translateX(-50%)" in jb,
-          "the reading column is centred here, so the button belongs there too")
+          "the reading column is centered here, so the button belongs there too")
     check("the press state keeps the centring",
           ".jump:active" in src and "translateX(-50%) scale(.93)" in src,
           "a bare scale() drops translateX(-50%) and the button lurches sideways")
@@ -1435,7 +1435,7 @@ def main() -> int:
         # them only moved the wait from start-up to the first tap, and made
         # the progress bar on the loading screen count three of seven.
         boot_block = built[i:j] if i != -1 else ""
-        for name, why in (("bbc_6min", "the Listen tab's catalogue"),
+        for name, why in (("bbc_6min", "the Listen tab's catalog"),
                           ("word_arch", "the Sentences panel's word chips")):
             check(f"{name}.json is loaded during the boot",
                   f"loadJSON('{name}')" in boot_block,

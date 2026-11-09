@@ -39,8 +39,8 @@ GRAMMAR = [
         "wh-cleft با «what» آغاز می‌شود و فعل مفرد می‌گیرد."),
     mcq("Not until the figures were audited ___ the scale of the error.",
         "تا وقتی ارقام حسابرسی نشدند، کسی اندازهٔ خطا را نفهمید.",
-        ["anyone realised", "did anyone realise", "anyone did realise",
-         "realised anyone"], 1,
+        ["anyone realized", "did anyone realize", "anyone did realize",
+         "realized anyone"], 1,
         "Fronted 'not until' forces inversion in the main clause.",
         "«not until» در آغاز، جابه‌جایی در بند اصلی را الزام می‌کند."),
     mcq("The results ___ to support the earlier study, though the sample is "
@@ -136,7 +136,7 @@ READING = [
          "person who stopped ten years ago has lost nothing by stopping.\n\n"
          "The alternative is not lower standards but better ones: a standard "
          "defined by what you can do in a situation rather than by how close "
-         "you come to an imaginary speaker. Can you apologise in a way that "
+         "you come to an imaginary speaker. Can you apologize in a way that "
          "repairs something? Can you disagree with a senior colleague and "
          "keep the relationship? Can you read a contract and know which "
          "clause to ask about? These are finishable, and finishing them "
@@ -293,12 +293,12 @@ LISTENING = [
            1, "Accuracy and relevance are different virtues.",
            "دقت و مربوط بودن دو فضیلت متفاوت‌اند."),
     listen("The minister said the review had 'concluded'. She did not say it "
-           "had concluded favourably, and she did not say it had concluded at "
+           "had concluded favorably, and she did not say it had concluded at "
            "all — the review is still open.",
            "What is the speaker suggesting about the minister?",
            "گوینده دربارهٔ وزیر چه القا می‌کند؟",
            ["she was misquoted", "she chose a word that implied more than was "
-            "true", "she cancelled the review", "she was not informed"], 1,
+            "true", "she canceled the review", "she was not informed"], 1,
            "The word carries an implication the facts do not support.",
            "واژه تلویحی می‌رساند که واقعیت‌ها پشتیبانی نمی‌کنند."),
     listen("Both accounts agree sixty people were there. They disagree about "
@@ -313,7 +313,7 @@ LISTENING = [
     listen("I would rather say I do not have that figure than give you one I "
            "cannot stand behind in a month. Send me the question and I will "
            "have it by Thursday.",
-           "What does the speaker prioritise?",
+           "What does the speaker prioritize?",
            "گوینده چه چیزی را در اولویت می‌گذارد؟",
            ["speed", "credibility", "politeness", "completeness"], 1,
            "A number they cannot defend would cost credibility.",
@@ -331,7 +331,7 @@ LISTENING = [
 ]
 
 WRITING = [
-    write("Write about 160 words analysing how an opinion column persuades "
+    write("Write about 160 words analyzing how an opinion column persuades "
           "without stating its conclusion. Name two techniques, quote a short "
           "phrase for each, and say what each makes the reader do.",
           "حدود ۱۶۰ واژه تحلیل کن که یک ستون نظری چگونه بدون گفتن نتیجه "
@@ -339,7 +339,7 @@ WRITING = [
           "بگو هر یک خواننده را به چه کاری وامی‌دارد.",
           160, ["although", "whereas"],
           "Two techniques, each with a quotation and an effect; no plot "
-          "summary; a closing judgement about why the indirection works.",
+          "summary; a closing judgment about why the indirection works.",
           "دو شگرد، هرکدام با نقل و اثر؛ بدون خلاصهٔ محتوا؛ داوری پایانی "
           "دربارهٔ اینکه چرا غیرمستقیم گفتن کار می‌کند."),
     write("Write about 150 words of a proposal to a committee: your city "

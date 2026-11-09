@@ -63,7 +63,7 @@
     ],
     [
      "use",
-     "utilise / employ"
+     "utilize / employ"
     ],
     [
      "need",
@@ -276,7 +276,7 @@
   },
   {
    "situation": {
-    "en": "asking a favour of a stranger",
+    "en": "asking a favor of a stranger",
     "fa": "خواهش از غریبه"
    },
    "register": "consultative",
@@ -380,8 +380,8 @@
    },
    "register": "consultative",
    "note": {
-    "en": "Polite requests use 'Could I' and 'I'll have', not 'Give me'. Splitting the bill is asked about directly: 'Shall we split it?'",
-    "fa": "درخواست مؤدبانه با «Could I» و «I'll have»؛ صورتحساب را مستقیم میپرسی: «Shall we split it?»"
+    "en": "Polite requests use 'Could I' and 'I'll have', not 'Give me'. Splitting the bill is asked about directly: 'Should we split it?'",
+    "fa": "درخواست مؤدبانه با «Could I» و «I'll have»؛ صورتحساب را مستقیم میپرسی: «Should we split it?»"
    }
   },
   {
@@ -421,7 +421,7 @@
    }
   },
   {
-   "id": "ask_favour",
+   "id": "ask_favor",
    "meaning": {
     "en": "Can you help me with this?",
     "fa": "می‌توانی کمکم کنی / لطف کمکم کن"
@@ -435,7 +435,7 @@
     "fa": "می‌توانی کمکم کنی؟"
    },
    "casual": {
-    "en": "Can you do me a favour?",
+    "en": "Can you do me a favor?",
     "fa": "یه لطف به من می‌کنی؟"
    },
    "note": {
@@ -444,13 +444,13 @@
    }
   },
   {
-   "id": "apologise_late",
+   "id": "apologize_late",
    "meaning": {
     "en": "Sorry I'm late",
     "fa": "ببخشید دیر کردم، عذر می‌خواهم"
    },
    "formal": {
-    "en": "I apologise for arriving late; I apologise for the inconvenience caused.",
+    "en": "I apologize for arriving late; I apologize for the inconvenience caused.",
     "fa": "از بابت دیر رسیدن و سختی‌ای که ایجاد شد عذر می‌خواهم."
    },
    "consultative": {
@@ -761,7 +761,7 @@
     "fa": "هی، می‌شه صدا رو یه کم پایین بیاری؟"
    },
    "note": {
-    "en": "English complaints attach a reason to the request. The reason is what turns an order into something a neighbour can accept.",
+    "en": "English complaints attach a reason to the request. The reason is what turns an order into something a neighbor can accept.",
     "fa": "شکایت در انگلیسی دلیل را به درخواست می‌چسباند؛ همان دلیل است که دستور را تبدیل به چیزی می‌کند که همسایه می‌تواند بپذیرد."
    }
   },

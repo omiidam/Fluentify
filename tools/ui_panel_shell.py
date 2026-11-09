@@ -14,7 +14,7 @@ The audit found six panels behaving six different ways:
     section was open
   * a search that matched nothing showed nothing at all in most panels
 
-This adds one shell and routes all six panels through it, so behaviour cannot
+This adds one shell and routes all six panels through it, so behavior cannot
 diverge again. Nothing about the content changes.
 
     python3 tools/ui_panel_shell.py
@@ -72,11 +72,11 @@ CSS = r'''
 JS = r'''
 /* ============================================================================
  * PANEL SHELL
- * Every section panel gets the same behaviour: a close button, Esc to leave,
+ * Every section panel gets the same behavior: a close button, Esc to leave,
  * focus moved in on open and back to the tile on close, aria-expanded on the
  * tile, and a search box where searching makes sense.
  *
- * This exists because the six panels had drifted into six behaviours. Only
+ * This exists because the six panels had drifted into six behaviors. Only
  * Vocabulary had search, none had a close button, Esc closed the audio but
  * not a panel, and opening one left focus stranded on the tile behind it.
  * ==========================================================================*/

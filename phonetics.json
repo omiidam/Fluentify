@@ -13,7 +13,7 @@
         "en": "Ten vowel sounds carry the whole melody of English. Four pairs change the meaning of a word — say the wrong one and nobody understands you."
       },
       "tip": {
-        "en": "Persian /a/ splits in two: /æ/ in \"bad\" (mouth wide, like you are about to say \"ah\") and /ɑː/ in \"car\" (mouth relaxed, long). Everything else builds out from there."
+        "en": "Persian /a/ splits in two: /æ/ in \"bad\" (mouth wide, like you are about to say \"ah\") and /ɑr/ in \"car\" — the r is always pronounced. Everything else builds out from there."
       },
       "groups": [
         {
@@ -28,14 +28,14 @@
               "words": "eat·it · seat·sit · leave·live · feel·fill"
             },
             {
-              "ip": "/e/ vs /æ/",
+              "ip": "/ɛ/ vs /æ/",
               "sub": "bed / bad",
               "say": "bed",
               "words": "men·man · said·sad · pen·pan · said·sad"
             },
             {
-              "ip": "/ɑː/",
-              "sub": "back vowel, long",
+              "ip": "/ɑr/",
+              "sub": "rhotic — the r is pronounced",
               "say": "car",
               "words": "park·star · hard·harm"
             },
@@ -46,22 +46,22 @@
               "words": "much·money · son·sun"
             },
             {
-              "ip": "/ɜː/",
-              "sub": "like /a/ with a smile",
+              "ip": "/ɝː/",
+              "sub": "r-colored, as in bird",
               "say": "bird",
               "words": "first·person · turn·turtle"
             },
             {
-              "ip": "/ɒ/",
-              "sub": "short, rounded",
+              "ip": "/ɑ/",
+              "sub": "open, unrounded",
               "say": "hot",
-              "words": "not·note · lost·lost"
+              "words": "not·nut · lost·last"
             },
             {
-              "ip": "/ɔː/",
-              "sub": "long, rounded",
+              "ip": "/ɔr/",
+              "sub": "r-colored, rounded",
               "say": "door",
-              "words": "all·awful · walk·talk"
+              "words": "call·tall · door·more"
             },
             {
               "ip": "/ə/",
@@ -101,20 +101,20 @@
               "words": "town·down · about·allowed"
             },
             {
-              "ip": "/əʊ/",
+              "ip": "/oʊ/",
               "sub": "oh",
               "say": "go",
               "words": "boat·coat · know·snow"
             },
             {
-              "ip": "/ɪə/",
-              "sub": "ear",
+              "ip": "/ɪr/",
+              "sub": "ear + r",
               "say": "here",
               "words": "hear·beer · year·really"
             },
             {
-              "ip": "/eə/",
-              "sub": "air",
+              "ip": "/ɛr/",
+              "sub": "air, as in hair",
               "say": "hair",
               "words": "bear·pear · stare·stair"
             }
@@ -134,7 +134,7 @@
         "en": "The most common ending in spoken English. It marks plurals, he/she verbs and possessives — and it has exactly three pronunciations."
       },
       "tip": {
-        "en": "Never add a vowel after /s/, /z/ or /ʃ/. \"buses\" is /ˈbjuːzɪz/ — not \"busees\"."
+        "en": "Never add a vowel after /s/, /z/ or /ʃ/. \"buses\" is /ˈbʌsɪz/ — not \"busees\"."
       },
       "groups": [
         {
@@ -207,7 +207,7 @@
         "en": "One spelling, three sounds. The rule is purely about the sound before the -ed — learn it and you never guess wrong again."
       },
       "tip": {
-        "en": "Only /ɪd/ adds a syllable: want → /ˈwɒntɪd/. The other two stay in the same syllable: walked → /wɔːkt/."
+        "en": "Only /ɪd/ adds a syllable: want → /ˈwɑntɪd/. The other two stay in the same syllable: walked → /wɔrkt/."
       },
       "groups": [
         {
@@ -319,9 +319,9 @@
             },
             {
               "ip": "2005",
-              "sub": "two thousand and five",
-              "say": "two thousand and five",
-              "note": "British English keeps 'and'; American English often drops it"
+              "sub": "two thousand five",
+              "say": "two thousand five",
+              "note": "American English usually drops 'and' after thousand"
             },
             {
               "ip": "2010",
@@ -330,13 +330,13 @@
               "note": "both 'twenty ten' and 'two thousand and ten' are heard; stay consistent"
             },
             {
-              "ip": "3 March",
-              "sub": "the third of March",
-              "say": "the third of March",
-              "note": "write 3/3? British and American readers reverse day and month"
+              "ip": "March 3",
+              "sub": "March third",
+              "say": "March third",
+              "note": "American dates put the month first: March 3, 2026"
             },
             {
-              "ip": "7.30",
+              "ip": "7:30",
               "sub": "seven thirty",
               "say": "seven thirty",
               "words": "7.05 · 7.15 · 7.45",
@@ -356,10 +356,10 @@
               "note": "casual speech also says 'four fifty'"
             },
             {
-              "ip": "£2.99",
-              "sub": "two pounds ninety-nine",
-              "say": "two pounds ninety-nine",
-              "words": "£1.50 · £10.99"
+              "ip": "$2.99",
+              "sub": "two dollars ninety-nine",
+              "say": "two dollars ninety-nine",
+              "words": "$1.50 · $10.99"
             },
             {
               "ip": "€1.20",
@@ -369,9 +369,9 @@
             },
             {
               "ip": "0.5",
-              "sub": "nought point five",
-              "say": "nought point five",
-              "note": "American English says 'zero point five'"
+              "sub": "zero point five",
+              "say": "zero point five",
+              "note": "say 'zero', not 'oh', inside a decimal"
             },
             {
               "ip": "2.75",
@@ -482,7 +482,7 @@
               "ip": "Z",
               "sub": "zee / zed",
               "say": "Z as in Zulu",
-              "note": "American English says 'zee'; British English says 'zed'"
+              "note": "American English says 'zee' — the model here; British English says 'zed'"
             }
           ]
         },
@@ -522,7 +522,7 @@
         "fa": "استرس واژه"
       },
       "blurb": {
-        "en": "The stressed syllable is longer, louder and higher. Get it wrong and the word stops being recognised — worse than a wrong consonant."
+        "en": "The stressed syllable is longer, louder and higher. Get it wrong and the word stops being recognized — worse than a wrong consonant."
       },
       "tip": {
         "en": "Many nouns and verbs share a spelling but move the beat: ˈRECord (noun) vs reˈCORD (verb). Learn both with their stress marked."
@@ -634,7 +634,7 @@
               "ip": "family",
               "sub": "FAM-ə-le",
               "say": "family",
-              "words": "holiday · memory · very · money"
+              "words": "vacation · memory · very · money"
             },
             {
               "ip": "computer",
@@ -728,7 +728,7 @@
               "sub": "never touches the roof",
               "say": "red",
               "words": "right · around · sorry · carry · very",
-              "note": "the tip of the tongue floats; it never curls back"
+              "note": "the tongue body pulls back; the tip stays down and never touches the roof"
             },
             {
               "ip": "/l/",
@@ -902,7 +902,7 @@
           "rows": [
             {
               "ip": "asked",
-              "sub": "/ɑːskt/ — one syllable",
+              "sub": "/æskt/ — one syllable",
               "say": "asked",
               "note": "k and t touch; no 'ask-ed'"
             },
@@ -914,7 +914,7 @@
             },
             {
               "ip": "worked",
-              "sub": "/wɜːkt/ — k + t",
+              "sub": "/wɝːkt/ — k + t",
               "say": "worked",
               "words": "helped · watched · washed"
             },
@@ -926,7 +926,7 @@
             },
             {
               "ip": "worlds",
-              "sub": "/wɜːldz/ — l + d + z",
+              "sub": "/wɝːldz/ — l + d + z",
               "say": "worlds",
               "words": "fields · builds · holds"
             }
@@ -944,9 +944,9 @@
               "words": "ask · risk · task"
             },
             {
-              "ip": "film",
+              "ip": "movie",
               "sub": "not 'fil-em'",
-              "say": "film",
+              "say": "movie",
               "words": "help · milk · silk"
             },
             {
@@ -1010,7 +1010,7 @@
               "words": "have to · going to · used to"
             },
             {
-              "ip": "was / were → /wəz/ /wə/",
+              "ip": "was / were → /wəz/ /wɚ/",
               "sub": "weak form",
               "say": "he was late",
               "words": "I was · we were · you were"
@@ -1114,13 +1114,13 @@
             },
             {
               "ip": "an hour",
-              "sub": "/əˈnaʊə/",
+              "sub": "/ən ˈaʊɚ/",
               "say": "I'll be there in an hour.",
               "words": "an honest · a hotel · an hour ago"
             },
             {
               "ip": "what are you",
-              "sub": "/ˈwɒtʃə/",
+              "sub": "/ˈwʌtʃə/",
               "say": "What are you doing?",
               "words": "not at all · what else · how about"
             },
@@ -1132,13 +1132,13 @@
             },
             {
               "ip": "come on",
-              "sub": "/kʌˈmɒn/",
+              "sub": "/kəˈmɑn/",
               "say": "Come on!",
               "words": "come on in · go on · run on"
             },
             {
               "ip": "a lot of",
-              "sub": "/əˈlɌɒv/",
+              "sub": "/əˈlɑt əv/",
               "say": "a lot of people",
               "words": "a lot of time · a lot to do"
             },
@@ -1152,7 +1152,7 @@
               "ip": "shouldn't",
               "sub": "→ /ˈʃʊdnt/",
               "say": "I shouldn't go.",
-              "words": "wouldn't · couldn't · haven't · mustn't"
+              "words": "wouldn't · couldn't · haven't · must not"
             }
           ]
         }
@@ -1242,8 +1242,8 @@
               "ip": "-ough",
               "sub": "five different sounds",
               "say": "though",
-              "words": "through /uː/ · cough /ɒf/ · tough /ʌf/ · bough /aʊ/",
-              "note": "there is no rule at all — memorise as a group"
+              "words": "through /uː/ · cough /kɔf/ · tough /ʌf/ · bough /aʊ/",
+              "note": "there is no rule at all — memorize as a group"
             },
             {
               "ip": "-igh",
@@ -1256,7 +1256,7 @@
               "ip": "-ea-",
               "sub": "four pronunciations",
               "say": "bread",
-              "words": "great /eɪ/ · steak /eɪ/ · heart /ɑː/ · head /ɛ/",
+              "words": "great /eɪ/ · steak /eɪ/ · heart /hɑrt/ · head /ɛ/",
               "note": "the most irregular vowel spelling in English"
             },
             {
@@ -1414,7 +1414,7 @@
             {
               "ip": "stress shift",
               "sub": "when a word becomes the verb",
-              "say": "I can run ten kilometres.",
+              "say": "I can run ten kilometers.",
               "words": "light·to light · second·a second · present·to present"
             },
             {
@@ -1496,7 +1496,7 @@
             {
               "ip": "the number",
               "sub": "isolated and loud",
-              "say": "Revenue rose by forty per cent."
+              "say": "Revenue rose by forty percent."
             },
             {
               "ip": "contrast",
@@ -1619,7 +1619,7 @@
             {
               "ip": "content words",
               "sub": "keep every sound",
-              "say": "Reorganisation is unavoidable."
+              "say": "Reorganization is unavoidable."
             },
             {
               "ip": "numbers & names",
