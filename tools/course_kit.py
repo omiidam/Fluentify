@@ -84,6 +84,26 @@ def unit(uid, title, goal, lessons) -> dict:
     return {"id": uid, "title": T(*title), "goal": T(*goal), "lessons": list(lessons)}
 
 
+def add_lessons(units, extras) -> list:
+    """Append extra lessons to units that already exist.
+
+    `extras` maps a unit id to the lessons added to the end of that unit, so a
+    level can be deepened without rewriting the units it already has: the
+    lesson order inside a unit stays grammar, vocabulary, then the skill the
+    extra covers.
+    """
+    by_id = {u["id"]: u for u in units}
+    for uid, rows in extras.items():
+        if uid not in by_id:
+            raise KeyError(f"no unit {uid} to add lessons to")
+        known = {l["id"] for l in by_id[uid]["lessons"]}
+        for row in rows:
+            if row["id"] in known:
+                raise KeyError(f"lesson {row['id']} is already in {uid}")
+            by_id[uid]["lessons"].append(row)
+    return units
+
+
 def passage(title, text) -> dict:
     return {"title": T(*title), "text": T(*text)}
 

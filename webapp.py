@@ -5863,6 +5863,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     margin: 0 0 16px; background: var(--card);
     box-shadow: 0 1px 2px rgba(74,58,30,.05);
   }
+  /* ---- the end of the path ----
+     Shown only when C2 has been passed, because that is the one point at
+     which there is nothing above the learner to open. */
+  .path-done {
+    border: 1px solid var(--line); border-radius: 18px; padding: 14px 18px;
+    margin: 0 0 16px; background: var(--card);
+    box-shadow: 0 1px 2px rgba(74,58,30,.05);
+  }
+  .path-done b { display: block; font-size: 13.5px; margin: 0 0 3px; }
+  .path-done p { font-size: 11.5px; color: var(--muted); margin: 0; line-height: 1.6; }
   .path-band-l { min-width: 0; flex: 1 1 220px; }
   .path-band-k {
     font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
@@ -16866,22 +16876,38 @@ const Path = (() => {
         '</div>'
       : '';
 
+    /* C2 is the last course in the path, so passing it is the one thing that
+       leaves nothing above the learner. Say so instead of letting the grid
+       simply end. */
+    const endBand = prog('C2').passed
+      ? '<div class="path-done" dir="ltr">' +
+          '<b>You have finished the learning path — Pre-A1 through C2.</b>' +
+          '<p>Every course is open to revisit, and your final examination result ' +
+          'stays on the C2 level page. ' +
+          '<span class="fa" dir="rtl" lang="fa">مسیر یادگیری را تمام کردی — از ' +
+          'Pre-A1 تا C2. همهٔ دوره‌ها برای مرور باز می‌مانند و نتیجهٔ آزمون پایانی ' +
+          'در صفحهٔ C2 می‌ماند.</span></p>' +
+        '</div>'
+      : '';
+
     host.innerHTML = '<div class="path-wrap">' +
       '<div class="path-head">' +
         '<p class="path-kicker">Learning path · <bdi class="fa" dir="rtl" lang="fa">مسیر یادگیری</bdi></p>' +
         '<h2 class="path-h">Seven levels, one step at a time</h2>' +
         '<p class="path-sub" dir="ltr">Your level check placed you at <b>' + esc(under) +
-          '</b>. The path runs from Pre-A1 to C2; the courses for ' + esc(named) +
-          ' and their examinations are written and ready, and the other levels have their place here.</p>' +
+          '</b>. The path runs from Pre-A1 to C2, and all seven courses and their ' +
+          'examinations are written: ' + esc(named) + '. Passing C2 completes the path.</p>' +
         '<p class="path-sub fa" dir="rtl" lang="fa">سنجش سطح تو را در <b>' + esc(under) +
-          '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد؛ دوره‌های ' + esc(namedFa) +
-          ' و آزمون‌هایشان آماده‌اند و بقیهٔ سطح‌ها جای خود را در همین صفحه دارند.</p>' +
+          '</b> قرار داد. مسیر از Pre-A1 تا C2 ادامه دارد و هر هفت دوره با ' +
+          'آزمون‌هایشان نوشته شده‌اند: ' + esc(namedFa) +
+          '. قبولی در C2 مسیر را کامل می‌کند.</p>' +
       '</div>' +
       band +
+      endBand +
       '<div class="plv-grid">' + cards + '</div>' +
       '<p class="path-foot" dir="ltr">Every level keeps the same shape: units, lessons ' +
-        'and a final examination over the six skills. A level with no course yet is a ' +
-        'place in the path, not a course.</p>' +
+        'and a final examination over the six skills. Each examination is 33 marks, ' +
+        'needs 60% overall and 50% in every skill, and passing a level opens the next.</p>' +
     '</div>';
   }
 

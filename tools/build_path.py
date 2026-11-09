@@ -24,6 +24,8 @@ from course_a2 import COURSE as A2  # noqa: E402
 from course_b1 import COURSE as B1  # noqa: E402
 from course_b2 import COURSE as B2  # noqa: E402
 from course_c1 import COURSE as C1  # noqa: E402
+from course_c2 import COURSE as C2  # noqa: E402
+from course_pre import COURSE as PRE  # noqa: E402
 
 
 def main() -> int:
@@ -34,13 +36,18 @@ def main() -> int:
     courses = doc.setdefault("courses", {})
     before = json.dumps(courses.get("A1"), sort_keys=True)
 
-    courses["A2"] = A2
-    courses["B1"] = B1
-    courses["B2"] = B2
-    courses["C1"] = C1
+    written = {"PRE": PRE, "A2": A2, "B1": B1, "B2": B2, "C1": C1,
+               "C2": C2}
+    written["A1"] = courses["A1"]
+    # The courses map follows the order of the levels, so the file reads
+    # Pre-A1 to C2 in the same order as the path.
+    ordered = {lid: written[lid] for lid in
+               ("PRE", "A1", "A2", "B1", "B2", "C1", "C2")}
+    courses.clear()
+    courses.update(ordered)
 
     for level in doc.get("levels", []):
-        if level.get("id") in ("A2", "B1", "B2", "C1"):
+        if level.get("id") in ("PRE", "A2", "B1", "B2", "C1", "C2"):
             level["course"] = level["id"]
 
     after = json.dumps(courses["A1"], sort_keys=True)
@@ -51,7 +58,7 @@ def main() -> int:
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
 
-    for key in ("A1", "A2", "B1", "B2", "C1"):
+    for key in ("PRE", "A1", "A2", "B1", "B2", "C1", "C2"):
         course = courses[key]
         lessons = sum(len(u["lessons"]) for u in course["units"])
         exercises = sum(len(l["exercises"]) for u in course["units"] for l in u["lessons"])

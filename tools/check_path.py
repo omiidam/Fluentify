@@ -38,12 +38,15 @@ KINDS = {"mcq", "gap", "listen", "write", "say"}
 LEVEL_IDS = ["PRE", "A1", "A2", "B1", "B2", "C1", "C2"]
 # What each written course is: units, lessons, exercises. A1 is the reference
 # course and must not change; A2 and B1 came next, then B2 and C1.
-COURSE_SHAPE = {"A1": (6, 18, 67), "A2": (8, 24, 95), "B1": (8, 24, 94),
-                "B2": (8, 24, 94), "C1": (8, 24, 89)}
-# The length a writing task may ask for. A1 to B1 write a short paragraph; B2 and
-# C1 write a report or an essay, and marking a hundred and fifty words against a
-# sixty-word ceiling would fail every correct answer.
-WRITE_CAP = {"A1": 60, "A2": 60, "B1": 60, "B2": 160, "C1": 160}
+COURSE_SHAPE = {"PRE": (6, 24, 69), "A1": (8, 32, 105), "A2": (8, 32, 117),
+                "B1": (8, 32, 116), "B2": (8, 32, 115), "C1": (8, 32, 111),
+                "C2": (8, 32, 116)}
+# The length a writing task may ask for. Pre-A1 and A1 to B1 write a short
+# paragraph; B2 and C1 write a report or an essay, and C2 reviews and
+# synthesises, so marking a hundred and sixty words against a sixty-word
+# ceiling would fail every correct answer.
+WRITE_CAP = {"PRE": 40, "A1": 60, "A2": 60, "B1": 60, "B2": 160, "C1": 160,
+             "C2": 200}
 
 
 def word_cap(lid: str) -> int:
@@ -91,10 +94,8 @@ def check_shape(doc: dict) -> dict:
           "Pre-A1 is not the first level of the path")
     check(bool(levels) and levels[0].get("label") == "Pre-A1",
           f"the first level is labelled {levels[0].get('label') if levels else None!r}")
-    check(bool(levels) and levels[0].get("course") is None,
-          "Pre-A1 claims a course it does not have")
-    check("PRE" not in (doc.get("courses") or {}),
-          "an unwritten Pre-A1 course was invented")
+    check(bool(levels) and levels[0].get("course") == "PRE",
+          "Pre-A1 does not point at its own course")
 
     seen = set()
     for lv in levels:
@@ -117,10 +118,8 @@ def check_shape(doc: dict) -> dict:
         check(bool(row) and row.get("course") == lid,
               f"level {lid} does not point at its own course")
         check(len(course.get("units") or []) >= 6, f"{lid} has fewer than six units")
-    for lid in ("A1", "A2", "B1", "B2", "C1"):
+    for lid in ("PRE", "A1", "A2", "B1", "B2", "C1", "C2"):
         check(lid in courses, f"{lid} has no course")
-    check("C2" not in courses,
-          "C2 was implemented, and this task stops at C1")
 
     return {"levels": len(levels), "courses": list(courses)}
 
@@ -440,8 +439,8 @@ say(PathModel.status('A2', 'B1', false, false) === 'past', 'A2 below a B1 learne
 say(PathModel.status('A1', 'B1', true, false) === 'available',
     'an unwritten lower level with a course is not open');
 say(PathModel.status('A1', 'A1', true, true) === 'done', 'a passed level is not done');
-say(PathModel.status('C2', 'C2', false, false) === 'awaiting',
-    'the assessed top level with no course does not offer its space');
+say(PathModel.status('C2', 'C2', true, false) === 'current',
+    'an assessed C2 learner does not start on C2');
 say(PathModel.status('B1', 'PRE', false, false) === 'locked', 'nothing above PRE should be open');
 say(PathModel.status('A2', 'A1', false, false, true) === 'awaiting',
     'passing A1 does not make an unwritten A2 the next level');
@@ -460,15 +459,17 @@ say(PathModel.status('B1', 'A2', true, false, true) === 'available',
 say(PathModel.status('B2', 'B1', false, false, true) === 'awaiting',
     'passing B1 does not make an unwritten B2 the next level');
 /* From B2 upwards the courses exist, so the pass above opens the next one by
-   name - and C2, the only space with no curriculum, stays a space. */
+   name, and a pass at C2 is the end of the path. */
 say(PathModel.status('B2', 'B1', true, false, true) === 'available',
     'passing B1 does not open the B2 course');
 say(PathModel.status('C1', 'B2', true, false, true) === 'available',
     'passing B2 does not open the C1 course');
 say(PathModel.status('C1', 'B1', true, false, false) === 'locked',
     'C1 is open two levels early');
-say(PathModel.status('C2', 'C1', false, false, true) === 'awaiting',
-    'passing C1 does not leave C2 waiting for its curriculum');
+say(PathModel.status('C2', 'C1', true, false, true) === 'available',
+    'passing C1 does not open the C2 course');
+say(PathModel.status('C2', 'C1', true, true, true) === 'done',
+    'a passed C2 is not the end of the path');
 say(PathModel.status('B2', 'B2', true, false) === 'current',
     'an assessed B2 learner does not start on B2');
 say(PathModel.status('C1', 'C1', true, false) === 'current',
@@ -486,11 +487,13 @@ say(PathModel.status('B1', 'B1', true, false) === 'current',
 say(PathModel.status('A1', 'B1', true, false) === 'available',
     'a B1 learner cannot go back to the A1 course');
 
-/* A learner placed on a level whose course is not written has nothing to open,
-   so the nearest written level above is offered by name - and the assessed
-   card still says its own curriculum is missing. */
-say(PathModel.status('PRE', 'PRE', false, false) === 'awaiting',
-    'Pre-A1 with no course is not shown as awaiting');
+/* Pre-A1 is where a learner who scores below the first band starts, and it
+   now has its own course; the offer of the nearest written level above stays
+   for any level that still has none. */
+say(PathModel.status('PRE', 'PRE', true, false) === 'current',
+    'an assessed Pre-A1 learner does not start on Pre-A1');
+say(PathModel.status('A1', 'PRE', true, false, true) === 'available',
+    'passing Pre-A1 does not open the A1 course');
 say(PathModel.status('A1', 'PRE', true, false, false, 'A1') === 'available',
     'a Pre-A1 learner is not offered the A1 course');
 say(PathModel.status('B1', 'PRE', false, false, false, 'A1') === 'locked',
