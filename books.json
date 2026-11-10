@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: seventy-five structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to seven are complete, chart 1-1 to 7-9. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: هفتاد‌وپنج ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا هفت کامل‌اند، از نمودار ۱-۱ تا ۷-۹. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: eighty-two structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to eight are complete, chart 1-1 to 8-9. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: هشتاد‌و‌دو ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا هشت کامل‌اند، از نمودار ۱-۱ تا ۸-۹. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -21535,164 +21535,717 @@
     },
     {
      "n": 57,
-     "title": "Pronouns, possessive adjectives and other",
-     "title_fa": "ضمیرها، صفت‌های ملکی و other",
+     "title": "Personal pronouns: subject and object",
+     "title_fa": "ضمیرهای شخصی: فاعلی و مفعولی",
      "chapter": "Chapter 8",
      "section": "8-1",
-     "use_en": "A subject pronoun does the action, an object pronoun receives it, and a possessive adjective stands before a noun. Other becomes others when it stands alone.",
-     "use_fa": "ضمیر فاعلی کار را انجام می‌دهد، ضمیر مفعولی آن را می‌گیرد، و صفت ملکی پیش از اسم می‌آید. other وقتی تنها و بدون اسم بیاید، others می‌شود.",
-     "form_en": "I / me / my   |   other + noun   |   others (alone)",
+     "use_en": "A pronoun replaces a noun so it does not have to be repeated. Subject pronouns do the action: I, you, he, she, it, we, they. Object pronouns receive it: me, you, him, her, it, us, them. English keeps the subject even when the verb is obvious, and a pronoun must agree with the noun it replaces in number and gender.",
+     "use_fa": "ضمیر جای اسم می‌نشیند تا لازم نباشد تکرار شود. ضمیر فاعلی کار را انجام می‌دهد: I، you، he، she، it، we، they. ضمیر مفعولی آن را می‌گیرد: me، you، him، her، it، us، them. انگلیسی فاعل را حتی وقتی فعل روشن است نگه می‌دارد و ضمیر باید در شمار و جنس با اسمی که جای آن آمده هم‌خوان باشد.",
+     "form_en": "subject: I / you / he / she / it / we / they  ·  object: me / you / him / her / it / us / them",
      "examples": [
       {
-       "en": "She gave me her notebook.",
-       "fa": "او دفترش را به من داد."
+       "en": "My brother is a teacher. He works in a small school.",
+       "fa": "برادرم معلم است. او در مدرسهٔ کوچکی کار می‌کند."
       },
       {
-       "en": "Some students left early; others stayed.",
-       "fa": "بعضی دانش‌آموزان زود رفتند؛ بقیه ماندند."
+       "en": "I called Sara and told her the news.",
+       "fa": "به سارا زنگ زدم و خبر را به او گفتم."
       },
       {
-       "en": "I have two pens: one is blue, the other is black.",
-       "fa": "دو خودکار دارم: یکی آبی است، دیگری مشکی."
+       "en": "The keys are on the table. Can you bring them?",
+       "fa": "کلیدها روی میز است. می‌توانی آن‌ها را بیاوری؟"
       }
      ],
      "exercises": [
       {
-       "prompt": "This is Ali and this is ___ sister.",
-       "answer": "his",
-       "why_en": "Ali is male singular, so the possessive adjective is his.",
-       "why_fa": "علی مفرد و مذکر است، پس صفت ملکی his می‌شود."
+       "prompt": "Ali is late. ___ is still at work.",
+       "answer": "He",
+       "why_en": "Ali is male and singular, and the pronoun is the subject.",
+       "why_fa": "علی مذکر و مفرد است و ضمیر فاعل است."
       },
       {
-       "prompt": "We called the doctor, but ___ was busy.",
-       "answer": "he",
-       "why_en": "A singular person in subject position takes a subject pronoun.",
-       "why_fa": "یک شخص مفرد در جایگاه فاعل، ضمیر فاعلی می‌گیرد."
+       "prompt": "I saw Maryam yesterday and gave ___ the book.",
+       "answer": "her",
+       "why_en": "The pronoun is the indirect object and Maryam is female.",
+       "why_fa": "ضمیر مفعول غیرمستقیم است و مریم مؤنث."
       },
       {
-       "prompt": "Some of the cakes are fresh; ___ are old.",
-       "answer": "others",
-       "why_en": "The pronoun stands alone for other cakes.",
-       "why_fa": "ضمیر به‌تنهایی جانشین other cakes می‌شود."
+       "prompt": "The children are tired. Please help ___.",
+       "answer": "them",
+       "why_en": "Children is plural and the pronoun is the object.",
+       "why_fa": "children جمع است و ضمیر مفعول است."
       }
      ],
      "exam": [
       {
-       "q": "___ bag is this?",
-       "options": [
-        "Whose",
-        "Who's",
-        "Who"
-       ],
-       "answer": "Whose",
-       "why_en": "Possession before a noun is whose.",
-       "why_fa": "مالکیت پیش از اسم با whose بیان می‌شود."
-      },
-      {
-       "q": "I like these shoes. Could I try ___ on?",
+       "q": "My parents are visiting. I am cooking for ___ .",
        "options": [
         "them",
         "they",
         "their"
        ],
        "answer": "them",
-       "why_en": "After a verb the object pronoun is used.",
-       "why_fa": "پس از فعل، ضمیر مفعولی می‌آید."
+       "why_en": "After a preposition the object pronoun is used.",
+       "why_fa": "پس از حرف اضافه ضمیر مفعولی می‌آید."
       },
       {
-       "q": "Two girls were waiting; ___ were laughing.",
+       "q": "The book is interesting. ___ was written in 1990.",
        "options": [
-        "they",
-        "them",
-        "their"
+        "It",
+        "He",
+        "She"
        ],
-       "answer": "they",
-       "why_en": "The subject of the sentence needs a subject pronoun.",
-       "why_fa": "فاعل جمله ضمیر فاعلی می‌خواهد."
+       "answer": "It",
+       "why_en": "A book is a thing, so the pronoun is it.",
+       "why_fa": "کتاب شیء است، پس ضمیر it است."
+      },
+      {
+       "q": "Sara and I are ready. ___ can leave now.",
+       "options": [
+        "We",
+        "Us",
+        "Them"
+       ],
+       "answer": "We",
+       "why_en": "Sara and I together make we, and it is the subject.",
+       "why_fa": "سارا و من با هم we می‌شوند و فاعل است."
       }
      ]
     },
     {
      "n": 58,
-     "title": "Reflexive pronouns",
-     "title_fa": "ضمیرهای بازتابی",
+     "title": "Possessive adjectives and possessive pronouns",
+     "title_fa": "صفت‌های ملکی و ضمیرهای ملکی",
      "chapter": "Chapter 8",
-     "section": "8-4",
-     "use_en": "A reflexive pronoun points back to the subject: the subject and the object are the same person. It can also add emphasis, meaning “that person and nobody else”.",
-     "use_fa": "ضمیر بازتابی به نهاد برمی‌گردد: فاعل و مفعول یک نفرند. همچنین می‌تواند تأکید بیفزاید، یعنی «خودِ همان شخص و نه کس دیگر».",
-     "form_en": "myself, yourself, himself, herself, itself, ourselves, yourselves, themselves",
+     "section": "8-2",
+     "use_en": "A possessive adjective stands before a noun: my book, your car, their house. A possessive pronoun stands alone and names the thing itself: mine, yours, his, hers, ours, theirs. English has no apostrophe in any of them: its is possessive, it's means it is.",
+     "use_fa": "صفت ملکی پیش از اسم می‌آید: my book، your car، their house. ضمیر ملکی تنها می‌آید و خودِ چیز را نام می‌برد: mine، yours، his، hers، ours، theirs. هیچ‌کدام آپاستروف ندارند: its ملکی است و it's یعنی it is.",
+     "form_en": "adjective + noun: my / your / his / her / its / our / their  ·  pronoun alone: mine / yours / his / hers / its / ours / theirs",
      "examples": [
       {
-       "en": "I cut myself while cooking.",
-       "fa": "هنگام آشپزی خودم را بریدم."
+       "en": "This is my bag, and that one is yours.",
+       "fa": "این کیف من است و آن یکی مال تو."
       },
       {
-       "en": "They built the house themselves.",
-       "fa": "خودشان خانه را ساختند."
+       "en": "Their house is bigger than ours.",
+       "fa": "خانهٔ آن‌ها از خانهٔ ما بزرگ‌تر است."
       },
       {
-       "en": "Help yourself to tea.",
-       "fa": "خودت چای بردار."
+       "en": "The cat licked its paw.",
+       "fa": "گربه پنجه‌اش را لیسید."
       }
      ],
      "exercises": [
       {
-       "prompt": "She taught ___ to play the guitar.",
-       "answer": "herself",
-       "why_en": "She and the person taught are the same.",
-       "why_fa": "فاعل و کسی که آموزش می‌بیند یکی است."
+       "prompt": "This is Sara's notebook; that one is ___ (I).",
+       "answer": "mine",
+       "why_en": "A possessive pronoun stands alone, and I becomes mine.",
+       "why_fa": "ضمیر ملکی تنها می‌آید و I به mine تبدیل می‌شود."
       },
       {
-       "prompt": "We enjoyed ___ at the party.",
-       "answer": "ourselves",
-       "why_en": "The subject is we, so the reflexive is ourselves.",
-       "why_fa": "نهاد we است، پس ضمیر بازتابی ourselves می‌شود."
+       "prompt": "The students forgot ___ books at home.",
+       "answer": "their",
+       "why_en": "A possessive adjective before a noun agrees with students.",
+       "why_fa": "صفت ملکی پیش از اسم با students هم‌خوان است."
       },
       {
-       "prompt": "The manager ___ answered the phone.",
-       "answer": "himself",
-       "why_en": "Here it emphasizes: the manager and not an assistant.",
-       "why_fa": "اینجا تأکید است: خود مدیر و نه منشی."
+       "prompt": "The dog hurt ___ leg.",
+       "answer": "its",
+       "why_en": "Its is the possessive of it, with no apostrophe.",
+       "why_fa": "its ملکیِ it است و آپاستروف ندارد."
       }
      ],
      "exam": [
       {
-       "q": "Be careful, or you will hurt ___ .",
+       "q": "Is this pen ___ ?",
        "options": [
-        "you",
-        "yourself",
-        "yours"
+        "yours",
+        "your",
+        "you"
        ],
-       "answer": "yourself",
-       "why_en": "The subject is you.",
-       "why_fa": "فاعل you است."
+       "answer": "yours",
+       "why_en": "Nothing follows, so the possessive pronoun is needed.",
+       "why_fa": "چیزی پس از آن نمی‌آید، پس ضمیر ملکی لازم است."
       },
       {
-       "q": "The children dressed ___ .",
+       "q": "Sara invited ___ friends to dinner.",
        "options": [
-        "themselves",
-        "themself",
-        "theirselves"
+        "her",
+        "hers",
+        "she"
        ],
-       "answer": "themselves",
-       "why_en": "The plural reflexive of they is themselves.",
-       "why_fa": "ضمیر انعکاسیِ جمعِ they می‌شود themselves."
+       "answer": "her",
+       "why_en": "A possessive adjective stands before the noun friends.",
+       "why_fa": "صفت ملکی پیش از اسم friends می‌آید."
       },
       {
-       "q": "I made the cake ___ .",
+       "q": "The company changed ___ name last year.",
        "options": [
-        "me",
-        "myself",
-        "mine"
+        "its",
+        "it's",
+        "their"
        ],
-       "answer": "myself",
-       "why_en": "Emphasis on the subject, which is I.",
-       "why_fa": "تأکید روی فاعل است، که I است."
+       "answer": "its",
+       "why_en": "Its is possessive; it's is only a contraction of it is.",
+       "why_fa": "its ملکی است؛ it's تنها کوتاه‌شدهٔ it is است."
       }
      ]
     },
     {
      "n": 59,
+     "title": "Reflexive pronouns: myself, yourself, themselves",
+     "title_fa": "ضمیرهای انعکاسی: myself، yourself، themselves",
+     "chapter": "Chapter 8",
+     "section": "8-3",
+     "use_en": "A reflexive pronoun points back to the subject: I taught myself, she hurt herself, they enjoyed themselves. The forms are myself, yourself, himself, herself, itself, ourselves, yourselves, themselves — never hisself or theirselves. Use a reflexive only when the subject and the object are the same person.",
+     "use_fa": "ضمیر انعکاسی به فاعل بازمی‌گردد: I taught myself، she hurt herself، they enjoyed themselves. شکل‌ها عبارت‌اند از myself، yourself، himself، herself، itself، ourselves، yourselves، themselves — هرگز hisself یا theirselves. ضمیر انعکاسی را تنها وقتی به کار ببر که فاعل و مفعول یک نفر باشند.",
+     "form_en": "subject + verb + -self / -selves  (myself, yourself, himself, herself, itself, ourselves, yourselves, themselves)",
+     "examples": [
+      {
+       "en": "I cut myself while cooking.",
+       "fa": "هنگام آشپزی دستم را بریدم."
+      },
+      {
+       "en": "The children dressed themselves.",
+       "fa": "بچه‌ها خودشان لباس پوشیدند."
+      },
+      {
+       "en": "She taught herself to play the piano.",
+       "fa": "او خودش نواختن پیانو را یاد گرفت."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "He hurt ___ while playing football.",
+       "answer": "himself",
+       "why_en": "The subject and the object are the same male person.",
+       "why_fa": "فاعل و مفعول یک مرد است."
+      },
+      {
+       "prompt": "We enjoyed ___ at the party.",
+       "answer": "ourselves",
+       "why_en": "The subject is we, so the reflexive is ourselves.",
+       "why_fa": "فاعل we است، پس ضمیر انعکاسی ourselves است."
+      },
+      {
+       "prompt": "Please help ___ to some tea.",
+       "answer": "yourselves",
+       "why_en": "The subject is plural you, so yourselves.",
+       "why_fa": "فاعل you جمع است، پس yourselves."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She looked at ___ in the mirror.",
+       "options": [
+        "herself",
+        "her",
+        "hisself"
+       ],
+       "answer": "herself",
+       "why_en": "The subject and the object are the same woman.",
+       "why_fa": "فاعل و مفعول یک زن است."
+      },
+      {
+       "q": "The boys built the treehouse ___ .",
+       "options": [
+        "themselves",
+        "theirselves",
+        "them"
+       ],
+       "answer": "themselves",
+       "why_en": "The correct plural reflexive is themselves.",
+       "why_fa": "شکل درست جمع، themselves است."
+      },
+      {
+       "q": "I made this cake ___ .",
+       "options": [
+        "myself",
+        "me",
+        "mine"
+       ],
+       "answer": "myself",
+       "why_en": "The subject I and the object are the same person.",
+       "why_fa": "فاعل I و مفعول یک نفرند."
+      }
+     ]
+    },
+    {
+     "n": 60,
+     "title": "Pronouns in agreement: everyone, one and they",
+     "title_fa": "تطابق ضمیرها: everyone، one و they",
+     "chapter": "Chapter 8",
+     "section": "8-4",
+     "use_en": "Everyone, everybody, someone and nobody are grammatically singular, so they take a singular verb: everyone has a ticket. When the sex is unknown, English now uses they for the later pronoun: someone left their bag. In formal writing, one can be used for people in general, with one or one's later.",
+     "use_fa": "everyone، everybody، someone و nobody از نظر دستوری مفردند، پس فعل مفرد می‌گیرند: everyone has a ticket. وقتی جنسیت معلوم نیست، انگلیسی امروز برای ضمیر بعدی they را به کار می‌برد: someone left their bag. در نوشتار رسمی می‌توان one را برای مردم به‌طور کلی به کار برد و بعداً one یا one's آورد.",
+     "form_en": "everyone / someone / nobody + singular verb  ·  later pronoun: they / their",
+     "examples": [
+      {
+       "en": "Everyone has brought their own lunch.",
+       "fa": "هر کسی ناهار خودش را آورده است."
+      },
+      {
+       "en": "Someone left their umbrella in the hall.",
+       "fa": "کسی چترش را در راهرو جا گذاشته است."
+      },
+      {
+       "en": "One should always check one's work.",
+       "fa": "آدم باید همیشه کارش را بررسی کند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Everyone ___ (need) a password.",
+       "answer": "needs",
+       "why_en": "Everyone is grammatically singular, so the verb takes -s.",
+       "why_fa": "everyone از نظر دستوری مفرد است، پس فعل -s می‌گیرد."
+      },
+      {
+       "prompt": "Nobody called, did ___ ?",
+       "answer": "they",
+       "why_en": "The tag question uses they when the subject's sex is unknown.",
+       "why_fa": "پرسش تأکیدی با they می‌آید چون جنسیت فاعل معلوم نیست."
+      },
+      {
+       "prompt": "Someone has left ___ coat on the chair.",
+       "answer": "their",
+       "why_en": "Modern English uses their for a person of unknown sex.",
+       "why_fa": "انگلیسی امروز برای شخص نامعلوم their را به کار می‌برد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Everybody ___ finished the exercise.",
+       "options": [
+        "has",
+        "have",
+        "are"
+       ],
+       "answer": "has",
+       "why_en": "Everybody is singular despite meaning many people.",
+       "why_fa": "everybody با وجود معنای جمع، مفرد است."
+      },
+      {
+       "q": "If anyone calls, tell ___ I am out.",
+       "options": [
+        "them",
+        "him",
+        "us"
+       ],
+       "answer": "them",
+       "why_en": "The sex of the caller is unknown, so they is used.",
+       "why_fa": "جنسیت تماس‌گیرنده معلوم نیست، پس they به کار می‌رود."
+      },
+      {
+       "q": "___ should respect other people's time.",
+       "options": [
+        "One",
+        "They",
+        "You"
+       ],
+       "answer": "One",
+       "why_en": "One is the formal pronoun for people in general.",
+       "why_fa": "one ضمیر رسمی برای مردم به‌طور کلی است."
+      }
+     ]
+    },
+    {
+     "n": 61,
+     "title": "Indefinite pronouns: someone, anyone, no one, everyone",
+     "title_fa": "ضمیرهای نامعین: someone، anyone، no one، everyone",
+     "chapter": "Chapter 8",
+     "section": "8-5",
+     "use_en": "Someone and somebody are used in affirmative sentences, anyone and anybody in questions and negatives, and no one and nobody in a negative meaning with a positive verb. They are all singular and are written as two words with no one. A phrase can follow them: someone in the office.",
+     "use_fa": "someone و somebody در جملهٔ مثبت، anyone و anybody در پرسش و منفی، و no one و nobody برای معنای منفی با فعل مثبت به کار می‌روند. همه مفردند و no one جدا نوشته می‌شود. می‌توان عبارتی پس از آن‌ها آورد: someone in the office.",
+     "form_en": "affirmative: someone / somebody  ·  question or negative: anyone / anybody  ·  negative meaning: no one / nobody",
+     "examples": [
+      {
+       "en": "Someone is waiting at the door.",
+       "fa": "کسی پشت در منتظر است."
+      },
+      {
+       "en": "Did anyone see my keys?",
+       "fa": "کسی کلیدهای من را دید؟"
+      },
+      {
+       "en": "No one knows the answer.",
+       "fa": "هیچ‌کس جواب را نمی‌داند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I did not meet ___ at the station.",
+       "answer": "anyone",
+       "why_en": "A negative sentence takes anyone, not someone.",
+       "why_fa": "جملهٔ منفی anyone می‌گیرد، نه someone."
+      },
+      {
+       "prompt": "___ left a message for you this morning.",
+       "answer": "Someone",
+       "why_en": "An affirmative statement takes someone.",
+       "why_fa": "جملهٔ مثبت someone می‌گیرد."
+      },
+      {
+       "prompt": "___ one was at home when I called.",
+       "answer": "No",
+       "why_en": "No one is written as two words and means nobody.",
+       "why_fa": "no one جدا نوشته می‌شود و معنای nobody دارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Is there ___ in the office?",
+       "options": [
+        "anyone",
+        "someone",
+        "no one"
+       ],
+       "answer": "anyone",
+       "why_en": "A question takes anyone.",
+       "why_fa": "پرسش anyone می‌گیرد."
+      },
+      {
+       "q": "___ knows where he went.",
+       "options": [
+        "Nobody",
+        "Anybody",
+        "Somebody"
+       ],
+       "answer": "Nobody",
+       "why_en": "A negative meaning with a positive verb is nobody.",
+       "why_fa": "معنای منفی با فعل مثبت با nobody می‌آید."
+      },
+      {
+       "q": "I have ___ to tell you.",
+       "options": [
+        "something",
+        "anything",
+        "nothing"
+       ],
+       "answer": "something",
+       "why_en": "An affirmative sentence takes something.",
+       "why_fa": "جملهٔ مثبت something می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 62,
+     "title": "One and ones: replacing a noun",
+     "title_fa": "one و ones: جانشین اسم",
+     "chapter": "Chapter 8",
+     "section": "8-6",
+     "use_en": "One replaces a singular count noun that is already understood, and ones replaces a plural one: the red shirt or the blue one, these apples or those ones. They cannot replace a noncount noun: the water, not the one. Without an adjective, one is usually left out: which book? This one.",
+     "use_fa": "one جانشین اسم قابل‌شمارش مفردِ شناخته‌شده می‌شود و ones جانشین جمع: the red shirt or the blue one، these apples or those ones. جانشین اسم غیرقابل‌شمارش نمی‌شوند: the water، نه the one. بدون صفت معمولاً one حذف می‌شود: which book? This one.",
+     "form_en": "adjective + one / ones  ·  not used for noncount nouns",
+     "examples": [
+      {
+       "en": "I like the red shirt more than the blue one.",
+       "fa": "پیراهن قرمز را بیشتر از آبی دوست دارم."
+      },
+      {
+       "en": "These apples are sweeter than those ones.",
+       "fa": "این سیب‌ها از آن‌ها شیرین‌ترند."
+      },
+      {
+       "en": "Which book do you want? This one.",
+       "fa": "کدام کتاب را می‌خواهی؟ همین یکی."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I prefer the small car to the big ___.",
+       "answer": "one",
+       "why_en": "One replaces the singular count noun car.",
+       "why_fa": "one جانشین اسم قابل‌شمارش مفرد car می‌شود."
+      },
+      {
+       "prompt": "She bought fresh flowers, not the old ___.",
+       "answer": "ones",
+       "why_en": "Ones replaces the plural count noun flowers.",
+       "why_fa": "ones جانشین اسم قابل‌شمارش جمع flowers می‌شود."
+      },
+      {
+       "prompt": "The water in this glass is colder than the ___ in that one.",
+       "answer": "water",
+       "why_en": "A noncount noun is repeated or left out, never replaced by one.",
+       "why_fa": "اسم غیرقابل‌شمارش تکرار یا حذف می‌شود و با one جانشین نمی‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "These shoes are cheaper than those ___ .",
+       "options": [
+        "ones",
+        "one",
+        "shoe"
+       ],
+       "answer": "ones",
+       "why_en": "Shoes is plural, so ones.",
+       "why_fa": "shoes جمع است، پس ones."
+      },
+      {
+       "q": "I need a pen. Do you have a blue ___ ?",
+       "options": [
+        "one",
+        "ones",
+        "it"
+       ],
+       "answer": "one",
+       "why_en": "Pen is singular and countable, so one.",
+       "why_fa": "pen مفرد و قابل‌شمارش است، پس one."
+      },
+      {
+       "q": "The coffee here is better than the ___ at the other shop.",
+       "options": [
+        "coffee",
+        "one",
+        "ones"
+       ],
+       "answer": "coffee",
+       "why_en": "Coffee is noncount and cannot be replaced by one.",
+       "why_fa": "coffee غیرقابل‌شمارش است و با one جانشین نمی‌شود."
+      }
+     ]
+    },
+    {
+     "n": 63,
+     "title": "There and it as empty subjects",
+     "title_fa": "there و it به‌عنوان فاعل صوری",
+     "chapter": "Chapter 8",
+     "section": "8-7",
+     "use_en": "There introduces that something exists: there is a problem, there are two chairs. It talks about time, weather, distance and a whole situation: it is late, it is raining, it is ten kilometers from here. Neither word means anything by itself, and neither can be left out: English needs a subject.",
+     "use_fa": "there وجود چیزی را معرفی می‌کند: there is a problem، there are two chairs. it دربارهٔ زمان، هوا، مسافت و یک وضعیت کلی می‌گوید: it is late، it is raining، it is ten kilometers from here. هیچ‌کدام به‌تنهایی معنا ندارند و هیچ‌کدام را نمی‌توان حذف کرد: انگلیسی به فاعل نیاز دارد.",
+     "form_en": "There is / There are + noun  ·  It is + time / weather / distance",
+     "examples": [
+      {
+       "en": "There is a bank on the corner.",
+       "fa": "سر خیابان یک بانک هست."
+      },
+      {
+       "en": "It is raining, so take an umbrella.",
+       "fa": "باران می‌بارد، پس چتر بردار."
+      },
+      {
+       "en": "It is five kilometers to the station.",
+       "fa": "تا ایستگاه پنج کیلومتر است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ is a pharmacy near my house.",
+       "answer": "There",
+       "why_en": "Existence is introduced with there.",
+       "why_fa": "وجود با there معرفی می‌شود."
+      },
+      {
+       "prompt": "___ is very cold today.",
+       "answer": "It",
+       "why_en": "Weather takes the empty subject it.",
+       "why_fa": "هوا فاعل صوری it می‌گیرد."
+      },
+      {
+       "prompt": "___ are three books on the shelf.",
+       "answer": "There",
+       "why_en": "The plural noun after the verb needs there are.",
+       "why_fa": "اسم جمع پس از فعل با there are می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ is a good movie at the cinema this week.",
+       "options": [
+        "There",
+        "It",
+        "This"
+       ],
+       "answer": "There",
+       "why_en": "Existence is introduced by there is.",
+       "why_fa": "وجود با there is معرفی می‌شود."
+      },
+      {
+       "q": "___ is two o'clock already.",
+       "options": [
+        "It",
+        "There",
+        "That"
+       ],
+       "answer": "It",
+       "why_en": "The time is expressed with it is.",
+       "why_fa": "زمان با it is بیان می‌شود."
+      },
+      {
+       "q": "___ are many reasons to learn English.",
+       "options": [
+        "There",
+        "It",
+        "They"
+       ],
+       "answer": "There",
+       "why_en": "A plural noun follows there are.",
+       "why_fa": "اسم جمع پس از there are می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 64,
+     "title": "Question pronouns: who, whom, whose, which and what",
+     "title_fa": "ضمیرهای پرسشی: who، whom، whose، which و what",
+     "chapter": "Chapter 8",
+     "section": "8-8",
+     "use_en": "Who asks about a person as the subject, whom about a person as the object (formal; who is common in speech), and whose about possession: whose bag is this? Which chooses from a known set, and what asks from an open one. Whose is never written who's, which means who is.",
+     "use_fa": "who دربارهٔ شخص به‌عنوان فاعل می‌پرسد، whom دربارهٔ شخص به‌عنوان مفعول (رسمی؛ در گفتار who رایج است) و whose دربارهٔ مالکیت: whose bag is this? which از میان مجموعه‌ای شناخته‌شده انتخاب می‌کند و what از میان مجموعه‌ای باز. whose هرگز who's نوشته نمی‌شود که یعنی who is.",
+     "form_en": "who (subject) / whom (object) / whose (possessive)  ·  which (from a set) / what (open)",
+     "examples": [
+      {
+       "en": "Who called you last night?",
+       "fa": "دیشب چه کسی به تو زنگ زد؟"
+      },
+      {
+       "en": "Whose coat is this?",
+       "fa": "این کت چه کسی است؟"
+      },
+      {
+       "en": "Which of these two shirts do you like?",
+       "fa": "کدام یک از این دو پیراهن را دوست داری؟"
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ did you invite to the party?",
+       "answer": "Who",
+       "why_en": "Who is the object here in everyday English.",
+       "why_fa": "who در انگلیسی روزمره مفعول است."
+      },
+      {
+       "prompt": "With ___ did you travel?",
+       "answer": "whom",
+       "why_en": "After a preposition the formal object form whom is used.",
+       "why_fa": "پس از حرف اضافه شکل مفعولی رسمی whom می‌آید."
+      },
+      {
+       "prompt": "___ car is parked outside?",
+       "answer": "Whose",
+       "why_en": "Possession is asked with whose.",
+       "why_fa": "مالکیت با whose پرسیده می‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ is knocking at the door?",
+       "options": [
+        "Who",
+        "Whom",
+        "Whose"
+       ],
+       "answer": "Who",
+       "why_en": "The person is the subject, so who.",
+       "why_fa": "شخص فاعل است، پس who."
+      },
+      {
+       "q": "___ of the three colors do you prefer?",
+       "options": [
+        "Which",
+        "What",
+        "Who"
+       ],
+       "answer": "Which",
+       "why_en": "A choice inside a known set takes which.",
+       "why_fa": "انتخاب از مجموعه‌ای شناخته‌شده which می‌گیرد."
+      },
+      {
+       "q": "___ bag is on my chair?",
+       "options": [
+        "Whose",
+        "Who's",
+        "Whom"
+       ],
+       "answer": "Whose",
+       "why_en": "Whose is possessive; who's means who is.",
+       "why_fa": "whose ملکی است؛ who's یعنی who is."
+      }
+     ]
+    },
+    {
+     "n": 65,
+     "title": "Common pronoun mistakes: between you and me, its and it's",
+     "title_fa": "خطاهای رایج ضمیر: between you and me، its و it's",
+     "chapter": "Chapter 8",
+     "section": "8-9",
+     "use_en": "After a preposition, use the object pronoun: between you and me, not between you and I; with him and her, not with he and she. Its is possessive and it's means it is. Theirs, ours and yours never take an apostrophe. And a reflexive cannot replace a subject: my friend and I went, not my friend and myself.",
+     "use_fa": "پس از حرف اضافه ضمیر مفعولی می‌آید: between you and me، نه between you and I؛ with him and her، نه with he and she. its ملکی است و it's یعنی it is. theirs، ours و yours هرگز آپاستروف نمی‌گیرند. ضمیر انعکاسی جای فاعل نمی‌نشیند: my friend and I went، نه my friend and myself.",
+     "form_en": "preposition + object pronoun  ·  its (possessive) / it's (it is)  ·  subject: my friend and I",
+     "examples": [
+      {
+       "en": "This is between you and me.",
+       "fa": "این بین من و تو می‌ماند."
+      },
+      {
+       "en": "The team changed its schedule.",
+       "fa": "تیم برنامهٔ خود را تغییر داد."
+      },
+      {
+       "en": "My friend and I went to the museum.",
+       "fa": "من و دوستم به موزه رفتیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Keep this secret between you and ___ .",
+       "answer": "me",
+       "why_en": "A preposition takes the object pronoun me, not I.",
+       "why_fa": "پس از حرف اضافه ضمیر مفعولی me می‌آید، نه I."
+      },
+      {
+       "prompt": "The city has changed ___ transport system.",
+       "answer": "its",
+       "why_en": "Its is the possessive form, with no apostrophe.",
+       "why_fa": "its شکل ملکی است و آپاستروف ندارد."
+      },
+      {
+       "prompt": "___ is going to rain soon.",
+       "answer": "It's",
+       "why_en": "It's is the contraction of it is.",
+       "why_fa": "it's کوتاه‌شدهٔ it is است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She sat between Sara and ___ .",
+       "options": [
+        "me",
+        "I",
+        "myself"
+       ],
+       "answer": "me",
+       "why_en": "After between the object pronoun is used.",
+       "why_fa": "پس از between ضمیر مفعولی می‌آید."
+      },
+      {
+       "q": "The dog wagged ___ tail.",
+       "options": [
+        "its",
+        "it's",
+        "it"
+       ],
+       "answer": "its",
+       "why_en": "Possession takes its without an apostrophe.",
+       "why_fa": "مالکیت با its و بدون آپاستروف بیان می‌شود."
+      },
+      {
+       "q": "My brother and ___ painted the room.",
+       "options": [
+        "I",
+        "me",
+        "myself"
+       ],
+       "answer": "I",
+       "why_en": "The pronoun is part of the subject, so I.",
+       "why_fa": "ضمیر بخشی از فاعل است، پس I."
+      }
+     ]
+    },
+    {
+     "n": 66,
      "title": "Modals of necessity and advice: must, have to, should",
      "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
      "chapter": "Chapter 9",
@@ -21771,7 +22324,7 @@
      ]
     },
     {
-     "n": 60,
+     "n": 67,
      "title": "Ability and possibility: can, could, may, might",
      "title_fa": "توانایی و احتمال: can، could، may، might",
      "chapter": "Chapter 9",
@@ -21850,7 +22403,7 @@
      ]
     },
     {
-     "n": 61,
+     "n": 68,
      "title": "Requests and suggestions: could you, would you mind, let's",
      "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
      "chapter": "Chapter 9",
@@ -21929,7 +22482,7 @@
      ]
     },
     {
-     "n": 62,
+     "n": 69,
      "title": "Degrees of certainty: must be, may be, can't be",
      "title_fa": "درجات اطمینان: must be، may be، can't be",
      "chapter": "Chapter 10",
@@ -22008,7 +22561,7 @@
      ]
     },
     {
-     "n": 63,
+     "n": 70,
      "title": "The passive",
      "title_fa": "جملات مجهول",
      "chapter": "Chapter 11",
@@ -22087,7 +22640,7 @@
      ]
     },
     {
-     "n": 64,
+     "n": 71,
      "title": "The passive with modals, get and stative verbs",
      "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
      "chapter": "Chapter 11",
@@ -22166,7 +22719,7 @@
      ]
     },
     {
-     "n": 65,
+     "n": 72,
      "title": "Noun clauses and reported speech",
      "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
      "chapter": "Chapter 12",
@@ -22245,7 +22798,7 @@
      ]
     },
     {
-     "n": 66,
+     "n": 73,
      "title": "The subjunctive in noun clauses: insist that he be",
      "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
      "chapter": "Chapter 12",
@@ -22324,7 +22877,7 @@
      ]
     },
     {
-     "n": 67,
+     "n": 74,
      "title": "Adjective clauses",
      "title_fa": "جملات وصفی (موصولی)",
      "chapter": "Chapter 13",
@@ -22403,7 +22956,7 @@
      ]
     },
     {
-     "n": 68,
+     "n": 75,
      "title": "Reducing adjective clauses to phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
      "chapter": "Chapter 13",
@@ -22482,7 +23035,7 @@
      ]
     },
     {
-     "n": 69,
+     "n": 76,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -22561,7 +23114,7 @@
      ]
     },
     {
-     "n": 70,
+     "n": 77,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -22640,7 +23193,7 @@
      ]
     },
     {
-     "n": 71,
+     "n": 78,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -22719,7 +23272,7 @@
      ]
     },
     {
-     "n": 72,
+     "n": 79,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -22798,7 +23351,7 @@
      ]
     },
     {
-     "n": 73,
+     "n": 80,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -22877,7 +23430,7 @@
      ]
     },
     {
-     "n": 74,
+     "n": 81,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -22956,7 +23509,7 @@
      ]
     },
     {
-     "n": 75,
+     "n": 82,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",

@@ -353,6 +353,17 @@ def check_kids_layer(src):
           "the shared surface tokens are not pointed at the kids palette")
     check("background: var(--k-surface)" in block and "color: var(--k-ink)" in block,
           "the kids components do not consume the tokens")
+    dark = block.split('[data-theme="dark"] body.kids {', 1)
+    check(len(dark) == 2 and "--k-bg:" in dark[1].split("}", 1)[0]
+          and "--k-on-primary:" in dark[1].split("}", 1)[0],
+          "the kids palette has no dark theme of its own")
+    check("--surf-1:" in dark[1].split("}", 1)[0]
+          and "--ink:" in dark[1].split("}", 1)[0],
+          "the dark kids theme leaves the shared surface tokens light")
+    light_tokens = block.split("body.kids {", 1)[1].split("}", 1)[0]
+    for name in ("--k-on-primary", "--k-track", "--k-highlight", "--k-card-shadow",
+                 "--k-hero-shadow", "--k-backdrop", "--k-say", "--k-hero-sub"):
+        check(name + ":" in light_tokens, f"the kids palette is missing {name}")
 
     motion = src[src.index("@media (prefers-reduced-motion: reduce)", end):]
     for sel in (".kspark", ".kstars i"):

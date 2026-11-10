@@ -6319,8 +6319,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --k-sun: #f7d979; --k-sun-wash: #fcf3d9; --k-sun-line: #efdca4; --k-sun-ink: #7a5a12;
     --k-coral: #f2a18f; --k-coral-wash: #fbece7; --k-coral-line: #f0cdc3; --k-coral-ink: #8e3f2c;
     --k-bg: #f7f8f5; --k-surface: #ffffff; --k-surface-2: #fbfcfa;
-    --k-ink: #29343b; --k-ink-2: #5f6e78; --k-line: #e5eae8;
-    --k-line-strong: #d3dbd7; --k-shadow: rgba(41, 52, 59, .07);
+    --k-ink: #222e34; --k-ink-2: #55646d; --k-line: #dfe6e3;
+    --k-line-strong: #c6d2cd; --k-shadow: rgba(41, 52, 59, .09);
+    /* what sits on a filled control, and the two surfaces that are not cards */
+    --k-on-primary: #ffffff; --k-on-primary-dim: rgba(255, 255, 255, .88);
+    --k-primary-deep: #1f5b56; --k-hero-sub: #34474a;
+    --k-track: #ffffff; --k-say: #d0ebdd;
+    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(220, 238, 255, .55), transparent 72%);
+    --k-highlight: rgba(247, 217, 121, .40);
+    --k-card-shadow: rgba(41, 52, 59, .10);
+    --k-hero-shadow: rgba(20, 80, 74, .30);
     --k-good: #1f6a45; --k-good-wash: #e8f6ee; --k-good-line: #b9e0ca;
     --k-bad: #9e4433; --k-bad-wash: #fbedeb; --k-bad-line: #e8c1b6;
 
@@ -6334,9 +6342,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --ink-4: #71808a; --ink-5: #71808a; --title: #29343b; --muted: #71808a;
     --gold-ink: #7a5a12; --navy: #29343b; --navy-ink: #276d67;
     --indigo-ink: #276d67; --violet-ink: #388f86; --green-ink: #22654f;
-    background:
-      radial-gradient(70% 44% at 50% 0%, rgba(220, 238, 255, .55), transparent 72%),
-      var(--k-bg);
+    background: var(--k-backdrop), var(--k-bg);
     color: var(--k-ink);
   }
   body.kids header {
@@ -6365,10 +6371,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .hbtn:hover { transform: translateY(-2px); border-color: var(--k-line-strong); }
   body.kids .hbtn.on {
     background: var(--k-primary-dark); border-color: var(--k-primary-dark);
-    box-shadow: 0 3px 0 #1f5b56;
+    box-shadow: 0 3px 0 var(--k-primary-deep);
   }
-  body.kids .hbtn.on span { color: #ffffff; }
-  body.kids .hbtn.on i { background: rgba(255,255,255,.2); color: #ffffff; }
+  body.kids .hbtn.on span { color: var(--k-on-primary); }
+  body.kids .hbtn.on i { background: rgba(255,255,255,.2); color: var(--k-on-primary); }
   /* The chart the fox already sits on in the adult app, drawn fresh: wide
      corners, a sunshine edge and a little more room around the words. */
   body.kids .msg {
@@ -6381,14 +6387,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-color: var(--k-line); border-bottom-left-radius: 8px;
   }
   body.kids .msg.user {
-    background: var(--k-primary-dark); border-color: #1f5b56;
-    color: #ffffff; border-bottom-right-radius: 8px;
+    background: var(--k-primary-dark); border-color: var(--k-primary-deep);
+    color: var(--k-on-primary); border-bottom-right-radius: 8px;
   }
   body.kids .msg.user b, body.kids .msg.user strong {
-    background: rgba(255,255,255,.22); box-shadow: none; color: #ffffff;
+    background: rgba(255,255,255,.22); box-shadow: none; color: var(--k-on-primary);
   }
   body.kids .msg b, body.kids .msg strong {
-    background: rgba(247,217,121,.42); box-shadow: inset 0 0 0 1.5px var(--k-sun-line);
+    background: var(--k-highlight); box-shadow: inset 0 0 0 1.5px var(--k-sun-line);
   }
   body.kids .schip, body.kids .starters .schip {
     border-radius: 14px; font-size: 13px; padding: 9px 14px;
@@ -6429,7 +6435,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-radius: 18px;
     background: linear-gradient(135deg, var(--k-primary-wash) 0%, var(--k-mint) 58%, var(--k-sky) 100%);
     border: 1.5px solid var(--k-primary-line);
-    box-shadow: 0 3px 10px -6px rgba(39, 109, 103, .35);
+    box-shadow: 0 3px 10px -6px var(--k-hero-shadow);
   }
   .khero .kface {
     flex: none; width: 62px; height: 62px; border-radius: 50%;
@@ -6443,7 +6449,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     line-height: 1.15; color: var(--k-ink);
   }
   .khero .kgreet span {
-    display: block; font-size: 12.5px; line-height: 1.5; color: #3f5453; margin-top: 3px;
+    display: block; font-size: 12.5px; line-height: 1.5; color: var(--k-hero-sub); margin-top: 3px;
   }
   .khero .kgreet .kfa { direction: rtl; text-align: right; }
   .kstars { display: flex; align-items: center; gap: 5px; margin-top: 7px; }
@@ -6453,9 +6459,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     box-shadow: inset 0 0 0 1.5px var(--k-sun-line);
     transition: transform .25s cubic-bezier(.2,1.7,.4,1), background .25s;
   }
-  .kstars i.on { background: var(--k-sun); box-shadow: inset 0 0 0 1.5px #d8b955; }
+  .kstars i.on { background: var(--k-sun); box-shadow: inset 0 0 0 1.5px var(--k-sun-line); }
   .kstars i.pop { transform: scale(1.35); }
-  .kbar { height: 10px; border-radius: 999px; background: #ffffff; overflow: hidden; margin-top: 8px; }
+  .kbar { height: 10px; border-radius: 999px; background: var(--k-track); overflow: hidden; margin-top: 8px; }
   .kbar i { display: block; height: 100%; border-radius: 999px;
     background: var(--k-primary); transition: width .5s cubic-bezier(.22,1,.36,1); }
   .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--k-primary-dark); font-weight: 700; }
@@ -6475,17 +6481,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kcont {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
     cursor: pointer; font-family: inherit; padding: 13px 15px; margin-bottom: 10px;
-    border-radius: 16px; border: 1.5px solid var(--k-primary-dark);
-    background: var(--k-primary-dark); color: #ffffff;
-    box-shadow: 0 3px 0 #1f5b56;
+    border-radius: 16px; border: 1.5px solid var(--k-primary-deep);
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    box-shadow: 0 3px 0 var(--k-primary-deep);
     transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s;
   }
-  .kcont:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #1f5b56; }
+  .kcont:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--k-primary-deep); }
   .kcont .kico { font-size: 24px; line-height: 1; }
   .kcont .kct { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
-  .kcont .kct b { font-size: 15px; color: #ffffff; }
-  .kcont .kct i { font-style: normal; font-size: 11.5px; color: rgba(255,255,255,.86); direction: rtl; text-align: right; }
-  .kcont .kgo { font-size: 12px; font-weight: 800; color: #ffffff; }
+  .kcont .kct b { font-size: 15px; color: var(--k-on-primary); }
+  .kcont .kct i { font-style: normal; font-size: 11.5px; color: var(--k-on-primary-dim); direction: rtl; text-align: right; }
+  .kcont .kgo { font-size: 12px; font-weight: 800; color: var(--k-on-primary); }
 
   /* Three registers, one for each part of the age range the band covers.
      Younger children get bigger tiles, bigger icons and fewer words per
@@ -6562,7 +6568,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 18px; color: var(--k-mint-ink);
     transition: background .15s, transform .15s;
   }
-  .ksay:hover { background: #d0ebdd; transform: translateY(-1px); }
+  .ksay:hover { background: var(--k-say); transform: translateY(-1px); }
 
   .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
   /* One tile, six tints. The tint lives on the icon chip and the hairline, not
@@ -6570,14 +6576,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kbtn {
     display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
     min-height: 76px; padding: 12px 13px; cursor: pointer; font-family: inherit;
-    border-radius: 16px; border: 1.5px solid var(--k-line); background: var(--k-surface);
+    border-radius: 16px; border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
     color: var(--k-ink); text-align: start;
     box-shadow: 0 1px 3px var(--k-shadow);
     transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s, border-color .14s;
   }
   .kbtn:hover {
     transform: translateY(-2px); border-color: var(--k-primary-line);
-    box-shadow: 0 4px 12px -6px rgba(41, 52, 59, .22);
+    box-shadow: 0 4px 12px -6px var(--k-card-shadow);
   }
   .kbtn:active { transform: translateY(0); box-shadow: 0 1px 2px var(--k-shadow); }
   .kbtn:focus-visible {
@@ -6605,7 +6611,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kbtn.kc-neutral .kico { background: var(--k-surface-2); border-color: var(--k-line-strong); }
 
   .kcard {
-    background: var(--k-surface); border: 1.5px solid var(--k-line);
+    background: var(--k-surface); border: 1.5px solid var(--k-line-strong);
     border-radius: 16px; padding: 14px 15px 16px; margin-bottom: 10px;
     box-shadow: 0 1px 3px var(--k-shadow);
   }
@@ -6663,7 +6669,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .krowbtn {
     display: flex; align-items: center; gap: 11px; width: 100%;
     padding: 11px 13px; cursor: pointer; font-family: inherit; text-align: start;
-    border-radius: 14px; border: 1.5px solid var(--k-line); background: var(--k-surface);
+    border-radius: 14px; border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
     color: var(--k-ink); box-shadow: 0 1px 2px var(--k-shadow);
     transition: border-color .14s, background .14s;
   }
@@ -6685,12 +6691,54 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kwordrow {
     display: flex; align-items: center; gap: 9px;
     padding: 10px 12px; border-radius: 12px;
-    border: 1.5px solid var(--k-line); background: var(--k-surface-2);
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface-2);
   }
   .kwordrow b { font-size: 15px; color: var(--k-ink); }
   .kwordrow .kfa { font-size: 12px; color: var(--k-mint-ink); direction: rtl; margin-inline-start: auto; }
   .kwordrow .kdef { font-size: 11.5px; color: var(--k-ink-2); }
   .kwordrow .kex { font-size: 11.5px; color: var(--k-ink-2); }
+
+  /* --- the same identity in the dark theme -----------------------------
+     Kids used to force its light palette whatever the theme switch said.
+     Every value below is the token block again, not a new design: the
+     teal stays the accent, the paper turns to night paper, and each
+     pastel becomes its own dark wash so the tint still tells the tiles
+     apart. Text keeps at least 4.5:1 against the surface it sits on. */
+  [data-theme="dark"] body.kids {
+    --k-primary: #5fc4b6; --k-primary-dark: #79d3c5;
+    --k-primary-wash: #16302e; --k-primary-line: #2b5751;
+    --k-sky: #152c3b; --k-sky-line: #2a4a5e; --k-sky-ink: #a8d8f2;
+    --k-mint: #142e28; --k-mint-line: #2a5548; --k-mint-ink: #9cdcc0;
+    --k-sun: #f0c65a; --k-sun-wash: #302816; --k-sun-line: #5b4a24; --k-sun-ink: #f0d391;
+    --k-coral: #f0a48f; --k-coral-wash: #331e19; --k-coral-line: #5a382f; --k-coral-ink: #f2b3a2;
+    --k-bg: #0f1416; --k-surface: #171f23; --k-surface-2: #1b252a;
+    --k-ink: #e9f0ee; --k-ink-2: #a6b5b3; --k-line: #2b373b;
+    --k-line-strong: #3e4c50; --k-shadow: rgba(0, 0, 0, .38);
+    --k-on-primary: #07120f; --k-on-primary-dim: rgba(7, 18, 15, .72);
+    --k-primary-deep: #4fb0a3; --k-hero-sub: #b6c6c3;
+    --k-track: #2a373b; --k-say: #22403b;
+    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(52, 110, 104, .34), transparent 72%);
+    --k-highlight: rgba(240, 198, 90, .22);
+    --k-card-shadow: rgba(0, 0, 0, .34);
+    --k-hero-shadow: rgba(0, 0, 0, .40);
+    --k-good: #86dcaa; --k-good-wash: #142d1f; --k-good-line: #2d5740;
+    --k-bad: #f2a894; --k-bad-wash: #331a15; --k-bad-line: #5e3329;
+    --surf-1: #171f23; --surf-2: #141b1e; --surf-3: #1b252a;
+    --surf-4: #1f2a2f; --surf-5: #243035; --surf-6: #2a373b;
+    --chat-bg: #141b1e; --raise: #1b252a; --raise-2: #1f2a2f;
+    --line: #2b373b; --line2: #3e4c50; --line-soft: #232d31; --line-strong: #46555a;
+    --ink: #e9f0ee; --ink-1: #e9f0ee; --ink-2: #d2dedb; --ink-3: #b6c6c3;
+    --ink-4: #a6b5b3; --ink-5: #a6b5b3; --title: #e9f0ee; --muted: #a6b5b3;
+    --gold-ink: #f0d391; --navy: #e9f0ee; --navy-ink: #79d3c5;
+    --indigo-ink: #79d3c5; --violet-ink: #5fc4b6; --green-ink: #9cdcc0;
+  }
+  [data-theme="dark"] body.kids .kwin { border-color: var(--k-good-line); }
+  [data-theme="dark"] body.kids .kopt.ok {
+    background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good);
+  }
+  [data-theme="dark"] body.kids .kopt.no {
+    background: var(--k-bad-wash); border-color: var(--k-bad-line); color: var(--k-bad);
+  }
 
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
@@ -14878,14 +14926,19 @@ const Kids = (() => {
         b.type = 'button';
         b.className = 'kopt';
         b.textContent = option;
+        b.dataset.val = option;
         b.onclick = () => {
           if (opts.dataset.done) return;
           opts.dataset.done = '1';
           const right = option === item.answer;
           b.classList.add(right ? 'ok' : 'no');
+          /* A tick or a cross on the option itself, so the answer is not left
+             to colour alone - the same reason the row spells out why. */
           [...opts.children].forEach((o) => {
             o.disabled = true;
-            if (o.textContent === item.answer) o.classList.add('ok');
+            const answer = o.dataset.val === item.answer;
+            if (answer) o.classList.add('ok');
+            o.textContent = (answer ? '✓ ' : (o === b ? '✗ ' : '')) + o.dataset.val;
           });
           why.hidden = false;
           why.innerHTML = '<div class="ken">' + (right ? '✓ ' : '') + esc(item.why_en) + '</div>' +

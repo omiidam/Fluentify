@@ -485,8 +485,15 @@ PINNED_GRAMMAR = [
     "No article with names, languages, meals and most places",
     "The with geography, superlatives and ordinals",
     "Common article mistakes: a decision procedure",
-    "Pronouns, possessive adjectives and other",
-    "Reflexive pronouns",
+    "Personal pronouns: subject and object",
+    "Possessive adjectives and possessive pronouns",
+    "Reflexive pronouns: myself, yourself, themselves",
+    "Pronouns in agreement: everyone, one and they",
+    "Indefinite pronouns: someone, anyone, no one, everyone",
+    "One and ones: replacing a noun",
+    "There and it as empty subjects",
+    "Question pronouns: who, whom, whose, which and what",
+    "Common pronoun mistakes: between you and me, its and it's",
     "Modals of necessity and advice: must, have to, should",
     "Ability and possibility: can, could, may, might",
     "Requests and suggestions: could you, would you mind, let's",
@@ -759,6 +766,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
              or len(l.get("exam") or []) < 3]
     check(not thin7,
           f"{bid}: chapter seven chart(s) {thin7} are thinner than the rest of the book")
+
+    # Chapter eight is the pronoun: personal, possessive, reflexive, the
+    # agreement question, the indefinite set, one/ones, the empty subjects,
+    # the question words, and the mistakes that survive spellcheck.
+    eighth = [l for l in lessons if l.get("chapter") == "Chapter 8"]
+    check([str(l.get("section")) for l in eighth] == [f"8-{i}" for i in range(1, 10)],
+          f"{bid}: chapter eight is not its nine charts in order "
+          f"(got {[str(l.get('section')) for l in eighth]})")
+    thin8 = [str(l.get("section")) for l in eighth
+             if len(l.get("examples") or []) < 3
+             or len(l.get("exercises") or []) < 3
+             or len(l.get("exam") or []) < 3]
+    check(not thin8,
+          f"{bid}: chapter eight chart(s) {thin8} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"
