@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: fifty-four structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to four are complete, chart 1-1 to 4-5. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: پنجاه‌وچهار ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا چهار کامل‌اند، از نمودار ۱-۱ تا ۴-۵. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: fifty-nine structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to five are complete, chart 1-1 to 5-6. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: پنجاه‌ونه ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا پنج کامل‌اند، از نمودار ۱-۱ تا ۵-۶. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -19560,85 +19560,480 @@
     },
     {
      "n": 32,
-     "title": "Subject-verb agreement",
-     "title_fa": "هم‌خوانی نهاد و فعل",
+     "title": "Basic agreement: one subject, one verb",
+     "title_fa": "تطابق پایه: یک فاعل، یک فعل",
      "chapter": "Chapter 5",
-     "section": "5-2",
-     "use_en": "The verb agrees with the subject, not with the phrase that sits next to it. Expressions of quantity and there + be follow their own small rules.",
-     "use_fa": "فعل با نهاد هم‌خوان می‌شود، نه با عبارتی که کنارش آمده است. عبارت‌های مقدار و ساخت there + be قاعدهٔ کوچک خودشان را دارند.",
-     "form_en": "singular subject + singular verb  |  plural subject + plural verb",
+     "section": "5-1",
+     "use_en": "In the present, a singular subject takes a singular verb and a plural subject takes a plural verb. Only the third person singular adds -s: I play, she plays, they play. With be the whole word changes: I am, he is, they are. The rule is about grammar, not about how many people you can see — the subject decides.",
+     "use_fa": "در زمان حال، فاعل مفرد فعل مفرد و فاعل جمع فعل جمع می‌گیرد. تنها سوم‌شخص مفرد -s می‌گیرد: I play، she plays، they play. با فعل be کل واژه تغییر می‌کند: I am، he is، they are. این قاعده دربارهٔ دستور است، نه دربارهٔ تعداد آدم‌هایی که می‌بینی — فاعل تعیین می‌کند.",
+     "form_en": "singular subject + verb-s  ·  plural subject + verb  ·  I am / you are / he-she-it is",
      "examples": [
       {
-       "en": "The list of names is on the desk.",
-       "fa": "فهرست نام‌ها روی میز است."
+       "en": "The boy plays football after school.",
+       "fa": "پسر بعد از مدرسه فوتبال بازی می‌کند."
       },
       {
-       "en": "The students in the back row are talking.",
-       "fa": "دانش‌آموزان ردیف آخر حرف می‌زنند."
+       "en": "The boys play football after school.",
+       "fa": "پسرها بعد از مدرسه فوتبال بازی می‌کنند."
       },
       {
-       "en": "There are three chairs in the room.",
-       "fa": "در اتاق سه صندلی هست."
+       "en": "My sister is a nurse, and my brothers are teachers.",
+       "fa": "خواهرم پرستار است و برادرانم معلم‌اند."
       }
      ],
      "exercises": [
       {
-       "prompt": "The box of books ___ (be) heavy.",
+       "prompt": "The girl ___ (read) a story every night.",
+       "answer": "reads",
+       "why_en": "The subject is one girl, so the present takes -s.",
+       "why_fa": "فاعل یک دختر است، پس حال -s می‌گیرد."
+      },
+      {
+       "prompt": "The girl and her brother ___ (read) together.",
+       "answer": "read",
+       "why_en": "Two subjects make a plural subject, so the verb has no -s.",
+       "why_fa": "دو فاعل، فاعل جمع می‌سازند، پس فعل -s ندارد."
+      },
+      {
+       "prompt": "My mother ___ (be) a doctor.",
        "answer": "is",
-       "why_en": "The subject is the box, singular; of books is only a phrase.",
-       "why_fa": "نهاد «جعبه» است و مفرد؛ «کتاب‌ها» فقط یک عبارت است."
-      },
-      {
-       "prompt": "There ___ (be) a lot of people at the market.",
-       "answer": "are",
-       "why_en": "With there + be the verb follows the real subject, people.",
-       "why_fa": "در there + be فعل از نهاد واقعی یعنی people پیروی می‌کند."
-      },
-      {
-       "prompt": "Each of the students ___ (have) a book.",
-       "answer": "has",
-       "why_en": "Each is singular, whatever follows of.",
-       "why_fa": "each مفرد است، هرچه بعد از of بیاید."
+       "why_en": "She is singular, so the form of be is is.",
+       "why_fa": "فاعل مفرد است، پس شکل be می‌شود is."
       }
      ],
      "exam": [
       {
-       "q": "The news ___ better today.",
+       "q": "The cat ___ on the sofa every afternoon.",
+       "options": [
+        "sleeps",
+        "sleep",
+        "are sleeping"
+       ],
+       "answer": "sleeps",
+       "why_en": "One cat is singular and the sentence is a habit.",
+       "why_fa": "یک گربه مفرد است و جمله عادت را می‌گوید."
+      },
+      {
+       "q": "My friends ___ in Tehran.",
+       "options": [
+        "live",
+        "lives",
+        "is living"
+       ],
+       "answer": "live",
+       "why_en": "Friends is plural, so the verb has no -s.",
+       "why_fa": "friends جمع است، پس فعل -s ندارد."
+      },
+      {
+       "q": "You ___ very kind.",
        "options": [
         "are",
         "is",
+        "am"
+       ],
+       "answer": "are",
+       "why_en": "You always takes are, singular or plural.",
+       "why_fa": "you همیشه are می‌گیرد، مفرد یا جمع."
+      }
+     ]
+    },
+    {
+     "n": 33,
+     "title": "Final -s and -es: nouns and verbs",
+     "title_fa": "پایانهٔ -s و -es: اسم‌ها و فعل‌ها",
+     "chapter": "Chapter 5",
+     "section": "5-2",
+     "use_en": "The same ending does two opposite jobs: on a noun, -s or -es makes it plural; on a verb, it makes the third person singular. So the student reads and the students read. Words ending in -ch, -sh, -ss, -x, -s or -o add -es, a consonant plus y changes to -ies, and a vowel plus y just adds -s.",
+     "use_fa": "همین پایانه دو کار متضاد می‌کند: روی اسم، آن را جمع می‌کند؛ روی فعل، سوم‌شخص مفرد می‌سازد. پس the student reads و the students read. واژه‌های پایانه‌یافته به ch، sh، ss، x، s یا o، پسوند es می‌گیرند، حرف بی‌صدا + y به ies تبدیل می‌شود و حرف صدادار + y تنها s می‌گیرد.",
+     "form_en": "noun: box → boxes, city → cities  ·  verb: watch → watches, study → studies",
+     "examples": [
+      {
+       "en": "The bus stops at the corner, and the buses stop here too.",
+       "fa": "اتوبوس سر خیابان می‌ایستد و اتوبوس‌ها هم اینجا می‌ایستند."
+      },
+      {
+       "en": "My friend watches two movies every week.",
+       "fa": "دوستم هر هفته دو فیلم می‌بیند."
+      },
+      {
+       "en": "The city has many parks, and the cities around it have more.",
+       "fa": "این شهر پارک‌های زیادی دارد و شهرهای اطرافش بیشتر."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "My sister ___ (study) English at university.",
+       "answer": "studies",
+       "why_en": "A consonant plus y changes to -ies in the third person singular.",
+       "why_fa": "حرف بی‌صدا + y در سوم‌شخص مفرد به ies تبدیل می‌شود."
+      },
+      {
+       "prompt": "There are three ___ (city) in this province.",
+       "answer": "cities",
+       "why_en": "Three makes the noun plural, so city becomes cities.",
+       "why_fa": "سه، اسم را جمع می‌کند، پس city می‌شود cities."
+      },
+      {
+       "prompt": "He ___ (watch) the news before dinner.",
+       "answer": "watches",
+       "why_en": "A verb ending in -ch takes -es with he.",
+       "why_fa": "فعل پایانه‌یافته به ch با he پسوند es می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The teacher ___ the question twice.",
+       "options": [
+        "explains",
+        "explain",
+        "explaines"
+       ],
+       "answer": "explains",
+       "why_en": "One teacher is singular, and explain simply adds -s.",
+       "why_fa": "یک معلم مفرد است و explain تنها s می‌گیرد."
+      },
+      {
+       "q": "There are two ___ on the shelf.",
+       "options": [
+        "boxes",
+        "boxs",
+        "boxies"
+       ],
+       "answer": "boxes",
+       "why_en": "A noun ending in -x takes -es in the plural.",
+       "why_fa": "اسم پایانه‌یافته به x در جمع es می‌گیرد."
+      },
+      {
+       "q": "The boys ___ football in the street.",
+       "options": [
+        "play",
+        "plays",
+        "playes"
+       ],
+       "answer": "play",
+       "why_en": "A plural subject takes the verb without -s.",
+       "why_fa": "فاعل جمع فعل بدون s می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 34,
+     "title": "Subjects joined by and, or and nor",
+     "title_fa": "فاعل‌های پیوندیافته با and، or و nor",
+     "chapter": "Chapter 5",
+     "section": "5-3",
+     "use_en": "Two subjects joined by and make a plural subject: Ali and Reza are friends. When the two things are one idea or one unit, the verb stays singular: bread and butter is enough. With or, nor, either … or and neither … nor, the verb agrees with the subject nearer to it: neither the teacher nor the students were ready.",
+     "use_fa": "دو فاعل که با and به هم می‌پیوندند فاعل جمع می‌سازند: Ali and Reza are friends. وقتی دو چیز یک اندیشه یا یک واحد باشند، فعل مفرد می‌ماند: bread and butter is enough. با or، nor، either … or و neither … nor فعل با فاعلی که به آن نزدیک‌تر است هم‌خوان می‌شود: neither the teacher nor the students were ready.",
+     "form_en": "A and B + plural verb  ·  either A or B / neither A nor B + verb agreeing with B",
+     "examples": [
+      {
+       "en": "Ali and Reza are cousins.",
+       "fa": "علی و رضا پسرخاله‌اند."
+      },
+      {
+       "en": "Rice and yogurt is my favorite lunch.",
+       "fa": "برنج و ماست ناهار موردعلاقهٔ من است."
+      },
+      {
+       "en": "Neither the manager nor the employees were told.",
+       "fa": "نه مدیر و نه کارمندان خبر نداشتند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "My brother and I ___ (be) in the same class.",
+       "answer": "are",
+       "why_en": "Two subjects joined by and make a plural subject.",
+       "why_fa": "دو فاعل با and فاعل جمع می‌سازند."
+      },
+      {
+       "prompt": "Either the twins or Sara ___ (have) the key.",
+       "answer": "has",
+       "why_en": "The verb agrees with the nearer subject, Sara, which is singular.",
+       "why_fa": "فعل با فاعل نزدیک‌تر، Sara، هم‌خوان می‌شود که مفرد است."
+      },
+      {
+       "prompt": "Neither the students nor the teacher ___ (know) the answer.",
+       "answer": "knows",
+       "why_en": "The nearer subject is the teacher, which is singular.",
+       "why_fa": "فاعل نزدیک‌تر the teacher است که مفرد است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "My father and my uncle ___ engineers.",
+       "options": [
+        "are",
+        "is",
+        "was"
+       ],
+       "answer": "are",
+       "why_en": "Two subjects with and take a plural verb.",
+       "why_fa": "دو فاعل با and فعل جمع می‌گیرند."
+      },
+      {
+       "q": "Neither the children nor their mother ___ at home.",
+       "options": [
+        "was",
+        "were",
+        "are"
+       ],
+       "answer": "was",
+       "why_en": "The nearer subject is mother, which is singular.",
+       "why_fa": "فاعل نزدیک‌تر mother است که مفرد است."
+      },
+      {
+       "q": "Two hours and a good book ___ all I need.",
+       "options": [
+        "is",
+        "are",
         "were"
        ],
        "answer": "is",
-       "why_en": "News is a singular noun in English.",
-       "why_fa": "news در انگلیسی اسم مفرد است."
+       "why_en": "The two things form one idea, so the verb is singular.",
+       "why_fa": "این دو چیز یک اندیشه می‌سازند، پس فعل مفرد است."
+      }
+     ]
+    },
+    {
+     "n": 35,
+     "title": "Prepositional phrases after the subject",
+     "title_fa": "عبارت‌های حرف اضافه پس از فاعل",
+     "chapter": "Chapter 5",
+     "section": "5-4",
+     "use_en": "The verb agrees with the subject, not with a noun inside a phrase that follows it. In the box of books is heavy, the subject is the box; of books is only a phrase. The same is true of along with, as well as, together with and including: they add information, they do not make a singular subject plural.",
+     "use_fa": "فعل با فاعل هم‌خوان می‌شود، نه با اسمی در عبارتی که پس از آن می‌آید. در the box of books is heavy فاعل the box است و of books تنها یک عبارت است. همین دربارهٔ along with، as well as، together with و including هم برجاست: اطلاعات اضافه می‌کنند و فاعل مفرد را جمع نمی‌کنند.",
+     "form_en": "subject (+ phrase) + verb agreeing with the subject  ·  The box of books is heavy.",
+     "examples": [
+      {
+       "en": "The box of books is heavy.",
+       "fa": "جعبهٔ کتاب‌ها سنگین است."
       },
       {
-       "q": "My family ___ all doctors.",
+       "en": "The students in the hall are noisy.",
+       "fa": "دانش‌آموزان در سالن پرسروصدا هستند."
+      },
+      {
+       "en": "The teacher, as well as the students, was surprised.",
+       "fa": "معلم هم مثل دانش‌آموزان شگفت‌زده بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The list of names ___ (be) on the desk.",
+       "answer": "is",
+       "why_en": "The subject is the list, not names, so the verb is singular.",
+       "why_fa": "فاعل the list است نه names، پس فعل مفرد است."
+      },
+      {
+       "prompt": "The keys to the office ___ (be) in my bag.",
+       "answer": "are",
+       "why_en": "The subject is the keys, which is plural.",
+       "why_fa": "فاعل keys است که جمع است."
+      },
+      {
+       "prompt": "My friend, together with her parents, ___ (travel) every summer.",
+       "answer": "travels",
+       "why_en": "Together with adds information; the subject is still my friend.",
+       "why_fa": "together with اطلاعات اضافه می‌کند و فاعل هنوز my friend است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The bag of oranges ___ on the table.",
        "options": [
         "is",
         "are",
-        "be"
+        "were"
        ],
-       "answer": "are",
-       "why_en": "When family means its members, it takes a plural verb.",
-       "why_fa": "وقتی family به اعضای خانواده اشاره کند، فعل جمع می‌گیرد."
+       "answer": "is",
+       "why_en": "The subject is the bag, so the verb is singular.",
+       "why_fa": "فاعل the bag است، پس فعل مفرد است."
       },
       {
-       "q": "There ___ a pen and two notebooks on the table.",
+       "q": "The players on the field ___ warming up.",
+       "options": [
+        "are",
+        "is",
+        "was"
+       ],
+       "answer": "are",
+       "why_en": "The subject is the players, which is plural.",
+       "why_fa": "فاعل the players است که جمع است."
+      },
+      {
+       "q": "The director, along with the actors, ___ arrived.",
+       "options": [
+        "has",
+        "have",
+        "are"
+       ],
+       "answer": "has",
+       "why_en": "Along with does not change the singular subject.",
+       "why_fa": "along with فاعل مفرد را تغییر نمی‌دهد."
+      }
+     ]
+    },
+    {
+     "n": 36,
+     "title": "There is and there are; amounts, titles and times",
+     "title_fa": "there is و there are؛ مقدارها، عنوان‌ها و زمان‌ها",
+     "chapter": "Chapter 5",
+     "section": "5-5",
+     "use_en": "With there is and there are, the verb agrees with the noun that follows: there is a book, there are three chairs. A period of time, a distance, a sum of money or a weight treated as one unit takes a singular verb: ten dollars is enough. The title of a book, play or film is singular even when it is plural in form.",
+     "use_fa": "با there is و there are فعل با اسمی که پس از آن می‌آید هم‌خوان می‌شود: there is a book، there are three chairs. بازهٔ زمانی، مسافت، مبلغ پول یا وزن که یک واحد شمرده شود فعل مفرد می‌گیرد: ten dollars is enough. عنوان کتاب، نمایش یا فیلم حتی اگر جمع باشد مفرد است.",
+     "form_en": "There is + singular / noncount  ·  There are + plural  ·  Ten dollars is …  ·  The Times is …",
+     "examples": [
+      {
+       "en": "There is a notebook in my bag, and there are two pens.",
+       "fa": "در کیفم یک دفتر است و دو خودکار."
+      },
+      {
+       "en": "Twenty minutes is enough for this walk.",
+       "fa": "بیست دقیقه برای این پیاده‌روی کافی است."
+      },
+      {
+       "en": "The Arabian Nights is on the shelf.",
+       "fa": "کتاب هزار و یک شب روی قفسه است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "There ___ (be) three windows in this room.",
+       "answer": "are",
+       "why_en": "The noun after there is windows, which is plural.",
+       "why_fa": "اسم پس از there واژهٔ windows است که جمع است."
+      },
+      {
+       "prompt": "There ___ (be) a cat under the table.",
+       "answer": "is",
+       "why_en": "The noun after there is a cat, which is singular.",
+       "why_fa": "اسم پس از there واژهٔ a cat است که مفرد است."
+      },
+      {
+       "prompt": "Fifty dollars ___ (be) too much for a shirt.",
+       "answer": "is",
+       "why_en": "A sum of money treated as one amount takes a singular verb.",
+       "why_fa": "مبلغی که یک واحد شمرده شود فعل مفرد می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "There ___ many reasons to learn a language.",
+       "options": [
+        "are",
+        "is",
+        "was"
+       ],
+       "answer": "are",
+       "why_en": "Reasons is plural, so there are is used.",
+       "why_fa": "reasons جمع است، پس there are به کار می‌رود."
+      },
+      {
+       "q": "Ten kilometers ___ a long walk.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "A distance is treated as one amount.",
+       "why_fa": "مسافت یک مقدار شمرده می‌شود."
+      },
+      {
+       "q": "There ___ a letter for you on the table.",
        "options": [
         "is",
         "are",
         "have"
        ],
        "answer": "is",
-       "why_en": "The nearest real subject is a pen, singular.",
-       "why_fa": "فاعلِ واقعیِ نزدیک‌تر a pen است، پس مفرد."
+       "why_en": "The noun after there is singular.",
+       "why_fa": "اسم پس از there مفرد است."
       }
      ]
     },
     {
-     "n": 33,
+     "n": 37,
+     "title": "Indefinite pronouns, collective nouns and quantities",
+     "title_fa": "ضمیرهای نامعین، اسم‌های جمعی و مقدارها",
+     "chapter": "Chapter 5",
+     "section": "5-6",
+     "use_en": "Everyone, everybody, someone, nobody, each, either and neither are singular: everyone has a ticket. Collective nouns such as team, family and class are singular in American English: the team is winning. With some of, most of, all of and none of, the verb follows the noun after of. A number of people are … but the number of people is …",
+     "use_fa": "everyone، everybody، someone، nobody، each، either و neither مفردند: everyone has a ticket. اسم‌های جمعی مانند team، family و class در انگلیسی آمریکایی مفردند: the team is winning. با some of، most of، all of و none of فعل از اسم پس از of پیروی می‌کند. a number of people are … اما the number of people is …",
+     "form_en": "everyone / each / nobody + singular verb  ·  some of + plural noun → plural verb  ·  the team is",
+     "examples": [
+      {
+       "en": "Everyone in the class has a notebook.",
+       "fa": "همهٔ افراد کلاس دفتر دارند."
+      },
+      {
+       "en": "Some of the water is cold, and some of the apples are green.",
+       "fa": "بخشی از آب سرد است و برخی از سیب‌ها سبزند."
+      },
+      {
+       "en": "The team is practicing for the final.",
+       "fa": "تیم برای فینال تمرین می‌کند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Everyone ___ (need) a password.",
+       "answer": "needs",
+       "why_en": "Everyone is grammatically singular, whatever it means.",
+       "why_fa": "everyone از نظر دستوری مفرد است، هر چه معنا داشته باشد."
+      },
+      {
+       "prompt": "Most of the students ___ (be) ready.",
+       "answer": "are",
+       "why_en": "The noun after of is plural, so the verb is plural.",
+       "why_fa": "اسم پس از of جمع است، پس فعل جمع است."
+      },
+      {
+       "prompt": "The family ___ (be) at the table.",
+       "answer": "is",
+       "why_en": "A collective noun is singular in American English.",
+       "why_fa": "اسم جمعی در انگلیسی آمریکایی مفرد است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Nobody ___ the answer.",
+       "options": [
+        "knows",
+        "know",
+        "are knowing"
+       ],
+       "answer": "knows",
+       "why_en": "Nobody is singular, so the verb takes -s.",
+       "why_fa": "nobody مفرد است، پس فعل -s می‌گیرد."
+      },
+      {
+       "q": "Some of the cake ___ left.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "Cake is noncount, so the verb is singular.",
+       "why_fa": "cake غیرقابل‌شمارش است، پس فعل مفرد است."
+      },
+      {
+       "q": "The number of students ___ growing.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "The number of is singular; a number of would be plural.",
+       "why_fa": "the number of مفرد است؛ a number of جمع می‌شد."
+      }
+     ]
+    },
+    {
+     "n": 38,
      "title": "Plural and possessive nouns",
      "title_fa": "اسم‌های جمع و ملکی",
      "chapter": "Chapter 6",
@@ -19717,7 +20112,7 @@
      ]
     },
     {
-     "n": 34,
+     "n": 39,
      "title": "Count and noncount nouns: a few and a little",
      "title_fa": "اسم‌های قابل‌شمارش و غیرقابل‌شمارش: a few و a little",
      "chapter": "Chapter 6",
@@ -19796,7 +20191,7 @@
      ]
     },
     {
-     "n": 35,
+     "n": 40,
      "title": "Articles: a, an and the",
      "title_fa": "حروف تعریف: a، an و the",
      "chapter": "Chapter 7",
@@ -19875,7 +20270,7 @@
      ]
     },
     {
-     "n": 36,
+     "n": 41,
      "title": "Pronouns, possessive adjectives and other",
      "title_fa": "ضمیرها، صفت‌های ملکی و other",
      "chapter": "Chapter 8",
@@ -19954,7 +20349,7 @@
      ]
     },
     {
-     "n": 37,
+     "n": 42,
      "title": "Reflexive pronouns",
      "title_fa": "ضمیرهای بازتابی",
      "chapter": "Chapter 8",
@@ -20033,7 +20428,7 @@
      ]
     },
     {
-     "n": 38,
+     "n": 43,
      "title": "Modals of necessity and advice: must, have to, should",
      "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
      "chapter": "Chapter 9",
@@ -20112,7 +20507,7 @@
      ]
     },
     {
-     "n": 39,
+     "n": 44,
      "title": "Ability and possibility: can, could, may, might",
      "title_fa": "توانایی و احتمال: can، could، may، might",
      "chapter": "Chapter 9",
@@ -20191,7 +20586,7 @@
      ]
     },
     {
-     "n": 40,
+     "n": 45,
      "title": "Requests and suggestions: could you, would you mind, let's",
      "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
      "chapter": "Chapter 9",
@@ -20270,7 +20665,7 @@
      ]
     },
     {
-     "n": 41,
+     "n": 46,
      "title": "Degrees of certainty: must be, may be, can't be",
      "title_fa": "درجات اطمینان: must be، may be، can't be",
      "chapter": "Chapter 10",
@@ -20349,7 +20744,7 @@
      ]
     },
     {
-     "n": 42,
+     "n": 47,
      "title": "The passive",
      "title_fa": "جملات مجهول",
      "chapter": "Chapter 11",
@@ -20428,7 +20823,7 @@
      ]
     },
     {
-     "n": 43,
+     "n": 48,
      "title": "The passive with modals, get and stative verbs",
      "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
      "chapter": "Chapter 11",
@@ -20507,7 +20902,7 @@
      ]
     },
     {
-     "n": 44,
+     "n": 49,
      "title": "Noun clauses and reported speech",
      "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
      "chapter": "Chapter 12",
@@ -20586,7 +20981,7 @@
      ]
     },
     {
-     "n": 45,
+     "n": 50,
      "title": "The subjunctive in noun clauses: insist that he be",
      "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
      "chapter": "Chapter 12",
@@ -20665,7 +21060,7 @@
      ]
     },
     {
-     "n": 46,
+     "n": 51,
      "title": "Adjective clauses",
      "title_fa": "جملات وصفی (موصولی)",
      "chapter": "Chapter 13",
@@ -20744,7 +21139,7 @@
      ]
     },
     {
-     "n": 47,
+     "n": 52,
      "title": "Reducing adjective clauses to phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
      "chapter": "Chapter 13",
@@ -20823,7 +21218,7 @@
      ]
     },
     {
-     "n": 48,
+     "n": 53,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -20902,7 +21297,7 @@
      ]
     },
     {
-     "n": 49,
+     "n": 54,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -20981,7 +21376,7 @@
      ]
     },
     {
-     "n": 50,
+     "n": 55,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -21060,7 +21455,7 @@
      ]
     },
     {
-     "n": 51,
+     "n": 56,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -21139,7 +21534,7 @@
      ]
     },
     {
-     "n": 52,
+     "n": 57,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -21218,7 +21613,7 @@
      ]
     },
     {
-     "n": 53,
+     "n": 58,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -21297,7 +21692,7 @@
      ]
     },
     {
-     "n": 54,
+     "n": 59,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",

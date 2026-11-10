@@ -460,7 +460,12 @@ PINNED_GRAMMAR = [
     "Perfect tenses: looking back from a point in time",
     "Perfect progressive: how long an action has lasted",
     "Choosing the tense: a review",
-    "Subject-verb agreement",
+    "Basic agreement: one subject, one verb",
+    "Final -s and -es: nouns and verbs",
+    "Subjects joined by and, or and nor",
+    "Prepositional phrases after the subject",
+    "There is and there are; amounts, titles and times",
+    "Indefinite pronouns, collective nouns and quantities",
     "Plural and possessive nouns",
     "Count and noncount nouns: a few and a little",
     "Articles: a, an and the",
@@ -696,6 +701,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
              or len(l.get("exam") or []) < 3]
     check(not thin4,
           f"{bid}: chapter four chart(s) {thin4} are thinner than the rest of the book")
+
+    # Chapter five is agreement: the basic rule, the -s/-es ending, compound
+    # subjects, phrases after the subject, there is/are, and the pronouns and
+    # collective nouns that look plural and are not.
+    fifth = [l for l in lessons if l.get("chapter") == "Chapter 5"]
+    check([str(l.get("section")) for l in fifth] == [f"5-{i}" for i in range(1, 7)],
+          f"{bid}: chapter five is not its six charts in order "
+          f"(got {[str(l.get('section')) for l in fifth]})")
+    thin5 = [str(l.get("section")) for l in fifth
+             if len(l.get("examples") or []) < 3
+             or len(l.get("exercises") or []) < 3
+             or len(l.get("exam") or []) < 3]
+    check(not thin5,
+          f"{bid}: chapter five chart(s) {thin5} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"
