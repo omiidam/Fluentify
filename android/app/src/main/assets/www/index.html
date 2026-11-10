@@ -6080,6 +6080,263 @@
     .pgap { width: 6.5em; }
   }
 
+  /* ==========================================================================
+     FLUENTIFY KIDS
+     Every rule in this block sits behind body.kids, a class that is only put
+     on the body for an account whose age is under fifteen. The adult app is
+     the block above: no selector there is edited, no token there is redefined
+     and no markup is replaced, so an adult account renders byte for byte the
+     page it rendered before the Kids experience existed.
+
+     The identity is its own, not the paper theme in brighter colors: a warm
+     afternoon palette (sunshine, coral, sky, mint), a rounded card language
+     with 18-20px corners, one color per section, larger type and larger taps
+     for smaller hands, and the fox as a character rather than a logo.
+     ========================================================================== */
+  body.kids {
+    --surf-1: #fffdf6; --surf-2: #fff8e6; --surf-3: #fff2d6;
+    --surf-4: #ffe9bd; --surf-5: #ffdfa6; --surf-6: #ffd48c;
+    --chat-bg: #fff7e4; --raise: #ffffff; --raise-2: #fffef9;
+    --line: #ffd79c; --line2: #f5c481; --line-soft: #ffe9c4; --line-strong: #efb268;
+    --ink: #2a2350; --ink-1: #2a2350; --ink-2: #453a70; --ink-3: #63548c;
+    --ink-4: #8b7aae; --ink-5: #7a6b9c; --title: #2a2350; --muted: #7a6b9c;
+    --gold-ink: #8a4708; --navy: #2a2350; --navy-ink: #2a2350;
+    --indigo-ink: #5b3fbf; --violet-ink: #6d3fc0; --green-ink: #1f6b4f;
+    background:
+      radial-gradient(58% 38% at 8% 0%, rgba(255,208,86,.55), transparent 62%),
+      radial-gradient(52% 40% at 100% 6%, rgba(96,196,255,.42), transparent 60%),
+      radial-gradient(70% 52% at 50% 104%, rgba(255,146,170,.30), transparent 64%),
+      linear-gradient(180deg, #fff8e6 0%, #fff2d6 100%);
+  }
+  body.kids header {
+    background: linear-gradient(180deg, #fff9e9 0%, #ffefcd 100%);
+    border-bottom: 2px solid #ffd79c;
+    padding: 12px 16px;
+  }
+  body.kids h1 { color: #2a2350; letter-spacing: -.2px; }
+  body.kids header p { color: #6a568f; }
+  /* A tile a child can hit: 62px, a 6px radius background, an icon at 24px
+     and a 10px label. The colored square behind the glyph is what makes the
+     strip scannable without labels doing all the work. */
+  body.kids .tools { gap: 8px; }
+  body.kids .hbtn {
+    width: 62px; height: 62px; border-radius: 18px; padding: 6px 3px;
+    gap: 4px; border-width: 2px;
+    box-shadow: 0 3px 0 rgba(210,160,70,.20);
+  }
+  body.kids .hbtn i {
+    width: 26px; height: 26px; border-radius: 9px;
+    background: rgba(255,255,255,.72);
+  }
+  body.kids .hbtn i svg { width: 21px; height: 21px; }
+  body.kids .hbtn span { font-size: 10px; font-weight: 800; color: #4a3a72; }
+  body.kids .hbtn.on span, body.kids .hbtn.on i { color: #fffdf6; }
+  body.kids .hbtn.on i { background: rgba(255,255,255,.18); }
+  body.kids .hbtn:hover { transform: translateY(-2px); }
+  /* The chart the fox already sits on in the adult app, drawn fresh: wide
+     corners, a sunshine edge and a little more room around the words. */
+  body.kids .msg {
+    border-radius: 20px; font-size: 17px; line-height: 1.65;
+    border-width: 2px;
+  }
+  body.kids .msg.bot {
+    background: linear-gradient(180deg, #ffffff 0%, #f0fbf7 100%);
+    border-color: #cdeee2; border-bottom-left-radius: 8px;
+  }
+  body.kids .msg.user {
+    background: linear-gradient(135deg, #4cc3ff 0%, #4f7cff 60%, #7c5cff 100%);
+    border-bottom-right-radius: 8px;
+  }
+  body.kids .msg b, body.kids .msg strong {
+    background: rgba(255,214,102,.42); box-shadow: inset 0 0 0 2px rgba(240,178,60,.32);
+  }
+  body.kids .schip, body.kids .starters .schip {
+    border-radius: 16px; font-size: 13px; padding: 9px 14px;
+    border: 2px solid #ffd79c; background: #fffdf6; color: #2a2350; font-weight: 700;
+  }
+  body.kids .starters .schip:hover { background: #fff2d6; }
+  /* Panels are full pages in both experiences; the kid page is a poster, so
+     it gets the wide corners and a heavier title. */
+  body.kids #kpanel.open, body.kids #dpanel.open, body.kids #vpanel.open,
+  body.kids #gpanel.open, body.kids #fpanel.open, body.kids #lpanel.open,
+  body.kids #rdpanel.open, body.kids #stpanel.open, body.kids #acpanel.open,
+  body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open {
+    border-radius: 24px 24px 0 0;
+  }
+  body.kids #kpanel h3, body.kids #vpanel h3, body.kids #gpanel h3,
+  body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,
+  body.kids #stpanel h3, body.kids #dpanel h3, body.kids #acpanel h3,
+  body.kids #pathpanel h3 { font-size: 22px; }
+
+  /* ---- the Kids home page --------------------------------------------- */
+  #kpanel { display: none; }
+  #kpanel.open { display: block; }
+  body:not(.kids) #kpanel, body:not(.kids) #kidstoggle,
+  body:not(.kids) #kidsmore { display: none !important; }
+  /* A child's toolbar is seven big doors, not seventeen: the tools that need
+     explaining wait behind More, one tap away and out of the first glance. */
+  body.kids .tools:not(.moreopen) .kadv { display: none; }
+  body.kids .tools.moreopen { row-gap: 6px; }
+  .khero {
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px 16px; margin-bottom: 12px;
+    border-radius: 22px;
+    background: radial-gradient(120% 120% at 100% 0%, rgba(255,255,255,.55), transparent 55%),
+      linear-gradient(150deg, #ffd76a 0%, #ffb84d 55%, #ff9e6b 100%);
+    border: 2px solid #ffca5e;
+    box-shadow: 0 10px 24px -18px #b57a1e;
+  }
+  .khero .kface {
+    flex: none; width: 66px; height: 66px; border-radius: 50%;
+    display: grid; place-items: center; overflow: hidden;
+    background: #fffdf6; box-shadow: inset 0 0 0 3px rgba(255,255,255,.9);
+  }
+  .khero .kface svg, .khero .kface img { width: 56px; height: 56px; display: block; }
+  .khero .kgreet { min-width: 0; }
+  .khero .kgreet b {
+    display: block; font-family: var(--font-display); font-size: 21px;
+    line-height: 1.15; color: #3b2a12;
+  }
+  .khero .kgreet span {
+    display: block; font-size: 12px; line-height: 1.5; color: #5a4216; margin-top: 3px;
+  }
+  .khero .kgreet .kfa { direction: rtl; text-align: right; }
+  .kstars { display: flex; align-items: center; gap: 4px; margin-top: 7px; }
+  .kstars i {
+    width: 16px; height: 16px; display: block;
+    background: #fffdf6; border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(180,120,20,.35);
+    transition: transform .25s cubic-bezier(.2,1.7,.4,1), background .25s;
+  }
+  .kstars i.on { background: #ff7a4d; box-shadow: inset 0 0 0 2px #e2562a; }
+  .kstars i.pop { transform: scale(1.35); }
+  .kbar { height: 12px; border-radius: 999px; background: rgba(255,255,255,.65); overflow: hidden; margin-top: 8px; }
+  .kbar i { display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, #4cc3ff, #7c5cff); transition: width .5s cubic-bezier(.22,1,.36,1); }
+  .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; color: #5a4216; font-weight: 700; }
+
+  .ktoday {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; margin-bottom: 12px;
+    background: #ffffff; border: 2px solid #cdeee2; border-radius: 20px;
+    box-shadow: 0 6px 18px -16px #1f6b4f;
+  }
+  .ktoday .kemoji { font-size: 30px; line-height: 1; flex: none; }
+  .ktoday .kwt { min-width: 0; flex: 1 1 auto; }
+  .ktoday .kwt b { font-size: 20px; color: #2a2350; letter-spacing: -.2px; }
+  .ktoday .kwt .kdef { font-size: 12px; color: #4a3a72; margin-top: 2px; }
+  .ktoday .kwt .kfa { font-size: 13px; color: #1f6b4f; direction: rtl; text-align: right; margin-top: 2px; }
+  .ksay {
+    flex: none; width: 44px; height: 44px; border-radius: 14px; cursor: pointer;
+    border: 2px solid #cdeee2; background: #f0fbf7; font-size: 18px; color: #1f6b4f;
+  }
+  .ksay:hover { background: #dff5ec; }
+
+  .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 9px; }
+  .kbtn {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+    min-height: 74px; padding: 11px 12px; cursor: pointer; font-family: inherit;
+    border-radius: 18px; border: 2px solid var(--line); background: #ffffff;
+    color: #2a2350; text-align: start;
+    box-shadow: 0 3px 0 rgba(210,160,70,.18);
+    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s;
+  }
+  .kbtn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(210,160,70,.18); }
+  .kbtn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(210,160,70,.2); }
+  .kbtn .kico { font-size: 22px; line-height: 1; }
+  .kbtn b { font-size: 13.5px; font-weight: 800; }
+  .kbtn .kfa { font-size: 11px; color: #6a568f; direction: rtl; }
+  .kbtn .kgo { font-size: 10.5px; color: #7a6b9c; font-weight: 700; margin-top: auto; }
+  .kbtn.kc-teal { border-color: #bfe9dc; background: #f4fdf9; }
+  .kbtn.kc-sky { border-color: #c3e6ff; background: #f4fbff; }
+  .kbtn.kc-coral { border-color: #ffd0c0; background: #fff7f3; }
+  .kbtn.kc-grape { border-color: #dcd2ff; background: #f8f5ff; }
+  .kbtn.kc-sun { border-color: #ffe2a0; background: #fffdf2; }
+  .kbtn.kc-rose { border-color: #ffd0e0; background: #fff5f9; }
+
+  .kcard {
+    background: #ffffff; border: 2px solid var(--line); border-radius: 20px;
+    padding: 12px 14px 14px; margin-bottom: 10px;
+  }
+  .kcard h4 { margin: 0 0 2px; font-size: 16px; color: #2a2350; font-family: var(--font-display); }
+  .kcard .kfa-h { font-size: 12px; color: #6a568f; direction: rtl; margin-bottom: 6px; }
+  .kcard p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.6; color: #3b3060; }
+  .kcard .kfa-p { font-size: 12.5px; color: #4a3a72; direction: rtl; text-align: right; }
+  .kcard .kform {
+    font-size: 13px; font-weight: 700; color: #5b3fbf;
+    background: #f2eeff; border-radius: 10px; padding: 7px 10px; margin: 4px 0 8px;
+    direction: ltr;
+  }
+  .klabel { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #7a6b9c; margin: 10px 0 5px; }
+  .kex { display: flex; flex-direction: column; gap: 6px; }
+  .kex .krow {
+    display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px;
+    background: #f7fdff; border: 1.5px solid #cfeaf7; border-radius: 14px;
+  }
+  .kex .krow .kplay {
+    flex: none; width: 30px; height: 30px; border-radius: 10px; cursor: pointer;
+    border: 1.5px solid #bfe1ef; background: #fff; color: #235c76; font-size: 12px;
+  }
+  .kex .krow .ken { font-size: 13.5px; color: #22374a; }
+  .kex .krow .kfa { font-size: 12.5px; color: #4a3a72; direction: rtl; text-align: right; }
+
+  .kq { margin-top: 10px; }
+  .kq .kqq { font-size: 14px; font-weight: 700; color: #2a2350; margin-bottom: 6px; direction: ltr; }
+  .kopts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kopt {
+    font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+    padding: 9px 13px; min-height: 40px; border-radius: 14px;
+    border: 2px solid #e6ddff; background: #faf8ff; color: #3b3060;
+  }
+  .kopt:hover { background: #f2eeff; }
+  .kopt.on { border-color: #7c5cff; background: #efe9ff; }
+  .kopt.ok { border-color: #2f9e6f; background: #e6f8ef; color: #1f6b4f; }
+  .kopt.no { border-color: #e2704f; background: #fff0ea; color: #a8432a; }
+  .kopt[disabled] { cursor: default; opacity: .9; }
+  .kwhy { margin-top: 6px; font-size: 12.5px; line-height: 1.6; }
+  .kwhy .ken { color: #1f6b4f; }
+  .kwhy .kfa { color: #4a3a72; direction: rtl; text-align: right; }
+  .kspark { animation: kPop .45s cubic-bezier(.2,1.8,.4,1); }
+  @keyframes kPop { 0% { transform: scale(.9); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
+  .kwin {
+    display: flex; align-items: center; gap: 8px; margin-top: 10px;
+    padding: 9px 12px; border-radius: 14px; font-size: 13px; font-weight: 800;
+    background: #e6f8ef; color: #1f6b4f; border: 2px solid #b9e7cd;
+  }
+  .kwin .kfa { direction: rtl; font-weight: 700; }
+
+  .klist { display: flex; flex-direction: column; gap: 8px; }
+  .krowbtn {
+    display: flex; align-items: center; gap: 10px; width: 100%;
+    padding: 11px 13px; cursor: pointer; font-family: inherit; text-align: start;
+    border-radius: 16px; border: 2px solid var(--line); background: #fff;
+    color: #2a2350;
+  }
+  .krowbtn:hover { background: #fffaea; }
+  .krowbtn .kico { font-size: 22px; }
+  .krowbtn b { font-size: 14px; }
+  .krowbtn .kfa { font-size: 11.5px; color: #6a568f; direction: rtl; }
+  .krowbtn .kn { margin-inline-start: auto; font-size: 11px; color: #7a6b9c; font-weight: 700; }
+  .kback {
+    display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
+    font-family: inherit; font-size: 12.5px; font-weight: 800;
+    border: 0; background: none; color: #5b3fbf; padding: 0 0 8px;
+  }
+  .kback:hover { text-decoration: underline; }
+  .kpara { font-size: 14px; line-height: 1.75; color: #3b3060; direction: ltr; }
+  .kpara-fa { font-size: 12.5px; line-height: 1.9; color: #4a3a72; direction: rtl; text-align: right; margin-top: 6px; }
+  .ktheme { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .kwordrow {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 11px; border-radius: 14px;
+    border: 2px solid #e8f4ef; background: #fbfffd;
+  }
+  .kwordrow b { font-size: 15px; color: #1f4b3c; }
+  .kwordrow .kfa { font-size: 12px; color: #2f6b4f; direction: rtl; margin-inline-start: auto; }
+  .kwordrow .kdef { font-size: 11.5px; color: #4a6b5e; }
+  .kwordrow .kex { font-size: 11.5px; color: #55756a; }
+
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
      not an entrance or a tap response should be listed here too. */
@@ -6094,6 +6351,9 @@
     .mic.rec, .stt-dot, .bbc-play.on::before { animation: none !important; }
     body.speaking .mav.bot { animation: none !important; }
     .eqbar i { animation: none !important; }
+    /* the Kids layer: its stars pop, its tiles lift and its cards breathe, and
+       all of that is an entrance or a tap response too */
+    .kspark, .kstars i { animation: none !important; transition: none !important; }
     button, .ltab, .bbc-tab, .lrow { transition: none !important; }
     * { scroll-behavior: auto !important; }
   }
@@ -6202,6 +6462,14 @@
                  dir="ltr">
           <small class="hint">Recovers this account. — برای بازیابی حساب.</small>
         </label>
+        <label class="authfield" data-only="signup">
+          <span>Age — سن</span>
+          <input id="authage" type="number" inputmode="numeric" min="0" max="120"
+                 step="1" autocomplete="off" placeholder="9">
+          <small class="hint">We ask one number to choose the right experience. Under 15 gets
+            Fluentify Kids; 15 and over gets the full app. —
+            این عدد فقط برای انتخاب تجربهٔ مناسب است: زیر ۱۵ سال «فلوئنتی‌فای کودکان» و ۱۵ سال به بالا نسخهٔ کامل.</small>
+        </label>
         <label class="authfield">
           <span>Password — گذرواژه</span>
           <span class="authwrap">
@@ -6272,6 +6540,38 @@
   </div>
 </div>
 
+<!-- The age gate. An account made before this field existed has no band, and
+     the app cannot decide between the two experiences without one. It asks
+     once, adds the answer to the existing account - never a second account -
+     and then it is gone for good. Fifteen and over lands in exactly the app
+     that was here before. -->
+<div id="agegate" class="auth" hidden>
+  <div class="authcard" role="dialog" aria-modal="true" aria-labelledby="ageh">
+    <div class="authhero">
+      <div class="authbadge"><img src="brand/fox-face.png" alt="" width="42" height="42"></div>
+      <div class="authhero-t">
+        <b>One more thing</b>
+        <span>یک چیز دیگر<br><bdi dir="rtl" lang="fa">فقط یک عدد لازم است</bdi></span>
+      </div>
+    </div>
+    <div class="authbody">
+      <h2 class="authh" id="ageh">How old are you?</h2>
+      <p class="authsub">We use this one number to choose the right experience: under 15 is
+        Fluentify Kids, 15 and over is the full app. It is saved with your account and can
+        never be shared. — <bdi dir="rtl" lang="fa">این عدد را برای انتخاب تجربهٔ مناسب می‌پرسیم:
+        زیر ۱۵ سال نسخهٔ کودکان و ۱۵ سال به بالا نسخهٔ کامل. با حسابت ذخیره می‌شود و به کسی
+        داده نمی‌شود.</bdi></p>
+      <label class="authfield">
+        <span>Your age — سن شما</span>
+        <input id="ageinput" type="number" inputmode="numeric" min="0" max="120" step="1"
+               autocomplete="off" placeholder="9">
+      </label>
+      <p class="autherr" id="ageerr" role="alert"></p>
+      <button class="authsubmit" id="agesubmit" type="button">Continue</button>
+    </div>
+  </div>
+</div>
+
 <div id="cert" class="certwrap" hidden>
   <div class="certsheet" id="certsheet" role="dialog" aria-label="Certificate"></div>
   <div class="certbar">
@@ -6306,6 +6606,9 @@
     <div id="seedmeter" title="Daily seed"></div>
     <div class="status"><i></i> online</div>
     <nav class="tools" aria-label="Study panels">
+      <button class="hbtn tint-amber" id="kidstoggle" aria-expanded="false"
+              title="My home — خانهٔ من" aria-label="My home — words, games and today's word">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.2 12 4l8 7.2"/><path d="M6.2 10v9.4h11.6V10"/><path d="M10 19.4v-5h4v5"/></svg></i><span>Home</span></button>
             <button class="hbtn tint-amber" id="rtoggle" aria-expanded="false" title="Review saved words — واژه‌های مرور" >
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.4l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"/></svg></i><span>Review</span></button>
       <button class="hbtn tint-amber" id="dtoggle" aria-expanded="false" title="Today's English — انگلیسی امروز" aria-label="Today — word, expression and conversation of the day">
@@ -6334,6 +6637,9 @@
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 18.4c0-3.2 2.6-4.4 5-4.4h4.4c2.4 0 5-1.2 5-4.4"/><circle cx="4.8" cy="18.4" r="1.9"/><circle cx="19.2" cy="5.6" r="1.9"/></svg></i><span>Path</span><span class="rbadge" id="pathbadge" hidden></span></button>
       <button class="hbtn tint-amber" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
+      <button class="hbtn tint-slate" id="kidsmore" aria-expanded="false" hidden
+              title="More tools — ابزارهای بیشتر" aria-label="More tools">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></svg></i><span>More</span></button>
       <button class="hbtn tint-slate" id="themetoggle" aria-pressed="false" title="Theme — پوسته" aria-label="Theme — light or dark / پوسته">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.2M12 19v2.2M2.8 12h2.2M19 12h2.2M5.5 5.5l1.6 1.6M16.9 16.9l1.6 1.6M18.5 5.5l-1.6 1.6M7.1 16.9l-1.6 1.6"/></svg></i><span>Theme</span></button>
       <button class="hbtn danger" id="clear" title="Clear conversation — پاک کردن گفتگو" aria-label="Clear conversation">
@@ -6370,6 +6676,11 @@
     </div>
     <div class="nexamples" id="nexamples"></div>
     <div class="nresult" id="nresult" aria-live="polite"></div>
+  </div>
+
+  <div id="kpanel">
+    <h3>My home — <bdi class="fa" lang="fa" dir="rtl">خانهٔ من</bdi></h3>
+    <div id="kbody" aria-live="polite"></div>
   </div>
 
   <div id="dpanel">
@@ -6812,7 +7123,7 @@ function renderStarters() {
 
   const row = document.createElement('div');
   row.className = 'schips';
-  STARTERS.forEach(([query, label, fa]) => {
+  (Kids.on() ? Kids.starters() : STARTERS).forEach(([query, label, fa]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'schip';
@@ -7359,7 +7670,9 @@ async function send(text) {
     await bot.loadWordApiFor(text);
     const reply = bot.respond(text);
     hideTyping();
-    add(reply, 'bot');
+    // the same kids wrapper the online page uses, so the offline tutor is
+    // friendly in exactly the same way
+    add(Kids.says(text, reply), 'bot');
     // finishing a practice unlocks that topic's exam — refresh the panel so
     // the 🎓 button stops showing the lock
     if (/exam is now open|آزمون باز شد/i.test(reply) &&
@@ -8360,6 +8673,8 @@ const Panels = (() => {
     fpanel: 'ftoggle', lpanel: 'ltoggle', phpanel: 'phtoggle',
     bpanel: 'btoggle', rpanel: 'rtoggle', rdpanel: 'rdtoggle',
     stpanel: 'stoggle',
+    // the kids home page has a tile that only exists in the kids experience
+    kpanel: 'kidstoggle',
     lvlpanel: 'lvltoggle',
     // the weekly quiz has no tile: the landing-page card is its way in
     wqpanel: null,
@@ -13124,6 +13439,10 @@ const Auth = (() => {
     const pass = String(fields.pass || '');
     const pass2 = String(fields.pass2 || '');
     const email = String(fields.email || '').trim();
+    /* One number, one purpose: age picks the experience, and it is required
+       at sign-up because the app cannot choose between two interfaces on a
+       guess. Checked here with the same function the gate uses. */
+    const age = Experience.cleanAge(fields.age);
     const errors = [];
     if (!hasAccount) {
       if (name.length < 2) errors.push(['Enter your full name.', 'نام و نام خانوادگی را وارد کن.']);
@@ -13135,6 +13454,10 @@ const Auth = (() => {
       }
       const mail = emailProblem(email);
       if (mail) errors.push(mail);
+      if (age == null) {
+        errors.push(['Enter your age as a whole number from 0 to 120.',
+                     'سن را به‌صورت عددی درست بین ۰ تا ۱۲۰ بنویس.']);
+      }
     }
     if (!/^[a-zA-Z0-9._-]{3,32}$/.test(user)) {
       errors.push(['Username: 3–32 letters, digits, dot, dash or underscore.',
@@ -13144,7 +13467,7 @@ const Auth = (() => {
     if (!hasAccount && pass !== pass2) {
       errors.push(['The two passwords do not match.', 'دو گذرواژه یکسان نیستند.']);
     }
-    return {ok: errors.length === 0, errors, name, user, email, pass};
+    return {ok: errors.length === 0, errors, name, user, email, pass, age};
   }
 
   /* ---- the overlay ------------------------------------------------------ */
@@ -13221,6 +13544,9 @@ const Auth = (() => {
     $('authname').value = account ? account.name : '';
     $('authuser').value = account ? account.user : '';
     if ($('authemail')) $('authemail').value = account && account.email ? account.email : '';
+    if ($('authage')) {
+      $('authage').value = account && account.age != null ? String(account.age) : '';
+    }
     setTimeout(() => {
       const target = tab === 'signup' ? $('authname') : $('authuser');
       if (target) target.focus({preventScroll: true});
@@ -13403,10 +13729,11 @@ const Auth = (() => {
       email: $('authemail') ? $('authemail').value : '',
       pass: $('authpass').value,
       pass2: $('authpass2').value,
+      age: $('authage') ? $('authage').value : '',
     };
-    const {ok, errors, name, user, email, pass} = validate(
+    const {ok, errors, name, user, email, pass, age} = validate(
       {name: fields.name, user: fields.user, email: fields.email,
-       pass: fields.pass, pass2: fields.pass2}, has);
+       pass: fields.pass, pass2: fields.pass2, age: fields.age}, has);
     if (!ok) { error(errors[0]); return; }
 
     if (!canHash()) {
@@ -13440,13 +13767,19 @@ const Auth = (() => {
         }
         const salt = newSalt();
         const hash = await derive(pass, salt, ITER);
-        account = {name, user, email, salt, hash, iter: ITER, at: new Date().toISOString()};
+        /* The band is written beside the age, not derived on every read: the
+           account has to open in the same experience on a device that has
+           never seen this browser's clock, and a stored answer is what makes
+           that true. */
+        account = {name, user, email, salt, hash, iter: ITER,
+                   age, band: Experience.bandFor(age), at: new Date().toISOString()};
         write(ACCOUNT, account);
       }
       session = {at: Date.now(), seen: Date.now(), user: account.user};
       write(SESSION, session);
       lastTouch = Date.now();
       hide();
+      Experience.onSignedIn();
       document.dispatchEvent(new CustomEvent('fluentify:signed-in', {detail: {name: account.name}}));
       if (document.getElementById('acbody')) paintAccount();
     } catch (err) {
@@ -13462,6 +13795,9 @@ const Auth = (() => {
   function signOut() {
     drop(SESSION);
     session = null;
+    /* No session, no experience: the kids class comes off with the account it
+       belonged to, so the sign-in card is never drawn in a child's palette. */
+    Experience.paint();
     show('signin', false);
   }
 
@@ -13483,6 +13819,7 @@ const Auth = (() => {
     Study.clear();
     account = null; session = null; confirmReset = false;
     hide();
+    Experience.paint();
     show('signup', false);
     applyAvatarSkin(avatarId());
     repaintAvatarTiles();
@@ -13566,6 +13903,21 @@ const Auth = (() => {
       <div><b>${a.en}</b><i lang="fa" dir="rtl">${a.fa}</i>${foot}</div></div>`;
   }
 
+  /* The age the experience was chosen from, stated plainly - and, for an
+     account made before the question existed, the one control that asks it.
+     The same record is edited either way: the gate never makes an account. */
+  function ageRow(account) {
+    const age = Experience.cleanAge(account.age);
+    if (age == null) {
+      return '<button class="lv-btn" data-ac="age" type="button" ' +
+        'style="margin-top:6px">Add your age — سنت را بنویس</button>';
+    }
+    const kids = account.band === 'kids' ||
+      (account.band == null && age < Experience.kidsUnder());
+    return '<span class="ac-mail">Age ' + age + ' · ' +
+      (kids ? 'Fluentify Kids — کودکان' : 'Fluentify — کامل') + '</span>';
+  }
+
   function paintAccount() {
     const body = $('acbody');
     if (!body) return;
@@ -13610,6 +13962,7 @@ const Auth = (() => {
           <p class="ac-name">${esc(account.name)}</p>
           <p class="ac-user">@${esc(account.user)} · joined ${new Date(account.at).toLocaleDateString('en-US', {day: 'numeric', month: 'short', year: 'numeric'})}</p>
           <span class="ac-mail">${esc(account.email || 'no email on this account')}</span>
+          ${ageRow(account)}
         </div>
       </section>
 
@@ -13814,6 +14167,7 @@ const Auth = (() => {
         else if (act === 'signout') signOut();
         else if (act === 'reset') resetDevice();
         else if (act === 'open') show('signup', false);
+        else if (act === 'age') Experience.askAge();
         else if (act === 'save') {
           const input = $('acname');
           const name = input.value.trim().replace(/\s+/g, ' ');
@@ -13863,6 +14217,10 @@ const Auth = (() => {
     if (!isOpen(session, Date.now())) { show('signin', !!session); return; }
     hide();
     touch(true);
+    /* The band is applied here, before the loader lifts: an adult sees the
+       page they have always seen, a child sees the kids layer, and an account
+       from before the age question is asked once. */
+    Experience.sync();
   }
 
   return {
@@ -13873,6 +14231,908 @@ const Auth = (() => {
     profile: () => read(ACCOUNT, null),
     signedIn: () => isOpen(read(SESSION, null), Date.now()),
   };
+})();
+
+/* ============================================================================
+ * EXPERIENCE — WHICH FLUENTIFY THIS ACCOUNT GETS
+ * One number decides: under fifteen is Fluentify Kids, fifteen and over is the
+ * app that was here before. It is asked once, at sign-up, and kept on the same
+ * account record the password and the certificate already use - so it survives
+ * sign-out, a restart and a device move with the rest of the account, and an
+ * adult account is never touched by any of the Kids code.
+ *
+ * The classification is pure arithmetic (age < 15), kept in one place so the
+ * sign-up form, the age gate for older accounts and the checker cannot
+ * disagree about where the line is.
+ * ==========================================================================*/
+const Experience = (() => {
+  const ACCOUNT = 'fluentify.auth.account';
+  const KIDS_UNDER = 15;
+  const AGE_MIN = 0, AGE_MAX = 120;
+
+  const $ = (id) => document.getElementById(id);
+  const read = (k, d) => {
+    try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }
+    catch (e) { return d; }
+  };
+  const write = (k, v) => {
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private */ }
+  };
+
+  /* A whole number of years, or null. The field is a number input, but a
+     number input still submits "", "9.5" and "-3", and none of those is an
+     age. */
+  function cleanAge(value) {
+    const text = String(value == null ? '' : value).trim();
+    if (!/^\d{1,3}$/.test(text)) return null;
+    const age = Number(text);
+    return age >= AGE_MIN && age <= AGE_MAX ? age : null;
+  }
+
+  const bandFor = (age) => (age == null ? '' : age < KIDS_UNDER ? 'kids' : 'adults');
+
+  /* The band saved on the account. An account made before this existed has
+     no age yet, and answers nothing until the gate adds one. */
+  function current() {
+    const account = read(ACCOUNT, null);
+    if (!account) return '';
+    /* The band belongs to a signed-in account: after sign-out the store still
+       holds the record, but the app in front of the learner is the sign-in
+       card, and that is never drawn in a child's palette. */
+    if (!Auth.signedIn()) return '';
+    if (account.band === 'kids' || account.band === 'adults') return account.band;
+    return bandFor(cleanAge(account.age));
+  }
+
+  const kids = () => current() === 'kids';
+  const adults = () => current() === 'adults';
+  const missing = () => {
+    const account = read(ACCOUNT, null);
+    return !!account && cleanAge(account.age) == null;
+  };
+
+  /* Adds the age to the account that is already here. It never writes a new
+     record: the name, the email, the hash and everything the learner has done
+     stay exactly where they were. */
+  function saveAge(age) {
+    const account = read(ACCOUNT, null);
+    if (!account || age == null) return '';
+    account.age = age;
+    account.band = bandFor(age);
+    write(ACCOUNT, account);
+    return account.band;
+  }
+
+  function paint() {
+    const band = current();
+    document.body.classList.toggle('kids', band === 'kids');
+    document.documentElement.setAttribute('data-experience', band || 'none');
+    if (band === 'kids') Kids.enable();
+    else Kids.off();
+    document.dispatchEvent(new CustomEvent('fluentify:experience', {detail: {band}}));
+    return band;
+  }
+
+  /* ---- the gate for accounts that predate the question ----------------- */
+  function ageError(pair) {
+    const box = $('ageerr');
+    if (!box) return;
+    box.innerHTML = pair
+      ? `<div>${pair[0]}</div><div dir="rtl" lang="fa">${pair[1]}</div>` : '';
+  }
+
+  function askAge() {
+    const box = $('agegate');
+    if (!box) return false;
+    box.hidden = false;
+    ageError(null);
+    const input = $('ageinput');
+    if (input) {
+      input.value = '';
+      setTimeout(() => input.focus({preventScroll: true}), 60);
+    }
+    return true;
+  }
+
+  function submitAge() {
+    const age = cleanAge($('ageinput') ? $('ageinput').value : '');
+    if (age == null) {
+      ageError(['Type your age as a whole number from 0 to 120.',
+                'سن را به‌صورت عددی درست بین ۰ تا ۱۲۰ بنویس.']);
+      return '';
+    }
+    const band = saveAge(age);
+    const box = $('agegate');
+    if (box) box.hidden = true;
+    paint();
+    if (band === 'kids') Kids.land();
+    if (document.getElementById('acbody')) Auth.paintAccount();
+    return band;
+  }
+
+  /* Called once, after the session gate has let the learner in. An adult with
+     an age goes straight to the page they always had; a child gets the kids
+     layer; an account without an age is asked once, here, before anything
+     else. */
+  function sync() {
+    const account = read(ACCOUNT, null);
+    if (!account || !Auth.signedIn()) { paint(); return ''; }
+    if (cleanAge(account.age) == null) { return askAge() ? 'ask' : ''; }
+    const band = paint();
+    if (band === 'kids') Kids.land();
+    return band;
+  }
+
+  function onSignedIn() {
+    Kids.off();
+    sync();
+  }
+
+  return {cleanAge, bandFor, current, kids, adults, missing, saveAge, paint,
+          sync, askAge, submitAge, onSignedIn,
+          kidsUnder: () => KIDS_UNDER, min: AGE_MIN, max: AGE_MAX};
+})();
+
+/* ============================================================================
+ * FLUENTIFY KIDS
+ * The kids layer: a home page, a kid word bank, six mini grammar lessons,
+ * three stories, three reading passages, four listening clips and four sets of
+ * everyday sentences - all of it in kids.json, in English and Persian, and all
+ * of it drawn into the panels the adult app already has. Nothing here runs for
+ * an adult account: every entry point starts with `if (!Experience.kids())`.
+ * ==========================================================================*/
+const Kids = (() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  /* What the toolbar says in the kids app. The wording is the same idea as
+     the adult label, shorter, because a child reads the icon first. */
+  const LABELS = {
+    kidstoggle: 'Home', dtoggle: 'Today', vtoggle: 'Words', gtoggle: 'Grammar',
+    ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
+    actoggle: 'Me',
+  };
+  /* Tools that need a sentence of explanation: they wait behind More. */
+  const ADVANCED = ['ftoggle', 'phtoggle', 'btoggle', 'ntoggle', 'lvltoggle',
+                    'pathtoggle', 'themetoggle', 'clear', 'rtoggle'];
+
+  let doc = null, pending = null, labeled = false, moreBound = false;
+  let landed = false, quizPage = 0;
+
+  function load() {
+    if (!pending) pending = loadJSON('kids').then((d) => { doc = d; return d; });
+    return pending;
+  }
+  const data = () => doc;
+
+  /* The predicate every kid entry point starts with. It reads the account,
+     so it is true only while a child is signed in. */
+  function on() {
+    return typeof Experience !== 'undefined' && Experience.kids();
+  }
+
+  /* ---- the toolbar ----------------------------------------------------- */
+  function enable() {
+    const tools = document.querySelector('.tools');
+    if (tools) tools.classList.add('kidtools');
+    if (!labeled) {
+      labeled = true;
+      Object.keys(LABELS).forEach((id) => {
+        const btn = $(id);
+        if (!btn) return;
+        const span = btn.querySelector('span');
+        if (span && !span.dataset.adultLabel) {
+          span.dataset.adultLabel = span.textContent;
+          span.textContent = LABELS[id];
+        }
+      });
+      ADVANCED.forEach((id) => { const b = $(id); if (b) b.classList.add('kadv'); });
+    }
+    const more = $('kidsmore');
+    if (more) {
+      more.hidden = false;
+      if (!moreBound) {
+        moreBound = true;
+        more.onclick = () => {
+          const list = document.querySelector('.tools');
+          const open = !list.classList.contains('moreopen');
+          list.classList.toggle('moreopen', open);
+          more.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+      }
+    }
+  }
+
+  function off() {
+    const tools = document.querySelector('.tools');
+    if (tools) tools.classList.remove('kidtools', 'moreopen');
+    document.querySelectorAll('.kadv').forEach((b) => b.classList.remove('kadv'));
+    if (labeled) {
+      Object.keys(LABELS).forEach((id) => {
+        const btn = $(id);
+        const span = btn && btn.querySelector('span[data-adult-label]');
+        if (span) { span.textContent = span.dataset.adultLabel; delete span.dataset.adultLabel; }
+      });
+      labeled = false;
+    }
+    const more = $('kidsmore');
+    if (more) { more.hidden = true; more.setAttribute('aria-expanded', 'false'); }
+    if (Panels.isOpen() === 'kpanel') Panels.set('kpanel', false);
+    landed = false;
+  }
+
+  /* ---- small shared pieces -------------------------------------------- */
+  function praise() {
+    const c = (doc && doc.chat) || {};
+    return c.praise_en || 'You are doing great! 🌟';
+  }
+
+  function sayButton(text) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ksay';
+    b.textContent = '🔊';
+    b.title = 'Hear it — بشنو';
+    b.setAttribute('aria-label', 'Hear ' + text);
+    b.onclick = () => Speech.speak(text);
+    return b;
+  }
+
+  function fa(text, cls) {
+    const el = document.createElement('div');
+    el.className = cls || 'kfa';
+    el.dir = 'rtl';
+    el.lang = 'fa';
+    el.textContent = text || '';
+    return el;
+  }
+
+  /* A quiz of three-option questions. Options are buttons, never a select: a
+     child taps the word, and the row says why as soon as the tap lands. */
+  function quiz(container, items) {
+    (items || []).forEach((item, index) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'kq';
+      const q = document.createElement('div');
+      q.className = 'kqq';
+      q.textContent = (index + 1) + '. ' + item.q;
+      wrap.appendChild(q);
+      const opts = document.createElement('div');
+      opts.className = 'kopts';
+      const why = document.createElement('div');
+      why.className = 'kwhy';
+      why.hidden = true;
+      (item.options || []).forEach((option) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'kopt';
+        b.textContent = option;
+        b.onclick = () => {
+          if (opts.dataset.done) return;
+          opts.dataset.done = '1';
+          const right = option === item.answer;
+          b.classList.add(right ? 'ok' : 'no');
+          [...opts.children].forEach((o) => {
+            o.disabled = true;
+            if (o.textContent === item.answer) o.classList.add('ok');
+          });
+          why.hidden = false;
+          why.innerHTML = '<div class="ken">' + (right ? '✓ ' : '') + esc(item.why_en) + '</div>' +
+            '<div class="kfa" dir="rtl" lang="fa">' + esc(item.why_fa) + '</div>';
+          if (right) {
+            wrap.classList.add('kspark');
+            const win = document.createElement('div');
+            win.className = 'kwin';
+            win.innerHTML = '⭐ ' + esc(praise()) +
+              ' <span class="kfa" dir="rtl" lang="fa">آفرین!</span>';
+            wrap.appendChild(win);
+          }
+        };
+        opts.appendChild(b);
+      });
+      wrap.append(opts, why);
+      container.appendChild(wrap);
+    });
+  }
+
+  function back(label, fn) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'kback';
+    b.textContent = '← ' + label;
+    b.onclick = fn;
+    return b;
+  }
+
+  function listButton(kind, item, fn, count) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'krowbtn';
+    const ico = document.createElement('span');
+    ico.className = 'kico';
+    ico.textContent = item.emoji || '⭐';
+    const body = document.createElement('span');
+    const t = document.createElement('b');
+    t.textContent = item.title_en;
+    body.appendChild(t);
+    /* English title, then the Persian one on its own line: two directions in
+       one text node is the bug the dictionary panel already paid for. */
+    const f = document.createElement('span');
+    f.className = 'kfa';
+    f.dir = 'rtl';
+    f.lang = 'fa';
+    f.textContent = item.title_fa || '';
+    f.style.display = 'block';
+    body.appendChild(f);
+    const n = document.createElement('span');
+    n.className = 'kn';
+    n.textContent = count || '';
+    b.append(ico, body, n);
+    b.onclick = fn;
+    return b;
+  }
+
+  /* ---- the home page --------------------------------------------------- */
+  function minutesToday() {
+    try { return Study.stats().today || 0; } catch (e) { return 0; }
+  }
+
+  function starCount(sec) { return Math.max(0, Math.min(5, Math.floor(sec / 180))); }
+
+  function hero(name, sec) {
+    const el = document.createElement('section');
+    el.className = 'khero';
+    const face = document.createElement('div');
+    face.className = 'kface';
+    face.innerHTML = '<img src="brand/fox-face.png" alt="" width="56" height="56">';
+    const greet = document.createElement('div');
+    greet.className = 'kgreet';
+    const hi = document.createElement('b');
+    hi.textContent = 'Hi' + (name ? ', ' + name.split(' ')[0] : '') + '! 👋';
+    const line = document.createElement('span');
+    line.textContent = 'Let us learn something fun today.';
+    const lineFa = document.createElement('span');
+    lineFa.className = 'kfa';
+    lineFa.dir = 'rtl';
+    lineFa.lang = 'fa';
+    lineFa.textContent = 'بیا امروز یک چیز بامزه یاد بگیریم.';
+    const stars = document.createElement('div');
+    stars.className = 'kstars';
+    stars.setAttribute('aria-label', 'Stars today');
+    const got = starCount(sec);
+    for (let i = 0; i < 5; i += 1) {
+      const s = document.createElement('i');
+      if (i < got) s.className = 'on';
+      stars.appendChild(s);
+    }
+    const bar = document.createElement('div');
+    bar.className = 'kbar';
+    const fill = document.createElement('i');
+    fill.style.width = Math.min(100, Math.round((sec / (15 * 60)) * 100)) + '%';
+    bar.appendChild(fill);
+    const meta = document.createElement('div');
+    meta.className = 'kmeta';
+    const left = document.createElement('span');
+    left.textContent = Math.round(sec / 60) + ' min today';
+    const right = document.createElement('span');
+    right.textContent = 'goal 15 min';
+    meta.append(left, right);
+    greet.append(hi, line, lineFa, stars, bar, meta);
+    el.append(face, greet);
+    return el;
+  }
+
+  function wordOfDay(d) {
+    const all = [];
+    (d.words || []).forEach((theme) => (theme.words || []).forEach((w) => all.push(w)));
+    if (!all.length) return null;
+    const day = Math.floor(Date.now() / 86400000);
+    return all[day % all.length];
+  }
+
+  function todayCard(word) {
+    if (!word) return null;
+    const el = document.createElement('section');
+    el.className = 'ktoday';
+    const emoji = document.createElement('div');
+    emoji.className = 'kemoji';
+    emoji.textContent = '🌟';
+    const body = document.createElement('div');
+    body.className = 'kwt';
+    const w = document.createElement('b');
+    w.textContent = word.word;
+    const def = document.createElement('div');
+    def.className = 'kdef';
+    def.textContent = word.def_en;
+    const faLine = document.createElement('div');
+    faLine.className = 'kfa';
+    faLine.dir = 'rtl';
+    faLine.lang = 'fa';
+    faLine.textContent = word.fa + ' · ' + word.example_fa;
+    body.append(w, def, faLine);
+    el.append(emoji, body, sayButton(word.word + '. ' + word.example_en));
+    return el;
+  }
+
+  function openPanel(id) {
+    if (Panels.isOpen() === id) return;
+    Panels.set(id, true, PANEL_ON_OPEN[id]);
+  }
+
+  function homeTiles() {
+    const grid = document.createElement('div');
+    grid.className = 'kgrid';
+    const tiles = [
+      ['🎨', 'Words', 'واژه‌ها', 'kc-teal', () => openPanel('vpanel')],
+      ['📘', 'Grammar', 'گرامر', 'kc-grape', () => openPanel('gpanel')],
+      ['📖', 'Read', 'خواندن', 'kc-sky', () => openPanel('rdpanel')],
+      ['🎧', 'Listen', 'شنیدن', 'kc-sun', () => openPanel('lpanel')],
+      ['📚', 'Stories', 'داستان‌ها', 'kc-rose', () => openPanel('stpanel')],
+      ['💬', 'Chat', 'گفتگو', 'kc-coral', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
+    ];
+    tiles.forEach(([ico, en, faText, cls, fn]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'kbtn ' + cls;
+      const i = document.createElement('span');
+      i.className = 'kico';
+      i.textContent = ico;
+      const t = document.createElement('b');
+      t.textContent = en;
+      const f = document.createElement('span');
+      f.className = 'kfa';
+      f.dir = 'rtl';
+      f.lang = 'fa';
+      f.textContent = faText;
+      const go = document.createElement('span');
+      go.className = 'kgo';
+      go.textContent = 'Open →';
+      b.append(i, t, f, go);
+      b.onclick = fn;
+      grid.appendChild(b);
+    });
+    return grid;
+  }
+
+  /* Five kid words, asked as "what does it mean?" in Persian. The bank is the
+     word themes in kids.json, so the practice and the vocabulary page cannot
+     drift apart. */
+  function practiceCard(d) {
+    const all = [];
+    (d.words || []).forEach((theme) => (theme.words || []).forEach((w) => all.push(w)));
+    if (all.length < 4) return null;
+    const seed = Math.floor(Date.now() / 86400000) + quizPage * 5;
+    const picked = [];
+    for (let i = 0; i < 5; i += 1) picked.push(all[(seed * 7 + i * 11) % all.length]);
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = 'Play with words 🎯';
+    card.appendChild(h);
+    card.appendChild(fa('با واژه‌ها بازی کن', 'kfa-h'));
+    const items = picked.map((w) => {
+      const wrong = all.filter((x) => x.fa !== w.fa).slice((w.word.length % 5), 5).slice(0, 2);
+      const options = [w.fa].concat(wrong.map((x) => x.fa));
+      /* shuffle by a fixed rule so the right answer is not always first */
+      options.sort((a, b) => (a.length - b.length) || a.localeCompare(b));
+      return {q: 'What does "' + w.word + '" mean?', options, answer: w.fa,
+              why_en: w.word + ' means "' + w.def_en + '" for example: ' + w.example_en,
+              why_fa: w.word + ' یعنی «' + w.fa + '». نمونه: ' + w.example_fa};
+    });
+    quiz(card, items);
+    return card;
+  }
+
+  async function home() {
+    const panel = $('kbody');
+    if (!panel) return;
+    const account = Auth.profile();
+    let d = null;
+    try { d = await load(); } catch (e) { d = null; }
+    panel.innerHTML = '';
+    if (!d) {
+      panel.innerHTML = '<p class="kcard">The games could not be read. / ' +
+        '<bdi dir="rtl" lang="fa">بازی‌ها خوانده نشدند.</bdi></p>';
+      return;
+    }
+    panel.appendChild(hero(account ? account.name : '', minutesToday()));
+    panel.appendChild(todayCard(wordOfDay(d)));
+    panel.appendChild(homeTiles());
+    const prac = practiceCard(d);
+    if (prac) panel.appendChild(prac);
+    const again = document.createElement('button');
+    again.type = 'button';
+    again.className = 'kbtn kc-sun';
+    again.style.marginTop = '10px';
+    again.innerHTML = '<span class="kico">🔄</span><b>Five more</b><span class="kfa" dir="rtl" lang="fa">پنج‌تای دیگر</span>';
+    again.onclick = () => { quizPage += 1; home(); };
+    panel.appendChild(again);
+  }
+
+  function land() {
+    if (landed) return;
+    landed = true;
+    Panels.set('kpanel', true, () => home());
+  }
+
+  /* ---- the panels ------------------------------------------------------ */
+  async function panelTitle(id, en, faText) {
+    const panel = $(id);
+    const h = panel ? panel.querySelector('h3') : null;
+    if (h) {
+      h.textContent = en + ' — ';
+      const b = document.createElement('bdi');
+      b.className = 'fa';
+      b.lang = 'fa';
+      b.dir = 'rtl';
+      b.textContent = faText;
+      h.appendChild(b);
+    }
+  }
+
+  async function vocab() {
+    const box = $('domains');
+    if (!box) return;
+    const d = await load().catch(() => null);
+    const search = $('vsearch');
+    if (search) search.hidden = true;
+    panelTitle('vpanel', 'Words', 'واژه‌ها');
+    box.innerHTML = '';
+    if (!d) { box.textContent = 'Words could not be read.'; return; }
+    const wrap = document.createElement('div');
+    wrap.className = 'klist';
+    (d.words || []).forEach((theme) => {
+      wrap.appendChild(listButton('theme', theme,
+        () => themeWords(d, theme), (theme.words || []).length + ' words'));
+    });
+    box.appendChild(wrap);
+  }
+
+  function themeWords(d, theme) {
+    const box = $('domains');
+    if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(back('All words', vocab));
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = (theme.emoji || '') + ' ' + theme.title_en;
+    card.appendChild(h);
+    card.appendChild(fa(theme.title_fa, 'kfa-h'));
+    (theme.words || []).forEach((w) => {
+      const row = document.createElement('div');
+      row.className = 'kwordrow';
+      const body = document.createElement('div');
+      const b = document.createElement('b');
+      b.textContent = w.word;
+      const def = document.createElement('div');
+      def.className = 'kdef';
+      def.textContent = w.def_en;
+      const ex = document.createElement('div');
+      ex.className = 'kex';
+      ex.textContent = w.example_en;
+      body.append(b, def, ex);
+      row.append(body, fa(w.fa), sayButton(w.word + '. ' + w.example_en));
+      card.appendChild(row);
+      card.appendChild(fa(w.example_fa, 'kpara-fa'));
+    });
+    box.appendChild(card);
+  }
+
+  async function grammar() {
+    const box = $('gtopics');
+    if (!box) return;
+    const d = await load().catch(() => null);
+    panelTitle('gpanel', 'Grammar, one small step at a time', 'گرامر، قدم‌های کوچک');
+    box.innerHTML = '';
+    if (!d) { box.textContent = 'Lessons could not be read.'; return; }
+    const wrap = document.createElement('div');
+    wrap.className = 'klist';
+    (d.grammar || []).forEach((lesson) => {
+      wrap.appendChild(listButton('grammar', lesson,
+        () => grammarLesson(d, lesson), (lesson.quiz || []).length + ' games'));
+    });
+    box.appendChild(wrap);
+  }
+
+  function grammarLesson(d, lesson) {
+    const box = $('gtopics');
+    if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(back('All lessons', grammar));
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = (lesson.emoji || '') + ' ' + lesson.title_en;
+    card.appendChild(h);
+    card.appendChild(fa(lesson.title_fa, 'kfa-h'));
+    const use = document.createElement('p');
+    use.textContent = lesson.use_en;
+    card.appendChild(use);
+    card.appendChild(fa(lesson.use_fa, 'kpara-fa'));
+    const label = document.createElement('div');
+    label.className = 'klabel';
+    label.textContent = 'Examples · نمونه‌ها';
+    card.appendChild(label);
+    const ex = document.createElement('div');
+    ex.className = 'kex';
+    (lesson.examples || []).forEach((e) => {
+      const row = document.createElement('div');
+      row.className = 'krow';
+      const play = document.createElement('button');
+      play.type = 'button';
+      play.className = 'kplay';
+      play.textContent = '▶';
+      play.setAttribute('aria-label', 'Hear: ' + e.en);
+      play.onclick = () => Speech.speak(e.en);
+      const body = document.createElement('div');
+      const en = document.createElement('div');
+      en.className = 'ken';
+      en.textContent = e.en;
+      body.append(en, fa(e.fa, 'kfa'));
+      row.append(play, body);
+      ex.appendChild(row);
+    });
+    card.appendChild(ex);
+    const gl = document.createElement('div');
+    gl.className = 'klabel';
+    gl.textContent = 'Try it · امتحان کن';
+    card.appendChild(gl);
+    quiz(card, lesson.quiz);
+    box.appendChild(card);
+  }
+
+  async function stories() {
+    const box = $('stbody');
+    if (!box) return;
+    const d = await load().catch(() => null);
+    panelTitle('stpanel', 'Stories', 'داستان‌ها');
+    box.innerHTML = '';
+    if (!d) { box.textContent = 'Stories could not be read.'; return; }
+    const wrap = document.createElement('div');
+    wrap.className = 'klist';
+    (d.stories || []).forEach((item) => {
+      wrap.appendChild(listButton('story', item, () => storyView(item), ''));
+    });
+    box.appendChild(wrap);
+  }
+
+  function storyView(st) {
+    const box = $('stbody');
+    if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(back('All stories', stories));
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = (st.emoji || '') + ' ' + st.title_en;
+    card.appendChild(h);
+    card.appendChild(fa(st.title_fa, 'kfa-h'));
+    (st.lines || []).forEach((line) => {
+      const row = document.createElement('div');
+      row.className = 'krow';
+      const play = document.createElement('button');
+      play.type = 'button';
+      play.className = 'kplay';
+      play.textContent = '▶';
+      play.setAttribute('aria-label', 'Hear: ' + line.en);
+      play.onclick = () => Speech.speak(line.en);
+      const body = document.createElement('div');
+      const en = document.createElement('div');
+      en.className = 'ken';
+      en.textContent = line.en;
+      body.append(en, fa(line.fa, 'kfa'));
+      row.append(play, body);
+      card.appendChild(row);
+    });
+    const label = document.createElement('div');
+    label.className = 'klabel';
+    label.textContent = 'Questions · پرسش‌ها';
+    card.appendChild(label);
+    quiz(card, st.questions);
+    box.appendChild(card);
+  }
+
+  async function reading() {
+    const box = $('rdbody');
+    if (!box) return;
+    const d = await load().catch(() => null);
+    panelTitle('rdpanel', 'Read a little story', 'کمی بخوان');
+    box.innerHTML = '';
+    if (!d) { box.textContent = 'Passages could not be read.'; return; }
+    const wrap = document.createElement('div');
+    wrap.className = 'klist';
+    (d.reading || []).forEach((passage) => {
+      wrap.appendChild(listButton('reading', passage,
+        () => passageView(passage), ''));
+    });
+    box.appendChild(wrap);
+  }
+
+  function passageView(p) {
+    const box = $('rdbody');
+    if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(back('All passages', reading));
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = (p.emoji || '') + ' ' + p.title_en;
+    card.appendChild(h);
+    card.appendChild(fa(p.title_fa, 'kfa-h'));
+    const body = document.createElement('p');
+    body.className = 'kpara';
+    body.textContent = p.text_en;
+    card.appendChild(body);
+    card.appendChild(fa(p.text_fa, 'kpara-fa'));
+    card.appendChild(sayButton(p.text_en));
+    const label = document.createElement('div');
+    label.className = 'klabel';
+    label.textContent = 'Questions · پرسش‌ها';
+    card.appendChild(label);
+    quiz(card, p.questions);
+    box.appendChild(card);
+  }
+
+  async function listening() {
+    const box = $('llevels');
+    if (!box) return;
+    const d = await load().catch(() => null);
+    panelTitle('lpanel', 'Listen and answer', 'بشنو و پاسخ بده');
+    box.innerHTML = '';
+    if (!d) { box.textContent = 'Clips could not be read.'; return; }
+    const wrap = document.createElement('div');
+    wrap.className = 'klist';
+    (d.listening || []).forEach((clip) => {
+      wrap.appendChild(listButton('listening', clip,
+        () => clipView(clip), (clip.lines || []).length + ' lines'));
+    });
+    box.appendChild(wrap);
+  }
+
+  function clipView(clip) {
+    const box = $('llevels');
+    if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(back('All clips', listening));
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = (clip.emoji || '') + ' ' + clip.title_en;
+    card.appendChild(h);
+    card.appendChild(fa(clip.title_fa, 'kfa-h'));
+    const playAll = document.createElement('button');
+    playAll.type = 'button';
+    playAll.className = 'kbtn kc-sky';
+    playAll.innerHTML = '<span class="kico">🔊</span><b>Play the clip</b><span class="kfa" dir="rtl" lang="fa">کلیپ را پخش کن</span>';
+    playAll.onclick = () => Speech.speak((clip.lines || []).join(' '));
+    card.appendChild(playAll);
+    (clip.lines || []).forEach((line) => {
+      const row = document.createElement('div');
+      row.className = 'krow';
+      const play = document.createElement('button');
+      play.type = 'button';
+      play.className = 'kplay';
+      play.textContent = '▶';
+      play.setAttribute('aria-label', 'Hear: ' + line);
+      play.onclick = () => Speech.speak(line);
+      const body = document.createElement('div');
+      const en = document.createElement('div');
+      en.className = 'ken';
+      en.textContent = line;
+      body.appendChild(en);
+      row.append(play, body);
+      card.appendChild(row);
+    });
+    const label = document.createElement('div');
+    label.className = 'klabel';
+    label.textContent = 'Questions · پرسش‌ها';
+    card.appendChild(label);
+    quiz(card, clip.questions);
+    box.appendChild(card);
+  }
+
+  async function phrases() {
+    const box = $('ftopics');
+    if (!box) return;
+    const d = await load().catch(() => null);
+    panelTitle('fpanel', 'Things you can say', 'چیزهایی که می‌توانی بگویی');
+    box.innerHTML = '';
+    if (!d) { box.textContent = 'Sentences could not be read.'; return; }
+    const wrap = document.createElement('div');
+    wrap.className = 'klist';
+    (d.phrases || []).forEach((set) => {
+      wrap.appendChild(listButton('phrases', set,
+        () => phraseSet(set), (set.items || []).length + ' sentences'));
+    });
+    box.appendChild(wrap);
+  }
+
+  function phraseSet(set) {
+    const box = $('ftopics');
+    if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(back('All sentences', phrases));
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const h = document.createElement('h4');
+    h.textContent = (set.emoji || '') + ' ' + set.title_en;
+    card.appendChild(h);
+    card.appendChild(fa(set.title_fa, 'kfa-h'));
+    const ex = document.createElement('div');
+    ex.className = 'kex';
+    (set.items || []).forEach((item) => {
+      const row = document.createElement('div');
+      row.className = 'krow';
+      const play = document.createElement('button');
+      play.type = 'button';
+      play.className = 'kplay';
+      play.textContent = '▶';
+      play.setAttribute('aria-label', 'Hear: ' + item.en);
+      play.onclick = () => Speech.speak(item.en);
+      const body = document.createElement('div');
+      const en = document.createElement('div');
+      en.className = 'ken';
+      en.textContent = item.en;
+      body.append(en, fa(item.fa, 'kfa'));
+      row.append(play, body);
+      ex.appendChild(row);
+    });
+    card.appendChild(ex);
+    box.appendChild(card);
+  }
+
+  /* ---- the chat -------------------------------------------------------- */
+  /* What a child must never be asked for, and what the tutor says instead.
+     The check is on the learner's own message, because that is the only place
+     a phone number or a home address can arrive from; the reply never asks
+     for one. */
+  const PRIVATE = /(\+?\d[\d\s\-()]{7,}\d)|([\w.\-]+@[\w.\-]+\.[a-z]{2,})|\b(my address is|i live at|my school is|شماره‌ام|آدرسم|مدرسه‌ام)\b/i;
+
+  function safety() {
+    const c = (doc && doc.chat) || {};
+    return (c.safety_en || 'I do not need your address or phone number. Let us learn English instead!') +
+      '\n' + (c.safety_fa || 'من نشانی یا شمارهٔ تلفن تو را لازم ندارم. بیا انگلیسی یاد بگیریم!');
+  }
+
+  /* The page-level half of the kids tutor: the same engine, the same
+     knowledge base, a friendlier frame around it. It runs on the reply, so it
+     behaves the same online and inside the offline APK. */
+  function says(text, reply) {
+    if (!on()) return reply;
+    if (PRIVATE.test(String(text || ''))) return safety();
+    const body = String(reply || '');
+    if (body.length < 120) return body;
+    return body + '\n\n' + praise() + '\n' + ((doc && doc.chat && doc.chat.praise_fa) || 'آفرین!');
+  }
+
+  /* The first line and the four chips are drawn before kids.json has been
+     read - the transcript is on screen at boot - so the same strings live here
+     as constants and the file is what a teacher can edit later. */
+  const KID_WELCOME = 'Hi! I am Fluentify, your English friend. Ask me a word, and we will ' +
+    'learn it together.\nسلام! من فلوئنتیفای هستم، دوست انگلیسی تو. یک واژه از من بپرس تا با هم یادش بگیریم.';
+  const KID_STARTERS = [
+    ['colors', 'Colors', 'واژگان رنگ‌ها'],
+    ['animals', 'Animals', 'جانوران'],
+    ['how are you', 'Say hello', 'سلام و احوال‌پرسی'],
+    ['days of the week', 'Days', 'روزهای هفته'],
+  ];
+
+  function welcome() {
+    if (!on()) return WELCOME;
+    const c = (doc && doc.chat) || {};
+    return c.welcome_en ? c.welcome_en + '\n' + c.welcome_fa : KID_WELCOME;
+  }
+
+  function starters() {
+    if (!on()) return STARTERS;
+    const c = (doc && doc.chat) || {};
+    return (c.starters && c.starters.length) ? c.starters : KID_STARTERS;
+  }
+
+  return {on, enable, off, load, land, home, vocab, grammar, stories, reading,
+          listening, phrases, says, welcome, starters, data};
 })();
 
 /* ==========================================================================
@@ -14029,30 +15289,41 @@ const PANEL_ON_OPEN = {
   pathpanel: () => Path.open(),
   // search is attached on first open rather than at boot, because the panels
   // are filled asynchronously and a search with nothing to filter is useless
-  gpanel: () => PanelSearch.attachAll(),
+  // Kids draw their own six mini lessons; adults keep the topic pills
+  gpanel: () => { if (Experience.kids()) Kids.grammar(); else PanelSearch.attachAll(); },
+  // kids replace the boot-time domain list with their own word themes. An
+  // adult hook does nothing at all: the Vocabulary panel is filled at boot and
+  // has never had a search box of its own.
+  vpanel: () => { if (Experience.kids()) Kids.vocab(); },
   // The word chips are the only consumer, and they are 302 KB. Fetch when the
   // panel is actually opened, then attach the search once there is something
   // to filter.
   fpanel: () => {
+    if (Experience.kids()) { Kids.phrases(); return; }
     loadPhrases().then(() => PanelSearch.attachAll());
     loadWordArch();
   },
-  lpanel: () => PanelSearch.attachAll(),
+  // Kids get four short clips with questions; adults the CEFR ladder
+  lpanel: () => { if (Experience.kids()) Kids.listening(); else PanelSearch.attachAll(); },
   phpanel: () => PanelSearch.attachAll(),
   // the library loads its catalog on first open, then remembers where the
   // reader was, so reopening the panel does not walk them back to the shelf
   bpanel: () => Books.load(),
   // six strategies and their questions, 83 KB, read on the first open
-  rdpanel: () => Reading.mount(),
+  rdpanel: () => (Experience.kids() ? Kids.reading() : Reading.mount()),
   // the story library is fetched the first time the panel opens
-  stpanel: () => Stories.mount(),
+  stpanel: () => (Experience.kids() ? Kids.stories() : Stories.mount()),
   // the monthly level check: a banded item bank, read the first time it opens
   lvlpanel: () => Level.mount(),
   // the account panel is local: a name, a session clock, and the exit
   acpanel: () => Auth.paintAccount(),
   // the drills read their data on first open and then keep it
   prpanel: () => Practice.open(),
+  // the kids home page is rebuilt on every open: the stars and the word of
+  // the day both move
+  kpanel: () => Kids.home(),
 };
+document.getElementById('kidstoggle').onclick = () => togglePanel('kpanel', 'kidstoggle');
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
@@ -14075,6 +15346,24 @@ document.getElementById('pathtoggle').onclick = () => togglePanel('pathpanel', '
 document.getElementById('themetoggle').onclick = () => {
   Theme.apply(Theme.current() === 'dark' ? 'light' : 'dark', true);
 };
+/* The age gate: one button, one field, and Enter works because a number pad
+   has a go key and a child will press it. */
+document.getElementById('agesubmit').onclick = () => Experience.submitAge();
+document.getElementById('ageinput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); Experience.submitAge(); }
+});
+/* The sign-up field learns its band while it is typed, so the adult already
+   knows which app they are about to open. */
+document.getElementById('authage').addEventListener('input', () => {
+  const age = Experience.cleanAge(document.getElementById('authage').value);
+  const hint = document.querySelector('#authage + .hint');
+  if (!hint) return;
+  hint.dataset.base = hint.dataset.base || hint.textContent;
+  hint.textContent = age == null ? hint.dataset.base
+    : (age < Experience.kidsUnder()
+        ? 'Fluentify Kids — the colorful one, for under 15. — نسخهٔ کودکان برای زیر ۱۵ سال.'
+        : 'The full Fluentify — for 15 and over. — نسخهٔ کامل برای ۱۵ سال به بالا.');
+});
 /* The tile carries the level from the last check, which is only a localStorage
    read, so it can be painted before the bank is ever fetched. */
 Level.paintBadge();
@@ -18713,7 +20002,7 @@ function clearChat() {
   chat.innerHTML = '';
   history.length = 0;
   historyAt = -1;
-  add(WELCOME, 'bot');
+  add(Kids.on() ? Kids.welcome() : WELCOME, 'bot');
   Daily.mountCard();     // today's set belongs where the conversation starts
   renderStarters();
   input.focus();
@@ -20437,8 +21726,9 @@ Review.load();          // after every declaration above
 Review.paint();         // and paint once here as well as on open, so the
                         // panel can never be reached in a blank state even if
                         // the on-open hook is missed
-add(WELCOME, 'bot');
+add(Kids.on() ? Kids.welcome() : WELCOME, 'bot');
 renderStarters();
+if (Kids.on()) Kids.load().then(() => renderStarters()).catch(() => {});
 Seed.load();
 input.focus();
 </script>

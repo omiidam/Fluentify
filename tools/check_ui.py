@@ -525,12 +525,13 @@ def main() -> int:
     def border_px(sel: str) -> list[float]:
         """Declared border widths for a selector's own rules, in px.
 
-        Matches the bare selector only: ".hbtn" followed by whitespace and a
-        brace, so it picks up the base rule and the narrow-screen one while
-        skipping ".hbtn:hover" and ".hbtn i".
+        Matches the bare selector only: ".hbtn" at the start of a rule, so it
+        picks up the base rule and the narrow-screen one while skipping
+        ".hbtn:hover", ".hbtn i" and a scoped rule such as "body.kids .hbtn",
+        which belongs to another experience and is not this toolbar.
         """
         out: list[float] = []
-        for block in re.findall(r"(?<![\w.-])" + re.escape(sel) + r"\s*\{([^}]*)\}", src):
+        for block in re.findall(r"(?m)^\s*" + re.escape(sel) + r"\s*\{([^}]*)\}", src):
             m = re.search(r"(?<!-)\bborder(?:-width)?\s*:\s*([^;]+)", block)
             if not m:
                 continue
@@ -959,7 +960,17 @@ def main() -> int:
         # The whole point of the pass: no rule may carry a color of its own.
         # A literal that escapes the tokens is a rule that stays cream in the
         # dark theme, and there is no way to find it by reading.
-        outside = re.sub(r"/\*.*?\*/", " ", src, flags=re.S)
+        # The kids block is a light palette on purpose, and it only ever
+        # applies with body.kids on the body, so its translucent whites are
+        # not a theme leak: no adult rule can reach them. It is cut out of the
+        # scan here, beside the two palette blocks, rather than special-cased
+        # rule by rule.
+        scan = src
+        if "FLUENTIFY KIDS" in scan:
+            k0 = scan.index("FLUENTIFY KIDS")
+            k1 = scan.index("11. the lot, off", k0)
+            scan = scan[:k0] + " " + scan[k1:]
+        outside = re.sub(r"/\*.*?\*/", " ", scan, flags=re.S)
         outside = outside[outside.index("<style>"):outside.index("</style>")]
         outside = re.sub(r":root \{.*?\n  \}", " ", outside, flags=re.S)
         outside = re.sub(r'\[data-theme="dark"\]\s*\{.*?\n  \}', " ", outside, flags=re.S)

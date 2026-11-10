@@ -246,7 +246,9 @@ def check_panel() -> None:
     check('id="rdpanel"' in src, "the Reading panel is not in the markup")
     check(re.search(r"rdpanel:\s*'rdtoggle'", src) is not None,
           "Panels.TILES does not map the Reading panel to its tile")
-    check(re.search(r"rdpanel:\s*\(\)\s*=>\s*Reading\.mount\(\)", src) is not None,
+    # an adult still gets Reading.mount(); a kid account gets the kid passage
+    # reader from the same hook, so the adult call is what has to be there.
+    check(re.search(r"rdpanel:\s*\(\)\s*=>.*?Reading\.mount\(\)", src) is not None,
           "the Reading panel has no on-open hook, so it opens blank")
     check('startswith("/api/reading")' in src,
           "there is no /api/reading route for the page to read")

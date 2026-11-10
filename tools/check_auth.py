@@ -140,12 +140,16 @@ ok(Auth.sessionLeft(null, seen) === 0, 'no session means no time left');
 ok(Auth.sessionLeft({seen}, seen - DAY) === 8 * DAY, 'a clock that went backwards cannot extend it');
 
 const P = 'Nine small rivers 7!';
+// Age is part of sign-up now: it picks the experience, so every fixture below
+// carries a grown-up one and the age rules themselves are exercised separately.
 const sign = (pass, extra) => Auth.validate(Object.assign(
-  {name: 'Sara Ahmadi', user: 'sara.a', email: 'sara@example.com', pass, pass2: pass}, extra || {}), false);
+  {name: 'Sara Ahmadi', user: 'sara.a', email: 'sara@example.com', pass, pass2: pass,
+   age: 16}, extra || {}), false);
 const okPass = (pass) => sign(pass).ok;
 const reason = (pass, extra) => {
   const r = Auth.validate(Object.assign(
-    {name: 'Sara Ahmadi', user: 'sara.a', email: 'sara@example.com', pass, pass2: pass}, extra || {}), false);
+    {name: 'Sara Ahmadi', user: 'sara.a', email: 'sara@example.com', pass, pass2: pass,
+     age: 16}, extra || {}), false);
   return r.errors.length ? r.errors[0][0] : '';
 };
 

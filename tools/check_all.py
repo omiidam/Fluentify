@@ -71,6 +71,13 @@ Every suite answers a different question:
                 Four sources are assembled into one file; every way that can go
                 wrong ships silently, so the counts, the Persian coverage, the
                 filtering and the two engines that read it are all checked.
+  check_kids     is the kids experience real, and is it invisible to adults?
+                Ages 0-14 get their own home, word bank, mini lessons, stories,
+                reading, listening, phrases and a kid-safe chat; 15 and over
+                get the app exactly as it was. Refuses a quiz whose answer is
+                not one of its own options, a word with no Persian, a band
+                boundary other than 15, and any kids selector that is not
+                behind body.kids.
   check_books     is the library sound, and is the Books panel wired to it?
                 Every word needs a Persian meaning, an English definition and
                 examples that actually use the word; the tile, the panel, the
@@ -136,6 +143,7 @@ SUITES = [
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
+    ("kids experience", [sys.executable, "tools/check_kids.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
     ("mini stories panel", [sys.executable, "tools/check_stories.py"]),

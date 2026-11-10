@@ -49,6 +49,9 @@ LAZY_DATA = [
     # The learning path: the seven level spaces, the A1 course and its
     # examination. Read when the section opens, never at boot
     "path.json",
+    # The kids bank: words, mini lessons, stories, reading, listening and
+    # phrases. Only a kids account reads it, and only when the page needs it
+    "kids.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")
@@ -117,7 +120,9 @@ engine = """    await sleep(160);                       // a beat so the typing 
     await bot.loadWordApiFor(text);
     const reply = bot.respond(text);
     hideTyping();
-    add(reply, 'bot');
+    // the same kids wrapper the online page uses, so the offline tutor is
+    // friendly in exactly the same way
+    add(Kids.says(text, reply), 'bot');
     // finishing a practice unlocks that topic's exam — refresh the panel so
     // the 🎓 button stops showing the lock
     if (/exam is now open|آزمون باز شد/i.test(reply) &&

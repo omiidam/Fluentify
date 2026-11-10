@@ -216,7 +216,9 @@ def check_panel() -> None:
     check('id="stpanel"' in src, "the Mini stories panel is not in the markup")
     check(re.search(r"stpanel:\s*'stoggle'", src) is not None,
           "Panels.TILES does not map the stories panel to its tile")
-    check(re.search(r"stpanel:\s*\(\)\s*=>\s*Stories\.mount\(\)", src) is not None,
+    # an adult still gets Stories.mount(); a kid account gets the kid story
+    # reader from the same hook, so the adult call is what has to be there.
+    check(re.search(r"stpanel:\s*\(\)\s*=>.*?Stories\.mount\(\)", src) is not None,
           "the stories panel has no on-open hook, so it opens blank")
     check("document.getElementById('stoggle').onclick" in src,
           "the header tile is not wired to togglePanel")
