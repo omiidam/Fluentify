@@ -52,6 +52,9 @@ LAZY_DATA = [
     # The kids bank: words, mini lessons, stories, reading, listening and
     # phrases. Only a kids account reads it, and only when the page needs it
     "kids.json",
+    # Hero Quest: ranks, missions and the answer keys of the challenges that
+    # are not drawn from kids.json. Read when the game opens
+    "heroquest.json",
 ]
 
 src = (ROOT / "webapp.py").read_text(encoding="utf-8")

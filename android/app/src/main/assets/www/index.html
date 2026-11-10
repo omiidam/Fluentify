@@ -6200,7 +6200,8 @@
   body.kids #kpanel.open, body.kids #dpanel.open, body.kids #vpanel.open,
   body.kids #gpanel.open, body.kids #fpanel.open, body.kids #lpanel.open,
   body.kids #rdpanel.open, body.kids #stpanel.open, body.kids #acpanel.open,
-  body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open {
+  body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open,
+  body.kids #hqpanel.open {
     border-radius: 20px 20px 0 0;
     background: var(--k-surface);
     border-color: var(--k-line);
@@ -6208,13 +6209,14 @@
   body.kids #kpanel h3, body.kids #vpanel h3, body.kids #gpanel h3,
   body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,
   body.kids #stpanel h3, body.kids #dpanel h3, body.kids #acpanel h3,
-  body.kids #pathpanel h3 { font-size: 22px; }
+  body.kids #pathpanel h3, body.kids #hqpanel h3 { font-size: 22px; }
 
   /* ---- the Kids home page --------------------------------------------- */
-  #kpanel { display: none; }
-  #kpanel.open { display: block; }
+  body.kids #kpanel, body.kids #hqpanel { display: none; }
+  body.kids #kpanel.open, body.kids #hqpanel.open { display: block; }
   body:not(.kids) #kpanel, body:not(.kids) #kidstoggle,
   body:not(.kids) #kidsmore { display: none !important; }
+  body:not(.kids) #hqtoggle, body:not(.kids) #hqpanel { display: none !important; }
   /* A child's toolbar is seven big doors, not seventeen: the tools that need
      explaining wait behind More, one tap away and out of the first glance. */
   body.kids .tools:not(.moreopen) .kadv { display: none; }
@@ -6493,6 +6495,164 @@
   .kwordrow .kfa { font-size: 12px; color: var(--k-mint-ink); direction: rtl; margin-inline-start: auto; }
   .kwordrow .kdef { font-size: 12px; color: var(--k-ink-2); }
   .kwordrow .kex { font-size: 12px; color: var(--k-ink-2); }
+
+  /* ---------- Hero Quest -------------------------------------------------
+     The game is drawn with the same tokens, cards, buttons and quiz rows as
+     the rest of the layer. Its own classes are layout only: a map of six
+     ranks, a mission row, a run header and a result card. */
+  body.kids .hq { display: grid; gap: 10px; }
+  body.kids .hqhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqhead .kspace { flex: 1; }
+  body.kids .hqchip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 800;
+    background: var(--k-sun-wash); color: var(--k-sun-ink);
+    border: 1.5px solid var(--k-sun-line);
+  }
+  body.kids .hqrank {
+    display: flex; gap: 12px; align-items: center;
+    padding: 14px 15px; border-radius: 18px;
+    background: linear-gradient(135deg, var(--k-primary-wash), var(--k-mint));
+    border: 1.5px solid var(--k-primary-line);
+  }
+  body.kids .hqrank .hqemoji { font-size: 34px; line-height: 1; }
+  body.kids .hqrank b { display: block; font-size: 19px; color: var(--k-ink); }
+  body.kids .hqrank .hqfa { display: block; font-size: 12px; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqrank p { margin: 5px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--k-hero-sub); }
+  body.kids .hqbar { height: 8px; border-radius: 999px; background: var(--k-track); overflow: hidden; margin-top: 8px; }
+  body.kids .hqbar i { display: block; height: 100%; border-radius: 999px; background: var(--k-primary); }
+  body.kids .hqcta {
+    display: flex; align-items: center; gap: 11px; width: 100%; cursor: pointer;
+    font-family: inherit; text-align: start; padding: 12px 15px; min-height: 58px;
+    border-radius: 16px; border: 1.5px solid var(--k-primary-deep);
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    box-shadow: 0 3px 0 var(--k-primary-deep);
+  }
+  body.kids .hqcta:hover { transform: translateY(-1px); }
+  body.kids .hqcta:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--k-primary-deep); }
+  body.kids .hqcta:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 3px; }
+  body.kids .hqcta .hqe { font-size: 22px; }
+  body.kids .hqcta b { display: block; font-size: 14.5px; }
+  body.kids .hqcta i { display: block; font-style: normal; font-size: 11.5px; color: var(--k-on-primary-dim); direction: rtl; text-align: right; }
+  body.kids .hqcta .hqgo { margin-inline-start: auto; font-size: 12px; font-weight: 800; }
+
+  body.kids .hqmap { display: grid; gap: 7px; }
+  body.kids .hqnode {
+    position: relative; display: flex; align-items: center; gap: 11px;
+    width: 100%; text-align: start; cursor: pointer; font-family: inherit;
+    padding: 10px 12px; min-height: 60px; border-radius: 14px;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); box-shadow: 0 1px 2px var(--k-shadow);
+  }
+  body.kids .hqnode:hover { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
+  body.kids .hqnode:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+  body.kids .hqnode[aria-current="true"] { border-color: var(--k-primary); background: var(--k-primary-wash); }
+  body.kids .hqnode.locked { cursor: default; background: var(--k-surface-2); color: var(--k-ink-2); }
+  body.kids .hqnode.locked:hover { border-color: var(--k-line-strong); background: var(--k-surface-2); }
+  body.kids .hqnode .hqdot {
+    width: 36px; height: 36px; border-radius: 12px; flex: none;
+    display: grid; place-items: center; font-size: 18px;
+    background: var(--k-surface-2); border: 1.5px solid var(--k-line);
+  }
+  body.kids .hqnode.done .hqdot { background: var(--k-good-wash); border-color: var(--k-good-line); }
+  body.kids .hqnode b { display: block; font-size: 13.5px; }
+  body.kids .hqnode .hqfa { display: block; font-size: 11.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqnode .hqmeta {
+    margin-inline-start: auto; text-align: end; font-size: 11px; font-weight: 800;
+    color: var(--k-ink-2); white-space: nowrap;
+  }
+  body.kids .hqnode .hqmeta em { display: block; font-style: normal; color: var(--k-primary-dark); }
+
+  body.kids .hqmission {
+    display: grid; gap: 8px; padding: 12px 13px;
+    border-radius: 16px; border: 1.5px solid var(--k-line-strong);
+    background: var(--k-surface); box-shadow: 0 1px 3px var(--k-shadow);
+  }
+  body.kids .hqmission.locked { background: var(--k-surface-2); }
+  body.kids .hqmission .hqmt { display: flex; gap: 9px; align-items: center; }
+  body.kids .hqmission .hqme { font-size: 24px; }
+  body.kids .hqmission b { font-size: 14.5px; }
+  body.kids .hqmission .hqfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
+  body.kids .hqmission p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--k-ink-2); }
+  body.kids .hqmission .hqfoot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqmission .hqfoot .kspace { flex: 1; }
+
+  body.kids .hqstars { display: inline-flex; gap: 2px; font-size: 15px; letter-spacing: 1px; }
+  body.kids .hqstars i { font-style: normal; color: var(--k-line-strong); }
+  body.kids .hqstars i.on { color: var(--k-sun); text-shadow: 0 1px 0 var(--k-sun-line); }
+
+  /* a run: header, dots, the challenge, then the result */
+  body.kids .hqrun { display: grid; gap: 10px; }
+  body.kids .hqrunhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqd { display: flex; gap: 5px; margin-inline-start: auto; }
+  body.kids .hqd i { width: 9px; height: 9px; border-radius: 50%; background: var(--k-line-strong); }
+  body.kids .hqd i.on { background: var(--k-primary); }
+  body.kids .hqd i.ok { background: var(--k-good); }
+  body.kids .hqask { font-size: 15.5px; font-weight: 800; line-height: 1.45; color: var(--k-ink); }
+  body.kids .hqask .hqnum { color: var(--k-primary-dark); }
+  body.kids .hqsub { font-size: 12px; color: var(--k-ink-2); margin-top: 3px; }
+  body.kids .hqpassage {
+    padding: 11px 12px; border-radius: 12px; background: var(--k-sky);
+    border: 1.5px solid var(--k-sky-line); font-size: 13.5px; line-height: 1.7;
+    color: var(--k-ink);
+  }
+  body.kids .hqpassage .hqfa { margin-top: 6px; font-size: 12px; line-height: 1.85; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqlisten { display: grid; gap: 6px; padding: 10px 12px; border-radius: 12px; background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line); }
+  body.kids .hqlisten .hqline { display: flex; gap: 8px; align-items: center; font-size: 13px; line-height: 1.5; color: var(--k-ink); }
+  body.kids .hqlisten .ksay { flex: none; }
+  body.kids .hqpair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  body.kids .hqcol { display: grid; gap: 6px; align-content: start; }
+  body.kids .hqpair button {
+    min-height: 46px; padding: 8px 10px; border-radius: 11px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface); color: var(--k-ink);
+  }
+  body.kids .hqpair button[dir="rtl"] { text-align: right; }
+  body.kids .hqpair button:hover { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
+  body.kids .hqpair button:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+  body.kids .hqpair button.ok { background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good); }
+  body.kids .hqpair button.no { background: var(--k-bad-wash); border-color: var(--k-bad-line); color: var(--k-bad); }
+  body.kids .hqpair button[disabled] { cursor: default; }
+  body.kids .hqpair button.sel { background: var(--k-primary-wash); border-color: var(--k-primary); }
+  body.kids .hqfill { display: flex; gap: 7px; flex-wrap: wrap; }
+  body.kids .hqfill input {
+    flex: 1 1 160px; min-height: 46px; padding: 9px 12px; border-radius: 11px;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); font-family: inherit; font-size: 14px;
+  }
+  body.kids .hqfill input:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 1px; border-color: var(--k-primary); }
+  body.kids .hqactions { display: flex; gap: 7px; flex-wrap: wrap; }
+  body.kids .hqbtn {
+    min-height: 44px; padding: 9px 15px; border-radius: 12px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 800;
+    border: 1.5px solid var(--k-primary-deep); background: var(--k-primary-dark); color: var(--k-on-primary);
+  }
+  body.kids .hqbtn:hover { transform: translateY(-1px); }
+  body.kids .hqbtn:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 2px; }
+  body.kids .hqbtn.ghost { background: var(--k-surface); color: var(--k-primary-dark); border-color: var(--k-primary-line); }
+  body.kids .hqbtn[hidden] { display: none; }
+
+  body.kids .hqresult { text-align: center; display: grid; gap: 8px; justify-items: center; }
+  body.kids .hqbig { display: flex; gap: 6px; font-size: 34px; line-height: 1; }
+  body.kids .hqbig i { font-style: normal; color: var(--k-line-strong); }
+  body.kids .hqbig i.on { color: var(--k-sun); animation: kStar .5s cubic-bezier(.2,1.7,.4,1) both; }
+  body.kids .hqbig i.on:nth-child(2) { animation-delay: .12s; }
+  body.kids .hqbig i.on:nth-child(3) { animation-delay: .24s; }
+  @keyframes kStar { 0% { transform: scale(.4) rotate(-12deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
+  body.kids .hqresult h4 { margin: 2px 0 0; font-size: 18px; color: var(--k-ink); }
+  body.kids .hqresult p { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--k-ink-2); }
+  body.kids .hqbadge { display: flex; align-items: center; gap: 9px; padding: 10px 12px; border-radius: 12px;
+    background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line); color: var(--k-sun-ink); font-weight: 800; font-size: 13px; text-align: start; }
+  body.kids .hqbadge span { font-size: 22px; }
+  body.kids .hqnote { font-size: 11.5px; color: var(--k-ink-2); display: flex; align-items: center; gap: 6px; }
+  body.kids .hqnote b { font-weight: 800; color: var(--k-primary-dark); }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .hqbig i.on { animation: none; }
+    body.kids .hqcta:hover, body.kids .hqbtn:hover { transform: none; }
+  }
+  @media (min-width: 620px) {
+    body.kids .hqmap { grid-template-columns: 1fr 1fr; }
+  }
 
   /* --- the same identity in the dark theme -----------------------------
      Kids used to force its light palette whatever the theme switch said.
@@ -6836,6 +6996,9 @@
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 18.4c0-3.2 2.6-4.4 5-4.4h4.4c2.4 0 5-1.2 5-4.4"/><circle cx="4.8" cy="18.4" r="1.9"/><circle cx="19.2" cy="5.6" r="1.9"/></svg></i><span>Path</span><span class="rbadge" id="pathbadge" hidden></span></button>
       <button class="hbtn tint-amber" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
+      <button class="hbtn tint-navy" id="hqtoggle" aria-expanded="false"
+              title="Hero Quest — سفر قهرمان" aria-label="Hero Quest — the adventure game">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.2 9.6 4l4.8 2.2L19.8 4v13.8L14.4 20l-4.8-2.2L4.2 20Z"/><path d="M9.6 4v13.8M14.4 6.2V20"/></svg></i><span>Quest</span></button>
       <button class="hbtn tint-slate" id="kidsmore" aria-expanded="false" hidden
               title="More tools — ابزارهای بیشتر" aria-label="More tools">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></svg></i><span>More</span></button>
@@ -6880,6 +7043,11 @@
   <div id="kpanel">
     <h3>My home — <bdi class="fa" lang="fa" dir="rtl">خانهٔ من</bdi></h3>
     <div id="kbody" aria-live="polite"></div>
+  </div>
+
+  <div id="hqpanel">
+    <h3>Hero Quest — <bdi class="fa" lang="fa" dir="rtl">سفر قهرمان</bdi></h3>
+    <div id="hqbody" aria-live="polite"></div>
   </div>
 
   <div id="dpanel">
@@ -8874,6 +9042,8 @@ const Panels = (() => {
     stpanel: 'stoggle',
     // the kids home page has a tile that only exists in the kids experience
     kpanel: 'kidstoggle',
+    // Hero Quest exists only for a child: same rule, its own panel
+    hqpanel: 'hqtoggle',
     lvlpanel: 'lvltoggle',
     // the weekly quiz has no tile: the landing-page card is its way in
     wqpanel: null,
@@ -14612,8 +14782,8 @@ const Kids = (() => {
   /* What the toolbar says in the kids app. The wording is the same idea as
      the adult label, shorter, because a child reads the icon first. */
   const LABELS = {
-    kidstoggle: 'Home', dtoggle: 'Today', vtoggle: 'Words', gtoggle: 'Grammar',
-    ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
+    kidstoggle: 'Home', hqtoggle: 'Quest', dtoggle: 'Today', vtoggle: 'Words',
+    gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
     actoggle: 'Me',
   };
   /* Tools that need a sentence of explanation: they wait behind More. */
@@ -14630,6 +14800,7 @@ const Kids = (() => {
   const KID_SECTIONS = {
     vpanel: ['Words', 'واژه‌ها', '🎨'], gpanel: ['Grammar', 'گرامر', '📘'],
     rdpanel: ['Reading', 'خواندن', '📖'], lpanel: ['Listening', 'شنیدن', '🎧'],
+    hqpanel: ['Hero Quest', 'سفر قهرمان', '🗺️'],
     stpanel: ['Stories', 'داستان‌ها', '📚'], fpanel: ['Sentences', 'جمله‌ها', '💬'],
     kpanel: ['Home', 'خانه', '🏠'],
   };
@@ -14702,6 +14873,7 @@ const Kids = (() => {
     const more = $('kidsmore');
     if (more) { more.hidden = true; more.setAttribute('aria-expanded', 'false'); }
     if (Panels.isOpen() === 'kpanel') Panels.set('kpanel', false);
+    if (Panels.isOpen() === 'hqpanel') Panels.set('hqpanel', false);
     landed = false;
   }
 
@@ -15552,6 +15724,7 @@ const Kids = (() => {
           reading, listening, phrases, says, welcome, starters, data};
 })();
 
+
 /* ==========================================================================
    The certificate. Rendered on the page, printed by the platform's own print
    path: window.print() on the web, PrintManager in the APK. No PDF library
@@ -15739,8 +15912,12 @@ const PANEL_ON_OPEN = {
   // the kids home page is rebuilt on every open: the stars and the word of
   // the day both move
   kpanel: () => Kids.home(),
+  // the adventure reads heroquest.json and kids.json on first open, then
+  // draws the map from the local progress; adults never reach this panel
+  hqpanel: () => { if (Experience.kids()) Quest.open(); },
 };
 document.getElementById('kidstoggle').onclick = () => togglePanel('kpanel', 'kidstoggle');
+document.getElementById('hqtoggle').onclick = () => togglePanel('hqpanel', 'hqtoggle');
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
@@ -22148,6 +22325,1161 @@ renderStarters();
 if (Kids.on()) Kids.load().then(() => renderStarters()).catch(() => {});
 Seed.load();
 input.focus();
+/* ==========================================================================
+ * HERO QUEST
+ * A small adventure for a kids account only: six ranks, three short missions
+ * each, and every mission is five to eight English challenges. The low ranks
+ * are drawn from the same kids.json the rest of the layer uses, so a mission
+ * is revision with a map around it rather than a second curriculum; the high
+ * ranks carry their own short texts and rules, because by then the kid bank
+ * has nothing harder left to offer.
+ *
+ * Difficulty is placed, not assumed: the level check's own result decides
+ * which rank a child starts at, and a rank only opens after the one below it
+ * is finished. Ranks are game progress and never touch the CEFR result.
+ *
+ * Progress is a list of finished-mission events in localStorage, one list per
+ * account, with an id on every event. The list is the state: stars are the
+ * best event for a mission, so a replay can improve a score and a replayed or
+ * re-sent event can never double it. When the page is online the same list is
+ * posted to /api/quest/sync, which unions it with the copy it holds; offline
+ * the queue simply stays here, and nothing about playing needs the network.
+ * ==========================================================================*/
+const Quest = (() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  const KEY = 'fluentify.quest.v1';
+  const DEVICE = 'fluentify.quest.device';
+  const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  /* Which rank a CEFR level belongs to. The six ranks are not one level each,
+     so the two are matched by hand: an A1 child starts at the gate, a B1 child
+     at the castle whose challenges are A2-B1, and the top two levels share the
+     summit, which is the hardest material the game has. The ranks in between
+     are skipped on purpose, and every rank below stays open on the map. */
+  const RANK_OF_LEVEL = {A1: 0, A2: 1, B1: 3, B2: 4, C1: 5, C2: 5};
+
+  let game = null, bank = null, loading = null, failed = '';
+  let state = null;
+  let run = null;            // the mission being played, in memory
+  let view = 'map';
+  let openRank = 0;
+
+  const on = () => typeof Experience !== 'undefined' && Experience.kids();
+
+  /* ----------------------------------------------------------- identity */
+  /* The same child on the same browser keeps one list; a second account on
+     the same device gets its own. The email is hashed rather than stored, so
+     the key in localStorage cannot be read back as an address. */
+  function accountKey() {
+    let who = 'guest';
+    try {
+      const acc = typeof Auth !== 'undefined' && Auth.profile ? Auth.profile() : null;
+      who = (acc && (acc.user || acc.email || acc.name)) || 'guest';
+    } catch (e) { who = 'guest'; }
+    let h = 2166136261;
+    for (let i = 0; i < who.length; i += 1) {
+      h ^= who.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(36);
+  }
+  const storeKey = () => KEY + '.' + accountKey();
+
+  function readState() {
+    let raw = null;
+    try { raw = JSON.parse(localStorage.getItem(storeKey()) || 'null'); } catch (e) { raw = null; }
+    const st = raw && typeof raw === 'object' ? raw : {};
+    st.v = 1;
+    /* Anything can be in localStorage after a bad write or a half-finished
+       sync, and every reader here assumes `m` and `s` exist. Drop the rest
+       rather than let one broken row take the map down. */
+    st.events = (Array.isArray(st.events) ? st.events : [])
+      .filter((e) => e && e.id && e.m)
+      .map((e) => ({id: String(e.id).slice(0, 64), m: String(e.m).slice(0, 32),
+                    s: Math.max(0, Math.min(3, Number(e.s) || 0)),
+                    at: Number(e.at) || 0}));
+    st.dirty = !!st.dirty;
+    st.syncedAt = Number(st.syncedAt) || 0;
+    return st;
+  }
+  function writeState() {
+    if (!state) return;
+    try { localStorage.setItem(storeKey(), JSON.stringify(state)); } catch (e) { /* private mode */ }
+  }
+  function deviceKey() {
+    let key = '';
+    try { key = localStorage.getItem(DEVICE) || ''; } catch (e) { key = ''; }
+    if (/^[A-Za-z0-9_-]{8,64}$/.test(key)) return key;
+    const a = new Uint8Array(12);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(a);
+    else for (let i = 0; i < a.length; i += 1) a[i] = Math.floor(Math.random() * 256);
+    key = Array.from(a).map((x) => x.toString(16).padStart(2, '0')).join('');
+    try { localStorage.setItem(DEVICE, key); } catch (e) { /* private mode */ }
+    return key;
+  }
+
+  /* ----------------------------------------------------------- progress */
+  function merge(list) {
+    const have = new Set(state.events.map((e) => e.id));
+    (list || []).forEach((event) => {
+      if (!event || !event.id || have.has(event.id)) return;
+      if (!event.m) return;
+      have.add(event.id);
+      state.events.push({id: String(event.id), m: String(event.m),
+                         s: Math.max(0, Math.min(3, Number(event.s) || 0)),
+                         at: Number(event.at) || Date.now()});
+    });
+    state.events.sort((a, b) => (a.at - b.at) || a.id.localeCompare(b.id));
+    if (state.events.length > 500) state.events = state.events.slice(-500);
+  }
+
+  const starsOf = (id) => state.events
+    .filter((e) => e.m === id).reduce((best, e) => Math.max(best, e.s), 0);
+  const played = (id) => state.events.some((e) => e.m === id);
+  const totalStars = () => Object.keys(missions()).reduce((sum, id) => sum + starsOf(id), 0);
+  const maxStars = () => (game ? game.missions.length * 3 : 0);
+
+  function missions() {
+    const out = {};
+    (game ? game.missions : []).forEach((m) => { out[m.id] = m; });
+    return out;
+  }
+  function rankMissions(rankId) {
+    return (game ? game.missions : [])
+      .filter((m) => m.rank === rankId)
+      .sort((a, b) => a.order - b.order);
+  }
+  function rankDone(rankId) {
+    const list = rankMissions(rankId);
+    return list.length > 0 && list.every((m) => starsOf(m.id) > 0);
+  }
+  function rankIndexAtLeast(rankId) {
+    const i = (game ? game.ranks : []).findIndex((r) => r.id === rankId);
+    return i < 0 ? 0 : i;
+  }
+
+  /* What the level check said, plus the deepest CEFR level the learning path
+     records as passed. The better of the two is the placement: a child who is
+     working at B1 should not be walked back through "book, pencil, teacher",
+     and one with an A1 result should not be dropped into B1 texts. */
+  function placement() {
+    let best = 0;
+    try {
+      const raw = localStorage.getItem('fluentify.level.v2.result');
+      const r = raw ? JSON.parse(raw) : null;
+      if (r && r.overall) {
+        const key = String(r.overall).toUpperCase();
+        if (Object.prototype.hasOwnProperty.call(RANK_OF_LEVEL, key)) best = RANK_OF_LEVEL[key];
+      }
+    } catch (e) { /* no level yet */ }
+    try {
+      const raw = localStorage.getItem('fluentify.path.v1');
+      const p = raw ? JSON.parse(raw) : null;
+      const levels = (p && p.levels) || {};
+      LEVELS.forEach((name) => {
+        if (levels[name] && levels[name].passed
+            && Object.prototype.hasOwnProperty.call(RANK_OF_LEVEL, name)) {
+          best = Math.max(best, RANK_OF_LEVEL[name]);
+        }
+      });
+    } catch (e) { /* no path yet */ }
+    return Math.max(0, Math.min(LEVELS.length - 1, best));
+  }
+
+  /* How many ranks are open: one more than the deepest finished rank, and
+     never fewer than the placement. Finishing a rank always opens the next
+     one, so a child on the easy setting can climb; starting high does not
+     open everything, so the placement cannot skip the work above it. */
+  function unlockedCount() {
+    if (!game) return 1;
+    const ranks = game.ranks;
+    let deepest = -1;
+    ranks.forEach((r, i) => { if (rankDone(r.id)) deepest = Math.max(deepest, i); });
+    // a placement opens its own rank and everything below it
+    const byPlacement = Math.min(ranks.length - 1, Math.max(0, placement()));
+    const byProgress = deepest + 1;
+    return Math.max(1, Math.min(ranks.length, Math.max(byPlacement + 1, byProgress + 1)));
+  }
+  function rankUnlocked(i) { return i < unlockedCount(); }
+  /* Where a child should be, not where the list starts: a B1 learner's home
+     rank is the B1 rank, even with every beginner mission still untouched.
+     The lower ranks stay open on the map, because revisiting them is allowed
+     and starting there is not forced. */
+  const startRank = () => Math.min(placement(), unlockedCount() - 1);
+
+  function currentRank() {
+    if (!game) return 0;
+    const start = startRank();
+    for (let i = start; i < game.ranks.length; i += 1) {
+      if (rankUnlocked(i) && !rankDone(game.ranks[i].id)) return i;
+    }
+    for (let i = 0; i < start; i += 1) {
+      if (!rankDone(game.ranks[i].id)) return i;
+    }
+    return unlockedCount() - 1;
+  }
+
+  function nextMission() {
+    if (!game) return null;
+    for (let i = startRank(); i < game.ranks.length; i += 1) {
+      const rank = game.ranks[i];
+      if (!rankUnlocked(i)) break;
+      const list = rankMissions(rank.id);
+      for (let j = 0; j < list.length; j += 1) {
+        if (j > 0 && !played(list[j - 1].id)) break;   // missions open in order
+        if (!played(list[j].id)) return list[j];
+      }
+    }
+    return null;
+  }
+  const missionOpen = (m) => {
+    const list = rankMissions(m.rank);
+    const at = list.findIndex((x) => x.id === m.id);
+    return rankUnlocked(rankIndexAtLeast(m.rank)) && (at <= 0 || played(list[at - 1].id));
+  };
+  function missionAfter(id) {
+    const m = missions()[id];
+    if (!m) return null;
+    const list = rankMissions(m.rank);
+    const at = list.findIndex((x) => x.id === id);
+    return list[at + 1] || null;
+  }
+
+  /* ------------------------------------------------------- the challenges */
+  function hash(text) {
+    let h = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+      h ^= text.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+  function rng(seed) {
+    let s = seed || 1;
+    return () => {
+      s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+      return s / 4294967296;
+    };
+  }
+  function shuffled(list, seed) {
+    const out = list.slice();
+    const r = rng(seed);
+    for (let i = out.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(r() * (i + 1));
+      const t = out[i]; out[i] = out[j]; out[j] = t;
+    }
+    return out;
+  }
+  function find(list, id) { return (list || []).find((x) => x.id === id); }
+
+  function allWords() {
+    const out = [];
+    ((bank && bank.words) || []).forEach((theme) => (theme.words || []).forEach((w) => {
+      out.push(Object.assign({theme: theme.id}, w));
+    }));
+    return out;
+  }
+
+  /* A word and three meanings: the right one, then two others of the same
+     kind, so the options are wrong for a reason rather than by accident. */
+  function vocabChallenge(word, seed) {
+    const others = allWords().filter((w) => w.fa !== word.fa);
+    const picks = shuffled(others, seed).slice(0, 2);
+    const options = shuffled([word.fa].concat(picks.map((w) => w.fa)), seed + 7);
+    return {
+      t: 'choice',
+      q: 'What does “' + word.word + '” mean?',
+      q_fa: '«' + word.word + '» یعنی چه؟',
+      options: options,
+      answer: word.fa,
+      why_en: word.word + ' means “' + word.def_en + '” — ' + word.example_en,
+      why_fa: '«' + word.word + '» یعنی «' + word.fa + '» — ' + word.example_fa,
+      speak: word.word,
+    };
+  }
+
+  function matchChallenge(theme, seed) {
+    const pairs = shuffled(theme.words, seed).slice(0, 4).map((w) => [w.word, w.fa]);
+    return {
+      t: 'match',
+      q: 'Match each English word with its meaning.',
+      q_fa: 'هر واژهٔ انگلیسی را با معنی‌اش جفت کن.',
+      pairs: pairs,
+      why_en: 'The pairs are the words and their Persian meanings. Tap a word, then its meaning.',
+      why_fa: 'جفت‌ها واژه و معنی فارسی آن‌اند. روی واژه بزن، سپس روی معنی‌اش.',
+    };
+  }
+
+  function grammarChallenge(lesson, seed) {
+    const quiz = (lesson && lesson.quiz) || [];
+    if (!quiz.length) return null;
+    const item = quiz[hash(lesson.id + seed) % quiz.length];
+    return {
+      t: 'choice',
+      q: item.q,
+      q_fa: 'جای خالی را پر کن.',
+      options: item.options.slice(),
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      speak: String(item.q).replace(/___/g, item.answer),
+    };
+  }
+
+  function phraseChallenge(set, seed) {
+    const all = [];
+    ((bank && bank.phrases) || []).forEach((s) => (s.items || []).forEach((it) => all.push(it)));
+    const item = (set.items || [])[hash('p' + seed) % Math.max(1, (set.items || []).length)];
+    if (!item) return null;
+    const wrong = shuffled(all.filter((x) => x.en !== item.en), seed + 3).slice(0, 2);
+    return {
+      t: 'choice',
+      q: 'Which English sentence means “' + item.fa + '”?',
+      q_fa: 'کدام جملهٔ انگلیسی معنای «' + item.fa + '» را می‌دهد؟',
+      options: shuffled([item.en].concat(wrong.map((x) => x.en)), seed + 11),
+      answer: item.en,
+      why_en: 'You say: ' + item.en,
+      why_fa: 'می‌گویی: ' + item.en,
+      speak: item.en,
+    };
+  }
+
+  function orderChallenge(lesson, seed) {
+    const examples = (lesson && lesson.examples) || [];
+    if (!examples.length) return null;
+    const ex = examples[hash('o' + lesson.id + seed) % examples.length];
+    return {
+      t: 'order',
+      q: 'Put the words in order.',
+      q_fa: 'واژه‌ها را مرتب کن.',
+      answer: ex.en,
+      why_en: 'The sentence is: ' + ex.en,
+      why_fa: 'جمله این است: ' + ex.en,
+      fa: ex.fa,
+    };
+  }
+
+  function readChallenge(passage, seed) {
+    const qs = passage.questions || [];
+    if (!qs.length) return null;
+    const item = qs[hash('r' + passage.id + seed) % qs.length];
+    return {
+      t: 'read',
+      q: item.q,
+      q_fa: 'متن را بخوان و پاسخ بده.',
+      options: item.options.slice(),
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      passage_en: passage.text_en,
+      passage_fa: passage.text_fa,
+    };
+  }
+
+  function listenChallenge(clip, seed) {
+    const qs = clip.questions || [];
+    if (!qs.length) return null;
+    const item = qs[hash('l' + clip.id + seed) % qs.length];
+    return {
+      t: 'listen',
+      q: item.q,
+      q_fa: 'گوش کن و پاسخ بده.',
+      options: item.options.slice(),
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      lines: (clip.lines || []).slice(),
+    };
+  }
+
+  /* The authored item, normalised: the file stores what a teacher wrote, the
+     engine wants the same shape the generated ones have. */
+  function authored(item) {
+    const base = {
+      t: item.t,
+      q: item.q,
+      q_fa: item.q_fa || 'پاسخ درست را انتخاب کن.',
+      options: item.options ? item.options.slice() : null,
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      accept: item.accept || null,
+      passage_en: item.passage_en || '',
+      passage_fa: item.passage_fa || '',
+      lines: item.lines || null,
+    };
+    if (base.t === 'order') base.tokens = String(item.answer).split(' ');
+    return base;
+  }
+
+  /* A mission is its recipe in order: the builds first, then what was written
+     for it. Every mission in the file has six. The picks are seeded from the
+     mission id, so replaying a mission asks the same questions - a child who
+     retries for a third star is being marked on the same paper, not a new
+     one. */
+  function challengesFor(mission) {
+    const out = [];
+    const seed = hash(mission.id);
+    const used = new Set();
+    const wordPool = () => allWords().filter((w) => !used.has(w.word));
+
+    (mission.build || []).forEach((step, i) => {
+      const local = seed + i * 101;
+      if (step.type === 'vocab') {
+        const theme = find(bank && bank.words, step.theme);
+        if (!theme) return;
+        const pool = shuffled(wordPool().filter((w) => w.theme === step.theme), local);
+        pool.slice(0, step.n).forEach((w, k) => {
+          used.add(w.word);
+          out.push(vocabChallenge(w, local + k));
+        });
+      } else if (step.type === 'match') {
+        const theme = find(bank && bank.words, step.theme);
+        if (!theme) return;
+        /* Four pairs, preferring words the earlier challenges did not use.
+           The theme has six, and a vocab step takes two or three, so the
+           remainder is topped up from the other themes rather than shrinking
+           the matching game to whatever happens to be left. */
+        const free = theme.words.filter((w) => !used.has(w.word));
+        const spare = allWords().filter((w) => w.theme !== step.theme && !used.has(w.word));
+        const four = free.concat(spare).slice(0, 4);
+        if (four.length < 3) return;
+        four.forEach((w) => used.add(w.word));
+        out.push(matchChallenge({words: four}, local));
+      } else if (step.type === 'grammar') {
+        const lesson = find(bank && bank.grammar, step.lesson);
+        const ch = lesson && grammarChallenge(lesson, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'phrase') {
+        const set = find(bank && bank.phrases, step.set);
+        const ch = set && phraseChallenge(set, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'order') {
+        const lesson = find(bank && bank.grammar, step.lesson);
+        const ch = lesson && orderChallenge(lesson, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'read') {
+        const passage = find(bank && bank.reading, step.passage);
+        const ch = passage && readChallenge(passage, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'listen') {
+        const clip = find(bank && bank.listening, step.clip);
+        const ch = clip && listenChallenge(clip, local);
+        if (ch) out.push(ch);
+      }
+    });
+    (mission.authored || []).forEach((item) => {
+      const ch = authored(item);
+      if (ch.t === 'order' && !ch.tokens) ch.tokens = String(ch.answer).split(' ');
+      out.push(ch);
+    });
+    return out;
+  }
+
+  /* ------------------------------------------------------- loading */
+  function load() {
+    if (!loading) {
+      loading = loadJSON('heroquest').then((g) => loadJSON('kids').then((k) => {
+        game = g; bank = k;
+        return g;
+      })).catch((err) => {
+        failed = err && err.message ? err.message : 'the adventure could not be read';
+        throw err;
+      });
+    }
+    return loading;
+  }
+
+
+  /* ------------------------------------------------------------ small dom */
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function faLine(text, cls) {
+    const e = el('span', cls || 'hqfa', text);
+    e.dir = 'rtl';
+    e.lang = 'fa';
+    return e;
+  }
+  function sayButton(text, label) {
+    const b = el('button', 'ksay', '🔊');
+    b.type = 'button';
+    b.title = 'Hear it — بشنو';
+    b.setAttribute('aria-label', (label || 'Hear it') + ': ' + text);
+    b.onclick = () => { if (typeof Speech !== 'undefined' && Speech.speak) Speech.speak(text); };
+    return b;
+  }
+  function starsRow(n) {
+    const wrap = el('span', 'hqstars');
+    for (let i = 0; i < 3; i += 1) {
+      const st = el('i', i < n ? 'on' : '', '★');
+      st.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(st);
+    }
+    wrap.setAttribute('aria-label', n + ' of 3 stars');
+    return wrap;
+  }
+
+  /* ------------------------------------------------------------ the map */
+  async function open() {
+    if (!on()) return;
+    const body = $('hqbody');
+    if (!body) return;
+    state = readState();
+    try {
+      await load();
+    } catch (e) {
+      body.innerHTML = '';
+      const card = el('div', 'kcard');
+      card.appendChild(el('b', null, 'The adventure could not be read.'));
+      card.appendChild(faLine('سفر قهرمان خوانده نشد.'));
+      card.appendChild(el('p', 'hqnote', failed || ''));
+      body.appendChild(card);
+      return;
+    }
+    view = 'map';
+    openRank = currentRank();
+    home();
+    sync();
+  }
+
+  function nextObjective() {
+    const m = nextMission();
+    if (!m) return ['Every mission is finished. Replay one for more stars.', 'همهٔ مأموریت‌ها تمام شده‌اند. برای ستارهٔ بیشتر یکی را دوباره بازی کن.'];
+    const before = rankMissions(m.rank);
+    const at = before.findIndex((x) => x.id === m.id);
+    if (at > 0) {
+      const need = before[at - 1];
+      return ['Finish “' + need.title_en + '” to open “' + m.title_en + '”.',
+              'برای باز شدن «' + m.title_fa + '» نخست «' + need.title_fa + '» را تمام کن.'];
+    }
+    return ['Your next mission: “' + m.title_en + '”.', 'مأموریت بعدی: «' + m.title_fa + '».'];
+  }
+
+  function home() {
+    const body = $('hqbody');
+    if (!body || !game) return;
+    view = 'map';
+    body.innerHTML = '';
+    const wrap = el('div', 'hq');
+
+    const head = el('div', 'hqhead');
+    const backHome = el('button', 'kback', '← My home');
+    backHome.type = 'button';
+    backHome.onclick = () => gotoDashboard();
+    head.appendChild(backHome);
+    head.appendChild(el('span', 'kspace'));
+    const st = el('span', 'hqchip', '⭐ ' + totalStars() + ' / ' + maxStars());
+    st.title = 'Stars earned — ستاره‌های به‌دست‌آمده';
+    head.appendChild(st);
+    wrap.appendChild(head);
+
+    const rank = game.ranks[currentRank()] || game.ranks[0];
+    const hero = el('div', 'hqrank');
+    hero.appendChild(el('span', 'hqemoji', rank.emoji));
+    const htext = el('div');
+    htext.appendChild(el('b', null, 'Rank ' + (currentRank() + 1) + ' · ' + rank.name_en));
+    htext.appendChild(faLine(rank.name_fa));
+    htext.appendChild(el('p', null, rank.story_en));
+    htext.appendChild(faLine(rank.story_fa, 'hqfa'));
+    const list = rankMissions(rank.id);
+    const done = list.filter((m) => starsOf(m.id) > 0).length;
+    const bar = el('div', 'hqbar');
+    const fill = el('i');
+    fill.style.width = Math.round((done / Math.max(1, list.length)) * 100) + '%';
+    bar.appendChild(fill);
+    bar.setAttribute('role', 'progressbar');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', String(list.length));
+    bar.setAttribute('aria-valuenow', String(done));
+    bar.setAttribute('aria-label', done + ' of ' + list.length + ' missions finished');
+    htext.appendChild(bar);
+    htext.appendChild(el('span', 'hqnote', done + ' of ' + list.length + ' missions · ' + rank.cefr));
+    hero.appendChild(htext);
+    wrap.appendChild(hero);
+
+    const next = nextMission();
+    const cta = el('button', 'hqcta');
+    cta.type = 'button';
+    cta.appendChild(el('span', 'hqe', next ? next.emoji : '🏅'));
+    const ctext = el('span');
+    ctext.appendChild(el('b', null, next ? 'Continue: ' + next.title_en : 'Replay a mission'));
+    ctext.appendChild(faLine(next ? 'ادامه: ' + next.title_fa : 'یک مأموریت را دوباره بازی کن'));
+    cta.appendChild(ctext);
+    cta.appendChild(el('span', 'hqgo', 'Go →'));
+    cta.onclick = () => {
+      if (next) startMission(next);
+      else openRank = currentRank();
+      if (!next) paintMissions(openRank);
+    };
+    wrap.appendChild(cta);
+
+    const obj = el('p', 'hqnote');
+    const [en, faText] = nextObjective();
+    obj.appendChild(el('span', null, en));
+    obj.appendChild(faLine(' ' + faText));
+    wrap.appendChild(obj);
+
+    const map = el('div', 'hqmap');
+    game.ranks.forEach((r, i) => {
+      const unlocked = rankUnlocked(i);
+      const node = el('button', 'hqnode' + (rankDone(r.id) ? ' done' : '') + (unlocked ? '' : ' locked'));
+      node.type = 'button';
+      node.setAttribute('aria-current', i === openRank ? 'true' : 'false');
+      node.setAttribute('aria-label', r.name_en + (unlocked ? '' : ' — locked'));
+      node.appendChild(el('span', 'hqdot', unlocked ? r.emoji : '🔒'));
+      const txt = el('span');
+      txt.appendChild(el('b', null, r.name_en));
+      txt.appendChild(faLine(r.name_fa));
+      node.appendChild(txt);
+      const rl = rankMissions(r.id);
+      const rd = rl.filter((m) => starsOf(m.id) > 0).length;
+      const meta = el('span', 'hqmeta');
+      meta.appendChild(el('em', null, unlocked ? r.cefr : 'Locked'));
+      meta.appendChild(el('span', null, unlocked ? rd + '/' + rl.length + ' ⭐' : 'finish ' + (i ? game.ranks[i - 1].name_en.split(' ')[0] : '')));
+      node.appendChild(meta);
+      node.onclick = () => {
+        openRank = i;
+        if (!unlocked) {
+          const note = el('p', 'hqnote', 'Finish the missions of “' + game.ranks[i - 1].name_en + '” to open this place.');
+          note.appendChild(faLine(' برای باز شدن این جا، مأموریت‌های «' + game.ranks[i - 1].name_fa + '» را تمام کن.'));
+          const listHost = $('hqmissions');
+          if (listHost) { listHost.innerHTML = ''; listHost.appendChild(note); }
+          return;
+        }
+        paintMissions(i);
+        node.parentNode.querySelectorAll('.hqnode').forEach((n) => n.setAttribute('aria-current', 'false'));
+        node.setAttribute('aria-current', 'true');
+      };
+      map.appendChild(node);
+    });
+    wrap.appendChild(map);
+
+    const missionHost = el('div');
+    missionHost.id = 'hqmissions';
+    missionHost.className = 'hq';
+    wrap.appendChild(missionHost);
+
+    const badges = game.badges.filter((b) => b.rank === rank.id && rankDone(b.rank));
+    if (badges.length) {
+      badges.forEach((b) => {
+        const card = el('div', 'hqbadge');
+        card.appendChild(el('span', null, b.emoji));
+        const t = el('span');
+        t.appendChild(el('b', null, b.name_en));
+        t.appendChild(faLine(b.name_fa, 'hqfa'));
+        card.appendChild(t);
+        wrap.appendChild(card);
+      });
+    }
+
+    const note = el('p', 'hqnote');
+    note.id = 'hqsync';
+    wrap.appendChild(note);
+
+    body.appendChild(wrap);
+    paintMissions(openRank);
+    paintSyncNote();
+  }
+
+  function paintSyncNote() {
+    const note = $('hqsync');
+    if (!note || !state) return;
+    note.innerHTML = '';
+    note.appendChild(el('span', null, state.dirty || !state.syncedAt
+      ? '💾 Saved on this device'
+      : '☁️ Saved and synced'));
+    note.appendChild(faLine(state.dirty || !state.syncedAt
+      ? ' روی این دستگاه ذخیره شد'
+      : ' ذخیره و همگام شد'));
+    note.title = 'Progress is kept offline and synced when the page is online.';
+  }
+
+  function paintMissions(index) {
+    const host = $('hqmissions');
+    if (!host || !game) return;
+    const rank = game.ranks[index];
+    if (!rank) return;
+    host.innerHTML = '';
+    const title = el('p', 'hqnote');
+    title.appendChild(el('b', null, rank.place_en + ' ' + rank.emoji));
+    title.appendChild(faLine(' · ' + rank.place_fa, 'hqfa'));
+    host.appendChild(title);
+    const list = rankMissions(rank.id);
+    list.forEach((m, i) => {
+      const unlockedRank = rankUnlocked(index);
+      const prev = i > 0 ? list[i - 1] : null;
+      const openable = unlockedRank && (!prev || played(prev.id));
+      const stars = starsOf(m.id);
+      const card = el('div', 'hqmission' + (openable ? '' : ' locked'));
+      const top = el('div', 'hqmt');
+      top.appendChild(el('span', 'hqme', openable ? m.emoji : '🔒'));
+      const t = el('span');
+      t.appendChild(el('b', null, m.title_en));
+      t.appendChild(faLine(m.title_fa));
+      top.appendChild(t);
+      card.appendChild(top);
+      card.appendChild(el('p', null, m.objective_en));
+      card.appendChild(faLine(m.objective_fa, 'hqfa'));
+      const foot = el('div', 'hqfoot');
+      foot.appendChild(starsRow(stars));
+      foot.appendChild(el('span', 'hqnote', m.cefr + ' · ' + m.skills.join(' + ')));
+      foot.appendChild(el('span', 'kspace'));
+      if (openable) {
+        const play = el('button', 'hqbtn' + (stars ? ' ghost' : ''), stars ? 'Play again' : 'Play ▶');
+        play.type = 'button';
+        play.setAttribute('aria-label', (stars ? 'Play again: ' : 'Play: ') + m.title_en);
+        play.onclick = () => startMission(m);
+        foot.appendChild(play);
+      } else {
+        foot.appendChild(el('span', 'hqnote', unlockedRank
+          ? 'Finish “' + prev.title_en + '” first'
+          : 'Finish the rank below first'));
+      }
+      card.appendChild(foot);
+      host.appendChild(card);
+    });
+  }
+
+  /* ------------------------------------------------------------- a run */
+  function normalize(text) {
+    return String(text || '').toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/[.,!?;:]+$/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function startMission(mission) {
+    if (!game || !mission) return;
+    const chs = challengesFor(mission);
+    if (chs.length < 3) return;
+    run = {mission: mission, chs: chs, i: 0, first: 0, answered: false, wrong: 0};
+    view = 'play';
+    paintRun();
+  }
+
+  function paintRun() {
+    const body = $('hqbody');
+    if (!body || !run) return;
+    body.innerHTML = '';
+    const wrap = el('div', 'hqrun');
+
+    const head = el('div', 'hqrunhead');
+    const back = el('button', 'kback', '← Map');
+    back.type = 'button';
+    back.onclick = () => { run = null; home(); };
+    head.appendChild(back);
+    head.appendChild(el('b', null, run.mission.emoji + ' ' + run.mission.title_en));
+    const dots = el('span', 'hqd');
+    run.chs.forEach((_, i) => {
+      dots.appendChild(el('i', i < run.i ? 'ok' : (i === run.i ? 'on' : '')));
+    });
+    head.appendChild(dots);
+    wrap.appendChild(head);
+
+    const ch = run.chs[run.i];
+    const card = el('div', 'kcard');
+    const ask = el('div', 'hqask');
+    ask.appendChild(el('span', 'hqnum', (run.i + 1) + '. '));
+    ask.appendChild(el('span', null, ch.q));
+    card.appendChild(ask);
+    if (ch.q_fa) card.appendChild(el('div', 'hqsub', ch.q_fa));
+
+    if (ch.t === 'read' && ch.passage_en) {
+      const box = el('div', 'hqpassage');
+      box.appendChild(el('div', null, ch.passage_en));
+      if (ch.passage_fa) box.appendChild(faLine(ch.passage_fa, 'hqfa'));
+      card.appendChild(box);
+    }
+    if (ch.t === 'listen' && ch.lines && ch.lines.length) {
+      const box = el('div', 'hqlisten');
+      const playAll = el('button', 'hqbtn ghost', '▶ Play all');
+      playAll.type = 'button';
+      playAll.onclick = () => {
+        if (typeof Speech === 'undefined' || !Speech.speak) return;
+        Speech.speak(ch.lines.join(' '));
+      };
+      box.appendChild(playAll);
+      ch.lines.forEach((line) => {
+        const row = el('div', 'hqline');
+        row.appendChild(sayButton(line, 'Hear the line'));
+        row.appendChild(el('span', null, line));
+        box.appendChild(row);
+      });
+      card.appendChild(box);
+    }
+    if (ch.speak && (ch.t === 'choice')) {
+      const row = el('div', 'hqline');
+      row.appendChild(sayButton(ch.speak, 'Hear it'));
+      card.appendChild(row);
+    }
+
+    const host = el('div');
+    host.id = 'hqchallenge';
+    card.appendChild(host);
+    const feedback = el('div');
+    feedback.id = 'hqfeedback';
+    card.appendChild(feedback);
+    const actions = el('div', 'hqactions');
+    actions.id = 'hqactions';
+    card.appendChild(actions);
+    wrap.appendChild(card);
+    body.appendChild(wrap);
+
+    if (ch.t === 'match') renderMatch(ch, host, feedback, actions);
+    else if (ch.t === 'order') renderOrder(ch, host, feedback, actions);
+    else if (ch.t === 'fill') renderFill(ch, host, feedback, actions);
+    else renderChoice(ch, host, feedback, actions);
+  }
+
+  function explain(host, ok, ch, extra) {
+    host.innerHTML = '';
+    const why = el('div', 'kwhy');
+    const en = el('div', 'ken' + (ok ? '' : ''));
+    en.textContent = (ok ? '✓ ' : '✗ ') + ch.why_en;
+    if (!ok) en.style.color = 'var(--k-bad)';
+    why.appendChild(en);
+    why.appendChild(faLine((ok ? '' : '✗ ') + ch.why_fa, 'kfa'));
+    host.appendChild(why);
+    if (extra) host.appendChild(el('p', 'hqnote', extra));
+    if (ok) {
+      const win = el('div', 'kwin', '⭐ ' + (run && run.first === run.i + 1 ? 'Perfect start!' : 'Nice work!'));
+      win.appendChild(faLine(' آفرین!', 'kfa'));
+      host.appendChild(win);
+    }
+  }
+
+  function afterAnswer(ok, ch, feedback, actions) {
+    if (run.answered) return;
+    run.answered = true;
+    if (ok) run.first += 1;
+    else run.wrong += 1;
+    explain(feedback, ok, ch);
+    actions.innerHTML = '';
+    if (!ok && (ch.t === 'fill' || ch.t === 'order')) {
+      const retry = el('button', 'hqbtn ghost', 'Try again');
+      retry.type = 'button';
+      retry.onclick = () => {
+        run.answered = false;
+        paintRun();
+      };
+      actions.appendChild(retry);
+    }
+    const next = el('button', 'hqbtn', run.i + 1 < run.chs.length ? 'Next →' : 'See result 🏁');
+    next.type = 'button';
+    next.onclick = () => {
+      if (run.i + 1 < run.chs.length) { run.i += 1; run.answered = false; paintRun(); }
+      else finishRun();
+    };
+    actions.appendChild(next);
+    next.focus();
+  }
+
+  function renderChoice(ch, host, feedback, actions) {
+    const opts = el('div', 'kopts');
+    ch.options.forEach((option) => {
+      const b = el('button', 'kopt', option);
+      b.type = 'button';
+      b.onclick = () => {
+        if (run.answered) return;
+        const ok = option === ch.answer;
+        [...opts.children].forEach((o) => {
+          o.disabled = true;
+          const right = o.textContent === ch.answer;
+          if (right) o.classList.add('ok');
+          o.textContent = (right ? '✓ ' : (o === b ? '✗ ' : '')) + o.textContent.replace(/^[✓✗] /, '');
+        });
+        afterAnswer(ok, ch, feedback, actions);
+      };
+      opts.appendChild(b);
+    });
+    host.appendChild(opts);
+  }
+
+  function renderFill(ch, host, feedback, actions) {
+    const row = el('div', 'hqfill');
+    const input = el('input');
+    input.type = 'text';
+    input.autocomplete = 'off';
+    input.autocapitalize = 'off';
+    input.spellcheck = false;
+    input.dir = 'ltr';
+    input.placeholder = 'Type the missing words…';
+    input.setAttribute('aria-label', 'Your answer');
+    const check = el('button', 'hqbtn', 'Check');
+    check.type = 'button';
+    const submit = () => {
+      if (run.answered) return;
+      const given = normalize(input.value);
+      if (!given) { input.focus(); return; }
+      const ok = (ch.accept || [ch.answer]).some((a) => normalize(a) === given);
+      if (!ok) input.value = input.value;
+      afterAnswer(ok, ch, feedback, actions);
+    };
+    check.onclick = submit;
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+    row.appendChild(input);
+    row.appendChild(check);
+    host.appendChild(row);
+    input.focus();
+  }
+
+  function renderOrder(ch, host, feedback, actions) {
+    const tokens = ch.tokens || String(ch.answer).split(' ');
+    const build = el('div', 'kbuild');
+    const hint = el('p', 'khint', 'Tap the words in order · روی واژه‌ها به ترتیب بزن');
+    const picked = el('div', 'kpicked');
+    const bank = el('div', 'kbank');
+    build.append(hint, picked, bank);
+    shuffled(tokens.map((w, i) => ({w, i})), hash(ch.answer)).forEach(({w}) => {
+      const b = el('button', 'kword', w);
+      b.type = 'button';
+      b.onclick = () => {
+        if (run.answered) return;
+        b.remove();
+        const back = el('button', 'kword', w);
+        back.type = 'button';
+        back.onclick = () => { back.remove(); bank.appendChild(b); };
+        picked.appendChild(back);
+      };
+      bank.appendChild(b);
+    });
+    host.appendChild(build);
+    const row = el('div', 'hqactions');
+    const check = el('button', 'hqbtn', 'Check');
+    check.type = 'button';
+    check.onclick = () => {
+      if (run.answered) return;
+      const made = [...picked.children].map((b) => b.textContent).join(' ');
+      if (!made) return;
+      const ok = normalize(made) === normalize(ch.answer);
+      afterAnswer(ok, ch, feedback, actions);
+    };
+    row.appendChild(check);
+    host.appendChild(row);
+  }
+
+  function renderMatch(ch, host, feedback, actions) {
+    const left = el('div', 'hqcol');
+    const right = el('div', 'hqcol');
+    const wrap = el('div', 'hqpair');
+    wrap.append(left, right);
+    const map = {};
+    ch.pairs.forEach(([en, fa]) => { map[en] = fa; });
+    const ens = ch.pairs.map((p) => p[0]);
+    const fas = ch.pairs.map((p) => p[1]);
+    let selEn = null, selFa = null, solved = 0, wrong = 0;
+
+    const tryPair = () => {
+      if (!selEn || !selFa) return;
+      const right = map[selEn.dataset.val] === selFa.dataset.val;
+      if (right) {
+        selEn.classList.remove('sel'); selFa.classList.remove('sel');
+        selEn.classList.add('ok'); selFa.classList.add('ok');
+        selEn.disabled = true; selFa.disabled = true;
+        selEn = null; selFa = null; solved += 1;
+        if (solved === ch.pairs.length) afterAnswer(wrong === 0, ch, feedback, actions);
+      } else {
+        wrong += 1;
+        const a = selEn, b = selFa;
+        a.classList.add('no'); b.classList.add('no');
+        setTimeout(() => { a.classList.remove('no', 'sel'); b.classList.remove('no', 'sel'); }, 550);
+        selEn = null; selFa = null;
+      }
+    };
+
+    shuffled(ens, hash(ch.answer + 'en')).forEach((en) => {
+      const b = el('button', null, en);
+      b.type = 'button';
+      b.dataset.val = en;
+      b.onclick = () => {
+        if (b.disabled) return;
+        [...left.children].forEach((x) => x.classList.remove('sel'));
+        b.classList.add('sel');
+        selEn = b;
+        tryPair();
+      };
+      left.appendChild(b);
+    });
+    shuffled(fas, hash(ch.answer + 'fa')).forEach((f) => {
+      const b = el('button', null, f);
+      b.type = 'button';
+      b.dir = 'rtl';
+      b.dataset.val = f;
+      b.onclick = () => {
+        if (b.disabled) return;
+        [...right.children].forEach((x) => x.classList.remove('sel'));
+        b.classList.add('sel');
+        selFa = b;
+        tryPair();
+      };
+      right.appendChild(b);
+    });
+    host.appendChild(wrap);
+  }
+
+  /* ----------------------------------------------------------- the result */
+  function finishRun() {
+    if (!run || run.finished) return;
+    run.finished = true;
+    const mission = run.mission;
+    const total = run.chs.length;
+    const pct = run.first / total;
+    const stars = pct >= 0.85 ? 3 : (pct >= 0.6 ? 2 : 1);
+    const before = starsOf(mission.id);
+    const rankBefore = rankDone(mission.rank);
+    const at = Date.now();
+    const eid = mission.id + '-' + at.toString(36) + '-' +
+      Math.floor(Math.random() * 1679616).toString(36).padStart(4, '0');
+    merge([{id: eid, m: mission.id, s: stars, at: at}]);
+    state.dirty = true;
+    writeState();
+    paintResult({mission, total, stars, before, rankBefore});
+    sync();
+  }
+
+  function paintResult(result) {
+    const body = $('hqbody');
+    if (!body) return;
+    view = 'result';
+    const {mission, total, stars, before, rankBefore} = result;
+    body.innerHTML = '';
+    const wrap = el('div', 'hq');
+    const card = el('div', 'kcard hqresult');
+    const big = el('div', 'hqbig');
+    for (let i = 0; i < 3; i += 1) {
+      const st = el('i', i < stars ? 'on' : '', '★');
+      st.setAttribute('aria-hidden', 'true');
+      big.appendChild(st);
+    }
+    big.setAttribute('aria-label', stars + ' of 3 stars earned');
+    card.appendChild(big);
+    const allRight = run.first === total;
+    card.appendChild(el('h4', null, allRight ? 'A perfect run!'
+      : (stars === 3 ? 'Brilliant work!' : (stars === 2 ? 'Mission complete!' : 'Mission finished!'))));
+    card.appendChild(faLine(allRight ? 'دور کامل و بی‌نقص!'
+      : (stars === 3 ? 'کار درخشان!' : 'مأموریت تمام شد!'), 'hqfa'));
+    const msg = el('p', null, 'You answered ' + run.first + ' of ' + total + ' right the first time.');
+    msg.appendChild(faLine(' ' + run.first + ' از ' + total + ' پاسخ را بار اول درست زدی.', 'hqfa'));
+    card.appendChild(msg);
+    if (stars > before && before > 0) card.appendChild(el('p', 'hqnote', 'New best: ' + stars + ' stars (was ' + before + ').'));
+    const nowDone = rankDone(mission.rank);
+    if (nowDone && !rankBefore) {
+      const rank = game.ranks.find((r) => r.id === mission.rank);
+      const badge = el('div', 'hqbadge');
+      badge.appendChild(el('span', null, '🏅'));
+      const t = el('span');
+      t.appendChild(el('b', null, rank.name_en + ' badge earned'));
+      t.appendChild(faLine('نشان «' + rank.name_fa + '» به دست آمد', 'hqfa'));
+      badge.appendChild(t);
+      card.appendChild(badge);
+      const open = game.ranks[game.ranks.indexOf(rank) + 1];
+      if (open) {
+        const note = el('p', 'hqnote', '“' + open.name_en + '” is now open.');
+        note.appendChild(faLine(' «' + open.name_fa + '» باز شد.', 'hqfa'));
+        card.appendChild(note);
+      }
+    }
+    wrap.appendChild(card);
+
+    const actions = el('div', 'hqactions');
+    /* The next mission is the next one in this rank, or the first mission of
+       the rank that just opened - finishing a rank should not dead-end on a
+       badge with the way forward hidden one screen up. */
+    let next = missionAfter(mission.id);
+    if (!next) {
+      const index = game.ranks.findIndex((r) => r.id === mission.rank);
+      const above = game.ranks[index + 1];
+      if (above && rankUnlocked(index + 1)) next = rankMissions(above.id)[0] || null;
+    }
+    if (next && missionOpen(next)) {
+      const b = el('button', 'hqbtn', 'Next mission →');
+      b.type = 'button';
+      b.onclick = () => startMission(next);
+      actions.appendChild(b);
+    }
+    const again = el('button', 'hqbtn ghost', 'Play again');
+    again.type = 'button';
+    again.onclick = () => startMission(mission);
+    actions.appendChild(again);
+    const backToMap = el('button', 'hqbtn ghost', 'Map');
+    backToMap.type = 'button';
+    backToMap.onclick = () => { run = null; openRank = rankIndexAtLeast(mission.rank); home(); };
+    actions.appendChild(backToMap);
+    wrap.appendChild(actions);
+
+    const note = el('p', 'hqnote');
+    note.id = 'hqsync';
+    wrap.appendChild(note);
+    body.appendChild(wrap);
+    paintSyncNote();
+  }
+
+  /* -------------------------------------------------------------- sync */
+  const SYNC_URL = '/api/quest/' + 'sync';
+  let syncing = false;
+
+  function canSync() {
+    return location.protocol !== 'file:' && navigator.onLine !== false;
+  }
+
+  async function sync() {
+    /* Even with nothing local to push, the call is worth making: the reply
+       carries what this device has not seen, which is how a cleared browser
+       or a second install gets its stars back. An empty POST is cheap. */
+    if (syncing || !state || !canSync()) return;
+    syncing = true;
+    try {
+      const r = await fetch(SYNC_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({k: deviceKey(), events: state.events}),
+      });
+      if (!r.ok) return;
+      const data = await r.json();
+      const before = state.events.length;
+      merge(data.events || []);
+      /* The POST carried every local event, so once it is answered the server
+         holds them all: there is nothing left pending, even if the reply also
+         brought events this device had not seen. */
+      state.dirty = false;
+      state.syncedAt = Date.now();
+      writeState();
+      if (Panels.isOpen() === 'hqpanel') {
+        /* Only a map that actually gained something is redrawn, so a sync in
+           the background does not move the child off the rank they are
+           looking at. */
+        if (view === 'map' && state.events.length !== before) home();
+        else paintSyncNote();
+      }
+    } catch (e) {
+      /* Offline or the server is not there: the queue stays exactly as it is. */
+    } finally {
+      syncing = false;
+    }
+  }
+
+  function gotoDashboard() {
+    Panels.set('hqpanel', false);
+    Panels.set('kpanel', true, () => Kids.home());
+  }
+
+  window.addEventListener('online', () => {
+    if (on() && Panels.isOpen() === 'hqpanel') sync();
+  });
+
+  /* What the rest of the page needs: the panel hook, the dashboard exit, and
+     a way for the kids layer to drop the game if the account changes band. */
+  return {open, sync, startMission, challengesFor, placement, unlockedCount,
+          starsOf, missionOpen, KEY: storeKey};
+})();
+
 </script>
 </body>
 </html>

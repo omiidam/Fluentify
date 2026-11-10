@@ -1,0 +1,1370 @@
+{
+ "version": 1,
+ "title_en": "Hero Quest",
+ "title_fa": "سفر قهرمان",
+ "intro_en": "Six ranks, eighteen short missions. Every mission is a handful of English challenges, and every answer tells you why.",
+ "intro_fa": "شش رتبه، هجده مأموریت کوتاه. هر مأموریت چند چالش انگلیسی است و هر پاسخ دلیلش را می‌گوید.",
+ "ranks": [
+  {
+   "id": "r1",
+   "name_en": "Brave Beginner",
+   "name_fa": "شروع‌کنندهٔ شجاع",
+   "emoji": "🌱",
+   "cefr": "A1",
+   "place_en": "The Green Gate",
+   "place_fa": "دروازهٔ سبز",
+   "story_en": "Every hero starts with one small word. Open the gate and say your first English sentence.",
+   "story_fa": "هر قهرمانی با یک واژهٔ کوچک شروع می‌کند. دروازه را باز کن و نخستین جملهٔ انگلیسی‌ات را بگو."
+  },
+  {
+   "id": "r2",
+   "name_en": "Word Explorer",
+   "name_fa": "کاوشگر واژه‌ها",
+   "emoji": "🧭",
+   "cefr": "A1–A2",
+   "place_en": "Word Woods",
+   "place_fa": "جنگل واژه‌ها",
+   "story_en": "The woods are full of things with names. Collect them, and the path opens.",
+   "story_fa": "جنگل پر از چیزهایی است که نام دارند. آن‌ها را جمع کن تا راه باز شود."
+  },
+  {
+   "id": "r3",
+   "name_en": "Sentence Builder",
+   "name_fa": "جمله‌ساز",
+   "emoji": "🧱",
+   "cefr": "A2",
+   "place_en": "The Bridge of Words",
+   "place_fa": "پل واژه‌ها",
+   "story_en": "Words alone are stones. Put them in order and you can cross.",
+   "story_fa": "واژه‌ها به‌تنهایی سنگ‌اند. آن‌ها را مرتب کن تا بتوانی رد شوی."
+  },
+  {
+   "id": "r4",
+   "name_en": "Grammar Guardian",
+   "name_fa": "نگهبان دستور زبان",
+   "emoji": "🛡️",
+   "cefr": "A2–B1",
+   "place_en": "Rule Castle",
+   "place_fa": "قلعهٔ قاعده‌ها",
+   "story_en": "The castle keeps its rules in stone. Read them well and the doors know your name.",
+   "story_fa": "قلعه قاعده‌هایش را در سنگ نگه می‌دارد. آن‌ها را خوب بخوان تا درها نامت را بشناسند."
+  },
+  {
+   "id": "r5",
+   "name_en": "Story Hero",
+   "name_fa": "قهرمان داستان",
+   "emoji": "📜",
+   "cefr": "B1",
+   "place_en": "Story Valley",
+   "place_fa": "درهٔ داستان‌ها",
+   "story_en": "A hero who reads can hear what a place is trying to say.",
+   "story_fa": "قهرمانی که می‌خواند می‌شنود هر جا چه می‌خواهد بگوید."
+  },
+  {
+   "id": "r6",
+   "name_en": "English Champion",
+   "name_fa": "قهرمان انگلیسی",
+   "emoji": "🏆",
+   "cefr": "B1–B2",
+   "place_en": "Champion Peak",
+   "place_fa": "قلهٔ قهرمانان",
+   "story_en": "The last climb is quiet. Every word you have learned walks up with you.",
+   "story_fa": "آخرین بالا رفتن آرام است. هر واژه‌ای که آموخته‌ای همراهت بالا می‌آید."
+  }
+ ],
+ "missions": [
+  {
+   "id": "r1m1",
+   "rank": "r1",
+   "order": 1,
+   "title_en": "First Words",
+   "title_fa": "نخستین واژه‌ها",
+   "place_en": "The Gate Garden",
+   "place_fa": "باغ دروازه",
+   "emoji": "🌿",
+   "objective_en": "Name six things you already know in English.",
+   "objective_fa": "شش چیز را که در انگلیسی می‌دانی نام ببر.",
+   "skills": [
+    "vocabulary",
+    "grammar"
+   ],
+   "cefr": "A1",
+   "build": [
+    {
+     "type": "vocab",
+     "theme": "school",
+     "n": 3
+    },
+    {
+     "type": "match",
+     "theme": "school"
+    },
+    {
+     "type": "grammar",
+     "lesson": "to-be"
+    },
+    {
+     "type": "phrase",
+     "set": "friends",
+     "n": 1
+    }
+   ],
+   "authored": []
+  },
+  {
+   "id": "r1m2",
+   "rank": "r1",
+   "order": 2,
+   "title_en": "Family Table",
+   "title_fa": "میز خانواده",
+   "place_en": "The Warm Kitchen",
+   "place_fa": "آشپزخانهٔ گرم",
+   "emoji": "🍎",
+   "objective_en": "Talk about the people and the food at home.",
+   "objective_fa": "دربارهٔ آدم‌ها و خوراکی‌های خانه حرف بزن.",
+   "skills": [
+    "vocabulary",
+    "phrases"
+   ],
+   "cefr": "A1",
+   "build": [
+    {
+     "type": "vocab",
+     "theme": "family",
+     "n": 2
+    },
+    {
+     "type": "vocab",
+     "theme": "food",
+     "n": 2
+    },
+    {
+     "type": "match",
+     "theme": "family"
+    },
+    {
+     "type": "grammar",
+     "lesson": "this-that"
+    },
+    {
+     "type": "phrase",
+     "set": "home",
+     "n": 1
+    }
+   ],
+   "authored": []
+  },
+  {
+   "id": "r1m3",
+   "rank": "r1",
+   "order": 3,
+   "title_en": "Playground Steps",
+   "title_fa": "قدم‌های حیاط بازی",
+   "place_en": "The Sunny Playground",
+   "place_fa": "حیاط آفتابی",
+   "emoji": "⚽",
+   "objective_en": "Say what animals do and what you can play.",
+   "objective_fa": "بگو جانوران چه می‌کنند و با چه چیزی می‌توانی بازی کنی.",
+   "skills": [
+    "vocabulary",
+    "grammar"
+   ],
+   "cefr": "A1",
+   "build": [
+    {
+     "type": "vocab",
+     "theme": "animals",
+     "n": 2
+    },
+    {
+     "type": "vocab",
+     "theme": "play",
+     "n": 1
+    },
+    {
+     "type": "match",
+     "theme": "animals"
+    },
+    {
+     "type": "order",
+     "lesson": "to-be",
+     "n": 1
+    },
+    {
+     "type": "grammar",
+     "lesson": "plurals"
+    }
+   ],
+   "authored": []
+  },
+  {
+   "id": "r2m1",
+   "rank": "r2",
+   "order": 1,
+   "title_en": "Weather Watch",
+   "title_fa": "دیده‌بان هوا",
+   "place_en": "The Windy Clearing",
+   "place_fa": "جنگل بادی",
+   "emoji": "🌦️",
+   "objective_en": "Ask and answer about the weather and about ability.",
+   "objective_fa": "دربارهٔ هوا و توانایی بپرس و پاسخ بده.",
+   "skills": [
+    "vocabulary",
+    "listening"
+   ],
+   "cefr": "A1",
+   "build": [
+    {
+     "type": "vocab",
+     "theme": "weather",
+     "n": 2
+    },
+    {
+     "type": "match",
+     "theme": "weather"
+    },
+    {
+     "type": "grammar",
+     "lesson": "can"
+    },
+    {
+     "type": "phrase",
+     "set": "playtime",
+     "n": 1
+    },
+    {
+     "type": "listen",
+     "clip": "weather",
+     "n": 1
+    }
+   ],
+   "authored": []
+  },
+  {
+   "id": "r2m2",
+   "rank": "r2",
+   "order": 2,
+   "title_en": "In the Classroom",
+   "title_fa": "در کلاس",
+   "place_en": "The Open Classroom",
+   "place_fa": "کلاس باز",
+   "emoji": "🖍️",
+   "objective_en": "Follow a classroom conversation from start to finish.",
+   "objective_fa": "یک گفت‌وگوی کلاسی را از آغاز تا پایان دنبال کن.",
+   "skills": [
+    "vocabulary",
+    "phrases",
+    "listening"
+   ],
+   "cefr": "A1–A2",
+   "build": [
+    {
+     "type": "vocab",
+     "theme": "school",
+     "n": 2
+    },
+    {
+     "type": "order",
+     "lesson": "plurals",
+     "n": 1
+    },
+    {
+     "type": "grammar",
+     "lesson": "like"
+    },
+    {
+     "type": "phrase",
+     "set": "classroom",
+     "n": 1
+    },
+    {
+     "type": "listen",
+     "clip": "bakery",
+     "n": 1
+    }
+   ],
+   "authored": []
+  },
+  {
+   "id": "r2m3",
+   "rank": "r2",
+   "order": 3,
+   "title_en": "The Food Trail",
+   "title_fa": "رد پای خوراکی",
+   "place_en": "The Market Path",
+   "place_fa": "راه بازار",
+   "emoji": "🥕",
+   "objective_en": "Buy something, eat something, and say what you like.",
+   "objective_fa": "چیزی بخر، چیزی بخور و بگو چه دوست داری.",
+   "skills": [
+    "vocabulary",
+    "listening"
+   ],
+   "cefr": "A1–A2",
+   "build": [
+    {
+     "type": "vocab",
+     "theme": "food",
+     "n": 2
+    },
+    {
+     "type": "match",
+     "theme": "food"
+    },
+    {
+     "type": "order",
+     "lesson": "can",
+     "n": 1
+    },
+    {
+     "type": "listen",
+     "clip": "max",
+     "n": 1
+    },
+    {
+     "type": "grammar",
+     "lesson": "present"
+    }
+   ],
+   "authored": []
+  },
+  {
+   "id": "r3m1",
+   "rank": "r3",
+   "order": 1,
+   "title_en": "Crossing Words",
+   "title_fa": "واژه‌های گذر",
+   "place_en": "The First Span",
+   "place_fa": "دهانهٔ نخست",
+   "emoji": "🌉",
+   "objective_en": "Build sentences in the present, and fix the ones that fall.",
+   "objective_fa": "جمله‌های حال بساز و آن‌هایی را که می‌افتند درست کن.",
+   "skills": [
+    "grammar",
+    "writing"
+   ],
+   "cefr": "A2",
+   "build": [
+    {
+     "type": "order",
+     "lesson": "present",
+     "n": 1
+    },
+    {
+     "type": "order",
+     "lesson": "plurals",
+     "n": 1
+    },
+    {
+     "type": "vocab",
+     "theme": "food",
+     "n": 1
+    }
+   ],
+   "authored": [
+    {
+     "t": "choice",
+     "q": "My sister ___ to school by bus every day.",
+     "options": [
+      "goes",
+      "go",
+      "going"
+     ],
+     "answer": "goes",
+     "why_en": "With he, she or it the present simple takes -s: she goes.",
+     "why_fa": "با he، she یا it حال ساده -s می‌گیرد: she goes."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "He don't like tea.",
+      "She doesn't like tea.",
+      "They don't like tea."
+     ],
+     "answer": "He don't like tea.",
+     "why_en": "After he or she, use doesn't: he doesn't like tea.",
+     "why_fa": "پس از he یا she از doesn't استفاده کن: he doesn't like tea."
+    },
+    {
+     "t": "fill",
+     "q": "There ___ two chairs in my room.",
+     "answer": "are",
+     "accept": [
+      "are",
+      "'re"
+     ],
+     "why_en": "Two chairs is plural, so there are.",
+     "why_fa": "two chairs جمع است، پس there are."
+    }
+   ]
+  },
+  {
+   "id": "r3m2",
+   "rank": "r3",
+   "order": 2,
+   "title_en": "Bridge of Time",
+   "title_fa": "پل زمان",
+   "place_en": "The Middle Span",
+   "place_fa": "دهانهٔ میانی",
+   "emoji": "⏳",
+   "objective_en": "Say what is happening now and what happens always.",
+   "objective_fa": "بگو همین حالا چه می‌گذرد و همیشه چه می‌شود.",
+   "skills": [
+    "grammar",
+    "writing"
+   ],
+   "cefr": "A2",
+   "build": [
+    {
+     "type": "grammar",
+     "lesson": "present"
+    },
+    {
+     "type": "order",
+     "lesson": "can",
+     "n": 1
+    },
+    {
+     "type": "vocab",
+     "theme": "play",
+     "n": 1
+    }
+   ],
+   "authored": [
+    {
+     "t": "choice",
+     "q": "Look! The cat ___ on the wall.",
+     "options": [
+      "is sitting",
+      "sits",
+      "sit"
+     ],
+     "answer": "is sitting",
+     "why_en": "Right now takes the present continuous: is sitting.",
+     "why_fa": "همین حالا حال استمراری می‌گیرد: is sitting."
+    },
+    {
+     "t": "fill",
+     "q": "She ___ (not / like) coffee.",
+     "answer": "doesn't like",
+     "accept": [
+      "doesn't like",
+      "does not like"
+     ],
+     "why_en": "A negative present sentence for she needs doesn't + base verb.",
+     "why_fa": "جملهٔ منفی حال برای she با doesn't و فعل ساده ساخته می‌شود."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "I am knowing the answer.",
+      "I know the answer.",
+      "Do you know the answer?"
+     ],
+     "answer": "I am knowing the answer.",
+     "why_en": "Know is a state verb, so it stays simple: I know.",
+     "why_fa": "know فعل حالت است، پس ساده می‌ماند: I know."
+    }
+   ]
+  },
+  {
+   "id": "r3m3",
+   "rank": "r3",
+   "order": 3,
+   "title_en": "The Rainy Span",
+   "title_fa": "دهانهٔ بارانی",
+   "place_en": "The Last Span",
+   "place_fa": "دهانهٔ پایانی",
+   "emoji": "🌧️",
+   "objective_en": "Read a short text, then answer and rewrite.",
+   "objective_fa": "یک متن کوتاه را بخوان، سپس پاسخ بده و بازنویسی کن.",
+   "skills": [
+    "reading",
+    "grammar"
+   ],
+   "cefr": "A2",
+   "build": [
+    {
+     "type": "read",
+     "passage": "rainy-day",
+     "n": 1
+    },
+    {
+     "type": "grammar",
+     "lesson": "like"
+    },
+    {
+     "type": "vocab",
+     "theme": "weather",
+     "n": 1
+    }
+   ],
+   "authored": [
+    {
+     "t": "read",
+     "q": "Why does Nima draw a picture?",
+     "options": [
+      "To remember the word better.",
+      "To sell the notebook.",
+      "To give it to his teacher."
+     ],
+     "answer": "To remember the word better.",
+     "why_en": "The picture helps him remember the word.",
+     "why_fa": "نقاشی کمکش می‌کند واژه را بهتر یادش بماند.",
+     "passage_en": "Nima keeps a small notebook in his pocket. When he hears a new English word, he writes it down and draws a little picture next to it. On the bus he reads the notebook. By Friday he can say thirty new words.",
+     "passage_fa": "نیما یک دفترچهٔ کوچک در جیبش دارد. وقتی واژهٔ تازهٔ انگلیسی می‌شنود، آن را می‌نویسد و کنارش یک نقاشی کوچک می‌کشد. در اتوبوس دفترچه را می‌خواند. تا جمعه می‌تواند سی واژهٔ تازه بگوید."
+    },
+    {
+     "t": "order",
+     "answer": "He writes every new word in a small notebook.",
+     "why_en": "The time expression and the verb come first, then the object.",
+     "why_fa": "عبارت زمان و فعل اول می‌آیند، سپس مفعول."
+    },
+    {
+     "t": "fill",
+     "q": "She ___ (write) in her notebook every evening.",
+     "answer": "writes",
+     "accept": [
+      "writes"
+     ],
+     "why_en": "Every evening is a habit, so present simple; she takes -s.",
+     "why_fa": "every evening عادت است، پس حال ساده؛ she هم -s می‌گیرد."
+    }
+   ]
+  },
+  {
+   "id": "r4m1",
+   "rank": "r4",
+   "order": 1,
+   "title_en": "The Gate of Tenses",
+   "title_fa": "دروازهٔ زمان‌ها",
+   "place_en": "Castle Gate",
+   "place_fa": "دروازهٔ قلعه",
+   "emoji": "🏰",
+   "objective_en": "Choose the right tense for what already happened.",
+   "objective_fa": "زمان درست را برای آنچه گذشته انتخاب کن.",
+   "skills": [
+    "grammar"
+   ],
+   "cefr": "A2–B1",
+   "build": [],
+   "authored": [
+    {
+     "t": "choice",
+     "q": "We ___ to the museum last Saturday.",
+     "options": [
+      "went",
+      "go",
+      "have gone"
+     ],
+     "answer": "went",
+     "why_en": "Last Saturday is a finished past time, so past simple.",
+     "why_fa": "last Saturday زمانی تمام‌شده در گذشته است، پس گذشتهٔ ساده."
+    },
+    {
+     "t": "choice",
+     "q": "I ___ my keys, so I cannot open the door.",
+     "options": [
+      "have lost",
+      "lost",
+      "am losing"
+     ],
+     "answer": "have lost",
+     "why_en": "The result matters now, so present perfect.",
+     "why_fa": "نتیجه همین حالا مهم است، پس حال کامل."
+    },
+    {
+     "t": "fill",
+     "q": "They ___ (not / finish) their homework yet.",
+     "answer": "haven't finished",
+     "accept": [
+      "haven't finished",
+      "have not finished"
+     ],
+     "why_en": "Not yet with a result now takes the present perfect.",
+     "why_fa": "با not yet و نتیجهٔ کنونی، حال کامل به کار می‌رود."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "She has went to the shop.",
+      "She has gone to the shop.",
+      "She went to the shop."
+     ],
+     "answer": "She has went to the shop.",
+     "why_en": "After has, the past participle goes: has gone.",
+     "why_fa": "پس از has اسم مفعول می‌آید: has gone."
+    },
+    {
+     "t": "choice",
+     "q": "While I ___ dinner, the phone rang.",
+     "options": [
+      "was cooking",
+      "cooked",
+      "have cooked"
+     ],
+     "answer": "was cooking",
+     "why_en": "A longer past action interrupted by a shorter one takes the past continuous.",
+     "why_fa": "کار طولانی‌تر گذشته که کار کوتاه‌تری آن را قطع می‌کند، گذشتهٔ استمراری می‌گیرد."
+    },
+    {
+     "t": "order",
+     "answer": "She was reading a book when the lights went out.",
+     "why_en": "The longer action comes first with when before the short one.",
+     "why_fa": "کار طولانی‌تر اول می‌آید و when پیش از کار کوتاه قرار می‌گیرد."
+    }
+   ]
+  },
+  {
+   "id": "r4m2",
+   "rank": "r4",
+   "order": 2,
+   "title_en": "Hall of Rules",
+   "title_fa": "تالار قاعده‌ها",
+   "place_en": "The Great Hall",
+   "place_fa": "تالار بزرگ",
+   "emoji": "🛡️",
+   "objective_en": "Compare things, place them, and choose the right article.",
+   "objective_fa": "چیزها را مقایسه کن، جای آن‌ها را بگو و حرف تعریف درست را انتخاب کن.",
+   "skills": [
+    "grammar"
+   ],
+   "cefr": "A2–B1",
+   "build": [],
+   "authored": [
+    {
+     "t": "choice",
+     "q": "This book is ___ than that one.",
+     "options": [
+      "more interesting",
+      "interestinger",
+      "most interesting"
+     ],
+     "answer": "more interesting",
+     "why_en": "Long adjectives take more, not -er.",
+     "why_fa": "صفت‌های بلند با more می‌آیند، نه -er."
+    },
+    {
+     "t": "choice",
+     "q": "She is the ___ student in the class.",
+     "options": [
+      "best",
+      "better",
+      "good"
+     ],
+     "answer": "best",
+     "why_en": "The superlative of good is best.",
+     "why_fa": "برترین شکل good، واژهٔ best است."
+    },
+    {
+     "t": "fill",
+     "q": "I have ___ apple and a banana.",
+     "answer": "an",
+     "accept": [
+      "an"
+     ],
+     "why_en": "Apple starts with a vowel sound, so an.",
+     "why_fa": "apple با صدای صدادار شروع می‌شود، پس an."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "He is more taller than me.",
+      "He is taller than me.",
+      "He is the tallest in the team."
+     ],
+     "answer": "He is more taller than me.",
+     "why_en": "Never use more with -er: he is taller.",
+     "why_fa": "هرگز more را با -er به کار نبر: he is taller."
+    },
+    {
+     "t": "choice",
+     "q": "The keys are ___ the table.",
+     "options": [
+      "on",
+      "in",
+      "at"
+     ],
+     "answer": "on",
+     "why_en": "A surface takes on.",
+     "why_fa": "روی سطح با on می‌آید."
+    },
+    {
+     "t": "order",
+     "answer": "There is a small garden behind the castle.",
+     "why_en": "There is introduces the thing; the phrase of place comes last.",
+     "why_fa": "there is چیز را معرفی می‌کند و عبارت مکان در پایان می‌آید."
+    }
+   ]
+  },
+  {
+   "id": "r4m3",
+   "rank": "r4",
+   "order": 3,
+   "title_en": "The Guardian's Bridge",
+   "title_fa": "پل نگهبان",
+   "place_en": "The Drawbridge",
+   "place_fa": "پل متحرک",
+   "emoji": "🌉",
+   "objective_en": "Mixed rules, one bridge: tense, articles and questions.",
+   "objective_fa": "قاعده‌های گوناگون، یک پل: زمان، حرف تعریف و پرسش.",
+   "skills": [
+    "grammar",
+    "writing"
+   ],
+   "cefr": "A2–B1",
+   "build": [],
+   "authored": [
+    {
+     "t": "choice",
+     "q": "___ you ever ___ to Isfahan?",
+     "options": [
+      "Have / been",
+      "Did / be",
+      "Have / went"
+     ],
+     "answer": "Have / been",
+     "why_en": "Ever with experience takes have + been.",
+     "why_fa": "ever با تجربهٔ زندگی با have + been می‌آید."
+    },
+    {
+     "t": "choice",
+     "q": "If it ___ tomorrow, we will stay at home.",
+     "options": [
+      "rains",
+      "will rain",
+      "rained"
+     ],
+     "answer": "rains",
+     "why_en": "After if, the present tense carries the future meaning.",
+     "why_fa": "پس از if، زمان حال معنای آینده را می‌رساند."
+    },
+    {
+     "t": "fill",
+     "q": "This is the man ___ helped me.",
+     "answer": "who",
+     "accept": [
+      "who",
+      "that"
+     ],
+     "why_en": "A person as subject takes who.",
+     "why_fa": "شخص به‌عنوان فاعل who می‌گیرد."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "I am agree with you.",
+      "I agree with you.",
+      "I don't agree with you."
+     ],
+     "answer": "I am agree with you.",
+     "why_en": "Agree is a verb, so no am: I agree.",
+     "why_fa": "agree خودش فعل است، پس am نمی‌گیرد: I agree."
+    },
+    {
+     "t": "choice",
+     "q": "He asked me where I ___ .",
+     "options": [
+      "lived",
+      "live",
+      "am living"
+     ],
+     "answer": "lived",
+     "why_en": "Reported speech moves the tense back.",
+     "why_fa": "در نقل قول غیرمستقیم زمان یک پله عقب می‌رود."
+    },
+    {
+     "t": "order",
+     "answer": "She has lived in this city for five years.",
+     "why_en": "Present perfect with for + a length of time.",
+     "why_fa": "حال کامل با for و مدت زمان."
+    }
+   ]
+  },
+  {
+   "id": "r5m1",
+   "rank": "r5",
+   "order": 1,
+   "title_en": "The Story Gate",
+   "title_fa": "دروازهٔ داستان",
+   "place_en": "Valley Entrance",
+   "place_fa": "ورودی دره",
+   "emoji": "📖",
+   "objective_en": "Read for the reason, not just the words.",
+   "objective_fa": "برای دلیل بخوان، نه فقط واژه‌ها.",
+   "skills": [
+    "reading"
+   ],
+   "cefr": "B1",
+   "build": [],
+   "authored": [
+    {
+     "t": "read",
+     "q": "Why did Leila go to the hill?",
+     "options": [
+      "She was looking for water.",
+      "She wanted to watch the rain.",
+      "She was lost."
+     ],
+     "answer": "She was looking for water.",
+     "why_en": "The wet cloth and the bottle show she was carrying water.",
+     "why_fa": "پارچهٔ خیس و بطری نشان می‌دهد او آب می‌آورد.",
+     "passage_en": "When the village well ran dry, the older farmers wanted to wait for rain. Leila, who was twelve, walked to the hill every morning and came back with a wet cloth wrapped around a bottle. She had found a spring under the stones. The village did not wait for rain after that.",
+     "passage_fa": "وقتی چاه روستا خشک شد، کشاورزان سالخورده خواستند منتظر باران بمانند. لیلا که دوازده سال داشت، هر صبح به تپه می‌رفت و با پارچهٔ خیسی دور یک بطری برمی‌گشت. او زیر سنگ‌ها چشمه‌ای پیدا کرده بود. روستا دیگر منتظر باران نماند."
+    },
+    {
+     "t": "read",
+     "q": "Why do people stay in the waiting room?",
+     "options": [
+      "They enjoy talking there.",
+      "They are waiting for a train.",
+      "They work for the carpenter."
+     ],
+     "answer": "They enjoy talking there.",
+     "why_en": "The text says they stay to talk.",
+     "why_fa": "متن می‌گوید آن‌ها می‌مانند تا حرف بزنند.",
+     "passage_en": "The old train station has no trains now. A carpenter rents the waiting room and builds chairs there. People come to buy a chair and stay to talk, because the room still has the tall clock that used to tell passengers when to leave.",
+     "passage_fa": "ایستگاه قدیمی قطار دیگر قطاری ندارد. نجاری سالن انتظار را اجاره کرده و آنجا صندلی می‌سازد. مردم برای خرید صندلی می‌آیند و می‌مانند تا حرف بزنند، چون سالن هنوز آن ساعت بلند را دارد که به مسافران می‌گفت چه وقت بروند."
+    },
+    {
+     "t": "order",
+     "answer": "Although it was raining, the children played outside.",
+     "why_en": "Although starts the clause that gives the surprising fact.",
+     "why_fa": "although بندی را آغاز می‌کند که واقعیت غافلگیرکننده را می‌گوید."
+    },
+    {
+     "t": "fill",
+     "q": "She has been learning English ___ three years.",
+     "answer": "for",
+     "accept": [
+      "for"
+     ],
+     "why_en": "For marks a length of time.",
+     "why_fa": "for مدت زمان را نشان می‌دهد."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "He suggested to go home.",
+      "He suggested going home.",
+      "He suggested that we go home."
+     ],
+     "answer": "He suggested to go home.",
+     "why_en": "Suggest takes -ing, not to + verb.",
+     "why_fa": "suggest با -ing می‌آید، نه to + فعل."
+    },
+    {
+     "t": "choice",
+     "q": "The passage says Leila was twelve. This tells us she was ___ .",
+     "options": [
+      "a child",
+      "a teacher",
+      "a farmer"
+     ],
+     "answer": "a child",
+     "why_en": "Twelve is a child's age.",
+     "why_fa": "دوازده سال، سن یک کودک است."
+    }
+   ]
+  },
+  {
+   "id": "r5m2",
+   "rank": "r5",
+   "order": 2,
+   "title_en": "Valley of Whispers",
+   "title_fa": "درهٔ نجواها",
+   "place_en": "The Quiet Path",
+   "place_fa": "راه آرام",
+   "emoji": "🍃",
+   "objective_en": "Listen and read for what a person really means.",
+   "objective_fa": "بشنو و بخوان تا بفهمی آدم واقعاً چه می‌گوید.",
+   "skills": [
+    "reading",
+    "listening"
+   ],
+   "cefr": "B1",
+   "build": [],
+   "authored": [
+    {
+     "t": "listen",
+     "q": "Why is the speaker travelling?",
+     "options": [
+      "To visit a relative.",
+      "To start a new job.",
+      "To go to school."
+     ],
+     "answer": "To visit a relative.",
+     "why_en": "The speaker says she is visiting her grandmother.",
+     "why_fa": "گوینده می‌گوید به دیدن مادربزرگش می‌رود.",
+     "lines": [
+      "Excuse me, is this seat free?",
+      "Yes, go ahead. Are you going far?",
+      "Just to the next town. I am visiting my grandmother.",
+      "That is a nice reason to travel."
+     ]
+    },
+    {
+     "t": "read",
+     "q": "What is the joke in the last sentence?",
+     "options": [
+      "His wife cares about paint, not years.",
+      "His wife cannot see colours.",
+      "The door is broken."
+     ],
+     "answer": "His wife cares about paint, not years.",
+     "why_en": "Two people explain the same door in different ways.",
+     "why_fa": "دو نفر یک در را به دو شکل متفاوت توضیح می‌دهند.",
+     "passage_en": "My neighbour paints the doors of his house a different colour every spring. Last year the door was yellow, this year it is blue. He says the door tells him what kind of year it will be. His wife says it tells her how much paint is left.",
+     "passage_fa": "همسایهٔ من هر بهار در خانه‌اش را رنگ دیگری می‌زند. پارسال در زرد بود، امسال آبی است. می‌گوید در به او می‌گوید سال چگونه خواهد بود. همسرش می‌گوید در به او می‌گوید چقدر رنگ باقی مانده."
+    },
+    {
+     "t": "read",
+     "q": "What is the writer's point about maps?",
+     "options": [
+      "They help you decide, not obey.",
+      "They are hard to read.",
+      "They are better than walking."
+     ],
+     "answer": "They help you decide, not obey.",
+     "why_en": "The map offers choices rather than orders.",
+     "why_fa": "نقشه انتخاب می‌دهد، نه دستور.",
+     "passage_en": "A good map does not tell you where to go. It tells you where the roads are and lets you choose. The best travellers I know spend more time reading the map than walking, and they are never lost for long.",
+     "passage_fa": "نقشهٔ خوب نمی‌گوید کجا برو. می‌گوید راه‌ها کجاست و انتخاب را به تو می‌سپارد. بهترین مسافرانی که می‌شناسم بیشتر از راه رفتن، نقشه می‌خوانند و هیچ‌وقت زیاد گم نمی‌شوند."
+    },
+    {
+     "t": "fill",
+     "q": "By the time we arrived, the film ___ (start).",
+     "answer": "had started",
+     "accept": [
+      "had started"
+     ],
+     "why_en": "An earlier past action takes the past perfect.",
+     "why_fa": "کار گذشته‌ای که پیش‌تر رخ داده، گذشتهٔ کامل می‌گیرد."
+    },
+    {
+     "t": "order",
+     "answer": "If I had known, I would have called you.",
+     "why_en": "The third conditional: past perfect in the if-clause, would have + participle.",
+     "why_fa": "شرطی نوع سوم: گذشتهٔ کامل در بند if و would have + اسم مفعول."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "I look forward to see you.",
+      "I look forward to seeing you.",
+      "I am looking forward to your letter."
+     ],
+     "answer": "I look forward to see you.",
+     "why_en": "To here is a preposition, so the -ing form follows.",
+     "why_fa": "to اینجا حرف اضافه است، پس شکل -ing می‌آید."
+    }
+   ]
+  },
+  {
+   "id": "r5m3",
+   "rank": "r5",
+   "order": 3,
+   "title_en": "The Hero's Journal",
+   "title_fa": "دفترِ قهرمان",
+   "place_en": "Journal Rock",
+   "place_fa": "سنگِ دفتر",
+   "emoji": "📜",
+   "objective_en": "Write a short account of something that happened.",
+   "objective_fa": "روایت کوتاهی از چیزی که رخ داد بنویس.",
+   "skills": [
+    "reading",
+    "writing"
+   ],
+   "cefr": "B1",
+   "build": [],
+   "authored": [
+    {
+     "t": "read",
+     "q": "What changed while the writer crossed?",
+     "options": [
+      "The writer became calmer about the crossing.",
+      "The bridge became longer.",
+      "The river dried up."
+     ],
+     "answer": "The writer became calmer about the crossing.",
+     "why_en": "Counting turns into breathing: fear becomes calm.",
+     "why_fa": "شمردن به نفس کشیدن می‌رسد: ترس به آرامش می‌رسد.",
+     "passage_en": "The first time I crossed the river alone, I counted my steps out loud. Halfway across, the counting stopped being about the bridge and became about my breathing. On the far bank I looked back and saw that the bridge was much shorter than I had imagined.",
+     "passage_fa": "نخستین بار که تنها از رود گذشتم، قدم‌هایم را بلند می‌شمردم. در میانهٔ راه، شمردن دیگر دربارهٔ پل نبود و دربارهٔ نفسم شد. در کرانهٔ دور برگشتم و دیدم پل بسیار کوتاه‌تر از آن بود که خیال می‌کردم."
+    },
+    {
+     "t": "read",
+     "q": "What did the teacher teach by waiting?",
+     "options": [
+      "To think before answering.",
+      "To speak more quickly.",
+      "To avoid questions."
+     ],
+     "answer": "To think before answering.",
+     "why_en": "Waiting gives the mind time to find the answer.",
+     "why_fa": "صبر کردن به ذهن وقت می‌دهد پاسخ را بیابد.",
+     "passage_en": "Our teacher never gave us the answer. She asked a question, then waited. The waiting was the lesson. Now, when a problem stops me, I wait instead of guessing, and the answer usually arrives.",
+     "passage_fa": "معلم ما هرگز پاسخ را به ما نمی‌داد. پرسشی می‌پرسید و بعد صبر می‌کرد. همان صبر کردن درس بود. حالا وقتی مشکلی جلوی مرا می‌گیرد، صبر می‌کنم نه اینکه حدس بزنم، و پاسخ معمولاً می‌آید."
+    },
+    {
+     "t": "order",
+     "answer": "The more carefully you listen, the less you need to repeat.",
+     "why_en": "Two comparatives joined by the, the: one change follows another.",
+     "why_fa": "دو صفت تفضیلی با the، the: یک تغییر تغییر دیگری را در پی دارد."
+    },
+    {
+     "t": "fill",
+     "q": "She suggested ___ (take) the earlier train.",
+     "answer": "taking",
+     "accept": [
+      "taking"
+     ],
+     "why_en": "Suggest takes the -ing form.",
+     "why_fa": "suggest شکل -ing می‌گیرد."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "Despite of the rain, we went out.",
+      "Despite the rain, we went out.",
+      "In spite of the rain, we went out."
+     ],
+     "answer": "Despite of the rain, we went out.",
+     "why_en": "Despite takes no of: despite the rain.",
+     "why_fa": "despite بدون of می‌آید: despite the rain."
+    },
+    {
+     "t": "choice",
+     "q": "Which sentence sounds most like a diary entry?",
+     "options": [
+      "Today I learned to wait.",
+      "You will learn to wait.",
+      "People learn to wait."
+     ],
+     "answer": "Today I learned to wait.",
+     "why_en": "A diary uses I and a past or present day reference.",
+     "why_fa": "دفتر خاطرات از I و اشاره به روز استفاده می‌کند."
+    }
+   ]
+  },
+  {
+   "id": "r6m1",
+   "rank": "r6",
+   "order": 1,
+   "title_en": "The Steep Path",
+   "title_fa": "راه پرشیب",
+   "place_en": "Base Camp",
+   "place_fa": "اردوگاه پایه",
+   "emoji": "⛰️",
+   "objective_en": "Read two short texts and infer what is not said.",
+   "objective_fa": "دو متن کوتاه را بخوان و آنچه گفته نشده دریاب.",
+   "skills": [
+    "reading"
+   ],
+   "cefr": "B1–B2",
+   "build": [],
+   "authored": [
+    {
+     "t": "read",
+     "q": "What does the librarian mean?",
+     "options": [
+      "A library is more than its schedule.",
+      "The library should close earlier.",
+      "The students are breaking rules."
+     ],
+     "answer": "A library is more than its schedule.",
+     "why_en": "The contrast between building and library is the point.",
+     "why_fa": "تقابل «ساختمان» و «کتابخانه» نکتهٔ اصلی است.",
+     "passage_en": "The library closes at six, but the lights stay on until eight. Nobody complains. The cleaner waters the plants, the night guard reads the newspapers, and a few students who missed the bell tap on the glass until someone lets them in. The librarian says a library that locks its door on time is only a building.",
+     "passage_fa": "کتابخانه ساعت شش می‌بندد، اما چراغ‌ها تا هشت روشن می‌مانند. هیچ‌کس شکایت نمی‌کند. نظافتچی گیاهان را آب می‌دهد، نگهبان شب روزنامه‌ها را می‌خواند و چند دانشجو که زنگ را از دست داده‌اند به شیشه می‌زنند تا کسی در را باز کند. کتابدار می‌گوید کتابخانه‌ای که سر وقت درش را قفل کند فقط یک ساختمان است."
+    },
+    {
+     "t": "read",
+     "q": "What does the silent whistle show?",
+     "options": [
+      "A shared ritual the team respects.",
+      "That the coach has lost his hearing.",
+      "That the team dislikes the coach."
+     ],
+     "answer": "A shared ritual the team respects.",
+     "why_en": "They pretend to hear it: the ritual matters, not the sound.",
+     "why_fa": "بازیکنان خود را به شنیدن می‌زنند: آیین مهم است، نه صدا.",
+     "passage_en": "Nobody in the team could explain why the old coach kept the broken whistle. It did not work. He carried it in his pocket for thirty years and blew it only at the last practice of the season, silently, while the players pretended to hear it.",
+     "passage_fa": "هیچ‌کس در تیم نمی‌توانست توضیح دهد چرا مربی پیر سوت شکسته را نگه داشته بود. کار نمی‌کرد. سی سال آن را در جیبش داشت و تنها در آخرین تمرین فصل، بی‌صدا در آن می‌دمید، در حالی که بازیکنان خود را به شنیدن می‌زدند."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "Neither of the answers were correct.",
+      "Neither of the answers was correct.",
+      "Both answers were wrong."
+     ],
+     "answer": "Neither of the answers were correct.",
+     "why_en": "Neither is singular in formal English: was.",
+     "why_fa": "neither در انگلیسی رسمی مفرد است: was."
+    },
+    {
+     "t": "fill",
+     "q": "Hardly ___ we started when it began to snow.",
+     "answer": "had",
+     "accept": [
+      "had"
+     ],
+     "why_en": "Hardly at the start of a clause inverts: hardly had we started.",
+     "why_fa": "hardly در آغاز جمله ترتیب را برمی‌گرداند: hardly had we started."
+    },
+    {
+     "t": "order",
+     "answer": "Not until the lights went out did we notice the time.",
+     "why_en": "A negative opening takes inversion: did we notice.",
+     "why_fa": "آغاز منفی جمله ترتیب را برمی‌گرداند: did we notice."
+    },
+    {
+     "t": "choice",
+     "q": "Which is the most formal way to ask?",
+     "options": [
+      "Could you possibly tell me the time?",
+      "What's the time?",
+      "Time, please?"
+     ],
+     "answer": "Could you possibly tell me the time?",
+     "why_en": "Could you possibly is the most formal of the three.",
+     "why_fa": "could you possibly رسمی‌ترین شکل از این سه است."
+    }
+   ]
+  },
+  {
+   "id": "r6m2",
+   "rank": "r6",
+   "order": 2,
+   "title_en": "Champion's Trial",
+   "title_fa": "آزمون قهرمان",
+   "place_en": "The Narrow Ledge",
+   "place_fa": "لبهٔ باریک",
+   "emoji": "🧗",
+   "objective_en": "Hold a conversation: listen, answer, and keep it going.",
+   "objective_fa": "گفت‌وگو را نگه دار: بشنو، پاسخ بده و ادامه بده.",
+   "skills": [
+    "listening",
+    "speaking"
+   ],
+   "cefr": "B1–B2",
+   "build": [],
+   "authored": [
+    {
+     "t": "listen",
+     "q": "How does the second speaker respond to the complaint?",
+     "options": [
+      "By apologising and explaining.",
+      "By blaming the other person.",
+      "By changing the subject."
+     ],
+     "answer": "By apologising and explaining.",
+     "why_en": "Sorry plus a reason: apology and explanation.",
+     "why_fa": "sorry و یک دلیل: عذرخواهی و توضیح.",
+     "lines": [
+      "You are late again.",
+      "I know, and I am sorry. The bus broke down and I walked the last two stops.",
+      "You could have called.",
+      "My phone died. I should have charged it last night."
+     ]
+    },
+    {
+     "t": "read",
+     "q": "What does the writer value most?",
+     "options": [
+      "Knowing when to rest.",
+      "Studying the longest hours.",
+      "Sleeping during the exam."
+     ],
+     "answer": "Knowing when to rest.",
+     "why_en": "Knowing when to stop is named as the deciding habit.",
+     "why_fa": "دانستن زمان توقف، عادت تعیین‌کننده معرفی شده است.",
+     "passage_en": "Some advice is easy to give and hard to follow: sleep before the exam, not the night before it. The students who do best are rarely the ones who studied longest, but the ones who knew when to stop.",
+     "passage_fa": "بعضی نصیحت‌ها گفتنش آسان و عمل کردنش سخت است: پیش از امتحان بخواب، نه شبِ پیش از آن. دانش‌آموزانی که بهترین نتیجه را می‌گیرند کمتر کسانی‌اند که بیشترین مطالعه را کرده‌اند، و بیشتر کسانی که می‌دانستند کِی دست بکشند."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "I wish I would have studied more.",
+      "I wish I had studied more.",
+      "I wish I could study more."
+     ],
+     "answer": "I wish I would have studied more.",
+     "why_en": "Wish about the past takes had + participle.",
+     "why_fa": "wish دربارهٔ گذشته با had + اسم مفعول می‌آید."
+    },
+    {
+     "t": "fill",
+     "q": "The report ___ (write) by the team last week.",
+     "answer": "was written",
+     "accept": [
+      "was written"
+     ],
+     "why_en": "A past passive is was + past participle.",
+     "why_fa": "گذشتهٔ مجهول با was + اسم مفعول ساخته می‌شود."
+    },
+    {
+     "t": "order",
+     "answer": "Had I known about the storm, I would have stayed.",
+     "why_en": "An inverted third conditional drops if: had I known.",
+     "why_fa": "شرطی نوع سومِ وارونه if را حذف می‌کند: had I known."
+    },
+    {
+     "t": "choice",
+     "q": "Choose the most natural reply to \"How did the interview go?\"",
+     "options": [
+      "Better than I expected, actually.",
+      "It was gone to me well.",
+      "I am go to the interview."
+     ],
+     "answer": "Better than I expected, actually.",
+     "why_en": "The other two are not grammatical English.",
+     "why_fa": "دو گزینهٔ دیگر انگلیسی دستوری نیستند."
+    }
+   ]
+  },
+  {
+   "id": "r6m3",
+   "rank": "r6",
+   "order": 3,
+   "title_en": "The Summit",
+   "title_fa": "قله",
+   "place_en": "The Last Step",
+   "place_fa": "آخرین قدم",
+   "emoji": "🏔️",
+   "objective_en": "One last climb: precision, register, and calm.",
+   "objective_fa": "یک بالا رفتن آخر: دقت، لحن و آرامش.",
+   "skills": [
+    "reading",
+    "writing"
+   ],
+   "cefr": "B1–B2",
+   "build": [],
+   "authored": [
+    {
+     "t": "read",
+     "q": "What is the writer suggesting about the two routes?",
+     "options": [
+      "The older path carries more knowledge.",
+      "The road is more useful for everyone.",
+      "The teacher dislikes the road."
+     ],
+     "answer": "The older path carries more knowledge.",
+     "why_en": "The path is named and taught; the road is used by those who learn nothing.",
+     "why_fa": "راه قدیمی نام‌گذاری و آموزش داده می‌شود؛ جاده را کسانی می‌پیمایند که چیزی نمی‌آموزند.",
+     "passage_en": "The village built a new road and the old path began to disappear under grass. At first the older people complained. Then a teacher started walking the path with her class every Friday, naming the plants. Now the path is the shortest way to school, and the road is used mostly by visitors who never learn a single name.",
+     "passage_fa": "روستا جادهٔ تازه‌ای ساخت و راه قدیمی زیر علف ناپدید شد. نخست سالخوردگان شکایت کردند. بعد معلمی هر جمعه با کلاسش از آن راه می‌رفت و گیاهان را نام می‌برد. حالا آن راه کوتاه‌ترین مسیر به مدرسه است و جاده بیشتر به کار بازدیدکنندگانی می‌رسد که حتی یک نام هم یاد نمی‌گیرند."
+    },
+    {
+     "t": "read",
+     "q": "Which statement would the writer agree with?",
+     "options": [
+      "Meaning matters more than word-for-word accuracy.",
+      "A translation must keep every word.",
+      "Two translations cannot both be right."
+     ],
+     "answer": "Meaning matters more than word-for-word accuracy.",
+     "why_en": "The writer explicitly trades words for the reason.",
+     "why_fa": "نویسنده آشکارا واژه را فدای دلیل می‌کند.",
+     "passage_en": "A translation is not a copy. A copy keeps every word and loses the reason for them. A translation keeps the reason and is willing to lose a word. This is why two good translations of a poem can disagree completely and both be right.",
+     "passage_fa": "ترجمه رونوشت نیست. رونوشت هر واژه را نگه می‌دارد و دلیل آن‌ها را از دست می‌دهد. ترجمه دلیل را نگه می‌دارد و حاضر است یک واژه را از دست بدهد. به همین دلیل دو ترجمهٔ خوب از یک شعر می‌توانند کاملاً با هم فرق داشته باشند و هر دو درست باشند."
+    },
+    {
+     "t": "error",
+     "q": "Which sentence has a mistake?",
+     "options": [
+      "She is used to get up early.",
+      "She is used to getting up early.",
+      "She used to get up early."
+     ],
+     "answer": "She is used to get up early.",
+     "why_en": "Be used to takes -ing; used to + base verb means a past habit.",
+     "why_fa": "be used to با -ing می‌آید؛ used to + فعل ساده عادت گذشته را می‌گوید."
+    },
+    {
+     "t": "fill",
+     "q": "The more you practise, the ___ (confident) you become.",
+     "answer": "more confident",
+     "accept": [
+      "more confident"
+     ],
+     "why_en": "The comparative of a long adjective takes more.",
+     "why_fa": "صفت تفضیلی بلند با more ساخته می‌شود."
+    },
+    {
+     "t": "order",
+     "answer": "Only after the results were published did she realise her mistake.",
+     "why_en": "Only after at the start of a sentence inverts the main clause.",
+     "why_fa": "only after در آغاز جمله، جملهٔ اصلی را وارونه می‌کند."
+    },
+    {
+     "t": "choice",
+     "q": "Which sentence is the most polite refusal?",
+     "options": [
+      "I'm afraid I can't make it this time.",
+      "No.",
+      "I won't come."
+     ],
+     "answer": "I'm afraid I can't make it this time.",
+     "why_en": "I'm afraid softens the refusal; the others are blunt.",
+     "why_fa": "I'm afraid امتناع را نرم می‌کند؛ دو گزینهٔ دیگر تند هستند."
+    }
+   ]
+  }
+ ],
+ "badges": [
+  {
+   "id": "b-r1",
+   "rank": "r1",
+   "name_en": "Brave Beginner badge",
+   "name_fa": "نشان شروع‌کنندهٔ شجاع",
+   "emoji": "🌱"
+  },
+  {
+   "id": "b-r2",
+   "rank": "r2",
+   "name_en": "Word Explorer badge",
+   "name_fa": "نشان کاوشگر واژه‌ها",
+   "emoji": "🧭"
+  },
+  {
+   "id": "b-r3",
+   "rank": "r3",
+   "name_en": "Sentence Builder badge",
+   "name_fa": "نشان جمله‌ساز",
+   "emoji": "🧱"
+  },
+  {
+   "id": "b-r4",
+   "rank": "r4",
+   "name_en": "Grammar Guardian badge",
+   "name_fa": "نشان نگهبان دستور زبان",
+   "emoji": "🛡️"
+  },
+  {
+   "id": "b-r5",
+   "rank": "r5",
+   "name_en": "Story Hero badge",
+   "name_fa": "نشان قهرمان داستان",
+   "emoji": "📜"
+  },
+  {
+   "id": "b-r6",
+   "rank": "r6",
+   "name_en": "English Champion badge",
+   "name_fa": "نشان قهرمان انگلیسی",
+   "emoji": "🏆"
+  }
+ ]
+}

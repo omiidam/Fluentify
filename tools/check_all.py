@@ -144,6 +144,7 @@ SUITES = [
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("kids experience", [sys.executable, "tools/check_kids.py"]),
+    ("hero quest", [sys.executable, "tools/check_quest.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
     ("mini stories panel", [sys.executable, "tools/check_stories.py"]),

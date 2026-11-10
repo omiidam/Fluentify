@@ -42,3 +42,7 @@ nlp/node_modules/
 # on demand and never committed.
 dictionary_cache.json
 dictionary_cache.tmp
+
+# The local copy of a child's mission log, written by /api/quest/sync on this
+# machine only. The page owns the progress; this is a cache, not content.
+quest_sync/

@@ -6409,7 +6409,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids #kpanel.open, body.kids #dpanel.open, body.kids #vpanel.open,
   body.kids #gpanel.open, body.kids #fpanel.open, body.kids #lpanel.open,
   body.kids #rdpanel.open, body.kids #stpanel.open, body.kids #acpanel.open,
-  body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open {
+  body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open,
+  body.kids #hqpanel.open {
     border-radius: 20px 20px 0 0;
     background: var(--k-surface);
     border-color: var(--k-line);
@@ -6417,13 +6418,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids #kpanel h3, body.kids #vpanel h3, body.kids #gpanel h3,
   body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,
   body.kids #stpanel h3, body.kids #dpanel h3, body.kids #acpanel h3,
-  body.kids #pathpanel h3 { font-size: 22px; }
+  body.kids #pathpanel h3, body.kids #hqpanel h3 { font-size: 22px; }
 
   /* ---- the Kids home page --------------------------------------------- */
-  #kpanel { display: none; }
-  #kpanel.open { display: block; }
+  body.kids #kpanel, body.kids #hqpanel { display: none; }
+  body.kids #kpanel.open, body.kids #hqpanel.open { display: block; }
   body:not(.kids) #kpanel, body:not(.kids) #kidstoggle,
   body:not(.kids) #kidsmore { display: none !important; }
+  body:not(.kids) #hqtoggle, body:not(.kids) #hqpanel { display: none !important; }
   /* A child's toolbar is seven big doors, not seventeen: the tools that need
      explaining wait behind More, one tap away and out of the first glance. */
   body.kids .tools:not(.moreopen) .kadv { display: none; }
@@ -6702,6 +6704,516 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kwordrow .kfa { font-size: 12px; color: var(--k-mint-ink); direction: rtl; margin-inline-start: auto; }
   .kwordrow .kdef { font-size: 12px; color: var(--k-ink-2); }
   .kwordrow .kex { font-size: 12px; color: var(--k-ink-2); }
+
+  /* ---------- Hero Quest -------------------------------------------------
+     The game is drawn with the same tokens, cards, buttons and quiz rows as
+     the rest of the layer. Its own classes are layout only: a map of six
+     ranks, a mission row, a run header and a result card. */
+  body.kids .hq { display: grid; gap: 10px; }
+  body.kids .hqhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqhead .kspace { flex: 1; }
+  body.kids .hqchip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 800;
+    background: var(--k-sun-wash); color: var(--k-sun-ink);
+    border: 1.5px solid var(--k-sun-line);
+  }
+  body.kids .hqrank {
+    display: flex; gap: 12px; align-items: center;
+    padding: 14px 15px; border-radius: 18px;
+    background: linear-gradient(135deg, var(--k-primary-wash), var(--k-mint));
+    border: 1.5px solid var(--k-primary-line);
+  }
+  body.kids .hqrank .hqemoji { font-size: 34px; line-height: 1; }
+  body.kids .hqrank b { display: block; font-size: 19px; color: var(--k-ink); }
+  body.kids .hqrank .hqfa { display: block; font-size: 12px; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqrank p { margin: 5px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--k-hero-sub); }
+  body.kids .hqbar { height: 8px; border-radius: 999px; background: var(--k-track); overflow: hidden; margin-top: 8px; }
+  body.kids .hqbar i { display: block; height: 100%; border-radius: 999px; background: var(--k-primary); }
+  body.kids .hqcta {
+    display: flex; align-items: center; gap: 11px; width: 100%; cursor: pointer;
+    font-family: inherit; text-align: start; padding: 12px 15px; min-height: 58px;
+    border-radius: 16px; border: 1.5px solid var(--k-primary-deep);
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    box-shadow: 0 3px 0 var(--k-primary-deep);
+  }
+  body.kids .hqcta:hover { transform: translateY(-1px); }
+  body.kids .hqcta:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--k-primary-deep); }
+  body.kids .hqcta:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 3px; }
+  body.kids .hqcta .hqe { font-size: 22px; }
+  body.kids .hqcta b { display: block; font-size: 14.5px; }
+  body.kids .hqcta i { display: block; font-style: normal; font-size: 11.5px; color: var(--k-on-primary-dim); direction: rtl; text-align: right; }
+  body.kids .hqcta .hqgo { margin-inline-start: auto; font-size: 12px; font-weight: 800; }
+
+  body.kids .hqmap { display: grid; gap: 7px; }
+  body.kids .hqnode {
+    position: relative; display: flex; align-items: center; gap: 11px;
+    width: 100%; text-align: start; cursor: pointer; font-family: inherit;
+    padding: 10px 12px; min-height: 60px; border-radius: 14px;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); box-shadow: 0 1px 2px var(--k-shadow);
+  }
+  body.kids .hqnode:hover { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
+  body.kids .hqnode:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+  body.kids .hqnode[aria-current="true"] { border-color: var(--k-primary); background: var(--k-primary-wash); }
+  body.kids .hqnode.locked { cursor: default; background: var(--k-surface-2); color: var(--k-ink-2); }
+  body.kids .hqnode.locked:hover { border-color: var(--k-line-strong); background: var(--k-surface-2); }
+  body.kids .hqnode .hqdot {
+    width: 36px; height: 36px; border-radius: 12px; flex: none;
+    display: grid; place-items: center; font-size: 18px;
+    background: var(--k-surface-2); border: 1.5px solid var(--k-line);
+  }
+  body.kids .hqnode.done .hqdot { background: var(--k-good-wash); border-color: var(--k-good-line); }
+  body.kids .hqnode b { display: block; font-size: 13.5px; }
+  body.kids .hqnode .hqfa { display: block; font-size: 11.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqnode .hqmeta {
+    margin-inline-start: auto; text-align: end; font-size: 11px; font-weight: 800;
+    color: var(--k-ink-2); white-space: nowrap;
+  }
+  body.kids .hqnode .hqmeta em { display: block; font-style: normal; color: var(--k-primary-dark); }
+
+  body.kids .hqmission {
+    display: grid; gap: 8px; padding: 12px 13px;
+    border-radius: 16px; border: 1.5px solid var(--k-line-strong);
+    background: var(--k-surface); box-shadow: 0 1px 3px var(--k-shadow);
+  }
+  body.kids .hqmission.locked { background: var(--k-surface-2); }
+  body.kids .hqmission .hqmt { display: flex; gap: 9px; align-items: center; }
+  body.kids .hqmission .hqme { font-size: 24px; }
+  body.kids .hqmission b { font-size: 14.5px; }
+  body.kids .hqmission .hqfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
+  body.kids .hqmission p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--k-ink-2); }
+  body.kids .hqmission .hqfoot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqmission .hqfoot .kspace { flex: 1; }
+
+  body.kids .hqstars { display: inline-flex; gap: 2px; font-size: 15px; letter-spacing: 1px; }
+  body.kids .hqstars i { font-style: normal; color: var(--k-line-strong); }
+  body.kids .hqstars i.on { color: var(--k-sun); text-shadow: 0 1px 0 var(--k-sun-line); }
+
+  /* a run: header, dots, the challenge, then the result */
+  body.kids .hqrun { display: grid; gap: 10px; }
+  body.kids .hqrunhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqd { display: flex; gap: 5px; margin-inline-start: auto; }
+  body.kids .hqd i { width: 9px; height: 9px; border-radius: 50%; background: var(--k-line-strong); }
+  body.kids .hqd i.on { background: var(--k-primary); }
+  body.kids .hqd i.ok { background: var(--k-good); }
+  body.kids .hqask { font-size: 15.5px; font-weight: 800; line-height: 1.45; color: var(--k-ink); }
+  body.kids .hqask .hqnum { color: var(--k-primary-dark); }
+  body.kids .hqsub { font-size: 12px; color: var(--k-ink-2); margin-top: 3px; }
+  body.kids .hqpassage {
+    padding: 11px 12px; border-radius: 12px; background: var(--k-sky);
+    border: 1.5px solid var(--k-sky-line); font-size: 13.5px; line-height: 1.7;
+    color: var(--k-ink);
+  }
+  body.kids .hqpassage .hqfa { margin-top: 6px; font-size: 12px; line-height: 1.85; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqlisten { display: grid; gap: 6px; padding: 10px 12px; border-radius: 12px; background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line); }
+  body.kids .hqlisten .hqline { display: flex; gap: 8px; align-items: center; font-size: 13px; line-height: 1.5; color: var(--k-ink); }
+  body.kids .hqlisten .ksay { flex: none; }
+  body.kids .hqpair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  body.kids .hqcol { display: grid; gap: 6px; align-content: start; }
+  body.kids .hqpair button {
+    min-height: 46px; padding: 8px 10px; border-radius: 11px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface); color: var(--k-ink);
+  }
+  body.kids .hqpair button[dir="rtl"] { text-align: right; }
+  body.kids .hqpair button:hover { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
+  body.kids .hqpair button:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+  body.kids .hqpair button.ok { background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good); }
+  body.kids .hqpair button.no { background: var(--k-bad-wash); border-color: var(--k-bad-line); color: var(--k-bad); }
+  body.kids .hqpair button[disabled] { cursor: default; }
+  body.kids .hqpair button.sel { background: var(--k-primary-wash); border-color: var(--k-primary); }
+  body.kids .hqfill { display: flex; gap: 7px; flex-wrap: wrap; }
+  body.kids .hqfill input {
+    flex: 1 1 160px; min-height: 46px; padding: 9px 12px; border-radius: 11px;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); font-family: inherit; font-size: 14px;
+  }
+  body.kids .hqfill input:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 1px; border-color: var(--k-primary); }
+  body.kids .hqactions { display: flex; gap: 7px; flex-wrap: wrap; }
+  body.kids .hqbtn {
+    min-height: 44px; padding: 9px 15px; border-radius: 12px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 800;
+    border: 1.5px solid var(--k-primary-deep); background: var(--k-primary-dark); color: var(--k-on-primary);
+  }
+  body.kids .hqbtn:hover { transform: translateY(-1px); }
+  body.kids .hqbtn:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 2px; }
+  body.kids .hqbtn.ghost { background: var(--k-surface); color: var(--k-primary-dark); border-color: var(--k-primary-line); }
+  body.kids .hqbtn[hidden] { display: none; }
+
+  body.kids .hqresult { text-align: center; display: grid; gap: 8px; justify-items: center; }
+  body.kids .hqbig { display: flex; gap: 6px; font-size: 34px; line-height: 1; }
+  body.kids .hqbig i { font-style: normal; color: var(--k-line-strong); }
+  body.kids .hqbig i.on { color: var(--k-sun); animation: kStar .5s cubic-bezier(.2,1.7,.4,1) both; }
+  body.kids .hqbig i.on:nth-child(2) { animation-delay: .12s; }
+  body.kids .hqbig i.on:nth-child(3) { animation-delay: .24s; }
+  @keyframes kStar { 0% { transform: scale(.4) rotate(-12deg); opacity: 0; } 100% { transform: none; opacity: 1; } }
+  body.kids .hqresult h4 { margin: 2px 0 0; font-size: 18px; color: var(--k-ink); }
+  body.kids .hqresult p { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--k-ink-2); }
+  body.kids .hqbadge { display: flex; align-items: center; gap: 9px; padding: 10px 12px; border-radius: 12px;
+    background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line); color: var(--k-sun-ink); font-weight: 800; font-size: 13px; text-align: start; }
+  body.kids .hqbadge span { font-size: 22px; }
+  body.kids .hqnote { font-size: 11.5px; color: var(--k-ink-2); display: flex; align-items: center; gap: 6px; }
+  body.kids .hqnote b { font-weight: 800; color: var(--k-primary-dark); }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .hqbig i.on { animation: none; }
+    body.kids .hqcta:hover, body.kids .hqbtn:hover { transform: none; }
+  }
+  @media (min-width: 620px) {
+    body.kids .hqmap { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ---------- Hero Quest: the world -------------------------------------
+     The game is a scene, not a list. Everything below draws one island, the
+     places on it, and the missions inside a place. Colours come from the
+     kids tokens; the shapes are plain SVG so the whole world costs a few
+     kilobytes and works with no network. */
+  body.kids .hqw { display: grid; gap: 8px; }
+  body.kids .hqw-hud {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    font-size: 12px; font-weight: 800; color: var(--k-ink);
+  }
+  body.kids .hqw-hud .kspace { flex: 1; }
+  body.kids .hqw-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 10px; border-radius: 999px; min-height: 34px;
+    background: var(--k-surface); border: 1.5px solid var(--k-line-strong);
+    color: var(--k-ink); font-size: 12px; font-weight: 800;
+  }
+  body.kids .hqw-chip.coin { background: var(--k-sun-wash); border-color: var(--k-sun-line); color: var(--k-sun-ink); }
+  body.kids .hqw-btn {
+    min-height: 36px; padding: 6px 11px; border-radius: 999px; cursor: pointer;
+    font-family: inherit; font-size: 12px; font-weight: 800;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface); color: var(--k-ink);
+  }
+  body.kids .hqw-btn:hover { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
+  body.kids .hqw-btn:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+
+  /* the island */
+  body.kids .hqw-map {
+    position: relative; overflow: hidden; border-radius: 20px;
+    border: 1.5px solid var(--k-primary-line);
+    background: #cfeeff;
+    box-shadow: 0 6px 18px -12px var(--k-card-shadow);
+    aspect-ratio: 1000 / 620;
+    min-height: 240px;
+  }
+  body.kids .hqw-map svg { display: block; width: 100%; height: 100%; }
+  body.kids .hqw-place {
+    position: absolute; transform: translate(-50%, -100%);
+    display: grid; justify-items: center; gap: 2px; cursor: pointer;
+    background: none; border: 0; padding: 0; font-family: inherit; color: var(--k-ink);
+  }
+  body.kids .hqw-place .pin {
+    width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 18px; background: #fff; border: 3px solid #fff;
+    box-shadow: 0 3px 0 rgba(20, 60, 55, .18), 0 0 0 2px rgba(20, 60, 55, .12);
+    transition: transform .18s;
+  }
+  body.kids .hqw-place:hover .pin { transform: translateY(-2px) scale(1.04); }
+  body.kids .hqw-place .cap {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .02em;
+    background: rgba(255,255,255,.92); color: #24343a;
+    padding: 2px 6px; border-radius: 999px; white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  }
+  body.kids .hqw-place.done .pin { background: #e8f8ee; border-color: #b7e3c8; }
+  body.kids .hqw-place.on .pin {
+    border-color: #ffd15c; box-shadow: 0 0 0 4px rgba(255,209,92,.45), 0 3px 0 rgba(20,60,55,.18);
+    animation: kPulse 1.6s ease-in-out infinite;
+  }
+  body.kids .hqw-place.locked .pin { filter: grayscale(.65); opacity: .92; }
+  body.kids .hqw-place.locked .cap { color: #6b7a80; }
+  body.kids .hqw-place.on .pin::after {
+    content: 'PLAY'; position: absolute; transform: translateY(-42px);
+    font-size: 9px; font-weight: 900; letter-spacing: .08em;
+    color: #fff; background: #e0533f; padding: 3px 8px; border-radius: 999px;
+    box-shadow: 0 2px 0 rgba(0,0,0,.15);
+  }
+  @keyframes kPulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+  /* the fox token on the map moves between pins */
+  body.kids .hqw-token {
+    position: absolute; width: 46px; transform: translate(-50%, -92%);
+    transition: left .85s cubic-bezier(.4,.9,.4,1), top .85s cubic-bezier(.4,.9,.4,1);
+    pointer-events: none; filter: drop-shadow(0 4px 3px rgba(20,60,55,.25));
+  }
+  body.kids .hqw-token.walk .fox-leg-a { animation: kWalkA .42s linear infinite; }
+  body.kids .hqw-token.walk .fox-leg-b { animation: kWalkB .42s linear infinite; }
+  body.kids .hqw-token.walk { animation: kBob .42s ease-in-out infinite; }
+
+  /* the strip under the map: where you are, the three missions, one action */
+  body.kids .hqw-bar {
+    display: grid; gap: 8px; padding: 11px 12px;
+    border-radius: 16px; border: 1.5px solid var(--k-line-strong);
+    background: var(--k-surface); box-shadow: 0 1px 3px var(--k-shadow);
+  }
+  body.kids .hqw-bartop { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqw-bartop b { font-size: 15px; }
+  body.kids .hqw-bartop .hqfa { font-size: 11.5px; color: var(--k-ink-2); }
+  body.kids .hqw-bartop .kspace { flex: 1; }
+  body.kids .hqw-stones { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  body.kids .hqw-stone {
+    display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+    min-height: 40px; padding: 6px 11px; border-radius: 12px; font-family: inherit;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface-2);
+    color: var(--k-ink); font-size: 12px; font-weight: 800;
+  }
+  body.kids .hqw-stone.done { background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good); }
+  body.kids .hqw-stone.next { background: var(--k-primary-wash); border-color: var(--k-primary); color: var(--k-primary-dark); }
+  body.kids .hqw-stone.locked { opacity: .7; cursor: default; }
+  body.kids .hqw-stone:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+  body.kids .hqw-go {
+    display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer;
+    min-height: 54px; padding: 10px 14px; border-radius: 14px; font-family: inherit;
+    text-align: start; border: 1.5px solid var(--k-primary-deep);
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    box-shadow: 0 3px 0 var(--k-primary-deep);
+  }
+  body.kids .hqw-go:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--k-primary-deep); }
+  body.kids .hqw-go b { font-size: 14px; display: block; }
+  body.kids .hqw-go i { font-style: normal; font-size: 11px; color: var(--k-on-primary-dim); display: block; direction: rtl; }
+  body.kids .hqw-go .arrow { margin-inline-start: auto; font-size: 15px; font-weight: 900; }
+  body.kids .hqw-go[disabled] { opacity: .55; box-shadow: none; cursor: default; }
+
+  /* ---------- a mission scene -------------------------------------------- */
+  body.kids .hqw-scene {
+    position: relative; overflow: hidden; border-radius: 20px;
+    border: 1.5px solid var(--k-primary-line);
+    aspect-ratio: 1000 / 560; min-height: 260px;
+    background: linear-gradient(#bfe6ff, #eaf7e4 62%);
+    transition: background .5s;
+  }
+  body.kids .hqw-scene svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  body.kids .hqw-props { position: absolute; inset: 0; }
+  body.kids .hqw-prompt {
+    position: absolute; left: 10px; right: 10px; top: 10px; z-index: 4;
+    display: flex; gap: 8px; align-items: flex-start;
+    padding: 8px 12px; border-radius: 14px;
+    background: rgba(255,255,255,.93); color: #223;
+    border: 1.5px solid rgba(255,255,255,.9);
+    box-shadow: 0 4px 14px -10px rgba(0,0,0,.4);
+    font-size: 13px; font-weight: 800; line-height: 1.35;
+  }
+  body.kids .hqw-prompt .fa { font-weight: 700; color: #4a5a62; font-size: 11.5px; direction: rtl; }
+  body.kids .hqw-prompt .hqw-num {
+    flex: none; width: 22px; height: 22px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 11px;
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+  }
+  body.kids .hqw-prop {
+    position: absolute; transform: translate(-50%, -50%);
+    display: grid; justify-items: center; gap: 4px; cursor: pointer;
+    background: none; border: 0; padding: 0; font-family: inherit;
+    animation: kFloat 3.4s ease-in-out infinite;
+  }
+  body.kids .hqw-prop:nth-child(2) { animation-delay: .5s; }
+  body.kids .hqw-prop:nth-child(3) { animation-delay: 1s; }
+  body.kids .hqw-prop:nth-child(4) { animation-delay: 1.5s; }
+  body.kids .hqw-prop .art {
+    width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center;
+    font-size: 27px; background: #fff; border: 3px solid #fff;
+    box-shadow: 0 4px 0 rgba(20,60,55,.16), 0 0 0 2px rgba(20,60,55,.10);
+    transition: transform .16s, box-shadow .16s;
+  }
+  body.kids .hqw-prop:hover .art { transform: translateY(-3px) scale(1.06); }
+  body.kids .hqw-prop:focus-visible { outline: 2px solid #1f5b56; outline-offset: 4px; border-radius: 16px; }
+  body.kids .hqw-prop .lbl {
+    max-width: 130px; font-size: 10.5px; font-weight: 800; line-height: 1.25;
+    color: #24343a; background: rgba(255,255,255,.94); padding: 3px 7px;
+    border-radius: 8px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,.10);
+  }
+  body.kids .hqw-prop.right .art { background: #e9fbef; border-color: #8fd9ab; box-shadow: 0 0 0 5px rgba(143,217,171,.35); }
+  body.kids .hqw-prop.wrong { animation: kShake .4s; }
+  body.kids .hqw-prop.wrong .art { background: #fdecea; border-color: #e8a99b; }
+  @keyframes kFloat { 0%, 100% { margin-top: 0; } 50% { margin-top: -7px; } }
+  @keyframes kShake {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0); }
+    25% { transform: translate(-54%, -50%) rotate(-4deg); }
+    75% { transform: translate(-46%, -50%) rotate(4deg); }
+  }
+
+  /* the fox in a scene */
+  body.kids .hqw-fox {
+    position: absolute; width: 92px; bottom: 9%; left: 6%; z-index: 3;
+    transition: left .7s cubic-bezier(.4,.9,.4,1), bottom .5s;
+    filter: drop-shadow(0 6px 4px rgba(20,60,55,.22));
+    pointer-events: none;
+  }
+  body.kids .hqw-fox svg { display: block; width: 100%; height: auto; }
+  body.kids .hqw-fox .fox-tail { transform-origin: 34px 78px; animation: kWag 1.8s ease-in-out infinite; }
+  body.kids .hqw-fox .fox-ear-l, body.kids .hqw-fox .fox-ear-r { transform-origin: 50% 90%; }
+  body.kids .hqw-fox .fox-brow { opacity: 0; transition: opacity .2s; }
+  body.kids .hqw-fox.sad .fox-ear-l { animation: kEarDown .4s forwards; }
+  body.kids .hqw-fox.sad .fox-ear-r { animation: kEarDown .4s .06s forwards; }
+  body.kids .hqw-fox.sad .fox-mouth { d: path('M44 66 q8 -6 16 0'); }
+  body.kids .hqw-fox.walk .fox-leg-a { animation: kWalkA .4s linear infinite; }
+  body.kids .hqw-fox.walk .fox-leg-b { animation: kWalkB .4s linear infinite; }
+  body.kids .hqw-fox.walk { animation: kBob .4s ease-in-out infinite; }
+  body.kids .hqw-fox.run .fox-leg-a { animation: kWalkA .24s linear infinite; }
+  body.kids .hqw-fox.run .fox-leg-b { animation: kWalkB .24s linear infinite; }
+  body.kids .hqw-fox.run { animation: kBob .24s ease-in-out infinite; }
+  body.kids .hqw-fox.jump { animation: kJump .55s cubic-bezier(.3,1.4,.5,1); }
+  body.kids .hqw-fox.cheer { animation: kCheer .75s ease-in-out; }
+  body.kids .hqw-fox.cheer .fox-tail { animation: kWagFast .3s linear infinite; }
+  @keyframes kWag { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(9deg); } }
+  @keyframes kWagFast { 0%, 100% { transform: rotate(-14deg); } 50% { transform: rotate(18deg); } }
+  @keyframes kWalkA { 0%, 100% { transform: rotate(14deg); } 50% { transform: rotate(-14deg); } }
+  @keyframes kWalkB { 0%, 100% { transform: rotate(-14deg); } 50% { transform: rotate(14deg); } }
+  @keyframes kBob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -3px; } }
+  @keyframes kJump { 0% { translate: 0 0; } 40% { translate: 0 -34px; } 70% { translate: 0 -30px; } 100% { translate: 0 0; } }
+  @keyframes kCheer { 0%, 100% { rotate: 0deg; } 25% { rotate: -7deg; translate: 0 -14px; } 55% { rotate: 6deg; translate: 0 -20px; } 80% { rotate: -3deg; translate: 0 -8px; } }
+  @keyframes kEarDown { to { transform: rotate(-24deg) translateY(3px); } }
+
+  /* sparkles and coins that fly to the HUD */
+  body.kids .hqw-spark {
+    position: absolute; font-size: 18px; pointer-events: none; z-index: 5;
+    animation: kSpark .8s ease-out forwards;
+  }
+  @keyframes kSpark {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(.4); }
+    100% { opacity: 0; transform: translate(-50%, -160%) scale(1.3); }
+  }
+  body.kids .hqw-coin {
+    position: absolute; width: 22px; height: 22px; border-radius: 50%; z-index: 5;
+    background: radial-gradient(circle at 35% 30%, #ffe9a3, #f2bf3f 70%);
+    border: 2px solid #d9a52c; box-shadow: 0 0 0 3px rgba(255,255,255,.35);
+    pointer-events: none;
+    animation: kCoinFly .9s cubic-bezier(.5,-0.2,.7,1) forwards;
+  }
+  @keyframes kCoinFly {
+    0% { opacity: 1; transform: translate(0, 0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.5); }
+  }
+
+  /* the scroll that explains an answer */
+  body.kids .hqw-scroll {
+    position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 6;
+    display: grid; gap: 6px; padding: 11px 13px; border-radius: 14px;
+    background: rgba(255,255,255,.97); border: 2px solid #e8d9b0;
+    box-shadow: 0 10px 26px -16px rgba(0,0,0,.5);
+    animation: kRise .32s cubic-bezier(.2,1.2,.4,1);
+  }
+  @keyframes kRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  body.kids .hqw-scroll .ken { font-size: 12.5px; line-height: 1.5; font-weight: 700; color: #24343a; }
+  body.kids .hqw-scroll .ken.ok { color: #1d6b45; }
+  body.kids .hqw-scroll .ken.no { color: #9e4433; }
+  body.kids .hqw-scroll .hqfa { font-size: 11.5px; line-height: 1.7; color: #4a5a62; direction: rtl; text-align: right; font-family: inherit; }
+  body.kids .hqw-scroll .hqw-act { display: flex; gap: 6px; flex-wrap: wrap; }
+  body.kids .hqw-scroll .hqw-go2 {
+    min-height: 40px; padding: 8px 16px; border-radius: 11px; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 800;
+    border: 1.5px solid var(--k-primary-deep); background: var(--k-primary-dark); color: var(--k-on-primary);
+  }
+  body.kids .hqw-scroll .hqw-go2.ghost { background: #fff; color: var(--k-primary-dark); border-color: var(--k-primary-line); }
+  body.kids .hqw-scroll .hqw-go2:focus-visible { outline: 2px solid #1f5b56; outline-offset: 2px; }
+
+  /* the bridge: slots and word planks (sentence building) */
+  body.kids .hqw-bridge {
+    position: absolute; left: 50%; bottom: 16%; transform: translateX(-50%);
+    width: min(88%, 560px); display: grid; gap: 8px; z-index: 2;
+  }
+  body.kids .hqw-slots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; min-height: 44px;
+    padding: 6px; border-radius: 12px; border: 2px dashed rgba(255,255,255,.85); background: rgba(255,255,255,.24); }
+  body.kids .hqw-slot {
+    min-width: 48px; min-height: 32px; border-radius: 8px; display: grid; place-items: center;
+    background: rgba(255,255,255,.55); border: 1.5px solid rgba(255,255,255,.8);
+    font-size: 12.5px; font-weight: 800; color: #24343a; padding: 0 8px;
+  }
+  body.kids .hqw-slot.full { background: #fff; border-color: #cfe6d8; }
+  body.kids .hqw-planks { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  body.kids .hqw-plank {
+    min-height: 38px; padding: 7px 12px; border-radius: 9px; cursor: grab;
+    font-family: inherit; font-size: 13px; font-weight: 800; color: #4a3420;
+    background: linear-gradient(#f6d9a4, #e7bd77); border: 1.5px solid #c99a52;
+    box-shadow: 0 2px 0 #b98a45; touch-action: none; user-select: none;
+  }
+  body.kids .hqw-plank:active { cursor: grabbing; }
+  body.kids .hqw-plank.drag { position: fixed; z-index: 40; pointer-events: none; box-shadow: 0 8px 14px rgba(0,0,0,.25); }
+  body.kids .hqw-plank:focus-visible { outline: 2px solid #1f5b56; outline-offset: 2px; }
+  body.kids .hqw-check { display: flex; justify-content: center; }
+
+  /* listening horn and reading scroll */
+  body.kids .hqw-horn {
+    position: absolute; left: 50%; top: 34%; transform: translate(-50%, -50%);
+    width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 30px; cursor: pointer; background: #fff; border: 3px solid #fff;
+    box-shadow: 0 4px 0 rgba(20,60,55,.16); z-index: 2;
+  }
+  body.kids .hqw-horn:focus-visible { outline: 2px solid #1f5b56; outline-offset: 3px; }
+  body.kids .hqw-horn.playing { animation: kPulse 1s ease-in-out infinite; }
+  body.kids .hqw-paper {
+    position: absolute; left: 50%; top: 12%; transform: translateX(-50%);
+    width: min(84%, 520px); max-height: 46%; overflow: auto; z-index: 2;
+    padding: 12px 14px; border-radius: 10px;
+    background: #fffaf0; border: 2px solid #e8d9b0;
+    box-shadow: 0 10px 20px -14px rgba(0,0,0,.5);
+    font-size: 12.5px; line-height: 1.6; color: #2b3a40;
+  }
+  body.kids .hqw-paper .hqfa { margin-top: 6px; font-size: 11.5px; line-height: 1.8; color: #4a5a62; direction: rtl; text-align: right; }
+
+  body.kids .hqw-gems { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); width: min(90%, 560px); display: grid; gap: 8px; z-index: 2; }
+  body.kids .hqw-gemrow { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  body.kids .hqw-gem {
+    min-height: 42px; border-radius: 10px; cursor: pointer; font-family: inherit;
+    font-size: 12.5px; font-weight: 800; color: #24343a; padding: 6px 9px;
+    background: rgba(255,255,255,.9); border: 2px solid rgba(120,190,160,.7);
+    box-shadow: 0 2px 0 rgba(20,60,55,.12);
+  }
+  body.kids .hqw-gem[dir="rtl"] { text-align: right; }
+  body.kids .hqw-gem.on { background: #fff4cf; border-color: #f0c24a; }
+  body.kids .hqw-gem.ok { background: #e9fbef; border-color: #79cf9b; color: #1d6b45; }
+  body.kids .hqw-gem.no { animation: kShake .4s; background: #fdecea; border-color: #e8a99b; }
+
+  /* the result: a chest, stars and the way on */
+  body.kids .hqw-treasure {
+    position: relative; display: grid; justify-items: center; gap: 6px;
+    padding: 18px 16px 14px; border-radius: 20px; overflow: hidden;
+    background: radial-gradient(120% 90% at 50% 0%, #fff6d8, #eaf7e4 70%);
+    border: 1.5px solid var(--k-primary-line);
+  }
+  body.kids .hqw-chest { width: 128px; position: relative; }
+  body.kids .hqw-chest svg { display: block; width: 100%; }
+  body.kids .hqw-chest .lid { transform-origin: 10px 46px; animation: kLid .9s .15s cubic-bezier(.2,1.3,.4,1) both; }
+  @keyframes kLid { from { transform: rotate(0); } to { transform: rotate(-52deg); } }
+  body.kids .hqw-stars { display: flex; gap: 6px; font-size: 30px; line-height: 1; }
+  body.kids .hqw-stars i { font-style: normal; color: #cbd6d1; }
+  body.kids .hqw-stars i.on { color: #f2bf3f; text-shadow: 0 2px 0 #d9a52c; animation: kStar .5s cubic-bezier(.2,1.7,.4,1) both; }
+  body.kids .hqw-stars i.on:nth-child(2) { animation-delay: .15s; }
+  body.kids .hqw-stars i.on:nth-child(3) { animation-delay: .3s; }
+  body.kids .hqw-treasure h4 { margin: 2px 0 0; font-size: 18px; color: var(--k-ink); }
+  body.kids .hqw-treasure p { margin: 0; font-size: 12.5px; color: var(--k-ink-2); line-height: 1.5; text-align: center; }
+  body.kids .hqw-treasure .hqfa { font-size: 11.5px; color: var(--k-ink-2); }
+  body.kids .hqw-badge {
+    display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 12px;
+    background: #fff6d8; border: 1.5px solid #efdca4; color: #7a5a12; font-weight: 800; font-size: 12.5px;
+  }
+
+  /* wardrobe: fur and the accessories a child has earned */
+  body.kids .hqw-look {
+    display: grid; gap: 8px; padding: 12px 13px; border-radius: 16px;
+    background: var(--k-surface); border: 1.5px solid var(--k-line-strong);
+  }
+  body.kids .hqw-look h4 { margin: 0; font-size: 14px; }
+  body.kids .hqw-row { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
+  body.kids .hqw-swatch {
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    border: 2px solid #fff; box-shadow: 0 0 0 2px var(--k-line-strong);
+  }
+  body.kids .hqw-swatch.on { box-shadow: 0 0 0 3px var(--k-primary); }
+  body.kids .hqw-swatch:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 3px; }
+  body.kids .hqw-look .hqw-btn[disabled] { opacity: .5; cursor: default; }
+  body.kids .hqw-look .hqnote { font-size: 11px; color: var(--k-ink-2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .hqw-prop, body.kids .hqw-place.on .pin, body.kids .hqw-token.walk,
+    body.kids .hqw-token.walk .fox-leg-a, body.kids .hqw-token.walk .fox-leg-b,
+    body.kids .hqw-fox .fox-tail, body.kids .hqw-fox.walk, body.kids .hqw-fox.walk .fox-leg-a,
+    body.kids .hqw-fox.walk .fox-leg-b, body.kids .hqw-fox.run, body.kids .hqw-fox.run .fox-leg-a,
+    body.kids .hqw-fox.run .fox-leg-b, body.kids .hqw-fox.cheer, body.kids .hqw-fox.cheer .fox-tail,
+    body.kids .hqw-spark, body.kids .hqw-coin, body.kids .hqw-chest .lid { animation: none !important; }
+    body.kids .hqw-token, body.kids .hqw-fox { transition: none; }
+  }
 
   /* --- the same identity in the dark theme -----------------------------
      Kids used to force its light palette whatever the theme switch said.
@@ -7045,6 +7557,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 18.4c0-3.2 2.6-4.4 5-4.4h4.4c2.4 0 5-1.2 5-4.4"/><circle cx="4.8" cy="18.4" r="1.9"/><circle cx="19.2" cy="5.6" r="1.9"/></svg></i><span>Path</span><span class="rbadge" id="pathbadge" hidden></span></button>
       <button class="hbtn tint-amber" id="actoggle" aria-expanded="false" title="Account — حساب" aria-label="Account — your name, session and sign out">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></i><span>Account</span></button>
+      <button class="hbtn tint-navy" id="hqtoggle" aria-expanded="false"
+              title="Hero Quest — سفر قهرمان" aria-label="Hero Quest — the adventure game">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.2 9.6 4l4.8 2.2L19.8 4v13.8L14.4 20l-4.8-2.2L4.2 20Z"/><path d="M9.6 4v13.8M14.4 6.2V20"/></svg></i><span>Quest</span></button>
       <button class="hbtn tint-slate" id="kidsmore" aria-expanded="false" hidden
               title="More tools — ابزارهای بیشتر" aria-label="More tools">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></svg></i><span>More</span></button>
@@ -7089,6 +7604,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="kpanel">
     <h3>My home — <bdi class="fa" lang="fa" dir="rtl">خانهٔ من</bdi></h3>
     <div id="kbody" aria-live="polite"></div>
+  </div>
+
+  <div id="hqpanel">
+    <h3>Hero Quest — <bdi class="fa" lang="fa" dir="rtl">سفر قهرمان</bdi></h3>
+    <div id="hqbody" aria-live="polite"></div>
   </div>
 
   <div id="dpanel">
@@ -9049,6 +9569,8 @@ const Panels = (() => {
     stpanel: 'stoggle',
     // the kids home page has a tile that only exists in the kids experience
     kpanel: 'kidstoggle',
+    // Hero Quest exists only for a child: same rule, its own panel
+    hqpanel: 'hqtoggle',
     lvlpanel: 'lvltoggle',
     // the weekly quiz has no tile: the landing-page card is its way in
     wqpanel: null,
@@ -14792,8 +15314,8 @@ const Kids = (() => {
   /* What the toolbar says in the kids app. The wording is the same idea as
      the adult label, shorter, because a child reads the icon first. */
   const LABELS = {
-    kidstoggle: 'Home', dtoggle: 'Today', vtoggle: 'Words', gtoggle: 'Grammar',
-    ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
+    kidstoggle: 'Home', hqtoggle: 'Quest', dtoggle: 'Today', vtoggle: 'Words',
+    gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
     actoggle: 'Me',
   };
   /* Tools that need a sentence of explanation: they wait behind More. */
@@ -14810,6 +15332,7 @@ const Kids = (() => {
   const KID_SECTIONS = {
     vpanel: ['Words', 'واژه‌ها', '🎨'], gpanel: ['Grammar', 'گرامر', '📘'],
     rdpanel: ['Reading', 'خواندن', '📖'], lpanel: ['Listening', 'شنیدن', '🎧'],
+    hqpanel: ['Hero Quest', 'سفر قهرمان', '🗺️'],
     stpanel: ['Stories', 'داستان‌ها', '📚'], fpanel: ['Sentences', 'جمله‌ها', '💬'],
     kpanel: ['Home', 'خانه', '🏠'],
   };
@@ -14882,6 +15405,7 @@ const Kids = (() => {
     const more = $('kidsmore');
     if (more) { more.hidden = true; more.setAttribute('aria-expanded', 'false'); }
     if (Panels.isOpen() === 'kpanel') Panels.set('kpanel', false);
+    if (Panels.isOpen() === 'hqpanel') Panels.set('hqpanel', false);
     landed = false;
   }
 
@@ -15732,6 +16256,7 @@ const Kids = (() => {
           reading, listening, phrases, says, welcome, starters, data};
 })();
 
+
 /* ==========================================================================
    The certificate. Rendered on the page, printed by the platform's own print
    path: window.print() on the web, PrintManager in the APK. No PDF library
@@ -15919,8 +16444,12 @@ const PANEL_ON_OPEN = {
   // the kids home page is rebuilt on every open: the stars and the word of
   // the day both move
   kpanel: () => Kids.home(),
+  // the adventure reads heroquest.json and kids.json on first open, then
+  // draws the map from the local progress; adults never reach this panel
+  hqpanel: () => { if (Experience.kids()) Quest.open(); },
 };
 document.getElementById('kidstoggle').onclick = () => togglePanel('kpanel', 'kidstoggle');
+document.getElementById('hqtoggle').onclick = () => togglePanel('hqpanel', 'hqtoggle');
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
@@ -22207,10 +22736,1592 @@ renderStarters();
 if (Kids.on()) Kids.load().then(() => renderStarters()).catch(() => {});
 Seed.load();
 input.focus();
+/* ==========================================================================
+ * HERO QUEST
+ * A small adventure for a kids account only: six ranks, three short missions
+ * each, and every mission is five to eight English challenges. The low ranks
+ * are drawn from the same kids.json the rest of the layer uses, so a mission
+ * is revision with a map around it rather than a second curriculum; the high
+ * ranks carry their own short texts and rules, because by then the kid bank
+ * has nothing harder left to offer.
+ *
+ * Difficulty is placed, not assumed: the level check's own result decides
+ * which rank a child starts at, and a rank only opens after the one below it
+ * is finished. Ranks are game progress and never touch the CEFR result.
+ *
+ * Progress is a list of finished-mission events in localStorage, one list per
+ * account, with an id on every event. The list is the state: stars are the
+ * best event for a mission, so a replay can improve a score and a replayed or
+ * re-sent event can never double it. When the page is online the same list is
+ * posted to /api/quest/sync, which unions it with the copy it holds; offline
+ * the queue simply stays here, and nothing about playing needs the network.
+ * ==========================================================================*/
+const Quest = (() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  const KEY = 'fluentify.quest.v1';
+  const DEVICE = 'fluentify.quest.device';
+  const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  /* Which rank a CEFR level belongs to. The six ranks are not one level each,
+     so the two are matched by hand: an A1 child starts at the gate, a B1 child
+     at the castle whose challenges are A2-B1, and the top two levels share the
+     summit, which is the hardest material the game has. The ranks in between
+     are skipped on purpose, and every rank below stays open on the map. */
+  const RANK_OF_LEVEL = {A1: 0, A2: 1, B1: 3, B2: 4, C1: 5, C2: 5};
+
+  let game = null, bank = null, loading = null, failed = '';
+  let state = null;
+  let run = null;            // the mission being played, in memory
+  let view = 'map';
+  let openRank = 0;
+
+  const on = () => typeof Experience !== 'undefined' && Experience.kids();
+
+  /* ----------------------------------------------------------- identity */
+  /* The same child on the same browser keeps one list; a second account on
+     the same device gets its own. The email is hashed rather than stored, so
+     the key in localStorage cannot be read back as an address. */
+  function accountKey() {
+    let who = 'guest';
+    try {
+      const acc = typeof Auth !== 'undefined' && Auth.profile ? Auth.profile() : null;
+      who = (acc && (acc.user || acc.email || acc.name)) || 'guest';
+    } catch (e) { who = 'guest'; }
+    let h = 2166136261;
+    for (let i = 0; i < who.length; i += 1) {
+      h ^= who.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(36);
+  }
+  const storeKey = () => KEY + '.' + accountKey();
+
+  function readState() {
+    let raw = null;
+    try { raw = JSON.parse(localStorage.getItem(storeKey()) || 'null'); } catch (e) { raw = null; }
+    const st = raw && typeof raw === 'object' ? raw : {};
+    st.v = 1;
+    /* Anything can be in localStorage after a bad write or a half-finished
+       sync, and every reader here assumes `m` and `s` exist. Drop the rest
+       rather than let one broken row take the map down. */
+    st.events = (Array.isArray(st.events) ? st.events : [])
+      .filter((e) => e && e.id && e.m)
+      .map((e) => ({id: String(e.id).slice(0, 64), m: String(e.m).slice(0, 32),
+                    s: Math.max(0, Math.min(3, Number(e.s) || 0)),
+                    at: Number(e.at) || 0}));
+    st.dirty = !!st.dirty;
+    st.syncedAt = Number(st.syncedAt) || 0;
+    return st;
+  }
+  function writeState() {
+    if (!state) return;
+    try { localStorage.setItem(storeKey(), JSON.stringify(state)); } catch (e) { /* private mode */ }
+  }
+  function deviceKey() {
+    let key = '';
+    try { key = localStorage.getItem(DEVICE) || ''; } catch (e) { key = ''; }
+    if (/^[A-Za-z0-9_-]{8,64}$/.test(key)) return key;
+    const a = new Uint8Array(12);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(a);
+    else for (let i = 0; i < a.length; i += 1) a[i] = Math.floor(Math.random() * 256);
+    key = Array.from(a).map((x) => x.toString(16).padStart(2, '0')).join('');
+    try { localStorage.setItem(DEVICE, key); } catch (e) { /* private mode */ }
+    return key;
+  }
+
+  /* ----------------------------------------------------------- progress */
+  function merge(list) {
+    const have = new Set(state.events.map((e) => e.id));
+    (list || []).forEach((event) => {
+      if (!event || !event.id || have.has(event.id)) return;
+      if (!event.m) return;
+      have.add(event.id);
+      state.events.push({id: String(event.id), m: String(event.m),
+                         s: Math.max(0, Math.min(3, Number(event.s) || 0)),
+                         at: Number(event.at) || Date.now()});
+    });
+    state.events.sort((a, b) => (a.at - b.at) || a.id.localeCompare(b.id));
+    if (state.events.length > 500) state.events = state.events.slice(-500);
+  }
+
+  const starsOf = (id) => state.events
+    .filter((e) => e.m === id).reduce((best, e) => Math.max(best, e.s), 0);
+  const played = (id) => state.events.some((e) => e.m === id);
+  const totalStars = () => Object.keys(missions()).reduce((sum, id) => sum + starsOf(id), 0);
+  const maxStars = () => (game ? game.missions.length * 3 : 0);
+
+  function missions() {
+    const out = {};
+    (game ? game.missions : []).forEach((m) => { out[m.id] = m; });
+    return out;
+  }
+  function rankMissions(rankId) {
+    return (game ? game.missions : [])
+      .filter((m) => m.rank === rankId)
+      .sort((a, b) => a.order - b.order);
+  }
+  function rankDone(rankId) {
+    const list = rankMissions(rankId);
+    return list.length > 0 && list.every((m) => starsOf(m.id) > 0);
+  }
+  function rankIndexAtLeast(rankId) {
+    const i = (game ? game.ranks : []).findIndex((r) => r.id === rankId);
+    return i < 0 ? 0 : i;
+  }
+
+  /* What the level check said, plus the deepest CEFR level the learning path
+     records as passed. The better of the two is the placement: a child who is
+     working at B1 should not be walked back through "book, pencil, teacher",
+     and one with an A1 result should not be dropped into B1 texts. */
+  function placement() {
+    let best = 0;
+    try {
+      const raw = localStorage.getItem('fluentify.level.v2.result');
+      const r = raw ? JSON.parse(raw) : null;
+      if (r && r.overall) {
+        const key = String(r.overall).toUpperCase();
+        if (Object.prototype.hasOwnProperty.call(RANK_OF_LEVEL, key)) best = RANK_OF_LEVEL[key];
+      }
+    } catch (e) { /* no level yet */ }
+    try {
+      const raw = localStorage.getItem('fluentify.path.v1');
+      const p = raw ? JSON.parse(raw) : null;
+      const levels = (p && p.levels) || {};
+      LEVELS.forEach((name) => {
+        if (levels[name] && levels[name].passed
+            && Object.prototype.hasOwnProperty.call(RANK_OF_LEVEL, name)) {
+          best = Math.max(best, RANK_OF_LEVEL[name]);
+        }
+      });
+    } catch (e) { /* no path yet */ }
+    return Math.max(0, Math.min(LEVELS.length - 1, best));
+  }
+
+  /* How many ranks are open: one more than the deepest finished rank, and
+     never fewer than the placement. Finishing a rank always opens the next
+     one, so a child on the easy setting can climb; starting high does not
+     open everything, so the placement cannot skip the work above it. */
+  function unlockedCount() {
+    if (!game) return 1;
+    const ranks = game.ranks;
+    let deepest = -1;
+    ranks.forEach((r, i) => { if (rankDone(r.id)) deepest = Math.max(deepest, i); });
+    // a placement opens its own rank and everything below it
+    const byPlacement = Math.min(ranks.length - 1, Math.max(0, placement()));
+    const byProgress = deepest + 1;
+    return Math.max(1, Math.min(ranks.length, Math.max(byPlacement + 1, byProgress + 1)));
+  }
+  function rankUnlocked(i) { return i < unlockedCount(); }
+  /* Where a child should be, not where the list starts: a B1 learner's home
+     rank is the B1 rank, even with every beginner mission still untouched.
+     The lower ranks stay open on the map, because revisiting them is allowed
+     and starting there is not forced. */
+  const startRank = () => Math.min(placement(), unlockedCount() - 1);
+
+  function currentRank() {
+    if (!game) return 0;
+    const start = startRank();
+    for (let i = start; i < game.ranks.length; i += 1) {
+      if (rankUnlocked(i) && !rankDone(game.ranks[i].id)) return i;
+    }
+    for (let i = 0; i < start; i += 1) {
+      if (!rankDone(game.ranks[i].id)) return i;
+    }
+    return unlockedCount() - 1;
+  }
+
+  function nextMission() {
+    if (!game) return null;
+    for (let i = startRank(); i < game.ranks.length; i += 1) {
+      const rank = game.ranks[i];
+      if (!rankUnlocked(i)) break;
+      const list = rankMissions(rank.id);
+      for (let j = 0; j < list.length; j += 1) {
+        if (j > 0 && !played(list[j - 1].id)) break;   // missions open in order
+        if (!played(list[j].id)) return list[j];
+      }
+    }
+    return null;
+  }
+  const missionOpen = (m) => {
+    const list = rankMissions(m.rank);
+    const at = list.findIndex((x) => x.id === m.id);
+    return rankUnlocked(rankIndexAtLeast(m.rank)) && (at <= 0 || played(list[at - 1].id));
+  };
+  function missionAfter(id) {
+    const m = missions()[id];
+    if (!m) return null;
+    const list = rankMissions(m.rank);
+    const at = list.findIndex((x) => x.id === id);
+    return list[at + 1] || null;
+  }
+
+  /* ------------------------------------------------------- the challenges */
+  function hash(text) {
+    let h = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+      h ^= text.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+  function rng(seed) {
+    let s = seed || 1;
+    return () => {
+      s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+      return s / 4294967296;
+    };
+  }
+  function shuffled(list, seed) {
+    const out = list.slice();
+    const r = rng(seed);
+    for (let i = out.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(r() * (i + 1));
+      const t = out[i]; out[i] = out[j]; out[j] = t;
+    }
+    return out;
+  }
+  function find(list, id) { return (list || []).find((x) => x.id === id); }
+
+  function allWords() {
+    const out = [];
+    ((bank && bank.words) || []).forEach((theme) => (theme.words || []).forEach((w) => {
+      out.push(Object.assign({theme: theme.id}, w));
+    }));
+    return out;
+  }
+
+  /* A word and three meanings: the right one, then two others of the same
+     kind, so the options are wrong for a reason rather than by accident. */
+  function vocabChallenge(word, seed) {
+    const others = allWords().filter((w) => w.fa !== word.fa);
+    const picks = shuffled(others, seed).slice(0, 2);
+    const options = shuffled([word.fa].concat(picks.map((w) => w.fa)), seed + 7);
+    return {
+      t: 'choice',
+      q: 'What does “' + word.word + '” mean?',
+      q_fa: '«' + word.word + '» یعنی چه؟',
+      options: options,
+      answer: word.fa,
+      why_en: word.word + ' means “' + word.def_en + '” — ' + word.example_en,
+      why_fa: '«' + word.word + '» یعنی «' + word.fa + '» — ' + word.example_fa,
+      speak: word.word,
+    };
+  }
+
+  function matchChallenge(theme, seed) {
+    const pairs = shuffled(theme.words, seed).slice(0, 4).map((w) => [w.word, w.fa]);
+    return {
+      t: 'match',
+      q: 'Match each English word with its meaning.',
+      q_fa: 'هر واژهٔ انگلیسی را با معنی‌اش جفت کن.',
+      pairs: pairs,
+      why_en: 'The pairs are the words and their Persian meanings. Tap a word, then its meaning.',
+      why_fa: 'جفت‌ها واژه و معنی فارسی آن‌اند. روی واژه بزن، سپس روی معنی‌اش.',
+    };
+  }
+
+  function grammarChallenge(lesson, seed) {
+    const quiz = (lesson && lesson.quiz) || [];
+    if (!quiz.length) return null;
+    const item = quiz[hash(lesson.id + seed) % quiz.length];
+    return {
+      t: 'choice',
+      q: item.q,
+      q_fa: 'جای خالی را پر کن.',
+      options: item.options.slice(),
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      speak: String(item.q).replace(/___/g, item.answer),
+    };
+  }
+
+  function phraseChallenge(set, seed) {
+    const all = [];
+    ((bank && bank.phrases) || []).forEach((s) => (s.items || []).forEach((it) => all.push(it)));
+    const item = (set.items || [])[hash('p' + seed) % Math.max(1, (set.items || []).length)];
+    if (!item) return null;
+    const wrong = shuffled(all.filter((x) => x.en !== item.en), seed + 3).slice(0, 2);
+    return {
+      t: 'choice',
+      q: 'Which English sentence means “' + item.fa + '”?',
+      q_fa: 'کدام جملهٔ انگلیسی معنای «' + item.fa + '» را می‌دهد؟',
+      options: shuffled([item.en].concat(wrong.map((x) => x.en)), seed + 11),
+      answer: item.en,
+      why_en: 'You say: ' + item.en,
+      why_fa: 'می‌گویی: ' + item.en,
+      speak: item.en,
+    };
+  }
+
+  function orderChallenge(lesson, seed) {
+    const examples = (lesson && lesson.examples) || [];
+    if (!examples.length) return null;
+    const ex = examples[hash('o' + lesson.id + seed) % examples.length];
+    return {
+      t: 'order',
+      q: 'Put the words in order.',
+      q_fa: 'واژه‌ها را مرتب کن.',
+      answer: ex.en,
+      why_en: 'The sentence is: ' + ex.en,
+      why_fa: 'جمله این است: ' + ex.en,
+      fa: ex.fa,
+    };
+  }
+
+  function readChallenge(passage, seed) {
+    const qs = passage.questions || [];
+    if (!qs.length) return null;
+    const item = qs[hash('r' + passage.id + seed) % qs.length];
+    return {
+      t: 'read',
+      q: item.q,
+      q_fa: 'متن را بخوان و پاسخ بده.',
+      options: item.options.slice(),
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      passage_en: passage.text_en,
+      passage_fa: passage.text_fa,
+    };
+  }
+
+  function listenChallenge(clip, seed) {
+    const qs = clip.questions || [];
+    if (!qs.length) return null;
+    const item = qs[hash('l' + clip.id + seed) % qs.length];
+    return {
+      t: 'listen',
+      q: item.q,
+      q_fa: 'گوش کن و پاسخ بده.',
+      options: item.options.slice(),
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      lines: (clip.lines || []).slice(),
+    };
+  }
+
+  /* The authored item, normalised: the file stores what a teacher wrote, the
+     engine wants the same shape the generated ones have. */
+  function authored(item) {
+    const base = {
+      t: item.t,
+      q: item.q,
+      q_fa: item.q_fa || 'پاسخ درست را انتخاب کن.',
+      options: item.options ? item.options.slice() : null,
+      answer: item.answer,
+      why_en: item.why_en,
+      why_fa: item.why_fa,
+      accept: item.accept || null,
+      passage_en: item.passage_en || '',
+      passage_fa: item.passage_fa || '',
+      lines: item.lines || null,
+    };
+    if (base.t === 'order') base.tokens = String(item.answer).split(' ');
+    return base;
+  }
+
+  /* A mission is its recipe in order: the builds first, then what was written
+     for it. Every mission in the file has six. The picks are seeded from the
+     mission id, so replaying a mission asks the same questions - a child who
+     retries for a third star is being marked on the same paper, not a new
+     one. */
+  function challengesFor(mission) {
+    const out = [];
+    const seed = hash(mission.id);
+    const used = new Set();
+    const wordPool = () => allWords().filter((w) => !used.has(w.word));
+
+    (mission.build || []).forEach((step, i) => {
+      const local = seed + i * 101;
+      if (step.type === 'vocab') {
+        const theme = find(bank && bank.words, step.theme);
+        if (!theme) return;
+        const pool = shuffled(wordPool().filter((w) => w.theme === step.theme), local);
+        pool.slice(0, step.n).forEach((w, k) => {
+          used.add(w.word);
+          out.push(vocabChallenge(w, local + k));
+        });
+      } else if (step.type === 'match') {
+        const theme = find(bank && bank.words, step.theme);
+        if (!theme) return;
+        /* Four pairs, preferring words the earlier challenges did not use.
+           The theme has six, and a vocab step takes two or three, so the
+           remainder is topped up from the other themes rather than shrinking
+           the matching game to whatever happens to be left. */
+        const free = theme.words.filter((w) => !used.has(w.word));
+        const spare = allWords().filter((w) => w.theme !== step.theme && !used.has(w.word));
+        const four = free.concat(spare).slice(0, 4);
+        if (four.length < 3) return;
+        four.forEach((w) => used.add(w.word));
+        out.push(matchChallenge({words: four}, local));
+      } else if (step.type === 'grammar') {
+        const lesson = find(bank && bank.grammar, step.lesson);
+        const ch = lesson && grammarChallenge(lesson, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'phrase') {
+        const set = find(bank && bank.phrases, step.set);
+        const ch = set && phraseChallenge(set, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'order') {
+        const lesson = find(bank && bank.grammar, step.lesson);
+        const ch = lesson && orderChallenge(lesson, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'read') {
+        const passage = find(bank && bank.reading, step.passage);
+        const ch = passage && readChallenge(passage, local);
+        if (ch) out.push(ch);
+      } else if (step.type === 'listen') {
+        const clip = find(bank && bank.listening, step.clip);
+        const ch = clip && listenChallenge(clip, local);
+        if (ch) out.push(ch);
+      }
+    });
+    (mission.authored || []).forEach((item) => {
+      const ch = authored(item);
+      if (ch.t === 'order' && !ch.tokens) ch.tokens = String(ch.answer).split(' ');
+      out.push(ch);
+    });
+    return out;
+  }
+
+  /* ------------------------------------------------------- loading */
+  function load() {
+    if (!loading) {
+      loading = loadJSON('heroquest').then((g) => loadJSON('kids').then((k) => {
+        game = g; bank = k;
+        return g;
+      })).catch((err) => {
+        failed = err && err.message ? err.message : 'the adventure could not be read';
+        throw err;
+      });
+    }
+    return loading;
+  }
+
+
+  /* ------------------------------------------------------------ small dom */
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function faLine(text, cls) {
+    const e = el('span', cls || 'hqfa', text);
+    e.dir = 'rtl';
+    e.lang = 'fa';
+    return e;
+  }
+  function sayButton(text, label) {
+    const b = el('button', 'ksay', '🔊');
+    b.type = 'button';
+    b.title = 'Hear it — بشنو';
+    b.setAttribute('aria-label', (label || 'Hear it') + ': ' + text);
+    b.onclick = () => { if (typeof Speech !== 'undefined' && Speech.speak) Speech.speak(text); };
+    return b;
+  }
+  function starsRow(n) {
+    const wrap = el('span', 'hqstars');
+    for (let i = 0; i < 3; i += 1) {
+      const st = el('i', i < n ? 'on' : '', '★');
+      st.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(st);
+    }
+    wrap.setAttribute('aria-label', n + ' of 3 stars');
+    return wrap;
+  }
+
+  /* ------------------------------------------------------------ the map */
+  async function open() {
+    if (!on()) return;
+    const body = $('hqbody');
+    if (!body) return;
+    state = readState();
+    try {
+      await load();
+    } catch (e) {
+      body.innerHTML = '';
+      const card = el('div', 'kcard');
+      card.appendChild(el('b', null, 'The adventure could not be read.'));
+      card.appendChild(faLine('سفر قهرمان خوانده نشد.'));
+      card.appendChild(el('p', 'hqnote', failed || ''));
+      body.appendChild(card);
+      return;
+    }
+    view = 'map';
+    openRank = currentRank();
+    home();
+    sync();
+  }
+
+  function nextObjective() {
+    const m = nextMission();
+    if (!m) return ['Every mission is finished. Replay one for more stars.', 'همهٔ مأموریت‌ها تمام شده‌اند. برای ستارهٔ بیشتر یکی را دوباره بازی کن.'];
+    const before = rankMissions(m.rank);
+    const at = before.findIndex((x) => x.id === m.id);
+    if (at > 0) {
+      const need = before[at - 1];
+      return ['Finish “' + need.title_en + '” to open “' + m.title_en + '”.',
+              'برای باز شدن «' + m.title_fa + '» نخست «' + need.title_fa + '» را تمام کن.'];
+    }
+    return ['Your next mission: “' + m.title_en + '”.', 'مأموریت بعدی: «' + m.title_fa + '».'];
+  }
+
+  /* ------------------------------------------------------- coins and looks
+     Coins are not a currency with a balance that can drift: they are a
+     readout of stars already earned, ten a star, plus twenty-five for each
+     rank badge. A replay can improve a score but cannot farm coins, and the
+     number survives a sync because it is derived, never stored. */
+  const coins = () => totalStars() * 10 + badgesEarned().length * 25;
+  function badgesEarned() {
+    if (!game) return [];
+    return game.badges.filter((b) => rankDone(b.rank));
+  }
+
+  const FURS = {
+    orange: {body: '#f6a04d', shade: '#e2853a', light: '#ffe0b8'},
+    snow: {body: '#e9eef2', shade: '#cfd8de', light: '#ffffff'},
+    ash: {body: '#9aa6ae', shade: '#7f8b93', light: '#d8dee2'},
+  };
+  const LOOK_DEFAULT = {fur: 'orange', hat: false, scarf: false, glasses: false};
+
+  function look() {
+    const l = (state && state.look) || {};
+    return {
+      fur: FURS[l.fur] ? l.fur : LOOK_DEFAULT.fur,
+      hat: !!l.hat, scarf: !!l.scarf, glasses: !!l.glasses,
+    };
+  }
+  function saveLook(patch) {
+    state.look = Object.assign(look(), patch);
+    writeState();
+  }
+  /* What the child has actually earned. The hat comes with the first badge,
+     the scarf with the second, the glasses with the fourth - so a look is a
+     record of progress, not a shop. */
+  function wardrobe() {
+    const n = badgesEarned().length;
+    return {hat: n >= 1, scarf: n >= 2, glasses: n >= 4, badges: n};
+  }
+
+  /* ------------------------------------------------------------- sounds
+     Four notes and a fanfare, made with WebAudio: no files, nothing to
+     download, and it works in the APK. A child can turn it off, and the
+     choice is remembered. */
+  const Snd = (() => {
+    let ctx = null;
+    const on = () => !state || state.sound !== false;
+    function ac() {
+      if (!ctx) {
+        const C = window.AudioContext || window.webkitAudioContext;
+        if (!C) return null;
+        try { ctx = new C(); } catch (e) { return null; }
+      }
+      if (ctx.state === 'suspended') { try { ctx.resume(); } catch (e) { /* fine */ } }
+      return ctx;
+    }
+    function tone(freq, at, dur, type, gain) {
+      const a = ac();
+      if (!a) return;
+      const o = a.createOscillator();
+      const g = a.createGain();
+      o.type = type || 'sine';
+      o.frequency.value = freq;
+      const t0 = a.currentTime + at;
+      g.gain.setValueAtTime(0, t0);
+      g.gain.linearRampToValueAtTime(gain == null ? 0.08 : gain, t0 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      o.connect(g); g.connect(a.destination);
+      o.start(t0); o.stop(t0 + dur + 0.02);
+    }
+    function play(kind) {
+      if (!on()) return;
+      if (kind === 'tap') tone(520, 0, 0.08, 'triangle', 0.05);
+      else if (kind === 'coin') { tone(1180, 0, 0.09, 'square', 0.04); tone(1560, 0.07, 0.12, 'square', 0.035); }
+      else if (kind === 'right') [660, 880, 1170].forEach((f, i) => tone(f, i * 0.09, 0.18, 'triangle', 0.07));
+      else if (kind === 'wrong') { tone(240, 0, 0.14, 'sine', 0.06); tone(190, 0.13, 0.2, 'sine', 0.05); }
+      else if (kind === 'unlock') [392, 523, 659, 784].forEach((f, i) => tone(f, i * 0.11, 0.24, 'triangle', 0.06));
+      else if (kind === 'fanfare') [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, i * 0.12, 0.3, 'triangle', 0.06));
+    }
+    return {play};
+  })();
+
+  /* --------------------------------------------------------------- the fox
+     One SVG, drawn from five shapes and a tail, with the accessories the
+     child has earned. Animation lives in CSS classes on the wrapper (.walk,
+     .run, .jump, .cheer, .sad), so a state change is one class name. */
+  function foxSVG(scale) {
+    const l = look();
+    const f = FURS[l.fur];
+    const hat = l.hat ? '<g class="fox-hat"><path d="M38 26 h26 l-3 -9 q-10 -6 -20 0 Z" fill="#e0533f"/><path d="M36 27 h30 v4 h-30 Z" fill="#b83f2f"/><circle cx="51" cy="13" r="3" fill="#ffe9a3"/></g>' : '';
+    const scarf = l.scarf ? '<g class="fox-scarf"><path d="M36 62 q14 7 30 0 l2 7 q-16 7 -34 0 Z" fill="#3f8f86"/><path d="M64 66 l7 13 l-6 2 l-6 -11 Z" fill="#33756e"/></g>' : '';
+    const glasses = l.glasses ? '<g class="fox-glasses" fill="none" stroke="#2b3a40" stroke-width="2"><circle cx="44" cy="47" r="7"/><circle cx="61" cy="47" r="7"/><path d="M51 47 h3"/></g>' : '';
+    return '<svg viewBox="0 0 100 104" width="' + (scale || 100) + '" aria-hidden="true">' +
+      '<ellipse cx="50" cy="98" rx="24" ry="4" fill="rgba(20,60,55,.18)"/>' +
+      '<g class="fox-tail"><path d="M30 74 q-20 4 -22 -14 q-2 -16 14 -18 q-8 12 2 22 q6 6 10 6 Z" fill="' + f.shade + '"/>' +
+      '<path d="M10 44 q8 -8 14 -6 q-6 8 -4 16 q-8 -2 -10 -10 Z" fill="' + f.light + '"/></g>' +
+      '<g class="fox-leg-a"><rect x="38" y="82" width="9" height="15" rx="4" fill="' + f.shade + '"/></g>' +
+      '<g class="fox-leg-b"><rect x="56" y="82" width="9" height="15" rx="4" fill="' + f.shade + '"/></g>' +
+      '<g class="fox-body"><rect x="31" y="52" width="41" height="34" rx="14" fill="' + f.body + '"/>' +
+      '<rect x="38" y="62" width="26" height="22" rx="10" fill="' + f.light + '" opacity=".55"/></g>' +
+      '<g class="fox-head">' +
+      '<g class="fox-ear-l"><path d="M33 36 L30 12 L47 26 Z" fill="' + f.body + '"/><path d="M35 32 L34 19 L44 27 Z" fill="#4a2c1e"/></g>' +
+      '<g class="fox-ear-r"><path d="M63 36 L72 14 L76 32 Z" fill="' + f.body + '"/><path d="M66 32 L71 21 L73 31 Z" fill="#4a2c1e"/></g>' +
+      '<ellipse cx="53" cy="44" rx="22" ry="19" fill="' + f.body + '"/>' +
+      '<path d="M53 62 q-10 0 -14 -6 q14 -3 28 0 q-4 6 -14 6 Z" fill="' + f.light + '"/>' +
+      '<circle cx="43" cy="42" r="5.4" fill="#fff"/><circle cx="63" cy="42" r="5.4" fill="#fff"/>' +
+      '<circle cx="44" cy="43" r="2.8" fill="#2b3a40"/><circle cx="62" cy="43" r="2.8" fill="#2b3a40"/>' +
+      '<circle cx="45" cy="42" r="1" fill="#fff"/><circle cx="63" cy="42" r="1" fill="#fff"/>' +
+      '<path class="fox-mouth" d="M48 56 q6 5 12 0" stroke="#5b4438" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+      '<circle cx="54" cy="52" r="3.2" fill="#3a2a22"/>' + hat + glasses +
+      '</g>' + scarf + '</svg>';
+  }
+
+  /* ------------------------------------------------------------ the island
+     Six places on one island, in the order the ranks are. The coordinates
+     are in the SVG's own 1000x620 space, and the pins are positioned as
+     percentages of the same box, so the path and the pins cannot drift. */
+  const NODES = [
+    {x: 168, y: 470}, {x: 318, y: 404}, {x: 462, y: 494},
+    {x: 604, y: 356}, {x: 748, y: 444}, {x: 862, y: 268},
+  ];
+
+  function mapSVG() {
+    let path = '';
+    NODES.forEach((n, i) => {
+      if (!i) { path += 'M' + n.x + ' ' + n.y; return; }
+      const p = NODES[i - 1];
+      const cx = (p.x + n.x) / 2;
+      const cy = Math.min(p.y, n.y) - 26;
+      path += ' Q' + cx + ' ' + cy + ' ' + n.x + ' ' + n.y;
+    });
+    const marks = [
+      /* village */ '<g><rect x="128" y="440" width="34" height="26" rx="3" fill="#f5d9a9"/><path d="M122 442 L145 424 L168 442 Z" fill="#d9705a"/><rect x="140" y="452" width="10" height="14" fill="#8a5a3b"/><rect x="166" y="446" width="22" height="20" rx="2" fill="#f6e2bf"/><path d="M162 446 L177 433 L192 446 Z" fill="#c5654f"/></g>',
+      /* forest */ '<g><path d="M300 470 q-16 -10 -30 -2 q2 -16 16 -18 q-8 -12 6 -18 q14 -6 18 8 q12 -2 12 10 q10 4 2 14 Z" fill="#4fa36b"/><rect x="300" y="440" width="6" height="22" fill="#7a5334"/><path d="M352 452 q-12 -8 -24 -2 q0 -14 12 -16 q-6 -10 6 -14 q12 -4 14 8 q10 2 8 12 q6 4 0 10 Z" fill="#5cb87a"/><rect x="350" y="436" width="5" height="20" fill="#7a5334"/></g>',
+      /* valley bridge */ '<g><path d="M424 500 q40 -26 80 0" stroke="#c99a52" stroke-width="9" fill="none"/><path d="M424 500 q40 -26 80 0" stroke="#e7bd77" stroke-width="4" fill="none"/><rect x="420" y="496" width="8" height="16" fill="#8a5a3b"/><rect x="500" y="496" width="8" height="16" fill="#8a5a3b"/><path d="M430 486 q30 -20 60 0" stroke="#8a5a3b" stroke-width="2" fill="none"/></g>',
+      /* castle */ '<g><rect x="566" y="300" width="24" height="52" fill="#e8e2d4"/><rect x="614" y="290" width="24" height="62" fill="#e8e2d4"/><path d="M562 300 h32 l-4 -12 h-24 Z" fill="#c96a52"/><path d="M610 288 h32 l-4 -12 h-24 Z" fill="#c96a52"/><rect x="590" y="324" width="24" height="28" fill="#d7cfbe"/><path d="M596 352 v-14 a6 6 0 0 1 12 0 v14 Z" fill="#7a5334"/><rect x="566" y="330" width="6" height="10" fill="#5b7a8c"/><rect x="632" y="318" width="6" height="10" fill="#5b7a8c"/></g>',
+      /* kingdom library */ '<g><rect x="712" y="404" width="52" height="38" rx="3" fill="#f0e3c4"/><path d="M706 406 L738 382 L770 406 Z" fill="#6f9fb5"/><rect x="724" y="418" width="12" height="24" fill="#8a5a3b"/><rect x="742" y="418" width="12" height="24" fill="#8a5a3b"/><rect x="728" y="410" width="20" height="6" fill="#d8c9a5"/></g>',
+      /* island */ '<g><path d="M824 268 q18 -44 50 -30 q20 6 22 30 q2 18 -22 20 q-30 4 -50 -20 Z" fill="#7fae6a"/><path d="M846 238 q10 10 6 28" stroke="#a86a4f" stroke-width="6" fill="none"/><path d="M858 232 q14 12 10 34" stroke="#8a5a3b" stroke-width="4" fill="none"/><circle cx="880" cy="252" r="3" fill="#e0533f"/><circle cx="890" cy="246" r="3" fill="#e0533f"/></g>',
+    ];
+    return '<svg viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="The island: six places along one path">' +
+      '<defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fd8e8"/><stop offset="1" stop-color="#39a8c6"/></linearGradient>' +
+      '<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8e08e"/><stop offset="1" stop-color="#77c46a"/></linearGradient></defs>' +
+      '<rect width="1000" height="620" fill="url(#sea)"/>' +
+      /* waves */ '<g fill="#bfeef7" opacity=".55"><path d="M0 560 q40 -10 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 v60 H0 Z"/></g>' +
+      '<g fill="#fff" opacity=".5"><path d="M0 596 q50 -12 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 v24 H0 Z"/></g>' +
+      /* the island */ '<path d="M96 470 q-24 -70 34 -104 q54 -32 104 -8 q44 -46 110 -30 q54 12 76 52 q60 -16 104 22 q40 34 26 86 q64 -6 118 26 q46 28 34 74 q-12 44 -84 40 q-96 -6 -186 -22 q-96 -18 -196 -18 q-88 0 -152 -30 q-42 -20 -26 -60 Z" fill="#ffe9b8"/>' +
+      '<path d="M120 462 q-18 -58 34 -86 q50 -26 96 -4 q42 -40 104 -26 q50 12 70 46 q56 -14 96 20 q36 30 24 76 q58 -4 106 22 q40 24 30 62 q-10 36 -74 32 q-90 -6 -176 -20 q-90 -16 -184 -16 q-82 0 -142 -26 q-38 -18 -24 -52 Z" fill="url(#grass)"/>' +
+      /* beach edge */ '<path d="M132 520 q120 24 260 30 q170 8 300 -18" stroke="#ffe9b8" stroke-width="10" fill="none" opacity=".8"/>' +
+      /* the path */ '<path d="' + path + '" stroke="#fff8e6" stroke-width="9" stroke-dasharray="2 16" stroke-linecap="round" fill="none"/>' +
+      marks.join('') +
+      /* drifting clouds */ '<g class="cl cl1" opacity=".95"><ellipse cx="150" cy="86" rx="46" ry="22" fill="#fff"/><ellipse cx="190" cy="78" rx="34" ry="26" fill="#fff"/><ellipse cx="216" cy="90" rx="26" ry="18" fill="#fff"/></g>' +
+      '<g class="cl cl2" opacity=".9"><ellipse cx="720" cy="70" rx="40" ry="20" fill="#fff"/><ellipse cx="758" cy="62" rx="30" ry="24" fill="#fff"/></g>' +
+      '<g class="cl cl3" opacity=".8"><ellipse cx="880" cy="128" rx="30" ry="15" fill="#fff"/><ellipse cx="906" cy="122" rx="22" ry="18" fill="#fff"/></g>' +
+      /* a couple of palms and flowers, still */ '<g><rect x="76" y="452" width="6" height="30" fill="#9a6a44"/><path d="M79 452 q-26 -14 -34 4 q22 -6 34 4 q10 -14 30 -8 q-14 10 -30 8 Z" fill="#4fa36b"/></g>' +
+      '<g fill="#fff3c4"><circle cx="250" cy="512" r="4"/><circle cx="600" cy="418" r="4"/><circle cx="700" cy="500" r="4"/><circle cx="470" cy="540" r="4"/></g>' +
+      '</svg>';
+  }
+
+  function world() {
+    const body = $('hqbody');
+    if (!body || !game) return;
+    view = 'map';
+    body.innerHTML = '';
+    const wrap = el('div', 'hqw');
+
+    /* the strip at the top: way home, what you have, and the sound switch */
+    const hud = el('div', 'hqw-hud');
+    const back = el('button', 'hqw-btn', '← Home');
+    back.type = 'button';
+    back.onclick = () => gotoDashboard();
+    hud.appendChild(back);
+    hud.appendChild(el('span', 'kspace'));
+    const coinChip = el('span', 'hqw-chip coin', '🪙 ' + coins());
+    coinChip.title = 'Coins — سکه‌ها';
+    hud.appendChild(coinChip);
+    hud.appendChild(el('span', 'hqw-chip', '⭐ ' + totalStars() + '/' + maxStars()));
+    const snd = el('button', 'hqw-btn', state.sound === false ? '🔇' : '🔊');
+    snd.type = 'button';
+    snd.title = 'Sound on or off — صدا';
+    snd.setAttribute('aria-label', state.sound === false ? 'Turn sound on' : 'Turn sound off');
+    snd.onclick = () => {
+      state.sound = state.sound === false;
+      writeState();
+      snd.textContent = state.sound === false ? '🔇' : '🔊';
+      if (state.sound !== false) Snd.play('tap');
+    };
+    hud.appendChild(snd);
+    const dress = el('button', 'hqw-btn', '🎩');
+    dress.type = 'button';
+    dress.title = 'Your look — ظاهر قهرمان';
+    dress.setAttribute('aria-label', 'Change how the hero looks');
+    hud.appendChild(dress);
+    wrap.appendChild(hud);
+
+    /* the island itself */
+    const map = el('div', 'hqw-map');
+    map.innerHTML = mapSVG();
+    const token = el('div', 'hqw-token');
+    token.id = 'hqmapfox';
+    token.innerHTML = foxSVG(46);
+    map.appendChild(token);
+
+    const selected = {i: openRank};
+    const place = (i) => NODES[i];
+    const moveToken = () => {
+      const n = place(selected.i);
+      token.style.left = (n.x / 10) + '%';
+      token.style.top = (n.y / 6.2) + '%';
+    };
+
+    game.ranks.forEach((r, i) => {
+      const unlocked = rankUnlocked(i);
+      const node = el('button', 'hqw-place' +
+        (rankDone(r.id) ? ' done' : '') + (unlocked ? '' : ' locked') +
+        (i === currentRank() ? ' on' : ''));
+      node.type = 'button';
+      node.style.left = (NODES[i].x / 10) + '%';
+      node.style.top = (NODES[i].y / 6.2) + '%';
+      node.setAttribute('aria-label', r.name_en + ' — ' + (unlocked ? 'open' : 'locked'));
+      node.innerHTML = '<span class="pin">' + (unlocked ? r.emoji : '🔒') + '</span>' +
+        '<span class="cap">' + esc(r.name_en) + '</span>';
+      node.onclick = () => {
+        selected.i = i;
+        token.classList.remove('walk');
+        moveToken();
+        void token.offsetWidth;
+        token.classList.add('walk');
+        Snd.play('tap');
+        bar(i);
+      };
+      map.appendChild(node);
+    });
+    wrap.appendChild(map);
+
+    const barHost = el('div');
+    wrap.appendChild(barHost);
+
+    function bar(i) {
+      const rank = game.ranks[i];
+      const unlocked = rankUnlocked(i);
+      barHost.innerHTML = '';
+      const box = el('div', 'hqw-bar');
+
+      const top = el('div', 'hqw-bartop');
+      top.appendChild(el('b', null, rank.place_en + ' ' + rank.emoji));
+      top.appendChild(faLine(rank.place_fa));
+      top.appendChild(el('span', 'kspace'));
+      top.appendChild(el('span', 'hqnote', rank.cefr));
+      box.appendChild(top);
+      box.appendChild(el('p', 'hqnote', unlocked
+        ? rank.story_en
+        : 'The way is closed. Finish “' + game.ranks[i - 1].name_en + '” to open it.'));
+      if (!unlocked) box.appendChild(faLine('راه بسته است؛ نخست «' + game.ranks[i - 1].name_fa + '» را تمام کن.', 'hqfa'));
+
+      const stones = el('div', 'hqw-stones');
+      const list = rankMissions(rank.id);
+      list.forEach((m, k) => {
+        const stars = starsOf(m.id);
+        const ready = unlocked && (k === 0 || played(list[k - 1].id));
+        const stone = el('button', 'hqw-stone' +
+          (stars ? ' done' : (ready ? ' next' : ' locked')));
+        stone.type = 'button';
+        stone.appendChild(el('span', null, stars ? '★'.repeat(stars) : (ready ? '▶' : '🔒')));
+        stone.appendChild(el('span', null, m.title_en));
+        stone.disabled = !ready;
+        stone.onclick = () => { if (ready) startMission(m); };
+        stones.appendChild(stone);
+      });
+      box.appendChild(stones);
+
+      const next = list.find((m) => !played(m.id) && (list.indexOf(m) === 0 || played(list[list.indexOf(m) - 1].id)));
+      const go = el('button', 'hqw-go');
+      go.type = 'button';
+      go.disabled = !unlocked || (!next && !list.length);
+      go.appendChild(el('span', null, unlocked ? (next ? '▶' : '↺') : '🔒'));
+      const gt = el('span');
+      gt.appendChild(el('b', null, unlocked
+        ? (next ? (next.title_en) : 'Play a mission again')
+        : 'Locked'));
+      gt.appendChild(el('i', null, unlocked
+        ? (next ? 'ادامه' : 'یکی را دوباره بازی کن')
+        : 'بسته'));
+      go.appendChild(gt);
+      go.appendChild(el('span', 'arrow', '→'));
+      go.onclick = () => {
+        if (next) startMission(next);
+        else if (list.length) startMission(list[0]);
+      };
+      box.appendChild(go);
+
+      barHost.appendChild(box);
+    }
+
+    /* the wardrobe opens under the map, not in a dialog: one tap, choose,
+       done, back to the world */
+    const lookHost = el('div');
+    wrap.appendChild(lookHost);
+    const paintLook = () => {
+      lookHost.innerHTML = '';
+      const card = el('div', 'hqw-look');
+      card.appendChild(el('h4', null, 'Your hero · قهرمان تو'));
+      const furRow = el('div', 'hqw-row');
+      Object.keys(FURS).forEach((name) => {
+        const sw = el('button', 'hqw-swatch');
+        sw.type = 'button';
+        sw.style.background = 'linear-gradient(160deg, ' + FURS[name].light + ', ' + FURS[name].body + ')';
+        sw.setAttribute('aria-label', 'Fur: ' + name);
+        if (look().fur === name) sw.classList.add('on');
+        sw.onclick = () => { saveLook({fur: name}); paintLook(); refreshFoxes(); Snd.play('tap'); };
+        furRow.appendChild(sw);
+      });
+      card.appendChild(furRow);
+      const gear = el('div', 'hqw-row');
+      const w = wardrobe();
+      [['hat', '🎩 Hat'], ['scarf', '🧣 Scarf'], ['glasses', '👓 Glasses']].forEach(([key, label]) => {
+        const b = el('button', 'hqw-btn', (look()[key] ? '✓ ' : '') + label);
+        b.type = 'button';
+        b.disabled = !w[key];
+        b.title = w[key] ? '' : 'Earn more rank badges to unlock this';
+        b.onclick = () => { saveLook({[key]: !look()[key]}); paintLook(); refreshFoxes(); Snd.play('tap'); };
+        gear.appendChild(b);
+      });
+      card.appendChild(gear);
+      card.appendChild(el('p', 'hqnote', w.badges
+        ? w.badges + ' badge' + (w.badges === 1 ? '' : 's') + ' earned. A hat comes with the first badge, the scarf with the second, glasses with the fourth.'
+        : 'Finish all three missions of a place to earn its badge and unlock a hat.'));
+      lookHost.appendChild(card);
+    };
+    let lookOpen = false;
+    dress.onclick = () => {
+      lookOpen = !lookOpen;
+      if (lookOpen) paintLook(); else lookHost.innerHTML = '';
+      Snd.play('tap');
+    };
+
+    function refreshFoxes() {
+      token.innerHTML = foxSVG(46);
+    }
+
+    body.appendChild(wrap);
+    moveToken();
+    bar(openRank);
+  }
+
+  const home = world;
+
+  /* ------------------------------------------------------------- a scene
+     Six places, six moods. The sky, the ground and the landmark change with
+     the rank; the props of the challenge are laid on top, and the fox stands
+     on the same ground line in all of them, so movement reads as movement. */
+  function sceneSVG(i) {
+    const skies = [
+      ['#cdeeff', '#eaf9e2'], ['#cbe8d6', '#f2f8d8'], ['#d6ecff', '#fff0d2'],
+      ['#d8d2f2', '#f6e7d2'], ['#ffe6c9', '#f6d9d9'], ['#c9ecf4', '#fdf3cf'],
+    ];
+    const sky = skies[i] || skies[0];
+    const landmark = [
+      /* village */ '<g><rect x="620" y="300" width="90" height="70" rx="6" fill="#f6e2bf"/><path d="M606 302 L665 256 L724 302 Z" fill="#d9705a"/><rect x="648" y="330" width="22" height="40" fill="#8a5a3b"/><rect x="684" y="322" width="16" height="16" fill="#8fc7e8"/><rect x="736" y="322" width="58" height="48" rx="4" fill="#f7e9cd"/><path d="M728 324 L765 292 L802 324 Z" fill="#c5654f"/><rect x="756" y="334" width="16" height="18" fill="#8fc7e8"/><rect x="560" y="352" width="26" height="18" fill="#b98a45"/><rect x="556" y="348" width="34" height="6" fill="#9a6a44"/></g>',
+      /* forest */ '<g><g transform="translate(600 206)"><rect x="28" y="100" width="12" height="60" fill="#7a5334"/><path d="M34 0 L72 70 H-4 Z" fill="#3f8f5e"/><path d="M34 30 L80 108 H-12 Z" fill="#4fa36b"/></g><g transform="translate(690 246)"><rect x="20" y="82" width="10" height="50" fill="#7a5334"/><path d="M25 0 L58 60 H-8 Z" fill="#4fa36b"/><path d="M25 26 L64 88 H-14 Z" fill="#5cb87a"/></g><g transform="translate(780 262)"><rect x="16" y="66" width="8" height="42" fill="#7a5334"/><path d="M20 0 L48 50 H-8 Z" fill="#3f8f5e"/></g><circle cx="650" cy="330" r="4" fill="#ffe9a3"/><circle cx="716" cy="360" r="3" fill="#ffe9a3"/><circle cx="760" cy="318" r="3" fill="#ffe9a3"/></g>',
+      /* valley */ '<g><path d="M520 368 q120 -22 300 0 l0 24 q-170 -20 -300 0 Z" fill="#6fc8e0"/><path d="M520 380 q120 -18 300 0" stroke="#a9e7f5" stroke-width="4" fill="none"/><path d="M600 360 q60 -34 120 0" stroke="#c99a52" stroke-width="10" fill="none"/><path d="M600 360 q60 -34 120 0" stroke="#e7bd77" stroke-width="4" fill="none"/><rect x="596" y="356" width="8" height="20" fill="#8a5a3b"/><rect x="716" y="356" width="8" height="20" fill="#8a5a3b"/></g>',
+      /* castle */ '<g><rect x="640" y="250" width="120" height="124" fill="#e8e2d4"/><rect x="628" y="236" width="30" height="138" fill="#ded7c6"/><rect x="742" y="236" width="30" height="138" fill="#ded7c6"/><path d="M624 236 h38 l-5 -16 h-28 Z" fill="#c96a52"/><path d="M738 236 h38 l-5 -16 h-28 Z" fill="#c96a52"/><rect x="676" y="206" width="48" height="44" fill="#d7cfbe"/><path d="M672 206 h56 l-6 -16 h-44 Z" fill="#c96a52"/><path d="M686 374 v-52 a18 18 0 0 1 36 0 v52 Z" fill="#7a5334"/><circle cx="712" cy="340" r="4" fill="#f2bf3f"/><rect x="646" y="278" width="14" height="24" fill="#5b7a8c"/><rect x="770" y="266" width="14" height="24" fill="#5b7a8c"/><path d="M790 236 q16 20 0 40 q16 -6 16 -20 q0 -14 -16 -20 Z" fill="#c96a52"/></g>',
+      /* kingdom */ '<g><rect x="600" y="286" width="80" height="90" rx="8" fill="#f0e3c4"/><path d="M590 288 L640 240 L690 288 Z" fill="#6f9fb5"/><rect x="700" y="300" width="66" height="76" rx="6" fill="#f7e9cd"/><path d="M692 302 L733 264 L774 302 Z" fill="#8a7fc4"/><rect x="620" y="308" width="16" height="26" fill="#8a5a3b"/><rect x="646" y="308" width="16" height="26" fill="#8a5a3b"/><rect x="716" y="320" width="14" height="22" fill="#8fc7e8"/><rect x="742" y="320" width="14" height="22" fill="#8fc7e8"/><path d="M784 322 q14 18 0 36" stroke="#efdca4" stroke-width="6" fill="none"/></g>',
+      /* island */ '<g><path d="M640 384 q30 -120 90 -120 q64 0 92 120 Z" fill="#8c7a6b"/><path d="M690 330 q22 -40 46 -34 q22 6 26 40 q-38 14 -72 -6 Z" fill="#7fb37a"/><path d="M726 250 q10 -18 20 0 q-10 10 -20 0 Z" fill="#e0533f" opacity=".85"/><path d="M560 372 q120 -12 380 0 l0 26 q-260 -14 -380 0 Z" fill="#57bcd6"/><path d="M560 386 q120 -10 380 0" stroke="#a9e7f5" stroke-width="4" fill="none"/><g transform="translate(596 300)"><rect x="6" y="40" width="8" height="40" fill="#9a6a44"/><path d="M10 40 q-26 -12 -34 6 q22 -6 34 4 q10 -14 30 -8 q-14 10 -30 8 Z" fill="#4fa36b"/></g></g>',
+    ];
+    const hills = [
+      '<path d="M0 352 q140 -70 280 0 q120 -54 240 12 q120 -60 260 4 q110 -40 220 6 v66 H0 Z" fill="#bfe3a8" opacity=".95"/>',
+      '<path d="M0 360 q150 -82 300 -4 q130 -62 250 8 q120 -50 240 2 q110 -34 210 4 v70 H0 Z" fill="#a8d79a" opacity=".95"/>',
+      '<path d="M0 340 q160 -64 300 6 q140 -46 260 10 q110 -46 230 0 q100 -28 210 6 v78 H0 Z" fill="#c7e4ae" opacity=".95"/>',
+      '<path d="M0 346 q130 -56 260 4 q140 -48 270 8 q110 -42 230 2 q110 -30 240 6 v74 H0 Z" fill="#c3cbb0" opacity=".95"/>',
+      '<path d="M0 350 q150 -70 290 0 q130 -50 250 10 q120 -44 240 2 q110 -26 220 4 v74 H0 Z" fill="#e6d3b4" opacity=".95"/>',
+      '<path d="M0 348 q150 -58 290 6 q130 -44 250 12 q120 -40 240 0 q110 -30 220 6 v68 H0 Z" fill="#bfe0c4" opacity=".95"/>',
+    ];
+    const tuft = '<g class="sw" fill="#5fae66"><path d="M0 0 q6 -14 10 0 q4 -12 8 0 Z"/></g>';
+    let grass = '';
+    for (let k = 0; k < 12; k += 1) {
+      grass += '<g transform="translate(' + (40 + k * 82) + ' ' + (392 + (k % 3) * 10) + ')">' + tuft + '</g>';
+    }
+    let flowers = '';
+    for (let k = 0; k < 9; k += 1) {
+      const x = 70 + k * 108;
+      const y = 430 + (k % 4) * 12;
+      const c = ['#fff3c4', '#f7b7c8', '#cfe6ff'][k % 3];
+      flowers += '<g transform="translate(' + x + ' ' + y + ')"><rect x="-1" y="-14" width="2" height="14" fill="#5fae66"/><circle cx="0" cy="-18" r="4.5" fill="' + c + '"/><circle cx="0" cy="-18" r="2" fill="#f2bf3f"/></g>';
+    }
+    const birds = '<g class="cl cl2" fill="none" stroke="#5b7a8c" stroke-width="2" stroke-linecap="round"><path d="M180 120 q8 -8 16 0 M200 128 q8 -8 16 0"/></g>';
+    return '<svg class="bg" viewBox="0 0 1000 470" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<defs><linearGradient id="sk' + i + '" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0" stop-color="' + sky[0] + '"/><stop offset="1" stop-color="' + sky[1] + '"/></linearGradient></defs>' +
+      '<rect width="1000" height="470" fill="url(#sk' + i + ')"/>' +
+      '<circle cx="840" cy="96" r="38" fill="#fff3b0" opacity=".9"/><circle cx="840" cy="96" r="26" fill="#ffe36b"/>' +
+      '<g class="cl cl1" fill="#fff" opacity=".92"><ellipse cx="150" cy="86" rx="42" ry="19"/><ellipse cx="186" cy="78" rx="30" ry="23"/><ellipse cx="210" cy="90" rx="22" ry="15"/></g>' +
+      '<g class="cl cl2" fill="#fff" opacity=".8"><ellipse cx="430" cy="66" rx="34" ry="15"/><ellipse cx="458" cy="60" rx="24" ry="19"/></g>' +
+      '<g class="cl cl3" fill="#fff" opacity=".75"><ellipse cx="620" cy="110" rx="28" ry="13"/><ellipse cx="644" cy="104" rx="20" ry="16"/></g>' +
+      birds +
+      hills[i] +
+      '<path d="M0 424 q250 -26 500 0 q250 24 500 -4 v50 H0 Z" fill="#8fd18a"/>' +
+      '<path d="M0 448 q260 -18 520 2 q240 20 480 -6 v26 H0 Z" fill="#79bf74"/>' +
+      landmark[i] +
+      grass + flowers +
+      '</svg>';
+  }
+
+  const EMOJI = {
+    vocab: ['🍎', '🎒', '⭐', '🔮', '🧩', '📘'],
+    choice: ['🔮', '🪄', '💎'],
+    error: ['🪨', '🗿', '🧱'],
+    phrase: ['💬', '🗣️', '📣'],
+    listen: ['🔊', '🎵', '🎧'],
+    read: ['🪧', '📜', '🔖'],
+  };
+
+  function propPositions(count) {
+    if (count <= 1) return [50];
+    const left = 20, right = 82;
+    return Array.from({length: count}, (_, i) => left + (right - left) * (i / (count - 1)));
+  }
+
+  function paintRun() {
+    const body = $('hqbody');
+    if (!body || !run) return;
+    body.innerHTML = '';
+    const rankIdx = rankIndexAtLeast(run.mission.rank);
+    const ch = run.chs[run.i];
+
+    const wrap = el('div', 'hqw');
+    const hud = el('div', 'hqw-hud');
+    const back = el('button', 'hqw-btn', '← Island');
+    back.type = 'button';
+    back.onclick = () => { run = null; home(); };
+    hud.appendChild(back);
+    hud.appendChild(el('b', null, run.mission.emoji + ' ' + run.mission.title_en));
+    hud.appendChild(el('span', 'kspace'));
+    const pebbles = el('span', 'hqd');
+    run.chs.forEach((_, i) => pebbles.appendChild(el('i', i < run.i ? 'ok' : (i === run.i ? 'on' : ''))));
+    hud.appendChild(pebbles);
+    hud.appendChild(el('span', 'hqw-chip coin', '🪙 ' + coins()));
+    wrap.appendChild(hud);
+
+    const scene = el('div', 'hqw-scene');
+    scene.innerHTML = sceneSVG(rankIdx);
+    const props = el('div', 'hqw-props');
+    props.id = 'hqprops';
+    scene.appendChild(props);
+
+    const prompt = el('div', 'hqw-prompt');
+    prompt.innerHTML = '<span class="hqw-num">' + (run.i + 1) + '</span>' +
+      '<span>' + esc(ch.q) + (ch.q_fa ? '<span class="fa" dir="rtl" lang="fa"> — ' + esc(ch.q_fa) + '</span>' : '') + '</span>';
+    scene.appendChild(prompt);
+
+    const fox = el('div', 'hqw-fox');
+    fox.id = 'hqfox';
+    fox.innerHTML = foxSVG(92);
+    scene.appendChild(fox);
+    run.scene = scene;
+    run.fox = fox;
+
+    wrap.appendChild(scene);
+    body.appendChild(wrap);
+
+    if (ch.t === 'match') mountGems(ch);
+    else if (ch.t === 'order') mountBridge(ch);
+    else if (ch.t === 'fill') mountGap(ch);
+    else if (ch.t === 'listen') mountListen(ch);
+    else if (ch.t === 'read') mountRead(ch);
+    else mountProps(ch);
+  }
+
+  function foxGo(x, stateName) {
+    if (!run || !run.fox) return;
+    run.fox.style.left = Math.max(4, Math.min(84, x)) + '%';
+    run.fox.classList.remove('walk', 'run', 'jump', 'cheer', 'sad');
+    void run.fox.offsetWidth;
+    if (stateName) run.fox.classList.add(stateName);
+  }
+  function foxAct(name, ms) {
+    if (!run || !run.fox) return;
+    run.fox.classList.remove('walk', 'run', 'jump', 'cheer', 'sad');
+    void run.fox.offsetWidth;
+    run.fox.classList.add(name);
+    if (ms) setTimeout(() => { if (run && run.fox) run.fox.classList.remove(name); }, ms);
+  }
+
+  function sparkle(x, y) {
+    if (!run || !run.scene) return;
+    const s = el('span', 'hqw-spark', '✨');
+    s.style.left = x + '%';
+    s.style.top = y + '%';
+    run.scene.appendChild(s);
+    setTimeout(() => s.remove(), 820);
+  }
+  function coinFly(x, y) {
+    if (!run || !run.scene) return;
+    const c = el('div', 'hqw-coin');
+    c.style.left = 'calc(' + x + '% - 11px)';
+    c.style.top = 'calc(' + y + '% - 11px)';
+    c.style.setProperty('--dx', '34vw');
+    c.style.setProperty('--dy', '-42vh');
+    run.scene.appendChild(c);
+    setTimeout(() => c.remove(), 950);
+    Snd.play('coin');
+  }
+
+  function showScroll(ok, ch, extra) {
+    if (!run || !run.scene) return;
+    run.scene.querySelectorAll('.hqw-scroll').forEach((n) => n.remove());
+    const box = el('div', 'hqw-scroll');
+    const en = el('div', 'ken ' + (ok ? 'ok' : 'no'), (ok ? '✓ ' : '✗ ') + ch.why_en);
+    box.appendChild(en);
+    box.appendChild(faLine((ok ? '' : '✗ ') + ch.why_fa, 'hqfa'));
+    if (extra) box.appendChild(el('div', 'hqnote', extra));
+    const act = el('div', 'hqw-act');
+    if (!ok && (ch.t === 'fill' || ch.t === 'order' || ch.t === 'match')) {
+      const retry = el('button', 'hqw-go2 ghost', 'Try again');
+      retry.type = 'button';
+      retry.onclick = () => {
+        if (!run) return;
+        run.answered = false;
+        paintRun();
+      };
+      act.appendChild(retry);
+    }
+    const next = el('button', 'hqw-go2', run.i + 1 < run.chs.length ? 'Next →' : 'Open the chest 🎁');
+    next.type = 'button';
+    next.onclick = () => {
+      if (!run) return;
+      if (run.i + 1 < run.chs.length) { run.i += 1; run.answered = false; paintRun(); }
+      else finishRun();
+    };
+    act.appendChild(next);
+    box.appendChild(act);
+    run.scene.appendChild(box);
+    next.focus();
+  }
+
+  function resolve(ok, ch) {
+    if (!run || run.answered) return;
+    run.answered = true;
+    if (ok) {
+      run.first += 1;
+      Snd.play('right');
+      foxAct('cheer', 800);
+      sparkle(50, 55);
+      coinFly(50, 55);
+    } else {
+      Snd.play('wrong');
+      foxAct('sad', 900);
+    }
+    showScroll(ok, ch, ok ? null : 'The right answer is marked in green.');
+    run.scene.querySelectorAll('.hqw-prop, .hqw-gem, .hqw-plank').forEach((n) => { n.dataset.done = '1'; });
+  }
+
+  /* ---- choose the object: one prop per option, laid out in the scene ---- */
+  function mountProps(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const xs = propPositions(ch.options.length);
+    const art = EMOJI[ch.t === 'choice' && /^What does/.test(ch.q) ? 'vocab' : (ch.t || 'choice')] || EMOJI.choice;
+    ch.options.forEach((option, i) => {
+      const b = el('button', 'hqw-prop');
+      b.type = 'button';
+      b.style.left = xs[i] + '%';
+      b.style.top = (56 + (i % 2) * 6) + '%';
+      b.innerHTML = '<span class="art">' + art[i % art.length] + '</span>' +
+        '<span class="lbl">' + esc(option) + '</span>';
+      b.setAttribute('aria-label', option);
+      b.onclick = () => {
+        if (run.answered) return;
+        foxGo(xs[i] - 6, 'run');
+        setTimeout(() => {
+          const ok = option === ch.answer;
+          if (!ok) {
+            b.classList.add('wrong');
+            const right = [...props.children].find((p) => p.querySelector('.lbl').textContent === ch.answer);
+            if (right) right.classList.add('right');
+          } else {
+            b.classList.add('right');
+          }
+          resolve(ok, ch);
+        }, 520);
+      };
+      props.appendChild(b);
+    });
+  }
+
+  /* ---- listening: a horn in the scene and three stones to choose ---- */
+  function mountListen(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const horn = el('button', 'hqw-horn', '📯');
+    horn.type = 'button';
+    horn.setAttribute('aria-label', 'Hear the conversation');
+    horn.onclick = () => {
+      horn.classList.add('playing');
+      setTimeout(() => horn.classList.remove('playing'), 1400);
+      if (typeof Speech !== 'undefined' && Speech.speak) Speech.speak(ch.lines.join(' '));
+      Snd.play('tap');
+    };
+    props.appendChild(horn);
+    const xs = propPositions(ch.options.length);
+    ch.options.forEach((option, i) => {
+      const b = el('button', 'hqw-prop');
+      b.type = 'button';
+      b.style.left = xs[i] + '%';
+      b.style.top = (60 + (i % 2) * 5) + '%';
+      b.innerHTML = '<span class="art">' + (EMOJI.listen[i % 3]) + '</span><span class="lbl">' + esc(option) + '</span>';
+      b.onclick = () => {
+        if (run.answered) return;
+        foxGo(xs[i] - 6, 'run');
+        setTimeout(() => {
+          const ok = option === ch.answer;
+          b.classList.add(ok ? 'right' : 'wrong');
+          if (!ok) {
+            const right = [...props.querySelectorAll('.hqw-prop')].find((p) => p.querySelector('.lbl').textContent === ch.answer);
+            if (right) right.classList.add('right');
+          }
+          resolve(ok, ch);
+        }, 480);
+      };
+      props.appendChild(b);
+    });
+    setTimeout(() => horn.focus(), 200);
+  }
+
+  /* ---- reading: a paper in the scene, then signposts to walk to ---- */
+  function mountRead(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const paper = el('div', 'hqw-paper');
+    paper.appendChild(el('div', null, ch.passage_en));
+    if (ch.passage_fa) paper.appendChild(faLine(ch.passage_fa, 'hqfa'));
+    props.appendChild(paper);
+    const xs = propPositions(ch.options.length);
+    ch.options.forEach((option, i) => {
+      const b = el('button', 'hqw-prop');
+      b.type = 'button';
+      b.style.left = xs[i] + '%';
+      b.style.top = '76%';
+      b.innerHTML = '<span class="art">🪧</span><span class="lbl">' + esc(option) + '</span>';
+      b.onclick = () => {
+        if (run.answered) return;
+        foxGo(xs[i] - 6, 'run');
+        setTimeout(() => {
+          const ok = option === ch.answer;
+          b.classList.add(ok ? 'right' : 'wrong');
+          if (!ok) {
+            const right = [...props.querySelectorAll('.hqw-prop')].find((p) => p.querySelector('.lbl').textContent === ch.answer);
+            if (right) right.classList.add('right');
+          }
+          resolve(ok, ch);
+        }, 520);
+      };
+      props.appendChild(b);
+    });
+  }
+
+  /* ---- matching: gems in two rows, tap a word then its meaning ---- */
+  function mountGems(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const holder = el('div', 'hqw-gems');
+    const rowA = el('div', 'hqw-gemrow');
+    const rowB = el('div', 'hqw-gemrow');
+    holder.append(rowA, rowB);
+    const map = {};
+    ch.pairs.forEach(([en, fa]) => { map[en] = fa; });
+    let pickA = null, pickB = null, solved = 0, wrong = 0;
+    const tryPair = () => {
+      if (!pickA || !pickB) return;
+      const ok = map[pickA.dataset.val] === pickB.dataset.val;
+      if (ok) {
+        [pickA, pickB].forEach((g) => { g.classList.remove('on'); g.classList.add('ok'); g.disabled = true; });
+        pickA = null; pickB = null; solved += 1;
+        Snd.play('coin');
+        if (solved === ch.pairs.length) {
+          foxAct('cheer', 900);
+          resolve(wrong === 0, ch);
+        }
+      } else {
+        wrong += 1;
+        Snd.play('wrong');
+        foxAct('sad', 700);
+        const a = pickA, b = pickB;
+        a.classList.add('no'); b.classList.add('no');
+        setTimeout(() => { a.classList.remove('no', 'on'); b.classList.remove('no', 'on'); }, 520);
+        pickA = null; pickB = null;
+      }
+    };
+    shuffled(ch.pairs.map((p) => p[0]), hash(ch.answer + 'a')).forEach((en) => {
+      const g = el('button', 'hqw-gem', en);
+      g.type = 'button'; g.dataset.val = en;
+      g.onclick = () => {
+        if (g.disabled) return;
+        [...rowA.children].forEach((x) => x.classList.remove('on'));
+        g.classList.add('on'); pickA = g; Snd.play('tap'); tryPair();
+      };
+      rowA.appendChild(g);
+    });
+    shuffled(ch.pairs.map((p) => p[1]), hash(ch.answer + 'b')).forEach((fa) => {
+      const g = el('button', 'hqw-gem', fa);
+      g.type = 'button'; g.dir = 'rtl'; g.dataset.val = fa;
+      g.onclick = () => {
+        if (g.disabled) return;
+        [...rowB.children].forEach((x) => x.classList.remove('on'));
+        g.classList.add('on'); pickB = g; Snd.play('tap'); tryPair();
+      };
+      rowB.appendChild(g);
+    });
+    props.appendChild(holder);
+  }
+
+  /* ---- sentence building: planks dragged (or tapped) onto the bridge ---- */
+  function mountBridge(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const tokens = ch.tokens || String(ch.answer).split(' ');
+    const holder = el('div', 'hqw-bridge');
+    const slots = el('div', 'hqw-slots');
+    const planks = el('div', 'hqw-planks');
+    const checkWrap = el('div', 'hqw-check');
+    const check = el('button', 'hqw-go2', 'Build it');
+    check.type = 'button';
+    checkWrap.appendChild(check);
+    holder.append(slots, planks, checkWrap);
+
+    const slotList = tokens.map(() => {
+      const s = el('span', 'hqw-slot');
+      slots.appendChild(s);
+      return s;
+    });
+    let placed = 0;
+
+    const take = (b) => {
+      if (run.answered || b.dataset.placed) return;
+      const free = slotList.find((s) => !s.dataset.val && !s.dataset.taken);
+      if (!free) return;
+      free.dataset.val = b.dataset.word;
+      free.dataset.taken = '1';
+      free.textContent = b.dataset.word;
+      free.classList.add('full');
+      b.dataset.placed = '1';
+      b.style.visibility = 'hidden';
+      placed += 1;
+      Snd.play('tap');
+      if (placed === slotList.length) setTimeout(checkIt, 260);
+    };
+    const putBack = (s) => {
+      if (run.answered) return;
+      const word = s.dataset.val;
+      if (!word) return;
+      delete s.dataset.val; delete s.dataset.taken;
+      s.textContent = ''; s.classList.remove('full');
+      const b = [...planks.children].find((p) => p.dataset.word === word && p.dataset.placed);
+      if (b) { b.dataset.placed = ''; b.style.visibility = 'visible'; }
+      placed -= 1;
+      Snd.play('tap');
+    };
+    slotList.forEach((s) => { s.onclick = () => putBack(s); s.style.cursor = 'pointer'; });
+
+    shuffled(tokens.map((w, i) => ({w, i})), hash(ch.answer + 'o')).forEach(({w}) => {
+      const b = el('button', 'hqw-plank', w);
+      b.type = 'button';
+      b.dataset.word = w;
+      b.setAttribute('aria-label', 'Word ' + w);
+      let drag = null;
+      b.addEventListener('pointerdown', (e) => {
+        if (run.answered) return;
+        drag = {x: e.clientX, y: e.clientY, moved: false, el: b};
+        b.setPointerCapture(e.pointerId);
+      });
+      b.addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 8) {
+          drag.moved = true;
+          b.classList.add('drag');
+          b.style.left = (e.clientX - 30) + 'px';
+          b.style.top = (e.clientY - 20) + 'px';
+        }
+      });
+      b.addEventListener('pointerup', (e) => {
+        if (!drag) return;
+        const moved = drag.moved;
+        drag = null;
+        b.classList.remove('drag');
+        b.style.left = ''; b.style.top = '';
+        if (!moved) { take(b); return; }
+        const under = document.elementFromPoint(e.clientX, e.clientY);
+        const slot = under && under.closest ? under.closest('.hqw-slot') : null;
+        if (slot && !slot.dataset.val) {
+          slot.dataset.val = b.dataset.word; slot.dataset.taken = '1';
+          slot.textContent = b.dataset.word; slot.classList.add('full');
+          b.dataset.placed = '1'; b.style.visibility = 'hidden';
+          placed += 1; Snd.play('tap');
+          if (placed === slotList.length) setTimeout(checkIt, 220);
+        } else {
+          take(b);
+        }
+      });
+      planks.appendChild(b);
+    });
+
+    function checkIt() {
+      if (!run || run.answered) return;
+      const made = slotList.map((s) => s.dataset.val || '').join(' ').trim();
+      const ok = normalize(made) === normalize(ch.answer);
+      if (ok) {
+        slotList.forEach((s) => { s.classList.add('full'); });
+        foxAct('jump', 600);
+      }
+      resolve(ok, ch);
+    }
+    check.onclick = checkIt;
+    props.appendChild(holder);
+  }
+
+  /* ---- fill the gap: a rune stone with one missing word ---- */
+  function mountGap(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const holder = el('div', 'hqw-bridge');
+    const row = el('div', 'hqfill');
+    const input = el('input');
+    input.type = 'text';
+    input.autocomplete = 'off';
+    input.autocapitalize = 'off';
+    input.spellcheck = false;
+    input.dir = 'ltr';
+    input.placeholder = 'Type the missing words…';
+    input.setAttribute('aria-label', 'Your answer');
+    const go = el('button', 'hqw-go2', 'Set the stone');
+    go.type = 'button';
+    const submit = () => {
+      if (!run || run.answered) return;
+      const given = normalize(input.value);
+      if (!given) { input.focus(); return; }
+      const ok = (ch.accept || [ch.answer]).some((a) => normalize(a) === given);
+      if (ok) { foxAct('jump', 600); sparkle(50, 58); }
+      resolve(ok, ch);
+    };
+    go.onclick = submit;
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+    row.append(input, go);
+    holder.appendChild(row);
+    props.appendChild(holder);
+    setTimeout(() => input.focus(), 150);
+  }
+
+  /* ----------------------------------------------------------- the result */
+  function chestSVG() {
+    return '<svg viewBox="0 0 120 90" aria-hidden="true">' +
+      '<ellipse cx="60" cy="84" rx="42" ry="5" fill="rgba(20,60,55,.18)"/>' +
+      '<g class="lid"><path d="M14 46 q0 -26 46 -26 q46 0 46 26 v6 H14 Z" fill="#c98a4b"/><path d="M14 46 q0 -26 46 -26 q46 0 46 26" fill="none" stroke="#a86a35" stroke-width="3"/><rect x="54" y="26" width="12" height="20" rx="3" fill="#f2bf3f"/></g>' +
+      '<rect x="14" y="50" width="92" height="34" rx="6" fill="#e0a25f"/><rect x="14" y="50" width="92" height="8" fill="#b47a41"/>' +
+      '<rect x="54" y="54" width="12" height="14" rx="3" fill="#f2bf3f" stroke="#c9932b" stroke-width="2"/></svg>';
+  }
+
+  function finishRun() {
+    if (!run || run.finished) return;
+    run.finished = true;
+    const mission = run.mission;
+    const total = run.chs.length;
+    const pct = run.first / total;
+    const stars = pct >= 0.85 ? 3 : (pct >= 0.6 ? 2 : 1);
+    const before = starsOf(mission.id);
+    const rankBefore = rankDone(mission.rank);
+    const at = Date.now();
+    const eid = mission.id + '-' + at.toString(36) + '-' +
+      Math.floor(Math.random() * 1679616).toString(36).padStart(4, '0');
+    merge([{id: eid, m: mission.id, s: stars, at: at}]);
+    state.dirty = true;
+    writeState();
+    Snd.play('fanfare');
+    paintResult({mission, total, stars, before, rankBefore});
+    sync();
+  }
+
+  function paintResult(result) {
+    const body = $('hqbody');
+    if (!body) return;
+    view = 'result';
+    const {mission, total, stars, before, rankBefore} = result;
+    body.innerHTML = '';
+    const wrap = el('div', 'hqw');
+
+    const card = el('div', 'hqw-treasure');
+    const chest = el('div', 'hqw-chest');
+    chest.innerHTML = chestSVG();
+    card.appendChild(chest);
+    const starRow = el('div', 'hqw-stars');
+    for (let i = 0; i < 3; i += 1) {
+      const s = el('i', i < stars ? 'on' : '', '★');
+      s.setAttribute('aria-hidden', 'true');
+      starRow.appendChild(s);
+    }
+    starRow.setAttribute('aria-label', stars + ' of 3 stars');
+    card.appendChild(starRow);
+    const allRight = run.first === total;
+    card.appendChild(el('h4', null, allRight ? 'A perfect run!' : (stars === 3 ? 'Brilliant work!' : (stars === 2 ? 'Mission complete!' : 'You made it!')));
+    card.appendChild(faLine(allRight ? 'دور کامل و بی‌نقص!' : 'مأموریت تمام شد!', 'hqfa'));
+    const msg = el('p', null, 'You answered ' + run.first + ' of ' + total + ' right the first time, and found ' + (stars * 10) + ' coins.');
+    msg.appendChild(faLine(' ' + run.first + ' از ' + total + ' پاسخ را بار اول درست زدی و ' + (stars * 10) + ' سکه پیدا کردی.', 'hqfa'));
+    card.appendChild(msg);
+    if (stars > before && before > 0) card.appendChild(el('p', 'hqnote', 'New best: ' + stars + ' stars (was ' + before + ').'));
+
+    const nowDone = rankDone(mission.rank);
+    if (nowDone && !rankBefore) {
+      const rank = game.ranks.find((r) => r.id === mission.rank);
+      const badge = el('div', 'hqw-badge');
+      badge.appendChild(el('span', null, '🏅'));
+      const t = el('span');
+      t.appendChild(el('b', null, rank.name_en + ' badge earned'));
+      t.appendChild(faLine('نشان «' + rank.name_fa + '» به دست آمد', 'hqfa'));
+      badge.appendChild(t);
+      card.appendChild(badge);
+      const idx = game.ranks.indexOf(rank);
+      const up = game.ranks[idx + 1];
+      if (up) {
+        card.appendChild(el('p', 'hqnote', 'The way to “' + up.place_en + '” is open now.'));
+        setTimeout(() => Snd.play('unlock'), 500);
+      }
+      const w = wardrobe();
+      if (w.hat || w.scarf || w.glasses) {
+        card.appendChild(el('p', 'hqnote', 'New look unlocked — open the island and tap 🎩.'));
+      }
+    }
+    wrap.appendChild(card);
+
+    const actions = el('div', 'hqw-row');
+    let next = missionAfter(mission.id);
+    if (!next) {
+      const idx = game.ranks.findIndex((r) => r.id === mission.rank);
+      const above = game.ranks[idx + 1];
+      if (above && rankUnlocked(idx + 1)) next = rankMissions(above.id)[0] || null;
+    }
+    if (next && missionOpen(next)) {
+      const b = el('button', 'hqw-go', 'Next: ' + next.title_en + ' →');
+      b.type = 'button';
+      b.onclick = () => { Snd.play('tap'); startMission(next); };
+      actions.appendChild(b);
+    }
+    const again = el('button', 'hqw-btn', '↺ Play again');
+    again.type = 'button';
+    again.onclick = () => { Snd.play('tap'); startMission(mission); };
+    actions.appendChild(again);
+    const back = el('button', 'hqw-btn', '🗺 Island');
+    back.type = 'button';
+    back.onclick = () => {
+      run = null;
+      openRank = rankIndexAtLeast(mission.rank);
+      home();
+    };
+    actions.appendChild(back);
+    wrap.appendChild(actions);
+
+    const note = el('p', 'hqnote');
+    note.id = 'hqsync';
+    wrap.appendChild(note);
+    body.appendChild(wrap);
+    paintSyncNote();
+  }
+
+  const SYNC_URL = '/api/quest/' + 'sync';
+  let syncing = false;
+
+  function canSync() {
+    return location.protocol !== 'file:' && navigator.onLine !== false;
+  }
+
+  async function sync() {
+    /* Even with nothing local to push, the call is worth making: the reply
+       carries what this device has not seen, which is how a cleared browser
+       or a second install gets its stars back. An empty POST is cheap. */
+    if (syncing || !state || !canSync()) return;
+    syncing = true;
+    try {
+      const r = await fetch(SYNC_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({k: deviceKey(), events: state.events}),
+      });
+      if (!r.ok) return;
+      const data = await r.json();
+      const before = state.events.length;
+      merge(data.events || []);
+      /* The POST carried every local event, so once it is answered the server
+         holds them all: there is nothing left pending, even if the reply also
+         brought events this device had not seen. */
+      state.dirty = false;
+      state.syncedAt = Date.now();
+      writeState();
+      if (Panels.isOpen() === 'hqpanel') {
+        /* Only a map that actually gained something is redrawn, so a sync in
+           the background does not move the child off the rank they are
+           looking at. */
+        if (view === 'map' && state.events.length !== before) home();
+        else paintSyncNote();
+      }
+    } catch (e) {
+      /* Offline or the server is not there: the queue stays exactly as it is. */
+    } finally {
+      syncing = false;
+    }
+  }
+
+  function gotoDashboard() {
+    Panels.set('hqpanel', false);
+    Panels.set('kpanel', true, () => Kids.home());
+  }
+
+  window.addEventListener('online', () => {
+    if (on() && Panels.isOpen() === 'hqpanel') sync();
+  });
+
+  /* What the rest of the page needs: the panel hook, the dashboard exit, and
+     a way for the kids layer to drop the game if the account changes band. */
+  return {open, sync, startMission, challengesFor, placement, unlockedCount,
+          starsOf, missionOpen, KEY: storeKey};
+})();
+
 </script>
 </body>
 </html>
 """
+
+
+QUEST_SYNC = ROOT / "quest_sync"
+
+
+def merge_quest_events(stored, incoming):
+    """Merge two lists of mission results, once per event id.
+
+    Sync has to be safe to run twice, out of order, or half-finished: the
+    child may play on the bus and come back to a flaky connection. So every
+    finished mission is an *event* with its own id, and the merged list is a
+    set union rather than a new state. Replaying the same events is a no-op,
+    and an event that never arrived cannot erase one that did.
+    """
+    out, seen = [], set()
+    for event in list(stored or []) + list(incoming or []):
+        if not isinstance(event, dict):
+            continue
+        eid = str(event.get("id") or "")[:64]
+        mission = str(event.get("m") or "")[:32]
+        if not eid or not mission or eid in seen:
+            continue
+        try:
+            stars = max(0, min(3, int(event.get("s") or 0)))
+            at = int(event.get("at") or 0)
+        except (TypeError, ValueError):
+            continue
+        seen.add(eid)
+        out.append({"id": eid, "m": mission, "s": stars, "at": at})
+    out.sort(key=lambda e: (e["at"], e["id"]))
+    return out[-500:]
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -22238,6 +24349,50 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def do_POST(self):
+        """The one write the page makes: a child's finished missions.
+
+        There is no account server here, so this stores by an anonymous key
+        the page generates once and keeps. It is deliberately not a source of
+        truth: the page owns the progress, and this is the copy that lets it
+        stop saying "waiting to sync" on the next device or reload. An
+        unreachable server (the APK, a plane) just leaves the queue where it
+        is, which is why nothing here is required to play.
+        """
+        if not self.path.startswith("/api/quest/sync"):
+            return self._send_text("not found", "text/plain; charset=utf-8",
+                                   status=404)
+        try:
+            length = int(self.headers.get("Content-Length") or 0)
+        except ValueError:
+            length = 0
+        if length <= 0 or length > 131072:
+            return self._send_text("bad length", "text/plain; charset=utf-8",
+                                   status=413)
+        try:
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+        except (ValueError, UnicodeDecodeError):
+            return self._send_text("bad json", "text/plain; charset=utf-8",
+                                   status=400)
+        key = str((payload or {}).get("k") or "")
+        if not re.fullmatch(r"[A-Za-z0-9_-]{8,64}", key):
+            return self._send_text("bad key", "text/plain; charset=utf-8",
+                                   status=400)
+        QUEST_SYNC.mkdir(exist_ok=True)
+        path = QUEST_SYNC / (key + ".json")
+        stored = []
+        if path.exists():
+            try:
+                stored = json.loads(path.read_text(encoding="utf-8")).get("events") or []
+            except (ValueError, OSError):
+                stored = []
+        events = merge_quest_events(stored, (payload or {}).get("events"))
+        tmp = path.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"v": 1, "events": events}, ensure_ascii=False),
+                       encoding="utf-8")
+        tmp.replace(path)
+        return self._send_json({"events": events}, cache_seconds=0)
 
     def do_GET(self):
         # Lighthouse flagged robots.txt as invalid because the 404 page was
@@ -22531,6 +24686,16 @@ class Handler(BaseHTTPRequestHandler):
             # reading passages, listening clips and everyday sentences, all
             # bilingual. Content only, drawn by the page like the library.
             body = (ROOT / "kids.json").read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path.startswith("/api/heroquest"):
+            # The adventure: six ranks, eighteen missions and the answer keys
+            # for the challenges that are not drawn from kids.json. Content
+            # only, like the kids bank, so it is served off disk.
+            body = (ROOT / "heroquest.json").read_bytes()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
