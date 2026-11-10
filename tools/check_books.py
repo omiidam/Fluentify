@@ -455,7 +455,11 @@ PINNED_GRAMMAR = [
     "Future progressive",
     "Future perfect",
     "Summary of verb tenses: the twelve tenses at a glance",
-    "Tense review: choosing the tense a sentence needs",
+    "Simple tenses: present, past and future",
+    "Progressive tenses: an action in progress",
+    "Perfect tenses: looking back from a point in time",
+    "Perfect progressive: how long an action has lasted",
+    "Choosing the tense: a review",
     "Subject-verb agreement",
     "Plural and possessive nouns",
     "Count and noncount nouns: a few and a little",
@@ -679,6 +683,19 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
             or len(l.get("exam") or []) < 3]
     check(not thin,
           f"{bid}: chapter three chart(s) {thin} are thinner than the rest of the book")
+
+    # Chapter four is the review of verb tenses: one chart per tense family,
+    # then the chart that tells a learner how to choose between them.
+    fourth = [l for l in lessons if l.get("chapter") == "Chapter 4"]
+    check([str(l.get("section")) for l in fourth] == [f"4-{i}" for i in range(1, 6)],
+          f"{bid}: chapter four is not its five charts in order "
+          f"(got {[str(l.get('section')) for l in fourth]})")
+    thin4 = [str(l.get("section")) for l in fourth
+             if len(l.get("examples") or []) < 3
+             or len(l.get("exercises") or []) < 3
+             or len(l.get("exam") or []) < 3]
+    check(not thin4,
+          f"{bid}: chapter four chart(s) {thin4} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"

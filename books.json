@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: fifty structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to three are complete, chart 1-1 to 3-10. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: پنجاه ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا سه کامل‌اند، از نمودار ۱-۱ تا ۳-۱۰. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: fifty-four structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to four are complete, chart 1-1 to 4-5. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: پنجاه‌وچهار ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا چهار کامل‌اند، از نمودار ۱-۱ تا ۴-۵. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -19165,85 +19165,401 @@
     },
     {
      "n": 27,
-     "title": "Tense review: choosing the tense a sentence needs",
-     "title_fa": "مرور زمان‌ها: انتخاب زمان درست برای هر جمله",
+     "title": "Simple tenses: present, past and future",
+     "title_fa": "زمان‌های ساده: حال، گذشته و آینده",
      "chapter": "Chapter 4",
-     "section": "4",
-     "use_en": "Two questions choose the tense: when did it happen, and is it finished, repeated, or still going on? The book's review chapter gathers the twelve tenses that answer them.",
-     "use_fa": "دو پرسش زمان فعل را انتخاب می‌کند: کِی اتفاق افتاد، و آیا تمام شده، تکرار می‌شود یا هنوز ادامه دارد؟ فصل مرور کتاب همان دوازده زمانی را کنار هم می‌آورد که به این پرسش‌ها پاسخ می‌دهند.",
-     "form_en": "past  -  now  -  future  x  simple / progressive / perfect",
+     "section": "4-1",
+     "use_en": "The simple tenses state facts. The simple present is a habit or a general truth; the simple past is a finished action at a known past time; the future with will is a prediction, a promise or a decision. None of the three says that an action was or will be in progress, and none of them connects two times.",
+     "use_fa": "زمان‌های ساده واقعیت را می‌گویند. حال ساده عادت یا حقیقت کلی است؛ گذشتهٔ ساده کاری تمام‌شده در زمانی مشخص در گذشته است؛ آینده با will پیش‌بینی، قول یا تصمیم است. هیچ‌کدام نمی‌گوید کار در جریان بوده یا خواهد بود و هیچ‌کدام دو زمان را به هم پیوند نمی‌دهد.",
+     "form_en": "present: verb / verb-s  ·  past: verb-ed / irregular  ·  future: will + base verb",
      "examples": [
       {
-       "en": "I read the news every morning.",
-       "fa": "هر صبح خبرها را می‌خوانم."
+       "en": "I drink tea every morning.",
+       "fa": "من هر صبح چای می‌نوشم."
       },
       {
-       "en": "I was reading when you called.",
-       "fa": "وقتی زنگ زدی داشتم می‌خواندم."
+       "en": "I drank tea with breakfast yesterday.",
+       "fa": "دیروز صبحانه چای نوشیدم."
       },
       {
-       "en": "I have read that book twice.",
-       "fa": "آن کتاب را دو بار خوانده‌ام."
+       "en": "I will drink tea with my guests tonight.",
+       "fa": "امشب با مهمان‌هایم چای می‌نوشم."
       }
      ],
      "exercises": [
       {
-       "prompt": "Look at the sky! It ___ (rain) soon.",
-       "answer": "is going to rain",
-       "why_en": "Evidence now points at a future event, so be going to.",
-       "why_fa": "شواهدِ همین حالا به رخدادی در آینده اشاره دارد، پس be going to."
+       "prompt": "She ___ (walk) to school every day.",
+       "answer": "walks",
+       "why_en": "Every day marks a habit, and she takes -s.",
+       "why_fa": "every day عادت را نشان می‌دهد و با she فعل -s می‌گیرد."
       },
       {
-       "prompt": "She ___ (teach) for twenty years before she retired.",
-       "answer": "had taught",
-       "why_en": "The teaching was complete before another past action.",
-       "why_fa": "درس دادن پیش از رخداد دیگری در گذشته تمام شده بود."
+       "prompt": "We ___ (visit) the museum last Friday.",
+       "answer": "visited",
+       "why_en": "Last Friday is a finished past time, so the simple past.",
+       "why_fa": "last Friday زمانی تمام‌شده در گذشته است، پس گذشتهٔ ساده."
       },
       {
-       "prompt": "We ___ (meet) at the cafe every Friday.",
-       "answer": "meet",
-       "why_en": "Every Friday is a routine, so the simple present.",
-       "why_fa": "«هر جمعه» عادت است، پس حال ساده."
+       "prompt": "I think it ___ (snow) tomorrow.",
+       "answer": "will snow",
+       "why_en": "A prediction about the future takes will and the base verb.",
+       "why_fa": "پیش‌بینی دربارهٔ آینده با will و فعل ساده می‌آید."
       }
      ],
      "exam": [
       {
-       "q": "While I ___ dinner, the phone rang.",
+       "q": "My father ___ the newspaper every evening.",
        "options": [
-        "was cooking",
-        "cook",
-        "have cooked"
+        "reads",
+        "is reading",
+        "read"
        ],
-       "answer": "was cooking",
-       "why_en": "While marks the action that was in progress.",
-       "why_fa": "while کاری را نشان می‌دهد که در جریان بود."
+       "answer": "reads",
+       "why_en": "Every evening is a habit, and the subject is singular.",
+       "why_fa": "every evening عادت است و فاعل مفرد."
       },
       {
-       "q": "They ___ in this house since 2015.",
+       "q": "They ___ the match two days ago.",
        "options": [
-        "have lived",
-        "lived",
-        "live"
+        "lost",
+        "have lost",
+        "lose"
        ],
-       "answer": "have lived",
-       "why_en": "Since 2015 up to now takes the perfect.",
-       "why_fa": "از ۲۰۱۵ تا حالا، حال کامل می‌گیرد."
+       "answer": "lost",
+       "why_en": "Two days ago is a finished past time, so the simple past.",
+       "why_fa": "two days ago زمانی تمام‌شده در گذشته است، پس گذشتهٔ ساده."
       },
       {
-       "q": "By the time we arrived, the movie ___ .",
+       "q": "Don't worry, I ___ you tomorrow morning.",
        "options": [
-        "had started",
-        "has started",
-        "starts"
+        "will call",
+        "call",
+        "called"
        ],
-       "answer": "had started",
-       "why_en": "The start came before the arrival.",
-       "why_fa": "شروع فیلم پیش از رسیدن ما بود."
+       "answer": "will call",
+       "why_en": "A promise about the future takes will.",
+       "why_fa": "قولی دربارهٔ آینده با will می‌آید."
       }
      ]
     },
     {
      "n": 28,
+     "title": "Progressive tenses: an action in progress",
+     "title_fa": "زمان‌های استمراری: کاری در جریان",
+     "chapter": "Chapter 4",
+     "section": "4-2",
+     "use_en": "The progressive tenses put an action in the middle of happening. The present progressive is happening now; the past progressive was happening at a past moment; the future progressive will be happening at a future moment. Each is a form of be plus the -ing form, and each usually answers “what was going on at that time?”",
+     "use_fa": "زمان‌های استمراری کار را در میانهٔ انجام نشان می‌دهند. حال استمراری همین حالا در جریان است؛ گذشتهٔ استمراری در لحظه‌ای در گذشته در جریان بود؛ آیندهٔ استمراری در لحظه‌ای در آینده در جریان خواهد بود. هر یک با شکلی از be و فرم ing ساخته می‌شود و معمولاً پاسخ «آن لحظه چه کاری در جریان بود؟» است.",
+     "form_en": "am / is / are + -ing  ·  was / were + -ing  ·  will be + -ing",
+     "examples": [
+      {
+       "en": "Please be quiet; the baby is sleeping.",
+       "fa": "لطفاً ساکت باش؛ نوزاد خواب است."
+      },
+      {
+       "en": "At eight last night I was studying.",
+       "fa": "دیشب ساعت هشت درس می‌خواندم."
+      },
+      {
+       "en": "This time tomorrow we will be flying to Shiraz.",
+       "fa": "فردا همین وقت به شیراز پرواز می‌کنیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Look! The children ___ (play) in the yard.",
+       "answer": "are playing",
+       "why_en": "The action is happening at the moment of speaking.",
+       "why_fa": "کار در لحظهٔ گفتن در جریان است."
+      },
+      {
+       "prompt": "When the phone rang, I ___ (cook) dinner.",
+       "answer": "was cooking",
+       "why_en": "The cooking was in progress when the phone rang.",
+       "why_fa": "آشپزی هنگام زنگ تلفن در جریان بود."
+      },
+      {
+       "prompt": "At nine tomorrow, she ___ (teach) her first class.",
+       "answer": "will be teaching",
+       "why_en": "An action in progress at a future moment takes will be + -ing.",
+       "why_fa": "کاری که در لحظه‌ای در آینده در جریان است با will be + ing می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Why ___ you laughing?",
+       "options": [
+        "are",
+        "do",
+        "is"
+       ],
+       "answer": "are",
+       "why_en": "The present progressive question puts are before you.",
+       "why_fa": "پرسش حال استمراری are را پیش از you می‌آورد."
+      },
+      {
+       "q": "While we ___ dinner, the lights went out.",
+       "options": [
+        "were having",
+        "had",
+        "have had"
+       ],
+       "answer": "were having",
+       "why_en": "The dinner was in progress when the lights went out.",
+       "why_fa": "شام هنگام قطع برق در جریان بود."
+      },
+      {
+       "q": "Don't call at seven; we ___ dinner then.",
+       "options": [
+        "will be having",
+        "will have",
+        "have"
+       ],
+       "answer": "will be having",
+       "why_en": "The dinner will be in progress at that future time.",
+       "why_fa": "شام در آن لحظهٔ آینده در جریان خواهد بود."
+      }
+     ]
+    },
+    {
+     "n": 29,
+     "title": "Perfect tenses: looking back from a point in time",
+     "title_fa": "زمان‌های کامل: نگاه به عقب از یک نقطه در زمان",
+     "chapter": "Chapter 4",
+     "section": "4-3",
+     "use_en": "The perfect tenses connect two times. The present perfect (have or has plus the past participle) looks back from now: an experience, a repeated event, or something that started in the past and still matters. The past perfect (had plus the participle) looks back from a past moment, and the future perfect (will have plus the participle) looks back from a future one.",
+     "use_fa": "زمان‌های کامل دو زمان را به هم پیوند می‌دهند. حال کامل (have یا has و اسم مفعول) از «اکنون» به عقب نگاه می‌کند: تجربه، رویداد تکراری، یا چیزی که در گذشته آغاز شده و هنوز مهم است. گذشتهٔ کامل (had و اسم مفعول) از لحظه‌ای در گذشته به عقب نگاه می‌کند و آیندهٔ کامل (will have و اسم مفعول) از لحظه‌ای در آینده.",
+     "form_en": "have / has + past participle  ·  had + past participle  ·  will have + past participle",
+     "examples": [
+      {
+       "en": "I have visited Isfahan three times.",
+       "fa": "سه بار اصفهان رفته‌ام."
+      },
+      {
+       "en": "When we arrived, the train had already left.",
+       "fa": "وقتی رسیدیم، قطار پیش‌تر رفته بود."
+      },
+      {
+       "en": "By next June, she will have finished the course.",
+       "fa": "تا ژوئن آینده، او دوره را تمام کرده است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "He ___ (live) in this city since 2018.",
+       "answer": "has lived",
+       "why_en": "Since 2018 reaches from the past up to now, so the present perfect.",
+       "why_fa": "since 2018 از گذشته تا حال ادامه دارد، پس حال کامل."
+      },
+      {
+       "prompt": "The movie ___ (start) before we got to the cinema.",
+       "answer": "had started",
+       "why_en": "The starting came before another past action.",
+       "why_fa": "شروع فیلم پیش از رسیدن ما بود."
+      },
+      {
+       "prompt": "By Friday, they ___ (finish) the project.",
+       "answer": "will have finished",
+       "why_en": "By Friday looks back from a future point.",
+       "why_fa": "by Friday از نقطه‌ای در آینده به عقب نگاه می‌کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I ___ that movie, so I know the ending.",
+       "options": [
+        "have seen",
+        "saw",
+        "had seen"
+       ],
+       "answer": "have seen",
+       "why_en": "The experience matters now, so the present perfect.",
+       "why_fa": "تجربه اکنون مهم است، پس حال کامل."
+      },
+      {
+       "q": "She ___ the letter before he called.",
+       "options": [
+        "had written",
+        "has written",
+        "wrote"
+       ],
+       "answer": "had written",
+       "why_en": "The writing came before another past action.",
+       "why_fa": "نوشتن پیش از تماس او بود."
+      },
+      {
+       "q": "By 2030, the city ___ a new airport.",
+       "options": [
+        "will have built",
+        "will build",
+        "has built"
+       ],
+       "answer": "will have built",
+       "why_en": "By 2030 looks back from a future point, so the future perfect.",
+       "why_fa": "by 2030 از نقطه‌ای در آینده به عقب نگاه می‌کند، پس آیندهٔ کامل."
+      }
+     ]
+    },
+    {
+     "n": 30,
+     "title": "Perfect progressive: how long an action has lasted",
+     "title_fa": "کامل استمراری: مدتِ ادامهٔ یک کار",
+     "chapter": "Chapter 4",
+     "section": "4-4",
+     "use_en": "The perfect progressive measures a duration up to a point: have been with -ing up to now, had been with -ing up to a past moment, will have been with -ing up to a future one. It answers “how long?”. Verbs of state such as know, own and believe do not take the progressive, so they use the simple perfect instead: I have known her for years.",
+     "use_fa": "کامل استمراری مدتِ ادامهٔ کار تا یک نقطه را می‌سنجد: have been با ing تا اکنون، had been با ing تا لحظه‌ای در گذشته، will have been با ing تا لحظه‌ای در آینده. پاسخ «چه مدت؟» است. افعال حالتی مانند know، own و believe استمراری نمی‌گیرند و به‌جای آن کامل ساده می‌آیند: I have known her for years.",
+     "form_en": "have / has been + -ing  ·  had been + -ing  ·  will have been + -ing",
+     "examples": [
+      {
+       "en": "They have been waiting for an hour.",
+       "fa": "یک ساعت است که منتظرند."
+      },
+      {
+       "en": "She had been working there for ten years when she resigned.",
+       "fa": "ده سال آنجا کار کرده بود که استعفا داد."
+      },
+      {
+       "en": "Next month I will have been teaching for twenty years.",
+       "fa": "ماه آینده بیست سال است که درس می‌دهم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "It ___ (rain) since morning.",
+       "answer": "has been raining",
+       "why_en": "The rain started in the morning and is still going.",
+       "why_fa": "باران از صبح شروع شده و هنوز ادامه دارد."
+      },
+      {
+       "prompt": "He ___ (drive) for six hours when he stopped for fuel.",
+       "answer": "had been driving",
+       "why_en": "The driving lasted up to the stop in the past.",
+       "why_fa": "رانندگی تا توقف در گذشته ادامه داشت."
+      },
+      {
+       "prompt": "By December, we ___ (work) on this for a year.",
+       "answer": "will have been working",
+       "why_en": "A duration measured up to a future point.",
+       "why_fa": "مدتی که تا نقطه‌ای در آینده سنجیده می‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I ___ English for three years.",
+       "options": [
+        "have been learning",
+        "learn",
+        "am learning"
+       ],
+       "answer": "have been learning",
+       "why_en": "A duration continuing up to now takes the present perfect progressive.",
+       "why_fa": "مدتی که تا اکنون ادامه دارد، حال کامل استمراری می‌گیرد."
+      },
+      {
+       "q": "They ___ for two hours when the bus finally came.",
+       "options": [
+        "had been waiting",
+        "have been waiting",
+        "waited"
+       ],
+       "answer": "had been waiting",
+       "why_en": "The waiting lasted up to a past moment.",
+       "why_fa": "انتظار تا لحظه‌ای در گذشته ادامه داشت."
+      },
+      {
+       "q": "I ___ her since we were children.",
+       "options": [
+        "have known",
+        "have been knowing",
+        "know"
+       ],
+       "answer": "have known",
+       "why_en": "Know is a state, so it takes the simple perfect, not the progressive.",
+       "why_fa": "know فعل حالتی است، پس کامل ساده می‌گیرد نه استمراری."
+      }
+     ]
+    },
+    {
+     "n": 31,
+     "title": "Choosing the tense: a review",
+     "title_fa": "انتخاب زمان: یک مرور",
+     "chapter": "Chapter 4",
+     "section": "4-5",
+     "use_en": "Choose the tense from the time in the sentence, not from the language you are translating from. A finished past time (yesterday, last week, in 2019) takes the simple past. A connection to now, or a duration up to now, takes a present perfect. An action in progress at a moment takes a progressive. An action finished before another past action takes the past perfect. A habit or a general truth takes the simple present.",
+     "use_fa": "زمان را از روی زمانِ جمله انتخاب کن، نه از روی زبانی که از آن ترجمه می‌کنی. زمان گذشتهٔ تمام‌شده (yesterday، last week، in 2019) گذشتهٔ ساده می‌گیرد. پیوند با اکنون یا مدتی تا اکنون، حال کامل می‌گیرد. کاری که در لحظه‌ای در جریان است، استمراری می‌گیرد. کاری که پیش از کار گذشتهٔ دیگری تمام شده، گذشتهٔ کامل می‌گیرد. عادت یا حقیقت کلی، حال ساده می‌گیرد.",
+     "form_en": "finished past time → simple past  ·  link to now → present perfect  ·  in progress → progressive  ·  before a past point → past perfect",
+     "examples": [
+      {
+       "en": "I saw him yesterday. I have seen him twice this week.",
+       "fa": "دیروز او را دیدم. این هفته دو بار او را دیده‌ام."
+      },
+      {
+       "en": "She was reading when I called, and she had finished the book by noon.",
+       "fa": "وقتی زنگ زدم داشت می‌خواند و تا ظهر کتاب را تمام کرده بود."
+      },
+      {
+       "en": "Water boils at 100 degrees.",
+       "fa": "آب در صد درجه می‌جوشد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I ___ (see) that film last night.",
+       "answer": "saw",
+       "why_en": "Last night is a finished past time, so the simple past.",
+       "why_fa": "last night زمانی تمام‌شده در گذشته است، پس گذشتهٔ ساده."
+      },
+      {
+       "prompt": "We ___ (know) each other for ten years.",
+       "answer": "have known",
+       "why_en": "A duration up to now with a state verb takes the present perfect.",
+       "why_fa": "مدت تا اکنون با فعل حالتی، حال کامل می‌گیرد."
+      },
+      {
+       "prompt": "By the time the guests arrived, we ___ (prepare) everything.",
+       "answer": "had prepared",
+       "why_en": "The preparing was complete before the guests arrived.",
+       "why_fa": "آماده‌سازی پیش از رسیدن مهمان‌ها تمام شده بود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She ___ to Paris in 2019.",
+       "options": [
+        "went",
+        "has gone",
+        "had gone"
+       ],
+       "answer": "went",
+       "why_en": "A finished year in the past takes the simple past.",
+       "why_fa": "سال تمام‌شده در گذشته گذشتهٔ ساده می‌گیرد."
+      },
+      {
+       "q": "I ___ here since eight o'clock.",
+       "options": [
+        "have been sitting",
+        "sit",
+        "sat"
+       ],
+       "answer": "have been sitting",
+       "why_en": "A duration continuing to now takes the present perfect progressive.",
+       "why_fa": "مدتی که تا اکنون ادامه دارد، حال کامل استمراری می‌گیرد."
+      },
+      {
+       "q": "When I got home, my brother ___ dinner.",
+       "options": [
+        "was cooking",
+        "cooks",
+        "has cooked"
+       ],
+       "answer": "was cooking",
+       "why_en": "The cooking was in progress when I got home.",
+       "why_fa": "آشپزی هنگام رسیدن من در جریان بود."
+      }
+     ]
+    },
+    {
+     "n": 32,
      "title": "Subject-verb agreement",
      "title_fa": "هم‌خوانی نهاد و فعل",
      "chapter": "Chapter 5",
@@ -19322,7 +19638,7 @@
      ]
     },
     {
-     "n": 29,
+     "n": 33,
      "title": "Plural and possessive nouns",
      "title_fa": "اسم‌های جمع و ملکی",
      "chapter": "Chapter 6",
@@ -19401,7 +19717,7 @@
      ]
     },
     {
-     "n": 30,
+     "n": 34,
      "title": "Count and noncount nouns: a few and a little",
      "title_fa": "اسم‌های قابل‌شمارش و غیرقابل‌شمارش: a few و a little",
      "chapter": "Chapter 6",
@@ -19480,7 +19796,7 @@
      ]
     },
     {
-     "n": 31,
+     "n": 35,
      "title": "Articles: a, an and the",
      "title_fa": "حروف تعریف: a، an و the",
      "chapter": "Chapter 7",
@@ -19559,7 +19875,7 @@
      ]
     },
     {
-     "n": 32,
+     "n": 36,
      "title": "Pronouns, possessive adjectives and other",
      "title_fa": "ضمیرها، صفت‌های ملکی و other",
      "chapter": "Chapter 8",
@@ -19638,7 +19954,7 @@
      ]
     },
     {
-     "n": 33,
+     "n": 37,
      "title": "Reflexive pronouns",
      "title_fa": "ضمیرهای بازتابی",
      "chapter": "Chapter 8",
@@ -19717,7 +20033,7 @@
      ]
     },
     {
-     "n": 34,
+     "n": 38,
      "title": "Modals of necessity and advice: must, have to, should",
      "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
      "chapter": "Chapter 9",
@@ -19796,7 +20112,7 @@
      ]
     },
     {
-     "n": 35,
+     "n": 39,
      "title": "Ability and possibility: can, could, may, might",
      "title_fa": "توانایی و احتمال: can، could، may، might",
      "chapter": "Chapter 9",
@@ -19875,7 +20191,7 @@
      ]
     },
     {
-     "n": 36,
+     "n": 40,
      "title": "Requests and suggestions: could you, would you mind, let's",
      "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
      "chapter": "Chapter 9",
@@ -19954,7 +20270,7 @@
      ]
     },
     {
-     "n": 37,
+     "n": 41,
      "title": "Degrees of certainty: must be, may be, can't be",
      "title_fa": "درجات اطمینان: must be، may be، can't be",
      "chapter": "Chapter 10",
@@ -20033,7 +20349,7 @@
      ]
     },
     {
-     "n": 38,
+     "n": 42,
      "title": "The passive",
      "title_fa": "جملات مجهول",
      "chapter": "Chapter 11",
@@ -20112,7 +20428,7 @@
      ]
     },
     {
-     "n": 39,
+     "n": 43,
      "title": "The passive with modals, get and stative verbs",
      "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
      "chapter": "Chapter 11",
@@ -20191,7 +20507,7 @@
      ]
     },
     {
-     "n": 40,
+     "n": 44,
      "title": "Noun clauses and reported speech",
      "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
      "chapter": "Chapter 12",
@@ -20270,7 +20586,7 @@
      ]
     },
     {
-     "n": 41,
+     "n": 45,
      "title": "The subjunctive in noun clauses: insist that he be",
      "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
      "chapter": "Chapter 12",
@@ -20349,7 +20665,7 @@
      ]
     },
     {
-     "n": 42,
+     "n": 46,
      "title": "Adjective clauses",
      "title_fa": "جملات وصفی (موصولی)",
      "chapter": "Chapter 13",
@@ -20428,7 +20744,7 @@
      ]
     },
     {
-     "n": 43,
+     "n": 47,
      "title": "Reducing adjective clauses to phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
      "chapter": "Chapter 13",
@@ -20507,7 +20823,7 @@
      ]
     },
     {
-     "n": 44,
+     "n": 48,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -20586,7 +20902,7 @@
      ]
     },
     {
-     "n": 45,
+     "n": 49,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -20665,7 +20981,7 @@
      ]
     },
     {
-     "n": 46,
+     "n": 50,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -20744,7 +21060,7 @@
      ]
     },
     {
-     "n": 47,
+     "n": 51,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -20823,7 +21139,7 @@
      ]
     },
     {
-     "n": 48,
+     "n": 52,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -20902,7 +21218,7 @@
      ]
     },
     {
-     "n": 49,
+     "n": 53,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -20981,7 +21297,7 @@
      ]
     },
     {
-     "n": 50,
+     "n": 54,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",
