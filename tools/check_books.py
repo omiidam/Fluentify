@@ -435,10 +435,15 @@ PINNED_GRAMMAR = [
     "Simple past tense",
     "Simple past and past progressive",
     "Was going to: intentions that did not happen",
+    "Regular and irregular verbs",
+    "The irregular verb list: learning the three forms together",
     "Present perfect with since and for",
+    "Present perfect: unspecified time and repeated events",
+    "Have and has in spoken English",
     "Present perfect or simple past: which one?",
     "Present perfect progressive: how long an action has lasted",
     "Past perfect",
+    "Had in spoken English",
     "Past perfect progressive: how long before another past action",
     "Future: will and be going to",
     "Future in time clauses: after when, before and as soon as",
@@ -647,6 +652,32 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
     check(first == ["1-1", "1-2", "1-3", "1-4", "1-5", "1-6"],
           f"{bid}: chapter one is not its six charts in order (got {first})")
 
+    # Chapter two is complete as well: the book's ten perfect-tense charts, in
+    # the book's order. A missing chart here is a gap nobody sees, because the
+    # rest of the chapter still reads like a finished chapter.
+    second = [str(l.get("section")) for l in lessons if l.get("chapter") == "Chapter 2"]
+    check(second == [f"2-{i}" for i in range(1, 11)],
+          f"{bid}: chapter two is not its ten charts in order (got {second})")
+
+    # The panel shelves a grammar book by chapter, so the book has to name its
+    # chapters: a number alone would leave every section headed "Chapter 9"
+    # with no sign of what chapter nine is about.
+    listed = book.get("chapters") or []
+    numbers = [c.get("n") for c in listed]
+    check(numbers == list(range(1, 21)),
+          f"{bid}: the chapter list is not twenty chapters in order (got {numbers})")
+    taught = sorted({int(n) for l in lessons
+                     for n in re.findall(r"\d+", l.get("chapter") or "")})
+    check(sorted(numbers) == taught,
+          f"{bid}: a chapter is taught but not named ({sorted(set(taught) - set(numbers))})"
+          if set(taught) - set(numbers)
+          else f"{bid}: the chapter list names a chapter nothing is taught from")
+    unnamed = [c.get("n") for c in listed
+               if not (c.get("title") or "").strip()
+               or not FA_LETTER.search(c.get("title_fa") or "")]
+    check(not unnamed,
+          f"{bid}: chapter(s) {unnamed} have no name in both languages")
+
     titles: list[str] = []
     for lesson in lessons:
         where = f"{bid} structure {lesson.get('n')}"
@@ -828,6 +859,16 @@ def check_panel() -> None:
           "the panel never shows which chart a structure follows")
     check("'Chart ' + lesson.section" in src,
           "a structure does not name its chart")
+
+    # the chapters are sections of the panel, not one long list of charts
+    check("paintChapters(box, book)" in src,
+          "the panel has no chapter level, so every structure is one flat list")
+    check("'Chapter ' + group.n" in src,
+          "a chapter section does not say which chapter it is")
+    check("this.lessonTile(book, lesson)" in src,
+          "the charts are not drawn as tiles inside their chapter")
+    check("this.chaptersOf(book)" in src,
+          "the shelf does not say how many chapters a grammar book covers")
 
 
 def check_offline() -> None:

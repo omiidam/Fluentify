@@ -2859,6 +2859,26 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     padding: 7px 10px 8px;
   }
   .bgrid .blesson .n { margin-inline-start: 0; margin-top: 3px; }
+  /* A grammar book is shelved by chapter, the way the printed book is laid
+     out: the chapter is its own section and its charts are tiles inside it.
+     One flat grid of forty structures made chart 2-1 look like the same kind
+     of thing as chart 20-3, and hid where one chapter ended. */
+  .bchapters { display: flex; flex-direction: column; gap: 13px; }
+  .bchapter { display: flex; flex-direction: column; gap: 6px; }
+  .bchhead { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .bchhead .bchn {
+    font-size: 9.5px; font-weight: 700; color: var(--indigo-ink);
+    background: rgba(79,70,160,.10); border-radius: 5px; padding: 1px 6px;
+  }
+  .bchhead .bcht { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .bchhead .bchc {
+    margin-inline-start: auto; font-size: 9.5px; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .bchfa {
+    font-size: 11px; color: var(--muted); line-height: 1.9;
+    margin-top: -4px; padding-inline-start: 2px;
+  }
   /* The breadcrumb stays put: twelve word cards is more than a phone screen,
      and once you have scrolled past them you should still know which book and
      lesson you are reading. */
@@ -19189,6 +19209,16 @@ const Books = {
     return (book.lessons || []).reduce((n, l) => n + (l.examples || []).length, 0);
   },
 
+  /* how many chapters the structures come from, for the shelf card */
+  chaptersOf(book) {
+    const seen = new Set();
+    (book.lessons || []).forEach((l) => {
+      const m = String(l.chapter || '').match(/\d+/);
+      if (m) seen.add(m[0]);
+    });
+    return seen.size;
+  },
+
   /* what a grammar lesson holds, for its tile and its heading */
   counts(lesson) {
     const ex = (lesson.examples || []).length;
@@ -19242,6 +19272,7 @@ const Books = {
       meta.textContent = (book.author ? book.author + ' · ' : '') +
         (this.isGrammar(book)
           ? lessons + (lessons === 1 ? ' structure' : ' structures') +
+            ' · ' + this.chaptersOf(book) + ' chapters' +
             ' · ' + this.examplesOf(book) + ' examples'
           : lessons + (lessons === 1 ? ' lesson' : ' lessons') +
             ' · ' + this.wordsOf(book) + ' words');
@@ -19292,44 +19323,110 @@ const Books = {
       about.textContent = book.about_fa;
       box.appendChild(about);
     }
-    const list = document.createElement('div');
-    list.className = 'bgrid';
+    if (this.isGrammar(book)) this.paintChapters(box, book);
+    else {
+      const list = document.createElement('div');
+      list.className = 'bgrid';
+      (book.lessons || []).forEach((lesson) => {
+        list.appendChild(this.lessonTile(book, lesson));
+      });
+      box.appendChild(list);
+    }
+  },
+
+  /* one tile on the lessons grid: the chart number and its heading, the
+     Persian heading under it, and what the structure holds */
+  lessonTile(book, lesson) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'blesson';
+    const name = document.createElement('span');
+    name.className = 'bn';
+    name.dir = 'ltr';
+    // a book that numbers its charts is read chart first, like its contents
+    // page: "1-2" then the heading it belongs to
+    name.textContent = (lesson.section ? lesson.section + '  ' : '') +
+      (lesson.title || ('Lesson ' + lesson.n));
+    b.appendChild(name);
+    if (lesson.title_fa) {
+      const fa = document.createElement('span');
+      fa.className = 'bfa';
+      fa.dir = 'rtl';
+      fa.lang = 'fa';
+      fa.textContent = lesson.title_fa;
+      b.setAttribute('aria-label', name.textContent + ' — ' + lesson.title_fa);
+      b.appendChild(fa);
+    }
+    const n = document.createElement('span');
+    n.className = 'n';
+    n.textContent = this.isGrammar(book)
+      ? this.counts(lesson)
+      : (lesson.words || []).length + ' words';
+    b.appendChild(n);
+    b.onclick = () => {
+      this.lesson = lesson.n;
+      this.paint();
+      const p = this.box();
+      if (p) p.scrollTop = 0;
+    };
+    return b;
+  },
+
+  /* A grammar book is read chapter by chapter, so the panel is built the way
+     the book is printed: one section per chapter, the charts it covers inside
+     it. The chapter name comes from the book's own contents list, and the
+     charts are grouped in the order they were written, not re-sorted here. */
+  paintChapters(box, book) {
+    const names = new Map((book.chapters || []).map((c) => [c.n, c]));
+    const groups = [];
     (book.lessons || []).forEach((lesson) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'blesson';
-      const name = document.createElement('span');
-      name.className = 'bn';
-      name.dir = 'ltr';
-      // a book that numbers its charts is read chart first, like its contents
-      // page: "1-2" then the heading it belongs to
-      name.textContent = (lesson.section ? lesson.section + '  ' : '') +
-        (lesson.title || ('Lesson ' + lesson.n));
-      b.appendChild(name);
-      if (lesson.title_fa) {
-        const fa = document.createElement('span');
-        fa.className = 'bfa';
+      const found = String(lesson.chapter || '').match(/\d+/);
+      const n = found ? Number(found[0]) : 0;
+      let group = groups[groups.length - 1];
+      if (!group || group.n !== n) {
+        group = {n, lessons: []};
+        groups.push(group);
+      }
+      group.lessons.push(lesson);
+    });
+    const shelf = document.createElement('div');
+    shelf.className = 'bchapters';
+    groups.forEach((group) => {
+      const meta = names.get(group.n) || {};
+      const section = document.createElement('section');
+      section.className = 'bchapter';
+      const head = document.createElement('div');
+      head.className = 'bchhead';
+      head.dir = 'ltr';
+      const chip = document.createElement('span');
+      chip.className = 'bchn';
+      chip.textContent = 'Chapter ' + group.n;
+      head.appendChild(chip);
+      const title = document.createElement('b');
+      title.className = 'bcht';
+      title.textContent = meta.title || '';
+      head.appendChild(title);
+      const count = document.createElement('span');
+      count.className = 'bchc';
+      const many = group.lessons.length === 1 ? ' structure' : ' structures';
+      count.textContent = group.lessons.length + many;
+      head.appendChild(count);
+      section.appendChild(head);
+      if (meta.title_fa) {
+        const fa = document.createElement('div');
+        fa.className = 'bchfa';
         fa.dir = 'rtl';
         fa.lang = 'fa';
-        fa.textContent = lesson.title_fa;
-        b.setAttribute('aria-label', name.textContent + ' — ' + lesson.title_fa);
-        b.appendChild(fa);
+        fa.textContent = meta.title_fa;
+        section.appendChild(fa);
       }
-      const n = document.createElement('span');
-      n.className = 'n';
-      n.textContent = this.isGrammar(book)
-        ? this.counts(lesson)
-        : (lesson.words || []).length + ' words';
-      b.appendChild(n);
-      b.onclick = () => {
-        this.lesson = lesson.n;
-        this.paint();
-        const p = this.box();
-        if (p) p.scrollTop = 0;
-      };
-      list.appendChild(b);
+      const grid = document.createElement('div');
+      grid.className = 'bgrid';
+      group.lessons.forEach((lesson) => grid.appendChild(this.lessonTile(book, lesson)));
+      section.appendChild(grid);
+      shelf.appendChild(section);
     });
-    box.appendChild(list);
+    box.appendChild(shelf);
   },
 
   /* one lesson: the words, each with meaning, definition and examples */
@@ -19459,13 +19556,16 @@ const Books = {
     }
     const bar = document.createElement('div');
     bar.className = 'bstick';
-    bar.appendChild(this.back('Structures', 'ساختارها', () => {
+    // back to the chapter this chart belongs to, not to a flat list of forty
+    bar.appendChild(this.back('Chapters', 'فصل‌ها', () => {
       this.lesson = null;
       this.paint();
     }));
     const crumb = document.createElement('span');
     crumb.className = 'bcrumb';
-    crumb.textContent = book.title + ' · ' + (lesson.title || ('Structure ' + lesson.n));
+    crumb.textContent = book.title + ' · ' +
+      (lesson.chapter ? lesson.chapter + ' · ' : '') +
+      (lesson.title || ('Structure ' + lesson.n));
     bar.appendChild(crumb);
     const count = document.createElement('span');
     count.className = 'bnum';
