@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: sixty-seven structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to six are complete, chart 1-1 to 6-10. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: شصت‌وهفت ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا شش کامل‌اند، از نمودار ۱-۱ تا ۶-۱۰. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: seventy-five structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to seven are complete, chart 1-1 to 7-9. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: هفتاد‌وپنج ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا هفت کامل‌اند، از نمودار ۱-۱ تا ۷-۹. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -20824,85 +20824,717 @@
     },
     {
      "n": 48,
-     "title": "Articles: a, an and the",
-     "title_fa": "حروف تعریف: a، an و the",
+     "title": "The three choices: a, an, the or nothing",
+     "title_fa": "سه گزینه: a، an، the یا هیچ",
      "chapter": "Chapter 7",
      "section": "7-1",
-     "use_en": "A and an introduce one thing the listener does not know yet. The points at something both of you can identify. No article is used for plurals and noncount nouns spoken about in general.",
-     "use_fa": "a و an چیزی را معرفی می‌کنند که شنونده هنوز نمی‌شناسد. the به چیزی اشاره می‌کند که هر دو طرف می‌توانند تشخیص دهند. برای جمع و اسم‌های غیرقابل‌شمارش در معنای کلی، حرف تعریف نمی‌آید.",
-     "form_en": "a / an + singular count noun  |  the + known noun  |  no article + plural or noncount (general)",
+     "use_en": "Before a noun English chooses one of four things: a or an for one thing not yet known, the for something both people can identify, or no article at all. The choice depends on the listener: a book is new information, the book is information we share. Get the listener's knowledge right and the article follows.",
+     "use_fa": "پیش از اسم، انگلیسی یکی از چهار گزینه را برمی‌گزیند: a یا an برای چیزی که هنوز شناخته نیست، the برای چیزی که هر دو طرف می‌توانند مشخص کنند، یا هیچ حرف تعریفی. انتخاب به شنونده بستگی دارد: a book اطلاعات تازه است و the book اطلاعات مشترک. اگر بدانی شنونده چه می‌داند، حرف تعریف خودش می‌آید.",
+     "form_en": "a / an + singular count noun (new)  ·  the + known noun  ·  no article + plural or noncount",
      "examples": [
       {
-       "en": "I saw a dog. The dog was wet.",
-       "fa": "سگی دیدم. آن سگ خیس بود."
+       "en": "I bought a book yesterday. The book is about birds.",
+       "fa": "دیروز کتابی خریدم. آن کتاب دربارهٔ پرنده‌هاست."
+      },
+      {
+       "en": "Please close the door.",
+       "fa": "لطفاً در را ببند."
       },
       {
        "en": "Books are expensive in this city.",
        "fa": "کتاب‌ها در این شهر گران‌اند."
-      },
-      {
-       "en": "She plays the piano very well.",
-       "fa": "او خیلی خوب پیانو می‌نوازد."
       }
      ],
      "exercises": [
       {
-       "prompt": "He is ___ engineer.",
-       "answer": "an",
-       "why_en": "Engineer begins with a vowel sound, and the job is not yet known.",
-       "why_fa": "engineer با صدای واکه آغاز می‌شود و شغل هنوز شناخته‌شده نیست."
+       "prompt": "She has ___ cat and two birds.",
+       "answer": "a",
+       "why_en": "One cat, not yet known, begins with a consonant sound.",
+       "why_fa": "یک گربه که هنوز شناخته نیست و با صدای بی‌صدا آغاز می‌شود."
       },
       {
-       "prompt": "Please close ___ door — it's cold.",
-       "answer": "the",
-       "why_en": "There is only one door in the room, so both people know which.",
-       "why_fa": "در اتاق یک در هست، پس هر دو می‌دانند کدام در."
+       "prompt": "___ sun rises in the east.",
+       "answer": "The",
+       "why_en": "There is only one sun, so both people can identify it.",
+       "why_fa": "تنها یک خورشید وجود دارد، پس هر دو طرف آن را می‌شناسند."
       },
       {
-       "prompt": "I don't drink ___ coffee at night.",
-       "answer": "(no article)",
-       "why_en": "Coffee in general is noncount, so it takes no article.",
-       "why_fa": "coffee در معنای کلی غیرقابل‌شمارش است، پس حرف تعریف نمی‌گیرد."
+       "prompt": "I like ___ music.",
+       "answer": "no article",
+       "why_en": "Music is noncount and used in a general sense, so no article.",
+       "why_fa": "music غیرقابل‌شمارش و در معنای کلی است، پس حرف تعریف ندارد."
       }
      ],
      "exam": [
       {
-       "q": "She bought ___ umbrella.",
+       "q": "She is reading ___ newspaper.",
        "options": [
         "a",
         "an",
         "the"
        ],
-       "answer": "an",
-       "why_en": "Umbrella starts with a vowel sound.",
-       "why_fa": "umbrella با صدای مصوت شروع می‌شود."
+       "answer": "a",
+       "why_en": "One newspaper, not yet known, and newspaper begins with a consonant.",
+       "why_fa": "یک روزنامهٔ ناشناخته و newspaper با حرف بی‌صدا آغاز می‌شود."
       },
       {
-       "q": "___ sun rises in the east.",
+       "q": "___ moon is bright tonight.",
        "options": [
+        "The",
         "A",
-        "An",
-        "The"
+        "An"
        ],
        "answer": "The",
-       "why_en": "There is only one sun.",
-       "why_fa": "خورشید یکی است."
+       "why_en": "There is only one moon.",
+       "why_fa": "تنها یک ماه وجود دارد."
       },
       {
-       "q": "I like ___ music from the north.",
+       "q": "We need ___ water.",
        "options": [
+        "some",
         "a",
-        "the",
-        "(no article)"
+        "an"
        ],
-       "answer": "(no article)",
-       "why_en": "Music in general takes no article.",
-       "why_fa": "موسیقی به‌طور کلی بدون حرف تعریف می‌آید."
+       "answer": "some",
+       "why_en": "Water is noncount, so it takes some rather than an article.",
+       "why_fa": "water غیرقابل‌شمارش است، پس some می‌گیرد نه حرف تعریف."
       }
      ]
     },
     {
      "n": 49,
+     "title": "A and an: one of many, not known yet",
+     "title_fa": "a و an: یکی از بسیاری، هنوز ناشناخته",
+     "chapter": "Chapter 7",
+     "section": "7-2",
+     "use_en": "A and an mean one, and they are used only with a singular count noun that the listener cannot yet identify. Choose a before a consonant sound and an before a vowel sound, which is about the sound and not the letter: a university, an hour, a European country.",
+     "use_fa": "a و an یعنی «یک» و تنها با اسم قابل‌شمارش مفردی می‌آیند که شنونده هنوز نمی‌تواند مشخص کند. پیش از صدای بی‌صدا a و پیش از صدای صدادار an می‌آید؛ ملاک صدا است نه حرف: a university، an hour، a European country.",
+     "form_en": "a + consonant sound  ·  an + vowel sound  ·  singular count nouns only",
+     "examples": [
+      {
+       "en": "She works in a hospital.",
+       "fa": "او در یک بیمارستان کار می‌کند."
+      },
+      {
+       "en": "He waited for an hour.",
+       "fa": "یک ساعت منتظر ماند."
+      },
+      {
+       "en": "My brother studies at a university in Tehran.",
+       "fa": "برادرم در دانشگاهی در تهران درس می‌خواند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I need ___ umbrella; it is raining.",
+       "answer": "an",
+       "why_en": "Umbrella begins with a vowel sound, so an.",
+       "why_fa": "umbrella با صدای صدادار آغاز می‌شود، پس an."
+      },
+      {
+       "prompt": "She is ___ engineer.",
+       "answer": "an",
+       "why_en": "Engineer begins with a vowel sound.",
+       "why_fa": "engineer با صدای صدادار آغاز می‌شود."
+      },
+      {
+       "prompt": "He is ___ university student.",
+       "answer": "a",
+       "why_en": "University begins with the consonant sound /j/, so a.",
+       "why_fa": "university با صدای بی‌صدای /j/ آغاز می‌شود، پس a."
+      }
+     ],
+     "exam": [
+      {
+       "q": "We need ___ table for four people.",
+       "options": [
+        "a",
+        "an",
+        "the"
+       ],
+       "answer": "a",
+       "why_en": "One table, not yet identified, begins with a consonant sound.",
+       "why_fa": "یک میز ناشناخته که با صدای بی‌صدا آغاز می‌شود."
+      },
+      {
+       "q": "It took ___ hour to finish.",
+       "options": [
+        "an",
+        "a",
+        "the"
+       ],
+       "answer": "an",
+       "why_en": "Hour begins with a vowel sound, so an.",
+       "why_fa": "hour با صدای صدادار آغاز می‌شود، پس an."
+      },
+      {
+       "q": "She bought ___ apple.",
+       "options": [
+        "an",
+        "a",
+        "some"
+       ],
+       "answer": "an",
+       "why_en": "One apple, not yet known, begins with a vowel sound.",
+       "why_fa": "یک سیب ناشناخته که با صدای صدادار آغاز می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 50,
+     "title": "The: known to both people",
+     "title_fa": "the: شناخته‌شده برای هر دو طرف",
+     "chapter": "Chapter 7",
+     "section": "7-3",
+     "use_en": "The is used when the listener can identify which one you mean: because it was mentioned before, because there is only one in the situation, or because the rest of the sentence makes it clear. In a room with one window, the window needs no explanation.",
+     "use_fa": "the وقتی به کار می‌رود که شنونده بتواند مشخص کند کدام را می‌گویی: چون پیش‌تر گفته شده، چون در آن موقعیت تنها یکی وجود دارد، یا چون ادامهٔ جمله آن را روشن می‌کند. در اتاقی با یک پنجره، the window نیازی به توضیح ندارد.",
+     "form_en": "the + noun the listener can identify (shared situation, earlier mention, or a phrase after it)",
+     "examples": [
+      {
+       "en": "The window is open; could you close it?",
+       "fa": "پنجره باز است؛ می‌بندی‌اش؟"
+      },
+      {
+       "en": "I saw a dog. The dog was very friendly.",
+       "fa": "سگی دیدم. آن سگ خیلی مهربان بود."
+      },
+      {
+       "en": "The man in the blue shirt is my teacher.",
+       "fa": "مردی که پیراهن آبی دارد معلم من است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "There is a cat in the garden. ___ cat is black.",
+       "answer": "The",
+       "why_en": "The cat was mentioned in the first sentence, so it is now known.",
+       "why_fa": "گربه در جملهٔ اول گفته شد، پس اکنون شناخته است."
+      },
+      {
+       "prompt": "Please pass me ___ salt.",
+       "answer": "the",
+       "why_en": "The salt on the table is identifiable in the situation.",
+       "why_fa": "نمک روی میز در آن موقعیت مشخص است."
+      },
+      {
+       "prompt": "___ woman standing at the door is my aunt.",
+       "answer": "The",
+       "why_en": "The phrase after the noun identifies which woman.",
+       "why_fa": "عبارت پس از اسم مشخص می‌کند کدام زن."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I bought a pen. ___ pen writes well.",
+       "options": [
+        "The",
+        "A",
+        "An"
+       ],
+       "answer": "The",
+       "why_en": "The second mention is now known, so the.",
+       "why_fa": "اشارهٔ دوم شناخته است، پس the."
+      },
+      {
+       "q": "Could you turn off ___ light, please?",
+       "options": [
+        "the",
+        "a",
+        "an"
+       ],
+       "answer": "the",
+       "why_en": "The light in this room is identifiable.",
+       "why_fa": "چراغ این اتاق مشخص است."
+      },
+      {
+       "q": "___ boy who won the race is my cousin.",
+       "options": [
+        "The",
+        "A",
+        "An"
+       ],
+       "answer": "The",
+       "why_en": "The clause after the noun identifies the boy.",
+       "why_fa": "جملهٔ پس از اسم پسر را مشخص می‌کند."
+      }
+     ]
+    },
+    {
+     "n": 51,
+     "title": "The: unique things, and the second mention",
+     "title_fa": "the: چیزهای یگانه و اشارهٔ دوم",
+     "chapter": "Chapter 7",
+     "section": "7-4",
+     "use_en": "The goes with things that are unique in the world or in the context: the sun, the moon, the sky, the internet, the government, the police. It also marks the second mention of something: a story, then the story. The same noun takes a first time and the every time after.",
+     "use_fa": "the با چیزهایی می‌آید که در جهان یا در بافت یگانه‌اند: the sun، the moon، the sky، the internet، the government، the police. همچنین اشارهٔ دوم به چیزی را نشان می‌دهد: a story و سپس the story. همان اسم بار اول a و از آن پس the می‌گیرد.",
+     "form_en": "the + unique noun  ·  first mention: a / an  ·  later mention: the",
+     "examples": [
+      {
+       "en": "The sky is clear tonight.",
+       "fa": "آسمان امشب صاف است."
+      },
+      {
+       "en": "She told me a story. The story was about a fox.",
+       "fa": "او برایم داستانی گفت. داستان دربارهٔ یک روباه بود."
+      },
+      {
+       "en": "The police are investigating the case.",
+       "fa": "پلیس در حال بررسی پرونده است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ moon looks huge tonight.",
+       "answer": "The",
+       "why_en": "There is only one moon in our sky.",
+       "why_fa": "در آسمان ما تنها یک ماه هست."
+      },
+      {
+       "prompt": "He found a key. ___ key opened the old door.",
+       "answer": "The",
+       "why_en": "The key is the second mention of the same thing.",
+       "why_fa": "کلید همان چیزِ گفته‌شده در جملهٔ پیش است."
+      },
+      {
+       "prompt": "I read about ___ internet in a magazine.",
+       "answer": "the",
+       "why_en": "The internet is unique, so it takes the.",
+       "why_fa": "اینترنت یگانه است، پس the می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ sun is a star.",
+       "options": [
+        "The",
+        "A",
+        "An"
+       ],
+       "answer": "The",
+       "why_en": "The sun is unique.",
+       "why_fa": "خورشید یگانه است."
+      },
+      {
+       "q": "They adopted a dog. ___ dog is very small.",
+       "options": [
+        "The",
+        "A",
+        "An"
+       ],
+       "answer": "The",
+       "why_en": "The second mention takes the.",
+       "why_fa": "اشارهٔ دوم the می‌گیرد."
+      },
+      {
+       "q": "___ government announced a new plan.",
+       "options": [
+        "The",
+        "A",
+        "An"
+       ],
+       "answer": "The",
+       "why_en": "The government of the country is identifiable.",
+       "why_fa": "دولت آن کشور مشخص است."
+      }
+     ]
+    },
+    {
+     "n": 52,
+     "title": "No article: plural and noncount general statements",
+     "title_fa": "بدون حرف تعریف: جمله‌های کلی با جمع و غیرقابل‌شمارش",
+     "chapter": "Chapter 7",
+     "section": "7-5",
+     "use_en": "When a plural count noun or a noncount noun is used in a general sense, English uses no article: books are useful, water is important, life is short. Adding the makes it specific: the books on my desk, the water in this glass. This is the article mistake Persian speakers make most often, because Persian uses a general noun without any marker.",
+     "use_fa": "وقتی اسم قابل‌شمارش جمع یا اسم غیرقابل‌شمارش در معنای کلی به کار می‌رود، انگلیسی حرف تعریف نمی‌آورد: books are useful، water is important، life is short. افزودن the آن را مشخص می‌کند: the books on my desk، the water in this glass. این رایج‌ترین خطای حرف تعریف فارسی‌زبانان است، چون فارسی اسم کلی را بدون نشانه می‌آورد.",
+     "form_en": "general plural / noncount: no article  ·  specific: the + noun",
+     "examples": [
+      {
+       "en": "Books are expensive in this city.",
+       "fa": "کتاب‌ها در این شهر گران‌اند."
+      },
+      {
+       "en": "Water is necessary for life.",
+       "fa": "آب برای زندگی ضروری است."
+      },
+      {
+       "en": "The books on my desk are new.",
+       "fa": "کتاب‌های روی میز من نو هستند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ life is full of surprises.",
+       "answer": "no article",
+       "why_en": "Life is noncount and used generally.",
+       "why_fa": "life غیرقابل‌شمارش و در معنای کلی است."
+      },
+      {
+       "prompt": "___ people in this town are friendly.",
+       "answer": "no article",
+       "why_en": "People is plural and general here, so no article.",
+       "why_fa": "people جمع و کلی است، پس بدون حرف تعریف."
+      },
+      {
+       "prompt": "___ water in this bottle is cold.",
+       "answer": "The",
+       "why_en": "The phrase after the noun makes the water specific.",
+       "why_fa": "عبارت پس از اسم آب را مشخص می‌کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ children need sleep.",
+       "options": [
+        "no article",
+        "The",
+        "A"
+       ],
+       "answer": "no article",
+       "why_en": "A general plural takes no article.",
+       "why_fa": "جمع کلی حرف تعریف نمی‌گیرد."
+      },
+      {
+       "q": "___ money cannot buy happiness.",
+       "options": [
+        "no article",
+        "The",
+        "A"
+       ],
+       "answer": "no article",
+       "why_en": "Money is noncount and general.",
+       "why_fa": "money غیرقابل‌شمارش و کلی است."
+      },
+      {
+       "q": "___ fruit in that shop is fresh.",
+       "options": [
+        "The",
+        "A",
+        "no article"
+       ],
+       "answer": "The",
+       "why_en": "The phrase after the noun makes the fruit specific.",
+       "why_fa": "عبارت پس از اسم میوه را مشخص می‌کند."
+      }
+     ]
+    },
+    {
+     "n": 53,
+     "title": "A and an with jobs, amounts and rates",
+     "title_fa": "a و an با شغل‌ها، مقدارها و نرخ‌ها",
+     "chapter": "Chapter 7",
+     "section": "7-6",
+     "use_en": "A or an is required when you say what someone's job is: she is a doctor, he is an engineer. It also appears in expressions of amount and rate: a hundred people, a lot of, twice a week, five dollars a kilo, an hour and a half. These are fixed patterns, not general rules about articles.",
+     "use_fa": "هنگام گفتن شغل کسی، a یا an لازم است: she is a doctor، he is an engineer. در عبارت‌های مقدار و نرخ هم می‌آید: a hundred people، a lot of، twice a week، five dollars a kilo، an hour and a half. این‌ها الگوهای ثابت‌اند، نه قاعدهٔ کلی دربارهٔ حرف تعریف.",
+     "form_en": "be + a / an + job  ·  a hundred / a lot / twice a week / an hour and a half",
+     "examples": [
+      {
+       "en": "My mother is a nurse.",
+       "fa": "مادرم پرستار است."
+      },
+      {
+       "en": "He is an engineer at a car factory.",
+       "fa": "او مهندس یک کارخانهٔ خودروسازی است."
+      },
+      {
+       "en": "The tomatoes cost two dollars a kilo.",
+       "fa": "گوجه‌ها کیلویی دو دلار است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She is ___ doctor in a small clinic.",
+       "answer": "a",
+       "why_en": "A job takes a or an, and doctor begins with a consonant sound.",
+       "why_fa": "شغل a یا an می‌گیرد و doctor با صدای بی‌صدا آغاز می‌شود."
+      },
+      {
+       "prompt": "There are ___ hundred students in this school.",
+       "answer": "a",
+       "why_en": "A hundred is a fixed amount expression.",
+       "why_fa": "a hundred عبارت مقداری ثابت است."
+      },
+      {
+       "prompt": "We meet twice ___ week.",
+       "answer": "a",
+       "why_en": "Twice a week is a rate, and the rate takes a.",
+       "why_fa": "twice a week نرخ است و نرخ a می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "He wants to be ___ architect.",
+       "options": [
+        "an",
+        "a",
+        "the"
+       ],
+       "answer": "an",
+       "why_en": "A job takes an before a vowel sound.",
+       "why_fa": "شغل پیش از صدای صدادار an می‌گیرد."
+      },
+      {
+       "q": "The bus leaves every half ___ hour.",
+       "options": [
+        "an",
+        "a",
+        "the"
+       ],
+       "answer": "an",
+       "why_en": "Half an hour is the fixed expression.",
+       "why_fa": "half an hour عبارت ثابت است."
+      },
+      {
+       "q": "She earns twenty dollars ___ hour.",
+       "options": [
+        "an",
+        "a",
+        "the"
+       ],
+       "answer": "an",
+       "why_en": "A rate is expressed with a or an, and hour begins with a vowel sound.",
+       "why_fa": "نرخ با a یا an بیان می‌شود و hour با صدای صدادار آغاز می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 54,
+     "title": "No article with names, languages, meals and most places",
+     "title_fa": "بدون حرف تعریف با نام‌ها، زبان‌ها، وعده‌های غذا و بیشتر مکان‌ها",
+     "chapter": "Chapter 7",
+     "section": "7-7",
+     "use_en": "Names of people, languages, school subjects, meals, games, days and months take no article: Ali, Persian, math, breakfast, tennis, Monday. Most countries, cities and streets take none either: Iran, Tehran, Valiasr Street. A few names do take the, and they have to be learned as names: the United States, the Netherlands.",
+     "use_fa": "نام افراد، زبان‌ها، درس‌ها، وعده‌های غذا، بازی‌ها، روزها و ماه‌ها حرف تعریف نمی‌گیرند: Ali، Persian، math، breakfast، tennis، Monday. بیشتر کشورها، شهرها و خیابان‌ها هم نمی‌گیرند: Iran، Tehran، Valiasr Street. چند نام the می‌گیرند و باید به‌صورت نام حفظ شوند: the United States، the Netherlands.",
+     "form_en": "no article: names, languages, subjects, meals, games, days, most places",
+     "examples": [
+      {
+       "en": "I study English and math at school.",
+       "fa": "در مدرسه انگلیسی و ریاضی می‌خوانم."
+      },
+      {
+       "en": "We have breakfast at seven.",
+       "fa": "ساعت هفت صبحانه می‌خوریم."
+      },
+      {
+       "en": "They live in the United States now.",
+       "fa": "آن‌ها اکنون در آمریکا زندگی می‌کنند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She speaks ___ German very well.",
+       "answer": "no article",
+       "why_en": "A language takes no article.",
+       "why_fa": "نام زبان حرف تعریف نمی‌گیرد."
+      },
+      {
+       "prompt": "I have ___ lunch at noon.",
+       "answer": "no article",
+       "why_en": "A meal takes no article.",
+       "why_fa": "وعدهٔ غذا حرف تعریف نمی‌گیرد."
+      },
+      {
+       "prompt": "___ United States is a large country.",
+       "answer": "The",
+       "why_en": "The United States is one of the names that take the.",
+       "why_fa": "the United States از نام‌هایی است که the می‌گیرند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "We play ___ football on Fridays.",
+       "options": [
+        "no article",
+        "the",
+        "a"
+       ],
+       "answer": "no article",
+       "why_en": "A game takes no article.",
+       "why_fa": "نام بازی حرف تعریف نمی‌گیرد."
+      },
+      {
+       "q": "My brother studies ___ history.",
+       "options": [
+        "no article",
+        "the",
+        "a"
+       ],
+       "answer": "no article",
+       "why_en": "A school subject takes no article.",
+       "why_fa": "نام درس حرف تعریف نمی‌گیرد."
+      },
+      {
+       "q": "She is from ___ Netherlands.",
+       "options": [
+        "the",
+        "a",
+        "no article"
+       ],
+       "answer": "the",
+       "why_en": "The Netherlands is a fixed name with the.",
+       "why_fa": "the Netherlands نام ثابتی با the است."
+      }
+     ]
+    },
+    {
+     "n": 55,
+     "title": "The with geography, superlatives and ordinals",
+     "title_fa": "the با جغرافیا، صفت‌های عالی و اعداد ترتیبی",
+     "chapter": "Chapter 7",
+     "section": "7-8",
+     "use_en": "The is used with rivers, seas, oceans, mountain ranges, groups of islands and deserts: the Karun, the Caspian Sea, the Alborz, the Persian Gulf. It is also used with superlatives and ordinals: the best, the first. A single mountain, a single lake and a single city take no article.",
+     "use_fa": "the با رودها، دریاها، اقیانوس‌ها، رشته‌کوه‌ها، گروه جزیره‌ها و بیابان‌ها می‌آید: the Karun، the Caspian Sea، the Alborz، the Persian Gulf. با صفت‌های عالی و اعداد ترتیبی هم می‌آید: the best، the first. یک کوه تنها، یک دریاچهٔ تنها و یک شهر تنها حرف تعریف نمی‌گیرند.",
+     "form_en": "the + river / sea / ocean / mountain range / group of islands / desert  ·  the + superlative / ordinal",
+     "examples": [
+      {
+       "en": "The Karun is the longest river in Iran.",
+       "fa": "کارون بلندترین رود ایران است."
+      },
+      {
+       "en": "We climbed to the top of the Alborz.",
+       "fa": "به قلهٔ البرز صعود کردیم."
+      },
+      {
+       "en": "This is the best book I have read.",
+       "fa": "این بهترین کتابی است که خوانده‌ام."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ Caspian Sea is the largest lake in the world.",
+       "answer": "The",
+       "why_en": "A named sea takes the.",
+       "why_fa": "دریای نام‌دار the می‌گیرد."
+      },
+      {
+       "prompt": "She was ___ first student to finish.",
+       "answer": "the",
+       "why_en": "An ordinal takes the.",
+       "why_fa": "عدد ترتیبی the می‌گیرد."
+      },
+      {
+       "prompt": "___ Damavand is a famous mountain.",
+       "answer": "no article",
+       "why_en": "A single mountain takes no article.",
+       "why_fa": "یک کوه تنها حرف تعریف نمی‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ Nile is the longest river in Africa.",
+       "options": [
+        "The",
+        "A",
+        "no article"
+       ],
+       "answer": "The",
+       "why_en": "A named river takes the.",
+       "why_fa": "رود نام‌دار the می‌گیرد."
+      },
+      {
+       "q": "He was ___ third person in line.",
+       "options": [
+        "the",
+        "a",
+        "no article"
+       ],
+       "answer": "the",
+       "why_en": "An ordinal takes the.",
+       "why_fa": "عدد ترتیبی the می‌گیرد."
+      },
+      {
+       "q": "___ Lake Urmia is in the northwest.",
+       "options": [
+        "no article",
+        "The",
+        "A"
+       ],
+       "answer": "no article",
+       "why_en": "A single lake takes no article.",
+       "why_fa": "یک دریاچهٔ تنها حرف تعریف نمی‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 56,
+     "title": "Common article mistakes: a decision procedure",
+     "title_fa": "خطاهای رایج حرف تعریف: یک روش تصمیم‌گیری",
+     "chapter": "Chapter 7",
+     "section": "7-9",
+     "use_en": "Ask three questions in order. Is the noun plural or noncount, and general? Then no article. Can the listener identify which one? Then the. Is it one of many, singular and count? Then a or an. Most mistakes come from the first question, and from putting the before a general plural. A few phrases are fixed and are learned whole: go to school, go to bed, at home, in the morning.",
+     "use_fa": "به ترتیب سه پرسش بپرس. آیا اسم جمع یا غیرقابل‌شمارش و کلی است؟ پس بدون حرف تعریف. آیا شنونده می‌تواند مشخص کند کدام؟ پس the. آیا یکی از بسیاری، مفرد و قابل‌شمارش است؟ پس a یا an. بیشتر خطاها از پرسش اول می‌آید و از آوردن the پیش از جمع کلی. چند عبارت ثابت‌اند و کامل حفظ می‌شوند: go to school، go to bed، at home، in the morning.",
+     "form_en": "general plural or noncount → no article  ·  identifiable → the  ·  one of many, singular count → a / an",
+     "examples": [
+      {
+       "en": "Cats are independent animals. The cat next door is friendly.",
+       "fa": "گربه‌ها جانورانی مستقل‌اند. گربهٔ همسایه مهربان است."
+      },
+      {
+       "en": "She goes to school by bus.",
+       "fa": "او با اتوبوس به مدرسه می‌رود."
+      },
+      {
+       "en": "I read a book about the sea.",
+       "fa": "کتابی دربارهٔ دریا خواندم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ birds can fly, but penguins cannot.",
+       "answer": "no article",
+       "why_en": "A general plural takes no article.",
+       "why_fa": "جمع کلی حرف تعریف نمی‌گیرد."
+      },
+      {
+       "prompt": "I left ___ key on the table.",
+       "answer": "the",
+       "why_en": "The key is identifiable in the situation.",
+       "why_fa": "کلید در آن موقعیت مشخص است."
+      },
+      {
+       "prompt": "She wants to be ___ artist.",
+       "answer": "an",
+       "why_en": "One of many, singular, and artist begins with a vowel sound.",
+       "why_fa": "یکی از بسیاری، مفرد، و artist با صدای صدادار آغاز می‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ information you gave me was useful.",
+       "options": [
+        "The",
+        "A",
+        "no article"
+       ],
+       "answer": "The",
+       "why_en": "The phrase after the noun makes it specific.",
+       "why_fa": "عبارت پس از اسم آن را مشخص می‌کند."
+      },
+      {
+       "q": "He goes to ___ bed at ten.",
+       "options": [
+        "no article",
+        "the",
+        "a"
+       ],
+       "answer": "no article",
+       "why_en": "Go to bed is a fixed phrase with no article.",
+       "why_fa": "go to bed عبارت ثابتی بدون حرف تعریف است."
+      },
+      {
+       "q": "She bought ___ oranges and ___ milk.",
+       "options": [
+        "some / some",
+        "the / a",
+        "an / a"
+       ],
+       "answer": "some / some",
+       "why_en": "An unspecified plural and a noncount noun take some.",
+       "why_fa": "جمع نامشخص و اسم غیرقابل‌شمارش some می‌گیرند."
+      }
+     ]
+    },
+    {
+     "n": 57,
      "title": "Pronouns, possessive adjectives and other",
      "title_fa": "ضمیرها، صفت‌های ملکی و other",
      "chapter": "Chapter 8",
@@ -20981,7 +21613,7 @@
      ]
     },
     {
-     "n": 50,
+     "n": 58,
      "title": "Reflexive pronouns",
      "title_fa": "ضمیرهای بازتابی",
      "chapter": "Chapter 8",
@@ -21060,7 +21692,7 @@
      ]
     },
     {
-     "n": 51,
+     "n": 59,
      "title": "Modals of necessity and advice: must, have to, should",
      "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
      "chapter": "Chapter 9",
@@ -21139,7 +21771,7 @@
      ]
     },
     {
-     "n": 52,
+     "n": 60,
      "title": "Ability and possibility: can, could, may, might",
      "title_fa": "توانایی و احتمال: can، could، may، might",
      "chapter": "Chapter 9",
@@ -21218,7 +21850,7 @@
      ]
     },
     {
-     "n": 53,
+     "n": 61,
      "title": "Requests and suggestions: could you, would you mind, let's",
      "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
      "chapter": "Chapter 9",
@@ -21297,7 +21929,7 @@
      ]
     },
     {
-     "n": 54,
+     "n": 62,
      "title": "Degrees of certainty: must be, may be, can't be",
      "title_fa": "درجات اطمینان: must be، may be، can't be",
      "chapter": "Chapter 10",
@@ -21376,7 +22008,7 @@
      ]
     },
     {
-     "n": 55,
+     "n": 63,
      "title": "The passive",
      "title_fa": "جملات مجهول",
      "chapter": "Chapter 11",
@@ -21455,7 +22087,7 @@
      ]
     },
     {
-     "n": 56,
+     "n": 64,
      "title": "The passive with modals, get and stative verbs",
      "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
      "chapter": "Chapter 11",
@@ -21534,7 +22166,7 @@
      ]
     },
     {
-     "n": 57,
+     "n": 65,
      "title": "Noun clauses and reported speech",
      "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
      "chapter": "Chapter 12",
@@ -21613,7 +22245,7 @@
      ]
     },
     {
-     "n": 58,
+     "n": 66,
      "title": "The subjunctive in noun clauses: insist that he be",
      "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
      "chapter": "Chapter 12",
@@ -21692,7 +22324,7 @@
      ]
     },
     {
-     "n": 59,
+     "n": 67,
      "title": "Adjective clauses",
      "title_fa": "جملات وصفی (موصولی)",
      "chapter": "Chapter 13",
@@ -21771,7 +22403,7 @@
      ]
     },
     {
-     "n": 60,
+     "n": 68,
      "title": "Reducing adjective clauses to phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
      "chapter": "Chapter 13",
@@ -21850,7 +22482,7 @@
      ]
     },
     {
-     "n": 61,
+     "n": 69,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -21929,7 +22561,7 @@
      ]
     },
     {
-     "n": 62,
+     "n": 70,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -22008,7 +22640,7 @@
      ]
     },
     {
-     "n": 63,
+     "n": 71,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -22087,7 +22719,7 @@
      ]
     },
     {
-     "n": 64,
+     "n": 72,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -22166,7 +22798,7 @@
      ]
     },
     {
-     "n": 65,
+     "n": 73,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -22245,7 +22877,7 @@
      ]
     },
     {
-     "n": 66,
+     "n": 74,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -22324,7 +22956,7 @@
      ]
     },
     {
-     "n": 67,
+     "n": 75,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",

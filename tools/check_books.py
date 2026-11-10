@@ -476,7 +476,15 @@ PINNED_GRAMMAR = [
     "A lot of, lots of and plenty of",
     "Nouns that look plural and are not",
     "Nouns always plural, and nouns with two meanings",
-    "Articles: a, an and the",
+    "The three choices: a, an, the or nothing",
+    "A and an: one of many, not known yet",
+    "The: known to both people",
+    "The: unique things, and the second mention",
+    "No article: plural and noncount general statements",
+    "A and an with jobs, amounts and rates",
+    "No article with names, languages, meals and most places",
+    "The with geography, superlatives and ordinals",
+    "Common article mistakes: a decision procedure",
     "Pronouns, possessive adjectives and other",
     "Reflexive pronouns",
     "Modals of necessity and advice: must, have to, should",
@@ -737,6 +745,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
              or len(l.get("exam") or []) < 3]
     check(not thin6,
           f"{bid}: chapter six chart(s) {thin6} are thinner than the rest of the book")
+
+    # Chapter seven is the article: the four choices, the indefinite, the two
+    # ways the becomes identifiable, the three places English uses nothing,
+    # the fixed patterns, and the procedure that settles a whole paragraph.
+    seventh = [l for l in lessons if l.get("chapter") == "Chapter 7"]
+    check([str(l.get("section")) for l in seventh] == [f"7-{i}" for i in range(1, 10)],
+          f"{bid}: chapter seven is not its nine charts in order "
+          f"(got {[str(l.get('section')) for l in seventh]})")
+    thin7 = [str(l.get("section")) for l in seventh
+             if len(l.get("examples") or []) < 3
+             or len(l.get("exercises") or []) < 3
+             or len(l.get("exam") or []) < 3]
+    check(not thin7,
+          f"{bid}: chapter seven chart(s) {thin7} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"

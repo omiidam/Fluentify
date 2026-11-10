@@ -345,8 +345,14 @@ def check_kids_layer(src):
         unscoped.append(line.strip())
     check(not unscoped,
           f"kids rules reach adult selectors: {unscoped[:6]}")
-    check("body.kids {" in block and "--surf" in block.split("body.kids {", 1)[1][:400],
-          "the kids palette is not declared under body.kids")
+    palette = block.split("body.kids {", 1)[1] if "body.kids {" in block else ""
+    check("--k-primary:" in palette and "--k-surface:" in palette
+          and "--k-ink:" in palette,
+          "the kids palette is not declared as tokens under body.kids")
+    check("--surf-1:" in palette and "--ink:" in palette,
+          "the shared surface tokens are not pointed at the kids palette")
+    check("background: var(--k-surface)" in block and "color: var(--k-ink)" in block,
+          "the kids components do not consume the tokens")
 
     motion = src[src.index("@media (prefers-reduced-motion: reduce)", end):]
     for sel in (".kspark", ".kstars i"):

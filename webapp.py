@@ -6302,75 +6302,111 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      with 18-20px corners, one color per section, larger type and larger taps
      for smaller hands, and the fox as a character rather than a logo.
      ========================================================================== */
+  /* ---- the Kids design tokens -----------------------------------------
+     One palette, not a set of unrelated bright colors: a friendly teal that
+     carries every important action, three pale tints for surfaces and icon
+     chips (sky, mint, sun), one warm accent (coral) for the odd highlight,
+     warm off-white for the page and true white for content. Text is deep
+     charcoal with muted slate beneath it, and every border is the same soft
+     gray. Each rule below reads these, so the whole identity can be retuned
+     in one place - and none of the adult tokens are touched, because all of
+     this lives behind body.kids. */
   body.kids {
-    --surf-1: #fffdf6; --surf-2: #fff8e6; --surf-3: #fff2d6;
-    --surf-4: #ffe9bd; --surf-5: #ffdfa6; --surf-6: #ffd48c;
-    --chat-bg: #fff7e4; --raise: #ffffff; --raise-2: #fffef9;
-    --line: #ffd79c; --line2: #f5c481; --line-soft: #ffe9c4; --line-strong: #efb268;
-    --ink: #2a2350; --ink-1: #2a2350; --ink-2: #453a70; --ink-3: #63548c;
-    --ink-4: #8b7aae; --ink-5: #7a6b9c; --title: #2a2350; --muted: #7a6b9c;
-    --gold-ink: #8a4708; --navy: #2a2350; --navy-ink: #2a2350;
-    --indigo-ink: #5b3fbf; --violet-ink: #6d3fc0; --green-ink: #1f6b4f;
+    --k-primary: #388f86; --k-primary-dark: #276d67;
+    --k-primary-wash: #e7f3f1; --k-primary-line: #b7d9d4;
+    --k-sky: #dceeff; --k-sky-line: #bcdcf5; --k-sky-ink: #245c7a;
+    --k-mint: #ddf2e7; --k-mint-line: #bde3d3; --k-mint-ink: #22654f;
+    --k-sun: #f7d979; --k-sun-wash: #fcf3d9; --k-sun-line: #efdca4; --k-sun-ink: #7a5a12;
+    --k-coral: #f2a18f; --k-coral-wash: #fbece7; --k-coral-line: #f0cdc3; --k-coral-ink: #8e3f2c;
+    --k-bg: #f7f8f5; --k-surface: #ffffff; --k-surface-2: #fbfcfa;
+    --k-ink: #29343b; --k-ink-2: #5f6e78; --k-line: #e5eae8;
+    --k-line-strong: #d3dbd7; --k-shadow: rgba(41, 52, 59, .07);
+    --k-good: #1f6a45; --k-good-wash: #e8f6ee; --k-good-line: #b9e0ca;
+    --k-bad: #9e4433; --k-bad-wash: #fbedeb; --k-bad-line: #e8c1b6;
+
+    /* the shared surface tokens follow the same palette, so any component
+       that still reads them lands in the kids world rather than the paper one */
+    --surf-1: #fbfcfa; --surf-2: #f7f8f5; --surf-3: #f1f4f1;
+    --surf-4: #eaf1ee; --surf-5: #e1ebe6; --surf-6: #d7e4de;
+    --chat-bg: #fbfcfa; --raise: #ffffff; --raise-2: #ffffff;
+    --line: #e5eae8; --line2: #d3dbd7; --line-soft: #eef2ef; --line-strong: #c6d2cc;
+    --ink: #29343b; --ink-1: #29343b; --ink-2: #3d4a52; --ink-3: #5a6b75;
+    --ink-4: #71808a; --ink-5: #71808a; --title: #29343b; --muted: #71808a;
+    --gold-ink: #7a5a12; --navy: #29343b; --navy-ink: #276d67;
+    --indigo-ink: #276d67; --violet-ink: #388f86; --green-ink: #22654f;
     background:
-      radial-gradient(58% 38% at 8% 0%, rgba(255,208,86,.55), transparent 62%),
-      radial-gradient(52% 40% at 100% 6%, rgba(96,196,255,.42), transparent 60%),
-      radial-gradient(70% 52% at 50% 104%, rgba(255,146,170,.30), transparent 64%),
-      linear-gradient(180deg, #fff8e6 0%, #fff2d6 100%);
+      radial-gradient(70% 44% at 50% 0%, rgba(220, 238, 255, .55), transparent 72%),
+      var(--k-bg);
+    color: var(--k-ink);
   }
   body.kids header {
-    background: linear-gradient(180deg, #fff9e9 0%, #ffefcd 100%);
-    border-bottom: 2px solid #ffd79c;
+    background: var(--k-surface);
+    border-bottom: 1px solid var(--k-line);
     padding: 12px 16px;
   }
-  body.kids h1 { color: #2a2350; letter-spacing: -.2px; }
-  body.kids header p { color: #6a568f; }
+  body.kids h1 { color: var(--k-ink); letter-spacing: -.2px; }
+  body.kids header p { color: var(--k-ink-2); }
   /* A tile a child can hit: 62px, a 6px radius background, an icon at 24px
      and a 10px label. The colored square behind the glyph is what makes the
      strip scannable without labels doing all the work. */
   body.kids .tools { gap: 8px; }
   body.kids .hbtn {
     width: 62px; height: 62px; border-radius: 18px; padding: 6px 3px;
-    gap: 4px; border-width: 2px;
-    box-shadow: 0 3px 0 rgba(210,160,70,.20);
+    gap: 4px; border: 1.5px solid var(--k-line);
+    background: var(--k-surface);
+    box-shadow: 0 2px 6px var(--k-shadow);
   }
   body.kids .hbtn i {
     width: 26px; height: 26px; border-radius: 9px;
-    background: rgba(255,255,255,.72);
+    background: var(--k-primary-wash); color: var(--k-primary-dark);
   }
   body.kids .hbtn i svg { width: 21px; height: 21px; }
-  body.kids .hbtn span { font-size: 10px; font-weight: 800; color: #4a3a72; }
-  body.kids .hbtn.on span, body.kids .hbtn.on i { color: #fffdf6; }
-  body.kids .hbtn.on i { background: rgba(255,255,255,.18); }
-  body.kids .hbtn:hover { transform: translateY(-2px); }
+  body.kids .hbtn span { font-size: 10px; font-weight: 800; color: var(--k-ink); }
+  body.kids .hbtn:hover { transform: translateY(-2px); border-color: var(--k-line-strong); }
+  body.kids .hbtn.on {
+    background: var(--k-primary-dark); border-color: var(--k-primary-dark);
+    box-shadow: 0 3px 0 #1f5b56;
+  }
+  body.kids .hbtn.on span { color: #ffffff; }
+  body.kids .hbtn.on i { background: rgba(255,255,255,.2); color: #ffffff; }
   /* The chart the fox already sits on in the adult app, drawn fresh: wide
      corners, a sunshine edge and a little more room around the words. */
   body.kids .msg {
-    border-radius: 20px; font-size: 17px; line-height: 1.65;
-    border-width: 2px;
+    border-radius: 18px; font-size: 17px; line-height: 1.65;
+    border: 1.5px solid var(--k-line); background: var(--k-surface);
+    color: var(--k-ink);
   }
   body.kids .msg.bot {
-    background: linear-gradient(180deg, #ffffff 0%, #f0fbf7 100%);
-    border-color: #cdeee2; border-bottom-left-radius: 8px;
+    background: var(--k-surface);
+    border-color: var(--k-line); border-bottom-left-radius: 8px;
   }
   body.kids .msg.user {
-    background: linear-gradient(135deg, #4cc3ff 0%, #4f7cff 60%, #7c5cff 100%);
-    border-bottom-right-radius: 8px;
+    background: var(--k-primary-dark); border-color: #1f5b56;
+    color: #ffffff; border-bottom-right-radius: 8px;
+  }
+  body.kids .msg.user b, body.kids .msg.user strong {
+    background: rgba(255,255,255,.22); box-shadow: none; color: #ffffff;
   }
   body.kids .msg b, body.kids .msg strong {
-    background: rgba(255,214,102,.42); box-shadow: inset 0 0 0 2px rgba(240,178,60,.32);
+    background: rgba(247,217,121,.42); box-shadow: inset 0 0 0 1.5px var(--k-sun-line);
   }
   body.kids .schip, body.kids .starters .schip {
-    border-radius: 16px; font-size: 13px; padding: 9px 14px;
-    border: 2px solid #ffd79c; background: #fffdf6; color: #2a2350; font-weight: 700;
+    border-radius: 14px; font-size: 13px; padding: 9px 14px;
+    border: 1.5px solid var(--k-line); background: var(--k-surface);
+    color: var(--k-ink); font-weight: 700;
   }
-  body.kids .starters .schip:hover { background: #fff2d6; }
+  body.kids .starters .schip:hover {
+    background: var(--k-primary-wash); border-color: var(--k-primary-line);
+  }
   /* Panels are full pages in both experiences; the kid page is a poster, so
      it gets the wide corners and a heavier title. */
   body.kids #kpanel.open, body.kids #dpanel.open, body.kids #vpanel.open,
   body.kids #gpanel.open, body.kids #fpanel.open, body.kids #lpanel.open,
   body.kids #rdpanel.open, body.kids #stpanel.open, body.kids #acpanel.open,
   body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open {
-    border-radius: 24px 24px 0 0;
+    border-radius: 20px 20px 0 0;
+    background: var(--k-surface);
+    border-color: var(--k-line);
   }
   body.kids #kpanel h3, body.kids #vpanel h3, body.kids #gpanel h3,
   body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,
@@ -6389,68 +6425,67 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .khero {
     position: relative; overflow: hidden;
     display: flex; align-items: center; gap: 12px;
-    padding: 14px 16px 16px; margin-bottom: 12px;
-    border-radius: 22px;
-    background: radial-gradient(120% 120% at 100% 0%, rgba(255,255,255,.55), transparent 55%),
-      linear-gradient(150deg, #ffd76a 0%, #ffb84d 55%, #ff9e6b 100%);
-    border: 2px solid #ffca5e;
-    box-shadow: 0 10px 24px -18px #b57a1e;
+    padding: 14px 16px 15px; margin-bottom: 10px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--k-primary-wash) 0%, var(--k-mint) 58%, var(--k-sky) 100%);
+    border: 1.5px solid var(--k-primary-line);
+    box-shadow: 0 3px 10px -6px rgba(39, 109, 103, .35);
   }
   .khero .kface {
-    flex: none; width: 66px; height: 66px; border-radius: 50%;
+    flex: none; width: 62px; height: 62px; border-radius: 50%;
     display: grid; place-items: center; overflow: hidden;
-    background: #fffdf6; box-shadow: inset 0 0 0 3px rgba(255,255,255,.9);
+    background: var(--k-surface); box-shadow: inset 0 0 0 2px var(--k-primary-line);
   }
-  .khero .kface svg, .khero .kface img { width: 56px; height: 56px; display: block; }
+  .khero .kface svg, .khero .kface img { width: 52px; height: 52px; display: block; }
   .khero .kgreet { min-width: 0; }
   .khero .kgreet b {
     display: block; font-family: var(--font-display); font-size: 21px;
-    line-height: 1.15; color: #3b2a12;
+    line-height: 1.15; color: var(--k-ink);
   }
   .khero .kgreet span {
-    display: block; font-size: 12px; line-height: 1.5; color: #5a4216; margin-top: 3px;
+    display: block; font-size: 12.5px; line-height: 1.5; color: #3f5453; margin-top: 3px;
   }
   .khero .kgreet .kfa { direction: rtl; text-align: right; }
-  .kstars { display: flex; align-items: center; gap: 4px; margin-top: 7px; }
+  .kstars { display: flex; align-items: center; gap: 5px; margin-top: 7px; }
   .kstars i {
-    width: 16px; height: 16px; display: block;
-    background: #fffdf6; border-radius: 50%;
-    box-shadow: inset 0 0 0 2px rgba(180,120,20,.35);
+    width: 15px; height: 15px; display: block;
+    background: var(--k-surface); border-radius: 50%;
+    box-shadow: inset 0 0 0 1.5px var(--k-sun-line);
     transition: transform .25s cubic-bezier(.2,1.7,.4,1), background .25s;
   }
-  .kstars i.on { background: #ff7a4d; box-shadow: inset 0 0 0 2px #e2562a; }
+  .kstars i.on { background: var(--k-sun); box-shadow: inset 0 0 0 1.5px #d8b955; }
   .kstars i.pop { transform: scale(1.35); }
-  .kbar { height: 12px; border-radius: 999px; background: rgba(255,255,255,.65); overflow: hidden; margin-top: 8px; }
+  .kbar { height: 10px; border-radius: 999px; background: #ffffff; overflow: hidden; margin-top: 8px; }
   .kbar i { display: block; height: 100%; border-radius: 999px;
-    background: linear-gradient(90deg, #4cc3ff, #7c5cff); transition: width .5s cubic-bezier(.22,1,.36,1); }
-  .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; color: #5a4216; font-weight: 700; }
+    background: var(--k-primary); transition: width .5s cubic-bezier(.22,1,.36,1); }
+  .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--k-primary-dark); font-weight: 700; }
 
   /* level and streak, then the one tap back to where the child was */
   .kstrip { display: flex; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
   .kchip {
-    flex: 1 1 0; min-width: 118px; padding: 9px 12px; border-radius: 16px;
-    background: #ffffff; border: 2px solid #ffe0ae;
-    box-shadow: 0 3px 0 rgba(210,160,70,.14);
+    flex: 1 1 0; min-width: 118px; padding: 9px 12px; border-radius: 14px;
+    background: var(--k-surface); border: 1.5px solid var(--k-line);
+    box-shadow: 0 1px 3px var(--k-shadow);
     display: flex; flex-direction: column; gap: 1px;
   }
-  .kchip b { font-size: 13px; color: #2a2350; }
-  .kchip i { font-style: normal; font-size: 11px; color: #7a6b9c; direction: rtl; text-align: right; }
-  .kchip.on { border-color: #b9e3d3; background: #f4fdf9; }
-  .kchip.on b { color: #1f6b4f; }
+  .kchip b { font-size: 13px; color: var(--k-ink); }
+  .kchip i { font-style: normal; font-size: 11px; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kchip.on { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
+  .kchip.on b { color: var(--k-primary-dark); }
   .kcont {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
-    cursor: pointer; font-family: inherit; padding: 12px 14px; margin-bottom: 12px;
-    border-radius: 20px; border: 2px solid #ffc9b0;
-    background: linear-gradient(135deg, #fff4ea 0%, #ffe9f0 100%);
-    box-shadow: 0 4px 0 rgba(214,120,90,.18); color: #2a2350;
+    cursor: pointer; font-family: inherit; padding: 13px 15px; margin-bottom: 10px;
+    border-radius: 16px; border: 1.5px solid var(--k-primary-dark);
+    background: var(--k-primary-dark); color: #ffffff;
+    box-shadow: 0 3px 0 #1f5b56;
     transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s;
   }
-  .kcont:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(214,120,90,.18); }
-  .kcont .kico { font-size: 26px; line-height: 1; }
+  .kcont:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #1f5b56; }
+  .kcont .kico { font-size: 24px; line-height: 1; }
   .kcont .kct { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
-  .kcont .kct b { font-size: 15px; }
-  .kcont .kct i { font-style: normal; font-size: 11.5px; color: #7a5a6f; direction: rtl; text-align: right; }
-  .kcont .kgo { font-size: 12px; font-weight: 800; color: #b4451f; }
+  .kcont .kct b { font-size: 15px; color: #ffffff; }
+  .kcont .kct i { font-style: normal; font-size: 11.5px; color: rgba(255,255,255,.86); direction: rtl; text-align: right; }
+  .kcont .kgo { font-size: 12px; font-weight: 800; color: #ffffff; }
 
   /* Three registers, one for each part of the age range the band covers.
      Younger children get bigger tiles, bigger icons and fewer words per
@@ -6466,7 +6501,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids-young .msg { font-size: 18px; }
 
   body.kids-older .kgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
-  body.kids-older .kbtn { min-height: 68px; box-shadow: 0 2px 0 rgba(210,160,70,.16); }
+  body.kids-older .kbtn { min-height: 68px; box-shadow: 0 1px 2px var(--k-shadow); }
   body.kids-older .kbtn .kico { font-size: 19px; }
   body.kids-older .kbtn b { font-size: 13px; }
   body.kids-older .kbtn .kgo { display: none; }
@@ -6477,25 +6512,28 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids-older .msg { font-size: 16.5px; }
 
   /* build a sentence: the line being made, then the words still to use */
-  .kbuild .khint { font-size: 12.5px; color: #6a568f; margin: 2px 0 10px; }
+  .kbuild .khint { font-size: 12.5px; color: var(--k-ink-2); margin: 2px 0 10px; }
   .kbuild .kpicked {
     min-height: 44px; display: flex; flex-wrap: wrap; gap: 6px;
     align-items: flex-start; padding: 6px; margin-bottom: 8px;
-    border-radius: 14px; border: 2px dashed #e6d3b4; background: #fffdf6;
+    border-radius: 12px; border: 1.5px dashed var(--k-line-strong);
+    background: var(--k-surface-2);
   }
   .kbuild .kpicked:empty::before {
-    content: 'Tap the words in order…'; font-size: 12px; color: #a291bd;
+    content: 'Tap the words in order…'; font-size: 12px; color: var(--k-ink-2);
   }
   .kbuild .kbank { display: flex; flex-wrap: wrap; gap: 6px; }
   .kword {
     cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 700;
-    padding: 8px 12px; border-radius: 12px; min-height: 40px;
-    border: 2px solid #ffd79c; background: #fff8e6; color: #2a2350;
-    transition: transform .12s, background .12s;
+    padding: 8px 12px; border-radius: 10px; min-height: 42px;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink);
+    transition: transform .12s, background .12s, border-color .12s;
   }
-  .kword:hover { background: #fff2d6; transform: translateY(-1px); }
+  .kword:hover { background: var(--k-primary-wash); border-color: var(--k-primary-line); transform: translateY(-1px); }
+  .kword:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
   .kword[hidden] { display: none; }
-  .kword.on { background: #e8f7ff; border-color: #a9d9f2; }
+  .kword.on { background: var(--k-primary-wash); border-color: var(--k-primary); }
   .kbuild .kshake { animation: kshake .42s ease; }
   @keyframes kshake {
     0%, 100% { transform: translateX(0); }
@@ -6505,124 +6543,154 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
   .ktoday {
     display: flex; align-items: center; gap: 12px;
-    padding: 12px 14px; margin-bottom: 12px;
-    background: #ffffff; border: 2px solid #cdeee2; border-radius: 20px;
-    box-shadow: 0 6px 18px -16px #1f6b4f;
+    padding: 12px 14px; margin-bottom: 10px;
+    background: var(--k-surface); border: 1.5px solid var(--k-line); border-radius: 16px;
+    box-shadow: 0 1px 3px var(--k-shadow);
   }
-  .ktoday .kemoji { font-size: 30px; line-height: 1; flex: none; }
+  .ktoday .kemoji {
+    flex: none; width: 42px; height: 42px; border-radius: 12px;
+    display: grid; place-items: center; font-size: 22px;
+    background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line);
+  }
   .ktoday .kwt { min-width: 0; flex: 1 1 auto; }
-  .ktoday .kwt b { font-size: 20px; color: #2a2350; letter-spacing: -.2px; }
-  .ktoday .kwt .kdef { font-size: 12px; color: #4a3a72; margin-top: 2px; }
-  .ktoday .kwt .kfa { font-size: 13px; color: #1f6b4f; direction: rtl; text-align: right; margin-top: 2px; }
+  .ktoday .kwt b { font-size: 19px; color: var(--k-ink); letter-spacing: -.2px; }
+  .ktoday .kwt .kdef { font-size: 12px; color: var(--k-ink-2); margin-top: 2px; }
+  .ktoday .kwt .kfa { font-size: 13px; color: var(--k-mint-ink); direction: rtl; text-align: right; margin-top: 2px; }
   .ksay {
-    flex: none; width: 44px; height: 44px; border-radius: 14px; cursor: pointer;
-    border: 2px solid #cdeee2; background: #f0fbf7; font-size: 18px; color: #1f6b4f;
+    flex: none; width: 44px; height: 44px; border-radius: 12px; cursor: pointer;
+    border: 1.5px solid var(--k-mint-line); background: var(--k-mint);
+    font-size: 18px; color: var(--k-mint-ink);
+    transition: background .15s, transform .15s;
   }
-  .ksay:hover { background: #dff5ec; }
+  .ksay:hover { background: #d0ebdd; transform: translateY(-1px); }
 
-  .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 9px; }
+  .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+  /* One tile, six tints. The tint lives on the icon chip and the hairline, not
+     on the whole card, so six sections read as one grid instead of six colors. */
   .kbtn {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
-    min-height: 74px; padding: 11px 12px; cursor: pointer; font-family: inherit;
-    border-radius: 18px; border: 2px solid var(--line); background: #ffffff;
-    color: #2a2350; text-align: start;
-    box-shadow: 0 3px 0 rgba(210,160,70,.18);
-    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+    min-height: 76px; padding: 12px 13px; cursor: pointer; font-family: inherit;
+    border-radius: 16px; border: 1.5px solid var(--k-line); background: var(--k-surface);
+    color: var(--k-ink); text-align: start;
+    box-shadow: 0 1px 3px var(--k-shadow);
+    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s, border-color .14s;
   }
-  .kbtn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(210,160,70,.18); }
-  .kbtn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(210,160,70,.2); }
-  .kbtn .kico { font-size: 22px; line-height: 1; }
+  .kbtn:hover {
+    transform: translateY(-2px); border-color: var(--k-primary-line);
+    box-shadow: 0 4px 12px -6px rgba(41, 52, 59, .22);
+  }
+  .kbtn:active { transform: translateY(0); box-shadow: 0 1px 2px var(--k-shadow); }
+  .kbtn:focus-visible {
+    outline: 2px solid var(--k-primary); outline-offset: 2px;
+  }
+  .kbtn .kico {
+    width: 34px; height: 34px; border-radius: 10px; font-size: 18px;
+    display: grid; place-items: center; line-height: 1;
+    background: var(--k-primary-wash); border: 1.5px solid transparent;
+  }
   .kbtn b { font-size: 13.5px; font-weight: 800; }
-  .kbtn .kfa { font-size: 11px; color: #6a568f; direction: rtl; }
-  .kbtn .kgo { font-size: 10.5px; color: #7a6b9c; font-weight: 700; margin-top: auto; }
-  .kbtn.kc-teal { border-color: #bfe9dc; background: #f4fdf9; }
-  .kbtn.kc-sky { border-color: #c3e6ff; background: #f4fbff; }
-  .kbtn.kc-coral { border-color: #ffd0c0; background: #fff7f3; }
-  .kbtn.kc-grape { border-color: #dcd2ff; background: #f8f5ff; }
-  .kbtn.kc-sun { border-color: #ffe2a0; background: #fffdf2; }
-  .kbtn.kc-rose { border-color: #ffd0e0; background: #fff5f9; }
+  .kbtn .kfa { font-size: 11px; color: var(--k-ink-2); direction: rtl; }
+  .kbtn .kgo { font-size: 10.5px; color: var(--k-primary-dark); font-weight: 800; margin-top: auto; }
+  .kbtn.kc-teal { border-color: var(--k-primary-line); }
+  .kbtn.kc-teal .kico { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
+  .kbtn.kc-sky { border-color: var(--k-sky-line); }
+  .kbtn.kc-sky .kico { background: var(--k-sky); border-color: var(--k-sky-line); }
+  .kbtn.kc-mint { border-color: var(--k-mint-line); }
+  .kbtn.kc-mint .kico { background: var(--k-mint); border-color: var(--k-mint-line); }
+  .kbtn.kc-sun { border-color: var(--k-sun-line); }
+  .kbtn.kc-sun .kico { background: var(--k-sun-wash); border-color: var(--k-sun-line); }
+  .kbtn.kc-coral { border-color: var(--k-coral-line); }
+  .kbtn.kc-coral .kico { background: var(--k-coral-wash); border-color: var(--k-coral-line); }
+  .kbtn.kc-neutral { border-color: var(--k-line); }
+  .kbtn.kc-neutral .kico { background: var(--k-surface-2); border-color: var(--k-line-strong); }
 
   .kcard {
-    background: #ffffff; border: 2px solid var(--line); border-radius: 20px;
-    padding: 12px 14px 14px; margin-bottom: 10px;
+    background: var(--k-surface); border: 1.5px solid var(--k-line);
+    border-radius: 16px; padding: 14px 15px 16px; margin-bottom: 10px;
+    box-shadow: 0 1px 3px var(--k-shadow);
   }
-  .kcard h4 { margin: 0 0 2px; font-size: 16px; color: #2a2350; font-family: var(--font-display); }
-  .kcard .kfa-h { font-size: 12px; color: #6a568f; direction: rtl; margin-bottom: 6px; }
-  .kcard p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.6; color: #3b3060; }
-  .kcard .kfa-p { font-size: 12.5px; color: #4a3a72; direction: rtl; text-align: right; }
+  .kcard h4 { margin: 0 0 2px; font-size: 16px; color: var(--k-ink); font-family: var(--font-display); }
+  .kcard .kfa-h { font-size: 12px; color: var(--k-ink-2); direction: rtl; margin-bottom: 6px; }
+  .kcard p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.65; color: var(--k-ink-2); }
+  .kcard .kfa-p { font-size: 12.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
   .kcard .kform {
-    font-size: 13px; font-weight: 700; color: #5b3fbf;
-    background: #f2eeff; border-radius: 10px; padding: 7px 10px; margin: 4px 0 8px;
+    font-size: 13px; font-weight: 700; color: var(--k-primary-dark);
+    background: var(--k-primary-wash); border: 1.5px solid var(--k-primary-line);
+    border-radius: 10px; padding: 7px 10px; margin: 4px 0 8px;
     direction: ltr;
   }
-  .klabel { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #7a6b9c; margin: 10px 0 5px; }
+  .klabel { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--k-ink-2); margin: 10px 0 5px; }
   .kex { display: flex; flex-direction: column; gap: 6px; }
   .kex .krow {
-    display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px;
-    background: #f7fdff; border: 1.5px solid #cfeaf7; border-radius: 14px;
+    display: flex; gap: 8px; align-items: flex-start; padding: 9px 11px;
+    background: var(--k-surface-2); border: 1.5px solid var(--k-line); border-radius: 12px;
   }
   .kex .krow .kplay {
-    flex: none; width: 30px; height: 30px; border-radius: 10px; cursor: pointer;
-    border: 1.5px solid #bfe1ef; background: #fff; color: #235c76; font-size: 12px;
+    flex: none; width: 32px; height: 32px; border-radius: 9px; cursor: pointer;
+    border: 1.5px solid var(--k-sky-line); background: var(--k-sky);
+    color: var(--k-sky-ink); font-size: 12px;
   }
-  .kex .krow .ken { font-size: 13.5px; color: #22374a; }
-  .kex .krow .kfa { font-size: 12.5px; color: #4a3a72; direction: rtl; text-align: right; }
+  .kex .krow .ken { font-size: 13.5px; color: var(--k-ink); }
+  .kex .krow .kfa { font-size: 12.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
 
   .kq { margin-top: 10px; }
-  .kq .kqq { font-size: 14px; font-weight: 700; color: #2a2350; margin-bottom: 6px; direction: ltr; }
+  .kq .kqq { font-size: 14px; font-weight: 700; color: var(--k-ink); margin-bottom: 6px; direction: ltr; }
   .kopts { display: flex; flex-wrap: wrap; gap: 6px; }
   .kopt {
     font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
-    padding: 9px 13px; min-height: 40px; border-radius: 14px;
-    border: 2px solid #e6ddff; background: #faf8ff; color: #3b3060;
+    padding: 9px 13px; min-height: 42px; border-radius: 12px;
+    border: 1.5px solid var(--k-line); background: var(--k-surface); color: var(--k-ink);
+    transition: background .14s, border-color .14s;
   }
-  .kopt:hover { background: #f2eeff; }
-  .kopt.on { border-color: #7c5cff; background: #efe9ff; }
-  .kopt.ok { border-color: #2f9e6f; background: #e6f8ef; color: #1f6b4f; }
-  .kopt.no { border-color: #e2704f; background: #fff0ea; color: #a8432a; }
-  .kopt[disabled] { cursor: default; opacity: .9; }
+  .kopt:hover { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
+  .kopt.ok { border-color: var(--k-good-line); background: var(--k-good-wash); color: var(--k-good); }
+  .kopt.no { border-color: var(--k-bad-line); background: var(--k-bad-wash); color: var(--k-bad); }
+  .kopt[disabled] { cursor: default; opacity: .92; }
+  .kopt:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
   .kwhy { margin-top: 6px; font-size: 12.5px; line-height: 1.6; }
-  .kwhy .ken { color: #1f6b4f; }
-  .kwhy .kfa { color: #4a3a72; direction: rtl; text-align: right; }
+  .kwhy .ken { color: var(--k-good); }
+  .kwhy .kfa { color: var(--k-ink-2); direction: rtl; text-align: right; }
   .kspark { animation: kPop .45s cubic-bezier(.2,1.8,.4,1); }
   @keyframes kPop { 0% { transform: scale(.9); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
   .kwin {
     display: flex; align-items: center; gap: 8px; margin-top: 10px;
-    padding: 9px 12px; border-radius: 14px; font-size: 13px; font-weight: 800;
-    background: #e6f8ef; color: #1f6b4f; border: 2px solid #b9e7cd;
+    padding: 9px 12px; border-radius: 12px; font-size: 13px; font-weight: 800;
+    background: var(--k-good-wash); color: var(--k-good); border: 1.5px solid var(--k-good-line);
   }
   .kwin .kfa { direction: rtl; font-weight: 700; }
 
   .klist { display: flex; flex-direction: column; gap: 8px; }
   .krowbtn {
-    display: flex; align-items: center; gap: 10px; width: 100%;
+    display: flex; align-items: center; gap: 11px; width: 100%;
     padding: 11px 13px; cursor: pointer; font-family: inherit; text-align: start;
-    border-radius: 16px; border: 2px solid var(--line); background: #fff;
-    color: #2a2350;
+    border-radius: 14px; border: 1.5px solid var(--k-line); background: var(--k-surface);
+    color: var(--k-ink); box-shadow: 0 1px 2px var(--k-shadow);
+    transition: border-color .14s, background .14s;
   }
-  .krowbtn:hover { background: #fffaea; }
-  .krowbtn .kico { font-size: 22px; }
+  .krowbtn:hover { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
+  .krowbtn:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
+  .krowbtn .kico { font-size: 20px; width: 30px; text-align: center; }
   .krowbtn b { font-size: 14px; }
-  .krowbtn .kfa { font-size: 11.5px; color: #6a568f; direction: rtl; }
-  .krowbtn .kn { margin-inline-start: auto; font-size: 11px; color: #7a6b9c; font-weight: 700; }
+  .krowbtn .kfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
+  .krowbtn .kn { margin-inline-start: auto; font-size: 11px; color: var(--k-ink-2); font-weight: 700; }
   .kback {
     display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
     font-family: inherit; font-size: 12.5px; font-weight: 800;
-    border: 0; background: none; color: #5b3fbf; padding: 0 0 8px;
+    border: 0; background: none; color: var(--k-primary-dark); padding: 0 0 8px;
   }
   .kback:hover { text-decoration: underline; }
-  .kpara { font-size: 14px; line-height: 1.75; color: #3b3060; direction: ltr; }
-  .kpara-fa { font-size: 12.5px; line-height: 1.9; color: #4a3a72; direction: rtl; text-align: right; margin-top: 6px; }
+  .kpara { font-size: 14px; line-height: 1.8; color: var(--k-ink); direction: ltr; }
+  .kpara-fa { font-size: 12.5px; line-height: 1.95; color: var(--k-ink-2); direction: rtl; text-align: right; margin-top: 6px; }
   .ktheme { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
   .kwordrow {
-    display: flex; align-items: center; gap: 8px;
-    padding: 9px 11px; border-radius: 14px;
-    border: 2px solid #e8f4ef; background: #fbfffd;
+    display: flex; align-items: center; gap: 9px;
+    padding: 10px 12px; border-radius: 12px;
+    border: 1.5px solid var(--k-line); background: var(--k-surface-2);
   }
-  .kwordrow b { font-size: 15px; color: #1f4b3c; }
-  .kwordrow .kfa { font-size: 12px; color: #2f6b4f; direction: rtl; margin-inline-start: auto; }
-  .kwordrow .kdef { font-size: 11.5px; color: #4a6b5e; }
-  .kwordrow .kex { font-size: 11.5px; color: #55756a; }
+  .kwordrow b { font-size: 15px; color: var(--k-ink); }
+  .kwordrow .kfa { font-size: 12px; color: var(--k-mint-ink); direction: rtl; margin-inline-start: auto; }
+  .kwordrow .kdef { font-size: 11.5px; color: var(--k-ink-2); }
+  .kwordrow .kex { font-size: 11.5px; color: var(--k-ink-2); }
 
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
@@ -14978,11 +15046,11 @@ const Kids = (() => {
     grid.className = 'kgrid';
     const tiles = [
       ['🎨', 'Words', 'واژه‌ها', 'kc-teal', () => openPanel('vpanel')],
-      ['📘', 'Grammar', 'گرامر', 'kc-grape', () => openPanel('gpanel')],
-      ['📖', 'Read', 'خواندن', 'kc-sky', () => openPanel('rdpanel')],
+      ['📘', 'Grammar', 'گرامر', 'kc-sky', () => openPanel('gpanel')],
+      ['📖', 'Read', 'خواندن', 'kc-mint', () => openPanel('rdpanel')],
       ['🎧', 'Listen', 'شنیدن', 'kc-sun', () => openPanel('lpanel')],
-      ['📚', 'Stories', 'داستان‌ها', 'kc-rose', () => openPanel('stpanel')],
-      ['💬', 'Chat', 'گفتگو', 'kc-coral', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
+      ['📚', 'Stories', 'داستان‌ها', 'kc-coral', () => openPanel('stpanel')],
+      ['💬', 'Chat', 'گفتگو', 'kc-neutral', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
     ];
     tiles.forEach(([ico, en, faText, cls, fn]) => {
       const b = document.createElement('button');
