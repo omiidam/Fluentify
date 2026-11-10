@@ -3851,8 +3851,48 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .foxhead {
     position: absolute; left: 30px; bottom: -14px;
     width: 58px; height: 58px; transform-origin: 50% 100%;
+    perspective: 300px;
     animation: foxBob 6.5s ease-in-out infinite;
   }
+  /* One wrapper carries the two moves that turn her: the lean she arrives
+     with, and the head shake. Keeping them here leaves the bob on .foxhead and
+     the glance on .foxpic, so no two animations ever own the same transform. */
+  .foxshake {
+    width: 100%; height: 100%;
+    transform-origin: 50% 55%;
+  }
+  /* The hello. Three stages, one timeline: reach (0-.95s), wave (1-3.4s),
+     shake (3.55-5.55s), then back to the idle bob. The delays live here so the
+     sequence cannot start the wave before she has arrived or the shake before
+     the wave has finished; ChatFox only says when it begins. */
+  .foxpeek.hello .foxshake {
+    animation:
+      foxReach .95s cubic-bezier(.2,.86,.3,1) both,
+      foxWaveBob 2.4s 1s ease-in-out both,
+      foxNo 2s 3.55s cubic-bezier(.36,.06,.2,.98) both;
+  }
+  /* Her arm sits behind the body, so it is genuinely out of sight until it
+     comes up past her shoulder - not a line switched on with opacity. */
+  .foxarm {
+    opacity: 0; transform-box: view-box; transform-origin: 45.5px 35.6px;
+  }
+  .foxpeek.hello .foxarm {
+    animation: foxWave 2.4s 1s cubic-bezier(.3,.7,.3,1) both;
+  }
+  .foxhand { transform-box: view-box; transform-origin: 57px 12px; }
+  .foxpeek.hello .foxhand {
+    animation: foxWrist 2.4s 1s ease-in-out both;
+  }
+  .foxarmline {
+    fill: none; stroke: var(--ghost-line); stroke-width: 2.1; stroke-linecap: round;
+  }
+  /* The paw is the same white and the same single mint line as the rest of
+     her: a mitten with two seams, not a hand with fingers drawn on. */
+  .foxpaw {
+    fill: var(--ghost-body); stroke: var(--ghost-line); stroke-width: 1.7;
+    stroke-linejoin: round;
+  }
+  .foxseam { fill: none; stroke: var(--ghost-line); stroke-width: .9; opacity: .5; }
   /* No drop-shadow: a filter on an animated element is re-rasterised every
      frame, which is the note the boot card's cut-out already carries. Her
      glow is therefore painted rather than filtered - a radial gradient behind
@@ -3862,6 +3902,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 100%; height: 100%; display: block;
     transform-origin: 50% 92%;
     animation: foxLook 11.3s ease-in-out infinite;
+    /* The waving paw reaches a little past the 60-unit box; the drawing is
+       allowed out, the composer band is still what clips her. */
+    overflow: visible;
   }
   /* A ghost, in three strokes: white body, one green line, and a face made of
      two eyes, a nose and a smile - no fur, no hat, no color but these. */
@@ -3905,6 +3948,62 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     0%, 86%, 100% { transform: scaleY(1); }
     89%, 93%      { transform: scaleY(.12); }
   }
+  /* She arrives slightly late and a touch short, then leans in: the lean is
+     the curiosity, and it is over before the hand comes up. */
+  @keyframes foxReach {
+    0%   { transform: translateY(7px) rotate(5deg); }
+    55%  { transform: translateY(-3px) rotate(-2.2deg); }
+    80%  { transform: translateY(1px) rotate(.7deg); }
+    100% { transform: translateY(0) rotate(0); }
+  }
+  /* Four beats of the hand, each swing a little smaller, and a body that rises
+     into the wave and comes back down with it. */
+  @keyframes foxWave {
+    0%   { opacity: 0; transform: rotate(30deg) translateY(5px); }
+    9%   { opacity: 1; transform: rotate(20deg); }
+    18%  { transform: rotate(-18deg); }
+    27%  { transform: rotate(21deg); }
+    36%  { transform: rotate(-17deg); }
+    45%  { transform: rotate(20deg); }
+    54%  { transform: rotate(-16deg); }
+    63%  { transform: rotate(17deg); }
+    72%  { transform: rotate(-12deg); opacity: 1; }
+    86%  { transform: rotate(18deg) translateY(1px); opacity: .55; }
+    100% { opacity: 0; transform: rotate(30deg) translateY(5px); }
+  }
+  @keyframes foxWrist {
+    0%, 100% { transform: rotate(0); opacity: 0; }
+    10%  { transform: rotate(-14deg); opacity: 1; }
+    20%  { transform: rotate(12deg); }
+    30%  { transform: rotate(-11deg); }
+    40%  { transform: rotate(12deg); }
+    50%  { transform: rotate(-10deg); }
+    60%  { transform: rotate(9deg); }
+    70%  { transform: rotate(-7deg); opacity: 1; }
+    86%  { transform: rotate(5deg); opacity: .5; }
+  }
+  @keyframes foxWaveBob {
+    0%, 100% { transform: translateY(0); }
+    16%  { transform: translateY(-1.7px); }
+    34%  { transform: translateY(-.3px); }
+    52%  { transform: translateY(-1.5px); }
+    70%  { transform: translateY(-.4px); }
+    86%  { transform: translateY(-1.1px); }
+  }
+  /* "No, no." The turn is a yaw - perspective is on .foxhead - and two degrees
+     of roll with a pixel of travel keep it anatomical rather than a spinning
+     picture. The last fifth is the settle, so she finishes still. */
+  @keyframes foxNo {
+    0%, 7%  { transform: rotateY(0) translateX(0) rotate(0); }
+    20%  { transform: rotateY(13deg) translateX(1.2px) rotate(1.2deg); }
+    33%  { transform: rotateY(-13deg) translateX(-1.2px) rotate(-1.2deg); }
+    46%  { transform: rotateY(10deg) translateX(.9px) rotate(.9deg); }
+    59%  { transform: rotateY(-9deg) translateX(-.8px) rotate(-.9deg); }
+    71%  { transform: rotateY(5deg) translateX(.4px) rotate(.4deg); }
+    83%  { transform: rotateY(-2.5deg) translateX(-.2px) rotate(-.3deg); }
+    92%  { transform: rotateY(1deg) translateX(.1px) rotate(.1deg); }
+    100% { transform: rotateY(0) translateX(0) rotate(0); }
+  }
   /* A message goes out: she nods, once, and settles back to the bob. */
   .foxhead.nod { animation: foxNod .52s cubic-bezier(.3,1.6,.5,1); }
   @keyframes foxNod {
@@ -3916,6 +4015,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   /* Dictation opens its own box directly above this one, and she would sit on
      the words: she ducks until it is gone. */
   body.stt-open .foxpeek { transform: translateY(100%); }
+  /* The hello must not hold her up while dictation needs the space. */
+  body.stt-open .foxshake, body.stt-open .foxarm,
+  body.stt-open .foxhand { animation: none; }
   @media (max-width: 560px) {
     .foxslot { height: 42px; }
     .foxhead { left: 28px; width: 54px; height: 54px; bottom: -14px; }
@@ -3926,7 +4028,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      the point of the design - she just does not move. */
   @media (prefers-reduced-motion: reduce) {
     .foxpeek { transition: none; }
-    .foxhead, .foxpic, .foxeyes, .foxhead.nod { animation: none; }
+    .foxhead, .foxpic, .foxeyes, .foxhead.nod,
+    .foxshake, .foxarm, .foxhand { animation: none; }
   }
   .ico {
     flex: 0 0 auto; width: 36px; height: 36px; padding: 0;
@@ -6602,6 +6705,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <!-- Drawn rather than photographed: she is a white ghost with one
                mint line, and the glow is her own gradient. The mascot's ears,
                cheeks and muzzle are kept, and nothing else is. -->
+          <div class="foxshake">
           <svg class="foxpic" viewBox="0 0 60 60" aria-hidden="true" focusable="false">
             <defs>
               <radialGradient class="foxglow" id="foxglow" cx="50%" cy="52%" r="52%">
@@ -6611,6 +6715,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               </radialGradient>
             </defs>
             <ellipse cx="30" cy="33" rx="29" ry="28" fill="url(#foxglow)"/>
+            <!-- Drawn first so the body is in front of it: the arm is hidden
+                 behind her until the wave lifts it past her shoulder. -->
+            <g class="foxarm">
+              <path class="foxarmline" d="M45.5 35.6 C52 32.4 56.2 25.4 56.6 18.6"/>
+              <g class="foxhand">
+                <path class="foxpaw"
+                      d="M52.6 12c0-2.4 2-4.4 4.4-4.4s4.4 2 4.4 4.4c0 2.3-2 4.1-4.4 4.1s-4.4-1.8-4.4-4.1Z"/>
+                <path class="foxseam" d="M53.4 14.4c2 1.2 4.6 1.2 6.6 0"/>
+              </g>
+            </g>
             <path class="foxghost"
                   d="M10.6 4.6 L19.4 13.4 C22.5 12.3 26.2 11.9 30 11.9 C33.8 11.9 37.5 12.3 40.6 13.4 L49.4 4.6 L50 26 C50.6 38 41 49 30 49 C19 49 10.4 38 10 26 Z"/>
             <g class="foxeyes">
@@ -6620,6 +6734,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             <path class="foxnose" d="M30 36.8 l-2.1 2 h4.2 Z"/>
             <path class="foxsmile" d="M26.8 40.8 c1.5 1.9 5.4 1.9 6.9 0"/>
           </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -6901,7 +7016,7 @@ function renderStarters() {
 }
 
 function now() {
-  return new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+  return new Date().toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
 }
 
 function escapeHtml(s) {
@@ -7312,6 +7427,11 @@ let historyAt = -1;
  * she takes no pointer events, and she never covers the field she lives in. */
 const ChatFox = (() => {
   let timer = 0;
+  let settle = 0;
+  /* Reach, wave, shake. The CSS owns the timing; this only needs to know when
+     the last frame is done so the class can come off and the idle bob can have
+     the transform back. */
+  const HELLO_MS = 5700;
   const el = () => document.getElementById('chatfox');
   /* Reduced motion is read live: the pref can be switched while the page is
      open, and an OS-level switch should not need a reload. */
@@ -7329,6 +7449,20 @@ const ChatFox = (() => {
     });
   }
 
+  /* The hello runs once, when she is met - not on every keystroke and not on a
+     loop. A second call while it is still running is ignored rather than
+     restarted, so a page that remounts itself cannot make her stutter. */
+  function hello() {
+    const f = el();
+    if (!f || still()) return;
+    if (f.classList.contains('hello')) return;
+    f.classList.remove('hello');
+    void f.offsetWidth;            // restart the timeline from frame zero
+    f.classList.add('hello');
+    clearTimeout(settle);
+    settle = setTimeout(() => f.classList.remove('hello'), HELLO_MS);
+  }
+
   function mount() {
     const f = el();
     if (!f) return;
@@ -7336,7 +7470,7 @@ const ChatFox = (() => {
     clearTimeout(timer);
     if (still()) { f.classList.add('on'); return; }  // present, never moving
     /* After the boot card, not during it: she should be found, not waiting. */
-    timer = setTimeout(() => f.classList.add('on'), 900);
+    timer = setTimeout(() => { f.classList.add('on'); hello(); }, 900);
   }
 
   function nod() {
@@ -7351,7 +7485,7 @@ const ChatFox = (() => {
     head.classList.add('nod');
   }
 
-  return {mount, nod};
+  return {mount, nod, hello};
 })();
 
 async function send(text) {
@@ -11442,7 +11576,9 @@ const Level = (() => {
     const s = doc.skills.find((x) => x.id === id);
     return s ? s.title : {en: id, fa: id};
   };
-  const fmtDate = (iso) => new Date(iso).toLocaleDateString(undefined,
+  /* en-US, not the browser's own: the app's English is American, and a device
+     set to en-GB would otherwise print "9 Nov 2026" here. */
+  const fmtDate = (iso) => new Date(iso).toLocaleDateString('en-US',
     {day: 'numeric', month: 'short', year: 'numeric'});
 
   const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
@@ -13632,7 +13768,7 @@ const Auth = (() => {
           ${avatarSVG(face)}</div>
         <div class="ac-heroid">
           <p class="ac-name">${esc(account.name)}</p>
-          <p class="ac-user">@${esc(account.user)} · joined ${new Date(account.at).toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'})}</p>
+          <p class="ac-user">@${esc(account.user)} · joined ${new Date(account.at).toLocaleDateString('en-US', {day: 'numeric', month: 'short', year: 'numeric'})}</p>
           <span class="ac-mail">${esc(account.email || 'no email on this account')}</span>
         </div>
       </section>
@@ -13686,7 +13822,7 @@ const Auth = (() => {
       <div class="ac-rows" style="margin-top:10px">
         <div class="ac-row"><span>Email</span><b>${esc(account.email || '—')}</b></div>
         <div class="ac-row"><span>Session</span><b>${left > 0 ? `open · ${days} day${days === 1 ? '' : 's'} left` : 'expired'}</b></div>
-        <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
+        <div class="ac-row"><span>Last used</span><b>${signed ? signed.toLocaleString('en-US', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : '—'}</b></div>
         <div class="ac-row"><span>Studied on</span><b>${study.activeDays} day${study.activeDays === 1 ? '' : 's'}</b></div>
         <div class="ac-row"><span>Stored</span><b>on this device only</b></div>
       </div>
@@ -13938,7 +14074,7 @@ const Cert = (() => {
 
   function render(data) {
     const id = ident(data);
-    const date = new Date(data.at).toLocaleDateString(undefined,
+    const date = new Date(data.at).toLocaleDateString('en-US',
       {day: 'numeric', month: 'long', year: 'numeric'});
     /* A run that skipped a part is not a smaller assessment; it is this
        attempt. The size comes from the bank, and the shortfall is stated rather
@@ -14146,7 +14282,7 @@ const dayLabel = (key) => {
                 'Saturday'];
   const [y, m, d] = String(key).split('-').map(Number);
   const at = new Date(y, m - 1, d);
-  return DAYS[at.getDay()] + ', ' + d + ' ' + MONTHS[m - 1] + ' ' + y;
+  return DAYS[at.getDay()] + ', ' + MONTHS[m - 1] + ' ' + d + ', ' + y;
 };
 
 /* Whole calendar days since the epoch, counted in UTC arithmetic so a 23- or

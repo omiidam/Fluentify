@@ -491,10 +491,29 @@ def main() -> int:
     check("the fox's idle motion switches off with prefers-reduced-motion",
           re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*"
                     r"\.foxpeek \{ transition: none; \}\s*"
-                    r"\.foxhead, \.foxpic, \.foxeyes, \.foxhead\.nod \{ animation: none; \}",
+                    r"\.foxhead, \.foxpic, \.foxeyes, \.foxhead\.nod,\s*"
+                    r"\.foxshake, \.foxarm, \.foxhand \{ animation: none; \}",
                     src) is not None,
           "a companion that keeps bobbing after the setting is on is a "
           "companion nobody can switch off")
+    check("the hello is reach, then wave, then shake, in that order",
+          re.search(r"\.foxpeek\.hello \.foxshake \{\s*animation:\s*"
+                    r"foxReach [^;]*,\s*"
+                    r"foxWaveBob 2\.4s 1s [^;]*,\s*"
+                    r"foxNo 2s 3\.55s ", src) is not None,
+          "the wave has to finish before the head shake starts, or the two "
+          "read as one noise")
+    check("the waving hand starts and finishes hidden behind her body",
+          ".foxarm {" in src
+          and re.search(r"\.foxarm \{\s*opacity: 0;", src) is not None
+          and src.index('class="foxarm"') < src.index('class="foxghost"'),
+          "an arm drawn over the body is a line on her chest when it is not "
+          "waving")
+    check("the hello is a one-off, not a loop that hijacks every keystroke",
+          "const HELLO_MS" in src
+          and "if (f.classList.contains('hello')) return;" in src,
+          "restarting the animation on input would make the composer twitch "
+          "while a learner types")
 
     # -------------------------------------------------------------- borderless --
     # Seven outlined boxes in a row is a rack of buttons, not a toolbar, and
