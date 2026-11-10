@@ -6895,52 +6895,61 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border: 1.5px solid var(--k-primary-line);
     background: #cfeeff;
     box-shadow: 0 6px 18px -12px var(--k-card-shadow);
+    width: 100%; box-sizing: border-box;
     aspect-ratio: 1000 / 620;
-    min-height: 240px;
+    min-height: 244px;
   }
   body.kids .hqw-map svg { display: block; width: 100%; height: 100%; }
-  body.kids .hqw-place {
-    position: absolute; transform: translate(-50%, -100%);
-    display: grid; justify-items: center; gap: 2px; cursor: pointer;
-    background: none; border: 0; padding: 0; font-family: inherit; color: var(--k-ink);
-  }
-  body.kids .hqw-place .pin {
-    width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
-    font-size: 18px; background: #fff; border: 3px solid #fff;
-    box-shadow: 0 3px 0 rgba(20, 60, 55, .18), 0 0 0 2px rgba(20, 60, 55, .12);
+  /* the places are drawn inside the map's own 1000x620 space, so the pins
+     cannot drift from the path and never collide when the map is narrow */
+  body.kids .hqw-pin { cursor: pointer; outline: none; }
+  body.kids .hqw-pin .disc {
+    fill: #fff; stroke: #e6d6b4; stroke-width: 3;
     transition: transform .18s;
   }
-  body.kids .hqw-place:hover .pin { transform: translateY(-2px) scale(1.04); }
-  body.kids .hqw-place .cap {
-    font-size: 9.5px; font-weight: 800; letter-spacing: .02em;
-    background: rgba(255,255,255,.92); color: #24343a;
-    padding: 2px 6px; border-radius: 999px; white-space: nowrap;
-    box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  body.kids .hqw-pin .halo { fill: rgba(255, 255, 255, .38); }
+  body.kids .hqw-pin .ico {
+    font-size: 30px; text-anchor: middle; dominant-baseline: central;
+    pointer-events: none;
   }
-  body.kids .hqw-place.done .pin { background: #e8f8ee; border-color: #b7e3c8; }
-  body.kids .hqw-place.on .pin {
-    border-color: #ffd15c; box-shadow: 0 0 0 4px rgba(255,209,92,.45), 0 3px 0 rgba(20,60,55,.18);
-    animation: kPulse 1.6s ease-in-out infinite;
+  body.kids .hqw-pin:hover .disc, body.kids .hqw-pin:focus-visible .disc {
+    stroke: #ffc23d; stroke-width: 5;
   }
-  body.kids .hqw-place.locked .pin { filter: grayscale(.65); opacity: .92; }
-  body.kids .hqw-place.locked .cap { color: #6b7a80; }
-  body.kids .hqw-place.on .pin::after {
-    content: 'PLAY'; position: absolute; transform: translateY(-42px);
-    font-size: 9px; font-weight: 900; letter-spacing: .08em;
-    color: #fff; background: #e0533f; padding: 3px 8px; border-radius: 999px;
-    box-shadow: 0 2px 0 rgba(0,0,0,.15);
+  body.kids .hqw-pin:focus-visible .halo { fill: rgba(255, 209, 92, .55); }
+  body.kids .hqw-pin.done .disc { fill: #e8f8ee; stroke: #8fd0aa; }
+  body.kids .hqw-pin.locked .disc { fill: #f1efe9; stroke: #cdc7bb; }
+  body.kids .hqw-pin.locked .ico { opacity: .8; }
+  body.kids .hqw-pin.on .disc { stroke: #ffc23d; stroke-width: 5; }
+  body.kids .hqw-pin .ring {
+    fill: none; stroke: #ffd15c; stroke-width: 5; opacity: 0;
+    transform-origin: center; transform-box: fill-box;
   }
-  @keyframes kPulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  body.kids .hqw-pin.on .ring { opacity: .9; animation: kRing 1.9s ease-out infinite; }
+  body.kids .hqw-flag .flag-bg {
+    fill: #e0533f; stroke: #fff; stroke-width: 3;
+    filter: drop-shadow(0 3px 2px rgba(20, 60, 55, .22));
+  }
+  body.kids .hqw-flag .flag-tx {
+    fill: #fff; font-size: 21px; font-weight: 800; text-anchor: middle;
+    letter-spacing: .3px; pointer-events: none;
+  }
+  body.kids .hqw-pin .tick { fill: #2f8f5b; }
+  body.kids .hqw-pin .tick-mark { stroke: #fff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  @keyframes kRing {
+    0% { transform: scale(.9); opacity: .75; }
+    70% { transform: scale(1.55); opacity: 0; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
 
-  /* the fox token on the map moves between pins */
-  body.kids .hqw-token {
-    position: absolute; width: 46px; transform: translate(-50%, -92%);
-    transition: left .85s cubic-bezier(.4,.9,.4,1), top .85s cubic-bezier(.4,.9,.4,1);
-    pointer-events: none; filter: drop-shadow(0 4px 3px rgba(20,60,55,.25));
+  /* the fox token stands on the selected place; it walks between pins */
+  body.kids .hqw-fox {
+    transition: transform .85s cubic-bezier(.4,.9,.4,1);
+    pointer-events: none;
+    filter: drop-shadow(0 6px 5px rgba(20, 60, 55, .28));
   }
-  body.kids .hqw-token.walk .fox-leg-a { animation: kWalkA .42s linear infinite; }
-  body.kids .hqw-token.walk .fox-leg-b { animation: kWalkB .42s linear infinite; }
-  body.kids .hqw-token.walk { animation: kBob .42s ease-in-out infinite; }
+  body.kids .hqw-fox.walk .fox-leg-a { animation: kWalkA .42s linear infinite; }
+  body.kids .hqw-fox.walk .fox-leg-b { animation: kWalkB .42s linear infinite; }
+  body.kids .hqw-fox.walk .fox-body { animation: kBob .42s ease-in-out infinite; }
 
   /* the strip under the map: where you are, the three missions, one action */
   body.kids .hqw-bar {
@@ -6980,6 +6989,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .hqw-scene {
     position: relative; overflow: hidden; border-radius: 20px;
     border: 1.5px solid var(--k-primary-line);
+    width: 100%; box-sizing: border-box;
     aspect-ratio: 1000 / 560; min-height: 260px;
     background: linear-gradient(#bfe6ff, #eaf7e4 62%);
     transition: background .5s;
@@ -7023,7 +7033,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: #24343a; background: rgba(255,255,255,.94); padding: 3px 7px;
     border-radius: 8px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,.10);
   }
+  body.kids .hqw-prop.plain { top: 52% !important; max-width: 30%; }
+  body.kids .hqw-prop.plain .lbl {
+    max-width: 108px; font-size: 15px; font-weight: 800; line-height: 1.5;
+    padding: 12px 10px; border-radius: 14px; min-width: 92px;
+    background: #fffdf7; border: 2.5px solid #fff; color: #24343a;
+    box-shadow: 0 4px 0 rgba(20,60,55,.16), 0 0 0 2px rgba(20,60,55,.10);
+    transition: transform .16s, box-shadow .16s;
+  }
+  body.kids .hqw-prop.plain:hover .lbl { transform: translateY(-3px); }
   body.kids .hqw-prop.right .art { background: #e9fbef; border-color: #8fd9ab; box-shadow: 0 0 0 5px rgba(143,217,171,.35); }
+  body.kids .hqw-prop.right .lbl { background: #e9fbef; border-color: #8fd9ab; }
   body.kids .hqw-prop.wrong { animation: kShake .4s; }
   body.kids .hqw-prop.wrong .art { background: #fdecea; border-color: #e8a99b; }
   @keyframes kFloat { 0%, 100% { margin-top: 0; } 50% { margin-top: -7px; } }
@@ -7206,13 +7226,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .hqw-look .hqnote { font-size: 11px; color: var(--k-ink-2); }
 
   @media (prefers-reduced-motion: reduce) {
-    body.kids .hqw-prop, body.kids .hqw-place.on .pin, body.kids .hqw-token.walk,
-    body.kids .hqw-token.walk .fox-leg-a, body.kids .hqw-token.walk .fox-leg-b,
+    body.kids .hqw-prop, body.kids .hqw-pin.on .ring, body.kids .hqw-fox.walk,
+    body.kids .hqw-fox.walk .fox-leg-a, body.kids .hqw-fox.walk .fox-leg-b,
     body.kids .hqw-fox .fox-tail, body.kids .hqw-fox.walk, body.kids .hqw-fox.walk .fox-leg-a,
     body.kids .hqw-fox.walk .fox-leg-b, body.kids .hqw-fox.run, body.kids .hqw-fox.run .fox-leg-a,
     body.kids .hqw-fox.run .fox-leg-b, body.kids .hqw-fox.cheer, body.kids .hqw-fox.cheer .fox-tail,
     body.kids .hqw-spark, body.kids .hqw-coin, body.kids .hqw-chest .lid { animation: none !important; }
-    body.kids .hqw-token, body.kids .hqw-fox { transition: none; }
+    body.kids .hqw-fox { transition: none; }
   }
 
   /* --- the same identity in the dark theme -----------------------------
@@ -23388,7 +23408,7 @@ const Quest = (() => {
      percentages of the same box, so the path and the pins cannot drift. */
   const NODES = [
     {x: 168, y: 470}, {x: 318, y: 404}, {x: 462, y: 494},
-    {x: 604, y: 356}, {x: 748, y: 444}, {x: 862, y: 268},
+    {x: 604, y: 356}, {x: 748, y: 444}, {x: 832, y: 290},
   ];
 
   function mapSVG() {
@@ -23424,6 +23444,9 @@ const Quest = (() => {
       '<g class="cl cl3" opacity=".8"><ellipse cx="880" cy="128" rx="30" ry="15" fill="#fff"/><ellipse cx="906" cy="122" rx="22" ry="18" fill="#fff"/></g>' +
       /* a couple of palms and flowers, still */ '<g><rect x="76" y="452" width="6" height="30" fill="#9a6a44"/><path d="M79 452 q-26 -14 -34 4 q22 -6 34 4 q10 -14 30 -8 q-14 10 -30 8 Z" fill="#4fa36b"/></g>' +
       '<g fill="#fff3c4"><circle cx="250" cy="512" r="4"/><circle cx="600" cy="418" r="4"/><circle cx="700" cy="500" r="4"/><circle cx="470" cy="540" r="4"/></g>' +
+      /* the places and the hero are drawn in this same space, so they scale
+         and crop with the art instead of floating over it */
+      '<g id="hqpins"></g><g id="hqfox"></g>' +
       '</svg>';
   }
 
@@ -23463,44 +23486,83 @@ const Quest = (() => {
     hud.appendChild(dress);
     wrap.appendChild(hud);
 
-    /* the island itself */
+    /* the island itself: the art, the places and the hero all live in the
+       SVG's 1000x620 space, so a narrow phone crops the same moment of the
+       world instead of sliding flat pins over a cropped picture */
     const map = el('div', 'hqw-map');
     map.innerHTML = mapSVG();
-    const token = el('div', 'hqw-token');
-    token.id = 'hqmapfox';
-    token.innerHTML = foxSVG(46);
-    map.appendChild(token);
+    const NS = 'http://www.w3.org/2000/svg';
+    const pinsLayer = map.querySelector('#hqpins');
+    const foxLayer = map.querySelector('#hqfox');
 
     const selected = {i: openRank};
     const place = (i) => NODES[i];
-    const moveToken = () => {
+
+    const token = document.createElementNS(NS, 'g');
+    token.setAttribute('class', 'hqw-fox');
+    token.id = 'hqmapfox';
+    token.innerHTML = '<g transform="translate(-26,-58) scale(.52)">' +
+      foxSVG(100).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '') + '</g>';
+    foxLayer.appendChild(token);
+
+    const moveToken = (walk) => {
       const n = place(selected.i);
-      token.style.left = (n.x / 10) + '%';
-      token.style.top = (n.y / 6.2) + '%';
+      token.classList.remove('walk');
+      token.style.transform = 'translate(' + n.x + 'px,' + (n.y - 30) + 'px)';
+      if (walk) { void token.getBoundingClientRect(); token.classList.add('walk'); }
     };
 
+    /* one banner, on the place the child is looking at: every pin carries a
+       name only here, so no six labels can pile up on a small map */
+    const flag = document.createElementNS(NS, 'g');
+    flag.setAttribute('class', 'hqw-flag');
+    flag.style.pointerEvents = 'none';
+    pinsLayer.appendChild(flag);
+    const paintFlag = (i) => {
+      const r = game.ranks[i];
+      const name = r.place_en.length > 17 ? r.place_en.slice(0, 16) + '…' : r.place_en;
+      const w = Math.max(104, name.length * 11 + 34);
+      const n = NODES[i];
+      flag.setAttribute('transform', 'translate(' + n.x + ' ' + (n.y - 112) + ')');
+      flag.innerHTML = '<rect class="flag-bg" x="' + (-w / 2) + '" y="-24" width="' + w +
+        '" height="34" rx="17"/>' +
+        '<text class="flag-tx" y="-7" dominant-baseline="middle">' + esc(name) + '</text>';
+    };
+
+    const pinEls = [];
     game.ranks.forEach((r, i) => {
       const unlocked = rankUnlocked(i);
-      const node = el('button', 'hqw-place' +
-        (rankDone(r.id) ? ' done' : '') + (unlocked ? '' : ' locked') +
-        (i === currentRank() ? ' on' : ''));
-      node.type = 'button';
-      node.style.left = (NODES[i].x / 10) + '%';
-      node.style.top = (NODES[i].y / 6.2) + '%';
-      node.setAttribute('aria-label', r.name_en + ' — ' + (unlocked ? 'open' : 'locked'));
-      node.innerHTML = '<span class="pin">' + (unlocked ? r.emoji : '🔒') + '</span>' +
-        '<span class="cap">' + esc(r.name_en) + '</span>';
-      node.onclick = () => {
-        selected.i = i;
-        token.classList.remove('walk');
-        moveToken();
-        void token.offsetWidth;
-        token.classList.add('walk');
-        Snd.play('tap');
-        bar(i);
+      const g = document.createElementNS(NS, 'g');
+      g.setAttribute('class', 'hqw-pin' + (rankDone(r.id) ? ' done' : '') +
+        (unlocked ? '' : ' locked') + (i === currentRank() ? ' on' : ''));
+      g.setAttribute('transform', 'translate(' + NODES[i].x + ' ' + NODES[i].y + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      g.setAttribute('aria-label', r.name_en + ' — ' + (unlocked ? 'open' : 'locked'));
+      g.innerHTML = '<circle class="ring" r="34"/><circle class="halo" r="44"/>' +
+        '<circle class="disc" r="34"/>' +
+        '<text class="ico" y="3">' + (unlocked ? r.emoji : '🔒') + '</text>' +
+        (rankDone(r.id) ? '<circle class="tick" cx="24" cy="-24" r="11"/>' +
+          '<path class="tick-mark" d="M19 -24 l4 4 l7 -8"/>' : '');
+      g.onclick = () => select(i);
+      g.onkeydown = (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); select(i); }
       };
-      map.appendChild(node);
+      pinsLayer.appendChild(g);
+      pinEls.push(g);
     });
+
+    function select(i) {
+      selected.i = i;
+      pinEls.forEach((g, k) => g.classList.toggle('on', k === i));
+      moveToken(true);
+      paintFlag(i);
+      Snd.play('tap');
+      bar(i);
+    }
+
+    moveToken(false);
+    paintFlag(selected.i);
     wrap.appendChild(map);
 
     const barHost = el('div');
@@ -23605,7 +23667,8 @@ const Quest = (() => {
     };
 
     function refreshFoxes() {
-      token.innerHTML = foxSVG(46);
+      token.innerHTML = '<g transform="translate(-26,-58) scale(.52)">' +
+        foxSVG(100).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '') + '</g>';
     }
 
     body.appendChild(wrap);
@@ -23684,6 +23747,30 @@ const Quest = (() => {
     if (count <= 1) return [50];
     const left = 20, right = 82;
     return Array.from({length: count}, (_, i) => left + (right - left) * (i / (count - 1)));
+  }
+
+  /* One challenge run, in memory only: the questions are seeded from the
+     mission id so a retry is the same paper, and `first` counts the answers
+     that were right the first time, which is what the stars are made of. */
+  function startMission(mission) {
+    if (!game || !mission) return;
+    const chs = challengesFor(mission);
+    if (chs.length < 3) return;
+    run = {mission: mission, chs: chs, i: 0, first: 0, answered: false,
+           wrong: 0, finished: false, scene: null, fox: null};
+    view = 'play';
+    paintRun();
+    Snd.play('tap');
+  }
+
+  /* Comparing what a child typed or built with the answer: case, curly
+     apostrophes, trailing punctuation and double spaces are not the lesson. */
+  function normalize(text) {
+    return String(text || '').toLowerCase()
+      .replace(/[\u2019\u2018]/g, "'")
+      .replace(/[.,!?;:]+$/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 
   function paintRun() {
@@ -23825,13 +23912,16 @@ const Quest = (() => {
     const props = $('hqprops');
     if (!props) return;
     const xs = propPositions(ch.options.length);
-    const art = EMOJI[ch.t === 'choice' && /^What does/.test(ch.q) ? 'vocab' : (ch.t || 'choice')] || EMOJI.choice;
+    /* A meaning question shows the Persian words themselves: a decorative
+       picture per tile would claim an apple means “ball”. */
+    const plain = ch.t === 'choice' && /^What does/.test(ch.q);
+    const art = plain ? null : (EMOJI[ch.t || 'choice'] || EMOJI.choice);
     ch.options.forEach((option, i) => {
-      const b = el('button', 'hqw-prop');
+      const b = el('button', 'hqw-prop' + (plain ? ' plain' : ''));
       b.type = 'button';
       b.style.left = xs[i] + '%';
       b.style.top = (56 + (i % 2) * 6) + '%';
-      b.innerHTML = '<span class="art">' + art[i % art.length] + '</span>' +
+      b.innerHTML = (art ? '<span class="art">' + art[i % art.length] + '</span>' : '') +
         '<span class="lbl">' + esc(option) + '</span>';
       b.setAttribute('aria-label', option);
       b.onclick = () => {
@@ -24165,7 +24255,9 @@ const Quest = (() => {
     starRow.setAttribute('aria-label', stars + ' of 3 stars');
     card.appendChild(starRow);
     const allRight = run.first === total;
-    card.appendChild(el('h4', null, allRight ? 'A perfect run!' : (stars === 3 ? 'Brilliant work!' : (stars === 2 ? 'Mission complete!' : 'You made it!')));
+    const headline = allRight ? 'A perfect run!'
+      : (stars === 3 ? 'Brilliant work!' : (stars === 2 ? 'Mission complete!' : 'You made it!'));
+    card.appendChild(el('h4', null, headline));
     card.appendChild(faLine(allRight ? 'دور کامل و بی‌نقص!' : 'مأموریت تمام شد!', 'hqfa'));
     const msg = el('p', null, 'You answered ' + run.first + ' of ' + total + ' right the first time, and found ' + (stars * 10) + ' coins.');
     msg.appendChild(faLine(' ' + run.first + ' از ' + total + ' پاسخ را بار اول درست زدی و ' + (stars * 10) + ' سکه پیدا کردی.', 'hqfa'));
@@ -24227,6 +24319,19 @@ const Quest = (() => {
     wrap.appendChild(note);
     body.appendChild(wrap);
     paintSyncNote();
+  }
+
+  /* One quiet line under the result: a child (or the adult helping) should
+     know the stars are kept even when there is no network at all. */
+  function paintSyncNote() {
+    const note = $('hqsync');
+    if (!note) return;
+    note.setAttribute('aria-live', 'polite');
+    note.textContent = !canSync()
+      ? 'Saved on this device — روی این دستگاه ذخیره شد.'
+      : (state.dirty
+        ? 'Saved here; it will sync when the connection is back — بعداً همگام می‌شود.'
+        : 'Saved and synced — ذخیره و همگام شد.');
   }
 
   const SYNC_URL = '/api/quest/' + 'sync';

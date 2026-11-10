@@ -27,8 +27,12 @@ can pin is the data it reads and the seams it hangs from.
 """
 
 import json
+import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -226,7 +230,7 @@ def check_page(src):
     check(not unscoped, f"quest rules reach adult markup: {unscoped[:5]}")
 
     # a tick and a cross, so an answer is not colour alone
-    check("o.textContent = (right ? '✓ ' : (o === b ? '✗ ' : ''))" in src,
+    check("o.textContent = (answer ? '✓ ' : (o === b ? '✗ ' : ''))" in src,
           "the quiz result is left to colour alone")
 
     # every mission saves one event with its own id
@@ -234,6 +238,83 @@ def check_page(src):
     check("merge([{id: eid, m: mission.id, s: stars, at: at}])" in src,
           "the result is not recorded as an event")
     check("state.dirty = true" in src, "the result is not queued for sync")
+
+
+def check_game(src):
+    """The world and the six ways a child can touch it.
+
+    A quiz dressed up with a map is exactly what this suite has to catch, so
+    every interaction the brief asks for is pinned by name: objects to tap,
+    pairs to match, a sentence to build, a gap to fill, a clip to hear and a
+    clue to read. All of it is drawn in the SVG's own space, which is what
+    keeps the pins on the path when a phone crops the map.
+    """
+    check("function mapSVG()" in src, "the island is not drawn")
+    check('<g id="hqpins"></g><g id="hqfox"></g>' in src,
+          "the map has no layer for the places and the hero")
+    check("const NS = 'http://www.w3.org/2000/svg';" in src,
+          "the places are not created in the svg namespace")
+    places = re.findall(r"\{x: (\d+), y: (\d+)\}", src)
+    check(len(places) == 6, f"the map has {len(places)} places instead of six")
+    check("body.kids .hqw-pin .disc" in src, "a place on the map has no disc")
+    check("body.kids .hqw-flag .flag-tx" in src, "the place banner is not styled")
+    check("body.kids .hqw-fox" in src, "the hero token is not styled")
+    check("function foxSVG(scale)" in src, "there is no hero to draw")
+    check("function sceneSVG(i)" in src, "a mission has no scene of its own")
+
+    for fn, what in (("mountProps", "a tap-the-object challenge"),
+                     ("mountGems", "a matching challenge"),
+                     ("mountBridge", "a word-order bridge"),
+                     ("mountGap", "a fill-the-gap challenge"),
+                     ("mountListen", "a listening challenge"),
+                     ("mountRead", "a reading challenge")):
+        check(f"function {fn}(" in src, f"{what} is missing")
+    check("'hqw-prop' + (plain ? ' plain' : '')" in src,
+          "a meaning question draws a picture that could claim the wrong word")
+
+    check("function startMission(" in src, "a mission cannot be started")
+    check("function normalize(" in src, "typed answers are not compared")
+    check("function resolve(" in src and "function showScroll(" in src,
+          "an answer has no feedback")
+    check("function foxGo(" in src and "function foxAct(" in src,
+          "the hero does not move or react")
+    check("const Snd = (() => {" in src, "there is no sound to switch off")
+    check("const coins = () => totalStars() * 10" in src,
+          "coins are not derived from learning")
+    check("function chestSVG(" in src, "a finished mission opens no chest")
+    check("function paintResult(" in src, "there is no result screen")
+    check("function paintSyncNote(" in src,
+          "the result calls a save note that does not exist")
+
+
+def check_bundle_parses():
+    """The built page is generated, so it can fall behind webapp.py.
+
+    A missing parenthesis there takes the whole app down for every child, and
+    the string checks cannot see it. node --check can, when node is around;
+    without it the check is skipped rather than faked.
+    """
+    page = BUNDLE / "index.html"
+    if not page.exists():
+        check(False, "there is no built page to parse")
+        return
+    node = shutil.which("node")
+    if not node:
+        print("  skip  node is not installed, so the built page was not parsed")
+        return
+    html = page.read_text(encoding="utf-8")
+    scripts = re.findall(r"<script[^>]*>(.*?)</script>", html, re.S)
+    if not check(bool(scripts), "the built page has no script"):
+        return
+    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as fh:
+        fh.write(scripts[-1])
+        tmp = fh.name
+    try:
+        done = subprocess.run([node, "--check", tmp], capture_output=True, text=True)
+        check(done.returncode == 0,
+              "the built page does not parse: " + (done.stderr or "").strip()[:200])
+    finally:
+        os.unlink(tmp)
 
 
 def check_offline(src, build):
@@ -309,11 +390,17 @@ def main():
     print("\nthe page")
     check_page(src)
 
+    print("\nthe game")
+    check_game(src)
+
     print("\noffline and the apk")
     check_offline(src, build)
 
     print("\nsync")
     check_sync()
+
+    print("\nthe built page")
+    check_bundle_parses()
 
     if problems:
         print()
