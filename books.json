@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: fifty-nine structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to five are complete, chart 1-1 to 5-6. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: پنجاه‌ونه ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا پنج کامل‌اند، از نمودار ۱-۱ تا ۵-۶. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: sixty-seven structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to six are complete, chart 1-1 to 6-10. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: شصت‌وهفت ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا شش کامل‌اند، از نمودار ۱-۱ تا ۶-۱۰. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -20034,164 +20034,796 @@
     },
     {
      "n": 38,
-     "title": "Plural and possessive nouns",
-     "title_fa": "اسم‌های جمع و ملکی",
+     "title": "Plural forms of nouns: regular and irregular",
+     "title_fa": "شکل‌های جمع اسم: باقاعده و بی‌قاعده",
      "chapter": "Chapter 6",
      "section": "6-1",
-     "use_en": "Regular plurals add -s or -es and irregular ones change their form. A possessive adds 's to a person, or only ' when the plural already ends in -s.",
-     "use_fa": "جمع‌های باقاعده -s یا -es می‌گیرند و جمع‌های بی‌قاعده شکلشان تغییر می‌کند. مالکیت با 's به اسم شخص اضافه می‌شود، یا فقط با ' وقتی جمع به -s ختم می‌شود.",
-     "form_en": "one book -> two books   |   the girl's bag   |   the girls' bags",
+     "use_en": "Most nouns add -s. Nouns ending in -ch, -sh, -ss, -x, -s or -o add -es, a consonant plus y changes to -ies, and some nouns ending in -f or -fe change to -ves. A short list is irregular and has to be learned: man, child, foot, tooth, woman, mouse and person. A few nouns do not change at all, such as sheep, fish and deer.",
+     "use_fa": "بیشتر اسم‌ها s می‌گیرند. اسم‌های پایانه‌یافته به ch، sh، ss، x، s یا o پسوند es می‌گیرند، حرف بی‌صدا + y به ies تبدیل می‌شود و برخی اسم‌های پایانه‌یافته به f یا fe به ves تغییر می‌کنند. فهرست کوتاهی بی‌قاعده است و باید حفظ شود: man، child، foot، tooth، woman، mouse و person. چند اسم هیچ تغییری نمی‌کنند، مانند sheep، fish و deer.",
+     "form_en": "noun + -s / -es / -ies / -ves  ·  child → children, man → men, tooth → teeth",
      "examples": [
       {
-       "en": "Two children are playing in the garden.",
-       "fa": "دو کودک در باغ بازی می‌کنند."
+       "en": "Three children are waiting for the bus.",
+       "fa": "سه کودک منتظر اتوبوس‌اند."
       },
       {
-       "en": "My sister's car is in the garage.",
-       "fa": "ماشین خواهرم در پارکینگ است."
+       "en": "The women in this office are engineers.",
+       "fa": "زن‌های این دفتر مهندس‌اند."
       },
       {
-       "en": "The students' books are on the shelf.",
-       "fa": "کتاب‌های دانش‌آموزان روی قفسه است."
+       "en": "Two sheep are standing near the wall.",
+       "fa": "دو گوسفند نزدیک دیوار ایستاده‌اند."
       }
      ],
      "exercises": [
       {
-       "prompt": "There are three ___ (box) on the table.",
-       "answer": "boxes",
-       "why_en": "A noun ending in -x takes -es.",
-       "why_fa": "اسمی که به -x ختم می‌شود -es می‌گیرد."
+       "prompt": "There are three ___ (child) in the yard.",
+       "answer": "children",
+       "why_en": "Child has the irregular plural children.",
+       "why_fa": "child جمع بی‌قاعدهٔ children دارد."
       },
       {
-       "prompt": "The ___ (baby) bottle is on the counter.",
-       "answer": "baby's",
-       "why_en": "One baby owns the bottle, so 's.",
-       "why_fa": "بطری مال یک نوزاد است، پس 's."
+       "prompt": "Put the two ___ (knife) on the table.",
+       "answer": "knives",
+       "why_en": "A noun ending in -fe changes to -ves.",
+       "why_fa": "اسم پایانه‌یافته به fe به ves تبدیل می‌شود."
       },
       {
-       "prompt": "Both ___ (man) work in the same office.",
-       "answer": "men",
-       "why_en": "Man has an irregular plural.",
-       "why_fa": "جمع man بی‌قاعده است."
+       "prompt": "The ___ (city) in the north are cold in winter.",
+       "answer": "cities",
+       "why_en": "A consonant plus y becomes -ies, and the verb is plural.",
+       "why_fa": "حرف بی‌صدا + y به ies تبدیل می‌شود و فعل جمع است."
       }
      ],
      "exam": [
       {
-       "q": "The ___ toys are everywhere.",
+       "q": "My two ___ are at school.",
        "options": [
-        "children's",
-        "childrens'",
-        "childrens"
+        "children",
+        "childs",
+        "childes"
        ],
-       "answer": "children's",
-       "why_en": "Children is already plural and does not end in -s, so 's.",
-       "why_fa": "children خودش جمع است و به -s ختم نمی‌شود، پس 's."
+       "answer": "children",
+       "why_en": "Child is one of the irregular plurals.",
+       "why_fa": "child از جمع‌های بی‌قاعده است."
       },
       {
-       "q": "We need two more ___ for the salad.",
+       "q": "She bought three ___ of bread.",
        "options": [
-        "tomatoes",
-        "tomatos",
-        "tomato"
+        "loaves",
+        "loafs",
+        "loafes"
        ],
-       "answer": "tomatoes",
-       "why_en": "Tomato takes -es in the plural.",
-       "why_fa": "جمع tomato با -es ساخته می‌شود."
+       "answer": "loaves",
+       "why_en": "Loaf ends in -f and changes to -ves.",
+       "why_fa": "loaf به f ختم می‌شود و به ves تبدیل می‌شود."
       },
       {
-       "q": "That is my ___ office.",
+       "q": "The ___ are playing in the garden.",
        "options": [
-        "parents'",
-        "parent's'",
-        "parents"
+        "mice",
+        "mouses",
+        "mices"
        ],
-       "answer": "parents'",
-       "why_en": "A plural ending in -s takes only the apostrophe.",
-       "why_fa": "جمعی که به -s ختم می‌شود فقط apostrophe می‌گیرد."
+       "answer": "mice",
+       "why_en": "Mouse has the irregular plural mice.",
+       "why_fa": "mouse جمع بی‌قاعدهٔ mice دارد."
       }
      ]
     },
     {
      "n": 39,
-     "title": "Count and noncount nouns: a few and a little",
-     "title_fa": "اسم‌های قابل‌شمارش و غیرقابل‌شمارش: a few و a little",
+     "title": "Possessive nouns: 's, s' and of",
+     "title_fa": "اسم‌های ملکی: 's، s' و of",
      "chapter": "Chapter 6",
-     "section": "6-9",
-     "use_en": "Count nouns have a plural and take a few. Noncount nouns have no plural and take a little. Some noncount nouns are the ones learners expect to count: advice, information, furniture, news, money.",
-     "use_fa": "اسم‌های قابل‌شمارش جمع می‌بندند و با a few می‌آیند. اسم‌های غیرقابل‌شمارش جمع ندارند و با a little می‌آیند. بعضی از این اسم‌ها همان‌هایی هستند که زبان‌آموز می‌خواهد بشمارد: advice، information، furniture، news، money.",
-     "form_en": "a few + plural count noun  |  a little + noncount noun",
+     "section": "6-2",
+     "use_en": "Add 's to a singular noun and to an irregular plural: Ali's book, the children's toys. A regular plural ending in -s takes only an apostrophe: the students' books. Two people who own something together take one 's on the last name: Ali and Reza's room. For things rather than people, English usually prefers of: the color of the sky.",
+     "use_fa": "به اسم مفرد و جمع بی‌قاعده s' می‌افزاییم: Ali's book، the children's toys. جمع باقاعدهٔ پایانه‌یافته به s تنها آپاستروف می‌گیرد: the students' books. دو نفری که چیزی را با هم دارند، یک s' روی نام آخر می‌گیرند: Ali and Reza's room. برای «چیزها» و نه «انسان‌ها»، انگلیسی معمولاً of را ترجیح می‌دهد: the color of the sky.",
+     "form_en": "singular / irregular plural + 's  ·  plural in -s + '  ·  the … of the …",
      "examples": [
       {
-       "en": "I have a few friends in Berlin.",
-       "fa": "در برلین چند دوست دارم."
+       "en": "This is Sara's notebook.",
+       "fa": "این دفتر ساراست."
       },
       {
-       "en": "There is a little milk left.",
-       "fa": "کمی شیر مانده است."
+       "en": "The students' papers are on the desk.",
+       "fa": "مقاله‌های دانشجویان روی میز است."
       },
       {
-       "en": "She gave me some useful advice.",
-       "fa": "او به من توصیهٔ مفیدی کرد."
+       "en": "The door of the car is open.",
+       "fa": "درِ ماشین باز است."
       }
      ],
      "exercises": [
       {
-       "prompt": "I need ___ information about the course.",
-       "answer": "a little",
-       "why_en": "Information is noncount, so it cannot be few or many.",
-       "why_fa": "information غیرقابل‌شمارش است، پس با few یا many نمی‌آید."
+       "prompt": "That is Ali___ bicycle.",
+       "answer": "Ali's",
+       "why_en": "One owner takes 's on the name.",
+       "why_fa": "یک مالک، s' روی نام می‌گیرد."
       },
       {
-       "prompt": "Only ___ students passed the exam.",
-       "answer": "a few",
-       "why_en": "Students is a plural count noun.",
-       "why_fa": "students اسم قابل‌شمارش جمع است."
+       "prompt": "The ___ (teachers) room is upstairs.",
+       "answer": "teachers'",
+       "why_en": "A regular plural ending in -s takes only an apostrophe.",
+       "why_fa": "جمع باقاعدهٔ پایانه‌یافته به s تنها آپاستروف می‌گیرد."
       },
       {
-       "prompt": "We bought ___ furniture for the apartment.",
-       "answer": "a little",
-       "why_en": "Furniture has no plural form: two furnitures does not exist.",
-       "why_fa": "furniture جمع ندارد؛ «دو furniture» وجود ندارد."
+       "prompt": "The ___ (children) books are colorful.",
+       "answer": "children's",
+       "why_en": "An irregular plural takes 's, not an apostrophe alone.",
+       "why_fa": "جمع بی‌قاعده s' می‌گیرد، نه تنها آپاستروف."
       }
      ],
      "exam": [
       {
-       "q": "There are ___ apples in the bowl.",
+       "q": "This is my ___ car.",
        "options": [
-        "a little",
-        "a few",
-        "much"
+        "father's",
+        "fathers",
+        "fathers'"
        ],
-       "answer": "a few",
-       "why_en": "Apples are countable and plural.",
-       "why_fa": "apple قابل شمارش و جمع است."
+       "answer": "father's",
+       "why_en": "One father takes 's.",
+       "why_fa": "یک پدر s' می‌گیرد."
       },
       {
-       "q": "Could you give me ___ help?",
+       "q": "The ___ coats are in the hall.",
        "options": [
-        "a few",
-        "a little",
-        "many"
+        "men's",
+        "mens'",
+        "mens"
        ],
-       "answer": "a little",
-       "why_en": "Help is noncount.",
-       "why_fa": "help غیرقابل شمارش است."
+       "answer": "men's",
+       "why_en": "Men is an irregular plural, so it takes 's.",
+       "why_fa": "men جمع بی‌قاعده است، پس s' می‌گیرد."
       },
       {
-       "q": "He doesn't have ___ money.",
+       "q": "I like the smell ___ fresh bread.",
        "options": [
-        "many",
-        "much",
-        "few"
+        "of",
+        "of the",
+        "'s"
        ],
-       "answer": "much",
-       "why_en": "Money is noncount, and the sentence is negative.",
-       "why_fa": "money غیرقابل شمارش است و جمله منفی است."
+       "answer": "of",
+       "why_en": "A thing, not a person, takes of; bread here is noncount.",
+       "why_fa": "برای چیز و نه انسان از of استفاده می‌شود؛ bread غیرقابل‌شمارش است."
       }
      ]
     },
     {
      "n": 40,
+     "title": "Count and noncount nouns: the difference",
+     "title_fa": "اسم‌های قابل‌شمارش و غیرقابل‌شمارش: تفاوت",
+     "chapter": "Chapter 6",
+     "section": "6-3",
+     "use_en": "A count noun names something you can count one by one: a book, two books. It has a singular and a plural, takes a or an, and its verb agrees with its number. A noncount noun names something you cannot count that way: water, rice, advice, furniture. It has no plural, never takes a or an, and takes a singular verb.",
+     "use_fa": "اسم قابل‌شمارش چیزی را نام می‌برد که می‌توان یکی‌یکی شمرد: a book، two books. مفرد و جمع دارد، a یا an می‌گیرد و فعلش با شمار آن هم‌خوان است. اسم غیرقابل‌شمارش چیزی را نام می‌برد که این‌گونه شمرده نمی‌شود: water، rice، advice، furniture. جمع ندارد، هرگز a یا an نمی‌گیرد و فعل مفرد می‌گیرد.",
+     "form_en": "count: a chair / two chairs  ·  noncount: water, rice, advice (no plural, singular verb)",
+     "examples": [
+      {
+       "en": "I need a chair, and my friend needs two chairs.",
+       "fa": "من یک صندلی لازم دارم و دوستم دو صندلی."
+      },
+      {
+       "en": "The furniture in this room is new.",
+       "fa": "مبلمان این اتاق نو است."
+      },
+      {
+       "en": "She gave me good advice.",
+       "fa": "او به من مشاورهٔ خوبی داد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "There are two ___ (chair) in the kitchen.",
+       "answer": "chairs",
+       "why_en": "Chair is a count noun and two makes it plural.",
+       "why_fa": "chair قابل‌شمارش است و two آن را جمع می‌کند."
+      },
+      {
+       "prompt": "The furniture in my room ___ (be) old.",
+       "answer": "is",
+       "why_en": "Furniture is noncount, so it takes a singular verb.",
+       "why_fa": "furniture غیرقابل‌شمارش است، پس فعل مفرد می‌گیرد."
+      },
+      {
+       "prompt": "I do not have much ___ (homework) tonight.",
+       "answer": "homework",
+       "why_en": "Homework is noncount and has no plural form.",
+       "why_fa": "homework غیرقابل‌شمارش است و شکل جمع ندارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She has three ___ .",
+       "options": [
+        "notebooks",
+        "notebook",
+        "a notebook"
+       ],
+       "answer": "notebooks",
+       "why_en": "Three makes a count noun plural.",
+       "why_fa": "سه، اسم قابل‌شمارش را جمع می‌کند."
+      },
+      {
+       "q": "The information ___ correct.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "Information is noncount and takes a singular verb.",
+       "why_fa": "information غیرقابل‌شمارش است و فعل مفرد می‌گیرد."
+      },
+      {
+       "q": "We need ___ rice for dinner.",
+       "options": [
+        "some",
+        "a",
+        "many"
+       ],
+       "answer": "some",
+       "why_en": "A noncount noun takes some, never a or many.",
+       "why_fa": "اسم غیرقابل‌شمارش some می‌گیرد، نه a یا many."
+      }
+     ]
+    },
+    {
+     "n": 41,
+     "title": "Noncount nouns: the categories and the surprises",
+     "title_fa": "اسم‌های غیرقابل‌شمارش: دسته‌ها و شگفتی‌ها",
+     "chapter": "Chapter 6",
+     "section": "6-4",
+     "use_en": "Noncount nouns fall into groups: liquids and foods (water, bread, rice, cheese), materials (wood, glass, paper), abstractions (love, anger, knowledge, advice, information), school subjects and games (math, tennis, chess), weather (rain, snow), and whole collections (furniture, luggage, jewelry, equipment, money). Each of these is singular and has no plural.",
+     "use_fa": "اسم‌های غیرقابل‌شمارش در دسته‌هایی جای می‌گیرند: مایعات و خوراکی‌ها (water، bread، rice، cheese)، مواد (wood، glass، paper)، مفاهیم انتزاعی (love، anger، knowledge، advice، information)، درس‌ها و بازی‌ها (math، tennis، chess)، هوا (rain، snow) و مجموعه‌های کامل (furniture، luggage، jewelry، equipment، money). هر یک مفرد است و جمع ندارد.",
+     "form_en": "food · material · abstract · subject or game · weather · collection  → singular verb, no plural",
+     "examples": [
+      {
+       "en": "The luggage is in the car.",
+       "fa": "چمدان‌ها در ماشین‌اند."
+      },
+      {
+       "en": "We play tennis on Fridays.",
+       "fa": "جمعه‌ها تنیس بازی می‌کنیم."
+      },
+      {
+       "en": "His knowledge of history is impressive.",
+       "fa": "دانش او از تاریخ چشمگیر است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The equipment in the lab ___ (be) expensive.",
+       "answer": "is",
+       "why_en": "Equipment is a collection noun, singular and noncount.",
+       "why_fa": "equipment اسم مجموعه است، مفرد و غیرقابل‌شمارش."
+      },
+      {
+       "prompt": "My luggage ___ (be) still at the airport.",
+       "answer": "is",
+       "why_en": "Luggage is noncount, so the verb is singular.",
+       "why_fa": "luggage غیرقابل‌شمارش است، پس فعل مفرد است."
+      },
+      {
+       "prompt": "She studies ___ (math) every evening.",
+       "answer": "math",
+       "why_en": "A school subject is noncount and takes no article.",
+       "why_fa": "نام درس غیرقابل‌شمارش است و حرف تعریف نمی‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The jewelry in that shop ___ very old.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "Jewelry is a collection noun and takes a singular verb.",
+       "why_fa": "jewelry اسم مجموعه است و فعل مفرد می‌گیرد."
+      },
+      {
+       "q": "We need ___ for the trip.",
+       "options": [
+        "information",
+        "informations",
+        "an information"
+       ],
+       "answer": "information",
+       "why_en": "Information is noncount and has no plural.",
+       "why_fa": "information غیرقابل‌شمارش است و جمع ندارد."
+      },
+      {
+       "q": "He plays ___ every weekend.",
+       "options": [
+        "chess",
+        "a chess",
+        "chesses"
+       ],
+       "answer": "chess",
+       "why_en": "A game is noncount and takes no article.",
+       "why_fa": "نام بازی غیرقابل‌شمارش است و حرف تعریف نمی‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 42,
+     "title": "Units of measure with noncount nouns",
+     "title_fa": "واحدهای اندازه‌گیری با اسم‌های غیرقابل‌شمارش",
+     "chapter": "Chapter 6",
+     "section": "6-5",
+     "use_en": "A noncount noun cannot take a number, but it can be counted through a unit: a piece of information, a glass of water, a loaf of bread, a bar of chocolate, a pair of shoes, two kilos of rice. The unit carries the plural, and the noncount noun stays singular: three pieces of advice.",
+     "use_fa": "اسم غیرقابل‌شمارش عدد نمی‌گیرد، اما با یک واحد شمرده می‌شود: a piece of information، a glass of water، a loaf of bread، a bar of chocolate، a pair of shoes، two kilos of rice. واحد جمع می‌بندد و اسم غیرقابل‌شمارش مفرد می‌ماند: three pieces of advice.",
+     "form_en": "a piece / glass / loaf / bar / pair / kilo / sheet of + noncount noun",
+     "examples": [
+      {
+       "en": "He gave me two pieces of advice.",
+       "fa": "او دو نصیحت به من کرد."
+      },
+      {
+       "en": "I bought a loaf of bread and a bar of chocolate.",
+       "fa": "یک نان و یک تخته شکلات خریدم."
+      },
+      {
+       "en": "There are three sheets of paper on the desk.",
+       "fa": "سه برگ کاغذ روی میز است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She gave me three ___ of advice.",
+       "answer": "pieces",
+       "why_en": "The unit carries the plural, so piece becomes pieces.",
+       "why_fa": "واحد جمع می‌بندد، پس piece به pieces تبدیل می‌شود."
+      },
+      {
+       "prompt": "I would like a ___ of water.",
+       "answer": "glass",
+       "why_en": "Water is noncount and is counted through a unit.",
+       "why_fa": "water غیرقابل‌شمارش است و با واحد شمرده می‌شود."
+      },
+      {
+       "prompt": "We need two ___ of bread.",
+       "answer": "loaves",
+       "why_en": "The unit loaf takes the plural loaves.",
+       "why_fa": "واحد loaf جمعش loaves است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "There are two ___ of paper on the table.",
+       "options": [
+        "sheets",
+        "sheet",
+        "sheetes"
+       ],
+       "answer": "sheets",
+       "why_en": "Two makes the unit plural, and the noncount noun stays singular.",
+       "why_fa": "دو، واحد را جمع می‌کند و اسم غیرقابل‌شمارش مفرد می‌ماند."
+      },
+      {
+       "q": "He drank a ___ of milk.",
+       "options": [
+        "glass",
+        "glasses",
+        "piece"
+       ],
+       "answer": "glass",
+       "why_en": "Milk is a liquid and is counted in glasses.",
+       "why_fa": "شیر مایع است و با glass شمرده می‌شود."
+      },
+      {
+       "q": "I bought two ___ of chocolate.",
+       "options": [
+        "bars",
+        "bar",
+        "barres"
+       ],
+       "answer": "bars",
+       "why_en": "The unit takes the plural after two.",
+       "why_fa": "واحد پس از two جمع می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 43,
+     "title": "A few and a little",
+     "title_fa": "a few و a little",
+     "chapter": "Chapter 6",
+     "section": "6-6",
+     "use_en": "A few goes with a plural count noun and a little goes with a noncount noun; both mean a small amount, and both sound positive. Without a, few and little mean not enough, and the sentence turns negative: he has few friends, so he is lonely.",
+     "use_fa": "a few با اسم قابل‌شمارش جمع و a little با اسم غیرقابل‌شمارش می‌آید؛ هر دو مقدار کم را می‌رسانند و هر دو مثبت به گوش می‌رسند. بدون a، few و little یعنی «به اندازهٔ کافی نیست» و جمله منفی می‌شود: he has few friends, so he is lonely.",
+     "form_en": "a few + plural count noun  ·  a little + noncount noun  ·  few / little = not enough",
+     "examples": [
+      {
+       "en": "There are a few apples in the bowl.",
+       "fa": "چند سیب در کاسه است."
+      },
+      {
+       "en": "We have a little milk left.",
+       "fa": "کمی شیر برایمان مانده است."
+      },
+      {
+       "en": "He has few friends, so he feels lonely.",
+       "fa": "دوستان کمی دارد، پس احساس تنهایی می‌کند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I need a ___ salt for the soup.",
+       "answer": "little",
+       "why_en": "Salt is noncount, so the small amount is a little.",
+       "why_fa": "نمک غیرقابل‌شمارش است، پس مقدار کم a little است."
+      },
+      {
+       "prompt": "There are a ___ chairs in the garden.",
+       "answer": "few",
+       "why_en": "Chairs is a plural count noun, so a few.",
+       "why_fa": "chairs اسم قابل‌شمارش جمع است، پس a few."
+      },
+      {
+       "prompt": "She has ___ time, so she cannot help us.",
+       "answer": "little",
+       "why_en": "Without a, little means not enough time.",
+       "why_fa": "بدون a، little یعنی زمان کافی نیست."
+      }
+     ],
+     "exam": [
+      {
+       "q": "There is a ___ water in the bottle.",
+       "options": [
+        "little",
+        "few",
+        "many"
+       ],
+       "answer": "little",
+       "why_en": "Water is noncount, so a little.",
+       "why_fa": "water غیرقابل‌شمارش است، پس a little."
+      },
+      {
+       "q": "A ___ students were absent today.",
+       "options": [
+        "few",
+        "little",
+        "much"
+       ],
+       "answer": "few",
+       "why_en": "Students is a plural count noun, so a few.",
+       "why_fa": "students اسم قابل‌شمارش جمع است، پس a few."
+      },
+      {
+       "q": "We have ___ money, so we cannot take a taxi.",
+       "options": [
+        "little",
+        "a little",
+        "few"
+       ],
+       "answer": "little",
+       "why_en": "Without a, little means not enough.",
+       "why_fa": "بدون a، little یعنی به اندازهٔ کافی نیست."
+      }
+     ]
+    },
+    {
+     "n": 44,
+     "title": "Many and much",
+     "title_fa": "many و much",
+     "chapter": "Chapter 6",
+     "section": "6-7",
+     "use_en": "Many goes with a plural count noun and much goes with a noncount noun. Both are used most naturally in questions and negatives: How many books? How much sugar? There isn't much time. In affirmative sentences, English usually prefers a lot of.",
+     "use_fa": "many با اسم قابل‌شمارش جمع و much با اسم غیرقابل‌شمارش می‌آید. هر دو بیشتر در پرسش و منفی طبیعی‌اند: How many books? How much sugar? There isn't much time. در جملهٔ مثبت، انگلیسی معمولاً a lot of را ترجیح می‌دهد.",
+     "form_en": "many + plural count noun  ·  much + noncount noun  ·  mostly in questions and negatives",
+     "examples": [
+      {
+       "en": "How many students are in the class?",
+       "fa": "چند دانش‌آموز در کلاس است؟"
+      },
+      {
+       "en": "How much sugar do you take in your tea?",
+       "fa": "چقدر شکر در چای می‌ریزی؟"
+      },
+      {
+       "en": "There isn't much time before the train leaves.",
+       "fa": "پیش از حرکت قطار زمان زیادی نیست."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "How ___ books did you buy?",
+       "answer": "many",
+       "why_en": "Books is a plural count noun, so many.",
+       "why_fa": "books اسم قابل‌شمارش جمع است، پس many."
+      },
+      {
+       "prompt": "How ___ water should I add?",
+       "answer": "much",
+       "why_en": "Water is noncount, so much.",
+       "why_fa": "water غیرقابل‌شمارش است، پس much."
+      },
+      {
+       "prompt": "There aren't ___ chairs in this room.",
+       "answer": "many",
+       "why_en": "A negative with a plural count noun takes many.",
+       "why_fa": "منفی با اسم قابل‌شمارش جمع many می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "How ___ people came to the party?",
+       "options": [
+        "many",
+        "much",
+        "a lot"
+       ],
+       "answer": "many",
+       "why_en": "People is plural, so many.",
+       "why_fa": "people جمع است، پس many."
+      },
+      {
+       "q": "I don't have ___ homework tonight.",
+       "options": [
+        "much",
+        "many",
+        "a few"
+       ],
+       "answer": "much",
+       "why_en": "Homework is noncount, so much.",
+       "why_fa": "homework غیرقابل‌شمارش است، پس much."
+      },
+      {
+       "q": "She doesn't drink ___ coffee.",
+       "options": [
+        "much",
+        "many",
+        "few"
+       ],
+       "answer": "much",
+       "why_en": "Coffee is noncount, so much in a negative.",
+       "why_fa": "coffee غیرقابل‌شمارش است، پس در منفی much."
+      }
+     ]
+    },
+    {
+     "n": 45,
+     "title": "A lot of, lots of and plenty of",
+     "title_fa": "a lot of، lots of و plenty of",
+     "chapter": "Chapter 6",
+     "section": "6-8",
+     "use_en": "A lot of and lots of mean a large quantity and go with both count and noncount nouns: a lot of books, a lot of water. They are the natural choice in affirmative sentences. Plenty of means more than enough, and also goes with both kinds of noun.",
+     "use_fa": "a lot of و lots of مقدار زیاد را می‌رسانند و با اسم‌های قابل‌شمارش و غیرقابل‌شمارش هر دو می‌آیند: a lot of books، a lot of water. در جملهٔ مثبت انتخاب طبیعی همین‌اند. plenty of یعنی بیش از اندازهٔ لازم و با هر دو نوع اسم می‌آید.",
+     "form_en": "a lot of / lots of / plenty of + count or noncount noun",
+     "examples": [
+      {
+       "en": "She has a lot of friends in Shiraz.",
+       "fa": "او در شیراز دوستان زیادی دارد."
+      },
+      {
+       "en": "There is a lot of water in the pool.",
+       "fa": "آب زیادی در استخر است."
+      },
+      {
+       "en": "Don't hurry; we have plenty of time.",
+       "fa": "عجله نکن؛ وقت به اندازهٔ کافی داریم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "There are ___ of people in the street.",
+       "answer": "a lot",
+       "why_en": "A lot of goes with a plural count noun in an affirmative sentence.",
+       "why_fa": "a lot of با اسم قابل‌شمارش جمع در جملهٔ مثبت می‌آید."
+      },
+      {
+       "prompt": "We have ___ of time before the movie.",
+       "answer": "plenty",
+       "why_en": "Plenty of means more than enough and fits here.",
+       "why_fa": "plenty of یعنی بیش از اندازهٔ لازم و اینجا مناسب است."
+      },
+      {
+       "prompt": "He spends ___ of money on books.",
+       "answer": "a lot",
+       "why_en": "A lot of works with the noncount noun money.",
+       "why_fa": "a lot of با اسم غیرقابل‌شمارش money به کار می‌رود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "There is ___ of milk in the fridge.",
+       "options": [
+        "a lot",
+        "many",
+        "a few"
+       ],
+       "answer": "a lot",
+       "why_en": "Milk is noncount, so a lot of, not many or a few.",
+       "why_fa": "milk غیرقابل‌شمارش است، پس a lot of، نه many یا a few."
+      },
+      {
+       "q": "She has ___ of homework this weekend.",
+       "options": [
+        "lots",
+        "many",
+        "few"
+       ],
+       "answer": "lots",
+       "why_en": "Lots of goes with a noncount noun.",
+       "why_fa": "lots of با اسم غیرقابل‌شمارش می‌آید."
+      },
+      {
+       "q": "We have ___ of chairs for everyone.",
+       "options": [
+        "plenty",
+        "much",
+        "a little"
+       ],
+       "answer": "plenty",
+       "why_en": "Chairs is plural and plenty of means enough.",
+       "why_fa": "chairs جمع است و plenty of یعنی به اندازهٔ کافی."
+      }
+     ]
+    },
+    {
+     "n": 46,
+     "title": "Nouns that look plural and are not",
+     "title_fa": "اسم‌هایی که جمع به نظر می‌رسند و نیستند",
+     "chapter": "Chapter 6",
+     "section": "6-9",
+     "use_en": "News, advice, information, homework, research, furniture and money end in -s or name many things, but they are noncount and take a singular verb: the news is good, this information is useful. They never take a plural verb, and they have no plural form.",
+     "use_fa": "news، advice، information، homework، research، furniture و money با s تمام می‌شوند یا چیزهای زیادی را نام می‌برند، اما غیرقابل‌شمارش‌اند و فعل مفرد می‌گیرند: the news is good، this information is useful. هرگز فعل جمع نمی‌گیرند و شکل جمع ندارند.",
+     "form_en": "news / information / advice / homework / research / money + singular verb",
+     "examples": [
+      {
+       "en": "The news is good today.",
+       "fa": "امروز خبرها خوب است."
+      },
+      {
+       "en": "This information is very useful.",
+       "fa": "این اطلاعات بسیار سودمند است."
+      },
+      {
+       "en": "Her homework is already finished.",
+       "fa": "تکلیف او پیش‌تر تمام شده است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The news ___ (be) surprising.",
+       "answer": "is",
+       "why_en": "News ends in -s but is noncount and singular.",
+       "why_fa": "news با s تمام می‌شود اما غیرقابل‌شمارش و مفرد است."
+      },
+      {
+       "prompt": "The money on the table ___ (be) mine.",
+       "answer": "is",
+       "why_en": "Money is noncount and takes a singular verb.",
+       "why_fa": "money غیرقابل‌شمارش است و فعل مفرد می‌گیرد."
+      },
+      {
+       "prompt": "His research on the topic ___ (be) excellent.",
+       "answer": "is",
+       "why_en": "Research is noncount and never takes a plural verb.",
+       "why_fa": "research غیرقابل‌شمارش است و هرگز فعل جمع نمی‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The news ___ very good this morning.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "News is singular despite its -s.",
+       "why_fa": "news با وجود s مفرد است."
+      },
+      {
+       "q": "This advice ___ helpful.",
+       "options": [
+        "is",
+        "are",
+        "have"
+       ],
+       "answer": "is",
+       "why_en": "Advice is noncount and singular.",
+       "why_fa": "advice غیرقابل‌شمارش و مفرد است."
+      },
+      {
+       "q": "The homework ___ too long.",
+       "options": [
+        "is",
+        "are",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "Homework is noncount, so the verb is singular.",
+       "why_fa": "homework غیرقابل‌شمارش است، پس فعل مفرد است."
+      }
+     ]
+    },
+    {
+     "n": 47,
+     "title": "Nouns always plural, and nouns with two meanings",
+     "title_fa": "اسم‌های همیشه جمع و اسم‌های دو معنایی",
+     "chapter": "Chapter 6",
+     "section": "6-10",
+     "use_en": "Some nouns name a pair and are always plural: scissors, glasses, pants, jeans, shoes, clothes. They take a plural verb, and one of them is a pair of. Other nouns change meaning with a or a plural: paper is the material but a paper is a newspaper or an essay, glass is the material but a glass is a cup, chicken is the meat but a chicken is the bird.",
+     "use_fa": "برخی اسم‌ها یک جفت را نام می‌برند و همیشه جمع‌اند: scissors، glasses، pants، jeans، shoes، clothes. فعل جمع می‌گیرند و یکی از آن‌ها a pair of است. اسم‌های دیگری با a یا جمع تغییر معنا می‌دهند: paper ماده است اما a paper روزنامه یا مقاله، glass ماده است اما a glass لیوان، chicken گوشت است اما a chicken مرغ.",
+     "form_en": "pair nouns + plural verb  ·  a pair of scissors  ·  paper / a paper, glass / a glass",
+     "examples": [
+      {
+       "en": "My scissors are on the desk.",
+       "fa": "قیچی من روی میز است."
+      },
+      {
+       "en": "I need a pair of shoes for the trip.",
+       "fa": "برای سفر به یک جفت کفش نیاز دارم."
+      },
+      {
+       "en": "The window is made of glass, and I drank a glass of water.",
+       "fa": "پنجره از شیشه است و من یک لیوان آب خوردم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "My jeans ___ (be) still wet.",
+       "answer": "are",
+       "why_en": "Jeans names a pair and takes a plural verb.",
+       "why_fa": "jeans یک جفت را نام می‌برد و فعل جمع می‌گیرد."
+      },
+      {
+       "prompt": "She bought a ___ of glasses.",
+       "answer": "pair",
+       "why_en": "One of a pair noun is a pair of.",
+       "why_fa": "برای یکی از اسم‌های جفتی a pair of می‌گوییم."
+      },
+      {
+       "prompt": "I read an interesting ___ about the city.",
+       "answer": "paper",
+       "why_en": "A paper is an essay or a newspaper, a count noun.",
+       "why_fa": "a paper یعنی مقاله یا روزنامه و قابل‌شمارش است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "These pants ___ too long for me.",
+       "options": [
+        "are",
+        "is",
+        "was"
+       ],
+       "answer": "are",
+       "why_en": "Pants is always plural.",
+       "why_fa": "pants همیشه جمع است."
+      },
+      {
+       "q": "The table is made of ___ .",
+       "options": [
+        "wood",
+        "a wood",
+        "woods"
+       ],
+       "answer": "wood",
+       "why_en": "The material is noncount and takes no article.",
+       "why_fa": "ماده غیرقابل‌شمارش است و حرف تعریف نمی‌گیرد."
+      },
+      {
+       "q": "Would you like ___ glass of water?",
+       "options": [
+        "a",
+        "some",
+        "many"
+       ],
+       "answer": "a",
+       "why_en": "A glass is one cup, a count noun, so it takes a.",
+       "why_fa": "a glass یعنی یک لیوان، قابل‌شمارش است، پس a می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 48,
      "title": "Articles: a, an and the",
      "title_fa": "حروف تعریف: a، an و the",
      "chapter": "Chapter 7",
@@ -20270,7 +20902,7 @@
      ]
     },
     {
-     "n": 41,
+     "n": 49,
      "title": "Pronouns, possessive adjectives and other",
      "title_fa": "ضمیرها، صفت‌های ملکی و other",
      "chapter": "Chapter 8",
@@ -20349,7 +20981,7 @@
      ]
     },
     {
-     "n": 42,
+     "n": 50,
      "title": "Reflexive pronouns",
      "title_fa": "ضمیرهای بازتابی",
      "chapter": "Chapter 8",
@@ -20428,7 +21060,7 @@
      ]
     },
     {
-     "n": 43,
+     "n": 51,
      "title": "Modals of necessity and advice: must, have to, should",
      "title_fa": "فعل‌های وجهی الزام و توصیه: must، have to، should",
      "chapter": "Chapter 9",
@@ -20507,7 +21139,7 @@
      ]
     },
     {
-     "n": 44,
+     "n": 52,
      "title": "Ability and possibility: can, could, may, might",
      "title_fa": "توانایی و احتمال: can، could، may، might",
      "chapter": "Chapter 9",
@@ -20586,7 +21218,7 @@
      ]
     },
     {
-     "n": 45,
+     "n": 53,
      "title": "Requests and suggestions: could you, would you mind, let's",
      "title_fa": "درخواست و پیشنهاد: could you، would you mind، let's",
      "chapter": "Chapter 9",
@@ -20665,7 +21297,7 @@
      ]
     },
     {
-     "n": 46,
+     "n": 54,
      "title": "Degrees of certainty: must be, may be, can't be",
      "title_fa": "درجات اطمینان: must be، may be، can't be",
      "chapter": "Chapter 10",
@@ -20744,7 +21376,7 @@
      ]
     },
     {
-     "n": 47,
+     "n": 55,
      "title": "The passive",
      "title_fa": "جملات مجهول",
      "chapter": "Chapter 11",
@@ -20823,7 +21455,7 @@
      ]
     },
     {
-     "n": 48,
+     "n": 56,
      "title": "The passive with modals, get and stative verbs",
      "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
      "chapter": "Chapter 11",
@@ -20902,7 +21534,7 @@
      ]
     },
     {
-     "n": 49,
+     "n": 57,
      "title": "Noun clauses and reported speech",
      "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
      "chapter": "Chapter 12",
@@ -20981,7 +21613,7 @@
      ]
     },
     {
-     "n": 50,
+     "n": 58,
      "title": "The subjunctive in noun clauses: insist that he be",
      "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
      "chapter": "Chapter 12",
@@ -21060,7 +21692,7 @@
      ]
     },
     {
-     "n": 51,
+     "n": 59,
      "title": "Adjective clauses",
      "title_fa": "جملات وصفی (موصولی)",
      "chapter": "Chapter 13",
@@ -21139,7 +21771,7 @@
      ]
     },
     {
-     "n": 52,
+     "n": 60,
      "title": "Reducing adjective clauses to phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
      "chapter": "Chapter 13",
@@ -21218,7 +21850,7 @@
      ]
     },
     {
-     "n": 53,
+     "n": 61,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -21297,7 +21929,7 @@
      ]
     },
     {
-     "n": 54,
+     "n": 62,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -21376,7 +22008,7 @@
      ]
     },
     {
-     "n": 55,
+     "n": 63,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -21455,7 +22087,7 @@
      ]
     },
     {
-     "n": 56,
+     "n": 64,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -21534,7 +22166,7 @@
      ]
     },
     {
-     "n": 57,
+     "n": 65,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -21613,7 +22245,7 @@
      ]
     },
     {
-     "n": 58,
+     "n": 66,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -21692,7 +22324,7 @@
      ]
     },
     {
-     "n": 59,
+     "n": 67,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",

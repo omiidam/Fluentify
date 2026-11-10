@@ -466,8 +466,16 @@ PINNED_GRAMMAR = [
     "Prepositional phrases after the subject",
     "There is and there are; amounts, titles and times",
     "Indefinite pronouns, collective nouns and quantities",
-    "Plural and possessive nouns",
-    "Count and noncount nouns: a few and a little",
+    "Plural forms of nouns: regular and irregular",
+    "Possessive nouns: 's, s' and of",
+    "Count and noncount nouns: the difference",
+    "Noncount nouns: the categories and the surprises",
+    "Units of measure with noncount nouns",
+    "A few and a little",
+    "Many and much",
+    "A lot of, lots of and plenty of",
+    "Nouns that look plural and are not",
+    "Nouns always plural, and nouns with two meanings",
     "Articles: a, an and the",
     "Pronouns, possessive adjectives and other",
     "Reflexive pronouns",
@@ -715,6 +723,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
              or len(l.get("exam") or []) < 3]
     check(not thin5,
           f"{bid}: chapter five chart(s) {thin5} are thinner than the rest of the book")
+
+    # Chapter six is nouns: the plural, the possessive, count against noncount,
+    # the units a noncount noun is counted in, the quantifiers, and the nouns
+    # whose -s lies about their number.
+    sixth = [l for l in lessons if l.get("chapter") == "Chapter 6"]
+    check([str(l.get("section")) for l in sixth] == [f"6-{i}" for i in range(1, 11)],
+          f"{bid}: chapter six is not its ten charts in order "
+          f"(got {[str(l.get('section')) for l in sixth]})")
+    thin6 = [str(l.get("section")) for l in sixth
+             if len(l.get("examples") or []) < 3
+             or len(l.get("exercises") or []) < 3
+             or len(l.get("exam") or []) < 3]
+    check(not thin6,
+          f"{bid}: chapter six chart(s) {thin6} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"
