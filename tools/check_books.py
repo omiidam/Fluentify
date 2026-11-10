@@ -445,9 +445,16 @@ PINNED_GRAMMAR = [
     "Past perfect",
     "Had in spoken English",
     "Past perfect progressive: how long before another past action",
-    "Future: will and be going to",
-    "Future in time clauses: after when, before and as soon as",
-    "Future progressive and future perfect",
+    "Expressing future time: be going to and will",
+    "Forms with be going to",
+    "Forms with will",
+    "Certainty about the future: definitely, probably, maybe",
+    "Be going to or will: which one?",
+    "Expressing the future in time clauses",
+    "The present progressive and simple present for future time",
+    "Future progressive",
+    "Future perfect",
+    "Summary of verb tenses: the twelve tenses at a glance",
     "Tense review: choosing the tense a sentence needs",
     "Subject-verb agreement",
     "Plural and possessive nouns",
@@ -658,6 +665,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
     second = [str(l.get("section")) for l in lessons if l.get("chapter") == "Chapter 2"]
     check(second == [f"2-{i}" for i in range(1, 11)],
           f"{bid}: chapter two is not its ten charts in order (got {second})")
+
+    # Chapter three is complete the same way: the book's ten future-time
+    # charts, in the book's order, each one a full structure rather than a
+    # heading with a single example under it.
+    third = [l for l in lessons if l.get("chapter") == "Chapter 3"]
+    check([str(l.get("section")) for l in third] == [f"3-{i}" for i in range(1, 11)],
+          f"{bid}: chapter three is not its ten charts in order "
+          f"(got {[str(l.get('section')) for l in third]})")
+    thin = [str(l.get("section")) for l in third
+            if len(l.get("examples") or []) < 3
+            or len(l.get("exercises") or []) < 3
+            or len(l.get("exam") or []) < 3]
+    check(not thin,
+          f"{bid}: chapter three chart(s) {thin} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"

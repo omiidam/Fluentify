@@ -6216,6 +6216,84 @@
     background: linear-gradient(90deg, #4cc3ff, #7c5cff); transition: width .5s cubic-bezier(.22,1,.36,1); }
   .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; color: #5a4216; font-weight: 700; }
 
+  /* level and streak, then the one tap back to where the child was */
+  .kstrip { display: flex; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
+  .kchip {
+    flex: 1 1 0; min-width: 118px; padding: 9px 12px; border-radius: 16px;
+    background: #ffffff; border: 2px solid #ffe0ae;
+    box-shadow: 0 3px 0 rgba(210,160,70,.14);
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .kchip b { font-size: 13px; color: #2a2350; }
+  .kchip i { font-style: normal; font-size: 11px; color: #7a6b9c; direction: rtl; text-align: right; }
+  .kchip.on { border-color: #b9e3d3; background: #f4fdf9; }
+  .kchip.on b { color: #1f6b4f; }
+  .kcont {
+    width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
+    cursor: pointer; font-family: inherit; padding: 12px 14px; margin-bottom: 12px;
+    border-radius: 20px; border: 2px solid #ffc9b0;
+    background: linear-gradient(135deg, #fff4ea 0%, #ffe9f0 100%);
+    box-shadow: 0 4px 0 rgba(214,120,90,.18); color: #2a2350;
+    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s;
+  }
+  .kcont:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(214,120,90,.18); }
+  .kcont .kico { font-size: 26px; line-height: 1; }
+  .kcont .kct { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+  .kcont .kct b { font-size: 15px; }
+  .kcont .kct i { font-style: normal; font-size: 11.5px; color: #7a5a6f; direction: rtl; text-align: right; }
+  .kcont .kgo { font-size: 12px; font-weight: 800; color: #b4451f; }
+
+  /* Three registers, one for each part of the age range the band covers.
+     Younger children get bigger tiles, bigger icons and fewer words per
+     screen; older children get the same app with the child-scale turned down,
+     so a thirteen-year-old is not reading a picture book. None of this
+     changes a single level of the course. */
+  body.kids-young .kgrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  body.kids-young .kbtn { min-height: 88px; }
+  body.kids-young .kbtn .kico { font-size: 27px; }
+  body.kids-young .kbtn b { font-size: 15.5px; }
+  body.kids-young .kbtn .kfa { font-size: 12px; }
+  body.kids-young .khero .kgreet b { font-size: 23px; }
+  body.kids-young .msg { font-size: 18px; }
+
+  body.kids-older .kgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
+  body.kids-older .kbtn { min-height: 68px; box-shadow: 0 2px 0 rgba(210,160,70,.16); }
+  body.kids-older .kbtn .kico { font-size: 19px; }
+  body.kids-older .kbtn b { font-size: 13px; }
+  body.kids-older .kbtn .kgo { display: none; }
+  body.kids-older .khero { padding: 16px 18px; }
+  body.kids-older .khero .kface { width: 54px; height: 54px; }
+  body.kids-older .khero .kface svg, body.kids-older .khero .kface img { width: 46px; height: 46px; }
+  body.kids-older .khero .kgreet b { font-size: 22px; letter-spacing: -.3px; }
+  body.kids-older .msg { font-size: 16.5px; }
+
+  /* build a sentence: the line being made, then the words still to use */
+  .kbuild .khint { font-size: 12.5px; color: #6a568f; margin: 2px 0 10px; }
+  .kbuild .kpicked {
+    min-height: 44px; display: flex; flex-wrap: wrap; gap: 6px;
+    align-items: flex-start; padding: 6px; margin-bottom: 8px;
+    border-radius: 14px; border: 2px dashed #e6d3b4; background: #fffdf6;
+  }
+  .kbuild .kpicked:empty::before {
+    content: 'Tap the words in order…'; font-size: 12px; color: #a291bd;
+  }
+  .kbuild .kbank { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kword {
+    cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 700;
+    padding: 8px 12px; border-radius: 12px; min-height: 40px;
+    border: 2px solid #ffd79c; background: #fff8e6; color: #2a2350;
+    transition: transform .12s, background .12s;
+  }
+  .kword:hover { background: #fff2d6; transform: translateY(-1px); }
+  .kword[hidden] { display: none; }
+  .kword.on { background: #e8f7ff; border-color: #a9d9f2; }
+  .kbuild .kshake { animation: kshake .42s ease; }
+  @keyframes kshake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    60% { transform: translateX(4px); }
+  }
+
   .ktoday {
     display: flex; align-items: center; gap: 12px;
     padding: 12px 14px; margin-bottom: 12px;
@@ -6353,7 +6431,7 @@
     .eqbar i { animation: none !important; }
     /* the Kids layer: its stars pop, its tiles lift and its cards breathe, and
        all of that is an entrance or a tap response too */
-    .kspark, .kstars i { animation: none !important; transition: none !important; }
+    .kspark, .kstars i, .kbuild .kshake { animation: none !important; transition: none !important; }
     button, .ltab, .bbc-tab, .lrow { transition: none !important; }
     * { scroll-behavior: auto !important; }
   }
@@ -14285,6 +14363,25 @@ const Experience = (() => {
   }
 
   const kids = () => current() === 'kids';
+
+  /* Kids are not one audience. An eight-year-old and a thirteen-year-old read
+     at different speeds and want different pictures, so the presentation has
+     three registers - younger, middle, older - chosen from the same age the
+     band already uses. This is presentation only: it never touches the level
+     the learner is working at. */
+  const TIER_YOUNG_UNDER = 8, TIER_OLDER_FROM = 12;
+  function tierOf(age) {
+    const years = cleanAge(age);
+    if (years == null) return 'mid';
+    if (years < TIER_YOUNG_UNDER) return 'young';
+    return years < TIER_OLDER_FROM ? 'mid' : 'older';
+  }
+  function currentTier() {
+    const account = read(ACCOUNT, null);
+    if (!account || !kids()) return '';
+    /* an account the gate has not reached yet is shown the middle register */
+    return tierOf(account.age);
+  }
   const adults = () => current() === 'adults';
   const missing = () => {
     const account = read(ACCOUNT, null);
@@ -14307,7 +14404,11 @@ const Experience = (() => {
     const band = current();
     document.body.classList.toggle('kids', band === 'kids');
     document.documentElement.setAttribute('data-experience', band || 'none');
-    if (band === 'kids') Kids.enable();
+    const tier = band === 'kids' ? currentTier() : '';
+    ['kids-young', 'kids-mid', 'kids-older'].forEach((c) => {
+      document.body.classList.toggle(c, !!tier && c === 'kids-' + tier);
+    });
+    if (band === 'kids') { Kids.enable(); Kids.repaint(); }
     else Kids.off();
     document.dispatchEvent(new CustomEvent('fluentify:experience', {detail: {band}}));
     return band;
@@ -14369,8 +14470,9 @@ const Experience = (() => {
   }
 
   return {cleanAge, bandFor, current, kids, adults, missing, saveAge, paint,
-          sync, askAge, submitAge, onSignedIn,
-          kidsUnder: () => KIDS_UNDER, min: AGE_MIN, max: AGE_MAX};
+          sync, askAge, submitAge, onSignedIn, tier: currentTier, tierOf,
+          kidsUnder: () => KIDS_UNDER, min: AGE_MIN, max: AGE_MAX,
+          tiers: {young: TIER_YOUNG_UNDER, older: TIER_OLDER_FROM}};
 })();
 
 /* ============================================================================
@@ -14399,6 +14501,26 @@ const Kids = (() => {
 
   let doc = null, pending = null, labeled = false, moreBound = false;
   let landed = false, quizPage = 0;
+
+  /* Where the child was last, so the home page can offer one tap back into it
+     instead of making them find the tile again. It is a section id only: no
+     answer, no score, nothing that could go stale. */
+  const LAST = 'fluentify.kids.last';
+  const KID_SECTIONS = {
+    vpanel: ['Words', 'واژه‌ها', '🎨'], gpanel: ['Grammar', 'گرامر', '📘'],
+    rdpanel: ['Reading', 'خواندن', '📖'], lpanel: ['Listening', 'شنیدن', '🎧'],
+    stpanel: ['Stories', 'داستان‌ها', '📚'], fpanel: ['Sentences', 'جمله‌ها', '💬'],
+    kpanel: ['Home', 'خانه', '🏠'],
+  };
+  function remember(id) {
+    try { localStorage.setItem(LAST, id); } catch (e) { /* private */ }
+  }
+  function lastSection() {
+    try {
+      const id = localStorage.getItem(LAST);
+      return id && KID_SECTIONS[id] && id !== 'kpanel' ? id : '';
+    } catch (e) { return ''; }
+  }
 
   function load() {
     if (!pending) pending = loadJSON('kids').then((d) => { doc = d; return d; });
@@ -14590,13 +14712,23 @@ const Kids = (() => {
     greet.className = 'kgreet';
     const hi = document.createElement('b');
     hi.textContent = 'Hi' + (name ? ', ' + name.split(' ')[0] : '') + '! 👋';
+    /* One sentence per register: a six-year-old wants an invitation to play,
+       a thirteen-year-old wants to be asked what they can do, and neither one
+       should be reading the other's greeting. */
+    const tier = (typeof Experience !== 'undefined' && Experience.tier()) || 'mid';
+    const GREETING = {
+      young: ['Let us play with English today!', 'بیا امروز با انگلیسی بازی کنیم!'],
+      mid: ['Let us learn something fun today.', 'بیا امروز یک چیز بامزه یاد بگیریم.'],
+      older: ['Ready for today\u2019s English?', 'برای انگلیسی امروز آماده‌ای؟'],
+    };
+    const pair = GREETING[tier] || GREETING.mid;
     const line = document.createElement('span');
-    line.textContent = 'Let us learn something fun today.';
+    line.textContent = pair[0];
     const lineFa = document.createElement('span');
     lineFa.className = 'kfa';
     lineFa.dir = 'rtl';
     lineFa.lang = 'fa';
-    lineFa.textContent = 'بیا امروز یک چیز بامزه یاد بگیریم.';
+    lineFa.textContent = pair[1];
     const stars = document.createElement('div');
     stars.className = 'kstars';
     stars.setAttribute('aria-label', 'Stars today');
@@ -14656,6 +14788,7 @@ const Kids = (() => {
   }
 
   function openPanel(id) {
+    if (KID_SECTIONS[id] && id !== 'kpanel') remember(id);
     if (Panels.isOpen() === id) return;
     Panels.set(id, true, PANEL_ON_OPEN[id]);
   }
@@ -14724,6 +14857,54 @@ const Kids = (() => {
     return card;
   }
 
+  /* Two facts a learner should meet before anything else: the level they are
+     working at and the days they have come back in a row. Both are read from
+     what the app already keeps - the level check's own result and the study
+     clock - so nothing on this strip is a reward for pressing a button. */
+  function levelNow() {
+    try {
+      const raw = localStorage.getItem('fluentify.level.v2.result');
+      const r = raw ? JSON.parse(raw) : null;
+      return r && r.overall ? String(r.overall) : '';
+    } catch (e) { return ''; }
+  }
+
+  function statusStrip() {
+    const el = document.createElement('div');
+    el.className = 'kstrip';
+    const band = levelNow();
+    const level = document.createElement('span');
+    level.className = 'kchip' + (band ? ' on' : '');
+    level.innerHTML = '<b>' + (band ? 'Level ' + esc(band) : 'My level') + '</b>' +
+      '<i>' + (band ? 'سطح ' + esc(band) : 'سطح من') + '</i>';
+    let streak = 0;
+    try { streak = Study.stats().streak || 0; } catch (e) { streak = 0; }
+    const days = document.createElement('span');
+    days.className = 'kchip' + (streak ? ' on' : '');
+    days.innerHTML = '<b>' + (streak ? streak + (streak === 1 ? ' day' : ' days') : 'Day 1') +
+      ' 🔥</b><i>' + (streak ? streak + ' روز پیاپی' : 'روز اول') + '</i>';
+    el.append(level, days);
+    return el;
+  }
+
+  /* One tap back to the section the child was using. It is a section id, so
+     there is nothing here that can go stale, and a first visit gets the word
+     bank, which is where a kid account should start. */
+  function continueCard() {
+    const last = lastSection();
+    const id = last || 'vpanel';
+    const meta = KID_SECTIONS[id];
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'kcont';
+    b.innerHTML = '<span class="kico">' + meta[2] + '</span>' +
+      '<span class="kct"><b>' + (last ? 'Continue: ' + esc(meta[0]) : 'Start with ' + esc(meta[0])) +
+      '</b><i>' + (last ? 'ادامه: ' : 'شروع با ') + esc(meta[1]) + '</i></span>' +
+      '<span class="kgo">Go →</span>';
+    b.onclick = () => openPanel(id);
+    return b;
+  }
+
   async function home() {
     const panel = $('kbody');
     if (!panel) return;
@@ -14737,6 +14918,8 @@ const Kids = (() => {
       return;
     }
     panel.appendChild(hero(account ? account.name : '', minutesToday()));
+    panel.appendChild(statusStrip());
+    panel.appendChild(continueCard());
     panel.appendChild(todayCard(wordOfDay(d)));
     panel.appendChild(homeTiles());
     const prac = practiceCard(d);
@@ -14754,6 +14937,13 @@ const Kids = (() => {
     if (landed) return;
     landed = true;
     Panels.set('kpanel', true, () => home());
+  }
+
+  /* The register is read from the age, so entering the age on the gate (or
+     switching it) has to repaint the page that is already open - otherwise a
+     child sees the greeting of whichever register they had a moment ago. */
+  function repaint() {
+    if (on() && Panels.isOpen() === 'kpanel') home();
   }
 
   /* ---- the panels ------------------------------------------------------ */
@@ -14818,6 +15008,107 @@ const Kids = (() => {
       card.appendChild(fa(w.example_fa, 'kpara-fa'));
     });
     box.appendChild(card);
+    const built = buildExercise(theme.words || []);
+    if (built) box.appendChild(built);
+  }
+
+  /* ---- build a sentence ------------------------------------------------ */
+  /* The example sentences in kids.json are already the model a child should
+     copy, so the exercise reuses them: the words arrive shuffled, the child
+     taps them back into order, and the finished line is a sentence they have
+     read a moment earlier. Nothing here is generated at runtime, and it works
+     the same offline, because it is the same three strings. */
+  function sentenceBank(word) {
+    return String(word.example_en || '').trim().split(/\s+/).filter(Boolean);
+  }
+
+  function buildExercise(words) {
+    const picks = words.filter((w) => sentenceBank(w).length >= 3).slice(0, 3);
+    if (!picks.length) return null;
+    const card = document.createElement('section');
+    card.className = 'kcard kbuild';
+    const h = document.createElement('h4');
+    h.textContent = 'Build a sentence 🧱';
+    card.appendChild(h);
+    card.appendChild(fa('یک جمله بساز', 'kfa-h'));
+    const intro = document.createElement('p');
+    intro.className = 'khint';
+    intro.textContent = 'Tap the words in the right order.';
+    card.appendChild(intro);
+
+    picks.forEach((word) => {
+      const target = sentenceBank(word);
+      const wrap = document.createElement('div');
+      wrap.className = 'kq';
+      const picked = document.createElement('div');
+      picked.className = 'kpicked';
+      picked.setAttribute('aria-live', 'polite');
+      const bank = document.createElement('div');
+      bank.className = 'kbank';
+      const verdict = document.createElement('div');
+      verdict.className = 'kwhy';
+      verdict.hidden = true;
+
+      /* a fixed shuffle, so the same sentence is asked the same way each time
+         and the first word is not always on the left */
+      const order = target.map((w, i) => ({w, k: (i * 7 + w.length * 3) % 11, i}))
+        .sort((a, b) => (a.k - b.k) || (a.i - b.i))
+        .map((x) => x.w);
+
+      const reset = () => {
+        picked.innerHTML = '';
+        bank.innerHTML = '';
+        verdict.hidden = true;
+        wrap.classList.remove('kshake');
+        order.forEach((w, i) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'kword';
+          b.textContent = w;
+          b.dataset.at = String(i);
+          b.onclick = () => {
+            if (b.hidden) return;
+            b.hidden = true;
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'kword on';
+            chip.textContent = w;
+            chip.onclick = () => {
+              chip.remove();
+              b.hidden = false;
+              verdict.hidden = true;
+            };
+            picked.appendChild(chip);
+            if (!bank.querySelector('.kword:not([hidden])')) check();
+          };
+          bank.appendChild(b);
+        });
+      };
+
+      const check = () => {
+        const said = [...picked.children].map((c) => c.textContent).join(' ');
+        const want = target.join(' ');
+        const ok = said.toLowerCase() === want.toLowerCase();
+        verdict.hidden = false;
+        if (ok) {
+          wrap.classList.add('kspark');
+          verdict.innerHTML = '<div class="ken">⭐ ' + esc(want) + '</div>' +
+            '<div class="kfa" dir="rtl" lang="fa">' + esc(word.example_fa || '') + '</div>' +
+            '<div class="kwin">' + esc(praise()) + '</div>';
+          picked.querySelectorAll('.kword').forEach((c) => { c.disabled = true; });
+        } else {
+          wrap.classList.add('kshake');
+          verdict.innerHTML = '<div class="ken">Not yet. Tap a word to put it back.</div>' +
+            '<div class="kfa" dir="rtl" lang="fa">هنوز نه. روی یک واژه بزن تا برگردد.</div>';
+          setTimeout(() => wrap.classList.remove('kshake'), 500);
+        }
+      };
+
+      reset();
+      wrap.append(picked, bank, verdict);
+      card.appendChild(wrap);
+    });
+    return card;
   }
 
   async function grammar() {
@@ -15131,8 +15422,8 @@ const Kids = (() => {
     return (c.starters && c.starters.length) ? c.starters : KID_STARTERS;
   }
 
-  return {on, enable, off, load, land, home, vocab, grammar, stories, reading,
-          listening, phrases, says, welcome, starters, data};
+  return {on, enable, off, load, land, repaint, home, vocab, grammar, stories,
+          reading, listening, phrases, says, welcome, starters, data};
 })();
 
 /* ==========================================================================
