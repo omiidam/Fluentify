@@ -6367,7 +6367,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: var(--k-primary-wash); color: var(--k-primary-dark);
   }
   body.kids .hbtn i svg { width: 21px; height: 21px; }
-  body.kids .hbtn span { font-size: 10px; font-weight: 800; color: var(--k-ink); }
+  body.kids .hbtn span { font-size: 11px; font-weight: 800; color: var(--k-ink); }
   body.kids .hbtn:hover { transform: translateY(-2px); border-color: var(--k-line-strong); }
   body.kids .hbtn.on {
     background: var(--k-primary-dark); border-color: var(--k-primary-dark);
@@ -6428,6 +6428,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      explaining wait behind More, one tap away and out of the first glance. */
   body.kids .tools:not(.moreopen) .kadv { display: none; }
   body.kids .tools.moreopen { row-gap: 6px; }
+  /* The panels are the adult ones with kid content drawn into them; their
+     search box and their "23 · show all" counter have nothing to search or
+     count there, so they stay out of the child's way. */
+  body.kids .pcount, body.kids .psearch { display: none; }
+
   .khero {
     position: relative; overflow: hidden;
     display: flex; align-items: center; gap: 12px;
@@ -6464,7 +6469,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kbar { height: 10px; border-radius: 999px; background: var(--k-track); overflow: hidden; margin-top: 8px; }
   .kbar i { display: block; height: 100%; border-radius: 999px;
     background: var(--k-primary); transition: width .5s cubic-bezier(.22,1,.36,1); }
-  .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--k-primary-dark); font-weight: 700; }
+  .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--k-primary-dark); font-weight: 700; }
 
   /* level and streak, then the one tap back to where the child was */
   .kstrip { display: flex; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
@@ -6475,7 +6480,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     display: flex; flex-direction: column; gap: 1px;
   }
   .kchip b { font-size: 13px; color: var(--k-ink); }
-  .kchip i { font-style: normal; font-size: 11px; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kchip i { font-style: normal; font-size: 11.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
   .kchip.on { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
   .kchip.on b { color: var(--k-primary-dark); }
   .kcont {
@@ -6595,8 +6600,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: var(--k-primary-wash); border: 1.5px solid transparent;
   }
   .kbtn b { font-size: 13.5px; font-weight: 800; }
-  .kbtn .kfa { font-size: 11px; color: var(--k-ink-2); direction: rtl; }
-  .kbtn .kgo { font-size: 10.5px; color: var(--k-primary-dark); font-weight: 800; margin-top: auto; }
+  .kbtn .kfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
+  .kbtn .kgo { font-size: 11px; color: var(--k-primary-dark); font-weight: 800; margin-top: auto; }
   .kbtn.kc-teal { border-color: var(--k-primary-line); }
   .kbtn.kc-teal .kico { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
   .kbtn.kc-sky { border-color: var(--k-sky-line); }
@@ -6625,7 +6630,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-radius: 10px; padding: 7px 10px; margin: 4px 0 8px;
     direction: ltr;
   }
-  .klabel { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--k-ink-2); margin: 10px 0 5px; }
+  .klabel { font-size: 11.5px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--k-ink-2); margin: 10px 0 5px; }
   .kex { display: flex; flex-direction: column; gap: 6px; }
   .kex .krow {
     display: flex; gap: 8px; align-items: flex-start; padding: 9px 11px;
@@ -6678,7 +6683,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .krowbtn .kico { font-size: 20px; width: 30px; text-align: center; }
   .krowbtn b { font-size: 14px; }
   .krowbtn .kfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
-  .krowbtn .kn { margin-inline-start: auto; font-size: 11px; color: var(--k-ink-2); font-weight: 700; }
+  .krowbtn .kn { margin-inline-start: auto; font-size: 11.5px; color: var(--k-ink-2); font-weight: 700; }
   .kback {
     display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
     font-family: inherit; font-size: 12.5px; font-weight: 800;
@@ -6695,8 +6700,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .kwordrow b { font-size: 15px; color: var(--k-ink); }
   .kwordrow .kfa { font-size: 12px; color: var(--k-mint-ink); direction: rtl; margin-inline-start: auto; }
-  .kwordrow .kdef { font-size: 11.5px; color: var(--k-ink-2); }
-  .kwordrow .kex { font-size: 11.5px; color: var(--k-ink-2); }
+  .kwordrow .kdef { font-size: 12px; color: var(--k-ink-2); }
+  .kwordrow .kex { font-size: 12px; color: var(--k-ink-2); }
 
   /* --- the same identity in the dark theme -----------------------------
      Kids used to force its light palette whatever the theme switch said.
