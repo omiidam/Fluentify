@@ -7496,11 +7496,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
     <div class="authbody">
       <h2 class="authh" id="ageh">How old are you?</h2>
-      <p class="authsub">We use this one number to choose the right experience: under 15 is
-        Fluentify Kids, 15 and over is the full app. It is saved with your account and can
-        never be shared. — <bdi dir="rtl" lang="fa">این عدد را برای انتخاب تجربهٔ مناسب می‌پرسیم:
-        زیر ۱۵ سال نسخهٔ کودکان و ۱۵ سال به بالا نسخهٔ کامل. با حسابت ذخیره می‌شود و به کسی
-        داده نمی‌شود.</bdi></p>
       <label class="authfield">
         <span>Your age — سن شما</span>
         <input id="ageinput" type="number" inputmode="numeric" min="0" max="120" step="1"
