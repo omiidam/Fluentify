@@ -23021,12 +23021,51 @@ const Quest = (() => {
                     at: Number(e.at) || 0}));
     st.dirty = !!st.dirty;
     st.syncedAt = Number(st.syncedAt) || 0;
+    /* What she has shown she knows, item by item: right and wrong counts and
+       when it last came up. Mission events record stars; this records memory,
+       which is what spaced review and the learning report are made of. */
+    const items = {};
+    if (st.items && typeof st.items === 'object') {
+      Object.keys(st.items).slice(0, 400).forEach((k) => {
+        const it = st.items[k];
+        if (!it || typeof it !== 'object') return;
+        items[String(k).slice(0, 64)] = {
+          r: Math.max(0, Math.min(99, Number(it.r) || 0)),
+          w: Math.max(0, Math.min(99, Number(it.w) || 0)),
+          at: Number(it.at) || 0,
+        };
+      });
+    }
+    st.items = items;
     return st;
   }
   function writeState() {
     if (!state) return;
     try { localStorage.setItem(storeKey(), JSON.stringify(state)); } catch (e) { /* private mode */ }
   }
+  /* One item, one answer. `counted` on the challenge keeps a retry from
+     counting twice: the first attempt is the evidence, the second practice. */
+  function noteItem(id, ok) {
+    if (!id || !state) return;
+    const row = state.items[id] || (state.items[id] = {r: 0, w: 0, at: 0});
+    if (ok) row.r += 1; else row.w += 1;
+    row.at = Date.now();
+    writeState();
+  }
+  const DAY_MS = 86400000;
+  /* What is worth asking again: anything still wrong more often than right,
+     and anything that has not come up for three days. That is the review
+     queue, and it is built from her own answers rather than a schedule. */
+  function dueItems(now) {
+    const t = now || Date.now();
+    const items = state && state.items ? state.items : {};
+    return Object.keys(items).filter((id) => {
+      const it = items[id];
+      if (it.w > it.r) return true;
+      return it.at > 0 && t - it.at > 3 * DAY_MS;
+    });
+  }
+
   function deviceKey() {
     let key = '';
     try { key = localStorage.getItem(DEVICE) || ''; } catch (e) { key = ''; }
@@ -23213,9 +23252,37 @@ const Quest = (() => {
       q_fa: '«' + word.word + '» یعنی چه؟',
       options: options,
       answer: word.fa,
+      item: 'w:' + word.word,
       why_en: word.word + ' means “' + word.def_en + '” — ' + word.example_en,
       why_fa: '«' + word.word + '» یعنی «' + word.fa + '» — ' + word.example_fa,
       speak: word.word,
+    };
+  }
+
+  /* The word is missing from its own sentence: she has to recall it, not
+     recognise its translation. A word whose example does not contain it (an
+     irregular form) falls back to the meaning question rather than asking
+     something that cannot be answered. */
+  function vocabGap(word, seed) {
+    const sentence = String(word.example_en || '');
+    const safe = String(word.word).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const wordRe = new RegExp('\\b' + safe + '\\b', 'i');
+    if (!wordRe.test(sentence)) return null;
+    const same = allWords().filter((w) => w.theme === word.theme && w.word !== word.word);
+    const picks = shuffled(same.length ? same : allWords().filter((w) => w.word !== word.word),
+      seed + 5).slice(0, 2);
+    if (picks.length < 2) return null;
+    return {
+      t: 'gap',
+      q: 'Which word is missing?',
+      q_fa: 'کدام واژه جا افتاده است؟',
+      sentence: sentence.replace(wordRe, '___'),
+      answer: word.word,
+      options: shuffled([word.word].concat(picks.map((w) => w.word)), seed + 9),
+      item: 'w:' + word.word,
+      why_en: '“' + word.word + '” = ' + word.def_en + '. ' + sentence,
+      why_fa: '«' + word.word + '» یعنی «' + word.fa + '». ' + word.example_fa,
+      speak: sentence,
     };
   }
 
@@ -23241,6 +23308,7 @@ const Quest = (() => {
       q_fa: 'جای خالی را پر کن.',
       options: item.options.slice(),
       answer: item.answer,
+      item: 'g:' + lesson.id,
       why_en: item.why_en,
       why_fa: item.why_fa,
       speak: String(item.q).replace(/___/g, item.answer),
@@ -23259,6 +23327,7 @@ const Quest = (() => {
       q_fa: 'کدام جملهٔ انگلیسی معنای «' + item.fa + '» را می‌دهد؟',
       options: shuffled([item.en].concat(wrong.map((x) => x.en)), seed + 11),
       answer: item.en,
+      item: 'p:' + item.en,
       why_en: 'You say: ' + item.en,
       why_fa: 'می‌گویی: ' + item.en,
       speak: item.en,
@@ -23274,6 +23343,7 @@ const Quest = (() => {
       q: 'Put the words in order.',
       q_fa: 'واژه‌ها را مرتب کن.',
       answer: ex.en,
+      item: 'o:' + lesson.id,
       why_en: 'The sentence is: ' + ex.en,
       why_fa: 'جمله این است: ' + ex.en,
       fa: ex.fa,
@@ -23290,6 +23360,7 @@ const Quest = (() => {
       q_fa: 'متن را بخوان و پاسخ بده.',
       options: item.options.slice(),
       answer: item.answer,
+      item: 'r:' + passage.id,
       why_en: item.why_en,
       why_fa: item.why_fa,
       passage_en: passage.text_en,
@@ -23322,6 +23393,7 @@ const Quest = (() => {
       q_fa: item.q_fa || 'پاسخ درست را انتخاب کن.',
       options: item.options ? item.options.slice() : null,
       answer: item.answer,
+      item: item.t + ':' + String(item.answer || '').slice(0, 40),
       why_en: item.why_en,
       why_fa: item.why_fa,
       accept: item.accept || null,
@@ -23350,9 +23422,16 @@ const Quest = (() => {
         const theme = find(bank && bank.words, step.theme);
         if (!theme) return;
         const pool = shuffled(wordPool().filter((w) => w.theme === step.theme), local);
+        /* Anything due for review comes first: a word she missed, or one she
+           has not met for three days, is the one worth spending the recall on. */
+        const due = new Set(dueItems());
+        pool.sort((a, b) => (due.has('w:' + b.word) ? 1 : 0) - (due.has('w:' + a.word) ? 1 : 0));
         pool.slice(0, step.n).forEach((w, k) => {
           used.add(w.word);
-          out.push(vocabChallenge(w, local + k));
+          // The first word is recalled inside its sentence; the rest are
+          // recognised, so every mission holds both kinds of knowledge.
+          const gap = k === 0 ? vocabGap(w, local + k) : null;
+          out.push(gap || vocabChallenge(w, local + k));
         });
       } else if (step.type === 'match') {
         const theme = find(bank && bank.words, step.theme);
@@ -24003,7 +24082,8 @@ const Quest = (() => {
     wrap.appendChild(scene);
     body.appendChild(wrap);
 
-    if (ch.t === 'match') mountGems(ch);
+    if (ch.t === 'gap') mountGapWords(ch);
+    else if (ch.t === 'match') mountGems(ch);
     else if (ch.t === 'order') mountBridge(ch);
     else if (ch.t === 'fill') mountGap(ch);
     else if (ch.t === 'listen') mountListen(ch);
@@ -24055,7 +24135,10 @@ const Quest = (() => {
     box.appendChild(faLine((ok ? '' : '✗ ') + ch.why_fa, 'hqfa'));
     if (extra) box.appendChild(el('div', 'hqnote', extra));
     const act = el('div', 'hqw-act');
-    if (!ok && (ch.t === 'fill' || ch.t === 'order' || ch.t === 'match')) {
+    /* Every kind of challenge lets her try again: a wrong answer is a moment
+       to learn from, not a verdict. The star rule still counts only the first
+       attempt, so retrying is practice and never inflates the score. */
+    if (!ok) {
       const retry = el('button', 'hqw-go2 ghost', 'Try again');
       retry.type = 'button';
       retry.onclick = () => {
@@ -24091,6 +24174,7 @@ const Quest = (() => {
       Snd.play('wrong');
       foxAct('sad', 900);
     }
+    if (ch.item && !ch.counted) { ch.counted = true; noteItem(ch.item, ok); }
     showScroll(ok, ch, ok ? null : 'The right answer is marked in green.');
     run.scene.querySelectorAll('.hqw-prop, .hqw-gem, .hqw-plank').forEach((n) => { n.dataset.done = '1'; });
   }
@@ -24126,6 +24210,39 @@ const Quest = (() => {
           }
           resolve(ok, ch);
         }, 520);
+      };
+      props.appendChild(b);
+    });
+  }
+
+  /* ---- recall: the sentence with a hole in it, and word tiles to fill it ---- */
+  function mountGapWords(ch) {
+    const props = $('hqprops');
+    if (!props) return;
+    const line = el('div');
+    line.style.cssText = 'position:absolute;left:6%;right:6%;top:40%;text-align:center;' +
+      'font-size:17px;line-height:1.5';
+    line.innerHTML = esc(ch.sentence).replace('___',
+      '<b style="display:inline-block;min-width:64px;border-bottom:2px dashed #b98b3c">____</b>');
+    props.appendChild(line);
+    const xs = propPositions(ch.options.length);
+    ch.options.forEach((option, i) => {
+      const b = el('button', 'hqw-prop word');
+      b.type = 'button';
+      b.style.left = xs[i] + '%';
+      b.style.top = (64 + (i % 2) * 5) + '%';
+      b.innerHTML = '<span class="lbl">' + esc(option) + '</span>';
+      b.setAttribute('aria-label', option);
+      b.onclick = () => {
+        if (run.answered) return;
+        const ok = option === ch.answer;
+        b.classList.add(ok ? 'right' : 'wrong');
+        if (!ok) {
+          const right = [...props.querySelectorAll('.hqw-prop')]
+            .find((p) => p.textContent.trim() === ch.answer);
+          if (right) right.classList.add('right');
+        }
+        resolve(ok, ch);
       };
       props.appendChild(b);
     });

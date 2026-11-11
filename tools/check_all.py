@@ -146,6 +146,7 @@ SUITES = [
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("kids experience", [sys.executable, "tools/check_kids.py"]),
     ("hero quest", [sys.executable, "tools/check_quest.py"]),
+    ("hero quest learning", [sys.executable, "tools/check_quest_learning.py"]),
     ("books & library panel", [sys.executable, "tools/check_books.py"]),
     ("reading strategies panel", [sys.executable, "tools/check_reading.py"]),
     ("mini stories panel", [sys.executable, "tools/check_stories.py"]),
