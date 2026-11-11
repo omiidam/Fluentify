@@ -534,7 +534,7 @@ def main():
 
     print(f"\nPASS  {stats.get('words')} kid words in 7 themes, "
           f"{stats.get('grammar')} mini lessons with {stats.get('quiz')} quiz items, "
-          f"3 stories, 3 passages, 4 listening clips, 4 phrase sets and a "
+          f"4 stories, 4 passages, 5 listening clips, 5 phrase sets and a "
           "kid-safe chat; ages below 15 are classified on the page and in the "
           "APK, and every kids rule, panel and reply is behind that band")
     return 0
