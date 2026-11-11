@@ -15,7 +15,7 @@
      the same key the Account panel writes. Reading it inside the app instead
      meant the boot screen painted light and then flipped: a white flash on a
      dark theme, which is exactly the thing a dark theme exists to avoid. -->
-<script src="bot.js?v=f1feec94"></script>
+<script src="bot.js?v=fa4beb6d"></script>
 <script>
   (function () {
     var dark = false;
@@ -6317,21 +6317,15 @@
     60% { transform: translateX(4px); }
   }
 
-  .ktoday {
     display: flex; align-items: center; gap: 12px;
     padding: 12px 14px; margin-bottom: 10px;
     background: var(--k-surface); border: 1.5px solid var(--k-line); border-radius: 16px;
     box-shadow: 0 1px 3px var(--k-shadow);
   }
-  .ktoday .kemoji {
     flex: none; width: 42px; height: 42px; border-radius: 12px;
     display: grid; place-items: center; font-size: 22px;
     background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line);
   }
-  .ktoday .kwt { min-width: 0; flex: 1 1 auto; }
-  .ktoday .kwt b { font-size: 19px; color: var(--k-ink); letter-spacing: -.2px; }
-  .ktoday .kwt .kdef { font-size: 12px; color: var(--k-ink-2); margin-top: 2px; }
-  .ktoday .kwt .kfa { font-size: 13px; color: var(--k-mint-ink); direction: rtl; text-align: right; margin-top: 2px; }
   .ksay {
     flex: none; width: 44px; height: 44px; border-radius: 12px; cursor: pointer;
     border: 1.5px solid var(--k-mint-line); background: var(--k-mint);
@@ -15498,38 +15492,6 @@ const Kids = (() => {
     return el;
   }
 
-  function wordOfDay(d) {
-    const all = [];
-    (d.words || []).forEach((theme) => (theme.words || []).forEach((w) => all.push(w)));
-    if (!all.length) return null;
-    const day = Math.floor(Date.now() / 86400000);
-    return all[day % all.length];
-  }
-
-  function todayCard(word) {
-    if (!word) return null;
-    const el = document.createElement('section');
-    el.className = 'ktoday';
-    const emoji = document.createElement('div');
-    emoji.className = 'kemoji';
-    emoji.textContent = '🌟';
-    const body = document.createElement('div');
-    body.className = 'kwt';
-    const w = document.createElement('b');
-    w.textContent = word.word;
-    const def = document.createElement('div');
-    def.className = 'kdef';
-    def.textContent = word.def_en;
-    const faLine = document.createElement('div');
-    faLine.className = 'kfa';
-    faLine.dir = 'rtl';
-    faLine.lang = 'fa';
-    faLine.textContent = word.fa + ' · ' + word.example_fa;
-    body.append(w, def, faLine);
-    el.append(emoji, body, sayButton(word.word + '. ' + word.example_en));
-    return el;
-  }
-
   function openPanel(id) {
     if (KID_SECTIONS[id] && id !== 'kpanel') remember(id);
     if (Panels.isOpen() === id) return;
@@ -15692,7 +15654,6 @@ const Kids = (() => {
     panel.appendChild(hero(account ? account.name : '', minutesToday()));
     panel.appendChild(statusStrip());
     panel.appendChild(continueCard());
-    panel.appendChild(todayCard(wordOfDay(d)));
     panel.appendChild(homeTiles());
     const prac = practiceCard(d);
     if (prac) panel.appendChild(prac);

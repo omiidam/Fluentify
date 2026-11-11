@@ -477,6 +477,18 @@ const LEX_FORM_ASKS = [
 ];
 const LEX_CONTEXT_RE = /\b(?:in|inside|within)\s+(?:the\s+|a\s+|an\s+)?(.{2,50})$/i;
 
+// "every meaning of book", "all the meanings of set", "همهٔ معنی‌های book" -
+// mirrors LEX_ALL_RE / LEX_ALL_FA / LEX_ALL_PATTERNS in chatbot.py.
+const LEX_ALL_RE = /\b(?:all|every|each)\s+(?:the\s+|its\s+|of\s+the\s+)?(?:meanings?|senses?|uses?)\b/i;
+const LEX_ALL_FA = /(?:همه|تمام|کل)\s*[ی\u0654\u200c]*\s*(?:معنی|معانی|معنی\u200cها|کاربرد)/;
+const LEX_ALL_PATTERNS = [
+  /(?:all|every|each)\s+(?:the\s+)?(?:meanings?|senses?)\s+(?:of|for)\s+(.+)/i,
+  /(?:meanings?|senses?)\s+of\s+(.+?)\s+(?:all|every|together)/i,
+  /(.+?)\s+(?:has|have)\s+(?:many|several|multiple)\s+meanings/i,
+  /(?:همه|تمام|کل)\s*[ی\u0654\u200c]*\s*(?:معنی|معانی|معنی\u200cها)(?:ی|های|ه)?\s*(.+)/,
+  /([A-Za-z][A-Za-z'\- ]{0,40}?)\s*(?:همه\s*)?(?:معنی|معانی)(?:ها|های|ش|یش|ی)?/,
+];
+
 const LEX_SYN_PATTERNS = [
   /synonyms? (?:of|for)\s+(.+)/i,
   /(?:similar|other) words? (?:for|to)\s+(.+)/i,
@@ -1966,6 +1978,52 @@ class Fluentify {
     return lines.join('\n');
   }
 
+  formatLexAll(head, entry, asked, lang) {
+    // Mirrors format_lex_all() in chatbot.py: the whole entry, grouped by part
+    // of speech, sent only when the learner asks for every meaning.
+    const senses = entry.s || [];
+    const askedNorm = normalizeWord(asked);
+    const askedFa = /[\u0600-\u06FF]/.test(asked);
+    const headOnly = askedNorm === head || askedFa;
+    const label = headOnly ? `**${head}**` : `**${asked}** → **${head}**`;
+    if (!senses.length) {
+      return lang === 'fa' ? `📖 ${label} — معنی‌ای برای این واژه ثبت نشده است.`
+        : `📖 ${label} — no meanings are recorded for this word.`;
+    }
+    const lead = lang === 'fa' ? `${toPersianDigits(senses.length)} معنی`
+      : `${senses.length} meaning${senses.length > 1 ? 's' : ''}`;
+    const lines = [`📖 ${label}${this._lexIpa(entry)} — ${lead}`];
+    const posLine = this._lexPosText(entry, lang === 'fa' ? 'fa' : 'en');
+    if (posLine) lines.push(`   ${posLine}`);
+    let current = null;
+    senses.forEach((raw, idx) => {
+      const i = idx + 1;
+      const sense = raw || [];
+      const pos = sense[0] || '';
+      const definition = sense[1] || '';
+      const meaning = sense[2] || '';
+      const example = sense[3] || '';
+      if (pos !== current) {
+        current = pos;
+        lines.push('');
+        lines.push(lang === 'fa' ? `  ▸ ${LEX_POS_FA[pos] || pos}` : `  ▸ ${pos}`);
+      }
+      const num = lang === 'fa' ? toPersianDigits(i) : String(i);
+      if (meaning && definition) {
+        lines.push(`   ${num}. ${meaning}`);
+        lines.push(`      ${definition}`);
+      } else {
+        lines.push(`   ${i}. ${meaning || definition}`);
+        if (!meaning) {
+          lines.push(lang === 'fa' ? '      (معنی فارسی ثبت نشده)'
+            : '      (no Persian gloss recorded)');
+        }
+      }
+      if (example) lines.push(`      ▸ ${example}`);
+    });
+    return lines.join('\n');
+  }
+
   formatLexRelations(head, entry, lang, kind) {
     const groups = entry[kind] || {};
     const syn = kind === 'y';
@@ -2113,6 +2171,12 @@ class Fluentify {
       const resolved = this._lexResolve(target);
       if (resolved) return this.formatLexExamples(resolved[1], resolved[2], lang);
     }
+    // 0b) the whole entry, asked for on purpose: "all the meanings of book"
+    if (LEX_ALL_RE.test(text) || LEX_ALL_FA.test(text)) {
+      target = this._lexTarget(text, LEX_ALL_PATTERNS);
+      const resolved = target ? this._lexResolve(target) : null;
+      if (resolved) return this.formatLexAll(resolved[1], resolved[2], target, lang);
+    }
     // 1) a form of the word: "past tense of seek"
     for (const [pattern, formType] of LEX_FORM_ASKS) {
       if (!pattern.test(text)) continue;
@@ -2161,6 +2225,12 @@ class Fluentify {
     // Philosophy, not vocabulary: otherwise "meaning of life" becomes a
     // failed lookup for the word "life".
     if (/\b(?:meaning|purpose) of life\b/i.test(text)) return null;
+    // Asked for the whole entry, not for one translation of one word.
+    if (LEX_ALL_RE.test(text) || LEX_ALL_FA.test(text)) {
+      const target = this._lexTarget(text, LEX_ALL_PATTERNS);
+      const resolved = target ? this._lexResolve(target) : null;
+      if (resolved) return this.formatLexAll(resolved[1], resolved[2], target, lang);
+    }
     // "reply in english" is a request about the reply, not a lookup for the
     // word "reply" — the "<X> in <language>" pattern would translate it.
     if (SWITCH_ASK_RE.test(text)) return null;

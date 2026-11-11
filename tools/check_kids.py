@@ -324,6 +324,16 @@ def check_kids_layer(src):
     check("#kidsmore" in src and "moreopen" in src,
           "the advanced tiles have no show-more control")
     check("Kids.land()" in src, "nothing opens the kids home after sign-in")
+    # The Today's English card is out of the kids home: the words-of-the-day
+    # card already carries that ground, and it was the heaviest thing a child
+    # had to scroll past to reach the sections.
+    # The Today's English card is gone from the kids home, helper and all: the
+    # words-of-the-day tile already carries that ground and the card was the
+    # heaviest thing a child had to scroll past.
+    check("todayCard(" not in src and "wordOfDay(" not in src,
+          "the kids home no longer builds a Today's English card")
+    check("practiceCard(" in src and "homeTiles()" in src,
+          "the words of the day are still on the kids home")
 
     # Every styling rule for kids must hang off body.kids: an unscoped
     # ".kcard" would repaint an adult card in a child's palette the moment

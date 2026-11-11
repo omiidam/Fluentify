@@ -688,6 +688,23 @@ LEX_FORM_PATTERNS = {
     "superlative": [r"superlative of\s+(?P<t>.+)"],
     "3rd_present": [r"third person(?: singular)?(?: form)? of\s+(?P<t>.+)"],
 }
+# "every meaning of book", "all the meanings of set", "همهٔ معنی‌های book".
+# The trigger says the whole entry is wanted; the patterns say which word it is
+# about. Both are separate because a learner writes the trigger in their own
+# language and the word in English.
+LEX_ALL_RE = re.compile(
+    r"\b(?:all|every|each)\s+(?:the\s+|its\s+|of\s+the\s+)?"
+    r"(?:meanings?|senses?|uses?)\b", re.IGNORECASE)
+LEX_ALL_FA = re.compile(
+    r"(?:همه|تمام|کل)\s*[ی\u0654\u200c]*\s*(?:معنی|معانی|معنی\u200cها|کاربرد)")
+LEX_ALL_PATTERNS = [
+    r"(?:all|every|each)\s+(?:the\s+)?(?:meanings?|senses?)\s+(?:of|for)\s+(?P<t>.+)",
+    r"(?:meanings?|senses?)\s+of\s+(?P<t>.+?)\s+(?:all|every|together)",
+    r"(?P<t>.+?)\s+(?:has|have)\s+(?:many|several|multiple)\s+meanings",
+    r"(?:همه|تمام|کل)\s*[ی\u0654\u200c]*\s*(?:معنی|معانی|معنی\u200cها)(?:ی|های|ه)?\s*(?P<t>.+)",
+    r"(?P<t>[A-Za-z][A-Za-z'\- ]{0,40}?)\s*(?:همه\s*)?(?:معنی|معانی)(?:ها|های|ش|یش|ی)?",
+]
+
 # Trailing Persian question furniture, trimmed off a target over and over:
 # «مترادف کلمه beautiful رو بگو» must reduce to "beautiful".
 # Words that carry the question rather than the meaning when a sentence is
@@ -1203,6 +1220,55 @@ class ChatBot:
             else:
                 lines.append(f"   ↲ I have no sense recorded for \u201c{said}\u201d "
                              f"— these are the meanings I have.")
+        return "\n".join(lines)
+
+    def format_lex_all(self, head: str, entry: dict, asked: str, lang: str) -> str:
+        """Every meaning the dictionary holds, grouped by part of speech.
+
+        This is the one reply that prints the whole entry instead of the first
+        few senses, and it is only ever sent when the learner asks for it -
+        "all the meanings of book". Numbering is the entry's own, so a sense
+        read here is the same sense the short reply calls by number, and the
+        Persian reader gets Persian part-of-speech headings rather than a line
+        that starts in one script and ends in the other.
+        """
+        senses = entry.get("s") or []
+        asked_norm = normalize_word(asked)
+        asked_fa = detect_lang(asked) == "fa"
+        head_only = asked_norm == head or asked_fa
+        label = f"**{head}**" if head_only else f"**{asked}** → **{head}**"
+        if not senses:
+            return (f"📖 {label} — معنی‌ای برای این واژه ثبت نشده است." if lang == "fa"
+                    else f"📖 {label} — no meanings are recorded for this word.")
+        count = len(senses)
+        if lang == "fa":
+            lead = f"{to_persian_digits(count)} معنی"
+        else:
+            lead = f"{count} meaning" + ("s" if count > 1 else "")
+        lines = [f"📖 {label}{self._lex_ipa(entry)} — {lead}"]
+        pos_line = self._lex_pos_text(entry, "fa" if lang == "fa" else "en")
+        if pos_line:
+            lines.append(f"   {pos_line}")
+        current = None
+        for i, raw in enumerate(senses, start=1):
+            sense = (list(raw) + [""] * 5)[:5]
+            pos, definition, meaning, example = sense[:4]
+            if pos != current:
+                current = pos
+                lines.append("")
+                lines.append(f"  ▸ {LEX_POS_FA.get(pos, pos)}" if lang == "fa"
+                             else f"  ▸ {pos}")
+            num = to_persian_digits(i) if lang == "fa" else str(i)
+            if meaning and definition:
+                lines.append(f"   {num}. {meaning}")
+                lines.append(f"      {definition}")
+            else:
+                lines.append(f"   {i}. {meaning or definition}")
+                if not meaning:
+                    lines.append("      (معنی فارسی ثبت نشده)" if lang == "fa"
+                                 else "      (no Persian gloss recorded)")
+            if example:
+                lines.append(f"      ▸ {example}")
         return "\n".join(lines)
 
     def format_api_entry(self, head: str, data: dict, asked: str,
@@ -3295,6 +3361,13 @@ class ChatBot:
             if resolved:
                 _asked, head, entry = resolved
                 return self.format_lex_examples(head, entry, lang)
+        # 0b) the whole entry, asked for on purpose: "all the meanings of book"
+        if LEX_ALL_RE.search(text) or LEX_ALL_FA.search(text):
+            target = self._lex_target(text, LEX_ALL_PATTERNS)
+            resolved = self._lex_resolve(target) if target else None
+            if resolved:
+                _asked, head, entry = resolved
+                return self.format_lex_all(head, entry, target, lang)
         # 1) a form of the word: "past tense of seek"
         for pattern, form_type in LEX_FORM_ASKS:
             if not pattern.search(text):
@@ -3387,6 +3460,13 @@ class ChatBot:
         # failed lookup for the word "life".
         if re.search(r"\b(?:meaning|purpose) of life\b", text, re.IGNORECASE):
             return None
+        # Asked for the whole entry, not for one translation of one word.
+        if LEX_ALL_RE.search(text) or LEX_ALL_FA.search(text):
+            target = self._lex_target(text, LEX_ALL_PATTERNS)
+            resolved = self._lex_resolve(target) if target else None
+            if resolved:
+                _asked, head, entry = resolved
+                return self.format_lex_all(head, entry, target, lang)
         # "reply in english" is a request about the reply, not a lookup for the
         # word "reply" — the "<X> in <language>" pattern would otherwise
         # translate it. The language-switch intents own this phrasing.

@@ -203,6 +203,31 @@ def main() -> int:
           f"meta says {meta.get('words')} words/{meta.get('senses')} senses, "
           f"the words say {len(words)}/{total}")
 
+    # ------------------------------------------------------- the chatbot --
+    # Both engines answer "all the meanings of book" with the whole entry, not
+    # the first few senses: the offer in the panel is worthless if the tutor
+    # will not read out what the panel can show.
+    sys.path.insert(0, str(ROOT))
+    from chatbot import ChatBot  # noqa: E402  (after the path is set)
+
+    bot = ChatBot()
+    _head, book = bot.lex_find("book")
+    whole = len(book.get("s") or [])
+    for question, marker in (("all the meanings of book", "▸ noun"),
+                             ("همه معنی‌های book", "▸ اسم")):
+        reply = bot.respond(question)
+        numbered = len(re.findall(r"^\s+[\d\u06F0-\u06F9]+\.", reply, re.M))
+        check(f"the chatbot answers {question!r} with the whole entry",
+              whole > 3 and numbered == whole and marker in reply,
+              f"{numbered} of {whole} senses, part of speech {marker!r} "
+              f"present: {marker in reply}")
+
+    page_js = (ROOT / "android/app/src/main/assets/www/bot.js").read_text(encoding="utf-8")
+    check("the offline engine answers it the same way",
+          "formatLexAll(head, entry, asked, lang)" in page_js
+          and "const LEX_ALL_PATTERNS" in page_js,
+          "the APK has the same trigger and the same full-entry reply")
+
     # -------------------------------------------------------------- wiring --
     src = PAGE.read_text(encoding="utf-8")
     check("the page reads the senses file",
