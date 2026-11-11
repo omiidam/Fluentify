@@ -1,0 +1,2631 @@
+{
+ "_meta": {
+  "version": 1,
+  "title_en": "Travel English",
+  "title_fa": "انگلیسی سفر",
+  "intro_en": "The English you need from the first booking to the last check-out: sentences, vocabulary, and the dialogues they live in. Everything here works offline.",
+  "intro_fa": "انگلیسی‌ای که از نخستین رزرو تا آخرین تخلیه لازم داری: جمله‌ها، واژه‌ها و گفت‌وگوهایی که در آن‌ها به کار می‌روند. همه‌چیز آفلاین کار می‌کند.",
+  "levels": [
+   "A1",
+   "A2",
+   "B1",
+   "B2",
+   "C1",
+   "C2"
+  ],
+  "note_en": "This is language for travel, not legal, immigration or medical advice. Rules differ by country: ask the official in front of you.",
+  "note_fa": "این‌ها زبان سفر است، نه مشاورهٔ حقوقی، مهاجرتی یا پزشکی. قواعد هر کشور فرق دارد؛ از مأمور رسمی بپرس.",
+  "sources": "Original sentences written for Fluentify, in American English, with British wording noted where it differs."
+ },
+ "categories": [
+  {
+   "id": "planning",
+   "emoji": "🗓",
+   "title_en": "Planning & reservations",
+   "title_fa": "برنامه‌ریزی و رزرو",
+   "desc_en": "Book the trip, ask about dates, and change a plan without panic.",
+   "desc_fa": "سفر را رزرو کن، دربارهٔ تاریخ بپرس و برنامه را بی‌دردسر عوض کن.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "planning-1",
+     "en": "I'd like to book a flight to London.",
+     "fa": "می‌خواهم بلیت پروازی به لندن رزرو کنم.",
+     "use_en": "Asking to reserve a seat on a plane.",
+     "use_fa": "برای رزرو صندلی هواپیما.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I'd like to reserve a seat to London.",
+       "fa": "می‌خواهم به لندن صندلی رزرو کنم."
+      }
+     ]
+    },
+    {
+     "id": "planning-2",
+     "en": "Are there any direct flights?",
+     "fa": "پرواز مستقیم دارید؟",
+     "use_en": "Asking whether a route has no stops.",
+     "use_fa": "پرسیدن اینکه مسیر بی‌توقف است.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Is there a flight that goes straight there?",
+       "fa": "پروازی هست که مستقیم برود؟"
+      }
+     ]
+    },
+    {
+     "id": "planning-3",
+     "en": "What time does the flight depart?",
+     "fa": "پرواز چه ساعتی حرکت می‌کند؟",
+     "use_en": "Asking for the departure time.",
+     "use_fa": "پرسیدن ساعت حرکت.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "What time does it leave?",
+       "fa": "چه ساعتی حرکت می‌کند؟"
+      }
+     ]
+    },
+    {
+     "id": "planning-4",
+     "en": "Can I change my reservation?",
+     "fa": "می‌توانم رزرو را تغییر دهم؟",
+     "use_en": "Asking to move a booking to another date.",
+     "use_fa": "تغییر تاریخ رزرو.",
+     "level": "B1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is it possible to move my booking?",
+       "fa": "امکان جابه‌جایی رزرو هست؟"
+      }
+     ]
+    },
+    {
+     "id": "planning-5",
+     "en": "I'd like to discuss my rebooking options, given the change in schedule.",
+     "fa": "با توجه به تغییر برنامه، می‌خواهم دربارهٔ گزینه‌های رزرو دوباره صحبت کنم.",
+     "use_en": "Opening a negotiation about rebooking.",
+     "use_fa": "شروع گفت‌وگو دربارهٔ رزرو دوباره.",
+     "level": "C1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could we go through the rebooking options?",
+       "fa": "می‌شود گزینه‌های رزرو دوباره را مرور کنیم؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "flight",
+     "fa": "پرواز",
+     "def_en": "A journey by plane.",
+     "pos": "noun",
+     "example_en": "My flight leaves at nine."
+    },
+    {
+     "en": "reservation",
+     "fa": "رزرو",
+     "def_en": "An arrangement to keep a seat or room for you.",
+     "pos": "noun",
+     "example_en": "I have a reservation for Friday."
+    },
+    {
+     "en": "direct",
+     "fa": "مستقیم",
+     "def_en": "Going somewhere without stopping or changing.",
+     "pos": "adjective",
+     "example_en": "Is there a direct train?"
+    },
+    {
+     "en": "schedule",
+     "fa": "برنامهٔ زمانی",
+     "def_en": "The times when things are planned to happen.",
+     "pos": "noun",
+     "example_en": "The schedule is on the screen."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At the airline desk",
+    "title_fa": "در باجهٔ هواپیمایی",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello, I'd like to book a flight to London.",
+      "fa": "سلام، می‌خواهم بلیت پروازی به لندن رزرو کنم."
+     },
+     {
+      "who": "Agent",
+      "en": "Certainly. Would you like a morning or an evening flight?",
+      "fa": "حتماً. پرواز صبح می‌خواهید یا عصر؟"
+     },
+     {
+      "who": "You",
+      "en": "Morning, please. Are there any direct flights?",
+      "fa": "صبح، لطفاً. پرواز مستقیم دارید؟"
+     },
+     {
+      "who": "Agent",
+      "en": "There is one at eight fifteen. Shall I reserve a seat?",
+      "fa": "یکی ساعت هشت و ربع هست. صندلی رزرو کنم؟"
+     }
+    ]
+   },
+   "pattern": {
+    "frame": "I'd like to + [verb], please.",
+    "example_en": "I'd like to book a seat, please.",
+    "note_en": "The verb changes with the task: book, change, cancel, confirm.",
+    "note_fa": "فعل را با کار عوض کن: book، change، cancel، confirm."
+   }
+  },
+  {
+   "id": "airport",
+   "emoji": "🧳",
+   "title_en": "Airport & check-in",
+   "title_fa": "فرودگاه و پذیرش",
+   "desc_en": "Find the counter, choose a seat, and know where your gate is.",
+   "desc_fa": "باجه را پیدا کن، صندلی انتخاب کن و بدان دروازه‌ات کجاست.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "airport-1",
+     "en": "Where is the check-in counter?",
+     "fa": "باجهٔ پذیرش کجاست؟",
+     "use_en": "Asking where to hand in your bag.",
+     "use_fa": "پرسیدن جای تحویل بار.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Excuse me, where do I check in?",
+       "fa": "ببخشید، کجا پذیرش می‌شوم؟"
+      }
+     ]
+    },
+    {
+     "id": "airport-2",
+     "en": "Could I have a window seat?",
+     "fa": "می‌توانم صندلی کنار پنجره بگیرم؟",
+     "use_en": "Asking for a seat by the window.",
+     "use_fa": "درخواست صندلی کنار پنجره.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is a window seat available?",
+       "fa": "صندلی کنار پنجره آزاد است؟"
+      }
+     ]
+    },
+    {
+     "id": "airport-3",
+     "en": "Where is the gate for my flight?",
+     "fa": "دروازهٔ پرواز من کجاست؟",
+     "use_en": "Asking which gate to walk to.",
+     "use_fa": "پرسیدن دروازهٔ پرواز.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Which gate does flight BA22 leave from?",
+       "fa": "پرواز BA22 از کدام دروازه می‌رود؟"
+      }
+     ]
+    },
+    {
+     "id": "airport-4",
+     "en": "How long before boarding should I be here?",
+     "fa": "چقدر قبل از سوارشدن باید اینجا باشم؟",
+     "use_en": "Asking how early to arrive.",
+     "use_fa": "پرسیدن اینکه چقدر زودتر بیایی.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "When should I be at the gate?",
+       "fa": "چه موقع باید در دروازه باشم؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "boarding pass",
+     "fa": "کارت پرواز",
+     "def_en": "The card or phone ticket that lets you board.",
+     "pos": "noun",
+     "example_en": "Show your boarding pass at the gate."
+    },
+    {
+     "en": "gate",
+     "fa": "دروازه",
+     "def_en": "The door in the airport where you get on the plane.",
+     "pos": "noun",
+     "example_en": "The gate is number twelve."
+    },
+    {
+     "en": "carry-on",
+     "fa": "بار دستی",
+     "def_en": "The small bag you keep with you on the plane.",
+     "pos": "noun",
+     "example_en": "One carry-on bag is allowed."
+    },
+    {
+     "en": "checked baggage",
+     "fa": "بار تحویلی",
+     "def_en": "The large bags that travel in the hold.",
+     "pos": "noun",
+     "example_en": "Where do I drop my checked baggage?"
+    }
+   ],
+   "dialogue": {
+    "title_en": "At check-in",
+    "title_fa": "در پذیرش",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Good morning. Where can I drop off my luggage?",
+      "fa": "صبح بخیر. کجا می‌توانم بارم را تحویل بدهم؟"
+     },
+     {
+      "who": "Agent",
+      "en": "Right here. May I see your passport?",
+      "fa": "همین‌جا. می‌شود پاسپورتتان را ببینم؟"
+     },
+     {
+      "who": "You",
+      "en": "Here you are. Could I have a window seat?",
+      "fa": "بفرمایید. می‌توانم صندلی کنار پنجره بگیرم؟"
+     },
+     {
+      "who": "Agent",
+      "en": "Of course. Here is your boarding pass. Gate twelve.",
+      "fa": "البته. این هم کارت پروازتان. دروازهٔ دوازده."
+     }
+    ]
+   },
+   "pattern": {
+    "frame": "Could I have + [noun], please?",
+    "example_en": "Could I have a window seat, please?",
+    "note_en": "Any thing you can be given fits after have: a receipt, an extra towel.",
+    "note_fa": "هر چیزی که بتوانند بدهند بعد از have می‌آید: رسید، حولهٔ اضافه."
+   }
+  },
+  {
+   "id": "security",
+   "emoji": "🛂",
+   "title_en": "Security, immigration & customs",
+   "title_fa": "امنیت، مهاجرت و گمرک",
+   "desc_en": "Answer the officer's questions clearly and honestly.",
+   "desc_fa": "به پرسش‌های مأمور روشن و صادقانه پاسخ بده.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "security-1",
+     "en": "Here is my passport.",
+     "fa": "این پاسپورت من است.",
+     "use_en": "Handing your document to an officer.",
+     "use_fa": "دادن مدرک به مأمور.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "My passport, please.",
+       "fa": "پاسپورتم، لطفاً."
+      }
+     ]
+    },
+    {
+     "id": "security-2",
+     "en": "I'm visiting for tourism.",
+     "fa": "برای گردش آمده‌ام.",
+     "use_en": "The reason for your visit.",
+     "use_fa": "دلیل سفرت.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I'm here on holiday.",
+       "fa": "برای تعطیلات آمده‌ام."
+      }
+     ]
+    },
+    {
+     "id": "security-3",
+     "en": "I'm staying for two weeks.",
+     "fa": "دو هفته می‌مانم.",
+     "use_en": "How long you plan to remain.",
+     "use_fa": "مدت اقامتت.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I'll be here until the fourteenth.",
+       "fa": "تا چهاردهم اینجا هستم."
+      }
+     ]
+    },
+    {
+     "id": "security-4",
+     "en": "Could you please repeat the question?",
+     "fa": "می‌شود لطفاً سؤال را تکرار کنید؟",
+     "use_en": "Asking an officer to say it again.",
+     "use_fa": "درخواست تکرار پرسش از مأمور.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Sorry, I didn't catch that.",
+       "fa": "ببخشید، متوجه نشدم."
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "passport control",
+     "fa": "کنترل پاسپورت",
+     "def_en": "The desk where an officer checks your passport.",
+     "pos": "noun",
+     "example_en": "Passport control is on the left."
+    },
+    {
+     "en": "customs",
+     "fa": "گمرک",
+     "def_en": "The place where goods you bring are checked.",
+     "pos": "noun",
+     "example_en": "We walked through customs quickly."
+    },
+    {
+     "en": "declare",
+     "fa": "اظهار کردن",
+     "def_en": "To tell customs about goods you are bringing in.",
+     "pos": "verb",
+     "example_en": "Do I need to declare this?"
+    },
+    {
+     "en": "immigration",
+     "fa": "ادارهٔ مهاجرت",
+     "def_en": "The office that decides whether you may enter.",
+     "pos": "noun",
+     "example_en": "The immigration line was long."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At passport control",
+    "title_fa": "در کنترل پاسپورت",
+    "lines": [
+     {
+      "who": "Officer",
+      "en": "Good afternoon. What is the purpose of your visit?",
+      "fa": "بعدازظهر بخیر. هدف سفرتان چیست؟"
+     },
+     {
+      "who": "You",
+      "en": "I'm visiting for tourism. I'm staying for two weeks.",
+      "fa": "برای گردش آمده‌ام. دو هفته می‌مانم."
+     },
+     {
+      "who": "Officer",
+      "en": "Where will you be staying?",
+      "fa": "کجا اقامت می‌کنید؟"
+     },
+     {
+      "who": "You",
+      "en": "At a hotel in the city center. Could you repeat that, please?",
+      "fa": "در هتلی در مرکز شهر. می‌شود لطفاً تکرار کنید؟"
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "onboard",
+   "emoji": "✈️",
+   "title_en": "On the airplane",
+   "title_fa": "در هواپیما",
+   "desc_en": "Ask the cabin crew for what you need, politely and simply.",
+   "desc_fa": "مؤدبانه و ساده از خدمهٔ پرواز بخواه چه لازم داری.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "onboard-1",
+     "en": "Could you help me with my bag?",
+     "fa": "می‌توانید با کیفم کمکم کنید؟",
+     "use_en": "Asking crew to lift a heavy bag.",
+     "use_fa": "کمک خواستن برای گذاشتن کیف.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I can't reach the locker. Could you help?",
+       "fa": "به قفسه نمی‌رسم. کمک می‌کنید؟"
+      }
+     ]
+    },
+    {
+     "id": "onboard-2",
+     "en": "Could I have some water, please?",
+     "fa": "ممکن است کمی آب لطفاً؟",
+     "use_en": "Asking for a drink.",
+     "use_fa": "درخواست نوشیدنی.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "May I have a glass of water?",
+       "fa": "می‌شود یک لیوان آب؟"
+      }
+     ]
+    },
+    {
+     "id": "onboard-3",
+     "en": "How long is the flight?",
+     "fa": "پرواز چقدر طول می‌کشد؟",
+     "use_en": "Asking about the flying time.",
+     "use_fa": "پرسیدن مدت پرواز.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "How much longer until we land?",
+       "fa": "چقدر دیگر تا فرود مانده؟"
+      }
+     ]
+    },
+    {
+     "id": "onboard-4",
+     "en": "Could I have a blanket?",
+     "fa": "ممکن است یک پتو؟",
+     "use_en": "Asking for something to keep warm.",
+     "use_fa": "درخواست پتو.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I'm cold. Is there a blanket?",
+       "fa": "سردم است. پتو دارید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "cabin crew",
+     "fa": "خدمهٔ کابین",
+     "def_en": "The people who look after passengers on a plane.",
+     "pos": "noun",
+     "example_en": "The cabin crew were very kind."
+    },
+    {
+     "en": "aisle",
+     "fa": "راهرو",
+     "def_en": "The narrow path between seats.",
+     "pos": "noun",
+     "example_en": "I asked for an aisle seat."
+    },
+    {
+     "en": "overhead bin",
+     "fa": "قفسهٔ بالای سر",
+     "def_en": "The locker above the seats for small bags.",
+     "pos": "noun",
+     "example_en": "Put your bag in the overhead bin."
+    },
+    {
+     "en": "blanket",
+     "fa": "پتو",
+     "def_en": "A cover to keep you warm.",
+     "pos": "noun",
+     "example_en": "Could I have a blanket?"
+    }
+   ],
+   "dialogue": {
+    "title_en": "Asking the crew",
+    "title_fa": "گفتن با خدمه",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Excuse me, could you help me with my bag?",
+      "fa": "ببخشید، می‌توانید با کیفم کمکم کنید؟"
+     },
+     {
+      "who": "Crew",
+      "en": "Of course. Is this yours?",
+      "fa": "البته. این مال شماست؟"
+     },
+     {
+      "who": "You",
+      "en": "Yes, thank you. Could I have some water as well?",
+      "fa": "بله، ممنون. کمی آب هم می‌شود؟"
+     },
+     {
+      "who": "Crew",
+      "en": "Here you are. Is there anything else?",
+      "fa": "بفرمایید. چیز دیگری هم لازم دارید؟"
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "arrival",
+   "emoji": "🛍",
+   "title_en": "Arrival & baggage claim",
+   "title_fa": "ورود و تحویل بار",
+   "desc_en": "Find your bag, then find the way out.",
+   "desc_fa": "چمدانت را پیدا کن و راه خروج را پیدا کن.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "arrival-1",
+     "en": "Where is baggage claim?",
+     "fa": "محل تحویل بار کجاست؟",
+     "use_en": "Asking where to collect your bags.",
+     "use_fa": "پرسیدن جای گرفتن چمدان.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Where do I pick up my luggage?",
+       "fa": "کجا چمدانم را تحویل بگیرم؟"
+      }
+     ]
+    },
+    {
+     "id": "arrival-2",
+     "en": "My suitcase hasn't arrived.",
+     "fa": "چمدان من نیامده است.",
+     "use_en": "Saying your bag did not come out.",
+     "use_fa": "گفتن اینکه چمدانت نیامده.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I can't find my suitcase.",
+       "fa": "چمدانم را پیدا نمی‌کنم."
+      }
+     ]
+    },
+    {
+     "id": "arrival-3",
+     "en": "Where can I report missing luggage?",
+     "fa": "کجا می‌توانم بار گم‌شده را گزارش کنم؟",
+     "use_en": "Asking where the baggage desk is.",
+     "use_fa": "پرسیدن جای گزارش بار گم‌شده.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a lost luggage desk?",
+       "fa": "میز بار گم‌شده دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "arrival-4",
+     "en": "I have a connecting flight.",
+     "fa": "پرواز اتصالی دارم.",
+     "use_en": "Telling staff you must catch another flight.",
+     "use_fa": "گفتن اینکه پرواز دیگری در پیش داری.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "We're transferring to another flight.",
+       "fa": "به پرواز دیگری وصل می‌شویم."
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "baggage claim",
+     "fa": "تحویل بار",
+     "def_en": "The area where checked bags come out.",
+     "pos": "noun",
+     "example_en": "Baggage claim is on level one."
+    },
+    {
+     "en": "carousel",
+     "fa": "نوار بار",
+     "def_en": "The moving belt that brings the bags.",
+     "pos": "noun",
+     "example_en": "Our bags came on carousel three."
+    },
+    {
+     "en": "oversized luggage",
+     "fa": "بار بزرگ",
+     "def_en": "Bags too big for the normal belt.",
+     "pos": "noun",
+     "example_en": "Ask at oversized luggage."
+    },
+    {
+     "en": "exit",
+     "fa": "خروج",
+     "def_en": "The way out of the building.",
+     "pos": "noun",
+     "example_en": "The exit is past the shops."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At the baggage desk",
+    "title_fa": "در میز بار",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. My suitcase hasn't arrived.",
+      "fa": "سلام. چمدان من نیامده است."
+     },
+     {
+      "who": "Staff",
+      "en": "Which flight were you on?",
+      "fa": "با کدام پرواز آمده‌اید؟"
+     },
+     {
+      "who": "You",
+      "en": "Flight 482 from Istanbul.",
+      "fa": "پرواز ۴۸۲ از استانبول."
+     },
+     {
+      "who": "Staff",
+      "en": "Let me check. Please fill in this form.",
+      "fa": "بگذارید بررسی کنم. لطفاً این فرم را پر کنید."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "transport",
+   "emoji": "🚌",
+   "title_en": "Public transportation",
+   "title_fa": "حمل‌ونقل عمومی",
+   "desc_en": "Buy a ticket, find the platform, and know where to get off.",
+   "desc_fa": "بلیت بخر، سکو را پیدا کن و بدان کجا پیاده شوی.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "transport-1",
+     "en": "Where can I buy a ticket?",
+     "fa": "از کجا می‌توانم بلیت بخرم؟",
+     "use_en": "Asking for the ticket window or machine.",
+     "use_fa": "پرسیدن جای بلیت.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a ticket machine near here?",
+       "fa": "دستگاه بلیت این نزدیکی هست؟"
+      }
+     ]
+    },
+    {
+     "id": "transport-2",
+     "en": "Does this bus go to the city center?",
+     "fa": "این اتوبوس به مرکز شهر می‌رود؟",
+     "use_en": "Checking a bus goes the right way.",
+     "use_fa": "پرسیدن مقصد اتوبوس.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Is this the right bus for the center?",
+       "fa": "این اتوبوس برای مرکز درست است؟"
+      }
+     ]
+    },
+    {
+     "id": "transport-3",
+     "en": "Which platform does the train leave from?",
+     "fa": "قطار از کدام سکو حرکت می‌کند؟",
+     "use_en": "Asking for a platform number.",
+     "use_fa": "پرسیدن شمارهٔ سکو.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Where do I find platform six?",
+       "fa": "سکوی شش کجاست؟"
+      }
+     ]
+    },
+    {
+     "id": "transport-4",
+     "en": "Could you take me to this address?",
+     "fa": "می‌شود مرا به این نشانی ببرید؟",
+     "use_en": "Telling a driver your destination.",
+     "use_fa": "گفتن نشانی به راننده.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "To this address, please.",
+       "fa": "به این نشانی، لطفاً."
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "fare",
+     "fa": "کرایه",
+     "def_en": "The money you pay for a journey.",
+     "pos": "noun",
+     "example_en": "The fare is three dollars."
+    },
+    {
+     "en": "platform",
+     "fa": "سکو",
+     "def_en": "The place beside the track where you get on.",
+     "pos": "noun",
+     "example_en": "The train leaves from platform two."
+    },
+    {
+     "en": "transfer",
+     "fa": "جابه‌جایی",
+     "def_en": "Changing from one vehicle to another.",
+     "pos": "noun",
+     "example_en": "You need a transfer at the next stop."
+    },
+    {
+     "en": "stop",
+     "fa": "ایستگاه",
+     "def_en": "A place where a bus or train lets people off.",
+     "pos": "noun",
+     "example_en": "Get off at the third stop."
+    }
+   ],
+   "dialogue": {
+    "title_en": "In a taxi",
+    "title_fa": "در تاکسی",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Could you take me to this address, please?",
+      "fa": "می‌شود مرا به این نشانی ببرید؟"
+     },
+     {
+      "who": "Driver",
+      "en": "Of course. Is that near the station?",
+      "fa": "البته. نزدیک ایستگاه است؟"
+     },
+     {
+      "who": "You",
+      "en": "I think so. How much will it cost?",
+      "fa": "فکر می‌کنم. چقدر می‌شود؟"
+     },
+     {
+      "who": "Driver",
+      "en": "About fifteen dollars, depending on traffic.",
+      "fa": "حدود پانزده دلار، بسته به ترافیک."
+     }
+    ]
+   },
+   "pattern": {
+    "frame": "Where is the nearest + [place]?",
+    "example_en": "Where is the nearest bus station?",
+    "note_en": "Put any place after nearest: pharmacy, hotel, bank.",
+    "note_fa": "هر جایی را بعد از nearest بگذار: داروخانه، هتل، بانک."
+   }
+  },
+  {
+   "id": "directions",
+   "emoji": "🧭",
+   "title_en": "Directions & navigation",
+   "title_fa": "مسیر و جهت‌یابی",
+   "desc_en": "Ask the way, and understand the answer.",
+   "desc_fa": "راه را بپرس و پاسخ را بفهم.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "directions-1",
+     "en": "Excuse me, where is the nearest bus station?",
+     "fa": "ببخشید، نزدیک‌ترین ایستگاه اتوبوس کجاست؟",
+     "use_en": "Opening a polite question to a stranger.",
+     "use_fa": "شروع یک پرسش مؤدبانه از غریبه.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Sorry to bother you, where is the bus station?",
+       "fa": "ببخشید مزاحم شدم، ایستگاه اتوبوس کجاست؟"
+      }
+     ]
+    },
+    {
+     "id": "directions-2",
+     "en": "How do I get to the city center?",
+     "fa": "چطور به مرکز شهر بروم؟",
+     "use_en": "Asking for the route, not just the place.",
+     "use_fa": "پرسیدن مسیر، نه فقط جا.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "What's the best way to the center?",
+       "fa": "بهترین راه به مرکز چیست؟"
+      }
+     ]
+    },
+    {
+     "id": "directions-3",
+     "en": "Is it within walking distance?",
+     "fa": "پیاده می‌شود رفت؟",
+     "use_en": "Asking whether you can walk there.",
+     "use_fa": "پرسیدن اینکه پیاده می‌شود رفت.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Can I walk there from here?",
+       "fa": "از اینجا پیاده می‌شود رفت؟"
+      }
+     ]
+    },
+    {
+     "id": "directions-4",
+     "en": "Should I turn left or right?",
+     "fa": "باید به چپ بپیچم یا راست؟",
+     "use_en": "Checking a direction you were given.",
+     "use_fa": "بررسی جهتِ گفته‌شده.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Which way do I turn at the corner?",
+       "fa": "سر نبش کدام طرف بپیچم؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "corner",
+     "fa": "نبش",
+     "def_en": "The place where two streets meet.",
+     "pos": "noun",
+     "example_en": "Turn left at the corner."
+    },
+    {
+     "en": "block",
+     "fa": "بلوک",
+     "def_en": "The distance between two streets.",
+     "pos": "noun",
+     "example_en": "It's two blocks away."
+    },
+    {
+     "en": "traffic light",
+     "fa": "چراغ راهنمایی",
+     "def_en": "The light that tells cars and people when to go.",
+     "pos": "noun",
+     "example_en": "Go straight at the traffic light."
+    },
+    {
+     "en": "landmark",
+     "fa": "نشانهٔ شهری",
+     "def_en": "A building or place people use to give directions.",
+     "pos": "noun",
+     "example_en": "The tower is a good landmark."
+    }
+   ],
+   "dialogue": {
+    "title_en": "Asking a passer-by",
+    "title_fa": "پرسیدن از رهگذر",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Excuse me, how do I get to the city center?",
+      "fa": "ببخشید، چطور به مرکز شهر بروم؟"
+     },
+     {
+      "who": "Person",
+      "en": "Go straight, then turn left at the traffic light.",
+      "fa": "مستقیم برو، بعد سر چراغ به چپ بپیچ."
+     },
+     {
+      "who": "You",
+      "en": "Is it within walking distance?",
+      "fa": "پیاده می‌شود رفت؟"
+     },
+     {
+      "who": "Person",
+      "en": "Yes, about ten minutes. Would you like me to show you on the map?",
+      "fa": "بله، حدود ده دقیقه. می‌خواهید روی نقشه نشانتان بدهم؟"
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "hotel",
+   "emoji": "🏨",
+   "title_en": "Hotels & accommodation",
+   "title_fa": "هتل و اقامت",
+   "desc_en": "Check in, ask what is included, and report a problem.",
+   "desc_fa": "پذیرش شو، بپرس چه چیزی شامل است و مشکل را بگو.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "hotel-1",
+     "en": "I have a reservation under the name Smith.",
+     "fa": "به نام اسمیت رزرو دارم.",
+     "use_en": "Telling reception your booking name.",
+     "use_fa": "گفتن نام رزرو به پذیرش.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "The booking is in my father's name.",
+       "fa": "رزرو به نام پدرم است."
+      }
+     ]
+    },
+    {
+     "id": "hotel-2",
+     "en": "Is breakfast included?",
+     "fa": "صبحانه شامل می‌شود؟",
+     "use_en": "Asking what the room price covers.",
+     "use_fa": "پرسیدن اینکه قیمت اتاق چه چیزی را شامل است.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Does the price include breakfast?",
+       "fa": "قیمت صبحانه را هم شامل است؟"
+      }
+     ]
+    },
+    {
+     "id": "hotel-3",
+     "en": "What time is check-out?",
+     "fa": "ساعت تخلیه اتاق چه وقت است؟",
+     "use_en": "Asking when you must leave the room.",
+     "use_fa": "پرسیدن ساعت تخلیه.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "When do we have to leave the room?",
+       "fa": "چه ساعتی باید اتاق را ترک کنیم؟"
+      }
+     ]
+    },
+    {
+     "id": "hotel-4",
+     "en": "The air conditioning isn't working.",
+     "fa": "کولر کار نمی‌کند.",
+     "use_en": "Reporting a problem in the room.",
+     "use_fa": "گزارش خرابی اتاق.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "The room is very warm. Could someone look at the air conditioning?",
+       "fa": "اتاق خیلی گرم است. کسی می‌تواند کولر را ببیند؟"
+      }
+     ]
+    },
+    {
+     "id": "hotel-5",
+     "en": "Could you confirm in writing that the room will be held until midnight?",
+     "fa": "می‌شود کتباً تأیید کنید اتاق تا نیمه‌شب نگه داشته می‌شود؟",
+     "use_en": "Getting a booking promise in writing.",
+     "use_fa": "گرفتن تأیید کتبی رزرو.",
+     "level": "B2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Please confirm by email that the room is held.",
+       "fa": "لطفاً با ایمیل تأیید کنید اتاق نگه داشته می‌شود."
+      }
+     ]
+    },
+    {
+     "id": "hotel-6",
+     "en": "Had I been told about the renovation, I would have asked for another room.",
+     "fa": "اگر دربارهٔ بازسازی به من گفته شده بود، اتاق دیگری می‌خواستم.",
+     "use_en": "A firm but polite complaint in the third conditional.",
+     "use_fa": "شکایت محکم و مؤدبانه با شرطی نوع سوم.",
+     "level": "C2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "If I had known, I would have chosen differently.",
+       "fa": "اگر می‌دانستم، جور دیگری انتخاب می‌کردم."
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "reception",
+     "fa": "پذیرش",
+     "def_en": "The desk where guests check in.",
+     "pos": "noun",
+     "example_en": "Reception is open all night."
+    },
+    {
+     "en": "key card",
+     "fa": "کارت کلید",
+     "def_en": "The card that opens your room.",
+     "pos": "noun",
+     "example_en": "My key card doesn't work."
+    },
+    {
+     "en": "check-out",
+     "fa": "تخلیه",
+     "def_en": "The act of leaving and paying at the end.",
+     "pos": "noun",
+     "example_en": "Check-out is at eleven."
+    },
+    {
+     "en": "deposit",
+     "fa": "ودیعه",
+     "def_en": "Money paid in advance and partly returned later.",
+     "pos": "noun",
+     "example_en": "Is there a deposit for the room?"
+    }
+   ],
+   "dialogue": {
+    "title_en": "At reception",
+    "title_fa": "در پذیرش",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. I have a reservation under the name Smith.",
+      "fa": "سلام. به نام اسمیت رزرو دارم."
+     },
+     {
+      "who": "Receptionist",
+      "en": "Welcome. Could I see your passport?",
+      "fa": "خوش آمدید. می‌شود پاسپورتتان را ببینم؟"
+     },
+     {
+      "who": "You",
+      "en": "Here you are. Is breakfast included?",
+      "fa": "بفرمایید. صبحانه شامل می‌شود؟"
+     },
+     {
+      "who": "Receptionist",
+      "en": "Yes, from seven to ten. Your room is on the third floor.",
+      "fa": "بله، از هفت تا ده. اتاق شما در طبقهٔ سوم است."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "restaurant",
+   "emoji": "🍽",
+   "title_en": "Restaurants, cafés & food",
+   "title_fa": "رستوران، کافه و غذا",
+   "desc_en": "Order what you want, ask what is in it, and pay.",
+   "desc_fa": "آنچه می‌خواهی سفارش بده، بپرس داخلش چیست و حساب کن.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "restaurant-1",
+     "en": "Could we have a table for two?",
+     "fa": "میز برای دو نفر دارید؟",
+     "use_en": "Asking for a table at the door.",
+     "use_fa": "درخواست میز دم در.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "A table for two, please.",
+       "fa": "یک میز برای دو نفر، لطفاً."
+      }
+     ]
+    },
+    {
+     "id": "restaurant-2",
+     "en": "What do you recommend?",
+     "fa": "چه پیشنهاد می‌کنید؟",
+     "use_en": "Asking for the server's suggestion.",
+     "use_fa": "پرسیدن پیشنهاد گارسون.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "What's good today?",
+       "fa": "امروز چه چیزی خوب است؟"
+      }
+     ]
+    },
+    {
+     "id": "restaurant-3",
+     "en": "Does this contain peanuts?",
+     "fa": "این بادام‌زمینی دارد؟",
+     "use_en": "Checking an ingredient before you eat.",
+     "use_fa": "بررسی مادهٔ غذایی پیش از خوردن.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I need to know if this has nuts in it.",
+       "fa": "باید بدانم بادام‌زمینی دارد یا نه."
+      }
+     ]
+    },
+    {
+     "id": "restaurant-4",
+     "en": "I'm allergic to shellfish.",
+     "fa": "به صدف دریایی حساسیت دارم.",
+     "use_en": "Telling staff about a serious allergy.",
+     "use_fa": "گفتن حساسیت جدی به کارکنان.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Shellfish makes me very ill.",
+       "fa": "صدف دریایی حالم را بد می‌کند."
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "menu",
+     "fa": "منو",
+     "def_en": "The list of food and prices.",
+     "pos": "noun",
+     "example_en": "Could I see the menu?"
+    },
+    {
+     "en": "order",
+     "fa": "سفارش",
+     "def_en": "The food you ask for.",
+     "pos": "noun",
+     "example_en": "Our order is ready."
+    },
+    {
+     "en": "check",
+     "fa": "صورت‌حساب",
+     "def_en": "The bill in American English (British: bill).",
+     "pos": "noun",
+     "example_en": "Could we have the check?"
+    },
+    {
+     "en": "allergy",
+     "fa": "حساسیت",
+     "def_en": "A body's strong reaction to something it cannot accept.",
+     "pos": "noun",
+     "example_en": "She has a nut allergy."
+    }
+   ],
+   "dialogue": {
+    "title_en": "Ordering a meal",
+    "title_fa": "سفارش غذا",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Could we have a table for two?",
+      "fa": "میز برای دو نفر دارید؟"
+     },
+     {
+      "who": "Server",
+      "en": "Of course. Here are your menus.",
+      "fa": "البته. منوها را خدمتتان می‌آورم."
+     },
+     {
+      "who": "You",
+      "en": "Does the soup contain peanuts? I'm allergic to nuts.",
+      "fa": "سوپ بادام‌زمینی دارد؟ به بادام‌زمینی حساسیت دارم."
+     },
+     {
+      "who": "Server",
+      "en": "It doesn't. I'll check with the kitchen to be sure.",
+      "fa": "ندارد. برای اطمینان از آشپزخانه می‌پرسم."
+     }
+    ]
+   },
+   "pattern": {
+    "frame": "Could we have + [noun], please?",
+    "example_en": "Could we have the check, please?",
+    "note_en": "The same frame asks for a table, a menu, water, or the check.",
+    "note_fa": "با همین ساختار میز، منو، آب یا صورت‌حساب بخواه."
+   }
+  },
+  {
+   "id": "shopping",
+   "emoji": "🛍",
+   "title_en": "Shopping & payments",
+   "title_fa": "خرید و پرداخت",
+   "desc_en": "Ask the price, try something on, and pay the way you want.",
+   "desc_fa": "قیمت را بپرس، پرو کن و هرطور می‌خواهی پرداخت کن.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "shopping-1",
+     "en": "How much does this cost?",
+     "fa": "این چند است؟",
+     "use_en": "Asking the price of something.",
+     "use_fa": "پرسیدن قیمت.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "How much is this?",
+       "fa": "این چنده؟"
+      }
+     ]
+    },
+    {
+     "id": "shopping-2",
+     "en": "Do you have this in a different size?",
+     "fa": "این را در سایز دیگری دارید؟",
+     "use_en": "Asking for another size.",
+     "use_fa": "درخواست سایز دیگر.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a larger one?",
+       "fa": "بزرگ‌ترش را دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "shopping-3",
+     "en": "Can I try this on?",
+     "fa": "می‌توانم پرو کنم؟",
+     "use_en": "Asking to wear it before buying.",
+     "use_fa": "درخواست پرو کردن.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Where is the fitting room?",
+       "fa": "اتاق پرو کجاست؟"
+      }
+     ]
+    },
+    {
+     "id": "shopping-4",
+     "en": "Can I pay by card?",
+     "fa": "می‌توانم با کارت پرداخت کنم؟",
+     "use_en": "Asking about payment methods.",
+     "use_fa": "پرسیدن روش پرداخت.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Do you take credit cards?",
+       "fa": "کارت اعتباری قبول می‌کنید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "receipt",
+     "fa": "رسید",
+     "def_en": "The paper that proves you paid.",
+     "pos": "noun",
+     "example_en": "Could I have a receipt?"
+    },
+    {
+     "en": "refund",
+     "fa": "بازپرداخت",
+     "def_en": "Money given back for something returned.",
+     "pos": "noun",
+     "example_en": "Is a refund possible?"
+    },
+    {
+     "en": "exchange",
+     "fa": "تعویض",
+     "def_en": "Swapping something for another.",
+     "pos": "noun",
+     "example_en": "I'd like to exchange this."
+    },
+    {
+     "en": "fitting room",
+     "fa": "اتاق پرو",
+     "def_en": "The small room where you try clothes.",
+     "pos": "noun",
+     "example_en": "The fitting rooms are at the back."
+    }
+   ],
+   "dialogue": {
+    "title_en": "In a shop",
+    "title_fa": "در فروشگاه",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Excuse me, do you have this in a different size?",
+      "fa": "ببخشید، این را در سایز دیگری دارید؟"
+     },
+     {
+      "who": "Assistant",
+      "en": "What size are you looking for?",
+      "fa": "چه سایزی می‌خواهید؟"
+     },
+     {
+      "who": "You",
+      "en": "A medium. Can I try it on?",
+      "fa": "مدیوم. می‌توانم پرو کنم؟"
+     },
+     {
+      "who": "Assistant",
+      "en": "Of course. The fitting rooms are on the left.",
+      "fa": "البته. اتاق‌های پرو سمت چپ است."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "sightseeing",
+   "emoji": "📸",
+   "title_en": "Sightseeing & attractions",
+   "title_fa": "گشت‌وگذار و دیدنی‌ها",
+   "desc_en": "Choose what to see, buy a ticket, and ask about tours.",
+   "desc_fa": "انتخاب کن چه ببینی، بلیت بخر و دربارهٔ تور بپرس.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "sightseeing-1",
+     "en": "What places should I visit?",
+     "fa": "چه جاهایی را ببینم؟",
+     "use_en": "Asking a local for suggestions.",
+     "use_fa": "پرسیدن پیشنهاد از یک محلی.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "What would you see if you had one day here?",
+       "fa": "اگر یک روز اینجا بودید چه می‌دیدید؟"
+      }
+     ]
+    },
+    {
+     "id": "sightseeing-2",
+     "en": "How much is the entrance fee?",
+     "fa": "ورودی چقدر است؟",
+     "use_en": "Asking the price to go in.",
+     "use_fa": "پرسیدن قیمت ورود.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Is there a ticket for students?",
+       "fa": "بلیت دانشجویی دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "sightseeing-3",
+     "en": "What time does the museum open?",
+     "fa": "موزه چه ساعتی باز می‌شود؟",
+     "use_en": "Asking opening time.",
+     "use_fa": "پرسیدن ساعت باز شدن.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is the museum open today?",
+       "fa": "موزه امروز باز است؟"
+      }
+     ]
+    },
+    {
+     "id": "sightseeing-4",
+     "en": "Is there a guided tour?",
+     "fa": "تور با راهنما دارید؟",
+     "use_en": "Asking about tours with a guide.",
+     "use_fa": "پرسیدن تور با راهنما.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Do you run tours in English?",
+       "fa": "تور انگلیسی هم دارید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "ticket office",
+     "fa": "باجهٔ بلیت",
+     "def_en": "Where entrance tickets are sold.",
+     "pos": "noun",
+     "example_en": "The ticket office is by the gate."
+    },
+    {
+     "en": "guided tour",
+     "fa": "تور راهنما‌دار",
+     "def_en": "A visit led by someone who explains things.",
+     "pos": "noun",
+     "example_en": "The guided tour starts at ten."
+    },
+    {
+     "en": "landmark",
+     "fa": "بنای دیدنی",
+     "def_en": "A well-known place that helps you find your way.",
+     "pos": "noun",
+     "example_en": "The bridge is the city's landmark."
+    },
+    {
+     "en": "souvenir",
+     "fa": "سوغاتی",
+     "def_en": "Something you buy to remember a place.",
+     "pos": "noun",
+     "example_en": "I bought a small souvenir."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At the tourist office",
+    "title_fa": "در دفتر گردشگری",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. What places should I visit in one day?",
+      "fa": "سلام. در یک روز چه جاهایی را ببینم؟"
+     },
+     {
+      "who": "Staff",
+      "en": "The old market and the museum are close together.",
+      "fa": "بازار قدیمی و موزه نزدیک هم‌اند."
+     },
+     {
+      "who": "You",
+      "en": "How much is the entrance fee for the museum?",
+      "fa": "ورودی موزه چقدر است؟"
+     },
+     {
+      "who": "Staff",
+      "en": "Ten dollars, and tours run every hour.",
+      "fa": "ده دلار، و تورها هر ساعت برگزار می‌شوند."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "technology",
+   "emoji": "📶",
+   "title_en": "Communication & technology",
+   "title_fa": "ارتباطات و فناوری",
+   "desc_en": "Get online, get a local number, and keep your phone alive.",
+   "desc_fa": "آنلاین شو، شمارهٔ محلی بگیر و گوشی‌ات را شارژ نگه دار.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "technology-1",
+     "en": "Is there free Wi-Fi here?",
+     "fa": "اینجا وای‌فای رایگان دارید؟",
+     "use_en": "Asking before you sit down or order.",
+     "use_fa": "پیش از نشستن یا سفارش.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Do you have Wi-Fi?",
+       "fa": "وای‌فای دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "technology-2",
+     "en": "What's the Wi-Fi password?",
+     "fa": "رمز وای‌فای چیست؟",
+     "use_en": "Asking for the network password.",
+     "use_fa": "پرسیدن رمز شبکه.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Could you write the password down?",
+       "fa": "می‌شود رمز را بنویسید؟"
+      }
+     ]
+    },
+    {
+     "id": "technology-3",
+     "en": "Where can I buy a SIM card?",
+     "fa": "از کجا می‌توانم سیم‌کارت بخرم؟",
+     "use_en": "Asking for a phone shop.",
+     "use_fa": "پرسیدن فروشگاه سیم‌کارت.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a shop that sells SIM cards nearby?",
+       "fa": "فروشگاهی نزدیک هست که سیم‌کارت بفروشد؟"
+      }
+     ]
+    },
+    {
+     "id": "technology-4",
+     "en": "My phone battery is dead.",
+     "fa": "باتری گوشی‌ام تمام شده.",
+     "use_en": "Explaining why you cannot use your phone.",
+     "use_fa": "گفتن اینکه گوشی خاموش است.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Do you have a charger I could use?",
+       "fa": "شارژری دارید که بتوانم استفاده کنم؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "data plan",
+     "fa": "بستهٔ اینترنت",
+     "def_en": "How much internet your phone may use.",
+     "pos": "noun",
+     "example_en": "I bought a weekly data plan."
+    },
+    {
+     "en": "eSIM",
+     "fa": "ای‌سیم",
+     "def_en": "A phone connection with no plastic card.",
+     "pos": "noun",
+     "example_en": "My phone supports an eSIM."
+    },
+    {
+     "en": "charger",
+     "fa": "شارژر",
+     "def_en": "The cable and plug that fill a battery.",
+     "pos": "noun",
+     "example_en": "Could I borrow a charger?"
+    },
+    {
+     "en": "battery",
+     "fa": "باتری",
+     "def_en": "The part that stores a phone's power.",
+     "pos": "noun",
+     "example_en": "The battery lasts all day."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At a phone shop",
+    "title_fa": "در فروشگاه گوشی",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. Where can I buy a SIM card?",
+      "fa": "سلام. از کجا می‌توانم سیم‌کارت بخرم؟"
+     },
+     {
+      "who": "Assistant",
+      "en": "Here. How long are you staying?",
+      "fa": "همین‌جا. چقدر می‌مانید؟"
+     },
+     {
+      "who": "You",
+      "en": "Two weeks. I need some mobile data.",
+      "fa": "دو هفته. کمی اینترنت همراه لازم دارم."
+     },
+     {
+      "who": "Assistant",
+      "en": "This plan has ten gigabytes. I'll set it up for you.",
+      "fa": "این بسته ده گیگابایت دارد. برایتان فعال می‌کنم."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "health",
+   "emoji": "🏥",
+   "title_en": "Health, pharmacy & medical help",
+   "title_fa": "سلامت، داروخانه و کمک پزشکی",
+   "desc_en": "Say what is wrong, plainly, and ask where to get help.",
+   "desc_fa": "روشن بگو چه شده و بپرس کجا کمک بگیری.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "health-1",
+     "en": "Where is the nearest pharmacy?",
+     "fa": "نزدیک‌ترین داروخانه کجاست؟",
+     "use_en": "Looking for medicine quickly.",
+     "use_fa": "پیدا کردن سریع دارو.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a pharmacy open now?",
+       "fa": "داروخانهٔ باز همین حالا هست؟"
+      }
+     ]
+    },
+    {
+     "id": "health-2",
+     "en": "I don't feel well.",
+     "fa": "حالم خوب نیست.",
+     "use_en": "Saying you are unwell, without detail.",
+     "use_fa": "گفتن اینکه حالت خوب نیست.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I think I need to see a doctor.",
+       "fa": "فکر می‌کنم باید دکتر ببینم."
+      }
+     ]
+    },
+    {
+     "id": "health-3",
+     "en": "I have a headache.",
+     "fa": "سردرد دارم.",
+     "use_en": "Describing a common symptom.",
+     "use_fa": "توصیف یک نشانهٔ رایج.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I've had a headache since this morning.",
+       "fa": "از صبح سردرد دارم."
+      }
+     ]
+    },
+    {
+     "id": "health-4",
+     "en": "I'm allergic to this medication.",
+     "fa": "به این دارو حساسیت دارم.",
+     "use_en": "Telling a pharmacist something important.",
+     "use_fa": "گفتن نکته‌ای مهم به داروساز.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I can't take penicillin.",
+       "fa": "نمی‌توانم پنی‌سیلین مصرف کنم."
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "prescription",
+     "fa": "نسخه",
+     "def_en": "A doctor's written order for medicine.",
+     "pos": "noun",
+     "example_en": "Do I need a prescription for this?"
+    },
+    {
+     "en": "symptom",
+     "fa": "نشانهٔ بیماری",
+     "def_en": "Something your body shows when you are ill.",
+     "pos": "noun",
+     "example_en": "A sore throat is a common symptom."
+    },
+    {
+     "en": "pharmacy",
+     "fa": "داروخانه",
+     "def_en": "A shop that sells medicine.",
+     "pos": "noun",
+     "example_en": "The pharmacy closes at eight."
+    },
+    {
+     "en": "ambulance",
+     "fa": "آمبولانس",
+     "def_en": "The vehicle that takes people to hospital.",
+     "pos": "noun",
+     "example_en": "Please call an ambulance."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At the pharmacy",
+    "title_fa": "در داروخانه",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. I don't feel well. I have a headache.",
+      "fa": "سلام. حالم خوب نیست. سردرد دارم."
+     },
+     {
+      "who": "Pharmacist",
+      "en": "How long have you had it?",
+      "fa": "چند وقت است؟"
+     },
+     {
+      "who": "You",
+      "en": "Since yesterday. I'm allergic to this medication.",
+      "fa": "از دیروز. به این دارو حساسیت دارم."
+     },
+     {
+      "who": "Pharmacist",
+      "en": "Thank you for telling me. This one is safe instead.",
+      "fa": "ممنون که گفتید. این یکی به‌جایش بی‌خطر است."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "emergency",
+   "emoji": "🚨",
+   "title_en": "Emergencies, safety & lost items",
+   "title_fa": "حوادث، ایمنی و گم‌شده‌ها",
+   "desc_en": "Say clearly that you need help, and what happened.",
+   "desc_fa": "روشن بگو که کمک می‌خواهی و چه اتفاقی افتاده.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "emergency-1",
+     "en": "I need help.",
+     "fa": "به کمک نیاز دارم.",
+     "use_en": "The shortest way to ask for it.",
+     "use_fa": "کوتاه‌ترین راه کمک خواستن.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Could you help me, please?",
+       "fa": "می‌شود لطفاً کمکم کنید؟"
+      }
+     ]
+    },
+    {
+     "id": "emergency-2",
+     "en": "I've lost my passport.",
+     "fa": "پاسپورتم را گم کرده‌ام.",
+     "use_en": "Reporting a lost document.",
+     "use_fa": "گزارش مدرک گم‌شده.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "I can't find my passport.",
+       "fa": "پاسپورتم را پیدا نمی‌کنم."
+      }
+     ]
+    },
+    {
+     "id": "emergency-3",
+     "en": "My bag has been stolen.",
+     "fa": "کیفم دزدیده شده است.",
+     "use_en": "Reporting a theft.",
+     "use_fa": "گزارش دزدی.",
+     "level": "B1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "Someone took my bag.",
+       "fa": "کسی کیفم را برد."
+      }
+     ]
+    },
+    {
+     "id": "emergency-4",
+     "en": "Where is the nearest police station?",
+     "fa": "نزدیک‌ترین کلانتری کجاست؟",
+     "use_en": "Asking how to reach the police.",
+     "use_fa": "پرسیدن راه کلانتری.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could you show me where the police station is?",
+       "fa": "کلانتری کجاست، نشان می‌دهید؟"
+      }
+     ]
+    },
+    {
+     "id": "emergency-5",
+     "en": "I need a written report of the theft for my insurer.",
+     "fa": "برای بیمه‌ام به گزارش کتبی دزدی نیاز دارم.",
+     "use_en": "Requesting a document from the police.",
+     "use_fa": "درخواست سند از پلیس.",
+     "level": "C1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could you give me a copy of the report?",
+       "fa": "می‌شود نسخه‌ای از گزارش را بدهید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "police station",
+     "fa": "کلانتری",
+     "def_en": "The office where you report a crime.",
+     "pos": "noun",
+     "example_en": "The police station is two streets away."
+    },
+    {
+     "en": "report",
+     "fa": "گزارش",
+     "def_en": "An official account of what happened.",
+     "pos": "noun",
+     "example_en": "I made a report at the desk."
+    },
+    {
+     "en": "embassy",
+     "fa": "سفارت",
+     "def_en": "The office of your country in another country.",
+     "pos": "noun",
+     "example_en": "I need to contact my embassy."
+    },
+    {
+     "en": "insurance",
+     "fa": "بیمه",
+     "def_en": "A policy that pays for some losses.",
+     "pos": "noun",
+     "example_en": "My travel insurance covers this."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At the police station",
+    "title_fa": "در کلانتری",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. My bag has been stolen.",
+      "fa": "سلام. کیفم دزدیده شده است."
+     },
+     {
+      "who": "Officer",
+      "en": "Where did it happen?",
+      "fa": "کجا اتفاق افتاد؟"
+     },
+     {
+      "who": "You",
+      "en": "At the bus stop, about an hour ago.",
+      "fa": "در ایستگاه اتوبوس، حدود یک ساعت پیش."
+     },
+     {
+      "who": "Officer",
+      "en": "I'll take a report. Do you have your passport with you?",
+      "fa": "گزارش می‌نویسم. پاسپورتتان همراهتان است؟"
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "problems",
+   "emoji": "⚠️",
+   "title_en": "Travel problems & changes",
+   "title_fa": "مشکلات سفر و تغییرها",
+   "desc_en": "When the plan breaks, explain it and ask what can be done.",
+   "desc_fa": "وقتی برنامه خراب می‌شود، توضیح بده و بپرس چه می‌شود کرد.",
+   "level": "B1",
+   "sentences": [
+    {
+     "id": "problems-1",
+     "en": "My flight has been delayed.",
+     "fa": "پروازم تأخیر دارد.",
+     "use_en": "Saying your flight is late.",
+     "use_fa": "گفتن تأخیر پرواز.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "There's a two-hour delay.",
+       "fa": "دو ساعت تأخیر هست."
+      }
+     ]
+    },
+    {
+     "id": "problems-2",
+     "en": "I think there has been a mistake with my booking.",
+     "fa": "فکر می‌کنم در رزرو من اشتباهی رخ داده است.",
+     "use_en": "Raising a booking problem politely.",
+     "use_fa": "طرح مؤدبانهٔ مشکل رزرو.",
+     "level": "B1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "The booking in your system doesn't match mine.",
+       "fa": "رزرو در سیستم شما با مال من نمی‌خواند."
+      }
+     ]
+    },
+    {
+     "id": "problems-3",
+     "en": "What are my options?",
+     "fa": "چه گزینه‌هایی دارم؟",
+     "use_en": "Asking for the possible solutions.",
+     "use_fa": "پرسیدن راه‌حل‌های ممکن.",
+     "level": "B1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "What can you offer me?",
+       "fa": "چه چیزی می‌توانید پیشنهاد بدهید؟"
+      }
+     ]
+    },
+    {
+     "id": "problems-4",
+     "en": "Could you help me arrange another flight?",
+     "fa": "می‌توانید کمک کنید پرواز دیگری ترتیب دهم؟",
+     "use_en": "Asking staff to rebook you.",
+     "use_fa": "درخواست رزرو پرواز دیگر.",
+     "level": "B1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Can I be moved to the next flight?",
+       "fa": "می‌شود مرا به پرواز بعدی منتقل کنید؟"
+      }
+     ]
+    },
+    {
+     "id": "problems-5",
+     "en": "I'd like to make a formal complaint about how my booking was handled.",
+     "fa": "می‌خواهم شکایت رسمی دربارهٔ نحوهٔ رسیدگی به رزرو ثبت کنم.",
+     "use_en": "Registering a complaint formally.",
+     "use_fa": "ثبت رسمی شکایت.",
+     "level": "B2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I want to file a formal complaint.",
+       "fa": "می‌خواهم شکایت رسمی ثبت کنم."
+      }
+     ]
+    },
+    {
+     "id": "problems-6",
+     "en": "Would it be possible to be compensated for the delay?",
+     "fa": "آیا امکان جبران خسارت تأخیر وجود دارد؟",
+     "use_en": "Asking about compensation without demanding it.",
+     "use_fa": "پرسیدن دربارهٔ جبران، بی‌آنکه مطالبه کنی.",
+     "level": "B2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Can I claim compensation for the delay?",
+       "fa": "می‌توانم برای تأخیر غرامت بگیرم؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "delay",
+     "fa": "تأخیر",
+     "def_en": "Something happening later than planned.",
+     "pos": "noun",
+     "example_en": "There is a delay of two hours."
+    },
+    {
+     "en": "cancellation",
+     "fa": "لغو",
+     "def_en": "A service that will not run at all.",
+     "pos": "noun",
+     "example_en": "The cancellation was announced at noon."
+    },
+    {
+     "en": "overbooking",
+     "fa": "فروش بیش از ظرفیت",
+     "def_en": "More bookings than seats.",
+     "pos": "noun",
+     "example_en": "The flight had an overbooking problem."
+    },
+    {
+     "en": "rebook",
+     "fa": "رزرو دوباره",
+     "def_en": "To book a different service after a change.",
+     "pos": "verb",
+     "example_en": "They rebooked us on the evening flight."
+    }
+   ],
+   "dialogue": {
+    "title_en": "At the airline desk",
+    "title_fa": "در باجهٔ هواپیمایی",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. My flight has been delayed and I have a connecting flight.",
+      "fa": "سلام. پروازم تأخیر دارد و پرواز اتصالی دارم."
+     },
+     {
+      "who": "Agent",
+      "en": "I'm sorry about that. Which flight are you connecting to?",
+      "fa": "متأسفم. به کدام پرواز وصل می‌شوید؟"
+     },
+     {
+      "who": "You",
+      "en": "The six o'clock to Rome. What are my options?",
+      "fa": "شش‌عصر به رم. چه گزینه‌هایی دارم؟"
+     },
+     {
+      "who": "Agent",
+      "en": "I can rebook you on the eight o'clock. Would that work?",
+      "fa": "می‌توانم شما را به پرواز هشت منتقل کنم. مناسب است؟"
+     }
+    ]
+   },
+   "pattern": {
+    "frame": "Could you help me + [verb]?",
+    "example_en": "Could you help me arrange another flight?",
+    "note_en": "Ask for help with any task by changing the verb.",
+    "note_fa": "برای هر کاری با عوض کردن فعل کمک بخواه."
+   }
+  },
+  {
+   "id": "accessibility",
+   "emoji": "♿",
+   "title_en": "Accessibility & special assistance",
+   "title_fa": "دسترسی‌پذیری و کمک ویژه",
+   "desc_en": "Ask for the assistance you need, clearly and without apology.",
+   "desc_fa": "کمکی که لازم داری را روشن و بی‌عذر‌خواهی بخواه.",
+   "level": "B1",
+   "sentences": [
+    {
+     "id": "accessibility-1",
+     "en": "I need wheelchair assistance.",
+     "fa": "به کمک ویلچر نیاز دارم.",
+     "use_en": "Requesting help at an airport or station.",
+     "use_fa": "درخواست کمک در فرودگاه یا ایستگاه.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could you arrange wheelchair assistance?",
+       "fa": "می‌توانید کمک ویلچر ترتیب دهید؟"
+      }
+     ]
+    },
+    {
+     "id": "accessibility-2",
+     "en": "Is there step-free access?",
+     "fa": "مسیر بدون پله دارید؟",
+     "use_en": "Asking whether a place is reachable without stairs.",
+     "use_fa": "پرسیدن دسترسی بدون پله.",
+     "level": "B1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a lift to the platform?",
+       "fa": "آسانسور تا سکو هست؟"
+      }
+     ]
+    },
+    {
+     "id": "accessibility-3",
+     "en": "Could you speak a little more slowly?",
+     "fa": "می‌شود کمی آهسته‌تر صحبت کنید؟",
+     "use_en": "Asking someone to slow down.",
+     "use_fa": "درخواست آهسته‌تر صحبت کردن.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I'm having trouble following. Could you slow down?",
+       "fa": "دنبال کردن سخت است. آهسته‌تر می‌گویید؟"
+      }
+     ]
+    },
+    {
+     "id": "accessibility-4",
+     "en": "Could you write that down for me?",
+     "fa": "می‌شود آن را برایم بنویسید؟",
+     "use_en": "Asking for the words on paper.",
+     "use_fa": "درخواست نوشتن روی کاغذ.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I didn't catch that. Could you write it?",
+       "fa": "متوجه نشدم. می‌نویسید؟"
+      }
+     ]
+    },
+    {
+     "id": "accessibility-5",
+     "en": "I'd appreciate it if a member of staff could meet me at the gate.",
+     "fa": "ممنون می‌شوم اگر یکی از کارکنان در دروازه به استقبالم بیاید.",
+     "use_en": "Requesting that staff meet you at the gate.",
+     "use_fa": "درخواست همراهی کارکنان در دروازه.",
+     "level": "B2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could someone meet me at the gate?",
+       "fa": "کسی می‌تواند در دروازه به استقبالم بیاید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "accessible",
+     "fa": "دسترسی‌پذیر",
+     "def_en": "Easy to reach and use for everyone.",
+     "pos": "adjective",
+     "example_en": "The entrance is accessible."
+    },
+    {
+     "en": "assistance",
+     "fa": "کمک",
+     "def_en": "Help given to someone who needs it.",
+     "pos": "noun",
+     "example_en": "Please ask for assistance at the desk."
+    },
+    {
+     "en": "hearing loop",
+     "fa": "حلقهٔ شنوایی",
+     "def_en": "A system that sends sound to hearing aids.",
+     "pos": "noun",
+     "example_en": "The counter has a hearing loop."
+    },
+    {
+     "en": "ramp",
+     "fa": "سطح شیب‌دار",
+     "def_en": "A slope instead of steps.",
+     "pos": "noun",
+     "example_en": "Use the ramp by the side door."
+    }
+   ],
+   "dialogue": {
+    "title_en": "Asking for assistance",
+    "title_fa": "درخواست کمک",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. I need wheelchair assistance to the gate.",
+      "fa": "سلام. برای رفتن به دروازه به کمک ویلچر نیاز دارم."
+     },
+     {
+      "who": "Staff",
+      "en": "Of course. When does your flight leave?",
+      "fa": "البته. پروازتان چه وقت است؟"
+     },
+     {
+      "who": "You",
+      "en": "In an hour. Could you speak a little more slowly, please?",
+      "fa": "یک ساعت دیگر. می‌شود کمی آهسته‌تر صحبت کنید؟"
+     },
+     {
+      "who": "Staff",
+      "en": "Certainly. I'll take you there myself.",
+      "fa": "حتماً. خودم شما را می‌برم."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "family",
+   "emoji": "👨‍👩‍👧",
+   "title_en": "Travelling with family & children",
+   "title_fa": "سفر با خانواده و کودکان",
+   "desc_en": "Keep the family together, and know who to ask for help.",
+   "desc_fa": "خانواده را کنار هم نگه دار و بدان از چه کسی کمک بخواهی.",
+   "level": "A1",
+   "sentences": [
+    {
+     "id": "family-1",
+     "en": "I'm traveling with my family.",
+     "fa": "با خانواده‌ام سفر می‌کنم.",
+     "use_en": "Explaining who is with you.",
+     "use_fa": "گفتن اینکه با چه کسی هستی.",
+     "level": "A1",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "We're a family of four.",
+       "fa": "ما خانوادهٔ چهار نفره‌ایم."
+      }
+     ]
+    },
+    {
+     "id": "family-2",
+     "en": "Could we sit together?",
+     "fa": "می‌توانیم کنار هم بنشینیم؟",
+     "use_en": "Asking for seats side by side.",
+     "use_fa": "درخواست صندلی‌های کنار هم.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Are there seats next to each other?",
+       "fa": "صندلی کنار هم دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "family-3",
+     "en": "Where is the family restroom?",
+     "fa": "سرویس بهداشتی خانوادگی کجاست؟",
+     "use_en": "Looking for a larger washroom.",
+     "use_fa": "پیدا کردن سرویس بزرگ‌تر.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Is there a baby changing room?",
+       "fa": "اتاق تعویض نوزاد دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "family-4",
+     "en": "Could you help me find my parents?",
+     "fa": "می‌شود کمکم کنید پدر و مادرم را پیدا کنم؟",
+     "use_en": "A child asking a member of staff.",
+     "use_fa": "کودک از کارکنان کمک می‌خواهد.",
+     "level": "A1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "I can't find my guardian. Can you help me?",
+       "fa": "سرپرستم را پیدا نمی‌کنم. کمک می‌کنید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "family",
+     "fa": "خانواده",
+     "def_en": "Parents and children together.",
+     "pos": "noun",
+     "example_en": "The whole family is travelling."
+    },
+    {
+     "en": "together",
+     "fa": "با هم",
+     "def_en": "In the same place, not apart.",
+     "pos": "adverb",
+     "example_en": "Please keep the children together."
+    },
+    {
+     "en": "guardian",
+     "fa": "سرپرست",
+     "def_en": "The adult responsible for a child.",
+     "pos": "noun",
+     "example_en": "A child should stay with their guardian."
+    },
+    {
+     "en": "stroller",
+     "fa": "کالسکه",
+     "def_en": "A small seat on wheels for a young child.",
+     "pos": "noun",
+     "example_en": "The stroller goes in the hold."
+    }
+   ],
+   "dialogue": {
+    "title_en": "A child asking for help",
+    "title_fa": "کودکی که کمک می‌خواهد",
+    "lines": [
+     {
+      "who": "Child",
+      "en": "Excuse me. I can't find my parents.",
+      "fa": "ببخشید. پدر و مادرم را پیدا نمی‌کنم."
+     },
+     {
+      "who": "Staff",
+      "en": "Don't worry. Do you know their names?",
+      "fa": "نگران نباش. اسم‌شان را می‌دانی؟"
+     },
+     {
+      "who": "Child",
+      "en": "Yes. My mother is Sara.",
+      "fa": "بله. مادرم سارا است."
+     },
+     {
+      "who": "Staff",
+      "en": "Stay with me. We'll call them now.",
+      "fa": "پیش من بمان. همین حالا صدایشان می‌کنیم."
+     }
+    ]
+   },
+   "pattern": null
+  },
+  {
+   "id": "returning",
+   "emoji": "🏠",
+   "title_en": "Returning home",
+   "title_fa": "بازگشت به خانه",
+   "desc_en": "Check out, get to the airport, and confirm the way back.",
+   "desc_fa": "تخلیه کن، به فرودگاه برس و راه برگشت را تأیید کن.",
+   "level": "A2",
+   "sentences": [
+    {
+     "id": "returning-1",
+     "en": "Can I leave my bags here after check-out?",
+     "fa": "می‌توانم بعد از تخلیه چمدان‌هایم را اینجا بگذارم؟",
+     "use_en": "Asking the hotel to keep your luggage after you leave the room.",
+     "use_fa": "درخواست نگه‌داشتن چمدان پس از تخلیه.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could you store my luggage for a few hours?",
+       "fa": "می‌شود چند ساعت چمدانم را نگه دارید؟"
+      }
+     ]
+    },
+    {
+     "id": "returning-2",
+     "en": "I'd like to confirm my return flight.",
+     "fa": "می‌خواهم پرواز برگشت را تأیید کنم.",
+     "use_en": "Checking a booking is still correct.",
+     "use_fa": "بررسی درستی رزرو.",
+     "level": "A2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could you check my return flight?",
+       "fa": "می‌شود پرواز برگشتم را بررسی کنید؟"
+      }
+     ]
+    },
+    {
+     "id": "returning-3",
+     "en": "How do I get to the airport from here?",
+     "fa": "از اینجا چطور به فرودگاه بروم؟",
+     "use_en": "Asking for the way to the airport.",
+     "use_fa": "پرسیدن راه فرودگاه.",
+     "level": "A2",
+     "polite": "n",
+     "polite_en": "neutral",
+     "polite_fa": "خنثی",
+     "alt": [
+      {
+       "en": "What's the best way to the airport?",
+       "fa": "بهترین راه فرودگاه چیست؟"
+      }
+     ]
+    },
+    {
+     "id": "returning-4",
+     "en": "Is my deposit refunded at check-out?",
+     "fa": "ودیعه‌ام هنگام تخلیه برگردانده می‌شود؟",
+     "use_en": "Asking about money paid in advance.",
+     "use_fa": "پرسیدن دربارهٔ پول پیش‌پرداخت.",
+     "level": "B1",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "When will the deposit be returned?",
+       "fa": "ودیعه چه وقت برمی‌گردد؟"
+      }
+     ]
+    },
+    {
+     "id": "returning-5",
+     "en": "My connecting flight was cancelled; could you reissue my ticket?",
+     "fa": "پرواز اتصالی‌ام لغو شد؛ می‌شود بلیتم را دوباره صادر کنید؟",
+     "use_en": "Asking for a ticket to be reissued after a cancellation.",
+     "use_fa": "درخواست صدور دوبارهٔ بلیت پس از لغو.",
+     "level": "B2",
+     "polite": "p",
+     "polite_en": "polite",
+     "polite_fa": "مؤدبانه",
+     "alt": [
+      {
+       "en": "Could you issue a new ticket for the connection?",
+       "fa": "می‌شود بلیت تازه‌ای برای اتصال صادر کنید؟"
+      }
+     ]
+    }
+   ],
+   "vocab": [
+    {
+     "en": "checkout",
+     "fa": "تخلیه",
+     "def_en": "Leaving the room and settling the bill.",
+     "pos": "noun",
+     "example_en": "Checkout is at noon."
+    },
+    {
+     "en": "return ticket",
+     "fa": "بلیت رفت‌وبرگشت",
+     "def_en": "A ticket for the journey there and back.",
+     "pos": "noun",
+     "example_en": "I bought a return ticket."
+    },
+    {
+     "en": "shuttle",
+     "fa": "سرویس رفت‌وآمد",
+     "def_en": "A bus that runs between two places.",
+     "pos": "noun",
+     "example_en": "The hotel shuttle leaves at six."
+    },
+    {
+     "en": "deposit",
+     "fa": "ودیعه",
+     "def_en": "Money held until you leave.",
+     "pos": "noun",
+     "example_en": "The deposit was returned in full."
+    }
+   ],
+   "dialogue": {
+    "title_en": "Checking out",
+    "title_fa": "تخلیه اتاق",
+    "lines": [
+     {
+      "who": "You",
+      "en": "Hello. What time is check-out, and how do I get to the airport?",
+      "fa": "سلام. ساعت تخلیه چه وقت است و چطور به فرودگاه بروم؟"
+     },
+     {
+      "who": "Receptionist",
+      "en": "Check-out is at eleven. Our shuttle leaves at six.",
+      "fa": "تخلیه ساعت یازده است. سرویس ما ساعت شش می‌رود."
+     },
+     {
+      "who": "You",
+      "en": "Perfect. Could you confirm my return flight as well?",
+      "fa": "عالی. می‌شود پرواز برگشتم را هم تأیید کنید؟"
+     },
+     {
+      "who": "Receptionist",
+      "en": "It leaves at nine tomorrow. The deposit is refunded at check-out.",
+      "fa": "فردا ساعت نه. ودیعه هنگام تخلیه برگردانده می‌شود."
+     }
+    ]
+   },
+   "pattern": null
+  }
+ ]
+}

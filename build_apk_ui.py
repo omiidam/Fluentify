@@ -55,6 +55,9 @@ LAZY_DATA = [
     # Hero Quest: ranks, missions and the answer keys of the challenges that
     # are not drawn from kids.json. Read when the game opens
     "heroquest.json",
+    # Travel English: eighteen situations, their sentences, words, dialogues
+    # and patterns. Read when the travel card is opened, never at boot
+    "travel.json",
     # Every taught word's meanings, read the first time a word is opened for
     # its other senses and never at boot
     "senses.json",

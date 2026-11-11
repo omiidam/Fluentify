@@ -1,0 +1,247 @@
+C|planning|🗓|Planning & reservations|برنامه‌ریزی و رزرو|A2|Book the trip, ask about dates, and change a plan without panic.|سفر را رزرو کن، دربارهٔ تاریخ بپرس و برنامه را بی‌دردسر عوض کن.
+S|planning|I'd like to book a flight to London.|می‌خواهم بلیت پروازی به لندن رزرو کنم.|Asking to reserve a seat on a plane.|برای رزرو صندلی هواپیما.|A2|p|I'd like to reserve a seat to London.|می‌خواهم به لندن صندلی رزرو کنم.
+S|planning|Are there any direct flights?|پرواز مستقیم دارید؟|Asking whether a route has no stops.|پرسیدن اینکه مسیر بی‌توقف است.|A2|n|Is there a flight that goes straight there?|پروازی هست که مستقیم برود؟
+S|planning|What time does the flight depart?|پرواز چه ساعتی حرکت می‌کند؟|Asking for the departure time.|پرسیدن ساعت حرکت.|A2|n|What time does it leave?|چه ساعتی حرکت می‌کند؟
+S|planning|Can I change my reservation?|می‌توانم رزرو را تغییر دهم؟|Asking to move a booking to another date.|تغییر تاریخ رزرو.|B1|p|Is it possible to move my booking?|امکان جابه‌جایی رزرو هست؟
+V|planning|flight|پرواز|A journey by plane.|noun|My flight leaves at nine.
+V|planning|reservation|رزرو|An arrangement to keep a seat or room for you.|noun|I have a reservation for Friday.
+V|planning|direct|مستقیم|Going somewhere without stopping or changing.|adjective|Is there a direct train?
+V|planning|schedule|برنامهٔ زمانی|The times when things are planned to happen.|noun|The schedule is on the screen.
+D|planning|At the airline desk|در باجهٔ هواپیمایی|You|Hello, I'd like to book a flight to London.|سلام، می‌خواهم بلیت پروازی به لندن رزرو کنم.
+D|planning|At the airline desk|در باجهٔ هواپیمایی|Agent|Certainly. Would you like a morning or an evening flight?|حتماً. پرواز صبح می‌خواهید یا عصر؟
+D|planning|At the airline desk|در باجهٔ هواپیمایی|You|Morning, please. Are there any direct flights?|صبح، لطفاً. پرواز مستقیم دارید؟
+D|planning|At the airline desk|در باجهٔ هواپیمایی|Agent|There is one at eight fifteen. Shall I reserve a seat?|یکی ساعت هشت و ربع هست. صندلی رزرو کنم؟
+P|planning|I'd like to + [verb], please.|I'd like to book a seat, please.|The verb changes with the task: book, change, cancel, confirm.|فعل را با کار عوض کن: book، change، cancel، confirm.
+C|airport|🧳|Airport & check-in|فرودگاه و پذیرش|A1|Find the counter, choose a seat, and know where your gate is.|باجه را پیدا کن، صندلی انتخاب کن و بدان دروازه‌ات کجاست.
+S|airport|Where is the check-in counter?|باجهٔ پذیرش کجاست؟|Asking where to hand in your bag.|پرسیدن جای تحویل بار.|A1|p|Excuse me, where do I check in?|ببخشید، کجا پذیرش می‌شوم؟
+S|airport|Could I have a window seat?|می‌توانم صندلی کنار پنجره بگیرم؟|Asking for a seat by the window.|درخواست صندلی کنار پنجره.|A1|p|Is a window seat available?|صندلی کنار پنجره آزاد است؟
+S|airport|Where is the gate for my flight?|دروازهٔ پرواز من کجاست؟|Asking which gate to walk to.|پرسیدن دروازهٔ پرواز.|A1|n|Which gate does flight BA22 leave from?|پرواز BA22 از کدام دروازه می‌رود؟
+S|airport|How long before boarding should I be here?|چقدر قبل از سوارشدن باید اینجا باشم؟|Asking how early to arrive.|پرسیدن اینکه چقدر زودتر بیایی.|A2|p|When should I be at the gate?|چه موقع باید در دروازه باشم؟
+V|airport|boarding pass|کارت پرواز|The card or phone ticket that lets you board.|noun|Show your boarding pass at the gate.
+V|airport|gate|دروازه|The door in the airport where you get on the plane.|noun|The gate is number twelve.
+V|airport|carry-on|بار دستی|The small bag you keep with you on the plane.|noun|One carry-on bag is allowed.
+V|airport|checked baggage|بار تحویلی|The large bags that travel in the hold.|noun|Where do I drop my checked baggage?
+D|airport|At check-in|در پذیرش|You|Good morning. Where can I drop off my luggage?|صبح بخیر. کجا می‌توانم بارم را تحویل بدهم؟
+D|airport|At check-in|در پذیرش|Agent|Right here. May I see your passport?|همین‌جا. می‌شود پاسپورتتان را ببینم؟
+D|airport|At check-in|در پذیرش|You|Here you are. Could I have a window seat?|بفرمایید. می‌توانم صندلی کنار پنجره بگیرم؟
+D|airport|At check-in|در پذیرش|Agent|Of course. Here is your boarding pass. Gate twelve.|البته. این هم کارت پروازتان. دروازهٔ دوازده.
+P|airport|Could I have + [noun], please?|Could I have a window seat, please?|Any thing you can be given fits after have: a receipt, an extra towel.|هر چیزی که بتوانند بدهند بعد از have می‌آید: رسید، حولهٔ اضافه.
+C|security|🛂|Security, immigration & customs|امنیت، مهاجرت و گمرک|A2|Answer the officer's questions clearly and honestly.|به پرسش‌های مأمور روشن و صادقانه پاسخ بده.
+S|security|Here is my passport.|این پاسپورت من است.|Handing your document to an officer.|دادن مدرک به مأمور.|A1|p|My passport, please.|پاسپورتم، لطفاً.
+S|security|I'm visiting for tourism.|برای گردش آمده‌ام.|The reason for your visit.|دلیل سفرت.|A2|n|I'm here on holiday.|برای تعطیلات آمده‌ام.
+S|security|I'm staying for two weeks.|دو هفته می‌مانم.|How long you plan to remain.|مدت اقامتت.|A2|n|I'll be here until the fourteenth.|تا چهاردهم اینجا هستم.
+S|security|Could you please repeat the question?|می‌شود لطفاً سؤال را تکرار کنید؟|Asking an officer to say it again.|درخواست تکرار پرسش از مأمور.|A2|p|Sorry, I didn't catch that.|ببخشید، متوجه نشدم.
+V|security|passport control|کنترل پاسپورت|The desk where an officer checks your passport.|noun|Passport control is on the left.
+V|security|customs|گمرک|The place where goods you bring are checked.|noun|We walked through customs quickly.
+V|security|declare|اظهار کردن|To tell customs about goods you are bringing in.|verb|Do I need to declare this?
+V|security|immigration|ادارهٔ مهاجرت|The office that decides whether you may enter.|noun|The immigration line was long.
+D|security|At passport control|در کنترل پاسپورت|Officer|Good afternoon. What is the purpose of your visit?|بعدازظهر بخیر. هدف سفرتان چیست؟
+D|security|At passport control|در کنترل پاسپورت|You|I'm visiting for tourism. I'm staying for two weeks.|برای گردش آمده‌ام. دو هفته می‌مانم.
+D|security|At passport control|در کنترل پاسپورت|Officer|Where will you be staying?|کجا اقامت می‌کنید؟
+D|security|At passport control|در کنترل پاسپورت|You|At a hotel in the city center. Could you repeat that, please?|در هتلی در مرکز شهر. می‌شود لطفاً تکرار کنید؟
+C|onboard|✈️|On the airplane|در هواپیما|A1|Ask the cabin crew for what you need, politely and simply.|مؤدبانه و ساده از خدمهٔ پرواز بخواه چه لازم داری.
+S|onboard|Could you help me with my bag?|می‌توانید با کیفم کمکم کنید؟|Asking crew to lift a heavy bag.|کمک خواستن برای گذاشتن کیف.|A1|p|I can't reach the locker. Could you help?|به قفسه نمی‌رسم. کمک می‌کنید؟
+S|onboard|Could I have some water, please?|ممکن است کمی آب لطفاً؟|Asking for a drink.|درخواست نوشیدنی.|A1|p|May I have a glass of water?|می‌شود یک لیوان آب؟
+S|onboard|How long is the flight?|پرواز چقدر طول می‌کشد؟|Asking about the flying time.|پرسیدن مدت پرواز.|A2|n|How much longer until we land?|چقدر دیگر تا فرود مانده؟
+S|onboard|Could I have a blanket?|ممکن است یک پتو؟|Asking for something to keep warm.|درخواست پتو.|A1|p|I'm cold. Is there a blanket?|سردم است. پتو دارید؟
+V|onboard|cabin crew|خدمهٔ کابین|The people who look after passengers on a plane.|noun|The cabin crew were very kind.
+V|onboard|aisle|راهرو|The narrow path between seats.|noun|I asked for an aisle seat.
+V|onboard|overhead bin|قفسهٔ بالای سر|The locker above the seats for small bags.|noun|Put your bag in the overhead bin.
+V|onboard|blanket|پتو|A cover to keep you warm.|noun|Could I have a blanket?
+D|onboard|Asking the crew|گفتن با خدمه|You|Excuse me, could you help me with my bag?|ببخشید، می‌توانید با کیفم کمکم کنید؟
+D|onboard|Asking the crew|گفتن با خدمه|Crew|Of course. Is this yours?|البته. این مال شماست؟
+D|onboard|Asking the crew|گفتن با خدمه|You|Yes, thank you. Could I have some water as well?|بله، ممنون. کمی آب هم می‌شود؟
+D|onboard|Asking the crew|گفتن با خدمه|Crew|Here you are. Is there anything else?|بفرمایید. چیز دیگری هم لازم دارید؟
+C|arrival|🛍|Arrival & baggage claim|ورود و تحویل بار|A1|Find your bag, then find the way out.|چمدانت را پیدا کن و راه خروج را پیدا کن.
+S|arrival|Where is baggage claim?|محل تحویل بار کجاست؟|Asking where to collect your bags.|پرسیدن جای گرفتن چمدان.|A1|p|Where do I pick up my luggage?|کجا چمدانم را تحویل بگیرم؟
+S|arrival|My suitcase hasn't arrived.|چمدان من نیامده است.|Saying your bag did not come out.|گفتن اینکه چمدانت نیامده.|A2|n|I can't find my suitcase.|چمدانم را پیدا نمی‌کنم.
+S|arrival|Where can I report missing luggage?|کجا می‌توانم بار گم‌شده را گزارش کنم؟|Asking where the baggage desk is.|پرسیدن جای گزارش بار گم‌شده.|A2|p|Is there a lost luggage desk?|میز بار گم‌شده دارید؟
+S|arrival|I have a connecting flight.|پرواز اتصالی دارم.|Telling staff you must catch another flight.|گفتن اینکه پرواز دیگری در پیش داری.|A2|n|We're transferring to another flight.|به پرواز دیگری وصل می‌شویم.
+V|arrival|baggage claim|تحویل بار|The area where checked bags come out.|noun|Baggage claim is on level one.
+V|arrival|carousel|نوار بار|The moving belt that brings the bags.|noun|Our bags came on carousel three.
+V|arrival|oversized luggage|بار بزرگ|Bags too big for the normal belt.|noun|Ask at oversized luggage.
+V|arrival|exit|خروج|The way out of the building.|noun|The exit is past the shops.
+D|arrival|At the baggage desk|در میز بار|You|Hello. My suitcase hasn't arrived.|سلام. چمدان من نیامده است.
+D|arrival|At the baggage desk|در میز بار|Staff|Which flight were you on?|با کدام پرواز آمده‌اید؟
+D|arrival|At the baggage desk|در میز بار|You|Flight 482 from Istanbul.|پرواز ۴۸۲ از استانبول.
+D|arrival|At the baggage desk|در میز بار|Staff|Let me check. Please fill in this form.|بگذارید بررسی کنم. لطفاً این فرم را پر کنید.
+C|transport|🚌|Public transportation|حمل‌ونقل عمومی|A2|Buy a ticket, find the platform, and know where to get off.|بلیت بخر، سکو را پیدا کن و بدان کجا پیاده شوی.
+S|transport|Where can I buy a ticket?|از کجا می‌توانم بلیت بخرم؟|Asking for the ticket window or machine.|پرسیدن جای بلیت.|A1|p|Is there a ticket machine near here?|دستگاه بلیت این نزدیکی هست؟
+S|transport|Does this bus go to the city center?|این اتوبوس به مرکز شهر می‌رود؟|Checking a bus goes the right way.|پرسیدن مقصد اتوبوس.|A1|n|Is this the right bus for the center?|این اتوبوس برای مرکز درست است؟
+S|transport|Which platform does the train leave from?|قطار از کدام سکو حرکت می‌کند؟|Asking for a platform number.|پرسیدن شمارهٔ سکو.|A2|p|Where do I find platform six?|سکوی شش کجاست؟
+S|transport|Could you take me to this address?|می‌شود مرا به این نشانی ببرید؟|Telling a driver your destination.|گفتن نشانی به راننده.|A2|p|To this address, please.|به این نشانی، لطفاً.
+V|transport|fare|کرایه|The money you pay for a journey.|noun|The fare is three dollars.
+V|transport|platform|سکو|The place beside the track where you get on.|noun|The train leaves from platform two.
+V|transport|transfer|جابه‌جایی|Changing from one vehicle to another.|noun|You need a transfer at the next stop.
+V|transport|stop|ایستگاه|A place where a bus or train lets people off.|noun|Get off at the third stop.
+D|transport|In a taxi|در تاکسی|You|Could you take me to this address, please?|می‌شود مرا به این نشانی ببرید؟
+D|transport|In a taxi|در تاکسی|Driver|Of course. Is that near the station?|البته. نزدیک ایستگاه است؟
+D|transport|In a taxi|در تاکسی|You|I think so. How much will it cost?|فکر می‌کنم. چقدر می‌شود؟
+D|transport|In a taxi|در تاکسی|Driver|About fifteen dollars, depending on traffic.|حدود پانزده دلار، بسته به ترافیک.
+P|transport|Where is the nearest + [place]?|Where is the nearest bus station?|Put any place after nearest: pharmacy, hotel, bank.|هر جایی را بعد از nearest بگذار: داروخانه، هتل، بانک.
+C|directions|🧭|Directions & navigation|مسیر و جهت‌یابی|A1|Ask the way, and understand the answer.|راه را بپرس و پاسخ را بفهم.
+S|directions|Excuse me, where is the nearest bus station?|ببخشید، نزدیک‌ترین ایستگاه اتوبوس کجاست؟|Opening a polite question to a stranger.|شروع یک پرسش مؤدبانه از غریبه.|A1|p|Sorry to bother you, where is the bus station?|ببخشید مزاحم شدم، ایستگاه اتوبوس کجاست؟
+S|directions|How do I get to the city center?|چطور به مرکز شهر بروم؟|Asking for the route, not just the place.|پرسیدن مسیر، نه فقط جا.|A2|n|What's the best way to the center?|بهترین راه به مرکز چیست؟
+S|directions|Is it within walking distance?|پیاده می‌شود رفت؟|Asking whether you can walk there.|پرسیدن اینکه پیاده می‌شود رفت.|A2|p|Can I walk there from here?|از اینجا پیاده می‌شود رفت؟
+S|directions|Should I turn left or right?|باید به چپ بپیچم یا راست؟|Checking a direction you were given.|بررسی جهتِ گفته‌شده.|A1|n|Which way do I turn at the corner?|سر نبش کدام طرف بپیچم؟
+V|directions|corner|نبش|The place where two streets meet.|noun|Turn left at the corner.
+V|directions|block|بلوک|The distance between two streets.|noun|It's two blocks away.
+V|directions|traffic light|چراغ راهنمایی|The light that tells cars and people when to go.|noun|Go straight at the traffic light.
+V|directions|landmark|نشانهٔ شهری|A building or place people use to give directions.|noun|The tower is a good landmark.
+D|directions|Asking a passer-by|پرسیدن از رهگذر|You|Excuse me, how do I get to the city center?|ببخشید، چطور به مرکز شهر بروم؟
+D|directions|Asking a passer-by|پرسیدن از رهگذر|Person|Go straight, then turn left at the traffic light.|مستقیم برو، بعد سر چراغ به چپ بپیچ.
+D|directions|Asking a passer-by|پرسیدن از رهگذر|You|Is it within walking distance?|پیاده می‌شود رفت؟
+D|directions|Asking a passer-by|پرسیدن از رهگذر|Person|Yes, about ten minutes. Would you like me to show you on the map?|بله، حدود ده دقیقه. می‌خواهید روی نقشه نشانتان بدهم؟
+C|hotel|🏨|Hotels & accommodation|هتل و اقامت|A1|Check in, ask what is included, and report a problem.|پذیرش شو، بپرس چه چیزی شامل است و مشکل را بگو.
+S|hotel|I have a reservation under the name Smith.|به نام اسمیت رزرو دارم.|Telling reception your booking name.|گفتن نام رزرو به پذیرش.|A1|p|The booking is in my father's name.|رزرو به نام پدرم است.
+S|hotel|Is breakfast included?|صبحانه شامل می‌شود؟|Asking what the room price covers.|پرسیدن اینکه قیمت اتاق چه چیزی را شامل است.|A1|n|Does the price include breakfast?|قیمت صبحانه را هم شامل است؟
+S|hotel|What time is check-out?|ساعت تخلیه اتاق چه وقت است؟|Asking when you must leave the room.|پرسیدن ساعت تخلیه.|A1|p|When do we have to leave the room?|چه ساعتی باید اتاق را ترک کنیم؟
+S|hotel|The air conditioning isn't working.|کولر کار نمی‌کند.|Reporting a problem in the room.|گزارش خرابی اتاق.|A2|n|The room is very warm. Could someone look at the air conditioning?|اتاق خیلی گرم است. کسی می‌تواند کولر را ببیند؟
+V|hotel|reception|پذیرش|The desk where guests check in.|noun|Reception is open all night.
+V|hotel|key card|کارت کلید|The card that opens your room.|noun|My key card doesn't work.
+V|hotel|check-out|تخلیه|The act of leaving and paying at the end.|noun|Check-out is at eleven.
+V|hotel|deposit|ودیعه|Money paid in advance and partly returned later.|noun|Is there a deposit for the room?
+D|hotel|At reception|در پذیرش|You|Hello. I have a reservation under the name Smith.|سلام. به نام اسمیت رزرو دارم.
+D|hotel|At reception|در پذیرش|Receptionist|Welcome. Could I see your passport?|خوش آمدید. می‌شود پاسپورتتان را ببینم؟
+D|hotel|At reception|در پذیرش|You|Here you are. Is breakfast included?|بفرمایید. صبحانه شامل می‌شود؟
+D|hotel|At reception|در پذیرش|Receptionist|Yes, from seven to ten. Your room is on the third floor.|بله، از هفت تا ده. اتاق شما در طبقهٔ سوم است.
+C|restaurant|🍽|Restaurants, cafés & food|رستوران، کافه و غذا|A1|Order what you want, ask what is in it, and pay.|آنچه می‌خواهی سفارش بده، بپرس داخلش چیست و حساب کن.
+S|restaurant|Could we have a table for two?|میز برای دو نفر دارید؟|Asking for a table at the door.|درخواست میز دم در.|A1|p|A table for two, please.|یک میز برای دو نفر، لطفاً.
+S|restaurant|What do you recommend?|چه پیشنهاد می‌کنید؟|Asking for the server's suggestion.|پرسیدن پیشنهاد گارسون.|A2|p|What's good today?|امروز چه چیزی خوب است؟
+S|restaurant|Does this contain peanuts?|این بادام‌زمینی دارد؟|Checking an ingredient before you eat.|بررسی مادهٔ غذایی پیش از خوردن.|A2|p|I need to know if this has nuts in it.|باید بدانم بادام‌زمینی دارد یا نه.
+S|restaurant|I'm allergic to shellfish.|به صدف دریایی حساسیت دارم.|Telling staff about a serious allergy.|گفتن حساسیت جدی به کارکنان.|A2|n|Shellfish makes me very ill.|صدف دریایی حالم را بد می‌کند.
+V|restaurant|menu|منو|The list of food and prices.|noun|Could I see the menu?
+V|restaurant|order|سفارش|The food you ask for.|noun|Our order is ready.
+V|restaurant|check|صورت‌حساب|The bill in American English (British: bill).|noun|Could we have the check?
+V|restaurant|allergy|حساسیت|A body's strong reaction to something it cannot accept.|noun|She has a nut allergy.
+D|restaurant|Ordering a meal|سفارش غذا|You|Could we have a table for two?|میز برای دو نفر دارید؟
+D|restaurant|Ordering a meal|سفارش غذا|Server|Of course. Here are your menus.|البته. منوها را خدمتتان می‌آورم.
+D|restaurant|Ordering a meal|سفارش غذا|You|Does the soup contain peanuts? I'm allergic to nuts.|سوپ بادام‌زمینی دارد؟ به بادام‌زمینی حساسیت دارم.
+D|restaurant|Ordering a meal|سفارش غذا|Server|It doesn't. I'll check with the kitchen to be sure.|ندارد. برای اطمینان از آشپزخانه می‌پرسم.
+P|restaurant|Could we have + [noun], please?|Could we have the check, please?|The same frame asks for a table, a menu, water, or the check.|با همین ساختار میز، منو، آب یا صورت‌حساب بخواه.
+C|shopping|🛍|Shopping & payments|خرید و پرداخت|A1|Ask the price, try something on, and pay the way you want.|قیمت را بپرس، پرو کن و هرطور می‌خواهی پرداخت کن.
+S|shopping|How much does this cost?|این چند است؟|Asking the price of something.|پرسیدن قیمت.|A1|n|How much is this?|این چنده؟
+S|shopping|Do you have this in a different size?|این را در سایز دیگری دارید؟|Asking for another size.|درخواست سایز دیگر.|A1|p|Is there a larger one?|بزرگ‌ترش را دارید؟
+S|shopping|Can I try this on?|می‌توانم پرو کنم؟|Asking to wear it before buying.|درخواست پرو کردن.|A1|p|Where is the fitting room?|اتاق پرو کجاست؟
+S|shopping|Can I pay by card?|می‌توانم با کارت پرداخت کنم؟|Asking about payment methods.|پرسیدن روش پرداخت.|A1|p|Do you take credit cards?|کارت اعتباری قبول می‌کنید؟
+V|shopping|receipt|رسید|The paper that proves you paid.|noun|Could I have a receipt?
+V|shopping|refund|بازپرداخت|Money given back for something returned.|noun|Is a refund possible?
+V|shopping|exchange|تعویض|Swapping something for another.|noun|I'd like to exchange this.
+V|shopping|fitting room|اتاق پرو|The small room where you try clothes.|noun|The fitting rooms are at the back.
+D|shopping|In a shop|در فروشگاه|You|Excuse me, do you have this in a different size?|ببخشید، این را در سایز دیگری دارید؟
+D|shopping|In a shop|در فروشگاه|Assistant|What size are you looking for?|چه سایزی می‌خواهید؟
+D|shopping|In a shop|در فروشگاه|You|A medium. Can I try it on?|مدیوم. می‌توانم پرو کنم؟
+D|shopping|In a shop|در فروشگاه|Assistant|Of course. The fitting rooms are on the left.|البته. اتاق‌های پرو سمت چپ است.
+C|sightseeing|📸|Sightseeing & attractions|گشت‌وگذار و دیدنی‌ها|A2|Choose what to see, buy a ticket, and ask about tours.|انتخاب کن چه ببینی، بلیت بخر و دربارهٔ تور بپرس.
+S|sightseeing|What places should I visit?|چه جاهایی را ببینم؟|Asking a local for suggestions.|پرسیدن پیشنهاد از یک محلی.|A2|p|What would you see if you had one day here?|اگر یک روز اینجا بودید چه می‌دیدید؟
+S|sightseeing|How much is the entrance fee?|ورودی چقدر است؟|Asking the price to go in.|پرسیدن قیمت ورود.|A1|n|Is there a ticket for students?|بلیت دانشجویی دارید؟
+S|sightseeing|What time does the museum open?|موزه چه ساعتی باز می‌شود؟|Asking opening time.|پرسیدن ساعت باز شدن.|A1|p|Is the museum open today?|موزه امروز باز است؟
+S|sightseeing|Is there a guided tour?|تور با راهنما دارید؟|Asking about tours with a guide.|پرسیدن تور با راهنما.|A2|p|Do you run tours in English?|تور انگلیسی هم دارید؟
+V|sightseeing|ticket office|باجهٔ بلیت|Where entrance tickets are sold.|noun|The ticket office is by the gate.
+V|sightseeing|guided tour|تور راهنما‌دار|A visit led by someone who explains things.|noun|The guided tour starts at ten.
+V|sightseeing|landmark|بنای دیدنی|A well-known place that helps you find your way.|noun|The bridge is the city's landmark.
+V|sightseeing|souvenir|سوغاتی|Something you buy to remember a place.|noun|I bought a small souvenir.
+D|sightseeing|At the tourist office|در دفتر گردشگری|You|Hello. What places should I visit in one day?|سلام. در یک روز چه جاهایی را ببینم؟
+D|sightseeing|At the tourist office|در دفتر گردشگری|Staff|The old market and the museum are close together.|بازار قدیمی و موزه نزدیک هم‌اند.
+D|sightseeing|At the tourist office|در دفتر گردشگری|You|How much is the entrance fee for the museum?|ورودی موزه چقدر است؟
+D|sightseeing|At the tourist office|در دفتر گردشگری|Staff|Ten dollars, and tours run every hour.|ده دلار، و تورها هر ساعت برگزار می‌شوند.
+C|technology|📶|Communication & technology|ارتباطات و فناوری|A2|Get online, get a local number, and keep your phone alive.|آنلاین شو، شمارهٔ محلی بگیر و گوشی‌ات را شارژ نگه دار.
+S|technology|Is there free Wi-Fi here?|اینجا وای‌فای رایگان دارید؟|Asking before you sit down or order.|پیش از نشستن یا سفارش.|A1|p|Do you have Wi-Fi?|وای‌فای دارید؟
+S|technology|What's the Wi-Fi password?|رمز وای‌فای چیست؟|Asking for the network password.|پرسیدن رمز شبکه.|A1|n|Could you write the password down?|می‌شود رمز را بنویسید؟
+S|technology|Where can I buy a SIM card?|از کجا می‌توانم سیم‌کارت بخرم؟|Asking for a phone shop.|پرسیدن فروشگاه سیم‌کارت.|A2|p|Is there a shop that sells SIM cards nearby?|فروشگاهی نزدیک هست که سیم‌کارت بفروشد؟
+S|technology|My phone battery is dead.|باتری گوشی‌ام تمام شده.|Explaining why you cannot use your phone.|گفتن اینکه گوشی خاموش است.|A2|n|Do you have a charger I could use?|شارژری دارید که بتوانم استفاده کنم؟
+V|technology|data plan|بستهٔ اینترنت|How much internet your phone may use.|noun|I bought a weekly data plan.
+V|technology|eSIM|ای‌سیم|A phone connection with no plastic card.|noun|My phone supports an eSIM.
+V|technology|charger|شارژر|The cable and plug that fill a battery.|noun|Could I borrow a charger?
+V|technology|battery|باتری|The part that stores a phone's power.|noun|The battery lasts all day.
+D|technology|At a phone shop|در فروشگاه گوشی|You|Hello. Where can I buy a SIM card?|سلام. از کجا می‌توانم سیم‌کارت بخرم؟
+D|technology|At a phone shop|در فروشگاه گوشی|Assistant|Here. How long are you staying?|همین‌جا. چقدر می‌مانید؟
+D|technology|At a phone shop|در فروشگاه گوشی|You|Two weeks. I need some mobile data.|دو هفته. کمی اینترنت همراه لازم دارم.
+D|technology|At a phone shop|در فروشگاه گوشی|Assistant|This plan has ten gigabytes. I'll set it up for you.|این بسته ده گیگابایت دارد. برایتان فعال می‌کنم.
+C|health|🏥|Health, pharmacy & medical help|سلامت، داروخانه و کمک پزشکی|A2|Say what is wrong, plainly, and ask where to get help.|روشن بگو چه شده و بپرس کجا کمک بگیری.
+S|health|Where is the nearest pharmacy?|نزدیک‌ترین داروخانه کجاست؟|Looking for medicine quickly.|پیدا کردن سریع دارو.|A1|p|Is there a pharmacy open now?|داروخانهٔ باز همین حالا هست؟
+S|health|I don't feel well.|حالم خوب نیست.|Saying you are unwell, without detail.|گفتن اینکه حالت خوب نیست.|A1|n|I think I need to see a doctor.|فکر می‌کنم باید دکتر ببینم.
+S|health|I have a headache.|سردرد دارم.|Describing a common symptom.|توصیف یک نشانهٔ رایج.|A1|n|I've had a headache since this morning.|از صبح سردرد دارم.
+S|health|I'm allergic to this medication.|به این دارو حساسیت دارم.|Telling a pharmacist something important.|گفتن نکته‌ای مهم به داروساز.|A2|n|I can't take penicillin.|نمی‌توانم پنی‌سیلین مصرف کنم.
+V|health|prescription|نسخه|A doctor's written order for medicine.|noun|Do I need a prescription for this?
+V|health|symptom|نشانهٔ بیماری|Something your body shows when you are ill.|noun|A sore throat is a common symptom.
+V|health|pharmacy|داروخانه|A shop that sells medicine.|noun|The pharmacy closes at eight.
+V|health|ambulance|آمبولانس|The vehicle that takes people to hospital.|noun|Please call an ambulance.
+D|health|At the pharmacy|در داروخانه|You|Hello. I don't feel well. I have a headache.|سلام. حالم خوب نیست. سردرد دارم.
+D|health|At the pharmacy|در داروخانه|Pharmacist|How long have you had it?|چند وقت است؟
+D|health|At the pharmacy|در داروخانه|You|Since yesterday. I'm allergic to this medication.|از دیروز. به این دارو حساسیت دارم.
+D|health|At the pharmacy|در داروخانه|Pharmacist|Thank you for telling me. This one is safe instead.|ممنون که گفتید. این یکی به‌جایش بی‌خطر است.
+C|emergency|🚨|Emergencies, safety & lost items|حوادث، ایمنی و گم‌شده‌ها|A2|Say clearly that you need help, and what happened.|روشن بگو که کمک می‌خواهی و چه اتفاقی افتاده.
+S|emergency|I need help.|به کمک نیاز دارم.|The shortest way to ask for it.|کوتاه‌ترین راه کمک خواستن.|A1|n|Could you help me, please?|می‌شود لطفاً کمکم کنید؟
+S|emergency|I've lost my passport.|پاسپورتم را گم کرده‌ام.|Reporting a lost document.|گزارش مدرک گم‌شده.|A2|n|I can't find my passport.|پاسپورتم را پیدا نمی‌کنم.
+S|emergency|My bag has been stolen.|کیفم دزدیده شده است.|Reporting a theft.|گزارش دزدی.|B1|n|Someone took my bag.|کسی کیفم را برد.
+S|emergency|Where is the nearest police station?|نزدیک‌ترین کلانتری کجاست؟|Asking how to reach the police.|پرسیدن راه کلانتری.|A2|p|Could you show me where the police station is?|کلانتری کجاست، نشان می‌دهید؟
+V|emergency|police station|کلانتری|The office where you report a crime.|noun|The police station is two streets away.
+V|emergency|report|گزارش|An official account of what happened.|noun|I made a report at the desk.
+V|emergency|embassy|سفارت|The office of your country in another country.|noun|I need to contact my embassy.
+V|emergency|insurance|بیمه|A policy that pays for some losses.|noun|My travel insurance covers this.
+D|emergency|At the police station|در کلانتری|You|Hello. My bag has been stolen.|سلام. کیفم دزدیده شده است.
+D|emergency|At the police station|در کلانتری|Officer|Where did it happen?|کجا اتفاق افتاد؟
+D|emergency|At the police station|در کلانتری|You|At the bus stop, about an hour ago.|در ایستگاه اتوبوس، حدود یک ساعت پیش.
+D|emergency|At the police station|در کلانتری|Officer|I'll take a report. Do you have your passport with you?|گزارش می‌نویسم. پاسپورتتان همراهتان است؟
+C|problems|⚠️|Travel problems & changes|مشکلات سفر و تغییرها|B1|When the plan breaks, explain it and ask what can be done.|وقتی برنامه خراب می‌شود، توضیح بده و بپرس چه می‌شود کرد.
+S|problems|My flight has been delayed.|پروازم تأخیر دارد.|Saying your flight is late.|گفتن تأخیر پرواز.|A2|n|There's a two-hour delay.|دو ساعت تأخیر هست.
+S|problems|I think there has been a mistake with my booking.|فکر می‌کنم در رزرو من اشتباهی رخ داده است.|Raising a booking problem politely.|طرح مؤدبانهٔ مشکل رزرو.|B1|p|The booking in your system doesn't match mine.|رزرو در سیستم شما با مال من نمی‌خواند.
+S|problems|What are my options?|چه گزینه‌هایی دارم؟|Asking for the possible solutions.|پرسیدن راه‌حل‌های ممکن.|B1|p|What can you offer me?|چه چیزی می‌توانید پیشنهاد بدهید؟
+S|problems|Could you help me arrange another flight?|می‌توانید کمک کنید پرواز دیگری ترتیب دهم؟|Asking staff to rebook you.|درخواست رزرو پرواز دیگر.|B1|p|Can I be moved to the next flight?|می‌شود مرا به پرواز بعدی منتقل کنید؟
+V|problems|delay|تأخیر|Something happening later than planned.|noun|There is a delay of two hours.
+V|problems|cancellation|لغو|A service that will not run at all.|noun|The cancellation was announced at noon.
+V|problems|overbooking|فروش بیش از ظرفیت|More bookings than seats.|noun|The flight had an overbooking problem.
+V|problems|rebook|رزرو دوباره|To book a different service after a change.|verb|They rebooked us on the evening flight.
+D|problems|At the airline desk|در باجهٔ هواپیمایی|You|Hello. My flight has been delayed and I have a connecting flight.|سلام. پروازم تأخیر دارد و پرواز اتصالی دارم.
+D|problems|At the airline desk|در باجهٔ هواپیمایی|Agent|I'm sorry about that. Which flight are you connecting to?|متأسفم. به کدام پرواز وصل می‌شوید؟
+D|problems|At the airline desk|در باجهٔ هواپیمایی|You|The six o'clock to Rome. What are my options?|شش‌عصر به رم. چه گزینه‌هایی دارم؟
+D|problems|At the airline desk|در باجهٔ هواپیمایی|Agent|I can rebook you on the eight o'clock. Would that work?|می‌توانم شما را به پرواز هشت منتقل کنم. مناسب است؟
+P|problems|Could you help me + [verb]?|Could you help me arrange another flight?|Ask for help with any task by changing the verb.|برای هر کاری با عوض کردن فعل کمک بخواه.
+C|accessibility|♿|Accessibility & special assistance|دسترسی‌پذیری و کمک ویژه|B1|Ask for the assistance you need, clearly and without apology.|کمکی که لازم داری را روشن و بی‌عذر‌خواهی بخواه.
+S|accessibility|I need wheelchair assistance.|به کمک ویلچر نیاز دارم.|Requesting help at an airport or station.|درخواست کمک در فرودگاه یا ایستگاه.|A2|p|Could you arrange wheelchair assistance?|می‌توانید کمک ویلچر ترتیب دهید؟
+S|accessibility|Is there step-free access?|مسیر بدون پله دارید؟|Asking whether a place is reachable without stairs.|پرسیدن دسترسی بدون پله.|B1|p|Is there a lift to the platform?|آسانسور تا سکو هست؟
+S|accessibility|Could you speak a little more slowly?|می‌شود کمی آهسته‌تر صحبت کنید؟|Asking someone to slow down.|درخواست آهسته‌تر صحبت کردن.|A2|p|I'm having trouble following. Could you slow down?|دنبال کردن سخت است. آهسته‌تر می‌گویید؟
+S|accessibility|Could you write that down for me?|می‌شود آن را برایم بنویسید؟|Asking for the words on paper.|درخواست نوشتن روی کاغذ.|A2|p|I didn't catch that. Could you write it?|متوجه نشدم. می‌نویسید؟
+V|accessibility|accessible|دسترسی‌پذیر|Easy to reach and use for everyone.|adjective|The entrance is accessible.
+V|accessibility|assistance|کمک|Help given to someone who needs it.|noun|Please ask for assistance at the desk.
+V|accessibility|hearing loop|حلقهٔ شنوایی|A system that sends sound to hearing aids.|noun|The counter has a hearing loop.
+V|accessibility|ramp|سطح شیب‌دار|A slope instead of steps.|noun|Use the ramp by the side door.
+D|accessibility|Asking for assistance|درخواست کمک|You|Hello. I need wheelchair assistance to the gate.|سلام. برای رفتن به دروازه به کمک ویلچر نیاز دارم.
+D|accessibility|Asking for assistance|درخواست کمک|Staff|Of course. When does your flight leave?|البته. پروازتان چه وقت است؟
+D|accessibility|Asking for assistance|درخواست کمک|You|In an hour. Could you speak a little more slowly, please?|یک ساعت دیگر. می‌شود کمی آهسته‌تر صحبت کنید؟
+D|accessibility|Asking for assistance|درخواست کمک|Staff|Certainly. I'll take you there myself.|حتماً. خودم شما را می‌برم.
+C|family|👨‍👩‍👧|Travelling with family & children|سفر با خانواده و کودکان|A1|Keep the family together, and know who to ask for help.|خانواده را کنار هم نگه دار و بدان از چه کسی کمک بخواهی.
+S|family|I'm traveling with my family.|با خانواده‌ام سفر می‌کنم.|Explaining who is with you.|گفتن اینکه با چه کسی هستی.|A1|n|We're a family of four.|ما خانوادهٔ چهار نفره‌ایم.
+S|family|Could we sit together?|می‌توانیم کنار هم بنشینیم؟|Asking for seats side by side.|درخواست صندلی‌های کنار هم.|A1|p|Are there seats next to each other?|صندلی کنار هم دارید؟
+S|family|Where is the family restroom?|سرویس بهداشتی خانوادگی کجاست؟|Looking for a larger washroom.|پیدا کردن سرویس بزرگ‌تر.|A1|p|Is there a baby changing room?|اتاق تعویض نوزاد دارید؟
+S|family|Could you help me find my parents?|می‌شود کمکم کنید پدر و مادرم را پیدا کنم؟|A child asking a member of staff.|کودک از کارکنان کمک می‌خواهد.|A1|p|I can't find my guardian. Can you help me?|سرپرستم را پیدا نمی‌کنم. کمک می‌کنید؟
+V|family|family|خانواده|Parents and children together.|noun|The whole family is travelling.
+V|family|together|با هم|In the same place, not apart.|adverb|Please keep the children together.
+V|family|guardian|سرپرست|The adult responsible for a child.|noun|A child should stay with their guardian.
+V|family|stroller|کالسکه|A small seat on wheels for a young child.|noun|The stroller goes in the hold.
+D|family|A child asking for help|کودکی که کمک می‌خواهد|Child|Excuse me. I can't find my parents.|ببخشید. پدر و مادرم را پیدا نمی‌کنم.
+D|family|A child asking for help|کودکی که کمک می‌خواهد|Staff|Don't worry. Do you know their names?|نگران نباش. اسم‌شان را می‌دانی؟
+D|family|A child asking for help|کودکی که کمک می‌خواهد|Child|Yes. My mother is Sara.|بله. مادرم سارا است.
+D|family|A child asking for help|کودکی که کمک می‌خواهد|Staff|Stay with me. We'll call them now.|پیش من بمان. همین حالا صدایشان می‌کنیم.
+C|returning|🏠|Returning home|بازگشت به خانه|A2|Check out, get to the airport, and confirm the way back.|تخلیه کن، به فرودگاه برس و راه برگشت را تأیید کن.
+S|returning|Can I leave my bags here after check-out?|می‌توانم بعد از تخلیه چمدان‌هایم را اینجا بگذارم؟|Asking the hotel to keep your luggage after you leave the room.|درخواست نگه‌داشتن چمدان پس از تخلیه.|A2|p|Could you store my luggage for a few hours?|می‌شود چند ساعت چمدانم را نگه دارید؟
+S|returning|I'd like to confirm my return flight.|می‌خواهم پرواز برگشت را تأیید کنم.|Checking a booking is still correct.|بررسی درستی رزرو.|A2|p|Could you check my return flight?|می‌شود پرواز برگشتم را بررسی کنید؟
+S|returning|How do I get to the airport from here?|از اینجا چطور به فرودگاه بروم؟|Asking for the way to the airport.|پرسیدن راه فرودگاه.|A2|n|What's the best way to the airport?|بهترین راه فرودگاه چیست؟
+S|returning|Is my deposit refunded at check-out?|ودیعه‌ام هنگام تخلیه برگردانده می‌شود؟|Asking about money paid in advance.|پرسیدن دربارهٔ پول پیش‌پرداخت.|B1|p|When will the deposit be returned?|ودیعه چه وقت برمی‌گردد؟
+V|returning|checkout|تخلیه|Leaving the room and settling the bill.|noun|Checkout is at noon.
+V|returning|return ticket|بلیت رفت‌وبرگشت|A ticket for the journey there and back.|noun|I bought a return ticket.
+V|returning|shuttle|سرویس رفت‌وآمد|A bus that runs between two places.|noun|The hotel shuttle leaves at six.
+V|returning|deposit|ودیعه|Money held until you leave.|noun|The deposit was returned in full.
+D|returning|Checking out|تخلیه اتاق|You|Hello. What time is check-out, and how do I get to the airport?|سلام. ساعت تخلیه چه وقت است و چطور به فرودگاه بروم؟
+D|returning|Checking out|تخلیه اتاق|Receptionist|Check-out is at eleven. Our shuttle leaves at six.|تخلیه ساعت یازده است. سرویس ما ساعت شش می‌رود.
+D|returning|Checking out|تخلیه اتاق|You|Perfect. Could you confirm my return flight as well?|عالی. می‌شود پرواز برگشتم را هم تأیید کنید؟
+D|returning|Checking out|تخلیه اتاق|Receptionist|It leaves at nine tomorrow. The deposit is refunded at check-out.|فردا ساعت نه. ودیعه هنگام تخلیه برگردانده می‌شود.
+S|problems|I'd like to make a formal complaint about how my booking was handled.|می‌خواهم شکایت رسمی دربارهٔ نحوهٔ رسیدگی به رزرو ثبت کنم.|Registering a complaint formally.|ثبت رسمی شکایت.|B2|p|I want to file a formal complaint.|می‌خواهم شکایت رسمی ثبت کنم.
+S|problems|Would it be possible to be compensated for the delay?|آیا امکان جبران خسارت تأخیر وجود دارد؟|Asking about compensation without demanding it.|پرسیدن دربارهٔ جبران، بی‌آنکه مطالبه کنی.|B2|p|Can I claim compensation for the delay?|می‌توانم برای تأخیر غرامت بگیرم؟
+S|accessibility|I'd appreciate it if a member of staff could meet me at the gate.|ممنون می‌شوم اگر یکی از کارکنان در دروازه به استقبالم بیاید.|Requesting that staff meet you at the gate.|درخواست همراهی کارکنان در دروازه.|B2|p|Could someone meet me at the gate?|کسی می‌تواند در دروازه به استقبالم بیاید؟
+S|hotel|Could you confirm in writing that the room will be held until midnight?|می‌شود کتباً تأیید کنید اتاق تا نیمه‌شب نگه داشته می‌شود؟|Getting a booking promise in writing.|گرفتن تأیید کتبی رزرو.|B2|p|Please confirm by email that the room is held.|لطفاً با ایمیل تأیید کنید اتاق نگه داشته می‌شود.
+S|returning|My connecting flight was cancelled; could you reissue my ticket?|پرواز اتصالی‌ام لغو شد؛ می‌شود بلیتم را دوباره صادر کنید؟|Asking for a ticket to be reissued after a cancellation.|درخواست صدور دوبارهٔ بلیت پس از لغو.|B2|p|Could you issue a new ticket for the connection?|می‌شود بلیت تازه‌ای برای اتصال صادر کنید؟
+S|planning|I'd like to discuss my rebooking options, given the change in schedule.|با توجه به تغییر برنامه، می‌خواهم دربارهٔ گزینه‌های رزرو دوباره صحبت کنم.|Opening a negotiation about rebooking.|شروع گفت‌وگو دربارهٔ رزرو دوباره.|C1|p|Could we go through the rebooking options?|می‌شود گزینه‌های رزرو دوباره را مرور کنیم؟
+S|emergency|I need a written report of the theft for my insurer.|برای بیمه‌ام به گزارش کتبی دزدی نیاز دارم.|Requesting a document from the police.|درخواست سند از پلیس.|C1|p|Could you give me a copy of the report?|می‌شود نسخه‌ای از گزارش را بدهید؟
+S|hotel|Had I been told about the renovation, I would have asked for another room.|اگر دربارهٔ بازسازی به من گفته شده بود، اتاق دیگری می‌خواستم.|A firm but polite complaint in the third conditional.|شکایت محکم و مؤدبانه با شرطی نوع سوم.|C2|p|If I had known, I would have chosen differently.|اگر می‌دانستم، جور دیگری انتخاب می‌کردم.

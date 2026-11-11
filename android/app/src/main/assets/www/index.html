@@ -6112,7 +6112,156 @@
     .pgap { width: 6.5em; }
   }
 
-  /* ==========================================================================
+  
+  /* ---------- TRAVEL ENGLISH -------------------------------------------
+     One shared curriculum, drawn into the Sentences panel in both
+     experiences. The classes are travel-only (tr-*), so no existing rule or
+     token is edited; the kid page restyles the same markup through body.kids.
+     -------------------------------------------------------------------- */
+  .tr-card {
+    display: flex; align-items: center; gap: 12px; width: 100%;
+    text-align: start; cursor: pointer; font-family: inherit;
+    padding: 14px 16px; margin: 0 0 12px; border-radius: 16px;
+    border: 1.5px solid var(--line2);
+    background: linear-gradient(135deg, var(--surf-2), var(--surf-4));
+    color: var(--ink); box-shadow: 0 8px 20px -18px rgba(0, 0, 0, .55);
+    transition: transform .16s cubic-bezier(.22,1,.36,1), border-color .16s;
+  }
+  .tr-card:hover { transform: translateY(-1px); border-color: var(--line-strong, var(--line2)); }
+  .tr-card:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 2px; }
+  .tr-card .tr-emoji { font-size: 30px; line-height: 1; }
+  .tr-card .tr-ct { min-width: 0; }
+  .tr-card .tr-ct b { display: block; font-size: 15.5px; letter-spacing: -.1px; }
+  .tr-card .tr-ct span { display: block; font-size: 12px; color: var(--ink-3); line-height: 1.55; }
+  .tr-card .tr-ct .tr-fa { direction: rtl; text-align: right; }
+  .tr-card .tr-go { margin-inline-start: auto; font-size: 12px; font-weight: 800; color: var(--navy-ink); white-space: nowrap; }
+
+  .tr-wrap { display: block; }
+  .tr-head h4 { margin: 0 0 2px; font-size: 19px; color: var(--ink); }
+  .tr-head p { margin: 0 0 8px; font-size: 13px; line-height: 1.6; color: var(--ink-3); }
+  .tr-head .tr-fa { font-size: 12.5px; color: var(--ink-3); direction: rtl; text-align: right; }
+  .tr-note {
+    margin: 0 0 10px; padding: 9px 11px; border-radius: 10px; font-size: 12px;
+    line-height: 1.55; background: var(--surf-3); border: 1px solid var(--line);
+    color: var(--ink-3);
+  }
+  .tr-note .tr-fa { direction: rtl; text-align: right; margin-top: 3px; }
+
+  .tr-tools { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin: 0 0 10px; }
+  .tr-search { flex: 1 1 190px; min-width: 0; }
+  .tr-search input {
+    width: 100%; box-sizing: border-box; padding: 9px 11px; border-radius: 10px;
+    border: 1.5px solid var(--line2); background: var(--raise); color: var(--ink);
+    font-family: inherit; font-size: 13.5px;
+  }
+  .tr-search input:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 1px; }
+  .tr-chip {
+    cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 800;
+    padding: 8px 11px; border-radius: 999px; min-height: 38px;
+    border: 1.5px solid var(--line2); background: var(--raise); color: var(--ink-3);
+  }
+  .tr-chip:hover { border-color: var(--line-strong, var(--line2)); color: var(--ink); }
+  .tr-chip.on { background: var(--gold-soft); border-color: var(--gold2); color: var(--ink); }
+  .tr-chip:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 2px; }
+
+  .tr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 9px; }
+  .tr-cat {
+    cursor: pointer; font-family: inherit; text-align: start; min-height: 96px;
+    display: flex; flex-direction: column; gap: 4px; padding: 12px 13px;
+    border-radius: 14px; border: 1.5px solid var(--line2); background: var(--raise);
+    color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+    transition: transform .14s, border-color .14s;
+    animation: trIn .34s cubic-bezier(.22,1,.36,1) both;
+  }
+  .tr-cat:hover { transform: translateY(-2px); border-color: var(--line-strong, var(--line2)); }
+  .tr-cat:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 2px; }
+  .tr-cat .tr-emoji { font-size: 22px; line-height: 1; }
+  .tr-cat b { font-size: 13.5px; line-height: 1.35; }
+  .tr-cat .tr-fa { font-size: 11.5px; color: var(--ink-3); direction: rtl; text-align: right; }
+  .tr-cat .tr-n { margin-top: auto; font-size: 11px; color: var(--ink-4); font-weight: 700; }
+
+  .tr-list { display: grid; gap: 8px; }
+  .tr-s {
+    border: 1.5px solid var(--line); border-radius: 14px; padding: 11px 12px;
+    background: var(--raise); animation: trIn .3s cubic-bezier(.22,1,.36,1) both;
+  }
+  .tr-s-top { display: flex; align-items: flex-start; gap: 8px; }
+  .tr-en { flex: 1 1 auto; margin: 0; font-size: 14.5px; font-weight: 700; line-height: 1.5; color: var(--ink); }
+  .tr-fa { font-size: 13px; line-height: 1.9; color: var(--ink-3); direction: rtl; text-align: right; margin-top: 3px; }
+  .tr-play, .tr-star {
+    flex: none; width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
+    font-family: inherit; font-size: 14px; line-height: 1;
+    border: 1.5px solid var(--line2); background: var(--surf-2); color: var(--ink-3);
+  }
+  .tr-play.on { background: var(--gold-soft); border-color: var(--gold2); color: var(--ink); }
+  .tr-star.on { color: var(--amber); border-color: var(--gold2); background: var(--gold-soft); }
+  .tr-play:focus-visible, .tr-star:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 2px; }
+  .tr-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; }
+  .tr-tag {
+    font-size: 10.5px; font-weight: 800; letter-spacing: .02em;
+    padding: 3px 7px; border-radius: 999px; background: var(--surf-3);
+    border: 1px solid var(--line); color: var(--ink-4);
+  }
+  .tr-tag.tr-p { background: var(--ice); color: var(--ice-ink); border-color: var(--ice2); }
+  .tr-tag.tr-i { background: var(--gold-soft); color: var(--amber); border-color: var(--gold2); }
+  .tr-use { margin: 6px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-3); }
+  .tr-alt { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin-top: 7px; font-size: 12px; }
+  .tr-alt-k { font-weight: 800; color: var(--ink-4); font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; }
+  .tr-alt-en { color: var(--ink); }
+  .tr-alt-fa { color: var(--ink-3); direction: rtl; }
+
+  .tr-sub { margin: 14px 0 6px; font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-4); }
+  .tr-d { border: 1.5px solid var(--line); border-radius: 14px; padding: 11px 12px; background: var(--surf-2); }
+  .tr-dline { display: flex; gap: 8px; align-items: flex-start; padding: 6px 0; }
+  .tr-dline + .tr-dline { border-top: 1px dashed var(--line); }
+  .tr-who { flex: none; min-width: 68px; font-size: 11px; font-weight: 800; color: var(--navy-ink); padding-top: 2px; }
+  .tr-v { display: flex; gap: 9px; align-items: baseline; padding: 8px 10px; border-radius: 10px; background: var(--surf-2); border: 1px solid var(--line); flex-wrap: wrap; }
+  .tr-v b { font-size: 13.5px; color: var(--ink); }
+  .tr-v .tr-pos { font-size: 10.5px; font-weight: 800; color: var(--ink-4); }
+  .tr-v .tr-fa { margin: 0; font-size: 12px; }
+  .tr-v .tr-def { flex: 1 1 190px; font-size: 12px; color: var(--ink-3); }
+  .tr-v .tr-ex { font-size: 11.5px; color: var(--ink-4); font-style: italic; }
+  .tr-v button { cursor: pointer; font-family: inherit; }
+
+  .tr-practice { border: 1.5px solid var(--line); border-radius: 14px; padding: 12px; background: var(--surf-2); }
+  .tr-q { margin-top: 10px; }
+  .tr-q p { margin: 0 0 6px; font-size: 13.5px; font-weight: 700; color: var(--ink); }
+  .tr-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tr-opt {
+    cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 700;
+    padding: 9px 12px; min-height: 42px; border-radius: 10px;
+    border: 1.5px solid var(--line2); background: var(--raise); color: var(--ink);
+  }
+  .tr-opt:hover { border-color: var(--line-strong, var(--line2)); }
+  .tr-opt.ok { background: var(--leaf-soft); border-color: var(--leaf); color: var(--leaf); }
+  .tr-opt.no { background: var(--surf-4); border-color: var(--red); color: var(--red); }
+  .tr-opt[disabled] { cursor: default; }
+  .tr-why { margin-top: 6px; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
+  .tr-why .tr-fa { margin-top: 2px; }
+  .tr-picked { min-height: 40px; display: flex; flex-wrap: wrap; gap: 5px; padding: 5px; border-radius: 10px; border: 1.5px dashed var(--line2); background: var(--raise); margin-bottom: 6px; }
+  .tr-bank { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tr-word { cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 700; padding: 8px 11px; min-height: 40px; border-radius: 9px; border: 1.5px solid var(--line2); background: var(--raise); color: var(--ink); }
+  .tr-word[hidden] { display: none; }
+  .tr-back { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; font-family: inherit; font-size: 12.5px; font-weight: 800; border: 0; background: none; color: var(--navy-ink); padding: 0 0 9px; }
+  .tr-empty { font-size: 13px; color: var(--ink-3); padding: 8px 0; }
+
+  body.kids .tr-card { border-radius: 18px; padding: 14px 15px; }
+  body.kids .tr-head h4 { font-size: 21px; }
+  body.kids .tr-head p { font-size: 14px; }
+  body.kids .tr-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+  body.kids .tr-cat { min-height: 104px; }
+  body.kids .tr-cat b { font-size: 14.5px; }
+  body.kids .tr-en { font-size: 16px; }
+  body.kids .tr-fa { font-size: 13.5px; }
+  body.kids .tr-play, body.kids .tr-star { width: 44px; height: 44px; border-radius: 12px; }
+  body.kids .tr-opt, body.kids .tr-word, body.kids .tr-chip { min-height: 46px; }
+  body.kids .tr-note, body.kids .tr-use { font-size: 12.5px; }
+
+  @keyframes trIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @keyframes trPop { 0% { transform: scale(.9); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
+  .tr-star.on { animation: trPop .35s cubic-bezier(.2,1.7,.4,1); }
+
+/* ==========================================================================
      FLUENTIFY KIDS
      Every rule in this block sits behind body.kids, a class that is only put
      on the body for an account whose age is under fifteen. The adult app is
@@ -7425,6 +7574,7 @@
     .kspark, .kstars i, .kbuild .kshake { animation: none !important; transition: none !important; }
     .kchar, .kchar *, .kwa, .kwave.on i, .kstagger > *, .kseq i,
     .kcelebrate i, .kline.now::before,
+    .tr-cat, .tr-s, .tr-star.on,
     body.kids .plesson.done .pdot, body.kids .pexam-ready { animation: none !important; }
     body.kids .khero .kface .kchar { animation: none !important; }
     button, .ltab, .bbc-tab, .lrow { transition: none !important; }
@@ -11278,6 +11428,9 @@ async function loadPhrases() {
   try {
     const topics = phraseTopics;
     box.innerHTML = '';
+    /* Travel is a category of this panel, not a second app: one card at the
+       top of the same list, and it opens inside the same panel. */
+    box.appendChild(Travel.card(false));
     byLevel(topics).forEach(([level, items]) => {
       const sec = document.createElement('div');
       sec.className = 'vgroup';
@@ -15601,6 +15754,602 @@ const Experience = (() => {
  * an adult account: every entry point starts with `if (!Experience.kids())`.
  * ==========================================================================*/
 
+
+/* ==========================================================================
+ * TRAVEL ENGLISH
+ * The travel curriculum, shared by both experiences: the same travel.json,
+ * the same sentences, words and dialogues, drawn into the Sentences panel the
+ * adult app and the kids app already have. Nothing here fetches at boot - the
+ * bank is read the first time Travel is opened - and every part of it works
+ * with no network, because it is read through loadJSON like the kids bank.
+ * ==========================================================================*/
+const Travel = (() => {
+  const FAV = 'fluentify.travel.fav.v1';
+  const LAST = 'fluentify.travel.last.v1';
+  const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const POLITE = { n: ['neutral', 'خنثی'], p: ['polite', 'مؤدبانه'], i: ['informal', 'خودی'] };
+
+  let doc = null, pending = null, host = null, kids = false;
+  let view = { q: '', level: '', favOnly: false };
+
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const faLine = (text, cls) => {
+    const n = el('div', cls || 'tr-fa');
+    n.dir = 'rtl';
+    n.lang = 'fa';
+    n.textContent = text || '';
+    return n;
+  };
+
+  function load() {
+    if (!pending) pending = loadJSON('travel').then((d) => { doc = d; return d; });
+    return pending;
+  }
+  const cats = () => (doc && doc.categories) || [];
+  const meta = () => (doc && doc._meta) || {};
+
+  /* Favorites are per sentence id, on this device, and survive a restart. */
+  function favs() {
+    try { return new Set(JSON.parse(localStorage.getItem(FAV) || '[]')); }
+    catch (e) { return new Set(); }
+  }
+  function saveFavs(set) {
+    try { localStorage.setItem(FAV, JSON.stringify(Array.from(set))); } catch (e) { /* private */ }
+  }
+  function isFav(id) { return favs().has(id); }
+  function toggleFav(id, star) {
+    const set = favs();
+    const on = !set.has(id);
+    if (on) set.add(id); else set.delete(id);
+    saveFavs(set);
+    if (star) {
+      star.classList.toggle('on', on);
+      star.textContent = on ? '★' : '☆';
+      star.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    return on;
+  }
+  function lastCat() { try { return localStorage.getItem(LAST) || ''; } catch (e) { return ''; } }
+  function remember(id) { try { localStorage.setItem(LAST, id); } catch (e) { /* private */ } }
+
+  /* Search: folded text, substring first, then prefix, then a small edit
+     distance, so "فرودگاه", "airprot" and "Where is my luggage?" all land on
+     something sensible. */
+  function norm(s) {
+    return String(s == null ? '' : s).toLowerCase()
+      .replace(/[\u064a\u0649]/g, '\u06cc').replace(/[\u0643]/g, '\u06a9')
+      .replace(/[^0-9a-z\u0600-\u06ff]+/g, ' ').trim();
+  }
+  function edit(a, b) {
+    if (Math.abs(a.length - b.length) > 3) return 9;
+    const m = a.length, n = b.length;
+    if (!m || !n) return Math.max(m, n);
+    let prev = [], cur = [];
+    for (let j = 0; j <= n; j += 1) prev[j] = j;
+    for (let i = 1; i <= m; i += 1) {
+      cur[0] = i;
+      for (let j = 1; j <= n; j += 1) {
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1,
+          prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+      }
+      const swap = prev; prev = cur; cur = swap;
+    }
+    return prev[n];
+  }
+  function score(text, q) {
+    const t = norm(text);
+    if (!t || !q) return 0;
+    if (t.indexOf(q) >= 0) return 3;
+    const words = t.split(' ');
+    for (let i = 0; i < words.length; i += 1) {
+      if (words[i].indexOf(q) === 0) return 2;
+    }
+    const limit = q.length > 6 ? 2 : 1;
+    for (let i = 0; i < words.length; i += 1) {
+      if (edit(words[i], q) <= limit) return 1;
+    }
+    return 0;
+  }
+
+  /* A query is matched word by word: "flight delayed" has to find the
+     sentence with both words in it, which a single-string substring test
+     never does. One word may be missing from a sentence (people forget the
+     article), and every word has to be somewhere in a category for the
+     category to count. */
+  function hitCount(text, words) {
+    const t = norm(text);
+    let hits = 0;
+    words.forEach((w) => { if (score(t, w)) hits += 1; });
+    return hits;
+  }
+
+  function search(q) {
+    const words = norm(q).split(' ').filter(Boolean);
+    const out = { cats: [], sentences: [] };
+    if (!words.length) return out;
+    const need = words.length;
+    cats().forEach((cat) => {
+      let best = hitCount([cat.title_en, cat.title_fa, cat.desc_en, cat.desc_fa].join(' '), words);
+      (cat.sentences || []).forEach((s) => {
+        const hits = hitCount([s.en, s.fa, s.use_en, s.use_fa].join(' '), words);
+        if (hits === need || (need > 1 && hits === need - 1)) {
+          out.sentences.push({ cat: cat, s: s, score: hits * 10 + (hits === need ? 5 : 0) });
+        }
+        best = Math.max(best, hits);
+      });
+      (cat.vocab || []).forEach((w) => {
+        best = Math.max(best, hitCount([w.en, w.fa, w.def_en].join(' '), words));
+      });
+      const d = cat.dialogue || {};
+      (d.lines || []).forEach((line) => {
+        best = Math.max(best, hitCount([line.en, line.fa].join(' '), words));
+      });
+      if (best >= (need > 1 ? need - 1 : 1)) out.cats.push({ cat: cat, score: best });
+    });
+    out.cats.sort((a, b) => b.score - a.score);
+    out.sentences.sort((a, b) => b.score - a.score);
+    return out;
+  }
+
+  function say(text, btn) {
+    const done = () => { if (btn) btn.classList.remove('on'); };
+    if (btn) btn.classList.add('on');
+    if (!Speech.speak(text, done)) done();
+  }
+
+  /* ---- the entry card, in both experiences ---------------------------- */
+  function card(kidsFlag) {
+    const isKid = !!kidsFlag;
+    const b = isKid
+      ? el('button', 'kbtn kc-orange tr-card')
+      : el('button', 'tr-card');
+    b.type = 'button';
+    const emoji = el('span', isKid ? 'kico' : 'tr-emoji', '🧳');
+    const ct = el('span', 'tr-ct');
+    ct.append(el('b', null, 'Travel'));
+    const sub = el('span', null, 'Speak English confidently wherever you go.');
+    ct.append(sub);
+    const subFa = faLine('با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', 'tr-fa');
+    ct.append(subFa);
+    const metaLine = el('span', null, '18 topics');
+    metaLine.style.display = 'none';
+    ct.append(metaLine);
+    const go = el('span', isKid ? 'kgo' : 'tr-go', isKid ? 'Open →' : '18 topics · 80 sentences →');
+    b.append(emoji, ct);
+    if (isKid) b.append(el('span', 'kfa', 'سفر'), go); else b.append(go);
+    b.setAttribute('aria-label', 'Travel — English for the whole journey, سفر');
+    b.onclick = () => Travel.open(isKid);
+    load().then((d) => {
+      const n = (d.categories || []).length;
+      const s = (d.categories || []).reduce((sum, c) => sum + (c.sentences || []).length, 0);
+      go.textContent = isKid ? 'Open →' : n + ' topics · ' + s + ' sentences →';
+      metaLine.textContent = n + ' topics · ' + s + ' sentences';
+    }).catch(() => { /* the card still opens and shows the error itself */ });
+    return b;
+  }
+
+  function open(kidsFlag) {
+    kids = !!kidsFlag;
+    host = document.getElementById('ftopics');
+    if (!host) return;
+    view = { q: '', level: '', favOnly: false };
+    host.innerHTML = '<div class="tr-empty">Loading Travel…</div>';
+    load().then(renderList).catch(() => {
+      host.innerHTML = '<div class="tr-empty">The travel bank could not be read. / ' +
+        '<bdi dir="rtl" lang="fa">بانک سفر خوانده نشد.</bdi></div>';
+    });
+  }
+
+  function backToSentences() {
+    if (kids && typeof Kids !== 'undefined') { Kids.phrases(); return; }
+    if (typeof loadPhrases === 'function') { loadPhrases(); }
+  }
+
+  /* ---- the list page --------------------------------------------------- */
+  function renderList() {
+    if (!host) return;
+    host.innerHTML = '';
+    const wrap = el('div', 'tr-wrap');
+    const head = el('div', 'tr-head');
+    head.append(el('h4', null, meta().title_en || 'Travel English'));
+    head.append(faLine(meta().title_fa || 'انگلیسی سفر', 'tr-fa'));
+    head.append(el('p', null, meta().intro_en || ''));
+    head.append(faLine(meta().intro_fa || '', 'tr-fa'));
+    wrap.append(el('button', 'tr-back', '← ' + (kids ? 'Sentences' : 'Everyday sentences')));
+    wrap.lastChild.onclick = backToSentences;
+    wrap.append(head);
+    if (meta().note_en) {
+      const note = el('div', 'tr-note', meta().note_en);
+      note.append(faLine(meta().note_fa || '', 'tr-fa'));
+      wrap.append(note);
+    }
+
+    const tools = el('div', 'tr-tools');
+    const searchBox = el('div', 'tr-search');
+    const input = el('input');
+    input.type = 'search';
+    input.value = view.q;
+    input.placeholder = 'Search in English or Persian… / جست‌وجو';
+    input.setAttribute('aria-label', 'Search travel sentences in English or Persian');
+    input.oninput = () => { view.q = input.value; renderBody(body); };
+    searchBox.append(input);
+    tools.append(searchBox);
+
+    const levelChips = [];
+    const mkChip = (label, key, value) => {
+      const c = el('button', 'tr-chip' + ((view[key] === value) ? ' on' : ''), label);
+      c.type = 'button';
+      c.onclick = () => { view[key] = (view[key] === value) ? '' : value; renderBody(body); };
+      levelChips.push(c);
+      return c;
+    };
+    (meta().levels || LEVELS).forEach((lv) => tools.append(mkChip(lv, 'level', lv)));
+    const favChip = el('button', 'tr-chip' + (view.favOnly ? ' on' : ''), '★ Saved');
+    favChip.type = 'button';
+    favChip.onclick = () => { view.favOnly = !view.favOnly; renderBody(body); };
+    tools.append(favChip);
+    wrap.append(tools);
+
+    const body = el('div', 'tr-body');
+    wrap.append(body);
+    host.append(wrap);
+    renderBody(body);
+    input.focus({ preventScroll: true });
+  }
+
+  function renderBody(body) {
+    body.innerHTML = '';
+    const searchOn = !!norm(view.q);
+    if (searchOn) {
+      const found = search(view.q);
+      if (!found.cats.length) {
+        body.append(el('div', 'tr-empty',
+          'Nothing matched "' + view.q + '". / چیزی پیدا نشد.'));
+        return;
+      }
+      body.append(el('div', 'tr-sub', 'Topics · موضوع‌ها'));
+      body.append(catGrid(found.cats.map((x) => x.cat)));
+      const shown = found.sentences.slice(0, 12);
+      if (shown.length) {
+        body.append(el('div', 'tr-sub', 'Sentences · جمله‌ها'));
+        const list = el('div', 'tr-list');
+        shown.forEach((hit) => list.append(sentenceCard(hit.cat, hit.s)));
+        body.append(list);
+      }
+      return;
+    }
+    const favOnly = view.favOnly;
+    const level = view.level;
+    const pool = cats().filter((cat) => {
+      if (level && cat.level !== level &&
+          !(cat.sentences || []).some((s) => s.level === level)) return false;
+      if (favOnly && !(cat.sentences || []).some((s) => isFav(s.id))) return false;
+      return true;
+    });
+    const last = lastCat();
+    if (last && !level && !favOnly) {
+      const cat = cats().find((c) => c.id === last);
+      if (cat) {
+        const again = el('button', 'tr-card tr-resume');
+        again.type = 'button';
+        again.append(el('span', 'tr-emoji', cat.emoji || '🧳'));
+        const ct = el('span', 'tr-ct');
+        ct.append(el('b', null, 'Continue: ' + cat.title_en));
+        ct.append(faLine('ادامه: ' + cat.title_fa, 'tr-fa'));
+        again.append(ct, el('span', 'tr-go', 'Open →'));
+        again.onclick = () => openCat(cat.id);
+        body.append(again);
+      }
+    }
+    if (favOnly) {
+      const ids = favs();
+      const saved = [];
+      cats().forEach((cat) => (cat.sentences || []).forEach((s) => {
+        if (ids.has(s.id)) saved.push({ cat: cat, s: s });
+      }));
+      body.append(el('div', 'tr-sub', saved.length + ' saved · ذخیره‌شده'));
+      if (!saved.length) {
+        body.append(el('div', 'tr-empty',
+          'Tap the star on a sentence to keep it here. / روی ستاره بزن تا جمله اینجا بماند.'));
+        return;
+      }
+      const list = el('div', 'tr-list');
+      saved.forEach((hit) => list.append(sentenceCard(hit.cat, hit.s)));
+      body.append(list);
+      return;
+    }
+    if (!pool.length) {
+      body.append(el('div', 'tr-empty', 'No topics at this level yet. / در این سطح موضوعی نیست.'));
+      return;
+    }
+    body.append(el('div', 'tr-sub', pool.length + ' topics · ' + pool.length + ' موضوع'));
+    body.append(catGrid(pool));
+  }
+
+  function catGrid(list) {
+    const grid = el('div', 'tr-grid');
+    list.forEach((cat, i) => {
+      const b = el('button', 'tr-cat');
+      b.type = 'button';
+      b.style.animationDelay = Math.min(i * 30, 240) + 'ms';
+      b.append(el('span', 'tr-emoji', cat.emoji || '🧳'));
+      b.append(el('b', null, cat.title_en));
+      b.append(faLine(cat.title_fa, 'tr-fa'));
+      b.append(el('span', 'tr-n',
+        (cat.sentences || []).length + ' sentences · ' + (cat.vocab || []).length + ' words'));
+      b.onclick = () => openCat(cat.id);
+      grid.append(b);
+    });
+    return grid;
+  }
+
+  /* ---- one category ---------------------------------------------------- */
+  function openCat(id) {
+    const cat = cats().find((c) => c.id === id);
+    if (!cat || !host) return;
+    remember(id);
+    const kidsBack = kids;
+    host.innerHTML = '';
+    const wrap = el('div', 'tr-wrap');
+    const back = el('button', 'tr-back', '← All travel topics');
+    back.type = 'button';
+    back.onclick = renderList;
+    wrap.append(back);
+    const head = el('div', 'tr-head');
+    head.append(el('h4', null, (cat.emoji || '') + ' ' + cat.title_en));
+    head.append(faLine(cat.title_fa, 'tr-fa'));
+    head.append(el('p', null, cat.desc_en));
+    head.append(faLine(cat.desc_fa, 'tr-fa'));
+    head.append(el('span', 'tr-tag', cat.level));
+    wrap.append(head);
+
+    wrap.append(el('div', 'tr-sub', 'Sentences · جمله‌ها'));
+    const list = el('div', 'tr-list');
+    (cat.sentences || []).forEach((s) => list.append(sentenceCard(cat, s)));
+    wrap.append(list);
+
+    if (cat.dialogue) wrap.append(dialogueCard(cat.dialogue));
+    if (cat.pattern) wrap.append(patternCard(cat.pattern));
+    if ((cat.vocab || []).length) wrap.append(vocabCard(cat, kidsBack));
+    wrap.append(practice(cat));
+    host.append(wrap);
+    host.scrollTop = 0;
+    const panel = host.closest('.panel, [id$="panel"]');
+    if (panel && panel.scrollTo) panel.scrollTo(0, 0);
+  }
+
+  function sentenceCard(cat, s) {
+    const card = el('article', 'tr-s');
+    const top = el('div', 'tr-s-top');
+    top.append(el('p', 'tr-en', s.en));
+    const play = el('button', 'tr-play', '▶');
+    play.type = 'button';
+    play.title = 'Hear it — بشنو';
+    play.setAttribute('aria-label', 'Hear: ' + s.en);
+    play.onclick = () => say(s.en, play);
+    const star = el('button', 'tr-star' + (isFav(s.id) ? ' on' : ''), isFav(s.id) ? '★' : '☆');
+    star.type = 'button';
+    star.title = 'Save — ذخیره';
+    star.setAttribute('aria-label', 'Save this sentence');
+    star.setAttribute('aria-pressed', isFav(s.id) ? 'true' : 'false');
+    star.onclick = () => toggleFav(s.id, star);
+    top.append(play, star);
+    card.append(top, faLine(s.fa));
+
+    const marks = el('div', 'tr-meta');
+    marks.append(el('span', 'tr-tag', s.level));
+    marks.append(el('span', 'tr-tag tr-' + s.polite, (POLITE[s.polite] || ['', ''])[0]));
+    card.append(marks);
+
+    if (kids) {
+      const more = el('details');
+      const sum = el('summary', 'tr-use', 'More · بیشتر');
+      more.append(sum);
+      more.append(el('p', 'tr-use', s.use_en));
+      more.append(faLine(s.use_fa, 'tr-fa'));
+      if ((s.alt || []).length) more.append(altRow(s.alt[0]));
+      card.append(more);
+    } else {
+      card.append(el('p', 'tr-use', s.use_en));
+      card.append(faLine(s.use_fa, 'tr-fa'));
+      if ((s.alt || []).length) card.append(altRow(s.alt[0]));
+      const link = el('button', 'tr-back', 'Open ' + cat.title_en + ' →');
+      link.type = 'button';
+      link.style.padding = '6px 0 0';
+      link.onclick = () => openCat(cat.id);
+      card.append(link);
+    }
+    return card;
+  }
+
+  function altRow(alt) {
+    const row = el('div', 'tr-alt');
+    row.append(el('span', 'tr-alt-k', 'Also'));
+    row.append(el('span', 'tr-alt-en', alt.en));
+    row.append(faLine(alt.fa, 'tr-alt-fa'));
+    return row;
+  }
+
+  function dialogueCard(d) {
+    const card = el('section', 'tr-card');
+    card.append(el('h4', 'tr-sub', 'Dialogue · گفت‌وگو — ' + d.title_en));
+    card.append(faLine(d.title_fa, 'tr-fa'));
+    const box = el('div', 'tr-d');
+    const lines = d.lines || [];
+    let i = 0;
+    lines.forEach((line) => {
+      const row = el('div', 'tr-dline');
+      row.append(el('span', 'tr-who', line.who));
+      const body = el('div');
+      body.append(el('div', null, line.en));
+      body.append(faLine(line.fa, 'tr-fa'));
+      row.append(body);
+      box.append(row);
+    });
+    const playAll = el('button', 'tr-chip', '▶ Play the dialogue');
+    playAll.type = 'button';
+    playAll.onclick = () => {
+      i = 0;
+      const next = () => {
+        if (i >= lines.length) { playAll.classList.remove('on'); return; }
+        const line = lines[i];
+        i += 1;
+        Speech.speak(line.en, () => setTimeout(next, 280));
+      };
+      playAll.classList.add('on');
+      next();
+    };
+    box.append(playAll);
+    card.append(box);
+    return card;
+  }
+
+  function patternCard(p) {
+    const card = el('section', 'tr-card');
+    card.append(el('h4', 'tr-sub', 'Pattern · ساختار'));
+    card.append(el('div', 'tr-en', p.frame));
+    card.append(el('p', 'tr-use', p.example_en));
+    card.append(el('p', 'tr-use', p.note_en));
+    card.append(faLine(p.note_fa, 'tr-fa'));
+    return card;
+  }
+
+  function vocabCard(cat, kidsView) {
+    const card = el('section', 'tr-card');
+    card.append(el('h4', 'tr-sub', 'Words · واژه‌ها'));
+    const list = el('div', 'tr-list');
+    (cat.vocab || []).forEach((w) => {
+      const row = el('div', 'tr-v');
+      row.append(el('b', null, w.en));
+      row.append(el('span', 'tr-pos', w.pos));
+      row.append(faLine(w.fa));
+      row.append(el('span', 'tr-def', w.def_en));
+      row.append(el('span', 'tr-ex', w.example_en));
+      const sayBtn = el('button', 'tr-play', '▶');
+      sayBtn.type = 'button';
+      sayBtn.setAttribute('aria-label', 'Hear: ' + w.en);
+      sayBtn.onclick = () => say(w.en, sayBtn);
+      row.append(sayBtn);
+      if (!kidsView && typeof showWord === 'function') {
+        const more = el('button', 'tr-chip', 'All meanings');
+        more.type = 'button';
+        more.onclick = () => showWord({ en: w.en, fa: w.fa, pos: w.pos });
+        row.append(more);
+      }
+      list.append(row);
+    });
+    card.append(list);
+    return card;
+  }
+
+  /* ---- practice -------------------------------------------------------- */
+  function optionQuiz(hostBox, prompt, options, answer, whyEn, whyFa) {
+    const q = el('div', 'tr-q');
+    q.append(el('p', null, prompt));
+    const opts = el('div', 'tr-opts');
+    const why = el('div', 'tr-why');
+    why.hidden = true;
+    options.forEach((option) => {
+      const b = el('button', 'tr-opt', option);
+      b.type = 'button';
+      b.onclick = () => {
+        if (opts.dataset.done) return;
+        opts.dataset.done = '1';
+        const right = option === answer;
+        Array.from(opts.children).forEach((o) => {
+          o.disabled = true;
+          if (o.textContent === answer) {
+            o.classList.add('ok');
+            o.textContent = '✓ ' + o.textContent;
+          } else if (o === b) {
+            o.classList.add('no');
+            o.textContent = '✗ ' + o.textContent;
+          }
+        });
+        why.hidden = false;
+        why.textContent = (right ? '✓ ' : '') + whyEn;
+        why.append(faLine(whyFa));
+      };
+      opts.append(b);
+    });
+    q.append(opts, why);
+    hostBox.append(q);
+  }
+
+  function orderExercise(hostBox, sentence, translation) {
+    const words = String(sentence).trim().split(/\s+/);
+    if (words.length < 3) return;
+    const block = el('div', 'tr-q');
+    block.append(el('p', null, 'Put the words in order. / واژه‌ها را مرتب کن.'));
+    const picked = el('div', 'tr-picked');
+    const bank = el('div', 'tr-bank');
+    const why = el('div', 'tr-why');
+    why.hidden = true;
+    const order = words.map((w, i) => ({ w: w, k: (i * 7 + w.length * 3) % 11, i: i }))
+      .sort((a, b) => (a.k - b.k) || (a.i - b.i));
+    const check = () => {
+      const said = Array.from(picked.children).map((c) => c.textContent).join(' ');
+      if (said.toLowerCase() !== words.join(' ').toLowerCase()) return;
+      why.hidden = false;
+      why.textContent = '✓ ' + words.join(' ');
+      why.append(faLine(translation));
+    };
+    order.forEach((x) => {
+      const b = el('button', 'tr-word', x.w);
+      b.type = 'button';
+      b.onclick = () => {
+        if (b.hidden) return;
+        b.hidden = true;
+        const chip = el('button', 'tr-word', x.w);
+        chip.type = 'button';
+        chip.onclick = () => { chip.remove(); b.hidden = false; why.hidden = true; };
+        picked.append(chip);
+        if (!bank.querySelector('.tr-word:not([hidden])')) check();
+      };
+      bank.append(b);
+    });
+    block.append(picked, bank, why);
+    hostBox.append(block);
+  }
+
+  function practice(cat) {
+    const box = el('section', 'tr-card tr-practice');
+    box.append(el('h4', 'tr-sub', 'Try it · یک تمرین'));
+    box.append(el('p', 'tr-use', 'Three short activities from this category. Nothing is scored.'));
+    box.append(faLine('سه تمرین کوتاه از همین بخش. نمره‌ای ثبت نمی‌شود.', 'tr-fa'));
+    const sentences = (cat.sentences || []).slice(0, 4);
+    if (!sentences.length) return box;
+    const first = sentences[0];
+    const others = sentences.slice(1, 3).map((s) => s.fa);
+    optionQuiz(box,
+      'What does "' + first.en + '" mean?',
+      [first.fa].concat(others.filter((x) => x !== first.fa)).slice(0, 3),
+      first.fa, first.en + ' — ' + first.use_en, first.use_fa);
+    const gap = sentences[1] || first;
+    const words = gap.en.split(/\s+/);
+    if (words.length > 3) {
+      const at = Math.min(2, words.length - 1);
+      const answer = words[at].replace(/[.,!?]$/, '');
+      const blank = words.slice();
+      blank[at] = '____';
+      const decoys = ['please', 'where', 'could', 'ticket'].filter((x) => x !== answer).slice(0, 2);
+      optionQuiz(box, 'Complete: ' + blank.join(' '),
+        [answer].concat(decoys).sort(), answer, gap.fa, gap.use_fa);
+    }
+    orderExercise(box, (sentences[2] || first).en, (sentences[2] || first).fa);
+    return box;
+  }
+
+  return { open, card, openCat, renderList, practice, search, load, favs };
+})();
+
 /* ==========================================================================
  * KIDS MOTION
  * The character, the sound wave, the word pictures and the scene headers
@@ -16814,6 +17563,7 @@ const Kids = (() => {
       wrap.appendChild(listButton('phrases', set,
         () => phraseSet(set), (set.items || []).length + ' sentences'));
     });
+    wrap.prepend(Travel.card(true));
     box.appendChild(wrap);
     KAnim.stagger(wrap);
   }
