@@ -2240,6 +2240,41 @@
     color: var(--ink-5); margin-top: 0;
   }
   .stbody.hidefa .sts .fa, .stbody.hidefa .stch .fa { display: none; }
+  /* the word card's "all meanings" disclosure: one tap, then the senses grouped
+     by part of speech, the taught one marked in words as well as in tint */
+  .wd-all {
+    display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap;
+    margin-top: 8px; padding: 7px 12px; min-height: 38px; cursor: pointer;
+    font-family: inherit; font-size: 12px; font-weight: 700;
+    color: var(--navy-ink); background: var(--surf-1);
+    border: 1.5px solid var(--line2); border-radius: 999px;
+  }
+  .wd-all:hover { background: var(--surf-2); border-color: var(--teal); }
+  .wd-all:focus-visible { outline: 2px solid var(--navy-ink); outline-offset: 2px; }
+  .wd-all .n { font-weight: 800; color: var(--teal); }
+  .wd-all .fa { font-family: var(--font-fa); }
+  .wd-senses { margin-top: 8px; display: grid; gap: 6px; }
+  .wd-senses[hidden] { display: none; }
+  .wd-sense-pos {
+    font-size: 10.5px; font-weight: 800; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted); margin-top: 4px;
+  }
+  .wd-sense {
+    display: grid; grid-template-columns: 20px 1fr; gap: 2px 8px;
+    padding: 8px 10px; border-radius: 10px;
+    border: 1.5px solid var(--line); background: var(--surf-1);
+  }
+  .wd-sense.on { border-color: var(--sun-line, var(--line2)); background: var(--sun-wash, var(--surf-2)); }
+  .wd-sense .num {
+    grid-row: 1 / span 2; font-size: 11px; font-weight: 800; color: var(--muted);
+  }
+  .wd-sense .fa { font-family: var(--font-fa); font-size: 12.5px; color: var(--ink); }
+  .wd-sense .d { font-size: 11.5px; line-height: 1.55; color: var(--ink-1); }
+  .wd-sense .e { grid-column: 2; font-size: 11.5px; font-style: italic; color: var(--ink-2); }
+  .wd-sense .tag {
+    grid-column: 2; font-size: 10.5px; font-weight: 800; color: var(--gold-ink);
+  }
+
   .stv { padding: 7px 0; border-bottom: 1px solid var(--line); }
   .stv .w { font-size: 12.5px; font-weight: 700; color: var(--ink); }
   .stv .w i { font-style: normal; font-weight: 400; color: var(--muted); font-size: 10.5px; }
@@ -10605,7 +10640,107 @@ function showWord(entry) {
   mean.innerHTML = '<b>' + escapeHtml(entry.en) + '</b> — ' +
     '<bdi class="fa" lang="fa" dir="rtl">' + escapeHtml(entry.fa) + '</bdi>';
 
-  card.append(head, mean);
+  /* Everything else the word means. The card opens on the sense the lesson
+     taught - a beginner's first look at "book" should be a book - and the rest
+     of the word is one tap away, grouped by part of speech. It is deliberately
+     not loaded until asked for: 674 KB of senses is not what a word chip
+     should cost, and five meanings on first sight is a dictionary, not a
+     lesson. */
+  const allBtn = document.createElement('button');
+  allBtn.type = 'button';
+  allBtn.className = 'wd-all';
+  allBtn.setAttribute('aria-expanded', 'false');
+  allBtn.innerHTML = 'All meanings <span class="n" hidden></span> / '
+    + '<bdi class="fa" lang="fa" dir="rtl">همهٔ معانی</bdi>';
+
+  const allBox = document.createElement('div');
+  allBox.className = 'wd-senses';
+  allBox.hidden = true;
+
+  allBtn.onclick = async () => {
+    const opening = allBox.hidden;
+    allBox.hidden = !opening;
+    allBtn.setAttribute('aria-expanded', String(opening));
+    if (!opening || allBox.dataset.done) return;
+    allBox.innerHTML = '<div class="wd-more">Looking up the other meanings… / '
+      + '<bdi class="fa" lang="fa" dir="rtl">در حال جست‌وجو</bdi></div>';
+    try {
+      const senses = await sensesFor(entry.en);
+      allBox.innerHTML = '';
+      const list = (senses && senses.senses) || [];
+      if (!list.length) {
+        /* The honest answer, in both languages: this word has no recorded
+           senses here, so the one meaning above is all there is. */
+        allBox.innerHTML = '<div class="wd-more">No other meanings are recorded for '
+          + 'this word yet. / <bdi class="fa" lang="fa" dir="rtl">معنی دیگری برای این '
+          + 'واژه ثبت نشده است.</bdi></div>';
+        allBox.dataset.done = '1';
+        return;
+      }
+      const badge = allBtn.querySelector('.n');
+      badge.textContent = '· ' + list.length;
+      badge.hidden = false;
+      let shownPos = '';
+      list.forEach((sense, i) => {
+        if (sense[0] !== shownPos) {
+          shownPos = sense[0];
+          const head_ = document.createElement('div');
+          head_.className = 'wd-sense-pos';
+          head_.textContent = (POS_FA[shownPos] || shownPos) + ' — ' + shownPos;
+          allBox.appendChild(head_);
+        }
+        const row = document.createElement('div');
+        row.className = 'wd-sense' + (senses.primary === i ? ' on' : '');
+        const num = document.createElement('span');
+        num.className = 'num';
+        num.textContent = String(i + 1);
+        const fa = document.createElement('b');
+        fa.className = 'fa';
+        fa.lang = 'fa';
+        fa.dir = 'rtl';
+        fa.textContent = sense[2] || '';
+        const def = document.createElement('span');
+        def.className = 'd';
+        def.dir = 'ltr';
+        def.textContent = sense[1] || '';
+        row.append(num, fa, def);
+        if (sense[3]) {
+          const ex = document.createElement('span');
+          ex.className = 'e';
+          ex.dir = 'ltr';
+          ex.textContent = sense[3];
+          row.appendChild(ex);
+        }
+        if (!sense[2]) {
+          /* The dictionary holds the English meaning but no Persian for it.
+             Saying that is the answer; printing an empty line where the
+             translation goes reads as a fault, and inventing one is worse. */
+          const note = document.createElement('span');
+          note.className = 'tag';
+          note.innerHTML = 'English definition only \u2014 no Persian gloss recorded / '
+            + '<bdi class="fa" lang="fa" dir="rtl">معنی فارسی ثبت نشده</bdi>';
+          row.appendChild(note);
+        }
+        if (senses.primary === i) {
+          /* Said in words, not only in colour: the star means "the one your
+             course teaches", and a child who cannot see the tint still reads
+             that. */
+          const tag = document.createElement('span');
+          tag.className = 'tag';
+          tag.innerHTML = '★ the meaning you learned / <bdi class="fa" lang="fa" dir="rtl">'
+            + 'همان معنایی که آموختی</bdi>';
+          row.appendChild(tag);
+        }
+        allBox.appendChild(row);
+      });
+      allBox.dataset.done = '1';
+    } catch (e) {
+      allBox.innerHTML = '<div class="wd-more">Other meanings are unavailable '
+        + 'offline. / <bdi class="fa" lang="fa" dir="rtl">معانی دیگر در دسترس نیست.</bdi></div>';
+    }
+  };
+
+  card.append(head, mean, allBtn, allBox);
 
   if (entry.forms && entry.forms.length) {
     const lab = document.createElement('div');
@@ -10654,6 +10789,23 @@ function showWord(entry) {
 
   card.classList.add('open');
   card.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+}
+
+/* The senses file is read the first time a learner asks a word for its other
+   meanings, and once per session after that: 674 KB is not a word chip's cost.
+   One promise, so two cards opened quickly cannot start two downloads. */
+let sensesDoc = null;
+let sensesPromise = null;
+async function sensesFor(word) {
+  if (!sensesDoc) {
+    sensesPromise = sensesPromise || (async () => {
+      sensesDoc = await loadJSON('senses');
+      return sensesDoc;
+    })().finally(() => { sensesPromise = null; });
+    await sensesPromise;
+  }
+  const key = String(word || '').trim().toLowerCase();
+  return (sensesDoc.words || {})[key] || null;
 }
 
 /* word_arch.json is 302 KB of boot payload and only fills the word chips in

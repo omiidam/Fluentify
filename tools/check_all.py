@@ -141,6 +141,7 @@ SUITES = [
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
     ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
+    ("vocabulary senses", [sys.executable, "tools/check_senses.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
     ("vocabulary domains", [sys.executable, "tools/check_vocab.py"]),
     ("kids experience", [sys.executable, "tools/check_kids.py"]),
