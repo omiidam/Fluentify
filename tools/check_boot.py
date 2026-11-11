@@ -47,7 +47,12 @@ HARNESS = r"""
 const makeEl = (tag) => ({
   tagName: tag.toUpperCase(), style: {}, textContent: '', className: '',
   parentNode: { removeChild() {} },
-  classList: { add() {}, remove() {}, contains: () => false },
+  /* 'gone' is the one class that matters here: when it lands, the screen has
+     been dismissed, and the moment it landed is what these tests read. */
+  classList: {
+    add(c) { if (c === 'gone') global.__hiddenAt = performance.now(); },
+    remove() {}, contains: () => false,
+  },
 });
 const fill = makeEl('i');
 const pct = makeEl('span');
@@ -68,6 +73,7 @@ global.window = {
 };
 global.input = makeEl('input');
 global.performance = { now: () => Date.now() };
+global.__t0 = Date.now();      // the moment the module is loaded, for timings
 
 const problems = [];
 const check = (ok, what) => { if (!ok) problems.push(what); return ok; };
@@ -96,6 +102,8 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   }
   await wait(900);
   clearInterval(watcher);
+  /* the page's own boot line, which the slice does not carry */
+  Boot.ready();
 
   const worst = states.find((s) => parseFloat(s.label) !== Math.round(s.bar * 100));
   check(!worst, 'label ' + (worst && worst.label) + ' over a bar at ' +
@@ -109,13 +117,80 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   check(say() === '100%', 'the boot finished on ' + say() + ', not 100%');
   check(Math.abs(bar() - 1) < 1e-9, 'the boot finished with the bar at ' + bar());
 
-  /* and it is still up: the 5s floor has not passed, so nothing has left */
-  check(!global.__hidden, 'the overlay left before its floor');
+  /* The data is in and the bar is full at about 1.8s. The screen must stay up
+     anyway: the fox has four seconds to walk, and being ready early is not a
+     reason to cut her off. Then, once the walk is over, it must come down -
+     a loader that waits for a walk that already finished is a hang. */
+  await wait(2000);            // ~3.8s in: still walking
+  check(!global.__hiddenAt, 'the overlay left at ' + global.__hiddenAt +
+        'ms, before the four-second walk was over');
+  await wait(1400);            // ~5.2s: the walk is done
+  check(global.__hiddenAt > 0,
+        'the overlay stayed up after the walk and the sections were both done');
 
   console.log(JSON.stringify({
     paints: states.length, problems,
     first: states[0], last: states[states.length - 1],
+    hiddenAt: Math.round((global.__hiddenAt || 0) - global.__t0),
   }));
+  process.exit(problems.length ? 1 : 0);
+})();
+"""
+
+# The other order of events, which is the one a slow phone actually gets: the
+# sections are still arriving when the walk is long over. The screen must wait
+# for them - a bar at 100% is not the app being ready - and then come down.
+LATE_HARNESS = r"""
+const makeEl = (tag) => ({
+  tagName: tag.toUpperCase(), style: {}, textContent: '', className: '',
+  parentNode: { removeChild() {} },
+  classList: {
+    add(c) { if (c === 'gone') global.__hiddenAt = performance.now(); },
+    remove() {}, contains: () => false,
+  },
+});
+const fill = makeEl('i');
+const pct = makeEl('span');
+const bootEl = makeEl('div');
+
+global.document = {
+  hidden: false,
+  getElementById: (id) => ({
+    bootfill: fill, bootpct: pct, boot: bootEl, input: makeEl('input'),
+  })[id] || null,
+  createElement: makeEl,
+  addEventListener() {},
+};
+global.window = {
+  matchMedia: () => ({ matches: false }),
+  addEventListener() {},
+};
+global.input = makeEl('input');
+global.performance = { now: () => Date.now() };
+global.__t0 = Date.now();      // the moment the module is loaded, for timings
+
+const problems = [];
+const check = (ok, what) => { if (!ok) problems.push(what); return ok; };
+
+__BOOT__
+
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+(async () => {
+  await wait(5200);            // the walk is over; nothing has landed yet
+  check(!global.__hiddenAt, 'the overlay left at ' + global.__hiddenAt +
+        'ms while the sections were still being read');
+  Boot.step(1, 1);             // every section is in and the bar fills
+  await wait(1000);
+  check(!global.__hiddenAt, 'the bar reaching 100% dismissed the screen ' +
+        'before the app was ready');
+  Boot.ready();
+  await wait(500);
+  check(global.__hiddenAt > 0,
+        'the overlay never came down once the app was ready');
+
+  console.log(JSON.stringify({ problems,
+    hiddenAt: Math.round((global.__hiddenAt || 0) - global.__t0) }));
   process.exit(problems.length ? 1 : 0);
 })();
 """
@@ -164,6 +239,33 @@ def main() -> int:
         problems.append("the bar transitions again: it eases while the "
                         "percentage jumps, which is the bug")
 
+    # The screen is held for the fox's walk now, so the four seconds have to
+    # exist in one place and be the same four seconds the module believes in.
+    # Three ways to get this wrong: a duration that drifted off 4000, a
+    # crossing that does not start off the right edge or does not end off the
+    # left one, and a reduced-motion path that either still waits four
+    # seconds or forgets to park the fox somewhere visible.
+    if "WALK_MS = 4000" not in boot:
+        problems.append("the walk is no longer four seconds (WALK_MS)")
+    cross = re.search(r"@keyframes bootCross \{([^}]*\}[^}]*)\}", src)
+    if not cross:
+        problems.append("the fox's crossing (bootCross) is gone")
+    else:
+        frames = cross.group(1)
+        if "calc(100vw + " not in frames:
+            problems.append("the fox no longer starts past the right edge")
+        if "calc(-1 * var(--foxw)" not in frames:
+            problems.append("the fox does not finish past the left edge, so "
+                            "she disappears in view instead of walking out")
+    if re.search(r"--walk:\s*4000ms", src) is None:
+        problems.append("the crossing is no longer styled at 4000ms")
+    calm_rule = re.search(r"\.boot-walker \{([^}]*)\}", src[src.index(
+        "prefers-reduced-motion"):]) if "prefers-reduced-motion" in src else None
+    if not calm_rule:
+        problems.append("reduced motion does not stop the crossing")
+    elif "animation: none" not in calm_rule.group(1):
+        problems.append("the fox keeps walking with reduced motion on")
+
     if problems:
         for p in problems:
             print("FAIL  " + p)
@@ -176,24 +278,29 @@ def main() -> int:
         return 0
 
     CACHE.mkdir(parents=True, exist_ok=True)
-    script = CACHE / "boot_check.js"
-    script.write_text(HARNESS.replace("__BOOT__", boot), encoding="utf-8")
-
-    proc = subprocess.run(["node", str(script)], capture_output=True, text=True)
-    out = proc.stdout.strip().split("\n")[-1] if proc.stdout.strip() else ""
-    if proc.returncode != 0:
-        detail = ""
-        try:
-            payload = json.loads(out)
-            detail = "; ".join(payload.get("problems", []))
-        except json.JSONDecodeError:
-            detail = (proc.stderr or out).strip()[:400]
-        print("FAIL  " + (detail or "the boot bar check did not pass"))
-        return 1
-
-    payload = json.loads(out)
-    print(f"PASS  the bar and the percentage agree over {payload['paints']} paints, "
-          f"0% -> 100%")
+    for name, harness, when in (("boot_check.js", HARNESS,
+                                 "the bar and the percentage agree over {paints} "
+                                 "paints, 0% -> 100%, and the screen waited for "
+                                 "the walk before coming down at {hiddenAt}ms"),
+                                ("boot_late.js", LATE_HARNESS,
+                                 "a slow section held the screen past the walk "
+                                 "and it came down at {hiddenAt}ms")):
+        script = CACHE / name
+        script.write_text(harness.replace("__BOOT__", boot), encoding="utf-8")
+        proc = subprocess.run(["node", str(script)], capture_output=True, text=True)
+        out = proc.stdout.strip().split("\n")[-1] if proc.stdout.strip() else ""
+        if proc.returncode != 0:
+            detail = ""
+            try:
+                payload = json.loads(out)
+                detail = "; ".join(payload.get("problems", []))
+            except json.JSONDecodeError:
+                detail = (proc.stderr or out).strip()[:400]
+            print("FAIL  " + (detail or "the boot timing check did not pass"))
+            return 1
+        payload = json.loads(out)
+        payload.setdefault("paints", 0)
+        print("PASS  " + when.format(**payload))
     return 0
 
 
