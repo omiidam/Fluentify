@@ -7357,6 +7357,264 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     background: var(--k-bad-wash); border-color: var(--k-bad-line); color: var(--k-bad);
   }
 
+
+  /* ---------- KIDS MOTION AND CHARACTERS -------------------------------
+     One character, one set of motions, one sound wave, used by every kid
+     section. All of it is drawn here in SVG and CSS, so it costs a few
+     kilobytes, needs no network and behaves the same in the APK.
+
+     The rules that keep it from becoming noise:
+       * transform and opacity only - nothing here re-runs layout on a frame;
+       * ambient motion is slow (3-5s) and sits behind the words, never over
+         them; anything answering a tap lands in 200-700ms;
+       * every part is decorative (aria-hidden) and every meaning it carries
+         is also written in text beside it;
+       * one switch, .kids-calm, plus prefers-reduced-motion, stops all of it.
+     -------------------------------------------------------------------- */
+  body.kids { --k-fox: #f0913f; --k-fox-2: #ffe9cf; --k-fox-ink: #4a2a12; --k-fox-cheek: #ff9f92; }
+  [data-theme="dark"] body.kids {
+    --k-fox: #e08a46; --k-fox-2: #43301f; --k-fox-ink: #150d05; --k-fox-cheek: #a85a52;
+  }
+
+  /* the character */
+  .kfox { display: inline-block; line-height: 0; }
+  .kchar { display: block; width: 74px; height: auto; overflow: visible; }
+  .kchar .fox-tail { transform-box: fill-box; transform-origin: 100% 40%;
+    animation: kFoxTail 3.6s ease-in-out infinite; }
+  .kchar .fox-ear-l { transform-box: fill-box; transform-origin: 70% 100%; }
+  .kchar .fox-ear-r { transform-box: fill-box; transform-origin: 30% 100%; }
+  .kchar .fox-arm-r, .kchar .fox-arm-r2 { transform-box: fill-box; transform-origin: 10% 12%; }
+  .kchar .fox-leg-a { transform-box: fill-box; transform-origin: 50% 0%; }
+  .kchar .fox-leg-b { transform-box: fill-box; transform-origin: 50% 0%; }
+  .kchar .fox-head { transform-box: fill-box; transform-origin: 50% 100%; }
+  .kchar .fox-mouth-flat { opacity: 0; }
+  .kchar[data-mood="idle"] .fox-head { animation: kFoxBreathe 4.2s ease-in-out infinite; }
+
+  /* waving hello */
+  .kchar[data-mood="wave"] .fox-arm-r, .kchar[data-mood="wave"] .fox-arm-r2 {
+    animation: kFoxWave .9s ease-in-out infinite; }
+  .kchar[data-mood="wave"] .fox-head { animation: kFoxTilt 2.8s ease-in-out infinite; }
+
+  /* listening: ears up, a ring of attention */
+  .kchar[data-mood="listen"] .fox-ear-l { animation: kFoxEarUp .8s ease-in-out infinite alternate; }
+  .kchar[data-mood="listen"] .fox-ear-r { animation: kFoxEarUp .8s .2s ease-in-out infinite alternate; }
+  .kchar[data-mood="listen"] .fox-tail { animation-duration: 2.2s; }
+
+  /* speaking: a mouth that moves while the words are said */
+  .kchar[data-mood="speak"] .fox-mouth-happy { animation: kFoxMouth .42s ease-in-out infinite; }
+  .kchar[data-mood="speak"] .fox-head { animation: kFoxNod 1.6s ease-in-out infinite; }
+
+  /* thinking */
+  .kchar[data-mood="think"] .fox-head { animation: kFoxTilt 3.2s ease-in-out infinite; }
+  .kchar[data-mood="think"] .fox-ear-l { transform: rotate(-12deg); }
+
+  /* cheering: up on the toes, tail going */
+  .kchar[data-mood="cheer"] { animation: kFoxCheer .78s cubic-bezier(.3,1.4,.5,1); }
+  .kchar[data-mood="cheer"] .fox-tail { animation: kFoxTailFast .3s linear infinite; }
+  .kchar[data-mood="cheer"] .fox-arm-r, .kchar[data-mood="cheer"] .fox-arm-r2 {
+    animation: kFoxArmUp .78s ease-in-out; }
+
+  /* reading: still, eyes down the page */
+  .kchar[data-mood="read"] .fox-head { transform: rotate(6deg); }
+  .kchar[data-mood="read"] .fox-tail { animation-duration: 5s; }
+
+  /* a small fox and a line of guidance, above a section's work */
+  .khintfox {
+    display: flex; align-items: center; gap: 10px; margin: 2px 0 10px;
+    padding: 8px 12px 8px 8px; border-radius: 16px;
+    background: var(--k-sky); border: 1.5px solid var(--k-sky-line);
+  }
+  .khintfox .kfox { flex: none; }
+  .khintfox .kchar { width: 52px; }
+  .khintfox .kht b { display: block; font-size: 13px; color: var(--k-ink); line-height: 1.45; }
+  .khintfox .kht i {
+    display: block; font-style: normal; font-size: 11.5px; color: var(--k-ink-2);
+    direction: rtl; text-align: right; margin-top: 2px;
+  }
+
+  /* the sound wave: one shape, lit while a voice is playing */
+  .ksaywrap { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+  .kwave { display: inline-flex; align-items: center; gap: 2px; height: 18px; color: var(--k-primary-dark); }
+  .kwave i {
+    width: 3px; height: 100%; border-radius: 2px; background: currentColor;
+    transform: scaleY(.28); transform-origin: center; opacity: .55;
+  }
+  .kwave.on i { animation: kBar .72s ease-in-out infinite; opacity: 1; }
+  .kwave.on i:nth-child(2) { animation-delay: .09s; }
+  .kwave.on i:nth-child(3) { animation-delay: .18s; }
+  .kwave.on i:nth-child(4) { animation-delay: .27s; }
+  .kwave.on i:nth-child(5) { animation-delay: .36s; }
+
+  /* a word's picture, moving the way the word means */
+  .kwa {
+    flex: none; width: 54px; height: 54px; border-radius: 16px;
+    display: grid; place-items: center; font-size: 27px; line-height: 1;
+    background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line);
+    transform-origin: 50% 85%;
+  }
+  .kwa[data-move="bob"] { animation: kBob2 3.4s ease-in-out infinite; }
+  .kwa[data-move="hop"] { animation: kHop 2.6s cubic-bezier(.3,1.4,.5,1) infinite; }
+  .kwa[data-move="tilt"] { animation: kTilt 4s ease-in-out infinite; }
+  .kwa[data-move="wiggle"] { animation: kWiggle 3.2s ease-in-out infinite; }
+  .kwa[data-move="sway"] { animation: kSway 3.8s ease-in-out infinite; }
+  .kwa[data-move="fly"] { animation: kFly 3.6s ease-in-out infinite; }
+  .kwa[data-move="swim"] { animation: kSwim 3.8s ease-in-out infinite; }
+  .kwa[data-move="fall"] { animation: kFall 3.4s ease-in-out infinite; }
+  .kwa[data-move="twinkle"] { animation: kTwinkle 3s ease-in-out infinite; }
+  .kwa[data-move="bounce"] { animation: kHop 1.8s cubic-bezier(.3,1.4,.5,1) infinite; }
+  .kwa[data-move="droop"] { animation: kDroop 4.4s ease-in-out infinite; }
+  .kwa[data-move="breathe"] { animation: kBreathe2 4.6s ease-in-out infinite; }
+  body.kids-older .kwa { width: 44px; height: 44px; font-size: 22px; border-radius: 13px; }
+  body.kids-young .kwa { width: 62px; height: 62px; font-size: 32px; }
+
+  /* one entrance, staggered down a list, run once */
+  .kstagger > * { animation: kIn .42s cubic-bezier(.22,1,.36,1) both; }
+  .kstagger > *:nth-child(1) { animation-delay: 0s; }
+  .kstagger > *:nth-child(2) { animation-delay: .05s; }
+  .kstagger > *:nth-child(3) { animation-delay: .1s; }
+  .kstagger > *:nth-child(4) { animation-delay: .15s; }
+  .kstagger > *:nth-child(5) { animation-delay: .2s; }
+  .kstagger > *:nth-child(6) { animation-delay: .25s; }
+  .kstagger > *:nth-child(7) { animation-delay: .3s; }
+  .kstagger > *:nth-child(n+8) { animation-delay: .34s; }
+
+  /* a sentence laid out as tiles, so word order can be seen */
+  .kseq { display: flex; flex-wrap: wrap; gap: 4px; }
+  .kseq i {
+    font-style: normal; padding: 3px 7px; border-radius: 8px;
+    background: var(--k-surface); border: 1.5px solid var(--k-line);
+    animation: kIn .38s cubic-bezier(.22,1,.36,1) both;
+  }
+  .kseq i:nth-child(2) { animation-delay: .06s; }
+  .kseq i:nth-child(3) { animation-delay: .12s; }
+  .kseq i:nth-child(4) { animation-delay: .18s; }
+  .kseq i:nth-child(5) { animation-delay: .24s; }
+  .kseq i:nth-child(n+6) { animation-delay: .3s; }
+
+  /* a story or a passage: one line at a time, lit while it is read */
+  .kline.now { border-color: var(--k-primary); background: var(--k-primary-wash); }
+  .kline.now::before {
+    content: ""; position: absolute; inset-inline-start: 0; top: 4px; bottom: 4px;
+    width: 4px; border-radius: 2px; background: var(--k-primary);
+  }
+  .kline { position: relative; }
+
+  /* the scene a story or a reading passage opens with */
+  .kstage {
+    position: relative; overflow: hidden; border-radius: 16px; margin-bottom: 10px;
+    border: 1.5px solid var(--k-primary-line);
+    background: linear-gradient(#cfeaff, #f2fbe9 68%);
+    min-height: 104px;
+  }
+  .kstage svg { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+  .kstage .kfox { position: absolute; inset-inline-start: 10px; bottom: 2px; z-index: 2; }
+  .kstage .kstage-t {
+    position: relative; z-index: 3; margin: 9px 11px 0 auto;
+    width: max-content; max-width: 62%; padding: 5px 10px; border-radius: 10px;
+    background: rgba(255, 255, 255, .9); color: #24343a;
+    font-size: 12px; font-weight: 800; line-height: 1.35;
+  }
+  .kstage .kstage-t i {
+    display: block; font-style: normal; font-weight: 700; font-size: 11px;
+    color: #4a5a62; direction: rtl; text-align: right;
+  }
+  [data-theme="dark"] .kstage { background: linear-gradient(#1b2c3a, #1d2a22 68%); }
+  [data-theme="dark"] .kstage .kstage-t { background: rgba(20, 30, 34, .88); color: #e9f0ee; }
+  [data-theme="dark"] .kstage .kstage-t i { color: #b6c6c3; }
+
+  /* the little burst when an answer lands */
+  .kcelebrate { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+  .kcelebrate i {
+    position: absolute; inset-inline-start: 50%; top: 40%; font-style: normal;
+    font-size: 17px; animation: kBurst .9s cubic-bezier(.2,.8,.3,1) both;
+  }
+  .kq { position: relative; }
+  .knudge { animation: kShake .34s ease; }
+
+  @keyframes kFoxTail { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(9deg); } }
+  @keyframes kFoxTailFast { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(20deg); } }
+  @keyframes kFoxBreathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
+  @keyframes kFoxTilt { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+  @keyframes kFoxWave { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(-38deg); } }
+  @keyframes kFoxArmUp { 0%, 100% { transform: rotate(0); } 45% { transform: rotate(-55deg); } }
+  @keyframes kFoxEarUp { from { transform: rotate(0); } to { transform: rotate(-9deg); } }
+  @keyframes kFoxMouth { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.45); } }
+  @keyframes kFoxNod { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(1.5px); } }
+  @keyframes kFoxCheer {
+    0% { transform: translateY(0) rotate(0); } 35% { transform: translateY(-16px) rotate(-5deg); }
+    65% { transform: translateY(-12px) rotate(4deg); } 100% { transform: translateY(0) rotate(0); }
+  }
+  @keyframes kBar { 0%, 100% { transform: scaleY(.28); } 50% { transform: scaleY(1); } }
+  @keyframes kBob2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+  @keyframes kHop {
+    0%, 62%, 100% { transform: translateY(0) scale(1, 1); }
+    20% { transform: translateY(-10px) scale(.96, 1.04); }
+    34% { transform: translateY(0) scale(1.06, .94); }
+  }
+  @keyframes kTilt { 0%, 100% { transform: rotate(0); } 40% { transform: rotate(-8deg); } 70% { transform: rotate(5deg); } }
+  @keyframes kWiggle { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px) rotate(-3deg); } 60% { transform: translateX(3px) rotate(3deg); } }
+  @keyframes kSway { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+  @keyframes kFly {
+    0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+    50% { transform: translate(4px, -6px) rotate(4deg); }
+  }
+  @keyframes kSwim { 0%, 100% { transform: translateX(-4px) rotate(-6deg); } 50% { transform: translateX(4px) rotate(6deg); } }
+  @keyframes kFall { 0%, 100% { transform: translateY(-3px); opacity: .9; } 50% { transform: translateY(3px); opacity: 1; } }
+  @keyframes kTwinkle { 0%, 100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.12); opacity: 1; } }
+  @keyframes kDroop { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(2px) rotate(-9deg); } }
+  @keyframes kBreathe2 { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+  @keyframes kIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+  @keyframes kBurst {
+    0% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--a)) translateY(0) scale(.5); }
+    100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-34px) scale(1.1); }
+  }
+
+  /* Progress and milestones. The learning path is the one screen a child
+     shares with an adult account, so its markup and its rules are untouched;
+     what follows is only the kid-scoped skin over that same markup. */
+  body.kids .path-h, body.kids .path-band-v { color: var(--k-ink); }
+  body.kids .path-sub, body.kids .path-band-s, body.kids .path-band-p { color: var(--k-ink-2); }
+  body.kids .punit {
+    border: 1.5px solid var(--k-line); border-radius: 18px;
+    background: var(--k-surface); box-shadow: 0 1px 3px var(--k-shadow);
+  }
+  body.kids .punit-badge {
+    background: var(--k-primary-wash); color: var(--k-primary-dark);
+    border: 1.5px solid var(--k-primary-line); border-radius: 12px;
+  }
+  body.kids .pdot { border: 1.5px solid var(--k-line-strong); border-radius: 50%; }
+  body.kids .plesson.done .pdot {
+    background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good);
+    animation: kStar .42s cubic-bezier(.2,1.7,.4,1) both;
+  }
+  body.kids .path-btn {
+    min-height: 44px; border-radius: 12px; font-weight: 800;
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    border: 1.5px solid var(--k-primary-deep);
+  }
+  body.kids .path-btn.ghost {
+    background: var(--k-surface); color: var(--k-primary-dark);
+    border-color: var(--k-primary-line);
+  }
+  body.kids .pexam-done { border-color: var(--k-good-line); background: var(--k-good-wash); }
+  body.kids .pexam-ready {
+    border-color: var(--k-sun-line); background: var(--k-sun-wash);
+    animation: kBreathe2 4.6s ease-in-out infinite;
+  }
+
+  /* the switch: one place turns all of it off, and it remembers */
+  body.kids-calm .kchar *, body.kids-calm .kchar, body.kids-calm .kwa,
+  body.kids-calm .kwave.on i, body.kids-calm .kstagger > *,
+  body.kids-calm .kseq i, body.kids-calm .kcelebrate i { animation: none !important; }
+  body.kids-calm .kwa, body.kids-calm .kchar * { transition: none !important; }
+  .kcalm { cursor: pointer; font-family: inherit; flex: 0 0 auto; min-width: 0; }
+  .kcalm b { font-size: 12px; }
+  .kcalm[aria-pressed="true"] { border-color: var(--k-primary); background: var(--k-primary-wash); }
+  .kcalm[aria-pressed="true"] b { color: var(--k-primary-dark); }
+
+  /* an element scrolled out of view stops animating */
+  .koff .kwa, .koff .kchar *, .koff .kwave i { animation-play-state: paused !important; }
+
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
      not an entrance or a tap response should be listed here too. */
@@ -7374,6 +7632,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     /* the Kids layer: its stars pop, its tiles lift and its cards breathe, and
        all of that is an entrance or a tap response too */
     .kspark, .kstars i, .kbuild .kshake { animation: none !important; transition: none !important; }
+    .kchar, .kchar *, .kwa, .kwave.on i, .kstagger > *, .kseq i,
+    .kcelebrate i, .kline.now::before,
+    body.kids .plesson.done .pdot, body.kids .pexam-ready { animation: none !important; }
+    body.kids .khero .kface .kchar { animation: none !important; }
     button, .ltab, .bbc-tab, .lrow { transition: none !important; }
     * { scroll-behavior: auto !important; }
   }
@@ -15518,6 +15780,277 @@ const Experience = (() => {
  * of it drawn into the panels the adult app already has. Nothing here runs for
  * an adult account: every entry point starts with `if (!Experience.kids())`.
  * ==========================================================================*/
+
+/* ==========================================================================
+ * KIDS MOTION
+ * The character, the sound wave, the word pictures and the scene headers
+ * that every kid section shares. Drawn here rather than loaded, so it is the
+ * same offline, in the APK and on the web, and it costs no request.
+ *
+ * Nothing in this module runs for an adult account: every entry point is
+ * called from the Kids layer, which is itself behind Experience.kids().
+ * ==========================================================================*/
+const KAnim = (() => {
+  const CALM = 'fluentify.kids.calm';
+  const calmQuery = typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+
+  /* The child's own switch wins over the system setting once they touch it:
+     a child on a quiet phone may still want the fox to wave. */
+  function calm() {
+    try {
+      const saved = localStorage.getItem(CALM);
+      if (saved === '1') return true;
+      if (saved === '0') return false;
+    } catch (e) { /* private mode */ }
+    return !!(calmQuery && calmQuery.matches);
+  }
+
+  function apply() {
+    const on = calm();
+    document.body.classList.toggle('kids-calm', on);
+    document.querySelectorAll('.kcalm').forEach((b) => {
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    return on;
+  }
+
+  function toggle() {
+    const next = !calm();
+    try { localStorage.setItem(CALM, next ? '1' : '0'); } catch (e) { /* private */ }
+    apply();
+    return next;
+  }
+
+  /* The fox: the same orange friend as the app's mascot, drawn as parts so a
+     tail, an ear, an arm and a mouth can each carry one motion. */
+  const FOX = '<svg class="kchar" viewBox="0 0 120 112" aria-hidden="true" focusable="false">'
+    + '<ellipse cx="60" cy="106" rx="25" ry="4" fill="rgba(30,20,10,.14)"/>'
+    + '<path class="fox-tail" d="M84 84 q24 0 27 -20 q1 -11 -10 -9 q11 3 6 12 q-6 11 -23 10 z" '
+    + 'fill="var(--k-fox)" stroke="var(--k-fox-ink)" stroke-width="2" stroke-linejoin="round"/>'
+    + '<ellipse class="fox-leg-a" cx="49" cy="100" rx="6.5" ry="8" fill="var(--k-fox-2)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<ellipse class="fox-leg-b" cx="71" cy="100" rx="6.5" ry="8" fill="var(--k-fox-2)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<ellipse class="fox-body" cx="60" cy="80" rx="28" ry="24" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<ellipse cx="60" cy="86" rx="15" ry="14" fill="var(--k-fox-2)"/>'
+    + '<path class="fox-ear-l" d="M42 34 L37 12 L58 27 Z" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linejoin="round"/>'
+    + '<path class="fox-ear-r" d="M78 34 L83 12 L62 27 Z" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linejoin="round"/>'
+    + '<circle class="fox-head" cx="60" cy="48" r="26" fill="var(--k-fox)" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2"/>'
+    + '<ellipse cx="60" cy="57" rx="15" ry="11" fill="var(--k-fox-2)"/>'
+    + '<circle cx="50" cy="45" r="3.6" fill="var(--k-fox-ink)"/>'
+    + '<circle cx="70" cy="45" r="3.6" fill="var(--k-fox-ink)"/>'
+    + '<circle cx="60" cy="52" r="4" fill="var(--k-fox-ink)"/>'
+    + '<path class="fox-mouth-happy" d="M54 59 q6 6 12 0" fill="none" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linecap="round"/>'
+    + '<path class="fox-mouth-flat" d="M54 62 h12" fill="none" '
+    + 'stroke="var(--k-fox-ink)" stroke-width="2" stroke-linecap="round"/>'
+    + '<circle cx="44" cy="55" r="3.2" fill="var(--k-fox-cheek)" opacity=".55"/>'
+    + '<circle cx="76" cy="55" r="3.2" fill="var(--k-fox-cheek)" opacity=".55"/>'
+    + '<path class="fox-arm-r" d="M86 74 q14 4 12 16" fill="none" '
+    + 'stroke="var(--k-fox)" stroke-width="9" stroke-linecap="round"/>'
+    + '</svg>';
+
+  const MOODS = { idle: 1, wave: 1, listen: 1, speak: 1, think: 1, cheer: 1, read: 1, sad: 1 };
+  function fox(mood, size) {
+    const wrap = document.createElement('span');
+    wrap.className = 'kfox';
+    wrap.innerHTML = FOX;
+    const svg = wrap.firstChild;
+    svg.setAttribute('data-mood', MOODS[mood] ? mood : 'idle');
+    if (mood === 'sad') {
+      const happy = svg.querySelector('.fox-mouth-happy');
+      const flat = svg.querySelector('.fox-mouth-flat');
+      if (happy) happy.setAttribute('opacity', '0');
+      if (flat) flat.setAttribute('opacity', '1');
+    }
+    if (size) svg.style.width = size + 'px';
+    wrap.setAttribute('aria-hidden', 'true');
+    return wrap;
+  }
+
+  function hint(mood, en, fa) {
+    const row = document.createElement('div');
+    row.className = 'khintfox';
+    const text = document.createElement('div');
+    text.className = 'kht';
+    const b = document.createElement('b');
+    b.textContent = en;
+    const i = document.createElement('i');
+    i.dir = 'rtl';
+    i.lang = 'fa';
+    i.textContent = fa;
+    text.append(b, i);
+    row.append(fox(mood), text);
+    return row;
+  }
+
+  /* What each word in the kid bank looks like, and how that thing moves.
+     The motion is the definition: a bird flies, a fish swims, a rabbit hops,
+     rain falls. A word with no picture of its own borrows its theme's. */
+  const ART = {
+    'book': ['📖', 'tilt'], 'pencil': ['✏️', 'wiggle'], 'teacher': ['🧑‍🏫', 'tilt'],
+    'desk': ['🪑', 'tilt'], 'bag': ['🎒', 'bob'], 'class': ['🏫', 'bob'],
+    'mother': ['👩', 'bob'], 'father': ['👨', 'bob'], 'sister': ['👧', 'hop'],
+    'brother': ['👦', 'hop'], 'grandmother': ['👵', 'bob'], 'cousin': ['🧑', 'bob'],
+    'cat': ['🐱', 'wiggle'], 'dog': ['🐶', 'wiggle'], 'bird': ['🐦', 'fly'],
+    'rabbit': ['🐰', 'hop'], 'horse': ['🐴', 'fly'], 'fish': ['🐟', 'swim'],
+    'apple': ['🍎', 'bob'], 'bread': ['🍞', 'bob'], 'milk': ['🥛', 'tilt'],
+    'rice': ['🍚', 'bob'], 'egg': ['🥚', 'bob'], 'cake': ['🎂', 'twinkle'],
+    'ball': ['⚽', 'hop'], 'game': ['🎮', 'wiggle'], 'jump': ['🧒', 'hop'],
+    'run': ['🏃', 'hop'], 'swim': ['🏊', 'swim'], 'ride': ['🚴', 'fly'],
+    'sun': ['☀️', 'twinkle'], 'rain': ['🌧️', 'fall'], 'cloud': ['☁️', 'sway'],
+    'wind': ['🍃', 'sway'], 'snow': ['❄️', 'fall'], 'star': ['⭐', 'twinkle'],
+    'tired': ['🥱', 'droop'], 'excited': ['🤩', 'hop'], 'scared': ['😨', 'wiggle'],
+    'proud': ['😌', 'breathe'], 'calm': ['🌿', 'breathe'], 'lonely': ['🥺', 'droop'],
+  };
+
+  function art(word, fallback) {
+    const hit = ART[String(word || '').trim().toLowerCase()];
+    const el = document.createElement('span');
+    el.className = 'kwa';
+    el.dataset.move = hit ? hit[1] : 'bob';
+    el.textContent = hit ? hit[0] : (fallback || '⭐');
+    el.setAttribute('aria-hidden', 'true');
+    return el;
+  }
+
+  function wave() {
+    const w = document.createElement('span');
+    w.className = 'kwave';
+    w.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 5; i += 1) w.appendChild(document.createElement('i'));
+    return w;
+  }
+
+  /* Say it, and let the wave show that a voice is running. The end callback
+     is the one Speech already calls on both engines, so the bars stop when
+     the voice does - including after a stop. */
+  function say(text, waveEl, btn) {
+    if (waveEl) waveEl.classList.add('on');
+    if (btn) btn.classList.add('on');
+    const done = () => {
+      if (waveEl) waveEl.classList.remove('on');
+      if (btn) btn.classList.remove('on');
+    };
+    if (!Speech.speak(text, done)) done();
+  }
+
+  function celebrate(host) {
+    if (!host || calm()) return;
+    const box = document.createElement('span');
+    box.className = 'kcelebrate';
+    box.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 6; i += 1) {
+      const s = document.createElement('i');
+      s.textContent = i % 2 ? '⭐' : '✨';
+      s.style.setProperty('--a', (i * 60) + 'deg');
+      s.style.animationDelay = (i * 30) + 'ms';
+      box.appendChild(s);
+    }
+    host.appendChild(box);
+    setTimeout(() => { box.remove(); }, 1400);
+  }
+
+  /* A scene behind a story or a passage: sky, two hills, a tree. Static
+     shapes; the only movement is the fox at the corner, and only if the
+     character is visible. */
+  function scene(en, fa, mood) {
+    const el = document.createElement('div');
+    el.className = 'kstage';
+    el.innerHTML = '<svg viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">'
+      + '<circle cx="332" cy="26" r="17" fill="#ffd76a"/>'
+      + '<ellipse cx="90" cy="150" rx="150" ry="62" fill="#bfe6a8"/>'
+      + '<ellipse cx="320" cy="164" rx="170" ry="70" fill="#a8dcae"/>'
+      + '<path d="M150 120 L150 84" stroke="#8a6a45" stroke-width="6" stroke-linecap="round"/>'
+      + '<circle cx="150" cy="72" r="20" fill="#7fc98d"/>'
+      + '<circle cx="134" cy="82" r="14" fill="#6fbd7e"/>'
+      + '</svg>';
+    const t = document.createElement('div');
+    t.className = 'kstage-t';
+    t.textContent = en;
+    if (fa) {
+      const i = document.createElement('i');
+      i.dir = 'rtl';
+      i.lang = 'fa';
+      i.textContent = fa;
+      t.appendChild(i);
+    }
+    el.append(t, fox(mood || 'read'));
+    return el;
+  }
+
+  function stagger(el) {
+    if (el) el.classList.add('kstagger');
+    return el;
+  }
+
+  /* Read a list of lines in order, lighting each one as it is spoken. The
+     highlight is the visual half of the audio: a child who cannot hear it
+     still sees which line is being read. */
+  let playing = null;
+  function playLines(rows, texts, onDone) {
+    if (playing) { playing.stop = true; playing = null; }
+    const state = { stop: false };
+    playing = state;
+    let i = 0;
+    const next = () => {
+      rows.forEach((r) => r.classList.remove('now'));
+      if (state.stop || i >= texts.length) {
+        if (playing === state) playing = null;
+        if (onDone) onDone();
+        return;
+      }
+      const row = rows[i];
+      const text = texts[i];
+      i += 1;
+      if (row) row.classList.add('now');
+      Speech.speak(text, () => {
+        setTimeout(() => {
+          if (state.stop) return;
+          next();
+        }, 240);
+      });
+    };
+    next();
+    return () => { state.stop = true; rows.forEach((r) => r.classList.remove('now')); };
+  }
+
+  function stopLines() {
+    if (playing) { playing.stop = true; playing = null; }
+    Speech.stop();
+  }
+
+  /* Off-screen pieces stop. A story's fox should not keep bobbing while the
+     child is three sections away. */
+  let watched = false;
+  function watch() {
+    if (watched || typeof IntersectionObserver !== 'function') return;
+    watched = true;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('koff', !entry.isIntersecting);
+      });
+    }, { rootMargin: '80px' });
+    document.querySelectorAll('.kwa, .kchar, .kwave').forEach((el) => io.observe(el));
+  }
+
+  function boot() {
+    apply();
+    watch();
+    document.addEventListener('visibilitychange', () => {
+      document.body.classList.toggle('koff', document.hidden);
+    });
+  }
+
+  return { calm, apply, toggle, fox, hint, art, wave, say, celebrate, scene,
+           stagger, playLines, stopLines, watch, boot };
+})();
+
 const Kids = (() => {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s == null ? '' : s)
@@ -15587,6 +16120,22 @@ const Kids = (() => {
       });
       ADVANCED.forEach((id) => { const b = $(id); if (b) b.classList.add('kadv'); });
     }
+    /* The fox on the home card listens while the child is typing and waves
+       again when they leave. Nothing is stored: it follows the field. */
+    const field = $('input');
+    if (field && !field.dataset.kfox) {
+      field.dataset.kfox = '1';
+      const face = () => document.querySelector('.khero .kface .kchar');
+      field.addEventListener('focus', () => {
+        const f = face();
+        if (f) f.setAttribute('data-mood', 'listen');
+      });
+      field.addEventListener('blur', () => {
+        const f = face();
+        if (f) f.setAttribute('data-mood', 'wave');
+      });
+    }
+    KAnim.apply();
     const more = $('kidsmore');
     if (more) {
       more.hidden = false;
@@ -15627,15 +16176,21 @@ const Kids = (() => {
     return c.praise_en || 'You are doing great! 🌟';
   }
 
+  /* A say button and the wave that shows a voice is running. The wave is
+     decoration over a control that already says what it does. */
   function sayButton(text) {
+    const wrap = document.createElement('span');
+    wrap.className = 'ksaywrap';
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'ksay';
     b.textContent = '🔊';
     b.title = 'Hear it — بشنو';
     b.setAttribute('aria-label', 'Hear ' + text);
-    b.onclick = () => Speech.speak(text);
-    return b;
+    const wv = KAnim.wave();
+    b.onclick = () => KAnim.say(text, wv, b);
+    wrap.append(b, wv);
+    return wrap;
   }
 
   function fa(text, cls) {
@@ -15686,11 +16241,15 @@ const Kids = (() => {
             '<div class="kfa" dir="rtl" lang="fa">' + esc(item.why_fa) + '</div>';
           if (right) {
             wrap.classList.add('kspark');
+            KAnim.celebrate(wrap);
             const win = document.createElement('div');
             win.className = 'kwin';
             win.innerHTML = '⭐ ' + esc(praise()) +
               ' <span class="kfa" dir="rtl" lang="fa">آفرین!</span>';
             wrap.appendChild(win);
+          } else {
+            wrap.classList.add('knudge');
+            setTimeout(() => wrap.classList.remove('knudge'), 400);
           }
         };
         opts.appendChild(b);
@@ -15749,7 +16308,9 @@ const Kids = (() => {
     el.className = 'khero';
     const face = document.createElement('div');
     face.className = 'kface';
-    face.innerHTML = '<img src="brand/fox-face.png" alt="" width="56" height="56">';
+    /* The mascot herself, drawn as parts so she can wave. The PNG stays on
+       the loading screen; this is the same fox in a form that can move. */
+    face.appendChild(KAnim.fox('wave', 56));
     const greet = document.createElement('div');
     greet.className = 'kgreet';
     const hi = document.createElement('b');
@@ -15864,6 +16425,7 @@ const Kids = (() => {
       b.onclick = fn;
       grid.appendChild(b);
     });
+    KAnim.stagger(grid);
     return grid;
   }
 
@@ -15922,7 +16484,18 @@ const Kids = (() => {
     days.className = 'kchip' + (streak ? ' on' : '');
     days.innerHTML = '<b>' + (streak ? streak + (streak === 1 ? ' day' : ' days') : 'Day 1') +
       ' 🔥</b><i>' + (streak ? streak + ' روز پیاپی' : 'روز اول') + '</i>';
-    el.append(level, days);
+    /* The one control a child needs to make the app quieter. It remembers,
+       and once touched it overrides the system setting either way. */
+    const calm = document.createElement('button');
+    calm.type = 'button';
+    calm.className = 'kchip kcalm';
+    calm.setAttribute('aria-pressed', KAnim.calm() ? 'true' : 'false');
+    calm.innerHTML = '<b>Calm mode</b><i>حرکت کمتر</i>';
+    calm.onclick = () => {
+      const on = KAnim.toggle();
+      calm.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    el.append(level, days, calm);
     return el;
   }
 
@@ -15951,6 +16524,7 @@ const Kids = (() => {
     let d = null;
     try { d = await load(); } catch (e) { d = null; }
     panel.innerHTML = '';
+    KAnim.boot();
     if (!d) {
       panel.innerHTML = '<p class="kcard">The games could not be read. / ' +
         '<bdi dir="rtl" lang="fa">بازی‌ها خوانده نشدند.</bdi></p>';
@@ -16016,6 +16590,7 @@ const Kids = (() => {
         () => themeWords(d, theme), (theme.words || []).length + ' words'));
     });
     box.appendChild(wrap);
+    KAnim.stagger(wrap);
   }
 
   function themeWords(d, theme) {
@@ -16042,7 +16617,8 @@ const Kids = (() => {
       ex.className = 'kex';
       ex.textContent = w.example_en;
       body.append(b, def, ex);
-      row.append(body, fa(w.fa), sayButton(w.word + '. ' + w.example_en));
+      row.append(KAnim.art(w.word, theme.emoji), body, fa(w.fa),
+        sayButton(w.word + '. ' + w.example_en));
       card.appendChild(row);
       card.appendChild(fa(w.example_fa, 'kpara-fa'));
     });
@@ -16164,6 +16740,7 @@ const Kids = (() => {
         () => grammarLesson(d, lesson), (lesson.quiz || []).length + ' games'));
     });
     box.appendChild(wrap);
+    KAnim.stagger(wrap);
   }
 
   function grammarLesson(d, lesson) {
@@ -16177,6 +16754,9 @@ const Kids = (() => {
     h.textContent = (lesson.emoji || '') + ' ' + lesson.title_en;
     card.appendChild(h);
     card.appendChild(fa(lesson.title_fa, 'kfa-h'));
+    card.appendChild(KAnim.hint('think',
+      'Read the example, then watch its words move into place.',
+      'نمونه را بخوان، بعد ببین واژه‌هایش سر جایشان می‌نشینند.'));
     const use = document.createElement('p');
     use.textContent = lesson.use_en;
     card.appendChild(use);
@@ -16198,8 +16778,12 @@ const Kids = (() => {
       play.onclick = () => Speech.speak(e.en);
       const body = document.createElement('div');
       const en = document.createElement('div');
-      en.className = 'ken';
-      en.textContent = e.en;
+      en.className = 'ken kseq';
+      String(e.en || '').split(/\s+/).forEach((word) => {
+        const tile = document.createElement('i');
+        tile.textContent = word;
+        en.appendChild(tile);
+      });
       body.append(en, fa(e.fa, 'kfa'));
       row.append(play, body);
       ex.appendChild(row);
@@ -16226,6 +16810,7 @@ const Kids = (() => {
       wrap.appendChild(listButton('story', item, () => storyView(item), ''));
     });
     box.appendChild(wrap);
+    KAnim.stagger(wrap);
   }
 
   function storyView(st) {
@@ -16233,15 +16818,43 @@ const Kids = (() => {
     if (!box) return;
     box.innerHTML = '';
     box.appendChild(back('All stories', stories));
+    box.appendChild(KAnim.scene('Story time', 'وقت داستان', 'read'));
     const card = document.createElement('section');
     card.className = 'kcard';
     const h = document.createElement('h4');
     h.textContent = (st.emoji || '') + ' ' + st.title_en;
     card.appendChild(h);
     card.appendChild(fa(st.title_fa, 'kfa-h'));
+    /* One press reads the whole story and lights the line being spoken. The
+       same engine and the same strings, so it reads the same offline. */
+    const readAll = document.createElement('button');
+    readAll.type = 'button';
+    readAll.className = 'kbtn kc-coral';
+    readAll.innerHTML = '<span class="kico">🔊</span><b>Read the story to me</b>' +
+      '<span class="kfa" dir="rtl" lang="fa">داستان را برایم بخوان</span>';
+    const readWave = KAnim.wave();
+    readAll.onclick = () => {
+      if (readAll.dataset.on === '1') {
+        KAnim.stopLines();
+        readAll.dataset.on = '0';
+        readWave.classList.remove('on');
+        return;
+      }
+      readAll.dataset.on = '1';
+      readWave.classList.add('on');
+      KAnim.playLines(rows, texts, () => {
+        readAll.dataset.on = '0';
+        readWave.classList.remove('on');
+      });
+    };
+    card.append(readAll, readWave);
+    const rows = [];
+    const texts = [];
     (st.lines || []).forEach((line) => {
       const row = document.createElement('div');
-      row.className = 'krow';
+      row.className = 'krow kline';
+      rows.push(row);
+      texts.push(line.en);
       const play = document.createElement('button');
       play.type = 'button';
       play.className = 'kplay';
@@ -16278,6 +16891,7 @@ const Kids = (() => {
         () => passageView(passage), ''));
     });
     box.appendChild(wrap);
+    KAnim.stagger(wrap);
   }
 
   function passageView(p) {
@@ -16285,6 +16899,7 @@ const Kids = (() => {
     if (!box) return;
     box.innerHTML = '';
     box.appendChild(back('All passages', reading));
+    box.appendChild(KAnim.scene('Reading time', 'وقت خواندن', 'read'));
     const card = document.createElement('section');
     card.className = 'kcard';
     const h = document.createElement('h4');
@@ -16319,6 +16934,7 @@ const Kids = (() => {
         () => clipView(clip), (clip.lines || []).length + ' lines'));
     });
     box.appendChild(wrap);
+    KAnim.stagger(wrap);
   }
 
   function clipView(clip) {
@@ -16326,6 +16942,7 @@ const Kids = (() => {
     if (!box) return;
     box.innerHTML = '';
     box.appendChild(back('All clips', listening));
+    box.appendChild(KAnim.scene('Listen closely', 'خوب گوش کن', 'listen'));
     const card = document.createElement('section');
     card.className = 'kcard';
     const h = document.createElement('h4');
@@ -16336,8 +16953,9 @@ const Kids = (() => {
     playAll.type = 'button';
     playAll.className = 'kbtn kc-sky';
     playAll.innerHTML = '<span class="kico">🔊</span><b>Play the clip</b><span class="kfa" dir="rtl" lang="fa">کلیپ را پخش کن</span>';
-    playAll.onclick = () => Speech.speak((clip.lines || []).join(' '));
-    card.appendChild(playAll);
+    const allWave = KAnim.wave();
+    playAll.onclick = () => KAnim.say((clip.lines || []).join(' '), allWave, playAll);
+    card.append(playAll, allWave);
     (clip.lines || []).forEach((line) => {
       const row = document.createElement('div');
       row.className = 'krow';
@@ -16377,6 +16995,7 @@ const Kids = (() => {
         () => phraseSet(set), (set.items || []).length + ' sentences'));
     });
     box.appendChild(wrap);
+    KAnim.stagger(wrap);
   }
 
   function phraseSet(set) {
@@ -16390,6 +17009,8 @@ const Kids = (() => {
     h.textContent = (set.emoji || '') + ' ' + set.title_en;
     card.appendChild(h);
     card.appendChild(fa(set.title_fa, 'kfa-h'));
+    card.appendChild(KAnim.hint('speak', 'Read it out loud, then listen and compare.',
+      'بلند بخوان، بعد گوش کن و مقایسه کن.'));
     const ex = document.createElement('div');
     ex.className = 'kex';
     (set.items || []).forEach((item) => {
@@ -16400,13 +17021,14 @@ const Kids = (() => {
       play.className = 'kplay';
       play.textContent = '▶';
       play.setAttribute('aria-label', 'Hear: ' + item.en);
-      play.onclick = () => Speech.speak(item.en);
+      const wv = KAnim.wave();
+      play.onclick = () => KAnim.say(item.en, wv, play);
       const body = document.createElement('div');
       const en = document.createElement('div');
       en.className = 'ken';
       en.textContent = item.en;
       body.append(en, fa(item.fa, 'kfa'));
-      row.append(play, body);
+      row.append(play, body, wv);
       ex.appendChild(row);
     });
     card.appendChild(ex);
