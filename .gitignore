@@ -46,3 +46,8 @@ dictionary_cache.tmp
 # The local copy of a child's mission log, written by /api/quest/sync on this
 # machine only. The page owns the progress; this is a cache, not content.
 quest_sync/
+
+# Screenshots taken while checking a change, and attachments pulled into a
+# chat. Both are local working material, not the product.
+screenshots/
+.cloud-attachments/
