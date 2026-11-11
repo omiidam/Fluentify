@@ -105,6 +105,10 @@ def check_engine() -> None:
     src = WEBAPP.read_text(encoding="utf-8")
     start = src.index("const Auth = (() => {")
     end = src.index("/* only one panel open at a time", start)
+    # The slice also carries KAnim and Kids, which were written after Auth.
+    # They are browser modules, so their top-level code must survive a run
+    # without a window; the gate itself needs Cert, which is defined after
+    # them, so the comment marker stays the end of the slice.
     module = src[start:end].rstrip()
 
     # Nothing in the gate may reach the network: there is no server holding an

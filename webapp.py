@@ -16541,7 +16541,7 @@ const Travel = (() => {
  * ==========================================================================*/
 const KAnim = (() => {
   const CALM = 'fluentify.kids.calm';
-  const calmQuery = typeof window.matchMedia === 'function'
+  const calmQuery = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
     ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
 
   /* The child's own switch wins over the system setting once they touch it:
