@@ -492,7 +492,7 @@
      follows the silhouette instead of the box the PNG is drawn in. */
   .boot-fox-bob {
     position: relative; z-index: 1; display: grid; place-items: center;
-    animation: bootStep .52s cubic-bezier(.45,0,.55,1) infinite;
+    animation: bootBob 2.8s cubic-bezier(.45,0,.55,1) infinite;
     transform-origin: 50% 62%;
   }
   /* The bob is on the wrapper and the shadow on the picture: a filter on an
@@ -504,6 +504,8 @@
     width: 100px; height: 100px; display: block;
     filter: drop-shadow(0 8px 14px rgba(74,58,30,.32));
   }
+  @keyframes bootBob {
+    0%, 100% { transform: translateY(0) rotate(-1.5deg); }
     50%      { transform: translateY(-6px) rotate(1.5deg); }
   }
 
@@ -660,35 +662,8 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* The fox walks the width of the screen: in from past the right edge, out
-     past the left, in one four-second pass. The bob under her is the stride -
-     a rise and fall with a small roll - and the pass itself is a single
-     transform on a single element, so it keeps its pace while the sections
-     land behind it. She already faces left in the artwork, so nothing here is
-     mirrored or redrawn. */
-  .boot-walker {
-    --foxw: clamp(96px, 23vw, 176px);
-    position: absolute; left: 0; top: 50%;
-    width: var(--foxw); z-index: 2; pointer-events: none;
-    margin-top: calc(var(--foxw) / -2);
-    will-change: transform;
-    animation: bootCross 4000ms linear both;
-  }
-  .boot-walker .boot-fox { width: 100%; height: auto; display: block; }
-  @keyframes bootCross {
-    from { transform: translate3d(100vw, 0, 0); }
-    to   { transform: translate3d(calc(-1 * var(--foxw) - 12px), 0, 0); }
-  }
-  @keyframes bootStep {
-    0%, 100% { transform: translateY(0) rotate(-1.4deg); }
-    50%      { transform: translateY(-6px) rotate(1.4deg); }
-  }
   @media (prefers-reduced-motion: reduce) {
     .boot { transition: none; }
-    .boot-walker {
-      animation: none;
-      transform: translate3d(calc(50vw - var(--foxw) / 2), 0, 0);
-    }
     .boot-in { animation: none; }
     .boot-in::after { animation: none; opacity: 0; }
     .boot-track i::after { animation: none; }
@@ -7202,15 +7177,13 @@
 <div class="boot" id="boot" role="status" aria-live="polite"
      aria-label="Loading Fluentify / در حال بارگذاری">
     <div class="boot-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="boot-walker" id="bootwalker" aria-hidden="true">
-      <span class="boot-fox-bob">
-        <img class="boot-fox" src="brand/fox-mark.png" alt="" width="176"
-             height="176" decoding="async">
-      </span>
-    </div>
     <div class="boot-in">
       <div class="boot-mark" aria-hidden="true">
         <span class="boot-halo"></span>
+        <span class="boot-fox-bob">
+          <img class="boot-fox" src="brand/fox-mark.png" alt="" width="100"
+               height="100" decoding="async">
+        </span>
       </div>
       <div class="boot-brand">
         <div class="boot-name">Fluentify</div>
@@ -20864,10 +20837,7 @@ const Boot = (() => {
   const el = document.getElementById('boot');
   if (!el) return { say() {}, step() {}, ready() {}, hide() {} };
 
-  /* The floor is the fox's crossing, not a number about start-up: the screen
-     comes down once she is off it, four seconds in. A five-second floor would
-     outlast her last step; leaving before it would be a loader nobody saw. */
-  const WALK_MS = 4000;
+  const FLOOR_MS = 5000;     // what start-up should feel like, not how long it takes
   const CEILING_MS = 20000;  // past this the user is watching a spinner, not a load
 
   const fill = document.getElementById('bootfill');
@@ -20987,17 +20957,7 @@ const Boot = (() => {
      section cannot extend it, and the ceiling still gets the screen down if
      the data never lands (the bar then says so, by stopping short). */
   function maybe() { if (floorUp && dataIn && shown >= 1) hide(); }
-  /* animationend is the exact moment the fox leaves the screen. The fallback
-     covers the readers who never get one: prefers-reduced-motion turns the
-     crossing off, and a tab hidden mid-walk can miss the event. */
-  const walker = document.getElementById('bootwalker');
-  function floorDone() { if (floorUp) return; floorUp = true; maybe(); }
-  if (walker) {
-    walker.addEventListener('animationend', (e) => {
-      if (e.animationName === 'bootCross') floorDone();
-    });
-  }
-  setTimeout(floorDone, WALK_MS + 120);
+  setTimeout(() => { floorUp = true; maybe(); }, FLOOR_MS);
 
   deadline = setTimeout(hide, CEILING_MS);
   window.addEventListener('error', hide);

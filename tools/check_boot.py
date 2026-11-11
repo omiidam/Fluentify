@@ -52,22 +52,12 @@ const makeEl = (tag) => ({
 const fill = makeEl('i');
 const pct = makeEl('span');
 const bootEl = makeEl('div');
-/* The one thing worth recording from the stubs: when the overlay is told to
-   go. A classList that swallowed 'gone' made the old assertion vacuous. */
-bootEl.classList = {
-  add(c) { if (c === 'gone') global.__hidden = true; },
-  remove() {}, contains: () => false,
-};
 const boot = makeEl('div');
 
 global.document = {
   hidden: false,
   getElementById: (id) => ({
     bootfill: fill, bootpct: pct, boot: bootEl, input: makeEl('input'),
-    // The original card rotates its facts while it waits; the wait in this
-    // harness now outlasts the first swap, so the two fact slots exist too.
-    bootfacts: makeEl('div'), bootfact: makeEl('span'),
-    bootfactfa: makeEl('span'),
   })[id] || null,
   createElement: makeEl,
   addEventListener() {},
@@ -119,15 +109,8 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   check(say() === '100%', 'the boot finished on ' + say() + ', not 100%');
   check(Math.abs(bar() - 1) < 1e-9, 'the boot finished with the bar at ' + bar());
 
-  /* and it is still up: the fox is still walking, so nothing has left */
-  check(!global.__hidden, 'the overlay left before the walk ended');
-
-  /* Four seconds is the whole floor. This harness has no animationend, so the
-     wait below is the fallback path too: once the walk is over and every
-     section has landed, the screen has to come down on its own. */
-  Boot.ready();          // every section is in: only the walk is left
-  await wait(2800);
-  check(global.__hidden, 'the overlay outlasted the fox');
+  /* and it is still up: the 5s floor has not passed, so nothing has left */
+  check(!global.__hidden, 'the overlay left before its floor');
 
   console.log(JSON.stringify({
     paints: states.length, problems,

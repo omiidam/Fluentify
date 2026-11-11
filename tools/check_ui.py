@@ -630,26 +630,14 @@ def main() -> int:
     # whether the reads take two or twenty. Without the floor a fast machine
     # flashes the loader and the slow one keeps it, which is the one thing a
     # loading screen must not do.
-    # The floor is the crossing itself: the fox walks for four seconds, so a
-    # fast boot holds for exactly that and a slow one keeps the screen until the
-    # sections land. A five-second card with nobody walking it outlasted the
-    # fox; a crossing of any other length is not the crossing.
-    check("the boot screen is held for the length of the walk",
-          re.search(r"const WALK_MS = 4000;", src) is not None
-          and re.search(r"\.boot-walker \{[^}]*animation: bootCross 4000ms", src)
+    floor = re.search(r"FLOOR_MS\s*=\s*(\d+)", src)
+    check("the boot screen is held for at least five seconds",
+          floor is not None and int(floor.group(1)) >= 5000,
+          "a boot that returns in 300ms reads as a flicker, not as a load")
+    check("the floor is a timer, not a promise",
+          re.search(r"setTimeout\(\(\) => \{ floorUp = true; maybe\(\); \}, FLOOR_MS\)", src)
           is not None,
-          "the fox's pass and the screen's floor have to be the same four seconds")
-    check("the fox enters past the right edge and leaves past the left",
-          re.search(r"@keyframes bootCross \{\s*from \{ transform: translate3d\(100vw", src)
-          is not None
-          and re.search(r"to\s+\{ transform: translate3d\(calc\(-1 \* var\(--foxw\)", src)
-          is not None,
-          "a pass that starts anywhere else or stops short never crosses the screen")
-    check("the floor is the end of the animation, not a promise",
-          re.search(r"animationend', \(e\) => \{\s*if \(e\.animationName === 'bootCross'\) floorDone\(\);", src)
-          is not None
-          and "setTimeout(floorDone, WALK_MS + 120)" in src,
-          "a hidden tab or a quiet animation still has to let the screen go")
+          "awaited instead, one slow section extends the boot by its own time")
     # Three conditions, and the third is the one the learner can see: the bar
     # has to have actually arrived at 100% before the overlay goes, or the
     # screen leaves mid-fill under a label that already said 100%.
@@ -695,7 +683,7 @@ def main() -> int:
             j += 1
         return ""
 
-    for name in ("bootJump", "bootShadow", "bootStep", "bootCross"):
+    for name in ("bootJump", "bootShadow", "bootBob"):
         body = keyframes_body(name)
         bad = sorted({prop for prop in re.findall(
             r"[;{]\s*([a-z-]+)\s*:", body)
