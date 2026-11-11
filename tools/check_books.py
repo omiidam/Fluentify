@@ -494,9 +494,16 @@ PINNED_GRAMMAR = [
     "There and it as empty subjects",
     "Question pronouns: who, whom, whose, which and what",
     "Common pronoun mistakes: between you and me, its and it's",
-    "Modals of necessity and advice: must, have to, should",
-    "Ability and possibility: can, could, may, might",
-    "Requests and suggestions: could you, would you mind, let's",
+    "What a modal verb is",
+    "Necessity: must, have to, have got to",
+    "Not necessary and forbidden: do not have to, must not",
+    "Advice: should, ought to, had better, could",
+    "Expectation: be supposed to and should",
+    "Ability: can, know how to, be able to",
+    "Possibility: can, may, might",
+    "Requests with modals and the answers to them",
+    "Polite requests: would you mind",
+    "Suggestions: let's, why don't, shall I, how about",
     "Degrees of certainty: must be, may be, can't be",
     "The passive",
     "The passive with modals, get and stative verbs",
@@ -780,6 +787,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
              or len(l.get("exam") or []) < 3]
     check(not thin8,
           f"{bid}: chapter eight chart(s) {thin8} are thinner than the rest of the book")
+
+    # Chapter nine is the first half of the modals: the form, necessity and
+    # its absence, advice, expectation, ability, possibility, requests, the
+    # would-you-mind construction and the suggestion phrases.
+    ninth = [l for l in lessons if l.get("chapter") == "Chapter 9"]
+    check([str(l.get("section")) for l in ninth] == [f"9-{i}" for i in range(1, 11)],
+          f"{bid}: chapter nine is not its ten charts in order "
+          f"(got {[str(l.get('section')) for l in ninth]})")
+    thin9 = [str(l.get("section")) for l in ninth
+             if len(l.get("examples") or []) < 3
+             or len(l.get("exercises") or []) < 3
+             or len(l.get("exam") or []) < 3]
+    check(not thin9,
+          f"{bid}: chapter nine chart(s) {thin9} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"
