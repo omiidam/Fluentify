@@ -701,7 +701,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      follows the silhouette instead of the box the PNG is drawn in. */
   .boot-fox-bob {
     position: relative; z-index: 1; display: grid; place-items: center;
-    animation: bootBob 2.8s cubic-bezier(.45,0,.55,1) infinite;
     transform-origin: 50% 62%;
   }
   /* The bob is on the wrapper and the shadow on the picture: a filter on an
@@ -713,8 +712,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     width: 100px; height: 100px; display: block;
     filter: drop-shadow(0 8px 14px rgba(74,58,30,.32));
   }
-  @keyframes bootBob {
-    0%, 100% { transform: translateY(0) rotate(-1.5deg); }
     50%      { transform: translateY(-6px) rotate(1.5deg); }
   }
 

@@ -683,7 +683,7 @@ def main() -> int:
             j += 1
         return ""
 
-    for name in ("bootJump", "bootShadow", "bootBob"):
+    for name in ("bootJump", "bootShadow"):
         body = keyframes_body(name)
         bad = sorted({prop for prop in re.findall(
             r"[;{]\s*([a-z-]+)\s*:", body)
@@ -691,6 +691,14 @@ def main() -> int:
                         "background", "margin", "padding", "filter")})
         check(f"@{name} animates transform only", bool(body) and not bad,
               f"{', '.join(bad)} re-runs layout or paint on every frame")
+    # The mascot herself does not move: she is a still image inside the ring,
+    # the way the screen has always shown her.
+    # The only animation left on her is the reduced-motion switch-off.
+    noisy = [r for r in re.findall(r"\.boot-fox-bob \{[^}]*\}", src)
+             if re.search(r"animation:\s*(?!none\b)\S", r)]
+    check("the fox in the loading circle holds still",
+          "bootBob" not in src and not noisy,
+          "the loading screen's fox must not walk, bob or drift")
     check("the boot animation collapses under prefers-reduced-motion",
           re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,600}?"
                     r"\.loader::before, \.loader::after \{ animation: none", src) is not None,
