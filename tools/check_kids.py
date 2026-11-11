@@ -365,6 +365,75 @@ def check_kids_layer(src):
                  "--k-hero-shadow", "--k-backdrop", "--k-say", "--k-hero-sub"):
         check(name + ":" in light_tokens, f"the kids palette is missing {name}")
 
+    # The six section accents are tokens, not hexes sprinkled through the rules:
+    # a tile with its own literal is a color that cannot be retuned in one
+    # place, and the fifth section is where a palette starts to drift.
+    for name in ("--k-blue", "--k-blue-wash", "--k-blue-ink",
+                 "--k-purple", "--k-purple-wash", "--k-purple-ink",
+                 "--k-orange", "--k-orange-wash", "--k-orange-ink",
+                 "--k-focus"):
+        check(name + ":" in light_tokens, f"the kids palette is missing {name}")
+    check("--k-sec:" in block and "--k-sec-wash" in block and "--k-sec-ink" in block,
+          "the section tiles do not take their accent from one set of tokens")
+    for cls in ("kc-blue", "kc-purple", "kc-mint", "kc-sun", "kc-coral", "kc-teal"):
+        check(cls in block, f"the {cls} section has no identity to draw")
+    check("--k-focus:" in dark[1].split("}", 1)[0],
+          "focus is not repainted for the dark kids theme")
+
+    # One drawn icon set for the six doors. The tiles used to borrow an emoji
+    # each, which is six illustrators' idea of a book in six weights and
+    # palettes - the one thing a children's app cannot get away with.
+    check("function kicon(name)" in src and "const KICONS = {" in src,
+          "the home tiles have no icon set of their own")
+    icons = src[src.index("const KICONS = {"):src.index("function kicon")]
+    check(icons.count("<path") >= 6 and "viewBox" not in icons,
+          "the icons are not drawn as plain paths on one grid")
+    check('viewBox="0 0 24 24"' in src and 'stroke="currentColor"' in src,
+          "the icons do not inherit the chip's color")
+    tiles_src = src[src.index("function homeTiles"):]
+    tiles_src = tiles_src[:tiles_src.index("tiles.forEach")]
+    check("i.innerHTML = kicon(ico);" in src,
+          "the home tiles still paint an emoji instead of the drawn set")
+    check(not re.search(r"'[\U0001F300-\U0001FAFF\u2600-\u27BF]", tiles_src),
+          "a home tile is back to an emoji")
+    for key in ("words", "grammar", "read", "listen", "stories", "chat"):
+        check(f"['{key}'," in tiles_src, f"the {key} tile has no icon of its own")
+
+    # Contrast cannot be judged by eye, and a more colorful palette is exactly
+    # the change most likely to break it. Every text token that sits on a
+    # surface is measured against that surface at WCAG AA for normal text.
+    def _rgb(h):
+        h = h.strip().lstrip("#")
+        return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+    def _lum(h):
+        def channel(v):
+            v /= 255
+            return v / 12.92 if v <= .03928 else ((v + .055) / 1.055) ** 2.4
+        r, g, b = _rgb(h)
+        return .2126 * channel(r) + .7152 * channel(g) + .0722 * channel(b)
+
+    def contrast(fg, bg):
+        a, b = _lum(fg), _lum(bg)
+        return (max(a, b) + .05) / (min(a, b) + .05)
+
+    tok = dict(re.findall(r"(--k-[a-z0-9-]+):\s*(#[0-9a-fA-F]{6})", light_tokens))
+    for fg, bg in (("--k-ink", "--k-bg"), ("--k-ink", "--k-surface"),
+                   ("--k-ink-2", "--k-surface"), ("--k-ink-2", "--k-bg"),
+                   ("--k-on-primary", "--k-primary-dark"),
+                   ("--k-primary-dark", "--k-primary-wash"),
+                   ("--k-blue-ink", "--k-blue-wash"),
+                   ("--k-purple-ink", "--k-purple-wash"),
+                   ("--k-mint-ink", "--k-mint"),
+                   ("--k-sun-ink", "--k-sun-wash"),
+                   ("--k-coral-ink", "--k-coral-wash"),
+                   ("--k-orange-ink", "--k-orange-wash"),
+                   ("--k-sky-ink", "--k-sky")):
+        ok = fg in tok and bg in tok
+        ratio = contrast(tok[fg], tok[bg]) if ok else 0
+        check(ok and ratio >= 4.5,
+              f"{fg} on {bg} is {ratio:.2f}:1, below the 4.5:1 the children read at")
+
     motion = src[src.index("@media (prefers-reduced-motion: reduce)", end):]
     for sel in (".kspark", ".kstars i"):
         check(sel in motion[:1200], f"{sel} is not stilled for reduced motion")

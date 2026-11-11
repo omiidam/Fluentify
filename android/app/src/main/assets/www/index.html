@@ -6011,15 +6011,23 @@
      in one place - and none of the adult tokens are touched, because all of
      this lives behind body.kids. */
   body.kids {
-    --k-primary: #388f86; --k-primary-dark: #276d67;
-    --k-primary-wash: #e7f3f1; --k-primary-line: #b7d9d4;
-    --k-sky: #dceeff; --k-sky-line: #bcdcf5; --k-sky-ink: #245c7a;
-    --k-mint: #ddf2e7; --k-mint-line: #bde3d3; --k-mint-ink: #22654f;
-    --k-sun: #f7d979; --k-sun-wash: #fcf3d9; --k-sun-line: #efdca4; --k-sun-ink: #7a5a12;
-    --k-coral: #f2a18f; --k-coral-wash: #fbece7; --k-coral-line: #f0cdc3; --k-coral-ink: #8e3f2c;
-    --k-bg: #f7f8f5; --k-surface: #ffffff; --k-surface-2: #fbfcfa;
-    --k-ink: #222e34; --k-ink-2: #55646d; --k-line: #dfe6e3;
-    --k-line-strong: #c6d2cd; --k-shadow: rgba(41, 52, 59, .09);
+    /* The six section accents. Each has one saturated ink, one pale wash for
+       the chip it sits in, and one hairline. The ink is what carries meaning
+       (a title, an arrow, an icon) and is chosen to clear 4.5:1 on its own
+       wash; the wash is only ever behind that ink, never behind body text. */
+    --k-primary: #258f83; --k-primary-dark: #1f7168;
+    --k-primary-wash: #e4f4f1; --k-primary-line: #a9dcd4;
+    --k-blue: #4778e8; --k-blue-wash: #eaf0ff; --k-blue-line: #c3d4fb; --k-blue-ink: #2a4fa8;
+    --k-purple: #9275e8; --k-purple-wash: #f1ecff; --k-purple-line: #d7cbf8; --k-purple-ink: #5834a8;
+    --k-orange: #ffaa55; --k-orange-wash: #fff0dd; --k-orange-line: #ffd7a8; --k-orange-ink: #8a4c0d;
+    --k-sky: #e2eefc; --k-sky-line: #bcd6f2; --k-sky-ink: #1f557a;
+    --k-mint: #dcf5e8; --k-mint-soft: #70cfa7; --k-mint-line: #b0e4cb; --k-mint-ink: #1c6b4a;
+    --k-sun: #ffc857; --k-sun-wash: #fff6dd; --k-sun-line: #ffe1a0; --k-sun-ink: #7a5a12;
+    --k-coral: #ff806f; --k-coral-wash: #ffece8; --k-coral-line: #ffcfc6; --k-coral-ink: #96382a;
+    --k-bg: #fff5e5; --k-surface: #ffffff; --k-surface-2: #fffaf1;
+    --k-ink: #29343b; --k-ink-2: #5f6f7a; --k-line: #ece2d2;
+    --k-line-strong: #d8cbb6; --k-shadow: rgba(60, 44, 20, .10);
+    --k-focus: #1f7168;
     /* what sits on a filled control, and the two surfaces that are not cards */
     --k-on-primary: #ffffff; --k-on-primary-dim: rgba(255, 255, 255, .88);
     --k-primary-deep: #1f5b56; --k-hero-sub: #34474a;
@@ -6118,6 +6126,25 @@
   body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,
   body.kids #stpanel h3, body.kids #dpanel h3, body.kids #acpanel h3,
   body.kids #pathpanel h3, body.kids #hqpanel h3 { font-size: 22px; }
+  /* A panel says which world it belongs to before its title is read: the same
+     accent as its home tile, as a small block on the title's leading edge.
+     The title still says the name, so the color is a second cue, not the only
+     one - a child who cannot tell blue from purple loses nothing. */
+  body.kids #vpanel h3::before, body.kids #gpanel h3::before,
+  body.kids #rdpanel h3::before, body.kids #lpanel h3::before,
+  body.kids #stpanel h3::before, body.kids #fpanel h3::before,
+  body.kids #hqpanel h3::before {
+    content: ""; display: inline-block; width: 11px; height: 11px;
+    border-radius: 4px; margin-inline-end: 9px; vertical-align: 1px;
+    background: var(--k-sec, var(--k-primary));
+  }
+  body.kids #vpanel { --k-sec: var(--k-blue); }
+  body.kids #gpanel { --k-sec: var(--k-purple); }
+  body.kids #rdpanel { --k-sec: var(--k-mint-soft); }
+  body.kids #lpanel { --k-sec: var(--k-sun); }
+  body.kids #stpanel { --k-sec: var(--k-coral); }
+  body.kids #fpanel { --k-sec: var(--k-orange); }
+  body.kids #hqpanel { --k-sec: var(--k-primary); }
 
   /* ---- the Kids home page --------------------------------------------- */
   body.kids #kpanel, body.kids #hqpanel { display: none; }
@@ -6207,6 +6234,7 @@
   body.kids-young .kgrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   body.kids-young .kbtn { min-height: 88px; }
   body.kids-young .kbtn .kico { font-size: 27px; }
+  body.kids-young .kbtn .kico svg { width: 25px; height: 25px; }
   body.kids-young .kbtn b { font-size: 15.5px; }
   body.kids-young .kbtn .kfa { font-size: 12px; }
   body.kids-young .khero .kgreet b { font-size: 23px; }
@@ -6215,6 +6243,7 @@
   body.kids-older .kgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
   body.kids-older .kbtn { min-height: 68px; box-shadow: 0 1px 2px var(--k-shadow); }
   body.kids-older .kbtn .kico { font-size: 19px; }
+  body.kids-older .kbtn .kico svg { width: 18px; height: 18px; }
   body.kids-older .kbtn b { font-size: 13px; }
   body.kids-older .kbtn .kgo { display: none; }
   body.kids-older .khero { padding: 16px 18px; }
@@ -6236,8 +6265,8 @@
   }
   .kbuild .kbank { display: flex; flex-wrap: wrap; gap: 6px; }
   .kword {
-    cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 700;
-    padding: 8px 12px; border-radius: 10px; min-height: 42px;
+    cursor: pointer; font-family: inherit; font-size: 14.5px; font-weight: 700;
+    padding: 9px 13px; border-radius: 12px; min-height: 46px;
     border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
     color: var(--k-ink);
     transition: transform .12s, background .12s, border-color .12s;
@@ -6277,51 +6306,72 @@
   .ksay:hover { background: var(--k-say); transform: translateY(-1px); }
 
   .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
-  /* One tile, six tints. The tint lives on the icon chip and the hairline, not
-     on the whole card, so six sections read as one grid instead of six colors. */
+  /* One tile, six identities. The accent lives in three places on the card -
+     a 5px spine down the start edge, the icon's own chip, and the "Open"
+     arrow - so the section is recognizable from the color alone, then again
+     from its symbol, then again from its name. Colour is never the only cue.
+     Every rule reads --k-sec-*, so a new section is four values, not fourteen. */
   .kbtn {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
-    min-height: 76px; padding: 12px 13px; cursor: pointer; font-family: inherit;
-    border-radius: 16px; border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
+    --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
+    min-height: 82px; padding: 13px 14px 12px 17px; cursor: pointer; font-family: inherit;
+    border-radius: 18px; border: 1.5px solid var(--k-sec-line);
+    background: var(--k-surface);
     color: var(--k-ink); text-align: start;
-    box-shadow: 0 1px 3px var(--k-shadow);
-    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s, border-color .14s;
+    box-shadow: 0 1px 2px var(--k-shadow), 0 6px 14px -12px var(--k-card-shadow);
+    transition: transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s, border-color .16s;
+  }
+  .kbtn::before {
+    content: ""; position: absolute; inset-inline-start: 0; top: 0; bottom: 0;
+    width: 5px; background: var(--k-sec);
   }
   .kbtn:hover {
-    transform: translateY(-2px); border-color: var(--k-primary-line);
-    box-shadow: 0 4px 12px -6px var(--k-card-shadow);
+    transform: translateY(-2px); border-color: var(--k-sec);
+    box-shadow: 0 2px 3px var(--k-shadow), 0 12px 22px -14px var(--k-card-shadow);
   }
   .kbtn:active { transform: translateY(0); box-shadow: 0 1px 2px var(--k-shadow); }
-  .kbtn:focus-visible {
-    outline: 2px solid var(--k-primary); outline-offset: 2px;
-  }
+  .kbtn:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
   .kbtn .kico {
-    width: 34px; height: 34px; border-radius: 10px; font-size: 18px;
+    width: 36px; height: 36px; border-radius: 12px; font-size: 18px;
     display: grid; place-items: center; line-height: 1;
-    background: var(--k-primary-wash); border: 1.5px solid transparent;
+    background: var(--k-sec-wash); border: 1.5px solid var(--k-sec-line);
+    color: var(--k-sec-ink);
   }
-  .kbtn b { font-size: 13.5px; font-weight: 800; }
-  .kbtn .kfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
-  .kbtn .kgo { font-size: 11px; color: var(--k-primary-dark); font-weight: 800; margin-top: auto; }
-  .kbtn.kc-teal { border-color: var(--k-primary-line); }
-  .kbtn.kc-teal .kico { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
-  .kbtn.kc-sky { border-color: var(--k-sky-line); }
-  .kbtn.kc-sky .kico { background: var(--k-sky); border-color: var(--k-sky-line); }
-  .kbtn.kc-mint { border-color: var(--k-mint-line); }
-  .kbtn.kc-mint .kico { background: var(--k-mint); border-color: var(--k-mint-line); }
-  .kbtn.kc-sun { border-color: var(--k-sun-line); }
-  .kbtn.kc-sun .kico { background: var(--k-sun-wash); border-color: var(--k-sun-line); }
-  .kbtn.kc-coral { border-color: var(--k-coral-line); }
-  .kbtn.kc-coral .kico { background: var(--k-coral-wash); border-color: var(--k-coral-line); }
-  .kbtn.kc-neutral { border-color: var(--k-line); }
-  .kbtn.kc-neutral .kico { background: var(--k-surface-2); border-color: var(--k-line-strong); }
+  .kbtn .kico svg { width: 21px; height: 21px; display: block; }
+  /* a lit chip, so the tile reads at a glance from across a room */
+  .kbtn .kico { box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset; }
+  .kbtn b { font-size: 14.5px; font-weight: 800; letter-spacing: -.1px; }
+  .kbtn .kfa { font-size: 12px; color: var(--k-ink-2); direction: rtl; line-height: 1.7; }
+  .kbtn .kgo { font-size: 11.5px; color: var(--k-sec-ink); font-weight: 800; margin-top: auto; }
+  .kbtn.kc-teal { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
+    --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line); }
+  .kbtn.kc-blue { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
+    --k-sec-wash: var(--k-blue-wash); --k-sec-line: var(--k-blue-line); }
+  .kbtn.kc-purple { --k-sec: var(--k-purple); --k-sec-ink: var(--k-purple-ink);
+    --k-sec-wash: var(--k-purple-wash); --k-sec-line: var(--k-purple-line); }
+  .kbtn.kc-mint { --k-sec: var(--k-mint-soft); --k-sec-ink: var(--k-mint-ink);
+    --k-sec-wash: var(--k-mint); --k-sec-line: var(--k-mint-line); }
+  .kbtn.kc-sun { --k-sec: var(--k-sun); --k-sec-ink: var(--k-sun-ink);
+    --k-sec-wash: var(--k-sun-wash); --k-sec-line: var(--k-sun-line); }
+  .kbtn.kc-coral { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
+    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
+  .kbtn.kc-orange { --k-sec: var(--k-orange); --k-sec-ink: var(--k-orange-ink);
+    --k-sec-wash: var(--k-orange-wash); --k-sec-line: var(--k-orange-line); }
+  .kbtn.kc-neutral { --k-sec: var(--k-line-strong); --k-sec-ink: var(--k-ink-2);
+    --k-sec-wash: var(--k-surface-2); --k-sec-line: var(--k-line); }
 
   .kcard {
-    background: var(--k-surface); border: 1.5px solid var(--k-line-strong);
-    border-radius: 16px; padding: 14px 15px 16px; margin-bottom: 10px;
-    box-shadow: 0 1px 3px var(--k-shadow);
+    background: var(--k-surface); border: 1.5px solid var(--k-line);
+    border-radius: 20px; padding: 16px 16px 18px; margin-bottom: 10px;
+    box-shadow: 0 1px 2px var(--k-shadow), 0 10px 22px -20px var(--k-card-shadow);
   }
-  .kcard h4 { margin: 0 0 2px; font-size: 16px; color: var(--k-ink); font-family: var(--font-display); }
+  /* The heading is the one place a card gets a tint behind it: a wash band
+     that runs to the card's edges, so a stack of cards is scannable by title
+     without every card being a different color. */
+  .kcard h4 { margin: 0 0 2px; font-size: 17.5px; line-height: 1.3; color: var(--k-ink);
+    font-family: var(--font-display); letter-spacing: -.2px; }
   .kcard .kfa-h { font-size: 12px; color: var(--k-ink-2); direction: rtl; margin-bottom: 6px; }
   .kcard p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.65; color: var(--k-ink-2); }
   .kcard .kfa-p { font-size: 12.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
@@ -6349,8 +6399,8 @@
   .kq .kqq { font-size: 14px; font-weight: 700; color: var(--k-ink); margin-bottom: 6px; direction: ltr; }
   .kopts { display: flex; flex-wrap: wrap; gap: 6px; }
   .kopt {
-    font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
-    padding: 9px 13px; min-height: 42px; border-radius: 12px;
+    font-family: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;
+    padding: 10px 14px; min-height: 46px; border-radius: 13px;
     border: 1.5px solid var(--k-line); background: var(--k-surface); color: var(--k-ink);
     transition: background .14s, border-color .14s;
   }
@@ -6943,8 +6993,12 @@
   [data-theme="dark"] body.kids {
     --k-primary: #5fc4b6; --k-primary-dark: #79d3c5;
     --k-primary-wash: #16302e; --k-primary-line: #2b5751;
+    --k-blue: #7d9ef2; --k-blue-wash: #17203a; --k-blue-line: #30436f; --k-blue-ink: #b6c8ff;
+    --k-purple: #b6a2f5; --k-purple-wash: #211a38; --k-purple-line: #443574; --k-purple-ink: #d3c4ff;
+    --k-orange: #ffbe7d; --k-orange-wash: #33240f; --k-orange-line: #64452a; --k-orange-ink: #ffd0a1;
+    --k-focus: #79d3c5;
     --k-sky: #152c3b; --k-sky-line: #2a4a5e; --k-sky-ink: #a8d8f2;
-    --k-mint: #142e28; --k-mint-line: #2a5548; --k-mint-ink: #9cdcc0;
+    --k-mint: #142e28; --k-mint-soft: #57b892; --k-mint-line: #2a5548; --k-mint-ink: #9cdcc0;
     --k-sun: #f0c65a; --k-sun-wash: #302816; --k-sun-line: #5b4a24; --k-sun-ink: #f0d391;
     --k-coral: #f0a48f; --k-coral-wash: #331e19; --k-coral-line: #5a382f; --k-coral-ink: #f2b3a2;
     --k-bg: #0f1416; --k-surface: #171f23; --k-surface-2: #1b252a;
@@ -15330,16 +15384,45 @@ const Kids = (() => {
     Panels.set(id, true, PANEL_ON_OPEN[id]);
   }
 
+  /* One icon set for the six doors. The home page used to borrow an emoji per
+     tile, which is six different illustrators' idea of a book: different
+     weights, different palettes, different amounts of detail. These are drawn
+     on one 24 grid, at one stroke weight, in currentColor, so the chip's color
+     is the only thing that changes between them. */
+  const KICONS = {
+    words: '<path d="M5 4.6A1.6 1.6 0 0 1 6.6 3H19v15H6.6A1.6 1.6 0 0 0 5 19.6Z"/>'
+      + '<path d="M5 19.6A1.6 1.6 0 0 0 6.6 21.2H19"/>',
+    grammar: '<path d="M10 3.6h4v2.1a2.1 2.1 0 1 0 0 4.2v2.4h2.1a2.1 2.1 0 1 1 0 4.2H14v4.1h-4v-4.1H7.9a2.1 2.1 0 1 1 0-4.2H10V10a2.1 2.1 0 1 0 0-4.2Z"/>',
+    read: '<path d="M12 6.7C10.1 5.2 7.6 4.6 4 4.6v12.8c3.6 0 6.1.6 8 2.1 1.9-1.5 4.4-2.1 8-2.1V4.6c-3.6 0-6.1.6-8 2.1Z"/>'
+      + '<path d="M12 6.7v12.8"/>',
+    listen: '<path d="M4 14.2v-2a8 8 0 0 1 16 0v2"/>'
+      + '<rect x="3" y="13.8" width="4.2" height="6.4" rx="2.1"/>'
+      + '<rect x="16.8" y="13.8" width="4.2" height="6.4" rx="2.1"/>',
+    stories: '<path d="M6.6 3.6h8.5l3.3 3.2v13.4H6.6Z"/><path d="M14.8 3.7v3.3h3.4"/>'
+      + '<path d="M9.5 11h6M9.5 14.4h6M9.5 17.8h3.6"/>',
+    chat: '<path d="M4 6.7A2.7 2.7 0 0 1 6.7 4h10.6A2.7 2.7 0 0 1 20 6.7v6.5a2.7 2.7 0 0 1-2.7 2.7H9.4L5 20v-4.1A2.7 2.7 0 0 1 4 13.2Z"/>'
+      + '<path d="M8.7 10h.01M12 10h.01M15.3 10h.01"/>',
+    again: '<path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4.2V10h-5.8"/>',
+  };
+  function kicon(name) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+      + 'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" '
+      + 'aria-hidden="true" focusable="false">'
+      + (KICONS[name] || KICONS.words) + '</svg>';
+  }
+
   function homeTiles() {
     const grid = document.createElement('div');
     grid.className = 'kgrid';
+    /* colour, symbol, then the name - the same order in which a child reads a
+       tile, and three cues instead of one */
     const tiles = [
-      ['🎨', 'Words', 'واژه‌ها', 'kc-teal', () => openPanel('vpanel')],
-      ['📘', 'Grammar', 'گرامر', 'kc-sky', () => openPanel('gpanel')],
-      ['📖', 'Read', 'خواندن', 'kc-mint', () => openPanel('rdpanel')],
-      ['🎧', 'Listen', 'شنیدن', 'kc-sun', () => openPanel('lpanel')],
-      ['📚', 'Stories', 'داستان‌ها', 'kc-coral', () => openPanel('stpanel')],
-      ['💬', 'Chat', 'گفتگو', 'kc-neutral', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
+      ['words', 'Words', 'واژه‌ها', 'kc-blue', () => openPanel('vpanel')],
+      ['grammar', 'Grammar', 'گرامر', 'kc-purple', () => openPanel('gpanel')],
+      ['read', 'Read', 'خواندن', 'kc-mint', () => openPanel('rdpanel')],
+      ['listen', 'Listen', 'شنیدن', 'kc-sun', () => openPanel('lpanel')],
+      ['stories', 'Stories', 'داستان‌ها', 'kc-coral', () => openPanel('stpanel')],
+      ['chat', 'Chat', 'گفتگو', 'kc-teal', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
     ];
     tiles.forEach(([ico, en, faText, cls, fn]) => {
       const b = document.createElement('button');
@@ -15347,7 +15430,7 @@ const Kids = (() => {
       b.className = 'kbtn ' + cls;
       const i = document.createElement('span');
       i.className = 'kico';
-      i.textContent = ico;
+      i.innerHTML = kicon(ico);
       const t = document.createElement('b');
       t.textContent = en;
       const f = document.createElement('span');
@@ -15465,7 +15548,8 @@ const Kids = (() => {
     again.type = 'button';
     again.className = 'kbtn kc-sun';
     again.style.marginTop = '10px';
-    again.innerHTML = '<span class="kico">🔄</span><b>Five more</b><span class="kfa" dir="rtl" lang="fa">پنج‌تای دیگر</span>';
+    again.innerHTML = '<span class="kico">' + kicon('again') + '</span><b>Five more</b>'
+      + '<span class="kfa" dir="rtl" lang="fa">پنج‌تای دیگر</span>';
     again.onclick = () => { quizPage += 1; home(); };
     panel.appendChild(again);
   }
