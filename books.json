@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 89 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to ten are complete, chart 1-1 to 10-11. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 89 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا ده کامل‌اند، از نمودار ۱-۱ تا ۱۰-۱۱. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 99 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to ten are complete, chart 1-1 to 10-11. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 99 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا ده کامل‌اند، از نمودار ۱-۱ تا ۱۰-۱۱. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -23036,85 +23036,875 @@
     },
     {
      "n": 76,
-     "title": "Degrees of certainty: must be, may be, can't be",
-     "title_fa": "درجات اطمینان: must be، may be، can't be",
+     "title": "Would for a repeated action in the past",
+     "title_fa": "would برای کار تکرارشده در گذشته",
      "chapter": "Chapter 10",
-     "section": "10-4",
-     "use_en": "Must be means you are almost sure; may be or might be means possible; can't be means you are sure it is not true. For the past, add have and the past participle.",
-     "use_fa": "must be یعنی تقریباً مطمئنید؛ may be یا might be یعنی ممکن است؛ can't be یعنی مطمئنید که درست نیست. برای گذشته، have و اسم مفعول اضافه می‌شود.",
-     "form_en": "must / may / might / can't + be   |   must have + past participle",
+     "section": "10-1",
+     "use_en": "Would can report a habit in the past, and it works much like used to: every summer we would drive to the coast. Both describe repeated actions rather than single events. Would cannot describe a past state, so a sentence about living somewhere or owning something takes used to instead: he used to live by the sea, never he would live by the sea.",
+     "use_fa": "would می‌تواند عادتی در گذشته را بازگو کند و تقریباً مانند used to کار می‌کند: every summer we would drive to the coast. هر دو کار تکرارشده را می‌گویند نه یک رویداد تنها. would نمی‌تواند وضعیت گذشته را بیان کند، پس جمله‌ای دربارهٔ زندگی کردن در جایی یا داشتن چیزی used to می‌گیرد: he used to live by the sea و هرگز he would live by the sea.",
+     "form_en": "subject + would + base verb (repeated past action)  ·  used to + base verb (repeated action or past state)",
      "examples": [
       {
-       "en": "The lights are on, so she must be at home.",
-       "fa": "چراغ‌ها روشن است، پس او باید خانه باشد."
+       "en": "When I was a child, my grandmother would read to me every night.",
+       "fa": "وقتی کودک بودم، مادربزرگم هر شب برایم کتاب می‌خواند."
       },
       {
-       "en": "He may be in a meeting; I am not sure.",
-       "fa": "شاید در جلسه باشد؛ مطمئن نیستم."
+       "en": "We would often walk to school together.",
+       "fa": "ما اغلب با هم پیاده به مدرسه می‌رفتیم."
       },
       {
-       "en": "They can't be serious about closing the shop.",
-       "fa": "آن‌ها نمی‌توانند جدی باشند که مغازه را می‌بندند."
+       "en": "He used to live in Shiraz before he moved here.",
+       "fa": "او پیش از آمدن به اینجا در شیراز زندگی می‌کرد."
       }
      ],
      "exercises": [
       {
-       "prompt": "She is not answering. She ___ (must / be) asleep.",
-       "answer": "must be",
-       "why_en": "The silence is strong evidence, so must be.",
-       "why_fa": "بی‌پاسخ ماندن شاهد قوی است، پس must be."
+       "prompt": "Every winter my father ___ take us to the mountains.",
+       "answer": "would",
+       "why_en": "A repeated past action takes would plus the base verb.",
+       "why_fa": "کار تکرارشدهٔ گذشته would و فعل ساده می‌گیرد."
       },
       {
-       "prompt": "He ___ (can't / finish) already; he started an hour ago.",
-       "answer": "can't have finished",
-       "why_en": "Certainty about the past uses can't have + past participle.",
-       "why_fa": "اطمینان دربارهٔ گذشته با can't have + اسم مفعول بیان می‌شود."
+       "prompt": "She ___ to play the violin when she was young.",
+       "answer": "used",
+       "why_en": "The past habit phrase that needs to is used to.",
+       "why_fa": "عبارت عادت گذشته که to لازم دارد used to است."
       },
       {
-       "prompt": "They ___ (may / leave) yesterday, but I did not check.",
-       "answer": "may have left",
-       "why_en": "A past possibility uses may have + past participle.",
-       "why_fa": "احتمال در گذشته با may have + اسم مفعول می‌آید."
+       "prompt": "In those years we ___ meet at the same café every Friday.",
+       "answer": "would",
+       "why_en": "A weekly habit in the past is natural with would.",
+       "why_fa": "عادت هفتگی در گذشته با would طبیعی است."
       }
      ],
      "exam": [
       {
-       "q": "The ground is wet; it ___ last night.",
+       "q": "As a boy, he ___ swim in the river every morning.",
        "options": [
-        "must have rained",
-        "must rain",
-        "can rain"
+        "would",
+        "will",
+        "must"
        ],
-       "answer": "must have rained",
-       "why_en": "A past event inferred with certainty.",
-       "why_fa": "رخدادی در گذشته که با اطمینان استنباط می‌شود."
+       "answer": "would",
+       "why_en": "A repeated past action takes would.",
+       "why_fa": "کار تکرارشدهٔ گذشته would می‌گیرد."
       },
       {
-       "q": "That ___ be Sara at the door; she is in Tabriz.",
+       "q": "They ___ to own a small shop in the old town.",
        "options": [
-        "can't",
-        "must",
-        "may"
+        "used",
+        "would",
+        "were"
        ],
-       "answer": "can't",
-       "why_en": "Knowing where she is makes the other possibility impossible.",
-       "why_fa": "وقتی می‌دانیم او کجاست، احتمال دیگر ممکن نیست."
+       "answer": "used",
+       "why_en": "Owning something is a state, so used to is needed.",
+       "why_fa": "داشتن چیزی وضعیت است، پس used to لازم است."
       },
       {
-       "q": "He ___ the message; his phone was off.",
+       "q": "We ___ spend every summer at my aunt's house.",
        "options": [
-        "might not have seen",
-        "might not see",
-        "didn't might see"
+        "would",
+        "are",
+        "have"
        ],
-       "answer": "might not have seen",
-       "why_en": "A negative past possibility takes might not have.",
-       "why_fa": "احتمال منفی در گذشته با might not have می‌آید."
+       "answer": "would",
+       "why_en": "A summer habit in the past takes would.",
+       "why_fa": "عادت تابستانی گذشته would می‌گیرد."
       }
      ]
     },
     {
      "n": 77,
+     "title": "The past of necessity, advice and expectation",
+     "title_fa": "گذشتهٔ ضرورت، توصیه و انتظار",
+     "chapter": "Chapter 10",
+     "section": "10-2",
+     "use_en": "Must has no past form, so had to carries necessity into the past. Should have with a past participle looks back at advice that was not followed and usually carries regret, and ought to have works the same way. Was supposed to reports an arrangement that did not happen. In all three the modal is followed by the perfect form, because the missed action sits before now.",
+     "use_fa": "must شکل گذشته ندارد، پس had to ضرورت را به گذشته می‌برد. should have به‌همراه اسم مفعول به توصیه‌ای نگاه می‌کند که اجرا نشد و معمولاً پشیمانی دارد، و ought to have همین کار را می‌کند. was supposed to قرار و ترتیبی را بیان می‌کند که انجام نشد. در هر سه، فعل وجهی با شکل کامل می‌آید چون کار انجام‌نشده پیش از اکنون جای دارد.",
+     "form_en": "had to + base verb  ·  should / ought to have + past participle  ·  was / were supposed to + base verb",
+     "examples": [
+      {
+       "en": "I had to work late every night last week.",
+       "fa": "هفتهٔ گذشته هر شب مجبور بودم تا دیروقت کار کنم."
+      },
+      {
+       "en": "You should have told me about the meeting.",
+       "fa": "باید دربارهٔ جلسه به من می‌گفتی."
+      },
+      {
+       "en": "We were supposed to leave at seven, but the car would not start.",
+       "fa": "قرار بود ساعت هفت راه بیفتیم، اما ماشین روشن نشد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I ___ to take two buses to get to work last year.",
+       "answer": "had",
+       "why_en": "Past necessity is had to, never musted.",
+       "why_fa": "ضرورت گذشته had to است و هرگز musted."
+      },
+      {
+       "prompt": "You ___ have called me; I was worried.",
+       "answer": "should",
+       "why_en": "Advice about a missed action takes should have.",
+       "why_fa": "توصیه دربارهٔ کار انجام‌نشده should have می‌گیرد."
+      },
+      {
+       "prompt": "They ___ supposed to arrive before noon.",
+       "answer": "were",
+       "why_en": "The plural subject they takes were supposed to.",
+       "why_fa": "فاعل جمع they با were supposed to می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She ___ to study all weekend for the exam.",
+       "options": [
+        "had",
+        "must",
+        "has"
+       ],
+       "answer": "had",
+       "why_en": "Must has no past form, so had to.",
+       "why_fa": "must گذشته ندارد، پس had to."
+      },
+      {
+       "q": "He ___ have asked for help sooner.",
+       "options": [
+        "should",
+        "shall",
+        "shouldn't"
+       ],
+       "answer": "should",
+       "why_en": "The missed advice is should have.",
+       "why_fa": "توصیهٔ اجرانشده should have است."
+      },
+      {
+       "q": "We ___ supposed to meet at the library.",
+       "options": [
+        "were",
+        "was",
+        "are"
+       ],
+       "answer": "were",
+       "why_en": "The plural we takes were.",
+       "why_fa": "we جمع است و were می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 78,
+     "title": "Past ability: could, was able to, managed to",
+     "title_fa": "توانایی در گذشته: could، was able to، managed to",
+     "chapter": "Chapter 10",
+     "section": "10-3",
+     "use_en": "Could is the past of can for a general ability: she could read music at four. For one success on one occasion, was able to or managed to is clearer, because could would say only that the ability existed. In the negative, could not and was not able to both report a single failure, and managed to usually adds that the success was difficult.",
+     "use_fa": "could گذشتهٔ can برای توانایی کلی است: she could read music at four. برای یک موفقیت در یک موقعیت، was able to یا managed to روشن‌تر است، چون could تنها می‌گوید توانایی وجود داشت. در منفی، could not و was not able to هر دو یک ناکامی را گزارش می‌کنند و managed to معمولاً می‌افزاید که موفقیت دشوار بوده است.",
+     "form_en": "could + base verb (general ability)  ·  was / were able to + base verb (one success)  ·  managed to + base verb",
+     "examples": [
+      {
+       "en": "She could read music before she started school.",
+       "fa": "او پیش از رفتن به مدرسه می‌توانست نت بخواند."
+      },
+      {
+       "en": "The fire spread fast, but everyone was able to get out.",
+       "fa": "آتش سریع پخش شد، اما همه توانستند بیرون بیایند."
+      },
+      {
+       "en": "We managed to finish the report on time.",
+       "fa": "ما موفق شدیم گزارش را سر وقت تمام کنیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "He ___ swim when he was three years old.",
+       "answer": "could",
+       "why_en": "A general past ability takes could.",
+       "why_fa": "توانایی کلی گذشته could می‌گیرد."
+      },
+      {
+       "prompt": "The road was closed, but we ___ to find another way.",
+       "answer": "were",
+       "why_en": "One success in the past is were able to.",
+       "why_fa": "یک موفقیت در گذشته were able to است."
+      },
+      {
+       "prompt": "She ___ to convince the manager to change the date.",
+       "answer": "managed",
+       "why_en": "A difficult success is natural with managed to.",
+       "why_fa": "موفقیت دشوار با managed to طبیعی است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "They ___ see the mountains from their window.",
+       "options": [
+        "could",
+        "can",
+        "were able"
+       ],
+       "answer": "could",
+       "why_en": "A general ability in the past takes could.",
+       "why_fa": "توانایی کلی در گذشته could می‌گیرد."
+      },
+      {
+       "q": "The exam was hard, but I ___ to pass it.",
+       "options": [
+        "was able",
+        "could",
+        "can"
+       ],
+       "answer": "was able",
+       "why_en": "One success takes was able to.",
+       "why_fa": "یک موفقیت was able to می‌گیرد."
+      },
+      {
+       "q": "We ___ to catch the last train by running.",
+       "options": [
+        "managed",
+        "could",
+        "were"
+       ],
+       "answer": "managed",
+       "why_en": "The effort in the sentence fits managed to.",
+       "why_fa": "تلاش در جمله با managed to می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 79,
+     "title": "Certainty about the present: must be, may be, might be",
+     "title_fa": "قطعیت دربارهٔ حال: must be، may be، might be",
+     "chapter": "Chapter 10",
+     "section": "10-4",
+     "use_en": "Must be says the speaker is almost sure, because the evidence points that way: the lights are off, so they must be away. May be, might be and could be place the same guess at lower confidence, and might be is the most tentative of the three. The modal takes be for a state and a base verb for an action in progress, which is the progressive form in chapter ten's later chart.",
+     "use_fa": "must be می‌گوید گوینده تقریباً مطمئن است، چون شواهد به آن سو اشاره دارد: the lights are off, so they must be away. may be، might be و could be همین حدس را با اطمینان کمتر می‌گویند و might be محتاطانه‌ترین است. فعل وجهی برای وضعیت be می‌گیرد و برای کار در جریان فعل ساده، که شکل استمراری آن در نمودارهای بعدی همین فصل می‌آید.",
+     "form_en": "must / may / might / could + be (state)  ·  must / may / might + base verb (action)",
+     "examples": [
+      {
+       "en": "The lights are off, so they must be away.",
+       "fa": "چراغ‌ها خاموش است، پس آن‌ها حتماً بیرون رفته‌اند."
+      },
+      {
+       "en": "She may be in a meeting; I am not sure.",
+       "fa": "شاید او در جلسه باشد؛ مطمئن نیستم."
+      },
+      {
+       "en": "He might be waiting at the wrong gate.",
+       "fa": "شاید او پشت درِ اشتباه منتظر باشد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The door is locked and the car is gone; they ___ be out.",
+       "answer": "must",
+       "why_en": "The evidence makes the guess almost certain, so must.",
+       "why_fa": "شواهد حدس را تقریباً قطعی می‌کند، پس must."
+      },
+      {
+       "prompt": "I am not sure where Ali is; he ___ be at the gym.",
+       "answer": "may",
+       "why_en": "An unsure guess takes may be.",
+       "why_fa": "حدس نامطمئن may be می‌گیرد."
+      },
+      {
+       "prompt": "She ___ be working late again tonight.",
+       "answer": "might",
+       "why_en": "A hesitant guess about an action takes might.",
+       "why_fa": "حدس محتاطانه دربارهٔ یک کار might می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "You have not slept for two days. You ___ be exhausted.",
+       "options": [
+        "must",
+        "can",
+        "should"
+       ],
+       "answer": "must",
+       "why_en": "Strong evidence with a state takes must be.",
+       "why_fa": "شاهد قوی با وضعیت must be می‌گیرد."
+      },
+      {
+       "q": "The parcel has not arrived; it ___ be lost.",
+       "options": [
+        "might",
+        "must",
+        "can"
+       ],
+       "answer": "might",
+       "why_en": "An uncertain guess takes might be.",
+       "why_fa": "حدس نامطمئن might be می‌گیرد."
+      },
+      {
+       "q": "He ___ be at home; I saw his car outside.",
+       "options": [
+        "must",
+        "might",
+        "cannot"
+       ],
+       "answer": "must",
+       "why_en": "Seeing the car is evidence for must be.",
+       "why_fa": "دیدن ماشین شاهدی برای must be است."
+      }
+     ]
+    },
+    {
+     "n": 80,
+     "title": "Certainty about the present, negative: can't be, must not be",
+     "title_fa": "قطعیت منفی دربارهٔ حال: can't be و must not be",
+     "chapter": "Chapter 10",
+     "section": "10-5",
+     "use_en": "Cannot be and could not be say that something is impossible, because the evidence rules it out: that cannot be Sara, she is in Tehran. Must not be also denies a strong belief, but it reads easily as a prohibition, so cannot is the safer choice for impossibility. May not be and might not be only say that something is possibly not true, which is much weaker.",
+     "use_fa": "cannot be و could not be می‌گویند چیزی ناممکن است، چون شواهد آن را رد می‌کند: that cannot be Sara, she is in Tehran. must not be نیز باوری قوی را رد می‌کند، اما به‌راحتی ممنوعیت فهمیده می‌شود، پس برای ناممکن بودن cannot انتخاب مطمئن‌تری است. may not be و might not be تنها می‌گویند ممکن است چیزی درست نباشد، که بسیار ضعیف‌تر است.",
+     "form_en": "cannot / can't / couldn't + be (impossible)  ·  may not / might not + be (possibly not)",
+     "examples": [
+      {
+       "en": "That cannot be right; the numbers do not add up.",
+       "fa": "این نمی‌تواند درست باشد؛ اعداد با هم نمی‌خوانند."
+      },
+      {
+       "en": "He can't be at work, because his office is closed today.",
+       "fa": "او نمی‌تواند سر کار باشد، چون دفترش امروز بسته است."
+      },
+      {
+       "en": "She might not be ready yet.",
+       "fa": "شاید او هنوز آماده نباشد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "This ___ be the right address; the street does not exist.",
+       "answer": "cannot",
+       "why_en": "The evidence rules the address out, so cannot be.",
+       "why_fa": "شواهد آن نشانی را رد می‌کند، پس cannot be."
+      },
+      {
+       "prompt": "They ___ be home, because all the lights are off.",
+       "answer": "can't",
+       "why_en": "Darkness is evidence against their being home.",
+       "why_fa": "خاموشی شاهد مخالف بودن آن‌ها در خانه است."
+      },
+      {
+       "prompt": "He ___ not be interested; he simply has no time.",
+       "answer": "might",
+       "why_en": "A possible negative takes might not be.",
+       "why_fa": "منفی احتمالی might not be می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "You just ate. You ___ be hungry again.",
+       "options": [
+        "can't",
+        "mustn't",
+        "shouldn't"
+       ],
+       "answer": "can't",
+       "why_en": "Impossibility is expressed with can't be.",
+       "why_fa": "ناممکن بودن با can't be بیان می‌شود."
+      },
+      {
+       "q": "That ___ be true; I spoke to her an hour ago.",
+       "options": [
+        "cannot",
+        "must not",
+        "should not"
+       ],
+       "answer": "cannot",
+       "why_en": "Cannot is the clear form for impossibility.",
+       "why_fa": "cannot شکل روشن ناممکن بودن است."
+      },
+      {
+       "q": "She ___ not be coming; she has not answered.",
+       "options": [
+        "may",
+        "must",
+        "can"
+       ],
+       "answer": "may",
+       "why_en": "A possible negative is may not be.",
+       "why_fa": "منفی احتمالی may not be است."
+      }
+     ]
+    },
+    {
+     "n": 81,
+     "title": "Certainty about the past: must have, may have, should have",
+     "title_fa": "قطعیت دربارهٔ گذشته: must have، may have، should have",
+     "chapter": "Chapter 10",
+     "section": "10-6",
+     "use_en": "Must have with a past participle says the speaker concludes that something happened: the ground is wet, so it must have rained. May have, might have and could have lower that confidence. Could have also names a possibility that was never used, and should have points at something that was expected but did not happen. In speech have is often reduced, but it is always written.",
+     "use_fa": "must have به‌همراه اسم مفعول می‌گوید گوینده نتیجه می‌گیرد چیزی رخ داده است: the ground is wet, so it must have rained. may have، might have و could have این اطمینان را کم می‌کنند. could have همچنین امکانی را می‌گوید که هرگز به کار نیامد، و should have به چیزی اشاره می‌کند که انتظار می‌رفت اما رخ نداد. در گفتار have کوتاه می‌شود، اما در نوشتار همیشه می‌آید.",
+     "form_en": "must / may / might / could have + past participle  ·  should have + past participle (expectation not met)",
+     "examples": [
+      {
+       "en": "The ground is wet, so it must have rained during the night.",
+       "fa": "زمین خیس است، پس حتماً شب باران باریده است."
+      },
+      {
+       "en": "She may have missed the bus.",
+       "fa": "شاید او اتوبوس را از دست داده باشد."
+      },
+      {
+       "en": "They should have arrived by now.",
+       "fa": "آن‌ها باید تا حالا رسیده باشند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The window is broken; someone ___ have climbed in.",
+       "answer": "must",
+       "why_en": "The broken window is evidence for must have.",
+       "why_fa": "پنجرهٔ شکسته شاهدی برای must have است."
+      },
+      {
+       "prompt": "I do not know why he left; he ___ have had a reason.",
+       "answer": "might",
+       "why_en": "An unsure conclusion takes might have.",
+       "why_fa": "نتیجه‌گیری نامطمئن might have می‌گیرد."
+      },
+      {
+       "prompt": "You ___ have told me you were coming.",
+       "answer": "should",
+       "why_en": "A missed expectation is should have.",
+       "why_fa": "انتظار برآورده‌نشده should have است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The cake is gone. Someone ___ have eaten it.",
+       "options": [
+        "must",
+        "can",
+        "should"
+       ],
+       "answer": "must",
+       "why_en": "The missing cake is strong evidence for must have.",
+       "why_fa": "کیکِ تمام‌شده شاهد قوی برای must have است."
+      },
+      {
+       "q": "She ___ have taken the earlier train; I am not certain.",
+       "options": [
+        "may",
+        "must",
+        "can"
+       ],
+       "answer": "may",
+       "why_en": "An uncertain conclusion takes may have.",
+       "why_fa": "نتیجه‌گیری نامطمئن may have می‌گیرد."
+      },
+      {
+       "q": "We ___ have left earlier; the traffic was terrible.",
+       "options": [
+        "should",
+        "must",
+        "can"
+       ],
+       "answer": "should",
+       "why_en": "The regret points at should have.",
+       "why_fa": "پشیمانی به should have اشاره دارد."
+      }
+     ]
+    },
+    {
+     "n": 82,
+     "title": "Certainty about the future: will, should, may, might",
+     "title_fa": "قطعیت دربارهٔ آینده: will، should، may، might",
+     "chapter": "Chapter 10",
+     "section": "10-7",
+     "use_en": "For the future the scale runs from will, which states the outcome, through should, which expects it, to may and might, which leave it open. Should is the one to use when a plan depends on other people doing their part, and its negative should not warns rather than predicts. May not and might not say that the outcome is possibly not coming.",
+     "use_fa": "برای آینده این طیف از will که نتیجه را قطعی می‌گوید، به should که آن را انتظار دارد، و به may و might که آن را باز می‌گذارند می‌رسد. should را وقتی به کار ببر که برنامه به انجام کار از سوی دیگران بستگی دارد و منفی آن should not هشدار می‌دهد نه پیش‌بینی. may not و might not می‌گویند ممکن است نتیجه نیاید.",
+     "form_en": "will / should / may / might + base verb  ·  negative: may not / might not / should not + base verb",
+     "examples": [
+      {
+       "en": "The parcel will arrive tomorrow; I have the tracking number.",
+       "fa": "بسته فردا می‌رسد؛ شمارهٔ رهگیری دارم."
+      },
+      {
+       "en": "The meeting should finish by noon.",
+       "fa": "جلسه باید تا ظهر تمام شود."
+      },
+      {
+       "en": "It might snow on the weekend.",
+       "fa": "شاید آخر هفته برف ببارد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "We ___ be late if the traffic is heavy.",
+       "answer": "may",
+       "why_en": "A future outcome left open takes may.",
+       "why_fa": "نتیجه‌ای که باز گذاشته شده may می‌گیرد."
+      },
+      {
+       "prompt": "The train ___ leave on time; there is no announcement yet.",
+       "answer": "should",
+       "why_en": "An expectation based on the timetable takes should.",
+       "why_fa": "انتظار بر پایهٔ برنامهٔ حرکت should می‌گیرد."
+      },
+      {
+       "prompt": "She ___ call you tonight; she promised.",
+       "answer": "will",
+       "why_en": "A promise about the future is stated with will.",
+       "why_fa": "قول دربارهٔ آینده با will بیان می‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The results ___ be published next week; the date is fixed.",
+       "options": [
+        "will",
+        "might",
+        "may"
+       ],
+       "answer": "will",
+       "why_en": "A fixed date is stated with will.",
+       "why_fa": "تاریخ قطعی با will گفته می‌شود."
+      },
+      {
+       "q": "Our team ___ win, but the other side is strong.",
+       "options": [
+        "might",
+        "will",
+        "must"
+       ],
+       "answer": "might",
+       "why_en": "An open outcome takes might.",
+       "why_fa": "نتیجهٔ باز might می‌گیرد."
+      },
+      {
+       "q": "The shop ___ open at nine as usual.",
+       "options": [
+        "should",
+        "might",
+        "can"
+       ],
+       "answer": "should",
+       "why_en": "The usual arrangement is an expectation, so should.",
+       "why_fa": "ترتیب معمول انتظار است، پس should."
+      }
+     ]
+    },
+    {
+     "n": 83,
+     "title": "Progressive forms of modals",
+     "title_fa": "شکل استمراری افعال وجهی",
+     "chapter": "Chapter 10",
+     "section": "10-8",
+     "use_en": "A modal can be followed by be + -ing to describe an action in progress at the moment being discussed: he must be sleeping, she may be working, they should be arriving now. In the past the form is modal + have been + -ing: she must have been waiting for hours. The progressive is chosen for an activity rather than a state, and it makes the guess about what is happening right now.",
+     "use_fa": "فعل وجهی می‌تواند با be + -ing بیاید تا کاری را که در همان لحظهٔ مورد بحث در جریان است توصیف کند: he must be sleeping، she may be working، they should be arriving now. در گذشته شکل آن modal + have been + -ing است: she must have been waiting for hours. شکل استمراری برای فعالیت انتخاب می‌شود نه وضعیت، و حدس را دربارهٔ آنچه همین حالا می‌گذرد دقیق‌تر می‌کند.",
+     "form_en": "must / may / might + be + -ing  ·  must / may / might + have been + -ing (past)",
+     "examples": [
+      {
+       "en": "Do not call him now; he must be driving.",
+       "fa": "الان به او زنگ نزن؛ حتماً در راه است."
+      },
+      {
+       "en": "She may be studying in her room.",
+       "fa": "شاید او در اتاقش درس می‌خواند."
+      },
+      {
+       "en": "They must have been waiting for over an hour.",
+       "fa": "آن‌ها حتماً بیش از یک ساعت منتظر بوده‌اند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The light is on in his office; he ___ be working late.",
+       "answer": "must",
+       "why_en": "An action in progress with strong evidence takes must be.",
+       "why_fa": "کار در جریان با شاهد قوی must be می‌گیرد."
+      },
+      {
+       "prompt": "She is not answering; she ___ be sleeping.",
+       "answer": "may",
+       "why_en": "An unsure guess about an action takes may be.",
+       "why_fa": "حدس نامطمئن دربارهٔ کار may be می‌گیرد."
+      },
+      {
+       "prompt": "The road was empty; they ___ have been driving for hours.",
+       "answer": "must",
+       "why_en": "The past progressive of a modal is must have been.",
+       "why_fa": "شکل گذشتهٔ استمراری وجهی must have been است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Do not disturb her; she ___ be teaching.",
+       "options": [
+        "must",
+        "must have",
+        "must to"
+       ],
+       "answer": "must",
+       "why_en": "The action is happening now, so must be.",
+       "why_fa": "کار همین حالا در جریان است، پس must be."
+      },
+      {
+       "q": "He looks tired. He ___ have been working all night.",
+       "options": [
+        "must",
+        "must be",
+        "can"
+       ],
+       "answer": "must",
+       "why_en": "The night is over, so the perfect progressive is used.",
+       "why_fa": "شب گذشته است، پس کامل استمراری به کار می‌رود."
+      },
+      {
+       "q": "They ___ be waiting at the airport by now.",
+       "options": [
+        "should",
+        "should have",
+        "should to"
+       ],
+       "answer": "should",
+       "why_en": "An expectation about now takes should be.",
+       "why_fa": "انتظار دربارهٔ اکنون should be می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 84,
+     "title": "Combining modals with phrasal modals",
+     "title_fa": "ترکیب افعال وجهی با معادل‌های عبارتی",
+     "chapter": "Chapter 10",
+     "section": "10-9",
+     "use_en": "Two modals never stand together: will can becomes will be able to, must can becomes have to be able to, and might must becomes might have to. The first modal carries the meaning that comes first in the sentence and the phrasal modal carries the second. The perfect and the progressive of the pair take their own shapes: should have been able to, might have had to.",
+     "use_fa": "دو فعل وجهی هرگز کنار هم نمی‌آیند: will can به will be able to تبدیل می‌شود، must can به have to be able to و might must به might have to. فعل وجهی اول معنای اول جمله را می‌رساند و معادل عبارتی معنای دوم را. شکل کامل و استمراری این ترکیب شکل خود را می‌گیرد: should have been able to، might have had to.",
+     "form_en": "modal + phrasal modal + base verb  ·  will / might / should + have to / be able to",
+     "examples": [
+      {
+       "en": "You will have to show your passport at the border.",
+       "fa": "باید در مرز گذرنامه‌ات را نشان دهی."
+      },
+      {
+       "en": "She might be able to help us tomorrow.",
+       "fa": "شاید او فردا بتواند به ما کمک کند."
+      },
+      {
+       "en": "We should have been able to finish the work by now.",
+       "fa": "باید تا حالا می‌توانستیم کار را تمام کنیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "You will ___ to wait for the next train.",
+       "answer": "have",
+       "why_en": "Will must becomes will have to.",
+       "why_fa": "will must به will have to تبدیل می‌شود."
+      },
+      {
+       "prompt": "She might ___ able to translate the letter.",
+       "answer": "be",
+       "why_en": "Might can becomes might be able to.",
+       "why_fa": "might can به might be able to تبدیل می‌شود."
+      },
+      {
+       "prompt": "They may ___ to pay a small fee at the desk.",
+       "answer": "have",
+       "why_en": "May must becomes may have to.",
+       "why_fa": "may must به may have to تبدیل می‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "He will ___ to apply again next year.",
+       "options": [
+        "have",
+        "has",
+        "be"
+       ],
+       "answer": "have",
+       "why_en": "Will must becomes will have to.",
+       "why_fa": "will must به will have to تبدیل می‌شود."
+      },
+      {
+       "q": "We might not ___ able to come on Friday.",
+       "options": [
+        "be",
+        "have",
+        "can"
+       ],
+       "answer": "be",
+       "why_en": "Might not can becomes might not be able to.",
+       "why_fa": "might not can به might not be able to تبدیل می‌شود."
+      },
+      {
+       "q": "You should have ___ able to solve it.",
+       "options": [
+        "been",
+        "be",
+        "being"
+       ],
+       "answer": "been",
+       "why_en": "The perfect of be able to is been able to.",
+       "why_fa": "شکل کامل be able to همان been able to است."
+      }
+     ]
+    },
+    {
+     "n": 85,
+     "title": "Expressing preference: would rather",
+     "title_fa": "بیان ترجیح: would rather",
+     "chapter": "Chapter 10",
+     "section": "10-10",
+     "use_en": "Would rather states a preference, and the verb after it is a base form with no to: I would rather stay home. A second choice is introduced by than and another base verb: I would rather walk than wait for a bus. With a different subject the past form follows the phrase, and the negative is would rather not, which is softer than saying no outright.",
+     "use_fa": "would rather ترجیح را بیان می‌کند و فعل پس از آن شکل ساده و بی‌to است: I would rather stay home. انتخاب دوم با than و فعل ساده می‌آید: I would rather walk than wait for a bus. اگر فاعل دیگری بیاید، پس از عبارت فعل گذشته می‌آید، و منفی آن would rather not است که نرم‌تر از رد کردن صریح است.",
+     "form_en": "would rather + base verb  ·  would rather + base verb + than + base verb  ·  would rather + subject + past verb",
+     "examples": [
+      {
+       "en": "I would rather take the train than fly.",
+       "fa": "ترجیح می‌دهم با قطار بروم تا با هواپیما."
+      },
+      {
+       "en": "She would rather not discuss it now.",
+       "fa": "او ترجیح می‌دهد الان دربارهٔ آن صحبت نکند."
+      },
+      {
+       "en": "I would rather you came with me.",
+       "fa": "ترجیح می‌دهم تو با من بیایی."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I would rather ___ (walk) than take the bus.",
+       "answer": "walk",
+       "why_en": "Would rather takes the base verb with no to.",
+       "why_fa": "would rather فعل ساده بی‌to می‌گیرد."
+      },
+      {
+       "prompt": "They would rather ___ (not, stay) at that hotel.",
+       "answer": "not stay",
+       "why_en": "The negative is would rather not plus the base verb.",
+       "why_fa": "منفی آن would rather not و فعل ساده است."
+      },
+      {
+       "prompt": "I would rather you ___ (call) me tomorrow.",
+       "answer": "called",
+       "why_en": "A different subject after would rather takes the past form.",
+       "why_fa": "فاعل دیگر پس از would rather شکل گذشته می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I would rather ___ at home tonight.",
+       "options": [
+        "stay",
+        "to stay",
+        "staying"
+       ],
+       "answer": "stay",
+       "why_en": "Would rather takes a base verb with no to.",
+       "why_fa": "would rather فعل ساده بی‌to می‌گیرد."
+      },
+      {
+       "q": "She would rather read ___ watch television.",
+       "options": [
+        "than",
+        "then",
+        "to"
+       ],
+       "answer": "than",
+       "why_en": "Than introduces the second choice.",
+       "why_fa": "than انتخاب دوم را معرفی می‌کند."
+      },
+      {
+       "q": "I would rather you ___ the truth.",
+       "options": [
+        "told",
+        "tell",
+        "telling"
+       ],
+       "answer": "told",
+       "why_en": "A different subject takes the past form told.",
+       "why_fa": "فاعل دیگر شکل گذشتهٔ told می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 86,
+     "title": "Modals in summary: which one does what",
+     "title_fa": "خلاصهٔ افعال وجهی: هر کدام چه کار می‌کند",
+     "chapter": "Chapter 10",
+     "section": "10-11",
+     "use_en": "The modals are a small set with a large job: can and be able to for ability, may and might for possibility and permission, must and have to for necessity, should and ought to for advice, will for the future and would for the past habit. Similar expressions such as be supposed to, had better and would rather carry the same weight without being modals, and each keeps its own endings and its own to.",
+     "use_fa": "افعال وجهی مجموعه‌ای کوچک با کارهایی بزرگ‌اند: can و be able to برای توانایی، may و might برای احتمال و اجازه، must و have to برای ضرورت، should و ought to برای توصیه، will برای آینده و would برای عادت گذشته. عبارت‌های مشابه مانند be supposed to، had better و would rather همین وزن را دارند بدون آنکه فعل وجهی باشند و هر یک پایانه‌ها و to خود را نگه می‌دارد.",
+     "form_en": "ability: can  ·  possibility: may / might  ·  necessity: must / have to  ·  advice: should / ought to  ·  future: will  ·  past habit: would",
+     "examples": [
+      {
+       "en": "She can drive, but she may not drive after dark.",
+       "fa": "او می‌تواند رانندگی کند، اما شاید پس از تاریکی رانندگی نکند."
+      },
+      {
+       "en": "You should book early, because you will have to pay more later.",
+       "fa": "باید زود رزرو کنی، چون بعداً باید بیشتر بپردازی."
+      },
+      {
+       "en": "We would rather leave now, so we had better call a taxi.",
+       "fa": "ترجیح می‌دهیم الان راه بیفتیم، پس بهتر است تاکسی بگیریم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "He ___ be able to come, but he is not sure.",
+       "answer": "may",
+       "why_en": "An open possibility takes may.",
+       "why_fa": "احتمال باز may می‌گیرد."
+      },
+      {
+       "prompt": "You ___ not touch the wires; they are live.",
+       "answer": "must",
+       "why_en": "A prohibition is must not.",
+       "why_fa": "ممنوعیت must not است."
+      },
+      {
+       "prompt": "We ___ to leave before the storm starts.",
+       "answer": "have",
+       "why_en": "Necessity outside the speaker is have to.",
+       "why_fa": "ضرورت بیرونی have to است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which modal gives advice? — You ___ see a doctor.",
+       "options": [
+        "should",
+        "must",
+        "can"
+       ],
+       "answer": "should",
+       "why_en": "Advice is given with should.",
+       "why_fa": "توصیه با should داده می‌شود."
+      },
+      {
+       "q": "Which expresses a past habit? — We ___ swim here every summer.",
+       "options": [
+        "would",
+        "will",
+        "may"
+       ],
+       "answer": "would",
+       "why_en": "A repeated past action is would.",
+       "why_fa": "کار تکرارشدهٔ گذشته would است."
+      },
+      {
+       "q": "Which expresses ability? — She ___ play three instruments.",
+       "options": [
+        "can",
+        "must",
+        "should"
+       ],
+       "answer": "can",
+       "why_en": "Ability is expressed with can.",
+       "why_fa": "توانایی با can بیان می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 87,
      "title": "The passive",
      "title_fa": "جملات مجهول",
      "chapter": "Chapter 11",
@@ -23193,7 +23983,7 @@
      ]
     },
     {
-     "n": 78,
+     "n": 88,
      "title": "The passive with modals, get and stative verbs",
      "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
      "chapter": "Chapter 11",
@@ -23272,7 +24062,7 @@
      ]
     },
     {
-     "n": 79,
+     "n": 89,
      "title": "Noun clauses and reported speech",
      "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
      "chapter": "Chapter 12",
@@ -23351,7 +24141,7 @@
      ]
     },
     {
-     "n": 80,
+     "n": 90,
      "title": "The subjunctive in noun clauses: insist that he be",
      "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
      "chapter": "Chapter 12",
@@ -23430,7 +24220,7 @@
      ]
     },
     {
-     "n": 81,
+     "n": 91,
      "title": "Adjective clauses",
      "title_fa": "جملات وصفی (موصولی)",
      "chapter": "Chapter 13",
@@ -23509,7 +24299,7 @@
      ]
     },
     {
-     "n": 82,
+     "n": 92,
      "title": "Reducing adjective clauses to phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
      "chapter": "Chapter 13",
@@ -23588,7 +24378,7 @@
      ]
     },
     {
-     "n": 83,
+     "n": 93,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -23667,7 +24457,7 @@
      ]
     },
     {
-     "n": 84,
+     "n": 94,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -23746,7 +24536,7 @@
      ]
     },
     {
-     "n": 85,
+     "n": 95,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -23825,7 +24615,7 @@
      ]
     },
     {
-     "n": 86,
+     "n": 96,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -23904,7 +24694,7 @@
      ]
     },
     {
-     "n": 87,
+     "n": 97,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -23983,7 +24773,7 @@
      ]
     },
     {
-     "n": 88,
+     "n": 98,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -24062,7 +24852,7 @@
      ]
     },
     {
-     "n": 89,
+     "n": 99,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",

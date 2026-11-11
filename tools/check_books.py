@@ -504,7 +504,17 @@ PINNED_GRAMMAR = [
     "Requests with modals and the answers to them",
     "Polite requests: would you mind",
     "Suggestions: let's, why don't, shall I, how about",
-    "Degrees of certainty: must be, may be, can't be",
+    "Would for a repeated action in the past",
+    "The past of necessity, advice and expectation",
+    "Past ability: could, was able to, managed to",
+    "Certainty about the present: must be, may be, might be",
+    "Certainty about the present, negative: can't be, must not be",
+    "Certainty about the past: must have, may have, should have",
+    "Certainty about the future: will, should, may, might",
+    "Progressive forms of modals",
+    "Combining modals with phrasal modals",
+    "Expressing preference: would rather",
+    "Modals in summary: which one does what",
     "The passive",
     "The passive with modals, get and stative verbs",
     "Noun clauses and reported speech",
@@ -801,6 +811,20 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
              or len(l.get("exam") or []) < 3]
     check(not thin9,
           f"{bid}: chapter nine chart(s) {thin9} are thinner than the rest of the book")
+
+    # Chapter ten is the second half of the modals: the past tenses of them,
+    # degrees of certainty in all three times, the progressive and combined
+    # forms, preference, and a closing chart of the whole set.
+    tenth = [l for l in lessons if l.get("chapter") == "Chapter 10"]
+    check([str(l.get("section")) for l in tenth] == [f"10-{i}" for i in range(1, 12)],
+          f"{bid}: chapter ten is not its eleven charts in order "
+          f"(got {[str(l.get('section')) for l in tenth]})")
+    thin10 = [str(l.get("section")) for l in tenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin10,
+          f"{bid}: chapter ten chart(s) {thin10} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"
