@@ -16628,7 +16628,7 @@ const Kids = (() => {
   /* What the toolbar says in the kids app. The wording is the same idea as
      the adult label, shorter, because a child reads the icon first. */
   const LABELS = {
-    kidstoggle: 'Home', hqtoggle: 'Quest', dtoggle: 'Today', vtoggle: 'Words',
+    kidstoggle: 'Home', hqtoggle: 'Quest', vtoggle: 'Words',
     gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
     actoggle: 'Me',
   };
@@ -16689,6 +16689,13 @@ const Kids = (() => {
       });
       ADVANCED.forEach((id) => { const b = $(id); if (b) b.classList.add('kadv'); });
     }
+    /* Today's English belongs to the adult shell. A child already has the
+       words of the day on their home tile, so the toolbar drops the section
+       altogether instead of parking it behind More, and a panel left open
+       from a previous session is closed rather than shown. */
+    const today = $('dtoggle');
+    if (today) today.hidden = true;
+    if (Panels.isOpen() === 'dpanel') Panels.set('dpanel', false);
     /* The fox on the home card listens while the child is typing and waves
        again when they leave. Nothing is stored: it follows the field. */
     const field = $('input');
@@ -16734,6 +16741,8 @@ const Kids = (() => {
     }
     const more = $('kidsmore');
     if (more) { more.hidden = true; more.setAttribute('aria-expanded', 'false'); }
+    const today = $('dtoggle');
+    if (today) today.hidden = false;
     if (Panels.isOpen() === 'kpanel') Panels.set('kpanel', false);
     if (Panels.isOpen() === 'hqpanel') Panels.set('hqpanel', false);
     landed = false;

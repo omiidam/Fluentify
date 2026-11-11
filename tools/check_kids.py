@@ -334,6 +334,14 @@ def check_kids_layer(src):
           "the kids home no longer builds a Today's English card")
     check("practiceCard(" in src and "homeTiles()" in src,
           "the words of the day are still on the kids home")
+    # The tile is not merely behind More: the kids toolbar drops Today's
+    # English outright, and a panel carried over from the adult shell closes.
+    check("const today = $('dtoggle');" in src and "today.hidden = true" in src
+          and "today.hidden = false" in src
+          and "Panels.isOpen() === 'dpanel'" in src,
+          "the kids toolbar still offers Today's English")
+    check("dtoggle: 'Today'" not in src,
+          "the kids label table still renames the Today tile")
 
     # Every styling rule for kids must hang off body.kids: an unscoped
     # ".kcard" would repaint an adult card in a child's palette the moment
