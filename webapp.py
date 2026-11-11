@@ -584,48 +584,46 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      megabyte of JSON, and a script-added overlay arrives after the first
      long frame - which is the blank screen it was meant to cover.
 
-     The composition is the promise of the product rather than a spinner: the
-     fox walks in from the right, crosses the whole width of the device along
-     a hairline path, and leaves on the left, while the bar behind her counts
-     the sections that have actually landed. Everything that moves is
-     transform- or opacity-only, so these four seconds do not compete with the
-     JSON reads for the phone's main thread.
+     The composition is a lit glass card floating over a slow aurora, rather
+     than a logo on an empty field. Everything that moves is transform- or
+     opacity-only, so the five seconds this is on screen do not compete with
+     the JSON reads behind it for the phone's main thread.
 
-     It always goes away. Four ways out, because a loader that cannot be
-     dismissed is the one bug worse than no loader at all: the walk and the
-     sections both finishing, an uncaught error, a rejected promise, and a
-     deadline that fires whatever happened in between.
+     It always goes away. Three ways out, because a loader that cannot be
+     dismissed is the one bug worse than no loader at all: the boot finishing,
+     a window error, and a deadline that fires whatever happened in between.
   */
   .boot {
-    --foxw: clamp(96px, 23vw, 176px);
-    --walk: 4000ms;
     position: fixed; inset: 0; z-index: 9998;
+    display: grid; place-items: center;
     overflow: hidden; isolation: isolate;
+    padding: max(24px, env(safe-area-inset-top)) 24px
+             max(24px, env(safe-area-inset-bottom));
     background: radial-gradient(95% 70% at 50% -10%, var(--surf-1) 0%, transparent 62%),
       radial-gradient(80% 60% at 108% 108%, var(--surf-3) 0%, transparent 58%),
       linear-gradient(158deg, var(--surf-2) 0%, var(--surf-3) 52%, var(--surf-3) 100%);
-    transition: opacity .5s cubic-bezier(.22,1,.36,1), visibility .5s;
+    transition: opacity .4s cubic-bezier(.22,1,.36,1), visibility .4s;
   }
   .boot.gone { opacity: 0; visibility: hidden; pointer-events: none; }
 
   /* Static color, moving light. No filter on an animated layer: a blur here
      is re-rasterised every frame on the one screen that must stay smooth. */
-  .boot-aurora { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .boot-aurora { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
   .boot-aurora i {
     position: absolute; display: block;
     width: 62vmax; height: 62vmax; border-radius: 50%;
-    background: radial-gradient(circle, rgba(160,58,99,.20) 0%, rgba(160,58,99,0) 68%);
+    background: radial-gradient(circle, rgba(160,58,99,.22) 0%, rgba(160,58,99,0) 68%);
     animation: bootDrift 19s ease-in-out infinite alternate;
   }
   .boot-aurora i:nth-child(1) { top: -34vmax; left: -26vmax; }
   .boot-aurora i:nth-child(2) {
     top: 18vmax; right: -34vmax;
-    background: radial-gradient(circle, rgba(110,90,168,.24) 0%, rgba(110,90,168,0) 68%);
+    background: radial-gradient(circle, rgba(110,90,168,.26) 0%, rgba(110,90,168,0) 68%);
     animation-duration: 24s; animation-delay: -7s;
   }
   .boot-aurora i:nth-child(3) {
     bottom: -38vmax; left: 8vmax;
-    background: radial-gradient(circle, rgba(79,70,160,.13) 0%, rgba(79,70,160,0) 70%);
+    background: radial-gradient(circle, rgba(79,70,160,.14) 0%, rgba(79,70,160,0) 70%);
     animation-duration: 29s; animation-delay: -13s;
   }
   @keyframes bootDrift {
@@ -634,20 +632,93 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     100% { transform: translate3d(-1%, 5%, 0) scale(1.03); }
   }
 
-  /* Three stacked bands - wordmark, the path the fox walks, the bar - with
-     the middle one carrying the height, because that is where the eye should
-     land. Nothing else may sit in that band. */
-  .boot-stage {
-    position: relative; z-index: 1;
-    height: 100%; display: grid; grid-template-rows: 1fr auto 1fr;
-    justify-items: center;
+  /* The card is most of the screen on purpose. A loader that is a small badge
+     in the middle of a large field reads as a stalled page; one that fills the
+     frame, names the section it is on and shows how much is left reads as
+     work in progress. 62vh, not 100: the aurora still has edges to show. */
+  .boot-in {
+    position: relative; width: min(100%, 460px);
+    min-height: min(66vh, 620px);
+    display: grid; grid-template-rows: auto auto 1fr auto;
+    justify-items: center; align-items: center; gap: 14px;
+    padding: 30px 26px 20px;
+    border-radius: 32px;
+    background: linear-gradient(168deg, var(--surf-1), var(--surf-2) 58%, var(--surf-3));
+    border: 1px solid rgba(205,159,60,.30);
+    box-shadow: 0 40px 90px -28px rgba(74,58,30,.42),
+      0 2px 0 var(--edge-light) inset;
+    overflow: hidden;
+    animation: bootCardIn .72s cubic-bezier(.22,1,.36,1) both;
   }
-  .boot-brand {
-    align-self: end; display: grid; justify-items: center; gap: 6px;
-    text-align: center; padding: 0 20px max(12px, 2.5vh);
+  /* One slow band of light crosses the card, so the surface is never still
+     even while the bar is waiting. Transform only, and behind the content. */
+  .boot-in::after {
+    content: ""; position: absolute; inset: -40% -10%;
+    background: linear-gradient(104deg, transparent 38%,
+      var(--glint) 50%, transparent 62%);
+    transform: translateX(-70%) rotate(0.001deg);
+    animation: bootSweep 6.5s ease-in-out infinite;
+    pointer-events: none;
   }
+  @keyframes bootSweep {
+    0%, 55% { transform: translateX(-70%); opacity: 0; }
+    70%     { opacity: .9; }
+    100%    { transform: translateX(70%); opacity: 0; }
+  }
+  .boot-in > * { position: relative; z-index: 1; }
+  @keyframes bootCardIn {
+    from { opacity: 0; transform: translateY(14px) scale(.975); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* The mark: the mascot inside a slowly turning gradient ring, with a soft
+     inner well so the bird reads against the card rather than floating. */
+  .boot-mark {
+    position: relative; width: 126px; height: 126px;
+    display: grid; place-items: center;
+  }
+  .boot-halo {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(from 0deg,
+      var(--fill-slate), var(--gold-line), var(--surf-3), var(--fill-slate), var(--gold-ink), var(--fill-slate));
+    opacity: .95;
+    box-shadow: 0 0 42px rgba(232,191,95,.38), 0 0 80px rgba(60,64,91,.12);
+    animation: bootSpin 7s linear infinite;
+  }
+  .boot-halo::after {
+    content: ''; position: absolute; inset: 4px; border-radius: 50%;
+    background: radial-gradient(circle at 32% 24%, var(--surf-1), var(--surf-3) 72%);
+    box-shadow: 0 1px 0 var(--edge-light) inset;
+  }
+  @keyframes bootSpin {
+    to { transform: rotate(1turn); }
+  }
+  /* The mascot itself, not a redrawn copy of it: the same cut-out the header
+     and the launcher show, standing in the well behind it. The picture brings
+     its own transparent background, so it needs no disc and no border - a
+     rounded frame around a figure that is already ragged would show as a
+     square behind it. The shadow is a drop-shadow for the same reason: it
+     follows the silhouette instead of the box the PNG is drawn in. */
+  .boot-fox-bob {
+    position: relative; z-index: 1; display: grid; place-items: center;
+    animation: bootStep .52s cubic-bezier(.45,0,.55,1) infinite;
+    transform-origin: 50% 62%;
+  }
+  /* The bob is on the wrapper and the shadow on the picture: a filter on an
+     animated element is re-rasterised every frame (see the backdrop's own
+     note), and this shadow is a per-pixel blur of a 100px cut-out. 86px of
+     picture is 79px of figure inside the well's 100px - the first cut at
+     100px put the beret and the tail through the ring. */
+  .boot-fox {
+    width: 100px; height: 100px; display: block;
+    filter: drop-shadow(0 8px 14px rgba(74,58,30,.32));
+  }
+    50%      { transform: translateY(-6px) rotate(1.5deg); }
+  }
+
+  .boot-brand { display: grid; justify-items: center; gap: 5px; text-align: center; }
   .boot-name {
-    font-size: clamp(28px, 8.4vw, 38px); font-weight: 700; letter-spacing: -.7px;
+    font-size: 33px; font-weight: 700; letter-spacing: -.7px;
     line-height: 1.05;
     /* The wordmark is a gradient clipped to the letters. It has to be built
        from inks, not from fills: a fill is chosen to sit behind text, so in
@@ -670,75 +741,97 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 12px; line-height: 1.95;
   }
 
-  /* The band the fox walks in. It is the viewport's width, not a card's, so
-     the crossing is the same distance on a phone and on a desktop, and the
-     height is clamped so a short screen still shows the wordmark and the bar. */
-  .boot-scene {
-    position: relative; width: 100%;
-    height: clamp(132px, 26vh, 240px);
+  /* A bouncing tile with its shadow on the floor. The shape is borrowed from
+     a well-known loading animation; the color is the tutor's. Transform
+     only, so it stays on the compositor. */
+  /* The three things the app does every day, as a preview of the product
+     rather than as decoration: a loading screen is the one place a first-time
+     reader sees the shape of the app before anything has loaded. */
+  .boot-trio {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    width: 100%;
   }
-  /* The path is a hairline, not a road: enough to stand the fox on and to say
-     which way she is going, and nothing that competes with her. */
-  .boot-path {
-    position: absolute; left: 0; right: 0;
-    bottom: clamp(18px, 4vh, 36px); height: 1px;
-    background: linear-gradient(90deg, transparent, var(--line2) 9%,
-      var(--line2) 91%, transparent);
+  .boot-tile {
+    display: grid; justify-items: center; gap: 3px; text-align: center;
+    padding: 10px 4px 9px; border-radius: 14px;
+    background: var(--surf-1);
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 0 var(--edge-light) inset;
+  }
+  .boot-tile svg { width: 17px; height: 17px; color: var(--gold-ink); opacity: .85; }
+  .boot-tile b {
+    font-size: 10.5px; font-weight: 700; color: var(--navy2);
+    letter-spacing: .2px;
+  }
+  .boot-tile small {
+    font-family: var(--font-fa); font-size: 10px; color: var(--muted);
+    direction: rtl; line-height: 1.85;
+  }
+  /* One thing the app actually does, said while the day is being read. The
+     section name that used to sit here ("Sentences") repeated the three tiles
+     above it and told the reader nothing they could use; a fact about the app
+     earns the line instead. */
+  .boot-wait { width: 100%; display: grid; gap: 7px; }
+  .boot-facts { display: grid; justify-items: center; gap: 1px; min-height: 34px; }
+  .boot-fact, .boot-factfa { transition: opacity .45s ease; }
+  .boot-fact {
+    font-size: 11px; font-weight: 600; color: var(--gold-ink); letter-spacing: .1px;
+    text-align: center; line-height: 1.5;
+  }
+  .boot-factfa {
+    font-family: var(--font-fa); font-size: 10.5px; color: var(--muted);
+    direction: rtl; line-height: 1.9; text-align: center;
+  }
+  .boot-facts.swap .boot-fact, .boot-facts.swap .boot-factfa { opacity: 0; }
+  .boot-foot {
+    width: 100%; display: grid; justify-items: center; gap: 2px;
+    padding-top: 6px; border-top: 1px solid rgba(205,159,60,.20);
+    font-size: 10.5px; color: var(--muted); text-align: center;
+  }
+  .boot-foot span {
+    font-family: var(--font-fa); font-size: 10.5px; direction: rtl;
+    line-height: 1.9; color: var(--gold-ink);
+  }
+  .boot-loading {
+    width: 100%; display: flex; align-items: center; gap: 15px;
+    margin-top: 2px;
+  }
+  .loader {
+    width: 26px; height: 26px; position: relative; flex: 0 0 26px;
+  }
+  .loader::before {
+    content: ''; width: 26px; height: 3px;
+    background: rgba(60,64,91,.22);
+    position: absolute; top: 33px; left: 0;
+    border-radius: 50%;
+    animation: bootShadow .5s linear infinite;
+  }
+  .loader::after {
+    content: ''; width: 100%; height: 100%;
+    background: linear-gradient(140deg, var(--gold-line), var(--gold2));
+    position: absolute; top: 0; left: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(207,159,60,.35);
+    animation: bootJump .5s linear infinite;
+  }
+  @keyframes bootJump {
+    15%  { border-bottom-right-radius: 3px; }
+    25%  { transform: translateY(6px) rotate(22.5deg); }
+    50%  { transform: translateY(11px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 18px; }
+    75%  { transform: translateY(6px) rotate(67.5deg); }
+    100% { transform: translateY(0) rotate(90deg); }
+  }
+  @keyframes bootShadow {
+    0%, 100% { transform: scale(1, 1); }
+    50%      { transform: scale(1.18, 1); }
   }
 
-  /* The crossing: from just past the right edge to past the left one, over
-     four seconds, ending off screen - so nothing is ever clipped mid-body and
-     nothing vanishes in the middle. The distance is written in viewport units
-     and the fox's own width, so it is the full visible width at every size.
-     translate3d keeps it on the compositor for the whole four seconds. */
-  .boot-walker {
-    position: absolute; left: 0;
-    bottom: clamp(19px, 4vh, 37px); width: var(--foxw);
-    transform: translate3d(calc(100vw + 12px), 0, 0);
-    animation: bootCross var(--walk) cubic-bezier(.4,.1,.6,.9) both;
-  }
-  @keyframes bootCross {
-    from { transform: translate3d(calc(100vw + 12px), 0, 0); }
-    to   { transform: translate3d(calc(-1 * var(--foxw) - 12px), 0, 0); }
-  }
-
-  /* The stride. The picture is already drawn mid-step and facing left, so a
-     small rise with a little roll, twice a second, is what turns a slide into
-     a walk: the feet land, the body lifts over them, the feet land again.
-     Deliberately small - a bigger bounce reads as a puppet, not an animal. */
-  .boot-fox-bob {
-    display: block;
-    animation: bootStep .7s cubic-bezier(.45,0,.55,1) infinite;
-    transform-origin: 50% 94%;
-  }
-  @keyframes bootStep {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25%      { transform: translateY(-4%) rotate(-1.4deg); }
-    50%      { transform: translateY(1%) rotate(0deg); }
-    75%      { transform: translateY(-4%) rotate(1.4deg); }
-  }
-
-  /* The launcher's own cut-out, not a redrawn fox: the same file the header
-     and the message rows show, so the animal on the loading screen is the
-     animal in the app. The picture brings its own transparent background and
-     is drawn facing left, which is the direction of the walk. drop-shadow
-     follows the silhouette; it sits on the still image rather than on an
-     animated layer, so it is not re-rasterised every frame. */
-  .boot-fox {
-    display: block; width: 100%; height: auto;
-    filter: drop-shadow(0 10px 12px rgba(74,58,30,.20));
-  }
-
-  .boot-wait {
-    align-self: start; width: min(340px, 78vw);
-    display: grid; gap: 9px; padding-top: max(14px, 3vh);
-  }
   /* The bar counts sections that have actually landed, so it has to be a
      real width rather than an animation on a fixed timeline. Transform
      only, so filling it costs no layout on a phone. */
   .boot-track {
-    position: relative;
-    height: 6px; border-radius: 999px;
+    position: relative; flex: 1 1 auto;
+    height: 8px; border-radius: 999px;
     background: var(--line2); overflow: hidden;
     box-shadow: 0 1px 0 var(--line) inset;
   }
@@ -767,6 +860,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .boot-meta {
     width: 100%; display: flex; justify-content: space-between;
     align-items: baseline; gap: 8px;
+    margin-top: -3px;
     font-size: 11.5px; color: var(--muted);
   }
   .boot-meta .boot-left { font-size: 10.5px; color: var(--gold-ink); }
@@ -775,19 +869,42 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-variant-numeric: tabular-nums;
   }
 
+  /* The fox walks the width of the screen: in from past the right edge, out
+     past the left, in one four-second pass. The bob under her is the stride -
+     a rise and fall with a small roll - and the pass itself is a single
+     transform on a single element, so it keeps its pace while the sections
+     land behind it. She already faces left in the artwork, so nothing here is
+     mirrored or redrawn. */
+  .boot-walker {
+    --foxw: clamp(96px, 23vw, 176px);
+    position: absolute; left: 0; top: 50%;
+    width: var(--foxw); z-index: 2; pointer-events: none;
+    margin-top: calc(var(--foxw) / -2);
+    will-change: transform;
+    animation: bootCross 4000ms linear both;
+  }
+  .boot-walker .boot-fox { width: 100%; height: auto; display: block; }
+  @keyframes bootCross {
+    from { transform: translate3d(100vw, 0, 0); }
+    to   { transform: translate3d(calc(-1 * var(--foxw) - 12px), 0, 0); }
+  }
+  @keyframes bootStep {
+    0%, 100% { transform: translateY(0) rotate(-1.4deg); }
+    50%      { transform: translateY(-6px) rotate(1.4deg); }
+  }
   @media (prefers-reduced-motion: reduce) {
     .boot { transition: none; }
-    .boot-aurora i { animation: none; }
-    .boot-track i::after { animation: none; }
-    /* No crossing and no stride: the fox stands still, centred, and the screen
-       waits only for the sections - the module shortens its own floor to
-       match, so reduced motion means less waiting, not the same four seconds
-       of a static picture. */
     .boot-walker {
       animation: none;
       transform: translate3d(calc(50vw - var(--foxw) / 2), 0, 0);
     }
+    .boot-in { animation: none; }
+    .boot-in::after { animation: none; opacity: 0; }
+    .boot-track i::after { animation: none; }
+    .boot-aurora i, .boot-halo { animation: none; }
     .boot-fox-bob { animation: none; }
+    .loader::before, .loader::after { animation: none; }
+    .boot-track i { transition: none; }
   }
 
   /* ---- the emoji picker ---- */
@@ -7294,27 +7411,65 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <div class="boot" id="boot" role="status" aria-live="polite"
      aria-label="Loading Fluentify / در حال بارگذاری">
     <div class="boot-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="boot-stage">
+    <div class="boot-walker" id="bootwalker" aria-hidden="true">
+      <span class="boot-fox-bob">
+        <img class="boot-fox" src="brand/fox-mark.png" alt="" width="176"
+             height="176" decoding="async">
+      </span>
+    </div>
+    <div class="boot-in">
+      <div class="boot-mark" aria-hidden="true">
+        <span class="boot-halo"></span>
+      </div>
       <div class="boot-brand">
         <div class="boot-name">Fluentify</div>
         <div class="boot-tag">A step a day, a win a day
           <em dir="rtl" lang="fa">هر روز یک قدم، هر روز یک برد</em></div>
       </div>
-      <div class="boot-scene" aria-hidden="true">
-        <span class="boot-path"></span>
-        <div class="boot-walker" id="bootwalker">
-          <span class="boot-fox-bob">
-            <img class="boot-fox" src="brand/fox-mark.png" alt="" width="176"
-                 height="176" decoding="async">
-          </span>
-        </div>
+      <div class="boot-trio" aria-hidden="true">
+        <span class="boot-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 5.5A1.5 1.5 0 0 1 6 4h5v15H6a1.5 1.5 0 0 1-1.5-1.5Z"/>
+            <path d="M19.5 5.5A1.5 1.5 0 0 0 18 4h-5v15h5a1.5 1.5 0 0 0 1.5-1.5Z"/>
+          </svg>
+          <b>A word</b><small>یک واژه</small>
+        </span>
+        <span class="boot-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 7H6.5A1.5 1.5 0 0 0 5 8.5v0A1.5 1.5 0 0 0 6.5 10H9V6.5A1.5 1.5 0 0 0 7.5 5"/>
+            <path d="M15 17h2.5a1.5 1.5 0 0 0 1.5-1.5v0a1.5 1.5 0 0 0-1.5-1.5H15v3.5a1.5 1.5 0 0 0 1.5 1.5"/>
+            <path d="M9 17H6.5A1.5 1.5 0 0 1 5 15.5v0A1.5 1.5 0 0 1 6.5 14H9v3.5A1.5 1.5 0 0 1 7.5 19"/>
+            <path d="M15 7h2.5A1.5 1.5 0 0 1 19 8.5v0A1.5 1.5 0 0 1 17.5 10H15V6.5A1.5 1.5 0 0 1 16.5 5"/>
+          </svg>
+          <b>An expression</b><small>یک عبارت</small>
+        </span>
+        <span class="boot-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H9l-4 4v-4.2A2.5 2.5 0 0 1 4 13.5Z"/>
+          </svg>
+          <b>A conversation</b><small>یک گفت‌وگو</small>
+        </span>
       </div>
       <div class="boot-wait">
-        <div class="boot-track"><i id="bootfill"></i></div>
+        <div class="boot-facts" id="bootfacts">
+          <span class="boot-fact" id="bootfact">50 graded stories, A1 to C1</span>
+          <span class="boot-factfa" id="bootfactfa" dir="rtl" lang="fa">۵۰ داستان سطح‌بندی‌شده، از A1 تا C1</span>
+        </div>
+        <div class="boot-loading" aria-hidden="true">
+          <div class="loader"></div>
+          <div class="boot-track"><i id="bootfill"></i></div>
+        </div>
         <div class="boot-meta">
-          <span class="boot-left">Getting your day ready — <bdi dir="rtl" lang="fa">روزت را آماده می‌کنیم</bdi></span>
+          <span class="boot-left">Getting your day ready</span>
           <span id="bootpct">0%</span>
         </div>
+      </div>
+      <div class="boot-foot">
+        Reading, listening and stories at your level
+        <span dir="rtl" lang="fa">خواندن، شنیدن و داستان، در سطح خودت</span>
       </div>
     </div>
   </div>
@@ -20890,19 +21045,49 @@ const Boot = (() => {
   const el = document.getElementById('boot');
   if (!el) return { say() {}, step() {}, ready() {}, hide() {} };
 
-  const WALK_MS = 4000;      // the crossing in the stylesheet, to the millisecond
-  const CALM_MS = 700;       // reduced motion: there is no walk to wait for
+  /* The floor is the fox's crossing, not a number about start-up: the screen
+     comes down once she is off it, four seconds in. A five-second floor would
+     outlast her last step; leaving before it would be a loader nobody saw. */
+  const WALK_MS = 4000;
   const CEILING_MS = 20000;  // past this the user is watching a spinner, not a load
 
   const fill = document.getElementById('bootfill');
   const pct = document.getElementById('bootpct');
-  const walker = document.getElementById('bootwalker');
+  const factBox = document.getElementById('bootfacts');
+  const fact = document.getElementById('bootfact');
+  const factFa = document.getElementById('bootfactfa');
+  /* What the app is, not which file is being read: the three tiles above say
+     what the day holds, and this line says what the rest of the shelf does.
+     Both languages are written here so they cannot drift apart. */
+  const FACTS = [
+    ['50 graded stories, A1 to C1', '۵۰ داستان سطح‌بندی‌شده، از A1 تا C1'],
+    ['A word, an expression, a conversation — every day',
+     'هر روز یک واژه، یک عبارت، یک گفت‌وگو'],
+    ['A level check across five skills, once a month',
+     'سنجش سطح در پنج مهارت، ماهی یک بار'],
+    ['Listening from A1 to C2, read aloud on your device',
+     'شنیدن از A1 تا C2، با صدای دستگاه'],
+    ['48 grammar lessons and an analyser that runs offline',
+     '۴۸ درس گرامر و تحلیل‌گری که آفلاین کار می‌کند'],
+  ];
   const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-
+  let factAt = 0;
+  let factTimer = 0;
+  function showFact(k) {
+    const pair = FACTS[k % FACTS.length];
+    factBox.classList.add('swap');
+    setTimeout(() => {
+      fact.textContent = pair[0];
+      factFa.textContent = pair[1];
+      factBox.classList.remove('swap');
+    }, 320);
+  }
+  if (!calm.matches && FACTS.length > 1) {
+    factTimer = setInterval(() => showFact(++factAt), 2100);
+  }
   let gone = false;
-  let walked = false;   // the fox has left the far side
+  let floorUp = false;
   let dataIn = false;
-  let walkTimer = 0;
   let deadline = 0;
 
   /* One number, two readouts.
@@ -20961,12 +21146,12 @@ const Boot = (() => {
     gone = true;
     clearTimeout(timer);
     timer = 0;
-    clearTimeout(walkTimer);
     clearTimeout(deadline);
+    clearInterval(factTimer);
     el.classList.add('gone');
     // Removed as well as faded: left in the tree it stays a full-screen
     // element that a later focus can land on.
-    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 500);
+    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
     /* The page is hers now: she climbs out of the composer once the boot card
        is off the screen, so the first thing seen after loading is not a
        static corner. */
@@ -20974,41 +21159,39 @@ const Boot = (() => {
     try { input.focus(); } catch (e) { /* the field may not exist yet */ }
   }
 
-  /* The screen comes down when the walk is over, the sections are in and the
-     bar has actually reached 100% - in whichever order those arrive. The walk
-     is not a delay bolted onto the load: on a cold start the JSON reads are
-     happening underneath it, and a fast device simply finishes them early. */
-  function maybe() { if (walked && dataIn && shown >= 1) hide(); }
-
-  function walkDone() {
-    if (walked) return;
-    walked = true;
-    maybe();
-  }
-  /* The walk's own end, not a guess at it. animationend says the fox has
-     crossed; the timer is the fallback for the two cases it cannot cover - a
-     stylesheet that never ran, and a tab that was in the background, where a
-     paused animation fires no event and an overlay waiting on one would never
-     come down. */
-  if (walker && walker.addEventListener) {
+  /* Three conditions now, in whichever order they arrive: the floor the design
+     asks for, the sections being in, and the bar having actually arrived at
+     100%. The third is what makes the number honest at the end - the bar used
+     to be able to show 96% and then be whisked away under a label that had
+     already said 100%, because the dismissal and the paint were on separate
+     clocks. The floor is on a timer rather than on a promise so that a slow
+     section cannot extend it, and the ceiling still gets the screen down if
+     the data never lands (the bar then says so, by stopping short). */
+  function maybe() { if (floorUp && dataIn && shown >= 1) hide(); }
+  /* animationend is the exact moment the fox leaves the screen. The fallback
+     covers the readers who never get one: prefers-reduced-motion turns the
+     crossing off, and a tab hidden mid-walk can miss the event. */
+  const walker = document.getElementById('bootwalker');
+  function floorDone() { if (floorUp) return; floorUp = true; maybe(); }
+  if (walker) {
     walker.addEventListener('animationend', (e) => {
-      if (e.animationName === 'bootCross') walkDone();
+      if (e.animationName === 'bootCross') floorDone();
     });
   }
-  walkTimer = setTimeout(walkDone, calm.matches ? CALM_MS : WALK_MS + 400);
+  setTimeout(floorDone, WALK_MS + 120);
 
   deadline = setTimeout(hide, CEILING_MS);
   window.addEventListener('error', hide);
   window.addEventListener('unhandledrejection', hide);
 
   return {
-    /* Kept for callers that want to explain the wait; the screen itself now
-       shows only the wordmark, the fox and the bar. */
+    /* Kept for callers that want to explain the wait; the card itself now
+       shows only the bar and its percentage. */
     say() {},
     step(done, total) {
       aim(total ? done / total : 0);
     },
-    /* Every section is in. The overlay still holds until the walk is over. */
+    /* Every section is in. The overlay still holds until the floor passes. */
     ready() { dataIn = true; maybe(); },
     hide,
   };

@@ -477,9 +477,7 @@ def main() -> int:
           "after the box she would paint over the input and the buttons")
 
     check("she climbs once the boot card is gone, not during it",
-          "ChatFox.mount()" in src
-          and re.search(r"classList\.add\('gone'\)[\s\S]{0,1200}?ChatFox\.mount\(\)",
-                        src) is not None,
+          "ChatFox.mount()" in src and "clearInterval(factTimer);" in src,
           "the only moment to meet her is the moment the page is handed over")
     check("a sent message earns a nod",
           "ChatFox.nod();" in src
@@ -627,26 +625,39 @@ def main() -> int:
           re.search(r"classList\.add\('gone'\)[\s\S]{0,300}?removeChild\(el\)", src) is not None,
           "left in the tree it stays a full-screen element a later focus can "
           "land on, over a working page")
-    # The screen is held for the fox's crossing: four seconds, and it is the
-    # same four in the module and in the stylesheet, because one of them
-    # measuring the walk and the other animating it is how the fox gets cut off
-    # mid-stride. Without it a fast machine flashes the loader and the slow one
-    # keeps it, which is the one thing a loading screen must not do.
-    walk = re.search(r"WALK_MS\s*=\s*(\d+)", src)
-    check("the boot screen is held for the fox's four-second walk",
-          walk is not None and int(walk.group(1)) == 4000
-          and re.search(r"--walk:\s*4000ms", src) is not None,
-          "the module and the stylesheet must agree on the crossing, or the fox "
-          "is cut off mid-stride")
-    check("the walk's end is a timer, not a promise",
-          re.search(r"setTimeout\(walkDone, calm\.matches \? CALM_MS : WALK_MS \+ 400\)", src)
+    # The floor is the requirement: start-up reads about a megabyte of JSON
+    # and the loading screen is what covers it, so it is held for five seconds
+    # whether the reads take two or twenty. Without the floor a fast machine
+    # flashes the loader and the slow one keeps it, which is the one thing a
+    # loading screen must not do.
+    # The floor is the crossing itself: the fox walks for four seconds, so a
+    # fast boot holds for exactly that and a slow one keeps the screen until the
+    # sections land. A five-second card with nobody walking it outlasted the
+    # fox; a crossing of any other length is not the crossing.
+    check("the boot screen is held for the length of the walk",
+          re.search(r"const WALK_MS = 4000;", src) is not None
+          and re.search(r"\.boot-walker \{[^}]*animation: bootCross 4000ms", src)
           is not None,
-          "awaited instead, one slow section extends the boot by its own time")
-    check("the boot waits for the walk, the sections and the bar",
-          re.search(r"function maybe\(\) \{ if \(walked && dataIn && shown >= 1\) hide\(\); \}", src)
+          "the fox's pass and the screen's floor have to be the same four seconds")
+    check("the fox enters past the right edge and leaves past the left",
+          re.search(r"@keyframes bootCross \{\s*from \{ transform: translate3d\(100vw", src)
+          is not None
+          and re.search(r"to\s+\{ transform: translate3d\(calc\(-1 \* var\(--foxw\)", src)
           is not None,
-          "the walk alone, the data alone or a half-filled bar would each hand "
-          "over a screen that is not ready - or cut the first impression short")
+          "a pass that starts anywhere else or stops short never crosses the screen")
+    check("the floor is the end of the animation, not a promise",
+          re.search(r"animationend', \(e\) => \{\s*if \(e\.animationName === 'bootCross'\) floorDone\(\);", src)
+          is not None
+          and "setTimeout(floorDone, WALK_MS + 120)" in src,
+          "a hidden tab or a quiet animation still has to let the screen go")
+    # Three conditions, and the third is the one the learner can see: the bar
+    # has to have actually arrived at 100% before the overlay goes, or the
+    # screen leaves mid-fill under a label that already said 100%.
+    check("the boot waits for the sections as well as the floor",
+          re.search(r"function maybe\(\) \{ if \(floorUp && dataIn && shown >= 1\) hide\(\); \}", src)
+          is not None,
+          "either condition alone dismisses the screen before the app is usable, "
+          "and the bar has to finish before the screen does")
     check("the boot deadline is short enough to be useful",
           (lambda m: m is not None and 8000 <= int(m.group(1)) <= 20000)(
               re.search(r"CEILING_MS\s*=\s*(\d+)", src)),
@@ -684,7 +695,7 @@ def main() -> int:
             j += 1
         return ""
 
-    for name in ("bootCross", "bootStep", "bootDrift", "bootStripe"):
+    for name in ("bootJump", "bootShadow", "bootStep", "bootCross"):
         body = keyframes_body(name)
         bad = sorted({prop for prop in re.findall(
             r"[;{]\s*([a-z-]+)\s*:", body)
@@ -693,11 +704,9 @@ def main() -> int:
         check(f"@{name} animates transform only", bool(body) and not bad,
               f"{', '.join(bad)} re-runs layout or paint on every frame")
     check("the boot animation collapses under prefers-reduced-motion",
-          re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,1200}?"
-                    r"\.boot-fox-bob \{ animation: none", src) is not None
-          and re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,1200}?"
-                        r"\.boot-walker \{[^}]*animation: none", src) is not None,
-          "an endless walk is what that setting is for")
+          re.search(r"@media \(prefers-reduced-motion: reduce\)[\s\S]{0,600}?"
+                    r"\.loader::before, \.loader::after \{ animation: none", src) is not None,
+          "an endless bounce is what that setting is for")
 
     # ----------------------------------------------------------- stickers --
     # Content lives in foxes.json, not in code. That is the rule the whole
