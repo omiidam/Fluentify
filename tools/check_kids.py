@@ -87,7 +87,7 @@ def quiz_ok(item, label):
 
 def check_words(data):
     themes = data.get("words") or []
-    check(len(themes) == 6, f"the word bank has {len(themes)} themes, expected 6")
+    check(len(themes) == 7, f"the word bank has {len(themes)} themes, expected 7")
     total = 0
     for theme in themes:
         name = theme.get("title_en") or theme.get("id")
@@ -116,7 +116,7 @@ def check_words(data):
 
 def check_grammar(data):
     lessons = data.get("grammar") or []
-    check(len(lessons) == 6, f"there are {len(lessons)} mini lessons, expected 6")
+    check(len(lessons) == 8, f"there are {len(lessons)} mini lessons, expected 8")
     items = 0
     for lesson in lessons:
         name = lesson.get("title_en") or lesson.get("id")
@@ -142,7 +142,7 @@ def check_grammar(data):
 
 def check_stories(data):
     stories = data.get("stories") or []
-    check(len(stories) == 3, f"there are {len(stories)} stories, expected 3")
+    check(len(stories) == 4, f"there are {len(stories)} stories, expected 4")
     for story in stories:
         name = story.get("title_en") or story.get("id")
         check(bool(PERSIAN.search(story.get("title_fa") or "")),
@@ -160,7 +160,7 @@ def check_stories(data):
 
 def check_reading(data):
     passages = data.get("reading") or []
-    check(len(passages) == 3, f"there are {len(passages)} passages, expected 3")
+    check(len(passages) == 4, f"there are {len(passages)} passages, expected 4")
     for passage in passages:
         name = passage.get("title_en") or passage.get("id")
         body = passage.get("text_en") or ""
@@ -177,7 +177,7 @@ def check_reading(data):
 
 def check_listening(data):
     clips = data.get("listening") or []
-    check(len(clips) == 4, f"there are {len(clips)} listening clips, expected 4")
+    check(len(clips) == 5, f"there are {len(clips)} listening clips, expected 5")
     for clip in clips:
         name = clip.get("title_en") or clip.get("id")
         check(bool(PERSIAN.search(clip.get("title_fa") or "")),
@@ -192,7 +192,7 @@ def check_listening(data):
 
 def check_phrases(data):
     sets = data.get("phrases") or []
-    check(len(sets) == 4, f"there are {len(sets)} phrase sets, expected 4")
+    check(len(sets) == 5, f"there are {len(sets)} phrase sets, expected 5")
     for group in sets:
         name = group.get("title_en") or group.get("id")
         check(bool(PERSIAN.search(group.get("title_fa") or "")),
@@ -532,7 +532,7 @@ def main():
         print(f"\nFAIL  {len(problems)} problem(s) in the kids experience")
         return 1
 
-    print(f"\nPASS  {stats.get('words')} kid words in 6 themes, "
+    print(f"\nPASS  {stats.get('words')} kid words in 7 themes, "
           f"{stats.get('grammar')} mini lessons with {stats.get('quiz')} quiz items, "
           f"3 stories, 3 passages, 4 listening clips, 4 phrase sets and a "
           "kid-safe chat; ages below 15 are classified on the page and in the "

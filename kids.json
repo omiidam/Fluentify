@@ -1,433 +1,1653 @@
 {
-  "version": 1,
-  "words": [
+ "version": 1,
+ "words": [
+  {
+   "id": "school",
+   "title_en": "At school",
+   "title_fa": "در مدرسه",
+   "emoji": "🎒",
+   "words": [
     {
-      "id": "school",
-      "title_en": "At school",
-      "title_fa": "در مدرسه",
-      "emoji": "🎒",
-      "words": [
-        {"word": "book", "fa": "کتاب", "def_en": "Pages with words that you read.", "example_en": "This book has a funny story.", "example_fa": "این کتاب یک داستان خنده‌دار دارد."},
-        {"word": "pencil", "fa": "مداد", "def_en": "A thin stick you write with.", "example_en": "My pencil is yellow and sharp.", "example_fa": "مداد من زرد و نوک‌تیز است."},
-        {"word": "teacher", "fa": "معلم", "def_en": "The person who helps you learn at school.", "example_en": "Our teacher reads to us every day.", "example_fa": "معلم ما هر روز برایمان کتاب می‌خواند."},
-        {"word": "desk", "fa": "میز تحریر", "def_en": "A table where you sit and work.", "example_en": "My desk is next to the window.", "example_fa": "میز من کنار پنجره است."},
-        {"word": "bag", "fa": "کیف", "def_en": "Something you carry your books in.", "example_en": "My bag is too heavy today.", "example_fa": "کیف من امروز خیلی سنگین است."},
-        {"word": "class", "fa": "کلاس", "def_en": "A group of children who learn together.", "example_en": "Our class has twenty children.", "example_fa": "کلاس ما بیست بچه دارد."}
-      ]
+     "word": "book",
+     "fa": "کتاب",
+     "def_en": "Pages with words that you read.",
+     "example_en": "This book has a funny story.",
+     "example_fa": "این کتاب یک داستان خنده‌دار دارد."
     },
     {
-      "id": "family",
-      "title_en": "My family",
-      "title_fa": "خانوادهٔ من",
-      "emoji": "👨‍👩‍👧",
-      "words": [
-        {"word": "mother", "fa": "مادر", "def_en": "The woman who takes care of you.", "example_en": "My mother makes the best soup.", "example_fa": "مادرم بهترین سوپ را درست می‌کند."},
-        {"word": "father", "fa": "پدر", "def_en": "The man who takes care of you.", "example_en": "My father tells funny stories.", "example_fa": "پدرم داستان‌های خنده‌دار تعریف می‌کند."},
-        {"word": "sister", "fa": "خواهر", "def_en": "A girl with the same parents as you.", "example_en": "My sister is six years old.", "example_fa": "خواهرم شش سال دارد."},
-        {"word": "brother", "fa": "برادر", "def_en": "A boy with the same parents as you.", "example_en": "My brother plays with me after school.", "example_fa": "برادرم بعد از مدرسه با من بازی می‌کند."},
-        {"word": "grandmother", "fa": "مادربزرگ", "def_en": "The mother of your mother or father.", "example_en": "My grandmother has a small garden.", "example_fa": "مادربزرگم یک باغچهٔ کوچک دارد."},
-        {"word": "cousin", "fa": "پسرخاله", "def_en": "The child of your aunt or uncle.", "example_en": "My cousin lives in another city.", "example_fa": "پسرخالهٔ من در شهر دیگری زندگی می‌کند."}
-      ]
+     "word": "pencil",
+     "fa": "مداد",
+     "def_en": "A thin stick you write with.",
+     "example_en": "My pencil is yellow and sharp.",
+     "example_fa": "مداد من زرد و نوک‌تیز است."
     },
     {
-      "id": "animals",
-      "title_en": "Animals",
-      "title_fa": "جانوران",
-      "emoji": "🐾",
-      "words": [
-        {"word": "cat", "fa": "گربه", "def_en": "A small animal with soft fur.", "example_en": "The cat sleeps on my bed.", "example_fa": "گربه روی تخت من می‌خوابد."},
-        {"word": "dog", "fa": "سگ", "def_en": "A friendly animal that likes to run.", "example_en": "Our dog runs after the ball.", "example_fa": "سگ ما دنبال توپ می‌دود."},
-        {"word": "bird", "fa": "پرنده", "def_en": "An animal with wings that can fly.", "example_en": "A bird sings near my window.", "example_fa": "پرنده‌ای نزدیک پنجرهٔ من آواز می‌خواند."},
-        {"word": "rabbit", "fa": "خرگوش", "def_en": "A small animal with long ears.", "example_en": "The rabbit eats a carrot.", "example_fa": "خرگوش یک هویج می‌خورد."},
-        {"word": "horse", "fa": "اسب", "def_en": "A big animal that people can ride.", "example_en": "The horse is brown and tall.", "example_fa": "اسب قهوه‌ای و بلند است."},
-        {"word": "fish", "fa": "ماهی", "def_en": "An animal that lives in water.", "example_en": "Two fish swim in the pond.", "example_fa": "دو ماهی در برکه شنا می‌کنند."}
-      ]
+     "word": "teacher",
+     "fa": "معلم",
+     "def_en": "The person who helps you learn at school.",
+     "example_en": "Our teacher reads to us every day.",
+     "example_fa": "معلم ما هر روز برایمان کتاب می‌خواند."
     },
     {
-      "id": "food",
-      "title_en": "Food",
-      "title_fa": "خوراکی‌ها",
-      "emoji": "🍎",
-      "words": [
-        {"word": "apple", "fa": "سیب", "def_en": "A round fruit that can be red or green.", "example_en": "I eat an apple at break time.", "example_fa": "من در زنگ تفریح یک سیب می‌خورم."},
-        {"word": "bread", "fa": "نان", "def_en": "A food made from flour and baked.", "example_en": "Warm bread smells wonderful.", "example_fa": "نان گرم بوی خیلی خوبی دارد."},
-        {"word": "milk", "fa": "شیر", "def_en": "A white drink that comes from cows.", "example_en": "I drink milk with my breakfast.", "example_fa": "من صبحانه‌ام را با شیر می‌خورم."},
-        {"word": "rice", "fa": "برنج", "def_en": "Small white grains that you cook.", "example_en": "We eat rice with vegetables.", "example_fa": "ما برنج را با سبزیجات می‌خوریم."},
-        {"word": "egg", "fa": "تخم‌مرغ", "def_en": "A food with a shell and a yellow center.", "example_en": "She cooks an egg for lunch.", "example_fa": "او برای ناهار یک تخم‌مرغ می‌پزد."},
-        {"word": "cake", "fa": "کیک", "def_en": "A sweet food for a birthday or a party.", "example_en": "The cake has six candles.", "example_fa": "کیک شش شمع دارد."}
-      ]
+     "word": "desk",
+     "fa": "میز تحریر",
+     "def_en": "A table where you sit and work.",
+     "example_en": "My desk is next to the window.",
+     "example_fa": "میز من کنار پنجره است."
     },
     {
-      "id": "play",
-      "title_en": "Play and games",
-      "title_fa": "بازی و ورزش",
-      "emoji": "⚽",
-      "words": [
-        {"word": "ball", "fa": "توپ", "def_en": "A round thing you throw or kick.", "example_en": "We play with a red ball.", "example_fa": "ما با یک توپ قرمز بازی می‌کنیم."},
-        {"word": "game", "fa": "بازی", "def_en": "Something you play with friends for fun.", "example_en": "This game is easy to learn.", "example_fa": "یاد گرفتن این بازی آسان است."},
-        {"word": "jump", "fa": "پریدن", "def_en": "To push yourself up into the air.", "example_en": "The children jump over the line.", "example_fa": "بچه‌ها از روی خط می‌پرند."},
-        {"word": "run", "fa": "دویدن", "def_en": "To move quickly on your feet.", "example_en": "I run to the gate every morning.", "example_fa": "من هر صبح تا دروازه می‌دوم."},
-        {"word": "swim", "fa": "شنا کردن", "def_en": "To move through water with your body.", "example_en": "She can swim very well.", "example_fa": "او خیلی خوب شنا می‌کند."},
-        {"word": "ride", "fa": "سوار شدن", "def_en": "To sit on a bike or a horse and move.", "example_en": "I ride my bike to the park.", "example_fa": "من با دوچرخه‌ام به پارک می‌روم."}
-      ]
+     "word": "bag",
+     "fa": "کیف",
+     "def_en": "Something you carry your books in.",
+     "example_en": "My bag is too heavy today.",
+     "example_fa": "کیف من امروز خیلی سنگین است."
     },
     {
-      "id": "weather",
-      "title_en": "Weather and sky",
-      "title_fa": "آب‌وهوا و آسمان",
-      "emoji": "☀️",
-      "words": [
-        {"word": "sun", "fa": "خورشید", "def_en": "The bright light in the sky by day.", "example_en": "The sun is hot at noon.", "example_fa": "خورشید ظهر گرم است."},
-        {"word": "rain", "fa": "باران", "def_en": "Water that falls from the clouds.", "example_en": "The rain makes the garden green.", "example_fa": "باران باغچه را سبز می‌کند."},
-        {"word": "cloud", "fa": "ابر", "def_en": "A soft white shape in the sky.", "example_en": "One cloud looks like a sheep.", "example_fa": "یک ابر شبیه گوسفند است."},
-        {"word": "wind", "fa": "باد", "def_en": "Air that moves and pushes things.", "example_en": "The wind moves the leaves.", "example_fa": "باد برگ‌ها را جابه‌جا می‌کند."},
-        {"word": "snow", "fa": "برف", "def_en": "Soft white pieces of frozen water.", "example_en": "Snow covers the roof.", "example_fa": "برف پشت‌بام را می‌پوشاند."},
-        {"word": "star", "fa": "ستاره", "def_en": "A small light in the night sky.", "example_en": "The first star comes out at night.", "example_fa": "نخستین ستاره شب بیرون می‌آید."}
-      ]
+     "word": "class",
+     "fa": "کلاس",
+     "def_en": "A group of children who learn together.",
+     "example_en": "Our class has twenty children.",
+     "example_fa": "کلاس ما بیست بچه دارد."
     }
-  ],
-  "grammar": [
+   ]
+  },
+  {
+   "id": "family",
+   "title_en": "My family",
+   "title_fa": "خانوادهٔ من",
+   "emoji": "👨‍👩‍👧",
+   "words": [
     {
-      "id": "to-be",
-      "title_en": "I am, you are, he is",
-      "title_fa": "من هستم، تو هستی، او هست",
-      "emoji": "🙋",
-      "use_en": "Use am with I, are with you and we, and is with he, she and it. This little word tells us who someone is or how they feel.",
-      "use_fa": "با I از am، با you و we از are و با he، she و it از is استفاده کن. این واژهٔ کوچک می‌گوید کسی چه کسی است یا چه حالی دارد.",
-      "examples": [
-        {"en": "I am happy today.", "fa": "من امروز خوشحالم."},
-        {"en": "You are my best friend.", "fa": "تو بهترین دوست من هستی."},
-        {"en": "She is in the garden.", "fa": "او در باغچه است."}
-      ],
-      "quiz": [
-        {"q": "I ___ seven years old.", "options": ["am", "is", "are"], "answer": "am", "why_en": "With I we always use am.", "why_fa": "با I همیشه am می‌آید."},
-        {"q": "My brother ___ at school.", "options": ["am", "is", "are"], "answer": "is", "why_en": "My brother is he, so we use is.", "why_fa": "my brother همان he است، پس is می‌آید."},
-        {"q": "We ___ in the same class.", "options": ["am", "is", "are"], "answer": "are", "why_en": "With we we use are.", "why_fa": "با we فعل are می‌آید."}
-      ]
+     "word": "mother",
+     "fa": "مادر",
+     "def_en": "The woman who takes care of you.",
+     "example_en": "My mother makes the best soup.",
+     "example_fa": "مادرم بهترین سوپ را درست می‌کند."
     },
     {
-      "id": "this-that",
-      "title_en": "This and that",
-      "title_fa": "این و آن",
-      "emoji": "👉",
-      "use_en": "This is for something near you. That is for something far away. Add s to talk about more than one: these and those.",
-      "use_fa": "this برای چیزی است که نزدیک توست. that برای چیزی است که دور است. برای بیش از یکی s اضافه کن: these و those.",
-      "examples": [
-        {"en": "This is my new pencil.", "fa": "این مداد تازهٔ من است."},
-        {"en": "That is the school bus.", "fa": "آن اتوبوس مدرسه است."},
-        {"en": "These books are mine.", "fa": "این کتاب‌ها مال من هستند."}
-      ],
-      "quiz": [
-        {"q": "___ is my chair, here next to me.", "options": ["This", "That", "Those"], "answer": "This", "why_en": "It is near you, and it is one thing.", "why_fa": "نزدیک توست و یکی است."},
-        {"q": "___ birds are far away in the tree.", "options": ["This", "These", "Those"], "answer": "Those", "why_en": "They are far and there is more than one.", "why_fa": "دور هستند و بیش از یکی‌اند."},
-        {"q": "Look at ___ picture in my hand.", "options": ["this", "those", "these"], "answer": "this", "why_en": "One picture, and it is in your hand.", "why_fa": "یک تصویر است و در دست توست."}
-      ]
+     "word": "father",
+     "fa": "پدر",
+     "def_en": "The man who takes care of you.",
+     "example_en": "My father tells funny stories.",
+     "example_fa": "پدرم داستان‌های خنده‌دار تعریف می‌کند."
     },
     {
-      "id": "plurals",
-      "title_en": "One and many",
-      "title_fa": "یکی و چندتا",
-      "emoji": "🔢",
-      "use_en": "Most words take s when there is more than one: one cat, two cats. Some words change in their own way: one child, two children.",
-      "use_fa": "بیشتر واژه‌ها وقتی بیش از یکی باشند s می‌گیرند: one cat، two cats. بعضی واژه‌ها شکل خودشان را عوض می‌کنند: one child، two children.",
-      "examples": [
-        {"en": "I have two cats at home.", "fa": "من دو گربه در خانه دارم."},
-        {"en": "Three children are playing outside.", "fa": "سه بچه بیرون بازی می‌کنند."},
-        {"en": "She reads five books a month.", "fa": "او ماهی پنج کتاب می‌خواند."}
-      ],
-      "quiz": [
-        {"q": "I see four ___ on the grass.", "options": ["bird", "birds", "birdes"], "answer": "birds", "why_en": "More than one bird takes s.", "why_fa": "بیش از یکی bird، پس s می‌گیرد."},
-        {"q": "Two ___ are in the classroom.", "options": ["childs", "children", "child"], "answer": "children", "why_en": "Child has its own plural: children.", "why_fa": "child جمع ویژهٔ خودش را دارد: children."},
-        {"q": "There are three ___ on my plate.", "options": ["apple", "apples", "apple's"], "answer": "apples", "why_en": "Three means more than one, so add s.", "why_fa": "سه یعنی بیشتر از یکی، پس s اضافه می‌شود."}
-      ]
+     "word": "sister",
+     "fa": "خواهر",
+     "def_en": "A girl with the same parents as you.",
+     "example_en": "My sister is six years old.",
+     "example_fa": "خواهرم شش سال دارد."
     },
     {
-      "id": "can",
-      "title_en": "I can jump",
-      "title_fa": "من می‌توانم بپرم",
-      "emoji": "🏃",
-      "use_en": "Can shows that you know how to do something. It never changes and the verb after it stays plain: I can swim, she can swim.",
-      "use_fa": "can نشان می‌دهد کاری را بلدی. شکلش هیچ‌وقت عوض نمی‌شود و فعل بعد از آن ساده می‌ماند: I can swim، she can swim.",
-      "examples": [
-        {"en": "I can ride a bike.", "fa": "من می‌توانم دوچرخه سواری کنم."},
-        {"en": "My sister can sing very well.", "fa": "خواهرم خیلی خوب می‌تواند آواز بخواند."},
-        {"en": "Can you help me, please?", "fa": "می‌توانی لطفاً به من کمک کنی؟"}
-      ],
-      "quiz": [
-        {"q": "He ___ swim in the sea.", "options": ["can", "cans", "can to"], "answer": "can", "why_en": "Can never takes an s.", "why_fa": "can هیچ‌وقت s نمی‌گیرد."},
-        {"q": "They can ___ very fast.", "options": ["run", "runs", "running"], "answer": "run", "why_en": "The verb after can stays plain.", "why_fa": "فعل بعد از can ساده می‌ماند."},
-        {"q": "___ she play the piano?", "options": ["Can", "Cans", "Is"], "answer": "Can", "why_en": "A question about ability starts with can.", "why_fa": "پرسش دربارهٔ توانایی با can شروع می‌شود."}
-      ]
+     "word": "brother",
+     "fa": "برادر",
+     "def_en": "A boy with the same parents as you.",
+     "example_en": "My brother plays with me after school.",
+     "example_fa": "برادرم بعد از مدرسه با من بازی می‌کند."
     },
     {
-      "id": "like",
-      "title_en": "Things I like",
-      "title_fa": "چیزهایی که دوست دارم",
-      "emoji": "💛",
-      "use_en": "Like tells what makes you happy. Put a thing after it, or a verb with -ing: I like apples, I like drawing.",
-      "use_fa": "like می‌گوید چه چیزی خوشحالت می‌کند. بعد از آن یک چیز بگذار، یا فعلی با -ing: I like apples، I like drawing.",
-      "examples": [
-        {"en": "I like apples and grapes.", "fa": "من سیب و انگور دوست دارم."},
-        {"en": "She likes drawing animals.", "fa": "او کشیدن جانوران را دوست دارد."},
-        {"en": "We like to play after school.", "fa": "ما دوست داریم بعد از مدرسه بازی کنیم."}
-      ],
-      "quiz": [
-        {"q": "I like ___ in the rain.", "options": ["dance", "dancing", "dances"], "answer": "dancing", "why_en": "A verb after like can take -ing.", "why_fa": "فعل بعد از like می‌تواند -ing بگیرد."},
-        {"q": "He ___ his little dog.", "options": ["like", "likes", "liking"], "answer": "likes", "why_en": "He takes likes with an s.", "why_fa": "با he فعل likes می‌آید."},
-        {"q": "We like ___ books at bedtime.", "options": ["read", "reading", "reads"], "answer": "reading", "why_en": "Like plus an -ing verb is the pattern.", "why_fa": "الگو، like به‌همراه فعل -ing است."}
-      ]
+     "word": "grandmother",
+     "fa": "مادربزرگ",
+     "def_en": "The mother of your mother or father.",
+     "example_en": "My grandmother has a small garden.",
+     "example_fa": "مادربزرگم یک باغچهٔ کوچک دارد."
     },
     {
-      "id": "present",
-      "title_en": "Now and every day",
-      "title_fa": "همین حالا و هر روز",
-      "emoji": "⏰",
-      "use_en": "Use the simple present for things you do every day. Use am, is or are with -ing for something happening right now.",
-      "use_fa": "برای کارهایی که هر روز انجام می‌دهی حال ساده به کار ببر. برای کاری که همین حالا در جریان است، am یا is یا are را با -ing بیاور.",
-      "examples": [
-        {"en": "I walk to school every day.", "fa": "من هر روز پیاده به مدرسه می‌روم."},
-        {"en": "Look, the baby is sleeping.", "fa": "نگاه کن، نوزاد خوابیده است."},
-        {"en": "She reads a story every night.", "fa": "او هر شب یک داستان می‌خواند."}
-      ],
-      "quiz": [
-        {"q": "Every morning I ___ my teeth.", "options": ["brush", "am brushing", "brushes"], "answer": "brush", "why_en": "Every morning is a habit, and I takes the plain verb.", "why_fa": "every morning عادت است و با I فعل ساده می‌آید."},
-        {"q": "Listen! The birds ___ outside.", "options": ["sing", "are singing", "sings"], "answer": "are singing", "why_en": "Listen points at this moment.", "why_fa": "listen به همین لحظه اشاره دارد."},
-        {"q": "My father ___ tea every evening.", "options": ["drink", "drinks", "is drinking"], "answer": "drinks", "why_en": "A habit with he takes -s.", "why_fa": "عادت با he فعل -s می‌گیرد."}
-      ]
+     "word": "cousin",
+     "fa": "پسرخاله",
+     "def_en": "The child of your aunt or uncle.",
+     "example_en": "My cousin lives in another city.",
+     "example_fa": "پسرخالهٔ من در شهر دیگری زندگی می‌کند."
     }
-  ],
-  "stories": [
+   ]
+  },
+  {
+   "id": "animals",
+   "title_en": "Animals",
+   "title_fa": "جانوران",
+   "emoji": "🐾",
+   "words": [
     {
-      "id": "red-ball",
-      "title_en": "The little cat and the red ball",
-      "title_fa": "گربهٔ کوچک و توپ قرمز",
-      "emoji": "🐈",
-      "lines": [
-        {"en": "A little cat finds a red ball in the garden.", "fa": "یک گربهٔ کوچک در باغچه یک توپ قرمز پیدا می‌کند."},
-        {"en": "\"This ball is mine!\" she says, and she pushes it with her nose.", "fa": "«این توپ مال من است!» می‌گوید و با بینی‌اش آن را هل می‌دهد."},
-        {"en": "The ball rolls under the big tree.", "fa": "توپ زیر درخت بزرگ می‌غلتد."},
-        {"en": "A small bird is sitting there, and the ball stops near her feet.", "fa": "پرندهٔ کوچکی آنجا نشسته است و توپ نزدیک پاهایش می‌ایستد."},
-        {"en": "\"May I play too?\" asks the bird.", "fa": "پرنده می‌پرسد: «می‌توانم من هم بازی کنم؟»"},
-        {"en": "The cat says yes, and they play until the sun goes down.", "fa": "گربه می‌گوید بله، و آن‌ها تا غروب آفتاب بازی می‌کنند."}
-      ],
-      "questions": [
-        {"q": "What does the cat find in the garden?", "options": ["A red ball", "A blue hat", "A small fish"], "answer": "A red ball", "why_en": "The first line says she finds a red ball.", "why_fa": "خط اول می‌گوید یک توپ قرمز پیدا می‌کند."},
-        {"q": "Who asks to play with the ball?", "options": ["A dog", "A bird", "A teacher"], "answer": "A bird", "why_en": "The bird asks, \"May I play too?\"", "why_fa": "پرنده می‌پرسد «می‌توانم من هم بازی کنم؟»"},
-        {"q": "How long do they play?", "options": ["Until the sun goes down", "For one minute", "Until it rains"], "answer": "Until the sun goes down", "why_en": "The last line says they play until the sun goes down.", "why_fa": "خط آخر می‌گوید تا غروب آفتاب بازی می‌کنند."}
-      ]
+     "word": "cat",
+     "fa": "گربه",
+     "def_en": "A small animal with soft fur.",
+     "example_en": "The cat sleeps on my bed.",
+     "example_fa": "گربه روی تخت من می‌خوابد."
     },
     {
-      "id": "first-day",
-      "title_en": "Mina's first day at school",
-      "title_fa": "نخستین روز مدرسهٔ مینا",
-      "emoji": "🏫",
-      "lines": [
-        {"en": "Mina puts her new bag on her back.", "fa": "مینا کیف تازه‌اش را روی پشتش می‌گذارد."},
-        {"en": "At the gate, her mother gives her a big smile.", "fa": "جلوی دروازه، مادرش لبخند بزرگی به او می‌زند."},
-        {"en": "In the classroom, a girl says, \"Sit here with me.\"", "fa": "در کلاس، دختری می‌گوید: «اینجا کنار من بنشین.»"},
-        {"en": "Mina learns a new song about the rain.", "fa": "مینا آهنگ تازه‌ای دربارهٔ باران یاد می‌گیرد."},
-        {"en": "At break time, she shares her apple with her new friend.", "fa": "در زنگ تفریح، سیبش را با دوست تازه‌اش قسمت می‌کند."},
-        {"en": "At home she says, \"School was fun today!\"", "fa": "در خانه می‌گوید: «مدرسه امروز بامزه بود!»"}
-      ],
-      "questions": [
-        {"q": "What does Mina wear on her back?", "options": ["A new bag", "A red hat", "A coat"], "answer": "A new bag", "why_en": "She puts her new bag on her back.", "why_fa": "او کیف تازه‌اش را روی پشتش می‌گذارد."},
-        {"q": "What does Mina learn?", "options": ["A song about the rain", "A new game", "A long poem"], "answer": "A song about the rain", "why_en": "She learns a new song about the rain.", "why_fa": "او آهنگ تازه‌ای دربارهٔ باران یاد می‌گیرد."},
-        {"q": "How does Mina feel at the end?", "options": ["Happy", "Angry", "Sleepy"], "answer": "Happy", "why_en": "She says school was fun.", "why_fa": "او می‌گوید مدرسه بامزه بود."}
-      ]
+     "word": "dog",
+     "fa": "سگ",
+     "def_en": "A friendly animal that likes to run.",
+     "example_en": "Our dog runs after the ball.",
+     "example_fa": "سگ ما دنبال توپ می‌دود."
     },
     {
-      "id": "star",
-      "title_en": "The star in the garden",
-      "title_fa": "ستاره‌ای در باغچه",
-      "emoji": "🌟",
-      "lines": [
-        {"en": "Every night, Sam looks out of his window.", "fa": "هر شب، سَم از پنجره‌اش بیرون را نگاه می‌کند."},
-        {"en": "One star is always above the apple tree.", "fa": "یک ستاره همیشه بالای درخت سیب است."},
-        {"en": "He calls it his garden star.", "fa": "او آن را ستارهٔ باغچهٔ خودش می‌نامد."},
-        {"en": "One evening the sky is cloudy, and the star is hiding.", "fa": "یک غروب آسمان ابری است و ستاره پنهان شده است."},
-        {"en": "Sam waits and waits with his warm milk.", "fa": "سَم با شیر گرمش منتظر می‌ماند."},
-        {"en": "Then the clouds move, and his star says hello again.", "fa": "بعد ابرها کنار می‌روند و ستاره‌اش دوباره سلام می‌کند."}
-      ],
-      "questions": [
-        {"q": "Where does Sam look at night?", "options": ["Out of his window", "Under his bed", "In the kitchen"], "answer": "Out of his window", "why_en": "He looks out of his window every night.", "why_fa": "او هر شب از پنجره‌اش بیرون را نگاه می‌کند."},
-        {"q": "Where is the star?", "options": ["Above the apple tree", "On the roof", "In the pond"], "answer": "Above the apple tree", "why_en": "The star is above the apple tree.", "why_fa": "ستاره بالای درخت سیب است."},
-        {"q": "Why can Sam not see the star?", "options": ["The sky is cloudy", "It is morning", "He is sleeping"], "answer": "The sky is cloudy", "why_en": "The clouds are hiding the star.", "why_fa": "ابرها ستاره را پنهان کرده‌اند."}
-      ]
+     "word": "bird",
+     "fa": "پرنده",
+     "def_en": "An animal with wings that can fly.",
+     "example_en": "A bird sings near my window.",
+     "example_fa": "پرنده‌ای نزدیک پنجرهٔ من آواز می‌خواند."
+    },
+    {
+     "word": "rabbit",
+     "fa": "خرگوش",
+     "def_en": "A small animal with long ears.",
+     "example_en": "The rabbit eats a carrot.",
+     "example_fa": "خرگوش یک هویج می‌خورد."
+    },
+    {
+     "word": "horse",
+     "fa": "اسب",
+     "def_en": "A big animal that people can ride.",
+     "example_en": "The horse is brown and tall.",
+     "example_fa": "اسب قهوه‌ای و بلند است."
+    },
+    {
+     "word": "fish",
+     "fa": "ماهی",
+     "def_en": "An animal that lives in water.",
+     "example_en": "Two fish swim in the pond.",
+     "example_fa": "دو ماهی در برکه شنا می‌کنند."
     }
-  ],
-  "reading": [
+   ]
+  },
+  {
+   "id": "food",
+   "title_en": "Food",
+   "title_fa": "خوراکی‌ها",
+   "emoji": "🍎",
+   "words": [
     {
-      "id": "school-bag",
-      "title_en": "My school bag",
-      "title_fa": "کیف مدرسهٔ من",
-      "emoji": "🎒",
-      "text_en": "My school bag is blue. It is not very big, but it holds everything I need. Inside there is a book, two pencils and a small red box. The box has my lunch: bread, cheese and an apple. My bag has a pocket on the front. I keep my bus card in it, so I can find it quickly. Every evening I put my bag next to my desk, ready for the morning.",
-      "text_fa": "کیف مدرسهٔ من آبی است. خیلی بزرگ نیست، اما هر چیزی را که لازم دارم در خودش جا می‌دهد. داخلش یک کتاب، دو مداد و یک جعبهٔ کوچک قرمز هست. در جعبه ناهارم است: نان، پنیر و یک سیب. کیف من یک جیب در جلو دارد. کارت اتوبوسم را در آن می‌گذارم تا زود پیدایش کنم. هر شب کیفم را کنار میزم می‌گذارم تا صبح آماده باشد.",
-      "questions": [
-        {"q": "What color is the bag?", "options": ["Blue", "Green", "Red"], "answer": "Blue", "why_en": "The first sentence says it is blue.", "why_fa": "جملهٔ اول می‌گوید آبی است."},
-        {"q": "What is in the small red box?", "options": ["Lunch", "Shoes", "Paper"], "answer": "Lunch", "why_en": "The box holds bread, cheese and an apple.", "why_fa": "در جعبه نان، پنیر و سیب است."},
-        {"q": "What is in the front pocket?", "options": ["A bus card", "A pencil case", "A book"], "answer": "A bus card", "why_en": "The bus card is kept in the front pocket.", "why_fa": "کارت اتوبوس در جیب جلو گذاشته می‌شود."}
-      ]
+     "word": "apple",
+     "fa": "سیب",
+     "def_en": "A round fruit that can be red or green.",
+     "example_en": "I eat an apple at break time.",
+     "example_fa": "من در زنگ تفریح یک سیب می‌خورم."
     },
     {
-      "id": "rainy-day",
-      "title_en": "A rainy day",
-      "title_fa": "یک روز بارانی",
-      "emoji": "🌧",
-      "text_en": "Today it is raining, so we stay inside. My sister builds a tall tower with her blocks. I draw a boat on a big piece of paper. Our cat sits by the window and watches the water run down the glass. After lunch, the rain stops. The garden smells fresh and clean. We put on our boots and jump in the little puddles. Then the sun comes out and makes a rainbow.",
-      "text_fa": "امروز باران می‌بارد، پس داخل می‌مانیم. خواهرم با مکعب‌هایش برج بلندی می‌سازد. من روی یک کاغذ بزرگ یک قایق می‌کشم. گربه‌مان کنار پنجره می‌نشیند و آب را که روی شیشه می‌آید تماشا می‌کند. بعد از ناهار باران می‌ایستد. باغچه بوی تازگی و پاکی می‌دهد. چکمه‌هایمان را می‌پوشیم و در آبگیرهای کوچک می‌پریم. بعد خورشید بیرون می‌آید و رنگین‌کمان می‌سازد.",
-      "questions": [
-        {"q": "Why do they stay inside?", "options": ["It is raining", "It is snowing", "It is dark"], "answer": "It is raining", "why_en": "The first line says it is raining.", "why_fa": "خط اول می‌گوید باران می‌بارد."},
-        {"q": "What does the sister build?", "options": ["A tower", "A boat", "A house"], "answer": "A tower", "why_en": "She builds a tall tower with blocks.", "why_fa": "او با مکعب‌ها برج بلندی می‌سازد."},
-        {"q": "What appears after the rain?", "options": ["A rainbow", "A big cloud", "A bird"], "answer": "A rainbow", "why_en": "The sun makes a rainbow at the end.", "why_fa": "خورشید در پایان رنگین‌کمان می‌سازد."}
-      ]
+     "word": "bread",
+     "fa": "نان",
+     "def_en": "A food made from flour and baked.",
+     "example_en": "Warm bread smells wonderful.",
+     "example_fa": "نان گرم بوی خیلی خوبی دارد."
     },
     {
-      "id": "park",
-      "title_en": "The park near my home",
-      "title_fa": "پارک نزدیک خانهٔ من",
-      "emoji": "🌳",
-      "text_en": "There is a small park near my home. It has two swings, a long slide and a lot of trees. On Saturdays, my father and I go there before lunch. I like the swing best. When I push my legs, I go higher and higher. My father sits on the bench and reads. Sometimes a gray cat comes and sits under the bench with us. We always go home when my hands are cold.",
-      "text_fa": "نزدیک خانهٔ من پارک کوچکی هست. دو تاب، یک سرسرهٔ بلند و درخت‌های زیادی دارد. شنبه‌ها من و پدرم پیش از ناهار به آنجا می‌رویم. تاب را از همه بیشتر دوست دارم. وقتی پاهایم را تاب می‌دهم، بالاتر و بالاتر می‌روم. پدرم روی نیمکت می‌نشیند و کتاب می‌خواند. گاهی گربهٔ خاکستری می‌آید و زیر نیمکت کنار ما می‌نشیند. هر وقت دست‌هایم سرد شود به خانه برمی‌گردیم.",
-      "questions": [
-        {"q": "What is in the park?", "options": ["Two swings and a slide", "A pool and a shop", "A cinema"], "answer": "Two swings and a slide", "why_en": "The park has two swings and a long slide.", "why_fa": "پارک دو تاب و یک سرسرهٔ بلند دارد."},
-        {"q": "When do they go to the park?", "options": ["On Saturdays", "Every night", "On Mondays"], "answer": "On Saturdays", "why_en": "They go on Saturdays before lunch.", "why_fa": "آن‌ها شنبه‌ها پیش از ناهار می‌روند."},
-        {"q": "What does the father do there?", "options": ["He reads", "He swims", "He cooks"], "answer": "He reads", "why_en": "He sits on the bench and reads.", "why_fa": "او روی نیمکت می‌نشیند و می‌خواند."}
-      ]
+     "word": "milk",
+     "fa": "شیر",
+     "def_en": "A white drink that comes from cows.",
+     "example_en": "I drink milk with my breakfast.",
+     "example_fa": "من صبحانه‌ام را با شیر می‌خورم."
+    },
+    {
+     "word": "rice",
+     "fa": "برنج",
+     "def_en": "Small white grains that you cook.",
+     "example_en": "We eat rice with vegetables.",
+     "example_fa": "ما برنج را با سبزیجات می‌خوریم."
+    },
+    {
+     "word": "egg",
+     "fa": "تخم‌مرغ",
+     "def_en": "A food with a shell and a yellow center.",
+     "example_en": "She cooks an egg for lunch.",
+     "example_fa": "او برای ناهار یک تخم‌مرغ می‌پزد."
+    },
+    {
+     "word": "cake",
+     "fa": "کیک",
+     "def_en": "A sweet food for a birthday or a party.",
+     "example_en": "The cake has six candles.",
+     "example_fa": "کیک شش شمع دارد."
     }
-  ],
-  "listening": [
+   ]
+  },
+  {
+   "id": "play",
+   "title_en": "Play and games",
+   "title_fa": "بازی و ورزش",
+   "emoji": "⚽",
+   "words": [
     {
-      "id": "bakery",
-      "title_en": "At the bakery",
-      "title_fa": "در نانوایی",
-      "emoji": "🥖",
-      "lines": [
-        "Good morning! Two small breads, please.",
-        "Here you are. They are still warm.",
-        "Thank you. How much are they?",
-        "They are twenty thousand toman."
-      ],
-      "questions": [
-        {"q": "How many breads does the person want?", "options": ["Two", "Three", "One"], "answer": "Two", "why_en": "The first line asks for two small breads.", "why_fa": "خط اول دو نان کوچک می‌خواهد."},
-        {"q": "How is the bread?", "options": ["Still warm", "Very cold", "Too salty"], "answer": "Still warm", "why_en": "The baker says it is still warm.", "why_fa": "نانوا می‌گوید هنوز گرم است."},
-        {"q": "How much does it cost?", "options": ["Twenty thousand", "Twelve thousand", "Two thousand"], "answer": "Twenty thousand", "why_en": "The last line gives the price.", "why_fa": "خط آخر قیمت را می‌گوید."}
-      ]
+     "word": "ball",
+     "fa": "توپ",
+     "def_en": "A round thing you throw or kick.",
+     "example_en": "We play with a red ball.",
+     "example_fa": "ما با یک توپ قرمز بازی می‌کنیم."
     },
     {
-      "id": "max",
-      "title_en": "My dog Max",
-      "title_fa": "سگ من مکس",
-      "emoji": "🐕",
-      "lines": [
-        "My dog is called Max.",
-        "He is black and white and very fast.",
-        "He loves the ball and he loves the park.",
-        "Every evening we run there together."
-      ],
-      "questions": [
-        {"q": "What is the dog's name?", "options": ["Max", "Milo", "Sam"], "answer": "Max", "why_en": "The first line gives the name.", "why_fa": "خط اول نام را می‌گوید."},
-        {"q": "What colors is Max?", "options": ["Black and white", "Brown and white", "All black"], "answer": "Black and white", "why_en": "Max is black and white.", "why_fa": "مکس سیاه و سفید است."},
-        {"q": "Where do they run?", "options": ["To the park", "To school", "To the shop"], "answer": "To the park", "why_en": "They run to the park every evening.", "why_fa": "آن‌ها هر غروب به پارک می‌دوند."}
-      ]
+     "word": "game",
+     "fa": "بازی",
+     "def_en": "Something you play with friends for fun.",
+     "example_en": "This game is easy to learn.",
+     "example_fa": "یاد گرفتن این بازی آسان است."
     },
     {
-      "id": "football",
-      "title_en": "Playing football",
-      "title_fa": "فوتبال بازی کردن",
-      "emoji": "⚽",
-      "lines": [
-        "We play football after school on the field.",
-        "My friend Ali is the goalkeeper.",
-        "I have the ball now and I run to the goal.",
-        "I kick it, and the ball goes in!"
-      ],
-      "questions": [
-        {"q": "When do they play football?", "options": ["After school", "Before breakfast", "At night"], "answer": "After school", "why_en": "They play after school on the field.", "why_fa": "آن‌ها بعد از مدرسه در زمین بازی می‌کنند."},
-        {"q": "Who is the goalkeeper?", "options": ["Ali", "The speaker", "A teacher"], "answer": "Ali", "why_en": "The second line says Ali is the goalkeeper.", "why_fa": "خط دوم می‌گوید علی دروازه‌بان است."},
-        {"q": "What happens at the end?", "options": ["The ball goes in", "It starts to rain", "They go home"], "answer": "The ball goes in", "why_en": "The last line says the ball goes in.", "why_fa": "خط آخر می‌گوید توپ وارد دروازه می‌شود."}
-      ]
+     "word": "jump",
+     "fa": "پریدن",
+     "def_en": "To push yourself up into the air.",
+     "example_en": "The children jump over the line.",
+     "example_fa": "بچه‌ها از روی خط می‌پرند."
     },
     {
-      "id": "weather",
-      "title_en": "The weather today",
-      "title_fa": "هوای امروز",
-      "emoji": "⛅",
-      "lines": [
-        "Good morning, children. Look out of the window.",
-        "The sky is gray and it is raining a little.",
-        "Take your coats and your boots today.",
-        "This afternoon the sun will come out."
-      ],
-      "questions": [
-        {"q": "What is the sky like?", "options": ["Gray", "Blue", "Orange"], "answer": "Gray", "why_en": "The teacher says the sky is gray.", "why_fa": "معلم می‌گوید آسمان خاکستری است."},
-        {"q": "What should the children take?", "options": ["Coats and boots", "Hats and balls", "Books only"], "answer": "Coats and boots", "why_en": "The teacher tells them to take coats and boots.", "why_fa": "معلم می‌گوید کتها و چکمه‌ها را بردارند."},
-        {"q": "What will happen this afternoon?", "options": ["The sun will come out", "It will snow", "It will be dark"], "answer": "The sun will come out", "why_en": "The last line says the sun will come out.", "why_fa": "خط آخر می‌گوید خورشید بیرون می‌آید."}
-      ]
+     "word": "run",
+     "fa": "دویدن",
+     "def_en": "To move quickly on your feet.",
+     "example_en": "I run to the gate every morning.",
+     "example_fa": "من هر صبح تا دروازه می‌دوم."
+    },
+    {
+     "word": "swim",
+     "fa": "شنا کردن",
+     "def_en": "To move through water with your body.",
+     "example_en": "She can swim very well.",
+     "example_fa": "او خیلی خوب شنا می‌کند."
+    },
+    {
+     "word": "ride",
+     "fa": "سوار شدن",
+     "def_en": "To sit on a bike or a horse and move.",
+     "example_en": "I ride my bike to the park.",
+     "example_fa": "من با دوچرخه‌ام به پارک می‌روم."
     }
-  ],
-  "phrases": [
+   ]
+  },
+  {
+   "id": "weather",
+   "title_en": "Weather and sky",
+   "title_fa": "آب‌وهوا و آسمان",
+   "emoji": "☀️",
+   "words": [
     {
-      "id": "friends",
-      "title_en": "Meeting a friend",
-      "title_fa": "دیدن یک دوست",
-      "emoji": "👋",
-      "items": [
-        {"en": "Hi! How are you?", "fa": "سلام! حالت چطور است؟"},
-        {"en": "I am fine, thank you.", "fa": "خوبم، ممنون."},
-        {"en": "Do you want to play?", "fa": "دوست داری بازی کنیم؟"},
-        {"en": "See you tomorrow!", "fa": "فردا می‌بینمت!"}
-      ]
+     "word": "sun",
+     "fa": "خورشید",
+     "def_en": "The bright light in the sky by day.",
+     "example_en": "The sun is hot at noon.",
+     "example_fa": "خورشید ظهر گرم است."
     },
     {
-      "id": "classroom",
-      "title_en": "In class",
-      "title_fa": "در کلاس",
-      "emoji": "✏️",
-      "items": [
-        {"en": "May I open the window?", "fa": "می‌توانم پنجره را باز کنم؟"},
-        {"en": "I do not understand this word.", "fa": "این واژه را نمی‌فهمم."},
-        {"en": "Can you say it again, please?", "fa": "می‌شود لطفاً دوباره بگویید؟"},
-        {"en": "I know the answer!", "fa": "جواب را می‌دانم!"}
-      ]
+     "word": "rain",
+     "fa": "باران",
+     "def_en": "Water that falls from the clouds.",
+     "example_en": "The rain makes the garden green.",
+     "example_fa": "باران باغچه را سبز می‌کند."
     },
     {
-      "id": "playtime",
-      "title_en": "At playtime",
-      "title_fa": "در زنگ بازی",
-      "emoji": "🤸",
-      "items": [
-        {"en": "It is my turn now.", "fa": "حالا نوبت من است."},
-        {"en": "Throw the ball to me!", "fa": "توپ را به من بینداز!"},
-        {"en": "Good game, well played.", "fa": "بازی خوبی بود، خوب بازی کردی."},
-        {"en": "Let us play together.", "fa": "بیا با هم بازی کنیم."}
-      ]
+     "word": "cloud",
+     "fa": "ابر",
+     "def_en": "A soft white shape in the sky.",
+     "example_en": "One cloud looks like a sheep.",
+     "example_fa": "یک ابر شبیه گوسفند است."
     },
     {
-      "id": "home",
-      "title_en": "At home",
-      "title_fa": "در خانه",
-      "emoji": "🏠",
-      "items": [
-        {"en": "I am home!", "fa": "رسیدم خانه!"},
-        {"en": "Can I have some water?", "fa": "می‌توانم کمی آب بخورم؟"},
-        {"en": "I will help you.", "fa": "کمکَت می‌کنم."},
-        {"en": "Good night, sleep well.", "fa": "شب بخیر، خوب بخوابی."}
-      ]
+     "word": "wind",
+     "fa": "باد",
+     "def_en": "Air that moves and pushes things.",
+     "example_en": "The wind moves the leaves.",
+     "example_fa": "باد برگ‌ها را جابه‌جا می‌کند."
+    },
+    {
+     "word": "snow",
+     "fa": "برف",
+     "def_en": "Soft white pieces of frozen water.",
+     "example_en": "Snow covers the roof.",
+     "example_fa": "برف پشت‌بام را می‌پوشاند."
+    },
+    {
+     "word": "star",
+     "fa": "ستاره",
+     "def_en": "A small light in the night sky.",
+     "example_en": "The first star comes out at night.",
+     "example_fa": "نخستین ستاره شب بیرون می‌آید."
     }
-  ],
-  "chat": {
-    "welcome_en": "Hi! I am Fluentify, your English friend. Ask me a word, and we will learn it together.",
-    "welcome_fa": "سلام! من فلوئنتیفای هستم، دوست انگلیسی تو. یک واژه از من بپرس تا با هم یادش بگیریم.",
-    "praise_en": "You are doing great! 🌟",
-    "praise_fa": "عالی داری پیش می‌روی! 🌟",
-    "safety_en": "I do not need your address, your phone number or the name of your school. Let us learn English instead!",
-    "safety_fa": "من نشانی، شمارهٔ تلفن یا نام مدرسه‌ات را لازم ندارم. بیا به جایش انگلیسی یاد بگیریم!",
-    "starters": [
-      ["colors", "Colors", "واژگان رنگ‌ها"],
-      ["animals", "Animals", "جانوران"],
-      ["how are you", "Say hello", "سلام و احوال‌پرسی"],
-      ["days of the week", "Days", "روزهای هفته"]
-    ]
+   ]
+  },
+  {
+   "id": "feelings",
+   "title_en": "How I feel",
+   "title_fa": "چه حسی دارم",
+   "emoji": "🙂",
+   "cefr": "A1",
+   "words": [
+    {
+     "word": "tired",
+     "fa": "خسته",
+     "def_en": "Needing rest or sleep.",
+     "example_en": "I am tired after football practice.",
+     "example_fa": "من بعد از تمرین فوتبال خسته‌ام."
+    },
+    {
+     "word": "excited",
+     "fa": "هیجان‌زده",
+     "def_en": "Very happy about something that is going to happen.",
+     "example_en": "She is excited about the school trip.",
+     "example_fa": "او برای سفر مدرسه هیجان‌زده است."
+    },
+    {
+     "word": "scared",
+     "fa": "ترسیده",
+     "def_en": "Afraid of something.",
+     "example_en": "The little dog is scared of thunder.",
+     "example_fa": "سگ کوچک از رعد می‌ترسد."
+    },
+    {
+     "word": "proud",
+     "fa": "سرافراز",
+     "def_en": "Happy about something you did well.",
+     "example_en": "I am proud of my drawing.",
+     "example_fa": "من به نقاشی‌ام افتخار می‌کنم."
+    },
+    {
+     "word": "calm",
+     "fa": "آرام",
+     "def_en": "Quiet and relaxed, not worried.",
+     "example_en": "Take a deep breath and stay calm.",
+     "example_fa": "یک نفس عمیق بکش و آرام بمان."
+    },
+    {
+     "word": "lonely",
+     "fa": "تنها",
+     "def_en": "Sad because you are alone.",
+     "example_en": "He feels lonely at the new school.",
+     "example_fa": "او در مدرسهٔ جدید احساس تنهایی می‌کند."
+    }
+   ]
   }
+ ],
+ "grammar": [
+  {
+   "id": "to-be",
+   "title_en": "I am, you are, he is",
+   "title_fa": "من هستم، تو هستی، او هست",
+   "emoji": "🙋",
+   "use_en": "Use am with I, are with you and we, and is with he, she and it. This little word tells us who someone is or how they feel.",
+   "use_fa": "با I از am، با you و we از are و با he، she و it از is استفاده کن. این واژهٔ کوچک می‌گوید کسی چه کسی است یا چه حالی دارد.",
+   "examples": [
+    {
+     "en": "I am happy today.",
+     "fa": "من امروز خوشحالم."
+    },
+    {
+     "en": "You are my best friend.",
+     "fa": "تو بهترین دوست من هستی."
+    },
+    {
+     "en": "She is in the garden.",
+     "fa": "او در باغچه است."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "I ___ seven years old.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": "am",
+     "why_en": "With I we always use am.",
+     "why_fa": "با I همیشه am می‌آید."
+    },
+    {
+     "q": "My brother ___ at school.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": "is",
+     "why_en": "My brother is he, so we use is.",
+     "why_fa": "my brother همان he است، پس is می‌آید."
+    },
+    {
+     "q": "We ___ in the same class.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": "are",
+     "why_en": "With we we use are.",
+     "why_fa": "با we فعل are می‌آید."
+    }
+   ]
+  },
+  {
+   "id": "this-that",
+   "title_en": "This and that",
+   "title_fa": "این و آن",
+   "emoji": "👉",
+   "use_en": "This is for something near you. That is for something far away. Add s to talk about more than one: these and those.",
+   "use_fa": "this برای چیزی است که نزدیک توست. that برای چیزی است که دور است. برای بیش از یکی s اضافه کن: these و those.",
+   "examples": [
+    {
+     "en": "This is my new pencil.",
+     "fa": "این مداد تازهٔ من است."
+    },
+    {
+     "en": "That is the school bus.",
+     "fa": "آن اتوبوس مدرسه است."
+    },
+    {
+     "en": "These books are mine.",
+     "fa": "این کتاب‌ها مال من هستند."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "___ is my chair, here next to me.",
+     "options": [
+      "This",
+      "That",
+      "Those"
+     ],
+     "answer": "This",
+     "why_en": "It is near you, and it is one thing.",
+     "why_fa": "نزدیک توست و یکی است."
+    },
+    {
+     "q": "___ birds are far away in the tree.",
+     "options": [
+      "This",
+      "These",
+      "Those"
+     ],
+     "answer": "Those",
+     "why_en": "They are far and there is more than one.",
+     "why_fa": "دور هستند و بیش از یکی‌اند."
+    },
+    {
+     "q": "Look at ___ picture in my hand.",
+     "options": [
+      "this",
+      "those",
+      "these"
+     ],
+     "answer": "this",
+     "why_en": "One picture, and it is in your hand.",
+     "why_fa": "یک تصویر است و در دست توست."
+    }
+   ]
+  },
+  {
+   "id": "plurals",
+   "title_en": "One and many",
+   "title_fa": "یکی و چندتا",
+   "emoji": "🔢",
+   "use_en": "Most words take s when there is more than one: one cat, two cats. Some words change in their own way: one child, two children.",
+   "use_fa": "بیشتر واژه‌ها وقتی بیش از یکی باشند s می‌گیرند: one cat، two cats. بعضی واژه‌ها شکل خودشان را عوض می‌کنند: one child، two children.",
+   "examples": [
+    {
+     "en": "I have two cats at home.",
+     "fa": "من دو گربه در خانه دارم."
+    },
+    {
+     "en": "Three children are playing outside.",
+     "fa": "سه بچه بیرون بازی می‌کنند."
+    },
+    {
+     "en": "She reads five books a month.",
+     "fa": "او ماهی پنج کتاب می‌خواند."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "I see four ___ on the grass.",
+     "options": [
+      "bird",
+      "birds",
+      "birdes"
+     ],
+     "answer": "birds",
+     "why_en": "More than one bird takes s.",
+     "why_fa": "بیش از یکی bird، پس s می‌گیرد."
+    },
+    {
+     "q": "Two ___ are in the classroom.",
+     "options": [
+      "childs",
+      "children",
+      "child"
+     ],
+     "answer": "children",
+     "why_en": "Child has its own plural: children.",
+     "why_fa": "child جمع ویژهٔ خودش را دارد: children."
+    },
+    {
+     "q": "There are three ___ on my plate.",
+     "options": [
+      "apple",
+      "apples",
+      "apple's"
+     ],
+     "answer": "apples",
+     "why_en": "Three means more than one, so add s.",
+     "why_fa": "سه یعنی بیشتر از یکی، پس s اضافه می‌شود."
+    }
+   ]
+  },
+  {
+   "id": "can",
+   "title_en": "I can jump",
+   "title_fa": "من می‌توانم بپرم",
+   "emoji": "🏃",
+   "use_en": "Can shows that you know how to do something. It never changes and the verb after it stays plain: I can swim, she can swim.",
+   "use_fa": "can نشان می‌دهد کاری را بلدی. شکلش هیچ‌وقت عوض نمی‌شود و فعل بعد از آن ساده می‌ماند: I can swim، she can swim.",
+   "examples": [
+    {
+     "en": "I can ride a bike.",
+     "fa": "من می‌توانم دوچرخه سواری کنم."
+    },
+    {
+     "en": "My sister can sing very well.",
+     "fa": "خواهرم خیلی خوب می‌تواند آواز بخواند."
+    },
+    {
+     "en": "Can you help me, please?",
+     "fa": "می‌توانی لطفاً به من کمک کنی؟"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "He ___ swim in the sea.",
+     "options": [
+      "can",
+      "cans",
+      "can to"
+     ],
+     "answer": "can",
+     "why_en": "Can never takes an s.",
+     "why_fa": "can هیچ‌وقت s نمی‌گیرد."
+    },
+    {
+     "q": "They can ___ very fast.",
+     "options": [
+      "run",
+      "runs",
+      "running"
+     ],
+     "answer": "run",
+     "why_en": "The verb after can stays plain.",
+     "why_fa": "فعل بعد از can ساده می‌ماند."
+    },
+    {
+     "q": "___ she play the piano?",
+     "options": [
+      "Can",
+      "Cans",
+      "Is"
+     ],
+     "answer": "Can",
+     "why_en": "A question about ability starts with can.",
+     "why_fa": "پرسش دربارهٔ توانایی با can شروع می‌شود."
+    }
+   ]
+  },
+  {
+   "id": "like",
+   "title_en": "Things I like",
+   "title_fa": "چیزهایی که دوست دارم",
+   "emoji": "💛",
+   "use_en": "Like tells what makes you happy. Put a thing after it, or a verb with -ing: I like apples, I like drawing.",
+   "use_fa": "like می‌گوید چه چیزی خوشحالت می‌کند. بعد از آن یک چیز بگذار، یا فعلی با -ing: I like apples، I like drawing.",
+   "examples": [
+    {
+     "en": "I like apples and grapes.",
+     "fa": "من سیب و انگور دوست دارم."
+    },
+    {
+     "en": "She likes drawing animals.",
+     "fa": "او کشیدن جانوران را دوست دارد."
+    },
+    {
+     "en": "We like to play after school.",
+     "fa": "ما دوست داریم بعد از مدرسه بازی کنیم."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "I like ___ in the rain.",
+     "options": [
+      "dance",
+      "dancing",
+      "dances"
+     ],
+     "answer": "dancing",
+     "why_en": "A verb after like can take -ing.",
+     "why_fa": "فعل بعد از like می‌تواند -ing بگیرد."
+    },
+    {
+     "q": "He ___ his little dog.",
+     "options": [
+      "like",
+      "likes",
+      "liking"
+     ],
+     "answer": "likes",
+     "why_en": "He takes likes with an s.",
+     "why_fa": "با he فعل likes می‌آید."
+    },
+    {
+     "q": "We like ___ books at bedtime.",
+     "options": [
+      "read",
+      "reading",
+      "reads"
+     ],
+     "answer": "reading",
+     "why_en": "Like plus an -ing verb is the pattern.",
+     "why_fa": "الگو، like به‌همراه فعل -ing است."
+    }
+   ]
+  },
+  {
+   "id": "present",
+   "title_en": "Now and every day",
+   "title_fa": "همین حالا و هر روز",
+   "emoji": "⏰",
+   "use_en": "Use the simple present for things you do every day. Use am, is or are with -ing for something happening right now.",
+   "use_fa": "برای کارهایی که هر روز انجام می‌دهی حال ساده به کار ببر. برای کاری که همین حالا در جریان است، am یا is یا are را با -ing بیاور.",
+   "examples": [
+    {
+     "en": "I walk to school every day.",
+     "fa": "من هر روز پیاده به مدرسه می‌روم."
+    },
+    {
+     "en": "Look, the baby is sleeping.",
+     "fa": "نگاه کن، نوزاد خوابیده است."
+    },
+    {
+     "en": "She reads a story every night.",
+     "fa": "او هر شب یک داستان می‌خواند."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Every morning I ___ my teeth.",
+     "options": [
+      "brush",
+      "am brushing",
+      "brushes"
+     ],
+     "answer": "brush",
+     "why_en": "Every morning is a habit, and I takes the plain verb.",
+     "why_fa": "every morning عادت است و با I فعل ساده می‌آید."
+    },
+    {
+     "q": "Listen! The birds ___ outside.",
+     "options": [
+      "sing",
+      "are singing",
+      "sings"
+     ],
+     "answer": "are singing",
+     "why_en": "Listen points at this moment.",
+     "why_fa": "listen به همین لحظه اشاره دارد."
+    },
+    {
+     "q": "My father ___ tea every evening.",
+     "options": [
+      "drink",
+      "drinks",
+      "is drinking"
+     ],
+     "answer": "drinks",
+     "why_en": "A habit with he takes -s.",
+     "why_fa": "عادت با he فعل -s می‌گیرد."
+    }
+   ]
+  },
+  {
+   "id": "present-continuous",
+   "title_en": "I am doing it now",
+   "title_fa": "همین حالا دارم انجامش می‌دهم",
+   "emoji": "⏳",
+   "cefr": "A2",
+   "use_en": "Use am, is or are with a verb ending in -ing for something happening now, or these days. The -ing form is the same for everyone: I am playing, she is playing.",
+   "use_fa": "برای کاری که همین حالا یا این روزها در جریان است، am/is/are را با فعل + ing به کار ببر. شکل ing برای همه یکی است: I am playing، she is playing.",
+   "examples": [
+    {
+     "en": "I am eating breakfast.",
+     "fa": "من دارم صبحانه می‌خورم."
+    },
+    {
+     "en": "The cat is sleeping on the chair.",
+     "fa": "گربه روی صندلی خوابیده است."
+    },
+    {
+     "en": "We are not watching TV right now.",
+     "fa": "ما همین حالا تلویزیون تماشا نمی‌کنیم."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "She ___ her homework right now.",
+     "options": [
+      "is doing",
+      "do",
+      "does"
+     ],
+     "answer": "is doing",
+     "why_en": "Right now takes am/is/are + -ing: she is doing.",
+     "why_fa": "برای «همین حالا» از am/is/are + ing استفاده می‌کنیم: she is doing."
+    },
+    {
+     "q": "They ___ not listening.",
+     "options": [
+      "are",
+      "is",
+      "am"
+     ],
+     "answer": "are",
+     "why_en": "They takes are: they are not listening.",
+     "why_fa": "با they از are استفاده می‌شود: they are not listening."
+    },
+    {
+     "q": "What ___ you doing?",
+     "options": [
+      "are",
+      "is",
+      "do"
+     ],
+     "answer": "are",
+     "why_en": "With you the question is are you doing, so the blank is are.",
+     "why_fa": "با you پرسش are you doing است، پس جای خالی are می‌شود."
+    }
+   ]
+  },
+  {
+   "id": "past-simple",
+   "title_en": "Yesterday I walked",
+   "title_fa": "دیروز راه رفتم",
+   "emoji": "📅",
+   "cefr": "A2",
+   "use_en": "Use the past simple for something finished: yesterday, last week, two days ago. Regular verbs add -ed (play → played), and many common verbs have their own past form (go → went, see → saw).",
+   "use_fa": "برای کار تمام‌شده از گذشتهٔ ساده استفاده کن: دیروز، هفتهٔ پیش، دو روز پیش. فعل‌های باقاعده ed می‌گیرند (play ← played) و بسیاری از فعل‌های پرکاربرد شکل گذشتهٔ خودشان را دارند (go ← went، see ← saw).",
+   "examples": [
+    {
+     "en": "We played football yesterday.",
+     "fa": "دیروز فوتبال بازی کردیم."
+    },
+    {
+     "en": "She went to the park with her brother.",
+     "fa": "او با برادرش به پارک رفت."
+    },
+    {
+     "en": "I did not see the bus.",
+     "fa": "من اتوبوس را ندیدم."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Yesterday we ___ to the zoo.",
+     "options": [
+      "went",
+      "go",
+      "going"
+     ],
+     "answer": "went",
+     "why_en": "Yesterday is finished time, and the past of go is went.",
+     "why_fa": "yesterday زمان تمام‌شده است و گذشتهٔ go می‌شود went."
+    },
+    {
+     "q": "He ___ his room last night.",
+     "options": [
+      "cleaned",
+      "cleans",
+      "cleaning"
+     ],
+     "answer": "cleaned",
+     "why_en": "Last night is finished, so the regular verb takes -ed: cleaned.",
+     "why_fa": "last night تمام شده است، پس فعل باقاعده ed می‌گیرد: cleaned."
+    },
+    {
+     "q": "I ___ not finish my lunch.",
+     "options": [
+      "did",
+      "do",
+      "was"
+     ],
+     "answer": "did",
+     "why_en": "A past negative is did not + the base verb: I did not finish.",
+     "why_fa": "منفی گذشته did not + شکل سادهٔ فعل است: I did not finish."
+    }
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "red-ball",
+   "title_en": "The little cat and the red ball",
+   "title_fa": "گربهٔ کوچک و توپ قرمز",
+   "emoji": "🐈",
+   "lines": [
+    {
+     "en": "A little cat finds a red ball in the garden.",
+     "fa": "یک گربهٔ کوچک در باغچه یک توپ قرمز پیدا می‌کند."
+    },
+    {
+     "en": "\"This ball is mine!\" she says, and she pushes it with her nose.",
+     "fa": "«این توپ مال من است!» می‌گوید و با بینی‌اش آن را هل می‌دهد."
+    },
+    {
+     "en": "The ball rolls under the big tree.",
+     "fa": "توپ زیر درخت بزرگ می‌غلتد."
+    },
+    {
+     "en": "A small bird is sitting there, and the ball stops near her feet.",
+     "fa": "پرندهٔ کوچکی آنجا نشسته است و توپ نزدیک پاهایش می‌ایستد."
+    },
+    {
+     "en": "\"May I play too?\" asks the bird.",
+     "fa": "پرنده می‌پرسد: «می‌توانم من هم بازی کنم؟»"
+    },
+    {
+     "en": "The cat says yes, and they play until the sun goes down.",
+     "fa": "گربه می‌گوید بله، و آن‌ها تا غروب آفتاب بازی می‌کنند."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What does the cat find in the garden?",
+     "options": [
+      "A red ball",
+      "A blue hat",
+      "A small fish"
+     ],
+     "answer": "A red ball",
+     "why_en": "The first line says she finds a red ball.",
+     "why_fa": "خط اول می‌گوید یک توپ قرمز پیدا می‌کند."
+    },
+    {
+     "q": "Who asks to play with the ball?",
+     "options": [
+      "A dog",
+      "A bird",
+      "A teacher"
+     ],
+     "answer": "A bird",
+     "why_en": "The bird asks, \"May I play too?\"",
+     "why_fa": "پرنده می‌پرسد «می‌توانم من هم بازی کنم؟»"
+    },
+    {
+     "q": "How long do they play?",
+     "options": [
+      "Until the sun goes down",
+      "For one minute",
+      "Until it rains"
+     ],
+     "answer": "Until the sun goes down",
+     "why_en": "The last line says they play until the sun goes down.",
+     "why_fa": "خط آخر می‌گوید تا غروب آفتاب بازی می‌کنند."
+    }
+   ]
+  },
+  {
+   "id": "first-day",
+   "title_en": "Mina's first day at school",
+   "title_fa": "نخستین روز مدرسهٔ مینا",
+   "emoji": "🏫",
+   "lines": [
+    {
+     "en": "Mina puts her new bag on her back.",
+     "fa": "مینا کیف تازه‌اش را روی پشتش می‌گذارد."
+    },
+    {
+     "en": "At the gate, her mother gives her a big smile.",
+     "fa": "جلوی دروازه، مادرش لبخند بزرگی به او می‌زند."
+    },
+    {
+     "en": "In the classroom, a girl says, \"Sit here with me.\"",
+     "fa": "در کلاس، دختری می‌گوید: «اینجا کنار من بنشین.»"
+    },
+    {
+     "en": "Mina learns a new song about the rain.",
+     "fa": "مینا آهنگ تازه‌ای دربارهٔ باران یاد می‌گیرد."
+    },
+    {
+     "en": "At break time, she shares her apple with her new friend.",
+     "fa": "در زنگ تفریح، سیبش را با دوست تازه‌اش قسمت می‌کند."
+    },
+    {
+     "en": "At home she says, \"School was fun today!\"",
+     "fa": "در خانه می‌گوید: «مدرسه امروز بامزه بود!»"
+    }
+   ],
+   "questions": [
+    {
+     "q": "What does Mina wear on her back?",
+     "options": [
+      "A new bag",
+      "A red hat",
+      "A coat"
+     ],
+     "answer": "A new bag",
+     "why_en": "She puts her new bag on her back.",
+     "why_fa": "او کیف تازه‌اش را روی پشتش می‌گذارد."
+    },
+    {
+     "q": "What does Mina learn?",
+     "options": [
+      "A song about the rain",
+      "A new game",
+      "A long poem"
+     ],
+     "answer": "A song about the rain",
+     "why_en": "She learns a new song about the rain.",
+     "why_fa": "او آهنگ تازه‌ای دربارهٔ باران یاد می‌گیرد."
+    },
+    {
+     "q": "How does Mina feel at the end?",
+     "options": [
+      "Happy",
+      "Angry",
+      "Sleepy"
+     ],
+     "answer": "Happy",
+     "why_en": "She says school was fun.",
+     "why_fa": "او می‌گوید مدرسه بامزه بود."
+    }
+   ]
+  },
+  {
+   "id": "star",
+   "title_en": "The star in the garden",
+   "title_fa": "ستاره‌ای در باغچه",
+   "emoji": "🌟",
+   "lines": [
+    {
+     "en": "Every night, Sam looks out of his window.",
+     "fa": "هر شب، سَم از پنجره‌اش بیرون را نگاه می‌کند."
+    },
+    {
+     "en": "One star is always above the apple tree.",
+     "fa": "یک ستاره همیشه بالای درخت سیب است."
+    },
+    {
+     "en": "He calls it his garden star.",
+     "fa": "او آن را ستارهٔ باغچهٔ خودش می‌نامد."
+    },
+    {
+     "en": "One evening the sky is cloudy, and the star is hiding.",
+     "fa": "یک غروب آسمان ابری است و ستاره پنهان شده است."
+    },
+    {
+     "en": "Sam waits and waits with his warm milk.",
+     "fa": "سَم با شیر گرمش منتظر می‌ماند."
+    },
+    {
+     "en": "Then the clouds move, and his star says hello again.",
+     "fa": "بعد ابرها کنار می‌روند و ستاره‌اش دوباره سلام می‌کند."
+    }
+   ],
+   "questions": [
+    {
+     "q": "Where does Sam look at night?",
+     "options": [
+      "Out of his window",
+      "Under his bed",
+      "In the kitchen"
+     ],
+     "answer": "Out of his window",
+     "why_en": "He looks out of his window every night.",
+     "why_fa": "او هر شب از پنجره‌اش بیرون را نگاه می‌کند."
+    },
+    {
+     "q": "Where is the star?",
+     "options": [
+      "Above the apple tree",
+      "On the roof",
+      "In the pond"
+     ],
+     "answer": "Above the apple tree",
+     "why_en": "The star is above the apple tree.",
+     "why_fa": "ستاره بالای درخت سیب است."
+    },
+    {
+     "q": "Why can Sam not see the star?",
+     "options": [
+      "The sky is cloudy",
+      "It is morning",
+      "He is sleeping"
+     ],
+     "answer": "The sky is cloudy",
+     "why_en": "The clouds are hiding the star.",
+     "why_fa": "ابرها ستاره را پنهان کرده‌اند."
+    }
+   ]
+  },
+  {
+   "id": "paper-boat",
+   "title_en": "The paper boat",
+   "title_fa": "قایق کاغذی",
+   "emoji": "⛵",
+   "cefr": "A2",
+   "lines": [
+    {
+     "en": "On a rainy afternoon, Amir makes a paper boat.",
+     "fa": "یک بعدازظهر بارانی، امیر یک قایق کاغذی می‌سازد."
+    },
+    {
+     "en": "He draws a small flag on it and puts it in a puddle.",
+     "fa": "او یک پرچم کوچک روی آن می‌کشد و آن را در آبگیری می‌گذارد."
+    },
+    {
+     "en": "The wind pushes the boat to the other side of the puddle.",
+     "fa": "باد قایق را به طرف دیگر آبگیر می‌برد."
+    },
+    {
+     "en": "A girl in a yellow coat is waiting there. “Is this yours?” she asks.",
+     "fa": "دختری با بارانی زرد آنجا منتظر است. می‌پرسد: «این مال توست؟»"
+    },
+    {
+     "en": "Amir smiles. “Now it is ours. Do you want to race?”",
+     "fa": "امیر لبخند می‌زند: «حالا مال هر دوی ماست. دوست داری مسابقه بدهیم؟»"
+    },
+    {
+     "en": "By the time the rain stops, both boats are wet and both children are laughing.",
+     "fa": "وقتی باران بند می‌آید، هر دو قایق خیس‌اند و هر دو کودک می‌خندند."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What does Amir make?",
+     "options": [
+      "A paper boat",
+      "A paper plane",
+      "A kite"
+     ],
+     "answer": "A paper boat",
+     "why_en": "The first line says he makes a paper boat.",
+     "why_fa": "خط اول می‌گوید او یک قایق کاغذی می‌سازد."
+    },
+    {
+     "q": "Where does he put the boat?",
+     "options": [
+      "In a puddle",
+      "In a river",
+      "In a box"
+     ],
+     "answer": "In a puddle",
+     "why_en": "He puts it in a puddle, because it is raining.",
+     "why_fa": "او قایق را در آبگیر می‌گذارد، چون باران می‌بارد."
+    },
+    {
+     "q": "What does Amir ask the girl?",
+     "options": [
+      "If she wants to race",
+      "If she has a boat",
+      "Where she lives"
+     ],
+     "answer": "If she wants to race",
+     "why_en": "His last words are: Do you want to race?",
+     "why_fa": "آخرین جمله‌اش این است: دوست داری مسابقه بدهیم؟"
+    }
+   ]
+  }
+ ],
+ "reading": [
+  {
+   "id": "school-bag",
+   "title_en": "My school bag",
+   "title_fa": "کیف مدرسهٔ من",
+   "emoji": "🎒",
+   "text_en": "My school bag is blue. It is not very big, but it holds everything I need. Inside there is a book, two pencils and a small red box. The box has my lunch: bread, cheese and an apple. My bag has a pocket on the front. I keep my bus card in it, so I can find it quickly. Every evening I put my bag next to my desk, ready for the morning.",
+   "text_fa": "کیف مدرسهٔ من آبی است. خیلی بزرگ نیست، اما هر چیزی را که لازم دارم در خودش جا می‌دهد. داخلش یک کتاب، دو مداد و یک جعبهٔ کوچک قرمز هست. در جعبه ناهارم است: نان، پنیر و یک سیب. کیف من یک جیب در جلو دارد. کارت اتوبوسم را در آن می‌گذارم تا زود پیدایش کنم. هر شب کیفم را کنار میزم می‌گذارم تا صبح آماده باشد.",
+   "questions": [
+    {
+     "q": "What color is the bag?",
+     "options": [
+      "Blue",
+      "Green",
+      "Red"
+     ],
+     "answer": "Blue",
+     "why_en": "The first sentence says it is blue.",
+     "why_fa": "جملهٔ اول می‌گوید آبی است."
+    },
+    {
+     "q": "What is in the small red box?",
+     "options": [
+      "Lunch",
+      "Shoes",
+      "Paper"
+     ],
+     "answer": "Lunch",
+     "why_en": "The box holds bread, cheese and an apple.",
+     "why_fa": "در جعبه نان، پنیر و سیب است."
+    },
+    {
+     "q": "What is in the front pocket?",
+     "options": [
+      "A bus card",
+      "A pencil case",
+      "A book"
+     ],
+     "answer": "A bus card",
+     "why_en": "The bus card is kept in the front pocket.",
+     "why_fa": "کارت اتوبوس در جیب جلو گذاشته می‌شود."
+    }
+   ]
+  },
+  {
+   "id": "rainy-day",
+   "title_en": "A rainy day",
+   "title_fa": "یک روز بارانی",
+   "emoji": "🌧",
+   "text_en": "Today it is raining, so we stay inside. My sister builds a tall tower with her blocks. I draw a boat on a big piece of paper. Our cat sits by the window and watches the water run down the glass. After lunch, the rain stops. The garden smells fresh and clean. We put on our boots and jump in the little puddles. Then the sun comes out and makes a rainbow.",
+   "text_fa": "امروز باران می‌بارد، پس داخل می‌مانیم. خواهرم با مکعب‌هایش برج بلندی می‌سازد. من روی یک کاغذ بزرگ یک قایق می‌کشم. گربه‌مان کنار پنجره می‌نشیند و آب را که روی شیشه می‌آید تماشا می‌کند. بعد از ناهار باران می‌ایستد. باغچه بوی تازگی و پاکی می‌دهد. چکمه‌هایمان را می‌پوشیم و در آبگیرهای کوچک می‌پریم. بعد خورشید بیرون می‌آید و رنگین‌کمان می‌سازد.",
+   "questions": [
+    {
+     "q": "Why do they stay inside?",
+     "options": [
+      "It is raining",
+      "It is snowing",
+      "It is dark"
+     ],
+     "answer": "It is raining",
+     "why_en": "The first line says it is raining.",
+     "why_fa": "خط اول می‌گوید باران می‌بارد."
+    },
+    {
+     "q": "What does the sister build?",
+     "options": [
+      "A tower",
+      "A boat",
+      "A house"
+     ],
+     "answer": "A tower",
+     "why_en": "She builds a tall tower with blocks.",
+     "why_fa": "او با مکعب‌ها برج بلندی می‌سازد."
+    },
+    {
+     "q": "What appears after the rain?",
+     "options": [
+      "A rainbow",
+      "A big cloud",
+      "A bird"
+     ],
+     "answer": "A rainbow",
+     "why_en": "The sun makes a rainbow at the end.",
+     "why_fa": "خورشید در پایان رنگین‌کمان می‌سازد."
+    }
+   ]
+  },
+  {
+   "id": "park",
+   "title_en": "The park near my home",
+   "title_fa": "پارک نزدیک خانهٔ من",
+   "emoji": "🌳",
+   "text_en": "There is a small park near my home. It has two swings, a long slide and a lot of trees. On Saturdays, my father and I go there before lunch. I like the swing best. When I push my legs, I go higher and higher. My father sits on the bench and reads. Sometimes a gray cat comes and sits under the bench with us. We always go home when my hands are cold.",
+   "text_fa": "نزدیک خانهٔ من پارک کوچکی هست. دو تاب، یک سرسرهٔ بلند و درخت‌های زیادی دارد. شنبه‌ها من و پدرم پیش از ناهار به آنجا می‌رویم. تاب را از همه بیشتر دوست دارم. وقتی پاهایم را تاب می‌دهم، بالاتر و بالاتر می‌روم. پدرم روی نیمکت می‌نشیند و کتاب می‌خواند. گاهی گربهٔ خاکستری می‌آید و زیر نیمکت کنار ما می‌نشیند. هر وقت دست‌هایم سرد شود به خانه برمی‌گردیم.",
+   "questions": [
+    {
+     "q": "What is in the park?",
+     "options": [
+      "Two swings and a slide",
+      "A pool and a shop",
+      "A cinema"
+     ],
+     "answer": "Two swings and a slide",
+     "why_en": "The park has two swings and a long slide.",
+     "why_fa": "پارک دو تاب و یک سرسرهٔ بلند دارد."
+    },
+    {
+     "q": "When do they go to the park?",
+     "options": [
+      "On Saturdays",
+      "Every night",
+      "On Mondays"
+     ],
+     "answer": "On Saturdays",
+     "why_en": "They go on Saturdays before lunch.",
+     "why_fa": "آن‌ها شنبه‌ها پیش از ناهار می‌روند."
+    },
+    {
+     "q": "What does the father do there?",
+     "options": [
+      "He reads",
+      "He swims",
+      "He cooks"
+     ],
+     "answer": "He reads",
+     "why_en": "He sits on the bench and reads.",
+     "why_fa": "او روی نیمکت می‌نشیند و می‌خواند."
+    }
+   ]
+  },
+  {
+   "id": "library-card",
+   "title_en": "Two books on Friday",
+   "title_fa": "دو کتاب در روز جمعه",
+   "emoji": "📚",
+   "cefr": "A2",
+   "text_en": "Every Friday my class goes to the library. The library is a quiet room with tall shelves and one big window. I choose two books, then I sit near the window to read. Last week I found a book about volcanoes. It had pictures of red lava and black rocks. I learned that volcanoes can make new islands. My teacher says I can borrow the book for two weeks. I am reading it slowly, because I want to remember the hard words. When I finish, I will tell my friend Nima about it. He likes rocks and maps, so I think he will enjoy it too.",
+   "text_fa": "هر جمعه کلاس ما به کتابخانه می‌رود. کتابخانه اتاقی آرام با قفسه‌های بلند و یک پنجرهٔ بزرگ است. دو کتاب انتخاب می‌کنم و بعد نزدیک پنجره می‌نشینم تا بخوانم. هفتهٔ پیش کتابی دربارهٔ آتشفشان‌ها پیدا کردم. عکس‌هایی از گدازهٔ سرخ و سنگ‌های سیاه داشت. یاد گرفتم که آتشفشان‌ها می‌توانند جزیره‌های تازه بسازند. معلمم می‌گوید می‌توانم کتاب را دو هفته امانت بگیرم. آهسته می‌خوانم، چون می‌خواهم واژه‌های سخت را یادم بماند. وقتی تمام شود، درباره‌اش به دوستم نیما می‌گویم. او سنگ و نقشه را دوست دارد، پس فکر می‌کنم او هم لذت می‌برد.",
+   "questions": [
+    {
+     "q": "How often does the class go to the library?",
+     "options": [
+      "Every Friday",
+      "Every day",
+      "Once a month"
+     ],
+     "answer": "Every Friday",
+     "why_en": "The first sentence says every Friday.",
+     "why_fa": "جملهٔ اول می‌گوید هر جمعه."
+    },
+    {
+     "q": "What is the book about?",
+     "options": [
+      "Volcanoes",
+      "Maps",
+      "The ocean"
+     ],
+     "answer": "Volcanoes",
+     "why_en": "The narrator found a book about volcanoes.",
+     "why_fa": "راوی کتابی دربارهٔ آتشفشان‌ها پیدا کرد."
+    },
+    {
+     "q": "Why is the narrator reading slowly?",
+     "options": [
+      "To remember the hard words",
+      "Because the book is boring",
+      "Because the library is noisy"
+     ],
+     "answer": "To remember the hard words",
+     "why_en": "The text says: I want to remember the hard words.",
+     "why_fa": "متن می‌گوید: می‌خواهم واژه‌های سخت را یادم بماند."
+    }
+   ]
+  }
+ ],
+ "listening": [
+  {
+   "id": "bakery",
+   "title_en": "At the bakery",
+   "title_fa": "در نانوایی",
+   "emoji": "🥖",
+   "lines": [
+    "Good morning! Two small breads, please.",
+    "Here you are. They are still warm.",
+    "Thank you. How much are they?",
+    "They are twenty thousand toman."
+   ],
+   "questions": [
+    {
+     "q": "How many breads does the person want?",
+     "options": [
+      "Two",
+      "Three",
+      "One"
+     ],
+     "answer": "Two",
+     "why_en": "The first line asks for two small breads.",
+     "why_fa": "خط اول دو نان کوچک می‌خواهد."
+    },
+    {
+     "q": "How is the bread?",
+     "options": [
+      "Still warm",
+      "Very cold",
+      "Too salty"
+     ],
+     "answer": "Still warm",
+     "why_en": "The baker says it is still warm.",
+     "why_fa": "نانوا می‌گوید هنوز گرم است."
+    },
+    {
+     "q": "How much does it cost?",
+     "options": [
+      "Twenty thousand",
+      "Twelve thousand",
+      "Two thousand"
+     ],
+     "answer": "Twenty thousand",
+     "why_en": "The last line gives the price.",
+     "why_fa": "خط آخر قیمت را می‌گوید."
+    }
+   ]
+  },
+  {
+   "id": "max",
+   "title_en": "My dog Max",
+   "title_fa": "سگ من مکس",
+   "emoji": "🐕",
+   "lines": [
+    "My dog is called Max.",
+    "He is black and white and very fast.",
+    "He loves the ball and he loves the park.",
+    "Every evening we run there together."
+   ],
+   "questions": [
+    {
+     "q": "What is the dog's name?",
+     "options": [
+      "Max",
+      "Milo",
+      "Sam"
+     ],
+     "answer": "Max",
+     "why_en": "The first line gives the name.",
+     "why_fa": "خط اول نام را می‌گوید."
+    },
+    {
+     "q": "What colors is Max?",
+     "options": [
+      "Black and white",
+      "Brown and white",
+      "All black"
+     ],
+     "answer": "Black and white",
+     "why_en": "Max is black and white.",
+     "why_fa": "مکس سیاه و سفید است."
+    },
+    {
+     "q": "Where do they run?",
+     "options": [
+      "To the park",
+      "To school",
+      "To the shop"
+     ],
+     "answer": "To the park",
+     "why_en": "They run to the park every evening.",
+     "why_fa": "آن‌ها هر غروب به پارک می‌دوند."
+    }
+   ]
+  },
+  {
+   "id": "football",
+   "title_en": "Playing football",
+   "title_fa": "فوتبال بازی کردن",
+   "emoji": "⚽",
+   "lines": [
+    "We play football after school on the field.",
+    "My friend Ali is the goalkeeper.",
+    "I have the ball now and I run to the goal.",
+    "I kick it, and the ball goes in!"
+   ],
+   "questions": [
+    {
+     "q": "When do they play football?",
+     "options": [
+      "After school",
+      "Before breakfast",
+      "At night"
+     ],
+     "answer": "After school",
+     "why_en": "They play after school on the field.",
+     "why_fa": "آن‌ها بعد از مدرسه در زمین بازی می‌کنند."
+    },
+    {
+     "q": "Who is the goalkeeper?",
+     "options": [
+      "Ali",
+      "The speaker",
+      "A teacher"
+     ],
+     "answer": "Ali",
+     "why_en": "The second line says Ali is the goalkeeper.",
+     "why_fa": "خط دوم می‌گوید علی دروازه‌بان است."
+    },
+    {
+     "q": "What happens at the end?",
+     "options": [
+      "The ball goes in",
+      "It starts to rain",
+      "They go home"
+     ],
+     "answer": "The ball goes in",
+     "why_en": "The last line says the ball goes in.",
+     "why_fa": "خط آخر می‌گوید توپ وارد دروازه می‌شود."
+    }
+   ]
+  },
+  {
+   "id": "weather",
+   "title_en": "The weather today",
+   "title_fa": "هوای امروز",
+   "emoji": "⛅",
+   "lines": [
+    "Good morning, children. Look out of the window.",
+    "The sky is gray and it is raining a little.",
+    "Take your coats and your boots today.",
+    "This afternoon the sun will come out."
+   ],
+   "questions": [
+    {
+     "q": "What is the sky like?",
+     "options": [
+      "Gray",
+      "Blue",
+      "Orange"
+     ],
+     "answer": "Gray",
+     "why_en": "The teacher says the sky is gray.",
+     "why_fa": "معلم می‌گوید آسمان خاکستری است."
+    },
+    {
+     "q": "What should the children take?",
+     "options": [
+      "Coats and boots",
+      "Hats and balls",
+      "Books only"
+     ],
+     "answer": "Coats and boots",
+     "why_en": "The teacher tells them to take coats and boots.",
+     "why_fa": "معلم می‌گوید کتها و چکمه‌ها را بردارند."
+    },
+    {
+     "q": "What will happen this afternoon?",
+     "options": [
+      "The sun will come out",
+      "It will snow",
+      "It will be dark"
+     ],
+     "answer": "The sun will come out",
+     "why_en": "The last line says the sun will come out.",
+     "why_fa": "خط آخر می‌گوید خورشید بیرون می‌آید."
+    }
+   ]
+  },
+  {
+   "id": "lost-and-found",
+   "title_en": "At the lost and found",
+   "title_fa": "در دفتر اشیای پیداشده",
+   "emoji": "🧣",
+   "cefr": "A2",
+   "lines": [
+    "Hello. I think I left my scarf in the classroom.",
+    "Which classroom were you in?",
+    "Room twelve. It is blue and white.",
+    "Here it is. Someone brought it to the office this morning."
+   ],
+   "questions": [
+    {
+     "q": "What did the student lose?",
+     "options": [
+      "A scarf",
+      "A cap",
+      "A book"
+     ],
+     "answer": "A scarf",
+     "why_en": "The first line says: I left my scarf.",
+     "why_fa": "خط اول می‌گوید: شال‌گردنم را جا گذاشتم."
+    },
+    {
+     "q": "Where was the scarf before it came to the office?",
+     "options": [
+      "In the classroom",
+      "In the playground",
+      "On the bus"
+     ],
+     "answer": "In the classroom",
+     "why_en": "The child left it in room twelve, and someone brought it to the office.",
+     "why_fa": "کودک آن را در اتاق دوازده جا گذاشت و کسی آن را به دفتر آورد."
+    },
+    {
+     "q": "What color is the scarf?",
+     "options": [
+      "Blue and white",
+      "Red and yellow",
+      "Green"
+     ],
+     "answer": "Blue and white",
+     "why_en": "The child says: it is blue and white.",
+     "why_fa": "کودک می‌گوید: آبی و سفید است."
+    }
+   ]
+  }
+ ],
+ "phrases": [
+  {
+   "id": "friends",
+   "title_en": "Meeting a friend",
+   "title_fa": "دیدن یک دوست",
+   "emoji": "👋",
+   "items": [
+    {
+     "en": "Hi! How are you?",
+     "fa": "سلام! حالت چطور است؟"
+    },
+    {
+     "en": "I am fine, thank you.",
+     "fa": "خوبم، ممنون."
+    },
+    {
+     "en": "Do you want to play?",
+     "fa": "دوست داری بازی کنیم؟"
+    },
+    {
+     "en": "See you tomorrow!",
+     "fa": "فردا می‌بینمت!"
+    }
+   ]
+  },
+  {
+   "id": "classroom",
+   "title_en": "In class",
+   "title_fa": "در کلاس",
+   "emoji": "✏️",
+   "items": [
+    {
+     "en": "May I open the window?",
+     "fa": "می‌توانم پنجره را باز کنم؟"
+    },
+    {
+     "en": "I do not understand this word.",
+     "fa": "این واژه را نمی‌فهمم."
+    },
+    {
+     "en": "Can you say it again, please?",
+     "fa": "می‌شود لطفاً دوباره بگویید؟"
+    },
+    {
+     "en": "I know the answer!",
+     "fa": "جواب را می‌دانم!"
+    }
+   ]
+  },
+  {
+   "id": "playtime",
+   "title_en": "At playtime",
+   "title_fa": "در زنگ بازی",
+   "emoji": "🤸",
+   "items": [
+    {
+     "en": "It is my turn now.",
+     "fa": "حالا نوبت من است."
+    },
+    {
+     "en": "Throw the ball to me!",
+     "fa": "توپ را به من بینداز!"
+    },
+    {
+     "en": "Good game, well played.",
+     "fa": "بازی خوبی بود، خوب بازی کردی."
+    },
+    {
+     "en": "Let us play together.",
+     "fa": "بیا با هم بازی کنیم."
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "title_en": "At home",
+   "title_fa": "در خانه",
+   "emoji": "🏠",
+   "items": [
+    {
+     "en": "I am home!",
+     "fa": "رسیدم خانه!"
+    },
+    {
+     "en": "Can I have some water?",
+     "fa": "می‌توانم کمی آب بخورم؟"
+    },
+    {
+     "en": "I will help you.",
+     "fa": "کمکَت می‌کنم."
+    },
+    {
+     "en": "Good night, sleep well.",
+     "fa": "شب بخیر، خوب بخوابی."
+    }
+   ]
+  },
+  {
+   "id": "asking-help",
+   "title_en": "Asking for help",
+   "title_fa": "کمک خواستن",
+   "emoji": "🙋",
+   "cefr": "A1",
+   "items": [
+    {
+     "en": "Excuse me, can you help me?",
+     "fa": "ببخشید، می‌توانید کمکم کنید؟"
+    },
+    {
+     "en": "I don't understand this word.",
+     "fa": "این واژه را نمی‌فهمم."
+    },
+    {
+     "en": "Could you say it again, please?",
+     "fa": "می‌شود لطفاً دوباره بگویید؟"
+    },
+    {
+     "en": "Thank you. That helps a lot.",
+     "fa": "ممنون. خیلی کمک کرد."
+    }
+   ]
+  }
+ ],
+ "chat": {
+  "welcome_en": "Hi! I am Fluentify, your English friend. Ask me a word, and we will learn it together.",
+  "welcome_fa": "سلام! من فلوئنتیفای هستم، دوست انگلیسی تو. یک واژه از من بپرس تا با هم یادش بگیریم.",
+  "praise_en": "You are doing great! 🌟",
+  "praise_fa": "عالی داری پیش می‌روی! 🌟",
+  "safety_en": "I do not need your address, your phone number or the name of your school. Let us learn English instead!",
+  "safety_fa": "من نشانی، شمارهٔ تلفن یا نام مدرسه‌ات را لازم ندارم. بیا به جایش انگلیسی یاد بگیریم!",
+  "starters": [
+   [
+    "colors",
+    "Colors",
+    "واژگان رنگ‌ها"
+   ],
+   [
+    "animals",
+    "Animals",
+    "جانوران"
+   ],
+   [
+    "how are you",
+    "Say hello",
+    "سلام و احوال‌پرسی"
+   ],
+   [
+    "days of the week",
+    "Days",
+    "روزهای هفته"
+   ]
+  ]
+ }
 }
