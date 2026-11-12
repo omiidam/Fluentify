@@ -492,17 +492,41 @@ def main() -> int:
           re.search(r"@media \(prefers-reduced-motion: reduce\) \{\s*"
                     r"\.foxpeek \{ transition: none; \}\s*"
                     r"\.foxhead, \.foxpic, \.foxeyes, \.foxhead\.nod,\s*"
-                    r"\.foxshake, \.foxarm, \.foxhand \{ animation: none; \}",
+                    r"\.foxshake, \.foxarm, \.foxhand, \.foxpoint, "
+                    r"\.foxpointpaw \{ animation: none; \}",
                     src) is not None,
           "a companion that keeps bobbing after the setting is on is a "
           "companion nobody can switch off")
-    check("the hello is reach, then wave, then shake, in that order",
-          re.search(r"\.foxpeek\.hello \.foxshake \{\s*animation:\s*"
-                    r"foxReach [^;]*,\s*"
-                    r"foxWaveBob 2\.4s 1s [^;]*,\s*"
-                    r"foxNo 2s 3\.55s ", src) is not None,
-          "the wave has to finish before the head shake starts, or the two "
-          "read as one noise")
+    # The hello is one timeline and the order is the whole of it: she arrives,
+    # waves, points down at the box, and only then shakes her head. The delays
+    # live in the CSS, so this reads them back and checks the arithmetic rather
+    # than a fixed number: the point may not begin before the wave has finished,
+    # and the shake may not begin before the point has.
+    hello = re.search(r"\.foxpeek\.hello \.foxshake \{\s*animation:\s*"
+                      r"foxReach [^;]*,\s*"
+                      r"foxWaveBob ([\d.]+)s ([\d.]+)s [^;]*,\s*"
+                      r"foxNo ([\d.]+)s ([\d.]+)s ", src)
+    point = re.search(r"\.foxpeek\.hello \.foxpoint \{\s*"
+                      r"animation: foxPoint ([\d.]+)s ([\d.]+)s ", src)
+    ordered = False
+    if hello and point:
+        wave_start = float(hello.group(2))
+        wave_len = float(hello.group(1))
+        point_len = float(point.group(1))
+        point_start = float(point.group(2))
+        shake_start = float(hello.group(4))
+        ordered = (point_start >= wave_start + wave_len - 0.05
+                   and shake_start >= point_start + point_len - 0.05)
+    check("the hello is reach, then wave, then the point, then the shake",
+          ordered,
+          "the wave has to finish before the point begins and the point before "
+          "the head shake, or the three read as one noise")
+    check("the pointing paw is hidden outside the hello and comes back to rest",
+          re.search(r"\.foxpoint \{\s*opacity: 0;", src) is not None
+          and re.search(r"@keyframes foxPoint \{.*?100% \{ opacity: 0;", src,
+                        re.S) is not None,
+          "a paw left hanging at the lip of the box after the hello would be a "
+          "mistake a child reads as part of the fox")
     check("the waving hand starts and finishes hidden behind her body",
           ".foxarm {" in src
           and re.search(r"\.foxarm \{\s*opacity: 0;", src) is not None

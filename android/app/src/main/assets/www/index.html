@@ -3706,7 +3706,7 @@
     animation:
       foxReach .95s cubic-bezier(.2,.86,.3,1) both,
       foxWaveBob 2.4s 1s ease-in-out both,
-      foxNo 2s 3.55s cubic-bezier(.36,.06,.2,.98) both;
+      foxNo 2s 5.75s cubic-bezier(.36,.06,.2,.98) both;
   }
   /* Her arm sits behind the body, so it is genuinely out of sight until it
      comes up past her shoulder - not a line switched on with opacity. */
@@ -3717,6 +3717,19 @@
     animation: foxWave 2.4s 1s cubic-bezier(.3,.7,.3,1) both;
   }
   .foxhand { transform-box: view-box; transform-origin: 57px 12px; }
+  /* The pointing arm. It hangs from the same shoulder as the wave, so the two
+     never look like two different foxes, and it is invisible - not merely
+     still - outside the hello, so the idle bob is untouched. */
+  .foxpoint {
+    opacity: 0; transform-box: view-box; transform-origin: 45.4px 35.2px;
+  }
+  .foxpeek.hello .foxpoint {
+    animation: foxPoint 2.1s 3.45s cubic-bezier(.3,.7,.3,1) both;
+  }
+  .foxpointpaw { transform-box: view-box; transform-origin: 54.4px 40.6px; }
+  .foxpeek.hello .foxpointpaw {
+    animation: foxPointTip 2.1s 3.45s ease-in-out both;
+  }
   .foxpeek.hello .foxhand {
     animation: foxWrist 2.4s 1s ease-in-out both;
   }
@@ -3819,6 +3832,24 @@
     70%  { transform: rotate(-7deg); opacity: 1; }
     86%  { transform: rotate(5deg); opacity: .5; }
   }
+  /* Down, hold, up. The paw is drawn already hanging low, so this is the
+     sweep of the arm arriving and the small settle while it holds: a quarter
+     of a second down, about half a second of pointing, then the return. */
+  @keyframes foxPoint {
+    0%   { opacity: 0; transform: rotate(15deg); }
+    12%  { opacity: 1; transform: rotate(9deg); }
+    30%  { transform: rotate(-3deg); }
+    40%  { transform: rotate(0deg); }
+    62%  { transform: rotate(-1.5deg); }
+    78%  { transform: rotate(6deg); opacity: 1; }
+    100% { opacity: 0; transform: rotate(15deg); }
+  }
+  /* The wrist tips the mitten toward the box as it arrives, and tips it back
+     before the arm leaves: the paw points, it does not just hang. */
+  @keyframes foxPointTip {
+    0%, 100% { transform: rotate(7deg); }
+    32%, 60% { transform: rotate(0deg); }
+  }
   @keyframes foxWaveBob {
     0%, 100% { transform: translateY(0); }
     16%  { transform: translateY(-1.7px); }
@@ -3854,7 +3885,8 @@
   body.stt-open .foxpeek { transform: translateY(100%); }
   /* The hello must not hold her up while dictation needs the space. */
   body.stt-open .foxshake, body.stt-open .foxarm,
-  body.stt-open .foxhand { animation: none; }
+  body.stt-open .foxhand, body.stt-open .foxpoint,
+  body.stt-open .foxpointpaw { animation: none; }
   @media (max-width: 560px) {
     .foxslot { height: 42px; }
     .foxhead { left: 28px; width: 54px; height: 54px; bottom: -14px; }
@@ -3866,7 +3898,7 @@
   @media (prefers-reduced-motion: reduce) {
     .foxpeek { transition: none; }
     .foxhead, .foxpic, .foxeyes, .foxhead.nod,
-    .foxshake, .foxarm, .foxhand { animation: none; }
+    .foxshake, .foxarm, .foxhand, .foxpoint, .foxpointpaw { animation: none; }
   }
   .ico {
     flex: 0 0 auto; width: 36px; height: 36px; padding: 0;
@@ -8372,6 +8404,18 @@
             </g>
             <path class="foxnose" d="M30 36.8 l-2.1 2 h4.2 Z"/>
             <path class="foxsmile" d="M26.8 40.8 c1.5 1.9 5.4 1.9 6.9 0"/>
+            <!-- The point. A second pose of the same arm, not a second fox:
+                 the same mint line and the same white mitten, hung downward so
+                 the paw comes to rest on the lip of the box below her. Hidden
+                 until the hello reaches it, and hidden again afterwards. -->
+            <g class="foxpoint">
+              <path class="foxarmline" d="M45.4 35.2 C49.2 36.4 52.4 37.6 54 38.6"/>
+              <g class="foxpointpaw">
+                <path class="foxpaw"
+                      d="M50.6 40.6c0-3 1.7-5.4 3.8-5.4s3.8 2.4 3.8 5.4c0 2.9-1.7 5.2-3.8 5.2s-3.8-2.3-3.8-5.2Z"/>
+                <path class="foxseam" d="M51.2 39.2c1.8 1.1 4.2 1.1 6 0"/>
+              </g>
+            </g>
           </svg>
           </div>
         </div>
@@ -9067,10 +9111,10 @@ let historyAt = -1;
 const ChatFox = (() => {
   let timer = 0;
   let settle = 0;
-  /* Reach, wave, shake. The CSS owns the timing; this only needs to know when
-     the last frame is done so the class can come off and the idle bob can have
-     the transform back. */
-  const HELLO_MS = 5700;
+  /* Reach, wave, point, shake. The CSS owns the timing; this only needs to know
+     when the last frame is done so the class can come off and the idle bob can
+     have the transform back. */
+  const HELLO_MS = 7950;
   const el = () => document.getElementById('chatfox');
   /* Reduced motion is read live: the pref can be switched while the page is
      open, and an OS-level switch should not need a reload. */
