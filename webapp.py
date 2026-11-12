@@ -19210,7 +19210,7 @@ const Kids = (() => {
      read - the transcript is on screen at boot - so the same strings live here
      as constants and the file is what a teacher can edit later. */
   const KID_WELCOME = 'Hi! I am Fluentify, your English friend. Ask me a word, and we will ' +
-    'learn it together.\nسلام! من فلوئنتیفای هستم، دوست انگلیسی تو. یک واژه از من بپرس تا با هم یادش بگیریم.';
+    'learn it together.\nسلام! من Fluentify هستم، دوست انگلیسی تو. یک واژه از من بپرس تا با هم یادش بگیریم.';
   const KID_STARTERS = [
     ['colors', 'Colors', 'واژگان رنگ‌ها'],
     ['animals', 'Animals', 'جانوران'],
