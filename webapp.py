@@ -1696,12 +1696,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .ac-row b { color: var(--ink); font-weight: 600; }
   .ac-actions { display: flex; flex-wrap: wrap; gap: 7px; }
-  .ac-danger {
-    font: inherit; font-size: 11.5px; cursor: pointer; padding: 8px 12px;
-    border-radius: 10px; border: 1px solid rgba(168,69,106,.35);
-    background: var(--surf-1); color: var(--pink-ink);
-  }
-
   /* The panel is a profile now, and a profile is read before it is edited:
      who you are and what you have done at the top, then the things that change
      something - face, password, appearance - then the two doors out. */
@@ -10194,6 +10188,12 @@ const Panels = (() => {
     // redraw when it opens. Without this the Review panel opened blank.
     if (hook) hook();
 
+    // Panels fill themselves lazily, so a search box attached before the list
+    // existed would filter nothing. One deferred pass catches the late ones.
+    setTimeout(() => {
+      if (typeof PanelSearch !== 'undefined') PanelSearch.attachAll();
+    }, 300);
+
     // focus the close button, not the first field: opening a panel should not
     // drop a keyboard user into a search box they did not ask for
     (panel.querySelector('.pclose') || panel).focus?.();
@@ -10270,16 +10270,47 @@ const PanelSearch = (() => {
     return box;
   }
 
+  /* One normalisation pass for both sides of every comparison. Case, the
+     Arabic forms of y and k that an Iranian keyboard produces, the ZWNJ that
+     joins the halves of a Persian word, the diacritics and the punctuation a
+     heading carries but a search does not: without this "ميرود" never found
+     "می‌رود", and a comma in a title was enough to miss the row. */
+  function fold(text) {
+    return String(text == null ? '' : text).toLowerCase()
+      .replace(/[\u064A\u0649]/g, '\u06CC')
+      .replace(/\u0643/g, '\u06A9')
+      .replace(/[\u064B-\u0652\u0640]/g, '')
+      .replace(/[\u200C\u200D]/g, '')
+      .replace(/[.,!?;:'"\u00AB\u00BB()\u2019\u060C\u061B\u061F]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /* What a row is allowed to match on: everything it shows, plus the title and
+     label it carries for a tooltip or a screen reader, plus any full text a
+     card keeps in data-search while its details are collapsed. */
+  function haystack(el) {
+    return fold(el.textContent + ' ' + (el.dataset.search || '') + ' ' +
+      (el.getAttribute('title') || '') + ' ' + (el.getAttribute('aria-label') || ''));
+  }
+
   function apply(panelId, needle) {
     const panel = document.getElementById(panelId);
     const state = attached.get(panelId);
     if (!panel || !state) return;
-    const q = needle.trim().toLowerCase();
+    const q = fold(needle);
+    const words = q ? q.split(' ').filter(Boolean) : [];
 
     let shown = 0;
     for (const el of state.items) {
       // re-read the text each time: the cards re-render on their own
-      const hit = !q || el.textContent.toLowerCase().includes(q);
+      let hit = true;
+      if (words.length) {
+        const hay = haystack(el);
+        // every word has to be there, in any order: "travel airport" finds a
+        // heading that says "Travel & Airport" whose words are not adjacent
+        hit = words.every((w) => hay.includes(w));
+      }
       el.hidden = !hit;
       if (hit) shown++;
     }
@@ -10402,11 +10433,21 @@ const PanelSearch = (() => {
     attach('lpanel', '.lrow',
       'Search the sentences… / جست‌وجوی جمله‌ها…',
       {tabs: (q) => { document.querySelectorAll('#lpanel .ltab').forEach((t) => {
-        t.hidden = !!q && !t.textContent.toLowerCase().includes(q);
+        t.hidden = !!fold(q) && !fold(t.textContent).includes(fold(q));
       }); }});
+    // Books opens on a shelf of titles and only then shows lessons, so both
+    // views get a box: the shelf filters books, the lesson view filters charts.
+    attach('bpanel', '.bbook',
+      'Search the books… / جست‌وجوی کتاب‌ها…');
+    attach('bpanel', '.blesson',
+      'Search the charts… / جست‌وجوی درس‌ها…', {group: '.bchapter'});
+    attach('rdpanel', '.rdcard',
+      'Search the passages… / جست‌وجوی متن‌ها…');
+    attach('stpanel', '.stcard',
+      'Search the stories… / جست‌وجوی داستان‌ها…');
   }
 
-  return {attachAll, apply};
+  return {attachAll, apply, fold};
 })();
 
 /* ------------------------------------------------------------------ STT ---
@@ -11720,15 +11761,16 @@ async function loadVocabulary() {
     if (search) {
       search.placeholder = `Search ${all.length} domains… / جست‌وجوی دسته‌ها…`;
     }
-    const filter = (window.__vFilter != null ? window.__vFilter
-      : (search?.value || '')).trim().toLowerCase();
+    const typed = (window.__vFilter != null ? window.__vFilter
+      : (search?.value || ''));
+    const words = PanelSearch.fold(typed).split(' ').filter(Boolean);
+    const hits = (d) => words.every((w) =>
+      PanelSearch.fold(d.title_en + ' ' + d.title_fa + ' ' + (d.level || '')).includes(w));
 
     box.innerHTML = '';
     byLevel(all).forEach(([level, items]) => {
-      const shown = filter
-        ? items.filter((d) => (d.title_en + ' ' + d.title_fa).toLowerCase().includes(filter))
-        : items;
-      if (filter && !shown.length) return;
+      const shown = words.length ? items.filter(hits) : items;
+      if (words.length && !shown.length) return;
       const sec = document.createElement('div');
       sec.className = 'vgroup';
       sec.appendChild(levelHead(level, shown.length, ' domains', 'دسته'));
@@ -11753,7 +11795,7 @@ async function loadVocabulary() {
     });
 
     const empty = document.getElementById('vempty');
-    if (empty) empty.hidden = !(filter && !box.children.length);
+    if (empty) empty.hidden = !(words.length && !box.children.length);
   } catch (e) {
     box.innerHTML = '<div class="pblurb">Vocabulary unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">واژگان در دسترس نیست.</bdi></div>';
   }
@@ -14743,7 +14785,7 @@ const Auth = (() => {
   const ITER = 150000;
 
   let account = null, session = null, tab = 'signin';
-  let lastTouch = 0, confirmReset = false;
+  let lastTouch = 0;
 
   const $ = (id) => document.getElementById(id);
   const read = (k, d) => {
@@ -15329,31 +15371,6 @@ const Auth = (() => {
     show('signin', false);
   }
 
-  function resetDevice() {
-    if (!confirmReset) {
-      confirmReset = true;
-      const btn = $('acreset');
-      if (btn) btn.textContent = 'Press again to erase this device';
-      setTimeout(() => {
-        confirmReset = false;
-        if (btn) btn.textContent = 'Reset this device';
-      }, 5000);
-      return;
-    }
-    ['fluentify.auth.account', 'fluentify.auth.session',
-     'fluentify.level.v2.result', 'fluentify.level.v2.history',
-     'fluentify.level.v2.attempt', 'fluentify.level.items',
-     AVATAR_KEY, Study.KEY].forEach(drop);
-    Study.clear();
-    account = null; session = null; confirmReset = false;
-    hide();
-    Experience.paint();
-    show('signup', false);
-    applyAvatarSkin(avatarId());
-    repaintAvatarTiles();
-    if (document.getElementById('lvlbody')) Level.mount();
-  }
-
   /* ---- the account panel ------------------------------------------------
      A profile is read before it is edited, so the panel opens on who the
      learner is and what the time in the app has bought, and everything that
@@ -15549,11 +15566,7 @@ const Auth = (() => {
       </div>
       <div class="ac-actions" style="margin-top:10px">
         <button class="lv-btn ghost" data-ac="signout">Sign out</button>
-        <button class="ac-danger" data-ac="reset">Reset this device</button>
-      </div>
-      <p class="authnote">Signing out keeps the account; resetting erases it, the level results, the
-        certificate history, the study time and the chosen avatar from this device.</p>`;
-    Theme.paint();
+      </div>`;    Theme.paint();
     if (panel && keep) panel.scrollTop = keep;
   }
 
@@ -15693,7 +15706,6 @@ const Auth = (() => {
           }
         }
         else if (act === 'signout') signOut();
-        else if (act === 'reset') resetDevice();
         else if (act === 'open') show('signup', false);
         else if (act === 'age') Experience.askAge();
         else if (act === 'save') {
@@ -15752,7 +15764,7 @@ const Auth = (() => {
   }
 
   return {
-    init, touch, paintAccount, signOut, resetDevice,
+    init, touch, paintAccount, signOut,
     sessionLeft, isOpen, validate, strength, MIN_PASS,
     emailProblem, ruleCheck, RULES, SPECIAL,
     passwordProblems,
