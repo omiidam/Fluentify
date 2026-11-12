@@ -1,0 +1,3036 @@
+{
+ "_meta": {
+  "version": 1,
+  "title_en": "Fluentify Journeys",
+  "title_fa": "سفرهای فلوئنتیفای",
+  "intro_en": "One topic, taught in the order you meet it: what it is, the words, the expressions people really use, the sentences, the conversations, and then the situations where you have to answer yourself.",
+  "intro_fa": "یک موضوع، به همان ترتیبی که در واقعیت با آن روبه‌رو می‌شوی: تعریف، واژه‌ها، عبارت‌هایی که مردم واقعاً به کار می‌برند، جمله‌ها، گفت‌وگوها و سپس موقعیت‌هایی که باید خودت پاسخ بدهی.",
+  "note_en": "These are language lessons, not legal, immigration or medical advice. Rules differ by country: ask the official in front of you.",
+  "note_fa": "این‌ها درس زبان‌اند، نه مشاورهٔ حقوقی، مهاجرتی یا پزشکی. قاعده‌های هر کشور فرق دارد؛ از مأمور رسمی بپرس.",
+  "sources": "Original material written for Fluentify in American English. Vocabulary, sentences and dialogue bank: travel.json, joined by id rather than copied.",
+  "levels": [
+   "A1",
+   "A2",
+   "B1",
+   "B2"
+  ],
+  "stats": {
+   "stages": 12,
+   "expressions": 60,
+   "patterns": 24,
+   "sentences": 37,
+   "dialogues": 12,
+   "scenarios": 24,
+   "practice": 36,
+   "bank_sentences": 71,
+   "bank_words": 64
+  }
+ },
+ "journeys": [
+  {
+   "id": "travel",
+   "topic": "travel",
+   "title_en": "Travel Journey",
+   "title_fa": "سفر: از رزرو تا بازگشت",
+   "icon": "🧳",
+   "audiences": [
+    "kids",
+    "adults"
+   ],
+   "blurb_en": "From the first booking to the last check-out, in the order the journey happens.",
+   "blurb_fa": "از نخستین رزرو تا آخرین تخلیه، به همان ترتیبی که سفر پیش می‌رود.",
+   "stages": [
+    {
+     "id": "foundations",
+     "order": 1,
+     "icon": "🧭",
+     "title_en": "Travel foundations",
+     "title_fa": "پایه‌های سفر",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "planning"
+     ],
+     "blurb_en": "What a trip is made of before anyone books anything: the words, the documents, the money, and the questions everybody asks first.",
+     "blurb_fa": "سفر پیش از هر رزروی از چه ساخته می‌شود: واژه‌ها، مدرک‌ها، پول و پرسش‌هایی که همه اول می‌پرسند.",
+     "objectives": [
+      {
+       "en": "Say where you are going and who you are going with.",
+       "fa": "بگویی کجا می‌روی و با چه کسی می‌روی."
+      },
+      {
+       "en": "Name the documents and the money you need to carry.",
+       "fa": "مدرک‌ها و پولی را که باید همراه داشته باشی نام ببری."
+      },
+      {
+       "en": "Ask the four questions that start any trip.",
+       "fa": "چهار پرسشی را که هر سفری با آن‌ها آغاز می‌شود بپرسی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "foundations-x1",
+       "kind": "expression",
+       "en": "I'm planning a trip abroad.",
+       "fa": "قصد دارم به خارج سفر کنم.",
+       "meaning_en": "You are at the stage where the trip exists but nothing is booked.",
+       "meaning_fa": "هنوز چیزی رزرو نشده و سفر در حد تصمیم است.",
+       "register": "neutral",
+       "example_en": "I'm planning a trip abroad for next spring.",
+       "example_fa": "برای بهار آینده قصد دارم به خارج سفر کنم.",
+       "alt": "I'm thinking of travelling abroad."
+      },
+      {
+       "id": "foundations-x2",
+       "kind": "expression",
+       "en": "How long does it take to get there?",
+       "fa": "رسیدن به آنجا چقدر طول می‌کشد؟",
+       "meaning_en": "Asks for a duration, not a distance. The answer starts with \"It takes\".",
+       "meaning_fa": "مدت زمان را می‌پرسد، نه فاصله را. پاسخ با It takes آغاز می‌شود.",
+       "register": "neutral",
+       "example_en": "How long does it take to get there by train?",
+       "example_fa": "با قطار رسیدن به آنجا چقدر طول می‌کشد؟",
+       "alt": "How far is it?"
+      },
+      {
+       "id": "foundations-x3",
+       "kind": "expression",
+       "en": "What documents do I need?",
+       "fa": "چه مدرک‌هایی لازم دارم؟",
+       "meaning_en": "A general question about paperwork; ask the airline or the embassy for the specific answer.",
+       "meaning_fa": "پرسش کلی دربارهٔ مدارک؛ پاسخ دقیق را از شرکت هواپیمایی یا سفارت بگیر.",
+       "register": "neutral",
+       "example_en": "What documents do I need for a short visit?",
+       "example_fa": "برای یک بازدید کوتاه چه مدرک‌هایی لازم دارم؟",
+       "alt": "Which papers should I bring?"
+      },
+      {
+       "id": "foundations-x4",
+       "kind": "idiom",
+       "en": "travel light",
+       "fa": "کم‌بار سفر کردن",
+       "meaning_en": "To take very little luggage, usually so you can move easily.",
+       "meaning_fa": "با بار بسیار کم سفر کردن، تا جابه‌جایی آسان باشد.",
+       "register": "informal",
+       "example_en": "We travel light, so two small bags are enough.",
+       "example_fa": "ما کم‌بار سفر می‌کنیم، پس دو کیف کوچک کافی است.",
+       "alt": "pack only the essentials"
+      },
+      {
+       "id": "foundations-x5",
+       "kind": "collocation",
+       "en": "make a reservation",
+       "fa": "رزرو کردن",
+       "meaning_en": "The natural verb with reservation is \"make\", not \"do\".",
+       "meaning_fa": "فعل طبیعی همراه reservation همان make است، نه do.",
+       "register": "neutral",
+       "example_en": "I made a reservation for two nights.",
+       "example_fa": "برای دو شب رزرو کردم.",
+       "alt": "book a room"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I'm travelling with + [person].",
+       "example_en": "I'm travelling with my family.",
+       "example_fa": "با خانواده‌ام سفر می‌کنم.",
+       "note_en": "Swap the person: my wife, two colleagues, my daughter.",
+       "note_fa": "شخص را عوض کن: my wife، two colleagues، my daughter."
+      },
+      {
+       "frame": "How much does + [thing] + cost?",
+       "example_en": "How much does a visa cost?",
+       "example_fa": "ویزا چقدر هزینه دارد؟",
+       "note_en": "The question about price; \"cost\" stays in the base form.",
+       "note_fa": "پرسش دربارهٔ قیمت؛ cost در شکل ساده می‌ماند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "foundations-s1",
+       "en": "I'm travelling with my family, so we have four passports.",
+       "fa": "با خانواده‌ام سفر می‌کنم، پس چهار گذرنامه داریم.",
+       "use_en": "Explains the group at a counter without being asked twice.",
+       "use_fa": "گروه را پشت باجه یک‌بار برای همیشه روشن می‌کند.",
+       "level": "A1",
+       "polite": "neutral",
+       "alt": "There are four of us, and we all have passports."
+      },
+      {
+       "id": "foundations-s2",
+       "en": "Could you give me some information about entry requirements?",
+       "fa": "می‌شود کمی اطلاعات دربارهٔ شرایط ورود بدهید؟",
+       "use_en": "A polite request for facts, and the safe way to ask about rules.",
+       "use_fa": "درخواست مؤدبانهٔ اطلاعات؛ راه امن پرسیدن دربارهٔ قاعده‌ها.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "I'd like some information about entry requirements, please."
+      },
+      {
+       "id": "foundations-s3",
+       "en": "Is it cheaper to fly or to take the train?",
+       "fa": "ارزان‌تر است با هواپیما برویم یا با قطار؟",
+       "use_en": "Comparing two options with the -er form and \"to\".",
+       "use_fa": "مقایسهٔ دو گزینه با شکل -er و to.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "Which is cheaper, the flight or the train?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "A friend asks about your trip",
+      "title_fa": "دوستی دربارهٔ سفرت می‌پرسد",
+      "speakers": [
+       "Sam",
+       "Nika"
+      ],
+      "lines": [
+       {
+        "who": "Nika",
+        "en": "So you're finally going abroad. Where are you going?",
+        "fa": "پس بالاخره داری به خارج می‌روی. کجا می‌روی؟"
+       },
+       {
+        "who": "Sam",
+        "en": "Istanbul first, then a few days in Izmir. I'm travelling with my sister.",
+        "fa": "اول استانبول، بعد چند روز ازمیر. با خواهرم سفر می‌کنم."
+       },
+       {
+        "who": "Nika",
+        "en": "How long does it take to get there?",
+        "fa": "رسیدن به آنجا چقدر طول می‌کشد؟"
+       },
+       {
+        "who": "Sam",
+        "en": "About three hours by plane, but the airport is an hour from the city.",
+        "fa": "با هواپیما حدود سه ساعت، اما فرودگاه یک ساعت با شهر فاصله دارد."
+       },
+       {
+        "who": "Nika",
+        "en": "What documents do you need?",
+        "fa": "چه مدرک‌هایی لازم داری؟"
+       },
+       {
+        "who": "Sam",
+        "en": "Just a passport for now. I checked, and we don't need a visa for a short visit.",
+        "fa": "فعلاً فقط گذرنامه. بررسی کردم و برای بازدید کوتاه ویزا لازم نداریم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking at a travel agency",
+       "title_fa": "پرسیدن در آژانس مسافرتی",
+       "situation_en": "You want a rough price and a rough date, and you have not decided anything yet.",
+       "situation_fa": "قیمت تقریبی و تاریخ تقریبی می‌خواهی و هنوز چیزی را قطعی نکرده‌ای.",
+       "task_en": "Ask for information about a two-week trip in June.",
+       "task_fa": "دربارهٔ سفر دو هفته‌ای در ژوئن اطلاعات بخواه.",
+       "answer_en": "Could you give me some information about a two-week trip in June, please?",
+       "answer_fa": "می‌شود لطفاً کمی اطلاعات دربارهٔ یک سفر دو هفته‌ای در ژوئن بدهید؟"
+      },
+      {
+       "title_en": "Explaining your group",
+       "title_fa": "توضیح دادن گروهت",
+       "situation_en": "The clerk asks how many people are travelling and you are with your family.",
+       "situation_fa": "مأمور می‌پرسد چند نفر سفر می‌کنند و تو با خانواده‌ات هستی.",
+       "task_en": "Say how many of you there are and that you are together.",
+       "task_fa": "بگو چند نفر هستید و با هم سفر می‌کنید.",
+       "answer_en": "There are four of us, and we're travelling together.",
+       "answer_fa": "ما چهار نفریم و با هم سفر می‌کنیم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "foundations-q1",
+       "q_en": "You want to know how many hours the flight lasts. What do you ask?",
+       "q_fa": "می‌خواهی بدانی پرواز چند ساعت طول می‌کشد. چه می‌پرسی؟",
+       "options": [
+        "How long does the flight take?",
+        "How much is the flight?",
+        "How far is the flight?"
+       ],
+       "answer": "How long does the flight take?",
+       "why_en": "Duration takes \"how long\" and the verb \"take\".",
+       "why_fa": "مدت زمان با how long و فعل take پرسیده می‌شود."
+      },
+      {
+       "id": "foundations-q2",
+       "q_en": "Which verb goes with \"a reservation\"?",
+       "q_fa": "با reservation کدام فعل می‌آید؟",
+       "options": [
+        "make a reservation",
+        "do a reservation",
+        "take a reservation"
+       ],
+       "answer": "make a reservation",
+       "why_en": "English makes a reservation; \"do\" belongs to a task, not a booking.",
+       "why_fa": "انگلیسی make a reservation می‌گوید؛ do به کار اشاره دارد نه به رزرو."
+      },
+      {
+       "id": "foundations-q3",
+       "q_en": "Travelling with very little luggage is travelling...",
+       "q_fa": "سفر با بار بسیار کم چه نام دارد؟",
+       "options": [
+        "light",
+        "lite",
+        "little"
+       ],
+       "answer": "light",
+       "why_en": "The idiom is \"travel light\", with the adjective light.",
+       "why_fa": "اصطلاح travel light است، با صفت light."
+      }
+     ]
+    },
+    {
+     "id": "booking",
+     "order": 2,
+     "icon": "📝",
+     "title_en": "Planning and booking",
+     "title_fa": "برنامه‌ریزی و رزرو",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "planning",
+      "hotel"
+     ],
+     "blurb_en": "Choosing dates, comparing two options and living with the answer: the part of the trip that happens at a desk.",
+     "blurb_fa": "انتخاب تاریخ، مقایسهٔ دو گزینه و پذیرفتن پاسخ: بخشی از سفر که پشت میز می‌گذرد.",
+     "objectives": [
+      {
+       "en": "Book a flight, a room or a ticket with a polite, complete request.",
+       "fa": "پرواز، اتاق یا بلیت را با درخواستی کامل و مؤدبانه رزرو کنی."
+      },
+      {
+       "en": "Compare two options and say which one you prefer and why.",
+       "fa": "دو گزینه را مقایسه کنی و بگویی کدام را ترجیح می‌دهی و چرا."
+      },
+      {
+       "en": "Change or cancel a booking and ask about a refund.",
+       "fa": "رزرو را عوض یا لغو کنی و دربارهٔ بازپرداخت بپرسی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "booking-x1",
+       "kind": "expression",
+       "en": "I'd like to book a room for two nights.",
+       "fa": "می‌خواهم اتاقی برای دو شب رزرو کنم.",
+       "meaning_en": "The standard opening at any counter; \"I'd like to\" is softer than \"I want to\".",
+       "meaning_fa": "آغاز استاندارد هر باجه؛ I'd like to از I want to نرم‌تر است.",
+       "register": "polite",
+       "example_en": "I'd like to book a room for two nights, please.",
+       "example_fa": "می‌خواهم لطفاً اتاقی برای دو شب رزرو کنم.",
+       "alt": "I want to reserve a room for two nights."
+      },
+      {
+       "id": "booking-x2",
+       "kind": "expression",
+       "en": "Is that refundable?",
+       "fa": "آن قابل بازپرداخت است؟",
+       "meaning_en": "Asks whether the money comes back if plans change.",
+       "meaning_fa": "می‌پرسد اگر برنامه عوض شود پول برمی‌گردد یا نه.",
+       "register": "neutral",
+       "example_en": "Is that fare refundable if I cancel?",
+       "example_fa": "اگر لغو کنم آن نرخ قابل بازپرداخت است؟",
+       "alt": "Can I get my money back?"
+      },
+      {
+       "id": "booking-x3",
+       "kind": "phrasal_verb",
+       "en": "check in",
+       "fa": "ثبت‌نام ورود کردن",
+       "meaning_en": "At a hotel or an airport, to say you have arrived and get your key or boarding pass.",
+       "meaning_fa": "در هتل یا فرودگاه، رسیدن را اعلام کردن و کلید یا کارت پرواز گرفتن.",
+       "register": "neutral",
+       "example_en": "We check in at three, so we'll leave the bags first.",
+       "example_fa": "ساعت سه ثبت‌نام می‌کنیم، پس اول کیف‌ها را می‌گذاریم.",
+       "alt": "register on arrival"
+      },
+      {
+       "id": "booking-x4",
+       "kind": "phrasal_verb",
+       "en": "put off",
+       "fa": "به تعویق انداختن",
+       "meaning_en": "To move a plan to a later time, usually because something else came first.",
+       "meaning_fa": "برنامه را به زمانی دیرتر بردن، معمولاً چون کار دیگری پیش آمده.",
+       "register": "informal",
+       "example_en": "We put off the trip until my sister could join us.",
+       "example_fa": "سفر را به تعویق انداختیم تا خواهرم بتواند همراهمان بیاید.",
+       "alt": "postpone"
+      },
+      {
+       "id": "booking-x5",
+       "kind": "collocation",
+       "en": "one-way ticket",
+       "fa": "بلیت یک‌طرفه",
+       "meaning_en": "A ticket for going only, with no return half.",
+       "meaning_fa": "بلیت فقط برای رفتن، بدون بخش برگشت.",
+       "register": "neutral",
+       "example_en": "A one-way ticket to Boston, please.",
+       "example_fa": "لطفاً یک بلیت یک‌طرفه به بوستون.",
+       "alt": "single ticket (British)"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Could I have + [thing], please?",
+       "example_en": "Could I have a window seat, please?",
+       "example_fa": "می‌شود لطفاً یک صندلی کنار پنجره بدهم؟",
+       "note_en": "The polite request frame; the thing after have changes, the rest does not.",
+       "note_fa": "قاب درخواست مؤدبانه؛ چیزِ پس از have عوض می‌شود و بقیه ثابت می‌ماند."
+      },
+      {
+       "frame": "Does the price include + [thing]?",
+       "example_en": "Does the price include breakfast?",
+       "example_fa": "قیمت شامل صبحانه می‌شود؟",
+       "note_en": "Ask this before paying: the answer decides what the room really costs.",
+       "note_fa": "پیش از پرداخت این را بپرس؛ پاسخش روشن می‌کند اتاق واقعاً چقدر تمام می‌شود."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "booking-s1",
+       "en": "I'd like to change my reservation from Tuesday to Wednesday.",
+       "fa": "می‌خواهم رزرو را از سه‌شنبه به چهارشنبه تغییر دهم.",
+       "use_en": "A change, said as one sentence: what moves, and where to.",
+       "use_fa": "یک تغییر در یک جمله: چه چیزی و به کدام روز.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Could you move my reservation to Wednesday, please?"
+      },
+      {
+       "id": "booking-s2",
+       "en": "If I cancel today, how much of the fare do I get back?",
+       "fa": "اگر امروز لغو کنم، چه مقدار از کرایه برمی‌گردد؟",
+       "use_en": "Asking the refund question precisely, with a condition.",
+       "use_fa": "پرسش دقیق بازپرداخت، همراه با شرط.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "What part of the fare is refundable if I cancel today?"
+      },
+      {
+       "id": "booking-s3",
+       "en": "Is there a cheaper option with one connection?",
+       "fa": "گزینهٔ ارزان‌تری با یک توقف هست؟",
+       "use_en": "Asks for a comparison without saying the first price was too high.",
+       "use_fa": "درخواست مقایسه، بدون آنکه بگویی قیمت اول زیاد بود.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Do you have anything cheaper with one stop?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Booking a flight",
+      "title_fa": "رزرو پرواز",
+      "speakers": [
+       "Agent",
+       "Traveller"
+      ],
+      "lines": [
+       {
+        "who": "Agent",
+        "en": "Good morning. How can I help you today?",
+        "fa": "صبح بخیر. چه کمکی می‌توانم بکنم؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "I'd like to book a return flight to Lisbon, leaving on the fourth and coming back on the eleventh.",
+        "fa": "می‌خواهم بلیت رفت‌وبرگشت به لیسبون رزرو کنم، رفت چهارم و برگشت یازدهم."
+       },
+       {
+        "who": "Agent",
+        "en": "Certainly. There's a direct flight at nine, or a cheaper one with a stop in Madrid.",
+        "fa": "حتماً. یک پرواز مستقیم ساعت نه هست، یا ارزان‌تری با توقف در مادرید."
+       },
+       {
+        "who": "Traveller",
+        "en": "How long is the stop in Madrid?",
+        "fa": "توقف در مادرید چقدر است؟"
+       },
+       {
+        "who": "Agent",
+        "en": "About two hours. The fare is refundable, but changes cost thirty dollars.",
+        "fa": "حدود دو ساعت. کرایه قابل بازپرداخت است، اما تغییر سی دلار هزینه دارد."
+       },
+       {
+        "who": "Traveller",
+        "en": "The direct flight is better for me. Could I have an aisle seat, please?",
+        "fa": "پرواز مستقیم برایم بهتر است. می‌شود لطفاً صندلی کنار راهرو بدهید؟"
+       },
+       {
+        "who": "Agent",
+        "en": "Of course. I'll send the confirmation to your email.",
+        "fa": "حتماً. تأییدیه را به ایمیل شما می‌فرستم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The price is not what you expected",
+       "title_fa": "قیمت آنچه انتظار داشتی نیست",
+       "situation_en": "The room is advertised at one price but the total is higher at the desk.",
+       "situation_fa": "قیمت اتاق یک چیز اعلام شده اما مبلغ نهایی پشت باجه بیشتر است.",
+       "task_en": "Ask politely what the difference covers.",
+       "task_fa": "مؤدبانه بپرس تفاوت قیمت برای چیست.",
+       "answer_en": "Could you explain what the extra charge is for?",
+       "answer_fa": "می‌شود توضیح دهید هزینهٔ اضافه برای چیست؟"
+      },
+      {
+       "title_en": "Changing your mind",
+       "title_fa": "تغییر نظر",
+       "situation_en": "You booked a bus for the morning and now prefer the afternoon departure.",
+       "situation_fa": "بلیت اتوبوس صبح را خریده‌ای و اکنون حرکت بعدازظهر را ترجیح می‌دهی.",
+       "task_en": "Ask for the change and about the difference in price.",
+       "task_fa": "تغییر را بخواه و دربارهٔ تفاوت قیمت بپرس.",
+       "answer_en": "Could I move my ticket to the afternoon bus? Is there a difference in price?",
+       "answer_fa": "می‌شود بلیتم را به اتوبوس بعدازظهر منتقل کنم؟ تفاوت قیمت دارد؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "booking-q1",
+       "q_en": "You want to know whether breakfast is included. What do you ask?",
+       "q_fa": "می‌خواهی بدانی صبحانه شامل می‌شود. چه می‌پرسی؟",
+       "options": [
+        "Does the price include breakfast?",
+        "Is the price including breakfast?",
+        "The price has breakfast?"
+       ],
+       "answer": "Does the price include breakfast?",
+       "why_en": "A question about the price needs does and the base verb include.",
+       "why_fa": "پرسش دربارهٔ قیمت به does و فعل سادهٔ include نیاز دارد."
+      },
+      {
+       "id": "booking-q2",
+       "q_en": "Polite request for a window seat.",
+       "q_fa": "درخواست مؤدبانهٔ صندلی کنار پنجره.",
+       "options": [
+        "Could I have a window seat, please?",
+        "I want a window seat.",
+        "Give me a window seat."
+       ],
+       "answer": "Could I have a window seat, please?",
+       "why_en": "Could I have is the polite frame; the others order rather than ask.",
+       "why_fa": "Could I have قالب مؤدبانه است؛ بقیه دستور می‌دهند نه درخواست."
+      },
+      {
+       "id": "booking-q3",
+       "q_en": "A ticket you cannot change is described as...",
+       "q_fa": "بلیتی که قابل تغییر نیست چه نام دارد؟",
+       "options": [
+        "non-refundable",
+        "unrefundable",
+        "no refundable"
+       ],
+       "answer": "non-refundable",
+       "why_en": "The established word is non-refundable, with the prefix non-.",
+       "why_fa": "واژهٔ شناخته‌شده non-refundable است، با پیشوند non-."
+      }
+     ]
+    },
+    {
+     "id": "airport",
+     "order": 3,
+     "icon": "✈️",
+     "title_en": "Airport and departure",
+     "title_fa": "فرودگاه و پرواز",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "airport",
+      "security"
+     ],
+     "blurb_en": "The hour before the flight, which is really a series of small conversations at different counters.",
+     "blurb_fa": "ساعت پیش از پرواز، که در واقع رشته‌ای از گفت‌وگوهای کوتاه در باجه‌های گوناگون است.",
+     "objectives": [
+      {
+       "en": "Check in, hand over a bag and get a boarding pass.",
+       "fa": "ثبت‌نام کنی، بار تحویل دهی و کارت پرواز بگیری."
+      },
+      {
+       "en": "Understand the questions staff ask, and answer them in one sentence.",
+       "fa": "پرسش‌های کارکنان را بفهمی و در یک جمله پاسخ دهی."
+      },
+      {
+       "en": "Read a departure board and ask what a delay means for you.",
+       "fa": "تابلوی پروازها را بخوانی و بپرسی تأخیر برایت چه معنایی دارد."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "airport-x1",
+       "kind": "expression",
+       "en": "I'd like to check in two bags.",
+       "fa": "می‌خواهم دو چمدان را تحویل دهم.",
+       "meaning_en": "Said at the counter before the passport is handed over.",
+       "meaning_fa": "پیش از دادن گذرنامه در باجه گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "I'd like to check in two bags and keep this one with me.",
+       "example_fa": "می‌خواهم دو چمدان را تحویل دهم و این یکی با خودم بماند.",
+       "alt": "I have two bags to check."
+      },
+      {
+       "id": "airport-x2",
+       "kind": "expression",
+       "en": "Is the flight on time?",
+       "fa": "پرواز سر وقت است؟",
+       "meaning_en": "The first question at a board that shows a delay.",
+       "meaning_fa": "نخستین پرسش کنار تابلویی که تأخیر نشان می‌دهد.",
+       "register": "neutral",
+       "example_en": "Is the flight to Rome on time?",
+       "example_fa": "پرواز به رم سر وقت است؟",
+       "alt": "Has the flight been delayed?"
+      },
+      {
+       "id": "airport-x3",
+       "kind": "phrasal_verb",
+       "en": "check in",
+       "fa": "ثبت‌نام ورود کردن",
+       "meaning_en": "At the airport it means showing your ticket and getting your boarding pass.",
+       "meaning_fa": "در فرودگاه یعنی بلیت را نشان دادن و کارت پرواز گرفتن.",
+       "register": "neutral",
+       "example_en": "We checked in online, so we only need to drop the bags.",
+       "example_fa": "اینترنتی ثبت‌نام کردیم، پس فقط باید چمدان‌ها را تحویل دهیم.",
+       "alt": "register for the flight"
+      },
+      {
+       "id": "airport-x4",
+       "kind": "collocation",
+       "en": "boarding pass",
+       "fa": "کارت پرواز",
+       "meaning_en": "The card or code that lets you walk onto the plane.",
+       "meaning_fa": "کارت یا کدی که اجازهٔ ورود به هواپیما می‌دهد.",
+       "register": "neutral",
+       "example_en": "Keep your boarding pass out; you'll need it at the gate.",
+       "example_fa": "کارت پرواز را در دست نگه دار؛ در درِ ورودی لازمش داری.",
+       "alt": "boarding card (British)"
+      },
+      {
+       "id": "airport-x5",
+       "kind": "idiom",
+       "en": "on the go",
+       "fa": "در حال حرکت و مشغول",
+       "meaning_en": "Busy and moving from one thing to the next, often without sitting down.",
+       "meaning_fa": "مشغول و در حال جابه‌جایی، اغلب بدون آنکه جایی بنشینی.",
+       "register": "informal",
+       "example_en": "We were on the go from six in the morning until midnight.",
+       "example_fa": "از شش صبح تا نیمه‌شب در حال حرکت بودیم.",
+       "alt": "rushed off your feet"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Do you need to + [verb]?",
+       "example_en": "Do you need to see my passport?",
+       "example_fa": "نیاز دارید گذرنامه‌ام را ببینید؟",
+       "note_en": "Anticipating the next request is polite, and it saves a misunderstanding.",
+       "note_fa": "پیش‌دستی در پرسیدن مؤدبانه است و سوءتفاهم را کم می‌کند."
+      },
+      {
+       "frame": "Where do I go for + [thing]?",
+       "example_en": "Where do I go for security?",
+       "example_fa": "برای بازرسی امنیتی کجا بروم؟",
+       "note_en": "The question for finding the next counter in a large building.",
+       "note_fa": "پرسش یافتن باجهٔ بعدی در ساختمانی بزرگ."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "airport-s1",
+       "en": "My bag is one kilo over the limit. What are my options?",
+       "fa": "چمدانم یک کیلو بیش از حد مجاز است. چه گزینه‌هایی دارم؟",
+       "use_en": "Asks for choices rather than arguing about the limit.",
+       "use_fa": "به‌جای بحث دربارهٔ حد مجاز، گزینه‌ها را می‌پرسد.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "I'm one kilo over. Can I pay for the extra weight?"
+      },
+      {
+       "id": "airport-s2",
+       "en": "The board says the flight is delayed. Could you tell me the new departure time?",
+       "fa": "تابلو می‌گوید پرواز تأخیر دارد. می‌شود ساعت حرکت جدید را بگویید؟",
+       "use_en": "One precise question about the one fact that matters.",
+       "use_fa": "یک پرسش دقیق دربارهٔ تنها نکته‌ای که مهم است.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Has the gate changed as well as the time?"
+      },
+      {
+       "id": "airport-s3",
+       "en": "Does this bag fit in the overhead bin, or does it have to be checked?",
+       "fa": "این کیف در محفظهٔ بالای صندلی جا می‌شود یا باید تحویل داده شود؟",
+       "use_en": "Asks about carry-on limits with the two possible outcomes.",
+       "use_fa": "دربارهٔ بار دستی با هر دو نتیجهٔ ممکن می‌پرسد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Is this small enough to take on board?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the check-in counter",
+      "title_fa": "در باجهٔ پذیرش",
+      "speakers": [
+       "Agent",
+       "Traveller"
+      ],
+      "lines": [
+       {
+        "who": "Agent",
+        "en": "Good afternoon. May I see your passport and your booking reference?",
+        "fa": "بعدازظهر بخیر. می‌شود گذرنامه و کد رزروتان را ببینم؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "Here you are. I have two bags to check and one to take on board.",
+        "fa": "بفرمایید. دو چمدان برای تحویل دارم و یکی برای بردن داخل هواپیما."
+       },
+       {
+        "who": "Agent",
+        "en": "That one is fine. Please put both cases on the scale. Are you checking anything fragile?",
+        "fa": "آن یکی اشکالی ندارد. لطفاً هر دو چمدان را روی ترازو بگذارید. چیز شکستنی تحویل می‌دهید؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "No, nothing fragile. Sorry, could you repeat that? It's noisy here.",
+        "fa": "نه، چیز شکستنی نیست. ببخشید، می‌شود تکرار کنید؟ اینجا شلوغ است."
+       },
+       {
+        "who": "Agent",
+        "en": "I asked whether anything fragile is in the bags. You're two kilos under the limit.",
+        "fa": "پرسیدم آیا چیز شکستنی در چمدان‌ها هست. دو کیلو کمتر از حد مجاز هستید."
+       },
+       {
+        "who": "Traveller",
+        "en": "Good. Which gate do I go to, and is the flight on time?",
+        "fa": "خوب است. به کدام در بروم و پرواز سر وقت است؟"
+       },
+       {
+        "who": "Agent",
+        "en": "Gate fourteen, boarding at four twenty. It's on time so far, but check the board.",
+        "fa": "در چهارده، سوار شدن ساعت چهار و بیست. تا حالا سر وقت است، اما تابلو را ببینید."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Your bag is too heavy",
+       "title_fa": "چمدانت سنگین است",
+       "situation_en": "The scale shows three kilos over the allowance and you would rather not pay.",
+       "situation_fa": "ترازو سه کیلو بیش از حد مجاز نشان می‌دهد و ترجیح می‌دهی پول ندهی.",
+       "task_en": "Ask what your options are, politely.",
+       "task_fa": "مؤدبانه بپرس چه گزینه‌هایی داری.",
+       "answer_en": "Could you tell me what my options are? I'd rather move something than pay extra.",
+       "answer_fa": "می‌شود بگویید چه گزینه‌هایی دارم؟ ترجیح می‌دهم چیزی را جابه‌جا کنم تا پول اضافه بدهم."
+      },
+      {
+       "title_en": "You did not hear the gate",
+       "title_fa": "در ورودی را نشنیدی",
+       "situation_en": "There is noise, and the agent gave you a gate number you missed.",
+       "situation_fa": "سر و صدا هست و شمارهٔ دری را که مأمور گفت نشنیدی.",
+       "task_en": "Ask them to repeat it and confirm it back.",
+       "task_fa": "بخواه تکرار کند و خودت تأییدش کن.",
+       "answer_en": "Sorry, I didn't catch that. Was that gate fourteen?",
+       "answer_fa": "ببخشید، متوجه نشدم. در چهارده بود؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "airport-q1",
+       "q_en": "Polite way to ask staff to repeat information.",
+       "q_fa": "راه مؤدبانهٔ خواستن تکرار اطلاعات.",
+       "options": [
+        "Sorry, could you repeat that, please?",
+        "What?",
+        "Say again."
+       ],
+       "answer": "Sorry, could you repeat that, please?",
+       "why_en": "Could you repeat that is the polite request; the others are too direct.",
+       "why_fa": "could you repeat that درخواست مؤدبانه است؛ بقیه بسیار مستقیم‌اند."
+      },
+      {
+       "id": "airport-q2",
+       "q_en": "The card that lets you board is the...",
+       "q_fa": "کارتی که اجازهٔ سوار شدن می‌دهد چیست؟",
+       "options": [
+        "boarding pass",
+        "bording pass",
+        "board pass"
+       ],
+       "answer": "boarding pass",
+       "why_en": "The compound is boarding pass, from the verb board.",
+       "why_fa": "ترکیب درست boarding pass است، از فعل board."
+      },
+      {
+       "id": "airport-q3",
+       "q_en": "You have one bag to take into the cabin. It is your...",
+       "q_fa": "یک کیف همراه داخل کابین داری. آن چیست؟",
+       "options": [
+        "carry-on bag",
+        "check bag",
+        "hold bag"
+       ],
+       "answer": "carry-on bag",
+       "why_en": "A carry-on goes in the cabin; a checked bag travels in the hold.",
+       "why_fa": "carry-on داخل کابین می‌رود؛ چمدان تحویلی در انبار هواپیما."
+      }
+     ]
+    },
+    {
+     "id": "immigration",
+     "order": 4,
+     "icon": "🛂",
+     "title_en": "Immigration, customs and officials",
+     "title_fa": "گذرنامه، گمرک و گفت‌وگو با مأمور",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "security"
+     ],
+     "blurb_en": "The few minutes when you answer for your own trip: short, factual, and polite. This is language practice, not legal advice.",
+     "blurb_fa": "چند دقیقه‌ای که باید دربارهٔ سفرت پاسخ بدهی: کوتاه، روشن و مؤدبانه. این تمرین زبان است، نه مشاورهٔ حقوقی.",
+     "objectives": [
+      {
+       "en": "Answer why you came, how long you are staying and where you are staying.",
+       "fa": "بگویی چرا آمده‌ای، چقدر می‌مانی و کجا اقامت داری."
+      },
+      {
+       "en": "Declare goods and ask about a rule without arguing.",
+       "fa": "کالایی را اعلام کنی و دربارهٔ قاعده‌ای بدون بحث بپرسی."
+      },
+      {
+       "en": "Ask an official to repeat, slow down or explain what a form means.",
+       "fa": "از مأمور بخواهی تکرار کند، آهسته‌تر بگوید یا معنای فرمی را توضیح دهد."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "immigration-x1",
+       "kind": "expression",
+       "en": "I'm here on holiday for ten days.",
+       "fa": "ده روز برای تعطیلات اینجا هستم.",
+       "meaning_en": "A complete answer to \"purpose of visit\" and \"how long\" in one line.",
+       "meaning_fa": "پاسخ کامل به هدف بازدید و مدت اقامت در یک جمله.",
+       "register": "neutral",
+       "example_en": "I'm here on holiday for ten days, then I fly home.",
+       "example_fa": "ده روز برای تعطیلات اینجا هستم و بعد برمی‌گردم.",
+       "alt": "Tourism, ten days."
+      },
+      {
+       "id": "immigration-x2",
+       "kind": "expression",
+       "en": "I'm staying at a hotel in the city center.",
+       "fa": "در هتلی در مرکز شهر اقامت دارم.",
+       "meaning_en": "Answers the accommodation question with the detail officials ask for.",
+       "meaning_fa": "به پرسش اقامتگاه با جزئیاتی که مأمور می‌خواهد پاسخ می‌دهد.",
+       "register": "neutral",
+       "example_en": "I'm staying at the Riverside Hotel in the city center.",
+       "example_fa": "در هتل ریورساید در مرکز شهر اقامت دارم.",
+       "alt": "Here is my booking confirmation."
+      },
+      {
+       "id": "immigration-x3",
+       "kind": "expression",
+       "en": "I have nothing to declare.",
+       "fa": "چیزی برای اعلام ندارم.",
+       "meaning_en": "The standard answer at customs when you are under the allowance.",
+       "meaning_fa": "پاسخ استاندارد گمرک وقتی زیر حد مجاز هستی.",
+       "register": "neutral",
+       "example_en": "I have nothing to declare beyond my personal belongings.",
+       "example_fa": "جز وسایل شخصی‌ام چیزی برای اعلام ندارم.",
+       "alt": "Nothing to declare."
+      },
+      {
+       "id": "immigration-x4",
+       "kind": "phrasal_verb",
+       "en": "fill in",
+       "fa": "پر کردن",
+       "meaning_en": "To complete a form or a field. British English also says fill out.",
+       "meaning_fa": "فرم یا خانه‌ای را کامل کردن. انگلیسی بریتانیایی fill out هم می‌گوید.",
+       "register": "neutral",
+       "example_en": "Could you show me where to fill in the address?",
+       "example_fa": "می‌شود نشان دهید نشانی را کجا پر کنم؟",
+       "alt": "fill out (American)"
+      },
+      {
+       "id": "immigration-x5",
+       "kind": "collocation",
+       "en": "purpose of visit",
+       "fa": "هدف بازدید",
+       "meaning_en": "The phrase on the form and in the officer's question; tourism, business, study or visiting family.",
+       "meaning_fa": "عبارتِ فرم و پرسش مأمور؛ گردشگری، کار، تحصیل یا دیدار خانواده.",
+       "register": "formal",
+       "example_en": "The purpose of visit is tourism.",
+       "example_fa": "هدف بازدید گردشگری است.",
+       "alt": "reason for travel"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I'm here for + [purpose] + for + [time].",
+       "example_en": "I'm here for business for three days.",
+       "example_fa": "سه روز برای کار اینجا هستم.",
+       "note_en": "Purpose first, duration second: the order officials expect.",
+       "note_fa": "اول هدف، بعد مدت: همان ترتیبی که مأمور انتظار دارد."
+      },
+      {
+       "frame": "Could you explain + [question word] + I should + [verb]?",
+       "example_en": "Could you explain what I should write here?",
+       "example_fa": "می‌شود توضیح دهید اینجا چه بنویسم؟",
+       "note_en": "Asks for help with a form without pretending to understand it.",
+       "note_fa": "برای کمک با فرم می‌پرسد، بدون تظاهر به فهمیدن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "immigration-s1",
+       "en": "I'm sorry, I didn't understand the question. Could you say it more slowly?",
+       "fa": "ببخشید، پرسش را نفهمیدم. می‌شود آهسته‌تر بگویید؟",
+       "use_en": "Asking an official to slow down is normal and acceptable.",
+       "use_fa": "خواستن از مأمور برای آهسته‌تر گفتن عادی و پذیرفتنی است.",
+       "level": "A2",
+       "polite": "polite",
+       "alt": "Sorry, could you speak a little more slowly, please?"
+      },
+      {
+       "id": "immigration-s2",
+       "en": "These are gifts for my family. Do I need to declare them?",
+       "fa": "این‌ها هدیه برای خانواده‌ام است. باید اعلامشان کنم؟",
+       "use_en": "Asks about a rule instead of guessing at it.",
+       "use_fa": "دربارهٔ قاعده می‌پرسد، به‌جای حدس زدن.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Should I declare these gifts?"
+      },
+      {
+       "id": "immigration-s3",
+       "en": "My return flight is on the twenty-second. Here is the booking.",
+       "fa": "پرواز برگشتم بیست‌ودوم است. این هم رزرو.",
+       "use_en": "Proof of onward travel, offered in one sentence.",
+       "use_fa": "اثبات سفر بازگشت، در یک جمله ارائه می‌شود.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I'm flying home on the twenty-second; here is the confirmation."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Passport control",
+      "title_fa": "کنترل گذرنامه",
+      "speakers": [
+       "Officer",
+       "Traveller"
+      ],
+      "lines": [
+       {
+        "who": "Officer",
+        "en": "Good evening. Passport, please. What is the purpose of your visit?",
+        "fa": "عصر بخیر. گذرنامه لطفاً. هدف بازدیدتان چیست؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "Tourism. I'm here for ten days, then I fly home.",
+        "fa": "گردشگری. ده روز اینجا هستم و بعد برمی‌گردم."
+       },
+       {
+        "who": "Officer",
+        "en": "And where will you be staying?",
+        "fa": "و کجا اقامت خواهید داشت؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "At the Riverside Hotel in the city center. I have the booking on my phone.",
+        "fa": "در هتل ریورساید در مرکز شهر. رزرو را روی گوشی‌ام دارم."
+       },
+       {
+        "who": "Officer",
+        "en": "Thank you. Do you have a return ticket?",
+        "fa": "متشکرم. بلیت برگشت دارید؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "Yes, on the twenty-second. Sorry, could you repeat the last question?",
+        "fa": "بله، بیست‌ودوم. ببخشید، می‌شود پرسش آخر را تکرار کنید؟"
+       },
+       {
+        "who": "Officer",
+        "en": "I asked about your return ticket. That's everything. Welcome.",
+        "fa": "دربارهٔ بلیت برگشت پرسیدم. تمام است. خوش آمدید."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A form you do not understand",
+       "title_fa": "فرمی که نمی‌فهمی",
+       "situation_en": "The officer hands you a landing card and every field is unfamiliar.",
+       "situation_fa": "مأمور کارت ورود می‌دهد و هیچ خانه‌ای آشنا نیست.",
+       "task_en": "Ask which fields you must complete and what one of them means.",
+       "task_fa": "بپرس کدام خانه‌ها را باید پر کنی و یکی از آن‌ها چه معنایی دارد.",
+       "answer_en": "Could you show me which fields I need to complete, and what this one means?",
+       "answer_fa": "می‌شود نشان دهید کدام خانه‌ها را باید پر کنم و این یکی چه معنایی دارد؟"
+      },
+      {
+       "title_en": "Goods in your case",
+       "title_fa": "کالا در چمدانت",
+       "situation_en": "You are carrying two bottles of a local drink and some gifts, and you are not sure about the rule.",
+       "situation_fa": "دو بطری نوشیدنی محلی و چند هدیه همراه داری و از قاعده مطمئن نیستی.",
+       "task_en": "Ask whether they must be declared, without arguing either way.",
+       "task_fa": "بپرس آیا باید اعلام شوند، بدون بحث در هیچ جهت.",
+       "answer_en": "Do these need to be declared? I'm happy to pay any duty.",
+       "answer_fa": "آیا این‌ها باید اعلام شوند؟ حاضرم هر عوارضی را بپردازم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "immigration-q1",
+       "q_en": "The usual question about why you came is...",
+       "q_fa": "پرسش معمول دربارهٔ دلیل آمدنت چیست؟",
+       "options": [
+        "What is the purpose of your visit?",
+        "Why you came here?",
+        "What do you want?"
+       ],
+       "answer": "What is the purpose of your visit?",
+       "why_en": "The formal phrase is purpose of visit; the others are too direct for an official.",
+       "why_fa": "عبارت رسمی purpose of visit است؛ بقیه برای مأمور بسیار مستقیم‌اند."
+      },
+      {
+       "id": "immigration-q2",
+       "q_en": "You have nothing to declare. Say it.",
+       "q_fa": "چیزی برای اعلام نداری. بگو.",
+       "options": [
+        "I have nothing to declare.",
+        "I declare nothing.",
+        "Nothing declare."
+       ],
+       "answer": "I have nothing to declare.",
+       "why_en": "The fixed phrase at customs is I have nothing to declare.",
+       "why_fa": "عبارت ثابت گمرک I have nothing to declare است."
+      },
+      {
+       "id": "immigration-q3",
+       "q_en": "Polite way to ask an officer to slow down.",
+       "q_fa": "راه مؤدبانه برای خواستن آهسته‌تر صحبت کردن مأمور.",
+       "options": [
+        "Could you say that more slowly, please?",
+        "Speak slower.",
+        "Slow down."
+       ],
+       "answer": "Could you say that more slowly, please?",
+       "why_en": "The request needs could or would and please to stay polite.",
+       "why_fa": "درخواست برای مؤدبانه ماندن به could یا would و please نیاز دارد."
+      }
+     ]
+    },
+    {
+     "id": "during",
+     "order": 5,
+     "icon": "🛫",
+     "title_en": "During the journey",
+     "title_fa": "در طول سفر",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "onboard",
+      "transport"
+     ],
+     "blurb_en": "Everything between the gate and the destination: the cabin, the crew, the connections, and the announcements you only half hear.",
+     "blurb_fa": "هر چیزی میان درِ ورودی و مقصد: کابین، خدمه، پروازهای اتصالی و اعلام‌هایی که نیمه‌شنیده می‌مانند.",
+     "objectives": [
+      {
+       "en": "Ask a flight attendant for help with a seat, a bag or a drink.",
+       "fa": "از مهماندار برای صندلی، چمدان یا نوشیدنی کمک بخواهی."
+      },
+      {
+       "en": "Understand a connection and ask what happens if the first flight is late.",
+       "fa": "پرواز اتصالی را بفهمی و بپرسی اگر پرواز اول تأخیر کند چه می‌شود."
+      },
+      {
+       "en": "Buy and validate a ticket on a train, a bus or a metro.",
+       "fa": "بلیت قطار، اتوبوس یا مترو بخری و معتبر کنی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "during-x1",
+       "kind": "expression",
+       "en": "Excuse me, could I get a glass of water?",
+       "fa": "ببخشید، می‌شود یک لیوان آب بگیرم؟",
+       "meaning_en": "The cabin request; \"could I get\" is standard and polite.",
+       "meaning_fa": "درخواست در کابین؛ could I get استاندارد و مؤدبانه است.",
+       "register": "polite",
+       "example_en": "Excuse me, could I get a glass of water, please?",
+       "example_fa": "ببخشید، می‌شود لطفاً یک لیوان آب بگیرم؟",
+       "alt": "May I have some water?"
+      },
+      {
+       "id": "during-x2",
+       "kind": "expression",
+       "en": "I have a connecting flight. Where do I go?",
+       "fa": "پرواز اتصالی دارم. کجا بروم؟",
+       "meaning_en": "Said to crew or ground staff when the next flight is somewhere else.",
+       "meaning_fa": "به خدمه یا کارکنان زمینی وقتی پرواز بعدی جای دیگری است.",
+       "register": "neutral",
+       "example_en": "I have a connecting flight to Athens. Where do I go?",
+       "example_fa": "پرواز اتصالی به آتن دارم. کجا بروم؟",
+       "alt": "Which gate is my connection?"
+      },
+      {
+       "id": "during-x3",
+       "kind": "phrasal_verb",
+       "en": "take off",
+       "fa": "از زمین بلند شدن",
+       "meaning_en": "The moment the plane leaves the runway, and also the noun form takeoff.",
+       "meaning_fa": "لحظهٔ جدا شدن هواپیما از باند؛ اسم آن takeoff است.",
+       "register": "neutral",
+       "example_en": "We took off twenty minutes late but landed on time.",
+       "example_fa": "بیست دقیقه دیر از زمین بلند شدیم اما سر وقت نشستیم.",
+       "alt": "depart (for a plane)"
+      },
+      {
+       "id": "during-x4",
+       "kind": "phrasal_verb",
+       "en": "get in",
+       "fa": "رسیدن",
+       "meaning_en": "For a train, a bus or a plane, to arrive at its destination.",
+       "meaning_fa": "رسیدن قطار، اتوبوس یا هواپیما به مقصد.",
+       "register": "neutral",
+       "example_en": "The train gets in at six, so we have time to eat.",
+       "example_fa": "قطار ساعت شش می‌رسد، پس وقت داریم غذا بخوریم.",
+       "alt": "arrive"
+      },
+      {
+       "id": "during-x5",
+       "kind": "collocation",
+       "en": "window seat",
+       "fa": "صندلی کنار پنجره",
+       "meaning_en": "The seat by the window, as opposed to the aisle seat.",
+       "meaning_fa": "صندلی کنار پنجره، در برابر صندلی کنار راهرو.",
+       "register": "neutral",
+       "example_en": "I asked for a window seat, but I got an aisle seat.",
+       "example_fa": "صندلی کنار پنجره خواستم اما صندلی کنار راهرو گرفتم.",
+       "alt": "seat by the window"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Would it be possible to + [verb]?",
+       "example_en": "Would it be possible to move to another seat?",
+       "example_fa": "می‌شود به صندلی دیگری منتقل شوم؟",
+       "note_en": "The softest request frame; good where space is tight and help is busy.",
+       "note_fa": "نرم‌ترین قالب درخواست؛ مناسب جایی که فضا کم و کمک مشغول است."
+      },
+      {
+       "frame": "How often does the + [thing] + run?",
+       "example_en": "How often does the airport bus run?",
+       "example_fa": "اتوبوس فرودگاه هر چند وقت یک‌بار حرکت می‌کند؟",
+       "note_en": "Asks about frequency, not the next departure.",
+       "note_fa": "دربارهٔ فاصلهٔ حرکت‌ها می‌پرسد، نه حرکت بعدی."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "during-s1",
+       "en": "My connection is only forty minutes. Is that enough time?",
+       "fa": "اتصال من فقط چهل دقیقه است. زمان کافی است؟",
+       "use_en": "Asks staff to judge a tight connection instead of guessing.",
+       "use_fa": "از کارکنان می‌خواهد اتصال تنگ را بسنجند، به‌جای حدس زدن.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Will I have enough time to make my connection?"
+      },
+      {
+       "id": "during-s2",
+       "en": "Do I need to validate this ticket before I get on?",
+       "fa": "باید پیش از سوار شدن بلیت را معتبر کنم؟",
+       "use_en": "The one question that prevents a fine on many metro systems.",
+       "use_fa": "تنها پرسشی که در بسیاری از متروها جریمه را از تو دور می‌کند.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "Should I tap the card before boarding?"
+      },
+      {
+       "id": "during-s3",
+       "en": "Could you tell me which platform the train to the coast leaves from?",
+       "fa": "می‌شود بگویید قطار ساحل از کدام سکو حرکت می‌کند؟",
+       "use_en": "Platform plus destination, in the order station staff expect.",
+       "use_fa": "سکو و مقصد، به همان ترتیبی که کارکنان ایستگاه انتظار دارند.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Which platform is it for the coast train?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "On board",
+      "title_fa": "داخل هواپیما",
+      "speakers": [
+       "Crew",
+       "Traveller"
+      ],
+      "lines": [
+       {
+        "who": "Crew",
+        "en": "Good evening. Would you like chicken or pasta?",
+        "fa": "عصر بخیر. مرغ می‌خواهید یا پاستا؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "Chicken, please. And could I get a glass of water?",
+        "fa": "مرغ لطفاً. و می‌شود یک لیوان آب بگیرم؟"
+       },
+       {
+        "who": "Crew",
+        "en": "Of course. Is this your bag in the aisle? It needs to go under the seat.",
+        "fa": "حتماً. این کیف شما در راهرو است؟ باید زیر صندلی برود."
+       },
+       {
+        "who": "Traveller",
+        "en": "Sorry, I didn't hear the announcement. Are we landing on time?",
+        "fa": "ببخشید، اعلام را نشنیدم. سر وقت می‌نشینیم؟"
+       },
+       {
+        "who": "Crew",
+        "en": "About twenty minutes late. If you have a connection, tell the crew at the gate.",
+        "fa": "حدود بیست دقیقه تأخیر. اگر پرواز اتصالی دارید، در درِ ورودی به خدمه بگویید."
+       },
+       {
+        "who": "Traveller",
+        "en": "I have forty minutes for the Athens flight. Is that enough?",
+        "fa": "چهل دقیقه برای پرواز آتن دارم. کافی است؟"
+       },
+       {
+        "who": "Crew",
+        "en": "It should be, but stay near the front when we land.",
+        "fa": "باید کافی باشد، اما هنگام نشستن نزدیک جلوی هواپیما بمانید."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking on a crowded train",
+       "title_fa": "پرسیدن در قطار شلوغ",
+       "situation_en": "You are not sure this train stops where you need, and the doors will close soon.",
+       "situation_fa": "مطمئن نیستی این قطار در ایستگاه تو می‌ایستد و درها به‌زودی بسته می‌شوند.",
+       "task_en": "Ask whether it stops there and how many stops it is.",
+       "task_fa": "بپرس آیا آنجا می‌ایستد و چند ایستگاه است.",
+       "answer_en": "Does this train stop at Central Station? How many stops is it?",
+       "answer_fa": "این قطار در ایستگاه مرکزی می‌ایستد؟ چند ایستگاه است؟"
+      },
+      {
+       "title_en": "A delayed connection",
+       "title_fa": "اتصال با تأخیر",
+       "situation_en": "Your first flight is late and the boarding time for the second has passed.",
+       "situation_fa": "پرواز اول تأخیر دارد و زمان سوار شدن پرواز دوم گذشته.",
+       "task_en": "Ask ground staff what to do rather than running to the gate.",
+       "task_fa": "از کارکنان زمینی بپرس چه کنی، به‌جای دویدن به سمت در.",
+       "answer_en": "My first flight was delayed and I missed the connection. What should I do?",
+       "answer_fa": "پرواز اولم تأخیر داشت و اتصال را از دست دادم. چه باید بکنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "during-q1",
+       "q_en": "A plane leaves the ground at takeoff and ... at the destination.",
+       "q_fa": "هواپیما هنگام takeoff از زمین بلند می‌شود و در مقصد ...",
+       "options": [
+        "lands",
+        "gets",
+        "takes"
+       ],
+       "answer": "lands",
+       "why_en": "For a plane the pair is take off and land; get in is used for trains.",
+       "why_fa": "برای هواپیما جفت take off و land است؛ get in برای قطار به کار می‌رود."
+      },
+      {
+       "id": "during-q2",
+       "q_en": "Ask the cabin crew for water, politely.",
+       "q_fa": "مؤدبانه از خدمهٔ کابین آب بخواه.",
+       "options": [
+        "Could I get a glass of water, please?",
+        "Give me water.",
+        "I want water."
+       ],
+       "answer": "Could I get a glass of water, please?",
+       "why_en": "Could I get with please is the polite cabin request.",
+       "why_fa": "could I get همراه با please درخواست مؤدبانهٔ کابین است."
+      },
+      {
+       "id": "during-q3",
+       "q_en": "You must transfer to another flight. That flight is your...",
+       "q_fa": "باید به پرواز دیگری بروی. آن پرواز چیست؟",
+       "options": [
+        "connecting flight",
+        "connect flight",
+        "changed flight"
+       ],
+       "answer": "connecting flight",
+       "why_en": "The noun is connecting flight, from the verb connect.",
+       "why_fa": "اسم درست connecting flight است، برگرفته از فعل connect."
+      }
+     ]
+    },
+    {
+     "id": "arrival",
+     "order": 6,
+     "icon": "🧳",
+     "title_en": "Arrival and getting into town",
+     "title_fa": "رسیدن و رفتن به شهر",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "arrival",
+      "transport",
+      "directions"
+     ],
+     "blurb_en": "The first hour on the ground: the bag, the exit, the taxi, the ticket, and the one question that gets you moving.",
+     "blurb_fa": "نخستین ساعت پس از فرود: چمدان، خروج، تاکسی، بلیت و پرسشی که تو را به راه می‌اندازد.",
+     "objectives": [
+      {
+       "en": "Find baggage claim, claim a bag and report one that did not arrive.",
+       "fa": "محل تحویل بار را پیدا کنی، چمدان بگیری و نرسیدنش را گزارش دهی."
+      },
+      {
+       "en": "Choose between a taxi, a bus, a train and a rental car with a reason.",
+       "fa": "بین تاکسی، اتوبوس، قطار و خودروی اجاره‌ای با دلیل انتخاب کنی."
+      },
+      {
+       "en": "Buy a ticket, find the platform and ask for directions to your hotel.",
+       "fa": "بلیت بخری، سکو را پیدا کنی و مسیر هتل را بپرسی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "arrival-x1",
+       "kind": "expression",
+       "en": "Where is baggage claim?",
+       "fa": "محل تحویل بار کجاست؟",
+       "meaning_en": "The first question after landing, asked of anyone in uniform.",
+       "meaning_fa": "نخستین پرسش پس از فرود، از هر کسی با لباس فرم.",
+       "register": "neutral",
+       "example_en": "Excuse me, where is baggage claim for this flight?",
+       "example_fa": "ببخشید، محل تحویل بار این پرواز کجاست؟",
+       "alt": "Where do I collect my bags?"
+      },
+      {
+       "id": "arrival-x2",
+       "kind": "expression",
+       "en": "My suitcase didn't arrive.",
+       "fa": "چمدانم نرسید.",
+       "meaning_en": "Said at the baggage service desk, before any explanation.",
+       "meaning_fa": "در باجهٔ خدمات بار گفته می‌شود، پیش از هر توضیح.",
+       "register": "neutral",
+       "example_en": "My suitcase didn't arrive. Here is my baggage tag.",
+       "example_fa": "چمدانم نرسید. این هم برچسب بار من است.",
+       "alt": "My bag is missing."
+      },
+      {
+       "id": "arrival-x3",
+       "kind": "phrasal_verb",
+       "en": "pick up",
+       "fa": "سوار کردن یا برداشتن",
+       "meaning_en": "For a taxi or a person, to collect someone; for a parcel or ticket, to collect it.",
+       "meaning_fa": "برای تاکسی یا شخص، کسی را برداشتن؛ برای بسته یا بلیت، تحویل گرفتن.",
+       "register": "neutral",
+       "example_en": "The driver picked us up outside the terminal.",
+       "example_fa": "راننده ما را بیرون ترمینال سوار کرد.",
+       "alt": "collect (British)"
+      },
+      {
+       "id": "arrival-x4",
+       "kind": "phrasal_verb",
+       "en": "drop off",
+       "fa": "پیاده کردن یا رساندن",
+       "meaning_en": "To take someone or something to a place and leave them there.",
+       "meaning_fa": "کسی یا چیزی را به جایی رساندن و آنجا گذاشتن.",
+       "register": "neutral",
+       "example_en": "Could you drop me off at the corner, please?",
+       "example_fa": "می‌شود لطفاً مرا سر خیابان پیاده کنید؟",
+       "alt": "let me out at"
+      },
+      {
+       "id": "arrival-x5",
+       "kind": "collocation",
+       "en": "baggage claim",
+       "fa": "محل تحویل بار",
+       "meaning_en": "The area with the moving belt where checked bags come out.",
+       "meaning_fa": "محلی با نوار متحرک که چمدان‌های تحویلی بیرون می‌آیند.",
+       "register": "neutral",
+       "example_en": "Baggage claim is on the ground floor.",
+       "example_fa": "محل تحویل بار در طبقهٔ همکف است.",
+       "alt": "baggage reclaim (British)"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "How do I get to + [place]?",
+       "example_en": "How do I get to the city center?",
+       "example_fa": "چطور به مرکز شهر بروم؟",
+       "note_en": "The general direction question; the answer names a mode of transport.",
+       "note_fa": "پرسش کلی مسیر؛ پاسخ نام یک وسیلهٔ نقلیه را می‌آورد."
+      },
+      {
+       "frame": "Is it better to + [verb] + or + [verb]?",
+       "example_en": "Is it better to take a taxi or the train?",
+       "example_fa": "بهتر است تاکسی بگیرم یا قطار؟",
+       "note_en": "Comparing two options in one question, which is how locals actually answer.",
+       "note_fa": "مقایسهٔ دو گزینه در یک پرسش، همان‌طور که locals واقعاً پاسخ می‌دهند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "arrival-s1",
+       "en": "Excuse me, my flight was cancelled. Where do I collect my bag?",
+       "fa": "ببخشید، پروازم لغو شد. چمدانم را از کجا بگیرم؟",
+       "use_en": "A cancelled flight changes where bags come out.",
+       "use_fa": "پرواز لغوشده جای تحویل چمدان را تغییر می‌دهد.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Sorry, where do the bags from the cancelled flight come out?"
+      },
+      {
+       "id": "arrival-s2",
+       "en": "Is there a flat fare to the city center, or is it on the meter?",
+       "fa": "تا مرکز شهر کرایهٔ ثابت است یا با تاکسی‌متر؟",
+       "use_en": "The question that prevents an unpleasant surprise at the end of the ride.",
+       "use_fa": "پرسشی که غافلگیری ناخوشایند پایان مسیر را کم می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "How much is it to the city center, roughly?"
+      },
+      {
+       "id": "arrival-s3",
+       "en": "Does this bus go to the old town, or do I need to change?",
+       "fa": "این اتوبوس به شهر قدیم می‌رود یا باید عوض کنم؟",
+       "use_en": "Asks about the route and the need for a change together.",
+       "use_fa": "دربارهٔ مسیر و نیاز به تعویض، با هم می‌پرسد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "Do I have to change buses for the old town?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Baggage service desk",
+      "title_fa": "باجهٔ خدمات بار",
+      "speakers": [
+       "Staff",
+       "Traveller"
+      ],
+      "lines": [
+       {
+        "who": "Staff",
+        "en": "Good morning. How can I help you?",
+        "fa": "صبح بخیر. چه کمکی می‌توانم بکنم؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "My suitcase didn't arrive. I waited at baggage claim for half an hour.",
+        "fa": "چمدانم نرسید. نیم ساعت در محل تحویل بار منتظر ماندم."
+       },
+       {
+        "who": "Staff",
+        "en": "I'm sorry about that. Do you have your baggage tag?",
+        "fa": "برای این موضوع متأسفم. برچسب بارتان را دارید؟"
+       },
+       {
+        "who": "Traveller",
+        "en": "Yes, here it is. My address here is the Riverside Hotel.",
+        "fa": "بله، بفرمایید. نشانی من اینجا هتل ریورساید است."
+       },
+       {
+        "who": "Staff",
+        "en": "Thank you. It's still in Istanbul. It should arrive tomorrow morning.",
+        "fa": "متشکرم. چمدان هنوز در استانبول است. باید فردا صبح برسد."
+       },
+       {
+        "who": "Traveller",
+        "en": "Could you deliver it to the hotel, and give me a number to call?",
+        "fa": "می‌شود آن را به هتل برسانید و شماره‌ای برای تماس بدهید؟"
+       },
+       {
+        "who": "Staff",
+        "en": "Of course. Here is the reference number and the phone line.",
+        "fa": "حتماً. این هم شمارهٔ پیگیری و خط تلفن."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Taxi or train",
+       "title_fa": "تاکسی یا قطار",
+       "situation_en": "It is late, you have two bags, and the station is a ten-minute walk from the terminal.",
+       "situation_fa": "دیر است، دو چمدان داری و ایستگاه ده دقیقه پیاده از ترمینال فاصله دارد.",
+       "task_en": "Ask a member of staff which is better and why.",
+       "task_fa": "از کارکنان بپرس کدام بهتر است و چرا.",
+       "answer_en": "Is it better to take a taxi or the train at this hour?",
+       "answer_fa": "این موقع شب تاکسی بهتر است یا قطار؟"
+      },
+      {
+       "title_en": "Finding the hotel on foot",
+       "title_fa": "پیدا کردن هتل پیاده",
+       "situation_en": "The map ends at a corner with three streets and no signs.",
+       "situation_fa": "نقشه در گوشه‌ای با سه خیابان و بدون تابلو تمام می‌شود.",
+       "task_en": "Ask a passer-by for the hotel by name and confirm the distance.",
+       "task_fa": "از رهگذری هتل را با نامش بپرس و فاصله را تأیید کن.",
+       "answer_en": "Excuse me, could you point me towards the Riverside Hotel? Is it far?",
+       "answer_fa": "ببخشید، می‌شود مرا به سمت هتل ریورساید راهنمایی کنید؟ دور است؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "arrival-q1",
+       "q_en": "Your bag did not arrive. Where do you go?",
+       "q_fa": "چمدانت نرسید. کجا می‌روی؟",
+       "options": [
+        "the baggage service desk",
+        "the ticket office",
+        "the gate"
+       ],
+       "answer": "the baggage service desk",
+       "why_en": "Missing bags are handled at the baggage service desk, not at the gate.",
+       "why_fa": "چمدان گم‌شده در باجهٔ خدمات بار بررسی می‌شود، نه در درِ ورودی."
+      },
+      {
+       "id": "arrival-q2",
+       "q_en": "Ask the driver to leave you at the corner.",
+       "q_fa": "از راننده بخواه سر خیابان پیاده‌ات کند.",
+       "options": [
+        "Could you drop me off at the corner, please?",
+        "Stop here.",
+        "Leave me at the corner."
+       ],
+       "answer": "Could you drop me off at the corner, please?",
+       "why_en": "Drop off is the natural phrasal verb, with could you and please.",
+       "why_fa": "drop off فعل عبارتی طبیعی است، همراه با could you و please."
+      },
+      {
+       "id": "arrival-q3",
+       "q_en": "A fixed price for the whole ride is a...",
+       "q_fa": "قیمت ثابت برای تمام مسیر چیست؟",
+       "options": [
+        "flat fare",
+        "flat price",
+        "fixed meter"
+       ],
+       "answer": "flat fare",
+       "why_en": "The transport word is flat fare.",
+       "why_fa": "واژهٔ حمل‌ونقل flat fare است."
+      }
+     ]
+    },
+    {
+     "id": "stay",
+     "order": 7,
+     "icon": "🏨",
+     "title_en": "Accommodation",
+     "title_fa": "اقامت",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "hotel"
+     ],
+     "blurb_en": "A room is what you come back to every night: checking in, the things that do not work, and the day you leave.",
+     "blurb_fa": "اتاق جایی است که هر شب به آن برمی‌گردی: ثبت‌نام، چیزهایی که کار نمی‌کنند و روز رفتن.",
+     "objectives": [
+      {
+       "en": "Check in with a reservation and ask about the room's facilities.",
+       "fa": "با رزرو ثبت‌نام کنی و دربارهٔ امکانات اتاق بپرسی."
+      },
+      {
+       "en": "Report a problem in the room and ask for it to be fixed or changed.",
+       "fa": "مشکلی در اتاق را بگویی و بخواهی درست شود یا اتاق عوض شود."
+      },
+      {
+       "en": "Check out, ask for the bill and extend a stay if plans change.",
+       "fa": "تخلیه کنی، صورت‌حساب بخواهی و اگر برنامه عوض شد اقامت را تمدید کنی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "stay-x1",
+       "kind": "expression",
+       "en": "I have a reservation under the name Ahmadi.",
+       "fa": "به نام احمدی رزرو دارم.",
+       "meaning_en": "The phrase at every reception desk; \"under the name\" is fixed.",
+       "meaning_fa": "عبارت هر باجهٔ پذیرش؛ under the name ثابت است.",
+       "register": "neutral",
+       "example_en": "I have a reservation under the name Ahmadi for three nights.",
+       "example_fa": "به نام احمدی برای سه شب رزرو دارم.",
+       "alt": "The booking is in the name Ahmadi."
+      },
+      {
+       "id": "stay-x2",
+       "kind": "expression",
+       "en": "The air conditioning isn't working.",
+       "fa": "کولر کار نمی‌کند.",
+       "meaning_en": "A room problem, said as a fact and not a complaint.",
+       "meaning_fa": "مشکل اتاق، به‌صورت بیان واقعیت نه شکایت.",
+       "register": "neutral",
+       "example_en": "The air conditioning isn't working and the room is very warm.",
+       "example_fa": "کولر کار نمی‌کند و اتاق خیلی گرم است.",
+       "alt": "There's no cold air in the room."
+      },
+      {
+       "id": "stay-x3",
+       "kind": "phrasal_verb",
+       "en": "check out",
+       "fa": "تخلیه کردن",
+       "meaning_en": "To leave a hotel formally and settle the bill, and also the noun checkout time.",
+       "meaning_fa": "رسماً هتل را ترک کردن و صورت‌حساب دادن؛ اسم آن checkout است.",
+       "register": "neutral",
+       "example_en": "We check out at eleven but our flight is in the evening.",
+       "example_fa": "ساعت یازده تخلیه می‌کنیم اما پروازمان عصر است.",
+       "alt": "settle the bill and leave"
+      },
+      {
+       "id": "stay-x4",
+       "kind": "phrasal_verb",
+       "en": "put up",
+       "fa": "اسکان دادن",
+       "meaning_en": "To let someone stay in your place, or to stay somewhere temporarily.",
+       "meaning_fa": "کسی را در جای خود اسکان دادن، یا موقتاً جایی ماندن.",
+       "register": "informal",
+       "example_en": "My cousin put us up for two nights.",
+       "example_fa": "پسرخاله‌ام دو شب ما را اسکان داد.",
+       "alt": "host someone"
+      },
+      {
+       "id": "stay-x5",
+       "kind": "collocation",
+       "en": "en-suite bathroom",
+       "fa": "حمام درون اتاق",
+       "meaning_en": "A bathroom inside the room rather than down the corridor.",
+       "meaning_fa": "حمامی داخل خود اتاق، نه در راهرو.",
+       "register": "neutral",
+       "example_en": "Does the room have an en-suite bathroom?",
+       "example_fa": "اتاق حمام درونی دارد؟",
+       "alt": "private bathroom"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Could I have + [thing] + sent to my room?",
+       "example_en": "Could I have an extra towel sent to my room?",
+       "example_fa": "می‌شود یک حولهٔ اضافه به اتاقم بفرستید؟",
+       "note_en": "The housekeeping request, built on the same frame as any counter request.",
+       "note_fa": "درخواست از خدمات اتاق، با همان قالب درخواست‌های باجه."
+      },
+      {
+       "frame": "Is it possible to + [verb]?",
+       "example_en": "Is it possible to stay one more night?",
+       "example_fa": "می‌شود یک شب بیشتر بمانم؟",
+       "note_en": "Asks about a change without assuming it is allowed.",
+       "note_fa": "تغییری را می‌پرسد بدون آنکه فرض کند مجاز است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "stay-s1",
+       "en": "Could you change my room? The street outside is very noisy.",
+       "fa": "می‌شود اتاقم را عوض کنید؟ خیابان بیرون بسیار شلوغ است.",
+       "use_en": "A room change with the reason attached.",
+       "use_fa": "تغییر اتاق همراه با دلیل.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Is there a quieter room available?"
+      },
+      {
+       "id": "stay-s2",
+       "en": "I'm checking out tomorrow, but could I leave my bags here until the evening?",
+       "fa": "فردا تخلیه می‌کنم، اما می‌شود کیف‌ها را تا عصر اینجا بگذارم؟",
+       "use_en": "The luggage-room question every traveler asks on the last day.",
+       "use_fa": "پرسش انبار بار که هر مسافری روز آخر می‌پرسد.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Do you have a luggage room I could use after checkout?"
+      },
+      {
+       "id": "stay-s3",
+       "en": "What time is breakfast served, and is it included in the rate?",
+       "fa": "صبحانه چه ساعتی سرو می‌شود و در نرخ اتاق هست؟",
+       "use_en": "Two facts in one question, which reception answers all day.",
+       "use_fa": "دو نکته در یک پرسش که پذیرش تمام روز پاسخ می‌دهد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "Is breakfast included, and when does it start?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Checking in late",
+      "title_fa": "ثبت‌نام دیرهنگام",
+      "speakers": [
+       "Receptionist",
+       "Guest"
+      ],
+      "lines": [
+       {
+        "who": "Receptionist",
+        "en": "Good evening. Do you have a reservation?",
+        "fa": "عصر بخیر. رزرو دارید؟"
+       },
+       {
+        "who": "Guest",
+        "en": "Yes, under the name Ahmadi, for three nights. I'm sorry I'm so late.",
+        "fa": "بله، به نام احمدی، برای سه شب. ببخشید که این‌قدر دیر رسیدم."
+       },
+       {
+        "who": "Receptionist",
+        "en": "That's fine. Room four twelve, on the fourth floor. Breakfast is from seven.",
+        "fa": "اشکالی ندارد. اتاق چهارصد و دوازده، طبقهٔ چهارم. صبحانه از هفت است."
+       },
+       {
+        "who": "Guest",
+        "en": "Is the Wi-Fi free, and what is the password?",
+        "fa": "وای‌فای رایگان است؟ رمزش چیست؟"
+       },
+       {
+        "who": "Receptionist",
+        "en": "It's free. The password is on the card in the room.",
+        "fa": "رایگان است. رمز روی کارت داخل اتاق است."
+       },
+       {
+        "who": "Guest",
+        "en": "One more thing: the room I had last time was noisy. Is this one quiet?",
+        "fa": "یک نکتهٔ دیگر: اتاق دفعهٔ قبل شلوغ بود. این یکی آرام است؟"
+       },
+       {
+        "who": "Receptionist",
+        "en": "It faces the courtyard, so it should be. Call reception if anything is wrong.",
+        "fa": "رو به حیاط است، پس باید آرام باشد. اگر چیزی اشکال داشت به پذیرش زنگ بزنید."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Something in the room is broken",
+       "title_fa": "چیزی در اتاق خراب است",
+       "situation_en": "The shower runs cold and it is late, and you would rather not change rooms at midnight.",
+       "situation_fa": "دوش آب سرد می‌دهد، دیر است و ترجیح می‌دهی نیمه‌شب اتاق عوض نکنی.",
+       "task_en": "Report it and ask for the quickest fix.",
+       "task_fa": "گزارش بده و سریع‌ترین راه‌حل را بخواه.",
+       "answer_en": "The shower isn't giving any hot water. Could someone look at it tonight?",
+       "answer_fa": "دوش آب گرم نمی‌دهد. می‌شود امشب کسی بررسی کند؟"
+      },
+      {
+       "title_en": "Staying two more nights",
+       "title_fa": "دو شب بیشتر ماندن",
+       "situation_en": "Your plans changed and the room is booked until Sunday only.",
+       "situation_fa": "برنامه‌ات عوض شده و اتاق فقط تا یکشنبه رزرو است.",
+       "task_en": "Ask whether you can extend and what the rate would be.",
+       "task_fa": "بپرس آیا می‌توانی تمدید کنی و نرخش چقدر می‌شود.",
+       "answer_en": "Is it possible to stay two more nights, and what would the rate be?",
+       "answer_fa": "می‌شود دو شب بیشتر بمانم و نرخش چقدر می‌شود؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "stay-q1",
+       "q_en": "Leaving a hotel and paying is...",
+       "q_fa": "ترک هتل و پرداخت صورت‌حساب چیست؟",
+       "options": [
+        "checking out",
+        "checking in",
+        "checking off"
+       ],
+       "answer": "checking out",
+       "why_en": "Check in is arrival, check out is departure and payment.",
+       "why_fa": "check in ورود است و check out خروج و پرداخت."
+      },
+      {
+       "id": "stay-q2",
+       "q_en": "A bathroom inside your room is an...",
+       "q_fa": "حمام داخل اتاق چه نام دارد؟",
+       "options": [
+        "en-suite bathroom",
+        "inside bathroom",
+        "room bathroom"
+       ],
+       "answer": "en-suite bathroom",
+       "why_en": "The established term is en-suite, meaning attached to the room.",
+       "why_fa": "واژهٔ شناخته‌شده en-suite است، یعنی متصل به اتاق."
+      },
+      {
+       "id": "stay-q3",
+       "q_en": "Tell reception the air conditioning is broken.",
+       "q_fa": "به پذیرش بگو کولر خراب است.",
+       "options": [
+        "The air conditioning isn't working.",
+        "Air conditioning no work.",
+        "The air conditioning is broken down."
+       ],
+       "answer": "The air conditioning isn't working.",
+       "why_en": "The natural sentence uses isn't working; broken down is for cars and machines that stop completely.",
+       "why_fa": "جملهٔ طبیعی isn't working است؛ broken down برای خودرو و ماشینی است که کامل از کار می‌افتد."
+      }
+     ]
+    },
+    {
+     "id": "food",
+     "order": 8,
+     "icon": "🍽️",
+     "title_en": "Food, restaurants and cafés",
+     "title_fa": "غذا، رستوران و کافه",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "restaurant"
+     ],
+     "blurb_en": "Ordering is a small negotiation: what you want, what is in it, what you cannot eat, and how to pay.",
+     "blurb_fa": "سفارش دادن یک گفت‌وگوی کوچک است: چه می‌خواهی، در آن چیست، چه چیزی نمی‌توانی بخوری و چطور پرداخت کنی.",
+     "objectives": [
+      {
+       "en": "Book a table and order food and drink with polite requests.",
+       "fa": "میز رزرو کنی و غذا و نوشیدنی را با درخواست مؤدبانه سفارش دهی."
+      },
+      {
+       "en": "Ask what a dish contains and state an allergy or a dietary need clearly.",
+       "fa": "بپرسی غذایی چه دارد و حساسیت یا نیاز غذایی‌ات را روشن بگویی."
+      },
+      {
+       "en": "Ask for the bill, pay, tip and ask for a receipt.",
+       "fa": "صورت‌حساب بخواهی، پرداخت کنی، انعام دهی و رسید بگیری."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "food-x1",
+       "kind": "expression",
+       "en": "Could we have a table for two, please?",
+       "fa": "می‌شود لطفاً میزی برای دو نفر؟",
+       "meaning_en": "The opening line at the door, without a reservation.",
+       "meaning_fa": "نخستین جمله در ورودی، بدون رزرو.",
+       "register": "polite",
+       "example_en": "Could we have a table for two by the window, please?",
+       "example_fa": "می‌شود لطفاً میزی برای دو نفر کنار پنجره؟",
+       "alt": "A table for two, please."
+      },
+      {
+       "id": "food-x2",
+       "kind": "expression",
+       "en": "I'm allergic to nuts.",
+       "fa": "به آجیل حساسیت دارم.",
+       "meaning_en": "Said clearly and early, before ordering anything.",
+       "meaning_fa": "روشن و زود گفته می‌شود، پیش از هر سفارشی.",
+       "register": "neutral",
+       "example_en": "I'm allergic to nuts, so could you check this dish for me?",
+       "example_fa": "به آجیل حساسیت دارم؛ می‌شود این غذا را برایم بررسی کنید؟",
+       "alt": "I have a nut allergy."
+      },
+      {
+       "id": "food-x3",
+       "kind": "expression",
+       "en": "Could we get the bill, please?",
+       "fa": "می‌شود لطفاً صورت‌حساب؟",
+       "meaning_en": "Asking to pay without leaving the table.",
+       "meaning_fa": "درخواست پرداخت بدون ترک میز.",
+       "register": "polite",
+       "example_en": "Could we get the bill, please? We're in a hurry.",
+       "example_fa": "می‌شود لطفاً صورت‌حساب؟ عجله داریم.",
+       "alt": "Check, please. (American)"
+      },
+      {
+       "id": "food-x4",
+       "kind": "phrasal_verb",
+       "en": "eat out",
+       "fa": "بیرون غذا خوردن",
+       "meaning_en": "To eat at a restaurant rather than at home.",
+       "meaning_fa": "در رستوران غذا خوردن، نه در خانه.",
+       "register": "neutral",
+       "example_en": "We ate out every night, which was expensive.",
+       "example_fa": "هر شب بیرون غذا خوردیم، که گران شد.",
+       "alt": "dine out"
+      },
+      {
+       "id": "food-x5",
+       "kind": "collocation",
+       "en": "still water",
+       "fa": "آب بدون گاز",
+       "meaning_en": "Water with no bubbles; sparkling water has gas.",
+       "meaning_fa": "آب بدون گاز؛ sparkling water گازدار است.",
+       "register": "neutral",
+       "example_en": "A bottle of still water, please.",
+       "example_fa": "یک بطری آب بدون گاز لطفاً.",
+       "alt": "water, no gas"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Could I have the + [item] + without + [ingredient]?",
+       "example_en": "Could I have the salad without onions?",
+       "example_fa": "می‌شود سالاد را بدون پیاز بیاورید؟",
+       "note_en": "The allergy and preference frame: name the dish, then remove one thing.",
+       "note_fa": "قاب حساسیت و ترجیح: غذا را نام ببر، بعد یک چیز را حذف کن."
+      },
+      {
+       "frame": "What do you recommend for + [situation]?",
+       "example_en": "What do you recommend for a quick lunch?",
+       "example_fa": "برای یک ناهار سریع چه پیشنهاد می‌کنید؟",
+       "note_en": "Asks staff for a suggestion with the situation attached.",
+       "note_fa": "از کارکنان پیشنهاد می‌خواهد و موقعیت را هم می‌گوید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "food-s1",
+       "en": "Does this dish contain dairy? I can't eat it.",
+       "fa": "این غذا لبنیات دارد؟ نمی‌توانم بخورم.",
+       "use_en": "A dietary need, stated as a fact rather than an apology.",
+       "use_fa": "نیاز غذایی، به‌عنوان واقعیت نه عذرخواهی.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I can't have dairy. Is there anything I could order?"
+      },
+      {
+       "id": "food-s2",
+       "en": "We're in a hurry. How long does the soup take?",
+       "fa": "عجله داریم. سوپ چقدر طول می‌کشد؟",
+       "use_en": "Asks about time before ordering, not after.",
+       "use_fa": "پیش از سفارش دربارهٔ زمان می‌پرسد، نه بعد از آن.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "Could we have something quick? We have twenty minutes."
+      },
+      {
+       "id": "food-s3",
+       "en": "Could you split the bill between two cards?",
+       "fa": "می‌شود صورت‌حساب را بین دو کارت تقسیم کنید؟",
+       "use_en": "The payment question asked before the card is handed over.",
+       "use_fa": "پرسش پرداخت، پیش از دادن کارت.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Can we pay separately, please?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Ordering dinner",
+      "title_fa": "سفارش شام",
+      "speakers": [
+       "Server",
+       "Guest"
+      ],
+      "lines": [
+       {
+        "who": "Server",
+        "en": "Good evening. A table for two?",
+        "fa": "عصر بخیر. میزی برای دو نفر؟"
+       },
+       {
+        "who": "Guest",
+        "en": "Yes, please. Could we sit outside?",
+        "fa": "بله، لطفاً. می‌شود بیرون بنشینیم؟"
+       },
+       {
+        "who": "Server",
+        "en": "Of course. Here are the menus. Can I get you something to drink?",
+        "fa": "حتماً. این هم منوها. نوشیدنی چیزی بیاورم؟"
+       },
+       {
+        "who": "Guest",
+        "en": "Two glasses of still water. And could you tell me what's in the house salad?",
+        "fa": "دو لیوان آب بدون گاز. و می‌شود بگویید سالاد سرآشپز چه دارد؟"
+       },
+       {
+        "who": "Server",
+        "en": "Lettuce, tomato, cheese and walnuts. Are you allergic to anything?",
+        "fa": "کاهو، گوجه، پنیر و گردو. به چیزی حساسیت دارید؟"
+       },
+       {
+        "who": "Guest",
+        "en": "Nuts, yes. Could I have the salad without walnuts?",
+        "fa": "بله، به آجیل. می‌شود سالاد را بدون گردو بیاورید؟"
+       },
+       {
+        "who": "Server",
+        "en": "Of course. I'll tell the kitchen.",
+        "fa": "حتماً. به آشپزخانه می‌گویم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A dish you cannot eat",
+       "title_fa": "غذایی که نمی‌توانی بخوری",
+       "situation_en": "Everything on the menu seems to contain something you avoid.",
+       "situation_fa": "به نظر می‌رسد همهٔ غذاهای منو چیزی دارند که تو نمی‌خوری.",
+       "task_en": "Explain the need and ask for a suggestion.",
+       "task_fa": "نیازت را توضیح بده و پیشنهاد بخواه.",
+       "answer_en": "I don't eat meat. Is there a dish you could suggest?",
+       "answer_fa": "من گوشت نمی‌خورم. غذایی هست که پیشنهاد کنید؟"
+      },
+      {
+       "title_en": "Paying separately",
+       "title_fa": "پرداخت جداگانه",
+       "situation_en": "Two people, one bill, two cards, and a queue behind you.",
+       "situation_fa": "دو نفر، یک صورت‌حساب، دو کارت و صفی پشت سرت.",
+       "task_en": "Ask to split the bill before the card machine arrives.",
+       "task_fa": "پیش از آمدن دستگاه کارت، تقسیم صورت‌حساب را بخواه.",
+       "answer_en": "Could we split the bill between two cards, please?",
+       "answer_fa": "می‌شود لطفاً صورت‌حساب را بین دو کارت تقسیم کنید؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "food-q1",
+       "q_en": "Ask for the bill in American English.",
+       "q_fa": "صورت‌حساب را به انگلیسی آمریکایی بخواه.",
+       "options": [
+        "Could we get the check, please?",
+        "Could we get the bill, please, sir?",
+        "Give me the bill."
+       ],
+       "answer": "Could we get the check, please?",
+       "why_en": "Both bill and check are used; the polite request form matters more than the noun.",
+       "why_fa": "هر دو bill و check رایج‌اند؛ شکل درخواست مؤدبانه مهم‌تر از اسم است."
+      },
+      {
+       "id": "food-q2",
+       "q_en": "Water with no gas is...",
+       "q_fa": "آب بدون گاز چیست؟",
+       "options": [
+        "still water",
+        "flat water",
+        "plain gas"
+       ],
+       "answer": "still water",
+       "why_en": "The restaurant term is still water.",
+       "why_fa": "واژهٔ رستورانی still water است."
+      },
+      {
+       "id": "food-q3",
+       "q_en": "Say you cannot eat nuts.",
+       "q_fa": "بگو آجیل نمی‌توانی بخوری.",
+       "options": [
+        "I'm allergic to nuts.",
+        "I don't like nuts.",
+        "No nuts."
+       ],
+       "answer": "I'm allergic to nuts.",
+       "why_en": "The safety statement is I'm allergic to nuts; the others do not warn the kitchen.",
+       "why_fa": "جملهٔ ایمنی I'm allergic to nuts است؛ بقیه آشپزخانه را هشدار نمی‌دهد."
+      }
+     ]
+    },
+    {
+     "id": "explore",
+     "order": 9,
+     "icon": "🗺️",
+     "title_en": "Exploring the destination",
+     "title_fa": "گشتن در مقصد",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "sightseeing",
+      "directions"
+     ],
+     "blurb_en": "The part you came for: sights, tours, signs, and asking people who live there.",
+     "blurb_fa": "بخشی که برایش آمده‌ای: دیدنی‌ها، تورها، تابلوها و پرسیدن از کسانی که آنجا زندگی می‌کنند.",
+     "objectives": [
+      {
+       "en": "Ask what is worth seeing and how much time it needs.",
+       "fa": "بپرسی چه چیزی ارزش دیدن دارد و چقدر وقت می‌برد."
+      },
+      {
+       "en": "Join a guided tour and ask practical questions during it.",
+       "fa": "به تور راهنما بپیوندی و در طول آن پرسش‌های عملی بپرسی."
+      },
+      {
+       "en": "Read signs and opening hours, and plan a day around them.",
+       "fa": "تابلوها و ساعات بازدید را بخوانی و روزت را بر اساس آن‌ها بچینی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "explore-x1",
+       "kind": "expression",
+       "en": "What's worth seeing around here?",
+       "fa": "اطراف اینجا چه چیزی ارزش دیدن دارد؟",
+       "meaning_en": "An open question that gets local advice rather than a brochure.",
+       "meaning_fa": "پرسشی باز که توصیهٔ محلی می‌گیرد، نه بروشور.",
+       "register": "neutral",
+       "example_en": "We have one day. What's worth seeing around here?",
+       "example_fa": "یک روز وقت داریم. اطراف اینجا چه چیزی ارزش دیدن دارد؟",
+       "alt": "What would you see if you had one day?"
+      },
+      {
+       "id": "explore-x2",
+       "kind": "expression",
+       "en": "Is it within walking distance?",
+       "fa": "در فاصلهٔ پیاده‌روی است؟",
+       "meaning_en": "Asks whether you need transport, without asking for a distance in numbers.",
+       "meaning_fa": "می‌پرسد به وسیلهٔ نقلیه نیاز داری یا نه، بدون پرسیدن عدد فاصله.",
+       "register": "neutral",
+       "example_en": "Is the old town within walking distance of the hotel?",
+       "example_fa": "شهر قدیم در فاصلهٔ پیاده‌روی از هتل است؟",
+       "alt": "Can I walk there?"
+      },
+      {
+       "id": "explore-x3",
+       "kind": "idiom",
+       "en": "off the beaten track",
+       "fa": "دور از مسیرهای همیشگی",
+       "meaning_en": "A place few tourists visit, away from the usual routes.",
+       "meaning_fa": "جایی که گردشگران کم به آن می‌روند، دور از مسیرهای معمول.",
+       "register": "informal",
+       "example_en": "The village is off the beaten track, but the bus goes there twice a day.",
+       "example_fa": "روستا دور از مسیرهای معمول است، اما اتوبوس روزی دو بار می‌رود.",
+       "alt": "off the beaten path (American)"
+      },
+      {
+       "id": "explore-x4",
+       "kind": "idiom",
+       "en": "get away",
+       "fa": "فرار کردن از روزمرگی",
+       "meaning_en": "To leave your normal life for a while, usually to rest.",
+       "meaning_fa": "مدتی از زندگی معمول دور شدن، معمولاً برای استراحت.",
+       "register": "informal",
+       "example_en": "We get away for a week every spring.",
+       "example_fa": "هر بهار یک هفته از روزمرگی دور می‌شویم.",
+       "alt": "take a break"
+      },
+      {
+       "id": "explore-x5",
+       "kind": "collocation",
+       "en": "guided tour",
+       "fa": "تور با راهنما",
+       "meaning_en": "A visit led by a guide who explains what you are looking at.",
+       "meaning_fa": "بازدیدی با راهنما که توضیح می‌دهد چه چیزی را می‌بینی.",
+       "register": "neutral",
+       "example_en": "The guided tour lasts ninety minutes and starts every hour.",
+       "example_fa": "تور با راهنما نود دقیقه است و هر ساعت آغاز می‌شود.",
+       "alt": "tour with a guide"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "How long does it take to + [verb]?",
+       "example_en": "How long does it take to walk to the museum?",
+       "example_fa": "پیاده رفتن به موزه چقدر طول می‌کشد؟",
+       "note_en": "The time question, built on the same frame as anywhere else.",
+       "note_fa": "پرسش زمان، با همان قالب همیشگی."
+      },
+      {
+       "frame": "Is there + [thing] + near here?",
+       "example_en": "Is there a pharmacy near here?",
+       "example_fa": "نزدیک اینجا داروخانه‌ای هست؟",
+       "note_en": "Finds a service in an unfamiliar area, and works for any noun.",
+       "note_fa": "یافتن یک خدمات در محلهٔ ناشناس؛ با هر اسمی کار می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "explore-s1",
+       "en": "Does the ticket include the audio guide, or is that separate?",
+       "fa": "بلیت راهنمای صوتی را شامل می‌شود یا جداست؟",
+       "use_en": "The question at a museum desk, before paying.",
+       "use_fa": "پرسش باجهٔ موزه، پیش از پرداخت.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Is the audio guide included in the ticket price?"
+      },
+      {
+       "id": "explore-s2",
+       "en": "What time does the last entry close? We don't want to arrive too late.",
+       "fa": "آخرین ورود چه ساعتی بسته می‌شود؟ نمی‌خواهیم دیر برسیم.",
+       "use_en": "Opening hours asked as a plan, not as a fact to memorise.",
+       "use_fa": "ساعات بازدید به‌صورت برنامه پرسیده می‌شود، نه واقعیتی برای حفظ کردن.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "When is the last entry?"
+      },
+      {
+       "id": "explore-s3",
+       "en": "Would you recommend the morning tour or the evening one?",
+       "fa": "تور صبح را پیشنهاد می‌کنید یا عصر؟",
+       "use_en": "Asks for an opinion between two specific choices.",
+       "use_fa": "نظرخواهی بین دو گزینهٔ مشخص.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Which tour would you choose?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the tourist information desk",
+      "title_fa": "در باجهٔ اطلاعات گردشگری",
+      "speakers": [
+       "Staff",
+       "Visitor"
+      ],
+      "lines": [
+       {
+        "who": "Staff",
+        "en": "Good morning. How can I help?",
+        "fa": "صبح بخیر. چه کمکی می‌توانم بکنم؟"
+       },
+       {
+        "who": "Visitor",
+        "en": "We have one day here. What's worth seeing?",
+        "fa": "یک روز اینجا هستیم. چه چیزی ارزش دیدن دارد؟"
+       },
+       {
+        "who": "Staff",
+        "en": "The old town in the morning, then the museum. Are you walking?",
+        "fa": "صبح شهر قدیم، بعد موزه. پیاده می‌روید؟"
+       },
+       {
+        "who": "Visitor",
+        "en": "Yes. Is the museum within walking distance?",
+        "fa": "بله. موزه در فاصلهٔ پیاده‌روی است؟"
+       },
+       {
+        "who": "Staff",
+        "en": "About twenty minutes. The guided tour there is worth the extra five euros.",
+        "fa": "حدود بیست دقیقه. تور با راهنمای آنجا ارزش پنج یوروی اضافه را دارد."
+       },
+       {
+        "who": "Visitor",
+        "en": "What time is the last entry? Our train leaves at seven.",
+        "fa": "آخرین ورود چه ساعتی است؟ قطارمان ساعت هفت است."
+       },
+       {
+        "who": "Staff",
+        "en": "Four thirty, so you have plenty of time. Here's a map.",
+        "fa": "چهار و سی دقیقه، پس وقت کافی دارید. این هم نقشه."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A day with no plan",
+       "title_fa": "روزی بدون برنامه",
+       "situation_en": "You have six hours and no idea what to do with them.",
+       "situation_fa": "شش ساعت وقت داری و نمی‌دانی چه کنی.",
+       "task_en": "Ask for a plan that fits the time you have.",
+       "task_fa": "برنامه‌ای بخواه که با وقتت جور باشد.",
+       "answer_en": "I have about six hours. What would you do with that time?",
+       "answer_fa": "حدود شش ساعت وقت دارم. شما با این وقت چه می‌کردید؟"
+      },
+      {
+       "title_en": "During the tour",
+       "title_fa": "در طول تور",
+       "situation_en": "The guide speaks quickly and you miss the name of a building.",
+       "situation_fa": "راهنما تند صحبت می‌کند و نام ساختمانی را از دست می‌دهی.",
+       "task_en": "Ask the guide to repeat and explain in one line.",
+       "task_fa": "از راهنما بخواه در یک جمله تکرار و توضیح دهد.",
+       "answer_en": "Sorry, could you say the name again? Is it the building on the left?",
+       "answer_fa": "ببخشید، می‌شود نام را دوباره بگویید؟ ساختمان سمت چپ است؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "explore-q1",
+       "q_en": "A place few tourists visit is...",
+       "q_fa": "جایی که گردشگران کم به آن می‌روند چیست؟",
+       "options": [
+        "off the beaten track",
+        "out of track",
+        "beside the track"
+       ],
+       "answer": "off the beaten track",
+       "why_en": "The idiom is off the beaten track, or off the beaten path in American English.",
+       "why_fa": "اصطلاح off the beaten track است، یا off the beaten path در انگلیسی آمریکایی."
+      },
+      {
+       "id": "explore-q2",
+       "q_en": "Ask whether you can walk to the old town.",
+       "q_fa": "بپرس آیا می‌توانی پیاده به شهر قدیم بروی.",
+       "options": [
+        "Is it within walking distance?",
+        "Can I walk the distance?",
+        "Is it walking?"
+       ],
+       "answer": "Is it within walking distance?",
+       "why_en": "The natural question is within walking distance.",
+       "why_fa": "پرسش طبیعی within walking distance است."
+      },
+      {
+       "id": "explore-q3",
+       "q_en": "The last time you may enter is the...",
+       "q_fa": "آخرین زمانی که می‌توانی وارد شوی چیست؟",
+       "options": [
+        "last entry",
+        "last entrance",
+        "last enter"
+       ],
+       "answer": "last entry",
+       "why_en": "Museums and galleries say last entry.",
+       "why_fa": "موزه‌ها و گالری‌ها last entry می‌گویند."
+      }
+     ]
+    },
+    {
+     "id": "money",
+     "order": 10,
+     "icon": "💳",
+     "title_en": "Shopping, money and daily life",
+     "title_fa": "خرید، پول و زندگی روزمره",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "shopping",
+      "technology"
+     ],
+     "blurb_en": "Prices, sizes, cards, cash, a SIM card and data: the small transactions that keep a trip running.",
+     "blurb_fa": "قیمت‌ها، اندازه‌ها، کارت، پول نقد، سیم‌کارت و اینترنت: معامله‌های کوچکی که سفر را می‌چرخانند.",
+     "objectives": [
+      {
+       "en": "Ask a price, compare two items and pay in the way the shop accepts.",
+       "fa": "قیمت بپرسی، دو کالا را مقایسه کنی و به روشی که فروشگاه می‌پذیرد پرداخت کنی."
+      },
+      {
+       "en": "Use an ATM and understand the fee question before confirming.",
+       "fa": "از خودپرداز استفاده کنی و پیش از تأیید، پرسش کارمزد را بفهمی."
+      },
+      {
+       "en": "Buy a SIM card and ask for the data you actually need.",
+       "fa": "سیم‌کارت بخری و اینترنتی را که واقعاً لازم داری بخواهی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "money-x1",
+       "kind": "expression",
+       "en": "Do you take cards?",
+       "fa": "کارت قبول می‌کنید؟",
+       "meaning_en": "The first question in a small shop, before choosing anything.",
+       "meaning_fa": "نخستین پرسش در فروشگاهی کوچک، پیش از انتخاب.",
+       "register": "neutral",
+       "example_en": "Do you take cards, or is it cash only?",
+       "example_fa": "کارت قبول می‌کنید یا فقط نقدی است؟",
+       "alt": "Can I pay by card?"
+      },
+      {
+       "id": "money-x2",
+       "kind": "expression",
+       "en": "What's the rate for a prepaid SIM with data?",
+       "fa": "نرخ سیم‌کارت اعتباری با اینترنت چقدر است؟",
+       "meaning_en": "Asks for the plan price, not just the card price.",
+       "meaning_fa": "قیمت بسته را می‌پرسد، نه فقط قیمت کارت.",
+       "register": "neutral",
+       "example_en": "What's the rate for a prepaid SIM with ten gigabytes of data?",
+       "example_fa": "نرخ سیم‌کارت اعتباری با ده گیگابایت اینترنت چقدر است؟",
+       "alt": "How much is the data plan?"
+      },
+      {
+       "id": "money-x3",
+       "kind": "phrasal_verb",
+       "en": "top up",
+       "fa": "شارژ کردن",
+       "meaning_en": "To add credit to a phone, a card or an account.",
+       "meaning_fa": "افزودن اعتبار به تلفن، کارت یا حساب.",
+       "register": "neutral",
+       "example_en": "I need to top up my phone before the weekend.",
+       "example_fa": "باید پیش از آخر هفته گوشی‌ام را شارژ کنم.",
+       "alt": "add credit"
+      },
+      {
+       "id": "money-x4",
+       "kind": "phrasal_verb",
+       "en": "try on",
+       "fa": "پرو کردن",
+       "meaning_en": "To put on a piece of clothing to see whether it fits, in a shop.",
+       "meaning_fa": "لباس را پوشیدن تا ببینی اندازه است یا نه، در فروشگاه.",
+       "register": "neutral",
+       "example_en": "Could I try this on? The size might be too small.",
+       "example_fa": "می‌شود این را پرو کنم؟ اندازه شاید کوچک باشد.",
+       "alt": "fit it on"
+      },
+      {
+       "id": "money-x5",
+       "kind": "collocation",
+       "en": "exchange rate",
+       "fa": "نرخ تبدیل ارز",
+       "meaning_en": "What one currency costs in another at a given moment.",
+       "meaning_fa": "قیمت یک ارز بر حسب ارز دیگر در یک لحظه.",
+       "register": "neutral",
+       "example_en": "The exchange rate at the airport is worse than in town.",
+       "example_fa": "نرخ تبدیل ارز در فرودگاه از شهر بدتر است.",
+       "alt": "conversion rate"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "How much is + [item]?",
+       "example_en": "How much is this bag?",
+       "example_fa": "این کیف چند است؟",
+       "note_en": "The price question, with the item at the end.",
+       "note_fa": "پرسش قیمت، با کالا در پایان."
+      },
+      {
+       "frame": "Do you have this in + [size or colour]?",
+       "example_en": "Do you have this in a medium?",
+       "example_fa": "این را در سایز متوسط دارید؟",
+       "note_en": "The availability question in a shop; the last word changes.",
+       "note_fa": "پرسش موجود بودن در فروشگاه؛ واژهٔ آخر عوض می‌شود."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "money-s1",
+       "en": "Does the ATM charge a fee for foreign cards?",
+       "fa": "خودپرداز برای کارت‌های خارجی کارمزد می‌گیرد؟",
+       "use_en": "Asked before the card goes in, not after.",
+       "use_fa": "پیش از وارد کردن کارت پرسیده می‌شود، نه بعد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Is there a fee if I use a foreign card here?"
+      },
+      {
+       "id": "money-s2",
+       "en": "I'd like a prepaid SIM for two weeks. What do you recommend?",
+       "fa": "سیم‌کارت اعتباری برای دو هفته می‌خواهم. چه پیشنهاد می‌کنید؟",
+       "use_en": "A duration plus an open recommendation request.",
+       "use_fa": "مدت زمان به‌همراه درخواست پیشنهاد.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Which plan is best for two weeks of data?"
+      },
+      {
+       "id": "money-s3",
+       "en": "Could I pay in cash and get a receipt, please?",
+       "fa": "می‌شود نقدی پرداخت کنم و رسید بگیرم؟",
+       "use_en": "The payment choice and the receipt in one request.",
+       "use_fa": "انتخاب روش پرداخت و رسید در یک درخواست.",
+       "level": "A2",
+       "polite": "polite",
+       "alt": "Can I have a receipt, please?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Buying a SIM card",
+      "title_fa": "خرید سیم‌کارت",
+      "speakers": [
+       "Assistant",
+       "Customer"
+      ],
+      "lines": [
+       {
+        "who": "Assistant",
+        "en": "Good afternoon. Can I help you?",
+        "fa": "بعدازظهر بخیر. می‌توانم کمکی بکنم؟"
+       },
+       {
+        "who": "Customer",
+        "en": "I need a prepaid SIM for two weeks. What do you recommend?",
+        "fa": "سیم‌کارت اعتباری برای دو هفته لازم دارم. چه پیشنهاد می‌کنید؟"
+       },
+       {
+        "who": "Assistant",
+        "en": "This one has ten gigabytes and works everywhere in the country. It's twenty euros.",
+        "fa": "این یکی ده گیگابایت دارد و همه‌جای کشور کار می‌کند. بیست یورو است."
+       },
+       {
+        "who": "Customer",
+        "en": "Does it include calls, or only data?",
+        "fa": "تماس هم دارد یا فقط اینترنت؟"
+       },
+       {
+        "who": "Assistant",
+        "en": "Calls inside the country are included. You'll need your passport to register it.",
+        "fa": "تماس داخل کشور شامل است. برای ثبت آن به گذرنامه نیاز دارید."
+       },
+       {
+        "who": "Customer",
+        "en": "Do you take cards? And could you help me activate it?",
+        "fa": "کارت قبول می‌کنید؟ و می‌شود در فعال‌سازی کمکم کنید؟"
+       },
+       {
+        "who": "Assistant",
+        "en": "We do. Put the card in and I'll set it up now.",
+        "fa": "بله. کارت را بگذارید تا همین حالا تنظیمش کنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The machine asks about a fee",
+       "title_fa": "دستگاه دربارهٔ کارمزد می‌پرسد",
+       "situation_en": "An ATM offers to convert the amount for you at its own rate.",
+       "situation_fa": "خودپرداز پیشنهاد می‌کند مبلغ را با نرخ خودش تبدیل کند.",
+       "task_en": "Ask a member of staff which choice costs less.",
+       "task_fa": "از کارکنان بپرس کدام انتخاب کمتر هزینه دارد.",
+       "answer_en": "Should I accept the conversion here, or pay in the local currency?",
+       "answer_fa": "باید تبدیل را همین‌جا قبول کنم یا به ارز محلی پرداخت کنم؟"
+      },
+      {
+       "title_en": "A size that does not fit",
+       "title_fa": "اندازه‌ای که جور نیست",
+       "situation_en": "The shirt is a little tight and there is one size up.",
+       "situation_fa": "پیراهن کمی تنگ است و یک سایز بزرگ‌تر هست.",
+       "task_en": "Ask for the other size and about exchanging it later.",
+       "task_fa": "سایز دیگر را بخواه و دربارهٔ تعویض بعدی بپرس.",
+       "answer_en": "Do you have this one size larger? If it doesn't fit, can I exchange it?",
+       "answer_fa": "سایز بزرگ‌ترش را دارید؟ اگر جور نشد، می‌توانم تعویض کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "money-q1",
+       "q_en": "Adding credit to a phone is...",
+       "q_fa": "شارژ کردن گوشی چیست؟",
+       "options": [
+        "topping up",
+        "topping on",
+        "filling up"
+       ],
+       "answer": "topping up",
+       "why_en": "The phrasal verb is top up, used for phones, cards and accounts.",
+       "why_fa": "فعل عبارتی top up است، برای گوشی، کارت و حساب."
+      },
+      {
+       "id": "money-q2",
+       "q_en": "Ask whether the shop accepts cards.",
+       "q_fa": "بپرس فروشگاه کارت قبول می‌کند یا نه.",
+       "options": [
+        "Do you take cards?",
+        "Do you accept money card?",
+        "Card, yes?"
+       ],
+       "answer": "Do you take cards?",
+       "why_en": "The natural question is do you take cards.",
+       "why_fa": "پرسش طبیعی do you take cards است."
+      },
+      {
+       "id": "money-q3",
+       "q_en": "The price of one currency in another is the...",
+       "q_fa": "قیمت یک ارز بر حسب دیگری چیست؟",
+       "options": [
+        "exchange rate",
+        "change rate",
+        "money rate"
+       ],
+       "answer": "exchange rate",
+       "why_en": "The established term is exchange rate.",
+       "why_fa": "واژهٔ شناخته‌شده exchange rate است."
+      }
+     ]
+    },
+    {
+     "id": "problems",
+     "order": 11,
+     "icon": "🆘",
+     "title_en": "Problems, safety and unexpected situations",
+     "title_fa": "مشکل‌ها، ایمنی و موقعیت‌های پیش‌بینی‌نشده",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "problems",
+      "emergency",
+      "health"
+     ],
+     "blurb_en": "The stages nobody plans for: a cancellation, a lost bag, a theft, a pharmacy. Short sentences, in order, get help fastest.",
+     "blurb_fa": "مرحله‌هایی که کسی برایشان برنامه نمی‌ریزد: لغو، چمدان گم‌شده، دزدی، داروخانه. جمله‌های کوتاه و منظم سریع‌ترین کمک را می‌آورند.",
+     "objectives": [
+      {
+       "en": "Report a delay, a cancellation or a missed connection and ask for the next option.",
+       "fa": "تأخیر، لغو یا از دست دادن اتصال را گزارش کنی و گزینهٔ بعدی را بخواهی."
+      },
+      {
+       "en": "Report a theft or a lost item and say what you need next.",
+       "fa": "دزدی یا گم شدن چیزی را گزارش کنی و بگویی بعد چه لازم داری."
+      },
+      {
+       "en": "Ask for a pharmacy or medical help and describe a problem simply.",
+       "fa": "داروخانه یا کمک پزشکی بخواهی و مشکلی را ساده توصیف کنی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "problems-x1",
+       "kind": "expression",
+       "en": "I've missed my connection. What are my options?",
+       "fa": "اتصالم را از دست دادم. چه گزینه‌هایی دارم؟",
+       "meaning_en": "Said at a desk, not at the gate: the question that starts a solution.",
+       "meaning_fa": "پشت باجه گفته می‌شود، نه در درِ ورودی: پرسشی که راه‌حل را آغاز می‌کند.",
+       "register": "neutral",
+       "example_en": "The first flight was late, so I've missed my connection. What are my options?",
+       "example_fa": "پرواز اول تأخیر داشت، پس اتصالم را از دست دادم. چه گزینه‌هایی دارم؟",
+       "alt": "Can you put me on the next flight?"
+      },
+      {
+       "id": "problems-x2",
+       "kind": "expression",
+       "en": "My wallet was stolen. Where should I report it?",
+       "fa": "کیف پولم دزدیده شد. کجا باید گزارش کنم؟",
+       "meaning_en": "The first sentence at a police station or a hotel desk.",
+       "meaning_fa": "نخستین جمله در کلانتری یا پشت میز هتل.",
+       "register": "neutral",
+       "example_en": "My wallet was stolen on the metro. Where should I report it?",
+       "example_fa": "کیف پولم در مترو دزدیده شد. کجا باید گزارش کنم؟",
+       "alt": "I need to report a theft."
+      },
+      {
+       "id": "problems-x3",
+       "kind": "phrasal_verb",
+       "en": "run out of",
+       "fa": "تمام کردن",
+       "meaning_en": "To have no more of something you need.",
+       "meaning_fa": "دیگر چیزی که لازم داری نداشتن.",
+       "register": "neutral",
+       "example_en": "I've run out of my medicine, so I need a pharmacy tonight.",
+       "example_fa": "دارویم تمام شده، پس امشب به داروخانه نیاز دارم.",
+       "alt": "use up"
+      },
+      {
+       "id": "problems-x4",
+       "kind": "phrasal_verb",
+       "en": "sort out",
+       "fa": "حل و فصل کردن",
+       "meaning_en": "To fix a problem, often after some effort or talking.",
+       "meaning_fa": "مشکلی را، اغلب پس از تلاش یا گفت‌وگو، درست کردن.",
+       "register": "informal",
+       "example_en": "They sorted out the booking and put us on the evening flight.",
+       "example_fa": "رزرو را حل کردند و ما را روی پرواز عصر گذاشتند.",
+       "alt": "resolve"
+      },
+      {
+       "id": "problems-x5",
+       "kind": "collocation",
+       "en": "travel insurance",
+       "fa": "بیمهٔ سفر",
+       "meaning_en": "The policy that covers medical costs, cancellations and lost bags.",
+       "meaning_fa": "بیمه‌ای که هزینهٔ درمان، لغو و چمدان گم‌شده را پوشش می‌دهد.",
+       "register": "neutral",
+       "example_en": "My travel insurance covers the missing bag, but I need a report number.",
+       "example_fa": "بیمهٔ سفرم چمدان گم‌شده را پوشش می‌دهد، اما به شمارهٔ گزارش نیاز دارم.",
+       "alt": "trip insurance"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I need to + [verb] + as soon as possible.",
+       "example_en": "I need to speak to a doctor as soon as possible.",
+       "example_fa": "باید هرچه زودتر با پزشک صحبت کنم.",
+       "note_en": "Urgency without panic: the action, then the timing.",
+       "note_fa": "فوریت بدون اضطراب: کار، سپس زمان."
+      },
+      {
+       "frame": "Could you tell me + [question]?",
+       "example_en": "Could you tell me what happens to my luggage?",
+       "example_fa": "می‌شود بگویید با چمدانم چه می‌شود؟",
+       "note_en": "The indirect question that keeps a hard moment polite.",
+       "note_fa": "پرسش غیرمستقیم که لحظهٔ سخت را مؤدبانه نگه می‌دارد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "problems-s1",
+       "en": "Is there a pharmacy near here that is open now?",
+       "fa": "داروخانه‌ای نزدیک اینجا هست که الان باز باشد؟",
+       "use_en": "The practical pharmacy question, with the opening hours built in.",
+       "use_fa": "پرسش کاربردی داروخانه، همراه با ساعات باز بودن.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "Where is the nearest open pharmacy?"
+      },
+      {
+       "id": "problems-s2",
+       "en": "I need to make a police report for my insurance. Could I have a copy?",
+       "fa": "برای بیمه‌ام باید گزارش پلیس بدهم. می‌شود یک نسخه بگیرم؟",
+       "use_en": "Asks for the document that makes a claim possible.",
+       "use_fa": "سندی را می‌خواهد که امکان درخواست خسارت را می‌دهد.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "Could I have a written report for my insurance company?"
+      },
+      {
+       "id": "problems-s3",
+       "en": "I've lost my luggage. Where do I report it?",
+       "fa": "چمدانم را گم کرده‌ام. کجا باید اعلامش کنم؟",
+       "use_en": "The first sentence at a baggage desk when the bag never came.",
+       "use_fa": "نخستین جمله در باجهٔ بار، وقتی چمدان نرسیده.",
+       "level": "A2",
+       "polite": "polite",
+       "alt": "My luggage hasn't arrived. Could you help me report it?"
+      },
+      {
+       "id": "problems-s4",
+       "en": "I think I've lost my passport. What should I do first?",
+       "fa": "فکر می‌کنم گذرنامه‌ام را گم کرده‌ام. اول چه باید بکنم؟",
+       "use_en": "Asking for the order of steps instead of guessing.",
+       "use_fa": "پرسش ترتیب کارها، به‌جای حدس زدن.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "My passport is missing. Who should I contact?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the airline desk",
+      "title_fa": "پشت باجهٔ هواپیمایی",
+      "speakers": [
+       "Agent",
+       "Passenger"
+      ],
+      "lines": [
+       {
+        "who": "Agent",
+        "en": "Good evening. How can I help?",
+        "fa": "عصر بخیر. چه کمکی می‌توانم بکنم؟"
+       },
+       {
+        "who": "Passenger",
+        "en": "My flight from Rome was delayed, so I've missed my connection. What are my options?",
+        "fa": "پروازم از رم تأخیر داشت، پس اتصالم را از دست دادم. چه گزینه‌هایی دارم؟"
+       },
+       {
+        "who": "Agent",
+        "en": "There's a flight at six tomorrow morning, or one tonight with a stop in Vienna.",
+        "fa": "پروازی ساعت شش فردا صبح هست، یا یکی امشب با توقف در وین."
+       },
+       {
+        "who": "Passenger",
+        "en": "Is the hotel covered? I have a long wait either way.",
+        "fa": "هتل پوشش داده می‌شود؟ در هر حال انتظار طولانی دارم."
+       },
+       {
+        "who": "Agent",
+        "en": "Because the delay was ours, the hotel and meals are covered tonight.",
+        "fa": "چون تأخیر از ما بود، هتل و غذا امشب پوشش داده می‌شود."
+       },
+       {
+        "who": "Passenger",
+        "en": "Could you put me on the morning flight and give me the hotel voucher?",
+        "fa": "می‌شود مرا روی پرواز صبح بگذارید و واچر هتل را بدهید؟"
+       },
+       {
+        "who": "Agent",
+        "en": "Done. Here's the new boarding pass and the voucher for the airport hotel.",
+        "fa": "انجام شد. این هم کارت پرواز جدید و واچر هتل فرودگاه."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A theft on the metro",
+       "title_fa": "دزدی در مترو",
+       "situation_en": "Your phone was taken and you need a report for your insurance.",
+       "situation_fa": "گوشی‌ات گرفته شده و برای بیمه به گزارش نیاز داری.",
+       "task_en": "Report what happened, where, and what document you need.",
+       "task_fa": "بگو چه شد، کجا، و چه سندی لازم داری.",
+       "answer_en": "My phone was stolen on the metro an hour ago. I need a report for my insurance.",
+       "answer_fa": "یک ساعت پیش گوشی‌ام در مترو دزدیده شد. برای بیمه‌ام گزارش لازم دارم."
+      },
+      {
+       "title_en": "A medicine you have run out of",
+       "title_fa": "دارویی که تمام کرده‌ای",
+       "situation_en": "You take a daily medicine and the box is empty.",
+       "situation_fa": "داروی روزانه مصرف می‌کنی و جعبه خالی است.",
+       "task_en": "Describe the problem simply and ask what the pharmacist suggests.",
+       "task_fa": "مشکل را ساده توضیح بده و بپرس داروساز چه پیشنهاد می‌کند.",
+       "answer_en": "I've run out of this medicine. Could you tell me what I can take instead?",
+       "answer_fa": "این دارویم تمام شده. می‌شود بگویید به‌جایش چه می‌توانم مصرف کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "problems-q1",
+       "q_en": "Your flight is cancelled and you want the next one.",
+       "q_fa": "پروازت لغو شده و پرواز بعدی را می‌خواهی.",
+       "options": [
+        "Could you put me on the next available flight?",
+        "Give me another flight.",
+        "Next flight now."
+       ],
+       "answer": "Could you put me on the next available flight?",
+       "why_en": "The polite request is could you put me on; the others are orders.",
+       "why_fa": "درخواست مؤدبانه could you put me on است؛ بقیه دستورند."
+      },
+      {
+       "id": "problems-q2",
+       "q_en": "You have no more of your medicine.",
+       "q_fa": "دارویت تمام شده.",
+       "options": [
+        "I've run out of my medicine.",
+        "I finished my medicine.",
+        "My medicine is over."
+       ],
+       "answer": "I've run out of my medicine.",
+       "why_en": "The phrasal verb for having none left is run out of.",
+       "why_fa": "فعل عبارتی برای تمام شدن run out of است."
+      },
+      {
+       "id": "problems-q3",
+       "q_en": "The document that covers medical costs abroad is...",
+       "q_fa": "سندی که هزینهٔ درمان در خارج را پوشش می‌دهد چیست؟",
+       "options": [
+        "travel insurance",
+        "travel assurance",
+        "travel cover paper"
+       ],
+       "answer": "travel insurance",
+       "why_en": "The policy is travel insurance.",
+       "why_fa": "این بیمه‌نامه travel insurance است."
+      }
+     ]
+    },
+    {
+     "id": "returning",
+     "order": 12,
+     "icon": "🏠",
+     "title_en": "Returning home",
+     "title_fa": "بازگشت به خانه",
+     "audiences": [
+      "kids",
+      "adults"
+     ],
+     "refs": [
+      "returning"
+     ],
+     "blurb_en": "The journey backwards, with the same counters and one difference: you now know how this works.",
+     "blurb_fa": "سفر در جهت بازگشت، با همان باجه‌ها و یک تفاوت: حالا می‌دانی کارها چطور است.",
+     "objectives": [
+      {
+       "en": "Check out, get to the airport in time and understand the departure steps.",
+       "fa": "تخلیه کنی، به‌موقع به فرودگاه برسی و مراحل پرواز را بفهمی."
+      },
+      {
+       "en": "Ask about baggage allowances and connecting flights on the way home.",
+       "fa": "دربارهٔ حد مجاز بار و پرواز اتصالی در راه بازگشت بپرسی."
+      },
+      {
+       "en": "Handle a delay, a missed connection or a problem with a purchase on the way back.",
+       "fa": "تأخیر، از دست دادن اتصال یا مشکل خرید در راه بازگشت را مدیریت کنی."
+      }
+     ],
+     "expressions": [
+      {
+       "id": "returning-x1",
+       "kind": "expression",
+       "en": "I'd like to check the weight of my bag.",
+       "fa": "می‌خواهم وزن چمدانم را بررسی کنم.",
+       "meaning_en": "Said before the counter, when you suspect the shopping pushed you over.",
+       "meaning_fa": "پیش از باجه گفته می‌شود، وقتی گمان داری خریدها تو را از حد گذرانده.",
+       "register": "neutral",
+       "example_en": "Could you check the weight of my bag before I join the queue?",
+       "example_fa": "می‌شود پیش از ایستادن در صف وزن چمدانم را بررسی کنید؟",
+       "alt": "How much does my bag weigh?"
+      },
+      {
+       "id": "returning-x2",
+       "kind": "expression",
+       "en": "Do I need to collect my bag between flights?",
+       "fa": "باید بین دو پرواز چمدانم را بگیرم؟",
+       "meaning_en": "The connection question that decides whether you have time.",
+       "meaning_fa": "پرسش اتصال که تعیین می‌کند وقت داری یا نه.",
+       "register": "neutral",
+       "example_en": "Do I need to collect my bag between flights, or is it checked through?",
+       "example_fa": "باید بین دو پرواز چمدانم را بگیرم یا تا مقصد تحویل داده می‌شود؟",
+       "alt": "Is the bag checked all the way?"
+      },
+      {
+       "id": "returning-x3",
+       "kind": "phrasal_verb",
+       "en": "set off",
+       "fa": "راه افتادن",
+       "meaning_en": "To begin a journey, especially by leaving a place.",
+       "meaning_fa": "سفر را آغاز کردن، به‌ویژه ترک کردن جایی.",
+       "register": "neutral",
+       "example_en": "We set off at five to reach the airport before the traffic.",
+       "example_fa": "ساعت پنج راه افتادیم تا پیش از ترافیک به فرودگاه برسیم.",
+       "alt": "set out"
+      },
+      {
+       "id": "returning-x4",
+       "kind": "idiom",
+       "en": "hit the road",
+       "fa": "راه افتادن",
+       "meaning_en": "To start driving or begin a trip, in a casual, cheerful way.",
+       "meaning_fa": "شروع رانندگی یا آغاز سفر، به شکلی خودمانی.",
+       "register": "informal",
+       "example_en": "We hit the road early to avoid the worst of it.",
+       "example_fa": "زود راه افتادیم تا بدترین بخش ترافیک را رد کنیم.",
+       "alt": "get going"
+      },
+      {
+       "id": "returning-x5",
+       "kind": "collocation",
+       "en": "duty-free allowance",
+       "fa": "حد مجاز خرید معاف از عوارض",
+       "meaning_en": "The value or quantity you may bring home without paying duty.",
+       "meaning_fa": "ارزش یا مقدار کالایی که می‌توانی بدون پرداخت عوارض به خانه ببری.",
+       "register": "formal",
+       "example_en": "The duty-free allowance is lower than people expect.",
+       "example_fa": "حد مجاز خرید معاف از عوارض کمتر از تصور مردم است.",
+       "alt": "customs allowance"
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "By the time + [clause], + [clause].",
+       "example_en": "By the time we get to the airport, the shops will be closed.",
+       "example_fa": "تا وقتی به فرودگاه برسیم، فروشگاه‌ها بسته شده‌اند.",
+       "note_en": "The frame for planning backwards from a deadline.",
+       "note_fa": "قاب برنامه‌ریزی معکوس از یک ضرب‌الاجل."
+      },
+      {
+       "frame": "I'd rather + [verb] + than + [verb].",
+       "example_en": "I'd rather wait at the airport than risk the traffic.",
+       "example_fa": "ترجیح می‌دهم در فرودگاه منتظر بمانم تا ریسک ترافیک را بکنم.",
+       "note_en": "States a preference with the reason built into the comparison.",
+       "note_fa": "ترجیح را با دلیلِ نهفته در مقایسه بیان می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "returning-s1",
+       "en": "My connecting flight is tight. Could you tag my bag for the first flight only?",
+       "fa": "پرواز اتصالی‌ام تنگ است. می‌شود چمدانم را فقط برای پرواز اول برچسب بزنید؟",
+       "use_en": "A practical request that saves a bag from going to the wrong city.",
+       "use_fa": "درخواستی کاربردی که چمدان را از رفتن به شهر اشتباه نجات می‌دهد.",
+       "level": "B2",
+       "polite": "polite",
+       "alt": "Could my bag be checked only as far as Lisbon?"
+      },
+      {
+       "id": "returning-s2",
+       "en": "I bought this here last week, but the receipt is in my checked bag. Can I still return it?",
+       "fa": "این را هفتهٔ پیش همین‌جا خریدم، اما رسید در چمدان تحویلی‌ام است. باز هم می‌توانم پس بدهم؟",
+       "use_en": "A refund question with the complication stated first.",
+       "use_fa": "پرسش بازپرداخت با پیچیدگی در آغاز.",
+       "level": "B2",
+       "polite": "polite",
+       "alt": "Is there another way to prove the purchase?"
+      },
+      {
+       "id": "returning-s3",
+       "en": "The flight is delayed and I'll miss my train home. Is there an earlier one?",
+       "fa": "پرواز تأخیر دارد و قطار خانه را از دست می‌دهم. قطار زودتری هست؟",
+       "use_en": "Two problems in one sentence, with the request at the end.",
+       "use_fa": "دو مشکل در یک جمله، با درخواست در پایان.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Can I change to an earlier train if we land late?"
+      }
+     ],
+     "dialogue": {
+      "title_en": "Checking in for the flight home",
+      "title_fa": "ثبت‌نام برای پرواز بازگشت",
+      "speakers": [
+       "Agent",
+       "Traveler"
+      ],
+      "lines": [
+       {
+        "who": "Agent",
+        "en": "Good morning. May I see your passport?",
+        "fa": "صبح بخیر. می‌شود گذرنامه را ببینم؟"
+       },
+       {
+        "who": "Traveler",
+        "en": "Here you are. I have one bag and one carry-on. Could you check the weight?",
+        "fa": "بفرمایید. یک چمدان و یک کیف همراه دارم. می‌شود وزن را بررسی کنید؟"
+       },
+       {
+        "who": "Agent",
+        "en": "Twenty-two kilos, so you're three over. Are you connecting in Frankfurt?",
+        "fa": "بیست‌ودو کیلو، پس سه کیلو بیش از حد. در فرانکفورت اتصال دارید؟"
+       },
+       {
+        "who": "Traveler",
+        "en": "Yes, with ninety minutes. Do I need to collect my bag between flights?",
+        "fa": "بله، با نود دقیقه وقت. باید بین دو پرواز چمدانم را بگیرم؟"
+       },
+       {
+        "who": "Agent",
+        "en": "No, it's checked through to your final destination.",
+        "fa": "نه، تا مقصد نهایی تحویل داده می‌شود."
+       },
+       {
+        "who": "Traveler",
+        "en": "Good. What do I do about the extra three kilos?",
+        "fa": "خوب است. با آن سه کیلوی اضافه چه کنم؟"
+       },
+       {
+        "who": "Agent",
+        "en": "You can pay for it here, or move something into your carry-on.",
+        "fa": "می‌توانید همین‌جا پرداخت کنید یا چیزی را به کیف همراه منتقل کنید."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A tight connection on the way home",
+       "title_fa": "اتصال تنگ در راه بازگشت",
+       "situation_en": "Ninety minutes, two terminals, and a bag that may not transfer.",
+       "situation_fa": "نود دقیقه، دو ترمینال و چمدانی که شاید منتقل نشود.",
+       "task_en": "Ask about the bag and the terminal before walking away.",
+       "task_fa": "پیش از رفتن، دربارهٔ چمدان و ترمینال بپرس.",
+       "answer_en": "Is ninety minutes enough, and does the bag transfer automatically?",
+       "answer_fa": "نود دقیقه کافی است و چمدان خودکار منتقل می‌شود؟"
+      },
+      {
+       "title_en": "A refund after you get home",
+       "title_fa": "بازپرداخت پس از رسیدن به خانه",
+       "situation_en": "The item is wrong and you are already in another country.",
+       "situation_fa": "کالا اشتباه است و تو در کشور دیگری هستی.",
+       "task_en": "Explain what went wrong and ask what can be done by email.",
+       "task_fa": "توضیح بده چه اشکالی پیش آمد و بپرس از طریق ایمیل چه می‌شود کرد.",
+       "answer_en": "I bought this last week and it's faulty. Could you tell me how to return it from abroad?",
+       "answer_fa": "هفتهٔ پیش این را خریدم و خراب است. می‌شود بگویید از خارج چطور پسش بدهم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "returning-q1",
+       "q_en": "Beginning a journey is to...",
+       "q_fa": "آغاز سفر چیست؟",
+       "options": [
+        "set off",
+        "set in",
+        "set down"
+       ],
+       "answer": "set off",
+       "why_en": "The phrasal verb for starting a journey is set off or set out.",
+       "why_fa": "فعل عبارتی آغاز سفر set off یا set out است."
+      },
+      {
+       "id": "returning-q2",
+       "q_en": "Ask whether your bag goes all the way to the final city.",
+       "q_fa": "بپرس آیا چمدانت تا شهر نهایی می‌رود.",
+       "options": [
+        "Is my bag checked through to the final destination?",
+        "Does my bag travel with me?",
+        "Will I see my bag again?"
+       ],
+       "answer": "Is my bag checked through to the final destination?",
+       "why_en": "The counter phrase is checked through.",
+       "why_fa": "عبارت باجه checked through است."
+      },
+      {
+       "id": "returning-q3",
+       "q_en": "The amount you may bring home without paying duty is the...",
+       "q_fa": "مقداری که می‌توانی بدون عوارض به خانه ببری چیست؟",
+       "options": [
+        "duty-free allowance",
+        "custom allowance",
+        "free duty amount"
+       ],
+       "answer": "duty-free allowance",
+       "why_en": "The established term is duty-free allowance.",
+       "why_fa": "واژهٔ شناخته‌شده duty-free allowance است."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

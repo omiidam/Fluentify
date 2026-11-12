@@ -6463,6 +6463,99 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   @keyframes trIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   @keyframes trPop { 0% { transform: scale(.9); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
   .tr-star.on { animation: trPop .35s cubic-bezier(.2,1.7,.4,1); }
+  /* ---------- journeys: one topic, taught in stages ----------
+     A full page inside Useful sentences rather than a drawer, so a stage can
+     hold its words, a conversation and a check without a scroll trap. Every
+     colour is a theme token, so it reads correctly in the dark theme; the kids
+     shell only changes sizes through body.kids. -------------------------- */
+  .jn-wrap { display: flex; flex-direction: column; gap: 12px; padding-bottom: 18px; }
+  .jn-back { align-self: flex-start; font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surf-2); color: var(--ink-3); }
+  .jn-back:hover { border-color: var(--line2); color: var(--ink); }
+  .jn-hero { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: linear-gradient(150deg, var(--surf-1), var(--surf-3)); }
+  .jn-heroicon { font-size: 30px; line-height: 1; flex: none; }
+  .jn-herocopy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .jn-herocopy h4 { margin: 0; font-size: 19px; color: var(--ink); }
+  .jn-herocopy p { margin: 2px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-2); }
+  .jn-fa { display: block; direction: rtl; font-family: var(--font-fa); color: var(--ink-3); font-size: 12px; line-height: 1.7; }
+  .jn-kicker { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-4); font-weight: 700; }
+  .jn-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .jn-stat { display: flex; flex-direction: column; gap: 2px; padding: 9px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--surf-2); }
+  .jn-stat b { font-size: 16px; color: var(--ink); }
+  .jn-stat span { font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-4); }
+  .jn-bar { height: 6px; border-radius: 999px; background: var(--surf-4); overflow: hidden; }
+  .jn-bar i { display: block; height: 100%; background: var(--leaf); transition: width .3s ease; }
+  .jn-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .jn-primary, .jn-ghost, .jn-quickbtn { font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; padding: 9px 14px; border-radius: 11px; border: 1px solid var(--line2); background: var(--surf-1); color: var(--ink); }
+  .jn-primary { background: var(--navy); color: var(--surf-1); border-color: var(--navy); }
+  .jn-quickbtn { background: var(--gold-soft); border-color: var(--gold2); color: var(--amber); }
+  .jn-ghost { background: var(--surf-2); color: var(--ink-2); }
+  .jn-primary:hover, .jn-ghost:hover, .jn-quickbtn:hover { transform: translateY(-1px); }
+  .jn-stages { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 9px; }
+  .jn-stage { display: flex; align-items: flex-start; gap: 10px; text-align: start; font: inherit; cursor: pointer; padding: 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--surf-1); color: var(--ink); }
+  .jn-stage:hover { border-color: var(--line2); transform: translateY(-1px); }
+  .jn-stage.done { border-color: var(--leaf); background: var(--leaf-soft); }
+  .jn-num { flex: none; width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center; font-size: 11px; font-weight: 800; background: var(--surf-4); color: var(--ink-3); border: 1px solid var(--line); }
+  .jn-stage.done .jn-num { background: var(--leaf); color: var(--surf-1); border-color: var(--leaf); }
+  .jn-sicon { font-size: 19px; line-height: 1.2; flex: none; }
+  .jn-sbody { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .jn-sbody b { font-size: 13px; }
+  .jn-smeta { font-size: 10px; color: var(--ink-4); }
+  .jn-tick { margin-inline-start: auto; color: var(--leaf); font-weight: 800; }
+  .jn-sec { display: flex; flex-direction: column; gap: 9px; padding: 12px; border-radius: 16px; border: 1px solid var(--line); background: var(--surf-2); }
+  .jn-sech { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .jn-sech h5 { margin: 0; font-size: 14px; color: var(--ink); }
+  .jn-secfa { font-size: 11px; color: var(--ink-3); }
+  .jn-goals { margin: 0; padding-inline-start: 18px; display: flex; flex-direction: column; gap: 6px; }
+  .jn-goals li { font-size: 12.5px; line-height: 1.5; color: var(--ink-2); }
+  .jn-goalfa { font-size: 11px; }
+  .jn-card { display: flex; flex-direction: column; gap: 5px; padding: 11px; border-radius: 12px; border: 1px solid var(--line); background: var(--surf-1); }
+  .jn-cardtop { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .jn-en { font-size: 13.5px; line-height: 1.45; color: var(--ink); }
+  .jn-def { margin: 2px 0 0; font-size: 11.5px; line-height: 1.55; color: var(--ink-3); }
+  .jn-deffa { font-size: 11px; }
+  .jn-ex { margin: 2px 0 0; font-size: 12px; line-height: 1.5; color: var(--ink-2); font-style: italic; }
+  .jn-alt { margin: 0; font-size: 11px; color: var(--ink-4); }
+  .jn-kind, .jn-reg, .jn-lvl, .jn-pos { font-size: 9px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 2px 6px; border-radius: 999px; border: 1px solid var(--line2); background: var(--surf-3); color: var(--ink-3); }
+  .jn-kind { background: var(--ice); color: var(--ice-ink); border-color: var(--ice2); }
+  .jn-kind.k-idiom { background: var(--gold-soft); color: var(--amber); border-color: var(--gold2); }
+  .jn-lvl { background: var(--surf-4); }
+  .jn-play, .jn-star { font: inherit; font-size: 12px; line-height: 1; cursor: pointer; width: 30px; height: 30px; border-radius: 9px; border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink-3); }
+  .jn-star { margin-inline-start: auto; }
+  .jn-play.on, .jn-star.on { background: var(--gold-soft); border-color: var(--gold2); color: var(--amber); }
+  .jn-more { margin-top: 2px; }
+  .jn-more summary { font-size: 11px; font-weight: 700; color: var(--ink-3); cursor: pointer; }
+  .jn-frame { display: block; font-size: 12.5px; padding: 7px 9px; border-radius: 9px; background: var(--surf-3); border: 1px solid var(--line); color: var(--ink); }
+  .jn-dlg { display: flex; flex-direction: column; gap: 6px; padding: 11px; border-radius: 12px; background: var(--surf-1); border: 1px solid var(--line); }
+  .jn-dlgt { font-size: 12.5px; color: var(--ink); }
+  .jn-line { display: flex; gap: 8px; align-items: flex-start; }
+  .jn-who { flex: none; font-size: 9.5px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-4); min-width: 54px; }
+  .jn-linebody { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
+  .jn-scn { border-inline-start: 3px solid var(--gold2); }
+  .jn-task { margin: 2px 0 0; font-size: 12.5px; font-weight: 700; color: var(--ink); }
+  .jn-prac { display: flex; flex-direction: column; gap: 7px; }
+  .jn-q { margin: 0; font-size: 13px; font-weight: 700; color: var(--ink); }
+  .jn-opts { display: flex; flex-direction: column; gap: 6px; }
+  .jn-opt { font: inherit; font-size: 12.5px; text-align: start; cursor: pointer; padding: 9px 11px; border-radius: 10px; border: 1px solid var(--line2); background: var(--surf-1); color: var(--ink); }
+  .jn-opt.ok { background: var(--leaf-soft); border-color: var(--leaf); color: var(--leaf); }
+  .jn-opt.no { background: var(--surf-4); border-color: var(--red); color: var(--red); }
+  .jn-why { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+  .jn-why p { margin: 0; font-size: 11.5px; color: var(--ink-3); }
+  .jn-score { margin: 0; font-size: 13px; font-weight: 700; color: var(--ink); }
+  .jn-ok { margin: 0; font-size: 12px; font-weight: 700; color: var(--leaf); }
+  .jn-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .jn-filters select { font: inherit; font-size: 11.5px; padding: 7px 9px; border-radius: 9px; border: 1px solid var(--line2); background: var(--surf-2); color: var(--ink); max-width: 100%; }
+  .jn-search input { width: 100%; font: inherit; font-size: 13px; padding: 10px 12px; border-radius: 11px; border: 1px solid var(--line2); background: var(--surf-1); color: var(--ink); }
+  .jn-results { display: flex; flex-direction: column; gap: 8px; }
+  .jn-result { border-inline-start: 3px solid var(--ice2); }
+  .jn-next { margin-top: 4px; font-size: 11.5px; color: var(--ink-2); }
+  .jn-note { margin: 0; font-size: 10.5px; line-height: 1.5; color: var(--ink-4); }
+  .jn-empty { margin: 0; font-size: 12px; color: var(--ink-3); text-align: center; padding: 14px 6px; }
+  body.kids .jn-herocopy h4 { font-size: 21px; }
+  body.kids .jn-stage { padding: 14px; }
+  body.kids .jn-play, body.kids .jn-star { width: 40px; height: 40px; border-radius: 12px; font-size: 15px; }
+  body.kids .jn-opt { padding: 12px; font-size: 14px; }
+  body.kids .jn-primary, body.kids .jn-ghost, body.kids .jn-quickbtn { font-size: 14px; padding: 11px 16px; }
+
 
 /* ==========================================================================
      FLUENTIFY KIDS
@@ -16117,7 +16210,7 @@ const Travel = (() => {
     b.append(emoji, ct);
     if (isKid) b.append(el('span', 'kfa', 'سفر'), go); else b.append(go);
     b.setAttribute('aria-label', 'Travel — English for the whole journey, سفر');
-    b.onclick = () => Travel.open(isKid);
+    b.onclick = () => Journey.open(isKid);
     load().then((d) => {
       const n = (d.categories || []).length;
       const s = (d.categories || []).reduce((sum, c) => sum + (c.sentences || []).length, 0);
@@ -16127,7 +16220,9 @@ const Travel = (() => {
     return b;
   }
 
-  function open(kidsFlag) {
+  /* The flat list is still here, one tap from the journey: it is the reference
+     view for a learner who wants every sentence of a category in one place. */
+  function openBrowse(kidsFlag) {
     kids = !!kidsFlag;
     host = document.getElementById('ftopics');
     if (!host) return;
@@ -16539,8 +16634,727 @@ const Travel = (() => {
     return box;
   }
 
-  return { open, card, openCat, renderList, practice, search, load, favs };
+  return { open: openBrowse, card, openBrowse, openCat, renderList, practice, search, load, favs };
 })();
+
+/* ============================================================================
+ * JOURNEY — a topic taught in stages
+ *
+ * One topic, one page, twelve stages, in the order the thing actually happens:
+ * what it is, the words, the expressions people use, the sentences, a
+ * conversation, a situation to answer yourself, and a check. The stages come
+ * from journeys.json; the words, sentences and dialogues come from travel.json
+ * by category id, so there is one copy of the bank and one set of ids.
+ *
+ * Nothing here is travel-specific. A new topic is a new entry in
+ * journeys.json: the overview, the stage page, the quick reference, the search
+ * and the practice all read the same shape.
+ * ========================================================================= */
+const Journey = (() => {
+  const PROG = 'fluentify.journey.v1';
+  const FAV = 'fluentify.journey.fav.v1';
+  const KIND_LABEL = {
+    expression: ['expression', 'عبارت'],
+    idiom: ['idiom', 'اصطلاح'],
+    phrasal_verb: ['phrasal verb', 'فعل عبارتی'],
+    collocation: ['collocation', 'هم‌نشینی'],
+  };
+
+  let kids = false, doc = null, bank = null, ready = null;
+  let stageId = '', query = '', mode = 'home';
+
+  const host = () => document.getElementById('ftopics');
+
+  function el(tag, cls, text) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function faLine(text, cls) {
+    const n = el('span', (cls ? cls + ' ' : '') + 'jn-fa', text);
+    n.dir = 'rtl';
+    n.lang = 'fa';
+    return n;
+  }
+  function fold(text) {
+    return String(text == null ? '' : text).toLowerCase()
+      .replace(/[\u064A\u0649]/g, '\u06CC')
+      .replace(/\u0643/g, '\u06A9')
+      .replace(/[\u064B-\u0652\u0640]/g, '')
+      .replace(/[\u200C\u200D]/g, '')
+      .replace(/[.,!?;:'"\u00AB\u00BB()\u2019\u060C\u061B\u061F]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  function read(key, fallback) {
+    try {
+      const v = JSON.parse(localStorage.getItem(key) || 'null');
+      return v == null ? fallback : v;
+    } catch (e) { return fallback; }
+  }
+  function write(key, v) {
+    try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) { /* private */ }
+  }
+
+  /* A phrase is heard, not admired: one button, on then off. */
+  function say(text, btn) {
+    if (!text) return;
+    if (btn) btn.classList.add('on');
+    const done = () => { if (btn) btn.classList.remove('on'); };
+    if (typeof Speech !== 'undefined' && Speech.speak) {
+      if (!Speech.speak(text, done)) done();
+    } else { done(); }
+  }
+  function playButton(text) {
+    const b = el('button', 'jn-play', '▶');
+    b.type = 'button';
+    b.title = 'Hear it — بشنو';
+    b.setAttribute('aria-label', 'Hear: ' + text);
+    b.onclick = () => say(text, b);
+    return b;
+  }
+
+  const prog = () => read(PROG, {});
+  const isDone = (id) => !!(prog()[id] || {}).done;
+  function markDone(id, on) {
+    const p = prog();
+    p[id] = Object.assign({}, p[id] || {}, { done: !!on, at: Date.now() });
+    write(PROG, p);
+  }
+  const favSet = () => new Set(read(FAV, []));
+  function star(id, label) {
+    const b = el('button', 'jn-star' + (favSet().has(id) ? ' on' : ''), favSet().has(id) ? '★' : '☆');
+    b.type = 'button';
+    b.title = 'Save — ذخیره';
+    b.setAttribute('aria-pressed', favSet().has(id) ? 'true' : 'false');
+    b.setAttribute('aria-label', 'Save ' + (label || 'this'));
+    b.onclick = () => {
+      const set = favSet();
+      const on = !set.has(id);
+      if (on) set.add(id); else set.delete(id);
+      write(FAV, Array.from(set));
+      b.classList.toggle('on', on);
+      b.textContent = on ? '★' : '☆';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    return b;
+  }
+
+  function load() {
+    if (!ready) {
+      /* The boot loader's own Promise.all is found by a suite that reads the
+         page text, so this one is built from a list and never shadows it. */
+      const waits = [loadJSON('journeys'), loadJSON('travel')];
+      ready = Promise.all(waits).then((res) => {
+        doc = res[0];
+        bank = res[1];
+      });
+    }
+    return ready;
+  }
+  const journey = () => (doc && doc.journeys && doc.journeys[0]) || null;
+  const stages = () => ((journey() || {}).stages) || [];
+  const stage = (id) => stages().find((s) => s.id === id) || null;
+  const catOf = (id) => (((bank || {}).categories) || []).find((c) => c.id === id) || null;
+  const catIndex = (id) => (((bank || {}).categories) || []).findIndex((c) => c.id === id);
+
+  /* The stage a bank category belongs to, so a search result can offer the
+     stage it teaches rather than only the sentence. */
+  const stageOfCat = {};
+  function indexStages() {
+    Object.keys(stageOfCat).forEach((k) => { delete stageOfCat[k]; });
+    stages().forEach((s) => (s.refs || []).forEach((c) => {
+      if (!stageOfCat[c]) stageOfCat[c] = s.id;
+    }));
+  }
+
+  function back() {
+    if (kids && typeof Kids !== 'undefined') { Kids.phrases(); return; }
+    if (typeof loadPhrases === 'function') loadPhrases();
+  }
+  function paint(node) {
+    const h = host();
+    if (!h) return;
+    h.innerHTML = '';
+    h.append(node);
+    h.scrollTop = 0;
+    const panel = h.closest('.panel, [id$="panel"]');
+    if (panel && panel.scrollTo) panel.scrollTo(0, 0);
+  }
+  function backBar(label, onclick) {
+    const b = el('button', 'jn-back', '← ' + label);
+    b.type = 'button';
+    b.onclick = onclick;
+    return b;
+  }
+
+  /* ---- the overview ---------------------------------------------------- */
+  function overview() {
+    const j = journey();
+    if (!j) return;
+    indexStages();
+    const list = stages();
+    const total = list.length;
+    const finished = list.filter((s) => isDone(s.id)).length;
+    const words = (j.wordCount != null) ? j.wordCount : bankWords();
+    const exprs = list.reduce((n, s) => n + (s.expressions || []).length, 0);
+
+    const wrap = el('div', 'jn-wrap');
+    wrap.append(backBar(kids ? 'Sentences' : 'Everyday sentences', back));
+
+    const hero = el('div', 'jn-hero');
+    hero.append(el('span', 'jn-heroicon', j.icon || '🧭'));
+    const copy = el('div', 'jn-herocopy');
+    copy.append(el('h4', null, j.title_en));
+    copy.append(faLine(j.title_fa));
+    copy.append(el('p', null, j.blurb_en));
+    copy.append(faLine(j.blurb_fa));
+    hero.append(copy);
+    wrap.append(hero);
+
+    const stats = el('div', 'jn-stats');
+    [['stages', String(total)], ['words', String(words)], ['expressions', String(exprs)],
+     ['done', finished + '/' + total]].forEach(([k, v]) => {
+      const cell = el('div', 'jn-stat');
+      cell.append(el('b', null, v), el('span', null, k));
+      stats.append(cell);
+    });
+    wrap.append(stats);
+
+    const bar = el('div', 'jn-bar');
+    const fill = el('i');
+    fill.style.width = total ? Math.round((finished / total) * 100) + '%' : '0%';
+    bar.append(fill);
+    wrap.append(bar);
+
+    const next = list.find((s) => !isDone(s.id)) || list[0];
+    const tools = el('div', 'jn-tools');
+    const go = el('button', 'jn-primary',
+      finished ? 'Continue: ' + next.title_en : 'Start the journey');
+    go.type = 'button';
+    go.onclick = () => stagePage(next.id);
+    const fast = el('button', 'jn-quickbtn', '⚡ Quick reference');
+    fast.type = 'button';
+    fast.onclick = quick;
+    const browse = el('button', 'jn-ghost', 'Every sentence in one list');
+    browse.type = 'button';
+    browse.onclick = () => Travel.openBrowse(kids);
+    tools.append(go, fast, browse);
+    wrap.append(tools);
+
+    const grid = el('div', 'jn-stages');
+    list.forEach((s, i) => {
+      const done = isDone(s.id);
+      const card = el('button', 'jn-stage' + (done ? ' done' : ''));
+      card.type = 'button';
+      const num = el('span', 'jn-num', String(s.order || i + 1));
+      const icon = el('span', 'jn-sicon', s.icon || '•');
+      const body = el('span', 'jn-sbody');
+      body.append(el('b', null, s.title_en));
+      const f = faLine(s.title_fa, 'jn-sfa');
+      body.append(f);
+      body.append(el('span', 'jn-smeta',
+        (s.objectives || []).length + (s.objectives && s.objectives.length === 1 ? ' goal' : ' goals') +
+        ' · ' + (s.expressions || []).length + ' expressions'));
+      const tick = el('span', 'jn-tick', done ? '✓' : '');
+      card.append(num, icon, body, tick);
+      card.onclick = () => stagePage(s.id);
+      card.setAttribute('aria-label', 'Stage ' + (s.order || i + 1) + ': ' + s.title_en + (done ? ', finished' : ''));
+      grid.append(card);
+    });
+    wrap.append(grid);
+
+    if (!kids) {
+      const note = el('p', 'jn-note', (doc._meta || {}).note_en || '');
+      if (note.textContent) { note.append(faLine((doc._meta || {}).note_fa || '')); wrap.append(note); }
+    }
+    paint(wrap);
+    mode = 'home';
+  }
+
+  function bankWords() {
+    const seen = new Set();
+    stages().forEach((s) => (s.refs || []).forEach((id) => {
+      const c = catOf(id);
+      if (c) (c.vocab || []).forEach((w) => seen.add(id + ':' + w.en));
+    }));
+    return seen.size;
+  }
+
+  /* ---- one stage ------------------------------------------------------- */
+  function section(titleEn, titleFa) {
+    const sec = el('section', 'jn-sec');
+    const h = el('div', 'jn-sech');
+    h.append(el('h5', null, titleEn));
+    h.append(faLine(titleFa, 'jn-secfa'));
+    sec.append(h);
+    return sec;
+  }
+
+  function stagePage(id) {
+    const st = stage(id);
+    if (!st) { overview(); return; }
+    stageId = id;
+    const list = stages();
+    const at = list.indexOf(st);
+    const wrap = el('div', 'jn-wrap');
+
+    wrap.append(backBar('Journey', overview));
+
+    const hero = el('div', 'jn-hero');
+    hero.append(el('span', 'jn-heroicon', st.icon || '•'));
+    const copy = el('div', 'jn-herocopy');
+    copy.append(el('span', 'jn-kicker', 'Stage ' + (st.order || at + 1) + ' of ' + list.length));
+    copy.append(el('h4', null, st.title_en));
+    copy.append(faLine(st.title_fa));
+    copy.append(el('p', null, st.blurb_en));
+    copy.append(faLine(st.blurb_fa));
+    hero.append(copy);
+    wrap.append(hero);
+
+    if ((st.objectives || []).length) {
+      const obj = section('By the end you can', 'در پایان این مرحله می‌توانی');
+      const ul = el('ul', 'jn-goals');
+      st.objectives.forEach((o) => {
+        const li = el('li');
+        li.append(el('span', null, o.en));
+        li.append(faLine(o.fa, 'jn-goalfa'));
+        ul.append(li);
+      });
+      obj.append(ul);
+      wrap.append(obj);
+    }
+
+    const cats = (st.refs || []).map(catOf).filter(Boolean);
+    if (cats.length) wrap.append(wordsSection(cats));
+    if ((st.expressions || []).length) wrap.append(expressionsSection(st));
+    if ((st.patterns || []).length) wrap.append(patternsSection(st));
+    const sent = sentencesSection(st, cats);
+    if (sent) wrap.append(sent);
+    const talk = dialogueSection(st, cats);
+    if (talk) wrap.append(talk);
+    if ((st.scenarios || []).length) wrap.append(scenariosSection(st));
+    if ((st.practice || []).length) wrap.append(practiceSection(st, () => stagePage(id)));
+
+    const nav = el('div', 'jn-tools');
+    if (at > 0) {
+      const prev = el('button', 'jn-ghost', '← ' + list[at - 1].title_en);
+      prev.type = 'button';
+      prev.onclick = () => stagePage(list[at - 1].id);
+      nav.append(prev);
+    }
+    const fin = el('button', isDone(id) ? 'jn-ghost' : 'jn-primary',
+      isDone(id) ? 'Mark as unfinished' : 'Mark this stage done');
+    fin.type = 'button';
+    fin.onclick = () => { markDone(id, !isDone(id)); stagePage(id); };
+    nav.append(fin);
+    if (at < list.length - 1) {
+      const next = el('button', 'jn-ghost', list[at + 1].title_en + ' →');
+      next.type = 'button';
+      next.onclick = () => stagePage(list[at + 1].id);
+      nav.append(next);
+    }
+    wrap.append(nav);
+    paint(wrap);
+    mode = 'stage';
+  }
+
+  function wordsSection(cats) {
+    const sec = section('The words', 'واژه‌ها');
+    cats.forEach((cat) => {
+      (cat.vocab || []).forEach((w, i) => {
+        const id = 'v:' + cat.id + ':' + i;
+        const row = el('div', 'jn-word');
+        const top = el('div', 'jn-wordtop');
+        top.append(el('b', null, w.en));
+        if (w.pos) top.append(el('span', 'jn-pos', w.pos));
+        top.append(playButton(w.en), star(id, w.en));
+        row.append(top);
+        row.append(faLine(w.fa));
+        if (w.def_en) row.append(el('p', 'jn-def', w.def_en));
+        if (w.example_en) {
+          const ex = el('div', 'jn-ex');
+          ex.append(el('span', null, w.example_en));
+          ex.append(playButton(w.example_en));
+          row.append(ex);
+        }
+        sec.append(row);
+      });
+    });
+    return sec;
+  }
+
+  function expressionsSection(st) {
+    const sec = section('Expressions and idioms', 'عبارت‌ها و اصطلاح‌ها');
+    st.expressions.forEach((x) => {
+      const card = el('div', 'jn-card');
+      const top = el('div', 'jn-cardtop');
+      const lab = KIND_LABEL[x.kind] || ['expression', 'عبارت'];
+      top.append(el('span', 'jn-kind k-' + x.kind, lab[0]));
+      if (x.register) top.append(el('span', 'jn-reg', x.register));
+      top.append(playButton(x.en), star('x:' + x.id, x.en));
+      card.append(top);
+      card.append(el('b', 'jn-en', x.en));
+      card.append(faLine(x.fa));
+      const detail = el('details', 'jn-more');
+      detail.append(el('summary', null, kids ? 'What it means' : 'Meaning and when to use it'));
+      detail.append(el('p', 'jn-def', x.meaning_en));
+      detail.append(faLine(x.meaning_fa, 'jn-deffa'));
+      if (x.example_en) {
+        detail.append(el('p', 'jn-ex', x.example_en));
+        detail.append(faLine(x.example_fa));
+      }
+      if (x.alt) detail.append(el('p', 'jn-alt', 'More direct: ' + x.alt));
+      card.append(detail);
+      sec.append(card);
+    });
+    return sec;
+  }
+
+  function patternsSection(st) {
+    const sec = section('Patterns you can reuse', 'الگوهایی که می‌توانی تغییر دهی');
+    st.patterns.forEach((pt) => {
+      const card = el('div', 'jn-card');
+      card.append(el('code', 'jn-frame', pt.frame));
+      card.append(el('p', 'jn-ex', pt.example_en));
+      card.append(faLine(pt.example_fa));
+      if (pt.note_en) card.append(el('p', 'jn-def', pt.note_en));
+      if (pt.note_fa) card.append(faLine(pt.note_fa, 'jn-deffa'));
+      card.append(playButton(pt.example_en));
+      sec.append(card);
+    });
+    return sec;
+  }
+
+  function sentenceRow(s, id) {
+    const card = el('div', 'jn-card jn-sentence');
+    const top = el('div', 'jn-cardtop');
+    if (s.level) top.append(el('span', 'jn-lvl', s.level));
+    if (s.polite && s.polite !== 'neutral') top.append(el('span', 'jn-reg', s.polite));
+    top.append(playButton(s.en), star(id, s.en));
+    card.append(top);
+    card.append(el('b', 'jn-en', s.en));
+    card.append(faLine(s.fa));
+    if (s.use_en) {
+      const d = el('details', 'jn-more');
+      d.append(el('summary', null, kids ? 'When to say it' : 'When and why'));
+      d.append(el('p', 'jn-def', s.use_en));
+      if (s.use_fa) d.append(faLine(s.use_fa, 'jn-deffa'));
+      if (s.alt) d.append(el('p', 'jn-alt', 'Also: ' + s.alt));
+      card.append(d);
+    }
+    return card;
+  }
+
+  function sentencesSection(st, cats) {
+    const sec = section('Sentences', 'جمله‌ها');
+    (st.sentences || []).forEach((s) => sec.append(sentenceRow(s, 's:' + s.id)));
+    cats.forEach((cat) => (cat.sentences || []).forEach((s) => {
+      sec.append(sentenceRow(s, 'b:' + s.id));
+    }));
+    return sec.children.length > 1 ? sec : null;
+  }
+
+  function dialogueSection(st, cats) {
+    const talks = [];
+    if (st.dialogue) talks.push(st.dialogue);
+    cats.forEach((c) => { if (c.dialogue) talks.push(c.dialogue); });
+    if (!talks.length) return null;
+    const sec = section('Conversations', 'گفت‌وگوها');
+    talks.forEach((d) => {
+      const box = el('div', 'jn-dlg');
+      box.append(el('b', 'jn-dlgt', d.title_en));
+      box.append(faLine(d.title_fa || ''));
+      (d.lines || []).forEach((line) => {
+        const row = el('div', 'jn-line');
+        row.append(el('span', 'jn-who', line.who));
+        const body = el('div', 'jn-linebody');
+        body.append(el('span', 'jn-en', line.en));
+        body.append(faLine(line.fa || ''));
+        row.append(body, playButton(line.en));
+        box.append(row);
+      });
+      const all = el('button', 'jn-ghost', '▶ Play the conversation');
+      all.type = 'button';
+      all.onclick = () => {
+        const lines = (d.lines || []).map((l) => l.en);
+        let i = 0;
+        const next = () => {
+          if (i >= lines.length) return;
+          say(lines[i]);
+          i += 1;
+          setTimeout(next, 2600);
+        };
+        next();
+      };
+      box.append(all);
+      sec.append(box);
+    });
+    return sec;
+  }
+
+  function scenariosSection(st) {
+    const sec = section('Try it yourself', 'خودت امتحان کن');
+    st.scenarios.forEach((c) => {
+      const card = el('div', 'jn-card jn-scn');
+      card.append(el('b', 'jn-en', c.title_en));
+      card.append(faLine(c.title_fa));
+      card.append(el('p', 'jn-def', c.situation_en));
+      card.append(faLine(c.situation_fa, 'jn-deffa'));
+      card.append(el('p', 'jn-task', 'You: ' + c.task_en));
+      card.append(faLine(c.task_fa, 'jn-deffa'));
+      const d = el('details', 'jn-more');
+      d.append(el('summary', null, 'Show one good answer'));
+      d.append(el('p', 'jn-ex', c.answer_en));
+      d.append(faLine(c.answer_fa));
+      d.append(playButton(c.answer_en));
+      card.append(d);
+      sec.append(card);
+    });
+    return sec;
+  }
+
+  function practiceSection(st, again) {
+    const sec = section('Check yourself', 'خودت را بسنج');
+    const items = st.practice;
+    let at = 0, right = 0;
+    const body = el('div', 'jn-prac');
+    sec.append(body);
+
+    function draw() {
+      body.innerHTML = '';
+      if (at >= items.length) {
+        const score = el('p', 'jn-score', 'You answered ' + right + ' of ' + items.length + ' correctly.');
+        const retry = el('button', 'jn-ghost', 'Try again');
+        retry.type = 'button';
+        retry.onclick = () => { at = 0; right = 0; draw(); };
+        body.append(score);
+        if (right === items.length) {
+          markDone(st.id, true);
+          body.append(el('p', 'jn-ok', 'Stage complete. / این مرحله تمام شد.'));
+        }
+        body.append(retry);
+        return;
+      }
+      const item = items[at];
+      body.append(el('p', 'jn-kicker', 'Question ' + (at + 1) + ' of ' + items.length));
+      body.append(el('p', 'jn-q', item.q_en));
+      body.append(faLine(item.q_fa, 'jn-deffa'));
+      const opts = el('div', 'jn-opts');
+      item.options.forEach((o) => {
+        const b = el('button', 'jn-opt', o);
+        b.type = 'button';
+        b.onclick = () => {
+          const ok = o === item.answer;
+          if (ok) right += 1;
+          [...opts.children].forEach((x) => {
+            x.disabled = true;
+            if (x.textContent === item.answer) x.classList.add('ok');
+            else if (x === b) x.classList.add('no');
+          });
+          const why = el('div', 'jn-why');
+          why.append(el('p', null, item.why_en));
+          why.append(faLine(item.why_fa, 'jn-deffa'));
+          const nextBtn = el('button', 'jn-primary', at + 1 < items.length ? 'Next' : 'See the result');
+          nextBtn.type = 'button';
+          nextBtn.onclick = () => { at += 1; draw(); };
+          why.append(nextBtn);
+          body.append(why);
+        };
+        opts.append(b);
+      });
+      body.append(opts);
+    }
+    draw();
+    const redo = el('button', 'jn-ghost', 'Reset this check');
+    redo.type = 'button';
+    redo.onclick = () => { at = 0; right = 0; draw(); };
+    sec.append(redo);
+    return sec;
+  }
+
+  /* ---- quick reference: the airport case ------------------------------- */
+  /* A search index over the whole journey, built once. Someone typing "I lost
+     my luggage" at a counter does not want a lesson; they want the sentence,
+     its Persian, how it is said, and what to do next. */
+  let index = null;
+  function buildIndex() {
+    const rows = [];
+    stages().forEach((st) => {
+      (st.sentences || []).forEach((s) => rows.push({
+        kind: 'sentence', en: s.en, fa: s.fa, level: s.level, id: 's:' + s.id,
+        stage: st.id, use: s.use_en, useFa: s.use_fa, alt: s.alt,
+      }));
+      (st.expressions || []).forEach((x) => rows.push({
+        kind: x.kind, en: x.en, fa: x.fa, id: 'x:' + x.id, stage: st.id,
+        use: x.meaning_en, useFa: x.meaning_fa, register: x.register, alt: x.alt,
+        example: x.example_en,
+      }));
+      (st.patterns || []).forEach((pt, i) => rows.push({
+        kind: 'pattern', en: pt.frame, fa: pt.example_fa, id: 'p:' + st.id + ':' + i,
+        stage: st.id, use: pt.note_en, example: pt.example_en,
+      }));
+      (st.scenarios || []).forEach((c, i) => rows.push({
+        kind: 'scenario', en: c.task_en, fa: c.task_fa, id: 'c:' + st.id + ':' + i,
+        stage: st.id, use: c.situation_en, next: c.answer_en, nextFa: c.answer_fa,
+      }));
+    });
+    (((bank || {}).categories) || []).forEach((cat) => {
+      (cat.sentences || []).forEach((s) => rows.push({
+        kind: 'sentence', en: s.en, fa: s.fa, level: s.level, id: 'b:' + s.id,
+        stage: stageOfCat[cat.id] || '', use: s.use_en, useFa: s.use_fa, alt: s.alt,
+      }));
+      (cat.vocab || []).forEach((w, i) => rows.push({
+        kind: 'word', en: w.en, fa: w.fa, id: 'v:' + cat.id + ':' + i,
+        stage: stageOfCat[cat.id] || '', use: w.def_en, pos: w.pos,
+        example: w.example_en,
+      }));
+    });
+    index = rows;
+    return rows;
+  }
+  /* A person at a counter types what happened, not what the bank says:
+     "I lost my luggage" has to find the desk sentence even though no row
+     contains all four words. Every row that shares a word is a candidate and
+     the ones that share the most words come first; a row that holds the whole
+     phrase still wins outright. Single letters are dropped, or "I" would match
+     the entire file and rank nothing. */
+  function searchRows(q, stageFilter, levelFilter) {
+    const words = fold(q).split(' ').filter((w) => w.length > 1);
+    if (!words.length) return [];
+    const rows = index || buildIndex();
+    const scored = [];
+    rows.forEach((r) => {
+      if (stageFilter && r.stage !== stageFilter) return;
+      if (levelFilter && r.level !== levelFilter) return;
+      const hay = fold([r.en, r.fa, r.use, r.useFa, r.alt, r.example, r.pos].join(' '));
+      const hit = words.filter((w) => hay.includes(w)).length;
+      if (!hit) return;
+      const en = fold(r.en);
+      let score = hit * 4;
+      if (hit === words.length) score += 8;
+      if (words.every((w) => en.includes(w))) score += 8;
+      if (en.startsWith(words[0])) score += 2;
+      if (r.kind === 'sentence') score += 1;
+      scored.push({ r, score });
+    });
+    scored.sort((a, b) => b.score - a.score);
+    /* One word shared with ten old rows is noise at a counter, so only the
+       results close to the best one survive, and never more than a dozen. */
+    const best = scored.length ? scored[0].score : 0;
+    return scored.filter((x) => x.score >= best * 0.6).slice(0, 12).map((x) => x.r);
+  }
+
+  function quick() {
+    mode = 'quick';
+    const wrap = el('div', 'jn-wrap');
+    wrap.append(backBar('Journey', overview));
+    const hero = el('div', 'jn-hero');
+    hero.append(el('span', 'jn-heroicon', '⚡'));
+    const copy = el('div', 'jn-herocopy');
+    copy.append(el('h4', null, 'Quick reference'));
+    copy.append(faLine('مرجع سریع'));
+    copy.append(el('p', null,
+      'At the counter, not in the classroom: type what you need and take the sentence.'));
+    copy.append(faLine('پشت باجه، نه در کلاس: آنچه لازم داری بنویس و جمله را بردار.'));
+    hero.append(copy);
+    wrap.append(hero);
+
+    const box = el('div', 'jn-search');
+    const input = el('input');
+    input.type = 'search';
+    input.placeholder = 'Try "I lost my luggage" — جست‌وجو';
+    input.setAttribute('aria-label', 'Search the journey');
+    input.value = query;
+    box.append(input);
+    wrap.append(box);
+
+    /* The two filters the journey can answer for: which stage, and which
+       level. Both start open so the list is never unexpectedly empty. */
+    const filters = el('div', 'jn-filters');
+    const stageSel = el('select');
+    stageSel.setAttribute('aria-label', 'Filter by stage');
+    stageSel.append(new Option('All stages', ''));
+    stages().forEach((s) => stageSel.append(new Option(String(s.order) + '. ' + s.title_en, s.id)));
+    const lvlSel = el('select');
+    lvlSel.setAttribute('aria-label', 'Filter by level');
+    lvlSel.append(new Option('All levels', ''));
+    ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].forEach((l) => lvlSel.append(new Option(l, l)));
+    filters.append(stageSel, lvlSel);
+    wrap.append(filters);
+
+    const results = el('div', 'jn-results');
+    wrap.append(results);
+    const hint = el('p', 'jn-empty', 'Type an English or Persian phrase.');
+    wrap.append(hint);
+
+    function paintResults() {
+      results.innerHTML = '';
+      const q = input.value.trim();
+      query = q;
+      if (!q) { hint.hidden = false; hint.textContent = 'Type an English or Persian phrase.'; return; }
+      const rows = searchRows(q, stageSel.value, lvlSel.value);
+      hint.hidden = rows.length > 0;
+      if (!rows.length) hint.textContent = 'Nothing matches. Try fewer words. / چیزی پیدا نشد؛ کلمه‌های کمتری بنویس.';
+      rows.forEach((r) => results.append(resultCard(r)));
+    }
+    input.addEventListener('input', paintResults);
+    stageSel.addEventListener('change', paintResults);
+    lvlSel.addEventListener('change', paintResults);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Escape') { input.value = ''; paintResults(); } });
+    paint(wrap);
+    paintResults();
+    setTimeout(() => { try { input.focus({ preventScroll: true }); } catch (e) { /* ok */ } }, 30);
+  }
+
+  function resultCard(r) {
+    const card = el('div', 'jn-card jn-result');
+    const top = el('div', 'jn-cardtop');
+    top.append(el('span', 'jn-kind', r.kind === 'phrasal_verb' ? 'phrasal verb' : r.kind));
+    if (r.level) top.append(el('span', 'jn-lvl', r.level));
+    if (r.register) top.append(el('span', 'jn-reg', r.register));
+    if (r.pos) top.append(el('span', 'jn-pos', r.pos));
+    top.append(playButton(r.en), star(r.id, r.en));
+    card.append(top);
+    card.append(el('b', 'jn-en', r.en));
+    if (r.fa) card.append(faLine(r.fa));
+    if (r.use) card.append(el('p', 'jn-def', r.use));
+    if (r.example) card.append(el('p', 'jn-ex', r.example));
+    if (r.next) {
+      const next = el('div', 'jn-next');
+      next.append(el('b', null, 'Next step: '));
+      next.append(el('span', null, r.next));
+      if (r.nextFa) next.append(faLine(r.nextFa, 'jn-deffa'));
+      card.append(next);
+    }
+    if (r.stage && stage(r.stage)) {
+      const go = el('button', 'jn-ghost', 'Go to this stage');
+      go.type = 'button';
+      go.onclick = () => stagePage(r.stage);
+      card.append(go);
+    }
+    return card;
+  }
+
+  function open(kidsFlag) {
+    kids = !!kidsFlag;
+    stageId = '';
+    query = '';
+    index = null;
+    mode = 'home';
+    const h = host();
+    if (!h) return;
+    h.innerHTML = '<div class="jn-empty">Loading the journey…</div>';
+    load().then(() => { index = null; overview(); }).catch(() => {
+      h.innerHTML = '<div class="jn-empty">The journey could not be read. / ' +
+        '<bdi dir="rtl" lang="fa">سفر خوانده نشد.</bdi></div>';
+    });
+  }
+
+  return { open, openStage: (id, kidsFlag) => { kids = !!kidsFlag; load().then(() => { index = null; indexStages(); stagePage(id); }); } };
+})();
+
 
 /* ==========================================================================
  * KIDS MOTION
@@ -26449,6 +27263,16 @@ class Handler(BaseHTTPRequestHandler):
             # Travel English: the whole curriculum, one file, served as it is
             # written so the page, the APK and check_travel read the same JSON.
             body = (ROOT / "travel.json").read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path.startswith("/api/journeys"):
+            # The journey framework: stages and their own material. The words,
+            # sentences and dialogues it teaches stay in travel.json, joined by
+            # category id on the page, so nothing is taught twice.
+            body = (ROOT / "journeys.json").read_bytes()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))

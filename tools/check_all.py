@@ -153,6 +153,7 @@ SUITES = [
     ("mini stories panel", [sys.executable, "tools/check_stories.py"]),
     ("slang & idiom bank", [sys.executable, "tools/check_slang.py"]),
     ("informal sentence bank", [sys.executable, "tools/check_informal.py"]),
+    ("journey framework", [sys.executable, "tools/check_journeys.py"]),
     ("android kotlin (static)", [sys.executable, "tools/check_kotlin.py"]),
 ]
 

@@ -57,7 +57,7 @@ LAZY_DATA = [
     "heroquest.json",
     # Travel English: eighteen situations, their sentences, words, dialogues
     # and patterns. Read when the travel card is opened, never at boot
-    "travel.json",
+    "travel.json", "journeys.json",
     # Every taught word's meanings, read the first time a word is opened for
     # its other senses and never at boot
     "senses.json",
