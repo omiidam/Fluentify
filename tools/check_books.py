@@ -515,12 +515,34 @@ PINNED_GRAMMAR = [
     "Combining modals with phrasal modals",
     "Expressing preference: would rather",
     "Modals in summary: which one does what",
-    "The passive",
-    "The passive with modals, get and stative verbs",
-    "Noun clauses and reported speech",
+    "Active and passive: who does it and what happens",
+    "The tense forms of the passive: be + past participle",
+    "Using the passive: when the doer does not matter",
+    "The passive with modals and phrasal modals",
+    "The stative passive: be + participle as a description",
+    "Common stative passive verbs with prepositions",
+    "The passive with get",
+    "Participial adjectives: -ed and -ing",
+    "Noun clauses: a sentence inside a sentence",
+    "Noun clauses with question words",
+    "Noun clauses with whether or if",
+    "Question words followed by infinitives",
+    "Noun clauses with that",
+    "Quoted speech: the exact words",
+    "Reported speech: the words after the fact",
+    "Reported speech: modal verbs in noun clauses",
     "The subjunctive in noun clauses: insist that he be",
-    "Adjective clauses",
-    "Reducing adjective clauses to phrases",
+    "Adjective clause pronouns as the subject: who and which",
+    "Adjective clause pronouns as the object of a verb",
+    "Adjective clause pronouns as the object of a preposition",
+    "Whose: the possessive in an adjective clause",
+    "Where in adjective clauses",
+    "When in adjective clauses",
+    "Adjective clauses that modify pronouns",
+    "Punctuating adjective clauses: commas that change the meaning",
+    "Expressions of quantity in adjective clauses",
+    "Which to modify a whole sentence",
+    "Reducing adjective clauses to adjective phrases",
     "Gerunds and infinitives",
     "Causative verbs: make, have, get, let and help",
     "Paired conjunctions and parallel structure",
@@ -825,6 +847,48 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
               or len(l.get("exam") or []) < 3]
     check(not thin10,
           f"{bid}: chapter ten chart(s) {thin10} are thinner than the rest of the book")
+
+    # Chapter eleven is the passive: the two voices, the tense forms, the four
+    # reasons for choosing it, modals, the stative passive and its prepositions,
+    # get, and the pair of participial adjectives.
+    eleventh = [l for l in lessons if l.get("chapter") == "Chapter 11"]
+    check([str(l.get("section")) for l in eleventh] == [f"11-{i}" for i in range(1, 9)],
+          f"{bid}: chapter eleven is not its eight charts in order "
+          f"(got {[str(l.get('section')) for l in eleventh]})")
+    thin11 = [str(l.get("section")) for l in eleventh
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin11,
+          f"{bid}: chapter eleven chart(s) {thin11} are thinner than the rest of the book")
+
+    # Chapter twelve is the noun clause: what a clause is, the question words,
+    # whether and if, the infinitive pattern, that, the two kinds of speech and
+    # the subjunctive.
+    twelfth = [l for l in lessons if l.get("chapter") == "Chapter 12"]
+    check([str(l.get("section")) for l in twelfth] == [f"12-{i}" for i in range(1, 10)],
+          f"{bid}: chapter twelve is not its nine charts in order "
+          f"(got {[str(l.get('section')) for l in twelfth]})")
+    thin12 = [str(l.get("section")) for l in twelfth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin12,
+          f"{bid}: chapter twelve chart(s) {thin12} are thinner than the rest of the book")
+
+    # Chapter thirteen is the adjective clause: the three pronoun positions, the
+    # possessive and the two adverbs, the pronouns it may modify, the commas,
+    # quantities, whole-sentence which and the reduced phrase.
+    thirteenth = [l for l in lessons if l.get("chapter") == "Chapter 13"]
+    check([str(l.get("section")) for l in thirteenth] == [f"13-{i}" for i in range(1, 12)],
+          f"{bid}: chapter thirteen is not its eleven charts in order "
+          f"(got {[str(l.get('section')) for l in thirteenth]})")
+    thin13 = [str(l.get("section")) for l in thirteenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin13,
+          f"{bid}: chapter thirteen chart(s) {thin13} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"

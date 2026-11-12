@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 99 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to ten are complete, chart 1-1 to 10-11. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 99 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا ده کامل‌اند، از نمودار ۱-۱ تا ۱۰-۱۱. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 121 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to thirteen are complete, chart 1-1 to 13-11. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 121 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا سیزده کامل‌اند، از نمودار ۱-۱ تا ۱۳-۱۱. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -23905,480 +23905,2218 @@
     },
     {
      "n": 87,
-     "title": "The passive",
-     "title_fa": "جملات مجهول",
+     "title": "Active and passive: who does it and what happens",
+     "title_fa": "معلوم و مجهول: چه کسی انجام می‌دهد و چه اتفاقی می‌افتد",
      "chapter": "Chapter 11",
      "section": "11-1",
-     "use_en": "The passive puts the action or the result first and the doer last, or leaves the doer out when it is unknown or unimportant.",
-     "use_fa": "مجهول کنش یا نتیجه را اول می‌آورد و کنندهٔ کار را آخر، یا وقتی کننده ناشناخته یا بی‌اهمیت است حذف می‌کند.",
-     "form_en": "be (in the right tense) + past participle  (+ by + agent)",
+     "use_en": "The active sentence puts the doer first: the neighbour painted the fence. The passive sentence puts the receiver of the action first and moves the doer out of the way: the fence was painted. Both describe the same event; the choice says what the sentence is about. The doer can come back after by, but only when the reader needs to know who it was. The passive is not a more polite or more advanced active: it is a different starting point.",
+     "use_fa": "جملهٔ معلوم انجام‌دهنده را اول می‌آورد: the neighbour painted the fence. جملهٔ مجهول گیرندهٔ کار را اول می‌آورد و انجام‌دهنده را کنار می‌گذارد: the fence was painted. هر دو یک رویداد را می‌گویند و انتخاب میان آن‌ها نشان می‌دهد جمله دربارهٔ چه چیزی است. انجام‌دهنده می‌تواند پس از by برگردد، اما تنها وقتی خواننده باید بداند کار را چه کسی کرد. مجهول مؤدبانه‌تر یا پیشرفته‌تر از معلوم نیست؛ نقطهٔ شروع دیگری است.",
+     "form_en": "active: subject + verb + object  ·  passive: object + be + past participle (+ by + doer)",
      "examples": [
       {
-       "en": "The bridge was built in 1902.",
-       "fa": "پل در سال ۱۹۰۲ ساخته شد."
+       "en": "Someone broke the window last night.",
+       "fa": "دیشب کسی پنجره را شکست."
+      },
+      {
+       "en": "The window was broken last night.",
+       "fa": "پنجره دیشب شکسته شد."
+      },
+      {
+       "en": "The novel was written by a teacher from Tabriz.",
+       "fa": "آن رمان را معلمی از تبریز نوشت."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The chef cooked the meal. → The meal ___ cooked by the chef.",
+       "answer": "was",
+       "why_en": "The passive of a past action takes was with the past participle.",
+       "why_fa": "مجهولِ کار گذشته was و اسم مفعول می‌گیرد."
+      },
+      {
+       "prompt": "Someone stole my bike. → My bike ___ stolen.",
+       "answer": "was",
+       "why_en": "The passive keeps the tense of the active: past stays past.",
+       "why_fa": "مجهول زمان جملهٔ معلوم را نگه می‌دارد: گذشته گذشته می‌ماند."
+      },
+      {
+       "prompt": "The company employs two hundred people. → Two hundred people ___ employed.",
+       "answer": "are",
+       "why_en": "A plural receiver takes are in the present passive.",
+       "why_fa": "گیرندهٔ جمع در مجهول حال are می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence is passive?",
+       "options": [
+        "The letter was sent yesterday.",
+        "She sent the letter yesterday.",
+        "She is sending the letter."
+       ],
+       "answer": "The letter was sent yesterday.",
+       "why_en": "The receiver leads and the verb is be plus the past participle.",
+       "why_fa": "گیرنده اول آمده و فعل be و اسم مفعول است."
+      },
+      {
+       "q": "The bridge ___ in 1998.",
+       "options": [
+        "was built",
+        "built",
+        "was building"
+       ],
+       "answer": "was built",
+       "why_en": "A finished past action on the receiver is was built.",
+       "why_fa": "کار گذشتهٔ تمام‌شده روی گیرنده was built است."
+      },
+      {
+       "q": "Which passive keeps the doer because the doer matters?",
+       "options": [
+        "The song was written by a student.",
+        "The song was written last year.",
+        "The song was written quickly."
+       ],
+       "answer": "The song was written by a student.",
+       "why_en": "Only by plus a person answers the question of who did it.",
+       "why_fa": "تنها by به‌همراه شخص پاسخ می‌دهد که کار را چه کسی کرد."
+      }
+     ]
+    },
+    {
+     "n": 88,
+     "title": "The tense forms of the passive: be + past participle",
+     "title_fa": "زمان‌های مجهول: be + اسم مفعول",
+     "chapter": "Chapter 11",
+     "section": "11-2",
+     "use_en": "In the passive the tense lives in be and the past participle never changes: is cleaned, was cleaned, is being cleaned, has been cleaned, will be cleaned. Once the pattern is clear, every tense you already know carries over without a new form to learn. The perfect progressive passive is so heavy that English avoids it and rewrites the sentence instead.",
+     "use_fa": "در مجهول، زمان در be زندگی می‌کند و اسم مفعول هرگز تغییر نمی‌کند: is cleaned، was cleaned، is being cleaned، has been cleaned، will be cleaned. وقتی الگو روشن شود، هر زمانی که می‌دانید بدون شکل تازه‌ای منتقل می‌شود. مجهولِ کامل استمراری چنان سنگین است که انگلیسی از آن پرهیز می‌کند و جمله را بازنویسی می‌کند.",
+     "form_en": "present is/are + pp · past was/were + pp · progressive is being + pp · perfect has been + pp · future will be + pp",
+     "examples": [
+      {
+       "en": "The office is cleaned every evening.",
+       "fa": "دفتر هر عصر تمیز می‌شود."
+      },
+      {
+       "en": "The road was being repaired when we drove past.",
+       "fa": "وقتی از آنجا گذشتیم جاده در دست تعمیر بود."
+      },
+      {
+       "en": "The results have been announced.",
+       "fa": "نتایج اعلام شده‌اند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The forms ___ (send) last week.",
+       "answer": "were sent",
+       "why_en": "A plural receiver in the past takes were plus the participle.",
+       "why_fa": "گیرندهٔ جمع در گذشته were و اسم مفعول می‌گیرد."
+      },
+      {
+       "prompt": "The bridge ___ (repair) at the moment.",
+       "answer": "is being repaired",
+       "why_en": "An action in progress now is is being plus the participle.",
+       "why_fa": "کار در حال انجام اکنون is being و اسم مفعول است."
+      },
+      {
+       "prompt": "The new library ___ (open) next month.",
+       "answer": "will be opened",
+       "why_en": "A future passive is will be plus the participle.",
+       "why_fa": "مجهول آینده will be و اسم مفعول است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The room ___ every morning.",
+       "options": [
+        "is cleaned",
+        "cleans",
+        "is cleaning"
+       ],
+       "answer": "is cleaned",
+       "why_en": "A daily routine on the room is the present passive.",
+       "why_fa": "روتین روزانه روی اتاق مجهول حال است."
+      },
+      {
+       "q": "The letter ___ yesterday.",
+       "options": [
+        "was sent",
+        "sent",
+        "is sent"
+       ],
+       "answer": "was sent",
+       "why_en": "Yesterday puts the passive in the past.",
+       "why_fa": "yesterday مجهول را به گذشته می‌برد."
+      },
+      {
+       "q": "The work ___ by Friday.",
+       "options": [
+        "will be finished",
+        "will finish",
+        "finishes"
+       ],
+       "answer": "will be finished",
+       "why_en": "The future passive is will be finished.",
+       "why_fa": "مجهول آینده will be finished است."
+      }
+     ]
+    },
+    {
+     "n": 89,
+     "title": "Using the passive: when the doer does not matter",
+     "title_fa": "کاربرد مجهول: وقتی انجام‌دهنده مهم نیست",
+     "chapter": "Chapter 11",
+     "section": "11-3",
+     "use_en": "English chooses the passive for four reasons: the doer is unknown, the doer is obvious, the doer is unimportant, or the receiver is the topic the paragraph is following. News reports, instructions and scientific writing use it for the same reasons. Outside those four cases the active is shorter and clearer, and a passive that hides a doer the reader needs is a weakness rather than a style.",
+     "use_fa": "انگلیسی مجهول را به چهار دلیل انتخاب می‌کند: انجام‌دهنده ناشناس است، آشکار است، بی‌اهمیت است، یا گیرنده موضوعِ پاراگراف است. گزارش خبری، دستور کار و نوشتار علمی به همین دلیل‌ها از آن استفاده می‌کنند. بیرون از این چهار حالت، معلوم کوتاه‌تر و روشن‌تر است و مجهولی که انجام‌دهندهٔ لازم را پنهان کند ضعف است نه سبک.",
+     "form_en": "passive for: unknown doer · obvious doer · unimportant doer · receiver as topic",
+     "examples": [
+      {
+       "en": "My wallet was stolen on the bus.",
+       "fa": "کیف پولم در اتوبوس دزدیده شد."
       },
       {
        "en": "English is spoken in many countries.",
        "fa": "انگلیسی در بسیاری از کشورها صحبت می‌شود."
       },
       {
-       "en": "The letters have been sent.",
-       "fa": "نامه‌ها فرستاده شده‌اند."
+       "en": "The building was designed in 1930.",
+       "fa": "ساختمان در سال ۱۹۳۰ طراحی شد."
       }
      ],
      "exercises": [
       {
-       "prompt": "This house ___ (build) by my grandfather in 1950.",
-       "answer": "was built",
-       "why_en": "Past passive: was + past participle.",
-       "why_fa": "مجهول گذشته: was + اسم مفعول."
+       "prompt": "The doer is unknown: someone has taken my umbrella. → My umbrella ___ been taken.",
+       "answer": "has",
+       "why_en": "An unknown doer leaves the passive without by.",
+       "why_fa": "انجام‌دهندهٔ ناشناس مجهول را بی by می‌گذارد."
       },
       {
-       "prompt": "The results ___ (announce) tomorrow morning.",
-       "answer": "will be announced",
-       "why_en": "Future passive: will be + past participle.",
-       "why_fa": "مجهول آینده: will be + اسم مفعول."
+       "prompt": "The doer is obvious: the postman delivers the mail. → The mail ___ delivered every day.",
+       "answer": "is",
+       "why_en": "When everyone knows the doer, the passive drops it.",
+       "why_fa": "وقتی همه انجام‌دهنده را می‌دانند، مجهول او را حذف می‌کند."
       },
       {
-       "prompt": "The problem ___ (already / solve).",
-       "answer": "has already been solved",
-       "why_en": "Present perfect passive, with already between has and been.",
-       "why_fa": "مجهول حال کامل، با already میان has و been."
+       "prompt": "Keep the doer: the storm destroyed the roof. → The roof was destroyed ___ the storm.",
+       "answer": "by",
+       "why_en": "By introduces the doer when it still matters.",
+       "why_fa": "by انجام‌دهنده را وقتی هنوز مهم است معرفی می‌کند."
       }
      ],
      "exam": [
       {
-       "q": "The office ___ every evening.",
+       "q": "Which passive is right when the doer is unknown?",
        "options": [
-        "cleans",
-        "is cleaned",
-        "is cleaning"
+        "My phone was stolen.",
+        "Someone stole my phone.",
+        "My phone stole."
        ],
-       "answer": "is cleaned",
-       "why_en": "Someone cleans it; the office does not clean.",
-       "why_fa": "کسی آن را تمیز می‌کند؛ خودِ دفتر تمیز نمی‌شود."
+       "answer": "My phone was stolen.",
+       "why_en": "No doer is known, so the passive leaves it out.",
+       "why_fa": "انجام‌دهنده شناخته نیست، پس مجهول او را حذف می‌کند."
       },
       {
-       "q": "The cake ___ by my sister.",
+       "q": "Which sentence hides a doer the reader needs?",
        "options": [
-        "made",
-        "was made",
-        "has making"
+        "The report was written.",
+        "The report was written by Sara.",
+        "Sara wrote the report."
        ],
-       "answer": "was made",
-       "why_en": "Past passive with the doer named by by.",
-       "why_fa": "مجهولِ گذشته، با ذکر فاعل به‌وسیلهٔ by."
+       "answer": "The report was written.",
+       "why_en": "The reader needs to know who wrote it, and the passive hides it.",
+       "why_fa": "خواننده باید بداند چه کسی نوشت و مجهول آن را پنهان می‌کند."
       },
       {
-       "q": "These shoes ___ in Italy.",
+       "q": "Why do instructions use the passive? — The form must be signed.",
        "options": [
-        "are made",
-        "make",
-        "are making"
+        "The doer is obvious.",
+        "The doer is unknown.",
+        "The action is in the past."
        ],
-       "answer": "are made",
-       "why_en": "A general fact about where they come from.",
-       "why_fa": "واقعیتی کلی دربارهٔ محل ساخت آن‌ها."
-      }
-     ]
-    },
-    {
-     "n": 88,
-     "title": "The passive with modals, get and stative verbs",
-     "title_fa": "مجهول با افعال کمکی، get و فعل‌های حالتی",
-     "chapter": "Chapter 11",
-     "section": "11-4",
-     "use_en": "After a modal the passive is modal + be + past participle. Get with the past participle is a less formal passive, and some verbs are passive in meaning.",
-     "use_fa": "پس از افعال کمکی، مجهول به شکل کمکی + be + اسم مفعول می‌آید. get با اسم مفعول مجهولِ غیررسمی‌تر است و بعضی فعل‌ها معنای مجهولی دارند.",
-     "form_en": "must / can / will + be + past participle   |   get + past participle",
-     "examples": [
-      {
-       "en": "This form must be signed by the manager.",
-       "fa": "این فرم باید به امضای مدیر برسد."
-      },
-      {
-       "en": "The window got broken during the storm.",
-       "fa": "پنجره در طوفان شکست."
-      },
-      {
-       "en": "She is interested in old movies.",
-       "fa": "او به فیلم‌های قدیمی علاقه دارد."
-      }
-     ],
-     "exercises": [
-      {
-       "prompt": "The report ___ (must / write) before Friday.",
-       "answer": "must be written",
-       "why_en": "A modal passive is modal + be + past participle.",
-       "why_fa": "مجهول با فعل کمکی، کمکی + be + اسم مفعول است."
-      },
-      {
-       "prompt": "His bike ___ (get / steal) last week.",
-       "answer": "got stolen",
-       "why_en": "Get in the past with the past participle is an informal passive.",
-       "why_fa": "get در گذشته با اسم مفعول، مجهولِ غیررسمی می‌سازد."
-      },
-      {
-       "prompt": "We ___ (be / satisfy) with the result.",
-       "answer": "are satisfied",
-       "why_en": "Satisfied is a stative passive adjective.",
-       "why_fa": "satisfied صفت مجهولیِ حالتی است."
-      }
-     ],
-     "exam": [
-      {
-       "q": "All the tickets ___ before the show.",
-       "options": [
-        "must be sold",
-        "must sell",
-        "must been sold"
-       ],
-       "answer": "must be sold",
-       "why_en": "The tickets are sold by someone, so the passive after must.",
-       "why_fa": "بلیت‌ها به دست کسی فروخته می‌شوند، پس پس از must مجهول می‌آید."
-      },
-      {
-       "q": "She ___ in modern art.",
-       "options": [
-        "is interested",
-        "is interesting",
-        "interests"
-       ],
-       "answer": "is interested",
-       "why_en": "-ed describes how she feels; -ing would describe the art.",
-       "why_fa": "شکل -ed احساس او را می‌گوید و شکل -ing خودِ هنر را توصیف می‌کند."
-      },
-      {
-       "q": "The letters ___ yesterday.",
-       "options": [
-        "got posted",
-        "get posted",
-        "got post"
-       ],
-       "answer": "got posted",
-       "why_en": "A past informal passive needs got and the past participle.",
-       "why_fa": "مجهول غیررسمی در گذشته به got و اسم مفعول نیاز دارد."
-      }
-     ]
-    },
-    {
-     "n": 89,
-     "title": "Noun clauses and reported speech",
-     "title_fa": "جملات اسمی و نقل قول غیرمستقیم",
-     "chapter": "Chapter 12",
-     "section": "12-2",
-     "use_en": "A noun clause is a whole sentence doing the job of a noun: it can be the object of know, ask or say. In reported speech the tense usually steps back one, and question word order becomes statement order.",
-     "use_fa": "جملهٔ اسمی، جمله‌ای کامل است که نقش اسم را بازی می‌کند: مفعول know، ask یا say می‌شود. در نقل قول غیرمستقیم زمان معمولاً یک پله عقب می‌رود و ترتیب پرسشی به ترتیب خبری تبدیل می‌شود.",
-     "form_en": "I don't know + where/what/if (subject + verb)  |  He said (that) + subject + verb",
-     "examples": [
-      {
-       "en": "I don't know where he lives.",
-       "fa": "نمی‌دانم کجا زندگی می‌کند."
-      },
-      {
-       "en": "She asked if I was ready.",
-       "fa": "او پرسید آیا آماده‌ام."
-      },
-      {
-       "en": "He said he would come later.",
-       "fa": "او گفت بعداً می‌آید."
-      }
-     ],
-     "exercises": [
-      {
-       "prompt": "Do you know where ___ (she / live)?",
-       "answer": "she lives",
-       "why_en": "Inside a noun clause the word order is statement order, and the verb agrees.",
-       "why_fa": "در جملهٔ اسمی ترتیب خبری است و فعل با نهاد هم‌خوان می‌شود."
-      },
-      {
-       "prompt": "He told me he ___ (be) busy that day.",
-       "answer": "was",
-       "why_en": "Reported speech steps the present back to the past.",
-       "why_fa": "در نقل غیرمستقیم حال به گذشته تبدیل می‌شود."
-      },
-      {
-       "prompt": "I can't remember if I ___ (lock) the door.",
-       "answer": "locked",
-       "why_en": "If introduces the clause, and the locking is past.",
-       "why_fa": "if جمله را می‌آورد و قفل‌کردن در گذشته رخ داده است."
-      }
-     ],
-     "exam": [
-      {
-       "q": "She asked me ___ I had finished.",
-       "options": [
-        "that",
-        "if",
-        "what"
-       ],
-       "answer": "if",
-       "why_en": "A yes/no question becomes if or whether.",
-       "why_fa": "پرسش بله/خیر با if یا whether نقل می‌شود."
-      },
-      {
-       "q": "I don't understand ___ he is angry.",
-       "options": [
-        "why",
-        "that",
-        "if"
-       ],
-       "answer": "why",
-       "why_en": "The missing idea is a reason.",
-       "why_fa": "مفهومِ جاافتاده دلیل است."
-      },
-      {
-       "q": "He said he ___ the movie before.",
-       "options": [
-        "saw",
-        "had seen",
-        "sees"
-       ],
-       "answer": "had seen",
-       "why_en": "The seeing is earlier than the saying.",
-       "why_fa": "دیدن پیش‌تر از گفتن رخ داده بود."
+       "answer": "The doer is obvious.",
+       "why_en": "Anyone filling the form signs it, so the doer adds nothing.",
+       "why_fa": "هر کسی فرم را پر کند امضا می‌کند، پس انجام‌دهنده چیزی نمی‌افزاید."
       }
      ]
     },
     {
      "n": 90,
-     "title": "The subjunctive in noun clauses: insist that he be",
-     "title_fa": "وجه شرطی در جمله‌واره‌های اسمی: insist that he be",
-     "chapter": "Chapter 12",
-     "section": "12-9",
-     "use_en": "After insist, recommend, suggest, request and demand, the that-clause uses the base verb for every person: that he be, that they go.",
-     "use_fa": "پس از insist، recommend، suggest، request و demand، در جمله‌وارهٔ that فعل برای همهٔ اشخاص به شکل ساده می‌آید: that he be، that they go.",
-     "form_en": "insist / suggest / recommend + that + subject + base verb",
+     "title": "The passive with modals and phrasal modals",
+     "title_fa": "مجهول با افعال وجهی و وجهی‌های عبارتی",
+     "chapter": "Chapter 11",
+     "section": "11-4",
+     "use_en": "A modal keeps its shape and be follows it: the report must be finished. Phrasal modals keep their own endings and their own to: has to be finished, is going to be finished, ought to be finished. A modal in the past takes the perfect passive, should have been finished, and the pattern holds for every modal in chapter ten.",
+     "use_fa": "فعل وجهی شکل خود را نگه می‌دارد و be پس از آن می‌آید: the report must be finished. وجهی‌های عبارتی پایانه‌ها و to خود را نگه می‌دارند: has to be finished، is going to be finished، ought to be finished. وجهی در گذشته مجهول کامل می‌گیرد، should have been finished، و این الگو برای هر وجهی فصل ده برقرار است.",
+     "form_en": "modal + be + past participle  ·  have to / be going to + be + pp  ·  should have been + pp",
      "examples": [
       {
-       "en": "The doctor insists that he rest for a week.",
-       "fa": "دکتر اصرار دارد که او یک هفته استراحت کند."
+       "en": "The report must be finished today.",
+       "fa": "گزارش باید امروز تمام شود."
       },
       {
-       "en": "They recommended that she apply again.",
-       "fa": "توصیه کردند که او دوباره درخواست بدهد."
+       "en": "The rules have to be followed by everyone.",
+       "fa": "قوانین باید از سوی همه رعایت شوند."
       },
       {
-       "en": "It is essential that everyone be on time.",
-       "fa": "ضروری است که همه سر وقت باشند."
+       "en": "The keys should have been returned to the desk.",
+       "fa": "کلیدها باید به پذیرش برگردانده می‌شدند."
       }
      ],
      "exercises": [
       {
-       "prompt": "The manager requested that the report ___ (be) ready by noon.",
+       "prompt": "The door ___ be locked at night. (must)",
+       "answer": "must",
+       "why_en": "The modal comes first and be follows it.",
+       "why_fa": "وجهی اول می‌آید و be پس از آن."
+      },
+      {
+       "prompt": "The forms have to ___ signed by Friday.",
        "answer": "be",
-       "why_en": "The subjunctive uses the base form after requested that.",
-       "why_fa": "پس از requested that، وجه شرطی شکل سادهٔ فعل را می‌آورد."
+       "why_en": "Have to keeps its own to and be follows.",
+       "why_fa": "have to خودِ to را نگه می‌دارد و be پس از آن می‌آید."
       },
       {
-       "prompt": "I suggest that he ___ (take) the earlier train.",
-       "answer": "take",
-       "why_en": "Suggest that takes the base verb, without -s.",
-       "why_fa": "suggest that فعل ساده می‌گیرد، بدون -s."
-      },
-      {
-       "prompt": "It is important that she ___ (not / miss) the meeting.",
-       "answer": "not miss",
-       "why_en": "The negative subjunctive puts not before the base verb.",
-       "why_fa": "وجه شرطی منفی، not را پیش از فعل ساده می‌آورد."
+       "prompt": "The email should have ___ sent yesterday.",
+       "answer": "been",
+       "why_en": "The perfect passive of a modal is have been plus the participle.",
+       "why_fa": "مجهول کامل وجهی have been و اسم مفعول است."
       }
      ],
      "exam": [
       {
-       "q": "They insisted that the meeting ___ open to everyone.",
+       "q": "The package ___ delivered tomorrow.",
+       "options": [
+        "will be",
+        "will",
+        "is"
+       ],
+       "answer": "will be",
+       "why_en": "A future passive is will be plus the participle.",
+       "why_fa": "مجهول آینده will be و اسم مفعول است."
+      },
+      {
+       "q": "The bill ___ paid before we leave.",
+       "options": [
+        "has to be",
+        "has to",
+        "have to"
+       ],
+       "answer": "has to be",
+       "why_en": "Have to is a phrasal modal, so be still follows.",
+       "why_fa": "have to وجهی عبارتی است، پس be باز هم می‌آید."
+      },
+      {
+       "q": "The window ___ repaired last week.",
+       "options": [
+        "should have been",
+        "should be",
+        "should have"
+       ],
+       "answer": "should have been",
+       "why_en": "A missed past obligation takes the perfect passive.",
+       "why_fa": "وظیفهٔ گذشتهٔ انجام‌نشده مجهول کامل می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 91,
+     "title": "The stative passive: be + participle as a description",
+     "title_fa": "مجهول حالتی: be + اسم مفعول به‌عنوان توصیف",
+     "chapter": "Chapter 11",
+     "section": "11-5",
+     "use_en": "Not every be plus participle reports an action. In the shop is closed the participle describes a state, like an adjective, and no one is closing anything at that moment. The same words with by and an agent describe an event: the shop was closed by the manager at six. Stative passives usually take a fixed preposition, and the pair is learned as one item: interested in, married to, covered with.",
+     "use_fa": "هر be به‌همراه اسم مفعول رویداد را گزارش نمی‌کند. در the shop is closed اسم مفعول حالتی را مانند صفت توصیف می‌کند و در آن لحظه کسی چیزی را نمی‌بندد. همین واژه‌ها با by و انجام‌دهنده رویداد را می‌گویند: the shop was closed by the manager at six. مجهول حالتی معمولاً حرف اضافهٔ ثابتی می‌گیرد و این جفت یک واحد آموخته می‌شود: interested in، married to، covered with.",
+     "form_en": "subject + be + past participle (a state)  ·  often + a fixed preposition",
+     "examples": [
+      {
+       "en": "The shop is closed on Sundays.",
+       "fa": "فروشگاه یکشنبه‌ها بسته است."
+      },
+      {
+       "en": "We are worried about the exam.",
+       "fa": "ما نگران امتحان هستیم."
+      },
+      {
+       "en": "The table was covered with papers.",
+       "fa": "میز پوشیده از کاغذ بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The window ___ broken, so we need a new one.",
+       "answer": "is",
+       "why_en": "A state now takes the present of be.",
+       "why_fa": "حالت اکنون حالِ be را می‌گیرد."
+      },
+      {
+       "prompt": "She is married ___ an engineer.",
+       "answer": "to",
+       "why_en": "Married to is a fixed pair.",
+       "why_fa": "married to جفتی ثابت است."
+      },
+      {
+       "prompt": "I am interested ___ history.",
+       "answer": "in",
+       "why_en": "Interested in is a fixed pair.",
+       "why_fa": "interested in جفتی ثابت است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence describes a state, not an action?",
+       "options": [
+        "The door is locked.",
+        "The guard locked the door.",
+        "The guard is locking the door."
+       ],
+       "answer": "The door is locked.",
+       "why_en": "No one is doing anything; the participle describes the door.",
+       "why_fa": "کسی کاری نمی‌کند؛ اسم مفعول در را توصیف می‌کند."
+      },
+      {
+       "q": "The children were ___ in the game.",
+       "options": [
+        "interested",
+        "interesting",
+        "interest"
+       ],
+       "answer": "interested",
+       "why_en": "People feel interested; the game is interesting.",
+       "why_fa": "افراد interested حس می‌کنند و بازی interesting است."
+      },
+      {
+       "q": "The room was filled ___ smoke.",
+       "options": [
+        "with",
+        "of",
+        "by"
+       ],
+       "answer": "with",
+       "why_en": "Filled with is the fixed pair.",
+       "why_fa": "filled with جفت ثابت است."
+      }
+     ]
+    },
+    {
+     "n": 92,
+     "title": "Common stative passive verbs with prepositions",
+     "title_fa": "مجهول‌های حالتی رایج با حرف اضافه",
+     "chapter": "Chapter 11",
+     "section": "11-6",
+     "use_en": "A small set of participles lives with one preposition and means something different from the verb alone: be accustomed to, be addicted to, be acquainted with, be composed of, be devoted to, be engaged in, be equipped with, be exposed to, be filled with, be involved in, be made of or from, be prepared for, be related to, be satisfied with, be scared of, be tired of. Learn the participle and the preposition together, because the preposition cannot be guessed.",
+     "use_fa": "مجموعهٔ کوچکی از اسم‌های مفعول با یک حرف اضافه زندگی می‌کنند و معنایی متفاوت از فعل تنها دارند: be accustomed to، be addicted to، be acquainted with، be composed of، be devoted to، be engaged in، be equipped with، be exposed to، be filled with، be involved in، be made of یا from، be prepared for، be related to، be satisfied with، be scared of، be tired of. اسم مفعول و حرف اضافه را با هم بیاموزید، چون حرف اضافه حدس‌زدنی نیست.",
+     "form_en": "be + participle + fixed preposition (one item, learned together)",
+     "examples": [
+      {
+       "en": "The team is composed of eleven players.",
+       "fa": "تیم از یازده بازیکن تشکیل شده است."
+      },
+      {
+       "en": "The room was filled with smoke.",
+       "fa": "اتاق پر از دود بود."
+      },
+      {
+       "en": "I am tired of waiting for an answer.",
+       "fa": "از انتظار برای پاسخ خسته شده‌ام."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The cake is made ___ flour, eggs and sugar.",
+       "answer": "from",
+       "why_en": "Made from names the material that has been changed.",
+       "why_fa": "made from ماده‌ای را می‌گوید که تغییر کرده است."
+      },
+      {
+       "prompt": "She is satisfied ___ her results.",
+       "answer": "with",
+       "why_en": "Satisfied with is the fixed pair.",
+       "why_fa": "satisfied with جفت ثابت است."
+      },
+      {
+       "prompt": "He is accustomed ___ working nights.",
+       "answer": "to",
+       "why_en": "Accustomed to is the fixed pair.",
+       "why_fa": "accustomed to جفت ثابت است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The desk is made ___ wood.",
+       "options": [
+        "of",
+        "from",
+        "with"
+       ],
+       "answer": "of",
+       "why_en": "Made of names the material you can still see.",
+       "why_fa": "made of ماده‌ای را می‌گوید که هنوز دیده می‌شود."
+      },
+      {
+       "q": "She was scared ___ the dark.",
+       "options": [
+        "of",
+        "from",
+        "to"
+       ],
+       "answer": "of",
+       "why_en": "Scared of is the fixed pair.",
+       "why_fa": "scared of جفت ثابت است."
+      },
+      {
+       "q": "Everyone was involved ___ the project.",
+       "options": [
+        "in",
+        "with",
+        "at"
+       ],
+       "answer": "in",
+       "why_en": "Involved in is the fixed pair.",
+       "why_fa": "involved in جفت ثابت است."
+      }
+     ]
+    },
+    {
+     "n": 93,
+     "title": "The passive with get",
+     "title_fa": "مجهول با get",
+     "chapter": "Chapter 11",
+     "section": "11-7",
+     "use_en": "Get plus a past participle reports a change of state, and it belongs to speech rather than to reports: he got fired, we got lost, she got hurt, they got married. It carries the idea of becoming, which be does not. It is not used for a state that simply is, and it is out of place in formal writing, where be is the safer choice.",
+     "use_fa": "get به‌همراه اسم مفعول تغییر حالت را می‌گوید و به گفتار تعلق دارد نه به گزارش رسمی: he got fired، we got lost، she got hurt، they got married. ایدهٔ «شدن» را دارد که be ندارد. برای حالتی که فقط هست به کار نمی‌رود و در نوشتار رسمی جایی ندارد، جایی که be انتخاب مطمئن‌تر است.",
+     "form_en": "get + past participle (a change of state, informal)",
+     "examples": [
+      {
+       "en": "He got fired last month.",
+       "fa": "ماه گذشته اخراج شد."
+      },
+      {
+       "en": "We got lost on the way to the village.",
+       "fa": "در راه روستا گم شدیم."
+      },
+      {
+       "en": "She got her hair cut before the wedding.",
+       "fa": "پیش از عروسی موهایش را کوتاه کرد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "My phone ___ stolen at the market yesterday.",
+       "answer": "got",
+       "why_en": "A change of state in speech takes got.",
+       "why_fa": "تغییر حالت در گفتار got می‌گیرد."
+      },
+      {
+       "prompt": "They ___ married in June.",
+       "answer": "got",
+       "why_en": "Married with get reports the change, not the state.",
+       "why_fa": "married با get تغییر را می‌گوید نه حالت را."
+      },
+      {
+       "prompt": "He ___ hurt during the match.",
+       "answer": "got",
+       "why_en": "An injury that happened is got hurt in speech.",
+       "why_fa": "آسیبی که رخ داد در گفتار got hurt است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence is informal speech?",
+       "options": [
+        "She got promoted.",
+        "She was promoted.",
+        "She is promoted."
+       ],
+       "answer": "She got promoted.",
+       "why_en": "Get plus participle belongs to speech.",
+       "why_fa": "get و اسم مفعول به گفتار تعلق دارد."
+      },
+      {
+       "q": "The lights ___ turned off at ten.",
+       "options": [
+        "get",
+        "gets",
+        "getting"
+       ],
+       "answer": "get",
+       "why_en": "A plural subject takes get without -s.",
+       "why_fa": "فاعل جمع get می‌گیرد بی s."
+      },
+      {
+       "q": "Where is get plus a participle out of place?",
+       "options": [
+        "In a formal report",
+        "In a conversation",
+        "In a text message"
+       ],
+       "answer": "In a formal report",
+       "why_en": "Formal writing prefers be plus the participle.",
+       "why_fa": "نوشتار رسمی be و اسم مفعول را ترجیح می‌دهد."
+      }
+     ]
+    },
+    {
+     "n": 94,
+     "title": "Participial adjectives: -ed and -ing",
+     "title_fa": "صفت‌های اسم مفعولی: ed- و ing-",
+     "chapter": "Chapter 11",
+     "section": "11-8",
+     "use_en": "The two endings do different jobs. The -ed form says how a person feels: I was bored. The -ing form says what caused the feeling: the lesson was boring. The same pair runs through interested and interesting, tired and tiring, excited and exciting, confused and confusing, embarrassed and embarrassing, disappointed and disappointing. A thing is almost never bored; a person is almost never boring by accident.",
+     "use_fa": "این دو پایانه دو کار متفاوت می‌کنند. شکل ed- می‌گوید شخص چه حسی داشت: I was bored. شکل ing- می‌گوید چه چیزی آن حس را ساخت: the lesson was boring. همین جفت در interested و interesting، tired و tiring، excited و exciting، confused و confusing، embarrassed و embarrassing، disappointed و disappointing تکرار می‌شود. یک چیز تقریباً هرگز bored نیست و یک شخص تقریباً هرگز به‌طور تصادفی boring نیست.",
+     "form_en": "-ed adjective: how someone feels  ·  -ing adjective: what causes the feeling",
+     "examples": [
+      {
+       "en": "The lesson was boring, so the students were bored.",
+       "fa": "درس خسته‌کننده بود، پس دانش‌آموزان خسته شدند."
+      },
+      {
+       "en": "The news was surprising.",
+       "fa": "آن خبر غافلگیرکننده بود."
+      },
+      {
+       "en": "I was surprised by the news.",
+       "fa": "از آن خبر غافلگیر شدم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The film was ___ (bore), so we left early.",
+       "answer": "boring",
+       "why_en": "The film causes the feeling, so it takes -ing.",
+       "why_fa": "فیلم حس را می‌سازد، پس ing- می‌گیرد."
+      },
+      {
+       "prompt": "We were ___ (tire) after the long trip.",
+       "answer": "tired",
+       "why_en": "The people feel it, so they take -ed.",
+       "why_fa": "افراد حس را دارند، پس ed- می‌گیرند."
+      },
+      {
+       "prompt": "His answer was ___ (confuse).",
+       "answer": "confusing",
+       "why_en": "The answer causes the confusion, so it takes -ing.",
+       "why_fa": "پاسخ سردرگمی را می‌سازد، پس ing- می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The children were ___ by the noise.",
+       "options": [
+        "frightened",
+        "frightening",
+        "frighten"
+       ],
+       "answer": "frightened",
+       "why_en": "The children feel it, so -ed.",
+       "why_fa": "کودکان حس را دارند، پس ed-."
+      },
+      {
+       "q": "The results were ___.",
+       "options": [
+        "disappointing",
+        "disappointed",
+        "disappoint"
+       ],
+       "answer": "disappointing",
+       "why_en": "The results cause the feeling, so -ing.",
+       "why_fa": "نتایج حس را می‌سازند، پس ing-."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "I am interested in music.",
+        "I am interesting in music.",
+        "Music is interested."
+       ],
+       "answer": "I am interested in music.",
+       "why_en": "A person feels interested; music is interesting.",
+       "why_fa": "شخص interested حس می‌کند و موسیقی interesting است."
+      }
+     ]
+    },
+    {
+     "n": 95,
+     "title": "Noun clauses: a sentence inside a sentence",
+     "title_fa": "جمله‌های اسمی: جمله‌ای درون جمله",
+     "chapter": "Chapter 12",
+     "section": "12-1",
+     "use_en": "A noun clause does the work of a noun: it can be the subject, the object of a verb, the object of a preposition or the complement after be. What makes it a clause is that it keeps its own subject and verb. Inside the clause the word order is the order of a statement, not of a question, and there is no do or did: I know where she lives, never I know where does she live.",
+     "use_fa": "جملهٔ اسمی کار اسم را می‌کند: می‌تواند فاعل، مفعول فعل، مفعول حرف اضافه یا متمم پس از be باشد. چیزی که آن را جمله می‌کند داشتن فاعل و فعل خودش است. درون جمله، ترتیب واژه‌ها ترتیب جملهٔ خبری است نه پرسشی، و do یا did نمی‌آید: I know where she lives و هرگز I know where does she live.",
+     "form_en": "noun clause = question word + subject + verb (statement order, no do/did)",
+     "examples": [
+      {
+       "en": "What he said was true.",
+       "fa": "آنچه گفت درست بود."
+      },
+      {
+       "en": "I know where she lives.",
+       "fa": "می‌دانم کجا زندگی می‌کند."
+      },
+      {
+       "en": "The problem is that we are late.",
+       "fa": "مشکل این است که دیر کرده‌ایم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ she said surprised everyone. (the thing)",
+       "answer": "What",
+       "why_en": "A clause used as the subject can begin with what.",
+       "why_fa": "جمله‌ای که فاعل است می‌تواند با what شروع شود."
+      },
+      {
+       "prompt": "I don't know ___ he is coming or not. (two choices)",
+       "answer": "whether",
+       "why_en": "Two possibilities are joined by whether.",
+       "why_fa": "دو احتمال با whether به هم می‌پیوندند."
+      },
+      {
+       "prompt": "The truth is ___ we tried our best.",
+       "answer": "that",
+       "why_en": "A clause after be can begin with that.",
+       "why_fa": "جملهٔ پس از be می‌تواند با that شروع شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence keeps statement order in the clause?",
+       "options": [
+        "I know where he went.",
+        "I know where did he go.",
+        "I know where went he."
+       ],
+       "answer": "I know where he went.",
+       "why_en": "A noun clause has no do and no inversion.",
+       "why_fa": "جملهٔ اسمی do و جابه‌جایی ندارد."
+      },
+      {
+       "q": "___ she told me was a surprise.",
+       "options": [
+        "What",
+        "That",
+        "Which"
+       ],
+       "answer": "What",
+       "why_en": "The clause is the subject and means the thing.",
+       "why_fa": "جمله فاعل است و معنای «آنچه» دارد."
+      },
+      {
+       "q": "Nobody knows ___ the train leaves.",
+       "options": [
+        "when",
+        "when does",
+        "when do"
+       ],
+       "answer": "when",
+       "why_en": "After a question word the subject comes before the verb.",
+       "why_fa": "پس از واژهٔ پرسشی فاعل پیش از فعل می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 96,
+     "title": "Noun clauses with question words",
+     "title_fa": "جمله‌های اسمی با واژه‌های پرسشی",
+     "chapter": "Chapter 12",
+     "section": "12-2",
+     "use_en": "The question words that open a noun clause are the same ones that open a question: what, who, whom, whose, which, when, where, why, how, how much and how many. The clause takes the place of the answer, so the question disappears: where did he go becomes I don't remember where he went. Who as the subject of the clause is not changed to whom, and the verb after it agrees with the answer, not with who.",
+     "use_fa": "واژه‌های پرسشی که جملهٔ اسمی را باز می‌کنند همان‌هایی هستند که پرسش را باز می‌کنند: what، who، whom، whose، which، when، where، why، how، how much و how many. جمله جای پاسخ را می‌گیرد، پس پرسش ناپدید می‌شود: where did he go به I don't remember where he went تبدیل می‌شود. who اگر فاعل جمله باشد به whom تبدیل نمی‌شود و فعل پس از آن با پاسخ مطابقت می‌کند نه با who.",
+     "form_en": "question word + subject + verb  ·  who + plural verb when the answer is plural",
+     "examples": [
+      {
+       "en": "I don't remember where he went.",
+       "fa": "یادم نیست کجا رفت."
+      },
+      {
+       "en": "Tell me what you need.",
+       "fa": "بگو چه لازم داری."
+      },
+      {
+       "en": "She asked who was at the door.",
+       "fa": "پرسید چه کسی پشت در بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Do you know ___ the meeting starts? (time)",
+       "answer": "when",
+       "why_en": "A time question becomes a when clause.",
+       "why_fa": "پرسش زمان به جملهٔ when تبدیل می‌شود."
+      },
+      {
+       "prompt": "I can't imagine ___ he did it. (reason)",
+       "answer": "why",
+       "why_en": "A reason question becomes a why clause.",
+       "why_fa": "پرسش دلیل به جملهٔ why تبدیل می‌شود."
+      },
+      {
+       "prompt": "She asked ___ was calling. (person as subject)",
+       "answer": "who",
+       "why_en": "The subject of the clause stays who.",
+       "why_fa": "فاعل جمله who می‌ماند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I don't know ___.",
+       "options": [
+        "where she works",
+        "where does she work",
+        "where works she"
+       ],
+       "answer": "where she works",
+       "why_en": "Statement order follows the question word.",
+       "why_fa": "پس از واژهٔ پرسشی ترتیب خبری می‌آید."
+      },
+      {
+       "q": "He asked me ___ I wanted.",
+       "options": [
+        "what",
+        "what did",
+        "that what"
+       ],
+       "answer": "what",
+       "why_en": "One question word opens the clause; did disappears.",
+       "why_fa": "یک واژهٔ پرسشی جمله را باز می‌کند و did حذف می‌شود."
+      },
+      {
+       "q": "Nobody told us ___ the tickets cost.",
+       "options": [
+        "how much",
+        "how many",
+        "how"
+       ],
+       "answer": "how much",
+       "why_en": "Cost is uncountable, so how much.",
+       "why_fa": "cost غیرقابل‌شمارش است، پس how much."
+      }
+     ]
+    },
+    {
+     "n": 97,
+     "title": "Noun clauses with whether or if",
+     "title_fa": "جمله‌های اسمی با whether و if",
+     "chapter": "Chapter 12",
+     "section": "12-3",
+     "use_en": "A yes-or-no question becomes a clause with whether or if: is he coming becomes I wonder whether he is coming. Whether is the safer choice in writing, and it is the only one that can take or not, can be followed by an infinitive, and can follow a preposition. If belongs to speech and to the middle of a sentence, never to the subject position.",
+     "use_fa": "پرسش بله‌یا‌خیر به جمله‌ای با whether یا if تبدیل می‌شود: is he coming به I wonder whether he is coming. whether در نوشتار انتخاب مطمئن‌تر است و تنها گزینه‌ای است که or not می‌گیرد، می‌تواند پیش از مصدر بیاید و پس از حرف اضافه قرار گیرد. if به گفتار و میان جمله تعلق دارد و هرگز در جایگاه فاعل نمی‌آید.",
+     "form_en": "whether / if + subject + verb  ·  whether + to + verb  ·  whether ... or not",
+     "examples": [
+      {
+       "en": "I wonder whether he is coming.",
+       "fa": "نمی‌دانم آیا می‌آید."
+      },
+      {
+       "en": "She hasn't decided whether to accept the offer.",
+       "fa": "تصمیم نگرفته است که پیشنهاد را بپذیرد یا نه."
+      },
+      {
+       "en": "We talked about whether the plan would work.",
+       "fa": "دربارهٔ اینکه آیا طرح کار می‌کند صحبت کردیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I don't know ___ or not she passed. (formal)",
+       "answer": "whether",
+       "why_en": "Or not is possible only after whether.",
+       "why_fa": "or not تنها پس از whether می‌آید."
+      },
+      {
+       "prompt": "He asked ___ I had finished. (yes or no, speech)",
+       "answer": "if",
+       "why_en": "If introduces a yes-or-no clause in speech.",
+       "why_fa": "if در گفتار جملهٔ بله‌یا‌خیر را می‌آورد."
+      },
+      {
+       "prompt": "___ to go or stay is the question. (subject position)",
+       "answer": "Whether",
+       "why_en": "In the subject position only whether works.",
+       "why_fa": "در جایگاه فاعل تنها whether کار می‌کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ she will come is still unclear.",
+       "options": [
+        "Whether",
+        "If",
+        "That"
+       ],
+       "answer": "Whether",
+       "why_en": "A yes-or-no clause as the subject takes whether.",
+       "why_fa": "جملهٔ بله‌یا‌خیر در جایگاه فاعل whether می‌گیرد."
+      },
+      {
+       "q": "I asked him ___ he had a minute.",
+       "options": [
+        "if",
+        "whether or",
+        "that"
+       ],
+       "answer": "if",
+       "why_en": "Yes-or-no in speech takes if.",
+       "why_fa": "بله‌یا‌خیر در گفتار if می‌گیرد."
+      },
+      {
+       "q": "We discussed ___ to change the date.",
+       "options": [
+        "whether",
+        "if",
+        "that"
+       ],
+       "answer": "whether",
+       "why_en": "Only whether can be followed by an infinitive.",
+       "why_fa": "تنها whether می‌تواند مصدر بگیرد."
+      }
+     ]
+    },
+    {
+     "n": 98,
+     "title": "Question words followed by infinitives",
+     "title_fa": "واژه‌های پرسشی پیش از مصدر",
+     "chapter": "Chapter 12",
+     "section": "12-4",
+     "use_en": "A question word and an infinitive can replace a whole clause and shorten it: I don't know what I should do becomes I don't know what to do. The infinitive follows what, who, whom, which, when, where, how and whether, and it carries the idea of should or could. The pattern is common after know, decide, ask, tell, explain, learn and wonder.",
+     "use_fa": "واژهٔ پرسشی و مصدر می‌توانند جای تمام جمله را بگیرند و آن را کوتاه کنند: I don't know what I should do به I don't know what to do تبدیل می‌شود. مصدر پس از what، who، whom، which، when، where، how و whether می‌آید و ایدهٔ should یا could را با خود دارد. این الگو پس از know، decide، ask، tell، explain، learn و wonder رایج است.",
+     "form_en": "question word + to + base verb  ·  whether + to + base verb",
+     "examples": [
+      {
+       "en": "I don't know what to do next.",
+       "fa": "نمی‌دانم بعد چه کنم."
+      },
+      {
+       "en": "Could you tell me how to get to the station?",
+       "fa": "می‌گویید چطور به ایستگاه بروم؟"
+      },
+      {
+       "en": "She asked where to sit.",
+       "fa": "پرسید کجا بنشیند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I don't know ___ to say. (the thing)",
+       "answer": "what",
+       "why_en": "The thing to say is what plus an infinitive.",
+       "why_fa": "چیزی که باید گفت what و مصدر است."
+      },
+      {
+       "prompt": "He showed me how ___ open the box.",
+       "answer": "to",
+       "why_en": "The infinitive marker follows the question word.",
+       "why_fa": "نشانهٔ مصدر پس از واژهٔ پرسشی می‌آید."
+      },
+      {
+       "prompt": "We couldn't decide whether ___ wait.",
+       "answer": "to",
+       "why_en": "Whether plus to plus base verb keeps the choice open.",
+       "why_fa": "whether و to و فعل ساده انتخاب را باز نگه می‌دارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She asked me ___ to use the machine.",
+       "options": [
+        "how",
+        "how to",
+        "what"
+       ],
+       "answer": "how",
+       "why_en": "One question word, then the infinitive with to.",
+       "why_fa": "یک واژهٔ پرسشی و سپس مصدر با to."
+      },
+      {
+       "q": "I don't know ___ to invite.",
+       "options": [
+        "who",
+        "whose",
+        "which to"
+       ],
+       "answer": "who",
+       "why_en": "The person is asked for with who plus an infinitive.",
+       "why_fa": "شخص با who و مصدر پرسیده می‌شود."
+      },
+      {
+       "q": "We need to decide ___ to leave or stay.",
+       "options": [
+        "whether",
+        "if",
+        "that"
+       ],
+       "answer": "whether",
+       "why_en": "Before an infinitive only whether works.",
+       "why_fa": "پیش از مصدر تنها whether کار می‌کند."
+      }
+     ]
+    },
+    {
+     "n": 99,
+     "title": "Noun clauses with that",
+     "title_fa": "جمله‌های اسمی با that",
+     "chapter": "Chapter 12",
+     "section": "12-5",
+     "use_en": "A statement can become a clause with that: he is right becomes I think that he is right. After think, say, believe, hope, know and guess, that is usually dropped in speech, and keeping it makes the sentence a little more formal. A that clause as the subject is heavy, so English moves it to the end and puts it in front: it is clear that he tried. The fact that is the phrase that keeps a subject clause in place.",
+     "use_fa": "جملهٔ خبری می‌تواند با that به جملهٔ اسمی تبدیل شود: he is right به I think that he is right. پس از think، say، believe، hope، know و guess، that در گفتار معمولاً حذف می‌شود و نگه داشتنش جمله را کمی رسمی‌تر می‌کند. جملهٔ that در جایگاه فاعل سنگین است، پس انگلیسی آن را به پایان می‌برد و it را اول می‌آورد: it is clear that he tried. عبارت the fact that فاعل را سر جای خود نگه می‌دارد.",
+     "form_en": "that + subject + verb  ·  it + be + adjective + that clause  ·  the fact that + clause",
+     "examples": [
+      {
+       "en": "I think that he is right.",
+       "fa": "فکر می‌کنم که او درست می‌گوید."
+      },
+      {
+       "en": "It is clear that she tried her best.",
+       "fa": "روشن است که او نهایت تلاشش را کرد."
+      },
+      {
+       "en": "The fact that they agreed surprised me.",
+       "fa": "اینکه آن‌ها موافقت کردند مرا غافلگیر کرد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I believe ___ she is honest.",
+       "answer": "that",
+       "why_en": "That introduces the statement after believe.",
+       "why_fa": "that جملهٔ خبری را پس از believe می‌آورد."
+      },
+      {
+       "prompt": "It is obvious ___ he needs help.",
+       "answer": "that",
+       "why_en": "The clause moves to the end after it is obvious.",
+       "why_fa": "جمله پس از it is obvious به پایان می‌رود."
+      },
+      {
+       "prompt": "The fact ___ we finished early helped.",
+       "answer": "that",
+       "why_en": "The fact that keeps the clause in the subject.",
+       "why_fa": "the fact that جمله را در جایگاه فاعل نگه می‌دارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence is the most formal?",
+       "options": [
+        "I think that he is right.",
+        "I think he's right.",
+        "I think he right."
+       ],
+       "answer": "I think that he is right.",
+       "why_en": "Keeping that makes a spoken sentence formal.",
+       "why_fa": "نگه داشتن that جملهٔ گفتاری را رسمی می‌کند."
+      },
+      {
+       "q": "___ is important that everyone attends.",
+       "options": [
+        "It",
+        "That",
+        "There"
+       ],
+       "answer": "It",
+       "why_en": "A heavy that clause moves behind the empty it.",
+       "why_fa": "جملهٔ سنگین that پس از it تهی می‌آید."
+      },
+      {
+       "q": "The news ___ she passed made us happy.",
+       "options": [
+        "that",
+        "what",
+        "if"
+       ],
+       "answer": "that",
+       "why_en": "A statement after the news takes that.",
+       "why_fa": "جملهٔ خبری پس از the news با that می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 100,
+     "title": "Quoted speech: the exact words",
+     "title_fa": "نقل قول مستقیم: واژه‌های دقیق",
+     "chapter": "Chapter 12",
+     "section": "12-6",
+     "use_en": "Quoted speech repeats what someone said inside quotation marks, with no change to the words or the tense: she said, I am tired. A comma follows the reporting phrase, the first word of the quotation keeps its capital, and the period or question mark sits inside the closing mark. Tenses in the quotation are the tenses of the moment it was said.",
+     "use_fa": "نقل قول مستقیم واژه‌های کسی را درون گیومه تکرار می‌کند، بدون تغییر واژه‌ها یا زمان: she said, I am tired. پس از عبارت نقل، ویرگول می‌آید، نخستین واژهٔ نقل حرف بزرگ دارد و نقطه یا علامت پرسش درون گیومهٔ پایانی می‌نشیند. زمان‌های درون نقل، زمان‌های لحظهٔ گفته شدن‌اند.",
+     "form_en": "reporting phrase + comma + quoted words in quotation marks",
+     "examples": [
+      {
+       "en": "She said, \"I am tired,\" and closed her eyes.",
+       "fa": "او گفت: «خسته‌ام» و چشمانش را بست."
+      },
+      {
+       "en": "\"Where are you going?\" he asked.",
+       "fa": "«کجا می‌روی؟» پرسید."
+      },
+      {
+       "en": "He said, \"I will call you tomorrow,\" and left.",
+       "fa": "گفت: «فردا به تو زنگ می‌زنم» و رفت."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She said, \"I ___ ready.\" (the exact words)",
+       "answer": "am",
+       "why_en": "Quoted speech keeps the tense of the moment.",
+       "why_fa": "نقل مستقیم زمان لحظهٔ گفته را نگه می‌دارد."
+      },
+      {
+       "prompt": "He said, \"I ___ finish it today.\" (the exact words)",
+       "answer": "will",
+       "why_en": "The quotation keeps will, not would.",
+       "why_fa": "نقل will را نگه می‌دارد نه would."
+      },
+      {
+       "prompt": "___ said, \"Come in.\" (reporting phrase)",
+       "answer": "She",
+       "why_en": "A reporting phrase comes before the quotation.",
+       "why_fa": "عبارت نقل پیش از نقل قول می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which quotation is punctuated correctly?",
+       "options": [
+        "She said, \"I am late.\"",
+        "She said \"I am late\".",
+        "She said, I am late."
+       ],
+       "answer": "She said, \"I am late.\"",
+       "why_en": "Comma after the reporting phrase, marks around the words.",
+       "why_fa": "ویرگول پس از عبارت نقل و گیومه گرد واژه‌ها."
+      },
+      {
+       "q": "\"Are you ready?\" she ___.",
+       "options": [
+        "asked",
+        "said",
+        "told"
+       ],
+       "answer": "asked",
+       "why_en": "A question in quotation marks goes with asked.",
+       "why_fa": "پرسش در گیومه با asked می‌آید."
+      },
+      {
+       "q": "In quoted speech, the closing quotation mark comes ___ the period.",
+       "options": [
+        "after",
+        "before",
+        "instead of"
+       ],
+       "answer": "after",
+       "why_en": "The period sits inside the quotation mark, so the mark closes after it.",
+       "why_fa": "نقطه درون گیومه می‌نشیند، پس گیومه پس از آن بسته می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 101,
+     "title": "Reported speech: the words after the fact",
+     "title_fa": "نقل قول غیرمستقیم: واژه‌ها پس از رویداد",
+     "chapter": "Chapter 12",
+     "section": "12-7",
+     "use_en": "Reported speech turns a quotation into a noun clause and moves the tense back: I am tired becomes she said she was tired; I saw him becomes she said she had seen him. Pronouns and time words move too, because the speaker is no longer the one talking: today becomes that day, here becomes there, this becomes that. Say takes a clause; tell needs a person first: she told me she was tired.",
+     "use_fa": "نقل قول غیرمستقیم نقل را به جملهٔ اسمی تبدیل می‌کند و زمان را یک پله عقب می‌برد: I am tired به she said she was tired و I saw him به she said she had seen him تبدیل می‌شود. ضمیرها و واژه‌های زمان هم جابه‌جا می‌شوند، چون گوینده دیگر همان شخص نیست: today به that day، here به there و this به that. say جمله می‌گیرد و tell اول شخص: she told me she was tired.",
+     "form_en": "say (that) + clause  ·  tell + person + (that) + clause  ·  one tense back",
+     "examples": [
+      {
+       "en": "She said she was tired.",
+       "fa": "گفت خسته است."
+      },
+      {
+       "en": "He told me he had seen the film.",
+       "fa": "به من گفت فیلم را دیده بود."
+      },
+      {
+       "en": "They said they would arrive that evening.",
+       "fa": "گفتند آن شب می‌رسند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Direct: I am busy. Reported: She said she ___ busy.",
+       "answer": "was",
+       "why_en": "A present tense moves back one step after a past report.",
+       "why_fa": "زمان حال پس از نقل گذشته یک پله عقب می‌رود."
+      },
+      {
+       "prompt": "Direct: I saw him. Reported: She said she ___ seen him.",
+       "answer": "had",
+       "why_en": "A simple past becomes the past perfect.",
+       "why_fa": "گذشتهٔ ساده به گذشتهٔ کامل تبدیل می‌شود."
+      },
+      {
+       "prompt": "He ___ me he was leaving. (a person follows)",
+       "answer": "told",
+       "why_en": "Tell takes the listener before the clause.",
+       "why_fa": "tell شنونده را پیش از جمله می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She said she ___ finish the report.",
+       "options": [
+        "would",
+        "will",
+        "would have"
+       ],
+       "answer": "would",
+       "why_en": "Will becomes would in a past report.",
+       "why_fa": "will در نقل گذشته would می‌شود."
+      },
+      {
+       "q": "He ___ me he had lost the keys.",
+       "options": [
+        "told",
+        "said",
+        "spoke"
+       ],
+       "answer": "told",
+       "why_en": "Tell needs the person it was said to.",
+       "why_fa": "tell شخصی را که به او گفته شد لازم دارد."
+      },
+      {
+       "q": "Direct: I will call today. Reported: He said he would call ___.",
+       "options": [
+        "that day",
+        "today",
+        "this day"
+       ],
+       "answer": "that day",
+       "why_en": "Today becomes that day when the day has passed.",
+       "why_fa": "today وقتی آن روز گذشته باشد that day می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 102,
+     "title": "Reported speech: modal verbs in noun clauses",
+     "title_fa": "نقل قول غیرمستقیم: افعال وجهی در جمله‌های اسمی",
+     "chapter": "Chapter 12",
+     "section": "12-8",
+     "use_en": "Modals move back in a report the same way tenses do: will becomes would, can becomes could, may becomes might, and must usually becomes had to. Should, could, would, might and ought to have no past form, so they stay as they are. The change happens because the report sits in the past, not because the modal means something different.",
+     "use_fa": "افعال وجهی در نقل قول مانند زمان‌ها عقب می‌روند: will به would، can به could، may به might و must معمولاً به had to تبدیل می‌شود. should، could، would، might و ought to شکل گذشته ندارند، پس همان‌گونه می‌مانند. این تغییر از آن روست که نقل در گذشته نشسته است، نه از آن رو که وجهی معنای دیگری یافته.",
+     "form_en": "will → would · can → could · may → might · must → had to · should / could / would stay",
+     "examples": [
+      {
+       "en": "She said she could swim.",
+       "fa": "گفت می‌تواند شنا کند."
+      },
+      {
+       "en": "He said he had to leave early.",
+       "fa": "گفت باید زود برود."
+      },
+      {
+       "en": "They said we should wait.",
+       "fa": "گفتند باید صبر کنیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Direct: I can help. Reported: She said she ___ help.",
+       "answer": "could",
+       "why_en": "Can moves back to could.",
+       "why_fa": "can به could عقب می‌رود."
+      },
+      {
+       "prompt": "Direct: You must wait. Reported: He said I ___ wait.",
+       "answer": "had to",
+       "why_en": "Must usually becomes had to in a report.",
+       "why_fa": "must در نقل معمولاً had to می‌شود."
+      },
+      {
+       "prompt": "Direct: I might come. Reported: She said she ___ come.",
+       "answer": "might",
+       "why_en": "Might has no past form and stays.",
+       "why_fa": "might شکل گذشته ندارد و می‌ماند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Direct: I will be late. Reported: He said he ___ be late.",
+       "options": [
+        "would",
+        "will",
+        "would have"
+       ],
+       "answer": "would",
+       "why_en": "Will becomes would after a past report.",
+       "why_fa": "will پس از نقل گذشته would می‌شود."
+      },
+      {
+       "q": "Direct: You should rest. Reported: She said I ___ rest.",
+       "options": [
+        "should",
+        "shall",
+        "should have"
+       ],
+       "answer": "should",
+       "why_en": "Should has no past form, so it stays.",
+       "why_fa": "should شکل گذشته ندارد، پس می‌ماند."
+      },
+      {
+       "q": "Direct: I may move. Reported: He said he ___ move.",
+       "options": [
+        "might",
+        "may",
+        "must"
+       ],
+       "answer": "might",
+       "why_en": "May becomes might in reported speech.",
+       "why_fa": "may در نقل غیرمستقیم might می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 103,
+     "title": "The subjunctive in noun clauses: insist that he be",
+     "title_fa": "وجه شرطی در جمله‌های اسمی: insist that he be",
+     "chapter": "Chapter 12",
+     "section": "12-9",
+     "use_en": "After a small group of verbs that push for something, the clause takes the base form of the verb for every subject: the doctor insisted that he rest, the board recommended that she be hired. The verbs are insist, demand, request, recommend, suggest, propose, ask and require. The same base form follows adjectives of importance: it is essential that he be told. In speech a should often replaces it.",
+     "use_fa": "پس از گروه کوچکی از فعل‌ها که چیزی را می‌خواهند، جمله برای هر فاعلی شکل سادهٔ فعل می‌گیرد: the doctor insisted that he rest، the board recommended that she be hired. این فعل‌ها insist، demand، request، recommend، suggest، propose، ask و require هستند. همین شکل ساده پس از صفت‌های اهمیت می‌آید: it is essential that he be told. در گفتار often should جای آن را می‌گیرد.",
+     "form_en": "insist / demand / recommend / request + that + subject + base verb (no -s, no was)",
+     "examples": [
+      {
+       "en": "The doctor insisted that he rest for a week.",
+       "fa": "پزشک اصرار کرد که یک هفته استراحت کند."
+      },
+      {
+       "en": "They recommended that she be hired.",
+       "fa": "توصیه کردند که او استخدام شود."
+      },
+      {
+       "en": "It is essential that everyone be present.",
+       "fa": "ضروری است که همه حاضر باشند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She insisted that he ___ the truth. (be, base form)",
+       "answer": "tell",
+       "why_en": "The subjunctive uses the base verb with every subject.",
+       "why_fa": "وجه شرطی با هر فاعلی فعل ساده می‌گیرد."
+      },
+      {
+       "prompt": "The board recommended that she ___ appointed.",
+       "answer": "be",
+       "why_en": "The passive subjunctive is be plus the participle.",
+       "why_fa": "وجه شرطی مجهول be و اسم مفعول است."
+      },
+      {
+       "prompt": "It is important that he ___ on time. (base form)",
+       "answer": "arrive",
+       "why_en": "Adjectives of importance also take the base form.",
+       "why_fa": "صفت‌های اهمیت هم فعل ساده می‌گیرند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "They demanded that the report ___ by Friday.",
+       "options": [
+        "be finished",
+        "is finished",
+        "was finished"
+       ],
+       "answer": "be finished",
+       "why_en": "Demand takes that plus the base form, here passive.",
+       "why_fa": "demand جمله با فعل ساده می‌گیرد، اینجا مجهول."
+      },
+      {
+       "q": "The teacher suggested that he ___ more.",
+       "options": [
+        "practise",
+        "practises",
+        "practised"
+       ],
+       "answer": "practise",
+       "why_en": "No -s in the subjunctive, even with he.",
+       "why_fa": "در وجه شرطی حتی با he هیچ s- نمی‌آید."
+      },
+      {
+       "q": "It is necessary that she ___ informed.",
        "options": [
         "be",
         "is",
         "was"
        ],
        "answer": "be",
-       "why_en": "Insist that is followed by the base form.",
-       "why_fa": "پس از insist that شکل ساده می‌آید."
-      },
-      {
-       "q": "The committee recommended that he ___ the offer.",
-       "options": [
-        "accept",
-        "accepts",
-        "accepted"
-       ],
-       "answer": "accept",
-       "why_en": "No -s in the subjunctive, even with he.",
-       "why_fa": "در وجه شرطی حتی با he هم -s نمی‌آید."
-      },
-      {
-       "q": "It is vital that the door ___ locked at night.",
-       "options": [
-        "be",
-        "is",
-        "will be"
-       ],
-       "answer": "be",
-       "why_en": "It is vital that takes the subjunctive be.",
-       "why_fa": "it is vital that وجه شرطی be را می‌آورد."
+       "why_en": "Necessary that takes the base form be.",
+       "why_fa": "necessary that شکل سادهٔ be می‌گیرد."
       }
      ]
     },
     {
-     "n": 91,
-     "title": "Adjective clauses",
-     "title_fa": "جملات وصفی (موصولی)",
+     "n": 104,
+     "title": "Adjective clause pronouns as the subject: who and which",
+     "title_fa": "ضمیرهای جملهٔ وصفی در جایگاه فاعل: who و which",
      "chapter": "Chapter 13",
      "section": "13-1",
-     "use_en": "An adjective clause describes a noun and follows it: who for people, which for things, whose for possession, where for places. The clause pronoun can be left out when it is the object.",
-     "use_fa": "جملهٔ وصفی اسم را توصیف می‌کند و بعد از آن می‌آید: who برای افراد، which برای اشیا، whose برای مالکیت و where برای مکان. اگر ضمیر موصولی مفعول باشد، می‌توان آن را حذف کرد.",
-     "form_en": "noun + who / which / that / whose / where + subject + verb",
+     "use_en": "An adjective clause describes the noun in front of it, and its pronoun replaces that noun inside the clause. When the noun is a person the pronoun is who; when it is a thing the pronoun is which; that works for both. If the pronoun is the subject of the clause, it cannot be left out: the man who lives next door, the book which is on the table.",
+     "use_fa": "جملهٔ وصفی اسم پیش از خود را توصیف می‌کند و ضمیر آن اسم را درون جمله جای می‌گیرد. اگر اسم شخص باشد ضمیر who است، اگر چیز باشد which، و that برای هر دو کار می‌کند. اگر ضمیر فاعل جمله باشد حذف‌شدنی نیست: the man who lives next door، the book which is on the table.",
+     "form_en": "noun (person) + who + verb  ·  noun (thing) + which + verb  ·  that for both",
      "examples": [
       {
-       "en": "The woman who called is my aunt.",
-       "fa": "زنی که زنگ زد خالهٔ من است."
+       "en": "The man who lives next door is a doctor.",
+       "fa": "مردی که همسایهٔ ماست پزشک است."
       },
       {
-       "en": "This is the book I told you about.",
-       "fa": "این همان کتابی است که درباره‌اش گفتم."
+       "en": "The book which is on the table is mine.",
+       "fa": "کتابی که روی میز است مال من است."
       },
       {
-       "en": "The man whose car was stolen called the police.",
-       "fa": "مردی که ماشینش دزدیده شد به پلیس زنگ زد."
+       "en": "I know a shop that sells old maps.",
+       "fa": "مغازه‌ای می‌شناسم که نقشه‌های قدیمی می‌فروشد."
       }
      ],
      "exercises": [
       {
-       "prompt": "The teacher ___ teaches us math is from Yazd. (person)",
+       "prompt": "The woman ___ teaches us French is from Lyon.",
        "answer": "who",
-       "why_en": "A person is the subject of the clause, so who (or that).",
-       "why_fa": "شخص نهاد جملهٔ وصفی است، پس who یا that."
+       "why_en": "A person as the subject of the clause takes who.",
+       "why_fa": "شخص در جایگاه فاعل جمله who می‌گیرد."
       },
       {
-       "prompt": "That's the café ___ we met. (place)",
-       "answer": "where",
-       "why_en": "Where replaces a place phrase such as in that café.",
-       "why_fa": "where جای عبارت مکانی مثل in that café را می‌گیرد."
+       "prompt": "The train ___ goes to Isfahan leaves at six.",
+       "answer": "which",
+       "why_en": "A thing as the subject of the clause takes which.",
+       "why_fa": "چیز در جایگاه فاعل جمله which می‌گیرد."
       },
       {
-       "prompt": "I have a friend ___ father is a pilot. (possession)",
-       "answer": "whose",
-       "why_en": "Whose shows that the father belongs to the friend.",
-       "why_fa": "whose نشان می‌دهد پدر به آن دوست تعلق دارد."
+       "prompt": "People ___ work here start early.",
+       "answer": "who",
+       "why_en": "A plural person subject still takes who.",
+       "why_fa": "شخص جمع در جایگاه فاعل هم who می‌گیرد."
       }
      ],
      "exam": [
       {
-       "q": "The movie ___ we watched was boring.",
+       "q": "The film ___ won the prize is in Persian.",
        "options": [
-        "who",
         "which",
+        "who",
         "whose"
        ],
        "answer": "which",
-       "why_en": "A movie is a thing.",
-       "why_fa": "فیلم یک چیز است، پس which."
+       "why_en": "The film is a thing and the subject of the clause.",
+       "why_fa": "فیلم چیز است و فاعل جملهٔ وصفی."
       },
       {
-       "q": "The girl ___ bag was lost is crying.",
+       "q": "The students ___ passed were happy.",
        "options": [
         "who",
         "which",
-        "whose"
+        "whom"
        ],
-       "answer": "whose",
-       "why_en": "The bag belongs to the girl.",
-       "why_fa": "کیف مال دختر است، پس whose."
+       "answer": "who",
+       "why_en": "The students are the subject of passed, so who.",
+       "why_fa": "دانش‌آموزان فاعل passed هستند، پس who."
       },
       {
-       "q": "This is the house ___ I was born.",
+       "q": "Which pronoun can never be left out here? — The car ___ is parked outside is new.",
        "options": [
         "which",
-        "where",
-        "who"
+        "that",
+        "either one"
        ],
-       "answer": "where",
-       "why_en": "A place is being described.",
-       "why_fa": "مکان توصیف می‌شود، پس where."
+       "answer": "which",
+       "why_en": "A subject pronoun must be present, so which or that is required.",
+       "why_fa": "ضمیر فاعل باید باشد، پس which یا that لازم است."
       }
      ]
     },
     {
-     "n": 92,
-     "title": "Reducing adjective clauses to phrases",
-     "title_fa": "کوتاه‌کردن جمله‌واره‌های وصفی به عبارت",
+     "n": 105,
+     "title": "Adjective clause pronouns as the object of a verb",
+     "title_fa": "ضمیرهای جملهٔ وصفی در جایگاه مفعول فعل",
      "chapter": "Chapter 13",
-     "section": "13-11",
-     "use_en": "An adjective clause with be can drop the pronoun and be: the man who is standing there becomes the man standing there. Without be, the verb becomes -ing.",
-     "use_fa": "جمله‌وارهٔ وصفی که فعل be دارد می‌تواند ضمیر و be را حذف کند: the man who is standing there به the man standing there تبدیل می‌شود. اگر be نباشد، فعل به ing تبدیل می‌شود.",
-     "form_en": "the girl who is singing -> the girl singing   |   the car that was stolen -> the car stolen",
+     "section": "13-2",
+     "use_en": "When the pronoun is the object of the clause's verb, it can be whom, who, that or nothing at all: the film that we watched, the film we watched. Leaving it out is the usual choice in speech and is perfectly correct. Whom belongs to formal writing and to use after a preposition. The clause still keeps its own subject and verb, so the order inside it never changes.",
+     "use_fa": "وقتی ضمیر مفعول فعلِ جمله باشد می‌تواند whom، who، that یا هیچ باشد: the film that we watched، the film we watched. حذف کردن آن در گفتار رایج و کاملاً درست است. whom به نوشتار رسمی و به کاربرد پس از حرف اضافه تعلق دارد. جمله هنوز فاعل و فعل خود را دارد، پس ترتیب درون آن هرگز تغییر نمی‌کند.",
+     "form_en": "noun + (whom / who / that) + subject + verb  ·  the pronoun may be omitted",
      "examples": [
       {
-       "en": "The woman standing at the gate is my aunt.",
-       "fa": "زنی که دم در ایستاده خالهٔ من است."
+       "en": "The film that we watched was long.",
+       "fa": "فیلمی که دیدیم طولانی بود."
       },
       {
-       "en": "The letter written last week was never sent.",
-       "fa": "نامه‌ای که هفتهٔ پیش نوشته شد هرگز فرستاده نشد."
+       "en": "The woman we met at the station was a teacher.",
+       "fa": "زنی که در ایستگاه دیدیم معلم بود."
       },
       {
-       "en": "Students hoping to pass should read the notes.",
-       "fa": "دانش‌آموزانی که امید به قبولی دارند باید جزوه را بخوانند."
+       "en": "The report which they sent was incomplete.",
+       "fa": "گزارشی که فرستادند ناقص بود."
       }
      ],
      "exercises": [
       {
-       "prompt": "The boy ___ (who / play) the guitar is my cousin.",
-       "answer": "playing",
-       "why_en": "The active verb becomes -ing when the pronoun is dropped.",
-       "why_fa": "فعل معلوم با حذف ضمیر به ing تبدیل می‌شود."
+       "prompt": "The song ___ we heard last night is on the radio. (formal)",
+       "answer": "which",
+       "why_en": "A thing as the object can take which.",
+       "why_fa": "چیز در جایگاه مفعول می‌تواند which بگیرد."
       },
       {
-       "prompt": "The houses ___ (that / build) last year are already sold.",
-       "answer": "built",
-       "why_en": "A passive clause reduces to the past participle.",
-       "why_fa": "جمله‌وارهٔ مجهول به اسم مفعول کوتاه می‌شود."
+       "prompt": "The man ___ I called was very helpful. (formal, person)",
+       "answer": "whom",
+       "why_en": "Whom is the formal object form for a person.",
+       "why_fa": "whom شکل مفعولی رسمی برای شخص است."
       },
       {
-       "prompt": "Anyone ___ (who / need) help can ask me.",
-       "answer": "needing",
-       "why_en": "The clause who needs becomes the -ing phrase needing.",
-       "why_fa": "جمله‌وارهٔ who needs به عبارت ing یعنی needing تبدیل می‌شود."
+       "prompt": "The keys ___ I lost were in my bag all along. (omitted pronoun)",
+       "answer": "that",
+       "why_en": "That may stand in for the omitted object pronoun.",
+       "why_fa": "that می‌تواند جای ضمیر مفعولی حذف‌شده را بگیرد."
       }
      ],
      "exam": [
       {
-       "q": "The car ___ outside belongs to the doctor.",
+       "q": "The book ___ I bought yesterday is excellent.",
        "options": [
-        "parked",
-        "parking",
-        "parks"
+        "which",
+        "who",
+        "whose"
        ],
-       "answer": "parked",
-       "why_en": "The car is parked, so the passive participle is used.",
-       "why_fa": "ماشین پارک شده است، پس اسم مفعول مجهول می‌آید."
+       "answer": "which",
+       "why_en": "A thing as the object of bought takes which or nothing.",
+       "why_fa": "چیز در جایگاه مفعول bought می‌تواند which یا هیچ بگیرد."
       },
       {
-       "q": "People ___ in the line waited for hours.",
+       "q": "The people ___ we invited arrived early.",
        "options": [
-        "standing",
-        "stood",
-        "stand"
+        "whom",
+        "which",
+        "whose"
        ],
-       "answer": "standing",
-       "why_en": "The people were standing, so the active -ing phrase fits.",
-       "why_fa": "مردم ایستاده بودند، پس عبارت ing معلوم درست است."
+       "answer": "whom",
+       "why_en": "People as the object take whom in careful writing.",
+       "why_fa": "اشخاص در جایگاه مفعول در نوشتار دقیق whom می‌گیرند."
       },
       {
-       "q": "The report ___ yesterday was excellent.",
+       "q": "Which sentence is correct?",
        "options": [
-        "submitted",
-        "submitting",
-        "submits"
+        "The car I sold was old.",
+        "The car who I sold was old.",
+        "The car I sold it was old."
        ],
-       "answer": "submitted",
-       "why_en": "The report was submitted, so the past participle.",
-       "why_fa": "گزارش ارائه شده بود، پس اسم مفعول."
+       "answer": "The car I sold was old.",
+       "why_en": "The object pronoun can be omitted, and the noun is not repeated.",
+       "why_fa": "ضمیر مفعولی حذف می‌شود و اسم تکرار نمی‌شود."
       }
      ]
     },
     {
-     "n": 93,
+     "n": 106,
+     "title": "Adjective clause pronouns as the object of a preposition",
+     "title_fa": "ضمیرهای جملهٔ وصفی در جایگاه مفعول حرف اضافه",
+     "chapter": "Chapter 13",
+     "section": "13-3",
+     "use_en": "When the clause needs a preposition, the preposition can stay at the end and the pronoun can be that, which, who or nothing: the city that I grew up in, the city I grew up in. In formal writing the preposition moves to the front with which or whom: the city in which I grew up, the colleague to whom I spoke. The meaning is the same; only the register changes.",
+     "use_fa": "وقتی جمله حرف اضافه لازم دارد، حرف اضافه می‌تواند در پایان بماند و ضمیر that، which، who یا هیچ باشد: the city that I grew up in، the city I grew up in. در نوشتار رسمی حرف اضافه با which یا whom به آغاز می‌رود: the city in which I grew up، the colleague to whom I spoke. معنا یکی است و تنها لحن تغییر می‌کند.",
+     "form_en": "noun + (that / which / who) + ... + preposition  ·  noun + preposition + which / whom",
+     "examples": [
+      {
+       "en": "The city that I grew up in has changed.",
+       "fa": "شهری که در آن بزرگ شدم تغییر کرده است."
+      },
+      {
+       "en": "The colleague to whom I spoke was helpful.",
+       "fa": "همکاری که با او صحبت کردم کمک‌کننده بود."
+      },
+      {
+       "en": "This is the pen I write with.",
+       "fa": "این همان خودکاری است که با آن می‌نویسم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The house ___ we lived in was small. (a thing)",
+       "answer": "which",
+       "why_en": "A thing before a preposition takes which.",
+       "why_fa": "چیز پیش از حرف اضافه which می‌گیرد."
+      },
+      {
+       "prompt": "The friend ___ whom I travelled is a nurse. (formal)",
+       "answer": "with",
+       "why_en": "The preposition moves to the front with whom.",
+       "why_fa": "حرف اضافه با whom به آغاز می‌رود."
+      },
+      {
+       "prompt": "The topic ___ which they argued was money. (formal)",
+       "answer": "about",
+       "why_en": "Formal style puts the preposition before which.",
+       "why_fa": "سبک رسمی حرف اضافه را پیش از which می‌آورد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The chair ___ I sat on was broken.",
+       "options": [
+        "that",
+        "who",
+        "whose"
+       ],
+       "answer": "that",
+       "why_en": "A thing with a stranded preposition takes that or which.",
+       "why_fa": "چیز با حرف اضافهٔ پایانی that یا which می‌گیرد."
+      },
+      {
+       "q": "The person ___ whom I spoke was the manager.",
+       "options": [
+        "to",
+        "with",
+        "for"
+       ],
+       "answer": "to",
+       "why_en": "Speak to somebody keeps to before whom.",
+       "why_fa": "speak to somebody حرف to را پیش از whom نگه می‌دارد."
+      },
+      {
+       "q": "Which sentence is the formal version?",
+       "options": [
+        "The town in which she lives is quiet.",
+        "The town which she lives in is quiet.",
+        "The town she lives is quiet."
+       ],
+       "answer": "The town in which she lives is quiet.",
+       "why_en": "Formal writing fronts the preposition with which.",
+       "why_fa": "نوشتار رسمی حرف اضافه را با which به آغاز می‌آورد."
+      }
+     ]
+    },
+    {
+     "n": 107,
+     "title": "Whose: the possessive in an adjective clause",
+     "title_fa": "whose: حالت مالکیت در جملهٔ وصفی",
+     "chapter": "Chapter 13",
+     "section": "13-4",
+     "use_en": "Whose replaces a possessive, not a person: the student whose essay won, the house whose roof leaks. It works for people and for things, which is why it saves a clumsy of which. The noun after whose takes no article, and whose can never be left out of the clause.",
+     "use_fa": "whose جای حالت مالکیت را می‌گیرد نه جای شخص: the student whose essay won، the house whose roof leaks. برای اشخاص و اشیاء کار می‌کند و همین آن را از of which دست‌وپاگیر نجات می‌دهد. اسم پس از whose حرف تعریف نمی‌گیرد و whose هرگز از جمله حذف نمی‌شود.",
+     "form_en": "noun + whose + noun + verb",
+     "examples": [
+      {
+       "en": "The student whose essay won is in my class.",
+       "fa": "دانش‌آموزی که مقاله‌اش برنده شد در کلاس من است."
+      },
+      {
+       "en": "I met a writer whose books I admire.",
+       "fa": "نویسنده‌ای دیدم که کتاب‌هایش را می‌ستایم."
+      },
+      {
+       "en": "The house whose roof leaks is empty.",
+       "fa": "خانه‌ای که سقفش چکه می‌کند خالی است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The girl ___ father is a pilot sits next to me.",
+       "answer": "whose",
+       "why_en": "Possession in the clause is whose.",
+       "why_fa": "مالکیت در جمله با whose بیان می‌شود."
+      },
+      {
+       "prompt": "I know a man ___ shop sells old clocks. (possessive)",
+       "answer": "whose",
+       "why_en": "The shop belongs to the man, so whose.",
+       "why_fa": "مغازه مال آن مرد است، پس whose."
+      },
+      {
+       "prompt": "The company ___ products we use is local. (possessive)",
+       "answer": "whose",
+       "why_en": "Whose also works for things.",
+       "why_fa": "whose برای اشیاء هم کار می‌کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The teacher ___ class I enjoyed has retired.",
+       "options": [
+        "whose",
+        "who",
+        "which"
+       ],
+       "answer": "whose",
+       "why_en": "The class belongs to the teacher, so whose.",
+       "why_fa": "کلاس مال معلم است، پس whose."
+      },
+      {
+       "q": "This is the dog ___ owner moved away.",
+       "options": [
+        "whose",
+        "who",
+        "whom"
+       ],
+       "answer": "whose",
+       "why_en": "Owner is a possession, so whose.",
+       "why_fa": "owner مالکیت است، پس whose."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "The man whose car was stolen called the police.",
+        "The man whose the car was stolen called the police.",
+        "The man who car was stolen called the police."
+       ],
+       "answer": "The man whose car was stolen called the police.",
+       "why_en": "Whose is followed directly by the noun it possesses.",
+       "why_fa": "پس از whose بی‌واسطه اسمی می‌آید که مال اوست."
+      }
+     ]
+    },
+    {
+     "n": 108,
+     "title": "Where in adjective clauses",
+     "title_fa": "where در جمله‌های وصفی",
+     "chapter": "Chapter 13",
+     "section": "13-5",
+     "use_en": "Where replaces a preposition and a place: the house where I was born means the house in which I was born. It follows a place noun, never a time noun, and it cannot be left out. If the clause already has a preposition, where is not used: the office that I work in, not the office where I work in.",
+     "use_fa": "where جای حرف اضافه و مکان را می‌گیرد: the house where I was born یعنی the house in which I was born. پس از اسم مکان می‌آید، هرگز پس از اسم زمان، و حذف‌شدنی نیست. اگر جمله از پیش حرف اضافه داشته باشد where نمی‌آید: the office that I work in و نه the office where I work in.",
+     "form_en": "place noun + where + subject + verb",
+     "examples": [
+      {
+       "en": "The house where I was born is still standing.",
+       "fa": "خانه‌ای که در آن به دنیا آمدم هنوز پابرجاست."
+      },
+      {
+       "en": "This is the café where we first met.",
+       "fa": "این همان کافه‌ای است که نخستین بار همدیگر را دیدیم."
+      },
+      {
+       "en": "The town where she works is two hours away.",
+       "fa": "شهری که در آن کار می‌کند دو ساعت فاصله دارد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The school ___ I studied is now a museum.",
+       "answer": "where",
+       "why_en": "A place takes where instead of in which.",
+       "why_fa": "مکان به‌جای in which از where استفاده می‌کند."
+      },
+      {
+       "prompt": "That is the village ___ they live. (place)",
+       "answer": "where",
+       "why_en": "Where replaces the preposition of place.",
+       "why_fa": "where جای حرف اضافهٔ مکان را می‌گیرد."
+      },
+      {
+       "prompt": "The shop ___ we bought the shoes has closed.",
+       "answer": "where",
+       "why_en": "Where follows a place noun.",
+       "why_fa": "where پس از اسم مکان می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The city ___ I was born has grown.",
+       "options": [
+        "where",
+        "which",
+        "when"
+       ],
+       "answer": "where",
+       "why_en": "A place with no stated preposition takes where.",
+       "why_fa": "مکان بدون حرف اضافهٔ گفته‌شده where می‌گیرد."
+      },
+      {
+       "q": "Which sentence is wrong?",
+       "options": [
+        "The office where I work in is small.",
+        "The office where I work is small.",
+        "The office that I work in is small."
+       ],
+       "answer": "The office where I work in is small.",
+       "why_en": "Where already carries the preposition, so in is extra.",
+       "why_fa": "where خودش حرف اضافه دارد، پس in اضافه است."
+      },
+      {
+       "q": "The park ___ we play football is near the river.",
+       "options": [
+        "where",
+        "which",
+        "who"
+       ],
+       "answer": "where",
+       "why_en": "A place noun takes where.",
+       "why_fa": "اسم مکان where می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 109,
+     "title": "When in adjective clauses",
+     "title_fa": "when در جمله‌های وصفی",
+     "chapter": "Chapter 13",
+     "section": "13-6",
+     "use_en": "When replaces a preposition and a time: the year when we met means the year in which we met. It follows a time noun such as day, year, moment or period, and like where it cannot be left out. English often drops the whole clause and keeps the noun, so the day we met is equally good, and that is the form speech prefers.",
+     "use_fa": "when جای حرف اضافه و زمان را می‌گیرد: the year when we met یعنی the year in which we met. پس از اسم زمان مانند day، year، moment یا period می‌آید و مانند where حذف‌شدنی نیست. انگلیسی اغلب کل جمله را حذف می‌کند و اسم را نگه می‌دارد، پس the day we met هم درست است و گفتار آن را ترجیح می‌دهد.",
+     "form_en": "time noun + when + subject + verb  ·  or the pronoun is dropped: the day we met",
+     "examples": [
+      {
+       "en": "I still remember the day when we first met.",
+       "fa": "هنوز روزی را که نخستین بار دیدار کردیم به یاد دارم."
+      },
+      {
+       "en": "The year when the war ended was 1945.",
+       "fa": "سالی که جنگ پایان یافت ۱۹۴۵ بود."
+      },
+      {
+       "en": "There are moments when silence is the best answer.",
+       "fa": "لحظه‌هایی هست که سکوت بهترین پاسخ است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I remember the morning ___ the phone rang. (time)",
+       "answer": "when",
+       "why_en": "A time noun takes when.",
+       "why_fa": "اسم زمان when می‌گیرد."
+      },
+      {
+       "prompt": "The week ___ we moved was very busy. (time)",
+       "answer": "when",
+       "why_en": "When replaces in which for a period.",
+       "why_fa": "when برای یک دوره جای in which را می‌گیرد."
+      },
+      {
+       "prompt": "Do you recall the moment ___ he said it? (time)",
+       "answer": "when",
+       "why_en": "A moment in time takes when.",
+       "why_fa": "لحظه‌ای در زمان when می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The day ___ we arrived was rainy.",
+       "options": [
+        "when",
+        "where",
+        "which"
+       ],
+       "answer": "when",
+       "why_en": "A day is a time noun, so when.",
+       "why_fa": "روز اسم زمان است، پس when."
+      },
+      {
+       "q": "Which sentence is natural in speech?",
+       "options": [
+        "The day we met was sunny.",
+        "The day when we met it was sunny.",
+        "The day which we met was sunny."
+       ],
+       "answer": "The day we met was sunny.",
+       "why_en": "Speech drops the relative pronoun after a time noun.",
+       "why_fa": "گفتار ضمیر موصولی را پس از اسم زمان حذف می‌کند."
+      },
+      {
+       "q": "There are times ___ patience is everything.",
+       "options": [
+        "when",
+        "which",
+        "where"
+       ],
+       "answer": "when",
+       "why_en": "Times is a time noun, so when.",
+       "why_fa": "times اسم زمان است، پس when."
+      }
+     ]
+    },
+    {
+     "n": 110,
+     "title": "Adjective clauses that modify pronouns",
+     "title_fa": "جمله‌های وصفی که ضمیر را توصیف می‌کنند",
+     "chapter": "Chapter 13",
+     "section": "13-7",
+     "use_en": "Indefinite pronouns take an adjective clause too, and the pronoun inside it is that rather than who or which: everyone who came, everything that happened, the only one that worked. The exception is a pronoun ending in -body or -one, which takes who because it means a person. These clauses are always essential, so they never take commas.",
+     "use_fa": "ضمیرهای نامعین هم جملهٔ وصفی می‌گیرند و ضمیر درون آن that است نه who یا which: everyone who came، everything that happened، the only one that worked. استثنا ضمیری است که به body- یا one- پایان می‌یابد و چون به شخص اشاره دارد who می‌گیرد. این جمله‌ها همیشه لازم‌اند، پس هرگز ویرگول نمی‌گیرند.",
+     "form_en": "everyone / someone + who + verb  ·  everything / nothing / all + that + verb",
+     "examples": [
+      {
+       "en": "Everyone who came received a small gift.",
+       "fa": "هر کسی که آمد هدیهٔ کوچکی گرفت."
+      },
+      {
+       "en": "Everything that he told us was true.",
+       "fa": "هر چه به ما گفت درست بود."
+      },
+      {
+       "en": "This is the only one that fits.",
+       "fa": "این تنها موردی است که جا می‌شود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Everything ___ he said was recorded.",
+       "answer": "that",
+       "why_en": "A thing pronoun takes that, not which.",
+       "why_fa": "ضمیر شیء that می‌گیرد نه which."
+      },
+      {
+       "prompt": "Someone ___ knows the answer should speak. (person)",
+       "answer": "who",
+       "why_en": "Someone means a person, so who.",
+       "why_fa": "someone به شخص اشاره دارد، پس who."
+      },
+      {
+       "prompt": "Nothing ___ she tried worked.",
+       "answer": "that",
+       "why_en": "Nothing is a thing pronoun and takes that.",
+       "why_fa": "nothing ضمیر شیء است و that می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "All ___ we need is time.",
+       "options": [
+        "that",
+        "who",
+        "which"
+       ],
+       "answer": "that",
+       "why_en": "All as a pronoun takes that.",
+       "why_fa": "all در جایگاه ضمیر that می‌گیرد."
+      },
+      {
+       "q": "Anyone ___ wants to join can sign here.",
+       "options": [
+        "who",
+        "which",
+        "that"
+       ],
+       "answer": "who",
+       "why_en": "Anyone means a person, so who.",
+       "why_fa": "anyone به شخص اشاره دارد، پس who."
+      },
+      {
+       "q": "Which sentence needs no comma?",
+       "options": [
+        "Everything that he said was true.",
+        "My father, who is a doctor, works here.",
+        "Paris, which I love, is far."
+       ],
+       "answer": "Everything that he said was true.",
+       "why_en": "A clause after everything is essential and takes no comma.",
+       "why_fa": "جمله پس از everything لازم است و ویرگول نمی‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 111,
+     "title": "Punctuating adjective clauses: commas that change the meaning",
+     "title_fa": "نگارش جمله‌های وصفی: ویرگول‌هایی که معنا را عوض می‌کنند",
+     "chapter": "Chapter 13",
+     "section": "13-8",
+     "use_en": "An essential clause tells the reader which one is meant and takes no commas: the students who studied passed. A non-essential clause adds information about something already identified and sits between commas: the students, who had studied, passed. Only a non-essential clause can be removed without breaking the sentence, and in careful writing that clause takes which for a thing, never that.",
+     "use_fa": "جملهٔ لازم می‌گوید کدام یک منظور است و ویرگول نمی‌گیرد: the students who studied passed. جملهٔ غیرلازم اطلاعاتی دربارهٔ چیزی که از پیش مشخص است می‌افزاید و میان دو ویرگول می‌نشیند: the students, who had studied, passed. تنها جملهٔ غیرلازم را می‌توان بی‌آنکه جمله بشکند حذف کرد و در نوشتار دقیق آن جمله برای چیز which می‌گیرد، هرگز that.",
+     "form_en": "essential: noun + who/that + clause (no commas)  ·  non-essential: noun, which/who + clause,",
+     "examples": [
+      {
+       "en": "The players who trained hard won the match.",
+       "fa": "بازیکنانی که سخت تمرین کردند مسابقه را بردند."
+      },
+      {
+       "en": "My brother, who lives in Berlin, is visiting.",
+       "fa": "برادرم که در برلین زندگی می‌کند به دیدار ما می‌آید."
+      },
+      {
+       "en": "The museum, which opened last year, is free.",
+       "fa": "موزه که سال گذشته باز شد رایگان است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "My mother, ___ was born in Shiraz, speaks Persian. (non-essential person)",
+       "answer": "who",
+       "why_en": "A non-essential person clause takes who between commas.",
+       "why_fa": "جملهٔ غیرلازم برای شخص میان ویرگول‌ها who می‌گیرد."
+      },
+      {
+       "prompt": "The letter that arrived today is from Ali. Here that is correct because the clause is ___.",
+       "answer": "essential",
+       "why_en": "Without the clause the reader cannot tell which letter.",
+       "why_fa": "بی این جمله خواننده نمی‌داند کدام نامه است."
+      },
+      {
+       "prompt": "The car, ___ I bought last year, needs service. (non-essential thing)",
+       "answer": "which",
+       "why_en": "A non-essential thing clause takes which, not that.",
+       "why_fa": "جملهٔ غیرلازم برای چیز which می‌گیرد نه that."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence says all the students studied?",
+       "options": [
+        "The students, who studied, passed.",
+        "The students who studied passed.",
+        "The students that studied passed."
+       ],
+       "answer": "The students, who studied, passed.",
+       "why_en": "The commas make the clause true of all of them.",
+       "why_fa": "ویرگول‌ها جمله را دربارهٔ همه درست می‌کنند."
+      },
+      {
+       "q": "In this essential clause, the book ___ I borrowed from you was excellent.",
+       "options": [
+        "that",
+        ", which,",
+        ", that,"
+       ],
+       "answer": "that",
+       "why_en": "An essential clause takes that without commas.",
+       "why_fa": "جملهٔ لازم that می‌گیرد بی ویرگول."
+      },
+      {
+       "q": "Where do commas go in a non-essential clause?",
+       "options": [
+        "Before and after the clause",
+        "Only before it",
+        "Nowhere"
+       ],
+       "answer": "Before and after the clause",
+       "why_en": "The clause interrupts the sentence and closes with a comma.",
+       "why_fa": "جمله جمله را می‌شکند و با ویرگول بسته می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 112,
+     "title": "Expressions of quantity in adjective clauses",
+     "title_fa": "عبارت‌های مقدار در جمله‌های وصفی",
+     "chapter": "Chapter 13",
+     "section": "13-9",
+     "use_en": "A quantity word can open the clause with of whom or of which: the students, most of whom passed; the books, some of which are new. The pattern carries all, most, many, some, few, none, both, either, neither and the numbers. The clause is almost always non-essential, so it takes commas, and whom is used for people, which for things.",
+     "use_fa": "واژهٔ مقدار می‌تواند جمله را با of whom یا of which باز کند: the students, most of whom passed؛ the books, some of which are new. این الگو all، most، many، some، few، none، both، either، neither و عددها را در خود دارد. جمله تقریباً همیشه غیرلازم است، پس ویرگول می‌گیرد، و whom برای اشخاص و which برای اشیاء به کار می‌رود.",
+     "form_en": "noun + , + quantity + of whom / of which + verb",
+     "examples": [
+      {
+       "en": "The class has thirty students, most of whom are beginners.",
+       "fa": "کلاس سی دانش‌آموز دارد که بیشترشان مبتدی‌اند."
+      },
+      {
+       "en": "She wrote four novels, two of which were translated.",
+       "fa": "چهار رمان نوشت که دو تایشان ترجمه شد."
+      },
+      {
+       "en": "He has three brothers, all of whom live abroad.",
+       "fa": "سه برادر دارد که همه‌شان خارج از کشور زندگی می‌کنند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The team has eleven players, all of ___ train daily. (people)",
+       "answer": "whom",
+       "why_en": "People take of whom.",
+       "why_fa": "اشخاص of whom می‌گیرند."
+      },
+      {
+       "prompt": "I read two reports, neither of ___ was useful. (things)",
+       "answer": "which",
+       "why_en": "Things take of which.",
+       "why_fa": "اشیاء of which می‌گیرند."
+      },
+      {
+       "prompt": "There were ten questions, some of ___ were difficult. (things)",
+       "answer": "which",
+       "why_en": "A quantity of things takes of which.",
+       "why_fa": "مقداری از اشیاء of which می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The village has 200 people, many of ___ work in the city.",
+       "options": [
+        "whom",
+        "which",
+        "who"
+       ],
+       "answer": "whom",
+       "why_en": "People after a quantity take of whom.",
+       "why_fa": "اشخاص پس از مقدار of whom می‌گیرند."
+      },
+      {
+       "q": "She bought three dresses, one of ___ was blue.",
+       "options": [
+        "which",
+        "whom",
+        "who"
+       ],
+       "answer": "which",
+       "why_en": "Things after a quantity take of which.",
+       "why_fa": "اشیاء پس از مقدار of which می‌گیرند."
+      },
+      {
+       "q": "Which sentence is correctly punctuated?",
+       "options": [
+        "The students, most of whom passed, were happy.",
+        "The students most of whom passed were happy.",
+        "The students, most of who passed, were happy."
+       ],
+       "answer": "The students, most of whom passed, were happy.",
+       "why_en": "The clause is non-essential and takes whom after of.",
+       "why_fa": "جمله غیرلازم است و پس از of از whom استفاده می‌کند."
+      }
+     ]
+    },
+    {
+     "n": 113,
+     "title": "Which to modify a whole sentence",
+     "title_fa": "which برای توصیف تمام جمله",
+     "chapter": "Chapter 13",
+     "section": "13-10",
+     "use_en": "A clause with which can comment on the whole sentence in front of it rather than on one noun: he arrived late, which annoyed everyone. The comma is required, which is the only pronoun allowed here, and that is impossible. The comment can sit at the end or, more formally, after the subject: the plan, which surprised us all, worked.",
+     "use_fa": "جمله‌ای با which می‌تواند دربارهٔ تمام جملهٔ پیش از خود نظر بدهد نه دربارهٔ یک اسم: he arrived late, which annoyed everyone. ویرگول لازم است، which تنها ضمیر مجاز در این جایگاه است و that ممکن نیست. این نظر می‌تواند در پایان بیاید یا به شکلی رسمی‌تر پس از فاعل: the plan, which surprised us all, worked.",
+     "form_en": "sentence + , which + verb ...  ·  subject + , which + verb, + rest",
+     "examples": [
+      {
+       "en": "He arrived late, which annoyed everyone.",
+       "fa": "دیر رسید که همه را آزرد."
+      },
+      {
+       "en": "The plan worked, which surprised us all.",
+       "fa": "طرح جواب داد که همه‌مان را غافلگیر کرد."
+      },
+      {
+       "en": "She passed the exam, which made her parents proud.",
+       "fa": "در امتحان قبول شد که پدر و مادرش را سربلند کرد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "It rained all week, ___ ruined our trip.",
+       "answer": "which",
+       "why_en": "A comment on the whole sentence takes which.",
+       "why_fa": "نظر دربارهٔ تمام جمله which می‌گیرد."
+      },
+      {
+       "prompt": "The train was late, ___ meant we missed the start.",
+       "answer": "which",
+       "why_en": "The comma and which introduce the consequence.",
+       "why_fa": "ویرگول و which نتیجه را می‌آورند."
+      },
+      {
+       "prompt": "He forgot my name, ___ was embarrassing. (whole sentence)",
+       "answer": "which",
+       "why_en": "Only which can modify a sentence.",
+       "why_fa": "تنها which می‌تواند جمله را توصیف کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She spoke first, ___ impressed the audience.",
+       "options": [
+        "which",
+        "that",
+        "who"
+       ],
+       "answer": "which",
+       "why_en": "A whole-sentence comment takes which.",
+       "why_fa": "نظر دربارهٔ تمام جمله which می‌گیرد."
+      },
+      {
+       "q": "Which pronoun is impossible here? — He lied, ___ surprised nobody.",
+       "options": [
+        "that",
+        "which",
+        "either one"
+       ],
+       "answer": "that",
+       "why_en": "That cannot modify a whole sentence.",
+       "why_fa": "that نمی‌تواند تمام جمله را توصیف کند."
+      },
+      {
+       "q": "Where must the comma go?",
+       "options": [
+        "Before which",
+        "Nowhere",
+        "After which only"
+       ],
+       "answer": "Before which",
+       "why_en": "The comment is non-essential and starts with a comma.",
+       "why_fa": "نظر غیرلازم است و با ویرگول آغاز می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 114,
+     "title": "Reducing adjective clauses to adjective phrases",
+     "title_fa": "کوتاه‌کردن جمله‌های وصفی به عبارت وصفی",
+     "chapter": "Chapter 13",
+     "section": "13-11",
+     "use_en": "An adjective clause can lose its pronoun and its be verb, leaving a phrase: the man who is standing there becomes the man standing there; the car which was stolen becomes the car stolen. An active clause keeps its -ing form; a passive clause keeps its past participle. If the clause has no be, the reduction usually does not work, and an essential clause can be reduced while a non-essential one keeps its commas.",
+     "use_fa": "جملهٔ وصفی می‌تواند ضمیر و فعل be خود را از دست بدهد و به عبارت تبدیل شود: the man who is standing there به the man standing there و the car which was stolen به the car stolen بدل می‌شود. جملهٔ معلوم شکل ing- را نگه می‌دارد و جملهٔ مجهول اسم مفعول را. اگر جمله be نداشته باشد کوتاه‌سازی معمولاً ممکن نیست، و جملهٔ لازم کوتاه می‌شود در حالی که جملهٔ غیرلازم ویرگول‌هایش را نگه می‌دارد.",
+     "form_en": "who / which + be + -ing → -ing phrase  ·  who / which + be + past participle → past participle phrase",
+     "examples": [
+      {
+       "en": "The man standing by the door is my uncle.",
+       "fa": "مردی که کنار در ایستاده عموی من است."
+      },
+      {
+       "en": "The car stolen last night was found today.",
+       "fa": "ماشینی که دیشب دزدیده شد امروز پیدا شد."
+      },
+      {
+       "en": "The students sitting at the back are new.",
+       "fa": "دانش‌آموزانی که عقب نشسته‌اند تازه‌واردند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The girl who is singing on stage is my sister. → The girl ___ on stage is my sister.",
+       "answer": "singing",
+       "why_en": "An active be clause reduces to the -ing form.",
+       "why_fa": "جملهٔ معلوم با be به شکل ing- کوتاه می‌شود."
+      },
+      {
+       "prompt": "The letters which were written by hand were kept. → The letters ___ by hand were kept.",
+       "answer": "written",
+       "why_en": "A passive be clause reduces to the past participle.",
+       "why_fa": "جملهٔ مجهول با be به اسم مفعول کوتاه می‌شود."
+      },
+      {
+       "prompt": "The house which was built in 1900 is famous. → The house ___ in 1900 is famous.",
+       "answer": "built",
+       "why_en": "The passive participle replaces which was.",
+       "why_fa": "اسم مفعول جای which was را می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The woman ___ next to me was a doctor.",
+       "options": [
+        "sitting",
+        "sat",
+        "who sitting"
+       ],
+       "answer": "sitting",
+       "why_en": "An active clause with be reduces to -ing.",
+       "why_fa": "جملهٔ معلوم با be به ing- کوتاه می‌شود."
+      },
+      {
+       "q": "The letters ___ yesterday arrived today.",
+       "options": [
+        "sent",
+        "sending",
+        "were sent"
+       ],
+       "answer": "sent",
+       "why_en": "A passive clause reduces to the past participle.",
+       "why_fa": "جملهٔ مجهول به اسم مفعول کوتاه می‌شود."
+      },
+      {
+       "q": "Which clause cannot be reduced?",
+       "options": [
+        "The man who owns the shop",
+        "The man who is standing there",
+        "The car which was stolen"
+       ],
+       "answer": "The man who owns the shop",
+       "why_en": "There is no be to remove and the verb is not a participle.",
+       "why_fa": "be ای نیست که حذف شود و فعل اسم مفعول نیست."
+      }
+     ]
+    },
+    {
+     "n": 115,
      "title": "Gerunds and infinitives",
      "title_fa": "اسم‌های مصدری و مصدر با to",
      "chapter": "Chapter 14",
@@ -24457,7 +26195,7 @@
      ]
     },
     {
-     "n": 94,
+     "n": 116,
      "title": "Causative verbs: make, have, get, let and help",
      "title_fa": "فعل‌های سببی: make، have، get، let و help",
      "chapter": "Chapter 15",
@@ -24536,7 +26274,7 @@
      ]
     },
     {
-     "n": 95,
+     "n": 117,
      "title": "Paired conjunctions and parallel structure",
      "title_fa": "حروف ربط جفتی و ساختار موازی",
      "chapter": "Chapter 16",
@@ -24615,7 +26353,7 @@
      ]
     },
     {
-     "n": 96,
+     "n": 118,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -24694,7 +26432,7 @@
      ]
     },
     {
-     "n": 97,
+     "n": 119,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -24773,7 +26511,7 @@
      ]
     },
     {
-     "n": 98,
+     "n": 120,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -24852,7 +26590,7 @@
      ]
     },
     {
-     "n": 99,
+     "n": 121,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",
