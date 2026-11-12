@@ -569,10 +569,41 @@ PINNED_GRAMMAR = [
     "Parallel structure with commas",
     "Punctuation between independent clauses: and, but, so",
     "Paired conjunctions: both ... and, not only ... but also",
-    "Adverb clauses: time, cause, contrast and condition",
-    "Reducing adverb clauses to modifying phrases",
-    "Connectives: because of, therefore, so that, otherwise",
-    "Conditionals and wishes",
+    "Adverb clauses: a dependent clause that tells when, why or under what condition",
+    "Adverb clauses of time: when, while, before, after, until, as soon as",
+    "Adverb clauses of cause: because, since, as",
+    "Unexpected result: even though, although, though",
+    "Direct contrast: while and whereas",
+    "Conditions in adverb clauses: if",
+    "Shortened if-clauses: if necessary, if possible",
+    "Whether or not and even if",
+    "In case: doing something to be ready",
+    "Unless: if not",
+    "Only if: one condition and no other",
+    "Reducing an adverb clause to a phrase: an introduction",
+    "Turning a time clause into a modifying phrase",
+    "Phrases that say two things happened at the same time",
+    "Cause-and-effect phrases: having finished, not knowing",
+    "Upon + -ing: as soon as one thing happened",
+    "Connectives: linking a cause to its result",
+    "Because of and due to before a noun",
+    "Therefore, consequently and so: the result in a new clause",
+    "Patterns and punctuation for cause and effect",
+    "Such ... that and so ... that",
+    "Purpose with so that",
+    "Contrast with an unexpected result: although, though, even though",
+    "Direct contrast: while, whereas, in contrast",
+    "Conditions with otherwise and or else",
+    "The forms used in conditional sentences: an overview",
+    "Real conditions in the present or future",
+    "Unreal conditions in the present or future",
+    "Unreal conditions in the past",
+    "Progressive forms in conditional sentences",
+    "Mixed time in conditional sentences",
+    "Omitting if: were I you, had I known",
+    "Implied conditions",
+    "Wishes about the present and the past",
+    "Wishes about the future and wish + would",
 ]
 
 POS = {"noun", "verb", "adjective", "adverb", "preposition", "conjunction",
@@ -953,6 +984,58 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
               or len(l.get("exam") or []) < 3]
     check(not thin16,
           f"{bid}: chapter sixteen chart(s) {thin16} are thinner than the rest of the book")
+
+    # Chapter seventeen is the adverb clause: what it is, the time and cause
+    # clauses, the two contrasts, and the whole family of conditions.
+    seventeenth = [l for l in lessons if l.get("chapter") == "Chapter 17"]
+    check([str(l.get("section")) for l in seventeenth] == [f"17-{i}" for i in range(1, 12)],
+          f"{bid}: chapter seventeen is not its eleven charts in order "
+          f"(got {[str(l.get('section')) for l in seventeenth]})")
+    thin17 = [str(l.get("section")) for l in seventeenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin17,
+          f"{bid}: chapter seventeen chart(s) {thin17} are thinner than the rest of the book")
+
+    # Chapter eighteen is the reduction: the same-subject rule, the time and
+    # same-time phrases, the cause phrase and upon plus the gerund.
+    eighteenth = [l for l in lessons if l.get("chapter") == "Chapter 18"]
+    check([str(l.get("section")) for l in eighteenth] == [f"18-{i}" for i in range(1, 6)],
+          f"{bid}: chapter eighteen is not its five charts in order "
+          f"(got {[str(l.get('section')) for l in eighteenth]})")
+    thin18 = [str(l.get("section")) for l in eighteenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin18,
+          f"{bid}: chapter eighteen chart(s) {thin18} are thinner than the rest of the book")
+
+    # Chapter nineteen is the connectives: the three ways to join a cause, the
+    # result words, the punctuation, such and so, purpose, the two contrasts and
+    # the negative condition.
+    nineteenth = [l for l in lessons if l.get("chapter") == "Chapter 19"]
+    check([str(l.get("section")) for l in nineteenth] == [f"19-{i}" for i in range(1, 10)],
+          f"{bid}: chapter nineteen is not its nine charts in order "
+          f"(got {[str(l.get('section')) for l in nineteenth]})")
+    thin19 = [str(l.get("section")) for l in nineteenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin19,
+          f"{bid}: chapter nineteen chart(s) {thin19} are thinner than the rest of the book")
+
+    # Chapter twenty is the conditional and the wish, and it closes the syllabus.
+    twentieth = [l for l in lessons if l.get("chapter") == "Chapter 20"]
+    check([str(l.get("section")) for l in twentieth] == [f"20-{i}" for i in range(1, 11)],
+          f"{bid}: chapter twenty is not its ten charts in order "
+          f"(got {[str(l.get('section')) for l in twentieth]})")
+    thin20 = [str(l.get("section")) for l in twentieth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin20,
+          f"{bid}: chapter twenty chart(s) {thin20} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"

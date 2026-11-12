@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 144 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to sixteen are complete, chart 1-1 to 16-4. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 144 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا شانزده کامل‌اند، از نمودار ۱-۱ تا ۱۶-۴. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 175 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. All twenty chapters are complete, chart 1-1 to 20-10. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 175 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. هر بیست فصل کامل‌اند، از نمودار ۱-۱ تا ۲۰-۱۰. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -28171,127 +28171,928 @@
     },
     {
      "n": 141,
-     "title": "Adverb clauses: time, cause, contrast and condition",
-     "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
+     "title": "Adverb clauses: a dependent clause that tells when, why or under what condition",
+     "title_fa": "جمله‌های قیدی: جمله‌ای وابسته که زمان، دلیل یا شرط را می‌گوید",
      "chapter": "Chapter 17",
-     "section": "17-2",
-     "use_en": "An adverb clause answers when, why, in spite of what, or under what condition. It can come before the main clause (with a comma) or after it (without one).",
-     "use_fa": "جملهٔ قیدی می‌گوید کِی، چرا، با وجود چه چیزی، یا تحت چه شرطی. می‌تواند پیش از جملهٔ اصلی بیاید (با ویرگول) یا پس از آن (بدون ویرگول).",
-     "form_en": "when / while / because / although / if / unless + subject + verb",
+     "section": "17-1",
+     "use_en": "An adverb clause is a clause that cannot stand alone and answers how, when, why or under what condition the main clause happens. It begins with a subordinator such as when, because, although, if or unless. When the clause comes first, a comma follows it; when it comes second, no comma is needed. The subordinator never takes that away: the dependent clause keeps its own subject and verb.",
+     "use_fa": "جملهٔ قیدی جمله‌ای است که به‌تنهایی نمی‌ایستد و می‌گوید جملهٔ اصلی چگونه، کِی، چرا یا در چه شرطی رخ می‌دهد. با حرف ربط وابسته‌سازی مانند when، because، although، if یا unless آغاز می‌شود. اگر جمله اول بیاید پس از آن ویرگول می‌آید و اگر دوم بیاید ویرگول لازم نیست. حرف ربط فاعل و فعل جمله را حذف نمی‌کند.",
+     "form_en": "subordinator + subject + verb, + main clause  ·  main clause + subordinator + subject + verb",
      "examples": [
       {
-       "en": "While I was waiting, I read the news.",
-       "fa": "وقتی منتظر بودم، خبرها را خواندم."
+       "en": "When the rain stopped, we went outside.",
+       "fa": "وقتی باران بند آمد، بیرون رفتیم."
       },
       {
-       "en": "Although she was tired, she finished the work.",
-       "fa": "با اینکه خسته بود، کار را تمام کرد."
+       "en": "She stayed home because she was ill.",
+       "fa": "خانه ماند چون بیمار بود."
       },
       {
-       "en": "If it rains, we will stay at home.",
-       "fa": "اگر باران بیاید، خانه می‌مانیم."
+       "en": "Although it was late, they kept working.",
+       "fa": "با اینکه دیر بود، به کار ادامه دادند."
       }
      ],
      "exercises": [
       {
-       "prompt": "___ it was late, we decided to walk home. (cause)",
-       "answer": "Because",
-       "why_en": "A reason is being given, so because (or since).",
-       "why_fa": "دلیل گفته می‌شود، پس because یا since."
-      },
-      {
-       "prompt": "___ she studied hard, she failed the test. (unexpected)",
+       "prompt": "___ it was cold, we went for a walk. (contrast)",
        "answer": "Although",
-       "why_en": "The result is unexpected, which although marks.",
-       "why_fa": "نتیجه غیرمنتظره است و although همین را نشان می‌دهد."
+       "why_en": "A dependent clause opening the sentence takes a subordinator and a comma.",
+       "why_fa": "جملهٔ وابسته در آغاز، حرف ربط و ویرگول می‌گیرد."
       },
       {
-       "prompt": "You can't enter ___ you show your ticket. (condition)",
-       "answer": "unless",
-       "why_en": "Unless means if not.",
-       "why_fa": "unless یعنی «اگر نه»."
+       "prompt": "We left early ___ the traffic was heavy. (reason)",
+       "answer": "because",
+       "why_en": "Because introduces the reason inside the same sentence.",
+       "why_fa": "because دلیل را در همان جمله می‌آورد."
+      },
+      {
+       "prompt": "I will call you ___ I arrive. (time)",
+       "answer": "when",
+       "why_en": "When puts the two events in time order.",
+       "why_fa": "when دو رویداد را در زمان مرتب می‌کند."
       }
      ],
      "exam": [
       {
-       "q": "I'll call you ___ I arrive.",
+       "q": "Which is an adverb clause?",
        "options": [
-        "when",
-        "although",
-        "unless"
+        "because she was tired",
+        "she was tired",
+        "her tiredness"
        ],
-       "answer": "when",
-       "why_en": "A time relationship.",
-       "why_fa": "رابطهٔ زمانی است."
+       "answer": "because she was tired",
+       "why_en": "The subordinator marks the dependent clause.",
+       "why_fa": "حرف ربط جملهٔ وابسته را نشان می‌دهد."
       },
       {
-       "q": "We stayed inside ___ the heat.",
+       "q": "___ the film started, we sat down.",
        "options": [
-        "because of",
-        "although",
-        "unless"
+        "When",
+        "Because of",
+        "Despite"
        ],
-       "answer": "because of",
-       "why_en": "A noun phrase (the heat) follows, so because of.",
-       "why_fa": "پس از آن عبارت اسمی (the heat) می‌آید، پس because of."
+       "answer": "When",
+       "why_en": "A clause of time takes when.",
+       "why_fa": "جملهٔ زمان when می‌گیرد."
       },
       {
-       "q": "___ you hurry, you will miss the train.",
+       "q": "Where does the comma go when the adverb clause comes first?",
        "options": [
-        "If",
-        "Unless",
-        "Although"
+        "After the clause",
+        "Before the clause",
+        "Nowhere"
        ],
-       "answer": "Unless",
-       "why_en": "The warning is about not hurrying.",
-       "why_fa": "هشدار دربارهٔ عجله نکردن است، پس unless."
+       "answer": "After the clause",
+       "why_en": "The opening clause is followed by a comma.",
+       "why_fa": "جملهٔ آغازین با ویرگول دنبال می‌شود."
       }
      ]
     },
     {
      "n": 142,
-     "title": "Reducing adverb clauses to modifying phrases",
-     "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
-     "chapter": "Chapter 18",
-     "section": "18-2",
-     "use_en": "When the adverb clause and the main clause share a subject, drop the subject and change the verb: Before I left, I called becomes Before leaving, I called. With be, drop the pronoun and be.",
-     "use_fa": "وقتی جمله‌وارهٔ قیدی و جملهٔ اصلی فاعل یکسان دارند، فاعل حذف می‌شود و فعل تغییر می‌کند: Before I left, I called به Before leaving, I called تبدیل می‌شود. با be، ضمیر و be حذف می‌شوند.",
-     "form_en": "Before leaving, ...   |   While walking home, ...   |   Having finished, ...",
+     "title": "Adverb clauses of time: when, while, before, after, until, as soon as",
+     "title_fa": "جمله‌های قیدی زمان: when، while، before، after، until، as soon as",
+     "chapter": "Chapter 17",
+     "section": "17-2",
+     "use_en": "Time clauses place one action against another: when for a point, while for something in progress, before and after for order, until for the end of a period, as soon as for the moment something is complete, and since for a starting point. The time clause takes the present tense even when the meaning is future: I will call you when I arrive, never when I will arrive.",
+     "use_fa": "جمله‌های زمانی یک کار را در برابر کار دیگر می‌گذارند: when برای یک نقطه، while برای کار در جریان، before و after برای ترتیب، until برای پایان یک دوره، as soon as برای لحظهٔ کامل شدن کاری و since برای نقطهٔ آغاز. جملهٔ زمانی حتی وقتی معنا آینده است فعل حال می‌گیرد: I will call you when I arrive و هرگز when I will arrive.",
+     "form_en": "time clause in the present + main clause with will  ·  while / until / before / after / as soon as",
      "examples": [
       {
-       "en": "After finishing the report, she went home.",
-       "fa": "پس از تمام‌کردن گزارش، به خانه رفت."
+       "en": "I will call you when I arrive.",
+       "fa": "وقتی رسیدم به تو زنگ می‌زنم."
       },
       {
-       "en": "While walking to work, I met an old friend.",
-       "fa": "در راه رفتن به سر کار، دوست قدیمی‌ای دیدم."
+       "en": "While she was cooking, the phone rang.",
+       "fa": "وقتی داشت آشپزی می‌کرد تلفن زنگ زد."
       },
       {
-       "en": "Having eaten, the children went out to play.",
-       "fa": "بعد از غذا، بچه‌ها برای بازی بیرون رفتند."
+       "en": "Wait here until the bus comes.",
+       "fa": "اینجا منتظر بمان تا اتوبوس بیاید."
       }
      ],
      "exercises": [
       {
-       "prompt": "Before ___ (leave), turn off the lights.",
-       "answer": "leaving",
-       "why_en": "The subject you is shared, so the clause becomes before + -ing.",
-       "why_fa": "فاعل you مشترک است، پس جمله‌واره به before + ing تبدیل می‌شود."
+       "prompt": "We will start as soon as everyone ___ here. (be)",
+       "answer": "is",
+       "why_en": "A future time clause keeps the present tense.",
+       "why_fa": "جملهٔ زمانی آینده فعل حال را نگه می‌دارد."
       },
       {
-       "prompt": "While ___ (wait) for the bus, he read the news.",
-       "answer": "waiting",
-       "why_en": "While with a shared subject takes the -ing form.",
-       "why_fa": "while با فاعل مشترک شکل ing می‌گیرد."
+       "prompt": "___ I was reading, she was writing. (same time)",
+       "answer": "While",
+       "why_en": "While marks an action in progress beside another.",
+       "why_fa": "while کار در جریان را در کنار کار دیگر می‌گذارد."
       },
       {
-       "prompt": "___ (finish) the work, they closed the office.",
-       "answer": "Having finished",
-       "why_en": "Having + past participle shows the first action was complete.",
-       "why_fa": "having + اسم مفعول نشان می‌دهد کار اول تمام شده بود."
+       "prompt": "Don't leave ___ I come back. (end of the period)",
+       "answer": "until",
+       "why_en": "Until marks the end of the waiting.",
+       "why_fa": "until پایان انتظار را نشان می‌دهد."
       }
      ],
      "exam": [
+      {
+       "q": "I'll call you ___ I get home.",
+       "options": [
+        "when",
+        "while",
+        "until"
+       ],
+       "answer": "when",
+       "why_en": "A point in time after arriving takes when.",
+       "why_fa": "نقطه‌ای در زمان پس از رسیدن when می‌گیرد."
+      },
+      {
+       "q": "She was cooking ___ the lights went out.",
+       "options": [
+        "while",
+        "as soon as",
+        "since"
+       ],
+       "answer": "while",
+       "why_en": "An action in progress takes while.",
+       "why_fa": "کار در جریان while می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "We will go when the rain stops.",
+        "We will go when the rain will stop.",
+        "We will go when the rain stopping."
+       ],
+       "answer": "We will go when the rain stops.",
+       "why_en": "The time clause stays in the present after will.",
+       "why_fa": "جملهٔ زمانی پس از will در حال می‌ماند."
+      }
+     ]
+    },
+    {
+     "n": 143,
+     "title": "Adverb clauses of cause: because, since, as",
+     "title_fa": "جمله‌های قیدی دلیل: because، since، as",
+     "chapter": "Chapter 17",
+     "section": "17-3",
+     "use_en": "Because gives the reason and is the most direct of the three. Since and as also give a reason and often suggest that the reader already knows it: since you are here, you can help. Because of and due to are not clause markers; they take a noun: because of the rain. A reason clause answers why, so it cannot be replaced by a phrase without changing the grammar of the sentence.",
+     "use_fa": "because دلیل را می‌گوید و مستقیم‌ترین این سه است. since و as هم دلیل را می‌گویند و معمولاً نشان می‌دهند که خواننده از پیش آن را می‌داند: since you are here, you can help. because of و due to نشانهٔ جمله نیستند و اسم می‌گیرند: because of the rain. جملهٔ دلیل به «چرا» پاسخ می‌دهد، پس با عبارت جایگزین نمی‌شود مگر ساختار جمله عوض شود.",
+     "form_en": "because / since / as + subject + verb  ·  because of / due to + noun",
+     "examples": [
+      {
+       "en": "We stayed inside because the wind was strong.",
+       "fa": "داخل ماندیم چون باد شدید بود."
+      },
+      {
+       "en": "Since you are here, you can help me.",
+       "fa": "حالا که اینجایی می‌توانی کمکم کنی."
+      },
+      {
+       "en": "The match was cancelled because of the rain.",
+       "fa": "مسابقه به دلیل باران لغو شد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ she had studied, she passed easily. (known reason)",
+       "answer": "Since",
+       "why_en": "Since gives a reason the reader already accepts.",
+       "why_fa": "since دلیلی می‌دهد که خواننده می‌پذیرد."
+      },
+      {
+       "prompt": "The flight was delayed ___ the storm. (before a noun)",
+       "answer": "because of",
+       "why_en": "Before a noun the phrase is because of.",
+       "why_fa": "پیش از اسم عبارت because of می‌آید."
+      },
+      {
+       "prompt": "He left early ___ he felt ill. (direct reason)",
+       "answer": "because",
+       "why_en": "Because answers why in a clause.",
+       "why_fa": "because در جمله به «چرا» پاسخ می‌دهد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "We cancelled the picnic ___ the weather.",
+       "options": [
+        "because of",
+        "because",
+        "since"
+       ],
+       "answer": "because of",
+       "why_en": "A noun follows because of, not a clause.",
+       "why_fa": "پس از because of اسم می‌آید نه جمله."
+      },
+      {
+       "q": "___ it was raining, we took a taxi.",
+       "options": [
+        "Because",
+        "Because of",
+        "Due to"
+       ],
+       "answer": "Because",
+       "why_en": "A clause takes because.",
+       "why_fa": "جمله because می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "He was late because the bus broke down.",
+        "He was late because of the bus broke down.",
+        "He was late because the bus broke down it."
+       ],
+       "answer": "He was late because the bus broke down.",
+       "why_en": "Because introduces a full clause.",
+       "why_fa": "because جملهٔ کامل می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 144,
+     "title": "Unexpected result: even though, although, though",
+     "title_fa": "نتیجهٔ غیرمنتظره: even though، although، though",
+     "chapter": "Chapter 17",
+     "section": "17-4",
+     "use_en": "These three clauses say that the result is surprising given the information: although it rained, the match continued. Even though is the strongest and underlines the contrast; although is neutral and slightly formal; though is the most conversational and can also end a sentence. None of them takes a comma inside the clause, and none of them is followed by but.",
+     "use_fa": "این سه جمله می‌گویند نتیجه با توجه به اطلاعات غافلگیرکننده است: although it rained, the match continued. even though قوی‌ترین است و بر تضاد تأکید می‌کند، although خنثی و کمی رسمی است و though گفتاری‌ترین است و می‌تواند در پایان جمله هم بیاید. هیچ‌کدام درون جمله ویرگول نمی‌گیرند و هیچ‌کدام با but نمی‌آیند.",
+     "form_en": "although / even though / though + subject + verb  ·  no but after the clause",
+     "examples": [
+      {
+       "en": "Although it rained, the match continued.",
+       "fa": "با اینکه باران می‌بارید، مسابقه ادامه یافت."
+      },
+      {
+       "en": "Even though she was tired, she finished the report.",
+       "fa": "حتی با اینکه خسته بود، گزارش را تمام کرد."
+      },
+      {
+       "en": "He came, though he was not invited.",
+       "fa": "آمد، هرچند دعوت نشده بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ he studied hard, he failed the exam. (strong contrast)",
+       "answer": "Even though",
+       "why_en": "Even though strengthens the contrast.",
+       "why_fa": "even though تضاد را قوی‌تر می‌کند."
+      },
+      {
+       "prompt": "The plan worked, ___ nobody expected it. (end of sentence)",
+       "answer": "though",
+       "why_en": "Though can close a sentence in speech.",
+       "why_fa": "though می‌تواند در گفتار جمله را ببندد."
+      },
+      {
+       "prompt": "___ the price was high, they bought it. (neutral)",
+       "answer": "Although",
+       "why_en": "Although reports the contrast without emphasis.",
+       "why_fa": "although تضاد را بی تأکید می‌گوید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ it was cold, they went swimming.",
+       "options": [
+        "Although",
+        "Despite",
+        "Because of"
+       ],
+       "answer": "Although",
+       "why_en": "A clause of unexpected result takes although.",
+       "why_fa": "جملهٔ نتیجهٔ غیرمنتظره although می‌گیرد."
+      },
+      {
+       "q": "Which sentence is wrong?",
+       "options": [
+        "Although it rained, but we went out.",
+        "Although it rained, we went out.",
+        "Even though it rained, we went out."
+       ],
+       "answer": "Although it rained, but we went out.",
+       "why_en": "Although and but do not appear together.",
+       "why_fa": "although و but با هم نمی‌آیند."
+      },
+      {
+       "q": "___ he apologised, she was still upset.",
+       "options": [
+        "Even though",
+        "Even",
+        "Though of"
+       ],
+       "answer": "Even though",
+       "why_en": "The strong contrast is even though.",
+       "why_fa": "تضاد قوی even though است."
+      }
+     ]
+    },
+    {
+     "n": 145,
+     "title": "Direct contrast: while and whereas",
+     "title_fa": "تضاد مستقیم: while و whereas",
+     "chapter": "Chapter 17",
+     "section": "17-5",
+     "use_en": "While and whereas place two facts side by side without calling either surprising: my sister plays tennis, while I prefer swimming. Whereas is the more formal of the two and appears mostly in writing. While also carries a time meaning, so in a sentence about two periods it can be read either way; whereas can only mean contrast, which makes it the clearer choice in an argument.",
+     "use_fa": "while و whereas دو واقعیت را بی آنکه یکی را غافلگیرکننده بخوانند کنار هم می‌گذارند: my sister plays tennis, while I prefer swimming. whereas رسمی‌تر است و بیشتر در نوشتار می‌آید. while معنای زمان هم دارد، پس در جمله‌ای دربارهٔ دو دورهٔ زمانی دو معنا می‌تواند داشته باشد؛ whereas تنها تضاد می‌گوید و در استدلال روشن‌تر است.",
+     "form_en": "clause, + while / whereas + clause  ·  whereas is formal and contrast only",
+     "examples": [
+      {
+       "en": "My sister plays tennis, while I prefer swimming.",
+       "fa": "خواهرم تنیس بازی می‌کند، در حالی که من شنا را ترجیح می‌دهم."
+      },
+      {
+       "en": "The north is wet, whereas the south is dry.",
+       "fa": "شمال پرباران است، در حالی که جنوب خشک است."
+      },
+      {
+       "en": "While he works in an office, she works outdoors.",
+       "fa": "او در دفتر کار می‌کند، در حالی که او بیرون کار می‌کند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Tea is cheap, ___ coffee is expensive. (formal contrast)",
+       "answer": "whereas",
+       "why_en": "Whereas marks a formal direct contrast.",
+       "why_fa": "whereas تضاد مستقیم رسمی را نشان می‌دهد."
+      },
+      {
+       "prompt": "___ I like the city, my brother prefers the countryside. (contrast)",
+       "answer": "While",
+       "why_en": "While places two facts side by side.",
+       "why_fa": "while دو واقعیت را کنار هم می‌گذارد."
+      },
+      {
+       "prompt": "She studied medicine, ___ her sister studied law. (contrast)",
+       "answer": "whereas",
+       "why_en": "Whereas joins two parallel facts with a contrast.",
+       "why_fa": "whereas دو واقعیت موازی را با تضاد به هم می‌پیوندد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which word can only mean contrast?",
+       "options": [
+        "whereas",
+        "while",
+        "when"
+       ],
+       "answer": "whereas",
+       "why_en": "While can also mark time; whereas cannot.",
+       "why_fa": "while زمان هم می‌گوید و whereas تنها تضاد."
+      },
+      {
+       "q": "___ the first plan was cheap, the second was safer.",
+       "options": [
+        "Whereas",
+        "Because of",
+        "So that"
+       ],
+       "answer": "Whereas",
+       "why_en": "A direct contrast takes whereas.",
+       "why_fa": "تضاد مستقیم whereas می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "He drives, while she takes the train.",
+        "He drives, while she taking the train.",
+        "He drives while, she takes the train."
+       ],
+       "answer": "He drives, while she takes the train.",
+       "why_en": "Both sides are full clauses with a comma before while.",
+       "why_fa": "هر دو طرف جملهٔ کامل‌اند و پیش از while ویرگول می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 146,
+     "title": "Conditions in adverb clauses: if",
+     "title_fa": "شرط در جمله‌های قیدی: if",
+     "chapter": "Chapter 17",
+     "section": "17-6",
+     "use_en": "An if-clause states the condition for the main clause to happen: if it rains, we will stay home. The if-clause takes the present tense when the main clause is about the future, and the main clause carries will. The comma separates the clause when it comes first, and the order can be reversed without changing the meaning.",
+     "use_fa": "جملهٔ if شرطی را می‌گوید که جملهٔ اصلی به آن بستگی دارد: if it rains, we will stay home. جملهٔ if وقتی جملهٔ اصلی دربارهٔ آینده است فعل حال می‌گیرد و جملهٔ اصلی will دارد. اگر جملهٔ شرط اول بیاید ویرگول جدا می‌کند و جابه‌جایی ترتیب معنا را عوض نمی‌کند.",
+     "form_en": "if + present, + main clause with will  ·  main clause + if + present",
+     "examples": [
+      {
+       "en": "If it rains, we will stay home.",
+       "fa": "اگر باران ببارد، خانه می‌مانیم."
+      },
+      {
+       "en": "We will stay home if it rains.",
+       "fa": "اگر باران ببارد خانه می‌مانیم."
+      },
+      {
+       "en": "If you need help, call me.",
+       "fa": "اگر کمک لازم داشتی به من زنگ بزن."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If the train ___ late, we will miss the film. (be)",
+       "answer": "is",
+       "why_en": "An if-clause about the future stays in the present.",
+       "why_fa": "جملهٔ if دربارهٔ آینده در حال می‌ماند."
+      },
+      {
+       "prompt": "We will cancel the trip if it ___ . (snow)",
+       "answer": "snows",
+       "why_en": "The present simple carries the future meaning.",
+       "why_fa": "حال ساده معنای آینده را می‌رساند."
+      },
+      {
+       "prompt": "If you ___ tired, go to bed. (feel)",
+       "answer": "feel",
+       "why_en": "An instruction after if also takes the present.",
+       "why_fa": "دستور پس از if هم حال می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "If it ___ tomorrow, we will go out.",
+       "options": [
+        "does not rain",
+        "will not rain",
+        "not rain"
+       ],
+       "answer": "does not rain",
+       "why_en": "The condition stays in the present.",
+       "why_fa": "شرط در زمان حال می‌ماند."
+      },
+      {
+       "q": "I will help you if you ___ me.",
+       "options": [
+        "ask",
+        "will ask",
+        "asked"
+       ],
+       "answer": "ask",
+       "why_en": "A present verb follows if in a real condition.",
+       "why_fa": "در شرط واقعی پس از if فعل حال می‌آید."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "If you are late, we will start without you.",
+        "If you will be late, we will start without you.",
+        "If you be late, we will start without you."
+       ],
+       "answer": "If you are late, we will start without you.",
+       "why_en": "No will inside the if-clause.",
+       "why_fa": "در جملهٔ if هیچ will نمی‌آید."
+      }
+     ]
+    },
+    {
+     "n": 147,
+     "title": "Shortened if-clauses: if necessary, if possible",
+     "title_fa": "جمله‌های if کوتاه‌شده: if necessary، if possible",
+     "chapter": "Chapter 17",
+     "section": "17-7",
+     "use_en": "When the subject and the verb be would repeat what is already understood, an if-clause can shrink to if plus an adjective or a participle: if necessary, if possible, if needed, if required, if not, if so. These are fixed phrases rather than new grammar, and they keep the sentence short without losing the condition.",
+     "use_fa": "وقتی فاعل و فعل be چیزی را تکرار می‌کنند که از پیش روشن است، جملهٔ if می‌تواند به if و یک صفت یا اسم مفعول کوتاه شود: if necessary، if possible، if needed، if required، if not، if so. این‌ها عبارت‌های ثابت‌اند نه دستور تازه، و جمله را کوتاه نگه می‌دارند بی‌آنکه شرط از دست برود.",
+     "form_en": "if + adjective / participle  ·  if necessary, if possible, if needed, if not",
+     "examples": [
+      {
+       "en": "Call me if necessary.",
+       "fa": "اگر لازم شد به من زنگ بزن."
+      },
+      {
+       "en": "We will send the file today, if possible.",
+       "fa": "اگر ممکن باشد امروز فایل را می‌فرستیم."
+      },
+      {
+       "en": "Take an umbrella, if needed.",
+       "fa": "اگر لازم شد چتر بردار."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Finish it today if ___ . (possible)",
+       "answer": "possible",
+       "why_en": "The shortened clause keeps only the adjective.",
+       "why_fa": "جملهٔ کوتاه‌شده تنها صفت را نگه می‌دارد."
+      },
+      {
+       "prompt": "We can meet tomorrow if ___ . (necessary)",
+       "answer": "necessary",
+       "why_en": "If plus an adjective replaces the full clause.",
+       "why_fa": "if و صفت جای جملهٔ کامل را می‌گیرد."
+      },
+      {
+       "prompt": "Bring your passport, if ___ . (require)",
+       "answer": "required",
+       "why_en": "A participle can follow if in the shortened form.",
+       "why_fa": "اسم مفعول می‌تواند در شکل کوتاه پس از if بیاید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Send the report today if ___.",
+       "options": [
+        "possible",
+        "it possible",
+        "is possible"
+       ],
+       "answer": "possible",
+       "why_en": "The shortened clause drops the subject and be.",
+       "why_fa": "جملهٔ کوتاه‌شده فاعل و be را حذف می‌کند."
+      },
+      {
+       "q": "Which phrase is a shortened if-clause?",
+       "options": [
+        "if necessary",
+        "if it necessaries",
+        "if the necessary"
+       ],
+       "answer": "if necessary",
+       "why_en": "The fixed phrase keeps only the adjective.",
+       "why_fa": "عبارت ثابت تنها صفت را نگه می‌دارد."
+      },
+      {
+       "q": "We will pay extra if ___.",
+       "options": [
+        "required",
+        "requiring",
+        "require"
+       ],
+       "answer": "required",
+       "why_en": "A past participle fits the shortened condition.",
+       "why_fa": "اسم مفعول در شرط کوتاه می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 148,
+     "title": "Whether or not and even if",
+     "title_fa": "whether or not و even if",
+     "chapter": "Chapter 17",
+     "section": "17-8",
+     "use_en": "Whether or not says that the result stands in both cases: whether or not it rains, the match will be played. It is not the same as if, which leaves the result open. Even if accepts the condition and says the result does not change: even if you pay me, I will not do it. The clause still takes the present tense when the main clause is in the future.",
+     "use_fa": "whether or not می‌گوید نتیجه در هر دو حالت برقرار است: whether or not it rains, the match will be played. این با if یکی نیست، چون if نتیجه را باز می‌گذارد. even if شرط را می‌پذیرد و می‌گوید نتیجه عوض نمی‌شود: even if you pay me, I will not do it. جمله هنوز وقتی جملهٔ اصلی آینده است فعل حال می‌گیرد.",
+     "form_en": "whether or not + subject + verb  ·  even if + subject + verb",
+     "examples": [
+      {
+       "en": "Whether or not it rains, the match will be played.",
+       "fa": "چه باران ببارد چه نه، مسابقه برگزار می‌شود."
+      },
+      {
+       "en": "Even if you pay me, I will not do it.",
+       "fa": "حتی اگر پول هم بدهی این کار را نمی‌کنم."
+      },
+      {
+       "en": "I will go, even if nobody comes with me.",
+       "fa": "می‌روم، حتی اگر هیچ‌کس همراهم نیاید."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ or not she agrees, the plan goes ahead. (both cases)",
+       "answer": "Whether",
+       "why_en": "Both outcomes standing takes whether or not.",
+       "why_fa": "برقراری هر دو حالت whether or not می‌گیرد."
+      },
+      {
+       "prompt": "___ if it costs more, we need the better model. (result unchanged)",
+       "answer": "Even",
+       "why_en": "Even if says the result does not change.",
+       "why_fa": "even if می‌گوید نتیجه عوض نمی‌شود."
+      },
+      {
+       "prompt": "Whether or not you ___ , call me tonight. (come)",
+       "answer": "come",
+       "why_en": "The clause stays in the present tense.",
+       "why_fa": "جمله در زمان حال می‌ماند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ or not he calls, we will leave at six.",
+       "options": [
+        "Whether",
+        "Even",
+        "If"
+       ],
+       "answer": "Whether",
+       "why_en": "Both cases take whether or not.",
+       "why_fa": "هر دو حالت whether or not می‌گیرد."
+      },
+      {
+       "q": "___ if it rains, the event will go on.",
+       "options": [
+        "Even",
+        "Whether",
+        "Unless"
+       ],
+       "answer": "Even",
+       "why_en": "The result is unchanged, so even if.",
+       "why_fa": "نتیجه عوض نمی‌شود، پس even if."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "I will finish it whether or not you help me.",
+        "I will finish it whether or not you will help me.",
+        "I will finish it whether or not you helping me."
+       ],
+       "answer": "I will finish it whether or not you help me.",
+       "why_en": "The condition clause stays in the present.",
+       "why_fa": "جملهٔ شرط در حال می‌ماند."
+      }
+     ]
+    },
+    {
+     "n": 149,
+     "title": "In case: doing something to be ready",
+     "title_fa": "in case: کاری برای آماده بودن",
+     "chapter": "Chapter 17",
+     "section": "17-9",
+     "use_en": "In case says that you take an action because something might happen later: take an umbrella in case it rains. It is not the same as if. If reports a condition that decides the action; in case reports a precaution, and the action happens whether or not the event does. In case is never followed by will, and it is never written as two words meaning if.",
+     "use_fa": "in case می‌گوید کاری می‌کنید چون ممکن است بعداً چیزی رخ دهد: take an umbrella in case it rains. این با if یکی نیست. if شرطی را می‌گوید که تصمیم را تعیین می‌کند و in case احتیاطی را می‌گوید؛ کار انجام می‌شود، خواه آن رویداد رخ دهد خواه نه. پس از in case هرگز will نمی‌آید.",
+     "form_en": "action + in case + subject + verb (present)  ·  not a substitute for if",
+     "examples": [
+      {
+       "en": "Take an umbrella in case it rains.",
+       "fa": "چتر بردار که مبادا باران ببارد."
+      },
+      {
+       "en": "I will leave early in case the roads are busy.",
+       "fa": "زود راه می‌افتم که مبادا جاده‌ها شلوغ باشند."
+      },
+      {
+       "en": "Write it down in case you forget.",
+       "fa": "یادداشتش کن که مبادا فراموش کنی."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Take some money ___ you need a taxi. (precaution)",
+       "answer": "in case",
+       "why_en": "A precaution takes in case.",
+       "why_fa": "احتیاط in case می‌گیرد."
+      },
+      {
+       "prompt": "I'll charge the phone ___ the battery runs out. (precaution)",
+       "answer": "in case",
+       "why_en": "In case introduces what might happen later.",
+       "why_fa": "in case چیزی را می‌آورد که ممکن است بعداً رخ دهد."
+      },
+      {
+       "prompt": "Bring a jacket ___ it gets cold. (precaution)",
+       "answer": "in case",
+       "why_en": "In case does not decide the action, it prepares for it.",
+       "why_fa": "in case تصمیم را تعیین نمی‌کند، آماده می‌کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Take a map ___ you get lost.",
+       "options": [
+        "in case",
+        "if",
+        "unless"
+       ],
+       "answer": "in case",
+       "why_en": "A precaution for something possible is in case.",
+       "why_fa": "احتیاط برای امر ممکن in case است."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "I'll wait here in case she comes.",
+        "I'll wait here in case she will come.",
+        "I'll wait here in case she coming."
+       ],
+       "answer": "I'll wait here in case she comes.",
+       "why_en": "In case is followed by the present tense.",
+       "why_fa": "پس از in case فعل حال می‌آید."
+      },
+      {
+       "q": "How is in case different from if?",
+       "options": [
+        "It describes a precaution, not a condition.",
+        "It is more formal.",
+        "It means unless."
+       ],
+       "answer": "It describes a precaution, not a condition.",
+       "why_en": "The action happens either way.",
+       "why_fa": "کار در هر حال انجام می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 150,
+     "title": "Unless: if not",
+     "title_fa": "unless: اگر نه",
+     "chapter": "Chapter 17",
+     "section": "17-10",
+     "use_en": "Unless means if not and carries the negative itself, so the clause after it stays positive: we will go unless it rains, not unless it does not rain. It is common in speech and in rules, and it is best avoided when the sentence already has another negative, because two negatives make the meaning hard to follow.",
+     "use_fa": "unless یعنی «اگر نه» و خودش منفی را با خود دارد، پس جملهٔ پس از آن مثبت می‌ماند: we will go unless it rains و نه unless it does not rain. در گفتار و در قاعده‌ها رایج است و بهتر است وقتی جمله منفی دیگری دارد به کار نرود، چون دو منفی معنا را سخت می‌کند.",
+     "form_en": "unless + positive clause  ·  unless = if not",
+     "examples": [
+      {
+       "en": "We will go unless it rains.",
+       "fa": "اگر باران نبارد می‌رویم."
+      },
+      {
+       "en": "You cannot enter unless you have a ticket.",
+       "fa": "بدون بلیت نمی‌توانی وارد شوی."
+      },
+      {
+       "en": "Unless she calls, we will start without her.",
+       "fa": "اگر زنگ نزند بی او شروع می‌کنیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I won't go ___ you come with me. (if not)",
+       "answer": "unless",
+       "why_en": "Unless carries the negative meaning.",
+       "why_fa": "unless معنای منفی را با خود دارد."
+      },
+      {
+       "prompt": "___ you hurry, you will miss the train. (if not)",
+       "answer": "Unless",
+       "why_en": "The clause after unless stays positive.",
+       "why_fa": "جملهٔ پس از unless مثبت می‌ماند."
+      },
+      {
+       "prompt": "We cannot finish ___ we get more time. (if not)",
+       "answer": "unless",
+       "why_en": "Unless replaces if not in one word.",
+       "why_fa": "unless جای if not را می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ you study, you will not pass.",
+       "options": [
+        "Unless",
+        "If",
+        "In case"
+       ],
+       "answer": "Unless",
+       "why_en": "The meaning is if not, so unless.",
+       "why_fa": "معنا «اگر نه» است، پس unless."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "We will go unless it rains.",
+        "We will go unless it does not rain.",
+        "We will go unless it will rain."
+       ],
+       "answer": "We will go unless it rains.",
+       "why_en": "Unless already means if not, and takes the present.",
+       "why_fa": "unless خودش «اگر نه» است و حال می‌گیرد."
+      },
+      {
+       "q": "Unless is closest in meaning to ___.",
+       "options": [
+        "if not",
+        "even if",
+        "in case"
+       ],
+       "answer": "if not",
+       "why_en": "Unless is the negative of if.",
+       "why_fa": "unless منفیِ if است."
+      }
+     ]
+    },
+    {
+     "n": 151,
+     "title": "Only if: one condition and no other",
+     "title_fa": "only if: تنها یک شرط و نه هیچ شرط دیگر",
+     "chapter": "Chapter 17",
+     "section": "17-11",
+     "use_en": "Only if narrows the condition to one: you can borrow the car only if you fill the tank. When only if opens the sentence, the main clause takes inverted word order: only if you fill the tank can you borrow the car. It is stronger than if, and it is the opposite of even if, which accepts conditions without changing the result.",
+     "use_fa": "only if شرط را به یکی محدود می‌کند: you can borrow the car only if you fill the tank. اگر only if جمله را آغاز کند، جملهٔ اصلی ترتیب وارونه می‌گیرد: only if you fill the tank can you borrow the car. این از if قوی‌تر است و متضاد even if است که شرط را می‌پذیرد بی‌آنکه نتیجه عوض شود.",
+     "form_en": "main clause + only if + condition  ·  only if + condition, + inverted main clause",
+     "examples": [
+      {
+       "en": "You can borrow the car only if you fill the tank.",
+       "fa": "تنها اگر باک را پر کنی می‌توانی ماشین را قرض بگیری."
+      },
+      {
+       "en": "Only if you fill the tank can you borrow the car.",
+       "fa": "تنها در صورتی که باک را پر کنی می‌توانی ماشین را بگیری."
+      },
+      {
+       "en": "The plan works only if everyone agrees.",
+       "fa": "طرح تنها وقتی جواب می‌دهد که همه موافق باشند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "You may leave only ___ you finish the work. (one condition)",
+       "answer": "if",
+       "why_en": "Only if restricts the condition to one.",
+       "why_fa": "only if شرط را به یکی محدود می‌کند."
+      },
+      {
+       "prompt": "Only if we leave now ___ we catch the train. (inverted)",
+       "answer": "can",
+       "why_en": "An opening only if inverts the main clause.",
+       "why_fa": "only if در آغاز جملهٔ اصلی را وارونه می‌کند."
+      },
+      {
+       "prompt": "She speaks only ___ she has something to say. (condition)",
+       "answer": "if",
+       "why_en": "Only if states the single condition.",
+       "why_fa": "only if شرط یگانه را می‌گوید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ if you book early can you get a discount.",
+       "options": [
+        "Only",
+        "Even",
+        "Unless"
+       ],
+       "answer": "Only",
+       "why_en": "Only if opens the sentence and inverts the clause.",
+       "why_fa": "only if جمله را باز می‌کند و آن را وارونه می‌سازد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "Only if you ask will she help.",
+        "Only if you ask she will help.",
+        "Only if you will ask she helps."
+       ],
+       "answer": "Only if you ask will she help.",
+       "why_en": "The opening only if takes inverted order.",
+       "why_fa": "only if در آغاز ترتیب وارونه می‌گیرد."
+      },
+      {
+       "q": "Only if is the opposite of ___.",
+       "options": [
+        "even if",
+        "unless",
+        "in case"
+       ],
+       "answer": "even if",
+       "why_en": "Only if restricts; even if accepts the condition without changing the result.",
+       "why_fa": "only if محدود می‌کند و even if شرط را می‌پذیرد."
+      }
+     ]
+    },
+    {
+     "n": 152,
+     "title": "Reducing an adverb clause to a phrase: an introduction",
+     "title_fa": "کوتاه‌کردن جملهٔ قیدی به عبارت: درآمد",
+     "chapter": "Chapter 18",
+     "section": "18-1",
+     "use_en": "When the subject of the adverb clause is the same as the subject of the main clause, the clause can lose its subject and its verb be, or its subordinator and its subject, and become a phrase: while I was walking home becomes while walking home. The phrase keeps a participle and the meaning of the clause. If the two subjects are different, the reduction is not possible, because the reader would attach the phrase to the wrong person.",
+     "use_fa": "وقتی فاعل جملهٔ قیدی با فاعل جملهٔ اصلی یکی است، جمله می‌تواند فاعل و فعل be خود را از دست بدهد، یا حرف ربط و فاعلش را، و به عبارت تبدیل شود: while I was walking home به while walking home تبدیل می‌شود. عبارت اسم مفعول یا اسم فاعل را نگه می‌دارد و معنای جمله را. اگر فاعل‌ها متفاوت باشند کوتاه‌سازی ممکن نیست، چون خواننده عبارت را به شخص نادرست نسبت می‌دهد.",
+     "form_en": "while / when / because / after + subject + be → conjunction + -ing  ·  same subject required",
+     "examples": [
+      {
+       "en": "While walking home, I met an old friend.",
+       "fa": "در راه خانه دوست قدیمی‌ای دیدم."
+      },
+      {
+       "en": "Because she was tired, she went to bed early.",
+       "fa": "چون خسته بود زود به رختخواب رفت."
+      },
+      {
+       "en": "After finishing the report, he called his manager.",
+       "fa": "پس از تمام کردن گزارش به مدیرش زنگ زد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "While ___ for the bus, I read the news. (wait)",
+       "answer": "waiting",
+       "why_en": "The clause loses its subject and be, keeping the participle.",
+       "why_fa": "جمله فاعل و be را از دست می‌دهد و اسم فاعل می‌ماند."
+      },
+      {
+       "prompt": "Before ___ the meeting, she checked her notes. (start)",
+       "answer": "starting",
+       "why_en": "Before plus a gerund replaces the clause.",
+       "why_fa": "before و اسم مصدر جای جمله را می‌گیرد."
+      },
+      {
+       "prompt": "The phrase only works when the two subjects are ___ .",
+       "answer": "the same",
+       "why_en": "A different subject makes the phrase ambiguous.",
+       "why_fa": "فاعل متفاوت عبارت را مبهم می‌کند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence can be reduced?",
+       "options": [
+        "While I was waiting, I read a book.",
+        "While I waited, she read a book.",
+        "She read while I waited."
+       ],
+       "answer": "While I was waiting, I read a book.",
+       "why_en": "The two subjects are the same, so the clause can shrink.",
+       "why_fa": "دو فاعل یکی‌اند، پس جمله کوتاه می‌شود."
+      },
       {
        "q": "After ___ the letter, he posted it.",
        "options": [
@@ -28300,188 +29101,1836 @@
         "wrote"
        ],
        "answer": "writing",
-       "why_en": "After with a shared subject takes -ing.",
-       "why_fa": "after با فاعل مشترک ing می‌گیرد."
+       "why_en": "The reduced clause keeps the -ing form.",
+       "why_fa": "جملهٔ کوتاه‌شده شکل ing- را نگه می‌دارد."
       },
       {
-       "q": "___ driving home, she listened to music.",
+       "q": "Why can a phrase be wrong here? — While driving home, the tree fell.",
        "options": [
-        "While",
-        "During",
-        "When she"
+        "The tree was not driving.",
+        "The sentence has no verb.",
+        "Driving is not a participle."
        ],
-       "answer": "While",
-       "why_en": "While introduces the -ing phrase; during takes a noun.",
-       "why_fa": "while عبارت ing را می‌آورد؛ during اسم می‌گیرد."
+       "answer": "The tree was not driving.",
+       "why_en": "The subject of the phrase must be the subject of the sentence.",
+       "why_fa": "فاعل عبارت باید فاعل جمله باشد."
+      }
+     ]
+    },
+    {
+     "n": 153,
+     "title": "Turning a time clause into a modifying phrase",
+     "title_fa": "تبدیل جملهٔ زمانی به عبارت وصفی",
+     "chapter": "Chapter 18",
+     "section": "18-2",
+     "use_en": "When the time clause has the same subject and a form of be, drop both and keep the -ing form: when he was leaving the office, he saw the message becomes leaving the office, he saw the message. The subordinator can stay for clarity: while leaving the office, he saw the message. The phrase describes when the main action happened, and it sits at the front or the end of the sentence.",
+     "use_fa": "وقتی جملهٔ زمانی فاعل یکسان و شکلی از be دارد، هر دو را حذف کنید و شکل ing- را نگه دارید: when he was leaving the office, he saw the message به leaving the office, he saw the message تبدیل می‌شود. حرف ربط می‌تواند برای روشنی بماند: while leaving the office, he saw the message. عبارت می‌گوید کار اصلی کِی رخ داد و در آغاز یا پایان جمله می‌نشیند.",
+     "form_en": "when / while + subject + be + -ing → (while) + -ing  ·  phrase at either end",
+     "examples": [
+      {
+       "en": "Leaving the office, he saw the message.",
+       "fa": "در حال ترک دفتر، پیام را دید."
       },
       {
-       "q": "___ seen the movie twice, he knew the ending.",
+       "en": "While leaving the office, he saw the message.",
+       "fa": "هنگام ترک دفتر پیام را دید."
+      },
+      {
+       "en": "She hurt her ankle while playing tennis.",
+       "fa": "هنگام تنیس بازی کردن مچ پایش آسیب دید."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "When ___ the room, she turned off the lights. (leave)",
+       "answer": "leaving",
+       "why_en": "The reduced time clause keeps the -ing form.",
+       "why_fa": "جملهٔ زمانی کوتاه‌شده شکل ing- را نگه می‌دارد."
+      },
+      {
+       "prompt": "___ walking to work, I listen to podcasts. (time)",
+       "answer": "While",
+       "why_en": "While can stay in the phrase for clarity.",
+       "why_fa": "while می‌تواند برای روشنی در عبارت بماند."
+      },
+      {
+       "prompt": "He fell asleep ___ watching television. (time)",
+       "answer": "while",
+       "why_en": "While marks the action in progress.",
+       "why_fa": "while کار در جریان را نشان می‌دهد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ entering the building, she showed her pass.",
+       "options": [
+        "When",
+        "When she",
+        "When was"
+       ],
+       "answer": "When",
+       "why_en": "The reduced clause keeps the subordinator and the participle.",
+       "why_fa": "جملهٔ کوتاه‌شده حرف ربط و اسم فاعل را نگه می‌دارد."
+      },
+      {
+       "q": "Which phrase is correct?",
+       "options": [
+        "Walking home, I saw a friend.",
+        "Walk home, I saw a friend.",
+        "Walked home, I saw a friend."
+       ],
+       "answer": "Walking home, I saw a friend.",
+       "why_en": "An active time clause reduces to -ing.",
+       "why_fa": "جملهٔ زمانی معلوم به ing- کوتاه می‌شود."
+      },
+      {
+       "q": "While ___ the dishes, he dropped a glass.",
+       "options": [
+        "washing",
+        "wash",
+        "washed"
+       ],
+       "answer": "washing",
+       "why_en": "The action in progress takes the -ing form.",
+       "why_fa": "کار در جریان شکل ing- می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 154,
+     "title": "Phrases that say two things happened at the same time",
+     "title_fa": "عبارت‌هایی که می‌گویند دو کار هم‌زمان رخ داد",
+     "chapter": "Chapter 18",
+     "section": "18-3",
+     "use_en": "Two actions by the same person at the same moment can be expressed with one -ing phrase and one main verb: she sat at the desk reading a letter, or reading a letter, she sat at the desk. While or as can make the simultaneity explicit. A sentence with two -ing phrases is possible but heavy, and English usually keeps one action in the main verb.",
+     "use_fa": "دو کار یک شخص در یک لحظه را می‌توان با یک عبارت ing- و یک فعل اصلی گفت: she sat at the desk reading a letter، یا reading a letter, she sat at the desk. while یا as هم‌زمانی را روشن‌تر می‌کند. جمله با دو عبارت ing- ممکن است اما سنگین است و انگلیسی معمولاً یک کار را در فعل اصلی نگه می‌دارد.",
+     "form_en": "main clause + -ing phrase (same time)  ·  (while / as) + -ing, + main clause",
+     "examples": [
+      {
+       "en": "She sat at the desk reading a letter.",
+       "fa": "پشت میز نشسته بود و نامه می‌خواند."
+      },
+      {
+       "en": "Reading a letter, she sat at the desk.",
+       "fa": "در حال خواندن نامه، پشت میز نشست."
+      },
+      {
+       "en": "He listened to music while cooking dinner.",
+       "fa": "هنگام پختن شام موسیقی گوش می‌داد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She stood by the window ___ the rain. (watch)",
+       "answer": "watching",
+       "why_en": "The same-time action takes the -ing phrase.",
+       "why_fa": "کار هم‌زمان عبارت ing- می‌گیرد."
+      },
+      {
+       "prompt": "He whistled ___ working. (same time)",
+       "answer": "while",
+       "why_en": "While makes the simultaneity explicit.",
+       "why_fa": "while هم‌زمانی را روشن می‌کند."
+      },
+      {
+       "prompt": "___ dinner, they talked about the trip. (cook)",
+       "answer": "Cooking",
+       "why_en": "The phrase at the front names the simultaneous action.",
+       "why_fa": "عبارت در آغاز کار هم‌زمان را می‌گوید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She sat by the fire ___ a book.",
+       "options": [
+        "reading",
+        "read",
+        "to read"
+       ],
+       "answer": "reading",
+       "why_en": "Two simultaneous actions take one -ing phrase.",
+       "why_fa": "دو کار هم‌زمان یک عبارت ing- می‌گیرند."
+      },
+      {
+       "q": "Which sentence says the two actions happened together?",
+       "options": [
+        "He sang while washing the car.",
+        "He sang, then washed the car.",
+        "He sang before washing the car."
+       ],
+       "answer": "He sang while washing the car.",
+       "why_en": "While marks the same time.",
+       "why_fa": "while هم‌زمانی را نشان می‌دهد."
+      },
+      {
+       "q": "___ the news, she started to cry.",
+       "options": [
+        "Hearing",
+        "Heard",
+        "Hear"
+       ],
+       "answer": "Hearing",
+       "why_en": "The same-time action is an -ing phrase.",
+       "why_fa": "کار هم‌زمان عبارت ing- است."
+      }
+     ]
+    },
+    {
+     "n": 155,
+     "title": "Cause-and-effect phrases: having finished, not knowing",
+     "title_fa": "عبارت‌های علت و اثر: having finished، not knowing",
+     "chapter": "Chapter 18",
+     "section": "18-4",
+     "use_en": "A reason clause can also be reduced: because she had finished the report becomes having finished the report, and because he did not know the way becomes not knowing the way. Having plus a past participle puts the cause before the main action, and the negative is not plus the -ing form. These phrases belong to writing, where they save a clause without losing the reason.",
+     "use_fa": "جملهٔ دلیل هم می‌تواند کوتاه شود: because she had finished the report به having finished the report و because he did not know the way به not knowing the way تبدیل می‌شود. having و اسم مفعول علت را پیش از کار اصلی می‌گذارد و منفی آن not و شکل ing- است. این عبارت‌ها به نوشتار تعلق دارند، جایی که یک جمله را بی از دست دادن دلیل کوتاه می‌کنند.",
+     "form_en": "having + past participle (earlier cause)  ·  not + -ing (negative cause)",
+     "examples": [
+      {
+       "en": "Having finished the report, she went home.",
+       "fa": "پس از تمام کردن گزارش به خانه رفت."
+      },
+      {
+       "en": "Not knowing the way, he asked a policeman.",
+       "fa": "چون راه را نمی‌دانست از پلیسی پرسید."
+      },
+      {
+       "en": "Having missed the bus, they walked.",
+       "fa": "چون اتوبوس را از دست داده بودند پیاده رفتند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ eaten, we paid the bill. (earlier cause)",
+       "answer": "Having",
+       "why_en": "The earlier cause takes having plus the participle.",
+       "why_fa": "علت پیش‌تر having و اسم مفعول می‌گیرد."
+      },
+      {
+       "prompt": "___ knowing the answer, she said nothing. (negative)",
+       "answer": "Not",
+       "why_en": "The negative cause begins with not.",
+       "why_fa": "علت منفی با not آغاز می‌شود."
+      },
+      {
+       "prompt": "___ finished the work, he left early. (cause)",
+       "answer": "Having",
+       "why_en": "Having plus the participle reports a completed action.",
+       "why_fa": "having و اسم مفعول کار تمام‌شده را می‌گوید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ lost the keys, she called a locksmith.",
        "options": [
         "Having",
         "Have",
-        "After"
+        "To have"
        ],
        "answer": "Having",
-       "why_en": "Having + past participle marks the earlier completed action.",
-       "why_fa": "having + اسم مفعول کارِ قبلیِ تمام‌شده را نشان می‌دهد."
+       "why_en": "A cause that happened first takes having.",
+       "why_fa": "علتی که پیش‌تر رخ داده having می‌گیرد."
+      },
+      {
+       "q": "___ feeling well, he stayed home.",
+       "options": [
+        "Not",
+        "No",
+        "None"
+       ],
+       "answer": "Not",
+       "why_en": "The negative phrase begins with not.",
+       "why_fa": "عبارت منفی با not آغاز می‌شود."
+      },
+      {
+       "q": "Which sentence gives the cause in a phrase?",
+       "options": [
+        "Having missed the train, they waited.",
+        "They missed the train and waited.",
+        "They waited because the train."
+       ],
+       "answer": "Having missed the train, they waited.",
+       "why_en": "The phrase states the reason for waiting.",
+       "why_fa": "عبارت دلیل انتظار را می‌گوید."
       }
      ]
     },
     {
-     "n": 143,
-     "title": "Connectives: because of, therefore, so that, otherwise",
-     "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
-     "chapter": "Chapter 19",
-     "section": "19-2",
-     "use_en": "Because of and due to take a noun; therefore, consequently and so join a result; so that gives a purpose; otherwise and or else give a condition.",
-     "use_fa": "because of و due to اسم می‌گیرند؛ therefore، consequently و so نتیجه را وصل می‌کنند؛ so that هدف را می‌گوید؛ otherwise و or else شرط را می‌سازند.",
-     "form_en": "because of + noun   |   sentence; therefore, sentence   |   so that + subject + modal",
+     "n": 156,
+     "title": "Upon + -ing: as soon as one thing happened",
+     "title_fa": "upon + ing-: به محض رخ دادن چیزی",
+     "chapter": "Chapter 18",
+     "section": "18-5",
+     "use_en": "Upon plus a gerund means immediately after, and it is the formal way of saying as soon as: upon arriving, he called his family. On works the same way and is a little less formal. The pattern is common in reports and stories, and it always describes the same subject as the main clause, so the two must match.",
+     "use_fa": "upon به‌همراه اسم مصدر یعنی «بلافاصله پس از» و شکل رسمی as soon as است: upon arriving, he called his family. on هم همین کار را می‌کند و کمی کم‌رسمی‌تر است. این الگو در گزارش‌ها و داستان‌ها رایج است و همیشه همان فاعل جملهٔ اصلی را می‌گوید، پس دو فاعل باید یکی باشند.",
+     "form_en": "upon / on + -ing  ·  same subject as the main clause",
      "examples": [
       {
-       "en": "The flight was canceled because of the fog.",
-       "fa": "پرواز به‌خاطر مه لغو شد."
+       "en": "Upon arriving, he called his family.",
+       "fa": "به محض رسیدن به خانواده‌اش زنگ زد."
       },
       {
-       "en": "The road was closed; therefore, we took the train.",
-       "fa": "جاده بسته بود؛ بنابراین با قطار رفتیم."
+       "en": "On hearing the news, she left immediately.",
+       "fa": "به محض شنیدن خبر فوراً رفت."
       },
       {
-       "en": "Leave now, otherwise you will miss the bus.",
-       "fa": "حالا راه بیفت، وگرنه اتوبوس را از دست می‌دهی."
+       "en": "Upon finishing the course, they received a certificate.",
+       "fa": "به محض تمام کردن دوره گواهی گرفتند."
       }
      ],
      "exercises": [
       {
-       "prompt": "We stayed home ___ the heavy rain.",
-       "answer": "because of",
-       "why_en": "A noun phrase (the heavy rain) follows, so because of.",
-       "why_fa": "پس از آن عبارت اسمی (the heavy rain) می‌آید، پس because of."
+       "prompt": "___ receiving the letter, she replied. (immediately after)",
+       "answer": "Upon",
+       "why_en": "Upon plus the gerund means immediately after.",
+       "why_fa": "upon و اسم مصدر یعنی بلافاصله پس از."
       },
       {
-       "prompt": "She studied hard; ___, she passed easily.",
-       "answer": "therefore",
-       "why_en": "A result after a semicolon takes therefore.",
-       "why_fa": "نتیجه پس از نقطه‌ویرگول با therefore می‌آید."
+       "prompt": "___ arriving at the hotel, we checked in. (formal)",
+       "answer": "Upon",
+       "why_en": "The formal form of as soon as is upon.",
+       "why_fa": "شکل رسمی as soon as همان upon است."
       },
       {
-       "prompt": "Write it down ___ you do not forget.",
-       "answer": "so that",
-       "why_en": "A purpose before a subject and modal takes so that.",
-       "why_fa": "هدف پیش از فاعل و فعل کمکی با so that بیان می‌شود."
+       "prompt": "She smiled ___ seeing the photograph. (immediately after)",
+       "answer": "on",
+       "why_en": "On plus the gerund is the less formal form.",
+       "why_fa": "on و اسم مصدر شکل کم‌رسمی‌تر است."
       }
      ],
      "exam": [
       {
-       "q": "___ the strike, all trains stopped.",
+       "q": "___ opening the box, he found the letter.",
        "options": [
-        "Because of",
+        "Upon",
+        "While",
+        "During"
+       ],
+       "answer": "Upon",
+       "why_en": "Immediately after an action takes upon.",
+       "why_fa": "بلافاصله پس از کار upon می‌گیرد."
+      },
+      {
+       "q": "Which phrase means as soon as he arrived?",
+       "options": [
+        "Upon arriving",
+        "While arriving",
+        "Before arriving"
+       ],
+       "answer": "Upon arriving",
+       "why_en": "Upon marks the moment right after.",
+       "why_fa": "upon لحظهٔ بلافاصله پس از را نشان می‌دهد."
+      },
+      {
+       "q": "___ hearing the alarm, everyone left the building.",
+       "options": [
+        "On",
+        "In",
+        "At"
+       ],
+       "answer": "On",
+       "why_en": "On plus the gerund means immediately after.",
+       "why_fa": "on و اسم مصدر یعنی بلافاصله پس از."
+      }
+     ]
+    },
+    {
+     "n": 157,
+     "title": "Connectives: linking a cause to its result",
+     "title_fa": "واژه‌های پیوند: پیوند دادن علت به نتیجه",
+     "chapter": "Chapter 19",
+     "section": "19-1",
+     "use_en": "A cause and its result can be joined in three ways, and the grammar decides the punctuation. A clause with because keeps both parts in one sentence. A phrase with because of needs a noun. A connective such as therefore starts a new sentence or follows a semicolon. Choosing among them is a question of how much weight the result deserves, not of formality alone.",
+     "use_fa": "علت و نتیجه را می‌توان به سه شکل به هم پیوند داد و دستور، نگارش را تعیین می‌کند. جمله با because هر دو بخش را در یک جمله نگه می‌دارد. عبارت با because of اسم لازم دارد. واژه‌ای مانند therefore جملهٔ تازه‌ای آغاز می‌کند یا پس از نقطه‌ویرگول می‌آید. انتخاب میان آن‌ها پرسش وزن نتیجه است، نه تنها رسمیت.",
+     "form_en": "clause + because + clause  ·  because of + noun  ·  clause; therefore, + clause",
+     "examples": [
+      {
+       "en": "The flight was cancelled because the airport was closed.",
+       "fa": "پرواز لغو شد چون فرودگاه بسته بود."
+      },
+      {
+       "en": "The flight was cancelled because of the snow.",
+       "fa": "پرواز به دلیل برف لغو شد."
+      },
+      {
+       "en": "The airport was closed; therefore, the flight was cancelled.",
+       "fa": "فرودگاه بسته بود؛ بنابراین پرواز لغو شد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The game stopped ___ the rain. (before a noun)",
+       "answer": "because of",
+       "why_en": "A noun needs because of.",
+       "why_fa": "اسم because of می‌خواهد."
+      },
+      {
+       "prompt": "He was late ___ the bus broke down. (clause)",
+       "answer": "because",
+       "why_en": "A clause needs because.",
+       "why_fa": "جمله because می‌خواهد."
+      },
+      {
+       "prompt": "The road was flooded; ___ , we turned back. (result)",
+       "answer": "therefore",
+       "why_en": "Therefore opens the result after a semicolon.",
+       "why_fa": "therefore نتیجه را پس از نقطه‌ویرگول می‌آورد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "We stayed in because of the storm.",
+        "We stayed in because of it stormed.",
+        "We stayed in because the storm."
+       ],
+       "answer": "We stayed in because of the storm.",
+       "why_en": "Because of takes a noun phrase.",
+       "why_fa": "because of عبارت اسمی می‌گیرد."
+      },
+      {
+       "q": "She missed the train, ___ she took a taxi.",
+       "options": [
+        "so",
+        "because of",
+        "due to"
+       ],
+       "answer": "so",
+       "why_en": "A result inside one sentence takes so.",
+       "why_fa": "نتیجه در یک جمله so می‌گیرد."
+      },
+      {
+       "q": "Which connective begins a new sentence?",
+       "options": [
+        "Therefore",
         "Because",
         "Although"
        ],
-       "answer": "Because of",
-       "why_en": "A noun follows, so the two-word preposition is needed.",
-       "why_fa": "پس از آن اسم می‌آید، پس حرف اضافهٔ دوکلمه‌ای لازم است."
-      },
-      {
-       "q": "He left early, ___ he would not miss the flight.",
-       "options": [
-        "so that",
-        "because of",
-        "therefore"
-       ],
-       "answer": "so that",
-       "why_en": "Purpose before a subject and modal is so that.",
-       "why_fa": "هدف پیش از فاعل و فعل کمکی با so that می‌آید."
-      },
-      {
-       "q": "Take a map; ___ you will get lost.",
-       "options": [
-        "otherwise",
-        "therefore",
-        "because"
-       ],
-       "answer": "otherwise",
-       "why_en": "The warning about what happens if not is otherwise.",
-       "why_fa": "هشدار دربارهٔ نتیجهٔ انجام‌ندادن با otherwise می‌آید."
+       "answer": "Therefore",
+       "why_en": "Therefore can open a sentence or follow a semicolon.",
+       "why_fa": "therefore می‌تواند جمله را باز کند یا پس از نقطه‌ویرگول بیاید."
       }
      ]
     },
     {
-     "n": 144,
-     "title": "Conditionals and wishes",
-     "title_fa": "جملات شرطی و آرزو",
-     "chapter": "Chapter 20",
-     "section": "20-3",
-     "use_en": "The first conditional is a real possibility: if + present, will + verb. The second is unreal in the present: if + past, would + verb. The third is unreal in the past: if + had + participle, would have + participle. Wish follows the same steps backwards.",
-     "use_fa": "شرطی نوع اول امکان واقعی است: if + حال، will + فعل. نوع دوم در زمان حال غیرواقعی است: if + گذشته، would + فعل. نوع سوم در گذشته غیرواقعی است: if + had + اسم مفعول، would have + اسم مفعول. wish هم همین پله‌ها را به عقب می‌رود.",
-     "form_en": "if + present → will  |  if + past → would  |  if + had + p.p. → would have + p.p.",
+     "n": 158,
+     "title": "Because of and due to before a noun",
+     "title_fa": "because of و due to پیش از اسم",
+     "chapter": "Chapter 19",
+     "section": "19-2",
+     "use_en": "Because of and due to both introduce a noun or a noun phrase and give the cause: because of the delay, due to bad weather. Due to is the more formal of the two and is common in reports and notices. Neither can be followed by a clause, and the pair is never written as because of the fact that when a single phrase will do.",
+     "use_fa": "because of و due to هر دو اسم یا عبارت اسمی می‌آورند و علت را می‌گویند: because of the delay، due to bad weather. due to رسمی‌تر است و در گزارش‌ها و اطلاعیه‌ها رایج. هیچ‌کدام جمله نمی‌گیرند و این جفت هرگز به شکل because of the fact that نوشته نمی‌شود وقتی یک عبارت کوتاه کافی است.",
+     "form_en": "because of / due to + noun or noun phrase (never a clause)",
      "examples": [
       {
-       "en": "If it rains, we will stay in.",
-       "fa": "اگر باران بیاید، خانه می‌مانیم."
+       "en": "The match was delayed because of the heat.",
+       "fa": "مسابقه به دلیل گرما به تأخیر افتاد."
       },
       {
-       "en": "If I had more time, I would travel.",
-       "fa": "اگر وقت بیشتری داشتم، سفر می‌کردم."
+       "en": "Due to staff shortages, the office closes early.",
+       "fa": "به دلیل کمبود کارکنان دفتر زودتر بسته می‌شود."
       },
       {
-       "en": "If she had studied, she would have passed.",
-       "fa": "اگر درس خوانده بود، قبول می‌شد."
+       "en": "We could not see anything because of the fog.",
+       "fa": "به دلیل مه هیچ چیز نمی‌دیدیم."
       }
      ],
      "exercises": [
       {
-       "prompt": "If I ___ (know) the answer, I would tell you.",
-       "answer": "knew",
-       "why_en": "An unreal present condition takes the past form, not the present.",
-       "why_fa": "شرط غیرواقعی در حال، شکل گذشته می‌گیرد نه حال."
+       "prompt": "The train was late ___ technical problems. (formal)",
+       "answer": "due to",
+       "why_en": "Due to is the formal choice before a noun.",
+       "why_fa": "due to انتخاب رسمی پیش از اسم است."
       },
       {
-       "prompt": "If you heat ice, it ___ (melt).",
-       "answer": "melts",
-       "why_en": "A general truth: if + present, present.",
-       "why_fa": "یک حقیقت کلی: if + حال، حال."
+       "prompt": "She stayed home ___ a bad cold. (cause before a noun)",
+       "answer": "because of",
+       "why_en": "Because of introduces the noun cause.",
+       "why_fa": "because of علت اسمی را می‌آورد."
       },
       {
-       "prompt": "I wish I ___ (not / say) that yesterday.",
-       "answer": "hadn't said",
-       "why_en": "A wish about the past takes the past perfect.",
-       "why_fa": "آرزو دربارهٔ گذشته با گذشتهٔ کامل می‌آید."
+       "prompt": "___ the noise, we could not concentrate. (cause)",
+       "answer": "Because of",
+       "why_en": "A noun phrase after the cause takes because of.",
+       "why_fa": "عبارت اسمی پس از علت because of می‌گیرد."
       }
      ],
      "exam": [
       {
-       "q": "If I ___ you, I would take the job.",
+       "q": "The event was cancelled ___ the weather.",
        "options": [
-        "am",
+        "because of",
+        "because",
+        "so"
+       ],
+       "answer": "because of",
+       "why_en": "A noun follows the cause phrase.",
+       "why_fa": "پس از عبارت علت اسم می‌آید."
+      },
+      {
+       "q": "Which sentence is wrong?",
+       "options": [
+        "We left because of it was late.",
+        "We left because of the time.",
+        "We left due to the time."
+       ],
+       "answer": "We left because of it was late.",
+       "why_en": "Because of cannot take a clause.",
+       "why_fa": "because of جمله نمی‌گیرد."
+      },
+      {
+       "q": "___ heavy traffic, she missed her appointment.",
+       "options": [
+        "Due to",
+        "Due",
+        "Because"
+       ],
+       "answer": "Due to",
+       "why_en": "The cause of a noun phrase takes due to.",
+       "why_fa": "علت عبارت اسمی due to می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 159,
+     "title": "Therefore, consequently and so: the result in a new clause",
+     "title_fa": "therefore، consequently و so: نتیجه در جمله‌ای تازه",
+     "chapter": "Chapter 19",
+     "section": "19-3",
+     "use_en": "These three connectives introduce the result rather than the cause. So is the conversational one and joins two clauses with a comma: it rained, so we stayed in. Therefore and consequently are formal, take a comma after them and usually follow a semicolon or a full stop: it rained; therefore, we stayed in. They cannot join two clauses with a comma alone.",
+     "use_fa": "این سه پیوند نتیجه را می‌آورند نه علت. so گفتاری است و دو جمله را با ویرگول به هم می‌پیوندد: it rained, so we stayed in. therefore و consequently رسمی‌اند، پس از خود ویرگول می‌گیرند و معمولاً پس از نقطه‌ویرگول یا نقطه می‌آیند: it rained; therefore, we stayed in. آن‌ها نمی‌توانند دو جمله را تنها با ویرگول به هم بپیوندند.",
+     "form_en": "clause, + so + clause  ·  clause; therefore, + clause  ·  clause. Consequently, + clause",
+     "examples": [
+      {
+       "en": "It rained all day, so we stayed inside.",
+       "fa": "تمام روز باران بارید، پس داخل ماندیم."
+      },
+      {
+       "en": "The roads were icy; therefore, the school closed.",
+       "fa": "جاده‌ها یخ‌زده بود؛ بنابراین مدرسه تعطیل شد."
+      },
+      {
+       "en": "He missed the deadline. Consequently, he lost the contract.",
+       "fa": "مهلت را از دست داد. در نتیجه قرارداد را باخت."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She studied every day, ___ she passed easily. (conversational result)",
+       "answer": "so",
+       "why_en": "So joins a result inside one sentence.",
+       "why_fa": "so نتیجه را در یک جمله می‌آورد."
+      },
+      {
+       "prompt": "The shop was closed; ___ , we went home. (formal result)",
+       "answer": "therefore",
+       "why_en": "Therefore follows a semicolon and takes a comma.",
+       "why_fa": "therefore پس از نقطه‌ویرگول و با ویرگول می‌آید."
+      },
+      {
+       "prompt": "The team lost three matches. ___ , they were relegated. (formal)",
+       "answer": "Consequently",
+       "why_en": "Consequently opens a sentence and takes a comma.",
+       "why_fa": "consequently جمله را باز می‌کند و ویرگول می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The traffic was terrible, ___ we arrived late.",
+       "options": [
+        "so",
+        "therefore",
+        "because of"
+       ],
+       "answer": "so",
+       "why_en": "A comma joins the two clauses with so.",
+       "why_fa": "ویرگول دو جمله را با so پیوند می‌دهد."
+      },
+      {
+       "q": "Which sentence is punctuated correctly?",
+       "options": [
+        "It snowed; therefore, we stayed home.",
+        "It snowed, therefore we stayed home.",
+        "It snowed therefore, we stayed home."
+       ],
+       "answer": "It snowed; therefore, we stayed home.",
+       "why_en": "Therefore needs a semicolon before and a comma after.",
+       "why_fa": "therefore پیش از خود نقطه‌ویرگول و پس از خود ویرگول می‌خواهد."
+      },
+      {
+       "q": "He forgot his passport. ___, he missed the flight.",
+       "options": [
+        "Consequently",
+        "Because",
+        "Although"
+       ],
+       "answer": "Consequently",
+       "why_en": "The result opens the second sentence.",
+       "why_fa": "نتیجه جملهٔ دوم را باز می‌کند."
+      }
+     ]
+    },
+    {
+     "n": 160,
+     "title": "Patterns and punctuation for cause and effect",
+     "title_fa": "الگوها و نگارش علت و اثر",
+     "chapter": "Chapter 19",
+     "section": "19-4",
+     "use_en": "The punctuation follows the connective, not the meaning. A subordinator inside one sentence needs no punctuation when it comes second and a comma when it comes first. A transition word needs a semicolon or a full stop before it and a comma after. A coordinating conjunction needs a comma before it. Mixing these up produces the comma splice, which is the most common error in this chapter.",
+     "use_fa": "نگارش از پیوند پیروی می‌کند نه از معنا. حرف ربط وابسته‌ساز درون یک جمله اگر دوم بیاید ویرگول نمی‌خواهد و اگر اول بیاید ویرگول می‌خواهد. واژهٔ گذار پیش از خود نقطه‌ویرگول یا نقطه و پس از خود ویرگول می‌خواهد. حرف ربط هم‌پایه پیش از خود ویرگول می‌خواهد. جابه‌جا کردن این‌ها «ویرگول چسبان» می‌سازد که رایج‌ترین خطای این فصل است.",
+     "form_en": "subordinator: no comma second · transition: ; … , · coordinator: , + and/but/so",
+     "examples": [
+      {
+       "en": "Because the road was closed, we took a longer route.",
+       "fa": "چون جاده بسته بود راه طولانی‌تری رفتیم."
+      },
+      {
+       "en": "We took a longer route because the road was closed.",
+       "fa": "راه طولانی‌تری رفتیم چون جاده بسته بود."
+      },
+      {
+       "en": "The road was closed; as a result, we took a longer route.",
+       "fa": "جاده بسته بود؛ در نتیجه راه طولانی‌تری رفتیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Because the shop was shut, we ___ home. (main clause)",
+       "answer": "went",
+       "why_en": "The comma separates the opening clause from the main one.",
+       "why_fa": "ویرگول جملهٔ آغازین را از جملهٔ اصلی جدا می‌کند."
+      },
+      {
+       "prompt": "We stayed home because it ___ . (rain)",
+       "answer": "rained",
+       "why_en": "No comma is needed when the clause comes second.",
+       "why_fa": "وقتی جمله دوم بیاید ویرگول لازم نیست."
+      },
+      {
+       "prompt": "The delay was long; ___ , we missed the connection. (result)",
+       "answer": "consequently",
+       "why_en": "A transition follows a semicolon and takes a comma.",
+       "why_fa": "واژهٔ گذار پس از نقطه‌ویرگول و با ویرگول می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence needs a comma?",
+       "options": [
+        "Because it was late, we left.",
+        "We left because it was late.",
+        "We left because of the time."
+       ],
+       "answer": "Because it was late, we left.",
+       "why_en": "The opening clause takes a comma after it.",
+       "why_fa": "جملهٔ آغازین پس از خود ویرگول می‌گیرد."
+      },
+      {
+       "q": "A transition word such as however needs ___ before it.",
+       "options": [
+        "a semicolon",
+        "a comma",
+        "nothing"
+       ],
+       "answer": "a semicolon",
+       "why_en": "Two clauses joined by a transition take a semicolon.",
+       "why_fa": "دو جمله با واژهٔ گذار نقطه‌ویرگول می‌گیرند."
+      },
+      {
+       "q": "Which sentence contains a comma splice?",
+       "options": [
+        "It rained, we stayed in.",
+        "It rained, so we stayed in.",
+        "It rained; we stayed in."
+       ],
+       "answer": "It rained, we stayed in.",
+       "why_en": "Two clauses joined by a comma alone.",
+       "why_fa": "دو جمله تنها با ویرگول به هم پیوسته‌اند."
+      }
+     ]
+    },
+    {
+     "n": 161,
+     "title": "Such ... that and so ... that",
+     "title_fa": "such ... that و so ... that",
+     "chapter": "Chapter 19",
+     "section": "19-5",
+     "use_en": "Both patterns lead to a result. So comes before an adjective or an adverb: the film was so long that we left early. Such comes before a noun phrase, with a or an when the noun is singular countable: it was such a long film that we left early. The that-clause names the result, and that can be dropped in speech.",
+     "use_fa": "هر دو الگو به نتیجه می‌رسند. so پیش از صفت یا قید می‌آید: the film was so long that we left early. such پیش از عبارت اسمی می‌آید و با اسم مفرد قابل‌شمارش a یا an می‌گیرد: it was such a long film that we left early. جملهٔ that نتیجه را می‌گوید و در گفتار می‌تواند حذف شود.",
+     "form_en": "so + adjective / adverb + that  ·  such + (a/an) + adjective + noun + that",
+     "examples": [
+      {
+       "en": "The film was so long that we left early.",
+       "fa": "فیلم چنان طولانی بود که زود بیرون آمدیم."
+      },
+      {
+       "en": "It was such a long film that we left early.",
+       "fa": "فیلم چنان طولانی بود که زود بیرون آمدیم."
+      },
+      {
+       "en": "She spoke so quietly that nobody heard her.",
+       "fa": "چنان آهسته حرف زد که هیچ‌کس نشنید."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The box was ___ heavy that I could not lift it. (before an adjective)",
+       "answer": "so",
+       "why_en": "An adjective after the intensifier takes so.",
+       "why_fa": "صفت پس از تشدیدکننده so می‌گیرد."
+      },
+      {
+       "prompt": "It was ___ a good film that we watched it twice. (before a noun phrase)",
+       "answer": "such",
+       "why_en": "A noun phrase with an article takes such.",
+       "why_fa": "عبارت اسمی با حرف تعریف such می‌گیرد."
+      },
+      {
+       "prompt": "They had ___ terrible weather that the trip was cancelled. (uncountable)",
+       "answer": "such",
+       "why_en": "Uncountable nouns take such without an article.",
+       "why_fa": "اسم غیرقابل‌شمارش such بی حرف تعریف می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The coffee was ___ hot that I burned my tongue.",
+       "options": [
+        "so",
+        "such",
+        "very"
+       ],
+       "answer": "so",
+       "why_en": "An adjective takes so before that.",
+       "why_fa": "صفت پیش از that با so می‌آید."
+      },
+      {
+       "q": "It was ___ an interesting book that I finished it in a day.",
+       "options": [
+        "such",
+        "so",
+        "too"
+       ],
+       "answer": "such",
+       "why_en": "A singular countable noun takes such an.",
+       "why_fa": "اسم مفرد قابل‌شمارش such an می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "She is so kind that everyone likes her.",
+        "She is such kind that everyone likes her.",
+        "She is so a kind person that everyone likes her."
+       ],
+       "answer": "She is so kind that everyone likes her.",
+       "why_en": "So goes before the adjective, with no article.",
+       "why_fa": "so پیش از صفت می‌آید و حرف تعریف ندارد."
+      }
+     ]
+    },
+    {
+     "n": 162,
+     "title": "Purpose with so that",
+     "title_fa": "هدف با so that",
+     "chapter": "Chapter 19",
+     "section": "19-6",
+     "use_en": "So that introduces the purpose of an action and takes a clause, usually with can, could, will or would: I left early so that I could catch the train. In speech that is often dropped, leaving so. In order that is the formal version. The purpose clause looks forward, so a past main verb usually brings could or would into the purpose.",
+     "use_fa": "so that هدف یک کار را می‌آورد و جمله می‌گیرد، معمولاً با can، could، will یا would: I left early so that I could catch the train. در گفتار that اغلب حذف می‌شود و so می‌ماند. in order that شکل رسمی است. جملهٔ هدف به آینده نگاه می‌کند، پس فعل اصلی گذشته معمولاً could یا would را به جملهٔ هدف می‌آورد.",
+     "form_en": "so that + subject + can / could / will / would + verb",
+     "examples": [
+      {
+       "en": "I left early so that I could catch the train.",
+       "fa": "زود رفتم تا به قطار برسم."
+      },
+      {
+       "en": "She spoke slowly so that everyone could understand.",
+       "fa": "آهسته حرف زد تا همه بفهمند."
+      },
+      {
+       "en": "We saved money so that we would be ready.",
+       "fa": "پول جمع کردیم تا آماده باشیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "He whispered so that nobody ___ hear. (past ability)",
+       "answer": "could",
+       "why_en": "A past purpose takes could.",
+       "why_fa": "هدف گذشته could می‌گیرد."
+      },
+      {
+       "prompt": "I will write it down so that I ___ forget. (negative, future)",
+       "answer": "won't",
+       "why_en": "A future purpose can take will not.",
+       "why_fa": "هدف آینده می‌تواند will not بگیرد."
+      },
+      {
+       "prompt": "She studies hard so ___ she can pass. (purpose)",
+       "answer": "that",
+       "why_en": "So that introduces the purpose clause.",
+       "why_fa": "so that جملهٔ هدف را می‌آورد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "He locked the door so that nobody ___ enter.",
+       "options": [
+        "could",
+        "can to",
+        "would to"
+       ],
+       "answer": "could",
+       "why_en": "A past main verb takes could in the purpose.",
+       "why_fa": "فعل اصلی گذشته در هدف could می‌گیرد."
+      },
+      {
+       "q": "Which phrase introduces a purpose clause?",
+       "options": [
+        "so that",
+        "so",
+        "such that"
+       ],
+       "answer": "so that",
+       "why_en": "The clause form is so that.",
+       "why_fa": "شکل جمله‌ای so that است."
+      },
+      {
+       "q": "We moved closer ___ we could see better.",
+       "options": [
+        "so that",
+        "because of",
+        "although"
+       ],
+       "answer": "so that",
+       "why_en": "Purpose takes so that.",
+       "why_fa": "هدف so that می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 163,
+     "title": "Contrast with an unexpected result: although, though, even though",
+     "title_fa": "تضاد با نتیجهٔ غیرمنتظره: although، though، even though",
+     "chapter": "Chapter 19",
+     "section": "19-7",
+     "use_en": "These subordinators present a fact that makes the main clause surprising, and they work inside one sentence: although the team played well, they lost. Even though is the strongest. Despite and in spite of carry the same contrast but take a noun: despite playing well. A sentence cannot use although and but together, which is the error to watch for.",
+     "use_fa": "این حروف ربط واقعیتی را می‌آورند که جملهٔ اصلی را غافلگیرکننده می‌کند و درون یک جمله کار می‌کنند: although the team played well, they lost. even though قوی‌ترین است. despite و in spite of همین تضاد را دارند اما اسم می‌گیرند: despite playing well. یک جمله نمی‌تواند although و but را با هم داشته باشد و این خطایی است که باید مراقبش بود.",
+     "form_en": "although / even though + clause  ·  despite / in spite of + noun or -ing",
+     "examples": [
+      {
+       "en": "Although the team played well, they lost.",
+       "fa": "با اینکه تیم خوب بازی کرد، باخت."
+      },
+      {
+       "en": "Even though he was injured, he finished the race.",
+       "fa": "حتی با اینکه مصدوم بود مسابقه را تمام کرد."
+      },
+      {
+       "en": "Despite playing well, they lost.",
+       "fa": "با وجود بازی خوب، باختند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ the weather was bad, we enjoyed the trip. (contrast)",
+       "answer": "Although",
+       "why_en": "A clause of unexpected result takes although.",
+       "why_fa": "جملهٔ نتیجهٔ غیرمنتظره although می‌گیرد."
+      },
+      {
+       "prompt": "___ the bad weather, we enjoyed the trip. (before a noun)",
+       "answer": "Despite",
+       "why_en": "A noun phrase takes despite.",
+       "why_fa": "عبارت اسمی despite می‌گیرد."
+      },
+      {
+       "prompt": "___ though she was tired, she kept working. (strongest form)",
+       "answer": "Even",
+       "why_en": "Even though is the strongest contrast.",
+       "why_fa": "even though قوی‌ترین تضاد است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ it was expensive, they bought the house.",
+       "options": [
+        "Although",
+        "Despite",
+        "Because of"
+       ],
+       "answer": "Although",
+       "why_en": "A clause needs although.",
+       "why_fa": "جمله although می‌خواهد."
+      },
+      {
+       "q": "Which sentence is wrong?",
+       "options": [
+        "Although it was late, but we continued.",
+        "Although it was late, we continued.",
+        "Despite the hour, we continued."
+       ],
+       "answer": "Although it was late, but we continued.",
+       "why_en": "Although and but cannot share a sentence.",
+       "why_fa": "although و but در یک جمله نمی‌آیند."
+      },
+      {
+       "q": "___ the noise, she kept reading.",
+       "options": [
+        "Despite",
+        "Although",
+        "Even though"
+       ],
+       "answer": "Despite",
+       "why_en": "A noun after the contrast takes despite.",
+       "why_fa": "اسم پس از تضاد despite می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 164,
+     "title": "Direct contrast: while, whereas, in contrast",
+     "title_fa": "تضاد مستقیم: while، whereas، in contrast",
+     "chapter": "Chapter 19",
+     "section": "19-8",
+     "use_en": "A direct contrast places two facts side by side without saying either is surprising. While and whereas join clauses: while the north is wet, the south is dry. In contrast and on the other hand are transitions and need a semicolon or a full stop before them. These connectives compare; the unexpected-result group argues.",
+     "use_fa": "تضاد مستقیم دو واقعیت را کنار هم می‌گذارد بی‌آنکه یکی را غافلگیرکننده بخواند. while و whereas جمله‌ها را به هم می‌پیوندند: while the north is wet, the south is dry. in contrast و on the other hand واژهٔ گذارند و پیش از خود نقطه‌ویرگول یا نقطه می‌خواهند. این‌ها مقایسه می‌کنند و گروه نتیجهٔ غیرمنتظره استدلال.",
+     "form_en": "clause + while / whereas + clause  ·  clause; in contrast, + clause",
+     "examples": [
+      {
+       "en": "While the north is wet, the south is dry.",
+       "fa": "شمال پرباران است، در حالی که جنوب خشک است."
+      },
+      {
+       "en": "Whereas the first plan was cheap, the second was safe.",
+       "fa": "در حالی که طرح اول ارزان بود، دومی ایمن بود."
+      },
+      {
+       "en": "The city is crowded; in contrast, the village is quiet.",
+       "fa": "شهر شلوغ است؛ در مقابل، روستا آرام است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The first option is cheap, ___ the second is reliable. (direct contrast)",
+       "answer": "whereas",
+       "why_en": "Whereas marks a formal direct contrast.",
+       "why_fa": "whereas تضاد مستقیم رسمی را نشان می‌دهد."
+      },
+      {
+       "prompt": "___ trains are fast, buses are cheaper. (contrast)",
+       "answer": "While",
+       "why_en": "While places two facts side by side.",
+       "why_fa": "while دو واقعیت را کنار هم می‌گذارد."
+      },
+      {
+       "prompt": "Sales rose in June; ___ contrast, they fell in July. (transition)",
+       "answer": "in",
+       "why_en": "The fixed transition is in contrast.",
+       "why_fa": "واژهٔ گذار ثابت in contrast است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ the old system was slow, the new one is quick.",
+       "options": [
+        "Whereas",
+        "Because of",
+        "So that"
+       ],
+       "answer": "Whereas",
+       "why_en": "A direct contrast between clauses takes whereas.",
+       "why_fa": "تضاد مستقیم میان دو جمله whereas می‌گیرد."
+      },
+      {
+       "q": "Which connective needs a semicolon before it?",
+       "options": [
+        "in contrast",
+        "while",
+        "whereas"
+       ],
+       "answer": "in contrast",
+       "why_en": "A transition word joins sentences, not clauses with a comma.",
+       "why_fa": "واژهٔ گذار جمله‌ها را به هم می‌پیوندد نه جمله‌واره‌ها با ویرگول."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "While he plays tennis, she plays golf.",
+        "While he plays tennis, but she plays golf.",
+        "While he plays tennis; she plays golf."
+       ],
+       "answer": "While he plays tennis, she plays golf.",
+       "why_en": "While joins two clauses with a comma.",
+       "why_fa": "while دو جمله را با ویرگول به هم می‌پیوندد."
+      }
+     ]
+    },
+    {
+     "n": 165,
+     "title": "Conditions with otherwise and or else",
+     "title_fa": "شرط با otherwise و or else",
+     "chapter": "Chapter 19",
+     "section": "19-9",
+     "use_en": "Otherwise says what happens if a condition is not met: leave now, otherwise you will miss the train. Or else says the same thing and is more conversational, sometimes with a warning tone. Both join two clauses and take a comma before them. They are the negative side of a condition, so the second clause names the bad result of not acting.",
+     "use_fa": "otherwise می‌گوید اگر شرط برآورده نشود چه می‌شود: leave now, otherwise you will miss the train. or else همین را می‌گوید و گفتاری‌تر است و گاه لحن هشدار دارد. هر دو دو جمله را به هم می‌پیوندند و پیش از خود ویرگول می‌گیرند. این‌ها سوی منفی شرط‌اند، پس جملهٔ دوم نتیجهٔ بدِ عمل نکردن را می‌گوید.",
+     "form_en": "imperative or clause, + otherwise / or else + clause",
+     "examples": [
+      {
+       "en": "Leave now, otherwise you will miss the train.",
+       "fa": "الان راه بیفت، وگرنه قطار را از دست می‌دهی."
+      },
+      {
+       "en": "Write it down, or else you will forget.",
+       "fa": "یادداشتش کن، وگرنه فراموش می‌کنی."
+      },
+      {
+       "en": "We must book early; otherwise, there will be no seats.",
+       "fa": "باید زود رزرو کنیم؛ وگرنه صندلی نخواهد بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Hurry up, ___ we will be late. (negative condition)",
+       "answer": "otherwise",
+       "why_en": "Otherwise names the result of not acting.",
+       "why_fa": "otherwise نتیجهٔ عمل نکردن را می‌گوید."
+      },
+      {
+       "prompt": "Take a coat, ___ else you will be cold. (conversational)",
+       "answer": "or",
+       "why_en": "The conversational pair is or else.",
+       "why_fa": "جفت گفتاری or else است."
+      },
+      {
+       "prompt": "Study tonight; ___ , you will fail. (negative condition)",
+       "answer": "otherwise",
+       "why_en": "Otherwise follows a semicolon and takes a comma.",
+       "why_fa": "otherwise پس از نقطه‌ویرگول و با ویرگول می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Leave now, ___ you will miss the bus.",
+       "options": [
+        "otherwise",
+        "because",
+        "so that"
+       ],
+       "answer": "otherwise",
+       "why_en": "The bad result of not acting takes otherwise.",
+       "why_fa": "نتیجهٔ بدِ عمل نکردن otherwise می‌گیرد."
+      },
+      {
+       "q": "Which phrase is the conversational form?",
+       "options": [
+        "or else",
+        "other wise",
+        "otherwise that"
+       ],
+       "answer": "or else",
+       "why_en": "Or else is the informal pair.",
+       "why_fa": "or else جفت غیررسمی است."
+      },
+      {
+       "q": "Book the tickets today; ___, they will be sold out.",
+       "options": [
+        "otherwise",
+        "although",
+        "despite"
+       ],
+       "answer": "otherwise",
+       "why_en": "A negative condition after a semicolon takes otherwise.",
+       "why_fa": "شرط منفی پس از نقطه‌ویرگول otherwise می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 166,
+     "title": "The forms used in conditional sentences: an overview",
+     "title_fa": "شکل‌های به‌کاررفته در جمله‌های شرطی: نگاه کلی",
+     "chapter": "Chapter 20",
+     "section": "20-1",
+     "use_en": "A conditional sentence has two parts: the condition after if and the result in the main clause. The present tense is used for a real condition, the past for an unreal one, and the past perfect for something that cannot change. The result takes will, would or would have to match. In none of the three does the if-clause take will, would or would have.",
+     "use_fa": "جملهٔ شرطی دو بخش دارد: شرط پس از if و نتیجه در جملهٔ اصلی. زمان حال برای شرط واقعی، گذشته برای شرط غیرواقعی و گذشتهٔ کامل برای چیزی که تغییرپذیر نیست به کار می‌رود. نتیجه با will، would یا would have هماهنگ می‌شود. در هیچ‌یک از این سه، جملهٔ if فعل will، would یا would have نمی‌گیرد.",
+     "form_en": "if + present, will · if + past, would · if + had + pp, would have + pp",
+     "examples": [
+      {
+       "en": "If it rains, we will stay home.",
+       "fa": "اگر باران ببارد خانه می‌مانیم."
+      },
+      {
+       "en": "If it rained, we would stay home.",
+       "fa": "اگر باران می‌بارید خانه می‌ماندیم."
+      },
+      {
+       "en": "If it had rained, we would have stayed home.",
+       "fa": "اگر باران باریده بود خانه مانده بودیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If I had more time, I ___ travel more. (unreal present)",
+       "answer": "would",
+       "why_en": "An unreal present condition takes would in the result.",
+       "why_fa": "شرط غیرواقعی حال در نتیجه would می‌گیرد."
+      },
+      {
+       "prompt": "If she ___ harder, she would pass. (unreal present)",
+       "answer": "studied",
+       "why_en": "The if-clause of an unreal present takes the past.",
+       "why_fa": "جملهٔ if در شرط غیرواقعی حال گذشته می‌گیرد."
+      },
+      {
+       "prompt": "If we had left earlier, we ___ have caught the train. (unreal past)",
+       "answer": "would",
+       "why_en": "An unreal past result is would have plus the participle.",
+       "why_fa": "نتیجهٔ غیرواقعی گذشته would have و اسم مفعول است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which form appears in an if-clause?",
+       "options": [
+        "The present",
+        "Will",
+        "Would have"
+       ],
+       "answer": "The present",
+       "why_en": "The if-clause never takes will or would.",
+       "why_fa": "جملهٔ if هرگز will یا would نمی‌گیرد."
+      },
+      {
+       "q": "If he ___ the answer, he would tell us.",
+       "options": [
+        "knew",
+        "knows",
+        "had known"
+       ],
+       "answer": "knew",
+       "why_en": "The unreal present condition takes the past form.",
+       "why_fa": "شرط غیرواقعی حال شکل گذشته می‌گیرد."
+      },
+      {
+       "q": "If they had called, we ___ have waited.",
+       "options": [
+        "would",
+        "will",
+        "did"
+       ],
+       "answer": "would",
+       "why_en": "The unreal past result is would have waited.",
+       "why_fa": "نتیجهٔ غیرواقعی گذشته would have waited است."
+      }
+     ]
+    },
+    {
+     "n": 167,
+     "title": "Real conditions in the present or future",
+     "title_fa": "شرط‌های واقعی در حال یا آینده",
+     "chapter": "Chapter 20",
+     "section": "20-2",
+     "use_en": "A real condition describes something possible, and the speaker does not know yet whether it will happen: if you finish early, we will go out. The if-clause takes the present tense and the result takes will, can or an imperative. The same clause also works for a general truth, where both parts stay in the present: if you heat water, it boils.",
+     "use_fa": "شرط واقعی چیزی ممکن را می‌گوید و گوینده هنوز نمی‌داند رخ می‌دهد یا نه: if you finish early, we will go out. جملهٔ if فعل حال می‌گیرد و نتیجه will، can یا جملهٔ امری. همین جمله برای حقیقت کلی هم کار می‌کند، جایی که هر دو بخش در حال می‌مانند: if you heat water, it boils.",
+     "form_en": "if + present, + will / can / imperative  ·  if + present, + present (general truth)",
+     "examples": [
+      {
+       "en": "If you finish early, we will go out.",
+       "fa": "اگر زود تمام کنی بیرون می‌رویم."
+      },
+      {
+       "en": "If you heat water, it boils.",
+       "fa": "اگر آب را گرم کنی می‌جوشد."
+      },
+      {
+       "en": "If you see her, tell her I called.",
+       "fa": "اگر او را دیدی بگو زنگ زدم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If I ___ time, I will visit you. (real condition)",
+       "answer": "have",
+       "why_en": "A real condition takes the present tense.",
+       "why_fa": "شرط واقعی فعل حال می‌گیرد."
+      },
+      {
+       "prompt": "If it ___ tomorrow, the match will be cancelled. (real condition)",
+       "answer": "snows",
+       "why_en": "The present carries the future meaning in the if-clause.",
+       "why_fa": "فعل حال در جملهٔ if معنای آینده را می‌رساند."
+      },
+      {
+       "prompt": "If you press this button, the machine ___ . (general truth)",
+       "answer": "starts",
+       "why_en": "A general truth keeps both parts in the present.",
+       "why_fa": "حقیقت کلی هر دو بخش را در حال نگه می‌دارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "If she ___ , we will start without her.",
+       "options": [
+        "does not come",
+        "will not come",
+        "did not come"
+       ],
+       "answer": "does not come",
+       "why_en": "A real condition stays in the present.",
+       "why_fa": "شرط واقعی در حال می‌ماند."
+      },
+      {
+       "q": "If you ___ the ice, it melts.",
+       "options": [
+        "heat",
+        "will heat",
+        "heated"
+       ],
+       "answer": "heat",
+       "why_en": "A general truth takes the present in both clauses.",
+       "why_fa": "حقیقت کلی در هر دو جمله حال می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "If they arrive late, we will wait.",
+        "If they will arrive late, we will wait.",
+        "If they arriving late, we will wait."
+       ],
+       "answer": "If they arrive late, we will wait.",
+       "why_en": "No will in the condition.",
+       "why_fa": "در شرط هیچ will نمی‌آید."
+      }
+     ]
+    },
+    {
+     "n": 168,
+     "title": "Unreal conditions in the present or future",
+     "title_fa": "شرط‌های غیرواقعی در حال یا آینده",
+     "chapter": "Chapter 20",
+     "section": "20-3",
+     "use_en": "An unreal condition describes something that is not true now, or is imagined: if I had a car, I would drive to work. The past form in the if-clause signals the unreality, and the result takes would, could or might. With be, the careful form is were for every subject: if I were you. The speaker is not stating a fact but imagining a different one.",
+     "use_fa": "شرط غیرواقعی چیزی را می‌گوید که اکنون درست نیست یا تصور می‌شود: if I had a car, I would drive to work. شکل گذشته در جملهٔ if ناواقعی بودن را نشان می‌دهد و نتیجه would، could یا might می‌گیرد. با فعل be شکل دقیق برای همهٔ فاعل‌ها were است: if I were you. گوینده واقعیتی نمی‌گوید بلکه واقعیتی دیگر را تصور می‌کند.",
+     "form_en": "if + past, + would / could / might + base verb  ·  if I were you",
+     "examples": [
+      {
+       "en": "If I had a car, I would drive to work.",
+       "fa": "اگر ماشین داشتم با آن سر کار می‌رفتم."
+      },
+      {
+       "en": "If I were you, I would apologize.",
+       "fa": "جای تو بودم عذرخواهی می‌کردم."
+      },
+      {
+       "en": "If she knew the truth, she might be angry.",
+       "fa": "اگر حقیقت را می‌دانست شاید عصبانی می‌شد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If I ___ you, I would take the job. (be, careful form)",
+       "answer": "were",
+       "why_en": "Were is the unreal form of be for every subject.",
+       "why_fa": "were شکل غیرواقعی be برای همهٔ فاعل‌ها است."
+      },
+      {
+       "prompt": "If we ___ closer, we could walk to work. (live)",
+       "answer": "lived",
+       "why_en": "The unreal present takes the past form.",
+       "why_fa": "حال غیرواقعی شکل گذشته می‌گیرد."
+      },
+      {
+       "prompt": "If he ___ more, he would finish on time. (practise)",
+       "answer": "practised",
+       "why_en": "The past form marks the unreality.",
+       "why_fa": "شکل گذشته ناواقعی بودن را نشان می‌دهد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "If I ___ rich, I would travel the world.",
+       "options": [
         "were",
+        "am",
         "will be"
        ],
        "answer": "were",
-       "why_en": "Unreal present: were for all persons in this pattern.",
-       "why_fa": "حالِ غیرواقعی: در این ساختار برای همهٔ اشخاص were."
+       "why_en": "The unreal present of be is were.",
+       "why_fa": "شکل غیرواقعی be همان were است."
       },
       {
-       "q": "She would have come if you ___ her.",
+       "q": "If she had more time, she ___ learn the piano.",
        "options": [
-        "invited",
-        "had invited",
-        "invite"
+        "would",
+        "will",
+        "has"
        ],
-       "answer": "had invited",
-       "why_en": "Third conditional: had + past participle.",
-       "why_fa": "شرطی نوع سوم: had + اسم مفعول."
+       "answer": "would",
+       "why_en": "The result of an unreal condition takes would.",
+       "why_fa": "نتیجهٔ شرط غیرواقعی would می‌گیرد."
       },
       {
-       "q": "I wish I ___ taller.",
+       "q": "Which sentence is unreal?",
        "options": [
-        "am",
-        "were",
-        "will be"
+        "If I knew her number, I would call.",
+        "If I know her number, I will call.",
+        "If I have her number, I call."
        ],
+       "answer": "If I knew her number, I would call.",
+       "why_en": "The past in the if-clause marks an imagined present.",
+       "why_fa": "گذشته در جملهٔ if حال تصوری را نشان می‌دهد."
+      }
+     ]
+    },
+    {
+     "n": 169,
+     "title": "Unreal conditions in the past",
+     "title_fa": "شرط‌های غیرواقعی در گذشته",
+     "chapter": "Chapter 20",
+     "section": "20-4",
+     "use_en": "An unreal past condition describes something that did not happen, and the speaker imagines the different result: if I had studied, I would have passed. The if-clause takes had plus the past participle and the result takes would have plus the past participle. The regret is in the sentence, so these forms appear whenever someone looks back at a missed chance.",
+     "use_fa": "شرط غیرواقعی گذشته چیزی را می‌گوید که رخ نداد و گوینده نتیجهٔ دیگر را تصور می‌کند: if I had studied, I would have passed. جملهٔ if فعل had و اسم مفعول می‌گیرد و نتیجه would have و اسم مفعول. پشیمانی در خود جمله است، پس این شکل‌ها هرگاه کسی به فرصت ازدست‌رفته نگاه کند ظاهر می‌شوند.",
+     "form_en": "if + had + past participle, + would have + past participle",
+     "examples": [
+      {
+       "en": "If I had studied, I would have passed.",
+       "fa": "اگر درس خوانده بودم قبول شده بودم."
+      },
+      {
+       "en": "If they had left earlier, they would not have missed the flight.",
+       "fa": "اگر زودتر راه افتاده بودند پرواز را از دست نمی‌دادند."
+      },
+      {
+       "en": "She would have called if she had known.",
+       "fa": "اگر می‌دانست زنگ می‌زد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If we had taken a taxi, we ___ have arrived on time. (result)",
+       "answer": "would",
+       "why_en": "The unreal past result is would have arrived.",
+       "why_fa": "نتیجهٔ غیرواقعی گذشته would have arrived است."
+      },
+      {
+       "prompt": "If he ___ told me, I would have helped. (if-clause)",
+       "answer": "had",
+       "why_en": "The if-clause of an unreal past takes had.",
+       "why_fa": "جملهٔ if در گذشتهٔ غیرواقعی had می‌گیرد."
+      },
+      {
+       "prompt": "If she had seen the sign, she would have ___ . (stop)",
+       "answer": "stopped",
+       "why_en": "The result keeps the past participle.",
+       "why_fa": "نتیجه اسم مفعول را نگه می‌دارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "If I ___ the answer, I would have said something.",
+       "options": [
+        "had known",
+        "knew",
+        "have known"
+       ],
+       "answer": "had known",
+       "why_en": "The unreal past condition takes had known.",
+       "why_fa": "شرط غیرواقعی گذشته had known می‌گیرد."
+      },
+      {
+       "q": "They would have won if they ___ harder.",
+       "options": [
+        "had trained",
+        "trained",
+        "train"
+       ],
+       "answer": "had trained",
+       "why_en": "The if-clause keeps the past perfect.",
+       "why_fa": "جملهٔ if گذشتهٔ کامل را نگه می‌دارد."
+      },
+      {
+       "q": "Which sentence is about the past?",
+       "options": [
+        "If he had called, I would have answered.",
+        "If he called, I would answer.",
+        "If he calls, I will answer."
+       ],
+       "answer": "If he had called, I would have answered.",
+       "why_en": "Had plus the participle places the condition in the past.",
+       "why_fa": "had و اسم مفعول شرط را به گذشته می‌برد."
+      }
+     ]
+    },
+    {
+     "n": 170,
+     "title": "Progressive forms in conditional sentences",
+     "title_fa": "شکل‌های استمراری در جمله‌های شرطی",
+     "chapter": "Chapter 20",
+     "section": "20-5",
+     "use_en": "A progressive form puts the emphasis on an action in progress: if it is raining, we will stay in; if she were living here, we would meet often; if he had been driving, he would have seen the sign. The conditional keeps the same pattern and simply uses the progressive inside it. The be verb is the part that carries the tense, and the -ing form stays.",
+     "use_fa": "شکل استمراری تأکید را بر کار در جریان می‌گذارد: if it is raining, we will stay in؛ if she were living here, we would meet often؛ if he had been driving, he would have seen the sign. جملهٔ شرطی همان الگو را نگه می‌دارد و فقط استمراری را درون آن می‌آورد. فعل be زمان را حمل می‌کند و شکل ing- می‌ماند.",
+     "form_en": "if + is / was / were / had been + -ing, + result clause",
+     "examples": [
+      {
+       "en": "If it is raining, we will stay inside.",
+       "fa": "اگر باران می‌بارد داخل می‌مانیم."
+      },
+      {
+       "en": "If she were living here, we would meet often.",
+       "fa": "اگر اینجا زندگی می‌کرد بیشتر همدیگر را می‌دیدیم."
+      },
+      {
+       "en": "If he had been driving, he would have seen the sign.",
+       "fa": "اگر رانندگی می‌کرد تابلو را دیده بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If they ___ working, we will not disturb them. (present progressive)",
+       "answer": "are",
+       "why_en": "The present progressive takes are plus the -ing form.",
+       "why_fa": "حال استمراری are و شکل ing- می‌گیرد."
+      },
+      {
+       "prompt": "If I ___ working there, I would know the manager. (unreal present)",
        "answer": "were",
-       "why_en": "A wish about now takes the past form.",
-       "why_fa": "آرزو دربارهٔ حال، زمان گذشته می‌گیرد."
+       "why_en": "The unreal progressive takes were plus -ing.",
+       "why_fa": "استمراری غیرواقعی were و ing- می‌گیرد."
+      },
+      {
+       "prompt": "If she had ___ waiting, she would have seen him. (past progressive)",
+       "answer": "been",
+       "why_en": "The past progressive takes had been plus -ing.",
+       "why_fa": "گذشتهٔ استمراری had been و ing- می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "If it ___ raining, the match will be delayed.",
+       "options": [
+        "is",
+        "will be",
+        "were"
+       ],
+       "answer": "is",
+       "why_en": "A real progressive condition takes is raining.",
+       "why_fa": "شرط استمراری واقعی is raining می‌گیرد."
+      },
+      {
+       "q": "If he were ___ here, he would help us.",
+       "options": [
+        "living",
+        "lived",
+        "live"
+       ],
+       "answer": "living",
+       "why_en": "The unreal progressive keeps the -ing form.",
+       "why_fa": "استمراری غیرواقعی شکل ing- را نگه می‌دارد."
+      },
+      {
+       "q": "If I had been ___ more carefully, I would not have crashed.",
+       "options": [
+        "driving",
+        "drive",
+        "driven"
+       ],
+       "answer": "driving",
+       "why_en": "The past progressive takes had been driving.",
+       "why_fa": "گذشتهٔ استمراری had been driving است."
+      }
+     ]
+    },
+    {
+     "n": 171,
+     "title": "Mixed time in conditional sentences",
+     "title_fa": "زمان مختلط در جمله‌های شرطی",
+     "chapter": "Chapter 20",
+     "section": "20-6",
+     "use_en": "The two halves of a conditional can sit in different times when the meaning needs it: if I had taken the job, I would be in Dubai now. The condition is in the past and the result in the present, so the if-clause takes had plus the participle and the result takes would plus the base verb. The other direction also occurs: if she were more careful, she would not have broken it.",
+     "use_fa": "دو نیمهٔ جملهٔ شرطی می‌توانند در زمان‌های متفاوت بنشینند وقتی معنا چنین می‌خواهد: if I had taken the job, I would be in Dubai now. شرط در گذشته و نتیجه در حال است، پس جملهٔ if فعل had و اسم مفعول می‌گیرد و نتیجه would و فعل ساده. جهت دیگر هم رخ می‌دهد: if she were more careful, she would not have broken it.",
+     "form_en": "if + had + pp, + would + base verb (past condition, present result)",
+     "examples": [
+      {
+       "en": "If I had taken the job, I would be in Dubai now.",
+       "fa": "اگر آن کار را پذیرفته بودم اکنون در دبی بودم."
+      },
+      {
+       "en": "If she were more careful, she would not have broken it.",
+       "fa": "اگر دقیق‌تر بود آن را نمی‌شکست."
+      },
+      {
+       "en": "If he had studied medicine, he would be a doctor today.",
+       "fa": "اگر پزشکی خوانده بود امروز پزشک بود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "If I had saved more, I ___ be on holiday now. (present result)",
+       "answer": "would",
+       "why_en": "A present result after a past condition takes would.",
+       "why_fa": "نتیجهٔ حال پس از شرط گذشته would می‌گیرد."
+      },
+      {
+       "prompt": "If he were taller, he would have ___ the team. (past result)",
+       "answer": "joined",
+       "why_en": "A past result keeps would have plus the participle.",
+       "why_fa": "نتیجهٔ گذشته would have و اسم مفعول را نگه می‌دارد."
+      },
+      {
+       "prompt": "If they had booked earlier, they ___ be here now. (present result)",
+       "answer": "would",
+       "why_en": "The mixed condition joins a past cause to a present result.",
+       "why_fa": "شرط مختلط علت گذشته را به نتیجهٔ حال می‌پیوندد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "If I had known you were coming, I ___ have cooked.",
+       "options": [
+        "would",
+        "will",
+        "would be"
+       ],
+       "answer": "would",
+       "why_en": "Both parts are in the past, so would have cooked.",
+       "why_fa": "هر دو بخش گذشته‌اند، پس would have cooked."
+      },
+      {
+       "q": "If she had left earlier, she ___ be at the airport now.",
+       "options": [
+        "would",
+        "will",
+        "had"
+       ],
+       "answer": "would",
+       "why_en": "The result is in the present, so would be.",
+       "why_fa": "نتیجه در حال است، پس would be."
+      },
+      {
+       "q": "Which sentence mixes the times?",
+       "options": [
+        "If I had studied, I would be an engineer now.",
+        "If I studied, I would be an engineer.",
+        "If I study, I will be an engineer."
+       ],
+       "answer": "If I had studied, I would be an engineer now.",
+       "why_en": "A past condition with a present result is the mixed form.",
+       "why_fa": "شرط گذشته با نتیجهٔ حال شکل مختلط است."
+      }
+     ]
+    },
+    {
+     "n": 172,
+     "title": "Omitting if: were I you, had I known",
+     "title_fa": "حذف if: were I you، had I known",
+     "chapter": "Chapter 20",
+     "section": "20-7",
+     "use_en": "In formal writing the if can disappear and the auxiliary moves in front of the subject: were I you, had I known, should you need help. The meaning does not change and the sentence becomes more formal. The pattern only works when the if-clause contains were, had or should; it cannot be done with an ordinary verb, so if I knew cannot become knew I.",
+     "use_fa": "در نوشتار رسمی if می‌تواند حذف شود و فعل کمکی به پیش از فاعل برود: were I you، had I known، should you need help. معنا عوض نمی‌شود و جمله رسمی‌تر می‌شود. این الگو تنها وقتی ممکن است که جملهٔ if فعل were، had یا should داشته باشد و با فعل معمولی ممکن نیست، پس if I knew به knew I تبدیل نمی‌شود.",
+     "form_en": "were + subject · had + subject + past participle · should + subject + verb",
+     "examples": [
+      {
+       "en": "Were I you, I would accept the offer.",
+       "fa": "جای تو بودم پیشنهاد را می‌پذیرفتم."
+      },
+      {
+       "en": "Had I known, I would have called.",
+       "fa": "اگر می‌دانستم زنگ می‌زدم."
+      },
+      {
+       "en": "Should you need help, call this number.",
+       "fa": "اگر کمک لازم داشتی با این شماره تماس بگیر."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ I known the answer, I would have said it. (omitted if)",
+       "answer": "Had",
+       "why_en": "Had plus the participle replaces if I had.",
+       "why_fa": "had و اسم مفعول جای if I had را می‌گیرد."
+      },
+      {
+       "prompt": "___ I you, I would wait. (omitted if)",
+       "answer": "Were",
+       "why_en": "Were plus the subject replaces if I were.",
+       "why_fa": "were و فاعل جای if I were را می‌گیرد."
+      },
+      {
+       "prompt": "___ you need anything, let me know. (formal omitted if)",
+       "answer": "Should",
+       "why_en": "Should plus the subject replaces if you should.",
+       "why_fa": "should و فاعل جای if you should را می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ he studied more, he would pass.",
+       "options": [
+        "If",
+        "Were",
+        "Had"
+       ],
+       "answer": "If",
+       "why_en": "An ordinary verb cannot lose if.",
+       "why_fa": "فعل معمولی نمی‌تواند if را از دست بدهد."
+      },
+      {
+       "q": "___ I been there, I would have helped.",
+       "options": [
+        "Had",
+        "Have",
+        "Were"
+       ],
+       "answer": "Had",
+       "why_en": "Had I been replaces if I had been.",
+       "why_fa": "had I been جای if I had been را می‌گیرد."
+      },
+      {
+       "q": "Which sentence omits if correctly?",
+       "options": [
+        "Were I rich, I would travel.",
+        "Was I rich, I would travel.",
+        "Am I rich, I would travel."
+       ],
+       "answer": "Were I rich, I would travel.",
+       "why_en": "Only were inverts for an unreal present.",
+       "why_fa": "تنها were برای حال غیرواقعی جابه‌جا می‌شود."
+      }
+     ]
+    },
+    {
+     "n": 173,
+     "title": "Implied conditions",
+     "title_fa": "شرط‌های تلویحی",
+     "chapter": "Chapter 20",
+     "section": "20-8",
+     "use_en": "Not every condition needs an if-clause. A phrase with with, without, in case of, but for or otherwise can carry it: without your help, we would have failed means if you had not helped, we would have failed. The result clause keeps its would form, which is the signal that a condition is understood rather than stated.",
+     "use_fa": "هر شرطی جملهٔ if لازم ندارد. عبارت‌هایی با with، without، in case of، but for یا otherwise می‌توانند آن را حمل کنند: without your help, we would have failed یعنی if you had not helped, we would have failed. جملهٔ نتیجه شکل would خود را نگه می‌دارد و همین نشانهٔ آن است که شرط فهمیده می‌شود نه گفته.",
+     "form_en": "without / but for / with + noun, + would clause  ·  the condition is implied",
+     "examples": [
+      {
+       "en": "Without your help, we would have failed.",
+       "fa": "بدون کمک تو شکست خورده بودیم."
+      },
+      {
+       "en": "But for the traffic, we would be there by now.",
+       "fa": "اگر ترافیک نبود تا حالا آنجا بودیم."
+      },
+      {
+       "en": "With a little more practice, you could win.",
+       "fa": "با کمی تمرین بیشتر می‌توانستی ببری."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ your advice, I would have made a mistake. (implied condition)",
+       "answer": "Without",
+       "why_en": "Without plus a noun replaces if you had not.",
+       "why_fa": "without و اسم جای if you had not را می‌گیرد."
+      },
+      {
+       "prompt": "___ for the rain, the match would have continued. (implied condition)",
+       "answer": "But",
+       "why_en": "But for introduces the imagined exception.",
+       "why_fa": "but for استثنای تصوری را می‌آورد."
+      },
+      {
+       "prompt": "With more time, we ___ finish the project. (result)",
+       "answer": "could",
+       "why_en": "An implied condition keeps a modal result.",
+       "why_fa": "شرط تلویحی نتیجهٔ وجهی را نگه می‌دارد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ your help, we would not have finished.",
+       "options": [
+        "Without",
+        "Although",
+        "So that"
+       ],
+       "answer": "Without",
+       "why_en": "The implied condition is a phrase, not a clause.",
+       "why_fa": "شرط تلویحی عبارت است نه جمله."
+      },
+      {
+       "q": "But for the delay, we ___ be home now.",
+       "options": [
+        "would",
+        "will",
+        "are"
+       ],
+       "answer": "would",
+       "why_en": "The result of an implied condition takes would.",
+       "why_fa": "نتیجهٔ شرط تلویحی would می‌گیرد."
+      },
+      {
+       "q": "Which sentence has an implied condition?",
+       "options": [
+        "With more money, we could move.",
+        "We have more money, so we moved.",
+        "We moved because we had money."
+       ],
+       "answer": "With more money, we could move.",
+       "why_en": "The with-phrase states the condition without if.",
+       "why_fa": "عبارت with شرط را بی if می‌گوید."
+      }
+     ]
+    },
+    {
+     "n": 174,
+     "title": "Wishes about the present and the past",
+     "title_fa": "آرزو دربارهٔ حال و گذشته",
+     "chapter": "Chapter 20",
+     "section": "20-9",
+     "use_en": "Wish plus the past describes a present situation the speaker would like to change: I wish I had more time. Wish plus the past perfect looks back at something that cannot now be changed: I wish I had studied harder. The pattern mirrors the unreal condition: the past form signals that the wish is not a fact, and no will or would appears in the wish clause itself.",
+     "use_fa": "wish با گذشته وضعیت حال را توصیف می‌کند که گوینده می‌خواهد عوض شود: I wish I had more time. wish با گذشتهٔ کامل به چیزی نگاه می‌کند که دیگر تغییرپذیر نیست: I wish I had studied harder. الگو آینهٔ شرط غیرواقعی است: شکل گذشته نشان می‌دهد آرزو واقعیت نیست و در خود جملهٔ آرزو will یا would نمی‌آید.",
+     "form_en": "wish + past (present wish)  ·  wish + had + past participle (past regret)",
+     "examples": [
+      {
+       "en": "I wish I had more time.",
+       "fa": "ای کاش وقت بیشتری داشتم."
+      },
+      {
+       "en": "I wish I had studied harder.",
+       "fa": "ای کاش بیشتر درس خوانده بودم."
+      },
+      {
+       "en": "She wishes she lived closer to work.",
+       "fa": "آرزو می‌کند نزدیک‌تر به محل کارش زندگی می‌کرد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I wish I ___ taller. (present wish)",
+       "answer": "were",
+       "why_en": "A present wish about be takes were.",
+       "why_fa": "آرزوی حال دربارهٔ be شکل were می‌گیرد."
+      },
+      {
+       "prompt": "He wishes he ___ the job. (past regret)",
+       "answer": "had taken",
+       "why_en": "A past regret takes had plus the participle.",
+       "why_fa": "پشیمانی گذشته had و اسم مفعول می‌گیرد."
+      },
+      {
+       "prompt": "They wish they ___ more money. (present wish)",
+       "answer": "had",
+       "why_en": "The present wish uses the past form of have.",
+       "why_fa": "آرزوی حال شکل گذشتهٔ have را می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I wish I ___ how to swim.",
+       "options": [
+        "knew",
+        "know",
+        "will know"
+       ],
+       "answer": "knew",
+       "why_en": "A present wish takes the past form.",
+       "why_fa": "آرزوی حال شکل گذشته می‌گیرد."
+      },
+      {
+       "q": "She wishes she ___ to the party last night.",
+       "options": [
+        "had gone",
+        "went",
+        "has gone"
+       ],
+       "answer": "had gone",
+       "why_en": "A wish about the past takes the past perfect.",
+       "why_fa": "آرزو دربارهٔ گذشته گذشتهٔ کامل می‌گیرد."
+      },
+      {
+       "q": "Which sentence is a past regret?",
+       "options": [
+        "I wish I had called her.",
+        "I wish I could call her.",
+        "I hope I call her."
+       ],
+       "answer": "I wish I had called her.",
+       "why_en": "Had called looks back at a missed action.",
+       "why_fa": "had called به کاری نکرده در گذشته نگاه می‌کند."
+      }
+     ]
+    },
+    {
+     "n": 175,
+     "title": "Wishes about the future and wish + would",
+     "title_fa": "آرزو دربارهٔ آینده و wish + would",
+     "chapter": "Chapter 20",
+     "section": "20-10",
+     "use_en": "When the wish is about someone else's behaviour and the speaker wants it to change, the pattern is wish plus would: I wish he would call. When the wish is about the speaker's own future ability, could is used: I wish I could help. Wish plus would expresses impatience as often as hope, so it is not a polite way to ask someone for something.",
+     "use_fa": "وقتی آرزو دربارهٔ رفتار شخص دیگری است و گوینده می‌خواهد عوض شود، الگو wish و would است: I wish he would call. وقتی آرزو دربارهٔ توانایی آیندهٔ خودِ گوینده است could به کار می‌رود: I wish I could help. wish و would به همان اندازه که امید، بی‌تابی را هم بیان می‌کند، پس راه مؤدبانه‌ای برای درخواست از کسی نیست.",
+     "form_en": "wish + person + would + base verb  ·  wish + could + base verb",
+     "examples": [
+      {
+       "en": "I wish he would call me.",
+       "fa": "ای کاش به من زنگ می‌زد."
+      },
+      {
+       "en": "I wish I could help you.",
+       "fa": "ای کاش می‌توانستم کمکت کنم."
+      },
+      {
+       "en": "She wishes it would stop raining.",
+       "fa": "آرزو می‌کند باران بند بیاید."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I wish you ___ listen to me. (someone else's habit)",
+       "answer": "would",
+       "why_en": "A wish about another person's behaviour takes would.",
+       "why_fa": "آرزو دربارهٔ رفتار دیگری would می‌گیرد."
+      },
+      {
+       "prompt": "I wish I ___ speak French. (own ability)",
+       "answer": "could",
+       "why_en": "A wish about ability takes could.",
+       "why_fa": "آرزو دربارهٔ توانایی could می‌گیرد."
+      },
+      {
+       "prompt": "They wish the noise ___ stop. (future wish)",
+       "answer": "would",
+       "why_en": "A wish for a change in a situation takes would.",
+       "why_fa": "آرزوی تغییر وضعیت would می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I wish it ___ warmer tomorrow.",
+       "options": [
+        "would be",
+        "will be",
+        "is"
+       ],
+       "answer": "would be",
+       "why_en": "A wish about the future takes would.",
+       "why_fa": "آرزوی آینده would می‌گیرد."
+      },
+      {
+       "q": "She wishes she ___ come to the party.",
+       "options": [
+        "could",
+        "can",
+        "will"
+       ],
+       "answer": "could",
+       "why_en": "A wish about ability takes could.",
+       "why_fa": "آرزوی توانایی could می‌گیرد."
+      },
+      {
+       "q": "Which wish is about someone else's behaviour?",
+       "options": [
+        "I wish he would be quieter.",
+        "I wish I were quieter.",
+        "I wish I had been quieter."
+       ],
+       "answer": "I wish he would be quieter.",
+       "why_en": "Would signals a wish about another person.",
+       "why_fa": "would آرزو دربارهٔ شخص دیگر را نشان می‌دهد."
       }
      ]
     }
