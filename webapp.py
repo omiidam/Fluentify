@@ -6557,6 +6557,41 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .jn-primary, body.kids .jn-ghost, body.kids .jn-quickbtn { font-size: 14px; padding: 11px 16px; }
 
 
+  /* ---------- journey pictures and sport cards ----------
+     Line art drawn in the page: it inherits the text colour, so it needs no
+     dark-mode variant, and it is the same offline as on the web. */
+  .jn-art { display: inline-flex; flex: none; width: 22px; height: 22px; color: inherit; }
+  .jn-art svg { width: 100%; height: 100%; display: block; }
+  .jn-art.jn-emoji { font-size: 20px; line-height: 1; width: auto; height: auto; }
+  .jn-heroicon.jn-art { width: 34px; height: 34px; color: var(--ink-2); }
+  .jn-resultart { width: 46px; height: 46px; color: var(--ink-3); margin-bottom: 2px; }
+  .jn-entry .jn-art { width: 30px; height: 30px; color: var(--ink-2); }
+  .jn-wordhead { display: flex; gap: 10px; align-items: flex-start; }
+  .jn-wordbody { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+  .jn-wordtools { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  .jn-ipa { font-size: 10.5px; font-style: italic; color: var(--ink-3); }
+  .jn-sporttag {
+    font-size: 9px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  .jn-meta { margin: 0; font-size: 11px; line-height: 1.5; color: var(--ink-3); }
+  .jn-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+  .jn-sports { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+  .jn-sport {
+    display: flex; flex-direction: column; gap: 6px; padding: 12px;
+    border-radius: 14px; border: 1px solid var(--line); background: var(--surf-1);
+  }
+  .jn-sporthead { display: flex; gap: 10px; align-items: center; }
+  .jn-sporthead .jn-art { width: 34px; height: 34px; color: var(--ice-ink); }
+  .jn-sportcopy { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+  .jn-terms { margin: 0; padding-inline-start: 16px; display: flex; flex-direction: column; gap: 5px; font-size: 11.5px; line-height: 1.45; color: var(--ink-2); }
+  .jn-terms b { color: var(--ink); }
+  .jn-sporttalk { display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 10px; background: var(--surf-3); }
+  body.kids .jn-sport { padding: 14px; }
+  body.kids .jn-art { width: 26px; height: 26px; }
+  body.kids .jn-sporthead .jn-art { width: 44px; height: 44px; }
+
+
 /* ==========================================================================
      FLUENTIFY KIDS
      Every rule in this block sits behind body.kids, a class that is only put
@@ -11744,6 +11779,7 @@ async function loadPhrases() {
     /* Travel is a category of this panel, not a second app: one card at the
        top of the same list, and it opens inside the same panel. */
     box.appendChild(Travel.card(false));
+    box.appendChild(Journey.card('sports', false));
     byLevel(topics).forEach(([level, items]) => {
       const sec = document.createElement('div');
       sec.className = 'vgroup';
@@ -16662,8 +16698,103 @@ const Journey = (() => {
 
   let kids = false, doc = null, bank = null, ready = null;
   let stageId = '', query = '', mode = 'home';
+  let currentId = 'travel';
 
   const host = () => document.getElementById('ftopics');
+
+  /* ---- the pictures -----------------------------------------------------
+     Every pictogram is drawn here as line art: it is the same on the web,
+     offline and in the APK, it costs no request and carries no licence. One
+     style for the whole app - 32x32, 1.8 stroke, currentColor, no fills - so a
+     picture takes the colour of the theme it sits in. A key that is not drawn
+     is shown as plain text, which is how the travel stages keep their emoji
+     without a second code path. */
+  const ART = {
+    ball: '<circle cx="16" cy="16" r="11"/><path d="M5 12c6 3 16 3 22 0"/><path d="M5 20c6-3 16-3 22 0"/>',
+    soccer: '<circle cx="16" cy="16" r="12"/><path d="M16 9l6 4-2.3 7h-7.4L10 13z"/><path d="M16 4v5M4.5 13H10M8 26l3.7-6M24.5 26l-4-6M27.5 13h-5"/>',
+    football: '<ellipse cx="16" cy="16" rx="12" ry="7.5" transform="rotate(-20 16 16)"/><path d="M12 18l8-4M11 15l1 1M14 13l1 1M17 19l1 1"/>',
+    basketball: '<circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5v22"/><path d="M8.5 8.5c5 4 5 11 0 15"/><path d="M23.5 8.5c-5 4-5 11 0 15"/>',
+    volleyball: '<circle cx="16" cy="16" r="11"/><path d="M6 12c6 6 13 8 20 8"/><path d="M12 5c-2 8 0 14 6 20"/><path d="M24 8c-6 6-10 10-13 18"/>',
+    rugby: '<ellipse cx="16" cy="16" rx="12" ry="7.5" transform="rotate(25 16 16)"/><path d="M13 16h6M16 13v6"/>',
+    cricket: '<path d="M20 5l5 3-9 18-5-3z"/><circle cx="9" cy="9" r="2.4"/>',
+    baseball: '<circle cx="16" cy="16" r="11"/><path d="M9 7c4 5 4 13 0 18"/><path d="M23 7c-4 5-4 13 0 18"/>',
+    handball: '<circle cx="16" cy="15" r="6"/><path d="M5 9c3 4 7 6 11 6s8-2 11-6"/><path d="M5 23c3-4 7-6 11-6s8 2 11 6"/>',
+    stick: '<path d="M8 6l8 20"/><path d="M8 26h6"/><circle cx="23" cy="24" r="2.4"/>',
+    tennis: '<ellipse cx="14" cy="12" rx="7" ry="8"/><path d="M14 20v9"/><circle cx="24" cy="24" r="2.4"/>',
+    racket: '<ellipse cx="16" cy="11" rx="6" ry="8"/><path d="M16 19v9M12 11h8M16 6v10"/>',
+    paddle: '<ellipse cx="16" cy="11" rx="6" ry="7"/><path d="M16 18v9"/>',
+    bat: '<path d="M22 4l6 6-14 14-6-6z"/><path d="M10 20l-4 8 8-4"/>',
+    net: '<path d="M6 8v18M26 8v18M6 8h20"/><path d="M6 14h20M6 20h20M11 8v18M16 8v18M21 8v18"/>',
+    goal: '<path d="M5 24V10h22v14"/><path d="M9 24V14h14v10M9 14h14"/>',
+    hoop: '<rect x="4" y="5" width="12" height="9" rx="1"/><path d="M16 11h4"/><circle cx="22" cy="13" r="4"/>',
+    gloves: '<path d="M11 14V9a2 2 0 0 1 4 0v4M15 13V7a2 2 0 0 1 4 0v6M19 14v-3a2 2 0 0 1 4 0v9a7 7 0 0 1-7 7h-1a7 7 0 0 1-7-7v-5a2 2 0 0 1 4 0"/>',
+    helmet: '<path d="M6 18a10 10 0 0 1 20 0v3H6z"/><path d="M6 21h20"/>',
+    goggles: '<circle cx="11" cy="16" r="4"/><circle cx="21" cy="16" r="4"/><path d="M15 16h2M7 16H5M25 16h2"/>',
+    jersey: '<path d="M11 6l5 3 5-3 5 4-3 5-2-1v12H11V14l-2 1-3-5z"/>',
+    shoes: '<path d="M4 21v-6l7 1 4 4h9a4 4 0 0 1 4 4v1H4z"/><path d="M11 15l-1 4M15 16l-1 4"/>',
+    whistle: '<rect x="4" y="12" width="14" height="8" rx="4"/><circle cx="22" cy="20" r="4"/><path d="M18 12l7-3"/>',
+    stopwatch: '<circle cx="16" cy="18" r="9"/><path d="M16 13v5l3 2M13 6h6M16 6v3"/>',
+    medal: '<circle cx="16" cy="20" r="7"/><path d="M10 4l4 8M22 4l-4 8"/>',
+    trophy: '<path d="M10 6h12v7a6 6 0 0 1-12 0z"/><path d="M10 8H6a4 4 0 0 0 4 4M22 8h4a4 4 0 0 1-4 4"/><path d="M16 19v6M11 26h10"/>',
+    board: '<rect x="4" y="7" width="24" height="16" rx="2"/><path d="M8 18v-4M13 18v-7M18 18v-5M23 18v-8"/>',
+    chart: '<path d="M6 26V8M6 26h20"/><rect x="10" y="16" width="4" height="7"/><rect x="17" y="12" width="4" height="11"/><rect x="24" y="19" width="3" height="4"/>',
+    dumbbell: '<path d="M10 16h12"/><rect x="5" y="11" width="4" height="10" rx="1"/><rect x="23" y="11" width="4" height="10" rx="1"/>',
+    team: '<circle cx="11" cy="12" r="4"/><circle cx="21" cy="12" r="4"/><path d="M4 24a7 7 0 0 1 14 0"/><path d="M14 24a7 7 0 0 1 14 0"/>',
+    speech: '<path d="M6 8h20v12H14l-6 5v-5H6z"/>',
+    heart: '<path d="M16 26S5 19 5 12a6 6 0 0 1 11-3 6 6 0 0 1 11 3c0 7-11 14-11 14z"/>',
+    star: '<path d="M16 5l3.4 7 7.6 1-5.5 5.4 1.3 7.6L16 22l-6.8 3.6L10.5 18 5 13l7.6-1z"/>',
+    target: '<circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.6"/>',
+    case: '<rect x="7" y="10" width="18" height="14" rx="3"/><path d="M12 10V8h8v2M7 17h18"/>',
+    compass: '<circle cx="16" cy="16" r="11"/><path d="M20 12l-3 7-7 3 3-7z"/>',
+    court: '<rect x="5" y="8" width="22" height="16"/><path d="M16 8v16"/><circle cx="16" cy="16" r="3"/>',
+    pitch: '<rect x="4" y="9" width="24" height="14"/><path d="M16 9v14"/><circle cx="16" cy="16" r="2.6"/><path d="M4 12h4v8H4M28 12h-4v8h4"/>',
+    track: '<ellipse cx="16" cy="16" rx="13" ry="9"/><ellipse cx="16" cy="16" rx="8" ry="5"/>',
+    pool: '<path d="M4 12c4-3 8-3 12 0s8 3 12 0"/><path d="M4 20c4-3 8-3 12 0s8 3 12 0"/>',
+    gym: '<rect x="5" y="7" width="22" height="18" rx="2"/><path d="M10 21v-6M15 21v-9M20 21v-4"/>',
+    locker: '<rect x="6" y="5" width="20" height="22" rx="2"/><path d="M16 5v22M11 14h1M20 14h1"/>',
+    stadium: '<ellipse cx="16" cy="16" rx="13" ry="9"/><ellipse cx="16" cy="16" rx="7" ry="4"/>',
+    ring: '<rect x="5" y="9" width="22" height="16"/><path d="M5 14h22M5 19h22"/>',
+    golf: '<path d="M10 26V6"/><path d="M10 6l9 3-9 3"/><ellipse cx="20" cy="25" rx="7" ry="2.5"/><circle cx="18" cy="23" r="1.6"/>',
+    archery: '<path d="M9 4a14 14 0 0 1 0 24"/><path d="M6 16h20"/><path d="M23 12l4 4-4 4"/>',
+    bowling: '<path d="M14 8a4 4 0 1 1 8 0c0 3-3 5-3 9 0 4 3 6 3 9a4 4 0 0 1-8 0c0-3 3-5 3-9 0-4-3-6-3-9z"/><circle cx="8" cy="22" r="4"/>',
+    swimming: '<circle cx="9" cy="14" r="2.6"/><path d="M11 16c4-2 8-2 12 0"/><path d="M4 22c4-3 8-3 12 0s8 3 12 0"/>',
+    diving: '<path d="M4 10h7l-2 4H4z"/><path d="M13 8c3 0 4 3 6 5l2 3"/><path d="M5 22h22"/>',
+    surfing: '<path d="M4 19c4-6 8-6 12 0"/><path d="M16 19l4-8"/><rect x="7" y="24" width="19" height="3" rx="1.5" transform="rotate(-15 16 25)"/>',
+    sailing: '<path d="M16 5v15"/><path d="M16 6l9 12h-9z"/><path d="M6 22h20l-3 5H9z"/>',
+    rowing: '<path d="M4 20h24l-4 6H8z"/><path d="M18 20l6-12"/><circle cx="24" cy="6" r="2"/>',
+    kayak: '<path d="M4 20c8 5 16 5 24 0"/><path d="M4 20c8-4 16-4 24 0"/><path d="M16 6v14M11 12h10"/>',
+    boxing: '<path d="M11 6h6a5 5 0 0 1 5 5v4a5 5 0 0 1-5 5h-2v6h-4v-6h-1a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4z"/>',
+    fencing: '<path d="M6 26l14-14"/><path d="M22 8l4 4"/><path d="M16 12l4 4"/><circle cx="26" cy="6" r="2"/>',
+    bike: '<circle cx="9" cy="22" r="5"/><circle cx="23" cy="22" r="5"/><path d="M9 22l5-7h6l3 7M14 15l-2-4h4"/>',
+    climbing: '<path d="M5 4v24h22"/><circle cx="20" cy="10" r="2"/><path d="M20 12v6M17 15h6M20 18l-3 6M20 18l3 6"/>',
+    skiing: '<path d="M4 25l20-7"/><path d="M9 28l20-7"/><circle cx="20" cy="8" r="2.4"/><path d="M19 11l-4 7 4 3M15 18l-3 5M19 15l5 4"/>',
+    snowboard: '<rect x="4" y="17" width="24" height="5" rx="2.5" transform="rotate(-12 16 19)"/><circle cx="18" cy="8" r="2.2"/><path d="M18 10l-2 6M16 16l4 2"/>',
+    skate: '<rect x="6" y="14" width="20" height="4" rx="2"/><circle cx="11" cy="22" r="2"/><circle cx="21" cy="22" r="2"/><path d="M10 14l3-4h6l3 4"/>',
+    iceskating: '<path d="M11 5v13l7 4"/><path d="M6 24h20"/><path d="M11 18l-4 6"/>',
+    horse: '<path d="M8 24l3-8 5-4 6 1 3 4-2 7"/><circle cx="21" cy="9" r="2.4"/><path d="M14 24v4M22 24v4"/>',
+    replay: '<path d="M26 16a10 10 0 1 1-3-7"/><path d="M26 6v6h-6"/>',
+    stretch: '<circle cx="10" cy="8" r="2.6"/><path d="M10 11v7"/><path d="M4 14l6-2 6 3 5-2"/><path d="M10 18l-4 8M10 18l5 8"/>',
+    running: '<circle cx="19" cy="7" r="3"/><path d="M17 11l-3 6 4 3 2-5 4 1"/><path d="M14 17l-5 3M18 20l-2 6M18 20l4 5"/>',
+    gymnastics: '<circle cx="16" cy="9" r="2.6"/><path d="M16 12c-5 2-5 8 0 10 5-2 5-8 0-10z"/><path d="M10 26c3-2 9-2 12 0"/>',
+  };
+  /* A picture is content, so it has a name: the label is what a screen reader
+     says and what the caption beside the card states. */
+  function art(key, label) {
+    const d = document.createElement('span');
+    d.className = 'jn-art';
+    if (ART[key]) {
+      d.innerHTML = '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" ' +
+        'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ' +
+        'role="img" aria-label="' + String(label || key).replace(/"/g, '') + '">' +
+        ART[key] + '</svg>';
+    } else {
+      d.classList.add('jn-emoji');
+      d.textContent = key || '*';
+      d.setAttribute('aria-hidden', 'true');
+    }
+    return d;
+  }
+
 
   function el(tag, cls, text) {
     const n = document.createElement(tag);
@@ -16753,7 +16884,8 @@ const Journey = (() => {
     }
     return ready;
   }
-  const journey = () => (doc && doc.journeys && doc.journeys[0]) || null;
+  const allJourneys = () => ((doc && doc.journeys) || []);
+  const journey = () => allJourneys().find((j) => j.id === currentId) || allJourneys()[0] || null;
   const stages = () => ((journey() || {}).stages) || [];
   const stage = (id) => stages().find((s) => s.id === id) || null;
   const catOf = (id) => (((bank || {}).categories) || []).find((c) => c.id === id) || null;
@@ -16797,14 +16929,18 @@ const Journey = (() => {
     const list = stages();
     const total = list.length;
     const finished = list.filter((s) => isDone(s.id)).length;
-    const words = (j.wordCount != null) ? j.wordCount : bankWords();
-    const exprs = list.reduce((n, s) => n + (s.expressions || []).length, 0);
+    const st8 = j.stats || {};
+    const words = st8.words != null ? st8.words : bankWords();
+    const exprs = st8.expressions != null
+      ? st8.expressions : list.reduce((n, s) => n + (s.expressions || []).length, 0);
 
     const wrap = el('div', 'jn-wrap');
     wrap.append(backBar(kids ? 'Sentences' : 'Everyday sentences', back));
 
     const hero = el('div', 'jn-hero');
-    hero.append(el('span', 'jn-heroicon', j.icon || '🧭'));
+    const heroArt = art(j.art || j.icon, j.title_en);
+    heroArt.classList.add('jn-heroicon');
+    hero.append(heroArt);
     const copy = el('div', 'jn-herocopy');
     copy.append(el('h4', null, j.title_en));
     copy.append(faLine(j.title_fa));
@@ -16814,8 +16950,10 @@ const Journey = (() => {
     wrap.append(hero);
 
     const stats = el('div', 'jn-stats');
-    [['stages', String(total)], ['words', String(words)], ['expressions', String(exprs)],
-     ['done', finished + '/' + total]].forEach(([k, v]) => {
+    const cells = [['stages', String(total)], ['words', String(words)]];
+    if (st8.sports) cells.push(['sports', String(st8.sports)]);
+    cells.push(['expressions', String(exprs)], ['done', finished + '/' + total]);
+    cells.forEach(([k, v]) => {
       const cell = el('div', 'jn-stat');
       cell.append(el('b', null, v), el('span', null, k));
       stats.append(cell);
@@ -16837,10 +16975,15 @@ const Journey = (() => {
     const fast = el('button', 'jn-quickbtn', '⚡ Quick reference');
     fast.type = 'button';
     fast.onclick = quick;
-    const browse = el('button', 'jn-ghost', 'Every sentence in one list');
-    browse.type = 'button';
-    browse.onclick = () => Travel.openBrowse(kids);
-    tools.append(go, fast, browse);
+    tools.append(go, fast);
+    /* The flat list only exists for a journey that teaches from the travel
+       bank; a journey with its own words has nothing to flatten. */
+    if (list.some((s2) => (s2.refs || []).length)) {
+      const browse = el('button', 'jn-ghost', 'Every sentence in one list');
+      browse.type = 'button';
+      browse.onclick = () => Travel.openBrowse(kids);
+      tools.append(browse);
+    }
     wrap.append(tools);
 
     const grid = el('div', 'jn-stages');
@@ -16849,7 +16992,8 @@ const Journey = (() => {
       const card = el('button', 'jn-stage' + (done ? ' done' : ''));
       card.type = 'button';
       const num = el('span', 'jn-num', String(s.order || i + 1));
-      const icon = el('span', 'jn-sicon', s.icon || '•');
+      const icon = art(s.icon || '•', s.title_en);
+      icon.classList.add('jn-sicon');
       const body = el('span', 'jn-sbody');
       body.append(el('b', null, s.title_en));
       const f = faLine(s.title_fa, 'jn-sfa');
@@ -16903,7 +17047,9 @@ const Journey = (() => {
     wrap.append(backBar('Journey', overview));
 
     const hero = el('div', 'jn-hero');
-    hero.append(el('span', 'jn-heroicon', st.icon || '•'));
+    const stageArt = art(st.icon, st.title_en);
+    stageArt.classList.add('jn-heroicon');
+    hero.append(stageArt);
     const copy = el('div', 'jn-herocopy');
     copy.append(el('span', 'jn-kicker', 'Stage ' + (st.order || at + 1) + ' of ' + list.length));
     copy.append(el('h4', null, st.title_en));
@@ -16927,7 +17073,10 @@ const Journey = (() => {
     }
 
     const cats = (st.refs || []).map(catOf).filter(Boolean);
-    if (cats.length) wrap.append(wordsSection(cats));
+    const wordsSec = wordsSection(st, cats);
+    if (wordsSec) wrap.append(wordsSec);
+    const sportsSec = sportsSection(st);
+    if (sportsSec) wrap.append(sportsSec);
     if ((st.expressions || []).length) wrap.append(expressionsSection(st));
     if ((st.patterns || []).length) wrap.append(patternsSection(st));
     const sent = sentencesSection(st, cats);
@@ -16960,9 +17109,49 @@ const Journey = (() => {
     mode = 'stage';
   }
 
-  function wordsSection(cats) {
+  /* ---- one word ---------------------------------------------------------
+     A sports word is more than a translation: it has a reading, a job in the
+     sentence, a level, the sport it belongs to and a picture. The picture is
+     the first thing in the row, because a racket drawn next to the word racket
+     is the explanation. */
+  function wordRow(w) {
+    const row = el('div', 'jn-word');
+    const head = el('div', 'jn-wordhead');
+    head.append(art(w.icon, w.en + (w.sport && w.sport !== 'general' ? ', ' + w.sport : '')));
+    const body = el('div', 'jn-wordbody');
+    const top = el('div', 'jn-wordtop');
+    top.append(el('b', null, w.en));
+    if (w.ipa) top.append(el('span', 'jn-ipa', w.ipa));
+    if (w.pos) top.append(el('span', 'jn-pos', w.pos));
+    if (w.level) top.append(el('span', 'jn-lvl', w.level));
+    body.append(top);
+    body.append(faLine(w.fa));
+    if (w.def_en) body.append(el('p', 'jn-def', w.def_en));
+    if (w.example_en) {
+      const ex = el('div', 'jn-ex');
+      ex.append(el('span', null, w.example_en));
+      ex.append(playButton(w.example_en));
+      body.append(ex);
+    }
+    if (w.example_fa) body.append(faLine(w.example_fa, 'jn-deffa'));
+    if (w.sport && w.sport !== 'general') {
+      body.append(el('span', 'jn-sporttag', w.sport));
+    }
+    head.append(body);
+    const tools = el('div', 'jn-wordtools');
+    tools.append(playButton(w.en), star(w.id, w.en));
+    head.append(tools);
+    row.append(head);
+    return row;
+  }
+
+  function wordsSection(st, cats) {
+    const own = st.words || [];
+    const lists = (cats || []).filter((c) => (c.vocab || []).length);
+    if (!own.length && !lists.length) return null;
     const sec = section('The words', 'واژه‌ها');
-    cats.forEach((cat) => {
+    own.forEach((w) => sec.append(wordRow(w)));
+    lists.forEach((cat) => {
       (cat.vocab || []).forEach((w, i) => {
         const id = 'v:' + cat.id + ':' + i;
         const row = el('div', 'jn-word');
@@ -16984,6 +17173,116 @@ const Journey = (() => {
     });
     return sec;
   }
+
+  /* ---- one sport --------------------------------------------------------
+     Name, reading, what kind of sport it is, where it happens, what it needs,
+     what you do, the words only that sport uses, and one exchange you could
+     actually say. That is the language environment the name lives in. */
+  function sportCard(sp) {
+    const card = el('div', 'jn-sport');
+    const head = el('div', 'jn-sporthead');
+    head.append(art(sp.icon, sp.en + ', ' + sp.category.join(', ')));
+    const copy = el('div', 'jn-sportcopy');
+    copy.append(el('b', null, sp.en));
+    if (sp.ipa) copy.append(el('span', 'jn-ipa', sp.ipa));
+    copy.append(faLine(sp.fa));
+    head.append(copy);
+    head.append(star('sp:' + sp.id, sp.en));
+    card.append(head);
+
+    const chips = el('div', 'jn-chips');
+    (sp.category || []).forEach((c) => chips.append(el('span', 'jn-kind', c)));
+    if (sp.level) chips.append(el('span', 'jn-lvl', sp.level));
+    card.append(chips);
+
+    card.append(el('p', 'jn-def', sp.def_en));
+    card.append(el('p', 'jn-meta', 'Where: ' + sp.venue));
+    if ((sp.equipment || []).length) {
+      card.append(el('p', 'jn-meta', 'Gear: ' + sp.equipment.join(', ')));
+    }
+    if ((sp.actions || []).length) {
+      card.append(el('p', 'jn-meta', 'Actions: ' + sp.actions.join(', ')));
+    }
+
+    if ((sp.terms || []).length) {
+      const more = el('details', 'jn-more');
+      more.append(el('summary', null, sp.terms.length + ' words this sport needs'));
+      const ul = el('ul', 'jn-terms');
+      sp.terms.forEach((t) => {
+        const li = el('li');
+        li.append(el('b', null, t.term));
+        li.append(el('span', null, ' - ' + t.meaning_en));
+        li.append(faLine(t.fa, 'jn-deffa'));
+        ul.append(li);
+      });
+      more.append(ul);
+      card.append(more);
+    }
+
+    const say = el('div', 'jn-ex');
+    say.append(el('span', null, sp.sentence_en));
+    say.append(playButton(sp.sentence_en));
+    card.append(say);
+    card.append(faLine(sp.sentence_fa, 'jn-deffa'));
+
+    const talk = el('div', 'jn-sporttalk');
+    talk.append(el('span', 'jn-en', sp.exchange_en));
+    talk.append(faLine(sp.exchange_fa, 'jn-deffa'));
+    talk.append(playButton(sp.exchange_en));
+    card.append(talk);
+    return card;
+  }
+
+  function sportsSection(st) {
+    const ids = st.sportRefs || [];
+    if (!ids.length) return null;
+    const all = (journey() || {}).sports || [];
+    const list = ids.map((id) => all.find((sp) => sp.id === id)).filter(Boolean);
+    if (!list.length) return null;
+    const sec = section('The sports', 'ورزش‌ها');
+    const grid = el('div', 'jn-sports');
+    list.forEach((sp) => grid.append(sportCard(sp)));
+    sec.append(grid);
+    return sec;
+  }
+
+  /* ---- the entry card --------------------------------------------------
+     One card per journey, in the same list as the topic cards, opening the
+     same panel. It does not need the data to be loaded to be drawn: the counts
+     arrive when they arrive. */
+  const CARD_WORDS = {
+    travel: { en: 'Travel', fa: 'سفر', sub: 'Speak English confidently wherever you go.', subFa: 'با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', art: 'case' },
+    sports: { en: 'Sports', fa: 'ورزش', sub: 'The words players, coaches and fans actually use.', subFa: 'واژه‌هایی که بازیکن‌ها، مربی‌ها و هوادارها واقعاً به کار می‌برند.', art: 'soccer' },
+  };
+  function card(id, kidsFlag) {
+    const isKid = !!kidsFlag;
+    const info = CARD_WORDS[id] || { en: id, fa: '', sub: '', subFa: '', art: 'ball' };
+    const b = el('button', (isKid ? 'kbtn kc-blue ' : '') + 'tr-card jn-entry');
+    b.type = 'button';
+    b.append(art(info.art, info.en));
+    const ct = el('span', 'tr-ct');
+    ct.append(el('b', null, info.en));
+    ct.append(el('span', null, info.sub));
+    ct.append(faLine(info.subFa, 'tr-fa'));
+    const go = el('span', isKid ? 'kgo' : 'tr-go', 'Open');
+    b.append(ct);
+    if (isKid) b.append(el('span', 'kfa', info.fa), go); else b.append(go);
+    b.setAttribute('aria-label', info.en + ' journey - ' + info.sub + ', ' + info.fa);
+    b.onclick = () => open(isKid, id);
+    load().then(() => {
+      const j = allJourneys().find((x) => x.id === id);
+      if (!j || !j.stats) return;
+      const st = j.stats;
+      const bits = [st.stages + ' stages'];
+      if (st.words) bits.push(st.words + ' words');
+      if (st.sports) bits.push(st.sports + ' sports');
+      bits.push(st.expressions + ' expressions');
+      go.textContent = bits.join(' - ') + (isKid ? '' : ' >');
+    }).catch(() => { /* the card still opens and shows the error itself */ });
+    return b;
+  }
+
+
 
   function expressionsSection(st) {
     const sec = section('Expressions and idioms', 'عبارت‌ها و اصطلاح‌ها');
@@ -17182,6 +17481,11 @@ const Journey = (() => {
   function buildIndex() {
     const rows = [];
     stages().forEach((st) => {
+      (st.words || []).forEach((w) => rows.push({
+        kind: 'word', en: w.en, fa: w.fa, id: w.id, stage: st.id,
+        ipa: w.ipa, pos: w.pos, level: w.level, use: w.def_en,
+        example: w.example_en, sport: w.sport, art: w.icon,
+      }));
       (st.sentences || []).forEach((s) => rows.push({
         kind: 'sentence', en: s.en, fa: s.fa, level: s.level, id: 's:' + s.id,
         stage: st.id, use: s.use_en, useFa: s.use_fa, alt: s.alt,
@@ -17198,6 +17502,20 @@ const Journey = (() => {
       (st.scenarios || []).forEach((c, i) => rows.push({
         kind: 'scenario', en: c.task_en, fa: c.task_fa, id: 'c:' + st.id + ':' + i,
         stage: st.id, use: c.situation_en, next: c.answer_en, nextFa: c.answer_fa,
+      }));
+    });
+    (((journey() || {}).sports) || []).forEach((sp) => {
+      const where = stages().find((s) => (s.sportRefs || []).includes(sp.id));
+      rows.push({
+        kind: 'sport', en: sp.en, fa: sp.fa, id: 'sp:' + sp.id,
+        stage: where ? where.id : '', ipa: sp.ipa, level: sp.level,
+        use: sp.def_en, example: sp.sentence_en, sport: sp.category.join(' '),
+        terms: (sp.terms || []).map((t) => t.term + ' ' + t.fa).join(' '),
+        art: sp.icon,
+      });
+      (sp.terms || []).forEach((t, i) => rows.push({
+        kind: 'term', en: t.term, fa: t.fa, id: 'st:' + sp.id + ':' + i,
+        stage: where ? where.id : '', use: t.meaning_en, sport: sp.en,
       }));
     });
     (((bank || {}).categories) || []).forEach((cat) => {
@@ -17228,7 +17546,8 @@ const Journey = (() => {
     rows.forEach((r) => {
       if (stageFilter && r.stage !== stageFilter) return;
       if (levelFilter && r.level !== levelFilter) return;
-      const hay = fold([r.en, r.fa, r.use, r.useFa, r.alt, r.example, r.pos].join(' '));
+      const hay = fold([r.en, r.fa, r.use, r.useFa, r.alt, r.example, r.pos,
+        r.ipa, r.sport, r.terms].join(' '));
       const hit = words.filter((w) => hay.includes(w)).length;
       if (!hit) return;
       const en = fold(r.en);
@@ -17243,7 +17562,12 @@ const Journey = (() => {
     /* One word shared with ten old rows is noise at a counter, so only the
        results close to the best one survive, and never more than a dozen. */
     const best = scored.length ? scored[0].score : 0;
-    return scored.filter((x) => x.score >= best * 0.6).slice(0, 12).map((x) => x.r);
+    /* A row whose own headword is one of the words typed is never noise: a
+       Persian "basketball ball" search must still reach the sport itself. */
+    const named = (x) => words.includes(fold(x.r.en)) || words.includes(fold(x.r.fa));
+    let keep = scored.filter((x) => x.score >= best * 0.6 || named(x));
+    if (keep.length < 6) keep = scored.slice(0, 6);
+    return keep.slice(0, 12).map((x) => x.r);
   }
 
   function quick() {
@@ -17264,7 +17588,7 @@ const Journey = (() => {
     const box = el('div', 'jn-search');
     const input = el('input');
     input.type = 'search';
-    input.placeholder = 'Try "I lost my luggage" — جست‌وجو';
+    input.placeholder = 'A word, a sentence, an idiom — جست‌وجو';
     input.setAttribute('aria-label', 'Search the journey');
     input.value = query;
     box.append(input);
@@ -17315,8 +17639,15 @@ const Journey = (() => {
     if (r.level) top.append(el('span', 'jn-lvl', r.level));
     if (r.register) top.append(el('span', 'jn-reg', r.register));
     if (r.pos) top.append(el('span', 'jn-pos', r.pos));
+    if (r.ipa) top.append(el('span', 'jn-ipa', r.ipa));
+    if (r.sport && r.kind === 'word') top.append(el('span', 'jn-sporttag', r.sport));
     top.append(playButton(r.en), star(r.id, r.en));
     card.append(top);
+    if (r.art) {
+      const pic = art(r.art, r.en);
+      pic.classList.add('jn-resultart');
+      card.append(pic);
+    }
     card.append(el('b', 'jn-en', r.en));
     if (r.fa) card.append(faLine(r.fa));
     if (r.use) card.append(el('p', 'jn-def', r.use));
@@ -17337,8 +17668,10 @@ const Journey = (() => {
     return card;
   }
 
-  function open(kidsFlag) {
+  function open(kidsFlag, id) {
     kids = !!kidsFlag;
+    /* The travel card opens without an id: travel is the first journey. */
+    currentId = id || 'travel';
     stageId = '';
     query = '';
     index = null;
@@ -17352,7 +17685,7 @@ const Journey = (() => {
     });
   }
 
-  return { open, openStage: (id, kidsFlag) => { kids = !!kidsFlag; load().then(() => { index = null; indexStages(); stagePage(id); }); } };
+  return { open, card, openStage: (id, kidsFlag) => { kids = !!kidsFlag; load().then(() => { index = null; indexStages(); stagePage(id); }); } };
 })();
 
 
@@ -18579,6 +18912,7 @@ const Kids = (() => {
         () => phraseSet(set), (set.items || []).length + ' sentences'));
     });
     wrap.prepend(Travel.card(true));
+    wrap.prepend(Journey.card('sports', true));
     box.appendChild(wrap);
     KAnim.stagger(wrap);
   }

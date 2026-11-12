@@ -1,0 +1,161 @@
+# Sports journey, stages 11-14.
+
+J|watching|11|stadium|Watching, following and talking about a match|تماشا، دنبال کردن و حرف زدن از مسابقه|kids,adults||The language of the stand: who you support, what just happened, and how to say it while it is happening.|زبانِ سکو: طرفدار کی هستی، همین حالا چه شد، و چطور در همان لحظه بگویی.
+O|say who you support and why.|بگویی طرفدار چه کسی هستی و چرا.
+O|react to a moment in a match in natural, current English.|به لحظه‌ای از مسابقه با انگلیسی طبیعی و امروزی واکنش بدهی.
+O|describe a match you watched, including the result and the turning point.|مسابقه‌ای را که دیدی توصیف کنی، با نتیجه و نقطهٔ چرخش.
+W|commentary|/ˈkɑmənteri/|noun|گزارش زنده|Spoken description of a match as it happens.|general|speech|B2|The commentary was in Spanish, so I turned it down.|گزارش به اسپانیایی بود، پس صدایش را کم کردم.|
+W|highlight|/ˈhaɪlaɪt/|noun|لحظهٔ برجسته|The best moment, or a short clip of the best moments.|general|star|B1|Watch the highlights if you missed the match.|اگر مسابقه را ندیدی، خلاصهٔ لحظه‌های برجسته را ببین.|
+W|replay|/ˈriːpleɪ/|noun|بازپخش|A second showing of a moment, often slowed down.|general|replay|B1|The replay showed the ball crossed the line.|بازپخش نشان داد توپ از خط گذشت.|
+W|upset|/ˈʌpset/|noun|شگفتی|A result in which the weaker side wins.|general|chart|B2|It was the biggest upset of the season.|بزرگ‌ترین شگفتی فصل بود.|
+W|underdog|/ˈʌndərdɔɡ/|noun|تیم ضعیف‌تر|The side nobody expects to win.|general|team|B2|Everyone loves an underdog.|همه تیم ضعیف‌تر را دوست دارند.|
+W|prediction|/prɪˈdɪkʃn/|noun|پیش‌بینی|What you think will happen before it does.|general|chart|B1|My prediction was wrong again.|پیش‌بینی‌ام باز هم غلط بود.|
+W|cheer|/tʃɪr/|verb|تشویق کردن|To shout in support of a team or player.|general|speech|A2|The crowd cheered every pass.|تماشاگرها هر پاس را تشویق کردند.|
+W|chant|/tʃænt/|noun|شعار هواداران|A short repeated song or phrase from the crowd.|general|speech|B2|The whole stand sang the same chant.|تمام جایگاه یک شعار را خواند.|
+W|scoreboard|/ˈskɔrbɔrd/|noun|تابلوی امتیاز|The board that shows the score and the time.|general|board|A2|The scoreboard said two nil.|تابلوی امتیاز دو صفر نشان می‌داد.|
+W|broadcast|/ˈbrɔdkæst/|noun|پخش|A match shown on television, radio or online.|general|chart|B1|The final was broadcast in forty countries.|فینال در چهل کشور پخش شد.|
+X|expression|Who are you rooting for?|طرفدار کی هستی؟|The American way to ask who you want to win.|راه آمریکایی پرسیدن اینکه چه کسی را می‌خواهی ببرد.|informal|Who are you rooting for in the final?|در فینال طرفدار کی هستی؟|Who are you supporting?
+X|expression|That was an amazing goal!|چه گل فوق‌العاده‌ای!|Immediate reaction, said while it is still happening.|واکنش فوری، همان لحظه که در جریان است.|informal|That was an amazing goal! From thirty meters!|چه گل فوق‌العاده‌ای! از سی متری!
+X|expression|What a save!|چه مهارتی!|Praises the goalkeeper, not the shooter.|دروازه‌بان را می‌ستاید، نه شوت‌زن را.|informal|What a save! He had no right to reach that.|چه مهارتی! حق نداشت به آن برسد.
+X|expression|That was a close game.|بازی نزدیکی بود.|Neutral summary after a tight match.|خلاصهٔ بی‌طرف بعد از مسابقه‌ای نزدیک.|neutral|That was a close game. Either team could have won.|بازی نزدیکی بود. هر دو تیم می‌توانستند ببرند.
+X|expression|I think they're going to win.|فکر می‌کنم آن‌ها می‌برند.|A prediction, softened with I think.|پیش‌بینی، با I think نرم شده.|neutral|I think they're going to win, but their defense worries me.|فکر می‌کنم می‌برند، اما دفاعشان نگرانم می‌کند.
+X|expression|He played exceptionally well.|او فوق‌العاده بازی کرد.|Praise that sounds mature rather than loud.|تعریفی که بالغ به نظر می‌رسد، نه پرسروصدا.|formal|He played exceptionally well in the second half.|او در نیمهٔ دوم فوق‌العاده بازی کرد.
+P|I'm rooting for + [team].|I'm rooting for the away team.|طرفدار تیم مهمان هستم.|The American way to say who you support.|راه آمریکایی گفتن اینکه طرفدار کی هستی.
+P|That was + [adjective] + [noun].|That was a brilliant finish.|پایان‌بندی درخشانی بود.|The shape of every reaction in the stand.|شکل هر واکنش روی سکو.
+S|The match was really exciting, especially the last ten minutes.|مسابقه واقعاً هیجان‌انگیز بود، خصوصاً ده دقیقهٔ آخر.|Describes the match and picks the moment.|مسابقه را توصیف می‌کند و لحظه را انتخاب می‌کند.|A2|neutral|It was exciting, especially at the end.
+S|They were two goals down and still won.|آن‌ها دو گل عقب بودند و باز هم بردند.|Says what made the match memorable.|می‌گوید چه چیزی مسابقه را به‌یادماندنی کرد.|B1|neutral|Two goals down, and they came back to win.
+S|Did you see the replay? The ball was over the line.|بازپخش را دیدی؟ توپ از خط گذشته بود.|Points at evidence instead of opinion.|به‌جای نظر، به مدرک اشاره می‌کند.|B1|neutral|Look at the replay, the ball crossed the line.
+D|Watching the final together|تماشای فینال با هم|Nima|Sahar
+L|Nima|Who are you rooting for?|طرفدار کی هستی؟
+L|Sahar|The underdog, obviously. Nobody expects them to win.|تیم ضعیف‌تر، معلوم است. هیچ‌کس انتظار بردشان را ندارد.
+L|Nima|That was a close game last time. One goal in it.|دفعهٔ قبل بازی نزدیکی بود. یک گل فرقشان بود.
+L|Sahar|Look at the replay. Their keeper was off his line.|بازپخش را ببین. دروازه‌بانشان از خط بیرون بود.
+L|Nima|What a save though. He reached it with one hand.|اما چه مهارتی. با یک دست به آن رسید.
+L|Sahar|If they win tonight, it's the biggest upset of the season.|اگر امشب ببرند، بزرگ‌ترین شگفتی فصل است.
+L|Nima|I think they're going to win. The crowd is with them.|فکر می‌کنم می‌برند. تماشاگرها با آن‌ها هستند.
+C|Reacting in the moment|واکنش در همان لحظه|A shot hits the bar and goes out.|توپی به تیرک می‌خورد و بیرون می‌رود.|Say what happened and how close it was.|بگو چه شد و چقدر نزدیک بود.|Oh, off the bar! That was centimeters away.|آه، به تیرک خورد! چند سانتی‌متر فاصله بود.
+C|Describing a match you missed|توصیف مسابقه‌ای که ندیدی|A friend missed the game and asks what happened.|دوستت بازی را ندیده و می‌پرسد چه شد.|Give the result, the turning point and one highlight.|نتیجه، نقطهٔ چرخش و یک لحظهٔ برجسته را بگو.|They won two one. The turning point was a red card in the second half, and the winning goal came from a corner.|دو بر یک بردند. نقطهٔ چرخش کارت قرمز نیمهٔ دوم بود و گل برنده از کرنر آمد.
+Q|A shot that hits the frame and goes out is ...|شوتی که به تیرک بخورد و بیرون برود ...|off the bar|a replay|an upset|It came off the bar.|به تیرک خورد.
+Q|When the weaker team wins, it is ...|وقتی تیم ضعیف‌تر ببرد، ... است|an upset|a fixture|a chant|That result is called an upset.|آن نتیجه upset نام دارد.
+Q|The American question about support is ...|پرسش آمریکایی دربارهٔ حمایت ... است|Who are you rooting for?|Who are you chanting?|Who are you broadcasting?|Rooting for means supporting.|rooting for یعنی طرفداری کردن.
+
+J|opinions|12|speech|Opinions, comparisons and arguing about sport|نظر، مقایسه و بحث دربارهٔ ورزش|kids,adults||From "I prefer football" to a reasoned argument about talent and teamwork, with the language each level needs.|از «فوتبال را ترجیح می‌دهم» تا استدلالی دربارهٔ استعداد و کار تیمی، با زبان لازم هر سطح.
+O|say which sport you prefer and give a reason.|بگویی کدام ورزش را ترجیح می‌دهی و دلیل بیاوری.
+O|compare two sports or two players fairly.|دو ورزش یا دو بازیکن را منصفانه مقایسه کنی.
+O|agree and disagree about sport without turning it into a fight.|دربارهٔ ورزش موافقت و مخالفت کنی، بدون اینکه به دعوا تبدیل شود.
+W|prefer|/prɪˈfɜr/|verb|ترجیح دادن|To like one thing more than another.|general|heart|A2|I prefer football to basketball.|فوتبال را به بسکتبال ترجیح می‌دهم.|
+W|challenging|/ˈtʃælɪndʒɪŋ/|adjective|چالش‌برانگیز|Difficult in a way that makes you try hard.|general|target|B1|I find tennis more challenging than golf.|تنیس را چالش‌برانگیزتر از گلف می‌دانم.|
+W|talented|/ˈtæləntɪd/|adjective|بااستعداد|Naturally good at something, before training.|general|star|A2|She's the most talented player in the team.|او بااستعدادترین بازیکن تیم است.|
+W|overrated|/ˌoʊvərˈreɪtɪd/|adjective|بیش از اندازه ستوده|Praised more than the performances deserve.|general|chart|B2|I think that striker is overrated.|فکر می‌کنم آن مهاجم بیش از اندازه ستوده شده است.|
+W|consistent|/kənˈsɪstənt/|adjective|یکدست|Performing at the same level every week.|general|chart|B2|He's not spectacular, but he's consistent.|او چشمگیر نیست، اما یکدست است.|
+W|aggressive|/əˈɡresɪv/|adjective|تهاجمی|Playing forward and pressing the opponent.|general|team|B2|They play an aggressive high line.|آن‌ها خط بالا و تهاجمی بازی می‌کنند.|
+W|defensive|/dɪˈfensɪv/|adjective|تدافعی|Playing to stop the other team rather than to score.|general|team|B2|It was a defensive performance, but it worked.|عملکردی تدافعی بود، اما جواب داد.|
+W|rival|/ˈraɪvl/|noun|رقیب|A team or player you compete with year after year.|general|team|B1|Their biggest rival is the club across town.|بزرگ‌ترین رقیبشان باشگاه آن‌سوی شهر است.|
+W|derby|/ˈdɜrbi/|noun|شهرآورد|A match between two local rivals.|general|stadium|B2|The derby ended without a goal.|شهرآورد بدون گل تمام شد.|
+W|atmosphere|/ˈætməsfɪr/|noun|فضا و جوّ|The feeling in a stadium, made by the crowd.|general|speech|B1|The atmosphere before kick-off was incredible.|فضای پیش از شروع بازی باورنکردنی بود.|
+X|expression|I prefer football to basketball.|فوتبال را به بسکتبال ترجیح می‌دهم.|prefer A to B, never prefer A than B.|prefer با to می‌آید، نه than.|neutral|I prefer football to basketball, mostly because of the pace.|فوتبال را به بسکتبال ترجیح می‌دهم، بیشتر به‌خاطر ریتمش.
+X|expression|I find tennis more challenging.|تنیس را چالش‌برانگیزتر می‌دانم.|find + noun + adjective, a soft way to give an opinion.|راهی نرم برای بیان نظر.|neutral|I find tennis more challenging than it looks.|تنیس را چالش‌برانگیزتر از آنچه به نظر می‌رسد می‌دانم.
+X|expression|In my opinion, teamwork matters more than talent.|به نظر من، کار تیمی مهم‌تر از استعداد است.|A full opinion phrase for a serious discussion.|عبارت کامل نظر برای بحث جدی.|formal|In my opinion, teamwork matters more than individual talent.|به نظر من، کار تیمی مهم‌تر از استعداد فردی است.
+X|expression|I see it differently.|من طور دیگری می‌بینمش.|Disagreement without saying the other person is wrong.|مخالفت، بدون اینکه طرف مقابل را غلط بخوانی.|polite|I see it differently: their defense won that match.|من طور دیگری می‌بینم: دفاعشان آن مسابقه را برد.
+X|expression|Fair enough.|قبول.|Ends a disagreement without changing your mind.|بحث را تمام می‌کند، بدون تغییر نظرت.|informal|Fair enough. We'll see on Sunday.|قبول. یکشنبه می‌بینیم.
+P|I prefer + [A] + to + [B].|I prefer swimming to running.|شنا را به دویدن ترجیح می‌دهم.|to after prefer, not than.|بعد از prefer از to استفاده کن، نه than.
+P|I find + [sport] + more + [adjective] + than + [sport].|I find rugby more physical than soccer.|راگبی را فیزیکی‌تر از فوتبال می‌دانم.|find + noun + comparative.|ساختار find + اسم + صفت تفضیلی.
+S|What makes someone a great athlete?|چه چیزی کسی را ورزشکار بزرگی می‌کند؟|A discussion question that works at B1 and at C1.|پرسشی برای بحث که در B1 و C1 کار می‌کند.|B2|neutral|What do you think makes a great athlete?
+S|I don't think the score tells the whole story.|فکر نمی‌کنم نتیجه تمام ماجرا را بگوید.|Disagrees with a result, not with a person.|با یک نتیجه مخالف است، نه با یک شخص.|B2|neutral|The score doesn't tell the whole story.
+S|To be fair, they were missing three players.|انصافاً سه بازیکن غایب داشتند.|Concedes a point while still arguing.|امتیازی می‌دهد و در همان حال بحث می‌کند.|B2|neutral|In fairness, three players were missing.
+D|Two friends disagree about a final|دو دوست در disagreement دربارهٔ فینال|Arman|Tara
+L|Arman|In my opinion, they won because of one player.|به نظر من، به‌خاطر یک بازیکن بردند.
+L|Tara|I see it differently. Their defense was organised for ninety minutes.|من طور دیگری می‌بینم. دفاعشان نود دقیقه سازمان‌یافته بود.
+L|Arman|But without that goal, they lose.|اما بدون آن گل، می‌باختند.
+L|Tara|Fair enough, but somebody has to score. That's the job.|قبول، اما یک نفر باید گل بزند. کارش همین است.
+L|Arman|So you'd say teamwork matters more than talent?|پس می‌گویی کار تیمی از استعداد مهم‌تر است؟
+L|Tara|Over a season, yes. In one match, talent decides it.|در یک فصل، بله. در یک مسابقه، استعداد تعیین می‌کند.
+L|Arman|That's a better answer than mine.|این پاسخ از پاسخ من بهتر است.
+C|Comparing two sports|مقایسهٔ دو ورزش|A friend asks which is harder, tennis or badminton.|دوستت می‌پرسد کدام سخت‌تر است، تنیس یا بدمینتون.|Compare speed, fitness and equipment, then give your view.|سرعت، آمادگی و ابزار را مقایسه کن و نظرت را بگو.|I find badminton faster, but tennis is more demanding physically. I'd say tennis is harder to learn.|بدمینتون را سریع‌تر می‌دانم، اما تنیس از نظر بدنی سخت‌تر است. به نظر من یاد گرفتن تنیس سخت‌تر است.
+C|Disagreeing politely|مخالفت مؤدبانه|Someone says a player is overrated and you disagree.|کسی می‌گوید بازیکنی بیش از اندازه ستوده شده و تو مخالفی.|Disagree without insulting the person or the player.|مخالفت کن، بدون توهین به شخص یا بازیکن.|I see it differently. His numbers are consistent every season, and that is hard.|من طور دیگری می‌بینم. آمارش هر فصل یکدست است و این سخت است.
+Q|Which is correct?|کدام درست است؟|I prefer tennis to golf.|I prefer tennis than golf.|I prefer tennis more golf.|prefer takes to.|prefer با to می‌آید.
+Q|A match between local rivals is a ...|مسابقه بین رقیب‌های محلی ... است|derby|fixture|final|That is a derby.|این شهرآورد است.
+Q|Someone who performs at the same level every week is ...|کسی که هر هفته در همان سطح بازی کند ... است|consistent|overrated|aggressive|Consistency is the same level, repeatedly.|یکدستی یعنی همان سطح، به‌طور تکرارشونده.
+
+J|fairplay|13|heart|Fair play, safety and looking after each other|جوانمردی، ایمنی و مراقبت از هم|kids,adults||How to win and lose properly, and what to say when something hurts.|چطور درست ببریم و ببازیم، و وقتی چیزی درد می‌کند چه بگوییم.
+O|encourage a teammate and respect an opponent in English.|هم‌تیمی را تشویق کنی و حریف را محترم بشماری.
+O|say that something hurts and ask for a break.|بگویی چیزی درد می‌کند و استراحت بخواهی.
+O|talk about fair play and discipline without lecturing.|دربارهٔ جوانمردی و نظم حرف بزنی، بدون نصیحت کردن.
+W|fair play|/fer pleɪ/|noun|جوانمردی|Following the rules and treating opponents honestly.|general|heart|B1|Fair play matters more than the result.|جوانمردی از نتیجه مهم‌تر است.|
+W|respect|/rɪˈspekt/|noun|احترام|Treating opponents, officials and teammates properly.|general|heart|B1|They showed respect to the losing team.|آن‌ها به تیم بازنده احترام گذاشتند.|
+W|discipline|/ˈdɪsəplɪn/|noun|نظم|Sticking to the plan and the rules, even when it is hard.|general|chart|B2|Discipline wins more matches than talent.|نظم بیشتر از استعداد مسابقه می‌برد.|
+W|team spirit|/tim ˈspɪrɪt/|noun|روحیهٔ تیمی|The feeling of belonging and wanting the group to do well.|general|team|B1|The team spirit is better than last season.|روحیهٔ تیمی از فصل قبل بهتر است.|
+W|encourage|/ɪnˈkɜrɪdʒ/|verb|تشویق کردن|To give someone confidence to keep going.|general|speech|A2|Encourage her instead of criticising.|به‌جای نقد کردن، تشویقش کن.|
+W|injury|/ˈɪndʒəri/|noun|مصدومیت|Damage to the body from sport or an accident.|general|heart|A2|He missed three weeks with an injury.|او سه هفته به‌خاطر مصدومیت غایب بود.|
+W|sprain|/spreɪn/|verb|پیچ خوردن|To damage a joint by twisting it suddenly.|general|heart|B1|I sprained my ankle in the warm-up.|در گرم کردن مچ پايم پیچ خورد.|
+W|cramp|/kræmp/|noun|گرفتگی عضله|A sudden tight, painful muscle.|general|heart|B1|I got a cramp in the last five minutes.|پنج دقیقهٔ آخر عضله‌ام گرفت.|
+W|ankle|/ˈæŋkl/|noun|مچ پا|The joint between the leg and the foot.|general|heart|A2|My ankle is swollen.|مچ پایم ورم کرده است.|
+W|rest|/rest/|verb|استراحت کردن|To stop and let the body recover.|general|heart|A1|Rest the ankle for two days.|دو روز به مچ پا استراحت بده.|
+X|expression|Play fair!|منصفانه بازی کن!|A reminder of the rule, often said to a child.|یادآوری قاعده، اغلب به کودک گفته می‌شود.|neutral|Play fair! That was outside the line.|منصفانه بازی کن! آن بیرون خط بود.
+X|expression|Respect your opponents.|حریفت را محترم بشمار.|The core of sportsmanship in three words.|هستهٔ جوانمردی در سه کلمه.|formal|Respect your opponents, win or lose.|حریفت را محترم بشمار، بردی یا باختی.
+X|expression|That was a great effort.|تلاش خوبی بود.|Praise for trying, not for winning.|تعریف از تلاش، نه از برد.|neutral|That was a great effort, even if we lost.|تلاش خوبی بود، حتی اگر باختیم.
+X|expression|I need a break.|به استراحت نیاز دارم.|Says you are stopping before something worse happens.|می‌گوید پیش از اتفاق بدتر، متوقف می‌شوی.|neutral|I need a break. My ankle is sore.|به استراحت نیاز دارم. مچ پايم درد می‌کند.
+X|expression|I hurt my ankle.|مچ پایم آسیب دید.|The plain sentence for reporting an injury.|جملهٔ ساده برای گزارش مصدومیت.|neutral|I hurt my ankle when I landed.|وقتی فرود آمدم مچ پايم آسیب دید.
+X|expression|I think I need some help.|فکر می‌کنم به کمک نیاز دارم.|Asking for help without drama, and early enough.|درخواست کمک بدون نمایش، و به‌اندازهٔ کافی زود.|polite|I think I need some help. I can't put weight on it.|فکر می‌کنم به کمک نیاز دارم. نمی‌توانم روی آن وزن بگذارم.
+P|I hurt my + [body part].|I hurt my knee in training.|در تمرین زانویـم آسیب دید.|The body part comes after my.|عضو بدن بعد از my می‌آید.
+P|It hurts when I + [verb].|It hurts when I run.|وقتی می‌دوم درد می‌گیرد.|Describes the movement that causes pain.|حرکتی را که درد می‌دهد توصیف می‌کند.
+S|Win or lose, shake hands with the other team.|بردی یا باختی، با تیم دیگر دست بده.|A rule of behavior, not a rule of the game.|قاعدهٔ رفتار است، نه قاعدهٔ بازی.|A2|neutral|Shake hands with the other team, win or lose.
+S|He apologised for the tackle straight away.|او فوراً برای آن تکل عذرخواهی کرد.|Sportsmanship shown through one action.|جوانمردی از طریق یک رفتار نشان داده می‌شود.|B1|neutral|He said sorry for the tackle immediately.
+S|Take a break if it still hurts.|اگر هنوز درد می‌کند استراحت کن.|Advice to stop, not medical treatment.|توصیه به توقف است، نه درمان پزشکی.|A2|neutral|Stop and rest if the pain continues.
+D|After a hard tackle|بعد از یک تکل سخت|Sara|Behnam
+L|Behnam|Are you okay? That was a hard tackle.|خوبی؟ تکل سختی بود.
+L|Sara|I hurt my ankle. I think I need a break.|مچ پایم آسیب دید. فکر می‌کنم به استراحت نیاز دارم.
+L|Behnam|Sit down. I'll get the coach.|بنشین. مربی را خبر می‌کنم.
+L|Sara|It's not his fault. He got the ball first.|تقصیر او نیست. اول توپ را زد.
+L|Behnam|Still, take your time. Don't come back on until it stops hurting.|باز هم عجله نکن. تا دردش نایستاده برنگرد.
+L|Sara|I'll rest it today. Fair play matters more than one match.|امروز استراحت می‌دهم. جوانمردی از یک مسابقه مهم‌تر است.
+C|Encouraging a teammate|تشویق هم‌تیمی|A teammate missed an easy chance and is angry with himself.|هم‌تیمی موقعیت آسانی را از دست داده و از خودش عصبانی است.|Encourage without denying what happened.|تشویق کن، بدون انکار آنچه شد.|That was a great effort. Forget it and stay ready; the next one is yours.|تلاش خوبی بود. فراموشش کن و آماده بمان؛ بعدی مال توست.
+C|Reporting an injury|گزارش مصدومیت|Something twisted during a match and it still hurts.|چیزی در مسابقه پیچ خورد و هنوز درد می‌کند.|Say what hurts, when, and ask to stop.|بگو چه درد می‌کند، کِی، و بخواه متوقف شود.|I hurt my ankle ten minutes ago and it still hurts. I need a break.|ده دقیقه پیش مچ پایم آسیب دید و هنوز درد می‌کند. به استراحت نیاز دارم.
+Q|Which sentence reports an injury?|کدام جمله مصدومیت را گزارش می‌کند؟|I hurt my ankle.|I beat my ankle.|I scored my ankle.|hurt is the verb for injury.|hurt فعل مصدومیت است.
+Q|Treating opponents honestly is ...|رفتار صادقانه با حریف ... است|fair play|team spirit|discipline|That is fair play.|این جوانمردی است.
+Q|A sudden tight, painful muscle is a ...|عضلهٔ ناگهان سفت و دردناک ... است|cramp|sprain|medal|That is a cramp.|این گرفتگی است.
+
+J|idioms|14|speech|Sports idioms in real English|اصطلاح‌های ورزشی در انگلیسی واقعی|kids,adults||Twelve expressions that came from sport and now live everywhere else, with the literal meaning kept separate from the figurative one.|دوازده عبارت که از ورزش آمده‌اند و امروز همه‌جا به کار می‌روند، با معنای لغوی جدا از معنای مجازی.
+O|tell a real idiom from ordinary sports vocabulary.|اصطلاح واقعی را از واژهٔ عادی ورزشی تشخیص بدهی.
+O|use a sports idiom in a non-sports situation correctly.|اصطلاح ورزشی را در موقعیتی غیرورزشی درست به کار ببری.
+O|explain what an idiom means literally and figuratively.|معنای لغوی و مجازی یک اصطلاح را توضیح بدهی.
+W|idiom|/ˈɪdiəm/|noun|اصطلاح|A fixed phrase whose meaning is not the sum of its words.|general|speech|B1|Throw in the towel is an idiom.|throw in the towel یک اصطلاح است.|
+W|literal|/ˈlɪtərəl/|adjective|لغوی|The plain, dictionary meaning of the words.|general|speech|B2|The literal meaning is a towel in a boxing ring.|معنای لغوی‌اش حوله‌ای در رینگ بوکس است.|
+W|figurative|/ˈfɪɡjərətɪv/|adjective|مجازی|The meaning a phrase has when it is used as an idiom.|general|speech|B2|Figuratively, it means to give up.|در معنای مجازی، یعنی تسلیم شدن.|
+W|slang|/slæŋ/|noun|زبان عامیانه|Very informal words used by a group, not in writing.|general|speech|B2|Goat is slang for the greatest of all time.|goat در عامیانه یعنی بهترین در تمام دوران.|
+W|phrase|/freɪz/|noun|عبارت|A group of words that work together as one unit.|general|speech|A2|That phrase is used in offices, not on fields.|آن عبارت در اداره‌ها به کار می‌رود، نه در زمین.|
+W|register|/ˈredʒɪstər/|noun|لحن|The level of formality of a word or phrase.|general|speech|B2|Check the register before using it in an email.|پیش از استفاده در ایمیل، لحنش را بررسی کن.|
+X|idiom|Get the ball rolling|شروع کردن کار|Literally, to start the ball moving. Figuratively, to begin something so others can follow.|در معنای لغوی، به حرکت درآوردن توپ. در معنای مجازی، شروع کردن کاری تا دیگران ادامه دهند.|informal|We need someone to get the ball rolling on the new project.|به کسی نیاز داریم که کار پروژهٔ تازه را شروع کند.|Get things started.
+X|idiom|On the ball|چابک و هوشیار|Literally, watching the ball closely. Figuratively, quick to notice and act.|در معنای لغوی، چشم به توپ. در معنای مجازی، سریع در درک و عمل.|informal|She's always on the ball; nothing gets past her.|او همیشه هوشیار است؛ هیچ چیز از او رد نمی‌شود.|Sharp.
+X|idiom|Hit it out of the park|کار را عالی انجام دادن|From baseball: to hit the ball beyond the field. Figuratively, to succeed brilliantly.|از بیسبال: توپ را بیرون زمین زدن. در معنای مجازی، موفقیتی چشمگیر.|informal|Her presentation hit it out of the park.|ارائهٔ او فوق‌العاده بود.|Nail it.
+X|idiom|Throw in the towel|تسلیم شدن|Literally, a boxer's trainer throwing a towel into the ring to stop the fight. Figuratively, to give up.|در معنای لغوی، پرتاب حوله به رینگ برای پایان مبارزه. در معنای مجازی، کنار کشیدن.|informal|Don't throw in the towel after one bad week.|بعد از یک هفتهٔ بد، تسلیم نشو.|Give up.
+X|idiom|Move the goalposts|قاعده را وسط کار عوض کردن|Literally, to move the goals. Figuratively, to change the rules unfairly while someone is trying to meet them.|در معنای لغوی، جابه‌جا کردن دروازه. در معنای مجازی، عوض کردن ناعادلانهٔ قاعده‌ها در میانهٔ کار.|informal|Every time we finish the report, they move the goalposts.|هر بار گزارش را تمام می‌کنیم، قاعده‌ها را عوض می‌کنند.|Change the rules.
+X|idiom|A level playing field|شرایط برابر|Literally, a flat field with no advantage. Figuratively, a fair situation for everyone.|در معنای لغوی، زمین صاف و بی‌مزیت. در معنای مجازی، موقعیت منصفانه برای همه.|formal|We just want a level playing field for small shops.|ما فقط شرایط برابر برای مغازه‌های کوچک می‌خواهیم.|Fair terms.
+X|idiom|A long shot|احتمال بسیار کم|Literally, a shot from far away. Figuratively, something unlikely to succeed.|در معنای لغوی، شوت از فاصلهٔ دور. در معنای مجازی، چیزی با احتمال موفقیت کم.|neutral|It's a long shot, but we could still win the bid.|احتمالش کم است، اما هنوز می‌توانیم در مناقصه ببریم.|Unlikely.
+X|idiom|Neck and neck|شانه‌به‌شانه|From horse racing: two horses level. Figuratively, exactly equal in a competition.|از مسابقهٔ اسب‌دوانی: دو اسب هم‌تراز. در معنای مجازی، دقیقاً برابر در رقابت.|neutral|The two companies are neck and neck in sales.|دو شرکت در فروش شانه‌به‌شانه‌اند.|Level.
+X|idiom|Saved by the bell|در لحظهٔ آخر نجات یافتن|From boxing: the bell ends the round before a count finishes. Figuratively, rescued at the last moment.|از بوکس: زنگ پیش از پایان شمارش، راند را تمام می‌کند. در معنای مجازی، نجات در آخرین لحظه.|informal|I hadn't finished the slides, but the meeting was cancelled. Saved by the bell.|اسلایدها را تمام نکرده بودم، اما جلسه لغو شد. در لحظهٔ آخر نجات یافتم.|Rescued just in time.
+X|idiom|Slam dunk|کار قطعی و آسان|From basketball: a jump and a forceful dunk. Figuratively, something certain to succeed; informally, something very easy.|از بسکتبال: پرش و کوبیدن توپ در حلقه. در معنای مجازی، کاری که موفقیتش قطعی است؛ در عامیانه، کاری بسیار آسان.|informal|The interview was a slam dunk; they offered her the job the same day.|مصاحبه قطعاً موفق بود؛ همان روز کار را پیشنهاد دادند.|A certainty.
+X|idiom|Step up to the plate|مسئولیت را پذیرفتن|From baseball: to walk to the plate to bat. Figuratively, to take responsibility and act.|از بیسبال: رفتن به محل ضربه. در معنای مجازی، مسئولیت پذیرفتن و اقدام کردن.|neutral|When the manager left, she stepped up to the plate.|وقتی مدیر رفت، او مسئولیت را پذیرفت.|Take charge.
+X|idiom|Drop the ball|از قلم انداختن|Literally, to miss a catch. Figuratively, to make a careless mistake with a responsibility.|در معنای لغوی، گرفتن نکردن توپ. در معنای مجازی، اشتباه از بی‌دقتی در یک مسئولیت.|informal|I dropped the ball on the booking and we lost the table.|در رزرو از قلم انداختم و میز را از دست دادیم.|Make a mistake.
+X|idiom|The ball is in your court|توپ در زمین توست|From tennis: it is your turn to hit. Figuratively, it is your turn to act or decide.|از تنیس: نوبت ضربهٔ توست. در معنای مجازی، نوبت تصمیم یا اقدام توست.|informal|I've made my offer; the ball is in your court.|پیشنهادم را کردم؛ توپ در زمین توست.|Your move.
+X|idiom|Jump the gun|زودتر از موعد شروع کردن|From athletics: to start before the gun. Figuratively, to act too early.|از دوومیدانی: شروع پیش از شلیک. در معنای مجازی، زود اقدام کردن.|informal|We jumped the gun and announced it before the contract was signed.|زود اقدام کردیم و پیش از امضای قرارداد اعلامش کردیم.|Act too soon.
+X|phrasal_verb|pull out of|کنار کشیدن از|To withdraw from a competition or an agreement.|کنار کشیدن از مسابقه یا توافق.|neutral|Two teams pulled out of the tournament.|دو تیم از تورنمنت کنار کشیدند.|Withdraw from.
+X|phrasal_verb|take up|شروع کردن (ورزش)|To start a sport or hobby.|شروع کردن یک ورزش یا سرگرمی.|neutral|I took up rowing last spring.|بهار گذشته قایق‌رانی را شروع کردم.|Start.
+P|It came from + [sport], but now it means + [meaning].|It came from boxing, but now it means to give up.|از بوکس آمده، اما امروز یعنی تسلیم شدن.|The honest way to explain an idiom.|راه صادقانه برای توضیح یک اصطلاح.
+P|Don't + [idiom] + yet.|Don't throw in the towel yet.|هنوز تسلیم نشو.|Turning an idiom into advice.|اصطلاح را به نصیحت تبدیل کن.
+S|That's an idiom, not a literal description.|این یک اصطلاح است، نه توصیف لغوی.|Stops a learner from reading the words too literally.|جلوی خواندن تحت‌اللفظی را می‌گیرد.|B2|neutral|It's an idiom, so don't take it literally.
+S|In a business meeting, "the ball is in your court" means it is your decision.|در جلسهٔ کاری، the ball is in your court یعنی تصمیم با توست.|Explains the figurative use in context.|کاربرد مجازی را در بافت توضیح می‌دهد.|B2|neutral|In a meeting it means the decision is yours.
+S|I'd avoid that one in a formal email.|آن یکی را در ایمیل رسمی به کار نمی‌بردم.|Notes register, which is part of knowing an idiom.|لحن را گوشزد می‌کند، که بخشی از دانستن اصطلاح است.|C1|polite|That phrase is too informal for an email.
+D|A manager and a new employee|مدیر و کارمند تازه|Manager|Leila
+L|Manager|How is the supplier report going?|گزارش تأمین‌کننده چطور پیش می‌رود؟
+L|Leila|Slowly. I'm still waiting for their numbers.|کند. هنوز منتظر ارقامشان هستم.
+L|Manager|Then we're neck and neck with the deadline. Can you get the ball rolling today?|پس با مهلت شانه‌به‌شانه‌ایم. می‌توانی امروز کار را شروع کنی؟
+L|Leila|I'll send the first draft tonight, even if it's incomplete.|امشب پیش‌نویس اول را می‌فرستم، حتی اگر ناقص باشد.
+L|Manager|Good. Don't throw in the towel if they answer late.|خوب است. اگر دیر جواب دادند تسلیم نشو.
+L|Leila|And if they move the goalposts again?|و اگر باز قاعده‌ها را عوض کنند؟
+L|Manager|Then the ball is in my court. I'll deal with them.|آن‌وقت توپ در زمین من است. خودم با آن‌ها حرف می‌زنم.
+C|Explaining an idiom to a learner|توضیح یک اصطلاح به یک زبان‌آموز|A friend reads "they threw in the towel" and thinks it is about laundry.|دوستت «they threw in the towel» را می‌خواند و فکر می‌کند دربارهٔ رختشویی است.|Give the literal origin and the figurative meaning.|خاستگاه لغوی و معنای مجازی را بگو.|Literally, a trainer throws a towel into the ring to stop a fight. Figuratively, it means they gave up.|در معنای لغوی، مربی حوله‌ای به رینگ می‌اندازد تا مبارزه را تمام کند. در معنای مجازی، یعنی تسلیم شدند.
+C|Using an idiom in a meeting|به کار بردن اصطلاح در جلسه|A project is stalled and nobody wants to start.|پروژه متوقف است و کسی نمی‌خواهد شروع کند.|Use one idiom to propose starting, and say what you will do first.|با یک اصطلاح شروع را پیشنهاد کن و بگو اول چه می‌کنی.|Let me get the ball rolling: I'll draft the timeline today and share it tomorrow.|بگذار شروع کنم: امروز زمان‌بندی را می‌نویسم و فردا می‌فرستم.
+Q|Which one means to give up?|کدام‌یک یعنی تسلیم شدن؟|throw in the towel|get the ball rolling|level playing field|The towel ends the fight.|حوله مبارزه را تمام می‌کند.
+Q|"They are neck and neck" means they are ...|«they are neck and neck» یعنی آن‌ها ...|exactly equal|far apart|disqualified|It means level.|یعنی برابر.
+Q|Which idiom comes from baseball?|کدام اصطلاح از بیسبال آمده است؟|step up to the plate|move the goalposts|saved by the bell|The plate is where the batter stands.|plate محل ایستادن ضربه‌زن است.

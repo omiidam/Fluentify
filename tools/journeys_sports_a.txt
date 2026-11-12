@@ -1,0 +1,203 @@
+# Sports journey, stages 1-5. Rows are pipe-separated and validated by
+# tools/build_journeys.py; see its header for the field order of each tag.
+
+J|discover|1|compass|Discover the world of sports|جهان ورزش را بشناس|kids,adults||From naming a sport to saying how you play it, and asking someone else the same.|از نام بردن یک ورزش تا گفتنِ اینکه چطور بازی می‌کنی و پرسیدن همین از دیگری.
+O|name a sport and say what kind of sport it is.|نام یک ورزش را بگو و بگو چه نوع ورزشی است.
+O|say whether you play, watch or follow a sport.|بگو ورزشی را انجام می‌دهی، تماشا می‌کنی یا دنبال می‌کنی.
+O|ask another person about their sport and their level.|دربارهٔ ورزش و سطح ورزشی طرف مقابل بپرس.
+W|sport|/spɔrt/|noun|ورزش|An activity with rules that people do to compete or for fun.|general|ball|A1|What sports do you play?|چه ورزش‌هایی انجام می‌دهی؟|
+W|athlete|/ˈæθliːt/|noun|ورزشکار|A person who trains and competes in a sport.|general|team|A2|She is a professional athlete.|او ورزشکار حرفه‌ای است.|
+W|competition|/ˌkɑmpəˈtɪʃn/|noun|مسابقه|An event where people try to beat the others.|general|trophy|A2|The competition starts on Friday.|مسابقه جمعه شروع می‌شود.|
+W|championship|/ˈtʃæmpiənʃɪp/|noun|قهرمانی|The competition that decides the best team or player of a season.|general|trophy|B1|Our city hosted the championship.|شهر ما میزبان مسابقات قهرمانی بود.|
+W|recreation|/ˌrekriˈeɪʃn/|noun|تفریح|Activity done for pleasure, not as work and not for money.|general|heart|B1|Swimming is my favorite recreation.|شنا محبوب‌ترین تفریح من است.|
+W|professional|/prəˈfeʃənl/|adjective|حرفه‌ای|Playing a sport as a paid job.|general|chart|A2|He turned professional at nineteen.|او در نوزده‌سالگی حرفه‌ای شد.|
+W|amateur|/ˈæmətər/|adjective|غیرحرفه‌ای|Playing for pleasure and not being paid.|general|heart|B1|It is an amateur league.|این یک لیگ غیرحرفه‌ای است.|
+W|individual|/ˌɪndɪˈvɪdʒuəl/|adjective|انفرادی|Done by one person competing alone.|general|target|A2|Swimming is an individual sport.|شنا ورزشی انفرادی است.|
+W|team|/tim/|noun|تیم|A group that plays together and wins or loses together.|general|team|A1|Basketball is a team sport.|بسکتبال ورزشی تیمی است.|
+W|tournament|/ˈtʊrnəmənt/|noun|تورنمنت|A series of matches with one winner at the end.|general|trophy|B1|Eight teams entered the tournament.|هشت تیم در تورنمنت شرکت کردند.|
+X|expression|What's your favorite sport?|ورزش محبوبت چیست؟|The standard opening question between two people who have just met.|پرسش آغازین و رایج میان دو نفری که تازه آشنا شده‌اند.|neutral|What's your favorite sport?|ورزش محبوبت چیست؟|Which sport do you like best?
+X|expression|I'm really into basketball.|من واقعاً بسکتبال را دوست دارم.|Says you follow something with enthusiasm.|می‌گوید با اشتیاق ورزشی را دنبال می‌کنی.|informal|I'm really into basketball this season.|این فصل واقعاً بسکتبال را دنبال می‌کنم.|I'm a big basketball fan.
+X|expression|I play for a local team.|در یک تیم محلی بازی می‌کنم.|States your level without exaggerating it.|سطحت را بدون اغراق می‌گوید.|neutral|I play for a local team on weekends.|آخر هفته‌ها در تیم محلی بازی می‌کنم.|I'm on a local team.
+X|expression|I just play for fun.|فقط برای تفریح بازی می‌کنم.|Answers the question of level politely when you are not competitive.|وقتی رقابتی نیستی، مؤدبانه به پرسش سطح پاسخ می‌دهد.|informal|I just play for fun, nothing serious.|فقط برای تفریح بازی می‌کنم، جدی نیست.|Nothing serious.
+X|expression|She competes at a national level.|او در سطح ملی رقابت می‌کند.|Says how high someone plays without naming a club.|می‌گوید کسی در چه سطحی بازی می‌کند، بدون نام باشگاه.|formal|She competes at a national level in judo.|او در جودو در سطح ملی رقابت می‌کند.|She competes nationally.
+P|I play + [sport].|I play volleyball after class.|بعد از کلاس والیبال بازی می‌کنم.|play goes with ball games and team games.|play با ورزش‌های توپی و تیمی می‌آید.
+P|I've started + [verb-ing].|I've started swimming twice a week.|شنا را دو بار در هفته شروع کرده‌ام.|For something you began recently.|برای کاری که تازه شروع کرده‌ای.
+S|What sports are popular in your country?|در کشورت چه ورزش‌هایی محبوب‌اند؟|Asks about culture, which works well with a stranger.|دربارهٔ فرهنگ می‌پرسد؛ با یک غریبه خوب کار می‌کند.|A2|neutral|Which sports do people follow where you live?
+S|Swimming is an individual sport.|شنا ورزشی انفرادی است.|Classifies the sport correctly when explaining it.|هنگام توضیح ورزش، آن را درست دسته‌بندی می‌کند.|A2|neutral|Swimmers compete on their own.
+S|I've recently started playing tennis.|تازگی تنیس بازی کردن را شروع کرده‌ام.|Says you are a beginner without saying you are bad.|می‌گوید تازه‌کاری، بدون اینکه بگویی بد بازی می‌کنی.|B1|neutral|I've just taken up tennis.
+D|Two friends after class|دو دوست بعد از کلاس|Mina|Reza
+L|Mina|What's your favorite sport?|ورزش محبوبت چیست؟
+L|Reza|Basketball. I play for a local team.|بسکتبال. در یک تیم محلی بازی می‌کنم.
+L|Mina|Is it a professional team?|تیم حرفه‌ای است؟
+L|Reza|No, we are all amateurs. I just play for fun.|نه، همه غیرحرفه‌ای هستیم. فقط برای تفریح بازی می‌کنم.
+L|Mina|Which sports are popular in your city?|در شهرت چه ورزش‌هایی محبوب‌اند؟
+L|Reza|Soccer, of course, and volleyball. There is a tournament every summer.|فوتبال، البته، و والیبال. هر تابستان یک تورنمنت برگزار می‌شود.
+C|Waiting at the gym|انتظار در باشگاه|You are both waiting for a machine and the silence is getting long.|هر دو منتظر یک دستگاه هستید و سکوت طولانی شده.|Ask which sport they play and how often.|بپرس چه ورزشی می‌کند و چند وقت یک بار.|What sport do you play? I'm just starting, so I'm here twice a week.|چه ورزشی انجام می‌دهی؟ من تازه شروع کرده‌ام، پس هفته‌ای دو بار می‌آیم.
+C|Explaining your level|توضیح سطحت|Someone assumes you are professional because you train every day.|کسی فکر می‌کند چون هر روز تمرین می‌کنی، حرفه‌ای هستی.|Say you are an amateur and play for fun.|بگو غیرحرفه‌ای هستی و برای تفریح بازی می‌کنی.|I'm an amateur. I train a lot, but I just play for fun.|من غیرحرفه‌ای هستم. زیاد تمرین می‌کنم، اما فقط برای تفریح بازی می‌کنم.
+Q|Which sentence uses play correctly?|کدام جمله play را درست به کار برده است؟|I play basketball every Friday.|I play swimming every Friday.|I play gymnastics every Friday.|Ball games and team games take play; swimming and gymnastics take go or do.|ورزش‌های توپی و تیمی با play می‌آیند؛ شنا و ژیمناستیک با go یا do.
+Q|Swimming is ...|شنا ...|an individual sport|a team sport|a racquet sport|You compete alone, so it is individual.|تنها رقابت می‌کنی، پس انفرادی است.
+Q|The competition that decides the best team of a season is the ...|مسابقه‌ای که بهترین تیم یک فصل را مشخص می‌کند ... است|championship|recreation|amateur|That is exactly what a championship is.|این دقیقاً معنی قهرمانی است.
+
+J|sports|2|ball|The sports themselves|خودِ ورزش‌ها|kids,adults||Forty-six sports, grouped the way players group them, each with what it needs and where it happens.|چهل‌وشش ورزش، دسته‌بندی‌شده همان‌طور که بازیکن‌ها دسته‌بندی می‌کنند، هر یک با ابزار و زمین خودش.
+O|recognize a sport from its name, its equipment and its playing area.|ورزش را از نام، ابزار و زمینش بشناسی.
+O|say what kind of sport it is: team, racquet, water, combat, winter.|بگویی چه نوع ورزشی است: تیمی، راکتی، آبی، رزمی، زمستانی.
+O|ask how a sport is played and explain the basics.|بپرسی یک ورزش چطور انجام می‌شود و اصولش را توضیح بدهی.
+G|soccer,football,basketball,volleyball,rugby,cricket,baseball,softball,handball,fieldhockey,icehockey,tennis,tabletennis,badminton,squash,padel,running,marathon,longjump,highjump,gymnastics,weightlifting,golf,archery,bowling,swimming,diving,waterpolo,surfing,sailing,rowing,kayaking,boxing,wrestling,judo,karate,taekwondo,fencing,cycling,mountainbike,climbing,skiing,snowboarding,iceskating,skateboarding,horse
+W|team sport|/tim spɔrt/|noun|ورزش تیمی|A sport played by two groups against each other.|team|team|A2|Soccer is the most popular team sport here.|فوتبال محبوب‌ترین ورزش تیمی اینجاست.|
+W|individual sport|/ˌɪndɪˈvɪdʒuəl spɔrt/|noun|ورزش انفرادی|A sport in which one person competes alone.|individual|target|A2|Tennis can be an individual sport or a doubles game.|تنیس می‌تواند انفرادی یا دو نفره باشد.|
+W|racquet sport|/ˈrækɪt spɔrt/|noun|ورزش راکتی|A sport played by hitting a ball with a racket.|racquet|racket|B1|Badminton is a racquet sport.|بدمینتون ورزشی راکتی است.|
+W|combat sport|/ˈkɑmbæt spɔrt/|noun|ورزش رزمی|A sport in which two people fight under rules.|combat|boxing|B1|Judo is a combat sport with strict rules.|جودو ورزشی رزمی با قاعده‌های سخت است.|
+W|water sport|/ˈwɔtər spɔrt/|noun|ورزش آبی|A sport done in or on water.|water|swimming|A2|Surfing is a water sport, but you need waves.|موج‌سواری ورزشی آبی است، اما به موج نیاز دارد.|
+W|winter sport|/ˈwɪntər spɔrt/|noun|ورزش زمستانی|A sport done on snow or ice.|winter|skiing|A2|Skiing is a winter sport.|اسکی ورزشی زمستانی است.|
+W|athletics|/æθˈletɪks/|noun|دو و میدانی|The group of running, jumping and throwing events.|athletics|running|B1|She competes in athletics, mostly the 800 meters.|او در دو و میدانی، بیشتر ۸۰۰ متر، رقابت می‌کند.|
+W|extreme sport|/ɪkˈstrim spɔrt/|noun|ورزش هیجانی|A sport with real risk, like climbing or free diving.|outdoor|climbing|B1|Rock climbing is an extreme sport for some people.|سنگ‌نوردی برای بعضی‌ها ورزشی هیجانی است.|
+X|expression|It's played on a court.|روی زمینِ محصور بازی می‌شود.|Describes the surface and area, not the ball.|سطح و محوطهٔ بازی را توصیف می‌کند، نه توپ را.|neutral|Basketball is played on a court, indoors.|بسکتبال روی زمینِ محصور و در سالن بازی می‌شود.|You play it on a court.
+X|expression|You need a racket and a net.|به راکت و تور نیاز داری.|Lists the equipment instead of explaining the rules.|به‌جای توضیح قاعده‌ها، ابزار را فهرست می‌کند.|neutral|You need a racket and a net, and a ball that bounces.|به راکت و تور نیاز داری، و توپی که بجه.
+X|expression|How do you play it?|چطور بازی می‌شود؟|Asks for the basics of an unfamiliar sport.|اصول یک ورزش ناآشنا را می‌پرسد.|neutral|How do you play it? I've never seen a match.|چطور بازی می‌شود؟ هرگز مسابقه‌اش را ندیده‌ام.|What are the rules?
+X|expression|It's similar to tennis but smaller.|شبیه تنیس است اما کوچک‌تر.|Explains a new sport by comparing it to a known one.|ورزش تازه را با مقایسه با ورزشی آشنا توضیح می‌دهد.|neutral|Padel is similar to tennis but smaller and played in a glass box.|پدل شبیه تنیس است اما کوچک‌تر و در محفظهٔ شیشه‌ای بازی می‌شود.
+X|expression|It's played indoors.|در سالن بازی می‌شود.|The one detail that decides shoes, weather and season.|تنها جزئیاتی که کفش، آب‌وهوا و فصل را تعیین می‌کند.|neutral|Volleyball is played indoors, but also on sand.|والیبال در سالن بازی می‌شود، اما روی شن هم بازی می‌شود.
+P|[Sport] is played on + [surface].|Soccer is played on grass.|فوتبال روی چمن بازی می‌شود.|Name the surface after the sport.|بعد از نام ورزش، سطح بازی را بگو.
+P|You play it with + [equipment].|You play it with a stick and a small ball.|با چوب و یک توپ کوچک بازی می‌شود.|For the equipment a sport cannot do without.|برای ابزاری که ورزش بدون آن ممکن نیست.
+S|Which of these sports have you tried?|کدام‌یک از این ورزش‌ها را امتحان کرده‌ای؟|Opens a conversation without asking a yes or no question.|گفت‌وگو را بدون پرسش بله یا خیر باز می‌کند.|A2|neutral|Have you ever tried any of these?
+S|Cricket is popular in India, England and Australia.|کریکت در هند، انگلستان و استرالیا محبوب است.|Says where a sport belongs, which explains a lot about it.|می‌گوید ورزش به کجا تعلق دارد، که چیزهای زیادی را روشن می‌کند.|B1|neutral|Cricket is big in India, England and Australia.
+S|I've never understood the rules of rugby.|هرگز قاعده‌های راگبی را نفهمیده‌ام.|Honest about a gap, and an invitation to explain.|دربارهٔ یک ناآگاهی صادق است و دعوت به توضیح.|B1|neutral|I still don't understand rugby.
+D|Choosing a sport to try|انتخاب ورزشی برای امتحان|Sara|Daniel
+L|Sara|I want to try a new sport. Any ideas?|می‌خواهم یک ورزش تازه امتحان کنم. ایده‌ای داری؟
+L|Daniel|Do you want a team sport or something on your own?|ورزش تیمی می‌خواهی یا چیزی که تنهایی انجام شود؟
+L|Sara|Something individual. I'm not good with teams.|چیزی انفرادی. با تیم خوب نیستم.
+L|Daniel|Then try climbing. It's an extreme sport, but you start on a wall.|پس سنگ‌نوردی را امتحان کن. ورزشی هیجانی است، اما با دیوار شروع می‌کنی.
+L|Sara|Do I need my own equipment?|به ابزار خودم نیاز دارم؟
+L|Daniel|No, the gym lends shoes and a harness.|نه، باشگاه کفش و مهار می‌دهد.
+C|Explaining your sport to a visitor|توضیح ورزشت به یک مهمان|A visitor asks what the people in the park are playing.|مهمانی می‌پرسد مردم در پارک چه بازی می‌کنند.|Explain the sport in three sentences: equipment, area, goal.|ورزش را در سه جمله توضیح بده: ابزار، زمین، هدف.|It's cricket. You need a bat, a ball and two wickets. It's played on grass.|کریکت است. به چوب، توپ و دو ویکت نیاز داری. روی چمن بازی می‌شود.
+C|Choosing between two sports|انتخاب میان دو ورزش|A friend offers tennis or table tennis.|دوستت تنیس یا تنیس روی میز پیشنهاد می‌کند.|Ask which one is easier for a beginner and why.|بپرس کدام برای تازه‌کار ساده‌تر است و چرا.|Which is easier to start, tennis or table tennis?|شروع کدام ساده‌تر است، تنیس یا تنیس روی میز؟
+Q|Which sport is played in water?|کدام ورزش در آب انجام می‌شود؟|water polo|volleyball|handball|Water polo is played in a pool.|واترپلو در استخر بازی می‌شود.
+Q|A sport played with a racket is a ...|ورزشی که با راکت بازی می‌شود ... است|racquet sport|combat sport|winter sport|The racket is the whole point.|راکت تمام ماجراست.
+Q|Which one is an individual sport?|کدام‌یک ورزش انفرادی است؟|gymnastics|rugby|basketball|A gymnast competes alone.|ژیمناست تنها رقابت می‌کند.
+
+J|people|3|team|People on and around the field|آدم‌های روی زمین و اطراف آن|kids,adults||The players, the officials and the people watching: who does what, and what you call them.|بازیکن‌ها، داورها و تماشاگرها: هر کس چه می‌کند و چه نامی دارد.
+O|name the people in a match and what each one does.|نام آدم‌های یک مسابقه و کار هر یک را بگویی.
+O|talk about positions in soccer without confusing them with other sports.|دربارهٔ پست‌ها در فوتبال حرف بزنی، بدون اشتباه گرفتن با ورزش‌های دیگر.
+O|say who a player is, who coaches them and who decides.|بگویی بازیکن کیست، چه کسی تمرین می‌دهد و چه کسی تصمیم می‌گیرد.
+W|athlete|/ˈæθliːt/|noun|ورزشکار|A person who competes in athletics or in any sport at a high level.|general|running|A2|The athletes warm up before the race.|ورزشکارها پیش از مسابقه گرم می‌کنند.|
+W|teammate|/ˈtimmeɪt/|noun|هم‌تیمی|A person who plays on the same team as you.|general|team|A2|My teammate scored the winning goal.|هم‌تیمی‌ام گل برنده را زد.|
+W|opponent|/əˈpoʊnənt/|noun|حریف|The person or team you play against.|general|team|B1|She shook hands with her opponent.|او با حریفش دست داد.|
+W|coach|/koʊtʃ/|noun|مربی|The person who trains a team and decides how it plays.|general|board|A2|The coach changed the formation at half-time.|مربی در نیمهٔ دوم آرایش تیم را عوض کرد.|
+W|trainer|/ˈtreɪnər/|noun|مربی بدنساز|The person who plans physical training and recovery.|general|stopwatch|B1|The trainer added another gym session.|مربی بدنساز یک جلسهٔ دیگر در باشگاه اضافه کرد.|
+W|referee|/ˌrefəˈri/|noun|داور|The official who controls the match and enforces the rules.|general|whistle|A2|The referee blew the whistle.|داور سوت زد.|
+W|umpire|/ˈʌmpaɪər/|noun|داور|The official who judges in tennis, baseball or cricket.|racquet|whistle|B1|The umpire called it out.|داور آن را خارج اعلام کرد.|
+W|captain|/ˈkæptɪn/|noun|کاپیتان|The player who leads the team and speaks for it.|general|team|A2|He's the captain of our team.|او کاپیتان تیم ماست.|
+W|goalkeeper|/ˈɡoʊlkiːpər/|noun|دروازه‌بان|The player whose job is to stop the ball entering the goal.|soccer|gloves|A2|The goalkeeper saved the penalty.|دروازه‌بان پنالتی را مهار کرد.|
+W|defender|/dɪˈfendər/|noun|مدافع|A player who stops the other team from scoring.|soccer|team|B1|Their defenders were too slow.|مدافع‌هایشان خیلی کند بودند.|
+W|midfielder|/ˈmɪdfildər/|noun|هافبک|A player who works between defence and attack.|soccer|team|B1|We need a midfielder who can pass.|به هافبکی نیاز داریم که پاس بدهد.|
+W|forward|/ˈfɔrwərd/|noun|مهاجم|A player whose job is to score.|soccer|goal|B1|The forward missed an open goal.|مهاجم دروازهٔ خالی را از دست داد.|
+W|substitute|/ˈsʌbstɪtuːt/|noun|بازیکن ذخیره|A player who waits to come on in place of another.|general|board|B1|He came on as a substitute after an hour.|یک ساعت بعد به‌عنوان ذخیره وارد شد.|
+W|fan|/fæn/|noun|هوادار|A person who follows and supports a team or player.|general|heart|A2|Fans waited outside the stadium.|هوادارها بیرون ورزشگاه منتظر ماندند.|
+W|commentator|/ˈkɑmənteɪtər/|noun|گزارشگر|The person who describes a match as it happens.|general|speech|B1|The commentator shouted when they scored.|گزارشگر وقتی گل زدند فریاد زد.|
+X|expression|Who's marking him?|چه کسی او را مهار می‌کند؟|Asks which defender is responsible for one opponent.|می‌پرسد کدام مدافع مسئول مهار یک حریف است.|neutral|Who's marking their number nine?|چه کسی شمارهٔ نُهِ آن‌ها را مهار می‌کند؟|Who's on him?
+X|expression|The ref blew the whistle.|داور سوت زد.|The one sentence that stops play.|جمله‌ای که بازی را متوقف می‌کند.|neutral|The ref blew the whistle for a foul.|داور برای خطا سوت زد.|The referee stopped play.
+X|expression|She's our best defender.|او بهترین مدافع ماست.|Praise for a player, with the position as the reason.|تعریف از یک بازیکن، با پست به‌عنوان دلیل.|informal|She's our best defender, and she never panics.|او بهترین مدافع ماست و هرگز دستپاچه نمی‌شود.
+X|expression|He came on as a substitute.|او به‌عنوان ذخیره وارد شد.|Says a player joined the match from the bench.|می‌گوید بازیکنی از نیمکت وارد بازی شد.|neutral|He came on as a substitute in the seventieth minute.|او در دقیقهٔ هفتاد به‌عنوان ذخیره وارد شد.|He was subbed on.
+X|expression|The coach made a change.|مربی تغییر داد.|A polite, neutral way to say the coach substituted someone.|راهی مؤدبانه و بی‌طرف برای گفتن اینکه مربی بازیکن عوض کرد.|formal|The coach made a change at half-time.|مربی در نیمهٔ بازی تغییر داد.
+P|He plays + [position] + for [team].|He plays midfield for the city team.|او برای تیم شهر در خط میانی بازی می‌کند.|Position first, team second.|اول پست، بعد تیم.
+P|The referee + [verb].|The referee stopped the game.|داور بازی را متوقف کرد.|The referee decides: stopped, warned, sent off.|داور تصمیم می‌گیرد: متوقف کرد، اخطار داد، اخراج کرد.
+S|The goalkeeper saved the penalty.|دروازه‌بان پنالتی را مهار کرد.|One sentence that tells the whole moment.|یک جمله که تمام آن لحظه را می‌گوید.|A2|neutral|The keeper kept the penalty out.
+S|My teammate scored the winning goal.|هم‌تیمی‌ام گل برنده را زد.|Says who scored and that it decided the match.|می‌گوید چه کسی زد و اینکه نتیجه را تعیین کرد.|B1|neutral|My teammate got the winner.
+S|There are eleven players on each side.|هر طرف یازده بازیکن دارد.|The basic number, useful when explaining the sport.|عدد پایه، برای توضیح ورزش به‌کار می‌آید.|A2|neutral|Each team has eleven players.
+D|A coach and a player at half-time|مربی و بازیکن در نیمهٔ بازی|Coach|Ali
+L|Coach|Ali, you're dropping too deep. Stay higher.|علی، زیادی عقب می‌آیی. بالاتر بمان.
+L|Ali|Their winger is faster than me. I have to cover him.|وینگرشان از من سریع‌تر است. باید پوششش بدهم.
+L|Coach|Then mark him earlier, before he turns.|پس زودتر مهارش کن، پیش از اینکه بچرخد.
+L|Ali|And if I go forward?|و اگر جلو بروم؟
+L|Coach|Then the midfielder covers you. We talked about this.|آن‌وقت هافبک پوششت می‌دهد. دربارهٔ همین حرف زدیم.
+L|Ali|Okay, higher and earlier. Got it.|باشه، بالاتر و زودتر. فهمیدم.
+C|Asking who does what|پرسیدن اینکه هر کس چه می‌کند|You are watching a sport you do not know.|ورزشی را تماشا می‌کنی که نمی‌شناسی.|Ask who the person in the different shirt is and what they decide.|بپرس شخص با پیراهن متفاوت کیست و چه تصمیمی می‌گیرد.|Who's the person in black? Is he the referee?|آن شخص با لباس سیاه کیست؟ داور است؟
+C|Talking about a player's position|حرف زدن دربارهٔ پست یک بازیکن|A friend says a player is a defender but you think he attacks.|دوستت می‌گوید بازیکنی مدافع است، اما تو فکر می‌کنی حمله می‌کند.|Disagree politely and give the position you see.|مؤدبانه مخالفت کن و پستی را که می‌بینی بگو.|I think he plays as a forward now, not a defender.|فکر می‌کنم حالا مهاجم بازی می‌کند، نه مدافع.
+Q|Who stops the ball going into the goal?|چه کسی مانع ورود توپ به دروازه می‌شود؟|the goalkeeper|the referee|the captain|That is the goalkeeper's only job.|این تنها کار دروازه‌بان است.
+Q|In tennis, the official is called ...|در تنیس، داور را ... می‌گویند|an umpire|a referee|a coach|Tennis and cricket use umpire.|تنیس و کریکت umpire به کار می‌برند.
+Q|A player who comes on in place of another is a ...|بازیکنی که جای دیگری وارد می‌شود ... است|substitute|spectator|commentator|The substitute waits on the bench.|ذخیره روی نیمکت منتظر می‌ماند.
+
+J|gear|4|jersey|Equipment and what you wear|ابزار و پوشاک|kids,adults||The things you cannot play without, what they are for, and which sport each one belongs to.|چیزهایی که بدون آن‌ها نمی‌شود بازی کرد، کارشان، و اینکه هر یک به کدام ورزش تعلق دارد.
+O|name the equipment for a sport and say what it is used for.|ابزار یک ورزش را نام ببری و بگویی به چه کار می‌آید.
+O|ask for a size or a piece of equipment in a shop.|اندازه یا یک وسیله را در فروشگاه بخواهی.
+O|tell clothing that protects you from clothing that identifies your team.|لباس محافظ را از لباس تیم تشخیص بدهی.
+W|ball|/bɔl/|noun|توپ|A round or oval object that is thrown, kicked or hit in a game.|general|ball|A1|The ball went over the net.|توپ از روی تور رفت.|
+W|racket|/ˈrækɪt/|noun|راکت|A frame with strings, used to hit a ball in tennis and similar sports.|racquet|racket|A2|My racket needs new strings.|راکت من به رشتهٔ تازه نیاز دارد.|
+W|bat|/bæt/|noun|چوب بازی|A shaped piece of wood used to hit the ball in cricket and baseball.|cricket|bat|A2|He swung the bat too late.|او چوب را دیر چرخاند.|
+W|net|/net/|noun|تور|The mesh that divides the court or guards the goal.|general|net|A2|The ball hit the top of the net.|توپ به بالای تور خورد.|
+W|goal|/ɡoʊl/|noun|دروازه|The frame the ball must enter to score, or the score itself.|soccer|goal|A1|He scored the first goal.|او نخستین گل را زد.|
+W|hoop|/huːp/|noun|حلقهٔ بسکتبال|The ring a basketball must pass through.|basketball|hoop|A2|She shot and the ball went through the hoop.|او شوت زد و توپ از حلقه گذشت.|
+W|helmet|/ˈhelmət/|noun|کلاه ایمنی|A hard hat that protects the head.|general|helmet|A2|You can't ride without a helmet.|بدون کلاه ایمنی نمی‌توانی دوچرخه برانی.|
+W|gloves|/ɡlʌvz/|noun|دستکش|Coverings for the hands, padded in boxing and sticky in goalkeeping.|general|gloves|A2|The goalkeeper wears special gloves.|دروازه‌بان دستکش مخصوص می‌پوشد.|
+W|jersey|/ˈdʒɜrzi/|noun|پیراهن ورزشی|The shirt a player wears, usually with a number and a team name.|general|jersey|A2|His jersey has the number ten.|پیراهن او شمارهٔ ده دارد.|
+W|cleats|/klits/|noun|کفش میخ‌دار|Shoes with studs, worn on grass to stop slipping.|soccer|shoes|B1|Wear cleats on grass, not on the court.|روی چمن کفش میخ‌دار بپوش، نه روی زمین سالن.|
+W|shin guards|/ʃɪn ɡɑrdz/|noun|ساق‌بند|Pads that protect the lower leg.|soccer|shoes|B1|Shin guards are required in matches.|ساق‌بند در مسابقه‌ها اجباری است.|
+W|goggles|/ˈɡɑɡlz/|noun|عینک شنا|Tight glasses that keep water out of your eyes.|swimming|goggles|A2|I can't swim without goggles.|بدون عینک شنا نمی‌توانم شنا کنم.|
+W|swimsuit|/ˈswɪmsuːt/|noun|مایو|The clothing worn for swimming.|swimming|jersey|A2|She bought a new swimsuit.|او یک مایو تازه خرید.|
+W|skis|/skiːz/|noun|اسکی|Two long boards you stand on to slide on snow.|winter|skiing|A2|We rent skis at the resort.|ما در پیست اسکی اجاره می‌کنیم.|
+W|paddle|/ˈpædl/|noun|پارو|A short blade used to hit the ball in table tennis, or to move a kayak.|racquet|paddle|B1|The paddle has a soft rubber surface.|پارو سطح لاستیکی نرمی دارد.|
+W|bicycle|/ˈbaɪsɪkl/|noun|دوچرخه|A two-wheeled machine you ride by pushing the pedals.|cycling|bike|A1|My bicycle has a flat tire.|دوچرخه‌ام لاستیک پنچر دارد.|
+X|expression|What size is this jersey?|این پیراهن چه اندازه‌ای است؟|The first thing you ask in a sports shop.|نخستین چیزی که در فروشگاه ورزشی می‌پرسی.|neutral|What size is this jersey? I usually take a medium.|این پیراهن چه اندازه‌ای است؟ معمولاً متوسط می‌پوشم.|Do you have this in medium?
+X|expression|Do you rent equipment here?|اینجا وسیله اجاره می‌دهید؟|Asks before you carry skis across a country.|می‌پرسی پیش از آنکه اسکی را در کشوری حمل کنی.|polite|Do you rent equipment here, or should I bring my own?|اینجا وسیله اجاره می‌دهید، یا باید خودم بیاورم؟
+X|expression|You can't play without shin guards.|بدون ساق‌بند نمی‌شود بازی کرد.|States a rule that is about safety, not choice.|قاعده‌ای دربارهٔ ایمنی را می‌گوید، نه انتخاب.|neutral|You can't play without shin guards in this league.|در این لیگ بدون ساق‌بند نمی‌شود بازی کرد.
+X|expression|These shoes are too tight.|این کفش‌ها خیلی تنگ‌اند.|The most useful sentence in any shoe shop.|کاربردی‌ترین جمله در هر فروشگاه کفش.|neutral|These shoes are too tight around the toes.|این کفش‌ها دور انگشتان تنگ‌اند.|They pinch a bit.
+X|expression|It's the wrong kind of ball.|توپ از نوع اشتباه است.|Explains why a game feels wrong, without blaming a person.|توضیح می‌دهد چرا بازی درست پیش نمی‌رود، بدون سرزنش کسی.|informal|It's the wrong kind of ball for this surface.|این توپ برای این سطح از نوع اشتباه است.
+P|You need + [item] + to [verb].|You need goggles to swim in a pool.|برای شنا در استخر به عینک شنا نیاز داری.|Equipment followed by the reason.|ابزار، سپس دلیلش.
+P|Wear + [item] + when you [verb].|Wear a helmet when you cycle.|وقتی دوچرخه می‌رانی کلاه ایمنی بپوش.|For protective clothing.|برای لباس محافظ.
+S|Do you have this in a larger size?|این را در اندازهٔ بزرگ‌تر دارید؟|The polite question that keeps a shop assistant helping you.|پرسش مؤدبانه‌ای که فروشنده را همراه نگه می‌دارد.|A2|polite|Could I try a larger size?
+S|My equipment is in the locker room.|وسایلم در رختکن است.|Answers where your things are, in a sports building.|می‌گوید وسایلت کجاست، در یک ساختمان ورزشی.|A2|neutral|My gear is in the changing room.
+S|Are these shoes suitable for artificial grass?|این کفش‌ها برای چمن مصنوعی مناسب‌اند؟|A precise question that avoids buying the wrong studs.|پرسش دقیقی که خرید میخ اشتباه را جلوگیری می‌کند.|B1|neutral|Will these work on artificial grass?
+D|At the sports shop|در فروشگاه ورزشی|Assistant|Neda
+L|Assistant|Hi, can I help you find anything?|سلام، می‌توانم کمکتان کنم؟
+L|Neda|I need shin guards and a pair of cleats.|به ساق‌بند و یک جفت کفش میخ‌دار نیاز دارم.
+L|Assistant|What size are your shoes?|اندازهٔ کفشتان چند است؟
+L|Neda|Thirty-nine. And these are too tight around the toes.|سی‌ونُه. و این‌ها دور انگشتان تنگ‌اند.
+L|Assistant|Try these. They're for artificial grass.|این‌ها را امتحان کنید. برای چمن مصنوعی‌اند.
+L|Neda|Better. Do the shin guards come in small?|بهتر است. ساق‌بند اندازهٔ کوچک هم دارید؟
+L|Assistant|Yes, and they're required in your league, so don't forget them.|بله، و در لیگ شما اجباری است، پس فراموششان نکنید.
+C|Borrowing equipment|قرض گرفتن وسیله|You are at a club for the first time and have no racket.|برای نخستین بار در باشگاهی هستی و راکت نداری.|Ask whether they rent or lend equipment.|بپرس آیا وسیله اجاره یا قرض می‌دهند.|Do you rent rackets here, or should I bring my own next time?|اینجا راکت اجاره می‌دهید، یا دفعهٔ بعد خودم بیاورم؟
+C|Explaining a safety rule to a friend|توضیح یک قاعدهٔ ایمنی به دوستت|A friend wants to play without the required protective gear.|دوستت می‌خواهد بدون تجهیزات محافظ لازم بازی کند.|Explain what the rule requires and why.|بگو قاعده چه می‌خواهد و چرا.|You can't play without shin guards. The league checks before the match.|بدون ساق‌بند نمی‌شود بازی کرد. لیگ پیش از مسابقه بررسی می‌کند.
+Q|Which item protects your head?|کدام وسیله از سرت محافظت می‌کند؟|a helmet|a racket|a net|A helmet is the protection for the head.|کلاه ایمنی محافظ سر است.
+Q|In basketball, you score through the ...|در بسکتبال، امتیاز از ... گرفته می‌شود|hoop|goal|net|The hoop is the ring.|حلقه همان رینگ است.
+Q|Shoes with studs for grass are called ...|کفش‌های میخ‌دار برای چمن را ... می‌گویند|cleats|goggles|gloves|Studs grip the grass, and that is a cleat.|میخ‌ها چمن را می‌گیرند و این همان کفش میخ‌دار است.
+
+J|places|5|stadium|Where it happens|کجا بازی می‌شود|kids,adults||Stadium, court, pitch, track, pool, rink: the name of the place tells you the sport, and sometimes the country.|ورزشگاه، زمین، پیست، استخر، یخ‌مال: نام مکان ورزش را می‌گوید و گاهی کشور را هم.
+O|name the place where a sport is played.|نام مکانی را که ورزش در آن انجام می‌شود بگویی.
+O|tell American and British words apart, and use the right one.|واژه‌های آمریکایی و بریتانیایی را از هم جدا کنی و درست به کار ببری.
+O|find your way inside a stadium: gate, stand, locker room.|داخل ورزشگاه راهت را پیدا کنی: در، جایگاه، رختکن.
+W|stadium|/ˈsteɪdiəm/|noun|ورزشگاه|A large building with seats around a field for big matches.|general|stadium|A2|The stadium holds sixty thousand people.|ورزشگاه شصت هزار نفر را جا می‌دهد.|
+W|arena|/əˈriːnə/|noun|سالن ورزشی|A large indoor building for sport or concerts.|general|stadium|B1|The basketball arena was full.|سالن بسکتبال پر بود.|
+W|gym|/dʒɪm/|noun|باشگاه ورزشی|A room or building with equipment for exercise.|fitness|gym|A1|I go to the gym three times a week.|هفته‌ای سه بار به باشگاه می‌روم.|
+W|court|/kɔrt/|noun|زمین (تنیس، بسکتبال)|The marked surface for tennis, basketball, badminton and similar sports.|racquet|court|A2|We booked a court for an hour.|یک ساعت زمین رزرو کردیم.|
+W|field|/fild/|noun|زمین بازی|The open area for soccer, football, rugby and baseball in American English.|general|pitch|A2|The field was wet after the rain.|زمین بعد از باران خیس بود.|
+W|pitch|/pɪtʃ/|noun|زمین فوتبال|The British word for the soccer field.|soccer|pitch|B1|The pitch is ninety meters long.|زمین نود متر طول دارد.|
+W|track|/træk/|noun|پیست دو|The oval course for running events.|athletics|track|A2|She runs on the track every morning.|او هر صبح در پیست می‌دود.|
+W|pool|/puːl/|noun|استخر|The water area for swimming, in lanes or open.|swimming|pool|A1|The pool is twenty-five meters long.|استخر بیست‌وپنج متر طول دارد.|
+W|rink|/rɪŋk/|noun|یخ‌مال|The ice surface for hockey or skating.|winter|iceskating|B1|The rink opens in December.|یخ‌مال در دسامبر باز می‌شود.|
+W|ring|/rɪŋ/|noun|رینگ|The square area, with ropes, for boxing and wrestling.|boxing|ring|B1|The boxers entered the ring.|بوکسورها وارد رینگ شدند.|
+W|course|/kɔrs/|noun|زمین گلف|The large outdoor area with holes for golf.|golf|golf|B1|The course has eighteen holes.|زمین هجده حفره دارد.|
+W|locker room|/ˈlɑkər ruːm/|noun|رختکن|The room where players change and leave their things.|general|locker|A2|I left my bag in the locker room.|کیفم را در رختکن گذاشتم.|
+W|changing room|/ˈtʃeɪndʒɪŋ ruːm/|noun|رختکن|The British word for a locker room; also a shop fitting room.|general|locker|B1|The changing room is down the corridor.|رختکن پایین راهرو است.|
+W|grandstand|/ˈɡrænstænd/|noun|جایگاه سرپوشیده|The main covered stand with the best seats.|general|stadium|B1|We sat in the grandstand, out of the rain.|در جایگاه سرپوشیده، دور از باران، نشستیم.|
+W|bleachers|/ˈbliːtʃərz/|noun|جایگاه روباز|The cheap open seats in American English.|general|stadium|B1|The bleachers were loud and full.|جایگاه‌های روباز پر و پرسروصدا بود.|
+X|expression|Which stand are we in?|ما در کدام جایگاه هستیم؟|The question at the gate when the ticket does not say.|پرسش دم در، وقتی بلیت مشخص نمی‌کند.|neutral|Which stand are we in? Gate C or D?|ما در کدام جایگاه هستیم؟ در C یا D؟
+X|expression|The match is on the main pitch.|مسابقه در زمین اصلی است.|Says where, which is often a different field from the training one.|می‌گوید کجا، که اغلب با زمین تمرین فرق دارد.|neutral|The match is on the main pitch tonight.|امشب مسابقه در زمین اصلی است.
+X|expression|Do we play on grass or artificial turf?|روی چمن بازی می‌کنیم یا چمن مصنوعی؟|Decides your shoes before you leave home.|پیش از ترک خانه کفشت را تعیین می‌کند.|neutral|Do we play on grass or artificial turf today?|امروز روی چمن بازی می‌کنیم یا چمن مصنوعی؟
+X|expression|The locker room is down the corridor.|رختکن پایین راهرو است.|The most common direction inside a sports building.|رایج‌ترین مسیر داخل ساختمان ورزشی.|neutral|The locker room is down the corridor, on the left.|رختکن پایین راهرو، دست چپ است.
+X|expression|In American English that's a field; in British English it's a pitch.|در انگلیسی آمریکایی field و در انگلیسی بریتانیایی pitch.|Names a regional difference out loud instead of mixing them.|تفاوت منطقه‌ای را به‌جای قاطی کردن، صریح می‌گوید.|formal|Americans say soccer field; the British say football pitch.|آمریکایی‌ها soccer field می‌گویند؛ بریتانیایی‌ها football pitch.
+P|The match is at + [place].|The match is at the city stadium.|مسابقه در ورزشگاه شهر است.|at for the venue.|برای مکان از at استفاده کن.
+P|We play on + [surface] + in/at + [place].|We play on a court in the sports center.|در سالن ورزشی روی زمین محصور بازی می‌کنیم.|Surface first, then the building.|اول سطح، بعد ساختمان.
+S|The pitch was frozen, so they moved the match.|زمین یخ زده بود، پس مسابقه را جابه‌جا کردند.|Explains a change of venue in one sentence.|تغییر مکان را در یک جمله توضیح می‌دهد.|B1|neutral|The pitch was frozen, so they played indoors.
+S|Where's the nearest sports center?|نزدیک‌ترین مجموعهٔ ورزشی کجاست؟|The practical question in a new city.|پرسش کاربردی در یک شهر تازه.|A2|neutral|Is there a sports center near here?
+S|We sat in the bleachers, right behind the goal.|ما در جایگاه روباز، دقیقاً پشت دروازه، نشستیم.|Says exactly where you watched from.|می‌گوید دقیقاً از کجا تماشا کردی.|B1|neutral|We were in the cheap seats behind the goal.
+D|At the stadium gate|دم در ورزشگاه|Steward|Hamed
+L|Hamed|Excuse me, which stand are we in?|ببخشید، ما در کدام جایگاه هستیم؟
+L|Steward|Show me your ticket. Section twenty-two, that's the north stand.|بلیتتان را ببینم. بخش بیست‌ودو، جایگاه شمالی.
+L|Hamed|Is that the covered one?|آن سرپوشیده است؟
+L|Steward|The grandstand is covered. Twenty-two is open-air.|جایگاه اصلی سرپوشیده است. بیست‌ودو روباز است.
+L|Hamed|It's raining. Can I upgrade?|باران می‌آید. می‌توانم ارتقا بدهم؟
+L|Steward|The ticket office is by gate C, but they're probably sold out.|بلیت‌فروشی کنار در C است، اما احتمالاً تمام شده.
+C|Asking about the surface|پرسیدن دربارهٔ سطح زمین|You are about to play and you are not sure about your shoes.|در آستانهٔ بازی هستی و دربارهٔ کفشت مطمئن نیستی.|Ask what the surface is and whether you need studs.|بپرس سطح چیست و آیا میخ لازم داری.|Do we play on grass or artificial turf? I only brought court shoes.|روی چمن بازی می‌کنیم یا چمن مصنوعی؟ من فقط کفش سالن آورده‌ام.
+C|Finding the changing room|پیدا کردن رختکن|You are in an unfamiliar sports center ten minutes before kick-off.|ده دقیقه پیش از شروع، در مجموعه‌ای ناآشنا هستی.|Ask where the locker room is and whether there are lockers.|بپرس رختکن کجاست و آیا کمد دارد.|Where's the changing room? And do I need my own padlock?|رختکن کجاست؟ و آیا به قفل شخصی نیاز دارم؟
+Q|Which place is used for tennis?|کدام مکان برای تنیس است؟|a court|a pitch|a rink|Tennis is played on a court.|تنیس روی court بازی می‌شود.
+Q|A British speaker is most likely to call the soccer field ...|گویشور بریتانیایی زمین فوتبال را ... می‌نامد|a pitch|a course|a track|Pitch is the British word.|pitch واژهٔ بریتانیایی است.
+Q|The open, cheap seats in American English are the ...|جایگاه‌های روباز و ارزان در انگلیسی آمریکایی ... هستند|bleachers|grandstand|locker room|Bleachers are the open benches.|bleachers همان نیمکت‌های روباز است.

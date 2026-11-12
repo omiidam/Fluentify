@@ -1,0 +1,95 @@
+# One profile per sport. R rows are read before any stage and attached to the
+# stages that list them in a G row; RT rows add the sport's key terms.
+# Field order for R: id | en | ipa | fa | categories | definition | art | venue |
+# level | equipment | actions | sentence_en | sentence_fa | exchange_en | exchange_fa
+
+R|soccer|soccer|/ˈsɑkər/|فوتبال|team,ball|Two teams of eleven try to put the ball in the other team's goal, using feet and head.|soccer|a grass pitch or an artificial field|A2|ball,goal,net,cleats,shin guards|kick,pass,dribble,shoot,tackle,defend|Soccer is the most watched sport in the world.|فوتبال پربیننده‌ترین ورزش جهان است.|Who do you support?|طرفدار کی هستی؟
+RT|soccer|goal|گل|The score, or the frame the ball must enter.
+RT|soccer|penalty area|محوطهٔ جریمه|The box in front of the goal where a foul gives a penalty.
+RT|soccer|offside|آفساید|Being ahead of the last defender when the ball is passed to you.
+RT|soccer|free kick|ضربهٔ آزاد|A kick given after a foul.
+RT|soccer|header|ضربهٔ سر|Hitting the ball with your head.
+RT|soccer|clean sheet|کلین شیت|A match in which a team concedes no goals.
+RT|soccer|hat-trick|هت‌تریک|Three goals by one player in one match.
+RT|soccer|stoppage time|وقت تلف‌شده|Minutes added at the end of a half.
+R|football|American football|/əˈmerɪkən ˈfʊtbɔl/|فوتبال آمریکایی|team,ball|Two teams of eleven move an oval ball down a field by running and passing.|football|a marked field with goalposts|B1|oval ball,helmet,shoulder pads|throw,catch,run,block,tackle|American football games last about three hours.|مسابقه‌های فوتبال آمریکایی حدود سه ساعت طول می‌کشند.|Which team has the ball?|توپ دست کدام تیم است؟
+R|basketball|basketball|/ˈbæskɪtbɔl/|بسکتبال|team,ball|Two teams of five score by throwing the ball through a high hoop.|basketball|an indoor court|A2|ball,hoop,backboard,court shoes|dribble,shoot,pass,rebound,block|He plays basketball every Friday.|او هر جمعه بسکتبال بازی می‌کند.|Who's guarding him?|چه کسی او را مهار می‌کند؟
+RT|basketball|hoop|حلقه|The ring the ball must pass through.
+RT|basketball|backboard|تختهٔ پشت حلقه|The board behind the hoop.
+RT|basketball|dribble|دریبل|Bouncing the ball while moving.
+RT|basketball|rebound|ریباند|Taking the ball after a missed shot.
+RT|basketball|layup|لی‌آپ|A shot from close to the basket off one foot.
+RT|basketball|free throw|پرتاب آزاد|An uncontested shot from the line, worth one point.
+RT|basketball|three-pointer|سه‌امتیازی|A shot from beyond the arc, worth three points.
+RT|basketball|assist|پاس گل|A pass that leads directly to a score.
+R|volleyball|volleyball|/ˈvɑlibɔl/|والیبال|team,ball|Two teams of six hit a ball over a net without letting it touch the ground.|volleyball|an indoor court or sand|A2|ball,net|serve,set,spike,block|Volleyball is played indoors and on sand.|والیبال در سالن و روی شن بازی می‌شود.|Who's serving?|چه کسی سرویس می‌زند؟
+RT|volleyball|serve|سرویس|Hitting the ball over the net to start the point.
+RT|volleyball|spike|اسپایک|Hitting the ball down hard over the net.
+RT|volleyball|set|پاس هوایی|Passing the ball high for a teammate to spike.
+RT|volleyball|block|سد دفاعی|Jumping at the net to stop the ball.
+R|rugby|rugby|/ˈrʌɡbi/|راگبی|team,ball|Two teams carry, pass and kick an oval ball to reach the other end.|rugby|a grass pitch|B1|oval ball,mouthguard|run,pass,tackle,scrum|Rugby is popular in Britain, France and New Zealand.|راگبی در بریتانیا، فرانسه و نیوزیلند محبوب است.|Is that a forward pass?|آن پاس رو به جلو بود؟
+R|cricket|cricket|/ˈkrɪkɪt/|کریکت|team,ball|Two teams of eleven take turns batting and bowling to score runs.|cricket|a grass oval|B1|bat,ball,wickets,pads,helmet|bat,bowl,field,run|Cricket can last five days.|کریکت می‌تواند پنج روز طول بکشد.|How many runs did he score?|او چند ران زد؟
+RT|cricket|wicket|ویکت|The set of stumps, or the dismissal itself.
+RT|cricket|bowler|بولر|The player who throws the ball to the batter.
+RT|cricket|over|اور|Six legal balls bowled in a row.
+RT|cricket|run|ران|One point, scored by running between the wickets.
+RT|cricket|innings|اینینگ|One team's turn to bat.
+RT|cricket|boundary|مرز زمین|The edge of the field; hitting it scores four or six.
+R|baseball|baseball|/ˈbeɪsbɔl/|بیسبال|team,ball|Two teams take turns batting; you score by running around four bases.|baseball|a diamond-shaped field|B1|bat,ball,glove,helmet|pitch,bat,catch,run|Baseball is played in the United States, Japan and Cuba.|بیسبال در آمریکا، ژاپن و کوبا بازی می‌شود.|Is that a strike?|آن استرایک بود؟
+RT|baseball|pitcher|پیچر|The player who throws the ball to the batter.
+RT|baseball|home run|هوم‌ران|A hit that lets the batter run around all four bases.
+RT|baseball|strike|استرایک|A pitch in the strike zone that the batter misses.
+RT|baseball|inning|اینینگ|One turn at bat for each team.
+RT|baseball|bullpen|محوطهٔ گرم‌کردن پیچرها|Where relief pitchers warm up.
+R|softball|softball|/ˈsɔftbɔl/|سافتبال|team,ball|Like baseball, with a larger ball and an underarm pitch.|baseball|a smaller diamond|B1|larger ball,glove,bat|pitch underarm,bat,catch|Softball is popular in schools.|سافتبال در مدرسه‌ها محبوب است.|Is it underarm or overarm?|از پایین پرتاب می‌شود یا از بالا؟
+R|handball|handball|/ˈhændbɔl/|هندبال|team,ball|Two teams of seven throw a ball into a goal by hand.|handball|an indoor court|B1|ball,goal|throw,jump,shoot,block|Handball is fast and physical.|هندبال سریع و پربرخورد است.|Can you jump into the area?|می‌شود داخل محوطه پرید؟
+R|fieldhockey|field hockey|/fild ˈhɑki/|هاکی روی چمن|team,hockey|Two teams use curved sticks to hit a ball into a goal.|stick|an artificial pitch|B1|stick,ball,shin guards,mouthguard|hit,pass,shoot,tackle|Field hockey is big in the Netherlands and India.|هاکی روی چمن در هلند و هند پرطرفدار است.|Is the stick allowed above the shoulder?|چوب را می‌شود بالای شانه برد؟
+R|icehockey|ice hockey|/aɪs ˈhɑki/|هاکی روی یخ|team,winter|Two teams of six skate and use sticks to score in a goal.|stick|an ice rink|B1|stick,puck,skates,helmet,pads|skate,pass,shoot,check|Ice hockey is the national winter sport of Canada.|هاکی روی یخ ورزش ملی زمستانی کانادا است.|Was that icing?|آن آیسینگ بود؟
+R|tennis|tennis|/ˈtenɪs/|تنیس|racquet,individual|Two players, or two pairs, hit a ball over a net with rackets.|tennis|a court|A2|racket,ball,net|serve,forehand,backhand,volley,smash|She plays tennis twice a week.|او هفته‌ای دو بار تنیس بازی می‌کند.|Whose serve is it?|سرویس مال کیست؟
+RT|tennis|forehand|فورهند|A stroke hit on your racket side.
+RT|tennis|backhand|بکهند|A stroke hit across your body.
+RT|tennis|deuce|دوس|A tied score that needs two clear points to win the game.
+RT|tennis|ace|ایس|A serve the opponent cannot touch.
+RT|tennis|tiebreak|تای‌بریک|A short game that decides a set at six all.
+R|tabletennis|table tennis|/ˈteɪbl ˈtenɪs/|تنیس روی میز|racquet|Two or four players hit a light ball across a table with small bats.|racket|an indoor table|A2|paddle,ball,net,table|serve,spin,smash,block|Table tennis is an Olympic sport.|تنیس روی میز ورزش المپیکی است.|Did that touch the edge?|به لبه خورد؟
+R|badminton|badminton|/ˈbædmɪntən/|بدمینتون|racquet|Players hit a shuttlecock over a high net with rackets.|racket|an indoor court|A2|racket,shuttlecock,net|serve,smash,drop shot|Badminton is faster than it looks.|بدمینتون از آنچه به نظر می‌رسد سریع‌تر است.|Is that shuttle out?|آن توپ بیرون بود؟
+R|squash|squash|/skwɑʃ/|اسکواش|racquet|Two players hit a ball against a wall in a closed court.|racket|an enclosed court|B1|racket,ball,goggles|serve,drive,boast|Squash is a very demanding game.|اسکواش بازی بسیار پرتلاشی است.|Do we play to eleven?|تا یازده بازی می‌کنیم؟
+R|padel|padel|/ˈpædel/|پدل|racquet|A doubles game like tennis played in a glass-walled court.|racket|a glass court|B1|paddle,ball|serve,volley,smash,lob|Padel is easy to learn and hard to master.|پدل یادگیری‌اش آسان و تسلطش سخت است.|Can the ball come off the glass?|توپ می‌تواند از شیشه برگردد؟
+R|running|running|/ˈrʌnɪŋ/|دویدن|athletics,individual|Moving fast on foot as a sport or for fitness.|running|a track, road or park|A1|running shoes|run,jog,sprint|I go running every morning.|هر صبح می‌دوم.|What's your pace?|سرعتت چقدر است؟
+R|marathon|marathon|/ˈmærəθɑn/|ماراتن|athletics,individual|A race of 42.195 kilometers.|running|roads across a city|B1|running shoes,bib,water stations|run,pace,finish|She finished her first marathon in four hours.|او نخستین ماراتنش را در چهار ساعت تمام کرد.|Are you doing the full or the half?|ماراتن کامل می‌دوی یا نیمه؟
+R|longjump|long jump|/lɔŋ dʒʌmp/|پرش طول|athletics,individual|Jumping as far forward as possible from a run.|track|a sand pit with a runway|B1|runway,sand pit,spikes|run,jump,land|He jumped seven meters.|او هفت متر پرید.|Was that a personal best?|بهترین رکورد شخصی بود؟
+R|highjump|high jump|/haɪ dʒʌmp/|پرش ارتفاع|athletics,individual|Jumping over a bar without knocking it down.|track|a mat with two uprights|B1|bar,mat,spikes|run,jump,clear|She cleared one meter eighty.|او یک‌ونود سانتی‌متر را رد کرد.|Is the bar going up?|میله بالاتر می‌رود؟
+R|gymnastics|gymnastics|/dʒɪmˈnæstɪks/|ژیمناستیک|athletics,individual|A sport of controlled strength, balance and movement, on apparatus or a floor.|gymnastics|a gym with apparatus|A2|mat,beam,bars,chalk,leotard|balance,jump,swing,tumble|Gymnastics needs flexibility and strength.|ژیمناستیک به انعطاف و قدرت نیاز دارد.|Which apparatus is next?|وسیلهٔ بعدی کدام است؟
+R|weightlifting|weightlifting|/ˈweɪtlɪftɪŋ/|وزنه‌برداری|individual,indoor|Lifting a barbell overhead in two competition lifts.|dumbbell|a platform in a gym|B1|barbell,plates,belt,chalk|lift,squat,press|He lifted his personal best.|او بهترین رکورد شخصی‌اش را بلند کرد.|Is that a clean and jerk?|آن یک‌ضرب و دوضرب است؟
+R|golf|golf|/ɡɑlf/|گلف|individual,outdoor|Hitting a small ball into a series of holes in as few strokes as possible.|golf|an eighteen-hole course|B1|clubs,ball,tees,glove|drive,putt,chip|Golf is quiet and very slow.|گلف آرام و بسیار کند است.|What did you score on that hole?|آن حفره را چند زدی؟
+R|archery|archery|/ˈɑrtʃəri/|تیراندازی با کمان|individual,outdoor|Shooting arrows at a target with a bow.|archery|a range with targets|B1|bow,arrows,target,arm guard|draw,aim,release|Archery needs a steady hand.|تیراندازی با کمان دستی ثابت می‌خواهد.|How many ends are left?|چند دور باقی مانده؟
+R|bowling|bowling|/ˈboʊlɪŋ/|بولینگ|individual,indoor|Rolling a heavy ball along a lane to knock down pins.|bowling|a lane with pins|A2|ball,pins,shoes|lane,roll,strike,spare|We played two games of bowling.|دو بازی بولینگ کردیم.|Was that a strike?|آن استرایک بود؟
+R|swimming|swimming|/ˈswɪmɪŋ/|شنا|water,individual|Moving through water using arms and legs.|swimming|a pool or open water|A1|swimsuit,goggles,cap|swim,dive,turn,kick|I go swimming twice a week.|هفته‌ای دو بار شنا می‌روم.|Which stroke do you swim?|چه شنايی می‌کنی؟
+RT|swimming|freestyle|کرال سینه|The fastest stroke, swum face down.
+RT|swimming|backstroke|کرال پشت|Swimming on your back.
+RT|swimming|breaststroke|قورباغه|A stroke with arms and legs moving together under water.
+RT|swimming|lane|لاین|A marked strip of the pool for one swimmer.
+R|diving|diving|/ˈdaɪvɪŋ/|شیرجه|water,individual|Jumping from a board into water, judged on the dive.|diving|a pool with boards|B1|board,swimsuit|spring,rotate,enter|The dive was almost perfect.|آن شیرجه تقریباً بی‌عیب بود.|What degree of difficulty was that?|درجهٔ سختی‌اش چند بود؟
+R|waterpolo|water polo|/ˈwɔtər poʊloʊ/|واترپلو|water,team|Two teams of seven throw a ball into a goal in a pool.|swimming|a deep pool|B1|ball,cap,goal|throw,swim,defend|Water polo is exhausting to watch and worse to play.|واترپلو تماشایش خسته‌کننده و بازی‌اش سخت‌تر است.|How long is each period?|هر وقت چقدر است؟
+R|surfing|surfing|/ˈsɜrfɪŋ/|موج‌سواری|water,outdoor|Riding a wave standing on a board.|surfing|a beach with waves|B1|surfboard,wetsuit,leash|paddle,pop up,ride|Surfing depends completely on the weather.|موج‌سواری کاملاً به آب‌وهوا بستگی دارد.|Are the waves good today?|امروز موج‌ها خوب‌اند؟
+R|sailing|sailing|/ˈseɪlɪŋ/|قایق‌رانی بادبانی|water,outdoor|Moving a boat with the wind in its sails.|sailing|open water or a lake|B1|boat,sails,life jacket|steer,tack,trim|Sailing is silent until the wind drops.|قایق‌رانی بادبانی ساکت است تا وقتی باد بیفتد.|Which way is the wind?|باد از کدام طرف است؟
+R|rowing|rowing|/ˈroʊɪŋ/|قایق‌رانی پارویی|water,team|Moving a boat with oars, alone or in a crew.|rowing|a river or lake|B1|boat,oars,seat|row,stroke,feather|Rowing is a team sport with no ball.|قایق‌رانی ورزشی تیمی بدون توپ است.|Are we on the same stroke?|همان ضربه را می‌زنیم؟
+R|kayaking|kayaking|/ˈkaɪækɪŋ/|کایاک|water,outdoor|Paddling a small, narrow boat with a double paddle.|kayak|a river, lake or sea|B1|kayak,paddle,helmet,life jacket|paddle,brace,roll|Kayaking is quiet enough to see wildlife.|کایاک به‌قدری آرام است که می‌توانی حیات وحش را ببینی.|Do we need a permit for this river?|برای این رود به مجوز نیاز داریم؟
+R|boxing|boxing|/ˈbɑksɪŋ/|بوکس|combat,indoor|Two fighters punch each other under rules, in rounds.|boxing|a ring|B1|gloves,headguard,mouthguard,wraps|jab,cross,hook,block|A bout is fought over several rounds.|یک مسابقه در چند راند برگزار می‌شود.|Which round is it?|راند چندم است؟
+RT|boxing|jab|مشت کوتاه|A quick straight punch with the front hand.
+RT|boxing|hook|مشت قلاب|A curved punch from the side.
+RT|boxing|round|راند|A period of fighting, usually three minutes.
+RT|boxing|knockout|ناک‌اوت|A punch that ends the fight.
+R|wrestling|wrestling|/ˈreslɪŋ/|کشتی|combat,indoor|Two athletes try to control or pin each other without punching.|team|a mat|B1|mat,singlet,headgear|takedown,hold,pin|Wrestling is one of the oldest sports.|کشتی از قدیمی‌ترین ورزش‌ها است.|Is that a legal hold?|آن فن مجاز است؟
+R|judo|judo|/ˈdʒuːdoʊ/|جودو|combat,indoor|A Japanese martial art of throws and holds.|team|a mat|B1|gi,belt,mat|throw,grip,pin|Judo means the gentle way.|جودو یعنی راه نرم.|Did he score a waza-ari?|او وازا-آری گرفت؟
+R|karate|karate|/kəˈrɑti/|کاراته|combat,indoor|A Japanese martial art of strikes and blocks.|boxing|a dojo|A2|gi,belt,mouthguard|punch,kick,block|Karate starts with respect.|کاراته با احترام آغاز می‌شود.|What belt are you?|کمربندت چیست؟
+R|taekwondo|taekwondo|/ˌtaɪˈkwɑndoʊ/|تکواندو|combat,indoor|A Korean martial art known for fast kicks.|boxing|a dojo|B1|dobok,belt,headguard|kick,block,step|Taekwondo is an Olympic sport.|تکواندو ورزش المپیکی است.|Was that to the head?|آن به سر بود؟
+R|fencing|fencing|/ˈfensɪŋ/|شمشیربازی|combat,indoor|Two athletes try to touch each other with a thin sword.|fencing|a piste|B1|sword,mask,jacket|advance,lunge,parry|Fencing looks slow and is very fast.|شمشیربازی کند به نظر می‌رسد و بسیار سریع است.|Who has priority?|اولویت با کیست؟
+R|cycling|cycling|/ˈsaɪklɪŋ/|دوچرخه‌سواری|outdoor,individual|Riding a bicycle for sport, transport or fitness.|bike|road or track|A2|bicycle,helmet,shoes|pedal,brake,climb,descend|He commutes by bicycle, and races at weekends.|او با دوچرخه رفت‌وآمد می‌کند و آخر هفته‌ها مسابقه می‌دهد.|How far was the stage?|مرحله چند کیلومتر بود؟
+R|mountainbike|mountain biking|/ˈmaʊntn ˈbaɪkɪŋ/|دوچرخه‌سواری کوهستان|outdoor,individual|Riding a strong bicycle on rough ground.|bike|forest trails and mountains|B1|mountain bike,helmet,pads|climb,descend,hop|Mountain biking needs good brakes.|دوچرخه‌سواری کوهستان ترمز خوب می‌خواهد.|Is this trail for beginners?|این مسیر برای تازه‌کارها است؟
+R|climbing|rock climbing|/rɑk ˈklaɪmɪŋ/|سنگ‌نوردی|outdoor,individual|Climbing rock faces or walls using hands, feet and ropes.|climbing|a wall or a rock face|B1|harness,rope,shoes,chalk|clip,reach,rest,belay|Rock climbing is safer than it looks.|سنگ‌نوردی از آنچه به نظر می‌رسد ایمن‌تر است.|Who's belaying today?|امروز چه کسی مهار می‌کند؟
+R|skiing|skiing|/ˈskiːɪŋ/|اسکی|winter,outdoor|Sliding down snow on two long boards.|skiing|a snowy slope|A2|skis,boots,poles,helmet,goggles|glide,turn,stop,fall|Skiing uses muscles you forget about.|اسکی از عضله‌هایی استفاده می‌کند که فراموش کرده‌ای.|Which run are we taking?|از کدام مسیر می‌رویم؟
+R|snowboarding|snowboarding|/ˈsnoʊbɔrdɪŋ/|اسنوبورد|winter,outdoor|Sliding down snow on one board, sideways.|snowboard|a snow park or slope|B1|board,boots,helmet,goggles|ride,turn,jump|Snowboarding is easier to start and harder to master.|اسنوبورد شروع آسان‌تر و تسلط سخت‌تری دارد.|Are you regular or goofy?|پای چپت جلوست یا راست؟
+R|iceskating|ice skating|/aɪs ˈskeɪtɪŋ/|اسکیت روی یخ|winter,individual|Moving on ice with blades attached to boots.|skate|an ice rink|A2|skates,helmet,pads|glide,turn,spin,jump|Ice skating is popular in winter.|اسکیت روی یخ در زمستان محبوب است.|How do you stop?|چطور متوقف می‌شوی؟
+R|skateboarding|skateboarding|/ˈskeɪtbɔrdɪŋ/|اسکیت‌بورد|outdoor,individual|Riding and performing tricks on a small board with wheels.|skate|a skate park or street|B1|board,helmet,pads,shoes|push,ollie,grind,land|Skateboarding joined the Olympics in 2021.|اسکیت‌بورد در سال ۲۰۲۱ به المپیک اضافه شد.|Is that a legal trick here?|این حرکت اینجا مجاز است؟
+R|horse|horse riding|/hɔrs ˈraɪdɪŋ/|سوارکاری|outdoor,individual|Riding a horse, for sport, work or pleasure.|horse|a riding school or open country|A2|saddle,bridle,helmet,boots|mount,ride,trot,canter|Horse riding is a sport and a practical skill.|سوارکاری هم ورزش است و هم مهارتی کاربردی.|Is this horse easy for beginners?|این اسب برای تازه‌کارها رام است؟

@@ -1,0 +1,202 @@
+# Sports journey, stages 6-10.
+
+J|actions|6|running|Actions and techniques|حرکت‌ها و تکنیک‌ها|kids,adults||The verbs that describe what a body does in a sport, and the three verbs that decide how you say it: play, go, do.|فعل‌هایی که کار بدن در ورزش را می‌گویند، و سه فعلی که شکل جمله را تعیین می‌کنند: play، go، do.
+O|describe the main action in a sport with the right verb.|حرکت اصلی هر ورزش را با فعل درست توصیف کنی.
+O|tell score, win and beat apart.|score، win و beat را از هم جدا کنی.
+O|use play, go and do with the right kind of sport.|play، go و do را با نوع درست ورزش به کار ببری.
+W|kick|/kɪk/|verb|شوت کردن با پا|To hit something with your foot.|soccer|soccer|A1|He kicked the ball into the net.|او توپ را به تور زد.|
+W|throw|/θroʊ/|verb|پرتاب کردن|To send something through the air with your hand.|general|handball|A2|Throw the ball to me.|توپ را به من بینداز.|
+W|catch|/kætʃ/|verb|گرفتن|To take hold of something moving through the air.|baseball|gloves|A2|She caught the ball one-handed.|او توپ را با یک دست گرفت.|
+W|pass|/pæs/|verb|پاس دادن|To give the ball to a teammate.|general|ball|A1|Pass the ball, don't shoot.|پاس بده، شوت نکن.|
+W|shoot|/ʃuːt/|verb|شوت زدن|To try to score by hitting or throwing the ball at the goal.|soccer|goal|A2|Shoot when you're inside the box.|وقتی داخل محوطه هستی شوت بزن.|
+W|score|/skɔr/|verb|گل یا امتیاز زدن|To get a goal or a point.|general|board|A2|He scored twice in the second half.|او در نیمهٔ دوم دو بار گل زد.|
+W|dribble|/ˈdrɪbl/|verb|دریبل کردن|To move with the ball past opponents, with small touches or bounces.|basketball|basketball|B1|She dribbled past two defenders.|او دو مدافع را دریبل کرد.|
+W|tackle|/ˈtækl/|verb|تکل زدن|To stop an opponent by taking the ball from them.|soccer|shoes|B1|He tackled cleanly and won the ball.|او تمیز تکل زد و توپ را گرفت.|
+W|serve|/sɜrv/|verb|سرویس زدن|To start the point by hitting the ball into play.|tennis|tennis|A2|She serves with her right hand.|او با دست راست سرویس می‌زند.|
+W|smash|/smæʃ/|verb|اسمش زدن|To hit the ball hard and downward.|tennis|racket|B1|He smashed it at the net.|او نزدیک تور اسمش زد.|
+W|dive|/daɪv/|verb|شیرجه زدن|To throw yourself towards the ball or into the water.|general|diving|A2|The keeper dived to his left.|دروازه‌بان به چپ شیرجه زد.|
+W|sprint|/sprɪnt/|verb|سرعت دویدن|To run as fast as you can for a short distance.|athletics|running|B1|He sprinted the last fifty meters.|او پنجاه متر آخر را با سرعت دوید.|
+W|lift|/lɪft/|verb|بلند کردن|To raise a weight, a barbell or a trophy.|weightlifting|dumbbell|A2|She lifted ninety kilos.|او نود کیلو بلند کرد.|
+W|stretch|/stretʃ/|verb|کشش دادن|To extend a muscle slowly so it does not tear.|fitness|stopwatch|A2|Stretch before you run.|پیش از دویدن کشش بده.|
+W|defend|/dɪˈfend/|verb|دفاع کردن|To stop the other team from scoring.|general|team|A2|We defended for the last ten minutes.|ده دقیقهٔ آخر دفاع کردیم.|
+W|beat|/biːt/|verb|شکست دادن|To win against a person or a team.|general|trophy|B1|They beat us two to one.|آن‌ها ما را دو بر یک شکست دادند.|
+X|expression|Pass the ball!|پاس بده!|The shout that means you are free and the pass is on.|فریادی که یعنی آزادی و پاس ممکن است.|informal|Pass the ball! I'm open on the left.|پاس بده! سمت چپ آزادم.
+X|expression|Shoot!|شوت بزن!|Said when there is space and time, never as advice later.|وقتی فضا و وقت هست گفته می‌شود، نه به‌عنوان نصیحت بعد از بازی.|informal|Shoot! You're inside the box.|شوت بزن! داخل محوطه‌ای.
+X|expression|Nice pass!|پاس خوبی بود!|Quick praise during play, two words and move on.|تعریف کوتاه در جریان بازی؛ دو کلمه و ادامه بده.|informal|Nice pass! Keep it on the ground.|پاس خوبی بود! توپ را روی زمین نگه دار.
+X|expression|Keep your eye on the ball.|چشمت به توپ باشد.|The oldest instruction in every ball sport, and an idiom outside it.|قدیمی‌ترین دستور در هر ورزش توپی، و بیرون از ورزش هم اصطلاح است.|neutral|Keep your eye on the ball, not on the crowd.|چشمت به توپ باشد، نه به تماشاگرها.
+X|expression|I play basketball, but I go swimming.|بسکتبال بازی می‌کنم، اما شنا می‌روم.|One sentence that shows the play/go split without a grammar lesson.|یک جمله که تفاوت play و go را بدون درس دستور نشان می‌دهد.|neutral|I play basketball in winter and go swimming in summer.|زمستان بسکتبال بازی می‌کنم و تابستان شنا می‌روم.|Basketball in winter, swimming in summer.
+P|score + [a goal / a point / two goals].|He scored two goals in the first half.|او در نیمهٔ اول دو گل زد.|score takes the thing you get, not the opponent.|score مفعولش چیزی است که به دست می‌آوری، نه حریف.
+P|beat + [opponent] / win + [match].|We beat them and won the match.|ما آن‌ها را بردیم و مسابقه را بردیم.|People are beaten; matches are won.|آدم‌ها beat می‌شوند؛ مسابقه‌ها win.
+S|He dribbled past two defenders and scored.|او دو مدافع را دریبل کرد و گل زد.|One sentence that chains three actions in order.|یک جمله که سه حرکت را به ترتیب زنجیر می‌کند.|B1|neutral|He went past two players and finished.
+S|We need to defend better in the last ten minutes.|باید در ده دقیقهٔ آخر بهتر دفاع کنیم.|A comment on a weakness, without blaming one player.|نقد یک ضعف، بدون سرزنش یک بازیکن.|B1|neutral|Our defending is weak late in the game.
+S|I do gymnastics twice a week.|هفته‌ای دو بار ژیمناستیک کار می‌کنم.|do for gymnastics, martial arts and fitness activities.|برای ژیمناستیک، ورزش‌های رزمی و فعالیت‌های بدنی از do استفاده کن.|A2|neutral|I have gymnastics twice a week.
+D|On the sideline|کنار خط|Coach|Sami
+L|Coach|Sami, you're holding the ball too long. Pass earlier.|سامی، توپ را زیادی نگه می‌داری. زودتر پاس بده.
+L|Sami|I don't see the pass. They close me down fast.|پاس را نمی‌بینم. سریع محاصره‌ام می‌کنند.
+L|Coach|Then play it back and move. Don't force the shot.|پس برگردان و حرکت کن. شوت را به‌زور نزن.
+L|Sami|Okay. And if I'm free at the edge of the box?|باشه. و اگر لبهٔ محوطه آزاد بودم؟
+L|Coach|Then shoot. But only if you're balanced.|آن‌وقت شوت بزن. اما فقط اگر تعادلت را داری.
+L|Sami|Understood. Pass first, then look for the shot.|فهمیدم. اول پاس، بعد دنبال شوت.
+C|Explaining what you did|توضیح کاری که کردی|A teammate asks how the goal happened.|هم‌تیمی می‌پرسد گل چطور شد.|Describe the actions in order, in one sentence.|حرکت‌ها را به ترتیب و در یک جمله بگو.|I took the pass, dribbled past the defender and shot low.|پاس را گرفتم، مدافع را دریبل کردم و پایین زدم.
+C|Correcting score and win|اصلاح score و win|A friend says "we scored the match".|دوستت می‌گوید we scored the match.|Correct it gently and give the right verb.|مؤدبانه اصلاح کن و فعل درست را بگو.|We won the match, and we scored two goals. You score goals, not matches.|ما مسابقه را بردیم و دو گل زدیم. تو گل می‌زنی، نه مسابقه.
+Q|Which is correct?|کدام درست است؟|We beat them three to one.|We won them three to one.|We beat the match three to one.|You beat a team and win a match.|تیم را beat و مسابقه را win می‌کنی.
+Q|Gymnastics takes which verb?|ژیمناستیک با کدام فعل می‌آید؟|do|play|go|Gymnastics and martial arts take do.|ژیمناستیک و ورزش‌های رزمی با do می‌آیند.
+Q|To start a point in tennis is to ...|شروع امتیاز در تنیس ... است|serve|tackle|pass|The serve starts the point.|سرویس امتیاز را شروع می‌کند.
+
+J|rules|7|whistle|Rules, scoring and the words officials use|قاعده‌ها، امتیاز و واژه‌های داورها|kids,adults||Fouls, cards and the clock: enough English to follow a match and to argue about the decision.|خطا، کارت و زمان: انگلیسی به‌اندازه‌ای که مسابقه را دنبال کنی و دربارهٔ تصمیم بحث کنی.
+O|follow what the referee signals and why.|بفهمی داور چه علامتی می‌دهد و چرا.
+O|use the correct scoring words for different sports.|واژه‌های درست امتیاز را برای ورزش‌های مختلف به کار ببری.
+O|ask what a rule means without pretending to know.|معنی یک قاعده را بپرسی، بدون اینکه خود را دانا نشان بدهی.
+W|foul|/faʊl/|noun|خطا|An action that breaks the rules and stops play.|general|whistle|A2|The foul was outside the box.|خطا بیرون محوطه بود.|
+W|penalty|/ˈpenəlti/|noun|پنالتی|A free shot at goal given for a serious foul in the box.|soccer|goal|A2|He missed the penalty.|او پنالتی را از دست داد.|
+W|free kick|/ˈfriː kɪk/|noun|ضربهٔ آزاد|A kick given to the other team after a foul.|soccer|ball|B1|They scored from a free kick.|آن‌ها از ضربهٔ آزاد گل زدند.|
+W|corner kick|/ˈkɔrnər kɪk/|noun|کرنر|A kick from the corner of the field.|soccer|pitch|B1|The corner kick went straight in.|کرنر مستقیم داخل رفت.|
+W|offside|/ˌɔfˈsaɪd/|adjective|آفساید|In an illegal position ahead of the last defender when the ball is played.|soccer|pitch|B1|The goal was disallowed for offside.|گل به‌خاطر آفساید رد شد.|
+W|yellow card|/ˈjeloʊ kɑrd/|noun|کارت زرد|The warning an official gives a player.|soccer|board|A2|He got a yellow card for the tackle.|او برای آن تکل کارت زرد گرفت.|
+W|red card|/red kɑrd/|noun|کارت قرمز|The card that sends a player off the field.|soccer|board|A2|A red card means you play with ten.|کارت قرمز یعنی با ده نفر بازی می‌کنی.|
+W|half-time|/ˌhæfˈtaɪm/|noun|نیمهٔ بازی|The break in the middle of a match.|general|stopwatch|A2|We were two nil up at half-time.|در نیمهٔ بازی دو صفر جلو بودیم.|
+W|full-time|/ˌfʊlˈtaɪm/|noun|پایان بازی|The end of the match.|general|stopwatch|B1|The score was one all at full-time.|در پایان بازی نتیجه یک‌یک بود.|
+W|extra time|/ˈekstrə taɪm/|noun|وقت اضافه|Two short periods added when a cup match is level.|general|stopwatch|B1|They scored in extra time.|آن‌ها در وقت اضافه گل زدند.|
+W|injury time|/ˈɪndʒəri taɪm/|noun|وقت تلف‌شده|The minutes added for stops and injuries.|general|stopwatch|B1|Four minutes of injury time were played.|چهار دقیقه وقت تلف‌شده بازی شد.|
+W|draw|/drɔ/|noun|تساوی|A result in which both sides have the same score.|general|board|A2|The match ended in a draw.|مسابقه با تساوی تمام شد.|
+W|tie|/taɪ/|noun|تساوی|The American word for a draw, and also a game that decides who goes through.|general|board|B1|The game ended in a tie.|بازی با تساوی تمام شد.|
+W|substitution|/ˌsʌbstɪˈtuːʃn/|noun|تعویض|Replacing one player with another during a match.|general|board|B1|Each team is allowed five substitutions.|هر تیم پنج تعویض مجاز دارد.|
+X|expression|That was never a foul.|آن هرگز خطا نبود.|The standard disagreement from the stand, not from the pitch.|مخالفت همیشگی از سکو، نه از زمین.|informal|That was never a foul. He got the ball first.|آن هرگز خطا نبود. اول توپ را زد.
+X|expression|The referee is checking the screen.|داور صفحه را بررسی می‌کند.|Explains the pause when a decision is reviewed.|مکث هنگام بازبینی تصمیم را توضیح می‌دهد.|neutral|The referee is checking the screen for offside.|داور برای آفساید صفحه را بررسی می‌کند.
+X|expression|How many minutes are left?|چند دقیقه مانده؟|The question in the last ten minutes of any match.|پرسش ده دقیقهٔ آخر هر مسابقه.|neutral|How many minutes are left, including injury time?|چند دقیقه مانده، با وقت تلف‌شده؟
+X|expression|They're playing with ten men.|با ده نفر بازی می‌کنند.|Says a player was sent off without describing the incident.|می‌گوید بازیکنی اخراج شد، بدون توصیف ماجرا.|neutral|They're playing with ten men since the red card.|از زمان کارت قرمز با ده نفر بازی می‌کنند.
+X|expression|It's a two-legged tie.|این یک دیدار رفت و برگشت است.|Explains why the same two teams play twice.|توضیح می‌دهد چرا همان دو تیم دو بار بازی می‌کنند.|formal|It's a two-legged tie, so the second match decides it.|دیدار رفت و برگشت است، پس مسابقهٔ دوم تعیین می‌کند.
+P|It's a foul on + [player].|It's a foul on their captain.|خطا روی کاپیتان آن‌ها بود.|Name the player who was fouled.|نام بازیکنی را بگو که رویش خطا شد.
+P|The referee gave + [a card / a penalty / a free kick].|The referee gave a penalty.|داور پنالتی گرفت.|The official decides what follows.|داور تصمیم می‌گیرد بعدش چه می‌شود.
+S|The goal was disallowed for offside.|گل به‌خاطر آفساید پذیرفته نشد.|Explains a score that changed after the fact.|نتیجه‌ای را توضیح می‌دهد که بعداً عوض شد.|B1|neutral|They ruled the goal out for offside.
+S|There are two halves of forty-five minutes.|دو نیمهٔ چهل‌وپنج دقیقه‌ای وجود دارد.|The basic shape of a soccer match.|شکل پایهٔ یک مسابقهٔ فوتبال.|A2|neutral|Each half is forty-five minutes.
+S|Could you explain the offside rule?|می‌شود قاعدهٔ آفساید را توضیح بدهی؟|Asking for a rule plainly is faster than guessing.|پرسیدن صریح قاعده از حدس زدن سریع‌تر است.|B1|polite|I still don't get the offside rule. Can you explain it?
+D|Two fans after a decision|دو هوادار بعد از یک تصمیم|Leila|Omid
+L|Leila|That was never offside. He was level with the defender.|آن هرگز آفساید نبود. با مدافع هم‌تراز بود.
+L|Omid|They checked the screen for three minutes.|سه دقیقه صفحه را بررسی کردند.
+L|Leila|Three minutes and they still got it wrong.|سه دقیقه و باز هم اشتباه گفتند.
+L|Omid|Maybe. But we had ninety minutes to score.|شاید. اما ما نود دقیقه وقت داشتیم گل بزنیم.
+L|Leila|True. And we played the last ten with ten men.|درست است. و ده دقیقهٔ آخر با ده نفر بازی کردیم.
+L|Omid|That substitution was the real mistake.|آن تعویض اشتباه واقعی بود.
+C|Asking a rule you do not know|پرسیدن قاعده‌ای که نمی‌دانی|You are watching with someone who knows the game.|با کسی که بازی را می‌شناسد تماشا می‌کنی.|Ask what the signal meant and why play stopped.|بپرس آن علامت چه بود و چرا بازی متوقف شد.|Why did the referee stop play? Was that a foul?|چرا داور بازی را متوقف کرد؟ خطا بود؟
+C|Explaining a rule to a beginner|توضیح قاعده به یک تازه‌کار|A friend asks why a goal did not count.|دوستت می‌پرسد چرا گل حساب نشد.|Explain offside in two sentences, and admit the hard part.|آفساید را در دو جمله توضیح بده و سختی‌اش را بپذیر.|He was ahead of the last defender when the pass was played. It is the hardest rule in the game.|وقتی پاس داده شد، او جلوی آخرین مدافع بود. سخت‌ترین قاعدهٔ بازی همین است.
+Q|Which card sends a player off?|کدام کارت بازیکن را اخراج می‌کند؟|the red card|the yellow card|the green card|A red card is a sending off.|کارت قرمز اخراج است.
+Q|A match that ends with the same score for both teams is ...|مسابقه‌ای که با نتیجهٔ برابر تمام شود ... است|a draw|a foul|a substitute|Both teams have the same score.|هر دو تیم امتیاز برابر دارند.
+Q|Time added for injuries and stops is called ...|زمان اضافه‌شده برای مصدومیت و توقف ... است|injury time|extra time|half-time|Injury time is added at the end of a half.|وقت تلف‌شده در پایان هر نیمه اضافه می‌شود.
+
+J|training|8|dumbbell|Training, fitness and getting ready|تمرین، آمادگی و آماده‌سازی|kids,adults||What you do between matches: warm up, work, recover, and the words for each part of it.|کاری که بین مسابقه‌ها می‌کنی: گرم کردن، تمرین، بازیابی، و واژهٔ هر بخش.
+O|describe a training session from warm-up to cool-down.|یک جلسهٔ تمرین را از گرم کردن تا سرد کردن توصیف کنی.
+O|talk about fitness, strength and stamina without mixing them.|دربارهٔ آمادگی، قدرت و استقامت حرف بزنی، بدون قاطی کردنشان.
+O|say how often you train and what you want to improve.|بگویی چند وقت یک بار تمرین می‌کنی و چه چیزی را می‌خواهی بهتر کنی.
+W|warm-up|/ˈwɔrm ʌp/|noun|گرم کردن|Gentle exercise before training so muscles are ready.|fitness|running|A2|The warm-up lasts fifteen minutes.|گرم کردن پانزده دقیقه است.|
+W|cool-down|/ˈkuːl daʊn/|noun|سرد کردن|Gentle exercise after training so the body slows safely.|fitness|stretch|B1|Don't skip the cool-down.|سرد کردن را جا نینداز.|
+W|workout|/ˈwɜrkaʊt/|noun|تمرین بدنی|A session of physical exercise.|fitness|dumbbell|A2|My workout takes an hour.|تمرین من یک ساعت طول می‌کشد.|
+W|fitness|/ˈfɪtnəs/|noun|آمادگی جسمانی|How well your body can work and recover.|fitness|heart|A2|My fitness has improved since spring.|آمادگی جسمانی‌ام از بهار بهتر شده است.|
+W|strength|/streŋθ/|noun|قدرت|The ability to lift or push against weight.|fitness|dumbbell|B1|He trains for strength, not speed.|او برای قدرت تمرین می‌کند، نه سرعت.|
+W|endurance|/ɪnˈdʊrəns/|noun|استقامت|The ability to keep going for a long time.|fitness|running|B1|Marathon runners need endurance.|دوندگان ماراتن به استقامت نیاز دارند.|
+W|speed|/spid/|noun|سرعت|How fast you can move.|athletics|running|A2|Her speed over ten meters is exceptional.|سرعت او در ده متر فوق‌العاده است.|
+W|agility|/əˈdʒɪləti/|noun|چابکی|The ability to change direction quickly.|fitness|target|B2|The drill improves agility and balance.|این تمرین چابکی و تعادل را بهتر می‌کند.|
+W|flexibility|/ˌfleksəˈbɪləti/|noun|انعطاف‌پذیری|How far your joints can move without pain.|fitness|stretch|B2|Gymnasts train flexibility every day.|ژیمناست‌ها هر روز انعطاف‌پذیری تمرین می‌کنند.|
+W|stamina|/ˈstæmɪnə/|noun|توان بدنی|The energy to keep working at something tiring.|fitness|heart|B1|I want to improve my stamina.|می‌خواهم توان بدنی‌ام را بهتر کنم.|
+W|recovery|/rɪˈkʌvəri/|noun|بازیابی|The rest and food that let the body repair itself.|fitness|heart|B2|Recovery is part of training, not a day off.|بازیابی بخشی از تمرین است، نه یک روز تعطیل.|
+W|performance|/pərˈfɔrməns/|noun|عملکرد|How well someone plays or trains on a given day.|fitness|chart|B1|His performance improved after the break.|عملکرد او بعد از استراحت بهتر شد.|
+X|expression|I'm training for a competition.|برای مسابقه تمرین می‌کنم.|Says why you are doing all this, in one line.|در یک جمله می‌گوید چرا این کارها را می‌کنی.|neutral|I'm training for a competition in June.|برای مسابقه‌ای در ژوئن تمرین می‌کنم.
+X|expression|We need to warm up first.|اول باید گرم کنیم.|Says the session has not started, politely.|می‌گوید تمرین شروع نشده، با احترام.|neutral|We need to warm up first, then we can play.|اول باید گرم کنیم، بعد می‌توانیم بازی کنیم.
+X|expression|How often do you work out?|چند وقت یک بار تمرین می‌کنی؟|The standard question about routine, not ability.|پرسش استاندارد دربارهٔ برنامهٔ تمرین، نه توانایی.|neutral|How often do you work out? Twice a week?|چند وقت یک بار تمرین می‌کنی؟ هفته‌ای دو بار؟
+X|expression|I practice three times a week.|هفته‌ای سه بار تمرین می‌کنم.|Answers the routine question with a number.|به پرسش برنامه با یک عدد پاسخ می‌دهد.|neutral|I practice three times a week and play on Sundays.|هفته‌ای سه بار تمرین می‌کنم و یکشنبه‌ها بازی می‌کنم.
+X|expression|My fitness has improved.|آمادگی‌ام بهتر شده.|Progress without a number, which is often more honest.|پیشرفت بدون عدد، که اغلب صادقانه‌تر است.|neutral|My fitness has improved since I started cycling.|از وقتی دوچرخه‌سواری را شروع کردم آمادگی‌ام بهتر شده.
+P|I'm training for + [event].|I'm training for the city marathon.|برای ماراتن شهر تمرین می‌کنم.|The reason comes after for.|دلیل بعد از for می‌آید.
+P|I want to improve my + [quality].|I want to improve my stamina.|می‌خواهم توان بدنی‌ام را بهتر کنم.|Name the quality, not the exercise.|نام کیفیت را بگو، نه تمرین را.
+S|We warm up for fifteen minutes and then do drills.|پانزده دقیقه گرم می‌کنیم و بعد تمرین‌های تکنیکی انجام می‌دهیم.|Describes a session in its real order.|جلسه را به ترتیب واقعی توصیف می‌کند.|B1|neutral|We start with a warm-up, then drills.
+S|I need a rest day; my legs are finished.|به یک روز استراحت نیاز دارم؛ پاهایم تمام شده.|Says you are tired without saying you are quitting.|می‌گوید خسته‌ای، بدون اینکه بگویی کنار می‌کشی.|B1|informal|I need a rest day, my legs are dead.
+S|How long should we warm up before a match?|قبل از مسابقه چقدر باید گرم کنیم؟|A practical question for a coach, not a search engine.|پرسش کاربردی برای مربی، نه موتور جست‌وجو.|B1|neutral|How long is the warm-up before a match?
+D|Before a training session|پیش از یک جلسهٔ تمرین|Coach|Roya
+L|Coach|Roya, how are the legs today?|رویا، امروز پاها چطورند؟
+L|Roya|Better, but my calves are still tight.|بهتر، اما ساق‌هایم هنوز سفت است.
+L|Coach|Ten minutes of warm-up, then we stretch. Don't skip it.|ده دقیقه گرم کردن، بعد کشش. جا نینداز.
+L|Roya|And the sprint drills?|و تمرین‌های سرعت؟
+L|Coach|After the stretch. Your speed is fine; your endurance is the problem.|بعد از کشش. سرعتت خوب است؛ مشکل استقامتت است.
+L|Roya|So longer runs this week?|پس این هفته دویدن‌های طولانی‌تر؟
+L|Coach|Two longer runs, and one full rest day. Recovery is training.|دو دویدن طولانی‌تر، و یک روز استراحت کامل. بازیابی هم تمرین است.
+C|Talking about your routine|گفتن از برنامهٔ تمرینت|Someone at the gym asks how often you come.|کسی در باشگاه می‌پرسد چند وقت یک بار می‌آیی.|Give the number, the length and what you are working on.|عدد، مدت و اینکه روی چه کار می‌کنی را بگو.|Three times a week, about an hour each time. I'm working on strength now.|هفته‌ای سه بار، هر بار حدود یک ساعت. الان روی قدرت کار می‌کنم.
+C|Asking for a lighter session|درخواست تمرین سبک‌تر|You are tired and the plan is hard.|خسته‌ای و برنامه سنگین است.|Ask for a lighter session without sounding lazy.|بدون تنبلی به نظر رسیدن، تمرین سبک‌تر بخواه.|Could we make today lighter? My legs are still tired from Tuesday.|می‌شود امروز سبک‌تر باشد؟ پاهایم از سه‌شنبه هنوز خسته است.
+Q|Exercise before training is the ...|حرکت پیش از تمرین ... است|warm-up|cool-down|workout|Warming up comes first.|گرم کردن اول می‌آید.
+Q|The ability to keep going for a long time is ...|توان ادامه دادن برای مدت طولانی ... است|endurance|agility|flexibility|That is endurance.|این همان استقامت است.
+Q|Rest and food after training are part of ...|استراحت و غذا بعد از تمرین بخشی از ... است|recovery|warm-up|speed|The body repairs itself during recovery.|بدن در بازیابی خودش را ترمیم می‌کند.
+
+J|teamwork|9|team|Teams, tactics and talking on the field|تیم، تاکتیک و حرف زدن در زمین|kids,adults||What players shout to each other, and the words coaches use about shape and plans.|چیزی که بازیکن‌ها به هم می‌گویند، و واژه‌هایی که مربی‌ها برای شکل و نقشه به کار می‌برند.
+O|give a short instruction on the field and understand one.|دستور کوتاهی در زمین بدهی و یکی را بفهمی.
+O|talk about formation, strategy and tactics separately.|دربارهٔ آرایش، راهبرد و تاکتیک جدا از هم حرف بزنی.
+O|praise teamwork and sportsmanship in natural English.|کار تیمی و جوانمردی را با انگلیسی طبیعی تحسین کنی.
+W|teamwork|/ˈtimwɜrk/|noun|کار تیمی|People working together well towards one result.|general|team|B1|Their teamwork was the difference.|کار تیمی‌شان تفاوت را ساخت.|
+W|formation|/fɔrˈmeɪʃn/|noun|آرایش تیمی|The fixed arrangement of players on the field.|soccer|board|B1|They changed formation at half-time.|آن‌ها در نیمهٔ بازی آرایش را عوض کردند.|
+W|strategy|/ˈstrætədʒi/|noun|راهبرد|The overall plan for winning over a whole match or season.|general|chart|B2|Our strategy was to defend and counter.|راهبرد ما دفاع و ضدحمله بود.|
+W|tactics|/ˈtæktɪks/|noun|تاکتیک|The specific moves used to carry out a strategy.|general|chart|B2|The tactics worked in the first half.|تاکتیک‌ها در نیمهٔ اول جواب داد.|
+W|defense|/dɪˈfens/|noun|دفاع|The part of a team that stops the other side.|general|team|A2|Our defense is young but quick.|دفاع ما جوان اما سریع است.|
+W|attack|/əˈtæk/|noun|حمله|The part of a team that tries to score.|general|goal|A2|The attack needs more support.|حمله به پشتیبانی بیشتر نیاز دارد.|
+W|possession|/pəˈzeʃn/|noun|مالکیت توپ|Having the ball, measured as a share of the match.|general|ball|B2|We had sixty percent possession.|مالکیت توپ ما شصت درصد بود.|
+W|marking|/ˈmɑrkɪŋ/|noun|مهار کردن حریف|Staying close to an opponent so they cannot play.|general|team|B2|Their marking was tight all game.|مهارشان تمام بازی نزدیک بود.|
+W|leadership|/ˈliːdərʃɪp/|noun|رهبری|The ability to guide a team and keep it together.|general|team|B2|She brings leadership, not just goals.|او رهبری می‌آورد، نه فقط گل.|
+W|sportsmanship|/ˈspɔrtsmənʃɪp/|noun|جوانمردی ورزشی|Fair behavior, including towards the team that beat you.|general|heart|B2|He showed real sportsmanship after the final.|او بعد از فینال جوانمردی واقعی نشان داد.|
+X|expression|Stay in position!|در پستت بمان!|Keeps the shape when someone chases the ball.|وقتی کسی دنبال توپ می‌دود، شکل تیم را نگه می‌دارد.|informal|Stay in position! Don't follow the ball.|در پستت بمان! دنبال توپ نرو.
+X|expression|Move forward!|جلو برو!|Says the space is ahead, not behind.|می‌گوید فضا جلوست، نه عقب.|informal|Move forward! There's nobody behind you.|جلو برو! کسی پشتت نیست.
+X|expression|Defend the goal!|از دروازه دفاع کن!|The last instruction when a shot is coming.|آخرین دستور وقتی شوت در راه است.|informal|Defend the goal! Get back!|از دروازه دفاع کن! برگرد!
+X|expression|Great teamwork!|کار تیمی عالی!|Praise for the pass and the run, not only the finish.|تعریف از پاس و حرکت، نه فقط ضربهٔ آخر.|informal|Great teamwork! Three passes and a goal.|کار تیمی عالی! سه پاس و یک گل.
+X|expression|Let's work together.|بیا با هم کار کنیم.|The sentence that turns blame into a plan.|جمله‌ای که سرزنش را به نقشه تبدیل می‌کند.|neutral|Let's work together on the left side.|بیا سمت چپ با هم کار کنیم.
+P|Keep + [object] + [adjective].|Keep the ball on the ground.|توپ را روی زمین نگه دار.|The coach's most used shape.|پرکاربردترین ساختار مربی‌ها.
+P|We need to + [verb] + more.|We need to pass more.|باید بیشتر پاس بدهیم.|A comment on what is missing.|نقدی دربارهٔ چیزی که کم است.
+S|We defended as a team, not as individuals.|ما به‌عنوان تیم دفاع کردیم، نه به‌عنوان فرد.|Praises the group and quietly criticises individualism.|گروه را می‌ستاید و فردمحوری را نرم نقد می‌کند.|B2|neutral|It was a team effort in defense.
+S|Their formation left too much space on the right.|آرایششان سمت راست فضای زیادی جا گذاشت.|A tactical observation with a reason.|یک مشاهدهٔ تاکتیکی همراه با دلیل.|B2|neutral|They were exposed on the right all game.
+S|Good game. You deserved it.|بازی خوبی بود. مستحقش بودی.|Losing with grace, in six words.|باختن با بزرگواری، در شش کلمه.|B1|neutral|Well played, you deserved the win.
+D|Captain and goalkeeper|کاپیتان و دروازه‌بان|Captain|Keeper
+L|Captain|Keeper, we're pushing up. Stay high for the long ball.|دروازه‌بان، داریم جلو می‌رویم. برای توپ بلند بالا بمان.
+L|Keeper|If I stay high and they counter, I'm alone.|اگر بالا بمانم و ضدحمله کنند، تنها می‌مانم.
+L|Captain|The defenders drop with you. We talked about this in training.|مدافع‌ها با تو عقب می‌آیند. در تمرین دربارهٔ همین حرف زدیم.
+L|Keeper|Then tell them, because they didn't move last time.|پس به آن‌ها بگو، چون دفعهٔ قبل حرکت نکردند.
+L|Captain|I'll tell them now. Keep your eye on the ball, not on me.|همین حالا می‌گویم. چشمت به توپ باشد، نه به من.
+L|Keeper|Fine. But we defend as a team or not at all.|باشه. اما یا تیمی دفاع می‌کنیم یا اصلاً نه.
+C|Giving one instruction|دادن یک دستور|A teammate is out of position and the ball is coming.|هم‌تیمی از پستش بیرون است و توپ در راه است.|Give one clear instruction in four words.|یک دستور روشن در چهار کلمه بده.|Stay wide! I'll cover the middle.|کنار بمان! من وسط را پوشش می‌دهم.
+C|Praising teamwork after a goal|تحسین کار تیمی بعد از گل|The goal came from three passes and a run.|گل از سه پاس و یک حرکت آمد.|Praise the pass and the movement, not just the scorer.|پاس و حرکت را بستا، نه فقط گل‌زن را.|Great teamwork. The pass before the goal was the best part.|کار تیمی عالی. پاس قبل از گل بهترین بخشش بود.
+Q|The overall plan for a whole match is the ...|نقشهٔ کلی یک مسابقه ... است|strategy|marking|possession|Strategy is the whole plan.|راهبرد همان نقشهٔ کلی است.
+Q|The fixed arrangement of players is the ...|چیدمان ثابت بازیکن‌ها ... است|formation|tactics|leadership|That is the formation.|این همان آرایش است.
+Q|The share of the match with the ball is ...|سهم داشتن توپ در مسابقه ... است|possession|defense|sportsmanship|Possession is measured as a percentage.|مالکیت توپ با درصد سنجیده می‌شود.
+
+J|events|10|trophy|Competitions and the road to the final|مسابقه‌ها و راه تا فینال|kids,adults||Leagues, rounds, medals and records: how a season is built and how you talk about where your team stands.|لیگ، دور، مدال و رکورد: فصل چطور ساخته می‌شود و دربارهٔ جایگاه تیمت چطور حرف می‌زنی.
+O|describe the stages of a competition.|مرحله‌های یک مسابقه را توصیف کنی.
+O|say where a team stands in a league or a tournament.|بگویی تیم در لیگ یا تورنمنت کجاست.
+O|talk about medals, records and personal bests.|دربارهٔ مدال، رکورد و بهترین رکورد شخصی حرف بزنی.
+W|league|/liːɡ/|noun|لیگ|A group of teams that play each other over a season.|general|board|A2|Our team is top of the league.|تیم ما صدر جدول لیگ است.|
+W|final|/ˈfaɪnl/|noun|فینال|The last match, which decides the winner.|general|trophy|A2|They reached the final for the first time.|آن‌ها برای نخستین بار به فینال رسیدند.|
+W|semi-final|/ˌsemi ˈfaɪnl/|noun|نیمه‌نهایی|The match before the final, with four teams left.|general|board|B1|We lost in the semi-final.|در نیمه‌نهایی باختیم.|
+W|quarter-final|/ˌkwɔrtər ˈfaɪnl/|noun|یک‌چهارم نهایی|The round with eight teams left.|general|board|B1|They went out in the quarter-final.|آن‌ها در یک‌چهارم نهایی حذف شدند.|
+W|qualifier|/ˈkwɑləfaɪər/|noun|مسابقهٔ انتخابی|A match or event you must win to enter the main competition.|general|board|B2|The qualifier is in March.|مسابقهٔ انتخابی در مارس است.|
+W|season|/ˈsiːzn/|noun|فصل|The period in which a league plays its matches.|general|chart|A2|The season ends in May.|فصل در مه تمام می‌شود.|
+W|fixture|/ˈfɪkstʃər/|noun|بازی برنامه‌ریزی‌شده|A scheduled match in the calendar.|general|board|B2|Our next fixture is away at the leaders.|بازی بعدی ما خارج از خانه با صدرنشین است.|
+W|medal|/ˈmedl/|noun|مدال|A metal disc given to the top three.|general|medal|A2|She won a silver medal.|او مدال نقره گرفت.|
+W|trophy|/ˈtroʊfi/|noun|جام|The cup or object given to the winner.|general|trophy|A2|They lifted the trophy in June.|آن‌ها در ژوئن جام را بالا بردند.|
+W|world record|/wɜrld ˈrekərd/|noun|رکورد جهانی|The best result ever officially measured in the world.|athletics|stopwatch|B1|He broke the world record by two seconds.|او رکورد جهانی را دو ثانیه شکست.|
+W|personal best|/ˈpɜrsənl best/|noun|بهترین رکورد شخصی|Your own best result, whether or not it wins.|athletics|stopwatch|B1|She ran a personal best in the heat.|او در مرحلهٔ مقدماتی بهترین رکورد شخصی‌اش را دوید.|
+W|victory|/ˈvɪktəri/|noun|پیروزی|A win, especially an important one.|general|trophy|B1|It was their first victory in five games.|این نخستین پیروزی‌شان در پنج بازی بود.|
+W|defeat|/dɪˈfiːt/|noun|شکست|A loss, especially an important one.|general|board|B1|The defeat ended their season.|آن شکست فصلشان را تمام کرد.|
+X|expression|We're through to the next round.|به دور بعد رسیدیم.|The sentence after qualifying, not the same as winning the trophy.|جملهٔ پس از صعود، نه بردن جام.|neutral|We're through to the next round on aggregate.|در مجموع به دور بعد رسیدیم.
+X|expression|They were knocked out in the first round.|در دور اول حذف شدند.|Says elimination without saying it was a disaster.|حذف را می‌گوید، بدون اینکه آن را فاجعه بنامد.|neutral|They were knocked out in the first round.|در دور اول حذف شدند.
+X|expression|It's a home game.|بازی خانگی است.|Decides travel plans and atmosphere in three words.|برنامهٔ سفر و جوّ بازی را در سه کلمه تعیین می‌کند.|neutral|It's a home game, so we don't travel.|بازی خانگی است، پس سفر نمی‌کنیم.|We're playing at home.
+X|expression|She's in the form of her life.|او در بهترین فرم زندگی‌اش است.|Praise for a run of good performances.|تعریف از زنجیرهٔ عملکرد خوب.|informal|She's in the form of her life this season.|او این فصل در بهترین فرم زندگی‌اش است.
+X|expression|The tie is still open.|نتیجهٔ دو بازی هنوز باز است.|Says the second leg can change everything.|می‌گوید بازی دوم می‌تواند همه‌چیز را عوض کند.|formal|The tie is still open after the first leg.|بعد از بازی رفت، نتیجه هنوز باز است.
+P|They reached + [round].|They reached the semi-final.|آن‌ها به نیمه‌نهایی رسیدند.|reached for getting there, not winning.|برای رسیدن از reached استفاده کن، نه بردن.
+P|Our next fixture is + [time/place].|Our next fixture is on Saturday.|بازی بعدی ما شنبه است.|The calendar answer.|پاسخ تقویمی.
+S|Our team reached the final for the first time in ten years.|تیم ما برای نخستین بار در ده سال به فینال رسید.|Says the achievement and its rarity.|دستاورد و کم‌یابی‌اش را می‌گوید.|B1|neutral|We made the final for the first time in a decade.
+S|The match ended in a draw, so they stay top.|مسابقه مساوی شد، پس صدرنشین می‌مانند.|Connects a result to the table.|نتیجه را به جدول وصل می‌کند.|B1|neutral|A draw keeps them top of the table.
+S|She broke her personal best by three seconds.|او بهترین رکورد شخصی‌اش را سه ثانیه بهتر کرد.|A precise, honest way to describe progress.|راهی دقیق و صادقانه برای توصیف پیشرفت.|B1|neutral|She took three seconds off her best.
+D|After the semi-final|بعد از نیمه‌نهایی|Reporter|Player
+L|Reporter|You're through to the final. How does that feel?|به فینال رسیدید. چه حسی دارید؟
+L|Player|Honestly, we're tired. The semi-final took everything.|راستش خسته‌ایم. نیمه‌نهایی همه‌چیزمان را گرفت.
+L|Reporter|Your next fixture is on Wednesday. Is that too soon?|بازی بعدی‌تان چهارشنبه است. خیلی زود نیست؟
+L|Player|It's tight, but recovery is part of the job.|فشرده است، اما بازیابی هم بخشی از کار است.
+L|Reporter|And the final itself?|و خود فینال؟
+L|Player|One match. We'll defend as a team and take our chance.|یک مسابقه. تیمی دفاع می‌کنیم و از فرصت استفاده می‌کنیم.
+C|Talking about the table|حرف زدن از جدول|A friend asks how your team is doing.|دوستت می‌پرسد تیمت چطور است.|Say where they are, why, and what is next.|بگو کجا هستند، چرا، و بعد چه می‌شود.|Second in the league, two points behind, and our next fixture is at home.|دوم جدول، دو امتیاز عقب، و بازی بعدی‌مان خانگی است.
+C|Reacting to a defeat|واکنش به شکست|Your team lost the quarter-final.|تیمت در یک‌چهارم نهایی باخت.|Say it plainly and find one thing that was good.|ساده بگو و یک نکتهٔ خوب پیدا کن.|We were knocked out, but the second half was our best football this season.|حذف شدیم، اما نیمهٔ دوم بهترین فوتبال این فصل ما بود.
+Q|The round before the final is the ...|دور پیش از فینال ... است|semi-final|qualifier|season|Two winners go to the final.|دو برنده به فینال می‌روند.
+Q|Your own best result is your ...|بهترین نتیجهٔ خودت ... است|personal best|world record|trophy|It is yours, not the world's.|مال خودت است، نه جهان.
+Q|A scheduled match in the calendar is a ...|مسابقهٔ برنامه‌ریزی‌شده در تقویم ... است|fixture|medal|league|Fixtures are the calendar games.|fixture همان بازی‌های تقویم است.
