@@ -543,9 +543,32 @@ PINNED_GRAMMAR = [
     "Expressions of quantity in adjective clauses",
     "Which to modify a whole sentence",
     "Reducing adjective clauses to adjective phrases",
-    "Gerunds and infinitives",
-    "Causative verbs: make, have, get, let and help",
-    "Paired conjunctions and parallel structure",
+    "Gerunds and infinitives: two verb forms after one verb",
+    "Verbs followed by a gerund",
+    "Verbs followed by an infinitive",
+    "Infinitives with objects: ask someone to do",
+    "Verbs that take either form: remember, stop, try",
+    "Gerunds after prepositions",
+    "Go + gerund: go swimming, go shopping",
+    "Special expressions followed by -ing",
+    "It + infinitive; gerunds and infinitives as subjects",
+    "Reference list of verbs followed by infinitives",
+    "Reference list of verbs followed by gerunds",
+    "Reference list of preposition combinations followed by gerunds",
+    "The infinitive of purpose: in order to",
+    "Adjectives followed by infinitives",
+    "Too and enough with infinitives",
+    "Passive infinitives and gerunds: present",
+    "Past forms of infinitives and gerunds",
+    "Need with a gerund or a passive infinitive",
+    "Verbs of perception: see, hear, watch, feel",
+    "The simple form after let and help",
+    "Causative verbs: make, have, get",
+    "A possessive before a gerund",
+    "Parallel structure: matching forms in a list",
+    "Parallel structure with commas",
+    "Punctuation between independent clauses: and, but, so",
+    "Paired conjunctions: both ... and, not only ... but also",
     "Adverb clauses: time, cause, contrast and condition",
     "Reducing adverb clauses to modifying phrases",
     "Connectives: because of, therefore, so that, otherwise",
@@ -889,6 +912,47 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
               or len(l.get("exam") or []) < 3]
     check(not thin13,
           f"{bid}: chapter thirteen chart(s) {thin13} are thinner than the rest of the book")
+
+    # Chapter fourteen is the first half of the gerund and infinitive work: the
+    # two forms, the verbs that demand each, objects, the changing pairs,
+    # prepositions, go, the fixed expressions and three reference lists.
+    fourteenth = [l for l in lessons if l.get("chapter") == "Chapter 14"]
+    check([str(l.get("section")) for l in fourteenth] == [f"14-{i}" for i in range(1, 13)],
+          f"{bid}: chapter fourteen is not its twelve charts in order "
+          f"(got {[str(l.get('section')) for l in fourteenth]})")
+    thin14 = [str(l.get("section")) for l in fourteenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin14,
+          f"{bid}: chapter fourteen chart(s) {thin14} are thinner than the rest of the book")
+
+    # Chapter fifteen is the second half: purpose, adjectives, too and enough,
+    # the passive and past forms, need, perception verbs, let and help, the
+    # causatives, and the possessive before a gerund.
+    fifteenth = [l for l in lessons if l.get("chapter") == "Chapter 15"]
+    check([str(l.get("section")) for l in fifteenth] == [f"15-{i}" for i in range(1, 11)],
+          f"{bid}: chapter fifteen is not its ten charts in order "
+          f"(got {[str(l.get('section')) for l in fifteenth]})")
+    thin15 = [str(l.get("section")) for l in fifteenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin15,
+          f"{bid}: chapter fifteen chart(s) {thin15} are thinner than the rest of the book")
+
+    # Chapter sixteen is coordination: parallel items, the commas in a list, the
+    # punctuation between independent clauses and the four paired conjunctions.
+    sixteenth = [l for l in lessons if l.get("chapter") == "Chapter 16"]
+    check([str(l.get("section")) for l in sixteenth] == [f"16-{i}" for i in range(1, 5)],
+          f"{bid}: chapter sixteen is not its four charts in order "
+          f"(got {[str(l.get('section')) for l in sixteenth]})")
+    thin16 = [str(l.get("section")) for l in sixteenth
+              if len(l.get("examples") or []) < 3
+              or len(l.get("exercises") or []) < 3
+              or len(l.get("exam") or []) < 3]
+    check(not thin16,
+          f"{bid}: chapter sixteen chart(s) {thin16} are thinner than the rest of the book")
 
     # The panel shelves a grammar book by chapter, so the book has to name its
     # chapters: a number alone would leave every section headed "Chapter 9"

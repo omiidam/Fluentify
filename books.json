@@ -17106,8 +17106,8 @@
    "title_fa": "درک و کاربرد دستور زبان انگلیسی",
    "author": "Betty S. Azar & Stacy A. Hagen",
    "edition": "Fifth edition · Pearson",
-   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 121 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to thirteen are complete, chart 1-1 to 13-11. The explanations and sentences are written for this app; the book is the reference text.",
-   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 121 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا سیزده کامل‌اند، از نمودار ۱-۱ تا ۱۳-۱۱. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
+   "about_en": "The grammar of the whole course, chapter by chapter and chart by chart: 144 structures from the book's twenty chapters, each with the rule, a pattern, examples of it, exercises and a short exam. Chapters one to sixteen are complete, chart 1-1 to 16-4. The explanations and sentences are written for this app; the book is the reference text.",
+   "about_fa": "دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: 144 ساختار از بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. فصل‌های یک تا شانزده کامل‌اند، از نمودار ۱-۱ تا ۱۶-۴. توضیح‌ها و جمله‌ها برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است.",
    "lessons": [
     {
      "n": 1,
@@ -26117,243 +26117,2060 @@
     },
     {
      "n": 115,
-     "title": "Gerunds and infinitives",
-     "title_fa": "اسم‌های مصدری و مصدر با to",
+     "title": "Gerunds and infinitives: two verb forms after one verb",
+     "title_fa": "اسم مصدر و مصدر: دو شکل فعل پس از یک فعل",
      "chapter": "Chapter 14",
-     "section": "14-2",
-     "use_en": "Some verbs are followed by -ing, some by to + verb, and a few by either with a change of meaning. After a preposition the form is always -ing.",
-     "use_fa": "برخی فعل‌ها با ing- می‌آیند، برخی با to + فعل، و چند فعل با هر دو — با تغییری در معنا. بعد از حرف اضافه همیشه ing- می‌آید.",
-     "form_en": "verb + -ing  |  verb + to + base  |  preposition + -ing",
+     "section": "14-1",
+     "use_en": "A gerund is a verb with -ing used as a noun: swimming is good exercise. An infinitive is to plus the base verb, used as a noun or to show purpose: I want to swim. Both can be the subject or the object of a sentence. Because a gerund is a noun, it can follow a preposition; an infinitive cannot. The verb in front decides which form comes next, and that choice belongs to the verb, not to the meaning.",
+     "use_fa": "اسم مصدر فعلی با ing- است که نقش اسم دارد: swimming is good exercise. مصدر to به‌همراه فعل ساده است که نقش اسم دارد یا هدف را می‌گوید: I want to swim. هر دو می‌توانند فاعل یا مفعول جمله باشند. چون اسم مصدر اسم است، می‌تواند پس از حرف اضافه بیاید و مصدر نمی‌تواند. فعل پیشین تعیین می‌کند کدام شکل بیاید و این انتخاب به فعل تعلق دارد نه به معنا.",
+     "form_en": "gerund: verb + -ing (a noun)  ·  infinitive: to + base verb",
      "examples": [
       {
-       "en": "I enjoy reading before bed.",
-       "fa": "قبل از خواب از خواندن لذت می‌برم."
+       "en": "Reading before bed helps me sleep.",
+       "fa": "خواندن پیش از خواب به خوابم کمک می‌کند."
       },
       {
-       "en": "She decided to leave early.",
-       "fa": "او تصمیم گرفت زود برود."
+       "en": "She wants to learn Japanese.",
+       "fa": "او می‌خواهد ژاپنی یاد بگیرد."
       },
       {
-       "en": "Thank you for helping me.",
-       "fa": "ممنون که به من کمک کردی."
+       "en": "My favourite hobby is cooking.",
+       "fa": "سرگرمی محبوب من آشپزی است."
       }
      ],
      "exercises": [
       {
-       "prompt": "I want ___ (learn) Japanese.",
+       "prompt": "___ is good exercise. (swim, as the subject)",
+       "answer": "Swimming",
+       "why_en": "A gerund can be the subject of a sentence.",
+       "why_fa": "اسم مصدر می‌تواند فاعل جمله باشد."
+      },
+      {
+       "prompt": "I want ___ a new language. (learn)",
        "answer": "to learn",
-       "why_en": "Want is followed by the infinitive.",
-       "why_fa": "want با مصدر to می‌آید."
+       "why_en": "Want is followed by an infinitive.",
+       "why_fa": "پس از want مصدر می‌آید."
       },
       {
-       "prompt": "He finished ___ (write) the report.",
-       "answer": "writing",
-       "why_en": "Finish takes -ing, not the infinitive.",
-       "why_fa": "finish با ing- می‌آید نه با to."
-      },
-      {
-       "prompt": "She is good at ___ (solve) problems.",
-       "answer": "solving",
-       "why_en": "At is a preposition, so the verb takes -ing.",
-       "why_fa": "at حرف اضافه است، پس فعل ing- می‌گیرد."
+       "prompt": "She is afraid of ___ in deep water. (swim, after a preposition)",
+       "answer": "swimming",
+       "why_en": "After a preposition only the gerund works.",
+       "why_fa": "پس از حرف اضافه تنها اسم مصدر می‌آید."
       }
      ],
      "exam": [
       {
-       "q": "They agreed ___ the price.",
+       "q": "___ a car in this city is difficult.",
        "options": [
-        "changing",
-        "to change",
-        "change"
+        "Driving",
+        "To driving",
+        "Drive"
        ],
-       "answer": "to change",
-       "why_en": "Agree takes the infinitive.",
-       "why_fa": "agree با مصدر می‌آید."
+       "answer": "Driving",
+       "why_en": "A subject before is takes the gerund or a full infinitive.",
+       "why_fa": "فاعل پیش از is اسم مصدر یا مصدر کامل می‌گیرد."
       },
       {
-       "q": "I don't mind ___ early.",
+       "q": "They decided ___ the early train.",
        "options": [
-        "to get up",
-        "getting up",
-        "get up"
+        "to take",
+        "taking",
+        "take"
        ],
-       "answer": "getting up",
-       "why_en": "Mind is followed by -ing.",
-       "why_fa": "بعد از mind فعل -ing می‌آید."
+       "answer": "to take",
+       "why_en": "Decide takes an infinitive.",
+       "why_fa": "decide مصدر می‌گیرد."
       },
       {
-       "q": "He stopped ___ two years ago.",
+       "q": "Which form can follow a preposition?",
        "options": [
-        "to smoke",
-        "smoking",
-        "smoke"
+        "The gerund",
+        "The infinitive",
+        "The base verb"
        ],
-       "answer": "smoking",
-       "why_en": "Stopped smoking means he gave it up; stopped to smoke would mean he paused in order to smoke.",
-       "why_fa": "stopped smoking یعنی ترک کرد؛ stopped to smoke یعنی برای سیگار کشیدن ایستاد."
+       "answer": "The gerund",
+       "why_en": "Only a noun form can follow a preposition.",
+       "why_fa": "تنها شکل اسمی می‌تواند پس از حرف اضافه بیاید."
       }
      ]
     },
     {
      "n": 116,
-     "title": "Causative verbs: make, have, get, let and help",
-     "title_fa": "فعل‌های سببی: make، have، get، let و help",
-     "chapter": "Chapter 15",
-     "section": "15-9",
-     "use_en": "Make, have and let take the base verb; get takes the infinitive with to; help accepts either form.",
-     "use_fa": "make، have و let فعل ساده می‌گیرند؛ get مصدر با to می‌گیرد؛ help هر دو شکل را می‌پذیرد.",
-     "form_en": "make / have / let + person + verb   |   get + person + to + verb",
+     "title": "Verbs followed by a gerund",
+     "title_fa": "فعل‌هایی که اسم مصدر می‌گیرند",
+     "chapter": "Chapter 14",
+     "section": "14-2",
+     "use_en": "Some verbs take a gerund and nothing else: enjoy, mind, finish, avoid, consider, suggest, keep, admit, deny, postpone, practise, quit, recommend, risk, tolerate, appreciate, dislike, miss, imagine, discuss, mention and understand. A few phrases behave the same way: can't help, feel like, be used to, look forward to and insist on. Putting an infinitive after one of these is the mistake to watch for.",
+     "use_fa": "برخی فعل‌ها فقط اسم مصدر می‌گیرند: enjoy، mind، finish، avoid، consider، suggest، keep، admit، deny، postpone، practise، quit، recommend، risk، tolerate، appreciate، dislike، miss، imagine، discuss، mention و understand. چند عبارت هم همین رفتار را دارند: can't help، feel like، be used to، look forward to و insist on. گذاشتن مصدر پس از یکی از این‌ها خطایی است که باید مراقبش بود.",
+     "form_en": "verb + gerund  ·  enjoy / avoid / finish / suggest / keep / mind + -ing",
      "examples": [
       {
-       "en": "The teacher made us rewrite the essay.",
-       "fa": "معلم ما را مجبور کرد انشا را دوباره بنویسیم."
+       "en": "I enjoy swimming in the sea.",
+       "fa": "از شنا در دریا لذت می‌برم."
+      },
+      {
+       "en": "She finished writing the report at midnight.",
+       "fa": "نیمه‌شب نوشتن گزارش را تمام کرد."
+      },
+      {
+       "en": "We avoided driving through the city centre.",
+       "fa": "از رانندگی در مرکز شهر پرهیز کردیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I don't mind ___ early. (get up)",
+       "answer": "getting up",
+       "why_en": "Mind takes a gerund.",
+       "why_fa": "mind اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "He suggested ___ a taxi. (take)",
+       "answer": "taking",
+       "why_en": "Suggest is followed by a gerund.",
+       "why_fa": "پس از suggest اسم مصدر می‌آید."
+      },
+      {
+       "prompt": "They postponed ___ the decision. (make)",
+       "answer": "making",
+       "why_en": "Postpone takes a gerund, not an infinitive.",
+       "why_fa": "postpone اسم مصدر می‌گیرد نه مصدر."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She enjoys ___ to music while she works.",
+       "options": [
+        "listening",
+        "to listen",
+        "listen"
+       ],
+       "answer": "listening",
+       "why_en": "Enjoy always takes a gerund.",
+       "why_fa": "enjoy همیشه اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "We kept ___ until the lights went out.",
+       "options": [
+        "talking",
+        "to talk",
+        "talk"
+       ],
+       "answer": "talking",
+       "why_en": "Keep in this sense takes a gerund.",
+       "why_fa": "keep با این معنا اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "Which verb does not take a gerund? — I ___ to leave.",
+       "options": [
+        "want",
+        "avoid",
+        "finish"
+       ],
+       "answer": "want",
+       "why_en": "Want takes an infinitive, the others take gerunds.",
+       "why_fa": "want مصدر می‌گیرد و دو فعل دیگر اسم مصدر."
+      }
+     ]
+    },
+    {
+     "n": 117,
+     "title": "Verbs followed by an infinitive",
+     "title_fa": "فعل‌هایی که مصدر می‌گیرند",
+     "chapter": "Chapter 14",
+     "section": "14-3",
+     "use_en": "Another group takes to plus the base verb: want, need, hope, plan, decide, expect, promise, agree, refuse, offer, learn, manage, afford, seem, pretend, choose, fail, arrange, deserve, intend, threaten, hesitate and would like. These verbs point forward, towards something not yet done, which is why the to form fits them. A gerund after one of them sounds wrong to a native ear even when the meaning is clear.",
+     "use_fa": "گروه دیگری to و فعل ساده می‌گیرد: want، need، hope، plan، decide، expect، promise، agree، refuse، offer، learn، manage، afford، seem، pretend، choose، fail، arrange، deserve، intend، threaten، hesitate و would like. این فعل‌ها به آینده و کاری که هنوز انجام نشده اشاره می‌کنند و همین شکل to را مناسب آن‌ها می‌کند. اسم مصدر پس از یکی از این‌ها برای گوش بومی نادرست است، حتی اگر معنا روشن باشد.",
+     "form_en": "verb + to + base verb  ·  want / hope / decide / promise / refuse + to do",
+     "examples": [
+      {
+       "en": "They decided to move abroad.",
+       "fa": "تصمیم گرفتند به خارج نقل مکان کنند."
+      },
+      {
+       "en": "I hope to see you soon.",
+       "fa": "امیدوارم به‌زودی ببینمت."
+      },
+      {
+       "en": "He refused to answer the question.",
+       "fa": "از پاسخ دادن به پرسش سر باز زد."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She promised ___ on time. (arrive)",
+       "answer": "to arrive",
+       "why_en": "Promise takes an infinitive.",
+       "why_fa": "promise مصدر می‌گیرد."
+      },
+      {
+       "prompt": "I can't afford ___ a new car. (buy)",
+       "answer": "to buy",
+       "why_en": "Afford is followed by an infinitive.",
+       "why_fa": "پس از afford مصدر می‌آید."
+      },
+      {
+       "prompt": "He managed ___ the last bus. (catch)",
+       "answer": "to catch",
+       "why_en": "Manage takes an infinitive.",
+       "why_fa": "manage مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "We plan ___ in June.",
+       "options": [
+        "to travel",
+        "travelling",
+        "travel"
+       ],
+       "answer": "to travel",
+       "why_en": "Plan is followed by an infinitive.",
+       "why_fa": "پس از plan مصدر می‌آید."
+      },
+      {
+       "q": "She pretended ___ asleep.",
+       "options": [
+        "to be",
+        "being",
+        "be"
+       ],
+       "answer": "to be",
+       "why_en": "Pretend takes an infinitive.",
+       "why_fa": "pretend مصدر می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "He offered to help us.",
+        "He offered helping us.",
+        "He offered help us."
+       ],
+       "answer": "He offered to help us.",
+       "why_en": "Offer takes an infinitive.",
+       "why_fa": "offer مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 118,
+     "title": "Infinitives with objects: ask someone to do",
+     "title_fa": "مصدر با مفعول: ask someone to do",
+     "chapter": "Chapter 14",
+     "section": "14-4",
+     "use_en": "Many verbs put a person between themselves and the infinitive: ask, tell, want, need, expect, invite, remind, advise, encourage, permit, allow, force, persuade, teach and would like. The person is the object of the first verb and the doer of the second: she asked me to wait. Allow and permit change shape without a person and take a gerund instead: smoking is not allowed.",
+     "use_fa": "بسیاری از فعل‌ها شخصی میان خود و مصدر می‌گذارند: ask، tell، want، need، expect، invite، remind، advise، encourage، permit، allow، force، persuade، teach و would like. آن شخص مفعول فعل اول و انجام‌دهندهٔ فعل دوم است: she asked me to wait. allow و permit بدون شخص شکل عوض می‌کنند و اسم مصدر می‌گیرند: smoking is not allowed.",
+     "form_en": "verb + person + to + base verb  ·  allow / permit + gerund (no person)",
+     "examples": [
+      {
+       "en": "She asked me to wait outside.",
+       "fa": "از من خواست بیرون منتظر بمانم."
+      },
+      {
+       "en": "They invited us to stay for dinner.",
+       "fa": "ما را دعوت کردند که برای شام بمانیم."
+      },
+      {
+       "en": "He reminded me to call my mother.",
+       "fa": "یادم انداخت که به مادرم زنگ بزنم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The teacher told us ___ the exercise at home. (finish)",
+       "answer": "to finish",
+       "why_en": "Tell takes a person and then an infinitive.",
+       "why_fa": "tell شخص و سپس مصدر می‌گیرد."
+      },
+      {
+       "prompt": "I want you ___ careful. (be)",
+       "answer": "to be",
+       "why_en": "Want puts the person before the infinitive.",
+       "why_fa": "want شخص را پیش از مصدر می‌آورد."
+      },
+      {
+       "prompt": "Photography is not ___ in this museum. (allow, no person)",
+       "answer": "allowed",
+       "why_en": "Without a person, allow takes the passive gerund form.",
+       "why_fa": "بدون شخص، allow شکل مجهول می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She encouraged him ___ the course.",
+       "options": [
+        "to take",
+        "taking",
+        "take"
+       ],
+       "answer": "to take",
+       "why_en": "Encourage takes a person and an infinitive.",
+       "why_fa": "encourage شخص و مصدر می‌گیرد."
+      },
+      {
+       "q": "They invited ___ to the wedding.",
+       "options": [
+        "us",
+        "we",
+        "our"
+       ],
+       "answer": "us",
+       "why_en": "The object before the infinitive is an object pronoun.",
+       "why_fa": "مفعول پیش از مصدر ضمیر مفعولی است."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "Smoking is not permitted here.",
+        "To smoke is not permitted here.",
+        "Smoke is not permitted here."
+       ],
+       "answer": "Smoking is not permitted here.",
+       "why_en": "Permit without a person takes a gerund.",
+       "why_fa": "permit بدون شخص اسم مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 119,
+     "title": "Verbs that take either form: remember, stop, try",
+     "title_fa": "فعل‌هایی که هر دو شکل را می‌پذیرند: remember، stop، try",
+     "chapter": "Chapter 14",
+     "section": "14-5",
+     "use_en": "A few verbs take both forms and the meaning changes. Remember to lock the door is a duty ahead; I remember locking the door is a memory behind. Stop to rest pauses in order to rest; stop resting ends the rest. Try to open it is an attempt; try opening it is an experiment. Regret, go on, mean and need behave the same way, so the form is the meaning.",
+     "use_fa": "چند فعل هر دو شکل را می‌پذیرند و معنا عوض می‌شود. Remember to lock the door وظیفه‌ای در پیش است و I remember locking the door خاطره‌ای در گذشته. Stop to rest برای استراحت توقف می‌کند و stop resting استراحت را پایان می‌دهد. Try to open it تلاش است و try opening it آزمایش. regret، go on، mean و need هم همین‌گونه‌اند، پس شکل همان معناست.",
+     "form_en": "remember / forget / stop / try / regret + to do (ahead)  ·  + doing (behind or in progress)",
+     "examples": [
+      {
+       "en": "I stopped smoking last year.",
+       "fa": "سال گذشته سیگار کشیدن را ترک کردم."
+      },
+      {
+       "en": "We stopped to buy bread on the way home.",
+       "fa": "در راه خانه برای خرید نان توقف کردیم."
+      },
+      {
+       "en": "Remember to lock the door when you leave.",
+       "fa": "یادت باشد وقتی رفتی در را قفل کنی."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I clearly remember ___ the key on the table. (put)",
+       "answer": "putting",
+       "why_en": "A memory of a past action takes the gerund.",
+       "why_fa": "خاطرهٔ کار گذشته اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "Remember ___ the stove before you go out. (turn off)",
+       "answer": "to turn off",
+       "why_en": "A duty ahead takes the infinitive.",
+       "why_fa": "وظیفهٔ پیش‌رو مصدر می‌گیرد."
+      },
+      {
+       "prompt": "He stopped ___ a cigarette. (smoke, in order to)",
+       "answer": "to smoke",
+       "why_en": "Stopping in order to do something takes the infinitive.",
+       "why_fa": "توقف برای انجام کاری مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She stopped ___ years ago and feels better.",
+       "options": [
+        "smoking",
+        "to smoke",
+        "smoke"
+       ],
+       "answer": "smoking",
+       "why_en": "The habit ended, so the gerund is right.",
+       "why_fa": "عادت پایان یافته، پس اسم مصدر درست است."
+      },
+      {
+       "q": "I don't remember ___ him before.",
+       "options": [
+        "meeting",
+        "to meet",
+        "meet"
+       ],
+       "answer": "meeting",
+       "why_en": "A memory behind takes the gerund.",
+       "why_fa": "خاطرهٔ گذشته اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "Try ___ this button; the machine may start.",
+       "options": [
+        "pressing",
+        "to press",
+        "press"
+       ],
+       "answer": "pressing",
+       "why_en": "An experiment takes the gerund.",
+       "why_fa": "آزمایش کردن اسم مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 120,
+     "title": "Gerunds after prepositions",
+     "title_fa": "اسم مصدر پس از حرف اضافه",
+     "chapter": "Chapter 14",
+     "section": "14-6",
+     "use_en": "A preposition is always followed by a noun, and a gerund is the noun form of a verb, so the pattern is fixed: good at drawing, interested in history, tired of waiting, instead of calling, without asking, thank you for helping. The same rule covers the multi-word prepositions: look forward to hearing, insist on paying, apologize for being late, in spite of being tired.",
+     "use_fa": "حرف اضافه همیشه اسم می‌گیرد و اسم مصدر شکل اسمی فعل است، پس الگو ثابت است: good at drawing، interested in history، tired of waiting، instead of calling، without asking، thank you for helping. همین قاعده حرف اضافه‌های چندواژه‌ای را هم در بر می‌گیرد: look forward to hearing، insist on paying، apologize for being late، in spite of being tired.",
+     "form_en": "preposition + gerund  ·  good at / interested in / instead of / without + -ing",
+     "examples": [
+      {
+       "en": "She is good at solving problems.",
+       "fa": "در حل مسئله خوب است."
+      },
+      {
+       "en": "Thank you for helping us.",
+       "fa": "ممنون که به ما کمک کردی."
+      },
+      {
+       "en": "He left without saying goodbye.",
+       "fa": "بی‌آنکه خداحافظی کند رفت."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I am tired of ___ the same thing. (repeat)",
+       "answer": "repeating",
+       "why_en": "The preposition of takes a gerund.",
+       "why_fa": "حرف اضافهٔ of اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "She apologized for ___ late. (be)",
+       "answer": "being",
+       "why_en": "For before a verb takes the gerund.",
+       "why_fa": "for پیش از فعل اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "We talked about ___ a new house. (buy)",
+       "answer": "buying",
+       "why_en": "About takes the gerund.",
+       "why_fa": "about اسم مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "He is interested in ___ old films.",
+       "options": [
+        "collecting",
+        "to collect",
+        "collect"
+       ],
+       "answer": "collecting",
+       "why_en": "In before a verb takes the gerund.",
+       "why_fa": "in پیش از فعل اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "Instead of ___ , she called a taxi.",
+       "options": [
+        "walking",
+        "to walk",
+        "walk"
+       ],
+       "answer": "walking",
+       "why_en": "Instead of is a preposition and takes the gerund.",
+       "why_fa": "instead of حرف اضافه است و اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "I'm looking forward to ___ from you.",
+       "options": [
+        "hearing",
+        "hear",
+        "to hear"
+       ],
+       "answer": "hearing",
+       "why_en": "The to here is a preposition, so the gerund follows.",
+       "why_fa": "to اینجا حرف اضافه است، پس اسم مصدر می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 121,
+     "title": "Go + gerund: go swimming, go shopping",
+     "title_fa": "go + اسم مصدر: go swimming، go shopping",
+     "chapter": "Chapter 14",
+     "section": "14-7",
+     "use_en": "Go with a gerund names a leisure activity that involves moving to do it: go swimming, go shopping, go fishing, go skiing, go hiking, go jogging, go camping, go dancing, go sightseeing, go running. The pattern is not open to every verb: you go swimming but you do not go eating. When the activity has its own verb, use that verb instead: go to bed, not go sleeping.",
+     "use_fa": "go با اسم مصدر فعالیتی فراغتی را می‌گوید که برای انجامش جابه‌جا می‌شوید: go swimming، go shopping، go fishing، go skiing، go hiking، go jogging، go camping، go dancing، go sightseeing، go running. این الگو برای هر فعلی باز نیست: go swimming درست است و go eating نه. وقتی فعالیت فعل خودش را دارد، همان فعل را به کار ببرید: go to bed و نه go sleeping.",
+     "form_en": "go + -ing (an activity you travel to do)  ·  go swimming / shopping / hiking",
+     "examples": [
+      {
+       "en": "We went hiking last weekend.",
+       "fa": "آخر هفتهٔ گذشته به کوه‌پیمایی رفتیم."
+      },
+      {
+       "en": "They go dancing every Friday.",
+       "fa": "هر جمعه به رقص می‌روند."
+      },
+      {
+       "en": "Let's go shopping this afternoon.",
+       "fa": "بیا بعدازظهر برویم خرید."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "We went ___ in the lake last summer. (swim)",
+       "answer": "swimming",
+       "why_en": "Go takes the gerund for the activity.",
+       "why_fa": "go برای فعالیت اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "They go ___ in the mountains every winter. (ski)",
+       "answer": "skiing",
+       "why_en": "The activity after go is a gerund.",
+       "why_fa": "فعالیت پس از go اسم مصدر است."
+      },
+      {
+       "prompt": "Let's go ___ for the party. (shop)",
+       "answer": "shopping",
+       "why_en": "Shopping is the fixed activity with go.",
+       "why_fa": "shopping فعالیت ثابت با go است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "We went ___ along the coast.",
+       "options": [
+        "sailing",
+        "to sail",
+        "sail"
+       ],
+       "answer": "sailing",
+       "why_en": "Go plus an activity takes the gerund.",
+       "why_fa": "go با فعالیت اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "Which phrase is wrong?",
+       "options": [
+        "go eating",
+        "go fishing",
+        "go camping"
+       ],
+       "answer": "go eating",
+       "why_en": "Not every verb forms a go activity.",
+       "why_fa": "هر فعلی فعالیت go نمی‌سازد."
+      },
+      {
+       "q": "They go ___ every Saturday morning.",
+       "options": [
+        "jogging",
+        "to jog",
+        "jog"
+       ],
+       "answer": "jogging",
+       "why_en": "A repeated activity with go is a gerund.",
+       "why_fa": "فعالیت تکرارشده با go اسم مصدر است."
+      }
+     ]
+    },
+    {
+     "n": 122,
+     "title": "Special expressions followed by -ing",
+     "title_fa": "عبارت‌های ویژه‌ای که ing- می‌گیرند",
+     "chapter": "Chapter 14",
+     "section": "14-8",
+     "use_en": "A set of fixed expressions ends in a noun slot and therefore takes the gerund: can't help laughing, can't stand waiting, don't mind helping, it's no use arguing, it's worth trying, have trouble sleeping, spend time reading, waste time worrying, be busy working, feel like leaving, there's no point in calling. The -ing form here is not a progressive verb; it is the noun the expression needs.",
+     "use_fa": "مجموعه‌ای از عبارت‌های ثابت به جایگاه اسم می‌رسند و از این رو اسم مصدر می‌گیرند: can't help laughing، can't stand waiting، don't mind helping، it's no use arguing، it's worth trying، have trouble sleeping، spend time reading، waste time worrying، be busy working، feel like leaving، there's no point in calling. شکل ing- اینجا فعل استمراری نیست؛ اسمی است که عبارت لازم دارد.",
+     "form_en": "expression + gerund  ·  can't help / it's no use / be busy / spend time + -ing",
+     "examples": [
+      {
+       "en": "I can't help laughing when he tells that story.",
+       "fa": "وقتی آن ماجرا را می‌گوید نمی‌توانم جلوی خنده‌ام را بگیرم."
+      },
+      {
+       "en": "It's no use arguing with him.",
+       "fa": "بحث کردن با او بی‌فایده است."
+      },
+      {
+       "en": "She spends hours practising the piano.",
+       "fa": "ساعت‌ها پیانو تمرین می‌کند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "It's no use ___ about it now. (worry)",
+       "answer": "worrying",
+       "why_en": "No use takes the gerund.",
+       "why_fa": "no use اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "I can't stand ___ in a queue. (wait)",
+       "answer": "waiting",
+       "why_en": "Can't stand takes the gerund.",
+       "why_fa": "can't stand اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "He is busy ___ for the exam. (prepare)",
+       "answer": "preparing",
+       "why_en": "Busy before a verb takes the gerund.",
+       "why_fa": "busy پیش از فعل اسم مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "It's worth ___ this book twice.",
+       "options": [
+        "reading",
+        "to read",
+        "read"
+       ],
+       "answer": "reading",
+       "why_en": "Worth takes the gerund.",
+       "why_fa": "worth اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "I have trouble ___ his handwriting.",
+       "options": [
+        "reading",
+        "to read",
+        "read"
+       ],
+       "answer": "reading",
+       "why_en": "Have trouble takes the gerund.",
+       "why_fa": "have trouble اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "She wasted time complaining.",
+        "She wasted time to complain.",
+        "She wasted time complain."
+       ],
+       "answer": "She wasted time complaining.",
+       "why_en": "Waste time takes the gerund.",
+       "why_fa": "waste time اسم مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 123,
+     "title": "It + infinitive; gerunds and infinitives as subjects",
+     "title_fa": "it + مصدر؛ اسم مصدر و مصدر در جایگاه فاعل",
+     "chapter": "Chapter 14",
+     "section": "14-9",
+     "use_en": "An infinitive can be the subject, but English prefers to hold the place with it and move the infinitive to the end: it is easy to make mistakes. A gerund as the subject is shorter and more common in speech: learning a language takes time. Both appear after be: the hardest part is finding a quiet place. It plus an adjective plus an infinitive also carries a comment on a person: it was kind of you to help.",
+     "use_fa": "مصدر می‌تواند فاعل باشد، اما انگلیسی ترجیح می‌دهد جای آن را با it نگه دارد و مصدر را به پایان ببرد: it is easy to make mistakes. اسم مصدر در جایگاه فاعل کوتاه‌تر و در گفتار رایج‌تر است: learning a language takes time. هر دو پس از be می‌آیند: the hardest part is finding a quiet place. it و صفت و مصدر هم نظری دربارهٔ شخص می‌دهد: it was kind of you to help.",
+     "form_en": "it + be + adjective + to + verb  ·  gerund + verb  ·  be + gerund / infinitive",
+     "examples": [
+      {
+       "en": "It is easy to make mistakes when you are tired.",
+       "fa": "وقتی خسته‌اید اشتباه کردن آسان است."
+      },
+      {
+       "en": "Learning a language takes time.",
+       "fa": "یادگیری یک زبان زمان می‌برد."
+      },
+      {
+       "en": "It was kind of you to help.",
+       "fa": "لطف کردی که کمک کردی."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ is difficult to change a habit. (empty subject)",
+       "answer": "It",
+       "why_en": "English holds the subject place with it.",
+       "why_fa": "انگلیسی جای فاعل را با it نگه می‌دارد."
+      },
+      {
+       "prompt": "___ in the morning is my favourite habit. (walk, subject)",
+       "answer": "Walking",
+       "why_en": "A habit as the subject is natural as a gerund.",
+       "why_fa": "عادت در جایگاه فاعل با اسم مصدر طبیعی است."
+      },
+      {
+       "prompt": "It is important ___ the instructions. (read)",
+       "answer": "to read",
+       "why_en": "It is important is followed by an infinitive.",
+       "why_fa": "پس از it is important مصدر می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "___ is hard to say goodbye.",
+       "options": [
+        "It",
+        "That",
+        "There"
+       ],
+       "answer": "It",
+       "why_en": "The infinitive moves to the end behind it.",
+       "why_fa": "مصدر پشت it به پایان می‌رود."
+      },
+      {
+       "q": "___ a car in this traffic is stressful.",
+       "options": [
+        "Driving",
+        "To driving",
+        "Drive"
+       ],
+       "answer": "Driving",
+       "why_en": "A gerund can be the subject.",
+       "why_fa": "اسم مصدر می‌تواند فاعل باشد."
+      },
+      {
+       "q": "The best part was ___ the sea again.",
+       "options": [
+        "seeing",
+        "to seeing",
+        "see"
+       ],
+       "answer": "seeing",
+       "why_en": "After be, a gerund names the activity.",
+       "why_fa": "پس از be اسم مصدر فعالیت را می‌گوید."
+      }
+     ]
+    },
+    {
+     "n": 124,
+     "title": "Reference list of verbs followed by infinitives",
+     "title_fa": "فهرست مرجع فعل‌هایی که مصدر می‌گیرند",
+     "chapter": "Chapter 14",
+     "section": "14-10",
+     "use_en": "This chart is a list to return to rather than a rule to learn: agree, appear, arrange, attempt, care, choose, decide, demand, deserve, expect, fail, forget, hesitate, hope, intend, learn, manage, mean, need, offer, plan, prepare, pretend, promise, refuse, remember, seem, tend, threaten, want and wish all take to plus the base verb. When a verb is new, check it here before writing the second verb.",
+     "use_fa": "این نمودار فهرستی است برای مراجعه نه قاعده‌ای برای حفظ: agree، appear، arrange، attempt، care، choose، decide، demand، deserve، expect، fail، forget، hesitate، hope، intend، learn، manage، mean، need، offer، plan، prepare، pretend، promise، refuse، remember، seem، tend، threaten، want و wish همگی to و فعل ساده می‌گیرند. هرگاه فعلی تازه بود، پیش از نوشتن فعل دوم آن را اینجا ببینید.",
+     "form_en": "verb + to + base verb (a reference list, not a meaning rule)",
+     "examples": [
+      {
+       "en": "He tends to arrive early.",
+       "fa": "او معمولاً زود می‌رسد."
+      },
+      {
+       "en": "She hesitated to ask for help.",
+       "fa": "برای درخواست کمک تردید کرد."
+      },
+      {
+       "en": "They arranged to meet at six.",
+       "fa": "ترتیب دادند که ساعت شش همدیگر را ببینند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She seems ___ tired today. (be)",
+       "answer": "to be",
+       "why_en": "Seem belongs to the infinitive list.",
+       "why_fa": "seem در فهرست مصدر است."
+      },
+      {
+       "prompt": "We expect ___ the results tomorrow. (get)",
+       "answer": "to get",
+       "why_en": "Expect is followed by an infinitive.",
+       "why_fa": "expect مصدر می‌گیرد."
+      },
+      {
+       "prompt": "He failed ___ the deadline. (meet)",
+       "answer": "to meet",
+       "why_en": "Fail is followed by an infinitive.",
+       "why_fa": "fail مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "They agreed ___ the costs.",
+       "options": [
+        "to share",
+        "sharing",
+        "share"
+       ],
+       "answer": "to share",
+       "why_en": "Agree takes an infinitive.",
+       "why_fa": "agree مصدر می‌گیرد."
+      },
+      {
+       "q": "The window appears ___ broken.",
+       "options": [
+        "to be",
+        "being",
+        "be"
+       ],
+       "answer": "to be",
+       "why_en": "Appear takes an infinitive.",
+       "why_fa": "appear مصدر می‌گیرد."
+      },
+      {
+       "q": "Which verb is not on the infinitive list?",
+       "options": [
+        "enjoy",
+        "intend",
+        "deserve"
+       ],
+       "answer": "enjoy",
+       "why_en": "Enjoy takes a gerund.",
+       "why_fa": "enjoy اسم مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 125,
+     "title": "Reference list of verbs followed by gerunds",
+     "title_fa": "فهرست مرجع فعل‌هایی که اسم مصدر می‌گیرند",
+     "chapter": "Chapter 14",
+     "section": "14-11",
+     "use_en": "The matching list for the other form: admit, advise, appreciate, avoid, consider, delay, deny, discuss, dislike, enjoy, finish, imagine, mention, mind, miss, permit, postpone, practise, quit, recommend, regret, risk, suggest, tolerate and understand take -ing. Several of them also report something said or thought, which is why deny taking and admit making are so common in careful writing.",
+     "use_fa": "فهرست متناظر برای شکل دیگر: admit، advise، appreciate، avoid، consider، delay، deny، discuss، dislike، enjoy، finish، imagine، mention، mind، miss، permit، postpone، practise، quit، recommend، regret، risk، suggest، tolerate و understand شکل ing- می‌گیرند. چند تایشان چیزی گفته یا اندیشیده را هم نقل می‌کنند و همین deny taking و admit making را در نوشتار دقیق رایج می‌کند.",
+     "form_en": "verb + gerund (a reference list)  ·  deny / admit / suggest / recommend + -ing",
+     "examples": [
+      {
+       "en": "I miss living near the sea.",
+       "fa": "زندگی نزدیک دریا را دلم می‌خواهد."
+      },
+      {
+       "en": "He denied taking the money.",
+       "fa": "انکار کرد که پول را برداشته است."
+      },
+      {
+       "en": "We discussed moving house.",
+       "fa": "دربارهٔ اسباب‌کشی صحبت کردیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She admitted ___ the window. (break)",
+       "answer": "breaking",
+       "why_en": "Admit takes the gerund.",
+       "why_fa": "admit اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "They considered ___ the offer. (accept)",
+       "answer": "accepting",
+       "why_en": "Consider takes the gerund.",
+       "why_fa": "consider اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "He risked ___ his job. (lose)",
+       "answer": "losing",
+       "why_en": "Risk takes the gerund.",
+       "why_fa": "risk اسم مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She mentioned ___ the film before.",
+       "options": [
+        "seeing",
+        "to see",
+        "see"
+       ],
+       "answer": "seeing",
+       "why_en": "Mention takes a gerund.",
+       "why_fa": "mention اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "They delayed ___ the decision.",
+       "options": [
+        "making",
+        "to make",
+        "make"
+       ],
+       "answer": "making",
+       "why_en": "Delay takes a gerund.",
+       "why_fa": "delay اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "I don't tolerate rudeness.",
+        "I don't tolerate to be rude.",
+        "I don't tolerate be rude."
+       ],
+       "answer": "I don't tolerate rudeness.",
+       "why_en": "Tolerate takes a noun or a gerund.",
+       "why_fa": "tolerate اسم یا اسم مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 126,
+     "title": "Reference list of preposition combinations followed by gerunds",
+     "title_fa": "فهرست مرجع ترکیب‌های حرف اضافه با اسم مصدر",
+     "chapter": "Chapter 14",
+     "section": "14-12",
+     "use_en": "These pairs of a word and a preposition always end in a gerund: accuse someone of, apologize for, approve of, believe in, complain about, concentrate on, depend on, dream of, insist on, object to, prevent someone from, succeed in, think of, worry about, look forward to, get used to, be afraid of, be guilty of, be proud of, be responsible for. Memorise the pair, because the preposition is not predictable from the verb.",
+     "use_fa": "این جفت‌های واژه و حرف اضافه همیشه با اسم مصدر تمام می‌شوند: accuse someone of، apologize for، approve of، believe in، complain about، concentrate on، depend on، dream of، insist on، object to، prevent someone from، succeed in، think of، worry about، look forward to، get used to، be afraid of، be guilty of، be proud of، be responsible for. جفت را حفظ کنید، چون حرف اضافه از فعل قابل پیش‌بینی نیست.",
+     "form_en": "word + preposition + gerund  ·  apologize for / insist on / succeed in / look forward to + -ing",
+     "examples": [
+      {
+       "en": "She apologized for being late.",
+       "fa": "برای دیر رسیدن عذرخواهی کرد."
+      },
+      {
+       "en": "They insisted on paying for dinner.",
+       "fa": "اصرار کردند که هزینهٔ شام را بپردازند."
+      },
+      {
+       "en": "I'm looking forward to hearing from you.",
+       "fa": "منتظر شنیدن خبر از شما هستم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "He succeeded in ___ the exam. (pass)",
+       "answer": "passing",
+       "why_en": "Succeed in takes the gerund.",
+       "why_fa": "succeed in اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "We complained about ___ so long. (wait)",
+       "answer": "waiting",
+       "why_en": "Complain about takes the gerund.",
+       "why_fa": "complain about اسم مصدر می‌گیرد."
+      },
+      {
+       "prompt": "She is proud of ___ her degree. (finish)",
+       "answer": "finishing",
+       "why_en": "Proud of takes the gerund.",
+       "why_fa": "proud of اسم مصدر می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "They prevented him from ___.",
+       "options": [
+        "leaving",
+        "to leave",
+        "leave"
+       ],
+       "answer": "leaving",
+       "why_en": "Prevent from takes the gerund.",
+       "why_fa": "prevent from اسم مصدر می‌گیرد."
+      },
+      {
+       "q": "I'm used to ___ up early.",
+       "options": [
+        "getting",
+        "get",
+        "to get"
+       ],
+       "answer": "getting",
+       "why_en": "Be used to ends in a preposition, so the gerund follows.",
+       "why_fa": "be used to به حرف اضافه ختم می‌شود، پس اسم مصدر می‌آید."
+      },
+      {
+       "q": "Which pair is correct?",
+       "options": [
+        "depend on hearing",
+        "depend on to hear",
+        "depend hearing"
+       ],
+       "answer": "depend on hearing",
+       "why_en": "The pair depend on takes the gerund.",
+       "why_fa": "جفت depend on اسم مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 127,
+     "title": "The infinitive of purpose: in order to",
+     "title_fa": "مصدر هدف: in order to",
+     "chapter": "Chapter 15",
+     "section": "15-1",
+     "use_en": "To plus a verb answers the question why: I went out to buy bread. In order to says the same thing with more weight, and so as to is the third form. The negative is in order not to or so as not to, never to not. Before a noun or a gerund, for does the work instead: I went out for bread, thank you for coming.",
+     "use_fa": "to به‌همراه فعل به پرسش «چرا» پاسخ می‌دهد: I went out to buy bread. in order to همین را با تأکید بیشتر می‌گوید و so as to شکل سوم است. منفی آن in order not to یا so as not to است، هرگز to not. پیش از اسم یا اسم مصدر، for این کار را می‌کند: I went out for bread، thank you for coming.",
+     "form_en": "to + verb  ·  in order to / so as to + verb  ·  in order not to + verb  ·  for + noun",
+     "examples": [
+      {
+       "en": "I went out to buy bread.",
+       "fa": "برای خرید نان بیرون رفتم."
+      },
+      {
+       "en": "She left early in order to catch the train.",
+       "fa": "زود رفت تا به قطار برسد."
+      },
+      {
+       "en": "He whispered so as not to wake the baby.",
+       "fa": "آهسته حرف زد تا نوزاد را بیدار نکند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I called ___ ask about the job. (purpose)",
+       "answer": "to",
+       "why_en": "Purpose before a verb takes to.",
+       "why_fa": "هدف پیش از فعل با to می‌آید."
+      },
+      {
+       "prompt": "We left early in order ___ miss the train. (negative purpose)",
+       "answer": "not to",
+       "why_en": "The negative purpose is in order not to.",
+       "why_fa": "هدف منفی in order not to است."
+      },
+      {
+       "prompt": "Thank you ___ your help. (before a noun)",
+       "answer": "for",
+       "why_en": "Before a noun, for carries the purpose.",
+       "why_fa": "پیش از اسم، for هدف را می‌آورد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She saved money ___ buy a car.",
+       "options": [
+        "to",
+        "for",
+        "for to"
+       ],
+       "answer": "to",
+       "why_en": "Purpose before a verb takes to.",
+       "why_fa": "هدف پیش از فعل to می‌گیرد."
+      },
+      {
+       "q": "He spoke quietly so as ___ wake anyone.",
+       "options": [
+        "not to",
+        "to not",
+        "no to"
+       ],
+       "answer": "not to",
+       "why_en": "The negative of so as to is so as not to.",
+       "why_fa": "منفی so as to همان so as not to است."
+      },
+      {
+       "q": "We stopped ___ a coffee.",
+       "options": [
+        "for",
+        "to",
+        "for to"
+       ],
+       "answer": "for",
+       "why_en": "A noun after the purpose takes for.",
+       "why_fa": "اسم پس از هدف for می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 128,
+     "title": "Adjectives followed by infinitives",
+     "title_fa": "صفت‌هایی که مصدر می‌گیرند",
+     "chapter": "Chapter 15",
+     "section": "15-2",
+     "use_en": "Many adjectives that describe a feeling or a readiness take an infinitive: glad, happy, sorry, sad, ready, eager, willing, reluctant, afraid, lucky, proud, surprised, able, unable, free, busy, careful, difficult and easy. The pattern is be plus adjective plus to plus verb: I am glad to help. When the person is named, of comes first: it was kind of you to call.",
+     "use_fa": "بسیاری از صفت‌هایی که حس یا آمادگی را توصیف می‌کنند مصدر می‌گیرند: glad، happy، sorry، sad، ready، eager، willing، reluctant، afraid، lucky، proud، surprised، able، unable، free، busy، careful، difficult و easy. الگو be و صفت و to و فعل است: I am glad to help. اگر شخص نام برده شود، of اول می‌آید: it was kind of you to call.",
+     "form_en": "be + adjective + to + base verb  ·  it + be + adjective + of + person + to + verb",
+     "examples": [
+      {
+       "en": "I am glad to help.",
+       "fa": "خوشحالم که کمک می‌کنم."
+      },
+      {
+       "en": "She was eager to start the course.",
+       "fa": "برای شروع دوره بی‌تاب بود."
+      },
+      {
+       "en": "It was kind of you to call.",
+       "fa": "لطف کردی که زنگ زدی."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "We are ready ___ the results. (hear)",
+       "answer": "to hear",
+       "why_en": "Ready is followed by an infinitive.",
+       "why_fa": "ready مصدر می‌گیرد."
+      },
+      {
+       "prompt": "He was unable ___ the meeting. (attend)",
+       "answer": "to attend",
+       "why_en": "Unable takes an infinitive.",
+       "why_fa": "unable مصدر می‌گیرد."
+      },
+      {
+       "prompt": "It was careless ___ him to forget the keys. (person)",
+       "answer": "of",
+       "why_en": "A comment on a person takes of before the pronoun.",
+       "why_fa": "نظر دربارهٔ شخص of را پیش از ضمیر می‌آورد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "She is afraid ___ the truth.",
+       "options": [
+        "to tell",
+        "telling",
+        "tell"
+       ],
+       "answer": "to tell",
+       "why_en": "Afraid of an action takes the infinitive.",
+       "why_fa": "afraid برای کار مصدر می‌گیرد."
+      },
+      {
+       "q": "It was generous ___ them to pay.",
+       "options": [
+        "of",
+        "for",
+        "to"
+       ],
+       "answer": "of",
+       "why_en": "A judgement of a person takes of.",
+       "why_fa": "داوری دربارهٔ شخص of می‌گیرد."
+      },
+      {
+       "q": "I'm sorry ___ you waiting.",
+       "options": [
+        "to keep",
+        "keeping",
+        "keep"
+       ],
+       "answer": "to keep",
+       "why_en": "Sorry before an action takes the infinitive.",
+       "why_fa": "sorry پیش از کار مصدر می‌گیرد."
+      }
+     ]
+    },
+    {
+     "n": 129,
+     "title": "Too and enough with infinitives",
+     "title_fa": "too و enough با مصدر",
+     "chapter": "Chapter 15",
+     "section": "15-3",
+     "use_en": "Too before an adjective means more than is wanted, and the infinitive says what the excess prevents: the box was too heavy to lift. Enough comes after an adjective and before a noun, and the infinitive says what it makes possible: she is old enough to drive, we have enough time to finish. The two are opposites, and mixing their order is the usual mistake.",
+     "use_fa": "too پیش از صفت یعنی بیش از حد لازم و مصدر می‌گوید آن زیادی مانع چه چیزی است: the box was too heavy to lift. enough پس از صفت و پیش از اسم می‌آید و مصدر می‌گوید چه چیزی را ممکن می‌کند: she is old enough to drive، we have enough time to finish. این دو متضادند و جابه‌جا کردن ترتیبشان خطای رایج است.",
+     "form_en": "too + adjective + to + verb  ·  adjective + enough + to + verb  ·  enough + noun + to + verb",
+     "examples": [
+      {
+       "en": "The box was too heavy to lift.",
+       "fa": "جعبه برای بلند کردن بیش از حد سنگین بود."
+      },
+      {
+       "en": "She is old enough to drive.",
+       "fa": "به اندازهٔ کافی بزرگ است که رانندگی کند."
+      },
+      {
+       "en": "We have enough time to finish.",
+       "fa": "وقت کافی برای تمام کردن داریم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The coffee was too hot ___ drink. (verb)",
+       "answer": "to",
+       "why_en": "Too plus an adjective is followed by to and a verb.",
+       "why_fa": "too و صفت با to و فعل ادامه می‌یابد."
+      },
+      {
+       "prompt": "He isn't tall ___ to reach the shelf. (after an adjective)",
+       "answer": "enough",
+       "why_en": "Enough follows the adjective.",
+       "why_fa": "enough پس از صفت می‌آید."
+      },
+      {
+       "prompt": "We don't have ___ money to buy it. (before a noun)",
+       "answer": "enough",
+       "why_en": "Enough comes before the noun.",
+       "why_fa": "enough پیش از اسم می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The room was too small ___ five people.",
+       "options": [
+        "to hold",
+        "holding",
+        "hold"
+       ],
+       "answer": "to hold",
+       "why_en": "Too plus an adjective takes the infinitive.",
+       "why_fa": "too و صفت مصدر می‌گیرد."
+      },
+      {
+       "q": "She spoke ___ quietly to be heard.",
+       "options": [
+        "too",
+        "enough",
+        "very"
+       ],
+       "answer": "too",
+       "why_en": "Too before the adjective explains the failure.",
+       "why_fa": "too پیش از صفت دلیل ناکامی را می‌گوید."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "He is strong enough to carry it.",
+        "He is enough strong to carry it.",
+        "He is strong to enough carry it."
+       ],
+       "answer": "He is strong enough to carry it.",
+       "why_en": "Enough follows the adjective.",
+       "why_fa": "enough پس از صفت می‌آید."
+      }
+     ]
+    },
+    {
+     "n": 130,
+     "title": "Passive infinitives and gerunds: present",
+     "title_fa": "مصدر و اسم مصدر مجهول: زمان حال",
+     "chapter": "Chapter 15",
+     "section": "15-4",
+     "use_en": "When the person or thing in front of the verb receives the action rather than doing it, the infinitive becomes to be plus the past participle and the gerund becomes being plus the past participle: she expects to be promoted, he enjoys being praised. The active forms would say she expects to promote someone, which is a different sentence.",
+     "use_fa": "وقتی شخص یا چیز پیش از فعل کار را می‌پذیرد نه انجام می‌دهد، مصدر to be و اسم مفعول می‌شود و اسم مصدر being و اسم مفعول: she expects to be promoted، he enjoys being praised. شکل‌های معلوم معنای دیگری می‌دهند: she expects to promote someone جملهٔ دیگری است.",
+     "form_en": "passive infinitive: to be + past participle  ·  passive gerund: being + past participle",
+     "examples": [
+      {
+       "en": "She expects to be promoted this year.",
+       "fa": "انتظار دارد امسال ارتقا بگیرد."
+      },
+      {
+       "en": "He enjoys being praised.",
+       "fa": "از تعریف شدن لذت می‌برد."
+      },
+      {
+       "en": "Nobody likes being ignored.",
+       "fa": "هیچ‌کس دوست ندارد نادیده گرفته شود."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The report needs to ___ finished today. (passive)",
+       "answer": "be",
+       "why_en": "The passive infinitive is to be plus the participle.",
+       "why_fa": "مصدر مجهول to be و اسم مفعول است."
+      },
+      {
+       "prompt": "She hates ___ told what to do. (passive gerund)",
+       "answer": "being",
+       "why_en": "The passive gerund begins with being.",
+       "why_fa": "اسم مصدر مجهول با being آغاز می‌شود."
+      },
+      {
+       "prompt": "They hope ___ invited to the wedding. (passive)",
+       "answer": "to be",
+       "why_en": "Hope takes a passive infinitive here.",
+       "why_fa": "hope اینجا مصدر مجهول می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The car needs to ___ washed.",
+       "options": [
+        "be",
+        "being",
+        "been"
+       ],
+       "answer": "be",
+       "why_en": "The passive infinitive is to be washed.",
+       "why_fa": "مصدر مجهول to be washed است."
+      },
+      {
+       "q": "He doesn't like ___ interrupted.",
+       "options": [
+        "being",
+        "to be",
+        "be"
+       ],
+       "answer": "being",
+       "why_en": "After like, the passive gerund is being interrupted.",
+       "why_fa": "پس از like اسم مصدر مجهول being interrupted است."
+      },
+      {
+       "q": "Which sentence is passive?",
+       "options": [
+        "She wants to be informed.",
+        "She wants to inform us.",
+        "She wants informing."
+       ],
+       "answer": "She wants to be informed.",
+       "why_en": "The subject receives the action, so the infinitive is passive.",
+       "why_fa": "فاعل کار را می‌پذیرد، پس مصدر مجهول است."
+      }
+     ]
+    },
+    {
+     "n": 131,
+     "title": "Past forms of infinitives and gerunds",
+     "title_fa": "شکل‌های گذشتهٔ مصدر و اسم مصدر",
+     "chapter": "Chapter 15",
+     "section": "15-5",
+     "use_en": "To have plus a past participle puts the infinitive before the main verb in time: he seems to have forgotten. Having plus a past participle does the same for the gerund: having finished the report, she went home. The passive versions are to have been done and having been done. These forms are common in writing and rare in speech, where a second clause is easier.",
+     "use_fa": "to have و اسم مفعول، مصدر را در زمان پیش از فعل اصلی می‌گذارد: he seems to have forgotten. having و اسم مفعول همین کار را برای اسم مصدر می‌کند: having finished the report, she went home. شکل‌های مجهول to have been done و having been done هستند. این شکل‌ها در نوشتار رایج‌اند و در گفتار کم، جایی که جملهٔ دوم آسان‌تر است.",
+     "form_en": "to have + past participle  ·  having + past participle  ·  to have been / having been + past participle",
+     "examples": [
+      {
+       "en": "He seems to have forgotten our meeting.",
+       "fa": "به نظر می‌رسد قرار ما را فراموش کرده است."
+      },
+      {
+       "en": "Having finished the report, she went home.",
+       "fa": "پس از تمام کردن گزارش به خانه رفت."
+      },
+      {
+       "en": "The letter seems to have been opened.",
+       "fa": "به نظر می‌رسد نامه باز شده است."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She appears ___ lost her keys. (past infinitive)",
+       "answer": "to have",
+       "why_en": "A past infinitive begins with to have.",
+       "why_fa": "مصدر گذشته با to have آغاز می‌شود."
+      },
+      {
+       "prompt": "___ eaten, we left the restaurant. (past gerund)",
+       "answer": "Having",
+       "why_en": "The past gerund begins with having.",
+       "why_fa": "اسم مصدر گذشته با having آغاز می‌شود."
+      },
+      {
+       "prompt": "The window seems to have ___ broken. (passive past)",
+       "answer": "been",
+       "why_en": "The passive past infinitive is to have been plus the participle.",
+       "why_fa": "مصدر گذشتهٔ مجهول to have been و اسم مفعول است."
+      }
+     ],
+     "exam": [
+      {
+       "q": "He claims ___ the film before.",
+       "options": [
+        "to have seen",
+        "to see",
+        "seeing"
+       ],
+       "answer": "to have seen",
+       "why_en": "The seeing happened earlier, so the past infinitive is used.",
+       "why_fa": "دیدن پیش‌تر رخ داده، پس مصدر گذشته می‌آید."
+      },
+      {
+       "q": "___ arrived early, we had time for coffee.",
+       "options": [
+        "Having",
+        "Have",
+        "To have"
+       ],
+       "answer": "Having",
+       "why_en": "The past gerund opens the phrase.",
+       "why_fa": "اسم مصدر گذشته عبارت را باز می‌کند."
+      },
+      {
+       "q": "The package appears ___ damaged in transit.",
+       "options": [
+        "to have been",
+        "to be",
+        "having been"
+       ],
+       "answer": "to have been",
+       "why_en": "A past passive infinitive is to have been plus the participle.",
+       "why_fa": "مصدر گذشتهٔ مجهول to have been و اسم مفعول است."
+      }
+     ]
+    },
+    {
+     "n": 132,
+     "title": "Need with a gerund or a passive infinitive",
+     "title_fa": "need با اسم مصدر یا مصدر مجهول",
+     "chapter": "Chapter 15",
+     "section": "15-6",
+     "use_en": "Need followed by a gerund carries a passive meaning: the car needs washing means the car needs to be washed. Both forms are correct and the gerund is the shorter one. The same pattern works with want in British English and with a few other verbs, but need is the one learners meet most. Do not read the gerund as active: nobody is washing the car in that sentence.",
+     "use_fa": "need به‌همراه اسم مصدر معنای مجهول دارد: the car needs washing یعنی the car needs to be washed. هر دو شکل درست‌اند و اسم مصدر کوتاه‌تر است. همین الگو با want در انگلیسی بریتانیایی و چند فعل دیگر کار می‌کند، اما need رایج‌ترین است. اسم مصدر را معلوم نخوانید: در آن جمله کسی ماشین را نمی‌شوید.",
+     "form_en": "need + gerund (passive meaning)  ·  need + to be + past participle",
+     "examples": [
+      {
+       "en": "The car needs washing.",
+       "fa": "ماشین باید شسته شود."
+      },
+      {
+       "en": "The car needs to be washed.",
+       "fa": "ماشین باید شسته شود."
+      },
+      {
+       "en": "These shoes need repairing.",
+       "fa": "این کفش‌ها باید تعمیر شوند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "The room needs ___ before the guests arrive. (clean, gerund)",
+       "answer": "cleaning",
+       "why_en": "Need plus a gerund has a passive meaning.",
+       "why_fa": "need با اسم مصدر معنای مجهول دارد."
+      },
+      {
+       "prompt": "The form needs to ___ signed. (passive)",
+       "answer": "be",
+       "why_en": "The passive infinitive after need is to be signed.",
+       "why_fa": "مصدر مجهول پس از need همان to be signed است."
+      },
+      {
+       "prompt": "My bike needs ___ . (repair, gerund)",
+       "answer": "repairing",
+       "why_en": "The gerund after need means it must be repaired.",
+       "why_fa": "اسم مصدر پس از need یعنی باید تعمیر شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "The garden needs ___.",
+       "options": [
+        "watering",
+        "to water",
+        "water"
+       ],
+       "answer": "watering",
+       "why_en": "Need plus a gerund means the garden must be watered.",
+       "why_fa": "need با اسم مصدر یعنی باغ باید آبیاری شود."
+      },
+      {
+       "q": "The windows need to ___ cleaned.",
+       "options": [
+        "be",
+        "being",
+        "been"
+       ],
+       "answer": "be",
+       "why_en": "The passive infinitive is to be cleaned.",
+       "why_fa": "مصدر مجهول to be cleaned است."
+      },
+      {
+       "q": "Which sentence means the same as the car needs washing?",
+       "options": [
+        "The car needs to be washed.",
+        "The car needs to wash.",
+        "The car is washing."
+       ],
+       "answer": "The car needs to be washed.",
+       "why_en": "Both forms describe the car receiving the action.",
+       "why_fa": "هر دو شکل می‌گویند ماشین کار را می‌پذیرد."
+      }
+     ]
+    },
+    {
+     "n": 133,
+     "title": "Verbs of perception: see, hear, watch, feel",
+     "title_fa": "فعل‌های ادراک: see، hear، watch، feel",
+     "chapter": "Chapter 15",
+     "section": "15-7",
+     "use_en": "See, hear, watch, feel, notice and observe can take a person and then either the base verb or the -ing form. The base verb reports the whole action from start to finish: I saw him cross the road. The -ing form reports a moment in the middle of it: I saw him crossing the road. The difference is not tense but how much of the action was seen.",
+     "use_fa": "see، hear، watch، feel، notice و observe می‌توانند شخص و سپس فعل ساده یا شکل ing- بگیرند. فعل ساده تمام کار را از آغاز تا پایان گزارش می‌کند: I saw him cross the road. شکل ing- لحظه‌ای از میانهٔ کار را می‌گوید: I saw him crossing the road. تفاوت در زمان نیست، در این است که چه اندازه از کار دیده شد.",
+     "form_en": "see / hear / watch + person + base verb (whole action)  ·  + -ing (in progress)",
+     "examples": [
+      {
+       "en": "I saw him cross the road.",
+       "fa": "دیدم که از خیابان گذشت."
+      },
+      {
+       "en": "I saw him crossing the road.",
+       "fa": "دیدم که داشت از خیابان می‌گذشت."
+      },
+      {
+       "en": "We heard her singing in the next room.",
+       "fa": "شنیدیم که در اتاق کناری آواز می‌خواند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "I watched the children ___ in the garden. (play, in progress)",
+       "answer": "playing",
+       "why_en": "The -ing form shows the action in progress.",
+       "why_fa": "شکل ing- کار در حال انجام را نشان می‌دهد."
+      },
+      {
+       "prompt": "She saw the man ___ the door and leave. (open, whole action)",
+       "answer": "open",
+       "why_en": "The base verb reports the whole action.",
+       "why_fa": "فعل ساده تمام کار را گزارش می‌کند."
+      },
+      {
+       "prompt": "We heard someone ___ at the door. (knock, in progress)",
+       "answer": "knocking",
+       "why_en": "A sound in progress takes the -ing form.",
+       "why_fa": "صدای در حال انجام شکل ing- می‌گیرد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "I saw her ___ the street and disappear.",
+       "options": [
+        "cross",
+        "crossing",
+        "to cross"
+       ],
+       "answer": "cross",
+       "why_en": "The whole action from start to finish takes the base verb.",
+       "why_fa": "تمام کار از آغاز تا پایان فعل ساده می‌گیرد."
+      },
+      {
+       "q": "We watched the game ___ on television.",
+       "options": [
+        "being played",
+        "play",
+        "to play"
+       ],
+       "answer": "being played",
+       "why_en": "A passive action in progress takes being plus the participle.",
+       "why_fa": "کار مجهول در حال انجام being و اسم مفعول می‌گیرد."
+      },
+      {
+       "q": "Which verb is not a verb of perception?",
+       "options": [
+        "decide",
+        "notice",
+        "observe"
+       ],
+       "answer": "decide",
+       "why_en": "Decide is not about seeing or hearing.",
+       "why_fa": "decide دربارهٔ دیدن یا شنیدن نیست."
+      }
+     ]
+    },
+    {
+     "n": 134,
+     "title": "The simple form after let and help",
+     "title_fa": "فعل ساده پس از let و help",
+     "chapter": "Chapter 15",
+     "section": "15-8",
+     "use_en": "Let takes a person and then the base verb with no to: let me go, let him try. Help works the same way and also accepts to, so both help me carry and help me to carry are correct, with the shorter form more common in speech. Neither verb takes -ing, and neither takes a past form in the second verb.",
+     "use_fa": "let شخص و سپس فعل ساده بی to می‌گیرد: let me go، let him try. help همین‌گونه است و to را هم می‌پذیرد، پس هم help me carry و هم help me to carry درست است و شکل کوتاه‌تر در گفتار رایج‌تر. هیچ‌کدام ing- نمی‌گیرند و هیچ‌کدام فعل دوم را گذشته نمی‌کنند.",
+     "form_en": "let + person + base verb  ·  help + person + (to) + base verb",
+     "examples": [
+      {
+       "en": "Let me help you with that.",
+       "fa": "بگذار در آن کار کمکت کنم."
+      },
+      {
+       "en": "She helped me carry the boxes.",
+       "fa": "کمکم کرد جعبه‌ها را ببرم."
+      },
+      {
+       "en": "They let us use their kitchen.",
+       "fa": "اجازه دادند از آشپزخانه‌شان استفاده کنیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "Let me ___ you the way. (show)",
+       "answer": "show",
+       "why_en": "Let takes the base verb with no to.",
+       "why_fa": "let فعل ساده بی to می‌گیرد."
+      },
+      {
+       "prompt": "She helped us ___ the table. (set)",
+       "answer": "set",
+       "why_en": "Help takes the base verb, with or without to.",
+       "why_fa": "help فعل ساده با یا بی to می‌گیرد."
+      },
+      {
+       "prompt": "They didn't let him ___ the room. (leave)",
+       "answer": "leave",
+       "why_en": "The negative does not change the base form.",
+       "why_fa": "منفی شکل ساده را تغییر نمی‌دهد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Let him ___ first.",
+       "options": [
+        "speak",
+        "to speak",
+        "speaking"
+       ],
+       "answer": "speak",
+       "why_en": "Let takes the base verb.",
+       "why_fa": "let فعل ساده می‌گیرد."
+      },
+      {
+       "q": "Can you help me ___ this bag?",
+       "options": [
+        "carry",
+        "carrying",
+        "carried"
+       ],
+       "answer": "carry",
+       "why_en": "Help takes the base verb.",
+       "why_fa": "help فعل ساده می‌گیرد."
+      },
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "She let me borrow her car.",
+        "She let me to borrow her car.",
+        "She let me borrowing her car."
+       ],
+       "answer": "She let me borrow her car.",
+       "why_en": "No to and no -ing after let.",
+       "why_fa": "پس از let نه to می‌آید نه ing-."
+      }
+     ]
+    },
+    {
+     "n": 135,
+     "title": "Causative verbs: make, have, get",
+     "title_fa": "فعل‌های سببی: make، have، get",
+     "chapter": "Chapter 15",
+     "section": "15-9",
+     "use_en": "These verbs say that one person causes another to act, and each takes a different form. Make and have take the base verb: she made him apologise, I had the mechanic check the brakes. Get takes an infinitive: I got him to help. When the object receives the action instead of doing it, all three take a past participle: I had my hair cut, she got the window fixed.",
+     "use_fa": "این فعل‌ها می‌گویند شخصی سبب می‌شود شخص دیگر کاری کند و هر یک شکلی متفاوت می‌گیرد. make و have فعل ساده می‌گیرند: she made him apologise، I had the mechanic check the brakes. get مصدر می‌گیرد: I got him to help. وقتی مفعول کار را می‌پذیرد نه انجام می‌دهد، هر سه اسم مفعول می‌گیرند: I had my hair cut، she got the window fixed.",
+     "form_en": "make / have + person + base verb  ·  get + person + to + verb  ·  have / get + object + past participle",
+     "examples": [
+      {
+       "en": "She made him apologise.",
+       "fa": "او را وادار کرد عذرخواهی کند."
       },
       {
        "en": "I had the mechanic check the brakes.",
        "fa": "از مکانیک خواستم ترمزها را بررسی کند."
       },
       {
-       "en": "She got her brother to carry the boxes.",
-       "fa": "او برادرش را راضی کرد جعبه‌ها را حمل کند."
+       "en": "I had my hair cut yesterday.",
+       "fa": "دیروز موهایم را کوتاه کردم."
       }
      ],
      "exercises": [
       {
-       "prompt": "Let me ___ (help) you with that.",
-       "answer": "help",
-       "why_en": "Let takes the base verb without to.",
-       "why_fa": "پس از let فعل ساده و بدون to می‌آید."
-      },
-      {
-       "prompt": "They got the children ___ (clean) the room.",
-       "answer": "to clean",
-       "why_en": "Get takes the infinitive with to.",
-       "why_fa": "پس از get مصدر با to می‌آید."
-      },
-      {
-       "prompt": "His joke made everyone ___ (laugh).",
-       "answer": "laugh",
+       "prompt": "The teacher made us ___ the poem. (learn)",
+       "answer": "learn",
        "why_en": "Make takes the base verb.",
-       "why_fa": "پس از make فعل ساده می‌آید."
+       "why_fa": "make فعل ساده می‌گیرد."
+      },
+      {
+       "prompt": "I got my brother ___ the shelf. (fix)",
+       "answer": "to fix",
+       "why_en": "Get takes an infinitive.",
+       "why_fa": "get مصدر می‌گیرد."
+      },
+      {
+       "prompt": "She had her car ___ last week. (repair, passive)",
+       "answer": "repaired",
+       "why_en": "A passive object after have takes the past participle.",
+       "why_fa": "مفعول مجهول پس از have اسم مفعول می‌گیرد."
       }
      ],
      "exam": [
       {
-       "q": "The manager had the contract ___ by a lawyer.",
+       "q": "They made him ___ the truth.",
        "options": [
-        "checked",
-        "to check",
-        "checking"
+        "tell",
+        "to tell",
+        "telling"
        ],
-       "answer": "checked",
-       "why_en": "Have something done uses the past participle.",
-       "why_fa": "ساختار have something done اسم مفعول می‌گیرد."
+       "answer": "tell",
+       "why_en": "Make takes the base verb.",
+       "why_fa": "make فعل ساده می‌گیرد."
       },
       {
-       "q": "I will get him ___ the car.",
+       "q": "We got the plumber ___ the leak.",
        "options": [
-        "to wash",
-        "wash",
-        "washing"
+        "to fix",
+        "fix",
+        "fixing"
        ],
-       "answer": "to wash",
-       "why_en": "Get a person to do something takes the to-infinitive.",
-       "why_fa": "get someone to do something مصدر با to می‌گیرد."
+       "answer": "to fix",
+       "why_en": "Get takes an infinitive.",
+       "why_fa": "get مصدر می‌گیرد."
       },
       {
-       "q": "Her story made me ___ .",
+       "q": "I need to have my passport ___.",
        "options": [
-        "cry",
-        "to cry",
-        "crying"
+        "renewed",
+        "renew",
+        "to renew"
        ],
-       "answer": "cry",
-       "why_en": "Make takes the base verb, never to.",
-       "why_fa": "پس از make فعل ساده می‌آید، هرگز to."
+       "answer": "renewed",
+       "why_en": "The passport receives the action, so the participle is used.",
+       "why_fa": "پاسپورت کار را می‌پذیرد، پس اسم مفعول می‌آید."
       }
      ]
     },
     {
-     "n": 117,
-     "title": "Paired conjunctions and parallel structure",
-     "title_fa": "حروف ربط جفتی و ساختار موازی",
-     "chapter": "Chapter 16",
-     "section": "16-4",
-     "use_en": "Both ... and, not only ... but also, either ... or and neither ... nor join two things of the same grammatical kind. Whatever follows the first half must match whatever follows the second.",
-     "use_fa": "both ... and، not only ... but also، either ... or و neither ... nor دو چیز از یک نوع دستوری را به هم وصل می‌کنند. آنچه بعد از بخش اول می‌آید باید با بخش دوم هم‌شکل باشد.",
-     "form_en": "both A and B  |  not only A but also B  |  either A or B  |  neither A nor B",
+     "n": 136,
+     "title": "A possessive before a gerund",
+     "title_fa": "حالت مالکیت پیش از اسم مصدر",
+     "chapter": "Chapter 15",
+     "section": "15-10",
+     "use_en": "Because a gerund is a noun, the person doing it can be shown with a possessive: I don't like his smoking, would you mind my opening the window, we were surprised by their leaving early. In informal speech the object form often replaces it: I don't like him smoking. The possessive is the careful choice in writing, and it removes the ambiguity of who is doing what.",
+     "use_fa": "چون اسم مصدر اسم است، انجام‌دهندهٔ آن می‌تواند با حالت مالکیت بیاید: I don't like his smoking، would you mind my opening the window، we were surprised by their leaving early. در گفتار غیررسمی شکل مفعولی جای آن را می‌گیرد: I don't like him smoking. حالت مالکیت در نوشتار انتخاب دقیق‌تر است و ابهام انجام‌دهنده را برمی‌دارد.",
+     "form_en": "possessive + gerund  ·  his / her / my / their / our + -ing",
      "examples": [
       {
-       "en": "Both my sister and my brother live abroad.",
-       "fa": "هم خواهرم و هم برادرم خارج از کشور زندگی می‌کنند."
+       "en": "I don't like his smoking in the kitchen.",
+       "fa": "دوست ندارم او در آشپزخانه سیگار بکشد."
       },
       {
-       "en": "She is not only clever but also kind.",
-       "fa": "او نه‌تنها باهوش است بلکه مهربان هم هست."
+       "en": "Would you mind my opening the window?",
+       "fa": "اشکالی ندارد اگر پنجره را باز کنم؟"
       },
       {
-       "en": "We can either walk or take a taxi.",
-       "fa": "می‌توانیم یا پیاده برویم یا تاکسی بگیریم."
+       "en": "We were surprised by their leaving early.",
+       "fa": "از رفتن زودهنگام آن‌ها غافلگیر شدیم."
       }
      ],
      "exercises": [
       {
-       "prompt": "Neither the manager ___ the staff were told.",
-       "answer": "nor",
-       "why_en": "Neither is finished by nor, never by or.",
-       "why_fa": "neither با nor کامل می‌شود، نه با or."
+       "prompt": "Would you mind ___ closing the door? (I)",
+       "answer": "my",
+       "why_en": "The doer of the gerund takes the possessive.",
+       "why_fa": "انجام‌دهندهٔ اسم مصدر حالت مالکیت می‌گیرد."
       },
       {
-       "prompt": "He is not only a teacher ___ a writer.",
-       "answer": "but also",
-       "why_en": "The pair is not only ... but also.",
-       "why_fa": "جفت درست not only ... but also است."
+       "prompt": "I was annoyed by ___ arriving late. (they)",
+       "answer": "their",
+       "why_en": "Their marks who did the arriving.",
+       "why_fa": "their نشان می‌دهد چه کسی رسید."
       },
       {
-       "prompt": "She likes ___ swimming and running. (first half)",
-       "answer": "both",
-       "why_en": "Both pairs with and, and both halves are -ing forms.",
-       "why_fa": "both با and می‌آید و دو نیمه هر دو ing- هستند."
+       "prompt": "She doesn't like ___ singing in the shower. (he)",
+       "answer": "his",
+       "why_en": "The possessive his comes before the gerund.",
+       "why_fa": "حالت مالکیت his پیش از اسم مصدر می‌آید."
       }
      ],
      "exam": [
       {
-       "q": "___ you apologize or you leave.",
+       "q": "I appreciate ___ helping me.",
        "options": [
-        "Both",
-        "Either",
-        "Neither"
+        "your",
+        "you",
+        "yours"
        ],
-       "answer": "Either",
-       "why_en": "Either ... or offers two options.",
-       "why_fa": "either … or دو گزینه پیش می‌گذارد."
+       "answer": "your",
+       "why_en": "The doer of the gerund takes the possessive.",
+       "why_fa": "انجام‌دهندهٔ اسم مصدر حالت مالکیت می‌گیرد."
       },
       {
-       "q": "The apartment is both small ___ comfortable.",
+       "q": "Would you mind ___ sitting here?",
        "options": [
-        "and",
-        "or",
-        "nor"
+        "my",
+        "me",
+        "mine"
        ],
-       "answer": "and",
-       "why_en": "Both is completed by and.",
-       "why_fa": "both با and کامل می‌شود."
+       "answer": "my",
+       "why_en": "Careful writing uses the possessive before the gerund.",
+       "why_fa": "نوشتار دقیق پیش از اسم مصدر حالت مالکیت می‌آورد."
       },
       {
-       "q": "Neither the food ___ the service was good.",
+       "q": "Which sentence is the careful written form?",
        "options": [
-        "or",
-        "nor",
-        "and"
+        "We objected to their smoking indoors.",
+        "We objected to them smoking indoors.",
+        "We objected to they smoking indoors."
        ],
-       "answer": "nor",
-       "why_en": "Neither ... nor is the pair.",
-       "why_fa": "جفتِ درست neither … nor است."
+       "answer": "We objected to their smoking indoors.",
+       "why_en": "The possessive is the formal choice.",
+       "why_fa": "حالت مالکیت انتخاب رسمی است."
       }
      ]
     },
     {
-     "n": 118,
+     "n": 137,
+     "title": "Parallel structure: matching forms in a list",
+     "title_fa": "ساختار موازی: هم‌شکل کردن اجزا در یک فهرست",
+     "chapter": "Chapter 16",
+     "section": "16-1",
+     "use_en": "Items joined by and, or or but must have the same grammatical shape. A list of activities stays a list of activities: she likes hiking, swimming and cycling, not she likes hiking, swimming and to cycle. The same rule holds inside a pair: the job requires patience and accuracy, not patience and being accurate. Read the sentence backwards from the conjunction to check that each item matches.",
+     "use_fa": "اجزایی که با and، or یا but به هم می‌پیوندند باید شکل دستوری یکسان داشته باشند. فهرست فعالیت‌ها فهرست فعالیت می‌ماند: she likes hiking, swimming and cycling و نه she likes hiking, swimming and to cycle. همین قاعده در یک جفت هم برقرار است: the job requires patience and accuracy و نه patience and being accurate. جمله را از حرف ربط به عقب بخوانید تا هم‌شکلی اجزا را بررسی کنید.",
+     "form_en": "word + word  ·  -ing + -ing + -ing  ·  clause + and + clause",
+     "examples": [
+      {
+       "en": "She likes hiking, swimming and cycling.",
+       "fa": "او کوه‌پیمایی، شنا و دوچرخه‌سواری را دوست دارد."
+      },
+      {
+       "en": "The job requires patience and accuracy.",
+       "fa": "این کار صبر و دقت می‌خواهد."
+      },
+      {
+       "en": "He opened the door, turned on the light and sat down.",
+       "fa": "در را باز کرد، چراغ را روشن کرد و نشست."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "She is intelligent, hard-working and ___ (patience).",
+       "answer": "patient",
+       "why_en": "An adjective list takes an adjective.",
+       "why_fa": "فهرست صفت، صفت می‌گیرد."
+      },
+      {
+       "prompt": "We spent the day swimming, reading and ___ . (relax)",
+       "answer": "relaxing",
+       "why_en": "The list of activities stays in the -ing form.",
+       "why_fa": "فهرست فعالیت‌ها در شکل ing- می‌ماند."
+      },
+      {
+       "prompt": "He wants to travel, to learn and ___ new people. (meet)",
+       "answer": "to meet",
+       "why_en": "The infinitives stay parallel.",
+       "why_fa": "مصدرها موازی می‌مانند."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which list is parallel?",
+       "options": [
+        "reading, writing and speaking",
+        "reading, writing and to speak",
+        "reading, to write and speaking"
+       ],
+       "answer": "reading, writing and speaking",
+       "why_en": "All three items are gerunds.",
+       "why_fa": "هر سه جزء اسم مصدرند."
+      },
+      {
+       "q": "The flat is small, quiet and ___.",
+       "options": [
+        "cheap",
+        "cheaply",
+        "cheapness"
+       ],
+       "answer": "cheap",
+       "why_en": "An adjective list needs adjectives.",
+       "why_fa": "فهرست صفت به صفت نیاز دارد."
+      },
+      {
+       "q": "She came in, sat down and ___ her bag.",
+       "options": [
+        "opened",
+        "opening",
+        "to open"
+       ],
+       "answer": "opened",
+       "why_en": "The past verbs stay parallel.",
+       "why_fa": "فعل‌های گذشته موازی می‌مانند."
+      }
+     ]
+    },
+    {
+     "n": 138,
+     "title": "Parallel structure with commas",
+     "title_fa": "ساختار موازی با ویرگول",
+     "chapter": "Chapter 16",
+     "section": "16-2",
+     "use_en": "A list of three or more parallel items takes a comma between each pair and a comma before the conjunction: we bought bread, cheese, and olives. The final comma is optional in British writing and usual in American writing, but it must be consistent within a document. Two items take no comma at all, and a comma between two items joined by and is a common error.",
+     "use_fa": "فهرست سه یا چند جزء موازی میان هر جفت ویرگول می‌گیرد و پیش از حرف ربط هم ویرگول: we bought bread, cheese, and olives. ویرگول آخر در نوشتار بریتانیایی اختیاری و در آمریکایی رایج است، اما باید در یک متن یکدست باشد. دو جزء هیچ ویرگولی نمی‌گیرند و ویرگول میان دو جزءِ پیوسته با and خطایی رایج است.",
+     "form_en": "item, item, and item  ·  item and item (no comma)",
+     "examples": [
+      {
+       "en": "We bought bread, cheese, and olives.",
+       "fa": "نان، پنیر و زیتون خریدیم."
+      },
+      {
+       "en": "The course covers grammar, writing, and listening.",
+       "fa": "دوره دستور زبان، نوشتار و شنیداری را در بر می‌گیرد."
+      },
+      {
+       "en": "She plays tennis and volleyball.",
+       "fa": "او تنیس و والیبال بازی می‌کند."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "We need milk ___ eggs and butter. (third item)",
+       "answer": "comma",
+       "why_en": "The item before the conjunction takes a comma.",
+       "why_fa": "جزء پیش از حرف ربط ویرگول می‌گیرد."
+      },
+      {
+       "prompt": "Two items joined by and take ___ comma.",
+       "answer": "no",
+       "why_en": "A pair needs no comma.",
+       "why_fa": "جفت ویرگول لازم ندارد."
+      },
+      {
+       "prompt": "She speaks French, Spanish ___ Italian. (list of three)",
+       "answer": "and",
+       "why_en": "The last item follows the conjunction.",
+       "why_fa": "جزء آخر پس از حرف ربط می‌آید."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence is punctuated correctly?",
+       "options": [
+        "He bought a pen, a notebook, and a ruler.",
+        "He bought a pen a notebook and a ruler.",
+        "He bought a pen, a notebook and, a ruler."
+       ],
+       "answer": "He bought a pen, a notebook, and a ruler.",
+       "why_en": "Commas separate the items and the conjunction closes the list.",
+       "why_fa": "ویرگول‌ها اجزا را جدا می‌کنند و حرف ربط فهرست را می‌بندد."
+      },
+      {
+       "q": "Two nouns joined by and need ___.",
+       "options": [
+        "no comma",
+        "one comma",
+        "two commas"
+       ],
+       "answer": "no comma",
+       "why_en": "A pair takes no comma.",
+       "why_fa": "جفت ویرگول نمی‌گیرد."
+      },
+      {
+       "q": "Which list keeps the items parallel?",
+       "options": [
+        "soup, salad, and bread",
+        "soup, salad, and some bread to eat",
+        "soup, a salad, and breads"
+       ],
+       "answer": "soup, salad, and bread",
+       "why_en": "Three nouns keep the list parallel.",
+       "why_fa": "سه اسم فهرست را موازی نگه می‌دارند."
+      }
+     ]
+    },
+    {
+     "n": 139,
+     "title": "Punctuation between independent clauses: and, but, so",
+     "title_fa": "نگارش میان جمله‌های مستقل: and، but، so",
+     "chapter": "Chapter 16",
+     "section": "16-3",
+     "use_en": "Two independent clauses joined by and, but, so, or, yet or for need a comma before the conjunction: I was tired, so I went to bed. Without the conjunction the same two clauses need a semicolon or a full stop; a comma alone is a comma splice and is an error. If one side cannot stand alone, no comma is needed: I went to bed because I was tired.",
+     "use_fa": "دو جملهٔ مستقل که با and، but، so، or، yet یا for به هم می‌پیوندند پیش از حرف ربط ویرگول می‌گیرند: I was tired, so I went to bed. بدون حرف ربط همان دو جمله نقطه‌ویرگول یا نقطه می‌خواهند و تنها ویرگول خطای «ویرگول چسبان» است. اگر یک طرف به‌تنهایی جمله نباشد ویرگول لازم نیست: I went to bed because I was tired.",
+     "form_en": "clause + , + and / but / so + clause  ·  clause; clause  ·  clause + . + Clause",
+     "examples": [
+      {
+       "en": "I was tired, so I went to bed.",
+       "fa": "خسته بودم، پس به رختخواب رفتم."
+      },
+      {
+       "en": "She studied hard, but she did not pass.",
+       "fa": "سخت درس خواند، اما قبول نشد."
+      },
+      {
+       "en": "The rain stopped; we went out.",
+       "fa": "باران بند آمد؛ بیرون رفتیم."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "It was late, ___ we called a taxi. (result)",
+       "answer": "so",
+       "why_en": "A result between two clauses takes so after the comma.",
+       "why_fa": "نتیجه میان دو جمله پس از ویرگول so می‌گیرد."
+      },
+      {
+       "prompt": "He wanted to come, ___ he had no time. (contrast)",
+       "answer": "but",
+       "why_en": "A contrast between clauses takes but.",
+       "why_fa": "تضاد میان دو جمله but می‌گیرد."
+      },
+      {
+       "prompt": "She opened the window; the room ___ cooler. (second clause)",
+       "answer": "became",
+       "why_en": "A semicolon joins two independent clauses.",
+       "why_fa": "نقطه‌ویرگول دو جملهٔ مستقل را به هم می‌پیوندد."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Which sentence is correct?",
+       "options": [
+        "We were late, so we took a taxi.",
+        "We were late, we took a taxi.",
+        "We were late so, we took a taxi."
+       ],
+       "answer": "We were late, so we took a taxi.",
+       "why_en": "Comma before so, then the second clause.",
+       "why_fa": "ویرگول پیش از so و سپس جملهٔ دوم."
+      },
+      {
+       "q": "A comma alone between two full clauses is called ___.",
+       "options": [
+        "a comma splice",
+        "a semicolon",
+        "a fragment"
+       ],
+       "answer": "a comma splice",
+       "why_en": "Two independent clauses need a conjunction or a semicolon.",
+       "why_fa": "دو جملهٔ مستقل حرف ربط یا نقطه‌ویرگول می‌خواهند."
+      },
+      {
+       "q": "Which needs no comma?",
+       "options": [
+        "I stayed home because it rained.",
+        "I stayed home, it rained.",
+        "It rained, I stayed home."
+       ],
+       "answer": "I stayed home because it rained.",
+       "why_en": "One side is dependent, so no comma separates them.",
+       "why_fa": "یک طرف وابسته است، پس ویرگولی جدا نمی‌کند."
+      }
+     ]
+    },
+    {
+     "n": 140,
+     "title": "Paired conjunctions: both ... and, not only ... but also",
+     "title_fa": "حروف ربط جفتی: both ... and، not only ... but also",
+     "chapter": "Chapter 16",
+     "section": "16-4",
+     "use_en": "Paired conjunctions join two items of the same kind: both the manager and the staff agreed, she not only sings but also writes songs, either we leave now or we miss the train, neither the food nor the service was good. The verb after either ... or and neither ... nor agrees with the nearer subject. What follows each half of the pair must be parallel.",
+     "use_fa": "حروف ربط جفتی دو جزء هم‌نوع را به هم می‌پیوندند: both the manager and the staff agreed، she not only sings but also writes songs، either we leave now or we miss the train، neither the food nor the service was good. فعل پس از either ... or و neither ... nor با فاعل نزدیک‌تر مطابقت می‌کند. آنچه پس از هر نیمهٔ جفت می‌آید باید موازی باشد.",
+     "form_en": "both A and B · not only A but also B · either A or B · neither A nor B",
+     "examples": [
+      {
+       "en": "Both the manager and the staff agreed.",
+       "fa": "هم مدیر و هم کارکنان موافقت کردند."
+      },
+      {
+       "en": "She not only sings but also writes songs.",
+       "fa": "او نه‌تنها می‌خواند بلکه ترانه هم می‌نویسد."
+      },
+      {
+       "en": "Neither the food nor the service was good.",
+       "fa": "نه غذا خوب بود نه خدمات."
+      }
+     ],
+     "exercises": [
+      {
+       "prompt": "___ my brother nor my sister speaks French. (paired negative)",
+       "answer": "Neither",
+       "why_en": "The pair neither ... nor joins two negatives.",
+       "why_fa": "جفت neither ... nor دو منفی را به هم می‌پیوندد."
+      },
+      {
+       "prompt": "You can ___ walk or take the bus. (paired choice)",
+       "answer": "either",
+       "why_en": "Either ... or offers a choice.",
+       "why_fa": "either ... or انتخاب را پیش می‌گذارد."
+      },
+      {
+       "prompt": "Both the teacher ___ the students were late. (paired affirmative)",
+       "answer": "and",
+       "why_en": "Both pairs with and.",
+       "why_fa": "both با and جفت می‌شود."
+      }
+     ],
+     "exam": [
+      {
+       "q": "Neither the players nor the coach ___ happy.",
+       "options": [
+        "was",
+        "were",
+        "be"
+       ],
+       "answer": "was",
+       "why_en": "The verb agrees with the nearer subject, the coach.",
+       "why_fa": "فعل با فاعل نزدیک‌تر، یعنی coach، مطابقت می‌کند."
+      },
+      {
+       "q": "He is not only clever ___ kind.",
+       "options": [
+        "but also",
+        "and also",
+        "or also"
+       ],
+       "answer": "but also",
+       "why_en": "The pair is not only ... but also.",
+       "why_fa": "جفت همان not only ... but also است."
+      },
+      {
+       "q": "Which sentence keeps the pair parallel?",
+       "options": [
+        "She enjoys both reading and writing.",
+        "She enjoys both reading and to write.",
+        "She enjoys both to read and writing."
+       ],
+       "answer": "She enjoys both reading and writing.",
+       "why_en": "Both halves of the pair take the same form.",
+       "why_fa": "دو نیمهٔ جفت شکل یکسان می‌گیرند."
+      }
+     ]
+    },
+    {
+     "n": 141,
      "title": "Adverb clauses: time, cause, contrast and condition",
      "title_fa": "جملات قیدی: زمان، علت، تضاد و شرط",
      "chapter": "Chapter 17",
@@ -26432,7 +28249,7 @@
      ]
     },
     {
-     "n": 119,
+     "n": 142,
      "title": "Reducing adverb clauses to modifying phrases",
      "title_fa": "کوتاه‌کردن جمله‌واره‌های قیدی به عبارت",
      "chapter": "Chapter 18",
@@ -26511,7 +28328,7 @@
      ]
     },
     {
-     "n": 120,
+     "n": 143,
      "title": "Connectives: because of, therefore, so that, otherwise",
      "title_fa": "حروف ربط: because of، therefore، so that، otherwise",
      "chapter": "Chapter 19",
@@ -26590,7 +28407,7 @@
      ]
     },
     {
-     "n": 121,
+     "n": 144,
      "title": "Conditionals and wishes",
      "title_fa": "جملات شرطی و آرزو",
      "chapter": "Chapter 20",
