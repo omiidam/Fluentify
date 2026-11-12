@@ -1,0 +1,81 @@
+# Fluentify Word Quest — the map and the puzzles.
+#
+# W|id|order|name_en|name_fa|emoji|CEFR|theme_en|theme_fa|blurb_en|blurb_fa
+# P|world|order|rack|required words|title_en|title_fa
+#
+# A rack is the letters the child gets. A required word must be spellable from
+# exactly those letters, and every other bank word that fits the rack becomes a
+# bonus word automatically, so a bonus word always has a real record behind it.
+#
+# tools/build_wordquest.py refuses the build if a required word cannot be spelled
+# from its rack, if a record is missing, or if a word is asked for twice in the
+# same puzzle. Nothing here is generated at runtime.
+
+W|garden|1|Alphabet Garden|باغ الفبا|🌱|Pre-A1|First words|نخستین واژه‌ها|Where every child starts: three letters, one small word, one big smile.|جایی که هر کودکی آغاز می‌کند: سه حرف، یک واژهٔ کوچک، یک لبخند بزرگ.
+W|village|2|Word Village|دهکدهٔ واژه‌ها|🏡|A1|Home and school|خانه و مدرسه|The village is full of things with names. Find them and the gate opens.|دهکده پر از چیزهایی است که نام دارند. پیدایشان کن تا در باز شود.
+W|forest|3|Animal Forest|جنگل حیوانات|🦊|A1|Animals and colours|حیوانات و رنگ‌ها|The fox knows every animal here. Walk quietly and listen.|روباه همهٔ حیوانات اینجا را می‌شناسد. آهسته راه برو و گوش کن.
+W|island|4|Treasure Island|جزیرهٔ گنج|🏝️|A2|Travel and discovery|سفر و کشف|A map, a boat and a chest. The words are the key.|یک نقشه، یک قایق و یک صندوق. واژه‌ها کلیدند.
+W|mountain|5|Adventure Mountain|کوه ماجراجویی|⛰️|A2–B1|Journeys and weather|سفرها و هوا|The path climbs. Every word you find makes the air a little clearer.|راه بالا می‌رود. هر واژه‌ای که می‌یابی هوا را روشن‌تر می‌کند.
+W|castle|6|Knowledge Castle|قلعهٔ دانش|🏰|B1–B2|Learning and courage|یادگیری و دلیری|The castle keeps its words in stone. Read them and the doors know your name.|قلعه واژه‌هایش را در سنگ نگه می‌دارد. بخوانشان تا درها نامت را بدانند.
+W|kingdom|7|Champion Kingdom|پادشاهی قهرمانان|👑|C1–C2|Precision and expression|دقت و بیان|The last gate asks for exact words, not just long ones. You are ready.|آخرین دروازه واژه‌های دقیق می‌خواهد، نه فقط بلند. آماده‌ای.
+
+P|garden|1|CATS|cat,sat,at|The Cat on the Mat|گربه روی حصیر
+P|garden|2|DOGS|dog,go,do|A Dog at the Gate|سگی دم در
+P|garden|3|POTS|pot,top,to|Pot on the Fire|قابلمه روی آتش
+P|garden|4|HATS|hat,sat,at|A Hat for the Sun|کلاهی برای آفتاب
+P|garden|5|MOON|moon,no,on|The Moon at Night|ماه در شب
+
+P|village|1|CUPS|cup,up,us|A Cup of Milk|یک فنجان شیر
+P|village|2|RUNS|run,sun,us|Run to the Sun|به سوی خورشید بدو
+P|village|3|HOUSE|house,she,he|Our Red House|خانهٔ قرمز ما
+P|village|4|GARDEN|garden,red,and|In the Garden|در باغ
+P|village|5|FROG|frog,fog,of|The Frog in the Fog|قورباغه در مه
+P|village|6|HAND|hand,and,an|Give Me Your Hand|دستت را به من بده
+P|village|7|THEN|then,the,ten|First This, Then That|اول این، سپس آن
+
+P|forest|1|RABBIT|rabbit,bat,it|A Rabbit and a Bat|خرگوش و خفاش
+P|forest|2|WINDOW|window,in,on|The Bird at the Window|پرنده کنار پنجره
+P|forest|3|ORANGE|orange,one,or|One Orange Fox|یک روباه نارنجی
+P|forest|4|PENCIL|pencil,pen,in|A Pencil and a Pen|مداد و خودکار
+P|forest|5|APPLES|apple,peas,as|Apples and Peas|سیب و نخود فرنگی
+P|forest|6|SING|sing,is,in|Sing with the Birds|با پرنده‌ها بخوان
+P|forest|7|DISHES|dish,she,his|His Fish on a Dish|ماهی او در ظرف
+P|forest|8|FISH|fish,his,is|A Fish in the Pond|ماهی در برکه
+
+P|island|1|ISLAND|island,and,is|A Small Island|جزیرهٔ کوچک
+P|island|2|JOURNEY|journey,one,run|One Long Journey|یک سفر طولانی
+P|island|3|DESCRIBE|describe,red,see|Describe the Sea|دریا را توصیف کن
+P|island|4|MESSAGE|message,me,see|A Message in a Bottle|پیامی در بطری
+P|island|5|MAKES|make,sea,same|A Sand Cake by the Sea|کیک شنی کنار دریا
+P|island|6|ANIMAL|animal,man,an|An Animal in the Trees|حیوانی میان درختان
+P|island|7|PLANET|planet,pan,ten|Ten Steps to the Planet|ده قدم تا سیاره
+P|island|8|PICTURE|picture,cut,it|Cut a Picture|تصویری ببُر
+P|island|9|KITCHEN|kitchen,the,ten|The Kitchen Lamp|چراغ آشپزخانه
+
+P|mountain|1|MOUNTAIN|mountain,man,mat|The Man on the Mountain|مردی روی کوه
+P|mountain|2|WEATHER|weather,water,tree|Weather on the Way|هوا در راه
+P|mountain|3|ADVENTURE|adventure,tree,red|A Real Adventure|ماجراجویی واقعی
+P|mountain|4|TREASURE|treasure,star,set|Set the Star|ستاره را بگذار
+P|mountain|5|LANTERN|lantern,ten,net|A Lantern in the Net|فانوسی در تور
+
+P|castle|1|HARVEST|harvest,star,the|The Harvest Star|ستارهٔ برداشت
+P|castle|2|CELEBRATE|celebrate,table,cat|Celebrate at the Table|کنار میز جشن بگیر
+P|castle|3|CHALLENGE|challenge,clean,can|A Clean Challenge|چالشی تمیز
+P|castle|4|CONFIDENT|confident,find,ten|Find Ten Words|ده واژه پیدا کن
+P|castle|5|DISCOVER|discover,red,or|Discover the Door|در را کشف کن
+P|castle|6|IMAGINE|imagine,man,in|Imagine a Castle|قلعه‌ای را تصور کن
+P|castle|7|WHISPER|whisper,she,he|Whisper the Word|واژه را نجوا کن
+P|castle|8|COURAGE|courage,car,go|Courage at the Gate|دلیری دم دروازه
+P|castle|9|PRACTICE|practice,car,cat|Practice Every Day|هر روز تمرین کن
+P|castle|10|WEEKEND|weekend,we,end|The Weekend Word|واژهٔ آخر هفته
+P|castle|11|IMPROVE|improve,me,or|Improve One Word|یک واژه بهتر کن
+P|castle|12|DELICIOUS|delicious,do,us|Delicious and Done|خوشمزه و تمام
+
+P|kingdom|1|INTRICATE|intricate,rain,cat|An Intricate Pattern|نقشی پیچیده
+P|kingdom|2|PROFOUND|profound,fun,run|A Profound Question|پرسشی ژرف
+P|kingdom|3|RESILIENT|resilient,listen,tree|A Resilient Tree|درختی تاب‌آور
+P|kingdom|4|ELOQUENT|eloquent,ten,one|An Eloquent Letter|نامه‌ای شیوا
+P|kingdom|5|VERSATILE|versatile,star,see|A Versatile Star|ستاره‌ای چندکاره
+P|kingdom|6|CURIOUS|curious,is,us|Stay Curious|کنجکاو بمان
+P|kingdom|7|BRILLIANT|brilliant,rain,ball|A Brilliant Answer|پاسخی درخشان
+P|kingdom|8|VIBRANT|vibrant,rain,bat|A Vibrant Garden|باغی شاداب

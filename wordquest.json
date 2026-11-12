@@ -1,0 +1,2889 @@
+{
+ "version": 1,
+ "title_en": "Fluentify Word Quest",
+ "title_fa": "جست‌وجوی واژه",
+ "tagline_en": "Find the hidden words, one letter at a time.",
+ "tagline_fa": "واژه‌های پنهان را پیدا کن، حرف به حرف.",
+ "levels": [
+  "Pre-A1",
+  "A1",
+  "A2",
+  "B1",
+  "B2",
+  "C1",
+  "C2"
+ ],
+ "worlds": [
+  {
+   "id": "garden",
+   "order": 1,
+   "name_en": "Alphabet Garden",
+   "name_fa": "باغ الفبا",
+   "emoji": "🌱",
+   "level": "Pre-A1",
+   "theme_en": "First words",
+   "theme_fa": "نخستین واژه‌ها",
+   "blurb_en": "Where every child starts: three letters, one small word, one big smile.",
+   "blurb_fa": "جایی که هر کودکی آغاز می‌کند: سه حرف، یک واژهٔ کوچک، یک لبخند بزرگ.",
+   "stages": [
+    {
+     "id": "garden-1",
+     "world": "garden",
+     "order": 1,
+     "title_en": "The Cat on the Mat",
+     "title_fa": "گربه روی حصیر",
+     "letters": [
+      "A",
+      "C",
+      "S",
+      "T"
+     ],
+     "rack": "CATS",
+     "level": "Pre-A1",
+     "required": [
+      "cat",
+      "sat",
+      "at"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "garden-2",
+     "world": "garden",
+     "order": 2,
+     "title_en": "A Dog at the Gate",
+     "title_fa": "سگی دم در",
+     "letters": [
+      "O",
+      "D",
+      "S",
+      "G"
+     ],
+     "rack": "DOGS",
+     "level": "Pre-A1",
+     "required": [
+      "dog",
+      "go",
+      "do"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "garden-3",
+     "world": "garden",
+     "order": 3,
+     "title_en": "Pot on the Fire",
+     "title_fa": "قابلمه روی آتش",
+     "letters": [
+      "O",
+      "T",
+      "S",
+      "P"
+     ],
+     "rack": "POTS",
+     "level": "Pre-A1",
+     "required": [
+      "pot",
+      "top",
+      "to"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "garden-4",
+     "world": "garden",
+     "order": 4,
+     "title_en": "A Hat for the Sun",
+     "title_fa": "کلاهی برای آفتاب",
+     "letters": [
+      "H",
+      "S",
+      "T",
+      "A"
+     ],
+     "rack": "HATS",
+     "level": "Pre-A1",
+     "required": [
+      "hat",
+      "sat",
+      "at"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "garden-5",
+     "world": "garden",
+     "order": 5,
+     "title_en": "The Moon at Night",
+     "title_fa": "ماه در شب",
+     "letters": [
+      "O",
+      "N",
+      "M",
+      "O"
+     ],
+     "rack": "MOON",
+     "level": "Pre-A1",
+     "required": [
+      "moon",
+      "no",
+      "on"
+     ],
+     "bonus": []
+    }
+   ]
+  },
+  {
+   "id": "village",
+   "order": 2,
+   "name_en": "Word Village",
+   "name_fa": "دهکدهٔ واژه‌ها",
+   "emoji": "🏡",
+   "level": "A1",
+   "theme_en": "Home and school",
+   "theme_fa": "خانه و مدرسه",
+   "blurb_en": "The village is full of things with names. Find them and the gate opens.",
+   "blurb_fa": "دهکده پر از چیزهایی است که نام دارند. پیدایشان کن تا در باز شود.",
+   "stages": [
+    {
+     "id": "village-1",
+     "world": "village",
+     "order": 1,
+     "title_en": "A Cup of Milk",
+     "title_fa": "یک فنجان شیر",
+     "letters": [
+      "P",
+      "S",
+      "C",
+      "U"
+     ],
+     "rack": "CUPS",
+     "level": "Pre-A1",
+     "required": [
+      "cup",
+      "up",
+      "us"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "village-2",
+     "world": "village",
+     "order": 2,
+     "title_en": "Run to the Sun",
+     "title_fa": "به سوی خورشید بدو",
+     "letters": [
+      "N",
+      "S",
+      "R",
+      "U"
+     ],
+     "rack": "RUNS",
+     "level": "Pre-A1",
+     "required": [
+      "run",
+      "sun",
+      "us"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "village-3",
+     "world": "village",
+     "order": 3,
+     "title_en": "Our Red House",
+     "title_fa": "خانهٔ قرمز ما",
+     "letters": [
+      "U",
+      "E",
+      "S",
+      "O",
+      "H"
+     ],
+     "rack": "HOUSE",
+     "level": "A1",
+     "required": [
+      "house",
+      "she",
+      "he"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "village-4",
+     "world": "village",
+     "order": 4,
+     "title_en": "In the Garden",
+     "title_fa": "در باغ",
+     "letters": [
+      "R",
+      "N",
+      "A",
+      "G",
+      "E",
+      "D"
+     ],
+     "rack": "GARDEN",
+     "level": "A1",
+     "required": [
+      "garden",
+      "red",
+      "and"
+     ],
+     "bonus": [
+      "end"
+     ]
+    },
+    {
+     "id": "village-5",
+     "world": "village",
+     "order": 5,
+     "title_en": "The Frog in the Fog",
+     "title_fa": "قورباغه در مه",
+     "letters": [
+      "G",
+      "R",
+      "F",
+      "O"
+     ],
+     "rack": "FROG",
+     "level": "Pre-A1",
+     "required": [
+      "frog",
+      "fog",
+      "of"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "village-6",
+     "world": "village",
+     "order": 6,
+     "title_en": "Give Me Your Hand",
+     "title_fa": "دستت را به من بده",
+     "letters": [
+      "N",
+      "H",
+      "A",
+      "D"
+     ],
+     "rack": "HAND",
+     "level": "Pre-A1",
+     "required": [
+      "hand",
+      "and",
+      "an"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "village-7",
+     "world": "village",
+     "order": 7,
+     "title_en": "First This, Then That",
+     "title_fa": "اول این، سپس آن",
+     "letters": [
+      "H",
+      "T",
+      "E",
+      "N"
+     ],
+     "rack": "THEN",
+     "level": "A1",
+     "required": [
+      "then",
+      "the",
+      "ten"
+     ],
+     "bonus": [
+      "hen",
+      "net"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "forest",
+   "order": 3,
+   "name_en": "Animal Forest",
+   "name_fa": "جنگل حیوانات",
+   "emoji": "🦊",
+   "level": "A1",
+   "theme_en": "Animals and colours",
+   "theme_fa": "حیوانات و رنگ‌ها",
+   "blurb_en": "The fox knows every animal here. Walk quietly and listen.",
+   "blurb_fa": "روباه همهٔ حیوانات اینجا را می‌شناسد. آهسته راه برو و گوش کن.",
+   "stages": [
+    {
+     "id": "forest-1",
+     "world": "forest",
+     "order": 1,
+     "title_en": "A Rabbit and a Bat",
+     "title_fa": "خرگوش و خفاش",
+     "letters": [
+      "A",
+      "I",
+      "B",
+      "R",
+      "B",
+      "T"
+     ],
+     "rack": "RABBIT",
+     "level": "A1",
+     "required": [
+      "rabbit",
+      "bat",
+      "it"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "forest-2",
+     "world": "forest",
+     "order": 2,
+     "title_en": "The Bird at the Window",
+     "title_fa": "پرنده کنار پنجره",
+     "letters": [
+      "W",
+      "O",
+      "D",
+      "W",
+      "N",
+      "I"
+     ],
+     "rack": "WINDOW",
+     "level": "A1",
+     "required": [
+      "window",
+      "in",
+      "on"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "forest-3",
+     "world": "forest",
+     "order": 3,
+     "title_en": "One Orange Fox",
+     "title_fa": "یک روباه نارنجی",
+     "letters": [
+      "A",
+      "R",
+      "G",
+      "E",
+      "N",
+      "O"
+     ],
+     "rack": "ORANGE",
+     "level": "A1",
+     "required": [
+      "orange",
+      "one",
+      "or"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "forest-4",
+     "world": "forest",
+     "order": 4,
+     "title_en": "A Pencil and a Pen",
+     "title_fa": "مداد و خودکار",
+     "letters": [
+      "C",
+      "E",
+      "L",
+      "N",
+      "P",
+      "I"
+     ],
+     "rack": "PENCIL",
+     "level": "A1",
+     "required": [
+      "pencil",
+      "pen",
+      "in"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "forest-5",
+     "world": "forest",
+     "order": 5,
+     "title_en": "Apples and Peas",
+     "title_fa": "سیب و نخود فرنگی",
+     "letters": [
+      "P",
+      "P",
+      "A",
+      "L",
+      "E",
+      "S"
+     ],
+     "rack": "APPLES",
+     "level": "A1",
+     "required": [
+      "apple",
+      "peas",
+      "as"
+     ],
+     "bonus": [
+      "sea",
+      "sale"
+     ]
+    },
+    {
+     "id": "forest-6",
+     "world": "forest",
+     "order": 6,
+     "title_en": "Sing with the Birds",
+     "title_fa": "با پرنده‌ها بخوان",
+     "letters": [
+      "I",
+      "S",
+      "N",
+      "G"
+     ],
+     "rack": "SING",
+     "level": "A1",
+     "required": [
+      "sing",
+      "is",
+      "in"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "forest-7",
+     "world": "forest",
+     "order": 7,
+     "title_en": "His Fish on a Dish",
+     "title_fa": "ماهی او در ظرف",
+     "letters": [
+      "H",
+      "S",
+      "S",
+      "D",
+      "I",
+      "E"
+     ],
+     "rack": "DISHES",
+     "level": "A1",
+     "required": [
+      "dish",
+      "she",
+      "his"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "forest-8",
+     "world": "forest",
+     "order": 8,
+     "title_en": "A Fish in the Pond",
+     "title_fa": "ماهی در برکه",
+     "letters": [
+      "F",
+      "H",
+      "S",
+      "I"
+     ],
+     "rack": "FISH",
+     "level": "Pre-A1",
+     "required": [
+      "fish",
+      "his",
+      "is"
+     ],
+     "bonus": []
+    }
+   ]
+  },
+  {
+   "id": "island",
+   "order": 4,
+   "name_en": "Treasure Island",
+   "name_fa": "جزیرهٔ گنج",
+   "emoji": "🏝️",
+   "level": "A2",
+   "theme_en": "Travel and discovery",
+   "theme_fa": "سفر و کشف",
+   "blurb_en": "A map, a boat and a chest. The words are the key.",
+   "blurb_fa": "یک نقشه، یک قایق و یک صندوق. واژه‌ها کلیدند.",
+   "stages": [
+    {
+     "id": "island-1",
+     "world": "island",
+     "order": 1,
+     "title_en": "A Small Island",
+     "title_fa": "جزیرهٔ کوچک",
+     "letters": [
+      "S",
+      "N",
+      "I",
+      "L",
+      "D",
+      "A"
+     ],
+     "rack": "ISLAND",
+     "level": "A2",
+     "required": [
+      "island",
+      "and",
+      "is"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "island-2",
+     "world": "island",
+     "order": 2,
+     "title_en": "One Long Journey",
+     "title_fa": "یک سفر طولانی",
+     "letters": [
+      "R",
+      "N",
+      "Y",
+      "E",
+      "O",
+      "J",
+      "U"
+     ],
+     "rack": "JOURNEY",
+     "level": "A2",
+     "required": [
+      "journey",
+      "one",
+      "run"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "island-3",
+     "world": "island",
+     "order": 3,
+     "title_en": "Describe the Sea",
+     "title_fa": "دریا را توصیف کن",
+     "letters": [
+      "D",
+      "C",
+      "S",
+      "R",
+      "E",
+      "E",
+      "I",
+      "B"
+     ],
+     "rack": "DESCRIBE",
+     "level": "A2",
+     "required": [
+      "describe",
+      "red",
+      "see"
+     ],
+     "bonus": [
+      "bed",
+      "bird"
+     ]
+    },
+    {
+     "id": "island-4",
+     "world": "island",
+     "order": 4,
+     "title_en": "A Message in a Bottle",
+     "title_fa": "پیامی در بطری",
+     "letters": [
+      "G",
+      "E",
+      "S",
+      "E",
+      "M",
+      "S",
+      "A"
+     ],
+     "rack": "MESSAGE",
+     "level": "A2",
+     "required": [
+      "message",
+      "me",
+      "see"
+     ],
+     "bonus": [
+      "sea",
+      "same"
+     ]
+    },
+    {
+     "id": "island-5",
+     "world": "island",
+     "order": 5,
+     "title_en": "A Sand Cake by the Sea",
+     "title_fa": "کیک شنی کنار دریا",
+     "letters": [
+      "A",
+      "S",
+      "M",
+      "K",
+      "E"
+     ],
+     "rack": "MAKES",
+     "level": "A1",
+     "required": [
+      "make",
+      "sea",
+      "same"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "island-6",
+     "world": "island",
+     "order": 6,
+     "title_en": "An Animal in the Trees",
+     "title_fa": "حیوانی میان درختان",
+     "letters": [
+      "I",
+      "A",
+      "A",
+      "L",
+      "M",
+      "N"
+     ],
+     "rack": "ANIMAL",
+     "level": "A2",
+     "required": [
+      "animal",
+      "man",
+      "an"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "island-7",
+     "world": "island",
+     "order": 7,
+     "title_en": "Ten Steps to the Planet",
+     "title_fa": "ده قدم تا سیاره",
+     "letters": [
+      "A",
+      "T",
+      "E",
+      "N",
+      "L",
+      "P"
+     ],
+     "rack": "PLANET",
+     "level": "A2",
+     "required": [
+      "planet",
+      "pan",
+      "ten"
+     ],
+     "bonus": [
+      "net",
+      "pen",
+      "tap"
+     ]
+    },
+    {
+     "id": "island-8",
+     "world": "island",
+     "order": 8,
+     "title_en": "Cut a Picture",
+     "title_fa": "تصویری ببُر",
+     "letters": [
+      "I",
+      "C",
+      "T",
+      "U",
+      "E",
+      "P",
+      "R"
+     ],
+     "rack": "PICTURE",
+     "level": "A2",
+     "required": [
+      "picture",
+      "cut",
+      "it"
+     ],
+     "bonus": [
+      "cup"
+     ]
+    },
+    {
+     "id": "island-9",
+     "world": "island",
+     "order": 9,
+     "title_en": "The Kitchen Lamp",
+     "title_fa": "چراغ آشپزخانه",
+     "letters": [
+      "C",
+      "H",
+      "T",
+      "E",
+      "K",
+      "N",
+      "I"
+     ],
+     "rack": "KITCHEN",
+     "level": "A2",
+     "required": [
+      "kitchen",
+      "the",
+      "ten"
+     ],
+     "bonus": [
+      "hen",
+      "hit",
+      "net",
+      "then"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mountain",
+   "order": 5,
+   "name_en": "Adventure Mountain",
+   "name_fa": "کوه ماجراجویی",
+   "emoji": "⛰️",
+   "level": "A2–B1",
+   "theme_en": "Journeys and weather",
+   "theme_fa": "سفرها و هوا",
+   "blurb_en": "The path climbs. Every word you find makes the air a little clearer.",
+   "blurb_fa": "راه بالا می‌رود. هر واژه‌ای که می‌یابی هوا را روشن‌تر می‌کند.",
+   "stages": [
+    {
+     "id": "mountain-1",
+     "world": "mountain",
+     "order": 1,
+     "title_en": "The Man on the Mountain",
+     "title_fa": "مردی روی کوه",
+     "letters": [
+      "O",
+      "A",
+      "N",
+      "U",
+      "T",
+      "I",
+      "M",
+      "N"
+     ],
+     "rack": "MOUNTAIN",
+     "level": "A2",
+     "required": [
+      "mountain",
+      "man",
+      "mat"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "mountain-2",
+     "world": "mountain",
+     "order": 2,
+     "title_en": "Weather on the Way",
+     "title_fa": "هوا در راه",
+     "letters": [
+      "H",
+      "T",
+      "E",
+      "W",
+      "A",
+      "R",
+      "E"
+     ],
+     "rack": "WEATHER",
+     "level": "A2",
+     "required": [
+      "weather",
+      "water",
+      "tree"
+     ],
+     "bonus": [
+      "hat",
+      "the"
+     ]
+    },
+    {
+     "id": "mountain-3",
+     "world": "mountain",
+     "order": 3,
+     "title_en": "A Real Adventure",
+     "title_fa": "ماجراجویی واقعی",
+     "letters": [
+      "N",
+      "U",
+      "V",
+      "D",
+      "A",
+      "E",
+      "R",
+      "E",
+      "T"
+     ],
+     "rack": "ADVENTURE",
+     "level": "B1",
+     "required": [
+      "adventure",
+      "tree",
+      "red"
+     ],
+     "bonus": [
+      "and",
+      "end",
+      "net",
+      "run",
+      "ten"
+     ]
+    },
+    {
+     "id": "mountain-4",
+     "world": "mountain",
+     "order": 4,
+     "title_en": "Set the Star",
+     "title_fa": "ستاره را بگذار",
+     "letters": [
+      "S",
+      "R",
+      "U",
+      "E",
+      "T",
+      "R",
+      "E",
+      "A"
+     ],
+     "rack": "TREASURE",
+     "level": "B1",
+     "required": [
+      "treasure",
+      "star",
+      "set"
+     ],
+     "bonus": [
+      "sat",
+      "sea",
+      "see",
+      "tree"
+     ]
+    },
+    {
+     "id": "mountain-5",
+     "world": "mountain",
+     "order": 5,
+     "title_en": "A Lantern in the Net",
+     "title_fa": "فانوسی در تور",
+     "letters": [
+      "T",
+      "N",
+      "R",
+      "N",
+      "A",
+      "L",
+      "E"
+     ],
+     "rack": "LANTERN",
+     "level": "B1",
+     "required": [
+      "lantern",
+      "ten",
+      "net"
+     ],
+     "bonus": []
+    }
+   ]
+  },
+  {
+   "id": "castle",
+   "order": 6,
+   "name_en": "Knowledge Castle",
+   "name_fa": "قلعهٔ دانش",
+   "emoji": "🏰",
+   "level": "B1–B2",
+   "theme_en": "Learning and courage",
+   "theme_fa": "یادگیری و دلیری",
+   "blurb_en": "The castle keeps its words in stone. Read them and the doors know your name.",
+   "blurb_fa": "قلعه واژه‌هایش را در سنگ نگه می‌دارد. بخوانشان تا درها نامت را بدانند.",
+   "stages": [
+    {
+     "id": "castle-1",
+     "world": "castle",
+     "order": 1,
+     "title_en": "The Harvest Star",
+     "title_fa": "ستارهٔ برداشت",
+     "letters": [
+      "V",
+      "H",
+      "E",
+      "S",
+      "A",
+      "R",
+      "T"
+     ],
+     "rack": "HARVEST",
+     "level": "B1",
+     "required": [
+      "harvest",
+      "star",
+      "the"
+     ],
+     "bonus": [
+      "hat",
+      "sat",
+      "sea",
+      "set",
+      "she"
+     ]
+    },
+    {
+     "id": "castle-2",
+     "world": "castle",
+     "order": 2,
+     "title_en": "Celebrate at the Table",
+     "title_fa": "کنار میز جشن بگیر",
+     "letters": [
+      "A",
+      "C",
+      "E",
+      "R",
+      "L",
+      "T",
+      "E",
+      "B",
+      "E"
+     ],
+     "rack": "CELEBRATE",
+     "level": "B1",
+     "required": [
+      "celebrate",
+      "table",
+      "cat"
+     ],
+     "bonus": [
+      "bat",
+      "car",
+      "tree"
+     ]
+    },
+    {
+     "id": "castle-3",
+     "world": "castle",
+     "order": 3,
+     "title_en": "A Clean Challenge",
+     "title_fa": "چالشی تمیز",
+     "letters": [
+      "C",
+      "A",
+      "N",
+      "G",
+      "L",
+      "E",
+      "E",
+      "H",
+      "L"
+     ],
+     "rack": "CHALLENGE",
+     "level": "B2",
+     "required": [
+      "challenge",
+      "clean",
+      "can"
+     ],
+     "bonus": [
+      "hen",
+      "leg",
+      "change"
+     ]
+    },
+    {
+     "id": "castle-4",
+     "world": "castle",
+     "order": 4,
+     "title_en": "Find Ten Words",
+     "title_fa": "ده واژه پیدا کن",
+     "letters": [
+      "F",
+      "I",
+      "T",
+      "D",
+      "C",
+      "N",
+      "E",
+      "O",
+      "N"
+     ],
+     "rack": "CONFIDENT",
+     "level": "B2",
+     "required": [
+      "confident",
+      "find",
+      "ten"
+     ],
+     "bonus": [
+      "end",
+      "net",
+      "one"
+     ]
+    },
+    {
+     "id": "castle-5",
+     "world": "castle",
+     "order": 5,
+     "title_en": "Discover the Door",
+     "title_fa": "در را کشف کن",
+     "letters": [
+      "I",
+      "V",
+      "R",
+      "D",
+      "S",
+      "E",
+      "O",
+      "C"
+     ],
+     "rack": "DISCOVER",
+     "level": "B1",
+     "required": [
+      "discover",
+      "red",
+      "or"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "castle-6",
+     "world": "castle",
+     "order": 6,
+     "title_en": "Imagine a Castle",
+     "title_fa": "قلعه‌ای را تصور کن",
+     "letters": [
+      "G",
+      "N",
+      "I",
+      "I",
+      "M",
+      "A",
+      "E"
+     ],
+     "rack": "IMAGINE",
+     "level": "B1",
+     "required": [
+      "imagine",
+      "man",
+      "in"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "castle-7",
+     "world": "castle",
+     "order": 7,
+     "title_en": "Whisper the Word",
+     "title_fa": "واژه را نجوا کن",
+     "letters": [
+      "E",
+      "W",
+      "H",
+      "R",
+      "S",
+      "P",
+      "I"
+     ],
+     "rack": "WHISPER",
+     "level": "B1",
+     "required": [
+      "whisper",
+      "she",
+      "he"
+     ],
+     "bonus": [
+      "his"
+     ]
+    },
+    {
+     "id": "castle-8",
+     "world": "castle",
+     "order": 8,
+     "title_en": "Courage at the Gate",
+     "title_fa": "دلیری دم دروازه",
+     "letters": [
+      "A",
+      "E",
+      "C",
+      "O",
+      "R",
+      "G",
+      "U"
+     ],
+     "rack": "COURAGE",
+     "level": "B1",
+     "required": [
+      "courage",
+      "car",
+      "go"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "castle-9",
+     "world": "castle",
+     "order": 9,
+     "title_en": "Practice Every Day",
+     "title_fa": "هر روز تمرین کن",
+     "letters": [
+      "R",
+      "E",
+      "P",
+      "T",
+      "C",
+      "A",
+      "I",
+      "C"
+     ],
+     "rack": "PRACTICE",
+     "level": "A2",
+     "required": [
+      "practice",
+      "car",
+      "cat"
+     ],
+     "bonus": [
+      "cap",
+      "tap"
+     ]
+    },
+    {
+     "id": "castle-10",
+     "world": "castle",
+     "order": 10,
+     "title_en": "The Weekend Word",
+     "title_fa": "واژهٔ آخر هفته",
+     "letters": [
+      "E",
+      "D",
+      "K",
+      "W",
+      "E",
+      "N",
+      "E"
+     ],
+     "rack": "WEEKEND",
+     "level": "A2",
+     "required": [
+      "weekend",
+      "we",
+      "end"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "castle-11",
+     "world": "castle",
+     "order": 11,
+     "title_en": "Improve One Word",
+     "title_fa": "یک واژه بهتر کن",
+     "letters": [
+      "M",
+      "O",
+      "P",
+      "I",
+      "R",
+      "V",
+      "E"
+     ],
+     "rack": "IMPROVE",
+     "level": "A2",
+     "required": [
+      "improve",
+      "me",
+      "or"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "castle-12",
+     "world": "castle",
+     "order": 12,
+     "title_en": "Delicious and Done",
+     "title_fa": "خوشمزه و تمام",
+     "letters": [
+      "I",
+      "L",
+      "U",
+      "D",
+      "I",
+      "S",
+      "E",
+      "O",
+      "C"
+     ],
+     "rack": "DELICIOUS",
+     "level": "A2",
+     "required": [
+      "delicious",
+      "do",
+      "us"
+     ],
+     "bonus": []
+    }
+   ]
+  },
+  {
+   "id": "kingdom",
+   "order": 7,
+   "name_en": "Champion Kingdom",
+   "name_fa": "پادشاهی قهرمانان",
+   "emoji": "👑",
+   "level": "C1–C2",
+   "theme_en": "Precision and expression",
+   "theme_fa": "دقت و بیان",
+   "blurb_en": "The last gate asks for exact words, not just long ones. You are ready.",
+   "blurb_fa": "آخرین دروازه واژه‌های دقیق می‌خواهد، نه فقط بلند. آماده‌ای.",
+   "stages": [
+    {
+     "id": "kingdom-1",
+     "world": "kingdom",
+     "order": 1,
+     "title_en": "An Intricate Pattern",
+     "title_fa": "نقشی پیچیده",
+     "letters": [
+      "E",
+      "N",
+      "A",
+      "T",
+      "I",
+      "T",
+      "C",
+      "I",
+      "R"
+     ],
+     "rack": "INTRICATE",
+     "level": "C1",
+     "required": [
+      "intricate",
+      "rain",
+      "cat"
+     ],
+     "bonus": [
+      "can",
+      "car",
+      "net",
+      "ten"
+     ]
+    },
+    {
+     "id": "kingdom-2",
+     "world": "kingdom",
+     "order": 2,
+     "title_en": "A Profound Question",
+     "title_fa": "پرسشی ژرف",
+     "letters": [
+      "O",
+      "U",
+      "P",
+      "R",
+      "F",
+      "O",
+      "D",
+      "N"
+     ],
+     "rack": "PROFOUND",
+     "level": "C1",
+     "required": [
+      "profound",
+      "fun",
+      "run"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "kingdom-3",
+     "world": "kingdom",
+     "order": 3,
+     "title_en": "A Resilient Tree",
+     "title_fa": "درختی تاب‌آور",
+     "letters": [
+      "I",
+      "N",
+      "E",
+      "R",
+      "T",
+      "S",
+      "E",
+      "L",
+      "I"
+     ],
+     "rack": "RESILIENT",
+     "level": "C2",
+     "required": [
+      "resilient",
+      "listen",
+      "tree"
+     ],
+     "bonus": [
+      "net",
+      "see",
+      "set",
+      "sit",
+      "ten"
+     ]
+    },
+    {
+     "id": "kingdom-4",
+     "world": "kingdom",
+     "order": 4,
+     "title_en": "An Eloquent Letter",
+     "title_fa": "نامه‌ای شیوا",
+     "letters": [
+      "U",
+      "T",
+      "O",
+      "N",
+      "L",
+      "E",
+      "Q",
+      "E"
+     ],
+     "rack": "ELOQUENT",
+     "level": "C2",
+     "required": [
+      "eloquent",
+      "ten",
+      "one"
+     ],
+     "bonus": [
+      "net"
+     ]
+    },
+    {
+     "id": "kingdom-5",
+     "world": "kingdom",
+     "order": 5,
+     "title_en": "A Versatile Star",
+     "title_fa": "ستاره‌ای چندکاره",
+     "letters": [
+      "V",
+      "A",
+      "E",
+      "L",
+      "I",
+      "E",
+      "T",
+      "S",
+      "R"
+     ],
+     "rack": "VERSATILE",
+     "level": "C1",
+     "required": [
+      "versatile",
+      "star",
+      "see"
+     ],
+     "bonus": [
+      "sat",
+      "sea",
+      "set",
+      "sit",
+      "sale",
+      "tree"
+     ]
+    },
+    {
+     "id": "kingdom-6",
+     "world": "kingdom",
+     "order": 6,
+     "title_en": "Stay Curious",
+     "title_fa": "کنجکاو بمان",
+     "letters": [
+      "U",
+      "S",
+      "O",
+      "I",
+      "C",
+      "R",
+      "U"
+     ],
+     "rack": "CURIOUS",
+     "level": "B1",
+     "required": [
+      "curious",
+      "is",
+      "us"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "kingdom-7",
+     "world": "kingdom",
+     "order": 7,
+     "title_en": "A Brilliant Answer",
+     "title_fa": "پاسخی درخشان",
+     "letters": [
+      "B",
+      "A",
+      "I",
+      "L",
+      "L",
+      "I",
+      "R",
+      "T",
+      "N"
+     ],
+     "rack": "BRILLIANT",
+     "level": "B1",
+     "required": [
+      "brilliant",
+      "rain",
+      "ball"
+     ],
+     "bonus": [
+      "bat"
+     ]
+    },
+    {
+     "id": "kingdom-8",
+     "world": "kingdom",
+     "order": 8,
+     "title_en": "A Vibrant Garden",
+     "title_fa": "باغی شاداب",
+     "letters": [
+      "T",
+      "I",
+      "R",
+      "N",
+      "V",
+      "B",
+      "A"
+     ],
+     "rack": "VIBRANT",
+     "level": "C1",
+     "required": [
+      "vibrant",
+      "rain",
+      "bat"
+     ],
+     "bonus": []
+    }
+   ]
+  }
+ ],
+ "words": {
+  "adventure": {
+   "spelling": "adventure",
+   "level": "B1",
+   "pos": "noun",
+   "fa": "ماجراجویی",
+   "def_en": "An exciting and sometimes difficult journey.",
+   "example_en": "Our trip to the caves was a real adventure.",
+   "example_fa": "سفر ما به غارها ماجراجویی واقعی بود.",
+   "picture": "🗺️",
+   "ipa": ""
+  },
+  "an": {
+   "spelling": "an",
+   "level": "Pre-A1",
+   "pos": "determiner",
+   "fa": "یک",
+   "def_en": "The word for one thing, before a vowel sound.",
+   "example_en": "I ate an apple.",
+   "example_fa": "یک سیب خوردم.",
+   "picture": "1️⃣",
+   "ipa": ""
+  },
+  "and": {
+   "spelling": "and",
+   "level": "Pre-A1",
+   "pos": "conjunction",
+   "fa": "و",
+   "def_en": "A word that joins two things.",
+   "example_en": "A cat and a dog.",
+   "example_fa": "یک گربه و یک سگ.",
+   "picture": "➕",
+   "ipa": ""
+  },
+  "animal": {
+   "spelling": "animal",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "حیوان",
+   "def_en": "A living thing that is not a plant or a person.",
+   "example_en": "The elephant is the biggest animal here.",
+   "example_fa": "فیل بزرگ‌ترین حیوان اینجاست.",
+   "picture": "🐘",
+   "ipa": ""
+  },
+  "apple": {
+   "spelling": "apple",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "سیب",
+   "def_en": "A round fruit that can be red or green.",
+   "example_en": "She eats an apple every day.",
+   "example_fa": "او هر روز یک سیب می‌خورد.",
+   "picture": "🍎",
+   "ipa": ""
+  },
+  "as": {
+   "spelling": "as",
+   "level": "Pre-A1",
+   "pos": "conjunction",
+   "fa": "چون، به‌اندازهٔ",
+   "def_en": "A little word that compares two things.",
+   "example_en": "It is as big as my hand.",
+   "example_fa": "به اندازهٔ دست من بزرگ است.",
+   "picture": "🟰",
+   "ipa": ""
+  },
+  "at": {
+   "spelling": "at",
+   "level": "Pre-A1",
+   "pos": "preposition",
+   "fa": "در، نزد",
+   "def_en": "A word that shows where something is.",
+   "example_en": "She is at the door.",
+   "example_fa": "او دم در است.",
+   "picture": "📍",
+   "ipa": ""
+  },
+  "ball": {
+   "spelling": "ball",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "توپ",
+   "def_en": "A round thing you throw or kick.",
+   "example_en": "Throw the ball to me.",
+   "example_fa": "توپ را به من بینداز.",
+   "picture": "⚽",
+   "ipa": ""
+  },
+  "bat": {
+   "spelling": "bat",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "چوب بازی",
+   "def_en": "A wooden stick used to hit a ball.",
+   "example_en": "He hit the ball with a bat.",
+   "example_fa": "او با چوب به توپ زد.",
+   "picture": "🏏",
+   "ipa": ""
+  },
+  "bed": {
+   "spelling": "bed",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "تخت",
+   "def_en": "The furniture you sleep on.",
+   "example_en": "My bed is soft and warm.",
+   "example_fa": "تخت من نرم و گرم است.",
+   "picture": "🛏️",
+   "ipa": ""
+  },
+  "bird": {
+   "spelling": "bird",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "پرنده",
+   "def_en": "An animal with wings and feathers that can fly.",
+   "example_en": "The bird sings in the morning.",
+   "example_fa": "پرنده صبح‌ها آواز می‌خواند.",
+   "picture": "🐦",
+   "ipa": ""
+  },
+  "brilliant": {
+   "spelling": "brilliant",
+   "level": "B1",
+   "pos": "adjective",
+   "fa": "درخشان، بسیار خوب",
+   "def_en": "Very clever, or very bright.",
+   "example_en": "That was a brilliant idea.",
+   "example_fa": "آن ایدهٔ درخشانی بود.",
+   "picture": "✨",
+   "ipa": ""
+  },
+  "can": {
+   "spelling": "can",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "توانستن",
+   "def_en": "A word that says you are able to do something.",
+   "example_en": "I can swim.",
+   "example_fa": "من می‌توانم شنا کنم.",
+   "picture": "💪",
+   "ipa": ""
+  },
+  "cap": {
+   "spelling": "cap",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "کلاه لبه‌دار",
+   "def_en": "A soft hat with a flat part at the front.",
+   "example_en": "He wears a cap to play football.",
+   "example_fa": "او برای فوتبال کلاه لبه‌دار می‌پوشد.",
+   "picture": "🧢",
+   "ipa": ""
+  },
+  "car": {
+   "spelling": "car",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "خودرو",
+   "def_en": "A vehicle with four wheels.",
+   "example_en": "Our car is blue.",
+   "example_fa": "خودروی ما آبی است.",
+   "picture": "🚗",
+   "ipa": ""
+  },
+  "cat": {
+   "spelling": "cat",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "گربه",
+   "def_en": "A small animal with soft fur that says meow.",
+   "example_en": "The cat is sleeping on the mat.",
+   "example_fa": "گربه روی حصیر خوابیده است.",
+   "picture": "🐱",
+   "ipa": ""
+  },
+  "celebrate": {
+   "spelling": "celebrate",
+   "level": "B1",
+   "pos": "verb",
+   "fa": "جشن گرفتن",
+   "def_en": "To do something special for a happy event.",
+   "example_en": "We celebrate her birthday on Friday.",
+   "example_fa": "جمعه تولدش را جشن می‌گیریم.",
+   "picture": "🎉",
+   "ipa": ""
+  },
+  "challenge": {
+   "spelling": "challenge",
+   "level": "B2",
+   "pos": "noun",
+   "fa": "چالش",
+   "def_en": "Something difficult that tests what you can do.",
+   "example_en": "The climbing wall was a real challenge.",
+   "example_fa": "دیوار صعود چالش واقعی بود.",
+   "picture": "🧗",
+   "ipa": ""
+  },
+  "change": {
+   "spelling": "change",
+   "level": "A2",
+   "pos": "verb",
+   "fa": "عوض کردن",
+   "def_en": "To make something different.",
+   "example_en": "The weather can change quickly here.",
+   "example_fa": "هوا اینجا می‌تواند سریع عوض شود.",
+   "picture": "🔄",
+   "ipa": ""
+  },
+  "clean": {
+   "spelling": "clean",
+   "level": "A2",
+   "pos": "adjective",
+   "fa": "تمیز",
+   "def_en": "Not dirty, with nothing left on it.",
+   "example_en": "The kitchen is clean now.",
+   "example_fa": "آشپزخانه حالا تمیز است.",
+   "picture": "🧼",
+   "ipa": ""
+  },
+  "confident": {
+   "spelling": "confident",
+   "level": "B2",
+   "pos": "adjective",
+   "fa": "با اعتماد به نفس",
+   "def_en": "Sure that you can do something.",
+   "example_en": "She felt confident before the test.",
+   "example_fa": "او پیش از آزمون با اعتماد به نفس بود.",
+   "picture": "😎",
+   "ipa": ""
+  },
+  "courage": {
+   "spelling": "courage",
+   "level": "B1",
+   "pos": "noun",
+   "fa": "دلیری",
+   "def_en": "Being brave when something frightens you.",
+   "example_en": "She had the courage to speak first.",
+   "example_fa": "او دلیری آن را داشت که اول صحبت کند.",
+   "picture": "🦁",
+   "ipa": ""
+  },
+  "cup": {
+   "spelling": "cup",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "فنجان",
+   "def_en": "A small container that you drink from.",
+   "example_en": "My cup is full of milk.",
+   "example_fa": "فنجان من پر از شیر است.",
+   "picture": "🥤",
+   "ipa": ""
+  },
+  "curious": {
+   "spelling": "curious",
+   "level": "B1",
+   "pos": "adjective",
+   "fa": "کنجکاو",
+   "def_en": "Wanting to know or learn something.",
+   "example_en": "The curious child asked many questions.",
+   "example_fa": "کودک کنجکاو پرسش‌های زیادی پرسید.",
+   "picture": "🔍",
+   "ipa": ""
+  },
+  "cut": {
+   "spelling": "cut",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "بریدن",
+   "def_en": "To divide something with a knife or scissors.",
+   "example_en": "Cut the paper in two.",
+   "example_fa": "کاغذ را دو نیم کن.",
+   "picture": "✂️",
+   "ipa": ""
+  },
+  "delicious": {
+   "spelling": "delicious",
+   "level": "A2",
+   "pos": "adjective",
+   "fa": "خوشمزه",
+   "def_en": "Tasting very good.",
+   "example_en": "The soup was delicious.",
+   "example_fa": "سوپ خوشمزه بود.",
+   "picture": "😋",
+   "ipa": ""
+  },
+  "describe": {
+   "spelling": "describe",
+   "level": "A2",
+   "pos": "verb",
+   "fa": "توصیف کردن",
+   "def_en": "To say what someone or something is like.",
+   "example_en": "Describe your favourite place.",
+   "example_fa": "جای مورد علاقه‌ات را توصیف کن.",
+   "picture": "🗣️",
+   "ipa": ""
+  },
+  "discover": {
+   "spelling": "discover",
+   "level": "B1",
+   "pos": "verb",
+   "fa": "کشف کردن",
+   "def_en": "To find something for the first time.",
+   "example_en": "We discovered a new path in the woods.",
+   "example_fa": "راه تازه‌ای در جنگل کشف کردیم.",
+   "picture": "🔎",
+   "ipa": ""
+  },
+  "dish": {
+   "spelling": "dish",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "ظرف، خوراک",
+   "def_en": "A plate that food is served on, or the food itself.",
+   "example_en": "Wash the dish, please.",
+   "example_fa": "لطفاً ظرف را بشور.",
+   "picture": "🍽️",
+   "ipa": ""
+  },
+  "do": {
+   "spelling": "do",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "انجام دادن",
+   "def_en": "To make something happen.",
+   "example_en": "Do your homework after dinner.",
+   "example_fa": "تکلیفت را بعد از شام انجام بده.",
+   "picture": "✅",
+   "ipa": ""
+  },
+  "dog": {
+   "spelling": "dog",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "سگ",
+   "def_en": "A friendly animal that barks and wags its tail.",
+   "example_en": "My dog runs to the door when I come home.",
+   "example_fa": "سگ من وقتی به خانه می‌رسم به سمت در می‌دود.",
+   "picture": "🐶",
+   "ipa": ""
+  },
+  "eloquent": {
+   "spelling": "eloquent",
+   "level": "C2",
+   "pos": "adjective",
+   "fa": "شیوا",
+   "def_en": "Speaking or writing in a clear, beautiful way.",
+   "example_en": "Her letter was short and eloquent.",
+   "example_fa": "نامهٔ او کوتاه و شیوا بود.",
+   "picture": "🕊️",
+   "ipa": ""
+  },
+  "end": {
+   "spelling": "end",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "پایان",
+   "def_en": "The last part of something.",
+   "example_en": "The end of the story is sad.",
+   "example_fa": "پایان داستان غم‌انگیز است.",
+   "picture": "🏁",
+   "ipa": ""
+  },
+  "find": {
+   "spelling": "find",
+   "level": "A2",
+   "pos": "verb",
+   "fa": "پیدا کردن",
+   "def_en": "To see something you were looking for.",
+   "example_en": "I cannot find my pencil.",
+   "example_fa": "مدادم را پیدا نمی‌کنم.",
+   "picture": "🔦",
+   "ipa": ""
+  },
+  "fish": {
+   "spelling": "fish",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "ماهی",
+   "def_en": "An animal that lives in water and swims.",
+   "example_en": "The fish swims around the bowl.",
+   "example_fa": "ماهی دور تنگ شنا می‌کند.",
+   "picture": "🐟",
+   "ipa": ""
+  },
+  "fog": {
+   "spelling": "fog",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "مه",
+   "def_en": "Cloud that is close to the ground.",
+   "example_en": "The fog hid the road.",
+   "example_fa": "مه جاده را پنهان کرد.",
+   "picture": "🌫️",
+   "ipa": ""
+  },
+  "frog": {
+   "spelling": "frog",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "قورباغه",
+   "def_en": "A small green animal that jumps and lives near water.",
+   "example_en": "The frog jumped into the pond.",
+   "example_fa": "قورباغه به برکه پرید.",
+   "picture": "🐸",
+   "ipa": ""
+  },
+  "fun": {
+   "spelling": "fun",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "سرگرمی",
+   "def_en": "The feeling of enjoying yourself; play that makes you smile.",
+   "example_en": "The game was fun.",
+   "example_fa": "بازی سرگرم‌کننده بود.",
+   "picture": "🎈",
+   "ipa": ""
+  },
+  "garden": {
+   "spelling": "garden",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "باغ",
+   "def_en": "The ground around a house where plants grow.",
+   "example_en": "Flowers grow in our garden.",
+   "example_fa": "در باغ ما گل می‌روید.",
+   "picture": "🌷",
+   "ipa": ""
+  },
+  "go": {
+   "spelling": "go",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "رفتن",
+   "def_en": "To move from one place to another.",
+   "example_en": "We go to school by bus.",
+   "example_fa": "با اتوبوس به مدرسه می‌رویم.",
+   "picture": "🚶",
+   "ipa": ""
+  },
+  "hand": {
+   "spelling": "hand",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "دست",
+   "def_en": "The part of your body at the end of your arm.",
+   "example_en": "Raise your hand if you know.",
+   "example_fa": "اگر می‌دانی دستت را بالا ببر.",
+   "picture": "✋",
+   "ipa": ""
+  },
+  "harvest": {
+   "spelling": "harvest",
+   "level": "B1",
+   "pos": "noun",
+   "fa": "برداشت، درو",
+   "def_en": "The time when crops are gathered.",
+   "example_en": "The harvest comes at the end of summer.",
+   "example_fa": "برداشت در پایان تابستان است.",
+   "picture": "🌾",
+   "ipa": ""
+  },
+  "hat": {
+   "spelling": "hat",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "کلاه",
+   "def_en": "Something you wear on your head.",
+   "example_en": "I wear a hat in summer.",
+   "example_fa": "تابستان کلاه می‌پوشم.",
+   "picture": "🎩",
+   "ipa": ""
+  },
+  "he": {
+   "spelling": "he",
+   "level": "Pre-A1",
+   "pos": "pronoun",
+   "fa": "او (مرد)",
+   "def_en": "The word for a man or a boy.",
+   "example_en": "He is my brother.",
+   "example_fa": "او برادر من است.",
+   "picture": "👦",
+   "ipa": ""
+  },
+  "hen": {
+   "spelling": "hen",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "مرغ",
+   "def_en": "A female chicken.",
+   "example_en": "The hen laid an egg.",
+   "example_fa": "مرغ تخم گذاشت.",
+   "picture": "🐔",
+   "ipa": ""
+  },
+  "his": {
+   "spelling": "his",
+   "level": "Pre-A1",
+   "pos": "determiner",
+   "fa": "مالِ او",
+   "def_en": "The word that shows something belongs to a boy or a man.",
+   "example_en": "This is his bag.",
+   "example_fa": "این کیف اوست.",
+   "picture": "👦",
+   "ipa": ""
+  },
+  "hit": {
+   "spelling": "hit",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "زدن",
+   "def_en": "To touch something hard and fast.",
+   "example_en": "Hit the ball with the bat.",
+   "example_fa": "با چوب به توپ بزن.",
+   "picture": "🥊",
+   "ipa": ""
+  },
+  "house": {
+   "spelling": "house",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "خانه",
+   "def_en": "A building where people live.",
+   "example_en": "Our house has a red door.",
+   "example_fa": "خانهٔ ما دری قرمز دارد.",
+   "picture": "🏠",
+   "ipa": ""
+  },
+  "imagine": {
+   "spelling": "imagine",
+   "level": "B1",
+   "pos": "verb",
+   "fa": "تصور کردن",
+   "def_en": "To make a picture in your mind.",
+   "example_en": "Imagine a castle in the clouds.",
+   "example_fa": "قلعه‌ای در ابرها را تصور کن.",
+   "picture": "💭",
+   "ipa": ""
+  },
+  "improve": {
+   "spelling": "improve",
+   "level": "A2",
+   "pos": "verb",
+   "fa": "بهتر کردن",
+   "def_en": "To become better at something.",
+   "example_en": "I read every day to improve my English.",
+   "example_fa": "هر روز می‌خوانم تا انگلیسی‌ام بهتر شود.",
+   "picture": "📈",
+   "ipa": ""
+  },
+  "in": {
+   "spelling": "in",
+   "level": "Pre-A1",
+   "pos": "preposition",
+   "fa": "در، داخل",
+   "def_en": "A word that shows something is inside.",
+   "example_en": "The cat is in the box.",
+   "example_fa": "گربه در جعبه است.",
+   "picture": "📥",
+   "ipa": ""
+  },
+  "intricate": {
+   "spelling": "intricate",
+   "level": "C1",
+   "pos": "adjective",
+   "fa": "پیچیده و ظریف",
+   "def_en": "Having many small parts arranged carefully.",
+   "example_en": "The box had an intricate pattern.",
+   "example_fa": "جعبه نقش و نگاری ظریف داشت.",
+   "picture": "🪡",
+   "ipa": ""
+  },
+  "is": {
+   "spelling": "is",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "است",
+   "def_en": "The form of be that goes with he, she or it.",
+   "example_en": "The sky is blue.",
+   "example_fa": "آسمان آبی است.",
+   "picture": "🟦",
+   "ipa": ""
+  },
+  "island": {
+   "spelling": "island",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "جزیره",
+   "def_en": "Land with water all around it.",
+   "example_en": "We sailed to a small island.",
+   "example_fa": "به جزیرهٔ کوچکی رفتیم.",
+   "picture": "🏝️",
+   "ipa": ""
+  },
+  "it": {
+   "spelling": "it",
+   "level": "Pre-A1",
+   "pos": "pronoun",
+   "fa": "آن",
+   "def_en": "The word for a thing you are talking about.",
+   "example_en": "It is on the table.",
+   "example_fa": "آن روی میز است.",
+   "picture": "👉",
+   "ipa": ""
+  },
+  "journey": {
+   "spelling": "journey",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "سفر",
+   "def_en": "The act of travelling from one place to another.",
+   "example_en": "The journey took three hours.",
+   "example_fa": "سفر سه ساعت طول کشید.",
+   "picture": "🧭",
+   "ipa": ""
+  },
+  "kitchen": {
+   "spelling": "kitchen",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "آشپزخانه",
+   "def_en": "The room where you cook food.",
+   "example_en": "Dad is cooking in the kitchen.",
+   "example_fa": "بابا در آشپزخانه غذا می‌پزد.",
+   "picture": "🍳",
+   "ipa": ""
+  },
+  "lantern": {
+   "spelling": "lantern",
+   "level": "B1",
+   "pos": "noun",
+   "fa": "فانوس",
+   "def_en": "A lamp you can carry.",
+   "example_en": "A lantern lit the path.",
+   "example_fa": "فانوسی راه را روشن کرد.",
+   "picture": "🏮",
+   "ipa": ""
+  },
+  "leg": {
+   "spelling": "leg",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "پا",
+   "def_en": "The part of your body you stand on.",
+   "example_en": "My leg hurts after the run.",
+   "example_fa": "بعد از دویدن پام درد می‌کند.",
+   "picture": "🦵",
+   "ipa": ""
+  },
+  "listen": {
+   "spelling": "listen",
+   "level": "A2",
+   "pos": "verb",
+   "fa": "گوش دادن",
+   "def_en": "To pay attention to a sound.",
+   "example_en": "Listen to the birds in the morning.",
+   "example_fa": "صبح‌ها به پرنده‌ها گوش کن.",
+   "picture": "👂",
+   "ipa": ""
+  },
+  "make": {
+   "spelling": "make",
+   "level": "A1",
+   "pos": "verb",
+   "fa": "ساختن، درست کردن",
+   "def_en": "To put things together until something new exists.",
+   "example_en": "Let's make a cake for her.",
+   "example_fa": "بیا برایش کیک درست کنیم.",
+   "picture": "🛠️",
+   "ipa": ""
+  },
+  "man": {
+   "spelling": "man",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "مرد",
+   "def_en": "A male person.",
+   "example_en": "The man is reading a book.",
+   "example_fa": "مردی دارد کتاب می‌خواند.",
+   "picture": "👨",
+   "ipa": ""
+  },
+  "mat": {
+   "spelling": "mat",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "حصیر",
+   "def_en": "A small flat piece of material on the floor.",
+   "example_en": "Wipe your shoes on the mat.",
+   "example_fa": "کفشت را روی حصیر پاک کن.",
+   "picture": "🟫",
+   "ipa": ""
+  },
+  "me": {
+   "spelling": "me",
+   "level": "Pre-A1",
+   "pos": "pronoun",
+   "fa": "مرا، به من",
+   "def_en": "The word for yourself after a verb.",
+   "example_en": "Give the book to me.",
+   "example_fa": "کتاب را به من بده.",
+   "picture": "🫵",
+   "ipa": ""
+  },
+  "message": {
+   "spelling": "message",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "پیام",
+   "def_en": "Words you send to someone.",
+   "example_en": "I sent a message to my teacher.",
+   "example_fa": "به معلمم پیام فرستادم.",
+   "picture": "💬",
+   "ipa": ""
+  },
+  "moon": {
+   "spelling": "moon",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "ماه",
+   "def_en": "The round light you see in the night sky.",
+   "example_en": "The moon is bright tonight.",
+   "example_fa": "امشب ماه روشن است.",
+   "picture": "🌙",
+   "ipa": ""
+  },
+  "mountain": {
+   "spelling": "mountain",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "کوه",
+   "def_en": "A very high hill with rock on it.",
+   "example_en": "Snow covers the mountain in winter.",
+   "example_fa": "زمستان برف کوه را می‌پوشاند.",
+   "picture": "⛰️",
+   "ipa": ""
+  },
+  "net": {
+   "spelling": "net",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "تور",
+   "def_en": "Cloth with holes in it that catches things.",
+   "example_en": "The ball went into the net.",
+   "example_fa": "توپ به تور رفت.",
+   "picture": "🥅",
+   "ipa": ""
+  },
+  "no": {
+   "spelling": "no",
+   "level": "Pre-A1",
+   "pos": "determiner",
+   "fa": "هیچ، نه",
+   "def_en": "The word that says something is not there.",
+   "example_en": "There is no milk left.",
+   "example_fa": "شیری باقی نمانده است.",
+   "picture": "🚫",
+   "ipa": ""
+  },
+  "of": {
+   "spelling": "of",
+   "level": "Pre-A1",
+   "pos": "preposition",
+   "fa": "از، مالِ",
+   "def_en": "A word that shows what something belongs to or is made of.",
+   "example_en": "A cup of milk, please.",
+   "example_fa": "یک فنجان شیر، لطفاً.",
+   "picture": "🔗",
+   "ipa": ""
+  },
+  "on": {
+   "spelling": "on",
+   "level": "Pre-A1",
+   "pos": "preposition",
+   "fa": "روی",
+   "def_en": "A word that shows something is on top.",
+   "example_en": "The cup is on the desk.",
+   "example_fa": "فنجان روی میز است.",
+   "picture": "⬆️",
+   "ipa": ""
+  },
+  "one": {
+   "spelling": "one",
+   "level": "Pre-A1",
+   "pos": "number",
+   "fa": "یک",
+   "def_en": "The first number.",
+   "example_en": "I have one red ball.",
+   "example_fa": "من یک توپ قرمز دارم.",
+   "picture": "1️⃣",
+   "ipa": ""
+  },
+  "or": {
+   "spelling": "or",
+   "level": "Pre-A1",
+   "pos": "conjunction",
+   "fa": "یا",
+   "def_en": "A word that gives a second choice.",
+   "example_en": "Do you want tea or milk?",
+   "example_fa": "چای می‌خواهی یا شیر؟",
+   "picture": "🔀",
+   "ipa": ""
+  },
+  "orange": {
+   "spelling": "orange",
+   "level": "A1",
+   "pos": "adjective",
+   "fa": "نارنجی",
+   "def_en": "The colour you get by mixing red and yellow.",
+   "example_en": "She has an orange scarf.",
+   "example_fa": "او شال نارنجی دارد.",
+   "picture": "🟠",
+   "ipa": ""
+  },
+  "pan": {
+   "spelling": "pan",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "ماهیتابه",
+   "def_en": "A flat container for cooking.",
+   "example_en": "Heat the oil in the pan.",
+   "example_fa": "روغن را در ماهیتابه گرم کن.",
+   "picture": "🍳",
+   "ipa": ""
+  },
+  "peas": {
+   "spelling": "peas",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "نخود فرنگی",
+   "def_en": "Small round green vegetables that grow in a pod.",
+   "example_en": "We had peas with dinner.",
+   "example_fa": "شام نخود فرنگی خوردیم.",
+   "picture": "🫛",
+   "ipa": ""
+  },
+  "pen": {
+   "spelling": "pen",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "خودکار",
+   "def_en": "A tool you write with that has ink inside.",
+   "example_en": "Write your name with a pen.",
+   "example_fa": "نامت را با خودکار بنویس.",
+   "picture": "🖊️",
+   "ipa": ""
+  },
+  "pencil": {
+   "spelling": "pencil",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "مداد",
+   "def_en": "A thin stick you write with.",
+   "example_en": "My pencil is yellow and sharp.",
+   "example_fa": "مداد من زرد و نوک‌تیز است.",
+   "picture": "✏️",
+   "ipa": ""
+  },
+  "picture": {
+   "spelling": "picture",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "تصویر",
+   "def_en": "A drawing or photo of something.",
+   "example_en": "She drew a picture of her cat.",
+   "example_fa": "او تصویری از گربه‌اش کشید.",
+   "picture": "🖼️",
+   "ipa": ""
+  },
+  "planet": {
+   "spelling": "planet",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "سیاره",
+   "def_en": "A big round world that moves around a star.",
+   "example_en": "Mars is a red planet.",
+   "example_fa": "مریخ سیاره‌ای سرخ است.",
+   "picture": "🪐",
+   "ipa": ""
+  },
+  "pot": {
+   "spelling": "pot",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "قابلمه",
+   "def_en": "A deep round container for cooking.",
+   "example_en": "The pot is on the fire.",
+   "example_fa": "قابلمه روی آتش است.",
+   "picture": "🍲",
+   "ipa": ""
+  },
+  "practice": {
+   "spelling": "practice",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "تمرین",
+   "def_en": "Doing something many times so you get better.",
+   "example_en": "Piano practice is at four.",
+   "example_fa": "تمرین پیانو ساعت چهار است.",
+   "picture": "🎼",
+   "ipa": ""
+  },
+  "profound": {
+   "spelling": "profound",
+   "level": "C1",
+   "pos": "adjective",
+   "fa": "ژرف",
+   "def_en": "Very deep, or very strong.",
+   "example_en": "Her question was profound.",
+   "example_fa": "پرسش او ژرف بود.",
+   "picture": "🌊",
+   "ipa": ""
+  },
+  "rabbit": {
+   "spelling": "rabbit",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "خرگوش",
+   "def_en": "A small animal with long ears that hops.",
+   "example_en": "The rabbit is eating a carrot.",
+   "example_fa": "خرگوش دارد هویج می‌خورد.",
+   "picture": "🐰",
+   "ipa": ""
+  },
+  "rain": {
+   "spelling": "rain",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "باران",
+   "def_en": "Water that falls from the sky.",
+   "example_en": "The rain is heavy today.",
+   "example_fa": "امروز باران شدید است.",
+   "picture": "🌧️",
+   "ipa": ""
+  },
+  "red": {
+   "spelling": "red",
+   "level": "Pre-A1",
+   "pos": "adjective",
+   "fa": "قرمز",
+   "def_en": "The colour of a tomato or a stop sign.",
+   "example_en": "I have a red ball.",
+   "example_fa": "یک توپ قرمز دارم.",
+   "picture": "🔴",
+   "ipa": ""
+  },
+  "resilient": {
+   "spelling": "resilient",
+   "level": "C2",
+   "pos": "adjective",
+   "fa": "تاب‌آور",
+   "def_en": "Able to recover quickly after something difficult.",
+   "example_en": "Children are often more resilient than adults.",
+   "example_fa": "کودکان اغلب از بزرگسالان تاب‌آورترند.",
+   "picture": "🌱",
+   "ipa": ""
+  },
+  "run": {
+   "spelling": "run",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "دویدن",
+   "def_en": "To move fast on your feet.",
+   "example_en": "I run to the gate every morning.",
+   "example_fa": "هر صبح به سمت در می‌دوم.",
+   "picture": "🏃",
+   "ipa": ""
+  },
+  "sale": {
+   "spelling": "sale",
+   "level": "B1",
+   "pos": "noun",
+   "fa": "حراج",
+   "def_en": "A time when a shop sells things at a lower price.",
+   "example_en": "The shoes were on sale.",
+   "example_fa": "کفش‌ها حراج بودند.",
+   "picture": "🏷️",
+   "ipa": ""
+  },
+  "same": {
+   "spelling": "same",
+   "level": "A1",
+   "pos": "adjective",
+   "fa": "یکسان",
+   "def_en": "Not different; exactly like the other one.",
+   "example_en": "We wear the same colour.",
+   "example_fa": "ما رنگ یکسانی می‌پوشیم.",
+   "picture": "🟰",
+   "ipa": ""
+  },
+  "sat": {
+   "spelling": "sat",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "نشست",
+   "def_en": "The past form of sit.",
+   "example_en": "She sat on the chair.",
+   "example_fa": "او روی صندلی نشست.",
+   "picture": "🪑",
+   "ipa": ""
+  },
+  "sea": {
+   "spelling": "sea",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "دریا",
+   "def_en": "The salt water that covers much of the earth.",
+   "example_en": "We swam in the sea all morning.",
+   "example_fa": "تمام صبح در دریا شنا کردیم.",
+   "picture": "🌊",
+   "ipa": ""
+  },
+  "see": {
+   "spelling": "see",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "دیدن",
+   "def_en": "To notice something with your eyes.",
+   "example_en": "I see a bird in the tree.",
+   "example_fa": "پرنده‌ای روی درخت می‌بینم.",
+   "picture": "👀",
+   "ipa": ""
+  },
+  "set": {
+   "spelling": "set",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "گذاشتن",
+   "def_en": "To put something down in a place.",
+   "example_en": "Set the cup on the table.",
+   "example_fa": "فنجان را روی میز بگذار.",
+   "picture": "🧩",
+   "ipa": ""
+  },
+  "she": {
+   "spelling": "she",
+   "level": "Pre-A1",
+   "pos": "pronoun",
+   "fa": "او (زن)",
+   "def_en": "The word for a woman or a girl.",
+   "example_en": "She reads every night.",
+   "example_fa": "او هر شب می‌خواند.",
+   "picture": "👧",
+   "ipa": ""
+  },
+  "sing": {
+   "spelling": "sing",
+   "level": "A1",
+   "pos": "verb",
+   "fa": "آواز خواندن",
+   "def_en": "To make music with your voice.",
+   "example_en": "We sing a song together.",
+   "example_fa": "ما با هم آواز می‌خوانیم.",
+   "picture": "🎤",
+   "ipa": ""
+  },
+  "sit": {
+   "spelling": "sit",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "نشستن",
+   "def_en": "To rest with your body on a chair or the floor.",
+   "example_en": "Please sit next to me.",
+   "example_fa": "لطفاً کنار من بنشین.",
+   "picture": "🪑",
+   "ipa": ""
+  },
+  "star": {
+   "spelling": "star",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "ستاره",
+   "def_en": "A small light that shines in the night sky.",
+   "example_en": "One star is shining over the hill.",
+   "example_fa": "یک ستاره بالای تپه می‌درخشد.",
+   "picture": "⭐",
+   "ipa": ""
+  },
+  "sun": {
+   "spelling": "sun",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "خورشید",
+   "def_en": "The bright light in the sky that gives us day.",
+   "example_en": "The sun is warm today.",
+   "example_fa": "امروز خورشید گرم است.",
+   "picture": "☀️",
+   "ipa": ""
+  },
+  "table": {
+   "spelling": "table",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "میز",
+   "def_en": "Furniture with a flat top and legs.",
+   "example_en": "Put the plates on the table.",
+   "example_fa": "بشقاب‌ها را روی میز بگذار.",
+   "picture": "🪑",
+   "ipa": ""
+  },
+  "tap": {
+   "spelling": "tap",
+   "level": "Pre-A1",
+   "pos": "verb",
+   "fa": "آرام زدن",
+   "def_en": "To touch something lightly and quickly.",
+   "example_en": "Tap the door before you open it.",
+   "example_fa": "پیش از باز کردن در آرام بزن.",
+   "picture": "👆",
+   "ipa": ""
+  },
+  "ten": {
+   "spelling": "ten",
+   "level": "Pre-A1",
+   "pos": "number",
+   "fa": "ده",
+   "def_en": "The number after nine.",
+   "example_en": "I have ten fingers.",
+   "example_fa": "من ده انگشت دارم.",
+   "picture": "🔟",
+   "ipa": ""
+  },
+  "the": {
+   "spelling": "the",
+   "level": "Pre-A1",
+   "pos": "determiner",
+   "fa": "حرف تعریف",
+   "def_en": "The word for something both people already know.",
+   "example_en": "The cat is on the bed.",
+   "example_fa": "گربه روی تخت است.",
+   "picture": "📌",
+   "ipa": ""
+  },
+  "then": {
+   "spelling": "then",
+   "level": "A1",
+   "pos": "adverb",
+   "fa": "سپس، بعد",
+   "def_en": "After that; at that time.",
+   "example_en": "We ate, then we walked home.",
+   "example_fa": "غذا خوردیم، سپس به خانه رفتیم.",
+   "picture": "⏭️",
+   "ipa": ""
+  },
+  "to": {
+   "spelling": "to",
+   "level": "Pre-A1",
+   "pos": "preposition",
+   "fa": "به، سوی",
+   "def_en": "A word that shows direction or a person.",
+   "example_en": "Give the pencil to me.",
+   "example_fa": "مداد را به من بده.",
+   "picture": "➡️",
+   "ipa": ""
+  },
+  "top": {
+   "spelling": "top",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "بالا، نوک",
+   "def_en": "The highest part of something.",
+   "example_en": "We reached the top of the hill.",
+   "example_fa": "به بالای تپه رسیدیم.",
+   "picture": "🔝",
+   "ipa": ""
+  },
+  "treasure": {
+   "spelling": "treasure",
+   "level": "B1",
+   "pos": "noun",
+   "fa": "گنج",
+   "def_en": "Valuable things that are hidden.",
+   "example_en": "The pirates buried their treasure here.",
+   "example_fa": "دزدان دریایی گنجشان را اینجا پنهان کردند.",
+   "picture": "💎",
+   "ipa": ""
+  },
+  "tree": {
+   "spelling": "tree",
+   "level": "Pre-A1",
+   "pos": "noun",
+   "fa": "درخت",
+   "def_en": "A tall plant with a trunk and leaves.",
+   "example_en": "A bird is sitting in the tree.",
+   "example_fa": "پرنده‌ای روی درخت نشسته است.",
+   "picture": "🌳",
+   "ipa": ""
+  },
+  "up": {
+   "spelling": "up",
+   "level": "Pre-A1",
+   "pos": "adverb",
+   "fa": "بالا",
+   "def_en": "A word that means towards a higher place.",
+   "example_en": "Look up at the sky.",
+   "example_fa": "به آسمان نگاه کن.",
+   "picture": "↗️",
+   "ipa": ""
+  },
+  "us": {
+   "spelling": "us",
+   "level": "Pre-A1",
+   "pos": "pronoun",
+   "fa": "ما را",
+   "def_en": "The word for we after a verb or preposition.",
+   "example_en": "Come with us.",
+   "example_fa": "با ما بیا.",
+   "picture": "👥",
+   "ipa": ""
+  },
+  "versatile": {
+   "spelling": "versatile",
+   "level": "C1",
+   "pos": "adjective",
+   "fa": "چندکاره",
+   "def_en": "Able to do many different things well.",
+   "example_en": "A good knife is versatile.",
+   "example_fa": "چاقوی خوب چندکاره است.",
+   "picture": "🧰",
+   "ipa": ""
+  },
+  "vibrant": {
+   "spelling": "vibrant",
+   "level": "C1",
+   "pos": "adjective",
+   "fa": "پرانرژی، شاداب",
+   "def_en": "Full of life, colour and energy.",
+   "example_en": "The market is vibrant on Saturdays.",
+   "example_fa": "بازار شنبه‌ها پرانرژی است.",
+   "picture": "🌈",
+   "ipa": ""
+  },
+  "water": {
+   "spelling": "water",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "آب",
+   "def_en": "The clear liquid that we drink.",
+   "example_en": "Drink some water after the game.",
+   "example_fa": "بعد از بازی کمی آب بنوش.",
+   "picture": "💧",
+   "ipa": ""
+  },
+  "we": {
+   "spelling": "we",
+   "level": "Pre-A1",
+   "pos": "pronoun",
+   "fa": "ما",
+   "def_en": "The word for yourself and others together.",
+   "example_en": "We play in the garden.",
+   "example_fa": "ما در باغ بازی می‌کنیم.",
+   "picture": "👨‍👩‍👧",
+   "ipa": ""
+  },
+  "weather": {
+   "spelling": "weather",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "هوا، وضع هوا",
+   "def_en": "What the sky and air are like outside.",
+   "example_en": "The weather is cold and windy.",
+   "example_fa": "هوا سرد و بادی است.",
+   "picture": "🌤️",
+   "ipa": ""
+  },
+  "weekend": {
+   "spelling": "weekend",
+   "level": "A2",
+   "pos": "noun",
+   "fa": "آخر هفته",
+   "def_en": "Saturday and Sunday.",
+   "example_en": "We visit grandma at the weekend.",
+   "example_fa": "آخر هفته به دیدن مادربزرگ می‌رویم.",
+   "picture": "📅",
+   "ipa": ""
+  },
+  "whisper": {
+   "spelling": "whisper",
+   "level": "B1",
+   "pos": "verb",
+   "fa": "نجوا کردن",
+   "def_en": "To speak very quietly.",
+   "example_en": "He whispered the answer to me.",
+   "example_fa": "او پاسخ را در گوشم نجوا کرد.",
+   "picture": "🤫",
+   "ipa": ""
+  },
+  "window": {
+   "spelling": "window",
+   "level": "A1",
+   "pos": "noun",
+   "fa": "پنجره",
+   "def_en": "The glass opening in a wall that lets light in.",
+   "example_en": "Open the window, please.",
+   "example_fa": "لطفاً پنجره را باز کن.",
+   "picture": "🪟",
+   "ipa": ""
+  }
+ },
+ "badges": [
+  {
+   "id": "world-garden",
+   "name_en": "Alphabet Garden cleared",
+   "name_fa": "باغ الفبا کامل شد",
+   "emoji": "🌱",
+   "kind": "world",
+   "world": "garden",
+   "need": 5
+  },
+  {
+   "id": "world-village",
+   "name_en": "Word Village cleared",
+   "name_fa": "دهکدهٔ واژه‌ها کامل شد",
+   "emoji": "🏡",
+   "kind": "world",
+   "world": "village",
+   "need": 7
+  },
+  {
+   "id": "world-forest",
+   "name_en": "Animal Forest cleared",
+   "name_fa": "جنگل حیوانات کامل شد",
+   "emoji": "🦊",
+   "kind": "world",
+   "world": "forest",
+   "need": 8
+  },
+  {
+   "id": "world-island",
+   "name_en": "Treasure Island cleared",
+   "name_fa": "جزیرهٔ گنج کامل شد",
+   "emoji": "🏝️",
+   "kind": "world",
+   "world": "island",
+   "need": 9
+  },
+  {
+   "id": "world-mountain",
+   "name_en": "Adventure Mountain cleared",
+   "name_fa": "کوه ماجراجویی کامل شد",
+   "emoji": "⛰️",
+   "kind": "world",
+   "world": "mountain",
+   "need": 5
+  },
+  {
+   "id": "world-castle",
+   "name_en": "Knowledge Castle cleared",
+   "name_fa": "قلعهٔ دانش کامل شد",
+   "emoji": "🏰",
+   "kind": "world",
+   "world": "castle",
+   "need": 12
+  },
+  {
+   "id": "world-kingdom",
+   "name_en": "Champion Kingdom cleared",
+   "name_fa": "پادشاهی قهرمانان کامل شد",
+   "emoji": "👑",
+   "kind": "world",
+   "world": "kingdom",
+   "need": 8
+  },
+  {
+   "id": "first-word",
+   "name_en": "First word found",
+   "name_fa": "نخستین واژه",
+   "emoji": "🌟",
+   "kind": "words",
+   "need": 1
+  },
+  {
+   "id": "ten-words",
+   "name_en": "Ten words",
+   "name_fa": "ده واژه",
+   "emoji": "📚",
+   "kind": "words",
+   "need": 10
+  },
+  {
+   "id": "fifty-words",
+   "name_en": "Fifty words",
+   "name_fa": "پنجاه واژه",
+   "emoji": "🧠",
+   "kind": "words",
+   "need": 50
+  },
+  {
+   "id": "every-word",
+   "name_en": "Every word in the world",
+   "name_fa": "همهٔ واژه‌ها",
+   "emoji": "🏆",
+   "kind": "all",
+   "need": 118
+  }
+ ],
+ "_meta": {
+  "source": [
+   "tools/wordquest_words*.txt",
+   "tools/wordquest_puzzles.txt"
+  ],
+  "word_count": 118,
+  "stage_count": 54,
+  "world_count": 7,
+  "stages_per_level": {
+   "Pre-A1": 10,
+   "A1": 11,
+   "A2": 14,
+   "B1": 11,
+   "B2": 2,
+   "C1": 4,
+   "C2": 2
+  },
+  "ipa_count": 0,
+  "unused_words": [],
+  "built_by": "tools/build_wordquest.py"
+ }
+}

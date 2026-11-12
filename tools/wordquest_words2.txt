@@ -1,0 +1,42 @@
+# Fluentify Word Quest — the short words.
+#
+# Same format as wordquest_words.txt. These are the words a five-letter rack can
+# actually spell: the CVC families the Alphabet Garden is built from, and the
+# little function words a child reads before anything else. Without them an
+# early rack would hold one word and the puzzle would be a spelling test.
+
+as|Pre-A1|conjunction|چون، به‌اندازهٔ|A little word that compares two things.|It is as big as my hand.|به اندازهٔ دست من بزرگ است.|🟰
+sat|Pre-A1|verb|نشست|The past form of sit.|She sat on the chair.|او روی صندلی نشست.|🪑
+sit|Pre-A1|verb|نشستن|To rest with your body on a chair or the floor.|Please sit next to me.|لطفاً کنار من بنشین.|🪑
+set|Pre-A1|verb|گذاشتن|To put something down in a place.|Set the cup on the table.|فنجان را روی میز بگذار.|🧩
+net|Pre-A1|noun|تور|Cloth with holes in it that catches things.|The ball went into the net.|توپ به تور رفت.|🥅
+ten|Pre-A1|number|ده|The number after nine.|I have ten fingers.|من ده انگشت دارم.|🔟
+pen|Pre-A1|noun|خودکار|A tool you write with that has ink inside.|Write your name with a pen.|نامت را با خودکار بنویس.|🖊️
+hen|Pre-A1|noun|مرغ|A female chicken.|The hen laid an egg.|مرغ تخم گذاشت.|🐔
+hit|Pre-A1|verb|زدن|To touch something hard and fast.|Hit the ball with the bat.|با چوب به توپ بزن.|🥊
+bat|Pre-A1|noun|چوب بازی|A wooden stick used to hit a ball.|He hit the ball with a bat.|او با چوب به توپ زد.|🏏
+fog|Pre-A1|noun|مه|Cloud that is close to the ground.|The fog hid the road.|مه جاده را پنهان کرد.|🌫️
+fun|Pre-A1|noun|سرگرمی|The feeling of enjoying yourself; play that makes you smile.|The game was fun.|بازی سرگرم‌کننده بود.|🎈
+run|Pre-A1|verb|دویدن|To move fast on your feet.|I run to the gate every morning.|هر صبح به سمت در می‌دوم.|🏃
+car|Pre-A1|noun|خودرو|A vehicle with four wheels.|Our car is blue.|خودروی ما آبی است.|🚗
+cap|Pre-A1|noun|کلاه لبه‌دار|A soft hat with a flat part at the front.|He wears a cap to play football.|او برای فوتبال کلاه لبه‌دار می‌پوشد.|🧢
+cut|Pre-A1|verb|بریدن|To divide something with a knife or scissors.|Cut the paper in two.|کاغذ را دو نیم کن.|✂️
+tap|Pre-A1|verb|آرام زدن|To touch something lightly and quickly.|Tap the door before you open it.|پیش از باز کردن در آرام بزن.|👆
+top|Pre-A1|noun|بالا، نوک|The highest part of something.|We reached the top of the hill.|به بالای تپه رسیدیم.|🔝
+pot|Pre-A1|noun|قابلمه|A deep round container for cooking.|The pot is on the fire.|قابلمه روی آتش است.|🍲
+pan|Pre-A1|noun|ماهیتابه|A flat container for cooking.|Heat the oil in the pan.|روغن را در ماهیتابه گرم کن.|🍳
+mat|Pre-A1|noun|حصیر|A small flat piece of material on the floor.|Wipe your shoes on the mat.|کفشت را روی حصیر پاک کن.|🟫
+man|Pre-A1|noun|مرد|A male person.|The man is reading a book.|مردی دارد کتاب می‌خواند.|👨
+do|Pre-A1|verb|انجام دادن|To make something happen.|Do your homework after dinner.|تکلیفت را بعد از شام انجام بده.|✅
+go|Pre-A1|verb|رفتن|To move from one place to another.|We go to school by bus.|با اتوبوس به مدرسه می‌رویم.|🚶
+to|Pre-A1|preposition|به، سوی|A word that shows direction or a person.|Give the pencil to me.|مداد را به من بده.|➡️
+of|Pre-A1|preposition|از، مالِ|A word that shows what something belongs to or is made of.|A cup of milk, please.|یک فنجان شیر، لطفاً.|🔗
+or|Pre-A1|conjunction|یا|A word that gives a second choice.|Do you want tea or milk?|چای می‌خواهی یا شیر؟|🔀
+we|Pre-A1|pronoun|ما|The word for yourself and others together.|We play in the garden.|ما در باغ بازی می‌کنیم.|👨‍👩‍👧
+he|Pre-A1|pronoun|او (مرد)|The word for a man or a boy.|He is my brother.|او برادر من است.|👦
+she|Pre-A1|pronoun|او (زن)|The word for a woman or a girl.|She reads every night.|او هر شب می‌خواند.|👧
+the|Pre-A1|determiner|حرف تعریف|The word for something both people already know.|The cat is on the bed.|گربه روی تخت است.|📌
+and|Pre-A1|conjunction|و|A word that joins two things.|A cat and a dog.|یک گربه و یک سگ.|➕
+see|Pre-A1|verb|دیدن|To notice something with your eyes.|I see a bird in the tree.|پرنده‌ای روی درخت می‌بینم.|👀
+can|Pre-A1|verb|توانستن|A word that says you are able to do something.|I can swim.|من می‌توانم شنا کنم.|💪
+one|Pre-A1|number|یک|The first number.|I have one red ball.|من یک توپ قرمز دارم.|1️⃣

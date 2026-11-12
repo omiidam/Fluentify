@@ -6750,12 +6750,173 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids #fpanel { --k-sec: var(--k-orange); }
   body.kids #hqpanel { --k-sec: var(--k-primary); }
 
+  /* ---- Word Quest: the letter puzzle ---------------------------------- */
+  /* The whole game is one panel of big targets: a rack of letters a thumb can
+     hit, one tray that shows the word being built, and a card behind every
+     word found. Nothing here is sized in pixels a child has to aim at, and
+     nothing moves unless the child moved it first. */
+  body.kids #wrqpanel h3 { font-size: 15px; letter-spacing: .01em; }
+  body.kids .wqwrap { display: flex; flex-direction: column; gap: 12px; padding-bottom: 10px; }
+  body.kids .wqbar { display: flex; align-items: center; gap: 10px; }
+  body.kids .wqback { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 14px;
+            border: 1px solid var(--k-line-strong); background: var(--surf-1);
+            color: var(--ink); font-size: 22px; line-height: 1; cursor: pointer; }
+  body.kids .wqback:hover { background: var(--k-sun-wash); }
+  body.kids .wqhead { display: flex; flex-direction: column; min-width: 0; }
+  body.kids .wqhead b { font-size: 18px; color: var(--k-primary-deep); }
+  body.kids .wqhead-fa { font-size: 12.5px; color: var(--ink-3); }
+  body.kids .wqfa { font-size: 12.5px; color: var(--ink-3); }
+  body.kids .wqintro { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); }
+  body.kids .wqpurse { display: flex; gap: 8px; }
+  body.kids .wqpurse-i { font-size: 12.5px; font-weight: 700; padding: 5px 10px; border-radius: 999px;
+               background: var(--k-sun-wash); border: 1px solid var(--k-sun-line); color: var(--k-sun-ink); }
+  body.kids .wqgo { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; width: 100%;
+          padding: 14px 16px; border-radius: 16px; border: 1px solid var(--k-primary-line);
+          background: var(--k-primary-wash); color: var(--k-primary-deep);
+          font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; text-align: left; }
+  body.kids .wqgo small { font-weight: 500; color: var(--ink-3); }
+  body.kids .wqgo-fa { font-size: 12px; color: var(--ink-3); }
+  body.kids .wqgo:hover { transform: translateY(-1px); }
+  body.kids .wqghost { align-self: flex-start; padding: 10px 14px; border-radius: 12px;
+             border: 1px solid var(--k-line-strong); background: var(--surf-1);
+             color: var(--ink); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  body.kids .wqworlds, body.kids .wqstages { display: flex; flex-direction: column; gap: 10px; }
+  body.kids .wqworld { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px;
+             border: 1px solid var(--k-line-strong); border-radius: 18px; background: var(--surf-1);
+             box-shadow: 0 1px 2px var(--k-shadow); }
+  body.kids .wqworld.locked { opacity: .62; }
+  body.kids .wqworld-top { display: flex; align-items: center; gap: 10px; }
+  body.kids .wqworld-emoji { font-size: 26px; }
+  body.kids .wqworld-names { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  body.kids .wqworld-names b { font-size: 15px; color: var(--ink); }
+  body.kids .wqworld-names small { font-size: 11.5px; color: var(--ink-3); }
+  body.kids .wqworld-fa { font-size: 12px; color: var(--ink-3); }
+  body.kids .wqbadge { color: var(--k-primary-dark); font-weight: 800; }
+  body.kids .wqlock { font-size: 14px; color: var(--ink-3); }
+  body.kids .wqblurb { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+  body.kids .wqopen { align-self: flex-start; padding: 10px 16px; border-radius: 12px;
+            border: 1px solid var(--k-primary-line); background: var(--k-primary-wash);
+            color: var(--k-primary-deep); font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+  body.kids .wqdone-tag { font-size: 12px; font-weight: 700; color: var(--k-primary-dark); }
+  body.kids .wqwhy { font-size: 11.5px; color: var(--ink-3); }
+  body.kids .wqstage { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 62px;
+             padding: 12px; border-radius: 16px; border: 1px solid var(--k-line-strong);
+             background: var(--surf-1); color: var(--ink); font: inherit; cursor: pointer;
+             text-align: left; }
+  body.kids .wqstage.locked { opacity: .55; cursor: not-allowed; }
+  body.kids .wqstage.done { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
+  body.kids .wqn { flex: 0 0 30px; height: 30px; display: grid; place-items: center; border-radius: 50%;
+         background: var(--k-sun-wash); border: 1px solid var(--k-sun-line);
+         color: var(--k-sun-ink); font-size: 12.5px; font-weight: 800; }
+  body.kids .wqstage-mid { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  body.kids .wqstage-mid b { font-size: 14.5px; }
+  body.kids .wqstage-mid small { font-size: 11px; color: var(--ink-3); }
+  body.kids .wqstage-fa { font-size: 12px; color: var(--ink-3); }
+  body.kids .wqstars { display: inline-flex; gap: 2px; color: var(--k-line-strong); font-size: 13px; }
+  body.kids .wqstars i.on { color: var(--k-sun); }
+  body.kids .wqbadges { display: flex; flex-wrap: wrap; gap: 6px; }
+  body.kids .wqbadge-i { font-size: 11.5px; padding: 5px 9px; border-radius: 999px; background: var(--surf-1);
+               border: 1px dashed var(--k-line-strong); color: var(--ink-3); }
+  body.kids .wqbadge-i.on { border-style: solid; background: var(--k-sun-wash); color: var(--k-sun-ink); font-weight: 700; }
+  body.kids .wqplay { gap: 10px; }
+  body.kids .wqobjective { margin: 0; font-size: 13px; font-weight: 600; color: var(--ink-3); }
+  body.kids .wqslots { display: flex; flex-direction: column; gap: 6px; }
+  body.kids .wqslot { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 4px 8px; border-radius: 12px; }
+  body.kids .wqslot.on { background: var(--k-primary-wash); }
+  body.kids .wqslot-letters { display: flex; gap: 4px; flex-wrap: wrap; }
+  body.kids .wqbox { width: 26px; height: 32px; display: grid; place-items: center; border-radius: 7px;
+           border: 1px solid var(--k-line-strong); background: var(--surf-1);
+           color: var(--ink); font-size: 15px; font-weight: 800; font-style: normal; }
+  body.kids .wqslot.on .wqbox { border-color: var(--k-primary-line); background: var(--k-primary-wash); color: var(--k-primary-deep); }
+  body.kids .wqbox.ghost { color: var(--k-primary-dark); opacity: .6; border-style: dashed; }
+  body.kids .wqslot-pic { font-size: 18px; }
+  body.kids .wqslot-fa { font-size: 12px; }
+  body.kids .wqtray { min-height: 46px; display: grid; place-items: center; border-radius: 14px;
+            background: var(--k-primary-wash); border: 1px solid var(--k-primary-line);
+            color: var(--k-primary-deep); font-size: 20px; font-weight: 800; letter-spacing: 3px; }
+  body.kids .wqtray.empty { color: var(--k-primary-dark); opacity: .45; letter-spacing: 6px; }
+  body.kids .wqtray.shake { animation: wqshake .42s ease; }
+  @keyframes wqshake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+  body.kids .wqrack { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 8px 0 2px; }
+  body.kids .wqletter { width: 58px; height: 62px; border-radius: 14px; border: 1px solid var(--k-primary-line);
+              background: var(--surf-1); color: var(--k-primary-deep); font-size: 24px; font-weight: 800;
+              cursor: pointer; box-shadow: 0 2px 0 var(--k-primary-line); touch-action: none;
+              transition: transform .12s ease, box-shadow .12s ease; }
+  body.kids .wqletter:hover { transform: translateY(-2px); }
+  body.kids .wqletter:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--k-primary-line); }
+  body.kids .wqletter.used { opacity: .25; box-shadow: none; transform: none; }
+  body.kids .wqletter:focus-visible, body.kids .wqctlbtn:focus-visible, body.kids .wqstage:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
+  body.kids .wqctl { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  body.kids .wqctlbtn { position: relative; min-width: 62px; min-height: 46px; border-radius: 12px;
+              border: 1px solid var(--k-line-strong); background: var(--surf-1);
+              color: var(--ink); font-size: 18px; cursor: pointer; }
+  body.kids .wqctlbtn.hint { background: var(--k-sun-wash); border-color: var(--k-sun-line); }
+  body.kids .wqhint-n { position: absolute; top: -5px; right: -5px; min-width: 17px; padding: 0 4px;
+              border-radius: 999px; background: var(--k-sun); color: var(--k-sun-ink);
+              font-size: 10.5px; font-weight: 800; }
+  body.kids .wqhint-n:empty { display: none; }
+  body.kids .wqmsg { margin: 0; min-height: 18px; font-size: 12.5px; line-height: 1.45; color: var(--ink-3); text-align: center; }
+  body.kids .wqbonus { display: flex; flex-direction: column; gap: 5px; }
+  body.kids .wqchips { display: flex; flex-wrap: wrap; gap: 5px; }
+  body.kids .wqchip { font: inherit; font-size: 11.5px; padding: 4px 9px; border-radius: 999px;
+            border: 1px solid var(--k-line-strong); background: var(--surf-1); color: var(--ink-3); }
+  body.kids .wqchip-bonus { cursor: pointer; background: var(--k-sun-wash); border-color: var(--k-sun-line); color: var(--k-sun-ink); font-weight: 700; }
+  body.kids .wqchip-got { background: var(--k-primary-wash); border-color: var(--k-primary-line); color: var(--k-primary-dark); font-weight: 700; }
+  body.kids .wqfinish { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px;
+              border-radius: 18px; background: var(--k-primary-wash); border: 1px solid var(--k-primary-line);
+              text-align: center; }
+  body.kids .wqfinish-pic { font-size: 34px; }
+  body.kids .wqfinish b { font-size: 16px; color: var(--k-primary-deep); }
+  body.kids .wqfinish small { font-size: 12px; line-height: 1.5; color: var(--ink-3); }
+  body.kids .wqfinish .wqgo { align-items: center; text-align: center; }
+  body.kids .wqmeta { font-size: 11px; color: var(--ink-3); text-align: center; }
+  body.kids .wqgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+  body.kids .wqcell { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 6px;
+            border-radius: 14px; border: 1px solid var(--k-line-strong); background: var(--surf-1);
+            font: inherit; cursor: pointer; }
+  body.kids .wqcell b { font-size: 13px; color: var(--ink); }
+  body.kids .wqcell-pic { font-size: 24px; }
+  body.kids .wqcell-fa { font-size: 11px; }
+  body.kids .wqcardsheet { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center;
+                 padding: 16px; background: var(--k-shadow); }
+  body.kids .wqcard { position: relative; width: min(420px, 100%); max-height: 86vh; overflow-y: auto;
+            display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: 20px;
+            background: var(--surf-1); border: 1px solid var(--k-line-strong);
+            box-shadow: 0 12px 30px var(--k-shadow); }
+  body.kids .wqcard .wqback { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; }
+  body.kids .wqcard-pic { font-size: 52px; text-align: center; }
+  body.kids .wqcard-title { display: flex; align-items: center; justify-content: center; gap: 8px; }
+  body.kids .wqcard-title b { font-size: 24px; color: var(--k-primary-deep); }
+  body.kids .wqsay { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--k-line-strong);
+           background: var(--surf-1); font-size: 15px; cursor: pointer; }
+  body.kids .wqcard-meta { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+  body.kids .wqcard-fa { text-align: center; font-size: 14px; font-weight: 700; color: var(--ink); }
+  body.kids .wqcard-def { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+  body.kids .wqcard-ex { display: flex; flex-direction: column; gap: 3px; padding-top: 8px; border-top: 1px dashed var(--k-line-strong); }
+  body.kids .wqcard-ex-en { margin: 0; display: flex; gap: 6px; align-items: flex-start; font-size: 13px; font-style: italic; color: var(--ink); }
+  body.kids .wqcard-ex-fa { font-size: 12.5px; }
+  body.kids .wqcard-note { margin: 0; font-size: 12px; font-weight: 700; color: var(--k-primary-dark); text-align: center; }
+  body.kids-young .wqletter { width: 62px; height: 66px; font-size: 26px; }
+  body.kids-young .wqbox { width: 29px; height: 35px; font-size: 17px; }
+  @media (max-width: 380px) {
+    body.kids .wqletter { width: 50px; height: 56px; font-size: 21px; }
+    body.kids .wqbox { width: 23px; height: 29px; font-size: 13px; }
+    body.kids .wqctlbtn { min-width: 54px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .wqletter, body.kids .wqgo, body.kids .wqopen { transition: none; }
+    body.kids .wqtray.shake { animation: none; }
+  }
   /* ---- the Kids home page --------------------------------------------- */
   body.kids #kpanel, body.kids #hqpanel { display: none; }
   body.kids #kpanel.open, body.kids #hqpanel.open { display: block; }
   body:not(.kids) #kpanel, body:not(.kids) #kidstoggle,
   body:not(.kids) #kidsmore { display: none !important; }
   body:not(.kids) #hqtoggle, body:not(.kids) #hqpanel { display: none !important; }
+  /* Word Quest is the second kids game: same rule, its own door */
+  body.kids #wrqpanel { --k-sec: var(--k-sun); display: none; }
+  body.kids #wrqpanel.open { display: block; }
+  body:not(.kids) #wrqtoggle, body:not(.kids) #wrqpanel { display: none !important; }
   /* A child's toolbar is seven big doors, not seventeen: the tools that need
      explaining wait behind More, one tap away and out of the first glance. */
   body.kids .tools:not(.moreopen) .kadv { display: none; }
@@ -8189,6 +8350,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <button class="hbtn tint-navy" id="hqtoggle" aria-expanded="false"
               title="Hero Quest — سفر قهرمان" aria-label="Hero Quest — the adventure game">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.2 9.6 4l4.8 2.2L19.8 4v13.8L14.4 20l-4.8-2.2L4.2 20Z"/><path d="M9.6 4v13.8M14.4 6.2V20"/></svg></i><span>Quest</span></button>
+      <button class="hbtn tint-mint" id="wrqtoggle" aria-expanded="false"
+              title="Word Quest — جست‌وجوی واژه" aria-label="Word Quest — the letter puzzle game">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.2" y="3.6" width="7.6" height="7.6" rx="2"/><rect x="13.2" y="12.8" width="7.6" height="7.6" rx="2"/><path d="M6.1 6.4 7.6 9.2 9.1 6.4M16.2 16.5h1.6M17 15v3"/></svg></i><span>Letters</span></button>
       <button class="hbtn tint-slate" id="kidsmore" aria-expanded="false" hidden
               title="More tools — ابزارهای بیشتر" aria-label="More tools">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></svg></i><span>More</span></button>
@@ -8238,6 +8402,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div id="hqpanel">
     <h3>Hero Quest — <bdi class="fa" lang="fa" dir="rtl">سفر قهرمان</bdi></h3>
     <div id="hqbody" aria-live="polite"></div>
+  </div>
+
+  <div id="wrqpanel">
+    <h3>Word Quest — <bdi class="fa" lang="fa" dir="rtl">جست‌وجوی واژه</bdi></h3>
+    <div id="wqbody" aria-live="polite"></div>
   </div>
 
   <div id="dpanel">
@@ -10200,6 +10369,8 @@ const Panels = (() => {
     kpanel: 'kidstoggle',
     // Hero Quest exists only for a child: same rule, its own panel
     hqpanel: 'hqtoggle',
+    // Word Quest is the second kids game, and has the same rule again
+    wrqpanel: 'wrqtoggle',
     lvlpanel: 'lvltoggle',
     // the weekly quiz has no tile: the landing-page card is its way in
     wqpanel: null,
@@ -17967,7 +18138,7 @@ const Kids = (() => {
   /* What the toolbar says in the kids app. The wording is the same idea as
      the adult label, shorter, because a child reads the icon first. */
   const LABELS = {
-    kidstoggle: 'Home', hqtoggle: 'Quest', vtoggle: 'Words',
+    kidstoggle: 'Home', hqtoggle: 'Quest', wrqtoggle: 'Letters', vtoggle: 'Words',
     gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
     actoggle: 'Me',
   };
@@ -17986,6 +18157,7 @@ const Kids = (() => {
     vpanel: ['Words', 'واژه‌ها', '🎨'], gpanel: ['Grammar', 'گرامر', '📘'],
     rdpanel: ['Reading', 'خواندن', '📖'], lpanel: ['Listening', 'شنیدن', '🎧'],
     hqpanel: ['Hero Quest', 'سفر قهرمان', '🗺️'],
+    wrqpanel: ['Word Quest', 'جست‌وجوی واژه', '🔤'],
     stpanel: ['Stories', 'داستان‌ها', '📚'], fpanel: ['Sentences', 'جمله‌ها', '💬'],
     kpanel: ['Home', 'خانه', '🏠'],
   };
@@ -19197,9 +19369,13 @@ const PANEL_ON_OPEN = {
   // the adventure reads heroquest.json and kids.json on first open, then
   // draws the map from the local progress; adults never reach this panel
   hqpanel: () => { if (Experience.kids()) Quest.open(); },
+  // the word game reads wordquest.json on first open and keeps its own progress;
+  // like the adventure, an adult never reaches it
+  wrqpanel: () => { if (Experience.kids()) WordQuest.open(); },
 };
 document.getElementById('kidstoggle').onclick = () => togglePanel('kpanel', 'kidstoggle');
 document.getElementById('hqtoggle').onclick = () => togglePanel('hqpanel', 'hqtoggle');
+document.getElementById('wrqtoggle').onclick = () => togglePanel('wrqpanel', 'wrqtoggle');
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
@@ -25486,6 +25662,861 @@ if (Kids.on()) Kids.load().then(() => renderStarters()).catch(() => {});
 Seed.load();
 input.focus();
 /* ==========================================================================
+ * Word Quest — the letter puzzle, for a child only
+ * ==========================================================================
+ *
+ * A rack of letters, a small set of words hidden in it, and a picture and a
+ * sentence behind every word found. It sits beside Hero Quest and shares its
+ * rules: this module is the only place that knows the game, it reads
+ * wordquest.json, it keeps its progress in localStorage under a hash of the
+ * account, and it refuses to open for an adult.
+ *
+ * The puzzles are authored in tools/wordquest_puzzles.txt and validated by
+ * tools/build_wordquest.py before the JSON exists, so nothing here invents a
+ * word or guesses at an answer. This module only decides what to show and what
+ * to remember: no dictionary lookup, no network, no scoring by speed.
+ *
+ * Every answer a puzzle accepts is in the JSON: `required` words finish the
+ * puzzle, `bonus` words are the other real words the same rack spells. A word
+ * that is in neither is wrong, and being wrong is gentle: the letters come
+ * back and the child tries again. Nothing is taken away and nothing is timed.
+ * ==========================================================================*/
+const WordQuest = (() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  const KEY = 'fluentify.wordquest.v1';
+  const LEVELS = ['Pre-A1', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const RANK = LEVELS.reduce((m, l, i) => { m[l] = i; return m; }, {});
+
+  let data = null, loading = null, failed = '';
+  let state = null;
+  let view = 'map';          // map | world | play | review
+  let openWorld = '';        // the world whose stages are on screen
+  let play = null;           // the puzzle in progress, in memory only
+  let card = null;           // the word card, when one is open
+  let note = '';             // the one-line message under the rack
+  let dragging = false;
+
+  const on = () => typeof Experience !== 'undefined' && Experience.kids();
+  const reduced = () => {
+    try {
+      if (document.body.classList.contains('reduce-motion')) return true;
+      return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    } catch (e) { return false; }
+  };
+
+  /* ------------------------------------------------------------ identity */
+  function accountKey() {
+    let who = 'guest';
+    try {
+      const acc = typeof Auth !== 'undefined' && Auth.profile ? Auth.profile() : null;
+      who = (acc && (acc.user || acc.email || acc.name)) || 'guest';
+    } catch (e) { who = 'guest'; }
+    let h = 2166136261;
+    for (let i = 0; i < who.length; i += 1) {
+      h ^= who.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(36);
+  }
+  const storeKey = () => KEY + '.' + accountKey();
+
+  function blank() {
+    return {v: 1, stages: {}, words: {}, last: ''};
+  }
+  function read() {
+    let raw = null;
+    try { raw = JSON.parse(localStorage.getItem(storeKey()) || 'null'); } catch (e) { raw = null; }
+    const st = raw && typeof raw === 'object' ? raw : {};
+    const out = blank();
+    out.last = typeof st.last === 'string' ? st.last.slice(0, 40) : '';
+    const stages = st.stages && typeof st.stages === 'object' ? st.stages : {};
+    Object.keys(stages).forEach((id) => {
+      const row = stages[id];
+      if (!row || typeof row !== 'object') return;
+      const stars = Math.max(1, Math.min(3, Number(row.stars) || 1));
+      const hints = Math.max(0, Math.min(99, Number(row.hints) || 0));
+      out.stages[id] = {stars, hints};
+    });
+    const words = st.words && typeof st.words === 'object' ? st.words : {};
+    Object.keys(words).forEach((w) => {
+      const n = Number(words[w]);
+      if (typeof w === 'string' && w.length < 24 && n > 0) out.words[w] = Math.min(999, Math.floor(n));
+    });
+    return out;
+  }
+  function save() {
+    try { localStorage.setItem(storeKey(), JSON.stringify(state)); } catch (e) { /* private */ }
+  }
+  const solved = (id) => !!(state && state.stages[id]);
+  const foundWords = () => Object.keys(state ? state.words : {});
+
+  /* ------------------------------------------------------------- loading */
+  function load() {
+    if (!loading) {
+      loading = loadJSON('wordquest').then((d) => {
+        data = d;
+        state = read();
+        return d;
+      }).catch((err) => {
+        failed = err && err.message ? err.message : 'the word quest could not be read';
+        throw err;
+      });
+    }
+    return loading;
+  }
+
+  /* ---------------------------------------------------------- progression */
+  /* A world opens when the one before it is finished, or when the child has
+     already been placed at a level that world teaches. Placement opens the
+     door; it never marks the work done, so the stages inside stay in order. */
+  function placement() {
+    let best = 0;
+    try {
+      const raw = localStorage.getItem('fluentify.level.v2.result');
+      const r = raw ? JSON.parse(raw) : null;
+      if (r && r.overall) {
+        const key = String(r.overall).toUpperCase();
+        if (Object.prototype.hasOwnProperty.call(RANK, key)) best = RANK[key];
+        if (key === 'PRE-A1' || key === 'PREA1') best = Math.max(best, 0);
+      }
+    } catch (e) { /* no level check yet */ }
+    try {
+      const raw = localStorage.getItem('fluentify.path.v1');
+      const p = raw ? JSON.parse(raw) : null;
+      const levels = (p && p.levels) || {};
+      LEVELS.forEach((name) => {
+        if (levels[name] && levels[name].passed) best = Math.max(best, RANK[name]);
+      });
+    } catch (e) { /* no path yet */ }
+    return best;
+  }
+  function worldById(id) {
+    return (data ? data.worlds : []).find((w) => w.id === id) || null;
+  }
+  function worldDone(world) {
+    return world.stages.every((s) => solved(s.id));
+  }
+  function worldUnlocked(world, index) {
+    if (index === 0) return true;
+    const before = data.worlds[index - 1];
+    if (worldDone(before)) return true;
+    /* the door opens for a child who is already working at this world's level;
+       a world is judged by the hardest thing in it, so being placed at A2 does
+       not open the castle that ends at B2 */
+    const hardest = world.stages.reduce((a, s) => Math.max(a, RANK[s.level]), 0);
+    return RANK[LEVELS[placement()]] >= hardest;
+  }
+  function stageIndex(world, stage) {
+    const i = world.stages.indexOf(stage);
+    return i < 0 ? 0 : i;
+  }
+  function stageUnlocked(world, stage, wi) {
+    if (!worldUnlocked(world, wi)) return false;
+    const i = stageIndex(world, stage);
+    if (i === 0) return true;
+    /* a stage at or below the child's own level is open without the ones
+       before it: an A2 reader is not walked back through "cat" and "hat" */
+    if (RANK[stage.level] <= RANK[LEVELS[placement()]]) return true;
+    return solved(world.stages[i - 1].id);
+  }
+  function nextStage() {
+    for (let wi = 0; wi < data.worlds.length; wi += 1) {
+      const world = data.worlds[wi];
+      if (!worldUnlocked(world, wi)) return null;
+      const open = world.stages.find((s) => !solved(s.id));
+      if (open) return {world, stage: open};
+    }
+    return null;
+  }
+  /* The next thing after this puzzle: the next unsolved stage in the same
+     world first, so finishing Island 9 does not send a child back to the
+     garden, and only then the first unsolved stage of a world that is open. */
+  function nextAfter(stage) {
+    const world = worldById(stage.world || '');
+    if (world) {
+      const i = world.stages.findIndex((s) => s.id === stage.id);
+      for (let n = i + 1; n < world.stages.length; n += 1) {
+        if (!solved(world.stages[n].id)) return {world, stage: world.stages[n]};
+      }
+      const gi = data.worlds.indexOf(world);
+      for (let wi = gi + 1; wi < data.worlds.length; wi += 1) {
+        const next = data.worlds[wi];
+        if (!worldUnlocked(next, wi)) break;
+        const open = next.stages.find((s) => !solved(s.id));
+        if (open) return {world: next, stage: open};
+      }
+    }
+    return nextStage();
+  }
+
+  function starsTotal() {
+    let n = 0;
+    Object.keys(state.stages).forEach((id) => { n += state.stages[id].stars; });
+    return n;
+  }
+  const coinTotal = () => foundWords().length * 5 + Object.keys(state.stages).length * 10;
+
+  function badges() {
+    if (!data) return [];
+    const words = foundWords().length;
+    const list = data.badges.map((b) => {
+      let got = false, have = 0;
+      if (b.kind === 'world') {
+        const world = worldById(b.world);
+        have = world ? world.stages.filter((s) => solved(s.id)).length : 0;
+        got = !!world && worldDone(world);
+      } else if (b.kind === 'words') {
+        have = words;
+        got = words >= b.need;
+      } else {
+        have = words;
+        got = words >= b.need;
+      }
+      return Object.assign({}, b, {got: got, have: have});
+    });
+    return list;
+  }
+
+  /* -------------------------------------------------------------- the dom */
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function faLine(text, cls) {
+    const e = el('span', cls || 'wqfa', text);
+    e.dir = 'rtl';
+    e.lang = 'fa';
+    return e;
+  }
+  function speakButton(text, label) {
+    const b = el('button', 'wqsay', '🔊');
+    b.type = 'button';
+    b.title = 'Hear it — بشنو';
+    b.setAttribute('aria-label', (label || 'Hear it') + ': ' + text);
+    b.onclick = () => {
+      if (typeof Speech !== 'undefined' && Speech.speak) Speech.speak(text);
+    };
+    return b;
+  }
+  function starsRow(n) {
+    const wrap = el('span', 'wqstars');
+    for (let i = 0; i < 3; i += 1) {
+      const st = el('i', i < n ? 'on' : '', '★');
+      st.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(st);
+    }
+    wrap.setAttribute('aria-label', n + ' of 3 stars');
+    return wrap;
+  }
+
+  /* ------------------------------------------------------------ the panel */
+  function head(title, fa, backTo) {
+    const bar = el('div', 'wqbar');
+    if (backTo) {
+      const back = el('button', 'wqback', '‹');
+      back.type = 'button';
+      back.setAttribute('aria-label', 'Back — بازگشت');
+      back.onclick = () => {
+        if (backTo === 'map') { view = 'map'; openWorld = ''; }
+        else { view = 'world'; }
+        play = null;
+        card = null;
+        render();
+      };
+      bar.appendChild(back);
+    }
+    const h = el('div', 'wqhead');
+    h.appendChild(el('b', '', title));
+    if (fa) h.appendChild(faLine(fa, 'wqhead-fa'));
+    bar.appendChild(h);
+    return bar;
+  }
+
+  function purse() {
+    const p = el('div', 'wqpurse');
+    const stars = el('span', 'wqpurse-i', '★ ' + starsTotal());
+    stars.title = 'Stars — ستاره‌ها';
+    const coins = el('span', 'wqpurse-i', '🪙 ' + coinTotal());
+    coins.title = 'Coins — سکه‌ها';
+    p.appendChild(stars);
+    p.appendChild(coins);
+    return p;
+  }
+
+  /* --------------------------------------------------------------- views */
+  function renderMap(body) {
+    const wrap = el('div', 'wqwrap');
+    wrap.appendChild(head('Word Quest', 'جست‌وجوی واژه'));
+    const intro = el('p', 'wqintro');
+    intro.textContent = data.tagline_en + ' ';
+    intro.appendChild(faLine(data.tagline_fa, 'wqfa'));
+    wrap.appendChild(intro);
+    wrap.appendChild(purse());
+
+    const up = nextStage();
+    if (up) {
+      const go = el('button', 'wqgo');
+      go.type = 'button';
+      const isNew = !state.stages[up.stage.id];
+      go.innerHTML = '';
+      go.appendChild(el('b', '', isNew ? 'Continue' : 'Keep going'));
+      go.appendChild(el('small', '', up.world.name_en + ' · ' + up.stage.title_en));
+      go.appendChild(faLine('ادامه بده', 'wqgo-fa'));
+      go.onclick = () => { openWorld = up.world.id; startStage(up.world, up.stage); };
+      wrap.appendChild(go);
+    }
+
+    const review = el('button', 'wqghost');
+    review.type = 'button';
+    review.textContent = '📚 My words (' + foundWords().length + ') — واژه‌های من';
+    review.onclick = () => { view = 'review'; render(); };
+    wrap.appendChild(review);
+
+    const list = el('div', 'wqworlds');
+    data.worlds.forEach((world, wi) => {
+      const open = worldUnlocked(world, wi);
+      const done = worldDone(world);
+      const cardEl = el('div', 'wqworld' + (open ? '' : ' locked'));
+      const top = el('div', 'wqworld-top');
+      top.appendChild(el('span', 'wqworld-emoji', world.emoji));
+      const names = el('div', 'wqworld-names');
+      names.appendChild(el('b', '', world.name_en));
+      names.appendChild(faLine(world.name_fa, 'wqworld-fa'));
+      names.appendChild(el('small', '', world.level + ' · ' + world.theme_en + ' · ' +
+        world.stages.filter((s) => solved(s.id)).length + '/' + world.stages.length));
+      top.appendChild(names);
+      if (done) top.appendChild(el('span', 'wqbadge', '✓'));
+      else if (!open) top.appendChild(el('span', 'wqlock', '🔒'));
+      cardEl.appendChild(top);
+      const blurb = el('p', 'wqblurb');
+      blurb.textContent = world.blurb_en;
+      cardEl.appendChild(blurb);
+      if (done) {
+        const tick = el('span', 'wqdone-tag', 'Cleared — کامل شد');
+        cardEl.appendChild(tick);
+      }
+      if (open) {
+        const btn = el('button', 'wqopen');
+        btn.type = 'button';
+        btn.textContent = done ? 'Replay — دوباره' : 'Open — باز کن';
+        btn.setAttribute('aria-label', (done ? 'Replay ' : 'Open ') + world.name_en);
+        btn.onclick = () => { openWorld = world.id; view = 'world'; render(); };
+        cardEl.appendChild(btn);
+      } else {
+        const why = el('small', 'wqwhy');
+        const before = data.worlds[wi - 1];
+        why.textContent = 'Finish ' + before.name_en + ' to open this — اول ' + before.name_fa + ' را کامل کن';
+        cardEl.appendChild(why);
+      }
+      list.appendChild(cardEl);
+    });
+    wrap.appendChild(list);
+    body.appendChild(wrap);
+  }
+
+  function renderWorld(body) {
+    const world = worldById(openWorld);
+    if (!world) { view = 'map'; renderMap(body); return; }
+    const wi = data.worlds.indexOf(world);
+    const wrap = el('div', 'wqwrap');
+    wrap.appendChild(head(world.name_en, world.name_fa, 'map'));
+    const sub = el('p', 'wqintro');
+    sub.textContent = world.level + ' — ' + world.blurb_en + ' ';
+    sub.appendChild(faLine(world.blurb_fa, 'wqfa'));
+    wrap.appendChild(sub);
+    wrap.appendChild(purse());
+
+    const list = el('div', 'wqstages');
+    world.stages.forEach((stage, i) => {
+      const open = stageUnlocked(world, stage, wi);
+      const did = state.stages[stage.id];
+      const row = el('button', 'wqstage' + (open ? '' : ' locked') + (did ? ' done' : ''));
+      row.type = 'button';
+      row.disabled = !open;
+      const n = el('span', 'wqn', String(i + 1));
+      row.appendChild(n);
+      const mid = el('span', 'wqstage-mid');
+      mid.appendChild(el('b', '', stage.title_en));
+      mid.appendChild(faLine(stage.title_fa, 'wqstage-fa'));
+      mid.appendChild(el('small', '', stage.level + ' · ' + stage.letters.length + ' letters · ' +
+        stage.required.length + ' words'));
+      row.appendChild(mid);
+      row.appendChild(did ? starsRow(did.stars) : el('span', 'wqlock', open ? '▸' : '🔒'));
+      row.setAttribute('aria-label', (open ? 'Play ' : 'Locked: ') + stage.title_en +
+        (did ? ', ' + did.stars + ' stars' : ''));
+      if (open) row.onclick = () => startStage(world, stage);
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+
+    const badgesList = badges().filter((b) => b.kind === 'world' && b.world === world.id);
+    if (badgesList.length) {
+      const box = el('div', 'wqbadges');
+      badgesList.forEach((b) => {
+        const line = el('span', 'wqbadge-i' + (b.got ? ' on' : ''), b.emoji + ' ' + b.name_en +
+          ' · ' + b.have + '/' + b.need);
+        box.appendChild(line);
+      });
+      wrap.appendChild(box);
+    }
+    body.appendChild(wrap);
+  }
+
+  function renderReview(body) {
+    const wrap = el('div', 'wqwrap');
+    wrap.appendChild(head('My words', 'واژه‌های من', 'map'));
+    const words = foundWords().sort((a, b) => (state.words[b] - state.words[a]) || a.localeCompare(b));
+    if (!words.length) {
+      const empty = el('p', 'wqintro');
+      empty.textContent = 'No words yet. Open a stage and find your first one. ';
+      empty.appendChild(faLine('هنوز واژه‌ای نیست.', 'wqfa'));
+      wrap.appendChild(empty);
+    } else {
+      const grid = el('div', 'wqgrid');
+      words.forEach((w) => {
+        const record = data.words[w];
+        if (!record) return;
+        const cell = el('button', 'wqcell');
+        cell.type = 'button';
+        cell.appendChild(el('span', 'wqcell-pic', record.picture));
+        cell.appendChild(el('b', '', record.spelling));
+        cell.appendChild(faLine(record.fa, 'wqcell-fa'));
+        cell.setAttribute('aria-label', record.spelling + ': ' + record.def_en);
+        cell.onclick = () => { card = w; render(); };
+        grid.appendChild(cell);
+      });
+      wrap.appendChild(grid);
+    }
+    body.appendChild(wrap);
+  }
+
+  /* -------------------------------------------------------------- the play */
+  function startStage(world, stage) {
+    const letters = stage.letters.map((ch) => ({ch: ch, used: false}));
+    play = {
+      worldId: world.id,
+      stage: stage,
+      letters: letters,
+      typed: [],
+      found: [],
+      bonusFound: [],
+      reveals: {},
+      hints: 0,
+      done: false,
+      wrong: 0,
+    };
+    card = null;
+    note = '';
+    view = 'play';
+    state.last = stage.id;
+    save();
+    render();
+  }
+
+  const wordOf = (indices) => indices.map((i) => play.letters[i].ch).join('').toLowerCase();
+  const typedWord = () => wordOf(play.typed);
+  const pendingRequired = () => play.stage.required.filter((w) => play.found.indexOf(w) < 0);
+
+  function hintTarget() {
+    const pending = pendingRequired();
+    if (!pending.length) return null;
+    return pending.slice().sort((a, b) => (a.length - b.length) || a.localeCompare(b))[0];
+  }
+
+  function pickLetter(index) {
+    if (!play || play.done) return;
+    const letter = play.letters[index];
+    if (!letter || letter.used) return;
+    letter.used = true;
+    play.typed.push(index);
+    check();
+  }
+  function undo() {
+    if (!play || !play.typed.length) return;
+    const i = play.typed.pop();
+    play.letters[i].used = false;
+    note = '';
+    render();
+  }
+  function clearTyped() {
+    if (!play) return;
+    play.typed.forEach((i) => { play.letters[i].used = false; });
+    play.typed = [];
+    note = '';
+    render();
+  }
+  function shuffle() {
+    if (!play) return;
+    const pool = play.letters.map((l, i) => i).filter((i) => !play.letters[i].used);
+    for (let i = pool.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const a = pool[i], b = pool[j];
+      const tmp = play.letters[a];
+      play.letters[a] = play.letters[b];
+      play.letters[b] = tmp;
+    }
+    play.typed = [];
+    note = '';
+    render();
+  }
+
+  function remember(word) {
+    const before = state.words[word] || 0;
+    state.words[word] = before + 1;
+    return before === 0;      // true the first time this child meets the word
+  }
+
+  function check() {
+    if (!play) return;
+    const word = typedWord();
+    const stage = play.stage;
+    if (!word) { render(); return; }
+
+    if (stage.required.indexOf(word) >= 0) {
+      if (play.found.indexOf(word) >= 0) { note = 'You already found that one.'; render(); return; }
+      play.found.push(word);
+      const isNew = remember(word);
+      save();
+      note = 'Yes! ' + word.toUpperCase() + ' — ' + stage.required.length + ' words to find.';
+      play.typed.forEach((i) => { play.letters[i].used = false; });
+      play.typed = [];
+      if (play.found.length === stage.required.length) finishStage();
+      else if (isNew) card = word;
+      render();
+      return;
+    }
+
+    if (stage.bonus.indexOf(word) >= 0) {
+      if (play.bonusFound.indexOf(word) >= 0) {
+        note = word.toUpperCase() + ' is a bonus word you already found.';
+        render();
+        return;
+      }
+      play.bonusFound.push(word);
+      const isNew = remember(word);
+      save();
+      note = 'Bonus word! ' + word.toUpperCase() + ' — not needed, but a real word.';
+      play.typed.forEach((i) => { play.letters[i].used = false; });
+      play.typed = [];
+      if (isNew) card = word;
+      render();
+      return;
+    }
+
+    const pending = pendingRequired().concat(stage.bonus.filter((w) => play.bonusFound.indexOf(w) < 0));
+    const couldGrow = pending.some((w) => w.indexOf(word) === 0);
+    if (couldGrow) { render(); return; }
+    /* a wrong word: no penalty, no lost stars, the letters simply come back */
+    play.wrong += 1;
+    note = play.wrong > 2
+      ? 'Not a word this time. A hint can help — هیچ ایرادی ندارد.'
+      : 'Not this time. The letters go back. — این واژه اینجا نیست.';
+    render();
+    setTimeout(() => {
+      if (play && !play.done) clearTyped();
+    }, reduced() ? 60 : 550);
+  }
+
+  function finishStage() {
+    const stage = play.stage;
+    play.done = true;
+    const stars = play.hints === 0 ? 3 : (play.hints <= 2 ? 2 : 1);
+    const previous = state.stages[stage.id];
+    if (!previous || stars > previous.stars) {
+      state.stages[stage.id] = {stars: stars, hints: play.hints};
+    }
+    save();
+    if (play.found.length && !card) card = null;
+  }
+
+  function useHint() {
+    if (!play || play.done) return;
+    const target = hintTarget();
+    if (!target) { note = 'Every word is yours already. — همه را یافتی.'; render(); return; }
+    play.hints += 1;
+    const has = Object.prototype.hasOwnProperty.call(play.reveals, target);
+    const shown = play.reveals[target] || 0;
+    const record = data.words[target];
+    /* first the picture and the meaning, then one letter at a time: a hint
+       teaches the word before it spells it, and the child still taps */
+    if (!has && record) {
+      play.reveals[target] = 0;
+      note = 'Hint: ' + record.picture + ' ' + record.def_en + ' — ' + record.fa;
+    } else if (shown < target.length) {
+      play.reveals[target] = shown + 1;
+      note = 'Hint: the word starts ' + target.slice(0, shown + 1).toUpperCase() +
+        ' … and has ' + target.length + ' letters.';
+    } else {
+      note = 'Hint: the word is ' + target.toUpperCase() + '. Tap those letters.';
+    }
+    render();
+  }
+
+  /* -------------------------------------------------------- the word card */
+  function renderCard(body) {
+    const record = data.words[card];
+    if (!record) { card = null; return; }
+    const sheet = el('div', 'wqcardsheet');
+    sheet.setAttribute('role', 'dialog');
+    sheet.setAttribute('aria-label', 'Word card: ' + record.spelling);
+    const inner = el('div', 'wqcard');
+    const close = el('button', 'wqback', '×');
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Close — بستن');
+    close.onclick = () => {
+      card = null;
+      if (play && play.done) { render(); return; }
+      render();
+    };
+    inner.appendChild(close);
+    inner.appendChild(el('div', 'wqcard-pic', record.picture));
+    const titleLine = el('div', 'wqcard-title');
+    titleLine.appendChild(el('b', '', record.spelling));
+    titleLine.appendChild(speakButton(record.spelling, 'The word'));
+    inner.appendChild(titleLine);
+    const meta = el('div', 'wqcard-meta');
+    meta.appendChild(el('span', 'wqchip', record.level));
+    meta.appendChild(el('span', 'wqchip', record.pos));
+    if (record.ipa) meta.appendChild(el('span', 'wqchip wqchip-ipa', record.ipa));
+    meta.appendChild(el('span', 'wqchip wqchip-got', 'Collected ✓'));
+    inner.appendChild(meta);
+    const fa = faLine(record.fa, 'wqcard-fa');
+    inner.appendChild(fa);
+    const def = el('p', 'wqcard-def', record.def_en);
+    inner.appendChild(def);
+    const ex = el('div', 'wqcard-ex');
+    const exEn = el('p', 'wqcard-ex-en');
+    exEn.textContent = record.example_en;
+    exEn.appendChild(speakButton(record.example_en, 'The sentence'));
+    ex.appendChild(exEn);
+    ex.appendChild(faLine(record.example_fa, 'wqcard-ex-fa'));
+    inner.appendChild(ex);
+    if (play && play.done) {
+      inner.appendChild(el('p', 'wqcard-note', 'Stage complete — مرحله کامل شد.'));
+    }
+    const got = el('button', 'wqgo');
+    got.type = 'button';
+    got.textContent = play && play.done ? 'See the stage — مرحله' : 'Got it — فهمیدم';
+    got.onclick = () => { card = null; render(); };
+    inner.appendChild(got);
+    sheet.appendChild(inner);
+    body.appendChild(sheet);
+  }
+
+  /* ------------------------------------------------------------- the puzzle */
+  function renderPlay(body) {
+    const stage = play.stage;
+    const world = worldById(play.worldId);
+    const wrap = el('div', 'wqwrap wqplay');
+    wrap.appendChild(head(stage.title_en, stage.title_fa, 'world'));
+
+    const objective = el('p', 'wqobjective');
+    objective.textContent = 'Find ' + stage.required.length + ' words · ' +
+      (play.found.length) + ' found' + (stage.bonus.length ? ' · ' + stage.bonus.length + ' bonus' : '');
+    wrap.appendChild(objective);
+
+    /* the slots: one row per word still to find, with its length visible */
+    const slots = el('div', 'wqslots');
+    stage.required.forEach((word) => {
+      const did = play.found.indexOf(word) >= 0;
+      const reveal = play.reveals[word] || 0;
+      const row = el('div', 'wqslot' + (did ? ' on' : ''));
+      const letters = el('span', 'wqslot-letters');
+      for (let i = 0; i < word.length; i += 1) {
+        const box = el('i', 'wqbox');
+        if (did) box.textContent = word[i].toUpperCase();
+        else if (i < reveal) box.textContent = word[i].toUpperCase();
+        else box.textContent = '';
+        if (!did && i < reveal) box.classList.add('ghost');
+        letters.appendChild(box);
+      }
+      row.appendChild(letters);
+      if (did) {
+        const record = data.words[word];
+        row.appendChild(el('span', 'wqslot-pic', record ? record.picture : '✓'));
+        row.appendChild(faLine(record ? record.fa : '', 'wqslot-fa'));
+        row.setAttribute('aria-label', word + ' found');
+      } else {
+        row.setAttribute('aria-label', word.length + ' letter word to find');
+      }
+      slots.appendChild(row);
+    });
+    wrap.appendChild(slots);
+
+    /* the tray shows what the child has tapped so far */
+    const tray = el('div', 'wqtray');
+    tray.setAttribute('aria-live', 'polite');
+    tray.textContent = typedWord().toUpperCase() || '· · ·';
+    if (!typedWord()) tray.classList.add('empty');
+    if (note.indexOf('Not') >= 0 && !reduced()) tray.classList.add('shake');
+    wrap.appendChild(tray);
+
+    /* the rack: the letters themselves, big enough for a thumb */
+    const rack = el('div', 'wqrack');
+    rack.setAttribute('role', 'group');
+    rack.setAttribute('aria-label', 'Letters — حروف');
+    play.letters.forEach((letter, i) => {
+      const b = el('button', 'wqletter', letter.ch);
+      b.type = 'button';
+      b.dataset.wqLetter = String(i);
+      b.disabled = letter.used || play.done;
+      if (letter.used) b.classList.add('used');
+      b.setAttribute('aria-label', 'Letter ' + letter.ch);
+      b.onclick = () => pickLetter(i);
+      rack.appendChild(b);
+    });
+    /* drag or swipe across the letters: the same as tapping them in order */
+    rack.addEventListener('pointerdown', (ev) => {
+      dragging = true;
+      markLetter(ev);
+    });
+    rack.addEventListener('pointermove', (ev) => {
+      if (!dragging) return;
+      markLetter(ev);
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach((name) => {
+      rack.addEventListener(name, () => { dragging = false; });
+    });
+    wrap.appendChild(rack);
+
+    const controls = el('div', 'wqctl');
+    const mk = (label, text, title, fn, cls) => {
+      const b = el('button', name_(cls), text);
+      b.type = 'button';
+      b.title = title;
+      b.setAttribute('aria-label', label);
+      b.onclick = fn;
+      return b;
+    };
+    controls.appendChild(mk('Undo one letter', '⌫', 'Undo — یکی کم کن', undo));
+    controls.appendChild(mk('Clear the word', '✕', 'Clear — پاک کن', clearTyped));
+    controls.appendChild(mk('Shuffle the letters', '🔀', 'Shuffle — جابه‌جا', shuffle));
+    const hint = mk('Get a hint', '💡', 'Hint — راهنما', useHint, 'hint');
+    hint.appendChild(el('span', 'wqhint-n', play.hints ? String(play.hints) : ''));
+    controls.appendChild(hint);
+    wrap.appendChild(controls);
+
+    const msg = el('p', 'wqmsg');
+    msg.textContent = note;
+    wrap.appendChild(msg);
+
+    if (play.bonusFound.length) {
+      const bonus = el('div', 'wqbonus');
+      bonus.appendChild(el('small', '', 'Bonus words — واژه‌های اضافه'));
+      const chips = el('div', 'wqchips');
+      play.bonusFound.forEach((w) => {
+        const chip = el('button', 'wqchip wqchip-bonus', w);
+        chip.type = 'button';
+        chip.setAttribute('aria-label', w + ', bonus word, tap for the card');
+        chip.onclick = () => { card = w; render(); };
+        chips.appendChild(chip);
+      });
+      bonus.appendChild(chips);
+      wrap.appendChild(bonus);
+    }
+
+    if (play.done) {
+      const done = el('div', 'wqfinish');
+      const stars = state.stages[stage.id] ? state.stages[stage.id].stars : 3;
+      done.appendChild(el('div', 'wqfinish-pic', world ? world.emoji : '🌟'));
+      done.appendChild(el('b', '', 'Stage complete!'));
+      done.appendChild(starsRow(stars));
+      done.appendChild(faLine('مرحله کامل شد', 'wqfa'));
+      done.appendChild(el('small', '', play.hints
+        ? 'You used ' + play.hints + ' hint' + (play.hints > 1 ? 's' : '') + '. That is allowed — هیچ جریمه‌ای نیست.'
+        : 'No hints needed. Three stars.'));
+      const next = nextAfter(stage);
+      if (next) {
+        const b = el('button', 'wqgo');
+        b.type = 'button';
+        b.textContent = next.stage.id === stage.id ? 'Next world — دنیای بعد'
+          : 'Next: ' + next.stage.title_en;
+        b.onclick = () => { openWorld = next.world.id; startStage(next.world, next.stage); };
+        done.appendChild(b);
+      } else {
+        done.appendChild(el('small', '', 'Every puzzle in the map is done. 🏆 — همهٔ معماها کامل شد.'));
+      }
+      const mapBtn = el('button', 'wqghost');
+      mapBtn.type = 'button';
+      mapBtn.textContent = 'Back to the map — نقشه';
+      mapBtn.onclick = () => { view = 'map'; openWorld = ''; play = null; render(); };
+      done.appendChild(mapBtn);
+      wrap.appendChild(done);
+    }
+
+    const words = el('div', 'wqmeta');
+    words.textContent = 'Letters ' + stage.letters.length + ' · ' + stage.level +
+      ' · ' + (world ? world.name_en : '');
+    wrap.appendChild(words);
+
+    body.appendChild(wrap);
+  }
+
+  function name_(cls) {
+    return 'wqctlbtn' + (cls ? ' ' + cls : '');
+  }
+
+  function markLetter(ev) {
+    if (!play || play.done) return;
+    const target = document.elementFromPoint
+      ? document.elementFromPoint(ev.clientX, ev.clientY)
+      : ev.target;
+    const hit = target && target.closest ? target.closest('[data-wq-letter]') : null;
+    if (!hit) return;
+    const index = Number(hit.dataset.wqLetter);
+    if (Number.isNaN(index)) return;
+    if (play.letters[index].used) return;
+    pickLetter(index);
+  }
+
+  /* ------------------------------------------------------------ open/close */
+  function render() {
+    const body = $('wqbody');
+    if (!body) return;
+    body.textContent = '';
+    if (failed) {
+      const p = el('p', 'wqintro');
+      p.textContent = 'The word quest could not be read: ' + failed;
+      body.appendChild(p);
+      return;
+    }
+    if (!data) {
+      body.appendChild(el('p', 'wqintro', 'Loading the map…'));
+      return;
+    }
+    if (view === 'play' && play) renderPlay(body);
+    else if (view === 'review') renderReview(body);
+    else if (view === 'world') renderWorld(body);
+    else renderMap(body);
+    if (card) renderCard(body);
+  }
+
+  async function open() {
+    if (!on()) return;
+    const body = $('wqbody');
+    if (!body) return;
+    if (!data) body.appendChild(el('p', 'wqintro', 'Opening the map…'));
+    try {
+      await load();
+    } catch (e) {
+      render();
+      return;
+    }
+    if (!view || view === 'play') view = 'map';
+    play = null;
+    card = null;
+    render();
+  }
+
+  return {open, render};
+})();
+
+/* ==========================================================================
  * HERO QUEST
  * A small adventure for a kids account only: six ranks, three short missions
  * each, and every mission is five to eight English challenges. The low ranks
@@ -27670,6 +28701,16 @@ class Handler(BaseHTTPRequestHandler):
             # reading passages, listening clips and everyday sentences, all
             # bilingual. Content only, drawn by the page like the library.
             body = (ROOT / "kids.json").read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        elif self.path.startswith("/api/wordquest"):
+            # Word Quest: the worlds, the letter racks and the answer keys, all
+            # checked by tools/build_wordquest.py before they became a file.
+            # Content only, so it is served off disk like the kids bank.
+            body = (ROOT / "wordquest.json").read_bytes()
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))

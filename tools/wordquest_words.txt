@@ -1,0 +1,79 @@
+# Fluentify Word Quest — the word bank.
+#
+# One line per word: word | CEFR | part of speech | Persian | definition |
+# example | Persian example | picture
+#
+# Every word here is written for this app. The letters of a word are checked
+# against its puzzle's letter rack by tools/build_wordquest.py, which refuses to
+# build if a word cannot be spelled, if a record is missing a field, or if the
+# same word is taught twice with different records.
+#
+# Picture is the emoji the Kids experience already draws for words; it is the
+# same on the web, offline and in the APK, and it costs no request.
+
+cat|Pre-A1|noun|گربه|A small animal with soft fur that says meow.|The cat is sleeping on the mat.|گربه روی حصیر خوابیده است.|🐱
+dog|Pre-A1|noun|سگ|A friendly animal that barks and wags its tail.|My dog runs to the door when I come home.|سگ من وقتی به خانه می‌رسم به سمت در می‌دود.|🐶
+sun|Pre-A1|noun|خورشید|The bright light in the sky that gives us day.|The sun is warm today.|امروز خورشید گرم است.|☀️
+hat|Pre-A1|noun|کلاه|Something you wear on your head.|I wear a hat in summer.|تابستان کلاه می‌پوشم.|🎩
+cup|Pre-A1|noun|فنجان|A small container that you drink from.|My cup is full of milk.|فنجان من پر از شیر است.|🥤
+bed|Pre-A1|noun|تخت|The furniture you sleep on.|My bed is soft and warm.|تخت من نرم و گرم است.|🛏️
+fish|Pre-A1|noun|ماهی|An animal that lives in water and swims.|The fish swims around the bowl.|ماهی دور تنگ شنا می‌کند.|🐟
+moon|Pre-A1|noun|ماه|The round light you see in the night sky.|The moon is bright tonight.|امشب ماه روشن است.|🌙
+star|Pre-A1|noun|ستاره|A small light that shines in the night sky.|One star is shining over the hill.|یک ستاره بالای تپه می‌درخشد.|⭐
+tree|Pre-A1|noun|درخت|A tall plant with a trunk and leaves.|A bird is sitting in the tree.|پرنده‌ای روی درخت نشسته است.|🌳
+bird|Pre-A1|noun|پرنده|An animal with wings and feathers that can fly.|The bird sings in the morning.|پرنده صبح‌ها آواز می‌خواند.|🐦
+frog|Pre-A1|noun|قورباغه|A small green animal that jumps and lives near water.|The frog jumped into the pond.|قورباغه به برکه پرید.|🐸
+ball|Pre-A1|noun|توپ|A round thing you throw or kick.|Throw the ball to me.|توپ را به من بینداز.|⚽
+hand|Pre-A1|noun|دست|The part of your body at the end of your arm.|Raise your hand if you know.|اگر می‌دانی دستت را بالا ببر.|✋
+red|Pre-A1|adjective|قرمز|The colour of a tomato or a stop sign.|I have a red ball.|یک توپ قرمز دارم.|🔴
+at|Pre-A1|preposition|در، نزد|A word that shows where something is.|She is at the door.|او دم در است.|📍
+an|Pre-A1|determiner|یک|The word for one thing, before a vowel sound.|I ate an apple.|یک سیب خوردم.|1️⃣
+in|Pre-A1|preposition|در، داخل|A word that shows something is inside.|The cat is in the box.|گربه در جعبه است.|📥
+is|Pre-A1|verb|است|The form of be that goes with he, she or it.|The sky is blue.|آسمان آبی است.|🟦
+it|Pre-A1|pronoun|آن|The word for a thing you are talking about.|It is on the table.|آن روی میز است.|👉
+on|Pre-A1|preposition|روی|A word that shows something is on top.|The cup is on the desk.|فنجان روی میز است.|⬆️
+me|Pre-A1|pronoun|مرا، به من|The word for yourself after a verb.|Give the book to me.|کتاب را به من بده.|🫵
+no|Pre-A1|determiner|هیچ، نه|The word that says something is not there.|There is no milk left.|شیری باقی نمانده است.|🚫
+up|Pre-A1|adverb|بالا|A word that means towards a higher place.|Look up at the sky.|به آسمان نگاه کن.|↗️
+us|Pre-A1|pronoun|ما را|The word for we after a verb or preposition.|Come with us.|با ما بیا.|👥
+apple|A1|noun|سیب|A round fruit that can be red or green.|She eats an apple every day.|او هر روز یک سیب می‌خورد.|🍎
+water|A1|noun|آب|The clear liquid that we drink.|Drink some water after the game.|بعد از بازی کمی آب بنوش.|💧
+house|A1|noun|خانه|A building where people live.|Our house has a red door.|خانهٔ ما دری قرمز دارد.|🏠
+garden|A1|noun|باغ|The ground around a house where plants grow.|Flowers grow in our garden.|در باغ ما گل می‌روید.|🌷
+rabbit|A1|noun|خرگوش|A small animal with long ears that hops.|The rabbit is eating a carrot.|خرگوش دارد هویج می‌خورد.|🐰
+pencil|A1|noun|مداد|A thin stick you write with.|My pencil is yellow and sharp.|مداد من زرد و نوک‌تیز است.|✏️
+window|A1|noun|پنجره|The glass opening in a wall that lets light in.|Open the window, please.|لطفاً پنجره را باز کن.|🪟
+orange|A1|adjective|نارنجی|The colour you get by mixing red and yellow.|She has an orange scarf.|او شال نارنجی دارد.|🟠
+sing|A1|verb|آواز خواندن|To make music with your voice.|We sing a song together.|ما با هم آواز می‌خوانیم.|🎤
+table|A1|noun|میز|Furniture with a flat top and legs.|Put the plates on the table.|بشقاب‌ها را روی میز بگذار.|🪑
+rain|A1|noun|باران|Water that falls from the sky.|The rain is heavy today.|امروز باران شدید است.|🌧️
+animal|A2|noun|حیوان|A living thing that is not a plant or a person.|The elephant is the biggest animal here.|فیل بزرگ‌ترین حیوان اینجاست.|🐘
+kitchen|A2|noun|آشپزخانه|The room where you cook food.|Dad is cooking in the kitchen.|بابا در آشپزخانه غذا می‌پزد.|🍳
+weather|A2|noun|هوا، وضع هوا|What the sky and air are like outside.|The weather is cold and windy.|هوا سرد و بادی است.|🌤️
+picture|A2|noun|تصویر|A drawing or photo of something.|She drew a picture of her cat.|او تصویری از گربه‌اش کشید.|🖼️
+message|A2|noun|پیام|Words you send to someone.|I sent a message to my teacher.|به معلمم پیام فرستادم.|💬
+planet|A2|noun|سیاره|A big round world that moves around a star.|Mars is a red planet.|مریخ سیاره‌ای سرخ است.|🪐
+island|A2|noun|جزیره|Land with water all around it.|We sailed to a small island.|به جزیرهٔ کوچکی رفتیم.|🏝️
+mountain|A2|noun|کوه|A very high hill with rock on it.|Snow covers the mountain in winter.|زمستان برف کوه را می‌پوشاند.|⛰️
+journey|A2|noun|سفر|The act of travelling from one place to another.|The journey took three hours.|سفر سه ساعت طول کشید.|🧭
+describe|A2|verb|توصیف کردن|To say what someone or something is like.|Describe your favourite place.|جای مورد علاقه‌ات را توصیف کن.|🗣️
+improve|A2|verb|بهتر کردن|To become better at something.|I read every day to improve my English.|هر روز می‌خوانم تا انگلیسی‌ام بهتر شود.|📈
+practice|A2|noun|تمرین|Doing something many times so you get better.|Piano practice is at four.|تمرین پیانو ساعت چهار است.|🎼
+delicious|A2|adjective|خوشمزه|Tasting very good.|The soup was delicious.|سوپ خوشمزه بود.|😋
+weekend|A2|noun|آخر هفته|Saturday and Sunday.|We visit grandma at the weekend.|آخر هفته به دیدن مادربزرگ می‌رویم.|📅
+listen|A2|verb|گوش دادن|To pay attention to a sound.|Listen to the birds in the morning.|صبح‌ها به پرنده‌ها گوش کن.|👂
+adventure|B1|noun|ماجراجویی|An exciting and sometimes difficult journey.|Our trip to the caves was a real adventure.|سفر ما به غارها ماجراجویی واقعی بود.|🗺️
+discover|B1|verb|کشف کردن|To find something for the first time.|We discovered a new path in the woods.|راه تازه‌ای در جنگل کشف کردیم.|🔎
+treasure|B1|noun|گنج|Valuable things that are hidden.|The pirates buried their treasure here.|دزدان دریایی گنجشان را اینجا پنهان کردند.|💎
+courage|B1|noun|دلیری|Being brave when something frightens you.|She had the courage to speak first.|او دلیری آن را داشت که اول صحبت کند.|🦁
+whisper|B1|verb|نجوا کردن|To speak very quietly.|He whispered the answer to me.|او پاسخ را در گوشم نجوا کرد.|🤫
+imagine|B1|verb|تصور کردن|To make a picture in your mind.|Imagine a castle in the clouds.|قلعه‌ای در ابرها را تصور کن.|💭
+celebrate|B1|verb|جشن گرفتن|To do something special for a happy event.|We celebrate her birthday on Friday.|جمعه تولدش را جشن می‌گیریم.|🎉
+brilliant|B1|adjective|درخشان، بسیار خوب|Very clever, or very bright.|That was a brilliant idea.|آن ایدهٔ درخشانی بود.|✨
+curious|B1|adjective|کنجکاو|Wanting to know or learn something.|The curious child asked many questions.|کودک کنجکاو پرسش‌های زیادی پرسید.|🔍
+harvest|B1|noun|برداشت، درو|The time when crops are gathered.|The harvest comes at the end of summer.|برداشت در پایان تابستان است.|🌾
+lantern|B1|noun|فانوس|A lamp you can carry.|A lantern lit the path.|فانوسی راه را روشن کرد.|🏮
+vibrant|C1|adjective|پرانرژی، شاداب|Full of life, colour and energy.|The market is vibrant on Saturdays.|بازار شنبه‌ها پرانرژی است.|🌈
+intricate|C1|adjective|پیچیده و ظریف|Having many small parts arranged carefully.|The box had an intricate pattern.|جعبه نقش و نگاری ظریف داشت.|🪡
+profound|C1|adjective|ژرف|Very deep, or very strong.|Her question was profound.|پرسش او ژرف بود.|🌊
+versatile|C1|adjective|چندکاره|Able to do many different things well.|A good knife is versatile.|چاقوی خوب چندکاره است.|🧰

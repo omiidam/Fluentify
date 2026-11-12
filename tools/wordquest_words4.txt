@@ -1,0 +1,14 @@
+# Fluentify Word Quest — kitchen, fruit and one sight word.
+#
+# Same format. These fill the APPLES, CAKES and FISH racks so those puzzles have
+# more than two answers and so the bank keeps the everyday nouns the Animal
+# Forest is about.
+
+peas|A1|noun|نخود فرنگی|Small round green vegetables that grow in a pod.|We had peas with dinner.|شام نخود فرنگی خوردیم.|🫛
+sale|B1|noun|حراج|A time when a shop sells things at a lower price.|The shoes were on sale.|کفش‌ها حراج بودند.|🏷️
+make|A1|verb|ساختن، درست کردن|To put things together until something new exists.|Let's make a cake for her.|بیا برایش کیک درست کنیم.|🛠️
+dish|A1|noun|ظرف، خوراک|A plate that food is served on, or the food itself.|Wash the dish, please.|لطفاً ظرف را بشور.|🍽️
+his|Pre-A1|determiner|مالِ او|The word that shows something belongs to a boy or a man.|This is his bag.|این کیف اوست.|👦
+then|A1|adverb|سپس، بعد|After that; at that time.|We ate, then we walked home.|غذا خوردیم، سپس به خانه رفتیم.|⏭️
+sea|A1|noun|دریا|The salt water that covers much of the earth.|We swam in the sea all morning.|تمام صبح در دریا شنا کردیم.|🌊
+same|A1|adjective|یکسان|Not different; exactly like the other one.|We wear the same colour.|ما رنگ یکسانی می‌پوشیم.|🟰

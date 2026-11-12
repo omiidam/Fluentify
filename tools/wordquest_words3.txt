@@ -1,0 +1,16 @@
+# Fluentify Word Quest — the upper levels.
+#
+# Same format again. A child who places at B2 or C1 must not be handed "cat" and
+# "hat" for a year, so the harder worlds need words of their own. These are the
+# ordinary school-English words an advanced reader already meets, not obscure
+# dictionary rarities, and each one sits on a rack that also spells easier words.
+
+challenge|B2|noun|چالش|Something difficult that tests what you can do.|The climbing wall was a real challenge.|دیوار صعود چالش واقعی بود.|🧗
+confident|B2|adjective|با اعتماد به نفس|Sure that you can do something.|She felt confident before the test.|او پیش از آزمون با اعتماد به نفس بود.|😎
+change|A2|verb|عوض کردن|To make something different.|The weather can change quickly here.|هوا اینجا می‌تواند سریع عوض شود.|🔄
+clean|A2|adjective|تمیز|Not dirty, with nothing left on it.|The kitchen is clean now.|آشپزخانه حالا تمیز است.|🧼
+leg|A2|noun|پا|The part of your body you stand on.|My leg hurts after the run.|بعد از دویدن پام درد می‌کند.|🦵
+find|A2|verb|پیدا کردن|To see something you were looking for.|I cannot find my pencil.|مدادم را پیدا نمی‌کنم.|🔦
+end|A2|noun|پایان|The last part of something.|The end of the story is sad.|پایان داستان غم‌انگیز است.|🏁
+resilient|C2|adjective|تاب‌آور|Able to recover quickly after something difficult.|Children are often more resilient than adults.|کودکان اغلب از بزرگسالان تاب‌آورترند.|🌱
+eloquent|C2|adjective|شیوا|Speaking or writing in a clear, beautiful way.|Her letter was short and eloquent.|نامهٔ او کوتاه و شیوا بود.|🕊️

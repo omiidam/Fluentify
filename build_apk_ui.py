@@ -34,6 +34,9 @@ BUNDLED_DATA = [
 # reads books.json when the Books panel opens, so a copy here is what makes
 # lesson words available offline without costing every start-up the read.
 LAZY_DATA = [
+    # Word Quest: the rack of letters and the answer keys for every puzzle,
+    # read the first time a child opens the game
+    "wordquest.json",
     "books.json",
     # the Reading panel's strategies, passage and answer keys: read when the
     # panel opens, like the library
