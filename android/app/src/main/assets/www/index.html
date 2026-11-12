@@ -24443,30 +24443,12 @@ const Books = {
     head.dir = 'ltr';
     head.textContent = book.title;
     box.appendChild(head);
-    // the blurb in both languages: the English one first, on its own line,
-    // then the Persian, because a mixed line is laid out by its first strong
-    // character and would drag the Persian half left to right
     if (book.author) {
       const by = document.createElement('div');
       by.className = 'bmeta';
       by.dir = 'ltr';
       by.textContent = book.author + (book.edition ? ' · ' + book.edition : '');
       box.appendChild(by);
-    }
-    if (book.about_en) {
-      const about = document.createElement('div');
-      about.className = 'pblurb';
-      about.dir = 'ltr';
-      about.textContent = book.about_en;
-      box.appendChild(about);
-    }
-    if (book.about_fa) {
-      const about = document.createElement('div');
-      about.className = 'pblurb';
-      about.dir = 'rtl';
-      about.lang = 'fa';
-      about.textContent = book.about_fa;
-      box.appendChild(about);
     }
     if (this.isGrammar(book)) this.paintChapters(box, book);
     else {

@@ -438,19 +438,6 @@ def main() -> int:
     book["lessons"] = lessons
 
     size = len(lessons)
-    book["about_en"] = (
-        f"The grammar of the whole course, chapter by chapter and chart by chart: "
-        f"{size} structures from the book's twenty chapters, each with the rule, "
-        f"a pattern, examples of it, exercises and a short exam. Chapters one to "
-        f"thirteen are complete, chart 1-1 to 13-11. The explanations and sentences "
-        f"are written for this app; the book is the reference text."
-    )
-    book["about_fa"] = (
-        f"دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: {size} ساختار از "
-        f"بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. "
-        f"فصل‌های یک تا سیزده کامل‌اند، از نمودار ۱-۱ تا ۱۳-۱۱. توضیح‌ها و جمله‌ها "
-        f"برای همین برنامه نوشته شده‌اند و کتاب متن مرجع است."
-    )
 
     BOOKS.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n",
                      encoding="utf-8")

@@ -401,15 +401,6 @@ LESSONS = [
     },
 ]
 
-ABOUT_EN = ("The grammar of the whole course, chapter by chapter and chart by chart: "
-            "seventy-five structures from the book's twenty chapters, each with the "
-            "rule, a pattern, examples of it, exercises and a short exam. Chapters one "
-            "to seven are complete, chart 1-1 to 7-9. The explanations and sentences "
-            "are written for this app; the book is the reference text.")
-ABOUT_FA = ("دستور زبان تمام دوره، فصل به فصل و نمودار به نمودار: هفتاد‌وپنج ساختار از "
-            "بیست فصل کتاب، هر یک با قاعده، الگو، مثال، تمرین و یک آزمون کوتاه. "
-            "فصل‌های یک تا هفت کامل‌اند، از نمودار ۱-۱ تا ۷-۹. توضیح‌ها و جمله‌ها برای "
-            "همین برنامه نوشته شده‌اند و کتاب متن مرجع است.")
 
 
 def main() -> int:
@@ -435,8 +426,6 @@ def main() -> int:
     for i, lesson in enumerate(lessons, 1):
         lesson["n"] = i
     book["lessons"] = lessons
-    book["about_en"] = ABOUT_EN
-    book["about_fa"] = ABOUT_FA
 
     BOOKS.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n",
                      encoding="utf-8")

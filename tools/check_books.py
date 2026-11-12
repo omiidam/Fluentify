@@ -656,8 +656,10 @@ def check_catalog(data: dict) -> dict:
         check(bool(FA_LETTER.search(book.get("title_fa") or "")),
               f"{bid}: the Persian title has no Persian letters")
         check(bool(book.get("author")), f"{bid}: no author")
-        check(bool(FA_LETTER.search(book.get("about_fa") or "")),
-              f"{bid}: the Persian blurb has no Persian letters")
+        # No blurb to check: a book is introduced by its title, its Persian
+        # title, its authors and its edition, and the list under them. A
+        # sentence describing all of that again is the redundancy this file no
+        # longer asks for.
 
         kind = book.get("kind")
         check(kind in (None, "grammar"),
@@ -749,8 +751,16 @@ def check_structures(book: dict, lessons: list, stats: dict) -> None:
     nothing on the screen.
     """
     bid = book.get("id")
-    check(bool(LATIN.search(book.get("about_en") or "")),
-          f"{bid}: no English blurb")
+    # There used to be a book-level blurb here: two or three sentences, in both
+    # languages, saying how many chapters and structures the book had. It sat
+    # under a heading that already said the same thing, it had to be corrected
+    # by hand every time a chapter was written, and it was the longest piece of
+    # text on the panel. The authors and the edition are the fact a reader
+    # cannot get from the list; the blurb was the fact they could.
+    check(not book.get("about_en") and not book.get("about_fa"),
+          f"{bid}: the book still carries a blurb that repeats its own heading")
+    check('"about_en"' not in BOOKS.read_text(encoding="utf-8"),
+          "a book blurb is back in books.json")
     check(bool((book.get("edition") or "").strip()),
           f"{bid}: does not say which edition or publisher it follows")
 
