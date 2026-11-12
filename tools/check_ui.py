@@ -527,6 +527,20 @@ def main() -> int:
                         re.S) is not None,
           "a paw left hanging at the lip of the box after the hello would be a "
           "mistake a child reads as part of the fox")
+    # She points with the paw the wave does not use, so the paw in the air is
+    # never mistaken for the paw coming down, and the pointing hand keeps three
+    # claws: a mitten with nothing on it reads as a thumb.
+    point_group = src.split('class="foxpoint"', 1)[1].split("</g>\n            </g>", 1)[0]
+    wave_seam = re.search(r'class="foxarmline"\s+d="M([\d.]+) ', 
+                          src.split('class="foxarm"', 1)[1][:400])
+    point_x = re.search(r'class="foxarmline"\s+d="M([\d.]+) ', point_group)
+    check("she points with her other paw, not the one that waved",
+          bool(wave_seam) and bool(point_x)
+          and float(point_x.group(1)) < 30 < float(wave_seam.group(1)),
+          "the pointing arm must be drawn on the side the wave arm is not")
+    check("the pointing paw has three claws",
+          point_group.count("<path d=\"") >= 3 and "foxclaws" in src,
+          "a mitten with no claws on it reads as a thumb, not a paw")
     check("the waving hand starts and finishes hidden behind her body",
           ".foxarm {" in src
           and re.search(r"\.foxarm \{\s*opacity: 0;", src) is not None
