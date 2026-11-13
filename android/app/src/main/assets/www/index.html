@@ -7893,6 +7893,105 @@
   }
   .kline { position: relative; }
 
+  /* ---- a story, read word by word -------------------------------------
+     The transport is the audio: one round play button, a replay, the speed
+     chips a child can reach with a thumb, and a progress rail that is honest
+     about what is known (words, not minutes: the device's voice never tells
+     us how long it will take). The text underneath is the story itself, and
+     the spoken word wears a warm block rather than a colour wash, so the
+     highlight survives on a projector, in bright sun, and on a screen a
+     colour-blind child is reading. Weight changes too, so the cue is never
+     colour alone. */
+  .kstplayer {
+    display: flex; flex-direction: column; gap: 9px;
+    margin: 4px 0 12px; padding: 11px 12px 12px;
+    border-radius: 18px; border: 1.5px solid var(--k-primary-line);
+    background: var(--k-primary-wash);
+  }
+  .kstbar { display: flex; align-items: center; gap: 9px; }
+  .kstplay {
+    flex: none; width: 48px; height: 48px; padding: 0;
+    display: grid; place-items: center;
+    border-radius: 50%; cursor: pointer;
+    border: 1.5px solid var(--k-primary-deep);
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    font: inherit; font-size: 17px; line-height: 1;
+    box-shadow: 0 2px 0 var(--k-primary-deep);
+  }
+  .kstplay:active { transform: translateY(1px); box-shadow: none; }
+  .kstplay.on { background: var(--k-primary); }
+  .kstreplay {
+    flex: none; width: 40px; height: 40px; padding: 0;
+    display: grid; place-items: center;
+    border-radius: 13px; cursor: pointer;
+    border: 1.5px solid var(--k-primary-line);
+    background: var(--k-surface); color: var(--k-primary-dark);
+    font: inherit; font-size: 16px; line-height: 1;
+  }
+  .kstmeta { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
+  .kstmeta b {
+    font-size: 12.5px; line-height: 1.35; font-weight: 800; color: var(--k-primary-dark);
+    font-variant-numeric: tabular-nums;
+  }
+  .ksttrack {
+    position: relative; height: 8px; border-radius: 999px; overflow: hidden;
+    background: var(--k-surface); border: 1.5px solid var(--k-primary-line);
+  }
+  .ksttrack i {
+    display: block; height: 100%; width: 0; border-radius: 999px;
+    background: var(--k-primary); transition: width .18s linear;
+  }
+  .kstslabel { font-size: 11px; font-weight: 800; letter-spacing: .02em; color: var(--k-primary-dark); }
+  .kstspeeds { display: flex; gap: 6px; flex-wrap: wrap; }
+  .kstspeed {
+    min-width: 48px; min-height: 36px; padding: 4px 9px;
+    border-radius: 999px; cursor: pointer; font: inherit;
+    font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums;
+    border: 1.5px solid var(--k-line-strong);
+    background: var(--k-surface); color: var(--k-ink-2);
+  }
+  .kstspeed[aria-pressed="true"] {
+    background: var(--k-primary); border-color: var(--k-primary-dark);
+    color: var(--k-on-primary);
+  }
+  .kstspeed[aria-pressed="true"]::after { content: " ✓"; }
+  .kstbody { display: flex; flex-direction: column; gap: 10px; margin: 2px 0 12px; }
+  .kstblock { display: flex; flex-direction: column; gap: 3px; }
+  .kst-line {
+    margin: 0; font-size: 17px; line-height: 1.95; color: var(--k-ink);
+    letter-spacing: .005em;
+  }
+  .kst-line.now { color: var(--k-ink); }
+  .kst-line.done { color: var(--k-ink-2); }
+  .kst-w {
+    border-radius: 6px; padding: 0 2px; margin: 0 -1px;
+    transition: background-color .12s ease, color .12s ease, box-shadow .12s ease;
+    cursor: pointer;
+  }
+  .kst-w.done { color: var(--k-ink-2); }
+  .kst-w.now {
+    background: var(--k-sun); color: var(--k-sun-ink); font-weight: 800;
+    box-shadow: 0 0 0 2px var(--k-sun-line);
+  }
+  .kst-w:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 1px; }
+  .kst-fa {
+    margin: 0; font-size: 13px; line-height: 1.6; color: var(--k-ink-2);
+    direction: rtl; text-align: right;
+  }
+  .kstpop {
+    margin: -4px 0 10px; padding: 9px 11px; border-radius: 14px;
+    border: 1.5px solid var(--k-sun-line); background: var(--k-sun-wash);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .kstpop[hidden] { display: none; }
+  .kstpop-top { display: flex; align-items: center; gap: 8px; }
+  .kstpop-top b { font-size: 14px; color: var(--k-sun-ink); }
+  .kstsay {
+    width: 34px; height: 34px; padding: 0; display: grid; place-items: center;
+    border-radius: 10px; cursor: pointer; font: inherit; font-size: 14px;
+    border: 1.5px solid var(--k-sun-line); background: var(--k-surface);
+  }
+  .kstpop-note { font-size: 12.5px; line-height: 1.5; color: var(--k-sun-ink); }
   /* the scene a story or a reading passage opens with */
   .kstage {
     position: relative; overflow: hidden; border-radius: 16px; margin-bottom: 10px;
@@ -7998,6 +8097,7 @@
 
   /* the switch: one place turns all of it off, and it remembers */
   body.kids-calm .kchar *, body.kids-calm .kchar, body.kids-calm .kwa,
+  .kst-w, .ksttrack i { transition: none !important; }
   body.kids-calm .kwave.on i, body.kids-calm .kstagger > *,
   body.kids-calm .kseq i, body.kids-calm .kcelebrate i { animation: none !important; }
   body.kids-calm .kwa, body.kids-calm .kchar * { transition: none !important; }
@@ -9891,14 +9991,32 @@ const Speech = {
     const pool = us.length ? us : (en.length ? en : list);
     return pool.slice().sort((a, b) => score(b) - score(a))[0] || null;
   },
-  speak(text, onEnd) {
+  /* opts: {rate, boundary, onStart, onBoundary}
+       rate        the utterance's own speed control (0.5 - 1.5). The engine
+                   keeps the voice's pitch, which is the whole point at 0.5.
+       boundary    ask for word events. Android's native engine has none, so a
+                   caller that needs them gets the Web Speech engine where it
+                   exists; a caller that does not (every say-button in the app)
+                   keeps the native voice exactly as before.
+       onBoundary  called with {charIndex, charLength, name} as the voice
+                   actually starts each word. This is the story player's clock:
+                   the timing comes from the engine, never from dividing a
+                   line's length by its word count. */
+  speak(text, onEnd, opts) {
+    const o = opts || {};
+    const rate = o.rate == null ? 0.95 : Math.max(0.5, Math.min(1.5, Number(o.rate) || 1));
     this.stop();
-    // Android: the native engine (high-quality offline voices)
-    if (window.AndroidTTS && window.AndroidTTS.speak) {
-      window.AndroidTTS.speak(text);
-      this.playing = { text };
+    const native = !!window.AndroidTTS && window.AndroidTTS.speak;
+    const boundary = !!o.onBoundary;
+    // Android: the native engine (high-quality offline voices), unless the
+    // caller needs word timings and the page has an engine that reports them
+    if (native && (!('speechSynthesis' in window) || !boundary)) {
+      if (typeof window.AndroidTTS.speakRate === 'function') window.AndroidTTS.speakRate(text, rate);
+      else window.AndroidTTS.speak(text);
+      this.playing = { text, native: true, rate };
+      if (o.onStart) o.onStart();
       setTimeout(() => { this.playing = null; if (onEnd) onEnd(); this.emit(); },
-                 Math.max(2200, text.length * 62));
+                 Math.max(2200, (text.length * 62) / rate));
       this.emit();
       return true;
     }
@@ -9907,12 +10025,22 @@ const Speech = {
     if (!this.voice) this.voice = this.pickVoice();
     if (this.voice) u.voice = this.voice;
     u.lang = this.voice ? this.voice.lang : 'en-US';
-    u.rate = 0.95;      // a touch slower than default = clearer
-    u.pitch = 1.0;      // neutral, avoids the chipmunk effect
+    u.rate = rate;
+    u.pitch = o.pitch == null ? 1.0 : o.pitch;
     u.volume = 1;
-    u.onend = () => { this.playing = null; if (onEnd) onEnd(); this.emit(); };
-    u.onerror = () => { this.playing = null; if (onEnd) onEnd(); this.emit(); };
-    this.playing = { text, utter: u };
+    u.onstart = () => { if (o.onStart) o.onStart(); };
+    u.onboundary = (e) => { if (o.onBoundary) o.onBoundary(e); };
+    u.onend = () => { if (this.playing && this.playing.utter === u) this.playing = null; if (onEnd) onEnd(); this.emit(); };
+    /* An engine can refuse an utterance (no voice for the language, synthesis
+       unavailable, the page not allowed to speak). That is not the end of the
+       text: the story player has to hear about it, so it stops and says so
+       instead of walking silently to the last line. */
+    u.onerror = (e) => {
+      if (this.playing && this.playing.utter === u) this.playing = null;
+      if (onEnd) onEnd({ error: (e && e.error) || 'error' });
+      this.emit();
+    };
+    this.playing = { text, utter: u, rate };
     speechSynthesis.cancel();
     try {
       speechSynthesis.speak(u);
@@ -9929,10 +10057,30 @@ const Speech = {
     this.emit();
     return true;
   },
+  /* Pause keeps the utterance and its position; the Web Speech engine buffers
+     it and resumes from the same word. Engines with no pause (the native
+     bridge) answer false and the caller restarts its own line, which is why
+     this returns a boolean rather than pretending. */
+  pause() {
+    if (!this.playing) return false;
+    if (this.playing.utter && 'speechSynthesis' in window && speechSynthesis.pause) {
+      try { speechSynthesis.pause(); this.paused = true; this.emit(); return true; } catch (e) { /* fall through */ }
+    }
+    this.stop();
+    return false;
+  },
+  resume() {
+    if (!this.playing) return false;
+    if (this.paused && 'speechSynthesis' in window && speechSynthesis.resume) {
+      try { speechSynthesis.resume(); this.paused = false; this.emit(); return true; } catch (e) { /* fall through */ }
+    }
+    return false;
+  },
   stop() {
-    if (this.playing && this.playing.utter) speechSynthesis.cancel();
+    if (this.playing && this.playing.utter && 'speechSynthesis' in window) speechSynthesis.cancel();
     if (window.AndroidTTS && window.AndroidTTS.stop) window.AndroidTTS.stop();
     this.playing = null;
+    this.paused = false;
     this.emit();
   },
   isPlaying(text) { return !!this.playing && this.playing.text === text; },
@@ -10665,6 +10813,14 @@ const Panels = (() => {
       if (panel.contains(document.activeElement)) {
         document.getElementById(TILES[panelId])?.focus();
       }
+      /* A section that is closing stops talking. The device voice is one
+         voice, so whatever the closing section was reading ends here - not
+         when its sentence finishes, and not by hiding the player and hoping
+         the utterance goes quiet. */
+      try {
+        if (typeof Speech !== 'undefined') Speech.stop();
+        if (typeof Kids !== 'undefined' && Kids.stopNarration) Kids.stopNarration();
+      } catch (err) { /* a section closing before the modules exist */ }
       // ...and then whatever this panel returns to, if it is not the column
       if (ON_CLOSE[panelId]) ON_CLOSE[panelId]();
       return;
@@ -11379,6 +11535,16 @@ function mountMic() {
   }
 }
 
+/* A tablet set face down, or the app sent to the background, must not keep
+   reading a story to an empty room. Android also suspends the WebView mid
+   utterance, which would leave the player claiming to play audio that has
+   stopped - so the narration is ended here rather than guessed about. */
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) return;
+  try {
+    if (typeof Kids !== 'undefined' && Kids.stopNarration) Kids.stopNarration();
+  } catch (err) { /* not loaded yet */ }
+});
 if ('speechSynthesis' in window) {
   speechSynthesis.onvoiceschanged = () => { Speech.voice = Speech.pickVoice(); };
 }
@@ -19149,7 +19315,310 @@ const Kids = (() => {
     box.appendChild(card);
   }
 
+  /* ---- stories: one voice, one line at a time, one word lit -----------
+
+     Narration is the device's own English voice, so there is no audio file
+     to read timestamps from. The clock is the engine's own word events
+     (SpeechSynthesis onboundary): when the voice actually starts a word it
+     reports where that word begins in the string, and the span at that
+     offset lights up. Nothing here divides a line's length by its word
+     count - on an engine that reports no boundaries the whole line is lit
+     instead, which is honest, rather than guessing a word every 300ms.
+
+     Every pending callback carries a generation number. Closing the section,
+     switching story, replaying or changing speed bumps it, so a late
+     end-event from the previous utterance can never restart an old line -
+     that is the bug that left a voice talking in a closed panel. */
+  const NARR = {
+    rate: 1, gen: 0, hold: false, state: 'idle', line: -1, word: -1,
+    lineDone: false, lines: [], total: 0, timers: [],
+    paint: null, wave: null, pop: null, meta: null, track: null, play: null,
+  };
+  const RATES = [0.5, 0.75, 1, 1.25, 1.5];
+
+  function clearTimers() {
+    NARR.timers.forEach((t) => clearTimeout(t));
+    NARR.timers = [];
+  }
+  function later(fn, ms) {
+    const t = setTimeout(() => {
+      NARR.timers = NARR.timers.filter((x) => x !== t);
+      fn();
+    }, ms);
+    NARR.timers.push(t);
+    return t;
+  }
+  /* Words with their offsets in the line, so a boundary charIndex maps to
+     exactly one span. Punctuation stays inside its word ("mine!"), which is
+     what the engine counts, and contractions stay whole. */
+  function splitWords(text) {
+    const out = [];
+    const re = /\S+/g;
+    let m;
+    while ((m = re.exec(text))) out.push({ start: m.index, end: m.index + m[0].length, text: m[0] });
+    return out;
+  }
+  function wordAt(words, charIndex) {
+    let lo = 0, hi = words.length - 1, best = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (words[mid].start <= charIndex) { best = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    return best;
+  }
+  function bare(word) {
+    return String(word || '').toLowerCase().replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, '');
+  }
+  /* Does the child's own word bank already know this word? Stories reuse the
+     existing vocabulary instead of carrying a second dictionary. */
+  function meaningOf(word) {
+    const key = bare(word);
+    if (!key || !doc || !doc.words) return null;
+    for (const theme of doc.words) {
+      for (const w of (theme.words || [])) {
+        if (bare(w.word) === key) return w;
+      }
+    }
+    return null;
+  }
+
+  function spokenCount() {
+    if (NARR.line < 0) return 0;
+    const L = NARR.lines[NARR.line];
+    if (!L) return 0;
+    return L.before + (NARR.word < 0 ? 0 : NARR.word + 1);
+  }
+  function paintTransport() {
+    if (!NARR.paint) return;
+    const playing = NARR.state === 'playing';
+    const paused = NARR.state === 'paused';
+    if (NARR.play) {
+      NARR.play.textContent = playing ? '❚❚' : (NARR.state === 'done' ? '↺' : '▶');
+      NARR.play.setAttribute('aria-label',
+        playing ? 'Pause the story' : (NARR.state === 'done' ? 'Hear the story again' : (paused ? 'Keep reading' : 'Read the story to me')));
+      NARR.play.classList.toggle('on', playing);
+    }
+    if (NARR.wave) NARR.wave.classList.toggle('on', playing);
+    if (NARR.meta) {
+      const n = spokenCount();
+      const label = NARR.state === 'done' ? 'The end — press ↺ to hear it again'
+        : (NARR.state === 'paused' ? 'Paused — ' + n + ' of ' + NARR.total + ' words'
+          : (NARR.state === 'playing' ? 'Word ' + Math.max(1, n) + ' of ' + NARR.total
+            : NARR.total + ' words · ' + NARR.rate + '×'));
+      NARR.meta.textContent = label;
+    }
+    if (NARR.track) {
+      const pct = NARR.total ? Math.min(100, Math.round((spokenCount() / NARR.total) * 100)) : 0;
+      NARR.track.style.width = pct + '%';
+      NARR.track.parentElement.setAttribute('aria-valuenow', String(pct));
+    }
+  }
+  function paintLine(lineIdx, wordIdx) {
+    NARR.lines.forEach((L, i) => {
+      L.spans.forEach((sp, j) => {
+        const on = i === lineIdx && j === wordIdx;
+        sp.classList.toggle('now', on);
+        sp.classList.toggle('done', i < lineIdx || (i === lineIdx && wordIdx >= 0 && j < wordIdx));
+      });
+      L.node.classList.toggle('now', i === lineIdx && wordIdx < 0);
+      L.node.classList.toggle('done', i < lineIdx);
+    });
+  }
+  /* The nearest thing that actually scrolls: the open panel on a desktop
+     column, the page on a phone. Only scroll when the spoken word has left
+     the comfortable band, so a word already in view never moves the page
+     under the child's eyes - and a manual scroll is left alone until the
+     narration reaches a word that is genuinely off screen. */
+  function scrollHost(el) {
+    let n = el.parentElement;
+    while (n && n !== document.body) {
+      const style = getComputedStyle(n);
+      if (/(auto|scroll)/.test(style.overflowY) && n.scrollHeight > n.clientHeight + 4) return n;
+      n = n.parentElement;
+    }
+    return document.scrollingElement || document.documentElement;
+  }
+  function keepVisible(span) {
+    const host = scrollHost(span);
+    if (!host) return;
+    const r = span.getBoundingClientRect();
+    const box = host === document.scrollingElement
+      ? { top: 0, bottom: window.innerHeight }
+      : host.getBoundingClientRect();
+    const pad = 56;
+    if (r.top >= box.top + pad && r.bottom <= box.bottom - pad) return;
+    // scroll by the difference rather than jumping the word to the middle:
+    // a nudge reads as the page keeping up, not as the page moving by itself
+    const by = r.top - box.top - (box.bottom - box.top) / 2;
+    if (host === document.scrollingElement) {
+      window.scrollTo({ top: window.scrollY + by, behavior: reduced() ? 'auto' : 'smooth' });
+    } else {
+      host.scrollTo({ top: host.scrollTop + by, behavior: reduced() ? 'auto' : 'smooth' });
+    }
+  }
+  function reduced() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+
+  function stopNarration() {
+    NARR.gen += 1;
+    NARR.hold = false;
+    clearTimers();
+    Speech.stop();
+    NARR.state = 'idle';
+    NARR.line = -1;
+    NARR.word = -1;
+    NARR.lineDone = false;
+    NARR.sawWords = false;
+    NARR.lines.forEach((L) => {
+      L.node.classList.remove('now', 'done');
+      L.spans.forEach((sp) => sp.classList.remove('now', 'done'));
+    });
+    if (NARR.pop) NARR.pop.hidden = true;
+    paintTransport();
+    NARR.lines = [];
+    NARR.paint = null;
+    NARR.wave = null;
+    NARR.pop = null;
+    NARR.meta = null;
+    NARR.track = null;
+    NARR.play = null;
+  }
+
+  function speakLine(i) {
+    if (i >= NARR.lines.length) {
+      NARR.state = 'done';
+      NARR.word = -1;
+      NARR.hold = false;
+      paintLine(-1, -1);
+      paintTransport();
+      return;
+    }
+    const L = NARR.lines[i];
+    NARR.line = i;
+    NARR.word = -1;
+    NARR.lineDone = false;
+    NARR.state = 'playing';
+    NARR.hold = false;
+    const myGen = (NARR.gen += 1);
+    paintLine(i, -1);
+    paintTransport();
+    let sawBoundary = false;
+    let started = false;
+    const fail = (why) => {
+      NARR.gen += 1;
+      Speech.stop();
+      NARR.state = 'idle';
+      NARR.word = -1;
+      paintLine(-1, -1);
+      paintTransport();
+      if (NARR.meta) NARR.meta.textContent = why;
+    };
+    const ok = Speech.speak(L.en, (info) => {
+      if (myGen !== NARR.gen) return;      // a newer line owns the voice now
+      if (info && info.error && !started) {
+        fail('No reading voice on this device. Check its text-to-speech settings, then press play.');
+        return;
+      }
+      NARR.lineDone = true;
+      if (NARR.hold) return;
+      later(() => {
+        if (myGen !== NARR.gen || NARR.hold) return;
+        speakLine(i + 1);
+      }, 420);
+    }, {
+      rate: NARR.rate,
+      boundary: true,
+      onStart: () => {
+        started = true;
+        if (myGen !== NARR.gen) return;
+        paintTransport();
+      },
+      onBoundary: (e) => {
+        if (myGen !== NARR.gen || NARR.hold) return;
+        if (!e || typeof e.charIndex !== 'number') return;
+        const j = wordAt(L.words, e.charIndex);
+        if (j < 0 || j === NARR.word) return;
+        sawBoundary = true;
+        NARR.word = j;
+        paintLine(i, j);
+        paintTransport();
+        keepVisible(L.spans[j]);
+      },
+    });
+    if (!ok) {
+      NARR.state = 'idle';
+      if (NARR.meta) NARR.meta.textContent = 'This device cannot read aloud. Try again, or read the words yourself.';
+      paintTransport();
+      return;
+    }
+    /* No word events at all (a few Android engines): light the line rather
+       than pretend to know which word is being said. */
+    later(() => {
+      if (myGen !== NARR.gen || !started || sawBoundary || NARR.word >= 0) return;
+      paintLine(i, -1);
+    }, 700);
+    /* Nothing started at all: a device with no English voice, or an engine
+       that refused the utterance. Say so and go back to idle, rather than
+       leaving a player that claims to be reading and never speaks. */
+    later(() => {
+      if (myGen !== NARR.gen || started || NARR.word >= 0) return;
+      fail('No reading voice on this device. Check its text-to-speech settings, then press play.');
+    }, 1600);
+  }
+
+  function pauseNarration() {
+    if (NARR.state !== 'playing') return;
+    NARR.hold = true;
+    clearTimers();
+    /* The highlight stays on the word that was being said whether the engine
+       held the utterance or dropped it; resume either continues that
+       utterance or says this line again, and only then does the word clear. */
+    Speech.pause();
+    NARR.state = 'paused';
+    paintTransport();
+  }
+  function resumeNarration() {
+    if (NARR.state !== 'paused') return;
+    NARR.hold = false;
+    NARR.state = 'playing';
+    if (!NARR.lineDone && Speech.playing && Speech.resume()) { paintTransport(); return; }
+    speakLine(NARR.lineDone ? NARR.line + 1 : Math.max(0, NARR.line));
+  }
+  function toggleNarration() {
+    if (NARR.state === 'playing') { pauseNarration(); return; }
+    if (NARR.state === 'paused') { resumeNarration(); return; }
+    speakLine(0);
+  }
+  function setRate(rate, chips) {
+    const next = RATES.indexOf(rate) >= 0 ? rate : 1;
+    const changed = next !== NARR.rate;
+    NARR.rate = next;
+    if (chips) {
+      [...chips.children].forEach((b) => {
+        b.setAttribute('aria-pressed', String(Number(b.dataset.rate) === next));
+      });
+    }
+    /* The engine cannot retime an utterance it has already started, so the
+       current line is spoken again at the new speed: same line, same place,
+       a fresh rate. Nothing else in the story restarts. */
+    if (changed && (NARR.state === 'playing' || NARR.state === 'paused')) {
+      const wasPaused = NARR.state === 'paused';
+      NARR.hold = false;
+      NARR.gen += 1;
+      clearTimers();
+      Speech.stop();
+      NARR.state = 'paused';
+      NARR.word = -1;
+      if (wasPaused) { paintLine(NARR.line, -1); paintTransport(); }
+      else { resumeNarration(); }
+    } else {
+      paintTransport();
+    }
+  }
+
   async function stories() {
+    stopNarration();
     const box = $('stbody');
     if (!box) return;
     const d = await load().catch(() => null);
@@ -19166,69 +19635,211 @@ const Kids = (() => {
   }
 
   function storyView(st) {
+    stopNarration();
     const box = $('stbody');
     if (!box) return;
     box.innerHTML = '';
     box.appendChild(back('All stories', stories));
     box.appendChild(KAnim.scene('Story time', 'وقت داستان', 'read'));
+
     const card = document.createElement('section');
     card.className = 'kcard';
     const h = document.createElement('h4');
     h.textContent = (st.emoji || '') + ' ' + st.title_en;
     card.appendChild(h);
     card.appendChild(fa(st.title_fa, 'kfa-h'));
-    /* One press reads the whole story and lights the line being spoken. The
-       same engine and the same strings, so it reads the same offline. */
-    const readAll = document.createElement('button');
-    readAll.type = 'button';
-    readAll.className = 'kbtn kc-coral';
-    readAll.innerHTML = '<span class="kico">🔊</span><b>Read the story to me</b>' +
-      '<span class="kfa" dir="rtl" lang="fa">داستان را برایم بخوان</span>';
-    const readWave = KAnim.wave();
-    readAll.onclick = () => {
-      if (readAll.dataset.on === '1') {
-        KAnim.stopLines();
-        readAll.dataset.on = '0';
-        readWave.classList.remove('on');
-        return;
-      }
-      readAll.dataset.on = '1';
-      readWave.classList.add('on');
-      KAnim.playLines(rows, texts, () => {
-        readAll.dataset.on = '0';
-        readWave.classList.remove('on');
-      });
-    };
-    card.append(readAll, readWave);
-    const rows = [];
-    const texts = [];
-    (st.lines || []).forEach((line) => {
-      const row = document.createElement('div');
-      row.className = 'krow kline';
-      rows.push(row);
-      texts.push(line.en);
-      const play = document.createElement('button');
-      play.type = 'button';
-      play.className = 'kplay';
-      play.textContent = '▶';
-      play.setAttribute('aria-label', 'Hear: ' + line.en);
-      play.onclick = () => Speech.speak(line.en);
-      const body = document.createElement('div');
-      const en = document.createElement('div');
-      en.className = 'ken';
-      en.textContent = line.en;
-      body.append(en, fa(line.fa, 'kfa'));
-      row.append(play, body);
-      card.appendChild(row);
+
+    /* --- transport: play, replay, speed, progress ---------------------- */
+    const player = document.createElement('div');
+    player.className = 'kstplayer';
+    player.setAttribute('role', 'group');
+    player.setAttribute('aria-label', 'Story player');
+
+    const bar = document.createElement('div');
+    bar.className = 'kstbar';
+
+    const play = document.createElement('button');
+    play.type = 'button';
+    play.className = 'kstplay';
+    play.textContent = '▶';
+    play.setAttribute('aria-label', 'Read the story to me');
+    // the transport changes on every word; that must never become a screen
+    // reader counting aloud over the narrator
+    play.setAttribute('aria-live', 'off');
+
+    const replay = document.createElement('button');
+    replay.type = 'button';
+    replay.className = 'kstreplay';
+    replay.textContent = '↺';
+    replay.title = 'Start again';
+    replay.setAttribute('aria-label', 'Read the story from the beginning');
+    replay.onclick = () => { stopNarration(); start(); };
+
+    const metaWrap = document.createElement('div');
+    metaWrap.className = 'kstmeta';
+    const meta = document.createElement('b');
+    meta.textContent = '';
+    metaWrap.appendChild(meta);
+    const wave = KAnim.wave();
+
+    bar.append(play, replay, metaWrap, wave);
+
+    const trackWrap = document.createElement('div');
+    trackWrap.className = 'ksttrack';
+    trackWrap.setAttribute('role', 'progressbar');
+    trackWrap.setAttribute('aria-label', 'Story progress');
+    trackWrap.setAttribute('aria-valuemin', '0');
+    trackWrap.setAttribute('aria-valuemax', '100');
+    trackWrap.setAttribute('aria-valuenow', '0');
+    const track = document.createElement('i');
+
+    trackWrap.appendChild(track);
+
+    const speeds = document.createElement('div');
+    speeds.className = 'kstspeeds';
+    speeds.setAttribute('role', 'group');
+    speeds.setAttribute('aria-label', 'Reading speed');
+    RATES.forEach((r) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'kstspeed';
+      b.dataset.rate = String(r);
+      b.textContent = r + '×';
+      b.setAttribute('aria-pressed', String(r === NARR.rate));
+      b.title = r < 1 ? 'Slower — easier to follow' : (r > 1 ? 'Faster' : 'Normal speed');
+      b.onclick = () => setRate(r, speeds);
+      speeds.appendChild(b);
     });
+    const speedLabel = document.createElement('span');
+    speedLabel.className = 'kstslabel';
+    speedLabel.textContent = 'Speed · سرعت';
+
+    player.append(bar, trackWrap, speedLabel, speeds);
+    card.appendChild(player);
+
+    /* --- the script, word by word ------------------------------------- */
+    const host = document.createElement('div');
+    host.className = 'kstbody';
+    const pop = document.createElement('div');
+    pop.className = 'kstpop';
+    pop.hidden = true;
+    pop.setAttribute('role', 'status');
+    pop.setAttribute('aria-live', 'polite');
+
+    const lines = [];
+    let before = 0;
+    (st.lines || []).forEach((line, idx) => {
+      const block = document.createElement('div');
+      block.className = 'kstblock';
+      const p = document.createElement('p');
+      p.className = 'kst-line';
+      const words = splitWords(line.en);
+      const spans = [];
+      let at = 0;
+      words.forEach((w, j) => {
+        if (w.start > at) p.appendChild(document.createTextNode(line.en.slice(at, w.start)));
+        const sp = document.createElement('span');
+        sp.className = 'kst-w';
+        sp.dataset.w = String(j);
+        sp.dataset.line = String(idx);
+        sp.textContent = w.text;
+        sp.tabIndex = 0;
+        sp.setAttribute('role', 'button');
+        sp.setAttribute('aria-label', bare(w.text) + ' — meaning and sound');
+        p.appendChild(sp);
+        spans.push(sp);
+        at = w.end;
+      });
+      if (at < line.en.length) p.appendChild(document.createTextNode(line.en.slice(at)));
+      const faLine = fa(line.fa, 'kst-fa');
+      block.append(p, faLine);
+      host.appendChild(block);
+      lines.push({ node: p, block, spans, words, en: line.en, before });
+      before += words.length;
+    });
+    card.appendChild(host);
+    card.appendChild(pop);
+
+    /* A word can be explored without stopping the story: the popover opens
+       under the line and the narration keeps its place. */
+    function showWord(sp) {
+      const L = lines[Number(sp.dataset.line)];
+      const raw = L ? L.words[Number(sp.dataset.w)].text : sp.textContent;
+      const word = bare(raw) || raw;
+      const known = meaningOf(raw);
+      pop.innerHTML = '';
+      const line = document.createElement('div');
+      line.className = 'kstpop-top';
+      const said = document.createElement('button');
+      said.type = 'button';
+      said.className = 'kstsay';
+      said.textContent = '🔊';
+      said.setAttribute('aria-label', 'Hear the word: ' + word);
+      said.onclick = () => Speech.speak(word);
+      const w = document.createElement('b');
+      w.textContent = word;
+      line.append(said, w);
+      pop.appendChild(line);
+      const note = document.createElement('div');
+      note.className = 'kstpop-note';
+      if (known) {
+        note.textContent = (known.fa || '') + (known.def_en ? ' · ' + known.def_en : '');
+      } else {
+        note.textContent = 'Tap 🔊 to hear it again.';
+      }
+      pop.appendChild(note);
+      pop.hidden = false;
+    }
+    host.addEventListener('click', (e) => {
+      const sp = e.target.closest('.kst-w');
+      if (sp) showWord(sp);
+    });
+    host.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const sp = e.target.closest('.kst-w');
+      if (!sp) return;
+      e.preventDefault();
+      showWord(sp);
+    });
+
     const label = document.createElement('div');
     label.className = 'klabel';
     label.textContent = 'Questions · پرسش‌ها';
     card.appendChild(label);
     quiz(card, st.questions);
     box.appendChild(card);
-  }
 
+    /* --- wiring -------------------------------------------------------- */
+    /* stopNarration() lets go of the DOM it was painting (a closed panel must
+       not be written to), so a restart inside the same view re-dresses the
+       player before speaking. */
+    function rewire() {
+      NARR.lines = lines;
+      NARR.total = before;
+      NARR.paint = paintTransport;
+      NARR.wave = wave;
+      NARR.meta = meta;
+      NARR.track = track;
+      NARR.play = play;
+      NARR.pop = pop;
+      NARR.line = -1;
+      NARR.word = -1;
+      NARR.lineDone = false;
+      NARR.sawWords = false;
+      NARR.state = 'idle';
+      NARR.hold = false;
+      NARR.gen += 1;
+      paintTransport();
+      paintLine(-1, -1);
+    }
+    function start() { rewire(); speakLine(0); }
+    replay.onclick = () => start();
+    play.onclick = () => {
+      if (NARR.state === 'done') { start(); return; }
+      toggleNarration();
+    };
+    rewire();
+  }
   async function reading() {
     const box = $('rdbody');
     if (!box) return;
@@ -19438,7 +20049,10 @@ const Kids = (() => {
   }
 
   return {on, enable, off, load, land, repaint, home, vocab, grammar, stories,
-          reading, listening, phrases, says, welcome, starters, data};
+          reading, listening, phrases, says, welcome, starters, data,
+          // the panel lifecycle and the page lifecycle both end narration
+          // through here; nothing may keep talking in a closed section
+          stopNarration};
 })();
 
 
