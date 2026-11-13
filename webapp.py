@@ -7413,6 +7413,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .ksense .kchip { align-self: flex-start; }
   .ksense .kfa { margin: 0; }
+  .kempty { margin: 10px 2px; font-size: 12.5px; color: var(--k-ink-2); }
   /* the drawing itself: one grid, one stroke weight, the app's own ink */
   .kwa svg { width: 66%; height: 66%; display: block; }
   .kwa .w-wing { transform-box: fill-box; transform-origin: 70% 50%; animation: kWing 1.6s ease-in-out infinite; }
@@ -19632,22 +19633,46 @@ const Kids = (() => {
     const box = $('domains');
     if (!box) return;
     const d = await load().catch(() => null);
+    /* The one search box the panels already share, now aimed at the word bank
+       as well: an English word, a Persian meaning, or part of either. */
     const search = $('vsearch');
-    if (search) search.hidden = true;
+    if (search) {
+      search.hidden = false;
+      search.placeholder = 'Search words… / جست‌وجوی واژه‌ها…';
+    }
+    window.__kidsVocab = vocab;
     panelTitle('vpanel', 'Words', 'واژه‌ها');
     box.innerHTML = '';
     if (!d) { box.textContent = 'Words could not be read.'; return; }
+    const typed = window.__vFilter != null ? window.__vFilter : (search ? search.value : '');
+    const terms = PanelSearch.fold(String(typed || '')).split(' ').filter(Boolean);
     const wrap = document.createElement('div');
     wrap.className = 'klist';
-    (d.words || []).forEach((theme) => {
-      wrap.appendChild(listButton('theme', theme,
-        () => themeWords(d, theme), (theme.words || []).length + ' words'));
+    const shown = (d.words || []).filter((theme) => {
+      if (!terms.length) return true;
+      const hay = PanelSearch.fold([theme.title_en, theme.title_fa].concat(
+        (theme.words || []).map((w) => [w.word, w.fa, w.def_en].join(' '))).join(' '));
+      return terms.every((t) => hay.includes(t));
     });
+    shown.forEach((theme) => {
+      const count = terms.length
+        ? (theme.words || []).filter((w) => terms.every((t) =>
+            PanelSearch.fold([w.word, w.fa, w.def_en].join(' ')).includes(t))).length + ' found'
+        : (theme.words || []).length + ' words';
+      wrap.appendChild(listButton('theme', theme,
+        () => themeWords(d, theme, terms), count));
+    });
+    if (terms.length && !shown.length) {
+      const none = document.createElement('p');
+      none.className = 'kempty';
+      none.textContent = 'No word here yet — واژه‌ای پیدا نشد';
+      wrap.appendChild(none);
+    }
     box.appendChild(wrap);
     KAnim.stagger(wrap);
   }
 
-  function themeWords(d, theme) {
+  function themeWords(d, theme, terms) {
     const box = $('domains');
     if (!box) return;
     box.innerHTML = '';
@@ -19658,7 +19683,10 @@ const Kids = (() => {
     h.textContent = (theme.emoji || '') + ' ' + theme.title_en;
     card.appendChild(h);
     card.appendChild(fa(theme.title_fa, 'kfa-h'));
-    (theme.words || []).forEach((w) => {
+    const wanted = Array.isArray(terms) ? terms : [];
+    const shownWords = (theme.words || []).filter((w) => !wanted.length || wanted.every((t) =>
+      PanelSearch.fold([w.word, w.fa, w.def_en].join(' ')).includes(t)));
+    shownWords.forEach((w) => {
       const row = document.createElement('div');
       row.className = 'kwordrow';
       row.dataset.word = w.word;
@@ -25396,6 +25424,12 @@ loadAllSections().finally(() => Boot.ready());
 /* live-filter the vocabulary panel as you type */
 document.getElementById('vsearch').addEventListener('input', (ev) => {
   window.__vFilter = ev.target.value;
+  /* A child's Words panel re-runs its own list; the adult panel is untouched. */
+  const vp = document.getElementById('vpanel');
+  if (document.body.classList.contains('kids') && window.__kidsVocab && vp && !vp.hidden) {
+    window.__kidsVocab();
+    return;
+  }
   loadVocabulary();
 });
 mountMic();
