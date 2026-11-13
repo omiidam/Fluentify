@@ -1581,6 +1581,39 @@
     color: var(--ink-5);
   }
   .ac-bar.on span { color: var(--ink-3); }
+  /* ---- the version switch ---------------------------------------------
+     One account, two rooms. The band is chosen at sign-up and, until now,
+     never asked about again - so an adult who signed up in the child's room,
+     or a parent handing the tablet to a child, had no way across. It lives
+     here because the room is a property of the account, and each option says
+     what the room *is* rather than naming a setting: the thing a person
+     presses should be the thing they expect to see next. */
+  .ac-versions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .ac-ver {
+    position: relative; display: flex; flex-direction: column; gap: 2px;
+    align-items: flex-start; padding: 10px 11px 11px; border-radius: 13px;
+    cursor: pointer; font-family: inherit; text-align: start;
+    background: var(--surf-1); border: 1px solid var(--line); color: var(--ink);
+    transition: border-color .16s, background .16s, box-shadow .16s, transform .16s;
+  }
+  .ac-ver:hover { border-color: var(--line2); background: var(--surf-2); transform: translateY(-1px); }
+  .ac-ver:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .ac-ver-ico { font-size: 20px; line-height: 1.1; }
+  .ac-ver b { font-size: 13px; font-weight: 800; }
+  .ac-ver i { font-style: normal; font-size: 11px; color: var(--muted); }
+  .ac-ver small { font-size: 10.5px; line-height: 1.4; color: var(--ink-3); }
+  .ac-ver-tag {
+    position: absolute; top: 8px; inset-inline-end: 8px;
+    font-size: 9px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 999px; background: var(--navy); color: var(--on-fill);
+  }
+  .ac-ver[aria-pressed="false"] .ac-ver-tag { display: none; }
+  .ac-ver[aria-pressed="true"] {
+    border-color: var(--navy); background: var(--surf-2);
+    box-shadow: inset 0 0 0 1px var(--navy);
+  }
+  .ac-ver[aria-pressed="true"] b { color: var(--navy); }
+
   .ac-block { margin: 0 0 11px; }
   .ac-blockh {
     display: flex; justify-content: space-between; align-items: baseline;
@@ -6856,7 +6889,10 @@
     display: block; font-size: 12.5px; line-height: 1.5; color: var(--k-hero-sub); margin-top: 3px;
   }
   .khero .kgreet .kfa { direction: rtl; text-align: right; }
-  .kstars { display: flex; align-items: center; gap: 5px; margin-top: 7px; }
+  .kstars { display: flex; align-items: center; gap: 5px; }
+  .kstars-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .kstars-row .kstars-n { font-size: 11.5px; font-weight: 800; color: var(--k-primary-dark); }
+  .kstars-row .kstars-fa { font-size: 11px; color: var(--k-ink-2); }
   .kstars i {
     width: 15px; height: 15px; display: block;
     background: var(--k-surface); border-radius: 50%;
@@ -6868,20 +6904,16 @@
   .kbar { height: 10px; border-radius: 999px; background: var(--k-track); overflow: hidden; margin-top: 8px; }
   .kbar i { display: block; height: 100%; border-radius: 999px;
     background: var(--k-primary); transition: width .5s cubic-bezier(.22,1,.36,1); }
-  .kmeta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--k-primary-dark); font-weight: 700; }
 
   /* level and streak, then the one tap back to where the child was */
-  .kstrip { display: flex; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
-  .kchip {
-    flex: 1 1 0; min-width: 118px; padding: 9px 12px; border-radius: 14px;
-    background: var(--k-surface); border: 1.5px solid var(--k-line);
-    box-shadow: 0 1px 3px var(--k-shadow);
-    display: flex; flex-direction: column; gap: 1px;
+  /* Calm mode moved out of this page: a switch that turns motion off is a
+     grown-up's setting, and it was one of three small labelled boxes standing
+     between a child and the thing they came to press. It lives in Me now. */
+  body.kids .ac-calm { cursor: pointer; font-family: inherit; }
+  body.kids .ac-calm[aria-pressed="true"] {
+    border-color: var(--k-primary); background: var(--k-primary-wash);
+    color: var(--k-primary-dark);
   }
-  .kchip b { font-size: 13px; color: var(--k-ink); }
-  .kchip i { font-style: normal; font-size: 11.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
-  .kchip.on { border-color: var(--k-primary-line); background: var(--k-primary-wash); }
-  .kchip.on b { color: var(--k-primary-dark); }
   .kcont {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
     cursor: pointer; font-family: inherit; padding: 13px 15px; margin-bottom: 10px;
@@ -6972,7 +7004,17 @@
   }
   .ksay:hover { background: var(--k-say); transform: translateY(-1px); }
 
-  .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+  /* What is this page for? A line a child can read out loud, then six doors
+     big enough to hit without aiming. Everything that used to sit above them -
+     three status boxes, a second progress bar, an "Open →" on every tile - was
+     a sentence somebody had to explain. */
+  .klead {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px;
+    margin: 14px 2px 8px;
+  }
+  .klead b { font-family: var(--font-display); font-size: 17px; color: var(--k-ink); letter-spacing: -.2px; }
+  .klead i { font-style: normal; font-size: 12.5px; color: var(--k-ink-2); }
+  .kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 12px; }
   /* One tile, six identities. The accent lives in three places on the card -
      a 5px spine down the start edge, the icon's own chip, and the "Open"
      arrow - so the section is recognizable from the color alone, then again
@@ -6983,7 +7025,7 @@
     --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line);
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
-    min-height: 82px; padding: 13px 14px 12px 17px; cursor: pointer; font-family: inherit;
+    min-height: 92px; padding: 14px 15px 13px 18px; cursor: pointer; font-family: inherit;
     border-radius: 18px; border: 1.5px solid var(--k-sec-line);
     background: var(--k-surface);
     color: var(--k-ink); text-align: start;
@@ -7001,7 +7043,7 @@
   .kbtn:active { transform: translateY(0); box-shadow: 0 1px 2px var(--k-shadow); }
   .kbtn:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
   .kbtn .kico {
-    width: 36px; height: 36px; border-radius: 12px; font-size: 18px;
+    width: 42px; height: 42px; border-radius: 13px; font-size: 19px;
     display: grid; place-items: center; line-height: 1;
     background: var(--k-sec-wash); border: 1.5px solid var(--k-sec-line);
     color: var(--k-sec-ink);
@@ -7009,9 +7051,8 @@
   .kbtn .kico svg { width: 21px; height: 21px; display: block; }
   /* a lit chip, so the tile reads at a glance from across a room */
   .kbtn .kico { box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset; }
-  .kbtn b { font-size: 14.5px; font-weight: 800; letter-spacing: -.1px; }
+  .kbtn b { font-size: 15.5px; font-weight: 800; letter-spacing: -.1px; }
   .kbtn .kfa { font-size: 12px; color: var(--k-ink-2); direction: rtl; line-height: 1.7; }
-  .kbtn .kgo { font-size: 11.5px; color: var(--k-sec-ink); font-weight: 800; margin-top: auto; }
   .kbtn.kc-navy { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
     --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line); }
   .kbtn.kc-blue { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
@@ -7040,6 +7081,14 @@
   .kcard h4 { margin: 0 0 2px; font-size: 17.5px; line-height: 1.3; color: var(--k-ink);
     font-family: var(--font-display); letter-spacing: -.2px; }
   .kcard .kfa-h { font-size: 12px; color: var(--k-ink-2); direction: rtl; margin-bottom: 6px; }
+  .kcard-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .kcard-h > div { min-width: 0; }
+  .kcard-more {
+    flex: none; font: inherit; font-size: 11.5px; font-weight: 800; cursor: pointer;
+    padding: 7px 11px; border-radius: 999px;
+    border: 1.5px solid var(--k-sun-line); background: var(--k-sun-wash); color: var(--k-sun-ink);
+  }
+  .kcard-more:hover { background: var(--k-sun); }
   .kcard p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.65; color: var(--k-ink-2); }
   .kcard .kfa-p { font-size: 12.5px; color: var(--k-ink-2); direction: rtl; text-align: right; }
   .kcard .kform {
@@ -7952,10 +8001,6 @@
   body.kids-calm .kwave.on i, body.kids-calm .kstagger > *,
   body.kids-calm .kseq i, body.kids-calm .kcelebrate i { animation: none !important; }
   body.kids-calm .kwa, body.kids-calm .kchar * { transition: none !important; }
-  .kcalm { cursor: pointer; font-family: inherit; flex: 0 0 auto; min-width: 0; }
-  .kcalm b { font-size: 12px; }
-  .kcalm[aria-pressed="true"] { border-color: var(--k-primary); background: var(--k-primary-wash); }
-  .kcalm[aria-pressed="true"] b { color: var(--k-primary-dark); }
 
   /* an element scrolled out of view stops animating */
   .koff .kwa, .koff .kchar *, .koff .kwave i { animation-play-state: paused !important; }
@@ -15897,6 +15942,41 @@ const Auth = (() => {
   /* The age the experience was chosen from, stated plainly - and, for an
      account made before the question existed, the one control that asks it.
      The same record is edited either way: the gate never makes an account. */
+  /* Which of the two rooms this account opens into. The band has been on the
+     account since the gate started asking for an age, but this is the first
+     place it is something the learner can change afterwards - a parent handing
+     the tablet over, or an adult who signed up in the child's room. */
+  function versionBlock(account) {
+    const now = Experience.current() || Experience.bandFor(Experience.cleanAge(account.age)) || '';
+    const rooms = [
+      ['kids', '🧸', 'Fluentify Kids', 'کودکان', 'Big tiles, colours and games'],
+      ['adults', '🎓', 'Fluentify', 'بزرگسالان', 'The full course, chat and review'],
+    ];
+    return '<div class="ac-block">' +
+      '<div class="ac-blockh"><b>Fluentify version — نسخه</b><small>switch any time</small></div>' +
+      '<div class="ac-versions" role="group" aria-label="Fluentify version">' +
+      rooms.map(([id, ico, en, faText, note]) =>
+        '<button type="button" class="ac-ver" data-ac="band" data-band="' + id + '" ' +
+        'aria-pressed="' + (now === id ? 'true' : 'false') + '">' +
+        '<span class="ac-ver-ico" aria-hidden="true">' + ico + '</span>' +
+        '<b>' + en + '</b>' +
+        '<i dir="rtl" lang="fa">' + faText + '</i>' +
+        '<small>' + note + '</small>' +
+        '<span class="ac-ver-tag">Now</span>' +
+        '</button>').join('') +
+      '</div></div>';
+  }
+
+  /* The one switch in the app that changes the shell rather than a setting:
+     the band is written, Experience repaints the page in place, and the panel
+     is redrawn so the room that is now open says so. A child's room lands on
+     its own home page - the account panel closes behind it - and an adult's
+     room leaves the panel where it is, now reading "Fluentify". */
+  function switchBand(next) {
+    if (!Experience.setBand(next)) return;
+    paintAccount();
+  }
+
   function ageRow(account) {
     const age = Experience.cleanAge(account.age);
     if (age == null) {
@@ -15957,6 +16037,8 @@ const Auth = (() => {
         </div>
       </section>
 
+      ${versionBlock(account)}
+
       <div class="ac-stats">
         <div class="ac-stat"><b>${fmtDur(study.total)}</b><span>Studied<span class="fa" dir="rtl" lang="fa">مطالعه</span></span></div>
         <div class="ac-stat"><b>${fmtDur(study.today)}</b><span>Today<span class="fa" dir="rtl" lang="fa">امروز</span></span></div>
@@ -15969,6 +16051,12 @@ const Auth = (() => {
         <div class="ac-blockh"><b>Avatar — نمایه</b><small>${AVATARS[face].en}</small></div>
         <div class="ac-avatars">${faces}</div>
       </div>
+
+      ${Experience.kids() ? `<div class="ac-block">
+        <div class="ac-blockh"><b>Calm mode — حرکت کمتر</b><small>less motion</small></div>
+        <button type="button" class="lv-btn ghost ac-calm" data-ac="calm"
+                aria-pressed="${KAnim.calm() ? 'true' : 'false'}">Calm mode — حرکت کمتر</button>
+      </div>` : ''}
 
       <div class="ac-block">
         <div class="ac-blockh"><b>Achievements — دستاوردها</b><small>${earned} of ${badges.length}</small></div>
@@ -16126,11 +16214,23 @@ const Auth = (() => {
     });
     /* Delegated, because paintAccount() replaces the panel's markup: binding
        the buttons once at boot bound the ones that were about to be thrown
-       away, and every action in the account panel was silently dead. */
-    const accountBody = $('acbody');
-    if (accountBody) {
-      accountBody.addEventListener('click', (e) => {
-        const face = e.target.closest('[data-avatar]');
+       away, and every action in the account panel was silently dead.
+
+       Delegated to the *document* and filtered by ancestor rather than bound
+       to #acbody itself: the kids shell rewrites the panels when the band
+       changes, which replaces that node, and a listener on the old one went
+       with it - the version switch rendered perfectly and did nothing. The
+       guard is the same one the panel used to give for free. */
+    {
+      const inAccount = (node) => !!(node && node.closest && node.closest('#acbody'));
+      document.addEventListener('click', (e) => {
+        if (!inAccount(e.target)) return;
+        const accountBody = $('acbody');
+        /* .ac-av as well as the attribute: the avatar skin is also written
+           onto <html data-avatar="...">, which is an ancestor of every node on
+           the page - so the bare attribute selector matched the whole
+           document and swallowed every other action in this panel. */
+        const face = e.target.closest('.ac-av[data-avatar]');
         if (face) {
           const id = face.dataset.avatar;
           if (AVATARS[id]) {
@@ -16145,7 +16245,7 @@ const Auth = (() => {
         if (!b) return;
         const act = b.dataset.ac;
         if (act === 'avatar-focus') {
-          const pick = accountBody.querySelector('.ac-av.on') || accountBody.querySelector('.ac-av');
+          const pick = accountBody && (accountBody.querySelector('.ac-av.on') || accountBody.querySelector('.ac-av'));
           if (pick) {
             pick.scrollIntoView({block: 'nearest'});
             pick.focus({preventScroll: true});
@@ -16154,6 +16254,8 @@ const Auth = (() => {
         else if (act === 'signout') signOut();
         else if (act === 'open') show('signup', false);
         else if (act === 'age') Experience.askAge();
+        else if (act === 'band') switchBand(b.dataset.band);
+        else if (act === 'calm') { KAnim.toggle(); paintAccount(); }
         else if (act === 'save') {
           const input = $('acname');
           const name = input.value.trim().replace(/\s+/g, ' ');
@@ -16166,15 +16268,15 @@ const Auth = (() => {
       });
       /* The password form is replaced on every paint, so its input and submit
          are delegated to the panel rather than bound to the fields. */
-      accountBody.addEventListener('input', (e) => {
-        if (!e.target || e.target.id !== 'acpass1') return;
+      document.addEventListener('input', (e) => {
+        if (!inAccount(e.target) || !e.target || e.target.id !== 'acpass1') return;
         const acc = read(ACCOUNT, null);
         const res = strength(e.target.value, acc ? acc.user : '', acc ? acc.name : '');
         paintRulesInto('acpassrules', res);
         passError(null);
       });
-      accountBody.addEventListener('submit', (e) => {
-        if (!e.target || e.target.id !== 'acpass') return;
+      document.addEventListener('submit', (e) => {
+        if (!inAccount(e.target) || !e.target || e.target.id !== 'acpass') return;
         e.preventDefault();
         changePassword();
       });
@@ -16359,6 +16461,23 @@ const Experience = (() => {
     return band;
   }
 
+  /* The band, after sign-up. Kids and Adults are two rooms over one account -
+     the same words, the same level, the same progress - so switching moves
+     nobody's work: it writes one field, repaints the shell, and the other room
+     opens on what it always opens on. Nothing is copied and nothing is reset,
+     which is also why the switch can be pressed twice without consequence. */
+  function setBand(next) {
+    const account = read(ACCOUNT, null);
+    if (!account) return '';
+    const band = next === 'kids' ? 'kids' : 'adults';
+    if (current() === band) return band;
+    account.band = band;
+    write(ACCOUNT, account);
+    paint();
+    if (band === 'kids') Kids.land();
+    return band;
+  }
+
   /* Called once, after the session gate has let the learner in. An adult with
      an age goes straight to the page they always had; a child gets the kids
      layer; an account without an age is asked once, here, before anything
@@ -16377,7 +16496,7 @@ const Experience = (() => {
     sync();
   }
 
-  return {cleanAge, bandFor, current, kids, adults, missing, saveAge, paint,
+  return {cleanAge, bandFor, current, kids, adults, missing, saveAge, setBand, paint,
           sync, askAge, submitAge, onSignedIn, tier: currentTier, tierOf,
           kidsUnder: () => KIDS_UNDER, min: AGE_MIN, max: AGE_MAX,
           tiers: {young: TIER_YOUNG_UNDER, older: TIER_OLDER_FROM}};
@@ -18034,7 +18153,7 @@ const KAnim = (() => {
   function apply() {
     const on = calm();
     document.body.classList.toggle('kids-calm', on);
-    document.querySelectorAll('.kcalm').forEach((b) => {
+    document.querySelectorAll('.ac-calm').forEach((b) => {
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     return on;
@@ -18331,6 +18450,7 @@ const Kids = (() => {
 
   /* ---- the toolbar ----------------------------------------------------- */
   function enable() {
+    KAnim.apply();
     const tools = document.querySelector('.tools');
     if (tools) tools.classList.add('kidtools');
     if (!labeled) {
@@ -18385,6 +18505,10 @@ const Kids = (() => {
   }
 
   function off() {
+    /* Calm mode is a child's setting, and the class it toggles styles the kids
+       drawings. Leaving it on the body after the switch would keep an adult
+       page in a state its own account panel has no switch for. */
+    document.body.classList.remove('kids-calm');
     const tools = document.querySelector('.tools');
     if (tools) tools.classList.remove('kidtools', 'moreopen');
     document.querySelectorAll('.kadv').forEach((b) => b.classList.remove('kadv'));
@@ -18576,20 +18700,25 @@ const Kids = (() => {
       if (i < got) s.className = 'on';
       stars.appendChild(s);
     }
-    const bar = document.createElement('div');
-    bar.className = 'kbar';
-    const fill = document.createElement('i');
-    fill.style.width = Math.min(100, Math.round((sec / (15 * 60)) * 100)) + '%';
-    bar.appendChild(fill);
-    const meta = document.createElement('div');
-    meta.className = 'kmeta';
-    const left = document.createElement('span');
-    left.textContent = Math.round(sec / 60) + ' min today';
-    const right = document.createElement('span');
-    right.textContent = 'goal 15 min';
-    meta.append(left, right);
-    greet.append(hi, line, lineFa, stars, bar, meta);
+    /* One progress readout instead of three. The stars were always the thing a
+       child understood; the bar under them said the same thing again in a
+       language about goals, and "23 min today / goal 15 min" said it a third
+       time as arithmetic. The stars stay, with one line under them that names
+       the count in words - so the number is readable, not only countable. */
+    const row = document.createElement('div');
+    row.className = 'kstars-row';
+    const count = document.createElement('span');
+    count.className = 'kstars-n';
+    count.textContent = got + ' of 5 stars';
+    const countFa = document.createElement('span');
+    countFa.className = 'kstars-fa';
+    countFa.dir = 'rtl';
+    countFa.lang = 'fa';
+    countFa.textContent = got + ' ستاره از ۵';
+    row.append(stars, count, countFa);
+    greet.append(hi, line, lineFa, row);
     el.append(face, greet);
+    el.setAttribute('aria-label', 'Hi' + (name ? ', ' + name.split(' ')[0] : '') + ' · ' + got + ' of 5 stars today');
     return el;
   }
 
@@ -18653,10 +18782,8 @@ const Kids = (() => {
       f.dir = 'rtl';
       f.lang = 'fa';
       f.textContent = faText;
-      const go = document.createElement('span');
-      go.className = 'kgo';
-      go.textContent = 'Open →';
-      b.append(i, t, f, go);
+      b.append(i, t, f);
+      b.setAttribute('aria-label', en + ' — ' + faText);
       b.onclick = fn;
       grid.appendChild(b);
     });
@@ -18676,10 +18803,23 @@ const Kids = (() => {
     for (let i = 0; i < 5; i += 1) picked.push(all[(seed * 7 + i * 11) % all.length]);
     const card = document.createElement('section');
     card.className = 'kcard';
+    const head = document.createElement('div');
+    head.className = 'kcard-h';
+    const titles = document.createElement('div');
     const h = document.createElement('h4');
     h.textContent = 'Play with words 🎯';
-    card.appendChild(h);
-    card.appendChild(fa('با واژه‌ها بازی کن', 'kfa-h'));
+    titles.append(h, fa('با واژه‌ها بازی کن', 'kfa-h'));
+    /* This was a bare "Five more" button at the very bottom of the page, with
+       no card to belong to and nothing to say what it would give five more of.
+       It is the card's own refresh now, where the questions are. */
+    const more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'kcard-more';
+    more.textContent = '↻ 5 more';
+    more.setAttribute('aria-label', 'Five more words — پنج واژهٔ دیگر');
+    more.onclick = () => { quizPage += 1; home(); };
+    head.append(titles, more);
+    card.appendChild(head);
     const items = picked.map((w) => {
       const wrong = all.filter((x) => x.fa !== w.fa).slice((w.word.length % 5), 5).slice(0, 2);
       const options = [w.fa].concat(wrong.map((x) => x.fa));
@@ -18703,35 +18843,6 @@ const Kids = (() => {
       const r = raw ? JSON.parse(raw) : null;
       return r && r.overall ? String(r.overall) : '';
     } catch (e) { return ''; }
-  }
-
-  function statusStrip() {
-    const el = document.createElement('div');
-    el.className = 'kstrip';
-    const band = levelNow();
-    const level = document.createElement('span');
-    level.className = 'kchip' + (band ? ' on' : '');
-    level.innerHTML = '<b>' + (band ? 'Level ' + esc(band) : 'My level') + '</b>' +
-      '<i>' + (band ? 'سطح ' + esc(band) : 'سطح من') + '</i>';
-    let streak = 0;
-    try { streak = Study.stats().streak || 0; } catch (e) { streak = 0; }
-    const days = document.createElement('span');
-    days.className = 'kchip' + (streak ? ' on' : '');
-    days.innerHTML = '<b>' + (streak ? streak + (streak === 1 ? ' day' : ' days') : 'Day 1') +
-      ' 🔥</b><i>' + (streak ? streak + ' روز پیاپی' : 'روز اول') + '</i>';
-    /* The one control a child needs to make the app quieter. It remembers,
-       and once touched it overrides the system setting either way. */
-    const calm = document.createElement('button');
-    calm.type = 'button';
-    calm.className = 'kchip kcalm';
-    calm.setAttribute('aria-pressed', KAnim.calm() ? 'true' : 'false');
-    calm.innerHTML = '<b>Calm mode</b><i>حرکت کمتر</i>';
-    calm.onclick = () => {
-      const on = KAnim.toggle();
-      calm.setAttribute('aria-pressed', on ? 'true' : 'false');
-    };
-    el.append(level, days, calm);
-    return el;
   }
 
   /* One tap back to the section the child was using. It is a section id, so
@@ -18766,19 +18877,25 @@ const Kids = (() => {
       return;
     }
     panel.appendChild(hero(account ? account.name : '', minutesToday()));
-    panel.appendChild(statusStrip());
+    /* Four things to look at, in the order a child needs them: who I am today,
+       what to do next, what I can choose, and one game. The level box, the
+       streak box, the calm switch and the second "five more" button are gone
+       from this page - the first two now live in Me, the switch beside them,
+       and the third belongs to the game it refreshes. */
     panel.appendChild(continueCard());
+    const lead = document.createElement('div');
+    lead.className = 'klead';
+    const leadEn = document.createElement('b');
+    leadEn.textContent = 'What do you want to do?';
+    const leadFa = document.createElement('i');
+    leadFa.dir = 'rtl';
+    leadFa.lang = 'fa';
+    leadFa.textContent = 'چه کاری دوست داری بکنی؟';
+    lead.append(leadEn, leadFa);
+    panel.appendChild(lead);
     panel.appendChild(homeTiles());
     const prac = practiceCard(d);
     if (prac) panel.appendChild(prac);
-    const again = document.createElement('button');
-    again.type = 'button';
-    again.className = 'kbtn kc-sun';
-    again.style.marginTop = '10px';
-    again.innerHTML = '<span class="kico">' + kicon('again') + '</span><b>Five more</b>'
-      + '<span class="kfa" dir="rtl" lang="fa">پنج‌تای دیگر</span>';
-    again.onclick = () => { quizPage += 1; home(); };
-    panel.appendChild(again);
   }
 
   function land() {
