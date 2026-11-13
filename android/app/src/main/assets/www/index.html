@@ -1588,6 +1588,19 @@
      here because the room is a property of the account, and each option says
      what the room *is* rather than naming a setting: the thing a person
      presses should be the thing they expect to see next. */
+  .ac-restart {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    padding: 22px 10px; text-align: center;
+  }
+  .ac-restart b { font-size: 14px; color: var(--ink); }
+  .ac-restart span { font-size: 12px; color: var(--ink-2); }
+  .ac-restart i {
+    margin-top: 8px; width: 22px; height: 22px; border-radius: 50%;
+    border: 2.5px solid var(--line-strong); border-top-color: var(--accent);
+    animation: acspin .8s linear infinite;
+  }
+  @keyframes acspin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .ac-restart i { animation: none; } }
   .ac-versions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .ac-ver {
     position: relative; display: flex; flex-direction: column; gap: 2px;
@@ -16138,9 +16151,37 @@ const Auth = (() => {
      is redrawn so the room that is now open says so. A child's room lands on
      its own home page - the account panel closes behind it - and an adult's
      room leaves the panel where it is, now reading "Fluentify". */
+  /* A room is not a theme.
+
+     Everything the shell builds at start-up is built for the band that was
+     active at load: the chat's opening line is chosen once, its starter chips
+     are rendered once, the toolbar labels are chosen once. Flipping the class
+     underneath all of that left the other version's chat room on screen - an
+     adult reading "Hi! I am Fluentify, your English friend" and a child's
+     starter chips, which is exactly the bug this switch produced. So a switch
+     is a new document: the chosen room is written to the account, the screen
+     says what is happening, and the app comes back through its loading page
+     in that room, with every section built for it from the first line. */
+  function restart(chosen) {
+    const body = $('acbody');
+    if (body) {
+      body.innerHTML = '<div class="ac-restart" role="status" aria-live="polite">' +
+        '<b>' + (chosen === 'kids' ? 'Opening Fluentify Kids…' : 'Opening Fluentify…') + '</b>' +
+        '<span dir="rtl" lang="fa">' +
+        (chosen === 'kids' ? 'نسخهٔ کودکان باز می‌شود…' : 'نسخهٔ کامل باز می‌شود…') +
+        '</span><i aria-hidden="true"></i></div>';
+    }
+    try { if (typeof Speech !== 'undefined') Speech.stop(); } catch (e) { /* no voice */ }
+    setTimeout(() => {
+      try { location.reload(); } catch (e) { /* a frame that refuses to reload */ }
+    }, 620);
+  }
+
   function switchBand(next) {
+    const before = Experience.current();
     if (!Experience.setBand(next)) return;
-    paintAccount();
+    if (Experience.current() === before) { paintAccount(); return; }
+    restart(Experience.current());
   }
 
   function ageRow(account) {
@@ -16465,6 +16506,10 @@ const Auth = (() => {
 
   function init() {
     bind();
+    /* Any restart this document asked for has been honoured by the time we
+       are here again, so the guard is cleared before it can block a later,
+       genuine switch. */
+    try { sessionStorage.removeItem('fluentify.switching'); } catch (e) { /* private */ }
     account = read(ACCOUNT, null);
     session = read(SESSION, null);
     if (!account) { show('signup', false); return; }
@@ -16624,7 +16669,22 @@ const Experience = (() => {
     paint();
     if (band === 'kids') Kids.land();
     if (document.getElementById('acbody')) Auth.paintAccount();
+    restart();
     return band;
+  }
+
+  /* The room changed while this document is already built: the conversation
+     already has an opening line and starter chips for whoever was here at
+     load, and every other section was painted for that room too. Coming back
+     through the loading page is the only way to be sure the whole page is the
+     chosen version, so that is what this does - once, with a guard, because
+     the reload runs this module again. */
+  function restart() {
+    try {
+      if (sessionStorage.getItem('fluentify.switching') === '1') return;
+      sessionStorage.setItem('fluentify.switching', '1');
+    } catch (e) { return; }        // no storage: no guard, so no reload
+    setTimeout(() => { try { location.reload(); } catch (e) { /* locked frame */ } }, 260);
   }
 
   /* The band, after sign-up. Kids and Adults are two rooms over one account -
@@ -16658,11 +16718,13 @@ const Experience = (() => {
   }
 
   function onSignedIn() {
+    const wasKids = document.body.classList.contains('kids');
     Kids.off();
-    sync();
+    const band = sync();
+    if (band && (band === 'kids') !== wasKids) restart();
   }
 
-  return {cleanAge, bandFor, current, kids, adults, missing, saveAge, setBand, paint,
+  return {cleanAge, bandFor, current, kids, adults, missing, saveAge, setBand, paint, restart,
           sync, askAge, submitAge, onSignedIn, tier: currentTier, tierOf,
           kidsUnder: () => KIDS_UNDER, min: AGE_MIN, max: AGE_MAX,
           tiers: {young: TIER_YOUNG_UNDER, older: TIER_OLDER_FROM}};
