@@ -6543,6 +6543,11 @@
     --k-pink: #f17fa5; --k-pink-wash: #fff0f5; --k-pink-line: #fbd0de; --k-pink-ink: #9c2f55;
     --k-sun: #ffc857; --k-sun-wash: #fff8db; --k-sun-line: #ffe1a0; --k-sun-ink: #5f4608;
     --k-coral: #ff6b6b; --k-coral-wash: #fff0ed; --k-coral-line: #ffd2cc; --k-coral-ink: #8f2b22;
+    /* teal and lime are section identities, not states: listening and the word
+       quest needed a hue of their own, and both sit far enough from the dark
+       forest green of --k-good that a section cannot read as "correct". */
+    --k-teal: #31b7a5; --k-teal-wash: #eaf9f5; --k-teal-line: #b7e6dd; --k-teal-ink: #0d6156;
+    --k-lime: #9bcb55; --k-lime-wash: #f3f9e7; --k-lime-line: #d5eab3; --k-lime-ink: #4a6b14;
     --k-bg: #fff8ef; --k-surface: #ffffff; --k-surface-2: #fffaf3;
     --k-ink: #202b45; --k-ink-2: #626d83; --k-line: #e7eaf1;
     --k-line-strong: #d5dbe8; --k-shadow: rgba(32, 43, 69, .10);
@@ -6682,25 +6687,61 @@
     border-radius: 4px; margin-inline-end: 9px; vertical-align: 1px;
     background: var(--k-sec, var(--k-primary));
   }
-  /* Words are orange, grammar purple, listening pink, reading sky, stories
-     coral, practice orange-coral, and the home page is the navy itself - the
-     seven doors a child actually has, each one recognizable by hue and then
-     by its own icon and name. The full quartet is set per panel, not just the
-     spine colour, so a card opened inside a section belongs to that section. */
-  body.kids #vpanel { --k-sec: var(--k-orange); --k-sec-ink: var(--k-orange-ink);
-    --k-sec-wash: var(--k-orange-wash); --k-sec-line: var(--k-orange-line); }
+  /* One hue per place a child can be: words blue, grammar purple, reading
+     coral, listening teal, stories pink, sentences sunshine, the hero quest
+     orange, the word quest lime, and home is the navy itself. Nine identities
+     from one palette, no two panels alike - the coral that stories and
+     sentences used to share is gone, so a page's colour is unambiguous. The
+     whole quartet is set on the panel, not just the spine. */
+  body.kids { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
+    --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line); }
+  body.kids #vpanel { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
+    --k-sec-wash: var(--k-blue-wash); --k-sec-line: var(--k-blue-line); }
   body.kids #gpanel { --k-sec: var(--k-purple); --k-sec-ink: var(--k-purple-ink);
     --k-sec-wash: var(--k-purple-wash); --k-sec-line: var(--k-purple-line); }
-  body.kids #rdpanel { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
-    --k-sec-wash: var(--k-blue-wash); --k-sec-line: var(--k-blue-line); }
-  body.kids #lpanel { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
+  body.kids #rdpanel { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
+    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
+  body.kids #lpanel { --k-sec: var(--k-teal); --k-sec-ink: var(--k-teal-ink);
+    --k-sec-wash: var(--k-teal-wash); --k-sec-line: var(--k-teal-line); }
+  body.kids #stpanel { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
     --k-sec-wash: var(--k-pink-wash); --k-sec-line: var(--k-pink-line); }
-  body.kids #stpanel { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
-    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
-  body.kids #fpanel { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
-    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
-  body.kids #hqpanel { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
-    --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line); }
+  body.kids #fpanel { --k-sec: var(--k-sun); --k-sec-ink: var(--k-sun-ink);
+    --k-sec-wash: var(--k-sun-wash); --k-sec-line: var(--k-sun-line); }
+  body.kids #hqpanel { --k-sec: var(--k-orange); --k-sec-ink: var(--k-orange-ink);
+    --k-sec-wash: var(--k-orange-wash); --k-sec-line: var(--k-orange-line); }
+  body.kids #wrqpanel { --k-sec: var(--k-lime); --k-sec-ink: var(--k-lime-ink);
+    --k-sec-wash: var(--k-lime-wash); --k-sec-line: var(--k-lime-line); }
+  /* And the accent runs the length of the page, not just the 11px square
+     beside the title: the heading takes the ink, so does a back link; every
+     list row is outlined in the section's line and its icon chip sits on the
+     section's wash; its hover is the section's own hue; a card, a second
+     meaning and a level badge opened here are that colour too; and a section's
+     progress bar fills in it. One quartet of values, so a section cannot
+     drift away from its own identity. */
+  /* Named one by one, not by [id$="panel"]: the adult panel rule that paints
+     h3 in --ink is written with an id and wins on specificity, so a child's
+     heading would otherwise keep the adult grey in a coloured section. */
+  body.kids #vpanel h3, body.kids #gpanel h3, body.kids #rdpanel h3,
+  body.kids #lpanel h3, body.kids #stpanel h3, body.kids #fpanel h3,
+  body.kids #hqpanel h3, body.kids #wrqpanel h3, body.kids #kpanel h3 {
+    color: var(--k-sec-ink);
+  }
+  body.kids [id$="panel"] .kback { color: var(--k-sec-ink); }
+  body.kids [id$="panel"] .krowbtn { border-color: var(--k-sec-line); }
+  body.kids [id$="panel"] .krowbtn .kico {
+    background: var(--k-sec-wash); border-radius: 9px; padding: 3px 0;
+  }
+  body.kids [id$="panel"] .krowbtn:hover {
+    background: var(--k-sec-wash); border-color: var(--k-sec);
+  }
+  body.kids [id$="panel"] .krowbtn:focus-visible { outline-color: var(--k-sec); }
+  body.kids [id$="panel"] .kcard { border-color: var(--k-sec-line); }
+  body.kids [id$="panel"] .kcard-h h4,
+  body.kids [id$="panel"] .ksenses > summary { color: var(--k-sec-ink); }
+  body.kids [id$="panel"] .kchip.lvl {
+    border-color: var(--k-sec-line); background: var(--k-sec-wash); color: var(--k-sec-ink);
+  }
+  body.kids [id$="panel"] .ktrack i { background: var(--k-sec); }
 
   /* ---- Word Quest: the letter puzzle ---------------------------------- */
   /* The whole game is one panel of big targets: a rack of letters a thumb can
@@ -6866,7 +6907,7 @@
   body:not(.kids) #kidsmore { display: none !important; }
   body:not(.kids) #hqtoggle, body:not(.kids) #hqpanel { display: none !important; }
   /* Word Quest is the second kids game: same rule, its own door */
-  body.kids #wrqpanel { --k-sec: var(--k-sun); display: none; }
+  body.kids #wrqpanel { display: none; }
   body.kids #wrqpanel.open { display: block; }
   body:not(.kids) #wrqtoggle, body:not(.kids) #wrqpanel { display: none !important; }
   /* A child's toolbar is seven big doors, not seventeen: the tools that need
@@ -7161,6 +7202,9 @@
   .krowbtn:hover { background: var(--k-primary-wash); border-color: var(--k-primary-line); }
   .krowbtn:focus-visible { outline: 2px solid var(--k-primary); outline-offset: 2px; }
   .krowbtn .kico { font-size: 20px; width: 30px; text-align: center; }
+  /* A row is a tap target before it is a line of text: on a 360px phone the
+     two-line label used to squash it under the 44px minimum. */
+  body.kids .krowbtn { min-height: 48px; }
   .krowbtn b { font-size: 14px; }
   .krowbtn .kfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
   .krowbtn .kn { margin-inline-start: auto; font-size: 11.5px; color: var(--k-ink-2); font-weight: 700; }
@@ -7772,6 +7816,8 @@
     --k-sky: #12243a; --k-sky-line: #2a4a68; --k-sky-ink: #a7d9f5;
     --k-sun: #f0c65a; --k-sun-wash: #2e2718; --k-sun-line: #564722; --k-sun-ink: #f0d391;
     --k-coral: #ff8f8f; --k-coral-wash: #321b18; --k-coral-line: #5c3230; --k-coral-ink: #ffb3ac;
+    --k-teal: #6fd8c8; --k-teal-wash: #10241f; --k-teal-line: #27524a; --k-teal-ink: #a6e8de;
+    --k-lime: #b6dc7d; --k-lime-wash: #1e2613; --k-lime-line: #3f5226; --k-lime-ink: #d3ecae;
     --k-bg: #0d1220; --k-surface: #141a2b; --k-surface-2: #1a2135;
     --k-ink: #e8ecf7; --k-ink-2: #9aa4bd; --k-line: #26304a;
     --k-line-strong: #35405c; --k-shadow: rgba(0, 0, 0, .38);
