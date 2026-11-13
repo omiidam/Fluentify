@@ -7906,6 +7906,11 @@
   }
   .kline { position: relative; }
 
+  /* The adult daily set has no home in a child's page: its panel, its card
+     and its badge are all hidden here rather than left one state away from
+     appearing behind a stray Escape or a stale hash. */
+  body.kids #dpanel, body.kids #dailyset, body.kids #dcardtoggle { display: none !important; }
+
   /* ---- a story, read word by word -------------------------------------
      The transport is the audio: one round play button, a replay, the speed
      chips a child can reach with a thumb, and a progress rail that is honest
@@ -18701,6 +18706,13 @@ const Kids = (() => {
     const today = $('dtoggle');
     if (today) today.hidden = true;
     if (Panels.isOpen() === 'dpanel') Panels.set('dpanel', false);
+    /* The card mounts itself into the conversation, not into the panel, so
+       hiding the tile was never enough: a child's chat still carried "Today's
+       English" at the top of it. The card comes out here, the badge goes with
+       it, and the panel is hidden for this band as well. */
+    try { Daily.removeCard(); } catch (e) { /* daily not built yet */ }
+    const dbadge = $('dbadge');
+    if (dbadge) { dbadge.hidden = true; dbadge.textContent = ''; }
     /* The fox on the home card listens while the child is typing and waves
        again when they leave. Nothing is stored: it follows the field. */
     const field = $('input');
@@ -24105,6 +24117,7 @@ const Daily = (() => {
   /* Paint the three cards for the current local date, and the progress that
      goes with them. Called on open, on the date changing, and on resume. */
   function paint() {
+    if (off()) { removeCard(); return; }
     const el = els();
     const key = dayKey(new Date());
     shown = key;
@@ -24264,6 +24277,7 @@ const Daily = (() => {
      rather than a panel over it. Nothing is drawn when the feature has been
      switched off, and the panel's own button is the way back. */
   function mountCard() {
+    if (off()) { removeCard(); return; }
     const chatEl = document.getElementById('chat');
     const existing = document.getElementById('dailyset');
     if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
@@ -24475,9 +24489,21 @@ const Daily = (() => {
     });
   }
 
+  /* Today's English is an adult habit: a word, an expression and a
+     conversation, read as a card in the conversation. A child already has the
+     word game on their own home page, so in Fluentify Kids the daily set is
+     not fetched, not mounted in the chat, not badged in the toolbar and never
+     repainted. The card is mounted from four places (boot, panel paint,
+     resume, and clearing the conversation), so every one of them asks here
+     rather than trusting that the toolbar tile stayed hidden. */
+  function off() {
+    try { return typeof Kids !== 'undefined' && Kids.on(); } catch (e) { return false; }
+  }
+
   /* Everything about the day is already in the catalog, so "loading" is one
      file read that happens behind the boot screen. */
   async function load() {
+    if (off()) return null;
     if (cat || failed) return cat;
     try {
       cat = await loadJSON('daily');
@@ -24492,6 +24518,7 @@ const Daily = (() => {
      the next midnight while the app is left running. No polling - one timer
      that is re-armed for the following midnight each time it fires. */
   function refresh(force) {
+    if (off()) { removeCard(); return; }
     const key = dayKey(new Date());
     if (!force && key === shown) return;
     paint();
@@ -24499,6 +24526,7 @@ const Daily = (() => {
 
   function schedule() {
     clearTimeout(timer);
+    if (off()) return;      // no midnight repaint for a version without the card
     timer = setTimeout(() => {
       refresh(true);
       schedule();
