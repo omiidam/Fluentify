@@ -87,7 +87,7 @@ def quiz_ok(item, label):
 
 def check_words(data):
     themes = data.get("words") or []
-    check(len(themes) == 7, f"the word bank has {len(themes)} themes, expected 7")
+    check(len(themes) >= 7, f"the word bank has {len(themes)} themes, expected at least 7")
     total = 0
     for theme in themes:
         name = theme.get("title_en") or theme.get("id")

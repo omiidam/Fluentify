@@ -10,6 +10,7 @@ one of its options. It reads the shipped file, so it cannot drift from it.
 """
 
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -19,16 +20,33 @@ KIDS = ROOT / "kids.json"
 LEVELS = ["Pre-A1", "A1", "A2", "B1", "B2", "C1", "C2"]
 
 
+def drawn_words():
+    """Every word the kids art map actually draws, read from the shipped page."""
+    page = (ROOT / "webapp.py").read_text(encoding="utf-8")
+    start = page.find("const KID_ART = {")
+    end = page.find("const KID_GENERIC", start)
+    if start < 0 or end < 0:
+        return set()
+    return set(re.findall(r"^    '([a-z]+)':", page[start:end], re.M))
+
+
 def items(doc):
     """Every teachable item, with the level it claims and its own checkers."""
     out = []
+    art = drawn_words()
     for theme in doc.get("words") or []:
         for w in theme.get("words") or []:
-            out.append(("vocabulary", theme.get("cefr") or "A1", w.get("word"),
+            word = str(w.get("word") or "").lower()
+            out.append(("vocabulary", w.get("level") or theme.get("cefr") or "A1",
+                        w.get("word"),
                         [("Persian", bool(w.get("fa"))),
                          ("definition", bool(w.get("def_en"))),
                          ("example", bool(w.get("example_en"))),
-                         ("example in Persian", bool(w.get("example_fa")))]))
+                         ("example in Persian", bool(w.get("example_fa"))),
+                         ("IPA", bool(w.get("ipa"))),
+                         ("part of speech", bool(w.get("pos"))),
+                         ("drawing", word in art)]))
+
     for sec, key, label in (("grammar", "quiz", "lesson"),
                             ("reading", "questions", "passage"),
                             ("listening", "questions", "clip"),

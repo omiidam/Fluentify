@@ -9,45 +9,89 @@
    "words": [
     {
      "word": "book",
+     "pos": "noun",
+     "ipa": "/bʊk/",
+     "level": "A1",
      "fa": "کتاب",
-     "def_en": "Pages with words that you read.",
-     "example_en": "This book has a funny story.",
-     "example_fa": "این کتاب یک داستان خنده‌دار دارد."
+     "def_en": "Pages joined together with words and pictures that you read.",
+     "example_en": "This book has a funny story about a fox.",
+     "example_fa": "این کتاب یک داستان خنده‌دار دربارهٔ یک روباه دارد.",
+     "move": "bob",
+     "senses": [
+      {
+       "pos": "verb",
+       "def_en": "to arrange to have a seat, a room or a ticket",
+       "fa": "رزرو کردن",
+       "example_en": "We book a table for lunch on Sundays.",
+       "example_fa": "ما یکشنبه‌ها برای ناهار میز رزرو می‌کنیم.",
+       "level": "A2"
+      }
+     ]
     },
     {
      "word": "pencil",
+     "pos": "noun",
+     "ipa": "/ˈpensəl/",
+     "level": "A1",
      "fa": "مداد",
-     "def_en": "A thin stick you write with.",
+     "def_en": "A thin wooden stick with a dark point that you write or draw with.",
      "example_en": "My pencil is yellow and sharp.",
-     "example_fa": "مداد من زرد و نوک‌تیز است."
+     "example_fa": "مداد من زرد و نوک‌تیز است.",
+     "move": "wiggle"
     },
     {
      "word": "teacher",
+     "pos": "noun",
+     "ipa": "/ˈtiːtʃər/",
+     "level": "A1",
      "fa": "معلم",
-     "def_en": "The person who helps you learn at school.",
-     "example_en": "Our teacher reads to us every day.",
-     "example_fa": "معلم ما هر روز برایمان کتاب می‌خواند."
+     "def_en": "A person whose job is to help children learn at school.",
+     "example_en": "Our teacher reads a story to us every day.",
+     "example_fa": "معلم ما هر روز برایمان یک داستان می‌خواند.",
+     "move": "tilt"
     },
     {
      "word": "desk",
+     "pos": "noun",
+     "ipa": "/desk/",
+     "level": "A1",
      "fa": "میز تحریر",
-     "def_en": "A table where you sit and work.",
+     "def_en": "A table that you sit at to read, write or work.",
      "example_en": "My desk is next to the window.",
-     "example_fa": "میز من کنار پنجره است."
+     "example_fa": "میز من کنار پنجره است.",
+     "move": "tilt"
     },
     {
      "word": "bag",
+     "pos": "noun",
+     "ipa": "/bæɡ/",
+     "level": "A1",
      "fa": "کیف",
-     "def_en": "Something you carry your books in.",
-     "example_en": "My bag is too heavy today.",
-     "example_fa": "کیف من امروز خیلی سنگین است."
+     "def_en": "A container with a handle that you carry things in.",
+     "example_en": "My school bag is too heavy today.",
+     "example_fa": "کیف مدرسهٔ من امروز خیلی سنگین است.",
+     "move": "bob"
     },
     {
      "word": "class",
+     "pos": "noun",
+     "ipa": "/klæs/",
+     "level": "A1",
      "fa": "کلاس",
-     "def_en": "A group of children who learn together.",
+     "def_en": "A group of children who learn together in the same room.",
      "example_en": "Our class has twenty children.",
-     "example_fa": "کلاس ما بیست بچه دارد."
+     "example_fa": "کلاس ما بیست بچه دارد.",
+     "move": "bob",
+     "senses": [
+      {
+       "pos": "noun",
+       "def_en": "a lesson, or the time you spend learning one subject",
+       "fa": "زنگ درس",
+       "example_en": "We have an art class after lunch.",
+       "example_fa": "ما بعد از ناهار زنگ نقاشی داریم.",
+       "level": "A2"
+      }
+     ]
     }
    ]
   },
@@ -59,45 +103,69 @@
    "words": [
     {
      "word": "mother",
+     "pos": "noun",
+     "ipa": "/ˈmʌðər/",
+     "level": "A1",
      "fa": "مادر",
-     "def_en": "The woman who takes care of you.",
+     "def_en": "A female parent.",
      "example_en": "My mother makes the best soup.",
-     "example_fa": "مادرم بهترین سوپ را درست می‌کند."
+     "example_fa": "مادرم بهترین سوپ را درست می‌کند.",
+     "move": "bob"
     },
     {
      "word": "father",
+     "pos": "noun",
+     "ipa": "/ˈfɑːðər/",
+     "level": "A1",
      "fa": "پدر",
-     "def_en": "The man who takes care of you.",
-     "example_en": "My father tells funny stories.",
-     "example_fa": "پدرم داستان‌های خنده‌دار تعریف می‌کند."
+     "def_en": "A male parent.",
+     "example_en": "My father tells funny stories at dinner.",
+     "example_fa": "پدرم موقع شام داستان‌های خنده‌دار تعریف می‌کند.",
+     "move": "bob"
     },
     {
      "word": "sister",
+     "pos": "noun",
+     "ipa": "/ˈsɪstər/",
+     "level": "A1",
      "fa": "خواهر",
-     "def_en": "A girl with the same parents as you.",
+     "def_en": "A girl or woman who has the same parents as you.",
      "example_en": "My sister is six years old.",
-     "example_fa": "خواهرم شش سال دارد."
+     "example_fa": "خواهرم شش سال دارد.",
+     "move": "hop"
     },
     {
      "word": "brother",
+     "pos": "noun",
+     "ipa": "/ˈbrʌðər/",
+     "level": "A1",
      "fa": "برادر",
-     "def_en": "A boy with the same parents as you.",
-     "example_en": "My brother plays with me after school.",
-     "example_fa": "برادرم بعد از مدرسه با من بازی می‌کند."
+     "def_en": "A boy or man who has the same parents as you.",
+     "example_en": "My brother plays football with me after school.",
+     "example_fa": "برادرم بعد از مدرسه با من فوتبال بازی می‌کند.",
+     "move": "hop"
     },
     {
      "word": "grandmother",
+     "pos": "noun",
+     "ipa": "/ˈɡrænˌmʌðər/",
+     "level": "A1",
      "fa": "مادربزرگ",
-     "def_en": "The mother of your mother or father.",
-     "example_en": "My grandmother has a small garden.",
-     "example_fa": "مادربزرگم یک باغچهٔ کوچک دارد."
+     "def_en": "The mother of your mother or your father.",
+     "example_en": "My grandmother has a small garden with red flowers.",
+     "example_fa": "مادربزرگم یک باغچهٔ کوچک با گل‌های قرمز دارد.",
+     "move": "bob"
     },
     {
      "word": "cousin",
-     "fa": "پسرخاله",
+     "pos": "noun",
+     "ipa": "/ˈkʌzən/",
+     "level": "A1",
+     "fa": "پسرخاله / دخترخاله",
      "def_en": "The child of your aunt or uncle.",
-     "example_en": "My cousin lives in another city.",
-     "example_fa": "پسرخالهٔ من در شهر دیگری زندگی می‌کند."
+     "example_en": "My cousin lives in another city, and we talk every week.",
+     "example_fa": "پسرخاله‌ام در شهر دیگری زندگی می‌کند و هر هفته با هم حرف می‌زنیم.",
+     "move": "bob"
     }
    ]
   },
@@ -109,45 +177,79 @@
    "words": [
     {
      "word": "cat",
+     "pos": "noun",
+     "ipa": "/kæt/",
+     "level": "A1",
      "fa": "گربه",
-     "def_en": "A small animal with soft fur.",
-     "example_en": "The cat sleeps on my bed.",
-     "example_fa": "گربه روی تخت من می‌خوابد."
+     "def_en": "A small animal with soft fur that people keep as a pet.",
+     "example_en": "The cat sleeps on my bed all afternoon.",
+     "example_fa": "گربه تمام بعدازظهر روی تخت من می‌خوابد.",
+     "move": "wiggle"
     },
     {
      "word": "dog",
+     "pos": "noun",
+     "ipa": "/dɔːɡ/",
+     "level": "A1",
      "fa": "سگ",
-     "def_en": "A friendly animal that likes to run.",
-     "example_en": "Our dog runs after the ball.",
-     "example_fa": "سگ ما دنبال توپ می‌دود."
+     "def_en": "A pet animal that likes to run, play and bark.",
+     "example_en": "Our dog runs after the ball in the garden.",
+     "example_fa": "سگ ما در باغچه دنبال توپ می‌دود.",
+     "move": "wiggle"
     },
     {
      "word": "bird",
+     "pos": "noun",
+     "ipa": "/bɜːrd/",
+     "level": "A1",
      "fa": "پرنده",
-     "def_en": "An animal with wings that can fly.",
-     "example_en": "A bird sings near my window.",
-     "example_fa": "پرنده‌ای نزدیک پنجرهٔ من آواز می‌خواند."
+     "def_en": "An animal with feathers and wings, and most birds can fly.",
+     "example_en": "A bird sings near my window every morning.",
+     "example_fa": "پرنده‌ای هر صبح نزدیک پنجرهٔ من آواز می‌خواند.",
+     "move": "fly"
     },
     {
      "word": "rabbit",
+     "pos": "noun",
+     "ipa": "/ˈræbɪt/",
+     "level": "A1",
      "fa": "خرگوش",
-     "def_en": "A small animal with long ears.",
-     "example_en": "The rabbit eats a carrot.",
-     "example_fa": "خرگوش یک هویج می‌خورد."
+     "def_en": "A small animal with long ears and soft fur.",
+     "example_en": "The rabbit eats a carrot in the grass.",
+     "example_fa": "خرگوش در چمن یک هویج می‌خورد.",
+     "move": "hop"
     },
     {
      "word": "horse",
+     "pos": "noun",
+     "ipa": "/hɔːrs/",
+     "level": "A1",
      "fa": "اسب",
-     "def_en": "A big animal that people can ride.",
-     "example_en": "The horse is brown and tall.",
-     "example_fa": "اسب قهوه‌ای و بلند است."
+     "def_en": "A big animal with four legs that people can ride.",
+     "example_en": "The horse is brown and very tall.",
+     "example_fa": "اسب قهوه‌ای است و خیلی بلند.",
+     "move": "hop"
     },
     {
      "word": "fish",
+     "pos": "noun",
+     "ipa": "/fɪʃ/",
+     "level": "A1",
      "fa": "ماهی",
-     "def_en": "An animal that lives in water.",
-     "example_en": "Two fish swim in the pond.",
-     "example_fa": "دو ماهی در برکه شنا می‌کنند."
+     "def_en": "An animal that lives in water and swims.",
+     "example_en": "Two fish swim in the pond near our house.",
+     "example_fa": "دو ماهی در برکهٔ نزدیک خانهٔ ما شنا می‌کنند.",
+     "move": "swim",
+     "senses": [
+      {
+       "pos": "noun",
+       "def_en": "the meat of a fish, eaten as food",
+       "fa": "ماهی (غذا)",
+       "example_en": "We eat fish on Fridays.",
+       "example_fa": "ما جمعه‌ها ماهی می‌خوریم.",
+       "level": "A2"
+      }
+     ]
     }
    ]
   },
@@ -159,45 +261,69 @@
    "words": [
     {
      "word": "apple",
+     "pos": "noun",
+     "ipa": "/ˈæpəl/",
+     "level": "A1",
      "fa": "سیب",
-     "def_en": "A round fruit that can be red or green.",
+     "def_en": "A round fruit with red or green skin and a small hard middle.",
      "example_en": "I eat an apple at break time.",
-     "example_fa": "من در زنگ تفریح یک سیب می‌خورم."
+     "example_fa": "من در زنگ تفریح یک سیب می‌خورم.",
+     "move": "bob"
     },
     {
      "word": "bread",
+     "pos": "noun",
+     "ipa": "/bred/",
+     "level": "A1",
      "fa": "نان",
-     "def_en": "A food made from flour and baked.",
+     "def_en": "A food made from flour and water and baked in an oven.",
      "example_en": "Warm bread smells wonderful.",
-     "example_fa": "نان گرم بوی خیلی خوبی دارد."
+     "example_fa": "نان گرم بوی خیلی خوبی دارد.",
+     "move": "bob"
     },
     {
      "word": "milk",
+     "pos": "noun",
+     "ipa": "/mɪlk/",
+     "level": "A1",
      "fa": "شیر",
-     "def_en": "A white drink that comes from cows.",
+     "def_en": "A white drink that comes from cows and other animals.",
      "example_en": "I drink milk with my breakfast.",
-     "example_fa": "من صبحانه‌ام را با شیر می‌خورم."
+     "example_fa": "من صبحانه‌ام را با شیر می‌خورم.",
+     "move": "bob"
     },
     {
      "word": "rice",
+     "pos": "noun",
+     "ipa": "/raɪs/",
+     "level": "A1",
      "fa": "برنج",
-     "def_en": "Small white grains that you cook.",
+     "def_en": "Small white or brown grains that you cook and eat.",
      "example_en": "We eat rice with vegetables.",
-     "example_fa": "ما برنج را با سبزیجات می‌خوریم."
+     "example_fa": "ما برنج را با سبزی می‌خوریم.",
+     "move": "bob"
     },
     {
      "word": "egg",
+     "pos": "noun",
+     "ipa": "/eɡ/",
+     "level": "A1",
      "fa": "تخم‌مرغ",
-     "def_en": "A food with a shell and a yellow center.",
+     "def_en": "A food that comes from a hen, with a hard shell around it.",
      "example_en": "She cooks an egg for lunch.",
-     "example_fa": "او برای ناهار یک تخم‌مرغ می‌پزد."
+     "example_fa": "او برای ناهار یک تخم‌مرغ می‌پزد.",
+     "move": "bob"
     },
     {
      "word": "cake",
+     "pos": "noun",
+     "ipa": "/keɪk/",
+     "level": "A1",
      "fa": "کیک",
-     "def_en": "A sweet food for a birthday or a party.",
-     "example_en": "The cake has six candles.",
-     "example_fa": "کیک شش شمع دارد."
+     "def_en": "A sweet food that is baked and eaten at parties.",
+     "example_en": "The birthday cake has six candles.",
+     "example_fa": "کیک تولد شش شمع دارد.",
+     "move": "bob"
     }
    ]
   },
@@ -209,45 +335,89 @@
    "words": [
     {
      "word": "ball",
+     "pos": "noun",
+     "ipa": "/bɔːl/",
+     "level": "A1",
      "fa": "توپ",
-     "def_en": "A round thing you throw or kick.",
-     "example_en": "We play with a red ball.",
-     "example_fa": "ما با یک توپ قرمز بازی می‌کنیم."
+     "def_en": "A round object that you throw, kick or hit in games.",
+     "example_en": "We play with a red ball after school.",
+     "example_fa": "ما بعد از مدرسه با یک توپ قرمز بازی می‌کنیم.",
+     "move": "bounce"
     },
     {
      "word": "game",
+     "pos": "noun",
+     "ipa": "/ɡeɪm/",
+     "level": "A1",
      "fa": "بازی",
-     "def_en": "Something you play with friends for fun.",
+     "def_en": "Something with rules that you play for fun.",
      "example_en": "This game is easy to learn.",
-     "example_fa": "یاد گرفتن این بازی آسان است."
+     "example_fa": "یاد گرفتن این بازی آسان است.",
+     "move": "tilt",
+     "senses": [
+      {
+       "pos": "noun",
+       "def_en": "one match in a sport",
+       "fa": "مسابقه",
+       "example_en": "Our team won the game on Saturday.",
+       "example_fa": "تیم ما شنبه مسابقه را برد.",
+       "level": "A2"
+      }
+     ]
     },
     {
      "word": "jump",
+     "pos": "verb",
+     "ipa": "/dʒʌmp/",
+     "level": "A1",
      "fa": "پریدن",
-     "def_en": "To push yourself up into the air.",
-     "example_en": "The children jump over the line.",
-     "example_fa": "بچه‌ها از روی خط می‌پرند."
+     "def_en": "To push yourself off the ground into the air.",
+     "example_en": "The children jump over the little line.",
+     "example_fa": "بچه‌ها از روی خط کوچک می‌پرند.",
+     "move": "hop"
     },
     {
      "word": "run",
+     "pos": "verb",
+     "ipa": "/rʌn/",
+     "level": "A1",
      "fa": "دویدن",
-     "def_en": "To move quickly on your feet.",
+     "def_en": "To move quickly on your feet, with both feet leaving the ground.",
      "example_en": "I run to the gate every morning.",
-     "example_fa": "من هر صبح تا دروازه می‌دوم."
+     "example_fa": "من هر صبح تا دروازه می‌دوم.",
+     "move": "hop"
     },
     {
      "word": "swim",
+     "pos": "verb",
+     "ipa": "/swɪm/",
+     "level": "A1",
      "fa": "شنا کردن",
-     "def_en": "To move through water with your body.",
+     "def_en": "To move through the water by moving your arms and legs.",
      "example_en": "She can swim very well.",
-     "example_fa": "او خیلی خوب شنا می‌کند."
+     "example_fa": "او خیلی خوب شنا می‌کند.",
+     "move": "swim"
     },
     {
      "word": "ride",
+     "pos": "verb",
+     "ipa": "/raɪd/",
+     "level": "A1",
      "fa": "سوار شدن",
-     "def_en": "To sit on a bike or a horse and move.",
-     "example_en": "I ride my bike to the park.",
-     "example_fa": "من با دوچرخه‌ام به پارک می‌روم."
+     "def_en": "To sit on a bike or a horse and make it move.",
+     "example_en": "I ride my bike to the park on Fridays.",
+     "example_fa": "جمعه‌ها با دوچرخه‌ام به پارک می‌روم.",
+     "move": "bob",
+     "senses": [
+      {
+       "pos": "noun",
+       "def_en": "a short trip in a car or on a bike",
+       "fa": "سواری",
+       "example_en": "Can I have a ride on your bike?",
+       "example_fa": "می‌شود یک دور با دوچرخه‌ات سواری کنم؟",
+       "level": "A2"
+      }
+     ]
     }
    ]
   },
@@ -259,45 +429,79 @@
    "words": [
     {
      "word": "sun",
+     "pos": "noun",
+     "ipa": "/sʌn/",
+     "level": "A1",
      "fa": "خورشید",
-     "def_en": "The bright light in the sky by day.",
+     "def_en": "The bright star that gives us light and heat during the day.",
      "example_en": "The sun is hot at noon.",
-     "example_fa": "خورشید ظهر گرم است."
+     "example_fa": "خورشید ظهر گرم است.",
+     "move": "twinkle"
     },
     {
      "word": "rain",
+     "pos": "noun",
+     "ipa": "/reɪn/",
+     "level": "A1",
      "fa": "باران",
-     "def_en": "Water that falls from the clouds.",
+     "def_en": "Water that falls from the clouds in small drops.",
      "example_en": "The rain makes the garden green.",
-     "example_fa": "باران باغچه را سبز می‌کند."
+     "example_fa": "باران باغچه را سبز می‌کند.",
+     "move": "fall"
     },
     {
      "word": "cloud",
+     "pos": "noun",
+     "ipa": "/klaʊd/",
+     "level": "A1",
      "fa": "ابر",
-     "def_en": "A soft white shape in the sky.",
+     "def_en": "A white or grey shape in the sky made of tiny drops of water.",
      "example_en": "One cloud looks like a sheep.",
-     "example_fa": "یک ابر شبیه گوسفند است."
+     "example_fa": "یک ابر شبیه گوسفند است.",
+     "move": "bob"
     },
     {
      "word": "wind",
+     "pos": "noun",
+     "ipa": "/wɪnd/",
+     "level": "A1",
      "fa": "باد",
-     "def_en": "Air that moves and pushes things.",
-     "example_en": "The wind moves the leaves.",
-     "example_fa": "باد برگ‌ها را جابه‌جا می‌کند."
+     "def_en": "Air that moves and pushes things along.",
+     "example_en": "The wind moves the leaves on the tree.",
+     "example_fa": "باد برگ‌های درخت را تکان می‌دهد.",
+     "move": "sway"
     },
     {
      "word": "snow",
+     "pos": "noun",
+     "ipa": "/snoʊ/",
+     "level": "A1",
      "fa": "برف",
-     "def_en": "Soft white pieces of frozen water.",
-     "example_en": "Snow covers the roof.",
-     "example_fa": "برف پشت‌بام را می‌پوشاند."
+     "def_en": "Soft white flakes of frozen water that fall when it is cold.",
+     "example_en": "Snow covers the roof and the garden.",
+     "example_fa": "برف پشت‌بام و باغچه را می‌پوشاند.",
+     "move": "fall"
     },
     {
      "word": "star",
+     "pos": "noun",
+     "ipa": "/stɑːr/",
+     "level": "A1",
      "fa": "ستاره",
-     "def_en": "A small light in the night sky.",
+     "def_en": "A very bright light in the night sky, far away in space.",
      "example_en": "The first star comes out at night.",
-     "example_fa": "نخستین ستاره شب بیرون می‌آید."
+     "example_fa": "نخستین ستاره شب بیرون می‌آید.",
+     "move": "twinkle",
+     "senses": [
+      {
+       "pos": "noun",
+       "def_en": "a shape with five or six points",
+       "fa": "ستاره (شکل)",
+       "example_en": "She draws a star on the card.",
+       "example_fa": "او روی کارت یک ستاره می‌کشد.",
+       "level": "A2"
+      }
+     ]
     }
    ]
   },
@@ -306,49 +510,664 @@
    "title_en": "How I feel",
    "title_fa": "چه حسی دارم",
    "emoji": "🙂",
-   "cefr": "A1",
    "words": [
     {
      "word": "tired",
+     "pos": "adjective",
+     "ipa": "/ˈtaɪərd/",
+     "level": "A1",
      "fa": "خسته",
      "def_en": "Needing rest or sleep.",
      "example_en": "I am tired after football practice.",
-     "example_fa": "من بعد از تمرین فوتبال خسته‌ام."
+     "example_fa": "من بعد از تمرین فوتبال خسته‌ام.",
+     "move": "droop"
     },
     {
      "word": "excited",
+     "pos": "adjective",
+     "ipa": "/ɪkˈsaɪtɪd/",
+     "level": "A1",
      "fa": "هیجان‌زده",
      "def_en": "Very happy about something that is going to happen.",
      "example_en": "She is excited about the school trip.",
-     "example_fa": "او برای سفر مدرسه هیجان‌زده است."
+     "example_fa": "او برای سفر مدرسه هیجان‌زده است.",
+     "move": "bounce"
     },
     {
      "word": "scared",
+     "pos": "adjective",
+     "ipa": "/skerd/",
+     "level": "A1",
      "fa": "ترسیده",
-     "def_en": "Afraid of something.",
+     "def_en": "Afraid or frightened of something.",
      "example_en": "The little dog is scared of thunder.",
-     "example_fa": "سگ کوچک از رعد می‌ترسد."
+     "example_fa": "سگ کوچک از رعد می‌ترسد.",
+     "move": "wiggle"
     },
     {
      "word": "proud",
+     "pos": "adjective",
+     "ipa": "/praʊd/",
+     "level": "A1",
      "fa": "سرافراز",
-     "def_en": "Happy about something you did well.",
+     "def_en": "Feeling happy about something good that you or someone else did.",
      "example_en": "I am proud of my drawing.",
-     "example_fa": "من به نقاشی‌ام افتخار می‌کنم."
+     "example_fa": "من به نقاشی‌ام افتخار می‌کنم.",
+     "move": "breathe"
     },
     {
      "word": "calm",
+     "pos": "adjective",
+     "ipa": "/kɑːm/",
+     "level": "A1",
      "fa": "آرام",
-     "def_en": "Quiet and relaxed, not worried.",
+     "def_en": "Quiet and relaxed, not worried or excited.",
      "example_en": "Take a deep breath and stay calm.",
-     "example_fa": "یک نفس عمیق بکش و آرام بمان."
+     "example_fa": "یک نفس عمیق بکش و آرام بمان.",
+     "move": "breathe"
     },
     {
      "word": "lonely",
+     "pos": "adjective",
+     "ipa": "/ˈloʊnli/",
+     "level": "A1",
      "fa": "تنها",
-     "def_en": "Sad because you are alone.",
-     "example_en": "He feels lonely at the new school.",
-     "example_fa": "او در مدرسهٔ جدید احساس تنهایی می‌کند."
+     "def_en": "Sad because you are alone or have no one to play with.",
+     "example_en": "He feels lonely at his new school.",
+     "example_fa": "او در مدرسهٔ جدید احساس تنهایی می‌کند.",
+     "move": "droop"
+    }
+   ]
+  },
+  {
+   "id": "nature",
+   "title_en": "Nature",
+   "title_fa": "طبیعت",
+   "emoji": "🌳",
+   "words": [
+    {
+     "word": "tree",
+     "pos": "noun",
+     "ipa": "/triː/",
+     "level": "A1",
+     "fa": "درخت",
+     "def_en": "A tall plant with a wooden trunk and branches that grow leaves.",
+     "example_en": "We sit under the big tree in the park.",
+     "example_fa": "ما زیر درخت بزرگ پارک می‌نشینیم.",
+     "move": "sway"
+    },
+    {
+     "word": "flower",
+     "pos": "noun",
+     "ipa": "/ˈflaʊər/",
+     "level": "A1",
+     "fa": "گل",
+     "def_en": "The colourful part of a plant that comes before the fruit or seeds.",
+     "example_en": "This yellow flower smells sweet.",
+     "example_fa": "این گل زرد بوی خوشی دارد.",
+     "move": "sway"
+    },
+    {
+     "word": "leaf",
+     "pos": "noun",
+     "ipa": "/liːf/",
+     "level": "A1",
+     "fa": "برگ",
+     "def_en": "One of the flat green parts that grow on a plant or a tree.",
+     "example_en": "A red leaf fell on my shoe.",
+     "example_fa": "یک برگ قرمز روی کفش من افتاد.",
+     "move": "sway"
+    },
+    {
+     "word": "river",
+     "pos": "noun",
+     "ipa": "/ˈrɪvər/",
+     "level": "A1",
+     "fa": "رود",
+     "def_en": "A long line of water that moves across the land to the sea.",
+     "example_en": "The river runs behind our village.",
+     "example_fa": "رود از پشت روستای ما می‌گذرد.",
+     "move": "swim"
+    },
+    {
+     "word": "mountain",
+     "pos": "noun",
+     "ipa": "/ˈmaʊntən/",
+     "level": "A1",
+     "fa": "کوه",
+     "def_en": "A very high hill with rock and often snow on top.",
+     "example_en": "The mountain is white with snow in winter.",
+     "example_fa": "کوه در زمستان از برف سفید است.",
+     "move": "breathe"
+    },
+    {
+     "word": "grass",
+     "pos": "noun",
+     "ipa": "/ɡræs/",
+     "level": "A1",
+     "fa": "چمن",
+     "def_en": "The short green plants that cover the ground in gardens and parks.",
+     "example_en": "The rabbit hides in the tall grass.",
+     "example_fa": "خرگوش در چمن بلند پنهان می‌شود.",
+     "move": "sway"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "title_en": "My body",
+   "title_fa": "بدن من",
+   "emoji": "🙂",
+   "words": [
+    {
+     "word": "head",
+     "pos": "noun",
+     "ipa": "/hed/",
+     "level": "A1",
+     "fa": "سر",
+     "def_en": "The top part of your body, with your face on the front.",
+     "example_en": "Put your hat on your head.",
+     "example_fa": "کلاهت را روی سرت بگذار.",
+     "move": "bob"
+    },
+    {
+     "word": "hand",
+     "pos": "noun",
+     "ipa": "/hænd/",
+     "level": "A1",
+     "fa": "دست",
+     "def_en": "The part at the end of your arm, with fingers for holding things.",
+     "example_en": "Wash your hands before you eat.",
+     "example_fa": "قبل از غذا دست‌هایت را بشور.",
+     "move": "wiggle"
+    },
+    {
+     "word": "eye",
+     "pos": "noun",
+     "ipa": "/aɪ/",
+     "level": "A1",
+     "fa": "چشم",
+     "def_en": "One of the two parts of your face that you see with.",
+     "example_en": "I have something in my eye.",
+     "example_fa": "چیزی در چشم من رفته است.",
+     "move": "breathe"
+    },
+    {
+     "word": "ear",
+     "pos": "noun",
+     "ipa": "/ɪr/",
+     "level": "A1",
+     "fa": "گوش",
+     "def_en": "One of the two parts of your head that you hear with.",
+     "example_en": "The rabbit has two long ears.",
+     "example_fa": "خرگوش دو گوش بلند دارد.",
+     "move": "wiggle"
+    },
+    {
+     "word": "mouth",
+     "pos": "noun",
+     "ipa": "/maʊθ/",
+     "level": "A1",
+     "fa": "دهان",
+     "def_en": "The part of your face that you use for eating and talking.",
+     "example_en": "Close your mouth when you chew.",
+     "example_fa": "وقتی غذا می‌خوری دهانت را ببند.",
+     "move": "breathe"
+    },
+    {
+     "word": "tooth",
+     "pos": "noun",
+     "ipa": "/tuːθ/",
+     "level": "A1",
+     "fa": "دندان",
+     "def_en": "One of the hard white parts in your mouth that you bite with.",
+     "example_en": "I brush every tooth twice a day.",
+     "example_fa": "من هر روز دو بار همهٔ دندان‌هایم را مسواک می‌زنم.",
+     "move": "tilt"
+    }
+   ]
+  },
+  {
+   "id": "clothes",
+   "title_en": "Clothes",
+   "title_fa": "لباس‌ها",
+   "emoji": "👕",
+   "words": [
+    {
+     "word": "shirt",
+     "pos": "noun",
+     "ipa": "/ʃɜːrt/",
+     "level": "A1",
+     "fa": "پیراهن",
+     "def_en": "A piece of clothing for the top of your body, with buttons and sleeves.",
+     "example_en": "My blue shirt has a small pocket.",
+     "example_fa": "پیراهن آبی من یک جیب کوچک دارد.",
+     "move": "bob"
+    },
+    {
+     "word": "shoes",
+     "pos": "noun",
+     "ipa": "/ʃuːz/",
+     "level": "A1",
+     "fa": "کفش",
+     "def_en": "The things you wear on your feet when you go outside.",
+     "example_en": "These shoes are too small for me.",
+     "example_fa": "این کفش‌ها برای من خیلی کوچک است.",
+     "move": "tilt"
+    },
+    {
+     "word": "hat",
+     "pos": "noun",
+     "ipa": "/hæt/",
+     "level": "A1",
+     "fa": "کلاه",
+     "def_en": "A covering that you wear on your head.",
+     "example_en": "Wear a hat when the sun is strong.",
+     "example_fa": "وقتی آفتاب تند است کلاه بگذار.",
+     "move": "bob"
+    },
+    {
+     "word": "socks",
+     "pos": "noun",
+     "ipa": "/sɑːks/",
+     "level": "A1",
+     "fa": "جوراب",
+     "def_en": "Soft clothing that covers your feet inside your shoes.",
+     "example_en": "My socks are wet from the rain.",
+     "example_fa": "جوراب‌هایم از باران خیس شده است.",
+     "move": "wiggle"
+    },
+    {
+     "word": "coat",
+     "pos": "noun",
+     "ipa": "/koʊt/",
+     "level": "A1",
+     "fa": "پالتو",
+     "def_en": "A warm piece of clothing that you wear over other clothes outside.",
+     "example_en": "Put on your coat; it is cold today.",
+     "example_fa": "پالتویت را بپوش؛ امروز هوا سرد است.",
+     "move": "bob"
+    },
+    {
+     "word": "dress",
+     "pos": "noun",
+     "ipa": "/dres/",
+     "level": "A1",
+     "fa": "پیراهن (لباس زنانه)",
+     "def_en": "A piece of clothing for a girl or woman that covers body and legs.",
+     "example_en": "Her dress has little flowers on it.",
+     "example_fa": "پیراهنش گل‌های کوچک دارد.",
+     "move": "sway"
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "title_en": "At home",
+   "title_fa": "در خانه",
+   "emoji": "🏠",
+   "words": [
+    {
+     "word": "room",
+     "pos": "noun",
+     "ipa": "/ruːm/",
+     "level": "A1",
+     "fa": "اتاق",
+     "def_en": "A part of a house with walls and a door.",
+     "example_en": "My room has a big window.",
+     "example_fa": "اتاق من یک پنجرهٔ بزرگ دارد.",
+     "move": "bob"
+    },
+    {
+     "word": "door",
+     "pos": "noun",
+     "ipa": "/dɔːr/",
+     "level": "A1",
+     "fa": "در",
+     "def_en": "The part of a room you open to go in or out.",
+     "example_en": "Please close the door quietly.",
+     "example_fa": "لطفاً در را آرام ببند.",
+     "move": "tilt"
+    },
+    {
+     "word": "window",
+     "pos": "noun",
+     "ipa": "/ˈwɪndoʊ/",
+     "level": "A1",
+     "fa": "پنجره",
+     "def_en": "A glass opening in a wall that lets in light and air.",
+     "example_en": "Open the window; the room is warm.",
+     "example_fa": "پنجره را باز کن؛ اتاق گرم است.",
+     "move": "bob"
+    },
+    {
+     "word": "bed",
+     "pos": "noun",
+     "ipa": "/bed/",
+     "level": "A1",
+     "fa": "تخت",
+     "def_en": "The piece of furniture that you sleep on.",
+     "example_en": "My bed is next to the door.",
+     "example_fa": "تخت من کنار در است.",
+     "move": "breathe"
+    },
+    {
+     "word": "chair",
+     "pos": "noun",
+     "ipa": "/tʃer/",
+     "level": "A1",
+     "fa": "صندلی",
+     "def_en": "A seat with a back and four legs for one person.",
+     "example_en": "There is a red chair by the window.",
+     "example_fa": "کنار پنجره یک صندلی قرمز هست.",
+     "move": "tilt"
+    },
+    {
+     "word": "kitchen",
+     "pos": "noun",
+     "ipa": "/ˈkɪtʃən/",
+     "level": "A1",
+     "fa": "آشپزخانه",
+     "def_en": "The room where you cook food.",
+     "example_en": "We eat breakfast in the kitchen.",
+     "example_fa": "ما صبحانه را در آشپزخانه می‌خوریم.",
+     "move": "bob"
+    }
+   ]
+  },
+  {
+   "id": "space",
+   "title_en": "Space",
+   "title_fa": "فضا",
+   "emoji": "🚀",
+   "words": [
+    {
+     "word": "moon",
+     "pos": "noun",
+     "ipa": "/muːn/",
+     "level": "A1",
+     "fa": "ماه",
+     "def_en": "The round object that moves around the Earth and shines at night.",
+     "example_en": "The moon is bright tonight.",
+     "example_fa": "ماه امشب روشن است.",
+     "move": "twinkle"
+    },
+    {
+     "word": "planet",
+     "pos": "noun",
+     "ipa": "/ˈplænɪt/",
+     "level": "A2",
+     "fa": "سیاره",
+     "def_en": "A large round object in space that moves around a star.",
+     "example_en": "Earth is the planet we live on.",
+     "example_fa": "زمین سیاره‌ای است که ما در آن زندگی می‌کنیم.",
+     "move": "spin"
+    },
+    {
+     "word": "rocket",
+     "pos": "noun",
+     "ipa": "/ˈrɑːkɪt/",
+     "level": "A1",
+     "fa": "موشک",
+     "def_en": "A tall machine that flies up into space.",
+     "example_en": "The rocket goes up with a loud noise.",
+     "example_fa": "موشک با صدای بلند بالا می‌رود.",
+     "move": "launch"
+    },
+    {
+     "word": "astronaut",
+     "pos": "noun",
+     "ipa": "/ˈæstrənɔːt/",
+     "level": "A2",
+     "fa": "فضانورد",
+     "def_en": "A person whose job is to travel and work in space.",
+     "example_en": "The astronaut wears a big white suit.",
+     "example_fa": "فضانورد یک لباس سفید بزرگ می‌پوشد.",
+     "move": "bob"
+    },
+    {
+     "word": "spaceship",
+     "pos": "noun",
+     "ipa": "/ˈspeɪsʃɪp/",
+     "level": "A2",
+     "fa": "سفینهٔ فضایی",
+     "def_en": "A vehicle that carries people through space.",
+     "example_en": "The spaceship flies past the moon.",
+     "example_fa": "سفینهٔ فضایی از کنار ماه می‌گذرد.",
+     "move": "fly"
+    },
+    {
+     "word": "telescope",
+     "pos": "noun",
+     "ipa": "/ˈtelɪskoʊp/",
+     "level": "A2",
+     "fa": "تلسکوپ",
+     "def_en": "A tube with glass inside that makes far things look bigger.",
+     "example_en": "We look at the stars through a telescope.",
+     "example_fa": "ما با تلسکوپ به ستاره‌ها نگاه می‌کنیم.",
+     "move": "tilt"
+    }
+   ]
+  },
+  {
+   "id": "tech",
+   "title_en": "Computers and phones",
+   "title_fa": "کامپیوتر و تلفن",
+   "emoji": "💻",
+   "words": [
+    {
+     "word": "computer",
+     "pos": "noun",
+     "ipa": "/kəmˈpjuːtər/",
+     "level": "A1",
+     "fa": "کامپیوتر",
+     "def_en": "A machine with a screen that you use to work, write or play.",
+     "example_en": "My father works on the computer at home.",
+     "example_fa": "پدرم در خانه با کامپیوتر کار می‌کند.",
+     "move": "bob"
+    },
+    {
+     "word": "phone",
+     "pos": "noun",
+     "ipa": "/foʊn/",
+     "level": "A1",
+     "fa": "تلفن",
+     "def_en": "A small machine you carry to call people or use the internet.",
+     "example_en": "I call my grandmother on the phone.",
+     "example_fa": "من با تلفن به مادربزرگم زنگ می‌زنم.",
+     "move": "tilt"
+    },
+    {
+     "word": "tablet",
+     "pos": "noun",
+     "ipa": "/ˈtæblət/",
+     "level": "A1",
+     "fa": "تبلت",
+     "def_en": "A flat computer with a touch screen that you hold in your hands.",
+     "example_en": "She draws a cat on the tablet.",
+     "example_fa": "او روی تبلت یک گربه می‌کشد.",
+     "move": "bob"
+    },
+    {
+     "word": "screen",
+     "pos": "noun",
+     "ipa": "/skriːn/",
+     "level": "A1",
+     "fa": "صفحه‌نمایش",
+     "def_en": "The flat part of a computer or phone that shows pictures and words.",
+     "example_en": "The screen is bright in the dark.",
+     "example_fa": "صفحه‌نمایش در تاریکی روشن است.",
+     "move": "twinkle"
+    },
+    {
+     "word": "button",
+     "pos": "noun",
+     "ipa": "/ˈbʌtən/",
+     "level": "A1",
+     "fa": "دکمه",
+     "def_en": "A small part that you press to make a machine work.",
+     "example_en": "Press the green button to start the game.",
+     "example_fa": "برای شروع بازی دکمهٔ سبز را فشار بده.",
+     "move": "bounce"
+    },
+    {
+     "word": "robot",
+     "pos": "noun",
+     "ipa": "/ˈroʊbɑːt/",
+     "level": "A1",
+     "fa": "ربات",
+     "def_en": "A machine that can move and do jobs by itself.",
+     "example_en": "The little robot carries my cup.",
+     "example_fa": "ربات کوچک فنجان من را می‌برد.",
+     "move": "bob"
+    }
+   ]
+  },
+  {
+   "id": "places",
+   "title_en": "Around town",
+   "title_fa": "در شهر",
+   "emoji": "🏙️",
+   "words": [
+    {
+     "word": "shop",
+     "pos": "noun",
+     "ipa": "/ʃɑːp/",
+     "level": "A1",
+     "fa": "مغازه",
+     "def_en": "A place where you go to buy things.",
+     "example_en": "The shop at the corner sells milk and bread.",
+     "example_fa": "مغازهٔ سر کوچه شیر و نان می‌فروشد.",
+     "move": "bob"
+    },
+    {
+     "word": "park",
+     "pos": "noun",
+     "ipa": "/pɑːrk/",
+     "level": "A1",
+     "fa": "پارک",
+     "def_en": "A public place with grass and trees where people play or rest.",
+     "example_en": "We play football in the park on Fridays.",
+     "example_fa": "جمعه‌ها در پارک فوتبال بازی می‌کنیم.",
+     "move": "sway"
+    },
+    {
+     "word": "library",
+     "pos": "noun",
+     "ipa": "/ˈlaɪbreri/",
+     "level": "A1",
+     "fa": "کتابخانه",
+     "def_en": "A place with many books that you can read or borrow.",
+     "example_en": "The library is quiet and full of books.",
+     "example_fa": "کتابخانه ساکت است و پر از کتاب.",
+     "move": "bob"
+    },
+    {
+     "word": "hospital",
+     "pos": "noun",
+     "ipa": "/ˈhɑːspɪtəl/",
+     "level": "A1",
+     "fa": "بیمارستان",
+     "def_en": "A building where doctors and nurses help sick people.",
+     "example_en": "My aunt works in a hospital.",
+     "example_fa": "خاله‌ام در یک بیمارستان کار می‌کند.",
+     "move": "bob"
+    },
+    {
+     "word": "bus",
+     "pos": "noun",
+     "ipa": "/bʌs/",
+     "level": "A1",
+     "fa": "اتوبوس",
+     "def_en": "A big vehicle that carries many people along a road.",
+     "example_en": "I go to school by bus.",
+     "example_fa": "من با اتوبوس به مدرسه می‌روم.",
+     "move": "bob"
+    },
+    {
+     "word": "street",
+     "pos": "noun",
+     "ipa": "/striːt/",
+     "level": "A1",
+     "fa": "خیابان",
+     "def_en": "A road in a town with houses or shops along it.",
+     "example_en": "Be careful when you cross the street.",
+     "example_fa": "وقتی از خیابان رد می‌شوی مراقب باش.",
+     "move": "bob"
+    }
+   ]
+  },
+  {
+   "id": "opposites",
+   "title_en": "Opposites",
+   "title_fa": "متضادها",
+   "emoji": "↔️",
+   "words": [
+    {
+     "word": "big",
+     "pos": "adjective",
+     "ipa": "/bɪɡ/",
+     "level": "A1",
+     "fa": "بزرگ",
+     "def_en": "Large in size or amount.",
+     "example_en": "An elephant is a big animal.",
+     "example_fa": "فیل یک حیوان بزرگ است.",
+     "move": "breathe"
+    },
+    {
+     "word": "small",
+     "pos": "adjective",
+     "ipa": "/smɔːl/",
+     "level": "A1",
+     "fa": "کوچک",
+     "def_en": "Little in size or amount.",
+     "example_en": "A mouse is a small animal.",
+     "example_fa": "موش یک حیوان کوچک است.",
+     "move": "breathe"
+    },
+    {
+     "word": "happy",
+     "pos": "adjective",
+     "ipa": "/ˈhæpi/",
+     "level": "A1",
+     "fa": "خوشحال",
+     "def_en": "Feeling good and pleased.",
+     "example_en": "I am happy when my friends come to play.",
+     "example_fa": "وقتی دوستانم برای بازی می‌آیند خوشحال می‌شوم.",
+     "move": "bounce"
+    },
+    {
+     "word": "sad",
+     "pos": "adjective",
+     "ipa": "/sæd/",
+     "level": "A1",
+     "fa": "غمگین",
+     "def_en": "Feeling unhappy or sorry.",
+     "example_en": "She is sad because her kite flew away.",
+     "example_fa": "او غمگین است چون بادبادکش پرواز کرد و رفت.",
+     "move": "droop"
+    },
+    {
+     "word": "hot",
+     "pos": "adjective",
+     "ipa": "/hɑːt/",
+     "level": "A1",
+     "fa": "گرم",
+     "def_en": "Having a high temperature.",
+     "example_en": "The soup is too hot to eat now.",
+     "example_fa": "سوپ برای خوردن الان خیلی گرم است.",
+     "move": "breathe"
+    },
+    {
+     "word": "cold",
+     "pos": "adjective",
+     "ipa": "/koʊld/",
+     "level": "A1",
+     "fa": "سرد",
+     "def_en": "Having a low temperature.",
+     "example_en": "My hands are cold in the snow.",
+     "example_fa": "دست‌هایم در برف سرد است.",
+     "move": "wiggle"
     }
    ]
   }
