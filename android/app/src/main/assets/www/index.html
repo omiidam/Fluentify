@@ -7910,6 +7910,7 @@
      and its badge are all hidden here rather than left one state away from
      appearing behind a stray Escape or a stale hash. */
   body.kids #dpanel, body.kids #dailyset, body.kids #dcardtoggle { display: none !important; }
+  body.kids #wqpanel, body.kids #weeklyquiz { display: none !important; }
 
   /* ---- a story, read word by word -------------------------------------
      The transport is the audio: one round play button, a replay, the speed
@@ -18711,6 +18712,7 @@ const Kids = (() => {
        English" at the top of it. The card comes out here, the badge goes with
        it, and the panel is hidden for this band as well. */
     try { Daily.removeCard(); } catch (e) { /* daily not built yet */ }
+    try { Weekly.removeCard(); } catch (e) { /* weekly not built yet */ }
     const dbadge = $('dbadge');
     if (dbadge) { dbadge.hidden = true; dbadge.textContent = ''; }
     /* The fox on the home card listens while the child is typing and waves
@@ -21699,6 +21701,21 @@ const Weekly = (() => {
   let view = 'quiz';
   let warned = false;
 
+  /* The week's review is an adult habit too: it asks about the words and
+     expressions taken from Today's English, which Fluentify Kids no longer
+     has. With the daily set gone the quiz had nothing left to ask about, and
+     a Friday card in a child's conversation is one more thing to read before
+     they can play. It is not built, not mounted, not armed and not opened for
+     this band. */
+  function off() {
+    try { return typeof Kids !== 'undefined' && Kids.on(); } catch (e) { return false; }
+  }
+
+  function removeCard() {
+    const el = document.getElementById('weeklyquiz');
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+  }
+
   const body = () => document.getElementById('wqbody');
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
     (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
@@ -21779,6 +21796,7 @@ const Weekly = (() => {
   }
 
   function mountWeek() {
+    if (off()) { removeCard(); return; }
     const chatEl = document.getElementById('chat');
     const old = document.getElementById('weeklyquiz');
     if (old && old.parentNode) old.parentNode.removeChild(old);
@@ -22040,6 +22058,7 @@ const Weekly = (() => {
      Friday 09:00, so the card appears in the window it belongs to without the
      learner reloading the page. */
   async function init() {
+    if (off()) { removeCard(); return; }
     try {
       cat = await loadJSON('daily');
     } catch (e) {
@@ -22060,7 +22079,7 @@ const Weekly = (() => {
   }
 
   return {init, mountCard: mountWeek, start, open, skip, refresh: mountWeek,
-          PANEL: PANEL};
+          removeCard, PANEL: PANEL};
 })();
 /* ============================================================================
  * PRACTICE
