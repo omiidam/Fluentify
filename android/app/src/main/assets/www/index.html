@@ -7994,6 +7994,14 @@
      appearing behind a stray Escape or a stale hash. */
   body.kids #dpanel, body.kids #dailyset, body.kids #dcardtoggle { display: none !important; }
   body.kids #wqpanel, body.kids #weeklyquiz { display: none !important; }
+  /* The four adult course tools a child never opens: the monthly level check,
+     the seven-level learning path built from it, the phonetics/rhythm panel
+     and the course-book library. The button and the panel both go; the code
+     behind them stays for adults, whose copy is untouched. */
+  body.kids #lvltoggle, body.kids #lvlpanel,
+  body.kids #pathtoggle, body.kids #pathpanel,
+  body.kids #phtoggle, body.kids #phpanel,
+  body.kids #btoggle, body.kids #bpanel { display: none !important; }
 
   /* ---- a story, read word by word -------------------------------------
      The transport is the audio: one round play button, a replay, the speed
@@ -18846,9 +18854,13 @@ const Kids = (() => {
     gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
     actoggle: 'Me',
   };
-  /* Tools that need a sentence of explanation: they wait behind More. */
-  const ADVANCED = ['ftoggle', 'phtoggle', 'btoggle', 'ntoggle', 'lvltoggle',
-                    'pathtoggle', 'themetoggle', 'clear', 'rtoggle'];
+  /* Tools that need a sentence of explanation: they wait behind More. The
+     level check, the learning path, the phonetics panel and the course-book
+     library are not on this list and not behind More either - they are gone
+     from the child's copy of the app, because a seven-level placement exam,
+     a path built from one, a rhythm drill and a book shelf are the adult
+     course, not what a child opens to learn a word. */
+  const ADVANCED = ['ftoggle', 'ntoggle', 'themetoggle', 'clear', 'rtoggle'];
 
   let doc = null, pending = null, labeled = false, moreBound = false;
   let landed = false, quizPage = 0;
@@ -20672,7 +20684,7 @@ const PANEL_ON_OPEN = {
   rpanel: () => { Review.load(); Review.paint(); },
   // seven level spaces, one course and its examination: read path.json on the
   // first open, then paint the level list
-  pathpanel: () => Path.open(),
+  pathpanel: () => { if (!Experience.kids()) Path.open(); },
   // search is attached on first open rather than at boot, because the panels
   // are filled asynchronously and a search with nothing to filter is useless
   // Kids draw their own six mini lessons; adults keep the topic pills
@@ -20691,16 +20703,16 @@ const PANEL_ON_OPEN = {
   },
   // Kids get four short clips with questions; adults the CEFR ladder
   lpanel: () => { if (Experience.kids()) Kids.listening(); else PanelSearch.attachAll(); },
-  phpanel: () => PanelSearch.attachAll(),
+  phpanel: () => { if (!Experience.kids()) PanelSearch.attachAll(); },
   // the library loads its catalog on first open, then remembers where the
   // reader was, so reopening the panel does not walk them back to the shelf
-  bpanel: () => Books.load(),
+  bpanel: () => { if (!Experience.kids()) Books.load(); },
   // six strategies and their questions, 83 KB, read on the first open
   rdpanel: () => (Experience.kids() ? Kids.reading() : Reading.mount()),
   // the story library is fetched the first time the panel opens
   stpanel: () => (Experience.kids() ? Kids.stories() : Stories.mount()),
   // the monthly level check: a banded item bank, read the first time it opens
-  lvlpanel: () => Level.mount(),
+  lvlpanel: () => { if (!Experience.kids()) Level.mount(); },
   // the account panel is local: a name, a session clock, and the exit
   acpanel: () => Auth.paintAccount(),
   // the drills read their data on first open and then keep it

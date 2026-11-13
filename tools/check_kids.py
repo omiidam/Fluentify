@@ -357,6 +357,17 @@ def check_kids_layer(src):
           "the kids toolbar still offers Today's English")
     check("dtoggle: 'Today'" not in src,
           "the kids label table still renames the Today tile")
+    # Level, Path, Sounds and Books are the adult course's tools - a placement
+    # exam, the path built from it, a rhythm drill and a book shelf. A child's
+    # copy hides the tile and the panel, and never mounts either behind a tap.
+    for tile, panel in (("lvltoggle", "lvlpanel"), ("pathtoggle", "pathpanel"),
+                        ("phtoggle", "phpanel"), ("btoggle", "bpanel")):
+        check(f"body.kids #{tile}" in src and f"body.kids #{panel}" in src,
+              f"the kids copy still offers {tile}")
+        at = src.find(f"{panel}: () =>")
+        hook = src[at:at + 160] if at >= 0 else ""
+        check(at >= 0 and "Experience.kids()" in hook,
+              f"{panel} still mounts behind a child's tap")
 
     # Every styling rule for kids must hang off body.kids: an unscoped
     # ".kcard" would repaint an adult card in a child's palette the moment
