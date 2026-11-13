@@ -19923,9 +19923,6 @@ const Kids = (() => {
         sp.dataset.w = String(j);
         sp.dataset.line = String(idx);
         sp.textContent = w.text;
-        sp.tabIndex = 0;
-        sp.setAttribute('role', 'button');
-        sp.setAttribute('aria-label', bare(w.text) + ' — meaning and sound');
         p.appendChild(sp);
         spans.push(sp);
         at = w.end;
@@ -19973,13 +19970,6 @@ const Kids = (() => {
     host.addEventListener('click', (e) => {
       const sp = e.target.closest('.kst-w');
       if (sp) showWord(sp);
-    });
-    host.addEventListener('keydown', (e) => {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      const sp = e.target.closest('.kst-w');
-      if (!sp) return;
-      e.preventDefault();
-      showWord(sp);
     });
 
     const label = document.createElement('div');
