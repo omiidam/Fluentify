@@ -332,8 +332,23 @@ def check_kids_layer(src):
     # heaviest thing a child had to scroll past.
     check("todayCard(" not in src and "wordOfDay(" not in src,
           "the kids home no longer builds a Today's English card")
-    check("practiceCard(" in src and "homeTiles()" in src,
-          "the words of the day are still on the kids home")
+    # The home page is not a second copy of the toolbar. The six doors that
+    # used to sit under the greeting are the six buttons in the header, so the
+    # page carries things to do instead: the fox's line, three words to turn
+    # over, and the word game.
+    check("function homeTiles" not in src and "homeTiles()" not in src,
+          "the kids home still draws the header's own sections as doors")
+    check("function foxSays" in src and "foxSays()" in src,
+          "the kids home has nothing to answer back to")
+    check("function flipTray" in src and "flipTray(d)" in src,
+          "the kids home has no words to turn over")
+    check("practiceCard(" in src and "practiceCard(d)" in src,
+          "the word game is gone from the kids home")
+    home_src = src[src.index("async function home()"):]
+    home_src = home_src[:home_src.index("function land()")]
+    for gone in ("openPanel('vpanel')", "openPanel('gpanel')", "openPanel('rdpanel')",
+                 "openPanel('lpanel')", "openPanel('stpanel')"):
+        check(gone not in home_src, "the kids home still routes to " + gone)
     # The tile is not merely behind More: the kids toolbar drops Today's
     # English outright, and a panel carried over from the adult shell closes.
     check("const today = $('dtoggle');" in src and "today.hidden = true" in src
@@ -398,24 +413,21 @@ def check_kids_layer(src):
     check("--k-focus:" in dark[1].split("}", 1)[0],
           "focus is not repainted for the dark kids theme")
 
-    # One drawn icon set for the six doors. The tiles used to borrow an emoji
-    # each, which is six illustrators' idea of a book in six weights and
-    # palettes - the one thing a children's app cannot get away with.
+    # One drawn icon set, still used wherever a section is named with a
+    # symbol (the resume card). The home page's own toys are a fox line and
+    # three word cards, so what is checked here is the set, not six doors.
     check("function kicon(name)" in src and "const KICONS = {" in src,
-          "the home tiles have no icon set of their own")
+          "the drawn section icon set is gone")
     icons = src[src.index("const KICONS = {"):src.index("function kicon")]
     check(icons.count("<path") >= 6 and "viewBox" not in icons,
           "the icons are not drawn as plain paths on one grid")
     check('viewBox="0 0 24 24"' in src and 'stroke="currentColor"' in src,
           "the icons do not inherit the chip's color")
-    tiles_src = src[src.index("function homeTiles"):]
-    tiles_src = tiles_src[:tiles_src.index("tiles.forEach")]
-    check("i.innerHTML = kicon(ico);" in src,
-          "the home tiles still paint an emoji instead of the drawn set")
-    check(not re.search(r"'[\U0001F300-\U0001FAFF\u2600-\u27BF]", tiles_src),
-          "a home tile is back to an emoji")
-    for key in ("words", "grammar", "read", "listen", "stories", "chat"):
-        check(f"['{key}'," in tiles_src, f"the {key} tile has no icon of its own")
+    toys = src[src.index("function foxSays"):src.index("function practiceCard")]
+    check("kflip" in toys and "FOX_SAYS" in toys,
+          "the home page's two toys are not both built")
+    check(not re.search(r"openPanel\(", toys),
+          "a home toy is a disguised section door")
 
     # Contrast cannot be judged by eye, and a more colorful palette is exactly
     # the change most likely to break it. Every text token that sits on a

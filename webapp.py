@@ -8130,6 +8130,43 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      highlight survives on a projector, in bright sun, and on a screen a
      colour-blind child is reading. Weight changes too, so the cue is never
      colour alone. */
+  /* ---- the home page's two toys --------------------------------------
+     The fox answers back, and three words turn over. Both are sized for a
+     thumb, both are one card wide, and neither one is a road to a section. */
+  .kfoxrow { display: flex; align-items: flex-start; gap: 10px; margin-top: 6px; }
+  .kfoxface { flex: none; }
+  .kfoxline {
+    flex: 1; min-width: 0; text-align: start; cursor: pointer; font: inherit;
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 10px 12px; border-radius: 16px 16px 16px 6px;
+    border: 1.5px solid var(--k-sun-line); background: var(--k-sun-wash);
+    color: var(--k-ink); transition: background .15s, transform .15s;
+  }
+  .kfoxline:hover, .kfoxline:focus-visible { background: var(--k-sun); transform: translateY(-1px); }
+  .kfoxline b { font-size: 14px; line-height: 1.5; }
+  .kfoxline i {
+    font-style: normal; font-size: 12px; line-height: 1.5;
+    color: var(--k-sun-ink); direction: rtl; text-align: right;
+  }
+  .kflip-tray {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px; margin-top: 8px;
+  }
+  .kflip {
+    min-height: 104px; padding: 9px 7px; border-radius: 16px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 5px; text-align: center;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    box-shadow: 0 2px 0 var(--k-line);
+    transition: background .15s, border-color .15s, transform .15s;
+  }
+  .kflip:active { transform: translateY(1px); box-shadow: none; }
+  .kflip:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 2px; }
+  .kflip b { font-size: 15px; line-height: 1.25; color: var(--k-ink); word-break: break-word; }
+  .kflip i.kflip-tip { font-style: normal; font-size: 10.5px; line-height: 1.4; color: var(--k-ink-2); }
+  .kflip.on { background: var(--k-sun-wash); border-color: var(--k-sun-line); }
+  .kflip.on b.kflip-fa { font-size: 15px; color: var(--k-sun-ink); }
+
   .kstplayer {
     display: flex; flex-direction: column; gap: 9px;
     margin: 4px 0 12px; padding: 11px 12px 12px;
@@ -19177,40 +19214,166 @@ const Kids = (() => {
       + (KICONS[name] || KICONS.words) + '</svg>';
   }
 
-  function homeTiles() {
-    const grid = document.createElement('div');
-    grid.className = 'kgrid';
-    /* colour, symbol, then the name - the same order in which a child reads a
-       tile, and three cues instead of one */
-    const tiles = [
-      ['words', 'Words', 'واژه‌ها', 'kc-orange', () => openPanel('vpanel')],
-      ['grammar', 'Grammar', 'گرامر', 'kc-purple', () => openPanel('gpanel')],
-      ['read', 'Read', 'خواندن', 'kc-blue', () => openPanel('rdpanel')],
-      ['listen', 'Listen', 'شنیدن', 'kc-pink', () => openPanel('lpanel')],
-      ['stories', 'Stories', 'داستان‌ها', 'kc-coral', () => openPanel('stpanel')],
-      ['chat', 'Chat', 'گفتگو', 'kc-navy', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
-    ];
-    tiles.forEach(([ico, en, faText, cls, fn]) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'kbtn ' + cls;
-      const i = document.createElement('span');
-      i.className = 'kico';
-      i.innerHTML = kicon(ico);
-      const t = document.createElement('b');
-      t.textContent = en;
-      const f = document.createElement('span');
-      f.className = 'kfa';
-      f.dir = 'rtl';
-      f.lang = 'fa';
-      f.textContent = faText;
-      b.append(i, t, f);
-      b.setAttribute('aria-label', en + ' — ' + faText);
-      b.onclick = fn;
-      grid.appendChild(b);
-    });
-    KAnim.stagger(grid);
-    return grid;
+  /* ---- the two toys on the home page --------------------------------
+     The home page used to end in six doors - Words, Grammar, Read, Listen,
+     Stories, Chat - which are the six buttons already in the header. A child
+     who scrolled the page was being offered the same menu twice, one screen
+     apart. These two cards are not sections: they are things to do while
+     standing on the home page, and nothing else in the app does them.
+     Everything they draw comes from the word bank already on the device. */
+  const FOX_SAYS = [
+    ['Hello! Say it back: “Hi, fox!”', 'سلام! تو هم بگو: «سلام روباه!»'],
+    ['Can you name three animals in English?', 'می‌توانی سه حیوان را به انگلیسی نام ببری؟'],
+    ['“Well done!” means you did great. Say it to someone.', '«Well done!» یعنی آفرین. به یک نفر بگو.'],
+    ['Count to ten out loud, in English, as fast as you can.', 'تا ده را بلند به انگلیسی بشمار، هرچه سریع‌تر.'],
+    ['“I am happy today.” Say it with a big smile.', '«I am happy today.» را با لبخند بگو.'],
+    ['Colour hunt: find something blue and say “blue”.', 'شکار رنگ: چیزی آبی پیدا کن و بگو «blue».'],
+    ['Whisper it: “Good night, moon.”', 'آرام بگو: «Good night, moon.»'],
+  ];
+
+  function foxSays() {
+    const card = document.createElement('section');
+    card.className = 'kcard kfoxsay';
+    const head = document.createElement('div');
+    head.className = 'kcard-h';
+    const titles = document.createElement('div');
+    const h = document.createElement('h4');
+    h.textContent = 'Fox says 🦊';
+    titles.append(h, fa('روباه می‌گوید', 'kfa-h'));
+    head.append(titles);
+    card.appendChild(head);
+
+    const row = document.createElement('div');
+    row.className = 'kfoxrow';
+    const face = document.createElement('div');
+    face.className = 'kfoxface';
+    face.appendChild(KAnim.fox('wave', 48));
+    const bubble = document.createElement('button');
+    bubble.type = 'button';
+    bubble.className = 'kfoxline';
+    const sayLine = (k) => {
+      const pair = FOX_SAYS[k % FOX_SAYS.length];
+      bubble.innerHTML = '';
+      const en = document.createElement('b');
+      en.textContent = pair[0];
+      const faLine = document.createElement('i');
+      faLine.dir = 'rtl';
+      faLine.lang = 'fa';
+      faLine.textContent = pair[1];
+      bubble.append(en, faLine);
+      bubble.setAttribute('aria-label', pair[0] + ' — tap for another idea');
+      bubble.dataset.k = String(k);
+    };
+    let at = Math.floor(Math.random() * FOX_SAYS.length);
+    sayLine(at);
+    bubble.onclick = () => {
+      at = (at + 1 + Math.floor(Math.random() * (FOX_SAYS.length - 1))) % FOX_SAYS.length;
+      sayLine(at);
+      KAnim.celebrate(card);
+    };
+    row.append(face, bubble);
+    card.appendChild(row);
+    return card;
+  }
+
+  /* Three words from the child's own bank, face down. Tapping turns one over:
+     the English word reads aloud, then the Persian meaning and an example are
+     underneath. It is not the Words panel with a different coat - the panel is
+     a list to read, this is three cards to turn over, and there is a new three
+     whenever the child wants them. */
+  function flipTray(d) {
+    const bank = [];
+    (d.words || []).forEach((theme) => (theme.words || []).forEach((w) => bank.push(w)));
+    if (bank.length < 3) return null;
+
+    const card = document.createElement('section');
+    card.className = 'kcard';
+    const head = document.createElement('div');
+    head.className = 'kcard-h';
+    const titles = document.createElement('div');
+    const h = document.createElement('h4');
+    h.textContent = 'Flip a word 🃏';
+    titles.append(h, fa('یک واژه را برگردان', 'kfa-h'));
+    const more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'kcard-more';
+    more.textContent = '↻ new';
+    more.setAttribute('aria-label', 'Three other words — سه واژهٔ دیگر');
+    head.append(titles, more);
+    card.appendChild(head);
+
+    const tray = document.createElement('div');
+    tray.className = 'kflip-tray';
+    card.appendChild(tray);
+
+    let round = 0;
+    function deal() {
+      tray.innerHTML = '';
+      const picked = [];
+      for (let i = 0; i < 3 && picked.length < bank.length; i += 1) {
+        let w = bank[(round * 7 + i * 13 + Math.floor(Math.random() * bank.length)) % bank.length];
+        let guard = 0;
+        while (picked.indexOf(w) >= 0 && guard < bank.length) {
+          w = bank[(bank.indexOf(w) + 1) % bank.length];
+          guard += 1;
+        }
+        picked.push(w);
+      }
+      picked.forEach((w) => {
+        const flip = document.createElement('div');
+        flip.className = 'kflip';
+        flip.tabIndex = 0;
+        flip.setAttribute('role', 'button');
+        flip.setAttribute('aria-pressed', 'false');
+        const paint = (open) => {
+          flip.classList.toggle('on', open);
+          flip.setAttribute('aria-pressed', open ? 'true' : 'false');
+          flip.innerHTML = '';
+          if (!open) {
+            const en = document.createElement('b');
+            en.textContent = w.word;
+            const tip = document.createElement('i');
+            tip.className = 'kflip-tip';
+            tip.textContent = 'tap to flip · برگردان';
+            flip.append(en, tip);
+            flip.setAttribute('aria-label', w.word + ' — flip for the meaning');
+            return;
+          }
+          const said = document.createElement('button');
+          said.type = 'button';
+          said.className = 'kstsay';
+          said.textContent = '🔊';
+          said.setAttribute('aria-label', 'Hear ' + w.word);
+          said.onclick = (e) => { e.stopPropagation(); Speech.speak(w.word); };
+          const faWord = document.createElement('b');
+          faWord.className = 'kflip-fa';
+          faWord.dir = 'rtl';
+          faWord.lang = 'fa';
+          faWord.textContent = w.fa;
+          const ex = document.createElement('i');
+          ex.className = 'kflip-tip';
+          ex.textContent = w.example_en || w.def_en || '';
+          flip.append(said, faWord, ex);
+          flip.setAttribute('aria-label', w.fa + (w.example_en ? ' — ' + w.example_en : ''));
+        };
+        paint(false);
+        flip.onclick = () => {
+          const open = !flip.classList.contains('on');
+          paint(open);
+          if (open) Speech.speak(w.word);
+        };
+        flip.addEventListener('keydown', (e) => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          flip.click();
+        });
+        tray.appendChild(flip);
+      });
+      KAnim.stagger(tray);
+    }
+    more.onclick = () => { round += 1; deal(); };
+    deal();
+    return card;
   }
 
   /* Five kid words, asked as "what does it mean?" in Persian. The bank is the
@@ -19300,22 +19463,18 @@ const Kids = (() => {
     }
     panel.appendChild(hero(account ? account.name : '', minutesToday()));
     /* Four things to look at, in the order a child needs them: who I am today,
-       what to do next, what I can choose, and one game. The level box, the
-       streak box, the calm switch and the second "five more" button are gone
-       from this page - the first two now live in Me, the switch beside them,
-       and the third belongs to the game it refreshes. */
+       what to do next, two things to play with here, and the word game. The
+       level box, the streak box, the calm switch and the second "five more"
+       button are gone from this page - the first two now live in Me, the
+       switch beside them, and the third belongs to the game it refreshes. */
     panel.appendChild(continueCard());
-    const lead = document.createElement('div');
-    lead.className = 'klead';
-    const leadEn = document.createElement('b');
-    leadEn.textContent = 'What do you want to do?';
-    const leadFa = document.createElement('i');
-    leadFa.dir = 'rtl';
-    leadFa.lang = 'fa';
-    leadFa.textContent = 'چه کاری دوست داری بکنی؟';
-    lead.append(leadEn, leadFa);
-    panel.appendChild(lead);
-    panel.appendChild(homeTiles());
+    /* What is left is the home page itself, not a second copy of the toolbar:
+       a line from the fox to answer back to, three words to turn over, and the
+       word game. The six doors that used to sit here were the six buttons in
+       the header, drawn again a screen lower. */
+    panel.appendChild(foxSays());
+    const flip = flipTray(d);
+    if (flip) panel.appendChild(flip);
     const prac = practiceCard(d);
     if (prac) panel.appendChild(prac);
   }
