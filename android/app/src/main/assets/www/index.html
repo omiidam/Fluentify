@@ -211,6 +211,40 @@
     --doc-paper: #fffdf6; --doc-paper2: #fdf8ea;
     --doc-ink: #2b3049; --doc-ink2: #3f4a6b; --doc-ink3: #55607e;
     --doc-ink4: #7b829c; --doc-gold: #8a5a00; --doc-navy: #22375e;
+
+    /* ---- glass, the light theme's functional material --------------------
+       One recipe, four numbers: how much white is in the pane, what colour it
+       tints, how much it blurs, and how far it floats. Every functional
+       surface reads these - the toolbar, the send box, the player, the
+       practice drawer, the gate, the toast - so the whole app changes
+       together, and the dark block below can simply not answer them: the
+       rules that use them are scoped to the light theme, which is why dark
+       mode is bit-for-bit what it was before this layer existed.
+
+       Glass is deliberately *not* used on content. A lesson, a definition, a
+       story, a passage and the transcript itself stay on opaque paper: they
+       are read for minutes at a time, and a translucent paragraph over a
+       moving background is a paragraph nobody finishes. What wears glass is
+       the layer that floats above content and never holds a sentence. */
+    --glass-haze: rgba(255, 253, 246, .62);
+    --glass-haze-strong: rgba(255, 255, 255, .80);
+    --glass-haze-faint: rgba(255, 255, 255, .46);
+    --glass-edge: rgba(255, 255, 255, .92);
+    --glass-hair: rgba(43, 48, 73, .085);
+    --glass-filter: blur(18px) saturate(1.45);
+    --glass-sheen: rgba(255, 255, 255, .55);
+    --glass-shadow: 0 10px 30px -12px rgba(74, 58, 30, .22);
+    --glass-shadow-lift: 0 18px 44px -16px rgba(74, 58, 30, .30);
+    /* ---- motion -----------------------------------------------------------
+       Three lengths, one curve, and nothing longer: an interaction answers in
+       under a fifth of a second, a surface settles in a quarter, and a layer
+       that arrives or leaves takes a third. The curve is the one the rest of
+       the page already eases with, so glass does not move to its own rhythm. */
+    --motion-fast: 150ms;
+    --motion-mid: 230ms;
+    --motion-slow: 330ms;
+    --motion-ease: cubic-bezier(.22, 1, .36, 1);
+
     color-scheme: light;
   }
 
@@ -6471,6 +6505,18 @@
     --k-good: #1f6a45; --k-good-wash: #e8f6ee; --k-good-line: #b9e0ca;
     --k-bad: #9e4433; --k-bad-wash: #fbedeb; --k-bad-line: #e8c1b6;
 
+    /* the same material, tinted for the kids world: a touch more white, a
+       little less blur and a warmer hairline, so it reads as a bright window
+       in a playroom rather than a sheet of acrylic in an office. The rules
+       that wear it are shared - only these four numbers differ. */
+    --glass-haze: rgba(255, 255, 255, .68);
+    --glass-haze-strong: rgba(255, 255, 255, .88);
+    --glass-haze-faint: rgba(255, 255, 255, .52);
+    --glass-edge: rgba(255, 255, 255, .96);
+    --glass-hair: rgba(41, 52, 59, .08);
+    --glass-filter: blur(16px) saturate(1.5);
+
+
     /* the shared surface tokens follow the same palette, so any component
        that still reads them lands in the kids world rather than the paper one */
     --surf-1: #fbfcfa; --surf-2: #f7f8f5; --surf-3: #f1f4f1;
@@ -7875,6 +7921,186 @@
   /* an element scrolled out of view stops animating */
   .koff .kwa, .koff .kchar *, .koff .kwave i { animation-play-state: paused !important; }
 
+  /* ---- the glass layer --------------------------------------------------
+     One section, one material, applied to the layers that float: the toolbar
+     (always), the send box (always), the player and the toast (only when they
+     are up), the practice drawer and the gate (only when open). Content
+     surfaces are not in this list on purpose.
+
+     Three rules hold the whole thing together:
+
+       1. Every selector is scoped to :root:not([data-theme="dark"]). The dark
+          theme is a drawn theme - it shows depth with a 1px lighter edge, not
+          with a shadow nobody can see - and a blur over graphite is mud. Dark
+          mode therefore does not read one line of this section, and cannot
+          regress because of it.
+       2. Nothing here animates a filter. Blur is painted once per surface;
+          the transitions are background, border, shadow, transform and
+          opacity, all of which the compositor can carry. A blurred layer that
+          is *also* animated re-rasterises at 60Hz on the one device class
+          this app ships to (a mid-range Android WebView).
+       3. Text always sits on the strong haze, never on the faint one, and
+          every pane here is at least 62% white over cream - roughly the
+          luminance of the paper it replaced, which is why the ink contrast
+          that was measured for the paper theme still holds. */
+  :root:not([data-theme="dark"]) header {
+    /* The pane is the faint haze, not the strong one: at 62% the paper behind
+       the bar still shows its warmth, which is what makes the band read as
+       translucent rather than as a white strip painted over the page. The
+       sheen sits on top so the light still comes from the top edge, and the
+       gold hairline stays - it is the poster's printed rule, and the one line
+       on this bar that says Fluentify rather than "a toolbar". */
+    background:
+      linear-gradient(180deg, var(--glass-sheen) 0%, rgba(255,255,255,0) 62%),
+      var(--glass-haze);
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    border-bottom: 1px solid rgba(205,159,60,.30);
+    box-shadow: 0 1px 0 var(--glass-edge) inset, var(--glass-shadow);
+  }
+  /* The toolbar's buttons are the layer's texture: panes of the same glass,
+     lifted by a hairline on the side the light comes from. The active tile
+     keeps its navy - it is the one filled control in the strip and the only
+     way to read "you are here" at a glance - but gains the same top sheen so
+     it belongs to the material instead of sitting on top of it. */
+  :root:not([data-theme="dark"]) .hbtn {
+    background: linear-gradient(180deg, var(--glass-haze-strong), var(--glass-haze));
+    border: 1px solid rgba(205,159,60,.24);
+    box-shadow: 0 1px 0 var(--glass-edge) inset,
+                0 2px 6px -2px rgba(74,58,30,.14);
+    transition: background var(--motion-fast) var(--motion-ease),
+                border-color var(--motion-fast) var(--motion-ease),
+                box-shadow var(--motion-mid) var(--motion-ease),
+                transform var(--motion-mid) var(--motion-ease);
+  }
+  :root:not([data-theme="dark"]) .hbtn:hover {
+    background: linear-gradient(180deg, var(--glass-edge), var(--glass-haze-strong));
+    border-color: rgba(205,159,60,.42);
+    box-shadow: 0 1px 0 var(--glass-edge) inset, var(--glass-shadow);
+    transform: translateY(-1px);
+  }
+  :root:not([data-theme="dark"]) .hbtn.on {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 58%),
+      linear-gradient(150deg, var(--fill-navy3), var(--fill-navy) 60%, var(--fill-navy2));
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(34,55,94,.30), inset 0 1px 0 rgba(255,255,255,.28);
+  }
+  /* The composer floor keeps its sand - that band is how the poster closes a
+     page - but the sand now rises into the glass instead of a rule, so the
+     send box sits in the surface rather than on a line. */
+  :root:not([data-theme="dark"]) form {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--glass-haze-faint) 100%),
+      linear-gradient(0deg, rgba(235,226,183,.55), rgba(235,226,183,0));
+  }
+  /* The send box is where a learner's eye sits for the whole conversation, so
+     it gets the clearest pane in the app: the strongest haze, the brightest
+     edge, and a focus ring that is the theme's gold rather than a glow. */
+  :root:not([data-theme="dark"]) .messageBox {
+    background: linear-gradient(180deg, var(--glass-haze-strong), var(--glass-haze));
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset, var(--glass-shadow);
+    transition: border-color var(--motion-fast) var(--motion-ease),
+                box-shadow var(--motion-mid) var(--motion-ease);
+  }
+  :root:not([data-theme="dark"]) .messageBox:focus-within {
+    border-color: rgba(60,64,91,.42);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset,
+                0 0 0 3px rgba(232,191,95,.34),
+                var(--glass-shadow-lift);
+  }
+  /* A floating bar or panel is one step further off the page than the toolbar,
+     so it casts a longer shadow and blurs a little more of what is behind it. */
+  :root:not([data-theme="dark"]) .player {
+    background: linear-gradient(180deg, var(--glass-haze-strong), var(--glass-haze));
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset, var(--glass-shadow-lift);
+  }
+  :root:not([data-theme="dark"]) .prdrawer {
+    background: linear-gradient(180deg, var(--glass-haze-strong), var(--glass-haze));
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset, var(--glass-shadow-lift);
+  }
+  /* The gate. Its card was already blurred; it is now the same material as the
+     rest of the app rather than a private recipe, so the card reads as the top
+     layer of the same page. The scrim itself stays opaque and unblurred: it
+     covers the whole viewport, and blurring a full screen to reveal nothing
+     (there is a form in front of it) is the one cost this layer refuses. */
+  :root:not([data-theme="dark"]) .authcard {
+    background: linear-gradient(180deg, var(--glass-haze-strong) 0%,
+      var(--glass-haze) 66%, var(--glass-haze) 100%);
+    -webkit-backdrop-filter: blur(22px) saturate(1.3);
+    backdrop-filter: blur(22px) saturate(1.3);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset, var(--glass-shadow-lift);
+  }
+  /* The two round controls in the transcript. They keep their navy and gold
+     fills - a glass button with white type on it is a button with no fill -
+     and take only a sheen and a longer shadow, so they hover like the glass
+     around them without losing the contrast that makes them findable. */
+  :root:not([data-theme="dark"]) .jump,
+  :root:not([data-theme="dark"]) .prfab {
+    box-shadow: 0 1px 0 rgba(255,255,255,.30) inset,
+                0 10px 24px -8px rgba(34,55,94,.50);
+    transition: transform var(--motion-mid) var(--motion-ease),
+                opacity var(--motion-fast) var(--motion-ease),
+                filter var(--motion-fast) var(--motion-ease),
+                box-shadow var(--motion-mid) var(--motion-ease);
+  }
+  /* The one search field in the app - every panel builds it from the same
+     markup, so this pane is the search box in Vocabulary, Grammar, Reading,
+     Stories, Books and Analyze at once. It is a control sitting on a content
+     panel rather than a paragraph, which is the distinction the whole layer is
+     built on: glass here, paper for the words it finds. */
+  :root:not([data-theme="dark"]) .psearch input {
+    background: linear-gradient(180deg, var(--glass-haze-strong), var(--glass-haze));
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset, 0 4px 14px -10px rgba(74,58,30,.5);
+    transition: border-color var(--motion-fast) var(--motion-ease),
+                box-shadow var(--motion-mid) var(--motion-ease);
+  }
+  :root:not([data-theme="dark"]) .psearch input:focus {
+    border-color: rgba(60,64,91,.45);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset,
+                0 0 0 3px rgba(232,191,95,.32),
+                var(--glass-shadow);
+  }
+  :root:not([data-theme="dark"]) .stt-panel {
+    background: linear-gradient(180deg, var(--glass-haze-strong), var(--glass-haze));
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 1px 0 var(--glass-sheen) inset, var(--glass-shadow);
+  }
+  :root:not([data-theme="dark"]) .toast {
+    box-shadow: 0 1px 0 rgba(255,255,255,.18) inset,
+                0 16px 40px -14px rgba(34,32,28,.55);
+  }
+
+  /* Where the browser has no backdrop-filter there is no blur to fall back
+     from, so the panes become almost opaque instead: the same soft white, the
+     same hairline, the same shadow, no transparency to see through. The app
+     looks like paper with depth rather than glass - which is exactly the theme
+     it shipped as before this layer, and the reason the fallback is safe. */
+  @supports not (backdrop-filter: blur(4px)) {
+    @supports not (-webkit-backdrop-filter: blur(4px)) {
+      :root:not([data-theme="dark"]) {
+        --glass-haze: rgba(255, 253, 246, .94);
+        --glass-haze-strong: rgba(255, 255, 255, .97);
+        --glass-haze-faint: rgba(255, 255, 255, .72);
+      }
+    }
+  }
+
   /* ---------- 11. the lot, off -------------------------------------
      One block turns the whole system off. Anything added above that is
      not an entrance or a tap response should be listed here too. */
@@ -7898,6 +8124,11 @@
     body.kids .plesson.done .pdot, body.kids .pexam-ready { animation: none !important; }
     body.kids .khero .kface .kchar { animation: none !important; }
     button, .ltab, .bbc-tab, .lrow { transition: none !important; }
+    /* the glass layer's own lengths collapse with everything else: a pane
+       still changes colour, still brightens its edge and still settles its
+       shadow, so a hover and a focus are still answered - in one frame
+       instead of five, with nothing to wait for. */
+    :root { --motion-fast: 1ms; --motion-mid: 1ms; --motion-slow: 1ms; }
     * { scroll-behavior: auto !important; }
   }
 </style>
