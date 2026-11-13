@@ -6477,56 +6477,64 @@
      in one place - and none of the adult tokens are touched, because all of
      this lives behind body.kids. */
   body.kids {
-    /* The six section accents. Each has one saturated ink, one pale wash for
-       the chip it sits in, and one hairline. The ink is what carries meaning
-       (a title, an arrow, an icon) and is chosen to clear 4.5:1 on its own
-       wash; the wash is only ever behind that ink, never behind body text. */
-    --k-primary: #258f83; --k-primary-dark: #1f7168;
-    --k-primary-wash: #e4f4f1; --k-primary-line: #a9dcd4;
-    --k-blue: #4778e8; --k-blue-wash: #eaf0ff; --k-blue-line: #c3d4fb; --k-blue-ink: #2a4fa8;
-    --k-purple: #9275e8; --k-purple-wash: #f1ecff; --k-purple-line: #d7cbf8; --k-purple-ink: #5834a8;
-    --k-orange: #ffaa55; --k-orange-wash: #fff0dd; --k-orange-line: #ffd7a8; --k-orange-ink: #8a4c0d;
-    --k-sky: #e2eefc; --k-sky-line: #bcd6f2; --k-sky-ink: #1f557a;
-    --k-mint: #dcf5e8; --k-mint-soft: #70cfa7; --k-mint-line: #b0e4cb; --k-mint-ink: #1c6b4a;
-    --k-sun: #ffc857; --k-sun-wash: #fff6dd; --k-sun-line: #ffe1a0; --k-sun-ink: #7a5a12;
-    --k-coral: #ff806f; --k-coral-wash: #ffece8; --k-coral-line: #ffcfc6; --k-coral-ink: #96382a;
-    --k-bg: #fff5e5; --k-surface: #ffffff; --k-surface-2: #fffaf1;
-    --k-ink: #29343b; --k-ink-2: #5f6f7a; --k-line: #ece2d2;
-    --k-line-strong: #d8cbb6; --k-shadow: rgba(60, 44, 20, .10);
-    --k-focus: #1f7168;
+    /* NAVY & SUNSHINE. The identity is anchored on navy and carried by warm
+       colour, not the other way round: navy is what a child presses, reads a
+       heading in, and sees the app name in; the warm six are what tells one
+       section from another. Sort-of green (teal) is gone from every brand
+       role, and the only green left in this block is --k-good, which means
+       "correct" and nothing else.
+
+       The six section accents each carry an ink, a wash and a hairline. The
+       ink is the only thing that ever sits *on* the wash, and each pair is
+       tuned to clear 4.5:1 - so color is a second cue for a section, never
+       the only one (every place it is used also carries a symbol and a name). */
+    --k-primary: #233876; --k-primary-dark: #1b2c62;
+    --k-primary-wash: #e9eefa; --k-primary-line: #c4d0ec;
+    --k-blue: #65b9e8; --k-blue-wash: #eaf7ff; --k-blue-line: #bfe4f7; --k-blue-ink: #1d5c85;
+    --k-purple: #9c83e8; --k-purple-wash: #f4f0ff; --k-purple-line: #d9cef9; --k-purple-ink: #5636a8;
+    --k-orange: #ff9b54; --k-orange-wash: #fff2e5; --k-orange-line: #ffd6b0; --k-orange-ink: #8a4410;
+    --k-sky: #eaf7ff; --k-sky-line: #bfe4f7; --k-sky-ink: #1d5c85;
+    --k-pink: #f17fa5; --k-pink-wash: #fff0f5; --k-pink-line: #fbd0de; --k-pink-ink: #9c2f55;
+    --k-sun: #ffc857; --k-sun-wash: #fff8db; --k-sun-line: #ffe1a0; --k-sun-ink: #5f4608;
+    --k-coral: #ff6b6b; --k-coral-wash: #fff0ed; --k-coral-line: #ffd2cc; --k-coral-ink: #8f2b22;
+    --k-bg: #fff8ef; --k-surface: #ffffff; --k-surface-2: #fffaf3;
+    --k-ink: #202b45; --k-ink-2: #626d83; --k-line: #e7eaf1;
+    --k-line-strong: #d5dbe8; --k-shadow: rgba(32, 43, 69, .10);
+    --k-focus: #233876;
     /* what sits on a filled control, and the two surfaces that are not cards */
-    --k-on-primary: #ffffff; --k-on-primary-dim: rgba(255, 255, 255, .88);
-    --k-primary-deep: #1f5b56; --k-hero-sub: #34474a;
-    --k-track: #ffffff; --k-say: #d0ebdd;
-    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(220, 238, 255, .55), transparent 72%);
-    --k-highlight: rgba(247, 217, 121, .40);
-    --k-card-shadow: rgba(41, 52, 59, .10);
-    --k-hero-shadow: rgba(20, 80, 74, .30);
+    --k-on-primary: #ffffff; --k-on-primary-dim: rgba(255, 255, 255, .86);
+    --k-primary-deep: #172554; --k-hero-sub: #4a5875;
+    --k-track: #ffffff; --k-say: #ffdce7;
+    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(233, 238, 250, .75), transparent 72%);
+    --k-highlight: rgba(255, 200, 87, .38);
+    --k-card-shadow: rgba(32, 43, 69, .12);
+    --k-hero-shadow: rgba(35, 56, 118, .26);
+    /* the two status colours. Green survives here and only here: "correct"
+       is a state, not a brand, and a child who has learned green-from-red
+       should not have to relearn it because the app changed its shirt. */
     --k-good: #1f6a45; --k-good-wash: #e8f6ee; --k-good-line: #b9e0ca;
     --k-bad: #9e4433; --k-bad-wash: #fbedeb; --k-bad-line: #e8c1b6;
 
-    /* the same material, tinted for the kids world: a touch more white, a
-       little less blur and a warmer hairline, so it reads as a bright window
-       in a playroom rather than a sheet of acrylic in an office. The rules
-       that wear it are shared - only these four numbers differ. */
-    --glass-haze: rgba(255, 255, 255, .68);
-    --glass-haze-strong: rgba(255, 255, 255, .88);
-    --glass-haze-faint: rgba(255, 255, 255, .52);
+    /* the same glass material, tinted for the kids world: a touch more white,
+       a little less blur and a warmer hairline, so it reads as a bright window
+       in a playroom rather than a sheet of acrylic in an office. */
+    --glass-haze: rgba(255, 255, 255, .70);
+    --glass-haze-strong: rgba(255, 255, 255, .89);
+    --glass-haze-faint: rgba(255, 255, 255, .53);
     --glass-edge: rgba(255, 255, 255, .96);
-    --glass-hair: rgba(41, 52, 59, .08);
+    --glass-hair: rgba(32, 43, 69, .08);
     --glass-filter: blur(16px) saturate(1.5);
-
 
     /* the shared surface tokens follow the same palette, so any component
        that still reads them lands in the kids world rather than the paper one */
-    --surf-1: #fbfcfa; --surf-2: #f7f8f5; --surf-3: #f1f4f1;
-    --surf-4: #eaf1ee; --surf-5: #e1ebe6; --surf-6: #d7e4de;
-    --chat-bg: #fbfcfa; --raise: #ffffff; --raise-2: #ffffff;
-    --line: #e5eae8; --line2: #d3dbd7; --line-soft: #eef2ef; --line-strong: #c6d2cc;
-    --ink: #29343b; --ink-1: #29343b; --ink-2: #3d4a52; --ink-3: #5a6b75;
-    --ink-4: #71808a; --ink-5: #71808a; --title: #29343b; --muted: #71808a;
-    --gold-ink: #7a5a12; --navy: #29343b; --navy-ink: #276d67;
-    --indigo-ink: #276d67; --violet-ink: #388f86; --green-ink: #22654f;
+    --surf-1: #fdfdff; --surf-2: #f8f9fd; --surf-3: #f2f4fa;
+    --surf-4: #eaedf6; --surf-5: #e1e6f2; --surf-6: #d5dbe9;
+    --chat-bg: #fdfdff; --raise: #ffffff; --raise-2: #ffffff;
+    --line: #e7eaf1; --line2: #d5dbe8; --line-soft: #eff1f7; --line-strong: #c3cbdd;
+    --ink: #202b45; --ink-1: #202b45; --ink-2: #3c4763; --ink-3: #5a6580;
+    --ink-4: #626d83; --ink-5: #626d83; --title: #202b45; --muted: #626d83;
+    --gold-ink: #5f4608; --navy: #202b45; --navy-ink: #233876;
+    --indigo-ink: #233876; --violet-ink: #5636a8; --green-ink: #1f6a45;
     background: var(--k-backdrop), var(--k-bg);
     color: var(--k-ink);
   }
@@ -6554,8 +6562,20 @@
   body.kids .hbtn i svg { width: 21px; height: 21px; }
   body.kids .hbtn span { font-size: 11px; font-weight: 800; color: var(--k-ink); }
   body.kids .hbtn:hover { transform: translateY(-2px); border-color: var(--k-line-strong); }
-  body.kids .hbtn.on {
-    background: var(--k-primary-dark); border-color: var(--k-primary-dark);
+  /* The lit tile is the brand at its most literal: solid primary navy with the
+     deep navy as its 3px foot. It is spelled with the toolbar in the selector
+     because the light theme's glass layer owns .hbtn.on by then - without it
+     the child's active tile would wear the adult navy gradient, which is the
+     one place the two bands would share a colour they do not share anywhere
+     else. */
+  body.kids .tools .hbtn.on {
+    /* longhands, not the shorthand: the tile must be *this* navy even though
+       the light theme's glass layer paints .hbtn.on with a gradient of its
+       own, and a shorthand that loses one longhand to that layer would leave
+       the child's active tile with the adult gradient behind white type. */
+    background-color: var(--k-primary-dark);
+    background-image: none;
+    border-color: var(--k-primary-dark);
     box-shadow: 0 3px 0 var(--k-primary-deep);
   }
   body.kids .hbtn.on span { color: var(--k-on-primary); }
@@ -6616,13 +6636,25 @@
     border-radius: 4px; margin-inline-end: 9px; vertical-align: 1px;
     background: var(--k-sec, var(--k-primary));
   }
-  body.kids #vpanel { --k-sec: var(--k-blue); }
-  body.kids #gpanel { --k-sec: var(--k-purple); }
-  body.kids #rdpanel { --k-sec: var(--k-mint-soft); }
-  body.kids #lpanel { --k-sec: var(--k-sun); }
-  body.kids #stpanel { --k-sec: var(--k-coral); }
-  body.kids #fpanel { --k-sec: var(--k-orange); }
-  body.kids #hqpanel { --k-sec: var(--k-primary); }
+  /* Words are orange, grammar purple, listening pink, reading sky, stories
+     coral, practice orange-coral, and the home page is the navy itself - the
+     seven doors a child actually has, each one recognizable by hue and then
+     by its own icon and name. The full quartet is set per panel, not just the
+     spine colour, so a card opened inside a section belongs to that section. */
+  body.kids #vpanel { --k-sec: var(--k-orange); --k-sec-ink: var(--k-orange-ink);
+    --k-sec-wash: var(--k-orange-wash); --k-sec-line: var(--k-orange-line); }
+  body.kids #gpanel { --k-sec: var(--k-purple); --k-sec-ink: var(--k-purple-ink);
+    --k-sec-wash: var(--k-purple-wash); --k-sec-line: var(--k-purple-line); }
+  body.kids #rdpanel { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
+    --k-sec-wash: var(--k-blue-wash); --k-sec-line: var(--k-blue-line); }
+  body.kids #lpanel { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
+    --k-sec-wash: var(--k-pink-wash); --k-sec-line: var(--k-pink-line); }
+  body.kids #stpanel { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
+    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
+  body.kids #fpanel { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
+    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
+  body.kids #hqpanel { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
+    --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line); }
 
   /* ---- Word Quest: the letter puzzle ---------------------------------- */
   /* The whole game is one panel of big targets: a rack of letters a thumb can
@@ -6805,7 +6837,7 @@
     display: flex; align-items: center; gap: 12px;
     padding: 14px 16px 15px; margin-bottom: 10px;
     border-radius: 18px;
-    background: linear-gradient(135deg, var(--k-primary-wash) 0%, var(--k-mint) 58%, var(--k-sky) 100%);
+    background: linear-gradient(135deg, var(--k-primary-wash) 0%, var(--k-sun-wash) 58%, var(--k-sky) 100%);
     border: 1.5px solid var(--k-primary-line);
     box-shadow: 0 3px 10px -6px var(--k-hero-shadow);
   }
@@ -6870,6 +6902,8 @@
      screen; older children get the same app with the child-scale turned down,
      so a thirteen-year-old is not reading a picture book. None of this
      changes a single level of the course. */
+  body.kids-young .kbtn::before { width: 7px; }
+  body.kids-older .kbtn::before { width: 4px; }
   body.kids-young .kgrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   body.kids-young .kbtn { min-height: 88px; }
   body.kids-young .kbtn .kico { font-size: 27px; }
@@ -6932,8 +6966,8 @@
   }
   .ksay {
     flex: none; width: 44px; height: 44px; border-radius: 12px; cursor: pointer;
-    border: 1.5px solid var(--k-mint-line); background: var(--k-mint);
-    font-size: 18px; color: var(--k-mint-ink);
+    border: 1.5px solid var(--k-pink-line); background: var(--k-pink-wash);
+    font-size: 18px; color: var(--k-pink-ink);
     transition: background .15s, transform .15s;
   }
   .ksay:hover { background: var(--k-say); transform: translateY(-1px); }
@@ -6978,14 +7012,14 @@
   .kbtn b { font-size: 14.5px; font-weight: 800; letter-spacing: -.1px; }
   .kbtn .kfa { font-size: 12px; color: var(--k-ink-2); direction: rtl; line-height: 1.7; }
   .kbtn .kgo { font-size: 11.5px; color: var(--k-sec-ink); font-weight: 800; margin-top: auto; }
-  .kbtn.kc-teal { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
+  .kbtn.kc-navy { --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
     --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line); }
   .kbtn.kc-blue { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
     --k-sec-wash: var(--k-blue-wash); --k-sec-line: var(--k-blue-line); }
   .kbtn.kc-purple { --k-sec: var(--k-purple); --k-sec-ink: var(--k-purple-ink);
     --k-sec-wash: var(--k-purple-wash); --k-sec-line: var(--k-purple-line); }
-  .kbtn.kc-mint { --k-sec: var(--k-mint-soft); --k-sec-ink: var(--k-mint-ink);
-    --k-sec-wash: var(--k-mint); --k-sec-line: var(--k-mint-line); }
+  .kbtn.kc-pink { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
+    --k-sec-wash: var(--k-pink-wash); --k-sec-line: var(--k-pink-line); }
   .kbtn.kc-sun { --k-sec: var(--k-sun); --k-sec-ink: var(--k-sun-ink);
     --k-sec-wash: var(--k-sun-wash); --k-sec-line: var(--k-sun-line); }
   .kbtn.kc-coral { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
@@ -7083,7 +7117,7 @@
     border: 1.5px solid var(--k-line-strong); background: var(--k-surface-2);
   }
   .kwordrow b { font-size: 15px; color: var(--k-ink); }
-  .kwordrow .kfa { font-size: 12px; color: var(--k-mint-ink); direction: rtl; margin-inline-start: auto; }
+  .kwordrow .kfa { font-size: 12px; color: var(--k-pink-ink); direction: rtl; margin-inline-start: auto; }
   .kwordrow .kdef { font-size: 12px; color: var(--k-ink-2); }
   .kwordrow .kex { font-size: 12px; color: var(--k-ink-2); }
 
@@ -7103,7 +7137,7 @@
   body.kids .hqrank {
     display: flex; gap: 12px; align-items: center;
     padding: 14px 15px; border-radius: 18px;
-    background: linear-gradient(135deg, var(--k-primary-wash), var(--k-mint));
+    background: linear-gradient(135deg, var(--k-primary-wash), var(--k-pink-wash));
     border: 1.5px solid var(--k-primary-line);
   }
   body.kids .hqrank .hqemoji { font-size: 34px; line-height: 1; }
@@ -7298,8 +7332,8 @@
     stroke: #ffc23d; stroke-width: 5;
   }
   body.kids .hqw-pin:focus-visible .halo { fill: rgba(255, 209, 92, .55); }
-  body.kids .hqw-pin.done .disc { fill: #e8f8ee; stroke: #8fd0aa; }
-  body.kids .hqw-pin.locked .disc { fill: #f1efe9; stroke: #cdc7bb; }
+  body.kids .hqw-pin.done .disc { fill: var(--k-good-wash); stroke: var(--k-good-line); }
+  body.kids .hqw-pin.locked .disc { fill: var(--k-surface-2); stroke: var(--k-line-strong); }
   body.kids .hqw-pin.locked .ico { opacity: .8; }
   body.kids .hqw-pin.on .disc { stroke: #ffc23d; stroke-width: 5; }
   body.kids .hqw-pin .ring {
@@ -7309,13 +7343,13 @@
   body.kids .hqw-pin.on .ring { opacity: .9; animation: kRing 1.9s ease-out infinite; }
   body.kids .hqw-flag .flag-bg {
     fill: #e0533f; stroke: #fff; stroke-width: 3;
-    filter: drop-shadow(0 3px 2px rgba(20, 60, 55, .22));
+    filter: drop-shadow(0 3px 2px rgba(24, 34, 60, .22));
   }
   body.kids .hqw-flag .flag-tx {
     fill: #fff; font-size: 21px; font-weight: 800; text-anchor: middle;
     letter-spacing: .3px; pointer-events: none;
   }
-  body.kids .hqw-pin .tick { fill: #2f8f5b; }
+  body.kids .hqw-pin .tick { fill: var(--k-good); }
   body.kids .hqw-pin .tick-mark { stroke: #fff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   @keyframes kRing {
     0% { transform: scale(.9); opacity: .75; }
@@ -7327,7 +7361,7 @@
   body.kids .hqw-fox {
     transition: transform .85s cubic-bezier(.4,.9,.4,1);
     pointer-events: none;
-    filter: drop-shadow(0 6px 5px rgba(20, 60, 55, .28));
+    filter: drop-shadow(0 6px 5px rgba(24, 34, 60, .28));
   }
   body.kids .hqw-fox.walk .fox-leg-a { animation: kWalkA .42s linear infinite; }
   body.kids .hqw-fox.walk .fox-leg-b { animation: kWalkB .42s linear infinite; }
@@ -7405,11 +7439,11 @@
   body.kids .hqw-prop .art {
     width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center;
     font-size: 27px; background: #fff; border: 3px solid #fff;
-    box-shadow: 0 4px 0 rgba(20,60,55,.16), 0 0 0 2px rgba(20,60,55,.10);
+    box-shadow: 0 4px 0 rgba(24,34,60,.16), 0 0 0 2px rgba(24,34,60,.10);
     transition: transform .16s, box-shadow .16s;
   }
   body.kids .hqw-prop:hover .art { transform: translateY(-3px) scale(1.06); }
-  body.kids .hqw-prop:focus-visible { outline: 2px solid #1f5b56; outline-offset: 4px; border-radius: 16px; }
+  body.kids .hqw-prop:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 4px; border-radius: 16px; }
   body.kids .hqw-prop .lbl {
     max-width: 130px; font-size: 10.5px; font-weight: 800; line-height: 1.25;
     color: #24343a; background: rgba(255,255,255,.94); padding: 3px 7px;
@@ -7420,12 +7454,12 @@
     max-width: 108px; font-size: 15px; font-weight: 800; line-height: 1.5;
     padding: 12px 10px; border-radius: 14px; min-width: 92px;
     background: #fffdf7; border: 2.5px solid #fff; color: #24343a;
-    box-shadow: 0 4px 0 rgba(20,60,55,.16), 0 0 0 2px rgba(20,60,55,.10);
+    box-shadow: 0 4px 0 rgba(24,34,60,.16), 0 0 0 2px rgba(24,34,60,.10);
     transition: transform .16s, box-shadow .16s;
   }
   body.kids .hqw-prop.plain:hover .lbl { transform: translateY(-3px); }
-  body.kids .hqw-prop.right .art { background: #e9fbef; border-color: #8fd9ab; box-shadow: 0 0 0 5px rgba(143,217,171,.35); }
-  body.kids .hqw-prop.right .lbl { background: #e9fbef; border-color: #8fd9ab; }
+  body.kids .hqw-prop.right .art { background: var(--k-good-wash); border-color: var(--k-good-line); box-shadow: 0 0 0 5px var(--k-good-wash); }
+  body.kids .hqw-prop.right .lbl { background: var(--k-good-wash); border-color: var(--k-good-line); }
   body.kids .hqw-prop.wrong { animation: kShake .4s; }
   body.kids .hqw-prop.wrong .art { background: #fdecea; border-color: #e8a99b; }
   @keyframes kFloat { 0%, 100% { margin-top: 0; } 50% { margin-top: -7px; } }
@@ -7439,7 +7473,7 @@
   body.kids .hqw-fox {
     position: absolute; width: 92px; bottom: 9%; left: 6%; z-index: 3;
     transition: left .7s cubic-bezier(.4,.9,.4,1), bottom .5s;
-    filter: drop-shadow(0 6px 4px rgba(20,60,55,.22));
+    filter: drop-shadow(0 6px 4px rgba(24,34,60,.22));
     pointer-events: none;
   }
   body.kids .hqw-fox svg { display: block; width: 100%; height: auto; }
@@ -7498,7 +7532,7 @@
   }
   @keyframes kRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
   body.kids .hqw-scroll .ken { font-size: 12.5px; line-height: 1.5; font-weight: 700; color: #24343a; }
-  body.kids .hqw-scroll .ken.ok { color: #1d6b45; }
+  body.kids .hqw-scroll .ken.ok { color: var(--k-good); }
   body.kids .hqw-scroll .ken.no { color: #9e4433; }
   body.kids .hqw-scroll .hqfa { font-size: 11.5px; line-height: 1.7; color: #4a5a62; direction: rtl; text-align: right; font-family: inherit; }
   body.kids .hqw-scroll .hqw-act { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -7508,7 +7542,7 @@
     border: 1.5px solid var(--k-primary-deep); background: var(--k-primary-dark); color: var(--k-on-primary);
   }
   body.kids .hqw-scroll .hqw-go2.ghost { background: #fff; color: var(--k-primary-dark); border-color: var(--k-primary-line); }
-  body.kids .hqw-scroll .hqw-go2:focus-visible { outline: 2px solid #1f5b56; outline-offset: 2px; }
+  body.kids .hqw-scroll .hqw-go2:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
 
   /* the bridge: slots and word planks (sentence building) */
   body.kids .hqw-bridge {
@@ -7522,7 +7556,7 @@
     background: rgba(255,255,255,.55); border: 1.5px solid rgba(255,255,255,.8);
     font-size: 12.5px; font-weight: 800; color: #24343a; padding: 0 8px;
   }
-  body.kids .hqw-slot.full { background: #fff; border-color: #cfe6d8; }
+  body.kids .hqw-slot.full { background: var(--k-surface); border-color: var(--k-good-line); }
   body.kids .hqw-planks { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
   body.kids .hqw-plank {
     min-height: 38px; padding: 7px 12px; border-radius: 9px; cursor: grab;
@@ -7532,7 +7566,7 @@
   }
   body.kids .hqw-plank:active { cursor: grabbing; }
   body.kids .hqw-plank.drag { position: fixed; z-index: 40; pointer-events: none; box-shadow: 0 8px 14px rgba(0,0,0,.25); }
-  body.kids .hqw-plank:focus-visible { outline: 2px solid #1f5b56; outline-offset: 2px; }
+  body.kids .hqw-plank:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
   body.kids .hqw-check { display: flex; justify-content: center; }
 
   /* listening horn and reading scroll */
@@ -7540,9 +7574,9 @@
     position: absolute; left: 50%; top: 34%; transform: translate(-50%, -50%);
     width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
     font-size: 30px; cursor: pointer; background: #fff; border: 3px solid #fff;
-    box-shadow: 0 4px 0 rgba(20,60,55,.16); z-index: 2;
+    box-shadow: 0 4px 0 rgba(24,34,60,.16); z-index: 2;
   }
-  body.kids .hqw-horn:focus-visible { outline: 2px solid #1f5b56; outline-offset: 3px; }
+  body.kids .hqw-horn:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 3px; }
   body.kids .hqw-horn.playing { animation: kPulse 1s ease-in-out infinite; }
   body.kids .hqw-paper {
     position: absolute; left: 50%; top: 12%; transform: translateX(-50%);
@@ -7559,19 +7593,19 @@
   body.kids .hqw-gem {
     min-height: 42px; border-radius: 10px; cursor: pointer; font-family: inherit;
     font-size: 12.5px; font-weight: 800; color: #24343a; padding: 6px 9px;
-    background: rgba(255,255,255,.9); border: 2px solid rgba(120,190,160,.7);
-    box-shadow: 0 2px 0 rgba(20,60,55,.12);
+    background: rgba(255,255,255,.9); border: 2px solid var(--k-line-strong);
+    box-shadow: 0 2px 0 rgba(24,34,60,.12);
   }
   body.kids .hqw-gem[dir="rtl"] { text-align: right; }
   body.kids .hqw-gem.on { background: #fff4cf; border-color: #f0c24a; }
-  body.kids .hqw-gem.ok { background: #e9fbef; border-color: #79cf9b; color: #1d6b45; }
+  body.kids .hqw-gem.ok { background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good); }
   body.kids .hqw-gem.no { animation: kShake .4s; background: #fdecea; border-color: #e8a99b; }
 
   /* the result: a chest, stars and the way on */
   body.kids .hqw-treasure {
     position: relative; display: grid; justify-items: center; gap: 6px;
     padding: 18px 16px 14px; border-radius: 20px; overflow: hidden;
-    background: radial-gradient(120% 90% at 50% 0%, #fff6d8, #eaf7e4 70%);
+    background: radial-gradient(120% 90% at 50% 0%, var(--k-sun-wash), var(--k-surface-2) 70%);
     border: 1.5px solid var(--k-primary-line);
   }
   body.kids .hqw-chest { width: 128px; position: relative; }
@@ -7579,7 +7613,7 @@
   body.kids .hqw-chest .lid { transform-origin: 10px 46px; animation: kLid .9s .15s cubic-bezier(.2,1.3,.4,1) both; }
   @keyframes kLid { from { transform: rotate(0); } to { transform: rotate(-52deg); } }
   body.kids .hqw-stars { display: flex; gap: 6px; font-size: 30px; line-height: 1; }
-  body.kids .hqw-stars i { font-style: normal; color: #cbd6d1; }
+  body.kids .hqw-stars i { font-style: normal; color: var(--k-line-strong); }
   body.kids .hqw-stars i.on { color: #f2bf3f; text-shadow: 0 2px 0 #d9a52c; animation: kStar .5s cubic-bezier(.2,1.7,.4,1) both; }
   body.kids .hqw-stars i.on:nth-child(2) { animation-delay: .15s; }
   body.kids .hqw-stars i.on:nth-child(3) { animation-delay: .3s; }
@@ -7624,36 +7658,41 @@
      pastel becomes its own dark wash so the tint still tells the tiles
      apart. Text keeps at least 4.5:1 against the surface it sits on. */
   [data-theme="dark"] body.kids {
-    --k-primary: #5fc4b6; --k-primary-dark: #79d3c5;
-    --k-primary-wash: #16302e; --k-primary-line: #2b5751;
-    --k-blue: #7d9ef2; --k-blue-wash: #17203a; --k-blue-line: #30436f; --k-blue-ink: #b6c8ff;
-    --k-purple: #b6a2f5; --k-purple-wash: #211a38; --k-purple-line: #443574; --k-purple-ink: #d3c4ff;
-    --k-orange: #ffbe7d; --k-orange-wash: #33240f; --k-orange-line: #64452a; --k-orange-ink: #ffd0a1;
-    --k-focus: #79d3c5;
-    --k-sky: #152c3b; --k-sky-line: #2a4a5e; --k-sky-ink: #a8d8f2;
-    --k-mint: #142e28; --k-mint-soft: #57b892; --k-mint-line: #2a5548; --k-mint-ink: #9cdcc0;
-    --k-sun: #f0c65a; --k-sun-wash: #302816; --k-sun-line: #5b4a24; --k-sun-ink: #f0d391;
-    --k-coral: #f0a48f; --k-coral-wash: #331e19; --k-coral-line: #5a382f; --k-coral-ink: #f2b3a2;
-    --k-bg: #0f1416; --k-surface: #171f23; --k-surface-2: #1b252a;
-    --k-ink: #e9f0ee; --k-ink-2: #a6b5b3; --k-line: #2b373b;
-    --k-line-strong: #3e4c50; --k-shadow: rgba(0, 0, 0, .38);
-    --k-on-primary: #07120f; --k-on-primary-dim: rgba(7, 18, 15, .72);
-    --k-primary-deep: #4fb0a3; --k-hero-sub: #b6c6c3;
-    --k-track: #2a373b; --k-say: #22403b;
-    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(52, 110, 104, .34), transparent 72%);
+    /* The same identity after dark, not the light one dimmed: night navy
+       surfaces, and every accent lifted to a *lighter* ink of itself because
+       the pane under it is now deep. A pastel that reads on cream reads as
+       mud on #0d1220, so each wash is its own dark tint and each ink is the
+       pale version that clears 4.5:1 on it. */
+    --k-primary: #a8bdf2; --k-primary-dark: #c3d0f8;
+    --k-primary-wash: #1a2340; --k-primary-line: #2f3d66;
+    --k-blue: #7cc4ee; --k-blue-wash: #12243a; --k-blue-line: #2a4a68; --k-blue-ink: #a7d9f5;
+    --k-purple: #b6a2f5; --k-purple-wash: #201a35; --k-purple-line: #3d3363; --k-purple-ink: #d3c4ff;
+    --k-orange: #ffae6e; --k-orange-wash: #32220f; --k-orange-line: #5e4224; --k-orange-ink: #ffcb96;
+    --k-pink: #f5a0bf; --k-pink-wash: #2e1b26; --k-pink-line: #55323f; --k-pink-ink: #f8c4d6;
+    --k-focus: #c3d0f8;
+    --k-sky: #12243a; --k-sky-line: #2a4a68; --k-sky-ink: #a7d9f5;
+    --k-sun: #f0c65a; --k-sun-wash: #2e2718; --k-sun-line: #564722; --k-sun-ink: #f0d391;
+    --k-coral: #ff8f8f; --k-coral-wash: #321b18; --k-coral-line: #5c3230; --k-coral-ink: #ffb3ac;
+    --k-bg: #0d1220; --k-surface: #141a2b; --k-surface-2: #1a2135;
+    --k-ink: #e8ecf7; --k-ink-2: #9aa4bd; --k-line: #26304a;
+    --k-line-strong: #35405c; --k-shadow: rgba(0, 0, 0, .38);
+    --k-on-primary: #0b1226; --k-on-primary-dim: rgba(11, 18, 38, .72);
+    --k-primary-deep: #8ea6e4; --k-hero-sub: #b3bdd6;
+    --k-track: #26304a; --k-say: #4a2b39;
+    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(58, 80, 150, .34), transparent 72%);
     --k-highlight: rgba(240, 198, 90, .22);
     --k-card-shadow: rgba(0, 0, 0, .34);
     --k-hero-shadow: rgba(0, 0, 0, .40);
     --k-good: #86dcaa; --k-good-wash: #142d1f; --k-good-line: #2d5740;
     --k-bad: #f2a894; --k-bad-wash: #331a15; --k-bad-line: #5e3329;
-    --surf-1: #171f23; --surf-2: #141b1e; --surf-3: #1b252a;
-    --surf-4: #1f2a2f; --surf-5: #243035; --surf-6: #2a373b;
-    --chat-bg: #141b1e; --raise: #1b252a; --raise-2: #1f2a2f;
-    --line: #2b373b; --line2: #3e4c50; --line-soft: #232d31; --line-strong: #46555a;
-    --ink: #e9f0ee; --ink-1: #e9f0ee; --ink-2: #d2dedb; --ink-3: #b6c6c3;
-    --ink-4: #a6b5b3; --ink-5: #a6b5b3; --title: #e9f0ee; --muted: #a6b5b3;
-    --gold-ink: #f0d391; --navy: #e9f0ee; --navy-ink: #79d3c5;
-    --indigo-ink: #79d3c5; --violet-ink: #5fc4b6; --green-ink: #9cdcc0;
+    --surf-1: #141a2b; --surf-2: #111726; --surf-3: #1a2135;
+    --surf-4: #1e2740; --surf-5: #232d49; --surf-6: #2a3553;
+    --chat-bg: #111726; --raise: #1a2135; --raise-2: #1e2740;
+    --line: #26304a; --line2: #35405c; --line-soft: #1d2539; --line-strong: #3d4a68;
+    --ink: #e8ecf7; --ink-1: #e8ecf7; --ink-2: #ccd4e6; --ink-3: #b3bdd6;
+    --ink-4: #9aa4bd; --ink-5: #9aa4bd; --title: #e8ecf7; --muted: #9aa4bd;
+    --gold-ink: #f0d391; --navy: #e8ecf7; --navy-ink: #a8bdf2;
+    --indigo-ink: #a8bdf2; --violet-ink: #b6a2f5; --green-ink: #86dcaa;
   }
   [data-theme="dark"] body.kids .kwin { border-color: var(--k-good-line); }
   [data-theme="dark"] body.kids .kopt.ok {
@@ -7824,9 +7863,9 @@
     display: block; font-style: normal; font-weight: 700; font-size: 11px;
     color: #4a5a62; direction: rtl; text-align: right;
   }
-  [data-theme="dark"] .kstage { background: linear-gradient(#1b2c3a, #1d2a22 68%); }
-  [data-theme="dark"] .kstage .kstage-t { background: rgba(20, 30, 34, .88); color: #e9f0ee; }
-  [data-theme="dark"] .kstage .kstage-t i { color: #b6c6c3; }
+  [data-theme="dark"] .kstage { background: linear-gradient(#16233c, #1a2436 68%); }
+  [data-theme="dark"] .kstage .kstage-t { background: rgba(11, 18, 38, .88); color: var(--k-ink); }
+  [data-theme="dark"] .kstage .kstage-t i { color: var(--k-ink-3); }
 
   /* the little burst when an answer lands */
   .kcelebrate { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
@@ -18593,12 +18632,12 @@ const Kids = (() => {
     /* colour, symbol, then the name - the same order in which a child reads a
        tile, and three cues instead of one */
     const tiles = [
-      ['words', 'Words', 'واژه‌ها', 'kc-blue', () => openPanel('vpanel')],
+      ['words', 'Words', 'واژه‌ها', 'kc-orange', () => openPanel('vpanel')],
       ['grammar', 'Grammar', 'گرامر', 'kc-purple', () => openPanel('gpanel')],
-      ['read', 'Read', 'خواندن', 'kc-mint', () => openPanel('rdpanel')],
-      ['listen', 'Listen', 'شنیدن', 'kc-sun', () => openPanel('lpanel')],
+      ['read', 'Read', 'خواندن', 'kc-blue', () => openPanel('rdpanel')],
+      ['listen', 'Listen', 'شنیدن', 'kc-pink', () => openPanel('lpanel')],
       ['stories', 'Stories', 'داستان‌ها', 'kc-coral', () => openPanel('stpanel')],
-      ['chat', 'Chat', 'گفتگو', 'kc-teal', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
+      ['chat', 'Chat', 'گفتگو', 'kc-navy', () => { Panels.closeAll(); const i = $('input'); if (i) i.focus(); }],
     ];
     tiles.forEach(([ico, en, faText, cls, fn]) => {
       const b = document.createElement('button');
@@ -27431,7 +27470,7 @@ const Quest = (() => {
     const scarf = l.scarf ? '<g class="fox-scarf"><path d="M36 62 q14 7 30 0 l2 7 q-16 7 -34 0 Z" fill="#3f8f86"/><path d="M64 66 l7 13 l-6 2 l-6 -11 Z" fill="#33756e"/></g>' : '';
     const glasses = l.glasses ? '<g class="fox-glasses" fill="none" stroke="#2b3a40" stroke-width="2"><circle cx="44" cy="47" r="7"/><circle cx="61" cy="47" r="7"/><path d="M51 47 h3"/></g>' : '';
     return '<svg viewBox="0 0 100 104" width="' + (scale || 100) + '" aria-hidden="true">' +
-      '<ellipse cx="50" cy="98" rx="24" ry="4" fill="rgba(20,60,55,.18)"/>' +
+      '<ellipse cx="50" cy="98" rx="24" ry="4" fill="rgba(24,34,60,.18)"/>' +
       '<g class="fox-tail"><path d="M30 74 q-20 4 -22 -14 q-2 -16 14 -18 q-8 12 2 22 q6 6 10 6 Z" fill="' + f.shade + '"/>' +
       '<path d="M10 44 q8 -8 14 -6 q-6 8 -4 16 q-8 -2 -10 -10 Z" fill="' + f.light + '"/></g>' +
       '<g class="fox-leg-a"><rect x="38" y="82" width="9" height="15" rx="4" fill="' + f.shade + '"/></g>' +
@@ -28295,7 +28334,7 @@ const Quest = (() => {
   /* ----------------------------------------------------------- the result */
   function chestSVG() {
     return '<svg viewBox="0 0 120 90" aria-hidden="true">' +
-      '<ellipse cx="60" cy="84" rx="42" ry="5" fill="rgba(20,60,55,.18)"/>' +
+      '<ellipse cx="60" cy="84" rx="42" ry="5" fill="rgba(24,34,60,.18)"/>' +
       '<g class="lid"><path d="M14 46 q0 -26 46 -26 q46 0 46 26 v6 H14 Z" fill="#c98a4b"/><path d="M14 46 q0 -26 46 -26 q46 0 46 26" fill="none" stroke="#a86a35" stroke-width="3"/><rect x="54" y="26" width="12" height="20" rx="3" fill="#f2bf3f"/></g>' +
       '<rect x="14" y="50" width="92" height="34" rx="6" fill="#e0a25f"/><rect x="14" y="50" width="92" height="8" fill="#b47a41"/>' +
       '<rect x="54" y="54" width="12" height="14" rx="3" fill="#f2bf3f" stroke="#c9932b" stroke-width="2"/></svg>';

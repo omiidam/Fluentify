@@ -393,7 +393,7 @@ def check_kids_layer(src):
         check(name + ":" in light_tokens, f"the kids palette is missing {name}")
     check("--k-sec:" in block and "--k-sec-wash" in block and "--k-sec-ink" in block,
           "the section tiles do not take their accent from one set of tokens")
-    for cls in ("kc-blue", "kc-purple", "kc-mint", "kc-sun", "kc-coral", "kc-teal"):
+    for cls in ("kc-blue", "kc-purple", "kc-pink", "kc-sun", "kc-coral", "kc-navy"):
         check(cls in block, f"the {cls} section has no identity to draw")
     check("--k-focus:" in dark[1].split("}", 1)[0],
           "focus is not repainted for the dark kids theme")
@@ -442,7 +442,7 @@ def check_kids_layer(src):
                    ("--k-primary-dark", "--k-primary-wash"),
                    ("--k-blue-ink", "--k-blue-wash"),
                    ("--k-purple-ink", "--k-purple-wash"),
-                   ("--k-mint-ink", "--k-mint"),
+                   ("--k-pink-ink", "--k-pink-wash"),
                    ("--k-sun-ink", "--k-sun-wash"),
                    ("--k-coral-ink", "--k-coral-wash"),
                    ("--k-orange-ink", "--k-orange-wash"),
