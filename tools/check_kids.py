@@ -525,12 +525,30 @@ def check_adults_untouched(src):
     check("America" in src or "American" in src, "the American English standard is not stated")
 
 
+def check_paper_and_quest(src):
+    """The page is cream, and the adventure opens with one obvious next step."""
+    # White paper is the adult surface; a child's page is warm. The token is
+    # where that decision lives, so the check reads it rather than a comment.
+    check("--k-surface: #fffaf0" in src,
+          "the kids surface token is white again instead of cream")
+    check("--k-bg: #fdf1df" in src, "the kids page background is not the cream token")
+    # A map of six places is a world, not an instruction: the panel above it
+    # has to say the next mission with one button and a reason when it is shut.
+    check("'hqw-next'" in src, "the hero quest has no next-quest card")
+    check("'hqw-next-go'" in src, "the next-quest card has no play button")
+    check("'hqw-stone' +" in src and "'n', String(k + 1)" in src,
+          "missions are chips again instead of numbered rows with stars")
+    check("hqw-next-fox" in src, "the mascot is gone from the next-quest card")
+
+
 def main():
     if not KIDS.exists():
         print("FAIL  kids.json does not exist")
         return 1
     data = json.loads(KIDS.read_text(encoding="utf-8"))
     src = WEBAPP.read_text(encoding="utf-8")
+
+    check_paper_and_quest(src)
 
     print("the kid bank")
     check_words(data)

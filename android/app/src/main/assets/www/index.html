@@ -6569,7 +6569,10 @@
     --k-c6: #31b7a5; --k-c6-w: #e7f8f4; --k-c6-i: #0d6156;
     --k-c7: #9bcb55; --k-c7-w: #f3fae6; --k-c7-i: #4a6b14;
     --k-c8: #ffd34f; --k-c8-w: #fff8dc; --k-c8-i: #5f4608;
-    --k-bg: #fff7ee; --k-surface: #ffffff; --k-surface-2: #fffaf3;
+    /* The kid app is a warm cream page, not a white one: cards sit on it as
+       slightly brighter cream so the page reads as paper, not as a dashboard
+       with the paper switched off. */
+    --k-bg: #fdf1df; --k-surface: #fffaf0; --k-surface-2: #fff3e2;
     /* One background, four washes of it: a warm sheet with a blue, a pink, a
        sun and a lime bloom across it, each weak enough that a card sitting on
        it still reads as the thing to look at. */
@@ -7884,6 +7887,98 @@
   body.kids .hqw-go i { font-style: normal; font-size: 11px; color: var(--k-on-primary-dim); display: block; direction: rtl; }
   body.kids .hqw-go .arrow { margin-inline-start: auto; font-size: 15px; font-weight: 900; }
   body.kids .hqw-go[disabled] { opacity: .55; box-shadow: none; cursor: default; }
+
+  /* ---- the one thing to do next ---------------------------------------
+     A map with six places on it is a world to explore, not an instruction.
+     The card above the island says the next mission in one line, with the
+     mascot beside it and one big button, so the first second of the page is
+     "press play" and the map is what you do after. */
+  body.kids .hqw-next {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    gap: 10px; padding: 10px 12px; border-radius: 20px;
+    border: 2px solid var(--k-c1);
+    background: linear-gradient(135deg, var(--k-c1-w) 0%, var(--k-c8-w) 62%, var(--k-surface) 100%);
+    box-shadow: 0 4px 0 var(--k-c1), 0 10px 22px -14px var(--k-card-shadow);
+  }
+  body.kids .hqw-next-fox { width: 58px; height: 58px; display: grid; place-items: center;
+    animation: hqBob 2.6s ease-in-out infinite; }
+  body.kids .hqw-next-fox svg { width: 56px; height: 56px; display: block; }
+  body.kids .hqw-next-txt { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  body.kids .hqw-next-txt small { font-size: 11px; font-weight: 800; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--k-c1-i); opacity: .85; }
+  body.kids .hqw-next-txt b { font-size: 15.5px; line-height: 1.25; color: var(--k-ink);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  body.kids .hqw-next-fa { font-size: 12px; color: var(--k-ink-2); }
+  body.kids .hqw-next-go {
+    display: inline-flex; align-items: center; gap: 7px; min-height: 48px; padding: 8px 16px;
+    border-radius: 16px; border: 2px solid #b8401f; cursor: pointer;
+    background: linear-gradient(140deg, #ff9a3d, #f1577e); color: #fff;
+    font-family: inherit; font-size: 14px; font-weight: 900;
+    box-shadow: 0 3px 0 #b8401f;
+  }
+  body.kids .hqw-next-go .a { animation: hqArrow 1.6s ease-in-out infinite; }
+  body.kids .hqw-next-go:active { transform: translateY(2px); box-shadow: 0 1px 0 #b8401f; }
+  body.kids .hqw-next-go:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 3px; }
+  body.kids .hqw-next.locked { border-color: var(--k-line-strong);
+    background: linear-gradient(135deg, var(--k-surface-2), var(--k-surface));
+    box-shadow: 0 4px 0 var(--k-line-strong); }
+  body.kids .hqw-next.locked .hqw-next-go { background: var(--k-line-strong); border-color: #b9c0cf;
+    box-shadow: 0 3px 0 #b9c0cf; color: #3c4763; }
+  /* the pins breathe a little and the clouds drift, so the island is alive
+     without anything moving far enough to distract from the next mission */
+  body.kids .hqw-pin .disc { transform-box: fill-box; transform-origin: center;
+    animation: hqPinBob 3.6s ease-in-out infinite; }
+  body.kids .hqw-pin:nth-of-type(2) .disc { animation-delay: .4s; }
+  body.kids .hqw-pin:nth-of-type(3) .disc { animation-delay: .8s; }
+  body.kids .hqw-pin:nth-of-type(4) .disc { animation-delay: 1.2s; }
+  body.kids .hqw-pin:nth-of-type(5) .disc { animation-delay: 1.6s; }
+  body.kids .hqw-pin:nth-of-type(6) .disc { animation-delay: 2s; }
+  body.kids .hqw-map .cl1 { animation: hqCloud 30s ease-in-out infinite; }
+  body.kids .hqw-map .cl2 { animation: hqCloud 38s ease-in-out infinite reverse; }
+  body.kids .hqw-map .cl3 { animation: hqCloud 46s ease-in-out infinite; }
+  @keyframes hqPinBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes hqCloud { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(26px); } }
+  @keyframes hqBob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-4px) rotate(2deg); } }
+  @keyframes hqArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+
+  /* ---- the missions of a place ----------------------------------------
+     Three rows, not three chips: each carries its number, its name in both
+     languages and its stars, so "which one is left" is answered by looking,
+     not by reading a lock. A wide screen puts them side by side. */
+  body.kids .hqw-stones { display: grid; gap: 8px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { body.kids .hqw-stones { grid-template-columns: repeat(3, 1fr); } }
+  body.kids .hqw-stone {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 9px;
+    min-height: 58px; padding: 8px 10px; border-radius: 16px; text-align: start;
+    border: 2px solid var(--k-line-strong); background: var(--k-surface);
+    box-shadow: 0 3px 0 var(--k-line-strong);
+    transition: transform .14s, box-shadow .14s;
+  }
+  body.kids .hqw-stone .n {
+    grid-row: span 2; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 13px; font-weight: 900;
+    background: var(--k-surface-2); border: 2px solid var(--k-line-strong);
+    color: var(--k-ink);
+  }
+  body.kids .hqw-stone .t { font-size: 13px; font-weight: 800; color: var(--k-ink); line-height: 1.25; }
+  body.kids .hqw-stone .f { font-size: 11px; color: var(--k-ink-2); }
+  body.kids .hqw-stone .s { grid-row: span 2; font-size: 13px; color: var(--k-ink-2); }
+  body.kids .hqw-stone.done { background: var(--k-good-wash); border-color: var(--k-good-line);
+    box-shadow: 0 3px 0 var(--k-good-line); }
+  body.kids .hqw-stone.done .s { color: #d99a12; }
+  body.kids .hqw-stone.next { background: var(--k-c1-w); border-color: var(--k-c1);
+    box-shadow: 0 3px 0 var(--k-c1); }
+  body.kids .hqw-stone.next .n { background: var(--k-c1); border-color: var(--k-c1); color: #fff; }
+  body.kids .hqw-stone.next .s { color: var(--k-c1-i); font-weight: 800; }
+  body.kids .hqw-stone:not(:disabled):hover { transform: translateY(-2px); }
+  body.kids .hqw-stone:not(:disabled):active { transform: translateY(1px); box-shadow: 0 1px 0 currentColor; }
+  body.kids .hqw-stone.locked { opacity: .75; cursor: default; background: var(--k-surface-2); }
+  body.kids .hqw-stone.locked .s { font-size: 15px; }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .hqw-next-fox, body.kids .hqw-next-go .a { animation: none; }
+    body.kids .hqw-pin .disc, body.kids .hqw-map .cl1,
+    body.kids .hqw-map .cl2, body.kids .hqw-map .cl3 { animation: none; }
+  }
 
   /* ---------- a mission scene -------------------------------------------- */
   body.kids .hqw-scene {
@@ -29168,6 +29263,33 @@ const Quest = (() => {
     hud.appendChild(dress);
     wrap.appendChild(hud);
 
+    /* the next mission in one card, above the island: the first thing on the
+       page is the thing to do, and the map is what the child explores after
+       that. A disabled card still says where it is, because "finish X to open
+       Y" is a rule a six-year-old can act on and a padlock is not. */
+    const upNext = nextMission();
+    if (upNext) {
+      const open = missionOpen(upNext);
+      const card = el('div', 'hqw-next' + (open ? '' : ' locked'));
+      const who = el('div', 'hqw-next-fox');
+      who.innerHTML = foxSVG(56);
+      card.appendChild(who);
+      const txt = el('div', 'hqw-next-txt');
+      txt.appendChild(el('small', null, open ? 'Next quest · مأموریت بعدی' : 'Almost there · کمی دیگر'));
+      txt.appendChild(el('b', null, upNext.title_en));
+      const why = nextObjective();
+      txt.appendChild(faLine(open ? upNext.title_fa : why[1], 'hqw-next-fa'));
+      card.appendChild(txt);
+      const jump = el('button', 'hqw-next-go');
+      jump.type = 'button';
+      jump.appendChild(el('span', 'a', open ? '▶' : '🔒'));
+      jump.appendChild(el('span', null, open ? 'بازی' : 'بسته'));
+      jump.setAttribute('aria-label', open ? 'Play ' + upNext.title_en : 'Locked: ' + why[0]);
+      jump.onclick = () => { if (open) startMission(upNext); };
+      card.appendChild(jump);
+      wrap.appendChild(card);
+    }
+
     /* the island itself: the art, the places and the hero all live in the
        SVG's 1000x620 space, so a narrow phone crops the same moment of the
        world instead of sliding flat pins over a cropped picture */
@@ -29275,9 +29397,15 @@ const Quest = (() => {
         const stone = el('button', 'hqw-stone' +
           (stars ? ' done' : (ready ? ' next' : ' locked')));
         stone.type = 'button';
-        stone.appendChild(el('span', null, stars ? '★'.repeat(stars) : (ready ? '▶' : '🔒')));
-        stone.appendChild(el('span', null, m.title_en));
+        stone.appendChild(el('span', 'n', String(k + 1)));
+        stone.appendChild(el('span', 't', m.title_en));
+        const sub = el('span', 'f');
+        sub.appendChild(faLine(m.title_fa || ''));
+        stone.appendChild(sub);
+        stone.appendChild(el('span', 's', stars ? '★'.repeat(stars) : (ready ? '▶' : '🔒')));
         stone.disabled = !ready;
+        stone.setAttribute('aria-label', m.title_en +
+          (stars ? ', ' + stars + ' of 3 stars, play again' : (ready ? ', play' : ', locked')));
         stone.onclick = () => { if (ready) startMission(m); };
         stones.appendChild(stone);
       });
