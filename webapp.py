@@ -9205,6 +9205,73 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     position: absolute; inset-inline-start: 50%; top: 40%; font-style: normal;
     font-size: 17px; animation: kBurst .9s cubic-bezier(.2,.8,.3,1) both;
   }
+  /* ---- the cheer layer --------------------------------------------------
+     The party that follows a right answer. Every piece of it is transform or
+     opacity on a fixed layer above the page, so nothing here can push a card
+     sideways or make the page scroll; every piece removes itself when it is
+     done, so a long session does not accumulate invisible boxes.
+
+     Colours come from the same eight the app already uses for its sections,
+     which is what makes a burst look like it belongs to this app and not to a
+     stranger's confetti library. The gold ring is the one colour used on its
+     own: it marks *the thing* that was won, and its position does the rest. */
+  .kcheer-layer { position: fixed; inset: 0; pointer-events: none; z-index: 70; overflow: hidden; }
+  .kcheer-layer i {
+    position: absolute; display: block; width: 9px; height: 14px; border-radius: 3px;
+    will-change: transform, opacity;
+    animation-name: kConfetti; animation-timing-function: cubic-bezier(.18, .62, .3, 1);
+    animation-fill-mode: both;
+  }
+  .kcheer-layer i:nth-child(3n) { width: 8px; height: 8px; border-radius: 50%; }
+  .kcheer-layer i:nth-child(4n) { width: 12px; height: 6px; border-radius: 2px; }
+  .kcheer-layer i.c1 { background: var(--k-c1); }
+  .kcheer-layer i.c2 { background: var(--k-c2); }
+  .kcheer-layer i.c3 { background: var(--k-c3); }
+  .kcheer-layer i.c4 { background: var(--k-c4); }
+  .kcheer-layer i.c5 { background: var(--k-c5); }
+  .kcheer-layer i.c6 { background: var(--k-c6); }
+  .kcheer-layer i.c7 { background: var(--k-c7); }
+  .kcheer-layer i.c8 { background: var(--k-c8); }
+  @keyframes kConfetti {
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg) scale(.45); }
+    8% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; transform: translate3d(var(--dx, 0px), var(--dy, 120px), 0) rotate(var(--rot, 180deg)) scale(1); }
+  }
+
+  .kcheer-flash {
+    position: fixed; inset: 0; pointer-events: none; z-index: 69;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+      rgba(255, 214, 120, .58) 0%, rgba(255, 226, 150, .22) 26%, rgba(255, 240, 200, 0) 58%);
+    animation: kCheerFlash .58s ease-out forwards;
+  }
+  @keyframes kCheerFlash { from { opacity: 1; } to { opacity: 0; } }
+
+  .kcheer-pop {
+    position: fixed; z-index: 71; pointer-events: none; font-size: 48px; line-height: 1;
+    animation: kCheerPop .92s cubic-bezier(.2, 1.5, .4, 1) forwards;
+  }
+  @keyframes kCheerPop {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(.3) rotate(-14deg); }
+    32% { opacity: 1; transform: translate(-50%, -95%) scale(1.18) rotate(7deg); }
+    70% { opacity: 1; transform: translate(-50%, -118%) scale(1) rotate(-3deg); }
+    100% { opacity: 0; transform: translate(-50%, -150%) scale(.9) rotate(3deg); }
+  }
+
+  .kcheer-glow { animation: kCheerGlow .95s ease-out; }
+  @keyframes kCheerGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 196, 76, .85); }
+    55% { box-shadow: 0 0 0 13px rgba(255, 196, 76, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 196, 76, 0); }
+  }
+  /* Calm mode gets the tick, the green card and the praise line - the parts
+     that say what happened. The party is the part that moves, so it is the
+     part that leaves. */
+  body.kids-calm .kcheer-layer,
+  body.kids-calm .kcheer-flash,
+  body.kids-calm .kcheer-pop { display: none !important; }
+  body.kids-calm .kcheer-glow { animation: none !important; }
+
   .kq { position: relative; }
   .knudge { animation: kShake .34s ease; }
 
@@ -19885,6 +19952,184 @@ const KAnim = (() => {
            stagger, playLines, stopLines, watch, boot };
 })();
 
+/* ==========================================================================
+   THE CHEER
+   One place for every "well done" in the kids app, so a win looks the same
+   wherever it happens: confetti thrown from the thing that was won, a warm
+   flash, a gold ring around it, a chime, and - for a whole stage - a round of
+   applause under it.
+
+   Three rules keep it a reward rather than noise:
+
+     1. It comes from the child's own action. Every burst starts at the button
+        they pressed or the card they finished, never at the middle of the
+        screen, so the confetti says "that was it" and not "something happened".
+     2. It is over in a second. Pieces live 1.2s and are removed; nothing loops,
+        nothing is left behind for the next frame to paint.
+     3. Calm mode silences it completely. A child who asked for less motion
+        gets the green tick and the words, which are the actual feedback - the
+        confetti is the party, not the answer.
+
+   Only transform and opacity animate, and the sound is synthesised, so the
+   whole thing costs no file and no layout.
+   ========================================================================== */
+const Cheer = (() => {
+  const calm = () => document.body.classList.contains('kids-calm');
+  let ctx = null;
+
+  function ac() {
+    if (!ctx) {
+      const C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return null;
+      try { ctx = new C(); } catch (e) { return null; }
+    }
+    if (ctx.state === 'suspended') { try { ctx.resume(); } catch (e) { /* fine */ } }
+    return ctx;
+  }
+
+  function tone(freq, at, dur, gain) {
+    const a = ac();
+    if (!a) return;
+    const o = a.createOscillator();
+    const g = a.createGain();
+    o.type = 'triangle';
+    o.frequency.value = freq;
+    const t0 = a.currentTime + at;
+    g.gain.setValueAtTime(0, t0);
+    g.gain.linearRampToValueAtTime(gain == null ? 0.07 : gain, t0 + 0.015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g); g.connect(a.destination);
+    o.start(t0); o.stop(t0 + dur + 0.02);
+  }
+
+  /* A round of applause, made of noise rather than a recording: ten small
+     claps over one second, band-passed so it reads as hands, not as static. */
+  function applause() {
+    if (calm()) return;
+    const a = ac();
+    if (!a) return;
+    const dur = 1.2;
+    const buf = a.createBuffer(1, Math.floor(a.sampleRate * dur), a.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i += 1) {
+      const t = i / a.sampleRate;
+      const beat = (t * 9) % 1;
+      const clap = Math.max(0, Math.sin(Math.PI * beat) - 0.15);
+      const fade = Math.min(1, t * 24) * Math.pow(1 - t / dur, 1.5);
+      d[i] = (Math.random() * 2 - 1) * clap * fade;
+    }
+    const src = a.createBufferSource();
+    src.buffer = buf;
+    const bp = a.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.frequency.value = 1700;
+    bp.Q.value = 0.8;
+    const g = a.createGain();
+    g.gain.value = 0.5;
+    src.connect(bp); bp.connect(g); g.connect(a.destination);
+    src.start();
+  }
+
+  function chime() {
+    if (calm()) return;
+    [784, 988, 1319].forEach((f, i) => tone(f, i * 0.07, 0.34, 0.06));
+  }
+
+  function centre(el) {
+    if (el && el.getBoundingClientRect) {
+      const r = el.getBoundingClientRect();
+      if (r.width || r.height) {
+        return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      }
+    }
+    return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  }
+
+  /* ---- the confetti -------------------------------------------------- */
+  function burst(el, opts) {
+    if (calm()) return;
+    const o = opts || {};
+    const p = el && el.x != null ? el : centre(el);
+    const n = o.n || 22;
+    const spread = o.spread || 130;
+    const layer = document.createElement('div');
+    layer.className = 'kcheer-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < n; i += 1) {
+      const bit = document.createElement('i');
+      bit.className = 'c' + ((i % 8) + 1);
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 40 + Math.random() * spread;
+      bit.style.left = p.x + 'px';
+      bit.style.top = p.y + 'px';
+      bit.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      bit.style.setProperty('--dy', (Math.sin(angle) * dist + 90 + Math.random() * 110) + 'px');
+      bit.style.setProperty('--rot', Math.round(Math.random() * 680 - 340) + 'deg');
+      bit.style.animationDelay = Math.round(Math.random() * 90) + 'ms';
+      bit.style.animationDuration = (o.dur || 1150) + 'ms';
+      layer.appendChild(bit);
+    }
+    document.body.appendChild(layer);
+    setTimeout(() => layer.remove(), (o.dur || 1150) + 420);
+  }
+
+  function flash(el) {
+    if (calm()) return;
+    const p = centre(el);
+    const f = document.createElement('div');
+    f.className = 'kcheer-flash';
+    f.setAttribute('aria-hidden', 'true');
+    f.style.setProperty('--x', p.x + 'px');
+    f.style.setProperty('--y', p.y + 'px');
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 620);
+  }
+
+  function pop(el, glyph) {
+    if (calm()) return;
+    const p = centre(el);
+    const s = document.createElement('span');
+    s.className = 'kcheer-pop';
+    s.setAttribute('aria-hidden', 'true');
+    s.textContent = glyph || '⭐';
+    s.style.left = p.x + 'px';
+    s.style.top = p.y + 'px';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 950);
+  }
+
+  function glow(el) {
+    if (!el || !el.classList || calm()) return;
+    el.classList.remove('kcheer-glow');
+    void el.offsetWidth;
+    el.classList.add('kcheer-glow');
+    setTimeout(() => el.classList.remove('kcheer-glow'), 950);
+  }
+
+  /* A right answer: confetti at the button, a chime, a gold ring on it. */
+  function from(el) {
+    burst(el, { n: 22, spread: 120 });
+    flash(el);
+    glow(el);
+    chime();
+  }
+
+  /* A finished stage: everything, bigger - two bursts, the applause, the pop,
+     and the ring, because this is the one that ends with a star. */
+  function win(el) {
+    burst(el, { n: 46, spread: 210 });
+    flash(el);
+    glow(el);
+    pop(el, '🎉');
+    chime();
+    applause();
+    setTimeout(() => burst(el, { n: 18, spread: 260, dur: 900 }), 220);
+  }
+
+  return { from, win, glow, burst, pop, applause, chime };
+})();
+
+
 const Kids = (() => {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s == null ? '' : s)
@@ -20104,6 +20349,7 @@ const Kids = (() => {
           if (right) {
             wrap.classList.add('kspark');
             KAnim.celebrate(wrap);
+            Cheer.from(b);
             const win = document.createElement('div');
             win.className = 'kwin';
             win.innerHTML = '⭐ ' + esc(praise()) +
@@ -20756,6 +21002,7 @@ const Kids = (() => {
         verdict.hidden = false;
         if (ok) {
           wrap.classList.add('kspark');
+          Cheer.win(wrap);
           verdict.innerHTML = '<div class="ken">⭐ ' + esc(want) + '</div>' +
             '<div class="kfa" dir="rtl" lang="fa">' + esc(word.example_fa || '') + '</div>' +
             '<div class="kwin">' + esc(praise()) + '</div>';
@@ -28168,7 +28415,7 @@ const Crossword = (() => {
       if (cells[k] && !cells[k].n) cells[k].n = e.n;
     });
     const first = st.entries[0];
-    return { wid, si, st, cells, hints: 0, done: solved(wid, si),
+    return { wid, si, st, cells, hints: 0, done: solved(wid, si), cheered: {},
       sel: { r: first.r, c: first.c }, dir: first.d, entry: first };
   }
 
@@ -28234,6 +28481,14 @@ const Crossword = (() => {
   }
 
   function settle() {
+    /* a word that just landed gets its own small burst, thrown from the clue
+       card it was solved against */
+    view.st.entries.forEach((e) => {
+      const id = e.n + e.d;
+      if (!wordDone(e) || view.cheered[id]) return;
+      view.cheered[id] = 1;
+      Cheer.from(document.querySelector('#cwbody .cw-clue'));
+    });
     if (!view.st.entries.every(wordDone)) {
       /* the word in hand is full but not right: say so in both languages,
          quietly, and let the child change a letter */
@@ -28260,6 +28515,7 @@ const Crossword = (() => {
       const top = trophy.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop;
       panel.scrollTop = Math.max(0, top - 80);
       lastScroll = panel.scrollTop;
+      Cheer.win(trophy);
     }
   }
 
@@ -29018,6 +29274,7 @@ const WordQuest = (() => {
 
     if (typed === word) {
       play.solved.push(word);
+      Cheer.from(document.getElementById('wqbody') || null);
       const isNew = remember(word);
       const record = data.words[word] || {};
       note = 'آفرین! ' + word.toUpperCase() + (record.fa ? ' — ' + record.fa : '');
@@ -29055,6 +29312,7 @@ const WordQuest = (() => {
     }
     note = '';
     save();
+    Cheer.win(document.getElementById('wqbody') || null);
   }
 
   function useHint() {
@@ -30620,6 +30878,7 @@ const Quest = (() => {
     if (ok) {
       run.first += 1;
       Snd.play('right');
+      Cheer.from(run.scene);
       foxAct('cheer', 800);
       sparkle(50, 55);
       coinFly(50, 55);
@@ -30989,6 +31248,7 @@ const Quest = (() => {
     writeState();
     Snd.play('fanfare');
     paintResult({mission, total, stars, before, rankBefore});
+    Cheer.win(document.getElementById('hqbody') || null);
     sync();
   }
 

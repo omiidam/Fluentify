@@ -549,6 +549,39 @@ def check_paper_and_quest(src):
               f"the adult {gone} is still shown on a child's loading page")
 
 
+def check_cheer(src):
+    """The cheer system rewards a child, so it has to be quiet when asked.
+
+    Three things are worth a check and none of them are caught by running the
+    page: that every celebration is gated behind the calm class (a child who
+    switched motion off was promised no motion), that the confetti animates
+    transform and opacity only rather than layout, and that the things being
+    thrown take their colours from the palette rather than a literal.
+    """
+    marker = "const Cheer = (() => {"
+    if marker not in src:
+        problems.append("the cheer module is missing from the page")
+        return
+    start = src.index(marker)
+    end = src.find("\nconst Kids = ", start)
+    body = src[start:end if end > 0 else start + 20000]
+
+    check("document.body.classList.contains('kids-calm')" in body,
+          "the cheer module does not check calm mode")
+    check("body.kids-calm .kcheer-layer" in src,
+          "calm mode does not hide the confetti layer")
+    check("@keyframes kConfetti" in src, "the confetti keyframes are missing")
+    check("transform" in src[src.index("@keyframes kConfetti"):][:300],
+          "the confetti keyframes should animate transform")
+
+    import re
+    hexes = re.findall(r"#[0-9a-fA-F]{3,6}\b", body)
+    check(not hexes, f"the cheer module hardcodes colours: {hexes[:3]}")
+
+    fired = src.count("Cheer.from(") + src.count("Cheer.win(")
+    check(fired >= 8, f"only {fired} places in the kids app fire a cheer")
+
+
 def check_crossword(src):
     """The crossword is hardcoded, so its data has to be checked as data.
 
@@ -650,7 +683,7 @@ def main():
     print("\nthe adult app")
     check_adults_untouched(src)
     check_crossword(src)
-    check_crossword(src)
+    check_cheer(src)
 
     if problems:
         print()
