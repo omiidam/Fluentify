@@ -539,6 +539,14 @@ def check_paper_and_quest(src):
     check("'hqw-stone' +" in src and "'n', String(k + 1)" in src,
           "missions are chips again instead of numbered rows with stars")
     check("hqw-next-fox" in src, "the mascot is gone from the next-quest card")
+    # The loading page a child sees first: painted from the stored account in
+    # the head, one picture instead of four sentences.
+    check("dataset.band = 'kids'" in src,
+          "the head never tells the boot screen that this is a child's device")
+    check('class="boot-kid"' in src, "the kids boot screen has no picture")
+    for gone in (".boot-tag", ".boot-trio", ".boot-facts", ".boot-foot", ".boot-meta"):
+        check('html[data-band="kids"] ' + gone in src,
+              f"the adult {gone} is still shown on a child's loading page")
 
 
 def main():

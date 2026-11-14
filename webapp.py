@@ -236,12 +236,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     /* Kids have one theme, and it is the light one. Reading the account here,
        before the first paint, is what stops a device set to dark from showing
        a child a night page for a frame before the app overruled it. */
+    var kid = false;
     try {
       var acc = localStorage.getItem('fluentify.auth.account');
       var who = acc ? JSON.parse(acc) : null;
-      if (who && (who.band === 'kids' || (who.age && who.age < 15))) dark = false;
+      if (who && (who.band === 'kids' || (who.age && who.age < 15))) { dark = false; kid = true; }
     } catch (e) {}
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    /* And the boot screen is painted in the child's own style on the very
+       first frame: the reading of the account that decides the theme also
+       decides whether the loading page is a card with three labelled tiles or
+       a bouncing picture a four-year-old understands without a word. */
+    if (kid) document.documentElement.dataset.band = 'kids';
   })();
 </script>
 <style>
@@ -832,6 +838,99 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .boot-foot span {
     font-family: var(--font-fa); font-size: 10.5px; direction: rtl;
     line-height: 1.9; color: var(--gold-ink);
+  }
+
+  /* ---- the child's loading page ---------------------------------------
+     The adult boot is a glass card with a tagline, three labelled tiles, a
+     rotating fact and a footer: four sentences to read before the app has
+     opened. A child gets none of them. What is left is a cream sticker with
+     the mascot on a sun blob, three hopping letters and a rainbow bar - one
+     picture, no prose, legible to someone who cannot read either language.
+     The band is set in the document head from the stored account, so this is
+     painted on the first frame; nothing here waits for the app to boot. */
+  .boot-kid { display: none; }
+  html[data-band="kids"] .boot {
+    background:
+      radial-gradient(60% 40% at 8% 0%, rgba(255, 138, 61, .30), transparent 70%),
+      radial-gradient(55% 36% at 96% 6%, rgba(52, 120, 246, .22), transparent 72%),
+      radial-gradient(62% 42% at 50% 106%, rgba(237, 106, 168, .26), transparent 72%),
+      linear-gradient(160deg, var(--k-bg) 0%, var(--k-surface) 55%, var(--k-surface-2) 100%);
+  }
+  html[data-band="kids"] .boot-aurora { display: none; }
+  html[data-band="kids"] .boot-in {
+    width: min(100%, 340px); min-height: 0; gap: 8px;
+    padding: 24px 20px 18px; border-radius: 34px;
+    border: 3px solid var(--k-boot-edge);
+    background: linear-gradient(170deg, var(--k-surface) 0%, var(--k-surface-2) 100%);
+    box-shadow: 0 8px 0 var(--k-boot-foot), 0 26px 50px -22px rgba(120, 70, 20, .45);
+  }
+  html[data-band="kids"] .boot-in::after { display: none; }
+  html[data-band="kids"] .boot-mark {
+    width: 130px; height: 130px; border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
+    background: radial-gradient(circle at 34% 26%, var(--k-c8-w), var(--k-c8) 74%);
+    box-shadow: 0 6px 0 var(--k-boot-sun), inset 0 -7px 0 rgba(255, 255, 255, .32);
+    animation: bkBob 2.4s ease-in-out infinite;
+  }
+  html[data-band="kids"] .boot-halo { display: none; }
+  html[data-band="kids"] .boot-fox { width: 102px; height: 102px; }
+  html[data-band="kids"] .boot-name { font-size: 30px; letter-spacing: -.4px; }
+  /* every sentence on the adult screen, gone */
+  html[data-band="kids"] .boot-tag,
+  html[data-band="kids"] .boot-trio,
+  html[data-band="kids"] .boot-facts,
+  html[data-band="kids"] .boot-foot,
+  html[data-band="kids"] .boot-meta,
+  html[data-band="kids"] .loader { display: none; }
+  html[data-band="kids"] .boot-wait { gap: 12px; }
+  html[data-band="kids"] .boot-loading { gap: 0; }
+  html[data-band="kids"] .boot-track {
+    height: 14px; border-radius: 999px; background: var(--k-boot-track);
+    box-shadow: inset 0 2px 0 rgba(120, 70, 20, .08);
+  }
+  html[data-band="kids"] .boot-track i {
+    background: linear-gradient(90deg, var(--k-c1) 0%, var(--k-c8) 34%,
+      var(--k-c7) 62%, var(--k-c6) 100%);
+    border-radius: 999px;
+  }
+  /* three hopping letters: the loader that a child reads as "something is
+     happening" without a word and without a percentage */
+  html[data-band="kids"] .boot-kid {
+    position: relative; display: flex; align-items: flex-end; justify-content: center;
+    width: 100%; height: 78px;
+  }
+  .boot-kid .bk-letters { display: flex; gap: 10px; align-items: flex-end; }
+  .boot-kid .bk-letters i {
+    width: 48px; height: 48px; display: grid; place-items: center;
+    border-radius: 16px; font-style: normal; font-size: 27px; font-weight: 800;
+    color: var(--k-on-primary); box-shadow: 0 5px 0 rgba(90, 45, 10, .22);
+    animation: bkHop 1.35s cubic-bezier(.4, 1.5, .5, 1) infinite;
+  }
+  .boot-kid .bk-letters i:nth-child(1) { background: var(--k-c1); }
+  .boot-kid .bk-letters i:nth-child(2) { background: var(--k-c3); animation-delay: .16s; }
+  .boot-kid .bk-letters i:nth-child(3) { background: var(--k-c6); animation-delay: .32s; }
+  .boot-kid .bk-fly { position: absolute; font-size: 20px; opacity: .95;
+    animation: bkFloat 5.2s ease-in-out infinite; }
+  .boot-kid .bk-a { left: 3%; top: 6px; animation-delay: -1s; }
+  .boot-kid .bk-b { right: 5%; top: 0; animation-delay: -2.4s; }
+  .boot-kid .bk-c { left: 15%; bottom: 2px; font-size: 18px; animation-delay: -3.3s; }
+  .boot-kid .bk-d { right: 16%; bottom: 0; font-size: 17px; animation-delay: -.6s; }
+  @keyframes bkHop {
+    0%, 100% { transform: translateY(0) scale(1, 1); }
+    35% { transform: translateY(-13px) scale(.96, 1.04); }
+    60% { transform: translateY(0) scale(1.04, .96); }
+  }
+  @keyframes bkFloat {
+    0%, 100% { transform: translateY(0) rotate(-7deg); }
+    50% { transform: translateY(-9px) rotate(9deg); }
+  }
+  @keyframes bkBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html[data-band="kids"] .boot-mark,
+    .boot-kid .bk-letters i,
+    .boot-kid .bk-fly { animation: none; }
   }
   .boot-loading {
     width: 100%; display: flex; align-items: center; gap: 15px;
@@ -6782,6 +6881,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        slightly brighter cream so the page reads as paper, not as a dashboard
        with the paper switched off. */
     --k-bg: #fdf1df; --k-surface: #fffaf0; --k-surface-2: #fff3e2;
+    /* the loading sticker: its edge, the foot that lifts it off the page, the
+       sun blob behind the mascot, and the empty half of the rainbow bar */
+    --k-boot-edge: #ffdcaa; --k-boot-foot: #f2cda1; --k-boot-sun: #e9b52c;
+    --k-boot-track: #ffe6c2;
     /* One background, four washes of it: a warm sheet with a blue, a pink, a
        sun and a lime bloom across it, each weak enough that a card sitting on
        it still reads as the thing to look at. */
@@ -9115,6 +9218,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <span class="boot-left">Getting your day ready</span>
           <span id="bootpct">0%</span>
         </div>
+      </div>
+      <!-- The child's loading page: a sticker, a mascot, three bouncing
+           letters and a rainbow bar. No sentence anywhere - the words on the
+           adult version (tagline, three tiles, rotating facts, footer) are
+           hidden by CSS when the account is a child's. -->
+      <div class="boot-kid" aria-hidden="true">
+        <span class="bk-fly bk-a">✏️</span>
+        <span class="bk-fly bk-b">🌟</span>
+        <span class="bk-fly bk-c">🎈</span>
+        <span class="bk-fly bk-d">📚</span>
+        <span class="bk-letters"><i>A</i><i>B</i><i>C</i></span>
       </div>
       <div class="boot-foot">
         Reading, listening and stories at your level
