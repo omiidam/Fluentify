@@ -529,7 +529,12 @@ BRAND_DIR = ROOT / "brand"
 # own cream veil sits over it at 89%, so the art reads at about 11%. It has to
 # travel with the page for the same reason the mascot does - inside the APK the
 # background would otherwise be a 404 and the page would fall back to flat cream.
-BRAND_FILES = ["fox-mark.png", "fox-face.png", "kids-fox-bg.png"]
+# kids-fox.png and kids-fox-face.png are the children's mascot - the painted fox
+# standing, and its face for the header and every reply. They are swapped in by
+# CSS inside body.kids, so inside the APK they must exist at the same relative
+# path or the kids page would fall back to the adult logo.
+BRAND_FILES = ["fox-mark.png", "fox-face.png", "kids-fox-bg.png",
+               "kids-fox.png", "kids-fox-face.png"]
 missing_brand = [f for f in BRAND_FILES if not (BRAND_DIR / f).exists()]
 if missing_brand:
     raise SystemExit("build_apk_ui: brand art missing from brand/: "

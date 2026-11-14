@@ -905,7 +905,26 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     animation: bkGlow 2.8s ease-in-out infinite;
   }
   html[data-band="kids"] .boot-halo { display: none; }
-  html[data-band="kids"] .boot-fox { width: 124px; height: 124px; }
+  html[data-band="kids"] .boot-fox { width: 146px; height: 146px; }
+  /* ---- the mascot --------------------------------------------------------
+     The kids app has one character, and it is the painted fox: the whole
+     animal on the loading page, the face in the header and on every reply.
+     Same drawing in all three places, because a child learns one character
+     rather than a family of them.
+
+     The swap is a `content` on the <img>, not new markup. Both experiences
+     read the same two <img> tags and the same MASCOT string, so replacing the
+     element would have meant touching the adult page to change the kids one.
+     Behind body.kids, the adult icon is untouched.
+
+     Both files are square and already carry their own transparent margin, so
+     whatever square box the app puts one in - 146px on the boot, 38px in the
+     header, 26px on a reply - the fox lands undistorted and without the
+     artwork's green paper behind it. */
+  body.kids .boot-fox { content: url("brand/kids-fox.png"); }
+  body.kids .avatar img,
+  body.kids .authbadge img,
+  body.kids .mface { content: url("brand/kids-fox-face.png"); }
   html[data-band="kids"] .boot-name { font-size: 34px; letter-spacing: -.4px; }
   /* the burst: sparks thrown out on a ring, each one its own colour */
   .boot-burst { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
