@@ -71,6 +71,10 @@ PAIRS = [
 LITERAL_PAIRS = [
     ("#ffffff", "#2f6ae0", "continue strip: label on the light end of the gradient"),
     ("#ffffff", "#1f4cae", "continue strip: label on the dark end"),
+    # the learner's own chat bubble is a saturated gradient, so both ends of it
+    # have to carry white text
+    ("#ffffff", "#bd5217", "chat: the child's bubble at the warm end"),
+    ("#ffffff", "#b23f6f", "chat: the child's bubble at the pink end"),
 ]
 
 FAIL = []

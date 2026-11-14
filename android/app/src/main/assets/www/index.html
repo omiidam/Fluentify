@@ -6992,6 +6992,138 @@
     body.kids .wqbox.shake { animation: none; }
     body.kids .wqsticker.on:hover, body.kids .wqletter:hover { transform: none; }
   }
+  /* ---- Kids header: cartoon stickers -----------------------------------
+     The toolbar was a row of white cards with a thin coloured glyph on each,
+     which is a sensible adult utility strip and a grey wall to a child. In the
+     kids app each tile is now a sticker: its own pastel face, a saturated
+     outline, a solid foot so it looks pressed out of paper, and the glyph and
+     word in the same ink so the whole tile reads as one drawn thing. Every
+     section keeps the hue its panel already uses, so the toolbar stays a
+     colour key rather than turning into a bag of sweets. */
+  body.kids .tools.kidtools { gap: 7px; }
+  body.kids .tools .hbtn {
+    width: 56px; height: 62px; border-radius: 18px; gap: 3px;
+    --kt-c: var(--k-c3); --kt-w: var(--k-c3-w); --kt-i: var(--k-c3-i);
+    border: 2px solid var(--kt-c);
+    background: linear-gradient(180deg, var(--kt-w) 0%, #fff 130%);
+    box-shadow: 0 3px 0 var(--kt-c), 0 7px 14px rgba(74,58,30,.10);
+    transition: transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s,
+                background .16s, border-color .16s;
+  }
+  body.kids .tools .hbtn i { width: 25px; height: 25px; color: var(--kt-i); }
+  body.kids .tools .hbtn i svg { width: 25px; height: 25px; stroke-width: 2.15; }
+  body.kids .tools .hbtn span { font-size: 9.5px; font-weight: 800; letter-spacing: 0;
+    color: var(--kt-i); }
+  body.kids .tools .hbtn:hover {
+    transform: translateY(-2px) rotate(-1.5deg);
+    box-shadow: 0 5px 0 var(--kt-c), 0 11px 18px rgba(74,58,30,.15);
+  }
+  body.kids .tools .hbtn:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--kt-c); }
+  body.kids .tools .hbtn.on, body.kids .tools .hbtn[aria-expanded="true"] {
+    background: var(--kt-c); border-color: var(--kt-c);
+    box-shadow: 0 3px 0 rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  body.kids .tools .hbtn.on i, body.kids .tools .hbtn.on span,
+  body.kids .tools .hbtn[aria-expanded="true"] i,
+  body.kids .tools .hbtn[aria-expanded="true"] span { color: #fff; }
+  /* one hue per section, the same hue its panel and section icon carry */
+  body.kids #kidstoggle { --kt-c: var(--k-c8); --kt-w: var(--k-c8-w); --kt-i: var(--k-c8-i); }
+  body.kids #hqtoggle  { --kt-c: var(--k-c1); --kt-w: var(--k-c1-w); --kt-i: var(--k-c1-i); }
+  body.kids #wrqtoggle { --kt-c: var(--k-c7); --kt-w: var(--k-c7-w); --kt-i: var(--k-c7-i); }
+  body.kids #vtoggle   { --kt-c: var(--k-c3); --kt-w: var(--k-c3-w); --kt-i: var(--k-c3-i); }
+  body.kids #gtoggle   { --kt-c: var(--k-c4); --kt-w: var(--k-c4-w); --kt-i: var(--k-c4-i); }
+  body.kids #ltoggle   { --kt-c: var(--k-c6); --kt-w: var(--k-c6-w); --kt-i: var(--k-c6-i); }
+  body.kids #rdtoggle  { --kt-c: var(--k-c2); --kt-w: var(--k-c2-w); --kt-i: var(--k-c2-i); }
+  body.kids #stoggle   { --kt-c: var(--k-c5); --kt-w: var(--k-c5-w); --kt-i: var(--k-c5-i); }
+  body.kids #ftoggle   { --kt-c: var(--k-c8); --kt-w: var(--k-c8-w); --kt-i: var(--k-c8-i); }
+  body.kids #actoggle  { --kt-c: var(--k-c5); --kt-w: var(--k-c5-w); --kt-i: var(--k-c5-i); }
+  body.kids #rtoggle   { --kt-c: var(--k-c6); --kt-w: var(--k-c6-w); --kt-i: var(--k-c6-i); }
+  body.kids #ntoggle   { --kt-c: var(--k-c4); --kt-w: var(--k-c4-w); --kt-i: var(--k-c4-i); }
+  body.kids #kidsmore  { --kt-c: var(--k-c4); --kt-w: var(--k-c4-w); --kt-i: var(--k-c4-i); }
+  body.kids #clear     { --kt-c: var(--k-c2); --kt-w: var(--k-c2-w); --kt-i: var(--k-c2-i); }
+  @media (max-width: 400px) {
+    body.kids .tools .hbtn { width: 50px; height: 58px; border-radius: 16px; }
+    body.kids .tools .hbtn i, body.kids .tools .hbtn i svg { width: 22px; height: 22px; }
+  }
+
+  /* ---- Kids chat: colour, glass and a face ----------------------------
+     The conversation was the same cream transcript as the adult one, which is
+     right for a study tool and blank for a child. The room now has colour
+     behind it, and the cards float on it: frosted white glass for the tutor,
+     a warm gradient for the learner's own words. The frosted layer is only
+     ever decoration over a pale wash - every word still sits in --k-ink on a
+     surface that measures above 4.5:1, so the glass cannot cost legibility. */
+  body.kids #chat {
+    gap: 14px;
+    background:
+      radial-gradient(90% 55% at 6% 0%, rgba(255,138,61,.20), transparent 62%),
+      radial-gradient(85% 50% at 96% 10%, rgba(52,120,246,.16), transparent 64%),
+      radial-gradient(95% 55% at 50% 100%, rgba(237,106,168,.20), transparent 66%),
+      linear-gradient(180deg, #fffaf4 0%, #fff4ea 100%);
+  }
+  body.kids .msg { font-size: 15.5px; border-radius: 20px; }
+  body.kids .msg.bot {
+    background: linear-gradient(160deg, rgba(255,255,255,.74), rgba(255,255,255,.52));
+    -webkit-backdrop-filter: blur(14px) saturate(1.6);
+    backdrop-filter: blur(14px) saturate(1.6);
+    border: 1.5px solid rgba(255,255,255,.92);
+    border-inline-start: 4px solid var(--chat-c, var(--k-c3));
+    border-bottom-left-radius: 8px;
+    color: var(--k-ink);
+    box-shadow: 0 8px 22px rgba(74,58,30,.10), inset 0 1px 0 #fff;
+  }
+  /* four hues down the transcript, so a long conversation is not one grey wall */
+  body.kids .row:nth-child(4n+1) { --chat-c: var(--k-c1); }
+  body.kids .row:nth-child(4n+2) { --chat-c: var(--k-c3); }
+  body.kids .row:nth-child(4n+3) { --chat-c: var(--k-c6); }
+  body.kids .row:nth-child(4n)   { --chat-c: var(--k-c5); }
+  body.kids .msg.user {
+    background: linear-gradient(135deg, #bd5217 0%, #b23f6f 100%);
+    color: #fff; border: 0; border-bottom-right-radius: 8px;
+    box-shadow: 0 8px 20px rgba(140,60,70,.28), inset 0 1px 0 rgba(255,255,255,.28);
+  }
+  body.kids .msg.user b, body.kids .msg.user strong { color: #fff; background: rgba(255,255,255,.2); }
+  body.kids .msg b, body.kids .msg strong {
+    background: var(--k-c8-w); color: var(--k-c8-i); box-shadow: inset 0 0 0 1px var(--k-c8);
+  }
+  body.kids .mav {
+    background: rgba(255,255,255,.7); border: 1.5px solid rgba(255,255,255,.95);
+    box-shadow: 0 4px 12px rgba(74,58,30,.12);
+  }
+  body.kids .mav.bot { border: 2px solid #fff; }
+  body.kids .row.user .mav {
+    background: radial-gradient(circle at 32% 24%, #fff 0%, var(--k-c1-w) 60%, var(--k-c5-w) 100%);
+    border: 2px solid #fff; box-shadow: 0 4px 12px rgba(237,106,168,.30);
+  }
+  body.kids .meta { color: var(--k-ink-2); font-weight: 600; }
+  /* the adult box carries a :root:not([data-theme="dark"]) rule of its own, so
+     the kid selector names the composer to outrank it rather than losing the
+     border and the frost to a sheet three thousand lines up */
+  body.kids #composer .messageBox {
+    background: rgba(255,255,255,.66);
+    -webkit-backdrop-filter: blur(16px) saturate(1.7);
+    backdrop-filter: blur(16px) saturate(1.7);
+    border: 2px solid var(--k-c3);
+    box-shadow: 0 6px 20px rgba(74,58,30,.12), inset 0 1px 0 #fff;
+  }
+  body.kids #composer .messageBox:focus-within {
+    border-color: var(--k-c1);
+    box-shadow: 0 0 0 4px var(--k-c1-w), 0 8px 22px rgba(74,58,30,.14);
+  }
+  body.kids #input { font-size: 15.5px; color: var(--k-ink); }
+  body.kids .send {
+    background: linear-gradient(140deg, #ff9a3d 0%, #f1577e 100%);
+    box-shadow: 0 3px 0 #b8407a, 0 8px 18px rgba(241,87,126,.34);
+  }
+  body.kids .jump { background: linear-gradient(140deg, var(--k-c3), var(--k-c4)); }
+  body.kids .prfab {
+    background: linear-gradient(140deg, var(--k-c6), var(--k-c3));
+    box-shadow: 0 3px 0 #1d6f7f, 0 8px 18px rgba(49,183,165,.34);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .tools .hbtn:hover { transform: none; }
+  }
+
   /* ---- the Kids home page --------------------------------------------- */
   body.kids #kpanel, body.kids #hqpanel { display: none; }
   body.kids #kpanel.open, body.kids #hqpanel.open { display: block; }
