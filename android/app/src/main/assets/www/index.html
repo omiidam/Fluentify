@@ -6556,6 +6556,19 @@
        forest green of --k-good that a section cannot read as "correct". */
     --k-teal: #31b7a5; --k-teal-wash: #eaf9f5; --k-teal-line: #b7e6dd; --k-teal-ink: #0d6156;
     --k-lime: #9bcb55; --k-lime-wash: #f3f9e7; --k-lime-line: #d5eab3; --k-lime-ink: #4a6b14;
+    /* The rainbow the lists cycle through: eight hardcoded pairs, bright edge
+       and pale wash, with the ink that clears 4.5:1 on it. Nothing here is
+       picked to look nice alone - each wash is a tint of its own edge, so a
+       row, a chip and a card can all take a different colour without any of
+       them going dark enough to hurt the text on it. */
+    --k-c1: #ff8a3d; --k-c1-w: #fff1e4; --k-c1-i: #8a4410;
+    --k-c2: #f15b64; --k-c2-w: #ffefee; --k-c2-i: #8f2b22;
+    --k-c3: #3478f6; --k-c3-w: #eaf2ff; --k-c3-i: #1b459c;
+    --k-c4: #8b6ce8; --k-c4-w: #f2eeff; --k-c4-i: #4b2fa0;
+    --k-c5: #ed6aa8; --k-c5-w: #fff0f6; --k-c5-i: #9c2f55;
+    --k-c6: #31b7a5; --k-c6-w: #e7f8f4; --k-c6-i: #0d6156;
+    --k-c7: #9bcb55; --k-c7-w: #f3fae6; --k-c7-i: #4a6b14;
+    --k-c8: #ffd34f; --k-c8-w: #fff8dc; --k-c8-i: #5f4608;
     --k-bg: #fff7ee; --k-surface: #ffffff; --k-surface-2: #fffaf3;
     /* One background, four washes of it: a warm sheet with a blue, a pink, a
        sun and a lime bloom across it, each weak enough that a card sitting on
@@ -7191,9 +7204,86 @@
     --k-sec-wash: var(--k-teal-wash); --k-sec-line: var(--k-teal-line); }
   .kcard.kc-purple { --k-sec: var(--k-purple); --k-sec-ink: var(--k-purple-ink);
     --k-sec-wash: var(--k-purple-wash); --k-sec-line: var(--k-purple-line); }
-  /* home: the fox speaks in pink, the word cards are sunshine, the quiz is blue */
-  .kcard.kfoxsay { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
-    --k-sec-wash: var(--k-pink-wash); --k-sec-line: var(--k-pink-line); }
+  .kcard.kc-orange { --k-sec: var(--k-orange); --k-sec-ink: var(--k-orange-ink);
+    --k-sec-wash: var(--k-orange-wash); --k-sec-line: var(--k-orange-line); }
+  .kcard.kc-coral { --k-sec: var(--k-coral); --k-sec-ink: var(--k-coral-ink);
+    --k-sec-wash: var(--k-coral-wash); --k-sec-line: var(--k-coral-line); }
+  /* home: the fox speaks in orange, the word cards are pink, the quiz is teal
+     and the continue strip is blue - four colours on one screen, and the two
+     that carry text at length are the two palest. */
+  .kcard.kfoxsay { --k-sec: var(--k-c1); --k-sec-ink: var(--k-c1-i);
+    --k-sec-wash: var(--k-c1-w); --k-sec-line: var(--k-c1); }
+
+  /* ---- the rainbow, by position ---------------------------------------
+     Hardcoded on purpose: eight bright edges with their own pale washes,
+     cycled down a list so no two neighbours repeat and a screen of rows never
+     comes out one colour. The colour is on the chip, the edge and the wash;
+     every word still sits on a pale surface in --k-ink, so which colour a row
+     landed on cannot change how readable it is. */
+  body.kids .krowbtn:nth-child(8n+1) .kico,
+  body.kids .kwordrow:nth-child(8n+1) .kwa { background: var(--k-c1-w); border-color: var(--k-c1); color: var(--k-c1-i); }
+  body.kids .krowbtn:nth-child(8n+2) .kico,
+  body.kids .kwordrow:nth-child(8n+2) .kwa { background: var(--k-c2-w); border-color: var(--k-c2); color: var(--k-c2-i); }
+  body.kids .krowbtn:nth-child(8n+3) .kico,
+  body.kids .kwordrow:nth-child(8n+3) .kwa { background: var(--k-c3-w); border-color: var(--k-c3); color: var(--k-c3-i); }
+  body.kids .krowbtn:nth-child(8n+4) .kico,
+  body.kids .kwordrow:nth-child(8n+4) .kwa { background: var(--k-c4-w); border-color: var(--k-c4); color: var(--k-c4-i); }
+  body.kids .krowbtn:nth-child(8n+5) .kico,
+  body.kids .kwordrow:nth-child(8n+5) .kwa { background: var(--k-c5-w); border-color: var(--k-c5); color: var(--k-c5-i); }
+  body.kids .krowbtn:nth-child(8n+6) .kico,
+  body.kids .kwordrow:nth-child(8n+6) .kwa { background: var(--k-c6-w); border-color: var(--k-c6); color: var(--k-c6-i); }
+  body.kids .krowbtn:nth-child(8n+7) .kico,
+  body.kids .kwordrow:nth-child(8n+7) .kwa { background: var(--k-c7-w); border-color: var(--k-c7); color: var(--k-c7-i); }
+  body.kids .krowbtn:nth-child(8n) .kico,
+  body.kids .kwordrow:nth-child(8n) .kwa { background: var(--k-c8-w); border-color: var(--k-c8); color: var(--k-c8-i); }
+  /* a row's outline takes its own colour too, so a list scans as a rainbow
+     rather than eight chips in identical boxes */
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+1) { border-color: var(--k-c1); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+2) { border-color: var(--k-c2); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+3) { border-color: var(--k-c3); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+4) { border-color: var(--k-c4); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+5) { border-color: var(--k-c5); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+6) { border-color: var(--k-c6); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n+7) { border-color: var(--k-c7); }
+  body.kids [id$="panel"] .krowbtn:nth-child(8n) { border-color: var(--k-c8); }
+  /* a box a child types into is a coloured box, not a grey one */
+  body.kids .kcard input[type="text"], body.kids .kcard input[type="search"],
+  body.kids .kcard textarea {
+    border: 2px solid var(--k-c4); background: var(--k-c4-w); color: var(--k-ink);
+  }
+  body.kids .kcard input:focus, body.kids .kcard textarea:focus {
+    border-color: var(--k-c1); outline: 2px solid var(--k-c1); outline-offset: 1px;
+  }
+  /* the rows themselves take the same wash, one step lighter than the chip */
+  body.kids .kwordrow:nth-child(8n+1) { background: var(--k-c1-w); border-color: var(--k-c1); }
+  body.kids .kwordrow:nth-child(8n+2) { background: var(--k-c2-w); border-color: var(--k-c2); }
+  body.kids .kwordrow:nth-child(8n+3) { background: var(--k-c3-w); border-color: var(--k-c3); }
+  body.kids .kwordrow:nth-child(8n+4) { background: var(--k-c4-w); border-color: var(--k-c4); }
+  body.kids .kwordrow:nth-child(8n+5) { background: var(--k-c5-w); border-color: var(--k-c5); }
+  body.kids .kwordrow:nth-child(8n+6) { background: var(--k-c6-w); border-color: var(--k-c6); }
+  body.kids .kwordrow:nth-child(8n+7) { background: var(--k-c7-w); border-color: var(--k-c7); }
+  body.kids .kwordrow:nth-child(8n) { background: var(--k-c8-w); border-color: var(--k-c8); }
+  /* answers are coloured too, so a quiz is not four identical grey boxes */
+  body.kids .kopt:not(.ok):not(.no):nth-of-type(4n+1) { border-color: var(--k-c3); background: var(--k-c3-w); }
+  body.kids .kopt:not(.ok):not(.no):nth-of-type(4n+2) { border-color: var(--k-c1); background: var(--k-c1-w); }
+  body.kids .kopt:not(.ok):not(.no):nth-of-type(4n+3) { border-color: var(--k-c6); background: var(--k-c6-w); }
+  body.kids .kopt:not(.ok):not(.no):nth-of-type(4n) { border-color: var(--k-c4); background: var(--k-c4-w); }
+  /* the one search box a child types in: blue on the outside, peach inside */
+  body.kids .psearch input, body.kids #vsearch {
+    border: 2px solid var(--k-c3); background: var(--k-c3-w); color: var(--k-ink);
+  }
+  body.kids .psearch input::placeholder, body.kids #vsearch::placeholder { color: var(--k-ink-2); }
+  body.kids .psearch input:focus, body.kids #vsearch:focus {
+    border-color: var(--k-c1); background: var(--k-c1-w);
+    outline: 2px solid var(--k-c1); outline-offset: 1px;
+  }
+  /* the continue strip: a blue the white label clears 4.5:1 on */
+  body.kids .kcont {
+    border-color: #2050b8;
+    background: linear-gradient(135deg, #2f6ae0 0%, #1f4cae 100%);
+    box-shadow: 0 3px 0 #1a3f93;
+  }
+  body.kids .kcont:hover { box-shadow: 0 5px 0 #1a3f93; }
   /* The heading is the one place a card gets a tint behind it: a wash band
      that runs to the card's edges, so a stack of cards is scannable by title
      without every card being a different color. */
@@ -19311,7 +19401,7 @@ const Kids = (() => {
     if (bank.length < 3) return null;
 
     const card = document.createElement('section');
-    card.className = 'kcard kc-sun';
+    card.className = 'kcard kc-pink';
     const head = document.createElement('div');
     head.className = 'kcard-h';
     const titles = document.createElement('div');
@@ -19411,7 +19501,7 @@ const Kids = (() => {
     const picked = [];
     for (let i = 0; i < 5; i += 1) picked.push(all[(seed * 7 + i * 11) % all.length]);
     const card = document.createElement('section');
-    card.className = 'kcard kc-blue';
+    card.className = 'kcard kc-teal';
     const head = document.createElement('div');
     head.className = 'kcard-h';
     const titles = document.createElement('div');

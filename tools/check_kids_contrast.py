@@ -55,6 +55,22 @@ PAIRS = [
     ("--k-on-primary", "--k-primary", "button label on a filled button"),
     ("--k-good", "--k-good-wash", "correct: ink on its wash"),
     ("--k-bad", "--k-bad-wash", "incorrect: ink on its wash"),
+    # the hardcoded rainbow the lists and answers cycle through
+    ("--k-c1-i", "--k-c1-w", "rainbow 1 (orange): ink on its wash"),
+    ("--k-c2-i", "--k-c2-w", "rainbow 2 (coral): ink on its wash"),
+    ("--k-c3-i", "--k-c3-w", "rainbow 3 (blue): ink on its wash"),
+    ("--k-c4-i", "--k-c4-w", "rainbow 4 (purple): ink on its wash"),
+    ("--k-c5-i", "--k-c5-w", "rainbow 5 (pink): ink on its wash"),
+    ("--k-c6-i", "--k-c6-w", "rainbow 6 (teal): ink on its wash"),
+    ("--k-c7-i", "--k-c7-w", "rainbow 7 (lime): ink on its wash"),
+    ("--k-c8-i", "--k-c8-w", "rainbow 8 (sun): ink on its wash"),
+]
+
+# Colours written literally in the stylesheet (a gradient has no token to
+# read), checked the same way.
+LITERAL_PAIRS = [
+    ("#ffffff", "#2f6ae0", "continue strip: label on the light end of the gradient"),
+    ("#ffffff", "#1f4cae", "continue strip: label on the dark end"),
 ]
 
 FAIL = []
@@ -125,13 +141,19 @@ def main() -> int:
         return 1
     print(f"Kids colour contrast, WCAG AA ({AA}:1 for text)\n")
     check(light)
+    for ink, wash, what in LITERAL_PAIRS:
+        r = ratio(ink, wash)
+        status = "ok  " if r >= AA else "FAIL"
+        print(f"  {status}  {r:5.2f}:1  {what}")
+        if r < AA:
+            FAIL.append(f"{what} is {r:.2f}:1, under {AA}:1 ({ink} on {wash})")
     print()
     if FAIL:
         print(f"FAIL  {len(FAIL)} contrast problem(s)")
         for line in FAIL:
             print("  -", line)
         return 1
-    print(f"PASS  {len(PAIRS)} colour pairs clear {AA}:1 in the one kids skin")
+    print(f"PASS  {len(PAIRS) + len(LITERAL_PAIRS)} colour pairs clear {AA}:1 in the one kids skin")
     return 0
 
 
