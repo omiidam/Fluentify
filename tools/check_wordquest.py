@@ -245,7 +245,7 @@ def check_wiring() -> None:
     if "localStorage" not in module:
         bad("wiring: progress is not kept locally")
     for banned in ("fetch(", "XMLHttpRequest"):
-        if banned in module.split("return {open, render};")[0]:
+        if banned in module.split("\n  return {open, render")[0]:
             bad(f"wiring: the game reaches the network at play time ({banned})")
     # the old puzzle asked a child to hunt for words they could not see, and
     # printed English-only instructions at them; neither may come back
