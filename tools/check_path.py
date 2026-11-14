@@ -348,7 +348,11 @@ def check_wiring() -> None:
           "the path tile is not hidden until a placement exists")
     check('id="pathpanel"' in src, "the panel itself is missing")
     check("pathpanel: 'pathtoggle'," in src, "the panel is not in the tile table")
-    check("pathpanel: () => Path.open()," in src, "opening the panel does not load the path")
+    # The path is the adult course's; a child's copy hides the tile and the
+    # panel, so the hook opens the path for everyone else and not for them.
+    check("pathpanel: () => Path.open()," in src
+          or "pathpanel: () => { if (!Experience.kids()) Path.open(); }," in src,
+          "opening the panel does not load the path")
     check("#pathpanel.open" in src and "display: block" in
           src[src.index("#pathpanel.open"):src.index("#pathpanel.open") + 120],
           "the panel has no rule that shows it")

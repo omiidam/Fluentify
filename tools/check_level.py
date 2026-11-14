@@ -196,7 +196,7 @@ def check_wiring() -> None:
         ('id="lvlpanel"', "there is no level panel"),
         ('id="lvlbody"', "the level panel has nowhere to draw"),
         ("lvlpanel: 'lvltoggle'", "the panel is not registered with the tiles"),
-        ("lvlpanel: () => Level.mount()", "opening the panel never mounts it"),
+
         ("document.getElementById('lvltoggle').onclick", "the tile is not wired"),
         ('self.path.startswith("/api/level_test")', "the web build has no route"),
         ("Level.paintBadge();", "the tile badge is never painted from a stored result"),
@@ -209,6 +209,13 @@ def check_wiring() -> None:
         ("not assessed", "the report never says which skills were not assessed"),
     ):
         check(needle in src, what)
+
+    # The level check is the adult course's placement exam: a child's copy of
+    # the app hides the tile and the panel, so the hook mounts the panel for
+    # everyone else and deliberately does nothing for a kid.
+    check('lvlpanel: () => Level.mount()' in src
+          or 'lvlpanel: () => { if (!Experience.kids()) Level.mount(); }' in src,
+          "opening the panel never mounts it")
 
     check("level_test.json" in BUILDER.read_text(encoding="utf-8"),
           "the offline build does not ship the question bank")

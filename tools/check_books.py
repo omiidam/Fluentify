@@ -1176,7 +1176,10 @@ def check_panel() -> None:
 
     check("getElementById('btoggle').onclick" in src,
           "the Books tile has no click handler")
-    check(re.search(r"bpanel: \(\) => Books\.load\(\)", src) is not None,
+    # The library belongs to the adult course: a child's copy hides the tile and
+    # the panel, so the hook loads the catalog for everyone else.
+    check(re.search(r"bpanel: \(\) => (Books\.load\(\)"
+                    r"|\{ if \(!Experience\.kids\(\)\) Books\.load\(\); \})", src) is not None,
           "opening the panel does not load the catalog")
     check(re.search(r"loadJSON\('books'\)", src) is not None,
           "the panel does not read books.json")

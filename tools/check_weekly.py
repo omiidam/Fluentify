@@ -144,8 +144,13 @@ const out = {tz: (process.env.TZ || 'unset')};
     'a Friday before nine did not schedule today: ' + out.opens[2]);
   check(out.opens[3] === '2026-11-13T05:30:00.000Z',
     'a Thursday did not schedule the next morning: ' + out.opens[3]);
-  check(WeeklyQuiz.opensAt(new Date('2026-11-07T10:00:00Z')).getTime() > Date.now() - 86400000,
-    'opensAt answered with something in the past');
+  /* Relative to the moment it was asked from, not to the clock on the wall:
+     the answer has to be after its own input, which is the property the quiz
+     depends on. Comparing it with Date.now() made the assertion pass only
+     while the fixed date above was near today, and fail every week after. */
+  check(WeeklyQuiz.opensAt(new Date('2026-11-07T10:00:00Z')).getTime()
+          > new Date('2026-11-07T10:00:00Z').getTime(),
+    'opensAt answered with something before the moment it was asked from');
 }
 
 /* ---- what counts as content --------------------------------------------- */
