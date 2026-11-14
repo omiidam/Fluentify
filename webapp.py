@@ -233,6 +233,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       if (saved === 'dark' || saved === 'light') dark = saved === 'dark';
       else if (window.matchMedia) dark = matchMedia('(prefers-color-scheme: dark)').matches;
     } catch (e) {}
+    /* Kids have one theme, and it is the light one. Reading the account here,
+       before the first paint, is what stops a device set to dark from showing
+       a child a night page for a frame before the app overruled it. */
+    try {
+      var acc = localStorage.getItem('fluentify.auth.account');
+      var who = acc ? JSON.parse(acc) : null;
+      if (who && (who.band === 'kids' || (who.age && who.age < 15))) dark = false;
+    } catch (e) {}
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   })();
 </script>
@@ -6757,7 +6765,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        forest green of --k-good that a section cannot read as "correct". */
     --k-teal: #31b7a5; --k-teal-wash: #eaf9f5; --k-teal-line: #b7e6dd; --k-teal-ink: #0d6156;
     --k-lime: #9bcb55; --k-lime-wash: #f3f9e7; --k-lime-line: #d5eab3; --k-lime-ink: #4a6b14;
-    --k-bg: #fff8ef; --k-surface: #ffffff; --k-surface-2: #fffaf3;
+    --k-bg: #fff7ee; --k-surface: #ffffff; --k-surface-2: #fffaf3;
+    /* One background, four washes of it: a warm sheet with a blue, a pink, a
+       sun and a lime bloom across it, each weak enough that a card sitting on
+       it still reads as the thing to look at. */
+    --k-mesh:
+      radial-gradient(46% 30% at 8% 0%, rgba(101, 185, 232, .32), transparent 70%),
+      radial-gradient(44% 26% at 96% 4%, rgba(241, 127, 165, .28), transparent 72%),
+      radial-gradient(42% 26% at 52% 102%, rgba(155, 203, 85, .24), transparent 74%),
+      radial-gradient(38% 24% at 0% 88%, rgba(255, 200, 87, .34), transparent 72%);
     --k-ink: #202b45; --k-ink-2: #626d83; --k-line: #e7eaf1;
     --k-line-strong: #d5dbe8; --k-shadow: rgba(32, 43, 69, .10);
     --k-focus: #233876;
@@ -6795,7 +6811,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --ink-4: #626d83; --ink-5: #626d83; --title: #202b45; --muted: #626d83;
     --gold-ink: #5f4608; --navy: #202b45; --navy-ink: #233876;
     --indigo-ink: #233876; --violet-ink: #5636a8; --green-ink: #1f6a45;
-    background: var(--k-backdrop), var(--k-bg);
+    background: var(--k-mesh), var(--k-bg);
+    background-attachment: fixed;
     color: var(--k-ink);
   }
   body.kids header {
@@ -6951,6 +6968,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-color: var(--k-sec-line); background: var(--k-sec-wash); color: var(--k-sec-ink);
   }
   body.kids [id$="panel"] .ktrack i { background: var(--k-sec); }
+  /* The page itself takes the section's tint at the top, so opening Grammar
+     lands in a purple-washed page, not the same cream as everything else.
+     Home keeps the four-bloom background: it is the only page with no section
+     to belong to. */
+  body.kids [id$="panel"]:not(#kpanel).open {
+    background: linear-gradient(180deg, var(--k-sec-wash) 0, transparent 260px);
+    border-radius: 20px;
+  }
 
   /* ---- Word Quest: the letter puzzle ---------------------------------- */
   /* The whole game is one panel of big targets: a rack of letters a thumb can
@@ -7128,12 +7153,32 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      count there, so they stay out of the child's way. */
   body.kids .pcount, body.kids .psearch { display: none; }
 
+  /* A wider screen is not a bigger phone. Every kids page is capped so a card
+     does not run the width of a monitor, and the home page stacks into two
+     columns from tablet width up: the fox says one thing across the top, then
+     the word cards and the quiz sit side by side under it. Both the web page
+     and the APK get this from the same stylesheet. */
+  body.kids #kpanel, body.kids #vpanel, body.kids #gpanel, body.kids #rdpanel,
+  body.kids #lpanel, body.kids #stpanel, body.kids #fpanel,
+  body.kids #hqpanel, body.kids #wrqpanel { max-width: 1060px; margin-inline: auto; }
+  @media (min-width: 700px) {
+    body.kids #kbody {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; align-items: start;
+    }
+    body.kids #kbody > .khero,
+    body.kids #kbody > .kcont,
+    body.kids #kbody > .kfoxsay { grid-column: 1 / -1; }
+  }
+
   .khero {
     position: relative; overflow: hidden;
     display: flex; align-items: center; gap: 12px;
     padding: 14px 16px 15px; margin-bottom: 10px;
     border-radius: 18px;
-    background: linear-gradient(135deg, var(--k-primary-wash) 0%, var(--k-sun-wash) 58%, var(--k-sky) 100%);
+    background:
+      radial-gradient(120% 90% at 90% 0%, rgba(255, 211, 79, .40), transparent 62%),
+      radial-gradient(90% 80% at 4% 100%, rgba(99, 199, 242, .36), transparent 66%),
+      linear-gradient(135deg, #eef4ff 0%, #fff3e2 56%, #fdeaf2 100%);
     border: 1.5px solid var(--k-primary-line);
     box-shadow: 0 3px 10px -6px var(--k-hero-shadow);
   }
@@ -7334,14 +7379,34 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --k-sec-wash: var(--k-surface-2); --k-sec-line: var(--k-line); }
 
   .kcard {
-    background: var(--k-surface); border: 1.5px solid var(--k-line);
-    border-radius: 20px; padding: 16px 16px 18px; margin-bottom: 10px;
+    /* A card carries the colour of the place it sits in, as a wash behind its
+       heading that fades to white before the first line of content. Home sets
+       one accent per card; a section sets it on the panel and every card
+       follows, so a card can never look like it belongs somewhere else. */
+    --k-sec: var(--k-primary); --k-sec-ink: var(--k-primary-dark);
+    --k-sec-wash: var(--k-primary-wash); --k-sec-line: var(--k-primary-line);
+    background: linear-gradient(180deg, var(--k-sec-wash) 0, var(--k-surface) 92px);
+    border: 1.5px solid var(--k-sec-line);
+    border-radius: 20px; padding: 16px 16px 18px; margin-bottom: 12px;
     box-shadow: 0 1px 2px var(--k-shadow), 0 10px 22px -20px var(--k-card-shadow);
   }
+  .kcard.kc-pink { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
+    --k-sec-wash: var(--k-pink-wash); --k-sec-line: var(--k-pink-line); }
+  .kcard.kc-sun { --k-sec: var(--k-sun); --k-sec-ink: var(--k-sun-ink);
+    --k-sec-wash: var(--k-sun-wash); --k-sec-line: var(--k-sun-line); }
+  .kcard.kc-blue { --k-sec: var(--k-blue); --k-sec-ink: var(--k-blue-ink);
+    --k-sec-wash: var(--k-blue-wash); --k-sec-line: var(--k-blue-line); }
+  .kcard.kc-teal { --k-sec: var(--k-teal); --k-sec-ink: var(--k-teal-ink);
+    --k-sec-wash: var(--k-teal-wash); --k-sec-line: var(--k-teal-line); }
+  .kcard.kc-purple { --k-sec: var(--k-purple); --k-sec-ink: var(--k-purple-ink);
+    --k-sec-wash: var(--k-purple-wash); --k-sec-line: var(--k-purple-line); }
+  /* home: the fox speaks in pink, the word cards are sunshine, the quiz is blue */
+  .kcard.kfoxsay { --k-sec: var(--k-pink); --k-sec-ink: var(--k-pink-ink);
+    --k-sec-wash: var(--k-pink-wash); --k-sec-line: var(--k-pink-line); }
   /* The heading is the one place a card gets a tint behind it: a wash band
      that runs to the card's edges, so a stack of cards is scannable by title
      without every card being a different color. */
-  .kcard h4 { margin: 0 0 2px; font-size: 17.5px; line-height: 1.3; color: var(--k-ink);
+  .kcard h4 { margin: 0 0 2px; font-size: 17.5px; line-height: 1.3; color: var(--k-sec-ink);
     font-family: var(--font-display); letter-spacing: -.2px; }
   .kcard .kfa-h { font-size: 12px; color: var(--k-ink-2); direction: rtl; margin-bottom: 6px; }
   .kcard-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
@@ -8003,58 +8068,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     body.kids .hqw-fox { transition: none; }
   }
 
-  /* --- the same identity in the dark theme -----------------------------
-     Kids used to force its light palette whatever the theme switch said.
-     Every value below is the token block again, not a new design: the
-     teal stays the accent, the paper turns to night paper, and each
-     pastel becomes its own dark wash so the tint still tells the tiles
-     apart. Text keeps at least 4.5:1 against the surface it sits on. */
-  [data-theme="dark"] body.kids {
-    /* The same identity after dark, not the light one dimmed: night navy
-       surfaces, and every accent lifted to a *lighter* ink of itself because
-       the pane under it is now deep. A pastel that reads on cream reads as
-       mud on #0d1220, so each wash is its own dark tint and each ink is the
-       pale version that clears 4.5:1 on it. */
-    --k-primary: #a8bdf2; --k-primary-dark: #c3d0f8;
-    --k-primary-wash: #1a2340; --k-primary-line: #2f3d66;
-    --k-blue: #7cc4ee; --k-blue-wash: #12243a; --k-blue-line: #2a4a68; --k-blue-ink: #a7d9f5;
-    --k-purple: #b6a2f5; --k-purple-wash: #201a35; --k-purple-line: #3d3363; --k-purple-ink: #d3c4ff;
-    --k-orange: #ffae6e; --k-orange-wash: #32220f; --k-orange-line: #5e4224; --k-orange-ink: #ffcb96;
-    --k-pink: #f5a0bf; --k-pink-wash: #2e1b26; --k-pink-line: #55323f; --k-pink-ink: #f8c4d6;
-    --k-focus: #c3d0f8;
-    --k-sky: #12243a; --k-sky-line: #2a4a68; --k-sky-ink: #a7d9f5;
-    --k-sun: #f0c65a; --k-sun-wash: #2e2718; --k-sun-line: #564722; --k-sun-ink: #f0d391;
-    --k-coral: #ff8f8f; --k-coral-wash: #321b18; --k-coral-line: #5c3230; --k-coral-ink: #ffb3ac;
-    --k-teal: #6fd8c8; --k-teal-wash: #10241f; --k-teal-line: #27524a; --k-teal-ink: #a6e8de;
-    --k-lime: #b6dc7d; --k-lime-wash: #1e2613; --k-lime-line: #3f5226; --k-lime-ink: #d3ecae;
-    --k-bg: #0d1220; --k-surface: #141a2b; --k-surface-2: #1a2135;
-    --k-ink: #e8ecf7; --k-ink-2: #9aa4bd; --k-line: #26304a;
-    --k-line-strong: #35405c; --k-shadow: rgba(0, 0, 0, .38);
-    --k-on-primary: #0b1226; --k-on-primary-dim: rgba(11, 18, 38, .72);
-    --k-primary-deep: #8ea6e4; --k-hero-sub: #b3bdd6;
-    --k-track: #26304a; --k-say: #4a2b39;
-    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(58, 80, 150, .34), transparent 72%);
-    --k-highlight: rgba(240, 198, 90, .22);
-    --k-card-shadow: rgba(0, 0, 0, .34);
-    --k-hero-shadow: rgba(0, 0, 0, .40);
-    --k-good: #86dcaa; --k-good-wash: #142d1f; --k-good-line: #2d5740;
-    --k-bad: #f2a894; --k-bad-wash: #331a15; --k-bad-line: #5e3329;
-    --surf-1: #141a2b; --surf-2: #111726; --surf-3: #1a2135;
-    --surf-4: #1e2740; --surf-5: #232d49; --surf-6: #2a3553;
-    --chat-bg: #111726; --raise: #1a2135; --raise-2: #1e2740;
-    --line: #26304a; --line2: #35405c; --line-soft: #1d2539; --line-strong: #3d4a68;
-    --ink: #e8ecf7; --ink-1: #e8ecf7; --ink-2: #ccd4e6; --ink-3: #b3bdd6;
-    --ink-4: #9aa4bd; --ink-5: #9aa4bd; --title: #e8ecf7; --muted: #9aa4bd;
-    --gold-ink: #f0d391; --navy: #e8ecf7; --navy-ink: #a8bdf2;
-    --indigo-ink: #a8bdf2; --violet-ink: #b6a2f5; --green-ink: #86dcaa;
-  }
-  [data-theme="dark"] body.kids .kwin { border-color: var(--k-good-line); }
-  [data-theme="dark"] body.kids .kopt.ok {
-    background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good);
-  }
-  [data-theme="dark"] body.kids .kopt.no {
-    background: var(--k-bad-wash); border-color: var(--k-bad-line); color: var(--k-bad);
-  }
 
 
   /* ---------- KIDS MOTION AND CHARACTERS -------------------------------
@@ -8071,9 +8084,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        * one switch, .kids-calm, plus prefers-reduced-motion, stops all of it.
      -------------------------------------------------------------------- */
   body.kids { --k-fox: #f0913f; --k-fox-2: #ffe9cf; --k-fox-ink: #4a2a12; --k-fox-cheek: #ff9f92; }
-  [data-theme="dark"] body.kids {
-    --k-fox: #e08a46; --k-fox-2: #43301f; --k-fox-ink: #150d05; --k-fox-cheek: #a85a52;
-  }
 
   /* the character */
   .kfox { display: inline-block; line-height: 0; }
@@ -8211,6 +8221,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids #pathtoggle, body.kids #pathpanel,
   body.kids #phtoggle, body.kids #phpanel,
   body.kids #btoggle, body.kids #bpanel { display: none !important; }
+  /* One theme for kids: the light one. The switch itself leaves the
+     toolbar with the dark skin, so there is no setting left to set. */
+  body.kids #themetoggle { display: none !important; }
 
   /* ---- a story, read word by word -------------------------------------
      The transport is the audio: one round play button, a replay, the speed
@@ -15639,8 +15652,19 @@ const Theme = (() => {
   /* `remember` is false for the first paint, which is applying a decision that
      was already made - writing it back would turn "follow the device" into "this
      device chose light" on the very first visit. */
+  /* A child's app has one theme. The switch is not on their toolbar and this
+     is the second lock: nothing in the app can hand them the night palette. */
+  function kidsOnly() {
+    if (document.body && document.body.classList.contains('kids')) return true;
+    try {
+      const acc = localStorage.getItem('fluentify.auth.account');
+      const who = acc ? JSON.parse(acc) : null;
+      return !!(who && (who.band === 'kids' || (who.age && who.age < 15)));
+    } catch (e) { return false; }
+  }
+
   function apply(name, remember) {
-    const next = name === 'dark' ? 'dark' : 'light';
+    const next = (name === 'dark' && !kidsOnly()) ? 'dark' : 'light';
     document.documentElement.dataset.theme = next;
     if (remember) {
       try { localStorage.setItem(KEY, next); } catch (e) {}
@@ -19040,7 +19064,7 @@ const Kids = (() => {
      from the child's copy of the app, because a seven-level placement exam,
      a path built from one, a rhythm drill and a book shelf are the adult
      course, not what a child opens to learn a word. */
-  const ADVANCED = ['ftoggle', 'ntoggle', 'themetoggle', 'clear', 'rtoggle'];
+  const ADVANCED = ['ftoggle', 'ntoggle', 'clear', 'rtoggle'];
 
   let doc = null, pending = null, labeled = false, moreBound = false;
   let landed = false, quizPage = 0;
@@ -19467,7 +19491,7 @@ const Kids = (() => {
     if (bank.length < 3) return null;
 
     const card = document.createElement('section');
-    card.className = 'kcard';
+    card.className = 'kcard kc-sun';
     const head = document.createElement('div');
     head.className = 'kcard-h';
     const titles = document.createElement('div');
@@ -19567,7 +19591,7 @@ const Kids = (() => {
     const picked = [];
     for (let i = 0; i < 5; i += 1) picked.push(all[(seed * 7 + i * 11) % all.length]);
     const card = document.createElement('section');
-    card.className = 'kcard';
+    card.className = 'kcard kc-blue';
     const head = document.createElement('div');
     head.className = 'kcard-h';
     const titles = document.createElement('div');

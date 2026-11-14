@@ -397,13 +397,15 @@ def check_kids_layer(src):
           "the shared surface tokens are not pointed at the kids palette")
     check("background: var(--k-surface)" in block and "color: var(--k-ink)" in block,
           "the kids components do not consume the tokens")
-    dark = block.split('[data-theme="dark"] body.kids {', 1)
-    check(len(dark) == 2 and "--k-bg:" in dark[1].split("}", 1)[0]
-          and "--k-on-primary:" in dark[1].split("}", 1)[0],
-          "the kids palette has no dark theme of its own")
-    check("--surf-1:" in dark[1].split("}", 1)[0]
-          and "--ink:" in dark[1].split("}", 1)[0],
-          "the dark kids theme leaves the shared surface tokens light")
+    # One theme for kids, the light one: no night palette, no switch on the
+    # toolbar, and the head script must not paint a child's page dark before
+    # the app has read who is signed in.
+    check('[data-theme="dark"] body.kids' not in src,
+          "the kids copy is back to two themes")
+    check("body.kids #themetoggle { display: none !important; }" in src,
+          "the theme switch is still on the kids toolbar")
+    check("who.band === 'kids'" in src and "who.age && who.age < 15" in src,
+          "a child's page can still be painted dark before the app knows who they are")
     light_tokens = block.split("body.kids {", 1)[1].split("}", 1)[0]
     for name in ("--k-on-primary", "--k-track", "--k-highlight", "--k-card-shadow",
                  "--k-hero-shadow", "--k-backdrop", "--k-say", "--k-hero-sub"):
@@ -421,8 +423,7 @@ def check_kids_layer(src):
           "the section tiles do not take their accent from one set of tokens")
     for cls in ("kc-blue", "kc-purple", "kc-pink", "kc-sun", "kc-coral", "kc-navy"):
         check(cls in block, f"the {cls} section has no identity to draw")
-    check("--k-focus:" in dark[1].split("}", 1)[0],
-          "focus is not repainted for the dark kids theme")
+    check("--k-focus:" in light_tokens, "focus has no colour of its own")
 
     # One drawn icon set, still used wherever a section is named with a
     # symbol (the resume card). The home page's own toys are a fox line and
