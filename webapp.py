@@ -858,22 +858,72 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   html[data-band="kids"] .boot-aurora { display: none; }
   html[data-band="kids"] .boot-in {
-    width: min(100%, 340px); min-height: 0; gap: 8px;
-    padding: 24px 20px 18px; border-radius: 34px;
+    width: min(100%, 420px); min-height: min(58vh, 500px); gap: 10px;
+    padding: 34px 26px 22px; border-radius: 38px;
     border: 3px solid var(--k-boot-edge);
     background: linear-gradient(170deg, var(--k-surface) 0%, var(--k-surface-2) 100%);
-    box-shadow: 0 8px 0 var(--k-boot-foot), 0 26px 50px -22px rgba(120, 70, 20, .45);
+    box-shadow: 0 10px 0 var(--k-boot-foot),
+      0 34px 60px -26px rgba(120, 70, 20, .50),
+      0 0 0 12px rgba(255, 255, 255, .40),
+      0 0 74px rgba(255, 176, 64, .28);
+    /* it arrives with a bounce instead of a fade: the first thing a child sees
+       should feel like it landed, not like it loaded */
+    animation: bkCardIn .9s cubic-bezier(.2, 1.5, .4, 1) both;
   }
-  html[data-band="kids"] .boot-in::after { display: none; }
+  @keyframes bkCardIn {
+    0% { opacity: 0; transform: scale(.78) translateY(14px); }
+    62% { opacity: 1; transform: scale(1.035) translateY(0); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  /* the card's own glint is replaced by a slow warm pulse behind everything */
+  html[data-band="kids"] .boot-in::after {
+    display: block; content: ''; position: absolute; inset: -30%; z-index: 0;
+    background: radial-gradient(circle at 50% 24%, rgba(255, 190, 80, .30), transparent 62%);
+    animation: bkGlow 4.2s ease-in-out infinite; pointer-events: none;
+  }
   html[data-band="kids"] .boot-mark {
-    width: 130px; height: 130px; border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
+    position: relative; isolation: isolate;
+    width: 156px; height: 156px; border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
     background: radial-gradient(circle at 34% 26%, var(--k-c8-w), var(--k-c8) 74%);
-    box-shadow: 0 6px 0 var(--k-boot-sun), inset 0 -7px 0 rgba(255, 255, 255, .32);
+    box-shadow: 0 7px 0 var(--k-boot-sun), inset 0 -8px 0 rgba(255, 255, 255, .32),
+      0 0 46px rgba(255, 196, 80, .55);
     animation: bkBob 2.4s ease-in-out infinite;
   }
+  /* the sun's rays, a ring of soft wedges turning behind the mascot */
+  html[data-band="kids"] .boot-mark::before {
+    content: ''; position: absolute; inset: -46%; z-index: -1; border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg,
+      rgba(255, 176, 60, .34) 0deg 6deg, transparent 6deg 21deg);
+    -webkit-mask: radial-gradient(circle, transparent 46%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 60%, transparent 62%);
+    mask: radial-gradient(circle, transparent 46%, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 1) 60%, transparent 62%);
+    animation: bkSpin 26s linear infinite;
+  }
+  /* and a breathing glow under it, so the card is never a still picture */
+  html[data-band="kids"] .boot-mark::after {
+    content: ''; position: absolute; inset: -30%; z-index: -2; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 190, 80, .60), rgba(255, 190, 80, 0) 68%);
+    animation: bkGlow 2.8s ease-in-out infinite;
+  }
   html[data-band="kids"] .boot-halo { display: none; }
-  html[data-band="kids"] .boot-fox { width: 102px; height: 102px; }
-  html[data-band="kids"] .boot-name { font-size: 30px; letter-spacing: -.4px; }
+  html[data-band="kids"] .boot-fox { width: 124px; height: 124px; }
+  html[data-band="kids"] .boot-name { font-size: 34px; letter-spacing: -.4px; }
+  /* the burst: sparks thrown out on a ring, each one its own colour */
+  .boot-burst { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
+  .boot-burst i {
+    position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%;
+    background: var(--k-c1); box-shadow: 0 0 10px rgba(255, 255, 255, .9);
+    transform: translate(-50%, -50%) rotate(var(--a)) translateY(-40px) scale(.2);
+    opacity: 0;
+    animation: bkBurst 2.9s cubic-bezier(.2, .7, .3, 1) infinite;
+    animation-delay: var(--d, 0s);
+  }
+  .boot-burst i:nth-child(2) { background: var(--k-c8); }
+  .boot-burst i:nth-child(3) { background: var(--k-c3); }
+  .boot-burst i:nth-child(4) { background: var(--k-c6); }
+  .boot-burst i:nth-child(5) { background: var(--k-c5); }
+  .boot-burst i:nth-child(6) { background: var(--k-c7); }
+  .boot-burst i:nth-child(7) { background: var(--k-c2); }
+  .boot-burst i:nth-child(8) { background: var(--k-c4); }
   /* every sentence on the adult screen, gone */
   html[data-band="kids"] .boot-tag,
   html[data-band="kids"] .boot-trio,
@@ -884,13 +934,23 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   html[data-band="kids"] .boot-wait { gap: 12px; }
   html[data-band="kids"] .boot-loading { gap: 0; }
   html[data-band="kids"] .boot-track {
-    height: 14px; border-radius: 999px; background: var(--k-boot-track);
-    box-shadow: inset 0 2px 0 rgba(120, 70, 20, .08);
+    height: 18px; border-radius: 999px; background: var(--k-boot-track);
+    box-shadow: inset 0 2px 0 rgba(120, 70, 20, .08), 0 0 18px rgba(255, 176, 64, .28);
   }
   html[data-band="kids"] .boot-track i {
+    position: relative;
     background: linear-gradient(90deg, var(--k-c1) 0%, var(--k-c8) 34%,
       var(--k-c7) 62%, var(--k-c6) 100%);
     border-radius: 999px;
+    box-shadow: 0 0 16px rgba(255, 176, 64, .55);
+  }
+  /* a lit head on the end of the bar, breathing as the read goes on */
+  html[data-band="kids"] .boot-track i::before {
+    content: ''; position: absolute; right: -4px; top: 50%; width: 22px; height: 22px;
+    transform: translateY(-50%); border-radius: 50%;
+    background: radial-gradient(circle, var(--k-c8) 0%, rgba(255, 205, 95, .85) 40%, rgba(255, 200, 90, 0) 74%);
+    box-shadow: 0 0 22px rgba(255, 180, 60, .95);
+    animation: bkGlow 1.7s ease-in-out infinite;
   }
   /* three hopping letters: the loader that a child reads as "something is
      happening" without a word and without a percentage */
@@ -900,9 +960,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .boot-kid .bk-letters { display: flex; gap: 10px; align-items: flex-end; }
   .boot-kid .bk-letters i {
-    width: 48px; height: 48px; display: grid; place-items: center;
-    border-radius: 16px; font-style: normal; font-size: 27px; font-weight: 800;
-    color: var(--k-on-primary); box-shadow: 0 5px 0 rgba(90, 45, 10, .22);
+    width: 58px; height: 58px; display: grid; place-items: center;
+    border-radius: 18px; font-style: normal; font-size: 32px; font-weight: 800;
+    color: var(--k-on-primary);
+    box-shadow: 0 6px 0 rgba(90, 45, 10, .24), 0 0 26px rgba(255, 255, 255, .70),
+      inset 0 -5px 0 rgba(0, 0, 0, .10);
     animation: bkHop 1.35s cubic-bezier(.4, 1.5, .5, 1) infinite;
   }
   .boot-kid .bk-letters i:nth-child(1) { background: var(--k-c1); }
@@ -919,6 +981,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     35% { transform: translateY(-13px) scale(.96, 1.04); }
     60% { transform: translateY(0) scale(1.04, .96); }
   }
+  @keyframes bkBurst {
+    0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42px) scale(.2); }
+    18% { opacity: 1; }
+    62% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-104px) scale(1.15); }
+    100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-104px) scale(.2); }
+  }
+  @keyframes bkSpin { to { transform: rotate(1turn); } }
+  @keyframes bkGlow {
+    0%, 100% { opacity: .55; }
+    50% { opacity: 1; }
+  }
   @keyframes bkFloat {
     0%, 100% { transform: translateY(0) rotate(-7deg); }
     50% { transform: translateY(-9px) rotate(9deg); }
@@ -928,7 +1001,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     50% { transform: translateY(-6px); }
   }
   @media (prefers-reduced-motion: reduce) {
+    html[data-band="kids"] .boot-in,
     html[data-band="kids"] .boot-mark,
+    html[data-band="kids"] .boot-in::after,
+    html[data-band="kids"] .boot-mark::before,
+    html[data-band="kids"] .boot-mark::after,
+    html[data-band="kids"] .boot-track i::before,
+    .boot-burst i,
     .boot-kid .bk-letters i,
     .boot-kid .bk-fly { animation: none; }
   }
@@ -9182,6 +9261,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="boot-in">
       <div class="boot-mark" aria-hidden="true">
         <span class="boot-halo"></span>
+        <!-- the burst: eight sparks thrown outward from the mascot, each its
+             own hue, staggered so the ring never fires all at once -->
+        <span class="boot-burst"><i style="--a:0deg;--d:0s"></i><i style="--a:45deg;--d:.35s"></i><i style="--a:90deg;--d:.7s"></i><i style="--a:135deg;--d:1.05s"></i><i style="--a:180deg;--d:1.4s"></i><i style="--a:225deg;--d:1.75s"></i><i style="--a:270deg;--d:2.1s"></i><i style="--a:315deg;--d:2.45s"></i></span>
         <span class="boot-fox-bob">
           <img class="boot-fox" src="brand/fox-mark.png" alt="" width="100"
                height="100" decoding="async">
