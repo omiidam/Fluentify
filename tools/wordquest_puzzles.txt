@@ -11,13 +11,24 @@
 # from its rack, if a record is missing, or if a word is asked for twice in the
 # same puzzle. Nothing here is generated at runtime.
 
-W|garden|1|Alphabet Garden|باغ الفبا|🌱|Pre-A1|First words|نخستین واژه‌ها|Where every child starts: three letters, one small word, one big smile.|جایی که هر کودکی آغاز می‌کند: سه حرف، یک واژهٔ کوچک، یک لبخند بزرگ.
-W|village|2|Word Village|دهکدهٔ واژه‌ها|🏡|A1|Home and school|خانه و مدرسه|The village is full of things with names. Find them and the gate opens.|دهکده پر از چیزهایی است که نام دارند. پیدایشان کن تا در باز شود.
-W|forest|3|Animal Forest|جنگل حیوانات|🦊|A1|Animals and colours|حیوانات و رنگ‌ها|The fox knows every animal here. Walk quietly and listen.|روباه همهٔ حیوانات اینجا را می‌شناسد. آهسته راه برو و گوش کن.
-W|island|4|Treasure Island|جزیرهٔ گنج|🏝️|A2|Travel and discovery|سفر و کشف|A map, a boat and a chest. The words are the key.|یک نقشه، یک قایق و یک صندوق. واژه‌ها کلیدند.
-W|mountain|5|Adventure Mountain|کوه ماجراجویی|⛰️|A2–B1|Journeys and weather|سفرها و هوا|The path climbs. Every word you find makes the air a little clearer.|راه بالا می‌رود. هر واژه‌ای که می‌یابی هوا را روشن‌تر می‌کند.
-W|castle|6|Knowledge Castle|قلعهٔ دانش|🏰|B1–B2|Learning and courage|یادگیری و دلیری|The castle keeps its words in stone. Read them and the doors know your name.|قلعه واژه‌هایش را در سنگ نگه می‌دارد. بخوانشان تا درها نامت را بدانند.
-W|kingdom|7|Champion Kingdom|پادشاهی قهرمانان|👑|C1–C2|Precision and expression|دقت و بیان|The last gate asks for exact words, not just long ones. You are ready.|آخرین دروازه واژه‌های دقیق می‌خواهد، نه فقط بلند. آماده‌ای.
+# The first world is built only from words a picture can carry on its own:
+# every target in it is a thing a five-year-old can point at, so the child who
+# cannot read a word of English still knows what they are building. The letters
+# of each rack are the letters of the words in it and nothing else.
+W|start|1|First Pictures|نخستین تصویرها|🐣|Pre-A1|Picture words|واژه‌های تصویری|Look at the picture, hear the word, build it with the letters.|به تصویر نگاه کن، واژه را بشنو، با حروف بسازش.
+W|garden|2|Alphabet Garden|باغ الفبا|🌱|Pre-A1|First words|نخستین واژه‌ها|Where every child starts: three letters, one small word, one big smile.|جایی که هر کودکی آغاز می‌کند: سه حرف، یک واژهٔ کوچک، یک لبخند بزرگ.
+W|village|3|Word Village|دهکدهٔ واژه‌ها|🏡|A1|Home and school|خانه و مدرسه|The village is full of things with names. Find them and the gate opens.|دهکده پر از چیزهایی است که نام دارند. پیدایشان کن تا در باز شود.
+W|forest|4|Animal Forest|جنگل حیوانات|🦊|A1|Animals and colours|حیوانات و رنگ‌ها|The fox knows every animal here. Walk quietly and listen.|روباه همهٔ حیوانات اینجا را می‌شناسد. آهسته راه برو و گوش کن.
+W|island|5|Treasure Island|جزیرهٔ گنج|🏝️|A2|Travel and discovery|سفر و کشف|A map, a boat and a chest. The words are the key.|یک نقشه، یک قایق و یک صندوق. واژه‌ها کلیدند.
+W|mountain|6|Adventure Mountain|کوه ماجراجویی|⛰️|A2–B1|Journeys and weather|سفرها و هوا|The path climbs. Every word you find makes the air a little clearer.|راه بالا می‌رود. هر واژه‌ای که می‌یابی هوا را روشن‌تر می‌کند.
+W|castle|7|Knowledge Castle|قلعهٔ دانش|🏰|B1–B2|Learning and courage|یادگیری و دلیری|The castle keeps its words in stone. Read them and the doors know your name.|قلعه واژه‌هایش را در سنگ نگه می‌دارد. بخوانشان تا درها نامت را بدانند.
+W|kingdom|8|Champion Kingdom|پادشاهی قهرمانان|👑|C1–C2|Precision and expression|دقت و بیان|The last gate asks for exact words, not just long ones. You are ready.|آخرین دروازه واژه‌های دقیق می‌خواهد، نه فقط بلند. آماده‌ای.
+
+P|start|1|CATBH|cat,hat,bat|Cat, Hat, Bat|گربه، کلاه، خفاش
+P|start|2|CAPNHE|cap,pan,hen,pen|Cap, Pan, Hen, Pen|کلاه، قابلمه، مرغ، خودکار
+P|start|3|CUPAN|cup,cap,can,pan|Cup, Cap, Can, Pan|فنجان، کلاه، قوطی، قابلمه
+P|start|4|BEDRHNT|bed,red,hen,ten|Bed, Red, Hen, Ten|تخت، قرمز، مرغ، ده
+P|start|5|SUNTAREE|sun,star,tree,net|Sun, Star, Tree, Net|خورشید، ستاره، درخت، تور
 
 P|garden|1|CATS|cat,sat,at|The Cat on the Mat|گربه روی حصیر
 P|garden|2|DOGS|dog,go,do|A Dog at the Gate|سگی دم در

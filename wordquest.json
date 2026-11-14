@@ -15,8 +15,156 @@
  ],
  "worlds": [
   {
-   "id": "garden",
+   "id": "start",
    "order": 1,
+   "name_en": "First Pictures",
+   "name_fa": "نخستین تصویرها",
+   "emoji": "🐣",
+   "level": "Pre-A1",
+   "theme_en": "Picture words",
+   "theme_fa": "واژه‌های تصویری",
+   "blurb_en": "Look at the picture, hear the word, build it with the letters.",
+   "blurb_fa": "به تصویر نگاه کن، واژه را بشنو، با حروف بسازش.",
+   "stages": [
+    {
+     "id": "start-1",
+     "world": "start",
+     "order": 1,
+     "title_en": "Cat, Hat, Bat",
+     "title_fa": "گربه، کلاه، خفاش",
+     "letters": [
+      "C",
+      "T",
+      "H",
+      "A",
+      "B"
+     ],
+     "rack": "CATBH",
+     "level": "Pre-A1",
+     "required": [
+      "cat",
+      "hat",
+      "bat"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "start-2",
+     "world": "start",
+     "order": 2,
+     "title_en": "Cap, Pan, Hen, Pen",
+     "title_fa": "کلاه، قابلمه، مرغ، خودکار",
+     "letters": [
+      "H",
+      "P",
+      "E",
+      "N",
+      "A",
+      "C"
+     ],
+     "rack": "CAPNHE",
+     "level": "Pre-A1",
+     "required": [
+      "cap",
+      "pan",
+      "hen",
+      "pen"
+     ],
+     "bonus": [
+      "can"
+     ]
+    },
+    {
+     "id": "start-3",
+     "world": "start",
+     "order": 3,
+     "title_en": "Cup, Cap, Can, Pan",
+     "title_fa": "فنجان، کلاه، قوطی، قابلمه",
+     "letters": [
+      "A",
+      "U",
+      "C",
+      "P",
+      "N"
+     ],
+     "rack": "CUPAN",
+     "level": "Pre-A1",
+     "required": [
+      "cup",
+      "cap",
+      "can",
+      "pan"
+     ],
+     "bonus": []
+    },
+    {
+     "id": "start-4",
+     "world": "start",
+     "order": 4,
+     "title_en": "Bed, Red, Hen, Ten",
+     "title_fa": "تخت، قرمز، مرغ، ده",
+     "letters": [
+      "B",
+      "D",
+      "N",
+      "R",
+      "E",
+      "H",
+      "T"
+     ],
+     "rack": "BEDRHNT",
+     "level": "Pre-A1",
+     "required": [
+      "bed",
+      "red",
+      "hen",
+      "ten"
+     ],
+     "bonus": [
+      "end",
+      "net",
+      "the",
+      "then"
+     ]
+    },
+    {
+     "id": "start-5",
+     "world": "start",
+     "order": 5,
+     "title_en": "Sun, Star, Tree, Net",
+     "title_fa": "خورشید، ستاره، درخت، تور",
+     "letters": [
+      "U",
+      "T",
+      "E",
+      "E",
+      "N",
+      "A",
+      "S",
+      "R"
+     ],
+     "rack": "SUNTAREE",
+     "level": "Pre-A1",
+     "required": [
+      "sun",
+      "star",
+      "tree",
+      "net"
+     ],
+     "bonus": [
+      "run",
+      "sat",
+      "sea",
+      "see",
+      "set",
+      "ten"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "garden",
+   "order": 2,
    "name_en": "Alphabet Garden",
    "name_fa": "باغ الفبا",
    "emoji": "🌱",
@@ -135,7 +283,7 @@
   },
   {
    "id": "village",
-   "order": 2,
+   "order": 3,
    "name_en": "Word Village",
    "name_fa": "دهکدهٔ واژه‌ها",
    "emoji": "🏡",
@@ -304,7 +452,7 @@
   },
   {
    "id": "forest",
-   "order": 3,
+   "order": 4,
    "name_en": "Animal Forest",
    "name_fa": "جنگل حیوانات",
    "emoji": "🦊",
@@ -501,7 +649,7 @@
   },
   {
    "id": "island",
-   "order": 4,
+   "order": 5,
    "name_en": "Treasure Island",
    "name_fa": "جزیرهٔ گنج",
    "emoji": "🏝️",
@@ -744,7 +892,7 @@
   },
   {
    "id": "mountain",
-   "order": 5,
+   "order": 6,
    "name_en": "Adventure Mountain",
    "name_fa": "کوه ماجراجویی",
    "emoji": "⛰️",
@@ -896,7 +1044,7 @@
   },
   {
    "id": "castle",
-   "order": 6,
+   "order": 7,
    "name_en": "Knowledge Castle",
    "name_fa": "قلعهٔ دانش",
    "emoji": "🏰",
@@ -1231,7 +1379,7 @@
   },
   {
    "id": "kingdom",
-   "order": 7,
+   "order": 8,
    "name_en": "Champion Kingdom",
    "name_fa": "پادشاهی قهرمانان",
    "emoji": "👑",
@@ -2770,6 +2918,15 @@
  },
  "badges": [
   {
+   "id": "world-start",
+   "name_en": "First Pictures cleared",
+   "name_fa": "نخستین تصویرها کامل شد",
+   "emoji": "🐣",
+   "kind": "world",
+   "world": "start",
+   "need": 5
+  },
+  {
    "id": "world-garden",
    "name_en": "Alphabet Garden cleared",
    "name_fa": "باغ الفبا کامل شد",
@@ -2871,10 +3028,10 @@
    "tools/wordquest_puzzles.txt"
   ],
   "word_count": 118,
-  "stage_count": 54,
-  "world_count": 7,
+  "stage_count": 59,
+  "world_count": 8,
   "stages_per_level": {
-   "Pre-A1": 10,
+   "Pre-A1": 15,
    "A1": 11,
    "A2": 14,
    "B1": 11,

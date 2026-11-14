@@ -6849,44 +6849,90 @@
   body.kids .wqbadge-i { font-size: 11.5px; padding: 5px 9px; border-radius: 999px; background: var(--surf-1);
                border: 1px dashed var(--k-line-strong); color: var(--ink-3); }
   body.kids .wqbadge-i.on { border-style: solid; background: var(--k-sun-wash); color: var(--k-sun-ink); font-weight: 700; }
-  body.kids .wqplay { gap: 10px; }
-  body.kids .wqobjective { margin: 0; font-size: 13px; font-weight: 600; color: var(--ink-3); }
-  body.kids .wqslots { display: flex; flex-direction: column; gap: 6px; }
-  body.kids .wqslot { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 4px 8px; border-radius: 12px; }
-  body.kids .wqslot.on { background: var(--k-primary-wash); }
-  body.kids .wqslot-letters { display: flex; gap: 4px; flex-wrap: wrap; }
-  body.kids .wqbox { width: 26px; height: 32px; display: grid; place-items: center; border-radius: 7px;
-           border: 1px solid var(--k-line-strong); background: var(--surf-1);
-           color: var(--ink); font-size: 15px; font-weight: 800; font-style: normal; }
-  body.kids .wqslot.on .wqbox { border-color: var(--k-primary-line); background: var(--k-primary-wash); color: var(--k-primary-deep); }
-  body.kids .wqbox.ghost { color: var(--k-primary-dark); opacity: .6; border-style: dashed; }
-  body.kids .wqslot-pic { font-size: 18px; }
-  body.kids .wqslot-fa { font-size: 12px; }
-  body.kids .wqtray { min-height: 46px; display: grid; place-items: center; border-radius: 14px;
-            background: var(--k-primary-wash); border: 1px solid var(--k-primary-line);
-            color: var(--k-primary-deep); font-size: 20px; font-weight: 800; letter-spacing: 3px; }
-  body.kids .wqtray.empty { color: var(--k-primary-dark); opacity: .45; letter-spacing: 6px; }
-  body.kids .wqtray.shake { animation: wqshake .42s ease; }
+  body.kids .wqhow { display: flex; gap: 8px; justify-content: center; }
+  body.kids .wqhow-i { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 999px;
+              background: var(--surf-1); border: 1.5px solid var(--k-line-strong); font-size: 13px; }
+  body.kids .wqhow-i:nth-child(1) { border-color: var(--k-c1); background: var(--k-c1-w); }
+  body.kids .wqhow-i:nth-child(2) { border-color: var(--k-c3); background: var(--k-c3-w); }
+  body.kids .wqhow-i:nth-child(3) { border-color: var(--k-c7); background: var(--k-c7-w); }
+  body.kids .wqhow-ic { font-size: 16px; line-height: 1; }
+  body.kids .wqhow-fa { font-weight: 700; color: var(--k-ink); }
+
+  body.kids .wqplay { gap: 12px; }
+
+  /* --- one word at a time ------------------------------------------------
+     A child who cannot read English cannot be asked to find words they have
+     never seen: the puzzle now opens with the picture, the sound and the
+     Persian meaning of the word, and the boxes underneath say how many
+     letters it needs. Nothing on this screen has to be read to be understood. */
+  body.kids .wqprog { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  body.kids .wqsticker { position: relative; width: 44px; height: 44px; display: grid; place-items: center;
+              border-radius: 12px; border: 2px dashed var(--k-line-strong); background: var(--surf-1);
+              font: inherit; padding: 0; }
+  body.kids .wqsticker-pic { font-size: 21px; line-height: 1; }
+  body.kids .wqsticker-n { font-size: 13px; font-weight: 800; color: var(--k-ink-2); }
+  body.kids .wqsticker.now { border-style: solid; border-color: var(--k-c1); background: var(--k-c1-w);
+                  box-shadow: 0 0 0 3px var(--k-c1-w); }
+  body.kids .wqsticker.on { border-style: solid; border-color: var(--k-c7); background: var(--k-c7-w); cursor: pointer; }
+  body.kids .wqsticker.on:hover { transform: translateY(-1px); }
+
+  body.kids .wqrecap { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 6px; width: 100%; }
+  body.kids .wqrecap-i { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 8px 4px;
+              border-radius: 14px; border: 2px solid var(--k-c7); background: var(--k-c7-w);
+              color: var(--k-c7-i); font: inherit; cursor: pointer; }
+  body.kids .wqrecap-pic { font-size: 26px; line-height: 1.1; }
+  body.kids .wqrecap-i b { font-size: 14px; }
+  body.kids .wqrecap-fa { font-size: 11.5px; }
+
+  body.kids .wqpiccard { display: flex; flex-direction: column; align-items: center; gap: 2px;
+              padding: 14px 12px 10px; border-radius: 20px; border: 2px solid var(--k-c8);
+              background: linear-gradient(180deg, var(--k-c8-w) 0%, var(--surf-1) 88%); }
+  body.kids .wqpic { font-size: 68px; line-height: 1.1; }
+  body.kids .wqpic-fa { font-size: 20px; font-weight: 800; color: var(--k-ink); }
+  body.kids .wqbigsay { display: inline-flex; align-items: center; gap: 7px; min-height: 46px; padding: 0 18px;
+              border-radius: 999px; border: 2px solid var(--k-c3); background: var(--k-c3-w);
+              color: var(--k-c3-i); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+  body.kids .wqbigsay::after { content: 'بشنو'; }
+  body.kids .wqbigsay.on { background: var(--k-c3); color: #fff; }
+
+  body.kids .wqslots { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  body.kids .wqbox { width: 58px; height: 66px; display: grid; place-items: center; border-radius: 14px;
+           border: 2px dashed var(--k-line-strong); background: var(--surf-1);
+           color: var(--k-ink); font: inherit; font-size: 30px; font-weight: 800; padding: 0; }
+  body.kids .wqbox.on { border-style: solid; border-color: var(--k-c4); background: var(--k-c4-w); color: var(--k-c4-i); cursor: pointer; }
+  body.kids .wqbox.shake { animation: wqshake .42s ease; }
   @keyframes wqshake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
-  body.kids .wqrack { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 8px 0 2px; }
-  body.kids .wqletter { width: 58px; height: 62px; border-radius: 14px; border: 1px solid var(--k-primary-line);
-              background: var(--surf-1); color: var(--k-primary-deep); font-size: 24px; font-weight: 800;
-              cursor: pointer; box-shadow: 0 2px 0 var(--k-primary-line); touch-action: none;
+
+  body.kids .wqrack { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 4px 0 2px; }
+  body.kids .wqletter { width: 62px; height: 66px; border-radius: 14px; border: 2px solid var(--k-c3);
+              background: var(--k-c3-w); color: var(--k-c3-i); font: inherit; font-size: 28px; font-weight: 800;
+              cursor: pointer; box-shadow: 0 3px 0 var(--k-c3); touch-action: manipulation;
               transition: transform .12s ease, box-shadow .12s ease; }
+  body.kids .wqletter:nth-child(8n+2) { border-color: var(--k-c1); background: var(--k-c1-w); color: var(--k-c1-i); box-shadow: 0 3px 0 var(--k-c1); }
+  body.kids .wqletter:nth-child(8n+3) { border-color: var(--k-c4); background: var(--k-c4-w); color: var(--k-c4-i); box-shadow: 0 3px 0 var(--k-c4); }
+  body.kids .wqletter:nth-child(8n+4) { border-color: var(--k-c6); background: var(--k-c6-w); color: var(--k-c6-i); box-shadow: 0 3px 0 var(--k-c6); }
+  body.kids .wqletter:nth-child(8n+5) { border-color: var(--k-c5); background: var(--k-c5-w); color: var(--k-c5-i); box-shadow: 0 3px 0 var(--k-c5); }
+  body.kids .wqletter:nth-child(8n+6) { border-color: var(--k-c7); background: var(--k-c7-w); color: var(--k-c7-i); box-shadow: 0 3px 0 var(--k-c7); }
   body.kids .wqletter:hover { transform: translateY(-2px); }
-  body.kids .wqletter:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--k-primary-line); }
-  body.kids .wqletter.used { opacity: .25; box-shadow: none; transform: none; }
+  body.kids .wqletter:active { transform: translateY(2px); box-shadow: none; }
+  body.kids .wqletter.used { opacity: .22; box-shadow: none; transform: none; }
   body.kids .wqletter:focus-visible, body.kids .wqctlbtn:focus-visible, body.kids .wqstage:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
   body.kids .wqctl { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-  body.kids .wqctlbtn { position: relative; min-width: 62px; min-height: 46px; border-radius: 12px;
-              border: 1px solid var(--k-line-strong); background: var(--surf-1);
-              color: var(--ink); font-size: 18px; cursor: pointer; }
-  body.kids .wqctlbtn.hint { background: var(--k-sun-wash); border-color: var(--k-sun-line); }
+  body.kids .wqctlbtn { position: relative; display: inline-flex; flex-direction: column; align-items: center;
+              justify-content: center; gap: 1px; min-width: 76px; min-height: 58px; padding: 4px 8px;
+              border-radius: 14px; border: 2px solid var(--k-c3); background: var(--k-c3-w);
+              color: var(--k-c3-i); font: inherit; font-size: 20px; cursor: pointer; }
+  body.kids .wqctl-l { font-size: 11.5px; font-weight: 800; line-height: 1.2; }
+  body.kids .wqctlbtn.hint { background: var(--k-c8-w); border-color: var(--k-c8); color: var(--k-c8-i); }
+  body.kids .wqctlbtn.shuffle { background: var(--k-c6-w); border-color: var(--k-c6); color: var(--k-c6-i); }
+  body.kids .wqctlbtn.say { background: var(--k-c1-w); border-color: var(--k-c1); color: var(--k-c1-i); }
   body.kids .wqhint-n { position: absolute; top: -5px; right: -5px; min-width: 17px; padding: 0 4px;
               border-radius: 999px; background: var(--k-sun); color: var(--k-sun-ink);
               font-size: 10.5px; font-weight: 800; }
   body.kids .wqhint-n:empty { display: none; }
-  body.kids .wqmsg { margin: 0; min-height: 18px; font-size: 12.5px; line-height: 1.45; color: var(--ink-3); text-align: center; }
+  body.kids .wqmsg { margin: 0; min-height: 20px; font-size: 14px; line-height: 1.5; color: var(--k-ink); text-align: center; }
+  body.kids .wqmsg .wqfa { font-size: 13px; color: var(--k-ink-2); }
+  body.kids .wqmsg.good { color: var(--k-c6-i); font-weight: 800; }
   body.kids .wqbonus { display: flex; flex-direction: column; gap: 5px; }
   body.kids .wqchips { display: flex; flex-wrap: wrap; gap: 5px; }
   body.kids .wqchip { font: inherit; font-size: 11.5px; padding: 4px 9px; border-radius: 999px;
@@ -6927,16 +6973,24 @@
   body.kids .wqcard-ex-en { margin: 0; display: flex; gap: 6px; align-items: flex-start; font-size: 13px; font-style: italic; color: var(--ink); }
   body.kids .wqcard-ex-fa { font-size: 12.5px; }
   body.kids .wqcard-note { margin: 0; font-size: 12px; font-weight: 700; color: var(--k-primary-dark); text-align: center; }
-  body.kids-young .wqletter { width: 62px; height: 66px; font-size: 26px; }
-  body.kids-young .wqbox { width: 29px; height: 35px; font-size: 17px; }
-  @media (max-width: 380px) {
-    body.kids .wqletter { width: 50px; height: 56px; font-size: 21px; }
-    body.kids .wqbox { width: 23px; height: 29px; font-size: 13px; }
-    body.kids .wqctlbtn { min-width: 54px; }
+  body.kids-young .wqletter { width: 68px; height: 72px; font-size: 32px; }
+  body.kids-young .wqbox { width: 64px; height: 72px; font-size: 34px; }
+  body.kids-young .wqpic { font-size: 78px; }
+  @media (max-width: 400px) {
+    body.kids .wqletter { width: 54px; height: 58px; font-size: 24px; }
+    body.kids .wqbox { width: 50px; height: 58px; font-size: 26px; }
+    body.kids .wqbox + .wqbox { margin-left: 0; }
+    body.kids .wqctlbtn { min-width: 66px; }
+    body.kids .wqpic { font-size: 58px; }
+  }
+  @media (max-width: 330px) {
+    body.kids .wqletter { width: 46px; height: 52px; font-size: 21px; }
+    body.kids .wqbox { width: 42px; height: 50px; font-size: 22px; }
   }
   @media (prefers-reduced-motion: reduce) {
     body.kids .wqletter, body.kids .wqgo, body.kids .wqopen { transition: none; }
-    body.kids .wqtray.shake { animation: none; }
+    body.kids .wqbox.shake { animation: none; }
+    body.kids .wqsticker.on:hover, body.kids .wqletter:hover { transform: none; }
   }
   /* ---- the Kids home page --------------------------------------------- */
   body.kids #kpanel, body.kids #hqpanel { display: none; }
@@ -27566,6 +27620,17 @@ const WordQuest = (() => {
     intro.textContent = data.tagline_en + ' ';
     intro.appendChild(faLine(data.tagline_fa, 'wqfa'));
     wrap.appendChild(intro);
+    /* the rule of the game in three pictures, for the child who is not going
+       to read a paragraph of instructions in either language */
+    const how = el('div', 'wqhow');
+    [['👀', 'ببین'], ['🔊', 'بشنو'], ['👆', 'بچین']].forEach((step) => {
+      const pill = el('span', 'wqhow-i');
+      pill.appendChild(el('span', 'wqhow-ic', step[0]));
+      pill.appendChild(el('span', 'wqhow-fa', step[1]));
+      how.appendChild(pill);
+    });
+    how.setAttribute('aria-label', 'Look, listen, build — ببین، بشنو، بچین');
+    wrap.appendChild(how);
     wrap.appendChild(purse());
 
     const up = nextStage();
@@ -27706,19 +27771,23 @@ const WordQuest = (() => {
   }
 
   /* -------------------------------------------------------------- the play */
+  /* ---------------------------------------------------------- the puzzle
+     One word at a time. The child is shown what the word means and hears it
+     before a single letter is touched, so no English has to be read to start;
+     then the letters are tapped into boxes that show how long the word is.
+     Tapping a filled box takes the letter back - there is no way to get stuck,
+     and no timer, lives or score to lose. */
   function startStage(world, stage) {
-    const letters = stage.letters.map((ch) => ({ch: ch, used: false}));
     play = {
       worldId: world.id,
       stage: stage,
-      letters: letters,
+      letters: stage.letters.map((ch) => ({ch: ch, used: false})),
       typed: [],
-      found: [],
-      bonusFound: [],
-      reveals: {},
+      at: 0,
+      solved: [],
       hints: 0,
-      done: false,
       wrong: 0,
+      done: false,
     };
     card = null;
     note = '';
@@ -27726,32 +27795,46 @@ const WordQuest = (() => {
     state.last = stage.id;
     save();
     render();
+    sayWord();
   }
 
-  const wordOf = (indices) => indices.map((i) => play.letters[i].ch).join('').toLowerCase();
-  const typedWord = () => wordOf(play.typed);
-  const pendingRequired = () => play.stage.required.filter((w) => play.found.indexOf(w) < 0);
+  const currentWord = () => (play && !play.done ? (play.stage.required[play.at] || null) : null);
+  const typedWord = () => play.typed.map((i) => play.letters[i].ch).join('').toLowerCase();
 
-  function hintTarget() {
-    const pending = pendingRequired();
-    if (!pending.length) return null;
-    return pending.slice().sort((a, b) => (a.length - b.length) || a.localeCompare(b))[0];
+  function sayWord() {
+    const word = currentWord();
+    if (!word || typeof Speech === 'undefined' || !Speech.speak) return;
+    Speech.speak(word);
+  }
+  function sayLetter(ch) {
+    if (typeof Speech === 'undefined' || !Speech.speak) return;
+    Speech.speak(ch.toUpperCase());
   }
 
   function pickLetter(index) {
-    if (!play || play.done) return;
+    if (!play || play.done || !currentWord()) return;
     const letter = play.letters[index];
+    const word = currentWord();
     if (!letter || letter.used) return;
+    if (play.typed.length >= word.length) return;
     letter.used = true;
     play.typed.push(index);
-    check();
+    note = '';
+    sayLetter(letter.ch);
+    if (play.typed.length === word.length) { check(); return; }
+    render();
   }
-  function undo() {
-    if (!play || !play.typed.length) return;
-    const i = play.typed.pop();
+  function removeAt(pos) {
+    if (!play || play.done) return;
+    if (pos < 0 || pos >= play.typed.length) return;
+    const i = play.typed.splice(pos, 1)[0];
     play.letters[i].used = false;
     note = '';
     render();
+  }
+  function undo() {
+    if (!play || !play.typed.length) return;
+    removeAt(play.typed.length - 1);
   }
   function clearTyped() {
     if (!play) return;
@@ -27760,17 +27843,21 @@ const WordQuest = (() => {
     note = '';
     render();
   }
+  /* Swap the letters still in the rack among themselves. Swapping whole
+     objects used to move a letter out from under the boxes that had already
+     claimed its index, so the letters on the tiles and the letters in the
+     boxes could disagree; only the characters move now. */
   function shuffle() {
     if (!play) return;
     const pool = play.letters.map((l, i) => i).filter((i) => !play.letters[i].used);
-    for (let i = pool.length - 1; i > 0; i -= 1) {
+    const chars = pool.map((i) => play.letters[i].ch);
+    for (let i = chars.length - 1; i > 0; i -= 1) {
       const j = Math.floor(Math.random() * (i + 1));
-      const a = pool[i], b = pool[j];
-      const tmp = play.letters[a];
-      play.letters[a] = play.letters[b];
-      play.letters[b] = tmp;
+      const tmp = chars[i];
+      chars[i] = chars[j];
+      chars[j] = tmp;
     }
-    play.typed = [];
+    pool.forEach((idx, n) => { play.letters[idx].ch = chars[n]; });
     note = '';
     render();
   }
@@ -27781,89 +27868,73 @@ const WordQuest = (() => {
     return before === 0;      // true the first time this child meets the word
   }
 
+  /* The boxes are full, so the word is either right or it is not. A right
+     answer is praised in Persian first, because that is the language the
+     child reads; a wrong one says it is fine, keeps every star, and puts the
+     letters back so the next try starts clean. */
   function check() {
-    if (!play) return;
-    const word = typedWord();
+    if (!play || play.done) return;
+    const word = currentWord();
+    if (!word) return;
     const stage = play.stage;
-    if (!word) { render(); return; }
+    const typed = typedWord();
 
-    if (stage.required.indexOf(word) >= 0) {
-      if (play.found.indexOf(word) >= 0) { note = 'You already found that one.'; render(); return; }
-      play.found.push(word);
+    if (typed === word) {
+      play.solved.push(word);
       const isNew = remember(word);
-      save();
-      note = 'Yes! ' + word.toUpperCase() + ' — ' + stage.required.length + ' words to find.';
-      play.typed.forEach((i) => { play.letters[i].used = false; });
+      const record = data.words[word] || {};
+      note = 'آفرین! ' + word.toUpperCase() + (record.fa ? ' — ' + record.fa : '');
+      play.at += 1;
       play.typed = [];
-      if (play.found.length === stage.required.length) finishStage();
-      else if (isNew) card = word;
+      play.letters.forEach((l) => { l.used = false; });
+      save();
+      if (play.at >= stage.required.length) finishStage();
       render();
+      if (isNew) { card = word; render(); }
+      else if (!play.done) sayWord();
       return;
     }
 
-    if (stage.bonus.indexOf(word) >= 0) {
-      if (play.bonusFound.indexOf(word) >= 0) {
-        note = word.toUpperCase() + ' is a bonus word you already found.';
-        render();
-        return;
-      }
-      play.bonusFound.push(word);
-      const isNew = remember(word);
-      save();
-      note = 'Bonus word! ' + word.toUpperCase() + ' — not needed, but a real word.';
-      play.typed.forEach((i) => { play.letters[i].used = false; });
-      play.typed = [];
-      if (isNew) card = word;
-      render();
-      return;
-    }
-
-    const pending = pendingRequired().concat(stage.bonus.filter((w) => play.bonusFound.indexOf(w) < 0));
-    const couldGrow = pending.some((w) => w.indexOf(word) === 0);
-    if (couldGrow) { render(); return; }
-    /* a wrong word: no penalty, no lost stars, the letters simply come back */
+    /* wrong: no penalty, no lost stars, the letters simply come back */
     play.wrong += 1;
-    note = play.wrong > 2
-      ? 'Not a word this time. A hint can help — هیچ ایرادی ندارد.'
-      : 'Not this time. The letters go back. — این واژه اینجا نیست.';
+    note = play.wrong < 3
+      ? 'اشکالی ندارد، دوباره تلاش کن.'
+      : 'دوباره تلاش کن، یا 💡 را بزن تا یک حرف را نشانت بدهم.';
     render();
     setTimeout(() => {
-      if (play && !play.done) clearTyped();
-    }, reduced() ? 60 : 550);
+      if (play && !play.done) { clearTyped(); sayWord(); }
+    }, reduced() ? 60 : 650);
   }
 
   function finishStage() {
     const stage = play.stage;
     play.done = true;
+    /* hints lower the stars, mistakes never do: a child who tries and gets it
+       wrong has done the practice, and is not punished for it */
     const stars = play.hints === 0 ? 3 : (play.hints <= 2 ? 2 : 1);
     const previous = state.stages[stage.id];
     if (!previous || stars > previous.stars) {
       state.stages[stage.id] = {stars: stars, hints: play.hints};
     }
+    note = '';
     save();
-    if (play.found.length && !card) card = null;
   }
 
   function useHint() {
     if (!play || play.done) return;
-    const target = hintTarget();
-    if (!target) { note = 'Every word is yours already. — همه را یافتی.'; render(); return; }
+    const word = currentWord();
+    if (!word) return;
+    const pos = play.typed.length;
+    if (pos >= word.length) return;
+    const need = word[pos];
+    const idx = play.letters.findIndex((l) => !l.used && l.ch.toLowerCase() === need);
+    if (idx < 0) { clearTyped(); return; }
+    play.letters[idx].used = true;
+    play.typed.push(idx);
     play.hints += 1;
-    const has = Object.prototype.hasOwnProperty.call(play.reveals, target);
-    const shown = play.reveals[target] || 0;
-    const record = data.words[target];
-    /* first the picture and the meaning, then one letter at a time: a hint
-       teaches the word before it spells it, and the child still taps */
-    if (!has && record) {
-      play.reveals[target] = 0;
-      note = 'Hint: ' + record.picture + ' ' + record.def_en + ' — ' + record.fa;
-    } else if (shown < target.length) {
-      play.reveals[target] = shown + 1;
-      note = 'Hint: the word starts ' + target.slice(0, shown + 1).toUpperCase() +
-        ' … and has ' + target.length + ' letters.';
-    } else {
-      note = 'Hint: the word is ' + target.toUpperCase() + '. Tap those letters.';
-    }
+    note = 'حرفِ بعدی «' + need.toUpperCase() + '» است.';
+    sayLetter(need);
+    if (play.typed.length === word.length) { check(); return; }
     render();
   }
 
@@ -27922,49 +27993,71 @@ const WordQuest = (() => {
   function renderPlay(body) {
     const stage = play.stage;
     const world = worldById(play.worldId);
+    const word = currentWord();
     const wrap = el('div', 'wqwrap wqplay');
     wrap.appendChild(head(stage.title_en, stage.title_fa, 'world'));
 
-    const objective = el('p', 'wqobjective');
-    objective.textContent = 'Find ' + stage.required.length + ' words · ' +
-      (play.found.length) + ' found' + (stage.bonus.length ? ' · ' + stage.bonus.length + ' bonus' : '');
-    wrap.appendChild(objective);
-
-    /* the slots: one row per word still to find, with its length visible */
-    const slots = el('div', 'wqslots');
-    stage.required.forEach((word) => {
-      const did = play.found.indexOf(word) >= 0;
-      const reveal = play.reveals[word] || 0;
-      const row = el('div', 'wqslot' + (did ? ' on' : ''));
-      const letters = el('span', 'wqslot-letters');
-      for (let i = 0; i < word.length; i += 1) {
-        const box = el('i', 'wqbox');
-        if (did) box.textContent = word[i].toUpperCase();
-        else if (i < reveal) box.textContent = word[i].toUpperCase();
-        else box.textContent = '';
-        if (!did && i < reveal) box.classList.add('ghost');
-        letters.appendChild(box);
+    /* the stickers: one box per word in the stage, filling with the picture of
+       each word as it is built - the child can see how far along they are
+       without reading a single word of progress text */
+    const prog = el('div', 'wqprog');
+    prog.setAttribute('role', 'list');
+    stage.required.forEach((w, i) => {
+      const done = play.solved.indexOf(w) >= 0;
+      const record = data.words[w] || {};
+      const chip = el(done ? 'button' : 'span',
+        'wqsticker' + (done ? ' on' : '') + (!done && i === play.at ? ' now' : ''));
+      chip.setAttribute('role', 'listitem');
+      chip.appendChild(el('span', 'wqsticker-pic', done ? (record.picture || '✓') : ''));
+      if (!done) chip.appendChild(el('span', 'wqsticker-n', String(i + 1)));
+      if (done) {
+        chip.type = 'button';
+        chip.setAttribute('aria-label', w + ', done. Tap for its card');
+        chip.onclick = () => { card = w; render(); };
       }
-      row.appendChild(letters);
-      if (did) {
-        const record = data.words[word];
-        row.appendChild(el('span', 'wqslot-pic', record ? record.picture : '✓'));
-        row.appendChild(faLine(record ? record.fa : '', 'wqslot-fa'));
-        row.setAttribute('aria-label', word + ' found');
-      } else {
-        row.setAttribute('aria-label', word.length + ' letter word to find');
-      }
-      slots.appendChild(row);
+      prog.appendChild(chip);
     });
-    wrap.appendChild(slots);
+    wrap.appendChild(prog);
 
-    /* the tray shows what the child has tapped so far */
-    const tray = el('div', 'wqtray');
-    tray.setAttribute('aria-live', 'polite');
-    tray.textContent = typedWord().toUpperCase() || '· · ·';
-    if (!typedWord()) tray.classList.add('empty');
-    if (note.indexOf('Not') >= 0 && !reduced()) tray.classList.add('shake');
-    wrap.appendChild(tray);
+    if (word) {
+      const record = data.words[word] || {};
+
+      /* the picture comes first: what is being built, before it is built */
+      const pic = el('div', 'wqpiccard');
+      pic.appendChild(el('div', 'wqpic', record.picture || '🔤'));
+      const say = el('button', 'wqbigsay', '🔊');
+      say.type = 'button';
+      say.setAttribute('aria-label', 'Hear the word again — دوباره بشنو');
+      say.onclick = () => {
+        if (typeof Speech === 'undefined' || !Speech.speak) return;
+        say.classList.add('on');
+        Speech.speak(word, () => say.classList.remove('on'));
+      };
+      pic.appendChild(say);
+      if (record.fa) pic.appendChild(faLine(record.fa, 'wqpic-fa'));
+      wrap.appendChild(pic);
+
+      /* one box per letter, so even a child who has never read the word can
+         count what it needs - and every box gives its letter back */
+      const slots = el('div', 'wqslots');
+      slots.setAttribute('role', 'group');
+      slots.setAttribute('aria-label', word.length + ' boxes for ' + word.length + ' letters');
+      for (let i = 0; i < word.length; i += 1) {
+        const idx = play.typed[i];
+        const box = el('button', 'wqbox' + (idx != null ? ' on' : ''));
+        box.type = 'button';
+        box.textContent = idx != null ? play.letters[idx].ch : '';
+        if (idx != null) {
+          box.setAttribute('aria-label', 'Letter ' + play.letters[idx].ch + ', tap to take it back');
+          box.onclick = () => removeAt(i);
+        } else {
+          box.disabled = true;
+          box.setAttribute('aria-label', 'Empty box ' + (i + 1));
+        }
+        slots.appendChild(box);
+      }
+      wrap.appendChild(slots);
+    }
 
     /* the rack: the letters themselves, big enough for a thumb */
     const rack = el('div', 'wqrack');
@@ -27994,52 +28087,60 @@ const WordQuest = (() => {
     });
     wrap.appendChild(rack);
 
+    /* three controls, each with its icon and its Persian word under it: a
+       child who cannot read English is not left guessing at an emoji */
     const controls = el('div', 'wqctl');
-    const mk = (label, text, title, fn, cls) => {
-      const b = el('button', name_(cls), text);
+    const mk = (icon, fa, label, fn, cls) => {
+      const b = el('button', name_(cls));
       b.type = 'button';
-      b.title = title;
+      b.appendChild(el('span', 'wqctl-ic', icon));
+      b.appendChild(el('span', 'wqctl-l', fa));
       b.setAttribute('aria-label', label);
+      b.title = label;
       b.onclick = fn;
       return b;
     };
-    controls.appendChild(mk('Undo one letter', '⌫', 'Undo — یکی کم کن', undo));
-    controls.appendChild(mk('Clear the word', '✕', 'Clear — پاک کن', clearTyped));
-    controls.appendChild(mk('Shuffle the letters', '🔀', 'Shuffle — جابه‌جا', shuffle));
-    const hint = mk('Get a hint', '💡', 'Hint — راهنما', useHint, 'hint');
+    controls.appendChild(mk('🔊', 'بشنو', 'Hear the word — واژه را بشنو', () => {
+      sayWord();
+    }, 'say'));
+    controls.appendChild(mk('🔀', 'قاطی کن', 'Mix the letters up — حروف را قاطی کن', shuffle, 'shuffle'));
+    const hint = mk('💡', 'راهنما', 'Show me the next letter — حرف بعدی را نشان بده', useHint, 'hint');
     hint.appendChild(el('span', 'wqhint-n', play.hints ? String(play.hints) : ''));
     controls.appendChild(hint);
     wrap.appendChild(controls);
 
     const msg = el('p', 'wqmsg');
+    msg.setAttribute('aria-live', 'polite');
     msg.textContent = note;
+    if (note.indexOf('آفرین') === 0) msg.classList.add('good');
     wrap.appendChild(msg);
-
-    if (play.bonusFound.length) {
-      const bonus = el('div', 'wqbonus');
-      bonus.appendChild(el('small', '', 'Bonus words — واژه‌های اضافه'));
-      const chips = el('div', 'wqchips');
-      play.bonusFound.forEach((w) => {
-        const chip = el('button', 'wqchip wqchip-bonus', w);
-        chip.type = 'button';
-        chip.setAttribute('aria-label', w + ', bonus word, tap for the card');
-        chip.onclick = () => { card = w; render(); };
-        chips.appendChild(chip);
-      });
-      bonus.appendChild(chips);
-      wrap.appendChild(bonus);
-    }
 
     if (play.done) {
       const done = el('div', 'wqfinish');
       const stars = state.stages[stage.id] ? state.stages[stage.id].stars : 3;
       done.appendChild(el('div', 'wqfinish-pic', world ? world.emoji : '🌟'));
       done.appendChild(el('b', '', 'Stage complete!'));
-      done.appendChild(starsRow(stars));
       done.appendChild(faLine('مرحله کامل شد', 'wqfa'));
+      done.appendChild(starsRow(stars));
       done.appendChild(el('small', '', play.hints
         ? 'You used ' + play.hints + ' hint' + (play.hints > 1 ? 's' : '') + '. That is allowed — هیچ جریمه‌ای نیست.'
         : 'No hints needed. Three stars.'));
+
+      /* the words just built, side by side: the child reads back what they made
+         and hears any of them again by tapping it */
+      const recap = el('div', 'wqrecap');
+      stage.required.forEach((w) => {
+        const rec = data.words[w] || {};
+        const chip = el('button', 'wqrecap-i');
+        chip.type = 'button';
+        chip.appendChild(el('span', 'wqrecap-pic', rec.picture || '✓'));
+        chip.appendChild(el('b', '', w));
+        chip.appendChild(faLine(rec.fa || '', 'wqrecap-fa'));
+        chip.setAttribute('aria-label', w + ', tap for the card');
+        chip.onclick = () => { card = w; render(); };
+        recap.appendChild(chip);
+      });
+      done.appendChild(recap);
       const next = nextAfter(stage);
       if (next) {
         const b = el('button', 'wqgo');

@@ -219,6 +219,13 @@ def check_wiring() -> None:
         ('self.path.startswith("/api/wordquest")', "the route"),
         ("wrqpanel: ['Word Quest', 'جست‌وجوی واژه', '🔤']", "the kids home tile"),
         ("wrqtoggle: 'Letters'", "the toolbar label"),
+        # the puzzle is picture-first: a child who cannot read English still has
+        # to know what they are building before they build it
+        ("wqpiccard", "the word's picture in the puzzle"),
+        ("const currentWord = () =>", "one word at a time"),
+        ("sayWord(", "the word is spoken aloud"),
+        ("play.typed.length === word.length", "the boxes decide when to check"),
+        ("function removeAt(", "a filled box gives its letter back"),
     ]
     for needle, what in need:
         if needle not in page:
@@ -240,6 +247,13 @@ def check_wiring() -> None:
     for banned in ("fetch(", "XMLHttpRequest"):
         if banned in module.split("return {open, render};")[0]:
             bad(f"wiring: the game reaches the network at play time ({banned})")
+    # the old puzzle asked a child to hunt for words they could not see, and
+    # printed English-only instructions at them; neither may come back
+    for gone, what in (("wqtray", "the tray of guessed letters"),
+                       ("wqslot-letters", "the word-hunt rows"),
+                       ("Find ' + stage.required.length + ' words", "English-only instructions")):
+        if gone in module:
+            bad(f"wiring: {what} is back in the puzzle")
 
 
 def check_bundle() -> None:
