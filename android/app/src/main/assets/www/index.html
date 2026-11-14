@@ -6888,10 +6888,51 @@
   body.kids #gpanel.open, body.kids #fpanel.open, body.kids #lpanel.open,
   body.kids #rdpanel.open, body.kids #stpanel.open, body.kids #acpanel.open,
   body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open,
-  body.kids #hqpanel.open {
+  body.kids #hqpanel.open, body.kids #wrqpanel.open {
     border-radius: 20px 20px 0 0;
     background: var(--k-surface);
     border-color: var(--k-line);
+  }
+  /* ---- the world under every page ---------------------------------------
+          One picture of the fox - glasses, notebook, pencil, the stack of books
+     and the letters floating by - sits under the whole kids app and under
+     every section page, as a watermark rather than an illustration.
+
+     It is a backdrop, so it is drawn as one: the picture is the bottom layer
+     and a veil of the page's own cream is painted over it at 89%, which leaves
+     the art at about 11% - inside the 8-15% a watermark should hold and faint
+     enough that the fox is a shape behind the cards, never something a child
+     has to read around. Nothing is stacked above the text or the buttons: this
+     is a background-image on the page itself, so every word still sits on the
+     same clean surface it sat on before.
+
+     contain, not cover. Cover would fill the frame by cropping, and the only
+     thing it can crop here is the mascot and the books at the edges - the two
+     parts worth keeping. Contained and anchored to the bottom, the whole scene
+     is always present and always in the same relationship to the page.
+
+     The cap in the size keeps one phone-page and one desktop-page reading the
+     same way: a 560px scene centred at the foot of the page, not a wall of
+     artwork stretched to 1060px wide. */
+  body.kids .app,
+  body.kids #kpanel.open, body.kids #vpanel.open, body.kids #gpanel.open,
+  body.kids #fpanel.open, body.kids #lpanel.open, body.kids #rdpanel.open,
+  body.kids #stpanel.open, body.kids #acpanel.open, body.kids #pathpanel.open,
+  body.kids #lvlpanel.open, body.kids #rpanel.open, body.kids #dpanel.open,
+  body.kids #npanel.open, body.kids #bpanel.open, body.kids #wqpanel.open,
+  body.kids #prpanel.open, body.kids #phpanel.open,
+  body.kids #hqpanel.open, body.kids #wrqpanel.open {
+    background-image:
+      linear-gradient(180deg, rgba(253, 241, 223, .89) 0%, rgba(255, 250, 240, .89) 100%),
+      url("brand/kids-fox-bg.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center bottom;
+    background-size: cover, min(560px, 82%) auto;
+    /* fixed, not scroll: the art is pinned to the window, so the fox is in the
+       same place whether the page is at its first card or its last. Scrolling
+       a 2000px page past a picture anchored to its foot is the same as having
+       no picture at all - the child never reaches it. */
+    background-attachment: scroll, fixed;
   }
   body.kids #kpanel h3, body.kids #vpanel h3, body.kids #gpanel h3,
   body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,

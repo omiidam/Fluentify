@@ -525,7 +525,11 @@ print(f"synced {len(FONTS)} font files -> {font_out}")
 # only copies - a missing file is a build failure, not a mascot that quietly
 # turns into a broken image inside the app.
 BRAND_DIR = ROOT / "brand"
-BRAND_FILES = ["fox-mark.png", "fox-face.png"]
+# kids-fox-bg.png is the watermarked scene under every kids page: the page's
+# own cream veil sits over it at 89%, so the art reads at about 11%. It has to
+# travel with the page for the same reason the mascot does - inside the APK the
+# background would otherwise be a 404 and the page would fall back to flat cream.
+BRAND_FILES = ["fox-mark.png", "fox-face.png", "kids-fox-bg.png"]
 missing_brand = [f for f in BRAND_FILES if not (BRAND_DIR / f).exists()]
 if missing_brand:
     raise SystemExit("build_apk_ui: brand art missing from brand/: "
