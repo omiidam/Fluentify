@@ -549,6 +549,75 @@ def check_paper_and_quest(src):
               f"the adult {gone} is still shown on a child's loading page")
 
 
+def check_crossword(src):
+    """The crossword is hardcoded, so its data has to be checked as data.
+
+    A puzzle here is a grid, a list of entries and a table of cells the page
+    reads without any engine behind it. If the letter in an entry and the
+    letter in the cell it covers ever disagree, a child types the right word
+    and the board never turns green - there is no server to notice and no
+    runtime check that would catch it. So the check is done here, on the
+    literal that ships.
+    """
+    marker = "const CW_DATA = "
+    if marker not in src:
+        problems.append("the crossword data is missing from the page")
+        return
+    try:
+        start = src.index(marker) + len(marker)
+        raw = src[start:src.index(";\n", start)]
+        data = json.loads(raw)
+    except Exception as exc:
+        problems.append(f"the crossword data is not valid JSON: {exc}")
+        return
+
+    check(len(data) == 3, f"the crossword should have 3 worlds, found {len(data)}")
+    stages = 0
+    words = 0
+    for world in data:
+        for key in ("id", "en", "fa", "e", "stages"):
+            check(bool(world.get(key)), f"a crossword world is missing {key}")
+        for stage in world["stages"]:
+            stages += 1
+            rows, cols = stage["rows"], stage["cols"]
+            check(3 <= rows <= 8 and 3 <= cols <= 8,
+                  f"{stage['t']} is {rows}x{cols}; a child's board should be 3-8")
+            cells = {}
+            for s in stage["cells"]:
+                r, c, ch = s.split(":")
+                cells[(int(r), int(c))] = ch
+            check(len(stage["entries"]) >= 3, f"{stage['t']} has fewer than 3 words")
+            for e in stage["entries"]:
+                words += 1
+                answer = e["a"]
+                check(answer.isalpha() and answer.isupper(),
+                      f"{stage['t']}: {answer} is not a plain capitalised word")
+                check(3 <= len(answer) <= 6,
+                      f"{stage['t']}: {answer} is {len(answer)} letters, too long for the board")
+                check(e["d"] in ("across", "down"), f"{stage['t']}: {answer} has no direction")
+                check(bool(e.get("e")) and bool(e.get("q")),
+                      f"{stage['t']}: {answer} has no picture or English clue")
+                fa = e.get("f") or ""
+                check(any("\u0600" <= ch <= "\u06ff" for ch in fa),
+                      f"{stage['t']}: {answer} has no Persian clue")
+                for i, ch in enumerate(answer):
+                    r = e["r"] + (i if e["d"] == "down" else 0)
+                    c = e["c"] + (i if e["d"] == "across" else 0)
+                    got = cells.get((r, c))
+                    check(got == ch,
+                          f"{stage['t']}: {answer} expects {ch} at {r},{c} but the board has {got}")
+                check((e["r"], e["c"]) in cells,
+                      f"{stage['t']}: {answer} starts on a cell that is not on the board")
+
+    check(stages >= 6, f"the crossword should offer at least 6 stages, found {stages}")
+    stats["crossword_stages"] = stages
+    stats["crossword_words"] = words
+
+    for need in ('id="cwtoggle"', 'id="cwpanel"', 'cwpanel: () => ',
+                 "Crossword.open()", "fluentify.kids.crossword"):
+        check(need in src, f"the crossword is not wired: {need} is missing")
+
+
 def main():
     if not KIDS.exists():
         print("FAIL  kids.json does not exist")
@@ -580,6 +649,8 @@ def main():
 
     print("\nthe adult app")
     check_adults_untouched(src)
+    check_crossword(src)
+    check_crossword(src)
 
     if problems:
         print()

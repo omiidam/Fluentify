@@ -1427,7 +1427,7 @@
      it from the start. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
   #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel,
-  #pathpanel, #kpanel, #hqpanel, #wrqpanel {
+  #pathpanel, #kpanel, #hqpanel, #wrqpanel, #cwpanel {
     display: none; padding: 14px var(--secpad) 30px;
     /* The page gutter, named once: the header band has to reach exactly the
        panel's edges, and a second copy of this number was two pixels wider on
@@ -1447,7 +1447,7 @@
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
   #dpanel.open, #npanel.open, #bpanel.open, #stpanel.open,
   #lvlpanel.open, #wqpanel.open, #prpanel.open, #pathpanel.open,
-  #kpanel.open, #hqpanel.open, #wrqpanel.open { display: block; }
+  #kpanel.open, #hqpanel.open, #wrqpanel.open, #cwpanel.open { display: block; }
   #rdpanel.open { display: block; max-height: none; overflow-y: auto; }
   /* The transcript and the composer belong to the conversation, not to a
      section page. Opening a section is a change of destination, so they are
@@ -6759,6 +6759,10 @@
        quest needed a hue of their own, and both sit far enough from the dark
        forest green of --k-good that a section cannot read as "correct". */
     --k-teal: #31b7a5; --k-teal-wash: #eaf9f5; --k-teal-line: #b7e6dd; --k-teal-ink: #0d6156;
+    /* the crossword's own identity: a plum, because the nine section colours
+       were all spoken for and a tenth identity has to be tellable from the
+       lavender of Grammar at a glance */
+    --k-plum: #a24fd0; --k-plum-wash: #f8effd; --k-plum-line: #e3c6f4; --k-plum-ink: #6a1f8f;
     --k-lime: #9bcb55; --k-lime-wash: #f3f9e7; --k-lime-line: #d5eab3; --k-lime-ink: #4a6b14;
     /* The rainbow the lists cycle through: eight hardcoded pairs, bright edge
        and pale wash, with the ink that clears 4.5:1 on it. Nothing here is
@@ -6907,7 +6911,7 @@
   body.kids #gpanel.open, body.kids #fpanel.open, body.kids #lpanel.open,
   body.kids #rdpanel.open, body.kids #stpanel.open, body.kids #acpanel.open,
   body.kids #pathpanel.open, body.kids #lvlpanel.open, body.kids #rpanel.open,
-  body.kids #hqpanel.open, body.kids #wrqpanel.open {
+  body.kids #hqpanel.open, body.kids #wrqpanel.open, body.kids #cwpanel.open {
     border-radius: 20px 20px 0 0;
     background: var(--k-surface);
     border-color: var(--k-line);
@@ -6940,7 +6944,7 @@
   body.kids #lvlpanel.open, body.kids #rpanel.open, body.kids #dpanel.open,
   body.kids #npanel.open, body.kids #bpanel.open, body.kids #wqpanel.open,
   body.kids #prpanel.open, body.kids #phpanel.open,
-  body.kids #hqpanel.open, body.kids #wrqpanel.open {
+  body.kids #hqpanel.open, body.kids #wrqpanel.open, body.kids #cwpanel.open {
     background-image:
       linear-gradient(180deg, rgba(253, 241, 223, .89) 0%, rgba(255, 250, 240, .89) 100%),
       url("brand/kids-fox-bg.png");
@@ -6956,7 +6960,7 @@
   body.kids #kpanel h3, body.kids #vpanel h3, body.kids #gpanel h3,
   body.kids #fpanel h3, body.kids #lpanel h3, body.kids #rdpanel h3,
   body.kids #stpanel h3, body.kids #dpanel h3, body.kids #acpanel h3,
-  body.kids #pathpanel h3, body.kids #hqpanel h3 { font-size: 22px; }
+  body.kids #pathpanel h3, body.kids #hqpanel h3, body.kids #cwpanel h3 { font-size: 22px; }
   /* A panel says which world it belongs to before its title is read: the same
      accent as its home tile, as a small block on the title's leading edge.
      The title still says the name, so the color is a second cue, not the only
@@ -6964,7 +6968,7 @@
   body.kids #vpanel h3::before, body.kids #gpanel h3::before,
   body.kids #rdpanel h3::before, body.kids #lpanel h3::before,
   body.kids #stpanel h3::before, body.kids #fpanel h3::before,
-  body.kids #hqpanel h3::before {
+  body.kids #hqpanel h3::before, body.kids #cwpanel h3::before {
     content: ""; display: inline-block; width: 11px; height: 11px;
     border-radius: 4px; margin-inline-end: 9px; vertical-align: 1px;
     background: var(--k-sec, var(--k-primary));
@@ -6993,6 +6997,8 @@
     --k-sec-wash: var(--k-orange-wash); --k-sec-line: var(--k-orange-line); }
   body.kids #wrqpanel { --k-sec: var(--k-lime); --k-sec-ink: var(--k-lime-ink);
     --k-sec-wash: var(--k-lime-wash); --k-sec-line: var(--k-lime-line); }
+  body.kids #cwpanel { --k-sec: var(--k-plum); --k-sec-ink: var(--k-plum-ink);
+    --k-sec-wash: var(--k-plum-wash); --k-sec-line: var(--k-plum-line); }
   /* And the accent runs the length of the page, not just the 11px square
      beside the title: the heading takes the ink, so does a back link; every
      list row is outlined in the section's line and its icon chip sits on the
@@ -7031,6 +7037,171 @@
   body.kids [id$="panel"]:not(#kpanel).open {
     background: linear-gradient(180deg, var(--k-sec-wash) 0, transparent 260px);
     border-radius: 20px;
+  }
+
+  /* ---- the crossword ---------------------------------------------------
+     A picture crossword for a child who cannot read the clues yet. Every
+     word is a thing in the app's own vocabulary, every clue is an emoji first
+     and a sentence second, and the Persian meaning sits under the English on
+     the same card, so a child who only reads Farsi can still play: the emoji
+     says what the word is, the Persian says it again, and the letters only
+     have to be put in order.
+
+     The board is the biggest thing on the page on purpose. A cell is never
+     smaller than 34px and never bigger than 52, it is a button rather than an
+     input, and the row the child is working on is washed in the section
+     colour while the cell itself carries a ring - shape and position, not
+     colour alone. */
+  body.kids #cwpanel { --cw-cell: clamp(34px, 8.4vw, 52px); }
+  body.kids #cwpanel h3 { font-size: 15px; letter-spacing: .01em; }
+  body.kids .cw-wrap { display: flex; flex-direction: column; gap: 12px; padding-bottom: 16px; }
+  body.kids .cw-bar { display: flex; align-items: center; gap: 10px; }
+  body.kids .cw-back {
+    flex: 0 0 auto; width: 46px; height: 46px; border-radius: 14px; cursor: pointer;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); font-size: 19px; font-weight: 800; line-height: 1;
+  }
+  body.kids .cw-back:hover { border-color: var(--k-plum-line); background: var(--k-plum-wash); }
+  body.kids .cw-where { flex: 1 1 auto; min-width: 0; }
+  body.kids .cw-where b { display: block; font-size: 17px; color: var(--k-ink); }
+  body.kids .cw-where i { font-style: normal; font-size: 13.5px; color: var(--k-ink-2); }
+  body.kids .cw-stars {
+    flex: 0 0 auto; font-size: 14px; font-weight: 800; color: var(--k-sun-ink);
+    background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line);
+    border-radius: 999px; padding: 5px 11px; white-space: nowrap;
+  }
+
+  /* ---- the shelf: three worlds, each with its stages on one line ---- */
+  body.kids .cw-hero {
+    display: flex; gap: 12px; align-items: center; padding: 14px 16px;
+    border-radius: 20px; border: 1.5px solid var(--k-plum-line);
+    background: var(--k-plum-wash);
+  }
+  body.kids .cw-hero img { width: 64px; height: 64px; flex: 0 0 auto; }
+  body.kids .cw-hero h4 { font-size: 18px; color: var(--k-plum-ink); }
+  body.kids .cw-hero p { font-size: 13.5px; color: var(--k-ink-2); line-height: 1.5; }
+  body.kids .cw-world {
+    display: flex; flex-direction: column; gap: 10px; padding: 12px 14px;
+    border: 1.5px solid var(--k-line); border-radius: 20px;
+    background: var(--k-surface); box-shadow: 0 3px 0 rgba(74, 58, 30, .06);
+  }
+  body.kids .cw-world h4 { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; font-size: 17px; color: var(--k-ink); }
+  body.kids .cw-world h4 small { font-size: 12.5px; font-weight: 700; color: var(--k-ink-2); }
+  body.kids .cw-stages { display: flex; gap: 8px; flex-wrap: wrap; }
+  body.kids .cw-stage {
+    min-width: 68px; min-height: 60px; padding: 6px 10px; border-radius: 16px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+    border: 2px solid var(--k-plum-line); background: var(--k-plum-wash);
+    color: var(--k-plum-ink); font-size: 20px; font-weight: 800; cursor: pointer;
+  }
+  body.kids .cw-stage small { font-size: 10.5px; font-weight: 700; letter-spacing: .02em; }
+  body.kids .cw-stage.done { background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good); }
+  body.kids .cw-stage[disabled] { opacity: .42; cursor: not-allowed; }
+  body.kids .cw-stage:focus-visible { outline: 3px solid var(--k-plum); outline-offset: 2px; }
+
+  /* ---- the board ---- */
+  body.kids .cw-board {
+    display: grid; gap: 4px; justify-content: center; width: max-content;
+    max-width: 100%; margin: 0 auto; padding: 12px; border-radius: 20px;
+    background: var(--k-surface-2); border: 1.5px solid var(--k-line);
+    overflow-x: auto;
+  }
+  body.kids .cw-cell {
+    width: var(--cw-cell); height: var(--cw-cell); padding: 0; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; position: relative;
+    border-radius: 10px; border: 2px solid var(--k-line-strong);
+    background: var(--k-surface); color: var(--k-ink);
+    font-size: calc(var(--cw-cell) * .46); font-weight: 800;
+  }
+  body.kids .cw-cell b {
+    position: absolute; top: 1px; inset-inline-start: 4px;
+    font-size: 9.5px; font-weight: 800; color: var(--k-ink-2); line-height: 1.2;
+  }
+  /* the word being typed, and the cell the letter will land in */
+  body.kids .cw-cell.on { background: var(--k-plum-wash); border-color: var(--k-plum-line); }
+  body.kids .cw-cell.cur {
+    background: var(--k-surface); border-color: var(--k-plum);
+    box-shadow: 0 0 0 3px var(--k-plum-wash);
+  }
+  body.kids .cw-cell.got { background: var(--k-good-wash); border-color: var(--k-good-line); color: var(--k-good); }
+  /* a word that is full but not right: the cells keep their letters and only
+     the frame changes, so nothing a child typed is thrown away */
+  body.kids .cw-cell.miss { border-color: var(--k-bad-line); background: var(--k-bad-wash); }
+  body.kids .cw-cell.gap { background: transparent; border: 0; cursor: default; }
+
+  /* ---- the clue card: emoji first, then English, then Farsi ---- */
+  body.kids .cw-clue {
+    display: flex; gap: 12px; align-items: center; padding: 12px 14px;
+    border-radius: 20px; border: 1.5px solid var(--k-plum-line);
+    background: var(--k-surface);
+  }
+  body.kids .cw-clue .cw-emoji { font-size: 42px; line-height: 1; flex: 0 0 auto; }
+  body.kids .cw-clue .cw-cluetext { flex: 1 1 auto; min-width: 0; display: block; }
+  body.kids .cw-clue .cw-en { display: block; font-size: 16px; font-weight: 700;
+    color: var(--k-ink); line-height: 1.35; }
+  body.kids .cw-clue .cw-fa { display: block; direction: rtl; text-align: right;
+    font-size: 14.5px; color: var(--k-ink-2); margin-top: 3px; line-height: 1.6; }
+  body.kids .cw-chip {
+    display: inline-block; margin-top: 6px; padding: 2px 9px; border-radius: 999px;
+    font-size: 12px; font-weight: 800; color: var(--k-plum-ink);
+    background: var(--k-plum-wash); border: 1px solid var(--k-plum-line);
+  }
+
+  /* ---- the keyboard ---- */
+  body.kids .cw-keys { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; }
+  body.kids .cw-key {
+    min-height: 44px; padding: 0; border-radius: 10px; cursor: pointer;
+    border: 1.5px solid var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); font-size: 16px; font-weight: 800;
+  }
+  body.kids .cw-key:hover { background: var(--k-plum-wash); border-color: var(--k-plum-line); }
+  body.kids .cw-key:active { transform: translateY(1px); }
+  body.kids .cw-key.wide { grid-column: span 2; font-size: 15px; }
+  @media (max-width: 420px) {
+    body.kids .cw-keys { grid-template-columns: repeat(7, 1fr); }
+    body.kids .cw-key { min-height: 42px; font-size: 15px; }
+  }
+
+  /* ---- the three helpers, each one a tap ---- */
+  body.kids .cw-tools { display: flex; gap: 8px; flex-wrap: wrap; }
+  body.kids .cw-btn {
+    flex: 1 1 0; min-height: 52px; padding: 8px 12px; border-radius: 16px; cursor: pointer;
+    border: 2px solid var(--k-plum-line); background: var(--k-plum-wash);
+    color: var(--k-plum-ink); font-size: 15px; font-weight: 800;
+  }
+  body.kids .cw-btn small { display: block; font-size: 11px; font-weight: 700; opacity: .85; }
+  body.kids .cw-btn:hover { border-color: var(--k-plum); }
+  body.kids .cw-btn.ghost { background: var(--k-surface); border-color: var(--k-line-strong); color: var(--k-ink-2); }
+  body.kids .cw-msg { min-height: 20px; font-size: 14px; font-weight: 700; color: var(--k-ink-2); text-align: center; }
+  body.kids .cw-msg.good { color: var(--k-good); }
+  body.kids .cw-msg.bad { color: var(--k-bad); }
+
+  /* ---- how to play, in Farsi, folded away until it is asked for ---- */
+  body.kids .cw-how {
+    border: 1.5px dashed var(--k-plum-line); border-radius: 18px;
+    background: var(--k-surface); padding: 10px 14px;
+  }
+  body.kids .cw-how summary {
+    cursor: pointer; font-size: 14px; font-weight: 800; color: var(--k-plum-ink);
+    list-style: none;
+  }
+  body.kids .cw-how summary::-webkit-details-marker { display: none; }
+  body.kids .cw-how summary::before { content: "❓ "; }
+  body.kids .cw-how ol { margin: 8px 0 0; padding-inline-start: 20px; }
+  body.kids .cw-how li { font-size: 13.5px; color: var(--k-ink-2); line-height: 1.85; }
+
+  /* ---- one stage finished ---- */
+  body.kids .cw-done {
+    display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;
+    padding: 18px 16px; border-radius: 22px;
+    border: 2px solid var(--k-good-line); background: var(--k-good-wash);
+  }
+  body.kids .cw-done .cw-trophy { font-size: 46px; line-height: 1; }
+  body.kids .cw-done h4 { font-size: 19px; color: var(--k-good); }
+  body.kids .cw-done p { font-size: 14px; color: var(--k-ink-2); }
+  body.kids .cw-done .cw-stars { background: var(--k-surface); }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .cw-cell, body.kids .cw-key, body.kids .cw-btn { transition: none; }
   }
 
   /* ---- Word Quest: the letter puzzle ---------------------------------- */
@@ -7282,6 +7453,7 @@
   body.kids #kidstoggle { --kt-c: var(--k-c8); --kt-w: var(--k-c8-w); --kt-i: var(--k-c8-i); }
   body.kids #hqtoggle  { --kt-c: var(--k-c1); --kt-w: var(--k-c1-w); --kt-i: var(--k-c1-i); }
   body.kids #wrqtoggle { --kt-c: var(--k-c7); --kt-w: var(--k-c7-w); --kt-i: var(--k-c7-i); }
+  body.kids #cwtoggle  { --kt-c: var(--k-plum); --kt-w: var(--k-plum-wash); --kt-i: var(--k-plum-ink); }
   body.kids #vtoggle   { --kt-c: var(--k-c3); --kt-w: var(--k-c3-w); --kt-i: var(--k-c3-i); }
   body.kids #gtoggle   { --kt-c: var(--k-c4); --kt-w: var(--k-c4-w); --kt-i: var(--k-c4-i); }
   body.kids #ltoggle   { --kt-c: var(--k-c6); --kt-w: var(--k-c6-w); --kt-i: var(--k-c6-i); }
@@ -7293,6 +7465,19 @@
   body.kids #ntoggle   { --kt-c: var(--k-c4); --kt-w: var(--k-c4-w); --kt-i: var(--k-c4-i); }
   body.kids #kidsmore  { --kt-c: var(--k-c4); --kt-w: var(--k-c4-w); --kt-i: var(--k-c4-i); }
   body.kids #clear     { --kt-c: var(--k-c2); --kt-w: var(--k-c2-w); --kt-i: var(--k-c2-i); }
+  /* The eighth tile made the strip wider than a phone, and a child does not
+     guess that a row of buttons scrolls sideways - the last one simply does
+     not exist for them. On a phone the row wraps to a second line instead, so
+     every section is visible without a gesture. */
+  @media (max-width: 600px) {
+    body.kids .tools { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 6px; }
+    /* eleven tiles in a scroll row meant the last three were never seen. Two
+       rows of six fits the whole alphabet of sections on a phone in the space
+       one and a half rows of scroll strip used to take. */
+    body.kids .tools .hbtn { width: 50px; height: 54px; border-radius: 15px; }
+    body.kids .tools .hbtn i, body.kids .tools .hbtn i svg { width: 20px; height: 20px; }
+    body.kids .tools .hbtn span { font-size: 10px; }
+  }
   @media (max-width: 400px) {
     body.kids .tools .hbtn { width: 50px; height: 58px; border-radius: 16px; }
     body.kids .tools .hbtn i, body.kids .tools .hbtn i svg { width: 22px; height: 22px; }
@@ -7386,6 +7571,9 @@
   body.kids #wrqpanel { display: none; }
   body.kids #wrqpanel.open { display: block; }
   body:not(.kids) #wrqtoggle, body:not(.kids) #wrqpanel { display: none !important; }
+  body.kids #cwpanel { display: none; }
+  body.kids #cwpanel.open { display: block; }
+  body:not(.kids) #cwtoggle, body:not(.kids) #cwpanel { display: none !important; }
   /* A child's toolbar is seven big doors, not seventeen: the tools that need
      explaining wait behind More, one tap away and out of the first glance. */
   body.kids .tools:not(.moreopen) .kadv { display: none; }
@@ -7407,7 +7595,7 @@
      width of the shell, capped, centred, all of them the same. */
   body.kids #kpanel, body.kids #vpanel, body.kids #gpanel, body.kids #rdpanel,
   body.kids #lpanel, body.kids #stpanel, body.kids #fpanel,
-  body.kids #hqpanel, body.kids #wrqpanel {
+  body.kids #hqpanel, body.kids #wrqpanel, body.kids #cwpanel {
     width: 100%; max-width: 1060px; margin-inline: auto;
   }
   @media (min-width: 700px) {
@@ -9398,6 +9586,9 @@
       <button class="hbtn tint-mint" id="wrqtoggle" aria-expanded="false"
               title="Word Quest — جست‌وجوی واژه" aria-label="Word Quest — the letter puzzle game">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.2" y="3.6" width="7.6" height="7.6" rx="2"/><rect x="13.2" y="12.8" width="7.6" height="7.6" rx="2"/><path d="M6.1 6.4 7.6 9.2 9.1 6.4M16.2 16.5h1.6M17 15v3"/></svg></i><span>Letters</span></button>
+      <button class="hbtn tint-plum" id="cwtoggle" aria-expanded="false"
+              title="Crossword — جدول کلمات" aria-label="Crossword — a picture word puzzle">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.4" y="3.4" width="7.4" height="7.4" rx="1.8"/><rect x="13.2" y="3.4" width="7.4" height="7.4" rx="1.8"/><rect x="3.4" y="13.2" width="7.4" height="7.4" rx="1.8"/><path d="M14.4 17h5M16.9 14.5v5"/></svg></i><span>Puzzle</span></button>
       <button class="hbtn tint-slate" id="kidsmore" aria-expanded="false" hidden
               title="More tools — ابزارهای بیشتر" aria-label="More tools">
         <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></svg></i><span>More</span></button>
@@ -9452,6 +9643,11 @@
   <div id="wrqpanel">
     <h3>Word Quest — <bdi class="fa" lang="fa" dir="rtl">جست‌وجوی واژه</bdi></h3>
     <div id="wqbody" aria-live="polite"></div>
+  </div>
+
+  <div id="cwpanel">
+    <h3>Crossword — <bdi class="fa" lang="fa" dir="rtl">جدول کلمات</bdi></h3>
+    <div id="cwbody" aria-live="polite"></div>
   </div>
 
   <div id="dpanel">
@@ -11517,6 +11713,8 @@ const Panels = (() => {
     hqpanel: 'hqtoggle',
     // Word Quest is the second kids game, and has the same rule again
     wrqpanel: 'wrqtoggle',
+    // the crossword is the third kids game, and has the same rule again
+    cwpanel: 'cwtoggle',
     lvlpanel: 'lvltoggle',
     // the weekly quiz has no tile: the landing-page card is its way in
     wqpanel: null,
@@ -19515,7 +19713,7 @@ const Kids = (() => {
   /* What the toolbar says in the kids app. The wording is the same idea as
      the adult label, shorter, because a child reads the icon first. */
   const LABELS = {
-    kidstoggle: 'Home', hqtoggle: 'Quest', wrqtoggle: 'Letters', vtoggle: 'Words',
+    kidstoggle: 'Home', hqtoggle: 'Quest', wrqtoggle: 'Letters', cwtoggle: 'Puzzle', vtoggle: 'Words',
     gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
     actoggle: 'Me',
   };
@@ -19539,6 +19737,7 @@ const Kids = (() => {
     rdpanel: ['Reading', 'خواندن', '📖'], lpanel: ['Listening', 'شنیدن', '🎧'],
     hqpanel: ['Hero Quest', 'سفر قهرمان', '🗺️'],
     wrqpanel: ['Word Quest', 'جست‌وجوی واژه', '🔤'],
+    cwpanel: ['Crossword', 'جدول کلمات', '🧩'],
     stpanel: ['Stories', 'داستان‌ها', '📚'], fpanel: ['Sentences', 'جمله‌ها', '💬'],
     kpanel: ['Home', 'خانه', '🏠'],
   };
@@ -21391,10 +21590,14 @@ const PANEL_ON_OPEN = {
   // the word game reads wordquest.json on first open and keeps its own progress;
   // like the adventure, an adult never reaches it
   wrqpanel: () => { if (Experience.kids()) WordQuest.open(); },
+  // the crossword is hardcoded in this page: no fetch, no server, so it opens
+  // in the APK with the same seven puzzles it has online
+  cwpanel: () => { if (Experience.kids()) Crossword.open(); },
 };
 document.getElementById('kidstoggle').onclick = () => togglePanel('kpanel', 'kidstoggle');
 document.getElementById('hqtoggle').onclick = () => togglePanel('hqpanel', 'hqtoggle');
 document.getElementById('wrqtoggle').onclick = () => togglePanel('wrqpanel', 'wrqtoggle');
+document.getElementById('cwtoggle').onclick = () => togglePanel('cwpanel', 'cwtoggle');
 document.getElementById('dtoggle').onclick = () => togglePanel('dpanel', 'dtoggle');
 document.getElementById('ntoggle').onclick = () => togglePanel('npanel', 'ntoggle');
 document.getElementById('vtoggle').onclick = () => togglePanel('vpanel', 'vtoggle');
@@ -27842,6 +28045,384 @@ input.focus();
  * that is in neither is wrong, and being wrong is gentle: the letters come
  * back and the child tries again. Nothing is taken away and nothing is timed.
  * ==========================================================================*/
+/* ==========================================================================
+   THE CROSSWORD
+   A picture crossword built for a child who reads Persian faster than
+   English. Seven stages, twenty-six words, all of them the app's own
+   vocabulary - and every one of them hardcoded here, because the app is also
+   an APK with no server: a fetch would leave the game empty on a phone.
+
+   The rules it follows, in the order a child meets them:
+     - every clue is an emoji, then an English sentence, then its Farsi
+     - the letter being typed is chosen, not guessed: a tap on a cell picks
+       the word, a second tap flips between across and down
+     - a word that is right turns green on its own, so there is nothing to
+       submit and nothing to be wrong at
+     - a hint costs a star, so help is always available and never free
+     - progress is a stage id in localStorage, the same way the rest of the
+       kids app remembers things
+   ========================================================================== */
+const CW_DATA = [{"id":"animals","en":"Animal Friends","fa":"دوستان حیوان","e":"🐾","stages":[{"t":"Animal Friends 1","rows":5,"cols":5,"cells":["0:1:B","0:2:I","0:3:R","0:4:D","1:1:E","2:1:A","2:3:B","3:0:T","3:1:R","3:2:E","3:3:E","4:3:E"],"entries":[{"a":"BIRD","r":0,"c":1,"d":"across","n":1,"e":"🐦","q":"It has wings and can fly","f":"بال دارد و می‌تواند پرواز کند"},{"a":"BEAR","r":0,"c":1,"d":"down","n":1,"e":"🐻","q":"A big brown animal with fur","f":"حیوان بزرگ قهوه‌ای و پشمالو"},{"a":"TREE","r":3,"c":0,"d":"across","n":3,"e":"🌳","q":"It is tall and has green leaves","f":"بلند است و برگ‌های سبز دارد"},{"a":"BEE","r":2,"c":3,"d":"down","n":2,"e":"🐝","q":"A tiny insect that makes honey","f":"حشرهٔ کوچکی که عسل می‌سازد"}]},{"t":"Animal Friends 2","rows":4,"cols":4,"cells":["0:1:F","0:2:O","0:3:X","1:1:R","2:0:D","2:1:O","2:2:G","3:1:G"],"entries":[{"a":"DOG","r":2,"c":0,"d":"across","n":2,"e":"🐶","q":"A pet that says woof","f":"حیوان خانگی که واق واق می‌کند"},{"a":"FROG","r":0,"c":1,"d":"down","n":1,"e":"🐸","q":"A green animal that jumps","f":"حیوان سبزی که می‌پرد"},{"a":"FOX","r":0,"c":1,"d":"across","n":1,"e":"🦊","q":"A clever orange animal","f":"حیوان نارنجی و باهوش"}]},{"t":"Animal Friends 3","rows":5,"cols":4,"cells":["0:0:R","1:0:A","1:1:N","1:2:T","2:0:I","2:2:R","3:0:N","3:2:E","4:1:B","4:2:E","4:3:E"],"entries":[{"a":"ANT","r":1,"c":0,"d":"across","n":2,"e":"🐜","q":"A very small insect that works hard","f":"حشرهٔ خیلی ریز و سخت‌کوش"},{"a":"RAIN","r":0,"c":0,"d":"down","n":1,"e":"🌧️","q":"Water falling from the sky","f":"آبی که از آسمان می‌آید"},{"a":"TREE","r":1,"c":2,"d":"down","n":3,"e":"🌳","q":"It is tall and has green leaves","f":"بلند است و برگ‌های سبز دارد"},{"a":"BEE","r":4,"c":1,"d":"across","n":4,"e":"🐝","q":"A tiny insect that makes honey","f":"حشرهٔ کوچکی که عسل می‌سازد"}]}]},{"id":"food","en":"Yummy Food","fa":"خوراکی خوشمزه","e":"🍎","stages":[{"t":"Yummy Food 1","rows":5,"cols":5,"cells":["0:1:C","0:2:A","0:3:K","0:4:E","1:2:P","1:4:G","2:2:P","2:4:G","3:0:M","3:1:I","3:2:L","3:3:K","4:2:E"],"entries":[{"a":"CAKE","r":0,"c":1,"d":"across","n":1,"e":"🍰","q":"Sweet food for a birthday","f":"شیرینی تولد"},{"a":"EGG","r":0,"c":4,"d":"down","n":3,"e":"🥚","q":"A hen gives us this","f":"مرغ این را به ما می‌دهد"},{"a":"APPLE","r":0,"c":2,"d":"down","n":2,"e":"🍎","q":"A red fruit you can eat","f":"میوهٔ سرخی که می‌خوریم"},{"a":"MILK","r":3,"c":0,"d":"across","n":4,"e":"🥛","q":"A white drink from a cow","f":"نوشیدنی سفید از گاو"}]},{"t":"Yummy Food 2","rows":5,"cols":4,"cells":["0:0:B","1:0:R","1:1:I","1:2:C","1:3:E","2:0:E","2:2:U","3:0:A","3:2:P","4:0:D"],"entries":[{"a":"RICE","r":1,"c":0,"d":"across","n":2,"e":"🍚","q":"Small white grains we cook","f":"دانه‌های سفید که می‌پزیم"},{"a":"BREAD","r":0,"c":0,"d":"down","n":1,"e":"🍞","q":"We eat it for breakfast","f":"صبحانه با آن می‌خوریم"},{"a":"CUP","r":1,"c":2,"d":"down","n":3,"e":"🥤","q":"You drink from it","f":"از آن می‌نوشیم"}]}]},{"id":"home","en":"My Day","fa":"روز من","e":"🏠","stages":[{"t":"My Day 1","rows":5,"cols":6,"cells":["0:3:B","0:4:A","0:5:G","1:3:O","2:1:P","2:3:O","3:0:D","3:1:E","3:2:S","3:3:K","4:1:N"],"entries":[{"a":"DESK","r":3,"c":0,"d":"across","n":3,"e":"🪑","q":"You sit at it to write","f":"پشت آن می‌نشینیم و می‌نویسیم"},{"a":"PEN","r":2,"c":1,"d":"down","n":2,"e":"🖊️","q":"You write with it","f":"با آن می‌نویسیم"},{"a":"BOOK","r":0,"c":3,"d":"down","n":1,"e":"📖","q":"You read it","f":"آن را می‌خوانیم"},{"a":"BAG","r":0,"c":3,"d":"across","n":1,"e":"🎒","q":"You carry your books in it","f":"کتاب‌هایمان را در آن می‌گذاریم"}]},{"t":"My Day 2","rows":6,"cols":6,"cells":["0:3:D","1:2:M","1:3:O","1:4:O","1:5:N","2:3:O","3:0:S","3:1:T","3:2:A","3:3:R","4:0:U","5:0:N"],"entries":[{"a":"MOON","r":1,"c":2,"d":"across","n":2,"e":"🌙","q":"It shines at night","f":"شب‌ها می‌درخشد"},{"a":"DOOR","r":0,"c":3,"d":"down","n":1,"e":"🚪","q":"You open it to go in","f":"برای وارد شدن بازش می‌کنیم"},{"a":"STAR","r":3,"c":0,"d":"across","n":3,"e":"⭐","q":"It shines in the night sky","f":"در آسمان شب می‌درخشد"},{"a":"SUN","r":3,"c":0,"d":"down","n":3,"e":"☀️","q":"It gives us light in the day","f":"روزها به ما نور می‌دهد"}]}]}];
+
+const Crossword = (() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  /* One key, one shape: { done: { "world/2": stars } }. Nothing else is kept,
+     so a cleared browser loses the ticks and nothing else. */
+  const KEY = 'fluentify.kids.crossword';
+  let store = { done: {} };
+  try {
+    const raw = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (raw && raw.done && typeof raw.done === 'object') store.done = raw.done;
+  } catch (e) { /* private mode: play without memory */ }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} };
+
+  let view = null;   /* the open stage, or null on the shelf */
+  let msg = { text: '', tone: '' };
+
+  const world = (id) => CW_DATA.find((w) => w.id === id);
+  const solved = (wid, si) => !!store.done[wid + '/' + si];
+  const starsOf = (wid, si) => store.done[wid + '/' + si] || 0;
+  const cellKey = (r, c) => r + ':' + c;
+  const splitKey = (k) => k.split(':').map(Number);
+
+  /* The cells an entry runs through, in reading order. */
+  function cellsOf(e) {
+    const out = [];
+    for (let i = 0; i < e.a.length; i++) {
+      out.push(e.d === 'across' ? cellKey(e.r, e.c + i) : cellKey(e.r + i, e.c));
+    }
+    return out;
+  }
+
+  function makeView(wid, si) {
+    const st = world(wid).stages[si];
+    const cells = {};
+    st.cells.forEach((s) => {
+      const p = s.split(':');
+      cells[p[0] + ':' + p[1]] = { a: p[2], v: '', n: 0 };
+    });
+    st.entries.forEach((e) => {
+      const k = cellKey(e.r, e.c);
+      if (cells[k] && !cells[k].n) cells[k].n = e.n;
+    });
+    const first = st.entries[0];
+    return { wid, si, st, cells, hints: 0, done: solved(wid, si),
+      sel: { r: first.r, c: first.c }, dir: first.d, entry: first };
+  }
+
+  function entriesAt(r, c) {
+    const k = cellKey(r, c);
+    return view.st.entries.filter((e) => cellsOf(e).indexOf(k) >= 0);
+  }
+
+  /* A tap chooses the cell; a second tap on the same cell turns the corner
+     between the across word and the down word that cross there. */
+  function pick(r, c) {
+    const here = entriesAt(r, c);
+    if (!here.length) return;
+    const again = view.sel.r === r && view.sel.c === c;
+    let dir = view.dir;
+    if (again && here.length > 1) dir = dir === 'across' ? 'down' : 'across';
+    const e = here.find((x) => x.d === dir) || here[0];
+    view.sel = { r, c };
+    view.dir = e.d;
+    view.entry = e;
+    msg = { text: '', tone: '' };
+    render();
+  }
+
+  function advance() {
+    const keys = cellsOf(view.entry);
+    const i = keys.indexOf(cellKey(view.sel.r, view.sel.c));
+    if (i >= 0 && i < keys.length - 1) {
+      const p = splitKey(keys[i + 1]);
+      view.sel = { r: p[0], c: p[1] };
+    }
+  }
+
+  function type(ch) {
+    if (!view || view.done) return;
+    const k = cellKey(view.sel.r, view.sel.c);
+    if (!view.cells[k]) return;
+    view.cells[k].v = ch;
+    advance();
+    render();
+    settle();
+  }
+
+  function erase() {
+    if (!view || view.done) return;
+    const k = cellKey(view.sel.r, view.sel.c);
+    if (view.cells[k] && view.cells[k].v) {
+      view.cells[k].v = '';
+    } else {
+      const keys = cellsOf(view.entry);
+      const i = keys.indexOf(k);
+      if (i > 0) {
+        const p = splitKey(keys[i - 1]);
+        view.sel = { r: p[0], c: p[1] };
+        view.cells[keys[i - 1]].v = '';
+      }
+    }
+    render();
+  }
+
+  function wordDone(e) {
+    return cellsOf(e).every((k) => view.cells[k] && view.cells[k].v === view.cells[k].a);
+  }
+
+  function settle() {
+    if (!view.st.entries.every(wordDone)) {
+      /* the word in hand is full but not right: say so in both languages,
+         quietly, and let the child change a letter */
+      const full = cellsOf(view.entry).every((k) => view.cells[k].v) && !wordDone(view.entry);
+      msg = full ? { text: 'این کلمه هنوز درست نیست — not quite, try one letter', tone: 'bad' }
+                 : { text: '', tone: '' };
+      render();
+      return;
+    }
+    view.done = true;
+    const stars = Math.max(1, 3 - view.hints);
+    const key = view.wid + '/' + view.si;
+    if (!store.done[key] || store.done[key] < stars) store.done[key] = stars;
+    save();
+    render();
+    /* the board is taller than a phone, so the celebration would otherwise
+       happen below the fold: bring the card the child just earned into view */
+    const trophy = document.querySelector('.cw-done');
+    const panel = $('cwpanel');
+    if (trophy && panel) {
+      /* measured against the panel rather than offsetTop, which is relative to
+         the app shell and would overshoot. No smooth behaviour: the panel is a
+         scroll container and Chrome ignores a smooth scroll set inside one. */
+      const top = trophy.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop;
+      panel.scrollTop = Math.max(0, top - 80);
+      lastScroll = panel.scrollTop;
+    }
+  }
+
+  /* A hint fills the first empty letter of the word in front of the child.
+     It costs a star, which is said in Farsi on the button itself. */
+  function hint() {
+    if (!view || view.done) return;
+    const keys = cellsOf(view.entry);
+    const k = keys.find((x) => !view.cells[x].v);
+    if (!k) return;
+    view.cells[k].v = view.cells[k].a;
+    view.hints += 1;
+    const p = splitKey(k);
+    view.sel = { r: p[0], c: p[1] };
+    msg = { text: 'یک حرف کمکت کرد! — one letter filled in', tone: 'good' };
+    render();
+    settle();
+  }
+
+  function clearWord() {
+    if (!view || view.done) return;
+    cellsOf(view.entry).forEach((k) => { view.cells[k].v = ''; });
+    const p = splitKey(cellsOf(view.entry)[0]);
+    view.sel = { r: p[0], c: p[1] };
+    msg = { text: '', tone: '' };
+    render();
+  }
+
+  /* ---- the shelf ------------------------------------------------------- */
+  function howTo() {
+    return '<details class="cw-how"><summary>چطور بازی کنم؟ — How do I play?</summary>' +
+      '<ol dir="rtl" lang="fa">' +
+      '<li>روی یک خانه بزن تا کلمه انتخاب شود؛ دفعهٔ دوم روی همان خانه، افقی و عمودی عوض می‌شود.</li>' +
+      '<li>تصویر و معنی فارسی را ببین، بعد حروف انگلیسی را با صفحه‌کلید بنویس.</li>' +
+      '<li>کلمه که درست شود سبز می‌شود؛ همهٔ کلمه‌ها سبز شوند، مرحله تمام است.</li>' +
+      '<li>«یک حرف کمکم کن» یک ستاره می‌خواهد، پس اول خودت امتحان کن.</li>' +
+      '</ol></details>';
+  }
+
+  function overview() {
+    const stages = CW_DATA.reduce((n, w) => n + w.stages.length, 0);
+    const done = CW_DATA.reduce((n, w) => n + w.stages.filter((s, i) => solved(w.id, i)).length, 0);
+    let h = '<div class="cw-wrap">';
+    h += '<div class="cw-hero"><img src="brand/kids-fox-face.png" alt="" width="64" height="64">' +
+      '<div><h4>Let’s solve a crossword! 🧩</h4><p>Look at the picture, read the Farsi, then build the English word.' +
+      '<br><bdi dir="rtl" lang="fa">به تصویر نگاه کن، فارسی را بخوان و کلمهٔ انگلیسی را بساز.</bdi></p></div></div>';
+    h += '<div class="cw-bar" style="justify-content:space-between">' +
+      '<span class="cw-where"><b>Choose a world — <bdi dir="rtl" lang="fa">یک دنیا انتخاب کن</bdi></b>' +
+      '<i>' + done + ' از ' + stages + ' مرحله انجام شده</i></span>' +
+      '<span class="cw-stars">⭐ ' + Object.keys(store.done).length + '</span></div>';
+    CW_DATA.forEach((w) => {
+      h += '<div class="cw-world"><h4>' + w.e + ' ' + esc(w.en) +
+        ' <small dir="rtl" lang="fa">' + esc(w.fa) + '</small></h4><div class="cw-stages">';
+      w.stages.forEach((s, i) => {
+        const isDone = solved(w.id, i);
+        const locked = i > 0 && !solved(w.id, i - 1);
+        h += '<button type="button" class="cw-stage' + (isDone ? ' done' : '') +
+          '" data-act="play" data-w="' + w.id + '" data-s="' + i + '"' +
+          (locked ? ' disabled aria-disabled="true"' : '') + '>' +
+          (isDone ? '⭐' : (i + 1)) +
+          '<small>' + (locked ? 'قفل' : (isDone ? 'تمام' : 'بازی')) + '</small></button>';
+      });
+      h += '</div></div>';
+    });
+    h += howTo();
+    h += '</div>';
+    return h;
+  }
+
+  /* ---- one stage ------------------------------------------------------- */
+  function board() {
+    const st = view.st;
+    let h = '<div class="cw-board" style="grid-template-columns:repeat(' + st.cols + ',var(--cw-cell))">';
+    const on = cellsOf(view.entry);
+    for (let r = 0; r < st.rows; r++) {
+      for (let c = 0; c < st.cols; c++) {
+        const k = cellKey(r, c);
+        const cell = view.cells[k];
+        if (!cell) { h += '<span class="cw-cell gap"></span>'; continue; }
+        const cls = ['cw-cell'];
+        if (on.indexOf(k) >= 0) cls.push('on');
+        if (view.sel.r === r && view.sel.c === c) cls.push('cur');
+        if (view.st.entries.some((e) => wordDone(e) && cellsOf(e).indexOf(k) >= 0)) cls.push('got');
+        else if (cellsOf(view.entry).indexOf(k) >= 0 && cellsOf(view.entry).every((x) => view.cells[x].v)) cls.push('miss');
+        h += '<button type="button" class="' + cls.join(' ') + '" data-act="cell" data-r="' + r +
+          '" data-c="' + c + '" aria-label="' + (cell.v || 'empty') + '">' +
+          (cell.n ? '<b>' + cell.n + '</b>' : '') + (cell.v || '') + '</button>';
+      }
+    }
+    return h + '</div>';
+  }
+
+  function clueCard() {
+    const e = view.entry;
+    const keys = cellsOf(e);
+    const filled = keys.filter((k) => view.cells[k].v).length;
+    return '<div class="cw-clue"><span class="cw-emoji" aria-hidden="true">' + e.e + '</span>' +
+      '<span class="cw-cluetext"><span class="cw-en">' + esc(e.q) + '</span>' +
+      '<span class="cw-fa" dir="rtl" lang="fa">' + esc(e.f) + '</span><br>' +
+      '<span class="cw-chip">' + (e.d === 'across' ? '⬅️ افقی' : '⬇️ عمودی') +
+      ' · ' + e.a.length + ' حرف · ' + filled + '/' + e.a.length + '</span></span></div>';
+  }
+
+  function keysRow() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    let h = '<div class="cw-keys">';
+    letters.forEach((ch) => {
+      h += '<button type="button" class="cw-key" data-act="key" data-k="' + ch + '">' + ch + '</button>';
+    });
+    h += '<button type="button" class="cw-key wide" data-act="del" aria-label="Delete — پاک کردن">⌫</button>';
+    return h + '</div>';
+  }
+
+  function play() {
+    const w = world(view.wid);
+    let h = '<div class="cw-wrap">';
+    h += '<div class="cw-bar"><button type="button" class="cw-back" data-act="back" aria-label="Back — بازگشت">←</button>' +
+      '<span class="cw-where"><b>' + esc(view.st.t) + '</b>' +
+      '<i dir="rtl" lang="fa">' + esc(w.fa) + ' · مرحلهٔ ' + (view.si + 1) + '</i></span>' +
+      '<span class="cw-stars">⭐ ' + starsOf(view.wid, view.si) + '</span></div>';
+    h += board();
+    h += clueCard();
+    if (view.done) {
+      h += '<div class="cw-done"><span class="cw-trophy">🏆</span><h4>You did it!</h4>' +
+        '<p dir="rtl" lang="fa">آفرین! این جدول را کامل حل کردی.</p>' +
+        '<span class="cw-stars">' + '⭐'.repeat(starsOf(view.wid, view.si)) + '</span>' +
+        '<div class="cw-tools" style="width:100%">' +
+        '<button type="button" class="cw-btn" data-act="back">همهٔ جدول‌ها<small>all stages</small></button>' +
+        '<button type="button" class="cw-btn" data-act="next">مرحلهٔ بعد<small>next stage</small></button>' +
+        '</div></div>';
+    } else {
+      h += '<div class="cw-tools">' +
+        '<button type="button" class="cw-btn" data-act="hint">یک حرف کمکم کن<small>a letter · −۱ ستاره</small></button>' +
+        '<button type="button" class="cw-btn ghost" data-act="clear">پاک کردن کلمه<small>clear the word</small></button>' +
+        '</div>';
+      h += keysRow();
+    }
+    h += '<p class="cw-msg ' + msg.tone + '" role="status">' + esc(msg.text) + '</p>';
+    h += howTo();
+    return h + '</div>';
+  }
+
+  /* ---- the panel ------------------------------------------------------- */
+  let lastScroll = 0;
+
+  function render() {
+    const box = $('cwbody');
+    if (!box) return;
+    box.innerHTML = view ? play() : overview();
+    const panel = $('cwpanel');
+    if (panel) panel.scrollTop = lastScroll;
+  }
+
+  function go(wid, si) {
+    view = makeView(wid, si);
+    msg = { text: '', tone: '' };
+    lastScroll = 0;
+    render();
+    const panel = $('cwpanel');
+    if (panel) panel.scrollTop = 0;
+  }
+
+  function back() {
+    view = null;
+    render();
+    const panel = $('cwpanel');
+    if (panel) panel.scrollTop = 0;
+  }
+
+  /* One listener for the whole panel: every control is a [data-act], so a
+     re-render never leaves a dead button behind. */
+  function onClick(ev) {
+    const el = ev.target.closest('[data-act]');
+    if (!el || !$('cwbody').contains(el)) return;
+    const act = el.getAttribute('data-act');
+    if (act === 'play') { go(el.getAttribute('data-w'), Number(el.getAttribute('data-s'))); return; }
+    if (act === 'back') { back(); return; }
+    if (!view) return;
+    if (act === 'cell') { pick(Number(el.getAttribute('data-r')), Number(el.getAttribute('data-c'))); }
+    else if (act === 'key') { type(el.getAttribute('data-k')); }
+    else if (act === 'del') { erase(); }
+    else if (act === 'hint') { hint(); }
+    else if (act === 'clear') { clearWord(); }
+    else if (act === 'next') {
+      const w = world(view.wid);
+      if (view.si + 1 < w.stages.length) go(view.wid, view.si + 1);
+      else back();
+    }
+  }
+
+  function onKey(ev) {
+    if (!view || view.done) return;
+    if (typeof Panels === 'undefined' || Panels.isOpen() !== 'cwpanel') return;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if (/^[a-zA-Z]$/.test(ev.key)) { ev.preventDefault(); type(ev.key.toUpperCase()); return; }
+    if (ev.key === 'Backspace') { ev.preventDefault(); erase(); }
+  }
+
+  let wired = false;
+  function wire() {
+    if (wired) return;
+    wired = true;
+    const box = $('cwbody');
+    if (box) box.addEventListener('click', onClick);
+    document.addEventListener('keydown', onKey);
+    const panel = $('cwpanel');
+    if (panel) panel.addEventListener('scroll', () => { lastScroll = panel.scrollTop; }, { passive: true });
+  }
+
+  /* Opening the section always lands on the shelf. Resuming a half-typed
+     board silently would leave a child looking at a grid they did not ask
+     for, and a stage is short enough that starting it again is no loss. */
+  function open() {
+    wire();
+    view = null;
+    msg = { text: '', tone: '' };
+    render();
+  }
+
+  return { open };
+})();
+
 const WordQuest = (() => {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s == null ? '' : s)
