@@ -7986,6 +7986,97 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids-young .kme-stars .kme-big b { font-size: 50px; }
   body.kids-young .kme-tile b { font-size: 29px; }
 
+  /* ---- the word detective ----------------------------------------------
+     The panel keeps its one job and loses its adult furniture: a chunky
+     search row, four sentences a child could actually say, and the answer as
+     tiles rather than a table. Colour is the teaching device, so it is used
+     for one thing only - a kind of word - and a tile carries its kind in
+     words as well, which keeps the colour decoration rather than the message. */
+  body.kids #npanel.kdet h3 { border-inline-start: 3px solid var(--k-c4); }
+  body.kids #npanel.kdet .nbar { gap: 10px; margin: 4px 0 12px; }
+  body.kids #npanel.kdet #ninput {
+    min-height: 52px; border-radius: 16px; font-size: 16px; padding: 12px 16px;
+    border: 2px solid var(--k-c4); background: var(--k-surface); color: var(--k-ink);
+    box-shadow: inset 0 2px 0 var(--k-c4-w);
+  }
+  body.kids #npanel.kdet #ninput:focus { outline: 3px solid var(--k-c4-w); outline-offset: 1px; }
+  body.kids #npanel.kdet .nbtn {
+    min-height: 52px; padding: 0 18px; border-radius: 16px; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 800;
+    border: 1.5px solid var(--k-c4-i); background: var(--k-c4-i); color: var(--k-on-primary);
+    box-shadow: 0 3px 0 var(--k-c4); transition: transform .14s, box-shadow .14s;
+  }
+  body.kids #npanel.kdet .nbtn:hover { transform: translateY(-1px); box-shadow: 0 4px 0 var(--k-c4); }
+  body.kids #npanel.kdet .nexamples { gap: 8px; margin-bottom: 14px; }
+  body.kids #npanel.kdet .kex {
+    min-height: 40px; padding: 8px 14px; border-radius: 999px; font-family: inherit;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    border: 1.5px solid var(--k-c4); background: var(--k-c4-w); color: var(--k-c4-i);
+    box-shadow: 0 2px 0 var(--k-c4);
+  }
+
+  .kan-lead {
+    font-size: 13px; line-height: 1.55; color: var(--k-ink-2); margin: 2px 0 10px;
+  }
+  .kan-lead b { color: var(--k-ink); font-size: 15px; }
+  .kan-lead i { display: block; font-style: normal; direction: rtl; unicode-bidi: isolate; }
+
+  .kwl {
+    list-style: none; margin: 0 0 14px; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .kpos {
+    display: flex; flex-direction: column; align-items: center; gap: 1px;
+    padding: 9px 13px 10px; border-radius: 14px; min-width: 68px;
+    border: 2px solid var(--k-c1); background: var(--k-c1-w); color: var(--k-c1-i);
+    box-shadow: 0 3px 0 var(--k-c1);
+    animation: kposIn .34s cubic-bezier(.2,1.4,.4,1) both;
+  }
+  .kpos b { font-family: var(--font-display); font-size: 17px; line-height: 1.15; }
+  .kpos > span { font-size: 15px; line-height: 1; }
+  .kpos small { font-size: 10.5px; font-weight: 700; line-height: 1.25; text-align: center; opacity: .95; }
+  .kpos small i { display: block; font-style: normal; direction: rtl; unicode-bidi: isolate; }
+  .kpos.k-c1 { border-color: var(--k-c1); background: var(--k-c1-w); color: var(--k-c1-i); box-shadow: 0 3px 0 var(--k-c1); }
+  .kpos.k-c2 { border-color: var(--k-c2); background: var(--k-c2-w); color: var(--k-c2-i); box-shadow: 0 3px 0 var(--k-c2); }
+  .kpos.k-c3 { border-color: var(--k-c3); background: var(--k-c3-w); color: var(--k-c3-i); box-shadow: 0 3px 0 var(--k-c3); }
+  .kpos.k-c4 { border-color: var(--k-c4); background: var(--k-c4-w); color: var(--k-c4-i); box-shadow: 0 3px 0 var(--k-c4); }
+  .kpos.k-c5 { border-color: var(--k-c5); background: var(--k-c5-w); color: var(--k-c5-i); box-shadow: 0 3px 0 var(--k-c5); }
+  .kpos.k-c6 { border-color: var(--k-c6); background: var(--k-c6-w); color: var(--k-c6-i); box-shadow: 0 3px 0 var(--k-c6); }
+  .kpos.k-c7 { border-color: var(--k-c7); background: var(--k-c7-w); color: var(--k-c7-i); box-shadow: 0 3px 0 var(--k-c7); }
+  .kpos.k-c8 { border-color: var(--k-c8); background: var(--k-c8-w); color: var(--k-c8-i); box-shadow: 0 3px 0 var(--k-c8); }
+  @keyframes kposIn { from { opacity: 0; transform: translateY(6px) scale(.94); } to { opacity: 1; transform: none; } }
+  body.kids-calm .kpos { animation: none !important; }
+
+  .kshapes { display: grid; gap: 8px; margin-bottom: 14px; }
+  .kshape {
+    padding: 11px 14px; border-radius: 14px;
+    border: 1.5px solid var(--k-c5); background: var(--k-c5-w); color: var(--k-c5-i);
+  }
+  .kshape b { display: block; font-family: var(--font-display); font-size: 14.5px; }
+  .kshape i { display: block; font-style: normal; font-size: 12px; direction: rtl; unicode-bidi: isolate; }
+  .kshape p { margin: 5px 0 0; font-size: 12.5px; line-height: 1.55; }
+
+  .kan-more {
+    margin-top: 6px; padding: 11px 14px 13px; border-radius: 16px;
+    border: 1.5px dashed var(--k-line-strong); background: var(--k-surface);
+  }
+  .kan-more summary {
+    cursor: pointer; font-size: 13px; font-weight: 800; color: var(--k-ink-2);
+    list-style: none; display: flex; align-items: center; gap: 6px;
+  }
+  .kan-more summary::-webkit-details-marker { display: none; }
+  .kan-more summary::after { content: "＋"; margin-inline-start: auto; font-size: 15px; }
+  .kan-more[open] summary::after { content: "−"; }
+  .kan-table { margin-top: 10px; }
+
+  .kan-empty { text-align: center; padding: 20px 12px 22px; }
+  .kan-empty > span { display: block; font-size: 40px; line-height: 1; margin-bottom: 8px; }
+  .kan-empty b { display: block; font-family: var(--font-display); font-size: 16px; color: var(--k-ink); }
+  .kan-empty i { display: block; font-style: normal; font-size: 13px; color: var(--k-ink-2); margin-top: 3px; direction: rtl; unicode-bidi: isolate; }
+  .kan-empty small { display: block; font-size: 12px; line-height: 1.5; color: var(--k-ink-2); margin-top: 8px; }
+  .kan-empty small i { display: inline; margin: 0; font-size: 12px; }
+
+
   .kcont {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
     cursor: pointer; font-family: inherit; padding: 13px 15px; margin-bottom: 10px;
@@ -20291,6 +20382,7 @@ const Kids = (() => {
   const LABELS = {
     kidstoggle: 'Home', hqtoggle: 'Quest', wrqtoggle: 'Letters', cwtoggle: 'Puzzle', vtoggle: 'Words',
     gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
+    ntoggle: 'Detective',
     actoggle: 'Me',
   };
   /* Tools that need a sentence of explanation: they wait behind More. The
@@ -21034,6 +21126,105 @@ const Kids = (() => {
     if (back) back.onclick = () => openPanel('kpanel');
 
     if (panel && keep) panel.scrollTop = keep;
+  }
+
+  /* ---- the word detective ----------------------------------------------
+     Analyze is a linguistics panel: a sentence, then a table of words with
+     tags, lemmas and grammatical roles, then structure cards and a list of
+     the tagger's own caveats. It is good at what it does and it is written
+     for someone who already knows what "lemma" means.
+
+     A child gets the same analysis read a different way: the sentence as
+     coloured word tiles, one colour per kind of word, each tile naming that
+     kind in plain words ("🍎 thing") in both languages, and the whole table
+     kept behind a fold marked for grown-ups. Nothing is hidden from a parent
+     - it is one tap down - and nothing on the surface needs a grammar term. */
+  const KID_POS = {
+    NOUN: ['🍎', 'thing', 'چیز', 1],
+    PROPN: ['🏷️', 'name', 'نام', 2],
+    VERB: ['🏃', 'action', 'کار', 3],
+    AUX: ['🔧', 'helper word', 'واژهٔ کمکی', 4],
+    ADJ: ['🎨', 'describing word', 'صفت', 5],
+    ADV: ['💨', 'how or when', 'قید', 6],
+    PRON: ['👤', 'someone', 'ضمیر', 7],
+    DET: ['👉', 'which one', 'حرف تعریف', 8],
+    ADP: ['🔗', 'linking word', 'حرف اضافه', 1],
+    CCONJ: ['➕', 'joining word', 'حرف ربط', 2],
+    SCONJ: ['🔀', 'joining word', 'حرف ربط', 3],
+    NUM: ['🔢', 'number', 'عدد', 4],
+    PART: ['✨', 'little word', 'واژهٔ کوچک', 6],
+    INTJ: ['😮', 'a feeling', 'احساس', 5],
+    X: ['❓', 'word', 'واژه', 7],
+  };
+  const KID_SENTENCES = [
+    'I have a dog.',
+    'She is very happy.',
+    'We play football in the park.',
+    'Can you help me?',
+  ];
+
+  function analysisHtml(r) {
+    const toks = (r.tokens || []).filter((t) => ['PUNCT', 'SYM'].indexOf(t.pos) === -1);
+    const chips = toks.map((t) => {
+      const meta = KID_POS[t.pos] || KID_POS.X;
+      return '<li class="kpos k-c' + meta[3] + '"><b>' + esc(t.text) + '</b>' +
+        '<span aria-hidden="true">' + meta[0] + '</span>' +
+        '<small>' + esc(meta[1]) + '<i lang="fa" dir="rtl">' + esc(meta[2]) + '</i></small></li>';
+    }).join('');
+    const shapes = (r.structureDetails || []).filter((d) => d.label_en).slice(0, 3).map((d) =>
+      '<div class="kshape"><b>✨ ' + esc(d.label_en) + '</b>' +
+      '<i lang="fa" dir="rtl">' + esc(d.label_fa || '') + '</i>' +
+      (d.note_fa ? '<p lang="fa" dir="rtl">' + esc(d.note_fa) + '</p>' : '') + '</div>').join('');
+
+    return '<div class="kan">' +
+      '<p class="kan-lead">I found <b>' + toks.length + '</b> word' + (toks.length === 1 ? '' : 's') +
+        '. One colour means one kind of word. ' +
+        '<i lang="fa" dir="rtl">' + toks.length + ' واژه پیدا کردم. هر رنگ یعنی یک نوع واژه.</i></p>' +
+      '<ul class="kwl">' + chips + '</ul>' +
+      (shapes ? '<div class="kan-lead">What kind of sentence? ' +
+        '<i lang="fa" dir="rtl">این جمله چه شکلی است؟</i></div><div class="kshapes">' + shapes + '</div>' : '') +
+      '<details class="kan-more"><summary>More for grown-ups — برای بزرگ‌ترها</summary>' +
+        '<div class="kan-table">' + renderAnalysis(r) + '</div></details>' +
+      '</div>';
+  }
+
+  function analyze() {
+    const panel = $('npanel');
+    if (!panel || typeof Analyser === 'undefined') return;
+    Analyser.mount();
+    panel.classList.add('kdet');
+    panelTitle('npanel', 'Word detective', 'کارآگاه واژه‌ها');
+    const input = $('ninput');
+    if (input) {
+      input.placeholder = 'Write an English sentence… / یک جملهٔ انگلیسی بنویس…';
+      input.setAttribute('aria-label', 'The sentence for the word detective');
+    }
+    const go = $('ngo');
+    if (go) {
+      go.textContent = 'Look at it 🔍';
+      go.setAttribute('aria-label', 'Look at my sentence · جمله‌ام را نگاه کن');
+    }
+    const row = $('nexamples');
+    if (row) {
+      row.textContent = '';
+      KID_SENTENCES.forEach((s) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'nex kex';
+        b.textContent = s;
+        b.onclick = () => Analyser.run(s);
+        row.appendChild(b);
+      });
+    }
+    const res = $('nresult');
+    if (res && !res.dataset.kid) {
+      res.dataset.kid = '1';
+      res.innerHTML = '<div class="kan-empty"><span aria-hidden="true">🕵️</span>' +
+        '<b>Write a sentence, or tap one above.</b>' +
+        '<i lang="fa" dir="rtl">یک جمله بنویس یا یکی از بالا را بزن.</i>' +
+        '<small>I will show you what every word is doing. ' +
+        '<i lang="fa" dir="rtl">نشان می‌دهم هر واژه چه کاری می‌کند.</i></small></div>';
+    }
   }
 
   function land() {
@@ -22083,7 +22274,8 @@ const Kids = (() => {
     return (c.starters && c.starters.length) ? c.starters : KID_STARTERS;
   }
 
-  return {on, enable, off, load, land, repaint, home, me, vocab, grammar, stories,
+  return {on, enable, off, load, land, repaint, home, me, analyze, analysisHtml,
+          vocab, grammar, stories,
           reading, listening, phrases, says, welcome, starters, data,
           // the panel lifecycle and the page lifecycle both end narration
           // through here; nothing may keep talking in a closed section
@@ -22238,7 +22430,7 @@ const PANEL_ON_OPEN = {
   dpanel: () => Daily.refresh(true),
   // the analyser mounts its input handler and examples on first open, and
   // keeps whatever analysis is already on screen
-  npanel: () => Analyser.mount(),
+  npanel: () => { if (Experience.kids()) Kids.analyze(); else Analyser.mount(); },
   rpanel: () => { Review.load(); Review.paint(); },
   // seven level spaces, one course and its examination: read path.json on the
   // first open, then paint the level list
@@ -28248,7 +28440,9 @@ const Analyser = (() => {
     if (box) box.value = text;
     paint('<div class="nbusy">🔬 analyzing on this device… · <bdi class="fa" lang="fa" dir="rtl">در حال تحلیل…</bdi></div>');
     try {
-      paint(renderAnalysis(await NLP.analyze(text)));
+      const res = await NLP.analyze(text);
+      paint((typeof Kids !== 'undefined' && Kids.analysisHtml && Experience.kids())
+        ? Kids.analysisHtml(res) : renderAnalysis(res));
     } catch (e) {
       paint('<div class="nfail">⚠️ ' + escapeHtml(e.message) +
         '<br><bdi class="fa" lang="fa" dir="rtl">تحلیل انجام نشد.</bdi></div>');
@@ -28261,7 +28455,8 @@ const Analyser = (() => {
     const box = document.getElementById('ninput');
     if (box && sentence) box.value = sentence;
     open();
-    paint(renderAnalysis(result));
+    paint((typeof Kids !== 'undefined' && Kids.analysisHtml && Experience.kids())
+      ? Kids.analysisHtml(result) : renderAnalysis(result));
   }
 
   function mount() {
