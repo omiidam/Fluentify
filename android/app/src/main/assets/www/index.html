@@ -1321,9 +1321,15 @@
      column between the header and the bottom of the shell, and the transcript
      and the composer step aside (see `.app.section` below). One rule here, so
      no panel can drift back to a half-screen height of its own. */
+  /* The three kids pages were drawn as plain blocks beside the others, so
+     they had no page gutter, no flex height and no scroller of their own:
+     their content pushed past the shell and painted under the header band.
+     They are pages like every other panel, so they get the same rule - the
+     list below is where "a page is a page" is written, and these belonged in
+     it from the start. */
   #vpanel, #gpanel, #fpanel, #lpanel, #phpanel, #rpanel, #dpanel, #npanel,
   #bpanel, #rdpanel, #stpanel, #lvlpanel, #wqpanel, #prpanel, #acpanel,
-  #pathpanel {
+  #pathpanel, #kpanel, #hqpanel, #wrqpanel {
     display: none; padding: 14px var(--secpad) 30px;
     /* The page gutter, named once: the header band has to reach exactly the
        panel's edges, and a second copy of this number was two pixels wider on
@@ -1342,7 +1348,8 @@
   }
   #vpanel.open, #gpanel.open, #fpanel.open, #lpanel.open,
   #dpanel.open, #npanel.open, #bpanel.open, #stpanel.open,
-  #lvlpanel.open, #wqpanel.open, #prpanel.open, #pathpanel.open { display: block; }
+  #lvlpanel.open, #wqpanel.open, #prpanel.open, #pathpanel.open,
+  #kpanel.open, #hqpanel.open, #wrqpanel.open { display: block; }
   #rdpanel.open { display: block; max-height: none; overflow-y: auto; }
   /* The transcript and the composer belong to the conversation, not to a
      section page. Opening a section is a change of destination, so they are
@@ -7254,9 +7261,16 @@
      columns from tablet width up: the fox says one thing across the top, then
      the word cards and the quiz sit side by side under it. Both the web page
      and the APK get this from the same stylesheet. */
+  /* width:100% is load-bearing. The cap with auto margins alone made every
+     page as wide as its own content - the words page 317px, the letters page
+     562px, the home page 797px at the same window - because in a column flex
+     the cross-axis auto margins cancel the stretch. A page is a page: full
+     width of the shell, capped, centred, all of them the same. */
   body.kids #kpanel, body.kids #vpanel, body.kids #gpanel, body.kids #rdpanel,
   body.kids #lpanel, body.kids #stpanel, body.kids #fpanel,
-  body.kids #hqpanel, body.kids #wrqpanel { max-width: 1060px; margin-inline: auto; }
+  body.kids #hqpanel, body.kids #wrqpanel {
+    width: 100%; max-width: 1060px; margin-inline: auto;
+  }
   @media (min-width: 700px) {
     body.kids #kbody {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; align-items: start;
