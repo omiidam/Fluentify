@@ -7867,6 +7867,118 @@
   .kan-empty small { display: block; font-size: 12px; line-height: 1.5; color: var(--k-ink-2); margin-top: 8px; }
   .kan-empty small i { display: inline; margin: 0; font-size: 12px; }
 
+  /* ---- Play with words -------------------------------------------------
+     One question fills the card while it is being asked. The word is the
+     biggest thing on the screen, the three answers are three whole rows a
+     thumb can hit without aiming, and each row is one of the section colours
+     so the choice is three things rather than three lines of text. The tick
+     and the explanation still carry the meaning; the colour only makes the
+     row findable. */
+  body.kids .kwp { overflow: hidden; }
+  body.kids .kwp-pips { display: flex; gap: 6px; margin: 10px 0 2px; }
+  body.kids .kwp-pips i {
+    flex: 1 1 auto; height: 6px; border-radius: 999px; background: var(--k-track);
+    box-shadow: inset 0 0 0 1px var(--k-teal-line);
+    transition: background .25s cubic-bezier(.22,1,.36,1);
+  }
+  body.kids .kwp-pips i.on { background: var(--k-teal); }
+  body.kids .kwp-stage { margin-top: 8px; }
+  body.kids .kwp-n {
+    font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--k-ink-2);
+  }
+  body.kids .kwp-tile {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    margin: 8px 0 10px; padding: 16px 14px; border-radius: 20px;
+    border: 2px solid var(--k-teal-line);
+    background: radial-gradient(130% 120% at 15% 0%, var(--k-teal-wash) 0%, var(--k-surface) 72%);
+    box-shadow: 0 4px 0 var(--k-teal-line);
+  }
+  body.kids .kwp-word {
+    font-family: var(--font-display); font-size: 38px; line-height: 1.05;
+    color: var(--k-ink); letter-spacing: -.5px; word-break: break-word;
+  }
+  body.kids .kwp-say {
+    flex: none; width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+    font-size: 20px; line-height: 1; border: 2px solid var(--k-teal);
+    background: var(--k-surface); color: var(--k-ink);
+    box-shadow: 0 3px 0 var(--k-teal-line);
+    transition: transform .12s, box-shadow .12s;
+  }
+  body.kids .kwp-say:hover { transform: translateY(-1px); }
+  body.kids .kwp-say:active { transform: translateY(1px); box-shadow: 0 2px 0 var(--k-teal-line); }
+  body.kids .kwp-ask {
+    margin: 0 0 9px; font-size: 14.5px; font-weight: 800; color: var(--k-ink);
+  }
+  body.kids .kwp-ask i {
+    font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--k-ink-2);
+    direction: rtl; unicode-bidi: isolate;
+  }
+  body.kids .kwp-opts { display: grid; gap: 8px; }
+  body.kids .kwp-opt {
+    display: flex; align-items: center; gap: 11px; width: 100%; min-height: 56px;
+    padding: 10px 14px; cursor: pointer; font-family: inherit; text-align: start;
+    border-radius: 16px; border: 2px solid var(--k-c1); background: var(--k-c1-w);
+    color: var(--k-ink); box-shadow: 0 3px 0 var(--k-c1);
+    transition: transform .12s cubic-bezier(.22,1,.36,1), box-shadow .12s;
+  }
+  body.kids .kwp-opt:nth-child(2) {
+    border-color: var(--k-c3); background: var(--k-c3-w); box-shadow: 0 3px 0 var(--k-c3);
+  }
+  body.kids .kwp-opt:nth-child(3) {
+    border-color: var(--k-c6); background: var(--k-c6-w); box-shadow: 0 3px 0 var(--k-c6);
+  }
+  body.kids .kwp-opt:hover:not([disabled]) { transform: translateY(-2px); }
+  body.kids .kwp-opt:active:not([disabled]) { transform: translateY(1px); box-shadow: 0 2px 0 var(--k-line-strong); }
+  body.kids .kwp-opt[disabled] { cursor: default; }
+  body.kids .kwp-opt.ok { border-color: var(--k-good-line); background: var(--k-good-wash); box-shadow: 0 3px 0 var(--k-good-line); }
+  body.kids .kwp-opt.no { border-color: var(--k-bad-line); background: var(--k-bad-wash); box-shadow: 0 3px 0 var(--k-bad-line); }
+  body.kids .kwp-opt:focus-visible { outline: 3px solid var(--k-primary); outline-offset: 2px; }
+  body.kids .kwp-badge {
+    flex: none; display: grid; place-items: center; width: 30px; height: 30px;
+    border-radius: 10px; background: var(--k-surface); color: var(--k-ink);
+    font-size: 13px; font-weight: 900; box-shadow: inset 0 0 0 1.5px var(--k-line-strong);
+  }
+  body.kids .kwp-fa { font-size: 15.5px; font-weight: 700; line-height: 1.5; }
+  body.kids .kwp-fb {
+    margin-top: 11px; padding: 12px 14px 13px; border-radius: 16px;
+    border: 2px solid var(--k-good-line); background: var(--k-good-wash);
+    animation: kPop .34s cubic-bezier(.2,1.7,.4,1);
+  }
+  body.kids .kwp-fb.no { border-color: var(--k-bad-line); background: var(--k-bad-wash); }
+  body.kids .kwp-fbt { display: flex; align-items: center; gap: 7px; font-size: 14.5px; color: var(--k-ink); }
+  body.kids .kwp-fbt span { font-size: 20px; line-height: 1; }
+  body.kids .kcard .kwp-def { margin: 7px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--k-ink); }
+  body.kids .kcard .kwp-ex { margin: 5px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--k-ink-2); }
+  body.kids .kcard .kwp-fa.kwp-ex { direction: rtl; unicode-bidi: isolate; }
+  body.kids .kwp-next {
+    width: 100%; min-height: 50px; margin-top: 12px; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 800;
+    border-radius: 15px; border: 2px solid var(--k-teal);
+    background: var(--k-teal); color: var(--k-on-primary);
+    box-shadow: 0 3px 0 var(--k-teal-ink);
+    transition: transform .12s, box-shadow .12s;
+  }
+  body.kids .kwp-next:hover { transform: translateY(-1px); box-shadow: 0 4px 0 var(--k-teal-ink); }
+  body.kids .kwp-next:active { transform: translateY(1px); box-shadow: 0 2px 0 var(--k-teal-ink); }
+  body.kids .kwp-done { text-align: center; padding: 14px 4px 4px; }
+  body.kids .kwp-tada { display: block; font-size: 46px; line-height: 1; }
+  body.kids .kwp-done b {
+    display: block; font-family: var(--font-display); font-size: 22px;
+    color: var(--k-ink); margin-top: 6px;
+  }
+  body.kids .kwp-done i {
+    display: block; font-style: normal; font-size: 13px; color: var(--k-ink-2);
+    direction: rtl; unicode-bidi: isolate; margin-top: 2px;
+  }
+  body.kids .kwp-stars { display: flex; justify-content: center; gap: 7px; margin: 13px 0 0; }
+  body.kids .kwp-stars i {
+    width: 18px; height: 18px; border-radius: 50%; background: var(--k-track);
+    box-shadow: inset 0 0 0 2px var(--k-sun-line);
+  }
+  body.kids .kwp-stars i.on { background: var(--k-sun); }
+
+
 
   .kcont {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
@@ -20729,45 +20841,190 @@ const Kids = (() => {
     return card;
   }
 
-  /* Five kid words, asked as "what does it mean?" in Persian. The bank is the
-     word themes in kids.json, so the practice and the vocabulary page cannot
-     drift apart. */
+  /* Five kid words, one at a time: a big card, one big word, three big
+     answers. The old version stacked all five questions on the home page at
+     once, so the thing a child came to do was already half-scrolled past and
+     answered in a grey list. One question at a time is the same five words in
+     the same order - it just puts the current one where the child is looking,
+     and gives the answer somewhere to be read before the next one arrives.
+
+     Every control is a whole finger: 56px answers, a 46px speaker, a 50px
+     "next". The right answer keeps the tick it always had; the party is
+     thrown from the button that was pressed, as everywhere else. */
   function practiceCard(d) {
     const all = [];
     (d.words || []).forEach((theme) => (theme.words || []).forEach((w) => all.push(w)));
     if (all.length < 4) return null;
     const seed = Math.floor(Date.now() / 86400000) + quizPage * 5;
     const picked = [];
-    for (let i = 0; i < 5; i += 1) picked.push(all[(seed * 7 + i * 11) % all.length]);
+    for (let i = 0; i < 5; i += 1) {
+      let w = all[(seed * 7 + i * 11) % all.length];
+      let guard = 0;
+      while (picked.indexOf(w) >= 0 && guard < all.length) {
+        w = all[(all.indexOf(w) + 1) % all.length];
+        guard += 1;
+      }
+      picked.push(w);
+    }
+
     const card = document.createElement('section');
-    card.className = 'kcard kc-teal';
+    card.className = 'kcard kc-teal kwp';
     const head = document.createElement('div');
     head.className = 'kcard-h';
     const titles = document.createElement('div');
     const h = document.createElement('h4');
     h.textContent = 'Play with words 🎯';
     titles.append(h, fa('با واژه‌ها بازی کن', 'kfa-h'));
-    /* This was a bare "Five more" button at the very bottom of the page, with
-       no card to belong to and nothing to say what it would give five more of.
-       It is the card's own refresh now, where the questions are. */
     const more = document.createElement('button');
     more.type = 'button';
     more.className = 'kcard-more';
     more.textContent = '↻ 5 more';
-    more.setAttribute('aria-label', 'Five more words — پنج واژهٔ دیگر');
+    more.setAttribute('aria-label', 'Five other words — پنج واژهٔ دیگر');
     more.onclick = () => { quizPage += 1; home(); };
     head.append(titles, more);
     card.appendChild(head);
-    const items = picked.map((w) => {
+
+    /* A row of five little bars: how much of the game is left is a shape, not
+       a sentence, and it fills as the child goes. */
+    const pips = document.createElement('div');
+    pips.className = 'kwp-pips';
+    pips.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < picked.length; i += 1) pips.appendChild(document.createElement('i'));
+    card.appendChild(pips);
+
+    const stage = document.createElement('div');
+    stage.className = 'kwp-stage';
+    /* one polite announcement per question, so a screen reader hears "word 2
+       of 5" without the whole card being re-read */
+    stage.setAttribute('aria-live', 'polite');
+    card.appendChild(stage);
+
+    let at = 0;
+    let right = 0;
+
+    function optionsFor(w) {
       const wrong = all.filter((x) => x.fa !== w.fa).slice((w.word.length % 5), 5).slice(0, 2);
       const options = [w.fa].concat(wrong.map((x) => x.fa));
-      /* shuffle by a fixed rule so the right answer is not always first */
+      /* shuffled by a fixed rule so the right answer is not always first */
       options.sort((a, b) => (a.length - b.length) || a.localeCompare(b));
-      return {q: 'What does "' + w.word + '" mean?', options, answer: w.fa,
-              why_en: w.word + ' means "' + w.def_en + '" for example: ' + w.example_en,
-              why_fa: w.word + ' یعنی «' + w.fa + '». نمونه: ' + w.example_fa};
-    });
-    quiz(card, items);
+      return options;
+    }
+
+    function answer(btn, opts, fb, w) {
+      if (opts.dataset.done) return;
+      opts.dataset.done = '1';
+      const ok = btn.dataset.val === w.fa;
+      [...opts.children].forEach((o) => {
+        o.disabled = true;
+        if (o.dataset.val === w.fa) o.classList.add('ok');
+      });
+      if (!ok) btn.classList.add('no');
+      pips.children[at].classList.add('on');
+      fb.hidden = false;
+      fb.className = 'kwp-fb ' + (ok ? 'ok' : 'no');
+      fb.innerHTML = '<div class="kwp-fbt"><span aria-hidden="true">' + (ok ? '⭐' : '💡') + '</span>' +
+        '<b>' + (ok ? esc(praise()) : 'Good try! — نزدیک بود') + '</b></div>' +
+        '<p class="kwp-def" dir="ltr">' + esc(w.def_en || '') + '</p>' +
+        '<p class="kwp-ex" dir="ltr">' + esc(w.example_en || '') + '</p>' +
+        '<p class="kwp-ex kwp-fa" dir="rtl" lang="fa">' + esc(w.example_fa || '') + '</p>';
+      if (ok) { right += 1; Cheer.from(btn); }
+      const next = document.createElement('button');
+      next.type = 'button';
+      next.className = 'kwp-next';
+      next.textContent = at + 1 < picked.length ? 'Next word → · واژهٔ بعدی' : 'See how I did 🎉';
+      next.onclick = () => { at += 1; paint(); };
+      fb.appendChild(next);
+      next.focus();
+    }
+
+    function finish() {
+      stage.innerHTML = '';
+      const done = document.createElement('div');
+      done.className = 'kwp-done';
+      const tada = document.createElement('span');
+      tada.className = 'kwp-tada';
+      tada.setAttribute('aria-hidden', 'true');
+      tada.textContent = '🎉';
+      const big = document.createElement('b');
+      big.textContent = right + ' of ' + picked.length + ' right!';
+      const faLine = document.createElement('i');
+      faLine.lang = 'fa';
+      faLine.dir = 'rtl';
+      faLine.textContent = right + ' از ' + picked.length + ' درست!';
+      const stars = document.createElement('div');
+      stars.className = 'kwp-stars';
+      stars.setAttribute('aria-hidden', 'true');
+      for (let i = 0; i < picked.length; i += 1) {
+        const s = document.createElement('i');
+        if (i < right) s.className = 'on';
+        stars.appendChild(s);
+      }
+      const again = document.createElement('button');
+      again.type = 'button';
+      again.className = 'kwp-next';
+      again.textContent = '↻ 5 more words · ۵ واژهٔ دیگر';
+      again.onclick = () => { quizPage += 1; home(); };
+      done.append(tada, big, faLine, stars, again);
+      stage.appendChild(done);
+      Cheer.win(done);
+    }
+
+    function paint() {
+      const w = picked[at];
+      if (!w) { finish(); return; }
+      stage.innerHTML = '';
+      const count = document.createElement('div');
+      count.className = 'kwp-n';
+      count.textContent = 'Word ' + (at + 1) + ' of ' + picked.length + ' · واژهٔ ' + (at + 1) + ' از ' + picked.length;
+
+      const tile = document.createElement('div');
+      tile.className = 'kwp-tile';
+      const word = document.createElement('b');
+      word.className = 'kwp-word';
+      word.lang = 'en';
+      word.dir = 'ltr';
+      word.textContent = w.word;
+      const say = document.createElement('button');
+      say.type = 'button';
+      say.className = 'kwp-say';
+      say.textContent = '🔊';
+      say.setAttribute('aria-label', 'Hear the word — واژه را بشنو');
+      say.onclick = () => { try { Speech.speak(w.word); } catch (e) { /* no voice */ } };
+      tile.append(word, say);
+
+      const ask = document.createElement('p');
+      ask.className = 'kwp-ask';
+      ask.innerHTML = 'What does it mean? <i lang="fa" dir="rtl">یعنی چه؟</i>';
+
+      const opts = document.createElement('div');
+      opts.className = 'kwp-opts';
+      const fb = document.createElement('div');
+      fb.className = 'kwp-fb';
+      fb.hidden = true;
+
+      optionsFor(w).forEach((option, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'kwp-opt';
+        b.dataset.val = option;
+        const badge = document.createElement('span');
+        badge.className = 'kwp-badge';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.textContent = 'ABC'[i] || '·';
+        const label = document.createElement('span');
+        label.className = 'kwp-fa';
+        label.lang = 'fa';
+        label.dir = 'rtl';
+        label.textContent = option;
+        b.append(badge, label);
+        b.onclick = () => answer(b, opts, fb, w);
+        opts.appendChild(b);
+      });
+
+      stage.append(count, tile, ask, opts, fb);
+    }
+
+    paint();
     return card;
   }
 
