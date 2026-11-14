@@ -7868,6 +7868,124 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     border-color: var(--k-primary); background: var(--k-primary-wash);
     color: var(--k-primary-dark);
   }
+
+  /* ---- Me: the child's own page ----------------------------------------
+     Four cards and one door. The cards are the ones the app already has
+     (.kcard, .khero), so a page a child visits rarely still looks like the
+     pages they visit every day; what is new here is size and shape, because
+     this is the one screen with numbers on it that nobody is meant to read
+     quickly: the star count is 44px, the switch is a whole row, and every
+     caption is short enough for a seven-year-old to finish. */
+  body.kids #acbody.kme { padding-bottom: 6px; }
+  .kme-hero { margin-bottom: 12px; }
+
+  .kme-head { display: flex; align-items: flex-start; gap: 10px; }
+  .kme-head > div { min-width: 0; }
+  .kme-head b {
+    display: block; font-family: var(--font-display); font-size: 17px;
+    line-height: 1.2; color: var(--k-ink);
+  }
+  .kme-head i {
+    display: block; font-style: normal; font-size: 12px; color: var(--k-ink-2);
+    direction: rtl; unicode-bidi: isolate;
+  }
+  .kme-head small {
+    display: block; font-size: 12.5px; line-height: 1.5; color: var(--k-ink-2);
+    margin-top: 4px;
+  }
+  .kme-head small[lang="fa"] { direction: rtl; unicode-bidi: isolate; }
+  .kme-emoji {
+    flex: none; display: grid; place-items: center;
+    width: 42px; height: 42px; border-radius: 14px; font-size: 23px; line-height: 1;
+    background: var(--k-surface); box-shadow: inset 0 0 0 1.5px var(--k-sec-line, var(--k-line));
+  }
+
+  .kme-stars .kme-big { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+  .kme-stars .kme-big b {
+    font-family: var(--font-display); font-size: 44px; line-height: .95;
+    color: var(--k-sun-ink);
+  }
+  .kme-stars .kme-big span { font-size: 12.5px; line-height: 1.45; color: var(--k-ink-2); }
+  .kme-stars .kme-big i { display: block; font-style: normal; direction: rtl; unicode-bidi: isolate; }
+
+  .kme-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(94px, 1fr));
+    gap: 10px; margin-bottom: 12px;
+  }
+  .kme-grid .kcard { margin: 0; padding: 12px 10px 13px; text-align: center; }
+  .kme-tile .kme-emoji { margin: 0 auto 6px; width: 34px; height: 34px; font-size: 19px; border-radius: 12px; }
+  .kme-tile b {
+    display: block; font-family: var(--font-display); font-size: 27px;
+    line-height: 1.05; color: var(--k-ink);
+  }
+  .kme-tile b small { font-size: 12px; font-weight: 700; color: var(--k-ink-2); }
+  .kme-tile > span:last-child {
+    display: block; font-size: 11.5px; line-height: 1.35; color: var(--k-ink-2); margin-top: 4px;
+  }
+  .kme-tile i { display: block; font-style: normal; direction: rtl; unicode-bidi: isolate; }
+
+  .kme-calm .kme-switch {
+    width: 100%; display: flex; align-items: center; gap: 11px; margin-top: 12px;
+    min-height: 54px; padding: 11px 16px; cursor: pointer; font-family: inherit;
+    text-align: start; border-radius: 999px;
+    border: 2px solid var(--k-purple-line); background: var(--k-surface); color: var(--k-ink);
+    box-shadow: 0 3px 0 var(--k-purple-line);
+    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s, background .2s;
+  }
+  .kme-calm .kme-switch:hover { transform: translateY(-1px); box-shadow: 0 4px 0 var(--k-purple-line); }
+  .kme-calm .kme-switch:active { transform: translateY(1px); box-shadow: 0 2px 0 var(--k-purple-line); }
+  .kme-calm .kme-switch[aria-pressed="true"] {
+    background: var(--k-purple-wash); border-color: var(--k-purple); box-shadow: 0 3px 0 var(--k-purple);
+  }
+  .kme-switch-dot {
+    flex: none; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--k-purple); box-shadow: inset 0 0 0 4px var(--k-surface);
+    transition: transform .2s cubic-bezier(.22,1,.36,1);
+  }
+  .kme-switch[aria-pressed="true"] .kme-switch-dot { transform: scale(.72); }
+  .kme-switch b { font-size: 14.5px; line-height: 1.3; }
+
+  .kme-grown {
+    margin: 2px 0 12px; padding: 11px 14px 13px; border-radius: 16px;
+    border: 1.5px dashed var(--k-line-strong); background: var(--k-surface);
+  }
+  .kme-grown summary {
+    cursor: pointer; font-size: 13.5px; font-weight: 800; color: var(--k-ink-2);
+    list-style: none; display: flex; align-items: center; gap: 7px;
+  }
+  .kme-grown summary::-webkit-details-marker { display: none; }
+  .kme-grown summary::after { content: "＋"; margin-inline-start: auto; font-size: 15px; }
+  .kme-grown[open] summary::after { content: "−"; }
+  .kme-grown summary i {
+    font-style: normal; font-size: 12px; font-weight: 600;
+    direction: rtl; unicode-bidi: isolate;
+  }
+  .kme-grown p { margin: 9px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--k-ink-2); }
+  .kme-grown p[lang="fa"] { direction: rtl; unicode-bidi: isolate; }
+  .kme-open {
+    width: 100%; min-height: 46px; margin-top: 11px; cursor: pointer;
+    font-family: inherit; font-size: 13.5px; font-weight: 800; color: var(--k-ink);
+    border-radius: 14px; border: 1.5px solid var(--k-line-strong); background: var(--k-surface-2);
+  }
+
+  .kme-back {
+    width: 100%; min-height: 56px; margin: 0 0 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: inherit; font-size: 15.5px; font-weight: 800;
+    border-radius: 16px; border: 1.5px solid var(--k-primary-deep);
+    background: var(--k-primary-dark); color: var(--k-on-primary);
+    box-shadow: 0 4px 0 var(--k-primary-deep);
+    transition: transform .14s cubic-bezier(.22,1,.36,1), box-shadow .14s;
+  }
+  .kme-back:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--k-primary-deep); }
+  .kme-back i {
+    font-style: normal; font-size: 12px; font-weight: 700;
+    color: var(--k-on-primary-dim); direction: rtl; unicode-bidi: isolate;
+  }
+  body.kids .ac-kidback { margin-bottom: 12px; }
+  body.kids-young .kme-stars .kme-big b { font-size: 50px; }
+  body.kids-young .kme-tile b { font-size: 29px; }
+
   .kcont {
     width: 100%; display: flex; align-items: center; gap: 12px; text-align: start;
     cursor: pointer; font-family: inherit; padding: 13px 15px; margin-bottom: 10px;
@@ -17441,9 +17559,21 @@ const Auth = (() => {
       (kids ? 'Fluentify Kids — کودکان' : 'Fluentify — کامل') + '</span>';
   }
 
-  function paintAccount() {
+  /* Which face of the account panel is showing. Adults only have one; a child
+     gets the simple page until a grown-up opens the full one, and the flag is
+     reset every time the panel is opened so it always starts simple. */
+  let acFull = false;
+
+  function paintAccount(opts) {
     const body = $('acbody');
     if (!body) return;
+    if (opts && typeof opts.full === 'boolean') acFull = opts.full;
+    if (typeof Experience !== 'undefined' && Experience.kids() &&
+        !acFull && typeof Kids !== 'undefined' && Kids.me) {
+      Kids.me();
+      return;
+    }
+    body.className = '';
     /* Repainting replaces every node in the panel, and a replaced panel starts
        at its top: picking a face three rows down threw the learner back to the
        name they had already read. Where the panel was standing is part of what
@@ -17552,7 +17682,28 @@ const Auth = (() => {
       </div>
       <div class="ac-actions" style="margin-top:10px">
         <button class="lv-btn ghost" data-ac="signout">Sign out</button>
-      </div>`;    Theme.paint();
+      </div>`;
+    if (typeof Experience !== 'undefined' && Experience.kids()) {
+      /* The grown-up page is a detour, not a destination: one control at the
+         top takes the child straight back to their own page. */
+      const back = document.createElement('button');
+      back.type = 'button';
+      back.className = 'lv-btn ghost ac-kidback';
+      back.textContent = '← Back to my page — برگشت به صفحهٔ من';
+      back.onclick = () => paintAccount({full: false});
+      body.prepend(back);
+      const h = document.querySelector('#acpanel h3');
+      if (h) {
+        h.textContent = 'Grown-ups — ';
+        const bdi = document.createElement('bdi');
+        bdi.className = 'fa';
+        bdi.lang = 'fa';
+        bdi.dir = 'rtl';
+        bdi.textContent = 'برای بزرگ‌ترها';
+        h.appendChild(bdi);
+      }
+    }
+    Theme.paint();
     if (panel && keep) panel.scrollTop = keep;
   }
 
@@ -20769,6 +20920,122 @@ const Kids = (() => {
     if (prac) panel.appendChild(prac);
   }
 
+  /* ---- Me: the child's own page ----------------------------------------
+     The account panel is an adult document: a certificate name, a session
+     clock, "stored on this device only", a password form with three fields.
+     Every one of those is a real thing a parent may need, and none of them is
+     a thing a seven-year-old can read. A child opening "Me" wants to know who
+     they are, what they have collected, and how to make the fox stop moving.
+
+     So the kids band gets the same facts in the shape a child reads: a face
+     that looks back, one big number of stars, three small counts, one switch,
+     and a door marked for grown-ups. Nothing has been removed - the full
+     account (name, password, sign out) is one tap away on a page that says it
+     is for adults, which is also the honest place for it. */
+  function me() {
+    const body = $('acbody');
+    if (!body) return;
+    const panel = document.getElementById('acpanel');
+    const keep = panel ? panel.scrollTop : 0;
+    const account = (typeof Auth !== 'undefined' && Auth.profile) ? Auth.profile() : null;
+    panelTitle('acpanel', 'Me', 'من');
+    let study = {};
+    try { study = Study.stats() || {}; } catch (e) { study = {}; }
+    const cw = (typeof Crossword !== 'undefined' && Crossword.summary)
+      ? Crossword.summary() : {done: 0, stars: 0};
+    const wq = (typeof WordQuest !== 'undefined' && WordQuest.summary)
+      ? WordQuest.summary() : {done: 0, stars: 0};
+    const hq = (typeof Quest !== 'undefined' && Quest.summary)
+      ? Quest.summary() : {done: 0, stars: 0};
+    const stars = (cw.stars || 0) + (wq.stars || 0) + (hq.stars || 0);
+    const puzzles = (cw.done || 0) + (wq.done || 0) + (hq.done || 0);
+    const today = Math.max(0, Math.round((study.today || 0) / 60));
+    const streak = study.streak || 0;
+    const name = account && account.name ? String(account.name).split(' ')[0] : '';
+    const quiet = KAnim.calm();
+    const word = quiet ? 'Quiet — آرام' : 'Wiggly — پرجنب‌وجوش';
+
+    body.className = 'kme';
+    body.innerHTML = `
+      <section class="khero kme-hero">
+        <div class="kface"></div>
+        <div class="kgreet">
+          <b>Hi${name ? ', ' + esc(name) : ' there'}! 👋</b>
+          <span>This page is all about you.</span>
+          <span class="kfa" dir="rtl" lang="fa">این صفحه مال خودت است.</span>
+        </div>
+      </section>
+
+      <section class="kcard kc-sun kme-stars" aria-label="${stars} stars · ${stars} ستاره">
+        <div class="kme-head"><span class="kme-emoji" aria-hidden="true">⭐</span>
+          <div><b>My stars</b><i lang="fa" dir="rtl">ستاره‌های من</i></div></div>
+        <div class="kme-big"><b>${stars}</b>
+          <span>stars for playing<i lang="fa" dir="rtl">ستاره برای بازی</i></span></div>
+      </section>
+
+      <div class="kme-grid">
+        <section class="kcard kc-blue kme-tile">
+          <span class="kme-emoji" aria-hidden="true">⏱️</span>
+          <b>${today}<small> min</small></b>
+          <span>played today<i lang="fa" dir="rtl">امروز بازی کردی</i></span>
+        </section>
+        <section class="kcard kc-coral kme-tile">
+          <span class="kme-emoji" aria-hidden="true">🔥</span>
+          <b>${streak}</b>
+          <span>${streak === 1 ? 'day in a row' : 'days in a row'}<i lang="fa" dir="rtl">روز پشت سر هم</i></span>
+        </section>
+        <section class="kcard kc-teal kme-tile">
+          <span class="kme-emoji" aria-hidden="true">🧩</span>
+          <b>${puzzles}</b>
+          <span>puzzles finished<i lang="fa" dir="rtl">معما حل شده</i></span>
+        </section>
+      </div>
+
+      <section class="kcard kc-purple kme-calm">
+        <div class="kme-head"><span class="kme-emoji" aria-hidden="true">🧸</span>
+          <div><b>Calm pictures</b><i lang="fa" dir="rtl">تصویرهای آرام</i>
+            <small>Turn the wiggling off when you want it quiet.</small>
+            <small lang="fa" dir="rtl">وقتی می‌خواهی آرام باشد، حرکت‌ها را خاموش کن.</small></div>
+        </div>
+        <button type="button" class="kme-switch" aria-pressed="${quiet ? 'true' : 'false'}">
+          <span class="kme-switch-dot" aria-hidden="true"></span><b>${word}</b>
+        </button>
+      </section>
+
+      <details class="kme-grown">
+        <summary><span aria-hidden="true">👨‍👩‍👧</span> For grown-ups
+          <i lang="fa" dir="rtl">برای بزرگ‌ترها</i></summary>
+        <p>Ask a grown-up to open this page. It has your name, your email and your password.</p>
+        <p lang="fa" dir="rtl">از یک بزرگ‌تر بخواه این صفحه را باز کند. نام، ایمیل و گذرواژهٔ تو آنجاست.</p>
+        <button type="button" class="kme-open">Open the full account — حساب کامل</button>
+      </details>
+
+      <button type="button" class="kme-back">Keep playing <span aria-hidden="true">→</span>
+        <i lang="fa" dir="rtl">ادامهٔ بازی</i></button>`;
+
+    const face = body.querySelector('.kme-hero .kface');
+    if (face) face.appendChild(KAnim.fox('wave', 54));
+
+    /* The switch changes one thing and shows that it changed: repainting the
+       whole page to move a pill would take the child's place in it, which is
+       the same mistake the adult panel's scroll restore exists to undo. */
+    const sw = body.querySelector('.kme-switch');
+    if (sw) {
+      sw.onclick = () => {
+        const on = KAnim.toggle();
+        sw.setAttribute('aria-pressed', on ? 'true' : 'false');
+        const b = sw.querySelector('b');
+        if (b) b.textContent = on ? 'Quiet — آرام' : 'Wiggly — پرجنب‌وجوش';
+      };
+    }
+    const open = body.querySelector('.kme-open');
+    if (open) open.onclick = () => { if (Auth.paintAccount) Auth.paintAccount({full: true}); };
+    const back = body.querySelector('.kme-back');
+    if (back) back.onclick = () => openPanel('kpanel');
+
+    if (panel && keep) panel.scrollTop = keep;
+  }
+
   function land() {
     if (landed) return;
     landed = true;
@@ -21816,7 +22083,7 @@ const Kids = (() => {
     return (c.starters && c.starters.length) ? c.starters : KID_STARTERS;
   }
 
-  return {on, enable, off, load, land, repaint, home, vocab, grammar, stories,
+  return {on, enable, off, load, land, repaint, home, me, vocab, grammar, stories,
           reading, listening, phrases, says, welcome, starters, data,
           // the panel lifecycle and the page lifecycle both end narration
           // through here; nothing may keep talking in a closed section
@@ -22005,7 +22272,7 @@ const PANEL_ON_OPEN = {
   // the monthly level check: a banded item bank, read the first time it opens
   lvlpanel: () => { if (!Experience.kids()) Level.mount(); },
   // the account panel is local: a name, a session clock, and the exit
-  acpanel: () => Auth.paintAccount(),
+  acpanel: () => Auth.paintAccount({full: false}),
   // the drills read their data on first open and then keep it
   prpanel: () => Practice.open(),
   // the kids home page is rebuilt on every open: the stars and the word of
@@ -28735,7 +29002,16 @@ const Crossword = (() => {
     render();
   }
 
-  return { open };
+  /* What Me shows without opening the game: how many stages are behind the
+     child and how many stars they hold. Read from the same store the board
+     writes, so the two can never drift. */
+  function summary() {
+    const keys = Object.keys(store.done);
+    return {done: keys.length,
+            stars: keys.reduce((sum, k) => sum + (Number(store.done[k]) || 0), 0)};
+  }
+
+  return { open, summary };
 })();
 
 const WordQuest = (() => {
@@ -29619,7 +29895,17 @@ const WordQuest = (() => {
     render();
   }
 
-  return {open, render};
+  /* Me reads this without loading the puzzle file: the store is on the
+     device, and a child opening their own page should not wait on a fetch. */
+  function summary() {
+    const st = state || read();
+    const ids = Object.keys(st.stages || {});
+    return {done: ids.length,
+            stars: ids.reduce((sum, id) => sum + ((st.stages[id] || {}).stars || 0), 0),
+            words: Object.keys(st.words || {}).length};
+  }
+
+  return {open, render, summary};
 })();
 
 /* ==========================================================================
@@ -31406,8 +31692,19 @@ const Quest = (() => {
 
   /* What the rest of the page needs: the panel hook, the dashboard exit, and
      a way for the kids layer to drop the game if the account changes band. */
+  /* Stars per mission, best effort, straight from the store: the map is
+     loaded lazily and Me should not need it just to count them. */
+  function summary() {
+    const st = state || readState();
+    const best = {};
+    st.events.forEach((e) => { best[e.m] = Math.max(best[e.m] || 0, e.s); });
+    const ids = Object.keys(best);
+    return {done: ids.filter((id) => best[id] > 0).length,
+            stars: ids.reduce((sum, id) => sum + best[id], 0)};
+  }
+
   return {open, sync, startMission, challengesFor, placement, unlockedCount,
-          starsOf, missionOpen, KEY: storeKey};
+          starsOf, missionOpen, summary, KEY: storeKey};
 })();
 
 </script>

@@ -1058,7 +1058,7 @@ def main() -> int:
     check("the account panel is taller than it was, not shorter",
           panel_rule is not None and "max-height" in panel_rule.group(1),
           "a fixed 70% clipped the actions; the height has to be a clamp")
-    paint = re.search(r"function paintAccount\(\) \{(.*?)\n  \}", src, re.S)
+    paint = re.search(r"function paintAccount\([^)]*\) \{(.*?)\n  \}", src, re.S)
     body_tpl = paint.group(1) if paint else ""
     actions_at = body_tpl.find('class="ac-actions"')
     check("the account panel still draws its actions",
