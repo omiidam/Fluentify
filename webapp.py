@@ -4,6 +4,7 @@
 Run:  python3 webapp.py   →  http://localhost:8765
 """
 
+import gzip
 import json
 import os
 import re
@@ -10632,6 +10633,23 @@ const loadJSON = (name) => (_json[name] ||= fetch('/api/' + name).then((r) => {
   return r.json();
 }));
 
+/* The same read, shared while it is in the air.
+
+   Phonetics and Listening are each drawn twice on start-up - once by the
+   boot reader and once by the panel that owns them - and each caller fetched
+   its own copy, so those two files crossed the wire twice per load for 52 KB
+   of identical JSON. Only a request that is still in progress is shared: the
+   entry is dropped as soon as it settles, so a panel opened later still
+   re-reads its data the way it always did. */
+const _pendingJSON = {};
+const loadJSONOnce = (name) => {
+  const hit = _pendingJSON[name];
+  if (hit) return hit;
+  const job = loadJSON(name).finally(() => { delete _pendingJSON[name]; });
+  _pendingJSON[name] = job;
+  return job;
+};
+
 const chat = document.getElementById('chat');
 const input = document.getElementById('input');
 const jump = document.getElementById('jump');
@@ -13237,8 +13255,7 @@ async function loadPhonetics() {
   if (!rail || !view || rail.childElementCount) return;   // already built
   let sections;
   try {
-    const r = await fetch('/api/phonetics');
-    sections = await r.json();
+    sections = await loadJSONOnce('phonetics');
   } catch (e) {
     view.innerHTML = '<div class="pblurb">Phonetics unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">آموزش تلفظ در دسترس نیست.</bdi></div>';
     return;
@@ -13372,8 +13389,7 @@ async function loadPhonetics() {
 async function loadListening() {
   const box = document.getElementById('llevels');
   try {
-    const r = await fetch('/api/listening');
-    const levels = await r.json();
+    const levels = await loadJSONOnce('listening');
     if (!levels.length) return;
 
     const tabs = document.createElement('div');
@@ -32339,30 +32355,57 @@ def merge_quest_events(stored, incoming):
 
 
 class Handler(BaseHTTPRequestHandler):
-    def _send_text(self, body: str, content_type: str,
-                   cache_seconds: int = 0, status: int = 200) -> None:
-        """Reply with a plain body. `_send_json` covers everything else."""
-        raw = body.encode("utf-8")
+    def _finish(self, raw: bytes, content_type: str,
+                cache_seconds: int = 0, status: int = 200,
+                no_store: bool = False) -> None:
+        """Send one body, gzipped when the client accepts it.
+
+        Everything this app serves is text - the page, its JSON, the grammar
+        engine - and none of it was compressed, so a cold load carried about
+        2.7 MB over the wire for a first screen. The page alone is 1.5 MB and
+        compresses to 400 KB; the JSON on the boot path compresses by about
+        85%. Small bodies are left alone: the encoding header on a 200-byte
+        reply costs more than it saves.
+
+        The two headers that go out with every reply are what stops a browser
+        from second-guessing the types above (nosniff) and from handing the
+        page's address to whatever it links to (no-referrer). Neither changes
+        what the page does.
+        """
+        accept = (self.headers.get("Accept-Encoding") or "").lower()
+        zipped = False
+        if len(raw) >= 1024 and "gzip" in accept:
+            raw = gzip.compress(raw, 6, mtime=0)
+            zipped = True
         self.send_response(status)
         self.send_header("Content-Type", content_type)
-        if cache_seconds:
+        # Always, not only when this reply happened to be compressed: a shared
+        # cache that stored the plain copy would otherwise hand it to a client
+        # that asked for gzip, and the other way round.
+        self.send_header("Vary", "Accept-Encoding")
+        if zipped:
+            self.send_header("Content-Encoding", "gzip")
+        if no_store:
+            self.send_header("Cache-Control", "no-store")
+        elif cache_seconds:
             self.send_header("Cache-Control", f"public, max-age={cache_seconds}")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Referrer-Policy", "no-referrer")
         self.send_header("Content-Length", str(len(raw)))
         self.end_headers()
         self.wfile.write(raw)
+
+    def _send_text(self, body: str, content_type: str,
+                   cache_seconds: int = 0, status: int = 200) -> None:
+        """Reply with a plain body. `_send_json` covers everything else."""
+        self._finish(body.encode("utf-8"), content_type, cache_seconds, status)
 
     def _send_json(self, payload, cache_seconds: int = 300) -> None:
         """Reply with JSON. Anything read from a file on disk is cached
         briefly, because those files are re-read on every request and only
         change when a build tool rewrites them."""
-        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        if cache_seconds:
-            self.send_header("Cache-Control", f"public, max-age={cache_seconds}")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
+        self._finish(json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+                     "application/json; charset=utf-8", cache_seconds)
 
     def do_POST(self):
         """The one write the page makes: a child's finished missions.
@@ -32426,13 +32469,8 @@ class Handler(BaseHTTPRequestHandler):
             if not path.exists():
                 return self._send_text("not found", "text/plain; charset=utf-8",
                                        status=404)
-            body = path.read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "font/woff2")
-            self.send_header("Content-Length", str(len(body)))
-            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
-            self.end_headers()
-            self.wfile.write(body)
+            # woff2 is already compressed; gzip would only add bytes.
+            self._finish(path.read_bytes(), "font/woff2", 31536000)
             return
         if self.path.startswith("/nlp/"):
             # The bundled grammar engine. It is served from a whitelisted name
@@ -32448,13 +32486,10 @@ class Handler(BaseHTTPRequestHandler):
             if not path.exists():
                 return self._send_text("not found", "text/plain; charset=utf-8",
                                        status=404)
-            body = path.read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "text/javascript; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
-            self.end_headers()
-            self.wfile.write(body)
+            # The one file worth compressing most: 3.5 MB of text that
+            # travels on almost every load until the browser caches it.
+            self._finish(path.read_bytes(), "text/javascript; charset=utf-8",
+                         31536000)
             return
         if self.path.startswith("/brand/"):
             # The mascot. Whitelisted by name for the same reason the fonts are:
@@ -32468,13 +32503,8 @@ class Handler(BaseHTTPRequestHandler):
             if not path.exists():
                 return self._send_text("not found", "text/plain; charset=utf-8",
                                        status=404)
-            body = path.read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "image/png")
-            self.send_header("Content-Length", str(len(body)))
-            self.send_header("Cache-Control", "public, max-age=604800")
-            self.end_headers()
-            self.wfile.write(body)
+            # PNG is already compressed; gzip would only add bytes.
+            self._finish(path.read_bytes(), "image/png", 604800)
             return
         if self.path.startswith("/api/senses"):
             # The meanings behind every taught word, built from the same
@@ -32483,11 +32513,7 @@ class Handler(BaseHTTPRequestHandler):
             body = json.dumps(
                 json.loads((ROOT / "senses.json").read_text(encoding="utf-8")),
                 ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
             return
 
         if self.path.startswith("/api/wordarch"):
@@ -32501,11 +32527,7 @@ class Handler(BaseHTTPRequestHandler):
             for items in bands.values():
                 items.sort(key=lambda e: e["en"].lower())
             body = json.dumps(bands, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/phonetics"):
             # Phonetics sections for the 🗣 panel — straight from the JSON,
             # so adding a topic only ever means editing phonetics.json
@@ -32524,33 +32546,19 @@ class Handler(BaseHTTPRequestHandler):
                 } for g in s.get("groups", [])],
             } for s in data["sections"]]
             body = json.dumps(sections, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/collocations"):
             # word partners for the practice sheet. Curated, not generated, so
             # it is served as it is written - and cached hard, because it only
             # changes when a person edits the file.
             body = (ROOT / "collocations.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Cache-Control", "public, max-age=3600")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8", 3600)
         elif self.path.startswith("/api/register"):
             # the register bank the register drill reads. Same file the chat
             # answers from, so the drill cannot teach a different formality
             # than the chat does.
             body = (ROOT / "register.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Cache-Control", "public, max-age=3600")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8", 3600)
         elif self.path.startswith("/api/stt"):
             # the speech-to-text configuration, read by the page and by the
             # CLI, so the three surfaces cannot drift apart
@@ -32569,11 +32577,7 @@ class Handler(BaseHTTPRequestHandler):
                 "sentences": lv["sentences"],
             } for lv in bot.listening]
             body = json.dumps(levels, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/emojis"):
             # The composer's emoji picker. The offline bundle reads this same
             # file as data/emojis.json; here it needs a route, because the web
@@ -32587,52 +32591,32 @@ class Handler(BaseHTTPRequestHandler):
             # the offline APK reads the same file out of assets/www/data, so the
             # two cannot drift apart about what a word means.
             body = (ROOT / "books.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/reading"):
             # The Reading panel's six strategies, straight off disk: the
             # passages and their answer keys are content the page draws, not
             # something the bot has an opinion about. The offline APK carries
             # the same file in assets/www/data/reading.json.
             body = (ROOT / "reading.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/stories"):
             # Mini stories: the English story, the Persian beside each
             # sentence, the notes and the answer keys. Content, not chat, so
             # it is read off disk; the offline APK carries the same file.
             body = (ROOT / "stories.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/level_test"):
             # The monthly level check: a banded item bank marked in the page.
             # Content, not chat, so it is read off disk like the stories, and
             # the offline APK carries the same file.
             body = (ROOT / "level_test.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/path"):
             # The learning path: seven level spaces, the A1 course and its
             # examination paper. Content, so it is read off disk and the
             # offline APK carries the same file.
             body = (ROOT / "path.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/vocabulary"):
             # Vocabulary domains for the UI panel, grouped for a tidy layout
             groups = []
@@ -32651,30 +32635,18 @@ class Handler(BaseHTTPRequestHandler):
                     })
                 groups.append({"en": g["en"], "fa": g["fa"], "items": items})
             body = json.dumps(groups, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/travel"):
             # Travel English: the whole curriculum, one file, served as it is
             # written so the page, the APK and check_travel read the same JSON.
             body = (ROOT / "travel.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/journeys"):
             # The journey framework: stages and their own material. The words,
             # sentences and dialogues it teaches stay in travel.json, joined by
             # category id on the page, so nothing is taught twice.
             body = (ROOT / "journeys.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/phrases"):
             # Practical sentence topics for the footer
             topics = []
@@ -32687,11 +32659,7 @@ class Handler(BaseHTTPRequestHandler):
                     "level": t.get("level", "A1"),
                 })
             body = json.dumps(topics, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/grammar"):
             # Grammar topics for the UI panel (bilingual)
             topics = []
@@ -32711,11 +32679,7 @@ class Handler(BaseHTTPRequestHandler):
                     "level": t.get("level", ""),
                 })
             body = json.dumps(topics, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/daily"):
             # Daily English: the whole curated catalog. Which three items a
             # given day gets is a function of the local date, and the page
@@ -32723,50 +32687,30 @@ class Handler(BaseHTTPRequestHandler):
             # server at all, so keeping the choice out of here is what makes
             # the two agree.
             body = json.dumps(bot.daily, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/kids"):
             # The kids bank: word themes, six mini grammar lessons, stories,
             # reading passages, listening clips and everyday sentences, all
             # bilingual. Content only, drawn by the page like the library.
             body = (ROOT / "kids.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/wordquest"):
             # Word Quest: the worlds, the letter racks and the answer keys, all
             # checked by tools/build_wordquest.py before they became a file.
             # Content only, so it is served off disk like the kids bank.
             body = (ROOT / "wordquest.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/heroquest"):
             # The adventure: six ranks, eighteen missions and the answer keys
             # for the challenges that are not drawn from kids.json. Content
             # only, like the kids bank, so it is served off disk.
             body = (ROOT / "heroquest.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/foxes"):
             # The composer's fox stickers. Pure content that the page draws,
             # so it is served straight off disk rather than through the bot.
             body = (ROOT / "foxes.json").read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(body, "application/json; charset=utf-8")
         elif self.path.startswith("/api/correct"):
             # GEC-BART Base answers here and the page only draws the result. A
             # model that is missing or unwell is a JSON refusal, not a
@@ -32779,30 +32723,20 @@ class Handler(BaseHTTPRequestHandler):
                 row = {"available": False, "input": message, "output": "",
                        "changed": False,
                        "refused": f"The correction model failed: {exc}"}
-            body = json.dumps(row, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Cache-Control", "no-store")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            # The learner's own sentence travels in this one: never cached.
+            self._finish(json.dumps(row, ensure_ascii=False).encode("utf-8"),
+                         "application/json; charset=utf-8", no_store=True)
         elif self.path.startswith("/api/chat"):
             query = parse_qs(urlparse(self.path).query)
             message = query.get("message", [""])[0]
             reply = bot.respond(message)
-            body = json.dumps({"reply": reply}, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            self._finish(json.dumps({"reply": reply}, ensure_ascii=False)
+                         .encode("utf-8"),
+                         "application/json; charset=utf-8", 0)
         else:
-            body = render_page().encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            # The page. 1.5 MB of inline CSS and JS; gzip takes it to 400 KB.
+            self._finish(render_page().encode("utf-8"),
+                         "text/html; charset=utf-8", 0)
 
     def log_message(self, *args):
         pass  # quiet

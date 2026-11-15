@@ -10423,6 +10423,23 @@ const loadJSON = (name) => (_json[name] ||= fetch('data/' + name + '.json').then
   return r.json();
 }));
 
+/* The same read, shared while it is in the air.
+
+   Phonetics and Listening are each drawn twice on start-up - once by the
+   boot reader and once by the panel that owns them - and each caller fetched
+   its own copy, so those two files crossed the wire twice per load for 52 KB
+   of identical JSON. Only a request that is still in progress is shared: the
+   entry is dropped as soon as it settles, so a panel opened later still
+   re-reads its data the way it always did. */
+const _pendingJSON = {};
+const loadJSONOnce = (name) => {
+  const hit = _pendingJSON[name];
+  if (hit) return hit;
+  const job = loadJSON(name).finally(() => { delete _pendingJSON[name]; });
+  _pendingJSON[name] = job;
+  return job;
+};
+
 const chat = document.getElementById('chat');
 const input = document.getElementById('input');
 const jump = document.getElementById('jump');

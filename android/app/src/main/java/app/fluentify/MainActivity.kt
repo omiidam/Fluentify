@@ -349,6 +349,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /* Renderer deaths are not always one-off. On a device that is genuinely out
+     * of memory the replacement renderer is killed too, and rebuilding it on
+     * every callback turns one death into a loop: reload, rebuild, die, reload,
+     * with the app never getting past its first screen and the battery draining
+     * while the learner watches. Three restarts inside a minute is the
+     * allowance; after that the page gets a native card with a Reload button
+     * instead of another attempt the device cannot afford. */
+    private var rendererRestarts = 0
+    private var firstRestartAt = 0L
+
     private fun recoverFromRendererLoss(dying: WebView): Boolean {
         releaseRecognizer()
         clearSttCallbacks()
@@ -367,11 +377,59 @@ class MainActivity : AppCompatActivity() {
         } catch (ignored: Exception) {
         }
 
+        val now = System.currentTimeMillis()
+        if (rendererRestarts == 0 || now - firstRestartAt > 60_000L) {
+            firstRestartAt = now
+            rendererRestarts = 0
+        }
+        if (rendererRestarts >= 3) {
+            // Three automatic restarts inside a minute already failed on this
+            // device. Another one would be a loop with a fixed period, so hand
+            // the choice back instead.
+            try { dying.destroy() } catch (ignored: Exception) { }
+            setContentView(rendererFallback())
+            return true
+        }
+        rendererRestarts += 1
+
         val fresh = buildWebView()
         web = fresh
         setContentView(fresh)
         fresh.loadUrl(PAGE_URL)
         return true
+    }
+
+    /**
+     * Shown when the renderer could not be kept alive. A blank white screen is
+     * indistinguishable from a crash, so this says what happened and offers
+     * one deliberate way back rather than retrying on the device's behalf.
+     */
+    private fun rendererFallback(): android.view.View {
+        val box = android.widget.LinearLayout(this).apply {
+            orientation = android.widget.LinearLayout.VERTICAL
+            setPadding(64, 160, 64, 64)
+            setBackgroundColor(0xFFFDFBF6.toInt())
+        }
+        box.addView(android.widget.TextView(this).apply {
+            text = "Fluentify could not keep the page open.\n\n" +
+                "The device stopped the page renderer three times. " +
+                "Nothing you saved has been lost.\n\n" +
+                "\u0641\u0644\u0648\u0646\u062a\u06cc\u0641\u0627\u06cc \u0646\u062a\u0648\u0627\u0646\u0633 \u0635\u0641\u062d\u0647 \u0631\u0627 \u0628\u0627\u0632 \u0646\u06af\u0647 \u062f\u0627\u0631\u062f. \u0647\u06cc\u0686 \u06cc\u06a9 \u0627\u0632 \u067e\u06cc\u0634\u0631\u0641\u062a\u200c\u0647\u0627\u06cc \u0634\u0645\u0627 \u0627\u0632 \u062f\u0633\u062a \u0646\u0631\u0641\u062a\u0647 \u0627\u0633\u062a."
+            textSize = 17f
+            setTextColor(0xFF2A2A2A.toInt())
+        })
+        box.addView(android.widget.Button(this).apply {
+            text = "Reload \u2014 \u0628\u0627\u0632\u06af\u0630\u0627\u0631\u06cc \u062f\u0648\u0628\u0627\u0631\u0647"
+            setOnClickListener {
+                rendererRestarts = 0
+                firstRestartAt = 0L
+                val fresh = buildWebView()
+                web = fresh
+                setContentView(fresh)
+                fresh.loadUrl(PAGE_URL)
+            }
+        })
+        return box
     }
 
     override fun onPause() {

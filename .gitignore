@@ -32,6 +32,14 @@ android/.gradle/
 # on every build. Tracking them duplicated ~3 MB and let the copies drift from
 # the sources without anything noticing.
 android/app/src/main/assets/www/data/
+# The same rule for the three folders build_apk_ui.py syncs. Each one was a
+# byte-identical copy of the source folder - fonts/, brand/ and nlp/ - held in
+# git in parallel with the original, which is a second copy that can only
+# drift. CI runs build_apk_ui.py before Gradle, so the bundle is complete in a
+# clean checkout.
+android/app/src/main/assets/www/fonts/
+android/app/src/main/assets/www/brand/
+android/app/src/main/assets/www/nlp/
 # Node dependencies for the offline grammar analyser. The generated bundle
 # (nlp/fluentify-nlp.js) IS committed: CI never runs npm, and the APK build
 # copies that file straight into the app.
@@ -51,3 +59,10 @@ quest_sync/
 # chat. Both are local working material, not the product.
 screenshots/
 .cloud-attachments/
+
+# A built APK and one-off screenshots at the repository root. Both are
+# produced by a build or a verification run, never by editing anything here;
+# the CI artifact and the screenshot that matters to a change live with that
+# change, not checked in beside the sources.
+/*.apk
+/*.png

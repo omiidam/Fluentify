@@ -193,14 +193,12 @@ html = sub(
     "loadVocabulary's fetch")
 html = sub(
     html,
-    """    const r = await fetch('/api/listening');
-    const levels = await r.json();""",
+    """    const levels = await loadJSONOnce('listening');""",
     """    const levels = listeningLevels;""",
     "loadListening's fetch")
 html = sub(
     html,
-    """    const r = await fetch('/api/phonetics');
-    sections = await r.json();""",
+    """    sections = await loadJSONOnce('phonetics');""",
     """    sections = phoneticSections;""",
     "loadPhonetics's fetch")
 # every occurrence, not just the first: loadWordArch has a second call site
