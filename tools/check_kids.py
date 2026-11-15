@@ -214,6 +214,83 @@ def check_grammar(data):
     stats["quiz"] = items
 
 
+def check_grammar_comics(src, data):
+    """Every grammar lesson has its comic, and the comic has all its parts.
+
+    The cartoon half of the grammar section is hardcoded beside the panel - the
+    chant, the chalkboard pairs and the fox's mood - while the lesson text
+    lives in kids.json. That is the right split (a chant is written, not
+    assembled) but it means the two can drift: add a lesson and the new card
+    opens with no chant, no colour and no rule, which is exactly the plain card
+    this work replaced. So the comic map is evaluated as JavaScript and held
+    against the bank: same ids both ways, three chant lines with three Persian
+    ones, a rule with at least two pairs, and a mood the fox can wear. The
+    markup and the chalkboard's styles are pinned too, because a class renamed
+    in the page is a section that silently loses its shape.
+    """
+    start = src.find("  const GRAMMAR_COMIC = {")
+    check(start >= 0, "the grammar comics are gone - the section is a list again")
+    if start < 0:
+        return
+    end = src.find("\n  };\n", start)
+    check(end > start, "the grammar comic block is not closed")
+    if end <= start:
+        return
+    block = src[start:end + len("\n  };")]
+
+    if not shutil.which("node"):
+        print("SKIP  node is not installed - the grammar comics were not run")
+    else:
+        ids = [lesson.get("id") for lesson in data.get("grammar") or []]
+        moods = ["idle", "wave", "listen", "speak", "think", "cheer", "read", "sad"]
+        script = Path("/tmp") / "kids-grammar-comic.js"
+        script.write_text(
+            block
+            + f"""
+const lessons = {json.dumps(ids, ensure_ascii=False)};
+const moods = {json.dumps(moods)};
+let bad = 0;
+const ok = (cond, line) => {{ if (!cond) bad++; console.log(`${{cond ? '  ok  ' : '  FAIL'}}  ${{line}}`); }};
+ok(Object.keys(GRAMMAR_COMIC).length === lessons.length,
+   `${{Object.keys(GRAMMAR_COMIC).length}} comics for ${{lessons.length}} lessons`);
+lessons.forEach((id) => ok(!!GRAMMAR_COMIC[id], `${{id}}: the lesson has a comic`));
+Object.keys(GRAMMAR_COMIC).forEach((id) =>
+  ok(lessons.indexOf(id) >= 0, `${{id}}: the comic belongs to a lesson in the bank`));
+Object.keys(GRAMMAR_COMIC).forEach((id) => {{
+  const c = GRAMMAR_COMIC[id];
+  ok(Array.isArray(c.chant) && c.chant.length === 3, `${{id}}: three lines to chant`);
+  ok(Array.isArray(c.chantFa) && c.chantFa.length === c.chant.length,
+     `${{id}}: every chant line is in Persian too`);
+  ok(c.chant.every((line) => line.trim().length > 3 && /[.?!]$/.test(line.trim())),
+     `${{id}}: each chant line is a sentence a child can say`);
+  ok(Array.isArray(c.rule) && c.rule.length >= 2, `${{id}}: a rule with at least two pairs`);
+  ok((c.rule || []).every((p) => Array.isArray(p) && p.length === 2 && p[0] && p[1]),
+     `${{id}}: every rule pair is two words`);
+  ok(moods.indexOf(c.mood) >= 0, `${{id}}: the fox has a mood it can wear`);
+  ok(!!(c.ruleEn && c.ruleFa), `${{id}}: the rule is explained in both languages`);
+}});
+process.exit(bad ? 1 : 0);
+""",
+            encoding="utf-8")
+        proc = subprocess.run(["node", str(script)], capture_output=True, text=True)
+        print(proc.stdout.strip())
+        if proc.returncode != 0:
+            problems.append("a grammar comic is missing a part:\n"
+                            + (proc.stdout + proc.stderr).strip())
+        else:
+            stats["grammar comics"] = len(ids)
+
+    for cls, meant in ((".kgl ", "the list of comic tiles"),
+                       (".kbub ", "the fox's speech bubble"),
+                       (".krule ", "the chalkboard"),
+                       (".kchant-row ", "a chant line"),
+                       (".krule-note", "the rule in words")):
+        check(cls in src, f"{meant} has no style: {cls.strip()} is not in the page")
+    for n in range(1, 9):
+        check(f"  .kg{n} {{ --kg: var(--k-c{n});" in src,
+              f"colour {n} of the comic tiles is not declared")
+
+
 def check_stories(data):
     stories = data.get("stories") or []
     check(len(stories) == 4, f"there are {len(stories)} stories, expected 4")
@@ -758,6 +835,7 @@ def main():
     check_words(data)
     check_word_pictures(data, src)
     check_grammar(data)
+    check_grammar_comics(src, data)
     check_stories(data)
     check_reading(data)
     check_listening(data)

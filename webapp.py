@@ -8644,6 +8644,155 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .kwin .kfa { direction: rtl; font-weight: 700; }
 
+  /* ---- grammar, drawn as eight comics ---------------------------------
+     The lessons were eight rows of text with a speaker beside them: correct,
+     and the same shape as the vocabulary list a child had just left. Grammar
+     for a seven-year-old is a thing you say out loud with someone, so every
+     lesson now has a colour of its own, a fox who says the first line, a
+     chalkboard rule and three chant lines to repeat. Thick edges and a solid
+     offset shadow make a row look pressable - the shadow is the depth, so the
+     press can push the card down into it and back. */
+  .kg1 { --kg: var(--k-c1); --kgw: var(--k-c1-w); --kgi: var(--k-c1-i); }
+  .kg2 { --kg: var(--k-c2); --kgw: var(--k-c2-w); --kgi: var(--k-c2-i); }
+  .kg3 { --kg: var(--k-c3); --kgw: var(--k-c3-w); --kgi: var(--k-c3-i); }
+  .kg4 { --kg: var(--k-c4); --kgw: var(--k-c4-w); --kgi: var(--k-c4-i); }
+  .kg5 { --kg: var(--k-c5); --kgw: var(--k-c5-w); --kgi: var(--k-c5-i); }
+  .kg6 { --kg: var(--k-c6); --kgw: var(--k-c6-w); --kgi: var(--k-c6-i); }
+  .kg7 { --kg: var(--k-c7); --kgw: var(--k-c7-w); --kgi: var(--k-c7-i); }
+  .kg8 { --kg: var(--k-c8); --kgw: var(--k-c8-w); --kgi: var(--k-c8-i); }
+
+  .kgintro {
+    display: flex; gap: 10px; align-items: center;
+    padding: 12px 14px; margin-bottom: 12px;
+    border-radius: 20px; border: 2.5px dashed var(--k-c3);
+    background: var(--k-c3-w);
+  }
+  .kgintro-fox { flex: none; display: flex; }
+  .kgintro-t b { display: block; font-size: 14px; color: var(--k-ink); }
+  .kgintro-t i { display: block; font-size: 12px; font-style: normal;
+    color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kgintro-t span { display: block; margin-top: 3px; font-size: 12px; color: var(--k-ink-2); }
+
+  .kgl {
+    display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto;
+    align-items: center; gap: 10px; width: 100%; text-align: start;
+    font-family: inherit; cursor: pointer; color: var(--k-ink);
+    padding: 10px 12px; border-radius: 20px;
+    border: 3px solid var(--kg);
+    background: linear-gradient(180deg, var(--kgw) 0, var(--k-surface) 78%);
+    box-shadow: 0 4px 0 var(--kg);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .kgl:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--kg); }
+  .kgl:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--kg); }
+  .kgl:focus-visible { outline: 3px solid var(--k-ink); outline-offset: 2px; }
+  .kgl-n {
+    flex: none; width: 27px; height: 27px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 13px; font-weight: 900;
+    background: var(--kgw); color: var(--kgi); border: 2px solid var(--kg);
+  }
+  .kgl-body { min-width: 0; }
+  .kgl-body b { display: block; font-size: 14.5px; line-height: 1.25; }
+  .kgl-body i { display: block; font-size: 11.5px; font-style: normal;
+    color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kgl-chant { display: block; margin-top: 3px; font-size: 12px;
+    font-weight: 800; color: var(--kgi); }
+  .kgl-go { font-size: 15px; font-weight: 900; color: var(--kgi); }
+
+  /* the lesson: a fox with a speech bubble, a chalkboard, three chants */
+  .kcard.kcomic {
+    border: 3px solid var(--kg, var(--k-c3));
+    box-shadow: 0 5px 0 var(--kg, var(--k-c3)), 0 12px 24px -22px var(--k-card-shadow);
+    background: linear-gradient(180deg, var(--kgw, var(--k-surface-2)) 0, var(--k-surface) 120px);
+  }
+  .kcard.kcomic h4 { font-size: 19px; letter-spacing: -.01em; }
+  .kghero { display: flex; align-items: flex-end; gap: 8px; margin: 2px 0 10px; }
+  .kghero-fox { flex: none; display: flex; }
+  .kbub {
+    position: relative; flex: 1; min-width: 0;
+    padding: 10px 12px; border-radius: 18px 18px 18px 6px;
+    background: var(--k-surface); border: 3px solid var(--kg, var(--k-c3));
+  }
+  .kbub::before {
+    content: ''; position: absolute; left: -10px; bottom: 12px;
+    border: 7px solid transparent; border-left: 0;
+    border-right-color: var(--kg, var(--k-c3));
+  }
+  .kbub b { display: block; font-size: 15.5px; line-height: 1.35; color: var(--k-ink); }
+  .kbub i { display: block; margin-top: 2px; font-size: 12px; font-style: normal;
+    color: var(--k-ink-2); direction: rtl; text-align: right; }
+
+  .krule {
+    margin: 12px 0 4px; padding: 12px 14px 14px;
+    border-radius: 18px; border: 3px solid #34315a;
+    background: linear-gradient(180deg, #4c4a78, #383558);
+    box-shadow: inset 0 0 0 3px rgba(255,255,255,.07), 0 3px 0 #34315a;
+  }
+  .krule-h { font-size: 10.5px; font-weight: 900; letter-spacing: .09em;
+    text-transform: uppercase; color: #cfcbff; }
+  .krule-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+  .krchip {
+    display: inline-flex; align-items: baseline; gap: 6px; cursor: pointer;
+    font-family: inherit; font-size: 14px; font-weight: 800; color: #fff;
+    padding: 7px 11px; border-radius: 12px;
+    background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3);
+    transition: transform .12s, background .12s;
+  }
+  .krchip b { color: #ffd76a; }
+  .krchip:hover { background: rgba(255,255,255,.22); transform: translateY(-1px); }
+  .krchip:active { transform: scale(.96); }
+  .krchip:focus-visible { outline: 3px solid #ffd76a; outline-offset: 2px; }
+  /* .kcard p is a step more specific than a bare class, so the note is written
+     with the card in front of it - otherwise the chalkboard copy came out in
+     the card's grey instead of on the slate. */
+  .kcard .krule-note { margin: 9px 0 0; font-size: 12px; line-height: 1.55; color: #e8e5ff; }
+  .kcard .krule-note.kfa { direction: rtl; text-align: right; color: #d7d3ff; }
+
+  .kchant { margin: 12px 0 2px; }
+  .kchant-list { display: flex; flex-direction: column; gap: 7px; }
+  .kchant-row {
+    display: flex; align-items: center; gap: 9px; width: 100%; cursor: pointer;
+    font-family: inherit; text-align: start; padding: 9px 11px; min-height: 48px;
+    border-radius: 16px; border: 2.5px solid var(--kg, var(--k-c3));
+    background: var(--k-surface); color: var(--k-ink);
+    transition: transform .12s, background .12s, box-shadow .12s;
+  }
+  .kchant-row:hover { background: var(--kgw, var(--k-surface-2)); }
+  .kchant-row.now { background: var(--kgw); transform: scale(1.02);
+    box-shadow: 0 0 0 3px var(--kg); }
+  .kchant-n {
+    flex: none; width: 24px; height: 24px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 12px; font-weight: 900;
+    background: var(--kgw, var(--k-surface-2)); color: var(--kgi, var(--k-ink));
+    border: 2px solid var(--kg, var(--k-c3));
+  }
+  .kchant-b b { display: block; font-size: 14px; }
+  .kchant-b i { display: block; font-size: 11.5px; font-style: normal;
+    color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kchant-play {
+    margin-top: 9px; width: 100%; cursor: pointer; font-family: inherit;
+    font-size: 13px; font-weight: 900; padding: 11px 12px; min-height: 48px;
+    border-radius: 16px; border: 3px solid var(--k-good-line);
+    background: var(--k-good-wash); color: var(--k-good);
+    box-shadow: 0 3px 0 var(--k-good-line);
+  }
+  .kchant-play:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--k-good-line); }
+  .kchant-play.on { animation: kchantPulse 1.1s ease-in-out infinite; }
+  @keyframes kchantPulse { 50% { transform: scale(1.02); } }
+  body.kids-calm .kchant-play.on { animation: none !important; }
+
+  /* the examples read as comic panels: a bubble each, words as tiles */
+  .kcard.kcomic .kex { gap: 8px; }
+  .kcard.kcomic .kex .krow {
+    border: 2.5px solid var(--kg, var(--k-c3)); border-radius: 16px;
+    background: var(--k-surface); padding: 10px 12px;
+  }
+  .kcard.kcomic .kex .krow .ken { font-size: 14.5px; }
+  .kcard.kcomic .kex .krow .kseq i {
+    padding: 4px 8px; border-radius: 9px; border-width: 2px;
+    border-color: var(--kg, var(--k-line)); background: var(--kgw, var(--k-surface));
+  }
+
   .klist { display: flex; flex-direction: column; gap: 8px; }
   .krowbtn {
     display: flex; align-items: center; gap: 11px; width: 100%;
@@ -21971,18 +22120,269 @@ const Kids = (() => {
     return card;
   }
 
+  /* ---- grammar, drawn as eight comics --------------------------------
+
+     The lesson text stays in kids.json, where a translator can reach it and
+     where check_kids already proves every example uses its own word. What
+     lives here is the cartoon half: the line the fox says, the pairs on the
+     chalkboard and the chant a child repeats. It is hardcoded per lesson id on
+     purpose - a chant is a written joke, not a field, and "I am, you are, he
+     is" has to land with the picture above it. A lesson with no entry still
+     opens, with the ordinary card and its own examples. */
+  const GRAMMAR_COMIC = {
+    'to-be': {
+      mood: 'wave',
+      chant: ['I am happy!', 'You are my friend!', 'She is here!'],
+      chantFa: ['من خوشحالم!', 'تو دوست منی!', 'او اینجاست!'],
+      rule: [['I', 'am'], ['you', 'are'], ['he', 'is'], ['she', 'is'],
+             ['it', 'is'], ['we', 'are'], ['they', 'are']],
+      ruleEn: 'Find the friend, then the little word that goes with them.',
+      ruleFa: 'دوست را پیدا کن، بعد واژهٔ کوچکی که با او می‌آید.',
+    },
+    'this-that': {
+      mood: 'think',
+      chant: ['This is my ball.', 'That is the moon.', 'This is near, that is far.'],
+      chantFa: ['این توپ من است.', 'آن ماه است.', 'این نزدیک است، آن دور.'],
+      rule: [['this', 'ball'], ['that', 'moon']],
+      ruleEn: 'This is the thing in your hand. That is the thing over there.',
+      ruleFa: 'this چیزی است در دستت. that چیزی است آن‌طرف.',
+    },
+    'plurals': {
+      mood: 'cheer',
+      chant: ['One cat, two cats!', 'One dog, three dogs!', 'One box, many boxes!'],
+      chantFa: ['یک گربه، دو گربه!', 'یک سگ، سه سگ!', 'یک جعبه، جعبه‌های زیاد!'],
+      rule: [['cat', 'cats'], ['dog', 'dogs'], ['star', 'stars'], ['box', 'boxes']],
+      ruleEn: 'Add s to make two. Box takes es, so you can still hear it.',
+      ruleFa: 'برای دو تا s اضافه کن. به box هم es می‌آید تا شنیده شود.',
+    },
+    'can': {
+      mood: 'cheer',
+      chant: ['I can jump!', 'She can sing!', 'Can you swim?'],
+      chantFa: ['می‌توانم بپرم!', 'او می‌تواند آواز بخواند!', 'می‌توانی شنا کنی؟'],
+      rule: [['I can', 'jump'], ['you can', 'run'], ['she can', 'sing'],
+             ['we can', 'swim']],
+      ruleEn: 'Can never changes. One word for everybody.',
+      ruleFa: 'can هیچ‌وقت عوض نمی‌شود. یک واژه برای همه.',
+    },
+    'like': {
+      mood: 'cheer',
+      chant: ['I like apples.', "I don't like rain.", 'Do you like cake?'],
+      chantFa: ['سیب دوست دارم.', 'باران را دوست ندارم.', 'کیک دوست داری؟'],
+      rule: [['I like', 'apples'], ["I don't like", 'rain'], ['Do you like', 'cake?']],
+      ruleEn: "Like says what makes you happy. Don't like says what does not.",
+      ruleFa: "like می‌گوید چه چیزی خوشحالت می‌کند. don't like می‌گوید چه چیزی نه.",
+    },
+    'present': {
+      mood: 'read',
+      chant: ['Every day I play.', 'Every day he plays.', 'Every day she reads.'],
+      chantFa: ['هر روز بازی می‌کنم.', 'هر روز او بازی می‌کند.', 'هر روز او کتاب می‌خواند.'],
+      rule: [['I', 'play'], ['he', 'plays'], ['she', 'reads'], ['we', 'play']],
+      ruleEn: 'He, she and it take an s. I, you, we and they do not.',
+      ruleFa: 'he و she و it یک s می‌گیرند. I و you و we و they نه.',
+    },
+    'present-continuous': {
+      mood: 'cheer',
+      chant: ['I am running now!', 'You are jumping now!', 'She is singing now!'],
+      chantFa: ['الان می‌دوم!', 'الان می‌پری!', 'الان آواز می‌خواند!'],
+      rule: [['I am', 'running'], ['you are', 'jumping'], ['she is', 'singing']],
+      ruleEn: 'am, are or is first, then the verb wearing ing. It happens now.',
+      ruleFa: 'اول am یا are یا is، بعد فعل با ing. همین حالا در جریان است.',
+    },
+    'past-simple': {
+      mood: 'read',
+      chant: ['Yesterday I walked.', 'Yesterday I played.', 'Yesterday I went home.'],
+      chantFa: ['دیروز راه رفتم.', 'دیروز بازی کردم.', 'دیروز به خانه رفتم.'],
+      rule: [['walk', 'walked'], ['play', 'played'], ['go', 'went'], ['see', 'saw']],
+      ruleEn: 'Most verbs add ed. A few old ones change their coat: go went.',
+      ruleFa: 'بیشتر فعل‌ها ed می‌گیرند. چند تای قدیمی عوض می‌شوند: go ← went.',
+    },
+  };
+
+  function comicFor(lesson) {
+    return (lesson && GRAMMAR_COMIC[lesson.id]) || null;
+  }
+
+  /* Eight lessons, eight colours, in order: no two rows side by side share
+     one, and the colour follows the lesson into its own page. */
+  function tintFor(index) {
+    return 'kg' + (((index || 0) % 8) + 1);
+  }
+
+  function chantRow(line, faLine, index) {
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'kchant-row';
+    row.setAttribute('aria-label', 'Hear: ' + line);
+    const n = document.createElement('span');
+    n.className = 'kchant-n';
+    n.textContent = String(index + 1);
+    const body = document.createElement('span');
+    body.className = 'kchant-b';
+    const en = document.createElement('b');
+    en.textContent = line;
+    body.appendChild(en);
+    if (faLine) {
+      const faLineEl = document.createElement('i');
+      faLineEl.dir = 'rtl';
+      faLineEl.lang = 'fa';
+      faLineEl.textContent = faLine;
+      body.appendChild(faLineEl);
+    }
+    row.append(n, body);
+    row.onclick = () => Speech.speak(line);
+    return row;
+  }
+
+  /* The rule as a chalkboard: two words per chip, a tap hears the pair. A
+     list of grammar rules is what makes this subject feel like homework, so
+     there is one rule per lesson and it fits in a paw. */
+  function ruleBoard(c) {
+    if (!c || !(c.rule || []).length) return null;
+    const board = document.createElement('div');
+    board.className = 'krule';
+    const head = document.createElement('div');
+    head.className = 'krule-h';
+    head.textContent = 'Magic rule · قانون جادویی';
+    const chips = document.createElement('div');
+    chips.className = 'krule-chips';
+    c.rule.forEach((pair) => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'krchip';
+      const a = document.createElement('span');
+      a.textContent = pair[0];
+      const b = document.createElement('b');
+      b.textContent = pair[1];
+      chip.append(a, b);
+      const said = (pair[0] + ' ' + pair[1]).trim();
+      chip.setAttribute('aria-label', 'Hear ' + said);
+      chip.onclick = () => Speech.speak(said);
+      chips.appendChild(chip);
+    });
+    board.append(head, chips);
+    if (c.ruleEn) {
+      const p = document.createElement('p');
+      p.className = 'krule-note';
+      p.textContent = c.ruleEn;
+      board.appendChild(p);
+    }
+    if (c.ruleFa) {
+      const p = document.createElement('p');
+      p.className = 'krule-note kfa';
+      p.dir = 'rtl';
+      p.lang = 'fa';
+      p.textContent = c.ruleFa;
+      board.appendChild(p);
+    }
+    return board;
+  }
+
+  /* Three chant lines, one at a time. The rows light up in the order the voice
+     reaches them, so a child hears the rhythm and sees where they are. */
+  function chantStrip(c) {
+    if (!c || !(c.chant || []).length) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'kchant';
+    const label = document.createElement('div');
+    label.className = 'klabel';
+    label.textContent = 'Say it with the fox · با روباه بگو';
+    const list = document.createElement('div');
+    list.className = 'kchant-list';
+    const rows = c.chant.map((line, i) => chantRow(line, (c.chantFa || [])[i], i));
+    rows.forEach((row) => list.appendChild(row));
+    const play = document.createElement('button');
+    play.type = 'button';
+    play.className = 'kchant-play';
+    play.textContent = '▶ Say all three · هر سه را بگو';
+    /* A device with no voice installed - a stripped WebView, a phone with its
+       engine muted - never ends an utterance, so the sequencer would sit on a
+       line for ever with the button pulsing. The strip puts itself back after
+       the slowest reading the chant could take, which is every word at half
+       the usual pace. */
+    let guard = null;
+    const settle = () => {
+      if (guard) { clearTimeout(guard); guard = null; }
+      play.classList.remove('on');
+      rows.forEach((row) => row.classList.remove('now'));
+    };
+    play.onclick = () => {
+      if (guard) clearTimeout(guard);
+      play.classList.add('on');
+      const words = c.chant.join(' ').split(/\s+/).filter(Boolean).length;
+      guard = setTimeout(() => {
+        KAnim.stopLines();
+        settle();
+      }, words * 700 + 3500);
+      KAnim.playLines(rows, c.chant, settle);
+    };
+    wrap.append(label, list, play);
+    return wrap;
+  }
+
   async function grammar() {
     const box = $('gtopics');
     if (!box) return;
     const d = await load().catch(() => null);
-    panelTitle('gpanel', 'Grammar, one small step at a time', 'گرامر، قدم‌های کوچک');
+    panelTitle('gpanel', 'Grammar comics', 'کمیک‌های گرامر');
     box.innerHTML = '';
     if (!d) { box.textContent = 'Lessons could not be read.'; return; }
+    KAnim.stopLines();
+
+    const intro = document.createElement('div');
+    intro.className = 'kgintro';
+    const face = document.createElement('span');
+    face.className = 'kgintro-fox';
+    face.appendChild(KAnim.fox('read', 46));
+    const text = document.createElement('div');
+    text.className = 'kgintro-t';
+    const b = document.createElement('b');
+    b.textContent = 'Eight tiny comics about words';
+    const i = document.createElement('i');
+    i.dir = 'rtl';
+    i.lang = 'fa';
+    i.textContent = 'هشت کمیک کوچک دربارهٔ واژه‌ها';
+    const p = document.createElement('span');
+    p.textContent = 'Tap one, hear the fox, say it back.';
+    text.append(b, i, p);
+    intro.append(face, text);
+    box.appendChild(intro);
+
     const wrap = document.createElement('div');
     wrap.className = 'klist';
-    (d.grammar || []).forEach((lesson) => {
-      wrap.appendChild(listButton('grammar', lesson,
-        () => grammarLesson(d, lesson), (lesson.quiz || []).length + ' games'));
+    (d.grammar || []).forEach((lesson, index) => {
+      const c = comicFor(lesson);
+      const games = (lesson.quiz || []).length;
+      const tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'kgl ' + tintFor(index);
+      const num = document.createElement('span');
+      num.className = 'kgl-n';
+      num.textContent = String(index + 1);
+      const foxFace = document.createElement('span');
+      foxFace.className = 'kgl-face';
+      foxFace.appendChild(KAnim.fox(c ? c.mood : 'wave', 38));
+      const body = document.createElement('span');
+      body.className = 'kgl-body';
+      const title = document.createElement('b');
+      title.textContent = (lesson.emoji || '') + ' ' + lesson.title_en;
+      const titleFa = document.createElement('i');
+      titleFa.dir = 'rtl';
+      titleFa.lang = 'fa';
+      titleFa.textContent = lesson.title_fa || '';
+      body.append(title, titleFa);
+      if (c && c.chant) {
+        const chant = document.createElement('span');
+        chant.className = 'kgl-chant';
+        chant.textContent = '“' + c.chant[0] + '”';
+        body.appendChild(chant);
+      }
+      const go = document.createElement('span');
+      go.className = 'kgl-go';
+      go.textContent = games + ' ▶';
+      tile.append(num, foxFace, body, go);
+      tile.setAttribute('aria-label', lesson.title_en + ' — ' + games + ' games');
+      tile.onclick = () => grammarLesson(d, lesson);
+      wrap.appendChild(tile);
     });
     box.appendChild(wrap);
     KAnim.stagger(wrap);
@@ -21991,21 +22391,55 @@ const Kids = (() => {
   function grammarLesson(d, lesson) {
     const box = $('gtopics');
     if (!box) return;
+    const c = comicFor(lesson);
+    const index = (d.grammar || []).indexOf(lesson);
     box.innerHTML = '';
     box.appendChild(back('All lessons', grammar));
     const card = document.createElement('section');
-    card.className = 'kcard';
+    card.className = 'kcard kcomic ' + tintFor(index < 0 ? 0 : index);
     const h = document.createElement('h4');
     h.textContent = (lesson.emoji || '') + ' ' + lesson.title_en;
     card.appendChild(h);
     card.appendChild(fa(lesson.title_fa, 'kfa-h'));
+
+    /* The fox opens the lesson, so the first thing a child meets is a face and
+       a voice. Its bubble is the first chant line, and tapping it says it
+       again. */
+    if (c && c.chant && c.chant.length) {
+      const hero = document.createElement('div');
+      hero.className = 'kghero';
+      const foxFace = document.createElement('span');
+      foxFace.className = 'kghero-fox';
+      foxFace.appendChild(KAnim.fox(c.mood || 'wave', 74));
+      const bubble = document.createElement('button');
+      bubble.type = 'button';
+      bubble.className = 'kbub';
+      bubble.setAttribute('aria-label', 'Hear the fox: ' + c.chant[0]);
+      const said = document.createElement('b');
+      said.textContent = c.chant[0];
+      const saidFa = document.createElement('i');
+      saidFa.dir = 'rtl';
+      saidFa.lang = 'fa';
+      saidFa.textContent = (c.chantFa || [])[0] || '';
+      bubble.append(said, saidFa);
+      bubble.onclick = () => Speech.speak(c.chant[0]);
+      hero.append(foxFace, bubble);
+      card.appendChild(hero);
+    }
+
     card.appendChild(KAnim.hint('think',
-      'Read the example, then watch its words move into place.',
-      'نمونه را بخوان، بعد ببین واژه‌هایش سر جایشان می‌نشینند.'));
+      'Tap the rule, then say the chant out loud.',
+      'روی قانون بزن، بعد آواز را بلند بخوان.'));
     const use = document.createElement('p');
     use.textContent = lesson.use_en;
     card.appendChild(use);
     card.appendChild(fa(lesson.use_fa, 'kpara-fa'));
+
+    const board = ruleBoard(c);
+    if (board) card.appendChild(board);
+    const strip = chantStrip(c);
+    if (strip) card.appendChild(strip);
+
     const label = document.createElement('div');
     label.className = 'klabel';
     label.textContent = 'Examples · نمونه‌ها';
@@ -22040,8 +22474,8 @@ const Kids = (() => {
     card.appendChild(gl);
     quiz(card, lesson.quiz);
     box.appendChild(card);
+    KAnim.stagger(card);
   }
-
   /* ---- stories: one voice, one line at a time, one word lit -----------
 
      Narration is the device's own English voice, so there is no audio file
