@@ -326,6 +326,137 @@ def check_reading(data):
             quiz_ok(item, f"{name} q{index + 1}")
 
 
+READING_PICS = ROOT / "kids/reading"
+SENT_EN = re.compile(r"(?<=[.!?])\s+")
+SENT_FA = re.compile(r"(?<=[.!?؟])\s+")
+
+
+def check_reading_book(src, data):
+    """The reading section is a book, and every leaf of it is complete.
+
+    A passage is cut into leaves of two sentences, and each leaf names one
+    photograph and its two-word caption - hardcoded in READING_PAGES, because
+    a caption is written and not assembled. That split is the whole design, so
+    this suite holds the two halves against each other: the same passages on
+    both sides, a leaf for every pair of sentences, a picture on disk and in
+    the APK for every leaf, a CC0/public-domain licence on record, no picture
+    nobody asks for, and the styles and route the turning depends on. It also
+    proves the English and Persian split into the same number of sentences,
+    because that is the one condition under which the book splits at all -
+    otherwise the passage falls back to a single long leaf with no picture.
+    """
+    from PIL import Image
+
+    passages = data.get("reading") or []
+    expected = {}
+    for passage in passages:
+        name = passage.get("title_en") or passage.get("id")
+        en = [s for s in SENT_EN.split((passage.get("text_en") or "").strip()) if s]
+        fa = [s for s in SENT_FA.split((passage.get("text_fa") or "").strip()) if s]
+        check(en and len(en) == len(fa),
+              f"{name}: {len(en)} English sentences and {len(fa)} Persian ones - "
+              "the book cannot pair them, so it would print one long page")
+        expected[passage.get("id")] = (len(en) + 1) // 2
+
+    credits_file = READING_PICS / "credits.json"
+    check(credits_file.exists(),
+          "kids/reading/credits.json is missing - the book's pictures are unrecorded")
+    credits = json.loads(credits_file.read_text(encoding="utf-8")) \
+        if credits_file.exists() else {}
+
+    if not shutil.which("node"):
+        print("SKIP  node is not installed - the book's leaves were not run")
+        return
+
+    start = src.find("  const READING_PAGES = {")
+    check(start >= 0, "READING_PAGES is gone - the book has no pictures again")
+    if start < 0:
+        return
+    end = src.find("\n  };\n", start)
+    check(end > start, "the READING_PAGES block is not closed")
+    if end <= start:
+        return
+    block = src[start:end + len("\n  };")]
+
+    script = Path("/tmp") / "kids-reading-book.js"
+    script.write_text(
+        block
+        + f"""
+const expected = {json.dumps(expected)};
+let bad = 0;
+const ok = (cond, line) => {{ if (!cond) bad++; console.log(`${{cond ? '  ok  ' : '  FAIL'}}  ${{line}}`); }};
+ok(Object.keys(READING_PAGES).length === Object.keys(expected).length,
+   `${{Object.keys(READING_PAGES).length}} illustrated books for ${{Object.keys(expected).length}} passages`);
+Object.keys(expected).forEach((id) => ok(!!READING_PAGES[id], `${{id}}: the passage has its pages`));
+Object.keys(READING_PAGES).forEach((id) =>
+  ok(id in expected, `${{id}}: the pages belong to a passage in the bank`));
+Object.keys(READING_PAGES).forEach((id) => {{
+  const pages = READING_PAGES[id];
+  ok(pages.length === expected[id],
+     `${{id}}: ${{pages.length}} pictures for ${{expected[id]}} leaves of two sentences`);
+  pages.forEach((row, i) => {{
+    ok(Array.isArray(row) && row.length === 3, `${{id}} page ${{i + 1}}: a picture and two captions`);
+    ok(/^[a-z0-9-]+$/.test(row[0] || ''), `${{id}} page ${{i + 1}}: the file name is safe`);
+    ok((row[0] || '').indexOf(id + '-') === 0,
+       `${{id}} page ${{i + 1}}: the picture belongs to this passage`);
+    ok(!!(row[1] && row[1].trim().length > 2), `${{id}} page ${{i + 1}}: it has an English caption`);
+    ok(/[\u0600-\u06FF]/.test(row[2] || ''), `${{id}} page ${{i + 1}}: the caption is in Persian too`);
+  }});
+}});
+process.exit(bad ? 1 : 0);
+""",
+        encoding="utf-8")
+    proc = subprocess.run(["node", str(script)], capture_output=True, text=True)
+    print(proc.stdout.strip())
+    if proc.returncode != 0:
+        problems.append("a book page is incomplete:\n" + (proc.stdout + proc.stderr).strip())
+
+    # the pictures themselves
+    stems = json.loads(subprocess.run(
+        ["node", "-e",
+         block + "\nprocess.stdout.write(JSON.stringify(Object.values(READING_PAGES)"
+                 ".flat().map(r => r[0])));"],
+        capture_output=True, text=True).stdout or "[]")
+    check(bool(stems), "no book page names a picture")
+    for stem in stems:
+        path = READING_PICS / (stem + ".jpg")
+        rel = "kids/reading/" + stem + ".jpg"
+        exists = path.exists()
+        check(exists, f"{stem}: {rel} does not exist")
+        check((BUNDLE / rel).exists(), f"{stem}: {rel} is not in the APK bundle")
+        credit = credits.get(stem) or {}
+        check(bool(credit), f"{stem}: no licence is recorded for its picture")
+        check((credit.get("license") or "").lower() in ("cc0", "pdm"),
+              f"{stem}: the picture is {(credit.get('license') or 'unlicensed')!r} "
+              "- only CC0 and public domain may ship here")
+        if not exists:
+            continue
+        try:
+            with Image.open(path) as im:
+                check(im.format == "JPEG", f"{stem}: {rel} is {im.format}, not a JPEG")
+                check(im.size[0] >= 320 and im.size[1] >= 240,
+                      f"{stem}: {rel} is {im.size[0]}x{im.size[1]} - too small to see")
+        except Exception as exc:
+            check(False, f"{stem}: {rel} cannot be decoded ({exc})")
+    on_disk = {p.stem for p in READING_PICS.glob("*.jpg")}
+    orphans = sorted(on_disk - set(stems))
+    check(not orphans, f"{len(orphans)} book picture(s) belong to no page: {', '.join(orphans[:5])}")
+
+    # the book itself
+    for bit, meant in ((".kbook ", "the book's frame"),
+                       (".kpage ", "the paper leaf"),
+                       (".kpage-curl", "the corner that turns the page"),
+                       ("kflip-out-next", "the turn animation"),
+                       ("kbook-next", "the next-page control"),
+                       ("kbook-dots", "the page dots")):
+        check(bit in src, f"{meant} is not in the page: {bit.strip()}")
+    check("reading/[a-z0-9-]+" in src,
+          "the server no longer serves kids/reading, so every page would 404 its picture")
+    check("reading" in BUILD.read_text(encoding="utf-8"),
+          "build_apk_ui.py no longer copies the book pictures into the APK")
+    stats["book pages"] = len(stems)
+
+
 def check_listening(data):
     clips = data.get("listening") or []
     check(len(clips) == 5, f"there are {len(clips)} listening clips, expected 5")
@@ -838,6 +969,7 @@ def main():
     check_grammar_comics(src, data)
     check_stories(data)
     check_reading(data)
+    check_reading_book(src, data)
     check_listening(data)
     check_phrases(data)
     check_chat(data)
@@ -870,7 +1002,8 @@ def main():
 
     print(f"\nPASS  {stats.get('words')} kid words in 7 themes, "
           f"{stats.get('grammar')} mini lessons with {stats.get('quiz')} quiz items, "
-          f"4 stories, 4 passages, 5 listening clips, 5 phrase sets and a "
+          f"4 stories, 4 passages turned into {stats.get('book pages')} book leaves "
+          "with a picture each, 5 listening clips, 5 phrase sets and a "
           "kid-safe chat; ages below 15 are classified on the page and in the "
           "APK, and every kids rule, panel and reply is behind that band")
     return 0

@@ -549,16 +549,24 @@ print(f"synced {len(BRAND_FILES)} brand files -> {brand_out}")
 # http - inside the APK there is no server, so the folder has to be copied in
 # beside the page at the same relative path, or every card would show a broken
 # image and a child would learn the word without the thing.
-KIDS_IMG_DIR = ROOT / "kids" / "words"
-kids_img_out = OUT.parent / "kids" / "words"
-kids_photos = sorted(KIDS_IMG_DIR.glob("*.jpg")) if KIDS_IMG_DIR.exists() else []
-if not kids_photos:
-    raise SystemExit("build_apk_ui: kids/words is empty - "
-                     "run: python3 tools/fetch_kids_word_images.py")
-kids_img_out.mkdir(parents=True, exist_ok=True)
-for shot in kids_photos:
-    shutil.copyfile(shot, kids_img_out / shot.name)
-print(f"synced {len(kids_photos)} word pictures -> {kids_img_out}")
+#   kids/words/<word>.jpg          the word cards
+#   kids/reading/<passage>-<n>.jpg one photograph per page of a reading book
+# Two folders, one rule: a picture the page asks for has to exist inside the
+# APK at the same relative path, or the phone shows a hole where the thing
+# was.
+kids_synced = 0
+for folder, missing in (("words", "python3 tools/fetch_kids_word_images.py"),
+                        ("reading", "python3 tools/fetch_reading_images.py")):
+    src = ROOT / "kids" / folder
+    out = OUT.parent / "kids" / folder
+    photos = sorted(src.glob("*.jpg")) if src.exists() else []
+    if not photos:
+        raise SystemExit(f"build_apk_ui: kids/{folder} is empty - run: {missing}")
+    out.mkdir(parents=True, exist_ok=True)
+    for shot in photos:
+        shutil.copyfile(shot, out / shot.name)
+    kids_synced += len(photos)
+    print(f"synced {len(photos)} {folder} pictures -> {out}")
 
 # ---------------------------------------------------------------------------
 # the offline grammar engine

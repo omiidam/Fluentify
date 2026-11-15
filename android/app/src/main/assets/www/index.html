@@ -8583,6 +8583,146 @@
     border-color: var(--kg, var(--k-line)); background: var(--kgw, var(--k-surface));
   }
 
+  /* ---- read: a book of paper leaves -----------------------------------
+     A passage reads as a page, not as a card: warm paper, a sewn outer edge,
+     a printed page number and a corner that can be flicked. The stage owns the
+     perspective, so the leaf swings on its spine instead of sliding, and every
+     animation moves transform or opacity only - no layout, no reflow of the
+     text while it turns. */
+  .kbooks { display: flex; flex-direction: column; gap: 10px; }
+  .kbc {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center; gap: 11px; width: 100%; text-align: start;
+    font-family: inherit; cursor: pointer; color: var(--k-ink);
+    padding: 9px 12px 9px 9px; border-radius: 18px;
+    border: 3px solid var(--kg, var(--k-c5));
+    background: linear-gradient(180deg, var(--kgw) 0, var(--k-surface) 80%);
+    box-shadow: 0 4px 0 var(--kg, var(--k-c5));
+    transition: transform .12s, box-shadow .12s;
+  }
+  .kbc:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--kg); }
+  .kbc:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--kg); }
+  .kbc:focus-visible { outline: 3px solid var(--k-ink); outline-offset: 2px; }
+  .kbc-art {
+    width: 62px; height: 62px; border-radius: 12px; overflow: hidden;
+    display: grid; place-items: center; font-size: 26px;
+    background: var(--k-surface-2); border: 2px solid var(--kg, var(--k-c5));
+  }
+  .kbc-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .kbc-body b { display: block; font-size: 14.5px; }
+  .kbc-body i { display: block; font-size: 11.5px; font-style: normal;
+    color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kbc-meta { display: block; margin-top: 3px; font-size: 11.5px;
+    font-weight: 800; color: var(--kgi, var(--k-c5-i)); }
+  .kbc-go { font-weight: 900; color: var(--kgi, var(--k-c5-i)); }
+
+  .kbook {
+    --paper: #fffdf6; --paper-edge: #ece2cc; --paper-ink: #3b3226;
+    border-radius: 20px; padding: 10px 10px 12px;
+    background: linear-gradient(160deg, var(--k-c5-w), var(--k-surface-2));
+    border: 2px solid var(--k-c5);
+  }
+  .kbook-h { display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 8px; padding: 4px 6px 8px; }
+  .kbook-title b { display: block; font-size: 15px; color: var(--k-ink); }
+  .kbook-title i { display: block; font-size: 11.5px; font-style: normal;
+    color: var(--k-ink-2); direction: rtl; text-align: right; }
+  .kbook-meter {
+    flex: none; font-size: 11.5px; font-weight: 900; color: var(--k-c5-i);
+    background: var(--k-surface); border: 2px solid var(--k-c5);
+    border-radius: 999px; padding: 4px 9px;
+  }
+  .kbook-stage { perspective: 1500px; perspective-origin: 50% 45%; outline: none; }
+  .kbook-stage:focus-visible .kpage { box-shadow: 0 0 0 3px var(--k-primary), 0 12px 26px -16px rgba(60,40,20,.5); }
+  .kbook-stage.knudge .kpage { animation: kwobble .4s ease; }
+  @keyframes kwobble { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+  .kpage {
+    position: relative; min-height: 330px;
+    padding: 14px 14px 30px; border-radius: 8px 18px 18px 8px;
+    background: var(--paper); color: var(--paper-ink);
+    backface-visibility: hidden;
+    box-shadow: -3px 0 0 var(--paper-edge), 0 12px 26px -16px rgba(60,40,20,.55),
+                inset 0 0 0 1px #f2ebda;
+  }
+  .kpage::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 7px;
+    border-radius: 6px 0 0 6px;
+    background: linear-gradient(90deg, rgba(120,95,60,.17), rgba(120,95,60,0));
+  }
+  .kflip-out-next, .kflip-in-next { transform-origin: left center; }
+  .kflip-out-prev, .kflip-in-prev { transform-origin: right center; }
+  .kflip-out-next { animation: kTurnNext .36s cubic-bezier(.55,.05,.75,.4) forwards; }
+  .kflip-out-prev { animation: kTurnPrev .36s cubic-bezier(.55,.05,.75,.4) forwards; }
+  .kflip-in-next { animation: kComeBack .3s cubic-bezier(.2,.8,.3,1) both; }
+  .kflip-in-prev { animation: kComeBackPrev .3s cubic-bezier(.2,.8,.3,1) both; }
+  @keyframes kTurnNext { to { transform: rotateY(-92deg) translateX(-6px); opacity: .32; } }
+  @keyframes kTurnPrev { to { transform: rotateY(72deg) translateX(10px); opacity: .3; } }
+  @keyframes kComeBack { from { transform: rotateY(72deg) translateX(10px); opacity: .35; } }
+  @keyframes kComeBackPrev { from { transform: rotateY(-92deg) translateX(-6px); opacity: .35; } }
+  body.kids-calm .kpage, body.kids-calm .kbook-stage.knudge .kpage { animation: none !important; }
+
+  .kpage-in { display: flex; flex-direction: column; gap: 10px; }
+  .kpage-pic { margin: 0; border-radius: 12px; overflow: hidden;
+    border: 2px solid var(--paper-edge); background: var(--k-surface-2); }
+  /* A photograph on a leaf is the invitation, not the page: it takes the top
+     third, so the sentence it belongs to is still on screen with it. */
+  .kpage-pic img { display: block; width: 100%; aspect-ratio: 3 / 2;
+    max-height: 196px; object-fit: cover; }
+  .kpage-pic figcaption { display: flex; align-items: baseline; justify-content: space-between;
+    gap: 6px; padding: 6px 9px; background: var(--k-c5-w); font-size: 11.5px; }
+  .kpage-pic figcaption b { color: var(--k-c5-i); }
+  .kpage-pic figcaption i { font-style: normal; color: var(--k-ink-2); direction: rtl; }
+  .kpage-lines { margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 9px; }
+  .kpage-lines li b { display: block; font-size: 15.5px; line-height: 1.5; color: var(--paper-ink); }
+  .kpage-lines li i { display: block; margin-top: 2px; font-size: 12.5px; font-style: normal;
+    color: #6d6250; direction: rtl; text-align: right; }
+  .kpage-hear { margin-top: 2px; align-self: flex-start; }
+  .kpage-num { position: absolute; left: 50%; bottom: 7px; transform: translateX(-50%);
+    font-size: 11px; font-weight: 800; color: #a2947c; }
+  .kpage-curl { position: absolute; right: 0; bottom: 0; width: 48px; height: 48px;
+    border: 0; padding: 0; cursor: pointer; background: none; }
+  .kpage-curl::before {
+    content: ''; position: absolute; right: 0; bottom: 0; width: 0; height: 0;
+    border-style: solid; border-width: 0 0 48px 48px;
+    border-color: transparent transparent #f0e5cb transparent;
+    filter: drop-shadow(-2px -2px 3px rgba(90,70,40,.28));
+    transition: border-width .12s;
+  }
+  .kpage-curl:hover::before { border-width: 0 0 56px 56px; }
+  .kpage-curl:focus-visible { outline: none; }
+  .kpage-curl:focus-visible::before { border-color: transparent transparent var(--k-c5) transparent; }
+
+  .kpage-end-h { display: flex; align-items: baseline; gap: 8px; }
+  .kpage-end-h b { font-size: 19px; color: var(--paper-ink); }
+  .kpage-end-h i { font-style: normal; font-size: 12px; color: #6d6250; direction: rtl; }
+  .kpage-ask { margin: 0; font-size: 12.5px; color: #6d6250; }
+  .kpage-ask.kfa { direction: rtl; text-align: right; }
+  .kpage-quiz .kqq { color: var(--paper-ink); }
+  .kbook-again {
+    margin-top: 10px; width: 100%; min-height: 46px; cursor: pointer; font-family: inherit;
+    font-size: 13px; font-weight: 900; border-radius: 14px;
+    border: 2px solid var(--k-c5); background: var(--k-c5-w); color: var(--k-c5-i);
+  }
+
+  .kbook-nav { display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-top: 10px; }
+  .kbook-btn {
+    flex: none; display: inline-flex; align-items: center; gap: 6px;
+    min-height: 46px; padding: 10px 14px; cursor: pointer; font-family: inherit;
+    font-size: 13px; font-weight: 900; border-radius: 14px;
+    border: 2.5px solid var(--k-c5); background: var(--k-surface); color: var(--k-c5-i);
+    box-shadow: 0 3px 0 var(--k-c5);
+  }
+  .kbook-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--k-c5); }
+  .kbook-btn[disabled] { opacity: .38; box-shadow: none; cursor: default; }
+  .kbook-dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .kbook-dot { width: 14px; height: 14px; padding: 0; border-radius: 50%; cursor: pointer;
+    border: 2px solid var(--k-c5); background: transparent; }
+  .kbook-dot.on { background: var(--k-c5); }
+  .kbook-dot:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 2px; }
+
   .klist { display: flex; flex-direction: column; gap: 8px; }
   .krowbtn {
     display: flex; align-items: center; gap: 11px; width: 100%;
@@ -22812,49 +22952,369 @@ const Kids = (() => {
     };
     rewire();
   }
+  /* ---- read: a little book you turn with your hands -------------------
+
+     A passage used to be one tall paragraph with a play button: a wall of
+     text with a speaker beside it, and nothing to look at while reading it.
+     Now a passage is a book. Two sentences and a photograph share each leaf,
+     the leaf has a numbered foot and a corner that flicks over, and the
+     questions wait on the last page like the end of a story rather than as a
+     test bolted underneath it.
+
+     The split is computed from the passage itself - two sentences a page,
+     Persian zipped sentence to sentence - so adding a sentence to kids.json
+     adds a leaf, and the pairs cannot drift apart. What is hardcoded here is
+     the picture and its two-word caption for each leaf, because a caption is
+     a written line ("Rain on the glass") and not something a splitter can
+     infer. A page with no entry still prints; it just has no picture. */
+  const READING_PAGES = {
+    'school-bag': [
+      ['school-bag-1', 'A blue bag', 'یک کیف آبی'],
+      ['school-bag-2', 'Books and pencils', 'کتاب و مدادها'],
+      ['school-bag-3', 'Lunch inside', 'ناهار داخلش'],
+      ['school-bag-4', 'Ready by the desk', 'آماده کنار میز'],
+    ],
+    'rainy-day': [
+      ['rainy-day-1', 'Rain on the glass', 'باران روی شیشه'],
+      ['rainy-day-2', 'Drawing a boat', 'کشیدن یک قایق'],
+      ['rainy-day-3', 'The garden after rain', 'باغچه بعد از باران'],
+      ['rainy-day-4', 'A puddle to jump', 'یک آبگیر برای پریدن'],
+    ],
+    'park': [
+      ['park-1', 'Swings and a slide', 'تاب و سرسره'],
+      ['park-2', 'Higher and higher', 'بالاتر و بالاتر'],
+      ['park-3', 'Dad reads on the bench', 'بابا روی نیمکت می‌خواند'],
+      ['park-4', 'A grey cat', 'یک گربهٔ خاکستری'],
+    ],
+    'library-card': [
+      ['library-card-1', 'Tall shelves', 'قفسه‌های بلند'],
+      ['library-card-2', 'Reading by the window', 'خواندن کنار پنجره'],
+      ['library-card-3', 'A book about volcanoes', 'کتابی دربارهٔ آتشفشان'],
+      ['library-card-4', 'Borrowed for two weeks', 'دو هفته امانت'],
+      ['library-card-5', 'Telling a friend', 'گفتن به یک دوست'],
+    ],
+  };
+
+  /* Where a passage's pictures live, relative to the page - the same
+     folder over http and inside the APK bundle. */
+  const READING_PIC_DIR = 'kids/reading/';
+
+  const SENTENCE_EN = /(?<=[.!?])\s+/;
+  const SENTENCE_FA = /(?<=[.!?؟])\s+/;
+  const PER_LEAF = 2;
+
+  /* A passage cut into leaves. When the two languages do not split into the
+     same number of sentences the whole passage goes on one leaf with no
+     picture: a book that silently dropped a sentence would be worse than a
+     long page, and this is the only way they can disagree. */
+  function bookPages(p) {
+    const en = String(p.text_en || '').trim().split(SENTENCE_EN).filter(Boolean);
+    const fa = String(p.text_fa || '').trim().split(SENTENCE_FA).filter(Boolean);
+    const pics = READING_PAGES[p.id] || [];
+    if (!en.length) return [];
+    if (en.length !== fa.length) {
+      return [{ en, fa: [String(p.text_fa || '')], pic: pics[0] || null }];
+    }
+    const pages = [];
+    for (let i = 0; i < en.length; i += PER_LEAF) {
+      pages.push({
+        en: en.slice(i, i + PER_LEAF),
+        fa: fa.slice(i, i + PER_LEAF),
+        pic: pics[pages.length] || null,
+      });
+    }
+    return pages;
+  }
+
+  function pagePicture(pic) {
+    const fig = document.createElement('figure');
+    fig.className = 'kpage-pic';
+    const img = document.createElement('img');
+    img.src = READING_PIC_DIR + pic[0] + '.jpg';
+    img.alt = pic[1];
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.onerror = () => fig.remove();
+    const cap = document.createElement('figcaption');
+    const en = document.createElement('b');
+    en.textContent = pic[1];
+    const faLine = document.createElement('i');
+    faLine.dir = 'rtl';
+    faLine.lang = 'fa';
+    faLine.textContent = pic[2] || '';
+    cap.append(en, faLine);
+    fig.append(img, cap);
+    return fig;
+  }
+
   async function reading() {
     const box = $('rdbody');
     if (!box) return;
     const d = await load().catch(() => null);
-    panelTitle('rdpanel', 'Read a little story', 'کمی بخوان');
+    panelTitle('rdpanel', 'Read a little book', 'یک کتاب کوچک بخوان');
     box.innerHTML = '';
     if (!d) { box.textContent = 'Passages could not be read.'; return; }
-    const wrap = document.createElement('div');
-    wrap.className = 'klist';
-    (d.reading || []).forEach((passage) => {
-      wrap.appendChild(listButton('reading', passage,
-        () => passageView(passage), ''));
+
+    const shelf = document.createElement('div');
+    shelf.className = 'kbooks';
+    (d.reading || []).forEach((passage, index) => {
+      const leaves = bookPages(passage).length + 1;
+      const first = (READING_PAGES[passage.id] || [])[0];
+      const cover = document.createElement('button');
+      cover.type = 'button';
+      cover.className = 'kbc kg' + ((index % 8) + 1);
+      cover.setAttribute('aria-label',
+        passage.title_en + ' — ' + leaves + ' pages to turn');
+      const art = document.createElement('span');
+      art.className = 'kbc-art';
+      if (first) {
+        const img = document.createElement('img');
+        img.src = READING_PIC_DIR + first[0] + '.jpg';
+        img.alt = '';
+        img.loading = 'lazy';
+        img.onerror = () => { img.remove(); art.textContent = passage.emoji || '📖'; };
+        art.appendChild(img);
+      } else {
+        art.textContent = passage.emoji || '📖';
+      }
+      const body = document.createElement('span');
+      body.className = 'kbc-body';
+      const h = document.createElement('b');
+      h.textContent = (passage.emoji || '') + ' ' + passage.title_en;
+      const faTitle = document.createElement('i');
+      faTitle.dir = 'rtl';
+      faTitle.lang = 'fa';
+      faTitle.textContent = passage.title_fa || '';
+      const meta = document.createElement('span');
+      meta.className = 'kbc-meta';
+      meta.textContent = leaves + ' pages · ' + (passage.questions || []).length + ' questions';
+      body.append(h, faTitle, meta);
+      const turn = document.createElement('span');
+      turn.className = 'kbc-go';
+      turn.textContent = '▶';
+      cover.append(art, body, turn);
+      cover.onclick = () => passageView(passage);
+      shelf.appendChild(cover);
     });
-    box.appendChild(wrap);
-    KAnim.stagger(wrap);
+    box.appendChild(shelf);
+    KAnim.stagger(shelf);
   }
 
+  /* The book itself. `at` is the leaf on the table; the last leaf is the
+     questions page, so a child turns past the story into them. */
   function passageView(p) {
     const box = $('rdbody');
     if (!box) return;
     box.innerHTML = '';
-    box.appendChild(back('All passages', reading));
-    box.appendChild(KAnim.scene('Reading time', 'وقت خواندن', 'read'));
-    const card = document.createElement('section');
-    card.className = 'kcard';
-    const h = document.createElement('h4');
-    h.textContent = (p.emoji || '') + ' ' + p.title_en;
-    card.appendChild(h);
-    card.appendChild(fa(p.title_fa, 'kfa-h'));
-    const body = document.createElement('p');
-    body.className = 'kpara';
-    body.textContent = p.text_en;
-    card.appendChild(body);
-    card.appendChild(fa(p.text_fa, 'kpara-fa'));
-    card.appendChild(sayButton(p.text_en));
-    const label = document.createElement('div');
-    label.className = 'klabel';
-    label.textContent = 'Questions · پرسش‌ها';
-    card.appendChild(label);
-    quiz(card, p.questions);
-    box.appendChild(card);
-  }
+    box.appendChild(back('All books', reading));
 
+    const pages = bookPages(p);
+    const total = pages.length + 1;
+    let at = 0;
+    let turning = false;
+
+    const book = document.createElement('section');
+    book.className = 'kbook';
+    book.setAttribute('aria-label', p.title_en + ' — ' + total + ' pages');
+
+    const head = document.createElement('div');
+    head.className = 'kbook-h';
+    const titles = document.createElement('div');
+    titles.className = 'kbook-title';
+    const h = document.createElement('b');
+    h.textContent = (p.emoji || '') + ' ' + p.title_en;
+    const titleFa = document.createElement('i');
+    titleFa.dir = 'rtl';
+    titleFa.lang = 'fa';
+    titleFa.textContent = p.title_fa || '';
+    titles.append(h, titleFa);
+    const meter = document.createElement('span');
+    meter.className = 'kbook-meter';
+    head.append(titles, meter);
+
+    const stage = document.createElement('div');
+    stage.className = 'kbook-stage';
+    stage.tabIndex = 0;
+    const leaf = document.createElement('article');
+    leaf.className = 'kpage';
+    stage.appendChild(leaf);
+    book.append(head, stage);
+
+    const nav = document.createElement('div');
+    nav.className = 'kbook-nav';
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'kbook-btn kbook-prev';
+    prev.setAttribute('aria-label', 'The page before — صفحهٔ قبل');
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'kbook-btn kbook-next';
+    next.setAttribute('aria-label', 'The next page — صفحهٔ بعد');
+    const dots = document.createElement('div');
+    dots.className = 'kbook-dots';
+    nav.append(prev, dots, next);
+    book.append(nav);
+    box.appendChild(book);
+
+    const paint = () => {
+      leaf.innerHTML = '';
+      meter.textContent = (at + 1) + ' / ' + total;
+      prev.disabled = at === 0;
+      next.disabled = at === total - 1;
+      [...dots.children].forEach((dot, i) => dot.classList.toggle('on', i === at));
+
+      const inner = document.createElement('div');
+      inner.className = 'kpage-in';
+      leaf.appendChild(inner);
+
+      if (at < pages.length) {
+        const page = pages[at];
+        if (page.pic) inner.appendChild(pagePicture(page.pic));
+        const lines = document.createElement('ol');
+        lines.className = 'kpage-lines';
+        page.en.forEach((sentence, i) => {
+          const li = document.createElement('li');
+          const en = document.createElement('b');
+          en.textContent = sentence;
+          const faLine = document.createElement('i');
+          faLine.dir = 'rtl';
+          faLine.lang = 'fa';
+          faLine.textContent = page.fa[i] || '';
+          li.append(en, faLine);
+          lines.appendChild(li);
+        });
+        inner.appendChild(lines);
+        const hear = sayButton(pages[at].en.join(' '));
+        hear.classList.add('kpage-hear');
+        inner.appendChild(hear);
+      } else {
+        inner.classList.add('kpage-end');
+        const end = document.createElement('div');
+        end.className = 'kpage-end-h';
+        const cheer = document.createElement('b');
+        cheer.textContent = 'The end 🎉';
+        const cheerFa = document.createElement('i');
+        cheerFa.dir = 'rtl';
+        cheerFa.lang = 'fa';
+        cheerFa.textContent = 'پایان داستان';
+        end.append(cheer, cheerFa);
+        const ask = document.createElement('p');
+        ask.className = 'kpage-ask';
+        ask.textContent = 'Three little questions about what you just read.';
+        const askFa = document.createElement('p');
+        askFa.className = 'kpage-ask kfa';
+        askFa.dir = 'rtl';
+        askFa.lang = 'fa';
+        askFa.textContent = 'سه پرسش کوچک دربارهٔ چیزی که خواندی.';
+        inner.append(end, ask, askFa);
+        const quizBox = document.createElement('div');
+        quizBox.className = 'kpage-quiz';
+        inner.appendChild(quizBox);
+        quiz(quizBox, p.questions);
+        const again = document.createElement('button');
+        again.type = 'button';
+        again.className = 'kbook-again';
+        again.textContent = '↻ Read it again · دوباره بخوان';
+        again.onclick = () => { at = 0; paint(); leaf.classList.add('kflip-in-next'); };
+        inner.appendChild(again);
+      }
+
+      const num = document.createElement('span');
+      num.className = 'kpage-num';
+      num.textContent = at + 1;
+      leaf.appendChild(num);
+
+      const curl = document.createElement('button');
+      curl.type = 'button';
+      curl.className = 'kpage-curl';
+      curl.setAttribute('aria-label', 'Turn the page — صفحه را برگردان');
+      curl.onclick = () => turn(1);
+      leaf.appendChild(curl);
+    };
+
+    const buildDots = () => {
+      dots.innerHTML = '';
+      for (let i = 0; i < total; i += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'kbook-dot';
+        dot.setAttribute('aria-label', 'Page ' + (i + 1) + ' — صفحهٔ ' + (i + 1));
+        dot.onclick = () => {
+          if (turning || i === at) return;
+          at = i;
+          paint();
+          leaf.classList.add('kflip-in-next');
+        };
+        dots.appendChild(dot);
+      }
+    };
+
+    /* The turn itself: the leaf swings away on its spine, the next one is
+       written while it is face down, and it comes back up from the right. Only
+       transform and opacity move, so a phone that can animate a card can
+       animate the book, and a child who asked for calm simply gets the next
+       page. */
+    const turn = (dir) => {
+      const target = at + dir;
+      if (turning) return;
+      if (target < 0 || target >= total) {
+        stage.classList.remove('knudge');
+        void stage.offsetWidth;
+        stage.classList.add('knudge');
+        return;
+      }
+      if (KAnim.calm()) {
+        at = target;
+        paint();
+        return;
+      }
+      turning = true;
+      leaf.classList.add(dir > 0 ? 'kflip-out-next' : 'kflip-out-prev');
+      window.setTimeout(() => {
+        at = target;
+        paint();
+        leaf.classList.remove('kflip-out-next', 'kflip-out-prev');
+        leaf.classList.add(dir > 0 ? 'kflip-in-next' : 'kflip-in-prev');
+        window.setTimeout(() => {
+          leaf.classList.remove('kflip-in-next', 'kflip-in-prev');
+          turning = false;
+        }, 300);
+      }, 340);
+    };
+
+    const label = (btn, text) => {
+      const span = document.createElement('span');
+      span.textContent = text;
+      btn.appendChild(span);
+    };
+    prev.textContent = '‹';
+    label(prev, 'Previous');
+    next.textContent = '';
+    next.append(Object.assign(document.createElement('span'), { textContent: 'Next' }),
+      Object.assign(document.createElement('span'), { textContent: '›' }));
+    prev.onclick = () => turn(-1);
+    next.onclick = () => turn(1);
+
+    /* A finger drag turns the leaf on a phone, and the arrow keys turn it on a
+       keyboard, so the book is a book on the device the child actually holds. */
+    let startX = null;
+    stage.addEventListener('touchstart', (e) => {
+      startX = e.touches[0] ? e.touches[0].clientX : null;
+    }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      if (startX == null || !e.changedTouches[0]) { startX = null; return; }
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 42) turn(dx < 0 ? 1 : -1);
+      startX = null;
+    }, { passive: true });
+    stage.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); turn(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); turn(-1); }
+    });
+
+    buildDots();
+    paint();
+  }
   async function listening() {
     const box = $('llevels');
     if (!box) return;
