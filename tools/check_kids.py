@@ -124,6 +124,47 @@ def check_words(data):
 PHOTOS = ROOT / "kids/words"
 
 
+def jpeg_geometry(path: Path) -> tuple[int, int]:
+    """A JPEG's pixel size, read from its own frame header.
+
+    This suite runs on a bare CI image with no packages installed, so it may
+    not import Pillow: an ImportError here does not look like a missing
+    dependency in the log, it looks like a content failure with a traceback,
+    and the last line printed before it was some unrelated assertion. Reading
+    the SOF marker is thirty lines and validates the same two things Pillow was
+    asked for - that the file really is a JPEG, and how big its picture is.
+
+    Raises ValueError for anything that is not a whole, readable JPEG.
+    """
+    data = path.read_bytes()
+    if not data.startswith(b"\xff\xd8"):
+        raise ValueError("does not start with a JPEG marker")
+    if not data.rstrip(b"\x00").endswith(b"\xff\xd9"):
+        raise ValueError("is truncated - no end-of-image marker")
+    i = 2
+    while i + 9 < len(data):
+        if data[i] != 0xFF:
+            i += 1
+            continue
+        marker = data[i + 1]
+        if marker in (0xD8, 0xD9, 0x01) or 0xD0 <= marker <= 0xD7:
+            i += 2
+            continue
+        length = int.from_bytes(data[i + 2:i + 4], "big")
+        # SOF0-SOF15 carry the frame; C4 (Huffman), C8 (reserved) and CC
+        # (arithmetic coding) sit in the same range but are not frames.
+        if 0xC0 <= marker <= 0xCF and marker not in (0xC4, 0xC8, 0xCC):
+            height = int.from_bytes(data[i + 5:i + 7], "big")
+            width = int.from_bytes(data[i + 7:i + 9], "big")
+            if not width or not height:
+                raise ValueError("declares a zero-sized picture")
+            return width, height
+        if length < 2:
+            raise ValueError("has a broken segment header")
+        i += 2 + length
+    raise ValueError("has no frame header")
+
+
 def check_word_pictures(data, src):
     """Every taught word carries a photograph of the thing it names.
 
@@ -135,8 +176,6 @@ def check_word_pictures(data, src):
     picture missing from the APK bundle - because all four render as a blank
     box or a quiet legal question and nothing else would notice.
     """
-    from PIL import Image
-
     credits_file = PHOTOS / "credits.json"
     check(credits_file.exists(),
           "kids/words/credits.json is missing - the licences of the pictures "
@@ -166,12 +205,11 @@ def check_word_pictures(data, src):
             kb = path.stat().st_size // 1024
             check(kb < 120, f"{word}: {img} is {kb} KB - ninety of those is a download")
             try:
-                with Image.open(path) as im:
-                    check(im.format == "JPEG", f"{word}: {img} is {im.format}, not a JPEG")
-                    check(im.size[0] >= 320 and im.size[1] >= 240,
-                          f"{word}: {img} is {im.size[0]}x{im.size[1]} - too small to "
-                          "recognise")
-            except Exception as exc:                    # a truncated file, not a crash
+                width, height = jpeg_geometry(path)
+                check(width >= 320 and height >= 240,
+                      f"{word}: {img} is {width}x{height} - too small to "
+                      "recognise")
+            except (ValueError, OSError) as exc:         # a truncated file, not a crash
                 check(False, f"{word}: {img} cannot be decoded ({exc})")
             credit = credits.get(word) or {}
             check(bool(credit), f"{word}: no licence is recorded for its picture")
@@ -352,8 +390,6 @@ def check_reading_book(src, data):
     because that is the one condition under which the book splits at all -
     otherwise the passage falls back to a single long leaf with no picture.
     """
-    from PIL import Image
-
     passages = data.get("reading") or []
     expected = {}
     for passage in passages:
@@ -439,11 +475,10 @@ process.exit(bad ? 1 : 0);
         if not exists:
             continue
         try:
-            with Image.open(path) as im:
-                check(im.format == "JPEG", f"{stem}: {rel} is {im.format}, not a JPEG")
-                check(im.size[0] >= 320 and im.size[1] >= 240,
-                      f"{stem}: {rel} is {im.size[0]}x{im.size[1]} - too small to see")
-        except Exception as exc:
+            width, height = jpeg_geometry(path)
+            check(width >= 320 and height >= 240,
+                  f"{stem}: {rel} is {width}x{height} - too small to see")
+        except (ValueError, OSError) as exc:
             check(False, f"{stem}: {rel} cannot be decoded ({exc})")
     on_disk = {p.stem for p in READING_PICS.glob("*.jpg")}
     orphans = sorted(on_disk - set(stems))
