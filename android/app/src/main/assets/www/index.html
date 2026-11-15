@@ -6798,6 +6798,7 @@
     --k-focus: #233876;
     /* what sits on a filled control, and the two surfaces that are not cards */
     --k-on-primary: #ffffff; --k-on-primary-dim: rgba(255, 255, 255, .86);
+
     --k-primary-deep: #172554; --k-hero-sub: #4a5875;
     --k-track: #ffffff; --k-say: #ffdce7;
     --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(233, 238, 250, .75), transparent 72%);
@@ -6834,6 +6835,27 @@
     background-attachment: fixed;
     color: var(--k-ink);
   }
+  /* ---- the loading page's own copy of the tokens ------------------------
+     The kid palette hangs off body.kids, and the body does not carry that
+     class until the app has run - which is after the loading page has already
+     been painted. A var() that resolves to nothing makes the whole declaration
+     invalid, which is no background at all: the app showed through the overlay
+     for the first frames, then the class arrived and the card became opaque.
+     The <html> element is marked in the head, before the first paint, so the
+     tokens this one page needs are declared there too. They are the body.kids
+     values, copied once, because a child's loading page cannot wait for a
+     class that arrives with the app it is covering. */
+  html[data-band="kids"] {
+    --k-bg: #fdf1df; --k-surface: #fffaf0; --k-surface-2: #fff3e2;
+    --k-boot-edge: #ffdcaa; --k-boot-foot: #f2cda1;
+    --k-boot-sun: #e9b52c; --k-boot-track: #ffe6c2;
+    --k-on-primary: #ffffff;
+    --k-ink: #202b45; --k-ink-2: #626d83;
+    --k-c1: #ff8a3d; --k-c2: #f15b64; --k-c3: #3478f6; --k-c4: #8b6ce8;
+    --k-c5: #ed6aa8; --k-c6: #31b7a5; --k-c7: #9bcb55; --k-c8: #ffd34f;
+    --k-c8-w: #fff8dc;
+  }
+
   body.kids header {
     background: var(--k-surface);
     border-bottom: 1px solid var(--k-line);
@@ -7470,17 +7492,24 @@
      not exist for them. On a phone the row wraps to a second line instead, so
      every section is visible without a gesture. */
   @media (max-width: 600px) {
-    body.kids .tools { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 6px; }
-    /* eleven tiles in a scroll row meant the last three were never seen. Two
-       rows of six fits the whole alphabet of sections on a phone in the space
-       one and a half rows of scroll strip used to take. */
-    body.kids .tools .hbtn { width: 50px; height: 54px; border-radius: 15px; }
-    body.kids .tools .hbtn i, body.kids .tools .hbtn i svg { width: 20px; height: 20px; }
-    body.kids .tools .hbtn span { font-size: 10px; }
+    body.kids .tools { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 5px; }
+    /* Eleven tiles in a scroll row meant the last three were never seen. Two
+       rows fit the whole alphabet of sections on a phone - but at 50x58 the
+       two rows and the brand row together were a third of the screen, and the
+       conversation below them was the part that paid for it. The stickers keep
+       their shape and their colour and lose height: 44x46 with an 18px glyph
+       is still twice the 24px a tap needs, and it buys back the strip the chat
+       was missing. The brand row shrinks with it. */
+    body.kids header { padding: 6px 12px; gap: 6px; }
+    body.kids header h1 { font-size: 15px; }
+    body.kids .avatar { width: 32px; height: 32px; border-radius: 11px; }
+    body.kids .tools .hbtn { width: 44px; height: 42px; border-radius: 12px; gap: 0; padding: 2px 1px; }
+    body.kids .tools .hbtn i, body.kids .tools .hbtn i svg { width: 17px; height: 17px; stroke-width: 2.2; }
+    body.kids .tools .hbtn span { font-size: 8.5px; line-height: 1; }
   }
-  @media (max-width: 400px) {
-    body.kids .tools .hbtn { width: 50px; height: 58px; border-radius: 16px; }
-    body.kids .tools .hbtn i, body.kids .tools .hbtn i svg { width: 22px; height: 22px; }
+  @media (max-width: 360px) {
+    body.kids .tools .hbtn { width: 40px; height: 44px; border-radius: 12px; }
+    body.kids .tools .hbtn span { font-size: 8px; }
   }
 
   /* ---- Kids chat: colour, glass and a face ----------------------------
@@ -7977,6 +8006,96 @@
     box-shadow: inset 0 0 0 2px var(--k-sun-line);
   }
   body.kids .kwp-stars i.on { background: var(--k-sun); }
+
+  /* ---- the band switch, on the way through -----------------------------
+     A room switch is a reload, and a reload is a second of nothing. The adult
+     version says a sentence over a spinner. The child's version is the loading
+     page's own language, in miniature: the fox's face, three hopping letters,
+     the words in both languages, and a rainbow bar that fills. It is shown in
+     place of the page before the document goes, so the thing a child sees when
+     they press "Kids" is a picture of what is coming, not a blank screen. */
+  .krestart {
+    position: fixed; inset: 0; z-index: 9997;
+    display: grid; place-items: center; padding: 24px;
+    background: var(--surf-2);
+    animation: krFade .18s ease-out both;
+  }
+  .krestart .kr-card {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    padding: 26px 28px 24px; border-radius: 26px; text-align: center;
+    background: var(--surf-1); border: 1px solid var(--line);
+    box-shadow: 0 18px 40px -24px rgba(40, 30, 10, .55);
+  }
+  .krestart .kr-card b { font-size: 15px; color: var(--ink); }
+  .krestart .kr-card span { font-family: var(--font-fa); font-size: 12.5px; color: var(--ink-2); direction: rtl; }
+  .krestart .kr-spin {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 2.5px solid var(--line-strong); border-top-color: var(--accent);
+    animation: acspin .8s linear infinite;
+  }
+  @keyframes krFade { from { opacity: 0; } to { opacity: 1; } }
+
+  body.kids .krestart.kid {
+    background:
+      radial-gradient(60% 40% at 10% 0%, rgba(255, 138, 61, .28), transparent 70%),
+      radial-gradient(55% 36% at 94% 8%, rgba(52, 120, 246, .20), transparent 72%),
+      radial-gradient(60% 40% at 50% 104%, rgba(237, 106, 168, .24), transparent 72%),
+      linear-gradient(160deg, var(--k-bg) 0%, var(--k-surface) 60%, var(--k-surface-2) 100%);
+  }
+  body.kids .krestart .kr-card {
+    width: min(100%, 320px); gap: 6px; padding: 26px 26px 22px; border-radius: 32px;
+    border: 3px solid var(--k-boot-edge);
+    background: linear-gradient(170deg, var(--k-surface) 0%, var(--k-surface-2) 100%);
+    box-shadow: 0 9px 0 var(--k-boot-foot), 0 26px 46px -26px rgba(120, 70, 20, .55);
+    animation: krBounce .5s cubic-bezier(.2, 1.5, .4, 1) both;
+  }
+  @keyframes krBounce {
+    from { opacity: 0; transform: translateY(16px) scale(.92); }
+    to { opacity: 1; transform: none; }
+  }
+  body.kids .krestart .kr-fox { position: relative; display: grid; place-items: center; }
+  body.kids .krestart .kr-fox::before {
+    content: ""; position: absolute; width: 108px; height: 108px; border-radius: 50%;
+    background: radial-gradient(circle, var(--k-sun-wash) 0%, transparent 72%);
+  }
+  body.kids .krestart .kr-fox img {
+    position: relative; width: 92px; height: 92px; display: block;
+    animation: krBob 1.6s ease-in-out infinite;
+  }
+  @keyframes krBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  body.kids .krestart .kr-letters { display: flex; gap: 7px; margin: 2px 0 0; }
+  body.kids .krestart .kr-letters i {
+    width: 30px; height: 34px; border-radius: 10px; font-style: normal;
+    display: grid; place-items: center; font-family: var(--font-display);
+    font-size: 16px; font-weight: 800; color: var(--k-c3-i);
+    background: var(--k-c3-w); border: 2px solid var(--k-c3);
+    box-shadow: 0 3px 0 var(--k-c3);
+    animation: krHop 1.1s cubic-bezier(.3, 1.6, .5, 1) infinite;
+  }
+  body.kids .krestart .kr-letters i:nth-child(2) { animation-delay: .14s; color: var(--k-c1-i); background: var(--k-c1-w); border-color: var(--k-c1); box-shadow: 0 3px 0 var(--k-c1); }
+  body.kids .krestart .kr-letters i:nth-child(3) { animation-delay: .28s; color: var(--k-c5-i); background: var(--k-c5-w); border-color: var(--k-c5); box-shadow: 0 3px 0 var(--k-c5); }
+  @keyframes krHop { 0%, 62%, 100% { transform: translateY(0); } 26% { transform: translateY(-9px) rotate(-3deg); } }
+  body.kids .krestart .kr-card b {
+    font-family: var(--font-display); font-size: 21px; color: var(--k-ink); margin-top: 2px;
+  }
+  body.kids .krestart .kr-card span { font-size: 13.5px; color: var(--k-ink-2); }
+  body.kids .krestart .kr-bar {
+    width: 100%; height: 10px; margin-top: 8px; border-radius: 999px; overflow: hidden;
+    background: var(--k-track); box-shadow: inset 0 0 0 1.5px var(--k-boot-edge);
+  }
+  body.kids .krestart .kr-bar i {
+    display: block; height: 100%; width: 40%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--k-c1), var(--k-sun) 40%, var(--k-teal) 75%, var(--k-c3));
+    animation: krFill 1.05s ease-in-out infinite;
+  }
+  @keyframes krFill { 0% { transform: translateX(-105%); } 100% { transform: translateX(255%); } }
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .krestart .kr-fox img,
+    body.kids .krestart .kr-letters i,
+    body.kids .krestart .kr-bar i,
+    body.kids .krestart .kr-card { animation: none !important; }
+    body.kids .krestart .kr-bar i { transform: none; }
+  }
 
 
 
@@ -17548,19 +17667,42 @@ const Auth = (() => {
      is a new document: the chosen room is written to the account, the screen
      says what is happening, and the app comes back through its loading page
      in that room, with every section built for it from the first line. */
+  /* The switch's own loading screen, drawn over the page it is leaving.
+     The adult one is a sentence and a spinner. A child's is the loading page
+     in miniature - her face, three hopping letters, both languages, a rainbow
+     bar - because the thing being handed over is a room, and a child should
+     see the room arriving rather than a white rectangle. The body takes the
+     target room's class first, so the palette this screen uses already exists
+     and the page underneath has nothing left to swap. */
   function restart(chosen) {
-    const body = $('acbody');
-    if (body) {
-      body.innerHTML = '<div class="ac-restart" role="status" aria-live="polite">' +
-        '<b>' + (chosen === 'kids' ? 'Opening Fluentify Kids…' : 'Opening Fluentify…') + '</b>' +
-        '<span dir="rtl" lang="fa">' +
-        (chosen === 'kids' ? 'نسخهٔ کودکان باز می‌شود…' : 'نسخهٔ کامل باز می‌شود…') +
-        '</span><i aria-hidden="true"></i></div>';
-    }
+    const kids = chosen === 'kids';
+    document.body.classList.toggle('kids', kids);
+    const old = document.getElementById('krestart');
+    if (old) old.parentNode.removeChild(old);
+    const screen = document.createElement('div');
+    screen.id = 'krestart';
+    screen.className = 'krestart' + (kids ? ' kid' : '');
+    screen.setAttribute('role', 'status');
+    screen.setAttribute('aria-live', 'polite');
+    screen.innerHTML = kids
+      ? '<div class="kr-card">' +
+        '<div class="kr-fox"><img src="brand/kids-fox-face.png" alt="" width="92" height="92"></div>' +
+        '<div class="kr-letters" aria-hidden="true"><i>A</i><i>B</i><i>C</i></div>' +
+        '<b>Loading…</b>' +
+        '<span dir="rtl" lang="fa">در حال بارگذاری…</span>' +
+        '<div class="kr-bar" aria-hidden="true"><i></i></div>' +
+        '</div>'
+      : '<div class="kr-card">' +
+        '<div class="kr-spin" aria-hidden="true"></div>' +
+        '<b>Loading…</b>' +
+        '<span dir="rtl" lang="fa">در حال بارگذاری…</span>' +
+        '</div>';
+    document.body.appendChild(screen);
     try { if (typeof Speech !== 'undefined') Speech.stop(); } catch (e) { /* no voice */ }
+    try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) { /* no voice */ }
     setTimeout(() => {
       try { location.reload(); } catch (e) { /* a frame that refuses to reload */ }
-    }, 620);
+    }, kids ? 1100 : 700);
   }
 
   function switchBand(next) {

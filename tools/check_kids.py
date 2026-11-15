@@ -549,6 +549,26 @@ def check_paper_and_quest(src):
               f"the adult {gone} is still shown on a child's loading page")
 
 
+def check_boot_tokens(src):
+    """The child's loading page paints before the app has run.
+
+    Its palette hangs off body.kids, which the app adds after the first paint -
+    and a var() that resolves to nothing invalidates the declaration, which for
+    a background means no background: the page showed through the overlay until
+    the class landed. The fix is a copy of the tokens on <html>, which the head
+    marks before the first paint, so the copy has to exist and has to cover the
+    tokens that block reads.
+    """
+    if 'html[data-band="kids"] {' not in src:
+        problems.append("the loading page has no tokens before the body has the class")
+        return
+    block = src.split('html[data-band="kids"] {', 1)[1].split("}", 1)[0]
+    for token in ("--k-bg", "--k-surface", "--k-surface-2", "--k-boot-edge",
+                  "--k-boot-foot", "--k-ink"):
+        check(f"{token}:" in block,
+              f"the first-paint palette declares {token}")
+
+
 def check_cheer(src):
     """The cheer system rewards a child, so it has to be quiet when asked.
 
@@ -684,6 +704,7 @@ def main():
     check_adults_untouched(src)
     check_crossword(src)
     check_cheer(src)
+    check_boot_tokens(src)
 
     if problems:
         print()
