@@ -6777,14 +6777,18 @@
     --k-c6: #31b7a5; --k-c6-w: #e7f8f4; --k-c6-i: #0d6156;
     --k-c7: #9bcb55; --k-c7-w: #f3fae6; --k-c7-i: #4a6b14;
     --k-c8: #ffd34f; --k-c8-w: #fff8dc; --k-c8-i: #5f4608;
-    /* The kid app is a warm cream page, not a white one: cards sit on it as
-       slightly brighter cream so the page reads as paper, not as a dashboard
-       with the paper switched off. */
-    --k-bg: #fdf1df; --k-surface: #fffaf0; --k-surface-2: #fff3e2;
+    /* The kid app is a warm apricot page, not a white one: cards sit on it as
+       bright cream so the page reads as a painted wall with paper cards on
+       it. The palette used to stop at "cream" - which on a bright phone is
+       white with a hint of yellow, and a nursery of white cards is the one
+       thing this app was told not to look like. The page carries the colour
+       now, the cards stay light, and both are warm enough that ink on them
+       measures further above 4.5:1 than it did before. */
+    --k-bg: #f8dcb4; --k-surface: #ffeccd; --k-surface-2: #ffdfb4;
     /* the loading sticker: its edge, the foot that lifts it off the page, the
        sun blob behind the mascot, and the empty half of the rainbow bar */
-    --k-boot-edge: #ffdcaa; --k-boot-foot: #f2cda1; --k-boot-sun: #e9b52c;
-    --k-boot-track: #ffe6c2;
+    --k-boot-edge: #f3c193; --k-boot-foot: #dfa971; --k-boot-sun: #e8a91f;
+    --k-boot-track: #f7d4a6;
     /* One background, four washes of it: a warm sheet with a blue, a pink, a
        sun and a lime bloom across it, each weak enough that a card sitting on
        it still reads as the thing to look at. */
@@ -6793,17 +6797,17 @@
       radial-gradient(44% 26% at 96% 4%, rgba(241, 127, 165, .28), transparent 72%),
       radial-gradient(42% 26% at 52% 102%, rgba(155, 203, 85, .24), transparent 74%),
       radial-gradient(38% 24% at 0% 88%, rgba(255, 200, 87, .34), transparent 72%);
-    --k-ink: #202b45; --k-ink-2: #626d83; --k-line: #e7eaf1;
-    --k-line-strong: #d5dbe8; --k-shadow: rgba(32, 43, 69, .10);
+    --k-ink: #202b45; --k-ink-2: #575f75; --k-line: #e9c79a;
+    --k-line-strong: #d9b07a; --k-shadow: rgba(122, 62, 20, .14);
     --k-focus: #233876;
     /* what sits on a filled control, and the two surfaces that are not cards */
     --k-on-primary: #ffffff; --k-on-primary-dim: rgba(255, 255, 255, .86);
 
     --k-primary-deep: #172554; --k-hero-sub: #4a5875;
-    --k-track: #ffffff; --k-say: #ffdce7;
-    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(233, 238, 250, .75), transparent 72%);
-    --k-highlight: rgba(255, 200, 87, .38);
-    --k-card-shadow: rgba(32, 43, 69, .12);
+    --k-track: #ffefd6; --k-say: #ffdce7;
+    --k-backdrop: radial-gradient(70% 44% at 50% 0%, rgba(255, 226, 178, .80), transparent 72%);
+    --k-highlight: rgba(255, 200, 87, .42);
+    --k-card-shadow: rgba(122, 62, 20, .16);
     --k-hero-shadow: rgba(35, 56, 118, .26);
     /* the two status colours. Green survives here and only here: "correct"
        is a state, not a brand, and a child who has learned green-from-red
@@ -6811,22 +6815,26 @@
     --k-good: #1f6a45; --k-good-wash: #e8f6ee; --k-good-line: #b9e0ca;
     --k-bad: #9e4433; --k-bad-wash: #fbedeb; --k-bad-line: #e8c1b6;
 
-    /* the same glass material, tinted for the kids world: a touch more white,
-       a little less blur and a warmer hairline, so it reads as a bright window
-       in a playroom rather than a sheet of acrylic in an office. */
-    --glass-haze: rgba(255, 255, 255, .70);
-    --glass-haze-strong: rgba(255, 255, 255, .89);
-    --glass-haze-faint: rgba(255, 255, 255, .53);
-    --glass-edge: rgba(255, 255, 255, .96);
-    --glass-hair: rgba(32, 43, 69, .08);
+    /* the same glass material, tinted for the kids world: cream rather than
+       white, so a frosted card on the apricot page still looks like part of the
+       room instead of a sheet of office acrylic. */
+    --glass-haze: rgba(255, 240, 214, .82);
+    --glass-haze-strong: rgba(255, 245, 226, .93);
+    --glass-haze-faint: rgba(255, 236, 208, .62);
+    --glass-edge: rgba(255, 244, 224, .96);
+    /* the lit edge the glass sheets carry at the top. Left at the adult white
+       it drew a strip of white across an apricot page - the one band a child
+       looks at most, since it holds the section stickers. */
+    --glass-sheen: rgba(255, 240, 214, .55);
+    --glass-hair: rgba(120, 70, 20, .10);
     --glass-filter: blur(16px) saturate(1.5);
 
     /* the shared surface tokens follow the same palette, so any component
        that still reads them lands in the kids world rather than the paper one */
-    --surf-1: #fdfdff; --surf-2: #f8f9fd; --surf-3: #f2f4fa;
-    --surf-4: #eaedf6; --surf-5: #e1e6f2; --surf-6: #d5dbe9;
-    --chat-bg: #fdfdff; --raise: #ffffff; --raise-2: #ffffff;
-    --line: #e7eaf1; --line2: #d5dbe8; --line-soft: #eff1f7; --line-strong: #c3cbdd;
+    --surf-1: #ffeecf; --surf-2: #ffe6bd; --surf-3: #ffdca7;
+    --surf-4: #f8ce93; --surf-5: #efbf80; --surf-6: #e4af6d;
+    --chat-bg: #ffeccb; --raise: #ffeece; --raise-2: #ffe6bd;
+    --line: #ecd0a8; --line2: #ddb98a; --line-soft: #f4e3c8; --line-strong: #cfae7f;
     --ink: #202b45; --ink-1: #202b45; --ink-2: #3c4763; --ink-3: #5a6580;
     --ink-4: #626d83; --ink-5: #626d83; --title: #202b45; --muted: #626d83;
     --gold-ink: #5f4608; --navy: #202b45; --navy-ink: #233876;
@@ -6846,19 +6854,20 @@
      values, copied once, because a child's loading page cannot wait for a
      class that arrives with the app it is covering. */
   html[data-band="kids"] {
-    --k-bg: #fdf1df; --k-surface: #fffaf0; --k-surface-2: #fff3e2;
-    --k-boot-edge: #ffdcaa; --k-boot-foot: #f2cda1;
-    --k-boot-sun: #e9b52c; --k-boot-track: #ffe6c2;
+    --k-bg: #f8dcb4; --k-surface: #ffeccd; --k-surface-2: #ffdfb4;
+    --k-boot-edge: #f3c193; --k-boot-foot: #dfa971;
+    --k-boot-sun: #e8a91f; --k-boot-track: #f7d4a6;
     --k-on-primary: #ffffff;
-    --k-ink: #202b45; --k-ink-2: #626d83;
+    --k-ink: #202b45; --k-ink-2: #575f75;
     --k-c1: #ff8a3d; --k-c2: #f15b64; --k-c3: #3478f6; --k-c4: #8b6ce8;
     --k-c5: #ed6aa8; --k-c6: #31b7a5; --k-c7: #9bcb55; --k-c8: #ffd34f;
     --k-c8-w: #fff8dc;
   }
 
   body.kids header {
-    background: var(--k-surface);
-    border-bottom: 1px solid var(--k-line);
+    background: linear-gradient(180deg, var(--k-surface) 0%, var(--k-surface-2) 100%);
+    border-bottom: 1.5px solid var(--k-line);
+    box-shadow: 0 4px 14px rgba(122, 62, 20, .10);
     padding: 12px 16px;
   }
   body.kids h1 { color: var(--k-ink); letter-spacing: -.2px; }
@@ -6968,7 +6977,7 @@
   body.kids #prpanel.open, body.kids #phpanel.open,
   body.kids #hqpanel.open, body.kids #wrqpanel.open, body.kids #cwpanel.open {
     background-image:
-      linear-gradient(180deg, rgba(253, 241, 223, .89) 0%, rgba(255, 250, 240, .89) 100%),
+      linear-gradient(180deg, rgba(255, 228, 189, .91) 0%, rgba(255, 216, 170, .93) 100%),
       url("brand/kids-fox-bg.png");
     background-repeat: no-repeat, no-repeat;
     background-position: center, center bottom;
@@ -7450,7 +7459,7 @@
     width: 56px; height: 62px; border-radius: 18px; gap: 3px;
     --kt-c: var(--k-c3); --kt-w: var(--k-c3-w); --kt-i: var(--k-c3-i);
     border: 2px solid var(--kt-c);
-    background: linear-gradient(180deg, var(--kt-w) 0%, #fff 130%);
+    background: linear-gradient(180deg, var(--kt-w) 0%, #fff3dd 130%);
     box-shadow: 0 3px 0 var(--kt-c), 0 7px 14px rgba(74,58,30,.10);
     transition: transform .16s cubic-bezier(.22,1,.36,1), box-shadow .16s,
                 background .16s, border-color .16s;
@@ -7522,21 +7531,21 @@
   body.kids #chat {
     gap: 14px;
     background:
-      radial-gradient(90% 55% at 6% 0%, rgba(255,138,61,.20), transparent 62%),
-      radial-gradient(85% 50% at 96% 10%, rgba(52,120,246,.16), transparent 64%),
-      radial-gradient(95% 55% at 50% 100%, rgba(237,106,168,.20), transparent 66%),
-      linear-gradient(180deg, #fffaf4 0%, #fff4ea 100%);
+      radial-gradient(90% 55% at 6% 0%, rgba(255,138,61,.34), transparent 62%),
+      radial-gradient(85% 50% at 96% 10%, rgba(52,120,246,.20), transparent 64%),
+      radial-gradient(95% 55% at 50% 100%, rgba(237,106,168,.28), transparent 66%),
+      linear-gradient(180deg, #ffe9cb 0%, #fbd9b0 100%);
   }
   body.kids .msg { font-size: 15.5px; border-radius: 20px; }
   body.kids .msg.bot {
-    background: linear-gradient(160deg, rgba(255,255,255,.74), rgba(255,255,255,.52));
+    background: linear-gradient(160deg, rgba(255, 246, 231, .94), rgba(255, 233, 203, .90));
     -webkit-backdrop-filter: blur(14px) saturate(1.6);
     backdrop-filter: blur(14px) saturate(1.6);
-    border: 1.5px solid rgba(255,255,255,.92);
+    border: 1.5px solid rgba(255, 243, 224, .98);
     border-inline-start: 4px solid var(--chat-c, var(--k-c3));
     border-bottom-left-radius: 8px;
     color: var(--k-ink);
-    box-shadow: 0 8px 22px rgba(74,58,30,.10), inset 0 1px 0 #fff;
+    box-shadow: 0 8px 22px rgba(122, 62, 20, .14), inset 0 1px 0 rgba(255,255,255,.85);
   }
   /* four hues down the transcript, so a long conversation is not one grey wall */
   body.kids .row:nth-child(4n+1) { --chat-c: var(--k-c1); }
@@ -7553,24 +7562,24 @@
     background: var(--k-c8-w); color: var(--k-c8-i); box-shadow: inset 0 0 0 1px var(--k-c8);
   }
   body.kids .mav {
-    background: rgba(255,255,255,.7); border: 1.5px solid rgba(255,255,255,.95);
-    box-shadow: 0 4px 12px rgba(74,58,30,.12);
+    background: rgba(255, 244, 223, .94); border: 1.5px solid rgba(255, 238, 212, .98);
+    box-shadow: 0 4px 12px rgba(122, 62, 20, .14);
   }
-  body.kids .mav.bot { border: 2px solid #fff; }
+  body.kids .mav.bot { border: 2px solid var(--k-surface); }
   body.kids .row.user .mav {
-    background: radial-gradient(circle at 32% 24%, #fff 0%, var(--k-c1-w) 60%, var(--k-c5-w) 100%);
-    border: 2px solid #fff; box-shadow: 0 4px 12px rgba(237,106,168,.30);
+    background: radial-gradient(circle at 32% 24%, #fffaf0 0%, var(--k-c1-w) 60%, var(--k-c5-w) 100%);
+    border: 2px solid var(--k-surface); box-shadow: 0 4px 12px rgba(204, 84, 44, .32);
   }
   body.kids .meta { color: var(--k-ink-2); font-weight: 600; }
   /* the adult box carries a :root:not([data-theme="dark"]) rule of its own, so
      the kid selector names the composer to outrank it rather than losing the
      border and the frost to a sheet three thousand lines up */
   body.kids #composer .messageBox {
-    background: rgba(255,255,255,.66);
+    background: rgba(255, 246, 229, .92);
     -webkit-backdrop-filter: blur(16px) saturate(1.7);
     backdrop-filter: blur(16px) saturate(1.7);
     border: 2px solid var(--k-c3);
-    box-shadow: 0 6px 20px rgba(74,58,30,.12), inset 0 1px 0 #fff;
+    box-shadow: 0 6px 20px rgba(122, 62, 20, .16), inset 0 1px 0 rgba(255,255,255,.8);
   }
   body.kids #composer .messageBox:focus-within {
     border-color: var(--k-c1);
@@ -7644,7 +7653,7 @@
     background:
       radial-gradient(120% 90% at 90% 0%, rgba(255, 211, 79, .40), transparent 62%),
       radial-gradient(90% 80% at 4% 100%, rgba(99, 199, 242, .36), transparent 66%),
-      linear-gradient(135deg, #eef4ff 0%, #fff3e2 56%, #fdeaf2 100%);
+      linear-gradient(135deg, #ffe6c1 0%, #ffd8ad 56%, #ffd2c3 100%);
     border: 1.5px solid var(--k-primary-line);
     box-shadow: 0 3px 10px -6px var(--k-hero-shadow);
   }
@@ -8879,8 +8888,8 @@
     position: absolute; left: 10px; right: 10px; top: 10px; z-index: 4;
     display: flex; gap: 8px; align-items: flex-start;
     padding: 8px 12px; border-radius: 14px;
-    background: rgba(255,255,255,.93); color: #223;
-    border: 1.5px solid rgba(255,255,255,.9);
+    background: rgba(255, 246, 230, .96); color: #223;
+    border: 1.5px solid rgba(255, 240, 218, .95);
     box-shadow: 0 4px 14px -10px rgba(0,0,0,.4);
     font-size: 13px; font-weight: 800; line-height: 1.35;
   }
@@ -8901,7 +8910,7 @@
   body.kids .hqw-prop:nth-child(4) { animation-delay: 1.5s; }
   body.kids .hqw-prop .art {
     width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center;
-    font-size: 27px; background: #fff; border: 3px solid #fff;
+    font-size: 27px; background: var(--k-surface); border: 3px solid var(--k-surface);
     box-shadow: 0 4px 0 rgba(24,34,60,.16), 0 0 0 2px rgba(24,34,60,.10);
     transition: transform .16s, box-shadow .16s;
   }
@@ -8909,14 +8918,14 @@
   body.kids .hqw-prop:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 4px; border-radius: 16px; }
   body.kids .hqw-prop .lbl {
     max-width: 130px; font-size: 10.5px; font-weight: 800; line-height: 1.25;
-    color: #24343a; background: rgba(255,255,255,.94); padding: 3px 7px;
+    color: #24343a; background: rgba(255, 247, 233, .96); padding: 3px 7px;
     border-radius: 8px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,.10);
   }
   body.kids .hqw-prop.plain { top: 52% !important; max-width: 30%; }
   body.kids .hqw-prop.plain .lbl {
     max-width: 108px; font-size: 15px; font-weight: 800; line-height: 1.5;
     padding: 12px 10px; border-radius: 14px; min-width: 92px;
-    background: #fffdf7; border: 2.5px solid #fff; color: #24343a;
+    background: #fff7e8; border: 2.5px solid var(--k-surface); color: #24343a;
     box-shadow: 0 4px 0 rgba(24,34,60,.16), 0 0 0 2px rgba(24,34,60,.10);
     transition: transform .16s, box-shadow .16s;
   }
@@ -8989,7 +8998,7 @@
   body.kids .hqw-scroll {
     position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 6;
     display: grid; gap: 6px; padding: 11px 13px; border-radius: 14px;
-    background: rgba(255,255,255,.97); border: 2px solid #e8d9b0;
+    background: rgba(255, 251, 243, .97); border: 2px solid #e8d3a9;
     box-shadow: 0 10px 26px -16px rgba(0,0,0,.5);
     animation: kRise .32s cubic-bezier(.2,1.2,.4,1);
   }
@@ -9004,7 +9013,7 @@
     font-family: inherit; font-size: 13px; font-weight: 800;
     border: 1.5px solid var(--k-primary-deep); background: var(--k-primary-dark); color: var(--k-on-primary);
   }
-  body.kids .hqw-scroll .hqw-go2.ghost { background: #fff; color: var(--k-primary-dark); border-color: var(--k-primary-line); }
+  body.kids .hqw-scroll .hqw-go2.ghost { background: var(--k-surface); color: var(--k-primary-dark); border-color: var(--k-primary-line); }
   body.kids .hqw-scroll .hqw-go2:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
 
   /* the bridge: slots and word planks (sentence building) */
@@ -9013,10 +9022,10 @@
     width: min(88%, 560px); display: grid; gap: 8px; z-index: 2;
   }
   body.kids .hqw-slots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; min-height: 44px;
-    padding: 6px; border-radius: 12px; border: 2px dashed rgba(255,255,255,.85); background: rgba(255,255,255,.24); }
+    padding: 6px; border-radius: 12px; border: 2px dashed rgba(255, 244, 226, .9); background: rgba(255, 246, 230, .35); }
   body.kids .hqw-slot {
     min-width: 48px; min-height: 32px; border-radius: 8px; display: grid; place-items: center;
-    background: rgba(255,255,255,.55); border: 1.5px solid rgba(255,255,255,.8);
+    background: rgba(255, 247, 232, .70); border: 1.5px solid rgba(255, 240, 220, .9);
     font-size: 12.5px; font-weight: 800; color: #24343a; padding: 0 8px;
   }
   body.kids .hqw-slot.full { background: var(--k-surface); border-color: var(--k-good-line); }
@@ -9036,7 +9045,7 @@
   body.kids .hqw-horn {
     position: absolute; left: 50%; top: 34%; transform: translate(-50%, -50%);
     width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
-    font-size: 30px; cursor: pointer; background: #fff; border: 3px solid #fff;
+    font-size: 30px; cursor: pointer; background: var(--k-surface); border: 3px solid var(--k-surface);
     box-shadow: 0 4px 0 rgba(24,34,60,.16); z-index: 2;
   }
   body.kids .hqw-horn:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 3px; }
@@ -9045,7 +9054,7 @@
     position: absolute; left: 50%; top: 12%; transform: translateX(-50%);
     width: min(84%, 520px); max-height: 46%; overflow: auto; z-index: 2;
     padding: 12px 14px; border-radius: 10px;
-    background: #fffaf0; border: 2px solid #e8d9b0;
+    background: #fff3dd; border: 2px solid #e3c79b;
     box-shadow: 0 10px 20px -14px rgba(0,0,0,.5);
     font-size: 12.5px; line-height: 1.6; color: #2b3a40;
   }
@@ -9056,7 +9065,7 @@
   body.kids .hqw-gem {
     min-height: 42px; border-radius: 10px; cursor: pointer; font-family: inherit;
     font-size: 12.5px; font-weight: 800; color: #24343a; padding: 6px 9px;
-    background: rgba(255,255,255,.9); border: 2px solid var(--k-line-strong);
+    background: rgba(255, 247, 233, .94); border: 2px solid var(--k-line-strong);
     box-shadow: 0 2px 0 rgba(24,34,60,.12);
   }
   body.kids .hqw-gem[dir="rtl"] { text-align: right; }

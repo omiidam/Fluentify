@@ -529,9 +529,9 @@ def check_paper_and_quest(src):
     """The page is cream, and the adventure opens with one obvious next step."""
     # White paper is the adult surface; a child's page is warm. The token is
     # where that decision lives, so the check reads it rather than a comment.
-    check("--k-surface: #fffaf0" in src,
+    check("--k-surface: #ffeccd" in src,
           "the kids surface token is white again instead of cream")
-    check("--k-bg: #fdf1df" in src, "the kids page background is not the cream token")
+    check("--k-bg: #f8dcb4" in src, "the kids page background is not the apricot token")
     # A map of six places is a world, not an instruction: the panel above it
     # has to say the next mission with one button and a reason when it is shut.
     check("'hqw-next'" in src, "the hero quest has no next-quest card")
