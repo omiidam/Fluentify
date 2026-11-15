@@ -83,17 +83,39 @@ def in_band_range(level: str, tag: str | None) -> bool:
 
 
 def load_cefr() -> dict[str, int]:
-    """word -> lowest CEFR band, reusing fetch_dictionary.py's cache."""
+    """word -> lowest CEFR band, reusing fetch_dictionary.py's cache.
+
+    The cache is gitignored, so a clean checkout - every CI run - downloads the
+    table once. That download is the one step of the suite that needs the
+    network, and a single failed request used to fail the whole job with the
+    grader's first line and no reason (a run of 37 suites reported "1 of 37
+    suites failed" and nothing about why). Three attempts, with a pause, turn
+    a blip into a slower run; a real outage still fails, and now says so.
+    """
     import json
     import subprocess
+    import time
 
     cache = Path(__file__).resolve().parent / ".cache" / "dictionary.json"
-    if not cache.exists():
-        print("building the CEFR table … (first run only)")
-        subprocess.run([sys.executable,
-                        str(Path(__file__).resolve().parent / "fetch_dictionary.py")],
-                       check=True)
-    return json.loads(cache.read_text(encoding="utf-8"))
+    if cache.exists():
+        return json.loads(cache.read_text(encoding="utf-8"))
+
+    fetch = Path(__file__).resolve().parent / "fetch_dictionary.py"
+    for attempt in range(1, 4):
+        print(f"building the CEFR table … (first run only, attempt {attempt}/3)")
+        try:
+            subprocess.run([sys.executable, str(fetch)], check=True,
+                           capture_output=True, text=True)
+        except subprocess.CalledProcessError as exc:
+            reason = (exc.stderr or exc.stdout or "").strip().split("\n")[-2:]
+            print(f"  the dictionary fetch failed (exit {exc.returncode})"
+                  + ("\n    " + "\n    ".join(reason) if reason else ""))
+        if cache.exists():
+            return json.loads(cache.read_text(encoding="utf-8"))
+        if attempt < 3:
+            time.sleep(3 * attempt)
+    raise SystemExit("listening_grade: could not build the CEFR table after three "
+                     "attempts - tools/fetch_dictionary.py needs the network once")
 
 
 def tokenise(text: str) -> list[str]:

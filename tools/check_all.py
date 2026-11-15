@@ -166,16 +166,24 @@ def main() -> int:
         proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
         tail = [line for line in proc.stdout.strip().split("\n") if line.strip()]
         summary = tail[-1] if tail else "(no output)"
-        results.append((label, proc.returncode, summary, proc.stderr))
+        # A failing suite states its reasons on stdout, and its last line is
+        # only the count: "FAIL 1 problem(s) in the kids experience". Without
+        # the lines above it the CI log says a suite failed and never says
+        # which check did, which is how a run gets diagnosed from memory. Keep
+        # the reasons, not just the tally.
+        reasons = [line.strip() for line in tail if line.lstrip().startswith("FAIL")]
+        results.append((label, proc.returncode, summary, proc.stderr, reasons))
 
-    width = max(len(label) for label, _, _, _ in results)
+    width = max(len(label) for label, _, _, _, _ in results)
     print()
     failed = 0
-    for label, code, summary, stderr in results:
+    for label, code, summary, stderr, reasons in results:
         mark = "PASS" if code == 0 else "FAIL"
         failed += code != 0
         print(f"  {mark}  {label.ljust(width)}   {summary}")
         if code != 0:
+            for line in (reasons or [])[:8]:
+                print(f"        {line}")
             for line in stderr.strip().split("\n")[-5:]:
                 print(f"        {line}")
     print()

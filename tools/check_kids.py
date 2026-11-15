@@ -109,8 +109,15 @@ def check_words(data):
                   f"{where}: the example does not use the word")
             check(len(example.split()) <= 12,
                   f"{where}: the example is {len(example.split())} words - too long for a child")
-            check(bool(PERSIAN.search(item.get("example_fa") or "")),
-                  f"{where}: the example is not translated")
+            # The Persian text travels with the assertion. A log line that only
+            # says "not translated" cannot tell a reader whether the check
+            # passed or failed - it reads the same either way, and a passing run
+            # has been mistaken for a failing one. Printing the value makes the
+            # line proof rather than a claim.
+            translated = item.get("example_fa") or ""
+            check(bool(PERSIAN.search(translated)),
+                  f"{where}: the example is not translated (example_fa={translated!r})")
+
     stats["words"] = total
 
 
