@@ -544,6 +544,22 @@ for name in BRAND_FILES:
     shutil.copyfile(BRAND_DIR / name, brand_out / name)
 print(f"synced {len(BRAND_FILES)} brand files -> {brand_out}")
 
+# The words panel teaches every kid word with a photograph of the thing it
+# names. Those live in kids/words/<word>.jpg and are served from /kids/ over
+# http - inside the APK there is no server, so the folder has to be copied in
+# beside the page at the same relative path, or every card would show a broken
+# image and a child would learn the word without the thing.
+KIDS_IMG_DIR = ROOT / "kids" / "words"
+kids_img_out = OUT.parent / "kids" / "words"
+kids_photos = sorted(KIDS_IMG_DIR.glob("*.jpg")) if KIDS_IMG_DIR.exists() else []
+if not kids_photos:
+    raise SystemExit("build_apk_ui: kids/words is empty - "
+                     "run: python3 tools/fetch_kids_word_images.py")
+kids_img_out.mkdir(parents=True, exist_ok=True)
+for shot in kids_photos:
+    shutil.copyfile(shot, kids_img_out / shot.name)
+print(f"synced {len(kids_photos)} word pictures -> {kids_img_out}")
+
 # ---------------------------------------------------------------------------
 # the offline grammar engine
 # ---------------------------------------------------------------------------

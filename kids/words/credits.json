@@ -1,0 +1,902 @@
+{
+ "apple": {
+  "creator": "Jakub Kapusnak",
+  "file": "kids/words/apple.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/fruits-vegetables-VCXUQACTGW",
+  "q": "red apple fruit",
+  "source": "stocksnap",
+  "title": "Fruits Vegetables"
+ },
+ "astronaut": {
+  "creator": "",
+  "file": "kids/words/astronaut.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/6290316/image-public-domain-person-astronaut",
+  "q": "astronaut spacesuit",
+  "source": "rawpixel",
+  "title": "Astronaut spacesuit design white background"
+ },
+ "bag": {
+  "creator": "Cynthia del Rio",
+  "file": "kids/words/bag.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/fashion-travel-T11P7UDT61",
+  "q": "backpack",
+  "source": "stocksnap",
+  "title": "Fashion Travel"
+ },
+ "ball": {
+  "creator": "Markus Spiske",
+  "file": "kids/words/ball.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/still-items-KTQZYM7YXM",
+  "q": "soccer ball on grass",
+  "source": "stocksnap",
+  "title": "Still Items"
+ },
+ "bed": {
+  "creator": "Jay Mantri",
+  "file": "kids/words/bed.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/pillows-sheets-M0YZ9Q79DZ",
+  "q": "bed pillow bedroom",
+  "source": "stocksnap",
+  "title": "Pillows Sheets"
+ },
+ "big": {
+  "creator": "World Wildlife",
+  "file": "kids/words/big.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/elephant-africa-KY7VQPKRSB",
+  "q": "big elephant",
+  "source": "stocksnap",
+  "title": "Elephant Africa"
+ },
+ "bird": {
+  "creator": "World Wildlife",
+  "file": "kids/words/bird.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/bird-tree-WPTNBM852Z",
+  "q": "robin bird on branch",
+  "source": "stocksnap",
+  "title": "Bird Tree"
+ },
+ "book": {
+  "creator": "Aaron Burden",
+  "file": "kids/words/book.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/still-items-0DS255SCBZ",
+  "q": "open book pages",
+  "source": "stocksnap",
+  "title": "Still Items"
+ },
+ "bread": {
+  "creator": "",
+  "file": "kids/words/bread.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/5921611/photo-image-public-domain-food-free",
+  "q": "sliced bread loaf",
+  "source": "rawpixel",
+  "title": "Free close slice bread image"
+ },
+ "brother": {
+  "creator": "",
+  "file": "kids/words/brother.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/9201812/two-boys",
+  "q": "two brothers boys",
+  "source": "rawpixel",
+  "title": "Two Boys"
+ },
+ "bus": {
+  "creator": "",
+  "file": "kids/words/bus.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/6032208/school-bus-free-public-domain-cc0-photo",
+  "q": "yellow school bus",
+  "source": "rawpixel",
+  "title": "School bus"
+ },
+ "button": {
+  "creator": "",
+  "file": "kids/words/button.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/7143844/png-sticker-public-domain",
+  "q": "red push button switch",
+  "source": "rawpixel",
+  "title": "Help button png sticker, transparent"
+ },
+ "cake": {
+  "creator": "Freestocks.org",
+  "file": "kids/words/cake.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/events-birthday-7XQHYBOHLC",
+  "q": "birthday cake",
+  "source": "stocksnap",
+  "title": "Events Birthday"
+ },
+ "calm": {
+  "creator": "Burst",
+  "file": "kids/words/calm.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/dock-lake-U94B4HVBAO",
+  "q": "relaxing nature",
+  "source": "stocksnap",
+  "title": "Dock Lake"
+ },
+ "cat": {
+  "creator": "",
+  "file": "kids/words/cat.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/3340968/free-photo-image-cat-abyssinian-animal",
+  "q": "cat sitting looking at camera",
+  "source": "rawpixel",
+  "title": "Tabby cat sitting glass window"
+ },
+ "chair": {
+  "creator": "Ryan Riggins",
+  "file": "kids/words/chair.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/wooden-chair-0DH6S6OU6Q",
+  "q": "single wooden chair",
+  "source": "stocksnap",
+  "title": "Wooden Chair"
+ },
+ "class": {
+  "creator": "U.S. Agency for International Development",
+  "file": "kids/words/class.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/4051315/early-education-senegal",
+  "q": "classroom children learning",
+  "source": "rawpixel",
+  "title": "Early Education in Senegal"
+ },
+ "cloud": {
+  "creator": "Free Nature Stock",
+  "file": "kids/words/cloud.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/sky-clouds-ERWF7IMSRX",
+  "q": "white clouds sky",
+  "source": "stocksnap",
+  "title": "Sky Clouds"
+ },
+ "coat": {
+  "creator": "Direct Media",
+  "file": "kids/words/coat.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/male-doctor-KN1OCKC4Y2",
+  "q": "coat",
+  "source": "stocksnap",
+  "title": "Male Doctor"
+ },
+ "cold": {
+  "creator": "Elliott Chau",
+  "file": "kids/words/cold.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/lake-mountains-VZBJUVPO25",
+  "q": "cold snow winter",
+  "source": "stocksnap",
+  "title": "Lake Mountains"
+ },
+ "computer": {
+  "creator": "Helloquence",
+  "file": "kids/words/computer.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/writing-papers-Y01VDYAX63",
+  "q": "laptop computer on desk",
+  "source": "stocksnap",
+  "title": "Writing Papers"
+ },
+ "cousin": {
+  "creator": "Seth Doyle",
+  "file": "kids/words/cousin.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/children-happy-T2SO7MDTYS",
+  "q": "children",
+  "source": "stocksnap",
+  "title": "Children Happy"
+ },
+ "desk": {
+  "creator": "Lukas",
+  "file": "kids/words/desk.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/computer-office-XGXORJWZIX",
+  "q": "wooden desk table",
+  "source": "stocksnap",
+  "title": "Computer Office"
+ },
+ "dog": {
+  "creator": "Matt Bango",
+  "file": "kids/words/dog.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/outdoors-dog-Z1DLGX7470",
+  "q": "golden retriever dog",
+  "source": "stocksnap",
+  "title": "Outdoors Dog"
+ },
+ "door": {
+  "creator": "Nathalie E. Julien",
+  "file": "kids/words/door.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/old-door-GQVQESD35N",
+  "q": "wooden door",
+  "source": "stocksnap",
+  "title": "Old Door"
+ },
+ "dress": {
+  "creator": "Valeria Boltneva",
+  "file": "kids/words/dress.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/woman-dress-KDQ60E3BPD",
+  "q": "summer dress woman",
+  "source": "stocksnap",
+  "title": "Woman Dress"
+ },
+ "ear": {
+  "creator": "Candace McDaniel",
+  "file": "kids/words/ear.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/ear-earring-GZ8PPR4HDG",
+  "q": "ear",
+  "source": "stocksnap",
+  "title": "Ear Earring"
+ },
+ "egg": {
+  "creator": "",
+  "file": "kids/words/egg.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/5907095/photo-image-background-public-domain-wood",
+  "q": "chicken egg",
+  "source": "rawpixel",
+  "title": "Free quail egg chicken egg"
+ },
+ "excited": {
+  "creator": "Seth Doyle",
+  "file": "kids/words/excited.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/children-happy-T2SO7MDTYS",
+  "q": "excited children",
+  "source": "stocksnap",
+  "title": "Children Happy"
+ },
+ "eye": {
+  "creator": "Lisa Fotios",
+  "file": "kids/words/eye.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/eye-closeup-LXZ77IYCTB",
+  "q": "eye",
+  "source": "stocksnap",
+  "title": "Eye Closeup"
+ },
+ "father": {
+  "creator": "Negative Space",
+  "file": "kids/words/father.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/dad-father-R0BZTCYBM6",
+  "q": "father and child",
+  "source": "stocksnap",
+  "title": "Dad Father"
+ },
+ "fish": {
+  "creator": "",
+  "file": "kids/words/fish.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/6036776/photo-image-public-domain-cute-orange",
+  "q": "goldfish fish tank",
+  "source": "rawpixel",
+  "title": "Goldfishes close up"
+ },
+ "flower": {
+  "creator": "Kristina Paukshtite",
+  "file": "kids/words/flower.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/woman-girl-PP0A5HAYTO",
+  "q": "pink flower petals",
+  "source": "stocksnap",
+  "title": "Woman Girl"
+ },
+ "game": {
+  "creator": "Kristin Hardwick",
+  "file": "kids/words/game.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/playing-game-TXIMMZTQ7O",
+  "q": "children playing game",
+  "source": "stocksnap",
+  "title": "Playing Game"
+ },
+ "grandmother": {
+  "creator": "PS Imaging",
+  "file": "kids/words/grandmother.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/grandmother-child-NNKPN9QYIR",
+  "q": "grandmother portrait",
+  "source": "stocksnap",
+  "title": "Grandmother Child"
+ },
+ "grass": {
+  "creator": "Lili Popper",
+  "file": "kids/words/grass.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/green-grass-T1VA15FJXL",
+  "q": "green grass field",
+  "source": "stocksnap",
+  "title": "Green Grass"
+ },
+ "hand": {
+  "creator": "",
+  "file": "kids/words/hand.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/5906610/open-hand-free-public-domain-cc0-image",
+  "q": "open hand palm",
+  "source": "rawpixel",
+  "title": "Open hand"
+ },
+ "happy": {
+  "creator": "frank mckenna",
+  "file": "kids/words/happy.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/kids-child-VZ66NHFPRR",
+  "q": "happy smiling child",
+  "source": "stocksnap",
+  "title": "Kids Child"
+ },
+ "hat": {
+  "creator": "Studio 7042",
+  "file": "kids/words/hat.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/small-boy-QIJ4BAZL2D",
+  "q": "hat cap",
+  "source": "stocksnap",
+  "title": "Small Boy"
+ },
+ "head": {
+  "creator": "",
+  "file": "kids/words/head.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/14011114/photo-image-face-person-public-domain",
+  "q": "child head shoulders portrait",
+  "source": "rawpixel",
+  "title": "head shoulders child, showing signs"
+ },
+ "horse": {
+  "creator": "Travel Photographer",
+  "file": "kids/words/horse.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/horse-equine-GTI8HDGB8Q",
+  "q": "horse field",
+  "source": "stocksnap",
+  "title": "Horse Equine"
+ },
+ "hospital": {
+  "creator": "",
+  "file": "kids/words/hospital.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/5908339/image-background-public-domain-red",
+  "q": "hospital emergency entrance",
+  "source": "rawpixel",
+  "title": "Free emergency sign hospital image"
+ },
+ "hot": {
+  "creator": "Nicolas Jehly",
+  "file": "kids/words/hot.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/nature-landscape-0DFPSKE1U9",
+  "q": "hot desert sun",
+  "source": "stocksnap",
+  "title": "Nature Landscape"
+ },
+ "jump": {
+  "creator": "Sonja Guina",
+  "file": "kids/words/jump.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/jump-leap-0363D3DBA4",
+  "q": "jumping",
+  "source": "stocksnap",
+  "title": "Jump Leap"
+ },
+ "kitchen": {
+  "creator": "Patrycja Tomaszczyk",
+  "file": "kids/words/kitchen.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/herbs-spices-6ASMNGB3YI",
+  "q": "kitchen cooking",
+  "source": "stocksnap",
+  "title": "Herbs Spices"
+ },
+ "leaf": {
+  "creator": "Jeswin",
+  "file": "kids/words/leaf.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/above-aerial-6VOP7FYDYI",
+  "q": "green leaf",
+  "source": "stocksnap",
+  "title": "Above Aerial"
+ },
+ "library": {
+  "creator": "Suzy Hazelwood",
+  "file": "kids/words/library.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/books-bookshop-K4BCIJPVOE",
+  "q": "library bookshelves",
+  "source": "stocksnap",
+  "title": "Books Bookshop"
+ },
+ "lonely": {
+  "creator": "Johannes Plenio",
+  "file": "kids/words/lonely.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/young-girl-9BM9SNGIA0",
+  "q": "lonely child alone",
+  "source": "stocksnap",
+  "title": "Young Girl"
+ },
+ "milk": {
+  "creator": "George Desipris",
+  "file": "kids/words/milk.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/milk-splash-0PIWORZOK5",
+  "q": "glass of white milk",
+  "source": "stocksnap",
+  "title": "Milk Splash"
+ },
+ "moon": {
+  "creator": "Sara Santandrea",
+  "file": "kids/words/moon.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/sky-night-OANZXN5973",
+  "q": "full moon",
+  "source": "stocksnap",
+  "title": "Sky Night"
+ },
+ "mother": {
+  "creator": "Family Moments",
+  "file": "kids/words/mother.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/family-portrait-OYDG4SCZSV",
+  "q": "mother and daughter walking",
+  "source": "stocksnap",
+  "title": "Family Portrait"
+ },
+ "mountain": {
+  "creator": "Julia Caesar",
+  "file": "kids/words/mountain.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/landscape-mountains-RKS9M8PY0X",
+  "q": "mountain landscape",
+  "source": "stocksnap",
+  "title": "Landscape Mountains"
+ },
+ "mouth": {
+  "creator": "MouthGuy2013",
+  "file": "kids/words/mouth.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.flickr.com/photos/93852896@N04/55325465779",
+  "q": "child smiling face",
+  "source": "flickr",
+  "title": "A Random Girl's Mouth 6"
+ },
+ "park": {
+  "creator": "Johannes Plenio",
+  "file": "kids/words/park.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/city-park-T1OTQKYUPM",
+  "q": "park green trees bench",
+  "source": "stocksnap",
+  "title": "City Park"
+ },
+ "pencil": {
+  "creator": "Jess Watters",
+  "file": "kids/words/pencil.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/colored-pencils-SWKBAF0RNQ",
+  "q": "colored pencils",
+  "source": "stocksnap",
+  "title": "Colored Pencils"
+ },
+ "phone": {
+  "creator": "Wilfred Iven",
+  "file": "kids/words/phone.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/macbook-laptop-HHZ5NPNR1T",
+  "q": "smartphone in hand",
+  "source": "stocksnap",
+  "title": "Macbook Laptop"
+ },
+ "planet": {
+  "creator": "Greg Rakozy",
+  "file": "kids/words/planet.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/stars-galaxy-Y8CKB0O8C2",
+  "q": "planet space",
+  "source": "stocksnap",
+  "title": "Stars Galaxy"
+ },
+ "proud": {
+  "creator": "Luk%E1%u0161%20Rychvalsk%FD",
+  "file": "kids/words/proud.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/happy-kid-X2XRVZYTZ1",
+  "q": "proud child",
+  "source": "stocksnap",
+  "title": "Happy Kid"
+ },
+ "rabbit": {
+  "creator": "Victor Larracuente",
+  "file": "kids/words/rabbit.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/animals-mammals-MZ6Z9K8ZGY",
+  "q": "rabbit animal",
+  "source": "stocksnap",
+  "title": "Animals Mammals"
+ },
+ "rain": {
+  "creator": "",
+  "file": "kids/words/rain.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/3293199/free-photo-image-rain-and-clouds-aerial-view-apartment-building",
+  "q": "rain falling on window",
+  "source": "rawpixel",
+  "title": "Snow falling onto building city"
+ },
+ "rice": {
+  "creator": "Kawin Harasai",
+  "file": "kids/words/rice.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/rice-bowl-CCBWIQCNEJ",
+  "q": "bowl of rice",
+  "source": "stocksnap",
+  "title": "Rice Bowl"
+ },
+ "ride": {
+  "creator": "Candace McDaniel",
+  "file": "kids/words/ride.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/child-tricycle-ULU3U1NPOR",
+  "q": "child riding bicycle",
+  "source": "stocksnap",
+  "title": "Child Tricycle"
+ },
+ "river": {
+  "creator": "Julia Caesar",
+  "file": "kids/words/river.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/landscape-mountains-RKS9M8PY0X",
+  "q": "river landscape",
+  "source": "stocksnap",
+  "title": "Landscape Mountains"
+ },
+ "robot": {
+  "creator": "Alex Knight",
+  "file": "kids/words/robot.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/robot-technology-WUBMLJRYEK",
+  "q": "robot",
+  "source": "stocksnap",
+  "title": "Robot Technology"
+ },
+ "rocket": {
+  "creator": "SpaceX",
+  "file": "kids/words/rocket.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/rocket-space-XFOCYIPVGL",
+  "q": "rocket launch",
+  "source": "stocksnap",
+  "title": "Rocket Space"
+ },
+ "room": {
+  "creator": "Medhat Ayad",
+  "file": "kids/words/room.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/apartment-bed-EGXWIV409M",
+  "q": "bedroom room",
+  "source": "stocksnap",
+  "title": "Apartment Bed"
+ },
+ "run": {
+  "creator": "Josh Willink",
+  "file": "kids/words/run.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/man-child-ALW7AN344Z",
+  "q": "child running",
+  "source": "stocksnap",
+  "title": "Man Child"
+ },
+ "sad": {
+  "creator": "it's me neosiam",
+  "file": "kids/words/sad.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/child-crying-J6THJ6TX6A",
+  "q": "sad child",
+  "source": "stocksnap",
+  "title": "Child Crying"
+ },
+ "scared": {
+  "creator": "The African Union Mission in Somalia",
+  "file": "kids/words/scared.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/3373097/free-photo-image-child-malnutrition-africa-african",
+  "q": "scared child",
+  "source": "rawpixel",
+  "title": "malnourished child sits his mother's"
+ },
+ "screen": {
+  "creator": "Wilfred Iven",
+  "file": "kids/words/screen.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/macbook-laptop-RMATTE7HXJ",
+  "q": "laptop screen desk",
+  "source": "stocksnap",
+  "title": "Macbook Laptop"
+ },
+ "shirt": {
+  "creator": "Pawel Kadysz",
+  "file": "kids/words/shirt.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/shirt-tshirt-PLFB4I53U4",
+  "q": "shirt clothes",
+  "source": "stocksnap",
+  "title": "Shirt Tshirt"
+ },
+ "shoes": {
+  "creator": "Kristin Hardwick",
+  "file": "kids/words/shoes.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/sneakers-shoes-U20YIXFQBC",
+  "q": "pair of shoes",
+  "source": "stocksnap",
+  "title": "Sneakers Shoes"
+ },
+ "shop": {
+  "creator": "Carol M Highsmith",
+  "file": "kids/words/shop.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/8057475/photo-image-person-road-man",
+  "q": "shop storefront",
+  "source": "rawpixel",
+  "title": "souvenir shop that, according its"
+ },
+ "sister": {
+  "creator": "Kristin Hardwick",
+  "file": "kids/words/sister.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/sisters-children-C3JWZLBWXS",
+  "q": "sisters",
+  "source": "stocksnap",
+  "title": "Sisters Children"
+ },
+ "small": {
+  "creator": "",
+  "file": "kids/words/small.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/3302184/free-photo-image-finland-animal-beautiful-pictures-images",
+  "q": "small flower close up macro",
+  "source": "rawpixel",
+  "title": "Close-up two small violet flowers"
+ },
+ "snow": {
+  "creator": "Elliott Chau",
+  "file": "kids/words/snow.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/lake-mountains-VZBJUVPO25",
+  "q": "snow winter",
+  "source": "stocksnap",
+  "title": "Lake Mountains"
+ },
+ "socks": {
+  "creator": "artinstitutechicago",
+  "file": "kids/words/socks.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/9007648/pair-boots-theatrical",
+  "q": "pair of socks",
+  "source": "rawpixel",
+  "title": "Pair of Boots (Theatrical)"
+ },
+ "spaceship": {
+  "creator": "U.S. Department of Energy",
+  "file": "kids/words/spaceship.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/3322276/free-photo-image-spaceship-aec-aircraft",
+  "q": "space shuttle launch",
+  "source": "rawpixel",
+  "title": "SNAP reactor/ short lived manned"
+ },
+ "star": {
+  "creator": "Wil Stewart",
+  "file": "kids/words/star.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/night-sky-3O51V5Q49Q",
+  "q": "stars night sky",
+  "source": "stocksnap",
+  "title": "Night Sky"
+ },
+ "street": {
+  "creator": "Matthew Henry",
+  "file": "kids/words/street.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/guy-man-UYPK53YC65",
+  "q": "city street",
+  "source": "stocksnap",
+  "title": "Guy Man"
+ },
+ "sun": {
+  "creator": "Burst",
+  "file": "kids/words/sun.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/palmtrees-palmleaves-V8G3PEWVYL",
+  "q": "sunny sky",
+  "source": "stocksnap",
+  "title": "Palmtrees Palmleaves"
+ },
+ "swim": {
+  "creator": "Oleksandr Pidvalnyi",
+  "file": "kids/words/swim.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/young-boy-EW66URWTJZ",
+  "q": "child swimming pool",
+  "source": "stocksnap",
+  "title": "Young Boy"
+ },
+ "tablet": {
+  "creator": "Lia Leslie",
+  "file": "kids/words/tablet.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/macbook-laptop-DWLWL9USBG",
+  "q": "tablet computer",
+  "source": "stocksnap",
+  "title": "Macbook Laptop"
+ },
+ "teacher": {
+  "creator": "usembassyghana",
+  "file": "kids/words/teacher.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/8714715/photo-image-public-domain-person-kids",
+  "q": "teacher classroom children",
+  "source": "rawpixel",
+  "title": "Children classroom"
+ },
+ "telescope": {
+  "creator": "",
+  "file": "kids/words/telescope.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/3286869/free-photo-image-cc0-creative-commons",
+  "q": "telescope tripod sky",
+  "source": "rawpixel",
+  "title": "Looking down"
+ },
+ "tired": {
+  "creator": "",
+  "file": "kids/words/tired.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/6067370/free-public-domain-cc0-photo",
+  "q": "yawning",
+  "source": "rawpixel",
+  "title": ""
+ },
+ "tooth": {
+  "creator": "",
+  "file": "kids/words/tooth.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/13991777/image-paper-cartoon-face",
+  "q": "human tooth",
+  "source": "rawpixel",
+  "title": "dissertation artificial teeth : evincing"
+ },
+ "tree": {
+  "creator": "Jeremy Bishop",
+  "file": "kids/words/tree.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/nature-coast-KSM448ZVDN",
+  "q": "big tree",
+  "source": "stocksnap",
+  "title": "Nature Coast"
+ },
+ "wind": {
+  "creator": "",
+  "file": "kids/words/wind.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://www.rawpixel.com/image/5923948/photo-image-public-domain-trees-nature",
+  "q": "wind blowing tree",
+  "source": "rawpixel",
+  "title": "Winter storm blowing beach"
+ },
+ "window": {
+  "creator": "Leeroy",
+  "file": "kids/words/window.jpg",
+  "license": "cc0",
+  "license_version": "1.0",
+  "page": "https://stocksnap.io/photo/condo-loft-15134A07A3",
+  "q": "window house",
+  "source": "stocksnap",
+  "title": "Condo Loft"
+ }
+}

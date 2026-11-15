@@ -8135,8 +8135,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
     color: var(--k-ink-2);
   }
+  body.kids .kwp-img {
+    flex: 0 0 100%; width: 100%; max-width: 360px; aspect-ratio: 4 / 3; height: auto;
+    object-fit: cover; border-radius: 16px; margin: 0 auto 2px; display: block;
+    border: 2.5px solid var(--k-teal-line); background: var(--k-surface-2);
+    box-shadow: 0 4px 10px var(--k-card-shadow);
+  }
   body.kids .kwp-tile {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px;
     margin: 8px 0 10px; padding: 16px 14px; border-radius: 20px;
     border: 2px solid var(--k-teal-line);
     background: radial-gradient(130% 120% at 15% 0%, var(--k-teal-wash) 0%, var(--k-surface) 72%);
@@ -8665,15 +8671,31 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kpara-fa { font-size: 12.5px; line-height: 1.95; color: var(--k-ink-2); direction: rtl; text-align: right; margin-top: 6px; }
   .ktheme { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
   .kwordrow {
-    display: flex; align-items: center; gap: 9px;
-    padding: 10px 12px; border-radius: 12px;
+    display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px;
+    align-items: start; padding: 10px 12px; border-radius: 12px;
     border: 1.5px solid var(--k-line-strong); background: var(--k-surface-2);
   }
   .kwordrow b { font-size: 15px; color: var(--k-ink); }
-  .kwordrow .kfa { font-size: 12px; color: var(--k-pink-ink); direction: rtl; margin-inline-start: auto; }
+  .kwordrow .khead .ksaywrap { margin-inline-start: auto; }
+  .kwordrow .kfa { font-size: 12px; color: var(--k-pink-ink); direction: rtl;
+    text-align: right; margin: 3px 0 0; }
   .kwordrow .kdef { font-size: 12px; color: var(--k-ink-2); }
   .kwordrow .kex { font-size: 12px; color: var(--k-ink-2); }
   .kwordrow { align-items: flex-start; }
+  /* The word's picture: the first thing in the row, and the reason the row is
+     worth looking at. 92px is big enough to recognise a horse and small enough
+     that three words still fit on a phone screen. object-fit keeps every
+     photograph the same shape whatever its aspect was. */
+  .kwordrow .kwimg {
+    flex: none; width: 92px; height: 92px; border-radius: 16px;
+    object-fit: cover; display: block;
+    border: 2.5px solid var(--k-line-strong);
+    background: var(--k-surface-2);
+    box-shadow: 0 3px 8px var(--k-card-shadow);
+  }
+  @media (max-width: 430px) {
+    .kwordrow .kwimg { width: 76px; height: 76px; border-radius: 14px; }
+  }
   .kwordrow .kbody { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
   .kwordrow .khead { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
   .kipa { font-size: 11.5px; color: var(--k-ink-2); }
@@ -21337,6 +21359,19 @@ const Kids = (() => {
       say.textContent = '🔊';
       say.setAttribute('aria-label', 'Hear the word — واژه را بشنو');
       say.onclick = () => { try { Speech.speak(w.word); } catch (e) { /* no voice */ } };
+      /* The question shows the thing, not only the English: a child reads the
+         word and sees what it names, then picks the meaning. */
+      if (w.img) {
+        const shot = document.createElement('img');
+        shot.className = 'kwp-img';
+        shot.src = w.img;
+        shot.alt = '';
+        shot.width = 480;
+        shot.height = 360;
+        shot.decoding = 'async';
+        shot.loading = 'lazy';
+        tile.appendChild(shot);
+      }
       tile.append(word, say);
 
       const ask = document.createElement('p');
@@ -21722,6 +21757,33 @@ const Kids = (() => {
     KAnim.stagger(wrap);
   }
 
+  /* The picture a word is taught with.
+
+     Every taught word carries a photograph of the thing it names - a real
+     apple, a real horse, a real bedroom - because a child who has the word
+     and the thing in front of them at the same moment learns the pair, not a
+     definition. The files are bundled: kids/words/<word>.jpg, fetched once by
+     tools/fetch_kids_word_images.py from CC0/public-domain photographs and
+     credited in kids/words/credits.json. The drawn glyph stays as the
+     fallback, so a word whose picture failed to decode still has art instead
+     of an empty box. */
+  function wordPicture(w, theme) {
+    if (!w.img) return KAnim.art(w.word, theme.emoji, w.move);
+    const im = document.createElement('img');
+    im.className = 'kwimg';
+    im.src = w.img;
+    im.alt = w.word;
+    im.width = 480;
+    im.height = 360;
+    im.loading = 'lazy';
+    im.decoding = 'async';
+    im.onerror = () => {
+      const art = KAnim.art(w.word, theme.emoji, w.move);
+      if (art && im.parentNode) im.replaceWith(art);
+    };
+    return im;
+  }
+
   function themeWords(d, theme, terms) {
     const box = $('domains');
     if (!box) return;
@@ -21768,7 +21830,13 @@ const Kids = (() => {
       const ex = document.createElement('div');
       ex.className = 'kex';
       ex.textContent = w.example_en;
-      body.append(head, chips, def, ex);
+      /* The picture takes the first column, so everything a word has to say
+         lives in the second: the word and its speaker on one line, then the
+         definition, the example and the Persian across the full width. It used
+         to be a single flex row, which left the definition a thumb's width of
+         text once a 92px photograph joined it. */
+      head.append(sayButton(w.word + '. ' + w.example_en));
+      body.append(head, chips, def, ex, fa(w.fa, 'kfa'));
       if (Array.isArray(w.senses) && w.senses.length) {
         const more = document.createElement('details');
         more.className = 'ksenses';
@@ -21794,8 +21862,7 @@ const Kids = (() => {
         });
         body.appendChild(more);
       }
-      row.append(KAnim.art(w.word, theme.emoji, w.move), body, fa(w.fa),
-        sayButton(w.word + '. ' + w.example_en));
+      row.append(wordPicture(w, theme), body);
       card.appendChild(row);
       card.appendChild(fa(w.example_fa, 'kpara-fa'));
     });
@@ -32499,6 +32566,20 @@ class Handler(BaseHTTPRequestHandler):
             # travels on almost every load until the browser caches it.
             self._finish(path.read_bytes(), "text/javascript; charset=utf-8",
                          31536000)
+            return
+        if self.path.startswith("/kids/"):
+            # One photograph per taught word. Whitelisted by name for the same
+            # reason the mascot is: this is a static path, and a static path is
+            # the one place a traversal could be typed in.
+            name = self.path[len("/kids/"):]
+            if not re.fullmatch(r"words/[a-z]+\.jpg", name):
+                return self._send_text("not found", "text/plain; charset=utf-8",
+                                       status=404)
+            path = ROOT / "kids" / name
+            if not path.exists():
+                return self._send_text("not found", "text/plain; charset=utf-8",
+                                       status=404)
+            self._finish(path.read_bytes(), "image/jpeg", 604800)
             return
         if self.path.startswith("/brand/"):
             # The mascot. Whitelisted by name for the same reason the fonts are:

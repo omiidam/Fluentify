@@ -26,7 +26,8 @@
        "example_fa": "ما یکشنبه‌ها برای ناهار میز رزرو می‌کنیم.",
        "level": "A2"
       }
-     ]
+     ],
+     "img": "kids/words/book.jpg"
     },
     {
      "word": "pencil",
@@ -37,7 +38,8 @@
      "def_en": "A thin wooden stick with a dark point that you write or draw with.",
      "example_en": "My pencil is yellow and sharp.",
      "example_fa": "مداد من زرد و نوک‌تیز است.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/pencil.jpg"
     },
     {
      "word": "teacher",
@@ -48,7 +50,8 @@
      "def_en": "A person whose job is to help children learn at school.",
      "example_en": "Our teacher reads a story to us every day.",
      "example_fa": "معلم ما هر روز برایمان یک داستان می‌خواند.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/teacher.jpg"
     },
     {
      "word": "desk",
@@ -59,7 +62,8 @@
      "def_en": "A table that you sit at to read, write or work.",
      "example_en": "My desk is next to the window.",
      "example_fa": "میز من کنار پنجره است.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/desk.jpg"
     },
     {
      "word": "bag",
@@ -70,7 +74,8 @@
      "def_en": "A container with a handle that you carry things in.",
      "example_en": "My school bag is too heavy today.",
      "example_fa": "کیف مدرسهٔ من امروز خیلی سنگین است.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/bag.jpg"
     },
     {
      "word": "class",
@@ -91,7 +96,8 @@
        "example_fa": "ما بعد از ناهار زنگ نقاشی داریم.",
        "level": "A2"
       }
-     ]
+     ],
+     "img": "kids/words/class.jpg"
     }
    ]
   },
@@ -110,7 +116,8 @@
      "def_en": "A female parent.",
      "example_en": "My mother makes the best soup.",
      "example_fa": "مادرم بهترین سوپ را درست می‌کند.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/mother.jpg"
     },
     {
      "word": "father",
@@ -121,7 +128,8 @@
      "def_en": "A male parent.",
      "example_en": "My father tells funny stories at dinner.",
      "example_fa": "پدرم موقع شام داستان‌های خنده‌دار تعریف می‌کند.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/father.jpg"
     },
     {
      "word": "sister",
@@ -132,7 +140,8 @@
      "def_en": "A girl or woman who has the same parents as you.",
      "example_en": "My sister is six years old.",
      "example_fa": "خواهرم شش سال دارد.",
-     "move": "hop"
+     "move": "hop",
+     "img": "kids/words/sister.jpg"
     },
     {
      "word": "brother",
@@ -143,7 +152,8 @@
      "def_en": "A boy or man who has the same parents as you.",
      "example_en": "My brother plays football with me after school.",
      "example_fa": "برادرم بعد از مدرسه با من فوتبال بازی می‌کند.",
-     "move": "hop"
+     "move": "hop",
+     "img": "kids/words/brother.jpg"
     },
     {
      "word": "grandmother",
@@ -154,7 +164,8 @@
      "def_en": "The mother of your mother or your father.",
      "example_en": "My grandmother has a small garden with red flowers.",
      "example_fa": "مادربزرگم یک باغچهٔ کوچک با گل‌های قرمز دارد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/grandmother.jpg"
     },
     {
      "word": "cousin",
@@ -165,7 +176,8 @@
      "def_en": "The child of your aunt or uncle.",
      "example_en": "My cousin lives in another city, and we talk every week.",
      "example_fa": "پسرخاله‌ام در شهر دیگری زندگی می‌کند و هر هفته با هم حرف می‌زنیم.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/cousin.jpg"
     }
    ]
   },
@@ -184,7 +196,8 @@
      "def_en": "A small animal with soft fur that people keep as a pet.",
      "example_en": "The cat sleeps on my bed all afternoon.",
      "example_fa": "گربه تمام بعدازظهر روی تخت من می‌خوابد.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/cat.jpg"
     },
     {
      "word": "dog",
@@ -195,7 +208,8 @@
      "def_en": "A pet animal that likes to run, play and bark.",
      "example_en": "Our dog runs after the ball in the garden.",
      "example_fa": "سگ ما در باغچه دنبال توپ می‌دود.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/dog.jpg"
     },
     {
      "word": "bird",
@@ -206,7 +220,8 @@
      "def_en": "An animal with feathers and wings, and most birds can fly.",
      "example_en": "A bird sings near my window every morning.",
      "example_fa": "پرنده‌ای هر صبح نزدیک پنجرهٔ من آواز می‌خواند.",
-     "move": "fly"
+     "move": "fly",
+     "img": "kids/words/bird.jpg"
     },
     {
      "word": "rabbit",
@@ -217,7 +232,8 @@
      "def_en": "A small animal with long ears and soft fur.",
      "example_en": "The rabbit eats a carrot in the grass.",
      "example_fa": "خرگوش در چمن یک هویج می‌خورد.",
-     "move": "hop"
+     "move": "hop",
+     "img": "kids/words/rabbit.jpg"
     },
     {
      "word": "horse",
@@ -228,7 +244,8 @@
      "def_en": "A big animal with four legs that people can ride.",
      "example_en": "The horse is brown and very tall.",
      "example_fa": "اسب قهوه‌ای است و خیلی بلند.",
-     "move": "hop"
+     "move": "hop",
+     "img": "kids/words/horse.jpg"
     },
     {
      "word": "fish",
@@ -249,7 +266,8 @@
        "example_fa": "ما جمعه‌ها ماهی می‌خوریم.",
        "level": "A2"
       }
-     ]
+     ],
+     "img": "kids/words/fish.jpg"
     }
    ]
   },
@@ -268,7 +286,8 @@
      "def_en": "A round fruit with red or green skin and a small hard middle.",
      "example_en": "I eat an apple at break time.",
      "example_fa": "من در زنگ تفریح یک سیب می‌خورم.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/apple.jpg"
     },
     {
      "word": "bread",
@@ -279,7 +298,8 @@
      "def_en": "A food made from flour and water and baked in an oven.",
      "example_en": "Warm bread smells wonderful.",
      "example_fa": "نان گرم بوی خیلی خوبی دارد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/bread.jpg"
     },
     {
      "word": "milk",
@@ -290,7 +310,8 @@
      "def_en": "A white drink that comes from cows and other animals.",
      "example_en": "I drink milk with my breakfast.",
      "example_fa": "من صبحانه‌ام را با شیر می‌خورم.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/milk.jpg"
     },
     {
      "word": "rice",
@@ -301,7 +322,8 @@
      "def_en": "Small white or brown grains that you cook and eat.",
      "example_en": "We eat rice with vegetables.",
      "example_fa": "ما برنج را با سبزی می‌خوریم.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/rice.jpg"
     },
     {
      "word": "egg",
@@ -312,7 +334,8 @@
      "def_en": "A food that comes from a hen, with a hard shell around it.",
      "example_en": "She cooks an egg for lunch.",
      "example_fa": "او برای ناهار یک تخم‌مرغ می‌پزد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/egg.jpg"
     },
     {
      "word": "cake",
@@ -323,7 +346,8 @@
      "def_en": "A sweet food that is baked and eaten at parties.",
      "example_en": "The birthday cake has six candles.",
      "example_fa": "کیک تولد شش شمع دارد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/cake.jpg"
     }
    ]
   },
@@ -342,7 +366,8 @@
      "def_en": "A round object that you throw, kick or hit in games.",
      "example_en": "We play with a red ball after school.",
      "example_fa": "ما بعد از مدرسه با یک توپ قرمز بازی می‌کنیم.",
-     "move": "bounce"
+     "move": "bounce",
+     "img": "kids/words/ball.jpg"
     },
     {
      "word": "game",
@@ -363,7 +388,8 @@
        "example_fa": "تیم ما شنبه مسابقه را برد.",
        "level": "A2"
       }
-     ]
+     ],
+     "img": "kids/words/game.jpg"
     },
     {
      "word": "jump",
@@ -374,7 +400,8 @@
      "def_en": "To push yourself off the ground into the air.",
      "example_en": "The children jump over the little line.",
      "example_fa": "بچه‌ها از روی خط کوچک می‌پرند.",
-     "move": "hop"
+     "move": "hop",
+     "img": "kids/words/jump.jpg"
     },
     {
      "word": "run",
@@ -385,7 +412,8 @@
      "def_en": "To move quickly on your feet, with both feet leaving the ground.",
      "example_en": "I run to the gate every morning.",
      "example_fa": "من هر صبح تا دروازه می‌دوم.",
-     "move": "hop"
+     "move": "hop",
+     "img": "kids/words/run.jpg"
     },
     {
      "word": "swim",
@@ -396,7 +424,8 @@
      "def_en": "To move through the water by moving your arms and legs.",
      "example_en": "She can swim very well.",
      "example_fa": "او خیلی خوب شنا می‌کند.",
-     "move": "swim"
+     "move": "swim",
+     "img": "kids/words/swim.jpg"
     },
     {
      "word": "ride",
@@ -417,7 +446,8 @@
        "example_fa": "می‌شود یک دور با دوچرخه‌ات سواری کنم؟",
        "level": "A2"
       }
-     ]
+     ],
+     "img": "kids/words/ride.jpg"
     }
    ]
   },
@@ -436,7 +466,8 @@
      "def_en": "The bright star that gives us light and heat during the day.",
      "example_en": "The sun is hot at noon.",
      "example_fa": "خورشید ظهر گرم است.",
-     "move": "twinkle"
+     "move": "twinkle",
+     "img": "kids/words/sun.jpg"
     },
     {
      "word": "rain",
@@ -447,7 +478,8 @@
      "def_en": "Water that falls from the clouds in small drops.",
      "example_en": "The rain makes the garden green.",
      "example_fa": "باران باغچه را سبز می‌کند.",
-     "move": "fall"
+     "move": "fall",
+     "img": "kids/words/rain.jpg"
     },
     {
      "word": "cloud",
@@ -458,7 +490,8 @@
      "def_en": "A white or grey shape in the sky made of tiny drops of water.",
      "example_en": "One cloud looks like a sheep.",
      "example_fa": "یک ابر شبیه گوسفند است.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/cloud.jpg"
     },
     {
      "word": "wind",
@@ -469,7 +502,8 @@
      "def_en": "Air that moves and pushes things along.",
      "example_en": "The wind moves the leaves on the tree.",
      "example_fa": "باد برگ‌های درخت را تکان می‌دهد.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/wind.jpg"
     },
     {
      "word": "snow",
@@ -480,7 +514,8 @@
      "def_en": "Soft white flakes of frozen water that fall when it is cold.",
      "example_en": "Snow covers the roof and the garden.",
      "example_fa": "برف پشت‌بام و باغچه را می‌پوشاند.",
-     "move": "fall"
+     "move": "fall",
+     "img": "kids/words/snow.jpg"
     },
     {
      "word": "star",
@@ -501,7 +536,8 @@
        "example_fa": "او روی کارت یک ستاره می‌کشد.",
        "level": "A2"
       }
-     ]
+     ],
+     "img": "kids/words/star.jpg"
     }
    ]
   },
@@ -520,7 +556,8 @@
      "def_en": "Needing rest or sleep.",
      "example_en": "I am tired after football practice.",
      "example_fa": "من بعد از تمرین فوتبال خسته‌ام.",
-     "move": "droop"
+     "move": "droop",
+     "img": "kids/words/tired.jpg"
     },
     {
      "word": "excited",
@@ -531,7 +568,8 @@
      "def_en": "Very happy about something that is going to happen.",
      "example_en": "She is excited about the school trip.",
      "example_fa": "او برای سفر مدرسه هیجان‌زده است.",
-     "move": "bounce"
+     "move": "bounce",
+     "img": "kids/words/excited.jpg"
     },
     {
      "word": "scared",
@@ -542,7 +580,8 @@
      "def_en": "Afraid or frightened of something.",
      "example_en": "The little dog is scared of thunder.",
      "example_fa": "سگ کوچک از رعد می‌ترسد.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/scared.jpg"
     },
     {
      "word": "proud",
@@ -553,7 +592,8 @@
      "def_en": "Feeling happy about something good that you or someone else did.",
      "example_en": "I am proud of my drawing.",
      "example_fa": "من به نقاشی‌ام افتخار می‌کنم.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/proud.jpg"
     },
     {
      "word": "calm",
@@ -564,7 +604,8 @@
      "def_en": "Quiet and relaxed, not worried or excited.",
      "example_en": "Take a deep breath and stay calm.",
      "example_fa": "یک نفس عمیق بکش و آرام بمان.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/calm.jpg"
     },
     {
      "word": "lonely",
@@ -575,7 +616,8 @@
      "def_en": "Sad because you are alone or have no one to play with.",
      "example_en": "He feels lonely at his new school.",
      "example_fa": "او در مدرسهٔ جدید احساس تنهایی می‌کند.",
-     "move": "droop"
+     "move": "droop",
+     "img": "kids/words/lonely.jpg"
     }
    ]
   },
@@ -594,7 +636,8 @@
      "def_en": "A tall plant with a wooden trunk and branches that grow leaves.",
      "example_en": "We sit under the big tree in the park.",
      "example_fa": "ما زیر درخت بزرگ پارک می‌نشینیم.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/tree.jpg"
     },
     {
      "word": "flower",
@@ -605,7 +648,8 @@
      "def_en": "The colourful part of a plant that comes before the fruit or seeds.",
      "example_en": "This yellow flower smells sweet.",
      "example_fa": "این گل زرد بوی خوشی دارد.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/flower.jpg"
     },
     {
      "word": "leaf",
@@ -616,7 +660,8 @@
      "def_en": "One of the flat green parts that grow on a plant or a tree.",
      "example_en": "A red leaf fell on my shoe.",
      "example_fa": "یک برگ قرمز روی کفش من افتاد.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/leaf.jpg"
     },
     {
      "word": "river",
@@ -627,7 +672,8 @@
      "def_en": "A long line of water that moves across the land to the sea.",
      "example_en": "The river runs behind our village.",
      "example_fa": "رود از پشت روستای ما می‌گذرد.",
-     "move": "swim"
+     "move": "swim",
+     "img": "kids/words/river.jpg"
     },
     {
      "word": "mountain",
@@ -638,7 +684,8 @@
      "def_en": "A very high hill with rock and often snow on top.",
      "example_en": "The mountain is white with snow in winter.",
      "example_fa": "کوه در زمستان از برف سفید است.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/mountain.jpg"
     },
     {
      "word": "grass",
@@ -649,7 +696,8 @@
      "def_en": "The short green plants that cover the ground in gardens and parks.",
      "example_en": "The rabbit hides in the tall grass.",
      "example_fa": "خرگوش در چمن بلند پنهان می‌شود.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/grass.jpg"
     }
    ]
   },
@@ -668,7 +716,8 @@
      "def_en": "The top part of your body, with your face on the front.",
      "example_en": "Put your hat on your head.",
      "example_fa": "کلاهت را روی سرت بگذار.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/head.jpg"
     },
     {
      "word": "hand",
@@ -679,7 +728,8 @@
      "def_en": "The part at the end of your arm, with fingers for holding things.",
      "example_en": "Wash your hands before you eat.",
      "example_fa": "قبل از غذا دست‌هایت را بشور.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/hand.jpg"
     },
     {
      "word": "eye",
@@ -690,7 +740,8 @@
      "def_en": "One of the two parts of your face that you see with.",
      "example_en": "I have something in my eye.",
      "example_fa": "چیزی در چشم من رفته است.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/eye.jpg"
     },
     {
      "word": "ear",
@@ -701,7 +752,8 @@
      "def_en": "One of the two parts of your head that you hear with.",
      "example_en": "The rabbit has two long ears.",
      "example_fa": "خرگوش دو گوش بلند دارد.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/ear.jpg"
     },
     {
      "word": "mouth",
@@ -712,7 +764,8 @@
      "def_en": "The part of your face that you use for eating and talking.",
      "example_en": "Close your mouth when you chew.",
      "example_fa": "وقتی غذا می‌خوری دهانت را ببند.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/mouth.jpg"
     },
     {
      "word": "tooth",
@@ -723,7 +776,8 @@
      "def_en": "One of the hard white parts in your mouth that you bite with.",
      "example_en": "I brush every tooth twice a day.",
      "example_fa": "من هر روز دو بار همهٔ دندان‌هایم را مسواک می‌زنم.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/tooth.jpg"
     }
    ]
   },
@@ -742,7 +796,8 @@
      "def_en": "A piece of clothing for the top of your body, with buttons and sleeves.",
      "example_en": "My blue shirt has a small pocket.",
      "example_fa": "پیراهن آبی من یک جیب کوچک دارد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/shirt.jpg"
     },
     {
      "word": "shoes",
@@ -753,7 +808,8 @@
      "def_en": "The things you wear on your feet when you go outside.",
      "example_en": "These shoes are too small for me.",
      "example_fa": "این کفش‌ها برای من خیلی کوچک است.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/shoes.jpg"
     },
     {
      "word": "hat",
@@ -764,7 +820,8 @@
      "def_en": "A covering that you wear on your head.",
      "example_en": "Wear a hat when the sun is strong.",
      "example_fa": "وقتی آفتاب تند است کلاه بگذار.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/hat.jpg"
     },
     {
      "word": "socks",
@@ -775,7 +832,8 @@
      "def_en": "Soft clothing that covers your feet inside your shoes.",
      "example_en": "My socks are wet from the rain.",
      "example_fa": "جوراب‌هایم از باران خیس شده است.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/socks.jpg"
     },
     {
      "word": "coat",
@@ -786,7 +844,8 @@
      "def_en": "A warm piece of clothing that you wear over other clothes outside.",
      "example_en": "Put on your coat; it is cold today.",
      "example_fa": "پالتویت را بپوش؛ امروز هوا سرد است.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/coat.jpg"
     },
     {
      "word": "dress",
@@ -797,7 +856,8 @@
      "def_en": "A piece of clothing for a girl or woman that covers body and legs.",
      "example_en": "Her dress has little flowers on it.",
      "example_fa": "پیراهنش گل‌های کوچک دارد.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/dress.jpg"
     }
    ]
   },
@@ -816,7 +876,8 @@
      "def_en": "A part of a house with walls and a door.",
      "example_en": "My room has a big window.",
      "example_fa": "اتاق من یک پنجرهٔ بزرگ دارد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/room.jpg"
     },
     {
      "word": "door",
@@ -827,7 +888,8 @@
      "def_en": "The part of a room you open to go in or out.",
      "example_en": "Please close the door quietly.",
      "example_fa": "لطفاً در را آرام ببند.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/door.jpg"
     },
     {
      "word": "window",
@@ -838,7 +900,8 @@
      "def_en": "A glass opening in a wall that lets in light and air.",
      "example_en": "Open the window; the room is warm.",
      "example_fa": "پنجره را باز کن؛ اتاق گرم است.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/window.jpg"
     },
     {
      "word": "bed",
@@ -849,7 +912,8 @@
      "def_en": "The piece of furniture that you sleep on.",
      "example_en": "My bed is next to the door.",
      "example_fa": "تخت من کنار در است.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/bed.jpg"
     },
     {
      "word": "chair",
@@ -860,7 +924,8 @@
      "def_en": "A seat with a back and four legs for one person.",
      "example_en": "There is a red chair by the window.",
      "example_fa": "کنار پنجره یک صندلی قرمز هست.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/chair.jpg"
     },
     {
      "word": "kitchen",
@@ -871,7 +936,8 @@
      "def_en": "The room where you cook food.",
      "example_en": "We eat breakfast in the kitchen.",
      "example_fa": "ما صبحانه را در آشپزخانه می‌خوریم.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/kitchen.jpg"
     }
    ]
   },
@@ -890,7 +956,8 @@
      "def_en": "The round object that moves around the Earth and shines at night.",
      "example_en": "The moon is bright tonight.",
      "example_fa": "ماه امشب روشن است.",
-     "move": "twinkle"
+     "move": "twinkle",
+     "img": "kids/words/moon.jpg"
     },
     {
      "word": "planet",
@@ -901,7 +968,8 @@
      "def_en": "A large round object in space that moves around a star.",
      "example_en": "Earth is the planet we live on.",
      "example_fa": "زمین سیاره‌ای است که ما در آن زندگی می‌کنیم.",
-     "move": "spin"
+     "move": "spin",
+     "img": "kids/words/planet.jpg"
     },
     {
      "word": "rocket",
@@ -912,7 +980,8 @@
      "def_en": "A tall machine that flies up into space.",
      "example_en": "The rocket goes up with a loud noise.",
      "example_fa": "موشک با صدای بلند بالا می‌رود.",
-     "move": "launch"
+     "move": "launch",
+     "img": "kids/words/rocket.jpg"
     },
     {
      "word": "astronaut",
@@ -923,7 +992,8 @@
      "def_en": "A person whose job is to travel and work in space.",
      "example_en": "The astronaut wears a big white suit.",
      "example_fa": "فضانورد یک لباس سفید بزرگ می‌پوشد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/astronaut.jpg"
     },
     {
      "word": "spaceship",
@@ -934,7 +1004,8 @@
      "def_en": "A vehicle that carries people through space.",
      "example_en": "The spaceship flies past the moon.",
      "example_fa": "سفینهٔ فضایی از کنار ماه می‌گذرد.",
-     "move": "fly"
+     "move": "fly",
+     "img": "kids/words/spaceship.jpg"
     },
     {
      "word": "telescope",
@@ -945,7 +1016,8 @@
      "def_en": "A tube with glass inside that makes far things look bigger.",
      "example_en": "We look at the stars through a telescope.",
      "example_fa": "ما با تلسکوپ به ستاره‌ها نگاه می‌کنیم.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/telescope.jpg"
     }
    ]
   },
@@ -964,7 +1036,8 @@
      "def_en": "A machine with a screen that you use to work, write or play.",
      "example_en": "My father works on the computer at home.",
      "example_fa": "پدرم در خانه با کامپیوتر کار می‌کند.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/computer.jpg"
     },
     {
      "word": "phone",
@@ -975,7 +1048,8 @@
      "def_en": "A small machine you carry to call people or use the internet.",
      "example_en": "I call my grandmother on the phone.",
      "example_fa": "من با تلفن به مادربزرگم زنگ می‌زنم.",
-     "move": "tilt"
+     "move": "tilt",
+     "img": "kids/words/phone.jpg"
     },
     {
      "word": "tablet",
@@ -986,7 +1060,8 @@
      "def_en": "A flat computer with a touch screen that you hold in your hands.",
      "example_en": "She draws a cat on the tablet.",
      "example_fa": "او روی تبلت یک گربه می‌کشد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/tablet.jpg"
     },
     {
      "word": "screen",
@@ -997,7 +1072,8 @@
      "def_en": "The flat part of a computer or phone that shows pictures and words.",
      "example_en": "The screen is bright in the dark.",
      "example_fa": "صفحه‌نمایش در تاریکی روشن است.",
-     "move": "twinkle"
+     "move": "twinkle",
+     "img": "kids/words/screen.jpg"
     },
     {
      "word": "button",
@@ -1008,7 +1084,8 @@
      "def_en": "A small part that you press to make a machine work.",
      "example_en": "Press the green button to start the game.",
      "example_fa": "برای شروع بازی دکمهٔ سبز را فشار بده.",
-     "move": "bounce"
+     "move": "bounce",
+     "img": "kids/words/button.jpg"
     },
     {
      "word": "robot",
@@ -1019,7 +1096,8 @@
      "def_en": "A machine that can move and do jobs by itself.",
      "example_en": "The little robot carries my cup.",
      "example_fa": "ربات کوچک فنجان من را می‌برد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/robot.jpg"
     }
    ]
   },
@@ -1038,7 +1116,8 @@
      "def_en": "A place where you go to buy things.",
      "example_en": "The shop at the corner sells milk and bread.",
      "example_fa": "مغازهٔ سر کوچه شیر و نان می‌فروشد.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/shop.jpg"
     },
     {
      "word": "park",
@@ -1049,7 +1128,8 @@
      "def_en": "A public place with grass and trees where people play or rest.",
      "example_en": "We play football in the park on Fridays.",
      "example_fa": "جمعه‌ها در پارک فوتبال بازی می‌کنیم.",
-     "move": "sway"
+     "move": "sway",
+     "img": "kids/words/park.jpg"
     },
     {
      "word": "library",
@@ -1060,7 +1140,8 @@
      "def_en": "A place with many books that you can read or borrow.",
      "example_en": "The library is quiet and full of books.",
      "example_fa": "کتابخانه ساکت است و پر از کتاب.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/library.jpg"
     },
     {
      "word": "hospital",
@@ -1071,7 +1152,8 @@
      "def_en": "A building where doctors and nurses help sick people.",
      "example_en": "My aunt works in a hospital.",
      "example_fa": "خاله‌ام در یک بیمارستان کار می‌کند.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/hospital.jpg"
     },
     {
      "word": "bus",
@@ -1082,7 +1164,8 @@
      "def_en": "A big vehicle that carries many people along a road.",
      "example_en": "I go to school by bus.",
      "example_fa": "من با اتوبوس به مدرسه می‌روم.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/bus.jpg"
     },
     {
      "word": "street",
@@ -1093,7 +1176,8 @@
      "def_en": "A road in a town with houses or shops along it.",
      "example_en": "Be careful when you cross the street.",
      "example_fa": "وقتی از خیابان رد می‌شوی مراقب باش.",
-     "move": "bob"
+     "move": "bob",
+     "img": "kids/words/street.jpg"
     }
    ]
   },
@@ -1112,7 +1196,8 @@
      "def_en": "Large in size or amount.",
      "example_en": "An elephant is a big animal.",
      "example_fa": "فیل یک حیوان بزرگ است.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/big.jpg"
     },
     {
      "word": "small",
@@ -1123,7 +1208,8 @@
      "def_en": "Little in size or amount.",
      "example_en": "A mouse is a small animal.",
      "example_fa": "موش یک حیوان کوچک است.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/small.jpg"
     },
     {
      "word": "happy",
@@ -1134,7 +1220,8 @@
      "def_en": "Feeling good and pleased.",
      "example_en": "I am happy when my friends come to play.",
      "example_fa": "وقتی دوستانم برای بازی می‌آیند خوشحال می‌شوم.",
-     "move": "bounce"
+     "move": "bounce",
+     "img": "kids/words/happy.jpg"
     },
     {
      "word": "sad",
@@ -1145,7 +1232,8 @@
      "def_en": "Feeling unhappy or sorry.",
      "example_en": "She is sad because her kite flew away.",
      "example_fa": "او غمگین است چون بادبادکش پرواز کرد و رفت.",
-     "move": "droop"
+     "move": "droop",
+     "img": "kids/words/sad.jpg"
     },
     {
      "word": "hot",
@@ -1156,7 +1244,8 @@
      "def_en": "Having a high temperature.",
      "example_en": "The soup is too hot to eat now.",
      "example_fa": "سوپ برای خوردن الان خیلی گرم است.",
-     "move": "breathe"
+     "move": "breathe",
+     "img": "kids/words/hot.jpg"
     },
     {
      "word": "cold",
@@ -1167,7 +1256,8 @@
      "def_en": "Having a low temperature.",
      "example_en": "My hands are cold in the snow.",
      "example_fa": "دست‌هایم در برف سرد است.",
-     "move": "wiggle"
+     "move": "wiggle",
+     "img": "kids/words/cold.jpg"
     }
    ]
   }

@@ -114,6 +114,80 @@ def check_words(data):
     stats["words"] = total
 
 
+PHOTOS = ROOT / "kids/words"
+
+
+def check_word_pictures(data, src):
+    """Every taught word carries a photograph of the thing it names.
+
+    A word a child can see is a word a child keeps: the panel draws the picture
+    beside the definition and the practice card draws it above the question,
+    and both read the same bundled file. What this pins is the set staying
+    whole - a word that lost its picture, a picture with no licence on record,
+    a licence that is not one the app may ship, a file nobody references, a
+    picture missing from the APK bundle - because all four render as a blank
+    box or a quiet legal question and nothing else would notice.
+    """
+    from PIL import Image
+
+    credits_file = PHOTOS / "credits.json"
+    check(credits_file.exists(),
+          "kids/words/credits.json is missing - the licences of the pictures "
+          "are unrecorded")
+    credits = json.loads(credits_file.read_text(encoding="utf-8")) \
+        if credits_file.exists() else {}
+
+    used, words, pic = set(), 0, 0
+    for theme in data.get("words") or []:
+        for item in theme.get("words") or []:
+            words += 1
+            word = item.get("word") or "?"
+            img = item.get("img") or ""
+            check(bool(img), f"{word}: the word has no picture")
+            if not img:
+                continue
+            pic += 1
+            used.add(Path(img).name)
+            path = ROOT / img
+            exists = path.exists()
+            check(exists, f"{word}: {img} does not exist")
+            check((BUNDLE / img).exists(),
+                  f"{word}: {img} is not in the APK bundle - the phone would show "
+                  "a blank space")
+            if not exists:
+                continue
+            kb = path.stat().st_size // 1024
+            check(kb < 120, f"{word}: {img} is {kb} KB - ninety of those is a download")
+            try:
+                with Image.open(path) as im:
+                    check(im.format == "JPEG", f"{word}: {img} is {im.format}, not a JPEG")
+                    check(im.size[0] >= 320 and im.size[1] >= 240,
+                          f"{word}: {img} is {im.size[0]}x{im.size[1]} - too small to "
+                          "recognise")
+            except Exception as exc:                    # a truncated file, not a crash
+                check(False, f"{word}: {img} cannot be decoded ({exc})")
+            credit = credits.get(word) or {}
+            check(bool(credit), f"{word}: no licence is recorded for its picture")
+            check((credit.get("license") or "").lower() in ("cc0", "pdm"),
+                  f"{word}: the picture is {(credit.get('license') or 'unlicensed')!r} "
+                  "- only CC0 and public domain may ship here")
+
+    on_disk = {p.name for p in PHOTOS.glob("*.jpg")}
+    orphans = sorted(on_disk - used)
+    check(not orphans,
+          f"{len(orphans)} picture(s) belong to no word: {', '.join(orphans[:6])}")
+
+    check("function wordPicture(" in src and "kwimg" in src,
+          "the words panel no longer draws the picture beside the word")
+    check("kwp-img" in src,
+          "the practice card no longer shows the word's picture")
+    check('self.path.startswith("/kids/")' in src,
+          "the server does not serve kids/words, so the page would 404 them")
+    check("kids/words" in BUILD.read_text(encoding="utf-8"),
+          "build_apk_ui.py no longer copies the pictures into the APK")
+    stats["word pictures"] = (pic, words)
+
+
 def check_grammar(data):
     lessons = data.get("grammar") or []
     check(len(lessons) == 8, f"there are {len(lessons)} mini lessons, expected 8")
@@ -682,6 +756,7 @@ def main():
 
     print("the kid bank")
     check_words(data)
+    check_word_pictures(data, src)
     check_grammar(data)
     check_stories(data)
     check_reading(data)
