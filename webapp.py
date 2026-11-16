@@ -4525,6 +4525,66 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .wd-form b { min-width: 92px; font-size: 12.5px; }
   }
 
+  /* ---------- the essay: one paragraph, marked by a rubric --------------
+     The same object appears twice - the last step of the Friday review and
+     each level's own writing task on the learning path - so it is styled once,
+     here, and both pages use the same classes. The rubric is printed before the
+     writing starts rather than after it: a learner should be able to see what
+     "enough" means while there is still time to write it. */
+  .ess-card {
+    display: flex; flex-direction: column; gap: 9px; padding: 14px;
+    border-radius: 16px; border: 1px solid var(--line); background: var(--surf-1);
+    box-shadow: 0 1px 2px rgba(74,58,30,.055);
+  }
+  .ess-card.ess-done { border-color: rgba(79,70,160,.26); background: var(--surf-2); }
+  .ess-h {
+    margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-family: var(--font-body); font-size: 15px; color: var(--ink);
+  }
+  .ess-badge {
+    font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+    background: var(--leaf-soft); color: var(--leaf); border: 1px solid rgba(47,107,79,.24);
+  }
+  .ess-prompt { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
+  .ess-label { font-size: 12px; font-weight: 700; color: var(--ink-3); }
+  .ess-area {
+    width: 100%; min-height: 148px; resize: vertical; padding: 11px 12px;
+    border-radius: 12px; border: 1px solid var(--line); background: var(--card, var(--surf-1));
+    color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.6;
+  }
+  .ess-area:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+  .ess-meter {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; flex-wrap: wrap; font-size: 11.5px; color: var(--ink-3);
+  }
+  .ess-hint { flex: 1 1 180px; text-align: end; }
+  .ess-words { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ess-word {
+    display: inline-flex; align-items: baseline; gap: 5px; padding: 4px 9px;
+    border-radius: 999px; border: 1px dashed var(--line); background: var(--surf-2);
+    font-size: 12px; color: var(--ink-2);
+  }
+  .ess-word .fa { font-size: 11px; color: var(--ink-3); }
+  .ess-word.used {
+    border-style: solid; border-color: rgba(47,107,79,.42);
+    background: var(--leaf-soft); color: var(--leaf);
+  }
+  .ess-rubric { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .ess-rule { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-3); }
+  .ess-rule.ok { color: var(--leaf); }
+  .ess-tick { width: 16px; flex: none; text-align: center; }
+  .ess-rule-t { flex: 1 1 auto; }
+  .ess-rule-n { font-size: 11px; color: var(--ink-3); }
+  .ess-rule.ok .ess-rule-n { color: var(--leaf); opacity: .85; }
+  .ess-note { margin: 0; font-size: 12px; line-height: 1.5; color: var(--rose); }
+  .ess-quote {
+    margin: 0; padding: 11px 13px; border-inline-start: 3px solid var(--indigo);
+    border-radius: 10px; background: var(--surf-2); color: var(--ink);
+    font-size: 13.5px; line-height: 1.65; white-space: pre-wrap;
+  }
+  .ess-done-line { margin: 0; font-size: 12px; color: var(--leaf); }
+  .pessay-card .pnext-u { color: var(--indigo); }
+
   /* ---------- weekly quiz: the week's card, and the paper behind it ------
      The daily card is the day; this is the week, and it is deliberately the
      same object one size up: a card in the transcript, an indigo rule instead
@@ -24816,6 +24876,248 @@ const DailyStore = {
 };
 /* --- end daily store ---------------------------------------------------- */
 
+/* --- essay: one paragraph of real writing, marked by a rubric -----------
+   Two places ask a learner to write: the Friday review, where the paragraph
+   has to use the words that week actually taught, and every level of the
+   learning path, where it has a task of its own. Both are marked here, by one
+   rubric and one way of counting, because a learner should never be told two
+   different things about what a paragraph is.
+
+   What this can do: count words, sentences and paragraphs, see which target
+   words were really used, and name a handful of slips that are visible in the
+   text itself. What it cannot do: hear whether a sentence is natural. It never
+   claims to, and the screen calls the result "rubric points", which is what it
+   is. Nothing here reads the clock, touches the network or stores anything. */
+const Essay = {
+  /* The weekly paragraph: short, and it has to use three of the week's words.
+     Six targets is enough to choose from without turning the card into a list. */
+  WEEK: {minWords: 40, minSentences: 3, need: 3, cap: 6},
+
+  /* One task per level. The length rises with the level, and so does the
+     thinking the prompt asks for: describe a day at Pre-A1, defend a position
+     at C1. Every target is a word or a phrase the level's own course teaches,
+     so the essay is the place the course's vocabulary has to come back out. */
+  LEVELS: {
+    PRE: {
+      title_en: 'My day', title_fa: 'روز من',
+      prompt_en: 'Write a short paragraph about your day. Say what you did, who you were with, and how you felt.',
+      prompt_fa: 'یک بند کوتاه دربارهٔ روزت بنویس: چه کار کردی، با چه کسی بودی و چه حسی داشتی.',
+      hints_en: ['Three short sentences are enough.', 'Start with "I" and keep the verbs simple.'],
+      hints_fa: ['سه جملهٔ کوتاه کافی است.', 'با «I» شروع کن و فعل‌ها را ساده نگه دار.'],
+      targets: [
+        {en: 'happy', fa: 'خوشحال'}, {en: 'family', fa: 'خانواده'},
+        {en: 'eat', fa: 'خوردن'}, {en: 'home', fa: 'خانه'},
+        {en: 'play', fa: 'بازی کردن'}, {en: 'friend', fa: 'دوست'},
+      ],
+      minWords: 25, minSentences: 3, need: 3,
+    },
+    A1: {
+      title_en: 'My week', title_fa: 'هفتهٔ من',
+      prompt_en: 'Write about your week. What do you usually do, and what was different this week?',
+      prompt_fa: 'دربارهٔ هفته‌ات بنویس: معمولاً چه کار می‌کنی و این هفته چه چیزی متفاوت بود؟',
+      hints_en: ['Use the present simple for habits.', 'One sentence about a day you liked.'],
+      hints_fa: ['برای عادت‌ها از حال ساده استفاده کن.', 'یک جمله دربارهٔ روزی که دوست داشتی بنویس.'],
+      targets: [
+        {en: 'every day', fa: 'هر روز'}, {en: 'usually', fa: 'معمولاً'},
+        {en: 'friend', fa: 'دوست'}, {en: 'favourite', fa: 'محبوب'},
+        {en: 'study', fa: 'درس خواندن'}, {en: 'together', fa: 'با هم'},
+      ],
+      minWords: 40, minSentences: 4, need: 3,
+    },
+    A2: {
+      title_en: 'A place I know', title_fa: 'جایی که می‌شناسم',
+      prompt_en: 'Describe a place you know well. Where is it, what does it look like, and why do you go there?',
+      prompt_fa: 'جایی را که خوب می‌شناسی توصیف کن: کجاست، چه شکلی است و چرا به آنجا می‌روی؟',
+      hints_en: ['Give one reason with "because".', 'Say what is near it.'],
+      hints_fa: ['یک دلیل با «because» بیاور.', 'بگو چه چیزی نزدیک آن است.'],
+      targets: [
+        {en: 'although', fa: 'هرچند'}, {en: 'because', fa: 'چون'},
+        {en: 'journey', fa: 'سفر'}, {en: 'interesting', fa: 'جالب'},
+        {en: 'visit', fa: 'دیدن کردن'}, {en: 'near', fa: 'نزدیک'},
+      ],
+      minWords: 60, minSentences: 4, need: 3,
+    },
+    B1: {
+      title_en: 'A decision that mattered', title_fa: 'تصمیمی که مهم بود',
+      prompt_en: 'Write about a decision you made. What were the choices, what did you decide, and what changed afterwards?',
+      prompt_fa: 'دربارهٔ تصمیمی که گرفتی بنویس: گزینه‌ها چه بودند، چه تصمیمی گرفتی و بعدش چه تغییر کرد؟',
+      hints_en: ['Use "although" or "however" to show the other side.', 'End with what you learned.'],
+      hints_fa: ['برای نشان‌دادن طرف دیگر از «although» یا «however» استفاده کن.', 'در پایان بگو چه یاد گرفتی.'],
+      targets: [
+        {en: 'although', fa: 'هرچند'}, {en: 'however', fa: 'با این حال'},
+        {en: 'decision', fa: 'تصمیم'}, {en: 'experience', fa: 'تجربه'},
+        {en: 'improve', fa: 'بهتر شدن'}, {en: 'responsible', fa: 'مسئول'},
+      ],
+      minWords: 80, minSentences: 5, need: 3,
+    },
+    B2: {
+      title_en: 'A problem in my city', title_fa: 'یک مشکل در شهر من',
+      prompt_en: 'Describe one problem in your city. What causes it, who is affected, and what would you do about it?',
+      prompt_fa: 'یک مشکل در شهرت را توصیف کن: علتش چیست، چه کسانی آسیب می‌بینند و تو چه می‌کردی؟',
+      hints_en: ['Name a cause and a result.', 'Offer one concrete solution.'],
+      hints_fa: ['یک علت و یک نتیجه را نام ببر.', 'یک راه‌حل مشخص پیشنهاد بده.'],
+      targets: [
+        {en: 'however', fa: 'با این حال'}, {en: 'therefore', fa: 'بنابراین'},
+        {en: 'solution', fa: 'راه‌حل'}, {en: 'benefit', fa: 'سود'},
+        {en: 'community', fa: 'جامعه'}, {en: 'significant', fa: 'چشمگیر'},
+      ],
+      minWords: 100, minSentences: 5, need: 3,
+    },
+    C1: {
+      title_en: 'One side of a debate', title_fa: 'یک طرف یک بحث',
+      prompt_en: 'Take one side of a question people disagree about. Argue for it, answer the strongest objection, and say what would change your mind.',
+      prompt_fa: 'یک طرف پرسشی را که مردم درباره‌اش اختلاف دارند بگیر. از آن دفاع کن، قوی‌ترین مخالفت را پاسخ بده و بگو چه چیزی نظرت را عوض می‌کند.',
+      hints_en: ['Concede one point before you answer it.', 'Keep the register formal throughout.'],
+      hints_fa: ['پیش از پاسخ، یک نکته را بپذیر.', 'لحن را در تمام متن رسمی نگه دار.'],
+      targets: [
+        {en: 'nevertheless', fa: 'با این وجود'}, {en: 'consequently', fa: 'در نتیجه'},
+        {en: 'evidence', fa: 'شواهد'}, {en: 'perspective', fa: 'دیدگاه'},
+        {en: 'substantial', fa: 'قابل‌توجه'}, {en: 'arguably', fa: 'به‌احتمال زیاد'},
+      ],
+      minWords: 120, minSentences: 6, need: 3,
+    },
+    C2: {
+      title_en: 'An idea I changed my mind about', title_fa: 'اندیشه‌ای که نظرم را عوض کرد',
+      prompt_en: 'Describe a belief you used to hold and no longer do. What convinced you, what is left of it, and what does that say about how you decide?',
+      prompt_fa: 'باورى را که قبلاً داشتی و دیگر نداری توصیف کن: چه چیزی متقاعدت کرد، چه چیزی از آن مانده و این دربارهٔ شیوهٔ تصمیم‌گیری‌ات چه می‌گوید؟',
+      hints_en: ['Distinguish what changed from what survived.', 'Qualify at least one claim.'],
+      hints_fa: ['آنچه عوض شد را از آنچه ماند جدا کن.', 'دست‌کم یک ادعا را مشروط بیان کن.'],
+      targets: [
+        {en: 'arguably', fa: 'به‌احتمال زیاد'}, {en: 'compelling', fa: 'متقاعدکننده'},
+        {en: 'nuance', fa: 'تفاوت ظریف'}, {en: 'implication', fa: 'پیامد'},
+        {en: 'notwithstanding', fa: 'با وجود'}, {en: 'refine', fa: 'پیراستن'},
+      ],
+      minWords: 140, minSentences: 6, need: 3,
+    },
+  },
+
+  /* The slips that can be seen without understanding the sentence. A list of
+     eight is not a grammar checker; it is the handful of mistakes that are
+     visible in the letters, and the screen says so. */
+  SLIPS: [
+    [/\b(he|she|it)\s+don'?t\b/i, "he/she/it with don't"],
+    [/\b(i|you|we|they)\s+doesn'?t\b/i, "doesn't after a plural subject"],
+    [/\b(i|you|we|they)\s+(is|was)\b/i, 'is/was after a plural subject'],
+    [/\b(he|she|it)\s+(are|were)\b/i, 'are/were after a singular subject'],
+    [/\ba\s+(?!(user|university|useful|usual|one|euro))[aeiou]\w*/i, 'a before a vowel'],
+    [/\ban\s+(?!(hour|honest|honor|heir))[^aeiou\s]\w*/i, 'an before a consonant'],
+    [/\bmore\s+\w+er\b/i, 'double comparative'],
+    [/\bmost\s+\w+est\b/i, 'double superlative'],
+  ],
+
+  words(text) {
+    return (String(text == null ? '' : text).match(/[A-Za-z][A-Za-z'’-]*/g) || []).length;
+  },
+  sentences(text) {
+    return String(text == null ? '' : text).split(/[.!?]+/)
+      .filter((x) => x.trim().length > 1).length;
+  },
+  paragraphs(text) {
+    return String(text == null ? '' : text).trim().split(/\n\s*\n/)
+      .filter((x) => x.trim().length > 1).length;
+  },
+  slips(text) {
+    const t = String(text == null ? '' : text).trim();
+    if (!t) return ['nothing written yet'];
+    const out = [];
+    if (/^[a-z]/.test(t)) out.push('the first word is not capitalised');
+    if (!/[.!?]\s*$/.test(t)) out.push('no full stop at the end');
+    if (/(^|\s)i(\s|$|[,.])/.test(t)) out.push('"i" in lower case');
+    if (/ {2,}/.test(t)) out.push('double spaces');
+    if (/\s+[,.!?;:]/.test(t)) out.push('a space before punctuation');
+    this.SLIPS.forEach(([re, label]) => { if (re.test(t)) out.push(label); });
+    return out;
+  },
+
+  /* A target counts only when it is there as a whole word or a whole phrase:
+     "art" inside "start" is not the word "art", and "every day" split across
+     two lines still is the phrase. */
+  has(text, target) {
+    const clean = (x) => ' ' + String(x == null ? '' : x).toLowerCase()
+      .replace(/[’]/g, "'").replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+    const want = clean(target);
+    return want.length > 2 && clean(text).indexOf(want) >= 0;
+  },
+
+  spec(level) {
+    const id = String(level == null ? '' : level).toUpperCase();
+    const row = this.LEVELS[id];
+    return row ? Object.assign({level: id}, row) : null;
+  },
+
+  /* The week's own paper: the paragraph has to use three of the words the
+     learner ticked off, and the longest targets are the ones shown, because a
+     phrase is harder to place than a single word and deserves the practice. */
+  forWeek(items, cat) {
+    const rows = (cat && cat.words) || [];
+    const exprs = (cat && cat.expressions) || [];
+    const targets = [];
+    const seen = new Set();
+    (items || []).forEach((item) => {
+      const pool = item.kind === 'expression' ? exprs : rows;
+      const row = pool.find((r) => r && r.id === item.id);
+      const en = row && row.en ? String(row.en) : '';
+      if (!en || seen.has(en.toLowerCase())) return;
+      seen.add(en.toLowerCase());
+      targets.push({en: en, fa: (row && row.fa) || '', kind: item.kind || 'word'});
+    });
+    targets.sort((a, b) => b.en.length - a.en.length || a.en.localeCompare(b.en));
+    const cut = targets.slice(0, this.WEEK.cap);
+    return {
+      kind: 'week',
+      title_en: 'Your week in a paragraph', title_fa: 'هفتهٔ تو در یک بند',
+      prompt_en: 'Write one paragraph about your week, using at least ' +
+        Math.min(this.WEEK.need, cut.length) + ' of the words you learned. ' +
+        'Say what happened, and use the words in a sentence of their own.',
+      prompt_fa: 'یک بند دربارهٔ هفته‌ات بنویس و دست‌کم ' +
+        Math.min(this.WEEK.need, cut.length) + ' واژه از واژه‌هایی را که یاد گرفتی به کار ببر. ' +
+        'بگو چه شد و هر واژه را در جملهٔ خودش بیاور.',
+      hints_en: ['Three to five sentences is a paragraph.', 'Do not list the words: put them in sentences.'],
+      hints_fa: ['سه تا پنج جمله یک بند است.', 'واژه‌ها را فهرست نکن؛ در جمله به کارشان ببر.'],
+      targets: cut,
+      minWords: this.WEEK.minWords,
+      minSentences: this.WEEK.minSentences,
+      need: Math.min(this.WEEK.need, cut.length),
+    };
+  },
+
+  /* The rubric. Four of the five points are requirements; accuracy is advice,
+     never a gate, because the app cannot honestly judge a sentence it does not
+     understand - and a learner who has written the paragraph has done the work
+     the exercise asked for. */
+  mark(text, spec) {
+    const body = String(text == null ? '' : text);
+    const words = this.words(body);
+    const sentences = this.sentences(body);
+    const paragraphs = this.paragraphs(body);
+    const targets = (spec && spec.targets) || [];
+    const used = targets.filter((t) => this.has(body, t.en)).map((t) => t.en);
+    const missing = targets.filter((t) => !this.has(body, t.en)).map((t) => t.en);
+    const slips = this.slips(body);
+    const need = Math.max(1, Math.min(Number(spec && spec.need) || 1, targets.length || 1));
+    const parts = [
+      {id: 'length', ok: words >= (spec.minWords || 0),
+       note: words + '/' + (spec.minWords || 0) + ' words'},
+      {id: 'paragraph', ok: paragraphs >= 1, note: paragraphs + ' paragraph' + (paragraphs === 1 ? '' : 's')},
+      {id: 'sentences', ok: sentences >= (spec.minSentences || 0),
+       note: sentences + '/' + (spec.minSentences || 0) + ' sentences'},
+      {id: 'vocabulary', ok: targets.length ? used.length >= need : true,
+       note: targets.length ? used.length + '/' + need + ' target words' : 'no target words'},
+      {id: 'accuracy', ok: words > 0 && slips.length <= 2,
+       note: words ? (slips.length ? slips[0] : 'no slips found') : 'nothing to check'},
+    ];
+    const points = parts.filter((x) => x.ok).length;
+    return {
+      words: words, sentences: sentences, paragraphs: paragraphs,
+      used: used, missing: missing, slips: slips, parts: parts,
+      points: points, total: parts.length,
+      percent: Math.round((points / parts.length) * 100),
+      passed: parts.filter((x) => x.id !== 'accuracy').every((x) => x.ok),
+    };
+  },
+};
+/* --- end essay ---------------------------------------------------------- */
+
 /* --- weekly quiz: pure, executed by tools/check_weekly.py ---------------
    The quiz reviews what the learner actually ticked off in the last seven
    days, so its only content source is the daily store. Everything in here is
@@ -25227,11 +25529,22 @@ const WeeklyQuiz = {
         if (!p || typeof p !== 'object') return;
         const status = ['available', 'started', 'completed', 'skipped'].includes(p.status)
           ? p.status : 'available';
+        const essay = p.essay && typeof p.essay.text === 'string' ? p.essay : null;
         clean[k] = {
           status: status,
           quiz: p.quiz && Array.isArray(p.quiz.questions) ? p.quiz : null,
           answers: p.answers && typeof p.answers === 'object' ? p.answers : {},
           result: p.result && typeof p.result === 'object' ? p.result : null,
+          /* the paragraph is part of the week's work, so it is part of the
+             week's record: text, when, and the mark it earned */
+          essay: essay ? {
+            text: essay.text.slice(0, 4000),
+            at: typeof essay.at === 'string' ? essay.at : '',
+            words: Number(essay.words) || 0,
+            percent: Number(essay.percent) || 0,
+            passed: !!essay.passed,
+            used: Array.isArray(essay.used) ? essay.used.slice(0, 12).map(String) : [],
+          } : null,
           cursor: typeof p.cursor === 'number' && p.cursor >= 0 ? p.cursor : 0,
           at: typeof p.at === 'string' ? p.at : '',
         };
@@ -25275,17 +25588,46 @@ const WeeklyQuiz = {
     state.periods[period] = {
       status: 'started', quiz: quiz || prev.quiz || null,
       answers: prev.answers || {}, result: prev.result || null,
+      essay: prev.essay || null,
       at: prev.at || this.keyOf(new Date()),
     };
     return state;
   },
 
-  setCompleted(state, period, quiz, answers, result) {
+  /* A finished week carries the paragraph it was finished with. The essay is
+     required, so setCompleted without one is a bug rather than a week that
+     happened not to write: the mark is recomputed from the text on the way in,
+     which is the only place both are known together. */
+  setCompleted(state, period, quiz, answers, result, essay) {
     state.periods = state.periods || {};
+    const text = essay && typeof essay.text === 'string' ? essay.text : '';
     state.periods[period] = {
       status: 'completed', quiz: quiz, answers: answers || {},
-      result: result, at: this.keyOf(new Date()),
+      result: result,
+      essay: text ? {
+        text: text.slice(0, 4000),
+        at: this.keyOf(new Date()),
+        words: Essay.words(text),
+        percent: Number(essay.percent) || 0,
+        passed: !!essay.passed,
+        used: Array.isArray(essay.used) ? essay.used.slice(0, 12) : [],
+      } : null,
+      at: this.keyOf(new Date()),
     };
+    return state;
+  },
+
+  /* Draft text, kept while the learner is still writing: a reload in the middle
+     of a paragraph must not delete it. Only the text and the day are stored. */
+  setDraft(state, period, text) {
+    state.periods = state.periods || {};
+    const prev = state.periods[period];
+    if (!prev) return state;
+    const body = String(text == null ? '' : text).slice(0, 4000);
+    prev.essay = body ? {
+      text: body, at: this.keyOf(new Date()), words: Essay.words(body),
+      percent: 0, passed: false, used: [],
+    } : null;
     return state;
   },
 };
@@ -25969,6 +26311,8 @@ const Weekly = (() => {
   let picks = {};
   let view = 'quiz';
   let warned = false;
+  let essayText = '';
+  let essayNote = '';
 
   /* The week's review is an adult habit too: it asks about the words and
      expressions taken from Today's English, which Fluentify Kids no longer
@@ -26016,13 +26360,13 @@ const Weekly = (() => {
     const lead = rec && rec.result
       ? 'You scored <b>' + rec.result.right + ' of ' + rec.result.total + '</b> (' +
         rec.result.percent + '%) on this week&rsquo;s review.'
-      : 'Ten questions at most on the words and expressions you learned in the '
-        + 'week that ended on Thursday. It is offered on Friday and it is '
-        + 'optional: skip it and nothing changes.';
+      : 'Ten questions on the words and expressions you learned in the week '
+        + 'that ended on Thursday, then one paragraph that uses them. It is '
+        + 'offered on Friday and it is optional: skip it and nothing changes.';
     const meta = enough
       ? c.words + ' word' + (c.words === 1 ? '' : 's') + ' · ' +
         c.expressions + ' expression' + (c.expressions === 1 ? '' : 's') +
-        ' · up to ' + WeeklyQuiz.MAX_QUESTIONS + ' questions'
+        ' · up to ' + WeeklyQuiz.MAX_QUESTIONS + ' questions · one paragraph'
       : snap.items.length + ' of ' + WeeklyQuiz.MIN_ITEMS + ' learned this week';
     const actions = !enough
       ? ''
@@ -26128,6 +26472,8 @@ const Weekly = (() => {
     const quiz = (snap.rec && snap.rec.quiz) || start();
     if (!quiz) { Panels.set(PANEL, true); renderInsufficient(snap); return; }
     picks = Object.assign({}, (snap.rec && snap.rec.answers) || {});
+    essayText = (snap.rec && snap.rec.essay && snap.rec.essay.text) || '';
+    essayNote = '';
     view = which === 'result' || (snap.rec && snap.rec.status === 'completed')
       ? 'result' : 'quiz';
     warned = false;
@@ -26157,6 +26503,7 @@ const Weekly = (() => {
     const rec = snap.rec;
     if (!rec || !rec.quiz) { renderInsufficient(snap); return; }
     if (view === 'result') renderResult(rec);
+    else if (view === 'essay') renderEssay(rec);
     else renderQuiz(rec);
     bindPanel();
   }
@@ -26193,8 +26540,79 @@ const Weekly = (() => {
         '<span class="wq-note">' + Object.keys(picks).length + ' of ' +
           quiz.questions.length + ' answered</span>' +
         '<button type="button" class="lv-btn" data-wq-go="1">' +
-          (last ? 'See my score' : 'Next') + '</button>' +
+          (last ? 'Write the paragraph' : 'Next') + '</button>' +
       '</div></div>';
+  }
+
+  /* ---- the paragraph the week has to end with ------------------------- */
+
+  /* The prompt is built from the paper's own items, so the words the learner is
+     asked to use are exactly the ones this week taught - not a generic list.
+     Every rule is on screen before a word is typed, and the same rules are what
+     the mark is computed from, so nothing is a surprise after submitting. */
+  function essaySpec(rec) {
+    const items = (rec && rec.quiz && rec.quiz.items) || [];
+    /* The catalog is read once at boot for the card; a learner who opens the
+       paper before that read has landed would get a prompt with no words in it,
+       so it is fetched here rather than trusted. */
+    if (!cat) {
+      loadJSON('daily').then((d) => { cat = d; render(); }).catch(() => {});
+    }
+    return Essay.forWeek(items, cat || {});
+  }
+
+  function rubricHtml(mark, spec) {
+    const rows = mark.parts.map((part) =>
+      '<li class="ess-rule' + (part.ok ? ' ok' : '') + '" data-rule="' + part.id + '">' +
+        '<span class="ess-tick" aria-hidden="true">' + (part.ok ? '✓' : '○') + '</span>' +
+        '<span class="ess-rule-t" dir="ltr">' + esc(part.id === 'length' ? 'At least ' + spec.minWords + ' words'
+          : part.id === 'paragraph' ? 'One paragraph'
+          : part.id === 'sentences' ? 'At least ' + spec.minSentences + ' sentences'
+          : part.id === 'vocabulary' ? 'Use ' + spec.need + ' of the week\'s words'
+          : 'Few or no slips') + '</span>' +
+        '<span class="ess-rule-n" dir="ltr">' + esc(part.note) + '</span>' +
+      '</li>').join('');
+    return '<ul class="ess-rubric">' + rows + '</ul>';
+  }
+
+  function targetsHtml(spec, mark) {
+    return '<div class="ess-words" dir="ltr">' + (spec.targets || []).map((t) => {
+      const used = (mark.used || []).indexOf(t.en) >= 0;
+      return '<span class="ess-word' + (used ? ' used' : '') + '">' +
+        (used ? '✓ ' : '') + esc(t.en) +
+        (t.fa ? '<bdi class="fa" lang="fa" dir="rtl">' + esc(t.fa) + '</bdi>' : '') +
+      '</span>';
+    }).join('') + '</div>';
+  }
+
+  function renderEssay(rec) {
+    const spec = essaySpec(rec);
+    const mark = Essay.mark(essayText, spec);
+    body().innerHTML = '<div class="wq-wrap">' +
+      '<div class="wq-top"><div class="wq-toprow">' +
+        '<span class="wq-chip">Last step</span>' +
+        '<span class="wq-chip ghost">One paragraph</span>' +
+      '</div></div>' +
+      '<section class="ess-card">' +
+        '<h3 class="ess-h" dir="ltr">' + esc(spec.title_en) + '</h3>' +
+        '<p class="ess-prompt" dir="ltr">' + esc(spec.prompt_en) + '</p>' +
+        '<p class="ess-prompt fa" dir="rtl" lang="fa">' + esc(spec.prompt_fa) + '</p>' +
+        targetsHtml(spec, mark) +
+        '<label class="ess-label" for="wqessay" dir="ltr">Your paragraph — <span class="fa" dir="rtl" lang="fa">بند تو</span></label>' +
+        '<textarea id="wqessay" class="ess-area" data-wq-essay dir="ltr" lang="en" ' +
+          'spellcheck="true" rows="7" placeholder="' + esc(spec.hints_en[0]) + '">' +
+          esc(essayText) + '</textarea>' +
+        '<div class="ess-meter"><span data-wq-meter dir="ltr">' + mark.words + ' / ' +
+          spec.minWords + ' words</span><span class="ess-hint" dir="ltr">' +
+          esc(spec.hints_en.join(' ')) + '</span></div>' +
+        rubricHtml(mark, spec) +
+        '<p class="ess-note" data-wq-essaynote dir="ltr"' + (essayNote ? '' : ' hidden') + '>' +
+          esc(essayNote) + '</p>' +
+        '<div class="wq-foot">' +
+          '<button type="button" class="lv-btn ghost" data-wq-exit="1">Later</button>' +
+          '<button type="button" class="lv-btn" data-wq-submit="1">Submit the week</button>' +
+        '</div>' +
+      '</section></div>';
   }
 
   function renderResult(rec) {
@@ -26231,8 +26649,29 @@ const Weekly = (() => {
           (result.total - result.right) + ' to review</p>' +
       '</section>' +
       (rows ? '<h4 class="wq-h4" dir="ltr">Words to look at again</h4>' + rows : '') +
+      essayBlock(rec) +
       '<div class="wq-actions"><button type="button" class="lv-btn ghost" data-wq-exit="1">' +
         'Back to the chat</button></div></div>';
+  }
+
+  /* What the paragraph earned, on the result screen: the mark, the words that
+     made it in, and the text itself, so the learner can read back what they
+     wrote a week ago without leaving the page. */
+  function essayBlock(rec) {
+    const essay = rec && rec.essay;
+    if (!essay || !essay.text) return '';
+    const spec = Essay.forWeek((rec.quiz && rec.quiz.items) || [], cat);
+    const mark = Essay.mark(essay.text, spec);
+    return '<section class="ess-card ess-done">' +
+      '<h4 class="ess-h" dir="ltr">Your paragraph <span class="ess-badge" dir="ltr">' +
+        mark.percent + '% · rubric</span></h4>' +
+      '<p class="ess-prompt fa" dir="rtl" lang="fa">بندی که برای این هفته نوشتی</p>' +
+      '</section>' +
+      '<blockquote class="ess-quote" dir="ltr" lang="en">' + esc(essay.text) + '</blockquote>' +
+      '<div class="ess-words" dir="ltr">' + (mark.used || []).map((w) =>
+        '<span class="ess-word used">✓ ' + esc(w) + '</span>').join('') +
+      (mark.missing || []).map((w) =>
+        '<span class="ess-word">' + esc(w) + '</span>').join('') + '</div>';
   }
 
   function bindPanel() {
@@ -26243,6 +26682,46 @@ const Weekly = (() => {
     });
     box.querySelectorAll('[data-wq-exit]').forEach((b) => {
       b.addEventListener('click', () => Panels.set(PANEL, false));
+    });
+    const area = box.querySelector('[data-wq-essay]');
+    if (area) {
+      /* The draft is kept as it is typed, so a reload in the middle of the
+         paragraph does not delete it. The rubric and the word count are
+         recomputed here rather than on a rerender: a rerender on every
+         keystroke would take the caret out of the field. */
+      area.addEventListener('input', () => {
+        essayText = area.value;
+        essayNote = '';
+        const snap = snapshot();
+        const spec = Essay.forWeek((snap.rec && snap.rec.quiz && snap.rec.quiz.items) || [], cat);
+        const mark = Essay.mark(essayText, spec);
+        const meter = box.querySelector('[data-wq-meter]');
+        if (meter) meter.textContent = mark.words + ' / ' + spec.minWords + ' words';
+        mark.parts.forEach((part) => {
+          const row = box.querySelector('[data-rule="' + part.id + '"]');
+          if (!row) return;
+          row.classList.toggle('ok', part.ok);
+          const tick = row.querySelector('.ess-tick');
+          if (tick) tick.textContent = part.ok ? '✓' : '○';
+          const note = row.querySelector('.ess-rule-n');
+          if (note) note.textContent = part.note;
+        });
+        (spec.targets || []).forEach((t, i) => {
+          const chip = box.querySelectorAll('.ess-word')[i];
+          if (!chip) return;
+          const used = mark.used.indexOf(t.en) >= 0;
+          chip.classList.toggle('used', used);
+          chip.firstChild.textContent = used ? '✓ ' + t.en : t.en;
+        });
+        if (snap.rec) WeeklyQuiz.write(WeeklyQuiz.setDraft(snap.state, snap.period, essayText));
+      });
+    }
+    box.querySelectorAll('[data-wq-submit]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const snap = snapshot();
+        if (!snap.rec || !snap.rec.quiz) return;
+        submit(snap, snap.rec.quiz);
+      });
     });
     box.querySelectorAll('[data-wq-pick]').forEach((b) => {
       b.addEventListener('click', () => {
@@ -26264,7 +26743,14 @@ const Weekly = (() => {
         const quiz = snap.rec.quiz;
         const step = Number(b.dataset.wqGo);
         const cursor = Number(snap.rec.cursor || 0);
-        if (step > 0 && cursor === quiz.questions.length - 1) { submit(snap, quiz); return; }
+        if (step > 0 && cursor === quiz.questions.length - 1) {
+      essayText = (snap.rec.essay && snap.rec.essay.text) || essayText || '';
+      essayNote = '';
+      view = 'essay';
+      render();
+      body().scrollTop = 0;
+      return;
+    }
         const next = Math.min(Math.max(0, cursor + step), quiz.questions.length - 1);
         snap.state.periods[snap.period].cursor = next;
         WeeklyQuiz.write(snap.state);
@@ -26308,18 +26794,51 @@ const Weekly = (() => {
     const answered = quiz.questions.filter((q, i) => picks[i] != null).length;
     if (answered < quiz.questions.length && !warned) {
       warned = true;
-      const foot = body().querySelector('.wq-note');
-      if (foot) foot.textContent = (quiz.questions.length - answered) +
-        ' still unanswered — tap again to finish anyway';
+      essayNote = (quiz.questions.length - answered) +
+        ' question' + ((quiz.questions.length - answered) === 1 ? '' : 's') +
+        ' still unanswered - tap again to finish anyway';
+      note();
+      return;
+    }
+    /* The paragraph is part of the quiz, not an extra: a week with the
+       questions answered and nothing written is not submitted, and the note
+       says which rule is standing in the way rather than just refusing. */
+    const spec = Essay.forWeek((quiz && quiz.items) || [], cat || {});
+    const mark = Essay.mark(essayText, spec);
+    if (!spec.targets.length) {
+      /* No catalog, no target words: the paragraph cannot be judged, so the
+         week is not closed on a technicality. */
+      essayNote = 'The word list for this week could not be read. Reopen the quiz and try again.';
+      note();
+      return;
+    }
+    if (!mark.passed) {
+      const short = mark.parts.filter((x) => !x.ok && x.id !== 'accuracy')
+        .map((x) => x.note).join(' · ');
+      essayNote = 'The paragraph is not ready yet: ' + short + '.';
+      note();
       return;
     }
     const result = WeeklyQuiz.grade(quiz, picks);
     result.at = WeeklyQuiz.keyOf(new Date());
-    WeeklyQuiz.write(WeeklyQuiz.setCompleted(snap.state, snap.period, quiz, picks, result));
+    WeeklyQuiz.write(WeeklyQuiz.setCompleted(snap.state, snap.period, quiz, picks, result, {
+      text: essayText, percent: mark.percent, passed: mark.passed, used: mark.used,
+    }));
     recordWeek(quiz, picks);
     view = 'result';
+    essayNote = '';
     render();
     body().scrollTop = 0;
+  }
+
+  /* The refusal is written into the note under the rubric, in place, so the
+     caret and the scroll position both stay where the learner left them. */
+  function note() {
+    const box = body();
+    const p = box && box.querySelector('[data-wq-essaynote]');
+    if (!p) return;
+    p.textContent = essayNote;
+    p.hidden = !essayNote;
   }
 
   /* Today's card is mounted by Daily; the week's card goes right after it, and
@@ -27200,6 +27719,9 @@ const Path = (() => {
   let bank = null, loading = null, failed = '';
   let screen = 'levels', levelId = null, unitId = null, lessonId = null;
   let draft = null, examDraft = null, report = null, checked = false;
+  /* The level's essay lives in path progress; this is only the text while it
+     is being typed, so a rerender does not fight the caret. */
+  let essayDraft = null;
 
   const body = () => document.getElementById('pathbody');
   const esc = (s) => String(s == null ? '' : s)
@@ -27310,6 +27832,7 @@ const Path = (() => {
     const host = body();
     if (!host) return;
     if (failed) { paintFailed(); return; }
+    if (screen === 'essay') return paintEssay();
     if (screen === 'lesson') return paintLesson();
     if (screen === 'exam') return paintExam();
     if (screen === 'report') return paintReport();
@@ -27535,6 +28058,28 @@ const Path = (() => {
             '<button type="button" class="path-btn" data-path="exam" data-id="' + levelId + '">Open the exam</button>' +
           '</div>';
 
+    /* The level's own essay. It is not another lesson - it is the one place
+       the level's vocabulary and its grammar have to come out together, in the
+       learner's own sentences - so it sits beside the examination rather than
+       inside the unit list, and writing it is offered from the moment the
+       level opens. */
+    const essaySpec = Essay.spec(levelId);
+    const essayRec = p.essay && typeof p.essay.text === 'string' ? p.essay : null;
+    const essayMark = essayRec ? Essay.mark(essayRec.text, essaySpec) : null;
+    const essayCard = '<div class="pcard pessay-card">' +
+      '<p class="pcard-h">Essay · <span class="fa" dir="rtl" lang="fa">انشا</span></p>' +
+      '<p class="pnext-u" dir="ltr">' + esc(essaySpec.title_en) + '</p>' +
+      (essayMark
+        ? '<p class="pnext-s" dir="ltr">' + essayMark.words + ' words · ' + essayMark.percent +
+            '% rubric' + (essayMark.passed ? ' · complete' : ' · not finished') + '</p>' +
+          '<button type="button" class="path-btn ghost" data-path="essay" data-id="' + levelId +
+            '">Read and rewrite</button>'
+        : '<p class="pnext-s" dir="ltr">One paragraph of your own, at least ' + essaySpec.minWords +
+            ' words, using this level\'s words.</p>' +
+          '<button type="button" class="path-btn" data-path="essay" data-id="' + levelId +
+            '">Write the essay</button>') +
+      '<p class="pnext-s fa" dir="rtl" lang="fa">یک بند با واژه‌های همین سطح بنویس.</p></div>';
+
     /* The one thing to do next: the first lesson not yet marked, and the
        examination once every lesson is. A dashboard that lists twenty-four
        lessons without saying which one to open is a table of contents, not a
@@ -27579,10 +28124,93 @@ const Path = (() => {
           '<div class="pcard"><p class="pcard-h">Six skills · ' +
             '<span class="fa" dir="rtl" lang="fa">شش مهارت</span></p>' + skills + '</div>' +
           examCard +
+          essayCard +
           nextCard +
         '</aside>' +
       '</div>' +
     '</div>';
+  }
+
+  /* --------------------------------------------------------------- essay */
+
+  /* One paragraph per level, drawn from the level's own task table. The rules
+     are printed before a word is typed and are the same rules the mark uses,
+     so the screen never moves the goalposts after the writing is done. */
+  function paintEssay() {
+    const host = body();
+    const lv = levelRow(levelId);
+    const spec = Essay.spec(levelId);
+    if (!lv || !spec) { screen = 'level'; return paintLevel(); }
+    const p = prog(levelId);
+    const saved = p.essay && typeof p.essay.text === 'string' ? p.essay : null;
+    const text = essayDraft != null ? essayDraft : (saved ? saved.text : '');
+    const mark = Essay.mark(text, spec);
+    const rules = mark.parts.map((part) =>
+      '<li class="ess-rule' + (part.ok ? ' ok' : '') + '" data-essay-rule="' + part.id + '">' +
+        '<span class="ess-tick" aria-hidden="true">' + (part.ok ? '✓' : '○') + '</span>' +
+        '<span class="ess-rule-t" dir="ltr">' + esc(part.id === 'length' ? 'At least ' + spec.minWords + ' words'
+          : part.id === 'paragraph' ? 'One paragraph'
+          : part.id === 'sentences' ? 'At least ' + spec.minSentences + ' sentences'
+          : part.id === 'vocabulary' ? 'Use ' + spec.need + ' of these words'
+          : 'Few or no slips') + '</span>' +
+        '<span class="ess-rule-n" dir="ltr">' + esc(part.note) + '</span>' +
+      '</li>').join('');
+    const words = (spec.targets || []).map((t) => {
+      const used = mark.used.indexOf(t.en) >= 0;
+      return '<span class="ess-word' + (used ? ' used' : '') + '">' + (used ? '✓ ' : '') +
+        esc(t.en) + '<bdi class="fa" lang="fa" dir="rtl">' + esc(t.fa) + '</bdi></span>';
+    }).join('');
+    host.innerHTML = '<div class="path-wrap">' +
+      '<button type="button" class="path-back" data-path="level" data-id="' + levelId +
+        '">← ' + esc(lv.label) + '</button>' +
+      '<div class="path-head"><p class="path-kicker">' + esc(lv.label) + ' · writing · ' +
+        '<span class="fa" dir="rtl" lang="fa">نوشتن</span></p>' +
+        '<h2 class="path-h">' + esc(spec.title_en) + ' <span class="path-h-fa">' +
+          esc(spec.title_fa) + '</span></h2></div>' +
+      '<section class="ess-card">' +
+        '<p class="ess-prompt" dir="ltr">' + esc(spec.prompt_en) + '</p>' +
+        '<p class="ess-prompt fa" dir="rtl" lang="fa">' + esc(spec.prompt_fa) + '</p>' +
+        '<div class="ess-words">' + words + '</div>' +
+        '<label class="ess-label" for="pathessay" dir="ltr">Your paragraph — ' +
+          '<span class="fa" dir="rtl" lang="fa">بند تو</span></label>' +
+        '<textarea id="pathessay" class="ess-area" data-essay dir="ltr" lang="en" rows="8" ' +
+          'spellcheck="true" placeholder="' + esc(spec.hints_en[0]) + '">' + esc(text) + '</textarea>' +
+        '<div class="ess-meter"><span data-essay-meter dir="ltr">' + mark.words + ' / ' +
+          spec.minWords + ' words</span><span class="ess-hint" dir="ltr">' +
+          esc(spec.hints_en.join(' ')) + '</span></div>' +
+        '<ul class="ess-rubric">' + rules + '</ul>' +
+        (mark.slips.length > 2 && mark.words
+          ? '<p class="ess-note" dir="ltr">Slips visible in the text: ' +
+            esc(mark.slips.slice(0, 3).join('; ')) + '</p>' : '') +
+        '<div class="pfoot"><button type="button" class="path-btn" data-path="essay-save">' +
+          'Save and mark</button>' +
+          '<button type="button" class="path-btn ghost" data-path="level" data-id="' + levelId +
+          '">Back to the course</button></div>' +
+        (saved && mark.passed
+          ? '<p class="ess-done-line" dir="ltr">Saved at ' + mark.words + ' words, ' +
+            mark.percent + '% of the rubric. — <span class="fa" dir="rtl" lang="fa">' +
+            'ذخیره شد.</span></p>' : '') +
+      '</section></div>';
+  }
+
+  /* The essay is practice, not a gate: it saves whatever is written, and marks
+     it. Only a paragraph that meets every rule is called complete, and the
+     level card says which of the two it is. */
+  function saveEssay() {
+    if (!levelId) return;
+    const spec = Essay.spec(levelId);
+    const p = prog(levelId);
+    const text = essayDraft != null ? essayDraft : ((p.essay && p.essay.text) || '');
+    const mark = Essay.mark(text, spec);
+    patch(levelId, (progRow) => {
+      progRow.essay = {
+        text: String(text).slice(0, 4000), at: Date.now(),
+        words: mark.words, percent: mark.percent,
+        passed: mark.passed, used: mark.used,
+      };
+    });
+    essayDraft = null;
+    render();
   }
 
   /* -------------------------------------------------------------- lesson */
@@ -28051,6 +28679,12 @@ const Path = (() => {
         // checking locks the answers, so a lesson under 60% needs a way back
         // into its own exercises that is not reopening it from the course
         case 'retry': return begin(lessonId);
+        case 'essay':
+          levelId = act.dataset.id || levelId;
+          essayDraft = null;
+          screen = 'essay';
+          return render();
+        case 'essay-save': return saveEssay();
         case 'exam': levelId = act.dataset.id || levelId; startExam(); return;
         case 'exam-retake': startExam(); return;
         case 'exam-submit': return submitExam();
@@ -28064,6 +28698,31 @@ const Path = (() => {
     });
 
     host.addEventListener('input', (ev) => {
+      const es = ev.target.closest('[data-essay]');
+      if (es) {
+        essayDraft = es.value;
+        const spec = Essay.spec(levelId);
+        const mark = Essay.mark(essayDraft, spec);
+        const meter = host.querySelector('[data-essay-meter]');
+        if (meter) meter.textContent = mark.words + ' / ' + spec.minWords + ' words';
+        mark.parts.forEach((part) => {
+          const row = host.querySelector('[data-essay-rule="' + part.id + '"]');
+          if (!row) return;
+          row.classList.toggle('ok', part.ok);
+          const tick = row.querySelector('.ess-tick');
+          if (tick) tick.textContent = part.ok ? '✓' : '○';
+          const n = row.querySelector('.ess-rule-n');
+          if (n) n.textContent = part.note;
+        });
+        (spec.targets || []).forEach((t, i) => {
+          const chip = host.querySelectorAll('.ess-word')[i];
+          if (!chip) return;
+          const used = mark.used.indexOf(t.en) >= 0;
+          chip.classList.toggle('used', used);
+          chip.firstChild.textContent = (used ? '✓ ' : '') + t.en;
+        });
+        return;
+      }
       const gapIn = ev.target.closest('[data-ex-gap]');
       if (gapIn) { draft.answers[Number(gapIn.dataset.exGap)] = gapIn.value; return; }
       const wr = ev.target.closest('[data-ex-write]');

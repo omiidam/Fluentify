@@ -54,6 +54,12 @@ def block(src: str) -> str:
     return src[start:end]
 
 
+def essay_block(src: str) -> str:
+    start = src.index("/* --- essay:")
+    end = src.index("/* --- end essay", start)
+    return src[start:end]
+
+
 HARNESS = r"""
 const fs = require('fs');
 const vm = require('vm');
@@ -277,6 +283,127 @@ if (quiz) {
   check(Object.keys(WeeklyQuiz.read().periods).length === 0, 'a corrupt record threw');
 }
 
+/* ---- the paragraph the week ends with ------------------------------------ */
+{
+  /* One task per level, and it has to be a task: a prompt in both languages,
+     words from that level, and a length that rises with the level. */
+  const order = ['PRE', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  let floor = 0;
+  out.levels = {};
+  order.forEach((id) => {
+    const spec = Essay.spec(id);
+    check(!!spec, 'level ' + id + ' has no essay task');
+    if (!spec) return;
+    check(/[\u0600-\u06FF]/.test(spec.prompt_fa), id + ': the essay prompt has no Persian');
+    check(/[\u0600-\u06FF]/.test(spec.title_fa), id + ': the essay title has no Persian');
+    check(spec.prompt_en.length > 60, id + ': the prompt is not a task');
+    check(spec.targets.length >= 4, id + ': fewer than four target words');
+    check(spec.targets.every((t) => t.en && /[\u0600-\u06FF]/.test(t.fa)),
+      id + ': a target word has no Persian');
+    check(spec.targets.every((t) => /^[a-z][a-z ']*$/.test(t.en)),
+      id + ': a target is not a lowercase English word or phrase');
+    check(spec.minWords > floor, id + ': the essay is not longer than the level below');
+    floor = spec.minWords;
+    check(spec.need >= 1 && spec.need <= spec.targets.length,
+      id + ': the target requirement is out of range');
+    check(spec.minSentences >= 2, id + ': the essay asks for fewer than two sentences');
+    out.levels[id] = {words: spec.minWords, targets: spec.targets.length};
+  });
+  check(Essay.spec('ZZ') === null, 'a level that does not exist returned a task');
+
+  /* The week's own paragraph: its words come from the paper, and only from it. */
+  const spec = Essay.forWeek(items, cat);
+  const all = (cat.words || []).concat(cat.expressions || []);
+  const paperWords = items.map((i) => (all.find((r) => r.id === i.id) || {}).en).filter(Boolean);
+  out.week = {need: spec.need, targets: spec.targets.map((t) => t.en), minWords: spec.minWords};
+  check(spec.targets.length >= 3, 'the week asks for fewer than three words');
+  check(spec.targets.length <= Essay.WEEK.cap, 'the week lists more words than the cap allows');
+  check(spec.targets.every((t) => paperWords.indexOf(t.en) >= 0),
+    'a target word came from outside the paper');
+  check(spec.need === Math.min(Essay.WEEK.need, spec.targets.length),
+    'the number of words required does not follow the targets shown');
+  check(spec.minWords >= 40, 'the weekly paragraph is shorter than a paragraph');
+  check(/[\u0600-\u06FF]/.test(spec.prompt_fa), 'the weekly prompt has no Persian');
+
+  /* Marking. Empty is not a pass; a list of the words is not a paragraph; a
+     real paragraph that uses them is. */
+  const empty = Essay.mark('', spec);
+  check(empty.words === 0 && !empty.passed, 'an empty paragraph passed');
+  check(empty.parts.filter((x) => x.id === 'accuracy')[0].ok === false,
+    'nothing written counted as accurate');
+
+  const listed = spec.targets.map((t) => t.en).join(', ');
+  check(!Essay.mark(listed, spec).passed,
+    'a comma-separated list of the target words passed as a paragraph');
+
+  let good = 'This week was useful for me.';
+  spec.targets.slice(0, spec.need).forEach((t) => {
+    good += ' I used ' + t.en + ' in a sentence of my own.';
+  });
+  good += ' I practised every day and I read a little before bed.';
+  while (Essay.words(good) < spec.minWords) good += ' I will keep going next week too.';
+  const marked = Essay.mark(good, spec);
+  out.mark = {words: marked.words, used: marked.used, passed: marked.passed, percent: marked.percent};
+  check(marked.passed, 'a real paragraph that used the week\'s words did not pass');
+  check(marked.used.length >= spec.need, 'the words in the paragraph were not all seen');
+  check(marked.words >= spec.minWords, 'the word count is wrong');
+  check(marked.percent >= 80, 'a passing paragraph scored under 80% of its own rubric');
+
+  /* The vocabulary rule is a requirement; accuracy is advice. A paragraph that
+     uses none of the words fails even when it is long, and one that uses them
+     all still passes with a slip in it - the app cannot hear a sentence, and
+     does not pretend to. */
+  const scratch = {targets: [{en: 'zebra', fa: 'گورخر'}, {en: 'quokka', fa: 'کوکا'},
+                             {en: 'numbat', fa: 'نامبات'}],
+                   need: 2, minWords: 12, minSentences: 2};
+  const plain = 'The sky was blue and the road was long. We walked to the end of it.';
+  const noWords = Essay.mark(plain, scratch);
+  check(!noWords.passed, 'a paragraph that used none of the target words passed');
+  check(noWords.missing.length === 3, 'the words that were missing were not reported');
+  const slipped = Essay.mark(good +
+    " he don't know. she don't know. i am sure. they is late.", spec);
+  check(slipped.passed, 'a slip in an otherwise complete paragraph refused it');
+  check(slipped.parts.filter((x) => x.id === 'accuracy')[0].ok === false,
+    'three visible slips were called accurate');
+  check(slipped.slips.length >= 3, 'the slips in the text were not found');
+
+  /* Whole words only: "art" inside "start" is not the word "art". */
+  check(Essay.has('I will start now.', 'art') === false, '"art" was found inside "start"');
+  check(Essay.has('I use every day.', 'every day') === true, 'a phrase was not found');
+
+  /* ---- the record ------------------------------------------------------ */
+  if (quiz) {
+    let st = WeeklyQuiz.write(WeeklyQuiz.setStarted(WeeklyQuiz.read(), period, quiz));
+    st = WeeklyQuiz.read();
+    check(st.periods[period].essay === null, 'starting a week invented a paragraph');
+
+    st = WeeklyQuiz.read();
+    st = WeeklyQuiz.write(WeeklyQuiz.setDraft(st, period, 'A draft of the week.'));
+    st = WeeklyQuiz.read();
+    check(st.periods[period].essay && st.periods[period].essay.text === 'A draft of the week.',
+      'a draft was lost on the way through storage');
+    check(WeeklyQuiz.setCompleted.length === 6, 'setCompleted lost its essay argument');
+
+    const bare = WeeklyQuiz.grade(quiz, {});
+    let done = WeeklyQuiz.write(WeeklyQuiz.setCompleted(
+      WeeklyQuiz.read(), period, quiz, {}, bare, {text: good, percent: marked.percent,
+        passed: marked.passed, used: marked.used}));
+    done = WeeklyQuiz.read();
+    check(done.periods[period].status === 'completed', 'the finished week did not stay finished');
+    check(done.periods[period].essay && done.periods[period].essay.text === good,
+      'the paragraph was not kept with the week');
+    check(done.periods[period].essay.words === Essay.words(good),
+      'the essay\'s word count is wrong in the record');
+    check(done.periods[period].essay.passed === true, 'a passing paragraph was recorded as failed');
+
+    let without = WeeklyQuiz.write(WeeklyQuiz.setCompleted(
+      WeeklyQuiz.read(), '2026-10-30', quiz, {}, bare));
+    without = WeeklyQuiz.read();
+    check(without.periods['2026-10-30'].essay === null,
+      'a week completed with no paragraph invented one');
+  }
+}
+
 check(!/fetch\s*\(/.test(__SOURCE__), 'the quiz block makes a network request');
 check(!/XMLHttpRequest/.test(__SOURCE__), 'the quiz block opens an XHR');
 
@@ -293,13 +420,14 @@ def run_block(tz: str) -> dict:
     src = WEBAPP.read_text(encoding="utf-8")
     try:
         body = block(src)
+        essay = essay_block(src)
     except ValueError:
-        fail("webapp.py: the weekly quiz block markers are gone")
+        fail("webapp.py: the weekly quiz or essay block markers are gone")
         return {}
     CACHE.mkdir(parents=True, exist_ok=True)
     tag = tz.replace("/", "_")
     script = CACHE / f"weekly_check_{tag}.js"
-    script.write_text(HARNESS.replace("__BLOCK__", body)
+    script.write_text(HARNESS.replace("__BLOCK__", essay + "\n\n" + body)
                       .replace("__SOURCE__", json.dumps(body)), encoding="utf-8")
     out = CACHE / f"weekly_out_{tag}.json"
     env = dict(os.environ, TZ=tz)
@@ -328,6 +456,15 @@ def wiring() -> None:
     check("this.contentWindow(this.periodStart(now))" in src,
           "the paper is not drawn from the week")
     check("WeeklyQuiz.setCompleted(" in src, "a finished quiz is never recorded")
+    check("Essay.forWeek(" in src, "the week never builds an essay task")
+    check("function renderEssay(rec)" in src, "the quiz has no paragraph step")
+    check("data-wq-essay" in src, "the paragraph has nowhere to be written")
+    check("data-wq-submit" in src, "the paragraph cannot be submitted")
+    check("The paragraph is not ready yet" in src,
+          "a short paragraph is submitted without saying what is missing")
+    check("view === 'essay'" in src, "the paragraph is not a step of its own")
+    check("WeeklyQuiz.setDraft(" in src, "a draft paragraph is lost on a reload")
+    check("essayBlock(rec)" in src, "the result screen does not show what was written")
     check('data-wq="start"' in src, "the card has no Start quiz button")
     check('data-wq="skip"' in src, "the card has no Skip button")
     check("isSkipped" in src and "status === 'skipped'" in src,
@@ -340,6 +477,8 @@ def wiring() -> None:
         check('id="wqpanel"' in built, "the built page has no quiz sheet")
         check("WeeklyQuiz" in built, "the built page does not carry the quiz")
         check("weeklyquiz" in built, "the built page has no weekly card")
+        check("Essay.forWeek(" in built and "data-wq-submit" in built,
+              "the built page does not carry the weekly paragraph")
 
 
 def main() -> int:

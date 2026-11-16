@@ -15,7 +15,10 @@
     hear is not a pass;
   * the wiring - a tile behind the level check, a panel, a route, the offline
     APK, and the place in the level check's own completion where the tile
-    appears.
+    appears;
+  * the essay - one writing task per level, in both languages, with the words
+    the level teaches and a length that rises with it, saved into that level's
+    own progress and offered from the level's dashboard.
 """
 
 from __future__ import annotations
@@ -370,6 +373,80 @@ def check_wiring() -> None:
           "the page is defined before the model it reads")
 
 
+def check_essays() -> None:
+    """Every level has one writing task, and the path is where it is written.
+
+    The tasks are a table in the page, not in path.json, so the check reads the
+    page: each level the path ships must have a task with both languages, a set
+    of words, and a length, and the length must rise from Pre-A1 to C2 - a C2
+    learner asked for twenty-five words is a course, not a level.
+    """
+    src = WEBAPP.read_text(encoding="utf-8")
+    check("const Essay = {" in src, "there is no essay engine")
+    if "const Essay = {" in src and "const Path = (() => {" in src:
+        check(src.index("const Essay = {") < src.index("const Path = (() => {"),
+              "the path is defined before the essay table it reads")
+    if "const Essay = {" in src and "const WeeklyQuiz = {" in src:
+        check(src.index("const Essay = {") < src.index("const WeeklyQuiz = {"),
+              "the quiz is defined before the essay it must require")
+
+    try:
+        table = src[src.index("/* --- essay:"):src.index("/* --- end essay")]
+    except ValueError:
+        check(False, "the essay block has no markers")
+        return
+
+    from pathlib import Path as _P
+    doc = json.loads((ROOT / "path.json").read_text(encoding="utf-8"))
+    level_ids = [lv.get("id") for lv in doc.get("levels") or []]
+    check(len(level_ids) >= 5, "path.json has too few levels to carry essays")
+    floor = 0
+    for lid in level_ids:
+        entry = re.search(r"\n    " + re.escape(str(lid)) + r": \{", table)
+        check(bool(entry), f"{lid}: the level has no essay task")
+        if not entry:
+            continue
+        chunk = table[entry.end():]
+        chunk = chunk[:chunk.find("\n    },")]
+        check("prompt_en:" in chunk, f"{lid}: the essay has no English prompt")
+        check("prompt_fa:" in chunk, f"{lid}: the essay has no Persian prompt")
+        check("title_fa:" in chunk, f"{lid}: the essay has no Persian title")
+        check(chunk.count("{en:") >= 4, f"{lid}: fewer than four target words")
+        check("fa:" in chunk, f"{lid}: the target words have no Persian")
+        words = re.search(r"minWords: (\d+)", chunk)
+        check(bool(words), f"{lid}: the essay has no length")
+        if words:
+            n = int(words.group(1))
+            check(n > floor, f"{lid}: its essay is not longer than the level below")
+            check(n >= 25, f"{lid}: its essay is shorter than a paragraph")
+            floor = n
+        check("minSentences:" in chunk and "need:" in chunk,
+              f"{lid}: the essay has no sentence or vocabulary rule")
+
+    # the path page: the card, the screen, the save, and where it is kept
+    for needle, what in (
+        ("const essaySpec = Essay.spec(levelId);", "the level page never reads the essay task"),
+        ("function paintEssay()", "there is no essay screen"),
+        ("function saveEssay()", "nothing saves the essay"),
+        ('data-path="essay-save"', "the essay screen has no save button"),
+        ("data-path=\"essay\"", "the level page has no way into the essay"),
+        ("progRow.essay = {", "the essay is not kept in the level's progress"),
+        ('data-essay-meter', "the essay has no live word count"),
+        ('data-essay-rule', "the essay does not show which rule is met"),
+    ):
+        check(needle in src, f"the essay is not wired: {what}")
+    check("if (screen === 'essay') return paintEssay();" in src,
+          "the essay screen is never painted")
+    check("review: ['Review', 'مرور']," in src,
+          "the skill table changed shape")
+
+    built = ROOT / "android/app/src/main/assets/www/index.html"
+    if built.exists():
+        html = built.read_text(encoding="utf-8")
+        check("const Essay = {" in html, "the built page does not carry the essay")
+        check("function paintEssay()" in html, "the built page has no essay screen")
+
+
 def check_engine() -> None:
     if not shutil.which("node"):
         print("SKIP  node is not installed - the path model was not exercised")
@@ -671,6 +748,7 @@ def main() -> int:
     if doc:
         stats.update(check_course(doc))
     check_wiring()
+    check_essays()
     check_engine()
 
     if problems:
@@ -681,7 +759,7 @@ def main() -> int:
 
     print(f"PASS  {stats.get('levels')} level spaces, {stats.get('units')} units, "
           f"{stats.get('lessons')} lessons, {stats.get('exercises')} exercises, "
-          f"{stats.get('exam')} exam marks")
+          f"{stats.get('exam')} exam marks, one essay per level")
     print(f"      skills {dict(sorted((stats.get('by_skill') or {}).items()))}")
     return 0
 
