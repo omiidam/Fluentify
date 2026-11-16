@@ -7753,14 +7753,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .kchip:nth-child(3) { background: #fff5d6; border-color: #e8cb72; box-shadow: 0 3px 0 #e8cb72; }
 
   body.kids .msg.bot { position: relative; }
-  /* the sticker hangs over the corner, so nothing above it may clip */
+  /* The bot bubble carries a sheen on ::after - a translucent band that sweeps
+     across it while the message lands. The sticker used to be drawn by that
+     same pseudo-element, which meant the band was parked over the words: a
+     blurred smear across the greeting and every reply after it. So the sheen is
+     gone in a child's chat, and the sticker is a real element with a box of its
+     own. Nothing decorative shares a box with the text any more. */
+  body.kids .msg.bot::after { content: none; }
+  /* no sheen left to clip, so the corner is free for the sticker to hang on */
   body.kids .row.bot .bubble-wrap { overflow: visible; }
-  body.kids .msg.bot::after {
-    content: attr(data-sticker);
-    position: absolute; top: -11px; inset-inline-end: -5px;
-    font-size: 18px; line-height: 1;
+  body.kids .ksticker {
+    position: absolute; top: -10px; inset-inline-end: -7px;
+    font-size: 17px; line-height: 1;
     transform: rotate(9deg);
     filter: drop-shadow(0 1px 1px rgba(60, 30, 10, .25));
+    pointer-events: none;
   }
 
   /* a child's starter is a card with the thing on it, not a chip with a word */
@@ -7790,18 +7797,27 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
      surface that measures above 4.5:1, so the glass cannot cost legibility. */
   body.kids #chat {
     gap: 14px;
+    /* The last layer is opaque on purpose. The app's own wallpaper sits behind
+       the whole shell, and a transparent column let the fox and the wordmark
+       show through the middle of the transcript - pale enough to look like a
+       smudge, dark enough to eat the words over it. The washes on top are the
+       same ones as before; only the paper under them is now solid. */
     background:
       radial-gradient(90% 55% at 6% 0%, rgba(255,138,61,.34), transparent 62%),
       radial-gradient(85% 50% at 96% 10%, rgba(52,120,246,.20), transparent 64%),
       radial-gradient(95% 55% at 50% 100%, rgba(237,106,168,.28), transparent 66%),
       linear-gradient(180deg, #ffe9cb 0%, #fbd9b0 100%);
+    background-color: #ffe9cb;
   }
   body.kids .msg { font-size: 15.5px; border-radius: 20px; }
   body.kids .msg.bot {
-    background: linear-gradient(160deg, rgba(255, 246, 231, .94), rgba(255, 233, 203, .90));
-    -webkit-backdrop-filter: blur(14px) saturate(1.6);
-    backdrop-filter: blur(14px) saturate(1.6);
-    border: 1.5px solid rgba(255, 243, 224, .98);
+    /* Opaque, and no glass. A frosted bubble blurs whatever is behind it into
+       the space the words are in; over the app's wallpaper that is a blot, and
+       it lands on the text. The paper is the answer, not the frost. */
+    background: linear-gradient(160deg, #fff6e7, #ffe9cb);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1.5px solid #fff3e0;
     border-inline-start: 4px solid var(--chat-c, var(--k-c3));
     border-bottom-left-radius: 8px;
     color: var(--k-ink);
@@ -11846,7 +11862,11 @@ function add(text, who, opts = {}) {
      the reply so they are exactly where the words are, and all three work with
      the network off. */
   if (who === 'bot' && !opts.err && !opts.typing && typeof Kids !== 'undefined' && Kids.on()) {
-    bubble.dataset.sticker = Kids.kidSticker(text);
+    const sticker = document.createElement('span');
+    sticker.className = 'ksticker';
+    sticker.setAttribute('aria-hidden', 'true');
+    sticker.textContent = Kids.kidSticker(text);
+    bubble.appendChild(sticker);
     const chips = document.createElement('div');
     chips.className = 'kchips';
     Kids.kidChips().forEach((chip) => {

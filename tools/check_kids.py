@@ -962,9 +962,16 @@ def check_chat_wiring(src):
           "the cards are never drawn under a reply")
     check("typeof Kids !== 'undefined' && Kids.on()" in src,
           "the cards are not limited to a child's chat")
-    check("bubble.dataset.sticker = Kids.kidSticker(text);" in src,
+    check("sticker.className = 'ksticker';" in src,
           "a reply carries no sticker in a child's chat")
-    check("content: attr(data-sticker)" in src, "the sticker is never shown")
+    check("body.kids .ksticker {" in src, "the sticker is never shown")
+    # The bot bubble's ::after is the landing sheen. Hanging the sticker on it
+    # parked that gradient band over the words, so the kids layer must not
+    # touch that pseudo-element at all.
+    check("body.kids .msg.bot::after { content: none; }" in src,
+          "a child's bubble still carries the sheen, which can park over the words")
+    check("body.kids .ksticker {" in src and "position: absolute; top: -10px" in src,
+          "the sticker is not on a box of its own, so it can land on the words")
 
     # a starter a child can read without reading
     check("const KID_ART = {" in src, "the kid starters carry no pictures")
@@ -985,6 +992,21 @@ def check_chat_wiring(src):
         check(bool(sizes) and max(sizes) >= need, f"{selector} is smaller than {need}px")
     check("body.kids .kchip:focus-visible" in src,
           "the answer cards show no focus ring")
+
+    # ---- the words must sit on paper, not on a window ---------------------
+    # The app's wallpaper is behind the whole shell. A translucent bubble, or a
+    # frosted one, let the fox and the wordmark show through the middle of the
+    # transcript and smeared them into the space the words occupy - the blot a
+    # child reported. So: an opaque column, an opaque bubble, and no glass.
+    chat_rule = src[src.index("body.kids #chat {"):src.index("body.kids #chat {") + 900]
+    check("background-color: #ffe9cb" in chat_rule,
+          "the kids chat column is still see-through, so the wallpaper shows")
+    bot_at = src.index("body.kids .msg.bot {")
+    bot_rule = src[bot_at:src.index("}", src.index("border-inline-start", bot_at))]
+    check("backdrop-filter: none" in bot_rule and "-webkit-backdrop-filter: none" in bot_rule,
+          "a kid's answer bubble is frosted, which blurs the wallpaper into the text")
+    check("rgba(" not in bot_rule.split("background:", 1)[1].split(";", 1)[0],
+          "a kid's answer bubble is still translucent over the wallpaper")
     check("body.kids .kschip:focus-visible" in src,
           "the starter cards show no focus ring")
 
