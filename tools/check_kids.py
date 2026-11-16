@@ -1185,6 +1185,123 @@ def check_crossword(src):
                  "Crossword.open()", "fluentify.kids.crossword"):
         check(need in src, f"the crossword is not wired: {need} is missing")
 
+    check_crossword_feel(src)
+
+
+def check_crossword_feel(src):
+    """Is the crossword a toy as well as a puzzle, and can a child start alone?
+
+    The numbers above make the board solvable. This asks the other half: that a
+    character answers the child, that the rules are taught by doing, that every
+    word shows its picture before it is spelled, and that the movement is
+    squash and stretch - the two principles that make a game read as alive -
+    without any of it becoming a wall between a child and the letters.
+    """
+    import re
+    try:
+        css = src[src.index("/* ---- the coach, the scene and the juice"):]
+        css = css[:css.index("/* ---- Word Quest: the letter puzzle")]
+    except ValueError:
+        check(False, "the crossword's feel block has no markers")
+        return
+    module = src[src.index("const Crossword = (() => {"):]
+    module = module[:module.index("\nconst WordQuest = (() => {")]
+
+    # --- the coach: a fox that reacts, and one line at a time
+    for needle, what in (
+        ("body.kids .cw-fox", "the fox has no style"),
+        ("body.kids .cw-say", "the fox has no speech bubble"),
+        ("body.kids .cw-coach", "the coach row has no style"),
+    ):
+        check(needle in css, f"crossword feel: {what}")
+    for needle, what in (
+        ("function coachLine()", "the fox says nothing"),
+        ("function coach()", "the fox is never built"),
+        ("brand/kids-fox-face.png", "the fox has no face"),
+        ("' happy'", "the fox never looks pleased"),
+        ("' oops'", "the fox never reacts to a wrong word"),
+    ):
+        check(needle in module, f"crossword feel: {what}")
+    check("view.mood = 'happy'" in module and "view.mood = 'oops'" in module,
+          "crossword feel: the mood is set nowhere")
+    check("view.mood = 'win'" in module, "crossword feel: the fox does not celebrate")
+
+    # --- squash and stretch, really: two different scales in one transform
+    def squashy(name):
+        m = re.search(r"@keyframes " + name + r"\s*\{(.*?)\n  \}", css, re.S)
+        if not m:
+            return False
+        return bool(re.search(r"scale\(\s*([\d.]+)\s*,\s*([\d.]+)\s*\)", m.group(1))
+                    and re.search(r"scale\(\s*([\d.]+)\s*,\s*([\d.]+)\s*\)", m.group(1))
+                    and any(abs(float(a) - float(b)) >= 0.08
+                            for a, b in re.findall(r"scale\(\s*([\d.]+)\s*,\s*([\d.]+)\s*\)", m.group(1))))
+    for name in ("cwSquash", "cwStretch", "cwPop", "cwIdle"):
+        check(squashy(name), f"crossword feel: @keyframes {name} is not squash-and-stretch")
+
+    # --- the world, the words, the walkthrough, the peek
+    for needle, what in (
+        ("body.kids .cw-scene", "the stage has no scene"),
+        ("@keyframes cwDrift", "the scene does not drift"),
+        ("body.kids .cw-target", "the stage has no picture strip"),
+        ("body.kids .cw-onboard", "there is no walkthrough"),
+        ("body.kids .cw-peek-card", "the peek card has no style"),
+    ):
+        check(needle in css, f"crossword feel: {what}")
+    for needle, what in (
+        ("function scene()", "the scene is never built"),
+        ("aria-hidden=\"true\">' + ", "the scene is read out as content"),
+        ("function targets()", "the picture strip is never built"),
+        ('data-act="entry"', "a picture cannot be tapped to choose its word"),
+        ("function onboard()", "the walkthrough is never built"),
+        ('data-act="ob-next"', "the walkthrough cannot be advanced"),
+        ('data-act="ob-skip"', "the walkthrough cannot be skipped"),
+        ("function peek()", "there is no peek hint"),
+        ('data-act="peek"', "the peek hint has no button"),
+    ):
+        check(needle in module, f"crossword feel: {what}")
+    check(module.count("{e: '") >= 3, "crossword feel: the walkthrough has fewer than three steps")
+    check("store.seen[wid] ? 3 : 0" in module,
+          "crossword feel: the walkthrough is not remembered, or is forced on every stage")
+    check("store.seen[view.wid] = 1" in module,
+          "crossword feel: finishing the walkthrough is not remembered")
+
+    # --- the help must cost what it says it costs, and stay bilingual
+    for needle in ("−۱ ستاره", "show me the word"):
+        check(needle in module, f"crossword feel: the hint button does not say what it costs ({needle})")
+    peek = module.split("function peek()", 1)[1].split("\n  }", 1)[0]
+    check("view.hints += 1" in peek, "crossword feel: the peek hint is free")
+    check("function helpTarget()" in module and "helpTarget()" in peek
+          and "helpTarget()" in module.split("function hint()", 1)[1].split("\n  }", 1)[0],
+          "crossword feel: a hint spent on an already-solved word would be a star thrown away")
+
+    # --- juice that must never become an obstacle
+    for needle, what in (
+        ("body.kids .cw-cell .cw-in", "a landing letter does not pop"),
+        ("body.kids .cw-board.wrong", "a wrong word does not move the board"),
+        ("body.kids .cw-key:active", "a key does not squash under the thumb"),
+    ):
+        # the key's own press state lives in the board block above the feel
+        # block, so these two are looked for in the page, not in the slice
+        check(needle in src, f"crossword feel: {what}")
+    motion = css[css.index("@media (prefers-reduced-motion: reduce)"):]
+    for needle, what in (
+        ("body.kids .cw-fox", "the fox keeps moving"),
+        ("body.kids .cw-scene i", "the world keeps drifting"),
+        ("body.kids .cw-board.wrong", "the board keeps objecting"),
+        ("body.kids .cw-cell .cw-in", "letters keep popping"),
+    ):
+        check(needle in motion, f"crossword feel: under reduced motion, {what}")
+
+    # --- thumbs, not cursors
+    ob = css.split("body.kids .cw-ob-btn {", 1)[1].split("}", 1)[0]
+    m = re.search(r"min-height: (\d+)px", ob)
+    check(bool(m) and int(m.group(1)) >= 44,
+          "crossword feel: a walkthrough button is too small to hit")
+    tgt = css.split("body.kids .cw-target {", 1)[1].split("}", 1)[0]
+    m = re.search(r"min-width: (\d+)px", tgt)
+    check(bool(m) and int(m.group(1)) >= 48,
+          "crossword feel: a picture in the strip is too small to tap")
+
 
 def main():
     if not KIDS.exists():

@@ -7456,7 +7456,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     color: var(--k-ink); font-size: 16px; font-weight: 800;
   }
   body.kids .cw-key:hover { background: var(--k-plum-wash); border-color: var(--k-plum-line); }
-  body.kids .cw-key:active { transform: translateY(1px); }
+  body.kids .cw-key:active { transform: scale(1.1, .88); }
   body.kids .cw-key.wide { grid-column: span 2; font-size: 15px; }
   @media (max-width: 420px) {
     body.kids .cw-keys { grid-template-columns: repeat(7, 1fr); }
@@ -7491,6 +7491,160 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .cw-how ol { margin: 8px 0 0; padding-inline-start: 20px; }
   body.kids .cw-how li { font-size: 13.5px; color: var(--k-ink-2); line-height: 1.85; }
 
+  /* ---- the coach, the scene and the juice ------------------------------
+     A crossword for a six-year-old has to behave like a toy before it behaves
+     like a puzzle: something answers when they touch it, a character is glad
+     when a word lands, and the rules are shown by doing rather than by reading
+     a paragraph. The whole movement vocabulary is squash and stretch - what
+     lands goes wide and flat, what jumps goes tall and thin - and every moving
+     thing here is decoration: aria-hidden where it says nothing, and stopped
+     dead under prefers-reduced-motion, so none of it can stand between a child
+     and the letters. */
+
+  /* the world drifting behind the top of the stage */
+  body.kids .cw-scene {
+    position: relative; height: 44px; overflow: hidden; border-radius: 16px;
+    border: 1px solid var(--k-line);
+    background: linear-gradient(180deg, var(--k-plum-wash), var(--k-surface));
+  }
+  body.kids .cw-scene i {
+    position: absolute; top: 0; left: 0; font-size: 15px; line-height: 1;
+    animation-name: cwDrift; animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  body.kids .cw-scene b {
+    position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
+    font-size: 12.5px; font-weight: 800; color: var(--k-plum-ink);
+  }
+  @keyframes cwDrift {
+    from { transform: translate3d(-40px, 0, 0); }
+    to   { transform: translate3d(340px, 0, 0); }
+  }
+
+  /* the coach: a fox and one line of what to do next */
+  body.kids .cw-coach { display: flex; align-items: flex-end; gap: 8px; }
+  body.kids .cw-fox {
+    position: relative; flex: 0 0 46px; width: 46px; height: 46px;
+    display: grid; place-items: center; border-radius: 15px;
+    background: radial-gradient(circle at 50% 34%, #fff6e7 0%, #ffd9a6 100%);
+    border: 2px solid var(--k-plum); box-shadow: 0 3px 0 var(--k-plum);
+    transform-origin: 50% 100%;
+    animation: cwIdle 2.6s ease-in-out infinite;
+  }
+  body.kids .cw-fox img { width: 34px; height: 34px; object-fit: contain; display: block; }
+  body.kids .cw-fox.happy { animation: cwStretch .5s cubic-bezier(.3, 1.6, .4, 1); }
+  body.kids .cw-fox.oops { animation: cwSquash .45s cubic-bezier(.3, 1.6, .4, 1); }
+  body.kids .cw-fox.win { animation: cwDance .9s ease-in-out 2; }
+  /* a thing at rest breathes: it does not bounce, it squashes by two percent */
+  @keyframes cwIdle {
+    0%, 100% { transform: scale(1, 1); }
+    50%      { transform: scale(.95, 1.05); }
+  }
+  @keyframes cwSquash {
+    0%   { transform: scale(1, 1); }
+    35%  { transform: scale(1.22, .78); }
+    70%  { transform: scale(.94, 1.06); }
+    100% { transform: scale(1, 1); }
+  }
+  @keyframes cwStretch {
+    0%   { transform: scale(1, 1); }
+    30%  { transform: scale(.86, 1.18) translateY(-4px); }
+    65%  { transform: scale(1.1, .9); }
+    100% { transform: scale(1, 1); }
+  }
+  @keyframes cwDance {
+    0%, 100% { transform: scale(1, 1) rotate(0); }
+    25%      { transform: scale(1.1, .92) rotate(-6deg); }
+    75%      { transform: scale(.92, 1.1) rotate(6deg); }
+  }
+  body.kids .cw-say {
+    flex: 1 1 auto; min-width: 0; padding: 8px 12px;
+    border-radius: 16px 16px 16px 4px;
+    border: 2px solid var(--k-plum-line); background: var(--k-surface);
+  }
+  body.kids .cw-say b { display: block; font-size: 14px; color: var(--k-ink); line-height: 1.4; }
+  body.kids .cw-say span { display: block; font-size: 12.5px; color: var(--k-ink-2); line-height: 1.6; }
+
+  /* onboarding: three steps, one at a time, and skippable */
+  body.kids .cw-onboard {
+    display: flex; flex-direction: column; gap: 8px; padding: 12px 14px;
+    border-radius: 18px; border: 2px dashed var(--k-plum-line);
+    background: var(--k-surface);
+  }
+  body.kids .cw-onboard-steps { display: flex; gap: 6px; flex-wrap: wrap; }
+  body.kids .cw-ob {
+    display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px;
+    border-radius: 999px; border: 1.5px solid var(--k-line-strong);
+    background: var(--k-surface-2); font-size: 12px; font-weight: 800; color: var(--k-ink-2);
+  }
+  body.kids .cw-ob.on { border-color: var(--k-plum); background: var(--k-plum-wash); color: var(--k-plum-ink); }
+  body.kids .cw-ob.done { border-color: var(--k-good-line); background: var(--k-good-wash); color: var(--k-good); }
+  body.kids .cw-onboard p { margin: 0; font-size: 13.5px; color: var(--k-ink-2); line-height: 1.65; }
+  body.kids .cw-onboard-acts { display: flex; gap: 8px; flex-wrap: wrap; }
+  body.kids .cw-ob-btn {
+    min-height: 44px; padding: 0 14px; border-radius: 14px; cursor: pointer;
+    border: 2px solid var(--k-plum-line); background: var(--k-plum-wash);
+    color: var(--k-plum-ink); font: inherit; font-size: 14px; font-weight: 800;
+  }
+  body.kids .cw-ob-btn.ghost { background: var(--k-surface); border-color: var(--k-line-strong); color: var(--k-ink-2); }
+  body.kids .cw-ob-btn:focus-visible { outline: 3px solid var(--k-plum); outline-offset: 2px; }
+
+  /* the words of this stage: a picture each, and how long each one is */
+  body.kids .cw-targets { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  body.kids .cw-target {
+    display: flex; flex-direction: column; align-items: center; gap: 1px;
+    min-width: 52px; padding: 5px 6px; border-radius: 14px; cursor: pointer;
+    border: 2px dashed var(--k-line-strong); background: var(--k-surface);
+    color: var(--k-ink); font: inherit;
+  }
+  body.kids .cw-target-pic { font-size: 20px; line-height: 1; }
+  body.kids .cw-target-dots { display: inline-flex; gap: 2px; }
+  body.kids .cw-target-dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--k-line-strong); }
+  body.kids .cw-target.now {
+    border-style: solid; border-color: var(--k-plum); background: var(--k-plum-wash);
+    animation: cwPulse 1.8s ease-in-out infinite;
+  }
+  body.kids .cw-target.now .cw-target-dots i { background: var(--k-plum); }
+  body.kids .cw-target.done { border-style: solid; border-color: var(--k-good-line); background: var(--k-good-wash); }
+  body.kids .cw-target:focus-visible { outline: 3px solid var(--k-plum); outline-offset: 2px; }
+  @keyframes cwPulse {
+    0%, 100% { transform: scale(1, 1); }
+    50%      { transform: scale(1.05, .96); }
+  }
+
+  /* juice: a letter lands, the board objects, a key goes down */
+  body.kids .cw-cell .cw-in { display: inline-block; animation: cwPop .26s cubic-bezier(.3, 1.7, .4, 1); }
+  @keyframes cwPop {
+    0%   { transform: scale(.5, .5); }
+    60%  { transform: scale(1.18, .86); }
+    100% { transform: scale(1, 1); }
+  }
+  body.kids .cw-board.wrong { animation: cwObject .42s ease; }
+  @keyframes cwObject {
+    0%, 100% { transform: translateX(0); }
+    20%      { transform: translateX(-5px) scale(1.01, .99); }
+    60%      { transform: translateX(5px) scale(1.01, .99); }
+  }
+  body.kids .cw-key.down { transform: scale(1.08, .9); }
+  body.kids .cw-keys { touch-action: manipulation; }
+
+  /* the peek card: the word itself, for as long as the child needs it */
+  body.kids .cw-peek {
+    position: fixed; inset: 0; z-index: 60; display: grid; place-items: center;
+    padding: 20px; background: rgba(43, 30, 12, .38);
+  }
+  body.kids .cw-peek-card {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    max-width: 320px; padding: 20px 26px; border-radius: 24px; text-align: center;
+    background: var(--k-surface); border: 2px solid var(--k-plum-line);
+    box-shadow: 0 18px 40px rgba(60, 30, 10, .28);
+    animation: cwStretch .45s cubic-bezier(.3, 1.6, .4, 1);
+  }
+  body.kids .cw-peek-pic { font-size: 64px; line-height: 1; }
+  body.kids .cw-peek-word { font-size: 30px; font-weight: 800; letter-spacing: .06em; color: var(--k-plum-ink); }
+  body.kids .cw-peek-fa { font-size: 16px; color: var(--k-ink-2); }
+  body.kids .cw-peek-hint { font-size: 12.5px; color: var(--k-ink-2); }
+
   /* ---- one stage finished ---- */
   body.kids .cw-done {
     display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;
@@ -7503,6 +7657,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   body.kids .cw-done .cw-stars { background: var(--k-surface); }
   @media (prefers-reduced-motion: reduce) {
     body.kids .cw-cell, body.kids .cw-key, body.kids .cw-btn { transition: none; }
+    /* the fox, the drifting world, the pulsing target, the landing letter and
+       the objecting board are all decoration: a child who asked for less
+       motion gets the same game standing still */
+    body.kids .cw-cell .cw-in, body.kids .cw-board.wrong, body.kids .cw-target.now,
+    body.kids .cw-fox, body.kids .cw-fox.happy, body.kids .cw-fox.oops,
+    body.kids .cw-fox.win, body.kids .cw-scene i { animation: none; }
+    body.kids .cw-peek-card { animation: none; }
   }
 
   /* ---- Word Quest: the letter puzzle ---------------------------------- */
@@ -31603,10 +31764,13 @@ const Crossword = (() => {
   /* One key, one shape: { done: { "world/2": stars } }. Nothing else is kept,
      so a cleared browser loses the ticks and nothing else. */
   const KEY = 'fluentify.kids.crossword';
-  let store = { done: {} };
+  let store = { done: {}, seen: {} };
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (raw && raw.done && typeof raw.done === 'object') store.done = raw.done;
+    /* which worlds the child has already been shown how to play in: the
+       walkthrough is a first visit, not a toll booth before every stage */
+    if (raw && raw.seen && typeof raw.seen === 'object') store.seen = raw.seen;
   } catch (e) { /* private mode: play without memory */ }
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} };
 
@@ -31640,8 +31804,19 @@ const Crossword = (() => {
       if (cells[k] && !cells[k].n) cells[k].n = e.n;
     });
     const first = st.entries[0];
-    return { wid, si, st, cells, hints: 0, done: solved(wid, si), cheered: {},
-      sel: { r: first.r, c: first.c }, dir: first.d, entry: first };
+    return {
+      /* A stage that has been cleared before opens as a fresh board, not as a
+         finished one: the store keeps the stars, and a child who taps back into
+         their favourite puzzle should get to play it again, not a trophy over an
+         empty grid. */
+      wid, si, st, cells, hints: 0, done: false,
+      best: starsOf(wid, si), cheered: {},
+      /* mood drives the fox: idle, happy, oops or win - never a fifth state */
+      mood: 'idle', lastKey: '', peek: false,
+      /* the walkthrough is three cards; index 3 means it is done with */
+      ob: store.seen[wid] ? 3 : 0,
+      sel: { r: first.r, c: first.c }, dir: first.d, entry: first,
+    };
   }
 
   function entriesAt(r, c) {
@@ -31654,6 +31829,7 @@ const Crossword = (() => {
   function pick(r, c) {
     const here = entriesAt(r, c);
     if (!here.length) return;
+    view.lastKey = '';
     const again = view.sel.r === r && view.sel.c === c;
     let dir = view.dir;
     if (again && here.length > 1) dir = dir === 'across' ? 'down' : 'across';
@@ -31679,6 +31855,7 @@ const Crossword = (() => {
     const k = cellKey(view.sel.r, view.sel.c);
     if (!view.cells[k]) return;
     view.cells[k].v = ch;
+    view.lastKey = k;
     advance();
     render();
     settle();
@@ -31707,23 +31884,31 @@ const Crossword = (() => {
 
   function settle() {
     /* a word that just landed gets its own small burst, thrown from the clue
-       card it was solved against */
+       card it was solved against, and the fox stretches tall about it */
+    let landed = false;
     view.st.entries.forEach((e) => {
       const id = e.n + e.d;
       if (!wordDone(e) || view.cheered[id]) return;
       view.cheered[id] = 1;
+      landed = true;
       Cheer.from(document.querySelector('#cwbody .cw-clue'));
     });
+    if (landed) view.mood = 'happy';
     if (!view.st.entries.every(wordDone)) {
       /* the word in hand is full but not right: say so in both languages,
-         quietly, and let the child change a letter */
+         quietly, and let the child change a letter. The fox squashes - it is
+         disappointed with the board, never with the child - and the letters
+         that were typed all stay exactly where they were. */
       const full = cellsOf(view.entry).every((k) => view.cells[k].v) && !wordDone(view.entry);
+      if (full && !landed) view.mood = 'oops';
+      else if (!landed) view.mood = 'idle';
       msg = full ? { text: 'این کلمه هنوز درست نیست — not quite, try one letter', tone: 'bad' }
                  : { text: '', tone: '' };
       render();
       return;
     }
     view.done = true;
+    view.mood = 'win';
     const stars = Math.max(1, 3 - view.hints);
     const key = view.wid + '/' + view.si;
     if (!store.done[key] || store.done[key] < stars) store.done[key] = stars;
@@ -31744,20 +31929,58 @@ const Crossword = (() => {
     }
   }
 
+  /* The word a child is about to be helped with. If the one in hand is already
+     right, help moves on to the next word that still needs a letter, so that
+     neither the bulb nor the peek card can ever be spent on nothing - a star is
+     a real thing to a child. */
+  function helpTarget() {
+    const open = (e) => cellsOf(e).some((x) => view.cells[x].v !== view.cells[x].a);
+    const here = view.entry;
+    if (here && open(here)) return here;
+    return view.st.entries.find((e) => !wordDone(e) && open(e)) || null;
+  }
+
   /* A hint fills the first empty letter of the word in front of the child.
      It costs a star, which is said in Farsi on the button itself. */
   function hint() {
     if (!view || view.done) return;
+    const target = helpTarget();
+    if (!target) return;
+    if (target !== view.entry) {
+      view.entry = target;
+      view.dir = target.d;
+    }
     const keys = cellsOf(view.entry);
-    const k = keys.find((x) => !view.cells[x].v);
+    /* an empty box first, then a box holding the wrong letter: a full word that
+       is not the word still deserves one good letter */
+    const k = keys.find((x) => !view.cells[x].v) ||
+      keys.find((x) => view.cells[x].v !== view.cells[x].a);
     if (!k) return;
     view.cells[k].v = view.cells[k].a;
     view.hints += 1;
+    view.mood = 'happy';
+    view.lastKey = k;
     const p = splitKey(k);
     view.sel = { r: p[0], c: p[1] };
     msg = { text: 'یک حرف کمکت کرد! — one letter filled in', tone: 'good' };
     render();
     settle();
+  }
+
+  /* The strongest help the game has: the word itself, its picture and its
+     meaning, on a card the child closes when they are ready. It costs the same
+     one star as the bulb, because it does the same job with less guessing. */
+  function peek() {
+    if (!view || view.done) return;
+    const target = helpTarget();
+    if (!target) return;
+    view.entry = target;
+    view.dir = target.d;
+    view.hints += 1;
+    view.mood = 'happy';
+    view.peek = true;
+    msg = { text: 'این واژه است — این را بچین', tone: 'good' };
+    render();
   }
 
   function clearWord() {
@@ -31811,9 +32034,96 @@ const Crossword = (() => {
   }
 
   /* ---- one stage ------------------------------------------------------- */
+
+  /* The world drifting past the top of the stage: decoration, aria-hidden,
+     stopped under reduced motion. It exists so the board has somewhere to be. */
+  function scene() {
+    const w = world(view.wid);
+    let h = '<div class="cw-scene" aria-hidden="true">';
+    if (w) h += '<b>' + w.e + ' ' + esc(w.en) + '</b>';
+    const bits = ['☁️', '✨', '⭐', '☁️', '🍃', '☁️'];
+    bits.forEach((ch, i) => {
+      h += '<i style="top:' + (4 + ((i * 11) % 26)) + 'px;animation-delay:' +
+        (i * 1.6).toFixed(1) + 's;animation-duration:' + (9 + i * 2.2).toFixed(1) + 's">' + ch + '</i>';
+    });
+    return h + '</div>';
+  }
+
+  /* The fox says one thing at a time, in Persian first. It never repeats the
+     clue - the clue card is right there - it only says what to do next. */
+  function coachLine() {
+    const e = view.entry;
+    if (view.done) return {en: 'You did it!', fa: 'آفرین! حلش کردی.'};
+    if (view.mood === 'happy') return {en: 'Yes! Keep going.', fa: 'آفرین! ادامه بده.'};
+    if (view.mood === 'oops') return {en: 'Almost. One letter is different.', fa: 'نزدیک بود؛ یک حرف فرق دارد.'};
+    if (view.hints > 0) return {en: 'I helped with a letter.', fa: 'یک حرف کمکت کردم.'};
+    if (!e) return {en: 'Tap a picture to start.', fa: 'روی یک تصویر بزن تا شروع کنیم.'};
+    return {en: 'Look at the picture, then tap ' + e.a.length + ' letters.', fa: 'تصویر را ببین، بعد ' + e.a.length + ' حرف را بزن.'};
+  }
+
+  function coach() {
+    const line = coachLine();
+    const mood = view.done ? ' win' : view.mood === 'happy' ? ' happy'
+      : view.mood === 'oops' ? ' oops' : '';
+    return '<div class="cw-coach"><span class="cw-fox' + mood + '" aria-hidden="true">' +
+      '<img src="brand/kids-fox-face.png" alt="" width="34" height="34" decoding="async"></span>' +
+      '<span class="cw-say"><b dir="ltr">' + esc(line.en) + '</b>' +
+      '<span dir="rtl" lang="fa">' + esc(line.fa) + '</span></span></div>';
+  }
+
+  /* The walkthrough: three cards, shown once per world, each one a thing to do
+     rather than a paragraph to read. It sits above the board, never over it -
+     a child can start typing whenever they like. */
+  const OB = [
+    {e: '👀', en: 'Look at the picture in the clue card.', fa: 'به تصویر روی کارتِ راهنما نگاه کن.'},
+    {e: '👆', en: 'Tap a box, then tap its letter.', fa: 'روی یک خانه بزن، بعد حرفش را بزن.'},
+    {e: '💡', en: 'Stuck? One hint gives you a letter.', fa: 'گیر کردی؟ راهنما یک حرف را می‌گذارد.'},
+  ];
+  function onboard() {
+    /* the walkthrough is for starting, not for celebrating: once the stage is
+       won, the trophy is the only thing that should be asking for a tap */
+    if (view.ob >= OB.length || view.done) return '';
+    const step = OB[view.ob];
+    let chips = '';
+    OB.forEach((x, i) => {
+      chips += '<span class="cw-ob' + (i === view.ob ? ' on' : i < view.ob ? ' done' : '') + '">' +
+        x.e + ' ' + (i + 1) + '</span>';
+    });
+    return '<section class="cw-onboard" aria-label="How to play — چطور بازی کنم">' +
+      '<div class="cw-onboard-steps">' + chips + '</div>' +
+      '<p dir="ltr">' + step.e + ' ' + esc(step.en) + '</p>' +
+      '<p dir="rtl" lang="fa">' + step.e + ' ' + esc(step.fa) + '</p>' +
+      '<div class="cw-onboard-acts">' +
+        '<button type="button" class="cw-ob-btn" data-act="ob-next">' +
+          (view.ob === OB.length - 1 ? 'شروع — start' : 'بعدی — next') + '</button>' +
+        '<button type="button" class="cw-ob-btn ghost" data-act="ob-skip">' +
+          'رد کن — skip</button>' +
+      '</div></section>';
+  }
+
+  /* The words of the stage, each with its picture and its length: a child sees
+     the whole set from the start, can tap the one they want, and watches the
+     pictures turn green as the board fills. */
+  function targets() {
+    let h = '<div class="cw-targets" role="list">';
+    view.st.entries.forEach((e, i) => {
+      const done = wordDone(e);
+      const now = view.entry === e;
+      h += '<button type="button" role="listitem" class="cw-target' +
+        (done ? ' done' : '') + (now && !done ? ' now' : '') +
+        '" data-act="entry" data-i="' + i + '" aria-label="' +
+        esc(e.e + ' ' + (e.d === 'across' ? 'across' : 'down') + ', ' + e.a.length + ' letters') + '">' +
+        '<span class="cw-target-pic" aria-hidden="true">' + (done ? '✅' : e.e) + '</span>' +
+        '<span class="cw-target-dots" aria-hidden="true">' +
+        (done ? '' : '<i></i>'.repeat(e.a.length)) + '</span></button>';
+    });
+    return h + '</div>';
+  }
+
   function board() {
     const st = view.st;
-    let h = '<div class="cw-board" style="grid-template-columns:repeat(' + st.cols + ',var(--cw-cell))">';
+    let h = '<div class="cw-board' + (view.mood === 'oops' ? ' wrong' : '') +
+      '" style="grid-template-columns:repeat(' + st.cols + ',var(--cw-cell))">';
     const on = cellsOf(view.entry);
     for (let r = 0; r < st.rows; r++) {
       for (let c = 0; c < st.cols; c++) {
@@ -31825,9 +32135,12 @@ const Crossword = (() => {
         if (view.sel.r === r && view.sel.c === c) cls.push('cur');
         if (view.st.entries.some((e) => wordDone(e) && cellsOf(e).indexOf(k) >= 0)) cls.push('got');
         else if (cellsOf(view.entry).indexOf(k) >= 0 && cellsOf(view.entry).every((x) => view.cells[x].v)) cls.push('miss');
+        /* only the letter that has just landed is wrapped: a pop on every
+           cell on every keystroke would be noise, not juice */
+        const popped = cell.v && view.lastKey === k ? '<span class="cw-in">' + cell.v + '</span>' : (cell.v || '');
         h += '<button type="button" class="' + cls.join(' ') + '" data-act="cell" data-r="' + r +
           '" data-c="' + c + '" aria-label="' + (cell.v || 'empty') + '">' +
-          (cell.n ? '<b>' + cell.n + '</b>' : '') + (cell.v || '') + '</button>';
+          (cell.n ? '<b>' + cell.n + '</b>' : '') + popped + '</button>';
       }
     }
     return h + '</div>';
@@ -31861,6 +32174,10 @@ const Crossword = (() => {
       '<span class="cw-where"><b>' + esc(view.st.t) + '</b>' +
       '<i dir="rtl" lang="fa">' + esc(w.fa) + ' · مرحلهٔ ' + (view.si + 1) + '</i></span>' +
       '<span class="cw-stars">⭐ ' + starsOf(view.wid, view.si) + '</span></div>';
+    h += scene();
+    h += coach();
+    h += onboard();
+    h += targets();
     h += board();
     h += clueCard();
     if (view.done) {
@@ -31874,12 +32191,23 @@ const Crossword = (() => {
     } else {
       h += '<div class="cw-tools">' +
         '<button type="button" class="cw-btn" data-act="hint">یک حرف کمکم کن<small>a letter · −۱ ستاره</small></button>' +
+        '<button type="button" class="cw-btn" data-act="peek">نشانم بده<small>show me the word · −۱</small></button>' +
         '<button type="button" class="cw-btn ghost" data-act="clear">پاک کردن کلمه<small>clear the word</small></button>' +
         '</div>';
       h += keysRow();
     }
     h += '<p class="cw-msg ' + msg.tone + '" role="status">' + esc(msg.text) + '</p>';
     h += howTo();
+    if (view.peek) {
+      const e = view.entry;
+      h += '<div class="cw-peek" data-act="peek-close" role="dialog" aria-label="The word — واژه">' +
+        '<div class="cw-peek-card">' +
+          '<span class="cw-peek-pic" aria-hidden="true">' + e.e + '</span>' +
+          '<span class="cw-peek-word" dir="ltr">' + e.a + '</span>' +
+          '<span class="cw-peek-fa" dir="rtl" lang="fa">' + esc(e.f) + '</span>' +
+          '<span class="cw-peek-hint" dir="ltr">Tap anywhere to go back — برای بستن بزن</span>' +
+        '</div></div>';
+    }
     return h + '</div>';
   }
 
@@ -31919,6 +32247,32 @@ const Crossword = (() => {
     if (act === 'play') { go(el.getAttribute('data-w'), Number(el.getAttribute('data-s'))); return; }
     if (act === 'back') { back(); return; }
     if (!view) return;
+    if (act === 'ob-next') {
+      view.ob += 1;
+      if (view.ob >= OB.length) { store.seen[view.wid] = 1; save(); }
+      render();
+      return;
+    }
+    if (act === 'ob-skip') {
+      view.ob = OB.length;
+      store.seen[view.wid] = 1;
+      save();
+      render();
+      return;
+    }
+    if (act === 'peek') { peek(); return; }
+    if (act === 'peek-close') { view.peek = false; render(); return; }
+    if (act === 'entry') {
+      const e = view.st.entries[Number(el.getAttribute('data-i'))];
+      if (!e) return;
+      view.lastKey = '';
+      view.sel = { r: e.r, c: e.c };
+      view.dir = e.d;
+      view.entry = e;
+      msg = { text: '', tone: '' };
+      render();
+      return;
+    }
     if (act === 'cell') { pick(Number(el.getAttribute('data-r')), Number(el.getAttribute('data-c'))); }
     else if (act === 'key') { type(el.getAttribute('data-k')); }
     else if (act === 'del') { erase(); }
