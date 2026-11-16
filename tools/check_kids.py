@@ -54,6 +54,19 @@ BANNED = ("password", "credit card", "cigarette", "alcohol", "beer", "wine",
           "gambling", "casino", "porn")
 
 
+def span(src, marker, end):
+    """One slice of the page, from a marker to the thing after it."""
+    try:
+        start = src.index(marker)
+        return src[start:src.index(end, start + len(marker))]
+    except ValueError:
+        return ""
+
+
+def block_rule(src, marker, end):
+    return span(src, marker, end)
+
+
 def text_of(node):
     """Every English and Persian string under one item, for the safety scan."""
     if isinstance(node, str):
@@ -627,6 +640,89 @@ def check_phrases(data):
         for item in items:
             check(bool(item.get("en")) and bool(PERSIAN.search(item.get("fa") or "")),
                   f"{name}: a phrase is not bilingual")
+
+
+def check_phrases_room(src, data):
+    """Things you can say, as a child meets it: a picture book, and no adult
+    course hidden at the bottom of it."""
+    sets = data.get("phrases") or []
+    room = span(src, "const PHR_ART = {", "/* ---- the chat ----")
+    check(bool(room), "the page has no kid sentence section at all")
+
+    # ---- the two grown-up cards stay with the grown-ups -------------------
+    check("Journey.card(" not in room and "Travel.card(" not in room,
+          "the Sports or Travel course card is still built inside the kid sentence list")
+    check("box.appendChild(Travel.card(false))" in src
+          and "Journey.card('sports', false)" in src,
+          "the Sports and Travel cards are gone from the adult panel as well")
+
+    # ---- every sentence arrives with a picture ---------------------------
+    art = span(src, "const PHR_ART = {", "};")
+    check(bool(art), "the kid sentences have no picture map")
+    missing = [g.get("id") for g in sets
+               if f"{g.get('id')}:" not in art and f"'{g.get('id')}':" not in art]
+    check(not missing, f"these phrase sets have no pictures: {missing}")
+    for group in sets:
+        name = group.get("id")
+        row = re.search(rf"['\"]?{re.escape(str(name))}['\"]?: \[([^\]]*)\]", art)
+        pics = [x.strip() for x in row.group(1).split(",")] if row else []
+        want = len(group.get("items") or [])
+        check(len(pics) == want and all(pics),
+              f"{name}: {len(pics)} pictures for {want} sentences")
+    check("phrArt(set, i)" in room, "the picture is not read from the map per sentence")
+
+    # ---- every sentence is a button a child can hit ----------------------
+    check("document.createElement('button')" in room,
+          "a sentence is not a button, so a child cannot tap it")
+    check("'Hear it: ' + item.en" in room,
+          "a sentence has no spoken label for a screen reader")
+    check("KAnim.say(item.en, wv, b)" in room,
+          "tapping a sentence does not say it out loud")
+    check("KAnim.wave()" in room, "a sentence shows no moving bars while it speaks")
+    check("kphr-pic" in room, "a sentence carries no picture element")
+    check("faLine.dir = 'rtl'" in room and "faLine.lang = 'fa'" in room,
+          "the Persian line of a sentence is not marked as Persian")
+    check("said.dir = 'ltr'" in room and "said.lang = 'en'" in room,
+          "the English line of a sentence is not marked as English")
+
+    # ---- a tick per sentence, a star per set -----------------------------
+    check("const heard = {};" in room, "the section does not remember what was heard")
+    check("heardSet.push(i)" in room, "hearing a sentence marks nothing")
+    check("kDigits(heardSet.length) + ' از '" in room,
+          "the count of heard sentences is not in Persian digits")
+    check("'⭐ همه را شنیدی! حالا خودت بگو.'" in room,
+          "finishing a set says nothing kind to the child")
+    check("KAnim.celebrate(list)" in room, "finishing a set does not celebrate")
+    check("tile.classList.add('done')" in room and "⭐" in room,
+          "a finished set is not marked on its card")
+
+    # ---- the motion, and the switch that stops it ------------------------
+    hero = block_rule(src, "body.kids .kphr-hero {", "body.kids .kphr-sky {")
+    check("position: relative" in hero and "overflow: hidden" in hero,
+          "the sentence header cannot hold a sky that drifts inside it")
+    sky = block_rule(src, "body.kids .kphr-sky i {", "@keyframes kphrDrift")
+    check("animation: kphrDrift" in sky, "the clouds over the sentence header do not move")
+    medal = block_rule(src, "body.kids .kphr-medal {", "@keyframes kphrBob")
+    check("animation: kphrBob" in medal, "the picture medallions do not bob")
+    pop = block_rule(src, "body.kids .kphr-bubble.pop {", "body.kids .kphr-bubble.said")
+    check("animation: kphrPop" in pop, "tapping a sentence does not squash it")
+    for kf in ("@keyframes kphrDrift", "@keyframes kphrBob", "@keyframes kphrPop"):
+        check(kf + " {" in src, f"the animation {kf} is not defined")
+    calm = span(src, "body.kids-calm .kphr-medal", "body.kids-calm .kphr-set")
+    check("animation: none !important" in calm,
+          "the sentence motion keeps running with calm turned on")
+
+    # ---- five cards, five colours, Persian first ------------------------
+    tints = re.findall(r"body\.kids \.kphr-set\.(kphr-[a-z]+) \{", src)
+    check(len(set(tints)) >= 4,
+          f"the sentence cards share {len(set(tints))} colours, so the grid is flat")
+    check("const PHR_TINTS = [" in room and "kphr-purple" in room,
+          "the tiles are not handed one tint each")
+    check("fa.textContent = set.title_fa || set.title_en" in room,
+          "a sentence card leads with English instead of Persian")
+    check("kDigits(items.length) + ' جمله'" in room,
+          "a card's sentence count is not in Persian digits")
+    stats["phrases"] = sum(len(g.get("items") or []) for g in sets)
 
 
 def check_chat(data):
@@ -1494,6 +1590,7 @@ def main():
     check_story_book(src, data)
     check_listening(data)
     check_phrases(data)
+    check_phrases_room(src, data)
     check_chat(data)
     check_safety_scan(data)
     check(data.get("version") == 1, "kids.json is not the versioned file the page reads")
@@ -1527,7 +1624,8 @@ def main():
           f"4 stories, 4 passages turned into {stats.get('book pages')} book leaves "
           "with a picture each, "
           f"{stats.get('story pages')} drawn story pages in four books, "
-          "5 listening clips, 5 phrase sets and a "
+          f"5 listening clips, 5 phrase sets of {stats.get('phrases')} sentences "
+          "with a picture and a voice each, and a "
           "kid-safe chat whose own bank holds 67 words, 18 everyday "
           "sentences, the numbers and the week - each with a Persian "
           "pronunciation line; ages below 15 are classified on the page and "

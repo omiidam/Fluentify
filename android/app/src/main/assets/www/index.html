@@ -7743,6 +7743,121 @@
     body.kids .wqscene i, body.kids .wqsticker.now { animation: none; }
     body.kids .wqtrail-fill, body.kids .wqtrail-fox { transition: none; }
   }
+  /* ---- Things you can say: a picture book of sentences -----------------
+     A child who cannot read English can still use a sentence if it arrives
+     with a picture and a button: the section is five tinted cards that bob,
+     and each card is four speech bubbles with a face, the English line, the
+     Persian line and one big button that says it out loud. The words pop when
+     they are spoken, a tick marks each one heard, and the set hands out a star
+     when all four have been heard. Motion is the whole point of the section,
+     so it all stops under reduced motion and the pictures stay. */
+  body.kids .kphr-hero { position: relative; overflow: hidden; }
+  body.kids .kphr-sky { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  body.kids .kphr-sky i {
+    position: absolute; inset-inline-start: 0; font-size: 17px; opacity: .75;
+    animation: kphrDrift 18s linear infinite;
+  }
+  @keyframes kphrDrift {
+    from { transform: translateX(-30px); }
+    to { transform: translateX(min(360px, 100vw)); }
+  }
+  body.kids .kphr-lead { position: relative; display: flex; align-items: center; gap: 10px; }
+  body.kids .kphr-title { display: block; font-size: 15.5px; font-weight: 800; color: var(--k-ink); }
+  body.kids .kphr-names { display: grid; gap: 1px; min-width: 0; }
+  body.kids .kphr-en { font-size: 10.5px; font-weight: 600; color: var(--k-ink-2); }
+  body.kids .kphr-steps { position: relative; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+  body.kids .kphr-step {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+    border-radius: 999px; background: var(--k-surface); color: var(--k-ink);
+    border: 1.5px solid var(--k-line); font-size: 12px; font-weight: 800;
+  }
+  body.kids .kphr-grid {
+    display: grid; gap: 10px; margin-top: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  }
+  /* the five tinted cards: each carries its own pair of colours, so the grid
+     reads as a row of picture books rather than five copies of one box */
+  body.kids .kphr-set {
+    --kphr-c: var(--k-sun-line); --kphr-w: var(--k-sun-wash);
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center;
+    gap: 9px; padding: 11px 12px; border-radius: 20px; text-align: start; cursor: pointer;
+    background: var(--kphr-w); border: 2px solid var(--kphr-c);
+    box-shadow: 0 4px 0 var(--kphr-c); font: inherit; color: var(--k-ink);
+    transition: transform .16s cubic-bezier(.22, 1, .36, 1), box-shadow .16s;
+  }
+  body.kids .kphr-set.kphr-blue { --kphr-c: var(--k-blue-line); --kphr-w: var(--k-blue-wash); }
+  body.kids .kphr-set.kphr-pink { --kphr-c: var(--k-pink-line); --kphr-w: var(--k-pink-wash); }
+  body.kids .kphr-set.kphr-orange { --kphr-c: var(--k-orange-line); --kphr-w: var(--k-orange-wash); }
+  body.kids .kphr-set.kphr-purple { --kphr-c: var(--k-purple-line); --kphr-w: var(--k-purple-wash); }
+  body.kids .kphr-set:hover { transform: translateY(-2px) rotate(-.5deg); box-shadow: 0 6px 0 var(--kphr-c); }
+  body.kids .kphr-set:active { transform: translateY(2px) scale(.985); box-shadow: 0 2px 0 var(--kphr-c); }
+  body.kids .kphr-medal {
+    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+    font-size: 23px; background: var(--k-surface); border: 2px solid var(--kphr-c);
+    animation: kphrBob 3.4s ease-in-out infinite;
+  }
+  @keyframes kphrBob {
+    0%, 100% { transform: translateY(0) scale(1, 1); }
+    50% { transform: translateY(-3px) scale(.97, 1.03); }
+  }
+  body.kids .kphr-set .kphr-name { font-size: 13.5px; font-weight: 800; line-height: 1.25; }
+  body.kids .kphr-chip {
+    grid-column: 2; font-size: 10.5px; font-weight: 800; color: var(--k-ink-2);
+  }
+  body.kids .kphr-go {
+    grid-row: 1 / span 2; font-size: 17px; font-weight: 800; color: var(--k-ink-2);
+  }
+  body.kids .kphr-set.done .kphr-go { font-size: 19px; }
+  /* one set, opened */
+  body.kids .kphr-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  body.kids .kphr-count {
+    margin-inline-start: auto; font-size: 11px; font-weight: 800; color: var(--k-ink-2);
+    text-align: end;
+  }
+  body.kids .kphr-list { display: grid; gap: 9px; }
+  body.kids .kphr-bubble {
+    position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center; gap: 10px; width: 100%; padding: 9px 11px;
+    border-radius: 18px; text-align: start; cursor: pointer; font: inherit;
+    background: var(--k-surface); color: var(--k-ink);
+    border: 2px solid var(--k-line-strong); box-shadow: 0 3px 0 var(--k-line);
+    transition: transform .14s cubic-bezier(.22, 1, .36, 1), box-shadow .14s, border-color .16s;
+  }
+  body.kids .kphr-bubble:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--k-line); }
+  /* the press is a squash: it is what makes the card feel like a toy */
+  body.kids .kphr-bubble.pop { animation: kphrPop .44s cubic-bezier(.22, 1, .36, 1); }
+  @keyframes kphrPop {
+    0% { transform: scale(1, 1); }
+    35% { transform: scale(1.055, .945); }
+    65% { transform: scale(.98, 1.02); }
+    100% { transform: scale(1, 1); }
+  }
+  body.kids .kphr-bubble.said { border-color: var(--k-good-line); background: var(--k-good-wash); }
+  body.kids .kphr-pic {
+    display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px;
+    font-size: 21px; background: var(--k-surface-2); border: 1px solid var(--k-line);
+  }
+  body.kids .kphr-lines { display: grid; gap: 2px; min-width: 0; }
+  body.kids .kphr-said { font-size: 13.5px; font-weight: 800; line-height: 1.3; overflow-wrap: anywhere; }
+  body.kids .kphr-fa-line { font-size: 11.5px; color: var(--k-ink-2); line-height: 1.45; }
+  body.kids .kphr-play {
+    display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+    font-size: 16px; background: var(--k-primary-wash); border: 2px solid var(--k-primary-line);
+  }
+  body.kids .kphr-bubble > .kwave {
+    position: absolute; inset-inline-end: 18px; top: 50%; transform: translateY(-50%);
+    opacity: 0; pointer-events: none; transition: opacity .15s;
+  }
+  body.kids .kphr-bubble > .kwave.on { opacity: 1; }
+  body.kids .kphr-yay {
+    display: flex; align-items: center; gap: 6px; padding: 10px 12px; border-radius: 16px;
+    background: var(--k-sun-wash); border: 2px dashed var(--k-sun-line);
+    font-size: 12.5px; font-weight: 800; color: var(--k-ink);
+  }
+  body.kids-calm .kphr-medal, body.kids-calm .kphr-sky i,
+  body.kids-calm .kphr-bubble.pop { animation: none !important; }
+  body.kids-calm .kphr-set, body.kids-calm .kphr-bubble { transition: none; }
+
   /* ---- Kids header: cartoon stickers -----------------------------------
      The toolbar was a row of white cards with a thin coloured glyph on each,
      which is a sensible adult utility strip and a grey wall to a child. In the
@@ -24344,6 +24459,33 @@ const Kids = (() => {
     box.appendChild(card);
   }
 
+  /* ---- things you can say ---------------------------------------------
+     The one kind of English a child can use on the first day is a sentence,
+     so the section is a picture book of them: five tinted cards that bob, and
+     four speech bubbles inside each, every one with a picture, the English
+     line, the Persian line and a button that says it out loud. A tick marks
+     what has been heard and the set hands out a star when all four are done.
+     The two journey cards that open the adult panel - Sports and Travel - are
+     not built here: a child has no use for a 14-stage course or a trip abroad,
+     and both stay in their own panels for the grown-ups. */
+  const PHR_ART = {
+    friends: ['😊', '🙏', '⚽', '👋'],
+    classroom: ['🪟', '🤔', '🔁', '🙋'],
+    playtime: ['🔁', '⚽', '👏', '🤝'],
+    home: ['🏠', '💧', '🤝', '🌙'],
+    'asking-help': ['🙋', '🤔', '🔁', '💖'],
+  };
+  /* five tints, one per card, in the order the sets arrive */
+  const PHR_TINTS = ['', 'kphr-blue', 'kphr-pink', 'kphr-orange', 'kphr-purple'];
+  /* what has been heard in this visit, set by set. A star is the reward, not a
+     score, and nothing is stored: the sound is the point. */
+  const heard = {};
+
+  function phrArt(set, i) {
+    const list = PHR_ART[set.id] || [];
+    return list[i] || set.emoji || '💬';
+  }
+
   async function phrases() {
     const box = $('ftopics');
     if (!box) return;
@@ -24351,18 +24493,93 @@ const Kids = (() => {
     panelTitle('fpanel', 'Things you can say', 'چیزهایی که می‌توانی بگویی');
     box.innerHTML = '';
     if (!d) { box.textContent = 'جمله‌ها خوانده نشدند. / Sentences could not be read.'; return; }
-    const wrap = document.createElement('div');
-    wrap.className = 'klist';
-    (d.phrases || []).forEach((set) => {
-      wrap.appendChild(listButton('phrases', set,
-        () => phraseSet(set), kDigits((set.items || []).length) + ' جمله'));
+
+    /* the fox, the title, and the three moves this whole section is made of,
+       as pictures instead of a paragraph to read */
+    const hero = document.createElement('section');
+    hero.className = 'kcard kc-sun kphr-hero';
+    const sky = document.createElement('div');
+    sky.className = 'kphr-sky';
+    sky.setAttribute('aria-hidden', 'true');
+    ['☁️', '✨', '☁️'].forEach((bit, i) => {
+      const cloud = document.createElement('i');
+      cloud.textContent = bit;
+      cloud.style.top = (6 + i * 20) + 'px';
+      cloud.style.animationDelay = (i * 4) + 's';
+      cloud.style.animationDuration = (16 + i * 5) + 's';
+      sky.appendChild(cloud);
     });
-    /* The two journey cards used to sit on top of this list. They are the adult
-       course - "Sports, 14 stages, 165 words, 46 sports, 83 expressions" and a
-       travel pitch - and a child opening "چیزهایی که می‌توانی بگویی" has no use
-       for either, no way to read them, and a long way to scroll past them. */
-    box.appendChild(wrap);
-    KAnim.stagger(wrap);
+    const lead = document.createElement('div');
+    lead.className = 'kphr-lead';
+    lead.appendChild(KAnim.fox('wave', 46));
+    const names = document.createElement('div');
+    names.className = 'kphr-names';
+    const title = document.createElement('b');
+    title.className = 'kphr-title';
+    title.dir = 'rtl';
+    title.lang = 'fa';
+    title.textContent = 'چیزهایی که می‌توانی بگویی';
+    const titleEn = document.createElement('span');
+    titleEn.className = 'kphr-en';
+    titleEn.textContent = 'Things you can say';
+    names.append(title, titleEn);
+    lead.appendChild(names);
+    const steps = document.createElement('div');
+    steps.className = 'kphr-steps';
+    [['👂', 'بشنو'], ['🗣️', 'بگو'], ['⭐', 'آفرین']].forEach(([icon, word]) => {
+      const pill = document.createElement('span');
+      pill.className = 'kphr-step';
+      const emoji = document.createElement('span');
+      emoji.textContent = icon;
+      emoji.setAttribute('aria-hidden', 'true');
+      const label = document.createElement('span');
+      label.dir = 'rtl';
+      label.lang = 'fa';
+      label.textContent = word;
+      pill.append(emoji, label);
+      steps.appendChild(pill);
+    });
+    hero.append(sky, lead, steps);
+    box.appendChild(hero);
+
+    const grid = document.createElement('div');
+    grid.className = 'kphr-grid';
+    (d.phrases || []).forEach((set, i) => {
+      const items = set.items || [];
+      const done = (heard[set.id] || []).length >= items.length;
+      const tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'kphr-set ' + PHR_TINTS[i % PHR_TINTS.length];
+      if (done) tile.classList.add('done');
+      const medal = document.createElement('span');
+      medal.className = 'kphr-medal';
+      medal.setAttribute('aria-hidden', 'true');
+      medal.textContent = set.emoji || '💬';
+      const names = document.createElement('span');
+      names.className = 'kphr-names';
+      const fa = document.createElement('span');
+      fa.className = 'kphr-name';
+      fa.dir = 'rtl';
+      fa.lang = 'fa';
+      fa.textContent = set.title_fa || set.title_en;
+      const en = document.createElement('span');
+      en.className = 'kphr-en';
+      en.textContent = set.title_en;
+      names.append(fa, en);
+      const chip = document.createElement('span');
+      chip.className = 'kphr-chip';
+      chip.textContent = kDigits(items.length) + ' جمله';
+      const go = document.createElement('span');
+      go.className = 'kphr-go';
+      go.setAttribute('aria-hidden', 'true');
+      go.textContent = done ? '⭐' : '›';
+      tile.append(medal, names, chip, go);
+      tile.setAttribute('aria-label', (set.title_fa || set.title_en) + ' — ' + set.title_en);
+      tile.onclick = () => phraseSet(set);
+      grid.appendChild(tile);
+    });
+    box.appendChild(grid);
+    KAnim.stagger(grid);
   }
 
   function phraseSet(set) {
@@ -24370,38 +24587,93 @@ const Kids = (() => {
     if (!box) return;
     box.innerHTML = '';
     box.appendChild(back('همهٔ جمله‌ها', phrases));
-    const card = document.createElement('section');
-    card.className = 'kcard';
-    const h = document.createElement('h4');
-    h.textContent = (set.emoji || '') + ' ' + (set.title_fa || set.title_en);
-    h.dir = 'rtl';
-    h.lang = 'fa';
-    card.appendChild(h);
-    card.appendChild(fa(set.title_en, 'kfa-h'));
-    card.appendChild(KAnim.hint('speak', 'Read it out loud, then listen and compare.',
-      'بلند بخوان، بعد گوش کن و مقایسه کن.'));
-    const ex = document.createElement('div');
-    ex.className = 'kex';
-    (set.items || []).forEach((item) => {
-      const row = document.createElement('div');
-      row.className = 'krow';
-      const play = document.createElement('button');
-      play.type = 'button';
-      play.className = 'kplay';
-      play.textContent = '▶';
-      play.setAttribute('aria-label', 'Hear: ' + item.en);
+
+    const items = set.items || [];
+    const head = document.createElement('div');
+    head.className = 'kphr-head';
+    const medal = document.createElement('span');
+    medal.className = 'kphr-medal';
+    medal.setAttribute('aria-hidden', 'true');
+    medal.textContent = set.emoji || '💬';
+    const names = document.createElement('div');
+    names.className = 'kphr-names';
+    const title = document.createElement('b');
+    title.className = 'kphr-title';
+    title.dir = 'rtl';
+    title.lang = 'fa';
+    title.textContent = set.title_fa || set.title_en;
+    const titleEn = document.createElement('span');
+    titleEn.className = 'kphr-en';
+    titleEn.textContent = set.title_en;
+    names.append(title, titleEn);
+    const count = document.createElement('span');
+    count.className = 'kphr-count';
+    count.dir = 'rtl';
+    count.lang = 'fa';
+    head.append(medal, names, count);
+    box.appendChild(head);
+    box.appendChild(KAnim.hint('speak', 'Tap a picture and it says the line. Say it back!',
+      'روی تصویر بزن تا جمله را بشنو. تو هم بگو!'));
+
+    const list = document.createElement('div');
+    list.className = 'kphr-list';
+    const heardSet = heard[set.id] || (heard[set.id] = []);
+    const refresh = () => {
+      count.textContent = kDigits(heardSet.length) + ' از ' + kDigits(items.length) + ' شنیده شد';
+      if (heardSet.length < items.length || list.querySelector('.kphr-yay')) return;
+      const yay = document.createElement('div');
+      yay.className = 'kphr-yay';
+      yay.dir = 'rtl';
+      yay.lang = 'fa';
+      yay.textContent = '⭐ همه را شنیدی! حالا خودت بگو.';
+      list.appendChild(yay);
+      KAnim.celebrate(list);
+    };
+
+    items.forEach((item, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'kphr-bubble' + (heardSet.includes(i) ? ' said' : '');
+      const pic = document.createElement('span');
+      pic.className = 'kphr-pic';
+      pic.setAttribute('aria-hidden', 'true');
+      pic.textContent = phrArt(set, i);
+      const lines = document.createElement('span');
+      lines.className = 'kphr-lines';
+      const said = document.createElement('span');
+      said.className = 'kphr-said';
+      said.dir = 'ltr';
+      said.lang = 'en';
+      said.textContent = item.en;
+      const faLine = document.createElement('span');
+      faLine.className = 'kphr-fa-line';
+      faLine.dir = 'rtl';
+      faLine.lang = 'fa';
+      faLine.textContent = item.fa || '';
+      lines.append(said, faLine);
+      const play = document.createElement('span');
+      play.className = 'kphr-play';
+      play.setAttribute('aria-hidden', 'true');
+      play.textContent = '🔊';
       const wv = KAnim.wave();
-      play.onclick = () => KAnim.say(item.en, wv, play);
-      const body = document.createElement('div');
-      const en = document.createElement('div');
-      en.className = 'ken';
-      en.textContent = item.en;
-      body.append(en, fa(item.fa, 'kfa'));
-      row.append(play, body, wv);
-      ex.appendChild(row);
+      b.append(pic, lines, play, wv);
+      b.setAttribute('aria-label', 'Hear it: ' + item.en);
+      b.onclick = () => {
+        /* restart the squash on a second tap: the animation has to be taken
+           off and put back for the browser to play it again */
+        b.classList.remove('pop');
+        void b.offsetWidth;
+        b.classList.add('pop');
+        KAnim.say(item.en, wv, b);
+        b.classList.add('said');
+        if (!heardSet.includes(i)) { heardSet.push(i); refresh(); }
+      };
+      list.appendChild(b);
     });
-    card.appendChild(ex);
-    box.appendChild(card);
+
+    box.appendChild(list);
+    refresh();
+    KAnim.stagger(list);
   }
 
   /* ---- the chat -------------------------------------------------------- */
