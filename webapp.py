@@ -21615,11 +21615,26 @@ const Kids = (() => {
 
   /* What the toolbar says in the kids app. The wording is the same idea as
      the adult label, shorter, because a child reads the icon first. */
+  /* The tile says what it is in Persian, because that is the language the
+     child reading it already has. English sits in the tooltip and the label
+     for anyone who wants both - a nine-pixel tile cannot carry two lines, and
+     a child who cannot read the word cannot use the section. */
   const LABELS = {
+    kidstoggle: 'خانه', hqtoggle: 'سفر', wrqtoggle: 'حروف', cwtoggle: 'جدول', vtoggle: 'واژه‌ها',
+    gtoggle: 'گرامر', ltoggle: 'شنیدن', rdtoggle: 'خواندن', stoggle: 'داستان',
+    ntoggle: 'کارآگاه',
+    actoggle: 'من',
+    /* the tools behind More are mostly the adult ones, but a child who opens
+       that drawer still has to be able to read what is in it */
+    rtoggle: 'مرور', ftoggle: 'تلفظ', phtoggle: 'صداها', btoggle: 'کتاب‌ها',
+    lvltoggle: 'سطح', pathtoggle: 'مسیر', themetoggle: 'رنگ صفحه', clear: 'پاک',
+  };
+  const LABELS_EN = {
     kidstoggle: 'Home', hqtoggle: 'Quest', wrqtoggle: 'Letters', cwtoggle: 'Puzzle', vtoggle: 'Words',
     gtoggle: 'Grammar', ltoggle: 'Listening', rdtoggle: 'Read', stoggle: 'Stories',
-    ntoggle: 'Detective',
-    actoggle: 'Me',
+    ntoggle: 'Detective', actoggle: 'Me',
+    rtoggle: 'Review', ftoggle: 'Say', phtoggle: 'Sounds', btoggle: 'Books',
+    lvltoggle: 'Level', pathtoggle: 'Path', themetoggle: 'Theme', clear: 'Clear',
   };
   /* Tools that need a sentence of explanation: they wait behind More. The
      level check, the learning path, the phonetics panel and the course-book
@@ -21681,6 +21696,13 @@ const Kids = (() => {
         if (span && !span.dataset.adultLabel) {
           span.dataset.adultLabel = span.textContent;
           span.textContent = LABELS[id];
+          span.dir = 'rtl';
+          span.lang = 'fa';
+          /* the tile is the only place both words can live: the face says it
+             in Persian, the name and the tooltip repeat it with the English */
+          btn.dataset.adultName = btn.getAttribute('aria-label') || '';
+          btn.setAttribute('aria-label', LABELS_EN[id] + ' — ' + LABELS[id]);
+          btn.title = LABELS_EN[id] + ' / ' + LABELS[id];
         }
       });
       ADVANCED.forEach((id) => { const b = $(id); if (b) b.classList.add('kadv'); });
@@ -21700,6 +21722,15 @@ const Kids = (() => {
     try { Weekly.removeCard(); } catch (e) { /* weekly not built yet */ }
     const dbadge = $('dbadge');
     if (dbadge) { dbadge.hidden = true; dbadge.textContent = ''; }
+    /* The composer is the one place a child must understand to start: it asks
+       for a word in Persian first, then repeats it in English. */
+    const composer = $('input');
+    if (composer && !composer.dataset.kidAsk) {
+      composer.dataset.kidAsk = '1';
+      composer.dataset.adultPlaceholder = composer.placeholder;
+      composer.placeholder = 'یک واژه به فارسی بنویس… مثل «سیب» / write a word';
+      composer.setAttribute('aria-label', 'Your question / پرسش تو: یک واژه یا جمله');
+    }
     /* The fox on the home card listens while the child is typing and waves
        again when they leave. Nothing is stored: it follows the field. */
     const field = $('input');
@@ -21719,6 +21750,12 @@ const Kids = (() => {
     const more = $('kidsmore');
     if (more) {
       more.hidden = false;
+      const moreLabel = more.querySelector('span');
+      if (moreLabel && !moreLabel.dataset.adultLabel) {
+        moreLabel.dataset.adultLabel = moreLabel.textContent;
+        moreLabel.textContent = 'بیشتر';
+        more.title = 'More / بیشتر';
+      }
       if (!moreBound) {
         moreBound = true;
         more.onclick = () => {
@@ -21743,14 +21780,40 @@ const Kids = (() => {
       Object.keys(LABELS).forEach((id) => {
         const btn = $(id);
         const span = btn && btn.querySelector('span[data-adult-label]');
-        if (span) { span.textContent = span.dataset.adultLabel; delete span.dataset.adultLabel; }
+        if (span) {
+          span.textContent = span.dataset.adultLabel;
+          delete span.dataset.adultLabel;
+          span.removeAttribute('dir');
+          span.removeAttribute('lang');
+        }
+        if (btn && btn.dataset.adultName != null) {
+          btn.setAttribute('aria-label', btn.dataset.adultName);
+          delete btn.dataset.adultName;
+          btn.removeAttribute('title');
+        }
       });
       labeled = false;
     }
     const more = $('kidsmore');
-    if (more) { more.hidden = true; more.setAttribute('aria-expanded', 'false'); }
+    if (more) {
+      more.hidden = true;
+      more.setAttribute('aria-expanded', 'false');
+      const moreLabel = more.querySelector('span');
+      if (moreLabel && moreLabel.dataset.adultLabel) {
+        moreLabel.textContent = moreLabel.dataset.adultLabel;
+        delete moreLabel.dataset.adultLabel;
+        more.removeAttribute('title');
+      }
+    }
     const today = $('dtoggle');
     if (today) today.hidden = false;
+    const composer = $('input');
+    if (composer && composer.dataset.kidAsk) {
+      delete composer.dataset.kidAsk;
+      if (composer.dataset.adultPlaceholder) composer.placeholder = composer.dataset.adultPlaceholder;
+      delete composer.dataset.adultPlaceholder;
+      composer.setAttribute('aria-label', 'Message / پیام');
+    }
     if (Panels.isOpen() === 'kpanel') Panels.set('kpanel', false);
     if (Panels.isOpen() === 'hqpanel') Panels.set('hqpanel', false);
     landed = false;
@@ -22007,8 +22070,12 @@ const Kids = (() => {
     head.className = 'kcard-h';
     const titles = document.createElement('div');
     const h = document.createElement('h4');
-    h.textContent = 'Fox says 🦊';
-    titles.append(h, fa('روباه می‌گوید', 'kfa-h'));
+    /* the card is titled in the language the child already reads, with the
+       English line underneath - not the other way round */
+    h.textContent = 'روباه می‌گوید 🦊';
+    h.dir = 'rtl';
+    h.lang = 'fa';
+    titles.append(h, fa('Fox says', 'kfa-h'));
     head.append(titles);
     card.appendChild(head);
 
@@ -22061,12 +22128,14 @@ const Kids = (() => {
     head.className = 'kcard-h';
     const titles = document.createElement('div');
     const h = document.createElement('h4');
-    h.textContent = 'Flip a word 🃏';
-    titles.append(h, fa('یک واژه را برگردان', 'kfa-h'));
+    h.textContent = 'یک واژه را برگردان 🃏';
+    h.dir = 'rtl';
+    h.lang = 'fa';
+    titles.append(h, fa('Flip a word', 'kfa-h'));
     const more = document.createElement('button');
     more.type = 'button';
     more.className = 'kcard-more';
-    more.textContent = '↻ new';
+    more.textContent = '↻ واژهٔ نو';
     more.setAttribute('aria-label', 'Three other words — سه واژهٔ دیگر');
     head.append(titles, more);
     card.appendChild(head);
@@ -22177,12 +22246,14 @@ const Kids = (() => {
     head.className = 'kcard-h';
     const titles = document.createElement('div');
     const h = document.createElement('h4');
-    h.textContent = 'Play with words 🎯';
-    titles.append(h, fa('با واژه‌ها بازی کن', 'kfa-h'));
+    h.textContent = 'با واژه‌ها بازی کن 🎯';
+    h.dir = 'rtl';
+    h.lang = 'fa';
+    titles.append(h, fa('Play with words', 'kfa-h'));
     const more = document.createElement('button');
     more.type = 'button';
     more.className = 'kcard-more';
-    more.textContent = '↻ 5 more';
+    more.textContent = '↻ ۵ واژهٔ دیگر';
     more.setAttribute('aria-label', 'Five other words — پنج واژهٔ دیگر');
     more.onclick = () => { quizPage += 1; home(); };
     head.append(titles, more);
@@ -24513,6 +24584,294 @@ const Kids = (() => {
     {key: 'got', icon: '⭐', label: 'I got it!', fa: 'یاد گرفتم'},
   ];
 
+  /* ---- the child's own knowledge base ----------------------------------
+     The engine behind the chat was written for an adult who knows what a
+     synonym is and can read phonetic script. A seven-year-old asks a
+     different question in a different way - "سیب", "گربه به انگلیسی",
+     "رنگ‌ها" - and needs three things the adult answer never had: the word in
+     Persian, how to say it with Persian letters, and one short sentence with
+     a picture beside it.
+
+     So the child gets a small, friendly bank that answers before the adult
+     engine does, in one shape every time: emoji, English, Persian, how to
+     say it, one example. It is hardcoded here rather than fetched, so it is
+     identical in the browser and inside the offline APK, and a word that is
+     not in it still falls through to the engine and comes back shaped by
+     kinder(). Nothing in this bank needs a dictionary, an accent or a
+     grammar term to understand. */
+  const KID_KB = [
+    {en: 'cat', fa: 'گربه', say: 'کَت', e: '🐱', t: 'animal'},
+    {en: 'dog', fa: 'سگ', say: 'داگ', e: '🐶', t: 'animal'},
+    {en: 'bird', fa: 'پرنده', say: 'بِرد', e: '🐦', t: 'animal'},
+    {en: 'fish', fa: 'ماهی', say: 'فیش', e: '🐟', t: 'animal'},
+    {en: 'cow', fa: 'گاو', say: 'کاو', e: '🐄', t: 'animal'},
+    {en: 'horse', fa: 'اسب', say: 'هُرس', e: '🐴', t: 'animal'},
+    {en: 'lion', fa: 'شیر (جانور)', say: 'لایِن', e: '🦁', t: 'animal'},
+    {en: 'mouse', fa: 'موش', say: 'ماوس', e: '🐭', t: 'animal'},
+    {en: 'rabbit', fa: 'خرگوش', say: 'رَبیت', e: '🐰', t: 'animal'},
+    {en: 'monkey', fa: 'میمون', say: 'مانکی', e: '🐵', t: 'animal'},
+    {en: 'red', fa: 'قرمز', say: 'رِد', e: '🔴', t: 'color'},
+    {en: 'blue', fa: 'آبی', say: 'بلو', e: '🔵', t: 'color'},
+    {en: 'green', fa: 'سبز', say: 'گرین', e: '🟢', t: 'color'},
+    {en: 'yellow', fa: 'زرد', say: 'یِلو', e: '🟡', t: 'color'},
+    {en: 'black', fa: 'سیاه', say: 'بلک', e: '⚫', t: 'color'},
+    {en: 'white', fa: 'سفید', say: 'وایت', e: '⚪', t: 'color'},
+    {en: 'pink', fa: 'صورتی', say: 'پینک', e: '🌸', t: 'color'},
+    {en: 'orange', fa: 'نارنجی', say: 'اورِنج', e: '🟠', t: 'color'},
+    {en: 'mother', fa: 'مادر', say: 'مادِر', e: '👩', t: 'family'},
+    {en: 'father', fa: 'پدر', say: 'فادِر', e: '👨', t: 'family'},
+    {en: 'sister', fa: 'خواهر', say: 'سیستِر', e: '👧', t: 'family'},
+    {en: 'brother', fa: 'برادر', say: 'برادِر', e: '👦', t: 'family'},
+    {en: 'baby', fa: 'نوزاد', say: 'بِیبی', e: '👶', t: 'family'},
+    {en: 'grandmother', fa: 'مادربزرگ', say: 'گِرَندمادِر', e: '👵', t: 'family'},
+    {en: 'apple', fa: 'سیب', say: 'اَپِل', e: '🍎', t: 'food'},
+    {en: 'bread', fa: 'نان', say: 'برِد', e: '🍞', t: 'food'},
+    {en: 'milk', fa: 'شیر (نوشیدنی)', say: 'مِلک', e: '🥛', t: 'food'},
+    {en: 'water', fa: 'آب', say: 'واتِر', e: '💧', t: 'food'},
+    {en: 'rice', fa: 'برنج', say: 'رایس', e: '🍚', t: 'food'},
+    {en: 'egg', fa: 'تخم‌مرغ', say: 'اِگ', e: '🥚', t: 'food'},
+    {en: 'banana', fa: 'موز', say: 'بَنانا', e: '🍌', t: 'food'},
+    {en: 'cake', fa: 'کیک', say: 'کِیک', e: '🎂', t: 'food'},
+    {en: 'cheese', fa: 'پنیر', say: 'چیز', e: '🧀', t: 'food'},
+    {en: 'book', fa: 'کتاب', say: 'بوک', e: '📕', t: 'school'},
+    {en: 'pen', fa: 'خودکار', say: 'پِن', e: '🖊️', t: 'school'},
+    {en: 'pencil', fa: 'مداد', say: 'پِنسِل', e: '✏️', t: 'school'},
+    {en: 'bag', fa: 'کیف', say: 'بَگ', e: '🎒', t: 'school'},
+    {en: 'teacher', fa: 'معلم', say: 'تیچِر', e: '🧑‍🏫', t: 'school'},
+    {en: 'school', fa: 'مدرسه', say: 'اِسکول', e: '🏫', t: 'school'},
+    {en: 'friend', fa: 'دوست', say: 'فرِند', e: '🤝', t: 'school'},
+    {en: 'head', fa: 'سر', say: 'هِد', e: '🙂', t: 'body'},
+    {en: 'hand', fa: 'دست', say: 'هَند', e: '✋', t: 'body'},
+    {en: 'eye', fa: 'چشم', say: 'آی', e: '👁️', t: 'body'},
+    {en: 'ear', fa: 'گوش', say: 'ایر', e: '👂', t: 'body'},
+    {en: 'nose', fa: 'بینی', say: 'نوز', e: '👃', t: 'body'},
+    {en: 'mouth', fa: 'دهان', say: 'ماوث', e: '👄', t: 'body'},
+    {en: 'door', fa: 'در', say: 'دور', e: '🚪', t: 'home'},
+    {en: 'window', fa: 'پنجره', say: 'ویندو', e: '🪟', t: 'home'},
+    {en: 'table', fa: 'میز', say: 'تِیبِل', e: '🍽️', t: 'home'},
+    {en: 'chair', fa: 'صندلی', say: 'چِر', e: '🪑', t: 'home'},
+    {en: 'bed', fa: 'تخت', say: 'بِد', e: '🛏️', t: 'home'},
+    {en: 'cup', fa: 'فنجان', say: 'کاپ', e: '🥤', t: 'home'},
+    {en: 'ball', fa: 'توپ', say: 'بال', e: '⚽', t: 'toy'},
+    {en: 'doll', fa: 'عروسک', say: 'دال', e: '🧸', t: 'toy'},
+    {en: 'kite', fa: 'بادبادک', say: 'کایت', e: '🪁', t: 'toy'},
+    {en: 'bike', fa: 'دوچرخه', say: 'بایک', e: '🚲', t: 'toy'},
+    {en: 'car', fa: 'ماشین', say: 'کار', e: '🚗', t: 'toy'},
+    {en: 'sun', fa: 'خورشید', say: 'سان', e: '☀️', t: 'nature'},
+    {en: 'moon', fa: 'ماه', say: 'مون', e: '🌙', t: 'nature'},
+    {en: 'star', fa: 'ستاره', say: 'اِستار', e: '⭐', t: 'nature'},
+    {en: 'rain', fa: 'باران', say: 'رِین', e: '🌧️', t: 'nature'},
+    {en: 'tree', fa: 'درخت', say: 'تری', e: '🌳', t: 'nature'},
+    {en: 'flower', fa: 'گل', say: 'فلاوِر', e: '🌷', t: 'nature'},
+    {en: 'sky', fa: 'آسمان', say: 'اِسکای', e: '🌌', t: 'nature'},
+  ];
+
+  /* The picture-first ways in: a child who cannot read "Colors" can tap a
+     palette. Keys are matched inside the folded question, so «رنگ‌ها», "colors"
+     and «چه رنگ‌هایی» all land on the same card. */
+  const KID_TOPICS = [
+    {id: 'animal', keys: ['حیوان', 'جانور', 'animal', 'animals'], e: '🐾', fa: 'جانوران', en: 'Animals', say: 'I like cats. — من گربه‌ها را دوست دارم.'},
+    {id: 'color', keys: ['رنگ', 'color', 'colors', 'colour'], e: '🎨', fa: 'رنگ‌ها', en: 'Colors', say: 'I like blue. — من آبی را دوست دارم.'},
+    {id: 'food', keys: ['خوراک', 'غذا', 'میوه', 'food', 'fruit', 'eat'], e: '🍎', fa: 'خوراکی‌ها', en: 'Food', say: 'I want water. — من آب می‌خواهم.'},
+    {id: 'family', keys: ['خانواده', 'family', 'mother', 'مادر'], e: '👨‍👩‍👧', fa: 'خانواده', en: 'Family', say: 'This is my mother. — این مادر من است.'},
+    {id: 'school', keys: ['مدرسه', 'school', 'کلاس', 'class'], e: '🎒', fa: 'مدرسه', en: 'School', say: 'This is my book. — این کتاب من است.'},
+    {id: 'body', keys: ['بدن', 'body', 'صورت', 'face'], e: '🙂', fa: 'بدن', en: 'Body', say: 'This is my hand. — این دست من است.'},
+    {id: 'home', keys: ['خانه', 'home', 'room', 'اتاق'], e: '🏠', fa: 'خانه', en: 'Home', say: 'This is my bed. — این تخت من است.'},
+    {id: 'toy', keys: ['اسباب', 'بازی', 'toy', 'toys', 'game'], e: '🧸', fa: 'اسباب‌بازی‌ها', en: 'Toys', say: 'I want the ball. — من توپ را می‌خواهم.'},
+    {id: 'nature', keys: ['طبیعت', 'آسمان', 'nature', 'weather', 'آب‌وهوا'], e: '🌳', fa: 'طبیعت', en: 'Nature', say: 'I see the sun. — من خورشید را می‌بینم.'},
+  ];
+
+  /* The sentences a child says fifty times a day. Each one is short enough to
+     repeat out loud, and the Persian letters say how it sounds, so a child can
+     try it without knowing what a vowel is. */
+  const KID_SAYS = [
+    {keys: ['سلام', 'درود', 'hello', 'hi'], en: 'Hello!', fa: 'سلام!', say: 'هَلو', e: '👋'},
+    {keys: ['خداحافظ', 'خدافظ', 'goodbye', 'bye'], en: 'Goodbye!', fa: 'خداحافظ!', say: 'گودبای', e: '👋'},
+    {keys: ['ممنون', 'مرسی', 'تشکر', 'thank'], en: 'Thank you!', fa: 'ممنون!', say: 'تَنک یو', e: '🙏'},
+    {keys: ['لطفا', 'لطفاً', 'please'], en: 'Please.', fa: 'لطفاً.', say: 'پلیز', e: '🥺'},
+    {keys: ['اسم من', 'نام من', 'my name'], en: 'My name is …', fa: 'اسم من … است.', say: 'مای نِیم ایز', e: '📛'},
+    {keys: ['حالت', 'چطوری', 'how are you'], en: 'How are you?', fa: 'چطوری؟', say: 'هاو آر یو', e: '🙂'},
+    {keys: ['خوبم', 'خوب هستم', 'i am fine', 'i am good'], en: 'I am fine, thank you.', fa: 'خوبم، ممنون.', say: 'آی اَم فاین', e: '😊'},
+    {keys: ['دوستت دارم', 'i love you'], en: 'I love you.', fa: 'دوستت دارم.', say: 'آی لاڤ یو', e: '❤️'},
+    {keys: ['شب بخیر', 'good night'], en: 'Good night!', fa: 'شب بخیر!', say: 'گود نایت', e: '🌙'},
+    {keys: ['ببخشید', 'معذرت', 'sorry'], en: 'I am sorry.', fa: 'ببخشید.', say: 'آی اَم سوری', e: '😔'},
+    {keys: ['بله', 'yes'], en: 'Yes.', fa: 'بله.', say: 'یِس', e: '✅'},
+    {keys: ['نه', 'no'], en: 'No.', fa: 'نه.', say: 'نو', e: '❌'},
+    {keys: ['کمک', 'help me', 'help'], en: 'Help me, please.', fa: 'کمکم کن، لطفاً.', say: 'هِلپ می', e: '🆘'},
+    {keys: ['خوشحالم', 'خوشحال', 'happy'], en: 'I am happy.', fa: 'خوشحالم.', say: 'آی اَم هَپی', e: '😄'},
+    {keys: ['ناراحتم', 'غمگین', 'sad'], en: 'I am sad.', fa: 'ناراحتم.', say: 'آی اَم سَد', e: '😢'},
+    {keys: ['گرسنه', 'hungry'], en: 'I am hungry.', fa: 'گرسنه‌ام.', say: 'آی اَم هَنگری', e: '🍽️'},
+    {keys: ['تشنه', 'thirsty'], en: 'I am thirsty.', fa: 'تشنه‌ام.', say: 'آی اَم تِرستی', e: '💧'},
+    {keys: ['خسته', 'tired'], en: 'I am tired.', fa: 'خسته‌ام.', say: 'آی اَم تایِرد', e: '😴'},
+  ];
+
+  /* Zero to twenty, then the tens, spelled the way a Persian speaker reads
+     them. A child counting in English gets the word, not a number name he has
+     to decode from a dictionary entry. */
+  const KID_NUM = [
+    ['0', 'zero', 'زیرو'], ['1', 'one', 'وان'], ['2', 'two', 'تو'], ['3', 'three', 'ثری'],
+    ['4', 'four', 'فور'], ['5', 'five', 'فایو'], ['6', 'six', 'سیکس'], ['7', 'seven', 'سِوِن'],
+    ['8', 'eight', 'اِیت'], ['9', 'nine', 'ناین'], ['10', 'ten', 'تِن'], ['11', 'eleven', 'اِلِوِن'],
+    ['12', 'twelve', 'تِلو'], ['13', 'thirteen', 'ثِرتیِن'], ['14', 'fourteen', 'فورتیِن'],
+    ['15', 'fifteen', 'فیفتیِن'], ['16', 'sixteen', 'سیکستیِن'], ['17', 'seventeen', 'سِوِنتیِن'],
+    ['18', 'eighteen', 'اِیتیِن'], ['19', 'nineteen', 'نایِ نتیِن'], ['20', 'twenty', 'تِوِنتی'],
+    ['30', 'thirty', 'ثِرتی'], ['40', 'forty', 'فورتی'], ['50', 'fifty', 'فیفتی'],
+    ['60', 'sixty', 'سیکستی'], ['70', 'seventy', 'سِوِنتی'], ['80', 'eighty', 'اِیتی'],
+    ['90', 'ninety', 'ناینتی'], ['100', 'one hundred', 'وان هَندِرِد'],
+  ];
+  const KID_NUM_FA = ['صفر', 'یک', 'دو', 'سه', 'چهار', 'پنج', 'شش', 'هفت', 'هشت', 'نه', 'ده'];
+
+  /* The week, starting on Saturday the way a Persian child counts it. English
+     names the days after gods and planets; a child only needs the order and
+     the sound, so both are given and nothing else is explained. */
+  const KID_DAYS = [
+    ['شنبه', 'Saturday', 'سَتِردِی'], ['یکشنبه', 'Sunday', 'سَندِی'],
+    ['دوشنبه', 'Monday', 'مَندِی'], ['سه‌شنبه', 'Tuesday', 'تیوزدِی'],
+    ['چهارشنبه', 'Wednesday', 'وِنزدِی'], ['پنجشنبه', 'Thursday', 'ثِرزدِی'],
+    ['جمعه', 'Friday', 'فرایدِی'],
+  ];
+  const KID_DAY_KEYS = ['روز', 'روزها', 'هفته', 'day', 'days', 'week'];
+  const KID_NUM_KEYS = ['عدد', 'اعداد', 'شماره', 'number', 'numbers', 'count', 'بشمار', 'چند تا'];
+
+  /* What a child should never be handed even if the adult engine has a good
+     answer for it: money, exams, jobs, contracts. Asking for one is not a
+     mistake to correct, it is a door to close kindly. */
+  const KID_GROWN = /(قیمت|اشتراک|پرداخت|فاکتور|پول|تومان|درآمد|حقوق|وام|بیمه|مالیات|سرمایه|بورس|ارز|مصاحبه|رزومه|استخدام|شرکت|قرارداد|مدرک|گواهی|سرتیفیکیت|آیلتس|تافل|تعیین سطح|آزمون|کنکور|دانشگاه|certificate|pricing|price|subscription|payment|invoice|refund|salary|income|mortgage|insurance|tax|invest|stock|resume|cv|interview|job|contract|ielts|toefl|cefr|placement|exam)/i;
+
+  /* Folding: what counts as the same word when a child types it. Arabic yeh
+     and kaf arrive from every phone keyboard, the ZWNJ splits «می‌خواهم», and
+     a question mark is not part of the word. */
+  function kFold(text) {
+    return String(text || '')
+      .toLowerCase()
+      .replace(/[يﻯ]/g, 'ی').replace(/ك/g, 'ک')
+      .replace(/[\u200c\u200f\u200e]/g, ' ')
+      /* a child types ۵ on a Persian keyboard as often as 5 */
+      .replace(/[۰-۹]/g, (d) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)))
+      .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
+      .replace(/[.،,!?؟:;"'«»()\[\]]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /* A Latin term is matched on both of its edges ("cat" must not fire inside
+     "catch"). A Persian one is matched at the beginning of a word, because
+     Persian glues its endings on - «خانه‌ها» has to find «خانه» - while the
+     short words must not fire in the middle of a longer one: «نه» lives inside
+     «خانه», and a child asking about a house must not be told "No". */
+  function kHas(hay, term) {
+    const t = kFold(term);
+    if (!t) return false;
+    const lit = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    if (/^[a-z ]+$/.test(t)) return new RegExp('(^|[^a-z])' + lit + '([^a-z]|$)').test(hay);
+    return new RegExp('(^| )' + lit).test(hay);
+  }
+
+  function kArticle(word) {
+    return /^[aeiou]/.test(String(word || '')) ? 'an' : 'a';
+  }
+
+  function kWordCard(w) {
+    const line = w.t === 'color'
+      ? 'The ball is ' + w.en + '.'
+      : 'This is ' + kArticle(w.en) + ' ' + w.en + '.';
+    const lineFa = w.t === 'color' ? 'توپ ' + w.fa + ' است.' : 'این یک ' + w.fa + ' است.';
+    return w.e + ' ' + w.en + '\n' +
+      w.fa + ' — بگو: ' + w.say + '\n\n' +
+      line + '\n' + lineFa;
+  }
+
+  function kTopicCard(topic) {
+    const rows = KID_KB.filter((w) => w.t === topic.id).slice(0, 6);
+    let h = topic.e + ' ' + topic.fa + ' — ' + topic.en + '\n';
+    rows.forEach((w) => { h += w.e + ' ' + w.en + ' = ' + w.fa + ' (' + w.say + ')\n'; });
+    return h + '\n' + topic.say;
+  }
+
+  function kSayCard(p) {
+    return p.e + ' ' + p.en + '\n' + p.fa + ' — بگو: ' + p.say;
+  }
+
+  function kNumberCard(folded) {
+    /* read from the folded text, so ۵ typed on a Persian keyboard is a five */
+    const digits = folded.match(/\d{1,3}/);
+    if (digits) {
+      const n = Number(digits[0]);
+      const row = KID_NUM.find((x) => Number(x[0]) === n);
+      if (row) {
+        const fa = n <= 10 ? KID_NUM_FA[n] : 'عدد ' + n;
+        return '🔢 ' + row[1] + ' = ' + fa + '\nبگو: ' + row[2];
+      }
+    }
+    if (!KID_NUM_KEYS.some((k) => kHas(folded, k))) return '';
+    let h = '🔢 عدد‌ها — Numbers\n';
+    KID_NUM.slice(0, 11).forEach((x) => { h += x[0] + ' = ' + x[1] + ' (' + x[2] + ')\n'; });
+    return h + '\nیک عدد بپرس: «عدد ۱۵»' ;
+  }
+
+  function kDaysCard() {
+    let h = '📅 روزهای هفته — Days of the week\n';
+    KID_DAYS.forEach((d) => { h += d[1] + ' = ' + d[0] + ' (' + d[2] + ')\n'; });
+    return h + '\nبپرس: «امروز چندشنبه است؟» — what day is it today?';
+  }
+
+  /* The four things a child can always do, offered when the question landed
+     nowhere. It replaces the adult menu of "translate a word / vocabulary /
+     grammar / pronunciation", which is a vocabulary lesson about the tutor. */
+  function kMenu() {
+    return '🤔 متوجه نشدم، اشکالی ندارد!\n' +
+      'Ask me like this — این‌طوری بپرس:\n' +
+      '🍎 «سیب»\n🎨 «رنگ‌ها»\n🐱 «گربه به انگلیسی»\n🔢 «عدد ۵»\n' +
+      '👋 «سلام»';
+  }
+
+  function kGrownUp() {
+    return '🙈 این یکی مال بزرگ‌ترهاست.\n' +
+      'That question is for grown-ups.\n\n' +
+      'بیا با هم یک چیز قشنگ یاد بگیریم: بنویس «حیوانات» یا «رنگ‌ها» یا «سیب».';
+  }
+
+  /* The child's answer, or '' when the bank has nothing to say and the engine
+     should answer instead. It never throws and never reaches the network. */
+  function kidAnswer(text) {
+    const folded = kFold(text);
+    if (!folded) return '';
+    if (KID_GROWN.test(String(text || ''))) return kGrownUp();
+    /* a word first: "سیب", "apple", "گربه به انگلیسی" all name one thing. The
+       parenthesised half of a Persian gloss ("شیر (نوشیدنی)") is for the card,
+       not for matching, or both meanings of شیر would collide. */
+    const word = KID_KB.find((w) => kHas(folded, w.en)) ||
+      KID_KB.find((w) => kHas(folded, w.fa.replace(/\s*\(.*\)$/, ''))) ||
+      KID_KB.find((w) => w.say.length > 2 && folded.includes(kFold(w.say)));
+    const phrase = KID_SAYS.find((x) => x.keys.some((k) => kHas(folded, k)));
+    /* the phrase wins over the word when both matched: "how are you" contains
+       "are", not a taught noun, but "سلام" must not be read as a word */
+    if (phrase) return kSayCard(phrase);
+    if (word) return kWordCard(word);
+    const num = kNumberCard(folded);
+    if (num) return num;
+    if (KID_DAY_KEYS.some((k) => kHas(folded, k))) return kDaysCard();
+    const topic = KID_TOPICS.find((x) => x.keys.some((k) => kHas(folded, k)));
+    if (topic) return kTopicCard(topic);
+    return '';
+  }
+
+  /* An adult answer with the adult scaffolding taken out: the asterisks, the
+     CEFR band codes, the phonetic slashes and the double spaces. A child does
+     not need to know that a word is "B2", and a slash sandwich is not a
+     pronunciation to a seven-year-old. */
+  function soften(body) {
+    return String(body || '')
+      .replace(/\*\*/g, '')
+      .replace(/\s*\((?:Pre-)?[ABC][12]\)/g, '')
+      .replace(/\b(?:Pre-A1|[ABC][12])\b\s*[-–—:]?\s*/g, '')
+      .replace(/\/[^\/\n]{1,28}\//g, '')
+      .replace(/[ \t]{2,}/g, ' ')
+      .replace(/[ \t]+\n/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+  }
+
   /* A stable number from the question, so the same question always gets the
      same opener and cheer - a screen that shuffles every time feels broken. */
   function seedOf(text) {
@@ -24559,8 +24918,16 @@ const Kids = (() => {
   function says(text, reply) {
     if (!on()) return reply;
     if (PRIVATE.test(String(text || ''))) return safety();
-    const body = String(reply || '');
+    /* The child's own bank answers first: it knows the shape a beginner needs,
+       and it is the only layer that can promise a Persian meaning and a
+       readable pronunciation for every word it holds. */
+    const own = kidAnswer(text);
+    if (own) return own;
+    const body = soften(String(reply || ''));
     if (!body.trim()) return body;
+    /* The engine's own "I do not understand" menu is written for an adult who
+       knows what a synonym is. A child gets four things he can actually tap. */
+    if (/I'm not sure I understand|متوجه نشدم/.test(body)) return kMenu();
     /* A short answer stays short: one already-friendly line does not need an
        opener and a speech on top of it, only the door. */
     if (body.length < 120) return body + '\n\n' + KID_DOOR;
@@ -24577,8 +24944,10 @@ const Kids = (() => {
   /* The first line and the four chips are drawn before kids.json has been
      read - the transcript is on screen at boot - so the same strings live here
      as constants and the file is what a teacher can edit later. */
-  const KID_WELCOME = 'Hi! I am Fluentify, your English friend. Ask me a word, and we will ' +
-    'learn it together.\nسلام! من Fluentify هستم، دوست انگلیسی تو. یک واژه از من بپرس تا با هم یادش بگیریم.';
+  const KID_WELCOME = 'Hi! I am Fluentify, your English friend. 🦊\n' +
+    'سلام! من فلوئنتیفای هستم، دوست انگلیسی تو. 🦊\n\n' +
+    'یک واژه به فارسی بنویس تا انگلیسی‌اش را یاد بگیری: «سیب»\n' +
+    'Write one word, like apple, and I will teach it to you.';
   const KID_STARTERS = [
     ['colors', 'Colors', 'واژگان رنگ‌ها'],
     ['animals', 'Animals', 'جانوران'],

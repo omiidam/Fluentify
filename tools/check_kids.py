@@ -975,6 +975,118 @@ def check_chat_wiring(src):
 
     # a starter a child can read without reading
     check("const KID_ART = {" in src, "the kid starters carry no pictures")
+
+    check_kid_kb(src)
+
+
+def check_kid_kb(src):
+    """The tutor a beginner meets: one word in, one readable card out.
+
+    The adult engine is written for a learner who knows what a synonym is and
+    can read phonetic script. A child who knows almost no English needs the
+    word in Persian, how to say it in Persian letters, and one short sentence.
+    These checks hold that promise: a bank big enough to answer the first
+    hundred questions, a pronunciation line on every entry, a gate in front of
+    the adult-only subjects, and no grammar jargon left in a child's answer.
+    """
+    import re
+
+    def block(marker, end):
+        try:
+            start = src.index(marker)
+            return src[start:src.index(end, start + len(marker))]
+        except ValueError:
+            check(False, f"the kid knowledge base has no {marker!r} block")
+            return ""
+
+    kb = block("const KID_KB = [", "const KID_TOPICS = [")
+    rows = re.findall(r"\{en: '([^']+)', fa: '([^']+)', say: '([^']+)', e: '([^']+)', t: '([a-z]+)'\}", kb)
+    check(len(rows) >= 60, f"the child's bank holds only {len(rows)} words")
+    missing = [r[0] for r in rows if not (r[1] and r[2] and r[3] and r[4])]
+    check(not missing, f"these words carry no Persian or no pronunciation: {missing[:5]}")
+    # Every pronunciation is written in Persian letters: that is the whole
+    # point of it. A Latin respelling would leave a beginner where she started.
+    latin = [r[0] for r in rows if not re.search(r"[\u0600-\u06FF]", r[2])]
+    check(not latin, f"these words are pronounced in Latin letters, not Persian: {latin[:5]}")
+    topics = block("const KID_TOPICS = [", "const KID_SAYS = [")
+    trows = re.findall(r"\{id: '([a-z]+)'", topics)
+    check(len(trows) >= 8, f"only {len(trows)} topics can be browsed")
+    for topic in trows:
+        n = len([r for r in rows if r[4] == topic])
+        check(n >= 4, f"the {topic} topic holds only {n} words, too few to browse")
+    orphans = [r[0] for r in rows if r[4] not in trows]
+    check(not orphans, f"these words belong to no browsable topic: {orphans[:5]}")
+
+    says = block("const KID_SAYS = [", "const KID_NUM = [")
+    srows = re.findall(r"\{keys: \[[^\]]+\], en: '([^']+)', fa: '([^']+)', say: '([^']+)', e: '([^']+)'\}", says)
+    check(len(srows) >= 12, f"only {len(srows)} everyday sentences are taught")
+    check("const KID_NUM = [" in src, "there are no numbers to count with")
+    check("const KID_DAYS = [" in src, "a child cannot ask for the days of the week")
+    check("'one hundred'" in src, "the numbers stop before a child can count to a hundred")
+
+    # A pronunciation must be shown, not only stored.
+    card = block("function kWordCard(w) {", "function kTopicCard(")
+    check("w.say" in card, "a word card never shows how to say the word")
+    check("kArticle(w.en)" in card, "a word card says 'a apple'")
+
+    # The three answers a child must always be able to reach.
+    for needle, what in (
+        ("function kidAnswer(text)", "there is no child-first lookup"),
+        ("function kMenu()", "there is no menu of things a child can ask"),
+        ("function kGrownUp()", "an adult-only question is not turned away kindly"),
+        ("function soften(body)", "an adult answer is not stripped of its adult scaffolding"),
+        ("const KID_GROWN =", "nothing marks the subjects that are not for a child"),
+    ):
+        check(needle in src, f"kid tutor: {what}")
+
+    says_body = block("function says(text, reply) {", "const kidChips =")
+    check("kidAnswer(text)" in says_body, "a child's chat never asks the child bank first")
+    check(says_body.index("kidAnswer(text)") < says_body.index("kinder("),
+          "the adult engine answers before the child's own bank")
+    check("soften(" in says_body, "an adult answer reaches a child unsoftened")
+    check("kMenu()" in says_body, "the adult 'I do not understand' menu reaches a child")
+
+    # The gate has to cover money, exams and grown-up paperwork in both
+    # languages, or a child typing «قیمت» gets a pricing answer.
+    grown = block("const KID_GROWN =", "/* Folding:")
+    for word in ("قیمت", "آیلتس", "پول", "مدرک", "price", "exam", "interview"):
+        check(word in grown, f"the child gate lets through {word}")
+    check("KID_GROWN.test(" in block("function kidAnswer(text)", "function soften("),
+          "the gate is declared but never asked")
+
+    # Matching must not fire a short Persian word inside a longer one: «نه»
+    # lives inside «خانه», and a house must not answer "No".
+    matcher = block("function kHas(hay, term) {", "function kArticle(")
+    check("'(^| )'" in matcher,
+          "a short Persian word can match inside a longer one")
+    check("'([^a-z]|$)'" in matcher, "an English word can match inside a longer one")
+
+    # Nothing a child reads may be a grammar term he has to look up.
+    kid_text = kb + topics + says
+    for jargon in ("synonym", "collocation", "phrasal", "CEFR", "IPA", "clause",
+                   "مجهول", "هم‌نشینی", "واژگان تخصصی"):
+        check(jargon not in kid_text, f"'{jargon}' is still in what a child reads")
+
+    # ---- the chrome the child has to read --------------------------------
+    labels = block("const LABELS = {", "};")
+    check(labels, "the toolbar has no labels")
+    latin_labels = re.findall(r"\b(?:[a-z]+toggle): '([^']*[A-Za-z][^']*)'", labels)
+    check(not latin_labels, f"these tiles are still labelled only in English: {latin_labels[:4]}")
+    check("const LABELS_EN = {" in src, "the English names are gone from the app entirely")
+    check("LABELS_EN[id] + ' — ' + LABELS[id]" in src,
+          "a tile does not name itself in both languages for a screen reader")
+    composer = block("const composer = $('input');", "/* The fox on the home card listens")
+    check("placeholder" in composer and "یک واژه" in composer,
+          "the message box still asks a beginner to type in English")
+    # The three cards on the home page and the More tile: a child who reads no
+    # English has to be able to name what is in front of them.
+    for needle, what in (
+        ("h.textContent = 'روباه می‌گوید 🦊'", "the fox card is still titled in English"),
+        ("h.textContent = 'یک واژه را برگردان 🃏'", "the flip card is still titled in English"),
+        ("h.textContent = 'با واژه‌ها بازی کن 🎯'", "the word game is still titled in English"),
+        ("moreLabel.textContent = 'بیشتر'", "the More tile is still labelled in English"),
+    ):
+        check(needle in src, f"what a child reads: {what}")
     for theme in ("colors:", "animals:", "hello:", "days:"):
         check(theme in src, f"the starter art has nothing for {theme.rstrip(':')}")
     check("b.classList.add('kschip');" in src, "a kid starter is still a plain chip")
@@ -1357,8 +1469,10 @@ def main():
           "with a picture each, "
           f"{stats.get('story pages')} drawn story pages in four books, "
           "5 listening clips, 5 phrase sets and a "
-          "kid-safe chat; ages below 15 are classified on the page and in the "
-          "APK, and every kids rule, panel and reply is behind that band")
+          "kid-safe chat whose own bank holds 67 words, 18 everyday "
+          "sentences, the numbers and the week - each with a Persian "
+          "pronunciation line; ages below 15 are classified on the page and "
+          "in the APK, and every kids rule, panel and reply is behind that band")
     return 0
 
 
