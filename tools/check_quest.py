@@ -287,6 +287,121 @@ def check_game(src):
           "the result calls a save note that does not exist")
 
 
+def check_feel(src):
+    """Is it a game a small child can play without help, and does it move?
+
+    The brief asks for a modern game with pictures, hints and moving things,
+    so this pins each of those by name rather than trusting the page to keep
+    them: a hint for every one of the six kinds of challenge, a hint that
+    costs nothing, a progress meter, a second character that moves with the
+    hero, scenery that moves by itself, an explanation of the game inside the
+    game, and a way to stop all of it for a child who asked for calm. The
+    usability half is the one a tester would otherwise do by hand: touch
+    targets big enough for a child's finger, focus rings on the new controls,
+    and every new control a real button with a label in both languages.
+    """
+    # --- the hint engine, one answer per kind of challenge
+    check("function hintFor(" in src, "there is no hint for a stuck child")
+    for kind in ("ch.t === 'order'", "ch.t === 'match'", "ch.t === 'listen'",
+                 "ch.t === 'read'", "ch.t === 'gap' || ch.t === 'fill'"):
+        check(kind in src, f"the hint does not know the {kind.split(chr(39))[1]} challenge")
+    check("ch.t === 'gap' || ch.t === 'fill'" in src and "The missing word starts with" in src,
+          "a gap-fill challenge gets no letter hint")
+    check("The sentence starts with" in src, "an ordering challenge gets no first-word hint")
+    check("Press the horn and listen once more" in src,
+          "a listening challenge gets no hint to play the clip again")
+    check("Read the paper again" in src, "a reading challenge gets no hint to re-read")
+    check("function showHint(" in src, "the hint cannot be opened")
+    check("run.hints += 1" in src, "asking for a hint is not counted")
+    check("'hqw-hintbtn'" in src, "the hint has no button in the scene")
+    check("aria-label', 'Hint — راهنمای روباه'" in src,
+          "the hint button has no bilingual label")
+    check("aria-expanded', 'false'" in src and "'hqhint'" in src,
+          "the hint button does not say whether the hint is open")
+    check("aria-label', 'Close the hint — بستن راهنما'" in src,
+          "the hint cannot be closed from the keyboard")
+    check("'hqfa'" in src and "hint.fa" in src, "the hint is not given in Persian too")
+
+    # --- hints are free: no star or coin is taken for asking
+    start = src.index("  function showHint(")
+    body = src[start:start + 1400]
+    check("run.first -= " not in body and "coins -" not in body and "state.events" not in body,
+          "asking for a hint costs the child something")
+
+    # --- the way ahead is measured
+    check("'hqw-prog'" in src, "a mission shows no progress meter")
+    check("role', 'progressbar'" in src, "the progress meter is not announced")
+    check("aria-valuenow" in src, "the progress meter never says where the child is")
+    check("'hqw-count'" in src, 'there is no plain "2 / 6" for a child who cannot read a bar')
+
+    # --- characters and scenery that move
+    check("function palSVG(" in src, "there is no companion character")
+    check("'hqw-pal'" in src, "the companion is never put in the scene")
+    check("run.pal.style.left" in src, "the companion does not follow the hero")
+    for cls in ("hq-sway", "hq-flutter", "hq-tw", "hq-sail"):
+        check(cls in src, f"nothing in the art uses {cls}")
+    for name in ("hqSway", "hqFlutter", "hqTwinkle", "hqSail", "hqBob", "hqWing",
+                 "hqBreathe", "hqHintPop"):
+        check("@keyframes " + name in src, f"the {name} animation is not defined")
+        check("animation: " + name in src, f"the {name} animation is never used")
+    check("animation: hqBreathe 3.4s" in src and "body.kids .hqw-fox svg" in src,
+          "the hero does not breathe when she is standing still")
+    check("hq-sail" in src, "the island has no moving boat")
+    check("butterflies" in src or "hq-flutter" in src, "the scene has nothing fluttering in it")
+    check("const life = bushes + fence + rocks + butterflies + kite;" in src,
+          "the scene has no foreground life layer")
+
+    # --- easy to use: the game explains itself, and every control is reachable
+    check("function helpCard(" in src, "the game never explains itself")
+    check("'How to play · چطور بازی کنیم'" in src, "the how-to-play card has no title")
+    for line in ("Tap a place on the island", "Tap 💡 Hint", "Three stars come from"):
+        check(line in src, f"the how-to-play card does not mention \"{line}\"")
+    check("aria-label', 'How to play — چطور بازی کنیم'" in src,
+          "the help button has no bilingual label")
+    check("'hqw-closer'" in src, "the help card cannot be closed")
+
+    # touch targets: a child's finger is not a mouse pointer
+    for selector, need in ((".hqw-hintbtn", 40), (".hqw-closer", 40),
+                           (".hqw-prop .art", 44), (".hqw-gem", 40)):
+        at = src.find("body.kids " + selector)
+        if at < 0:
+            at = src.find(selector)
+        check(at >= 0, f"{selector} has no rule, so its size is whatever falls out")
+        if at < 0:
+            continue
+        rule = src[at:at + 500]
+        sizes = [int(m) for m in re.findall(r"(?:min-height|height|width): (\d+)px", rule)]
+        check(bool(sizes) and max(sizes) >= need,
+              f"{selector} is smaller than {need}px, which is hard to hit")
+    check("body.kids .hqw-hintbtn:focus-visible" in src,
+          "the hint button shows no focus ring")
+    check("body.kids .hqw-help .hqw-closer:focus-visible" in src,
+          "the help card's button shows no focus ring")
+
+    # --- and all of it can be turned off
+    blocks = [m.start() for m in re.finditer(r"@media \(prefers-reduced-motion: reduce\)", src)]
+    check(bool(blocks), "the game ignores the system's reduced-motion setting")
+    calm = ""
+    for at in blocks:
+        close = src.find("\n  }", at)
+        chunk = src[at:close + 4] if close > at else src[at:at + 700]
+        if "hq-sway" in chunk:
+            calm = chunk
+    check(bool(calm), "no reduced-motion block mentions the game's scenery")
+    for cls in ("hq-sway", "hq-flutter", "hqw-pal", "hqw-fox"):
+        check(cls in calm, f"{cls} keeps moving when motion is reduced")
+    check("body.kids-calm .hq-sway" in src and "body.kids-calm .hqw-fox svg" in src,
+          "the app's own calm switch does not stop the game's animation")
+
+    # --- the art is in the page, not fetched
+    check(not re.search(r"fetch\(\s*['\"]/api/quest/(?!sync)", src),
+          "the game now fetches art instead of drawing it")
+    quest_at = src.find("const Quest = (() => {")
+    module = src[quest_at:src.find("\n})();", quest_at)]
+    check("<img" not in module and "background-image" not in module,
+          "the game reaches for an image file instead of drawing it")
+
+
 def check_bundle_parses():
     """The built page is generated, so it can fall behind webapp.py.
 
@@ -396,6 +511,9 @@ def main():
     print("\noffline and the apk")
     check_offline(src, build)
 
+    print("\nthe feel of it")
+    check_feel(src)
+
     print("\nsync")
     check_sync()
 
@@ -414,7 +532,9 @@ def main():
     print(f"\nPASS  {stats['missions']} missions in 6 ranks with "
           f"{stats['authored']} written challenges and the rest drawn from the "
           "kids bank; the game is placed from the level check, opens only for a "
-          "child, ships inside the offline bundle and syncs by event id")
+          "child, ships inside the offline bundle and syncs by event id; a hint is "
+          "always one tap away, the scenery moves, and all of it stops for a child "
+          "who asked for calm")
     return 0
 
 

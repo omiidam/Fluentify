@@ -920,6 +920,74 @@ def check_chat_wiring(src):
     check("Kids.welcome()" in src, "the opening message never switches to the kid one")
 
 
+    # ---- the child's answer, and the cards under it -----------------------
+    # The knowledge is the adult engine's; what this suite holds is the frame
+    # a child reads: an opener, a middle short enough to keep, a cheer and a
+    # door they can walk through without typing. Every piece is hardcoded in
+    # the page, so it cannot be missing inside the offline APK.
+    says_at = src.index("  function says(text, reply) {")
+    says_body = src[says_at:says_at + 1200]
+    check("return kinder(body, text);" in says_body,
+          "a child's answer is not shaped for a child")
+    check("body.length < 120" in says_body,
+          "a short answer is dressed up until it is no longer short")
+    check("KID_DOOR" in src, "the answer gives the child no next move")
+    check("برای شنیدن" in src, "the door is not written in Persian too")
+    check(src.count("const KID_OPENERS") == 1 and src.count("const KID_CHEERS") == 1,
+          "the kid openers or cheers are not declared exactly once")
+    check("function kinder(" in src, "there is no shaping function for a child's answer")
+    check("core.length > 700" in src, "a very long answer is handed to a child whole")
+    check("lastIndexOf('. ')" in src, "a long answer is not cut at a sentence")
+    check("EMOJI_ANY" in src and "core += ' \U0001F388'" in src,
+          "an answer with no picture in it stays a wall of words")
+
+    # three cards for a child who cannot type a reply yet
+    for key in ("'hear'", "'slow'", "'got'"):
+        check("key: " + key in src, f"the {key} card is missing from the kid chat")
+    check("kidChips, kidSticker, kidCheer," in src,
+          "the chat cannot reach the kid cards")
+    check("chip.key === 'hear'" in src and "Speech.speak(speakable(text))" in src,
+          "the hear card does not read the answer out")
+    check("rate: 0.72" in src, "the slowly card is not slower")
+    check("function speakable(text)" in src,
+          "the answer is read out with its markup and emoji still in it")
+    check("split('\\n')" in src and "[\\u0600-\\u06FF]" in src,
+          "the English voice is handed the Persian lines")
+    chips_at = src.index("if (chip.key === 'hear')")
+    chips_body = src[chips_at:chips_at + 700]
+    check("fetch(" not in chips_body, "a card under an answer goes to the network")
+    check("Kids.kidCheer(text)" in src, "the I-got-it card gets no answer back")
+
+    check("'kchips'" in src and "'kchip'" in src,
+          "the cards are never drawn under a reply")
+    check("typeof Kids !== 'undefined' && Kids.on()" in src,
+          "the cards are not limited to a child's chat")
+    check("bubble.dataset.sticker = Kids.kidSticker(text);" in src,
+          "a reply carries no sticker in a child's chat")
+    check("content: attr(data-sticker)" in src, "the sticker is never shown")
+
+    # a starter a child can read without reading
+    check("const KID_ART = {" in src, "the kid starters carry no pictures")
+    for theme in ("colors:", "animals:", "hello:", "days:"):
+        check(theme in src, f"the starter art has nothing for {theme.rstrip(':')}")
+    check("b.classList.add('kschip');" in src, "a kid starter is still a plain chip")
+    check("sub.textContent = fa" in src, "a kid starter hides its Persian label")
+    check("sub.dir = 'rtl'" in src, "the starter's Persian is not marked right-to-left")
+
+    # and the cards are big enough for a child's finger
+    for selector, need in (("body.kids .kchip", 40), ("body.kids .kschip", 80)):
+        at = src.find(selector)
+        check(at >= 0, f"{selector} has no rule, so its size is whatever falls out")
+        if at < 0:
+            continue
+        rule = src[at:at + 420]
+        sizes = [int(m) for m in re.findall(r"(?:min-height|height|width): (\d+)px", rule)]
+        check(bool(sizes) and max(sizes) >= need, f"{selector} is smaller than {need}px")
+    check("body.kids .kchip:focus-visible" in src,
+          "the answer cards show no focus ring")
+    check("body.kids .kschip:focus-visible" in src,
+          "the starter cards show no focus ring")
+
 def check_offline(src):
     build = BUILD.read_text(encoding="utf-8")
     check('"kids.json"' in build, "kids.json is not in the APK's data list")

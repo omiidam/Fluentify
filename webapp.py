@@ -7731,6 +7731,56 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     body.kids .tools .hbtn span { font-size: 8px; }
   }
 
+  /* ---- Kids chat: answering by tapping, and a sticker on the corner -----
+     A child who cannot spell a question yet can still answer, so every tutor
+     bubble carries three cards: hear it, hear it slowly, and "I got it". The
+     cards are the same in the browser and in the APK, need no network, and are
+     drawn at 40px so a small finger hits the one it meant. The sticker is the
+     bubble's own corner, not another row of chrome. */
+  body.kids .kchips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+  body.kids .kchip {
+    display: inline-flex; align-items: center; gap: 5px;
+    min-height: 40px; padding: 4px 13px; border-radius: 999px;
+    font: inherit; font-size: 12.5px; font-weight: 800; cursor: pointer;
+    color: #2f4a2c; background: #eaf7ea; border: 2px solid #9fd39a;
+    box-shadow: 0 3px 0 #9fd39a;
+  }
+  body.kids .kchip .e { font-size: 15px; line-height: 1; }
+  body.kids .kchip:hover { transform: translateY(-1px); }
+  body.kids .kchip:active { transform: translateY(2px); box-shadow: 0 1px 0 #9fd39a; }
+  body.kids .kchip:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 3px; }
+  body.kids .kchip:nth-child(2) { background: #e8f2ff; border-color: #9dc0f0; box-shadow: 0 3px 0 #9dc0f0; }
+  body.kids .kchip:nth-child(3) { background: #fff5d6; border-color: #e8cb72; box-shadow: 0 3px 0 #e8cb72; }
+
+  body.kids .msg.bot { position: relative; }
+  /* the sticker hangs over the corner, so nothing above it may clip */
+  body.kids .row.bot .bubble-wrap { overflow: visible; }
+  body.kids .msg.bot::after {
+    content: attr(data-sticker);
+    position: absolute; top: -11px; inset-inline-end: -5px;
+    font-size: 18px; line-height: 1;
+    transform: rotate(9deg);
+    filter: drop-shadow(0 1px 1px rgba(60, 30, 10, .25));
+  }
+
+  /* a child's starter is a card with the thing on it, not a chip with a word */
+  body.kids .kschip {
+    display: grid; justify-items: center; align-content: center; gap: 2px;
+    width: 86px; min-height: 88px; padding: 8px 6px;
+    border-radius: 18px; background: #fff8ea; color: var(--k-ink);
+    border: 2px solid var(--k-c3); box-shadow: 0 4px 0 var(--k-c3);
+    font: inherit; cursor: pointer;
+  }
+  body.kids .kschip .art {
+    font-size: 16px; letter-spacing: 1px; line-height: 1.15;
+    white-space: nowrap;
+  }
+  body.kids .kschip .cap { font-size: 12px; font-weight: 800; color: var(--k-ink); }
+  body.kids .kschip .sub { font-size: 10.5px; color: var(--k-ink-2); }
+  body.kids .kschip:hover { transform: translateY(-2px) rotate(-1deg); }
+  body.kids .kschip:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--k-c3); }
+  body.kids .kschip:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 3px; }
+
   /* ---- Kids chat: colour, glass and a face ----------------------------
      The conversation was the same cream transcript as the adult one, which is
      right for a study tool and blank for a child. The room now has colour
@@ -9446,6 +9496,157 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     body.kids .hqw-pin .disc, body.kids .hqw-map .cl1,
     body.kids .hqw-map .cl2, body.kids .hqw-map .cl3 { animation: none; }
   }
+
+  /* ---------- hints, progress and things that move ------------------------
+     Three of the things that separate a game from a quiz with a picture
+     behind it: the scene has life in it, the child can always ask for one
+     sentence of help, and the way ahead is measured. Everything here is drawn
+     in the page - no image to download, nothing to be missing in the APK - and
+     every one of these animations stops for a child who asked for calm, or
+     whose system asks for less motion. */
+  body.kids .hqw-prog {
+    flex: 1 1 110px; min-width: 84px; height: 10px; border-radius: 999px;
+    background: var(--k-track); border: 1px solid var(--k-line-strong);
+    overflow: hidden;
+  }
+  body.kids .hqw-prog i {
+    display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--k-primary), var(--k-c1));
+    transition: width .45s cubic-bezier(.2, .8, .2, 1);
+  }
+  body.kids .hqw-count {
+    font-size: 11px; font-weight: 800; color: var(--k-ink-2);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+
+  /* the hint: one pill that is always in the same corner of the scene, so a
+     stuck child does not have to hunt for it */
+  body.kids .hqw-hintbtn {
+    position: absolute; right: 10px; top: 62px; z-index: 7;
+    display: inline-flex; align-items: center; gap: 5px;
+    min-height: 40px; padding: 4px 12px; border-radius: 999px;
+    font: inherit; font-size: 11.5px; font-weight: 800; cursor: pointer;
+    color: #5a4212; background: #ffe9a3; border: 2px solid #e0b54e;
+    box-shadow: 0 3px 0 #c9a03c;
+  }
+  body.kids .hqw-hintbtn:hover { transform: translateY(-1px); }
+  body.kids .hqw-hintbtn:active { transform: translateY(2px); box-shadow: 0 1px 0 #c9a03c; }
+  body.kids .hqw-hintbtn:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 3px; }
+  body.kids .hqw-hintbtn[aria-expanded="true"] { background: #fff8dd; }
+
+  body.kids .hqw-hint {
+    position: absolute; left: 10px; right: 10px; top: 108px; z-index: 8;
+    display: grid; gap: 4px; padding: 9px 12px 11px;
+    border-radius: 16px; color: #223;
+    background: rgba(255, 251, 236, .98);
+    border: 2px solid #e0b54e; box-shadow: 0 12px 26px -18px rgba(24, 34, 60, .9);
+    animation: hqHintPop .26s ease-out both;
+  }
+  body.kids .hqw-hint .hqw-hint-h {
+    display: flex; align-items: center; gap: 6px; font-size: 10.5px;
+    font-weight: 900; letter-spacing: .03em; color: #8a6a1c;
+  }
+  body.kids .hqw-hint b { font-size: 13px; line-height: 1.45; font-weight: 800; }
+  body.kids .hqw-hint .hqfa {
+    font-size: 12px; line-height: 1.6; color: #4a5a62;
+    direction: rtl; text-align: right;
+  }
+  body.kids .hqw-hint .hqw-hint-x {
+    margin-inline-start: auto; border: 0; background: none; cursor: pointer;
+    font: inherit; font-size: 15px; line-height: 1; color: #8a6a1c;
+    padding: 6px 8px; border-radius: 8px; min-width: 32px; min-height: 32px;
+  }
+  body.kids .hqw-hint .hqw-hint-x:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 1px; }
+
+  /* the companion: a small bird that keeps the hero company and follows her */
+  body.kids .hqw-pal {
+    position: absolute; z-index: 3; width: 44px; height: 44px;
+    pointer-events: none; transition: left .5s ease, top .5s ease;
+  }
+  body.kids .hqw-pal svg { width: 100%; height: 100%; display: block; animation: hqBob 2.8s ease-in-out infinite; }
+  body.kids .hqw-pal .wing { transform-box: fill-box; transform-origin: 70% 50%; animation: hqWing 1.1s ease-in-out infinite; }
+
+  /* the hero breathes between actions, so she is never a frozen picture */
+  body.kids .hqw-fox svg { transform-box: fill-box; transform-origin: 50% 100%; animation: hqBreathe 3.4s ease-in-out infinite; }
+  body.kids .hqw-next-fox svg { animation: hqBreathe 3.4s ease-in-out infinite; }
+
+  /* scenery that moves: grass and bushes lean, butterflies wander, flowers
+     twinkle, the boat on the sea sails, the kite pulls at its string */
+  body.kids .hq-sway { transform-box: fill-box; transform-origin: bottom center; animation: hqSway 4.4s ease-in-out infinite; }
+  body.kids .hq-flutter { transform-box: fill-box; transform-origin: center; animation: hqFlutter 6s ease-in-out infinite; }
+  body.kids .hq-tw { animation: hqTwinkle 2.6s ease-in-out infinite; }
+  body.kids .hq-sail { transform-box: fill-box; transform-origin: center; animation: hqSail 5.4s ease-in-out infinite; }
+  body.kids .hq-shimmer { animation: hqShimmer 3.2s ease-in-out infinite; }
+
+  @keyframes hqSway {
+    0%, 100% { transform: rotate(-2.6deg); }
+    50% { transform: rotate(2.6deg); }
+  }
+  @keyframes hqFlutter {
+    0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+    25% { transform: translate(16px, -12px) rotate(6deg); }
+    50% { transform: translate(30px, 2px) rotate(-2deg); }
+    75% { transform: translate(14px, 12px) rotate(5deg); }
+  }
+  @keyframes hqTwinkle {
+    0%, 100% { opacity: .45; }
+    50% { opacity: 1; }
+  }
+  @keyframes hqSail {
+    0%, 100% { transform: translateX(0) rotate(-1.4deg); }
+    50% { transform: translateX(20px) rotate(1.4deg); }
+  }
+  @keyframes hqBob {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-7px) rotate(5deg); }
+  }
+  @keyframes hqWing {
+    0%, 100% { transform: rotate(-12deg) scaleY(1); }
+    50% { transform: rotate(14deg) scaleY(.82); }
+  }
+  @keyframes hqBreathe {
+    0%, 100% { transform: scaleY(1) translateY(0); }
+    50% { transform: scaleY(1.03) translateY(-1px); }
+  }
+  @keyframes hqHintPop {
+    from { opacity: 0; transform: translateY(-7px) scale(.97); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes hqShimmer {
+    0%, 100% { opacity: .3; }
+    50% { opacity: .7; }
+  }
+
+  /* the way to play, one card, opened from the island */
+  body.kids .hqw-help {
+    display: grid; gap: 7px; padding: 12px 14px;
+    border-radius: 18px; background: var(--k-surface);
+    border: 1.5px solid var(--k-primary-line);
+  }
+  body.kids .hqw-help h4 { margin: 0; font-size: 14px; color: var(--k-ink); }
+  body.kids .hqw-help ol { margin: 0; padding-inline-start: 20px; display: grid; gap: 5px; }
+  body.kids .hqw-help li { font-size: 12.5px; line-height: 1.5; color: var(--k-ink); }
+  body.kids .hqw-help li b { color: var(--k-primary-dark); }
+  body.kids .hqw-help .hqfa { font-size: 12px; line-height: 1.65; color: var(--k-ink-2); direction: rtl; text-align: right; }
+  body.kids .hqw-help .hqw-closer {
+    justify-self: start; min-height: 40px; padding: 6px 14px; border-radius: 999px;
+    font: inherit; font-size: 12px; font-weight: 800; cursor: pointer;
+    background: var(--k-primary-wash); color: var(--k-primary-dark);
+    border: 2px solid var(--k-primary-line);
+  }
+  body.kids .hqw-help .hqw-closer:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    body.kids .hq-sway, body.kids .hq-flutter, body.kids .hq-tw, body.kids .hq-sail,
+    body.kids .hq-shimmer, body.kids .hqw-pal svg, body.kids .hqw-pal .wing,
+    body.kids .hqw-fox svg, body.kids .hqw-next-fox svg { animation: none; }
+    body.kids .hqw-hint, body.kids .hqw-prog i { animation: none; transition: none; }
+  }
+  /* the app's own calm switch means the same thing as the system one */
+  body.kids-calm .hq-sway, body.kids-calm .hq-flutter, body.kids-calm .hq-tw,
+  body.kids-calm .hq-sail, body.kids-calm .hq-shimmer,
+  body.kids-calm .hqw-pal svg, body.kids-calm .hqw-pal .wing,
+  body.kids-calm .hqw-fox svg { animation: none; }
 
   /* ---------- a mission scene -------------------------------------------- */
   body.kids .hqw-scene {
@@ -11216,12 +11417,44 @@ function renderStarters() {
 
   const row = document.createElement('div');
   row.className = 'schips';
+  /* A child reads a picture before a word, so a kid's starters are cards with
+     the thing itself on them and the Persian underneath. The query a tap sends
+     is still the plain word the engine knows. */
+  const KID_ART = {
+    colors: ['🎨', '🏳️', '🍎'], animals: ['🐶', '🐱', '🐟'],
+    hello: ['👋', '😊', '🙋'], days: ['📅', '☀️', '🌙'],
+    numbers: ['🔢', '🎲', '🖐️'], family: ['👨‍👩‍👧', '🏠', '❤️'],
+    food: ['🍎', '🥛', '🍞'], weather: ['☀️', '🌧️', '❄️'],
+  };
+  const art = (query, label) => {
+    const key = String(query + ' ' + label).toLowerCase();
+    const found = Object.keys(KID_ART).find((k) => key.indexOf(k) >= 0);
+    return found ? KID_ART[found] : ['📚', '✏️', '🎈'];
+  };
   (Kids.on() ? Kids.starters() : STARTERS).forEach(([query, label, fa]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'schip';
-    b.textContent = label;
-    b.title = fa;
+    if (Kids.on()) {
+      b.classList.add('kschip');
+      const pics = document.createElement('span');
+      pics.className = 'art';
+      pics.setAttribute('aria-hidden', 'true');
+      pics.textContent = art(query, label).join(' ');
+      const cap = document.createElement('span');
+      cap.className = 'cap';
+      cap.textContent = label;
+      const sub = document.createElement('span');
+      sub.className = 'sub';
+      sub.dir = 'rtl';
+      sub.lang = 'fa';
+      sub.textContent = fa || '';
+      b.append(pics, cap, sub);
+      b.setAttribute('aria-label', label + ' — ' + (fa || ''));
+    } else {
+      b.textContent = label;
+      b.title = fa;
+    }
     b.onclick = () => send(query);
     row.appendChild(b);
   });
@@ -11607,12 +11840,59 @@ function add(text, who, opts = {}) {
 
   wrap.appendChild(bubble);
   wrap.appendChild(meta);
+
+  /* A child answers by tapping, not by typing. Under every answer sit the same
+     three cards: hear it, hear it slowly, and say you got it. They are drawn on
+     the reply so they are exactly where the words are, and all three work with
+     the network off. */
+  if (who === 'bot' && !opts.err && !opts.typing && typeof Kids !== 'undefined' && Kids.on()) {
+    bubble.dataset.sticker = Kids.kidSticker(text);
+    const chips = document.createElement('div');
+    chips.className = 'kchips';
+    Kids.kidChips().forEach((chip) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'kchip';
+      b.setAttribute('aria-label', chip.label + ' — ' + chip.fa);
+      const icon = document.createElement('span');
+      icon.className = 'e';
+      icon.textContent = chip.icon;
+      b.append(icon, Object.assign(document.createElement('span'), {textContent: chip.label}));
+      const say = () => Speech.speak(speakable(text));
+      b.onclick = () => {
+        if (chip.key === 'hear') say();
+        else if (chip.key === 'slow') Speech.speak(speakable(text), null, {rate: 0.72});
+        else {
+          add('⭐ I got it!', 'user', {quiet: true});
+          add(Kids.kidCheer(text), 'bot');
+        }
+      };
+      chips.appendChild(b);
+    });
+    wrap.appendChild(chips);
+  }
+
   row.appendChild(av);
   row.appendChild(wrap);
   chat.appendChild(row);
   if (pinned) chat.scrollTop = chat.scrollHeight;
   else paintJump();
   return bubble;
+}
+
+/* What a reply sounds like out loud: the markup off, the emoji out (a voice
+   reads them as their names), and the Persian lines out, because an English
+   voice reading Persian is noise. */
+function speakable(text) {
+  return String(text || '')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/[*_`#>|]/g, ' ')
+    .split('\n')
+    .filter((line) => !/[\u0600-\u06FF]/.test(line))
+    .join(' ')
+    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function showTyping() {
@@ -23891,6 +24171,75 @@ const Kids = (() => {
       '\n' + (c.safety_fa || 'من نشانی یا شمارهٔ تلفن تو را لازم ندارم. بیا انگلیسی یاد بگیریم!');
   }
 
+  /* ---- how an answer looks to a child --------------------------------
+     The knowledge is the adult engine's, word for word; what changes is the
+     shape around it. A child needs a friendly first line, a middle short
+     enough to hold in their head, a cheer, and then a door: hear it again, or
+     one of the cards below. All of it is hardcoded here rather than fetched,
+     so an answer is the same shape in the browser and inside the APK. */
+  const EMOJI_ANY = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
+  const KID_OPENERS = [
+    ['Ooh, good question! 🦊', 'اوه، پرسش خوبی! 🦊'],
+    ['Let us learn it together! 🌟', 'بیا با هم یادش بگیریم! 🌟'],
+    ['Yay, here we go! 🎈', 'آفرین، شروع کنیم! 🎈'],
+    ['Nice one — listen closely! 👂', 'خوب بود — خوب گوش کن! 👂'],
+  ];
+  const KID_CHEERS = [
+    ['You did it! ⭐', 'آفرین! ⭐'],
+    ['High five! 🙌', 'دستت را بده! 🙌'],
+    ['You are a star! 🌟', 'تو یک ستاره‌ای! 🌟'],
+  ];
+  const KID_STICKERS = ['🦊', '🌟', '🎈', '🐣', '🍎', '🚀', '🌈'];
+  const KID_DOOR = 'Tap 🔊 to hear it, or tap a card below! 🎈\n' +
+    'برای شنیدن 🔊 را بزن یا یکی از کارت‌های پایین را انتخاب کن! 🎈';
+  /* Three cards under every answer, and no fourth: each one does something a
+     child can predict, and none of them needs the network. */
+  const KID_CHIPS = [
+    {key: 'hear', icon: '🔊', label: 'Hear it', fa: 'بشنو'},
+    {key: 'slow', icon: '🐢', label: 'Slowly', fa: 'آهسته'},
+    {key: 'got', icon: '⭐', label: 'I got it!', fa: 'یاد گرفتم'},
+  ];
+
+  /* A stable number from the question, so the same question always gets the
+     same opener and cheer - a screen that shuffles every time feels broken. */
+  function seedOf(text) {
+    const s = String(text || '');
+    let h = 7;
+    for (let i = 0; i < s.length; i += 1) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return h;
+  }
+  const pickOne = (list, text) => list[seedOf(text) % list.length];
+
+  function kinder(body, text) {
+    let core = String(body || '').trim();
+    if (!core) return core;
+    /* A child gives up on a wall of text. A list is the worst case - "colors"
+       came back as forty-one lines - so a long list keeps its first six and
+       says there are more, and a long paragraph is cut at the last sentence
+       that fits. Both cuts are honest (an ellipsis) and never land inside a
+       word. */
+    const lines = core.split('\n');
+    if (lines.length > 7) {
+      const kept = [];
+      let used = 0;
+      for (const line of lines) {
+        if (kept.length >= 6 || (kept.length && used + line.length > 340)) break;
+        kept.push(line);
+        used += line.length;
+      }
+      core = kept.join('\n') + '\n…';
+    } else if (core.length > 700) {
+      const head = core.slice(0, 700);
+      const at = Math.max(head.lastIndexOf('. '), head.lastIndexOf('؟ '), head.lastIndexOf('\n'));
+      core = (at > 240 ? head.slice(0, at + 1) : head).trim() + ' …';
+    }
+    if (!EMOJI_ANY.test(core)) core += ' 🎈';
+    const open = pickOne(KID_OPENERS, text);
+    const cheer = pickOne(KID_CHEERS, text);
+    return open[0] + '\n' + open[1] + '\n\n' + core + '\n\n' +
+      cheer[0] + ' ' + cheer[1] + '\n\n' + KID_DOOR;
+  }
+
   /* The page-level half of the kids tutor: the same engine, the same
      knowledge base, a friendlier frame around it. It runs on the reply, so it
      behaves the same online and inside the offline APK. */
@@ -23898,9 +24247,19 @@ const Kids = (() => {
     if (!on()) return reply;
     if (PRIVATE.test(String(text || ''))) return safety();
     const body = String(reply || '');
-    if (body.length < 120) return body;
-    return body + '\n\n' + praise() + '\n' + ((doc && doc.chat && doc.chat.praise_fa) || 'آفرین!');
+    if (!body.trim()) return body;
+    /* A short answer stays short: one already-friendly line does not need an
+       opener and a speech on top of it, only the door. */
+    if (body.length < 120) return body + '\n\n' + KID_DOOR;
+    return kinder(body, text);
   }
+
+  const kidChips = () => KID_CHIPS.slice();
+  const kidSticker = (text) => pickOne(KID_STICKERS, text);
+  const kidCheer = (text) => {
+    const c = pickOne(KID_CHEERS, text);
+    return c[0] + '\n' + c[1] + '\n\n' + KID_DOOR;
+  };
 
   /* The first line and the four chips are drawn before kids.json has been
      read - the transcript is on screen at boot - so the same strings live here
@@ -23929,6 +24288,7 @@ const Kids = (() => {
   return {on, enable, off, load, land, repaint, home, me, analyze, analysisHtml,
           vocab, grammar, stories,
           reading, listening, phrases, says, welcome, starters, data,
+          kidChips, kidSticker, kidCheer,
           // the panel lifecycle and the page lifecycle both end narration
           // through here; nothing may keep talking in a closed section
           stopNarration};
@@ -32520,8 +32880,33 @@ const Quest = (() => {
       /* drifting clouds */ '<g class="cl cl1" opacity=".95"><ellipse cx="150" cy="86" rx="46" ry="22" fill="#fff"/><ellipse cx="190" cy="78" rx="34" ry="26" fill="#fff"/><ellipse cx="216" cy="90" rx="26" ry="18" fill="#fff"/></g>' +
       '<g class="cl cl2" opacity=".9"><ellipse cx="720" cy="70" rx="40" ry="20" fill="#fff"/><ellipse cx="758" cy="62" rx="30" ry="24" fill="#fff"/></g>' +
       '<g class="cl cl3" opacity=".8"><ellipse cx="880" cy="128" rx="30" ry="15" fill="#fff"/><ellipse cx="906" cy="122" rx="22" ry="18" fill="#fff"/></g>' +
-      /* a couple of palms and flowers, still */ '<g><rect x="76" y="452" width="6" height="30" fill="#9a6a44"/><path d="M79 452 q-26 -14 -34 4 q22 -6 34 4 q10 -14 30 -8 q-14 10 -30 8 Z" fill="#4fa36b"/></g>' +
-      '<g fill="#fff3c4"><circle cx="250" cy="512" r="4"/><circle cx="600" cy="418" r="4"/><circle cx="700" cy="500" r="4"/><circle cx="470" cy="540" r="4"/></g>' +
+      /* a couple of palms, leaning in the wind */
+      '<g transform="translate(76 452)"><g class="hq-sway">' +
+        '<rect x="0" y="0" width="6" height="30" fill="#9a6a44"/>' +
+        '<path d="M3 0 q-26 -14 -34 4 q22 -6 34 4 q10 -14 30 -8 q-14 10 -30 8 Z" fill="#4fa36b"/>' +
+      '</g></g>' +
+      '<g transform="translate(706 502)"><g class="hq-sway" style="animation-delay:.7s">' +
+        '<rect x="0" y="0" width="5" height="26" fill="#9a6a44"/>' +
+        '<path d="M2 0 q-22 -12 -29 3 q19 -5 29 3 q9 -12 26 -7 q-12 9 -26 7 Z" fill="#4fa36b"/>' +
+      '</g></g>' +
+      /* life on the water: a boat under sail, two gulls, and flowers that
+         twinkle. Wrapped so the animation moves the art and not its place. */
+      '<g transform="translate(232 300)"><g class="hq-sail">' +
+        '<path d="M-26 0 h52 l-10 13 h-32 Z" fill="#f6e2bf" stroke="#b98a45" stroke-width="2"/>' +
+        '<path d="M0 -2 v-34" stroke="#8a5a3b" stroke-width="3"/>' +
+        '<path d="M2 -34 l22 22 h-22 Z" fill="#fff6e2" stroke="#b98a45" stroke-width="2"/>' +
+        '<path d="M-2 -30 l-16 18 h16 Z" fill="#ffe1a8" stroke="#b98a45" stroke-width="2"/>' +
+      '</g></g>' +
+      '<g transform="translate(300 176)"><g class="hq-flutter" style="animation-duration:7s">' +
+        '<path d="M0 0 q10 -10 20 0 M20 0 q10 -10 20 0" stroke="#5b7a8c" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+      '</g></g>' +
+      '<g transform="translate(690 150)"><g class="hq-flutter" style="animation-duration:8.5s">' +
+        '<path d="M0 0 q8 -8 16 0 M16 0 q8 -8 16 0" stroke="#5b7a8c" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+      '</g></g>' +
+      '<g fill="#fff3c4"><circle class="hq-tw" cx="250" cy="512" r="4" style="animation-delay:.2s"/>' +
+        '<circle class="hq-tw" cx="600" cy="418" r="4" style="animation-delay:.9s"/>' +
+        '<circle class="hq-tw" cx="700" cy="500" r="4" style="animation-delay:1.4s"/>' +
+        '<circle class="hq-tw" cx="470" cy="540" r="4" style="animation-delay:.5s"/></g>' +
       /* the places and the hero are drawn in this same space, so they scale
          and crop with the art instead of floating over it */
       '<g id="hqpins"></g><g id="hqfox"></g>' +
@@ -32562,7 +32947,26 @@ const Quest = (() => {
     dress.title = 'Your look — ظاهر قهرمان';
     dress.setAttribute('aria-label', 'Change how the hero looks');
     hud.appendChild(dress);
+    const help = el('button', 'hqw-btn', '❓');
+    help.type = 'button';
+    help.title = 'How to play — چطور بازی کنیم';
+    help.setAttribute('aria-label', 'How to play — چطور بازی کنیم');
+    hud.appendChild(help);
     wrap.appendChild(hud);
+
+    const helpHost = el('div');
+    wrap.appendChild(helpHost);
+    help.onclick = () => {
+      if (helpHost.firstChild) { helpHost.innerHTML = ''; help.setAttribute('aria-expanded', 'false'); return; }
+      help.setAttribute('aria-expanded', 'true');
+      helpHost.appendChild(helpCard(() => {
+        helpHost.innerHTML = '';
+        help.setAttribute('aria-expanded', 'false');
+        help.focus();
+      }));
+      Snd.play('tap');
+    };
+    help.setAttribute('aria-expanded', 'false');
 
     /* the next mission in one card, above the island: the first thing on the
        page is the thing to do, and the map is what the child explores after
@@ -32828,6 +33232,36 @@ const Quest = (() => {
       flowers += '<g transform="translate(' + x + ' ' + y + ')"><rect x="-1" y="-14" width="2" height="14" fill="#5fae66"/><circle cx="0" cy="-18" r="4.5" fill="' + c + '"/><circle cx="0" cy="-18" r="2" fill="#f2bf3f"/></g>';
     }
     const birds = '<g class="cl cl2" fill="none" stroke="#5b7a8c" stroke-width="2" stroke-linecap="round"><path d="M180 120 q8 -8 16 0 M200 128 q8 -8 16 0"/></g>';
+    /* The foreground: things that live at the edge of the scene and move on
+       their own, so every page breathes even when the child is still. Each
+       one is wrapped so the animation turns the art, not its position. */
+    let bushes = '';
+    for (let k = 0; k < 4; k += 1) {
+      const bx = 60 + k * 250;
+      const by = 428 + (k % 2) * 10;
+      bushes += '<g transform="translate(' + bx + ' ' + by + ') scale(1.25)">' +
+        '<g class="hq-sway" style="animation-delay:' + (k * 0.45) + 's">' +
+        '<path d="M-24 0 q0 -20 20 -20 q9 -11 22 -2 q15 -2 17 13 q8 5 0 9 Z" fill="#4f9d5e"/>' +
+        '<circle cx="-7" cy="-13" r="3" fill="#f7b7c8"/>' +
+        '<circle cx="11" cy="-17" r="3" fill="#ffe9a3"/></g></g>';
+    }
+    const fence = '<g stroke="#b98a45" stroke-width="3" fill="none" opacity=".85">' +
+      '<path d="M330 452 v-22 M362 452 v-22 M394 452 v-22 M330 440 h64"/></g>';
+    const rocks = '<g><ellipse cx="880" cy="446" rx="17" ry="10" fill="#c9bfae"/>' +
+      '<ellipse cx="900" cy="450" rx="11" ry="7" fill="#b7ab98"/></g>';
+    const butterflies = '<g transform="translate(250 330)"><g class="hq-flutter" style="animation-duration:6.4s">' +
+      '<g transform="scale(1.9)"><path d="M0 0 q-10 -10 -2 -16 q6 -4 8 4 q2 -8 8 -4 q8 6 -2 16 Z" fill="#f7b7c8" stroke="#d78ba3" stroke-width="1.2"/>' +
+      '<path d="M7 -8 v10" stroke="#b06a83" stroke-width="1.2"/></g>' +
+      '</g></g>' +
+      '<g transform="translate(770 360)"><g class="hq-flutter" style="animation-duration:8s; animation-delay:.6s">' +
+      '<g transform="scale(1.7)"><path d="M0 0 q-9 -9 -2 -14 q5 -4 7 3 q2 -7 7 -3 q7 5 -2 14 Z" fill="#ffe08a" stroke="#d9b249" stroke-width="1.2"/>' +
+      '<path d="M6 -7 v9" stroke="#c39a2d" stroke-width="1.2"/></g>' +
+      '</g></g>';
+    const kite = '<g transform="translate(865 150)"><g class="hq-flutter" style="animation-duration:7.5s">' +
+      '<path d="M0 0 l16 -10 l16 10 l-16 22 Z" fill="#8a7fc4" stroke="#6a5fa8" stroke-width="2"/>' +
+      '<path d="M16 -10 v32 M0 0 h32" stroke="#6a5fa8" stroke-width="1.5"/>' +
+      '<path d="M16 22 q6 12 -2 20" stroke="#6a5fa8" stroke-width="1.5" fill="none"/></g></g>';
+    const life = bushes + fence + rocks + butterflies + kite;
     return '<svg class="bg" viewBox="0 0 1000 470" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
       '<defs><linearGradient id="sk' + i + '" x1="0" y1="0" x2="0" y2="1">' +
       '<stop offset="0" stop-color="' + sky[0] + '"/><stop offset="1" stop-color="' + sky[1] + '"/></linearGradient></defs>' +
@@ -32841,7 +33275,7 @@ const Quest = (() => {
       '<path d="M0 424 q250 -26 500 0 q250 24 500 -4 v50 H0 Z" fill="#8fd18a"/>' +
       '<path d="M0 448 q260 -18 520 2 q240 20 480 -6 v26 H0 Z" fill="#79bf74"/>' +
       landmark[i] +
-      grass + flowers +
+      grass + flowers + life +
       '</svg>';
   }
 
@@ -32868,7 +33302,7 @@ const Quest = (() => {
     const chs = challengesFor(mission);
     if (chs.length < 3) return;
     run = {mission: mission, chs: chs, i: 0, first: 0, answered: false,
-           wrong: 0, finished: false, scene: null, fox: null};
+           wrong: 0, hints: 0, finished: false, scene: null, fox: null, pal: null};
     view = 'play';
     paintRun();
     Snd.play('tap');
@@ -32902,6 +33336,17 @@ const Quest = (() => {
     const pebbles = el('span', 'hqd');
     run.chs.forEach((_, i) => pebbles.appendChild(el('i', i < run.i ? 'ok' : (i === run.i ? 'on' : ''))));
     hud.appendChild(pebbles);
+    const prog = el('span', 'hqw-prog');
+    prog.setAttribute('role', 'progressbar');
+    prog.setAttribute('aria-valuemin', '1');
+    prog.setAttribute('aria-valuemax', String(run.chs.length));
+    prog.setAttribute('aria-valuenow', String(run.i + 1));
+    prog.setAttribute('aria-label', 'Challenge ' + (run.i + 1) + ' of ' + run.chs.length);
+    const fill = el('i');
+    fill.style.width = Math.round((run.i / run.chs.length) * 100) + '%';
+    prog.appendChild(fill);
+    hud.appendChild(prog);
+    hud.appendChild(el('span', 'hqw-count', (run.i + 1) + ' / ' + run.chs.length));
     hud.appendChild(el('span', 'hqw-chip coin', '🪙 ' + coins()));
     wrap.appendChild(hud);
 
@@ -32923,6 +33368,21 @@ const Quest = (() => {
     run.scene = scene;
     run.fox = fox;
 
+    const hintBtn = el('button', 'hqw-hintbtn', '💡 Hint');
+    hintBtn.type = 'button';
+    hintBtn.setAttribute('aria-label', 'Hint — راهنمای روباه');
+    hintBtn.setAttribute('aria-expanded', 'false');
+    hintBtn.setAttribute('aria-controls', 'hqhint');
+    hintBtn.onclick = () => showHint(ch);
+    scene.appendChild(hintBtn);
+
+    const pal = el('div', 'hqw-pal');
+    pal.innerHTML = palSVG();
+    pal.style.left = '58%';
+    pal.style.top = '46%';
+    scene.appendChild(pal);
+    run.pal = pal;
+
     wrap.appendChild(scene);
     body.appendChild(wrap);
 
@@ -32937,7 +33397,9 @@ const Quest = (() => {
 
   function foxGo(x, stateName) {
     if (!run || !run.fox) return;
-    run.fox.style.left = Math.max(4, Math.min(84, x)) + '%';
+    const at = Math.max(4, Math.min(84, x));
+    run.fox.style.left = at + '%';
+    if (run.pal) run.pal.style.left = Math.min(90, at + 9) + '%';
     run.fox.classList.remove('walk', 'run', 'jump', 'cheer', 'sad');
     void run.fox.offsetWidth;
     if (stateName) run.fox.classList.add(stateName);
@@ -33022,6 +33484,131 @@ const Quest = (() => {
     if (ch.item && !ch.counted) { ch.counted = true; noteItem(ch.item, ok); }
     showScroll(ok, ch, ok ? null : 'The right answer is marked in green.');
     run.scene.querySelectorAll('.hqw-prop, .hqw-gem, .hqw-plank').forEach((n) => { n.dataset.done = '1'; });
+  }
+
+  /* ------------------------------------------------------------- hints
+     A child who is stuck needs one sentence, not a second question. The hint
+     is built from the challenge in hand - its first letter, how many letters
+     it has, the first word of the sentence - so it is right for all six kinds
+     and cannot drift away from the data. Hints are free and never cost a star:
+     asking for help is how a child learns to keep going by themselves, and
+     charging for it would teach the opposite. */
+  function hintFor(ch) {
+    const answer = String(ch.answer || '').trim();
+    const words = answer.split(/\s+/).filter(Boolean);
+    const lead = words[0] || answer;
+    const first = answer.slice(0, 1).toUpperCase();
+    const letters = answer.replace(/[^A-Za-z]/g, '').length;
+    if (ch.t === 'order') {
+      return {
+        en: 'The sentence starts with “' + lead + '”. That is word 1 of ' + words.length + '.',
+        fa: 'جمله با «' + lead + '» آغاز می‌شود؛ این واژهٔ ۱ از ' + words.length + ' واژه است.',
+      };
+    }
+    if (ch.t === 'match') {
+      const pairs = ch.pairs || [];
+      const one = pairs[0] || ['', ''];
+      return {
+        en: 'There are ' + pairs.length + ' pairs. Tap an English word first, then the Persian word that means it. One pair is “' + one[0] + '”.',
+        fa: pairs.length + ' جفت هست. نخست واژهٔ انگلیسی را بزن، سپس معنی فارسی‌اش را. یک جفت «' + one[0] + '» است.',
+      };
+    }
+    if (ch.t === 'listen') {
+      return {
+        en: 'Press the horn and listen once more. The answer sounds like “' + answer + '”.',
+        fa: 'شیپور را بزن و یک بار دیگر گوش کن. پاسخ شبیه «' + answer + '» است.',
+      };
+    }
+    if (ch.t === 'read') {
+      return {
+        en: 'Read the paper again - the answer is written in it, word for word.',
+        fa: 'کاغذ را دوباره بخوان؛ پاسخ واژه‌به‌واژه در آن نوشته شده است.',
+      };
+    }
+    if (ch.t === 'gap' || ch.t === 'fill') {
+      return {
+        en: 'The missing word starts with “' + first + '” and has ' + letters + ' letters.',
+        fa: 'واژهٔ گمشده با «' + first + '» آغاز می‌شود و ' + letters + ' حرف دارد.',
+      };
+    }
+    return {
+      en: 'The right answer starts with “' + first + '” and has ' + letters + ' letters. Say it out loud once before you tap.',
+      fa: 'پاسخ درست با «' + first + '» آغاز می‌شود و ' + letters + ' حرف دارد. پیش از انتخاب، یک بار بلند بگو.',
+    };
+  }
+
+  function showHint(ch) {
+    if (!run || !run.scene || run.answered) return;
+    const scene = run.scene;
+    const btn = scene.querySelector('.hqw-hintbtn');
+    const open = scene.querySelector('.hqw-hint');
+    if (open) {
+      open.remove();
+      if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+      return;
+    }
+    const hint = hintFor(ch);
+    run.hints += 1;
+    const box = el('div', 'hqw-hint');
+    box.id = 'hqhint';
+    box.setAttribute('role', 'status');
+    const head = el('div', 'hqw-hint-h');
+    head.appendChild(el('span', null, '🦊 Fox hint · راهنمای روباه'));
+    const x = el('button', 'hqw-hint-x', '✕');
+    x.type = 'button';
+    x.setAttribute('aria-label', 'Close the hint — بستن راهنما');
+    x.onclick = () => {
+      box.remove();
+      if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+    };
+    head.appendChild(x);
+    box.append(head, el('b', null, hint.en));
+    box.appendChild(faLine(hint.fa, 'hqfa'));
+    scene.appendChild(box);
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    Snd.play('tap');
+    foxAct('jump', 700);
+  }
+
+  /* The companion. A second character in the scene, drawn from four shapes,
+     that keeps the hero company and moves when she does - a still picture with
+     one character in it reads as an illustration, two reads as a place. */
+  function palSVG() {
+    return '<svg viewBox="0 0 60 60" aria-hidden="true">' +
+      '<ellipse cx="30" cy="54" rx="14" ry="3" fill="rgba(24,34,60,.14)"/>' +
+      '<ellipse class="wing" cx="30" cy="34" rx="12" ry="14" fill="#7fb7e8"/>' +
+      '<ellipse cx="30" cy="33" rx="8" ry="10" fill="#a8d4f5"/>' +
+      '<circle cx="30" cy="20" r="9" fill="#5aa9e6"/>' +
+      '<path d="M36 19 l8 3 l-8 3 Z" fill="#ffb020"/>' +
+      '<circle cx="33" cy="18" r="1.8" fill="#24343a"/>' +
+      '<path d="M22 24 q8 6 17 0" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>' +
+      '<path d="M26 10 q4 -5 8 0" stroke="#5aa9e6" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+      '</svg>';
+  }
+
+  /* How to play, in three lines, openable from the island - the game should
+     explain itself without a grown-up sitting beside the child. */
+  function helpCard(onClose) {
+    const card = el('div', 'hqw-help');
+    card.id = 'hqhelp';
+    card.appendChild(el('h4', null, 'How to play · چطور بازی کنیم'));
+    const list = el('ol');
+    [['Tap a place on the island, then a mission.', 'روی یک جای جزیره بزن، بعد یک مأموریت را انتخاب کن.'],
+     ['Answer by tapping a picture, a word or a stone.', 'با زدن یک تصویر، واژه یا سنگ پاسخ بده.'],
+     ['Stuck? Tap 💡 Hint - the fox helps, and it costs nothing.', 'گیر کرده‌ای؟ 💡 راهنما را بزن؛ روباه کمک می‌کند و هزینه‌ای ندارد.'],
+     ['Three stars come from answering right first time.', 'سه ستاره از پاسخ درست در نوبت اول به دست می‌آید.']]
+      .forEach(([en, fa]) => {
+        const li = el('li');
+        li.appendChild(el('b', null, en));
+        li.appendChild(faLine(fa, 'hqfa'));
+        list.appendChild(li);
+      });
+    card.appendChild(list);
+    const close = el('button', 'hqw-closer', 'Got it · فهمیدم');
+    close.type = 'button';
+    close.onclick = onClose;
+    card.appendChild(close);
+    return card;
   }
 
   /* ---- choose the object: one prop per option, laid out in the scene ---- */
@@ -33413,6 +34000,13 @@ const Quest = (() => {
     const msg = el('p', null, 'You answered ' + run.first + ' of ' + total + ' right the first time, and found ' + (stars * 10) + ' coins.');
     msg.appendChild(faLine(' ' + run.first + ' از ' + total + ' پاسخ را بار اول درست زدی و ' + (stars * 10) + ' سکه پیدا کردی.', 'hqfa'));
     card.appendChild(msg);
+    if (run.hints > 0) {
+      const hintNote = el('p', 'hqnote');
+      hintNote.appendChild(document.createTextNode('You asked the fox for ' + run.hints +
+        ' hint' + (run.hints === 1 ? '' : 's') + ' - and it cost you no stars.'));
+      hintNote.appendChild(faLine(' ' + run.hints + ' بار از روباه راهنما خواستی و هیچ ستاره‌ای کم نشد.', 'hqfa'));
+      card.appendChild(hintNote);
+    }
     if (stars > before && before > 0) card.appendChild(el('p', 'hqnote', 'New best: ' + stars + ' stars (was ' + before + ').'));
 
     const nowDone = rankDone(mission.rank);
