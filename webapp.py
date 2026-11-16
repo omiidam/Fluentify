@@ -8933,6 +8933,59 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .kbook-dot.on { background: var(--k-c5); }
   .kbook-dot:focus-visible { outline: 2px solid var(--k-ink); outline-offset: 2px; }
 
+  /* ---- a vendored slice of Tailwind -----------------------------------
+     This page is one hand-written stylesheet served offline and copied into
+     the APK, so Tailwind cannot arrive as a CDN script here: it would need the
+     network on first paint and would simply be absent inside the app. What
+     the new stories section uses is the subset of utilities it actually needs,
+     written out once with Tailwind's own prefix option (tw-), and mapped onto
+     the kids palette so a utility class cannot introduce a colour that is not
+     in the theme. Same names, same meanings, no build step, no network. */
+  body.kids .tw-flex { display: flex; }
+  body.kids .tw-flex-col { flex-direction: column; }
+  body.kids .tw-flex-wrap { flex-wrap: wrap; }
+  body.kids .tw-grid { display: grid; }
+  body.kids .tw-items-center { align-items: center; }
+  body.kids .tw-items-start { align-items: flex-start; }
+  body.kids .tw-items-baseline { align-items: baseline; }
+  body.kids .tw-justify-between { justify-content: space-between; }
+  body.kids .tw-justify-center { justify-content: center; }
+  body.kids .tw-gap-1 { gap: 4px; }
+  body.kids .tw-gap-2 { gap: 8px; }
+  body.kids .tw-gap-3 { gap: 12px; }
+  body.kids .tw-shrink-0 { flex: none; }
+  body.kids .tw-w-full { width: 100%; }
+  body.kids .tw-mt-2 { margin-top: 8px; }
+  body.kids .tw-mt-3 { margin-top: 12px; }
+  body.kids .tw-p-3 { padding: 12px; }
+  body.kids .tw-rounded-xl { border-radius: 14px; }
+  body.kids .tw-rounded-2xl { border-radius: 18px; }
+  body.kids .tw-rounded-full { border-radius: 999px; }
+  body.kids .tw-text-sm { font-size: 12px; }
+  body.kids .tw-text-base { font-size: 13.5px; }
+  body.kids .tw-text-lg { font-size: 15.5px; }
+  body.kids .tw-font-bold { font-weight: 700; }
+  body.kids .tw-font-black { font-weight: 900; }
+  body.kids .tw-text-ink { color: var(--k-ink); }
+  body.kids .tw-text-muted { color: var(--k-ink-2); }
+
+  /* ---- stories: a drawn picture on every page ------------------------- */
+  .kscene {
+    margin: 0; border-radius: 14px; overflow: hidden;
+    border: 2.5px solid var(--paper-edge); background: #cfeeff;
+  }
+  .kscene-svg { display: block; width: 100%; aspect-ratio: 16 / 10; }
+  .kscene-cap {
+    padding: 7px 10px; background: var(--k-c5-w); font-size: 11.5px;
+    border-top: 2px solid var(--paper-edge);
+  }
+  .kscene-cap b { color: var(--k-c5-i); }
+  .kscene-cap i { font-style: normal; color: var(--k-ink-2); }
+  .kbc-art-scene { padding: 0; background: #cfeeff; }
+  .kbc-art-scene .kscene-svg { width: 100%; height: 100%; aspect-ratio: auto; }
+  .kstory-lines { gap: 8px; }
+  .kstory-lines li b { font-size: 15px; }
+
   .klist { display: flex; flex-direction: column; gap: 8px; }
   .krowbtn {
     display: flex; align-items: center; gap: 11px; width: 100%;
@@ -22918,219 +22971,613 @@ const Kids = (() => {
     }
   }
 
+  /* ---- one book, shared by Read and Stories ---------------------------
+
+     Both sections hand this component a list of leaves and get the same paper,
+     spine, page number, corner and 3D turn. It exists because the second
+     section to want a book should not get a second implementation of the
+     flick: the first one took three passes to get the timing right (the leaf
+     must be face down before its text is replaced, and the animation must not
+     outlive a closed panel).
+
+     opts: { host, title, titleFa, leaves, backLabel, onBack }
+       leaves   array of functions; each is handed the leaf's inner box and
+                fills it. Index 0..n-1, one per page. */
+  function turnBook(opts) {
+    let at = 0;
+    let turning = false;
+    let closed = false;
+    const total = opts.leaves.length;
+
+    opts.host.innerHTML = '';
+    if (opts.backLabel && opts.onBack) opts.host.appendChild(back(opts.backLabel, opts.onBack));
+
+    const book = document.createElement('section');
+    book.className = 'kbook tw-flex tw-flex-col tw-gap-2';
+    book.setAttribute('aria-label', opts.title + ' — ' + total + ' pages');
+
+    const head = document.createElement('div');
+    head.className = 'kbook-h';
+    const titles = document.createElement('div');
+    titles.className = 'kbook-title';
+    const h = document.createElement('b');
+    h.textContent = opts.title;
+    const titleFa = document.createElement('i');
+    titleFa.dir = 'rtl';
+    titleFa.lang = 'fa';
+    titleFa.textContent = opts.titleFa || '';
+    titles.append(h, titleFa);
+    const meter = document.createElement('span');
+    meter.className = 'kbook-meter';
+    head.append(titles, meter);
+
+    const stage = document.createElement('div');
+    stage.className = 'kbook-stage';
+    stage.tabIndex = 0;
+    const leaf = document.createElement('article');
+    leaf.className = 'kpage';
+    stage.appendChild(leaf);
+    book.append(head, stage);
+
+    const nav = document.createElement('div');
+    nav.className = 'kbook-nav';
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'kbook-btn kbook-prev';
+    prev.setAttribute('aria-label', 'The page before — صفحهٔ قبل');
+    prev.append(Object.assign(document.createElement('span'), { textContent: '‹' }),
+      Object.assign(document.createElement('span'), { textContent: 'Previous' }));
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'kbook-btn kbook-next';
+    next.setAttribute('aria-label', 'The next page — صفحهٔ بعد');
+    next.append(Object.assign(document.createElement('span'), { textContent: 'Next' }),
+      Object.assign(document.createElement('span'), { textContent: '›' }));
+    const dots = document.createElement('div');
+    dots.className = 'kbook-dots';
+    nav.append(prev, dots, next);
+    book.appendChild(nav);
+    opts.host.appendChild(book);
+
+    const paint = () => {
+      if (closed) return;
+      leaf.innerHTML = '';
+      meter.textContent = (at + 1) + ' / ' + total;
+      prev.disabled = at === 0;
+      next.disabled = at === total - 1;
+      [...dots.children].forEach((dot, i) => dot.classList.toggle('on', i === at));
+      const inner = document.createElement('div');
+      inner.className = 'kpage-in';
+      leaf.appendChild(inner);
+      opts.leaves[at](inner, { go: (i) => jump(i) });
+
+      const num = document.createElement('span');
+      num.className = 'kpage-num';
+      num.textContent = at + 1;
+      leaf.appendChild(num);
+
+      const curl = document.createElement('button');
+      curl.type = 'button';
+      curl.className = 'kpage-curl';
+      curl.setAttribute('aria-label', 'Turn the page — صفحه را برگردان');
+      curl.onclick = () => turn(1);
+      leaf.appendChild(curl);
+    };
+
+    const jump = (i) => {
+      if (turning || i === at || i < 0 || i >= total) return;
+      at = i;
+      paint();
+      leaf.classList.add('kflip-in-next');
+    };
+
+    const buildDots = () => {
+      dots.innerHTML = '';
+      for (let i = 0; i < total; i += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'kbook-dot';
+        dot.setAttribute('aria-label', 'Page ' + (i + 1) + ' — صفحهٔ ' + (i + 1));
+        dot.onclick = () => jump(i);
+        dots.appendChild(dot);
+      }
+    };
+
+    /* The turn: the leaf swings away on its spine, the next one is written
+       while it is face down, and it comes back up from the other side. Only
+       transform and opacity move. A child who asked for calm gets the next
+       page with no motion at all. */
+    const turn = (dir) => {
+      const target = at + dir;
+      if (turning) return;
+      if (target < 0 || target >= total) {
+        stage.classList.remove('knudge');
+        void stage.offsetWidth;
+        stage.classList.add('knudge');
+        return;
+      }
+      if (KAnim.calm()) {
+        at = target;
+        paint();
+        return;
+      }
+      turning = true;
+      leaf.classList.add(dir > 0 ? 'kflip-out-next' : 'kflip-out-prev');
+      window.setTimeout(() => {
+        at = target;
+        paint();
+        leaf.classList.remove('kflip-out-next', 'kflip-out-prev');
+        leaf.classList.add(dir > 0 ? 'kflip-in-next' : 'kflip-in-prev');
+        window.setTimeout(() => {
+          leaf.classList.remove('kflip-in-next', 'kflip-in-prev');
+          turning = false;
+        }, 300);
+      }, 340);
+    };
+
+    prev.onclick = () => turn(-1);
+    next.onclick = () => turn(1);
+
+    let startX = null;
+    stage.addEventListener('touchstart', (e) => {
+      startX = e.touches[0] ? e.touches[0].clientX : null;
+    }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      if (startX == null || !e.changedTouches[0]) { startX = null; return; }
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 42) turn(dx < 0 ? 1 : -1);
+      startX = null;
+    }, { passive: true });
+    stage.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); turn(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); turn(-1); }
+    });
+
+    buildDots();
+    paint();
+    return {
+      close: () => { closed = true; KAnim.stopLines(); },
+      go: jump,
+      turn,
+    };
+  }
+
+  /* The last leaf of both sections: the questions, on paper, with the way
+     back to the beginning. */
+  function endLeaf(questions, againLabel) {
+    return (inner, api) => {
+      inner.classList.add('kpage-end');
+      const head = document.createElement('div');
+      head.className = 'kpage-end-h tw-flex tw-items-baseline tw-gap-2';
+      const cheer = document.createElement('b');
+      cheer.textContent = 'The end 🎉';
+      const cheerFa = document.createElement('i');
+      cheerFa.dir = 'rtl';
+      cheerFa.lang = 'fa';
+      cheerFa.textContent = 'پایان داستان';
+      head.append(cheer, cheerFa);
+      const ask = document.createElement('p');
+      ask.className = 'kpage-ask tw-text-sm';
+      ask.textContent = 'Three little questions about what you just read.';
+      const askFa = document.createElement('p');
+      askFa.className = 'kpage-ask kfa tw-text-sm';
+      askFa.dir = 'rtl';
+      askFa.lang = 'fa';
+      askFa.textContent = 'سه پرسش کوچک دربارهٔ چیزی که خواندی.';
+      inner.append(head, ask, askFa);
+      const quizBox = document.createElement('div');
+      quizBox.className = 'kpage-quiz';
+      inner.appendChild(quizBox);
+      quiz(quizBox, questions);
+      const again = document.createElement('button');
+      again.type = 'button';
+      again.className = 'kbook-again';
+      again.textContent = againLabel || '↻ Read it again · دوباره بخوان';
+      again.onclick = () => api.go(0);
+      inner.appendChild(again);
+    };
+  }
+
+  /* ---- stories: a picture book, drawn rather than photographed ---------
+
+     A story page needs a picture that says exactly what the line says, and a
+     search for "cat pushes red ball with nose" returns a photograph of a cat
+     on a sofa. So the pictures here are drawn: flat shapes with a thick ink
+     outline, in the app's own colours, one scene per page, composed from a
+     handful of parts (cat, bird, tree, child, sun, cloud, boat, puddle). They
+     cost no download, work inside the APK with the network off, and cannot
+     arrive as the wrong animal.
+
+     Each story is cut into leaves of two lines, the way the reading section
+     is, and the leaves turn with the same book: paper, spine, corner, 3D
+     flick. The picture and its two-word caption per leaf are hardcoded, keyed
+     by story id and page number, so a story gains a page by gaining lines. */
+  const INK = '#3b3226';
+
+  const svgScene = (label, body) =>
+    '<svg class="kscene-svg" viewBox="0 0 320 200" role="img" aria-label="' +
+    label + '" preserveAspectRatio="xMidYMid slice">' + body + '</svg>';
+
+  /* sky and ground, the two fills every outdoor scene starts with */
+  function backdrop(top, ground, groundY) {
+    return `<rect width="320" height="200" fill="${top}"/>` +
+      `<rect y="${groundY}" width="320" height="${200 - groundY}" fill="${ground}"/>`;
+  }
+
+  function sun(x, y, r, color) {
+    let rays = '';
+    for (let i = 0; i < 8; i += 1) {
+      const a = (Math.PI / 4) * i;
+      rays += `<line x1="${(x + Math.cos(a) * (r + 6)).toFixed(1)}" y1="${(y + Math.sin(a) * (r + 6)).toFixed(1)}"` +
+        ` x2="${(x + Math.cos(a) * (r + 14)).toFixed(1)}" y2="${(y + Math.sin(a) * (r + 14)).toFixed(1)}"` +
+        ` stroke="${color}" stroke-width="3" stroke-linecap="round"/>`;
+    }
+    return rays + `<circle cx="${x}" cy="${y}" r="${r}" fill="${color}"/>`;
+  }
+
+  function starShape(x, y, r, fill) {
+    const pts = [];
+    for (let i = 0; i < 10; i += 1) {
+      const ang = -Math.PI / 2 + (Math.PI / 5) * i;
+      const rad = i % 2 ? r * 0.46 : r;
+      pts.push((x + Math.cos(ang) * rad).toFixed(1) + ',' + (y + Math.sin(ang) * rad).toFixed(1));
+    }
+    return `<polygon points="${pts.join(' ')}" fill="${fill}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  }
+
+  const cloud = (x, y, s = 1, fill = '#ffffff') =>
+    `<g transform="translate(${x} ${y}) scale(${s})"><ellipse cx="-16" cy="2" rx="16" ry="11" fill="${fill}"/>` +
+    `<ellipse cx="16" cy="2" rx="18" ry="12" fill="${fill}"/><ellipse cx="0" cy="-6" rx="20" ry="14" fill="${fill}"/></g>`;
+
+  const tree = (x, y, s = 1) =>
+    `<g transform="translate(${x} ${y}) scale(${s})">` +
+    `<rect x="-8" y="-58" width="16" height="58" rx="5" fill="#a5713c" stroke="${INK}" stroke-width="2.5"/>` +
+    `<circle cx="0" cy="-72" r="28" fill="#67b74a" stroke="${INK}" stroke-width="2.5"/>` +
+    `<circle cx="-22" cy="-56" r="18" fill="#7bc95c" stroke="${INK}" stroke-width="2.5"/>` +
+    `<circle cx="22" cy="-56" r="18" fill="#7bc95c" stroke="${INK}" stroke-width="2.5"/>` +
+    `<circle cx="-8" cy="-84" r="4" fill="#e2453e"/><circle cx="12" cy="-70" r="4" fill="#e2453e"/></g>`;
+
+  const cat = (x, y, s = 1, fill = '#f0a24a') =>
+    `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">` +
+    `<path d="M-20 -10 q-20 4 -14 -14" fill="none"/>` +
+    `<ellipse cx="0" cy="-12" rx="21" ry="13" fill="${fill}"/>` +
+    `<circle cx="16" cy="-30" r="13" fill="${fill}"/>` +
+    `<path d="M6 -38 l-2 -12 l11 6 z" fill="${fill}"/>` +
+    `<path d="M26 -38 l2 -12 l-11 6 z" fill="${fill}"/>` +
+    `<circle cx="12" cy="-32" r="1.8" fill="${INK}" stroke="none"/>` +
+    `<circle cx="21" cy="-32" r="1.8" fill="${INK}" stroke="none"/>` +
+    `<path d="M15 -26 q2.5 2.5 5 0" fill="none" stroke-width="2"/>` +
+    `<path d="M9 -27 h-7 M9 -24 h-7 M26 -27 h7 M26 -24 h7" stroke-width="1.4"/></g>`;
+
+  const bird = (x, y, s = 1, fill = '#5aa9e6') =>
+    `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">` +
+    `<path d="M-6 -4 l0 6 M5 -4 l0 6"/>` +
+    `<ellipse cx="0" cy="-15" rx="15" ry="12" fill="${fill}"/>` +
+    `<circle cx="11" cy="-28" r="9.5" fill="${fill}"/>` +
+    `<path d="M19 -29 l9 3 l-9 3 z" fill="#ffb020"/>` +
+    `<circle cx="13" cy="-30" r="1.7" fill="${INK}" stroke="none"/>` +
+    `<path d="M-8 -17 q7 6 14 0" fill="none" stroke="#fff" stroke-width="3"/></g>`;
+
+  const ball = (x, y, r = 13, fill = '#e2453e') =>
+    `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${INK}" stroke-width="2.5"/>` +
+    `<path d="M${x - r * 0.7} ${y - r * 0.35} q${r * 0.7} ${r * 0.85} ${r * 1.4} 0"` +
+    ` fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`;
+
+  function kid(x, y, s, o) {
+    const skin = (o && o.skin) || '#f6c9a0';
+    const hair = (o && o.hair) || '#3b3226';
+    const coat = (o && o.coat) || '#4f8ef7';
+    return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="2.5"` +
+      ' stroke-linejoin="round" stroke-linecap="round">' +
+      `<path d="M-7 -20 l-2 -14 M7 -20 l2 -14"/>` +
+      `<rect x="-13" y="-56" width="26" height="38" rx="10" fill="${coat}"/>` +
+      `<path d="M-13 -50 l-9 13 M13 -50 l9 13"/>` +
+      `<circle cx="0" cy="-68" r="14" fill="${skin}"/>` +
+      `<path d="M-14 -70 a14 14 0 0 1 28 0 q-14 -9 -28 0z" fill="${hair}"/>` +
+      `<circle cx="-5" cy="-66" r="1.9" fill="${INK}" stroke="none"/>` +
+      `<circle cx="5" cy="-66" r="1.9" fill="${INK}" stroke="none"/>` +
+      `<path d="M-4 -60 q4 3 8 0" fill="none" stroke-width="2"/></g>`;
+  }
+
+  const backpack = (x, y) =>
+    `<g transform="translate(${x} ${y})"><rect x="-11" y="-24" width="22" height="26" rx="7"` +
+    ` fill="#7bc95c" stroke="${INK}" stroke-width="2.5"/><rect x="-7" y="-16" width="14" height="10"` +
+    ` rx="3" fill="#e8f6ee" stroke="${INK}" stroke-width="2"/></g>`;
+
+  const houseRow = (y) =>
+    `<g stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">` +
+    `<rect x="18" y="${y - 74}" width="70" height="74" rx="6" fill="#ffd9a8"/>` +
+    `<path d="M12 ${y - 74} l41 -30 l41 30 z" fill="#e2453e"/>` +
+    `<rect x="42" y="${y - 46}" width="22" height="20" rx="3" fill="#bfe4ff"/>` +
+    `<rect x="112" y="${y - 58}" width="58" height="58" rx="6" fill="#cfe9c9"/>` +
+    `<path d="M106 ${y - 58} l35 -26 l35 26 z" fill="#8b6ce8"/>` +
+    `<rect x="132" y="${y - 40}" width="18" height="18" rx="3" fill="#ffe9a8"/>` +
+    `<rect x="196" y="${y - 66}" width="66" height="66" rx="6" fill="#ffd9a8"/>` +
+    `<path d="M190 ${y - 66} l39 -28 l39 28 z" fill="#3478f6"/>` +
+    `<rect x="218" y="${y - 42}" width="22" height="20" rx="3" fill="#bfe4ff"/></g>`;
+
+  const windowFrame = (x, y, w, h) =>
+    `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="#12203c" stroke="${INK}" stroke-width="3"/>` +
+    `<path d="M${x + w / 2} ${y} v${h} M${x} ${y + h / 2} h${w}" stroke="${INK}" stroke-width="3"/>` +
+    `<rect x="${x - 8}" y="${y + h}" width="${w + 16}" height="10" rx="4" fill="#a5713c" stroke="${INK}" stroke-width="2.5"/></g>`;
+
+  const mug = (x, y, s = 1) =>
+    `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">` +
+    `<rect x="-11" y="-20" width="22" height="20" rx="5" fill="#fff8dc"/>` +
+    `<path d="M11 -16 q9 4 0 10" fill="none"/>` +
+    `<path d="M-4 -26 q4 -5 0 -10 M4 -26 q4 -5 0 -10" fill="none" stroke="#b9b1a1" stroke-width="2.2"/>` +
+    `<rect x="-11" y="-20" width="22" height="7" rx="3" fill="#e8c7a0" stroke="none"/></g>`;
+
+  const apple = (x, y, s = 1) =>
+    `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">` +
+    `<circle cx="0" cy="0" r="11" fill="#e2453e"/>` +
+    `<path d="M0 -11 q1 -7 7 -8" fill="none"/>` +
+    `<path d="M2 -16 q9 -4 11 4 q-8 3 -11 -4z" fill="#67b74a"/></g>`;
+
+  const boat = (x, y, s = 1, flag = true) =>
+    `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">` +
+    `<path d="M-24 0 l48 0 l-12 12 l-24 0 z" fill="#ffffff"/>` +
+    `<path d="M-14 -14 l28 0 l-14 14 z" fill="#eef2ff"/>` +
+    (flag ? `<path d="M0 -14 v-16" stroke="${INK}" stroke-width="2"/><path d="M0 -30 l12 5 l-12 5 z" fill="#e2453e"/>` : '') +
+    `</g>`;
+
+  const puddle = (x, y, rx, ry) =>
+    `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#7fc4f0" stroke="${INK}" stroke-width="2.5"/>` +
+    `<ellipse cx="${x - rx * 0.25}" cy="${y - ry * 0.35}" rx="${rx * 0.35}" ry="${ry * 0.25}" fill="#bfe4ff" stroke="none"/>`;
+
+  function rain(x, y, n) {
+    let out = '';
+    for (let i = 0; i < n; i += 1) {
+      const px = x + (i * 23) % 300;
+      const py = y + ((i * 37) % 120);
+      out += `<line x1="${px}" y1="${py}" x2="${px - 5}" y2="${py + 12}" stroke="#5aa9e6"` +
+        ' stroke-width="2.5" stroke-linecap="round"/>';
+    }
+    return out;
+  }
+
+  const grassTufts = (y) =>
+    `<path d="M20 ${y} q4 -12 10 -14 M30 ${y} q3 -10 8 -12 M60 ${y} q4 -12 10 -14` +
+    ` M250 ${y} q4 -12 10 -14 M270 ${y} q3 -10 8 -12" stroke="#4a9c36" stroke-width="3"` +
+    ' fill="none" stroke-linecap="round"/>';
+
+  const flowers = (y) =>
+    `<g stroke="${INK}" stroke-width="2"><path d="M96 ${y} v-10" stroke="#4a9c36" stroke-width="2.5"/>` +
+    `<circle cx="96" cy="${y - 14}" r="5" fill="#ff8fb1"/><circle cx="96" cy="${y - 14}" r="2" fill="#ffd34f"/>` +
+    `<path d="M232 ${y} v-10" stroke="#4a9c36" stroke-width="2.5"/>` +
+    `<circle cx="232" cy="${y - 14}" r="5" fill="#ffd34f"/><circle cx="232" cy="${y - 14}" r="2" fill="#e2453e"/></g>`;
+
+  const hearts = (list) => list.map(([x, y, s]) =>
+    `<path d="M0 0 c-6 -8 -16 -2 -10 6 c3 4 10 9 10 9 c0 0 7 -5 10 -9 c6 -8 -4 -14 -10 -6z"` +
+    ` transform="translate(${x} ${y}) scale(${s})" fill="#ff6b8a" stroke="${INK}" stroke-width="2"/>`).join('');
+
+  const notes = (list) => list.map(([x, y]) =>
+    `<g transform="translate(${x} ${y})" fill="${INK}"><circle cx="0" cy="0" r="4"/><path d="M4 0 v-16"` +
+    ' stroke="' + INK + '" stroke-width="2.5"/><path d="M4 -16 q9 2 9 8" fill="none" stroke="' + INK +
+    '" stroke-width="2.5"/></g>').join('');
+
+  const desk = (x, y) =>
+    `<g stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">` +
+    `<rect x="${x}" y="${y}" width="76" height="10" rx="3" fill="#e8b97a"/>` +
+    `<path d="M${x + 8} ${y + 10} v18 M${x + 68} ${y + 10} v18"/></g>`;
+
+  /* One drawing per story page, keyed "<story>-<page>". */
+  const STORY_SCENES = {
+    'red-ball-1': () => svgScene('A little cat finds a red ball in the garden',
+      backdrop('#cfeeff', '#8fd36a', 132) + sun(272, 38, 20, '#ffd34f') + cloud(70, 40, 0.9) +
+      tree(52, 132, 0.8) + grassTufts(150) + flowers(150) +
+      cat(120, 150, 1.15) + ball(190, 152, 15)),
+
+    'red-ball-2': () => svgScene('The red ball rolls under a big tree, where a small bird sits',
+      backdrop('#cfeeff', '#8fd36a', 128) + cloud(250, 36, 0.85) +
+      tree(196, 168, 1.15) + grassTufts(168) +
+      ball(150, 176, 14) + bird(258, 176, 1.1)),
+
+    'red-ball-3': () => svgScene('The cat and the bird play until the sun goes down',
+      backdrop('#ffd9a8', '#7bbf5a', 138) + sun(160, 118, 30, '#ff9f43') +
+      cloud(56, 40, 0.8, '#ffe8c9') + cloud(268, 48, 0.7, '#ffe8c9') +
+      cat(78, 158, 1.1) + bird(238, 158, 1.1) + ball(160, 168, 13) +
+      hearts([[120, 96, 1.1], [200, 84, 1]])),
+
+    'first-day-1': () => svgScene('Mina puts on her new bag and her mother smiles at the gate',
+      backdrop('#cfeeff', '#9ad97a', 140) + sun(268, 40, 19, '#ffd34f') + cloud(64, 42, 0.8) +
+      houseRow(140) + backpack(104, 132) + kid(96, 168, 1.1, { coat: '#ff8fb1', hair: '#5b3a1e' }) +
+      kid(196, 168, 1.25, { coat: '#8b6ce8', hair: '#3b3226' }) +
+      `<path d="M206 -6 q6 -6 12 0" transform="translate(0 150)" fill="none" stroke="${INK}" stroke-width="2.5"/>`),
+
+    'first-day-2': () => svgScene('In the classroom a girl says "sit here with me", and they learn a rain song',
+      `<rect width="320" height="200" fill="#fff3d6"/>` +
+      `<rect y="164" width="320" height="36" fill="#e8b97a"/>` +
+      `<rect x="186" y="22" width="112" height="76" rx="8" fill="#bfe4ff" stroke="${INK}" stroke-width="3"/>` +
+      `<path d="M242 22 v76 M186 60 h112" stroke="${INK}" stroke-width="3"/>` +
+      rain(196, 30, 9) +
+      kid(96, 164, 1.15, { coat: '#ff8fb1', hair: '#5b3a1e' }) +
+      kid(196, 164, 1.15, { coat: '#8b6ce8' }) +
+      `<rect x="16" y="160" width="288" height="12" rx="4" fill="#e8b97a" stroke="${INK}" stroke-width="2.5"/>` +
+      `<path d="M40 172 v16 M280 172 v16" stroke="${INK}" stroke-width="3"/>` +
+      `<rect x="128" y="152" width="34" height="7" rx="2" fill="#ffffff" stroke="${INK}" stroke-width="2"/>` +
+      notes([[132, 132], [150, 110], [172, 134]])),
+
+    'first-day-3': () => svgScene('At break time Mina shares her apple, and at home she says school was fun',
+      backdrop('#ffe9b8', '#9ad97a', 142) + sun(58, 42, 18, '#ffd34f') +
+      kid(96, 168, 1.1, { coat: '#ff8fb1', hair: '#5b3a1e' }) + kid(176, 168, 1.1, { coat: '#8b6ce8' }) +
+      apple(136, 132, 1.2) + hearts([[136, 104, 1.2], [210, 116, 0.9], [70, 116, 0.9]])),
+
+    'star-1': () => svgScene('Every night Sam looks out of his window at one star above the apple tree',
+      backdrop('#12203c', '#2c3f5e', 158) + starShape(74, 40, 13, '#ffd34f') +
+      starShape(300, 24, 5, '#fff2b0') + starShape(198, 16, 5, '#fff2b0') +
+      `<rect x="152" y="20" width="152" height="110" rx="6" fill="#1b2d4d" stroke="${INK}" stroke-width="3"/>` +
+      `<path d="M228 20 v110 M152 75 h152" stroke="${INK}" stroke-width="3"/>` +
+      `<rect x="144" y="128" width="168" height="11" rx="4" fill="#a5713c" stroke="${INK}" stroke-width="2.5"/>` +
+      tree(60, 196, 0.85) +
+      kid(236, 196, 1.3, { coat: '#4f8ef7', hair: '#3b3226' }) +
+      `<path d="M152 128 h152" stroke="${INK}" stroke-width="3"/>`),
+
+    'star-2': () => svgScene('One evening the sky is cloudy and the star is hiding',
+      backdrop('#4a5f80', '#3d5170', 150) + cloud(90, 62, 1.5, '#cfd8e6') +
+      cloud(214, 46, 1.3, '#b9c6d9') + cloud(160, 104, 1.2, '#dbe3ee') +
+      starShape(238, 30, 9, '#fff2b0') +
+      tree(56, 182, 1) + kid(196, 186, 1.1, { coat: '#4f8ef7' })),
+
+    'star-3': () => svgScene('Sam waits with his warm milk, the clouds move, and his star says hello',
+      backdrop('#12203c', '#2c3f5e', 158) + starShape(232, 52, 17, '#ffd34f') +
+      starShape(160, 30, 6, '#fff2b0') + starShape(288, 30, 6, '#fff2b0') +
+      cloud(84, 40, 1.1, '#8fa3bf') + mug(74, 176, 1.3) +
+      kid(52, 182, 1.15, { coat: '#4f8ef7' }) + tree(282, 184, 0.9)),
+
+    'paper-boat-1': () => svgScene('On a rainy afternoon Amir folds a paper boat',
+      backdrop('#a9c6dd', '#7fa7c4', 150) + rain(10, 6, 26) +
+      kid(240, 162, 1.25, { coat: '#4f8ef7', hair: '#2f2418' }) +
+      `<path d="M188 130 l22 14 M210 130 l-22 14" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>` +
+      `<rect x="184" y="124" width="30" height="24" rx="3" fill="#ffffff" stroke="${INK}" stroke-width="2.5"/>` +
+      `<path d="M190 136 h18 M190 141 h18" stroke="#c9d6de" stroke-width="2"/>` +
+      puddle(104, 178, 86, 16) + boat(104, 172, 1.25)),
+
+    'paper-boat-2': () => svgScene('He draws a flag and the wind pushes the boat across the puddle',
+      backdrop('#a9c6dd', '#8fb3cc', 148) + rain(40, 4, 16) +
+      puddle(160, 174, 126, 22) + boat(112, 166, 1.3) +
+      `<path d="M214 92 q22 -14 44 -2" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>` +
+      `<path d="M248 84 l12 6 l-13 4z" fill="${INK}"/>` +
+      `<path d="M28 128 q18 -12 36 -1" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>` +
+      `<path d="M54 120 l11 6 l-12 4z" fill="${INK}"/>`),
+
+    'paper-boat-3': () => svgScene('A girl in a yellow coat waits on the other side, and they race their boats',
+      backdrop('#cfe4f2', '#9cc0d6', 150) + sun(284, 38, 16, '#ffd34f') +
+      puddle(160, 166, 126, 28) + boat(96, 160, 1.15) + boat(214, 168, 1.15) +
+      kid(48, 150, 1.2, { coat: '#ffd34f', hair: '#3b3226' }) +
+      kid(268, 150, 1.2, { coat: '#4f8ef7', hair: '#2f2418' }) +
+      hearts([[160, 96, 1]])),
+  };
+
+  /* story id -> one caption per page, in reading order */
+  const STORY_PAGES = {
+    'red-ball': [
+      ['red-ball-1', 'A cat and a red ball', 'گربه و توپ قرمز'],
+      ['red-ball-2', 'Under the big tree', 'زیر درخت بزرگ'],
+      ['red-ball-3', 'Friends at sunset', 'دوستان هنگام غروب'],
+    ],
+    'first-day': [
+      ['first-day-1', 'Bag on, off to school', 'کیف به دوش، راهی مدرسه'],
+      ['first-day-2', 'A new friend in class', 'یک دوست تازه در کلاس'],
+      ['first-day-3', 'Apple and a smile', 'سیب و لبخند'],
+    ],
+    'star': [
+      ['star-1', 'Sam at his window', 'سام کنار پنجره'],
+      ['star-2', 'The clouds are hiding it', 'ابرها ستاره را پنهان کرده‌اند'],
+      ['star-3', 'Hello again, star', 'سلام دوباره، ستاره'],
+    ],
+    'paper-boat': [
+      ['paper-boat-1', 'A boat on a rainy day', 'یک قایق در روز بارانی'],
+      ['paper-boat-2', 'The wind pushes it', 'باد آن را هل می‌دهد'],
+      ['paper-boat-3', 'Two boats, two friends', 'دو قایق، دو دوست'],
+    ],
+  };
+
+  /** One story page as a leaf: the drawing, the caption, the two lines. */
+  function storyLeaf(page, lines, faLines) {
+    const inner = document.createElement('figure');
+    inner.className = 'kscene';
+    const scene = STORY_SCENES[page[0]];
+    inner.innerHTML = scene ? scene() : '';
+    inner.setAttribute('role', 'group');
+    const cap = document.createElement('figcaption');
+    cap.className = 'kscene-cap tw-flex tw-items-center tw-justify-between tw-gap-2';
+    const en = document.createElement('b');
+    en.textContent = page[1];
+    const faLine = document.createElement('i');
+    faLine.dir = 'rtl';
+    faLine.lang = 'fa';
+    faLine.textContent = page[2];
+    cap.append(en, faLine);
+    inner.appendChild(cap);
+    return { fig: inner };
+  }
+
   async function stories() {
     stopNarration();
     const box = $('stbody');
     if (!box) return;
     const d = await load().catch(() => null);
-    panelTitle('stpanel', 'Stories', 'داستان‌ها');
+    panelTitle('stpanel', 'Story books', 'کتاب‌های داستان');
     box.innerHTML = '';
     if (!d) { box.textContent = 'Stories could not be read.'; return; }
-    const wrap = document.createElement('div');
-    wrap.className = 'klist';
-    (d.stories || []).forEach((item) => {
-      wrap.appendChild(listButton('story', item, () => storyView(item), ''));
+
+    const shelf = document.createElement('div');
+    shelf.className = 'kbooks';
+    (d.stories || []).forEach((item, index) => {
+      const pages = STORY_PAGES[item.id] || [];
+      const cover = document.createElement('button');
+      cover.type = 'button';
+      cover.className = 'kbc kg' + ((index % 8) + 1);
+      const art = document.createElement('span');
+      art.className = 'kbc-art kbc-art-scene';
+      const first = pages[0] && STORY_SCENES[pages[0][0]];
+      art.innerHTML = first ? first() : (item.emoji || '📖');
+      const body = document.createElement('span');
+      body.className = 'kbc-body';
+      const h = document.createElement('b');
+      h.textContent = (item.emoji || '') + ' ' + item.title_en;
+      const faTitle = document.createElement('i');
+      faTitle.dir = 'rtl';
+      faTitle.lang = 'fa';
+      faTitle.textContent = item.title_fa || '';
+      const meta = document.createElement('span');
+      meta.className = 'kbc-meta';
+      meta.textContent = (pages.length + 1) + ' pages · ' + (item.questions || []).length + ' questions';
+      body.append(h, faTitle, meta);
+      const go = document.createElement('span');
+      go.className = 'kbc-go';
+      go.textContent = '▶';
+      cover.append(art, body, go);
+      cover.setAttribute('aria-label', item.title_en + ' — ' + (pages.length + 1) + ' pages to turn');
+      cover.onclick = () => storyView(item);
+      shelf.appendChild(cover);
     });
-    box.appendChild(wrap);
-    KAnim.stagger(wrap);
+    box.appendChild(shelf);
+    KAnim.stagger(shelf);
   }
 
   function storyView(st) {
     stopNarration();
     const box = $('stbody');
     if (!box) return;
-    box.innerHTML = '';
-    box.appendChild(back('All stories', stories));
-    box.appendChild(KAnim.scene('Story time', 'وقت داستان', 'read'));
-
-    const card = document.createElement('section');
-    card.className = 'kcard';
-    const h = document.createElement('h4');
-    h.textContent = (st.emoji || '') + ' ' + st.title_en;
-    card.appendChild(h);
-    card.appendChild(fa(st.title_fa, 'kfa-h'));
-
-    /* --- transport: play, replay, speed, progress ---------------------- */
-    const player = document.createElement('div');
-    player.className = 'kstplayer';
-    player.setAttribute('role', 'group');
-    player.setAttribute('aria-label', 'Story player');
-
-    const bar = document.createElement('div');
-    bar.className = 'kstbar';
-
-    const play = document.createElement('button');
-    play.type = 'button';
-    play.className = 'kstplay';
-    play.textContent = '▶';
-    play.setAttribute('aria-label', 'Read the story to me');
-    // the transport changes on every word; that must never become a screen
-    // reader counting aloud over the narrator
-    play.setAttribute('aria-live', 'off');
-
-    const replay = document.createElement('button');
-    replay.type = 'button';
-    replay.className = 'kstreplay';
-    replay.textContent = '↺';
-    replay.title = 'Start again';
-    replay.setAttribute('aria-label', 'Read the story from the beginning');
-    replay.onclick = () => { stopNarration(); start(); };
-
-    const metaWrap = document.createElement('div');
-    metaWrap.className = 'kstmeta';
-    const meta = document.createElement('b');
-    meta.textContent = '';
-    metaWrap.appendChild(meta);
-    const wave = KAnim.wave();
-
-    bar.append(play, replay, metaWrap, wave);
-
-    const trackWrap = document.createElement('div');
-    trackWrap.className = 'ksttrack';
-    trackWrap.setAttribute('role', 'progressbar');
-    trackWrap.setAttribute('aria-label', 'Story progress');
-    trackWrap.setAttribute('aria-valuemin', '0');
-    trackWrap.setAttribute('aria-valuemax', '100');
-    trackWrap.setAttribute('aria-valuenow', '0');
-    const track = document.createElement('i');
-
-    trackWrap.appendChild(track);
-
-    const speeds = document.createElement('div');
-    speeds.className = 'kstspeeds';
-    speeds.setAttribute('role', 'group');
-    speeds.setAttribute('aria-label', 'Reading speed');
-    RATES.forEach((r) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'kstspeed';
-      b.dataset.rate = String(r);
-      b.textContent = r + '×';
-      b.setAttribute('aria-pressed', String(r === NARR.rate));
-      b.title = r < 1 ? 'Slower — easier to follow' : (r > 1 ? 'Faster' : 'Normal speed');
-      b.onclick = () => setRate(r, speeds);
-      speeds.appendChild(b);
-    });
-    const speedLabel = document.createElement('span');
-    speedLabel.className = 'kstslabel';
-    speedLabel.textContent = 'Speed · سرعت';
-
-    player.append(bar, trackWrap, speedLabel, speeds);
-    card.appendChild(player);
-
-    /* --- the script, word by word ------------------------------------- */
-    const host = document.createElement('div');
-    host.className = 'kstbody';
-    const pop = document.createElement('div');
-    pop.className = 'kstpop';
-    pop.hidden = true;
-    pop.setAttribute('role', 'status');
-    pop.setAttribute('aria-live', 'polite');
-
-    const lines = [];
-    let before = 0;
-    (st.lines || []).forEach((line, idx) => {
-      const block = document.createElement('div');
-      block.className = 'kstblock';
-      const p = document.createElement('p');
-      p.className = 'kst-line';
-      const words = splitWords(line.en);
-      const spans = [];
-      let at = 0;
-      words.forEach((w, j) => {
-        if (w.start > at) p.appendChild(document.createTextNode(line.en.slice(at, w.start)));
-        const sp = document.createElement('span');
-        sp.className = 'kst-w';
-        sp.dataset.w = String(j);
-        sp.dataset.line = String(idx);
-        sp.textContent = w.text;
-        p.appendChild(sp);
-        spans.push(sp);
-        at = w.end;
+    const pages = STORY_PAGES[st.id] || [];
+    const lines = st.lines || [];
+    const leaves = pages.map((page, index) => (inner) => {
+      const pair = lines.slice(index * PER_LEAF, index * PER_LEAF + PER_LEAF);
+      if (!pair.length) return;
+      const leaf = storyLeaf(page, pair.map((l) => l.en), pair.map((l) => l.fa));
+      inner.appendChild(leaf.fig);
+      const list = document.createElement('ol');
+      list.className = 'kpage-lines kstory-lines';
+      pair.forEach((line) => {
+        const li = document.createElement('li');
+        const en = document.createElement('b');
+        en.textContent = line.en;
+        const faLine = document.createElement('i');
+        faLine.dir = 'rtl';
+        faLine.lang = 'fa';
+        faLine.textContent = line.fa || '';
+        li.append(en, faLine);
+        list.appendChild(li);
       });
-      if (at < line.en.length) p.appendChild(document.createTextNode(line.en.slice(at)));
-      const faLine = fa(line.fa, 'kst-fa');
-      block.append(p, faLine);
-      host.appendChild(block);
-      lines.push({ node: p, block, spans, words, en: line.en, before });
-      before += words.length;
+      inner.appendChild(list);
+      const hear = sayButton(pair.map((l) => l.en).join(' '));
+      hear.classList.add('kpage-hear');
+      inner.appendChild(hear);
     });
-    card.appendChild(host);
-    card.appendChild(pop);
-
-    /* A word can be explored without stopping the story: the popover opens
-       under the line and the narration keeps its place. */
-    function showWord(sp) {
-      const L = lines[Number(sp.dataset.line)];
-      const raw = L ? L.words[Number(sp.dataset.w)].text : sp.textContent;
-      const word = bare(raw) || raw;
-      const known = meaningOf(raw);
-      pop.innerHTML = '';
-      const line = document.createElement('div');
-      line.className = 'kstpop-top';
-      const said = document.createElement('button');
-      said.type = 'button';
-      said.className = 'kstsay';
-      said.textContent = '🔊';
-      said.setAttribute('aria-label', 'Hear the word: ' + word);
-      said.onclick = () => Speech.speak(word);
-      const w = document.createElement('b');
-      w.textContent = word;
-      line.append(said, w);
-      pop.appendChild(line);
-      const note = document.createElement('div');
-      note.className = 'kstpop-note';
-      if (known) {
-        note.textContent = (known.fa || '') + (known.def_en ? ' · ' + known.def_en : '');
-      } else {
-        note.textContent = 'Tap 🔊 to hear it again.';
-      }
-      pop.appendChild(note);
-      pop.hidden = false;
-    }
-    host.addEventListener('click', (e) => {
-      const sp = e.target.closest('.kst-w');
-      if (sp) showWord(sp);
+    if (!leaves.length) { box.textContent = 'This story has no pages.'; return; }
+    leaves.push(endLeaf(st.questions));
+    turnBook({
+      host: box,
+      title: (st.emoji || '') + ' ' + st.title_en,
+      titleFa: st.title_fa,
+      leaves,
+      backLabel: 'All stories',
+      onBack: stories,
     });
-
-    const label = document.createElement('div');
-    label.className = 'klabel';
-    label.textContent = 'Questions · پرسش‌ها';
-    card.appendChild(label);
-    quiz(card, st.questions);
-    box.appendChild(card);
-
-    /* --- wiring -------------------------------------------------------- */
-    /* stopNarration() lets go of the DOM it was painting (a closed panel must
-       not be written to), so a restart inside the same view re-dresses the
-       player before speaking. */
-    function rewire() {
-      NARR.lines = lines;
-      NARR.total = before;
-      NARR.paint = paintTransport;
-      NARR.wave = wave;
-      NARR.meta = meta;
-      NARR.track = track;
-      NARR.play = play;
-      NARR.pop = pop;
-      NARR.line = -1;
-      NARR.word = -1;
-      NARR.lineDone = false;
-      NARR.sawWords = false;
-      NARR.state = 'idle';
-      NARR.hold = false;
-      NARR.gen += 1;
-      paintTransport();
-      paintLine(-1, -1);
-    }
-    function start() { rewire(); speakLine(0); }
-    replay.onclick = () => start();
-    play.onclick = () => {
-      if (NARR.state === 'done') { start(); return; }
-      toggleNarration();
-    };
-    rewire();
   }
+
   /* ---- read: a little book you turn with your hands -------------------
 
      A passage used to be one tall paragraph with a play button: a wall of
@@ -23279,221 +23726,41 @@ const Kids = (() => {
     KAnim.stagger(shelf);
   }
 
-  /* The book itself. `at` is the leaf on the table; the last leaf is the
-     questions page, so a child turns past the story into them. */
   function passageView(p) {
     const box = $('rdbody');
     if (!box) return;
-    box.innerHTML = '';
-    box.appendChild(back('All books', reading));
-
     const pages = bookPages(p);
-    const total = pages.length + 1;
-    let at = 0;
-    let turning = false;
-
-    const book = document.createElement('section');
-    book.className = 'kbook';
-    book.setAttribute('aria-label', p.title_en + ' — ' + total + ' pages');
-
-    const head = document.createElement('div');
-    head.className = 'kbook-h';
-    const titles = document.createElement('div');
-    titles.className = 'kbook-title';
-    const h = document.createElement('b');
-    h.textContent = (p.emoji || '') + ' ' + p.title_en;
-    const titleFa = document.createElement('i');
-    titleFa.dir = 'rtl';
-    titleFa.lang = 'fa';
-    titleFa.textContent = p.title_fa || '';
-    titles.append(h, titleFa);
-    const meter = document.createElement('span');
-    meter.className = 'kbook-meter';
-    head.append(titles, meter);
-
-    const stage = document.createElement('div');
-    stage.className = 'kbook-stage';
-    stage.tabIndex = 0;
-    const leaf = document.createElement('article');
-    leaf.className = 'kpage';
-    stage.appendChild(leaf);
-    book.append(head, stage);
-
-    const nav = document.createElement('div');
-    nav.className = 'kbook-nav';
-    const prev = document.createElement('button');
-    prev.type = 'button';
-    prev.className = 'kbook-btn kbook-prev';
-    prev.setAttribute('aria-label', 'The page before — صفحهٔ قبل');
-    const next = document.createElement('button');
-    next.type = 'button';
-    next.className = 'kbook-btn kbook-next';
-    next.setAttribute('aria-label', 'The next page — صفحهٔ بعد');
-    const dots = document.createElement('div');
-    dots.className = 'kbook-dots';
-    nav.append(prev, dots, next);
-    book.append(nav);
-    box.appendChild(book);
-
-    const paint = () => {
-      leaf.innerHTML = '';
-      meter.textContent = (at + 1) + ' / ' + total;
-      prev.disabled = at === 0;
-      next.disabled = at === total - 1;
-      [...dots.children].forEach((dot, i) => dot.classList.toggle('on', i === at));
-
-      const inner = document.createElement('div');
-      inner.className = 'kpage-in';
-      leaf.appendChild(inner);
-
-      if (at < pages.length) {
-        const page = pages[at];
-        if (page.pic) inner.appendChild(pagePicture(page.pic));
-        const lines = document.createElement('ol');
-        lines.className = 'kpage-lines';
-        page.en.forEach((sentence, i) => {
-          const li = document.createElement('li');
-          const en = document.createElement('b');
-          en.textContent = sentence;
-          const faLine = document.createElement('i');
-          faLine.dir = 'rtl';
-          faLine.lang = 'fa';
-          faLine.textContent = page.fa[i] || '';
-          li.append(en, faLine);
-          lines.appendChild(li);
-        });
-        inner.appendChild(lines);
-        const hear = sayButton(pages[at].en.join(' '));
-        hear.classList.add('kpage-hear');
-        inner.appendChild(hear);
-      } else {
-        inner.classList.add('kpage-end');
-        const end = document.createElement('div');
-        end.className = 'kpage-end-h';
-        const cheer = document.createElement('b');
-        cheer.textContent = 'The end 🎉';
-        const cheerFa = document.createElement('i');
-        cheerFa.dir = 'rtl';
-        cheerFa.lang = 'fa';
-        cheerFa.textContent = 'پایان داستان';
-        end.append(cheer, cheerFa);
-        const ask = document.createElement('p');
-        ask.className = 'kpage-ask';
-        ask.textContent = 'Three little questions about what you just read.';
-        const askFa = document.createElement('p');
-        askFa.className = 'kpage-ask kfa';
-        askFa.dir = 'rtl';
-        askFa.lang = 'fa';
-        askFa.textContent = 'سه پرسش کوچک دربارهٔ چیزی که خواندی.';
-        inner.append(end, ask, askFa);
-        const quizBox = document.createElement('div');
-        quizBox.className = 'kpage-quiz';
-        inner.appendChild(quizBox);
-        quiz(quizBox, p.questions);
-        const again = document.createElement('button');
-        again.type = 'button';
-        again.className = 'kbook-again';
-        again.textContent = '↻ Read it again · دوباره بخوان';
-        again.onclick = () => { at = 0; paint(); leaf.classList.add('kflip-in-next'); };
-        inner.appendChild(again);
-      }
-
-      const num = document.createElement('span');
-      num.className = 'kpage-num';
-      num.textContent = at + 1;
-      leaf.appendChild(num);
-
-      const curl = document.createElement('button');
-      curl.type = 'button';
-      curl.className = 'kpage-curl';
-      curl.setAttribute('aria-label', 'Turn the page — صفحه را برگردان');
-      curl.onclick = () => turn(1);
-      leaf.appendChild(curl);
-    };
-
-    const buildDots = () => {
-      dots.innerHTML = '';
-      for (let i = 0; i < total; i += 1) {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'kbook-dot';
-        dot.setAttribute('aria-label', 'Page ' + (i + 1) + ' — صفحهٔ ' + (i + 1));
-        dot.onclick = () => {
-          if (turning || i === at) return;
-          at = i;
-          paint();
-          leaf.classList.add('kflip-in-next');
-        };
-        dots.appendChild(dot);
-      }
-    };
-
-    /* The turn itself: the leaf swings away on its spine, the next one is
-       written while it is face down, and it comes back up from the right. Only
-       transform and opacity move, so a phone that can animate a card can
-       animate the book, and a child who asked for calm simply gets the next
-       page. */
-    const turn = (dir) => {
-      const target = at + dir;
-      if (turning) return;
-      if (target < 0 || target >= total) {
-        stage.classList.remove('knudge');
-        void stage.offsetWidth;
-        stage.classList.add('knudge');
-        return;
-      }
-      if (KAnim.calm()) {
-        at = target;
-        paint();
-        return;
-      }
-      turning = true;
-      leaf.classList.add(dir > 0 ? 'kflip-out-next' : 'kflip-out-prev');
-      window.setTimeout(() => {
-        at = target;
-        paint();
-        leaf.classList.remove('kflip-out-next', 'kflip-out-prev');
-        leaf.classList.add(dir > 0 ? 'kflip-in-next' : 'kflip-in-prev');
-        window.setTimeout(() => {
-          leaf.classList.remove('kflip-in-next', 'kflip-in-prev');
-          turning = false;
-        }, 300);
-      }, 340);
-    };
-
-    const label = (btn, text) => {
-      const span = document.createElement('span');
-      span.textContent = text;
-      btn.appendChild(span);
-    };
-    prev.textContent = '‹';
-    label(prev, 'Previous');
-    next.textContent = '';
-    next.append(Object.assign(document.createElement('span'), { textContent: 'Next' }),
-      Object.assign(document.createElement('span'), { textContent: '›' }));
-    prev.onclick = () => turn(-1);
-    next.onclick = () => turn(1);
-
-    /* A finger drag turns the leaf on a phone, and the arrow keys turn it on a
-       keyboard, so the book is a book on the device the child actually holds. */
-    let startX = null;
-    stage.addEventListener('touchstart', (e) => {
-      startX = e.touches[0] ? e.touches[0].clientX : null;
-    }, { passive: true });
-    stage.addEventListener('touchend', (e) => {
-      if (startX == null || !e.changedTouches[0]) { startX = null; return; }
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 42) turn(dx < 0 ? 1 : -1);
-      startX = null;
-    }, { passive: true });
-    stage.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); turn(1); }
-      else if (e.key === 'ArrowLeft') { e.preventDefault(); turn(-1); }
+    const leaves = pages.map((page) => (inner) => {
+      if (page.pic) inner.appendChild(pagePicture(page.pic));
+      const lines = document.createElement('ol');
+      lines.className = 'kpage-lines';
+      page.en.forEach((sentence, i) => {
+        const li = document.createElement('li');
+        const en = document.createElement('b');
+        en.textContent = sentence;
+        const faLine = document.createElement('i');
+        faLine.dir = 'rtl';
+        faLine.lang = 'fa';
+        faLine.textContent = page.fa[i] || '';
+        li.append(en, faLine);
+        lines.appendChild(li);
+      });
+      inner.appendChild(lines);
+      const hear = sayButton(page.en.join(' '));
+      hear.classList.add('kpage-hear');
+      inner.appendChild(hear);
     });
-
-    buildDots();
-    paint();
+    leaves.push(endLeaf(p.questions));
+    turnBook({
+      host: box,
+      title: (p.emoji || '') + ' ' + p.title_en,
+      titleFa: p.title_fa,
+      leaves,
+      backLabel: 'All books',
+      onBack: reading,
+    });
   }
+
   async function listening() {
     const box = $('llevels');
     if (!box) return;

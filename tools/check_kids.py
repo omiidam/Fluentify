@@ -499,6 +499,107 @@ process.exit(bad ? 1 : 0);
     stats["book pages"] = len(stems)
 
 
+def check_story_book(src, data):
+    """The stories section is a picture book, and every page has a drawing.
+
+    A story is cut into leaves of two lines, like a passage, and each leaf
+    names one drawing plus its two-word caption in both languages. The drawings
+    are SVG scenes composed here out of parts (cat, bird, tree, child, sun,
+    boat, puddle) rather than photographs, because the picture has to be the
+    thing the line is about: a photo search for "cat pushes a red ball" returns
+    a cat on a sofa. This suite runs the scenes for real under node and holds
+    them against kids.json - one scene per story page, every scene used, no
+    external URLs, and markup that is actually a picture - then checks the
+    shared book and the utility classes the section is built from.
+    """
+    stories = data.get("stories") or []
+    expected = {}
+    for st in stories:
+        story_id = st.get("id") or ""
+        lines = st.get("lines") or []
+        expected[story_id] = (len(lines) + 1) // 2      # two lines a leaf
+
+    if not shutil.which("node"):
+        print("SKIP  node is not installed - the story leaves were not run")
+        return
+
+    start = src.find("  const INK = '#3b3226';")
+    check(start >= 0, "the story drawings are gone - the section has no pictures again")
+    if start < 0:
+        return
+    anchor = src.find("  const STORY_PAGES = {", start)
+    check(anchor > start, "STORY_PAGES is gone - no story page knows its drawing")
+    if anchor <= start:
+        return
+    end = src.find("\n  };\n", anchor)
+    check(end > anchor, "the STORY_PAGES block is not closed")
+    if end <= anchor:
+        return
+    block = src[start:end + len("\n  };")]
+
+    script = Path("/tmp") / "kids-story-book.js"
+    script.write_text(
+        block
+        + f"""
+const expected = {json.dumps(expected)};
+let bad = 0;
+const ok = (cond, line) => {{ if (!cond) bad++; console.log(`${{cond ? '  ok  ' : '  FAIL'}}  ${{line}}`); }};
+ok(Object.keys(STORY_PAGES).length === Object.keys(expected).length,
+   `${{Object.keys(STORY_PAGES).length}} story books for ${{Object.keys(expected).length}} stories`);
+Object.keys(expected).forEach((id) => ok(!!STORY_PAGES[id], `${{id}}: the story has its pages`));
+Object.keys(STORY_PAGES).forEach((id) =>
+  ok(id in expected, `${{id}}: the pages belong to a story in the bank`));
+const used = new Set();
+Object.keys(STORY_PAGES).forEach((id) => {{
+  const pages = STORY_PAGES[id];
+  ok(pages.length === expected[id],
+     `${{id}}: ${{pages.length}} drawings for ${{expected[id]}} pages of two lines`);
+  pages.forEach((row, i) => {{
+    ok(Array.isArray(row) && row.length === 3, `${{id}} page ${{i + 1}}: a drawing and two captions`);
+    ok(/^[a-z0-9-]+$/.test(row[0] || ''), `${{id}} page ${{i + 1}}: the scene name is safe`);
+    ok((row[0] || '').indexOf(id + '-') === 0,
+       `${{id}} page ${{i + 1}}: the drawing belongs to this story`);
+    ok(!!(row[1] && row[1].trim().length > 2), `${{id}} page ${{i + 1}}: it has an English caption`);
+    ok(/[\\u0600-\\u06FF]/.test(row[2] || ''), `${{id}} page ${{i + 1}}: the caption is in Persian too`);
+    ok(!!STORY_SCENES[row[0]], `${{id}} page ${{i + 1}}: ${{row[0]}} has no drawing`);
+    used.add(row[0]);
+  }});
+}});
+Object.keys(STORY_SCENES).forEach((name) => {{
+  ok(used.has(name), `${{name}}: the drawing is on no page`);
+  ok(typeof STORY_SCENES[name] === 'function', `${{name}}: the scene is not a drawer`);
+  const svg = STORY_SCENES[name]();
+  ok(/^<svg[^>]+viewBox="0 0 320 200"/.test(svg), `${{name}}: the scene is not an svg at 320x200`);
+  ok(/role="img"/.test(svg) && /aria-label="[^"]{{10,}}"/.test(svg),
+     `${{name}}: the drawing has no description for a screen reader`);
+  ok(!/https?:/i.test(svg), `${{name}}: the drawing reaches for the network`);
+  ok((svg.match(/<(circle|rect|path|ellipse|polygon|line|g)[ >]/g) || []).length >= 8,
+     `${{name}}: the scene has ${{(svg.match(/<(circle|rect|path|ellipse|polygon|line)[ >]/g) || []).length}} shapes - too empty to read`);
+}});
+process.exit(bad ? 1 : 0);
+""",
+        encoding="utf-8")
+    proc = subprocess.run(["node", str(script)], capture_output=True, text=True)
+    print(proc.stdout.strip())
+    if proc.returncode != 0:
+        problems.append("a story page is incomplete:\n" + (proc.stdout + proc.stderr).strip())
+
+    # the same book, and the classes the section is built from
+    for bit, meant in (("function turnBook(", "the shared book is gone, so Read and Stories cannot turn alike"),
+                       ("turnBook({\n      host: box,\n      title: (st.emoji",
+                        "the story book is not drawn with the shared book"),
+                       ("turnBook({\n      host: box,\n      title: (p.emoji",
+                        "the reading book was not moved onto the shared book"),
+                       ("function endLeaf(", "there is no shared end page with the questions"),
+                       (".kscene-svg", "the drawing has no frame"),
+                       (".kscene-cap", "the drawing has no caption strip"),
+                       (".kbc-art-scene", "the shelf covers show no drawing"),
+                       ("body.kids .tw-flex", "the utility classes are not scoped to a child's page"),
+                       ("tw-flex tw-items-center tw-justify-between", "the story pages use no utilities")):
+        check(bit in src, meant)
+    stats["story pages"] = sum(expected.values())
+
+
 def check_listening(data):
     clips = data.get("listening") or []
     check(len(clips) == 5, f"there are {len(clips)} listening clips, expected 5")
@@ -1012,6 +1113,7 @@ def main():
     check_stories(data)
     check_reading(data)
     check_reading_book(src, data)
+    check_story_book(src, data)
     check_listening(data)
     check_phrases(data)
     check_chat(data)
@@ -1045,7 +1147,9 @@ def main():
     print(f"\nPASS  {stats.get('words')} kid words in 7 themes, "
           f"{stats.get('grammar')} mini lessons with {stats.get('quiz')} quiz items, "
           f"4 stories, 4 passages turned into {stats.get('book pages')} book leaves "
-          "with a picture each, 5 listening clips, 5 phrase sets and a "
+          "with a picture each, "
+          f"{stats.get('story pages')} drawn story pages in four books, "
+          "5 listening clips, 5 phrase sets and a "
           "kid-safe chat; ages below 15 are classified on the page and in the "
           "APK, and every kids rule, panel and reply is behind that band")
     return 0
