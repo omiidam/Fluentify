@@ -25,6 +25,15 @@ answer the questions the build cannot:
   the wiring    one kids-only toolbar button, one panel, one repaint hook, the
                 route that serves the file, and the file inside the APK bundle.
 
+  the feel      a game rather than a worksheet: a fox who says what to do next
+                in Persian first, a strip of the world drifting behind the
+                letters, a trail with a marker that walks as words are built,
+                a picture and a length on every target, a second kind of help
+                beside the bulb, and a visible answer to a right and a wrong
+                try - all of it aria-hidden where it says nothing, all of it
+                stopped under prefers-reduced-motion, and no control below a
+                thumb.
+
   the bundle    the same JSON reached by the built page, byte for byte, so the
                 APK cannot drift from the web.
 
@@ -256,6 +265,138 @@ def check_wiring() -> None:
             bad(f"wiring: {what} is back in the puzzle")
 
 
+def check_feel() -> None:
+    """Would a child call this a game, and can they still work it alone?
+
+    A puzzle that is only correct is a worksheet. This is the part of the suite
+    that asks whether the stage is a place: a character who tells the child what
+    to do, the world moving behind the letters, a trail that shows how far the
+    stage has come, pictures on every target, and a second kind of help beside
+    the bulb. It also holds the other edge down - every one of those things is
+    decoration, so it must be aria-hidden where it says nothing, it must stop
+    under prefers-reduced-motion, and no control may shrink below a thumb.
+    """
+    page = WEBAPP.read_text(encoding="utf-8")
+    css = page.split("/* ---- Word Quest: the letter puzzle")[1].split("/* ---- Kids header")[0]
+    module = page.split("const WordQuest = (() => {")[1].split("\n  return {open, render")[0]
+
+    # --- the coach: a fox who says what to do next, in the child's language
+    for needle, what in (
+        ("body.kids .wqcoach", "the coach row"),
+        ("body.kids .wqfox", "the fox"),
+        ("body.kids .wqbubble", "the speech bubble"),
+        ("body.kids .wqbubble-fa", "the Persian line of the bubble"),
+        ("body.kids .wqbubble-en", "the English line of the bubble"),
+    ):
+        if needle not in css:
+            bad(f"feel: {what} has no style")
+    for needle, what in (
+        ("function coach(world)", "the coach builder"),
+        ("brand/kids-fox-face.png", "the fox's face"),
+        ("fox.setAttribute('aria-hidden', 'true')", "the fox is read out as text"),
+        ("function coachLine()", "the coach's lines"),
+        ("'این واژه ' + word.length + ' حرف دارد", "the coach says nothing in Persian"),
+        ("Tap the bulb and I will help.", "the coach never offers help"),
+    ):
+        if needle not in module:
+            bad(f"feel: {what} is missing ({needle})")
+
+    # --- the world, moving behind the letters
+    for needle, what in (
+        ("body.kids .wqscene", "the scene strip"),
+        ("@keyframes wqdrift", "the drift"),
+        ("body.kids .wqscene i", "the drifting bits"),
+    ):
+        if needle not in css:
+            bad(f"feel: {what} has no style")
+    if "function sceneStrip(world)" not in module:
+        bad("feel: the scene is never built")
+    if "strip.setAttribute('aria-hidden', 'true')" not in module:
+        bad("feel: the drifting world is read out as content")
+
+    # --- the trail: how far the stage has come, with a marker that walks
+    for needle, what in (
+        ("body.kids .wqtrail", "the trail"),
+        ("body.kids .wqtrail-fill", "the trail's fill"),
+        ("body.kids .wqtrail-fox", "the walking marker"),
+    ):
+        if needle not in css:
+            bad(f"feel: {what} has no style")
+    if "function trail(stage)" not in module:
+        bad("feel: the trail is never built")
+    if "words built — " not in module:
+        bad("feel: the trail has no spoken progress for a screen reader")
+
+    # --- pictures and hints on the targets themselves
+    if "done ? (record.picture || '✓') : (record.picture || '🔤')" not in module:
+        bad("feel: a target a child has not built yet shows no picture")
+    if "wqsticker-dots" not in module or "wqsticker-dots" not in css:
+        bad("feel: a pending target does not show how many letters it needs")
+    if "sayText(w)" not in module:
+        bad("feel: tapping a target does not speak the word")
+
+    # --- a second kind of help, and it must cost what the bulb costs
+    for needle, what in (
+        ("function usePeek()", "the word-card hint"),
+        ("body.kids .wqctlbtn.peek", "the word-card hint's face"),
+        ("controls.appendChild(mk('🔎', 'نشانم بده'", "the word-card hint's control"),
+    ):
+        if needle not in module and needle not in css:
+            bad(f"feel: {what} is missing ({needle})")
+    peek = module.split("function usePeek()", 1)[1].split("\n  }", 1)[0] if "function usePeek()" in module else ""
+    if "play.hints += 1" not in peek:
+        bad("feel: the word-card hint is free, so the star rule is not honest")
+
+    # --- reactions: the game answers a right and a wrong answer visibly
+    for needle, what in (
+        ("@keyframes wqhop", "the fox's happy hop"),
+        ("@keyframes wqwobble", "the fox's wobble"),
+        ("@keyframes wqbob", "the fox's idle bob"),
+        ("@keyframes wqpop", "a letter landing in its box"),
+    ):
+        if needle not in css:
+            bad(f"feel: {what} has no keyframes")
+    if "play.mood = 'happy'" not in module or "play.mood = 'oops'" not in module:
+        bad("feel: the coach never reacts to a right or a wrong answer")
+    if "'wqslots' + (play.mood === 'oops' ? ' shake' : '')" not in module:
+        bad("feel: a wrong word does not shake the boxes")
+
+    # --- and every one of those moving things stops when a child asks it to
+    motion = css.split("@media (prefers-reduced-motion: reduce)")[-1]
+    for needle, what in (
+        ("body.kids .wqfox", "the fox keeps bobbing"),
+        ("body.kids .wqscene i", "the world keeps drifting"),
+        ("body.kids .wqtrail-fox", "the trail marker keeps sliding"),
+    ):
+        if needle not in motion:
+            bad(f"feel: under reduced motion, {what}")
+    if "body.kids .wqbox.on { animation: none; }" not in motion:
+        bad("feel: under reduced motion, the boxes still pop")
+
+    # --- nothing shrank below a thumb, on the smallest screen the app ships
+    def px(rule: str, prop: str) -> int:
+        m = re.search(prop + r":\s*(\d+)px", rule)
+        return int(m.group(1)) if m else 0
+    letter = css.split("body.kids .wqletter {", 1)[1].split("}", 1)[0]
+    if px(letter, "width") < 58 or px(letter, "height") < 62:
+        bad(f"feel: a letter tile is {px(letter, 'width')}x{px(letter, 'height')}, too small for a thumb")
+    ctl = css.split("body.kids .wqctlbtn {", 1)[1].split("}", 1)[0]
+    if px(ctl, "min-height") < 56:
+        bad(f"feel: a control is {px(ctl, 'min-height')}px tall, too small to hit")
+    small = css.split("@media (max-width: 330px)")[-1].split("}", 2)[0]
+    if px(small, "width") and px(small, "width") < 40:
+        bad("feel: the letter tiles get too small on a 330px screen")
+
+    # --- the coach must not have become a second place to read instructions
+    if module.count("wqbubble") > 6:
+        bad("feel: the coach is being rebuilt in more than one place")
+
+    # --- the stage still costs nothing to lose: hints decide stars, mistakes
+    # never do, or the new reactions would turn a wrong answer into a penalty
+    if "const stars = play.hints === 0 ? 3" not in module:
+        bad("feel: the star rule changed; hints must be the only cost")
+
+
 def check_bundle() -> None:
     data_bytes = DATA.read_bytes()
     build = BUILD_APK.read_text(encoding="utf-8")
@@ -292,6 +433,8 @@ def main() -> int:
     check_acceptance(data)
     print("the wiring")
     check_wiring()
+    print("the feel")
+    check_feel()
     print("the offline bundle")
     check_bundle()
 
@@ -307,7 +450,8 @@ def main() -> int:
     print(f"\nPASS  {stats['worlds']} worlds, {stats['stages']} puzzles and "
           f"{stats['words']} word records ({stats['required']} required answers, "
           f"{stats['bonus']} bonus) - every answer spelled from its own rack, every "
-          "word taught, the game kids-only, offline and in the bundle")
+          "word taught, the game kids-only, offline, in the bundle and dressed "
+          "as a place a child wants to open")
     return 0
 
 

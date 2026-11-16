@@ -7314,17 +7314,81 @@
 
   body.kids .wqplay { gap: 12px; }
 
+  /* --- the world, the coach and the trail ------------------------------
+     A word game a six-year-old wants to open is a place before it is a puzzle.
+     So the stage now has three things the old one had none of: a strip of the
+     world drifting past behind the title, a fox who talks the child through
+     the next step in Persian first, and a trail with a marker that walks as
+     words are built. All three are decoration in the accessible sense -
+     aria-hidden, described in a label where they carry meaning, and stopped
+     dead under prefers-reduced-motion - so none of them can get between a
+     child and the letters. */
+  body.kids .wqscene { position: relative; height: 46px; overflow: hidden; border-radius: 16px;
+              border: 1px solid var(--k-line-strong);
+              background: linear-gradient(180deg, var(--k-sun-wash) 0%, var(--surf-1) 100%); }
+  body.kids .wqscene i { position: absolute; top: 0; left: 0; font-size: 16px; line-height: 1;
+              animation-name: wqdrift; animation-timing-function: linear;
+              animation-iteration-count: infinite; }
+  body.kids .wqscene-world { position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
+              font-size: 12.5px; font-weight: 800; color: var(--k-primary-deep); }
+  @keyframes wqdrift {
+    from { transform: translate3d(-40px, 0, 0); }
+    to   { transform: translate3d(340px, 0, 0); }
+  }
+
+  body.kids .wqcoach { display: flex; align-items: flex-end; gap: 8px; }
+  body.kids .wqfox { position: relative; flex: 0 0 52px; width: 52px; height: 52px;
+              border-radius: 16px; display: grid; place-items: center;
+              background: radial-gradient(circle at 50% 34%, #fff6e7 0%, #ffd9a6 100%);
+              border: 2px solid var(--k-c1); box-shadow: 0 3px 0 var(--k-c1);
+              animation: wqbob 2.8s ease-in-out infinite; }
+  body.kids .wqfox img { width: 38px; height: 38px; object-fit: contain; display: block; }
+  body.kids .wqfox.happy { animation: wqhop .55s ease; }
+  body.kids .wqfox.oops { animation: wqwobble .5s ease; }
+  @keyframes wqbob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+  }
+  @keyframes wqhop {
+    0%, 100% { transform: translateY(0) scale(1); }
+    35%      { transform: translateY(-11px) scale(1.06) rotate(-3deg); }
+    65%      { transform: translateY(-2px) scale(1.02) rotate(3deg); }
+  }
+  @keyframes wqwobble {
+    0%, 100% { transform: rotate(0); }
+    25%      { transform: rotate(-5deg); }
+    75%      { transform: rotate(5deg); }
+  }
+  body.kids .wqbubble { position: relative; flex: 1; min-width: 0; padding: 8px 12px;
+              border-radius: 16px 16px 16px 4px; border: 2px solid var(--k-c7);
+              background: var(--k-c7-w); color: var(--k-ink); }
+  body.kids .wqbubble-en { display: block; font-size: 12px; font-weight: 600; color: var(--k-ink-2); }
+  body.kids .wqbubble-fa { display: block; font-size: 14.5px; font-weight: 800; color: var(--k-ink); }
+
+  body.kids .wqtrail { position: relative; height: 22px; border-radius: 999px;
+              background: var(--k-sun-wash); border: 1px solid var(--k-sun-line); }
+  body.kids .wqtrail-fill { position: absolute; top: 0; bottom: 0; left: 0;
+              width: calc(var(--p, 0) * 100%); border-radius: 999px;
+              background: linear-gradient(90deg, var(--k-c3) 0%, var(--k-c7) 100%);
+              transition: width .45s cubic-bezier(.2, .8, .3, 1); }
+  body.kids .wqtrail-fox { position: absolute; top: 50%; font-size: 15px; line-height: 1;
+              left: calc(var(--p, 0) * (100% - 24px) + 12px); transform: translate(-50%, -50%);
+              transition: left .45s cubic-bezier(.2, .8, .3, 1); }
+
   /* --- one word at a time ------------------------------------------------
      A child who cannot read English cannot be asked to find words they have
      never seen: the puzzle now opens with the picture, the sound and the
      Persian meaning of the word, and the boxes underneath say how many
      letters it needs. Nothing on this screen has to be read to be understood. */
   body.kids .wqprog { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
-  body.kids .wqsticker { position: relative; width: 44px; height: 44px; display: grid; place-items: center;
-              border-radius: 12px; border: 2px dashed var(--k-line-strong); background: var(--surf-1);
-              font: inherit; padding: 0; }
-  body.kids .wqsticker-pic { font-size: 21px; line-height: 1; }
-  body.kids .wqsticker-n { font-size: 13px; font-weight: 800; color: var(--k-ink-2); }
+  body.kids .wqsticker { position: relative; width: 56px; height: 60px; display: grid;
+              grid-template-rows: 1fr auto; place-items: center; gap: 2px; padding: 4px 0;
+              border-radius: 14px; border: 2px dashed var(--k-line-strong); background: var(--surf-1);
+              font: inherit; color: var(--ink); cursor: pointer; }
+  body.kids .wqsticker-pic { font-size: 23px; line-height: 1; }
+  body.kids .wqsticker-dots { display: inline-flex; gap: 2px; }
+  body.kids .wqsticker-dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--k-line-strong); }
+  body.kids .wqsticker.now .wqsticker-dots i { background: var(--k-c1); }
   body.kids .wqsticker.now { border-style: solid; border-color: var(--k-c1); background: var(--k-c1-w);
                   box-shadow: 0 0 0 3px var(--k-c1-w); }
   body.kids .wqsticker.on { border-style: solid; border-color: var(--k-c7); background: var(--k-c7-w); cursor: pointer; }
@@ -7355,6 +7419,8 @@
            color: var(--k-ink); font: inherit; font-size: 30px; font-weight: 800; padding: 0; }
   body.kids .wqbox.on { border-style: solid; border-color: var(--k-c4); background: var(--k-c4-w); color: var(--k-c4-i); cursor: pointer; }
   body.kids .wqbox.shake { animation: wqshake .42s ease; }
+  body.kids .wqbox.on { animation: wqpop .24s ease; }
+  @keyframes wqpop { from { transform: scale(.86); } 60% { transform: scale(1.06); } to { transform: scale(1); } }
   @keyframes wqshake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 
   body.kids .wqrack { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 4px 0 2px; }
@@ -7378,6 +7444,7 @@
               color: var(--k-c3-i); font: inherit; font-size: 20px; cursor: pointer; }
   body.kids .wqctl-l { font-size: 11.5px; font-weight: 800; line-height: 1.2; }
   body.kids .wqctlbtn.hint { background: var(--k-c8-w); border-color: var(--k-c8); color: var(--k-c8-i); }
+  body.kids .wqctlbtn.peek { background: var(--k-c5-w); border-color: var(--k-c5); color: var(--k-c5-i); }
   body.kids .wqctlbtn.shuffle { background: var(--k-c6-w); border-color: var(--k-c6); color: var(--k-c6-i); }
   body.kids .wqctlbtn.say { background: var(--k-c1-w); border-color: var(--k-c1); color: var(--k-c1-i); }
   body.kids .wqhint-n { position: absolute; top: -5px; right: -5px; min-width: 17px; padding: 0 4px;
@@ -7443,8 +7510,13 @@
   }
   @media (prefers-reduced-motion: reduce) {
     body.kids .wqletter, body.kids .wqgo, body.kids .wqopen { transition: none; }
-    body.kids .wqbox.shake { animation: none; }
+    body.kids .wqbox.shake, body.kids .wqbox.on { animation: none; }
     body.kids .wqsticker.on:hover, body.kids .wqletter:hover { transform: none; }
+    /* the fox, the drifting world and the walking trail are decoration: a
+       child who has asked for less motion gets the same game standing still */
+    body.kids .wqfox, body.kids .wqfox.happy, body.kids .wqfox.oops,
+    body.kids .wqscene i, body.kids .wqsticker.now { animation: none; }
+    body.kids .wqtrail-fill, body.kids .wqtrail-fox { transition: none; }
   }
   /* ---- Kids header: cartoon stickers -----------------------------------
      The toolbar was a row of white cards with a thin coloured glyph on each,
@@ -31625,6 +31697,7 @@ const WordQuest = (() => {
       solved: [],
       hints: 0,
       wrong: 0,
+      mood: 'idle',
       done: false,
     };
     card = null;
@@ -31643,6 +31716,10 @@ const WordQuest = (() => {
     const word = currentWord();
     if (!word || typeof Speech === 'undefined' || !Speech.speak) return;
     Speech.speak(word);
+  }
+  function sayText(text) {
+    if (!text || typeof Speech === 'undefined' || !Speech.speak) return;
+    Speech.speak(text);
   }
   function sayLetter(ch) {
     if (typeof Speech === 'undefined' || !Speech.speak) return;
@@ -31724,6 +31801,7 @@ const WordQuest = (() => {
       const record = data.words[word] || {};
       note = 'آفرین! ' + word.toUpperCase() + (record.fa ? ' — ' + record.fa : '');
       play.at += 1;
+      play.mood = 'happy';
       play.typed = [];
       play.letters.forEach((l) => { l.used = false; });
       save();
@@ -31736,6 +31814,7 @@ const WordQuest = (() => {
 
     /* wrong: no penalty, no lost stars, the letters simply come back */
     play.wrong += 1;
+    play.mood = 'oops';
     note = play.wrong < 3
       ? 'اشکالی ندارد، دوباره تلاش کن.'
       : 'دوباره تلاش کن، یا 💡 را بزن تا یک حرف را نشانت بدهم.';
@@ -31775,6 +31854,22 @@ const WordQuest = (() => {
     note = 'حرفِ بعدی «' + need.toUpperCase() + '» است.';
     sayLetter(need);
     if (play.typed.length === word.length) { check(); return; }
+    render();
+  }
+
+  /* The strongest hint the game owns: the whole card for the word being
+     built - its picture, its meaning, its example - which is exactly what a
+     child who is stuck on the spelling needs to see. It costs a hint like the
+     bulb does, so the star rule stays honest. */
+  function usePeek() {
+    if (!play || play.done) return;
+    const word = currentWord();
+    if (!word) return;
+    play.hints += 1;
+    play.mood = 'idle';
+    note = 'این واژه است: ' + word.toUpperCase();
+    sayWord();
+    card = word;
     render();
   }
 
@@ -31830,12 +31925,90 @@ const WordQuest = (() => {
   }
 
   /* ------------------------------------------------------------- the puzzle */
+  /* The world, drifting. Nothing here is information: it is the place the
+     puzzle happens, and it is the first thing that makes the stage look like
+     somewhere rather than a form. Decoration, so aria-hidden, and the motion
+     is switched off with the rest of it under prefers-reduced-motion. */
+  function sceneStrip(world) {
+    const strip = el('div', 'wqscene');
+    strip.setAttribute('aria-hidden', 'true');
+    (world && world.emoji ? [world.emoji] : []).forEach((ch) => {
+      const mark = el('span', 'wqscene-world', ch + ' ' + (world.name_en || ''));
+      strip.appendChild(mark);
+    });
+    const kinds = ['☁️', '✨', '☁️', '🍃', '⭐', '☁️'];
+    kinds.forEach((ch, i) => {
+      const bit = el('i', '', ch);
+      bit.style.top = (5 + ((i * 13) % 26)) + 'px';
+      bit.style.animationDelay = (i * 1.7).toFixed(1) + 's';
+      bit.style.animationDuration = (10 + i * 2.4).toFixed(1) + 's';
+      strip.appendChild(bit);
+    });
+    return strip;
+  }
+
+  /* The coach: one line of what to do next, English under Persian, because the
+     child reads Persian. It never asks a question the puzzle does not answer
+     itself - listen, count the boxes, tap a letter - and it offers the bulb
+     only after three tries, so help arrives when it is useful and not before. */
+  function coachLine() {
+    const word = currentWord();
+    if (!word) return {en: 'Every word is built.', fa: 'همهٔ واژه‌ها ساخته شد!'};
+    if (play.mood === 'happy') return {en: 'Yes! That is it.', fa: 'آفرین! همین بود.'};
+    if (play.mood === 'oops') return {en: 'Almost. Try the letters again.', fa: 'نزدیک بود، دوباره بچین.'};
+    if (play.hints > 0) return {en: 'I showed you one letter.', fa: 'یک حرف را برایت گذاشتم.'};
+    if (play.wrong >= 3) return {en: 'Tap the bulb and I will help.', fa: '💡 را بزن تا کمکت کنم.'};
+    return {en: word.length + ' letters. Listen, then tap them.',
+            fa: 'این واژه ' + word.length + ' حرف دارد. گوش کن و بچین.'};
+  }
+  function coach(world) {
+    const box = el('div', 'wqcoach');
+    const fox = el('span', 'wqfox' + (play.mood === 'happy' ? ' happy' : play.mood === 'oops' ? ' oops' : ''));
+    fox.setAttribute('aria-hidden', 'true');
+    const face = document.createElement('img');
+    face.src = 'brand/kids-fox-face.png';
+    face.alt = '';
+    face.width = 38;
+    face.height = 38;
+    face.decoding = 'async';
+    fox.appendChild(face);
+    box.appendChild(fox);
+    const bubble = el('div', 'wqbubble');
+    const line = coachLine();
+    bubble.appendChild(el('span', 'wqbubble-en', line.en));
+    bubble.appendChild(faLine(line.fa, 'wqbubble-fa'));
+    if (world) bubble.setAttribute('aria-label', 'Fox: ' + line.en);
+    box.appendChild(bubble);
+    return box;
+  }
+
+  /* The trail: how far through the stage the child is, drawn as a path with the
+     fox walking it. The number is in the label, so a screen reader hears
+     "2 of 4 words built" rather than a picture of a fox. */
+  function trail(stage) {
+    const bar = el('div', 'wqtrail');
+    const done = play.solved.length;
+    const total = stage.required.length || 1;
+    bar.style.setProperty('--p', String(Math.min(1, done / total)));
+    bar.setAttribute('role', 'img');
+    bar.setAttribute('aria-label', done + ' of ' + total + ' words built — ' +
+      done + ' از ' + total + ' واژه ساخته شد');
+    bar.appendChild(el('span', 'wqtrail-fill'));
+    const walker = el('span', 'wqtrail-fox', '🦊');
+    walker.setAttribute('aria-hidden', 'true');
+    bar.appendChild(walker);
+    return bar;
+  }
+
   function renderPlay(body) {
     const stage = play.stage;
     const world = worldById(play.worldId);
     const word = currentWord();
     const wrap = el('div', 'wqwrap wqplay');
     wrap.appendChild(head(stage.title_en, stage.title_fa, 'world'));
+    const scene = sceneStrip(world);
+    if (scene) wrap.appendChild(scene);
+    wrap.appendChild(trail(stage));
 
     /* the stickers: one box per word in the stage, filling with the picture of
        each word as it is built - the child can see how far along they are
@@ -31845,22 +32018,32 @@ const WordQuest = (() => {
     stage.required.forEach((w, i) => {
       const done = play.solved.indexOf(w) >= 0;
       const record = data.words[w] || {};
-      const chip = el(done ? 'button' : 'span',
+      const chip = el('button',
         'wqsticker' + (done ? ' on' : '') + (!done && i === play.at ? ' now' : ''));
+      chip.type = 'button';
       chip.setAttribute('role', 'listitem');
-      chip.appendChild(el('span', 'wqsticker-pic', done ? (record.picture || '✓') : ''));
-      if (!done) chip.appendChild(el('span', 'wqsticker-n', String(i + 1)));
-      if (done) {
-        chip.type = 'button';
-        chip.setAttribute('aria-label', w + ', done. Tap for its card');
-        chip.onclick = () => { card = w; render(); };
+      /* the picture is always there: it is the hint a child who cannot read
+         the word needs, and the set of pictures is the shape of the stage */
+      chip.appendChild(el('span', 'wqsticker-pic', done ? (record.picture || '✓') : (record.picture || '🔤')));
+      if (!done) {
+        const dots = el('span', 'wqsticker-dots');
+        for (let d = 0; d < w.length; d += 1) dots.appendChild(el('i'));
+        chip.appendChild(dots);
       }
+      chip.setAttribute('aria-label', done
+        ? w + ', done. Tap for its card'
+        : w.length + ' letters, hear it — ' + w.length + ' حرف، بشنو');
+      chip.onclick = () => {
+        if (done) { card = w; render(); return; }
+        sayText(w);
+      };
       prog.appendChild(chip);
     });
     wrap.appendChild(prog);
 
     if (word) {
       const record = data.words[word] || {};
+      wrap.appendChild(coach(world));
 
       /* the picture comes first: what is being built, before it is built */
       const pic = el('div', 'wqpiccard');
@@ -31879,7 +32062,7 @@ const WordQuest = (() => {
 
       /* one box per letter, so even a child who has never read the word can
          count what it needs - and every box gives its letter back */
-      const slots = el('div', 'wqslots');
+      const slots = el('div', 'wqslots' + (play.mood === 'oops' ? ' shake' : ''));
       slots.setAttribute('role', 'group');
       slots.setAttribute('aria-label', word.length + ' boxes for ' + word.length + ' letters');
       for (let i = 0; i < word.length; i += 1) {
@@ -31947,6 +32130,7 @@ const WordQuest = (() => {
     const hint = mk('💡', 'راهنما', 'Show me the next letter — حرف بعدی را نشان بده', useHint, 'hint');
     hint.appendChild(el('span', 'wqhint-n', play.hints ? String(play.hints) : ''));
     controls.appendChild(hint);
+    controls.appendChild(mk('🔎', 'نشانم بده', 'Show the word card — کارت واژه را نشانم بده', usePeek, 'peek'));
     wrap.appendChild(controls);
 
     const msg = el('p', 'wqmsg');
