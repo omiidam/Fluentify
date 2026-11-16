@@ -281,7 +281,13 @@ def main() -> int:
     # --------------------------------------------------------------- the page --
     check("the page defines the Journey module", src.count("const Journey = (() => {") == 1)
     check("Useful Sentences offers the Sports journey",
-          "Journey.card('sports', false)" in src and "Journey.card('sports', true)" in src)
+          "Journey.card('sports', false)" in src)
+    # A child's sentence panel is a list of sentences. It used to open with the
+    # Sports and Travel journeys above the list - a stage count, a word count
+    # and a travel pitch that a beginner cannot read and did not ask for - so
+    # the kid panel is now checked to keep them out.
+    check("a child's sentence panel leaves the adult journeys out",
+          "Journey.card('sports', true)" not in src and "Travel.card(true)" not in src)
     check("the travel card still opens the travel journey",
           "b.onclick = () => Journey.open(isKid);" in src)
     check("an entry card can open a named journey",

@@ -7500,6 +7500,10 @@
   body.kids .wqbadge { color: var(--k-primary-dark); font-weight: 800; }
   body.kids .wqlock { font-size: 14px; color: var(--ink-3); }
   body.kids .wqblurb { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+  /* the English line under a Persian one: a gloss, never the title */
+  body.kids .wqworld-en, body.kids .wqstage-en, body.kids .wqhead-en,
+  body.kids .wqblurb-en, body.kids .wqintro-en, body.kids .wqgo-en {
+    display: block; font-size: 11px; font-weight: 600; color: var(--ink-3); }
   body.kids .wqopen { align-self: flex-start; padding: 10px 16px; border-radius: 12px;
             border: 1px solid var(--k-primary-line); background: var(--k-primary-wash);
             color: var(--k-primary-deep); font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer; }
@@ -9151,6 +9155,14 @@
   body.kids .krowbtn { min-height: 48px; }
   .krowbtn b { font-size: 14px; }
   .krowbtn .kfa { font-size: 11.5px; color: var(--k-ink-2); direction: rtl; }
+  /* a row's title, read the way a beginner reads it: the Persian name is the
+     line, the English name is the gloss under it */
+  .krowbtn .kfa-lead, .kbc-body .kfa-lead { display: block; font-size: 14px; font-weight: 800; }
+  .krowbtn .ken-sub, .kbc-body .ken-sub { display: block; font-size: 11.5px; font-style: normal;
+    color: var(--k-ink-2); }
+  .kgintro-t .ken-sub { display: block; font-size: 12px; color: var(--k-ink-2); }
+  .kgl-body .kfa-lead { display: block; font-size: 14.5px; font-weight: 800; line-height: 1.5; }
+  .kgl-body .ken-sub { display: block; font-size: 11.5px; font-style: normal; color: var(--k-ink-2); }
   .krowbtn .kn { margin-inline-start: auto; font-size: 11.5px; color: var(--k-ink-2); font-weight: 700; }
   .kback {
     display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
@@ -9373,6 +9385,7 @@
     background: var(--k-sun-wash); border: 1.5px solid var(--k-sun-line); color: var(--k-sun-ink); font-weight: 800; font-size: 13px; text-align: start; }
   body.kids .hqbadge span { font-size: 22px; }
   body.kids .hqnote { font-size: 11.5px; color: var(--k-ink-2); display: flex; align-items: center; gap: 6px; }
+  body.kids .hqw-en { display: block; font-size: 10.5px; font-weight: 600; color: var(--k-ink-2); }
   body.kids .hqnote b { font-weight: 800; color: var(--k-primary-dark); }
   @media (prefers-reduced-motion: reduce) {
     body.kids .hqbig i.on { animation: none; }
@@ -21672,6 +21685,32 @@ const Kids = (() => {
     return el;
   }
 
+  /* A title as a beginner reads it: the Persian name first and bold, the
+     English name underneath. Two elements, because one text node carrying both
+     directions is the bug the dictionary panel already paid for. A row with no
+     Persian title yet still shows its English name rather than an empty line. */
+  function kTitle(en, faText) {
+    const wrap = document.createElement('span');
+    const f = document.createElement('b');
+    f.className = 'kfa-lead';
+    f.dir = 'rtl';
+    f.lang = 'fa';
+    f.textContent = faText || en;
+    wrap.appendChild(f);
+    if (faText && en) {
+      const e = document.createElement('i');
+      e.className = 'ken-sub';
+      e.textContent = en;
+      wrap.appendChild(e);
+    }
+    return wrap;
+  }
+
+  /* Counts a child reads: "4 lines" is «۴ خط». */
+  function kDigits(n) {
+    return String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
+  }
+
   /* A quiz of three-option questions. Options are buttons, never a select: a
      child taps the word, and the row says why as soon as the tap lands. */
   function quiz(container, items) {
@@ -21747,18 +21786,7 @@ const Kids = (() => {
     ico.className = 'kico';
     ico.textContent = item.emoji || '⭐';
     const body = document.createElement('span');
-    const t = document.createElement('b');
-    t.textContent = item.title_en;
-    body.appendChild(t);
-    /* English title, then the Persian one on its own line: two directions in
-       one text node is the bug the dictionary panel already paid for. */
-    const f = document.createElement('span');
-    f.className = 'kfa';
-    f.dir = 'rtl';
-    f.lang = 'fa';
-    f.textContent = item.title_fa || '';
-    f.style.display = 'block';
-    body.appendChild(f);
+    body.appendChild(kTitle(item.title_en, item.title_fa));
     const n = document.createElement('span');
     n.className = 'kn';
     n.textContent = count || '';
@@ -22568,9 +22596,9 @@ const Kids = (() => {
     });
     shown.forEach((theme) => {
       const count = terms.length
-        ? (theme.words || []).filter((w) => terms.every((t) =>
-            PanelSearch.fold([w.word, w.fa, w.def_en].join(' ')).includes(t))).length + ' found'
-        : (theme.words || []).length + ' words';
+        ? kDigits((theme.words || []).filter((w) => terms.every((t) =>
+            PanelSearch.fold([w.word, w.fa, w.def_en].join(' ')).includes(t))).length) + ' پیدا شد'
+        : kDigits((theme.words || []).length) + ' واژه';
       wrap.appendChild(listButton('theme', theme,
         () => themeWords(d, theme, terms), count));
     });
@@ -23014,14 +23042,19 @@ const Kids = (() => {
     const text = document.createElement('div');
     text.className = 'kgintro-t';
     const b = document.createElement('b');
-    b.textContent = 'Eight tiny comics about words';
+    b.dir = 'rtl';
+    b.lang = 'fa';
+    b.textContent = 'هشت کمیک کوچک دربارهٔ واژه‌ها';
     const i = document.createElement('i');
-    i.dir = 'rtl';
-    i.lang = 'fa';
-    i.textContent = 'هشت کمیک کوچک دربارهٔ واژه‌ها';
+    i.textContent = 'Eight tiny comics about words';
     const p = document.createElement('span');
-    p.textContent = 'Tap one, hear the fox, say it back.';
-    text.append(b, i, p);
+    p.dir = 'rtl';
+    p.lang = 'fa';
+    p.textContent = 'یکی را بزن، روباه را بشنو، بعد خودت بگو.';
+    const pEn = document.createElement('span');
+    pEn.className = 'ken-sub';
+    pEn.textContent = 'Tap one, hear the fox, say it back.';
+    text.append(b, i, p, pEn);
     intro.append(face, text);
     box.appendChild(intro);
 
@@ -23041,24 +23074,15 @@ const Kids = (() => {
       foxFace.appendChild(KAnim.fox(c ? c.mood : 'wave', 38));
       const body = document.createElement('span');
       body.className = 'kgl-body';
-      const title = document.createElement('b');
-      title.textContent = (lesson.emoji || '') + ' ' + lesson.title_en;
-      const titleFa = document.createElement('i');
-      titleFa.dir = 'rtl';
-      titleFa.lang = 'fa';
-      titleFa.textContent = lesson.title_fa || '';
-      body.append(title, titleFa);
-      if (c && c.chant) {
-        const chant = document.createElement('span');
-        chant.className = 'kgl-chant';
-        chant.textContent = '“' + c.chant[0] + '”';
-        body.appendChild(chant);
-      }
+      /* Persian first, English under it, and no one-line English chant: the
+         sentence belongs in the lesson, where it is shown with its Persian. */
+      body.appendChild(kTitle((lesson.emoji || '') + ' ' + lesson.title_en, lesson.title_fa));
       const go = document.createElement('span');
       go.className = 'kgl-go';
-      go.textContent = games + ' ▶';
+      go.textContent = kDigits(games) + ' ▶';
       tile.append(num, foxFace, body, go);
-      tile.setAttribute('aria-label', lesson.title_en + ' — ' + games + ' games');
+      tile.setAttribute('aria-label', (lesson.title_fa || lesson.title_en) + ' — ' +
+        kDigits(games) + ' بازی');
       tile.onclick = () => grammarLesson(d, lesson);
       wrap.appendChild(tile);
     });
@@ -24000,16 +24024,11 @@ const Kids = (() => {
       art.innerHTML = first ? first() : (item.emoji || '📖');
       const body = document.createElement('span');
       body.className = 'kbc-body';
-      const h = document.createElement('b');
-      h.textContent = (item.emoji || '') + ' ' + item.title_en;
-      const faTitle = document.createElement('i');
-      faTitle.dir = 'rtl';
-      faTitle.lang = 'fa';
-      faTitle.textContent = item.title_fa || '';
       const meta = document.createElement('span');
       meta.className = 'kbc-meta';
-      meta.textContent = (pages.length + 1) + ' pages · ' + (item.questions || []).length + ' questions';
-      body.append(h, faTitle, meta);
+      meta.textContent = kDigits(pages.length + 1) + ' صفحه · ' +
+        kDigits((item.questions || []).length) + ' پرسش';
+      body.append(kTitle((item.emoji ? item.emoji + ' ' : '') + item.title_en, item.title_fa), meta);
       const go = document.createElement('span');
       go.className = 'kbc-go';
       go.textContent = '▶';
@@ -24190,16 +24209,12 @@ const Kids = (() => {
       }
       const body = document.createElement('span');
       body.className = 'kbc-body';
-      const h = document.createElement('b');
-      h.textContent = (passage.emoji || '') + ' ' + passage.title_en;
-      const faTitle = document.createElement('i');
-      faTitle.dir = 'rtl';
-      faTitle.lang = 'fa';
-      faTitle.textContent = passage.title_fa || '';
       const meta = document.createElement('span');
       meta.className = 'kbc-meta';
-      meta.textContent = leaves + ' pages · ' + (passage.questions || []).length + ' questions';
-      body.append(h, faTitle, meta);
+      meta.textContent = kDigits(leaves) + ' صفحه · ' +
+        kDigits((passage.questions || []).length) + ' پرسش';
+      body.append(kTitle((passage.emoji ? passage.emoji + ' ' : '') + passage.title_en,
+                         passage.title_fa), meta);
       const turn = document.createElement('span');
       turn.className = 'kbc-go';
       turn.textContent = '▶';
@@ -24257,7 +24272,7 @@ const Kids = (() => {
     wrap.className = 'klist';
     (d.listening || []).forEach((clip) => {
       wrap.appendChild(listButton('listening', clip,
-        () => clipView(clip), (clip.lines || []).length + ' lines'));
+        () => clipView(clip), kDigits((clip.lines || []).length) + ' خط'));
     });
     box.appendChild(wrap);
     KAnim.stagger(wrap);
@@ -24313,15 +24328,17 @@ const Kids = (() => {
     const d = await load().catch(() => null);
     panelTitle('fpanel', 'Things you can say', 'چیزهایی که می‌توانی بگویی');
     box.innerHTML = '';
-    if (!d) { box.textContent = 'Sentences could not be read.'; return; }
+    if (!d) { box.textContent = 'جمله‌ها خوانده نشدند. / Sentences could not be read.'; return; }
     const wrap = document.createElement('div');
     wrap.className = 'klist';
     (d.phrases || []).forEach((set) => {
       wrap.appendChild(listButton('phrases', set,
-        () => phraseSet(set), (set.items || []).length + ' sentences'));
+        () => phraseSet(set), kDigits((set.items || []).length) + ' جمله'));
     });
-    wrap.prepend(Travel.card(true));
-    wrap.prepend(Journey.card('sports', true));
+    /* The two journey cards used to sit on top of this list. They are the adult
+       course - "Sports, 14 stages, 165 words, 46 sports, 83 expressions" and a
+       travel pitch - and a child opening "چیزهایی که می‌توانی بگویی" has no use
+       for either, no way to read them, and a long way to scroll past them. */
     box.appendChild(wrap);
     KAnim.stagger(wrap);
   }
@@ -24330,13 +24347,15 @@ const Kids = (() => {
     const box = $('ftopics');
     if (!box) return;
     box.innerHTML = '';
-    box.appendChild(back('All sentences', phrases));
+    box.appendChild(back('همهٔ جمله‌ها', phrases));
     const card = document.createElement('section');
     card.className = 'kcard';
     const h = document.createElement('h4');
-    h.textContent = (set.emoji || '') + ' ' + set.title_en;
+    h.textContent = (set.emoji || '') + ' ' + (set.title_fa || set.title_en);
+    h.dir = 'rtl';
+    h.lang = 'fa';
     card.appendChild(h);
-    card.appendChild(fa(set.title_fa, 'kfa-h'));
+    card.appendChild(fa(set.title_en, 'kfa-h'));
     card.appendChild(KAnim.hint('speak', 'Read it out loud, then listen and compare.',
       'بلند بخوان، بعد گوش کن و مقایسه کن.'));
     const ex = document.createElement('div');
@@ -24557,7 +24576,12 @@ const Kids = (() => {
   /* What a child should never be handed even if the adult engine has a good
      answer for it: money, exams, jobs, contracts. Asking for one is not a
      mistake to correct, it is a door to close kindly. */
-  const KID_GROWN = /(قیمت|اشتراک|پرداخت|فاکتور|پول|تومان|درآمد|حقوق|وام|بیمه|مالیات|سرمایه|بورس|ارز|مصاحبه|رزومه|استخدام|شرکت|قرارداد|مدرک|گواهی|سرتیفیکیت|آیلتس|تافل|تعیین سطح|آزمون|کنکور|دانشگاه|certificate|pricing|price|subscription|payment|invoice|refund|salary|income|mortgage|insurance|tax|invest|stock|resume|cv|interview|job|contract|ielts|toefl|cefr|placement|exam)/i;
+  const KID_GROWN = /(قیمت|اشتراک|پرداخت|فاکتور|پول|تومان|درآمد|حقوق|وام|بیمه|مالیات|سرمایه|بورس|ارز|مصاحبه|رزومه|استخدام|شرکت|قرارداد|مدرک|گواهی|سرتیفیکیت|آیلتس|تافل|تعیین سطح|آزمون|کنکور|دانشگاه|certificate|pricing|price|subscription|payment|invoice|refund|salary|income|mortgage|insurance|tax|invest|stock|resume|interview|job|contract|ielts|toefl|cefr|placement|exam)/i;
+  /* The same subjects, seen in a reply rather than in a question. A child can
+     reach an answer about a subscription without having typed any of those
+     words - "what can I do here", "help" - so the answer itself is checked
+     before it is shown, not only the question that produced it. */
+  const KID_ADULT = /(subscription|pricing|price list|refund|invoice|payment (plan|method)|ielts|toefl|cefr|placement test|certificate|resume|résumé|salary|interview|mortgage|insurance|contract|اشتراک|قیمت|پرداخت|فاکتور|آیلتس|تافل|تعیین سطح|گواهی|مدرک|رزومه|مصاحبه|وام|بیمه|قرارداد)/i;
 
   /* Folding: what counts as the same word when a child types it. Arabic yeh
      and kaf arrive from every phone keyboard, the ZWNJ splits «می‌خواهم», and
@@ -24575,17 +24599,39 @@ const Kids = (() => {
       .trim();
   }
 
-  /* A Latin term is matched on both of its edges ("cat" must not fire inside
-     "catch"). A Persian one is matched at the beginning of a word, because
-     Persian glues its endings on - «خانه‌ها» has to find «خانه» - while the
-     short words must not fire in the middle of a longer one: «نه» lives inside
-     «خانه», and a child asking about a house must not be told "No". */
-  function kHas(hay, term) {
+  /* One matcher per keyword, compiled once. A Latin term is matched on both of
+     its edges ("cat" must not fire inside "catch"); a Persian one at the start
+     of a word, because Persian glues its endings on - «خانه‌ها» has to find
+     «خانه» - while a short word must not fire in the middle of a longer one:
+     «نه» lives inside «خانه», and a house must not answer "No". */
+  function kMatch(term) {
     const t = kFold(term);
-    if (!t) return false;
+    if (!t) return () => false;
     const lit = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    if (/^[a-z ]+$/.test(t)) return new RegExp('(^|[^a-z])' + lit + '([^a-z]|$)').test(hay);
-    return new RegExp('(^| )' + lit).test(hay);
+    const re = new RegExp(/^[a-z ]+$/.test(t) ? '(^|[^a-z])' + lit + '([^a-z]|$)' : '(^| )' + lit);
+    return (hay) => re.test(hay);
+  }
+
+  /* The bank as matchers, built the first time a child asks something and kept
+     for the session: the same question then costs one regex test per keyword
+     instead of one RegExp object per keyword per message. */
+  let kIndex = null;
+  const kAny = (keys) => {
+    const all = keys.map(kMatch);
+    return (hay) => all.some((hit) => hit(hay));
+  };
+  function kBank() {
+    if (kIndex) return kIndex;
+    kIndex = {
+      /* the parenthesised half of a Persian gloss ("شیر (نوشیدنی)") is for the
+         card, not for matching, or both meanings of شیر would collide */
+      says: KID_SAYS.map((p) => ({ p, hit: kAny(p.keys) })),
+      words: KID_KB.map((w) => ({ w, hit: kAny([w.en, w.fa.replace(/\s*\(.*\)$/, '')]) })),
+      topics: KID_TOPICS.map((x) => ({ x, hit: kAny(x.keys) })),
+      numbers: kAny(KID_NUM_KEYS),
+      days: kAny(KID_DAY_KEYS),
+    };
+    return kIndex;
   }
 
   function kArticle(word) {
@@ -24613,7 +24659,7 @@ const Kids = (() => {
     return p.e + ' ' + p.en + '\n' + p.fa + ' — بگو: ' + p.say;
   }
 
-  function kNumberCard(folded) {
+  function kNumberCard(folded, askedForNumbers) {
     /* read from the folded text, so ۵ typed on a Persian keyboard is a five */
     const digits = folded.match(/\d{1,3}/);
     if (digits) {
@@ -24624,10 +24670,10 @@ const Kids = (() => {
         return '🔢 ' + row[1] + ' = ' + fa + '\nبگو: ' + row[2];
       }
     }
-    if (!KID_NUM_KEYS.some((k) => kHas(folded, k))) return '';
+    if (!askedForNumbers) return '';
     let h = '🔢 عدد‌ها — Numbers\n';
     KID_NUM.slice(0, 11).forEach((x) => { h += x[0] + ' = ' + x[1] + ' (' + x[2] + ')\n'; });
-    return h + '\nیک عدد بپرس: «عدد ۱۵»' ;
+    return h + '\nیک عدد بپرس: «عدد ۱۵»';
   }
 
   function kDaysCard() {
@@ -24658,22 +24704,19 @@ const Kids = (() => {
     const folded = kFold(text);
     if (!folded) return '';
     if (KID_GROWN.test(String(text || ''))) return kGrownUp();
-    /* a word first: "سیب", "apple", "گربه به انگلیسی" all name one thing. The
-       parenthesised half of a Persian gloss ("شیر (نوشیدنی)") is for the card,
-       not for matching, or both meanings of شیر would collide. */
-    const word = KID_KB.find((w) => kHas(folded, w.en)) ||
-      KID_KB.find((w) => kHas(folded, w.fa.replace(/\s*\(.*\)$/, ''))) ||
-      KID_KB.find((w) => w.say.length > 2 && folded.includes(kFold(w.say)));
-    const phrase = KID_SAYS.find((x) => x.keys.some((k) => kHas(folded, k)));
-    /* the phrase wins over the word when both matched: "how are you" contains
-       "are", not a taught noun, but "سلام" must not be read as a word */
-    if (phrase) return kSayCard(phrase);
-    if (word) return kWordCard(word);
-    const num = kNumberCard(folded);
+    const bank = kBank();
+    /* A sentence first: "how are you" contains "are" but names no thing, and
+       «سلام» must never be read as the noun in some longer word. */
+    const said = bank.says.find((x) => x.hit(folded));
+    if (said) return kSayCard(said.p);
+    /* then a word: "سیب", "apple", "گربه به انگلیسی" all name one thing */
+    const word = bank.words.find((x) => x.hit(folded));
+    if (word) return kWordCard(word.w);
+    const num = kNumberCard(folded, bank.numbers(folded));
     if (num) return num;
-    if (KID_DAY_KEYS.some((k) => kHas(folded, k))) return kDaysCard();
-    const topic = KID_TOPICS.find((x) => x.keys.some((k) => kHas(folded, k)));
-    if (topic) return kTopicCard(topic);
+    if (bank.days(folded)) return kDaysCard();
+    const topic = bank.topics.find((x) => x.hit(folded));
+    if (topic) return kTopicCard(topic.x);
     return '';
   }
 
@@ -24684,8 +24727,7 @@ const Kids = (() => {
   function soften(body) {
     return String(body || '')
       .replace(/\*\*/g, '')
-      .replace(/\s*\((?:Pre-)?[ABC][12]\)/g, '')
-      .replace(/\b(?:Pre-A1|[ABC][12])\b\s*[-–—:]?\s*/g, '')
+      .replace(/\(?\s*(?:Pre-A1|[ABC][12])\s*\)?\s*[-–—:]?\s*/g, '')
       .replace(/\/[^\/\n]{1,28}\//g, '')
       .replace(/[ \t]{2,}/g, ' ')
       .replace(/[ \t]+\n/g, '\n')
@@ -24746,6 +24788,9 @@ const Kids = (() => {
     if (own) return own;
     const body = soften(String(reply || ''));
     if (!body.trim()) return body;
+    /* the last gate: an answer about money, exams or grown-up paperwork is not
+       a thing a child should be handed, whatever question brought it here */
+    if (KID_ADULT.test(body)) return kGrownUp();
     /* The engine's own "I do not understand" menu is written for an adult who
        knows what a synonym is. A child gets four things he can actually tap. */
     if (/I'm not sure I understand|متوجه نشدم/.test(body)) return kMenu();
@@ -32849,6 +32894,8 @@ const WordQuest = (() => {
     e.lang = 'fa';
     return e;
   }
+  /* counts a child reads: "3 letters" is «۳ حرف» */
+  const faNum = (n) => String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[+d]);
   function speakButton(text, label) {
     const b = el('button', 'wqsay', '🔊');
     b.type = 'button';
@@ -32887,8 +32934,15 @@ const WordQuest = (() => {
       bar.appendChild(back);
     }
     const h = el('div', 'wqhead');
-    h.appendChild(el('b', '', title));
-    if (fa) h.appendChild(faLine(fa, 'wqhead-fa'));
+    const lead = el('b', '', fa || title);
+    if (fa) {
+      lead.dir = 'rtl';
+      lead.lang = 'fa';
+      h.appendChild(lead);
+      h.appendChild(el('small', 'wqhead-en', title));
+    } else {
+      h.appendChild(lead);
+    }
     bar.appendChild(h);
     return bar;
   }
@@ -32931,9 +32985,15 @@ const WordQuest = (() => {
       go.type = 'button';
       const isNew = !state.stages[up.stage.id];
       go.innerHTML = '';
-      go.appendChild(el('b', '', isNew ? 'Continue' : 'Keep going'));
-      go.appendChild(el('small', '', up.world.name_en + ' · ' + up.stage.title_en));
-      go.appendChild(faLine('ادامه بده', 'wqgo-fa'));
+      const goLabel = el('b', '', 'ادامه بده');
+      goLabel.dir = 'rtl';
+      goLabel.lang = 'fa';
+      go.appendChild(goLabel);
+      const goNext = el('small', 'wqgo-en',
+        (up.world.name_fa || up.world.name_en) + ' · ' + (up.stage.title_fa || up.stage.title_en));
+      goNext.dir = 'rtl';
+      goNext.lang = 'fa';
+      go.appendChild(goNext);
       go.onclick = () => { openWorld = up.world.id; startStage(up.world, up.stage); };
       wrap.appendChild(go);
     }
@@ -32952,17 +33012,27 @@ const WordQuest = (() => {
       const top = el('div', 'wqworld-top');
       top.appendChild(el('span', 'wqworld-emoji', world.emoji));
       const names = el('div', 'wqworld-names');
-      names.appendChild(el('b', '', world.name_en));
-      names.appendChild(faLine(world.name_fa, 'wqworld-fa'));
-      names.appendChild(el('small', '', world.level + ' · ' + world.theme_en + ' · ' +
-        world.stages.filter((s) => solved(s.id)).length + '/' + world.stages.length));
+      const worldName = el('b', '', world.name_fa || world.name_en);
+      worldName.dir = 'rtl';
+      worldName.lang = 'fa';
+      names.appendChild(worldName);
+      names.appendChild(el('small', 'wqworld-en', world.name_en));
+      /* no "Pre-A1" here: a band code is a thing an adult reads. What a child
+         needs is how far along the world they are, in numbers they know. */
+      names.appendChild(el('small', '', faNum(world.stages.filter((st) => solved(st.id)).length) +
+        ' از ' + faNum(world.stages.length) + ' مرحله · ' + (world.theme_fa || world.theme_en)));
       top.appendChild(names);
       if (done) top.appendChild(el('span', 'wqbadge', '✓'));
       else if (!open) top.appendChild(el('span', 'wqlock', '🔒'));
       cardEl.appendChild(top);
       const blurb = el('p', 'wqblurb');
-      blurb.textContent = world.blurb_en;
+      blurb.dir = 'rtl';
+      blurb.lang = 'fa';
+      blurb.textContent = world.blurb_fa || world.blurb_en;
       cardEl.appendChild(blurb);
+      if (world.blurb_fa && world.blurb_en) {
+        cardEl.appendChild(el('small', 'wqblurb-en', world.blurb_en));
+      }
       if (done) {
         const tick = el('span', 'wqdone-tag', 'Cleared — کامل شد');
         cardEl.appendChild(tick);
@@ -32993,9 +33063,13 @@ const WordQuest = (() => {
     const wrap = el('div', 'wqwrap');
     wrap.appendChild(head(world.name_en, world.name_fa, 'map'));
     const sub = el('p', 'wqintro');
-    sub.textContent = world.level + ' — ' + world.blurb_en + ' ';
-    sub.appendChild(faLine(world.blurb_fa, 'wqfa'));
+    sub.dir = 'rtl';
+    sub.lang = 'fa';
+    sub.textContent = world.blurb_fa || world.blurb_en;
     wrap.appendChild(sub);
+    if (world.blurb_fa && world.blurb_en) {
+      wrap.appendChild(el('p', 'wqintro-en', world.blurb_en));
+    }
     wrap.appendChild(purse());
 
     const list = el('div', 'wqstages');
@@ -33008,10 +33082,13 @@ const WordQuest = (() => {
       const n = el('span', 'wqn', String(i + 1));
       row.appendChild(n);
       const mid = el('span', 'wqstage-mid');
-      mid.appendChild(el('b', '', stage.title_en));
-      mid.appendChild(faLine(stage.title_fa, 'wqstage-fa'));
-      mid.appendChild(el('small', '', stage.level + ' · ' + stage.letters.length + ' letters · ' +
-        stage.required.length + ' words'));
+      const stageName = el('b', '', stage.title_fa || stage.title_en);
+      stageName.dir = 'rtl';
+      stageName.lang = 'fa';
+      mid.appendChild(stageName);
+      mid.appendChild(el('small', 'wqstage-en', stage.title_en));
+      mid.appendChild(el('small', '', faNum(stage.letters.length) + ' حرف · ' +
+        faNum(stage.required.length) + ' واژه'));
       row.appendChild(mid);
       row.appendChild(did ? starsRow(did.stars) : el('span', 'wqlock', open ? '▸' : '🔒'));
       row.setAttribute('aria-label', (open ? 'Play ' : 'Locked: ') + stage.title_en +
@@ -34450,7 +34527,7 @@ const Quest = (() => {
 
     /* the strip at the top: way home, what you have, and the sound switch */
     const hud = el('div', 'hqw-hud');
-    const back = el('button', 'hqw-btn', '← Home');
+    const back = el('button', 'hqw-btn', '← خانه');
     back.type = 'button';
     back.onclick = () => gotoDashboard();
     hud.appendChild(back);
@@ -34509,9 +34586,16 @@ const Quest = (() => {
       card.appendChild(who);
       const txt = el('div', 'hqw-next-txt');
       txt.appendChild(el('small', null, open ? 'Next quest · مأموریت بعدی' : 'Almost there · کمی دیگر'));
-      txt.appendChild(el('b', null, upNext.title_en));
+      /* `why` is read in the locked branch, so it is worked out before the
+         title that uses it: a locked card must say how to open it, not throw */
       const why = nextObjective();
-      txt.appendChild(faLine(open ? upNext.title_fa : why[1], 'hqw-next-fa'));
+      const nextName = el('b', null, open ? (upNext.title_fa || upNext.title_en) : why[1]);
+      nextName.dir = 'rtl';
+      nextName.lang = 'fa';
+      txt.appendChild(nextName);
+      if (open && upNext.title_en && upNext.title_fa) {
+        txt.appendChild(el('small', 'hqw-en', upNext.title_en));
+      }
       card.appendChild(txt);
       const jump = el('button', 'hqw-next-go');
       jump.type = 'button';
@@ -34557,13 +34641,17 @@ const Quest = (() => {
     pinsLayer.appendChild(flag);
     const paintFlag = (i) => {
       const r = game.ranks[i];
-      const name = r.place_en.length > 17 ? r.place_en.slice(0, 16) + '…' : r.place_en;
-      const w = Math.max(104, name.length * 11 + 34);
+      /* the plate names the place the child is at, in her own language; the
+         English name is on the rank bar under it */
+      const source = r.place_fa || r.place_en;
+      const name = source.length > 20 ? source.slice(0, 19) + '…' : source;
+      const w = Math.max(104, name.length * 10 + 34);
       const n = NODES[i];
       flag.setAttribute('transform', 'translate(' + n.x + ' ' + (n.y - 112) + ')');
       flag.innerHTML = '<rect class="flag-bg" x="' + (-w / 2) + '" y="-24" width="' + w +
         '" height="34" rx="17"/>' +
-        '<text class="flag-tx" y="-7" dominant-baseline="middle">' + esc(name) + '</text>';
+        '<text class="flag-tx" y="-7" direction="rtl" dominant-baseline="middle">' +
+        esc(name) + '</text>';
     };
 
     const pinEls = [];
@@ -34612,15 +34700,24 @@ const Quest = (() => {
       const box = el('div', 'hqw-bar');
 
       const top = el('div', 'hqw-bartop');
-      top.appendChild(el('b', null, rank.place_en + ' ' + rank.emoji));
-      top.appendChild(faLine(rank.place_fa));
-      top.appendChild(el('span', 'kspace'));
-      top.appendChild(el('span', 'hqnote', rank.cefr));
+      const place = el('b', null, (rank.place_fa || rank.place_en) + ' ' + rank.emoji);
+      place.dir = 'rtl';
+      place.lang = 'fa';
+      top.appendChild(place);
+      top.appendChild(el('span', 'hqw-en', rank.place_en));
       box.appendChild(top);
-      box.appendChild(el('p', 'hqnote', unlocked
-        ? rank.story_en
-        : 'The way is closed. Finish “' + game.ranks[i - 1].name_en + '” to open it.'));
-      if (!unlocked) box.appendChild(faLine('راه بسته است؛ نخست «' + game.ranks[i - 1].name_fa + '» را تمام کن.', 'hqfa'));
+      /* the story in the language the child reads, then the English line: the
+         rank's CEFR code used to sit in this row, and "Pre-A1" tells a
+         seven-year-old nothing at all. */
+      const story = el('p', 'hqnote', unlocked
+        ? (rank.story_fa || rank.story_en)
+        : 'راه بسته است؛ نخست «' + game.ranks[i - 1].name_fa + '» را تمام کن.');
+      story.dir = 'rtl';
+      story.lang = 'fa';
+      box.appendChild(story);
+      if (unlocked && rank.story_en && rank.story_fa) {
+        box.appendChild(el('p', 'hqw-en', rank.story_en));
+      }
 
       const stones = el('div', 'hqw-stones');
       const list = rankMissions(rank.id);
@@ -34631,9 +34728,12 @@ const Quest = (() => {
           (stars ? ' done' : (ready ? ' next' : ' locked')));
         stone.type = 'button';
         stone.appendChild(el('span', 'n', String(k + 1)));
-        stone.appendChild(el('span', 't', m.title_en));
+        const stoneName = el('span', 't', m.title_fa || m.title_en);
+        stoneName.dir = 'rtl';
+        stoneName.lang = 'fa';
+        stone.appendChild(stoneName);
         const sub = el('span', 'f');
-        sub.appendChild(faLine(m.title_fa || ''));
+        if (m.title_fa && m.title_en) sub.appendChild(el('span', 'hqw-en', m.title_en));
         stone.appendChild(sub);
         stone.appendChild(el('span', 's', stars ? '★'.repeat(stars) : (ready ? '▶' : '🔒')));
         stone.disabled = !ready;
@@ -34650,12 +34750,13 @@ const Quest = (() => {
       go.disabled = !unlocked || (!next && !list.length);
       go.appendChild(el('span', null, unlocked ? (next ? '▶' : '↺') : '🔒'));
       const gt = el('span');
+      /* the button names the mission in Persian and repeats the word that
+         starts it: an arrow with an English title beside it was a button a
+         child had to guess at */
       gt.appendChild(el('b', null, unlocked
-        ? (next ? (next.title_en) : 'Play a mission again')
-        : 'Locked'));
-      gt.appendChild(el('i', null, unlocked
         ? (next ? 'ادامه' : 'یکی را دوباره بازی کن')
         : 'بسته'));
+      if (unlocked && next) gt.appendChild(el('i', null, next.title_fa || next.title_en));
       go.appendChild(gt);
       go.appendChild(el('span', 'arrow', '→'));
       go.onclick = () => {
@@ -34859,7 +34960,11 @@ const Quest = (() => {
     back.type = 'button';
     back.onclick = () => { run = null; home(); };
     hud.appendChild(back);
-    hud.appendChild(el('b', null, run.mission.emoji + ' ' + run.mission.title_en));
+    const hudName = el('b', null, run.mission.emoji + ' ' +
+      (run.mission.title_fa || run.mission.title_en));
+    hudName.dir = 'rtl';
+    hudName.lang = 'fa';
+    hud.appendChild(hudName);
     hud.appendChild(el('span', 'kspace'));
     const pebbles = el('span', 'hqd');
     run.chs.forEach((_, i) => pebbles.appendChild(el('i', i < run.i ? 'ok' : (i === run.i ? 'on' : ''))));
@@ -35550,12 +35655,19 @@ const Quest = (() => {
       const idx = game.ranks.indexOf(rank);
       const up = game.ranks[idx + 1];
       if (up) {
-        card.appendChild(el('p', 'hqnote', 'The way to “' + up.place_en + '” is open now.'));
+        const opened = el('p', 'hqnote',
+          'راهِ «' + (up.place_fa || up.place_en) + '» باز شد.');
+        opened.dir = 'rtl';
+        opened.lang = 'fa';
+        card.appendChild(opened);
         setTimeout(() => Snd.play('unlock'), 500);
       }
       const w = wardrobe();
       if (w.hat || w.scarf || w.glasses) {
-        card.appendChild(el('p', 'hqnote', 'New look unlocked — open the island and tap 🎩.'));
+        const look = el('p', 'hqnote', 'ظاهر تازه باز شد — جزیره را باز کن و 🎩 را بزن.');
+        look.dir = 'rtl';
+        look.lang = 'fa';
+        card.appendChild(look);
       }
     }
     wrap.appendChild(card);
@@ -35568,7 +35680,7 @@ const Quest = (() => {
       if (above && rankUnlocked(idx + 1)) next = rankMissions(above.id)[0] || null;
     }
     if (next && missionOpen(next)) {
-      const b = el('button', 'hqw-go', 'Next: ' + next.title_en + ' →');
+      const b = el('button', 'hqw-go', 'بعدی: ' + (next.title_fa || next.title_en) + ' →');
       b.type = 'button';
       b.onclick = () => { Snd.play('tap'); startMission(next); };
       actions.appendChild(b);

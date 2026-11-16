@@ -1056,10 +1056,25 @@ def check_kid_kb(src):
 
     # Matching must not fire a short Persian word inside a longer one: «نه»
     # lives inside «خانه», and a house must not answer "No".
-    matcher = block("function kHas(hay, term) {", "function kArticle(")
+    matcher = block("function kMatch(term) {", "let kIndex = null;")
     check("'(^| )'" in matcher,
           "a short Persian word can match inside a longer one")
     check("'([^a-z]|$)'" in matcher, "an English word can match inside a longer one")
+
+    # Keywords are compiled once and reused: the first draft rebuilt a RegExp
+    # per keyword per message, which is work a child's phone does not need.
+    check("function kBank()" in src and "if (kIndex) return kIndex;" in src,
+          "the bank's matchers are rebuilt on every message")
+    check("kHas(" not in src, "a second, uncompiled matcher is still in use")
+
+    # An adult answer must not reach a child just because the question was
+    # innocent: "help" can return a subscription page.
+    check("const KID_ADULT =" in src, "nothing checks the answer itself for adult subjects")
+    guard = block("function says(text, reply) {", "const kidChips =")
+    check("KID_ADULT.test(body)" in guard,
+          "an adult answer reaches a child because only the question was checked")
+    check(guard.index("KID_ADULT.test(body)") < guard.index("kinder("),
+          "an adult answer is dressed up for a child before it is refused")
 
     # Nothing a child reads may be a grammar term he has to look up.
     kid_text = kb + topics + says
@@ -1080,6 +1095,33 @@ def check_kid_kb(src):
           "the message box still asks a beginner to type in English")
     # The three cards on the home page and the More tile: a child who reads no
     # English has to be able to name what is in front of them.
+    # ---- the panels: what a beginner reads, in the order she reads it ------
+    # A list row used to put the English name first in bold and the Persian
+    # translation under it, which is a lesson plan, not a signpost.
+    check("function kTitle(en, faText)" in src, "there is no Persian-first title")
+    check("body.appendChild(kTitle(item.title_en, item.title_fa))" in src,
+          "a list row still leads with its English name")
+    check("function kDigits(n)" in src, "counts are still written in Latin digits")
+    check(src.count("kDigits(") >= 5, "only some counts are written in Persian digits")
+    # the adult journey cards used to top the child's sentence list
+    phrases = block("async function phrases() {", "function phraseSet(")
+    check("Journey.card" not in phrases and "Travel.card" not in phrases,
+          "the adult Sports and Travel journeys still sit in a child's sentence list")
+    # the stage select: Persian name, English gloss, a count and no band code
+    wq = block("function renderMap(body) {", "function renderWorld(body) {")
+    check("wqworld-en" in wq, "a stage-select card does not show its English name at all")
+    check("world.level" not in wq, "a stage-select card still shows a CEFR band code")
+    check("faNum(" in wq, "a stage-select card still counts in Latin digits")
+    check("world.blurb_fa" in wq, "a stage-select card still explains itself only in English")
+    wqw = block("function renderWorld(body) {", "function startStage(")
+    check("stage.title_fa" in wqw and "wqstage-en" in wqw,
+          "a stage row is not Persian-first")
+    check("stage.level" not in wqw, "a stage row still shows a CEFR band code")
+    # the adventure: no band code in the rank bar, Persian mission names
+    check("rank.cefr" not in src.split("function bar(i)")[1][:1400],
+          "the adventure still prints a CEFR band over a child's mission list")
+    check("m.title_fa || m.title_en" in src, "a mission stone is not Persian-first")
+
     for needle, what in (
         ("h.textContent = 'روباه می‌گوید 🦊'", "the fox card is still titled in English"),
         ("h.textContent = 'یک واژه را برگردان 🃏'", "the flip card is still titled in English"),
