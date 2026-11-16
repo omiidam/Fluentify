@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 2,
-   "stages": 26,
-   "words": 165,
-   "expressions": 143,
+   "journeys": 3,
+   "stages": 38,
+   "words": 237,
+   "expressions": 203,
    "sports": 46
   }
  },
@@ -10667,6 +10667,3978 @@
      "terms": []
     }
    ]
+  },
+  {
+   "id": "makeup",
+   "topic": "makeup",
+   "title_en": "Makeup Journey",
+   "title_fa": "آرایش: از پوست تا آخر شب",
+   "icon": "💄",
+   "art": "lipstick",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "The words people really use about makeup: the products, the verbs, the looks, the shopping and the idioms.",
+   "blurb_fa": "واژه‌هایی که مردم واقعاً دربارهٔ آرایش به کار می‌برند: محصول‌ها، فعل‌ها، مدل‌ها، خرید و اصطلاح‌ها.",
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "skinprep",
+     "order": 1,
+     "icon": "sponge",
+     "title_en": "Skin prep before makeup",
+     "title_fa": "آماده‌سازی پوست پیش از آرایش",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Clean skin, then the thin layers that make everything after them sit better.",
+     "blurb_fa": "پوست تمیز، بعد لایه‌های نازکی که هر چیزی را که بعد می‌آید بهتر می‌نشاند.",
+     "objectives": [
+      {
+       "en": "name the steps of a skin routine in the right order.",
+       "fa": "نام مرحله‌های مراقبت از پوست را به ترتیب درست بگو."
+      },
+      {
+       "en": "describe your skin type and what it needs.",
+       "fa": "نوع پوستت را توصیف کن و بگو چه لازم دارد."
+      },
+      {
+       "en": "say how long to wait between products.",
+       "fa": "بگو بین محصول‌ها چقدر باید صبر کرد."
+      }
+     ],
+     "words": [
+      {
+       "id": "skinprep-w1",
+       "en": "cleanser",
+       "ipa": "/ˈklɛnzər/",
+       "pos": "noun",
+       "fa": "پاک‌کننده",
+       "def_en": "A product that removes dirt, oil and old makeup from the skin.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "A1",
+       "example_en": "I use a gentle cleanser at night.",
+       "example_fa": "شب‌ها از یک پاک‌کنندهٔ ملایم استفاده می‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "skinprep-w2",
+       "en": "toner",
+       "ipa": "/ˈtoʊnər/",
+       "pos": "noun",
+       "fa": "تونر",
+       "def_en": "A watery product applied after cleansing to refresh the skin.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "A2",
+       "example_en": "The toner feels cool and light.",
+       "example_fa": "تونر خنک و سبک است.",
+       "ref": ""
+      },
+      {
+       "id": "skinprep-w3",
+       "en": "serum",
+       "ipa": "/ˈsɪrəm/",
+       "pos": "noun",
+       "fa": "سرم",
+       "def_en": "A light product with a high dose of one ingredient.",
+       "sport": "makeup",
+       "icon": "serum",
+       "level": "B1",
+       "example_en": "I put serum on before moisturizer.",
+       "example_fa": "سرم را قبل از مرطوب‌کننده می‌زنم.",
+       "ref": ""
+      },
+      {
+       "id": "skinprep-w4",
+       "en": "moisturizer",
+       "ipa": "/ˈmɔɪstʃəraɪzər/",
+       "pos": "noun",
+       "fa": "مرطوب‌کننده",
+       "def_en": "A cream that keeps water in the skin.",
+       "sport": "makeup",
+       "icon": "jar",
+       "level": "A1",
+       "example_en": "My moisturizer is very light in summer.",
+       "example_fa": "مرطوب‌کننده‌ام تابستان خیلی سبک است.",
+       "ref": ""
+      },
+      {
+       "id": "skinprep-w5",
+       "en": "sunscreen",
+       "ipa": "/ˈsʌnskrin/",
+       "pos": "noun",
+       "fa": "ضدآفتاب",
+       "def_en": "A product that protects the skin from the sun.",
+       "sport": "makeup",
+       "icon": "sun",
+       "level": "A1",
+       "example_en": "Put sunscreen on last in the morning.",
+       "example_fa": "صبح‌ها ضدآفتاب را آخر می‌زنم.",
+       "ref": ""
+      },
+      {
+       "id": "skinprep-w6",
+       "en": "primer",
+       "ipa": "/ˈpraɪmər/",
+       "pos": "noun",
+       "fa": "پرایمر",
+       "def_en": "A base that smooths the skin so makeup holds better.",
+       "sport": "makeup",
+       "icon": "primer",
+       "level": "A2",
+       "example_en": "Primer helps foundation last all day.",
+       "example_fa": "پرایمر کمک می‌کند آرایش تمام روز بماند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "skinprep-x1",
+       "kind": "expression",
+       "en": "Start with clean skin.",
+       "fa": "با پوست تمیز شروع کن.",
+       "meaning_en": "Names the first step and the reason for it.",
+       "meaning_fa": "نخستین مرحله و دلیلش را می‌گوید.",
+       "register": "neutral",
+       "example_en": "Start with clean skin, then let it dry.",
+       "example_fa": "با پوست تمیز شروع کن، بعد بگذار خشک شود.",
+       "alt": ""
+      },
+      {
+       "id": "skinprep-x2",
+       "kind": "expression",
+       "en": "Give it a minute to sink in.",
+       "fa": "بگذار یک دقیقه جذب شود.",
+       "meaning_en": "Says to wait before the next layer.",
+       "meaning_fa": "می‌گوید پیش از لایهٔ بعد کمی صبر کن.",
+       "register": "neutral",
+       "example_en": "Give it a minute to sink in before the primer.",
+       "example_fa": "بگذار قبل از پرایمر یک دقیقه جذب شود.",
+       "alt": ""
+      },
+      {
+       "id": "skinprep-x3",
+       "kind": "expression",
+       "en": "My T-zone gets oily by noon.",
+       "fa": "منطقهٔ T صورتم تا ظهر چرب می‌شود.",
+       "meaning_en": "Describes skin that shines on the forehead and nose.",
+       "meaning_fa": "پوستی را توصیف می‌کند که پیشانی و بینی‌اش برق می‌زند.",
+       "register": "informal",
+       "example_en": "My T-zone gets oily by noon, so I use powder.",
+       "example_fa": "منطقهٔ T صورتم تا ظهر چرب می‌شود، پس پودر می‌زنم.",
+       "alt": ""
+      },
+      {
+       "id": "skinprep-x4",
+       "kind": "expression",
+       "en": "A thin layer is enough.",
+       "fa": "یک لایهٔ نازک کافی است.",
+       "meaning_en": "Warns against using too much product.",
+       "meaning_fa": "هشدار می‌دهد زیاد از محصول استفاده نکن.",
+       "register": "neutral",
+       "example_en": "A thin layer is enough, even on dry patches.",
+       "example_fa": "یک لایهٔ نازک کافی است، حتی روی پوست‌های خشک.",
+       "alt": ""
+      },
+      {
+       "id": "skinprep-x5",
+       "kind": "idiom",
+       "en": "Less is more.",
+       "fa": "کمتر، بیشتر است.",
+       "meaning_en": "Literally, a small amount of product looks better on the face; figuratively, doing less gives a better result.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مقدار کم محصول روی صورت بهتر دیده می‌شود؛ به‌طور مجازی، کمتر انجام دادن نتیجهٔ بهتری می‌دهد.",
+       "register": "neutral",
+       "example_en": "Less is more when your skin is already good.",
+       "example_fa": "وقتی پوستت خوب است، کمتر بیشتر است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I start with + [product].",
+       "example_en": "I start with cleanser and then serum.",
+       "example_fa": "با پاک‌کننده شروع می‌کنم و بعد سرم.",
+       "note_en": "Use this to give the order of a routine.",
+       "note_fa": "با این ترتیب کارها را بگو."
+      },
+      {
+       "frame": "My skin is + [skin type].",
+       "example_en": "My skin is dry in winter and oily in summer.",
+       "example_fa": "پوستم زمستان خشک است و تابستان چرب.",
+       "note_en": "Name the type before the product.",
+       "note_fa": "نوع پوست را پیش از محصول بگو."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "skinprep-s1",
+       "en": "Sunscreen is the one step I never skip.",
+       "fa": "ضدآفتاب تنها مرحله‌ای است که هرگز جا نمی‌اندازم.",
+       "use_en": "Shows a habit and a priority.",
+       "use_fa": "یک عادت و یک اولویت را نشان می‌دهد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I never skip sunscreen."
+      },
+      {
+       "id": "skinprep-s2",
+       "en": "I wait two minutes between each layer.",
+       "fa": "بین هر لایه دو دقیقه صبر می‌کنم.",
+       "use_en": "Explains how you keep layers from rolling.",
+       "use_fa": "توضیح می‌دهد چطور لایه‌ها را از هم جدا نگه می‌داری.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I give each layer two minutes."
+      },
+      {
+       "id": "skinprep-s3",
+       "en": "My skin gets dry under foundation in winter.",
+       "fa": "زمستان زیر کرم‌پودر پوستم خشک می‌شود.",
+       "use_en": "Describes a real problem a friend can help with.",
+       "use_fa": "مشکلی واقعی را می‌گوید که دوستت می‌تواند کمک کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Foundation dries my skin out in winter."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Two friends getting ready",
+      "title_fa": "دو دوست در حال آماده شدن",
+      "speakers": [
+       "Sara",
+       "Neda"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "Start with clean skin. What are you using tonight?",
+        "fa": "با پوست تمیز شروع کن. امشب چه می‌زنی؟"
+       },
+       {
+        "who": "Neda",
+        "en": "Cleanser, then serum. My skin is dry this week.",
+        "fa": "پاک‌کننده، بعد سرم. این هفته پوستم خشک است."
+       },
+       {
+        "who": "Sara",
+        "en": "Give it a minute to sink in before the moisturizer.",
+        "fa": "بگذار قبل از مرطوب‌کننده یک دقیقه جذب شود."
+       },
+       {
+        "who": "Neda",
+        "en": "I always wait. Do you use a primer?",
+        "fa": "من همیشه صبر می‌کنم. تو پرایمر می‌زنی؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Only when I want the foundation to last all day.",
+        "fa": "فقط وقتی می‌خواهم کرم‌پودر تمام روز بماند."
+       },
+       {
+        "who": "Neda",
+        "en": "A thin layer is enough, right?",
+        "fa": "یک لایهٔ نازک کافی است، نه؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Yes. Less is more with primer.",
+        "fa": "بله. دربارهٔ پرایمر، کمتر بیشتر است."
+       },
+       {
+        "who": "Neda",
+        "en": "Then sunscreen last, and I am done.",
+        "fa": "بعد ضدآفتاب آخر، و تمام."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The dry patch",
+       "title_fa": "لکهٔ خشک",
+       "situation_en": "Your friend says her foundation looks patchy on her cheeks.",
+       "situation_fa": "دوستت می‌گوید کرم‌پودر روی گونه‌هایش لکه‌لکه می‌شود.",
+       "task_en": "Ask which step she does before foundation.",
+       "task_fa": "بپرس پیش از کرم‌پودر چه مرحله‌ای انجام می‌دهد.",
+       "answer_en": "Do you moisturize before you put on foundation? Dry skin drinks it up.",
+       "answer_fa": "قبل از کرم‌پودر مرطوب‌کننده می‌زنی؟ پوست خشک آن را می‌بلعد."
+      },
+      {
+       "title_en": "What order",
+       "title_fa": "چه ترتیبی",
+       "situation_en": "A beginner has four bottles and no idea where to start.",
+       "situation_fa": "یک تازه‌کار چهار شیشه دارد و نمی‌داند از کجا شروع کند.",
+       "task_en": "Explain the order in one short answer.",
+       "task_fa": "ترتیب را در یک پاسخ کوتاه توضیح بده.",
+       "answer_en": "Cleanser, serum, moisturizer, sunscreen. Give each one a minute.",
+       "answer_fa": "پاک‌کننده، سرم، مرطوب‌کننده، ضدآفتاب. به هر کدام یک دقیقه وقت بده."
+      }
+     ],
+     "practice": [
+      {
+       "id": "skinprep-q1",
+       "q_en": "What goes on last in a morning routine?",
+       "q_fa": "صبح‌ها چه چیزی آخر زده می‌شود؟",
+       "options": [
+        "sunscreen",
+        "serum",
+        "cleanser"
+       ],
+       "answer": "sunscreen",
+       "why_en": "Sunscreen goes on last because nothing should sit on top of it.",
+       "why_fa": "ضدآفتاب آخر می‌رود چون چیزی نباید رویش بنشیند."
+      },
+      {
+       "id": "skinprep-q2",
+       "q_en": "Which product smooths the skin before foundation?",
+       "q_fa": "کدام محصول پوست را پیش از کرم‌پودر صاف می‌کند؟",
+       "options": [
+        "primer",
+        "toner",
+        "sunscreen"
+       ],
+       "answer": "primer",
+       "why_en": "A primer fills small uneven places so makeup sits evenly.",
+       "why_fa": "پرایمر فرورفتگی‌های کوچک را پر می‌کند تا آرایش یکدست بنشیند."
+      },
+      {
+       "id": "skinprep-q3",
+       "q_en": "\"My T-zone gets oily by noon\" describes ...",
+       "q_fa": "«منطقهٔ T صورتم تا ظهر چرب می‌شود» چه چیزی را توصیف می‌کند؟",
+       "options": [
+        "oily skin on the forehead and nose",
+        "dry skin on the cheeks",
+        "sensitive skin"
+       ],
+       "answer": "oily skin on the forehead and nose",
+       "why_en": "The T-zone is the forehead, nose and chin, where oil shows first.",
+       "why_fa": "منطقهٔ T پیشانی، بینی و چانه است؛ جایی که چربی اول دیده می‌شود."
+      }
+     ]
+    },
+    {
+     "id": "base",
+     "order": 2,
+     "icon": "foundation",
+     "title_en": "Foundation and the right shade",
+     "title_fa": "کرم‌پودر و انتخاب رنگ درست",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Coverage, finish and the one thing that decides whether it looks like skin: the shade.",
+     "blurb_fa": "پوشش، بافت و تنها چیزی که تعیین می‌کند شبیه پوست باشد: رنگ.",
+     "objectives": [
+      {
+       "en": "ask for your shade and describe your undertone.",
+       "fa": "رنگ خودت را بپرس و ته‌رنگ پوستت را بگو."
+      },
+      {
+       "en": "say what coverage and finish you want.",
+       "fa": "بگو چه میزان پوشش و چه بافتی می‌خواهی."
+      },
+      {
+       "en": "explain why a foundation does or does not match.",
+       "fa": "توضیح بده چرا یک کرم‌پودر با پوستت می‌خواند یا نه."
+      }
+     ],
+     "words": [
+      {
+       "id": "base-w1",
+       "en": "foundation",
+       "ipa": "/faʊnˈdeɪʃn/",
+       "pos": "noun",
+       "fa": "کرم‌پودر",
+       "def_en": "Tinted makeup worn over the whole face to even out the skin.",
+       "sport": "makeup",
+       "icon": "foundation",
+       "level": "A1",
+       "example_en": "I wear light foundation on weekdays.",
+       "example_fa": "روزهای کاری کرم‌پودر سبک می‌زنم.",
+       "ref": ""
+      },
+      {
+       "id": "base-w2",
+       "en": "shade",
+       "ipa": "/ʃeɪd/",
+       "pos": "noun",
+       "fa": "رنگ",
+       "def_en": "One exact color in a range of makeup colors.",
+       "sport": "makeup",
+       "icon": "swatch",
+       "level": "A2",
+       "example_en": "This shade is too yellow for me.",
+       "example_fa": "این رنگ برای من زیادی زرد است.",
+       "ref": ""
+      },
+      {
+       "id": "base-w3",
+       "en": "undertone",
+       "ipa": "/ˈʌndərtoʊn/",
+       "pos": "noun",
+       "fa": "ته‌رنگ",
+       "def_en": "The warm, cool or neutral color under the surface of the skin.",
+       "sport": "makeup",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "My undertone is warm, so I look for peach shades.",
+       "example_fa": "ته‌رنگم گرم است، پس رنگ‌های هلویی می‌گیرم.",
+       "ref": ""
+      },
+      {
+       "id": "base-w4",
+       "en": "coverage",
+       "ipa": "/ˈkʌvərɪdʒ/",
+       "pos": "noun",
+       "fa": "پوشش",
+       "def_en": "How much a product hides: sheer, medium or full.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "A2",
+       "example_en": "I want medium coverage, not full.",
+       "example_fa": "پوشش متوسط می‌خواهم، نه کامل.",
+       "ref": ""
+      },
+      {
+       "id": "base-w5",
+       "en": "tinted moisturizer",
+       "ipa": "/ˈtɪntɪd ˈmɔɪstʃəraɪzər/",
+       "pos": "noun",
+       "fa": "مرطوب‌کنندهٔ رنگی",
+       "def_en": "A light cream with a little color, between skincare and foundation.",
+       "sport": "makeup",
+       "icon": "jar",
+       "level": "A2",
+       "example_en": "In summer I switch to a tinted moisturizer.",
+       "example_fa": "تابستان به مرطوب‌کنندهٔ رنگی روی می‌آورم.",
+       "ref": ""
+      },
+      {
+       "id": "base-w6",
+       "en": "finish",
+       "ipa": "/ˈfɪnɪʃ/",
+       "pos": "noun",
+       "fa": "بافت پایانی",
+       "def_en": "The way makeup looks when it is done: matte, satin or dewy.",
+       "sport": "makeup",
+       "icon": "highlighter",
+       "level": "B1",
+       "example_en": "I like a dewy finish in winter.",
+       "example_fa": "زمستان بافت درخشان را دوست دارم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "base-x1",
+       "kind": "expression",
+       "en": "What's your shade?",
+       "fa": "رنگت چیست؟",
+       "meaning_en": "The standard question in a store or between friends.",
+       "meaning_fa": "پرسش رایج در فروشگاه یا بین دوستان.",
+       "register": "neutral",
+       "example_en": "What's your shade in this one?",
+       "example_fa": "رنگت در این یکی چیست؟",
+       "alt": ""
+      },
+      {
+       "id": "base-x2",
+       "kind": "expression",
+       "en": "It's a pretty good match.",
+       "fa": "رنگش خیلی خوب با من می‌خواند.",
+       "meaning_en": "Says the color is close to your skin.",
+       "meaning_fa": "می‌گوید رنگ نزدیک پوستت است.",
+       "register": "neutral",
+       "example_en": "In daylight it's a pretty good match.",
+       "example_fa": "زیر نور روز رنگش خیلی خوب می‌خواند.",
+       "alt": ""
+      },
+      {
+       "id": "base-x3",
+       "kind": "expression",
+       "en": "It's one shade too dark.",
+       "fa": "یک درجه تیره‌تر از من است.",
+       "meaning_en": "The most useful sentence in a makeup aisle.",
+       "meaning_fa": "مفیدترین جمله در راهروی آرایش.",
+       "register": "neutral",
+       "example_en": "This one is one shade too dark for my neck.",
+       "example_fa": "این یکی یک درجه برای گردنم تیره است.",
+       "alt": ""
+      },
+      {
+       "id": "base-x4",
+       "kind": "expression",
+       "en": "Build it up in thin layers.",
+       "fa": "لایه‌لایه و نازک بزن.",
+       "meaning_en": "Says how to reach more coverage without a mask.",
+       "meaning_fa": "می‌گوید چطور بدون ماسک شدن پوشش را بیشتر کنی.",
+       "register": "neutral",
+       "example_en": "Build it up in thin layers instead of one thick one.",
+       "example_fa": "جای یک لایهٔ ضخیم، لایه‌لایه و نازک بزن.",
+       "alt": ""
+      },
+      {
+       "id": "base-x5",
+       "kind": "idiom",
+       "en": "It's like a second skin.",
+       "fa": "مثل پوست دوم است.",
+       "meaning_en": "Literally, a layer so thin it moves with the face; figuratively, something that fits you perfectly.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، لایه‌ای آن‌قدر نازک که با صورت حرکت می‌کند؛ به‌طور مجازی، چیزی که کامل با تو می‌خواند.",
+       "register": "neutral",
+       "example_en": "This foundation is like a second skin.",
+       "example_fa": "این کرم‌پودر مثل پوست دوم است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It's + [one shade] + too [dark/light/yellow].",
+       "example_en": "This one is one shade too light.",
+       "example_fa": "این یکی یک درجه روشن‌تر از من است.",
+       "note_en": "The frame for every shade complaint.",
+       "note_fa": "قالب هر شکایت از رنگ."
+      },
+      {
+       "frame": "I'm looking for + [coverage] + coverage.",
+       "example_en": "I'm looking for medium coverage.",
+       "example_fa": "دنبال پوشش متوسط هستم.",
+       "note_en": "Say the coverage before the product name.",
+       "note_fa": "پوشش را پیش از نام محصول بگو."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "base-s1",
+       "en": "My neck and my face are two different shades.",
+       "fa": "گردن و صورتم دو رنگ متفاوت‌اند.",
+       "use_en": "A real problem, said plainly, which invites help.",
+       "use_fa": "مشکلی واقعی و ساده که کمک می‌طلبد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "My face is darker than my neck."
+      },
+      {
+       "id": "base-s2",
+       "en": "I match foundation to my jawline, not my hand.",
+       "fa": "کرم‌پودر را با خط فکم می‌سنجم، نه با دستم.",
+       "use_en": "Explains a technique in one line.",
+       "use_fa": "یک تکنیک را در یک خط توضیح می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I test it along my jaw."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the counter",
+      "title_fa": "پشت پیشخوان",
+      "speakers": [
+       "Mina",
+       "Leila"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Hi, I'm looking for a foundation for dry skin.",
+        "fa": "سلام، دنبال کرم‌پودر برای پوست خشک هستم."
+       },
+       {
+        "who": "Leila",
+        "en": "Of course. What's your shade, roughly?",
+        "fa": "البته. رنگت تقریباً چیست؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Medium, with a warm undertone. My neck is lighter than my face.",
+        "fa": "متوسط، با ته‌رنگ گرم. گردنم از صورتم روشن‌تر است."
+       },
+       {
+        "who": "Leila",
+        "en": "Let me swatch two on your jawline.",
+        "fa": "بگذار دو تا را روی خط فک تو بزنم."
+       },
+       {
+        "who": "Mina",
+        "en": "This one is one shade too dark.",
+        "fa": "این یکی یک درجه تیره است."
+       },
+       {
+        "who": "Leila",
+        "en": "Try this. It's a pretty good match in daylight.",
+        "fa": "این را امتحان کن. زیر نور روز خیلی خوب می‌خواند."
+       },
+       {
+        "who": "Mina",
+        "en": "It feels like a second skin. I'll take it.",
+        "fa": "حس پوست دوم را دارد. همین را می‌گیرم."
+       },
+       {
+        "who": "Leila",
+        "en": "Build it up in thin layers and it will last.",
+        "fa": "لایه‌لایه و نازک بزن، دوام می‌آورد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Shopping in daylight",
+       "title_fa": "خرید زیر نور روز",
+       "situation_en": "You are in a store with warm lights and cannot tell if the shade is right.",
+       "situation_fa": "در فروشگاهی با نور گرم هستی و نمی‌توانی درست بودن رنگ را تشخیص دهی.",
+       "task_en": "Ask to check it near the window.",
+       "task_fa": "بخواه آن را نزدیک پنجره بررسی کنی.",
+       "answer_en": "Can I look at it near the window? These lights make everything warmer.",
+       "answer_fa": "می‌توانم نزدیک پنجره نگاهش کنم؟ این نورها همه چیز را گرم‌تر نشان می‌دهند."
+      },
+      {
+       "title_en": "The yellow face",
+       "title_fa": "صورت زرد",
+       "situation_en": "Your friend's foundation looks yellow in photos.",
+       "situation_fa": "کرم‌پودر دوستت در عکس‌ها زرد می‌زند.",
+       "task_en": "Explain the undertone problem gently.",
+       "task_fa": "مشکل ته‌رنگ را آرام توضیح بده.",
+       "answer_en": "I think the undertone is too warm for you. Try something neutral.",
+       "answer_fa": "فکر می‌کنم ته‌رنگش برای تو زیادی گرم است. یک رنگ خنثی امتحان کن."
+      }
+     ],
+     "practice": [
+      {
+       "id": "base-q1",
+       "q_en": "Where should foundation be tested?",
+       "q_fa": "کرم‌پودر کجا باید امتحان شود؟",
+       "options": [
+        "along the jawline",
+        "on the back of the hand",
+        "on the wrist"
+       ],
+       "answer": "along the jawline",
+       "why_en": "The jawline shows how the face and the neck meet, which is the line people see.",
+       "why_fa": "خط فک نشان می‌دهد صورت و گردن کجا به هم می‌رسند؛ همان خطی که دیده می‌شود."
+      },
+      {
+       "id": "base-q2",
+       "q_en": "What does \"medium coverage\" mean?",
+       "q_fa": "«پوشش متوسط» یعنی چه؟",
+       "options": [
+        "it hides some redness but skin still shows",
+        "it hides everything",
+        "it has no color"
+       ],
+       "answer": "it hides some redness but skin still shows",
+       "why_en": "Coverage is a scale: sheer, medium, full.",
+       "why_fa": "پوشش یک طیف است: شفاف، متوسط، کامل."
+      },
+      {
+       "id": "base-q3",
+       "q_en": "\"It's one shade too dark\" means the foundation is ...",
+       "q_fa": "«یک درجه تیره است» یعنی کرم‌پودر ...",
+       "options": [
+        "a little darker than the skin",
+        "a little lighter than the skin",
+        "the wrong texture"
+       ],
+       "answer": "a little darker than the skin",
+       "why_en": "One shade is the smallest step between two colors.",
+       "why_fa": "یک درجه، کوچک‌ترین فاصلهٔ بین دو رنگ است."
+      }
+     ]
+    },
+    {
+     "id": "conceal",
+     "order": 3,
+     "icon": "concealer",
+     "title_en": "Concealer, powder and setting",
+     "title_fa": "کانسیلر، پودر و تثبیت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Hiding what foundation cannot, then locking it in place without a cakey finish.",
+     "blurb_fa": "پوشاندن آنچه کرم‌پودر نمی‌تواند، بعد تثبیتش بدون بافت سنگین.",
+     "objectives": [
+      {
+       "en": "put concealer in the right place and order.",
+       "fa": "کانسیلر را در جای و ترتیب درست بگذار."
+      },
+      {
+       "en": "set makeup with powder without creasing it.",
+       "fa": "آرایش را با پودر بدون خط افتادن تثبیت کن."
+      },
+      {
+       "en": "say what to do when a product looks heavy.",
+       "fa": "بگو وقتی محصولی سنگین به نظر می‌رسد چه کار کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "conceal-w1",
+       "en": "concealer",
+       "ipa": "/kənˈsilər/",
+       "pos": "noun",
+       "fa": "کانسیلر",
+       "def_en": "A thick product used on small areas: dark circles, spots, redness.",
+       "sport": "makeup",
+       "icon": "concealer",
+       "level": "A1",
+       "example_en": "A little concealer under the eyes wakes me up.",
+       "example_fa": "کمی کانسیلر زیر چشم‌ها بیدارم می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "conceal-w2",
+       "en": "corrector",
+       "ipa": "/kəˈrɛktər/",
+       "pos": "noun",
+       "fa": "کورکتور",
+       "def_en": "A colored product that cancels a color, such as green for redness.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "A peach corrector hides blue circles.",
+       "example_fa": "کورکتور هلویی حلقه‌های آبی را می‌پوشاند.",
+       "ref": ""
+      },
+      {
+       "id": "conceal-w3",
+       "en": "setting powder",
+       "ipa": "/ˈsɛtɪŋ ˈpaʊdər/",
+       "pos": "noun",
+       "fa": "پودر تثبیت",
+       "def_en": "Powder used on top of cream products to keep them from moving.",
+       "sport": "makeup",
+       "icon": "powder",
+       "level": "A2",
+       "example_en": "Setting powder keeps the T-zone matte.",
+       "example_fa": "پودر تثبیت منطقهٔ T را مات نگه می‌دارد.",
+       "ref": ""
+      },
+      {
+       "id": "conceal-w4",
+       "en": "translucent",
+       "ipa": "/trænsˈlusnt/",
+       "pos": "adjective",
+       "fa": "بی‌رنگ",
+       "def_en": "Clear powder that sets makeup without adding color.",
+       "sport": "makeup",
+       "icon": "powder",
+       "level": "B1",
+       "example_en": "Use translucent powder so the shade does not change.",
+       "example_fa": "پودر بی‌رنگ بزن تا رنگ عوض نشود.",
+       "ref": ""
+      },
+      {
+       "id": "conceal-w5",
+       "en": "creasing",
+       "ipa": "/ˈkrisɪŋ/",
+       "pos": "noun",
+       "fa": "خط افتادن",
+       "def_en": "The lines that appear when makeup gathers in a fold of skin.",
+       "sport": "makeup",
+       "icon": "liner",
+       "level": "B1",
+       "example_en": "Too much concealer causes creasing under the eyes.",
+       "example_fa": "کانسیلر زیاد باعث خط افتادن زیر چشم می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "conceal-w6",
+       "en": "puff",
+       "ipa": "/pʌf/",
+       "pos": "noun",
+       "fa": "پاف",
+       "def_en": "A soft pad used to press powder onto the skin.",
+       "sport": "makeup",
+       "icon": "sponge",
+       "level": "A2",
+       "example_en": "Press the powder in with a puff.",
+       "example_fa": "پودر را با پاف روی پوست فشار بده.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "conceal-x1",
+       "kind": "expression",
+       "en": "Dot it under the eyes.",
+       "fa": "زیر چشم‌ها نقطه‌ای بزن.",
+       "meaning_en": "The usual instruction for concealer.",
+       "meaning_fa": "دستور رایج برای کانسیلر.",
+       "register": "neutral",
+       "example_en": "Dot it under the eyes and tap it in.",
+       "example_fa": "زیر چشم‌ها نقطه بزن و با ضربه پخش کن.",
+       "alt": ""
+      },
+      {
+       "id": "conceal-x2",
+       "kind": "expression",
+       "en": "Tap it, don't drag it.",
+       "fa": "با ضربه بزن، نکش.",
+       "meaning_en": "Protects the thin skin under the eyes.",
+       "meaning_fa": "از پوست نازک زیر چشم محافظت می‌کند.",
+       "register": "neutral",
+       "example_en": "Tap it, don't drag it, or it will crease.",
+       "example_fa": "با ضربه بزن، نکش، وگرنه خط می‌افتد.",
+       "alt": ""
+      },
+      {
+       "id": "conceal-x3",
+       "kind": "expression",
+       "en": "Bake it for a minute, then brush it away.",
+       "fa": "یک دقیقه بگذار بماند، بعد پاک کن.",
+       "meaning_en": "Describes the setting trick without the jargon.",
+       "meaning_fa": "ترفند تثبیت را بدون اصطلاح توضیح می‌دهد.",
+       "register": "informal",
+       "example_en": "Bake it for a minute, then brush it away.",
+       "example_fa": "یک دقیقه بگذار بماند، بعد پاکش کن.",
+       "alt": ""
+      },
+      {
+       "id": "conceal-x4",
+       "kind": "expression",
+       "en": "It creases if you use too much.",
+       "fa": "اگر زیاد بزنی خط می‌افتد.",
+       "meaning_en": "Names a problem and its cause in one line.",
+       "meaning_fa": "مشکل و علتش را در یک خط می‌گوید.",
+       "register": "neutral",
+       "example_en": "It creases if you use too much, so start small.",
+       "example_fa": "اگر زیاد بزنی خط می‌افتد، پس کم شروع کن.",
+       "alt": ""
+      },
+      {
+       "id": "conceal-x5",
+       "kind": "idiom",
+       "en": "A little goes a long way.",
+       "fa": "کمش زیاد کار می‌کند.",
+       "meaning_en": "Literally, a tiny amount of concealer covers a lot of skin; figuratively, small efforts produce big results.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مقدار کمی کانسیلر پوست زیادی را می‌پوشاند؛ به‌طور مجازی، تلاش کم نتیجهٔ بزرگ می‌دهد.",
+       "register": "neutral",
+       "example_en": "A little goes a long way with this concealer.",
+       "example_fa": "این کانسیلر با مقدار کم، کار زیادی می‌کند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Tap + [product] + under + [place].",
+       "example_en": "Tap concealer under the eyes.",
+       "example_fa": "کانسیلر را زیر چشم با ضربه بزن.",
+       "note_en": "Every small-area product takes tap, not rub.",
+       "note_fa": "هر محصول ناحیهٔ کوچک با ضربه زده می‌شود، نه مالش."
+      },
+      {
+       "frame": "If it + [problem], + [fix].",
+       "example_en": "If it creases, use less next time.",
+       "example_fa": "اگر خط می‌افتد، دفعهٔ بعد کمتر بزن.",
+       "note_en": "One line for a problem and its fix.",
+       "note_fa": "یک خط برای مشکل و راه‌حلش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "conceal-s1",
+       "en": "I only put concealer where I need it.",
+       "fa": "کانسیلر را فقط جایی که لازم دارم می‌زنم.",
+       "use_en": "Explains a habit that prevents a heavy look.",
+       "use_fa": "عادتی را توضیح می‌دهد که از سنگینی جلوگیری می‌کند.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I use it only on the spots."
+      },
+      {
+       "id": "conceal-s2",
+       "en": "Setting powder changed how long my makeup lasts.",
+       "fa": "پودر تثبیت مدت دوام آرایشم را عوض کرد.",
+       "use_en": "Recommends something because of its effect.",
+       "use_fa": "چیزی را به خاطر تأثیرش توصیه می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Powder made my makeup last longer."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Under the bathroom light",
+      "title_fa": "زیر نور دستشویی",
+      "speakers": [
+       "Roya",
+       "Sahar"
+      ],
+      "lines": [
+       {
+        "who": "Roya",
+        "en": "My concealer creases after an hour. What am I doing wrong?",
+        "fa": "کانسیلرم بعد از یک ساعت خط می‌افتد. چه اشتباهی می‌کنم؟"
+       },
+       {
+        "who": "Sahar",
+        "en": "How much do you use? A little goes a long way.",
+        "fa": "چقدر می‌زنی؟ کمش زیاد کار می‌کند."
+       },
+       {
+        "who": "Roya",
+        "en": "Maybe three dots under each eye.",
+        "fa": "شاید سه نقطه زیر هر چشم."
+       },
+       {
+        "who": "Sahar",
+        "en": "That is a lot. Dot it once, then tap it, don't drag it.",
+        "fa": "این خیلی است. یک بار نقطه بزن، بعد با ضربه بزن، نکش."
+       },
+       {
+        "who": "Roya",
+        "en": "And then powder?",
+        "fa": "و بعد پودر؟"
+       },
+       {
+        "who": "Sahar",
+        "en": "Bake it for a minute, then brush it away.",
+        "fa": "یک دقیقه بگذار بماند، بعد پاکش کن."
+       },
+       {
+        "who": "Roya",
+        "en": "With translucent powder?",
+        "fa": "با پودر بی‌رنگ؟"
+       },
+       {
+        "who": "Sahar",
+        "en": "Yes, so the shade under your eyes does not change.",
+        "fa": "بله، تا رنگ زیر چشمت عوض نشود."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The heavy under-eye",
+       "title_fa": "زیر چشم سنگین",
+       "situation_en": "By the end of the day the concealer has settled into every line.",
+       "situation_fa": "آخر روز کانسیلر در همهٔ خط‌ها نشسته است.",
+       "task_en": "Ask a friend what to change.",
+       "task_fa": "از دوستی بپرس چه چیزی را عوض کنی.",
+       "answer_en": "Mine creases by noon. Should I use less, or powder it?",
+       "answer_fa": "مال من تا ظهر خط می‌افتد. کمتر بزنم یا پودر بزنم؟"
+      },
+      {
+       "title_en": "Green or peach",
+       "title_fa": "سبز یا هلویی",
+       "situation_en": "You have both a green and a peach corrector and do not know which to use.",
+       "situation_fa": "هم کورکتور سبز داری هم هلویی و نمی‌دانی کدام را بزنی.",
+       "task_en": "Explain which color cancels which.",
+       "task_fa": "توضیح بده کدام رنگ کدام را خنثی می‌کند.",
+       "answer_en": "Green cancels redness. Peach is for blue circles under the eyes.",
+       "answer_fa": "سبز قرمزی را خنثی می‌کند. هلویی برای حلقه‌های آبی زیر چشم است."
+      }
+     ],
+     "practice": [
+      {
+       "id": "conceal-q1",
+       "q_en": "What is the job of setting powder?",
+       "q_fa": "کار پودر تثبیت چیست؟",
+       "options": [
+        "to keep cream products from moving",
+        "to add color",
+        "to clean the skin"
+       ],
+       "answer": "to keep cream products from moving",
+       "why_en": "Powder absorbs oil and locks the layers under it.",
+       "why_fa": "پودر چربی را جذب می‌کند و لایه‌های زیرش را قفل می‌کند."
+      },
+      {
+       "id": "conceal-q2",
+       "q_en": "Which powder will not change your foundation shade?",
+       "q_fa": "کدام پودر رنگ کرم‌پودر را عوض نمی‌کند؟",
+       "options": [
+        "translucent powder",
+        "a tinted powder",
+        "a bronzer"
+       ],
+       "answer": "translucent powder",
+       "why_en": "Translucent means clear, so it adds no color.",
+       "why_fa": "بی‌رنگ یعنی شفاف، پس رنگی اضافه نمی‌کند."
+      },
+      {
+       "id": "conceal-q3",
+       "q_en": "Why not drag concealer under the eye?",
+       "q_fa": "چرا کانسیلر را زیر چشم نکشیم؟",
+       "options": [
+        "the skin there is thin and creases easily",
+        "it is too expensive",
+        "it dries too fast"
+       ],
+       "answer": "the skin there is thin and creases easily",
+       "why_en": "Thin skin folds, and dragging pushes product into the folds.",
+       "why_fa": "پوست نازک چین می‌خورد و کشیدن محصول را در چین‌ها می‌برد."
+      }
+     ]
+    },
+    {
+     "id": "cheeks",
+     "order": 4,
+     "icon": "blush",
+     "title_en": "Blush, bronzer and contour",
+     "title_fa": "رژگونه، برنزر و کانتور",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Adding color and shape back to the face, and the difference between warmth and shadow.",
+     "blurb_fa": "برگرداندن رنگ و فرم به صورت، و تفاوت گرما با سایه.",
+     "objectives": [
+      {
+       "en": "say where each cheek product goes and why.",
+       "fa": "بگو هر محصول گونه کجا می‌رود و چرا."
+      },
+      {
+       "en": "choose between blush, bronzer and contour for one result.",
+       "fa": "برای یک نتیجه، بین رژگونه، برنزر و کانتور انتخاب کن."
+      },
+      {
+       "en": "describe a finish as matte, satin or dewy.",
+       "fa": "بافت را مات، ساتن یا درخشان توصیف کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "cheeks-w1",
+       "en": "blush",
+       "ipa": "/blʌʃ/",
+       "pos": "noun",
+       "fa": "رژگونه",
+       "def_en": "Color worn on the cheeks to make the face look alive.",
+       "sport": "makeup",
+       "icon": "blush",
+       "level": "A1",
+       "example_en": "A little blush makes me look awake.",
+       "example_fa": "کمی رژگونه بیدارترم نشان می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "cheeks-w2",
+       "en": "bronzer",
+       "ipa": "/ˈbrɑnzər/",
+       "pos": "noun",
+       "fa": "برنزر",
+       "def_en": "A warm brown powder that makes the skin look sun-touched.",
+       "sport": "makeup",
+       "icon": "bronzer",
+       "level": "A2",
+       "example_en": "Bronzer goes where the sun would hit.",
+       "example_fa": "برنزر جایی می‌رود که آفتاب می‌تابید.",
+       "ref": ""
+      },
+      {
+       "id": "cheeks-w3",
+       "en": "contour",
+       "ipa": "/ˈkɑntʊr/",
+       "pos": "noun",
+       "fa": "کانتور",
+       "def_en": "A cooler brown shade used to create a shadow.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "Contour is cooler than bronzer.",
+       "example_fa": "کانتور از برنزر سردتر است.",
+       "ref": ""
+      },
+      {
+       "id": "cheeks-w4",
+       "en": "highlighter",
+       "ipa": "/ˈhaɪlaɪtər/",
+       "pos": "noun",
+       "fa": "هایلایتر",
+       "def_en": "A shiny product that reflects light on the high points of the face.",
+       "sport": "makeup",
+       "icon": "highlighter",
+       "level": "A2",
+       "example_en": "Highlighter on the cheekbones catches the light.",
+       "example_fa": "هایلایتر روی استخوان گونه نور را می‌گیرد.",
+       "ref": ""
+      },
+      {
+       "id": "cheeks-w5",
+       "en": "shimmer",
+       "ipa": "/ˈʃɪmər/",
+       "pos": "noun",
+       "fa": "درخشش",
+       "def_en": "Tiny reflective particles in a product.",
+       "sport": "makeup",
+       "icon": "highlighter",
+       "level": "B1",
+       "example_en": "I prefer shimmer on the eyes, not the cheeks.",
+       "example_fa": "درخشش را روی چشم دوست دارم، نه گونه.",
+       "ref": ""
+      },
+      {
+       "id": "cheeks-w6",
+       "en": "matte",
+       "ipa": "/mæt/",
+       "pos": "adjective",
+       "fa": "مات",
+       "def_en": "A flat finish with no shine.",
+       "sport": "makeup",
+       "icon": "powder",
+       "level": "A2",
+       "example_en": "A matte finish is better for oily skin.",
+       "example_fa": "بافت مات برای پوست چرب بهتر است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "cheeks-x1",
+       "kind": "expression",
+       "en": "Put blush on the apples of your cheeks.",
+       "fa": "رژگونه را روی برجستگی گونه بزن.",
+       "meaning_en": "The classic placement, with the reason people use it.",
+       "meaning_fa": "جای کلاسیک، با دلیلش.",
+       "register": "neutral",
+       "example_en": "Put blush on the apples of your cheeks and blend up.",
+       "example_fa": "رژگونه را روی برجستگی گونه بزن و به بالا پخش کن.",
+       "alt": ""
+      },
+      {
+       "id": "cheeks-x2",
+       "kind": "expression",
+       "en": "Contour goes where the light does not hit.",
+       "fa": "کانتور جایی می‌رود که نور نمی‌تابد.",
+       "meaning_en": "Explains shadow in one sentence.",
+       "meaning_fa": "سایه را در یک جمله توضیح می‌دهد.",
+       "register": "neutral",
+       "example_en": "Contour goes where the light does not hit: under the cheekbone.",
+       "example_fa": "کانتور جایی می‌رود که نور نمی‌تابد: زیر استخوان گونه.",
+       "alt": ""
+      },
+      {
+       "id": "cheeks-x3",
+       "kind": "expression",
+       "en": "It warms up my face.",
+       "fa": "صورتم را گرم می‌کند.",
+       "meaning_en": "The everyday way to describe bronzer's effect.",
+       "meaning_fa": "روش روزمرهٔ توصیف اثر برنزر.",
+       "register": "informal",
+       "example_en": "A little bronzer warms up my face in winter.",
+       "example_fa": "کمی برنزر زمستان صورتم را گرم می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "cheeks-x4",
+       "kind": "expression",
+       "en": "A touch of highlighter on the cheekbones.",
+       "fa": "کمی هایلایتر روی استخوان گونه.",
+       "meaning_en": "Says the amount and the place in one phrase.",
+       "meaning_fa": "مقدار و جا را در یک عبارت می‌گوید.",
+       "register": "neutral",
+       "example_en": "A touch of highlighter on the cheekbones is enough.",
+       "example_fa": "کمی هایلایتر روی استخوان گونه کافی است.",
+       "alt": ""
+      },
+      {
+       "id": "cheeks-x5",
+       "kind": "idiom",
+       "en": "It gives me a healthy glow.",
+       "fa": "به من درخشش سالم می‌دهد.",
+       "meaning_en": "Literally, skin that looks rested and well; figuratively, a look of good health.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، پوستی که استراحت‌کرده و خوب دیده می‌شود؛ به‌طور مجازی، ظاهر سلامتی.",
+       "register": "neutral",
+       "example_en": "This blush gives me a healthy glow.",
+       "example_fa": "این رژگونه به من درخشش سالم می‌دهد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Put + [product] + on + [place].",
+       "example_en": "Put bronzer on the top of your cheekbones.",
+       "example_fa": "برنزر را روی بالای استخوان گونه بزن.",
+       "note_en": "The base frame for every placement instruction.",
+       "note_fa": "قالب پایه برای هر دستور جایگذاری."
+      },
+      {
+       "frame": "It gives me + [effect].",
+       "example_en": "It gives me a bit of color.",
+       "example_fa": "کمی رنگ به من می‌دهد.",
+       "note_en": "Say the result, not the product.",
+       "note_fa": "نتیجه را بگو، نه محصول را."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "cheeks-s1",
+       "en": "Do I look shiny or glowing?",
+       "fa": "براق به نظر می‌رسم یا درخشان؟",
+       "use_en": "A real question between friends before a photo.",
+       "use_fa": "پرسشی واقعی بین دوستان پیش از عکس.",
+       "level": "A2",
+       "polite": "informal",
+       "alt": "Is my face too shiny?"
+      },
+      {
+       "id": "cheeks-s2",
+       "en": "Bronzer and contour are not the same thing.",
+       "fa": "برنزر و کانتور یک چیز نیستند.",
+       "use_en": "Corrects the most common makeup confusion.",
+       "use_fa": "رایج‌ترین سردرگمی آرایش را اصلاح می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Contour is cooler than bronzer."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Two friends before a party",
+      "title_fa": "دو دوست پیش از مهمانی",
+      "speakers": [
+       "Nazanin",
+       "Parisa"
+      ],
+      "lines": [
+       {
+        "who": "Nazanin",
+        "en": "Do I look shiny or glowing?",
+        "fa": "براق به نظر می‌رسم یا درخشان؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Glowing. But a little powder on the T-zone would help.",
+        "fa": "درخشان. اما کمی پودر روی منطقهٔ T کمک می‌کند."
+       },
+       {
+        "who": "Nazanin",
+        "en": "Should I add bronzer?",
+        "fa": "برنزر بزنم؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Just where the sun would hit, and a touch of highlighter.",
+        "fa": "فقط جایی که آفتاب می‌تابید، و کمی هایلایتر."
+       },
+       {
+        "who": "Nazanin",
+        "en": "Where does contour go?",
+        "fa": "کانتور کجا می‌رود؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Where the light does not hit, under the cheekbone.",
+        "fa": "جایی که نور نمی‌تابد، زیر استخوان گونه."
+       },
+       {
+        "who": "Nazanin",
+        "en": "And blush?",
+        "fa": "و رژگونه؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "On the apples of your cheeks. It gives you a healthy glow.",
+        "fa": "روی برجستگی گونه‌ها. به تو درخشش سالم می‌دهد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The wrong brown",
+       "title_fa": "قهوه‌ای اشتباه",
+       "situation_en": "Your contour looks orange in photos and your friend asks why.",
+       "situation_fa": "کانتور در عکس‌ها نارنجی می‌زند و دوستت می‌پرسد چرا.",
+       "task_en": "Explain the difference from bronzer.",
+       "task_fa": "تفاوتش را با برنزر توضیح بده.",
+       "answer_en": "I used bronzer as contour. It is too warm for a shadow.",
+       "answer_fa": "من برنزر را جای کانتور زدم. برای سایه زیادی گرم است."
+      },
+      {
+       "title_en": "Oily by noon",
+       "title_fa": "ظهر چرب",
+       "situation_en": "Your blush has slid off and your nose is shining.",
+       "situation_fa": "رژگونه‌ات رفته و بینی‌ات برق می‌زند.",
+       "task_en": "Ask what to change in the routine.",
+       "task_fa": "بپرس در روتین چه چیزی را عوض کنی.",
+       "answer_en": "My blush disappears by noon. Would a cream blush last longer?",
+       "answer_fa": "رژگونه‌ام تا ظهر محو می‌شود. رژگونهٔ کرمی بیشتر می‌ماند؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "cheeks-q1",
+       "q_en": "Which product creates a shadow?",
+       "q_fa": "کدام محصول سایه می‌سازد؟",
+       "options": [
+        "contour",
+        "blush",
+        "highlighter"
+       ],
+       "answer": "contour",
+       "why_en": "Contour is a cool brown placed in the hollows of the face.",
+       "why_fa": "کانتور قهوه‌ای سردی است که در فرورفتگی‌های صورت زده می‌شود."
+      },
+      {
+       "id": "cheeks-q2",
+       "q_en": "What does \"matte\" mean?",
+       "q_fa": "«مات» یعنی چه؟",
+       "options": [
+        "a flat finish with no shine",
+        "a wet look",
+        "a sparkly look"
+       ],
+       "answer": "a flat finish with no shine",
+       "why_en": "Matte describes how light behaves on the surface.",
+       "why_fa": "مات نحوهٔ رفتار نور روی سطح را توصیف می‌کند."
+      },
+      {
+       "id": "cheeks-q3",
+       "q_en": "Where does bronzer belong?",
+       "q_fa": "برنزر کجا زده می‌شود؟",
+       "options": [
+        "where the sun would naturally hit",
+        "in the hollows of the cheeks",
+        "under the eyes"
+       ],
+       "answer": "where the sun would naturally hit",
+       "why_en": "Bronzer imitates sun, so it follows the sun's path.",
+       "why_fa": "برنزر آفتاب را تقلید می‌کند، پس مسیر آفتاب را دنبال می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "brows",
+     "order": 5,
+     "icon": "tweezers",
+     "title_en": "Eyebrows and how to talk about them",
+     "title_fa": "ابروها و راه گفتن دربارهٔ آن‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Shape, fill and the words people use when a brow goes wrong.",
+     "blurb_fa": "فرم، پر کردن و واژه‌هایی که وقتی ابرو خراب می‌شود به کار می‌بریم.",
+     "objectives": [
+      {
+       "en": "ask for a brow shape and describe your own.",
+       "fa": "فرم ابرو بخواه و ابروی خودت را توصیف کن."
+      },
+      {
+       "en": "fill in brows without making them look drawn on.",
+       "fa": "ابرو را پر کن بدون اینکه کشیده‌شده به نظر برسد."
+      },
+      {
+       "en": "understand informal comments about brows.",
+       "fa": "جمله‌های غیررسمی دربارهٔ ابرو را بفهم."
+      }
+     ],
+     "words": [
+      {
+       "id": "brows-w1",
+       "en": "brow pencil",
+       "ipa": "/braʊ ˈpɛnsəl/",
+       "pos": "noun",
+       "fa": "مداد ابرو",
+       "def_en": "A pencil used to draw short hairs into the gaps of a brow.",
+       "sport": "makeup",
+       "icon": "liner",
+       "level": "A1",
+       "example_en": "My brow pencil is one shade lighter than my hair.",
+       "example_fa": "مداد ابرویم یک درجه روشن‌تر از مویم است.",
+       "ref": ""
+      },
+      {
+       "id": "brows-w2",
+       "en": "brow gel",
+       "ipa": "/braʊ dʒɛl/",
+       "pos": "noun",
+       "fa": "ژل ابرو",
+       "def_en": "A gel that holds brow hairs in place.",
+       "sport": "makeup",
+       "icon": "mascara",
+       "level": "A2",
+       "example_en": "Brow gel keeps the hairs up all day.",
+       "example_fa": "ژل ابرو موها را تمام روز بالا نگه می‌دارد.",
+       "ref": ""
+      },
+      {
+       "id": "brows-w3",
+       "en": "spoolie",
+       "ipa": "/ˈspuli/",
+       "pos": "noun",
+       "fa": "برس اسپولی",
+       "def_en": "A small brush that combs brow hairs into shape.",
+       "sport": "makeup",
+       "icon": "brush",
+       "level": "B1",
+       "example_en": "Brush them up with a spoolie first.",
+       "example_fa": "اول با اسپولی به بالا برس بزن.",
+       "ref": ""
+      },
+      {
+       "id": "brows-w4",
+       "en": "arch",
+       "ipa": "/ɑrtʃ/",
+       "pos": "noun",
+       "fa": "قوس ابرو",
+       "def_en": "The curved high point of the eyebrow.",
+       "sport": "makeup",
+       "icon": "liner",
+       "level": "B1",
+       "example_en": "My arch is very high, so I soften it.",
+       "example_fa": "قوس ابرویم خیلی بلند است، پس نرمش می‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "brows-w5",
+       "en": "patchy",
+       "ipa": "/ˈpætʃi/",
+       "pos": "adjective",
+       "fa": "لکه‌لکه",
+       "def_en": "Having thin or empty spots, said of brows or makeup.",
+       "sport": "makeup",
+       "icon": "brush",
+       "level": "B1",
+       "example_en": "My brows are patchy at the ends.",
+       "example_fa": "ابروهایم در انتها لکه‌لکه است.",
+       "ref": ""
+      },
+      {
+       "id": "brows-w6",
+       "en": "lamination",
+       "ipa": "/ˌlæmɪˈneɪʃn/",
+       "pos": "noun",
+       "fa": "لمینت ابرو",
+       "def_en": "A treatment that sets brow hairs in a brushed-up shape for weeks.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "B2",
+       "example_en": "Brow lamination lasts about six weeks.",
+       "example_fa": "لمینت ابرو حدود شش هفته می‌ماند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "brows-x1",
+       "kind": "expression",
+       "en": "Fill in the gaps, not the whole brow.",
+       "fa": "جاهای خالی را پر کن، نه تمام ابرو.",
+       "meaning_en": "The rule that keeps brows from looking painted.",
+       "meaning_fa": "قاعده‌ای که مانع رنگ‌آمیزی شدگی ابرو می‌شود.",
+       "register": "neutral",
+       "example_en": "Fill in the gaps, not the whole brow, with short strokes.",
+       "example_fa": "با ضربه‌های کوتاه جاهای خالی را پر کن، نه تمام ابرو.",
+       "alt": ""
+      },
+      {
+       "id": "brows-x2",
+       "kind": "expression",
+       "en": "Brush the hairs up with a spoolie.",
+       "fa": "موها را با اسپولی به بالا برس بزن.",
+       "meaning_en": "The first step of every brow routine.",
+       "meaning_fa": "نخستین مرحلهٔ هر روتین ابرو.",
+       "register": "neutral",
+       "example_en": "Brush the hairs up with a spoolie before you fill them.",
+       "example_fa": "پیش از پر کردن، موها را با اسپولی به بالا برس بزن.",
+       "alt": ""
+      },
+      {
+       "id": "brows-x3",
+       "kind": "idiom",
+       "en": "She raised a few eyebrows.",
+       "fa": "چند ابرو بالا رفت.",
+       "meaning_en": "Literally, brows lifted in surprise; figuratively, people were surprised or shocked.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، ابروها از تعجب بالا رفت؛ به‌طور مجازی، مردم تعجب کردند یا شوکه شدند.",
+       "register": "neutral",
+       "example_en": "Her new brow shape raised a few eyebrows.",
+       "example_fa": "فرم جدید ابرویش چند ابرو بالا برد.",
+       "alt": ""
+      },
+      {
+       "id": "brows-x4",
+       "kind": "idiom",
+       "en": "My brows are on fleek.",
+       "fa": "ابروهایم بی‌نقص است.",
+       "meaning_en": "Literally, from slang for \"on point\"; figuratively, perfectly shaped and neat. Mostly said by younger speakers and now a little dated.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از زبان عامیانه به معنی «سر جای خود»؛ به‌طور مجازی، کاملاً مرتب و بی‌نقص. بیشتر میان جوان‌ترها و کمی قدیمی شده.",
+       "register": "slang",
+       "example_en": "My brows are on fleek today.",
+       "example_fa": "ابروهایم امروز بی‌نقص است.",
+       "alt": ""
+      },
+      {
+       "id": "brows-x5",
+       "kind": "expression",
+       "en": "They look drawn on.",
+       "fa": "مثل نقاشی کشیده‌شده‌اند.",
+       "meaning_en": "A criticism: too solid, too dark, too sharp.",
+       "meaning_fa": "نقدی: زیادی یکدست، زیادی تیره، زیادی تیز.",
+       "register": "informal",
+       "example_en": "They look drawn on when you use a black pencil.",
+       "example_fa": "وقتی مداد مشکی می‌زنی، مثل نقاشی کشیده‌شده به نظر می‌رسند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Fill in + [place] + with + [product].",
+       "example_en": "Fill in the ends with a brow pencil.",
+       "example_fa": "انتهای ابرو را با مداد ابرو پر کن.",
+       "note_en": "Say the place before the tool.",
+       "note_fa": "جا را پیش از ابزار بگو."
+      },
+      {
+       "frame": "My brows are + [state].",
+       "example_en": "My brows are thin at the ends.",
+       "example_fa": "ابروهایم در انتها نازک است.",
+       "note_en": "Describe the brow before the fix.",
+       "note_fa": "ابرو را پیش از راه‌حل توصیف کن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "brows-s1",
+       "en": "Should I go thicker or keep the natural shape?",
+       "fa": "ضخیم‌تر کنم یا فرم طبیعی را نگه دارم؟",
+       "use_en": "Asks for an opinion instead of a decision.",
+       "use_fa": "به جای تصمیم، نظر می‌خواهد.",
+       "level": "B1",
+       "polite": "informal",
+       "alt": "Thicker, or natural?"
+      },
+      {
+       "id": "brows-s2",
+       "en": "I only fill the tail of my brow.",
+       "fa": "فقط انتهای ابرویم را پر می‌کنم.",
+       "use_en": "Shows a small, careful technique.",
+       "use_fa": "تکنیکی کوچک و دقیق را نشان می‌دهد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I fill only the ends."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the brow bar",
+      "title_fa": "در سالن ابرو",
+      "speakers": [
+       "Yasmin",
+       "Dorsa"
+      ],
+      "lines": [
+       {
+        "who": "Yasmin",
+        "en": "I want a natural shape, nothing too thin.",
+        "fa": "فرم طبیعی می‌خواهم، نه خیلی نازک."
+       },
+       {
+        "who": "Dorsa",
+        "en": "Your arch is high already. I will only clean the edges.",
+        "fa": "قوس ابرویت از قبل بلند است. فقط کناره‌ها را تمیز می‌کنم."
+       },
+       {
+        "who": "Yasmin",
+        "en": "Please leave the middle alone. It is patchy there.",
+        "fa": "لطفاً وسط را دست نزن. آنجا لکه‌لکه است."
+       },
+       {
+        "who": "Dorsa",
+        "en": "Then I will fill the gaps with a pencil, not the whole brow.",
+        "fa": "پس جاهای خالی را با مداد پر می‌کنم، نه تمام ابرو."
+       },
+       {
+        "who": "Yasmin",
+        "en": "And brush them up at the end?",
+        "fa": "و آخرشان به بالا برس بزنم؟"
+       },
+       {
+        "who": "Dorsa",
+        "en": "Yes, with a spoolie and a little gel.",
+        "fa": "بله، با اسپولی و کمی ژل."
+       },
+       {
+        "who": "Yasmin",
+        "en": "Last time they looked drawn on.",
+        "fa": "دفعهٔ قبل مثل نقاشی کشیده‌شده بودند."
+       },
+       {
+        "who": "Dorsa",
+        "en": "That was a dark pencil. We will use one shade lighter.",
+        "fa": "آن مداد تیره بود. یکی روشن‌تر استفاده می‌کنیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The over-plucked brow",
+       "title_fa": "ابروی بیش از حد کنده",
+       "situation_en": "A friend regrets thinning her brows years ago.",
+       "situation_fa": "دوستت از نازک کردن ابروهایش سال‌ها پیش پشیمان است.",
+       "task_en": "Ask what she does now and offer one option.",
+       "task_fa": "بپرس حالا چه می‌کند و یک گزینه پیشنهاد بده.",
+       "answer_en": "Do you fill them in every day, or have you tried lamination?",
+       "answer_fa": "هر روز پرشون می‌کنی، یا لمینت را امتحان کرده‌ای؟"
+      },
+      {
+       "title_en": "Feedback on a new shape",
+       "title_fa": "نظر دربارهٔ فرم جدید",
+       "situation_en": "You do not like a friend's new brow shape and she asks directly.",
+       "situation_fa": "فرم جدید ابروی دوستت را دوست نداری و او مستقیم می‌پرسد.",
+       "task_en": "Be kind and specific.",
+       "task_fa": "مهربان و دقیق باش.",
+       "answer_en": "The shape suits you. I would just soften the inner corner a little.",
+       "answer_fa": "فرم به تو می‌آید. فقط گوشهٔ داخلی را کمی نرم‌تر می‌کنم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "brows-q1",
+       "q_en": "Where should you start a brow?",
+       "q_fa": "ابرو را از کجا شروع کنیم؟",
+       "options": [
+        "by brushing the hairs up",
+        "by drawing a dark outline",
+        "by filling the whole brow"
+       ],
+       "answer": "by brushing the hairs up",
+       "why_en": "Combing first shows where the gaps really are.",
+       "why_fa": "اول برس زدن نشان می‌دهد جاهای خالی واقعاً کجاست."
+      },
+      {
+       "id": "brows-q2",
+       "q_en": "What does \"patchy\" mean for brows?",
+       "q_fa": "«لکه‌لکه» دربارهٔ ابرو یعنی چه؟",
+       "options": [
+        "thin spots with no hair",
+        "very thick brows",
+        "brows with gel in them"
+       ],
+       "answer": "thin spots with no hair",
+       "why_en": "Patchy describes uneven coverage of hair.",
+       "why_fa": "لکه‌لکه پوشش ناهموار مو را توصیف می‌کند."
+      },
+      {
+       "id": "brows-q3",
+       "q_en": "\"They look drawn on\" is ...",
+       "q_fa": "«مثل نقاشی کشیده‌شده‌اند» چیست؟",
+       "options": [
+        "a criticism of a brow that is too solid",
+        "a compliment",
+        "a description of gel"
+       ],
+       "answer": "a criticism of a brow that is too solid",
+       "why_en": "Drawn-on brows have no visible hairs, only a solid shape.",
+       "why_fa": "ابروی کشیده‌شده مو نشان نمی‌دهد، فقط یک شکل یکدست دارد."
+      }
+     ]
+    },
+    {
+     "id": "eyes",
+     "order": 6,
+     "icon": "mascara",
+     "title_en": "Eyes: shadow, liner and lashes",
+     "title_fa": "چشم: سایه، خط و مژه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The smallest area with the most words: from a thin line to a smoky eye.",
+     "blurb_fa": "کوچک‌ترین ناحیه با بیشترین واژه: از یک خط نازک تا چشم دودی.",
+     "objectives": [
+      {
+       "en": "ask for an eye look and say what suits you.",
+       "fa": "یک مدل چشم بخواه و بگو چه چیزی به تو می‌آید."
+      },
+      {
+       "en": "give the order for shadow, liner and mascara.",
+       "fa": "ترتیب سایه، خط و ریمل را بگو."
+      },
+      {
+       "en": "describe a problem: smudging, clumps, running.",
+       "fa": "مشکلی را توصیف کن: پخش شدن، گلوله شدن، ریختن."
+      }
+     ],
+     "words": [
+      {
+       "id": "eyes-w1",
+       "en": "eyeshadow",
+       "ipa": "/ˈaɪʃædoʊ/",
+       "pos": "noun",
+       "fa": "سایهٔ چشم",
+       "def_en": "Color applied to the eyelid and around the eye.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "A1",
+       "example_en": "This eyeshadow is a soft brown.",
+       "example_fa": "این سایهٔ چشم قهوه‌ای ملایم است.",
+       "ref": ""
+      },
+      {
+       "id": "eyes-w2",
+       "en": "eyeliner",
+       "ipa": "/ˈaɪlaɪnər/",
+       "pos": "noun",
+       "fa": "خط چشم",
+       "def_en": "A pencil or liquid used to draw a line along the lashes.",
+       "sport": "makeup",
+       "icon": "liner",
+       "level": "A1",
+       "example_en": "I only wear eyeliner on the top lid.",
+       "example_fa": "فقط بالای پلک خط چشم می‌زنم.",
+       "ref": ""
+      },
+      {
+       "id": "eyes-w3",
+       "en": "mascara",
+       "ipa": "/mæˈskærə/",
+       "pos": "noun",
+       "fa": "ریمل",
+       "def_en": "A product that darkens, lengthens and thickens the lashes.",
+       "sport": "makeup",
+       "icon": "mascara",
+       "level": "A1",
+       "example_en": "Waterproof mascara is hard to remove.",
+       "example_fa": "ریمل ضدآب سخت پاک می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "eyes-w4",
+       "en": "lash curler",
+       "ipa": "/læʃ ˈkɜrlər/",
+       "pos": "noun",
+       "fa": "فرمژه",
+       "def_en": "A tool that curls the lashes before mascara.",
+       "sport": "makeup",
+       "icon": "curler",
+       "level": "A2",
+       "example_en": "Curl your lashes before mascara, not after.",
+       "example_fa": "مژه را قبل از ریمل فرم بده، نه بعدش.",
+       "ref": ""
+      },
+      {
+       "id": "eyes-w5",
+       "en": "false lashes",
+       "ipa": "/fɔls ˈlæʃɪz/",
+       "pos": "noun",
+       "fa": "مژهٔ مصنوعی",
+       "def_en": "Strips or clusters of hair glued along the lash line.",
+       "sport": "makeup",
+       "icon": "mascara",
+       "level": "B1",
+       "example_en": "False lashes make a photo look finished.",
+       "example_fa": "مژهٔ مصنوعی عکس را کامل نشان می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "eyes-w6",
+       "en": "crease",
+       "ipa": "/kris/",
+       "pos": "noun",
+       "fa": "گودی پلک",
+       "def_en": "The fold above the eyelid where shadow is blended.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "Put the darker shade in the crease.",
+       "example_fa": "سایهٔ تیره‌تر را در گودی پلک بزن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "eyes-x1",
+       "kind": "expression",
+       "en": "Wing it out at the corner.",
+       "fa": "آخرش را در گوشهٔ چشم بالا بکش.",
+       "meaning_en": "The instruction for a winged liner.",
+       "meaning_fa": "دستور خط چشم بال‌دار.",
+       "register": "neutral",
+       "example_en": "Wing it out at the corner, following the lower lash line.",
+       "example_fa": "آخرش را در گوشهٔ چشم، در امتداد خط مژهٔ پایین بکش.",
+       "alt": ""
+      },
+      {
+       "id": "eyes-x2",
+       "kind": "expression",
+       "en": "Two coats, no clumps.",
+       "fa": "دو لایه، بدون گلوله.",
+       "meaning_en": "The normal standard for mascara.",
+       "meaning_fa": "استاندارد معمول ریمل.",
+       "register": "neutral",
+       "example_en": "Two coats, no clumps, and let it dry between them.",
+       "example_fa": "دو لایه، بدون گلوله، و بین‌شان بگذار خشک شود.",
+       "alt": ""
+      },
+      {
+       "id": "eyes-x3",
+       "kind": "expression",
+       "en": "It smudged by the afternoon.",
+       "fa": "بعدازظهر پخش شد.",
+       "meaning_en": "The most common complaint about eye makeup.",
+       "meaning_fa": "رایج‌ترین شکایت از آرایش چشم.",
+       "register": "informal",
+       "example_en": "My liner smudged by the afternoon.",
+       "example_fa": "خط چشمم بعدازظهر پخش شد.",
+       "alt": ""
+      },
+      {
+       "id": "eyes-x4",
+       "kind": "expression",
+       "en": "It makes my eyes look bigger.",
+       "fa": "چشم‌هایم را بزرگ‌تر نشان می‌دهد.",
+       "meaning_en": "Says the effect, which is what people actually want.",
+       "meaning_fa": "اثر را می‌گوید، که همان چیزی است که مردم می‌خواهند.",
+       "register": "neutral",
+       "example_en": "A little liner makes my eyes look bigger.",
+       "example_fa": "کمی خط چشم چشم‌هایم را بزرگ‌تر نشان می‌دهد.",
+       "alt": ""
+      },
+      {
+       "id": "eyes-x5",
+       "kind": "idiom",
+       "en": "She did not bat an eye.",
+       "fa": "پلک هم نزد.",
+       "meaning_en": "Literally, not moving the eyelashes; figuratively, showing no reaction at all.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مژه هم تکان نداد؛ به‌طور مجازی، هیچ واکنشی نشان نداد.",
+       "register": "neutral",
+       "example_en": "She paid that price and did not bat an eye.",
+       "example_fa": "آن قیمت را داد و پلک هم نزد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Apply + [product] + to + [area].",
+       "example_en": "Apply a light shade to the whole lid.",
+       "example_fa": "یک سایهٔ روشن روی تمام پلک بزن.",
+       "note_en": "The plain frame for every eye instruction.",
+       "note_fa": "قالب ساده برای هر دستور چشم."
+      },
+      {
+       "frame": "It makes my eyes look + [adjective].",
+       "example_en": "It makes my eyes look wider.",
+       "example_fa": "چشم‌هایم را فراخ‌تر نشان می‌دهد.",
+       "note_en": "Talk about the result, not the product.",
+       "note_fa": "دربارهٔ نتیجه حرف بزن، نه محصول."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "eyes-s1",
+       "en": "I cannot do a smoky eye without looking tired.",
+       "fa": "بدون اینکه خسته به نظر برسم نمی‌توانم چشم دودی بزنم.",
+       "use_en": "Honest, and it invites a technique.",
+       "use_fa": "صادقانه است و تکنیک می‌طلبد.",
+       "level": "B1",
+       "polite": "informal",
+       "alt": "Smoky eyes just make me look tired."
+      },
+      {
+       "id": "eyes-s2",
+       "en": "Waterproof mascara runs less, but it is harder to take off.",
+       "fa": "ریمل ضدآب کمتر می‌ریزد، اما پاک کردنش سخت‌تر است.",
+       "use_en": "Gives both sides of a choice.",
+       "use_fa": "هر دو سوی یک انتخاب را می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Waterproof lasts longer but is harder to remove."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Getting ready for a wedding",
+      "title_fa": "آماده شدن برای عروسی",
+      "speakers": [
+       "Shiva",
+       "Mahsa"
+      ],
+      "lines": [
+       {
+        "who": "Shiva",
+        "en": "Can you do a soft smoky eye on me?",
+        "fa": "می‌توانی برایم چشم دودی ملایم بزنی؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "Sure. Close your eye. A little shadow in the crease first.",
+        "fa": "حتماً. چشمت را ببند. اول کمی سایه در گودی پلک."
+       },
+       {
+        "who": "Shiva",
+        "en": "Not too dark. Last time it smudged by the afternoon.",
+        "fa": "نه خیلی تیره. دفعهٔ قبل بعدازظهر پخش شد."
+       },
+       {
+        "who": "Mahsa",
+        "en": "I will use a cream shadow, then set it with powder.",
+        "fa": "از سایهٔ کرمی استفاده می‌کنم، بعد با پودر تثبیتش می‌کنم."
+       },
+       {
+        "who": "Shiva",
+        "en": "And a wing?",
+        "fa": "و خط بال‌دار؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "A small one. Wing it out at the corner, following your lash line.",
+        "fa": "یک کوچک. آخرش را در گوشهٔ چشم، در امتداد خط مژه بکش."
+       },
+       {
+        "who": "Shiva",
+        "en": "Mascara?",
+        "fa": "ریمل؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "Two coats, no clumps. Curl your lashes first.",
+        "fa": "دو لایه، بدون گلوله. اول مژه‌ها را فرم بده."
+       },
+       {
+        "who": "Shiva",
+        "en": "It makes my eyes look bigger already.",
+        "fa": "همین حالا چشم‌هایم را بزرگ‌تر نشان می‌دهد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Mascara on the lid",
+       "title_fa": "ریمل روی پلک",
+       "situation_en": "By noon there is a black mark under each eye.",
+       "situation_fa": "تا ظهر زیر هر چشم یک لکهٔ مشکی است.",
+       "task_en": "Ask a friend what is causing it.",
+       "task_fa": "از دوستی بپرس علتش چیست.",
+       "answer_en": "It transfers under my eyes by noon. Is it the mascara or the cream shadow?",
+       "answer_fa": "تا ظهر زیر چشمم می‌افتد. تقصیر ریمل است یا سایهٔ کرمی؟"
+      },
+      {
+       "title_en": "First winged liner",
+       "title_fa": "اولین خط بال‌دار",
+       "situation_en": "You have never worn winged liner and have a party tonight.",
+       "situation_fa": "هرگز خط بال‌دار نزده‌ای و امشب مهمانی داری.",
+       "task_en": "Ask for the simplest version.",
+       "task_fa": "ساده‌ترین شکل را بخواه.",
+       "answer_en": "Can you show me the easiest wing? I have never done it.",
+       "answer_fa": "می‌توانی ساده‌ترین خط بال‌دار را نشانم بدهی؟ هرگز نکرده‌ام."
+      }
+     ],
+     "practice": [
+      {
+       "id": "eyes-q1",
+       "q_en": "What comes before mascara?",
+       "q_fa": "پیش از ریمل چه چیزی می‌آید؟",
+       "options": [
+        "curling the lashes",
+        "setting powder",
+        "highlighter"
+       ],
+       "answer": "curling the lashes",
+       "why_en": "Curl first: mascara makes lashes stiff and they can break in a curler.",
+       "why_fa": "اول فرم بده: ریمل مژه را سخت می‌کند و ممکن است در فرمژه بشکند."
+      },
+      {
+       "id": "eyes-q2",
+       "q_en": "\"It smudged\" means the makeup ...",
+       "q_fa": "«پخش شد» یعنی آرایش ...",
+       "options": [
+        "spread under the eye",
+        "dried out",
+        "changed color"
+       ],
+       "answer": "spread under the eye",
+       "why_en": "Smudging is makeup moving where it should not be.",
+       "why_fa": "پخش شدن یعنی آرایش جایی می‌رود که نباید."
+      },
+      {
+       "id": "eyes-q3",
+       "q_en": "What is the crease?",
+       "q_fa": "گودی پلک کجاست؟",
+       "options": [
+        "the fold above the eyelid",
+        "the corner of the eye",
+        "the lower lash line"
+       ],
+       "answer": "the fold above the eyelid",
+       "why_en": "Shadow is blended into the crease to add depth.",
+       "why_fa": "سایه در گودی پلک پخش می‌شود تا عمق اضافه کند."
+      }
+     ]
+    },
+    {
+     "id": "lips",
+     "order": 7,
+     "icon": "lipstick",
+     "title_en": "Lips: color, liner and care",
+     "title_fa": "لب: رنگ، خط و مراقبت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The part everyone notices first, and the one with the most opinions.",
+     "blurb_fa": "بخشی که همه اول می‌بینند و بیشترین نظر را دارد.",
+     "objectives": [
+      {
+       "en": "ask for a lip color and describe the finish you want.",
+       "fa": "یک رنگ لب بخواه و بافتی را که می‌خواهی توصیف کن."
+      },
+      {
+       "en": "line and fill your lips without a hard edge.",
+       "fa": "لب را خط بکش و پر کن، بدون لبهٔ سخت."
+      },
+      {
+       "en": "say when a color flatters you and when it does not.",
+       "fa": "بگو یک رنگ به تو می‌آید یا نه."
+      }
+     ],
+     "words": [
+      {
+       "id": "lips-w1",
+       "en": "lipstick",
+       "ipa": "/ˈlɪpstɪk/",
+       "pos": "noun",
+       "fa": "رژ لب",
+       "def_en": "Colored makeup in a stick, worn on the lips.",
+       "sport": "makeup",
+       "icon": "lipstick",
+       "level": "A1",
+       "example_en": "This lipstick is a soft rose.",
+       "example_fa": "این رژ لب رز ملایمی است.",
+       "ref": ""
+      },
+      {
+       "id": "lips-w2",
+       "en": "lip gloss",
+       "ipa": "/lɪp glɔs/",
+       "pos": "noun",
+       "fa": "برق لب",
+       "def_en": "A shiny, usually sheer product worn on the lips.",
+       "sport": "makeup",
+       "icon": "lipgloss",
+       "level": "A1",
+       "example_en": "Lip gloss is easier than lipstick for a beginner.",
+       "example_fa": "برق لب برای تازه‌کار از رژ لب راحت‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "lips-w3",
+       "en": "lip liner",
+       "ipa": "/lɪp ˈlaɪnər/",
+       "pos": "noun",
+       "fa": "خط لب",
+       "def_en": "A pencil used to outline the lips before color.",
+       "sport": "makeup",
+       "icon": "liner",
+       "level": "A2",
+       "example_en": "Use a liner close to your own lip color.",
+       "example_fa": "خط لبی نزدیک رنگ طبیعی لبت استفاده کن.",
+       "ref": ""
+      },
+      {
+       "id": "lips-w4",
+       "en": "lip balm",
+       "ipa": "/lɪp bɑm/",
+       "pos": "noun",
+       "fa": "بالم لب",
+       "def_en": "A soft product that moisturizes dry lips.",
+       "sport": "makeup",
+       "icon": "jar",
+       "level": "A1",
+       "example_en": "I put on lip balm before bed.",
+       "example_fa": "شب‌ها قبل از خواب بالم لب می‌زنم.",
+       "ref": ""
+      },
+      {
+       "id": "lips-w5",
+       "en": "lip stain",
+       "ipa": "/lɪp steɪn/",
+       "pos": "noun",
+       "fa": "رژ مایع ماندگار",
+       "def_en": "A light product that leaves color on the lips for hours.",
+       "sport": "makeup",
+       "icon": "lipgloss",
+       "level": "B1",
+       "example_en": "A lip stain survives a whole meal.",
+       "example_fa": "رژ ماندگار از تمام یک وعدهٔ غذا جان سالم به در می‌برد.",
+       "ref": ""
+      },
+      {
+       "id": "lips-w6",
+       "en": "bullet",
+       "ipa": "/ˈbʊlɪt/",
+       "pos": "noun",
+       "fa": "قمقمهٔ رژ",
+       "def_en": "The solid stick part of a traditional lipstick.",
+       "sport": "makeup",
+       "icon": "lipstick",
+       "level": "B1",
+       "example_en": "I use the bullet straight on my lips.",
+       "example_fa": "قمقمهٔ رژ را مستقیم روی لب می‌زنم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "lips-x1",
+       "kind": "expression",
+       "en": "Line your lips before you fill them in.",
+       "fa": "اول لب را خط بکش، بعد پر کن.",
+       "meaning_en": "The order that stops color from spreading.",
+       "meaning_fa": "ترتیبی که مانع پخش شدن رنگ می‌شود.",
+       "register": "neutral",
+       "example_en": "Line your lips before you fill them in with a brush.",
+       "example_fa": "اول لب را خط بکش، بعد با برس پر کن.",
+       "alt": ""
+      },
+      {
+       "id": "lips-x2",
+       "kind": "expression",
+       "en": "Blot it with a tissue.",
+       "fa": "با دستمال کاغذی فشار بده.",
+       "meaning_en": "Removes the extra product that transfers.",
+       "meaning_fa": "محصول اضافه‌ای را که منتقل می‌شود برمی‌دارد.",
+       "register": "neutral",
+       "example_en": "Blot it with a tissue, then add one more thin layer.",
+       "example_fa": "با دستمال فشار بده، بعد یک لایهٔ نازک دیگر بزن.",
+       "alt": ""
+      },
+      {
+       "id": "lips-x3",
+       "kind": "expression",
+       "en": "A bold lip needs a simple eye.",
+       "fa": "لب پررنگ، چشم ساده می‌خواهد.",
+       "meaning_en": "The oldest balance rule in makeup.",
+       "meaning_fa": "قدیمی‌ترین قاعدهٔ تعادل در آرایش.",
+       "register": "neutral",
+       "example_en": "A bold lip needs a simple eye, or it looks like a costume.",
+       "example_fa": "لب پررنگ چشم ساده می‌خواهد، وگرنه شبیه لباس نمایش می‌شود.",
+       "alt": ""
+      },
+      {
+       "id": "lips-x4",
+       "kind": "expression",
+       "en": "This shade washes me out.",
+       "fa": "این رنگ رنگم را می‌پراند.",
+       "meaning_en": "Says a pale color makes you look tired.",
+       "meaning_fa": "می‌گوید رنگ روشن خسته نشانت می‌دهد.",
+       "register": "informal",
+       "example_en": "That pale pink washes me out in winter.",
+       "example_fa": "آن صورتی روشن زمستان رنگم را می‌پراند.",
+       "alt": ""
+      },
+      {
+       "id": "lips-x5",
+       "kind": "idiom",
+       "en": "That is just lip service.",
+       "fa": "این فقط حرف است.",
+       "meaning_en": "Literally, words made with the lips; figuratively, support that is spoken and never acted on.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، واژه‌هایی که با لب ساخته می‌شوند؛ به‌طور مجازی، حمایتی که فقط گفته می‌شود و هرگز انجام نمی‌شود.",
+       "register": "neutral",
+       "example_en": "Their promise to pay was just lip service.",
+       "example_fa": "قولشان برای پرداخت فقط حرف بود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Go for + [a bold] + lip.",
+       "example_en": "Go for a bold lip with a simple eye.",
+       "example_fa": "با چشم ساده یک لب پررنگ بزن.",
+       "note_en": "Balance is the whole rule.",
+       "note_fa": "تعادل تمام قاعده است."
+      },
+      {
+       "frame": "This shade + [suits/washes out] + me.",
+       "example_en": "This shade suits me in summer.",
+       "example_fa": "این رنگ تابستان به من می‌آید.",
+       "note_en": "Say whether a color works on you.",
+       "note_fa": "بگو رنگی به تو می‌آید یا نه."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "lips-s1",
+       "en": "I love the color but it dries my lips out.",
+       "fa": "رنگش را دوست دارم اما لبم را خشک می‌کند.",
+       "use_en": "Says both the good and the problem.",
+       "use_fa": "هم خوبی را می‌گوید هم مشکل را.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I like the color but it is drying."
+      },
+      {
+       "id": "lips-s2",
+       "en": "A nude lip makes me look like I forgot my makeup.",
+       "fa": "لب نوتریال مرا شبیه کسی می‌کند که آرایشش را فراموش کرده.",
+       "use_en": "Funny, and it says exactly what you want.",
+       "use_fa": "خنده‌دار است و دقیقاً می‌گوید چه می‌خواهی.",
+       "level": "B1",
+       "polite": "informal",
+       "alt": "Nudes just disappear on me."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Choosing a lip color",
+      "title_fa": "انتخاب رنگ لب",
+      "speakers": [
+       "Arezoo",
+       "Shadi"
+      ],
+      "lines": [
+       {
+        "who": "Arezoo",
+        "en": "I am wearing a black dress. Bold lip or nude?",
+        "fa": "لباس مشکلی می‌پوشم. لب پررنگ یا نوتریال؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "Bold. A bold lip needs a simple eye, and yours is simple.",
+        "fa": "پررنگ. لب پررنگ چشم ساده می‌خواهد، و چشم تو ساده است."
+       },
+       {
+        "who": "Arezoo",
+        "en": "Will it survive dinner?",
+        "fa": "از شام جان سالم به در می‌برد؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "A lip stain will. Line your lips first, then fill them in.",
+        "fa": "رژ ماندگار می‌برد. اول خط بکش، بعد پر کن."
+       },
+       {
+        "who": "Arezoo",
+        "en": "This red looks too orange on me.",
+        "fa": "این قرمز روی من زیادی نارنجی می‌شود."
+       },
+       {
+        "who": "Shadi",
+        "en": "Try the cooler one. It will not wash you out.",
+        "fa": "سردترش را امتحان کن. رنگت را نمی‌پراند."
+       },
+       {
+        "who": "Arezoo",
+        "en": "And if my lips get dry?",
+        "fa": "و اگر لبم خشک شد؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "Blot it with a tissue, then add balm on top.",
+        "fa": "با دستمال فشار بده، بعد بالم رویش بزن."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The dry lip",
+       "title_fa": "لب خشک",
+       "situation_en": "Your lipstick looks patchy after an hour and your lips feel tight.",
+       "situation_fa": "رژ لبت بعد از یک ساعت لکه‌لکه می‌شود و لبت کشیده می‌شود.",
+       "task_en": "Ask what to do before the color, not after.",
+       "task_fa": "بپرس پیش از رنگ چه کار کنی، نه بعدش.",
+       "answer_en": "Put balm on ten minutes before the lipstick, then blot the extra.",
+       "answer_fa": "ده دقیقه قبل از رژ بالم بزن، بعد اضافه‌اش را بگیر."
+      },
+      {
+       "title_en": "The bold lip at work",
+       "title_fa": "لب پررنگ در محل کار",
+       "situation_en": "You want a red lip in an office where nobody wears one.",
+       "situation_fa": "در دفتری که هیچ‌کس رژ نمی‌زند، یک لب قرمز می‌خواهی.",
+       "task_en": "Ask a colleague for an honest opinion.",
+       "task_fa": "از همکاری نظر صادقانه بخواه.",
+       "answer_en": "Is this too much for a Tuesday? I could blot it down.",
+       "answer_fa": "برای سه‌شنبه زیاد است؟ می‌توانم با دستمال کم‌رنگش کنم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "lips-q1",
+       "q_en": "What comes first: liner or lipstick?",
+       "q_fa": "اول خط لب یا رژ لب؟",
+       "options": [
+        "liner",
+        "lipstick",
+        "gloss"
+       ],
+       "answer": "liner",
+       "why_en": "Liner holds the color inside the lip line.",
+       "why_fa": "خط لب رنگ را داخل مرز لب نگه می‌دارد."
+      },
+      {
+       "id": "lips-q2",
+       "q_en": "What does \"this shade washes me out\" mean?",
+       "q_fa": "«این رنگ رنگم را می‌پراند» یعنی چه؟",
+       "options": [
+        "it makes me look pale and tired",
+        "it is too dark",
+        "it is too expensive"
+       ],
+       "answer": "it makes me look pale and tired",
+       "why_en": "A pale shade can erase the color from your face.",
+       "why_fa": "رنگ روشن می‌تواند رنگ صورت را پاک کند."
+      },
+      {
+       "id": "lips-q3",
+       "q_en": "Why blot lipstick with a tissue?",
+       "q_fa": "چرا رژ را با دستمال فشار می‌دهیم؟",
+       "options": [
+        "to remove extra product that would transfer",
+        "to make it shiny",
+        "to change the color"
+       ],
+       "answer": "to remove extra product that would transfer",
+       "why_en": "Blotting takes off the layer that would end up on cups.",
+       "why_fa": "فشار دادن لایه‌ای را برمی‌دارد که آخرش روی لیوان می‌ماند."
+      }
+     ]
+    },
+    {
+     "id": "tools",
+     "order": 8,
+     "icon": "brush",
+     "title_en": "Brushes, sponges and technique",
+     "title_fa": "برس، اسفنج و تکنیک",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The tools do half the work, and the verbs that go with them do the rest.",
+     "blurb_fa": "ابزار نیمی از کار را می‌کند، و فعل‌هایی که با آن‌ها می‌آید نیم دیگر را.",
+     "objectives": [
+      {
+       "en": "name the tool for each step and what it does.",
+       "fa": "نام ابزار هر مرحله و کارش را بگو."
+      },
+      {
+       "en": "describe how to blend and buff instead of dragging.",
+       "fa": "توضیح بده چطور به جای کشیدن، پخش و ماساژ بدهی."
+      },
+      {
+       "en": "say how and when to clean your tools.",
+       "fa": "بگو ابزارت را چطور و کِی تمیز کنی."
+      }
+     ],
+     "words": [
+      {
+       "id": "tools-w1",
+       "en": "brush",
+       "ipa": "/brʌʃ/",
+       "pos": "noun",
+       "fa": "برس",
+       "def_en": "A tool with hairs used to apply or blend makeup.",
+       "sport": "makeup",
+       "icon": "brush",
+       "level": "A1",
+       "example_en": "A flat brush is easiest for beginners.",
+       "example_fa": "برس تخت برای تازه‌کارها ساده‌ترین است.",
+       "ref": ""
+      },
+      {
+       "id": "tools-w2",
+       "en": "sponge",
+       "ipa": "/spʌndʒ/",
+       "pos": "noun",
+       "fa": "اسفنج",
+       "def_en": "A soft pad used to press and blend liquid makeup.",
+       "sport": "makeup",
+       "icon": "sponge",
+       "level": "A1",
+       "example_en": "A damp sponge gives a softer finish.",
+       "example_fa": "اسفنج نمناک بافت نرم‌تری می‌دهد.",
+       "ref": ""
+      },
+      {
+       "id": "tools-w3",
+       "en": "blender",
+       "ipa": "/ˈblɛndər/",
+       "pos": "noun",
+       "fa": "بلندر",
+       "def_en": "The egg-shaped sponge most people mean by \"sponge\".",
+       "sport": "makeup",
+       "icon": "sponge",
+       "level": "A2",
+       "example_en": "Wet the blender and squeeze it out.",
+       "example_fa": "بلندر را خیس کن و فشار بده.",
+       "ref": ""
+      },
+      {
+       "id": "tools-w4",
+       "en": "buff",
+       "ipa": "/bʌf/",
+       "pos": "verb",
+       "fa": "ماساژ دادن با برس",
+       "def_en": "To move a brush in small circles so product melts into the skin.",
+       "sport": "makeup",
+       "icon": "brush",
+       "level": "B1",
+       "example_en": "Buff it in with a dense brush.",
+       "example_fa": "با برس پرپشت ماساژش بده.",
+       "ref": ""
+      },
+      {
+       "id": "tools-w5",
+       "en": "blend",
+       "ipa": "/blɛnd/",
+       "pos": "verb",
+       "fa": "پخش کردن",
+       "def_en": "To soften the edge between two products so no line shows.",
+       "sport": "makeup",
+       "icon": "brush",
+       "level": "A2",
+       "example_en": "Blend the edges with a clean brush.",
+       "example_fa": "لبه‌ها را با برس تمیز پخش کن.",
+       "ref": ""
+      },
+      {
+       "id": "tools-w6",
+       "en": "applicator",
+       "ipa": "/ˈæpləkeɪtər/",
+       "pos": "noun",
+       "fa": "قلم‌زن",
+       "def_en": "The small tool that comes inside a product.",
+       "sport": "makeup",
+       "icon": "sponge",
+       "level": "B1",
+       "example_en": "The applicator that comes with it is too big.",
+       "example_fa": "قلم‌زنی که همراهش است زیادی بزرگ است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "tools-x1",
+       "kind": "expression",
+       "en": "Blend, don't drag.",
+       "fa": "پخش کن، نکش.",
+       "meaning_en": "The one rule that separates smooth from patchy.",
+       "meaning_fa": "تنها قاعده‌ای که یکدستی را از لکه‌لکه جدا می‌کند.",
+       "register": "neutral",
+       "example_en": "Blend, don't drag, and the edge will disappear.",
+       "example_fa": "پخش کن، نکش، و لبه محو می‌شود.",
+       "alt": ""
+      },
+      {
+       "id": "tools-x2",
+       "kind": "expression",
+       "en": "Use a damp sponge for a softer finish.",
+       "fa": "برای بافت نرم‌تر از اسفنج نمناک استفاده کن.",
+       "meaning_en": "Says the tool and the result together.",
+       "meaning_fa": "ابزار و نتیجه را با هم می‌گوید.",
+       "register": "neutral",
+       "example_en": "Use a damp sponge for a softer finish on dry skin.",
+       "example_fa": "برای بافت نرم‌تر روی پوست خشک از اسفنج نمناک استفاده کن.",
+       "alt": ""
+      },
+      {
+       "id": "tools-x3",
+       "kind": "expression",
+       "en": "Wash your brushes every week.",
+       "fa": "برس‌هایت را هر هفته بشور.",
+       "meaning_en": "Hygiene, said as a habit rather than a lecture.",
+       "meaning_fa": "بهداشت، به شکل عادت نه نصیحت.",
+       "register": "neutral",
+       "example_en": "Wash your brushes every week, or they will break you out.",
+       "example_fa": "هر هفته برس‌هایت را بشور، وگرنه جوش می‌زنی.",
+       "alt": ""
+      },
+      {
+       "id": "tools-x4",
+       "kind": "expression",
+       "en": "It picks up too much product.",
+       "fa": "محصول زیادی برمی‌دارد.",
+       "meaning_en": "Explains a heavy application without blaming the person.",
+       "meaning_fa": "اجرای سنگین را توضیح می‌دهد بدون سرزنش.",
+       "register": "neutral",
+       "example_en": "Tap the brush first, it picks up too much product.",
+       "example_fa": "اول برس را بزن، محصول زیادی برمی‌دارد.",
+       "alt": ""
+      },
+      {
+       "id": "tools-x5",
+       "kind": "idiom",
+       "en": "This brush does the heavy lifting.",
+       "fa": "این برس کار اصلی را انجام می‌دهد.",
+       "meaning_en": "Literally, it carries the weight; figuratively, it does most of the work.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، وزن را حمل می‌کند؛ به‌طور مجازی، بیشتر کار را انجام می‌دهد.",
+       "register": "informal",
+       "example_en": "This one brush does the heavy lifting in my bag.",
+       "example_fa": "این یک برس کار اصلی کیفم را انجام می‌دهد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Use + [tool] + to + [verb].",
+       "example_en": "Use a damp sponge to press the foundation in.",
+       "example_fa": "از اسفنج نمناک استفاده کن تا کرم‌پودر را فشار بدهی.",
+       "note_en": "Tool, then job.",
+       "note_fa": "اول ابزار، بعد کار."
+      },
+      {
+       "frame": "Wash your + [tool] + every + [time].",
+       "example_en": "Wash your sponge every week.",
+       "example_fa": "اسفنجت را هر هفته بشور.",
+       "note_en": "Hygiene with a schedule.",
+       "note_fa": "بهداشت با زمان‌بندی."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "tools-s1",
+       "en": "I clean my brushes with soap and warm water once a week.",
+       "fa": "برس‌هایم را هفته‌ای یک بار با صابون و آب گرم می‌شورم.",
+       "use_en": "A complete routine in one sentence.",
+       "use_fa": "یک روتین کامل در یک جمله.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I wash them with soap once a week."
+      },
+      {
+       "id": "tools-s2",
+       "en": "A dirty brush is the fastest way to break out.",
+       "fa": "برس کثیف سریع‌ترین راه جوش زدن است.",
+       "use_en": "Gives the reason, not just the rule.",
+       "use_fa": "دلیل را می‌گوید، نه فقط قاعده را.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Dirty brushes cause breakouts."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Cleaning day",
+      "title_fa": "روز تمیزکاری",
+      "speakers": [
+       "Nima",
+       "Sogand"
+      ],
+      "lines": [
+       {
+        "who": "Nima",
+        "en": "How often do you wash these?",
+        "fa": "این‌ها را هر چند وقت می‌شوری؟"
+       },
+       {
+        "who": "Sogand",
+        "en": "Once a week with soap and warm water. More in summer.",
+        "fa": "هفته‌ای یک بار با صابون و آب گرم. تابستان بیشتر."
+       },
+       {
+        "who": "Nima",
+        "en": "My foundation looks patchy. Could it be the sponge?",
+        "fa": "کرم‌پودرم لکه‌لکه می‌شود. می‌تواند از اسفنج باشد؟"
+       },
+       {
+        "who": "Sogand",
+        "en": "Yes. A dirty sponge picks up too much product and drops it.",
+        "fa": "بله. اسفنج کثیف محصول زیادی برمی‌دارد و رهایش می‌کند."
+       },
+       {
+        "who": "Nima",
+        "en": "So wash it, or use a brush?",
+        "fa": "پس بشویمش، یا از برس استفاده کنم؟"
+       },
+       {
+        "who": "Sogand",
+        "en": "Use a damp sponge for a softer finish, and wash it after.",
+        "fa": "برای بافت نرم‌تر از اسفنج نمناک استفاده کن، و بعدش بشور."
+       },
+       {
+        "who": "Nima",
+        "en": "And the brush?",
+        "fa": "و برس؟"
+       },
+       {
+        "who": "Sogand",
+        "en": "Blend, don't drag. This brush does the heavy lifting.",
+        "fa": "پخش کن، نکش. این برس کار اصلی را انجام می‌دهد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The patchy sponge",
+       "title_fa": "اسفنج لکه‌انداز",
+       "situation_en": "You cannot work out why your base separates by noon.",
+       "situation_fa": "نمی‌فهمی چرا پایه تا ظهر جدا می‌شود.",
+       "task_en": "Ask about the tool before the product.",
+       "task_fa": "پیش از محصول، دربارهٔ ابزار بپرس.",
+       "answer_en": "How often do you wash your sponge? Mine separates when I skip a week.",
+       "answer_fa": "اسفنجت را هر چند وقت می‌شوری؟ مال من وقتی یک هفته را جا می‌اندازم جدا می‌شود."
+      },
+      {
+       "title_en": "Borrowing tools",
+       "title_fa": "قرض گرفتن ابزار",
+       "situation_en": "A friend wants to borrow your eye brushes before a party.",
+       "situation_fa": "دوستت می‌خواهد پیش از مهمانی برس‌های چشم تو را قرض بگیرد.",
+       "task_en": "Agree in a way that keeps both of you safe.",
+       "task_fa": "طوری موافقت کن که هر دو در امان باشید.",
+       "answer_en": "Take these two, but not the ones I use on my eyes. Better safe.",
+       "answer_fa": "این دو تا را بردار، اما آن‌هایی که روی چشمم می‌زنم نه. بهتر است احتیاط کنیم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "tools-q1",
+       "q_en": "What does \"buff\" mean?",
+       "q_fa": "«ماساژ دادن با برس» یعنی چه؟",
+       "options": [
+        "moving a brush in small circles into the skin",
+        "washing a brush",
+        "choosing a color"
+       ],
+       "answer": "moving a brush in small circles into the skin",
+       "why_en": "Buffing melts product into the skin instead of laying it on top.",
+       "why_fa": "ماساژ دادن محصول را در پوست ذوب می‌کند، نه رویش."
+      },
+      {
+       "id": "tools-q2",
+       "q_en": "Why use a damp sponge?",
+       "q_fa": "چرا اسفنج نمناک؟",
+       "options": [
+        "it presses product in for a softer finish",
+        "it uses more product",
+        "it makes makeup shiny"
+       ],
+       "answer": "it presses product in for a softer finish",
+       "why_en": "Dampness stops the sponge from drinking the foundation.",
+       "why_fa": "نمناکی مانع می‌شود اسفنج کرم‌پودر را بنوشد."
+      },
+      {
+       "id": "tools-q3",
+       "q_en": "How is a dirty brush a skin problem?",
+       "q_fa": "برس کثیف چطور مشکل پوستی می‌شود؟",
+       "options": [
+        "it carries oil and bacteria to the face",
+        "it changes color",
+        "it dries out"
+       ],
+       "answer": "it carries oil and bacteria to the face",
+       "why_en": "Tools collect oil and bacteria, and the face is where they land.",
+       "why_fa": "ابزار چربی و باکتری جمع می‌کند و صورت محل فرودشان است."
+      }
+     ]
+    },
+    {
+     "id": "getready",
+     "order": 9,
+     "icon": "mirror",
+     "title_en": "Getting ready: the words you need",
+     "title_fa": "آماده شدن: واژه‌هایی که لازم داری",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The ten minutes before you leave, in English, including the jokes.",
+     "blurb_fa": "ده دقیقه پیش از رفتن، به انگلیسی، همراه با شوخی‌هایش.",
+     "objectives": [
+      {
+       "en": "say how long you need and what is left to do.",
+       "fa": "بگو چقدر وقت لازم داری و چه کار باقی مانده."
+      },
+      {
+       "en": "use the informal idioms people say while getting ready.",
+       "fa": "اصطلاح‌های غیررسمی‌ای را که هنگام آماده شدن گفته می‌شود به کار ببر."
+      },
+      {
+       "en": "touch up in public without a full explanation.",
+       "fa": "بدون توضیح کامل، در جمع آرایش را تجدید کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "getready-w1",
+       "en": "routine",
+       "ipa": "/ruˈtin/",
+       "pos": "noun",
+       "fa": "روتین",
+       "def_en": "The same steps in the same order every day.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "A2",
+       "example_en": "My morning routine takes ten minutes.",
+       "example_fa": "روتین صبحم ده دقیقه طول می‌کشد.",
+       "ref": ""
+      },
+      {
+       "id": "getready-w2",
+       "en": "touch-up",
+       "ipa": "/ˈtʌtʃ ʌp/",
+       "pos": "noun",
+       "fa": "تجدید آرایش",
+       "def_en": "A small fix to makeup during the day.",
+       "sport": "makeup",
+       "icon": "powder",
+       "level": "B1",
+       "example_en": "I keep powder in my bag for a touch-up.",
+       "example_fa": "برای تجدید، پودر در کیفم نگه می‌دارم.",
+       "ref": ""
+      },
+      {
+       "id": "getready-w3",
+       "en": "setting spray",
+       "ipa": "/ˈsɛtɪŋ spreɪ/",
+       "pos": "noun",
+       "fa": "اسپری تثبیت",
+       "def_en": "A mist sprayed at the end to hold makeup.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "B1",
+       "example_en": "Setting spray makes everything sit together.",
+       "example_fa": "اسپری تثبیت همه چیز را کنار هم می‌نشاند.",
+       "ref": ""
+      },
+      {
+       "id": "getready-w4",
+       "en": "blotting paper",
+       "ipa": "/ˈblɑtɪŋ ˌpeɪpər/",
+       "pos": "noun",
+       "fa": "کاغذ جاذب چربی",
+       "def_en": "Thin paper pressed on the skin to take away oil.",
+       "sport": "makeup",
+       "icon": "swatch",
+       "level": "B1",
+       "example_en": "Blotting paper fixes a shiny nose without powder.",
+       "example_fa": "کاغذ جاذب بینی براق را بدون پودر درست می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "getready-w5",
+       "en": "mirror",
+       "ipa": "/ˈmɪrər/",
+       "pos": "noun",
+       "fa": "آینه",
+       "def_en": "What you check your face in.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "A1",
+       "example_en": "Is there a mirror near the door?",
+       "example_fa": "نزدیک در آینه‌ای هست؟",
+       "ref": ""
+      },
+      {
+       "id": "getready-w6",
+       "en": "vanity",
+       "ipa": "/ˈvænəti/",
+       "pos": "noun",
+       "fa": "میز آرایش",
+       "def_en": "A small table with a mirror for getting ready.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "B2",
+       "example_en": "She sits at her vanity every morning.",
+       "example_fa": "هر صبح پشت میز آرایشش می‌نشیند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "getready-x1",
+       "kind": "idiom",
+       "en": "I'm just putting my face on.",
+       "fa": "دارم صورتم را می‌سازم.",
+       "meaning_en": "Literally, applying makeup to the face; figuratively, getting ready to be seen in public.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، زدن آرایش روی صورت؛ به‌طور مجازی، آماده شدن برای دیده شدن در جمع.",
+       "register": "informal",
+       "example_en": "Give me five minutes, I'm just putting my face on.",
+       "example_fa": "پنج دقیقه وقت بده، دارم صورتم را می‌سازم.",
+       "alt": ""
+      },
+      {
+       "id": "getready-x2",
+       "kind": "idiom",
+       "en": "I'm all dolled up.",
+       "fa": "کاملاً آماده و آراسته‌ام.",
+       "meaning_en": "Literally, dressed like a doll; figuratively, dressed up and made up for an occasion.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مثل عروسک لباس پوشیده؛ به‌طور مجازی، برای یک مناسبت آراسته و آرایش‌شده.",
+       "register": "informal",
+       "example_en": "I'm all dolled up and the party is cancelled.",
+       "example_fa": "کاملاً آماده‌ام و مهمانی لغو شد.",
+       "alt": ""
+      },
+      {
+       "id": "getready-x3",
+       "kind": "idiom",
+       "en": "I need to powder my nose.",
+       "fa": "باید بروم دستشویی.",
+       "meaning_en": "Literally, to put powder on the nose; figuratively, a polite way of saying you are going to the restroom.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، پودر زدن به بینی؛ به‌طور مجازی، روشی مؤدبانه برای گفتن اینکه به دستشویی می‌روی.",
+       "register": "formal",
+       "example_en": "Excuse me, I need to powder my nose.",
+       "example_fa": "ببخشید، باید بروم دستشویی.",
+       "alt": ""
+      },
+      {
+       "id": "getready-x4",
+       "kind": "idiom",
+       "en": "Slap on some war paint.",
+       "fa": "کمی آرایش بزن.",
+       "meaning_en": "Literally, paint worn before battle; figuratively, makeup put on quickly to feel ready for something difficult.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، رنگی که پیش از نبرد زده می‌شد؛ به‌طور مجازی، آرایش سریعی که برای آماده بودن در برابر کار سختی زده می‌شود.",
+       "register": "slang",
+       "example_en": "The interview is in an hour. Time to slap on some war paint.",
+       "example_fa": "مصاحبه یک ساعت دیگر است. وقتش است کمی آرایش بزنم.",
+       "alt": ""
+      },
+      {
+       "id": "getready-x5",
+       "kind": "expression",
+       "en": "Give me ten minutes to get ready.",
+       "fa": "ده دقیقه وقت بده آماده شوم.",
+       "meaning_en": "The sentence everyone uses before leaving.",
+       "meaning_fa": "جمله‌ای که همه پیش از رفتن می‌گویند.",
+       "register": "neutral",
+       "example_en": "Give me ten minutes to get ready and we will go.",
+       "example_fa": "ده دقیقه وقت بده آماده شوم و می‌رویم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I'll be ready in + [time].",
+       "example_en": "I'll be ready in ten minutes.",
+       "example_fa": "ده دقیقه دیگر آماده‌ام.",
+       "note_en": "Time first, promise second.",
+       "note_fa": "اول وقت، بعد قول."
+      },
+      {
+       "frame": "I need to touch up my + [part].",
+       "example_en": "I need to touch up my lipstick.",
+       "example_fa": "باید رژ لبم را تجدید کنم.",
+       "note_en": "The polite way to fix makeup in company.",
+       "note_fa": "روش مؤدبانه برای درست کردن آرایش در جمع."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "getready-s1",
+       "en": "I only need five minutes, but it always becomes twenty.",
+       "fa": "فقط پنج دقیقه لازم دارم، اما همیشه بیست دقیقه می‌شود.",
+       "use_en": "The truth about getting ready, said with humor.",
+       "use_fa": "حقیقت آماده شدن، با شوخی.",
+       "level": "B1",
+       "polite": "informal",
+       "alt": "Five minutes always becomes twenty."
+      },
+      {
+       "id": "getready-s2",
+       "en": "My makeup takes longer than my clothes.",
+       "fa": "آرایشم بیشتر از لباسم وقت می‌برد.",
+       "use_en": "Compares two parts of getting ready.",
+       "use_fa": "دو بخش آماده شدن را مقایسه می‌کند.",
+       "level": "A2",
+       "polite": "informal",
+       "alt": "Makeup takes me longer than clothes."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Late, again",
+      "title_fa": "باز هم دیر",
+      "speakers": [
+       "Kaveh",
+       "Setareh"
+      ],
+      "lines": [
+       {
+        "who": "Kaveh",
+        "en": "We are leaving in ten minutes.",
+        "fa": "ده دقیقه دیگر می‌رویم."
+       },
+       {
+        "who": "Setareh",
+        "en": "Give me five. I'm just putting my face on.",
+        "fa": "پنج دقیقه وقت بده. دارم صورتم را می‌سازم."
+       },
+       {
+        "who": "Kaveh",
+        "en": "You said that twenty minutes ago.",
+        "fa": "بیست دقیقه پیش هم همین را گفتی."
+       },
+       {
+        "who": "Setareh",
+        "en": "And now I need to powder my nose. Then I'm done.",
+        "fa": "و حالا باید بروم دستشویی. بعد تمام است."
+       },
+       {
+        "who": "Kaveh",
+        "en": "Do you need a touch-up too?",
+        "fa": "تجدید آرایش هم لازم داری؟"
+       },
+       {
+        "who": "Setareh",
+        "en": "One spray of setting spray and I'm all dolled up.",
+        "fa": "یک پاف اسپری تثبیت و کاملاً آماده‌ام."
+       },
+       {
+        "who": "Kaveh",
+        "en": "You look great. The taxi is here.",
+        "fa": "خیلی خوب شدی. تاکسی رسید."
+       },
+       {
+        "who": "Setareh",
+        "en": "Then let me slap on some war paint and come.",
+        "fa": "بگذار سریع کمی آرایش بزنم و بیایم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The permanent five minutes",
+       "title_fa": "پنج دقیقهٔ همیشگی",
+       "situation_en": "Your partner is waiting by the door for the third time.",
+       "situation_fa": "شریکت برای سومین بار کنار در منتظر است.",
+       "task_en": "Answer in a way that is honest and a little funny.",
+       "task_fa": "صادقانه و کمی خنده‌دار جواب بده.",
+       "answer_en": "I need five minutes, and I know my five minutes. Start the car.",
+       "answer_fa": "پنج دقیقه لازم دارم، و می‌دانم پنج دقیقه‌ام چقدر است. ماشین را روشن کن."
+      },
+      {
+       "title_en": "Touch-up at dinner",
+       "title_fa": "تجدید در شام",
+       "situation_en": "Your lipstick has gone after the main course and you are still at the table.",
+       "situation_fa": "بعد از غذای اصلی رژ لبت رفته و هنوز سر میزی.",
+       "task_en": "Excuse yourself and fix it briefly.",
+       "task_fa": "عذرخواهی کن و کوتاه درستش کن.",
+       "answer_en": "Excuse me for a moment, I need to touch up my lipstick.",
+       "answer_fa": "یک لحظه ببخشید، باید رژ لبم را تجدید کنم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "getready-q1",
+       "q_en": "What does \"powder my nose\" usually mean?",
+       "q_fa": "«پودر زدن به بینی» معمولاً یعنی چه؟",
+       "options": [
+        "going to the restroom",
+        "fixing your makeup",
+        "leaving the party"
+       ],
+       "answer": "going to the restroom",
+       "why_en": "It is a polite excuse, not a makeup step.",
+       "why_fa": "این یک بهانهٔ مؤدبانه است، نه مرحلهٔ آرایش."
+      },
+      {
+       "id": "getready-q2",
+       "q_en": "What is a touch-up?",
+       "q_fa": "تجدید آرایش چیست؟",
+       "options": [
+        "a small fix during the day",
+        "a full new face",
+        "a skincare step"
+       ],
+       "answer": "a small fix during the day",
+       "why_en": "A touch-up repairs what moved, without starting again.",
+       "why_fa": "تجدید چیزی را که جابه‌جا شده درست می‌کند، بدون شروع از اول."
+      },
+      {
+       "id": "getready-q3",
+       "q_en": "\"All dolled up\" means ...",
+       "q_fa": "«کاملاً آراسته» یعنی ...",
+       "options": [
+        "dressed and made up for an occasion",
+        "tired",
+        "late"
+       ],
+       "answer": "dressed and made up for an occasion",
+       "why_en": "It comes from dressing someone like a doll.",
+       "why_fa": "ریشه‌اش لباس پوشاندن مثل عروسک است."
+      }
+     ]
+    },
+    {
+     "id": "looks",
+     "order": 10,
+     "icon": "highlighter",
+     "title_en": "Looks and occasions",
+     "title_fa": "مدل‌ها و مناسب‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "One face, many briefs: office, wedding, party, photo, and the words for each.",
+     "blurb_fa": "یک صورت، خواسته‌های بسیار: دفتر، عروسی، مهمانی، عکس، و واژه‌های هر کدام.",
+     "objectives": [
+      {
+       "en": "describe a look in one sentence and set its limit.",
+       "fa": "یک مدل را در یک جمله توصیف کن و حدش را بگو."
+      },
+      {
+       "en": "match a look to an occasion and say why.",
+       "fa": "مدل را با مناسبت جفت کن و دلیلش را بگو."
+      },
+      {
+       "en": "use the idioms for dressed-up and for illusion.",
+       "fa": "اصطلاح‌های «آراسته» و «توهم» را به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "looks-w1",
+       "en": "full glam",
+       "ipa": "/fʊl glæm/",
+       "pos": "noun",
+       "fa": "آرایش کامل و پررنگ",
+       "def_en": "A complete, heavy look: base, contour, eyes, lashes, lips.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "Full glam for the wedding, nothing for the office.",
+       "example_fa": "آرایش کامل برای عروسی، هیچ برای دفتر.",
+       "ref": ""
+      },
+      {
+       "id": "looks-w2",
+       "en": "smoky eye",
+       "ipa": "/ˈsmoʊki aɪ/",
+       "pos": "noun",
+       "fa": "چشم دودی",
+       "def_en": "Dark shadow blended around the eye until the edges are soft.",
+       "sport": "makeup",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "The smoky eye suits the evening.",
+       "example_fa": "چشم دودی به شب می‌آید.",
+       "ref": ""
+      },
+      {
+       "id": "looks-w3",
+       "en": "winged liner",
+       "ipa": "/wɪŋd ˈlaɪnər/",
+       "pos": "noun",
+       "fa": "خط چشم بال‌دار",
+       "def_en": "Liner that extends into a point past the outer corner.",
+       "sport": "makeup",
+       "icon": "liner",
+       "level": "B1",
+       "example_en": "A thin winged liner is enough for daytime.",
+       "example_fa": "یک خط بال‌دار نازک برای روز کافی است.",
+       "ref": ""
+      },
+      {
+       "id": "looks-w4",
+       "en": "no-makeup makeup",
+       "ipa": "/noʊ ˈmeɪkʌp ˈmeɪkʌp/",
+       "pos": "noun",
+       "fa": "آرایش طبیعی",
+       "def_en": "A look that hides its own work: even skin, groomed brows, a little color.",
+       "sport": "makeup",
+       "icon": "foundation",
+       "level": "B2",
+       "example_en": "Interviews call for no-makeup makeup.",
+       "example_fa": "مصاحبه آرایش طبیعی می‌خواهد.",
+       "ref": ""
+      },
+      {
+       "id": "looks-w5",
+       "en": "bridal",
+       "ipa": "/ˈbraɪdl/",
+       "pos": "adjective",
+       "fa": "عروس",
+       "def_en": "Belonging to a wedding look.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "B1",
+       "example_en": "Bridal makeup has to last twelve hours.",
+       "example_fa": "آرایش عروس باید دوازده ساعت بماند.",
+       "ref": ""
+      },
+      {
+       "id": "looks-w6",
+       "en": "bare-faced",
+       "ipa": "/ˈbɛr feɪst/",
+       "pos": "adjective",
+       "fa": "بدون آرایش",
+       "def_en": "Wearing no makeup at all.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "B1",
+       "example_en": "I go bare-faced on weekends.",
+       "example_fa": "آخر هفته‌ها بدون آرایش می‌روم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "looks-x1",
+       "kind": "expression",
+       "en": "I'm going for a natural look.",
+       "fa": "دنبال ظاهر طبیعی هستم.",
+       "meaning_en": "States the brief before anyone starts.",
+       "meaning_fa": "پیش از شروع، خواسته را می‌گوید.",
+       "register": "neutral",
+       "example_en": "I'm going for a natural look, nothing heavy.",
+       "example_fa": "دنبال ظاهر طبیعی هستم، نه سنگین.",
+       "alt": ""
+      },
+      {
+       "id": "looks-x2",
+       "kind": "expression",
+       "en": "Less is more on a hot day.",
+       "fa": "روز گرم، کمتر بهتر است.",
+       "meaning_en": "Applies the idiom to a real decision.",
+       "meaning_fa": "اصطلاح را به تصمیمی واقعی وصل می‌کند.",
+       "register": "neutral",
+       "example_en": "Less is more on a hot day, so skip the powder.",
+       "example_fa": "روز گرم کمتر بهتر است، پس پودر را حذف کن.",
+       "alt": ""
+      },
+      {
+       "id": "looks-x3",
+       "kind": "idiom",
+       "en": "Smoke and mirrors.",
+       "fa": "ظاهر فریبنده.",
+       "meaning_en": "Literally, the stage tricks that make things appear; figuratively, an impressive appearance that hides the truth.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، ترفندهای صحنه که چیزها را ظاهر می‌کند؛ به‌طور مجازی، ظاهری چشمگیر که حقیقت را پنهان می‌کند.",
+       "register": "neutral",
+       "example_en": "The glow is smoke and mirrors: it is just highlighter and good light.",
+       "example_fa": "آن درخشش ظاهر فریبنده است: فقط هایلایتر و نور خوب است.",
+       "alt": ""
+      },
+      {
+       "id": "looks-x4",
+       "kind": "idiom",
+       "en": "She was dressed to the nines.",
+       "fa": "او کاملاً آراسته بود.",
+       "meaning_en": "Literally, dressed to the highest degree; figuratively, dressed very formally and carefully for an occasion.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، در بالاترین درجه لباس پوشیده؛ به‌طور مجازی، برای یک مناسبت بسیار رسمی و دقیق آراسته.",
+       "register": "neutral",
+       "example_en": "She was dressed to the nines for a Tuesday dinner.",
+       "example_fa": "برای یک شام سه‌شنبه کاملاً آراسته بود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I'm going for + [look].",
+       "example_en": "I'm going for a soft, natural look.",
+       "example_fa": "دنبال ظاهری نرم و طبیعی هستم.",
+       "note_en": "The brief in four words.",
+       "note_fa": "خواسته در چهار کلمه."
+      },
+      {
+       "frame": "For + [occasion], I + [verb].",
+       "example_en": "For a wedding, I go full glam.",
+       "example_fa": "برای عروسی، آرایش کامل می‌زنم.",
+       "note_en": "Occasion first, choice second.",
+       "note_fa": "اول مناسبت، بعد انتخاب."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "looks-s1",
+       "en": "I want to look like myself, only rested.",
+       "fa": "می‌خواهم شبیه خودم باشم، فقط سرحال‌تر.",
+       "use_en": "The clearest brief a makeup artist can hear.",
+       "use_fa": "روشن‌ترین خواسته‌ای که آرایشگر می‌شنود.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Just me, but rested."
+      },
+      {
+       "id": "looks-s2",
+       "en": "Please keep my freckles visible.",
+       "fa": "لطفاً کک‌ومک‌هایم دیده شوند.",
+       "use_en": "Says what not to cover, which is just as important.",
+       "use_fa": "می‌گوید چه چیزی پوشانده نشود؛ همان‌قدر مهم.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Do not cover my freckles."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Briefing for a photo",
+      "title_fa": "توضیح برای عکس",
+      "speakers": [
+       "Hoda",
+       "Arman"
+      ],
+      "lines": [
+       {
+        "who": "Hoda",
+        "en": "It is a headshot, so the skin has to look even.",
+        "fa": "عکس نیم‌تنه است، پس پوست باید یکدست باشد."
+       },
+       {
+        "who": "Arman",
+        "en": "No-makeup makeup, then. Medium coverage, no shimmer.",
+        "fa": "پس آرایش طبیعی. پوشش متوسط، بدون درخشش."
+       },
+       {
+        "who": "Hoda",
+        "en": "Keep my freckles visible, though.",
+        "fa": "اما کک‌ومک‌هایم دیده شوند."
+       },
+       {
+        "who": "Arman",
+        "en": "I will. A little concealer only where needed.",
+        "fa": "حتماً. کمی کانسیلر فقط جایی که لازم است."
+       },
+       {
+        "who": "Hoda",
+        "en": "And the eyes?",
+        "fa": "و چشم‌ها؟"
+       },
+       {
+        "who": "Arman",
+        "en": "A thin winged liner. No smoky eye for a headshot.",
+        "fa": "یک خط بال‌دار نازک. برای عکس نیم‌تنه چشم دودی نه."
+       },
+       {
+        "who": "Hoda",
+        "en": "I want to look like myself, only rested.",
+        "fa": "می‌خواهم شبیه خودم باشم، فقط سرحال‌تر."
+       },
+       {
+        "who": "Arman",
+        "en": "That is exactly the brief. Less is more here.",
+        "fa": "این دقیقاً همان خواسته است. اینجا کمتر بهتر است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Overdressed face",
+       "title_fa": "صورت بیش از حد",
+       "situation_en": "You arrive at a casual lunch in full glam.",
+       "situation_fa": "با آرایش کامل به ناهار خودمانی می‌رسی.",
+       "task_en": "Make a joke that fixes the room.",
+       "task_fa": "با شوخی فضا را درست کن.",
+       "answer_en": "I read the invitation as a party. It is smoke and mirrors: two minutes and I can blot it down.",
+       "answer_fa": "دعوت‌نامه را مهمانی خواندم. ظاهرش فریبنده است: دو دقیقه و می‌توانم کمش کنم."
+      },
+      {
+       "title_en": "The wedding brief",
+       "title_fa": "خواستهٔ عروسی",
+       "situation_en": "A bride wants to look like herself but last twelve hours.",
+       "situation_fa": "عروس می‌خواهد شبیه خودش باشد اما دوازده ساعت بماند.",
+       "task_en": "Explain the trade-off honestly.",
+       "task_fa": "معاوضه را صادقانه توضیح بده.",
+       "answer_en": "Long wear means a little more coverage. We can keep it soft and still last.",
+       "answer_fa": "دوام بالا کمی پوشش بیشتر می‌خواهد. می‌توانیم نرم نگهش داریم و باز هم بماند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "looks-q1",
+       "q_en": "What is \"no-makeup makeup\"?",
+       "q_fa": "«آرایش طبیعی» چیست؟",
+       "options": [
+        "a look that hides its own work",
+        "no makeup at all",
+        "heavy makeup"
+       ],
+       "answer": "a look that hides its own work",
+       "why_en": "The aim is skin that looks like skin.",
+       "why_fa": "هدف پوستی است که شبیه پوست باشد."
+      },
+      {
+       "id": "looks-q2",
+       "q_en": "Why not a smoky eye for a headshot?",
+       "q_fa": "چرا برای عکس نیم‌تنه چشم دودی نه؟",
+       "options": [
+        "it can look heavy in a small frame",
+        "it is too cheap",
+        "it is old-fashioned"
+       ],
+       "answer": "it can look heavy in a small frame",
+       "why_en": "A headshot is small, so heavy shadow closes the eye.",
+       "why_fa": "عکس نیم‌تنه کوچک است، سایهٔ سنگین چشم را می‌بندد."
+      },
+      {
+       "id": "looks-q3",
+       "q_en": "\"Dressed to the nines\" means ...",
+       "q_fa": "«کاملاً آراسته» یعنی ...",
+       "options": [
+        "dressed very carefully for an occasion",
+        "wearing nine items",
+        "dressed casually"
+       ],
+       "answer": "dressed very carefully for an occasion",
+       "why_en": "The phrase praises effort and completeness.",
+       "why_fa": "این عبارت تلاش و کامل بودن را می‌ستاید."
+      }
+     ]
+    },
+    {
+     "id": "shopping",
+     "order": 11,
+     "icon": "swatch",
+     "title_en": "Buying makeup and talking about price",
+     "title_fa": "خرید آرایش و حرف زدن از قیمت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Shades, swatches, dupes and the honest answer to \"is it worth it?\".",
+     "blurb_fa": "رنگ‌ها، تست‌ها، جایگزین‌ها و پاسخ صادقانه به «ارزشش را دارد؟».",
+     "objectives": [
+      {
+       "en": "ask for a product, a shade and a tester.",
+       "fa": "محصول، رنگ و تستر بخواه."
+      },
+      {
+       "en": "compare two products by price and effect.",
+       "fa": "دو محصول را از نظر قیمت و اثر مقایسه کن."
+      },
+      {
+       "en": "ask about returns before you pay.",
+       "fa": "پیش از پرداخت دربارهٔ مرجوعی بپرس."
+      }
+     ],
+     "words": [
+      {
+       "id": "shopping-w1",
+       "en": "swatch",
+       "ipa": "/swɑtʃ/",
+       "pos": "noun",
+       "fa": "تست رنگ",
+       "def_en": "A small patch of color on skin or paper used to compare shades.",
+       "sport": "makeup",
+       "icon": "swatch",
+       "level": "B1",
+       "example_en": "Can I see a swatch on your hand?",
+       "example_fa": "می‌توانم یک تست روی دستت ببینم؟",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w2",
+       "en": "dupe",
+       "ipa": "/dup/",
+       "pos": "noun",
+       "fa": "جایگزین ارزان",
+       "def_en": "A cheaper product that works like an expensive one.",
+       "sport": "makeup",
+       "icon": "swatch",
+       "level": "B2",
+       "example_en": "This is a dupe for a much pricier one.",
+       "example_fa": "این جایگزین ارزانی برای یک محصول گران‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w3",
+       "en": "drugstore",
+       "ipa": "/ˈdrʌgstɔr/",
+       "pos": "adjective",
+       "fa": "داروخانه‌ای",
+       "def_en": "Inexpensive makeup sold in ordinary shops.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "B1",
+       "example_en": "There are good drugstore mascaras now.",
+       "example_fa": "حالا ریمل‌های داروخانه‌ای خوبی هست.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w4",
+       "en": "high-end",
+       "ipa": "/ˌhaɪ ˈɛnd/",
+       "pos": "adjective",
+       "fa": "گران‌قیمت و لوکس",
+       "def_en": "Expensive makeup from luxury brands.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "B1",
+       "example_en": "High-end foundation is not always better.",
+       "example_fa": "کرم‌پودر گران همیشه بهتر نیست.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w5",
+       "en": "return policy",
+       "ipa": "/rɪˈtɜrn ˈpɑləsi/",
+       "pos": "noun",
+       "fa": "قانون مرجوعی",
+       "def_en": "The shop's rules for taking an item back.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "B2",
+       "example_en": "What is the return policy on opened makeup?",
+       "example_fa": "قانون مرجوعی آرایش بازشده چیست؟",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w6",
+       "en": "sold out",
+       "ipa": "/ˌsoʊld ˈaʊt/",
+       "pos": "adjective",
+       "fa": "تمام‌شده",
+       "def_en": "Gone from the shelves and from the site.",
+       "sport": "makeup",
+       "icon": "swatch",
+       "level": "A2",
+       "example_en": "That shade is sold out everywhere.",
+       "example_fa": "آن رنگ همه‌جا تمام شده.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "shopping-x1",
+       "kind": "expression",
+       "en": "Can I swatch it on my hand?",
+       "fa": "می‌توانم روی دستم تستش کنم؟",
+       "meaning_en": "The first thing to ask in a store.",
+       "meaning_fa": "نخستین چیزی که در فروشگاه می‌پرسی.",
+       "register": "neutral",
+       "example_en": "Can I swatch it on my hand before I buy it?",
+       "example_fa": "می‌توانم قبل از خرید روی دستم تستش کنم؟",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x2",
+       "kind": "expression",
+       "en": "It's a dupe for a much pricier one.",
+       "fa": "جایگزین ارزانی برای یک محصول گران‌تر است.",
+       "meaning_en": "Recommends a product through comparison.",
+       "meaning_fa": "محصولی را با مقایسه توصیه می‌کند.",
+       "register": "informal",
+       "example_en": "It's a dupe for a much pricier one and it lasts longer.",
+       "example_fa": "جایگزین ارزانی برای محصول گران‌تر است و بیشتر هم می‌ماند.",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x3",
+       "kind": "expression",
+       "en": "Is it returnable if the shade is wrong?",
+       "fa": "اگر رنگ اشتباه باشد مرجوع می‌شود؟",
+       "meaning_en": "Asks the question before paying, not after.",
+       "meaning_fa": "پرسش را پیش از پرداخت می‌پرسد، نه بعدش.",
+       "register": "neutral",
+       "example_en": "Is it returnable if the shade is wrong at home?",
+       "example_fa": "اگر رنگ در خانه اشتباه بود، مرجوع می‌شود؟",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x4",
+       "kind": "expression",
+       "en": "It's worth the splurge.",
+       "fa": "ارزش یک خرج بزرگ‌تر را دارد.",
+       "meaning_en": "Says an expensive buy is justified.",
+       "meaning_fa": "می‌گوید خرید گران توجیه دارد.",
+       "register": "informal",
+       "example_en": "For a wedding, it's worth the splurge.",
+       "example_fa": "برای عروسی، ارزش یک خرج بزرگ‌تر را دارد.",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x5",
+       "kind": "idiom",
+       "en": "It's my holy grail.",
+       "fa": "محبوب و بی‌بدیل من است.",
+       "meaning_en": "Literally, the object of a long quest; figuratively, the one product you would never change.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، شیء یک جست‌وجوی طولانی؛ به‌طور مجازی، تنها محصولی که هرگز عوض نمی‌کنی.",
+       "register": "informal",
+       "example_en": "This mascara is my holy grail.",
+       "example_fa": "این ریمل محبوب بی‌بدیل من است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Do you have + [product] + in + [shade]?",
+       "example_en": "Do you have this in a lighter shade?",
+       "example_fa": "این را در رنگ روشن‌تر دارید؟",
+       "note_en": "The standard shop question.",
+       "note_fa": "پرسش استاندارد فروشگاه."
+      },
+      {
+       "frame": "Is it + [adjective] + enough?",
+       "example_en": "Is it long-wearing enough?",
+       "example_fa": "به‌اندازهٔ کافی ماندگار است؟",
+       "note_en": "Check the property, not the price.",
+       "note_fa": "خاصیت را بررسی کن، نه قیمت را."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "shopping-s1",
+       "en": "I would rather test it twice than return it once.",
+       "fa": "ترجیح می‌دهم دو بار تستش کنم تا یک بار مرجوعش کنم.",
+       "use_en": "Shows a careful buyer's logic.",
+       "use_fa": "منطق خریدار دقیق را نشان می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I like to test it first."
+      },
+      {
+       "id": "shopping-s2",
+       "en": "The cheap one works better than the expensive one.",
+       "fa": "ارزان‌تر بهتر از گران‌تر کار می‌کند.",
+       "use_en": "A complete review in one line.",
+       "use_fa": "یک بررسی کامل در یک خط.",
+       "level": "A2",
+       "polite": "informal",
+       "alt": "The cheaper one is better."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the makeup counter",
+      "title_fa": "پشت پیشخوان آرایش",
+      "speakers": [
+       "Delaram",
+       "Hooman"
+      ],
+      "lines": [
+       {
+        "who": "Delaram",
+        "en": "Do you have this foundation in a lighter shade?",
+        "fa": "این کرم‌پودر را در رنگ روشن‌تر دارید؟"
+       },
+       {
+        "who": "Hooman",
+        "en": "That shade is sold out, but I have a dupe from another brand.",
+        "fa": "آن رنگ تمام شده، اما از برند دیگری جایگزین دارم."
+       },
+       {
+        "who": "Delaram",
+        "en": "Can I swatch it on my hand?",
+        "fa": "می‌توانم روی دستم تستش کنم؟"
+       },
+       {
+        "who": "Hooman",
+        "en": "Of course. It is drugstore, but it lasts longer.",
+        "fa": "البته. داروخانه‌ای است، اما بیشتر می‌ماند."
+       },
+       {
+        "who": "Delaram",
+        "en": "Is it returnable if the shade is wrong?",
+        "fa": "اگر رنگ اشتباه بود مرجوع می‌شود؟"
+       },
+       {
+        "who": "Hooman",
+        "en": "Opened makeup cannot be returned, I am afraid.",
+        "fa": "متأسفانه آرایش بازشده مرجوع نمی‌شود."
+       },
+       {
+        "who": "Delaram",
+        "en": "Then it's worth the splurge for the one I know.",
+        "fa": "پس برای آن که می‌شناسم، ارزش خرج بیشتر را دارد."
+       },
+       {
+        "who": "Hooman",
+        "en": "That one is my holy grail too.",
+        "fa": "آن هم محبوب بی‌بدیل من است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The sold-out shade",
+       "title_fa": "رنگ تمام‌شده",
+       "situation_en": "The shade you want is gone online and in two shops.",
+       "situation_fa": "رنگی که می‌خواهی آنلاین و در دو فروشگاه تمام شده.",
+       "task_en": "Ask for the nearest alternative and how to check it.",
+       "task_fa": "نزدیک‌ترین جایگزین را بخواه و بپرس چطور بررسی‌اش کنی.",
+       "answer_en": "Is there a dupe you would recommend? I can swatch it here first.",
+       "answer_fa": "جایگزینی پیشنهاد می‌کنی؟ می‌توانم اول همین‌جا تستش کنم."
+      },
+      {
+       "title_en": "Returning a wrong shade",
+       "title_fa": "مرجوع کردن رنگ اشتباه",
+       "situation_en": "You bought a foundation online and it is one shade too dark.",
+       "situation_fa": "کرم‌پودری آنلاین خریدی و یک درجه تیره است.",
+       "task_en": "Ask about the policy politely.",
+       "task_fa": "مؤدبانه دربارهٔ قانون بپرس.",
+       "answer_en": "I have not opened it. What is your return policy for an unopened shade?",
+       "answer_fa": "بازش نکرده‌ام. قانون مرجوعی شما برای رنگ بازنشده چیست؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "shopping-q1",
+       "q_en": "What is a \"dupe\"?",
+       "q_fa": "«دوپ» چیست؟",
+       "options": [
+        "a cheaper product that works like a pricey one",
+        "a fake brand",
+        "a second coat"
+       ],
+       "answer": "a cheaper product that works like a pricey one",
+       "why_en": "A dupe is compared by effect, not by name.",
+       "why_fa": "دوپ با اثر مقایسه می‌شود، نه با نام."
+      },
+      {
+       "id": "shopping-q2",
+       "q_en": "What is a swatch?",
+       "q_fa": "«سواچ» چیست؟",
+       "options": [
+        "a patch of color to test a shade",
+        "a brush",
+        "a wrapper"
+       ],
+       "answer": "a patch of color to test a shade",
+       "why_en": "A swatch shows the color on skin or paper.",
+       "why_fa": "سواچ رنگ را روی پوست یا کاغذ نشان می‌دهد."
+      },
+      {
+       "id": "shopping-q3",
+       "q_en": "Why ask about the return policy first?",
+       "q_fa": "چرا اول قانون مرجوعی را بپرسیم؟",
+       "options": [
+        "opened makeup is often not returnable",
+        "it is cheaper",
+        "it is faster"
+       ],
+       "answer": "opened makeup is often not returnable",
+       "why_en": "Once opened, a product usually cannot go back.",
+       "why_fa": "محصول بازشده معمولاً برنمی‌گردد."
+      }
+     ]
+    },
+    {
+     "id": "care",
+     "order": 12,
+     "icon": "jar",
+     "title_en": "Hygiene, expiry and taking it off",
+     "title_fa": "بهداشت، تاریخ انقضا و پاک کردن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The stage that protects the skin: clean tools, fresh products, and a face washed before bed.",
+     "blurb_fa": "مرحله‌ای که از پوست محافظت می‌کند: ابزار تمیز، محصول تازه و صورتی که پیش از خواب شسته می‌شود.",
+     "objectives": [
+      {
+       "en": "say how long a product lasts after opening.",
+       "fa": "بگو محصول بعد از باز شدن چقدر می‌ماند."
+      },
+      {
+       "en": "test a new product safely and describe a reaction.",
+       "fa": "یک محصول تازه را ایمن تست کن و واکنش را توصیف کن."
+      },
+      {
+       "en": "remove makeup properly and say why it matters.",
+       "fa": "آرایش را درست پاک کن و بگو چرا مهم است."
+      }
+     ],
+     "words": [
+      {
+       "id": "care-w1",
+       "en": "expiry date",
+       "ipa": "/ɪkˈspaɪəri deɪt/",
+       "pos": "noun",
+       "fa": "تاریخ انقضا",
+       "def_en": "The date after which a product should not be used.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "B1",
+       "example_en": "The expiry date is printed on the box.",
+       "example_fa": "تاریخ انقضا روی جعبه چاپ شده.",
+       "ref": ""
+      },
+      {
+       "id": "care-w2",
+       "en": "patch test",
+       "ipa": "/ˈpætʃ tɛst/",
+       "pos": "noun",
+       "fa": "تست حساسیت",
+       "def_en": "Putting a little product on a small area to see if the skin reacts.",
+       "sport": "makeup",
+       "icon": "swatch",
+       "level": "B2",
+       "example_en": "Do a patch test on your inner arm first.",
+       "example_fa": "اول روی بازوی داخلی تست حساسیت بزن.",
+       "ref": ""
+      },
+      {
+       "id": "care-w3",
+       "en": "breakout",
+       "ipa": "/ˈbreɪkaʊt/",
+       "pos": "noun",
+       "fa": "جوش زدن",
+       "def_en": "A group of spots that appears on the skin.",
+       "sport": "makeup",
+       "icon": "mirror",
+       "level": "B1",
+       "example_en": "That foundation gave me a breakout.",
+       "example_fa": "آن کرم‌پودر باعث جوش زدنم شد.",
+       "ref": ""
+      },
+      {
+       "id": "care-w4",
+       "en": "sensitive",
+       "ipa": "/ˈsɛnsətɪv/",
+       "pos": "adjective",
+       "fa": "حساس",
+       "def_en": "Skin that reacts easily to products.",
+       "sport": "makeup",
+       "icon": "jar",
+       "level": "B1",
+       "example_en": "My skin is sensitive around the eyes.",
+       "example_fa": "پوستم دور چشم‌ها حساس است.",
+       "ref": ""
+      },
+      {
+       "id": "care-w5",
+       "en": "micellar water",
+       "ipa": "/maɪˈsɛlər ˈwɔtər/",
+       "pos": "noun",
+       "fa": "آب میسلار",
+       "def_en": "A watery cleanser that lifts makeup without rubbing.",
+       "sport": "makeup",
+       "icon": "bottle",
+       "level": "B1",
+       "example_en": "Micellar water takes off mascara gently.",
+       "example_fa": "آب میسلار ریمل را آرام پاک می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "care-w6",
+       "en": "cleansing balm",
+       "ipa": "/ˈklɛnzɪŋ bɑm/",
+       "pos": "noun",
+       "fa": "بالم پاک‌کننده",
+       "def_en": "A solid cleanser that melts makeup when rubbed into the skin.",
+       "sport": "makeup",
+       "icon": "jar",
+       "level": "B2",
+       "example_en": "A cleansing balm removes a full face in one go.",
+       "example_fa": "بالم پاک‌کننده یک صورت کامل را یک‌جا برمی‌دارد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "care-x1",
+       "kind": "expression",
+       "en": "Check the little jar symbol.",
+       "fa": "آن نماد شیشه‌ٔ کوچک را ببین.",
+       "meaning_en": "Points to the months-after-opening mark.",
+       "meaning_fa": "به نشانهٔ تعداد ماه پس از باز شدن اشاره می‌کند.",
+       "register": "neutral",
+       "example_en": "Check the little jar symbol: 6M means six months.",
+       "example_fa": "آن نماد شیشه را ببین: 6M یعنی شش ماه.",
+       "alt": ""
+      },
+      {
+       "id": "care-x2",
+       "kind": "expression",
+       "en": "Mascara goes after three months.",
+       "fa": "ریمل بعد از سه ماه کنار می‌رود.",
+       "meaning_en": "The rule everyone breaks and should not.",
+       "meaning_fa": "قاعده‌ای که همه زیرش می‌زنند و نباید.",
+       "register": "neutral",
+       "example_en": "Mascara goes after three months, whatever it cost.",
+       "example_fa": "ریمل بعد از سه ماه کنار می‌رود، هر چقدر هم خریده باشی.",
+       "alt": ""
+      },
+      {
+       "id": "care-x3",
+       "kind": "expression",
+       "en": "Patch test it on your inner arm.",
+       "fa": "روی بازوی داخلی تست حساسیت بزن.",
+       "meaning_en": "The safe first step for sensitive skin.",
+       "meaning_fa": "نخستین قدم ایمن برای پوست حساس.",
+       "register": "neutral",
+       "example_en": "Patch test it on your inner arm and wait a day.",
+       "example_fa": "روی بازوی داخلی تست کن و یک روز صبر کن.",
+       "alt": ""
+      },
+      {
+       "id": "care-x4",
+       "kind": "expression",
+       "en": "Take it off before bed, every night.",
+       "fa": "هر شب پیش از خواب پاکش کن.",
+       "meaning_en": "The habit doctors and dermatologists repeat.",
+       "meaning_fa": "عادتی که پزشکان تکرار می‌کنند.",
+       "register": "neutral",
+       "example_en": "Take it off before bed, every night, even when you are tired.",
+       "example_fa": "هر شب پیش از خواب پاکش کن، حتی وقتی خسته‌ای.",
+       "alt": ""
+      },
+      {
+       "id": "care-x5",
+       "kind": "idiom",
+       "en": "It's past its prime.",
+       "fa": "از مد افتاده و کهنه است.",
+       "meaning_en": "Literally, past the best moment of its life; figuratively, too old to be good any more.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از بهترین زمان عمرش گذشته؛ به‌طور مجازی، برای خوب بودن زیادی کهنه است.",
+       "register": "neutral",
+       "example_en": "That lipstick smells odd. It is past its prime.",
+       "example_fa": "آن رژ بوی عجیبی می‌دهد. کهنه است.",
+       "alt": ""
+      },
+      {
+       "id": "care-x6",
+       "kind": "expression",
+       "en": "Throw it out if it smells off.",
+       "fa": "اگر بویش عوض شده، دورش بینداز.",
+       "meaning_en": "A simple test anyone can use.",
+       "meaning_fa": "آزمونی ساده که هر کسی می‌تواند انجام دهد.",
+       "register": "neutral",
+       "example_en": "Throw it out if it smells off or separates.",
+       "example_fa": "اگر بویش عوض شد یا جدا شد، دورش بینداز.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "If it + [smells/separates], + [throw it out].",
+       "example_en": "If it separates, throw it out.",
+       "example_fa": "اگر جدا شد، دورش بینداز.",
+       "note_en": "A condition and an action.",
+       "note_fa": "یک شرط و یک کار."
+      },
+      {
+       "frame": "Test it on + [place] + for + [time].",
+       "example_en": "Test it on your inner arm for a day.",
+       "example_fa": "یک روز روی بازوی داخلی تستش کن.",
+       "note_en": "Safe testing, in one line.",
+       "note_fa": "تست ایمن، در یک خط."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "care-s1",
+       "en": "I never sleep in my makeup.",
+       "fa": "هرگز با آرایش نمی‌خوابم.",
+       "use_en": "A habit stated as an identity.",
+       "use_fa": "عادتی که مثل هویت گفته می‌شود.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I always take it off before bed."
+      },
+      {
+       "id": "care-s2",
+       "en": "My eyes water when I use waterproof mascara.",
+       "fa": "با ریمل ضدآب چشم‌هایم اشک می‌ریزد.",
+       "use_en": "A real reaction, described plainly.",
+       "use_fa": "واکنشی واقعی و ساده‌توصیف‌شده.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Waterproof mascara makes my eyes water."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Two friends after a late night",
+      "title_fa": "دو دوست بعد از یک شب دیر",
+      "speakers": [
+       "Elham",
+       "Bahar"
+      ],
+      "lines": [
+       {
+        "who": "Elham",
+        "en": "I am so tired I could sleep in this makeup.",
+        "fa": "آن‌قدر خسته‌ام که می‌توانم با همین آرایش بخوابم."
+       },
+       {
+        "who": "Bahar",
+        "en": "Take it off before bed. Your skin will thank you.",
+        "fa": "پیش از خواب پاکش کن. پوستت از تو تشکر می‌کند."
+       },
+       {
+        "who": "Elham",
+        "en": "Micellar water or the balm?",
+        "fa": "آب میسلار یا بالم؟"
+       },
+       {
+        "who": "Bahar",
+        "en": "Balm first for the mascara, then micellar water.",
+        "fa": "اول بالم برای ریمل، بعد آب میسلار."
+       },
+       {
+        "who": "Elham",
+        "en": "My mascara smells odd. It is only four months old.",
+        "fa": "ریملم بوی عجیبی می‌دهد. فقط چهار ماهش است."
+       },
+       {
+        "who": "Bahar",
+        "en": "Past its prime. Throw it out if it smells off.",
+        "fa": "کهنه شده. اگر بویش عوض شده دورش بینداز."
+       },
+       {
+        "who": "Elham",
+        "en": "It was expensive.",
+        "fa": "گران بود."
+       },
+       {
+        "who": "Bahar",
+        "en": "And an eye infection is more expensive. Patch test the new one.",
+        "fa": "و عفونت چشم گران‌تر است. جدیدش را تست حساسیت بزن."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The sting",
+       "title_fa": "سوزش",
+       "situation_en": "A new foundation stings within a minute of applying.",
+       "situation_fa": "کرم‌پودر جدید یک دقیقه بعد از زدن می‌سوزاند.",
+       "task_en": "Say what happened and what you will do next.",
+       "task_fa": "بگو چه شد و بعد چه می‌کنی.",
+       "answer_en": "It stung straight away. I am washing it off and I will patch test the next one.",
+       "answer_fa": "فوراً سوزاند. دارم می‌شویم و بعدی را تست حساسیت می‌زنم."
+      },
+      {
+       "title_en": "Expired but loved",
+       "title_fa": "کهنه اما دوست‌داشتنی",
+       "situation_en": "You love a lipstick that is three years old.",
+       "situation_fa": "عاشق رژی هستی که سه سال عمر دارد.",
+       "task_en": "Ask for an honest opinion and give your own reason.",
+       "task_fa": "نظر صادقانه بخواه و دلیل خودت را بگو.",
+       "answer_en": "Would you keep a three-year-old lipstick? It smells like crayons now.",
+       "answer_fa": "رژ سه‌ساله را نگه می‌داری؟ حالا بوی مداد شمعی می‌دهد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "care-q1",
+       "q_en": "What does \"6M\" on a jar mean?",
+       "q_fa": "«6M» روی شیشه یعنی چه؟",
+       "options": [
+        "six months after opening",
+        "six years",
+        "six uses"
+       ],
+       "answer": "six months after opening",
+       "why_en": "The open-jar symbol counts months after the first use.",
+       "why_fa": "نماد شیشهٔ باز، ماه‌های پس از نخستین استفاده را می‌شمارد."
+      },
+      {
+       "id": "care-q2",
+       "q_en": "How do you patch test makeup?",
+       "q_fa": "چطور آرایش را تست حساسیت می‌کنی؟",
+       "options": [
+        "a little on a small area, then wait",
+        "on the whole face at once",
+        "by smelling it"
+       ],
+       "answer": "a little on a small area, then wait",
+       "why_en": "A small area shows a reaction without a full face of it.",
+       "why_fa": "ناحیهٔ کوچک واکنش را نشان می‌دهد بدون اینکه تمام صورت درگیر شود."
+      },
+      {
+       "id": "care-q3",
+       "q_en": "Why take makeup off before bed?",
+       "q_fa": "چرا پیش از خواب آرایش را پاک کنیم؟",
+       "options": [
+        "it traps oil and irritates the skin",
+        "it changes color",
+        "it expires faster"
+       ],
+       "answer": "it traps oil and irritates the skin",
+       "why_en": "Sleeping in makeup blocks the skin all night.",
+       "why_fa": "خواب با آرایش پوست را تمام شب مسدود می‌کند."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 60,
+    "patterns": 24,
+    "sentences": 25,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
   }
  ]
 }

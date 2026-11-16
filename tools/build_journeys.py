@@ -93,6 +93,24 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "makeup",
+        "topic": "makeup",
+        # Adults only. Makeup is a grown-up subject in this app: the kid
+        # experience never offers it, and check_journeys.py holds that line.
+        "title_en": "Makeup Journey",
+        "title_fa": "آرایش: از پوست تا آخر شب",
+        "icon": "💄",
+        "art": "lipstick",
+        "audiences": ["adults"],
+        "blurb_en": ("The words people really use about makeup: the products, "
+                     "the verbs, the looks, the shopping and the idioms."),
+        "blurb_fa": ("واژه‌هایی که مردم واقعاً دربارهٔ آرایش به کار می‌برند: "
+                     "محصول‌ها، فعل‌ها، مدل‌ها، خرید و اصطلاح‌ها."),
+        "sources": ["tools/journeys_makeup_a.txt", "tools/journeys_makeup_b.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

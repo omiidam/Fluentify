@@ -32,6 +32,16 @@ KINDS = {"expression", "idiom", "phrasal_verb", "collocation"}
 PERSIAN = re.compile(r"[\u0600-\u06FF]")
 IPA = re.compile(r"/[^/]+/")
 
+# What a makeup glossary has to name before it can call itself complete:
+# the product, not a synonym for it.
+REQUIRED_MAKEUP = [
+    "foundation", "concealer", "primer", "powder", "blush", "bronzer",
+    "contour", "highlighter", "eyeshadow", "eyeliner", "mascara",
+    "lipstick", "lip gloss", "lip liner", "brush", "sponge", "brow pencil",
+    "cleanser", "moisturizer", "sunscreen", "serum", "toner",
+    "swatch", "dupe", "blend", "buff", "setting powder", "patch test",
+]
+
 # The sports the brief names, by the ids the profiles use.
 REQUIRED_SPORTS = [
     "soccer", "football", "basketball", "volleyball", "rugby", "cricket",
@@ -55,6 +65,15 @@ def check(name: str, ok: bool, detail: str = "") -> None:
     else:
         print(f"  FAIL  {name}" + (f"  - {detail}" if detail else ""))
         fails.append(name)
+
+
+def span_between(src: str, start: str, end: str) -> str:
+    """The slice of the page between two markers, or empty if they are gone."""
+    try:
+        a = src.index(start)
+        return src[a:src.index(end, a + len(start))]
+    except ValueError:
+        return ""
 
 
 def load(path: Path) -> dict:
@@ -129,8 +148,8 @@ def check_stage(sid: str, st: dict, needs_refs: bool, needs_words: bool) -> None
               all(w.get("example_en") and w.get("example_fa") for w in words))
         check(f"{sid}: every word carries a CEFR level",
               all(w.get("level") in CEFR for w in words))
-        check(f"{sid}: every word says which sport it belongs to",
-              all(w.get("sport") for w in words))
+        check(f"{sid}: every word says which topic it belongs to",
+              all(w.get("sport") or w.get("topic") for w in words))
         check(f"{sid}: every word has a picture key", all(w.get("icon") for w in words))
     if needs_refs:
         check(f"{sid}: names travel categories", bool(st.get("refs")))
@@ -148,18 +167,30 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds the travel and sports journeys",
-          {"travel", "sports"} <= set(by_id), str(sorted(by_id)))
+    check("the file holds the travel, sports and makeup journeys",
+          {"travel", "sports", "makeup"} <= set(by_id), str(sorted(by_id)))
 
-    for jid in ("travel", "sports"):
+    for jid in ("travel", "sports", "makeup"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
-        check(f"{jid}: offered to both experiences",
-              set(j.get("audiences") or []) == {"kids", "adults"},
-              str(j.get("audiences")))
+        if jid == "makeup":
+            # Makeup is a grown-up subject in this app: the adult experience
+            # offers it and the kid experience must never do so.
+            check("makeup: offered to adults only",
+                  set(j.get("audiences") or []) == {"adults"},
+                  str(j.get("audiences")))
+            check("makeup: no kid stage is declared",
+                  all(set(st.get("audiences") or []) == {"adults"}
+                      for st in (j.get("stages") or [])),
+                  str([st.get("id") for st in (j.get("stages") or [])
+                       if st.get("audiences") != ["adults"]]))
+        else:
+            check(f"{jid}: offered to both experiences",
+                  set(j.get("audiences") or []) == {"kids", "adults"},
+                  str(j.get("audiences")))
         check(f"{jid}: is not the other journey's title",
               j["title_en"] != (by_id.get("sports" if jid == "travel" else "travel") or {}).get("title_en"))
 
@@ -173,10 +204,16 @@ def main() -> int:
           [s.get("order") for s in tstages] == list(range(1, 13)),
           str([s.get("order") for s in tstages]))
     check("the sports journey has fourteen stages", len(sstages) == 14, str(len(sstages)))
+    makeup = by_id.get("makeup") or {"stages": []}
+    mstages = makeup.get("stages") or []
+    check("the makeup journey has twelve stages", len(mstages) == 12, str(len(mstages)))
+    check("makeup stage order is 1..12",
+          [s.get("order") for s in mstages] == list(range(1, 13)),
+          str([s.get("order") for s in mstages]))
     check("sports stage order is 1..14",
           [s.get("order") for s in sstages] == list(range(1, 15)),
           str([s.get("order") for s in sstages]))
-    for jid, stages in (("travel", tstages), ("sports", sstages)):
+    for jid, stages in (("travel", tstages), ("sports", sstages), ("makeup", mstages)):
         ids = [s.get("id") for s in stages]
         check(f"{jid}: stage ids are unique", len(set(ids)) == len(ids), str(ids))
         check(f"{jid}: every stage declares its audience",
@@ -186,6 +223,8 @@ def main() -> int:
     for st in tstages:
         check_stage(st["id"], st, needs_refs=True, needs_words=False)
     for st in sstages:
+        check_stage(st["id"], st, needs_refs=False, needs_words=True)
+    for st in mstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
 
     # ------------------------------------------------------- the travel join --
@@ -257,6 +296,48 @@ def main() -> int:
               for s in (by_id.get("sports", {}).get("stages") or [])
               for x in (s.get("expressions") or [])))
 
+    # ----------------------------------------------------- the makeup glossary --
+    mwords = [w for st in mstages for w in (st.get("words") or [])]
+    mexprs = [x for st in mstages for x in (st.get("expressions") or [])]
+    mterms = " | ".join([w.get("en", "") for w in mwords]
+                        + [x.get("en", "") for x in mexprs]).lower()
+    absent = [t for t in REQUIRED_MAKEUP if t not in mterms]
+    check("the makeup glossary names every essential product and verb",
+          not absent, str(absent))
+    check("the makeup glossary is big enough to be a glossary",
+          len(mwords) >= 60, str(len(mwords)))
+    check("the makeup journey teaches at least 50 expressions and idioms",
+          len(mexprs) >= 50, str(len(mexprs)))
+    mwords_rows = [w for w in mwords]
+    check("no makeup word is defined twice with a different meaning",
+          len({w.get("en") for w in mwords_rows}) == len(mwords_rows),
+          str([w.get("en") for w in mwords_rows
+               if [x.get("en") for x in mwords_rows].count(w.get("en")) > 1][:4]))
+    midioms = [x for x in mexprs if x.get("kind") == "idiom"]
+    check("the makeup journey teaches at least 12 idioms", len(midioms) >= 12,
+          str(len(midioms)))
+    check("every makeup idiom separates the literal reading from the figurative one",
+          all(both_readings(x) for x in midioms),
+          str([x.get("en") for x in midioms if not both_readings(x)][:4]))
+    check("every makeup idiom has an example in context",
+          all(x.get("example_en") and x.get("example_fa") for x in midioms))
+    check("the makeup journey labels slang as slang",
+          any(x.get("register") == "slang" for x in mexprs))
+    check("the makeup journey has phrasal verbs and collocations too",
+          {x.get("kind") for x in mexprs} >= {"idiom", "expression"})
+    check("the makeup journey counts its own statistics",
+          (makeup.get("stats") or {}).get("words") == len(mwords)
+          and (makeup.get("stats") or {}).get("expressions") == len(mexprs),
+          str(makeup.get("stats")))
+    check("the makeup journey is offered in the adult sentence panel",
+          "Journey.card('makeup', false)" in src)
+    check("the kid sentence panel never offers makeup",
+          "Journey.card('makeup', true)" not in src
+          and "Journey.card('makeup'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    check("the makeup card names its own picture",
+          "lipstick" in src[src.index("const ART = {"):src.index("function art(key, label)")])
+
     # ----------------------------------------------------------- the pictures --
     art_block = src[src.index("const ART = {"):src.index("function art(key, label)")]
     art_keys = set(re.findall(r"^\s{4}([a-z]+):", art_block, re.M))
@@ -325,6 +406,9 @@ def main() -> int:
     words = sum(len(s["words"]) for s in sstages)
     sents = sum(len(s["sentences"]) for s in sstages)
     prac = sum(len(s["practice"]) for s in sstages)
+    notes.append(f"makeup: {len(mstages)} stages, {len(mwords)} glossary words "
+                 f"with IPA, {len(mexprs)} expressions and idioms "
+                 f"({len(midioms)} idioms), adult-only")
     notes.append(f"sports: {len(sstages)} stages, {words} words with IPA, {exprs} expressions "
                  f"and idioms ({len(idioms)} idioms), {len(profiles)} sport profiles with "
                  f"{terms} key terms, {sents} own sentences, {prac} practice items; "

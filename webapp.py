@@ -15127,6 +15127,9 @@ async function loadPhrases() {
        top of the same list, and it opens inside the same panel. */
     box.appendChild(Travel.card(false));
     box.appendChild(Journey.card('sports', false));
+    /* Makeup is an adult journey: it is offered here, in the adult sentence
+       panel, and nowhere in the kid experience. */
+    box.appendChild(Journey.card('makeup', false));
     byLevel(topics).forEach(([level, items]) => {
       const sec = document.createElement('div');
       sec.className = 'vgroup';
@@ -20247,6 +20250,30 @@ const Journey = (() => {
      is shown as plain text, which is how the travel stages keep their emoji
      without a second code path. */
   const ART = {
+    /* makeup: a bottle, a tube, a wand and a mirror cover every product the
+       makeup journey names, so no word has to borrow a picture of a ball. */
+    bottle: '<rect x="12" y="10" width="8" height="18" rx="2"/><path d="M14 10V7h4v3"/><path d="M16 7V4h5"/><path d="M13 16h6"/>',
+    jar: '<ellipse cx="16" cy="9" rx="8" ry="3"/><path d="M8 9v13c0 2 3.6 4 8 4s8-2 8-4V9"/><path d="M12 16h8"/>',
+    serum: '<rect x="12" y="13" width="8" height="15" rx="2"/><path d="M14 13V8h4v5"/><path d="M16 4v4"/><path d="M13 20h6"/>',
+    foundation: '<rect x="11" y="13" width="10" height="15" rx="2"/><path d="M14 13V9h4v4"/><path d="M14 9V5h6"/>',
+    primer: '<path d="M12 7h8l-1 8v13h-6V15z"/><path d="M14 7V4h4v3"/><path d="M13 18h6"/>',
+    concealer: '<rect x="13" y="15" width="6" height="13" rx="2"/><path d="M16 15V9"/><circle cx="16" cy="6" r="2.2"/>',
+    powder: '<circle cx="16" cy="16" r="10"/><path d="M6 16h20"/><path d="M10 11h12"/>',
+    blush: '<circle cx="16" cy="16" r="9"/><path d="M10 12c3 2 3 6 0 8M22 12c-3 2-3 6 0 8"/>',
+    bronzer: '<circle cx="16" cy="16" r="9"/><path d="M8 12h16M8 20h16"/>',
+    highlighter: '<path d="M16 4l2.6 7.4L26 14l-7.4 2.6L16 24l-2.6-7.4L6 14l7.4-2.6z"/>',
+    palette: '<rect x="5" y="9" width="22" height="14" rx="3"/><path d="M12 9v14M20 9v14"/>',
+    liner: '<path d="M20 6l6 6-14 14H6v-6z"/><path d="M17 9l6 6"/><path d="M6 26l4-4"/>',
+    mascara: '<rect x="7" y="17" width="7" height="11" rx="2"/><path d="M10.5 17V9"/><path d="M8 9h5M8.6 6h3.8"/>',
+    curler: '<path d="M7 23c0-6 4-11 9-11s9 5 9 11"/><path d="M7 23h18"/><path d="M16 12V5"/><path d="M13 5h6"/>',
+    lipstick: '<rect x="11" y="19" width="10" height="8" rx="1.5"/><path d="M13 19V9l4-5 2 5v10"/><path d="M13 23h6"/>',
+    lipgloss: '<rect x="12" y="13" width="8" height="15" rx="2"/><path d="M16 13V7"/><path d="M13 7h6"/><path d="M14 19h4"/>',
+    brush: '<path d="M8 22l9-9"/><path d="M17 13l4-4 3 3-4 4z"/><path d="M8 22l-3 4 4-1z"/>',
+    sponge: '<path d="M6 19c0-5 4-9 10-11 6 2 10 6 10 11s-5 6-10 6-10-1-10-6z"/><circle cx="13" cy="18" r="1"/><circle cx="19" cy="16" r="1"/>',
+    mirror: '<ellipse cx="16" cy="13" rx="8" ry="10"/><path d="M16 23v6"/><path d="M11 29h10"/><path d="M12 10c1-2 3-3 5-3"/>',
+    tweezers: '<path d="M9 4l7 14M23 4l-7 14"/><path d="M16 18v10"/><path d="M13 28h6"/>',
+    swatch: '<path d="M5 13h22v6H5z"/><path d="M10 19v7M16 19v7M22 19v7"/>',
+    sun: '<circle cx="16" cy="16" r="6"/><path d="M16 3v3M16 26v3M3 16h3M26 16h3M7 7l2 2M23 7l-2 2M7 25l2-2M23 25l-2-2"/>',
     ball: '<circle cx="16" cy="16" r="11"/><path d="M5 12c6 3 16 3 22 0"/><path d="M5 20c6-3 16-3 22 0"/>',
     soccer: '<circle cx="16" cy="16" r="12"/><path d="M16 9l6 4-2.3 7h-7.4L10 13z"/><path d="M16 4v5M4.5 13H10M8 26l3.7-6M24.5 26l-4-6M27.5 13h-5"/>',
     football: '<ellipse cx="16" cy="16" rx="12" ry="7.5" transform="rotate(-20 16 16)"/><path d="M12 18l8-4M11 15l1 1M14 13l1 1M17 19l1 1"/>',
@@ -20790,6 +20817,7 @@ const Journey = (() => {
   const CARD_WORDS = {
     travel: { en: 'Travel', fa: 'سفر', sub: 'Speak English confidently wherever you go.', subFa: 'با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', art: 'case' },
     sports: { en: 'Sports', fa: 'ورزش', sub: 'The words players, coaches and fans actually use.', subFa: 'واژه‌هایی که بازیکن‌ها، مربی‌ها و هوادارها واقعاً به کار می‌برند.', art: 'soccer' },
+    makeup: { en: 'Makeup', fa: 'آرایش', sub: 'Products, verbs, looks and idioms, from skin prep to the last touch-up.', subFa: 'محصول‌ها، فعل‌ها، مدل‌ها و اصطلاح‌ها، از آماده‌سازی پوست تا آخرین تجدید.', art: 'lipstick' },
   };
   function card(id, kidsFlag) {
     const isKid = !!kidsFlag;

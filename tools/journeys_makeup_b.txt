@@ -1,0 +1,207 @@
+# Makeup journey, stages 7-12. Rows are pipe-separated and validated by
+# tools/build_journeys.py; see its header for the field order of each tag.
+# Adult material: this journey is offered to the adult experience only.
+
+J|lips|7|lipstick|Lips: color, liner and care|لب: رنگ، خط و مراقبت|adults||The part everyone notices first, and the one with the most opinions.|بخشی که همه اول می‌بینند و بیشترین نظر را دارد.
+O|ask for a lip color and describe the finish you want.|یک رنگ لب بخواه و بافتی را که می‌خواهی توصیف کن.
+O|line and fill your lips without a hard edge.|لب را خط بکش و پر کن، بدون لبهٔ سخت.
+O|say when a color flatters you and when it does not.|بگو یک رنگ به تو می‌آید یا نه.
+W|lipstick|/ˈlɪpstɪk/|noun|رژ لب|Colored makeup in a stick, worn on the lips.|makeup|lipstick|A1|This lipstick is a soft rose.|این رژ لب رز ملایمی است.|
+W|lip gloss|/lɪp glɔs/|noun|برق لب|A shiny, usually sheer product worn on the lips.|makeup|lipgloss|A1|Lip gloss is easier than lipstick for a beginner.|برق لب برای تازه‌کار از رژ لب راحت‌تر است.|
+W|lip liner|/lɪp ˈlaɪnər/|noun|خط لب|A pencil used to outline the lips before color.|makeup|liner|A2|Use a liner close to your own lip color.|خط لبی نزدیک رنگ طبیعی لبت استفاده کن.|
+W|lip balm|/lɪp bɑm/|noun|بالم لب|A soft product that moisturizes dry lips.|makeup|jar|A1|I put on lip balm before bed.|شب‌ها قبل از خواب بالم لب می‌زنم.|
+W|lip stain|/lɪp steɪn/|noun|رژ مایع ماندگار|A light product that leaves color on the lips for hours.|makeup|lipgloss|B1|A lip stain survives a whole meal.|رژ ماندگار از تمام یک وعدهٔ غذا جان سالم به در می‌برد.|
+W|bullet|/ˈbʊlɪt/|noun|قمقمهٔ رژ|The solid stick part of a traditional lipstick.|makeup|lipstick|B1|I use the bullet straight on my lips.|قمقمهٔ رژ را مستقیم روی لب می‌زنم.|
+X|expression|Line your lips before you fill them in.|اول لب را خط بکش، بعد پر کن.|The order that stops color from spreading.|ترتیبی که مانع پخش شدن رنگ می‌شود.|neutral|Line your lips before you fill them in with a brush.|اول لب را خط بکش، بعد با برس پر کن.|
+X|expression|Blot it with a tissue.|با دستمال کاغذی فشار بده.|Removes the extra product that transfers.|محصول اضافه‌ای را که منتقل می‌شود برمی‌دارد.|neutral|Blot it with a tissue, then add one more thin layer.|با دستمال فشار بده، بعد یک لایهٔ نازک دیگر بزن.|
+X|expression|A bold lip needs a simple eye.|لب پررنگ، چشم ساده می‌خواهد.|The oldest balance rule in makeup.|قدیمی‌ترین قاعدهٔ تعادل در آرایش.|neutral|A bold lip needs a simple eye, or it looks like a costume.|لب پررنگ چشم ساده می‌خواهد، وگرنه شبیه لباس نمایش می‌شود.|
+X|expression|This shade washes me out.|این رنگ رنگم را می‌پراند.|Says a pale color makes you look tired.|می‌گوید رنگ روشن خسته نشانت می‌دهد.|informal|That pale pink washes me out in winter.|آن صورتی روشن زمستان رنگم را می‌پراند.|
+X|idiom|That is just lip service.|این فقط حرف است.|Literally, words made with the lips; figuratively, support that is spoken and never acted on.|به‌طور تحت‌اللفظی، واژه‌هایی که با لب ساخته می‌شوند؛ به‌طور مجازی، حمایتی که فقط گفته می‌شود و هرگز انجام نمی‌شود.|neutral|Their promise to pay was just lip service.|قولشان برای پرداخت فقط حرف بود.|
+P|Go for + [a bold] + lip.|Go for a bold lip with a simple eye.|با چشم ساده یک لب پررنگ بزن.|Balance is the whole rule.|تعادل تمام قاعده است.
+P|This shade + [suits/washes out] + me.|This shade suits me in summer.|این رنگ تابستان به من می‌آید.|Say whether a color works on you.|بگو رنگی به تو می‌آید یا نه.
+S|I love the color but it dries my lips out.|رنگش را دوست دارم اما لبم را خشک می‌کند.|Says both the good and the problem.|هم خوبی را می‌گوید هم مشکل را.|B1|neutral|I like the color but it is drying.
+S|A nude lip makes me look like I forgot my makeup.|لب نوتریال مرا شبیه کسی می‌کند که آرایشش را فراموش کرده.|Funny, and it says exactly what you want.|خنده‌دار است و دقیقاً می‌گوید چه می‌خواهی.|B1|informal|Nudes just disappear on me.
+D|Choosing a lip color|انتخاب رنگ لب|Arezoo|Shadi
+L|Arezoo|I am wearing a black dress. Bold lip or nude?|لباس مشکلی می‌پوشم. لب پررنگ یا نوتریال؟
+L|Shadi|Bold. A bold lip needs a simple eye, and yours is simple.|پررنگ. لب پررنگ چشم ساده می‌خواهد، و چشم تو ساده است.
+L|Arezoo|Will it survive dinner?|از شام جان سالم به در می‌برد؟
+L|Shadi|A lip stain will. Line your lips first, then fill them in.|رژ ماندگار می‌برد. اول خط بکش، بعد پر کن.
+L|Arezoo|This red looks too orange on me.|این قرمز روی من زیادی نارنجی می‌شود.
+L|Shadi|Try the cooler one. It will not wash you out.|سردترش را امتحان کن. رنگت را نمی‌پراند.
+L|Arezoo|And if my lips get dry?|و اگر لبم خشک شد؟
+L|Shadi|Blot it with a tissue, then add balm on top.|با دستمال فشار بده، بعد بالم رویش بزن.
+C|The dry lip|لب خشک|Your lipstick looks patchy after an hour and your lips feel tight.|رژ لبت بعد از یک ساعت لکه‌لکه می‌شود و لبت کشیده می‌شود.|Ask what to do before the color, not after.|بپرس پیش از رنگ چه کار کنی، نه بعدش.|Put balm on ten minutes before the lipstick, then blot the extra.|ده دقیقه قبل از رژ بالم بزن، بعد اضافه‌اش را بگیر.
+C|The bold lip at work|لب پررنگ در محل کار|You want a red lip in an office where nobody wears one.|در دفتری که هیچ‌کس رژ نمی‌زند، یک لب قرمز می‌خواهی.|Ask a colleague for an honest opinion.|از همکاری نظر صادقانه بخواه.|Is this too much for a Tuesday? I could blot it down.|برای سه‌شنبه زیاد است؟ می‌توانم با دستمال کم‌رنگش کنم.
+Q|What comes first: liner or lipstick?|اول خط لب یا رژ لب؟|liner|lipstick|gloss|Liner holds the color inside the lip line.|خط لب رنگ را داخل مرز لب نگه می‌دارد.
+Q|What does "this shade washes me out" mean?|«این رنگ رنگم را می‌پراند» یعنی چه؟|it makes me look pale and tired|it is too dark|it is too expensive|A pale shade can erase the color from your face.|رنگ روشن می‌تواند رنگ صورت را پاک کند.
+Q|Why blot lipstick with a tissue?|چرا رژ را با دستمال فشار می‌دهیم؟|to remove extra product that would transfer|to make it shiny|to change the color|Blotting takes off the layer that would end up on cups.|فشار دادن لایه‌ای را برمی‌دارد که آخرش روی لیوان می‌ماند.
+
+J|tools|8|brush|Brushes, sponges and technique|برس، اسفنج و تکنیک|adults||The tools do half the work, and the verbs that go with them do the rest.|ابزار نیمی از کار را می‌کند، و فعل‌هایی که با آن‌ها می‌آید نیم دیگر را.
+O|name the tool for each step and what it does.|نام ابزار هر مرحله و کارش را بگو.
+O|describe how to blend and buff instead of dragging.|توضیح بده چطور به جای کشیدن، پخش و ماساژ بدهی.
+O|say how and when to clean your tools.|بگو ابزارت را چطور و کِی تمیز کنی.
+W|brush|/brʌʃ/|noun|برس|A tool with hairs used to apply or blend makeup.|makeup|brush|A1|A flat brush is easiest for beginners.|برس تخت برای تازه‌کارها ساده‌ترین است.|
+W|sponge|/spʌndʒ/|noun|اسفنج|A soft pad used to press and blend liquid makeup.|makeup|sponge|A1|A damp sponge gives a softer finish.|اسفنج نمناک بافت نرم‌تری می‌دهد.|
+W|blender|/ˈblɛndər/|noun|بلندر|The egg-shaped sponge most people mean by "sponge".|makeup|sponge|A2|Wet the blender and squeeze it out.|بلندر را خیس کن و فشار بده.|
+W|buff|/bʌf/|verb|ماساژ دادن با برس|To move a brush in small circles so product melts into the skin.|makeup|brush|B1|Buff it in with a dense brush.|با برس پرپشت ماساژش بده.|
+W|blend|/blɛnd/|verb|پخش کردن|To soften the edge between two products so no line shows.|makeup|brush|A2|Blend the edges with a clean brush.|لبه‌ها را با برس تمیز پخش کن.|
+W|applicator|/ˈæpləkeɪtər/|noun|قلم‌زن|The small tool that comes inside a product.|makeup|sponge|B1|The applicator that comes with it is too big.|قلم‌زنی که همراهش است زیادی بزرگ است.|
+X|expression|Blend, don't drag.|پخش کن، نکش.|The one rule that separates smooth from patchy.|تنها قاعده‌ای که یکدستی را از لکه‌لکه جدا می‌کند.|neutral|Blend, don't drag, and the edge will disappear.|پخش کن، نکش، و لبه محو می‌شود.|
+X|expression|Use a damp sponge for a softer finish.|برای بافت نرم‌تر از اسفنج نمناک استفاده کن.|Says the tool and the result together.|ابزار و نتیجه را با هم می‌گوید.|neutral|Use a damp sponge for a softer finish on dry skin.|برای بافت نرم‌تر روی پوست خشک از اسفنج نمناک استفاده کن.|
+X|expression|Wash your brushes every week.|برس‌هایت را هر هفته بشور.|Hygiene, said as a habit rather than a lecture.|بهداشت، به شکل عادت نه نصیحت.|neutral|Wash your brushes every week, or they will break you out.|هر هفته برس‌هایت را بشور، وگرنه جوش می‌زنی.|
+X|expression|It picks up too much product.|محصول زیادی برمی‌دارد.|Explains a heavy application without blaming the person.|اجرای سنگین را توضیح می‌دهد بدون سرزنش.|neutral|Tap the brush first, it picks up too much product.|اول برس را بزن، محصول زیادی برمی‌دارد.|
+X|idiom|This brush does the heavy lifting.|این برس کار اصلی را انجام می‌دهد.|Literally, it carries the weight; figuratively, it does most of the work.|به‌طور تحت‌اللفظی، وزن را حمل می‌کند؛ به‌طور مجازی، بیشتر کار را انجام می‌دهد.|informal|This one brush does the heavy lifting in my bag.|این یک برس کار اصلی کیفم را انجام می‌دهد.|
+P|Use + [tool] + to + [verb].|Use a damp sponge to press the foundation in.|از اسفنج نمناک استفاده کن تا کرم‌پودر را فشار بدهی.|Tool, then job.|اول ابزار، بعد کار.
+P|Wash your + [tool] + every + [time].|Wash your sponge every week.|اسفنجت را هر هفته بشور.|Hygiene with a schedule.|بهداشت با زمان‌بندی.
+S|I clean my brushes with soap and warm water once a week.|برس‌هایم را هفته‌ای یک بار با صابون و آب گرم می‌شورم.|A complete routine in one sentence.|یک روتین کامل در یک جمله.|A2|neutral|I wash them with soap once a week.
+S|A dirty brush is the fastest way to break out.|برس کثیف سریع‌ترین راه جوش زدن است.|Gives the reason, not just the rule.|دلیل را می‌گوید، نه فقط قاعده را.|B1|neutral|Dirty brushes cause breakouts.
+D|Cleaning day|روز تمیزکاری|Nima|Sogand
+L|Nima|How often do you wash these?|این‌ها را هر چند وقت می‌شوری؟
+L|Sogand|Once a week with soap and warm water. More in summer.|هفته‌ای یک بار با صابون و آب گرم. تابستان بیشتر.
+L|Nima|My foundation looks patchy. Could it be the sponge?|کرم‌پودرم لکه‌لکه می‌شود. می‌تواند از اسفنج باشد؟
+L|Sogand|Yes. A dirty sponge picks up too much product and drops it.|بله. اسفنج کثیف محصول زیادی برمی‌دارد و رهایش می‌کند.
+L|Nima|So wash it, or use a brush?|پس بشویمش، یا از برس استفاده کنم؟
+L|Sogand|Use a damp sponge for a softer finish, and wash it after.|برای بافت نرم‌تر از اسفنج نمناک استفاده کن، و بعدش بشور.
+L|Nima|And the brush?|و برس؟
+L|Sogand|Blend, don't drag. This brush does the heavy lifting.|پخش کن، نکش. این برس کار اصلی را انجام می‌دهد.
+C|The patchy sponge|اسفنج لکه‌انداز|You cannot work out why your base separates by noon.|نمی‌فهمی چرا پایه تا ظهر جدا می‌شود.|Ask about the tool before the product.|پیش از محصول، دربارهٔ ابزار بپرس.|How often do you wash your sponge? Mine separates when I skip a week.|اسفنجت را هر چند وقت می‌شوری؟ مال من وقتی یک هفته را جا می‌اندازم جدا می‌شود.
+C|Borrowing tools|قرض گرفتن ابزار|A friend wants to borrow your eye brushes before a party.|دوستت می‌خواهد پیش از مهمانی برس‌های چشم تو را قرض بگیرد.|Agree in a way that keeps both of you safe.|طوری موافقت کن که هر دو در امان باشید.|Take these two, but not the ones I use on my eyes. Better safe.|این دو تا را بردار، اما آن‌هایی که روی چشمم می‌زنم نه. بهتر است احتیاط کنیم.
+Q|What does "buff" mean?|«ماساژ دادن با برس» یعنی چه؟|moving a brush in small circles into the skin|washing a brush|choosing a color|Buffing melts product into the skin instead of laying it on top.|ماساژ دادن محصول را در پوست ذوب می‌کند، نه رویش.
+Q|Why use a damp sponge?|چرا اسفنج نمناک؟|it presses product in for a softer finish|it uses more product|it makes makeup shiny|Dampness stops the sponge from drinking the foundation.|نمناکی مانع می‌شود اسفنج کرم‌پودر را بنوشد.
+Q|How is a dirty brush a skin problem?|برس کثیف چطور مشکل پوستی می‌شود؟|it carries oil and bacteria to the face|it changes color|it dries out|Tools collect oil and bacteria, and the face is where they land.|ابزار چربی و باکتری جمع می‌کند و صورت محل فرودشان است.
+
+J|getready|9|mirror|Getting ready: the words you need|آماده شدن: واژه‌هایی که لازم داری|adults||The ten minutes before you leave, in English, including the jokes.|ده دقیقه پیش از رفتن، به انگلیسی، همراه با شوخی‌هایش.
+O|say how long you need and what is left to do.|بگو چقدر وقت لازم داری و چه کار باقی مانده.
+O|use the informal idioms people say while getting ready.|اصطلاح‌های غیررسمی‌ای را که هنگام آماده شدن گفته می‌شود به کار ببر.
+O|touch up in public without a full explanation.|بدون توضیح کامل، در جمع آرایش را تجدید کن.
+W|routine|/ruˈtin/|noun|روتین|The same steps in the same order every day.|makeup|mirror|A2|My morning routine takes ten minutes.|روتین صبحم ده دقیقه طول می‌کشد.|
+W|touch-up|/ˈtʌtʃ ʌp/|noun|تجدید آرایش|A small fix to makeup during the day.|makeup|powder|B1|I keep powder in my bag for a touch-up.|برای تجدید، پودر در کیفم نگه می‌دارم.|
+W|setting spray|/ˈsɛtɪŋ spreɪ/|noun|اسپری تثبیت|A mist sprayed at the end to hold makeup.|makeup|bottle|B1|Setting spray makes everything sit together.|اسپری تثبیت همه چیز را کنار هم می‌نشاند.|
+W|blotting paper|/ˈblɑtɪŋ ˌpeɪpər/|noun|کاغذ جاذب چربی|Thin paper pressed on the skin to take away oil.|makeup|swatch|B1|Blotting paper fixes a shiny nose without powder.|کاغذ جاذب بینی براق را بدون پودر درست می‌کند.|
+W|mirror|/ˈmɪrər/|noun|آینه|What you check your face in.|makeup|mirror|A1|Is there a mirror near the door?|نزدیک در آینه‌ای هست؟|
+W|vanity|/ˈvænəti/|noun|میز آرایش|A small table with a mirror for getting ready.|makeup|mirror|B2|She sits at her vanity every morning.|هر صبح پشت میز آرایشش می‌نشیند.|
+X|idiom|I'm just putting my face on.|دارم صورتم را می‌سازم.|Literally, applying makeup to the face; figuratively, getting ready to be seen in public.|به‌طور تحت‌اللفظی، زدن آرایش روی صورت؛ به‌طور مجازی، آماده شدن برای دیده شدن در جمع.|informal|Give me five minutes, I'm just putting my face on.|پنج دقیقه وقت بده، دارم صورتم را می‌سازم.|
+X|idiom|I'm all dolled up.|کاملاً آماده و آراسته‌ام.|Literally, dressed like a doll; figuratively, dressed up and made up for an occasion.|به‌طور تحت‌اللفظی، مثل عروسک لباس پوشیده؛ به‌طور مجازی، برای یک مناسبت آراسته و آرایش‌شده.|informal|I'm all dolled up and the party is cancelled.|کاملاً آماده‌ام و مهمانی لغو شد.|
+X|idiom|I need to powder my nose.|باید بروم دستشویی.|Literally, to put powder on the nose; figuratively, a polite way of saying you are going to the restroom.|به‌طور تحت‌اللفظی، پودر زدن به بینی؛ به‌طور مجازی، روشی مؤدبانه برای گفتن اینکه به دستشویی می‌روی.|formal|Excuse me, I need to powder my nose.|ببخشید، باید بروم دستشویی.|
+X|idiom|Slap on some war paint.|کمی آرایش بزن.|Literally, paint worn before battle; figuratively, makeup put on quickly to feel ready for something difficult.|به‌طور تحت‌اللفظی، رنگی که پیش از نبرد زده می‌شد؛ به‌طور مجازی، آرایش سریعی که برای آماده بودن در برابر کار سختی زده می‌شود.|slang|The interview is in an hour. Time to slap on some war paint.|مصاحبه یک ساعت دیگر است. وقتش است کمی آرایش بزنم.|
+X|expression|Give me ten minutes to get ready.|ده دقیقه وقت بده آماده شوم.|The sentence everyone uses before leaving.|جمله‌ای که همه پیش از رفتن می‌گویند.|neutral|Give me ten minutes to get ready and we will go.|ده دقیقه وقت بده آماده شوم و می‌رویم.|
+P|I'll be ready in + [time].|I'll be ready in ten minutes.|ده دقیقه دیگر آماده‌ام.|Time first, promise second.|اول وقت، بعد قول.
+P|I need to touch up my + [part].|I need to touch up my lipstick.|باید رژ لبم را تجدید کنم.|The polite way to fix makeup in company.|روش مؤدبانه برای درست کردن آرایش در جمع.
+S|I only need five minutes, but it always becomes twenty.|فقط پنج دقیقه لازم دارم، اما همیشه بیست دقیقه می‌شود.|The truth about getting ready, said with humor.|حقیقت آماده شدن، با شوخی.|B1|informal|Five minutes always becomes twenty.
+S|My makeup takes longer than my clothes.|آرایشم بیشتر از لباسم وقت می‌برد.|Compares two parts of getting ready.|دو بخش آماده شدن را مقایسه می‌کند.|A2|informal|Makeup takes me longer than clothes.
+D|Late, again|باز هم دیر|Kaveh|Setareh
+L|Kaveh|We are leaving in ten minutes.|ده دقیقه دیگر می‌رویم.
+L|Setareh|Give me five. I'm just putting my face on.|پنج دقیقه وقت بده. دارم صورتم را می‌سازم.
+L|Kaveh|You said that twenty minutes ago.|بیست دقیقه پیش هم همین را گفتی.
+L|Setareh|And now I need to powder my nose. Then I'm done.|و حالا باید بروم دستشویی. بعد تمام است.
+L|Kaveh|Do you need a touch-up too?|تجدید آرایش هم لازم داری؟
+L|Setareh|One spray of setting spray and I'm all dolled up.|یک پاف اسپری تثبیت و کاملاً آماده‌ام.
+L|Kaveh|You look great. The taxi is here.|خیلی خوب شدی. تاکسی رسید.
+L|Setareh|Then let me slap on some war paint and come.|بگذار سریع کمی آرایش بزنم و بیایم.
+C|The permanent five minutes|پنج دقیقهٔ همیشگی|Your partner is waiting by the door for the third time.|شریکت برای سومین بار کنار در منتظر است.|Answer in a way that is honest and a little funny.|صادقانه و کمی خنده‌دار جواب بده.|I need five minutes, and I know my five minutes. Start the car.|پنج دقیقه لازم دارم، و می‌دانم پنج دقیقه‌ام چقدر است. ماشین را روشن کن.
+C|Touch-up at dinner|تجدید در شام|Your lipstick has gone after the main course and you are still at the table.|بعد از غذای اصلی رژ لبت رفته و هنوز سر میزی.|Excuse yourself and fix it briefly.|عذرخواهی کن و کوتاه درستش کن.|Excuse me for a moment, I need to touch up my lipstick.|یک لحظه ببخشید، باید رژ لبم را تجدید کنم.
+Q|What does "powder my nose" usually mean?|«پودر زدن به بینی» معمولاً یعنی چه؟|going to the restroom|fixing your makeup|leaving the party|It is a polite excuse, not a makeup step.|این یک بهانهٔ مؤدبانه است، نه مرحلهٔ آرایش.
+Q|What is a touch-up?|تجدید آرایش چیست؟|a small fix during the day|a full new face|a skincare step|A touch-up repairs what moved, without starting again.|تجدید چیزی را که جابه‌جا شده درست می‌کند، بدون شروع از اول.
+Q|"All dolled up" means ...|«کاملاً آراسته» یعنی ...|dressed and made up for an occasion|tired|late|It comes from dressing someone like a doll.|ریشه‌اش لباس پوشاندن مثل عروسک است.
+
+J|looks|10|highlighter|Looks and occasions|مدل‌ها و مناسب‌ها|adults||One face, many briefs: office, wedding, party, photo, and the words for each.|یک صورت، خواسته‌های بسیار: دفتر، عروسی، مهمانی، عکس، و واژه‌های هر کدام.
+O|describe a look in one sentence and set its limit.|یک مدل را در یک جمله توصیف کن و حدش را بگو.
+O|match a look to an occasion and say why.|مدل را با مناسبت جفت کن و دلیلش را بگو.
+O|use the idioms for dressed-up and for illusion.|اصطلاح‌های «آراسته» و «توهم» را به کار ببر.
+W|full glam|/fʊl glæm/|noun|آرایش کامل و پررنگ|A complete, heavy look: base, contour, eyes, lashes, lips.|makeup|palette|B1|Full glam for the wedding, nothing for the office.|آرایش کامل برای عروسی، هیچ برای دفتر.|
+W|smoky eye|/ˈsmoʊki aɪ/|noun|چشم دودی|Dark shadow blended around the eye until the edges are soft.|makeup|palette|B1|The smoky eye suits the evening.|چشم دودی به شب می‌آید.|
+W|winged liner|/wɪŋd ˈlaɪnər/|noun|خط چشم بال‌دار|Liner that extends into a point past the outer corner.|makeup|liner|B1|A thin winged liner is enough for daytime.|یک خط بال‌دار نازک برای روز کافی است.|
+W|no-makeup makeup|/noʊ ˈmeɪkʌp ˈmeɪkʌp/|noun|آرایش طبیعی|A look that hides its own work: even skin, groomed brows, a little color.|makeup|foundation|B2|Interviews call for no-makeup makeup.|مصاحبه آرایش طبیعی می‌خواهد.|
+W|bridal|/ˈbraɪdl/|adjective|عروس|Belonging to a wedding look.|makeup|mirror|B1|Bridal makeup has to last twelve hours.|آرایش عروس باید دوازده ساعت بماند.|
+W|bare-faced|/ˈbɛr feɪst/|adjective|بدون آرایش|Wearing no makeup at all.|makeup|mirror|B1|I go bare-faced on weekends.|آخر هفته‌ها بدون آرایش می‌روم.|
+X|expression|I'm going for a natural look.|دنبال ظاهر طبیعی هستم.|States the brief before anyone starts.|پیش از شروع، خواسته را می‌گوید.|neutral|I'm going for a natural look, nothing heavy.|دنبال ظاهر طبیعی هستم، نه سنگین.|
+X|expression|Less is more on a hot day.|روز گرم، کمتر بهتر است.|Applies the idiom to a real decision.|اصطلاح را به تصمیمی واقعی وصل می‌کند.|neutral|Less is more on a hot day, so skip the powder.|روز گرم کمتر بهتر است، پس پودر را حذف کن.|
+X|idiom|Smoke and mirrors.|ظاهر فریبنده.|Literally, the stage tricks that make things appear; figuratively, an impressive appearance that hides the truth.|به‌طور تحت‌اللفظی، ترفندهای صحنه که چیزها را ظاهر می‌کند؛ به‌طور مجازی، ظاهری چشمگیر که حقیقت را پنهان می‌کند.|neutral|The glow is smoke and mirrors: it is just highlighter and good light.|آن درخشش ظاهر فریبنده است: فقط هایلایتر و نور خوب است.|
+X|idiom|She was dressed to the nines.|او کاملاً آراسته بود.|Literally, dressed to the highest degree; figuratively, dressed very formally and carefully for an occasion.|به‌طور تحت‌اللفظی، در بالاترین درجه لباس پوشیده؛ به‌طور مجازی، برای یک مناسبت بسیار رسمی و دقیق آراسته.|neutral|She was dressed to the nines for a Tuesday dinner.|برای یک شام سه‌شنبه کاملاً آراسته بود.|
+P|I'm going for + [look].|I'm going for a soft, natural look.|دنبال ظاهری نرم و طبیعی هستم.|The brief in four words.|خواسته در چهار کلمه.
+P|For + [occasion], I + [verb].|For a wedding, I go full glam.|برای عروسی، آرایش کامل می‌زنم.|Occasion first, choice second.|اول مناسبت، بعد انتخاب.
+S|I want to look like myself, only rested.|می‌خواهم شبیه خودم باشم، فقط سرحال‌تر.|The clearest brief a makeup artist can hear.|روشن‌ترین خواسته‌ای که آرایشگر می‌شنود.|B1|neutral|Just me, but rested.
+S|Please keep my freckles visible.|لطفاً کک‌ومک‌هایم دیده شوند.|Says what not to cover, which is just as important.|می‌گوید چه چیزی پوشانده نشود؛ همان‌قدر مهم.|B1|neutral|Do not cover my freckles.
+D|Briefing for a photo|توضیح برای عکس|Hoda|Arman
+L|Hoda|It is a headshot, so the skin has to look even.|عکس نیم‌تنه است، پس پوست باید یکدست باشد.
+L|Arman|No-makeup makeup, then. Medium coverage, no shimmer.|پس آرایش طبیعی. پوشش متوسط، بدون درخشش.
+L|Hoda|Keep my freckles visible, though.|اما کک‌ومک‌هایم دیده شوند.
+L|Arman|I will. A little concealer only where needed.|حتماً. کمی کانسیلر فقط جایی که لازم است.
+L|Hoda|And the eyes?|و چشم‌ها؟
+L|Arman|A thin winged liner. No smoky eye for a headshot.|یک خط بال‌دار نازک. برای عکس نیم‌تنه چشم دودی نه.
+L|Hoda|I want to look like myself, only rested.|می‌خواهم شبیه خودم باشم، فقط سرحال‌تر.
+L|Arman|That is exactly the brief. Less is more here.|این دقیقاً همان خواسته است. اینجا کمتر بهتر است.
+C|Overdressed face|صورت بیش از حد|You arrive at a casual lunch in full glam.|با آرایش کامل به ناهار خودمانی می‌رسی.|Make a joke that fixes the room.|با شوخی فضا را درست کن.|I read the invitation as a party. It is smoke and mirrors: two minutes and I can blot it down.|دعوت‌نامه را مهمانی خواندم. ظاهرش فریبنده است: دو دقیقه و می‌توانم کمش کنم.
+C|The wedding brief|خواستهٔ عروسی|A bride wants to look like herself but last twelve hours.|عروس می‌خواهد شبیه خودش باشد اما دوازده ساعت بماند.|Explain the trade-off honestly.|معاوضه را صادقانه توضیح بده.|Long wear means a little more coverage. We can keep it soft and still last.|دوام بالا کمی پوشش بیشتر می‌خواهد. می‌توانیم نرم نگهش داریم و باز هم بماند.
+Q|What is "no-makeup makeup"?|«آرایش طبیعی» چیست؟|a look that hides its own work|no makeup at all|heavy makeup|The aim is skin that looks like skin.|هدف پوستی است که شبیه پوست باشد.
+Q|Why not a smoky eye for a headshot?|چرا برای عکس نیم‌تنه چشم دودی نه؟|it can look heavy in a small frame|it is too cheap|it is old-fashioned|A headshot is small, so heavy shadow closes the eye.|عکس نیم‌تنه کوچک است، سایهٔ سنگین چشم را می‌بندد.
+Q|"Dressed to the nines" means ...|«کاملاً آراسته» یعنی ...|dressed very carefully for an occasion|wearing nine items|dressed casually|The phrase praises effort and completeness.|این عبارت تلاش و کامل بودن را می‌ستاید.
+
+J|shopping|11|swatch|Buying makeup and talking about price|خرید آرایش و حرف زدن از قیمت|adults||Shades, swatches, dupes and the honest answer to "is it worth it?".|رنگ‌ها، تست‌ها، جایگزین‌ها و پاسخ صادقانه به «ارزشش را دارد؟».
+O|ask for a product, a shade and a tester.|محصول، رنگ و تستر بخواه.
+O|compare two products by price and effect.|دو محصول را از نظر قیمت و اثر مقایسه کن.
+O|ask about returns before you pay.|پیش از پرداخت دربارهٔ مرجوعی بپرس.
+W|swatch|/swɑtʃ/|noun|تست رنگ|A small patch of color on skin or paper used to compare shades.|makeup|swatch|B1|Can I see a swatch on your hand?|می‌توانم یک تست روی دستت ببینم؟|
+W|dupe|/dup/|noun|جایگزین ارزان|A cheaper product that works like an expensive one.|makeup|swatch|B2|This is a dupe for a much pricier one.|این جایگزین ارزانی برای یک محصول گران‌تر است.|
+W|drugstore|/ˈdrʌgstɔr/|adjective|داروخانه‌ای|Inexpensive makeup sold in ordinary shops.|makeup|bottle|B1|There are good drugstore mascaras now.|حالا ریمل‌های داروخانه‌ای خوبی هست.|
+W|high-end|/ˌhaɪ ˈɛnd/|adjective|گران‌قیمت و لوکس|Expensive makeup from luxury brands.|makeup|mirror|B1|High-end foundation is not always better.|کرم‌پودر گران همیشه بهتر نیست.|
+W|return policy|/rɪˈtɜrn ˈpɑləsi/|noun|قانون مرجوعی|The shop's rules for taking an item back.|makeup|bottle|B2|What is the return policy on opened makeup?|قانون مرجوعی آرایش بازشده چیست؟|
+W|sold out|/ˌsoʊld ˈaʊt/|adjective|تمام‌شده|Gone from the shelves and from the site.|makeup|swatch|A2|That shade is sold out everywhere.|آن رنگ همه‌جا تمام شده.|
+X|expression|Can I swatch it on my hand?|می‌توانم روی دستم تستش کنم؟|The first thing to ask in a store.|نخستین چیزی که در فروشگاه می‌پرسی.|neutral|Can I swatch it on my hand before I buy it?|می‌توانم قبل از خرید روی دستم تستش کنم؟|
+X|expression|It's a dupe for a much pricier one.|جایگزین ارزانی برای یک محصول گران‌تر است.|Recommends a product through comparison.|محصولی را با مقایسه توصیه می‌کند.|informal|It's a dupe for a much pricier one and it lasts longer.|جایگزین ارزانی برای محصول گران‌تر است و بیشتر هم می‌ماند.|
+X|expression|Is it returnable if the shade is wrong?|اگر رنگ اشتباه باشد مرجوع می‌شود؟|Asks the question before paying, not after.|پرسش را پیش از پرداخت می‌پرسد، نه بعدش.|neutral|Is it returnable if the shade is wrong at home?|اگر رنگ در خانه اشتباه بود، مرجوع می‌شود؟|
+X|expression|It's worth the splurge.|ارزش یک خرج بزرگ‌تر را دارد.|Says an expensive buy is justified.|می‌گوید خرید گران توجیه دارد.|informal|For a wedding, it's worth the splurge.|برای عروسی، ارزش یک خرج بزرگ‌تر را دارد.|
+X|idiom|It's my holy grail.|محبوب و بی‌بدیل من است.|Literally, the object of a long quest; figuratively, the one product you would never change.|به‌طور تحت‌اللفظی، شیء یک جست‌وجوی طولانی؛ به‌طور مجازی، تنها محصولی که هرگز عوض نمی‌کنی.|informal|This mascara is my holy grail.|این ریمل محبوب بی‌بدیل من است.|
+P|Do you have + [product] + in + [shade]?|Do you have this in a lighter shade?|این را در رنگ روشن‌تر دارید؟|The standard shop question.|پرسش استاندارد فروشگاه.
+P|Is it + [adjective] + enough?|Is it long-wearing enough?|به‌اندازهٔ کافی ماندگار است؟|Check the property, not the price.|خاصیت را بررسی کن، نه قیمت را.
+S|I would rather test it twice than return it once.|ترجیح می‌دهم دو بار تستش کنم تا یک بار مرجوعش کنم.|Shows a careful buyer's logic.|منطق خریدار دقیق را نشان می‌دهد.|B1|neutral|I like to test it first.
+S|The cheap one works better than the expensive one.|ارزان‌تر بهتر از گران‌تر کار می‌کند.|A complete review in one line.|یک بررسی کامل در یک خط.|A2|informal|The cheaper one is better.
+D|At the makeup counter|پشت پیشخوان آرایش|Delaram|Hooman
+L|Delaram|Do you have this foundation in a lighter shade?|این کرم‌پودر را در رنگ روشن‌تر دارید؟
+L|Hooman|That shade is sold out, but I have a dupe from another brand.|آن رنگ تمام شده، اما از برند دیگری جایگزین دارم.
+L|Delaram|Can I swatch it on my hand?|می‌توانم روی دستم تستش کنم؟
+L|Hooman|Of course. It is drugstore, but it lasts longer.|البته. داروخانه‌ای است، اما بیشتر می‌ماند.
+L|Delaram|Is it returnable if the shade is wrong?|اگر رنگ اشتباه بود مرجوع می‌شود؟
+L|Hooman|Opened makeup cannot be returned, I am afraid.|متأسفانه آرایش بازشده مرجوع نمی‌شود.
+L|Delaram|Then it's worth the splurge for the one I know.|پس برای آن که می‌شناسم، ارزش خرج بیشتر را دارد.
+L|Hooman|That one is my holy grail too.|آن هم محبوب بی‌بدیل من است.
+C|The sold-out shade|رنگ تمام‌شده|The shade you want is gone online and in two shops.|رنگی که می‌خواهی آنلاین و در دو فروشگاه تمام شده.|Ask for the nearest alternative and how to check it.|نزدیک‌ترین جایگزین را بخواه و بپرس چطور بررسی‌اش کنی.|Is there a dupe you would recommend? I can swatch it here first.|جایگزینی پیشنهاد می‌کنی؟ می‌توانم اول همین‌جا تستش کنم.
+C|Returning a wrong shade|مرجوع کردن رنگ اشتباه|You bought a foundation online and it is one shade too dark.|کرم‌پودری آنلاین خریدی و یک درجه تیره است.|Ask about the policy politely.|مؤدبانه دربارهٔ قانون بپرس.|I have not opened it. What is your return policy for an unopened shade?|بازش نکرده‌ام. قانون مرجوعی شما برای رنگ بازنشده چیست؟
+Q|What is a "dupe"?|«دوپ» چیست؟|a cheaper product that works like a pricey one|a fake brand|a second coat|A dupe is compared by effect, not by name.|دوپ با اثر مقایسه می‌شود، نه با نام.
+Q|What is a swatch?|«سواچ» چیست؟|a patch of color to test a shade|a brush|a wrapper|A swatch shows the color on skin or paper.|سواچ رنگ را روی پوست یا کاغذ نشان می‌دهد.
+Q|Why ask about the return policy first?|چرا اول قانون مرجوعی را بپرسیم؟|opened makeup is often not returnable|it is cheaper|it is faster|Once opened, a product usually cannot go back.|محصول بازشده معمولاً برنمی‌گردد.
+
+J|care|12|jar|Hygiene, expiry and taking it off|بهداشت، تاریخ انقضا و پاک کردن|adults||The stage that protects the skin: clean tools, fresh products, and a face washed before bed.|مرحله‌ای که از پوست محافظت می‌کند: ابزار تمیز، محصول تازه و صورتی که پیش از خواب شسته می‌شود.
+O|say how long a product lasts after opening.|بگو محصول بعد از باز شدن چقدر می‌ماند.
+O|test a new product safely and describe a reaction.|یک محصول تازه را ایمن تست کن و واکنش را توصیف کن.
+O|remove makeup properly and say why it matters.|آرایش را درست پاک کن و بگو چرا مهم است.
+W|expiry date|/ɪkˈspaɪəri deɪt/|noun|تاریخ انقضا|The date after which a product should not be used.|makeup|bottle|B1|The expiry date is printed on the box.|تاریخ انقضا روی جعبه چاپ شده.|
+W|patch test|/ˈpætʃ tɛst/|noun|تست حساسیت|Putting a little product on a small area to see if the skin reacts.|makeup|swatch|B2|Do a patch test on your inner arm first.|اول روی بازوی داخلی تست حساسیت بزن.|
+W|breakout|/ˈbreɪkaʊt/|noun|جوش زدن|A group of spots that appears on the skin.|makeup|mirror|B1|That foundation gave me a breakout.|آن کرم‌پودر باعث جوش زدنم شد.|
+W|sensitive|/ˈsɛnsətɪv/|adjective|حساس|Skin that reacts easily to products.|makeup|jar|B1|My skin is sensitive around the eyes.|پوستم دور چشم‌ها حساس است.|
+W|micellar water|/maɪˈsɛlər ˈwɔtər/|noun|آب میسلار|A watery cleanser that lifts makeup without rubbing.|makeup|bottle|B1|Micellar water takes off mascara gently.|آب میسلار ریمل را آرام پاک می‌کند.|
+W|cleansing balm|/ˈklɛnzɪŋ bɑm/|noun|بالم پاک‌کننده|A solid cleanser that melts makeup when rubbed into the skin.|makeup|jar|B2|A cleansing balm removes a full face in one go.|بالم پاک‌کننده یک صورت کامل را یک‌جا برمی‌دارد.|
+X|expression|Check the little jar symbol.|آن نماد شیشه‌ٔ کوچک را ببین.|Points to the months-after-opening mark.|به نشانهٔ تعداد ماه پس از باز شدن اشاره می‌کند.|neutral|Check the little jar symbol: 6M means six months.|آن نماد شیشه را ببین: 6M یعنی شش ماه.|
+X|expression|Mascara goes after three months.|ریمل بعد از سه ماه کنار می‌رود.|The rule everyone breaks and should not.|قاعده‌ای که همه زیرش می‌زنند و نباید.|neutral|Mascara goes after three months, whatever it cost.|ریمل بعد از سه ماه کنار می‌رود، هر چقدر هم خریده باشی.|
+X|expression|Patch test it on your inner arm.|روی بازوی داخلی تست حساسیت بزن.|The safe first step for sensitive skin.|نخستین قدم ایمن برای پوست حساس.|neutral|Patch test it on your inner arm and wait a day.|روی بازوی داخلی تست کن و یک روز صبر کن.|
+X|expression|Take it off before bed, every night.|هر شب پیش از خواب پاکش کن.|The habit doctors and dermatologists repeat.|عادتی که پزشکان تکرار می‌کنند.|neutral|Take it off before bed, every night, even when you are tired.|هر شب پیش از خواب پاکش کن، حتی وقتی خسته‌ای.|
+X|idiom|It's past its prime.|از مد افتاده و کهنه است.|Literally, past the best moment of its life; figuratively, too old to be good any more.|به‌طور تحت‌اللفظی، از بهترین زمان عمرش گذشته؛ به‌طور مجازی، برای خوب بودن زیادی کهنه است.|neutral|That lipstick smells odd. It is past its prime.|آن رژ بوی عجیبی می‌دهد. کهنه است.|
+X|expression|Throw it out if it smells off.|اگر بویش عوض شده، دورش بینداز.|A simple test anyone can use.|آزمونی ساده که هر کسی می‌تواند انجام دهد.|neutral|Throw it out if it smells off or separates.|اگر بویش عوض شد یا جدا شد، دورش بینداز.|
+P|If it + [smells/separates], + [throw it out].|If it separates, throw it out.|اگر جدا شد، دورش بینداز.|A condition and an action.|یک شرط و یک کار.
+P|Test it on + [place] + for + [time].|Test it on your inner arm for a day.|یک روز روی بازوی داخلی تستش کن.|Safe testing, in one line.|تست ایمن، در یک خط.
+S|I never sleep in my makeup.|هرگز با آرایش نمی‌خوابم.|A habit stated as an identity.|عادتی که مثل هویت گفته می‌شود.|A2|neutral|I always take it off before bed.
+S|My eyes water when I use waterproof mascara.|با ریمل ضدآب چشم‌هایم اشک می‌ریزد.|A real reaction, described plainly.|واکنشی واقعی و ساده‌توصیف‌شده.|B1|neutral|Waterproof mascara makes my eyes water.
+D|Two friends after a late night|دو دوست بعد از یک شب دیر|Elham|Bahar
+L|Elham|I am so tired I could sleep in this makeup.|آن‌قدر خسته‌ام که می‌توانم با همین آرایش بخوابم.
+L|Bahar|Take it off before bed. Your skin will thank you.|پیش از خواب پاکش کن. پوستت از تو تشکر می‌کند.
+L|Elham|Micellar water or the balm?|آب میسلار یا بالم؟
+L|Bahar|Balm first for the mascara, then micellar water.|اول بالم برای ریمل، بعد آب میسلار.
+L|Elham|My mascara smells odd. It is only four months old.|ریملم بوی عجیبی می‌دهد. فقط چهار ماهش است.
+L|Bahar|Past its prime. Throw it out if it smells off.|کهنه شده. اگر بویش عوض شده دورش بینداز.
+L|Elham|It was expensive.|گران بود.
+L|Bahar|And an eye infection is more expensive. Patch test the new one.|و عفونت چشم گران‌تر است. جدیدش را تست حساسیت بزن.
+C|The sting|سوزش|A new foundation stings within a minute of applying.|کرم‌پودر جدید یک دقیقه بعد از زدن می‌سوزاند.|Say what happened and what you will do next.|بگو چه شد و بعد چه می‌کنی.|It stung straight away. I am washing it off and I will patch test the next one.|فوراً سوزاند. دارم می‌شویم و بعدی را تست حساسیت می‌زنم.
+C|Expired but loved|کهنه اما دوست‌داشتنی|You love a lipstick that is three years old.|عاشق رژی هستی که سه سال عمر دارد.|Ask for an honest opinion and give your own reason.|نظر صادقانه بخواه و دلیل خودت را بگو.|Would you keep a three-year-old lipstick? It smells like crayons now.|رژ سه‌ساله را نگه می‌داری؟ حالا بوی مداد شمعی می‌دهد.
+Q|What does "6M" on a jar mean?|«6M» روی شیشه یعنی چه؟|six months after opening|six years|six uses|The open-jar symbol counts months after the first use.|نماد شیشهٔ باز، ماه‌های پس از نخستین استفاده را می‌شمارد.
+Q|How do you patch test makeup?|چطور آرایش را تست حساسیت می‌کنی؟|a little on a small area, then wait|on the whole face at once|by smelling it|A small area shows a reaction without a full face of it.|ناحیهٔ کوچک واکنش را نشان می‌دهد بدون اینکه تمام صورت درگیر شود.
+Q|Why take makeup off before bed?|چرا پیش از خواب آرایش را پاک کنیم؟|it traps oil and irritates the skin|it changes color|it expires faster|Sleeping in makeup blocks the skin all night.|خواب با آرایش پوست را تمام شب مسدود می‌کند.

@@ -1,0 +1,209 @@
+# Makeup journey, stages 1-6. Rows are pipe-separated and validated by
+# tools/build_journeys.py; see its header for the field order of each tag.
+# Adult material: this journey is offered to the adult experience only.
+
+J|skinprep|1|sponge|Skin prep before makeup|آماده‌سازی پوست پیش از آرایش|adults||Clean skin, then the thin layers that make everything after them sit better.|پوست تمیز، بعد لایه‌های نازکی که هر چیزی را که بعد می‌آید بهتر می‌نشاند.
+O|name the steps of a skin routine in the right order.|نام مرحله‌های مراقبت از پوست را به ترتیب درست بگو.
+O|describe your skin type and what it needs.|نوع پوستت را توصیف کن و بگو چه لازم دارد.
+O|say how long to wait between products.|بگو بین محصول‌ها چقدر باید صبر کرد.
+W|cleanser|/ˈklɛnzər/|noun|پاک‌کننده|A product that removes dirt, oil and old makeup from the skin.|makeup|bottle|A1|I use a gentle cleanser at night.|شب‌ها از یک پاک‌کنندهٔ ملایم استفاده می‌کنم.|
+W|toner|/ˈtoʊnər/|noun|تونر|A watery product applied after cleansing to refresh the skin.|makeup|bottle|A2|The toner feels cool and light.|تونر خنک و سبک است.|
+W|serum|/ˈsɪrəm/|noun|سرم|A light product with a high dose of one ingredient.|makeup|serum|B1|I put serum on before moisturizer.|سرم را قبل از مرطوب‌کننده می‌زنم.|
+W|moisturizer|/ˈmɔɪstʃəraɪzər/|noun|مرطوب‌کننده|A cream that keeps water in the skin.|makeup|jar|A1|My moisturizer is very light in summer.|مرطوب‌کننده‌ام تابستان خیلی سبک است.|
+W|sunscreen|/ˈsʌnskrin/|noun|ضدآفتاب|A product that protects the skin from the sun.|makeup|sun|A1|Put sunscreen on last in the morning.|صبح‌ها ضدآفتاب را آخر می‌زنم.|
+W|primer|/ˈpraɪmər/|noun|پرایمر|A base that smooths the skin so makeup holds better.|makeup|primer|A2|Primer helps foundation last all day.|پرایمر کمک می‌کند آرایش تمام روز بماند.|
+X|expression|Start with clean skin.|با پوست تمیز شروع کن.|Names the first step and the reason for it.|نخستین مرحله و دلیلش را می‌گوید.|neutral|Start with clean skin, then let it dry.|با پوست تمیز شروع کن، بعد بگذار خشک شود.|
+X|expression|Give it a minute to sink in.|بگذار یک دقیقه جذب شود.|Says to wait before the next layer.|می‌گوید پیش از لایهٔ بعد کمی صبر کن.|neutral|Give it a minute to sink in before the primer.|بگذار قبل از پرایمر یک دقیقه جذب شود.|
+X|expression|My T-zone gets oily by noon.|منطقهٔ T صورتم تا ظهر چرب می‌شود.|Describes skin that shines on the forehead and nose.|پوستی را توصیف می‌کند که پیشانی و بینی‌اش برق می‌زند.|informal|My T-zone gets oily by noon, so I use powder.|منطقهٔ T صورتم تا ظهر چرب می‌شود، پس پودر می‌زنم.|
+X|expression|A thin layer is enough.|یک لایهٔ نازک کافی است.|Warns against using too much product.|هشدار می‌دهد زیاد از محصول استفاده نکن.|neutral|A thin layer is enough, even on dry patches.|یک لایهٔ نازک کافی است، حتی روی پوست‌های خشک.|
+X|idiom|Less is more.|کمتر، بیشتر است.|Literally, a small amount of product looks better on the face; figuratively, doing less gives a better result.|به‌طور تحت‌اللفظی، مقدار کم محصول روی صورت بهتر دیده می‌شود؛ به‌طور مجازی، کمتر انجام دادن نتیجهٔ بهتری می‌دهد.|neutral|Less is more when your skin is already good.|وقتی پوستت خوب است، کمتر بیشتر است.|
+P|I start with + [product].|I start with cleanser and then serum.|با پاک‌کننده شروع می‌کنم و بعد سرم.|Use this to give the order of a routine.|با این ترتیب کارها را بگو.
+P|My skin is + [skin type].|My skin is dry in winter and oily in summer.|پوستم زمستان خشک است و تابستان چرب.|Name the type before the product.|نوع پوست را پیش از محصول بگو.
+S|Sunscreen is the one step I never skip.|ضدآفتاب تنها مرحله‌ای است که هرگز جا نمی‌اندازم.|Shows a habit and a priority.|یک عادت و یک اولویت را نشان می‌دهد.|A2|neutral|I never skip sunscreen.
+S|I wait two minutes between each layer.|بین هر لایه دو دقیقه صبر می‌کنم.|Explains how you keep layers from rolling.|توضیح می‌دهد چطور لایه‌ها را از هم جدا نگه می‌داری.|B1|neutral|I give each layer two minutes.
+S|My skin gets dry under foundation in winter.|زمستان زیر کرم‌پودر پوستم خشک می‌شود.|Describes a real problem a friend can help with.|مشکلی واقعی را می‌گوید که دوستت می‌تواند کمک کند.|B1|neutral|Foundation dries my skin out in winter.
+D|Two friends getting ready|دو دوست در حال آماده شدن|Sara|Neda
+L|Sara|Start with clean skin. What are you using tonight?|با پوست تمیز شروع کن. امشب چه می‌زنی؟
+L|Neda|Cleanser, then serum. My skin is dry this week.|پاک‌کننده، بعد سرم. این هفته پوستم خشک است.
+L|Sara|Give it a minute to sink in before the moisturizer.|بگذار قبل از مرطوب‌کننده یک دقیقه جذب شود.
+L|Neda|I always wait. Do you use a primer?|من همیشه صبر می‌کنم. تو پرایمر می‌زنی؟
+L|Sara|Only when I want the foundation to last all day.|فقط وقتی می‌خواهم کرم‌پودر تمام روز بماند.
+L|Neda|A thin layer is enough, right?|یک لایهٔ نازک کافی است، نه؟
+L|Sara|Yes. Less is more with primer.|بله. دربارهٔ پرایمر، کمتر بیشتر است.
+L|Neda|Then sunscreen last, and I am done.|بعد ضدآفتاب آخر، و تمام.
+C|The dry patch|لکهٔ خشک|Your friend says her foundation looks patchy on her cheeks.|دوستت می‌گوید کرم‌پودر روی گونه‌هایش لکه‌لکه می‌شود.|Ask which step she does before foundation.|بپرس پیش از کرم‌پودر چه مرحله‌ای انجام می‌دهد.|Do you moisturize before you put on foundation? Dry skin drinks it up.|قبل از کرم‌پودر مرطوب‌کننده می‌زنی؟ پوست خشک آن را می‌بلعد.
+C|What order|چه ترتیبی|A beginner has four bottles and no idea where to start.|یک تازه‌کار چهار شیشه دارد و نمی‌داند از کجا شروع کند.|Explain the order in one short answer.|ترتیب را در یک پاسخ کوتاه توضیح بده.|Cleanser, serum, moisturizer, sunscreen. Give each one a minute.|پاک‌کننده، سرم، مرطوب‌کننده، ضدآفتاب. به هر کدام یک دقیقه وقت بده.
+Q|What goes on last in a morning routine?|صبح‌ها چه چیزی آخر زده می‌شود؟|sunscreen|serum|cleanser|Sunscreen goes on last because nothing should sit on top of it.|ضدآفتاب آخر می‌رود چون چیزی نباید رویش بنشیند.
+Q|Which product smooths the skin before foundation?|کدام محصول پوست را پیش از کرم‌پودر صاف می‌کند؟|primer|toner|sunscreen|A primer fills small uneven places so makeup sits evenly.|پرایمر فرورفتگی‌های کوچک را پر می‌کند تا آرایش یکدست بنشیند.
+Q|"My T-zone gets oily by noon" describes ...|«منطقهٔ T صورتم تا ظهر چرب می‌شود» چه چیزی را توصیف می‌کند؟|oily skin on the forehead and nose|dry skin on the cheeks|sensitive skin|The T-zone is the forehead, nose and chin, where oil shows first.|منطقهٔ T پیشانی، بینی و چانه است؛ جایی که چربی اول دیده می‌شود.
+
+J|base|2|foundation|Foundation and the right shade|کرم‌پودر و انتخاب رنگ درست|adults||Coverage, finish and the one thing that decides whether it looks like skin: the shade.|پوشش، بافت و تنها چیزی که تعیین می‌کند شبیه پوست باشد: رنگ.
+O|ask for your shade and describe your undertone.|رنگ خودت را بپرس و ته‌رنگ پوستت را بگو.
+O|say what coverage and finish you want.|بگو چه میزان پوشش و چه بافتی می‌خواهی.
+O|explain why a foundation does or does not match.|توضیح بده چرا یک کرم‌پودر با پوستت می‌خواند یا نه.
+W|foundation|/faʊnˈdeɪʃn/|noun|کرم‌پودر|Tinted makeup worn over the whole face to even out the skin.|makeup|foundation|A1|I wear light foundation on weekdays.|روزهای کاری کرم‌پودر سبک می‌زنم.|
+W|shade|/ʃeɪd/|noun|رنگ|One exact color in a range of makeup colors.|makeup|swatch|A2|This shade is too yellow for me.|این رنگ برای من زیادی زرد است.|
+W|undertone|/ˈʌndərtoʊn/|noun|ته‌رنگ|The warm, cool or neutral color under the surface of the skin.|makeup|sun|B1|My undertone is warm, so I look for peach shades.|ته‌رنگم گرم است، پس رنگ‌های هلویی می‌گیرم.|
+W|coverage|/ˈkʌvərɪdʒ/|noun|پوشش|How much a product hides: sheer, medium or full.|makeup|palette|A2|I want medium coverage, not full.|پوشش متوسط می‌خواهم، نه کامل.|
+W|tinted moisturizer|/ˈtɪntɪd ˈmɔɪstʃəraɪzər/|noun|مرطوب‌کنندهٔ رنگی|A light cream with a little color, between skincare and foundation.|makeup|jar|A2|In summer I switch to a tinted moisturizer.|تابستان به مرطوب‌کنندهٔ رنگی روی می‌آورم.|
+W|finish|/ˈfɪnɪʃ/|noun|بافت پایانی|The way makeup looks when it is done: matte, satin or dewy.|makeup|highlighter|B1|I like a dewy finish in winter.|زمستان بافت درخشان را دوست دارم.|
+X|expression|What's your shade?|رنگت چیست؟|The standard question in a store or between friends.|پرسش رایج در فروشگاه یا بین دوستان.|neutral|What's your shade in this one?|رنگت در این یکی چیست؟|
+X|expression|It's a pretty good match.|رنگش خیلی خوب با من می‌خواند.|Says the color is close to your skin.|می‌گوید رنگ نزدیک پوستت است.|neutral|In daylight it's a pretty good match.|زیر نور روز رنگش خیلی خوب می‌خواند.|
+X|expression|It's one shade too dark.|یک درجه تیره‌تر از من است.|The most useful sentence in a makeup aisle.|مفیدترین جمله در راهروی آرایش.|neutral|This one is one shade too dark for my neck.|این یکی یک درجه برای گردنم تیره است.|
+X|expression|Build it up in thin layers.|لایه‌لایه و نازک بزن.|Says how to reach more coverage without a mask.|می‌گوید چطور بدون ماسک شدن پوشش را بیشتر کنی.|neutral|Build it up in thin layers instead of one thick one.|جای یک لایهٔ ضخیم، لایه‌لایه و نازک بزن.|
+X|idiom|It's like a second skin.|مثل پوست دوم است.|Literally, a layer so thin it moves with the face; figuratively, something that fits you perfectly.|به‌طور تحت‌اللفظی، لایه‌ای آن‌قدر نازک که با صورت حرکت می‌کند؛ به‌طور مجازی، چیزی که کامل با تو می‌خواند.|neutral|This foundation is like a second skin.|این کرم‌پودر مثل پوست دوم است.|
+P|It's + [one shade] + too [dark/light/yellow].|This one is one shade too light.|این یکی یک درجه روشن‌تر از من است.|The frame for every shade complaint.|قالب هر شکایت از رنگ.
+P|I'm looking for + [coverage] + coverage.|I'm looking for medium coverage.|دنبال پوشش متوسط هستم.|Say the coverage before the product name.|پوشش را پیش از نام محصول بگو.
+S|My neck and my face are two different shades.|گردن و صورتم دو رنگ متفاوت‌اند.|A real problem, said plainly, which invites help.|مشکلی واقعی و ساده که کمک می‌طلبد.|B1|neutral|My face is darker than my neck.
+S|I match foundation to my jawline, not my hand.|کرم‌پودر را با خط فکم می‌سنجم، نه با دستم.|Explains a technique in one line.|یک تکنیک را در یک خط توضیح می‌دهد.|B1|neutral|I test it along my jaw.
+D|At the counter|پشت پیشخوان|Mina|Leila
+L|Mina|Hi, I'm looking for a foundation for dry skin.|سلام، دنبال کرم‌پودر برای پوست خشک هستم.
+L|Leila|Of course. What's your shade, roughly?|البته. رنگت تقریباً چیست؟
+L|Mina|Medium, with a warm undertone. My neck is lighter than my face.|متوسط، با ته‌رنگ گرم. گردنم از صورتم روشن‌تر است.
+L|Leila|Let me swatch two on your jawline.|بگذار دو تا را روی خط فک تو بزنم.
+L|Mina|This one is one shade too dark.|این یکی یک درجه تیره است.
+L|Leila|Try this. It's a pretty good match in daylight.|این را امتحان کن. زیر نور روز خیلی خوب می‌خواند.
+L|Mina|It feels like a second skin. I'll take it.|حس پوست دوم را دارد. همین را می‌گیرم.
+L|Leila|Build it up in thin layers and it will last.|لایه‌لایه و نازک بزن، دوام می‌آورد.
+C|Shopping in daylight|خرید زیر نور روز|You are in a store with warm lights and cannot tell if the shade is right.|در فروشگاهی با نور گرم هستی و نمی‌توانی درست بودن رنگ را تشخیص دهی.|Ask to check it near the window.|بخواه آن را نزدیک پنجره بررسی کنی.|Can I look at it near the window? These lights make everything warmer.|می‌توانم نزدیک پنجره نگاهش کنم؟ این نورها همه چیز را گرم‌تر نشان می‌دهند.
+C|The yellow face|صورت زرد|Your friend's foundation looks yellow in photos.|کرم‌پودر دوستت در عکس‌ها زرد می‌زند.|Explain the undertone problem gently.|مشکل ته‌رنگ را آرام توضیح بده.|I think the undertone is too warm for you. Try something neutral.|فکر می‌کنم ته‌رنگش برای تو زیادی گرم است. یک رنگ خنثی امتحان کن.
+Q|Where should foundation be tested?|کرم‌پودر کجا باید امتحان شود؟|along the jawline|on the back of the hand|on the wrist|The jawline shows how the face and the neck meet, which is the line people see.|خط فک نشان می‌دهد صورت و گردن کجا به هم می‌رسند؛ همان خطی که دیده می‌شود.
+Q|What does "medium coverage" mean?|«پوشش متوسط» یعنی چه؟|it hides some redness but skin still shows|it hides everything|it has no color|Coverage is a scale: sheer, medium, full.|پوشش یک طیف است: شفاف، متوسط، کامل.
+Q|"It's one shade too dark" means the foundation is ...|«یک درجه تیره است» یعنی کرم‌پودر ...|a little darker than the skin|a little lighter than the skin|the wrong texture|One shade is the smallest step between two colors.|یک درجه، کوچک‌ترین فاصلهٔ بین دو رنگ است.
+
+J|conceal|3|concealer|Concealer, powder and setting|کانسیلر، پودر و تثبیت|adults||Hiding what foundation cannot, then locking it in place without a cakey finish.|پوشاندن آنچه کرم‌پودر نمی‌تواند، بعد تثبیتش بدون بافت سنگین.
+O|put concealer in the right place and order.|کانسیلر را در جای و ترتیب درست بگذار.
+O|set makeup with powder without creasing it.|آرایش را با پودر بدون خط افتادن تثبیت کن.
+O|say what to do when a product looks heavy.|بگو وقتی محصولی سنگین به نظر می‌رسد چه کار کن.
+W|concealer|/kənˈsilər/|noun|کانسیلر|A thick product used on small areas: dark circles, spots, redness.|makeup|concealer|A1|A little concealer under the eyes wakes me up.|کمی کانسیلر زیر چشم‌ها بیدارم می‌کند.|
+W|corrector|/kəˈrɛktər/|noun|کورکتور|A colored product that cancels a color, such as green for redness.|makeup|palette|B1|A peach corrector hides blue circles.|کورکتور هلویی حلقه‌های آبی را می‌پوشاند.|
+W|setting powder|/ˈsɛtɪŋ ˈpaʊdər/|noun|پودر تثبیت|Powder used on top of cream products to keep them from moving.|makeup|powder|A2|Setting powder keeps the T-zone matte.|پودر تثبیت منطقهٔ T را مات نگه می‌دارد.|
+W|translucent|/trænsˈlusnt/|adjective|بی‌رنگ|Clear powder that sets makeup without adding color.|makeup|powder|B1|Use translucent powder so the shade does not change.|پودر بی‌رنگ بزن تا رنگ عوض نشود.|
+W|creasing|/ˈkrisɪŋ/|noun|خط افتادن|The lines that appear when makeup gathers in a fold of skin.|makeup|liner|B1|Too much concealer causes creasing under the eyes.|کانسیلر زیاد باعث خط افتادن زیر چشم می‌شود.|
+W|puff|/pʌf/|noun|پاف|A soft pad used to press powder onto the skin.|makeup|sponge|A2|Press the powder in with a puff.|پودر را با پاف روی پوست فشار بده.|
+X|expression|Dot it under the eyes.|زیر چشم‌ها نقطه‌ای بزن.|The usual instruction for concealer.|دستور رایج برای کانسیلر.|neutral|Dot it under the eyes and tap it in.|زیر چشم‌ها نقطه بزن و با ضربه پخش کن.|
+X|expression|Tap it, don't drag it.|با ضربه بزن، نکش.|Protects the thin skin under the eyes.|از پوست نازک زیر چشم محافظت می‌کند.|neutral|Tap it, don't drag it, or it will crease.|با ضربه بزن، نکش، وگرنه خط می‌افتد.|
+X|expression|Bake it for a minute, then brush it away.|یک دقیقه بگذار بماند، بعد پاک کن.|Describes the setting trick without the jargon.|ترفند تثبیت را بدون اصطلاح توضیح می‌دهد.|informal|Bake it for a minute, then brush it away.|یک دقیقه بگذار بماند، بعد پاکش کن.|
+X|expression|It creases if you use too much.|اگر زیاد بزنی خط می‌افتد.|Names a problem and its cause in one line.|مشکل و علتش را در یک خط می‌گوید.|neutral|It creases if you use too much, so start small.|اگر زیاد بزنی خط می‌افتد، پس کم شروع کن.|
+X|idiom|A little goes a long way.|کمش زیاد کار می‌کند.|Literally, a tiny amount of concealer covers a lot of skin; figuratively, small efforts produce big results.|به‌طور تحت‌اللفظی، مقدار کمی کانسیلر پوست زیادی را می‌پوشاند؛ به‌طور مجازی، تلاش کم نتیجهٔ بزرگ می‌دهد.|neutral|A little goes a long way with this concealer.|این کانسیلر با مقدار کم، کار زیادی می‌کند.|
+P|Tap + [product] + under + [place].|Tap concealer under the eyes.|کانسیلر را زیر چشم با ضربه بزن.|Every small-area product takes tap, not rub.|هر محصول ناحیهٔ کوچک با ضربه زده می‌شود، نه مالش.
+P|If it + [problem], + [fix].|If it creases, use less next time.|اگر خط می‌افتد، دفعهٔ بعد کمتر بزن.|One line for a problem and its fix.|یک خط برای مشکل و راه‌حلش.
+S|I only put concealer where I need it.|کانسیلر را فقط جایی که لازم دارم می‌زنم.|Explains a habit that prevents a heavy look.|عادتی را توضیح می‌دهد که از سنگینی جلوگیری می‌کند.|A2|neutral|I use it only on the spots.
+S|Setting powder changed how long my makeup lasts.|پودر تثبیت مدت دوام آرایشم را عوض کرد.|Recommends something because of its effect.|چیزی را به خاطر تأثیرش توصیه می‌کند.|B1|neutral|Powder made my makeup last longer.
+D|Under the bathroom light|زیر نور دستشویی|Roya|Sahar
+L|Roya|My concealer creases after an hour. What am I doing wrong?|کانسیلرم بعد از یک ساعت خط می‌افتد. چه اشتباهی می‌کنم؟
+L|Sahar|How much do you use? A little goes a long way.|چقدر می‌زنی؟ کمش زیاد کار می‌کند.
+L|Roya|Maybe three dots under each eye.|شاید سه نقطه زیر هر چشم.
+L|Sahar|That is a lot. Dot it once, then tap it, don't drag it.|این خیلی است. یک بار نقطه بزن، بعد با ضربه بزن، نکش.
+L|Roya|And then powder?|و بعد پودر؟
+L|Sahar|Bake it for a minute, then brush it away.|یک دقیقه بگذار بماند، بعد پاکش کن.
+L|Roya|With translucent powder?|با پودر بی‌رنگ؟
+L|Sahar|Yes, so the shade under your eyes does not change.|بله، تا رنگ زیر چشمت عوض نشود.
+C|The heavy under-eye|زیر چشم سنگین|By the end of the day the concealer has settled into every line.|آخر روز کانسیلر در همهٔ خط‌ها نشسته است.|Ask a friend what to change.|از دوستی بپرس چه چیزی را عوض کنی.|Mine creases by noon. Should I use less, or powder it?|مال من تا ظهر خط می‌افتد. کمتر بزنم یا پودر بزنم؟
+C|Green or peach|سبز یا هلویی|You have both a green and a peach corrector and do not know which to use.|هم کورکتور سبز داری هم هلویی و نمی‌دانی کدام را بزنی.|Explain which color cancels which.|توضیح بده کدام رنگ کدام را خنثی می‌کند.|Green cancels redness. Peach is for blue circles under the eyes.|سبز قرمزی را خنثی می‌کند. هلویی برای حلقه‌های آبی زیر چشم است.
+Q|What is the job of setting powder?|کار پودر تثبیت چیست؟|to keep cream products from moving|to add color|to clean the skin|Powder absorbs oil and locks the layers under it.|پودر چربی را جذب می‌کند و لایه‌های زیرش را قفل می‌کند.
+Q|Which powder will not change your foundation shade?|کدام پودر رنگ کرم‌پودر را عوض نمی‌کند؟|translucent powder|a tinted powder|a bronzer|Translucent means clear, so it adds no color.|بی‌رنگ یعنی شفاف، پس رنگی اضافه نمی‌کند.
+Q|Why not drag concealer under the eye?|چرا کانسیلر را زیر چشم نکشیم؟|the skin there is thin and creases easily|it is too expensive|it dries too fast|Thin skin folds, and dragging pushes product into the folds.|پوست نازک چین می‌خورد و کشیدن محصول را در چین‌ها می‌برد.
+
+J|cheeks|4|blush|Blush, bronzer and contour|رژگونه، برنزر و کانتور|adults||Adding color and shape back to the face, and the difference between warmth and shadow.|برگرداندن رنگ و فرم به صورت، و تفاوت گرما با سایه.
+O|say where each cheek product goes and why.|بگو هر محصول گونه کجا می‌رود و چرا.
+O|choose between blush, bronzer and contour for one result.|برای یک نتیجه، بین رژگونه، برنزر و کانتور انتخاب کن.
+O|describe a finish as matte, satin or dewy.|بافت را مات، ساتن یا درخشان توصیف کن.
+W|blush|/blʌʃ/|noun|رژگونه|Color worn on the cheeks to make the face look alive.|makeup|blush|A1|A little blush makes me look awake.|کمی رژگونه بیدارترم نشان می‌دهد.|
+W|bronzer|/ˈbrɑnzər/|noun|برنزر|A warm brown powder that makes the skin look sun-touched.|makeup|bronzer|A2|Bronzer goes where the sun would hit.|برنزر جایی می‌رود که آفتاب می‌تابید.|
+W|contour|/ˈkɑntʊr/|noun|کانتور|A cooler brown shade used to create a shadow.|makeup|palette|B1|Contour is cooler than bronzer.|کانتور از برنزر سردتر است.|
+W|highlighter|/ˈhaɪlaɪtər/|noun|هایلایتر|A shiny product that reflects light on the high points of the face.|makeup|highlighter|A2|Highlighter on the cheekbones catches the light.|هایلایتر روی استخوان گونه نور را می‌گیرد.|
+W|shimmer|/ˈʃɪmər/|noun|درخشش|Tiny reflective particles in a product.|makeup|highlighter|B1|I prefer shimmer on the eyes, not the cheeks.|درخشش را روی چشم دوست دارم، نه گونه.|
+W|matte|/mæt/|adjective|مات|A flat finish with no shine.|makeup|powder|A2|A matte finish is better for oily skin.|بافت مات برای پوست چرب بهتر است.|
+X|expression|Put blush on the apples of your cheeks.|رژگونه را روی برجستگی گونه بزن.|The classic placement, with the reason people use it.|جای کلاسیک، با دلیلش.|neutral|Put blush on the apples of your cheeks and blend up.|رژگونه را روی برجستگی گونه بزن و به بالا پخش کن.|
+X|expression|Contour goes where the light does not hit.|کانتور جایی می‌رود که نور نمی‌تابد.|Explains shadow in one sentence.|سایه را در یک جمله توضیح می‌دهد.|neutral|Contour goes where the light does not hit: under the cheekbone.|کانتور جایی می‌رود که نور نمی‌تابد: زیر استخوان گونه.|
+X|expression|It warms up my face.|صورتم را گرم می‌کند.|The everyday way to describe bronzer's effect.|روش روزمرهٔ توصیف اثر برنزر.|informal|A little bronzer warms up my face in winter.|کمی برنزر زمستان صورتم را گرم می‌کند.|
+X|expression|A touch of highlighter on the cheekbones.|کمی هایلایتر روی استخوان گونه.|Says the amount and the place in one phrase.|مقدار و جا را در یک عبارت می‌گوید.|neutral|A touch of highlighter on the cheekbones is enough.|کمی هایلایتر روی استخوان گونه کافی است.|
+X|idiom|It gives me a healthy glow.|به من درخشش سالم می‌دهد.|Literally, skin that looks rested and well; figuratively, a look of good health.|به‌طور تحت‌اللفظی، پوستی که استراحت‌کرده و خوب دیده می‌شود؛ به‌طور مجازی، ظاهر سلامتی.|neutral|This blush gives me a healthy glow.|این رژگونه به من درخشش سالم می‌دهد.|
+P|Put + [product] + on + [place].|Put bronzer on the top of your cheekbones.|برنزر را روی بالای استخوان گونه بزن.|The base frame for every placement instruction.|قالب پایه برای هر دستور جایگذاری.
+P|It gives me + [effect].|It gives me a bit of color.|کمی رنگ به من می‌دهد.|Say the result, not the product.|نتیجه را بگو، نه محصول را.
+S|Do I look shiny or glowing?|براق به نظر می‌رسم یا درخشان؟|A real question between friends before a photo.|پرسشی واقعی بین دوستان پیش از عکس.|A2|informal|Is my face too shiny?
+S|Bronzer and contour are not the same thing.|برنزر و کانتور یک چیز نیستند.|Corrects the most common makeup confusion.|رایج‌ترین سردرگمی آرایش را اصلاح می‌کند.|B1|neutral|Contour is cooler than bronzer.
+D|Two friends before a party|دو دوست پیش از مهمانی|Nazanin|Parisa
+L|Nazanin|Do I look shiny or glowing?|براق به نظر می‌رسم یا درخشان؟
+L|Parisa|Glowing. But a little powder on the T-zone would help.|درخشان. اما کمی پودر روی منطقهٔ T کمک می‌کند.
+L|Nazanin|Should I add bronzer?|برنزر بزنم؟
+L|Parisa|Just where the sun would hit, and a touch of highlighter.|فقط جایی که آفتاب می‌تابید، و کمی هایلایتر.
+L|Nazanin|Where does contour go?|کانتور کجا می‌رود؟
+L|Parisa|Where the light does not hit, under the cheekbone.|جایی که نور نمی‌تابد، زیر استخوان گونه.
+L|Nazanin|And blush?|و رژگونه؟
+L|Parisa|On the apples of your cheeks. It gives you a healthy glow.|روی برجستگی گونه‌ها. به تو درخشش سالم می‌دهد.
+C|The wrong brown|قهوه‌ای اشتباه|Your contour looks orange in photos and your friend asks why.|کانتور در عکس‌ها نارنجی می‌زند و دوستت می‌پرسد چرا.|Explain the difference from bronzer.|تفاوتش را با برنزر توضیح بده.|I used bronzer as contour. It is too warm for a shadow.|من برنزر را جای کانتور زدم. برای سایه زیادی گرم است.
+C|Oily by noon|ظهر چرب|Your blush has slid off and your nose is shining.|رژگونه‌ات رفته و بینی‌ات برق می‌زند.|Ask what to change in the routine.|بپرس در روتین چه چیزی را عوض کنی.|My blush disappears by noon. Would a cream blush last longer?|رژگونه‌ام تا ظهر محو می‌شود. رژگونهٔ کرمی بیشتر می‌ماند؟
+Q|Which product creates a shadow?|کدام محصول سایه می‌سازد؟|contour|blush|highlighter|Contour is a cool brown placed in the hollows of the face.|کانتور قهوه‌ای سردی است که در فرورفتگی‌های صورت زده می‌شود.
+Q|What does "matte" mean?|«مات» یعنی چه؟|a flat finish with no shine|a wet look|a sparkly look|Matte describes how light behaves on the surface.|مات نحوهٔ رفتار نور روی سطح را توصیف می‌کند.
+Q|Where does bronzer belong?|برنزر کجا زده می‌شود؟|where the sun would naturally hit|in the hollows of the cheeks|under the eyes|Bronzer imitates sun, so it follows the sun's path.|برنزر آفتاب را تقلید می‌کند، پس مسیر آفتاب را دنبال می‌کند.
+
+J|brows|5|tweezers|Eyebrows and how to talk about them|ابروها و راه گفتن دربارهٔ آن‌ها|adults||Shape, fill and the words people use when a brow goes wrong.|فرم، پر کردن و واژه‌هایی که وقتی ابرو خراب می‌شود به کار می‌بریم.
+O|ask for a brow shape and describe your own.|فرم ابرو بخواه و ابروی خودت را توصیف کن.
+O|fill in brows without making them look drawn on.|ابرو را پر کن بدون اینکه کشیده‌شده به نظر برسد.
+O|understand informal comments about brows.|جمله‌های غیررسمی دربارهٔ ابرو را بفهم.
+W|brow pencil|/braʊ ˈpɛnsəl/|noun|مداد ابرو|A pencil used to draw short hairs into the gaps of a brow.|makeup|liner|A1|My brow pencil is one shade lighter than my hair.|مداد ابرویم یک درجه روشن‌تر از مویم است.|
+W|brow gel|/braʊ dʒɛl/|noun|ژل ابرو|A gel that holds brow hairs in place.|makeup|mascara|A2|Brow gel keeps the hairs up all day.|ژل ابرو موها را تمام روز بالا نگه می‌دارد.|
+W|spoolie|/ˈspuli/|noun|برس اسپولی|A small brush that combs brow hairs into shape.|makeup|brush|B1|Brush them up with a spoolie first.|اول با اسپولی به بالا برس بزن.|
+W|arch|/ɑrtʃ/|noun|قوس ابرو|The curved high point of the eyebrow.|makeup|liner|B1|My arch is very high, so I soften it.|قوس ابرویم خیلی بلند است، پس نرمش می‌کنم.|
+W|patchy|/ˈpætʃi/|adjective|لکه‌لکه|Having thin or empty spots, said of brows or makeup.|makeup|brush|B1|My brows are patchy at the ends.|ابروهایم در انتها لکه‌لکه است.|
+W|lamination|/ˌlæmɪˈneɪʃn/|noun|لمینت ابرو|A treatment that sets brow hairs in a brushed-up shape for weeks.|makeup|mirror|B2|Brow lamination lasts about six weeks.|لمینت ابرو حدود شش هفته می‌ماند.|
+X|expression|Fill in the gaps, not the whole brow.|جاهای خالی را پر کن، نه تمام ابرو.|The rule that keeps brows from looking painted.|قاعده‌ای که مانع رنگ‌آمیزی شدگی ابرو می‌شود.|neutral|Fill in the gaps, not the whole brow, with short strokes.|با ضربه‌های کوتاه جاهای خالی را پر کن، نه تمام ابرو.|
+X|expression|Brush the hairs up with a spoolie.|موها را با اسپولی به بالا برس بزن.|The first step of every brow routine.|نخستین مرحلهٔ هر روتین ابرو.|neutral|Brush the hairs up with a spoolie before you fill them.|پیش از پر کردن، موها را با اسپولی به بالا برس بزن.|
+X|idiom|She raised a few eyebrows.|چند ابرو بالا رفت.|Literally, brows lifted in surprise; figuratively, people were surprised or shocked.|به‌طور تحت‌اللفظی، ابروها از تعجب بالا رفت؛ به‌طور مجازی، مردم تعجب کردند یا شوکه شدند.|neutral|Her new brow shape raised a few eyebrows.|فرم جدید ابرویش چند ابرو بالا برد.|
+X|idiom|My brows are on fleek.|ابروهایم بی‌نقص است.|Literally, from slang for "on point"; figuratively, perfectly shaped and neat. Mostly said by younger speakers and now a little dated.|به‌طور تحت‌اللفظی، از زبان عامیانه به معنی «سر جای خود»؛ به‌طور مجازی، کاملاً مرتب و بی‌نقص. بیشتر میان جوان‌ترها و کمی قدیمی شده.|slang|My brows are on fleek today.|ابروهایم امروز بی‌نقص است.|
+X|expression|They look drawn on.|مثل نقاشی کشیده‌شده‌اند.|A criticism: too solid, too dark, too sharp.|نقدی: زیادی یکدست، زیادی تیره، زیادی تیز.|informal|They look drawn on when you use a black pencil.|وقتی مداد مشکی می‌زنی، مثل نقاشی کشیده‌شده به نظر می‌رسند.|
+P|Fill in + [place] + with + [product].|Fill in the ends with a brow pencil.|انتهای ابرو را با مداد ابرو پر کن.|Say the place before the tool.|جا را پیش از ابزار بگو.
+P|My brows are + [state].|My brows are thin at the ends.|ابروهایم در انتها نازک است.|Describe the brow before the fix.|ابرو را پیش از راه‌حل توصیف کن.
+S|Should I go thicker or keep the natural shape?|ضخیم‌تر کنم یا فرم طبیعی را نگه دارم؟|Asks for an opinion instead of a decision.|به جای تصمیم، نظر می‌خواهد.|B1|informal|Thicker, or natural?
+S|I only fill the tail of my brow.|فقط انتهای ابرویم را پر می‌کنم.|Shows a small, careful technique.|تکنیکی کوچک و دقیق را نشان می‌دهد.|A2|neutral|I fill only the ends.
+D|At the brow bar|در سالن ابرو|Yasmin|Dorsa
+L|Yasmin|I want a natural shape, nothing too thin.|فرم طبیعی می‌خواهم، نه خیلی نازک.
+L|Dorsa|Your arch is high already. I will only clean the edges.|قوس ابرویت از قبل بلند است. فقط کناره‌ها را تمیز می‌کنم.
+L|Yasmin|Please leave the middle alone. It is patchy there.|لطفاً وسط را دست نزن. آنجا لکه‌لکه است.
+L|Dorsa|Then I will fill the gaps with a pencil, not the whole brow.|پس جاهای خالی را با مداد پر می‌کنم، نه تمام ابرو.
+L|Yasmin|And brush them up at the end?|و آخرشان به بالا برس بزنم؟
+L|Dorsa|Yes, with a spoolie and a little gel.|بله، با اسپولی و کمی ژل.
+L|Yasmin|Last time they looked drawn on.|دفعهٔ قبل مثل نقاشی کشیده‌شده بودند.
+L|Dorsa|That was a dark pencil. We will use one shade lighter.|آن مداد تیره بود. یکی روشن‌تر استفاده می‌کنیم.
+C|The over-plucked brow|ابروی بیش از حد کنده|A friend regrets thinning her brows years ago.|دوستت از نازک کردن ابروهایش سال‌ها پیش پشیمان است.|Ask what she does now and offer one option.|بپرس حالا چه می‌کند و یک گزینه پیشنهاد بده.|Do you fill them in every day, or have you tried lamination?|هر روز پرشون می‌کنی، یا لمینت را امتحان کرده‌ای؟
+C|Feedback on a new shape|نظر دربارهٔ فرم جدید|You do not like a friend's new brow shape and she asks directly.|فرم جدید ابروی دوستت را دوست نداری و او مستقیم می‌پرسد.|Be kind and specific.|مهربان و دقیق باش.|The shape suits you. I would just soften the inner corner a little.|فرم به تو می‌آید. فقط گوشهٔ داخلی را کمی نرم‌تر می‌کنم.
+Q|Where should you start a brow?|ابرو را از کجا شروع کنیم؟|by brushing the hairs up|by drawing a dark outline|by filling the whole brow|Combing first shows where the gaps really are.|اول برس زدن نشان می‌دهد جاهای خالی واقعاً کجاست.
+Q|What does "patchy" mean for brows?|«لکه‌لکه» دربارهٔ ابرو یعنی چه؟|thin spots with no hair|very thick brows|brows with gel in them|Patchy describes uneven coverage of hair.|لکه‌لکه پوشش ناهموار مو را توصیف می‌کند.
+Q|"They look drawn on" is ...|«مثل نقاشی کشیده‌شده‌اند» چیست؟|a criticism of a brow that is too solid|a compliment|a description of gel|Drawn-on brows have no visible hairs, only a solid shape.|ابروی کشیده‌شده مو نشان نمی‌دهد، فقط یک شکل یکدست دارد.
+
+J|eyes|6|mascara|Eyes: shadow, liner and lashes|چشم: سایه، خط و مژه|adults||The smallest area with the most words: from a thin line to a smoky eye.|کوچک‌ترین ناحیه با بیشترین واژه: از یک خط نازک تا چشم دودی.
+O|ask for an eye look and say what suits you.|یک مدل چشم بخواه و بگو چه چیزی به تو می‌آید.
+O|give the order for shadow, liner and mascara.|ترتیب سایه، خط و ریمل را بگو.
+O|describe a problem: smudging, clumps, running.|مشکلی را توصیف کن: پخش شدن، گلوله شدن، ریختن.
+W|eyeshadow|/ˈaɪʃædoʊ/|noun|سایهٔ چشم|Color applied to the eyelid and around the eye.|makeup|palette|A1|This eyeshadow is a soft brown.|این سایهٔ چشم قهوه‌ای ملایم است.|
+W|eyeliner|/ˈaɪlaɪnər/|noun|خط چشم|A pencil or liquid used to draw a line along the lashes.|makeup|liner|A1|I only wear eyeliner on the top lid.|فقط بالای پلک خط چشم می‌زنم.|
+W|mascara|/mæˈskærə/|noun|ریمل|A product that darkens, lengthens and thickens the lashes.|makeup|mascara|A1|Waterproof mascara is hard to remove.|ریمل ضدآب سخت پاک می‌شود.|
+W|lash curler|/læʃ ˈkɜrlər/|noun|فرمژه|A tool that curls the lashes before mascara.|makeup|curler|A2|Curl your lashes before mascara, not after.|مژه را قبل از ریمل فرم بده، نه بعدش.|
+W|false lashes|/fɔls ˈlæʃɪz/|noun|مژهٔ مصنوعی|Strips or clusters of hair glued along the lash line.|makeup|mascara|B1|False lashes make a photo look finished.|مژهٔ مصنوعی عکس را کامل نشان می‌دهد.|
+W|crease|/kris/|noun|گودی پلک|The fold above the eyelid where shadow is blended.|makeup|palette|B1|Put the darker shade in the crease.|سایهٔ تیره‌تر را در گودی پلک بزن.|
+X|expression|Wing it out at the corner.|آخرش را در گوشهٔ چشم بالا بکش.|The instruction for a winged liner.|دستور خط چشم بال‌دار.|neutral|Wing it out at the corner, following the lower lash line.|آخرش را در گوشهٔ چشم، در امتداد خط مژهٔ پایین بکش.|
+X|expression|Two coats, no clumps.|دو لایه، بدون گلوله.|The normal standard for mascara.|استاندارد معمول ریمل.|neutral|Two coats, no clumps, and let it dry between them.|دو لایه، بدون گلوله، و بین‌شان بگذار خشک شود.|
+X|expression|It smudged by the afternoon.|بعدازظهر پخش شد.|The most common complaint about eye makeup.|رایج‌ترین شکایت از آرایش چشم.|informal|My liner smudged by the afternoon.|خط چشمم بعدازظهر پخش شد.|
+X|expression|It makes my eyes look bigger.|چشم‌هایم را بزرگ‌تر نشان می‌دهد.|Says the effect, which is what people actually want.|اثر را می‌گوید، که همان چیزی است که مردم می‌خواهند.|neutral|A little liner makes my eyes look bigger.|کمی خط چشم چشم‌هایم را بزرگ‌تر نشان می‌دهد.|
+X|idiom|She did not bat an eye.|پلک هم نزد.|Literally, not moving the eyelashes; figuratively, showing no reaction at all.|به‌طور تحت‌اللفظی، مژه هم تکان نداد؛ به‌طور مجازی، هیچ واکنشی نشان نداد.|neutral|She paid that price and did not bat an eye.|آن قیمت را داد و پلک هم نزد.|
+P|Apply + [product] + to + [area].|Apply a light shade to the whole lid.|یک سایهٔ روشن روی تمام پلک بزن.|The plain frame for every eye instruction.|قالب ساده برای هر دستور چشم.
+P|It makes my eyes look + [adjective].|It makes my eyes look wider.|چشم‌هایم را فراخ‌تر نشان می‌دهد.|Talk about the result, not the product.|دربارهٔ نتیجه حرف بزن، نه محصول.
+S|I cannot do a smoky eye without looking tired.|بدون اینکه خسته به نظر برسم نمی‌توانم چشم دودی بزنم.|Honest, and it invites a technique.|صادقانه است و تکنیک می‌طلبد.|B1|informal|Smoky eyes just make me look tired.
+S|Waterproof mascara runs less, but it is harder to take off.|ریمل ضدآب کمتر می‌ریزد، اما پاک کردنش سخت‌تر است.|Gives both sides of a choice.|هر دو سوی یک انتخاب را می‌گوید.|B1|neutral|Waterproof lasts longer but is harder to remove.
+D|Getting ready for a wedding|آماده شدن برای عروسی|Shiva|Mahsa
+L|Shiva|Can you do a soft smoky eye on me?|می‌توانی برایم چشم دودی ملایم بزنی؟
+L|Mahsa|Sure. Close your eye. A little shadow in the crease first.|حتماً. چشمت را ببند. اول کمی سایه در گودی پلک.
+L|Shiva|Not too dark. Last time it smudged by the afternoon.|نه خیلی تیره. دفعهٔ قبل بعدازظهر پخش شد.
+L|Mahsa|I will use a cream shadow, then set it with powder.|از سایهٔ کرمی استفاده می‌کنم، بعد با پودر تثبیتش می‌کنم.
+L|Shiva|And a wing?|و خط بال‌دار؟
+L|Mahsa|A small one. Wing it out at the corner, following your lash line.|یک کوچک. آخرش را در گوشهٔ چشم، در امتداد خط مژه بکش.
+L|Shiva|Mascara?|ریمل؟
+L|Mahsa|Two coats, no clumps. Curl your lashes first.|دو لایه، بدون گلوله. اول مژه‌ها را فرم بده.
+L|Shiva|It makes my eyes look bigger already.|همین حالا چشم‌هایم را بزرگ‌تر نشان می‌دهد.
+C|Mascara on the lid|ریمل روی پلک|By noon there is a black mark under each eye.|تا ظهر زیر هر چشم یک لکهٔ مشکی است.|Ask a friend what is causing it.|از دوستی بپرس علتش چیست.|It transfers under my eyes by noon. Is it the mascara or the cream shadow?|تا ظهر زیر چشمم می‌افتد. تقصیر ریمل است یا سایهٔ کرمی؟
+C|First winged liner|اولین خط بال‌دار|You have never worn winged liner and have a party tonight.|هرگز خط بال‌دار نزده‌ای و امشب مهمانی داری.|Ask for the simplest version.|ساده‌ترین شکل را بخواه.|Can you show me the easiest wing? I have never done it.|می‌توانی ساده‌ترین خط بال‌دار را نشانم بدهی؟ هرگز نکرده‌ام.
+Q|What comes before mascara?|پیش از ریمل چه چیزی می‌آید؟|curling the lashes|setting powder|highlighter|Curl first: mascara makes lashes stiff and they can break in a curler.|اول فرم بده: ریمل مژه را سخت می‌کند و ممکن است در فرمژه بشکند.
+Q|"It smudged" means the makeup ...|«پخش شد» یعنی آرایش ...|spread under the eye|dried out|changed color|Smudging is makeup moving where it should not be.|پخش شدن یعنی آرایش جایی می‌رود که نباید.
+Q|What is the crease?|گودی پلک کجاست؟|the fold above the eyelid|the corner of the eye|the lower lash line|Shadow is blended into the crease to add depth.|سایه در گودی پلک پخش می‌شود تا عمق اضافه کند.
