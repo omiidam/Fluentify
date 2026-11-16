@@ -1122,6 +1122,23 @@ def check_kid_kb(src):
           "the adventure still prints a CEFR band over a child's mission list")
     check("m.title_fa || m.title_en" in src, "a mission stone is not Persian-first")
 
+    # ---- the starter cards: three pictures, inside the card --------------
+    # A nowrap string of emoji was wider than the 86px card on a phone, so the
+    # third picture sat on the border. The pictures are now boxes that flow.
+    chip = block("body.kids .kschip {", "body.kids .kschip:hover")
+    check("box-sizing: border-box" in chip,
+          "a starter card's padding is added outside its width")
+    check("overflow: hidden" in chip,
+          "a starter card lets long content cross its border")
+    art = block("body.kids .kschip .art {", "body.kids .kschip .art i {")
+    check("display: flex" in art and "flex-wrap: wrap" in art,
+          "the pictures on a starter card cannot flow onto a second line")
+    check("white-space: nowrap" not in art,
+          "the pictures on a starter card are still held on one unbreakable line")
+    check("max-width: 100%" in art, "the pictures may be wider than their card")
+    check("pics.appendChild(pic)" in src,
+          "the pictures are still one string, which cannot wrap")
+
     for needle, what in (
         ("h.textContent = 'روباه می‌گوید 🦊'", "the fox card is still titled in English"),
         ("h.textContent = 'یک واژه را برگردان 🃏'", "the flip card is still titled in English"),

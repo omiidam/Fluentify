@@ -7860,17 +7860,32 @@
   /* a child's starter is a card with the thing on it, not a chip with a word */
   body.kids .kschip {
     display: grid; justify-items: center; align-content: center; gap: 2px;
-    width: 86px; min-height: 88px; padding: 8px 6px;
+    /* the border and the padding live inside the 86px, so the card cannot be
+       wider than the box the row laid out for it */
+    box-sizing: border-box; width: 86px; min-height: 88px; padding: 8px 5px;
     border-radius: 18px; background: #fff8ea; color: var(--k-ink);
     border: 2px solid var(--k-c3); box-shadow: 0 4px 0 var(--k-c3);
     font: inherit; cursor: pointer;
+    /* the last line of defence: a word too long for the card is clipped, never
+       printed across the border */
+    overflow: hidden;
   }
+  /* Three pictures on one card: a flex row that wraps. A nowrap string of
+     emoji was wider than the card on a phone, so the fish sat on the border. */
   body.kids .kschip .art {
-    font-size: 16px; letter-spacing: 1px; line-height: 1.15;
-    white-space: nowrap;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 1px; max-width: 100%; min-width: 0;
+    /* three pictures share the 56px inside this card, so the size is set to
+       fit them on one line (3 x 1.27em at 13.5px = 51px plus the gaps) */
+    font-size: 13.5px; line-height: 1.1; letter-spacing: 0;
   }
+  body.kids .kschip .art i { font-style: normal; line-height: 1; }
   body.kids .kschip .cap { font-size: 12px; font-weight: 800; color: var(--k-ink); }
   body.kids .kschip .sub { font-size: 10.5px; color: var(--k-ink-2); }
+  /* a caption is centred and may break; it is never wider than its card */
+  body.kids .kschip .cap, body.kids .kschip .sub {
+    max-width: 100%; text-align: center; white-space: normal; overflow-wrap: anywhere;
+  }
   body.kids .kschip:hover { transform: translateY(-2px) rotate(-1deg); }
   body.kids .kschip:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--k-c3); }
   body.kids .kschip:focus-visible { outline: 3px solid var(--k-focus); outline-offset: 3px; }
@@ -11552,7 +11567,14 @@ function renderStarters() {
       const pics = document.createElement('span');
       pics.className = 'art';
       pics.setAttribute('aria-hidden', 'true');
-      pics.textContent = art(query, label).join(' ');
+      /* one element per picture: a single text node of emoji and spaces cannot
+         wrap the way a row of boxes can, and on a narrow phone it ran over the
+         card's edge */
+      art(query, label).forEach((face) => {
+        const pic = document.createElement('i');
+        pic.textContent = face;
+        pics.appendChild(pic);
+      });
       const cap = document.createElement('span');
       cap.className = 'cap';
       cap.textContent = label;
