@@ -165,7 +165,7 @@ def main() -> int:
     # canned sentences per topic, and it is gone: the panel is five journey
     # cards and nothing else.
     phrases = fn_body(src, "loadPhrases")
-    for jid in ("sports", "makeup", "food", "tech"):
+    for jid in ("sports", "makeup", "food", "tech", "entertainment"):
         check(f"the Sentences panel offers the {jid} journey",
               f"Journey.card('{jid}', false)" in phrases)
     check("the Sentences panel still opens travel from the same list",

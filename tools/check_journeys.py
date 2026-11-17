@@ -79,6 +79,25 @@ REQUIRED_FOOD = [
     "bill", "tip", "split", "reservation", "takeaway", "leftovers",
 ]
 
+# What an entertainment glossary has to name before it can call itself
+# complete. The brief named five areas - films and series, music and concerts,
+# books and storytelling, games and hobbies, reviews and recommendations - and
+# this is the vocabulary that covers all five without a hole.
+REQUIRED_ENTERTAINMENT = [
+    "film", "genre", "plot", "character", "scene", "ending",
+    "episode", "season", "series", "cliffhanger", "binge-watch", "spin-off",
+    "ticket", "screen", "subtitles", "popcorn", "trailer", "row",
+    "song", "album", "track", "lyrics", "melody", "beat",
+    "guitar", "piano", "drums", "violin", "trumpet", "microphone",
+    "concert", "stage", "audience", "encore", "venue", "festival",
+    "novel", "author", "chapter", "cover", "bookmark", "library",
+    "storyteller", "narrator", "fairy tale", "myth", "twist", "quote",
+    "video game", "console", "controller", "level", "player", "graphics",
+    "hobby", "pastime", "board game", "collection", "puzzle", "club",
+    "review", "rating", "critic", "opinion", "recommend", "spoiler",
+    "recommendation", "must-see", "overrated", "underrated", "classic", "taste",
+]
+
 # The sports the brief names, by the ids the profiles use.
 REQUIRED_SPORTS = [
     "soccer", "football", "basketball", "volleyball", "rugby", "cricket",
@@ -204,17 +223,17 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds the travel, sports, makeup, technology and food journeys",
-          {"travel", "sports", "makeup", "tech", "food"} <= set(by_id),
-          str(sorted(by_id)))
+    check("the file holds all six journeys",
+          {"travel", "sports", "makeup", "tech", "food", "entertainment"}
+          <= set(by_id), str(sorted(by_id)))
 
-    for jid in ("travel", "sports", "makeup", "tech", "food"):
+    for jid in ("travel", "sports", "makeup", "tech", "food", "entertainment"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
-        if jid in ("makeup", "tech", "food"):
+        if jid in ("makeup", "tech", "food", "entertainment"):
             # Makeup, technology and food are grown-up subjects in this app:
             # the adult experience offers them and the kid experience never
             # does.
@@ -263,12 +282,19 @@ def main() -> int:
     check("food stage order is 1..12",
           [s.get("order") for s in fstages] == list(range(1, 13)),
           str([s.get("order") for s in fstages]))
-    check("food stage order is 1..14" if False else "sports stage order is 1..14",
+    ent = by_id.get("entertainment") or {"stages": []}
+    estages = ent.get("stages") or []
+    check("the entertainment journey has twelve stages", len(estages) == 12,
+          str(len(estages)))
+    check("entertainment stage order is 1..12",
+          [s.get("order") for s in estages] == list(range(1, 13)),
+          str([s.get("order") for s in estages]))
+    check("sports stage order is 1..14",
           [s.get("order") for s in sstages] == list(range(1, 15)),
           str([s.get("order") for s in sstages]))
     for jid, stages in (("travel", tstages), ("sports", sstages),
                         ("makeup", mstages), ("tech", cstages),
-                        ("food", fstages)):
+                        ("food", fstages), ("entertainment", estages)):
         ids = [s.get("id") for s in stages]
         check(f"{jid}: stage ids are unique", len(set(ids)) == len(ids), str(ids))
         check(f"{jid}: every stage declares its audience",
@@ -284,6 +310,8 @@ def main() -> int:
     for st in cstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
     for st in fstages:
+        check_stage(st["id"], st, needs_refs=False, needs_words=True)
+    for st in estages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
 
     # ------------------------------------------------------- the travel join --
@@ -504,10 +532,64 @@ def main() -> int:
     check("the food card names its own picture",
           "pot:" in src[src.index("const ART = {"):src.index("function art(key, label)")])
 
+    # --------------------------------------------- the entertainment glossary --
+    ewords = [w for st in estages for w in (st.get("words") or [])]
+    eexprs = [x for st in estages for x in (st.get("expressions") or [])]
+    eterms = " | ".join([w.get("en", "") for w in ewords]
+                        + [x.get("en", "") for x in eexprs]).lower()
+    eabsent = [t for t in REQUIRED_ENTERTAINMENT if t not in eterms]
+    check("the entertainment glossary names every screen, stage, shelf and review word",
+          not eabsent, str(eabsent))
+    check("the entertainment glossary is big enough to be a glossary",
+          len(ewords) >= 60, str(len(ewords)))
+    check("the entertainment journey teaches at least 50 expressions and idioms",
+          len(eexprs) >= 50, str(len(eexprs)))
+    check("no entertainment word is defined twice with a different meaning",
+          len({w.get("en") for w in ewords}) == len(ewords),
+          str([w.get("en") for w in ewords
+               if [x.get("en") for x in ewords].count(w.get("en")) > 1][:4]))
+    check("every entertainment word carries a reading, a class, a Persian and an example",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos")
+              and w.get("fa") and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa")
+              for w in ewords),
+          str([w.get("en") for w in ewords
+               if not (IPA.search(w.get("ipa") or "") and w.get("pos")
+                       and w.get("fa") and w.get("def_en") and w.get("level")
+                       and w.get("example_en") and w.get("example_fa"))][:4]))
+    eidioms = [x for x in eexprs if x.get("kind") == "idiom"]
+    check("the entertainment journey teaches at least 15 idioms", len(eidioms) >= 15,
+          str(len(eidioms)))
+    check("every entertainment idiom separates the literal reading from the figurative one",
+          all(both_readings(x) for x in eidioms),
+          str([x.get("en") for x in eidioms if not both_readings(x)][:4]))
+    check("every entertainment idiom has an example in context",
+          all(x.get("example_en") and x.get("example_fa") for x in eidioms))
+    check("the entertainment journey labels slang as slang",
+          any(x.get("register") == "slang" for x in eexprs),
+          str(sorted({x.get("register") for x in eexprs})))
+    check("the entertainment journey mixes phrasal verbs and collocations",
+          {x.get("kind") for x in eexprs} >= {"idiom", "expression",
+                                              "phrasal_verb", "collocation"},
+          str(sorted({x.get("kind") for x in eexprs})))
+    estats = ent.get("stats") or {}
+    check("the entertainment journey counts its own statistics",
+          estats.get("stages") == len(estages) and estats.get("words") == len(ewords)
+          and estats.get("expressions") == len(eexprs),
+          str(estats))
+    check("the entertainment journey is offered in the adult sentence panel",
+          "Journey.card('entertainment', false)" in src)
+    check("the kid sentence panel never offers entertainment",
+          "Journey.card('entertainment', true)" not in src
+          and "Journey.card('entertainment'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+
     # ------------------------------------------------- the card photographs --
     brand = ROOT / "brand"
     photos = {"travel": "journey-travel.jpg", "sports": "journey-sports.jpg",
-              "makeup": "journey-makeup.jpg", "food": "journey-food.jpg"}
+              "makeup": "journey-makeup.jpg", "food": "journey-food.jpg",
+              "tech": "journey-tech.jpg",
+              "entertainment": "journey-entertainment.jpg"}
     for key, name in photos.items():
         path = brand / name
         check(f"the {key} card has its photograph", path.exists(), str(path))
@@ -604,6 +686,9 @@ def main() -> int:
     notes.append(f"tech: {len(cstages)} stages, {len(cwords)} glossary words "
                  f"with IPA, {len(cexprs)} expressions and idioms "
                  f"({len(cidioms)} idioms), adult-only")
+    notes.append(f"entertainment: {len(estages)} stages, {len(ewords)} glossary "
+                 f"words with IPA, {len(eexprs)} expressions and idioms "
+                 f"({len(eidioms)} idioms), adult-only, photographed card")
     notes.append(f"food: {len(fstages)} stages, {len(fwords)} glossary words "
                  f"with IPA, {len(fexprs)} expressions and idioms "
                  f"({len(fidioms)} idioms), adult-only, photographed card")

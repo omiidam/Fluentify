@@ -148,6 +148,26 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "entertainment",
+        "topic": "entertainment",
+        # Adults only, like the rest of the extra journeys: reviews, taste and
+        # recommendations are grown-up conversation, and the kid experience
+        # never offers them.
+        "title_en": "Entertainment, Movies & Music Journey",
+        "title_fa": "سرگرمی، فیلم و موسیقی: از پرده تا کتاب",
+        "icon": "🎬",
+        "art": "video",
+        "audiences": ["adults"],
+        "blurb_en": ("Films and series, music and concerts, books, games and "
+                     "hobbies, and the words for a review worth trusting."),
+        "blurb_fa": ("فیلم و سریال، موسیقی و کنسرت، کتاب، بازی و سرگرمی، "
+                     "و واژه‌های یک نقد قابل‌اعتماد."),
+        "sources": ["tools/journeys_entertainment_a.txt",
+                    "tools/journeys_entertainment_b.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

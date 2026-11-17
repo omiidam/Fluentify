@@ -1,0 +1,208 @@
+# Entertainment, movies and music journey, stages 1-6. Rows are pipe-separated
+# and validated by tools/build_journeys.py; see its header for the field order
+# of each tag. Adult material: this journey is offered to the adult experience.
+
+J|movies|1|film|Films and genres|فیلم و ژانرها|adults||The words for a film, its story and its kind, and how to say what you thought of it.|واژه‌های یک فیلم، داستان و نوعش، و اینکه چطور بگویی چه فکری درباره‌اش داری.
+O|name the genre of a film and say what it is about.|ژانر یک فیلم را بگو و بگو دربارهٔ چیست.
+O|describe the plot, a character and a scene in a few sentences.|خط داستانی، یک شخصیت و یک صحنه را در چند جمله توصیف کن.
+O|say whether you liked the ending and why.|بگو پایان را دوست داشتی یا نه و چرا.
+W|film|/fɪlm/|noun|فیلم|A story told in moving pictures, shown in a cinema or at home.|entertainment|film|A1|We watched a French film last night.|دیشب یک فیلم فرانسوی دیدیم.|
+W|genre|/ˈʒɑnrə/|noun|ژانر|The kind a film belongs to, such as comedy, horror or drama.|entertainment|film|B1|Horror is my least favourite genre.|ترسناک کم‌محبوب‌ترین ژانر من است.|
+W|plot|/plɑt/|noun|خط داستانی|The series of events that make up a story.|entertainment|story|B1|The plot is simple but the acting is superb.|خط داستانی ساده است اما بازی‌ها فوق‌العاده‌اند.|
+W|character|/ˈkærəktər/|noun|شخصیت|A person in a story, played by an actor.|entertainment|mask|A2|My favourite character dies in the second half.|شخصیت محبوبم در نیمهٔ دوم می‌میرد.|
+W|scene|/sin/|noun|صحنه|One continuous piece of action in a film.|entertainment|clapper|A2|The opening scene is the best part.|صحنهٔ آغازین بهترین بخش است.|
+W|ending|/ˈɛndɪŋ/|noun|پایان|The way a story finishes.|entertainment|star|A2|The ending surprised everyone in the room.|پایان همهٔ حاضرین را غافلگیر کرد.|
+X|expression|What is it about?|دربارهٔ چیست؟|Asks for the story, not the genre.|دربارهٔ داستان می‌پرسد، نه ژانر.|neutral|What is it about, in one sentence?|در یک جمله دربارهٔ چیست؟|
+X|expression|It is based on a true story.|بر اساس یک داستان واقعی است.|Says where the material came from.|می‌گوید материал از کجا آمده.|neutral|It is based on a true story from the sixties.|بر اساس یک داستان واقعی از دههٔ شصت است.|
+X|collocation|It got great reviews.|نقدهای خوبی گرفت.|Get reviews is the fixed phrase for what critics wrote.|«نقد گرفتن» عبارت ثابت برای نوشتهٔ منتقدان است.|neutral|It got great reviews but nobody went to see it.|نقدهای خوبی گرفت اما هیچ‌کس نرفت ببیندش.|
+X|idiom|It kept me on the edge of my seat.|مرا روی لبهٔ صندلی نگه داشت.|Literally, sitting forward at the edge of the seat; figuratively, so exciting that you could not relax.|به‌طور تحت‌اللفظی، روی لبهٔ صندلی نشستن؛ به‌طور مجازی، آنقدر هیجان‌انگیز که آرام نمی‌گیری.|neutral|The last twenty minutes kept me on the edge of my seat.|بیست دقیقهٔ آخر مرا روی لبهٔ صندلی نگه داشت.|
+X|idiom|The plot thickens.|داستان پیچیده‌تر می‌شود.|Literally, the story becomes more complicated; figuratively, the situation is getting more interesting and stranger.|به‌طور تحت‌اللفظی، داستان پیچیده‌تر می‌شود؛ به‌طور مجازی، ماجرا جالب‌تر و عجیب‌تر می‌شود.|neutral|Then her brother arrives, and the plot thickens.|بعد برادرش می‌رسد و داستان پیچیده‌تر می‌شود.|
+P|It is about + [person] + who + [verb].|It is about a teacher who moves to a village.|دربارهٔ معلمی است که به روستایی می‌رود.|The subject, then the person, then what they do.|اول موضوع، بعد شخص، بعد کاری که می‌کند.
+P|Have you seen + [title]?|Have you seen the new one?|جدیدش را دیده‌ای؟|Ask about a film without naming the genre.|دربارهٔ فیلم بپرس بی‌آنکه ژانر را نام ببری.
+S|I went in expecting a comedy and came out having cried for an hour.|با انتظار کمدی رفتم و بیرون آمدم در حالی که یک ساعت گریه کرده بودم.|Contrasts expectation with what happened.|انتظار و اتفاق را مقابل هم می‌گذارد.|B1|neutral|It was not the comedy I expected.
+S|The film is two hours long but it never once feels slow.|فیلم دو ساعت است اما حتی یک لحظه کند به نظر نمی‌رسد.|Praises pace with a negative.|ریتم را با جملهٔ منفی تحسین می‌کند.|B2|neutral|It never feels slow.
+D|After the film|بعد از فیلم|Sara|Omid
+L|Sara|So, what did you think?|خب، چه فکری می‌کنی؟
+L|Omid|I loved it. The plot is simple but the acting is excellent.|خیلی دوستش داشتم. خط داستانی ساده است اما بازی‌ها عالی‌اند.
+L|Sara|The ending felt rushed to me.|به نظر من پایان عجله‌ای بود.
+L|Omid|Really? I thought it was brave.|واقعاً؟ من فکر کردم جسورانه بود.
+L|Sara|Maybe. I wanted to know more about the sister.|شاید. می‌خواستم دربارهٔ خواهر بیشتر بدانم.
+L|Omid|There is a sequel planned, apparently.|ظاهراً دنباله‌ای در برنامه است.
+L|Sara|Then the plot thickens.|پس داستان پیچیده‌تر می‌شود.
+L|Omid|Let us see it together again next week.|بیا هفتهٔ بعد با هم دوباره ببینیمش.
+C|Choosing a film|انتخاب فیلم|Two friends want different genres and there is one screen free.|دو دوست ژانرهای متفاوت می‌خواهند و یک سالن آزاد است.|Find a film that suits both and say why.|فیلمی پیدا کن که به هر دو بخورد و دلیلش را بگو.|You hate horror and I hate musicals. What is left? The new drama got great reviews and it is based on a true story.|تو از ترسناک بدت می‌آید و من از موزیکال. چه چیزی می‌ماند؟ درام جدید نقدهای خوبی گرفته و بر اساس یک داستان واقعی است.
+C|The spoiled ending|پایان لو رفته|A friend starts describing the last scene before you have seen it.|دوستی پیش از دیدن فیلم، صحنهٔ آخر را تعریف می‌کند.|Stop them politely and ask for no details.|مؤدبانه متوقفش کن و جزئیات نخواه.|Wait, do not tell me the ending! Just say if it is good.|صبر کن، پایان را نگو! فقط بگو خوب است یا نه.
+Q|What do we call the kind a film belongs to?|نوعی که فیلم به آن تعلق دارد چه نام دارد؟|genre|plot|scene|Genre is the category, not the story.|«ژانر» دسته است، نه داستان.
+Q|The plot of a film is ...|خط داستانی فیلم چیست؟|the events of the story|the music|the poster|The plot is what happens, in order.|خط داستانی یعنی چه چیزی به ترتیب اتفاق می‌افتد.
+Q|"It kept me on the edge of my seat" means ...|«مرا روی لبهٔ صندلی نگه داشت» یعنی ...|it was very exciting|it was too long|it was boring|The seat is a picture of tension, not comfort.|صندلی تصویر تنش است، نه راحتی.
+
+J|series|2|tv|TV series and episodes|سریال و قسمت‌ها|adults||Episodes, seasons, cliffhangers and the words for watching one more than you meant to.|قسمت، فصل، پایان معلق و واژه‌هایی برای وقتی یکی بیشتر از آنچه می‌خواستی می‌بینی.
+O|talk about a series by season and episode.|دربارهٔ سریال با فصل و قسمت حرف بزن.
+O|say where you are in a series without spoiling it.|بگو کجای سریالی بدون لو دادن.
+O|describe a cliffhanger and how it made you feel.|پایان معلق را توصیف کن و بگو چه حسی داشت.
+W|episode|/ˈɛpɪsoʊd/|noun|قسمت|One part of a series, usually about an hour long.|entertainment|tv|A2|The third episode is the best one.|قسمت سوم بهترین است.|
+W|season|/ˈsizən/|noun|فصل|A group of episodes released together.|entertainment|calendar|A2|Season two is much darker than the first.|فصل دو خیلی تیره‌تر از اولی است.|
+W|series|/ˈsɪriz/|noun|سریال|A story told across many episodes.|entertainment|tv|A2|We started a new series on Friday.|جمعه سریال جدیدی را شروع کردیم.|
+W|cliffhanger|/ˈklɪfˌhæŋər/|noun|پایان معلق|An ending that leaves the story unresolved on purpose.|entertainment|cliff|B1|The season ends on a huge cliffhanger.|فصل با یک پایان معلق بزرگ تمام می‌شود.|
+W|binge-watch|/bɪndʒ wɑtʃ/|verb|پشت سر هم دیدن|Watch many episodes one after another.|entertainment|tv|B1|We binge-watched the whole season in two days.|کل فصل را دو روزه پشت سر هم دیدیم.|
+W|spin-off|/ˈspɪn ɔf/|noun|سری فرعی|A new series made from a character or idea of another.|entertainment|branch|B2|The spin-off is better than the original.|سری فرعی از اصل بهتر است.|
+X|expression|I am only on season two.|من فقط فصل دو هستم.|Says where you are so nobody spoils it.|می‌گوید کجایی تا کسی لو نده.|neutral|I am only on season two, so no details please.|من فقط فصل دو هستم، پس لطفاً جزئیات نه.|
+X|phrasal_verb|I binge-watched the whole season.|کل فصل را پشت سر هم دیدم.|Binge-watch is the phrasal verb for watching without stopping.|«پشت سر هم دیدن» فعل عبارتی برای تماشای بی‌وقفه است.|informal|I binge-watched the whole season over the weekend.|آخر هفته کل فصل را پشت سر هم دیدم.|
+X|expression|No spoilers, please.|لطفاً لو نده.|The one sentence that protects a story.|یک جمله که داستان را حفظ می‌کند.|neutral|No spoilers, please, I am two episodes behind.|لطفاً لو نده، من دو قسمت عقبم.|
+X|idiom|It ended on a cliffhanger.|با پایان معلق تمام شد.|Literally, someone left hanging from a cliff; figuratively, an ending that withholds the answer on purpose.|به‌طور تحت‌اللفظی، کسی از لبهٔ صخره آویزان ماند؛ به‌طور مجازی، پایانی که عمداً پاسخ را نگه می‌دارد.|neutral|It ended on a cliffhanger and now I have to wait a year.|با پایان معلق تمام شد و حالا باید یک سال صبر کنم.|
+X|expression|It is totally binge-worthy.|ارزش پشت‌سرهم‌دیدن دارد.|Binge-worthy is slang for a series you cannot stop watching.|«ارزش پشت‌سرهم‌دیدن» واژهٔ عامیانه برای سریالی است که نمی‌توانی رهایش کنی.|slang|The first episode is slow but it is totally binge-worthy by episode three.|قسمت اول کند است اما از قسمت سوم ارزش پشت‌سرهم‌دیدن دارد.|
+P|I am on season + [number].|I am only on season two.|من فقط فصل دو هستم.|Season plus a number says exactly where you are.|«فصل» به‌همراه شماره دقیقاً می‌گوید کجایی.
+P|It ended on a + [noun].|It ended on a cliffhanger.|با پایان معلق تمام شد.|Name how it ended, not what happened.|بگو چطور تمام شد، نه چه شد.
+S|The first two episodes are slow, but if you stick with it the story pulls you in.|دو قسمت اول کند است، اما اگر ادامه بدهی داستان تو را می‌کشد.|Gives a warning and a recommendation in one line.|در یک خط هشدار و پیشنهاد می‌دهد.|B1|neutral|Stick with it after the slow start.
+S|We agreed to one episode a night and then watched four.|قرار گذاشتیم شبی یک قسمت و بعد چهار قسمت دیدیم.|Shows a broken plan with the numbers.|نقشهٔ شکسته را با عدد نشان می‌دهد.|B1|neutral|We watched four instead of one.
+D|At the office|در محل کار|Neda|Kian
+L|Neda|Have you started the new series everyone is talking about?|سریال جدیدی را که همه از آن حرف می‌زنند شروع کرده‌ای؟
+L|Kian|I am only on season one, episode three.|من فقط فصل یک، قسمت سه هستم.
+L|Neda|Perfect, then no spoilers. Is it good?|عالی، پس لو نمی‌دهم. خوب است؟
+L|Kian|It is slow at first, but it is binge-worthy.|اول کند است، اما ارزش پشت‌سرهم‌دیدن دارد.
+L|Neda|Does it end on a cliffhanger?|با پایان معلق تمام می‌شود؟
+L|Kian|The first season does, apparently. Everyone is waiting for the second.|ظاهراً فصل اول همین‌طور است. همه منتظر فصل دوم‌اند.
+L|Neda|I will start it tonight, then.|پس امشب شروعش می‌کنم.
+L|Kian|Say goodbye to your evenings.|با شب‌هایت خداحافظی کن.
+C|The spoiler at lunch|لو دادن سر ناهار|A colleague describes the final episode while you are still on season one.|همکاری قسمت آخر را تعریف می‌کند و تو هنوز فصل یکی.|Ask them to stop without making it awkward.|بخواه متوقف شود بی‌آنکه فضا خراب شود.|Hold on, I am only on season one. Please do not tell me how it ends.|صبر کن، من فقط فصل یک هستم. لطفاً نگو چطور تمام می‌شود.
+C|One more episode|یک قسمت دیگر|It is midnight and there are three episodes left.|نیمه‌شب است و سه قسمت مانده.|Decide whether to stop and say it aloud.|تصمیم بگیر ادامه بدهی یا نه و بلند بگو.|If we watch one more, we will be useless tomorrow.|اگر یک قسمت دیگر ببینیم، فردا بی‌فایده‌ایم.
+Q|What is a season of a series?|فصل سریال چیست؟|a group of episodes released together|one actor's contract|the music|A season collects the episodes released as a set.|فصل مجموعهٔ قسمت‌هایی است که با هم منتشر می‌شوند.
+Q|What does a cliffhanger do?|پایان معلق چه می‌کند؟|leaves the story unresolved on purpose|ends the series for good|explains the ending|The point is to make you wait for the next part.|هدفش این است که منتظر قسمت بعد بمانی.
+Q|Binge-watching means ...|پشت سر هم دیدن یعنی ...|watching many episodes in a row|watching one episode a week|watching without sound|Binge means a long session, not a habit of one a week.|«پشت سر هم» یعنی نشست طولانی، نه هفته‌ای یک قسمت.
+
+J|cinema|3|ticket|At the cinema|در سینما|adults||Tickets, screens, subtitles and the sentences you need before the lights go down.|بلیت، سالن، زیرنویس و جمله‌هایی که پیش از خاموش شدن چراغ‌ها لازم داری.
+O|buy a ticket and choose a showing.|بلیت بخر و سانس را انتخاب کن.
+O|ask whether a film is subtitled or dubbed.|بپرس فیلم زیرنویس دارد یا دوبله است.
+O|complain politely about seats, sound or a late start.|مؤدبانه از صندلی، صدا یا شروع دیر شکایت کن.
+W|ticket|/ˈtɪkɪt/|noun|بلیت|The paper or code that lets you into a showing.|entertainment|ticket|A1|I bought two tickets for the eight o'clock showing.|دو بلیت برای سانس هشت خریدم.|
+W|screen|/skrin/|noun|سالن نمایش|The large surface a film is projected on, and the room it is in.|entertainment|screen|A2|Screen three is at the end of the corridor.|سالن سه انتهای راهرو است.|
+W|subtitles|/ˈsʌbˌtaɪtəlz/|noun|زیرنویس|The words of the film written at the bottom of the picture.|entertainment|speech|B1|The subtitles were too small to read.|زیرنویس‌ها آنقدر کوچک بودند که خوانده نمی‌شدند.|
+W|popcorn|/ˈpɑpˌkɔrn/|noun|پاپ‌کورن|Corn heated until it bursts, eaten at the cinema.|entertainment|popcorn|A1|We always share a large popcorn.|همیشه یک پاپ‌کورن بزرگ شریک می‌شویم.|
+W|trailer|/ˈtreɪlər/|noun|تریلر|A short selection of scenes shown to advertise a film.|entertainment|video|B1|The trailer gave away the best joke.|تریلر بهترین جوک را لو داد.|
+W|row|/roʊ/|noun|ردیف|A line of seats side by side.|entertainment|seat|A2|We were in the front row, which was a mistake.|در ردیف اول بودیم، که اشتباه بود.|
+X|expression|Two tickets for the eight o'clock showing, please.|دو بلیت برای سانس هشت، لطفاً.|The whole ticket request in one line.|کل درخواست بلیت در یک خط.|neutral|Two tickets for the eight o'clock showing, please, anywhere but the front.|دو بلیت برای سانس هشت، لطفاً، هر جا جز ردیف اول.|
+X|expression|Is it subtitled or dubbed?|زیرنویس دارد یا دوبله است؟|The question that decides whether you can follow it.|پرسشی که تعیین می‌کند می‌توانی دنبال کنی یا نه.|neutral|Is it subtitled or dubbed? I cannot follow a dub.|زیرنویس دارد یا دوبله؟ دوبله را نمی‌توانم دنبال کنم.|
+X|collocation|We got front row seats.|صندلی‌های ردیف اول را گرفتیم.|Front row seats is the fixed phrase for the closest places.|«صندلی ردیف اول» عبارت ثابت برای نزدیک‌ترین جاهاست.|neutral|We got front row seats and regretted it.|صندلی‌های ردیف اول را گرفتیم و پشیمان شدیم.|
+X|expression|The trailer gave too much away.|تریلر زیادی لو داد.|Gives away is what a trailer does when it shows the plot.|«لو دادن» کاری است که تریلر با نشان دادن داستان می‌کند.|informal|The trailer gave too much away, so the film felt slow.|تریلر زیادی لو داد، پس فیلم کند به نظر رسید.|
+X|idiom|It bombed at the box office.|در فروش شکست خورد.|Literally, the ticket office where seats are sold; figuratively, the film earned very little there.|به‌طور تحت‌اللفظی، باجهٔ فروش بلیت؛ به‌طور مجازی، فیلم در همان‌جا کم فروخت.|neutral|It bombed at the box office but the critics loved it.|در فروش شکست خورد اما منتقدان دوستش داشتند.|
+P|Two tickets for the + [time] + showing, please.|Two tickets for the eight o'clock showing, please.|دو بلیت برای سانس هشت، لطفاً.|Number, time, showing, please.|تعداد، زمان، سانس، لطفاً.
+P|Is it + [subtitled/dubbed]?|Is it subtitled or dubbed?|زیرنویس دارد یا دوبله است؟|Two choices, one question.|دو گزینه، یک پرسش.
+S|The sound was so loud that I could feel the explosions in my chest.|صدا آنقدر بلند بود که انفجارها را در سینه‌ام حس می‌کردم.|Describes an effect physically rather than saying loud.|اثر را جسمانی توصیف می‌کند نه با گفتن «بلند».|B2|neutral|The sound was painfully loud.
+S|We arrived late and had to sit in separate rows.|دیر رسیدیم و مجبور شدیم در ردیف‌های جدا بنشینیم.|Explains a consequence of being late.|نتیجهٔ دیر رسیدن را می‌گوید.|B1|neutral|Lateness split us across rows.
+D|At the box office|در باجهٔ بلیت|Mina|the cashier
+L|Mina|Two tickets for the nine o'clock showing, please.|دو بلیت برای سانس نه، لطفاً.
+L|the cashier|Screen two. Is it subtitled or dubbed?|سالن دو. زیرنویس یا دوبله؟
+L|Mina|Subtitled, please. We do not need the dubbed version.|زیرنویس، لطفاً. نسخهٔ دوبله را لازم نداریم.
+L|the cashier|That is thirteen euros. The film starts in ten minutes.|سیزده یورو. فیلم ده دقیقهٔ دیگر شروع می‌شود.
+L|Mina|Where is screen two?|سالن دو کجاست؟
+L|the cashier|Up the stairs and to the left, at the end.|بالای پله‌ها و سمت چپ، انتها.
+L|Mina|And the popcorn?|و پاپ‌کورن؟
+L|the cashier|The counter behind you is open until the film starts.|باجهٔ پشت سرت تا شروع فیلم باز است.
+C|The sold-out showing|سانس پر|The eight o'clock is full and the next one is in two hours.|سانس هشت پر است و سانس بعدی دو ساعت دیگر.|Ask for alternatives and choose one.|جایگزین بخواه و یکی را انتخاب کن.|The eight is full. What else is on tonight?|سانس هشت پر است. امشب چه چیز دیگری هست؟
+C|The broken subtitles|زیرنویس خراب|The subtitles stop after ten minutes.|زیرنویس بعد از ده دقیقه قطع می‌شود.|Tell a member of staff and ask for a fix.|به کارمند بگو و راه‌حل بخواه.|Excuse me, the subtitles have stopped. Can someone check screen three?|ببخشید، زیرنویس قطع شده. کسی می‌تواند سالن سه را بررسی کند؟
+Q|What are subtitles?|زیرنویس چیست؟|the words written at the bottom of the picture|the soundtrack|the poster|Subtitles are text, not sound.|زیرنویس متن است، نه صدا.
+Q|Which phrase means the film earned very little?|کدام عبارت یعنی فیلم کم فروخت؟|it bombed at the box office|it got great reviews|it sold out|Box office is the ticket counter, where the money is counted.|باجهٔ بلیت همان جایی است که پول شمرده می‌شود.
+Q|A trailer is ...|تریلر چیست؟|a short selection of scenes advertising a film|the full film|the cinema seat|A trailer advertises, it does not tell the whole story.|تریلر تبلیغ می‌کند و کل داستان را نمی‌گوید.
+
+J|music|4|music|Music and listening|موسیقی و شنیدن|adults||Songs, albums, lyrics and the words for a tune you cannot get out of your head.|آهنگ، آلبوم، متن ترانه و واژه‌هایی برای آهنگی که از سرت بیرون نمی‌رود.
+O|talk about a song, an album and its lyrics.|دربارهٔ یک آهنگ، آلبوم و متنش حرف بزن.
+O|say what kind of music you listen to and when.|بگو چه نوع موسیقی گوش می‌دهی و چه وقت.
+O|describe a tune that stays with you.|آهنگی را که با تو می‌ماند توصیف کن.
+W|song|/sɔŋ/|noun|آهنگ|A short piece of music with words.|entertainment|music|A1|That song has been in my head all day.|آن آهنگ تمام روز در سرم بوده.|
+W|album|/ˈælbəm/|noun|آلبوم|A collection of songs released together.|entertainment|disc|A2|Their new album is quieter than the last one.|آلبوم جدیدشان از قبلی آرام‌تر است.|
+W|track|/træk/|noun|قطعه|One song on an album.|entertainment|music|B1|Track four is the one everyone plays.|قطعهٔ چهار همان است که همه پخش می‌کنند.|
+W|lyrics|/ˈlɪrɪks/|noun|متن ترانه|The words of a song.|entertainment|speech|B1|The lyrics are simple but they stay with you.|متن ترانه ساده است اما با تو می‌ماند.|
+W|melody|/ˈmɛlədi/|noun|ملودی|The tune of a song, the part you hum.|entertainment|music|B1|The melody is sad and the words are funny.|ملودی غمگین است و کلمات خنده‌دار.|
+W|beat|/bit/|noun|ضرب|The regular pulse you feel in a song.|entertainment|drum|A2|The beat is what makes people dance.|ضرب همان چیزی است که مردم را به رقص می‌آورد.|
+X|expression|It is stuck in my head.|در سرم گیر کرده.|Says a tune keeps repeating without you choosing it.|می‌گوید آهنگی بی‌اختیار تکرار می‌شود.|neutral|I heard it once and now it is stuck in my head.|یک بار شنیدم و حالا در سرم گیر کرده.|
+X|expression|Turn it up.|صدایش را بلند کن.|The shortest request in a car or a kitchen.|کوتاه‌ترین درخواست در ماشین یا آشپزخانه.|informal|This is my favourite part, turn it up.|این بخش محبوب من است، صدایش را بلند کن.|
+X|collocation|I have had it on repeat all week.|تمام هفته روی تکرار گذاشته‌ام.|On repeat is the fixed phrase for playing one thing again and again.|«روی تکرار» عبارت ثابت برای پخش مکرر یک چیز است.|informal|I have had it on repeat all week and I am not tired of it.|تمام هفته روی تکرار گذاشته‌ام و خسته نشده‌ام.|
+X|idiom|It hit the right note.|دقیقاً درست بود.|Literally, a musician played the correct note; figuratively, it was exactly the right thing at the right moment.|به‌طور تحت‌اللفظی، نوازنده نُت درست را زد؛ به‌طور مجازی، دقیقاً درست‌ترین چیز در درست‌ترین لحظه بود.|neutral|Her speech hit the right note: warm but not sentimental.|حرف او دقیقاً درست بود: گرم اما نه احساساتی.|
+X|expression|That song slaps.|آن آهنگ عالی است.|Slaps is slang for music that is very good.|«می‌زند» در زبان عامیانه یعنی موسیقی خیلی خوب است.|slang|The new single slaps, honestly.|تک‌آهنگ جدید واقعاً عالی است.|
+P|I listen to + [kind] + when + [situation].|I listen to jazz when I cook.|وقتی آشپزی می‌کنم جاز گوش می‌دهم.|The kind, then the moment.|اول نوع، بعد لحظه.
+P|It is stuck in my + [place].|It is stuck in my head.|در سرم گیر کرده.|The phrase takes a place, not a reason.|این عبارت جا می‌گیرد، نه دلیل.
+S|I do not understand half the lyrics, but the melody is enough.|نصف متن را نمی‌فهمم، اما ملودی کافی است.|Separates understanding from enjoying.|فهمیدن را از لذت بردن جدا می‌کند.|B1|neutral|The melody carries it for me.
+S|Their early albums are rough, and that is exactly why I still play them.|آلبوم‌های اولشان خام است و دقیقاً برای همین هنوز پخششان می‌کنم.|Values a flaw as a reason.|یک نقص را بهانهٔ ارزش می‌کند.|B2|neutral|The rough early albums are the ones I play.
+D|Sharing headphones|همگوشی|Bahar|Reza
+L|Bahar|Listen to this. It has been stuck in my head for days.|به این گوش کن. چند روز است در سرم گیر کرده.
+L|Reza|That melody is beautiful. Who is it?|آن ملودی زیباست. از کیست؟
+L|Bahar|A band from the north. The whole album is good.|گروهی از شمال. کل آلبوم خوب است.
+L|Reza|What are the lyrics about?|متن دربارهٔ چیست؟
+L|Bahar|Growing up in a small town. Simple, but it works.|بزرگ شدن در شهری کوچک. ساده، اما کار می‌کند.
+L|Reza|Send me the album, I will listen on the train.|آلبوم را بفرست، در قطار گوش می‌دهم.
+L|Bahar|It is on repeat for me, so give it two listens.|برای من روی تکرار است، پس دو بار گوش کن.
+L|Reza|Deal. If it is half as good as this, it is good.|قبول. اگر نصف این هم خوب باشد، خوب است.
+C|The song stuck|آهنگ گیرکرده|A tune keeps you awake at night.|آهنگی شب بیدار نگهت می‌دارد.|Describe it and ask for a cure.|توصیفش کن و درمانی بخواه.|I have had this melody in my head since morning. How do I stop it?|از صبح این ملودی در سرم است. چطور متوقفش کنم؟
+C|Music in the office|موسیقی در دفتر|A colleague plays music you find distracting.|همکاری موسیقی پخش می‌کند که تمرکزت را می‌برد.|Ask for headphones or a quieter volume.|هدفون یا صدای کمتر بخواه.|Would you mind using headphones? I cannot focus with the beat.|اشکالی ندارد هدفون بزنی؟ با این ضرب نمی‌توانم تمرکز کنم.
+Q|What are lyrics?|متن ترانه چیست؟|the words of a song|the instruments|the cover art|Lyrics are words, not sound.|متن ترانه کلمات است، نه صدا.
+Q|An album is ...|آلبوم چیست؟|a collection of songs released together|one long song|a concert ticket|An album groups tracks.|آلبوم قطعه‌ها را کنار هم می‌گذارد.
+Q|"It is stuck in my head" means ...|«در سرم گیر کرده» یعنی ...|you keep hearing it in your mind|your headphones are broken|it is too loud|The phrase is about memory, not equipment.|این عبارت دربارهٔ حافظه است، نه تجهیزات.
+
+J|instruments|5|guitar|Instruments and playing|سازها و نواختن|adults||The instruments people learn, and how to say you play one, gave one up or never started.|سازهایی که مردم یاد می‌گیرند، و اینکه چطور بگویی می‌نوازی، رهایش کردی یا هرگز شروع نکردی.
+O|name the common instruments and what they sound like.|سازهای رایج را نام ببر و بگو چه صدایی دارند.
+O|say which instrument you play and for how long.|بگو کدام ساز را می‌نوازی و چه مدت.
+O|invite somebody to play or listen together.|کسی را به نواختن یا گوش دادن دعوت کن.
+W|guitar|/ɡɪˈtɑr/|noun|گیتار|A stringed instrument played with the fingers or a pick.|entertainment|guitar|A1|I have played the guitar since I was twelve.|از دوازده‌سالگی گیتار می‌نوازم.|
+W|piano|/piˈænoʊ/|noun|پیانو|A large keyboard instrument with black and white keys.|entertainment|piano|A1|The piano in the hall is out of tune.|پیانوی سالن کوک نیست.|
+W|drums|/drʌmz/|noun|درامز|A set of percussion instruments played with sticks.|entertainment|drum|A2|The drums are too loud for this room.|درامز برای این اتاق خیلی بلند است.|
+W|violin|/ˌvaɪəˈlɪn/|noun|ویولن|A small stringed instrument played with a bow.|entertainment|violin|A2|She plays the violin in an orchestra.|او در ارکستر ویولن می‌نوازد.|
+W|trumpet|/ˈtrʌmpɪt/|noun|ترومپت|A brass instrument played by blowing into it.|entertainment|trumpet|B1|The trumpet cuts through the whole band.|صدای ترومپت از کل گروه بیرون می‌زند.|
+W|microphone|/ˈmaɪkrəˌfoʊn/|noun|میکروفون|A device that makes a voice or instrument louder.|entertainment|mic|A2|The microphone was not working at the start.|میکروفون اول کار کار نمی‌کرد.|
+X|expression|Do you play any instruments?|ساز هم می‌نوازی؟|Asks about playing, not owning.|دربارهٔ نواختن می‌پرسد، نه داشتن.|neutral|Do you play any instruments, or just listen?|ساز هم می‌نوازی یا فقط گوش می‌دهی؟|
+X|expression|I am learning the guitar.|دارم گیتار یاد می‌گیرم.|The present continuous that admits you are a beginner.|حال استمراری که می‌پذیرد تازه‌کاری.|neutral|I am learning the guitar, so be patient with me.|دارم گیتار یاد می‌گیرم، پس با من صبور باش.|
+X|collocation|She plays in a band.|او در یک گروه می‌نوازد.|Play in a band is the fixed phrase for being a member.|«در گروه نواختن» عبارت ثابت عضویت است.|neutral|She plays in a band on Fridays.|جمعه‌ها در یک گروه می‌نوازد.|
+X|phrasal_verb|I gave up the piano years ago.|سال‌ها پیش پیانو را رها کردم.|Give up is the phrasal verb for stopping something you used to do.|«رها کردن» فعل عبارتی برای توقف کاری است که قبلاً می‌کردی.|neutral|I gave up the piano years ago and regret it.|سال‌ها پیش پیانو را رها کردم و پشیمانم.|
+X|idiom|It is music to my ears.|برای من مثل موسیقی است.|Literally, a sound as pleasant as music; figuratively, very good news to hear.|به‌طور تحت‌اللفظی، صدایی به‌خوشی موسیقی؛ به‌طور مجازی، خبری بسیار خوب برای شنیدن.|neutral|The school is reopening? That is music to my ears.|مدرسه باز می‌شود؟ این برای من مثل موسیقی است.|
+X|idiom|You have to face the music.|باید عواقبش را بپذیری.|Literally, step forward in front of the orchestra; figuratively, accept the consequences of what you did.|به‌طور تحت‌اللفظی، جلوی ارکستر برو؛ به‌طور مجازی، عواقب کارت را بپذیر.|neutral|You broke it, so now you face the music.|تو شکستش دادی، پس حالا عواقبش را بپذیر.|
+P|I play the + [instrument].|I play the guitar.|گیتار می‌نوازم.|The definite article belongs with instruments.|حرف تعریف با نام ساز می‌آید.
+P|I have played it for + [time].|I have played it for six years.|شش سال است می‌نوازم.|For plus a period gives the length.|«برای» به‌همراه مدت، طول زمان را می‌دهد.
+S|I started on a cheap guitar and only bought a good one after two years.|با یک گیتار ارزان شروع کردم و فقط بعد از دو سال یک گیتار خوب خریدم.|Explains a sensible order of events.|ترتیب معقول کارها را توضیح می‌دهد.|B1|neutral|I began cheap and upgraded later.
+S|The drums sound enormous in a small room and tiny on a big stage.|درامز در اتاق کوچک عظیم و روی صحنهٔ بزرگ کوچک شنیده می‌شود.|Compares the same sound in two places.|یک صدا را در دو جا مقایسه می‌کند.|B2|neutral|Drums change with the room.
+D|A music shop|یک فروشگاه موسیقی|Kian|an assistant
+L|Kian|I want to learn an instrument. What do you suggest?|می‌خواهم سازی یاد بگیرم. چه پیشنهاد می‌کنی؟
+L|an assistant|Piano is the easiest to start and the hardest to master.|پیانو آسان‌ترین برای شروع و سخت‌ترین برای تسلط است.
+L|Kian|I like the sound of the violin, but it looks difficult.|صدای ویولن را دوست دارم، اما سخت به نظر می‌رسد.
+L|an assistant|It is. The first year sounds rough, everyone says so.|هست. سال اول خام شنیده می‌شود، همه همین را می‌گویند.
+L|Kian|And the guitar?|و گیتار؟
+L|an assistant|You can play a song in a week. That is why so many people start there.|در یک هفته می‌توانی یک آهنگ بزنی. برای همین خیلی‌ها از آنجا شروع می‌کنند.
+L|Kian|Then I will take the guitar and a book of easy songs.|پس گیتار و یک کتاب آهنگ‌های ساده می‌گیرم.
+L|an assistant|Good choice. Do not give up in the first month.|انتخاب خوبی است. ماه اول رهایش نکن.
+C|The neighbour's drums|درامز همسایه|Your neighbour practises drums every evening.|همسایه‌ات هر شب درامز تمرین می‌کند.|Ask for a compromise without a fight.|بدون دعوا برای توافق بخواه.|The drums are wonderful, but could you practise before eight?|درامز عالی است، اما می‌شود قبل از هشت تمرین کنی؟
+C|The out-of-tune piano|پیانوی ناکوک|The piano at the club is badly out of tune.|پیانوی باشگاه بدجور ناکوک است.|Tell the person in charge and ask what can be done.|به مسئول بگو و بپرس چه می‌شود کرد.|The piano is out of tune. Is there time to call a tuner before Friday?|پیانو کوک نیست. وقت هست تا جمعه کوک‌کننده بیاید؟
+Q|Which instrument is played with a bow?|کدام ساز با آرشه نواخته می‌شود؟|the violin|the trumpet|the drums|A bow is drawn across the strings.|آرشه روی سیم‌ها کشیده می‌شود.
+Q|"I gave up the piano" means ...|«پیانو را رها کردم» یعنی ...|I stopped playing it|I sold my house|I tuned it|Give up is stopping, not selling.|«رها کردن» یعنی متوقف کردن، نه فروختن.
+Q|Which phrase means very good news?|کدام عبارت یعنی خبر بسیار خوب؟|music to my ears|face the music|play second fiddle|The phrase is about pleasure in hearing something.|این عبارت دربارهٔ لذت شنیدن است.
+
+J|concerts|6|stage|Concerts and live music|کنسرت و موسیقی زنده|adults||Tickets, stages, audiences and the words for a night that goes well.|بلیت، صحنه، تماشاگر و واژه‌های یک شب خوب.
+O|buy a concert ticket and say where you are sitting.|بلیت کنسرت بخر و بگو کجا می‌نشینی.
+O|describe a live performance and the audience's reaction.|اجرای زنده و واکنش تماشاگران را توصیف کن.
+O|ask for an encore and say it was worth the money.|بازگویی بخواه و بگو ارزش پول را داشت.
+W|concert|/ˈkɑnsərt/|noun|کنسرت|A live performance of music in front of an audience.|entertainment|stage|A1|The concert starts at nine and ends at midnight.|کنسرت نه شروع می‌شود و نیمه‌شب تمام می‌شود.|
+W|stage|/steɪdʒ/|noun|صحنه|The raised area where performers stand.|entertainment|stage|A2|The stage was too small for the whole band.|صحنه برای کل گروه کوچک بود.|
+W|audience|/ˈɔdiəns/|noun|تماشاگران|The people watching a performance.|entertainment|audience|B1|The audience sang every word.|تماشاگران هر کلمه را خواندند.|
+W|encore|/ˈɑnkɔr/|noun|بازگویی|An extra song played because the audience asks for it.|entertainment|star|B1|They came back for a two-song encore.|برای دو آهنگ بازگشتند.|
+W|venue|/ˈvɛnju/|noun|محل برگزاری|The place where an event happens.|entertainment|pin|B1|The venue holds three thousand people.|محل برگزاری ظرفیت سه هزار نفر را دارد.|
+W|festival|/ˈfɛstəvəl/|noun|جشنواره|A series of performances over several days.|entertainment|tent|B1|We go to the summer festival every year.|هر سال به جشنوارهٔ تابستانی می‌رویم.|
+X|expression|The tickets sold out in minutes.|بلیت‌ها در چند دقیقه تمام شد.|Says demand exceeded supply, with the time.|می‌گوید تقاضا از عرضه بیشتر بود، با ذکر زمان.|neutral|The tickets sold out in minutes, so we watched the stream.|بلیت‌ها در چند دقیقه تمام شد، پس پخش زنده را دیدیم.|
+X|expression|They played for two hours without a break.|دو ساعت بی‌وقفه نواختند.|Gives the length and the effort in one line.|در یک خط مدت و تلاش را می‌دهد.|neutral|They played for two hours without a break and nobody left.|دو ساعت بی‌وقفه نواختند و هیچ‌کس نرفت.|
+X|collocation|We were right at the front.|دقیقاً جلو بودیم.|Right at the front is the fixed phrase for the closest place.|«دقیقاً جلو» عبارت ثابت نزدیک‌ترین جا است.|neutral|We were right at the front, close enough to see the strings.|دقیقاً جلو بودیم، آنقدر نزدیک که سیم‌ها را می‌دیدیم.|
+X|idiom|Break a leg.|موفق باشی.|Literally, a theatre wish that was said to avoid tempting fate; figuratively, good luck before a performance.|به‌طور تحت‌اللفظی، آرزویی در تئاتر برای فریب بخت؛ به‌طور مجازی، پیش از اجرا آرزوی موفقیت.|informal|Break a leg tonight, you have practised enough.|امشب موفق باشی، به اندازهٔ کافی تمرین کرده‌ای.|
+X|idiom|It brought the house down.|تماشاگران را منفجر کرد.|Literally, the applause seemed to shake the building; figuratively, the performance was a huge success.|به‌طور تحت‌اللفظی، تشویق ساختمان را لرزاند؛ به‌طور مجازی، اجرا موفقیتی بزرگ بود.|neutral|The last song brought the house down.|آهنگ آخر تماشاگران را منفجر کرد.|
+P|The tickets + [verb] + in minutes.|The tickets sold out in minutes.|بلیت‌ها در چند دقیقه تمام شد.|Say what happened to the tickets, then when.|بگو با بلیت‌ها چه شد، بعد چه وقت.
+P|They played for + [time].|They played for two hours.|دو ساعت نواختند.|For plus a period gives the length.|«برای» با مدت، طول را می‌دهد.
+S|The sound was better at the back, where the mix had room to breathe.|صدا در انتها بهتر بود، جایی که میکس جا داشت نفس بکشد.|A judgement about a place with a reason.|داوری دربارهٔ یک جا با دلیل.|B2|neutral|The back of the hall sounded better.
+S|I paid far too much for the ticket and would do it again tomorrow.|برای بلیت خیلی زیاد پرداختم و فردا دوباره همین کار را می‌کنم.|Admits a bad deal and values it anyway.|معاملهٔ بد را می‌پذیرد و باز هم ارزشش را می‌داند.|B2|neutral|Overpriced, and worth it.
+D|After the concert|بعد از کنسرت|Shadi|Nima
+L|Shadi|That was the best concert I have been to in years.|این بهترین کنسرتی بود که سال‌ها رفته‌ام.
+L|Nima|The audience knew every word.|تماشاگران هر کلمه را می‌دانستند.
+L|Shadi|And they came back for an encore.|و برای بازگویی برگشتند.
+L|Nima|Twice. The second one brought the house down.|دو بار. دومی تماشاگران را منفجر کرد.
+L|Shadi|The venue was smaller than I expected, which helped.|محل برگزاری از انتظارم کوچک‌تر بود، که کمک کرد.
+L|Nima|It sold out in minutes, remember.|یادت باشد بلیت‌ها در چند دقیقه تمام شد.
+L|Shadi|Next time we buy in the first hour.|دفعهٔ بعد در ساعت اول می‌خریم.
+L|Nima|Break a leg with the queue.|در صف موفق باشی.
+C|The ticket that never arrived|بلیتی که نرسید|You paid online and the ticket never came.|آنلاین پرداختی و بلیت نیامد.|Explain the problem and ask for a solution.|مشکل را توضیح بده و راه‌حل بخواه.|I paid for two tickets but nothing arrived. Could you resend them?|برای دو بلیت پرداختم اما چیزی نیامد. می‌شود دوباره بفرستید؟
+C|The too-loud support act|گروه پیش‌گروه بلند|The support act is so loud the audience is covering its ears.|گروه پیش‌گروه آنقدر بلند است که تماشاگران گوش‌هایشان را می‌گیرند.|Say it to a friend and decide what to do.|به دوستت بگو و تصمیم بگیر چه کنید.|This is painful. Shall we wait at the back until the main act?|این دردناک است. برویم ته سالن تا گروه اصلی بیاید؟
+Q|What is an encore?|بازگویی چیست؟|an extra song the audience asks for|the first song|the ticket price|An encore comes after the planned programme.|بازگویی بعد از برنامهٔ اصلی می‌آید.
+Q|A venue is ...|محل برگزاری چیست؟|the place an event happens|the band's name|the sound system|The venue is a location.|محل برگزاری یک مکان است.
+Q|"Break a leg" means ...|«موفق باشی» یعنی ...|good luck before a performance|be careful on stage|the show is cancelled|Theatre people say it instead of good luck.|اهل تئاتر به جای «موفق باشی» این را می‌گویند.

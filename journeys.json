@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 5,
-   "stages": 62,
-   "words": 381,
-   "expressions": 328,
+   "journeys": 6,
+   "stages": 74,
+   "words": 453,
+   "expressions": 391,
    "sports": 46
   }
  },
@@ -22605,6 +22605,3999 @@
     "stages": 12,
     "words": 72,
     "expressions": 64,
+    "patterns": 24,
+    "sentences": 24,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "entertainment",
+   "topic": "entertainment",
+   "title_en": "Entertainment, Movies & Music Journey",
+   "title_fa": "سرگرمی، فیلم و موسیقی: از پرده تا کتاب",
+   "icon": "🎬",
+   "art": "video",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Films and series, music and concerts, books, games and hobbies, and the words for a review worth trusting.",
+   "blurb_fa": "فیلم و سریال، موسیقی و کنسرت، کتاب، بازی و سرگرمی، و واژه‌های یک نقد قابل‌اعتماد.",
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "movies",
+     "order": 1,
+     "icon": "film",
+     "title_en": "Films and genres",
+     "title_fa": "فیلم و ژانرها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The words for a film, its story and its kind, and how to say what you thought of it.",
+     "blurb_fa": "واژه‌های یک فیلم، داستان و نوعش، و اینکه چطور بگویی چه فکری درباره‌اش داری.",
+     "objectives": [
+      {
+       "en": "name the genre of a film and say what it is about.",
+       "fa": "ژانر یک فیلم را بگو و بگو دربارهٔ چیست."
+      },
+      {
+       "en": "describe the plot, a character and a scene in a few sentences.",
+       "fa": "خط داستانی، یک شخصیت و یک صحنه را در چند جمله توصیف کن."
+      },
+      {
+       "en": "say whether you liked the ending and why.",
+       "fa": "بگو پایان را دوست داشتی یا نه و چرا."
+      }
+     ],
+     "words": [
+      {
+       "id": "movies-w1",
+       "en": "film",
+       "ipa": "/fɪlm/",
+       "pos": "noun",
+       "fa": "فیلم",
+       "def_en": "A story told in moving pictures, shown in a cinema or at home.",
+       "sport": "entertainment",
+       "icon": "film",
+       "level": "A1",
+       "example_en": "We watched a French film last night.",
+       "example_fa": "دیشب یک فیلم فرانسوی دیدیم.",
+       "ref": ""
+      },
+      {
+       "id": "movies-w2",
+       "en": "genre",
+       "ipa": "/ˈʒɑnrə/",
+       "pos": "noun",
+       "fa": "ژانر",
+       "def_en": "The kind a film belongs to, such as comedy, horror or drama.",
+       "sport": "entertainment",
+       "icon": "film",
+       "level": "B1",
+       "example_en": "Horror is my least favourite genre.",
+       "example_fa": "ترسناک کم‌محبوب‌ترین ژانر من است.",
+       "ref": ""
+      },
+      {
+       "id": "movies-w3",
+       "en": "plot",
+       "ipa": "/plɑt/",
+       "pos": "noun",
+       "fa": "خط داستانی",
+       "def_en": "The series of events that make up a story.",
+       "sport": "entertainment",
+       "icon": "story",
+       "level": "B1",
+       "example_en": "The plot is simple but the acting is superb.",
+       "example_fa": "خط داستانی ساده است اما بازی‌ها فوق‌العاده‌اند.",
+       "ref": ""
+      },
+      {
+       "id": "movies-w4",
+       "en": "character",
+       "ipa": "/ˈkærəktər/",
+       "pos": "noun",
+       "fa": "شخصیت",
+       "def_en": "A person in a story, played by an actor.",
+       "sport": "entertainment",
+       "icon": "mask",
+       "level": "A2",
+       "example_en": "My favourite character dies in the second half.",
+       "example_fa": "شخصیت محبوبم در نیمهٔ دوم می‌میرد.",
+       "ref": ""
+      },
+      {
+       "id": "movies-w5",
+       "en": "scene",
+       "ipa": "/sin/",
+       "pos": "noun",
+       "fa": "صحنه",
+       "def_en": "One continuous piece of action in a film.",
+       "sport": "entertainment",
+       "icon": "clapper",
+       "level": "A2",
+       "example_en": "The opening scene is the best part.",
+       "example_fa": "صحنهٔ آغازین بهترین بخش است.",
+       "ref": ""
+      },
+      {
+       "id": "movies-w6",
+       "en": "ending",
+       "ipa": "/ˈɛndɪŋ/",
+       "pos": "noun",
+       "fa": "پایان",
+       "def_en": "The way a story finishes.",
+       "sport": "entertainment",
+       "icon": "star",
+       "level": "A2",
+       "example_en": "The ending surprised everyone in the room.",
+       "example_fa": "پایان همهٔ حاضرین را غافلگیر کرد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "movies-x1",
+       "kind": "expression",
+       "en": "What is it about?",
+       "fa": "دربارهٔ چیست؟",
+       "meaning_en": "Asks for the story, not the genre.",
+       "meaning_fa": "دربارهٔ داستان می‌پرسد، نه ژانر.",
+       "register": "neutral",
+       "example_en": "What is it about, in one sentence?",
+       "example_fa": "در یک جمله دربارهٔ چیست؟",
+       "alt": ""
+      },
+      {
+       "id": "movies-x2",
+       "kind": "expression",
+       "en": "It is based on a true story.",
+       "fa": "بر اساس یک داستان واقعی است.",
+       "meaning_en": "Says where the material came from.",
+       "meaning_fa": "می‌گوید материал از کجا آمده.",
+       "register": "neutral",
+       "example_en": "It is based on a true story from the sixties.",
+       "example_fa": "بر اساس یک داستان واقعی از دههٔ شصت است.",
+       "alt": ""
+      },
+      {
+       "id": "movies-x3",
+       "kind": "collocation",
+       "en": "It got great reviews.",
+       "fa": "نقدهای خوبی گرفت.",
+       "meaning_en": "Get reviews is the fixed phrase for what critics wrote.",
+       "meaning_fa": "«نقد گرفتن» عبارت ثابت برای نوشتهٔ منتقدان است.",
+       "register": "neutral",
+       "example_en": "It got great reviews but nobody went to see it.",
+       "example_fa": "نقدهای خوبی گرفت اما هیچ‌کس نرفت ببیندش.",
+       "alt": ""
+      },
+      {
+       "id": "movies-x4",
+       "kind": "idiom",
+       "en": "It kept me on the edge of my seat.",
+       "fa": "مرا روی لبهٔ صندلی نگه داشت.",
+       "meaning_en": "Literally, sitting forward at the edge of the seat; figuratively, so exciting that you could not relax.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، روی لبهٔ صندلی نشستن؛ به‌طور مجازی، آنقدر هیجان‌انگیز که آرام نمی‌گیری.",
+       "register": "neutral",
+       "example_en": "The last twenty minutes kept me on the edge of my seat.",
+       "example_fa": "بیست دقیقهٔ آخر مرا روی لبهٔ صندلی نگه داشت.",
+       "alt": ""
+      },
+      {
+       "id": "movies-x5",
+       "kind": "idiom",
+       "en": "The plot thickens.",
+       "fa": "داستان پیچیده‌تر می‌شود.",
+       "meaning_en": "Literally, the story becomes more complicated; figuratively, the situation is getting more interesting and stranger.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، داستان پیچیده‌تر می‌شود؛ به‌طور مجازی، ماجرا جالب‌تر و عجیب‌تر می‌شود.",
+       "register": "neutral",
+       "example_en": "Then her brother arrives, and the plot thickens.",
+       "example_fa": "بعد برادرش می‌رسد و داستان پیچیده‌تر می‌شود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It is about + [person] + who + [verb].",
+       "example_en": "It is about a teacher who moves to a village.",
+       "example_fa": "دربارهٔ معلمی است که به روستایی می‌رود.",
+       "note_en": "The subject, then the person, then what they do.",
+       "note_fa": "اول موضوع، بعد شخص، بعد کاری که می‌کند."
+      },
+      {
+       "frame": "Have you seen + [title]?",
+       "example_en": "Have you seen the new one?",
+       "example_fa": "جدیدش را دیده‌ای؟",
+       "note_en": "Ask about a film without naming the genre.",
+       "note_fa": "دربارهٔ فیلم بپرس بی‌آنکه ژانر را نام ببری."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "movies-s1",
+       "en": "I went in expecting a comedy and came out having cried for an hour.",
+       "fa": "با انتظار کمدی رفتم و بیرون آمدم در حالی که یک ساعت گریه کرده بودم.",
+       "use_en": "Contrasts expectation with what happened.",
+       "use_fa": "انتظار و اتفاق را مقابل هم می‌گذارد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "It was not the comedy I expected."
+      },
+      {
+       "id": "movies-s2",
+       "en": "The film is two hours long but it never once feels slow.",
+       "fa": "فیلم دو ساعت است اما حتی یک لحظه کند به نظر نمی‌رسد.",
+       "use_en": "Praises pace with a negative.",
+       "use_fa": "ریتم را با جملهٔ منفی تحسین می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It never feels slow."
+      }
+     ],
+     "dialogue": {
+      "title_en": "After the film",
+      "title_fa": "بعد از فیلم",
+      "speakers": [
+       "Sara",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "So, what did you think?",
+        "fa": "خب، چه فکری می‌کنی؟"
+       },
+       {
+        "who": "Omid",
+        "en": "I loved it. The plot is simple but the acting is excellent.",
+        "fa": "خیلی دوستش داشتم. خط داستانی ساده است اما بازی‌ها عالی‌اند."
+       },
+       {
+        "who": "Sara",
+        "en": "The ending felt rushed to me.",
+        "fa": "به نظر من پایان عجله‌ای بود."
+       },
+       {
+        "who": "Omid",
+        "en": "Really? I thought it was brave.",
+        "fa": "واقعاً؟ من فکر کردم جسورانه بود."
+       },
+       {
+        "who": "Sara",
+        "en": "Maybe. I wanted to know more about the sister.",
+        "fa": "شاید. می‌خواستم دربارهٔ خواهر بیشتر بدانم."
+       },
+       {
+        "who": "Omid",
+        "en": "There is a sequel planned, apparently.",
+        "fa": "ظاهراً دنباله‌ای در برنامه است."
+       },
+       {
+        "who": "Sara",
+        "en": "Then the plot thickens.",
+        "fa": "پس داستان پیچیده‌تر می‌شود."
+       },
+       {
+        "who": "Omid",
+        "en": "Let us see it together again next week.",
+        "fa": "بیا هفتهٔ بعد با هم دوباره ببینیمش."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Choosing a film",
+       "title_fa": "انتخاب فیلم",
+       "situation_en": "Two friends want different genres and there is one screen free.",
+       "situation_fa": "دو دوست ژانرهای متفاوت می‌خواهند و یک سالن آزاد است.",
+       "task_en": "Find a film that suits both and say why.",
+       "task_fa": "فیلمی پیدا کن که به هر دو بخورد و دلیلش را بگو.",
+       "answer_en": "You hate horror and I hate musicals. What is left? The new drama got great reviews and it is based on a true story.",
+       "answer_fa": "تو از ترسناک بدت می‌آید و من از موزیکال. چه چیزی می‌ماند؟ درام جدید نقدهای خوبی گرفته و بر اساس یک داستان واقعی است."
+      },
+      {
+       "title_en": "The spoiled ending",
+       "title_fa": "پایان لو رفته",
+       "situation_en": "A friend starts describing the last scene before you have seen it.",
+       "situation_fa": "دوستی پیش از دیدن فیلم، صحنهٔ آخر را تعریف می‌کند.",
+       "task_en": "Stop them politely and ask for no details.",
+       "task_fa": "مؤدبانه متوقفش کن و جزئیات نخواه.",
+       "answer_en": "Wait, do not tell me the ending! Just say if it is good.",
+       "answer_fa": "صبر کن، پایان را نگو! فقط بگو خوب است یا نه."
+      }
+     ],
+     "practice": [
+      {
+       "id": "movies-q1",
+       "q_en": "What do we call the kind a film belongs to?",
+       "q_fa": "نوعی که فیلم به آن تعلق دارد چه نام دارد؟",
+       "options": [
+        "genre",
+        "plot",
+        "scene"
+       ],
+       "answer": "genre",
+       "why_en": "Genre is the category, not the story.",
+       "why_fa": "«ژانر» دسته است، نه داستان."
+      },
+      {
+       "id": "movies-q2",
+       "q_en": "The plot of a film is ...",
+       "q_fa": "خط داستانی فیلم چیست؟",
+       "options": [
+        "the events of the story",
+        "the music",
+        "the poster"
+       ],
+       "answer": "the events of the story",
+       "why_en": "The plot is what happens, in order.",
+       "why_fa": "خط داستانی یعنی چه چیزی به ترتیب اتفاق می‌افتد."
+      },
+      {
+       "id": "movies-q3",
+       "q_en": "\"It kept me on the edge of my seat\" means ...",
+       "q_fa": "«مرا روی لبهٔ صندلی نگه داشت» یعنی ...",
+       "options": [
+        "it was very exciting",
+        "it was too long",
+        "it was boring"
+       ],
+       "answer": "it was very exciting",
+       "why_en": "The seat is a picture of tension, not comfort.",
+       "why_fa": "صندلی تصویر تنش است، نه راحتی."
+      }
+     ]
+    },
+    {
+     "id": "series",
+     "order": 2,
+     "icon": "tv",
+     "title_en": "TV series and episodes",
+     "title_fa": "سریال و قسمت‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Episodes, seasons, cliffhangers and the words for watching one more than you meant to.",
+     "blurb_fa": "قسمت، فصل، پایان معلق و واژه‌هایی برای وقتی یکی بیشتر از آنچه می‌خواستی می‌بینی.",
+     "objectives": [
+      {
+       "en": "talk about a series by season and episode.",
+       "fa": "دربارهٔ سریال با فصل و قسمت حرف بزن."
+      },
+      {
+       "en": "say where you are in a series without spoiling it.",
+       "fa": "بگو کجای سریالی بدون لو دادن."
+      },
+      {
+       "en": "describe a cliffhanger and how it made you feel.",
+       "fa": "پایان معلق را توصیف کن و بگو چه حسی داشت."
+      }
+     ],
+     "words": [
+      {
+       "id": "series-w1",
+       "en": "episode",
+       "ipa": "/ˈɛpɪsoʊd/",
+       "pos": "noun",
+       "fa": "قسمت",
+       "def_en": "One part of a series, usually about an hour long.",
+       "sport": "entertainment",
+       "icon": "tv",
+       "level": "A2",
+       "example_en": "The third episode is the best one.",
+       "example_fa": "قسمت سوم بهترین است.",
+       "ref": ""
+      },
+      {
+       "id": "series-w2",
+       "en": "season",
+       "ipa": "/ˈsizən/",
+       "pos": "noun",
+       "fa": "فصل",
+       "def_en": "A group of episodes released together.",
+       "sport": "entertainment",
+       "icon": "calendar",
+       "level": "A2",
+       "example_en": "Season two is much darker than the first.",
+       "example_fa": "فصل دو خیلی تیره‌تر از اولی است.",
+       "ref": ""
+      },
+      {
+       "id": "series-w3",
+       "en": "series",
+       "ipa": "/ˈsɪriz/",
+       "pos": "noun",
+       "fa": "سریال",
+       "def_en": "A story told across many episodes.",
+       "sport": "entertainment",
+       "icon": "tv",
+       "level": "A2",
+       "example_en": "We started a new series on Friday.",
+       "example_fa": "جمعه سریال جدیدی را شروع کردیم.",
+       "ref": ""
+      },
+      {
+       "id": "series-w4",
+       "en": "cliffhanger",
+       "ipa": "/ˈklɪfˌhæŋər/",
+       "pos": "noun",
+       "fa": "پایان معلق",
+       "def_en": "An ending that leaves the story unresolved on purpose.",
+       "sport": "entertainment",
+       "icon": "cliff",
+       "level": "B1",
+       "example_en": "The season ends on a huge cliffhanger.",
+       "example_fa": "فصل با یک پایان معلق بزرگ تمام می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "series-w5",
+       "en": "binge-watch",
+       "ipa": "/bɪndʒ wɑtʃ/",
+       "pos": "verb",
+       "fa": "پشت سر هم دیدن",
+       "def_en": "Watch many episodes one after another.",
+       "sport": "entertainment",
+       "icon": "tv",
+       "level": "B1",
+       "example_en": "We binge-watched the whole season in two days.",
+       "example_fa": "کل فصل را دو روزه پشت سر هم دیدیم.",
+       "ref": ""
+      },
+      {
+       "id": "series-w6",
+       "en": "spin-off",
+       "ipa": "/ˈspɪn ɔf/",
+       "pos": "noun",
+       "fa": "سری فرعی",
+       "def_en": "A new series made from a character or idea of another.",
+       "sport": "entertainment",
+       "icon": "branch",
+       "level": "B2",
+       "example_en": "The spin-off is better than the original.",
+       "example_fa": "سری فرعی از اصل بهتر است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "series-x1",
+       "kind": "expression",
+       "en": "I am only on season two.",
+       "fa": "من فقط فصل دو هستم.",
+       "meaning_en": "Says where you are so nobody spoils it.",
+       "meaning_fa": "می‌گوید کجایی تا کسی لو نده.",
+       "register": "neutral",
+       "example_en": "I am only on season two, so no details please.",
+       "example_fa": "من فقط فصل دو هستم، پس لطفاً جزئیات نه.",
+       "alt": ""
+      },
+      {
+       "id": "series-x2",
+       "kind": "phrasal_verb",
+       "en": "I binge-watched the whole season.",
+       "fa": "کل فصل را پشت سر هم دیدم.",
+       "meaning_en": "Binge-watch is the phrasal verb for watching without stopping.",
+       "meaning_fa": "«پشت سر هم دیدن» فعل عبارتی برای تماشای بی‌وقفه است.",
+       "register": "informal",
+       "example_en": "I binge-watched the whole season over the weekend.",
+       "example_fa": "آخر هفته کل فصل را پشت سر هم دیدم.",
+       "alt": ""
+      },
+      {
+       "id": "series-x3",
+       "kind": "expression",
+       "en": "No spoilers, please.",
+       "fa": "لطفاً لو نده.",
+       "meaning_en": "The one sentence that protects a story.",
+       "meaning_fa": "یک جمله که داستان را حفظ می‌کند.",
+       "register": "neutral",
+       "example_en": "No spoilers, please, I am two episodes behind.",
+       "example_fa": "لطفاً لو نده، من دو قسمت عقبم.",
+       "alt": ""
+      },
+      {
+       "id": "series-x4",
+       "kind": "idiom",
+       "en": "It ended on a cliffhanger.",
+       "fa": "با پایان معلق تمام شد.",
+       "meaning_en": "Literally, someone left hanging from a cliff; figuratively, an ending that withholds the answer on purpose.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، کسی از لبهٔ صخره آویزان ماند؛ به‌طور مجازی، پایانی که عمداً پاسخ را نگه می‌دارد.",
+       "register": "neutral",
+       "example_en": "It ended on a cliffhanger and now I have to wait a year.",
+       "example_fa": "با پایان معلق تمام شد و حالا باید یک سال صبر کنم.",
+       "alt": ""
+      },
+      {
+       "id": "series-x5",
+       "kind": "expression",
+       "en": "It is totally binge-worthy.",
+       "fa": "ارزش پشت‌سرهم‌دیدن دارد.",
+       "meaning_en": "Binge-worthy is slang for a series you cannot stop watching.",
+       "meaning_fa": "«ارزش پشت‌سرهم‌دیدن» واژهٔ عامیانه برای سریالی است که نمی‌توانی رهایش کنی.",
+       "register": "slang",
+       "example_en": "The first episode is slow but it is totally binge-worthy by episode three.",
+       "example_fa": "قسمت اول کند است اما از قسمت سوم ارزش پشت‌سرهم‌دیدن دارد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I am on season + [number].",
+       "example_en": "I am only on season two.",
+       "example_fa": "من فقط فصل دو هستم.",
+       "note_en": "Season plus a number says exactly where you are.",
+       "note_fa": "«فصل» به‌همراه شماره دقیقاً می‌گوید کجایی."
+      },
+      {
+       "frame": "It ended on a + [noun].",
+       "example_en": "It ended on a cliffhanger.",
+       "example_fa": "با پایان معلق تمام شد.",
+       "note_en": "Name how it ended, not what happened.",
+       "note_fa": "بگو چطور تمام شد، نه چه شد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "series-s1",
+       "en": "The first two episodes are slow, but if you stick with it the story pulls you in.",
+       "fa": "دو قسمت اول کند است، اما اگر ادامه بدهی داستان تو را می‌کشد.",
+       "use_en": "Gives a warning and a recommendation in one line.",
+       "use_fa": "در یک خط هشدار و پیشنهاد می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Stick with it after the slow start."
+      },
+      {
+       "id": "series-s2",
+       "en": "We agreed to one episode a night and then watched four.",
+       "fa": "قرار گذاشتیم شبی یک قسمت و بعد چهار قسمت دیدیم.",
+       "use_en": "Shows a broken plan with the numbers.",
+       "use_fa": "نقشهٔ شکسته را با عدد نشان می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "We watched four instead of one."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the office",
+      "title_fa": "در محل کار",
+      "speakers": [
+       "Neda",
+       "Kian"
+      ],
+      "lines": [
+       {
+        "who": "Neda",
+        "en": "Have you started the new series everyone is talking about?",
+        "fa": "سریال جدیدی را که همه از آن حرف می‌زنند شروع کرده‌ای؟"
+       },
+       {
+        "who": "Kian",
+        "en": "I am only on season one, episode three.",
+        "fa": "من فقط فصل یک، قسمت سه هستم."
+       },
+       {
+        "who": "Neda",
+        "en": "Perfect, then no spoilers. Is it good?",
+        "fa": "عالی، پس لو نمی‌دهم. خوب است؟"
+       },
+       {
+        "who": "Kian",
+        "en": "It is slow at first, but it is binge-worthy.",
+        "fa": "اول کند است، اما ارزش پشت‌سرهم‌دیدن دارد."
+       },
+       {
+        "who": "Neda",
+        "en": "Does it end on a cliffhanger?",
+        "fa": "با پایان معلق تمام می‌شود؟"
+       },
+       {
+        "who": "Kian",
+        "en": "The first season does, apparently. Everyone is waiting for the second.",
+        "fa": "ظاهراً فصل اول همین‌طور است. همه منتظر فصل دوم‌اند."
+       },
+       {
+        "who": "Neda",
+        "en": "I will start it tonight, then.",
+        "fa": "پس امشب شروعش می‌کنم."
+       },
+       {
+        "who": "Kian",
+        "en": "Say goodbye to your evenings.",
+        "fa": "با شب‌هایت خداحافظی کن."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The spoiler at lunch",
+       "title_fa": "لو دادن سر ناهار",
+       "situation_en": "A colleague describes the final episode while you are still on season one.",
+       "situation_fa": "همکاری قسمت آخر را تعریف می‌کند و تو هنوز فصل یکی.",
+       "task_en": "Ask them to stop without making it awkward.",
+       "task_fa": "بخواه متوقف شود بی‌آنکه فضا خراب شود.",
+       "answer_en": "Hold on, I am only on season one. Please do not tell me how it ends.",
+       "answer_fa": "صبر کن، من فقط فصل یک هستم. لطفاً نگو چطور تمام می‌شود."
+      },
+      {
+       "title_en": "One more episode",
+       "title_fa": "یک قسمت دیگر",
+       "situation_en": "It is midnight and there are three episodes left.",
+       "situation_fa": "نیمه‌شب است و سه قسمت مانده.",
+       "task_en": "Decide whether to stop and say it aloud.",
+       "task_fa": "تصمیم بگیر ادامه بدهی یا نه و بلند بگو.",
+       "answer_en": "If we watch one more, we will be useless tomorrow.",
+       "answer_fa": "اگر یک قسمت دیگر ببینیم، فردا بی‌فایده‌ایم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "series-q1",
+       "q_en": "What is a season of a series?",
+       "q_fa": "فصل سریال چیست؟",
+       "options": [
+        "a group of episodes released together",
+        "one actor's contract",
+        "the music"
+       ],
+       "answer": "a group of episodes released together",
+       "why_en": "A season collects the episodes released as a set.",
+       "why_fa": "فصل مجموعهٔ قسمت‌هایی است که با هم منتشر می‌شوند."
+      },
+      {
+       "id": "series-q2",
+       "q_en": "What does a cliffhanger do?",
+       "q_fa": "پایان معلق چه می‌کند؟",
+       "options": [
+        "leaves the story unresolved on purpose",
+        "ends the series for good",
+        "explains the ending"
+       ],
+       "answer": "leaves the story unresolved on purpose",
+       "why_en": "The point is to make you wait for the next part.",
+       "why_fa": "هدفش این است که منتظر قسمت بعد بمانی."
+      },
+      {
+       "id": "series-q3",
+       "q_en": "Binge-watching means ...",
+       "q_fa": "پشت سر هم دیدن یعنی ...",
+       "options": [
+        "watching many episodes in a row",
+        "watching one episode a week",
+        "watching without sound"
+       ],
+       "answer": "watching many episodes in a row",
+       "why_en": "Binge means a long session, not a habit of one a week.",
+       "why_fa": "«پشت سر هم» یعنی نشست طولانی، نه هفته‌ای یک قسمت."
+      }
+     ]
+    },
+    {
+     "id": "cinema",
+     "order": 3,
+     "icon": "ticket",
+     "title_en": "At the cinema",
+     "title_fa": "در سینما",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Tickets, screens, subtitles and the sentences you need before the lights go down.",
+     "blurb_fa": "بلیت، سالن، زیرنویس و جمله‌هایی که پیش از خاموش شدن چراغ‌ها لازم داری.",
+     "objectives": [
+      {
+       "en": "buy a ticket and choose a showing.",
+       "fa": "بلیت بخر و سانس را انتخاب کن."
+      },
+      {
+       "en": "ask whether a film is subtitled or dubbed.",
+       "fa": "بپرس فیلم زیرنویس دارد یا دوبله است."
+      },
+      {
+       "en": "complain politely about seats, sound or a late start.",
+       "fa": "مؤدبانه از صندلی، صدا یا شروع دیر شکایت کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "cinema-w1",
+       "en": "ticket",
+       "ipa": "/ˈtɪkɪt/",
+       "pos": "noun",
+       "fa": "بلیت",
+       "def_en": "The paper or code that lets you into a showing.",
+       "sport": "entertainment",
+       "icon": "ticket",
+       "level": "A1",
+       "example_en": "I bought two tickets for the eight o'clock showing.",
+       "example_fa": "دو بلیت برای سانس هشت خریدم.",
+       "ref": ""
+      },
+      {
+       "id": "cinema-w2",
+       "en": "screen",
+       "ipa": "/skrin/",
+       "pos": "noun",
+       "fa": "سالن نمایش",
+       "def_en": "The large surface a film is projected on, and the room it is in.",
+       "sport": "entertainment",
+       "icon": "screen",
+       "level": "A2",
+       "example_en": "Screen three is at the end of the corridor.",
+       "example_fa": "سالن سه انتهای راهرو است.",
+       "ref": ""
+      },
+      {
+       "id": "cinema-w3",
+       "en": "subtitles",
+       "ipa": "/ˈsʌbˌtaɪtəlz/",
+       "pos": "noun",
+       "fa": "زیرنویس",
+       "def_en": "The words of the film written at the bottom of the picture.",
+       "sport": "entertainment",
+       "icon": "speech",
+       "level": "B1",
+       "example_en": "The subtitles were too small to read.",
+       "example_fa": "زیرنویس‌ها آنقدر کوچک بودند که خوانده نمی‌شدند.",
+       "ref": ""
+      },
+      {
+       "id": "cinema-w4",
+       "en": "popcorn",
+       "ipa": "/ˈpɑpˌkɔrn/",
+       "pos": "noun",
+       "fa": "پاپ‌کورن",
+       "def_en": "Corn heated until it bursts, eaten at the cinema.",
+       "sport": "entertainment",
+       "icon": "popcorn",
+       "level": "A1",
+       "example_en": "We always share a large popcorn.",
+       "example_fa": "همیشه یک پاپ‌کورن بزرگ شریک می‌شویم.",
+       "ref": ""
+      },
+      {
+       "id": "cinema-w5",
+       "en": "trailer",
+       "ipa": "/ˈtreɪlər/",
+       "pos": "noun",
+       "fa": "تریلر",
+       "def_en": "A short selection of scenes shown to advertise a film.",
+       "sport": "entertainment",
+       "icon": "video",
+       "level": "B1",
+       "example_en": "The trailer gave away the best joke.",
+       "example_fa": "تریلر بهترین جوک را لو داد.",
+       "ref": ""
+      },
+      {
+       "id": "cinema-w6",
+       "en": "row",
+       "ipa": "/roʊ/",
+       "pos": "noun",
+       "fa": "ردیف",
+       "def_en": "A line of seats side by side.",
+       "sport": "entertainment",
+       "icon": "seat",
+       "level": "A2",
+       "example_en": "We were in the front row, which was a mistake.",
+       "example_fa": "در ردیف اول بودیم، که اشتباه بود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "cinema-x1",
+       "kind": "expression",
+       "en": "Two tickets for the eight o'clock showing, please.",
+       "fa": "دو بلیت برای سانس هشت، لطفاً.",
+       "meaning_en": "The whole ticket request in one line.",
+       "meaning_fa": "کل درخواست بلیت در یک خط.",
+       "register": "neutral",
+       "example_en": "Two tickets for the eight o'clock showing, please, anywhere but the front.",
+       "example_fa": "دو بلیت برای سانس هشت، لطفاً، هر جا جز ردیف اول.",
+       "alt": ""
+      },
+      {
+       "id": "cinema-x2",
+       "kind": "expression",
+       "en": "Is it subtitled or dubbed?",
+       "fa": "زیرنویس دارد یا دوبله است؟",
+       "meaning_en": "The question that decides whether you can follow it.",
+       "meaning_fa": "پرسشی که تعیین می‌کند می‌توانی دنبال کنی یا نه.",
+       "register": "neutral",
+       "example_en": "Is it subtitled or dubbed? I cannot follow a dub.",
+       "example_fa": "زیرنویس دارد یا دوبله؟ دوبله را نمی‌توانم دنبال کنم.",
+       "alt": ""
+      },
+      {
+       "id": "cinema-x3",
+       "kind": "collocation",
+       "en": "We got front row seats.",
+       "fa": "صندلی‌های ردیف اول را گرفتیم.",
+       "meaning_en": "Front row seats is the fixed phrase for the closest places.",
+       "meaning_fa": "«صندلی ردیف اول» عبارت ثابت برای نزدیک‌ترین جاهاست.",
+       "register": "neutral",
+       "example_en": "We got front row seats and regretted it.",
+       "example_fa": "صندلی‌های ردیف اول را گرفتیم و پشیمان شدیم.",
+       "alt": ""
+      },
+      {
+       "id": "cinema-x4",
+       "kind": "expression",
+       "en": "The trailer gave too much away.",
+       "fa": "تریلر زیادی لو داد.",
+       "meaning_en": "Gives away is what a trailer does when it shows the plot.",
+       "meaning_fa": "«لو دادن» کاری است که تریلر با نشان دادن داستان می‌کند.",
+       "register": "informal",
+       "example_en": "The trailer gave too much away, so the film felt slow.",
+       "example_fa": "تریلر زیادی لو داد، پس فیلم کند به نظر رسید.",
+       "alt": ""
+      },
+      {
+       "id": "cinema-x5",
+       "kind": "idiom",
+       "en": "It bombed at the box office.",
+       "fa": "در فروش شکست خورد.",
+       "meaning_en": "Literally, the ticket office where seats are sold; figuratively, the film earned very little there.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، باجهٔ فروش بلیت؛ به‌طور مجازی، فیلم در همان‌جا کم فروخت.",
+       "register": "neutral",
+       "example_en": "It bombed at the box office but the critics loved it.",
+       "example_fa": "در فروش شکست خورد اما منتقدان دوستش داشتند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Two tickets for the + [time] + showing, please.",
+       "example_en": "Two tickets for the eight o'clock showing, please.",
+       "example_fa": "دو بلیت برای سانس هشت، لطفاً.",
+       "note_en": "Number, time, showing, please.",
+       "note_fa": "تعداد، زمان، سانس، لطفاً."
+      },
+      {
+       "frame": "Is it + [subtitled/dubbed]?",
+       "example_en": "Is it subtitled or dubbed?",
+       "example_fa": "زیرنویس دارد یا دوبله است؟",
+       "note_en": "Two choices, one question.",
+       "note_fa": "دو گزینه، یک پرسش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "cinema-s1",
+       "en": "The sound was so loud that I could feel the explosions in my chest.",
+       "fa": "صدا آنقدر بلند بود که انفجارها را در سینه‌ام حس می‌کردم.",
+       "use_en": "Describes an effect physically rather than saying loud.",
+       "use_fa": "اثر را جسمانی توصیف می‌کند نه با گفتن «بلند».",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The sound was painfully loud."
+      },
+      {
+       "id": "cinema-s2",
+       "en": "We arrived late and had to sit in separate rows.",
+       "fa": "دیر رسیدیم و مجبور شدیم در ردیف‌های جدا بنشینیم.",
+       "use_en": "Explains a consequence of being late.",
+       "use_fa": "نتیجهٔ دیر رسیدن را می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Lateness split us across rows."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the box office",
+      "title_fa": "در باجهٔ بلیت",
+      "speakers": [
+       "Mina",
+       "the cashier"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Two tickets for the nine o'clock showing, please.",
+        "fa": "دو بلیت برای سانس نه، لطفاً."
+       },
+       {
+        "who": "the cashier",
+        "en": "Screen two. Is it subtitled or dubbed?",
+        "fa": "سالن دو. زیرنویس یا دوبله؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Subtitled, please. We do not need the dubbed version.",
+        "fa": "زیرنویس، لطفاً. نسخهٔ دوبله را لازم نداریم."
+       },
+       {
+        "who": "the cashier",
+        "en": "That is thirteen euros. The film starts in ten minutes.",
+        "fa": "سیزده یورو. فیلم ده دقیقهٔ دیگر شروع می‌شود."
+       },
+       {
+        "who": "Mina",
+        "en": "Where is screen two?",
+        "fa": "سالن دو کجاست؟"
+       },
+       {
+        "who": "the cashier",
+        "en": "Up the stairs and to the left, at the end.",
+        "fa": "بالای پله‌ها و سمت چپ، انتها."
+       },
+       {
+        "who": "Mina",
+        "en": "And the popcorn?",
+        "fa": "و پاپ‌کورن؟"
+       },
+       {
+        "who": "the cashier",
+        "en": "The counter behind you is open until the film starts.",
+        "fa": "باجهٔ پشت سرت تا شروع فیلم باز است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The sold-out showing",
+       "title_fa": "سانس پر",
+       "situation_en": "The eight o'clock is full and the next one is in two hours.",
+       "situation_fa": "سانس هشت پر است و سانس بعدی دو ساعت دیگر.",
+       "task_en": "Ask for alternatives and choose one.",
+       "task_fa": "جایگزین بخواه و یکی را انتخاب کن.",
+       "answer_en": "The eight is full. What else is on tonight?",
+       "answer_fa": "سانس هشت پر است. امشب چه چیز دیگری هست؟"
+      },
+      {
+       "title_en": "The broken subtitles",
+       "title_fa": "زیرنویس خراب",
+       "situation_en": "The subtitles stop after ten minutes.",
+       "situation_fa": "زیرنویس بعد از ده دقیقه قطع می‌شود.",
+       "task_en": "Tell a member of staff and ask for a fix.",
+       "task_fa": "به کارمند بگو و راه‌حل بخواه.",
+       "answer_en": "Excuse me, the subtitles have stopped. Can someone check screen three?",
+       "answer_fa": "ببخشید، زیرنویس قطع شده. کسی می‌تواند سالن سه را بررسی کند؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "cinema-q1",
+       "q_en": "What are subtitles?",
+       "q_fa": "زیرنویس چیست؟",
+       "options": [
+        "the words written at the bottom of the picture",
+        "the soundtrack",
+        "the poster"
+       ],
+       "answer": "the words written at the bottom of the picture",
+       "why_en": "Subtitles are text, not sound.",
+       "why_fa": "زیرنویس متن است، نه صدا."
+      },
+      {
+       "id": "cinema-q2",
+       "q_en": "Which phrase means the film earned very little?",
+       "q_fa": "کدام عبارت یعنی فیلم کم فروخت؟",
+       "options": [
+        "it bombed at the box office",
+        "it got great reviews",
+        "it sold out"
+       ],
+       "answer": "it bombed at the box office",
+       "why_en": "Box office is the ticket counter, where the money is counted.",
+       "why_fa": "باجهٔ بلیت همان جایی است که پول شمرده می‌شود."
+      },
+      {
+       "id": "cinema-q3",
+       "q_en": "A trailer is ...",
+       "q_fa": "تریلر چیست؟",
+       "options": [
+        "a short selection of scenes advertising a film",
+        "the full film",
+        "the cinema seat"
+       ],
+       "answer": "a short selection of scenes advertising a film",
+       "why_en": "A trailer advertises, it does not tell the whole story.",
+       "why_fa": "تریلر تبلیغ می‌کند و کل داستان را نمی‌گوید."
+      }
+     ]
+    },
+    {
+     "id": "music",
+     "order": 4,
+     "icon": "music",
+     "title_en": "Music and listening",
+     "title_fa": "موسیقی و شنیدن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Songs, albums, lyrics and the words for a tune you cannot get out of your head.",
+     "blurb_fa": "آهنگ، آلبوم، متن ترانه و واژه‌هایی برای آهنگی که از سرت بیرون نمی‌رود.",
+     "objectives": [
+      {
+       "en": "talk about a song, an album and its lyrics.",
+       "fa": "دربارهٔ یک آهنگ، آلبوم و متنش حرف بزن."
+      },
+      {
+       "en": "say what kind of music you listen to and when.",
+       "fa": "بگو چه نوع موسیقی گوش می‌دهی و چه وقت."
+      },
+      {
+       "en": "describe a tune that stays with you.",
+       "fa": "آهنگی را که با تو می‌ماند توصیف کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "music-w1",
+       "en": "song",
+       "ipa": "/sɔŋ/",
+       "pos": "noun",
+       "fa": "آهنگ",
+       "def_en": "A short piece of music with words.",
+       "sport": "entertainment",
+       "icon": "music",
+       "level": "A1",
+       "example_en": "That song has been in my head all day.",
+       "example_fa": "آن آهنگ تمام روز در سرم بوده.",
+       "ref": ""
+      },
+      {
+       "id": "music-w2",
+       "en": "album",
+       "ipa": "/ˈælbəm/",
+       "pos": "noun",
+       "fa": "آلبوم",
+       "def_en": "A collection of songs released together.",
+       "sport": "entertainment",
+       "icon": "disc",
+       "level": "A2",
+       "example_en": "Their new album is quieter than the last one.",
+       "example_fa": "آلبوم جدیدشان از قبلی آرام‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "music-w3",
+       "en": "track",
+       "ipa": "/træk/",
+       "pos": "noun",
+       "fa": "قطعه",
+       "def_en": "One song on an album.",
+       "sport": "entertainment",
+       "icon": "music",
+       "level": "B1",
+       "example_en": "Track four is the one everyone plays.",
+       "example_fa": "قطعهٔ چهار همان است که همه پخش می‌کنند.",
+       "ref": ""
+      },
+      {
+       "id": "music-w4",
+       "en": "lyrics",
+       "ipa": "/ˈlɪrɪks/",
+       "pos": "noun",
+       "fa": "متن ترانه",
+       "def_en": "The words of a song.",
+       "sport": "entertainment",
+       "icon": "speech",
+       "level": "B1",
+       "example_en": "The lyrics are simple but they stay with you.",
+       "example_fa": "متن ترانه ساده است اما با تو می‌ماند.",
+       "ref": ""
+      },
+      {
+       "id": "music-w5",
+       "en": "melody",
+       "ipa": "/ˈmɛlədi/",
+       "pos": "noun",
+       "fa": "ملودی",
+       "def_en": "The tune of a song, the part you hum.",
+       "sport": "entertainment",
+       "icon": "music",
+       "level": "B1",
+       "example_en": "The melody is sad and the words are funny.",
+       "example_fa": "ملودی غمگین است و کلمات خنده‌دار.",
+       "ref": ""
+      },
+      {
+       "id": "music-w6",
+       "en": "beat",
+       "ipa": "/bit/",
+       "pos": "noun",
+       "fa": "ضرب",
+       "def_en": "The regular pulse you feel in a song.",
+       "sport": "entertainment",
+       "icon": "drum",
+       "level": "A2",
+       "example_en": "The beat is what makes people dance.",
+       "example_fa": "ضرب همان چیزی است که مردم را به رقص می‌آورد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "music-x1",
+       "kind": "expression",
+       "en": "It is stuck in my head.",
+       "fa": "در سرم گیر کرده.",
+       "meaning_en": "Says a tune keeps repeating without you choosing it.",
+       "meaning_fa": "می‌گوید آهنگی بی‌اختیار تکرار می‌شود.",
+       "register": "neutral",
+       "example_en": "I heard it once and now it is stuck in my head.",
+       "example_fa": "یک بار شنیدم و حالا در سرم گیر کرده.",
+       "alt": ""
+      },
+      {
+       "id": "music-x2",
+       "kind": "expression",
+       "en": "Turn it up.",
+       "fa": "صدایش را بلند کن.",
+       "meaning_en": "The shortest request in a car or a kitchen.",
+       "meaning_fa": "کوتاه‌ترین درخواست در ماشین یا آشپزخانه.",
+       "register": "informal",
+       "example_en": "This is my favourite part, turn it up.",
+       "example_fa": "این بخش محبوب من است، صدایش را بلند کن.",
+       "alt": ""
+      },
+      {
+       "id": "music-x3",
+       "kind": "collocation",
+       "en": "I have had it on repeat all week.",
+       "fa": "تمام هفته روی تکرار گذاشته‌ام.",
+       "meaning_en": "On repeat is the fixed phrase for playing one thing again and again.",
+       "meaning_fa": "«روی تکرار» عبارت ثابت برای پخش مکرر یک چیز است.",
+       "register": "informal",
+       "example_en": "I have had it on repeat all week and I am not tired of it.",
+       "example_fa": "تمام هفته روی تکرار گذاشته‌ام و خسته نشده‌ام.",
+       "alt": ""
+      },
+      {
+       "id": "music-x4",
+       "kind": "idiom",
+       "en": "It hit the right note.",
+       "fa": "دقیقاً درست بود.",
+       "meaning_en": "Literally, a musician played the correct note; figuratively, it was exactly the right thing at the right moment.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، نوازنده نُت درست را زد؛ به‌طور مجازی، دقیقاً درست‌ترین چیز در درست‌ترین لحظه بود.",
+       "register": "neutral",
+       "example_en": "Her speech hit the right note: warm but not sentimental.",
+       "example_fa": "حرف او دقیقاً درست بود: گرم اما نه احساساتی.",
+       "alt": ""
+      },
+      {
+       "id": "music-x5",
+       "kind": "expression",
+       "en": "That song slaps.",
+       "fa": "آن آهنگ عالی است.",
+       "meaning_en": "Slaps is slang for music that is very good.",
+       "meaning_fa": "«می‌زند» در زبان عامیانه یعنی موسیقی خیلی خوب است.",
+       "register": "slang",
+       "example_en": "The new single slaps, honestly.",
+       "example_fa": "تک‌آهنگ جدید واقعاً عالی است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I listen to + [kind] + when + [situation].",
+       "example_en": "I listen to jazz when I cook.",
+       "example_fa": "وقتی آشپزی می‌کنم جاز گوش می‌دهم.",
+       "note_en": "The kind, then the moment.",
+       "note_fa": "اول نوع، بعد لحظه."
+      },
+      {
+       "frame": "It is stuck in my + [place].",
+       "example_en": "It is stuck in my head.",
+       "example_fa": "در سرم گیر کرده.",
+       "note_en": "The phrase takes a place, not a reason.",
+       "note_fa": "این عبارت جا می‌گیرد، نه دلیل."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "music-s1",
+       "en": "I do not understand half the lyrics, but the melody is enough.",
+       "fa": "نصف متن را نمی‌فهمم، اما ملودی کافی است.",
+       "use_en": "Separates understanding from enjoying.",
+       "use_fa": "فهمیدن را از لذت بردن جدا می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The melody carries it for me."
+      },
+      {
+       "id": "music-s2",
+       "en": "Their early albums are rough, and that is exactly why I still play them.",
+       "fa": "آلبوم‌های اولشان خام است و دقیقاً برای همین هنوز پخششان می‌کنم.",
+       "use_en": "Values a flaw as a reason.",
+       "use_fa": "یک نقص را بهانهٔ ارزش می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The rough early albums are the ones I play."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Sharing headphones",
+      "title_fa": "همگوشی",
+      "speakers": [
+       "Bahar",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Bahar",
+        "en": "Listen to this. It has been stuck in my head for days.",
+        "fa": "به این گوش کن. چند روز است در سرم گیر کرده."
+       },
+       {
+        "who": "Reza",
+        "en": "That melody is beautiful. Who is it?",
+        "fa": "آن ملودی زیباست. از کیست؟"
+       },
+       {
+        "who": "Bahar",
+        "en": "A band from the north. The whole album is good.",
+        "fa": "گروهی از شمال. کل آلبوم خوب است."
+       },
+       {
+        "who": "Reza",
+        "en": "What are the lyrics about?",
+        "fa": "متن دربارهٔ چیست؟"
+       },
+       {
+        "who": "Bahar",
+        "en": "Growing up in a small town. Simple, but it works.",
+        "fa": "بزرگ شدن در شهری کوچک. ساده، اما کار می‌کند."
+       },
+       {
+        "who": "Reza",
+        "en": "Send me the album, I will listen on the train.",
+        "fa": "آلبوم را بفرست، در قطار گوش می‌دهم."
+       },
+       {
+        "who": "Bahar",
+        "en": "It is on repeat for me, so give it two listens.",
+        "fa": "برای من روی تکرار است، پس دو بار گوش کن."
+       },
+       {
+        "who": "Reza",
+        "en": "Deal. If it is half as good as this, it is good.",
+        "fa": "قبول. اگر نصف این هم خوب باشد، خوب است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The song stuck",
+       "title_fa": "آهنگ گیرکرده",
+       "situation_en": "A tune keeps you awake at night.",
+       "situation_fa": "آهنگی شب بیدار نگهت می‌دارد.",
+       "task_en": "Describe it and ask for a cure.",
+       "task_fa": "توصیفش کن و درمانی بخواه.",
+       "answer_en": "I have had this melody in my head since morning. How do I stop it?",
+       "answer_fa": "از صبح این ملودی در سرم است. چطور متوقفش کنم؟"
+      },
+      {
+       "title_en": "Music in the office",
+       "title_fa": "موسیقی در دفتر",
+       "situation_en": "A colleague plays music you find distracting.",
+       "situation_fa": "همکاری موسیقی پخش می‌کند که تمرکزت را می‌برد.",
+       "task_en": "Ask for headphones or a quieter volume.",
+       "task_fa": "هدفون یا صدای کمتر بخواه.",
+       "answer_en": "Would you mind using headphones? I cannot focus with the beat.",
+       "answer_fa": "اشکالی ندارد هدفون بزنی؟ با این ضرب نمی‌توانم تمرکز کنم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "music-q1",
+       "q_en": "What are lyrics?",
+       "q_fa": "متن ترانه چیست؟",
+       "options": [
+        "the words of a song",
+        "the instruments",
+        "the cover art"
+       ],
+       "answer": "the words of a song",
+       "why_en": "Lyrics are words, not sound.",
+       "why_fa": "متن ترانه کلمات است، نه صدا."
+      },
+      {
+       "id": "music-q2",
+       "q_en": "An album is ...",
+       "q_fa": "آلبوم چیست؟",
+       "options": [
+        "a collection of songs released together",
+        "one long song",
+        "a concert ticket"
+       ],
+       "answer": "a collection of songs released together",
+       "why_en": "An album groups tracks.",
+       "why_fa": "آلبوم قطعه‌ها را کنار هم می‌گذارد."
+      },
+      {
+       "id": "music-q3",
+       "q_en": "\"It is stuck in my head\" means ...",
+       "q_fa": "«در سرم گیر کرده» یعنی ...",
+       "options": [
+        "you keep hearing it in your mind",
+        "your headphones are broken",
+        "it is too loud"
+       ],
+       "answer": "you keep hearing it in your mind",
+       "why_en": "The phrase is about memory, not equipment.",
+       "why_fa": "این عبارت دربارهٔ حافظه است، نه تجهیزات."
+      }
+     ]
+    },
+    {
+     "id": "instruments",
+     "order": 5,
+     "icon": "guitar",
+     "title_en": "Instruments and playing",
+     "title_fa": "سازها و نواختن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The instruments people learn, and how to say you play one, gave one up or never started.",
+     "blurb_fa": "سازهایی که مردم یاد می‌گیرند، و اینکه چطور بگویی می‌نوازی، رهایش کردی یا هرگز شروع نکردی.",
+     "objectives": [
+      {
+       "en": "name the common instruments and what they sound like.",
+       "fa": "سازهای رایج را نام ببر و بگو چه صدایی دارند."
+      },
+      {
+       "en": "say which instrument you play and for how long.",
+       "fa": "بگو کدام ساز را می‌نوازی و چه مدت."
+      },
+      {
+       "en": "invite somebody to play or listen together.",
+       "fa": "کسی را به نواختن یا گوش دادن دعوت کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "instruments-w1",
+       "en": "guitar",
+       "ipa": "/ɡɪˈtɑr/",
+       "pos": "noun",
+       "fa": "گیتار",
+       "def_en": "A stringed instrument played with the fingers or a pick.",
+       "sport": "entertainment",
+       "icon": "guitar",
+       "level": "A1",
+       "example_en": "I have played the guitar since I was twelve.",
+       "example_fa": "از دوازده‌سالگی گیتار می‌نوازم.",
+       "ref": ""
+      },
+      {
+       "id": "instruments-w2",
+       "en": "piano",
+       "ipa": "/piˈænoʊ/",
+       "pos": "noun",
+       "fa": "پیانو",
+       "def_en": "A large keyboard instrument with black and white keys.",
+       "sport": "entertainment",
+       "icon": "piano",
+       "level": "A1",
+       "example_en": "The piano in the hall is out of tune.",
+       "example_fa": "پیانوی سالن کوک نیست.",
+       "ref": ""
+      },
+      {
+       "id": "instruments-w3",
+       "en": "drums",
+       "ipa": "/drʌmz/",
+       "pos": "noun",
+       "fa": "درامز",
+       "def_en": "A set of percussion instruments played with sticks.",
+       "sport": "entertainment",
+       "icon": "drum",
+       "level": "A2",
+       "example_en": "The drums are too loud for this room.",
+       "example_fa": "درامز برای این اتاق خیلی بلند است.",
+       "ref": ""
+      },
+      {
+       "id": "instruments-w4",
+       "en": "violin",
+       "ipa": "/ˌvaɪəˈlɪn/",
+       "pos": "noun",
+       "fa": "ویولن",
+       "def_en": "A small stringed instrument played with a bow.",
+       "sport": "entertainment",
+       "icon": "violin",
+       "level": "A2",
+       "example_en": "She plays the violin in an orchestra.",
+       "example_fa": "او در ارکستر ویولن می‌نوازد.",
+       "ref": ""
+      },
+      {
+       "id": "instruments-w5",
+       "en": "trumpet",
+       "ipa": "/ˈtrʌmpɪt/",
+       "pos": "noun",
+       "fa": "ترومپت",
+       "def_en": "A brass instrument played by blowing into it.",
+       "sport": "entertainment",
+       "icon": "trumpet",
+       "level": "B1",
+       "example_en": "The trumpet cuts through the whole band.",
+       "example_fa": "صدای ترومپت از کل گروه بیرون می‌زند.",
+       "ref": ""
+      },
+      {
+       "id": "instruments-w6",
+       "en": "microphone",
+       "ipa": "/ˈmaɪkrəˌfoʊn/",
+       "pos": "noun",
+       "fa": "میکروفون",
+       "def_en": "A device that makes a voice or instrument louder.",
+       "sport": "entertainment",
+       "icon": "mic",
+       "level": "A2",
+       "example_en": "The microphone was not working at the start.",
+       "example_fa": "میکروفون اول کار کار نمی‌کرد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "instruments-x1",
+       "kind": "expression",
+       "en": "Do you play any instruments?",
+       "fa": "ساز هم می‌نوازی؟",
+       "meaning_en": "Asks about playing, not owning.",
+       "meaning_fa": "دربارهٔ نواختن می‌پرسد، نه داشتن.",
+       "register": "neutral",
+       "example_en": "Do you play any instruments, or just listen?",
+       "example_fa": "ساز هم می‌نوازی یا فقط گوش می‌دهی؟",
+       "alt": ""
+      },
+      {
+       "id": "instruments-x2",
+       "kind": "expression",
+       "en": "I am learning the guitar.",
+       "fa": "دارم گیتار یاد می‌گیرم.",
+       "meaning_en": "The present continuous that admits you are a beginner.",
+       "meaning_fa": "حال استمراری که می‌پذیرد تازه‌کاری.",
+       "register": "neutral",
+       "example_en": "I am learning the guitar, so be patient with me.",
+       "example_fa": "دارم گیتار یاد می‌گیرم، پس با من صبور باش.",
+       "alt": ""
+      },
+      {
+       "id": "instruments-x3",
+       "kind": "collocation",
+       "en": "She plays in a band.",
+       "fa": "او در یک گروه می‌نوازد.",
+       "meaning_en": "Play in a band is the fixed phrase for being a member.",
+       "meaning_fa": "«در گروه نواختن» عبارت ثابت عضویت است.",
+       "register": "neutral",
+       "example_en": "She plays in a band on Fridays.",
+       "example_fa": "جمعه‌ها در یک گروه می‌نوازد.",
+       "alt": ""
+      },
+      {
+       "id": "instruments-x4",
+       "kind": "phrasal_verb",
+       "en": "I gave up the piano years ago.",
+       "fa": "سال‌ها پیش پیانو را رها کردم.",
+       "meaning_en": "Give up is the phrasal verb for stopping something you used to do.",
+       "meaning_fa": "«رها کردن» فعل عبارتی برای توقف کاری است که قبلاً می‌کردی.",
+       "register": "neutral",
+       "example_en": "I gave up the piano years ago and regret it.",
+       "example_fa": "سال‌ها پیش پیانو را رها کردم و پشیمانم.",
+       "alt": ""
+      },
+      {
+       "id": "instruments-x5",
+       "kind": "idiom",
+       "en": "It is music to my ears.",
+       "fa": "برای من مثل موسیقی است.",
+       "meaning_en": "Literally, a sound as pleasant as music; figuratively, very good news to hear.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، صدایی به‌خوشی موسیقی؛ به‌طور مجازی، خبری بسیار خوب برای شنیدن.",
+       "register": "neutral",
+       "example_en": "The school is reopening? That is music to my ears.",
+       "example_fa": "مدرسه باز می‌شود؟ این برای من مثل موسیقی است.",
+       "alt": ""
+      },
+      {
+       "id": "instruments-x6",
+       "kind": "idiom",
+       "en": "You have to face the music.",
+       "fa": "باید عواقبش را بپذیری.",
+       "meaning_en": "Literally, step forward in front of the orchestra; figuratively, accept the consequences of what you did.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، جلوی ارکستر برو؛ به‌طور مجازی، عواقب کارت را بپذیر.",
+       "register": "neutral",
+       "example_en": "You broke it, so now you face the music.",
+       "example_fa": "تو شکستش دادی، پس حالا عواقبش را بپذیر.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I play the + [instrument].",
+       "example_en": "I play the guitar.",
+       "example_fa": "گیتار می‌نوازم.",
+       "note_en": "The definite article belongs with instruments.",
+       "note_fa": "حرف تعریف با نام ساز می‌آید."
+      },
+      {
+       "frame": "I have played it for + [time].",
+       "example_en": "I have played it for six years.",
+       "example_fa": "شش سال است می‌نوازم.",
+       "note_en": "For plus a period gives the length.",
+       "note_fa": "«برای» به‌همراه مدت، طول زمان را می‌دهد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "instruments-s1",
+       "en": "I started on a cheap guitar and only bought a good one after two years.",
+       "fa": "با یک گیتار ارزان شروع کردم و فقط بعد از دو سال یک گیتار خوب خریدم.",
+       "use_en": "Explains a sensible order of events.",
+       "use_fa": "ترتیب معقول کارها را توضیح می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I began cheap and upgraded later."
+      },
+      {
+       "id": "instruments-s2",
+       "en": "The drums sound enormous in a small room and tiny on a big stage.",
+       "fa": "درامز در اتاق کوچک عظیم و روی صحنهٔ بزرگ کوچک شنیده می‌شود.",
+       "use_en": "Compares the same sound in two places.",
+       "use_fa": "یک صدا را در دو جا مقایسه می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Drums change with the room."
+      }
+     ],
+     "dialogue": {
+      "title_en": "A music shop",
+      "title_fa": "یک فروشگاه موسیقی",
+      "speakers": [
+       "Kian",
+       "an assistant"
+      ],
+      "lines": [
+       {
+        "who": "Kian",
+        "en": "I want to learn an instrument. What do you suggest?",
+        "fa": "می‌خواهم سازی یاد بگیرم. چه پیشنهاد می‌کنی؟"
+       },
+       {
+        "who": "an assistant",
+        "en": "Piano is the easiest to start and the hardest to master.",
+        "fa": "پیانو آسان‌ترین برای شروع و سخت‌ترین برای تسلط است."
+       },
+       {
+        "who": "Kian",
+        "en": "I like the sound of the violin, but it looks difficult.",
+        "fa": "صدای ویولن را دوست دارم، اما سخت به نظر می‌رسد."
+       },
+       {
+        "who": "an assistant",
+        "en": "It is. The first year sounds rough, everyone says so.",
+        "fa": "هست. سال اول خام شنیده می‌شود، همه همین را می‌گویند."
+       },
+       {
+        "who": "Kian",
+        "en": "And the guitar?",
+        "fa": "و گیتار؟"
+       },
+       {
+        "who": "an assistant",
+        "en": "You can play a song in a week. That is why so many people start there.",
+        "fa": "در یک هفته می‌توانی یک آهنگ بزنی. برای همین خیلی‌ها از آنجا شروع می‌کنند."
+       },
+       {
+        "who": "Kian",
+        "en": "Then I will take the guitar and a book of easy songs.",
+        "fa": "پس گیتار و یک کتاب آهنگ‌های ساده می‌گیرم."
+       },
+       {
+        "who": "an assistant",
+        "en": "Good choice. Do not give up in the first month.",
+        "fa": "انتخاب خوبی است. ماه اول رهایش نکن."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The neighbour's drums",
+       "title_fa": "درامز همسایه",
+       "situation_en": "Your neighbour practises drums every evening.",
+       "situation_fa": "همسایه‌ات هر شب درامز تمرین می‌کند.",
+       "task_en": "Ask for a compromise without a fight.",
+       "task_fa": "بدون دعوا برای توافق بخواه.",
+       "answer_en": "The drums are wonderful, but could you practise before eight?",
+       "answer_fa": "درامز عالی است، اما می‌شود قبل از هشت تمرین کنی؟"
+      },
+      {
+       "title_en": "The out-of-tune piano",
+       "title_fa": "پیانوی ناکوک",
+       "situation_en": "The piano at the club is badly out of tune.",
+       "situation_fa": "پیانوی باشگاه بدجور ناکوک است.",
+       "task_en": "Tell the person in charge and ask what can be done.",
+       "task_fa": "به مسئول بگو و بپرس چه می‌شود کرد.",
+       "answer_en": "The piano is out of tune. Is there time to call a tuner before Friday?",
+       "answer_fa": "پیانو کوک نیست. وقت هست تا جمعه کوک‌کننده بیاید؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "instruments-q1",
+       "q_en": "Which instrument is played with a bow?",
+       "q_fa": "کدام ساز با آرشه نواخته می‌شود؟",
+       "options": [
+        "the violin",
+        "the trumpet",
+        "the drums"
+       ],
+       "answer": "the violin",
+       "why_en": "A bow is drawn across the strings.",
+       "why_fa": "آرشه روی سیم‌ها کشیده می‌شود."
+      },
+      {
+       "id": "instruments-q2",
+       "q_en": "\"I gave up the piano\" means ...",
+       "q_fa": "«پیانو را رها کردم» یعنی ...",
+       "options": [
+        "I stopped playing it",
+        "I sold my house",
+        "I tuned it"
+       ],
+       "answer": "I stopped playing it",
+       "why_en": "Give up is stopping, not selling.",
+       "why_fa": "«رها کردن» یعنی متوقف کردن، نه فروختن."
+      },
+      {
+       "id": "instruments-q3",
+       "q_en": "Which phrase means very good news?",
+       "q_fa": "کدام عبارت یعنی خبر بسیار خوب؟",
+       "options": [
+        "music to my ears",
+        "face the music",
+        "play second fiddle"
+       ],
+       "answer": "music to my ears",
+       "why_en": "The phrase is about pleasure in hearing something.",
+       "why_fa": "این عبارت دربارهٔ لذت شنیدن است."
+      }
+     ]
+    },
+    {
+     "id": "concerts",
+     "order": 6,
+     "icon": "stage",
+     "title_en": "Concerts and live music",
+     "title_fa": "کنسرت و موسیقی زنده",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Tickets, stages, audiences and the words for a night that goes well.",
+     "blurb_fa": "بلیت، صحنه، تماشاگر و واژه‌های یک شب خوب.",
+     "objectives": [
+      {
+       "en": "buy a concert ticket and say where you are sitting.",
+       "fa": "بلیت کنسرت بخر و بگو کجا می‌نشینی."
+      },
+      {
+       "en": "describe a live performance and the audience's reaction.",
+       "fa": "اجرای زنده و واکنش تماشاگران را توصیف کن."
+      },
+      {
+       "en": "ask for an encore and say it was worth the money.",
+       "fa": "بازگویی بخواه و بگو ارزش پول را داشت."
+      }
+     ],
+     "words": [
+      {
+       "id": "concerts-w1",
+       "en": "concert",
+       "ipa": "/ˈkɑnsərt/",
+       "pos": "noun",
+       "fa": "کنسرت",
+       "def_en": "A live performance of music in front of an audience.",
+       "sport": "entertainment",
+       "icon": "stage",
+       "level": "A1",
+       "example_en": "The concert starts at nine and ends at midnight.",
+       "example_fa": "کنسرت نه شروع می‌شود و نیمه‌شب تمام می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "concerts-w2",
+       "en": "stage",
+       "ipa": "/steɪdʒ/",
+       "pos": "noun",
+       "fa": "صحنه",
+       "def_en": "The raised area where performers stand.",
+       "sport": "entertainment",
+       "icon": "stage",
+       "level": "A2",
+       "example_en": "The stage was too small for the whole band.",
+       "example_fa": "صحنه برای کل گروه کوچک بود.",
+       "ref": ""
+      },
+      {
+       "id": "concerts-w3",
+       "en": "audience",
+       "ipa": "/ˈɔdiəns/",
+       "pos": "noun",
+       "fa": "تماشاگران",
+       "def_en": "The people watching a performance.",
+       "sport": "entertainment",
+       "icon": "audience",
+       "level": "B1",
+       "example_en": "The audience sang every word.",
+       "example_fa": "تماشاگران هر کلمه را خواندند.",
+       "ref": ""
+      },
+      {
+       "id": "concerts-w4",
+       "en": "encore",
+       "ipa": "/ˈɑnkɔr/",
+       "pos": "noun",
+       "fa": "بازگویی",
+       "def_en": "An extra song played because the audience asks for it.",
+       "sport": "entertainment",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "They came back for a two-song encore.",
+       "example_fa": "برای دو آهنگ بازگشتند.",
+       "ref": ""
+      },
+      {
+       "id": "concerts-w5",
+       "en": "venue",
+       "ipa": "/ˈvɛnju/",
+       "pos": "noun",
+       "fa": "محل برگزاری",
+       "def_en": "The place where an event happens.",
+       "sport": "entertainment",
+       "icon": "pin",
+       "level": "B1",
+       "example_en": "The venue holds three thousand people.",
+       "example_fa": "محل برگزاری ظرفیت سه هزار نفر را دارد.",
+       "ref": ""
+      },
+      {
+       "id": "concerts-w6",
+       "en": "festival",
+       "ipa": "/ˈfɛstəvəl/",
+       "pos": "noun",
+       "fa": "جشنواره",
+       "def_en": "A series of performances over several days.",
+       "sport": "entertainment",
+       "icon": "tent",
+       "level": "B1",
+       "example_en": "We go to the summer festival every year.",
+       "example_fa": "هر سال به جشنوارهٔ تابستانی می‌رویم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "concerts-x1",
+       "kind": "expression",
+       "en": "The tickets sold out in minutes.",
+       "fa": "بلیت‌ها در چند دقیقه تمام شد.",
+       "meaning_en": "Says demand exceeded supply, with the time.",
+       "meaning_fa": "می‌گوید تقاضا از عرضه بیشتر بود، با ذکر زمان.",
+       "register": "neutral",
+       "example_en": "The tickets sold out in minutes, so we watched the stream.",
+       "example_fa": "بلیت‌ها در چند دقیقه تمام شد، پس پخش زنده را دیدیم.",
+       "alt": ""
+      },
+      {
+       "id": "concerts-x2",
+       "kind": "expression",
+       "en": "They played for two hours without a break.",
+       "fa": "دو ساعت بی‌وقفه نواختند.",
+       "meaning_en": "Gives the length and the effort in one line.",
+       "meaning_fa": "در یک خط مدت و تلاش را می‌دهد.",
+       "register": "neutral",
+       "example_en": "They played for two hours without a break and nobody left.",
+       "example_fa": "دو ساعت بی‌وقفه نواختند و هیچ‌کس نرفت.",
+       "alt": ""
+      },
+      {
+       "id": "concerts-x3",
+       "kind": "collocation",
+       "en": "We were right at the front.",
+       "fa": "دقیقاً جلو بودیم.",
+       "meaning_en": "Right at the front is the fixed phrase for the closest place.",
+       "meaning_fa": "«دقیقاً جلو» عبارت ثابت نزدیک‌ترین جا است.",
+       "register": "neutral",
+       "example_en": "We were right at the front, close enough to see the strings.",
+       "example_fa": "دقیقاً جلو بودیم، آنقدر نزدیک که سیم‌ها را می‌دیدیم.",
+       "alt": ""
+      },
+      {
+       "id": "concerts-x4",
+       "kind": "idiom",
+       "en": "Break a leg.",
+       "fa": "موفق باشی.",
+       "meaning_en": "Literally, a theatre wish that was said to avoid tempting fate; figuratively, good luck before a performance.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، آرزویی در تئاتر برای فریب بخت؛ به‌طور مجازی، پیش از اجرا آرزوی موفقیت.",
+       "register": "informal",
+       "example_en": "Break a leg tonight, you have practised enough.",
+       "example_fa": "امشب موفق باشی، به اندازهٔ کافی تمرین کرده‌ای.",
+       "alt": ""
+      },
+      {
+       "id": "concerts-x5",
+       "kind": "idiom",
+       "en": "It brought the house down.",
+       "fa": "تماشاگران را منفجر کرد.",
+       "meaning_en": "Literally, the applause seemed to shake the building; figuratively, the performance was a huge success.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، تشویق ساختمان را لرزاند؛ به‌طور مجازی، اجرا موفقیتی بزرگ بود.",
+       "register": "neutral",
+       "example_en": "The last song brought the house down.",
+       "example_fa": "آهنگ آخر تماشاگران را منفجر کرد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The tickets + [verb] + in minutes.",
+       "example_en": "The tickets sold out in minutes.",
+       "example_fa": "بلیت‌ها در چند دقیقه تمام شد.",
+       "note_en": "Say what happened to the tickets, then when.",
+       "note_fa": "بگو با بلیت‌ها چه شد، بعد چه وقت."
+      },
+      {
+       "frame": "They played for + [time].",
+       "example_en": "They played for two hours.",
+       "example_fa": "دو ساعت نواختند.",
+       "note_en": "For plus a period gives the length.",
+       "note_fa": "«برای» با مدت، طول را می‌دهد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "concerts-s1",
+       "en": "The sound was better at the back, where the mix had room to breathe.",
+       "fa": "صدا در انتها بهتر بود، جایی که میکس جا داشت نفس بکشد.",
+       "use_en": "A judgement about a place with a reason.",
+       "use_fa": "داوری دربارهٔ یک جا با دلیل.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The back of the hall sounded better."
+      },
+      {
+       "id": "concerts-s2",
+       "en": "I paid far too much for the ticket and would do it again tomorrow.",
+       "fa": "برای بلیت خیلی زیاد پرداختم و فردا دوباره همین کار را می‌کنم.",
+       "use_en": "Admits a bad deal and values it anyway.",
+       "use_fa": "معاملهٔ بد را می‌پذیرد و باز هم ارزشش را می‌داند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Overpriced, and worth it."
+      }
+     ],
+     "dialogue": {
+      "title_en": "After the concert",
+      "title_fa": "بعد از کنسرت",
+      "speakers": [
+       "Shadi",
+       "Nima"
+      ],
+      "lines": [
+       {
+        "who": "Shadi",
+        "en": "That was the best concert I have been to in years.",
+        "fa": "این بهترین کنسرتی بود که سال‌ها رفته‌ام."
+       },
+       {
+        "who": "Nima",
+        "en": "The audience knew every word.",
+        "fa": "تماشاگران هر کلمه را می‌دانستند."
+       },
+       {
+        "who": "Shadi",
+        "en": "And they came back for an encore.",
+        "fa": "و برای بازگویی برگشتند."
+       },
+       {
+        "who": "Nima",
+        "en": "Twice. The second one brought the house down.",
+        "fa": "دو بار. دومی تماشاگران را منفجر کرد."
+       },
+       {
+        "who": "Shadi",
+        "en": "The venue was smaller than I expected, which helped.",
+        "fa": "محل برگزاری از انتظارم کوچک‌تر بود، که کمک کرد."
+       },
+       {
+        "who": "Nima",
+        "en": "It sold out in minutes, remember.",
+        "fa": "یادت باشد بلیت‌ها در چند دقیقه تمام شد."
+       },
+       {
+        "who": "Shadi",
+        "en": "Next time we buy in the first hour.",
+        "fa": "دفعهٔ بعد در ساعت اول می‌خریم."
+       },
+       {
+        "who": "Nima",
+        "en": "Break a leg with the queue.",
+        "fa": "در صف موفق باشی."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The ticket that never arrived",
+       "title_fa": "بلیتی که نرسید",
+       "situation_en": "You paid online and the ticket never came.",
+       "situation_fa": "آنلاین پرداختی و بلیت نیامد.",
+       "task_en": "Explain the problem and ask for a solution.",
+       "task_fa": "مشکل را توضیح بده و راه‌حل بخواه.",
+       "answer_en": "I paid for two tickets but nothing arrived. Could you resend them?",
+       "answer_fa": "برای دو بلیت پرداختم اما چیزی نیامد. می‌شود دوباره بفرستید؟"
+      },
+      {
+       "title_en": "The too-loud support act",
+       "title_fa": "گروه پیش‌گروه بلند",
+       "situation_en": "The support act is so loud the audience is covering its ears.",
+       "situation_fa": "گروه پیش‌گروه آنقدر بلند است که تماشاگران گوش‌هایشان را می‌گیرند.",
+       "task_en": "Say it to a friend and decide what to do.",
+       "task_fa": "به دوستت بگو و تصمیم بگیر چه کنید.",
+       "answer_en": "This is painful. Shall we wait at the back until the main act?",
+       "answer_fa": "این دردناک است. برویم ته سالن تا گروه اصلی بیاید؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "concerts-q1",
+       "q_en": "What is an encore?",
+       "q_fa": "بازگویی چیست؟",
+       "options": [
+        "an extra song the audience asks for",
+        "the first song",
+        "the ticket price"
+       ],
+       "answer": "an extra song the audience asks for",
+       "why_en": "An encore comes after the planned programme.",
+       "why_fa": "بازگویی بعد از برنامهٔ اصلی می‌آید."
+      },
+      {
+       "id": "concerts-q2",
+       "q_en": "A venue is ...",
+       "q_fa": "محل برگزاری چیست؟",
+       "options": [
+        "the place an event happens",
+        "the band's name",
+        "the sound system"
+       ],
+       "answer": "the place an event happens",
+       "why_en": "The venue is a location.",
+       "why_fa": "محل برگزاری یک مکان است."
+      },
+      {
+       "id": "concerts-q3",
+       "q_en": "\"Break a leg\" means ...",
+       "q_fa": "«موفق باشی» یعنی ...",
+       "options": [
+        "good luck before a performance",
+        "be careful on stage",
+        "the show is cancelled"
+       ],
+       "answer": "good luck before a performance",
+       "why_en": "Theatre people say it instead of good luck.",
+       "why_fa": "اهل تئاتر به جای «موفق باشی» این را می‌گویند."
+      }
+     ]
+    },
+    {
+     "id": "books",
+     "order": 7,
+     "icon": "book",
+     "title_en": "Books and reading",
+     "title_fa": "کتاب و کتاب‌خوانی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Novels, authors and chapters, and the words for a book you cannot put down.",
+     "blurb_fa": "رمان، نویسنده و فصل، و واژه‌هایی برای کتابی که نمی‌توانی زمینش بگذاری.",
+     "objectives": [
+      {
+       "en": "talk about a book by its author, its chapters and its story.",
+       "fa": "دربارهٔ کتاب با نویسنده، فصل‌ها و داستانش حرف بزن."
+      },
+      {
+       "en": "say where you are in a book and how long it is taking.",
+       "fa": "بگو کجای کتابی و چقدر طول می‌کشد."
+      },
+      {
+       "en": "recommend a book and say what kind of reader it suits.",
+       "fa": "کتابی را پیشنهاد کن و بگو به چه خواننده‌ای می‌خورد."
+      }
+     ],
+     "words": [
+      {
+       "id": "books-w1",
+       "en": "novel",
+       "ipa": "/ˈnɑvəl/",
+       "pos": "noun",
+       "fa": "رمان",
+       "def_en": "A long invented story published as a book.",
+       "sport": "entertainment",
+       "icon": "book",
+       "level": "A2",
+       "example_en": "I am reading a novel about a family in Tehran.",
+       "example_fa": "دارم رمانی دربارهٔ یک خانواده در تهران می‌خوانم.",
+       "ref": ""
+      },
+      {
+       "id": "books-w2",
+       "en": "author",
+       "ipa": "/ˈɔθər/",
+       "pos": "noun",
+       "fa": "نویسنده",
+       "def_en": "The person who wrote a book.",
+       "sport": "entertainment",
+       "icon": "pen",
+       "level": "A2",
+       "example_en": "The author lives in the same town as my aunt.",
+       "example_fa": "نویسنده در همان شهر خالهٔ من زندگی می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "books-w3",
+       "en": "chapter",
+       "ipa": "/ˈtʃæptər/",
+       "pos": "noun",
+       "fa": "فصل",
+       "def_en": "One numbered part of a book.",
+       "sport": "entertainment",
+       "icon": "book",
+       "level": "A2",
+       "example_en": "I read one chapter a night before sleeping.",
+       "example_fa": "شبی یک فصل پیش از خواب می‌خوانم.",
+       "ref": ""
+      },
+      {
+       "id": "books-w4",
+       "en": "cover",
+       "ipa": "/ˈkʌvər/",
+       "pos": "noun",
+       "fa": "جلد",
+       "def_en": "The outside of a book, often with a picture.",
+       "sport": "entertainment",
+       "icon": "book",
+       "level": "A1",
+       "example_en": "The cover is beautiful but the story is better.",
+       "example_fa": "جلد زیباست اما داستان بهتر است.",
+       "ref": ""
+      },
+      {
+       "id": "books-w5",
+       "en": "bookmark",
+       "ipa": "/ˈbʊkˌmɑrk/",
+       "pos": "noun",
+       "fa": "نشانهٔ کتاب",
+       "def_en": "Something you put in a book to keep your place.",
+       "sport": "entertainment",
+       "icon": "bookmark",
+       "level": "A2",
+       "example_en": "I lost my bookmark and started the chapter again.",
+       "example_fa": "نشانهٔ کتابم را گم کردم و فصل را از نو شروع کردم.",
+       "ref": ""
+      },
+      {
+       "id": "books-w6",
+       "en": "library",
+       "ipa": "/ˈlaɪˌbrɛri/",
+       "pos": "noun",
+       "fa": "کتابخانه",
+       "def_en": "A place where books are kept and lent.",
+       "sport": "entertainment",
+       "icon": "shelf",
+       "level": "A1",
+       "example_en": "The library is open until eight on Thursdays.",
+       "example_fa": "کتابخانه پنجشنبه‌ها تا هشت باز است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "books-x1",
+       "kind": "expression",
+       "en": "I could not put it down.",
+       "fa": "نمی‌توانستم زمینش بگذارم.",
+       "meaning_en": "The standard way to praise a gripping book.",
+       "meaning_fa": "روش استاندارد تحسین کتابی گیرا.",
+       "register": "neutral",
+       "example_en": "I started at nine and could not put it down until two.",
+       "example_fa": "نه شروع کردم و تا دو نمی‌توانستم زمینش بگذارم.",
+       "alt": ""
+      },
+      {
+       "id": "books-x2",
+       "kind": "expression",
+       "en": "I am halfway through.",
+       "fa": "نصفش را خوانده‌ام.",
+       "meaning_en": "Says your position without a chapter number.",
+       "meaning_fa": "جای خودت را بدون شمارهٔ فصل می‌گوید.",
+       "register": "neutral",
+       "example_en": "I am halfway through and nothing has happened yet.",
+       "example_fa": "نصفش را خوانده‌ام و هنوز هیچ اتفاقی نیفتاده.",
+       "alt": ""
+      },
+      {
+       "id": "books-x3",
+       "kind": "collocation",
+       "en": "It is a thick book.",
+       "fa": "کتاب حجیمی است.",
+       "meaning_en": "Thick book is the fixed phrase for length you can see.",
+       "meaning_fa": "«کتاب حجیم» عبارت ثابت برای طولی است که می‌بینی.",
+       "register": "neutral",
+       "example_en": "It is a thick book, so give yourself a month.",
+       "example_fa": "کتاب حجیمی است، پس یک ماه وقت بگذار.",
+       "alt": ""
+      },
+      {
+       "id": "books-x4",
+       "kind": "idiom",
+       "en": "It is a real page-turner.",
+       "fa": "واقعاً آدم را می‌کشد.",
+       "meaning_en": "Literally, a book whose pages turn themselves; figuratively, one so exciting that you keep reading.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، کتابی که صفحه‌هایش خودشان ورق می‌خورند؛ به‌طور مجازی، آنقدر هیجان‌انگیز که ادامه می‌دهی.",
+       "register": "neutral",
+       "example_en": "The first fifty pages are slow, then it is a real page-turner.",
+       "example_fa": "پنجاه صفحهٔ اول کند است، بعد واقعاً آدم را می‌کشد.",
+       "alt": ""
+      },
+      {
+       "id": "books-x5",
+       "kind": "idiom",
+       "en": "Do not judge a book by its cover.",
+       "fa": "از ظاهر قضاوت نکن.",
+       "meaning_en": "Literally, a plain cover can hide a fine book; figuratively, do not judge anything by how it looks.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، جلد ساده می‌تواند کتاب خوبی را پنهان کند؛ به‌طور مجازی، از ظاهر چیزی قضاوت نکن.",
+       "register": "neutral",
+       "example_en": "The ugly little bookshop is the best in town: do not judge a book by its cover.",
+       "example_fa": "آن کتاب‌فروشی کوچک و زشت بهترین شهر است: از ظاهر قضاوت نکن.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I am reading + [title/kind].",
+       "example_en": "I am reading a novel about a family.",
+       "example_fa": "دارم رمانی دربارهٔ یک خانواده می‌خوانم.",
+       "note_en": "Name what you are reading, not how much.",
+       "note_fa": "بگو چه می‌خوانی، نه چقدر."
+      },
+      {
+       "frame": "I am + [place] + through.",
+       "example_en": "I am halfway through.",
+       "example_fa": "نصفش را خوانده‌ام.",
+       "note_en": "The place in the book comes before through.",
+       "note_fa": "جای کتاب پیش از «طی کردن» می‌آید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "books-s1",
+       "en": "The novel is eight hundred pages and I have carried it everywhere for three weeks.",
+       "fa": "رمان هشتصد صفحه است و سه هفته همه‌جا با خودم برده‌ام.",
+       "use_en": "Shows commitment through a number and a habit.",
+       "use_fa": "تعهد را با عدد و عادت نشان می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I have carried this long novel everywhere."
+      },
+      {
+       "id": "books-s2",
+       "en": "I read the last chapter twice because I did not want it to end.",
+       "fa": "فصل آخر را دو بار خواندم چون نمی‌خواستم تمام شود.",
+       "use_en": "Explains a small strange action.",
+       "use_fa": "کاری کوچک و عجیب را توضیح می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I reread the end to delay finishing."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Borrowing a book",
+      "title_fa": "قرض گرفتن کتاب",
+      "speakers": [
+       "Mina",
+       "Ali"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Is this the novel everyone is talking about?",
+        "fa": "این همان رمانی است که همه از آن حرف می‌زنند؟"
+       },
+       {
+        "who": "Ali",
+        "en": "It is. I am halfway through and it is a real page-turner.",
+        "fa": "همان است. نصفش را خوانده‌ام و واقعاً آدم را می‌کشد."
+       },
+       {
+        "who": "Mina",
+        "en": "Can I borrow it when you finish?",
+        "fa": "وقتی تمام کردی می‌توانم قرض بگیرم؟"
+       },
+       {
+        "who": "Ali",
+        "en": "Of course. Give me three days.",
+        "fa": "البته. سه روز وقت بده."
+       },
+       {
+        "who": "Mina",
+        "en": "Who is the author?",
+        "fa": "نویسنده‌اش کیست؟"
+       },
+       {
+        "who": "Ali",
+        "en": "A journalist from Shiraz. This is her first novel.",
+        "fa": "روزنامه‌نگاری از شیراز. این اولین رمانش است."
+       },
+       {
+        "who": "Mina",
+        "en": "The cover does not look like much.",
+        "fa": "جلدش چندان چیزی نشان نمی‌دهد."
+       },
+       {
+        "who": "Ali",
+        "en": "Do not judge a book by its cover. It is wonderful.",
+        "fa": "از ظاهر قضاوت نکن. فوق‌العاده است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The library card",
+       "title_fa": "کارت کتابخانه",
+       "situation_en": "You want to borrow a book but your card has expired.",
+       "situation_fa": "می‌خواهی کتابی قرض بگیری اما کارتت منقضی شده.",
+       "task_en": "Ask what to do and how long it takes.",
+       "task_fa": "بپرس چه باید کرد و چقدر طول می‌کشد.",
+       "answer_en": "My card has expired. Can I renew it today and borrow this one?",
+       "answer_fa": "کارتم منقضی شده. می‌شود امروز تمدیدش کنم و این را قرض بگیرم؟"
+      },
+      {
+       "title_en": "The slow first chapter",
+       "title_fa": "فصل اول کند",
+       "situation_en": "A friend gave up on a book after twenty pages.",
+       "situation_fa": "دوستی بعد از بیست صفحه کتاب را رها کرد.",
+       "task_en": "Say what changes and when.",
+       "task_fa": "بگو چه چیزی و کِی عوض می‌شود.",
+       "answer_en": "Stay with it until chapter three. That is where the story starts moving.",
+       "answer_fa": "تا فصل سه ادامه بده. از آنجا داستان راه می‌افتد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "books-q1",
+       "q_en": "What is an author?",
+       "q_fa": "نویسنده کیست؟",
+       "options": [
+        "the person who wrote the book",
+        "the person who prints it",
+        "the person who sells it"
+       ],
+       "answer": "the person who wrote the book",
+       "why_en": "The author writes; others print and sell.",
+       "why_fa": "نویسنده می‌نویسد؛ دیگران چاپ و فروش می‌کنند."
+      },
+      {
+       "id": "books-q2",
+       "q_en": "A page-turner is ...",
+       "q_fa": "«آدم را می‌کشد» یعنی ...",
+       "options": [
+        "a book that is hard to stop reading",
+        "a book with damaged pages",
+        "a very short book"
+       ],
+       "answer": "a book that is hard to stop reading",
+       "why_en": "The phrase is about excitement, not paper.",
+       "why_fa": "این عبارت دربارهٔ هیجان است، نه کاغذ."
+      },
+      {
+       "id": "books-q3",
+       "q_en": "\"Do not judge a book by its cover\" warns against ...",
+       "q_fa": "«از ظاهر قضاوت نکن» از چه پرهیز می‌دهد؟",
+       "options": [
+        "judging by appearance",
+        "reading too fast",
+        "borrowing books"
+       ],
+       "answer": "judging by appearance",
+       "why_en": "The cover stands for appearance.",
+       "why_fa": "جلد نماد ظاهر است."
+      }
+     ]
+    },
+    {
+     "id": "storytelling",
+     "order": 8,
+     "icon": "speech",
+     "title_en": "Stories and telling them",
+     "title_fa": "داستان و تعریف کردن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Narrators, fairy tales, myths and the words for a story with a twist.",
+     "blurb_fa": "راوی، افسانه، اسطوره و واژه‌هایی برای داستانی با پیچش.",
+     "objectives": [
+      {
+       "en": "tell a short story with a beginning, a middle and an end.",
+       "fa": "داستان کوتاهی با آغاز، میانه و پایان تعریف کن."
+      },
+      {
+       "en": "name the kind of story you mean: a fairy tale, a myth or a true one.",
+       "fa": "نوع داستان را نام ببر: افسانه، اسطوره یا واقعی."
+      },
+      {
+       "en": "say that a story is invented or exaggerated.",
+       "fa": "بگو داستانی ساختگی یا بزرگ‌نمایی‌شده است."
+      }
+     ],
+     "words": [
+      {
+       "id": "storytelling-w1",
+       "en": "storyteller",
+       "ipa": "/ˈstɔriˌtɛlər/",
+       "pos": "noun",
+       "fa": "قصه‌گو",
+       "def_en": "A person who tells stories well.",
+       "sport": "entertainment",
+       "icon": "speech",
+       "level": "B1",
+       "example_en": "My grandmother was the best storyteller in the family.",
+       "example_fa": "مادربزرگم بهترین قصه‌گوی خانواده بود.",
+       "ref": ""
+      },
+      {
+       "id": "storytelling-w2",
+       "en": "narrator",
+       "ipa": "/ˈnærˌeɪtər/",
+       "pos": "noun",
+       "fa": "راوی",
+       "def_en": "The voice that tells a story.",
+       "sport": "entertainment",
+       "icon": "speech",
+       "level": "B1",
+       "example_en": "The narrator is a child, which changes everything.",
+       "example_fa": "راوی یک کودک است، که همه چیز را عوض می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "storytelling-w3",
+       "en": "fairy tale",
+       "ipa": "/ˈfɛri teɪl/",
+       "pos": "noun",
+       "fa": "افسانه",
+       "def_en": "A children's story with magic in it.",
+       "sport": "entertainment",
+       "icon": "castle",
+       "level": "A2",
+       "example_en": "She reads a fairy tale to her son every night.",
+       "example_fa": "هر شب برای پسرش یک افسانه می‌خواند.",
+       "ref": ""
+      },
+      {
+       "id": "storytelling-w4",
+       "en": "myth",
+       "ipa": "/mɪθ/",
+       "pos": "noun",
+       "fa": "اسطوره",
+       "def_en": "An ancient story about gods or heroes.",
+       "sport": "entertainment",
+       "icon": "moon",
+       "level": "B1",
+       "example_en": "The myth explains why the river floods each spring.",
+       "example_fa": "این اسطوره توضیح می‌دهد چرا رود هر بهار طغیان می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "storytelling-w5",
+       "en": "twist",
+       "ipa": "/twɪst/",
+       "pos": "noun",
+       "fa": "پیچش داستان",
+       "def_en": "A sudden change in a story you did not expect.",
+       "sport": "entertainment",
+       "icon": "spiral",
+       "level": "B1",
+       "example_en": "The twist comes in the last ten pages.",
+       "example_fa": "پیچش در ده صفحهٔ آخر می‌آید.",
+       "ref": ""
+      },
+      {
+       "id": "storytelling-w6",
+       "en": "quote",
+       "ipa": "/kwoʊt/",
+       "pos": "noun",
+       "fa": "نقل قول",
+       "def_en": "The exact words somebody said or wrote.",
+       "sport": "entertainment",
+       "icon": "quote",
+       "level": "B1",
+       "example_en": "My favourite quote is from the second chapter.",
+       "example_fa": "نقل قول محبوبم از فصل دوم است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "storytelling-x1",
+       "kind": "expression",
+       "en": "Long story short, we missed the train.",
+       "fa": "خلاصه‌اش، قطار را از دست دادیم.",
+       "meaning_en": "The phrase that cuts a story down before telling it.",
+       "meaning_fa": "عبارتی که داستان را پیش از گفتن کوتاه می‌کند.",
+       "register": "informal",
+       "example_en": "Long story short, we missed the train and walked home.",
+       "example_fa": "خلاصه‌اش، قطار را از دست دادیم و پیاده به خانه رفتیم.",
+       "alt": ""
+      },
+      {
+       "id": "storytelling-x2",
+       "kind": "expression",
+       "en": "It has a twist at the end.",
+       "fa": "آخرش پیچش دارد.",
+       "meaning_en": "Warns about a surprise without revealing it.",
+       "meaning_fa": "دربارهٔ غافلگیری هشدار می‌دهد بی‌آنکه لو بدهد.",
+       "register": "neutral",
+       "example_en": "It has a twist at the end that I did not see coming.",
+       "example_fa": "آخرش پیچشی دارد که پیش‌بینی نمی‌کردم.",
+       "alt": ""
+      },
+      {
+       "id": "storytelling-x3",
+       "kind": "collocation",
+       "en": "She told the story beautifully.",
+       "fa": "داستان را زیبا تعریف کرد.",
+       "meaning_en": "Tell a story is the fixed verb; you do not say a story.",
+       "meaning_fa": "«داستان تعریف کردن» فعل ثابت است؛ «گفتن داستان» درست نیست.",
+       "register": "neutral",
+       "example_en": "She told the story beautifully, with every voice different.",
+       "example_fa": "داستان را زیبا تعریف کرد، هر صدا متفاوت.",
+       "alt": ""
+      },
+      {
+       "id": "storytelling-x4",
+       "kind": "phrasal_verb",
+       "en": "He made the whole thing up.",
+       "fa": "همه‌اش را از خودش ساخت.",
+       "meaning_en": "Make up is the phrasal verb for inventing something untrue.",
+       "meaning_fa": "«از خود ساختن» فعل عبارتی برای جعل چیزی نادرست است.",
+       "register": "informal",
+       "example_en": "He made the whole thing up to get attention.",
+       "example_fa": "همه‌اش را برای جلب توجه از خودش ساخت.",
+       "alt": ""
+      },
+      {
+       "id": "storytelling-x5",
+       "kind": "idiom",
+       "en": "It is a tall tale.",
+       "fa": "یک قصهٔ دروغین است.",
+       "meaning_en": "Literally, a story taller than the truth; figuratively, an obvious exaggeration.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، داستانی بلندتر از حقیقت؛ به‌طور مجازی، بزرگ‌نمایی آشکار.",
+       "register": "neutral",
+       "example_en": "He caught a fish the size of a car, or so the tall tale goes.",
+       "example_fa": "ماهی به اندازهٔ ماشین گرفت، یا دست‌کم قصه‌اش همین است.",
+       "alt": ""
+      },
+      {
+       "id": "storytelling-x6",
+       "kind": "idiom",
+       "en": "You have to read between the lines.",
+       "fa": "باید بین خطوط را خواند.",
+       "meaning_en": "Literally, look at the space between written lines; figuratively, work out the meaning that was not said.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، به فاصلهٔ بین خطوط نگاه کن؛ به‌طور مجازی، معنایی را که گفته نشده دریاب.",
+       "register": "neutral",
+       "example_en": "She says she is fine, but read between the lines.",
+       "example_fa": "می‌گوید خوب است، اما بین خطوط را بخوان.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Long story short, + [what happened].",
+       "example_en": "Long story short, we missed the train.",
+       "example_fa": "خلاصه‌اش، قطار را از دست دادیم.",
+       "note_en": "The phrase comes first, the summary after.",
+       "note_fa": "اول عبارت، بعد خلاصه."
+      },
+      {
+       "frame": "It has a + [noun] + at the end.",
+       "example_en": "It has a twist at the end.",
+       "example_fa": "آخرش پیچش دارد.",
+       "note_en": "Name the feature, then where it is.",
+       "note_fa": "اول ویژگی، بعد جایش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "storytelling-s1",
+       "en": "The narrator tells the story as an old man, which makes the ending much sadder.",
+       "fa": "راوی داستان را به‌عنوان پیرمردی تعریف می‌کند، که پایان را خیلی غمگین‌تر می‌کند.",
+       "use_en": "Links a narrative choice to an effect.",
+       "use_fa": "انتخاب روایی را به اثرش ربط می‌دهد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The old narrator makes the ending sadder."
+      },
+      {
+       "id": "storytelling-s2",
+       "en": "Every family has one story that is half true and gets bigger every year.",
+       "fa": "هر خانواده یک داستان دارد که نیمه‌واقعی است و هر سال بزرگ‌تر می‌شود.",
+       "use_en": "Describes a familiar pattern in one line.",
+       "use_fa": "الگویی آشنا را در یک خط توصیف می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Our family story grows every year."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Telling a story",
+      "title_fa": "تعریف کردن داستان",
+      "speakers": [
+       "Sara",
+       "Hamed"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "Tell me what happened at the station.",
+        "fa": "بگو در ایستگاه چه شد."
+       },
+       {
+        "who": "Hamed",
+        "en": "Long story short, we missed the train by two minutes.",
+        "fa": "خلاصه‌اش، دو دقیقه قطار را از دست دادیم."
+       },
+       {
+        "who": "Sara",
+        "en": "Two minutes? How?",
+        "fa": "دو دقیقه؟ چطور؟"
+       },
+       {
+        "who": "Hamed",
+        "en": "The queue at the ticket machine, then the platform changed.",
+        "fa": "صف دستگاه بلیت، بعد سکو عوض شد."
+       },
+       {
+        "who": "Sara",
+        "en": "And then?",
+        "fa": "و بعد؟"
+       },
+       {
+        "who": "Hamed",
+        "en": "We waited an hour. And that is the whole story, no twist.",
+        "fa": "یک ساعت منتظر ماندیم. و همین کل داستان است، بی‌پیچش."
+       },
+       {
+        "who": "Sara",
+        "en": "You made the queue sound much longer last time.",
+        "fa": "دفعهٔ قبل صف را خیلی طولانی‌تر تعریف کردی."
+       },
+       {
+        "who": "Hamed",
+        "en": "A tall tale improves with age.",
+        "fa": "قصهٔ دروغین با گذر زمان بهتر می‌شود."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The story with no ending",
+       "title_fa": "داستان بی‌پایان",
+       "situation_en": "A friend starts a story and keeps interrupting themselves.",
+       "situation_fa": "دوستی داستانی را شروع می‌کند و مدام خودش را قطع می‌کند.",
+       "task_en": "Ask them to get to the point politely.",
+       "task_fa": "مؤدبانه بخواه به نتیجه برسد.",
+       "answer_en": "Long story short? I have five minutes before my bus.",
+       "answer_fa": "خلاصه‌اش؟ پنج دقیقه تا اتوبوس وقت دارم."
+      },
+      {
+       "title_en": "The invented memory",
+       "title_fa": "خاطرهٔ ساختگی",
+       "situation_en": "Somebody tells a family story you know is not true.",
+       "situation_fa": "کسی داستان خانوادگی‌ای می‌گوید که می‌دانی درست نیست.",
+       "task_en": "Disagree gently and offer the real version.",
+       "task_fa": "نرم مخالفت کن و روایت واقعی را پیشنهاد بده.",
+       "answer_en": "I remember it differently. The car was blue, not red.",
+       "answer_fa": "من جور دیگری یادم است. ماشین آبی بود، نه قرمز."
+      }
+     ],
+     "practice": [
+      {
+       "id": "storytelling-q1",
+       "q_en": "Who is the narrator?",
+       "q_fa": "راوی کیست؟",
+       "options": [
+        "the voice that tells the story",
+        "the author's editor",
+        "the main character's friend"
+       ],
+       "answer": "the voice that tells the story",
+       "why_en": "The narrator tells it, whoever they are.",
+       "why_fa": "راوی تعریف می‌کند، هر کسی که باشد."
+      },
+      {
+       "id": "storytelling-q2",
+       "q_en": "What is a myth?",
+       "q_fa": "اسطوره چیست؟",
+       "options": [
+        "an ancient story about gods or heroes",
+        "a news report",
+        "a shopping list"
+       ],
+       "answer": "an ancient story about gods or heroes",
+       "why_en": "Myths are old stories, not facts.",
+       "why_fa": "اسطوره داستان کهن است، نه واقعیت."
+      },
+      {
+       "id": "storytelling-q3",
+       "q_en": "\"Read between the lines\" means ...",
+       "q_fa": "«بین خطوط را خواندن» یعنی ...",
+       "options": [
+        "work out what was not said",
+        "read faster",
+        "skip a page"
+       ],
+       "answer": "work out what was not said",
+       "why_en": "The meaning is hidden, not written.",
+       "why_fa": "معنا پنهان است، نه نوشته."
+      }
+     ]
+    },
+    {
+     "id": "games",
+     "order": 9,
+     "icon": "gamepad",
+     "title_en": "Video games and play",
+     "title_fa": "بازی‌های ویدیویی و بازی کردن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Consoles, controllers, levels and the words for playing alone or online.",
+     "blurb_fa": "کنسول، دسته، مرحله و واژه‌های بازی تنها یا آنلاین.",
+     "objectives": [
+      {
+       "en": "talk about a game, its levels and how far you are.",
+       "fa": "دربارهٔ یک بازی، مرحله‌هایش و پیشرفتت حرف بزن."
+      },
+      {
+       "en": "invite somebody to play together, online or on the sofa.",
+       "fa": "کسی را به بازی مشترک دعوت کن، آنلاین یا روی کاناپه."
+      },
+      {
+       "en": "say what you like and dislike about a game.",
+       "fa": "بگو چه چیزی از بازی را دوست داری و چه چیزی نه."
+      }
+     ],
+     "words": [
+      {
+       "id": "games-w1",
+       "en": "video game",
+       "ipa": "/ˈvɪdioʊ ɡeɪm/",
+       "pos": "noun",
+       "fa": "بازی ویدیویی",
+       "def_en": "A game played on a screen with a controller or keyboard.",
+       "sport": "entertainment",
+       "icon": "gamepad",
+       "level": "A1",
+       "example_en": "We played a video game until midnight.",
+       "example_fa": "تا نیمه‌شب یک بازی ویدیویی کردیم.",
+       "ref": ""
+      },
+      {
+       "id": "games-w2",
+       "en": "console",
+       "ipa": "/ˈkɑnsoʊl/",
+       "pos": "noun",
+       "fa": "کنسول",
+       "def_en": "The machine a video game runs on, connected to a screen.",
+       "sport": "entertainment",
+       "icon": "console",
+       "level": "A2",
+       "example_en": "The console is under the television.",
+       "example_fa": "کنسول زیر تلویزیون است.",
+       "ref": ""
+      },
+      {
+       "id": "games-w3",
+       "en": "controller",
+       "ipa": "/kənˈtroʊlər/",
+       "pos": "noun",
+       "fa": "دستهٔ بازی",
+       "def_en": "The hand-held device with buttons that you play with.",
+       "sport": "entertainment",
+       "icon": "gamepad",
+       "level": "A2",
+       "example_en": "The second controller needs new batteries.",
+       "example_fa": "دستهٔ دوم باتری تازه می‌خواهد.",
+       "ref": ""
+      },
+      {
+       "id": "games-w4",
+       "en": "level",
+       "ipa": "/ˈlɛvəl/",
+       "pos": "noun",
+       "fa": "مرحله",
+       "def_en": "One section of a game, usually harder than the last.",
+       "sport": "entertainment",
+       "icon": "stairs",
+       "level": "A2",
+       "example_en": "I have been stuck on this level for a week.",
+       "example_fa": "یک هفته است در این مرحله گیر کرده‌ام.",
+       "ref": ""
+      },
+      {
+       "id": "games-w5",
+       "en": "player",
+       "ipa": "/ˈpleɪər/",
+       "pos": "noun",
+       "fa": "بازیکن",
+       "def_en": "A person playing a game.",
+       "sport": "entertainment",
+       "icon": "person",
+       "level": "A2",
+       "example_en": "The game is better with two players.",
+       "example_fa": "بازی با دو بازیکن بهتر است.",
+       "ref": ""
+      },
+      {
+       "id": "games-w6",
+       "en": "graphics",
+       "ipa": "/ˈɡræfɪks/",
+       "pos": "noun",
+       "fa": "گرافیک",
+       "def_en": "The pictures and visual effects in a game.",
+       "sport": "entertainment",
+       "icon": "chart",
+       "level": "B1",
+       "example_en": "The graphics are simple but the game is brilliant.",
+       "example_fa": "گرافیک ساده است اما بازی درخشان است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "games-x1",
+       "kind": "expression",
+       "en": "I am stuck on this level.",
+       "fa": "در این مرحله گیر کرده‌ام.",
+       "meaning_en": "Names the exact place you cannot pass.",
+       "meaning_fa": "دقیقاً جایی را که نمی‌توانی رد کنی نام می‌برد.",
+       "register": "neutral",
+       "example_en": "I am stuck on this level and there is no way around it.",
+       "example_fa": "در این مرحله گیر کرده‌ام و راه دور زدنی نیست.",
+       "alt": ""
+      },
+      {
+       "id": "games-x2",
+       "kind": "expression",
+       "en": "Do you want to play online?",
+       "fa": "می‌خواهی آنلاین بازی کنیم؟",
+       "meaning_en": "Invites without naming the game.",
+       "meaning_fa": "دعوت می‌کند بی‌آنکه بازی را نام ببرد.",
+       "register": "neutral",
+       "example_en": "Do you want to play online after dinner?",
+       "example_fa": "بعد از شام می‌خواهی آنلاین بازی کنیم؟",
+       "alt": ""
+      },
+      {
+       "id": "games-x3",
+       "kind": "collocation",
+       "en": "It is a two-player game.",
+       "fa": "بازی دو نفره است.",
+       "meaning_en": "Two-player game is the fixed phrase for the mode.",
+       "meaning_fa": "«بازی دو نفره» عبارت ثابت حالت بازی است.",
+       "register": "neutral",
+       "example_en": "It is a two-player game, so bring a friend.",
+       "example_fa": "بازی دو نفره است، پس یک دوست بیاور.",
+       "alt": ""
+      },
+      {
+       "id": "games-x4",
+       "kind": "phrasal_verb",
+       "en": "I stayed up all night playing.",
+       "fa": "تمام شب بیدار ماندم و بازی کردم.",
+       "meaning_en": "Stay up is the phrasal verb for not going to bed.",
+       "meaning_fa": "«بیدار ماندن» فعل عبارتی برای به تخت نرفتن است.",
+       "register": "informal",
+       "example_en": "I stayed up all night playing and regretted it at work.",
+       "example_fa": "تمام شب بیدار ماندم و بازی کردم و سر کار پشیمان شدم.",
+       "alt": ""
+      },
+      {
+       "id": "games-x5",
+       "kind": "idiom",
+       "en": "It is a game changer.",
+       "fa": "همه چیز را عوض می‌کند.",
+       "meaning_en": "Literally, something that changes the game itself; figuratively, a big improvement that alters how things are done.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، چیزی که خود بازی را عوض می‌کند؛ به‌طور مجازی، پیشرفتی بزرگ که روش کار را دگرگون می‌کند.",
+       "register": "neutral",
+       "example_en": "Playing with a proper controller is a game changer.",
+       "example_fa": "بازی با یک دستهٔ درست همه چیز را عوض می‌کند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I am stuck on + [level/boss].",
+       "example_en": "I am stuck on this level.",
+       "example_fa": "در این مرحله گیر کرده‌ام.",
+       "note_en": "Name the obstacle, not the feeling.",
+       "note_fa": "مانع را نام ببر، نه حس را."
+      },
+      {
+       "frame": "Do you want to + [verb]?",
+       "example_en": "Do you want to play online?",
+       "example_fa": "می‌خواهی آنلاین بازی کنیم؟",
+       "note_en": "The invitation takes the bare verb.",
+       "note_fa": "دعوت با فعل ساده می‌آید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "games-s1",
+       "en": "The game is enormous, and after forty hours I have finished a third of it.",
+       "fa": "بازی عظیم است و بعد از چهل ساعت یک‌سومش را تمام کرده‌ام.",
+       "use_en": "Gives scale with two numbers.",
+       "use_fa": "اندازه را با دو عدد می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Forty hours in, I am a third through."
+      },
+      {
+       "id": "games-s2",
+       "en": "I play for an hour after work because it empties my head better than television.",
+       "fa": "بعد از کار یک ساعت بازی می‌کنم چون سرم را بهتر از تلویزیون خالی می‌کند.",
+       "use_en": "Explains a habit by comparing it.",
+       "use_fa": "عادت را با مقایسه توضیح می‌دهد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "An hour of play clears my head."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Playing together",
+      "title_fa": "بازی با هم",
+      "speakers": [
+       "Kian",
+       "Neda"
+      ],
+      "lines": [
+       {
+        "who": "Kian",
+        "en": "Do you want to play online tonight?",
+        "fa": "می‌خواهی امشب آنلاین بازی کنیم؟"
+       },
+       {
+        "who": "Neda",
+        "en": "I am stuck on the third level and it is embarrassing.",
+        "fa": "در مرحلهٔ سوم گیر کرده‌ام و خجالت‌آور است."
+       },
+       {
+        "who": "Kian",
+        "en": "That level is hard for everyone. We can play together.",
+        "fa": "آن مرحله برای همه سخت است. می‌توانیم با هم بازی کنیم."
+       },
+       {
+        "who": "Neda",
+        "en": "Is it a two-player game?",
+        "fa": "بازی دو نفره است؟"
+       },
+       {
+        "who": "Kian",
+        "en": "It is, and the graphics look better with two screens.",
+        "fa": "بله، و با دو صفحه گرافیک بهتر به نظر می‌رسد."
+       },
+       {
+        "who": "Neda",
+        "en": "Then I will bring my controller.",
+        "fa": "پس دسته‌ام را می‌آورم."
+       },
+       {
+        "who": "Kian",
+        "en": "Nine o'clock? I will stay up a little later tonight.",
+        "fa": "ساعت نه؟ امشب کمی دیرتر بیدار می‌مانم."
+       },
+       {
+        "who": "Neda",
+        "en": "Do not blame me tomorrow.",
+        "fa": "فردا گردن من نینداز."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The lost save",
+       "title_fa": "ذخیرهٔ گم‌شده",
+       "situation_en": "Forty hours of progress disappeared with an update.",
+       "situation_fa": "چهل ساعت پیشرفت با یک به‌روزرسانی ناپدید شد.",
+       "task_en": "Say what happened and ask what can be done.",
+       "task_fa": "بگو چه شد و بپرس چه می‌شود کرد.",
+       "answer_en": "The update wiped my save. Is there any way to get it back?",
+       "answer_fa": "به‌روزرسانی ذخیره‌ام را پاک کرد. راهی برای برگرداندنش هست؟"
+      },
+      {
+       "title_en": "The noisy game",
+       "title_fa": "بازی پرصدا",
+       "situation_en": "A housemate plays at two in the morning.",
+       "situation_fa": "همخانه‌ای ساعت دو بامداد بازی می‌کند.",
+       "task_en": "Ask for headphones or a time limit.",
+       "task_fa": "هدفون یا محدودیت زمانی بخواه.",
+       "answer_en": "Could you use headphones after midnight? The sound carries.",
+       "answer_fa": "می‌شود بعد از نیمه‌شب هدفون بزنی؟ صدا منتقل می‌شود."
+      }
+     ],
+     "practice": [
+      {
+       "id": "games-q1",
+       "q_en": "What is a console?",
+       "q_fa": "کنسول چیست؟",
+       "options": [
+        "the machine a game runs on",
+        "the game itself",
+        "the player's chair"
+       ],
+       "answer": "the machine a game runs on",
+       "why_en": "A console is hardware, not software.",
+       "why_fa": "کنسول سخت‌افزار است، نه نرم‌افزار."
+      },
+      {
+       "id": "games-q2",
+       "q_en": "Being stuck on a level means ...",
+       "q_fa": "گیر کردن در یک مرحله یعنی ...",
+       "options": [
+        "you cannot get past it",
+        "you finished it",
+        "you skipped it"
+       ],
+       "answer": "you cannot get past it",
+       "why_en": "Stuck is about not passing, not finishing.",
+       "why_fa": "«گیر کردن» دربارهٔ رد نشدن است، نه تمام کردن."
+      },
+      {
+       "id": "games-q3",
+       "q_en": "\"A game changer\" means ...",
+       "q_fa": "«همه چیز را عوض می‌کند» یعنی ...",
+       "options": [
+        "something that changes how things are done",
+        "a new game console",
+        "a rule of the game"
+       ],
+       "answer": "something that changes how things are done",
+       "why_en": "The phrase is about a big improvement.",
+       "why_fa": "این عبارت دربارهٔ پیشرفتی بزرگ است."
+      }
+     ]
+    },
+    {
+     "id": "hobbies",
+     "order": 10,
+     "icon": "palette",
+     "title_en": "Hobbies and free time",
+     "title_fa": "سرگرمی‌ها و وقت آزاد",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The things people do for pleasure, and how to say you took one up or have no time for it.",
+     "blurb_fa": "کارهایی که برای لذت انجام می‌دهیم، و اینکه چطور بگویی یکی را شروع کردی یا وقتش را نداری.",
+     "objectives": [
+      {
+       "en": "ask and answer what you do in your free time.",
+       "fa": "بپرس و پاسخ بده در وقت آزاد چه می‌کنی."
+      },
+      {
+       "en": "say when and why you took up a hobby.",
+       "fa": "بگو کِی و چرا سرگرمی‌ای را شروع کردی."
+      },
+      {
+       "en": "invite somebody to join a club or an activity.",
+       "fa": "کسی را به باشگاه یا فعالیتی دعوت کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "hobbies-w1",
+       "en": "hobby",
+       "ipa": "/ˈhɑbi/",
+       "pos": "noun",
+       "fa": "سرگرمی",
+       "def_en": "Something you do for pleasure in your free time.",
+       "sport": "entertainment",
+       "icon": "palette",
+       "level": "A2",
+       "example_en": "My hobby is restoring old radios.",
+       "example_fa": "سرگرمی من بازسازی رادیوهای قدیمی است.",
+       "ref": ""
+      },
+      {
+       "id": "hobbies-w2",
+       "en": "pastime",
+       "ipa": "/ˈpæsˌtaɪm/",
+       "pos": "noun",
+       "fa": "گذران وقت",
+       "def_en": "An activity people do to pass the time pleasantly.",
+       "sport": "entertainment",
+       "icon": "clock",
+       "level": "B1",
+       "example_en": "Walking is the national pastime here.",
+       "example_fa": "پیاده‌روی گذران وقت ملی اینجا است.",
+       "ref": ""
+      },
+      {
+       "id": "hobbies-w3",
+       "en": "board game",
+       "ipa": "/ˈbɔrd ɡeɪm/",
+       "pos": "noun",
+       "fa": "بازی رومیزی",
+       "def_en": "A game played on a board with pieces.",
+       "sport": "entertainment",
+       "icon": "dice",
+       "level": "A2",
+       "example_en": "We play a board game every Friday night.",
+       "example_fa": "هر جمعه شب یک بازی رومیزی می‌کنیم.",
+       "ref": ""
+      },
+      {
+       "id": "hobbies-w4",
+       "en": "collection",
+       "ipa": "/kəˈlɛkʃən/",
+       "pos": "noun",
+       "fa": "مجموعه",
+       "def_en": "A group of similar things you have gathered.",
+       "sport": "entertainment",
+       "icon": "box",
+       "level": "B1",
+       "example_en": "His collection of maps fills two cupboards.",
+       "example_fa": "مجموعهٔ نقشه‌هایش دو کمد را پر کرده.",
+       "ref": ""
+      },
+      {
+       "id": "hobbies-w5",
+       "en": "puzzle",
+       "ipa": "/ˈpʌzəl/",
+       "pos": "noun",
+       "fa": "معما و پازل",
+       "def_en": "A game or problem that needs thought to solve.",
+       "sport": "entertainment",
+       "icon": "puzzle",
+       "level": "A2",
+       "example_en": "We finished the puzzle in one rainy afternoon.",
+       "example_fa": "پازل را در یک بعدازظهر بارانی تمام کردیم.",
+       "ref": ""
+      },
+      {
+       "id": "hobbies-w6",
+       "en": "club",
+       "ipa": "/klʌb/",
+       "pos": "noun",
+       "fa": "باشگاه",
+       "def_en": "A group of people who meet to do something together.",
+       "sport": "entertainment",
+       "icon": "group",
+       "level": "A2",
+       "example_en": "The photography club meets on Tuesdays.",
+       "example_fa": "باشگاه عکاسی سه‌شنبه‌ها جمع می‌شود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "hobbies-x1",
+       "kind": "expression",
+       "en": "What do you do in your free time?",
+       "fa": "در وقت آزاد چه می‌کنی؟",
+       "meaning_en": "The standard opener about hobbies.",
+       "meaning_fa": "آغازگر استاندارد دربارهٔ سرگرمی.",
+       "register": "neutral",
+       "example_en": "What do you do in your free time, apart from reading?",
+       "example_fa": "در وقت آزاد چه می‌کنی، جز خواندن؟",
+       "alt": ""
+      },
+      {
+       "id": "hobbies-x2",
+       "kind": "phrasal_verb",
+       "en": "I took it up last year.",
+       "fa": "سال گذشته شروعش کردم.",
+       "meaning_en": "Take up is the phrasal verb for starting a hobby.",
+       "meaning_fa": "«شروع کردن» فعل عبارتی برای آغاز یک سرگرمی است.",
+       "register": "neutral",
+       "example_en": "I took it up last year and I am still terrible at it.",
+       "example_fa": "سال گذشته شروعش کردم و هنوز در آن افتضاحم.",
+       "alt": ""
+      },
+      {
+       "id": "hobbies-x3",
+       "kind": "collocation",
+       "en": "It is a bit of a hobby.",
+       "fa": "تا حدی سرگرمی من است.",
+       "meaning_en": "A bit of a hobby softens how serious it is.",
+       "meaning_fa": "«تا حدی سرگرمی» جدی بودنش را کم می‌کند.",
+       "register": "neutral",
+       "example_en": "Photography is a bit of a hobby, nothing more.",
+       "example_fa": "عکاسی تا حدی سرگرمی است، نه بیشتر.",
+       "alt": ""
+      },
+      {
+       "id": "hobbies-x4",
+       "kind": "idiom",
+       "en": "Each to their own.",
+       "fa": "هر کسی سلیقهٔ خودش را دارد.",
+       "meaning_en": "Literally, each person to their own taste; figuratively, people are allowed different preferences.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، هر کس به سلیقهٔ خودش؛ به‌طور مجازی، مردم می‌توانند سلیقهٔ متفاوت داشته باشند.",
+       "register": "neutral",
+       "example_en": "You like fishing and I like opera: each to their own.",
+       "example_fa": "تو ماهی‌گیری را دوست داری و من اپرا: هر کسی سلیقهٔ خودش را دارد.",
+       "alt": ""
+      },
+      {
+       "id": "hobbies-x5",
+       "kind": "idiom",
+       "en": "It helps me kill time on the train.",
+       "fa": "کمک می‌کند در قطار وقت بکشم.",
+       "meaning_en": "Literally, kill the time that is passing; figuratively, occupy yourself while waiting.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، زمانی را که می‌گذرد بکش؛ به‌طور مجازی، خودت را در انتظار سرگرم کن.",
+       "register": "neutral",
+       "example_en": "This puzzle helps me kill time on the train.",
+       "example_fa": "این پازل کمک می‌کند در قطار وقت بکشم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I took it up + [when].",
+       "example_en": "I took it up last year.",
+       "example_fa": "سال گذشته شروعش کردم.",
+       "note_en": "Take up plus the moment you began.",
+       "note_fa": "«شروع کردن» به‌همراه زمان آغاز."
+      },
+      {
+       "frame": "What do you do in your + [time]?",
+       "example_en": "What do you do in your free time?",
+       "example_fa": "در وقت آزاد چه می‌کنی؟",
+       "note_en": "The time phrase ends the question.",
+       "note_fa": "عبارت زمان پایان پرسش است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "hobbies-s1",
+       "en": "I have a cupboard full of half-finished projects, which is its own kind of hobby.",
+       "fa": "کمدی پر از پروژه‌های نیمه‌تمام دارم، که خودش نوعی سرگرمی است.",
+       "use_en": "Admits a habit with humour.",
+       "use_fa": "عادتی را با طنز می‌پذیرد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "My hobbies are mostly unfinished projects."
+      },
+      {
+       "id": "hobbies-s2",
+       "en": "The club is free, meets on Tuesdays, and anybody can walk in.",
+       "fa": "باشگاه رایگان است، سه‌شنبه‌ها جمع می‌شود و هر کسی می‌تواند بیاید.",
+       "use_en": "Gives the practical details in one line.",
+       "use_fa": "جزئیات عملی را در یک خط می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "It is free on Tuesdays and open to all."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Joining a club",
+      "title_fa": "عضویت در باشگاه",
+      "speakers": [
+       "Omid",
+       "Parisa"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "What do you do in your free time?",
+        "fa": "در وقت آزاد چه می‌کنی؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "I restore old photographs. I took it up last year.",
+        "fa": "عکس‌های قدیمی را بازسازی می‌کنم. سال گذشته شروعش کردم."
+       },
+       {
+        "who": "Omid",
+        "en": "That sounds difficult. How did you learn?",
+        "fa": "سخت به نظر می‌رسد. چطور یاد گرفتی؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "A club at the library teaches it, and the first month is free.",
+        "fa": "باشگاهی در کتابخانه یاد می‌دهد و ماه اول رایگان است."
+       },
+       {
+        "who": "Omid",
+        "en": "Do people bring their own photographs?",
+        "fa": "مردم عکس‌های خودشان را می‌آورند؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Mostly family ones. Mine are from my grandmother's collection.",
+        "fa": "بیشتر خانوادگی. مال من از مجموعهٔ مادربزرگم است."
+       },
+       {
+        "who": "Omid",
+        "en": "Could I come on Tuesday and just watch?",
+        "fa": "می‌توانم سه‌شنبه بیایم و فقط تماشا کنم؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Of course. Each to their own, but I think you will join in.",
+        "fa": "البته. هر کسی سلیقهٔ خودش را دارد، اما فکر می‌کنم شرکت می‌کنی."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "No time for a hobby",
+       "title_fa": "وقت نداشتن برای سرگرمی",
+       "situation_en": "Work has taken every evening for months.",
+       "situation_fa": "کار ماه‌ها همهٔ شب‌ها را گرفته.",
+       "task_en": "Say what you miss and propose something small.",
+       "task_fa": "بگو چه چیزی را از دست داده‌ای و چیز کوچکی پیشنهاد کن.",
+       "answer_en": "I miss having a hobby. Could we do a puzzle on Sunday, just an hour?",
+       "answer_fa": "دلم برای سرگرمی تنگ شده. یکشنبه یک پازل بکنیم، فقط یک ساعت؟"
+      },
+      {
+       "title_en": "The expensive hobby",
+       "title_fa": "سرگرمی گران",
+       "situation_en": "A friend wants to start photography but the equipment is costly.",
+       "situation_fa": "دوستی می‌خواهد عکاسی را شروع کند اما تجهیزات گران است.",
+       "task_en": "Suggest a cheaper way in.",
+       "task_fa": "راه ارزان‌تری پیشنهاد کن.",
+       "answer_en": "Start with your phone and the club's camera before you buy anything.",
+       "answer_fa": "با گوشی خودت و دوربین باشگاه شروع کن، پیش از آنکه چیزی بخری."
+      }
+     ],
+     "practice": [
+      {
+       "id": "hobbies-q1",
+       "q_en": "What does \"take up a hobby\" mean?",
+       "q_fa": "«شروع کردن یک سرگرمی» یعنی چه؟",
+       "options": [
+        "start doing it",
+        "give it up",
+        "sell the equipment"
+       ],
+       "answer": "start doing it",
+       "why_en": "Take up is beginning, not quitting.",
+       "why_fa": "«شروع کردن» آغاز است، نه رها کردن."
+      },
+      {
+       "id": "hobbies-q2",
+       "q_en": "A pastime is ...",
+       "q_fa": "گذران وقت چیست؟",
+       "options": [
+        "something pleasant to pass the time",
+        "a full-time job",
+        "a collection of maps"
+       ],
+       "answer": "something pleasant to pass the time",
+       "why_en": "A pastime is for pleasure, not work.",
+       "why_fa": "گذران وقت برای لذت است، نه کار."
+      },
+      {
+       "id": "hobbies-q3",
+       "q_en": "\"Each to their own\" means ...",
+       "q_fa": "«هر کسی سلیقهٔ خودش را دارد» یعنی ...",
+       "options": [
+        "people may prefer different things",
+        "everyone must agree",
+        "nobody has taste"
+       ],
+       "answer": "people may prefer different things",
+       "why_en": "The phrase accepts difference.",
+       "why_fa": "این عبارت تفاوت را می‌پذیرد."
+      }
+     ]
+    },
+    {
+     "id": "reviews",
+     "order": 11,
+     "icon": "star",
+     "title_en": "Reviews and opinions",
+     "title_fa": "نقد و نظر",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Ratings, critics and spoilers, and how to say what you thought without pretending it is a fact.",
+     "blurb_fa": "امتیاز، منتقد و لو دادن ماجرا، و اینکه چطور نظرت را بگویی بی‌آنکه آن را واقعیت جا بزنی.",
+     "objectives": [
+      {
+       "en": "give a rating and say what it is based on.",
+       "fa": "امتیاز بده و بگو بر چه پایه‌ای است."
+      },
+      {
+       "en": "separate your opinion from the general one.",
+       "fa": "نظر خودت را از نظر عمومی جدا کن."
+      },
+      {
+       "en": "warn somebody about a spoiler before you say it.",
+       "fa": "پیش از گفتن، دربارهٔ لو دادن ماجرا هشدار بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "reviews-w1",
+       "en": "review",
+       "ipa": "/rɪˈvju/",
+       "pos": "noun",
+       "fa": "نقد",
+       "def_en": "A written or spoken opinion of a film, book or show.",
+       "sport": "entertainment",
+       "icon": "pen",
+       "level": "B1",
+       "example_en": "The review in the paper was unfair.",
+       "example_fa": "نقد روزنامه ناعادلانه بود.",
+       "ref": ""
+      },
+      {
+       "id": "reviews-w2",
+       "en": "rating",
+       "ipa": "/ˈreɪtɪŋ/",
+       "pos": "noun",
+       "fa": "امتیاز",
+       "def_en": "A score given to a film, game or show.",
+       "sport": "entertainment",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "The rating is four out of five.",
+       "example_fa": "امتیاز چهار از پنج است.",
+       "ref": ""
+      },
+      {
+       "id": "reviews-w3",
+       "en": "critic",
+       "ipa": "/ˈkrɪtɪk/",
+       "pos": "noun",
+       "fa": "منتقد",
+       "def_en": "A person who writes judgements about art for a living.",
+       "sport": "entertainment",
+       "icon": "pen",
+       "level": "B2",
+       "example_en": "The critics loved it and the public stayed away.",
+       "example_fa": "منتقدان دوستش داشتند و مردم نیامدند.",
+       "ref": ""
+      },
+      {
+       "id": "reviews-w4",
+       "en": "opinion",
+       "ipa": "/əˈpɪnjən/",
+       "pos": "noun",
+       "fa": "نظر",
+       "def_en": "What somebody thinks about something.",
+       "sport": "entertainment",
+       "icon": "speech",
+       "level": "A2",
+       "example_en": "In my opinion, the book is better than the film.",
+       "example_fa": "به نظر من کتاب از فیلم بهتر است.",
+       "ref": ""
+      },
+      {
+       "id": "reviews-w5",
+       "en": "recommend",
+       "ipa": "/ˌrɛkəˈmɛnd/",
+       "pos": "verb",
+       "fa": "پیشنهاد کردن",
+       "def_en": "Say that something is worth somebody's time.",
+       "sport": "entertainment",
+       "icon": "thumb",
+       "level": "B1",
+       "example_en": "I recommend it to anyone who likes slow stories.",
+       "example_fa": "آن را به هر کسی که داستان آرام دوست دارد پیشنهاد می‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "reviews-w6",
+       "en": "spoiler",
+       "ipa": "/ˈspɔɪlər/",
+       "pos": "noun",
+       "fa": "افشای ماجرا",
+       "def_en": "A detail that ruins a story for somebody who has not seen it.",
+       "sport": "entertainment",
+       "icon": "alert",
+       "level": "B1",
+       "example_en": "That review is full of spoilers.",
+       "example_fa": "آن نقد پر از افشای ماجراست.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "reviews-x1",
+       "kind": "expression",
+       "en": "What did you think of it?",
+       "fa": "چه فکری درباره‌اش می‌کنی؟",
+       "meaning_en": "Asks for an opinion, not a summary.",
+       "meaning_fa": "نظر می‌خواهد، نه خلاصه.",
+       "register": "neutral",
+       "example_en": "What did you think of it, honestly?",
+       "example_fa": "راستش را بگو، چه فکری درباره‌اش می‌کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "reviews-x2",
+       "kind": "expression",
+       "en": "I would give it four out of five.",
+       "fa": "چهار از پنج می‌دهم.",
+       "meaning_en": "Gives a score and its scale in one line.",
+       "meaning_fa": "در یک خط امتیاز و مقیاسش را می‌دهد.",
+       "register": "neutral",
+       "example_en": "I would give it four out of five: good, not perfect.",
+       "example_fa": "چهار از پنج می‌دهم: خوب، نه بی‌نقص.",
+       "alt": ""
+      },
+      {
+       "id": "reviews-x3",
+       "kind": "collocation",
+       "en": "It got rave reviews.",
+       "fa": "نقدهای پرشور گرفت.",
+       "meaning_en": "Rave reviews is the fixed phrase for very enthusiastic ones.",
+       "meaning_fa": "«نقدهای پرشور» عبارت ثابت برای نقدهای بسیار مشتاق است.",
+       "register": "neutral",
+       "example_en": "It got rave reviews, so my expectations were high.",
+       "example_fa": "نقدهای پرشور گرفت، پس انتظارم بالا بود.",
+       "alt": ""
+      },
+      {
+       "id": "reviews-x4",
+       "kind": "expression",
+       "en": "Spoiler alert!",
+       "fa": "هشدار لو دادن!",
+       "meaning_en": "Warns the room before revealing a detail.",
+       "meaning_fa": "پیش از فاش کردن جزئیات به جمع هشدار می‌دهد.",
+       "register": "informal",
+       "example_en": "Spoiler alert: the dog survives.",
+       "example_fa": "هشدار لو دادن: سگ زنده می‌ماند.",
+       "alt": ""
+      },
+      {
+       "id": "reviews-x5",
+       "kind": "phrasal_verb",
+       "en": "It did not live up to the hype.",
+       "fa": "به آن هیاهو نمی‌ارزید.",
+       "meaning_en": "Live up to is the phrasal verb for matching expectations.",
+       "meaning_fa": "«به انتظار رسیدن» فعل عبارتی برای هم‌سطح شدن با توقع است.",
+       "register": "neutral",
+       "example_en": "The sequel did not live up to the hype.",
+       "example_fa": "دنباله به آن هیاهو نمی‌ارزید.",
+       "alt": ""
+      },
+      {
+       "id": "reviews-x6",
+       "kind": "idiom",
+       "en": "Beauty is in the eye of the beholder.",
+       "fa": "زیبایی در چشم بیننده است.",
+       "meaning_en": "Literally, the one who looks decides what is beautiful; figuratively, taste is personal and cannot be argued.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بیننده تعیین می‌کند چه زیباست؛ به‌طور مجازی، سلیقه شخصی است و بحث‌بردار نیست.",
+       "register": "neutral",
+       "example_en": "You hate the colours I love, but beauty is in the eye of the beholder.",
+       "example_fa": "تو از رنگ‌هایی که من دوست دارم بدت می‌آید، اما زیبایی در چشم بیننده است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I would give it + [score] + out of + [total].",
+       "example_en": "I would give it four out of five.",
+       "example_fa": "چهار از پنج می‌دهم.",
+       "note_en": "The score, then the scale.",
+       "note_fa": "اول امتیاز، بعد مقیاس."
+      },
+      {
+       "frame": "In my opinion, + [opinion].",
+       "example_en": "In my opinion, the book is better.",
+       "example_fa": "به نظر من کتاب بهتر است.",
+       "note_en": "The phrase marks the sentence as yours.",
+       "note_fa": "این عبارت جمله را مال تو می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "reviews-s1",
+       "en": "The first half is genuinely frightening, and then it turns into something much gentler.",
+       "fa": "نیمهٔ اول واقعاً ترسناک است و بعد به چیزی بسیار آرام‌تر تبدیل می‌شود.",
+       "use_en": "Describes a change of tone precisely.",
+       "use_fa": "تغییر لحن را دقیق توصیف می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It starts frightening and ends gentle."
+      },
+      {
+       "id": "reviews-s2",
+       "en": "I disagree with every critic on this one, and I am happy to be wrong.",
+       "fa": "در این مورد با هر منتقدی مخالفم و خوشحالم که اشتباه باشم.",
+       "use_en": "Holds an opinion without pretending certainty.",
+       "use_fa": "نظری را بدون ادعای قطعیت نگه می‌دارد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The critics and I disagree, and that is fine."
+      }
+     ],
+     "dialogue": {
+      "title_en": "After a bad film",
+      "title_fa": "بعد از یک فیلم بد",
+      "speakers": [
+       "Reza",
+       "Bahar"
+      ],
+      "lines": [
+       {
+        "who": "Reza",
+        "en": "What did you think of it?",
+        "fa": "چه فکری درباره‌اش می‌کنی؟"
+       },
+       {
+        "who": "Bahar",
+        "en": "I would give it two out of five, and I am being generous.",
+        "fa": "دو از پنج می‌دهم و دارم سخاوتمندم."
+       },
+       {
+        "who": "Reza",
+        "en": "It got rave reviews, though.",
+        "fa": "اما نقدهای پرشور گرفت."
+       },
+       {
+        "who": "Bahar",
+        "en": "It did not live up to the hype at all.",
+        "fa": "اصلاً به آن هیاهو نمی‌ارزید."
+       },
+       {
+        "who": "Reza",
+        "en": "The acting was good, I thought.",
+        "fa": "به نظر من بازی‌ها خوب بود."
+       },
+       {
+        "who": "Bahar",
+        "en": "Fine, the acting was good. Everything else was slow.",
+        "fa": "باشد، بازی‌ها خوب بود. بقیه‌اش کند بود."
+       },
+       {
+        "who": "Reza",
+        "en": "Spoiler alert, but the ending explains nothing.",
+        "fa": "هشدار لو دادن، اما پایان هیچ چیز را توضیح نمی‌دهد."
+       },
+       {
+        "who": "Bahar",
+        "en": "That is because there is no ending. Beauty is in the eye of the beholder, I suppose.",
+        "fa": "چون پایانی وجود ندارد. گویا زیبایی در چشم بیننده است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The review with spoilers",
+       "title_fa": "نقد پر از افشا",
+       "situation_en": "A friend sends a review that gives away the ending.",
+       "situation_fa": "دوستی نقدی می‌فرستد که پایان را لو می‌دهد.",
+       "task_en": "Ask for a warning next time, without anger.",
+       "task_fa": "دفعهٔ بعد هشدار بخواه، بی‌خشم.",
+       "answer_en": "Next time send a spoiler warning first. I had not seen it.",
+       "answer_fa": "دفعهٔ بعد اول هشدار بده. من ندیده بودم."
+      },
+      {
+       "title_en": "The opinion as fact",
+       "title_fa": "نظر به‌جای واقعیت",
+       "situation_en": "Somebody says a film is bad as if it were proven.",
+       "situation_fa": "کسی فیلمی را بد می‌گوید انگار ثابت شده.",
+       "task_en": "Answer with your own opinion, marked as one.",
+       "task_fa": "با نظر خودت پاسخ بده و آن را نظر معرفی کن.",
+       "answer_en": "That is your opinion. I thought the second half was excellent.",
+       "answer_fa": "این نظر توست. من فکر کردم نیمهٔ دوم عالی بود."
+      }
+     ],
+     "practice": [
+      {
+       "id": "reviews-q1",
+       "q_en": "What is a rating?",
+       "q_fa": "امتیاز چیست؟",
+       "options": [
+        "a score given to a film or game",
+        "a written opinion",
+        "the price of a ticket"
+       ],
+       "answer": "a score given to a film or game",
+       "why_en": "A rating is a number, not a paragraph.",
+       "why_fa": "امتیاز یک عدد است، نه یک پاراگراف."
+      },
+      {
+       "id": "reviews-q2",
+       "q_en": "A spoiler ...",
+       "q_fa": "افشای ماجرا ...",
+       "options": [
+        "ruins a story you have not seen",
+        "improves the story",
+        "is the title"
+       ],
+       "answer": "ruins a story you have not seen",
+       "why_en": "It takes away the surprise.",
+       "why_fa": "غافلگیری را از بین می‌برد."
+      },
+      {
+       "id": "reviews-q3",
+       "q_en": "\"It did not live up to the hype\" means ...",
+       "q_fa": "«به هیاهو نمی‌ارزید» یعنی ...",
+       "options": [
+        "it was worse than people said",
+        "it was better than people said",
+        "nobody talked about it"
+       ],
+       "answer": "it was worse than people said",
+       "why_en": "Expectations were higher than the reality.",
+       "why_fa": "انتظار از واقعیت بالاتر بود."
+      }
+     ]
+    },
+    {
+     "id": "recommendations",
+     "order": 12,
+     "icon": "thumb",
+     "title_en": "Recommending and taste",
+     "title_fa": "پیشنهاد کردن و سلیقه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Must-sees, overrated hits and hidden gems, and the words for agreeing to differ.",
+     "blurb_fa": "چیزهای حتماً دیدنی، موفق‌های بیش‌ازحد تعریف‌شده و گوهرهای پنهان، و واژه‌های پذیرش اختلاف سلیقه.",
+     "objectives": [
+      {
+       "en": "recommend something in one sentence with a reason.",
+       "fa": "در یک جمله با دلیل چیزی را پیشنهاد کن."
+      },
+      {
+       "en": "say something is overrated or underrated without insulting anyone.",
+       "fa": "بگو چیزی بیش‌ازحد یا کم‌تر از حقش تعریف شده، بی‌آنکه کسی را برنجانی."
+      },
+      {
+       "en": "agree to disagree about taste and keep the conversation going.",
+       "fa": "دربارهٔ سلیقه اختلاف را بپذیر و گفت‌وگو را ادامه بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "recommendations-w1",
+       "en": "recommendation",
+       "ipa": "/ˌrɛkəmənˈdeɪʃən/",
+       "pos": "noun",
+       "fa": "پیشنهاد",
+       "def_en": "A suggestion that something is worth your time.",
+       "sport": "entertainment",
+       "icon": "thumb",
+       "level": "B1",
+       "example_en": "Thanks for the recommendation, I loved it.",
+       "example_fa": "ممنون از پیشنهادت، خیلی دوستش داشتم.",
+       "ref": ""
+      },
+      {
+       "id": "recommendations-w2",
+       "en": "must-see",
+       "ipa": "/ˈmʌst si/",
+       "pos": "noun",
+       "fa": "حتماً دیدنی",
+       "def_en": "A film or show everybody should watch.",
+       "sport": "entertainment",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "Her latest film is a must-see.",
+       "example_fa": "آخرین فیلمش حتماً دیدنی است.",
+       "ref": ""
+      },
+      {
+       "id": "recommendations-w3",
+       "en": "overrated",
+       "ipa": "/ˌoʊvərˈreɪtɪd/",
+       "pos": "adjective",
+       "fa": "بیش‌ازحد تعریف‌شده",
+       "def_en": "Praised more than it deserves.",
+       "sport": "entertainment",
+       "icon": "arrow",
+       "level": "B2",
+       "example_en": "The sequel is overrated in my opinion.",
+       "example_fa": "به نظر من دنباله بیش‌ازحد تعریف شده.",
+       "ref": ""
+      },
+      {
+       "id": "recommendations-w4",
+       "en": "underrated",
+       "ipa": "/ˌʌndərˈreɪtɪd/",
+       "pos": "adjective",
+       "fa": "کم‌تر از حقش ارزش‌گذاری‌شده",
+       "def_en": "Praised less than it deserves.",
+       "sport": "entertainment",
+       "icon": "gem",
+       "level": "B2",
+       "example_en": "Her first album is criminally underrated.",
+       "example_fa": "اولین آلبومش به‌طرز فجیعی کم‌ارزش گذاشته شده.",
+       "ref": ""
+      },
+      {
+       "id": "recommendations-w5",
+       "en": "classic",
+       "ipa": "/ˈklæsɪk/",
+       "pos": "noun",
+       "fa": "اثر کلاسیک",
+       "def_en": "A work old enough to be admired for itself.",
+       "sport": "entertainment",
+       "icon": "book",
+       "level": "B1",
+       "example_en": "It is a classic, but it is also genuinely funny.",
+       "example_fa": "کلاسیک است، اما واقعاً خنده‌دار هم هست.",
+       "ref": ""
+      },
+      {
+       "id": "recommendations-w6",
+       "en": "taste",
+       "ipa": "/teɪst/",
+       "pos": "noun",
+       "fa": "سلیقه",
+       "def_en": "What somebody likes, in art or food.",
+       "sport": "entertainment",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "We have completely different taste in films.",
+       "example_fa": "سلیقهٔ ما در فیلم کاملاً متفاوت است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "recommendations-x1",
+       "kind": "expression",
+       "en": "You should give it a go.",
+       "fa": "باید امتحانش کنی.",
+       "meaning_en": "Encourages trying without promising you will like it.",
+       "meaning_fa": "به امتحان تشویق می‌کند بی‌آنکه قول خوش آمدن بدهد.",
+       "register": "neutral",
+       "example_en": "You should give it a go; the first episode is free.",
+       "example_fa": "باید امتحانش کنی؛ قسمت اول رایگان است.",
+       "alt": ""
+      },
+      {
+       "id": "recommendations-x2",
+       "kind": "expression",
+       "en": "It is worth a watch.",
+       "fa": "ارزش یک بار دیدن را دارد.",
+       "meaning_en": "A modest recommendation for something good but not great.",
+       "meaning_fa": "پیشنهاد ملایم برای چیزی خوب اما نه عالی.",
+       "register": "neutral",
+       "example_en": "It is not a masterpiece, but it is worth a watch.",
+       "example_fa": "شاهکار نیست، اما ارزش یک بار دیدن را دارد.",
+       "alt": ""
+      },
+      {
+       "id": "recommendations-x3",
+       "kind": "collocation",
+       "en": "It is right up my street.",
+       "fa": "دقیقاً به سلیقهٔ من می‌خورد.",
+       "meaning_en": "Up my street is the fixed phrase for exactly your kind of thing.",
+       "meaning_fa": "«به سلیقهٔ من خوردن» عبارت ثابت برای دقیقاً جنس تو است.",
+       "register": "informal",
+       "example_en": "Quiet detective stories are right up my street.",
+       "example_fa": "داستان‌های آرام کارآگاهی دقیقاً به سلیقهٔ من می‌خورد.",
+       "alt": ""
+      },
+      {
+       "id": "recommendations-x4",
+       "kind": "idiom",
+       "en": "Different strokes for different folks.",
+       "fa": "هر کسی سلیقهٔ خودش را دارد.",
+       "meaning_en": "Literally, different oars suit different rowers; figuratively, people need different things and that is fine.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، پاروهای مختلف به پاروزن‌های مختلف می‌خورد؛ به‌طور مجازی، مردم چیزهای مختلف می‌خواهند و این اشکالی ندارد.",
+       "register": "informal",
+       "example_en": "You love horror, I love comedy: different strokes for different folks.",
+       "example_fa": "تو ترسناک را دوست داری، من کمدی: هر کسی سلیقهٔ خودش را دارد.",
+       "alt": ""
+      },
+      {
+       "id": "recommendations-x5",
+       "kind": "expression",
+       "en": "It was a bit meh.",
+       "fa": "خیلی هم چیز نبود.",
+       "meaning_en": "Meh is slang for unimpressive, neither good nor bad.",
+       "meaning_fa": "«خیلی هم چیز نبود» عامیانه برای بی‌اثر و نه خوب نه بد.",
+       "register": "slang",
+       "example_en": "The first half was amazing and the second was a bit meh.",
+       "example_fa": "نیمهٔ اول عالی بود و دوم خیلی هم چیز نبود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "You should + [verb] + it.",
+       "example_en": "You should give it a go.",
+       "example_fa": "باید امتحانش کنی.",
+       "note_en": "Should plus the bare verb for advice.",
+       "note_fa": "«باید» به‌همراه فعل ساده برای توصیه."
+      },
+      {
+       "frame": "It is worth a + [noun].",
+       "example_en": "It is worth a watch.",
+       "example_fa": "ارزش یک بار دیدن را دارد.",
+       "note_en": "Worth a plus the activity.",
+       "note_fa": "«ارزش ... را دارد» به‌همراه فعالیت."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "recommendations-s1",
+       "en": "If you liked the first one, you will like this one; if not, skip it.",
+       "fa": "اگر اولی را دوست داشتی این را هم دوست داری؛ اگر نه، ردش کن.",
+       "use_en": "Gives a recommendation with its condition.",
+       "use_fa": "پیشنهاد را با شرطش می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Like the first? Then you will like this."
+      },
+      {
+       "id": "recommendations-s2",
+       "en": "It is not the kind of thing I would choose, but I can see why people love it.",
+       "fa": "از آن چیزهایی نیست که خودم انتخاب کنم، اما می‌فهمم چرا مردم دوستش دارند.",
+       "use_en": "Disagrees without dismissing.",
+       "use_fa": "مخالفت می‌کند بی‌آنکه رد کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Not my choice, but I see the appeal."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Recommending a series",
+      "title_fa": "پیشنهاد یک سریال",
+      "speakers": [
+       "Mahsa",
+       "Sina"
+      ],
+      "lines": [
+       {
+        "who": "Mahsa",
+        "en": "What are you watching at the moment?",
+        "fa": "این روزها چه می‌بینی؟"
+       },
+       {
+        "who": "Sina",
+        "en": "Nothing good. What would you recommend?",
+        "fa": "هیچ چیز خوبی. چه پیشنهاد می‌کنی؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "You should give the new detective series a go.",
+        "fa": "باید سریال کارآگاهی جدید را امتحان کنی."
+       },
+       {
+        "who": "Sina",
+        "en": "I am not sure about detective stories.",
+        "fa": "مطمئن نیستم دربارهٔ داستان‌های کارآگاهی."
+       },
+       {
+        "who": "Mahsa",
+        "en": "It is not a typical one. It is quiet and very funny.",
+        "fa": "نمونهٔ معمولی نیست. آرام و خیلی خنده‌دار است."
+       },
+       {
+        "who": "Sina",
+        "en": "Is it a must-see, or just worth a watch?",
+        "fa": "حتماً دیدنی است یا فقط ارزش یک بار دیدن؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "Worth a watch, honestly. I would give it four out of five.",
+        "fa": "راستش ارزش یک بار دیدن. من چهار از پنج می‌دهم."
+       },
+       {
+        "who": "Sina",
+        "en": "Then I will try the first episode tonight.",
+        "fa": "پس امشب قسمت اول را امتحان می‌کنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The overrated favourite",
+       "title_fa": "محبوب بیش‌ازحد تعریف‌شده",
+       "situation_en": "A friend's favourite film bored you, and they want your view.",
+       "situation_fa": "فیلم محبوب دوستت تو را خسته کرد و او نظرت را می‌خواهد.",
+       "task_en": "Be honest without dismissing their taste.",
+       "task_fa": "صادق باش بی‌آنکه سلیقه‌اش را رد کنی.",
+       "answer_en": "I can see why you love it. It dragged a little for me in the middle.",
+       "answer_fa": "می‌فهمم چرا دوستش داری. وسطش کمی برای من کشدار شد."
+      },
+      {
+       "title_en": "The hidden gem",
+       "title_fa": "گوهر پنهان",
+       "situation_en": "A small film nobody has heard of is excellent.",
+       "situation_fa": "فیلم کوچکی که کسی نامش را نشنیده، عالی است.",
+       "task_en": "Recommend it with a reason that works for them.",
+       "task_fa": "با دلیلی که به آن‌ها می‌خورد پیشنهادش کن.",
+       "answer_en": "Nobody has heard of it, but if you like quiet stories, it is right up your street.",
+       "answer_fa": "هیچ‌کس نامش را نشنیده، اما اگر داستان آرام دوست داری، دقیقاً به سلیقهٔ توست."
+      }
+     ],
+     "practice": [
+      {
+       "id": "recommendations-q1",
+       "q_en": "What does overrated mean?",
+       "q_fa": "بیش‌ازحد تعریف‌شده یعنی چه؟",
+       "options": [
+        "praised more than it deserves",
+        "praised too little",
+        "not praised at all"
+       ],
+       "answer": "praised more than it deserves",
+       "why_en": "Over means more than the real value.",
+       "why_fa": "«بیش» یعنی بیشتر از ارزش واقعی."
+      },
+      {
+       "id": "recommendations-q2",
+       "q_en": "A must-see is ...",
+       "q_fa": "«حتماً دیدنی» چیست؟",
+       "options": [
+        "something everybody should watch",
+        "something optional",
+        "a film with no ending"
+       ],
+       "answer": "something everybody should watch",
+       "why_en": "The phrase is a strong recommendation.",
+       "why_fa": "این عبارت پیشنهاد قوی است."
+      },
+      {
+       "id": "recommendations-q3",
+       "q_en": "\"Different strokes for different folks\" means ...",
+       "q_fa": "«هر کسی سلیقهٔ خودش را دارد» یعنی ...",
+       "options": [
+        "people have different tastes",
+        "everyone agrees",
+        "nobody has an opinion"
+       ],
+       "answer": "people have different tastes",
+       "why_en": "The saying accepts difference.",
+       "why_fa": "این ضرب‌المثل تفاوت را می‌پذیرد."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 63,
     "patterns": 24,
     "sentences": 24,
     "dialogues": 12,

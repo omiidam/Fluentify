@@ -14899,6 +14899,9 @@ async function loadPhrases() {
   /* Technology is adult material too: it teaches password, scam and
      privacy vocabulary that belongs with the grown-up panel. */
   box.appendChild(Journey.card('tech', false));
+  /* Entertainment: films, series, music, books, games and the opinions
+     that go with them, in the same adult panel. */
+  box.appendChild(Journey.card('entertainment', false));
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
@@ -20029,6 +20032,50 @@ const Journey = (() => {
     download: '<path d="M16 4v16"/><path d="M10 14l6 6 6-6"/><path d="M5 26h22"/>',
     bluetooth: '<path d="M10 8l12 16M22 8L10 24"/><path d="M16 4v24l6-4-12-16 12 16"/>',
     video: '<rect x="3" y="9" width="18" height="14" rx="3"/><path d="M21 14l7-4v12l-7-4z"/>',
+    /* entertainment: screens, stages, shelves and hands. One drawing per
+       word, so a films stage never shows a football where a screen belongs. */
+    film: '<rect x="3" y="7" width="26" height="18" rx="3"/><path d="M9 7v18M23 7v18"/><path d="M3 12h6M3 20h6M23 12h6M23 20h6"/>',
+    story: '<path d="M6 5h20v22H6z"/><path d="M10 11h12M10 16h12M10 21h7"/>',
+    mask: '<path d="M4 8c4 3 20 3 24 0 0 8-2 14-6 16-4 2-8 2-12 0-4-2-6-8-6-16z"/><path d="M10 14c1-2 3-2 4 0M18 14c1-2 3-2 4 0"/><path d="M12 22c2 1 6 1 8 0"/>',
+    clapper: '<rect x="4" y="12" width="24" height="16" rx="2"/><path d="M4 12l4-6 24 4-4 6z"/><path d="M10 10l2 3M16 11l2 3M22 12l2 3"/>',
+    tv: '<rect x="3" y="8" width="26" height="16" rx="3"/><path d="M11 28h10M16 24v4"/><path d="M13 8l3-4 3 4"/>',
+    calendar: '<rect x="4" y="6" width="24" height="22" rx="3"/><path d="M4 12h24M10 3v6M22 3v6"/><path d="M9 17h.01M16 17h.01M23 17h.01"/>',
+    cliff: '<path d="M3 28V10h8v6h6v12z"/><path d="M22 6v8"/>',
+    branch: '<path d="M8 28V16c0-6 8-6 8-12"/><path d="M24 28V16c0-6-8-6-8-12"/>',
+    ticket: '<path d="M3 9h9a4 4 0 0 0 8 0h9v14h-9a4 4 0 0 0-8 0H3z"/><path d="M14 9v14"/>',
+    popcorn: '<path d="M6 12h20l-2 16H8z"/><path d="M6 12c-2-3 1-6 4-5 0-3 4-4 6-2 2-2 6-1 6 2 3-1 6 2 4 5"/><path d="M11 18h.01M16 22h.01M21 18h.01"/>',
+    seat: '<path d="M9 18V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10"/><path d="M6 18h20v6H6z"/><path d="M9 24v5M23 24v5"/>',
+    music: '<circle cx="11" cy="24" r="4"/><circle cx="24" cy="20" r="4"/><path d="M15 24V7l13-3v16"/>',
+    disc: '<circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="3"/><path d="M16 4a12 12 0 0 1 10 6"/>',
+    drum: '<ellipse cx="16" cy="10" rx="10" ry="4"/><path d="M6 10v10c0 2 4 4 10 4s10-2 10-4V10"/><path d="M6 14c0 2 4 4 10 4s10-2 10-4"/>',
+    guitar: '<path d="M6 26a6 6 0 0 1 0-9c2-2 3-1 4-3l5-5 4 4-5 5c-2 1-1 2-3 4a6 6 0 0 1-5 4z"/><path d="M17 11l8-8"/><path d="M20 5l4 4"/>',
+    piano: '<rect x="4" y="9" width="24" height="17" rx="2"/><path d="M9 9v10M14 9v10M19 9v10M24 9v10M4 19h24"/>',
+    violin: '<path d="M10 24a7 7 0 0 1 0-11c2-2 3-1 5-3l6-6"/><path d="M21 4l7 7"/><path d="M13 17h6"/>',
+    trumpet: '<path d="M4 13h14l8-4v14l-8-4H4z"/><path d="M8 15v4M12 14v6"/><path d="M26 11v10"/>',
+    mic: '<rect x="12" y="4" width="8" height="14" rx="4"/><path d="M7 15a9 9 0 0 0 18 0M16 24v5M12 29h8"/>',
+    stage: '<path d="M3 5h26"/><path d="M6 5c2 6 2 12 0 18M26 5c-2 6-2 12 0 18"/><path d="M11 5c1 5 1 9 0 13M21 5c-1 5-1 9 0 13"/><path d="M4 28h24"/>',
+    audience: '<circle cx="8" cy="12" r="3"/><circle cx="16" cy="10" r="3"/><circle cx="24" cy="12" r="3"/><path d="M3 26c0-4 2-6 5-6s5 2 5 6M11 26c0-4 2-6 5-6s5 2 5 6M19 26c0-4 2-6 5-6"/>',
+    pin: '<path d="M16 28s10-9 10-16a10 10 0 0 0-20 0c0 7 10 16 10 16z"/><circle cx="16" cy="12" r="3.5"/>',
+    tent: '<path d="M16 5L3 28h26z"/><path d="M16 12l-6 16M16 12l6 16"/>',
+    pen: '<path d="M6 26l2-6 14-14 4 4-14 14z"/><path d="M19 9l4 4M8 20l4 4"/>',
+    bookmark: '<path d="M9 4h14v24l-7-5-7 5z"/>',
+    shelf: '<path d="M4 8h24M4 20h24M4 28V4M28 28V4"/><path d="M9 8v6M13 8v6M17 8v6"/>',
+    castle: '<path d="M6 28V12h4V8h4v4h4V8h4v4h4v16z"/><path d="M13 28v-6h6v6"/>',
+    moon: '<path d="M20 4a12 12 0 1 0 8 20A13 13 0 0 1 20 4z"/>',
+    spiral: '<path d="M16 16c0-2 2-3 4-2s2 4 0 6-6 2-8-1-1-7 3-9 9-1 11 4"/>',
+    quote: '<path d="M9 8c-3 1-5 4-5 8v6h7v-8H7c0-2 1-4 3-5zM24 8c-3 1-5 4-5 8v6h7v-8h-4c0-2 1-4 3-5z"/>',
+    gamepad: '<path d="M9 11h14a5 5 0 0 1 5 5v3a4 4 0 0 1-7 2l-1-1h-8l-1 1a4 4 0 0 1-7-2v-3a5 5 0 0 1 5-5z"/><path d="M11 16h4M13 14v4"/><circle cx="21" cy="16" r="1.6"/>',
+    console: '<rect x="5" y="9" width="22" height="16" rx="3"/><path d="M10 17h4M12 15v4"/><circle cx="21" cy="17" r="1.6"/><path d="M9 29h14"/>',
+    stairs: '<path d="M4 28h7v-7h7v-7h7V7h7"/>',
+    person: '<circle cx="16" cy="10" r="5"/><path d="M6 28c0-6 4-10 10-10s10 4 10 10"/>',
+    dice: '<rect x="5" y="5" width="22" height="22" rx="4"/><circle cx="11" cy="11" r="1.6"/><circle cx="21" cy="11" r="1.6"/><circle cx="16" cy="16" r="1.6"/><circle cx="11" cy="21" r="1.6"/><circle cx="21" cy="21" r="1.6"/>',
+    box: '<path d="M4 12l12-6 12 6v12l-12 6-12-6z"/><path d="M4 12l12 6 12-6M16 18v12"/>',
+    puzzle: '<path d="M6 6h6a3 3 0 0 1 6 0h6v6a3 3 0 0 0 0 6v6h-6a3 3 0 0 1-6 0H6v-6a3 3 0 0 0 0-6z"/>',
+    group: '<circle cx="11" cy="10" r="3.5"/><circle cx="21" cy="10" r="3.5"/><path d="M4 26c0-5 3-8 7-8s7 3 7 8M14 26c0-5 3-8 7-8s7 3 7 8"/>',
+    thumb: '<path d="M10 14v14H5V14z"/><path d="M10 14l5-9c2 0 3 1 3 3v5h6a3 3 0 0 1 3 3l-2 9a3 3 0 0 1-3 2h-9z"/>',
+    alert: '<path d="M16 4l12 22H4z"/><path d="M16 12v6M16 22h.01"/>',
+    arrow: '<path d="M16 27V6"/><path d="M8 14l8-8 8 8"/>',
+    gem: '<path d="M10 6h12l6 8-12 14L4 14z"/><path d="M4 14h24M10 6l6 8 6-8M16 14v14"/>',
     basket: '<path d="M4 14h24l-3 12H7z"/><path d="M10 14l3-8M22 14l-3-8"/><path d="M4 14h24"/>',
     bowl: '<path d="M4 14h24c0 7-5 11-12 11S4 21 4 14z"/><path d="M2 14h28"/>',
     plate: '<circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7"/><path d="M16 9v14"/>',
@@ -20611,9 +20658,10 @@ const Journey = (() => {
   const CARD_WORDS = {
     travel: { en: 'Travel', fa: 'سفر', sub: 'Speak English confidently wherever you go.', subFa: 'با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', art: 'case', photo: 'travel' },
     sports: { en: 'Sports', fa: 'ورزش', sub: 'The words players, coaches and fans actually use.', subFa: 'واژه‌هایی که بازیکن‌ها، مربی‌ها و هوادارها واقعاً به کار می‌برند.', art: 'soccer', photo: 'sports' },
-    tech: { en: 'Technology', fa: 'فناوری', sub: 'Devices, the internet, AI and the words that keep you safe.', subFa: 'دستگاه‌ها، اینترنت، هوش مصنوعی و واژه‌هایی که امن نگهت می‌دارند.', art: 'chip' },
+    tech: { en: 'Technology', fa: 'فناوری', sub: 'Devices, the internet, AI and the words that keep you safe.', subFa: 'دستگاه‌ها، اینترنت، هوش مصنوعی و واژه‌هایی که امن نگهت می‌دارند.', art: 'chip', photo: 'tech' },
     makeup: { en: 'Makeup', fa: 'آرایش', sub: 'Products, verbs, looks and idioms, from skin prep to the last touch-up.', subFa: 'محصول‌ها، فعل‌ها، مدل‌ها و اصطلاح‌ها، از آماده‌سازی پوست تا آخرین تجدید.', art: 'lipstick', photo: 'makeup' },
     food: { en: 'Food, Cooking & Restaurants', fa: 'غذا، آشپزی و رستوران', sub: 'Ingredients, recipes, flavours and everything you say at a table.', subFa: 'مواد اولیه، دستور پخت، مزه‌ها و هر چیزی که سر میز می‌گویی.', art: 'pot', photo: 'food' },
+    entertainment: { en: 'Entertainment, Movies & Music', fa: 'سرگرمی، فیلم و موسیقی', sub: 'Films, series, music, books, games and what to watch next.', subFa: 'فیلم، سریال، موسیقی، کتاب، بازی و اینکه بعد چه ببینی.', art: 'video', photo: 'entertainment' },
   };
   /* A photograph where the adult card leads with a picture of the subject.
      Empty alt: the card's own aria-label already names the journey, and a

@@ -1,0 +1,209 @@
+# Entertainment, movies and music journey, stages 7-12. Rows are pipe-separated
+# and validated by tools/build_journeys.py; see its header for the field order
+# of each tag. Adult material: this journey is offered to the adult experience.
+
+J|books|7|book|Books and reading|کتاب و کتاب‌خوانی|adults||Novels, authors and chapters, and the words for a book you cannot put down.|رمان، نویسنده و فصل، و واژه‌هایی برای کتابی که نمی‌توانی زمینش بگذاری.
+O|talk about a book by its author, its chapters and its story.|دربارهٔ کتاب با نویسنده، فصل‌ها و داستانش حرف بزن.
+O|say where you are in a book and how long it is taking.|بگو کجای کتابی و چقدر طول می‌کشد.
+O|recommend a book and say what kind of reader it suits.|کتابی را پیشنهاد کن و بگو به چه خواننده‌ای می‌خورد.
+W|novel|/ˈnɑvəl/|noun|رمان|A long invented story published as a book.|entertainment|book|A2|I am reading a novel about a family in Tehran.|دارم رمانی دربارهٔ یک خانواده در تهران می‌خوانم.|
+W|author|/ˈɔθər/|noun|نویسنده|The person who wrote a book.|entertainment|pen|A2|The author lives in the same town as my aunt.|نویسنده در همان شهر خالهٔ من زندگی می‌کند.|
+W|chapter|/ˈtʃæptər/|noun|فصل|One numbered part of a book.|entertainment|book|A2|I read one chapter a night before sleeping.|شبی یک فصل پیش از خواب می‌خوانم.|
+W|cover|/ˈkʌvər/|noun|جلد|The outside of a book, often with a picture.|entertainment|book|A1|The cover is beautiful but the story is better.|جلد زیباست اما داستان بهتر است.|
+W|bookmark|/ˈbʊkˌmɑrk/|noun|نشانهٔ کتاب|Something you put in a book to keep your place.|entertainment|bookmark|A2|I lost my bookmark and started the chapter again.|نشانهٔ کتابم را گم کردم و فصل را از نو شروع کردم.|
+W|library|/ˈlaɪˌbrɛri/|noun|کتابخانه|A place where books are kept and lent.|entertainment|shelf|A1|The library is open until eight on Thursdays.|کتابخانه پنجشنبه‌ها تا هشت باز است.|
+X|expression|I could not put it down.|نمی‌توانستم زمینش بگذارم.|The standard way to praise a gripping book.|روش استاندارد تحسین کتابی گیرا.|neutral|I started at nine and could not put it down until two.|نه شروع کردم و تا دو نمی‌توانستم زمینش بگذارم.|
+X|expression|I am halfway through.|نصفش را خوانده‌ام.|Says your position without a chapter number.|جای خودت را بدون شمارهٔ فصل می‌گوید.|neutral|I am halfway through and nothing has happened yet.|نصفش را خوانده‌ام و هنوز هیچ اتفاقی نیفتاده.|
+X|collocation|It is a thick book.|کتاب حجیمی است.|Thick book is the fixed phrase for length you can see.|«کتاب حجیم» عبارت ثابت برای طولی است که می‌بینی.|neutral|It is a thick book, so give yourself a month.|کتاب حجیمی است، پس یک ماه وقت بگذار.|
+X|idiom|It is a real page-turner.|واقعاً آدم را می‌کشد.|Literally, a book whose pages turn themselves; figuratively, one so exciting that you keep reading.|به‌طور تحت‌اللفظی، کتابی که صفحه‌هایش خودشان ورق می‌خورند؛ به‌طور مجازی، آنقدر هیجان‌انگیز که ادامه می‌دهی.|neutral|The first fifty pages are slow, then it is a real page-turner.|پنجاه صفحهٔ اول کند است، بعد واقعاً آدم را می‌کشد.|
+X|idiom|Do not judge a book by its cover.|از ظاهر قضاوت نکن.|Literally, a plain cover can hide a fine book; figuratively, do not judge anything by how it looks.|به‌طور تحت‌اللفظی، جلد ساده می‌تواند کتاب خوبی را پنهان کند؛ به‌طور مجازی، از ظاهر چیزی قضاوت نکن.|neutral|The ugly little bookshop is the best in town: do not judge a book by its cover.|آن کتاب‌فروشی کوچک و زشت بهترین شهر است: از ظاهر قضاوت نکن.|
+P|I am reading + [title/kind].|I am reading a novel about a family.|دارم رمانی دربارهٔ یک خانواده می‌خوانم.|Name what you are reading, not how much.|بگو چه می‌خوانی، نه چقدر.
+P|I am + [place] + through.|I am halfway through.|نصفش را خوانده‌ام.|The place in the book comes before through.|جای کتاب پیش از «طی کردن» می‌آید.
+S|The novel is eight hundred pages and I have carried it everywhere for three weeks.|رمان هشتصد صفحه است و سه هفته همه‌جا با خودم برده‌ام.|Shows commitment through a number and a habit.|تعهد را با عدد و عادت نشان می‌دهد.|B1|neutral|I have carried this long novel everywhere.
+S|I read the last chapter twice because I did not want it to end.|فصل آخر را دو بار خواندم چون نمی‌خواستم تمام شود.|Explains a small strange action.|کاری کوچک و عجیب را توضیح می‌دهد.|B1|neutral|I reread the end to delay finishing.
+D|Borrowing a book|قرض گرفتن کتاب|Mina|Ali
+L|Mina|Is this the novel everyone is talking about?|این همان رمانی است که همه از آن حرف می‌زنند؟
+L|Ali|It is. I am halfway through and it is a real page-turner.|همان است. نصفش را خوانده‌ام و واقعاً آدم را می‌کشد.
+L|Mina|Can I borrow it when you finish?|وقتی تمام کردی می‌توانم قرض بگیرم؟
+L|Ali|Of course. Give me three days.|البته. سه روز وقت بده.
+L|Mina|Who is the author?|نویسنده‌اش کیست؟
+L|Ali|A journalist from Shiraz. This is her first novel.|روزنامه‌نگاری از شیراز. این اولین رمانش است.
+L|Mina|The cover does not look like much.|جلدش چندان چیزی نشان نمی‌دهد.
+L|Ali|Do not judge a book by its cover. It is wonderful.|از ظاهر قضاوت نکن. فوق‌العاده است.
+C|The library card|کارت کتابخانه|You want to borrow a book but your card has expired.|می‌خواهی کتابی قرض بگیری اما کارتت منقضی شده.|Ask what to do and how long it takes.|بپرس چه باید کرد و چقدر طول می‌کشد.|My card has expired. Can I renew it today and borrow this one?|کارتم منقضی شده. می‌شود امروز تمدیدش کنم و این را قرض بگیرم؟
+C|The slow first chapter|فصل اول کند|A friend gave up on a book after twenty pages.|دوستی بعد از بیست صفحه کتاب را رها کرد.|Say what changes and when.|بگو چه چیزی و کِی عوض می‌شود.|Stay with it until chapter three. That is where the story starts moving.|تا فصل سه ادامه بده. از آنجا داستان راه می‌افتد.
+Q|What is an author?|نویسنده کیست؟|the person who wrote the book|the person who prints it|the person who sells it|The author writes; others print and sell.|نویسنده می‌نویسد؛ دیگران چاپ و فروش می‌کنند.
+Q|A page-turner is ...|«آدم را می‌کشد» یعنی ...|a book that is hard to stop reading|a book with damaged pages|a very short book|The phrase is about excitement, not paper.|این عبارت دربارهٔ هیجان است، نه کاغذ.
+Q|"Do not judge a book by its cover" warns against ...|«از ظاهر قضاوت نکن» از چه پرهیز می‌دهد؟|judging by appearance|reading too fast|borrowing books|The cover stands for appearance.|جلد نماد ظاهر است.
+
+J|storytelling|8|speech|Stories and telling them|داستان و تعریف کردن|adults||Narrators, fairy tales, myths and the words for a story with a twist.|راوی، افسانه، اسطوره و واژه‌هایی برای داستانی با پیچش.
+O|tell a short story with a beginning, a middle and an end.|داستان کوتاهی با آغاز، میانه و پایان تعریف کن.
+O|name the kind of story you mean: a fairy tale, a myth or a true one.|نوع داستان را نام ببر: افسانه، اسطوره یا واقعی.
+O|say that a story is invented or exaggerated.|بگو داستانی ساختگی یا بزرگ‌نمایی‌شده است.
+W|storyteller|/ˈstɔriˌtɛlər/|noun|قصه‌گو|A person who tells stories well.|entertainment|speech|B1|My grandmother was the best storyteller in the family.|مادربزرگم بهترین قصه‌گوی خانواده بود.|
+W|narrator|/ˈnærˌeɪtər/|noun|راوی|The voice that tells a story.|entertainment|speech|B1|The narrator is a child, which changes everything.|راوی یک کودک است، که همه چیز را عوض می‌کند.|
+W|fairy tale|/ˈfɛri teɪl/|noun|افسانه|A children's story with magic in it.|entertainment|castle|A2|She reads a fairy tale to her son every night.|هر شب برای پسرش یک افسانه می‌خواند.|
+W|myth|/mɪθ/|noun|اسطوره|An ancient story about gods or heroes.|entertainment|moon|B1|The myth explains why the river floods each spring.|این اسطوره توضیح می‌دهد چرا رود هر بهار طغیان می‌کند.|
+W|twist|/twɪst/|noun|پیچش داستان|A sudden change in a story you did not expect.|entertainment|spiral|B1|The twist comes in the last ten pages.|پیچش در ده صفحهٔ آخر می‌آید.|
+W|quote|/kwoʊt/|noun|نقل قول|The exact words somebody said or wrote.|entertainment|quote|B1|My favourite quote is from the second chapter.|نقل قول محبوبم از فصل دوم است.|
+X|expression|Long story short, we missed the train.|خلاصه‌اش، قطار را از دست دادیم.|The phrase that cuts a story down before telling it.|عبارتی که داستان را پیش از گفتن کوتاه می‌کند.|informal|Long story short, we missed the train and walked home.|خلاصه‌اش، قطار را از دست دادیم و پیاده به خانه رفتیم.|
+X|expression|It has a twist at the end.|آخرش پیچش دارد.|Warns about a surprise without revealing it.|دربارهٔ غافلگیری هشدار می‌دهد بی‌آنکه لو بدهد.|neutral|It has a twist at the end that I did not see coming.|آخرش پیچشی دارد که پیش‌بینی نمی‌کردم.|
+X|collocation|She told the story beautifully.|داستان را زیبا تعریف کرد.|Tell a story is the fixed verb; you do not say a story.|«داستان تعریف کردن» فعل ثابت است؛ «گفتن داستان» درست نیست.|neutral|She told the story beautifully, with every voice different.|داستان را زیبا تعریف کرد، هر صدا متفاوت.|
+X|phrasal_verb|He made the whole thing up.|همه‌اش را از خودش ساخت.|Make up is the phrasal verb for inventing something untrue.|«از خود ساختن» فعل عبارتی برای جعل چیزی نادرست است.|informal|He made the whole thing up to get attention.|همه‌اش را برای جلب توجه از خودش ساخت.|
+X|idiom|It is a tall tale.|یک قصهٔ دروغین است.|Literally, a story taller than the truth; figuratively, an obvious exaggeration.|به‌طور تحت‌اللفظی، داستانی بلندتر از حقیقت؛ به‌طور مجازی، بزرگ‌نمایی آشکار.|neutral|He caught a fish the size of a car, or so the tall tale goes.|ماهی به اندازهٔ ماشین گرفت، یا دست‌کم قصه‌اش همین است.|
+X|idiom|You have to read between the lines.|باید بین خطوط را خواند.|Literally, look at the space between written lines; figuratively, work out the meaning that was not said.|به‌طور تحت‌اللفظی، به فاصلهٔ بین خطوط نگاه کن؛ به‌طور مجازی، معنایی را که گفته نشده دریاب.|neutral|She says she is fine, but read between the lines.|می‌گوید خوب است، اما بین خطوط را بخوان.|
+P|Long story short, + [what happened].|Long story short, we missed the train.|خلاصه‌اش، قطار را از دست دادیم.|The phrase comes first, the summary after.|اول عبارت، بعد خلاصه.
+P|It has a + [noun] + at the end.|It has a twist at the end.|آخرش پیچش دارد.|Name the feature, then where it is.|اول ویژگی، بعد جایش.
+S|The narrator tells the story as an old man, which makes the ending much sadder.|راوی داستان را به‌عنوان پیرمردی تعریف می‌کند، که پایان را خیلی غمگین‌تر می‌کند.|Links a narrative choice to an effect.|انتخاب روایی را به اثرش ربط می‌دهد.|B2|neutral|The old narrator makes the ending sadder.
+S|Every family has one story that is half true and gets bigger every year.|هر خانواده یک داستان دارد که نیمه‌واقعی است و هر سال بزرگ‌تر می‌شود.|Describes a familiar pattern in one line.|الگویی آشنا را در یک خط توصیف می‌کند.|B1|neutral|Our family story grows every year.
+D|Telling a story|تعریف کردن داستان|Sara|Hamed
+L|Sara|Tell me what happened at the station.|بگو در ایستگاه چه شد.
+L|Hamed|Long story short, we missed the train by two minutes.|خلاصه‌اش، دو دقیقه قطار را از دست دادیم.
+L|Sara|Two minutes? How?|دو دقیقه؟ چطور؟
+L|Hamed|The queue at the ticket machine, then the platform changed.|صف دستگاه بلیت، بعد سکو عوض شد.
+L|Sara|And then?|و بعد؟
+L|Hamed|We waited an hour. And that is the whole story, no twist.|یک ساعت منتظر ماندیم. و همین کل داستان است، بی‌پیچش.
+L|Sara|You made the queue sound much longer last time.|دفعهٔ قبل صف را خیلی طولانی‌تر تعریف کردی.
+L|Hamed|A tall tale improves with age.|قصهٔ دروغین با گذر زمان بهتر می‌شود.
+C|The story with no ending|داستان بی‌پایان|A friend starts a story and keeps interrupting themselves.|دوستی داستانی را شروع می‌کند و مدام خودش را قطع می‌کند.|Ask them to get to the point politely.|مؤدبانه بخواه به نتیجه برسد.|Long story short? I have five minutes before my bus.|خلاصه‌اش؟ پنج دقیقه تا اتوبوس وقت دارم.
+C|The invented memory|خاطرهٔ ساختگی|Somebody tells a family story you know is not true.|کسی داستان خانوادگی‌ای می‌گوید که می‌دانی درست نیست.|Disagree gently and offer the real version.|نرم مخالفت کن و روایت واقعی را پیشنهاد بده.|I remember it differently. The car was blue, not red.|من جور دیگری یادم است. ماشین آبی بود، نه قرمز.
+Q|Who is the narrator?|راوی کیست؟|the voice that tells the story|the author's editor|the main character's friend|The narrator tells it, whoever they are.|راوی تعریف می‌کند، هر کسی که باشد.
+Q|What is a myth?|اسطوره چیست؟|an ancient story about gods or heroes|a news report|a shopping list|Myths are old stories, not facts.|اسطوره داستان کهن است، نه واقعیت.
+Q|"Read between the lines" means ...|«بین خطوط را خواندن» یعنی ...|work out what was not said|read faster|skip a page|The meaning is hidden, not written.|معنا پنهان است، نه نوشته.
+
+J|games|9|gamepad|Video games and play|بازی‌های ویدیویی و بازی کردن|adults||Consoles, controllers, levels and the words for playing alone or online.|کنسول، دسته، مرحله و واژه‌های بازی تنها یا آنلاین.
+O|talk about a game, its levels and how far you are.|دربارهٔ یک بازی، مرحله‌هایش و پیشرفتت حرف بزن.
+O|invite somebody to play together, online or on the sofa.|کسی را به بازی مشترک دعوت کن، آنلاین یا روی کاناپه.
+O|say what you like and dislike about a game.|بگو چه چیزی از بازی را دوست داری و چه چیزی نه.
+W|video game|/ˈvɪdioʊ ɡeɪm/|noun|بازی ویدیویی|A game played on a screen with a controller or keyboard.|entertainment|gamepad|A1|We played a video game until midnight.|تا نیمه‌شب یک بازی ویدیویی کردیم.|
+W|console|/ˈkɑnsoʊl/|noun|کنسول|The machine a video game runs on, connected to a screen.|entertainment|console|A2|The console is under the television.|کنسول زیر تلویزیون است.|
+W|controller|/kənˈtroʊlər/|noun|دستهٔ بازی|The hand-held device with buttons that you play with.|entertainment|gamepad|A2|The second controller needs new batteries.|دستهٔ دوم باتری تازه می‌خواهد.|
+W|level|/ˈlɛvəl/|noun|مرحله|One section of a game, usually harder than the last.|entertainment|stairs|A2|I have been stuck on this level for a week.|یک هفته است در این مرحله گیر کرده‌ام.|
+W|player|/ˈpleɪər/|noun|بازیکن|A person playing a game.|entertainment|person|A2|The game is better with two players.|بازی با دو بازیکن بهتر است.|
+W|graphics|/ˈɡræfɪks/|noun|گرافیک|The pictures and visual effects in a game.|entertainment|chart|B1|The graphics are simple but the game is brilliant.|گرافیک ساده است اما بازی درخشان است.|
+X|expression|I am stuck on this level.|در این مرحله گیر کرده‌ام.|Names the exact place you cannot pass.|دقیقاً جایی را که نمی‌توانی رد کنی نام می‌برد.|neutral|I am stuck on this level and there is no way around it.|در این مرحله گیر کرده‌ام و راه دور زدنی نیست.|
+X|expression|Do you want to play online?|می‌خواهی آنلاین بازی کنیم؟|Invites without naming the game.|دعوت می‌کند بی‌آنکه بازی را نام ببرد.|neutral|Do you want to play online after dinner?|بعد از شام می‌خواهی آنلاین بازی کنیم؟|
+X|collocation|It is a two-player game.|بازی دو نفره است.|Two-player game is the fixed phrase for the mode.|«بازی دو نفره» عبارت ثابت حالت بازی است.|neutral|It is a two-player game, so bring a friend.|بازی دو نفره است، پس یک دوست بیاور.|
+X|phrasal_verb|I stayed up all night playing.|تمام شب بیدار ماندم و بازی کردم.|Stay up is the phrasal verb for not going to bed.|«بیدار ماندن» فعل عبارتی برای به تخت نرفتن است.|informal|I stayed up all night playing and regretted it at work.|تمام شب بیدار ماندم و بازی کردم و سر کار پشیمان شدم.|
+X|idiom|It is a game changer.|همه چیز را عوض می‌کند.|Literally, something that changes the game itself; figuratively, a big improvement that alters how things are done.|به‌طور تحت‌اللفظی، چیزی که خود بازی را عوض می‌کند؛ به‌طور مجازی، پیشرفتی بزرگ که روش کار را دگرگون می‌کند.|neutral|Playing with a proper controller is a game changer.|بازی با یک دستهٔ درست همه چیز را عوض می‌کند.|
+P|I am stuck on + [level/boss].|I am stuck on this level.|در این مرحله گیر کرده‌ام.|Name the obstacle, not the feeling.|مانع را نام ببر، نه حس را.
+P|Do you want to + [verb]?|Do you want to play online?|می‌خواهی آنلاین بازی کنیم؟|The invitation takes the bare verb.|دعوت با فعل ساده می‌آید.
+S|The game is enormous, and after forty hours I have finished a third of it.|بازی عظیم است و بعد از چهل ساعت یک‌سومش را تمام کرده‌ام.|Gives scale with two numbers.|اندازه را با دو عدد می‌دهد.|B1|neutral|Forty hours in, I am a third through.
+S|I play for an hour after work because it empties my head better than television.|بعد از کار یک ساعت بازی می‌کنم چون سرم را بهتر از تلویزیون خالی می‌کند.|Explains a habit by comparing it.|عادت را با مقایسه توضیح می‌دهد.|B2|neutral|An hour of play clears my head.
+D|Playing together|بازی با هم|Kian|Neda
+L|Kian|Do you want to play online tonight?|می‌خواهی امشب آنلاین بازی کنیم؟
+L|Neda|I am stuck on the third level and it is embarrassing.|در مرحلهٔ سوم گیر کرده‌ام و خجالت‌آور است.
+L|Kian|That level is hard for everyone. We can play together.|آن مرحله برای همه سخت است. می‌توانیم با هم بازی کنیم.
+L|Neda|Is it a two-player game?|بازی دو نفره است؟
+L|Kian|It is, and the graphics look better with two screens.|بله، و با دو صفحه گرافیک بهتر به نظر می‌رسد.
+L|Neda|Then I will bring my controller.|پس دسته‌ام را می‌آورم.
+L|Kian|Nine o'clock? I will stay up a little later tonight.|ساعت نه؟ امشب کمی دیرتر بیدار می‌مانم.
+L|Neda|Do not blame me tomorrow.|فردا گردن من نینداز.
+C|The lost save|ذخیرهٔ گم‌شده|Forty hours of progress disappeared with an update.|چهل ساعت پیشرفت با یک به‌روزرسانی ناپدید شد.|Say what happened and ask what can be done.|بگو چه شد و بپرس چه می‌شود کرد.|The update wiped my save. Is there any way to get it back?|به‌روزرسانی ذخیره‌ام را پاک کرد. راهی برای برگرداندنش هست؟
+C|The noisy game|بازی پرصدا|A housemate plays at two in the morning.|همخانه‌ای ساعت دو بامداد بازی می‌کند.|Ask for headphones or a time limit.|هدفون یا محدودیت زمانی بخواه.|Could you use headphones after midnight? The sound carries.|می‌شود بعد از نیمه‌شب هدفون بزنی؟ صدا منتقل می‌شود.
+Q|What is a console?|کنسول چیست؟|the machine a game runs on|the game itself|the player's chair|A console is hardware, not software.|کنسول سخت‌افزار است، نه نرم‌افزار.
+Q|Being stuck on a level means ...|گیر کردن در یک مرحله یعنی ...|you cannot get past it|you finished it|you skipped it|Stuck is about not passing, not finishing.|«گیر کردن» دربارهٔ رد نشدن است، نه تمام کردن.
+Q|"A game changer" means ...|«همه چیز را عوض می‌کند» یعنی ...|something that changes how things are done|a new game console|a rule of the game|The phrase is about a big improvement.|این عبارت دربارهٔ پیشرفتی بزرگ است.
+
+J|hobbies|10|palette|Hobbies and free time|سرگرمی‌ها و وقت آزاد|adults||The things people do for pleasure, and how to say you took one up or have no time for it.|کارهایی که برای لذت انجام می‌دهیم، و اینکه چطور بگویی یکی را شروع کردی یا وقتش را نداری.
+O|ask and answer what you do in your free time.|بپرس و پاسخ بده در وقت آزاد چه می‌کنی.
+O|say when and why you took up a hobby.|بگو کِی و چرا سرگرمی‌ای را شروع کردی.
+O|invite somebody to join a club or an activity.|کسی را به باشگاه یا فعالیتی دعوت کن.
+W|hobby|/ˈhɑbi/|noun|سرگرمی|Something you do for pleasure in your free time.|entertainment|palette|A2|My hobby is restoring old radios.|سرگرمی من بازسازی رادیوهای قدیمی است.|
+W|pastime|/ˈpæsˌtaɪm/|noun|گذران وقت|An activity people do to pass the time pleasantly.|entertainment|clock|B1|Walking is the national pastime here.|پیاده‌روی گذران وقت ملی اینجا است.|
+W|board game|/ˈbɔrd ɡeɪm/|noun|بازی رومیزی|A game played on a board with pieces.|entertainment|dice|A2|We play a board game every Friday night.|هر جمعه شب یک بازی رومیزی می‌کنیم.|
+W|collection|/kəˈlɛkʃən/|noun|مجموعه|A group of similar things you have gathered.|entertainment|box|B1|His collection of maps fills two cupboards.|مجموعهٔ نقشه‌هایش دو کمد را پر کرده.|
+W|puzzle|/ˈpʌzəl/|noun|معما و پازل|A game or problem that needs thought to solve.|entertainment|puzzle|A2|We finished the puzzle in one rainy afternoon.|پازل را در یک بعدازظهر بارانی تمام کردیم.|
+W|club|/klʌb/|noun|باشگاه|A group of people who meet to do something together.|entertainment|group|A2|The photography club meets on Tuesdays.|باشگاه عکاسی سه‌شنبه‌ها جمع می‌شود.|
+X|expression|What do you do in your free time?|در وقت آزاد چه می‌کنی؟|The standard opener about hobbies.|آغازگر استاندارد دربارهٔ سرگرمی.|neutral|What do you do in your free time, apart from reading?|در وقت آزاد چه می‌کنی، جز خواندن؟
+X|phrasal_verb|I took it up last year.|سال گذشته شروعش کردم.|Take up is the phrasal verb for starting a hobby.|«شروع کردن» فعل عبارتی برای آغاز یک سرگرمی است.|neutral|I took it up last year and I am still terrible at it.|سال گذشته شروعش کردم و هنوز در آن افتضاحم.|
+X|collocation|It is a bit of a hobby.|تا حدی سرگرمی من است.|A bit of a hobby softens how serious it is.|«تا حدی سرگرمی» جدی بودنش را کم می‌کند.|neutral|Photography is a bit of a hobby, nothing more.|عکاسی تا حدی سرگرمی است، نه بیشتر.|
+X|idiom|Each to their own.|هر کسی سلیقهٔ خودش را دارد.|Literally, each person to their own taste; figuratively, people are allowed different preferences.|به‌طور تحت‌اللفظی، هر کس به سلیقهٔ خودش؛ به‌طور مجازی، مردم می‌توانند سلیقهٔ متفاوت داشته باشند.|neutral|You like fishing and I like opera: each to their own.|تو ماهی‌گیری را دوست داری و من اپرا: هر کسی سلیقهٔ خودش را دارد.|
+X|idiom|It helps me kill time on the train.|کمک می‌کند در قطار وقت بکشم.|Literally, kill the time that is passing; figuratively, occupy yourself while waiting.|به‌طور تحت‌اللفظی، زمانی را که می‌گذرد بکش؛ به‌طور مجازی، خودت را در انتظار سرگرم کن.|neutral|This puzzle helps me kill time on the train.|این پازل کمک می‌کند در قطار وقت بکشم.|
+P|I took it up + [when].|I took it up last year.|سال گذشته شروعش کردم.|Take up plus the moment you began.|«شروع کردن» به‌همراه زمان آغاز.
+P|What do you do in your + [time]?|What do you do in your free time?|در وقت آزاد چه می‌کنی؟|The time phrase ends the question.|عبارت زمان پایان پرسش است.
+S|I have a cupboard full of half-finished projects, which is its own kind of hobby.|کمدی پر از پروژه‌های نیمه‌تمام دارم، که خودش نوعی سرگرمی است.|Admits a habit with humour.|عادتی را با طنز می‌پذیرد.|B2|neutral|My hobbies are mostly unfinished projects.
+S|The club is free, meets on Tuesdays, and anybody can walk in.|باشگاه رایگان است، سه‌شنبه‌ها جمع می‌شود و هر کسی می‌تواند بیاید.|Gives the practical details in one line.|جزئیات عملی را در یک خط می‌دهد.|B1|neutral|It is free on Tuesdays and open to all.
+D|Joining a club|عضویت در باشگاه|Omid|Parisa
+L|Omid|What do you do in your free time?|در وقت آزاد چه می‌کنی؟
+L|Parisa|I restore old photographs. I took it up last year.|عکس‌های قدیمی را بازسازی می‌کنم. سال گذشته شروعش کردم.
+L|Omid|That sounds difficult. How did you learn?|سخت به نظر می‌رسد. چطور یاد گرفتی؟
+L|Parisa|A club at the library teaches it, and the first month is free.|باشگاهی در کتابخانه یاد می‌دهد و ماه اول رایگان است.
+L|Omid|Do people bring their own photographs?|مردم عکس‌های خودشان را می‌آورند؟
+L|Parisa|Mostly family ones. Mine are from my grandmother's collection.|بیشتر خانوادگی. مال من از مجموعهٔ مادربزرگم است.
+L|Omid|Could I come on Tuesday and just watch?|می‌توانم سه‌شنبه بیایم و فقط تماشا کنم؟
+L|Parisa|Of course. Each to their own, but I think you will join in.|البته. هر کسی سلیقهٔ خودش را دارد، اما فکر می‌کنم شرکت می‌کنی.
+C|No time for a hobby|وقت نداشتن برای سرگرمی|Work has taken every evening for months.|کار ماه‌ها همهٔ شب‌ها را گرفته.|Say what you miss and propose something small.|بگو چه چیزی را از دست داده‌ای و چیز کوچکی پیشنهاد کن.|I miss having a hobby. Could we do a puzzle on Sunday, just an hour?|دلم برای سرگرمی تنگ شده. یکشنبه یک پازل بکنیم، فقط یک ساعت؟
+C|The expensive hobby|سرگرمی گران|A friend wants to start photography but the equipment is costly.|دوستی می‌خواهد عکاسی را شروع کند اما تجهیزات گران است.|Suggest a cheaper way in.|راه ارزان‌تری پیشنهاد کن.|Start with your phone and the club's camera before you buy anything.|با گوشی خودت و دوربین باشگاه شروع کن، پیش از آنکه چیزی بخری.
+Q|What does "take up a hobby" mean?|«شروع کردن یک سرگرمی» یعنی چه؟|start doing it|give it up|sell the equipment|Take up is beginning, not quitting.|«شروع کردن» آغاز است، نه رها کردن.
+Q|A pastime is ...|گذران وقت چیست؟|something pleasant to pass the time|a full-time job|a collection of maps|A pastime is for pleasure, not work.|گذران وقت برای لذت است، نه کار.
+Q|"Each to their own" means ...|«هر کسی سلیقهٔ خودش را دارد» یعنی ...|people may prefer different things|everyone must agree|nobody has taste|The phrase accepts difference.|این عبارت تفاوت را می‌پذیرد.
+
+J|reviews|11|star|Reviews and opinions|نقد و نظر|adults||Ratings, critics and spoilers, and how to say what you thought without pretending it is a fact.|امتیاز، منتقد و لو دادن ماجرا، و اینکه چطور نظرت را بگویی بی‌آنکه آن را واقعیت جا بزنی.
+O|give a rating and say what it is based on.|امتیاز بده و بگو بر چه پایه‌ای است.
+O|separate your opinion from the general one.|نظر خودت را از نظر عمومی جدا کن.
+O|warn somebody about a spoiler before you say it.|پیش از گفتن، دربارهٔ لو دادن ماجرا هشدار بده.
+W|review|/rɪˈvju/|noun|نقد|A written or spoken opinion of a film, book or show.|entertainment|pen|B1|The review in the paper was unfair.|نقد روزنامه ناعادلانه بود.|
+W|rating|/ˈreɪtɪŋ/|noun|امتیاز|A score given to a film, game or show.|entertainment|star|B1|The rating is four out of five.|امتیاز چهار از پنج است.|
+W|critic|/ˈkrɪtɪk/|noun|منتقد|A person who writes judgements about art for a living.|entertainment|pen|B2|The critics loved it and the public stayed away.|منتقدان دوستش داشتند و مردم نیامدند.|
+W|opinion|/əˈpɪnjən/|noun|نظر|What somebody thinks about something.|entertainment|speech|A2|In my opinion, the book is better than the film.|به نظر من کتاب از فیلم بهتر است.|
+W|recommend|/ˌrɛkəˈmɛnd/|verb|پیشنهاد کردن|Say that something is worth somebody's time.|entertainment|thumb|B1|I recommend it to anyone who likes slow stories.|آن را به هر کسی که داستان آرام دوست دارد پیشنهاد می‌کنم.|
+W|spoiler|/ˈspɔɪlər/|noun|افشای ماجرا|A detail that ruins a story for somebody who has not seen it.|entertainment|alert|B1|That review is full of spoilers.|آن نقد پر از افشای ماجراست.|
+X|expression|What did you think of it?|چه فکری درباره‌اش می‌کنی؟|Asks for an opinion, not a summary.|نظر می‌خواهد، نه خلاصه.|neutral|What did you think of it, honestly?|راستش را بگو، چه فکری درباره‌اش می‌کنی؟
+X|expression|I would give it four out of five.|چهار از پنج می‌دهم.|Gives a score and its scale in one line.|در یک خط امتیاز و مقیاسش را می‌دهد.|neutral|I would give it four out of five: good, not perfect.|چهار از پنج می‌دهم: خوب، نه بی‌نقص.|
+X|collocation|It got rave reviews.|نقدهای پرشور گرفت.|Rave reviews is the fixed phrase for very enthusiastic ones.|«نقدهای پرشور» عبارت ثابت برای نقدهای بسیار مشتاق است.|neutral|It got rave reviews, so my expectations were high.|نقدهای پرشور گرفت، پس انتظارم بالا بود.|
+X|expression|Spoiler alert!|هشدار لو دادن!|Warns the room before revealing a detail.|پیش از فاش کردن جزئیات به جمع هشدار می‌دهد.|informal|Spoiler alert: the dog survives.|هشدار لو دادن: سگ زنده می‌ماند.|
+X|phrasal_verb|It did not live up to the hype.|به آن هیاهو نمی‌ارزید.|Live up to is the phrasal verb for matching expectations.|«به انتظار رسیدن» فعل عبارتی برای هم‌سطح شدن با توقع است.|neutral|The sequel did not live up to the hype.|دنباله به آن هیاهو نمی‌ارزید.|
+X|idiom|Beauty is in the eye of the beholder.|زیبایی در چشم بیننده است.|Literally, the one who looks decides what is beautiful; figuratively, taste is personal and cannot be argued.|به‌طور تحت‌اللفظی، بیننده تعیین می‌کند چه زیباست؛ به‌طور مجازی، سلیقه شخصی است و بحث‌بردار نیست.|neutral|You hate the colours I love, but beauty is in the eye of the beholder.|تو از رنگ‌هایی که من دوست دارم بدت می‌آید، اما زیبایی در چشم بیننده است.|
+P|I would give it + [score] + out of + [total].|I would give it four out of five.|چهار از پنج می‌دهم.|The score, then the scale.|اول امتیاز، بعد مقیاس.
+P|In my opinion, + [opinion].|In my opinion, the book is better.|به نظر من کتاب بهتر است.|The phrase marks the sentence as yours.|این عبارت جمله را مال تو می‌کند.
+S|The first half is genuinely frightening, and then it turns into something much gentler.|نیمهٔ اول واقعاً ترسناک است و بعد به چیزی بسیار آرام‌تر تبدیل می‌شود.|Describes a change of tone precisely.|تغییر لحن را دقیق توصیف می‌کند.|B2|neutral|It starts frightening and ends gentle.
+S|I disagree with every critic on this one, and I am happy to be wrong.|در این مورد با هر منتقدی مخالفم و خوشحالم که اشتباه باشم.|Holds an opinion without pretending certainty.|نظری را بدون ادعای قطعیت نگه می‌دارد.|B2|neutral|The critics and I disagree, and that is fine.
+D|After a bad film|بعد از یک فیلم بد|Reza|Bahar
+L|Reza|What did you think of it?|چه فکری درباره‌اش می‌کنی؟
+L|Bahar|I would give it two out of five, and I am being generous.|دو از پنج می‌دهم و دارم سخاوتمندم.
+L|Reza|It got rave reviews, though.|اما نقدهای پرشور گرفت.
+L|Bahar|It did not live up to the hype at all.|اصلاً به آن هیاهو نمی‌ارزید.
+L|Reza|The acting was good, I thought.|به نظر من بازی‌ها خوب بود.
+L|Bahar|Fine, the acting was good. Everything else was slow.|باشد، بازی‌ها خوب بود. بقیه‌اش کند بود.
+L|Reza|Spoiler alert, but the ending explains nothing.|هشدار لو دادن، اما پایان هیچ چیز را توضیح نمی‌دهد.
+L|Bahar|That is because there is no ending. Beauty is in the eye of the beholder, I suppose.|چون پایانی وجود ندارد. گویا زیبایی در چشم بیننده است.
+C|The review with spoilers|نقد پر از افشا|A friend sends a review that gives away the ending.|دوستی نقدی می‌فرستد که پایان را لو می‌دهد.|Ask for a warning next time, without anger.|دفعهٔ بعد هشدار بخواه، بی‌خشم.|Next time send a spoiler warning first. I had not seen it.|دفعهٔ بعد اول هشدار بده. من ندیده بودم.
+C|The opinion as fact|نظر به‌جای واقعیت|Somebody says a film is bad as if it were proven.|کسی فیلمی را بد می‌گوید انگار ثابت شده.|Answer with your own opinion, marked as one.|با نظر خودت پاسخ بده و آن را نظر معرفی کن.|That is your opinion. I thought the second half was excellent.|این نظر توست. من فکر کردم نیمهٔ دوم عالی بود.
+Q|What is a rating?|امتیاز چیست؟|a score given to a film or game|a written opinion|the price of a ticket|A rating is a number, not a paragraph.|امتیاز یک عدد است، نه یک پاراگراف.
+Q|A spoiler ...|افشای ماجرا ...|ruins a story you have not seen|improves the story|is the title|It takes away the surprise.|غافلگیری را از بین می‌برد.
+Q|"It did not live up to the hype" means ...|«به هیاهو نمی‌ارزید» یعنی ...|it was worse than people said|it was better than people said|nobody talked about it|Expectations were higher than the reality.|انتظار از واقعیت بالاتر بود.
+
+J|recommendations|12|thumb|Recommending and taste|پیشنهاد کردن و سلیقه|adults||Must-sees, overrated hits and hidden gems, and the words for agreeing to differ.|چیزهای حتماً دیدنی، موفق‌های بیش‌ازحد تعریف‌شده و گوهرهای پنهان، و واژه‌های پذیرش اختلاف سلیقه.
+O|recommend something in one sentence with a reason.|در یک جمله با دلیل چیزی را پیشنهاد کن.
+O|say something is overrated or underrated without insulting anyone.|بگو چیزی بیش‌ازحد یا کم‌تر از حقش تعریف شده، بی‌آنکه کسی را برنجانی.
+O|agree to disagree about taste and keep the conversation going.|دربارهٔ سلیقه اختلاف را بپذیر و گفت‌وگو را ادامه بده.
+W|recommendation|/ˌrɛkəmənˈdeɪʃən/|noun|پیشنهاد|A suggestion that something is worth your time.|entertainment|thumb|B1|Thanks for the recommendation, I loved it.|ممنون از پیشنهادت، خیلی دوستش داشتم.|
+W|must-see|/ˈmʌst si/|noun|حتماً دیدنی|A film or show everybody should watch.|entertainment|star|B1|Her latest film is a must-see.|آخرین فیلمش حتماً دیدنی است.|
+W|overrated|/ˌoʊvərˈreɪtɪd/|adjective|بیش‌ازحد تعریف‌شده|Praised more than it deserves.|entertainment|arrow|B2|The sequel is overrated in my opinion.|به نظر من دنباله بیش‌ازحد تعریف شده.|
+W|underrated|/ˌʌndərˈreɪtɪd/|adjective|کم‌تر از حقش ارزش‌گذاری‌شده|Praised less than it deserves.|entertainment|gem|B2|Her first album is criminally underrated.|اولین آلبومش به‌طرز فجیعی کم‌ارزش گذاشته شده.|
+W|classic|/ˈklæsɪk/|noun|اثر کلاسیک|A work old enough to be admired for itself.|entertainment|book|B1|It is a classic, but it is also genuinely funny.|کلاسیک است، اما واقعاً خنده‌دار هم هست.|
+W|taste|/teɪst/|noun|سلیقه|What somebody likes, in art or food.|entertainment|palette|B1|We have completely different taste in films.|سلیقهٔ ما در فیلم کاملاً متفاوت است.|
+X|expression|You should give it a go.|باید امتحانش کنی.|Encourages trying without promising you will like it.|به امتحان تشویق می‌کند بی‌آنکه قول خوش آمدن بدهد.|neutral|You should give it a go; the first episode is free.|باید امتحانش کنی؛ قسمت اول رایگان است.|
+X|expression|It is worth a watch.|ارزش یک بار دیدن را دارد.|A modest recommendation for something good but not great.|پیشنهاد ملایم برای چیزی خوب اما نه عالی.|neutral|It is not a masterpiece, but it is worth a watch.|شاهکار نیست، اما ارزش یک بار دیدن را دارد.|
+X|collocation|It is right up my street.|دقیقاً به سلیقهٔ من می‌خورد.|Up my street is the fixed phrase for exactly your kind of thing.|«به سلیقهٔ من خوردن» عبارت ثابت برای دقیقاً جنس تو است.|informal|Quiet detective stories are right up my street.|داستان‌های آرام کارآگاهی دقیقاً به سلیقهٔ من می‌خورد.|
+X|idiom|Different strokes for different folks.|هر کسی سلیقهٔ خودش را دارد.|Literally, different oars suit different rowers; figuratively, people need different things and that is fine.|به‌طور تحت‌اللفظی، پاروهای مختلف به پاروزن‌های مختلف می‌خورد؛ به‌طور مجازی، مردم چیزهای مختلف می‌خواهند و این اشکالی ندارد.|informal|You love horror, I love comedy: different strokes for different folks.|تو ترسناک را دوست داری، من کمدی: هر کسی سلیقهٔ خودش را دارد.|
+X|expression|It was a bit meh.|خیلی هم چیز نبود.|Meh is slang for unimpressive, neither good nor bad.|«خیلی هم چیز نبود» عامیانه برای بی‌اثر و نه خوب نه بد.|slang|The first half was amazing and the second was a bit meh.|نیمهٔ اول عالی بود و دوم خیلی هم چیز نبود.|
+P|You should + [verb] + it.|You should give it a go.|باید امتحانش کنی.|Should plus the bare verb for advice.|«باید» به‌همراه فعل ساده برای توصیه.
+P|It is worth a + [noun].|It is worth a watch.|ارزش یک بار دیدن را دارد.|Worth a plus the activity.|«ارزش ... را دارد» به‌همراه فعالیت.
+S|If you liked the first one, you will like this one; if not, skip it.|اگر اولی را دوست داشتی این را هم دوست داری؛ اگر نه، ردش کن.|Gives a recommendation with its condition.|پیشنهاد را با شرطش می‌دهد.|B1|neutral|Like the first? Then you will like this.
+S|It is not the kind of thing I would choose, but I can see why people love it.|از آن چیزهایی نیست که خودم انتخاب کنم، اما می‌فهمم چرا مردم دوستش دارند.|Disagrees without dismissing.|مخالفت می‌کند بی‌آنکه رد کند.|B2|neutral|Not my choice, but I see the appeal.
+D|Recommending a series|پیشنهاد یک سریال|Mahsa|Sina
+L|Mahsa|What are you watching at the moment?|این روزها چه می‌بینی؟
+L|Sina|Nothing good. What would you recommend?|هیچ چیز خوبی. چه پیشنهاد می‌کنی؟
+L|Mahsa|You should give the new detective series a go.|باید سریال کارآگاهی جدید را امتحان کنی.
+L|Sina|I am not sure about detective stories.|مطمئن نیستم دربارهٔ داستان‌های کارآگاهی.
+L|Mahsa|It is not a typical one. It is quiet and very funny.|نمونهٔ معمولی نیست. آرام و خیلی خنده‌دار است.
+L|Sina|Is it a must-see, or just worth a watch?|حتماً دیدنی است یا فقط ارزش یک بار دیدن؟
+L|Mahsa|Worth a watch, honestly. I would give it four out of five.|راستش ارزش یک بار دیدن. من چهار از پنج می‌دهم.
+L|Sina|Then I will try the first episode tonight.|پس امشب قسمت اول را امتحان می‌کنم.
+C|The overrated favourite|محبوب بیش‌ازحد تعریف‌شده|A friend's favourite film bored you, and they want your view.|فیلم محبوب دوستت تو را خسته کرد و او نظرت را می‌خواهد.|Be honest without dismissing their taste.|صادق باش بی‌آنکه سلیقه‌اش را رد کنی.|I can see why you love it. It dragged a little for me in the middle.|می‌فهمم چرا دوستش داری. وسطش کمی برای من کشدار شد.
+C|The hidden gem|گوهر پنهان|A small film nobody has heard of is excellent.|فیلم کوچکی که کسی نامش را نشنیده، عالی است.|Recommend it with a reason that works for them.|با دلیلی که به آن‌ها می‌خورد پیشنهادش کن.|Nobody has heard of it, but if you like quiet stories, it is right up your street.|هیچ‌کس نامش را نشنیده، اما اگر داستان آرام دوست داری، دقیقاً به سلیقهٔ توست.
+Q|What does overrated mean?|بیش‌ازحد تعریف‌شده یعنی چه؟|praised more than it deserves|praised too little|not praised at all|Over means more than the real value.|«بیش» یعنی بیشتر از ارزش واقعی.
+Q|A must-see is ...|«حتماً دیدنی» چیست؟|something everybody should watch|something optional|a film with no ending|The phrase is a strong recommendation.|این عبارت پیشنهاد قوی است.
+Q|"Different strokes for different folks" means ...|«هر کسی سلیقهٔ خودش را دارد» یعنی ...|people have different tastes|everyone agrees|nobody has an opinion|The saying accepts difference.|این ضرب‌المثل تفاوت را می‌پذیرد.
