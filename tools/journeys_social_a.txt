@@ -1,0 +1,208 @@
+# Social life and relationships journey, stages 1-6. Rows are pipe-separated
+# and validated by tools/build_journeys.py; see its header for the field order
+# of each tag. Adult material: this journey is offered to the adult experience.
+
+J|intros|1|handshake|Introductions and making friends|معرفی و دوست پیدا کردن|adults||Meeting someone for the first time: names, handshakes, first impressions and the small things you say before the real conversation.|آشنایی با کسی برای نخستین بار: نام‌ها، دست‌دادن، تأثیر اول و چیزهای کوچکی که پیش از گفت‌وگوی اصلی می‌گویی.
+O|introduce yourself and someone else with their name and what they do.|خودت و کسی دیگر را با نام و کارش معرفی کن.
+O|ask where someone is from and what they do, and answer in return.|بپرس اهل کجاست و چه کار می‌کند، و در پاسخ خودت را هم بگو.
+O|leave a first meeting politely, saying you were glad to meet them.|اولین دیدار را مؤدبانه تمام کن و بگو از آشنایی خوشحال شدی.
+W|introduction|/ˌɪntrəˈdʌkʃən/|noun|معرفی|The moment two people are told each other's names.|social|wave|A2|He gave a short introduction and then sat down.|او کوتاه معرفی کرد و بعد نشست.|
+W|handshake|/ˈhændʃeɪk/|noun|دست‌دادن|The way two people hold hands for a second when they meet.|social|handshake|A2|Her handshake was firm and quick.|دست‌دادنش محکم و سریع بود.|
+W|stranger|/ˈstreɪndʒər/|noun|غریبه|Someone you have never met before.|social|person|A2|I do not usually start conversations with strangers.|معمولاً با غریبه‌ها سر صحبت را باز نمی‌کنم.|
+W|acquaintance|/əˈkweɪntəns/|noun|آشنا|Someone you know a little, but who is not a friend.|social|nod|B1|He is an acquaintance from my old office.|او آشنایی از ادارهٔ قبلی من است.|
+W|nickname|/ˈnɪkneɪm/|noun|نام مستعار|A short or funny name friends use instead of your real one.|social|tag|A2|Everyone at work calls me by my nickname.|همه در محل کار با نام مستعارم صدایم می‌کنند.|
+W|confident|/ˈkɑnfɪdənt/|adjective|بااعتماد‌به‌نفس|Sure of yourself when you speak to people.|social|star|B1|She sounded confident even with a room full of strangers.|حتی با اتاقی پر از غریبه، بااعتماد‌به‌نفس به نظر می‌رسید.|
+X|expression|Nice to meet you.|خوشوقتم.|The standard line when you are introduced.|جملهٔ همیشگی وقتی کسی را به تو معرفی می‌کنند.|neutral|Nice to meet you, Mr Ahmadi.|خوشوقتم، آقای احمدی.|Pleased to meet you.
+X|expression|What do you do?|چه کار می‌کنی؟|Asks about work without sounding like a form.|دربارهٔ کار می‌پرسد بی‌آنکه شبیه فرم باشد.|neutral|What do you do at the hospital?|در بیمارستان چه کار می‌کنی؟|
+X|collocation|make a good first impression|تأثیر اول خوبی گذاشتن|Impression takes make, not do.|«تأثیر» با فعل «گذاشتن» می‌آید، نه «انجام دادن».|neutral|Arrive five minutes early and make a good first impression.|پنج دقیقه زودتر برس و تأثیر اول خوبی بگذار.|
+X|idiom|break the ice|یخ را شکستن|Literally, break the ice; figuratively, make people relaxed enough to talk.|به‌طور تحت‌اللفظی، یخ را شکستن؛ به‌طور مجازی، کاری کردن که مردم راحت شروع به حرف زدن کنند.|neutral|He told a small joke to break the ice.|او یک شوخی کوچک کرد تا یخ را بشکند.|
+X|phrasal_verb|come across as|به نظر رسیدن|How people read you, not what you say about yourself.|اینکه مردم تو را چطور می‌خوانند، نه آنچه خودت می‌گویی.|neutral|She comes across as shy until she knows you.|تا تو را نشناسد، خجالتی به نظر می‌رسد.|
+P|Let me introduce + [name].|Let me introduce my colleague, Reza.|بگذار همکارم، رضا، را معرفی کنم.|Name first, then what they do.|اول نام، بعد کاری که می‌کند.
+P|Are you from + [place]?|Are you from the north?|اهل شمالی؟|Asks for origin without the job-interview tone.|اصالت را می‌پرسد بی‌لحن مصاحبهٔ کاری.
+S|I am terrible with names, so remind me if I forget yours.|در یاد نگه‌داشتن نام‌ها بد هستم، پس اگر نام تو را فراموش کردم یادم بیاور.|Admits a fault before it happens, which makes people warm to you.|پیش از رخ دادن، ضعفی را می‌پذیرد و همین مردم را با تو گرم می‌کند.|B1|neutral|Remind me if I forget.
+S|We only met once, but I remembered your story about the ferry.|فقط یک بار همدیگر را دیدیم، اما داستانت دربارهٔ کشتی را یادم مانده.|Shows a stranger they were listened to.|نشان می‌دهد به یک غریبه گوش داده بودند.|B1|warm|I remembered your story.
+D|At a friend's dinner|در مهمانی شام دوستی|Nina|Sattar
+L|Nina|You must be Sattar. Leila has told me a lot about you.|تو باید ستار باشی. لیلا خیلی از تو گفته.
+L|Sattar|All good things, I hope. Nice to meet you.|امیدوارم همه چیزهای خوب. خوشوقتم.
+L|Nina|Where are you from originally?|اصالتاً اهل کجایی؟
+L|Sattar|A small city in the north, but I have been in Tehran for nine years.|شهری کوچک در شمال، اما نُه سال است در تهرانم.
+L|Nina|And what do you do?|و چه کار می‌کنی؟
+L|Sattar|I teach physics. Let me introduce my wife, Sara, who paints.|من فیزیک درس می‌دهم. بگذار همسرم، سارا، را معرفی کنم که نقاشی می‌کند.
+L|Nina|Then the two of you must meet my brother.|پس شما دو نفر باید برادرم را ببینید.
+L|Sattar|He is an acquaintance of mine from the climbing club, I think.|او به گمانم آشنای من از باشگاه صخره‌نوردی است.
+C|The forgotten name|نامی که فراموش شد|Someone greets you warmly and you cannot remember their name.|کسی گرم سلام می‌کند و تو نامش را یادت نیست.|Admit it politely and ask again.|مؤدبانه بپذیر و دوباره بپرس.|I am so sorry, your face is completely familiar but your name has gone. Remind me?|خیلی متأسفم، چهره‌ات کاملاً آشناست اما نامت رفته. یادم می‌آوری؟
+C|Introducing a quiet friend|معرفی دوست کم‌حرف|You are with a shy friend and someone new joins you.|با دوستی خجالتی هستی و کسی تازه به شما می‌پیوندد.|Introduce them with one detail they can talk about.|آنها را با یک جزئیاتی که می‌توانند درباره‌اش حرف بزنند معرفی کن.|This is Mahsa, who just came back from a year in Lisbon. Mahsa, Arman makes the best coffee here.|این مهسا است که تازه از یک سال زندگی در لیسبون برگشته. مهسا، ارمان بهترین قهوهٔ اینجا را درست می‌کند.
+Q|What do we call someone you know a little but who is not a friend?|کسی را که کم می‌شناسی اما دوست نیست چه می‌نامیم؟|an acquaintance|a stranger|a nickname|Acquaintance is between stranger and friend.|«آشنا» میان «غریبه» و «دوست» است.
+Q|"He broke the ice" means ...|«یخ را شکست» یعنی ...|he made people relaxed enough to talk|he dropped a glass|he told everyone to leave|The ice is a picture of silence, not frozen water.|یخ تصویر سکوت است، نه آب یخ‌زده.
+Q|Impression goes with which verb?|«تأثیر» با کدام فعل می‌آید؟|make an impression|do an impression|give an impression|English says make an impression.|انگلیسی says: make an impression.
+
+J|small|2|speech|Small talk and keeping it going|گپ خودمانی و زنده نگه‌داشتنش|adults||The weather, the weekend and the trick of asking a question that is easy to answer.|هوا، آخر هفته و هنر پرسیدن سؤالی که پاسخ دادنش آسان است.
+O|open a conversation with a question that is not too personal.|گفت‌وگو را با سؤالی که خیلی شخصی نیست باز کن.
+O|answer small talk and hand the question back.|به گپ کوتاه جواب بده و سؤال را برگردان.
+O|end a chat without making it feel like an escape.|گپ را تمام کن بی‌آنکه فرار به نظر برسد.
+W|small talk|/ˈsmɔl tɔk/|noun|گپ خودمانی|Short, light conversation about nothing serious.|social|chat|B1|We made small talk about the traffic for ten minutes.|ده دقیقه دربارهٔ ترافیک گپ خودمانی زدیم.|
+W|topic|/ˈtɑpɪk/|noun|موضوع|The subject a conversation is about.|social|speech|A2|Sport is a safe topic with almost anyone.|ورزش با تقریباً هر کسی موضوع بی‌خطری است.|
+W|awkward|/ˈɔkwərd/|adjective|معذب|Uncomfortable in a way everyone can feel.|social|shrug|B1|There was an awkward silence after his question.|بعد از سؤالش سکوتی معذب بود.|
+W|chat|/tʃæt/|noun|گپ|An easy, friendly conversation.|social|chat|A2|We had a quick chat at the bus stop.|سر ایستگاه اتوبوس گپ کوتاهی زدیم.|
+W|compliment|/ˈkɑmpləmənt/|noun|تعریف|Something kind you say about a person.|social|smile|B1|He took the compliment with a small smile.|تعریف را با لبخندی کوچک پذیرفت.|
+W|silence|/ˈsaɪləns/|noun|سکوت|A moment when nobody speaks.|social|quiet|A2|The silence lasted a second too long.|سکوت یک ثانیه بیش از حد طول کشید.|
+X|expression|How is it going?|چطور پیش می‌رود؟|Friendlier and looser than how are you.|دوستانه‌تر و راحت‌تر از «حالت چطور است».|neutral|How is it going with the new flat?|با خانهٔ جدید چطور پیش می‌رود؟|
+X|expression|Any plans for the weekend?|آخر هفته برنامه‌ای داری؟|Invites a story without asking a personal question.|بدون پرسش شخصی، دعوت به تعریف می‌کند.|neutral|Any plans for the weekend, or a quiet one?|آخر هفته برنامه‌ای داری یا آرام است؟|
+X|collocation|keep the conversation going|گفت‌وگو را زنده نگه‌داشتن|The fixed phrase for not letting a chat die.|عبارت ثابت برای نگذاشتن به مردن گفت‌وگو.|neutral|Ask one more question to keep the conversation going.|یک سؤال دیگر بپرس تا گفت‌وگو زنده بماند.|
+X|idiom|on the same wavelength|هم‌فکر بودن|Literally, on the same radio wave; figuratively, understanding each other easily.|به‌طور تحت‌اللفظی، روی یک موج رادیویی؛ به‌طور مجازی، راحت یکدیگر را فهمیدن.|neutral|We talked for two hours; we are on the same wavelength.|دو ساعت حرف زدیم؛ هم‌فکریم.|
+X|phrasal_verb|bring up|مطرح کردن|To start talking about a subject.|شروع کردن به حرف زدن دربارهٔ موضوعی.|neutral|She brought up the holiday as if nothing had happened.|او تعطیلات را مطرح کرد انگار هیچ اتفاقی نیفتاده.|
+P|How was + [noun]?|How was the drive down?|مسیر آمدن چطور بود؟|Asks for a story, not a yes or no.|داستان می‌خواهد، نه بله یا نه.
+P|That reminds me of + [noun].|That reminds me of my first week here.|این یادم می‌اندازد اولین هفته‌ام اینجا را.|Carries the conversation to a story of your own.|گفت‌وگو را به داستانی از خودت می‌برد.
+S|Sorry, I have to run, but it was really good to see you.|ببخشید باید بروم، اما واقعاً از دیدنت خوشحال شدم.|Leaves warmly and quickly at the same time.|هم گرم و هم سریع خداحافظی می‌کند.|A2|polite|I have to run.
+S|I am not great at small talk, but I am a good listener.|در گپ خودمانی خوب نیستم، اما شنوندهٔ خوبی هستم.|Turns a weakness into an offer.|ضعف را به پیشنهاد تبدیل می‌کند.|B1|self-deprecating|I am a good listener.
+D|Waiting for a bus|در انتظار اتوبوس|Kian|Mina
+L|Kian|This bus is never on time when it rains.|این اتوبوس وقتی باران می‌آید هیچ‌وقت سر وقت نیست.
+L|Mina|Tell me about it. I have been here twenty minutes.|به من بگو. بیست دقیقه است اینجایم.
+L|Kian|Do you take this line every day?|هر روز این خط را می‌گیری؟
+L|Mina|Only on Mondays and Wednesdays. I teach on the other side of town.|فقط دوشنبه‌ها و چهارشنبه‌ها. آن طرف شهر درس می‌دهم.
+L|Kian|Any plans for the weekend, then?|پس آخر هفته برنامه‌ای داری؟
+L|Mina|A quiet one. My sister is visiting with her baby.|یک آخر هفتهٔ آرام. خواهرم با نوزادش می‌آید.
+L|Kian|That sounds like the opposite of quiet.|این شبیه خلاف آرام است.
+L|Mina|You are right. Here is the bus, finally.|حق داری. بالاخره اتوبوس آمد.
+C|The dying conversation|گفت‌وگویی که می‌میرد|You are at a work event and the chat stops after two sentences.|در رویدادی کاری هستی و گفت‌وگو بعد از دو جمله می‌ایستد.|Save it with an easy question about the other person.|آن را با سؤالی آسان دربارهٔ طرف مقابل نجات بده.|Have you been to one of these before? I never know anyone at them.|قبلاً در یکی از اینها بوده‌ای؟ من هیچ‌وقت کسی را در آنها نمی‌شناسم.
+C|Ending a chat politely|تمام کردن گپ مؤدبانه|You need to leave a friendly chat but do not want to seem rude.|باید گپ دوستانه‌ای را ترک کنی بی‌آنکه بی‌ادب به نظر برسی.|Say you enjoyed it, give a reason and promise to continue.|بگو لذت بردی، دلیلی بگو و قول ادامه بده.|I am so sorry, I have to catch my train, but I would love to hear the rest of this next week.|واقعاً متأسفم، باید قطارم را بگیرم، اما دوست دارم بقیهٔ این را هفتهٔ بعد بشنوم.
+Q|Which is a safe small-talk topic with a stranger?|کدام موضوع برای گپ با یک غریبه بی‌خطر است؟|the journey there|their salary|their marriage|The journey is shared and easy to answer.|مسیر، مشترک و پاسخ دادنش آسان است.
+Q|"On the same wavelength" means ...|«روی یک موج» یعنی ...|you understand each other easily|you have the same phone|you work in radio|The wave is a picture of understanding.|موج تصویری از فهمیدن است.
+Q|Small talk is ...|گپ خودمانی چیست؟|light conversation about nothing serious|an argument about politics|a formal interview|Small means light, not short in length.|«کوچک» یعنی سبک، نه کوتاه.
+
+J|friends|3|group|Making friends and staying in touch|دوست پیدا کردن و در تماس ماندن|adults||Where friendships start, how they survive distance and what keeps people close over years.|جایی که دوستی‌ها شروع می‌شوند، چطور از پس دوری برمی‌آیند و چه چیزی آدم‌ها را سال‌ها نزدیک نگه می‌دارد.
+O|start a conversation with someone you would like to know.|با کسی که می‌خواهی بشناسی سر صحبت را باز کن.
+O|swap contact details and suggest meeting again.|شماره‌ها را رد و بدل کن و پیشنهاد دیدار دوباره بده.
+O|talk about how a friendship started and how it has lasted.|دربارهٔ اینکه دوستی چطور شروع شد و چطور مانده حرف بزن.
+W|mate|/meɪt/|noun|رفیق|A friend, in British and Australian informal speech.|social|group|B1|He is an old mate from university.|او رفیق قدیمی دانشگاه است.|
+W|icebreaker|/ˈaɪsˌbreɪkər/|noun|یخ‌شکن|A game or question that gets strangers talking.|social|chat|B2|The host started with a simple icebreaker.|میزبان با یک یخ‌شکن ساده شروع کرد.|
+W|mutual|/ˈmjutʃuəl/|adjective|مشترک|Shared by two people or more.|social|link|B2|We met through a mutual friend.|از طریق دوستی مشترک آشنا شدیم.|
+W|approach|/əˈproʊtʃ/|verb|نزدیک شدن|To walk up to someone and start talking.|social|arrow|B1|I approached her after the talk and said hello.|بعد از سخنرانی به او نزدیک شدم و سلام کردم.|
+W|contact|/ˈkɑntækt/|noun|راه تماس|A phone number, an address or an account you can reach.|social|phone|A2|We swapped contacts at the end of the course.|آخر دوره راه‌های تماس را رد و بدل کردیم.|
+W|neighbour|/ˈneɪbər/|noun|همسایه|Someone who lives next door or nearby.|social|door|A2|My neighbour brought me bread on the first day.|همسایه‌ام روز اول برایم نان آورد.|
+X|expression|We should swap numbers.|بیا شماره‌هایمان را رد و بدل کنیم.|Suggests staying in touch without asking for a date.|پیشنهاد در تماس ماندن می‌دهد بی‌آنکه شبیه قرار عاشقانه شود.|neutral|We should swap numbers before you go.|قبل از رفتنت شماره‌هایمان را رد و بدل کنیم.|
+X|phrasal_verb|hang out|وقت گذراندن|To spend relaxed time with people.|وقت گذراندن راحت با آدم‌ها.|neutral|We hang out most Fridays after work.|بیشتر جمعه‌ها بعد از کار وقت می‌گذرانیم.|
+X|phrasal_verb|keep in touch|در تماس ماندن|To stay in contact over time.|در طول زمان در ارتباط ماندن.|neutral|We kept in touch for years after the course.|سال‌ها بعد از دوره در تماس ماندیم.|
+X|idiom|hit it off|فوری جور شدن|Literally, strike something successfully; figuratively, like each other from the first minute.|به‌طور تحت‌اللفظی، ضربهٔ درست زدن؛ به‌طور مجازی، از همان دقیقهٔ اول از هم خوش آمدن.|neutral|We hit it off in the queue for coffee.|در صف قهوه فوری با هم جور شدیم.|
+X|collocation|a close friend|دوست نزدیک|Close is the word for a friend you trust, not near.|«نزدیک» واژهٔ دوستی است که به او اعتماد داری، نه فاصله.|neutral|She has been a close friend since school.|او از مدرسه دوست نزدیکی بوده.|
+P|We met + [where].|We met at a wedding in Shiraz.|در عروسی در شیراز آشنا شدیم.|Where the friendship started.|جایی که دوستی شروع شد.
+P|Do you fancy + [verb-ing]?|Do you fancy grabbing a coffee?|دوست داری قهوه‌ای بخوریم؟|British and friendly, not romantic by itself.|بریتانیایی و دوستانه، به‌خودی‌خود عاشقانه نیست.
+S|I do not remember whose idea it was, only that we talked until the cafe closed.|یادم نیست ایدهٔ چه کسی بود، فقط اینکه تا بسته شدن کافه حرف زدیم.|Tells a friendship story without a list of facts.|داستان دوستی را بی‌فهرست واقعیت تعریف می‌کند.|B1|warm|We talked until it closed.
+S|We are terrible at planning and excellent at turning up.|در برنامه‌ریزی بد هستیم و در آمدن عالی.|Two halves that balance into affection.|دو نیمه که به محبت می‌رسند.|B2|humorous|Excellent at turning up.
+D|After a language class|بعد از کلاس زبان|Dorsa|Amir
+L|Dorsa|You had the best answer about the festival. Where did you learn that?|بهترین جواب را دربارهٔ جشن دادی. کجا یاد گرفتی؟
+L|Amir|Honestly, from a podcast. I listen on the way to work.|راستش از یک پادکست. در راه کار گوش می‌کنم.
+L|Dorsa|Which one? I am always looking for something better.|کدام؟ من همیشه دنبال چیز بهتری هستم.
+L|Amir|I will send it to you. We should swap numbers.|برایت می‌فرستم. بیا شماره‌هایمان را رد و بدل کنیم.
+L|Dorsa|Good idea. Are you free on Thursday? A few of us meet for coffee.|فکر خوبی است. پنجشنبه آزادی؟ چند نفر از ما برای قهوه جمع می‌شویم.
+L|Amir|I am in. I have been looking for a group like that.|هستم. دنبال گروهی همین‌طور بودم.
+L|Dorsa|Then you will fit in. Bring the podcast recommendations.|پس جا می‌افتی. توصیه‌های پادکست را هم بیاور.
+L|Amir|Deal. See you Thursday.|قبول. پنجشنبه می‌بینمت.
+C|Joining a group that already knows each other|ورود به گروهی که همدیگر را می‌شناسند|You arrive at a table where everyone is mid-conversation.|به میزی می‌رسی که همه وسط گفت‌وگو هستند.|Introduce yourself briefly and ask one question about what they were saying.|خودت را کوتاه معرفی کن و یک سؤال دربارهٔ آنچه می‌گفتند بپرس.|Hi, I am Nima, Dorsa invited me. Sorry to interrupt, what were you saying about the festival?|سلام، من نیما هستم، درسا دعوتم کرد. ببخشید وسط حرفتون آمدم، دربارهٔ جشن چه می‌گفتید؟
+C|Keeping a friendship across cities|نگه‌داشتن دوستی میان شهرها|Your closest friend moves abroad and calls have become rare.|نزدیک‌ترین دوستت به خارج می‌رود و تماس‌ها کم شده.|Suggest something regular and small.|چیزی منظم و کوچک پیشنهاد بده.|Our calls keep slipping. What if we pick one Sunday a month and I bring the tea while you talk?|تماس‌هایمان دارد می‌افتد. چه می‌شود یک یکشنبه در ماه را انتخاب کنیم و من چای بیاورم و تو حرف بزنی؟
+Q|What does "hit it off" mean?|«hit it off» یعنی چه؟|to like each other immediately|to argue at once|to miss each other|The hit lands well, so the meeting goes well.|ضربه خوب می‌نشیند، پس دیدار خوب پیش می‌رود.
+Q|"We should swap numbers" is a way to ...|«بیا شماره‌ها را رد و بدل کنیم» راهی برای ...|stay in touch|ask for a loan|end a friendship|Numbers are how contact continues.|شماره‌ها راه ادامهٔ ارتباط‌اند.
+Q|A close friend is someone ...|دوست نزدیک کسی است که ...|you trust and see often|who lives next door|you met once|Close is about trust, not distance.|«نزدیک» دربارهٔ اعتماد است، نه فاصله.
+
+J|family|4|family|Family and relatives|خانواده و خویشاوندان|adults||Who is who in a family, how generations talk to each other and the words for the ones you cannot choose.|کی به کی چیست در خانواده، نسل‌ها چطور با هم حرف می‌زنند و واژه‌هایی برای آنهایی که نمی‌توانی انتخابشان کنی.
+O|describe your family and say who you are close to.|خانواده‌ات را توصیف کن و بگو به چه کسی نزدیکی.
+O|use the right word for in-laws, siblings and cousins.|واژهٔ درست را برای خانوادهٔ همسر، خواهر و برادر و پسرخاله به کار ببر.
+O|talk about family habits and what gets passed down.|دربارهٔ عادت‌های خانوادگی و چیزهایی که ارث می‌رسد حرف بزن.
+W|relative|/ˈrɛlətɪv/|noun|خویشاوند|A member of your family, near or far.|social|family|A2|A hundred relatives came to the wedding.|صد خویشاوند به عروسی آمدند.|
+W|sibling|/ˈsɪblɪŋ/|noun|خواهر یا برادر|A brother or a sister.|social|group|B1|She has three siblings and I have none.|او سه خواهر و برادر دارد و من هیچ.|
+W|in-laws|/ˈɪn lɔz/|noun|خانوادهٔ همسر|Your husband's or wife's family.|social|family|B1|My in-laws live two streets away.|خانوادهٔ همسرم دو کوچه آن‌طرف‌تر زندگی می‌کنند.|
+W|cousin|/ˈkʌzən/|noun|پسرخاله یا دخترخاله|The child of your uncle or aunt.|social|family|A2|My cousin and I were born in the same week.|من و پسرخاله‌ام در یک هفته به دنیا آمدیم.|
+W|generation|/ˌdʒɛnəˈreɪʃən/|noun|نسل|All the people born around the same time in a family.|social|stairs|B1|Three generations live in that house.|سه نسل در آن خانه زندگی می‌کنند.|
+W|close-knit|/ˌkloʊsˈnɪt/|adjective|صمیمی|A family that helps each other and spends time together.|social|hug|B2|They are a close-knit family who eat together every night.|خانوادهٔ صمیمی‌ای هستند که هر شب با هم غذا می‌خورند.|
+X|expression|We are a family of four.|ما خانواده‌ای چهارنفره هستیم.|The shortest way to give the size of a family.|کوتاه‌ترین راه گفتن اندازهٔ خانواده.|neutral|We are a family of four, two boys and two girls.|خانواده‌ای چهارنفره هستیم، دو پسر و دو دختر.|
+X|phrasal_verb|grow up|بزرگ شدن|To spend your childhood somewhere.|کودکی‌ات را جایی گذراندن.|neutral|I grew up in a house full of cousins.|در خانه‌ای پر از پسرخاله و دخترخاله بزرگ شدم.|
+X|phrasal_verb|take after|شبیه بودن|To look or behave like an older relative.|شبیه بودن به خویشاوند بزرگ‌تر در ظاهر یا رفتار.|neutral|She takes after her grandmother in everything.|او در همه چیز شبیه مادربزرگش است.|
+X|idiom|the black sheep of the family|گوسفند سیاه خانواده|Literally, the dark sheep in a white flock; figuratively, the relative who does not fit the family's expectations.|به‌طور تحت‌اللفظی، گوسفند سیاه در گلهٔ سفید؛ به‌طور مجازی، خویشاوندی که با انتظارهای خانواده نمی‌خواند.|neutral|He is the black sheep of the family and the only one who calls me.|او گوسفند سیاه خانواده است و تنها کسی که به من زنگ می‌زند.|
+X|idiom|run in the family|در خانواده ارثی بودن|Literally, run through the family line; figuratively, a trait many relatives share.|به‌طور تحت‌اللفظی، در خط خانواده دویدن؛ به‌طور مجازی، ویژگی‌ای که بسیاری از خویشاوندان دارند.|neutral|Bad eyesight runs in the family.|ضعف بینایی در خانواده ارثی است.|
+P|On my mother's side, + [clause].|On my mother's side, everyone is a teacher.|از طرف مادرم، همه معلم‌اند.|Which branch of the family you mean.|می‌گوید کدام شاخهٔ خانواده را می‌گویی.
+P|We are close to + [person].|We are close to my aunt.|ما به خاله‌ام نزدیک هستیم.|Close takes to, not with.|«نزدیک» با to می‌آید، نه with.
+S|My grandmother remembers the street before it had a name, and she tells it better every year.|مادربزرگم خیابان را پیش از آنکه نام داشته باشد یادش است و هر سال بهتر تعریفش می‌کند.|Shows affection through one detail.|محبت را با یک جزئیات نشان می‌دهد.|B2|warm|She tells it better every year.
+S|We argue about the same three things at every dinner and then we wash the dishes together.|سر هر شام دربارهٔ همان سه چیز بحث می‌کنیم و بعد با هم ظرف می‌شوییم.|Family conflict without bitterness.|دعوای خانوادگی بی‌تلخی.|B2|neutral|Then we wash the dishes.
+D|At a family dinner|سر شام خانوادگی|Reza|Neda
+L|Reza|Neda, are the people at the end of the table from your mother's side or your father's?|ندا، آنهایی که آخر میز هستند از طرف مادرت‌اند یا پدرت؟
+L|Neda|My father's. My uncle and his three children drove down this morning.|از طرف پدرم. عمویم و سه فرزندش صبح آمدند.
+L|Reza|So they are cousins of yours?|پس پسرعموهایت هستند؟
+L|Neda|Cousins. The youngest takes after my grandfather completely.|پسرعمو. کوچک‌ترینشان کاملاً شبیه پدربزرگم است.
+L|Reza|And who is the quiet one by the window?|و آن ساکت کنار پنجره کیست؟
+L|Neda|My brother. He is the black sheep of the family, and my favourite person here.|برادرم. او گوسفند سیاه خانواده است و محبوب‌ترین آدم من اینجا.
+L|Reza|You two are close, then.|پس شما دو نفر نزدیکید.
+L|Neda|We are. He is the only one who never asks when I am getting married.|هستیم. او تنها کسی است که هیچ‌وقت نمی‌پرسد کِی ازدواج می‌کنم.
+C|Explaining your family to a foreign friend|توضیح خانواده به دوستی خارجی|A friend cannot follow who is who in your family.|دوستت نمی‌تواند بفهمد در خانواده‌ات کی به کی چیست.|Explain one branch simply, with names and ages.|یک شاخه را ساده با نام و سن توضیح بده.|On my mother's side there are four of us: my aunt, her husband, and their two children, who are my cousins, both in their twenties.|از طرف مادرم چهار نفریم: خاله‌ام، شوهرش و دو فرزندشان که پسرخاله و دخترخالهٔ من‌اند، هر دو بیست‌وچند‌ساله.
+C|The family question you dread|سؤال خانوادگی که از آن می‌ترسی|A relative asks again when you will marry.|خویشاوندی دوباره می‌پرسد کِی ازدواج می‌کنی.|Answer warmly, change the subject, keep the peace.|گرم جواب بده، موضوع را عوض کن، صلح را نگه دار.|Whenever it happens, you will be the first to know. Now tell me about your garden, I heard it is beautiful.|هر وقت شد، اول به تو می‌گویم. حالا از باغت بگو، شنیدم زیباست.
+Q|Your wife's brother is your ...|برادر همسرت برای تو ...|brother-in-law|stepbrother|second cousin|In-laws are the family you marry into.|«خانوادهٔ همسر» خانواده‌ای است که با ازدواج به آن وارد می‌شوی.
+Q|"It runs in the family" means ...|«در خانواده ارثی است» یعنی ...|many relatives share it|the family runs together|it is a family business|Run is about a trait passing down.|«دویدن» دربارهٔ انتقال یک ویژگی است.
+Q|A close-knit family ...|خانوادهٔ صمیمی ...|helps each other and spends time together|lives far apart|never speaks|Knit is the picture of threads held together.|«بافتن» تصویر رشته‌های به‌هم‌پیوسته است.
+
+J|partners|5|heart|Love, dating and partnerships|عشق، قرار و شریک زندگی|adults||Asking someone out, being together, and the honest words for when it changes.|دعوت کسی به قرار، با هم بودن و واژه‌های صادقانه برای وقتی که تغییر می‌کند.
+O|ask someone out and accept or decline politely.|کسی را به قرار دعوت کن و مؤدبانه بپذیر یا رد کن.
+O|talk about how long you have been together and how you met.|بگو چند وقت است با هم هستی و چطور آشنا شدید.
+O|describe a relationship that ended without blaming anyone.|رابطه‌ای را که تمام شد توصیف کن بی‌آنکه کسی را مقصر کنی.
+W|partner|/ˈpɑrtnər/|noun|شریک زندگی|The person you are in a long relationship with.|social|heart|B1|My partner and I moved here last spring.|من و شریک زندگی‌ام بهار گذشته به اینجا آمدیم.|
+W|date|/deɪt/|noun|قرار|A planned meeting with someone you like.|social|calendar|A2|Our first date was a walk in the rain.|اولین قرارمان قدم زدن در باران بود.|
+W|crush|/krʌʃ/|noun|شیفتگی|A strong liking for someone, often kept secret.|social|heart|B1|He had a crush on her for a whole year.|یک سال تمام به او شیفتگی داشت.|
+W|commitment|/kəˈmɪtmənt/|noun|تعهد|A promise to stay and work at a relationship.|social|ring|B2|She was not ready for that kind of commitment.|او آمادهٔ آن نوع تعهد نبود.|
+W|breakup|/ˈbreɪkʌp/|noun|جدایی|The end of a romantic relationship.|social|heartbreak|B1|The breakup was quiet and sad rather than dramatic.|جدایی آرام و غم‌انگیز بود، نه پرتنش.|
+W|engaged|/ɪnˈɡeɪdʒd/|adjective|نامزد|Having promised to marry someone.|social|ring|B1|They got engaged after two months.|بعد از دو ماه نامزد کردند.|
+X|expression|It is complicated.|پیچیده است.|A polite refusal to explain a relationship.|امتناع مؤدبانه از توضیح یک رابطه.|neutral|How is your situation now? It is complicated.|الان وضعیتت چطور است؟ پیچیده است.
+X|phrasal_verb|ask someone out|کسی را به قرار دعوت کردن|To invite someone on a date.|دعوت کسی به یک دیدار عاشقانه.|neutral|He asked her out after the concert.|بعد از کنسرت او را به قرار دعوت کرد.
+X|phrasal_verb|settle down|سر و سامان گرفتن|To start a stable life with someone.|شروع زندگی پایدار با کسی.|neutral|They settled down in a small town.|آنها در شهر کوچکی سر و سامان گرفتند.
+X|idiom|head over heels|عاشق تا خرخره|Literally, falling head over heels; figuratively, deeply in love.|به‌طور تحت‌اللفظی، از سر و پا افتادن؛ به‌طور مجازی، عمیقاً عاشق شدن.|neutral|He fell head over heels within a month.|در یک ماه عاشق تا خرخره شد.
+X|collocation|a long-distance relationship|رابطهٔ از راه دور|Distance is the fixed word for partners in different cities.|«فاصله» واژهٔ ثابت برای شریک‌هایی است که در شهرهای مختلف‌اند.|neutral|A long-distance relationship needs a schedule.|رابطهٔ از راه دور به برنامه نیاز دارد.
+X|expression|We have been together for two years.|دو سال است با هم هستیم.|The standard way to give the length of a relationship.|راه همیشگی برای گفتن طول یک رابطه.|neutral|We have been together for two years in June.|تیر می‌شود دو سال که با هم هستیم.
+P|We met + [how].|We met on a course.|ما در یک دوره آشنا شدیم.|How it started, not where you are now.|چطور شروع شد، نه کجایید حالا.
+P|Would you like to + [verb]?|Would you like to have dinner with me?|دوست داری با من شام بخوری؟|A direct invitation, polite because of would.|دعوتی مستقیم که به‌خاطر would مؤدب است.
+S|I was not looking for anyone that year, which is probably why it worked.|آن سال دنبال کسی نبودم، که احتمالاً برای همین جواب داد.|Honest, slightly self-aware, no bragging.|صادقانه، کمی خودآگاه، بی‌خودستایی.|B2|neutral|Which is probably why it worked.
+S|We ended it kindly, and we still say hello when we meet.|مهربانانه تمامش کردیم و هنوز وقتی می‌بینیم سلام می‌کنیم.|Describes a breakup without a villain.|جدایی را بی‌بدذات توصیف می‌کند.|B1|neutral|We still say hello when we meet.
+D|Two friends, one confession|دو دوست، یک اعتراف|Shadi|Farid
+L|Shadi|You have been quiet all evening. What is going on?|تمام شب ساکتی. چه خبر است؟
+L|Farid|There is someone in my class and I cannot stop thinking about her.|کسی در کلاسم هست و نمی‌توانم از فکرش بیرون بیایم.
+L|Shadi|A crush, then. Are you going to ask her out?|پس شیفتگی. می‌خواهی به قرار دعوتش کنی؟
+L|Farid|What if she says no and it gets strange in class?|اگر نه بگوید و کلاس عجیب شود؟
+L|Shadi|Then you are polite about it and the class carries on. It is complicated only if you make it so.|آن‌وقت مؤدب می‌مانی و کلاس ادامه پیدا می‌کند. فقط اگر خودت بخواهی پیچیده می‌شود.
+L|Farid|We have been together in that room for two years and I still cannot ask.|دو سال است با هم در آن اتاقیم و هنوز نمی‌توانم بپرسم.
+L|Shadi|Ask her for coffee, not for forever. Coffee is easy to answer.|او را برای قهوه دعوت کن، نه برای همیشه. پاسخ دادن به قهوه آسان است.
+L|Farid|Coffee. That I can do.|قهوه. این را می‌توانم.
+C|Declining a date kindly|رد کردن قرار با مهربانی|A colleague asks you out and you do not want to go.|همکاری تو را به قرار دعوت می‌کند و نمی‌خواهی بروی.|Decline the invitation, not the person.|دعوت را رد کن، نه شخص را.|That is kind of you and I am glad you asked, but I am not looking for that right now. I hope we can still be easy with each other at work.|این لطف توست و خوشحالم که پرسیدی، اما الان دنبال این نیستم. امیدوارم در محل کار هنوز راحت باشیم.
+C|Talking about an ended relationship|حرف زدن از رابطه‌ای که تمام شد|A friend asks about your last relationship.|دوستی از رابطهٔ قبلی‌ات می‌پرسد.|Be honest without blaming your ex.|صادق باش بی‌آنکه شریک قبلی‌ات را مقصر کنی.|We were good at the small things and wrong about the big ones. It ended kindly and I am fine.|ما در چیزهای کوچک خوب بودیم و در چیزهای بزرگ اشتباه. مهربانانه تمام شد و من خوبم.
+Q|What does "head over heels" describe?|«head over heels» چه چیزی را توصیف می‌کند؟|being deeply in love|falling down the stairs|wearing high shoes|Heels is a picture of falling, not shoes.|«پاشنه‌ها» تصویر افتادن است، نه کفش.
+Q|Asking someone out means ...|دعوت به قرار یعنی ...|inviting them on a date|asking them to leave|asking for their address|Out is the date, not the exit.|«بیرون» خودِ قرار است، نه خروج.
+Q|"It is complicated" usually ...|«پیچیده است» معمولاً ...|avoids explaining a private situation|means the situation is simple|describes a maths problem|Complicated politely closes the topic.|«پیچیده» مؤدبانه موضوع را می‌بندد.
+
+J|bonds|6|hug|Close friendship, trust and falling out|دوستی نزدیک، اعتماد و قهر|adults||What keeps friends close, what breaks the trust and how people make up again.|چه چیزی دوستان را نزدیک نگه می‌دارد، چه چیزی اعتماد را می‌شکند و آدم‌ها چطور آشتی می‌کنند.
+O|describe a friendship in terms of trust and time.|دوستی را با اعتماد و زمان توصیف کن.
+O|explain an argument and what each person wanted.|دعوایی را توضیح بده و بگو هر کس چه می‌خواست.
+O|apologise and make up without pretending nothing happened.|عذرخواهی کن و آشتی کن بی‌آنکه وانمود کنی هیچ اتفاقی نیفتاده.
+W|trust|/trʌst/|noun|اعتماد|The belief that someone will not harm you.|social|handshake|B1|The trust between them survived the argument.|اعتماد میان آنها از دعوا جان به در برد.|
+W|loyal|/ˈlɔɪəl/|adjective|وفادار|Always on someone's side, especially when it costs something.|social|shield|B1|She is the most loyal friend I have.|او وفادارترین دوست من است.|
+W|argument|/ˈɑrɡjəmənt/|noun|دعوا|A serious disagreement, sometimes loud.|social|argue|A2|The argument was about money, as usual.|دعوا مثل همیشه بر سر پول بود.|
+W|support|/səˈpɔrt/|noun|پشتیبانی|Help and encouragement when things are hard.|social|hand|B1|What I remember is the support, not the advice.|آنچه یادم مانده پشتیبانی است، نه نصیحت.|
+W|bond|/bɑnd/|noun|پیوند|A strong connection between people.|social|link|B2|Shared jokes built a bond that lasted.|شوخی‌های مشترک پیوندی ساخت که ماند.|
+W|honest|/ˈɑnɪst/|adjective|صادق|Saying what is true, even when it is uncomfortable.|social|speech|A2|An honest friend tells you when you are wrong.|دوست صادق وقتی اشتباه می‌کنی به تو می‌گوید.|
+X|expression|We go back a long way.|سابقه‌ای طولانی داریم.|Says the friendship is old without counting years.|می‌گوید دوستی قدیمی است بی‌آنکه سال‌ها را بشمارد.|neutral|We go back a long way, since primary school.|سابقه‌ای طولانی داریم، از دبستان.
+X|phrasal_verb|fall out with|قهر کردن با|To stop being friendly after a disagreement.|بعد از اختلاف دوست نبودن.|neutral|I fell out with my best friend over a flat.|با بهترین دوستم بر سر یک خانه قهر کردم.
+X|phrasal_verb|make up|آشتی کردن|To become friends again after an argument.|بعد از دعوا دوباره دوست شدن.|neutral|They made up before the wedding.|قبل از عروسی آشتی کردند.
+X|idiom|through thick and thin|در سختی و آسانی|Literally, through thick and thin forest; figuratively, in good times and bad.|به‌طور تحت‌اللفظی، از میان جنگل انبوه و تنک؛ به‌طور مجازی، در روزهای خوب و بد.|neutral|She stayed through thick and thin.|او در سختی و آسانی ماند.
+X|idiom|clear the air|فضا را صاف کردن|Literally, clear the air of smoke; figuratively, talk until the bad feeling is gone.|به‌طور تحت‌اللفظی، هوا را از دود پاک کردن؛ به‌طور مجازی، حرف زدن تا احساس بد برود.|neutral|We met for coffee to clear the air.|برای صاف کردن فضا قهوه خوردیم.
+P|I felt + [adjective] + when + [clause].|I felt left out when you made the plan without me.|وقتی بی من برنامه ریختی احساس کردم کنار گذاشته شدم.|Names the feeling, then the moment.|اول احساس، بعد لحظه.
+P|Can we talk about + [noun]?|Can we talk about last night?|می‌توانیم دربارهٔ دیشب حرف بزنیم؟|Opens a difficult subject without an accusation.|موضوع سختی را بی‌اتهام باز می‌کند.
+S|I would rather hear the difficult truth from you than a comfortable version from someone else.|ترجیح می‌دهم حقیقت سخت را از تو بشنوم تا نسخهٔ راحت را از کسی دیگر.|Defines friendship in one comparison.|دوستی را در یک مقایسه تعریف می‌کند.|B2|neutral|A comfortable version from someone else.
+S|We apologised badly, laughed at ourselves and started again.|بد عذرخواهی کردیم، به خودمان خندیدیم و از نو شروع کردیم.|Making up without drama.|آشتی بی‌درام.|B1|humorous|We started again.
+D|Two friends after a silence|دو دوست بعد از سکوتی طولانی|Hoda|Behnam
+L|Hoda|I did not expect to hear from you after three weeks.|بعد از سه هفته انتظار نداشتم از تو خبری بشنوم.
+L|Behnam|I know. I was angry and then I was embarrassed about being angry.|می‌دانم. عصبانی بودم و بعد از عصبانیت خجالت کشیدم.
+L|Hoda|I said things I would not say again.|من چیزهایی گفتم که دیگر نمی‌گویم.
+L|Behnam|So did I. The plan was not worth any of it.|من هم. آن برنامه ارزش هیچ‌کدامش را نداشت.
+L|Hoda|We go back a long way. I do not want to lose that over a weekend.|سابقه‌ای طولانی داریم. نمی‌خواهم به خاطر یک آخر هفته آن را از دست بدهم.
+L|Behnam|Neither do I. Can we clear the air properly, not just say sorry and move on?|من هم نه. می‌توانیم درست فضا را صاف کنیم، نه فقط عذرخواهی کنیم و رد شویم؟
+L|Hoda|Tea at my place on Friday. You talk first.|جمعه خانهٔ من چای. اول تو حرف بزن.
+L|Behnam|Deal. And I will bring the cake I owe you.|قبول. و کیکی را که به تو بدهکارم می‌آورم.
+C|The friend who cancels again|دوستی که باز هم لغو می‌کند|A close friend cancels for the fourth time.|دوست نزدیکی برای چهارمین بار لغو می‌کند.|Say how it feels without ending the friendship.|بگو چه حسی دارد بی‌آنکه دوستی را تمام کنی.|I am not angry, but I have started not expecting you, and I do not want that. Is something going on?|عصبانی نیستم، اما کم‌کم یاد گرفته‌ام انتظارت را نداشته باشم و این را نمی‌خواهم. چیزی هست؟
+C|Being told an uncomfortable truth|شنیدن حقیقتی ناراحت‌کننده|A friend says you were unfair to someone last night.|دوستی می‌گوید دیشب با کسی ناعادلانه رفتار کردی.|Listen, ask for the detail, then decide.|گوش کن، جزئیات را بپرس، بعد تصمیم بگیر.|You may be right. What exactly did I say that landed badly?|شاید حق با تو باشد. دقیقاً چه گفتم که بد نشست؟
+Q|"Through thick and thin" means ...|«در سختی و آسانی» یعنی ...|in good times and bad|through a thick forest|in fine weather only|Thick and thin are the hard and the easy.|«انبوه و تنک» سخت و آسان‌اند.
+Q|"To fall out with someone" means ...|«fall out with» یعنی ...|to stop being friendly after a disagreement|to fall down together|to move out of a house|Out is the friendship, not the building.|«بیرون» دوستی است، نه ساختمان.
+Q|Making up after an argument is ...|آشتی بعد از دعوا یعنی ...|becoming friends again|inventing a story|putting on makeup|Up is the repair of the friendship.|«بالا» ترمیم دوستی است.

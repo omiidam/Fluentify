@@ -168,6 +168,27 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "social",
+        "topic": "social",
+        # Adults only, like the other extra journeys: dating, in-laws and the
+        # polite way to refuse a favour are grown-up conversation, and the kid
+        # experience never offers them.
+        "title_en": "Social Life & Relationships Journey",
+        "title_fa": "زندگی اجتماعی و روابط: از آشنایی تا مهمانی",
+        "icon": "🤝",
+        "art": "handshake",
+        "audiences": ["adults"],
+        "blurb_en": ("Introductions, friends and family, invitations and "
+                     "parties, feelings and opinions, and the polite way to "
+                     "say all of it."),
+        "blurb_fa": ("آشنایی، دوست و خانواده، دعوت و مهمانی، احساس و نظر، "
+                     "و راه مؤدبانهٔ گفتن همهٔ اینها."),
+        "sources": ["tools/journeys_social_a.txt",
+                    "tools/journeys_social_b.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

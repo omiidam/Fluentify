@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 6,
-   "stages": 74,
-   "words": 453,
-   "expressions": 391,
+   "journeys": 7,
+   "stages": 86,
+   "words": 525,
+   "expressions": 453,
    "sports": 46
   }
  },
@@ -26598,6 +26598,3986 @@
     "stages": 12,
     "words": 72,
     "expressions": 63,
+    "patterns": 24,
+    "sentences": 24,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "social",
+   "topic": "social",
+   "title_en": "Social Life & Relationships Journey",
+   "title_fa": "زندگی اجتماعی و روابط: از آشنایی تا مهمانی",
+   "icon": "🤝",
+   "art": "handshake",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Introductions, friends and family, invitations and parties, feelings and opinions, and the polite way to say all of it.",
+   "blurb_fa": "آشنایی، دوست و خانواده، دعوت و مهمانی، احساس و نظر، و راه مؤدبانهٔ گفتن همهٔ اینها.",
+   "levels": [
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "intros",
+     "order": 1,
+     "icon": "handshake",
+     "title_en": "Introductions and making friends",
+     "title_fa": "معرفی و دوست پیدا کردن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Meeting someone for the first time: names, handshakes, first impressions and the small things you say before the real conversation.",
+     "blurb_fa": "آشنایی با کسی برای نخستین بار: نام‌ها، دست‌دادن، تأثیر اول و چیزهای کوچکی که پیش از گفت‌وگوی اصلی می‌گویی.",
+     "objectives": [
+      {
+       "en": "introduce yourself and someone else with their name and what they do.",
+       "fa": "خودت و کسی دیگر را با نام و کارش معرفی کن."
+      },
+      {
+       "en": "ask where someone is from and what they do, and answer in return.",
+       "fa": "بپرس اهل کجاست و چه کار می‌کند، و در پاسخ خودت را هم بگو."
+      },
+      {
+       "en": "leave a first meeting politely, saying you were glad to meet them.",
+       "fa": "اولین دیدار را مؤدبانه تمام کن و بگو از آشنایی خوشحال شدی."
+      }
+     ],
+     "words": [
+      {
+       "id": "intros-w1",
+       "en": "introduction",
+       "ipa": "/ˌɪntrəˈdʌkʃən/",
+       "pos": "noun",
+       "fa": "معرفی",
+       "def_en": "The moment two people are told each other's names.",
+       "sport": "social",
+       "icon": "wave",
+       "level": "A2",
+       "example_en": "He gave a short introduction and then sat down.",
+       "example_fa": "او کوتاه معرفی کرد و بعد نشست.",
+       "ref": ""
+      },
+      {
+       "id": "intros-w2",
+       "en": "handshake",
+       "ipa": "/ˈhændʃeɪk/",
+       "pos": "noun",
+       "fa": "دست‌دادن",
+       "def_en": "The way two people hold hands for a second when they meet.",
+       "sport": "social",
+       "icon": "handshake",
+       "level": "A2",
+       "example_en": "Her handshake was firm and quick.",
+       "example_fa": "دست‌دادنش محکم و سریع بود.",
+       "ref": ""
+      },
+      {
+       "id": "intros-w3",
+       "en": "stranger",
+       "ipa": "/ˈstreɪndʒər/",
+       "pos": "noun",
+       "fa": "غریبه",
+       "def_en": "Someone you have never met before.",
+       "sport": "social",
+       "icon": "person",
+       "level": "A2",
+       "example_en": "I do not usually start conversations with strangers.",
+       "example_fa": "معمولاً با غریبه‌ها سر صحبت را باز نمی‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "intros-w4",
+       "en": "acquaintance",
+       "ipa": "/əˈkweɪntəns/",
+       "pos": "noun",
+       "fa": "آشنا",
+       "def_en": "Someone you know a little, but who is not a friend.",
+       "sport": "social",
+       "icon": "nod",
+       "level": "B1",
+       "example_en": "He is an acquaintance from my old office.",
+       "example_fa": "او آشنایی از ادارهٔ قبلی من است.",
+       "ref": ""
+      },
+      {
+       "id": "intros-w5",
+       "en": "nickname",
+       "ipa": "/ˈnɪkneɪm/",
+       "pos": "noun",
+       "fa": "نام مستعار",
+       "def_en": "A short or funny name friends use instead of your real one.",
+       "sport": "social",
+       "icon": "tag",
+       "level": "A2",
+       "example_en": "Everyone at work calls me by my nickname.",
+       "example_fa": "همه در محل کار با نام مستعارم صدایم می‌کنند.",
+       "ref": ""
+      },
+      {
+       "id": "intros-w6",
+       "en": "confident",
+       "ipa": "/ˈkɑnfɪdənt/",
+       "pos": "adjective",
+       "fa": "بااعتماد‌به‌نفس",
+       "def_en": "Sure of yourself when you speak to people.",
+       "sport": "social",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "She sounded confident even with a room full of strangers.",
+       "example_fa": "حتی با اتاقی پر از غریبه، بااعتماد‌به‌نفس به نظر می‌رسید.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "intros-x1",
+       "kind": "expression",
+       "en": "Nice to meet you.",
+       "fa": "خوشوقتم.",
+       "meaning_en": "The standard line when you are introduced.",
+       "meaning_fa": "جملهٔ همیشگی وقتی کسی را به تو معرفی می‌کنند.",
+       "register": "neutral",
+       "example_en": "Nice to meet you, Mr Ahmadi.",
+       "example_fa": "خوشوقتم، آقای احمدی.",
+       "alt": "Pleased to meet you."
+      },
+      {
+       "id": "intros-x2",
+       "kind": "expression",
+       "en": "What do you do?",
+       "fa": "چه کار می‌کنی؟",
+       "meaning_en": "Asks about work without sounding like a form.",
+       "meaning_fa": "دربارهٔ کار می‌پرسد بی‌آنکه شبیه فرم باشد.",
+       "register": "neutral",
+       "example_en": "What do you do at the hospital?",
+       "example_fa": "در بیمارستان چه کار می‌کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "intros-x3",
+       "kind": "collocation",
+       "en": "make a good first impression",
+       "fa": "تأثیر اول خوبی گذاشتن",
+       "meaning_en": "Impression takes make, not do.",
+       "meaning_fa": "«تأثیر» با فعل «گذاشتن» می‌آید، نه «انجام دادن».",
+       "register": "neutral",
+       "example_en": "Arrive five minutes early and make a good first impression.",
+       "example_fa": "پنج دقیقه زودتر برس و تأثیر اول خوبی بگذار.",
+       "alt": ""
+      },
+      {
+       "id": "intros-x4",
+       "kind": "idiom",
+       "en": "break the ice",
+       "fa": "یخ را شکستن",
+       "meaning_en": "Literally, break the ice; figuratively, make people relaxed enough to talk.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، یخ را شکستن؛ به‌طور مجازی، کاری کردن که مردم راحت شروع به حرف زدن کنند.",
+       "register": "neutral",
+       "example_en": "He told a small joke to break the ice.",
+       "example_fa": "او یک شوخی کوچک کرد تا یخ را بشکند.",
+       "alt": ""
+      },
+      {
+       "id": "intros-x5",
+       "kind": "phrasal_verb",
+       "en": "come across as",
+       "fa": "به نظر رسیدن",
+       "meaning_en": "How people read you, not what you say about yourself.",
+       "meaning_fa": "اینکه مردم تو را چطور می‌خوانند، نه آنچه خودت می‌گویی.",
+       "register": "neutral",
+       "example_en": "She comes across as shy until she knows you.",
+       "example_fa": "تا تو را نشناسد، خجالتی به نظر می‌رسد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Let me introduce + [name].",
+       "example_en": "Let me introduce my colleague, Reza.",
+       "example_fa": "بگذار همکارم، رضا، را معرفی کنم.",
+       "note_en": "Name first, then what they do.",
+       "note_fa": "اول نام، بعد کاری که می‌کند."
+      },
+      {
+       "frame": "Are you from + [place]?",
+       "example_en": "Are you from the north?",
+       "example_fa": "اهل شمالی؟",
+       "note_en": "Asks for origin without the job-interview tone.",
+       "note_fa": "اصالت را می‌پرسد بی‌لحن مصاحبهٔ کاری."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "intros-s1",
+       "en": "I am terrible with names, so remind me if I forget yours.",
+       "fa": "در یاد نگه‌داشتن نام‌ها بد هستم، پس اگر نام تو را فراموش کردم یادم بیاور.",
+       "use_en": "Admits a fault before it happens, which makes people warm to you.",
+       "use_fa": "پیش از رخ دادن، ضعفی را می‌پذیرد و همین مردم را با تو گرم می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Remind me if I forget."
+      },
+      {
+       "id": "intros-s2",
+       "en": "We only met once, but I remembered your story about the ferry.",
+       "fa": "فقط یک بار همدیگر را دیدیم، اما داستانت دربارهٔ کشتی را یادم مانده.",
+       "use_en": "Shows a stranger they were listened to.",
+       "use_fa": "نشان می‌دهد به یک غریبه گوش داده بودند.",
+       "level": "B1",
+       "polite": "warm",
+       "alt": "I remembered your story."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At a friend's dinner",
+      "title_fa": "در مهمانی شام دوستی",
+      "speakers": [
+       "Nina",
+       "Sattar"
+      ],
+      "lines": [
+       {
+        "who": "Nina",
+        "en": "You must be Sattar. Leila has told me a lot about you.",
+        "fa": "تو باید ستار باشی. لیلا خیلی از تو گفته."
+       },
+       {
+        "who": "Sattar",
+        "en": "All good things, I hope. Nice to meet you.",
+        "fa": "امیدوارم همه چیزهای خوب. خوشوقتم."
+       },
+       {
+        "who": "Nina",
+        "en": "Where are you from originally?",
+        "fa": "اصالتاً اهل کجایی؟"
+       },
+       {
+        "who": "Sattar",
+        "en": "A small city in the north, but I have been in Tehran for nine years.",
+        "fa": "شهری کوچک در شمال، اما نُه سال است در تهرانم."
+       },
+       {
+        "who": "Nina",
+        "en": "And what do you do?",
+        "fa": "و چه کار می‌کنی؟"
+       },
+       {
+        "who": "Sattar",
+        "en": "I teach physics. Let me introduce my wife, Sara, who paints.",
+        "fa": "من فیزیک درس می‌دهم. بگذار همسرم، سارا، را معرفی کنم که نقاشی می‌کند."
+       },
+       {
+        "who": "Nina",
+        "en": "Then the two of you must meet my brother.",
+        "fa": "پس شما دو نفر باید برادرم را ببینید."
+       },
+       {
+        "who": "Sattar",
+        "en": "He is an acquaintance of mine from the climbing club, I think.",
+        "fa": "او به گمانم آشنای من از باشگاه صخره‌نوردی است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The forgotten name",
+       "title_fa": "نامی که فراموش شد",
+       "situation_en": "Someone greets you warmly and you cannot remember their name.",
+       "situation_fa": "کسی گرم سلام می‌کند و تو نامش را یادت نیست.",
+       "task_en": "Admit it politely and ask again.",
+       "task_fa": "مؤدبانه بپذیر و دوباره بپرس.",
+       "answer_en": "I am so sorry, your face is completely familiar but your name has gone. Remind me?",
+       "answer_fa": "خیلی متأسفم، چهره‌ات کاملاً آشناست اما نامت رفته. یادم می‌آوری؟"
+      },
+      {
+       "title_en": "Introducing a quiet friend",
+       "title_fa": "معرفی دوست کم‌حرف",
+       "situation_en": "You are with a shy friend and someone new joins you.",
+       "situation_fa": "با دوستی خجالتی هستی و کسی تازه به شما می‌پیوندد.",
+       "task_en": "Introduce them with one detail they can talk about.",
+       "task_fa": "آنها را با یک جزئیاتی که می‌توانند درباره‌اش حرف بزنند معرفی کن.",
+       "answer_en": "This is Mahsa, who just came back from a year in Lisbon. Mahsa, Arman makes the best coffee here.",
+       "answer_fa": "این مهسا است که تازه از یک سال زندگی در لیسبون برگشته. مهسا، ارمان بهترین قهوهٔ اینجا را درست می‌کند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "intros-q1",
+       "q_en": "What do we call someone you know a little but who is not a friend?",
+       "q_fa": "کسی را که کم می‌شناسی اما دوست نیست چه می‌نامیم؟",
+       "options": [
+        "an acquaintance",
+        "a stranger",
+        "a nickname"
+       ],
+       "answer": "an acquaintance",
+       "why_en": "Acquaintance is between stranger and friend.",
+       "why_fa": "«آشنا» میان «غریبه» و «دوست» است."
+      },
+      {
+       "id": "intros-q2",
+       "q_en": "\"He broke the ice\" means ...",
+       "q_fa": "«یخ را شکست» یعنی ...",
+       "options": [
+        "he made people relaxed enough to talk",
+        "he dropped a glass",
+        "he told everyone to leave"
+       ],
+       "answer": "he made people relaxed enough to talk",
+       "why_en": "The ice is a picture of silence, not frozen water.",
+       "why_fa": "یخ تصویر سکوت است، نه آب یخ‌زده."
+      },
+      {
+       "id": "intros-q3",
+       "q_en": "Impression goes with which verb?",
+       "q_fa": "«تأثیر» با کدام فعل می‌آید؟",
+       "options": [
+        "make an impression",
+        "do an impression",
+        "give an impression"
+       ],
+       "answer": "make an impression",
+       "why_en": "English says make an impression.",
+       "why_fa": "انگلیسی says: make an impression."
+      }
+     ]
+    },
+    {
+     "id": "small",
+     "order": 2,
+     "icon": "speech",
+     "title_en": "Small talk and keeping it going",
+     "title_fa": "گپ خودمانی و زنده نگه‌داشتنش",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The weather, the weekend and the trick of asking a question that is easy to answer.",
+     "blurb_fa": "هوا، آخر هفته و هنر پرسیدن سؤالی که پاسخ دادنش آسان است.",
+     "objectives": [
+      {
+       "en": "open a conversation with a question that is not too personal.",
+       "fa": "گفت‌وگو را با سؤالی که خیلی شخصی نیست باز کن."
+      },
+      {
+       "en": "answer small talk and hand the question back.",
+       "fa": "به گپ کوتاه جواب بده و سؤال را برگردان."
+      },
+      {
+       "en": "end a chat without making it feel like an escape.",
+       "fa": "گپ را تمام کن بی‌آنکه فرار به نظر برسد."
+      }
+     ],
+     "words": [
+      {
+       "id": "small-w1",
+       "en": "small talk",
+       "ipa": "/ˈsmɔl tɔk/",
+       "pos": "noun",
+       "fa": "گپ خودمانی",
+       "def_en": "Short, light conversation about nothing serious.",
+       "sport": "social",
+       "icon": "chat",
+       "level": "B1",
+       "example_en": "We made small talk about the traffic for ten minutes.",
+       "example_fa": "ده دقیقه دربارهٔ ترافیک گپ خودمانی زدیم.",
+       "ref": ""
+      },
+      {
+       "id": "small-w2",
+       "en": "topic",
+       "ipa": "/ˈtɑpɪk/",
+       "pos": "noun",
+       "fa": "موضوع",
+       "def_en": "The subject a conversation is about.",
+       "sport": "social",
+       "icon": "speech",
+       "level": "A2",
+       "example_en": "Sport is a safe topic with almost anyone.",
+       "example_fa": "ورزش با تقریباً هر کسی موضوع بی‌خطری است.",
+       "ref": ""
+      },
+      {
+       "id": "small-w3",
+       "en": "awkward",
+       "ipa": "/ˈɔkwərd/",
+       "pos": "adjective",
+       "fa": "معذب",
+       "def_en": "Uncomfortable in a way everyone can feel.",
+       "sport": "social",
+       "icon": "shrug",
+       "level": "B1",
+       "example_en": "There was an awkward silence after his question.",
+       "example_fa": "بعد از سؤالش سکوتی معذب بود.",
+       "ref": ""
+      },
+      {
+       "id": "small-w4",
+       "en": "chat",
+       "ipa": "/tʃæt/",
+       "pos": "noun",
+       "fa": "گپ",
+       "def_en": "An easy, friendly conversation.",
+       "sport": "social",
+       "icon": "chat",
+       "level": "A2",
+       "example_en": "We had a quick chat at the bus stop.",
+       "example_fa": "سر ایستگاه اتوبوس گپ کوتاهی زدیم.",
+       "ref": ""
+      },
+      {
+       "id": "small-w5",
+       "en": "compliment",
+       "ipa": "/ˈkɑmpləmənt/",
+       "pos": "noun",
+       "fa": "تعریف",
+       "def_en": "Something kind you say about a person.",
+       "sport": "social",
+       "icon": "smile",
+       "level": "B1",
+       "example_en": "He took the compliment with a small smile.",
+       "example_fa": "تعریف را با لبخندی کوچک پذیرفت.",
+       "ref": ""
+      },
+      {
+       "id": "small-w6",
+       "en": "silence",
+       "ipa": "/ˈsaɪləns/",
+       "pos": "noun",
+       "fa": "سکوت",
+       "def_en": "A moment when nobody speaks.",
+       "sport": "social",
+       "icon": "quiet",
+       "level": "A2",
+       "example_en": "The silence lasted a second too long.",
+       "example_fa": "سکوت یک ثانیه بیش از حد طول کشید.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "small-x1",
+       "kind": "expression",
+       "en": "How is it going?",
+       "fa": "چطور پیش می‌رود؟",
+       "meaning_en": "Friendlier and looser than how are you.",
+       "meaning_fa": "دوستانه‌تر و راحت‌تر از «حالت چطور است».",
+       "register": "neutral",
+       "example_en": "How is it going with the new flat?",
+       "example_fa": "با خانهٔ جدید چطور پیش می‌رود؟",
+       "alt": ""
+      },
+      {
+       "id": "small-x2",
+       "kind": "expression",
+       "en": "Any plans for the weekend?",
+       "fa": "آخر هفته برنامه‌ای داری؟",
+       "meaning_en": "Invites a story without asking a personal question.",
+       "meaning_fa": "بدون پرسش شخصی، دعوت به تعریف می‌کند.",
+       "register": "neutral",
+       "example_en": "Any plans for the weekend, or a quiet one?",
+       "example_fa": "آخر هفته برنامه‌ای داری یا آرام است؟",
+       "alt": ""
+      },
+      {
+       "id": "small-x3",
+       "kind": "collocation",
+       "en": "keep the conversation going",
+       "fa": "گفت‌وگو را زنده نگه‌داشتن",
+       "meaning_en": "The fixed phrase for not letting a chat die.",
+       "meaning_fa": "عبارت ثابت برای نگذاشتن به مردن گفت‌وگو.",
+       "register": "neutral",
+       "example_en": "Ask one more question to keep the conversation going.",
+       "example_fa": "یک سؤال دیگر بپرس تا گفت‌وگو زنده بماند.",
+       "alt": ""
+      },
+      {
+       "id": "small-x4",
+       "kind": "idiom",
+       "en": "on the same wavelength",
+       "fa": "هم‌فکر بودن",
+       "meaning_en": "Literally, on the same radio wave; figuratively, understanding each other easily.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، روی یک موج رادیویی؛ به‌طور مجازی، راحت یکدیگر را فهمیدن.",
+       "register": "neutral",
+       "example_en": "We talked for two hours; we are on the same wavelength.",
+       "example_fa": "دو ساعت حرف زدیم؛ هم‌فکریم.",
+       "alt": ""
+      },
+      {
+       "id": "small-x5",
+       "kind": "phrasal_verb",
+       "en": "bring up",
+       "fa": "مطرح کردن",
+       "meaning_en": "To start talking about a subject.",
+       "meaning_fa": "شروع کردن به حرف زدن دربارهٔ موضوعی.",
+       "register": "neutral",
+       "example_en": "She brought up the holiday as if nothing had happened.",
+       "example_fa": "او تعطیلات را مطرح کرد انگار هیچ اتفاقی نیفتاده.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "How was + [noun]?",
+       "example_en": "How was the drive down?",
+       "example_fa": "مسیر آمدن چطور بود؟",
+       "note_en": "Asks for a story, not a yes or no.",
+       "note_fa": "داستان می‌خواهد، نه بله یا نه."
+      },
+      {
+       "frame": "That reminds me of + [noun].",
+       "example_en": "That reminds me of my first week here.",
+       "example_fa": "این یادم می‌اندازد اولین هفته‌ام اینجا را.",
+       "note_en": "Carries the conversation to a story of your own.",
+       "note_fa": "گفت‌وگو را به داستانی از خودت می‌برد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "small-s1",
+       "en": "Sorry, I have to run, but it was really good to see you.",
+       "fa": "ببخشید باید بروم، اما واقعاً از دیدنت خوشحال شدم.",
+       "use_en": "Leaves warmly and quickly at the same time.",
+       "use_fa": "هم گرم و هم سریع خداحافظی می‌کند.",
+       "level": "A2",
+       "polite": "polite",
+       "alt": "I have to run."
+      },
+      {
+       "id": "small-s2",
+       "en": "I am not great at small talk, but I am a good listener.",
+       "fa": "در گپ خودمانی خوب نیستم، اما شنوندهٔ خوبی هستم.",
+       "use_en": "Turns a weakness into an offer.",
+       "use_fa": "ضعف را به پیشنهاد تبدیل می‌کند.",
+       "level": "B1",
+       "polite": "self-deprecating",
+       "alt": "I am a good listener."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Waiting for a bus",
+      "title_fa": "در انتظار اتوبوس",
+      "speakers": [
+       "Kian",
+       "Mina"
+      ],
+      "lines": [
+       {
+        "who": "Kian",
+        "en": "This bus is never on time when it rains.",
+        "fa": "این اتوبوس وقتی باران می‌آید هیچ‌وقت سر وقت نیست."
+       },
+       {
+        "who": "Mina",
+        "en": "Tell me about it. I have been here twenty minutes.",
+        "fa": "به من بگو. بیست دقیقه است اینجایم."
+       },
+       {
+        "who": "Kian",
+        "en": "Do you take this line every day?",
+        "fa": "هر روز این خط را می‌گیری؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Only on Mondays and Wednesdays. I teach on the other side of town.",
+        "fa": "فقط دوشنبه‌ها و چهارشنبه‌ها. آن طرف شهر درس می‌دهم."
+       },
+       {
+        "who": "Kian",
+        "en": "Any plans for the weekend, then?",
+        "fa": "پس آخر هفته برنامه‌ای داری؟"
+       },
+       {
+        "who": "Mina",
+        "en": "A quiet one. My sister is visiting with her baby.",
+        "fa": "یک آخر هفتهٔ آرام. خواهرم با نوزادش می‌آید."
+       },
+       {
+        "who": "Kian",
+        "en": "That sounds like the opposite of quiet.",
+        "fa": "این شبیه خلاف آرام است."
+       },
+       {
+        "who": "Mina",
+        "en": "You are right. Here is the bus, finally.",
+        "fa": "حق داری. بالاخره اتوبوس آمد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The dying conversation",
+       "title_fa": "گفت‌وگویی که می‌میرد",
+       "situation_en": "You are at a work event and the chat stops after two sentences.",
+       "situation_fa": "در رویدادی کاری هستی و گفت‌وگو بعد از دو جمله می‌ایستد.",
+       "task_en": "Save it with an easy question about the other person.",
+       "task_fa": "آن را با سؤالی آسان دربارهٔ طرف مقابل نجات بده.",
+       "answer_en": "Have you been to one of these before? I never know anyone at them.",
+       "answer_fa": "قبلاً در یکی از اینها بوده‌ای؟ من هیچ‌وقت کسی را در آنها نمی‌شناسم."
+      },
+      {
+       "title_en": "Ending a chat politely",
+       "title_fa": "تمام کردن گپ مؤدبانه",
+       "situation_en": "You need to leave a friendly chat but do not want to seem rude.",
+       "situation_fa": "باید گپ دوستانه‌ای را ترک کنی بی‌آنکه بی‌ادب به نظر برسی.",
+       "task_en": "Say you enjoyed it, give a reason and promise to continue.",
+       "task_fa": "بگو لذت بردی، دلیلی بگو و قول ادامه بده.",
+       "answer_en": "I am so sorry, I have to catch my train, but I would love to hear the rest of this next week.",
+       "answer_fa": "واقعاً متأسفم، باید قطارم را بگیرم، اما دوست دارم بقیهٔ این را هفتهٔ بعد بشنوم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "small-q1",
+       "q_en": "Which is a safe small-talk topic with a stranger?",
+       "q_fa": "کدام موضوع برای گپ با یک غریبه بی‌خطر است؟",
+       "options": [
+        "the journey there",
+        "their salary",
+        "their marriage"
+       ],
+       "answer": "the journey there",
+       "why_en": "The journey is shared and easy to answer.",
+       "why_fa": "مسیر، مشترک و پاسخ دادنش آسان است."
+      },
+      {
+       "id": "small-q2",
+       "q_en": "\"On the same wavelength\" means ...",
+       "q_fa": "«روی یک موج» یعنی ...",
+       "options": [
+        "you understand each other easily",
+        "you have the same phone",
+        "you work in radio"
+       ],
+       "answer": "you understand each other easily",
+       "why_en": "The wave is a picture of understanding.",
+       "why_fa": "موج تصویری از فهمیدن است."
+      },
+      {
+       "id": "small-q3",
+       "q_en": "Small talk is ...",
+       "q_fa": "گپ خودمانی چیست؟",
+       "options": [
+        "light conversation about nothing serious",
+        "an argument about politics",
+        "a formal interview"
+       ],
+       "answer": "light conversation about nothing serious",
+       "why_en": "Small means light, not short in length.",
+       "why_fa": "«کوچک» یعنی سبک، نه کوتاه."
+      }
+     ]
+    },
+    {
+     "id": "friends",
+     "order": 3,
+     "icon": "group",
+     "title_en": "Making friends and staying in touch",
+     "title_fa": "دوست پیدا کردن و در تماس ماندن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Where friendships start, how they survive distance and what keeps people close over years.",
+     "blurb_fa": "جایی که دوستی‌ها شروع می‌شوند، چطور از پس دوری برمی‌آیند و چه چیزی آدم‌ها را سال‌ها نزدیک نگه می‌دارد.",
+     "objectives": [
+      {
+       "en": "start a conversation with someone you would like to know.",
+       "fa": "با کسی که می‌خواهی بشناسی سر صحبت را باز کن."
+      },
+      {
+       "en": "swap contact details and suggest meeting again.",
+       "fa": "شماره‌ها را رد و بدل کن و پیشنهاد دیدار دوباره بده."
+      },
+      {
+       "en": "talk about how a friendship started and how it has lasted.",
+       "fa": "دربارهٔ اینکه دوستی چطور شروع شد و چطور مانده حرف بزن."
+      }
+     ],
+     "words": [
+      {
+       "id": "friends-w1",
+       "en": "mate",
+       "ipa": "/meɪt/",
+       "pos": "noun",
+       "fa": "رفیق",
+       "def_en": "A friend, in British and Australian informal speech.",
+       "sport": "social",
+       "icon": "group",
+       "level": "B1",
+       "example_en": "He is an old mate from university.",
+       "example_fa": "او رفیق قدیمی دانشگاه است.",
+       "ref": ""
+      },
+      {
+       "id": "friends-w2",
+       "en": "icebreaker",
+       "ipa": "/ˈaɪsˌbreɪkər/",
+       "pos": "noun",
+       "fa": "یخ‌شکن",
+       "def_en": "A game or question that gets strangers talking.",
+       "sport": "social",
+       "icon": "chat",
+       "level": "B2",
+       "example_en": "The host started with a simple icebreaker.",
+       "example_fa": "میزبان با یک یخ‌شکن ساده شروع کرد.",
+       "ref": ""
+      },
+      {
+       "id": "friends-w3",
+       "en": "mutual",
+       "ipa": "/ˈmjutʃuəl/",
+       "pos": "adjective",
+       "fa": "مشترک",
+       "def_en": "Shared by two people or more.",
+       "sport": "social",
+       "icon": "link",
+       "level": "B2",
+       "example_en": "We met through a mutual friend.",
+       "example_fa": "از طریق دوستی مشترک آشنا شدیم.",
+       "ref": ""
+      },
+      {
+       "id": "friends-w4",
+       "en": "approach",
+       "ipa": "/əˈproʊtʃ/",
+       "pos": "verb",
+       "fa": "نزدیک شدن",
+       "def_en": "To walk up to someone and start talking.",
+       "sport": "social",
+       "icon": "arrow",
+       "level": "B1",
+       "example_en": "I approached her after the talk and said hello.",
+       "example_fa": "بعد از سخنرانی به او نزدیک شدم و سلام کردم.",
+       "ref": ""
+      },
+      {
+       "id": "friends-w5",
+       "en": "contact",
+       "ipa": "/ˈkɑntækt/",
+       "pos": "noun",
+       "fa": "راه تماس",
+       "def_en": "A phone number, an address or an account you can reach.",
+       "sport": "social",
+       "icon": "phone",
+       "level": "A2",
+       "example_en": "We swapped contacts at the end of the course.",
+       "example_fa": "آخر دوره راه‌های تماس را رد و بدل کردیم.",
+       "ref": ""
+      },
+      {
+       "id": "friends-w6",
+       "en": "neighbour",
+       "ipa": "/ˈneɪbər/",
+       "pos": "noun",
+       "fa": "همسایه",
+       "def_en": "Someone who lives next door or nearby.",
+       "sport": "social",
+       "icon": "door",
+       "level": "A2",
+       "example_en": "My neighbour brought me bread on the first day.",
+       "example_fa": "همسایه‌ام روز اول برایم نان آورد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "friends-x1",
+       "kind": "expression",
+       "en": "We should swap numbers.",
+       "fa": "بیا شماره‌هایمان را رد و بدل کنیم.",
+       "meaning_en": "Suggests staying in touch without asking for a date.",
+       "meaning_fa": "پیشنهاد در تماس ماندن می‌دهد بی‌آنکه شبیه قرار عاشقانه شود.",
+       "register": "neutral",
+       "example_en": "We should swap numbers before you go.",
+       "example_fa": "قبل از رفتنت شماره‌هایمان را رد و بدل کنیم.",
+       "alt": ""
+      },
+      {
+       "id": "friends-x2",
+       "kind": "phrasal_verb",
+       "en": "hang out",
+       "fa": "وقت گذراندن",
+       "meaning_en": "To spend relaxed time with people.",
+       "meaning_fa": "وقت گذراندن راحت با آدم‌ها.",
+       "register": "neutral",
+       "example_en": "We hang out most Fridays after work.",
+       "example_fa": "بیشتر جمعه‌ها بعد از کار وقت می‌گذرانیم.",
+       "alt": ""
+      },
+      {
+       "id": "friends-x3",
+       "kind": "phrasal_verb",
+       "en": "keep in touch",
+       "fa": "در تماس ماندن",
+       "meaning_en": "To stay in contact over time.",
+       "meaning_fa": "در طول زمان در ارتباط ماندن.",
+       "register": "neutral",
+       "example_en": "We kept in touch for years after the course.",
+       "example_fa": "سال‌ها بعد از دوره در تماس ماندیم.",
+       "alt": ""
+      },
+      {
+       "id": "friends-x4",
+       "kind": "idiom",
+       "en": "hit it off",
+       "fa": "فوری جور شدن",
+       "meaning_en": "Literally, strike something successfully; figuratively, like each other from the first minute.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، ضربهٔ درست زدن؛ به‌طور مجازی، از همان دقیقهٔ اول از هم خوش آمدن.",
+       "register": "neutral",
+       "example_en": "We hit it off in the queue for coffee.",
+       "example_fa": "در صف قهوه فوری با هم جور شدیم.",
+       "alt": ""
+      },
+      {
+       "id": "friends-x5",
+       "kind": "collocation",
+       "en": "a close friend",
+       "fa": "دوست نزدیک",
+       "meaning_en": "Close is the word for a friend you trust, not near.",
+       "meaning_fa": "«نزدیک» واژهٔ دوستی است که به او اعتماد داری، نه فاصله.",
+       "register": "neutral",
+       "example_en": "She has been a close friend since school.",
+       "example_fa": "او از مدرسه دوست نزدیکی بوده.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "We met + [where].",
+       "example_en": "We met at a wedding in Shiraz.",
+       "example_fa": "در عروسی در شیراز آشنا شدیم.",
+       "note_en": "Where the friendship started.",
+       "note_fa": "جایی که دوستی شروع شد."
+      },
+      {
+       "frame": "Do you fancy + [verb-ing]?",
+       "example_en": "Do you fancy grabbing a coffee?",
+       "example_fa": "دوست داری قهوه‌ای بخوریم؟",
+       "note_en": "British and friendly, not romantic by itself.",
+       "note_fa": "بریتانیایی و دوستانه، به‌خودی‌خود عاشقانه نیست."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "friends-s1",
+       "en": "I do not remember whose idea it was, only that we talked until the cafe closed.",
+       "fa": "یادم نیست ایدهٔ چه کسی بود، فقط اینکه تا بسته شدن کافه حرف زدیم.",
+       "use_en": "Tells a friendship story without a list of facts.",
+       "use_fa": "داستان دوستی را بی‌فهرست واقعیت تعریف می‌کند.",
+       "level": "B1",
+       "polite": "warm",
+       "alt": "We talked until it closed."
+      },
+      {
+       "id": "friends-s2",
+       "en": "We are terrible at planning and excellent at turning up.",
+       "fa": "در برنامه‌ریزی بد هستیم و در آمدن عالی.",
+       "use_en": "Two halves that balance into affection.",
+       "use_fa": "دو نیمه که به محبت می‌رسند.",
+       "level": "B2",
+       "polite": "humorous",
+       "alt": "Excellent at turning up."
+      }
+     ],
+     "dialogue": {
+      "title_en": "After a language class",
+      "title_fa": "بعد از کلاس زبان",
+      "speakers": [
+       "Dorsa",
+       "Amir"
+      ],
+      "lines": [
+       {
+        "who": "Dorsa",
+        "en": "You had the best answer about the festival. Where did you learn that?",
+        "fa": "بهترین جواب را دربارهٔ جشن دادی. کجا یاد گرفتی؟"
+       },
+       {
+        "who": "Amir",
+        "en": "Honestly, from a podcast. I listen on the way to work.",
+        "fa": "راستش از یک پادکست. در راه کار گوش می‌کنم."
+       },
+       {
+        "who": "Dorsa",
+        "en": "Which one? I am always looking for something better.",
+        "fa": "کدام؟ من همیشه دنبال چیز بهتری هستم."
+       },
+       {
+        "who": "Amir",
+        "en": "I will send it to you. We should swap numbers.",
+        "fa": "برایت می‌فرستم. بیا شماره‌هایمان را رد و بدل کنیم."
+       },
+       {
+        "who": "Dorsa",
+        "en": "Good idea. Are you free on Thursday? A few of us meet for coffee.",
+        "fa": "فکر خوبی است. پنجشنبه آزادی؟ چند نفر از ما برای قهوه جمع می‌شویم."
+       },
+       {
+        "who": "Amir",
+        "en": "I am in. I have been looking for a group like that.",
+        "fa": "هستم. دنبال گروهی همین‌طور بودم."
+       },
+       {
+        "who": "Dorsa",
+        "en": "Then you will fit in. Bring the podcast recommendations.",
+        "fa": "پس جا می‌افتی. توصیه‌های پادکست را هم بیاور."
+       },
+       {
+        "who": "Amir",
+        "en": "Deal. See you Thursday.",
+        "fa": "قبول. پنجشنبه می‌بینمت."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Joining a group that already knows each other",
+       "title_fa": "ورود به گروهی که همدیگر را می‌شناسند",
+       "situation_en": "You arrive at a table where everyone is mid-conversation.",
+       "situation_fa": "به میزی می‌رسی که همه وسط گفت‌وگو هستند.",
+       "task_en": "Introduce yourself briefly and ask one question about what they were saying.",
+       "task_fa": "خودت را کوتاه معرفی کن و یک سؤال دربارهٔ آنچه می‌گفتند بپرس.",
+       "answer_en": "Hi, I am Nima, Dorsa invited me. Sorry to interrupt, what were you saying about the festival?",
+       "answer_fa": "سلام، من نیما هستم، درسا دعوتم کرد. ببخشید وسط حرفتون آمدم، دربارهٔ جشن چه می‌گفتید؟"
+      },
+      {
+       "title_en": "Keeping a friendship across cities",
+       "title_fa": "نگه‌داشتن دوستی میان شهرها",
+       "situation_en": "Your closest friend moves abroad and calls have become rare.",
+       "situation_fa": "نزدیک‌ترین دوستت به خارج می‌رود و تماس‌ها کم شده.",
+       "task_en": "Suggest something regular and small.",
+       "task_fa": "چیزی منظم و کوچک پیشنهاد بده.",
+       "answer_en": "Our calls keep slipping. What if we pick one Sunday a month and I bring the tea while you talk?",
+       "answer_fa": "تماس‌هایمان دارد می‌افتد. چه می‌شود یک یکشنبه در ماه را انتخاب کنیم و من چای بیاورم و تو حرف بزنی؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "friends-q1",
+       "q_en": "What does \"hit it off\" mean?",
+       "q_fa": "«hit it off» یعنی چه؟",
+       "options": [
+        "to like each other immediately",
+        "to argue at once",
+        "to miss each other"
+       ],
+       "answer": "to like each other immediately",
+       "why_en": "The hit lands well, so the meeting goes well.",
+       "why_fa": "ضربه خوب می‌نشیند، پس دیدار خوب پیش می‌رود."
+      },
+      {
+       "id": "friends-q2",
+       "q_en": "\"We should swap numbers\" is a way to ...",
+       "q_fa": "«بیا شماره‌ها را رد و بدل کنیم» راهی برای ...",
+       "options": [
+        "stay in touch",
+        "ask for a loan",
+        "end a friendship"
+       ],
+       "answer": "stay in touch",
+       "why_en": "Numbers are how contact continues.",
+       "why_fa": "شماره‌ها راه ادامهٔ ارتباط‌اند."
+      },
+      {
+       "id": "friends-q3",
+       "q_en": "A close friend is someone ...",
+       "q_fa": "دوست نزدیک کسی است که ...",
+       "options": [
+        "you trust and see often",
+        "who lives next door",
+        "you met once"
+       ],
+       "answer": "you trust and see often",
+       "why_en": "Close is about trust, not distance.",
+       "why_fa": "«نزدیک» دربارهٔ اعتماد است، نه فاصله."
+      }
+     ]
+    },
+    {
+     "id": "family",
+     "order": 4,
+     "icon": "family",
+     "title_en": "Family and relatives",
+     "title_fa": "خانواده و خویشاوندان",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Who is who in a family, how generations talk to each other and the words for the ones you cannot choose.",
+     "blurb_fa": "کی به کی چیست در خانواده، نسل‌ها چطور با هم حرف می‌زنند و واژه‌هایی برای آنهایی که نمی‌توانی انتخابشان کنی.",
+     "objectives": [
+      {
+       "en": "describe your family and say who you are close to.",
+       "fa": "خانواده‌ات را توصیف کن و بگو به چه کسی نزدیکی."
+      },
+      {
+       "en": "use the right word for in-laws, siblings and cousins.",
+       "fa": "واژهٔ درست را برای خانوادهٔ همسر، خواهر و برادر و پسرخاله به کار ببر."
+      },
+      {
+       "en": "talk about family habits and what gets passed down.",
+       "fa": "دربارهٔ عادت‌های خانوادگی و چیزهایی که ارث می‌رسد حرف بزن."
+      }
+     ],
+     "words": [
+      {
+       "id": "family-w1",
+       "en": "relative",
+       "ipa": "/ˈrɛlətɪv/",
+       "pos": "noun",
+       "fa": "خویشاوند",
+       "def_en": "A member of your family, near or far.",
+       "sport": "social",
+       "icon": "family",
+       "level": "A2",
+       "example_en": "A hundred relatives came to the wedding.",
+       "example_fa": "صد خویشاوند به عروسی آمدند.",
+       "ref": ""
+      },
+      {
+       "id": "family-w2",
+       "en": "sibling",
+       "ipa": "/ˈsɪblɪŋ/",
+       "pos": "noun",
+       "fa": "خواهر یا برادر",
+       "def_en": "A brother or a sister.",
+       "sport": "social",
+       "icon": "group",
+       "level": "B1",
+       "example_en": "She has three siblings and I have none.",
+       "example_fa": "او سه خواهر و برادر دارد و من هیچ.",
+       "ref": ""
+      },
+      {
+       "id": "family-w3",
+       "en": "in-laws",
+       "ipa": "/ˈɪn lɔz/",
+       "pos": "noun",
+       "fa": "خانوادهٔ همسر",
+       "def_en": "Your husband's or wife's family.",
+       "sport": "social",
+       "icon": "family",
+       "level": "B1",
+       "example_en": "My in-laws live two streets away.",
+       "example_fa": "خانوادهٔ همسرم دو کوچه آن‌طرف‌تر زندگی می‌کنند.",
+       "ref": ""
+      },
+      {
+       "id": "family-w4",
+       "en": "cousin",
+       "ipa": "/ˈkʌzən/",
+       "pos": "noun",
+       "fa": "پسرخاله یا دخترخاله",
+       "def_en": "The child of your uncle or aunt.",
+       "sport": "social",
+       "icon": "family",
+       "level": "A2",
+       "example_en": "My cousin and I were born in the same week.",
+       "example_fa": "من و پسرخاله‌ام در یک هفته به دنیا آمدیم.",
+       "ref": ""
+      },
+      {
+       "id": "family-w5",
+       "en": "generation",
+       "ipa": "/ˌdʒɛnəˈreɪʃən/",
+       "pos": "noun",
+       "fa": "نسل",
+       "def_en": "All the people born around the same time in a family.",
+       "sport": "social",
+       "icon": "stairs",
+       "level": "B1",
+       "example_en": "Three generations live in that house.",
+       "example_fa": "سه نسل در آن خانه زندگی می‌کنند.",
+       "ref": ""
+      },
+      {
+       "id": "family-w6",
+       "en": "close-knit",
+       "ipa": "/ˌkloʊsˈnɪt/",
+       "pos": "adjective",
+       "fa": "صمیمی",
+       "def_en": "A family that helps each other and spends time together.",
+       "sport": "social",
+       "icon": "hug",
+       "level": "B2",
+       "example_en": "They are a close-knit family who eat together every night.",
+       "example_fa": "خانوادهٔ صمیمی‌ای هستند که هر شب با هم غذا می‌خورند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "family-x1",
+       "kind": "expression",
+       "en": "We are a family of four.",
+       "fa": "ما خانواده‌ای چهارنفره هستیم.",
+       "meaning_en": "The shortest way to give the size of a family.",
+       "meaning_fa": "کوتاه‌ترین راه گفتن اندازهٔ خانواده.",
+       "register": "neutral",
+       "example_en": "We are a family of four, two boys and two girls.",
+       "example_fa": "خانواده‌ای چهارنفره هستیم، دو پسر و دو دختر.",
+       "alt": ""
+      },
+      {
+       "id": "family-x2",
+       "kind": "phrasal_verb",
+       "en": "grow up",
+       "fa": "بزرگ شدن",
+       "meaning_en": "To spend your childhood somewhere.",
+       "meaning_fa": "کودکی‌ات را جایی گذراندن.",
+       "register": "neutral",
+       "example_en": "I grew up in a house full of cousins.",
+       "example_fa": "در خانه‌ای پر از پسرخاله و دخترخاله بزرگ شدم.",
+       "alt": ""
+      },
+      {
+       "id": "family-x3",
+       "kind": "phrasal_verb",
+       "en": "take after",
+       "fa": "شبیه بودن",
+       "meaning_en": "To look or behave like an older relative.",
+       "meaning_fa": "شبیه بودن به خویشاوند بزرگ‌تر در ظاهر یا رفتار.",
+       "register": "neutral",
+       "example_en": "She takes after her grandmother in everything.",
+       "example_fa": "او در همه چیز شبیه مادربزرگش است.",
+       "alt": ""
+      },
+      {
+       "id": "family-x4",
+       "kind": "idiom",
+       "en": "the black sheep of the family",
+       "fa": "گوسفند سیاه خانواده",
+       "meaning_en": "Literally, the dark sheep in a white flock; figuratively, the relative who does not fit the family's expectations.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، گوسفند سیاه در گلهٔ سفید؛ به‌طور مجازی، خویشاوندی که با انتظارهای خانواده نمی‌خواند.",
+       "register": "neutral",
+       "example_en": "He is the black sheep of the family and the only one who calls me.",
+       "example_fa": "او گوسفند سیاه خانواده است و تنها کسی که به من زنگ می‌زند.",
+       "alt": ""
+      },
+      {
+       "id": "family-x5",
+       "kind": "idiom",
+       "en": "run in the family",
+       "fa": "در خانواده ارثی بودن",
+       "meaning_en": "Literally, run through the family line; figuratively, a trait many relatives share.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، در خط خانواده دویدن؛ به‌طور مجازی، ویژگی‌ای که بسیاری از خویشاوندان دارند.",
+       "register": "neutral",
+       "example_en": "Bad eyesight runs in the family.",
+       "example_fa": "ضعف بینایی در خانواده ارثی است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "On my mother's side, + [clause].",
+       "example_en": "On my mother's side, everyone is a teacher.",
+       "example_fa": "از طرف مادرم، همه معلم‌اند.",
+       "note_en": "Which branch of the family you mean.",
+       "note_fa": "می‌گوید کدام شاخهٔ خانواده را می‌گویی."
+      },
+      {
+       "frame": "We are close to + [person].",
+       "example_en": "We are close to my aunt.",
+       "example_fa": "ما به خاله‌ام نزدیک هستیم.",
+       "note_en": "Close takes to, not with.",
+       "note_fa": "«نزدیک» با to می‌آید، نه with."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "family-s1",
+       "en": "My grandmother remembers the street before it had a name, and she tells it better every year.",
+       "fa": "مادربزرگم خیابان را پیش از آنکه نام داشته باشد یادش است و هر سال بهتر تعریفش می‌کند.",
+       "use_en": "Shows affection through one detail.",
+       "use_fa": "محبت را با یک جزئیات نشان می‌دهد.",
+       "level": "B2",
+       "polite": "warm",
+       "alt": "She tells it better every year."
+      },
+      {
+       "id": "family-s2",
+       "en": "We argue about the same three things at every dinner and then we wash the dishes together.",
+       "fa": "سر هر شام دربارهٔ همان سه چیز بحث می‌کنیم و بعد با هم ظرف می‌شوییم.",
+       "use_en": "Family conflict without bitterness.",
+       "use_fa": "دعوای خانوادگی بی‌تلخی.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Then we wash the dishes."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At a family dinner",
+      "title_fa": "سر شام خانوادگی",
+      "speakers": [
+       "Reza",
+       "Neda"
+      ],
+      "lines": [
+       {
+        "who": "Reza",
+        "en": "Neda, are the people at the end of the table from your mother's side or your father's?",
+        "fa": "ندا، آنهایی که آخر میز هستند از طرف مادرت‌اند یا پدرت؟"
+       },
+       {
+        "who": "Neda",
+        "en": "My father's. My uncle and his three children drove down this morning.",
+        "fa": "از طرف پدرم. عمویم و سه فرزندش صبح آمدند."
+       },
+       {
+        "who": "Reza",
+        "en": "So they are cousins of yours?",
+        "fa": "پس پسرعموهایت هستند؟"
+       },
+       {
+        "who": "Neda",
+        "en": "Cousins. The youngest takes after my grandfather completely.",
+        "fa": "پسرعمو. کوچک‌ترینشان کاملاً شبیه پدربزرگم است."
+       },
+       {
+        "who": "Reza",
+        "en": "And who is the quiet one by the window?",
+        "fa": "و آن ساکت کنار پنجره کیست؟"
+       },
+       {
+        "who": "Neda",
+        "en": "My brother. He is the black sheep of the family, and my favourite person here.",
+        "fa": "برادرم. او گوسفند سیاه خانواده است و محبوب‌ترین آدم من اینجا."
+       },
+       {
+        "who": "Reza",
+        "en": "You two are close, then.",
+        "fa": "پس شما دو نفر نزدیکید."
+       },
+       {
+        "who": "Neda",
+        "en": "We are. He is the only one who never asks when I am getting married.",
+        "fa": "هستیم. او تنها کسی است که هیچ‌وقت نمی‌پرسد کِی ازدواج می‌کنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Explaining your family to a foreign friend",
+       "title_fa": "توضیح خانواده به دوستی خارجی",
+       "situation_en": "A friend cannot follow who is who in your family.",
+       "situation_fa": "دوستت نمی‌تواند بفهمد در خانواده‌ات کی به کی چیست.",
+       "task_en": "Explain one branch simply, with names and ages.",
+       "task_fa": "یک شاخه را ساده با نام و سن توضیح بده.",
+       "answer_en": "On my mother's side there are four of us: my aunt, her husband, and their two children, who are my cousins, both in their twenties.",
+       "answer_fa": "از طرف مادرم چهار نفریم: خاله‌ام، شوهرش و دو فرزندشان که پسرخاله و دخترخالهٔ من‌اند، هر دو بیست‌وچند‌ساله."
+      },
+      {
+       "title_en": "The family question you dread",
+       "title_fa": "سؤال خانوادگی که از آن می‌ترسی",
+       "situation_en": "A relative asks again when you will marry.",
+       "situation_fa": "خویشاوندی دوباره می‌پرسد کِی ازدواج می‌کنی.",
+       "task_en": "Answer warmly, change the subject, keep the peace.",
+       "task_fa": "گرم جواب بده، موضوع را عوض کن، صلح را نگه دار.",
+       "answer_en": "Whenever it happens, you will be the first to know. Now tell me about your garden, I heard it is beautiful.",
+       "answer_fa": "هر وقت شد، اول به تو می‌گویم. حالا از باغت بگو، شنیدم زیباست."
+      }
+     ],
+     "practice": [
+      {
+       "id": "family-q1",
+       "q_en": "Your wife's brother is your ...",
+       "q_fa": "برادر همسرت برای تو ...",
+       "options": [
+        "brother-in-law",
+        "stepbrother",
+        "second cousin"
+       ],
+       "answer": "brother-in-law",
+       "why_en": "In-laws are the family you marry into.",
+       "why_fa": "«خانوادهٔ همسر» خانواده‌ای است که با ازدواج به آن وارد می‌شوی."
+      },
+      {
+       "id": "family-q2",
+       "q_en": "\"It runs in the family\" means ...",
+       "q_fa": "«در خانواده ارثی است» یعنی ...",
+       "options": [
+        "many relatives share it",
+        "the family runs together",
+        "it is a family business"
+       ],
+       "answer": "many relatives share it",
+       "why_en": "Run is about a trait passing down.",
+       "why_fa": "«دویدن» دربارهٔ انتقال یک ویژگی است."
+      },
+      {
+       "id": "family-q3",
+       "q_en": "A close-knit family ...",
+       "q_fa": "خانوادهٔ صمیمی ...",
+       "options": [
+        "helps each other and spends time together",
+        "lives far apart",
+        "never speaks"
+       ],
+       "answer": "helps each other and spends time together",
+       "why_en": "Knit is the picture of threads held together.",
+       "why_fa": "«بافتن» تصویر رشته‌های به‌هم‌پیوسته است."
+      }
+     ]
+    },
+    {
+     "id": "partners",
+     "order": 5,
+     "icon": "heart",
+     "title_en": "Love, dating and partnerships",
+     "title_fa": "عشق، قرار و شریک زندگی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Asking someone out, being together, and the honest words for when it changes.",
+     "blurb_fa": "دعوت کسی به قرار، با هم بودن و واژه‌های صادقانه برای وقتی که تغییر می‌کند.",
+     "objectives": [
+      {
+       "en": "ask someone out and accept or decline politely.",
+       "fa": "کسی را به قرار دعوت کن و مؤدبانه بپذیر یا رد کن."
+      },
+      {
+       "en": "talk about how long you have been together and how you met.",
+       "fa": "بگو چند وقت است با هم هستی و چطور آشنا شدید."
+      },
+      {
+       "en": "describe a relationship that ended without blaming anyone.",
+       "fa": "رابطه‌ای را که تمام شد توصیف کن بی‌آنکه کسی را مقصر کنی."
+      }
+     ],
+     "words": [
+      {
+       "id": "partners-w1",
+       "en": "partner",
+       "ipa": "/ˈpɑrtnər/",
+       "pos": "noun",
+       "fa": "شریک زندگی",
+       "def_en": "The person you are in a long relationship with.",
+       "sport": "social",
+       "icon": "heart",
+       "level": "B1",
+       "example_en": "My partner and I moved here last spring.",
+       "example_fa": "من و شریک زندگی‌ام بهار گذشته به اینجا آمدیم.",
+       "ref": ""
+      },
+      {
+       "id": "partners-w2",
+       "en": "date",
+       "ipa": "/deɪt/",
+       "pos": "noun",
+       "fa": "قرار",
+       "def_en": "A planned meeting with someone you like.",
+       "sport": "social",
+       "icon": "calendar",
+       "level": "A2",
+       "example_en": "Our first date was a walk in the rain.",
+       "example_fa": "اولین قرارمان قدم زدن در باران بود.",
+       "ref": ""
+      },
+      {
+       "id": "partners-w3",
+       "en": "crush",
+       "ipa": "/krʌʃ/",
+       "pos": "noun",
+       "fa": "شیفتگی",
+       "def_en": "A strong liking for someone, often kept secret.",
+       "sport": "social",
+       "icon": "heart",
+       "level": "B1",
+       "example_en": "He had a crush on her for a whole year.",
+       "example_fa": "یک سال تمام به او شیفتگی داشت.",
+       "ref": ""
+      },
+      {
+       "id": "partners-w4",
+       "en": "commitment",
+       "ipa": "/kəˈmɪtmənt/",
+       "pos": "noun",
+       "fa": "تعهد",
+       "def_en": "A promise to stay and work at a relationship.",
+       "sport": "social",
+       "icon": "ring",
+       "level": "B2",
+       "example_en": "She was not ready for that kind of commitment.",
+       "example_fa": "او آمادهٔ آن نوع تعهد نبود.",
+       "ref": ""
+      },
+      {
+       "id": "partners-w5",
+       "en": "breakup",
+       "ipa": "/ˈbreɪkʌp/",
+       "pos": "noun",
+       "fa": "جدایی",
+       "def_en": "The end of a romantic relationship.",
+       "sport": "social",
+       "icon": "heartbreak",
+       "level": "B1",
+       "example_en": "The breakup was quiet and sad rather than dramatic.",
+       "example_fa": "جدایی آرام و غم‌انگیز بود، نه پرتنش.",
+       "ref": ""
+      },
+      {
+       "id": "partners-w6",
+       "en": "engaged",
+       "ipa": "/ɪnˈɡeɪdʒd/",
+       "pos": "adjective",
+       "fa": "نامزد",
+       "def_en": "Having promised to marry someone.",
+       "sport": "social",
+       "icon": "ring",
+       "level": "B1",
+       "example_en": "They got engaged after two months.",
+       "example_fa": "بعد از دو ماه نامزد کردند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "partners-x1",
+       "kind": "expression",
+       "en": "It is complicated.",
+       "fa": "پیچیده است.",
+       "meaning_en": "A polite refusal to explain a relationship.",
+       "meaning_fa": "امتناع مؤدبانه از توضیح یک رابطه.",
+       "register": "neutral",
+       "example_en": "How is your situation now? It is complicated.",
+       "example_fa": "الان وضعیتت چطور است؟ پیچیده است.",
+       "alt": ""
+      },
+      {
+       "id": "partners-x2",
+       "kind": "phrasal_verb",
+       "en": "ask someone out",
+       "fa": "کسی را به قرار دعوت کردن",
+       "meaning_en": "To invite someone on a date.",
+       "meaning_fa": "دعوت کسی به یک دیدار عاشقانه.",
+       "register": "neutral",
+       "example_en": "He asked her out after the concert.",
+       "example_fa": "بعد از کنسرت او را به قرار دعوت کرد.",
+       "alt": ""
+      },
+      {
+       "id": "partners-x3",
+       "kind": "phrasal_verb",
+       "en": "settle down",
+       "fa": "سر و سامان گرفتن",
+       "meaning_en": "To start a stable life with someone.",
+       "meaning_fa": "شروع زندگی پایدار با کسی.",
+       "register": "neutral",
+       "example_en": "They settled down in a small town.",
+       "example_fa": "آنها در شهر کوچکی سر و سامان گرفتند.",
+       "alt": ""
+      },
+      {
+       "id": "partners-x4",
+       "kind": "idiom",
+       "en": "head over heels",
+       "fa": "عاشق تا خرخره",
+       "meaning_en": "Literally, falling head over heels; figuratively, deeply in love.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از سر و پا افتادن؛ به‌طور مجازی، عمیقاً عاشق شدن.",
+       "register": "neutral",
+       "example_en": "He fell head over heels within a month.",
+       "example_fa": "در یک ماه عاشق تا خرخره شد.",
+       "alt": ""
+      },
+      {
+       "id": "partners-x5",
+       "kind": "collocation",
+       "en": "a long-distance relationship",
+       "fa": "رابطهٔ از راه دور",
+       "meaning_en": "Distance is the fixed word for partners in different cities.",
+       "meaning_fa": "«فاصله» واژهٔ ثابت برای شریک‌هایی است که در شهرهای مختلف‌اند.",
+       "register": "neutral",
+       "example_en": "A long-distance relationship needs a schedule.",
+       "example_fa": "رابطهٔ از راه دور به برنامه نیاز دارد.",
+       "alt": ""
+      },
+      {
+       "id": "partners-x6",
+       "kind": "expression",
+       "en": "We have been together for two years.",
+       "fa": "دو سال است با هم هستیم.",
+       "meaning_en": "The standard way to give the length of a relationship.",
+       "meaning_fa": "راه همیشگی برای گفتن طول یک رابطه.",
+       "register": "neutral",
+       "example_en": "We have been together for two years in June.",
+       "example_fa": "تیر می‌شود دو سال که با هم هستیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "We met + [how].",
+       "example_en": "We met on a course.",
+       "example_fa": "ما در یک دوره آشنا شدیم.",
+       "note_en": "How it started, not where you are now.",
+       "note_fa": "چطور شروع شد، نه کجایید حالا."
+      },
+      {
+       "frame": "Would you like to + [verb]?",
+       "example_en": "Would you like to have dinner with me?",
+       "example_fa": "دوست داری با من شام بخوری؟",
+       "note_en": "A direct invitation, polite because of would.",
+       "note_fa": "دعوتی مستقیم که به‌خاطر would مؤدب است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "partners-s1",
+       "en": "I was not looking for anyone that year, which is probably why it worked.",
+       "fa": "آن سال دنبال کسی نبودم، که احتمالاً برای همین جواب داد.",
+       "use_en": "Honest, slightly self-aware, no bragging.",
+       "use_fa": "صادقانه، کمی خودآگاه، بی‌خودستایی.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Which is probably why it worked."
+      },
+      {
+       "id": "partners-s2",
+       "en": "We ended it kindly, and we still say hello when we meet.",
+       "fa": "مهربانانه تمامش کردیم و هنوز وقتی می‌بینیم سلام می‌کنیم.",
+       "use_en": "Describes a breakup without a villain.",
+       "use_fa": "جدایی را بی‌بدذات توصیف می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "We still say hello when we meet."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Two friends, one confession",
+      "title_fa": "دو دوست، یک اعتراف",
+      "speakers": [
+       "Shadi",
+       "Farid"
+      ],
+      "lines": [
+       {
+        "who": "Shadi",
+        "en": "You have been quiet all evening. What is going on?",
+        "fa": "تمام شب ساکتی. چه خبر است؟"
+       },
+       {
+        "who": "Farid",
+        "en": "There is someone in my class and I cannot stop thinking about her.",
+        "fa": "کسی در کلاسم هست و نمی‌توانم از فکرش بیرون بیایم."
+       },
+       {
+        "who": "Shadi",
+        "en": "A crush, then. Are you going to ask her out?",
+        "fa": "پس شیفتگی. می‌خواهی به قرار دعوتش کنی؟"
+       },
+       {
+        "who": "Farid",
+        "en": "What if she says no and it gets strange in class?",
+        "fa": "اگر نه بگوید و کلاس عجیب شود؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "Then you are polite about it and the class carries on. It is complicated only if you make it so.",
+        "fa": "آن‌وقت مؤدب می‌مانی و کلاس ادامه پیدا می‌کند. فقط اگر خودت بخواهی پیچیده می‌شود."
+       },
+       {
+        "who": "Farid",
+        "en": "We have been together in that room for two years and I still cannot ask.",
+        "fa": "دو سال است با هم در آن اتاقیم و هنوز نمی‌توانم بپرسم."
+       },
+       {
+        "who": "Shadi",
+        "en": "Ask her for coffee, not for forever. Coffee is easy to answer.",
+        "fa": "او را برای قهوه دعوت کن، نه برای همیشه. پاسخ دادن به قهوه آسان است."
+       },
+       {
+        "who": "Farid",
+        "en": "Coffee. That I can do.",
+        "fa": "قهوه. این را می‌توانم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Declining a date kindly",
+       "title_fa": "رد کردن قرار با مهربانی",
+       "situation_en": "A colleague asks you out and you do not want to go.",
+       "situation_fa": "همکاری تو را به قرار دعوت می‌کند و نمی‌خواهی بروی.",
+       "task_en": "Decline the invitation, not the person.",
+       "task_fa": "دعوت را رد کن، نه شخص را.",
+       "answer_en": "That is kind of you and I am glad you asked, but I am not looking for that right now. I hope we can still be easy with each other at work.",
+       "answer_fa": "این لطف توست و خوشحالم که پرسیدی، اما الان دنبال این نیستم. امیدوارم در محل کار هنوز راحت باشیم."
+      },
+      {
+       "title_en": "Talking about an ended relationship",
+       "title_fa": "حرف زدن از رابطه‌ای که تمام شد",
+       "situation_en": "A friend asks about your last relationship.",
+       "situation_fa": "دوستی از رابطهٔ قبلی‌ات می‌پرسد.",
+       "task_en": "Be honest without blaming your ex.",
+       "task_fa": "صادق باش بی‌آنکه شریک قبلی‌ات را مقصر کنی.",
+       "answer_en": "We were good at the small things and wrong about the big ones. It ended kindly and I am fine.",
+       "answer_fa": "ما در چیزهای کوچک خوب بودیم و در چیزهای بزرگ اشتباه. مهربانانه تمام شد و من خوبم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "partners-q1",
+       "q_en": "What does \"head over heels\" describe?",
+       "q_fa": "«head over heels» چه چیزی را توصیف می‌کند؟",
+       "options": [
+        "being deeply in love",
+        "falling down the stairs",
+        "wearing high shoes"
+       ],
+       "answer": "being deeply in love",
+       "why_en": "Heels is a picture of falling, not shoes.",
+       "why_fa": "«پاشنه‌ها» تصویر افتادن است، نه کفش."
+      },
+      {
+       "id": "partners-q2",
+       "q_en": "Asking someone out means ...",
+       "q_fa": "دعوت به قرار یعنی ...",
+       "options": [
+        "inviting them on a date",
+        "asking them to leave",
+        "asking for their address"
+       ],
+       "answer": "inviting them on a date",
+       "why_en": "Out is the date, not the exit.",
+       "why_fa": "«بیرون» خودِ قرار است، نه خروج."
+      },
+      {
+       "id": "partners-q3",
+       "q_en": "\"It is complicated\" usually ...",
+       "q_fa": "«پیچیده است» معمولاً ...",
+       "options": [
+        "avoids explaining a private situation",
+        "means the situation is simple",
+        "describes a maths problem"
+       ],
+       "answer": "avoids explaining a private situation",
+       "why_en": "Complicated politely closes the topic.",
+       "why_fa": "«پیچیده» مؤدبانه موضوع را می‌بندد."
+      }
+     ]
+    },
+    {
+     "id": "bonds",
+     "order": 6,
+     "icon": "hug",
+     "title_en": "Close friendship, trust and falling out",
+     "title_fa": "دوستی نزدیک، اعتماد و قهر",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What keeps friends close, what breaks the trust and how people make up again.",
+     "blurb_fa": "چه چیزی دوستان را نزدیک نگه می‌دارد، چه چیزی اعتماد را می‌شکند و آدم‌ها چطور آشتی می‌کنند.",
+     "objectives": [
+      {
+       "en": "describe a friendship in terms of trust and time.",
+       "fa": "دوستی را با اعتماد و زمان توصیف کن."
+      },
+      {
+       "en": "explain an argument and what each person wanted.",
+       "fa": "دعوایی را توضیح بده و بگو هر کس چه می‌خواست."
+      },
+      {
+       "en": "apologise and make up without pretending nothing happened.",
+       "fa": "عذرخواهی کن و آشتی کن بی‌آنکه وانمود کنی هیچ اتفاقی نیفتاده."
+      }
+     ],
+     "words": [
+      {
+       "id": "bonds-w1",
+       "en": "trust",
+       "ipa": "/trʌst/",
+       "pos": "noun",
+       "fa": "اعتماد",
+       "def_en": "The belief that someone will not harm you.",
+       "sport": "social",
+       "icon": "handshake",
+       "level": "B1",
+       "example_en": "The trust between them survived the argument.",
+       "example_fa": "اعتماد میان آنها از دعوا جان به در برد.",
+       "ref": ""
+      },
+      {
+       "id": "bonds-w2",
+       "en": "loyal",
+       "ipa": "/ˈlɔɪəl/",
+       "pos": "adjective",
+       "fa": "وفادار",
+       "def_en": "Always on someone's side, especially when it costs something.",
+       "sport": "social",
+       "icon": "shield",
+       "level": "B1",
+       "example_en": "She is the most loyal friend I have.",
+       "example_fa": "او وفادارترین دوست من است.",
+       "ref": ""
+      },
+      {
+       "id": "bonds-w3",
+       "en": "argument",
+       "ipa": "/ˈɑrɡjəmənt/",
+       "pos": "noun",
+       "fa": "دعوا",
+       "def_en": "A serious disagreement, sometimes loud.",
+       "sport": "social",
+       "icon": "argue",
+       "level": "A2",
+       "example_en": "The argument was about money, as usual.",
+       "example_fa": "دعوا مثل همیشه بر سر پول بود.",
+       "ref": ""
+      },
+      {
+       "id": "bonds-w4",
+       "en": "support",
+       "ipa": "/səˈpɔrt/",
+       "pos": "noun",
+       "fa": "پشتیبانی",
+       "def_en": "Help and encouragement when things are hard.",
+       "sport": "social",
+       "icon": "hand",
+       "level": "B1",
+       "example_en": "What I remember is the support, not the advice.",
+       "example_fa": "آنچه یادم مانده پشتیبانی است، نه نصیحت.",
+       "ref": ""
+      },
+      {
+       "id": "bonds-w5",
+       "en": "bond",
+       "ipa": "/bɑnd/",
+       "pos": "noun",
+       "fa": "پیوند",
+       "def_en": "A strong connection between people.",
+       "sport": "social",
+       "icon": "link",
+       "level": "B2",
+       "example_en": "Shared jokes built a bond that lasted.",
+       "example_fa": "شوخی‌های مشترک پیوندی ساخت که ماند.",
+       "ref": ""
+      },
+      {
+       "id": "bonds-w6",
+       "en": "honest",
+       "ipa": "/ˈɑnɪst/",
+       "pos": "adjective",
+       "fa": "صادق",
+       "def_en": "Saying what is true, even when it is uncomfortable.",
+       "sport": "social",
+       "icon": "speech",
+       "level": "A2",
+       "example_en": "An honest friend tells you when you are wrong.",
+       "example_fa": "دوست صادق وقتی اشتباه می‌کنی به تو می‌گوید.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "bonds-x1",
+       "kind": "expression",
+       "en": "We go back a long way.",
+       "fa": "سابقه‌ای طولانی داریم.",
+       "meaning_en": "Says the friendship is old without counting years.",
+       "meaning_fa": "می‌گوید دوستی قدیمی است بی‌آنکه سال‌ها را بشمارد.",
+       "register": "neutral",
+       "example_en": "We go back a long way, since primary school.",
+       "example_fa": "سابقه‌ای طولانی داریم، از دبستان.",
+       "alt": ""
+      },
+      {
+       "id": "bonds-x2",
+       "kind": "phrasal_verb",
+       "en": "fall out with",
+       "fa": "قهر کردن با",
+       "meaning_en": "To stop being friendly after a disagreement.",
+       "meaning_fa": "بعد از اختلاف دوست نبودن.",
+       "register": "neutral",
+       "example_en": "I fell out with my best friend over a flat.",
+       "example_fa": "با بهترین دوستم بر سر یک خانه قهر کردم.",
+       "alt": ""
+      },
+      {
+       "id": "bonds-x3",
+       "kind": "phrasal_verb",
+       "en": "make up",
+       "fa": "آشتی کردن",
+       "meaning_en": "To become friends again after an argument.",
+       "meaning_fa": "بعد از دعوا دوباره دوست شدن.",
+       "register": "neutral",
+       "example_en": "They made up before the wedding.",
+       "example_fa": "قبل از عروسی آشتی کردند.",
+       "alt": ""
+      },
+      {
+       "id": "bonds-x4",
+       "kind": "idiom",
+       "en": "through thick and thin",
+       "fa": "در سختی و آسانی",
+       "meaning_en": "Literally, through thick and thin forest; figuratively, in good times and bad.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از میان جنگل انبوه و تنک؛ به‌طور مجازی، در روزهای خوب و بد.",
+       "register": "neutral",
+       "example_en": "She stayed through thick and thin.",
+       "example_fa": "او در سختی و آسانی ماند.",
+       "alt": ""
+      },
+      {
+       "id": "bonds-x5",
+       "kind": "idiom",
+       "en": "clear the air",
+       "fa": "فضا را صاف کردن",
+       "meaning_en": "Literally, clear the air of smoke; figuratively, talk until the bad feeling is gone.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، هوا را از دود پاک کردن؛ به‌طور مجازی، حرف زدن تا احساس بد برود.",
+       "register": "neutral",
+       "example_en": "We met for coffee to clear the air.",
+       "example_fa": "برای صاف کردن فضا قهوه خوردیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I felt + [adjective] + when + [clause].",
+       "example_en": "I felt left out when you made the plan without me.",
+       "example_fa": "وقتی بی من برنامه ریختی احساس کردم کنار گذاشته شدم.",
+       "note_en": "Names the feeling, then the moment.",
+       "note_fa": "اول احساس، بعد لحظه."
+      },
+      {
+       "frame": "Can we talk about + [noun]?",
+       "example_en": "Can we talk about last night?",
+       "example_fa": "می‌توانیم دربارهٔ دیشب حرف بزنیم؟",
+       "note_en": "Opens a difficult subject without an accusation.",
+       "note_fa": "موضوع سختی را بی‌اتهام باز می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "bonds-s1",
+       "en": "I would rather hear the difficult truth from you than a comfortable version from someone else.",
+       "fa": "ترجیح می‌دهم حقیقت سخت را از تو بشنوم تا نسخهٔ راحت را از کسی دیگر.",
+       "use_en": "Defines friendship in one comparison.",
+       "use_fa": "دوستی را در یک مقایسه تعریف می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "A comfortable version from someone else."
+      },
+      {
+       "id": "bonds-s2",
+       "en": "We apologised badly, laughed at ourselves and started again.",
+       "fa": "بد عذرخواهی کردیم، به خودمان خندیدیم و از نو شروع کردیم.",
+       "use_en": "Making up without drama.",
+       "use_fa": "آشتی بی‌درام.",
+       "level": "B1",
+       "polite": "humorous",
+       "alt": "We started again."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Two friends after a silence",
+      "title_fa": "دو دوست بعد از سکوتی طولانی",
+      "speakers": [
+       "Hoda",
+       "Behnam"
+      ],
+      "lines": [
+       {
+        "who": "Hoda",
+        "en": "I did not expect to hear from you after three weeks.",
+        "fa": "بعد از سه هفته انتظار نداشتم از تو خبری بشنوم."
+       },
+       {
+        "who": "Behnam",
+        "en": "I know. I was angry and then I was embarrassed about being angry.",
+        "fa": "می‌دانم. عصبانی بودم و بعد از عصبانیت خجالت کشیدم."
+       },
+       {
+        "who": "Hoda",
+        "en": "I said things I would not say again.",
+        "fa": "من چیزهایی گفتم که دیگر نمی‌گویم."
+       },
+       {
+        "who": "Behnam",
+        "en": "So did I. The plan was not worth any of it.",
+        "fa": "من هم. آن برنامه ارزش هیچ‌کدامش را نداشت."
+       },
+       {
+        "who": "Hoda",
+        "en": "We go back a long way. I do not want to lose that over a weekend.",
+        "fa": "سابقه‌ای طولانی داریم. نمی‌خواهم به خاطر یک آخر هفته آن را از دست بدهم."
+       },
+       {
+        "who": "Behnam",
+        "en": "Neither do I. Can we clear the air properly, not just say sorry and move on?",
+        "fa": "من هم نه. می‌توانیم درست فضا را صاف کنیم، نه فقط عذرخواهی کنیم و رد شویم؟"
+       },
+       {
+        "who": "Hoda",
+        "en": "Tea at my place on Friday. You talk first.",
+        "fa": "جمعه خانهٔ من چای. اول تو حرف بزن."
+       },
+       {
+        "who": "Behnam",
+        "en": "Deal. And I will bring the cake I owe you.",
+        "fa": "قبول. و کیکی را که به تو بدهکارم می‌آورم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The friend who cancels again",
+       "title_fa": "دوستی که باز هم لغو می‌کند",
+       "situation_en": "A close friend cancels for the fourth time.",
+       "situation_fa": "دوست نزدیکی برای چهارمین بار لغو می‌کند.",
+       "task_en": "Say how it feels without ending the friendship.",
+       "task_fa": "بگو چه حسی دارد بی‌آنکه دوستی را تمام کنی.",
+       "answer_en": "I am not angry, but I have started not expecting you, and I do not want that. Is something going on?",
+       "answer_fa": "عصبانی نیستم، اما کم‌کم یاد گرفته‌ام انتظارت را نداشته باشم و این را نمی‌خواهم. چیزی هست؟"
+      },
+      {
+       "title_en": "Being told an uncomfortable truth",
+       "title_fa": "شنیدن حقیقتی ناراحت‌کننده",
+       "situation_en": "A friend says you were unfair to someone last night.",
+       "situation_fa": "دوستی می‌گوید دیشب با کسی ناعادلانه رفتار کردی.",
+       "task_en": "Listen, ask for the detail, then decide.",
+       "task_fa": "گوش کن، جزئیات را بپرس، بعد تصمیم بگیر.",
+       "answer_en": "You may be right. What exactly did I say that landed badly?",
+       "answer_fa": "شاید حق با تو باشد. دقیقاً چه گفتم که بد نشست؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "bonds-q1",
+       "q_en": "\"Through thick and thin\" means ...",
+       "q_fa": "«در سختی و آسانی» یعنی ...",
+       "options": [
+        "in good times and bad",
+        "through a thick forest",
+        "in fine weather only"
+       ],
+       "answer": "in good times and bad",
+       "why_en": "Thick and thin are the hard and the easy.",
+       "why_fa": "«انبوه و تنک» سخت و آسان‌اند."
+      },
+      {
+       "id": "bonds-q2",
+       "q_en": "\"To fall out with someone\" means ...",
+       "q_fa": "«fall out with» یعنی ...",
+       "options": [
+        "to stop being friendly after a disagreement",
+        "to fall down together",
+        "to move out of a house"
+       ],
+       "answer": "to stop being friendly after a disagreement",
+       "why_en": "Out is the friendship, not the building.",
+       "why_fa": "«بیرون» دوستی است، نه ساختمان."
+      },
+      {
+       "id": "bonds-q3",
+       "q_en": "Making up after an argument is ...",
+       "q_fa": "آشتی بعد از دعوا یعنی ...",
+       "options": [
+        "becoming friends again",
+        "inventing a story",
+        "putting on makeup"
+       ],
+       "answer": "becoming friends again",
+       "why_en": "Up is the repair of the friendship.",
+       "why_fa": "«بالا» ترمیم دوستی است."
+      }
+     ]
+    },
+    {
+     "id": "invites",
+     "order": 7,
+     "icon": "mail",
+     "title_en": "Invitations, celebrations and parties",
+     "title_fa": "دعوت، جشن و مهمانی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "How an invitation sounds in English, how to accept it properly and how to say no without damage.",
+     "blurb_fa": "دعوت در انگلیسی چه شکلی است، چطور درست بپذیری و چطور نه بگویی بی‌تخریب.",
+     "objectives": [
+      {
+       "en": "invite someone to a place, a time and an occasion.",
+       "fa": "کسی را به جا، زمان و مناسبتی دعوت کن."
+      },
+      {
+       "en": "accept, decline and ask whether you can bring someone.",
+       "fa": "بپذیر، رد کن و بپرس می‌توانی کسی را همراه بیاوری."
+      },
+      {
+       "en": "ask for the details an invitation usually leaves out.",
+       "fa": "جزئیاتی را بپرس که دعوت معمولاً جا می‌گذارد."
+      }
+     ],
+     "words": [
+      {
+       "id": "invites-w1",
+       "en": "invitation",
+       "ipa": "/ˌɪnvəˈteɪʃən/",
+       "pos": "noun",
+       "fa": "دعوت",
+       "def_en": "A spoken or written request to come to something.",
+       "sport": "social",
+       "icon": "mail",
+       "level": "A2",
+       "example_en": "The invitation says seven, but nobody arrives before eight.",
+       "example_fa": "دعوت برای هفت است، اما هیچ‌کس قبل از هشت نمی‌آید.",
+       "ref": ""
+      },
+      {
+       "id": "invites-w2",
+       "en": "plus-one",
+       "ipa": "/ˈplʌs wʌn/",
+       "pos": "noun",
+       "fa": "همراه",
+       "def_en": "The person you are allowed to bring to an event.",
+       "sport": "social",
+       "icon": "group",
+       "level": "B2",
+       "example_en": "The card said plus-one, so I brought my sister.",
+       "example_fa": "کارت نوشته بود همراه، پس خواهرم را آوردم.",
+       "ref": ""
+      },
+      {
+       "id": "invites-w3",
+       "en": "RSVP",
+       "ipa": "/ˌɑr ɛs vi ˈpi/",
+       "pos": "noun",
+       "fa": "پاسخ به دعوت",
+       "def_en": "A request to say whether you are coming.",
+       "sport": "social",
+       "icon": "mail",
+       "level": "B1",
+       "example_en": "Please RSVP by Thursday so we know how much food to cook.",
+       "example_fa": "لطفاً تا پنجشنبه پاسخ بده تا بدانیم چقدر غذا بپزیم.",
+       "ref": ""
+      },
+      {
+       "id": "invites-w4",
+       "en": "host",
+       "ipa": "/hoʊst/",
+       "pos": "noun",
+       "fa": "میزبان",
+       "def_en": "The person who invites and looks after guests.",
+       "sport": "social",
+       "icon": "door",
+       "level": "A2",
+       "example_en": "Our host met everyone at the door.",
+       "example_fa": "میزبان همه را دم در دید.",
+       "ref": ""
+      },
+      {
+       "id": "invites-w5",
+       "en": "guest",
+       "ipa": "/ɡɛst/",
+       "pos": "noun",
+       "fa": "مهمان",
+       "def_en": "Someone invited to an event.",
+       "sport": "social",
+       "icon": "person",
+       "level": "A2",
+       "example_en": "Each guest brought something to eat.",
+       "example_fa": "هر مهمان چیزی برای خوردن آورد.",
+       "ref": ""
+      },
+      {
+       "id": "invites-w6",
+       "en": "dress code",
+       "ipa": "/ˈdrɛs koʊd/",
+       "pos": "noun",
+       "fa": "کد پوشش",
+       "def_en": "The clothes an event expects you to wear.",
+       "sport": "social",
+       "icon": "shirt",
+       "level": "B1",
+       "example_en": "The dress code is smart but not formal.",
+       "example_fa": "کد پوشش شیک است اما نه رسمی.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "invites-x1",
+       "kind": "expression",
+       "en": "Are you free on Saturday?",
+       "fa": "شنبه آزادی؟",
+       "meaning_en": "Checks the person's time before naming the plan.",
+       "meaning_fa": "پیش از گفتن برنامه، زمان طرف را می‌پرسد.",
+       "register": "neutral",
+       "example_en": "Are you free on Saturday afternoon?",
+       "example_fa": "شنبه بعدازظهر آزادی؟",
+       "alt": ""
+      },
+      {
+       "id": "invites-x2",
+       "kind": "expression",
+       "en": "Count me in.",
+       "fa": "من هستم.",
+       "meaning_en": "A quick, warm yes.",
+       "meaning_fa": "بلهٔ سریع و گرم.",
+       "register": "neutral",
+       "example_en": "A picnic on Friday? Count me in.",
+       "example_fa": "جمعه پیک‌نیک؟ من هستم.",
+       "alt": ""
+      },
+      {
+       "id": "invites-x3",
+       "kind": "collocation",
+       "en": "accept an invitation",
+       "fa": "دعوت را پذیرفتن",
+       "meaning_en": "Invitations are accepted, not taken.",
+       "meaning_fa": "دعوت «پذیرفته» می‌شود، نه «گرفته».",
+       "register": "neutral",
+       "example_en": "She accepted the invitation the same day.",
+       "example_fa": "همان روز دعوت را پذیرفت.",
+       "alt": ""
+      },
+      {
+       "id": "invites-x4",
+       "kind": "idiom",
+       "en": "take a rain check",
+       "fa": "بعداً شود",
+       "meaning_en": "Literally, a ticket to come back when it rains; figuratively, a polite no that keeps the offer open.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بلیتی برای بازگشت وقتی باران بیاید؛ به‌طور مجازی، «نه»ی مؤدبانه که پیشنهاد را باز نگه می‌دارد.",
+       "register": "neutral",
+       "example_en": "I am away that weekend, so can I take a rain check?",
+       "example_fa": "آن آخر هفته نیستم، می‌شود بعداً؟",
+       "alt": ""
+      },
+      {
+       "id": "invites-x5",
+       "kind": "expression",
+       "en": "I would love to, but ...",
+       "fa": "خیلی دوست دارم، اما ...",
+       "meaning_en": "Refuses the invitation without refusing the person.",
+       "meaning_fa": "دعوت را رد می‌کند بی‌آنکه شخص را رد کند.",
+       "register": "polite",
+       "example_en": "I would love to, but I am working that evening.",
+       "example_fa": "خیلی دوست دارم، اما آن شب کار می‌کنم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Would you like to come to + [event]?",
+       "example_en": "Would you like to come to dinner on Friday?",
+       "example_fa": "دوست داری جمعه به شام بیایی؟",
+       "note_en": "The standard, polite invitation.",
+       "note_fa": "دعوت استاندارد و مؤدبانه."
+      },
+      {
+       "frame": "Shall I bring + [noun]?",
+       "example_en": "Shall I bring a dessert?",
+       "example_fa": "دسر بیاورم؟",
+       "note_en": "Offers something without waiting to be asked.",
+       "note_fa": "چیزی پیشنهاد می‌دهد بی‌آنکه منتظر پرسیدن بماند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "invites-s1",
+       "en": "Tell me what to wear and what time to arrive, and I will be there.",
+       "fa": "بگو چه بپوشم و چه ساعتی برسم، و من آنجا خواهم بود.",
+       "use_en": "Asks the two questions guests always have.",
+       "use_fa": "دو سؤال همیشگی مهمان را می‌پرسد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "What time to arrive."
+      },
+      {
+       "id": "invites-s2",
+       "en": "I would rather you came without a gift than stayed at home.",
+       "fa": "ترجیح می‌دهم بی‌هیچ هدیه‌ای بیایی تا در خانه بمانی.",
+       "use_en": "Makes a guest feel wanted.",
+       "use_fa": "مهمان را خواستنی می‌کند.",
+       "level": "B1",
+       "polite": "warm",
+       "alt": "Come as you are."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Inviting a new colleague",
+      "title_fa": "دعوت همکار تازه",
+      "speakers": [
+       "Samira",
+       "Yusuf"
+      ],
+      "lines": [
+       {
+        "who": "Samira",
+        "en": "Yusuf, a few of us are having dinner at my place on Friday. Would you like to come?",
+        "fa": "یوسف، چند نفر از ما جمعه خانهٔ من شام داریم. دوست داری بیایی؟"
+       },
+       {
+        "who": "Yusuf",
+        "en": "I would love to. Should I bring something?",
+        "fa": "خیلی دوست دارم. چیزی بیاورم؟"
+       },
+       {
+        "who": "Samira",
+        "en": "Just yourself. There will be too much food as usual.",
+        "fa": "فقط خودت. مثل همیشه غذا زیاد خواهد بود."
+       },
+       {
+        "who": "Yusuf",
+        "en": "What is the dress code? I have only seen you all in work clothes.",
+        "fa": "کد پوشش چیست؟ من همه‌تان را فقط با لباس کار دیده‌ام."
+       },
+       {
+        "who": "Samira",
+        "en": "Comfortable. Seven o'clock, but nobody is ever on time.",
+        "fa": "راحت. ساعت هفت، اما هیچ‌کس سر وقت نیست."
+       },
+       {
+        "who": "Yusuf",
+        "en": "Can I bring my sister? She is staying with me this week.",
+        "fa": "می‌توانم خواهرم را بیاورم؟ این هفته پیش من است."
+       },
+       {
+        "who": "Samira",
+        "en": "Of course. The more the better. Tell her there will be cake.",
+        "fa": "البته. هر چه بیشتر بهتر. به او بگو کیک هست."
+       },
+       {
+        "who": "Yusuf",
+        "en": "Then count us both in.",
+        "fa": "پس هر دو نفر را حساب کن."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Declining without closing the door",
+       "title_fa": "رد کردن بی‌بستن در",
+       "situation_en": "A friend invites you to a birthday dinner you cannot attend.",
+       "situation_fa": "دوستی تو را به شام تولدی دعوت می‌کند که نمی‌توانی بروی.",
+       "task_en": "Say no clearly, give a short reason, offer another time.",
+       "task_fa": "«نه» را روشن بگو، دلیل کوتاه بیاور، زمان دیگری پیشنهاد بده.",
+       "answer_en": "I am so sorry, I am travelling that week and I cannot move it. Can I take you for lunch the week after?",
+       "answer_fa": "خیلی متأسفم، آن هفته در سفرم و نمی‌توانم جایش را عوض کنم. می‌توانم هفتهٔ بعد ناهار مهمانت کنم؟"
+      },
+      {
+       "title_en": "Asking for the missing details",
+       "title_fa": "پرسیدن جزئیات جاافتاده",
+       "situation_en": "The invitation says a day and nothing else.",
+       "situation_fa": "دعوت فقط یک روز گفته و دیگر هیچ.",
+       "task_en": "Ask for time, place and what to bring in one friendly message.",
+       "task_fa": "زمان، جا و چه آوردن را در یک پیام دوستانه بپرس.",
+       "answer_en": "Lovely, thank you. What time should I come, how do I get there, and shall I bring a dessert?",
+       "answer_fa": "چه خوب، ممنون. چه ساعتی بیایم، چطور برسم و دسر بیاورم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "invites-q1",
+       "q_en": "\"Count me in\" means ...",
+       "q_fa": "«Count me in» یعنی ...",
+       "options": [
+        "I will come",
+        "do not include me",
+        "count the money"
+       ],
+       "answer": "I will come",
+       "why_en": "In is being included in the plan.",
+       "why_fa": "«در» یعنی در برنامه حساب شدن."
+      },
+      {
+       "id": "invites-q2",
+       "q_en": "\"Take a rain check\" is ...",
+       "q_fa": "«take a rain check» ...",
+       "options": [
+        "a polite no that keeps the offer open",
+        "a ticket for a rainy day",
+        "a weather warning"
+       ],
+       "answer": "a polite no that keeps the offer open",
+       "why_en": "The ticket is for later, not for rain.",
+       "why_fa": "بلیت برای بعد است، نه برای باران."
+      },
+      {
+       "id": "invites-q3",
+       "q_en": "You accept an invitation, you do not ...",
+       "q_fa": "دعوت «پذیرفته» می‌شود، نه ...",
+       "options": [
+        "take it",
+        "read it",
+        "write it"
+       ],
+       "answer": "take it",
+       "why_en": "English accepts invitations.",
+       "why_fa": "انگلیسی دعوت را accept می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "parties",
+     "order": 8,
+     "icon": "balloon",
+     "title_en": "Birthdays, toasts and party nights",
+     "title_fa": "تولد، سخنرانی و شب‌های مهمانی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The words for a party from the invitation to the last guest, including the speech nobody expects to give.",
+     "blurb_fa": "واژه‌های مهمانی از دعوت تا آخرین مهمان، همراه با سخنرانی‌ای که کسی انتظار ندارد بگوید.",
+     "objectives": [
+      {
+       "en": "describe a celebration and who was there.",
+       "fa": "یک جشن را توصیف کن و بگو چه کسانی بودند."
+      },
+      {
+       "en": "give a short toast and wish someone well.",
+       "fa": "سخنرانی کوتاه و آرزوی خوب برای کسی بگو."
+      },
+      {
+       "en": "talk about birthdays, anniversaries and the parties that went wrong.",
+       "fa": "دربارهٔ تولد، سالگرد و مهمانی‌هایی که خراب شد حرف بزن."
+      }
+     ],
+     "words": [
+      {
+       "id": "parties-w1",
+       "en": "celebration",
+       "ipa": "/ˌsɛləˈbreɪʃən/",
+       "pos": "noun",
+       "fa": "جشن",
+       "def_en": "A party or event that marks something good.",
+       "sport": "social",
+       "icon": "balloon",
+       "level": "A2",
+       "example_en": "The celebration went on until two in the morning.",
+       "example_fa": "جشن تا دو صبح ادامه داشت.",
+       "ref": ""
+      },
+      {
+       "id": "parties-w2",
+       "en": "toast",
+       "ipa": "/toʊst/",
+       "pos": "noun",
+       "fa": "سخنرانی کوتاه با نوشیدنی",
+       "def_en": "A short speech before everyone drinks to someone.",
+       "sport": "social",
+       "icon": "cup",
+       "level": "B1",
+       "example_en": "He gave a toast that made everyone laugh.",
+       "example_fa": "او سخنرانی‌ای کرد که همه را خنداند.",
+       "ref": ""
+      },
+      {
+       "id": "parties-w3",
+       "en": "gift",
+       "ipa": "/ɡɪft/",
+       "pos": "noun",
+       "fa": "هدیه",
+       "def_en": "Something you give someone on a special day.",
+       "sport": "social",
+       "icon": "gift",
+       "level": "A2",
+       "example_en": "The gift was small and exactly right.",
+       "example_fa": "هدیه کوچک و دقیقاً درست بود.",
+       "ref": ""
+      },
+      {
+       "id": "parties-w4",
+       "en": "candle",
+       "ipa": "/ˈkændəl/",
+       "pos": "noun",
+       "fa": "شمع",
+       "def_en": "A stick of wax with a flame, used on birthday cakes.",
+       "sport": "social",
+       "icon": "candle",
+       "level": "A2",
+       "example_en": "She blew out every candle in one breath.",
+       "example_fa": "همهٔ شمع‌ها را با یک نفس فوت کرد.",
+       "ref": ""
+      },
+      {
+       "id": "parties-w5",
+       "en": "anniversary",
+       "ipa": "/ˌænəˈvɜrsəri/",
+       "pos": "noun",
+       "fa": "سالگرد",
+       "def_en": "The yearly date when something began.",
+       "sport": "social",
+       "icon": "calendar",
+       "level": "B1",
+       "example_en": "They spent their tenth anniversary at home with the children.",
+       "example_fa": "دهمین سالگردشان را با بچه‌ها در خانه گذراندند.",
+       "ref": ""
+      },
+      {
+       "id": "parties-w6",
+       "en": "confetti",
+       "ipa": "/kənˈfɛti/",
+       "pos": "noun",
+       "fa": "کاغذ‌رنگی",
+       "def_en": "Small pieces of coloured paper thrown at celebrations.",
+       "sport": "social",
+       "icon": "confetti",
+       "level": "B1",
+       "example_en": "There was confetti in everyone's hair for days.",
+       "example_fa": "روزها کاغذ‌رنگی در موی همه بود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "parties-x1",
+       "kind": "expression",
+       "en": "Many happy returns!",
+       "fa": "تولدت مبارک!",
+       "meaning_en": "The British birthday greeting, said to the person.",
+       "meaning_fa": "تهنیت تولد بریتانیایی که به خود شخص گفته می‌شود.",
+       "register": "neutral",
+       "example_en": "Many happy returns, and thank you for the cake.",
+       "example_fa": "تولدت مبارک، و ممنون بابت کیک.",
+       "alt": ""
+      },
+      {
+       "id": "parties-x2",
+       "kind": "collocation",
+       "en": "throw a party",
+       "fa": "مهمانی گرفتن",
+       "meaning_en": "Parties are thrown, not made.",
+       "meaning_fa": "مهمانی «گرفته» می‌شود، نه «ساخته».",
+       "register": "neutral",
+       "example_en": "We threw a party for her fortieth.",
+       "example_fa": "برای چهلمین سالش مهمانی گرفتیم.",
+       "alt": ""
+      },
+      {
+       "id": "parties-x3",
+       "kind": "idiom",
+       "en": "have a blast",
+       "fa": "خیلی خوش گذشتن",
+       "meaning_en": "Literally, a blast of air; figuratively, a very good time.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، انفجاری از هوا؛ به‌طور مجازی، خیلی خوش گذشتن.",
+       "register": "neutral",
+       "example_en": "We had a blast at the wedding.",
+       "example_fa": "در عروسی خیلی به ما خوش گذشت.",
+       "alt": ""
+      },
+      {
+       "id": "parties-x4",
+       "kind": "idiom",
+       "en": "the life and soul of the party",
+       "fa": "روح مهمانی",
+       "meaning_en": "Literally, the life of the party; figuratively, the person who makes it fun.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، جان مهمانی؛ به‌طور مجازی، کسی که مهمانی را گرم می‌کند.",
+       "register": "neutral",
+       "example_en": "Her cousin was the life and soul of the party.",
+       "example_fa": "پسرخاله‌اش روح مهمانی بود.",
+       "alt": ""
+      },
+      {
+       "id": "parties-x5",
+       "kind": "expression",
+       "en": "Congratulations on + [noun].",
+       "fa": "تبریک برای ...",
+       "meaning_en": "Used for achievements, not birthdays.",
+       "meaning_fa": "برای دستاوردها به کار می‌رود، نه تولد.",
+       "register": "neutral",
+       "example_en": "Congratulations on the new job.",
+       "example_fa": "برای کار جدید تبریک.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Happy + [occasion]!",
+       "example_en": "Happy anniversary, you two.",
+       "example_fa": "سالگرد مبارک، شما دو نفر.",
+       "note_en": "Which celebration you are marking.",
+       "note_fa": "می‌گوید کدام مناسبت را گرامی می‌داری."
+      },
+      {
+       "frame": "It was + [adjective] + because + [clause].",
+       "example_en": "It was perfect because nobody made a speech.",
+       "example_fa": "عالی بود چون هیچ‌کس سخنرانی نکرد.",
+       "note_en": "Explains the mood with a reason.",
+       "note_fa": "حال‌وهوا را با دلیل توضیح می‌دهد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "parties-s1",
+       "en": "The best parties are the ones where nobody remembers who was invited and everybody remembers who danced.",
+       "fa": "بهترین مهمانی‌ها آنهایی‌اند که کسی یادش نیست چه کسی دعوت بود و همه یادشان هست چه کسی رقصید.",
+       "use_en": "Defines a good party by memory.",
+       "use_fa": "مهمانی خوب را با خاطره تعریف می‌کند.",
+       "level": "B2",
+       "polite": "humorous",
+       "alt": "Everybody remembers who danced."
+      },
+      {
+       "id": "parties-s2",
+       "en": "We sang badly, ate too much and stayed far too late, which is the correct way to celebrate.",
+       "fa": "بد آواز خواندیم، زیاد خوردیم و خیلی دیر ماندیم، که روش درست جشن گرفتن است.",
+       "use_en": "Self-mocking warmth.",
+       "use_fa": "گرمای خودنکوهانه.",
+       "level": "B2",
+       "polite": "humorous",
+       "alt": "The correct way to celebrate."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At a birthday dinner",
+      "title_fa": "سر شام تولد",
+      "speakers": [
+       "Leila",
+       "Arash"
+      ],
+      "lines": [
+       {
+        "who": "Leila",
+        "en": "Arash, you have not said anything for ten minutes. Nervous about the toast?",
+        "fa": "ارش، ده دقیقه است چیزی نگفته‌ای. برای سخنرانی استرس داری؟"
+       },
+       {
+        "who": "Arash",
+        "en": "Terrified. I have written it three times.",
+        "fa": "وحشت‌زده. سه بار نوشته‌امش."
+       },
+       {
+        "who": "Leila",
+        "en": "Then say the short one. Nobody wants a speech at a birthday.",
+        "fa": "پس کوتاهش را بگو. کسی در تولد سخنرانی نمی‌خواهد."
+       },
+       {
+        "who": "Arash",
+        "en": "Here goes. To my sister, who is the life and soul of every party she walks into.",
+        "fa": "بفرمایید. به خواهرم، که روح هر مهمانی است که واردش می‌شود."
+       },
+       {
+        "who": "Leila",
+        "en": "That was perfect. Now blow out the candles before the cake melts.",
+        "fa": "عالی بود. حالا قبل از آب شدن کیک شمع‌ها را فوت کن."
+       },
+       {
+        "who": "Arash",
+        "en": "There are thirty candles. We may need help.",
+        "fa": "سی شمع است. شاید کمک لازم داشته باشیم."
+       },
+       {
+        "who": "Leila",
+        "en": "That is what guests are for.",
+        "fa": "مهمان‌ها برای همین‌اند."
+       },
+       {
+        "who": "Arash",
+        "en": "Then everyone take a candle and a wish.",
+        "fa": "پس هر کس یک شمع و یک آرزو بردارد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A party that is going wrong",
+       "title_fa": "مهمانی‌ای که خراب می‌شود",
+       "situation_en": "Half the guests have not arrived and the food is ready.",
+       "situation_fa": "نیمی از مهمان‌ها نیامده‌اند و غذا آماده است.",
+       "task_en": "Keep the food warm, change the plan, keep the host calm.",
+       "task_fa": "غذا را گرم نگه دار، برنامه را عوض کن، میزبان را آرام نگه دار.",
+       "answer_en": "Put the rice on low, we will start the starters now and the rest will walk in during the main course. Nobody will notice.",
+       "answer_fa": "برنج را کم کن، الان پیش‌غذا را شروع می‌کنیم و بقیه وسط غذای اصلی می‌رسند. کسی متوجه نمی‌شود."
+      },
+      {
+       "title_en": "Giving a toast without preparation",
+       "title_fa": "سخنرانی بی‌تدارک",
+       "situation_en": "You are asked to say a few words and have nothing ready.",
+       "situation_fa": "از تو می‌خواهند چند کلمه بگویی و چیزی آماده نداری.",
+       "task_en": "Thank the host, name one true detail, wish them well, sit down.",
+       "task_fa": "از میزبان تشکر کن، یک جزئیات واقعی بگو، آرزوی خوب کن، بنشین.",
+       "answer_en": "I did not prepare, which is the highest compliment I can pay this table. Ten years of Sunday lunches and not one boring one. To the next ten.",
+       "answer_fa": "آماده نکرده‌ام، که این بالاترین تعریفی است که می‌توانم به این میز بدهم. ده سال ناهار یکشنبه و حتی یکی خسته‌کننده نبود. به ده سال بعد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "parties-q1",
+       "q_en": "You \"throw\" a party, you do not ...",
+       "q_fa": "مهمانی «گرفته» می‌شود، نه ...",
+       "options": [
+        "make it",
+        "throw it",
+        "attend it"
+       ],
+       "answer": "make it",
+       "why_en": "Throw is the fixed verb.",
+       "why_fa": "«Throw» فعل ثابت است."
+      },
+      {
+       "id": "parties-q2",
+       "q_en": "\"Many happy returns\" is said ...",
+       "q_fa": "«Many happy returns» گفته می‌شود ...",
+       "options": [
+        "on a birthday",
+        "at a funeral",
+        "when returning a book"
+       ],
+       "answer": "on a birthday",
+       "why_en": "Returns are the years coming round again.",
+       "why_fa": "«بازگشت‌ها» سال‌هایی هستند که دور می‌زنند."
+      },
+      {
+       "id": "parties-q3",
+       "q_en": "\"We had a blast\" means ...",
+       "q_fa": "«We had a blast» یعنی ...",
+       "options": [
+        "we had a great time",
+        "we heard an explosion",
+        "we blew out candles"
+       ],
+       "answer": "we had a great time",
+       "why_en": "Blast is energy, not damage.",
+       "why_fa": "«انفجار» انرژی است، نه آسیب."
+      }
+     ]
+    },
+    {
+     "id": "feelings",
+     "order": 9,
+     "icon": "smile",
+     "title_en": "Emotions and how you feel",
+     "title_fa": "احساس‌ها و اینکه چه حالی داری",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The words for what you feel, how strong it is and how to say it out loud.",
+     "blurb_fa": "واژه‌های آنچه حس می‌کنی، شدتش و اینکه چطور بلند بگویی‌اش.",
+     "objectives": [
+      {
+       "en": "name what you feel and how strongly.",
+       "fa": "نام احساس و شدتش را بگو."
+      },
+      {
+       "en": "ask someone how they are and listen to the real answer.",
+       "fa": "از کسی بپرس چه حالی دارد و جواب واقعی را بشنو."
+      },
+      {
+       "en": "describe a day that changed your mood.",
+       "fa": "روزی را توصیف کن که حالت را عوض کرد."
+      }
+     ],
+     "words": [
+      {
+       "id": "feelings-w1",
+       "en": "emotion",
+       "ipa": "/ɪˈmoʊʃən/",
+       "pos": "noun",
+       "fa": "احساس",
+       "def_en": "A feeling such as joy, anger or fear.",
+       "sport": "social",
+       "icon": "smile",
+       "level": "B1",
+       "example_en": "He spoke about the day without emotion.",
+       "example_fa": "دربارهٔ آن روز بی‌احساس حرف زد.",
+       "ref": ""
+      },
+      {
+       "id": "feelings-w2",
+       "en": "nervous",
+       "ipa": "/ˈnɜrvəs/",
+       "pos": "adjective",
+       "fa": "مضطرب",
+       "def_en": "Worried about something that is about to happen.",
+       "sport": "social",
+       "icon": "alert",
+       "level": "A2",
+       "example_en": "I am nervous about the interview on Monday.",
+       "example_fa": "برای مصاحبهٔ دوشنبه مضطربم.",
+       "ref": ""
+      },
+      {
+       "id": "feelings-w3",
+       "en": "grateful",
+       "ipa": "/ˈɡreɪtfəl/",
+       "pos": "adjective",
+       "fa": "سپاسگزار",
+       "def_en": "Thankful for something someone did.",
+       "sport": "social",
+       "icon": "heart",
+       "level": "B1",
+       "example_en": "I am grateful you told me the truth.",
+       "example_fa": "سپاسگزارم که حقیقت را گفتی.",
+       "ref": ""
+      },
+      {
+       "id": "feelings-w4",
+       "en": "relieved",
+       "ipa": "/rɪˈlivd/",
+       "pos": "adjective",
+       "fa": "آسوده‌خاطر",
+       "def_en": "Glad that something bad did not happen.",
+       "sport": "social",
+       "icon": "smile",
+       "level": "B1",
+       "example_en": "She looked relieved when the results came.",
+       "example_fa": "وقتی نتیجه‌ها آمد آسوده‌خاطر به نظر می‌رسید.",
+       "ref": ""
+      },
+      {
+       "id": "feelings-w5",
+       "en": "jealous",
+       "ipa": "/ˈdʒɛləs/",
+       "pos": "adjective",
+       "fa": "حسود",
+       "def_en": "Unhappy because someone has what you want.",
+       "sport": "social",
+       "icon": "frown",
+       "level": "B1",
+       "example_en": "I am not jealous, I am just tired.",
+       "example_fa": "حسود نیستم، فقط خسته‌ام.",
+       "ref": ""
+      },
+      {
+       "id": "feelings-w6",
+       "en": "overwhelmed",
+       "ipa": "/ˌoʊvərˈwɛlmd/",
+       "pos": "adjective",
+       "fa": "کلافه",
+       "def_en": "So much is happening that you cannot think.",
+       "sport": "social",
+       "icon": "alert",
+       "level": "B2",
+       "example_en": "The first week was overwhelming and then it stopped being.",
+       "example_fa": "هفتهٔ اول کلافه‌کننده بود و بعد دیگر نبود.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "feelings-x1",
+       "kind": "idiom",
+       "en": "I am over the moon.",
+       "fa": "در پوست خودم نمی‌گنجم.",
+       "meaning_en": "Literally, over the moon; figuratively, extremely happy.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بالای ماه؛ به‌طور مجازی، بی‌نهایت خوشحال.",
+       "register": "neutral",
+       "example_en": "She passed and she is over the moon.",
+       "example_fa": "قبول شد و در پوست خودش نمی‌گنجد.",
+       "alt": ""
+      },
+      {
+       "id": "feelings-x2",
+       "kind": "idiom",
+       "en": "feel blue",
+       "fa": "غمگین بودن",
+       "meaning_en": "Literally, feel the colour blue; figuratively, feel sad.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، آبی حس کردن؛ به‌طور مجازی، غمگین بودن.",
+       "register": "neutral",
+       "example_en": "He feels blue every January.",
+       "example_fa": "او هر دی غمگین است.",
+       "alt": ""
+      },
+      {
+       "id": "feelings-x3",
+       "kind": "expression",
+       "en": "I am a bit nervous about it.",
+       "fa": "کمی برایش مضطربم.",
+       "meaning_en": "Admits worry in a small, manageable size.",
+       "meaning_fa": "نگرانی را در اندازه‌ای کوچک و قابل مدیریت می‌پذیرد.",
+       "register": "neutral",
+       "example_en": "I am a bit nervous about the results.",
+       "example_fa": "برای نتیجه‌ها کمی مضطربم.",
+       "alt": ""
+      },
+      {
+       "id": "feelings-x4",
+       "kind": "collocation",
+       "en": "keep calm",
+       "fa": "آرام ماندن",
+       "meaning_en": "Calm is kept, not stayed.",
+       "meaning_fa": "«آرام» نگه داشته می‌شود، نه «مانده».",
+       "register": "neutral",
+       "example_en": "Keep calm and answer one question at a time.",
+       "example_fa": "آرام بمان و یکی‌یکی جواب بده.",
+       "alt": ""
+      },
+      {
+       "id": "feelings-x5",
+       "kind": "phrasal_verb",
+       "en": "cheer up",
+       "fa": "روحیه گرفتن",
+       "meaning_en": "To become happier, or to make someone happier.",
+       "meaning_fa": "شادتر شدن، یا کسی را شادتر کردن.",
+       "register": "neutral",
+       "example_en": "She cheered up as soon as the music started.",
+       "example_fa": "تا موسیقی شروع شد روحیه‌اش بهتر شد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I feel + [adjective] + about + [noun].",
+       "example_en": "I feel anxious about the move.",
+       "example_fa": "دربارهٔ اسباب‌کشی مضطربم.",
+       "note_en": "About names the cause of the feeling.",
+       "note_fa": "about علت احساس را می‌گوید."
+      },
+      {
+       "frame": "It made me feel + [adjective].",
+       "example_en": "It made me feel seen.",
+       "example_fa": "حس کردم دیده شدم.",
+       "note_en": "The thing first, then the feeling.",
+       "note_fa": "اول چیز، بعد احساس."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "feelings-s1",
+       "en": "I am not sad, I am exhausted, and those two look the same from the outside.",
+       "fa": "غمگین نیستم، خسته‌ام، و این دو از بیرون یکسان به نظر می‌رسند.",
+       "use_en": "Separates two feelings people confuse.",
+       "use_fa": "دو احساسی را که مردم اشتباه می‌گیرند جدا می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "They look the same from outside."
+      },
+      {
+       "id": "feelings-s2",
+       "en": "Tell me the worst version and then tell me the likely one.",
+       "fa": "بدترین نسخه را بگو و بعد نسخهٔ محتمل را.",
+       "use_en": "Uses worry as a tool instead of fighting it.",
+       "use_fa": "نگرانی را ابزار می‌کند نه دشمن.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Then tell me the likely one."
+      }
+     ],
+     "dialogue": {
+      "title_en": "After a difficult week",
+      "title_fa": "بعد از هفته‌ای سخت",
+      "speakers": [
+       "Mina",
+       "Kian"
+      ],
+      "lines": [
+       {
+        "who": "Kian",
+        "en": "You look tired. How are you, honestly?",
+        "fa": "خسته‌ای به نظر می‌رسی. صادقانه حالت چطور است؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Overwhelmed, mostly. Too many small things at once.",
+        "fa": "بیشتر کلافه. خیلی چیزهای کوچک با هم."
+       },
+       {
+        "who": "Kian",
+        "en": "Not one big thing, then.",
+        "fa": "پس یک چیز بزرگ نیست."
+       },
+       {
+        "who": "Mina",
+        "en": "No. And that makes it harder to explain.",
+        "fa": "نه. و همین توضیح دادنش را سخت‌تر می‌کند."
+       },
+       {
+        "who": "Kian",
+        "en": "You do not have to explain. Do you want advice or company?",
+        "fa": "لازم نیست توضیح بدهی. نصیحت می‌خواهی یا همراهی؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Company. And tea.",
+        "fa": "همراهی. و چای."
+       },
+       {
+        "who": "Kian",
+        "en": "Then put the kettle on and I will complain about my week, so you have something to laugh at.",
+        "fa": "پس کتری را بگذار و من از هفته‌ام می‌نالم تا چیزی برای خندیدن داشته باشی."
+       },
+       {
+        "who": "Mina",
+        "en": "That is the kindest offer I have had all week.",
+        "fa": "این مهربان‌ترین پیشنهادی است که تمام هفته داشته‌ام."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Saying how you feel when asked",
+       "title_fa": "گفتن احساس وقتی می‌پرسند",
+       "situation_en": "Someone asks how you are and you are not fine.",
+       "situation_fa": "کسی می‌پرسد چطور هستی و خوب نیستی.",
+       "task_en": "Be honest at a size that fits the conversation.",
+       "task_fa": "صادق باش در اندازه‌ای که در گفت‌وگو جا می‌شود.",
+       "answer_en": "Not great, to be honest. I am relieved the project is over but I am still nervous about the review.",
+       "answer_fa": "راستش خیلی خوب نیستم. خوشحالم پروژه تمام شد اما هنوز برای بازبینی مضطربم."
+      },
+      {
+       "title_en": "Comforting without fixing",
+       "title_fa": "دلداری بی‌درست‌کردن",
+       "situation_en": "A friend is upset and you want to help.",
+       "situation_fa": "دوستی ناراحت است و می‌خواهی کمک کنی.",
+       "task_en": "Ask what they need before offering solutions.",
+       "task_fa": "پیش از پیشنهاد راه‌حل بپرس چه لازم دارند.",
+       "answer_en": "That sounds exhausting. Do you want me to help you think it through, or would you rather I just listened?",
+       "answer_fa": "این خسته‌کننده به نظر می‌رسد. می‌خواهی کمک کنم درباره‌اش فکر کنی، یا ترجیح می‌دهی فقط گوش کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "feelings-q1",
+       "q_en": "\"Over the moon\" means ...",
+       "q_fa": "«Over the moon» یعنی ...",
+       "options": [
+        "extremely happy",
+        "awake all night",
+        "very confused"
+       ],
+       "answer": "extremely happy",
+       "why_en": "The moon is a picture of height, so of joy.",
+       "why_fa": "«ماه» تصویر اوج است، پس تصویر شادی."
+      },
+      {
+       "id": "feelings-q2",
+       "q_en": "Relieved is the feeling when ...",
+       "q_fa": "«آسوده‌خاطر» حالی است وقتی ...",
+       "options": [
+        "something bad did not happen",
+        "something bad happens",
+        "you feel nothing"
+       ],
+       "answer": "something bad did not happen",
+       "why_en": "Relief follows a danger that passed.",
+       "why_fa": "آسودگی پس از خطری می‌آید که گذشت."
+      },
+      {
+       "id": "feelings-q3",
+       "q_en": "Being nervous is being ...",
+       "q_fa": "«مضطرب» یعنی ...",
+       "options": [
+        "worried about what is coming",
+        "angry about the past",
+        "sure of yourself"
+       ],
+       "answer": "worried about what is coming",
+       "why_en": "Nervous looks forward.",
+       "why_fa": "«مضطرب» به آینده نگاه می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "opinions",
+     "order": 10,
+     "icon": "speech",
+     "title_en": "Opinions and disagreeing kindly",
+     "title_fa": "نظر دادن و مخالفت مهربانانه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "How to say what you think, disagree without a fight and change your mind with dignity.",
+     "blurb_fa": "چطور بگویی چه فکر می‌کنی، بی‌دعوا مخالفت کنی و با وقار نظرت را عوض کنی.",
+     "objectives": [
+      {
+       "en": "give an opinion with a reason.",
+       "fa": "نظرت را با دلیل بگو."
+      },
+      {
+       "en": "disagree with someone without attacking them.",
+       "fa": "با کسی مخالفت کن بی‌آنکه به او حمله کنی."
+      },
+      {
+       "en": "change your mind and say so clearly.",
+       "fa": "نظرت را عوض کن و روشن بگو."
+      }
+     ],
+     "words": [
+      {
+       "id": "opinions-w1",
+       "en": "opinion",
+       "ipa": "/əˈpɪnjən/",
+       "pos": "noun",
+       "fa": "نظر",
+       "def_en": "What someone thinks about something.",
+       "sport": "social",
+       "icon": "speech",
+       "level": "A2",
+       "example_en": "In my opinion, the second plan is better.",
+       "example_fa": "به نظر من، برنامهٔ دوم بهتر است.",
+       "ref": ""
+      },
+      {
+       "id": "opinions-w2",
+       "en": "agree",
+       "ipa": "/əˈɡri/",
+       "pos": "verb",
+       "fa": "موافق بودن",
+       "def_en": "To think the same as someone.",
+       "sport": "social",
+       "icon": "nod",
+       "level": "A2",
+       "example_en": "I agree with the first half of that.",
+       "example_fa": "با نیمهٔ اول آن موافقم.",
+       "ref": ""
+      },
+      {
+       "id": "opinions-w3",
+       "en": "disagree",
+       "ipa": "/ˌdɪsəˈɡri/",
+       "pos": "verb",
+       "fa": "مخالف بودن",
+       "def_en": "To think something different.",
+       "sport": "social",
+       "icon": "frown",
+       "level": "B1",
+       "example_en": "We disagree about money and nothing else.",
+       "example_fa": "دربارهٔ پول مخالفیم و هیچ چیز دیگر.",
+       "ref": ""
+      },
+      {
+       "id": "opinions-w4",
+       "en": "point of view",
+       "ipa": "/ˌpɔɪnt əv ˈvju/",
+       "pos": "noun",
+       "fa": "دیدگاه",
+       "def_en": "The way one person sees a situation.",
+       "sport": "social",
+       "icon": "speech",
+       "level": "B1",
+       "example_en": "From her point of view, the decision was fair.",
+       "example_fa": "از دیدگاه او، تصمیم منصفانه بود.",
+       "ref": ""
+      },
+      {
+       "id": "opinions-w5",
+       "en": "compromise",
+       "ipa": "/ˈkɑmprəˌmaɪz/",
+       "pos": "noun",
+       "fa": "مصالحه",
+       "def_en": "An agreement where both sides give something up.",
+       "sport": "social",
+       "icon": "handshake",
+       "level": "B2",
+       "example_en": "The compromise was two days here and two days there.",
+       "example_fa": "مصالحه دو روز اینجا و دو روز آنجا بود.",
+       "ref": ""
+      },
+      {
+       "id": "opinions-w6",
+       "en": "respectful",
+       "ipa": "/rɪˈspɛktfəl/",
+       "pos": "adjective",
+       "fa": "محترمانه",
+       "def_en": "Polite even when you disagree.",
+       "sport": "social",
+       "icon": "shield",
+       "level": "B2",
+       "example_en": "They had a respectful argument in front of everyone.",
+       "example_fa": "آنها در حضور همه بحثی محترمانه داشتند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "opinions-x1",
+       "kind": "expression",
+       "en": "I see your point, but ...",
+       "fa": "منظورت را می‌فهمم، اما ...",
+       "meaning_en": "Agrees with the person before disagreeing with the idea.",
+       "meaning_fa": "پیش از مخالفت با ایده، با شخص موافقت می‌کند.",
+       "register": "neutral",
+       "example_en": "I see your point, but the cost is too high.",
+       "example_fa": "منظورت را می‌فهمم، اما هزینه زیاد است.",
+       "alt": ""
+      },
+      {
+       "id": "opinions-x2",
+       "kind": "expression",
+       "en": "Let us agree to disagree.",
+       "fa": "بیا با اختلافمان کنار بیاییم.",
+       "meaning_en": "Ends an argument without a winner.",
+       "meaning_fa": "دعوا را بی‌برنده تمام می‌کند.",
+       "register": "neutral",
+       "example_en": "We have been through this. Let us agree to disagree.",
+       "example_fa": "این را رد کرده‌ایم. بیا با اختلافمان کنار بیاییم.",
+       "alt": ""
+      },
+      {
+       "id": "opinions-x3",
+       "kind": "collocation",
+       "en": "a matter of opinion",
+       "fa": "موضوع سلیقه",
+       "meaning_en": "Marked as opinion so it cannot be called wrong.",
+       "meaning_fa": "به‌عنوان سلیقه علامت می‌خورد تا نتوان گفت غلط است.",
+       "register": "neutral",
+       "example_en": "Which city is friendlier is a matter of opinion.",
+       "example_fa": "کدام شهر گرم‌تر است موضوع سلیقه است.",
+       "alt": ""
+      },
+      {
+       "id": "opinions-x4",
+       "kind": "idiom",
+       "en": "at odds with",
+       "fa": "در تضاد با",
+       "meaning_en": "Literally, at opposite numbers on a board; figuratively, in disagreement with.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، روی شماره‌های مقابل یک صفحه؛ به‌طور مجازی، در اختلاف با.",
+       "register": "neutral",
+       "example_en": "His plan is at odds with everything we agreed.",
+       "example_fa": "برنامهٔ او با هر چه توافق کردیم در تضاد است.",
+       "alt": ""
+      },
+      {
+       "id": "opinions-x5",
+       "kind": "phrasal_verb",
+       "en": "back down",
+       "fa": "عقب‌نشینی کردن",
+       "meaning_en": "To stop defending a position.",
+       "meaning_fa": "از دفاع از موضعی دست کشیدن.",
+       "register": "neutral",
+       "example_en": "She backed down when she saw the figures.",
+       "example_fa": "وقتی رقم‌ها را دید عقب‌نشینی کرد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I think + [clause], because + [reason].",
+       "example_en": "I think we should wait, because nothing is ready.",
+       "example_fa": "فکر می‌کنم باید صبر کنیم، چون هیچ چیز آماده نیست.",
+       "note_en": "A reason makes an opinion arguable rather than personal.",
+       "note_fa": "دلیل، نظر را قابل بحث می‌کند نه شخصی."
+      },
+      {
+       "frame": "In my opinion, + [clause].",
+       "example_en": "In my opinion, the plan is too slow.",
+       "example_fa": "به نظر من، برنامه خیلی کند است.",
+       "note_en": "Marks the sentence as a view, not a fact.",
+       "note_fa": "جمله را نظر علامت می‌زند، نه واقعیت."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "opinions-s1",
+       "en": "I was wrong about this last year, so I am saying it slowly.",
+       "fa": "سال گذشته در این باره اشتباه می‌کردم، پس آرام می‌گویمش.",
+       "use_en": "Admits a past error to earn a hearing.",
+       "use_fa": "اشتباه گذشته را می‌پذیرد تا شنیده شود.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "So I am saying it slowly."
+      },
+      {
+       "id": "opinions-s2",
+       "en": "You can disagree with the decision without disliking the person who made it.",
+       "fa": "می‌توانی با تصمیم مخالف باشی بی‌آنکه از تصمیم‌گیرنده بدت بیاید.",
+       "use_en": "Separates the idea from the person.",
+       "use_fa": "ایده را از شخص جدا می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Without disliking the person."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Choosing a flat together",
+      "title_fa": "انتخاب خانه با هم",
+      "speakers": [
+       "Nazanin",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Nazanin",
+        "en": "I think we should take the smaller one near the park.",
+        "fa": "فکر می‌کنم باید کوچک‌تری نزدیک پارک را بگیریم."
+       },
+       {
+        "who": "Omid",
+        "en": "What makes you say that? The other one is cheaper.",
+        "fa": "چه چیزی باعث شد این را بگویی؟ آن یکی ارزان‌تر است."
+       },
+       {
+        "who": "Nazanin",
+        "en": "Because we walk everywhere and the cheap one needs a bus twice a day.",
+        "fa": "چون همه‌جا پیاده می‌رویم و ارزان‌تر روزی دو بار اتوبوس می‌خواهد."
+       },
+       {
+        "who": "Omid",
+        "en": "I see your point, but two bus fares a day add up too.",
+        "fa": "منظورت را می‌فهمم، اما روزی دو کرایه هم جمع می‌شود."
+       },
+       {
+        "who": "Nazanin",
+        "en": "Then let us do the sums properly instead of guessing.",
+        "fa": "پس بیا درست حساب کنیم، نه حدس بزنیم."
+       },
+       {
+        "who": "Omid",
+        "en": "Agreed. If it is within twenty percent, we take the park.",
+        "fa": "قبول. اگر تا بیست درصد باشد، پارک را می‌گیریم."
+       },
+       {
+        "who": "Nazanin",
+        "en": "That is a compromise I can defend to my mother.",
+        "fa": "این مصالحه‌ای است که می‌توانم پیش مادرم از آن دفاع کنم."
+       },
+       {
+        "who": "Omid",
+        "en": "Careful, she is at odds with all our plans.",
+        "fa": "مراقب باش، او با همهٔ برنامه‌های ما در تضاد است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Disagreeing in a meeting",
+       "title_fa": "مخالفت در جلسه",
+       "situation_en": "A senior colleague proposes something you think will fail.",
+       "situation_fa": "همکار ارشدی چیزی پیشنهاد می‌دهد که فکر می‌کنی شکست می‌خورد.",
+       "task_en": "Disagree with the plan and offer an alternative.",
+       "task_fa": "با برنامه مخالفت کن و جایگزینی پیشنهاد بده.",
+       "answer_en": "I see your point about speed, but I worry the testing gets skipped. Could we run it on one team first and measure it?",
+       "answer_fa": "دربارهٔ سرعت منظورت را می‌فهمم، اما نگرانم تست‌ها جا بیفتند. می‌شود اول روی یک تیم اجرا و اندازه‌گیری کنیم؟"
+      },
+      {
+       "title_en": "Changing your mind",
+       "title_fa": "عوض کردن نظر",
+       "situation_en": "You argued for one plan and new facts arrived.",
+       "situation_fa": "از یک برنامه دفاع کردی و واقعیت تازه‌ای رسید.",
+       "task_en": "Say clearly that the facts changed you, not the pressure.",
+       "task_fa": "روشن بگو واقعیت‌ها نظرت را عوض کردند، نه فشار.",
+       "answer_en": "I was wrong, and the numbers are why. I still think the idea is right, but not this year.",
+       "answer_fa": "اشتباه می‌کردم و رقم‌ها دلیلش هستند. هنوز فکر می‌کنم ایده درست است، اما نه امسال."
+      }
+     ],
+     "practice": [
+      {
+       "id": "opinions-q1",
+       "q_en": "\"Agree to disagree\" means ...",
+       "q_fa": "«Agree to disagree» یعنی ...",
+       "options": [
+        "stop arguing without either side winning",
+        "agree completely",
+        "refuse to speak"
+       ],
+       "answer": "stop arguing without either side winning",
+       "why_en": "The disagreement stays, the argument ends.",
+       "why_fa": "اختلاف می‌ماند، دعوا تمام می‌شود."
+      },
+      {
+       "id": "opinions-q2",
+       "q_en": "\"A matter of opinion\" means ...",
+       "q_fa": "«موضوع سلیقه» یعنی ...",
+       "options": [
+        "people can reasonably think differently",
+        "the opinion is wrong",
+        "nobody has an opinion"
+       ],
+       "answer": "people can reasonably think differently",
+       "why_en": "Opinion is not a fact.",
+       "why_fa": "نظر، واقعیت نیست."
+      },
+      {
+       "id": "opinions-q3",
+       "q_en": "\"Backing down\" is ...",
+       "q_fa": "«عقب‌نشینی» ...",
+       "options": [
+        "giving up a position",
+        "climbing down a ladder",
+        "sitting down again"
+       ],
+       "answer": "giving up a position",
+       "why_en": "Down is the retreat from the position.",
+       "why_fa": "«پایین» عقب‌نشینی از موضع است."
+      }
+     ]
+    },
+    {
+     "id": "polite",
+     "order": 11,
+     "icon": "sorry",
+     "title_en": "Polite expressions and apologies",
+     "title_fa": "عبارت‌های مؤدبانه و عذرخواهی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Asking for things without demanding them, apologising so it counts and knowing when a thank you is too much.",
+     "blurb_fa": "خواستن بی‌طلبیدن، عذرخواهی‌ای که حساب شود و دانستن اینکه تشکر کی زیاد است.",
+     "objectives": [
+      {
+       "en": "make a request at three levels of politeness.",
+       "fa": "درخواست را در سه سطح ادب بیان کن."
+      },
+      {
+       "en": "apologise and say what you will do differently.",
+       "fa": "عذرخواهی کن و بگو چه کاری را جور دیگری می‌کنی."
+      },
+      {
+       "en": "interrupt someone, ask a favour and refuse one politely.",
+       "fa": "وسط حرف کسی بیا، لطفی بخواه و مؤدبانه لطفی را رد کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "polite-w1",
+       "en": "polite",
+       "ipa": "/pəˈlaɪt/",
+       "pos": "adjective",
+       "fa": "مؤدب",
+       "def_en": "Behaving in a way that respects other people.",
+       "sport": "social",
+       "icon": "smile",
+       "level": "A2",
+       "example_en": "It is polite to ask before you sit down.",
+       "example_fa": "مؤدبانه است پیش از نشستن بپرسی.",
+       "ref": ""
+      },
+      {
+       "id": "polite-w2",
+       "en": "apology",
+       "ipa": "/əˈpɑlədʒi/",
+       "pos": "noun",
+       "fa": "عذرخواهی",
+       "def_en": "Words that say you are sorry and mean it.",
+       "sport": "social",
+       "icon": "sorry",
+       "level": "B1",
+       "example_en": "His apology named what he had done.",
+       "example_fa": "عذرخواهی‌اش گفت چه کرده است.",
+       "ref": ""
+      },
+      {
+       "id": "polite-w3",
+       "en": "favour",
+       "ipa": "/ˈfeɪvər/",
+       "pos": "noun",
+       "fa": "لطف",
+       "def_en": "A small act of help you ask someone for.",
+       "sport": "social",
+       "icon": "hand",
+       "level": "A2",
+       "example_en": "Can I ask you a favour?",
+       "example_fa": "می‌توانم لطفی از تو بخواهم؟",
+       "ref": ""
+      },
+      {
+       "id": "polite-w4",
+       "en": "interrupt",
+       "ipa": "/ˌɪntəˈrʌpt/",
+       "pos": "verb",
+       "fa": "وسط حرف کسی آمدن",
+       "def_en": "To break into someone else's turn to speak.",
+       "sport": "social",
+       "icon": "hand",
+       "level": "B1",
+       "example_en": "Sorry to interrupt, but the taxi is here.",
+       "example_fa": "ببخشید وسط حرفتان می‌آیم، اما تاکسی رسید.",
+       "ref": ""
+      },
+      {
+       "id": "polite-w5",
+       "en": "appreciate",
+       "ipa": "/əˈpriʃieɪt/",
+       "pos": "verb",
+       "fa": "قدردان بودن",
+       "def_en": "To recognise fully what someone did for you.",
+       "sport": "social",
+       "icon": "heart",
+       "level": "B1",
+       "example_en": "I really appreciate you staying late.",
+       "example_fa": "واقعاً قدردان ماندنت هستم.",
+       "ref": ""
+      },
+      {
+       "id": "polite-w6",
+       "en": "manners",
+       "ipa": "/ˈmænərz/",
+       "pos": "noun",
+       "fa": "آداب",
+       "def_en": "The small rules of polite behaviour.",
+       "sport": "social",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "He has good manners and no small talk.",
+       "example_fa": "ادب دارد و گپ خودمانی ندارد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "polite-x1",
+       "kind": "expression",
+       "en": "Could you do me a favour?",
+       "fa": "می‌توانی لطفی به من بکنی؟",
+       "meaning_en": "Prepares the listener for a request instead of dropping it.",
+       "meaning_fa": "شنونده را برای درخواست آماده می‌کند نه اینکه یک‌باره بگوید.",
+       "register": "polite",
+       "example_en": "Could you do me a favour and hold this?",
+       "example_fa": "می‌توانی لطفی بکنی و این را نگه داری؟",
+       "alt": ""
+      },
+      {
+       "id": "polite-x2",
+       "kind": "expression",
+       "en": "I am sorry, I did not mean it.",
+       "fa": "متأسفم، منظوری نداشتم.",
+       "meaning_en": "Distinguishes the harm from the intention.",
+       "meaning_fa": "آسیب را از قصد جدا می‌کند.",
+       "register": "neutral",
+       "example_en": "I am sorry, I did not mean it that way.",
+       "example_fa": "متأسفم، منظورم آن‌طور نبود.",
+       "alt": ""
+      },
+      {
+       "id": "polite-x3",
+       "kind": "collocation",
+       "en": "show good manners",
+       "fa": "ادب نشان دادن",
+       "meaning_en": "Manners are shown, not done.",
+       "meaning_fa": "ادب «نشان داده» می‌شود، نه «انجام».",
+       "register": "neutral",
+       "example_en": "He showed good manners by thanking everyone by name.",
+       "example_fa": "او با تشکر از همه با نامشان ادب نشان داد.",
+       "alt": ""
+      },
+      {
+       "id": "polite-x4",
+       "kind": "idiom",
+       "en": "excuse my French",
+       "fa": "ببخشید اگر بدحرف زدم",
+       "meaning_en": "Literally, excuse the French; figuratively, sorry for the word I just used.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، فرانسوی‌ام را ببخش؛ به‌طور مجازی، ببخشید برای واژه‌ای که همین حالا گفتم.",
+       "register": "neutral",
+       "example_en": "Excuse my French, but that driver is a menace.",
+       "example_fa": "ببخشید اگر بدحرف زدم، اما آن راننده خطرناک است.",
+       "alt": ""
+      },
+      {
+       "id": "polite-x5",
+       "kind": "expression",
+       "en": "After you.",
+       "fa": "شما اول.",
+       "meaning_en": "Lets someone go first, at a door or in a queue.",
+       "meaning_fa": "اجازه می‌دهد کسی در در یا صف اول برود.",
+       "register": "formal",
+       "example_en": "After you, I insist.",
+       "example_fa": "شما اول، اصرار دارم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Would you mind + [verb-ing]?",
+       "example_en": "Would you mind closing the window?",
+       "example_fa": "می‌شود پنجره را ببندی؟",
+       "note_en": "The most polite way to ask for an action.",
+       "note_fa": "مؤدبانه‌ترین راه خواستن یک کار."
+      },
+      {
+       "frame": "I am sorry for + [noun or -ing].",
+       "example_en": "I am sorry for keeping you waiting.",
+       "example_fa": "متأسفم که منتظرت نگه داشتم.",
+       "note_en": "Sorry for takes the thing, not the person.",
+       "note_fa": "sorry for چیز را می‌گیرد، نه شخص را."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "polite-s1",
+       "en": "I am sorry I said it that way, and here is what I will do next time.",
+       "fa": "متأسفم که آن‌طور گفتم، و این کاری است که دفعهٔ بعد می‌کنم.",
+       "use_en": "Apology plus repair, which is what makes it count.",
+       "use_fa": "عذرخواهی به‌همراه جبران، همین آن را حساب‌شده می‌کند.",
+       "level": "B2",
+       "polite": "polite",
+       "alt": "Here is what I will do next time."
+      },
+      {
+       "id": "polite-s2",
+       "en": "You do not have to say yes, and I will not ask again.",
+       "fa": "لازم نیست بله بگویی و من دوباره نمی‌پرسم.",
+       "use_en": "Makes a refusal safe.",
+       "use_fa": "«نه» را بی‌خطر می‌کند.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "I will not ask again."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Asking a neighbour for help",
+      "title_fa": "لطف خواستن از همسایه",
+      "speakers": [
+       "Bahar",
+       "Navid"
+      ],
+      "lines": [
+       {
+        "who": "Bahar",
+        "en": "Navid, sorry to interrupt your evening. Could you do me a favour?",
+        "fa": "نوید، ببخشید وسط عصرت می‌آیم. می‌توانی لطفی بکنی؟"
+       },
+       {
+        "who": "Navid",
+        "en": "Of course. What do you need?",
+        "fa": "البته. چه لازم داری؟"
+       },
+       {
+        "who": "Bahar",
+        "en": "Would you mind taking in a parcel tomorrow? I will be at the hospital all day.",
+        "fa": "می‌شود فردا بسته‌ای را تحویل بگیری؟ تمام روز بیمارستانم."
+       },
+       {
+        "who": "Navid",
+        "en": "No problem at all. What time does it come?",
+        "fa": "هیچ مشکلی نیست. چه ساعتی می‌آید؟"
+       },
+       {
+        "who": "Bahar",
+        "en": "Any time before six. And I am sorry for asking at such short notice.",
+        "fa": "هر وقت قبل از شش. و متأسفم که این‌قدر دیر خبر می‌دهم."
+       },
+       {
+        "who": "Navid",
+        "en": "You helped me with my bike last month. This is nothing.",
+        "fa": "ماه پیش با دوچرخه‌ام کمکم کردی. این هیچ است."
+       },
+       {
+        "who": "Bahar",
+        "en": "I really appreciate it. I will bring you something from the bakery.",
+        "fa": "واقعاً قدردانم. از نانوایی چیزی برایت می‌آورم."
+       },
+       {
+        "who": "Navid",
+        "en": "After you carry it upstairs, we will call it even.",
+        "fa": "بعد از اینکه بالا آوردیش، حساب برابر می‌شود."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Apologising for a real mistake",
+       "title_fa": "عذرخواهی برای اشتباهی واقعی",
+       "situation_en": "You sent a private message to the wrong group.",
+       "situation_fa": "پیام خصوصی را به گروه اشتباه فرستادی.",
+       "task_en": "Name it, apologise without excuses, say what you changed.",
+       "task_fa": "نامش را ببر، بی‌بهانه عذرخواهی کن، بگو چه را عوض کردی.",
+       "answer_en": "I sent that to the wrong group and it was my mistake, not a slip of the phone. I have deleted it and I have turned off group autofill.",
+       "answer_fa": "آن را به گروه اشتباه فرستادم و اشتباه من بود، نه لغزش گوشی. پاکش کردم و پرکردن خودکار گروه را خاموش کردم."
+      },
+      {
+       "title_en": "Refusing a favour politely",
+       "title_fa": "رد کردن لطف مؤدبانه",
+       "situation_en": "A colleague asks you to cover their shift and you cannot.",
+       "situation_fa": "همکاری می‌خواهد شیفتش را بگیری و نمی‌توانی.",
+       "task_en": "Refuse the request, keep the relationship.",
+       "task_fa": "درخواست را رد کن، رابطه را نگه دار.",
+       "answer_en": "I cannot take that shift, I am sorry. I can stay an hour late on Thursday if that helps.",
+       "answer_fa": "نمی‌توانم آن شیفت را بگیرم، متأسفم. اگر کمک کند می‌توانم پنجشنبه یک ساعت بیشتر بمانم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "polite-q1",
+       "q_en": "\"Would you mind closing the door?\" is ...",
+       "q_fa": "«Would you mind closing the door?» ...",
+       "options": [
+        "a polite request",
+        "a question about feelings",
+        "a refusal"
+       ],
+       "answer": "a polite request",
+       "why_en": "Mind asks about the trouble, so it is very polite.",
+       "why_fa": "«Mind» دربارهٔ زحمت می‌پرسد، پس بسیار مؤدبانه است."
+      },
+      {
+       "id": "polite-q2",
+       "q_en": "An apology should ...",
+       "q_fa": "عذرخواهی باید ...",
+       "options": [
+        "name what you did",
+        "explain why you were busy",
+        "blame the other person"
+       ],
+       "answer": "name what you did",
+       "why_en": "Naming it is what makes it an apology.",
+       "why_fa": "نام بردن آن، عذرخواهی را عذرخواهی می‌کند."
+      },
+      {
+       "id": "polite-q3",
+       "q_en": "Manners are ...",
+       "q_fa": "«آداب» ...",
+       "options": [
+        "shown",
+        "done",
+        "made"
+       ],
+       "answer": "shown",
+       "why_en": "English shows good manners.",
+       "why_fa": "انگلیسی ادب را show می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "slang",
+     "order": 12,
+     "icon": "chat",
+     "title_en": "Slang and informal conversations",
+     "title_fa": "زبان عامیانه و گفت‌وگوی خودمانی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "How friends really talk: short forms, slang, jokes and the phrases that mean the opposite of their words.",
+     "blurb_fa": "دوستان واقعاً چطور حرف می‌زنند: کوتاه‌شده‌ها، عامیانه، شوخی و عبارت‌هایی که خلاف واژه‌هایشان معنا می‌دهند.",
+     "objectives": [
+      {
+       "en": "use common slang without sounding like a textbook.",
+       "fa": "عامیانهٔ رایج را به کار ببر بی‌آنکه شبیه کتاب درسی شوی."
+      },
+      {
+       "en": "tell when slang is friendly and when it is rude.",
+       "fa": "تشخیص بده عامیانه کجا دوستانه است و کجا بی‌ادبانه."
+      },
+      {
+       "en": "switch back to neutral English when the situation needs it.",
+       "fa": "وقتی موقعیت لازم دارد به انگلیسی خنثی برگرد."
+      }
+     ],
+     "words": [
+      {
+       "id": "slang-w1",
+       "en": "slang",
+       "ipa": "/slæŋ/",
+       "pos": "noun",
+       "fa": "زبان عامیانه",
+       "def_en": "Very informal words used by a group, not in writing.",
+       "sport": "social",
+       "icon": "chat",
+       "level": "B1",
+       "example_en": "Slang dates quickly, so learn the patterns not just the words.",
+       "example_fa": "عامیانه زود قدیمی می‌شود، پس الگوها را یاد بگیر نه فقط واژه‌ها.",
+       "ref": ""
+      },
+      {
+       "id": "slang-w2",
+       "en": "casual",
+       "ipa": "/ˈkæʒuəl/",
+       "pos": "adjective",
+       "fa": "خودمانی",
+       "def_en": "Relaxed and not formal.",
+       "sport": "social",
+       "icon": "shirt",
+       "level": "B1",
+       "example_en": "His messages are casual, full of short forms.",
+       "example_fa": "پیام‌هایش خودمانی و پر از کوتاه‌شده است.",
+       "ref": ""
+      },
+      {
+       "id": "slang-w3",
+       "en": "vibe",
+       "ipa": "/vaɪb/",
+       "pos": "noun",
+       "fa": "حس‌وحال",
+       "def_en": "The feeling a place or a person gives you.",
+       "sport": "social",
+       "icon": "smile",
+       "level": "B2",
+       "example_en": "The place has a good vibe on Fridays.",
+       "example_fa": "این جا جمعه‌ها حس‌وحال خوبی دارد.",
+       "ref": ""
+      },
+      {
+       "id": "slang-w4",
+       "en": "buddy",
+       "ipa": "/ˈbʌdi/",
+       "pos": "noun",
+       "fa": "رفیق",
+       "def_en": "A friend, in American informal speech.",
+       "sport": "social",
+       "icon": "group",
+       "level": "B1",
+       "example_en": "He is my climbing buddy from the gym.",
+       "example_fa": "او رفیق صخره‌نوردی من از باشگاه است.",
+       "ref": ""
+      },
+      {
+       "id": "slang-w5",
+       "en": "meme",
+       "ipa": "/mim/",
+       "pos": "noun",
+       "fa": "میم",
+       "def_en": "A joke picture or phrase that spreads online.",
+       "sport": "social",
+       "icon": "camera",
+       "level": "B2",
+       "example_en": "She sends me a meme every morning.",
+       "example_fa": "او هر صبح برایم یک میم می‌فرستد.",
+       "ref": ""
+      },
+      {
+       "id": "slang-w6",
+       "en": "banter",
+       "ipa": "/ˈbæntər/",
+       "pos": "noun",
+       "fa": "شوخی و کری‌خوانی",
+       "def_en": "Friendly joking that is not meant to hurt.",
+       "sport": "social",
+       "icon": "chat",
+       "level": "B2",
+       "example_en": "Their banter sounds rude to anyone outside the group.",
+       "example_fa": "کری‌خوانی آنها برای هر کسی بیرون گروه بی‌ادبانه به نظر می‌رسد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "slang-x1",
+       "kind": "expression",
+       "en": "What's up?",
+       "fa": "چخبر؟",
+       "meaning_en": "A greeting between friends, not a real question about problems.",
+       "meaning_fa": "سلامی میان دوستان، نه سؤال واقعی دربارهٔ مشکل.",
+       "register": "slang",
+       "example_en": "What's up, buddy? You look pleased.",
+       "example_fa": "چخبر رفیق؟ خوشحال به نظر می‌رسی.",
+       "alt": ""
+      },
+      {
+       "id": "slang-x2",
+       "kind": "expression",
+       "en": "No worries.",
+       "fa": "مشکلی نیست.",
+       "meaning_en": "Australian-influenced, now everywhere: it answers an apology.",
+       "meaning_fa": "برآمده از استرالیایی، حالا همه‌جا: پاسخ عذرخواهی است.",
+       "register": "slang",
+       "example_en": "No worries, it happens.",
+       "example_fa": "مشکلی نیست، پیش می‌آید.",
+       "alt": ""
+      },
+      {
+       "id": "slang-x3",
+       "kind": "expression",
+       "en": "I am down.",
+       "fa": "پای‌ه‌ام.",
+       "meaning_en": "Means yes to a plan, not sadness.",
+       "meaning_fa": "یعنی بله به یک برنامه، نه غمگینی.",
+       "register": "slang",
+       "example_en": "Cinema tonight? I am down.",
+       "example_fa": "امشب سینما؟ پای‌ه‌ام.",
+       "alt": ""
+      },
+      {
+       "id": "slang-x4",
+       "kind": "phrasal_verb",
+       "en": "chill out",
+       "fa": "آرام گرفتن",
+       "meaning_en": "To relax, or to tell someone to relax.",
+       "meaning_fa": "آرام شدن، یا به کسی گفتن آرام باشد.",
+       "register": "neutral",
+       "example_en": "We chilled out in the park all afternoon.",
+       "example_fa": "تمام بعدازظهر در پارک آرام گرفتیم.",
+       "alt": ""
+      },
+      {
+       "id": "slang-x5",
+       "kind": "idiom",
+       "en": "spill the tea",
+       "fa": "بگو چه خبر است",
+       "meaning_en": "Literally, spill the tea; figuratively, tell the gossip.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، چای را ریختن؛ به‌طور مجازی، خبرچینی را گفتن.",
+       "register": "slang",
+       "example_en": "Come on, spill the tea. What did she say?",
+       "example_fa": "بیا، بگو چه خبر است. او چه گفت؟",
+       "alt": ""
+      },
+      {
+       "id": "slang-x6",
+       "kind": "idiom",
+       "en": "long time no see",
+       "fa": "خیلی وقت است ندیدمت",
+       "meaning_en": "Literally, a long time without seeing; figuratively, the standard greeting after months.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، زمانی دراز بی دیدن؛ به‌طور مجازی، سلام همیشگی بعد از ماه‌ها.",
+       "register": "neutral",
+       "example_en": "Long time no see. You have changed your hair.",
+       "example_fa": "خیلی وقت است ندیدمت. موهایت را عوض کرده‌ای.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I am not going to lie, + [clause].",
+       "example_en": "I am not going to lie, that was terrible.",
+       "example_fa": "راستش را بخواهی، آن افتضاح بود.",
+       "note_en": "A casual way to introduce an honest opinion.",
+       "note_fa": "راهی خودمانی برای گفتن نظری صادقانه."
+      },
+      {
+       "frame": "You are not going to believe + [clause].",
+       "example_en": "You are not going to believe what happened.",
+       "example_fa": "باورت نمی‌شود چه شد.",
+       "note_en": "Opens a story with a promise.",
+       "note_fa": "داستان را با قولی باز می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "slang-s1",
+       "en": "We talk in half sentences and wrong grammar and understand each other perfectly.",
+       "fa": "با نیم‌جمله و گرامر غلط حرف می‌زنیم و همدیگر را کامل می‌فهمیم.",
+       "use_en": "Describes real friendship talk.",
+       "use_fa": "گفت‌وگوی واقعی دوستی را توصیف می‌کند.",
+       "level": "B1",
+       "polite": "casual",
+       "alt": "Understand each other perfectly."
+      },
+      {
+       "id": "slang-s2",
+       "en": "I love the slang, but I would not use it with my manager.",
+       "fa": "عامیانه را دوست دارم، اما با مدیرم به کار نمی‌برم.",
+       "use_en": "Shows judgement about register.",
+       "use_fa": "قضاوت دربارهٔ لحن را نشان می‌دهد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Not with my manager."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Two friends in a cafe",
+      "title_fa": "دو دوست در کافه",
+      "speakers": [
+       "Yasi",
+       "Kamran"
+      ],
+      "lines": [
+       {
+        "who": "Kamran",
+        "en": "Long time no see! What's up?",
+        "fa": "خیلی وقت است ندیدمت! چخبر؟"
+       },
+       {
+        "who": "Yasi",
+        "en": "Not much. Work, sleep, repeat.",
+        "fa": "چیز خاصی نیست. کار، خواب، تکرار."
+       },
+       {
+        "who": "Kamran",
+        "en": "I am not going to lie, you look tired.",
+        "fa": "راستش را بخواهی، خسته‌ای به نظر می‌رسی."
+       },
+       {
+        "who": "Yasi",
+        "en": "Thanks, buddy. Very motivating.",
+        "fa": "ممنون رفیق. خیلی انگیزه‌بخش بود."
+       },
+       {
+        "who": "Kamran",
+        "en": "No worries, that is what I am for. Cinema on Friday?",
+        "fa": "مشکلی نیست، من برای همینم. جمعه سینما؟"
+       },
+       {
+        "who": "Yasi",
+        "en": "I am down. But nothing sad.",
+        "fa": "پای‌ه‌ام. اما هیچ فیلم غم‌انگیزی."
+       },
+       {
+        "who": "Kamran",
+        "en": "Then spill the tea: what happened with the flat?",
+        "fa": "پس بگو چه خبر است: با خانه چه شد؟"
+       },
+       {
+        "who": "Yasi",
+        "en": "Later. First, coffee and no work talk.",
+        "fa": "بعداً. اول قهوه و هیچ حرف کاری."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Switching out of slang",
+       "title_fa": "بیرون آمدن از عامیانه",
+       "situation_en": "You are chatting with friends when a manager joins the table.",
+       "situation_fa": "با دوستان گپ می‌زنی که مدیری به میز می‌آید.",
+       "task_en": "Keep the warmth, change the register.",
+       "task_fa": "گرما را نگه دار، لحن را عوض کن.",
+       "answer_en": "Good evening, Mr Rahimi. We were just arguing about films, badly.",
+       "answer_fa": "عصر بخیر، آقای رحیمی. همین حالا داشتیم بدجور دربارهٔ فیلم بحث می‌کردیم."
+      },
+      {
+       "title_en": "Slang that lands badly",
+       "title_fa": "عامیانه‌ای که بد می‌نشیند",
+       "situation_en": "A joke you meant as banter offends someone.",
+       "situation_fa": "شوخی‌ای که قصدت کری‌خوانی بود، کسی را آزرده.",
+       "task_en": "Stop, apologise for the effect, do not defend the intention.",
+       "task_fa": "توقف کن، برای اثرش عذرخواهی کن، قصدت را دفاع نکن.",
+       "answer_en": "That landed badly and I can hear it now. I am sorry, it was not funny.",
+       "answer_fa": "این بد نشست و الان می‌شنوم. متأسفم، خنده‌دار نبود."
+      }
+     ],
+     "practice": [
+      {
+       "id": "slang-q1",
+       "q_en": "\"I am down\" means ...",
+       "q_fa": "«I am down» یعنی ...",
+       "options": [
+        "I agree to the plan",
+        "I am sad",
+        "I am lying down"
+       ],
+       "answer": "I agree to the plan",
+       "why_en": "Down here means in, as in joining.",
+       "why_fa": "«پایین» اینجا یعنی داخل، یعنی همراه شدن."
+      },
+      {
+       "id": "slang-q2",
+       "q_en": "\"Spill the tea\" means ...",
+       "q_fa": "«Spill the tea» یعنی ...",
+       "options": [
+        "tell me the gossip",
+        "make a drink",
+        "drop a cup"
+       ],
+       "answer": "tell me the gossip",
+       "why_en": "The tea is the news, not the drink.",
+       "why_fa": "«چای» خودِ خبر‌هاست، نه نوشیدنی."
+      },
+      {
+       "id": "slang-q3",
+       "q_en": "Slang is safe with ...",
+       "q_fa": "عامیانه با ... بی‌خطر است",
+       "options": [
+        "close friends",
+        "a job interview",
+        "a formal letter"
+       ],
+       "answer": "close friends",
+       "why_en": "Slang marks closeness, not distance.",
+       "why_fa": "عامیانه نزدیکی را نشان می‌دهد، نه فاصله."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 62,
     "patterns": 24,
     "sentences": 24,
     "dialogues": 12,

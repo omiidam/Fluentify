@@ -1,0 +1,208 @@
+# Social life and relationships journey, stages 7-12. Rows are pipe-separated
+# and validated by tools/build_journeys.py; see its header for the field order
+# of each tag. Adult material: this journey is offered to the adult experience.
+
+J|invites|7|mail|Invitations, celebrations and parties|دعوت، جشن و مهمانی|adults||How an invitation sounds in English, how to accept it properly and how to say no without damage.|دعوت در انگلیسی چه شکلی است، چطور درست بپذیری و چطور نه بگویی بی‌تخریب.
+O|invite someone to a place, a time and an occasion.|کسی را به جا، زمان و مناسبتی دعوت کن.
+O|accept, decline and ask whether you can bring someone.|بپذیر، رد کن و بپرس می‌توانی کسی را همراه بیاوری.
+O|ask for the details an invitation usually leaves out.|جزئیاتی را بپرس که دعوت معمولاً جا می‌گذارد.
+W|invitation|/ˌɪnvəˈteɪʃən/|noun|دعوت|A spoken or written request to come to something.|social|mail|A2|The invitation says seven, but nobody arrives before eight.|دعوت برای هفت است، اما هیچ‌کس قبل از هشت نمی‌آید.|
+W|plus-one|/ˈplʌs wʌn/|noun|همراه|The person you are allowed to bring to an event.|social|group|B2|The card said plus-one, so I brought my sister.|کارت نوشته بود همراه، پس خواهرم را آوردم.|
+W|RSVP|/ˌɑr ɛs vi ˈpi/|noun|پاسخ به دعوت|A request to say whether you are coming.|social|mail|B1|Please RSVP by Thursday so we know how much food to cook.|لطفاً تا پنجشنبه پاسخ بده تا بدانیم چقدر غذا بپزیم.|
+W|host|/hoʊst/|noun|میزبان|The person who invites and looks after guests.|social|door|A2|Our host met everyone at the door.|میزبان همه را دم در دید.|
+W|guest|/ɡɛst/|noun|مهمان|Someone invited to an event.|social|person|A2|Each guest brought something to eat.|هر مهمان چیزی برای خوردن آورد.|
+W|dress code|/ˈdrɛs koʊd/|noun|کد پوشش|The clothes an event expects you to wear.|social|shirt|B1|The dress code is smart but not formal.|کد پوشش شیک است اما نه رسمی.|
+X|expression|Are you free on Saturday?|شنبه آزادی؟|Checks the person's time before naming the plan.|پیش از گفتن برنامه، زمان طرف را می‌پرسد.|neutral|Are you free on Saturday afternoon?|شنبه بعدازظهر آزادی؟|
+X|expression|Count me in.|من هستم.|A quick, warm yes.|بلهٔ سریع و گرم.|neutral|A picnic on Friday? Count me in.|جمعه پیک‌نیک؟ من هستم.
+X|collocation|accept an invitation|دعوت را پذیرفتن|Invitations are accepted, not taken.|دعوت «پذیرفته» می‌شود، نه «گرفته».|neutral|She accepted the invitation the same day.|همان روز دعوت را پذیرفت.
+X|idiom|take a rain check|بعداً شود|Literally, a ticket to come back when it rains; figuratively, a polite no that keeps the offer open.|به‌طور تحت‌اللفظی، بلیتی برای بازگشت وقتی باران بیاید؛ به‌طور مجازی، «نه»ی مؤدبانه که پیشنهاد را باز نگه می‌دارد.|neutral|I am away that weekend, so can I take a rain check?|آن آخر هفته نیستم، می‌شود بعداً؟
+X|expression|I would love to, but ...|خیلی دوست دارم، اما ...|Refuses the invitation without refusing the person.|دعوت را رد می‌کند بی‌آنکه شخص را رد کند.|polite|I would love to, but I am working that evening.|خیلی دوست دارم، اما آن شب کار می‌کنم.
+P|Would you like to come to + [event]?|Would you like to come to dinner on Friday?|دوست داری جمعه به شام بیایی؟|The standard, polite invitation.|دعوت استاندارد و مؤدبانه.
+P|Shall I bring + [noun]?|Shall I bring a dessert?|دسر بیاورم؟|Offers something without waiting to be asked.|چیزی پیشنهاد می‌دهد بی‌آنکه منتظر پرسیدن بماند.
+S|Tell me what to wear and what time to arrive, and I will be there.|بگو چه بپوشم و چه ساعتی برسم، و من آنجا خواهم بود.|Asks the two questions guests always have.|دو سؤال همیشگی مهمان را می‌پرسد.|A2|neutral|What time to arrive.
+S|I would rather you came without a gift than stayed at home.|ترجیح می‌دهم بی‌هیچ هدیه‌ای بیایی تا در خانه بمانی.|Makes a guest feel wanted.|مهمان را خواستنی می‌کند.|B1|warm|Come as you are.
+D|Inviting a new colleague|دعوت همکار تازه|Samira|Yusuf
+L|Samira|Yusuf, a few of us are having dinner at my place on Friday. Would you like to come?|یوسف، چند نفر از ما جمعه خانهٔ من شام داریم. دوست داری بیایی؟
+L|Yusuf|I would love to. Should I bring something?|خیلی دوست دارم. چیزی بیاورم؟
+L|Samira|Just yourself. There will be too much food as usual.|فقط خودت. مثل همیشه غذا زیاد خواهد بود.
+L|Yusuf|What is the dress code? I have only seen you all in work clothes.|کد پوشش چیست؟ من همه‌تان را فقط با لباس کار دیده‌ام.
+L|Samira|Comfortable. Seven o'clock, but nobody is ever on time.|راحت. ساعت هفت، اما هیچ‌کس سر وقت نیست.
+L|Yusuf|Can I bring my sister? She is staying with me this week.|می‌توانم خواهرم را بیاورم؟ این هفته پیش من است.
+L|Samira|Of course. The more the better. Tell her there will be cake.|البته. هر چه بیشتر بهتر. به او بگو کیک هست.
+L|Yusuf|Then count us both in.|پس هر دو نفر را حساب کن.
+C|Declining without closing the door|رد کردن بی‌بستن در|A friend invites you to a birthday dinner you cannot attend.|دوستی تو را به شام تولدی دعوت می‌کند که نمی‌توانی بروی.|Say no clearly, give a short reason, offer another time.|«نه» را روشن بگو، دلیل کوتاه بیاور، زمان دیگری پیشنهاد بده.|I am so sorry, I am travelling that week and I cannot move it. Can I take you for lunch the week after?|خیلی متأسفم، آن هفته در سفرم و نمی‌توانم جایش را عوض کنم. می‌توانم هفتهٔ بعد ناهار مهمانت کنم؟
+C|Asking for the missing details|پرسیدن جزئیات جاافتاده|The invitation says a day and nothing else.|دعوت فقط یک روز گفته و دیگر هیچ.|Ask for time, place and what to bring in one friendly message.|زمان، جا و چه آوردن را در یک پیام دوستانه بپرس.|Lovely, thank you. What time should I come, how do I get there, and shall I bring a dessert?|چه خوب، ممنون. چه ساعتی بیایم، چطور برسم و دسر بیاورم؟
+Q|"Count me in" means ...|«Count me in» یعنی ...|I will come|do not include me|count the money|In is being included in the plan.|«در» یعنی در برنامه حساب شدن.
+Q|"Take a rain check" is ...|«take a rain check» ...|a polite no that keeps the offer open|a ticket for a rainy day|a weather warning|The ticket is for later, not for rain.|بلیت برای بعد است، نه برای باران.
+Q|You accept an invitation, you do not ...|دعوت «پذیرفته» می‌شود، نه ...|take it|read it|write it|English accepts invitations.|انگلیسی دعوت را accept می‌کند.
+
+J|parties|8|balloon|Birthdays, toasts and party nights|تولد، سخنرانی و شب‌های مهمانی|adults||The words for a party from the invitation to the last guest, including the speech nobody expects to give.|واژه‌های مهمانی از دعوت تا آخرین مهمان، همراه با سخنرانی‌ای که کسی انتظار ندارد بگوید.
+O|describe a celebration and who was there.|یک جشن را توصیف کن و بگو چه کسانی بودند.
+O|give a short toast and wish someone well.|سخنرانی کوتاه و آرزوی خوب برای کسی بگو.
+O|talk about birthdays, anniversaries and the parties that went wrong.|دربارهٔ تولد، سالگرد و مهمانی‌هایی که خراب شد حرف بزن.
+W|celebration|/ˌsɛləˈbreɪʃən/|noun|جشن|A party or event that marks something good.|social|balloon|A2|The celebration went on until two in the morning.|جشن تا دو صبح ادامه داشت.|
+W|toast|/toʊst/|noun|سخنرانی کوتاه با نوشیدنی|A short speech before everyone drinks to someone.|social|cup|B1|He gave a toast that made everyone laugh.|او سخنرانی‌ای کرد که همه را خنداند.|
+W|gift|/ɡɪft/|noun|هدیه|Something you give someone on a special day.|social|gift|A2|The gift was small and exactly right.|هدیه کوچک و دقیقاً درست بود.|
+W|candle|/ˈkændəl/|noun|شمع|A stick of wax with a flame, used on birthday cakes.|social|candle|A2|She blew out every candle in one breath.|همهٔ شمع‌ها را با یک نفس فوت کرد.|
+W|anniversary|/ˌænəˈvɜrsəri/|noun|سالگرد|The yearly date when something began.|social|calendar|B1|They spent their tenth anniversary at home with the children.|دهمین سالگردشان را با بچه‌ها در خانه گذراندند.|
+W|confetti|/kənˈfɛti/|noun|کاغذ‌رنگی|Small pieces of coloured paper thrown at celebrations.|social|confetti|B1|There was confetti in everyone's hair for days.|روزها کاغذ‌رنگی در موی همه بود.|
+X|expression|Many happy returns!|تولدت مبارک!|The British birthday greeting, said to the person.|تهنیت تولد بریتانیایی که به خود شخص گفته می‌شود.|neutral|Many happy returns, and thank you for the cake.|تولدت مبارک، و ممنون بابت کیک.
+X|collocation|throw a party|مهمانی گرفتن|Parties are thrown, not made.|مهمانی «گرفته» می‌شود، نه «ساخته».|neutral|We threw a party for her fortieth.|برای چهلمین سالش مهمانی گرفتیم.
+X|idiom|have a blast|خیلی خوش گذشتن|Literally, a blast of air; figuratively, a very good time.|به‌طور تحت‌اللفظی، انفجاری از هوا؛ به‌طور مجازی، خیلی خوش گذشتن.|neutral|We had a blast at the wedding.|در عروسی خیلی به ما خوش گذشت.
+X|idiom|the life and soul of the party|روح مهمانی|Literally, the life of the party; figuratively, the person who makes it fun.|به‌طور تحت‌اللفظی، جان مهمانی؛ به‌طور مجازی، کسی که مهمانی را گرم می‌کند.|neutral|Her cousin was the life and soul of the party.|پسرخاله‌اش روح مهمانی بود.
+X|expression|Congratulations on + [noun].|تبریک برای ...|Used for achievements, not birthdays.|برای دستاوردها به کار می‌رود، نه تولد.|neutral|Congratulations on the new job.|برای کار جدید تبریک.
+P|Happy + [occasion]!|Happy anniversary, you two.|سالگرد مبارک، شما دو نفر.|Which celebration you are marking.|می‌گوید کدام مناسبت را گرامی می‌داری.
+P|It was + [adjective] + because + [clause].|It was perfect because nobody made a speech.|عالی بود چون هیچ‌کس سخنرانی نکرد.|Explains the mood with a reason.|حال‌وهوا را با دلیل توضیح می‌دهد.
+S|The best parties are the ones where nobody remembers who was invited and everybody remembers who danced.|بهترین مهمانی‌ها آنهایی‌اند که کسی یادش نیست چه کسی دعوت بود و همه یادشان هست چه کسی رقصید.|Defines a good party by memory.|مهمانی خوب را با خاطره تعریف می‌کند.|B2|humorous|Everybody remembers who danced.
+S|We sang badly, ate too much and stayed far too late, which is the correct way to celebrate.|بد آواز خواندیم، زیاد خوردیم و خیلی دیر ماندیم، که روش درست جشن گرفتن است.|Self-mocking warmth.|گرمای خودنکوهانه.|B2|humorous|The correct way to celebrate.
+D|At a birthday dinner|سر شام تولد|Leila|Arash
+L|Leila|Arash, you have not said anything for ten minutes. Nervous about the toast?|ارش، ده دقیقه است چیزی نگفته‌ای. برای سخنرانی استرس داری؟
+L|Arash|Terrified. I have written it three times.|وحشت‌زده. سه بار نوشته‌امش.
+L|Leila|Then say the short one. Nobody wants a speech at a birthday.|پس کوتاهش را بگو. کسی در تولد سخنرانی نمی‌خواهد.
+L|Arash|Here goes. To my sister, who is the life and soul of every party she walks into.|بفرمایید. به خواهرم، که روح هر مهمانی است که واردش می‌شود.
+L|Leila|That was perfect. Now blow out the candles before the cake melts.|عالی بود. حالا قبل از آب شدن کیک شمع‌ها را فوت کن.
+L|Arash|There are thirty candles. We may need help.|سی شمع است. شاید کمک لازم داشته باشیم.
+L|Leila|That is what guests are for.|مهمان‌ها برای همین‌اند.
+L|Arash|Then everyone take a candle and a wish.|پس هر کس یک شمع و یک آرزو بردارد.
+C|A party that is going wrong|مهمانی‌ای که خراب می‌شود|Half the guests have not arrived and the food is ready.|نیمی از مهمان‌ها نیامده‌اند و غذا آماده است.|Keep the food warm, change the plan, keep the host calm.|غذا را گرم نگه دار، برنامه را عوض کن، میزبان را آرام نگه دار.|Put the rice on low, we will start the starters now and the rest will walk in during the main course. Nobody will notice.|برنج را کم کن، الان پیش‌غذا را شروع می‌کنیم و بقیه وسط غذای اصلی می‌رسند. کسی متوجه نمی‌شود.
+C|Giving a toast without preparation|سخنرانی بی‌تدارک|You are asked to say a few words and have nothing ready.|از تو می‌خواهند چند کلمه بگویی و چیزی آماده نداری.|Thank the host, name one true detail, wish them well, sit down.|از میزبان تشکر کن، یک جزئیات واقعی بگو، آرزوی خوب کن، بنشین.|I did not prepare, which is the highest compliment I can pay this table. Ten years of Sunday lunches and not one boring one. To the next ten.|آماده نکرده‌ام، که این بالاترین تعریفی است که می‌توانم به این میز بدهم. ده سال ناهار یکشنبه و حتی یکی خسته‌کننده نبود. به ده سال بعد.
+Q|You "throw" a party, you do not ...|مهمانی «گرفته» می‌شود، نه ...|make it|throw it|attend it|Throw is the fixed verb.|«Throw» فعل ثابت است.
+Q|"Many happy returns" is said ...|«Many happy returns» گفته می‌شود ...|on a birthday|at a funeral|when returning a book|Returns are the years coming round again.|«بازگشت‌ها» سال‌هایی هستند که دور می‌زنند.
+Q|"We had a blast" means ...|«We had a blast» یعنی ...|we had a great time|we heard an explosion|we blew out candles|Blast is energy, not damage.|«انفجار» انرژی است، نه آسیب.
+
+J|feelings|9|smile|Emotions and how you feel|احساس‌ها و اینکه چه حالی داری|adults||The words for what you feel, how strong it is and how to say it out loud.|واژه‌های آنچه حس می‌کنی، شدتش و اینکه چطور بلند بگویی‌اش.
+O|name what you feel and how strongly.|نام احساس و شدتش را بگو.
+O|ask someone how they are and listen to the real answer.|از کسی بپرس چه حالی دارد و جواب واقعی را بشنو.
+O|describe a day that changed your mood.|روزی را توصیف کن که حالت را عوض کرد.
+W|emotion|/ɪˈmoʊʃən/|noun|احساس|A feeling such as joy, anger or fear.|social|smile|B1|He spoke about the day without emotion.|دربارهٔ آن روز بی‌احساس حرف زد.|
+W|nervous|/ˈnɜrvəs/|adjective|مضطرب|Worried about something that is about to happen.|social|alert|A2|I am nervous about the interview on Monday.|برای مصاحبهٔ دوشنبه مضطربم.|
+W|grateful|/ˈɡreɪtfəl/|adjective|سپاسگزار|Thankful for something someone did.|social|heart|B1|I am grateful you told me the truth.|سپاسگزارم که حقیقت را گفتی.|
+W|relieved|/rɪˈlivd/|adjective|آسوده‌خاطر|Glad that something bad did not happen.|social|smile|B1|She looked relieved when the results came.|وقتی نتیجه‌ها آمد آسوده‌خاطر به نظر می‌رسید.|
+W|jealous|/ˈdʒɛləs/|adjective|حسود|Unhappy because someone has what you want.|social|frown|B1|I am not jealous, I am just tired.|حسود نیستم، فقط خسته‌ام.|
+W|overwhelmed|/ˌoʊvərˈwɛlmd/|adjective|کلافه|So much is happening that you cannot think.|social|alert|B2|The first week was overwhelming and then it stopped being.|هفتهٔ اول کلافه‌کننده بود و بعد دیگر نبود.|
+X|idiom|I am over the moon.|در پوست خودم نمی‌گنجم.|Literally, over the moon; figuratively, extremely happy.|به‌طور تحت‌اللفظی، بالای ماه؛ به‌طور مجازی، بی‌نهایت خوشحال.|neutral|She passed and she is over the moon.|قبول شد و در پوست خودش نمی‌گنجد.
+X|idiom|feel blue|غمگین بودن|Literally, feel the colour blue; figuratively, feel sad.|به‌طور تحت‌اللفظی، آبی حس کردن؛ به‌طور مجازی، غمگین بودن.|neutral|He feels blue every January.|او هر دی غمگین است.
+X|expression|I am a bit nervous about it.|کمی برایش مضطربم.|Admits worry in a small, manageable size.|نگرانی را در اندازه‌ای کوچک و قابل مدیریت می‌پذیرد.|neutral|I am a bit nervous about the results.|برای نتیجه‌ها کمی مضطربم.
+X|collocation|keep calm|آرام ماندن|Calm is kept, not stayed.|«آرام» نگه داشته می‌شود، نه «مانده».|neutral|Keep calm and answer one question at a time.|آرام بمان و یکی‌یکی جواب بده.
+X|phrasal_verb|cheer up|روحیه گرفتن|To become happier, or to make someone happier.|شادتر شدن، یا کسی را شادتر کردن.|neutral|She cheered up as soon as the music started.|تا موسیقی شروع شد روحیه‌اش بهتر شد.
+P|I feel + [adjective] + about + [noun].|I feel anxious about the move.|دربارهٔ اسباب‌کشی مضطربم.|About names the cause of the feeling.|about علت احساس را می‌گوید.
+P|It made me feel + [adjective].|It made me feel seen.|حس کردم دیده شدم.|The thing first, then the feeling.|اول چیز، بعد احساس.
+S|I am not sad, I am exhausted, and those two look the same from the outside.|غمگین نیستم، خسته‌ام، و این دو از بیرون یکسان به نظر می‌رسند.|Separates two feelings people confuse.|دو احساسی را که مردم اشتباه می‌گیرند جدا می‌کند.|B2|neutral|They look the same from outside.
+S|Tell me the worst version and then tell me the likely one.|بدترین نسخه را بگو و بعد نسخهٔ محتمل را.|Uses worry as a tool instead of fighting it.|نگرانی را ابزار می‌کند نه دشمن.|B2|neutral|Then tell me the likely one.
+D|After a difficult week|بعد از هفته‌ای سخت|Mina|Kian
+L|Kian|You look tired. How are you, honestly?|خسته‌ای به نظر می‌رسی. صادقانه حالت چطور است؟
+L|Mina|Overwhelmed, mostly. Too many small things at once.|بیشتر کلافه. خیلی چیزهای کوچک با هم.
+L|Kian|Not one big thing, then.|پس یک چیز بزرگ نیست.
+L|Mina|No. And that makes it harder to explain.|نه. و همین توضیح دادنش را سخت‌تر می‌کند.
+L|Kian|You do not have to explain. Do you want advice or company?|لازم نیست توضیح بدهی. نصیحت می‌خواهی یا همراهی؟
+L|Mina|Company. And tea.|همراهی. و چای.
+L|Kian|Then put the kettle on and I will complain about my week, so you have something to laugh at.|پس کتری را بگذار و من از هفته‌ام می‌نالم تا چیزی برای خندیدن داشته باشی.
+L|Mina|That is the kindest offer I have had all week.|این مهربان‌ترین پیشنهادی است که تمام هفته داشته‌ام.
+C|Saying how you feel when asked|گفتن احساس وقتی می‌پرسند|Someone asks how you are and you are not fine.|کسی می‌پرسد چطور هستی و خوب نیستی.|Be honest at a size that fits the conversation.|صادق باش در اندازه‌ای که در گفت‌وگو جا می‌شود.|Not great, to be honest. I am relieved the project is over but I am still nervous about the review.|راستش خیلی خوب نیستم. خوشحالم پروژه تمام شد اما هنوز برای بازبینی مضطربم.
+C|Comforting without fixing|دلداری بی‌درست‌کردن|A friend is upset and you want to help.|دوستی ناراحت است و می‌خواهی کمک کنی.|Ask what they need before offering solutions.|پیش از پیشنهاد راه‌حل بپرس چه لازم دارند.|That sounds exhausting. Do you want me to help you think it through, or would you rather I just listened?|این خسته‌کننده به نظر می‌رسد. می‌خواهی کمک کنم درباره‌اش فکر کنی، یا ترجیح می‌دهی فقط گوش کنم؟
+Q|"Over the moon" means ...|«Over the moon» یعنی ...|extremely happy|awake all night|very confused|The moon is a picture of height, so of joy.|«ماه» تصویر اوج است، پس تصویر شادی.
+Q|Relieved is the feeling when ...|«آسوده‌خاطر» حالی است وقتی ...|something bad did not happen|something bad happens|you feel nothing|Relief follows a danger that passed.|آسودگی پس از خطری می‌آید که گذشت.
+Q|Being nervous is being ...|«مضطرب» یعنی ...|worried about what is coming|angry about the past|sure of yourself|Nervous looks forward.|«مضطرب» به آینده نگاه می‌کند.
+
+J|opinions|10|speech|Opinions and disagreeing kindly|نظر دادن و مخالفت مهربانانه|adults||How to say what you think, disagree without a fight and change your mind with dignity.|چطور بگویی چه فکر می‌کنی، بی‌دعوا مخالفت کنی و با وقار نظرت را عوض کنی.
+O|give an opinion with a reason.|نظرت را با دلیل بگو.
+O|disagree with someone without attacking them.|با کسی مخالفت کن بی‌آنکه به او حمله کنی.
+O|change your mind and say so clearly.|نظرت را عوض کن و روشن بگو.
+W|opinion|/əˈpɪnjən/|noun|نظر|What someone thinks about something.|social|speech|A2|In my opinion, the second plan is better.|به نظر من، برنامهٔ دوم بهتر است.|
+W|agree|/əˈɡri/|verb|موافق بودن|To think the same as someone.|social|nod|A2|I agree with the first half of that.|با نیمهٔ اول آن موافقم.|
+W|disagree|/ˌdɪsəˈɡri/|verb|مخالف بودن|To think something different.|social|frown|B1|We disagree about money and nothing else.|دربارهٔ پول مخالفیم و هیچ چیز دیگر.|
+W|point of view|/ˌpɔɪnt əv ˈvju/|noun|دیدگاه|The way one person sees a situation.|social|speech|B1|From her point of view, the decision was fair.|از دیدگاه او، تصمیم منصفانه بود.|
+W|compromise|/ˈkɑmprəˌmaɪz/|noun|مصالحه|An agreement where both sides give something up.|social|handshake|B2|The compromise was two days here and two days there.|مصالحه دو روز اینجا و دو روز آنجا بود.|
+W|respectful|/rɪˈspɛktfəl/|adjective|محترمانه|Polite even when you disagree.|social|shield|B2|They had a respectful argument in front of everyone.|آنها در حضور همه بحثی محترمانه داشتند.|
+X|expression|I see your point, but ...|منظورت را می‌فهمم، اما ...|Agrees with the person before disagreeing with the idea.|پیش از مخالفت با ایده، با شخص موافقت می‌کند.|neutral|I see your point, but the cost is too high.|منظورت را می‌فهمم، اما هزینه زیاد است.
+X|expression|Let us agree to disagree.|بیا با اختلافمان کنار بیاییم.|Ends an argument without a winner.|دعوا را بی‌برنده تمام می‌کند.|neutral|We have been through this. Let us agree to disagree.|این را رد کرده‌ایم. بیا با اختلافمان کنار بیاییم.
+X|collocation|a matter of opinion|موضوع سلیقه|Marked as opinion so it cannot be called wrong.|به‌عنوان سلیقه علامت می‌خورد تا نتوان گفت غلط است.|neutral|Which city is friendlier is a matter of opinion.|کدام شهر گرم‌تر است موضوع سلیقه است.
+X|idiom|at odds with|در تضاد با|Literally, at opposite numbers on a board; figuratively, in disagreement with.|به‌طور تحت‌اللفظی، روی شماره‌های مقابل یک صفحه؛ به‌طور مجازی، در اختلاف با.|neutral|His plan is at odds with everything we agreed.|برنامهٔ او با هر چه توافق کردیم در تضاد است.
+X|phrasal_verb|back down|عقب‌نشینی کردن|To stop defending a position.|از دفاع از موضعی دست کشیدن.|neutral|She backed down when she saw the figures.|وقتی رقم‌ها را دید عقب‌نشینی کرد.
+P|I think + [clause], because + [reason].|I think we should wait, because nothing is ready.|فکر می‌کنم باید صبر کنیم، چون هیچ چیز آماده نیست.|A reason makes an opinion arguable rather than personal.|دلیل، نظر را قابل بحث می‌کند نه شخصی.
+P|In my opinion, + [clause].|In my opinion, the plan is too slow.|به نظر من، برنامه خیلی کند است.|Marks the sentence as a view, not a fact.|جمله را نظر علامت می‌زند، نه واقعیت.
+S|I was wrong about this last year, so I am saying it slowly.|سال گذشته در این باره اشتباه می‌کردم، پس آرام می‌گویمش.|Admits a past error to earn a hearing.|اشتباه گذشته را می‌پذیرد تا شنیده شود.|B2|neutral|So I am saying it slowly.
+S|You can disagree with the decision without disliking the person who made it.|می‌توانی با تصمیم مخالف باشی بی‌آنکه از تصمیم‌گیرنده بدت بیاید.|Separates the idea from the person.|ایده را از شخص جدا می‌کند.|B2|neutral|Without disliking the person.
+D|Choosing a flat together|انتخاب خانه با هم|Nazanin|Omid
+L|Nazanin|I think we should take the smaller one near the park.|فکر می‌کنم باید کوچک‌تری نزدیک پارک را بگیریم.
+L|Omid|What makes you say that? The other one is cheaper.|چه چیزی باعث شد این را بگویی؟ آن یکی ارزان‌تر است.
+L|Nazanin|Because we walk everywhere and the cheap one needs a bus twice a day.|چون همه‌جا پیاده می‌رویم و ارزان‌تر روزی دو بار اتوبوس می‌خواهد.
+L|Omid|I see your point, but two bus fares a day add up too.|منظورت را می‌فهمم، اما روزی دو کرایه هم جمع می‌شود.
+L|Nazanin|Then let us do the sums properly instead of guessing.|پس بیا درست حساب کنیم، نه حدس بزنیم.
+L|Omid|Agreed. If it is within twenty percent, we take the park.|قبول. اگر تا بیست درصد باشد، پارک را می‌گیریم.
+L|Nazanin|That is a compromise I can defend to my mother.|این مصالحه‌ای است که می‌توانم پیش مادرم از آن دفاع کنم.
+L|Omid|Careful, she is at odds with all our plans.|مراقب باش، او با همهٔ برنامه‌های ما در تضاد است.
+C|Disagreeing in a meeting|مخالفت در جلسه|A senior colleague proposes something you think will fail.|همکار ارشدی چیزی پیشنهاد می‌دهد که فکر می‌کنی شکست می‌خورد.|Disagree with the plan and offer an alternative.|با برنامه مخالفت کن و جایگزینی پیشنهاد بده.|I see your point about speed, but I worry the testing gets skipped. Could we run it on one team first and measure it?|دربارهٔ سرعت منظورت را می‌فهمم، اما نگرانم تست‌ها جا بیفتند. می‌شود اول روی یک تیم اجرا و اندازه‌گیری کنیم؟
+C|Changing your mind|عوض کردن نظر|You argued for one plan and new facts arrived.|از یک برنامه دفاع کردی و واقعیت تازه‌ای رسید.|Say clearly that the facts changed you, not the pressure.|روشن بگو واقعیت‌ها نظرت را عوض کردند، نه فشار.|I was wrong, and the numbers are why. I still think the idea is right, but not this year.|اشتباه می‌کردم و رقم‌ها دلیلش هستند. هنوز فکر می‌کنم ایده درست است، اما نه امسال.
+Q|"Agree to disagree" means ...|«Agree to disagree» یعنی ...|stop arguing without either side winning|agree completely|refuse to speak|The disagreement stays, the argument ends.|اختلاف می‌ماند، دعوا تمام می‌شود.
+Q|"A matter of opinion" means ...|«موضوع سلیقه» یعنی ...|people can reasonably think differently|the opinion is wrong|nobody has an opinion|Opinion is not a fact.|نظر، واقعیت نیست.
+Q|"Backing down" is ...|«عقب‌نشینی» ...|giving up a position|climbing down a ladder|sitting down again|Down is the retreat from the position.|«پایین» عقب‌نشینی از موضع است.
+
+J|polite|11|sorry|Polite expressions and apologies|عبارت‌های مؤدبانه و عذرخواهی|adults||Asking for things without demanding them, apologising so it counts and knowing when a thank you is too much.|خواستن بی‌طلبیدن، عذرخواهی‌ای که حساب شود و دانستن اینکه تشکر کی زیاد است.
+O|make a request at three levels of politeness.|درخواست را در سه سطح ادب بیان کن.
+O|apologise and say what you will do differently.|عذرخواهی کن و بگو چه کاری را جور دیگری می‌کنی.
+O|interrupt someone, ask a favour and refuse one politely.|وسط حرف کسی بیا، لطفی بخواه و مؤدبانه لطفی را رد کن.
+W|polite|/pəˈlaɪt/|adjective|مؤدب|Behaving in a way that respects other people.|social|smile|A2|It is polite to ask before you sit down.|مؤدبانه است پیش از نشستن بپرسی.|
+W|apology|/əˈpɑlədʒi/|noun|عذرخواهی|Words that say you are sorry and mean it.|social|sorry|B1|His apology named what he had done.|عذرخواهی‌اش گفت چه کرده است.|
+W|favour|/ˈfeɪvər/|noun|لطف|A small act of help you ask someone for.|social|hand|A2|Can I ask you a favour?|می‌توانم لطفی از تو بخواهم؟|
+W|interrupt|/ˌɪntəˈrʌpt/|verb|وسط حرف کسی آمدن|To break into someone else's turn to speak.|social|hand|B1|Sorry to interrupt, but the taxi is here.|ببخشید وسط حرفتان می‌آیم، اما تاکسی رسید.|
+W|appreciate|/əˈpriʃieɪt/|verb|قدردان بودن|To recognise fully what someone did for you.|social|heart|B1|I really appreciate you staying late.|واقعاً قدردان ماندنت هستم.|
+W|manners|/ˈmænərz/|noun|آداب|The small rules of polite behaviour.|social|star|B1|He has good manners and no small talk.|ادب دارد و گپ خودمانی ندارد.|
+X|expression|Could you do me a favour?|می‌توانی لطفی به من بکنی؟|Prepares the listener for a request instead of dropping it.|شنونده را برای درخواست آماده می‌کند نه اینکه یک‌باره بگوید.|polite|Could you do me a favour and hold this?|می‌توانی لطفی بکنی و این را نگه داری؟
+X|expression|I am sorry, I did not mean it.|متأسفم، منظوری نداشتم.|Distinguishes the harm from the intention.|آسیب را از قصد جدا می‌کند.|neutral|I am sorry, I did not mean it that way.|متأسفم، منظورم آن‌طور نبود.
+X|collocation|show good manners|ادب نشان دادن|Manners are shown, not done.|ادب «نشان داده» می‌شود، نه «انجام».|neutral|He showed good manners by thanking everyone by name.|او با تشکر از همه با نامشان ادب نشان داد.
+X|idiom|excuse my French|ببخشید اگر بدحرف زدم|Literally, excuse the French; figuratively, sorry for the word I just used.|به‌طور تحت‌اللفظی، فرانسوی‌ام را ببخش؛ به‌طور مجازی، ببخشید برای واژه‌ای که همین حالا گفتم.|neutral|Excuse my French, but that driver is a menace.|ببخشید اگر بدحرف زدم، اما آن راننده خطرناک است.
+X|expression|After you.|شما اول.|Lets someone go first, at a door or in a queue.|اجازه می‌دهد کسی در در یا صف اول برود.|formal|After you, I insist.|شما اول، اصرار دارم.
+P|Would you mind + [verb-ing]?|Would you mind closing the window?|می‌شود پنجره را ببندی؟|The most polite way to ask for an action.|مؤدبانه‌ترین راه خواستن یک کار.
+P|I am sorry for + [noun or -ing].|I am sorry for keeping you waiting.|متأسفم که منتظرت نگه داشتم.|Sorry for takes the thing, not the person.|sorry for چیز را می‌گیرد، نه شخص را.
+S|I am sorry I said it that way, and here is what I will do next time.|متأسفم که آن‌طور گفتم، و این کاری است که دفعهٔ بعد می‌کنم.|Apology plus repair, which is what makes it count.|عذرخواهی به‌همراه جبران، همین آن را حساب‌شده می‌کند.|B2|polite|Here is what I will do next time.
+S|You do not have to say yes, and I will not ask again.|لازم نیست بله بگویی و من دوباره نمی‌پرسم.|Makes a refusal safe.|«نه» را بی‌خطر می‌کند.|B1|polite|I will not ask again.
+D|Asking a neighbour for help|لطف خواستن از همسایه|Bahar|Navid
+L|Bahar|Navid, sorry to interrupt your evening. Could you do me a favour?|نوید، ببخشید وسط عصرت می‌آیم. می‌توانی لطفی بکنی؟
+L|Navid|Of course. What do you need?|البته. چه لازم داری؟
+L|Bahar|Would you mind taking in a parcel tomorrow? I will be at the hospital all day.|می‌شود فردا بسته‌ای را تحویل بگیری؟ تمام روز بیمارستانم.
+L|Navid|No problem at all. What time does it come?|هیچ مشکلی نیست. چه ساعتی می‌آید؟
+L|Bahar|Any time before six. And I am sorry for asking at such short notice.|هر وقت قبل از شش. و متأسفم که این‌قدر دیر خبر می‌دهم.
+L|Navid|You helped me with my bike last month. This is nothing.|ماه پیش با دوچرخه‌ام کمکم کردی. این هیچ است.
+L|Bahar|I really appreciate it. I will bring you something from the bakery.|واقعاً قدردانم. از نانوایی چیزی برایت می‌آورم.
+L|Navid|After you carry it upstairs, we will call it even.|بعد از اینکه بالا آوردیش، حساب برابر می‌شود.
+C|Apologising for a real mistake|عذرخواهی برای اشتباهی واقعی|You sent a private message to the wrong group.|پیام خصوصی را به گروه اشتباه فرستادی.|Name it, apologise without excuses, say what you changed.|نامش را ببر، بی‌بهانه عذرخواهی کن، بگو چه را عوض کردی.|I sent that to the wrong group and it was my mistake, not a slip of the phone. I have deleted it and I have turned off group autofill.|آن را به گروه اشتباه فرستادم و اشتباه من بود، نه لغزش گوشی. پاکش کردم و پرکردن خودکار گروه را خاموش کردم.
+C|Refusing a favour politely|رد کردن لطف مؤدبانه|A colleague asks you to cover their shift and you cannot.|همکاری می‌خواهد شیفتش را بگیری و نمی‌توانی.|Refuse the request, keep the relationship.|درخواست را رد کن، رابطه را نگه دار.|I cannot take that shift, I am sorry. I can stay an hour late on Thursday if that helps.|نمی‌توانم آن شیفت را بگیرم، متأسفم. اگر کمک کند می‌توانم پنجشنبه یک ساعت بیشتر بمانم.
+Q|"Would you mind closing the door?" is ...|«Would you mind closing the door?» ...|a polite request|a question about feelings|a refusal|Mind asks about the trouble, so it is very polite.|«Mind» دربارهٔ زحمت می‌پرسد، پس بسیار مؤدبانه است.
+Q|An apology should ...|عذرخواهی باید ...|name what you did|explain why you were busy|blame the other person|Naming it is what makes it an apology.|نام بردن آن، عذرخواهی را عذرخواهی می‌کند.
+Q|Manners are ...|«آداب» ...|shown|done|made|English shows good manners.|انگلیسی ادب را show می‌کند.
+
+J|slang|12|chat|Slang and informal conversations|زبان عامیانه و گفت‌وگوی خودمانی|adults||How friends really talk: short forms, slang, jokes and the phrases that mean the opposite of their words.|دوستان واقعاً چطور حرف می‌زنند: کوتاه‌شده‌ها، عامیانه، شوخی و عبارت‌هایی که خلاف واژه‌هایشان معنا می‌دهند.
+O|use common slang without sounding like a textbook.|عامیانهٔ رایج را به کار ببر بی‌آنکه شبیه کتاب درسی شوی.
+O|tell when slang is friendly and when it is rude.|تشخیص بده عامیانه کجا دوستانه است و کجا بی‌ادبانه.
+O|switch back to neutral English when the situation needs it.|وقتی موقعیت لازم دارد به انگلیسی خنثی برگرد.
+W|slang|/slæŋ/|noun|زبان عامیانه|Very informal words used by a group, not in writing.|social|chat|B1|Slang dates quickly, so learn the patterns not just the words.|عامیانه زود قدیمی می‌شود، پس الگوها را یاد بگیر نه فقط واژه‌ها.|
+W|casual|/ˈkæʒuəl/|adjective|خودمانی|Relaxed and not formal.|social|shirt|B1|His messages are casual, full of short forms.|پیام‌هایش خودمانی و پر از کوتاه‌شده است.|
+W|vibe|/vaɪb/|noun|حس‌وحال|The feeling a place or a person gives you.|social|smile|B2|The place has a good vibe on Fridays.|این جا جمعه‌ها حس‌وحال خوبی دارد.|
+W|buddy|/ˈbʌdi/|noun|رفیق|A friend, in American informal speech.|social|group|B1|He is my climbing buddy from the gym.|او رفیق صخره‌نوردی من از باشگاه است.|
+W|meme|/mim/|noun|میم|A joke picture or phrase that spreads online.|social|camera|B2|She sends me a meme every morning.|او هر صبح برایم یک میم می‌فرستد.|
+W|banter|/ˈbæntər/|noun|شوخی و کری‌خوانی|Friendly joking that is not meant to hurt.|social|chat|B2|Their banter sounds rude to anyone outside the group.|کری‌خوانی آنها برای هر کسی بیرون گروه بی‌ادبانه به نظر می‌رسد.|
+X|expression|What's up?|چخبر؟|A greeting between friends, not a real question about problems.|سلامی میان دوستان، نه سؤال واقعی دربارهٔ مشکل.|slang|What's up, buddy? You look pleased.|چخبر رفیق؟ خوشحال به نظر می‌رسی.
+X|expression|No worries.|مشکلی نیست.|Australian-influenced, now everywhere: it answers an apology.|برآمده از استرالیایی، حالا همه‌جا: پاسخ عذرخواهی است.|slang|No worries, it happens.|مشکلی نیست، پیش می‌آید.
+X|expression|I am down.|پای‌ه‌ام.|Means yes to a plan, not sadness.|یعنی بله به یک برنامه، نه غمگینی.|slang|Cinema tonight? I am down.|امشب سینما؟ پای‌ه‌ام.
+X|phrasal_verb|chill out|آرام گرفتن|To relax, or to tell someone to relax.|آرام شدن، یا به کسی گفتن آرام باشد.|neutral|We chilled out in the park all afternoon.|تمام بعدازظهر در پارک آرام گرفتیم.
+X|idiom|spill the tea|بگو چه خبر است|Literally, spill the tea; figuratively, tell the gossip.|به‌طور تحت‌اللفظی، چای را ریختن؛ به‌طور مجازی، خبرچینی را گفتن.|slang|Come on, spill the tea. What did she say?|بیا، بگو چه خبر است. او چه گفت؟
+X|idiom|long time no see|خیلی وقت است ندیدمت|Literally, a long time without seeing; figuratively, the standard greeting after months.|به‌طور تحت‌اللفظی، زمانی دراز بی دیدن؛ به‌طور مجازی، سلام همیشگی بعد از ماه‌ها.|neutral|Long time no see. You have changed your hair.|خیلی وقت است ندیدمت. موهایت را عوض کرده‌ای.
+P|I am not going to lie, + [clause].|I am not going to lie, that was terrible.|راستش را بخواهی، آن افتضاح بود.|A casual way to introduce an honest opinion.|راهی خودمانی برای گفتن نظری صادقانه.
+P|You are not going to believe + [clause].|You are not going to believe what happened.|باورت نمی‌شود چه شد.|Opens a story with a promise.|داستان را با قولی باز می‌کند.
+S|We talk in half sentences and wrong grammar and understand each other perfectly.|با نیم‌جمله و گرامر غلط حرف می‌زنیم و همدیگر را کامل می‌فهمیم.|Describes real friendship talk.|گفت‌وگوی واقعی دوستی را توصیف می‌کند.|B1|casual|Understand each other perfectly.
+S|I love the slang, but I would not use it with my manager.|عامیانه را دوست دارم، اما با مدیرم به کار نمی‌برم.|Shows judgement about register.|قضاوت دربارهٔ لحن را نشان می‌دهد.|B2|neutral|Not with my manager.
+D|Two friends in a cafe|دو دوست در کافه|Yasi|Kamran
+L|Kamran|Long time no see! What's up?|خیلی وقت است ندیدمت! چخبر؟
+L|Yasi|Not much. Work, sleep, repeat.|چیز خاصی نیست. کار، خواب، تکرار.
+L|Kamran|I am not going to lie, you look tired.|راستش را بخواهی، خسته‌ای به نظر می‌رسی.
+L|Yasi|Thanks, buddy. Very motivating.|ممنون رفیق. خیلی انگیزه‌بخش بود.
+L|Kamran|No worries, that is what I am for. Cinema on Friday?|مشکلی نیست، من برای همینم. جمعه سینما؟
+L|Yasi|I am down. But nothing sad.|پای‌ه‌ام. اما هیچ فیلم غم‌انگیزی.
+L|Kamran|Then spill the tea: what happened with the flat?|پس بگو چه خبر است: با خانه چه شد؟
+L|Yasi|Later. First, coffee and no work talk.|بعداً. اول قهوه و هیچ حرف کاری.
+C|Switching out of slang|بیرون آمدن از عامیانه|You are chatting with friends when a manager joins the table.|با دوستان گپ می‌زنی که مدیری به میز می‌آید.|Keep the warmth, change the register.|گرما را نگه دار، لحن را عوض کن.|Good evening, Mr Rahimi. We were just arguing about films, badly.|عصر بخیر، آقای رحیمی. همین حالا داشتیم بدجور دربارهٔ فیلم بحث می‌کردیم.
+C|Slang that lands badly|عامیانه‌ای که بد می‌نشیند|A joke you meant as banter offends someone.|شوخی‌ای که قصدت کری‌خوانی بود، کسی را آزرده.|Stop, apologise for the effect, do not defend the intention.|توقف کن، برای اثرش عذرخواهی کن، قصدت را دفاع نکن.|That landed badly and I can hear it now. I am sorry, it was not funny.|این بد نشست و الان می‌شنوم. متأسفم، خنده‌دار نبود.
+Q|"I am down" means ...|«I am down» یعنی ...|I agree to the plan|I am sad|I am lying down|Down here means in, as in joining.|«پایین» اینجا یعنی داخل، یعنی همراه شدن.
+Q|"Spill the tea" means ...|«Spill the tea» یعنی ...|tell me the gossip|make a drink|drop a cup|The tea is the news, not the drink.|«چای» خودِ خبر‌هاست، نه نوشیدنی.
+Q|Slang is safe with ...|عامیانه با ... بی‌خطر است|close friends|a job interview|a formal letter|Slang marks closeness, not distance.|عامیانه نزدیکی را نشان می‌دهد، نه فاصله.
