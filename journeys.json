@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 3,
-   "stages": 38,
-   "words": 237,
-   "expressions": 203,
+   "journeys": 4,
+   "stages": 50,
+   "words": 309,
+   "expressions": 264,
    "sports": 46
   }
  },
@@ -14633,6 +14633,3975 @@
     "expressions": 60,
     "patterns": 24,
     "sentences": 25,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "tech",
+   "topic": "tech",
+   "title_en": "Technology Journey",
+   "title_fa": "فناوری: از دستگاه تا هوش مصنوعی",
+   "icon": "💻",
+   "art": "chip",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "The words people use about phones, the internet, AI and staying safe, from a dead battery to a phishing text.",
+   "blurb_fa": "واژه‌هایی که مردم دربارهٔ گوشی، اینترنت، هوش مصنوعی و امن ماندن به کار می‌برند؛ از باتری تمام‌شده تا پیام فیشینگ.",
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "devices",
+     "order": 1,
+     "icon": "phone",
+     "title_en": "The devices you already own",
+     "title_fa": "دستگاه‌هایی که همین حالا داری",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What each thing is called, what it does, and how to ask for help with it.",
+     "blurb_fa": "نام هر چیز، کاری که می‌کند، و اینکه چطور برایش کمک بخواهی.",
+     "objectives": [
+      {
+       "en": "name your devices and say which one you use for what.",
+       "fa": "نام دستگاه‌هایت را بگو و بگو هر کدام را برای چه کاری به کار می‌بری."
+      },
+      {
+       "en": "describe a battery problem and ask what to do.",
+       "fa": "مشکل باتری را توصیف کن و بپرس چه کار کنی."
+      },
+      {
+       "en": "ask a shop assistant for a charger that fits.",
+       "fa": "از فروشنده چارجر مناسب بخواه."
+      }
+     ],
+     "words": [
+      {
+       "id": "devices-w1",
+       "en": "smartphone",
+       "ipa": "/ˈsmɑrtfoʊn/",
+       "pos": "noun",
+       "fa": "گوشی هوشمند",
+       "def_en": "A phone that runs apps and connects to the internet.",
+       "sport": "tech",
+       "icon": "phone",
+       "level": "A1",
+       "example_en": "I use my smartphone for everything.",
+       "example_fa": "گوشی هوشمندم را برای همه چیز استفاده می‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "devices-w2",
+       "en": "laptop",
+       "ipa": "/ˈlæptɑp/",
+       "pos": "noun",
+       "fa": "لپ‌تاپ",
+       "def_en": "A portable computer with a screen and a keyboard that fold together.",
+       "sport": "tech",
+       "icon": "laptop",
+       "level": "A1",
+       "example_en": "My laptop is four years old.",
+       "example_fa": "لپ‌تاپم چهار سالش است.",
+       "ref": ""
+      },
+      {
+       "id": "devices-w3",
+       "en": "tablet",
+       "ipa": "/ˈtæblət/",
+       "pos": "noun",
+       "fa": "تبلت",
+       "def_en": "A flat touchscreen device, bigger than a phone and smaller than a laptop.",
+       "sport": "tech",
+       "icon": "tablet",
+       "level": "A1",
+       "example_en": "I read on my tablet at night.",
+       "example_fa": "شب‌ها روی تبلتم می‌خوانم.",
+       "ref": ""
+      },
+      {
+       "id": "devices-w4",
+       "en": "charger",
+       "ipa": "/ˈtʃɑrdʒər/",
+       "pos": "noun",
+       "fa": "شارژر",
+       "def_en": "The cable and plug that put power into a battery.",
+       "sport": "tech",
+       "icon": "plug",
+       "level": "A1",
+       "example_en": "I forgot my charger at home.",
+       "example_fa": "شارژرم را خانه جا گذاشتم.",
+       "ref": ""
+      },
+      {
+       "id": "devices-w5",
+       "en": "battery",
+       "ipa": "/ˈbætəri/",
+       "pos": "noun",
+       "fa": "باتری",
+       "def_en": "The part of a device that stores the power it runs on.",
+       "sport": "tech",
+       "icon": "battery",
+       "level": "A2",
+       "example_en": "My battery dies by the afternoon.",
+       "example_fa": "باتری‌ام تا بعدازظهر تمام می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "devices-w6",
+       "en": "screen",
+       "ipa": "/skrin/",
+       "pos": "noun",
+       "fa": "صفحه‌نمایش",
+       "def_en": "The flat surface you look at and touch.",
+       "sport": "tech",
+       "icon": "screen",
+       "level": "A1",
+       "example_en": "The screen is cracked in one corner.",
+       "example_fa": "صفحه‌نمایش در یک گوشه ترک خورده.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "devices-x1",
+       "kind": "expression",
+       "en": "My battery is almost dead.",
+       "fa": "باتری‌ام تقریباً تمام شده.",
+       "meaning_en": "The everyday way to say a device is nearly out of power.",
+       "meaning_fa": "روش روزمرهٔ گفتن اینکه دستگاه تقریباً بی‌برق شده.",
+       "register": "informal",
+       "example_en": "My battery is almost dead, can I borrow a charger?",
+       "example_fa": "باتری‌ام تقریباً تمام شده، می‌توانم شارژر قرض بگیرم؟",
+       "alt": ""
+      },
+      {
+       "id": "devices-x2",
+       "kind": "phrasal_verb",
+       "en": "It won't turn on.",
+       "fa": "روشن نمی‌شود.",
+       "meaning_en": "Turn on is the phrasal verb for starting a device; the first thing you say when one fails.",
+       "meaning_fa": "«روشن کردن» فعل عبارتی برای راه‌انداختن دستگاه است؛ نخستین چیزی که وقتی دستگاه خراب می‌شود می‌گویی.",
+       "register": "neutral",
+       "example_en": "I charged it all night and it won't turn on.",
+       "example_fa": "تمام شب شارژش کردم و روشن نمی‌شود.",
+       "alt": ""
+      },
+      {
+       "id": "devices-x3",
+       "kind": "expression",
+       "en": "Which cable does this take?",
+       "fa": "این چه کابلی می‌خواهد؟",
+       "meaning_en": "Asks for the right connector in a shop.",
+       "meaning_fa": "در فروشگاه اتصال درست را می‌پرسد.",
+       "register": "neutral",
+       "example_en": "Which cable does this tablet take?",
+       "example_fa": "این تبلت چه کابلی می‌خواهد؟",
+       "alt": ""
+      },
+      {
+       "id": "devices-x4",
+       "kind": "expression",
+       "en": "It is still under warranty.",
+       "fa": "هنوز گارانتی دارد.",
+       "meaning_en": "Says a repair may be free.",
+       "meaning_fa": "می‌گوید تعمیر ممکن است رایگان باشد.",
+       "register": "neutral",
+       "example_en": "The screen broke, but it is still under warranty.",
+       "example_fa": "صفحه شکست، اما هنوز گارانتی دارد.",
+       "alt": ""
+      },
+      {
+       "id": "devices-x5",
+       "kind": "idiom",
+       "en": "It is plug and play.",
+       "fa": "همه کارش آماده است.",
+       "meaning_en": "Literally, a device that works as soon as it is plugged in; figuratively, anything that needs no setup or explanation.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دستگاهی که به‌محض وصل شدن کار می‌کند؛ به‌طور مجازی، چیزی که هیچ نصب یا توضیحی لازم ندارد.",
+       "register": "neutral",
+       "example_en": "The new printer is plug and play.",
+       "example_fa": "چاپگر جدید همه کارش آماده است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I use my + [device] + for + [task].",
+       "example_en": "I use my tablet for reading.",
+       "example_fa": "از تبلتم برای خواندن استفاده می‌کنم.",
+       "note_en": "Say the device, then the job.",
+       "note_fa": "اول دستگاه، بعد کار."
+      },
+      {
+       "frame": "My + [part] + is + [broken/dead/cracked].",
+       "example_en": "My battery is dead.",
+       "example_fa": "باتری‌ام تمام شده.",
+       "note_en": "Name the part before the problem.",
+       "note_fa": "اول قطعه، بعد مشکل."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "devices-s1",
+       "en": "My phone is three years old and the battery lasts half a day.",
+       "fa": "گوشی‌ام سه سالش است و باتری نصف روز دوام می‌آورد.",
+       "use_en": "Describes a real device in one line.",
+       "use_fa": "یک دستگاه واقعی را در یک خط توصیف می‌کند.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "The battery only lasts half a day now."
+      },
+      {
+       "id": "devices-s2",
+       "en": "I keep a power bank in my bag for long days.",
+       "fa": "برای روزهای طولانی پاوربانک در کیفم نگه می‌دارم.",
+       "use_en": "Explains a habit and why.",
+       "use_fa": "عادتی و دلیلش را می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I carry a power bank."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the repair shop",
+      "title_fa": "در تعمیرگاه",
+      "speakers": [
+       "Omid",
+       "Ramin"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "My laptop won't turn on.",
+        "fa": "لپ‌تاپم روشن نمی‌شود."
+       },
+       {
+        "who": "Ramin",
+        "en": "Is the battery charged?",
+        "fa": "باتری‌اش شارژ دارد؟"
+       },
+       {
+        "who": "Omid",
+        "en": "I charged it all night. The light is on but the screen stays black.",
+        "fa": "تمام شب شارژش کردم. چراغش روشن است اما صفحه سیاه می‌ماند."
+       },
+       {
+        "who": "Ramin",
+        "en": "Does it make any sound when you press the power button?",
+        "fa": "وقتی دکمهٔ روشن را می‌زنی صدایی می‌دهد؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Nothing at all.",
+        "fa": "هیچ صدایی."
+       },
+       {
+        "who": "Ramin",
+        "en": "It is still under warranty, so this is free.",
+        "fa": "هنوز گارانتی دارد، پس رایگان است."
+       },
+       {
+        "who": "Omid",
+        "en": "How long will it take?",
+        "fa": "چقدر طول می‌کشد؟"
+       },
+       {
+        "who": "Ramin",
+        "en": "Two days. I will call you when it is ready.",
+        "fa": "دو روز. وقتی آماده شد زنگ می‌زنم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The dead battery",
+       "title_fa": "باتری تمام‌شده",
+       "situation_en": "Your phone dies before noon every day.",
+       "situation_fa": "گوشی‌ات هر روز پیش از ظهر خاموش می‌شود.",
+       "task_en": "Ask what you can change rather than what to buy.",
+       "task_fa": "بپرس چه چیزی را عوض کنی، نه چه بخر.",
+       "answer_en": "Check screen time and brightness first. They drain more than the apps.",
+       "answer_fa": "اول زمان صفحه و روشنایی را بررسی کن. آن‌ها بیشتر از برنامه‌ها باتری می‌برند."
+      },
+      {
+       "title_en": "Buying a charger",
+       "title_fa": "خرید شارژر",
+       "situation_en": "You are in a shop with your tablet and no cable.",
+       "situation_fa": "در فروشگاهی با تبلت و بدون کابل هستی.",
+       "task_en": "Ask for the right one and check it fits.",
+       "task_fa": "درستش را بخواه و بررسی کن که جا می‌خورد.",
+       "answer_en": "Which cable does this tablet take? I want one I can also use in the car.",
+       "answer_fa": "این تبلت چه کابلی می‌خواهد؟ یکی می‌خواهم که در ماشین هم به کار برود."
+      }
+     ],
+     "practice": [
+      {
+       "id": "devices-q1",
+       "q_en": "What does \"my battery is almost dead\" mean?",
+       "q_fa": "«باتری‌ام تقریباً تمام شده» یعنی چه؟",
+       "options": [
+        "the battery is nearly empty",
+        "the battery is broken",
+        "the battery is new"
+       ],
+       "answer": "the battery is nearly empty",
+       "why_en": "Dead here means empty, not damaged.",
+       "why_fa": "«تمام» اینجا یعنی خالی، نه خراب."
+      },
+      {
+       "id": "devices-q2",
+       "q_en": "Which part stores power?",
+       "q_fa": "کدام بخش نیرو ذخیره می‌کند؟",
+       "options": [
+        "the battery",
+        "the screen",
+        "the cable"
+       ],
+       "answer": "the battery",
+       "why_en": "The battery holds the charge; the charger refills it.",
+       "why_fa": "باتری شارژ را نگه می‌دارد؛ شارژر پرش می‌کند."
+      },
+      {
+       "id": "devices-q3",
+       "q_en": "\"It won't turn on\" is said when ...",
+       "q_fa": "«روشن نمی‌شود» کِی گفته می‌شود؟",
+       "options": [
+        "a device does not start",
+        "a device is slow",
+        "a device is new"
+       ],
+       "answer": "a device does not start",
+       "why_en": "It describes a device that gives no signs of life.",
+       "why_fa": "دستگاهی را توصیف می‌کند که هیچ نشانه‌ای از زندگی ندارد."
+      }
+     ]
+    },
+    {
+     "id": "connection",
+     "order": 2,
+     "icon": "wifi",
+     "title_en": "Getting online",
+     "title_fa": "اتصال به اینترنت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Wi-Fi, data, and the words for when the internet stops working.",
+     "blurb_fa": "وای‌فای، داده، و واژه‌های وقتی اینترنت قطع می‌شود.",
+     "objectives": [
+      {
+       "en": "ask for the Wi-Fi password and say when it does not work.",
+       "fa": "رمز وای‌فای بخواه و بگو وقتی کار نمی‌کند."
+      },
+      {
+       "en": "describe slow internet and name the likely cause.",
+       "fa": "اینترنت کند را توصیف کن و علت احتمالی را بگو."
+      },
+      {
+       "en": "choose between Wi-Fi and mobile data with a reason.",
+       "fa": "بین وای‌فای و دادهٔ همراه با دلیل انتخاب کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "connection-w1",
+       "en": "Wi-Fi",
+       "ipa": "/ˈwaɪ faɪ/",
+       "pos": "noun",
+       "fa": "وای‌فای",
+       "def_en": "A wireless connection that joins a device to the internet through a router.",
+       "sport": "tech",
+       "icon": "wifi",
+       "level": "A1",
+       "example_en": "What is the Wi-Fi password?",
+       "example_fa": "رمز وای‌فای چیست؟",
+       "ref": ""
+      },
+      {
+       "id": "connection-w2",
+       "en": "router",
+       "ipa": "/ˈraʊtər/",
+       "pos": "noun",
+       "fa": "روتر",
+       "def_en": "The box in the house that sends the internet to your devices.",
+       "sport": "tech",
+       "icon": "router",
+       "level": "A2",
+       "example_en": "Restart the router and wait a minute.",
+       "example_fa": "روتر را خاموش و روشن کن و یک دقیقه صبر کن.",
+       "ref": ""
+      },
+      {
+       "id": "connection-w3",
+       "en": "bandwidth",
+       "ipa": "/ˈbændwɪdθ/",
+       "pos": "noun",
+       "fa": "پهنای باند",
+       "def_en": "How much data can move through a connection at one time.",
+       "sport": "tech",
+       "icon": "chart",
+       "level": "B1",
+       "example_en": "Video calls use a lot of bandwidth.",
+       "example_fa": "تماس تصویری پهنای باند زیادی می‌خواهد.",
+       "ref": ""
+      },
+      {
+       "id": "connection-w4",
+       "en": "hotspot",
+       "ipa": "/ˈhɑtspɑt/",
+       "pos": "noun",
+       "fa": "هات‌اسپات",
+       "def_en": "A phone sharing its data connection with other devices.",
+       "sport": "tech",
+       "icon": "wifi",
+       "level": "B1",
+       "example_en": "I will make a hotspot from my phone.",
+       "example_fa": "از گوشی‌ام هات‌اسپات می‌سازم.",
+       "ref": ""
+      },
+      {
+       "id": "connection-w5",
+       "en": "data plan",
+       "ipa": "/ˈdeɪtə plæn/",
+       "pos": "noun",
+       "fa": "بستهٔ داده",
+       "def_en": "The monthly amount of mobile internet you pay for.",
+       "sport": "tech",
+       "icon": "phone",
+       "level": "A2",
+       "example_en": "My data plan runs out before the month ends.",
+       "example_fa": "بستهٔ داده‌ام پیش از پایان ماه تمام می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "connection-w6",
+       "en": "offline",
+       "ipa": "/ˌɔfˈlaɪn/",
+       "pos": "adjective",
+       "fa": "آفلاین",
+       "def_en": "Not connected to the internet.",
+       "sport": "tech",
+       "icon": "cloud",
+       "level": "A2",
+       "example_en": "The app works offline too.",
+       "example_fa": "برنامه آفلاین هم کار می‌کند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "connection-x1",
+       "kind": "expression",
+       "en": "The internet is down.",
+       "fa": "اینترنت قطع است.",
+       "meaning_en": "Says the connection has failed, not the device.",
+       "meaning_fa": "می‌گوید اتصال از کار افتاده، نه دستگاه.",
+       "register": "neutral",
+       "example_en": "The internet is down, so I cannot send it now.",
+       "example_fa": "اینترنت قطع است، پس حالا نمی‌توانم بفرستم.",
+       "alt": ""
+      },
+      {
+       "id": "connection-x2",
+       "kind": "expression",
+       "en": "It keeps dropping.",
+       "fa": "مدام قطع می‌شود.",
+       "meaning_en": "Describes an unstable connection.",
+       "meaning_fa": "اتصالی ناپایدار را توصیف می‌کند.",
+       "register": "informal",
+       "example_en": "The Wi-Fi keeps dropping in my room.",
+       "example_fa": "وای‌فای در اتاقم مدام قطع می‌شود.",
+       "alt": ""
+      },
+      {
+       "id": "connection-x3",
+       "kind": "expression",
+       "en": "Try turning it off and on again.",
+       "fa": "خاموش و روشنش کن.",
+       "meaning_en": "The first fix for almost everything network related.",
+       "meaning_fa": "نخستین راه‌حل تقریباً هر مشکل شبکه.",
+       "register": "informal",
+       "example_en": "Before you call them, try turning it off and on again.",
+       "example_fa": "قبل از تماس با آن‌ها، خاموش و روشنش کن.",
+       "alt": ""
+      },
+      {
+       "id": "connection-x4",
+       "kind": "expression",
+       "en": "I am on mobile data.",
+       "fa": "دارم از دادهٔ همراه استفاده می‌کنم.",
+       "meaning_en": "Explains why you cannot do something heavy online.",
+       "meaning_fa": "توضیح می‌دهد چرا کاری سنگین آنلاین نمی‌کنی.",
+       "register": "neutral",
+       "example_en": "I am on mobile data, so I will keep this short.",
+       "example_fa": "دارم از دادهٔ همراه استفاده می‌کنم، پس کوتاه می‌گویم.",
+       "alt": ""
+      },
+      {
+       "id": "connection-x5",
+       "kind": "idiom",
+       "en": "I am off the grid for a week.",
+       "fa": "یک هفته از شبکه بیرونم.",
+       "meaning_en": "Literally, not connected to any network; figuratively, deliberately away from work and messages.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، به هیچ شبکه‌ای وصل نیستم؛ به‌طور مجازی، عمداً از کار و پیام‌ها دورم.",
+       "register": "informal",
+       "example_en": "I am off the grid for a week, so call my landline.",
+       "example_fa": "یک هفته از شبکه بیرونم، پس به تلفن ثابتم زنگ بزن.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "What is the + [network] + password?",
+       "example_en": "رمز وای‌فای چیست؟",
+       "example_fa": "Ask for access before you sit down.",
+       "note_en": "پیش از نشستن دسترسی بخواه.",
+       "note_fa": ""
+      },
+      {
+       "frame": "The + [thing] + keeps + [verb-ing].",
+       "example_en": "The Wi-Fi keeps dropping.",
+       "example_fa": "وای‌فای مدام قطع می‌شود.",
+       "note_en": "Describe a repeated fault.",
+       "note_fa": "یک ایراد تکراری را توصیف کن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "connection-s1",
+       "en": "The video call froze three times, so we switched to audio.",
+       "fa": "تماس تصویری سه بار قطع شد، پس به صدا رفتیم.",
+       "use_en": "A whole troubleshooting decision in one sentence.",
+       "use_fa": "یک تصمیم کامل عیب‌یابی در یک جمله.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "We gave up on video and used audio."
+      },
+      {
+       "id": "connection-s2",
+       "en": "My data plan is fine, it is the Wi-Fi that is slow.",
+       "fa": "بستهٔ داده‌ام خوب است، وای‌فای کند است.",
+       "use_en": "Separates two causes before blaming one.",
+       "use_fa": "دو علت را پیش از سرزنش یکی جدا می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The Wi-Fi is the slow part, not my data."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At a café",
+      "title_fa": "در کافه",
+      "speakers": [
+       "Sina",
+       "Mahsa"
+      ],
+      "lines": [
+       {
+        "who": "Sina",
+        "en": "Excuse me, what is the Wi-Fi password?",
+        "fa": "ببخشید، رمز وای‌فای چیست؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "It is on the receipt. It keeps dropping, though.",
+        "fa": "روی رسید است. اما مدام قطع می‌شود."
+       },
+       {
+        "who": "Sina",
+        "en": "Is it the router?",
+        "fa": "از روتر است؟"
+       },
+       {
+        "who": "Mahsa",
+        "en": "Probably. Try turning it off and on again, the plug is behind the counter.",
+        "fa": "احتمالاً. خاموش و روشنش کن، دوشاخه پشت پیشخوان است."
+       },
+       {
+        "who": "Sina",
+        "en": "Thanks. I am on mobile data for now.",
+        "fa": "ممنون. فعلاً از دادهٔ همراه استفاده می‌کنم."
+       },
+       {
+        "who": "Mahsa",
+        "en": "Are you uploading something big?",
+        "fa": "چیز بزرگی آپلود می‌کنی؟"
+       },
+       {
+        "who": "Sina",
+        "en": "A video. It uses a lot of bandwidth.",
+        "fa": "یک ویدیو. پهنای باند زیادی می‌خواهد."
+       },
+       {
+        "who": "Mahsa",
+        "en": "Then wait for the Wi-Fi, it is cheaper.",
+        "fa": "پس منتظر وای‌فای بمان، ارزان‌تر است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The dead zone",
+       "title_fa": "نقطهٔ کور",
+       "situation_en": "The Wi-Fi works in one room and nowhere else.",
+       "situation_fa": "وای‌فای در یک اتاق کار می‌کند و جای دیگر نه.",
+       "task_en": "Ask for the router's position rather than a new plan.",
+       "task_fa": "به جای بستهٔ جدید، جای روتر را بپرس.",
+       "answer_en": "Where is your router? Mine only reaches the next room when it is high up.",
+       "answer_fa": "روترتان کجاست؟ مال من فقط وقتی بالاست تا اتاق بعدی می‌رسد."
+      },
+      {
+       "title_en": "The shared hotspot",
+       "title_fa": "هات‌اسپات مشترک",
+       "situation_en": "A friend needs internet and your data is limited.",
+       "situation_fa": "دوستت اینترنت می‌خواهد و داده‌ات محدود است.",
+       "task_en": "Agree and set a limit.",
+       "task_fa": "موافقت کن و حد بگذار.",
+       "answer_en": "I will make a hotspot, but my data plan is small, so no videos.",
+       "answer_fa": "هات‌اسپات می‌سازم، اما بسته‌ام کم است، پس ویدیو نه."
+      }
+     ],
+     "practice": [
+      {
+       "id": "connection-q1",
+       "q_en": "What does a router do?",
+       "q_fa": "روتر چه کار می‌کند؟",
+       "options": [
+        "it sends the internet to your devices",
+        "it stores your photos",
+        "it charges the phone"
+       ],
+       "answer": "it sends the internet to your devices",
+       "why_en": "The router is the box between the line and your devices.",
+       "why_fa": "روتر جعبه‌ای بین خط و دستگاه‌های توست."
+      },
+      {
+       "id": "connection-q2",
+       "q_en": "What is a hotspot?",
+       "q_fa": "هات‌اسپات چیست؟",
+       "options": [
+        "a phone sharing its data connection",
+        "a public password",
+        "a type of cable"
+       ],
+       "answer": "a phone sharing its data connection",
+       "why_en": "A hotspot turns one phone into a small Wi-Fi network.",
+       "why_fa": "هات‌اسپات یک گوشی را به شبکهٔ وای‌فای کوچک تبدیل می‌کند."
+      },
+      {
+       "id": "connection-q3",
+       "q_en": "\"Offline\" means ...",
+       "q_fa": "«آفلاین» یعنی ...",
+       "options": [
+        "not connected to the internet",
+        "switched off completely",
+        "out of battery"
+       ],
+       "answer": "not connected to the internet",
+       "why_en": "Offline devices still work, just without the network.",
+       "why_fa": "دستگاه آفلاین کار می‌کند، فقط بدون شبکه."
+      }
+     ]
+    },
+    {
+     "id": "browser",
+     "order": 3,
+     "icon": "browser",
+     "title_en": "Browsing and searching",
+     "title_fa": "مرور و جست‌وجو",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Tabs, links, bookmarks and the cache, the words people use without explaining.",
+     "blurb_fa": "تب‌ها، لینک‌ها، بوکمارک‌ها و کش؛ واژه‌هایی که مردم بی‌توضیح به کار می‌برند.",
+     "objectives": [
+      {
+       "en": "ask for a link and open it in a new tab.",
+       "fa": "لینک بخواه و در تب تازه بازش کن."
+      },
+      {
+       "en": "say what a search engine is and how you use it.",
+       "fa": "بگو موتور جست‌وجو چیست و چطور استفاده می‌کنی."
+      },
+      {
+       "en": "describe a slow page and clear the cache.",
+       "fa": "صفحهٔ کند را توصیف کن و کش را پاک کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "browser-w1",
+       "en": "browser",
+       "ipa": "/ˈbraʊzər/",
+       "pos": "noun",
+       "fa": "مرورگر",
+       "def_en": "The program you use to open websites.",
+       "sport": "tech",
+       "icon": "browser",
+       "level": "A1",
+       "example_en": "Which browser do you use?",
+       "example_fa": "از کدام مرورگر استفاده می‌کنی؟",
+       "ref": ""
+      },
+      {
+       "id": "browser-w2",
+       "en": "tab",
+       "ipa": "/tæb/",
+       "pos": "noun",
+       "fa": "تب",
+       "def_en": "One page open inside a browser window.",
+       "sport": "tech",
+       "icon": "browser",
+       "level": "A2",
+       "example_en": "I have twenty tabs open again.",
+       "example_fa": "باز بیست تب باز کرده‌ام.",
+       "ref": ""
+      },
+      {
+       "id": "browser-w3",
+       "en": "search engine",
+       "ipa": "/sɜrtʃ ˈɛndʒɪn/",
+       "pos": "noun",
+       "fa": "موتور جست‌وجو",
+       "def_en": "A website that finds pages for what you type.",
+       "sport": "tech",
+       "icon": "browser",
+       "level": "A1",
+       "example_en": "Type it into a search engine.",
+       "example_fa": "آن را در موتور جست‌وجو بنویس.",
+       "ref": ""
+      },
+      {
+       "id": "browser-w4",
+       "en": "link",
+       "ipa": "/lɪŋk/",
+       "pos": "noun",
+       "fa": "لینک",
+       "def_en": "Text or a button that takes you to another page.",
+       "sport": "tech",
+       "icon": "link",
+       "level": "A1",
+       "example_en": "Send me the link.",
+       "example_fa": "لینکش را برایم بفرست.",
+       "ref": ""
+      },
+      {
+       "id": "browser-w5",
+       "en": "bookmark",
+       "ipa": "/ˈbʊkmɑrk/",
+       "pos": "noun",
+       "fa": "بوکمارک",
+       "def_en": "A saved page you can return to in one click.",
+       "sport": "tech",
+       "icon": "star",
+       "level": "A2",
+       "example_en": "I bookmarked the recipe.",
+       "example_fa": "دستور غذا را بوکمارک کردم.",
+       "ref": ""
+      },
+      {
+       "id": "browser-w6",
+       "en": "cache",
+       "ipa": "/kæʃ/",
+       "pos": "noun",
+       "fa": "کش",
+       "def_en": "Saved copies of a site so it opens faster next time.",
+       "sport": "tech",
+       "icon": "chip",
+       "level": "B1",
+       "example_en": "Clear the cache if the page looks wrong.",
+       "example_fa": "اگر صفحه غلط نشان می‌دهد، کش را پاک کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "browser-x1",
+       "kind": "expression",
+       "en": "Open it in a new tab.",
+       "fa": "در تب تازه بازش کن.",
+       "meaning_en": "Keeps the page you are on.",
+       "meaning_fa": "صفحه‌ای که در آن هستی را نگه می‌دارد.",
+       "register": "neutral",
+       "example_en": "Open it in a new tab so you do not lose this page.",
+       "example_fa": "در تب تازه بازش کن تا این صفحه را از دست ندهی.",
+       "alt": ""
+      },
+      {
+       "id": "browser-x2",
+       "kind": "expression",
+       "en": "Send me the link.",
+       "fa": "لینکش را برایم بفرست.",
+       "meaning_en": "The shortest request in messaging.",
+       "meaning_fa": "کوتاه‌ترین درخواست در پیام‌رسان.",
+       "register": "informal",
+       "example_en": "Send me the link and I will read it tonight.",
+       "example_fa": "لینکش را بفرست، امشب می‌خوانم.",
+       "alt": ""
+      },
+      {
+       "id": "browser-x3",
+       "kind": "expression",
+       "en": "I cannot find it in the search results.",
+       "fa": "در نتایج جست‌وجو پیدایش نمی‌کنم.",
+       "meaning_en": "Says the search failed, not the site.",
+       "meaning_fa": "می‌گوید جست‌وجو ناموفق بود، نه سایت.",
+       "register": "neutral",
+       "example_en": "I cannot find it in the search results, only ads.",
+       "example_fa": "در نتایج جست‌وجو پیدایش نمی‌کنم، فقط تبلیغ.",
+       "alt": ""
+      },
+      {
+       "id": "browser-x4",
+       "kind": "collocation",
+       "en": "Clear the cache and try again.",
+       "fa": "کش را پاک کن و دوباره امتحان کن.",
+       "meaning_en": "Clear the cache is a collocation: the verb keeps its fixed object. It is the second fix after \"turn it off and on\".",
+       "meaning_fa": "«کش را پاک کردن» یک هم‌نشینی است: فعل مفعول ثابتش را نگه می‌دارد. دومین راه‌حل بعد از «خاموش و روشن کن» است.",
+       "register": "informal",
+       "example_en": "The menu is missing. Clear the cache and try again.",
+       "example_fa": "منو نیست. کش را پاک کن و دوباره امتحان کن.",
+       "alt": ""
+      },
+      {
+       "id": "browser-x5",
+       "kind": "idiom",
+       "en": "I fell down a rabbit hole.",
+       "fa": "در یک هزارتوی بی‌پایان افتادم.",
+       "meaning_en": "Literally, from the hole a rabbit lives in; figuratively, into a chain of links that consumes your time.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، چاله‌ای که خرگوش در آن زندگی می‌کند؛ به‌طور مجازی، زنجیره‌ای از لینک‌ها که وقتت را می‌بلعد.",
+       "register": "informal",
+       "example_en": "I opened one article and fell down a rabbit hole for two hours.",
+       "example_fa": "یک مقاله باز کردم و دو ساعت در هزارتویی افتادم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Open it in + [place].",
+       "example_en": "Open it in a new tab.",
+       "example_fa": "در تب تازه بازش کن.",
+       "note_en": "Where the page should go.",
+       "note_fa": "صفحه کجا باز شود."
+      },
+      {
+       "frame": "I could not find + [thing] + in + [place].",
+       "example_en": "I could not find the price in the page.",
+       "example_fa": "قیمت را در صفحه پیدا نکردم.",
+       "note_en": "Name the missing thing and where you looked.",
+       "note_fa": "چیز گمشده و جای جست‌وجو را بگو."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "browser-s1",
+       "en": "I have too many tabs open and I cannot find the one I need.",
+       "fa": "تب‌های زیادی باز کرده‌ام و آن که لازم دارم پیدا نمی‌کنم.",
+       "use_en": "A modern problem, stated plainly.",
+       "use_fa": "مشکلی مدرن، ساده گفته‌شده.",
+       "level": "A2",
+       "polite": "informal",
+       "alt": "I lost the tab I needed."
+      },
+      {
+       "id": "browser-s2",
+       "en": "Search for the exact phrase in quotation marks.",
+       "fa": "عبارت دقیق را در گیومه جست‌وجو کن.",
+       "use_en": "Gives a technique, not an opinion.",
+       "use_fa": "تکنیک می‌دهد، نه نظر.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Put the phrase in quotes when you search."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Helping a friend shop online",
+      "title_fa": "کمک به دوست برای خرید آنلاین",
+      "speakers": [
+       "Navid",
+       "Shadi"
+      ],
+      "lines": [
+       {
+        "who": "Navid",
+        "en": "I cannot find the page you mentioned.",
+        "fa": "صفحه‌ای که گفتی را پیدا نمی‌کنم."
+       },
+       {
+        "who": "Shadi",
+        "en": "I will send you the link. Open it in a new tab.",
+        "fa": "لینکش را می‌فرستم. در تب تازه بازش کن."
+       },
+       {
+        "who": "Navid",
+        "en": "Done. The page looks wrong, all the pictures are missing.",
+        "fa": "انجام شد. صفحه غلط نشان می‌دهد، همهٔ عکس‌ها نیستند."
+       },
+       {
+        "who": "Shadi",
+        "en": "Clear the cache and try again.",
+        "fa": "کش را پاک کن و دوباره امتحان کن."
+       },
+       {
+        "who": "Navid",
+        "en": "It works now. Should I bookmark it?",
+        "fa": "حالا کار می‌کند. بوکمارکش کنم؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "Yes, or you will lose it in your tabs.",
+        "fa": "بله، وگرنه در تب‌هایت گمش می‌کنی."
+       },
+       {
+        "who": "Navid",
+        "en": "I already have twenty open.",
+        "fa": "از قبل بیست تا باز دارم."
+       },
+       {
+        "who": "Shadi",
+        "en": "Then bookmark it and close the rest. I fell down a rabbit hole like that last week.",
+        "fa": "پس بوکمارکش کن و بقیه را ببند. هفتهٔ پیش همین‌طور در هزارتویی افتادم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The wrong page",
+       "title_fa": "صفحهٔ اشتباه",
+       "situation_en": "Search results show ads and nothing useful.",
+       "situation_fa": "نتایج جست‌وجو تبلیغ نشان می‌دهد و چیز مفیدی نه.",
+       "task_en": "Ask for a better query.",
+       "task_fa": "پرسش بهتری بخواه.",
+       "answer_en": "Try the exact phrase in quotation marks. The ads are taking the first three results.",
+       "answer_fa": "عبارت دقیق را در گیومه امتحان کن. تبلیغ‌ها سه نتیجهٔ اول را گرفته‌اند."
+      },
+      {
+       "title_en": "Sharing a page",
+       "title_fa": "به اشتراک گذاشتن صفحه",
+       "situation_en": "A friend wants the article you read last night.",
+       "situation_fa": "دوستت مقاله‌ای را می‌خواهد که دیشب خواندی.",
+       "task_en": "Give it, and say where to open it.",
+       "task_fa": "بده و بگو کجا بازش کند.",
+       "answer_en": "Here is the link. Open it in a new tab, it has a long page.",
+       "answer_fa": "لینکش این است. در تب تازه بازش کن، صفحهٔ طولانی دارد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "browser-q1",
+       "q_en": "What is a tab?",
+       "q_fa": "تب چیست؟",
+       "options": [
+        "one page open inside a browser",
+        "a saved password",
+        "a type of cable"
+       ],
+       "answer": "one page open inside a browser",
+       "why_en": "A tab keeps a page open beside the others.",
+       "why_fa": "تب صفحه‌ای را کنار بقیه باز نگه می‌دارد."
+      },
+      {
+       "id": "browser-q2",
+       "q_en": "What does the cache do?",
+       "q_fa": "کش چه می‌کند؟",
+       "options": [
+        "it saves copies of a site to load it faster",
+        "it blocks websites",
+        "it charges the device"
+       ],
+       "answer": "it saves copies of a site to load it faster",
+       "why_en": "Cache is stored data, and clearing it can fix a broken page.",
+       "why_fa": "کش دادهٔ ذخیره‌شده است و پاک کردنش صفحهٔ خراب را درست می‌کند."
+      },
+      {
+       "id": "browser-q3",
+       "q_en": "\"A rabbit hole\" in browsing means ...",
+       "q_fa": "«چالهٔ خرگوش» در مرور یعنی ...",
+       "options": [
+        "a chain of links that eats your time",
+        "a broken link",
+        "a private window"
+       ],
+       "answer": "a chain of links that eats your time",
+       "why_en": "The metaphor is falling in and not finding the way out.",
+       "why_fa": "استعارهٔ افتادن و راه بیرون پیدا نکردن است."
+      }
+     ]
+    },
+    {
+     "id": "accounts",
+     "order": 4,
+     "icon": "lock",
+     "title_en": "Accounts and signing in",
+     "title_fa": "حساب‌ها و ورود",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Passwords, passkeys, two-factor codes, and what to do when you are locked out.",
+     "blurb_fa": "رمز، پاسکی، کد دومرحله‌ای و کاری که وقتی قفل می‌شوی می‌کنی.",
+     "objectives": [
+      {
+       "en": "create an account and sign in without help.",
+       "fa": "حساب بساز و بدون کمک وارد شو."
+      },
+      {
+       "en": "ask for a password reset and understand the steps.",
+       "fa": "بازنشانی رمز بخواه و مرحله‌ها را بفهم."
+      },
+      {
+       "en": "explain two-factor authentication in one sentence.",
+       "fa": "ورود دومرحله‌ای را در یک جمله توضیح بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "accounts-w1",
+       "en": "account",
+       "ipa": "/əˈkaʊnt/",
+       "pos": "noun",
+       "fa": "حساب",
+       "def_en": "The record of your name and data on a service.",
+       "sport": "tech",
+       "icon": "laptop",
+       "level": "A1",
+       "example_en": "I made an account yesterday.",
+       "example_fa": "دیروز حساب ساختم.",
+       "ref": ""
+      },
+      {
+       "id": "accounts-w2",
+       "en": "username",
+       "ipa": "/ˈjuzərneɪm/",
+       "pos": "noun",
+       "fa": "نام کاربری",
+       "def_en": "The name you type to sign in.",
+       "sport": "tech",
+       "icon": "key",
+       "level": "A1",
+       "example_en": "My username is my first name.",
+       "example_fa": "نام کاربری‌ام اسم کوچکم است.",
+       "ref": ""
+      },
+      {
+       "id": "accounts-w3",
+       "en": "password",
+       "ipa": "/ˈpæswɜrd/",
+       "pos": "noun",
+       "fa": "رمز عبور",
+       "def_en": "The secret word that protects an account.",
+       "sport": "tech",
+       "icon": "lock",
+       "level": "A1",
+       "example_en": "Use a different password for each site.",
+       "example_fa": "برای هر سایت رمز جداگانه به کار ببر.",
+       "ref": ""
+      },
+      {
+       "id": "accounts-w4",
+       "en": "passkey",
+       "ipa": "/ˈpæski/",
+       "pos": "noun",
+       "fa": "پاسکی",
+       "def_en": "A sign-in method that uses your fingerprint or face instead of a typed password.",
+       "sport": "tech",
+       "icon": "key",
+       "level": "B1",
+       "example_en": "A passkey is safer than a password you reuse.",
+       "example_fa": "پاسکی از رمزی که تکرار می‌کنی امن‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "accounts-w5",
+       "en": "two-factor authentication",
+       "ipa": "/ˈtu ˈfæktər ɔˌθɛntɪˈkeɪʃn/",
+       "pos": "noun",
+       "fa": "ورود دومرحله‌ای",
+       "def_en": "A second check, such as a code on your phone, after the password.",
+       "sport": "tech",
+       "icon": "shield",
+       "level": "B1",
+       "example_en": "Turn on two-factor authentication.",
+       "example_fa": "ورود دومرحله‌ای را روشن کن.",
+       "ref": ""
+      },
+      {
+       "id": "accounts-w6",
+       "en": "sign out",
+       "ipa": "/ˌsaɪn ˈaʊt/",
+       "pos": "verb",
+       "fa": "خارج شدن",
+       "def_en": "To end a session so the next person must sign in again.",
+       "sport": "tech",
+       "icon": "lock",
+       "level": "A2",
+       "example_en": "Sign out on shared computers.",
+       "example_fa": "در کامپیوترهای مشترک خارج شو.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "accounts-x1",
+       "kind": "expression",
+       "en": "I cannot sign in.",
+       "fa": "نمی‌توانم وارد شوم.",
+       "meaning_en": "The first sentence of every account problem.",
+       "meaning_fa": "نخستین جملهٔ هر مشکل حساب.",
+       "register": "neutral",
+       "example_en": "I cannot sign in, the password is rejected.",
+       "example_fa": "نمی‌توانم وارد شوم، رمز رد می‌شود.",
+       "alt": ""
+      },
+      {
+       "id": "accounts-x2",
+       "kind": "expression",
+       "en": "I forgot my password.",
+       "fa": "رمزم را فراموش کرده‌ام.",
+       "meaning_en": "Asks for the reset without excuses.",
+       "meaning_fa": "بازنشانی را بدون بهانه می‌خواهد.",
+       "register": "neutral",
+       "example_en": "I forgot my password, where do I reset it?",
+       "example_fa": "رمزم را فراموش کرده‌ام، کجا بازنشانی کنم؟",
+       "alt": ""
+      },
+      {
+       "id": "accounts-x3",
+       "kind": "expression",
+       "en": "Check your email for a code.",
+       "fa": "ایمیلت را برای کد بررسی کن.",
+       "meaning_en": "Describes the second step of signing in.",
+       "meaning_fa": "مرحلهٔ دوم ورود را توصیف می‌کند.",
+       "register": "neutral",
+       "example_en": "Check your email for a code, it expires in ten minutes.",
+       "example_fa": "ایمیلت را برای کد بررسی کن، ده دقیقه اعتبار دارد.",
+       "alt": ""
+      },
+      {
+       "id": "accounts-x4",
+       "kind": "expression",
+       "en": "Never share the code with anyone.",
+       "fa": "کد را هرگز با کسی به اشتراک نگذار.",
+       "meaning_en": "The rule that stops most account theft.",
+       "meaning_fa": "قاعده‌ای که بیشتر دزدی حساب را می‌گیرد.",
+       "register": "neutral",
+       "example_en": "They ask for the code, but never share the code with anyone.",
+       "example_fa": "کد را می‌خواهند، اما کد را هرگز با کسی به اشتراک نگذار.",
+       "alt": ""
+      },
+      {
+       "id": "accounts-x5",
+       "kind": "idiom",
+       "en": "I am locked out of my account.",
+       "fa": "از حسابم بیرون افتاده‌ام.",
+       "meaning_en": "Literally, shut outside a door; figuratively, unable to reach an account you own.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بیرون از یک در بسته؛ به‌طور مجازی، دسترسی‌نداشتن به حسابی که مالکش هستی.",
+       "register": "neutral",
+       "example_en": "I changed my phone and now I am locked out of my account.",
+       "example_fa": "گوشی‌ام را عوض کردم و حالا از حسابم بیرون افتاده‌ام.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I cannot + [verb] + my account.",
+       "example_en": "I cannot open my account.",
+       "example_fa": "نمی‌توانم حسابم را باز کنم.",
+       "note_en": "Name the action that fails.",
+       "note_fa": "کاری که شکست می‌خورد را بگو."
+      },
+      {
+       "frame": "Use + [method] + for + [service].",
+       "example_en": "Use a passkey for your email.",
+       "example_fa": "برای ایمیلت از پاسکی استفاده کن.",
+       "note_en": "Method, then place.",
+       "note_fa": "اول روش، بعد جا."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "accounts-s1",
+       "en": "I use a passkey on my phone and a password on my laptop.",
+       "fa": "روی گوشی‌ام از پاسکی و روی لپ‌تاپم از رمز استفاده می‌کنم.",
+       "use_en": "Shows a real setup, not a preference.",
+       "use_fa": "یک چیدمان واقعی را نشان می‌دهد، نه سلیقه.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Passkey on the phone, password on the laptop."
+      },
+      {
+       "id": "accounts-s2",
+       "en": "Two-factor authentication saved me once and I never turned it off again.",
+       "fa": "ورود دومرحله‌ای یک بار نجاتم داد و دیگر خاموشش نکردم.",
+       "use_en": "Gives the reason through a story.",
+       "use_fa": "دلیل را از راه یک روایت می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "It saved my account once."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Locked out",
+      "title_fa": "بیرون مانده",
+      "speakers": [
+       "Shirin",
+       "Pouya"
+      ],
+      "lines": [
+       {
+        "who": "Shirin",
+        "en": "I cannot sign in. It says my password is wrong.",
+        "fa": "نمی‌توانم وارد شوم. می‌گوید رمزم غلط است."
+       },
+       {
+        "who": "Pouya",
+        "en": "Did you change your phone recently?",
+        "fa": "اخیراً گوشی‌ات را عوض کردی؟"
+       },
+       {
+        "who": "Shirin",
+        "en": "Last week. Does that matter?",
+        "fa": "هفتهٔ پیش. مهم است؟"
+       },
+       {
+        "who": "Pouya",
+        "en": "Yes, the codes go to the old number.",
+        "fa": "بله، کدها به شمارهٔ قبلی می‌رود."
+       },
+       {
+        "who": "Shirin",
+        "en": "So I am locked out?",
+        "fa": "پس بیرون مانده‌ام؟"
+       },
+       {
+        "who": "Pouya",
+        "en": "No. Use the reset link and check your email for a code.",
+        "fa": "نه. از لینک بازنشانی استفاده کن و ایمیلت را برای کد بررسی کن."
+       },
+       {
+        "who": "Shirin",
+        "en": "The code expires quickly.",
+        "fa": "کد سریع منقضی می‌شود."
+       },
+       {
+        "who": "Pouya",
+        "en": "It lasts ten minutes. And never share it with anyone, even me.",
+        "fa": "ده دقیقه اعتبار دارد. و هرگز با کسی به اشتراکش نگذار، حتی من."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The forgotten password",
+       "title_fa": "رمز فراموش‌شده",
+       "situation_en": "You need to pay a bill and the site rejects your password.",
+       "situation_fa": "باید قبضی را پرداخت کنی و سایت رمزت را رد می‌کند.",
+       "task_en": "Get back in without creating a new account.",
+       "task_fa": "بدون ساختن حساب تازه برگرد.",
+       "answer_en": "I forgot my password. Can I reset it without losing my saved data?",
+       "answer_fa": "رمزم را فراموش کرده‌ام. می‌توانم بدون از دست دادن داده‌های ذخیره‌شده بازنشانی‌اش کنم؟"
+      },
+      {
+       "title_en": "The shared computer",
+       "title_fa": "کامپیوتر مشترک",
+       "situation_en": "You signed in at a hotel computer.",
+       "situation_fa": "در کامپیوتر هتل وارد شدی.",
+       "task_en": "Leave without leaving a session open.",
+       "task_fa": "جوری برو که نشستی باز نماند.",
+       "answer_en": "Does this computer sign me out automatically, or should I do it myself?",
+       "answer_fa": "این کامپیوتر خودش من را خارج می‌کند، یا خودم باید این کار را بکنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "accounts-q1",
+       "q_en": "What is two-factor authentication?",
+       "q_fa": "ورود دومرحله‌ای چیست؟",
+       "options": [
+        "a second check after your password",
+        "a longer password",
+        "a second account"
+       ],
+       "answer": "a second check after your password",
+       "why_en": "The second factor is usually a code or a fingerprint.",
+       "why_fa": "عامل دوم معمولاً کد یا اثر انگشت است."
+      },
+      {
+       "id": "accounts-q2",
+       "q_en": "Why is a passkey safer than a reused password?",
+       "q_fa": "چرا پاسکی از رمز تکراری امن‌تر است؟",
+       "options": [
+        "there is no password to guess or reuse",
+        "it is shorter",
+        "it never expires"
+       ],
+       "answer": "there is no password to guess or reuse",
+       "why_en": "A passkey stays on your device and cannot be guessed from another site.",
+       "why_fa": "پاسکی روی دستگاهت می‌ماند و از سایت دیگر حدس زده نمی‌شود."
+      },
+      {
+       "id": "accounts-q3",
+       "q_en": "Should you share a login code?",
+       "q_fa": "کد ورود را به اشتراک بگذاریم؟",
+       "options": [
+        "never",
+        "with family only",
+        "if someone asks politely"
+       ],
+       "answer": "never",
+       "why_en": "Nobody legitimate needs your code, including support staff.",
+       "why_fa": "هیچ کس قانونی کدت را نمی‌خواهد، حتی پشتیبانی."
+      }
+     ]
+    },
+    {
+     "id": "safety",
+     "order": 5,
+     "icon": "shield",
+     "title_en": "Scams, spam and staying safe",
+     "title_fa": "کلاهبرداری، هرزنامه و امن ماندن",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The messages designed to trick you, named so you can refuse them.",
+     "blurb_fa": "پیام‌هایی که ساخته شده‌اند تا فریبت بدهند، با نامشان تا بتوانی ردشان کنی.",
+     "objectives": [
+      {
+       "en": "recognise a phishing message and say why it is fake.",
+       "fa": "پیام فیشینگ را بشناس و بگو چرا جعلی است."
+      },
+      {
+       "en": "refuse a request for a code or a payment.",
+       "fa": "درخواست کد یا پرداخت را رد کن."
+      },
+      {
+       "en": "block and report spam without opening it.",
+       "fa": "هرزنامه را بدون باز کردن بلاک و گزارش کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "safety-w1",
+       "en": "phishing",
+       "ipa": "/ˈfɪʃɪŋ/",
+       "pos": "noun",
+       "fa": "فیشینگ",
+       "def_en": "A fake message that pretends to be a company to steal your details.",
+       "sport": "tech",
+       "icon": "bug",
+       "level": "B1",
+       "example_en": "That email is phishing, not your bank.",
+       "example_fa": "آن ایمیل فیشینگ است، نه بانک تو.",
+       "ref": ""
+      },
+      {
+       "id": "safety-w2",
+       "en": "scam",
+       "ipa": "/skæm/",
+       "pos": "noun",
+       "fa": "کلاهبرداری",
+       "def_en": "A trick that takes money or data from you.",
+       "sport": "tech",
+       "icon": "shield",
+       "level": "A2",
+       "example_en": "The call was a scam.",
+       "example_fa": "آن تماس کلاهبرداری بود.",
+       "ref": ""
+      },
+      {
+       "id": "safety-w3",
+       "en": "spam",
+       "ipa": "/spæm/",
+       "pos": "noun",
+       "fa": "هرزنامه",
+       "def_en": "Unwanted messages sent to many people.",
+       "sport": "tech",
+       "icon": "mail",
+       "level": "A2",
+       "example_en": "It went to my spam folder.",
+       "example_fa": "به پوشهٔ هرزنامهٔ من رفت.",
+       "ref": ""
+      },
+      {
+       "id": "safety-w4",
+       "en": "malware",
+       "ipa": "/ˈmælwɛr/",
+       "pos": "noun",
+       "fa": "بدافزار",
+       "def_en": "Software installed to damage or spy on a device.",
+       "sport": "tech",
+       "icon": "bug",
+       "level": "B2",
+       "example_en": "The download came with malware.",
+       "example_fa": "آن دانلود بدافزار داشت.",
+       "ref": ""
+      },
+      {
+       "id": "safety-w5",
+       "en": "firewall",
+       "ipa": "/ˈfaɪərwɔl/",
+       "pos": "noun",
+       "fa": "فایروال",
+       "def_en": "A barrier that blocks unwanted traffic on a network.",
+       "sport": "tech",
+       "icon": "shield",
+       "level": "B2",
+       "example_en": "The firewall blocks unknown connections.",
+       "example_fa": "فایروال اتصال‌های ناشناس را می‌بندد.",
+       "ref": ""
+      },
+      {
+       "id": "safety-w6",
+       "en": "VPN",
+       "ipa": "/ˌvi pi ˈɛn/",
+       "pos": "noun",
+       "fa": "وی‌پی‌ان",
+       "def_en": "A private tunnel that hides your traffic on public networks.",
+       "sport": "tech",
+       "icon": "lock",
+       "level": "B1",
+       "example_en": "Use a VPN on café Wi-Fi.",
+       "example_fa": "در وای‌فای کافه از وی‌پی‌ان استفاده کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "safety-x1",
+       "kind": "expression",
+       "en": "If it asks for a code, it is a scam.",
+       "fa": "اگر کد بخواهد، کلاهبرداری است.",
+       "meaning_en": "A rule short enough to remember under pressure.",
+       "meaning_fa": "قاعده‌ای کوتاه که زیر فشار یادت می‌ماند.",
+       "register": "neutral",
+       "example_en": "Your bank will never call for a code. If it asks for a code, it is a scam.",
+       "example_fa": "بانکت هرگز برای کد زنگ نمی‌زند. اگر کد بخواهد، کلاهبرداری است.",
+       "alt": ""
+      },
+      {
+       "id": "safety-x2",
+       "kind": "expression",
+       "en": "Do not click the link.",
+       "fa": "روی لینک کلیک نکن.",
+       "meaning_en": "Stops the most common mistake.",
+       "meaning_fa": "رایج‌ترین اشتباه را می‌گیرد.",
+       "register": "neutral",
+       "example_en": "It looks like your bank, but do not click the link.",
+       "example_fa": "شبیه بانک توست، اما روی لینک کلیک نکن.",
+       "alt": ""
+      },
+      {
+       "id": "safety-x3",
+       "kind": "expression",
+       "en": "Report it and block the number.",
+       "fa": "گزارشش کن و شماره را بلاک کن.",
+       "meaning_en": "The two actions that end it.",
+       "meaning_fa": "دو کاری که تمامش می‌کند.",
+       "register": "neutral",
+       "example_en": "Report it and block the number, then delete it.",
+       "example_fa": "گزارشش کن و شماره را بلاک کن، بعد پاکش کن.",
+       "alt": ""
+      },
+      {
+       "id": "safety-x4",
+       "kind": "expression",
+       "en": "Never pay to receive a prize.",
+       "fa": "برای گرفتن جایزه هرگز پول نده.",
+       "meaning_en": "Says the trick out loud so it loses power.",
+       "meaning_fa": "ترفند را بلند می‌گوید تا قدرتش بریزد.",
+       "register": "neutral",
+       "example_en": "Never pay to receive a prize, that is the whole scam.",
+       "example_fa": "برای گرفتن جایزه هرگز پول نده، تمام کلاهبرداری همین است.",
+       "alt": ""
+      },
+      {
+       "id": "safety-x5",
+       "kind": "idiom",
+       "en": "The offer was too good to be true.",
+       "fa": "آن پیشنهاد آن‌قدر خوب بود که واقعی نباشد.",
+       "meaning_en": "Literally, so good it cannot be real; figuratively, a warning that something is a trap.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، آن‌قدر خوب که نمی‌تواند واقعی باشد؛ به‌طور مجازی، هشداری که چیزی تله است.",
+       "register": "neutral",
+       "example_en": "A job that pays three times the salary? Too good to be true.",
+       "example_fa": "کاری با سه برابر حقوق؟ آن‌قدر خوب که واقعی نباشد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "If + [condition], it is + [judgement].",
+       "example_en": "If it asks for a code, it is a scam.",
+       "example_fa": "اگر کد بخواهد، کلاهبرداری است.",
+       "note_en": "Condition first, verdict second.",
+       "note_fa": "اول شرط، بعد حکم."
+      },
+      {
+       "frame": "Never + [verb] + without + [check].",
+       "example_en": "Never pay without checking the sender.",
+       "example_fa": "بدون بررسی فرستنده هرگز پرداخت نکن.",
+       "note_en": "A rule with a checkpoint.",
+       "note_fa": "قاعده‌ای با نقطهٔ بازرسی."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "safety-s1",
+       "en": "The message used the bank's logo but the address was wrong.",
+       "fa": "پیام لوگوی بانک را داشت اما نشانی غلط بود.",
+       "use_en": "Shows exactly how you spotted it.",
+       "use_fa": "دقیقاً نشان می‌دهد چطور فهمیدی.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The logo was right and the address was wrong."
+      },
+      {
+       "id": "safety-s2",
+       "en": "I get one of these calls every week and I hang up.",
+       "fa": "هر هفته یکی از این تماس‌ها را می‌گیرم و قطع می‌کنم.",
+       "use_en": "A habit that needs no explanation.",
+       "use_fa": "عادتی که توضیح لازم ندارد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "I hang up on them."
+      }
+     ],
+     "dialogue": {
+      "title_en": "The urgent call",
+      "title_fa": "تماس فوری",
+      "speakers": [
+       "Behnam",
+       "Nasim"
+      ],
+      "lines": [
+       {
+        "who": "Behnam",
+        "en": "Someone called saying my account is frozen.",
+        "fa": "کسی زنگ زد و گفت حسابم مسدود شده."
+       },
+       {
+        "who": "Nasim",
+        "en": "Did they ask for a code?",
+        "fa": "کد خواستند؟"
+       },
+       {
+        "who": "Behnam",
+        "en": "Yes. They said it was for security.",
+        "fa": "بله. گفتند برای امنیت است."
+       },
+       {
+        "who": "Nasim",
+        "en": "That is a scam. Never share the code, not even with the bank.",
+        "fa": "این کلاهبرداری است. کد را هرگز به اشتراک نگذار، حتی با بانک."
+       },
+       {
+        "who": "Behnam",
+        "en": "They knew my name and my last payment.",
+        "fa": "اسم و آخرین پرداختم را می‌دانستند."
+       },
+       {
+        "who": "Nasim",
+        "en": "That is easy to find. Do not click anything they sent.",
+        "fa": "پیدا کردنش آسان است. روی هیچ چیزی که فرستادند کلیک نکن."
+       },
+       {
+        "who": "Behnam",
+        "en": "Should I call the bank?",
+        "fa": "به بانک زنگ بزنم؟"
+       },
+       {
+        "who": "Nasim",
+        "en": "Call the number on your card, not the one they gave you.",
+        "fa": "به شمارهٔ روی کارتت زنگ بزن، نه شماره‌ای که دادند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The fake delivery",
+       "title_fa": "ارسال جعلی",
+       "situation_en": "A text says a parcel is waiting and asks for a small fee.",
+       "situation_fa": "پیامی می‌گوید بسته‌ای منتظر است و هزینهٔ کوچکی می‌خواهد.",
+       "task_en": "Check before paying, and say what you will do.",
+       "task_fa": "پیش از پرداخت بررسی کن و بگو چه می‌کنی.",
+       "answer_en": "I did not order anything, so I will check the tracking number on the courier's own site.",
+       "answer_fa": "من چیزی سفارش نداده‌ام، پس شمارهٔ رهگیری را در سایت خود پیک بررسی می‌کنم."
+      },
+      {
+       "title_en": "The friend in trouble",
+       "title_fa": "دوست در دردسر",
+       "situation_en": "A message from a friend's account asks you to send money urgently.",
+       "situation_fa": "پیامی از حساب دوستت فوری پول می‌خواهد.",
+       "task_en": "Verify through another channel.",
+       "task_fa": "از راه دیگری بررسی کن.",
+       "answer_en": "I will call you on your number before sending anything. Accounts get copied.",
+       "answer_fa": "قبل از فرستادن هر چیزی به شماره‌ات زنگ می‌زنم. حساب‌ها کپی می‌شوند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "safety-q1",
+       "q_en": "What is phishing?",
+       "q_fa": "فیشینگ چیست؟",
+       "options": [
+        "a fake message that steals your details",
+        "a virus that breaks the screen",
+        "a kind of advertisement"
+       ],
+       "answer": "a fake message that steals your details",
+       "why_en": "Phishing pretends to be someone you trust.",
+       "why_fa": "فیشینگ خود را کسی نشان می‌دهد که به او اعتماد داری."
+      },
+      {
+       "id": "safety-q2",
+       "q_en": "Where do unwanted messages go?",
+       "q_fa": "پیام‌های ناخواسته کجا می‌روند؟",
+       "options": [
+        "the spam folder",
+        "the trash only",
+        "the inbox"
+       ],
+       "answer": "the spam folder",
+       "why_en": "Spam filters keep them out of the inbox.",
+       "why_fa": "فیلتر هرزنامه آن‌ها را از صندوق ورودی دور نگه می‌دارد."
+      },
+      {
+       "id": "safety-q3",
+       "q_en": "Why use a VPN on public Wi-Fi?",
+       "q_fa": "چرا در وای‌فای عمومی از وی‌پی‌ان استفاده کنیم؟",
+       "options": [
+        "it hides your traffic from the network",
+        "it makes the battery last",
+        "it removes ads"
+       ],
+       "answer": "it hides your traffic from the network",
+       "why_en": "A VPN encrypts the connection between you and the server.",
+       "why_fa": "وی‌پی‌ان اتصال بین تو و سرور را رمزگذاری می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "software",
+     "order": 6,
+     "icon": "bug",
+     "title_en": "Apps, updates and bugs",
+     "title_fa": "برنامه‌ها، به‌روزرسانی و باگ",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Why the app closed, what an update fixes, and how to report it.",
+     "blurb_fa": "چرا برنامه بست، به‌روزرسانی چه را درست می‌کند، و چطور گزارشش بدهی.",
+     "objectives": [
+      {
+       "en": "describe an app that closes or freezes.",
+       "fa": "برنامه‌ای که بسته یا فریز می‌شود را توصیف کن."
+      },
+      {
+       "en": "ask whether an update is safe and what it changes.",
+       "fa": "بپرس به‌روزرسانی امن است و چه چیزی را عوض می‌کند."
+      },
+      {
+       "en": "report a bug in two sentences.",
+       "fa": "یک باگ را در دو جمله گزارش بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "software-w1",
+       "en": "app",
+       "ipa": "/æp/",
+       "pos": "noun",
+       "fa": "برنامه",
+       "def_en": "A program on a phone or tablet that does one job.",
+       "sport": "tech",
+       "icon": "phone",
+       "level": "A1",
+       "example_en": "The app closes when I open the camera.",
+       "example_fa": "برنامه وقتی دوربین را باز می‌کنم بسته می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "software-w2",
+       "en": "update",
+       "ipa": "/ˈʌpdeɪt/",
+       "pos": "noun",
+       "fa": "به‌روزرسانی",
+       "def_en": "A new version that fixes problems or adds features.",
+       "sport": "tech",
+       "icon": "download",
+       "level": "A2",
+       "example_en": "The update fixed the battery problem.",
+       "example_fa": "به‌روزرسانی مشکل باتری را حل کرد.",
+       "ref": ""
+      },
+      {
+       "id": "software-w3",
+       "en": "patch",
+       "ipa": "/pætʃ/",
+       "pos": "noun",
+       "fa": "وصله",
+       "def_en": "A small update that closes one hole or bug.",
+       "sport": "tech",
+       "icon": "download",
+       "level": "B2",
+       "example_en": "The company released a patch overnight.",
+       "example_fa": "شرکت شبانه یک وصله منتشر کرد.",
+       "ref": ""
+      },
+      {
+       "id": "software-w4",
+       "en": "bug",
+       "ipa": "/bʌg/",
+       "pos": "noun",
+       "fa": "باگ",
+       "def_en": "A mistake in software that makes it behave wrongly.",
+       "sport": "tech",
+       "icon": "bug",
+       "level": "B1",
+       "example_en": "There is a bug in the search box.",
+       "example_fa": "در کادر جست‌وجو یک باگ هست.",
+       "ref": ""
+      },
+      {
+       "id": "software-w5",
+       "en": "crash",
+       "ipa": "/kræʃ/",
+       "pos": "verb",
+       "fa": "از کار افتادن",
+       "def_en": "To stop working suddenly.",
+       "sport": "tech",
+       "icon": "bug",
+       "level": "B1",
+       "example_en": "The app crashes when I upload a photo.",
+       "example_fa": "برنامه وقتی عکس آپلود می‌کنم از کار می‌افتد.",
+       "ref": ""
+      },
+      {
+       "id": "software-w6",
+       "en": "firmware",
+       "ipa": "/ˈfɜrmwɛr/",
+       "pos": "noun",
+       "fa": "فریم‌ور",
+       "def_en": "The software built into a device that runs its hardware.",
+       "sport": "tech",
+       "icon": "chip",
+       "level": "B2",
+       "example_en": "The speaker needs a firmware update.",
+       "example_fa": "اسپیکر به به‌روزرسانی فریم‌ور نیاز دارد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "software-x1",
+       "kind": "expression",
+       "en": "It freezes and then closes.",
+       "fa": "فریز می‌شود و بعد بسته می‌شود.",
+       "meaning_en": "A precise bug report in six words.",
+       "meaning_fa": "یک گزارش دقیق باگ در شش کلمه.",
+       "register": "neutral",
+       "example_en": "It freezes and then closes, always after the login screen.",
+       "example_fa": "فریز می‌شود و بعد بسته می‌شود، همیشه بعد از صفحهٔ ورود.",
+       "alt": ""
+      },
+      {
+       "id": "software-x2",
+       "kind": "expression",
+       "en": "Is the latest version installed?",
+       "fa": "آخرین نسخه نصب است؟",
+       "meaning_en": "The first question in app support.",
+       "meaning_fa": "نخستین پرسش در پشتیبانی برنامه.",
+       "register": "neutral",
+       "example_en": "Is the latest version installed? That bug was fixed last month.",
+       "example_fa": "آخرین نسخه نصب است؟ آن باگ ماه پیش حل شد.",
+       "alt": ""
+      },
+      {
+       "id": "software-x3",
+       "kind": "expression",
+       "en": "The update bricked my phone.",
+       "fa": "به‌روزرسانی گوشی‌ام را «آجر» کرد.",
+       "meaning_en": "Literally, turned the phone into a brick; in tech slang, left a device so broken that it will not switch on at all.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، گوشی را به آجر تبدیل کرد؛ در زبان عامیانهٔ فناوری، دستگاهی را چنان خراب کرد که دیگر اصلاً روشن نمی‌شود.",
+       "register": "slang",
+       "example_en": "One bad update bricked my phone and I lost every photo on it.",
+       "example_fa": "یک به‌روزرسانی بد گوشی‌ام را آجر کرد و همهٔ عکس‌هایم را از دست دادم.",
+       "alt": ""
+      },
+      {
+       "id": "software-x4",
+       "kind": "expression",
+       "en": "The update broke something else.",
+       "fa": "به‌روزرسانی چیز دیگری را خراب کرد.",
+       "meaning_en": "Names the common side effect.",
+       "meaning_fa": "عارضهٔ رایج را نام می‌برد.",
+       "register": "informal",
+       "example_en": "The update broke something else: now the sound is gone.",
+       "example_fa": "به‌روزرسانی چیز دیگری را خراب کرد: حالا صدا رفته.",
+       "alt": ""
+      },
+      {
+       "id": "software-x5",
+       "kind": "expression",
+       "en": "I will report it to support.",
+       "fa": "به پشتیبانی گزارشش می‌دهم.",
+       "meaning_en": "Says the next step and ends the complaint.",
+       "meaning_fa": "مرحلهٔ بعد را می‌گوید و شکایت را تمام می‌کند.",
+       "register": "neutral",
+       "example_en": "I will report it to support with a screenshot.",
+       "example_fa": "با یک اسکرین‌شات به پشتیبانی گزارشش می‌دهم.",
+       "alt": ""
+      },
+      {
+       "id": "software-x6",
+       "kind": "idiom",
+       "en": "It is a crash course in patience.",
+       "fa": "یک دورهٔ فشردهٔ صبر است.",
+       "meaning_en": "Literally, an intensive short course; figuratively, a hard lesson learned quickly.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دورهٔ فشرده و کوتاه؛ به‌طور مجازی، درسی سخت که سریع یاد گرفته می‌شود.",
+       "register": "humorous",
+       "example_en": "Setting up this printer was a crash course in patience.",
+       "example_fa": "راه‌اندازی این چاپگر یک دورهٔ فشردهٔ صبر بود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It + [verb] + when I + [action].",
+       "example_en": "It crashes when I upload a photo.",
+       "example_fa": "وقتی عکس آپلود می‌کنم از کار می‌افتد.",
+       "note_en": "The shape of every bug report.",
+       "note_fa": "شکل هر گزارش باگ."
+      },
+      {
+       "frame": "Since the update, + [problem].",
+       "example_en": "Since the update, the sound is gone.",
+       "example_fa": "از زمان به‌روزرسانی، صدا رفته.",
+       "note_en": "Tie a problem to its start.",
+       "note_fa": "مشکل را به شروعش وصل کن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "software-s1",
+       "en": "The app worked until the last update, so I rolled it back.",
+       "fa": "برنامه تا به‌روزرسانی آخر کار می‌کرد، پس برگرداندمش.",
+       "use_en": "Shows cause, then action.",
+       "use_fa": "اول علت، بعد کار.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I went back to the old version."
+      },
+      {
+       "id": "software-s2",
+       "en": "I sent support a screenshot and the exact time it happened.",
+       "fa": "برای پشتیبانی یک اسکرین‌شات و زمان دقیق اتفاق را فرستادم.",
+       "use_en": "What makes a bug report useful.",
+       "use_fa": "چیزی که گزارش باگ را مفید می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I sent a screenshot with the time."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Reporting a bug",
+      "title_fa": "گزارش یک باگ",
+      "speakers": [
+       "Arman",
+       "Sahar"
+      ],
+      "lines": [
+       {
+        "who": "Arman",
+        "en": "The app crashes every time I open my files.",
+        "fa": "برنامه هر بار که فایل‌هایم را باز می‌کنم از کار می‌افتد."
+       },
+       {
+        "who": "Sahar",
+        "en": "Is the latest version installed?",
+        "fa": "آخرین نسخه نصب است؟"
+       },
+       {
+        "who": "Arman",
+        "en": "Yes, I updated yesterday.",
+        "fa": "بله، دیروز به‌روزرسانی کردم."
+       },
+       {
+        "who": "Sahar",
+        "en": "So the update broke something else. What phone is it?",
+        "fa": "پس به‌روزرسانی چیز دیگری را خراب کرده. چه گوشی‌ای است؟"
+       },
+       {
+        "who": "Arman",
+        "en": "A three-year-old Android.",
+        "fa": "یک اندروید سه‌ساله."
+       },
+       {
+        "who": "Sahar",
+        "en": "Send a screenshot and the exact time it happened.",
+        "fa": "یک اسکرین‌شات و زمان دقیق اتفاق را بفرست."
+       },
+       {
+        "who": "Arman",
+        "en": "Should I reinstall it?",
+        "fa": "دوباره نصبش کنم؟"
+       },
+       {
+        "who": "Sahar",
+        "en": "Try first. If it still crashes, I will report it to support.",
+        "fa": "اول امتحان کن. اگر باز از کار افتاد، به پشتیبانی گزارشش می‌دهم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The freezes",
+       "title_fa": "فریزها",
+       "situation_en": "The video player freezes at the same moment in every film.",
+       "situation_fa": "پخش‌کنندهٔ ویدیو در هر فیلم در همان لحظه فریز می‌شود.",
+       "task_en": "Give support what they need in one message.",
+       "task_fa": "در یک پیام چیزی که پشتیبانی لازم دارد را بده.",
+       "answer_en": "It freezes at forty seconds every time, on the latest version, and here is a screenshot.",
+       "answer_fa": "هر بار در ثانیهٔ چهل فریز می‌شود، با آخرین نسخه، و این هم اسکرین‌شات."
+      },
+      {
+       "title_en": "The update question",
+       "title_fa": "پرسش به‌روزرسانی",
+       "situation_en": "A message says an update is ready and you are on mobile data.",
+       "situation_fa": "پیامی می‌گوید به‌روزرسانی آماده است و تو روی دادهٔ همراه هستی.",
+       "task_en": "Decide and say why.",
+       "task_fa": "تصمیم بگیر و دلیلش را بگو.",
+       "answer_en": "I will update tonight on Wi-Fi. It is only a small patch but it needs a restart.",
+       "answer_fa": "امشب روی وای‌فای به‌روزرسانی می‌کنم. وصلهٔ کوچکی است اما راه‌اندازی دوباره می‌خواهد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "software-q1",
+       "q_en": "What is a bug?",
+       "q_fa": "باگ چیست؟",
+       "options": [
+        "a mistake in software",
+        "a virus",
+        "a broken screen"
+       ],
+       "answer": "a mistake in software",
+       "why_en": "A bug is written into the code, not caught from outside.",
+       "why_fa": "باگ در کد نوشته شده، از بیرون گرفته نمی‌شود."
+      },
+      {
+       "id": "software-q2",
+       "q_en": "What does a patch do?",
+       "q_fa": "وصله چه کار می‌کند؟",
+       "options": [
+        "it closes one specific problem",
+        "it adds a new device",
+        "it deletes your data"
+       ],
+       "answer": "it closes one specific problem",
+       "why_en": "A patch is a small, targeted fix.",
+       "why_fa": "وصله یک تعمیر کوچک و هدفمند است."
+      },
+      {
+       "id": "software-q3",
+       "q_en": "\"It crashes\" means ...",
+       "q_fa": "«از کار می‌افتد» یعنی ...",
+       "options": [
+        "it stops working suddenly",
+        "it runs slowly",
+        "it needs charging"
+       ],
+       "answer": "it stops working suddenly",
+       "why_en": "A crash ends the program without warning.",
+       "why_fa": "کرش برنامه را بی‌هشدار تمام می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "files",
+     "order": 7,
+     "icon": "folder",
+     "title_en": "Files, storage and the cloud",
+     "title_fa": "فایل، حافظه و ابر",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Where your things live, how to find them again, and how to keep a copy.",
+     "blurb_fa": "چیزهایت کجا زندگی می‌کنند، چطور دوباره پیدایشان کنی، و چطور نسخهٔ پشتیبان بگیری.",
+     "objectives": [
+      {
+       "en": "find, move and rename a file.",
+       "fa": "فایل را پیدا کن، جابه‌جا کن و نامش را عوض کن."
+      },
+      {
+       "en": "say where a file is saved and ask for a copy.",
+       "fa": "بگو فایل کجا ذخیره شده و نسخه‌ای بخواه."
+      },
+      {
+       "en": "explain the difference between a backup and a copy in the cloud.",
+       "fa": "تفاوت پشتیبان و نسخهٔ ابری را توضیح بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "files-w1",
+       "en": "file",
+       "ipa": "/faɪl/",
+       "pos": "noun",
+       "fa": "فایل",
+       "def_en": "One document, photo or program saved under a name.",
+       "sport": "tech",
+       "icon": "folder",
+       "level": "A1",
+       "example_en": "The file is on my desktop.",
+       "example_fa": "فایل روی میزکار من است.",
+       "ref": ""
+      },
+      {
+       "id": "files-w2",
+       "en": "folder",
+       "ipa": "/ˈfoʊldər/",
+       "pos": "noun",
+       "fa": "پوشه",
+       "def_en": "A place that holds files together.",
+       "sport": "tech",
+       "icon": "folder",
+       "level": "A1",
+       "example_en": "Put it in the photos folder.",
+       "example_fa": "آن را در پوشهٔ عکس‌ها بگذار.",
+       "ref": ""
+      },
+      {
+       "id": "files-w3",
+       "en": "download",
+       "ipa": "/ˈdaʊnloʊd/",
+       "pos": "verb",
+       "fa": "دانلود کردن",
+       "def_en": "To copy something from the internet to your device.",
+       "sport": "tech",
+       "icon": "download",
+       "level": "A2",
+       "example_en": "Download the form and fill it in.",
+       "example_fa": "فرم را دانلود کن و پرش کن.",
+       "ref": ""
+      },
+      {
+       "id": "files-w4",
+       "en": "upload",
+       "ipa": "/ˈʌploʊd/",
+       "pos": "verb",
+       "fa": "آپلود کردن",
+       "def_en": "To send a file from your device to the internet.",
+       "sport": "tech",
+       "icon": "download",
+       "level": "A2",
+       "example_en": "The upload stopped at ninety percent.",
+       "example_fa": "آپلود در نود درصد متوقف شد.",
+       "ref": ""
+      },
+      {
+       "id": "files-w5",
+       "en": "backup",
+       "ipa": "/ˈbækʌp/",
+       "pos": "noun",
+       "fa": "نسخهٔ پشتیبان",
+       "def_en": "A second copy kept in case the first is lost.",
+       "sport": "tech",
+       "icon": "cloud",
+       "level": "B1",
+       "example_en": "I keep a backup on an external drive.",
+       "example_fa": "یک نسخهٔ پشتیبان روی درایو بیرونی نگه می‌دارم.",
+       "ref": ""
+      },
+      {
+       "id": "files-w6",
+       "en": "cloud",
+       "ipa": "/klaʊd/",
+       "pos": "noun",
+       "fa": "ابر",
+       "def_en": "Storage on someone else's servers, reached through the internet.",
+       "sport": "tech",
+       "icon": "cloud",
+       "level": "B1",
+       "example_en": "The photos are in the cloud.",
+       "example_fa": "عکس‌ها در ابر هستند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "files-x1",
+       "kind": "expression",
+       "en": "Where is it saved?",
+       "fa": "کجا ذخیره شده؟",
+       "meaning_en": "The first question when a file is missing.",
+       "meaning_fa": "نخستین پرسش وقتی فایلی گم می‌شود.",
+       "register": "neutral",
+       "example_en": "Where is it saved: on the phone or in the cloud?",
+       "example_fa": "کجا ذخیره شده: روی گوشی یا در ابر؟",
+       "alt": ""
+      },
+      {
+       "id": "files-x2",
+       "kind": "expression",
+       "en": "It is still uploading.",
+       "fa": "هنوز دارد آپلود می‌شود.",
+       "meaning_en": "Explains why the other side has nothing yet.",
+       "meaning_fa": "توضیح می‌دهد چرا طرف مقابل هنوز چیزی ندارد.",
+       "register": "neutral",
+       "example_en": "It is still uploading, the connection is slow.",
+       "example_fa": "هنوز دارد آپلود می‌شود، اتصال کند است.",
+       "alt": ""
+      },
+      {
+       "id": "files-x3",
+       "kind": "expression",
+       "en": "Send me a copy.",
+       "fa": "یک نسخه برایم بفرست.",
+       "meaning_en": "The shortest way to ask for a file.",
+       "meaning_fa": "کوتاه‌ترین راه درخواست فایل.",
+       "register": "neutral",
+       "example_en": "Send me a copy before you change anything.",
+       "example_fa": "قبل از هر تغییری یک نسخه برایم بفرست.",
+       "alt": ""
+      },
+      {
+       "id": "files-x4",
+       "kind": "expression",
+       "en": "I lost the file.",
+       "fa": "فایل را گم کردم.",
+       "meaning_en": "Says the problem without blaming the device.",
+       "meaning_fa": "مشکل را بدون سرزنش دستگاه می‌گوید.",
+       "register": "neutral",
+       "example_en": "I lost the file when the laptop restarted.",
+       "example_fa": "وقتی لپ‌تاپ دوباره راه افتاد فایل را گم کردم.",
+       "alt": ""
+      },
+      {
+       "id": "files-x5",
+       "kind": "idiom",
+       "en": "The photos are in the cloud.",
+       "fa": "عکس‌ها در ابر هستند.",
+       "meaning_en": "Literally, stored in a place in the sky; figuratively, on a company's servers you reach over the internet.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، در جایی در آسمان ذخیره شده؛ به‌طور مجازی، روی سرورهای شرکتی که با اینترنت به آن می‌رسی.",
+       "register": "neutral",
+       "example_en": "Nothing is on this phone, the photos are in the cloud.",
+       "example_fa": "چیزی روی این گوشی نیست، عکس‌ها در ابر هستند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Put it in + [place].",
+       "example_en": "Put it in the shared folder.",
+       "example_fa": "آن را در پوشهٔ مشترک بگذار.",
+       "note_en": "Where a file belongs.",
+       "note_fa": "فایل کجا باید باشد."
+      },
+      {
+       "frame": "I keep a backup + [where/how often].",
+       "example_en": "I keep a backup every Friday.",
+       "example_fa": "هر جمعه یک نسخهٔ پشتیبان نگه می‌دارم.",
+       "note_en": "A habit and its rhythm.",
+       "note_fa": "یک عادت و ریتمش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "files-s1",
+       "en": "I save everything to the cloud, so a new phone has it all.",
+       "fa": "همه چیز را در ابر ذخیره می‌کنم، پس گوشی تازه همه را دارد.",
+       "use_en": "Shows the reason for a habit.",
+       "use_fa": "دلیل یک عادت را نشان می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Everything is in the cloud."
+      },
+      {
+       "id": "files-s2",
+       "en": "A backup is useless if you never test it.",
+       "fa": "نسخهٔ پشتیبانی که هرگز امتحانش نکنی بی‌فایده است.",
+       "use_en": "An opinion with a reason.",
+       "use_fa": "نظری با دلیل.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Test your backup sometimes."
+      }
+     ],
+     "dialogue": {
+      "title_en": "The missing file",
+      "title_fa": "فایل گم‌شده",
+      "speakers": [
+       "Kian",
+       "Maryam"
+      ],
+      "lines": [
+       {
+        "who": "Kian",
+        "en": "I lost the report. It was on my desktop.",
+        "fa": "گزارش را گم کردم. روی میزکارم بود."
+       },
+       {
+        "who": "Maryam",
+        "en": "Did you save it, or only open it?",
+        "fa": "ذخیره‌اش کردی یا فقط بازش کردی؟"
+       },
+       {
+        "who": "Kian",
+        "en": "I do not remember saving it.",
+        "fa": "یادم نمی‌آید ذخیره کرده باشم."
+       },
+       {
+        "who": "Maryam",
+        "en": "Check the cloud. Some apps save there automatically.",
+        "fa": "ابر را بررسی کن. بعضی برنامه‌ها خودکار آنجا ذخیره می‌کنند."
+       },
+       {
+        "who": "Kian",
+        "en": "Found it. It says it is still uploading.",
+        "fa": "پیداش کردم. می‌گوید هنوز دارد آپلود می‌شود."
+       },
+       {
+        "who": "Maryam",
+        "en": "Then wait, or download the older copy.",
+        "fa": "پس صبر کن، یا نسخهٔ قدیمی‌تر را دانلود کن."
+       },
+       {
+        "who": "Kian",
+        "en": "I will send you a copy when it finishes.",
+        "fa": "وقتی تمام شد یک نسخه برایت می‌فرستم."
+       },
+       {
+        "who": "Maryam",
+        "en": "Good. And keep a backup on the drive.",
+        "fa": "خوب است. و روی درایو هم پشتیبان نگه دار."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The full phone",
+       "title_fa": "گوشی پر",
+       "situation_en": "Your phone says storage is full and photos will not save.",
+       "situation_fa": "گوشی می‌گوید حافظه پر است و عکس‌ها ذخیره نمی‌شوند.",
+       "task_en": "Free space without losing anything.",
+       "task_fa": "بدون از دست دادن چیزی جا باز کن.",
+       "answer_en": "Move the old photos to the cloud, then delete the copies on the phone.",
+       "answer_fa": "عکس‌های قدیمی را به ابر منتقل کن، بعد نسخه‌های روی گوشی را پاک کن."
+      },
+      {
+       "title_en": "The shared folder",
+       "title_fa": "پوشهٔ مشترک",
+       "situation_en": "A colleague cannot find the file you mentioned.",
+       "situation_fa": "همکاری فایلی را که گفتی پیدا نمی‌کند.",
+       "task_en": "Say exactly where it is.",
+       "task_fa": "دقیق بگو کجاست.",
+       "answer_en": "It is in the shared folder, inside this month's folder, named report-final.",
+       "answer_fa": "در پوشهٔ مشترک است، داخل پوشهٔ همین ماه، با نام report-final."
+      }
+     ],
+     "practice": [
+      {
+       "id": "files-q1",
+       "q_en": "What is a backup?",
+       "q_fa": "نسخهٔ پشتیبان چیست؟",
+       "options": [
+        "a second copy kept in case the first is lost",
+        "a new version of an app",
+        "a faster connection"
+       ],
+       "answer": "a second copy kept in case the first is lost",
+       "why_en": "A backup is only useful if it is somewhere else.",
+       "why_fa": "نسخهٔ پشتیبان فقط وقتی مفید است که جای دیگری باشد."
+      },
+      {
+       "id": "files-q2",
+       "q_en": "Where do cloud files live?",
+       "q_fa": "فایل‌های ابری کجا هستند؟",
+       "options": [
+        "on a company's servers",
+        "on your screen",
+        "on the router"
+       ],
+       "answer": "on a company's servers",
+       "why_en": "\"The cloud\" is other people's computers, reached online.",
+       "why_fa": "«ابر» کامپیوترهای دیگران است که آنلاین به آن‌ها می‌رسی."
+      },
+      {
+       "id": "files-q3",
+       "q_en": "\"Upload\" means ...",
+       "q_fa": "«آپلود» یعنی ...",
+       "options": [
+        "sending a file from your device to the internet",
+        "saving a file to a folder",
+        "deleting a file"
+       ],
+       "answer": "sending a file from your device to the internet",
+       "why_en": "Download comes to you; upload goes away from you.",
+       "why_fa": "دانلود به سمت تو می‌آید؛ آپلود از تو دور می‌شود."
+      }
+     ]
+    },
+    {
+     "id": "messages",
+     "order": 8,
+     "icon": "mail",
+     "title_en": "Email and messages",
+     "title_fa": "ایمیل و پیام",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Inbox, attachments, notifications, and the words for turning them off.",
+     "blurb_fa": "صندوق ورودی، پیوست، اعلان، و واژه‌های خاموش کردنشان.",
+     "objectives": [
+      {
+       "en": "write a short professional email with an attachment.",
+       "fa": "یک ایمیل کوتاه کاری با پیوست بنویس."
+      },
+      {
+       "en": "ask someone to resend something you missed.",
+       "fa": "بخواه چیزی که جا انداختی را دوباره بفرستند."
+      },
+      {
+       "en": "mute a conversation without leaving it.",
+       "fa": "یک گفت‌وگو را بدون ترک کردن بی‌صدا کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "messages-w1",
+       "en": "inbox",
+       "ipa": "/ˈɪnbɑks/",
+       "pos": "noun",
+       "fa": "صندوق ورودی",
+       "def_en": "The list where new email arrives.",
+       "sport": "tech",
+       "icon": "mail",
+       "level": "A1",
+       "example_en": "My inbox has forty unread messages.",
+       "example_fa": "صندوق ورودی‌ام چهل پیام خوانده‌نشده دارد.",
+       "ref": ""
+      },
+      {
+       "id": "messages-w2",
+       "en": "attachment",
+       "ipa": "/əˈtætʃmənt/",
+       "pos": "noun",
+       "fa": "پیوست",
+       "def_en": "A file sent with a message.",
+       "sport": "tech",
+       "icon": "folder",
+       "level": "A2",
+       "example_en": "The attachment did not open.",
+       "example_fa": "پیوست باز نشد.",
+       "ref": ""
+      },
+      {
+       "id": "messages-w3",
+       "en": "notification",
+       "ipa": "/ˌnoʊtɪfɪˈkeɪʃn/",
+       "pos": "noun",
+       "fa": "اعلان",
+       "def_en": "A small alert from an app.",
+       "sport": "tech",
+       "icon": "bell",
+       "level": "A2",
+       "example_en": "Turn off notifications at night.",
+       "example_fa": "شب‌ها اعلان‌ها را خاموش کن.",
+       "ref": ""
+      },
+      {
+       "id": "messages-w4",
+       "en": "mute",
+       "ipa": "/mjut/",
+       "pos": "verb",
+       "fa": "بی‌صدا کردن",
+       "def_en": "To stop alerts from one conversation without leaving it.",
+       "sport": "tech",
+       "icon": "bell",
+       "level": "B1",
+       "example_en": "I muted the group for a day.",
+       "example_fa": "گروه را یک روز بی‌صدا کردم.",
+       "ref": ""
+      },
+      {
+       "id": "messages-w5",
+       "en": "reply all",
+       "ipa": "/rɪˈplaɪ ɔl/",
+       "pos": "verb",
+       "fa": "پاسخ به همه",
+       "def_en": "To answer everyone copied on a message.",
+       "sport": "tech",
+       "icon": "mail",
+       "level": "B1",
+       "example_en": "Do not reply all to a hundred people.",
+       "example_fa": "به صد نفر «پاسخ به همه» نده.",
+       "ref": ""
+      },
+      {
+       "id": "messages-w6",
+       "en": "DM",
+       "ipa": "/ˌdi ˈɛm/",
+       "pos": "noun",
+       "fa": "پیام مستقیم",
+       "def_en": "A private message on a social platform.",
+       "sport": "tech",
+       "icon": "mail",
+       "level": "B1",
+       "example_en": "Send me a DM with the address.",
+       "example_fa": "آدرس را در پیام مستقیم بفرست.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "messages-x1",
+       "kind": "expression",
+       "en": "Sorry for the late reply.",
+       "fa": "ببخشید دیر جواب دادم.",
+       "meaning_en": "The polite opening for a delayed answer.",
+       "meaning_fa": "آغاز مؤدبانه برای پاسخ دیرهنگام.",
+       "register": "formal",
+       "example_en": "Sorry for the late reply, I was travelling.",
+       "example_fa": "ببخشید دیر جواب دادم، در سفر بودم.",
+       "alt": ""
+      },
+      {
+       "id": "messages-x2",
+       "kind": "expression",
+       "en": "I have attached the file.",
+       "fa": "فایل را پیوست کردم.",
+       "meaning_en": "Says the file is there, so nobody hunts for it.",
+       "meaning_fa": "می‌گوید فایل آنجاست تا کسی دنبالش نگردد.",
+       "register": "formal",
+       "example_en": "I have attached the file and the signed form.",
+       "example_fa": "فایل و فرم امضاشده را پیوست کردم.",
+       "alt": ""
+      },
+      {
+       "id": "messages-x3",
+       "kind": "expression",
+       "en": "Could you resend it?",
+       "fa": "می‌شود دوباره بفرستید؟",
+       "meaning_en": "Asks without accusing anyone.",
+       "meaning_fa": "بدون متهم کردن کسی می‌پرسد.",
+       "register": "formal",
+       "example_en": "I did not receive it. Could you resend it?",
+       "example_fa": "دریافتش نکردم. می‌شود دوباره بفرستید؟",
+       "alt": ""
+      },
+      {
+       "id": "messages-x4",
+       "kind": "expression",
+       "en": "I will forward it to you.",
+       "fa": "برایتان هدایتش می‌کنم.",
+       "meaning_en": "Promises the message will reach them.",
+       "meaning_fa": "قول می‌دهد پیام به آن‌ها برسد.",
+       "register": "neutral",
+       "example_en": "I will forward it to you after the meeting.",
+       "example_fa": "بعد از جلسه برایتان هدایتش می‌کنم.",
+       "alt": ""
+      },
+      {
+       "id": "messages-x5",
+       "kind": "idiom",
+       "en": "Keep me in the loop.",
+       "fa": "مرا در جریان بگذار.",
+       "meaning_en": "Literally, keep someone inside a circle of information; figuratively, keep them updated.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، کسی را در حلقهٔ اطلاعات نگه دار؛ به‌طور مجازی، به‌روزش نگه دار.",
+       "register": "informal",
+       "example_en": "Keep me in the loop about the delivery date.",
+       "example_fa": "دربارهٔ تاریخ تحویل مرا در جریان بگذار.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I have + [past participle] + the + [thing].",
+       "example_en": "I have attached the invoice.",
+       "example_fa": "فاکتور را پیوست کردم.",
+       "note_en": "The standard email opener in one line.",
+       "note_fa": "آغاز استاندارد ایمیل در یک خط."
+      },
+      {
+       "frame": "Could you + [verb] + it?",
+       "example_en": "Could you resend it?",
+       "example_fa": "می‌شود دوباره بفرستید؟",
+       "note_en": "The polite request shape.",
+       "note_fa": "شکل درخواست مؤدبانه."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "messages-s1",
+       "en": "I answer email twice a day so it does not answer me all day.",
+       "fa": "روزی دو بار ایمیل جواب می‌دهم تا تمام روز جوابم را ندهد.",
+       "use_en": "A habit explained with a joke.",
+       "use_fa": "عادتی با شوخی توضیح داده شده.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I check email twice a day."
+      },
+      {
+       "id": "messages-s2",
+       "en": "The attachment was too large, so I sent a link instead.",
+       "fa": "پیوست بزرگ بود، پس به جایش لینک فرستادم.",
+       "use_en": "A fix stated in one line.",
+       "use_fa": "راه‌حلی در یک خط.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I sent a link because the file was too big."
+      }
+     ],
+     "dialogue": {
+      "title_en": "After a missed email",
+      "title_fa": "بعد از ایمیل جاافتاده",
+      "speakers": [
+       "Hossein",
+       "Tara"
+      ],
+      "lines": [
+       {
+        "who": "Hossein",
+        "en": "I did not receive the schedule.",
+        "fa": "برنامه را دریافت نکردم."
+       },
+       {
+        "who": "Tara",
+        "en": "Sorry, it may have gone to spam. I have attached it again.",
+        "fa": "ببخشید، شاید به هرزنامه رفته. دوباره پیوستش کردم."
+       },
+       {
+        "who": "Hossein",
+        "en": "Got it. The attachment opened this time.",
+        "fa": "رسید. پیوست این بار باز شد."
+       },
+       {
+        "who": "Tara",
+        "en": "Good. Keep me in the loop if the date changes.",
+        "fa": "خوب است. اگر تاریخ عوض شد مرا در جریان بگذار."
+       },
+       {
+        "who": "Hossein",
+        "en": "I will forward it to the team tonight.",
+        "fa": "امشب برای تیم هدایتش می‌کنم."
+       },
+       {
+        "who": "Tara",
+        "en": "Please do not reply all, half of them are on holiday.",
+        "fa": "لطفاً «پاسخ به همه» نده، نصفشان در تعطیلات‌اند."
+       },
+       {
+        "who": "Hossein",
+        "en": "Then I will send a DM to the two who need it.",
+        "fa": "پس به دو نفری که لازم دارند پیام مستقیم می‌فرستم."
+       },
+       {
+        "who": "Tara",
+        "en": "Perfect. I muted that thread anyway.",
+        "fa": "عالی. من هم آن رشته را بی‌صدا کرده‌ام."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The quiet evening",
+       "title_fa": "شب آرام",
+       "situation_en": "Notifications keep waking you up.",
+       "situation_fa": "اعلان‌ها بیدارت می‌کنند.",
+       "task_en": "Change one setting and say what it does.",
+       "task_fa": "یک تنظیم را عوض کن و بگو چه کار می‌کند.",
+       "answer_en": "I muted the group and turned off notifications after ten, so only calls come through.",
+       "answer_fa": "گروه را بی‌صدا کردم و اعلان‌ها را بعد از ده خاموش کردم، پس فقط تماس‌ها می‌رسند."
+      },
+      {
+       "title_en": "The wrong recipient",
+       "title_fa": "گیرندهٔ اشتباه",
+       "situation_en": "You replied all to a private note.",
+       "situation_fa": "به یک یادداشت خصوصی «پاسخ به همه» دادی.",
+       "task_en": "Apologise briefly and clearly.",
+       "task_fa": "کوتاه و روشن عذرخواهی کن.",
+       "answer_en": "I am sorry, that reply was meant for one person. Please ignore it.",
+       "answer_fa": "ببخشید، آن پاسخ برای یک نفر بود. لطفاً نادیده بگیرید."
+      }
+     ],
+     "practice": [
+      {
+       "id": "messages-q1",
+       "q_en": "What is an attachment?",
+       "q_fa": "پیوست چیست؟",
+       "options": [
+        "a file sent with a message",
+        "a saved password",
+        "a notification"
+       ],
+       "answer": "a file sent with a message",
+       "why_en": "Attachments travel inside the message.",
+       "why_fa": "پیوست داخل پیام سفر می‌کند."
+      },
+      {
+       "id": "messages-q2",
+       "q_en": "What does \"reply all\" do?",
+       "q_fa": "«پاسخ به همه» چه کار می‌کند؟",
+       "options": [
+        "it answers everyone copied on the message",
+        "it deletes the thread",
+        "it mutes the thread"
+       ],
+       "answer": "it answers everyone copied on the message",
+       "why_en": "Reply all includes every address in the message.",
+       "why_fa": "«پاسخ به همه» همهٔ نشانی‌های پیام را شامل می‌شود."
+      },
+      {
+       "id": "messages-q3",
+       "q_en": "\"Keep me in the loop\" means ...",
+       "q_fa": "«مرا در جریان بگذار» یعنی ...",
+       "options": [
+        "keep me updated",
+        "add me to the meeting",
+        "call me later"
+       ],
+       "answer": "keep me updated",
+       "why_en": "The loop is the circle of people who know.",
+       "why_fa": "حلقه همان دایرهٔ افرادی است که می‌دانند."
+      }
+     ]
+    },
+    {
+     "id": "media",
+     "order": 9,
+     "icon": "camera",
+     "title_en": "Photos, video and streaming",
+     "title_fa": "عکس، ویدیو و پخش",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Taking, finding, sharing and watching, with the words for each step.",
+     "blurb_fa": "گرفتن، پیدا کردن، فرستادن و تماشا، با واژه‌های هر مرحله.",
+     "objectives": [
+      {
+       "en": "ask someone to take a photo and describe what you want.",
+       "fa": "بخواه عکسی بگیرند و بگو چه می‌خواهی."
+      },
+      {
+       "en": "say where a screenshot is saved.",
+       "fa": "بگو اسکرین‌شات کجا ذخیره می‌شود."
+      },
+      {
+       "en": "choose between streaming and downloading with a reason.",
+       "fa": "بین پخش و دانلود با دلیل انتخاب کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "media-w1",
+       "en": "camera",
+       "ipa": "/ˈkæmərə/",
+       "pos": "noun",
+       "fa": "دوربین",
+       "def_en": "The lens and sensor a device uses to take photos.",
+       "sport": "tech",
+       "icon": "camera",
+       "level": "A1",
+       "example_en": "The camera on this phone is good in low light.",
+       "example_fa": "دوربین این گوشی در نور کم خوب است.",
+       "ref": ""
+      },
+      {
+       "id": "media-w2",
+       "en": "screenshot",
+       "ipa": "/ˈskrinʃɑt/",
+       "pos": "noun",
+       "fa": "اسکرین‌شات",
+       "def_en": "A picture of whatever is on the screen.",
+       "sport": "tech",
+       "icon": "screen",
+       "level": "A2",
+       "example_en": "Send me a screenshot of the error.",
+       "example_fa": "یک اسکرین‌شات از خطا برایم بفرست.",
+       "ref": ""
+      },
+      {
+       "id": "media-w3",
+       "en": "stream",
+       "ipa": "/strim/",
+       "pos": "verb",
+       "fa": "پخش زنده دیدن",
+       "def_en": "To watch or listen without downloading the whole file first.",
+       "sport": "tech",
+       "icon": "video",
+       "level": "B1",
+       "example_en": "We stream everything now.",
+       "example_fa": "حالا همه چیز را پخش می‌کنیم.",
+       "ref": ""
+      },
+      {
+       "id": "media-w4",
+       "en": "podcast",
+       "ipa": "/ˈpɑdkæst/",
+       "pos": "noun",
+       "fa": "پادکست",
+       "def_en": "An audio show you subscribe to and listen to in episodes.",
+       "sport": "tech",
+       "icon": "speaker",
+       "level": "B1",
+       "example_en": "I listen to a podcast on the way to work.",
+       "example_fa": "سر راه کار به یک پادکست گوش می‌دهم.",
+       "ref": ""
+      },
+      {
+       "id": "media-w5",
+       "en": "playlist",
+       "ipa": "/ˈpleɪlɪst/",
+       "pos": "noun",
+       "fa": "لیست پخش",
+       "def_en": "A list of songs or videos played in order.",
+       "sport": "tech",
+       "icon": "video",
+       "level": "A2",
+       "example_en": "Add it to the road-trip playlist.",
+       "example_fa": "به لیست پخش سفر اضافه‌اش کن.",
+       "ref": ""
+      },
+      {
+       "id": "media-w6",
+       "en": "subtitles",
+       "ipa": "/ˈsʌbtaɪtlz/",
+       "pos": "noun",
+       "fa": "زیرنویس",
+       "def_en": "The words of a video shown at the bottom of the screen.",
+       "sport": "tech",
+       "icon": "video",
+       "level": "A2",
+       "example_en": "Turn on subtitles if the accent is hard.",
+       "example_fa": "اگر لهجه سخت است زیرنویس را روشن کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "media-x1",
+       "kind": "expression",
+       "en": "Could you take a photo of us?",
+       "fa": "می‌شود از ما عکس بگیرید؟",
+       "meaning_en": "The request everyone makes on holiday.",
+       "meaning_fa": "درخواستی که همه در سفر می‌کنند.",
+       "register": "neutral",
+       "example_en": "Excuse me, could you take a photo of us?",
+       "example_fa": "ببخشید، می‌شود از ما عکس بگیرید؟",
+       "alt": ""
+      },
+      {
+       "id": "media-x2",
+       "kind": "expression",
+       "en": "It is in my photos app.",
+       "fa": "در برنامهٔ عکس‌هاست.",
+       "meaning_en": "Says where to look without a long explanation.",
+       "meaning_fa": "می‌گوید کجا را بگردید، بی‌توضیح طولانی.",
+       "register": "neutral",
+       "example_en": "I did not send it yet, it is in my photos app.",
+       "example_fa": "هنوز نفرستادم، در برنامهٔ عکس‌هاست.",
+       "alt": ""
+      },
+      {
+       "id": "media-x3",
+       "kind": "expression",
+       "en": "The sound is out of sync.",
+       "fa": "صدا با تصویر هماهنگ نیست.",
+       "meaning_en": "Names a problem with one clear word.",
+       "meaning_fa": "مشکلی را با یک واژهٔ روشن نام می‌برد.",
+       "register": "neutral",
+       "example_en": "The sound is out of sync since the update.",
+       "example_fa": "از زمان به‌روزرسانی صدا با تصویر هماهنگ نیست.",
+       "alt": ""
+      },
+      {
+       "id": "media-x4",
+       "kind": "expression",
+       "en": "It buffers every few seconds.",
+       "fa": "هر چند ثانیه بافر می‌کند.",
+       "meaning_en": "Says exactly how the video fails.",
+       "meaning_fa": "دقیق می‌گوید ویدیو چطور خراب می‌شود.",
+       "register": "informal",
+       "example_en": "It buffers every few seconds on mobile data.",
+       "example_fa": "روی دادهٔ همراه هر چند ثانیه بافر می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "media-x5",
+       "kind": "idiom",
+       "en": "The clip went viral.",
+       "fa": "آن کلیپ همه‌گیر شد.",
+       "meaning_en": "Literally, spreading like a virus; figuratively, shared so fast that millions see it.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مثل ویروس پخش می‌شود؛ به‌طور مجازی، آن‌قدر سریع به اشتراک گذاشته می‌شود که میلیون‌ها نفر می‌بینند.",
+       "register": "neutral",
+       "example_en": "The clip went viral overnight and my phone would not stop.",
+       "example_fa": "آن کلیپ شبانه همه‌گیر شد و گوشی‌ام بند نمی‌شد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Could you + [verb] + a + [thing] + of + [person]?",
+       "example_en": "Could you take a photo of us?",
+       "example_fa": "می‌شود از ما عکس بگیرید؟",
+       "note_en": "A polite request with a camera.",
+       "note_fa": "درخواست مؤدبانه با دوربین."
+      },
+      {
+       "frame": "Turn on + [feature] + if + [condition].",
+       "example_en": "Turn on subtitles if the accent is hard.",
+       "example_fa": "اگر لهجه سخت است زیرنویس را روشن کن.",
+       "note_en": "A setting and when to use it.",
+       "note_fa": "یک تنظیم و زمان استفاده‌اش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "media-s1",
+       "en": "I stream it first and download it only if I will watch it twice.",
+       "fa": "اول پخشش می‌کنم و فقط اگر دو بار ببینم دانلودش می‌کنم.",
+       "use_en": "A rule for saving space and data.",
+       "use_fa": "قاعده‌ای برای صرفه‌جویی در جا و داده.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I stream first, download later."
+      },
+      {
+       "id": "media-s2",
+       "en": "The photo is blurry because the room was dark.",
+       "fa": "عکس تار است چون اتاق تاریک بود.",
+       "use_en": "Explains a result by its cause.",
+       "use_fa": "نتیجه را با علتش توضیح می‌دهد.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "It was too dark, so the photo is blurry."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At a birthday",
+      "title_fa": "در جشن تولد",
+      "speakers": [
+       "Reza",
+       "Nika"
+      ],
+      "lines": [
+       {
+        "who": "Reza",
+        "en": "Could you take a photo of us?",
+        "fa": "می‌شود از ما عکس بگیرید؟"
+       },
+       {
+        "who": "Nika",
+        "en": "Of course. Stand near the window, the light is better.",
+        "fa": "البته. نزدیک پنجره بایستید، نور بهتر است."
+       },
+       {
+        "who": "Reza",
+        "en": "Should I use the flash?",
+        "fa": "فلاش بزنم؟"
+       },
+       {
+        "who": "Nika",
+        "en": "No, it will wash everyone out. The room is bright enough.",
+        "fa": "نه، رنگ همه را می‌پراند. اتاق به‌قدر کافی روشن است."
+       },
+       {
+        "who": "Reza",
+        "en": "Can you also take a screenshot of the video call later?",
+        "fa": "می‌شود بعداً از تماس تصویری هم اسکرین‌شات بگیری؟"
+       },
+       {
+        "who": "Nika",
+        "en": "Yes. It saves to my photos app.",
+        "fa": "بله. در برنامهٔ عکس‌هایم ذخیره می‌شود."
+       },
+       {
+        "who": "Reza",
+        "en": "The last one was blurry.",
+        "fa": "قبلی تار بود."
+       },
+       {
+        "who": "Nika",
+        "en": "That one was moving. Stand still for two seconds.",
+        "fa": "آن یکی در حرکت بود. دو ثانیه ثابت بایست."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The buffering film",
+       "title_fa": "فیلم بافری",
+       "situation_en": "A film stops every few seconds and the room is waiting.",
+       "situation_fa": "فیلم هر چند ثانیه می‌ایستد و جمعیت منتظر است.",
+       "task_en": "Diagnose and offer one fix.",
+       "task_fa": "عیب را پیدا کن و یک راه‌حل بده.",
+       "answer_en": "It buffers on mobile data. Let me connect to the Wi-Fi or lower the quality.",
+       "answer_fa": "روی دادهٔ همراه بافر می‌کند. بگذار به وای‌فای وصل شوم یا کیفیت را کم کنم."
+      },
+      {
+       "title_en": "The unshared photo",
+       "title_fa": "عکس نفرستاده",
+       "situation_en": "A friend asks for the photo you took last week.",
+       "situation_fa": "دوستت عکسی را می‌خواهد که هفتهٔ پیش گرفتی.",
+       "task_en": "Explain where it is and how you will send it.",
+       "task_fa": "بگو کجاست و چطور می‌فرستی.",
+       "answer_en": "It is in my photos app, not the cloud yet. I will send the full size tonight.",
+       "answer_fa": "در برنامهٔ عکس‌هایم است، هنوز در ابر نیست. امشب اندازهٔ کاملش را می‌فرستم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "media-q1",
+       "q_en": "What is a screenshot?",
+       "q_fa": "اسکرین‌شات چیست؟",
+       "options": [
+        "a picture of what is on the screen",
+        "a saved video",
+        "a typed note"
+       ],
+       "answer": "a picture of what is on the screen",
+       "why_en": "A screenshot captures the screen itself, not the world.",
+       "why_fa": "اسکرین‌شات خود صفحه را ثبت می‌کند، نه دنیا را."
+      },
+      {
+       "id": "media-q2",
+       "q_en": "What does \"it buffers\" mean?",
+       "q_fa": "«بافر می‌کند» یعنی چه؟",
+       "options": [
+        "the video stops while data loads",
+        "the sound is too loud",
+        "the screen is dirty"
+       ],
+       "answer": "the video stops while data loads",
+       "why_en": "Buffering is the player waiting for more data.",
+       "why_fa": "بافر یعنی پخش‌کننده منتظر دادهٔ بیشتر است."
+      },
+      {
+       "id": "media-q3",
+       "q_en": "\"Went viral\" means ...",
+       "q_fa": "«همه‌گیر شد» یعنی ...",
+       "options": [
+        "it spread very fast online",
+        "it broke",
+        "it was deleted"
+       ],
+       "answer": "it spread very fast online",
+       "why_en": "The metaphor is infection, not popularity alone.",
+       "why_fa": "استعاره‌اش سرایت است، نه فقط محبوبیت."
+      }
+     ]
+    },
+    {
+     "id": "gadgets",
+     "order": 10,
+     "icon": "bluetooth",
+     "title_en": "Gadgets that talk to each other",
+     "title_fa": "گجت‌هایی که با هم حرف می‌زنند",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Pairing, wearables, speakers and the small words that make them work.",
+     "blurb_fa": "جفت‌سازی، پوشیدنی‌ها، اسپیکرها و واژه‌های کوچکی که کارشان می‌اندازد.",
+     "objectives": [
+      {
+       "en": "pair a device and say what to do when it will not connect.",
+       "fa": "دستگاه را جفت کن و بگو وقتی وصل نمی‌شود چه کار کنی."
+      },
+      {
+       "en": "ask about battery life before buying a gadget.",
+       "fa": "پیش از خرید گجت دربارهٔ عمر باتری بپرس."
+      },
+      {
+       "en": "describe a smart-home routine.",
+       "fa": "یک روتین خانهٔ هوشمند را توصیف کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "gadgets-w1",
+       "en": "Bluetooth",
+       "ipa": "/ˈblutuxθ/",
+       "pos": "noun",
+       "fa": "بلوتوث",
+       "def_en": "A short-range wireless link between devices.",
+       "sport": "tech",
+       "icon": "bluetooth",
+       "level": "A2",
+       "example_en": "Connect the headphones by Bluetooth.",
+       "example_fa": "هدفون را با بلوتوث وصل کن.",
+       "ref": ""
+      },
+      {
+       "id": "gadgets-w2",
+       "en": "pairing",
+       "ipa": "/ˈpɛrɪŋ/",
+       "pos": "noun",
+       "fa": "جفت‌سازی",
+       "def_en": "The one-time step that links two devices.",
+       "sport": "tech",
+       "icon": "bluetooth",
+       "level": "B1",
+       "example_en": "Pairing failed because it was already connected to the tablet.",
+       "example_fa": "جفت‌سازی شکست چون از قبل به تبلت وصل بود.",
+       "ref": ""
+      },
+      {
+       "id": "gadgets-w3",
+       "en": "smart speaker",
+       "ipa": "/smɑrt ˈspikər/",
+       "pos": "noun",
+       "fa": "اسپیکر هوشمند",
+       "def_en": "A speaker with a voice assistant inside.",
+       "sport": "tech",
+       "icon": "speaker",
+       "level": "B1",
+       "example_en": "The smart speaker turns the lights off at midnight.",
+       "example_fa": "اسپیکر هوشمند نیمه‌شب چراغ‌ها را خاموش می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "gadgets-w4",
+       "en": "wearable",
+       "ipa": "/ˈwɛrəbl/",
+       "pos": "noun",
+       "fa": "دستگاه پوشیدنی",
+       "def_en": "A small computer you wear, such as a watch.",
+       "sport": "tech",
+       "icon": "watch",
+       "level": "B1",
+       "example_en": "My wearable counts my steps.",
+       "example_fa": "دستگاه پوشیدنی‌ام قدم‌هایم را می‌شمارد.",
+       "ref": ""
+      },
+      {
+       "id": "gadgets-w5",
+       "en": "USB port",
+       "ipa": "/ˌju ɛs ˈbi pɔrt/",
+       "pos": "noun",
+       "fa": "درگاه یو‌اس‌بی",
+       "def_en": "The socket a cable plugs into.",
+       "sport": "tech",
+       "icon": "usb",
+       "level": "A2",
+       "example_en": "The USB port is on the left side.",
+       "example_fa": "درگاه یو‌اس‌بی سمت چپ است.",
+       "ref": ""
+      },
+      {
+       "id": "gadgets-w6",
+       "en": "power bank",
+       "ipa": "/ˈpaʊər bæŋk/",
+       "pos": "noun",
+       "fa": "پاوربانک",
+       "def_en": "A battery you carry to charge other devices.",
+       "sport": "tech",
+       "icon": "battery",
+       "level": "A2",
+       "example_en": "The power bank is charged, take it.",
+       "example_fa": "پاوربانک شارژ دارد، ببرش.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "gadgets-x1",
+       "kind": "expression",
+       "en": "It is not connecting.",
+       "fa": "وصل نمی‌شود.",
+       "meaning_en": "The first sentence of every pairing problem.",
+       "meaning_fa": "نخستین جملهٔ هر مشکل جفت‌سازی.",
+       "register": "neutral",
+       "example_en": "The headphones are on, but it is not connecting.",
+       "example_fa": "هدفون روشن است، اما وصل نمی‌شود.",
+       "alt": ""
+      },
+      {
+       "id": "gadgets-x2",
+       "kind": "expression",
+       "en": "Forget the device and pair again.",
+       "fa": "دستگاه را حذف کن و دوباره جفت کن.",
+       "meaning_en": "The standard fix for a stuck pairing.",
+       "meaning_fa": "راه‌حل استاندارد جفت‌سازی گیرکرده.",
+       "register": "neutral",
+       "example_en": "Forget the device and pair again, the old key is stuck.",
+       "example_fa": "دستگاه را حذف کن و دوباره جفت کن، کلید قبلی گیر کرده.",
+       "alt": ""
+      },
+      {
+       "id": "gadgets-x3",
+       "kind": "expression",
+       "en": "How long does the battery last?",
+       "fa": "باتری چقدر دوام می‌آورد؟",
+       "meaning_en": "The question to ask before paying.",
+       "meaning_fa": "پرسشی که پیش از پرداخت می‌پرسی.",
+       "register": "neutral",
+       "example_en": "How long does the battery last on one charge?",
+       "example_fa": "باتری با یک بار شارژ چقدر دوام می‌آورد؟",
+       "alt": ""
+      },
+      {
+       "id": "gadgets-x4",
+       "kind": "expression",
+       "en": "It works with voice commands.",
+       "fa": "با فرمان صوتی کار می‌کند.",
+       "meaning_en": "Says how to use it without a screen.",
+       "meaning_fa": "می‌گوید چطور بدون صفحه استفاده‌اش کنی.",
+       "register": "neutral",
+       "example_en": "It works with voice commands, so your hands stay free.",
+       "example_fa": "با فرمان صوتی کار می‌کند، پس دستت آزاد می‌ماند.",
+       "alt": ""
+      },
+      {
+       "id": "gadgets-x5",
+       "kind": "idiom",
+       "en": "It is cutting-edge.",
+       "fa": "بسیار پیشرو است.",
+       "meaning_en": "Literally, the sharp front edge of a blade; figuratively, the newest and most advanced thing available.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، لبهٔ تیز جلوی تیغه؛ به‌طور مجازی، تازه‌ترین و پیشرفته‌ترین چیز موجود.",
+       "register": "neutral",
+       "example_en": "The sensor is cutting-edge, but the app is not ready.",
+       "example_fa": "حسگر بسیار پیشرو است، اما برنامه آماده نیست.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Connect + [device] + to + [device].",
+       "example_en": "Connect the speaker to your phone.",
+       "example_fa": "اسپیکر را به گوشی‌ات وصل کن.",
+       "note_en": "The pairing sentence.",
+       "note_fa": "جملهٔ جفت‌سازی."
+      },
+      {
+       "frame": "How long does + [thing] + last?",
+       "example_en": "How long does the battery last?",
+       "example_fa": "باتری چقدر دوام می‌آورد؟",
+       "note_en": "Ask about endurance before buying.",
+       "note_fa": "پیش از خرید دربارهٔ دوام بپرس."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "gadgets-s1",
+       "en": "I charged the power bank but not the watch, so the watch died first.",
+       "fa": "پاوربانک را شارژ کردم اما ساعت را نه، پس ساعت اول تمام شد.",
+       "use_en": "Cause and effect, in one line.",
+       "use_fa": "علت و اثر، در یک خط.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The watch died because I did not charge it."
+      },
+      {
+       "id": "gadgets-s2",
+       "en": "The speaker only works when the phone is in the same room.",
+       "fa": "اسپیکر فقط وقتی کار می‌کند که گوشی در همان اتاق باشد.",
+       "use_en": "A limit stated plainly.",
+       "use_fa": "محدودیتی ساده‌گفته‌شده.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "It only works in the same room."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Setting up a speaker",
+      "title_fa": "راه‌اندازی اسپیکر",
+      "speakers": [
+       "Saman",
+       "Leila"
+      ],
+      "lines": [
+       {
+        "who": "Saman",
+        "en": "It is not connecting to my phone.",
+        "fa": "به گوشی‌ام وصل نمی‌شود."
+       },
+       {
+        "who": "Leila",
+        "en": "Is Bluetooth on?",
+        "fa": "بلوتوث روشن است؟"
+       },
+       {
+        "who": "Saman",
+        "en": "Yes, but it says pairing failed.",
+        "fa": "بله، اما می‌گوید جفت‌سازی شکست."
+       },
+       {
+        "who": "Leila",
+        "en": "It may still be paired with your tablet. Forget the device and pair again.",
+        "fa": "شاید هنوز با تبلتت جفت است. دستگاه را حذف کن و دوباره جفت کن."
+       },
+       {
+        "who": "Saman",
+        "en": "It connected, but the sound is from the phone.",
+        "fa": "وصل شد، اما صدا از گوشی می‌آید."
+       },
+       {
+        "who": "Leila",
+        "en": "Choose the speaker as the output. It works with voice commands too.",
+        "fa": "اسپیکر را به‌عنوان خروجی انتخاب کن. با فرمان صوتی هم کار می‌کند."
+       },
+       {
+        "who": "Saman",
+        "en": "How long does the battery last?",
+        "fa": "باتری چقدر دوام می‌آورد؟"
+       },
+       {
+        "who": "Leila",
+        "en": "About eight hours, less if the volume is high.",
+        "fa": "حدود هشت ساعت، اگر صدا بلند باشد کمتر."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Shopping for a watch",
+       "title_fa": "خرید ساعت",
+       "situation_en": "You want a wearable but the shop only lists features.",
+       "situation_fa": "یک پوشیدنی می‌خواهی اما فروشگاه فقط امکانات را می‌نویسد.",
+       "task_en": "Ask the two questions that matter most.",
+       "task_fa": "دو پرسش مهم‌ترین را بپرس.",
+       "answer_en": "How long does the battery last, and does it work without the phone?",
+       "answer_fa": "باتری چقدر دوام می‌آورد، و بدون گوشی کار می‌کند؟"
+      },
+      {
+       "title_en": "The smart routine",
+       "title_fa": "روتین هوشمند",
+       "situation_en": "You want the lights off at midnight without touching anything.",
+       "situation_fa": "می‌خواهی نیمه‌شب چراغ‌ها بدون دست زدن خاموش شوند.",
+       "task_en": "Say the routine and the one condition.",
+       "task_fa": "روتین و یک شرط را بگو.",
+       "answer_en": "The speaker turns the lights off at midnight, but only if the door is locked.",
+       "answer_fa": "اسپیکر نیمه‌شب چراغ‌ها را خاموش می‌کند، اما فقط اگر در قفل باشد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "gadgets-q1",
+       "q_en": "What is pairing?",
+       "q_fa": "جفت‌سازی چیست؟",
+       "options": [
+        "the one-time step that links two devices",
+        "a monthly payment",
+        "a firmware update"
+       ],
+       "answer": "the one-time step that links two devices",
+       "why_en": "Pairing is remembered, so you do it once.",
+       "why_fa": "جفت‌سازی ذخیره می‌شود، پس یک بار انجامش می‌دهی."
+      },
+      {
+       "id": "gadgets-q2",
+       "q_en": "What is a wearable?",
+       "q_fa": "دستگاه پوشیدنی چیست؟",
+       "options": [
+        "a small computer you wear",
+        "a phone case",
+        "a power cable"
+       ],
+       "answer": "a small computer you wear",
+       "why_en": "Watches and rings are wearables.",
+       "why_fa": "ساعت و انگشتر پوشیدنی‌اند."
+      },
+      {
+       "id": "gadgets-q3",
+       "q_en": "\"Cutting-edge\" describes ...",
+       "q_fa": "«پیشرو» چه چیزی را توصیف می‌کند؟",
+       "options": [
+        "the newest and most advanced",
+        "the cheapest",
+        "the oldest"
+       ],
+       "answer": "the newest and most advanced",
+       "why_en": "The image is the sharp front edge of a blade.",
+       "why_fa": "تصویرش لبهٔ تیز جلوی تیغه است."
+      }
+     ]
+    },
+    {
+     "id": "ai",
+     "order": 11,
+     "icon": "robot",
+     "title_en": "AI and the words around it",
+     "title_fa": "هوش مصنوعی و واژه‌های اطرافش",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What the assistant is, what a prompt is, and where the answers can go wrong.",
+     "blurb_fa": "دستیار چیست، پرامپت چیست، و پاسخ‌ها کجا می‌توانند غلط بروند.",
+     "objectives": [
+      {
+       "en": "ask an AI assistant for something in one clear prompt.",
+       "fa": "در یک پرامپت روشن چیزی از دستیار هوش مصنوعی بخواه."
+      },
+      {
+       "en": "say why an answer may be wrong and how to check it.",
+       "fa": "بگو چرا پاسخی ممکن است غلط باشد و چطور بررسی‌اش کنی."
+      },
+      {
+       "en": "choose between asking AI and asking a person, with a reason.",
+       "fa": "با دلیل بین پرسیدن از هوش مصنوعی و پرسیدن از آدم انتخاب کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "ai-w1",
+       "en": "artificial intelligence",
+       "ipa": "/ˌɑrtɪˈfɪʃl ɪnˈtɛlədʒəns/",
+       "pos": "noun",
+       "fa": "هوش مصنوعی",
+       "def_en": "Software that performs tasks that used to need a person.",
+       "sport": "tech",
+       "icon": "robot",
+       "level": "B1",
+       "example_en": "Artificial intelligence writes the first draft, not the final one.",
+       "example_fa": "هوش مصنوعی پیش‌نویس اول را می‌نویسد، نه نسخهٔ نهایی را.",
+       "ref": ""
+      },
+      {
+       "id": "ai-w2",
+       "en": "chatbot",
+       "ipa": "/ˈtʃætbɑt/",
+       "pos": "noun",
+       "fa": "چت‌بات",
+       "def_en": "A program that answers in conversation.",
+       "sport": "tech",
+       "icon": "robot",
+       "level": "B1",
+       "example_en": "The chatbot answered in three seconds.",
+       "example_fa": "چت‌بات در سه ثانیه پاسخ داد.",
+       "ref": ""
+      },
+      {
+       "id": "ai-w3",
+       "en": "prompt",
+       "ipa": "/prɑmpt/",
+       "pos": "noun",
+       "fa": "پرامپت",
+       "def_en": "The instruction you give an AI system.",
+       "sport": "tech",
+       "icon": "speech",
+       "level": "B1",
+       "example_en": "A clear prompt gets a clear answer.",
+       "example_fa": "پرامپت روشن پاسخ روشن می‌گیرد.",
+       "ref": ""
+      },
+      {
+       "id": "ai-w4",
+       "en": "algorithm",
+       "ipa": "/ˈælɡərɪðəm/",
+       "pos": "noun",
+       "fa": "الگوریتم",
+       "def_en": "A set of rules a computer follows to decide something.",
+       "sport": "tech",
+       "icon": "chip",
+       "level": "B2",
+       "example_en": "The algorithm decides which posts you see first.",
+       "example_fa": "الگوریتم تعیین می‌کند کدام نوشته‌ها را اول می‌بینی.",
+       "ref": ""
+      },
+      {
+       "id": "ai-w5",
+       "en": "model",
+       "ipa": "/ˈmɑdl/",
+       "pos": "noun",
+       "fa": "مدل",
+       "def_en": "The trained system behind an AI answer.",
+       "sport": "tech",
+       "icon": "chip",
+       "level": "B2",
+       "example_en": "This model is better at short answers.",
+       "example_fa": "این مدل در پاسخ‌های کوتاه بهتر است.",
+       "ref": ""
+      },
+      {
+       "id": "ai-w6",
+       "en": "deepfake",
+       "ipa": "/ˈdipfeɪk/",
+       "pos": "noun",
+       "fa": "دیپ‌فیک",
+       "def_en": "An image or video made with AI to look real and is not.",
+       "sport": "tech",
+       "icon": "camera",
+       "level": "B2",
+       "example_en": "That video is a deepfake, the mouth does not match.",
+       "example_fa": "آن ویدیو دیپ‌فیک است، دهان هماهنگ نیست.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "ai-x1",
+       "kind": "expression",
+       "en": "Ask it to explain, not just answer.",
+       "fa": "بخواه توضیح بدهد، نه فقط جواب.",
+       "meaning_en": "Gets you a reason you can check.",
+       "meaning_fa": "دلیلی می‌گیرید که می‌توانید بررسی کنید.",
+       "register": "neutral",
+       "example_en": "Ask it to explain, not just answer, then you can judge.",
+       "example_fa": "بخواه توضیح بدهد، نه فقط جواب، بعد می‌توانی قضاوت کنی.",
+       "alt": ""
+      },
+      {
+       "id": "ai-x2",
+       "kind": "expression",
+       "en": "Check it before you use it.",
+       "fa": "پیش از استفاده بررسی‌اش کن.",
+       "meaning_en": "The rule for every AI answer.",
+       "meaning_fa": "قاعدهٔ هر پاسخ هوش مصنوعی.",
+       "register": "neutral",
+       "example_en": "It sounds right, but check it before you use it.",
+       "example_fa": "درست به نظر می‌رسد، اما پیش از استفاده بررسی‌اش کن.",
+       "alt": ""
+      },
+      {
+       "id": "ai-x3",
+       "kind": "expression",
+       "en": "It made something up.",
+       "fa": "چیزی از خودش ساخت.",
+       "meaning_en": "Describes a confident wrong answer.",
+       "meaning_fa": "پاسخ غلط اما مطمئن را توصیف می‌کند.",
+       "register": "informal",
+       "example_en": "It made something up: that book does not exist.",
+       "example_fa": "چیزی از خودش ساخت: آن کتاب وجود ندارد.",
+       "alt": ""
+      },
+      {
+       "id": "ai-x4",
+       "kind": "expression",
+       "en": "Give it more context.",
+       "fa": "زمینهٔ بیشتر بده.",
+       "meaning_en": "Says how to improve a weak answer.",
+       "meaning_fa": "می‌گوید پاسخ ضعیف را چطور بهتر کنی.",
+       "register": "neutral",
+       "example_en": "Give it more context and the draft will be usable.",
+       "example_fa": "زمینهٔ بیشتر بده تا پیش‌نویس به کار بیاید.",
+       "alt": ""
+      },
+      {
+       "id": "ai-x5",
+       "kind": "idiom",
+       "en": "It is an echo chamber.",
+       "fa": "یک اتاق پژواک است.",
+       "meaning_en": "Literally, a room where sound repeats back; figuratively, a place where you only meet your own opinions.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، اتاقی که صدا در آن بازمی‌گردد؛ به‌طور مجازی، جایی که فقط نظرهای خودت را می‌بینی.",
+       "register": "neutral",
+       "example_en": "That feed is an echo chamber, so I follow people who disagree.",
+       "example_fa": "آن فید یک اتاق پژواک است، پس کسانی را دنبال می‌کنم که مخالفند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Ask it to + [verb] + in + [form].",
+       "example_en": "Ask it to explain in two sentences.",
+       "example_fa": "بخواه در دو جمله توضیح بدهد.",
+       "note_en": "Shape the output you want.",
+       "note_fa": "خروجی دلخواهت را شکل بده."
+      },
+      {
+       "frame": "It is good at + [task], weak at + [task].",
+       "example_en": "It is good at summaries, weak at dates.",
+       "example_fa": "در خلاصه خوب است، در تاریخ‌ها ضعیف.",
+       "note_en": "Say the strength and the weakness together.",
+       "note_fa": "قوت و ضعف را با هم بگو."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "ai-s1",
+       "en": "I use it for first drafts and I check every number myself.",
+       "fa": "برای پیش‌نویس از آن استفاده می‌کنم و هر عدد را خودم بررسی می‌کنم.",
+       "use_en": "A working rule in one sentence.",
+       "use_fa": "قاعده‌ای کاری در یک جمله.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "First drafts only, and I check the numbers."
+      },
+      {
+       "id": "ai-s2",
+       "en": "I would not ask an AI about my medical results.",
+       "fa": "دربارهٔ نتایج پزشکی‌ام از هوش مصنوعی نمی‌پرسیدم.",
+       "use_en": "A boundary with a reason.",
+       "use_fa": "مرزی با دلیل.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Not for medical questions."
+      }
+     ],
+     "dialogue": {
+      "title_en": "The confident answer",
+      "title_fa": "پاسخ مطمئن",
+      "speakers": [
+       "Milad",
+       "Shiva"
+      ],
+      "lines": [
+       {
+        "who": "Milad",
+        "en": "The assistant says this medicine is safe with coffee.",
+        "fa": "دستیار می‌گوید این دارو با قهوه بی‌خطر است."
+       },
+       {
+        "who": "Shiva",
+        "en": "Check it before you use it. It made something up last week.",
+        "fa": "پیش از استفاده بررسی‌اش کن. هفتهٔ پیش چیزی از خودش ساخت."
+       },
+       {
+        "who": "Milad",
+        "en": "It gave a source.",
+        "fa": "منبع هم داد."
+       },
+       {
+        "who": "Shiva",
+        "en": "Does the source exist? Ask it to explain, not just answer.",
+        "fa": "منبع وجود دارد؟ بخواه توضیح بدهد، نه فقط جواب."
+       },
+       {
+        "who": "Milad",
+        "en": "The link is dead.",
+        "fa": "لینک مرده است."
+       },
+       {
+        "who": "Shiva",
+        "en": "Then ask a pharmacist. This is not a first-draft question.",
+        "fa": "پس از داروساز بپرس. این پرسش پیش‌نویس نیست."
+       },
+       {
+        "who": "Milad",
+        "en": "So I use it for writing only.",
+        "fa": "پس فقط برای نوشتن استفاده‌اش می‌کنم."
+       },
+       {
+        "who": "Shiva",
+        "en": "And give it more context when the answer is shallow.",
+        "fa": "و وقتی پاسخ سطحی است زمینهٔ بیشتر بده."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The essay draft",
+       "title_fa": "پیش‌نویس مقاله",
+       "situation_en": "You have a deadline and a blank page.",
+       "situation_fa": "مهلت داری و صفحه‌ای خالی.",
+       "task_en": "Use AI for a draft and say what you will keep.",
+       "task_fa": "از هوش مصنوعی برای پیش‌نویس استفاده کن و بگو چه را نگه می‌داری.",
+       "answer_en": "I will ask it for an outline, then write the argument myself and check every fact.",
+       "answer_fa": "از آن طرح کلی می‌خواهم، بعد استدلال را خودم می‌نویسم و هر واقعیت را بررسی می‌کنم."
+      },
+      {
+       "title_en": "The suspicious video",
+       "title_fa": "ویدیوی مشکوک",
+       "situation_en": "A video of a famous person says something shocking.",
+       "situation_fa": "ویدیویی از یک آدم مشهور چیز شوکه‌کننده‌ای می‌گوید.",
+       "task_en": "Question it with a reason.",
+       "task_fa": "با دلیل زیر سؤالش ببر.",
+       "answer_en": "The mouth does not match the words. That is likely a deepfake.",
+       "answer_fa": "دهان با واژه‌ها هماهنگ نیست. احتمالاً دیپ‌فیک است."
+      }
+     ],
+     "practice": [
+      {
+       "id": "ai-q1",
+       "q_en": "What is a prompt?",
+       "q_fa": "پرامپت چیست؟",
+       "options": [
+        "the instruction you give an AI system",
+        "the answer it gives",
+        "a saved password"
+       ],
+       "answer": "the instruction you give an AI system",
+       "why_en": "Every reply follows a prompt, even a short one.",
+       "why_fa": "هر پاسخ از یک پرامپت می‌آید، حتی کوتاه."
+      },
+      {
+       "id": "ai-q2",
+       "q_en": "What should you do with an AI answer you will act on?",
+       "q_fa": "با پاسخ هوش مصنوعی که بر اساسش کار می‌کنی چه کنی؟",
+       "options": [
+        "check it against a real source",
+        "share it quickly",
+        "trust the tone"
+       ],
+       "answer": "check it against a real source",
+       "why_en": "Confident tone is not evidence.",
+       "why_fa": "لحن مطمئن دلیل نیست."
+      },
+      {
+       "id": "ai-q3",
+       "q_en": "\"An echo chamber\" is ...",
+       "q_fa": "«اتاق پژواک» چیست؟",
+       "options": [
+        "a place where you only meet your own opinions",
+        "a quiet room",
+        "a group chat"
+       ],
+       "answer": "a place where you only meet your own opinions",
+       "why_en": "The sound metaphor is opinions bouncing back.",
+       "why_fa": "استعارهٔ صدا همان نظرهایی است که بازمی‌گردند."
+      }
+     ]
+    },
+    {
+     "id": "habits",
+     "order": 12,
+     "icon": "clock",
+     "title_en": "Screen time and digital habits",
+     "title_fa": "زمان صفحه و عادت‌های دیجیتال",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Notification, subscription, privacy and the habits that keep the phone in its place.",
+     "blurb_fa": "اعلان، اشتراک، حریم خصوصی و عادت‌هایی که گوشی را سر جایش نگه می‌دارند.",
+     "objectives": [
+      {
+       "en": "say how much time you spend on your phone and what you want to change.",
+       "fa": "بگو چقدر وقت روی گوشی می‌گذرانی و چه می‌خواهی عوض کنی."
+      },
+      {
+       "en": "ask what a subscription costs and how to cancel it.",
+       "fa": "بپرس اشتراک چقدر است و چطور لغوش کنی."
+      },
+      {
+       "en": "set one privacy setting and say what it protects.",
+       "fa": "یک تنظیم حریم خصوصی را انجام بده و بگو از چه محافظت می‌کند."
+      }
+     ],
+     "words": [
+      {
+       "id": "habits-w1",
+       "en": "screen time",
+       "ipa": "/skrin taɪm/",
+       "pos": "noun",
+       "fa": "زمان صفحه",
+       "def_en": "The hours a device reports you spent looking at it.",
+       "sport": "tech",
+       "icon": "clock",
+       "level": "A2",
+       "example_en": "My screen time doubled this month.",
+       "example_fa": "زمان صفحه‌ام این ماه دو برابر شد.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w2",
+       "en": "digital detox",
+       "ipa": "/ˌdɪdʒɪtl ˈditɑks/",
+       "pos": "noun",
+       "fa": "ترک دیجیتال",
+       "def_en": "A planned break from devices and social media.",
+       "sport": "tech",
+       "icon": "clock",
+       "level": "B1",
+       "example_en": "I do a digital detox one weekend a month.",
+       "example_fa": "ماهی یک آخر هفته ترک دیجیتال می‌کنم.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w3",
+       "en": "doomscrolling",
+       "ipa": "/ˈdumskroʊlɪŋ/",
+       "pos": "noun",
+       "fa": "مرور افسرده‌کنندهٔ اخبار",
+       "def_en": "Reading bad news endlessly without stopping.",
+       "sport": "tech",
+       "icon": "phone",
+       "level": "B2",
+       "example_en": "Doomscrolling at midnight never helps.",
+       "example_fa": "مرور افسرده‌کنندهٔ اخبار نیمه‌شب هرگز کمک نمی‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w4",
+       "en": "subscription",
+       "ipa": "/səbˈskrɪpʃn/",
+       "pos": "noun",
+       "fa": "اشتراک",
+       "def_en": "A regular payment for a service.",
+       "sport": "tech",
+       "icon": "bell",
+       "level": "A2",
+       "example_en": "I forgot about that subscription.",
+       "example_fa": "آن اشتراک را فراموش کرده بودم.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w5",
+       "en": "privacy",
+       "ipa": "/ˈpraɪvəsi/",
+       "pos": "noun",
+       "fa": "حریم خصوصی",
+       "def_en": "Control over who can see your information.",
+       "sport": "tech",
+       "icon": "lock",
+       "level": "B1",
+       "example_en": "Privacy settings decide who sees your photos.",
+       "example_fa": "تنظیمات حریم خصوصی تعیین می‌کنند چه کسی عکس‌هایت را ببیند.",
+       "ref": ""
+      },
+      {
+       "id": "habits-w6",
+       "en": "unplug",
+       "ipa": "/ˌʌnˈplʌg/",
+       "pos": "verb",
+       "fa": "کنار گذاشتن دستگاه",
+       "def_en": "To stop using devices for a while.",
+       "sport": "tech",
+       "icon": "plug",
+       "level": "B1",
+       "example_en": "I unplug after nine in the evening.",
+       "example_fa": "بعد از ساعت نه شب دستگاه را کنار می‌گذارم.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "habits-x1",
+       "kind": "expression",
+       "en": "I need to unplug for a day.",
+       "fa": "یک روز باید دستگاه را کنار بگذارم.",
+       "meaning_en": "Says a break is needed, not a new app.",
+       "meaning_fa": "می‌گوید استراحت لازم است، نه برنامهٔ تازه.",
+       "register": "informal",
+       "example_en": "I need to unplug for a day, I will answer on Monday.",
+       "example_fa": "یک روز باید دستگاه را کنار بگذارم، دوشنبه جواب می‌دهم.",
+       "alt": ""
+      },
+      {
+       "id": "habits-x2",
+       "kind": "expression",
+       "en": "How do I cancel it?",
+       "fa": "چطور لغوش کنم؟",
+       "meaning_en": "The question nobody reads the answer to until it costs money.",
+       "meaning_fa": "پرسشی که جوابش را کسی نمی‌خواند تا وقتی پول بخواهد.",
+       "register": "neutral",
+       "example_en": "The trial ends tomorrow. How do I cancel it?",
+       "example_fa": "دورهٔ آزمایشی فردا تمام می‌شود. چطور لغوش کنم؟",
+       "alt": ""
+      },
+      {
+       "id": "habits-x3",
+       "kind": "expression",
+       "en": "Who can see this?",
+       "fa": "چه کسی این را می‌بیند؟",
+       "meaning_en": "The first privacy question, before posting.",
+       "meaning_fa": "نخستین پرسش حریم خصوصی، پیش از انتشار.",
+       "register": "neutral",
+       "example_en": "Before I post it: who can see this?",
+       "example_fa": "قبل از انتشار: چه کسی این را می‌بیند؟",
+       "alt": ""
+      },
+      {
+       "id": "habits-x4",
+       "kind": "expression",
+       "en": "Leave your phone in another room.",
+       "fa": "گوشی را در اتاق دیگر بگذار.",
+       "meaning_en": "A habit stated as an instruction.",
+       "meaning_fa": "عادتی که مثل دستور گفته می‌شود.",
+       "register": "informal",
+       "example_en": "Leave your phone in another room and sleep better.",
+       "example_fa": "گوشی را در اتاق دیگر بگذار و بهتر بخواب.",
+       "alt": ""
+      },
+      {
+       "id": "habits-x5",
+       "kind": "idiom",
+       "en": "I am a digital native.",
+       "fa": "من با دیجیتال بزرگ شده‌ام.",
+       "meaning_en": "Literally, born into the digital world; figuratively, someone who never knew a time without it.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، در دنیای دیجیتال به دنیا آمده؛ به‌طور مجازی، کسی که زمانی بدون آن را ندیده.",
+       "register": "informal",
+       "example_en": "My daughter is a digital native, she never reads a manual.",
+       "example_fa": "دخترم با دیجیتال بزرگ شده، هرگز دفترچهٔ راهنما نمی‌خواند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I spend + [time] + on + [app].",
+       "example_en": "I spend an hour on short videos.",
+       "example_fa": "یک ساعت روی ویدیوهای کوتاه می‌گذرانم.",
+       "note_en": "Time, then place.",
+       "note_fa": "اول زمان، بعد جا."
+      },
+      {
+       "frame": "I would rather + [verb] + than + [verb].",
+       "example_en": "I would rather read than scroll.",
+       "example_fa": "ترجیح می‌دهم بخوانم تا اسکرول کنم.",
+       "note_en": "A choice between two habits.",
+       "note_fa": "انتخابی بین دو عادت."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "habits-s1",
+       "en": "I moved the charging cable out of the bedroom and I sleep better.",
+       "fa": "کابل شارژ را از اتاق خواب بیرون بردم و بهتر می‌خوابم.",
+       "use_en": "A change, then its effect.",
+       "use_fa": "تغییر، بعد اثرش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "No charging in the bedroom."
+      },
+      {
+       "id": "habits-s2",
+       "en": "I check my subscriptions once a year and cancel the ones I forgot.",
+       "fa": "سالی یک بار اشتراک‌هایم را بررسی می‌کنم و آن‌هایی را که فراموش کردم لغو می‌کنم.",
+       "use_en": "Shows a habit with a schedule.",
+       "use_fa": "عادتی با زمان‌بندی را نشان می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Once a year I review subscriptions."
+      }
+     ],
+     "dialogue": {
+      "title_en": "The quiet weekend",
+      "title_fa": "آخر هفتهٔ آرام",
+      "speakers": [
+       "Nazanin",
+       "Farid"
+      ],
+      "lines": [
+       {
+        "who": "Nazanin",
+        "en": "My screen time went up again.",
+        "fa": "زمان صفحه‌ام باز بالا رفت."
+       },
+       {
+        "who": "Farid",
+        "en": "Where is it going?",
+        "fa": "کجا می‌رود؟"
+       },
+       {
+        "who": "Nazanin",
+        "en": "Short videos, mostly at night. Doomscrolling.",
+        "fa": "بیشتر ویدیوهای کوتاه، شب‌ها. مرور افسرده‌کنندهٔ اخبار."
+       },
+       {
+        "who": "Farid",
+        "en": "Try one weekend of digital detox. I unplug on Fridays.",
+        "fa": "یک آخر هفته ترک دیجیتال را امتحان کن. من جمعه‌ها دستگاه را کنار می‌گذارم."
+       },
+       {
+        "who": "Nazanin",
+        "en": "I need the phone for work calls.",
+        "fa": "برای تماس‌های کاری گوشی لازم دارم."
+       },
+       {
+        "who": "Farid",
+        "en": "Then leave your phone in another room after nine and allow only calls.",
+        "fa": "پس بعد از نه گوشی را در اتاق دیگر بگذار و فقط تماس‌ها را اجازه بده."
+       },
+       {
+        "who": "Nazanin",
+        "en": "And cancel the app I pay for and never open?",
+        "fa": "و برنامه‌ای که پولش را می‌دهم و هرگز بازش نمی‌کنم را لغو کنم؟"
+       },
+       {
+        "who": "Farid",
+        "en": "Yes. Check who can see your posts while you are at it.",
+        "fa": "بله. همان موقع بررسی کن چه کسی نوشته‌هایت را می‌بیند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The forgotten subscription",
+       "title_fa": "اشتراک فراموش‌شده",
+       "situation_en": "A payment appears every month and you cannot place it.",
+       "situation_fa": "هر ماه پرداختی می‌آید و یادت نمی‌آید از کجاست.",
+       "task_en": "Find it and ask to cancel.",
+       "task_fa": "پیدایش کن و لغو بخواه.",
+       "answer_en": "I do not remember this subscription. How do I cancel it and get a refund for this month?",
+       "answer_fa": "این اشتراک را یادم نیست. چطور لغوش کنم و برای این ماه بازپرداخت بگیرم؟"
+      },
+      {
+       "title_en": "The public photo",
+       "title_fa": "عکس عمومی",
+       "situation_en": "You posted a photo that shows your house number.",
+       "situation_fa": "عکسی منتشر کردی که شمارهٔ خانه را نشان می‌دهد.",
+       "task_en": "Take it down and change who can see it.",
+       "task_fa": "بردار و تغییر بده چه کسی ببیندش.",
+       "answer_en": "I am taking it down now and changing the setting so only friends can see new photos.",
+       "answer_fa": "همین حالا برش می‌دارم و تنظیم را عوض می‌کنم تا فقط دوستان عکس‌های تازه را ببینند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "habits-q1",
+       "q_en": "What is a digital detox?",
+       "q_fa": "ترک دیجیتال چیست؟",
+       "options": [
+        "a planned break from devices",
+        "a new phone",
+        "a security update"
+       ],
+       "answer": "a planned break from devices",
+       "why_en": "It is a break with a start and an end.",
+       "why_fa": "استراحتی با شروع و پایان است."
+      },
+      {
+       "id": "habits-q2",
+       "q_en": "What is doomscrolling?",
+       "q_fa": "مرور افسرده‌کننده چیست؟",
+       "options": [
+        "reading bad news endlessly",
+        "reading a book",
+        "watching a film"
+       ],
+       "answer": "reading bad news endlessly",
+       "why_en": "The word names the loss of control, not the news.",
+       "why_fa": "واژه فقدان کنترل را نام می‌برد، نه خبر را."
+      },
+      {
+       "id": "habits-q3",
+       "q_en": "Why ask \"who can see this?\" before posting?",
+       "q_fa": "چرا پیش از انتشار بپرسیم «چه کسی این را می‌بیند؟»",
+       "options": [
+        "privacy settings decide the audience",
+        "it makes the photo better",
+        "it saves battery"
+       ],
+       "answer": "privacy settings decide the audience",
+       "why_en": "A post can be shared beyond the audience you imagined.",
+       "why_fa": "نوشته می‌تواند فراتر از مخاطبی که تصور کردی به اشتراک برود."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 61,
+    "patterns": 24,
+    "sentences": 24,
     "dialogues": 12,
     "scenarios": 24,
     "practice": 36,

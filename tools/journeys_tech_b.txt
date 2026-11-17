@@ -1,0 +1,207 @@
+# Technology journey, stages 7-12. Rows are pipe-separated and validated by
+# tools/build_journeys.py; see its header for the field order of each tag.
+# Adult material: this journey is offered to the adult experience only.
+
+J|files|7|folder|Files, storage and the cloud|فایل، حافظه و ابر|adults||Where your things live, how to find them again, and how to keep a copy.|چیزهایت کجا زندگی می‌کنند، چطور دوباره پیدایشان کنی، و چطور نسخهٔ پشتیبان بگیری.
+O|find, move and rename a file.|فایل را پیدا کن، جابه‌جا کن و نامش را عوض کن.
+O|say where a file is saved and ask for a copy.|بگو فایل کجا ذخیره شده و نسخه‌ای بخواه.
+O|explain the difference between a backup and a copy in the cloud.|تفاوت پشتیبان و نسخهٔ ابری را توضیح بده.
+W|file|/faɪl/|noun|فایل|One document, photo or program saved under a name.|tech|folder|A1|The file is on my desktop.|فایل روی میزکار من است.|
+W|folder|/ˈfoʊldər/|noun|پوشه|A place that holds files together.|tech|folder|A1|Put it in the photos folder.|آن را در پوشهٔ عکس‌ها بگذار.|
+W|download|/ˈdaʊnloʊd/|verb|دانلود کردن|To copy something from the internet to your device.|tech|download|A2|Download the form and fill it in.|فرم را دانلود کن و پرش کن.|
+W|upload|/ˈʌploʊd/|verb|آپلود کردن|To send a file from your device to the internet.|tech|download|A2|The upload stopped at ninety percent.|آپلود در نود درصد متوقف شد.|
+W|backup|/ˈbækʌp/|noun|نسخهٔ پشتیبان|A second copy kept in case the first is lost.|tech|cloud|B1|I keep a backup on an external drive.|یک نسخهٔ پشتیبان روی درایو بیرونی نگه می‌دارم.|
+W|cloud|/klaʊd/|noun|ابر|Storage on someone else's servers, reached through the internet.|tech|cloud|B1|The photos are in the cloud.|عکس‌ها در ابر هستند.|
+X|expression|Where is it saved?|کجا ذخیره شده؟|The first question when a file is missing.|نخستین پرسش وقتی فایلی گم می‌شود.|neutral|Where is it saved: on the phone or in the cloud?|کجا ذخیره شده: روی گوشی یا در ابر؟|
+X|expression|It is still uploading.|هنوز دارد آپلود می‌شود.|Explains why the other side has nothing yet.|توضیح می‌دهد چرا طرف مقابل هنوز چیزی ندارد.|neutral|It is still uploading, the connection is slow.|هنوز دارد آپلود می‌شود، اتصال کند است.|
+X|expression|Send me a copy.|یک نسخه برایم بفرست.|The shortest way to ask for a file.|کوتاه‌ترین راه درخواست فایل.|neutral|Send me a copy before you change anything.|قبل از هر تغییری یک نسخه برایم بفرست.|
+X|expression|I lost the file.|فایل را گم کردم.|Says the problem without blaming the device.|مشکل را بدون سرزنش دستگاه می‌گوید.|neutral|I lost the file when the laptop restarted.|وقتی لپ‌تاپ دوباره راه افتاد فایل را گم کردم.|
+X|idiom|The photos are in the cloud.|عکس‌ها در ابر هستند.|Literally, stored in a place in the sky; figuratively, on a company's servers you reach over the internet.|به‌طور تحت‌اللفظی، در جایی در آسمان ذخیره شده؛ به‌طور مجازی، روی سرورهای شرکتی که با اینترنت به آن می‌رسی.|neutral|Nothing is on this phone, the photos are in the cloud.|چیزی روی این گوشی نیست، عکس‌ها در ابر هستند.|
+P|Put it in + [place].|Put it in the shared folder.|آن را در پوشهٔ مشترک بگذار.|Where a file belongs.|فایل کجا باید باشد.
+P|I keep a backup + [where/how often].|I keep a backup every Friday.|هر جمعه یک نسخهٔ پشتیبان نگه می‌دارم.|A habit and its rhythm.|یک عادت و ریتمش.
+S|I save everything to the cloud, so a new phone has it all.|همه چیز را در ابر ذخیره می‌کنم، پس گوشی تازه همه را دارد.|Shows the reason for a habit.|دلیل یک عادت را نشان می‌دهد.|B1|neutral|Everything is in the cloud.
+S|A backup is useless if you never test it.|نسخهٔ پشتیبانی که هرگز امتحانش نکنی بی‌فایده است.|An opinion with a reason.|نظری با دلیل.|B2|neutral|Test your backup sometimes.
+D|The missing file|فایل گم‌شده|Kian|Maryam
+L|Kian|I lost the report. It was on my desktop.|گزارش را گم کردم. روی میزکارم بود.
+L|Maryam|Did you save it, or only open it?|ذخیره‌اش کردی یا فقط بازش کردی؟
+L|Kian|I do not remember saving it.|یادم نمی‌آید ذخیره کرده باشم.
+L|Maryam|Check the cloud. Some apps save there automatically.|ابر را بررسی کن. بعضی برنامه‌ها خودکار آنجا ذخیره می‌کنند.
+L|Kian|Found it. It says it is still uploading.|پیداش کردم. می‌گوید هنوز دارد آپلود می‌شود.
+L|Maryam|Then wait, or download the older copy.|پس صبر کن، یا نسخهٔ قدیمی‌تر را دانلود کن.
+L|Kian|I will send you a copy when it finishes.|وقتی تمام شد یک نسخه برایت می‌فرستم.
+L|Maryam|Good. And keep a backup on the drive.|خوب است. و روی درایو هم پشتیبان نگه دار.
+C|The full phone|گوشی پر|Your phone says storage is full and photos will not save.|گوشی می‌گوید حافظه پر است و عکس‌ها ذخیره نمی‌شوند.|Free space without losing anything.|بدون از دست دادن چیزی جا باز کن.|Move the old photos to the cloud, then delete the copies on the phone.|عکس‌های قدیمی را به ابر منتقل کن، بعد نسخه‌های روی گوشی را پاک کن.
+C|The shared folder|پوشهٔ مشترک|A colleague cannot find the file you mentioned.|همکاری فایلی را که گفتی پیدا نمی‌کند.|Say exactly where it is.|دقیق بگو کجاست.|It is in the shared folder, inside this month's folder, named report-final.|در پوشهٔ مشترک است، داخل پوشهٔ همین ماه، با نام report-final.
+Q|What is a backup?|نسخهٔ پشتیبان چیست؟|a second copy kept in case the first is lost|a new version of an app|a faster connection|A backup is only useful if it is somewhere else.|نسخهٔ پشتیبان فقط وقتی مفید است که جای دیگری باشد.
+Q|Where do cloud files live?|فایل‌های ابری کجا هستند؟|on a company's servers|on your screen|on the router|"The cloud" is other people's computers, reached online.|«ابر» کامپیوترهای دیگران است که آنلاین به آن‌ها می‌رسی.
+Q|"Upload" means ...|«آپلود» یعنی ...|sending a file from your device to the internet|saving a file to a folder|deleting a file|Download comes to you; upload goes away from you.|دانلود به سمت تو می‌آید؛ آپلود از تو دور می‌شود.
+
+J|messages|8|mail|Email and messages|ایمیل و پیام|adults||Inbox, attachments, notifications, and the words for turning them off.|صندوق ورودی، پیوست، اعلان، و واژه‌های خاموش کردنشان.
+O|write a short professional email with an attachment.|یک ایمیل کوتاه کاری با پیوست بنویس.
+O|ask someone to resend something you missed.|بخواه چیزی که جا انداختی را دوباره بفرستند.
+O|mute a conversation without leaving it.|یک گفت‌وگو را بدون ترک کردن بی‌صدا کن.
+W|inbox|/ˈɪnbɑks/|noun|صندوق ورودی|The list where new email arrives.|tech|mail|A1|My inbox has forty unread messages.|صندوق ورودی‌ام چهل پیام خوانده‌نشده دارد.|
+W|attachment|/əˈtætʃmənt/|noun|پیوست|A file sent with a message.|tech|folder|A2|The attachment did not open.|پیوست باز نشد.|
+W|notification|/ˌnoʊtɪfɪˈkeɪʃn/|noun|اعلان|A small alert from an app.|tech|bell|A2|Turn off notifications at night.|شب‌ها اعلان‌ها را خاموش کن.|
+W|mute|/mjut/|verb|بی‌صدا کردن|To stop alerts from one conversation without leaving it.|tech|bell|B1|I muted the group for a day.|گروه را یک روز بی‌صدا کردم.|
+W|reply all|/rɪˈplaɪ ɔl/|verb|پاسخ به همه|To answer everyone copied on a message.|tech|mail|B1|Do not reply all to a hundred people.|به صد نفر «پاسخ به همه» نده.|
+W|DM|/ˌdi ˈɛm/|noun|پیام مستقیم|A private message on a social platform.|tech|mail|B1|Send me a DM with the address.|آدرس را در پیام مستقیم بفرست.|
+X|expression|Sorry for the late reply.|ببخشید دیر جواب دادم.|The polite opening for a delayed answer.|آغاز مؤدبانه برای پاسخ دیرهنگام.|formal|Sorry for the late reply, I was travelling.|ببخشید دیر جواب دادم، در سفر بودم.|
+X|expression|I have attached the file.|فایل را پیوست کردم.|Says the file is there, so nobody hunts for it.|می‌گوید فایل آنجاست تا کسی دنبالش نگردد.|formal|I have attached the file and the signed form.|فایل و فرم امضاشده را پیوست کردم.|
+X|expression|Could you resend it?|می‌شود دوباره بفرستید؟|Asks without accusing anyone.|بدون متهم کردن کسی می‌پرسد.|formal|I did not receive it. Could you resend it?|دریافتش نکردم. می‌شود دوباره بفرستید؟|
+X|expression|I will forward it to you.|برایتان هدایتش می‌کنم.|Promises the message will reach them.|قول می‌دهد پیام به آن‌ها برسد.|neutral|I will forward it to you after the meeting.|بعد از جلسه برایتان هدایتش می‌کنم.|
+X|idiom|Keep me in the loop.|مرا در جریان بگذار.|Literally, keep someone inside a circle of information; figuratively, keep them updated.|به‌طور تحت‌اللفظی، کسی را در حلقهٔ اطلاعات نگه دار؛ به‌طور مجازی، به‌روزش نگه دار.|informal|Keep me in the loop about the delivery date.|دربارهٔ تاریخ تحویل مرا در جریان بگذار.|
+P|I have + [past participle] + the + [thing].|I have attached the invoice.|فاکتور را پیوست کردم.|The standard email opener in one line.|آغاز استاندارد ایمیل در یک خط.
+P|Could you + [verb] + it?|Could you resend it?|می‌شود دوباره بفرستید؟|The polite request shape.|شکل درخواست مؤدبانه.
+S|I answer email twice a day so it does not answer me all day.|روزی دو بار ایمیل جواب می‌دهم تا تمام روز جوابم را ندهد.|A habit explained with a joke.|عادتی با شوخی توضیح داده شده.|B1|neutral|I check email twice a day.
+S|The attachment was too large, so I sent a link instead.|پیوست بزرگ بود، پس به جایش لینک فرستادم.|A fix stated in one line.|راه‌حلی در یک خط.|B1|neutral|I sent a link because the file was too big.
+D|After a missed email|بعد از ایمیل جاافتاده|Hossein|Tara
+L|Hossein|I did not receive the schedule.|برنامه را دریافت نکردم.
+L|Tara|Sorry, it may have gone to spam. I have attached it again.|ببخشید، شاید به هرزنامه رفته. دوباره پیوستش کردم.
+L|Hossein|Got it. The attachment opened this time.|رسید. پیوست این بار باز شد.
+L|Tara|Good. Keep me in the loop if the date changes.|خوب است. اگر تاریخ عوض شد مرا در جریان بگذار.
+L|Hossein|I will forward it to the team tonight.|امشب برای تیم هدایتش می‌کنم.
+L|Tara|Please do not reply all, half of them are on holiday.|لطفاً «پاسخ به همه» نده، نصفشان در تعطیلات‌اند.
+L|Hossein|Then I will send a DM to the two who need it.|پس به دو نفری که لازم دارند پیام مستقیم می‌فرستم.
+L|Tara|Perfect. I muted that thread anyway.|عالی. من هم آن رشته را بی‌صدا کرده‌ام.
+C|The quiet evening|شب آرام|Notifications keep waking you up.|اعلان‌ها بیدارت می‌کنند.|Change one setting and say what it does.|یک تنظیم را عوض کن و بگو چه کار می‌کند.|I muted the group and turned off notifications after ten, so only calls come through.|گروه را بی‌صدا کردم و اعلان‌ها را بعد از ده خاموش کردم، پس فقط تماس‌ها می‌رسند.
+C|The wrong recipient|گیرندهٔ اشتباه|You replied all to a private note.|به یک یادداشت خصوصی «پاسخ به همه» دادی.|Apologise briefly and clearly.|کوتاه و روشن عذرخواهی کن.|I am sorry, that reply was meant for one person. Please ignore it.|ببخشید، آن پاسخ برای یک نفر بود. لطفاً نادیده بگیرید.
+Q|What is an attachment?|پیوست چیست؟|a file sent with a message|a saved password|a notification|Attachments travel inside the message.|پیوست داخل پیام سفر می‌کند.
+Q|What does "reply all" do?|«پاسخ به همه» چه کار می‌کند؟|it answers everyone copied on the message|it deletes the thread|it mutes the thread|Reply all includes every address in the message.|«پاسخ به همه» همهٔ نشانی‌های پیام را شامل می‌شود.
+Q|"Keep me in the loop" means ...|«مرا در جریان بگذار» یعنی ...|keep me updated|add me to the meeting|call me later|The loop is the circle of people who know.|حلقه همان دایرهٔ افرادی است که می‌دانند.
+
+J|media|9|camera|Photos, video and streaming|عکس، ویدیو و پخش|adults||Taking, finding, sharing and watching, with the words for each step.|گرفتن، پیدا کردن، فرستادن و تماشا، با واژه‌های هر مرحله.
+O|ask someone to take a photo and describe what you want.|بخواه عکسی بگیرند و بگو چه می‌خواهی.
+O|say where a screenshot is saved.|بگو اسکرین‌شات کجا ذخیره می‌شود.
+O|choose between streaming and downloading with a reason.|بین پخش و دانلود با دلیل انتخاب کن.
+W|camera|/ˈkæmərə/|noun|دوربین|The lens and sensor a device uses to take photos.|tech|camera|A1|The camera on this phone is good in low light.|دوربین این گوشی در نور کم خوب است.|
+W|screenshot|/ˈskrinʃɑt/|noun|اسکرین‌شات|A picture of whatever is on the screen.|tech|screen|A2|Send me a screenshot of the error.|یک اسکرین‌شات از خطا برایم بفرست.|
+W|stream|/strim/|verb|پخش زنده دیدن|To watch or listen without downloading the whole file first.|tech|video|B1|We stream everything now.|حالا همه چیز را پخش می‌کنیم.|
+W|podcast|/ˈpɑdkæst/|noun|پادکست|An audio show you subscribe to and listen to in episodes.|tech|speaker|B1|I listen to a podcast on the way to work.|سر راه کار به یک پادکست گوش می‌دهم.|
+W|playlist|/ˈpleɪlɪst/|noun|لیست پخش|A list of songs or videos played in order.|tech|video|A2|Add it to the road-trip playlist.|به لیست پخش سفر اضافه‌اش کن.|
+W|subtitles|/ˈsʌbtaɪtlz/|noun|زیرنویس|The words of a video shown at the bottom of the screen.|tech|video|A2|Turn on subtitles if the accent is hard.|اگر لهجه سخت است زیرنویس را روشن کن.|
+X|expression|Could you take a photo of us?|می‌شود از ما عکس بگیرید؟|The request everyone makes on holiday.|درخواستی که همه در سفر می‌کنند.|neutral|Excuse me, could you take a photo of us?|ببخشید، می‌شود از ما عکس بگیرید؟|
+X|expression|It is in my photos app.|در برنامهٔ عکس‌هاست.|Says where to look without a long explanation.|می‌گوید کجا را بگردید، بی‌توضیح طولانی.|neutral|I did not send it yet, it is in my photos app.|هنوز نفرستادم، در برنامهٔ عکس‌هاست.|
+X|expression|The sound is out of sync.|صدا با تصویر هماهنگ نیست.|Names a problem with one clear word.|مشکلی را با یک واژهٔ روشن نام می‌برد.|neutral|The sound is out of sync since the update.|از زمان به‌روزرسانی صدا با تصویر هماهنگ نیست.|
+X|expression|It buffers every few seconds.|هر چند ثانیه بافر می‌کند.|Says exactly how the video fails.|دقیق می‌گوید ویدیو چطور خراب می‌شود.|informal|It buffers every few seconds on mobile data.|روی دادهٔ همراه هر چند ثانیه بافر می‌کند.|
+X|idiom|The clip went viral.|آن کلیپ همه‌گیر شد.|Literally, spreading like a virus; figuratively, shared so fast that millions see it.|به‌طور تحت‌اللفظی، مثل ویروس پخش می‌شود؛ به‌طور مجازی، آن‌قدر سریع به اشتراک گذاشته می‌شود که میلیون‌ها نفر می‌بینند.|neutral|The clip went viral overnight and my phone would not stop.|آن کلیپ شبانه همه‌گیر شد و گوشی‌ام بند نمی‌شد.|
+P|Could you + [verb] + a + [thing] + of + [person]?|Could you take a photo of us?|می‌شود از ما عکس بگیرید؟|A polite request with a camera.|درخواست مؤدبانه با دوربین.
+P|Turn on + [feature] + if + [condition].|Turn on subtitles if the accent is hard.|اگر لهجه سخت است زیرنویس را روشن کن.|A setting and when to use it.|یک تنظیم و زمان استفاده‌اش.
+S|I stream it first and download it only if I will watch it twice.|اول پخشش می‌کنم و فقط اگر دو بار ببینم دانلودش می‌کنم.|A rule for saving space and data.|قاعده‌ای برای صرفه‌جویی در جا و داده.|B1|neutral|I stream first, download later.
+S|The photo is blurry because the room was dark.|عکس تار است چون اتاق تاریک بود.|Explains a result by its cause.|نتیجه را با علتش توضیح می‌دهد.|A2|neutral|It was too dark, so the photo is blurry.
+D|At a birthday|در جشن تولد|Reza|Nika
+L|Reza|Could you take a photo of us?|می‌شود از ما عکس بگیرید؟
+L|Nika|Of course. Stand near the window, the light is better.|البته. نزدیک پنجره بایستید، نور بهتر است.
+L|Reza|Should I use the flash?|فلاش بزنم؟
+L|Nika|No, it will wash everyone out. The room is bright enough.|نه، رنگ همه را می‌پراند. اتاق به‌قدر کافی روشن است.
+L|Reza|Can you also take a screenshot of the video call later?|می‌شود بعداً از تماس تصویری هم اسکرین‌شات بگیری؟
+L|Nika|Yes. It saves to my photos app.|بله. در برنامهٔ عکس‌هایم ذخیره می‌شود.
+L|Reza|The last one was blurry.|قبلی تار بود.
+L|Nika|That one was moving. Stand still for two seconds.|آن یکی در حرکت بود. دو ثانیه ثابت بایست.
+C|The buffering film|فیلم بافری|A film stops every few seconds and the room is waiting.|فیلم هر چند ثانیه می‌ایستد و جمعیت منتظر است.|Diagnose and offer one fix.|عیب را پیدا کن و یک راه‌حل بده.|It buffers on mobile data. Let me connect to the Wi-Fi or lower the quality.|روی دادهٔ همراه بافر می‌کند. بگذار به وای‌فای وصل شوم یا کیفیت را کم کنم.
+C|The unshared photo|عکس نفرستاده|A friend asks for the photo you took last week.|دوستت عکسی را می‌خواهد که هفتهٔ پیش گرفتی.|Explain where it is and how you will send it.|بگو کجاست و چطور می‌فرستی.|It is in my photos app, not the cloud yet. I will send the full size tonight.|در برنامهٔ عکس‌هایم است، هنوز در ابر نیست. امشب اندازهٔ کاملش را می‌فرستم.
+Q|What is a screenshot?|اسکرین‌شات چیست؟|a picture of what is on the screen|a saved video|a typed note|A screenshot captures the screen itself, not the world.|اسکرین‌شات خود صفحه را ثبت می‌کند، نه دنیا را.
+Q|What does "it buffers" mean?|«بافر می‌کند» یعنی چه؟|the video stops while data loads|the sound is too loud|the screen is dirty|Buffering is the player waiting for more data.|بافر یعنی پخش‌کننده منتظر دادهٔ بیشتر است.
+Q|"Went viral" means ...|«همه‌گیر شد» یعنی ...|it spread very fast online|it broke|it was deleted|The metaphor is infection, not popularity alone.|استعاره‌اش سرایت است، نه فقط محبوبیت.
+
+J|gadgets|10|bluetooth|Gadgets that talk to each other|گجت‌هایی که با هم حرف می‌زنند|adults||Pairing, wearables, speakers and the small words that make them work.|جفت‌سازی، پوشیدنی‌ها، اسپیکرها و واژه‌های کوچکی که کارشان می‌اندازد.
+O|pair a device and say what to do when it will not connect.|دستگاه را جفت کن و بگو وقتی وصل نمی‌شود چه کار کنی.
+O|ask about battery life before buying a gadget.|پیش از خرید گجت دربارهٔ عمر باتری بپرس.
+O|describe a smart-home routine.|یک روتین خانهٔ هوشمند را توصیف کن.
+W|Bluetooth|/ˈblutuxθ/|noun|بلوتوث|A short-range wireless link between devices.|tech|bluetooth|A2|Connect the headphones by Bluetooth.|هدفون را با بلوتوث وصل کن.|
+W|pairing|/ˈpɛrɪŋ/|noun|جفت‌سازی|The one-time step that links two devices.|tech|bluetooth|B1|Pairing failed because it was already connected to the tablet.|جفت‌سازی شکست چون از قبل به تبلت وصل بود.|
+W|smart speaker|/smɑrt ˈspikər/|noun|اسپیکر هوشمند|A speaker with a voice assistant inside.|tech|speaker|B1|The smart speaker turns the lights off at midnight.|اسپیکر هوشمند نیمه‌شب چراغ‌ها را خاموش می‌کند.|
+W|wearable|/ˈwɛrəbl/|noun|دستگاه پوشیدنی|A small computer you wear, such as a watch.|tech|watch|B1|My wearable counts my steps.|دستگاه پوشیدنی‌ام قدم‌هایم را می‌شمارد.|
+W|USB port|/ˌju ɛs ˈbi pɔrt/|noun|درگاه یو‌اس‌بی|The socket a cable plugs into.|tech|usb|A2|The USB port is on the left side.|درگاه یو‌اس‌بی سمت چپ است.|
+W|power bank|/ˈpaʊər bæŋk/|noun|پاوربانک|A battery you carry to charge other devices.|tech|battery|A2|The power bank is charged, take it.|پاوربانک شارژ دارد، ببرش.|
+X|expression|It is not connecting.|وصل نمی‌شود.|The first sentence of every pairing problem.|نخستین جملهٔ هر مشکل جفت‌سازی.|neutral|The headphones are on, but it is not connecting.|هدفون روشن است، اما وصل نمی‌شود.|
+X|expression|Forget the device and pair again.|دستگاه را حذف کن و دوباره جفت کن.|The standard fix for a stuck pairing.|راه‌حل استاندارد جفت‌سازی گیرکرده.|neutral|Forget the device and pair again, the old key is stuck.|دستگاه را حذف کن و دوباره جفت کن، کلید قبلی گیر کرده.|
+X|expression|How long does the battery last?|باتری چقدر دوام می‌آورد؟|The question to ask before paying.|پرسشی که پیش از پرداخت می‌پرسی.|neutral|How long does the battery last on one charge?|باتری با یک بار شارژ چقدر دوام می‌آورد؟|
+X|expression|It works with voice commands.|با فرمان صوتی کار می‌کند.|Says how to use it without a screen.|می‌گوید چطور بدون صفحه استفاده‌اش کنی.|neutral|It works with voice commands, so your hands stay free.|با فرمان صوتی کار می‌کند، پس دستت آزاد می‌ماند.|
+X|idiom|It is cutting-edge.|بسیار پیشرو است.|Literally, the sharp front edge of a blade; figuratively, the newest and most advanced thing available.|به‌طور تحت‌اللفظی، لبهٔ تیز جلوی تیغه؛ به‌طور مجازی، تازه‌ترین و پیشرفته‌ترین چیز موجود.|neutral|The sensor is cutting-edge, but the app is not ready.|حسگر بسیار پیشرو است، اما برنامه آماده نیست.|
+P|Connect + [device] + to + [device].|Connect the speaker to your phone.|اسپیکر را به گوشی‌ات وصل کن.|The pairing sentence.|جملهٔ جفت‌سازی.
+P|How long does + [thing] + last?|How long does the battery last?|باتری چقدر دوام می‌آورد؟|Ask about endurance before buying.|پیش از خرید دربارهٔ دوام بپرس.
+S|I charged the power bank but not the watch, so the watch died first.|پاوربانک را شارژ کردم اما ساعت را نه، پس ساعت اول تمام شد.|Cause and effect, in one line.|علت و اثر، در یک خط.|B1|neutral|The watch died because I did not charge it.
+S|The speaker only works when the phone is in the same room.|اسپیکر فقط وقتی کار می‌کند که گوشی در همان اتاق باشد.|A limit stated plainly.|محدودیتی ساده‌گفته‌شده.|B1|neutral|It only works in the same room.
+D|Setting up a speaker|راه‌اندازی اسپیکر|Saman|Leila
+L|Saman|It is not connecting to my phone.|به گوشی‌ام وصل نمی‌شود.
+L|Leila|Is Bluetooth on?|بلوتوث روشن است؟
+L|Saman|Yes, but it says pairing failed.|بله، اما می‌گوید جفت‌سازی شکست.
+L|Leila|It may still be paired with your tablet. Forget the device and pair again.|شاید هنوز با تبلتت جفت است. دستگاه را حذف کن و دوباره جفت کن.
+L|Saman|It connected, but the sound is from the phone.|وصل شد، اما صدا از گوشی می‌آید.
+L|Leila|Choose the speaker as the output. It works with voice commands too.|اسپیکر را به‌عنوان خروجی انتخاب کن. با فرمان صوتی هم کار می‌کند.
+L|Saman|How long does the battery last?|باتری چقدر دوام می‌آورد؟
+L|Leila|About eight hours, less if the volume is high.|حدود هشت ساعت، اگر صدا بلند باشد کمتر.
+C|Shopping for a watch|خرید ساعت|You want a wearable but the shop only lists features.|یک پوشیدنی می‌خواهی اما فروشگاه فقط امکانات را می‌نویسد.|Ask the two questions that matter most.|دو پرسش مهم‌ترین را بپرس.|How long does the battery last, and does it work without the phone?|باتری چقدر دوام می‌آورد، و بدون گوشی کار می‌کند؟
+C|The smart routine|روتین هوشمند|You want the lights off at midnight without touching anything.|می‌خواهی نیمه‌شب چراغ‌ها بدون دست زدن خاموش شوند.|Say the routine and the one condition.|روتین و یک شرط را بگو.|The speaker turns the lights off at midnight, but only if the door is locked.|اسپیکر نیمه‌شب چراغ‌ها را خاموش می‌کند، اما فقط اگر در قفل باشد.
+Q|What is pairing?|جفت‌سازی چیست؟|the one-time step that links two devices|a monthly payment|a firmware update|Pairing is remembered, so you do it once.|جفت‌سازی ذخیره می‌شود، پس یک بار انجامش می‌دهی.
+Q|What is a wearable?|دستگاه پوشیدنی چیست؟|a small computer you wear|a phone case|a power cable|Watches and rings are wearables.|ساعت و انگشتر پوشیدنی‌اند.
+Q|"Cutting-edge" describes ...|«پیشرو» چه چیزی را توصیف می‌کند؟|the newest and most advanced|the cheapest|the oldest|The image is the sharp front edge of a blade.|تصویرش لبهٔ تیز جلوی تیغه است.
+
+J|ai|11|robot|AI and the words around it|هوش مصنوعی و واژه‌های اطرافش|adults||What the assistant is, what a prompt is, and where the answers can go wrong.|دستیار چیست، پرامپت چیست، و پاسخ‌ها کجا می‌توانند غلط بروند.
+O|ask an AI assistant for something in one clear prompt.|در یک پرامپت روشن چیزی از دستیار هوش مصنوعی بخواه.
+O|say why an answer may be wrong and how to check it.|بگو چرا پاسخی ممکن است غلط باشد و چطور بررسی‌اش کنی.
+O|choose between asking AI and asking a person, with a reason.|با دلیل بین پرسیدن از هوش مصنوعی و پرسیدن از آدم انتخاب کن.
+W|artificial intelligence|/ˌɑrtɪˈfɪʃl ɪnˈtɛlədʒəns/|noun|هوش مصنوعی|Software that performs tasks that used to need a person.|tech|robot|B1|Artificial intelligence writes the first draft, not the final one.|هوش مصنوعی پیش‌نویس اول را می‌نویسد، نه نسخهٔ نهایی را.|
+W|chatbot|/ˈtʃætbɑt/|noun|چت‌بات|A program that answers in conversation.|tech|robot|B1|The chatbot answered in three seconds.|چت‌بات در سه ثانیه پاسخ داد.|
+W|prompt|/prɑmpt/|noun|پرامپت|The instruction you give an AI system.|tech|speech|B1|A clear prompt gets a clear answer.|پرامپت روشن پاسخ روشن می‌گیرد.|
+W|algorithm|/ˈælɡərɪðəm/|noun|الگوریتم|A set of rules a computer follows to decide something.|tech|chip|B2|The algorithm decides which posts you see first.|الگوریتم تعیین می‌کند کدام نوشته‌ها را اول می‌بینی.|
+W|model|/ˈmɑdl/|noun|مدل|The trained system behind an AI answer.|tech|chip|B2|This model is better at short answers.|این مدل در پاسخ‌های کوتاه بهتر است.|
+W|deepfake|/ˈdipfeɪk/|noun|دیپ‌فیک|An image or video made with AI to look real and is not.|tech|camera|B2|That video is a deepfake, the mouth does not match.|آن ویدیو دیپ‌فیک است، دهان هماهنگ نیست.|
+X|expression|Ask it to explain, not just answer.|بخواه توضیح بدهد، نه فقط جواب.|Gets you a reason you can check.|دلیلی می‌گیرید که می‌توانید بررسی کنید.|neutral|Ask it to explain, not just answer, then you can judge.|بخواه توضیح بدهد، نه فقط جواب، بعد می‌توانی قضاوت کنی.|
+X|expression|Check it before you use it.|پیش از استفاده بررسی‌اش کن.|The rule for every AI answer.|قاعدهٔ هر پاسخ هوش مصنوعی.|neutral|It sounds right, but check it before you use it.|درست به نظر می‌رسد، اما پیش از استفاده بررسی‌اش کن.|
+X|expression|It made something up.|چیزی از خودش ساخت.|Describes a confident wrong answer.|پاسخ غلط اما مطمئن را توصیف می‌کند.|informal|It made something up: that book does not exist.|چیزی از خودش ساخت: آن کتاب وجود ندارد.|
+X|expression|Give it more context.|زمینهٔ بیشتر بده.|Says how to improve a weak answer.|می‌گوید پاسخ ضعیف را چطور بهتر کنی.|neutral|Give it more context and the draft will be usable.|زمینهٔ بیشتر بده تا پیش‌نویس به کار بیاید.|
+X|idiom|It is an echo chamber.|یک اتاق پژواک است.|Literally, a room where sound repeats back; figuratively, a place where you only meet your own opinions.|به‌طور تحت‌اللفظی، اتاقی که صدا در آن بازمی‌گردد؛ به‌طور مجازی، جایی که فقط نظرهای خودت را می‌بینی.|neutral|That feed is an echo chamber, so I follow people who disagree.|آن فید یک اتاق پژواک است، پس کسانی را دنبال می‌کنم که مخالفند.|
+P|Ask it to + [verb] + in + [form].|Ask it to explain in two sentences.|بخواه در دو جمله توضیح بدهد.|Shape the output you want.|خروجی دلخواهت را شکل بده.
+P|It is good at + [task], weak at + [task].|It is good at summaries, weak at dates.|در خلاصه خوب است، در تاریخ‌ها ضعیف.|Say the strength and the weakness together.|قوت و ضعف را با هم بگو.
+S|I use it for first drafts and I check every number myself.|برای پیش‌نویس از آن استفاده می‌کنم و هر عدد را خودم بررسی می‌کنم.|A working rule in one sentence.|قاعده‌ای کاری در یک جمله.|B1|neutral|First drafts only, and I check the numbers.
+S|I would not ask an AI about my medical results.|دربارهٔ نتایج پزشکی‌ام از هوش مصنوعی نمی‌پرسیدم.|A boundary with a reason.|مرزی با دلیل.|B1|neutral|Not for medical questions.
+D|The confident answer|پاسخ مطمئن|Milad|Shiva
+L|Milad|The assistant says this medicine is safe with coffee.|دستیار می‌گوید این دارو با قهوه بی‌خطر است.
+L|Shiva|Check it before you use it. It made something up last week.|پیش از استفاده بررسی‌اش کن. هفتهٔ پیش چیزی از خودش ساخت.
+L|Milad|It gave a source.|منبع هم داد.
+L|Shiva|Does the source exist? Ask it to explain, not just answer.|منبع وجود دارد؟ بخواه توضیح بدهد، نه فقط جواب.
+L|Milad|The link is dead.|لینک مرده است.
+L|Shiva|Then ask a pharmacist. This is not a first-draft question.|پس از داروساز بپرس. این پرسش پیش‌نویس نیست.
+L|Milad|So I use it for writing only.|پس فقط برای نوشتن استفاده‌اش می‌کنم.
+L|Shiva|And give it more context when the answer is shallow.|و وقتی پاسخ سطحی است زمینهٔ بیشتر بده.
+C|The essay draft|پیش‌نویس مقاله|You have a deadline and a blank page.|مهلت داری و صفحه‌ای خالی.|Use AI for a draft and say what you will keep.|از هوش مصنوعی برای پیش‌نویس استفاده کن و بگو چه را نگه می‌داری.|I will ask it for an outline, then write the argument myself and check every fact.|از آن طرح کلی می‌خواهم، بعد استدلال را خودم می‌نویسم و هر واقعیت را بررسی می‌کنم.
+C|The suspicious video|ویدیوی مشکوک|A video of a famous person says something shocking.|ویدیویی از یک آدم مشهور چیز شوکه‌کننده‌ای می‌گوید.|Question it with a reason.|با دلیل زیر سؤالش ببر.|The mouth does not match the words. That is likely a deepfake.|دهان با واژه‌ها هماهنگ نیست. احتمالاً دیپ‌فیک است.
+Q|What is a prompt?|پرامپت چیست؟|the instruction you give an AI system|the answer it gives|a saved password|Every reply follows a prompt, even a short one.|هر پاسخ از یک پرامپت می‌آید، حتی کوتاه.
+Q|What should you do with an AI answer you will act on?|با پاسخ هوش مصنوعی که بر اساسش کار می‌کنی چه کنی؟|check it against a real source|share it quickly|trust the tone|Confident tone is not evidence.|لحن مطمئن دلیل نیست.
+Q|"An echo chamber" is ...|«اتاق پژواک» چیست؟|a place where you only meet your own opinions|a quiet room|a group chat|The sound metaphor is opinions bouncing back.|استعارهٔ صدا همان نظرهایی است که بازمی‌گردند.
+
+J|habits|12|clock|Screen time and digital habits|زمان صفحه و عادت‌های دیجیتال|adults||Notification, subscription, privacy and the habits that keep the phone in its place.|اعلان، اشتراک، حریم خصوصی و عادت‌هایی که گوشی را سر جایش نگه می‌دارند.
+O|say how much time you spend on your phone and what you want to change.|بگو چقدر وقت روی گوشی می‌گذرانی و چه می‌خواهی عوض کنی.
+O|ask what a subscription costs and how to cancel it.|بپرس اشتراک چقدر است و چطور لغوش کنی.
+O|set one privacy setting and say what it protects.|یک تنظیم حریم خصوصی را انجام بده و بگو از چه محافظت می‌کند.
+W|screen time|/skrin taɪm/|noun|زمان صفحه|The hours a device reports you spent looking at it.|tech|clock|A2|My screen time doubled this month.|زمان صفحه‌ام این ماه دو برابر شد.|
+W|digital detox|/ˌdɪdʒɪtl ˈditɑks/|noun|ترک دیجیتال|A planned break from devices and social media.|tech|clock|B1|I do a digital detox one weekend a month.|ماهی یک آخر هفته ترک دیجیتال می‌کنم.|
+W|doomscrolling|/ˈdumskroʊlɪŋ/|noun|مرور افسرده‌کنندهٔ اخبار|Reading bad news endlessly without stopping.|tech|phone|B2|Doomscrolling at midnight never helps.|مرور افسرده‌کنندهٔ اخبار نیمه‌شب هرگز کمک نمی‌کند.|
+W|subscription|/səbˈskrɪpʃn/|noun|اشتراک|A regular payment for a service.|tech|bell|A2|I forgot about that subscription.|آن اشتراک را فراموش کرده بودم.|
+W|privacy|/ˈpraɪvəsi/|noun|حریم خصوصی|Control over who can see your information.|tech|lock|B1|Privacy settings decide who sees your photos.|تنظیمات حریم خصوصی تعیین می‌کنند چه کسی عکس‌هایت را ببیند.|
+W|unplug|/ˌʌnˈplʌg/|verb|کنار گذاشتن دستگاه|To stop using devices for a while.|tech|plug|B1|I unplug after nine in the evening.|بعد از ساعت نه شب دستگاه را کنار می‌گذارم.|
+X|expression|I need to unplug for a day.|یک روز باید دستگاه را کنار بگذارم.|Says a break is needed, not a new app.|می‌گوید استراحت لازم است، نه برنامهٔ تازه.|informal|I need to unplug for a day, I will answer on Monday.|یک روز باید دستگاه را کنار بگذارم، دوشنبه جواب می‌دهم.|
+X|expression|How do I cancel it?|چطور لغوش کنم؟|The question nobody reads the answer to until it costs money.|پرسشی که جوابش را کسی نمی‌خواند تا وقتی پول بخواهد.|neutral|The trial ends tomorrow. How do I cancel it?|دورهٔ آزمایشی فردا تمام می‌شود. چطور لغوش کنم؟|
+X|expression|Who can see this?|چه کسی این را می‌بیند؟|The first privacy question, before posting.|نخستین پرسش حریم خصوصی، پیش از انتشار.|neutral|Before I post it: who can see this?|قبل از انتشار: چه کسی این را می‌بیند؟|
+X|expression|Leave your phone in another room.|گوشی را در اتاق دیگر بگذار.|A habit stated as an instruction.|عادتی که مثل دستور گفته می‌شود.|informal|Leave your phone in another room and sleep better.|گوشی را در اتاق دیگر بگذار و بهتر بخواب.|
+X|idiom|I am a digital native.|من با دیجیتال بزرگ شده‌ام.|Literally, born into the digital world; figuratively, someone who never knew a time without it.|به‌طور تحت‌اللفظی، در دنیای دیجیتال به دنیا آمده؛ به‌طور مجازی، کسی که زمانی بدون آن را ندیده.|informal|My daughter is a digital native, she never reads a manual.|دخترم با دیجیتال بزرگ شده، هرگز دفترچهٔ راهنما نمی‌خواند.|
+P|I spend + [time] + on + [app].|I spend an hour on short videos.|یک ساعت روی ویدیوهای کوتاه می‌گذرانم.|Time, then place.|اول زمان، بعد جا.
+P|I would rather + [verb] + than + [verb].|I would rather read than scroll.|ترجیح می‌دهم بخوانم تا اسکرول کنم.|A choice between two habits.|انتخابی بین دو عادت.
+S|I moved the charging cable out of the bedroom and I sleep better.|کابل شارژ را از اتاق خواب بیرون بردم و بهتر می‌خوابم.|A change, then its effect.|تغییر، بعد اثرش.|B1|neutral|No charging in the bedroom.
+S|I check my subscriptions once a year and cancel the ones I forgot.|سالی یک بار اشتراک‌هایم را بررسی می‌کنم و آن‌هایی را که فراموش کردم لغو می‌کنم.|Shows a habit with a schedule.|عادتی با زمان‌بندی را نشان می‌دهد.|B1|neutral|Once a year I review subscriptions.
+D|The quiet weekend|آخر هفتهٔ آرام|Nazanin|Farid
+L|Nazanin|My screen time went up again.|زمان صفحه‌ام باز بالا رفت.
+L|Farid|Where is it going?|کجا می‌رود؟
+L|Nazanin|Short videos, mostly at night. Doomscrolling.|بیشتر ویدیوهای کوتاه، شب‌ها. مرور افسرده‌کنندهٔ اخبار.
+L|Farid|Try one weekend of digital detox. I unplug on Fridays.|یک آخر هفته ترک دیجیتال را امتحان کن. من جمعه‌ها دستگاه را کنار می‌گذارم.
+L|Nazanin|I need the phone for work calls.|برای تماس‌های کاری گوشی لازم دارم.
+L|Farid|Then leave your phone in another room after nine and allow only calls.|پس بعد از نه گوشی را در اتاق دیگر بگذار و فقط تماس‌ها را اجازه بده.
+L|Nazanin|And cancel the app I pay for and never open?|و برنامه‌ای که پولش را می‌دهم و هرگز بازش نمی‌کنم را لغو کنم؟
+L|Farid|Yes. Check who can see your posts while you are at it.|بله. همان موقع بررسی کن چه کسی نوشته‌هایت را می‌بیند.
+C|The forgotten subscription|اشتراک فراموش‌شده|A payment appears every month and you cannot place it.|هر ماه پرداختی می‌آید و یادت نمی‌آید از کجاست.|Find it and ask to cancel.|پیدایش کن و لغو بخواه.|I do not remember this subscription. How do I cancel it and get a refund for this month?|این اشتراک را یادم نیست. چطور لغوش کنم و برای این ماه بازپرداخت بگیرم؟
+C|The public photo|عکس عمومی|You posted a photo that shows your house number.|عکسی منتشر کردی که شمارهٔ خانه را نشان می‌دهد.|Take it down and change who can see it.|بردار و تغییر بده چه کسی ببیندش.|I am taking it down now and changing the setting so only friends can see new photos.|همین حالا برش می‌دارم و تنظیم را عوض می‌کنم تا فقط دوستان عکس‌های تازه را ببینند.
+Q|What is a digital detox?|ترک دیجیتال چیست؟|a planned break from devices|a new phone|a security update|It is a break with a start and an end.|استراحتی با شروع و پایان است.
+Q|What is doomscrolling?|مرور افسرده‌کننده چیست؟|reading bad news endlessly|reading a book|watching a film|The word names the loss of control, not the news.|واژه فقدان کنترل را نام می‌برد، نه خبر را.
+Q|Why ask "who can see this?" before posting?|چرا پیش از انتشار بپرسیم «چه کسی این را می‌بیند؟»|privacy settings decide the audience|it makes the photo better|it saves battery|A post can be shared beyond the audience you imagined.|نوشته می‌تواند فراتر از مخاطبی که تصور کردی به اشتراک برود.

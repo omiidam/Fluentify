@@ -42,6 +42,24 @@ REQUIRED_MAKEUP = [
     "swatch", "dupe", "blend", "buff", "setting powder", "patch test",
 ]
 
+# What a technology glossary has to name before it can call itself complete.
+# The everyday words, not the vendor names: what a phone, a connection, an
+# account, a scam and an AI tool are actually called.
+REQUIRED_TECH = [
+    "smartphone", "laptop", "tablet", "charger", "battery", "screen",
+    "wi-fi", "router", "bandwidth", "hotspot", "data plan", "offline",
+    "browser", "tab", "search engine", "link", "bookmark", "cache",
+    "account", "username", "password", "passkey", "two-factor authentication",
+    "sign out", "phishing", "scam", "spam", "malware", "firewall", "vpn",
+    "app", "update", "patch", "bug", "crash", "firmware",
+    "file", "folder", "download", "upload", "backup", "cloud",
+    "inbox", "attachment", "notification", "mute", "reply all", "dm",
+    "camera", "screenshot", "stream", "podcast", "playlist", "subtitles",
+    "bluetooth", "pairing", "smart speaker", "wearable", "usb port", "power bank",
+    "artificial intelligence", "chatbot", "prompt", "algorithm", "model", "deepfake",
+    "screen time", "digital detox", "doomscrolling", "subscription", "privacy", "unplug",
+]
+
 # The sports the brief names, by the ids the profiles use.
 REQUIRED_SPORTS = [
     "soccer", "football", "basketball", "volleyball", "rugby", "cricket",
@@ -167,22 +185,22 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds the travel, sports and makeup journeys",
-          {"travel", "sports", "makeup"} <= set(by_id), str(sorted(by_id)))
+    check("the file holds the travel, sports, makeup and technology journeys",
+          {"travel", "sports", "makeup", "tech"} <= set(by_id), str(sorted(by_id)))
 
-    for jid in ("travel", "sports", "makeup"):
+    for jid in ("travel", "sports", "makeup", "tech"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
-        if jid == "makeup":
-            # Makeup is a grown-up subject in this app: the adult experience
-            # offers it and the kid experience must never do so.
-            check("makeup: offered to adults only",
+        if jid in ("makeup", "tech"):
+            # Makeup and technology are grown-up subjects in this app: the
+            # adult experience offers them and the kid experience never does.
+            check(f"{jid}: offered to adults only",
                   set(j.get("audiences") or []) == {"adults"},
                   str(j.get("audiences")))
-            check("makeup: no kid stage is declared",
+            check(f"{jid}: no kid stage is declared",
                   all(set(st.get("audiences") or []) == {"adults"}
                       for st in (j.get("stages") or [])),
                   str([st.get("id") for st in (j.get("stages") or [])
@@ -210,10 +228,18 @@ def main() -> int:
     check("makeup stage order is 1..12",
           [s.get("order") for s in mstages] == list(range(1, 13)),
           str([s.get("order") for s in mstages]))
+    tech = by_id.get("tech") or {"stages": []}
+    cstages = tech.get("stages") or []
+    check("the technology journey has twelve stages", len(cstages) == 12,
+          str(len(cstages)))
+    check("technology stage order is 1..12",
+          [s.get("order") for s in cstages] == list(range(1, 13)),
+          str([s.get("order") for s in cstages]))
     check("sports stage order is 1..14",
           [s.get("order") for s in sstages] == list(range(1, 15)),
           str([s.get("order") for s in sstages]))
-    for jid, stages in (("travel", tstages), ("sports", sstages), ("makeup", mstages)):
+    for jid, stages in (("travel", tstages), ("sports", sstages),
+                        ("makeup", mstages), ("tech", cstages)):
         ids = [s.get("id") for s in stages]
         check(f"{jid}: stage ids are unique", len(set(ids)) == len(ids), str(ids))
         check(f"{jid}: every stage declares its audience",
@@ -225,6 +251,8 @@ def main() -> int:
     for st in sstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
     for st in mstages:
+        check_stage(st["id"], st, needs_refs=False, needs_words=True)
+    for st in cstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
 
     # ------------------------------------------------------- the travel join --
@@ -335,6 +363,62 @@ def main() -> int:
           "Journey.card('makeup', true)" not in src
           and "Journey.card('makeup'" not in
           span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    # ------------------------------------------------- the technology glossary --
+    cwords = [w for st in cstages for w in (st.get("words") or [])]
+    cexprs = [x for st in cstages for x in (st.get("expressions") or [])]
+    cterms = " | ".join([w.get("en", "") for w in cwords]
+                        + [x.get("en", "") for x in cexprs]).lower()
+    cabsent = [t for t in REQUIRED_TECH if t not in cterms]
+    check("the technology glossary names every essential device, risk and app",
+          not cabsent, str(cabsent))
+    check("the technology glossary is big enough to be a glossary",
+          len(cwords) >= 60, str(len(cwords)))
+    check("the technology journey teaches at least 50 expressions and idioms",
+          len(cexprs) >= 50, str(len(cexprs)))
+    check("no technology word is defined twice with a different meaning",
+          len({w.get("en") for w in cwords}) == len(cwords),
+          str([w.get("en") for w in cwords
+               if [x.get("en") for x in cwords].count(w.get("en")) > 1][:4]))
+    check("every technology word carries a reading, a class and a Persian",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos")
+              and w.get("fa") and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa")
+              for w in cwords),
+          str([w.get("en") for w in cwords
+               if not (IPA.search(w.get("ipa") or "") and w.get("pos")
+                       and w.get("fa") and w.get("def_en") and w.get("level")
+                       and w.get("example_en") and w.get("example_fa"))][:4]))
+    cidioms = [x for x in cexprs if x.get("kind") == "idiom"]
+    check("the technology journey teaches at least 12 idioms", len(cidioms) >= 12,
+          str(len(cidioms)))
+    check("every technology idiom separates the literal reading from the figurative one",
+          all(both_readings(x) for x in cidioms),
+          str([x.get("en") for x in cidioms if not both_readings(x)][:4]))
+    check("every technology idiom has an example in context",
+          all(x.get("example_en") and x.get("example_fa") for x in cidioms))
+    check("the technology journey labels slang as slang",
+          any(x.get("register") == "slang" for x in cexprs),
+          str(sorted({x.get("register") for x in cexprs})))
+    check("the technology journey mixes phrasal verbs and collocations",
+          {x.get("kind") for x in cexprs} >= {"idiom", "expression",
+                                              "phrasal_verb", "collocation"},
+          str(sorted({x.get("kind") for x in cexprs})))
+    cstats = tech.get("stats") or {}
+    check("the technology journey counts its own statistics",
+          cstats.get("stages") == len(cstages) and cstats.get("words") == len(cwords)
+          and cstats.get("expressions") == len(cexprs),
+          str(cstats))
+    check("the technology journey is offered in the adult sentence panel",
+          "Journey.card('tech', false)" in src)
+    check("the kid sentence panel never offers technology",
+          "Journey.card('tech', true)" not in src
+          and "Journey.card('tech'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    check("the technology card names its own picture",
+          "chip" in src[src.index("const ART = {"):src.index("function art(key, label)")])
+    check("the technology stage page has its own chat prompt",
+          "tech" in src.lower())
+
     check("the makeup card names its own picture",
           "lipstick" in src[src.index("const ART = {"):src.index("function art(key, label)")])
 
@@ -409,6 +493,9 @@ def main() -> int:
     notes.append(f"makeup: {len(mstages)} stages, {len(mwords)} glossary words "
                  f"with IPA, {len(mexprs)} expressions and idioms "
                  f"({len(midioms)} idioms), adult-only")
+    notes.append(f"tech: {len(cstages)} stages, {len(cwords)} glossary words "
+                 f"with IPA, {len(cexprs)} expressions and idioms "
+                 f"({len(cidioms)} idioms), adult-only")
     notes.append(f"sports: {len(sstages)} stages, {words} words with IPA, {exprs} expressions "
                  f"and idioms ({len(idioms)} idioms), {len(profiles)} sport profiles with "
                  f"{terms} key terms, {sents} own sentences, {prac} practice items; "

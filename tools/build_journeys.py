@@ -111,6 +111,24 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "tech",
+        "topic": "tech",
+        # Adults only, like makeup: passwords, scams and privacy are grown-up
+        # subjects and the kid experience never offers them.
+        "title_en": "Technology Journey",
+        "title_fa": "فناوری: از دستگاه تا هوش مصنوعی",
+        "icon": "💻",
+        "art": "chip",
+        "audiences": ["adults"],
+        "blurb_en": ("The words people use about phones, the internet, AI and "
+                     "staying safe, from a dead battery to a phishing text."),
+        "blurb_fa": ("واژه‌هایی که مردم دربارهٔ گوشی، اینترنت، هوش مصنوعی و امن "
+                     "ماندن به کار می‌برند؛ از باتری تمام‌شده تا پیام فیشینگ."),
+        "sources": ["tools/journeys_tech_a.txt", "tools/journeys_tech_b.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

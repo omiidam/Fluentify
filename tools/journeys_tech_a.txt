@@ -1,0 +1,208 @@
+# Technology journey, stages 1-6. Rows are pipe-separated and validated by
+# tools/build_journeys.py; see its header for the field order of each tag.
+# Adult material: this journey is offered to the adult experience only.
+
+J|devices|1|phone|The devices you already own|دستگاه‌هایی که همین حالا داری|adults||What each thing is called, what it does, and how to ask for help with it.|نام هر چیز، کاری که می‌کند، و اینکه چطور برایش کمک بخواهی.
+O|name your devices and say which one you use for what.|نام دستگاه‌هایت را بگو و بگو هر کدام را برای چه کاری به کار می‌بری.
+O|describe a battery problem and ask what to do.|مشکل باتری را توصیف کن و بپرس چه کار کنی.
+O|ask a shop assistant for a charger that fits.|از فروشنده چارجر مناسب بخواه.
+W|smartphone|/ˈsmɑrtfoʊn/|noun|گوشی هوشمند|A phone that runs apps and connects to the internet.|tech|phone|A1|I use my smartphone for everything.|گوشی هوشمندم را برای همه چیز استفاده می‌کنم.|
+W|laptop|/ˈlæptɑp/|noun|لپ‌تاپ|A portable computer with a screen and a keyboard that fold together.|tech|laptop|A1|My laptop is four years old.|لپ‌تاپم چهار سالش است.|
+W|tablet|/ˈtæblət/|noun|تبلت|A flat touchscreen device, bigger than a phone and smaller than a laptop.|tech|tablet|A1|I read on my tablet at night.|شب‌ها روی تبلتم می‌خوانم.|
+W|charger|/ˈtʃɑrdʒər/|noun|شارژر|The cable and plug that put power into a battery.|tech|plug|A1|I forgot my charger at home.|شارژرم را خانه جا گذاشتم.|
+W|battery|/ˈbætəri/|noun|باتری|The part of a device that stores the power it runs on.|tech|battery|A2|My battery dies by the afternoon.|باتری‌ام تا بعدازظهر تمام می‌شود.|
+W|screen|/skrin/|noun|صفحه‌نمایش|The flat surface you look at and touch.|tech|screen|A1|The screen is cracked in one corner.|صفحه‌نمایش در یک گوشه ترک خورده.|
+X|expression|My battery is almost dead.|باتری‌ام تقریباً تمام شده.|The everyday way to say a device is nearly out of power.|روش روزمرهٔ گفتن اینکه دستگاه تقریباً بی‌برق شده.|informal|My battery is almost dead, can I borrow a charger?|باتری‌ام تقریباً تمام شده، می‌توانم شارژر قرض بگیرم؟|
+X|phrasal_verb|It won't turn on.|روشن نمی‌شود.|Turn on is the phrasal verb for starting a device; the first thing you say when one fails.|«روشن کردن» فعل عبارتی برای راه‌انداختن دستگاه است؛ نخستین چیزی که وقتی دستگاه خراب می‌شود می‌گویی.|neutral|I charged it all night and it won't turn on.|تمام شب شارژش کردم و روشن نمی‌شود.|
+X|expression|Which cable does this take?|این چه کابلی می‌خواهد؟|Asks for the right connector in a shop.|در فروشگاه اتصال درست را می‌پرسد.|neutral|Which cable does this tablet take?|این تبلت چه کابلی می‌خواهد؟|
+X|expression|It is still under warranty.|هنوز گارانتی دارد.|Says a repair may be free.|می‌گوید تعمیر ممکن است رایگان باشد.|neutral|The screen broke, but it is still under warranty.|صفحه شکست، اما هنوز گارانتی دارد.|
+X|idiom|It is plug and play.|همه کارش آماده است.|Literally, a device that works as soon as it is plugged in; figuratively, anything that needs no setup or explanation.|به‌طور تحت‌اللفظی، دستگاهی که به‌محض وصل شدن کار می‌کند؛ به‌طور مجازی، چیزی که هیچ نصب یا توضیحی لازم ندارد.|neutral|The new printer is plug and play.|چاپگر جدید همه کارش آماده است.|
+P|I use my + [device] + for + [task].|I use my tablet for reading.|از تبلتم برای خواندن استفاده می‌کنم.|Say the device, then the job.|اول دستگاه، بعد کار.
+P|My + [part] + is + [broken/dead/cracked].|My battery is dead.|باتری‌ام تمام شده.|Name the part before the problem.|اول قطعه، بعد مشکل.
+S|My phone is three years old and the battery lasts half a day.|گوشی‌ام سه سالش است و باتری نصف روز دوام می‌آورد.|Describes a real device in one line.|یک دستگاه واقعی را در یک خط توصیف می‌کند.|A2|neutral|The battery only lasts half a day now.
+S|I keep a power bank in my bag for long days.|برای روزهای طولانی پاوربانک در کیفم نگه می‌دارم.|Explains a habit and why.|عادتی و دلیلش را می‌گوید.|B1|neutral|I carry a power bank.
+D|At the repair shop|در تعمیرگاه|Omid|Ramin
+L|Omid|My laptop won't turn on.|لپ‌تاپم روشن نمی‌شود.
+L|Ramin|Is the battery charged?|باتری‌اش شارژ دارد؟
+L|Omid|I charged it all night. The light is on but the screen stays black.|تمام شب شارژش کردم. چراغش روشن است اما صفحه سیاه می‌ماند.
+L|Ramin|Does it make any sound when you press the power button?|وقتی دکمهٔ روشن را می‌زنی صدایی می‌دهد؟
+L|Omid|Nothing at all.|هیچ صدایی.
+L|Ramin|It is still under warranty, so this is free.|هنوز گارانتی دارد، پس رایگان است.
+L|Omid|How long will it take?|چقدر طول می‌کشد؟
+L|Ramin|Two days. I will call you when it is ready.|دو روز. وقتی آماده شد زنگ می‌زنم.
+C|The dead battery|باتری تمام‌شده|Your phone dies before noon every day.|گوشی‌ات هر روز پیش از ظهر خاموش می‌شود.|Ask what you can change rather than what to buy.|بپرس چه چیزی را عوض کنی، نه چه بخر.|Check screen time and brightness first. They drain more than the apps.|اول زمان صفحه و روشنایی را بررسی کن. آن‌ها بیشتر از برنامه‌ها باتری می‌برند.
+C|Buying a charger|خرید شارژر|You are in a shop with your tablet and no cable.|در فروشگاهی با تبلت و بدون کابل هستی.|Ask for the right one and check it fits.|درستش را بخواه و بررسی کن که جا می‌خورد.|Which cable does this tablet take? I want one I can also use in the car.|این تبلت چه کابلی می‌خواهد؟ یکی می‌خواهم که در ماشین هم به کار برود.
+Q|What does "my battery is almost dead" mean?|«باتری‌ام تقریباً تمام شده» یعنی چه؟|the battery is nearly empty|the battery is broken|the battery is new|Dead here means empty, not damaged.|«تمام» اینجا یعنی خالی، نه خراب.
+Q|Which part stores power?|کدام بخش نیرو ذخیره می‌کند؟|the battery|the screen|the cable|The battery holds the charge; the charger refills it.|باتری شارژ را نگه می‌دارد؛ شارژر پرش می‌کند.
+Q|"It won't turn on" is said when ...|«روشن نمی‌شود» کِی گفته می‌شود؟|a device does not start|a device is slow|a device is new|It describes a device that gives no signs of life.|دستگاهی را توصیف می‌کند که هیچ نشانه‌ای از زندگی ندارد.
+
+J|connection|2|wifi|Getting online|اتصال به اینترنت|adults||Wi-Fi, data, and the words for when the internet stops working.|وای‌فای، داده، و واژه‌های وقتی اینترنت قطع می‌شود.
+O|ask for the Wi-Fi password and say when it does not work.|رمز وای‌فای بخواه و بگو وقتی کار نمی‌کند.
+O|describe slow internet and name the likely cause.|اینترنت کند را توصیف کن و علت احتمالی را بگو.
+O|choose between Wi-Fi and mobile data with a reason.|بین وای‌فای و دادهٔ همراه با دلیل انتخاب کن.
+W|Wi-Fi|/ˈwaɪ faɪ/|noun|وای‌فای|A wireless connection that joins a device to the internet through a router.|tech|wifi|A1|What is the Wi-Fi password?|رمز وای‌فای چیست؟|
+W|router|/ˈraʊtər/|noun|روتر|The box in the house that sends the internet to your devices.|tech|router|A2|Restart the router and wait a minute.|روتر را خاموش و روشن کن و یک دقیقه صبر کن.|
+W|bandwidth|/ˈbændwɪdθ/|noun|پهنای باند|How much data can move through a connection at one time.|tech|chart|B1|Video calls use a lot of bandwidth.|تماس تصویری پهنای باند زیادی می‌خواهد.|
+W|hotspot|/ˈhɑtspɑt/|noun|هات‌اسپات|A phone sharing its data connection with other devices.|tech|wifi|B1|I will make a hotspot from my phone.|از گوشی‌ام هات‌اسپات می‌سازم.|
+W|data plan|/ˈdeɪtə plæn/|noun|بستهٔ داده|The monthly amount of mobile internet you pay for.|tech|phone|A2|My data plan runs out before the month ends.|بستهٔ داده‌ام پیش از پایان ماه تمام می‌شود.|
+W|offline|/ˌɔfˈlaɪn/|adjective|آفلاین|Not connected to the internet.|tech|cloud|A2|The app works offline too.|برنامه آفلاین هم کار می‌کند.|
+X|expression|The internet is down.|اینترنت قطع است.|Says the connection has failed, not the device.|می‌گوید اتصال از کار افتاده، نه دستگاه.|neutral|The internet is down, so I cannot send it now.|اینترنت قطع است، پس حالا نمی‌توانم بفرستم.|
+X|expression|It keeps dropping.|مدام قطع می‌شود.|Describes an unstable connection.|اتصالی ناپایدار را توصیف می‌کند.|informal|The Wi-Fi keeps dropping in my room.|وای‌فای در اتاقم مدام قطع می‌شود.|
+X|expression|Try turning it off and on again.|خاموش و روشنش کن.|The first fix for almost everything network related.|نخستین راه‌حل تقریباً هر مشکل شبکه.|informal|Before you call them, try turning it off and on again.|قبل از تماس با آن‌ها، خاموش و روشنش کن.|
+X|expression|I am on mobile data.|دارم از دادهٔ همراه استفاده می‌کنم.|Explains why you cannot do something heavy online.|توضیح می‌دهد چرا کاری سنگین آنلاین نمی‌کنی.|neutral|I am on mobile data, so I will keep this short.|دارم از دادهٔ همراه استفاده می‌کنم، پس کوتاه می‌گویم.|
+X|idiom|I am off the grid for a week.|یک هفته از شبکه بیرونم.|Literally, not connected to any network; figuratively, deliberately away from work and messages.|به‌طور تحت‌اللفظی، به هیچ شبکه‌ای وصل نیستم؛ به‌طور مجازی، عمداً از کار و پیام‌ها دورم.|informal|I am off the grid for a week, so call my landline.|یک هفته از شبکه بیرونم، پس به تلفن ثابتم زنگ بزن.|
+P|What is the + [network] + password?|رمز وای‌فای چیست؟|Ask for access before you sit down.|پیش از نشستن دسترسی بخواه.
+P|The + [thing] + keeps + [verb-ing].|The Wi-Fi keeps dropping.|وای‌فای مدام قطع می‌شود.|Describe a repeated fault.|یک ایراد تکراری را توصیف کن.
+S|The video call froze three times, so we switched to audio.|تماس تصویری سه بار قطع شد، پس به صدا رفتیم.|A whole troubleshooting decision in one sentence.|یک تصمیم کامل عیب‌یابی در یک جمله.|B1|neutral|We gave up on video and used audio.
+S|My data plan is fine, it is the Wi-Fi that is slow.|بستهٔ داده‌ام خوب است، وای‌فای کند است.|Separates two causes before blaming one.|دو علت را پیش از سرزنش یکی جدا می‌کند.|B1|neutral|The Wi-Fi is the slow part, not my data.
+D|At a café|در کافه|Sina|Mahsa
+L|Sina|Excuse me, what is the Wi-Fi password?|ببخشید، رمز وای‌فای چیست؟
+L|Mahsa|It is on the receipt. It keeps dropping, though.|روی رسید است. اما مدام قطع می‌شود.
+L|Sina|Is it the router?|از روتر است؟
+L|Mahsa|Probably. Try turning it off and on again, the plug is behind the counter.|احتمالاً. خاموش و روشنش کن، دوشاخه پشت پیشخوان است.
+L|Sina|Thanks. I am on mobile data for now.|ممنون. فعلاً از دادهٔ همراه استفاده می‌کنم.
+L|Mahsa|Are you uploading something big?|چیز بزرگی آپلود می‌کنی؟
+L|Sina|A video. It uses a lot of bandwidth.|یک ویدیو. پهنای باند زیادی می‌خواهد.
+L|Mahsa|Then wait for the Wi-Fi, it is cheaper.|پس منتظر وای‌فای بمان، ارزان‌تر است.
+C|The dead zone|نقطهٔ کور|The Wi-Fi works in one room and nowhere else.|وای‌فای در یک اتاق کار می‌کند و جای دیگر نه.|Ask for the router's position rather than a new plan.|به جای بستهٔ جدید، جای روتر را بپرس.|Where is your router? Mine only reaches the next room when it is high up.|روترتان کجاست؟ مال من فقط وقتی بالاست تا اتاق بعدی می‌رسد.
+C|The shared hotspot|هات‌اسپات مشترک|A friend needs internet and your data is limited.|دوستت اینترنت می‌خواهد و داده‌ات محدود است.|Agree and set a limit.|موافقت کن و حد بگذار.|I will make a hotspot, but my data plan is small, so no videos.|هات‌اسپات می‌سازم، اما بسته‌ام کم است، پس ویدیو نه.
+Q|What does a router do?|روتر چه کار می‌کند؟|it sends the internet to your devices|it stores your photos|it charges the phone|The router is the box between the line and your devices.|روتر جعبه‌ای بین خط و دستگاه‌های توست.
+Q|What is a hotspot?|هات‌اسپات چیست؟|a phone sharing its data connection|a public password|a type of cable|A hotspot turns one phone into a small Wi-Fi network.|هات‌اسپات یک گوشی را به شبکهٔ وای‌فای کوچک تبدیل می‌کند.
+Q|"Offline" means ...|«آفلاین» یعنی ...|not connected to the internet|switched off completely|out of battery|Offline devices still work, just without the network.|دستگاه آفلاین کار می‌کند، فقط بدون شبکه.
+
+J|browser|3|browser|Browsing and searching|مرور و جست‌وجو|adults||Tabs, links, bookmarks and the cache, the words people use without explaining.|تب‌ها، لینک‌ها، بوکمارک‌ها و کش؛ واژه‌هایی که مردم بی‌توضیح به کار می‌برند.
+O|ask for a link and open it in a new tab.|لینک بخواه و در تب تازه بازش کن.
+O|say what a search engine is and how you use it.|بگو موتور جست‌وجو چیست و چطور استفاده می‌کنی.
+O|describe a slow page and clear the cache.|صفحهٔ کند را توصیف کن و کش را پاک کن.
+W|browser|/ˈbraʊzər/|noun|مرورگر|The program you use to open websites.|tech|browser|A1|Which browser do you use?|از کدام مرورگر استفاده می‌کنی؟|
+W|tab|/tæb/|noun|تب|One page open inside a browser window.|tech|browser|A2|I have twenty tabs open again.|باز بیست تب باز کرده‌ام.|
+W|search engine|/sɜrtʃ ˈɛndʒɪn/|noun|موتور جست‌وجو|A website that finds pages for what you type.|tech|browser|A1|Type it into a search engine.|آن را در موتور جست‌وجو بنویس.|
+W|link|/lɪŋk/|noun|لینک|Text or a button that takes you to another page.|tech|link|A1|Send me the link.|لینکش را برایم بفرست.|
+W|bookmark|/ˈbʊkmɑrk/|noun|بوکمارک|A saved page you can return to in one click.|tech|star|A2|I bookmarked the recipe.|دستور غذا را بوکمارک کردم.|
+W|cache|/kæʃ/|noun|کش|Saved copies of a site so it opens faster next time.|tech|chip|B1|Clear the cache if the page looks wrong.|اگر صفحه غلط نشان می‌دهد، کش را پاک کن.|
+X|expression|Open it in a new tab.|در تب تازه بازش کن.|Keeps the page you are on.|صفحه‌ای که در آن هستی را نگه می‌دارد.|neutral|Open it in a new tab so you do not lose this page.|در تب تازه بازش کن تا این صفحه را از دست ندهی.|
+X|expression|Send me the link.|لینکش را برایم بفرست.|The shortest request in messaging.|کوتاه‌ترین درخواست در پیام‌رسان.|informal|Send me the link and I will read it tonight.|لینکش را بفرست، امشب می‌خوانم.|
+X|expression|I cannot find it in the search results.|در نتایج جست‌وجو پیدایش نمی‌کنم.|Says the search failed, not the site.|می‌گوید جست‌وجو ناموفق بود، نه سایت.|neutral|I cannot find it in the search results, only ads.|در نتایج جست‌وجو پیدایش نمی‌کنم، فقط تبلیغ.|
+X|collocation|Clear the cache and try again.|کش را پاک کن و دوباره امتحان کن.|Clear the cache is a collocation: the verb keeps its fixed object. It is the second fix after "turn it off and on".|«کش را پاک کردن» یک هم‌نشینی است: فعل مفعول ثابتش را نگه می‌دارد. دومین راه‌حل بعد از «خاموش و روشن کن» است.|informal|The menu is missing. Clear the cache and try again.|منو نیست. کش را پاک کن و دوباره امتحان کن.|
+X|idiom|I fell down a rabbit hole.|در یک هزارتوی بی‌پایان افتادم.|Literally, from the hole a rabbit lives in; figuratively, into a chain of links that consumes your time.|به‌طور تحت‌اللفظی، چاله‌ای که خرگوش در آن زندگی می‌کند؛ به‌طور مجازی، زنجیره‌ای از لینک‌ها که وقتت را می‌بلعد.|informal|I opened one article and fell down a rabbit hole for two hours.|یک مقاله باز کردم و دو ساعت در هزارتویی افتادم.|
+P|Open it in + [place].|Open it in a new tab.|در تب تازه بازش کن.|Where the page should go.|صفحه کجا باز شود.
+P|I could not find + [thing] + in + [place].|I could not find the price in the page.|قیمت را در صفحه پیدا نکردم.|Name the missing thing and where you looked.|چیز گمشده و جای جست‌وجو را بگو.
+S|I have too many tabs open and I cannot find the one I need.|تب‌های زیادی باز کرده‌ام و آن که لازم دارم پیدا نمی‌کنم.|A modern problem, stated plainly.|مشکلی مدرن، ساده گفته‌شده.|A2|informal|I lost the tab I needed.
+S|Search for the exact phrase in quotation marks.|عبارت دقیق را در گیومه جست‌وجو کن.|Gives a technique, not an opinion.|تکنیک می‌دهد، نه نظر.|B1|neutral|Put the phrase in quotes when you search.
+D|Helping a friend shop online|کمک به دوست برای خرید آنلاین|Navid|Shadi
+L|Navid|I cannot find the page you mentioned.|صفحه‌ای که گفتی را پیدا نمی‌کنم.
+L|Shadi|I will send you the link. Open it in a new tab.|لینکش را می‌فرستم. در تب تازه بازش کن.
+L|Navid|Done. The page looks wrong, all the pictures are missing.|انجام شد. صفحه غلط نشان می‌دهد، همهٔ عکس‌ها نیستند.
+L|Shadi|Clear the cache and try again.|کش را پاک کن و دوباره امتحان کن.
+L|Navid|It works now. Should I bookmark it?|حالا کار می‌کند. بوکمارکش کنم؟
+L|Shadi|Yes, or you will lose it in your tabs.|بله، وگرنه در تب‌هایت گمش می‌کنی.
+L|Navid|I already have twenty open.|از قبل بیست تا باز دارم.
+L|Shadi|Then bookmark it and close the rest. I fell down a rabbit hole like that last week.|پس بوکمارکش کن و بقیه را ببند. هفتهٔ پیش همین‌طور در هزارتویی افتادم.
+C|The wrong page|صفحهٔ اشتباه|Search results show ads and nothing useful.|نتایج جست‌وجو تبلیغ نشان می‌دهد و چیز مفیدی نه.|Ask for a better query.|پرسش بهتری بخواه.|Try the exact phrase in quotation marks. The ads are taking the first three results.|عبارت دقیق را در گیومه امتحان کن. تبلیغ‌ها سه نتیجهٔ اول را گرفته‌اند.
+C|Sharing a page|به اشتراک گذاشتن صفحه|A friend wants the article you read last night.|دوستت مقاله‌ای را می‌خواهد که دیشب خواندی.|Give it, and say where to open it.|بده و بگو کجا بازش کند.|Here is the link. Open it in a new tab, it has a long page.|لینکش این است. در تب تازه بازش کن، صفحهٔ طولانی دارد.
+Q|What is a tab?|تب چیست؟|one page open inside a browser|a saved password|a type of cable|A tab keeps a page open beside the others.|تب صفحه‌ای را کنار بقیه باز نگه می‌دارد.
+Q|What does the cache do?|کش چه می‌کند؟|it saves copies of a site to load it faster|it blocks websites|it charges the device|Cache is stored data, and clearing it can fix a broken page.|کش دادهٔ ذخیره‌شده است و پاک کردنش صفحهٔ خراب را درست می‌کند.
+Q|"A rabbit hole" in browsing means ...|«چالهٔ خرگوش» در مرور یعنی ...|a chain of links that eats your time|a broken link|a private window|The metaphor is falling in and not finding the way out.|استعارهٔ افتادن و راه بیرون پیدا نکردن است.
+
+J|accounts|4|lock|Accounts and signing in|حساب‌ها و ورود|adults||Passwords, passkeys, two-factor codes, and what to do when you are locked out.|رمز، پاسکی، کد دومرحله‌ای و کاری که وقتی قفل می‌شوی می‌کنی.
+O|create an account and sign in without help.|حساب بساز و بدون کمک وارد شو.
+O|ask for a password reset and understand the steps.|بازنشانی رمز بخواه و مرحله‌ها را بفهم.
+O|explain two-factor authentication in one sentence.|ورود دومرحله‌ای را در یک جمله توضیح بده.
+W|account|/əˈkaʊnt/|noun|حساب|The record of your name and data on a service.|tech|laptop|A1|I made an account yesterday.|دیروز حساب ساختم.|
+W|username|/ˈjuzərneɪm/|noun|نام کاربری|The name you type to sign in.|tech|key|A1|My username is my first name.|نام کاربری‌ام اسم کوچکم است.|
+W|password|/ˈpæswɜrd/|noun|رمز عبور|The secret word that protects an account.|tech|lock|A1|Use a different password for each site.|برای هر سایت رمز جداگانه به کار ببر.|
+W|passkey|/ˈpæski/|noun|پاسکی|A sign-in method that uses your fingerprint or face instead of a typed password.|tech|key|B1|A passkey is safer than a password you reuse.|پاسکی از رمزی که تکرار می‌کنی امن‌تر است.|
+W|two-factor authentication|/ˈtu ˈfæktər ɔˌθɛntɪˈkeɪʃn/|noun|ورود دومرحله‌ای|A second check, such as a code on your phone, after the password.|tech|shield|B1|Turn on two-factor authentication.|ورود دومرحله‌ای را روشن کن.|
+W|sign out|/ˌsaɪn ˈaʊt/|verb|خارج شدن|To end a session so the next person must sign in again.|tech|lock|A2|Sign out on shared computers.|در کامپیوترهای مشترک خارج شو.|
+X|expression|I cannot sign in.|نمی‌توانم وارد شوم.|The first sentence of every account problem.|نخستین جملهٔ هر مشکل حساب.|neutral|I cannot sign in, the password is rejected.|نمی‌توانم وارد شوم، رمز رد می‌شود.|
+X|expression|I forgot my password.|رمزم را فراموش کرده‌ام.|Asks for the reset without excuses.|بازنشانی را بدون بهانه می‌خواهد.|neutral|I forgot my password, where do I reset it?|رمزم را فراموش کرده‌ام، کجا بازنشانی کنم؟|
+X|expression|Check your email for a code.|ایمیلت را برای کد بررسی کن.|Describes the second step of signing in.|مرحلهٔ دوم ورود را توصیف می‌کند.|neutral|Check your email for a code, it expires in ten minutes.|ایمیلت را برای کد بررسی کن، ده دقیقه اعتبار دارد.|
+X|expression|Never share the code with anyone.|کد را هرگز با کسی به اشتراک نگذار.|The rule that stops most account theft.|قاعده‌ای که بیشتر دزدی حساب را می‌گیرد.|neutral|They ask for the code, but never share the code with anyone.|کد را می‌خواهند، اما کد را هرگز با کسی به اشتراک نگذار.|
+X|idiom|I am locked out of my account.|از حسابم بیرون افتاده‌ام.|Literally, shut outside a door; figuratively, unable to reach an account you own.|به‌طور تحت‌اللفظی، بیرون از یک در بسته؛ به‌طور مجازی، دسترسی‌نداشتن به حسابی که مالکش هستی.|neutral|I changed my phone and now I am locked out of my account.|گوشی‌ام را عوض کردم و حالا از حسابم بیرون افتاده‌ام.|
+P|I cannot + [verb] + my account.|I cannot open my account.|نمی‌توانم حسابم را باز کنم.|Name the action that fails.|کاری که شکست می‌خورد را بگو.
+P|Use + [method] + for + [service].|Use a passkey for your email.|برای ایمیلت از پاسکی استفاده کن.|Method, then place.|اول روش، بعد جا.
+S|I use a passkey on my phone and a password on my laptop.|روی گوشی‌ام از پاسکی و روی لپ‌تاپم از رمز استفاده می‌کنم.|Shows a real setup, not a preference.|یک چیدمان واقعی را نشان می‌دهد، نه سلیقه.|B1|neutral|Passkey on the phone, password on the laptop.
+S|Two-factor authentication saved me once and I never turned it off again.|ورود دومرحله‌ای یک بار نجاتم داد و دیگر خاموشش نکردم.|Gives the reason through a story.|دلیل را از راه یک روایت می‌گوید.|B1|neutral|It saved my account once.
+D|Locked out|بیرون مانده|Shirin|Pouya
+L|Shirin|I cannot sign in. It says my password is wrong.|نمی‌توانم وارد شوم. می‌گوید رمزم غلط است.
+L|Pouya|Did you change your phone recently?|اخیراً گوشی‌ات را عوض کردی؟
+L|Shirin|Last week. Does that matter?|هفتهٔ پیش. مهم است؟
+L|Pouya|Yes, the codes go to the old number.|بله، کدها به شمارهٔ قبلی می‌رود.
+L|Shirin|So I am locked out?|پس بیرون مانده‌ام؟
+L|Pouya|No. Use the reset link and check your email for a code.|نه. از لینک بازنشانی استفاده کن و ایمیلت را برای کد بررسی کن.
+L|Shirin|The code expires quickly.|کد سریع منقضی می‌شود.
+L|Pouya|It lasts ten minutes. And never share it with anyone, even me.|ده دقیقه اعتبار دارد. و هرگز با کسی به اشتراکش نگذار، حتی من.
+C|The forgotten password|رمز فراموش‌شده|You need to pay a bill and the site rejects your password.|باید قبضی را پرداخت کنی و سایت رمزت را رد می‌کند.|Get back in without creating a new account.|بدون ساختن حساب تازه برگرد.|I forgot my password. Can I reset it without losing my saved data?|رمزم را فراموش کرده‌ام. می‌توانم بدون از دست دادن داده‌های ذخیره‌شده بازنشانی‌اش کنم؟
+C|The shared computer|کامپیوتر مشترک|You signed in at a hotel computer.|در کامپیوتر هتل وارد شدی.|Leave without leaving a session open.|جوری برو که نشستی باز نماند.|Does this computer sign me out automatically, or should I do it myself?|این کامپیوتر خودش من را خارج می‌کند، یا خودم باید این کار را بکنم؟
+Q|What is two-factor authentication?|ورود دومرحله‌ای چیست؟|a second check after your password|a longer password|a second account|The second factor is usually a code or a fingerprint.|عامل دوم معمولاً کد یا اثر انگشت است.
+Q|Why is a passkey safer than a reused password?|چرا پاسکی از رمز تکراری امن‌تر است؟|there is no password to guess or reuse|it is shorter|it never expires|A passkey stays on your device and cannot be guessed from another site.|پاسکی روی دستگاهت می‌ماند و از سایت دیگر حدس زده نمی‌شود.
+Q|Should you share a login code?|کد ورود را به اشتراک بگذاریم؟|never|with family only|if someone asks politely|Nobody legitimate needs your code, including support staff.|هیچ کس قانونی کدت را نمی‌خواهد، حتی پشتیبانی.
+
+J|safety|5|shield|Scams, spam and staying safe|کلاهبرداری، هرزنامه و امن ماندن|adults||The messages designed to trick you, named so you can refuse them.|پیام‌هایی که ساخته شده‌اند تا فریبت بدهند، با نامشان تا بتوانی ردشان کنی.
+O|recognise a phishing message and say why it is fake.|پیام فیشینگ را بشناس و بگو چرا جعلی است.
+O|refuse a request for a code or a payment.|درخواست کد یا پرداخت را رد کن.
+O|block and report spam without opening it.|هرزنامه را بدون باز کردن بلاک و گزارش کن.
+W|phishing|/ˈfɪʃɪŋ/|noun|فیشینگ|A fake message that pretends to be a company to steal your details.|tech|bug|B1|That email is phishing, not your bank.|آن ایمیل فیشینگ است، نه بانک تو.|
+W|scam|/skæm/|noun|کلاهبرداری|A trick that takes money or data from you.|tech|shield|A2|The call was a scam.|آن تماس کلاهبرداری بود.|
+W|spam|/spæm/|noun|هرزنامه|Unwanted messages sent to many people.|tech|mail|A2|It went to my spam folder.|به پوشهٔ هرزنامهٔ من رفت.|
+W|malware|/ˈmælwɛr/|noun|بدافزار|Software installed to damage or spy on a device.|tech|bug|B2|The download came with malware.|آن دانلود بدافزار داشت.|
+W|firewall|/ˈfaɪərwɔl/|noun|فایروال|A barrier that blocks unwanted traffic on a network.|tech|shield|B2|The firewall blocks unknown connections.|فایروال اتصال‌های ناشناس را می‌بندد.|
+W|VPN|/ˌvi pi ˈɛn/|noun|وی‌پی‌ان|A private tunnel that hides your traffic on public networks.|tech|lock|B1|Use a VPN on café Wi-Fi.|در وای‌فای کافه از وی‌پی‌ان استفاده کن.|
+X|expression|If it asks for a code, it is a scam.|اگر کد بخواهد، کلاهبرداری است.|A rule short enough to remember under pressure.|قاعده‌ای کوتاه که زیر فشار یادت می‌ماند.|neutral|Your bank will never call for a code. If it asks for a code, it is a scam.|بانکت هرگز برای کد زنگ نمی‌زند. اگر کد بخواهد، کلاهبرداری است.|
+X|expression|Do not click the link.|روی لینک کلیک نکن.|Stops the most common mistake.|رایج‌ترین اشتباه را می‌گیرد.|neutral|It looks like your bank, but do not click the link.|شبیه بانک توست، اما روی لینک کلیک نکن.|
+X|expression|Report it and block the number.|گزارشش کن و شماره را بلاک کن.|The two actions that end it.|دو کاری که تمامش می‌کند.|neutral|Report it and block the number, then delete it.|گزارشش کن و شماره را بلاک کن، بعد پاکش کن.|
+X|expression|Never pay to receive a prize.|برای گرفتن جایزه هرگز پول نده.|Says the trick out loud so it loses power.|ترفند را بلند می‌گوید تا قدرتش بریزد.|neutral|Never pay to receive a prize, that is the whole scam.|برای گرفتن جایزه هرگز پول نده، تمام کلاهبرداری همین است.|
+X|idiom|The offer was too good to be true.|آن پیشنهاد آن‌قدر خوب بود که واقعی نباشد.|Literally, so good it cannot be real; figuratively, a warning that something is a trap.|به‌طور تحت‌اللفظی، آن‌قدر خوب که نمی‌تواند واقعی باشد؛ به‌طور مجازی، هشداری که چیزی تله است.|neutral|A job that pays three times the salary? Too good to be true.|کاری با سه برابر حقوق؟ آن‌قدر خوب که واقعی نباشد.|
+P|If + [condition], it is + [judgement].|If it asks for a code, it is a scam.|اگر کد بخواهد، کلاهبرداری است.|Condition first, verdict second.|اول شرط، بعد حکم.
+P|Never + [verb] + without + [check].|Never pay without checking the sender.|بدون بررسی فرستنده هرگز پرداخت نکن.|A rule with a checkpoint.|قاعده‌ای با نقطهٔ بازرسی.
+S|The message used the bank's logo but the address was wrong.|پیام لوگوی بانک را داشت اما نشانی غلط بود.|Shows exactly how you spotted it.|دقیقاً نشان می‌دهد چطور فهمیدی.|B1|neutral|The logo was right and the address was wrong.
+S|I get one of these calls every week and I hang up.|هر هفته یکی از این تماس‌ها را می‌گیرم و قطع می‌کنم.|A habit that needs no explanation.|عادتی که توضیح لازم ندارد.|A2|neutral|I hang up on them.
+D|The urgent call|تماس فوری|Behnam|Nasim
+L|Behnam|Someone called saying my account is frozen.|کسی زنگ زد و گفت حسابم مسدود شده.
+L|Nasim|Did they ask for a code?|کد خواستند؟
+L|Behnam|Yes. They said it was for security.|بله. گفتند برای امنیت است.
+L|Nasim|That is a scam. Never share the code, not even with the bank.|این کلاهبرداری است. کد را هرگز به اشتراک نگذار، حتی با بانک.
+L|Behnam|They knew my name and my last payment.|اسم و آخرین پرداختم را می‌دانستند.
+L|Nasim|That is easy to find. Do not click anything they sent.|پیدا کردنش آسان است. روی هیچ چیزی که فرستادند کلیک نکن.
+L|Behnam|Should I call the bank?|به بانک زنگ بزنم؟
+L|Nasim|Call the number on your card, not the one they gave you.|به شمارهٔ روی کارتت زنگ بزن، نه شماره‌ای که دادند.
+C|The fake delivery|ارسال جعلی|A text says a parcel is waiting and asks for a small fee.|پیامی می‌گوید بسته‌ای منتظر است و هزینهٔ کوچکی می‌خواهد.|Check before paying, and say what you will do.|پیش از پرداخت بررسی کن و بگو چه می‌کنی.|I did not order anything, so I will check the tracking number on the courier's own site.|من چیزی سفارش نداده‌ام، پس شمارهٔ رهگیری را در سایت خود پیک بررسی می‌کنم.
+C|The friend in trouble|دوست در دردسر|A message from a friend's account asks you to send money urgently.|پیامی از حساب دوستت فوری پول می‌خواهد.|Verify through another channel.|از راه دیگری بررسی کن.|I will call you on your number before sending anything. Accounts get copied.|قبل از فرستادن هر چیزی به شماره‌ات زنگ می‌زنم. حساب‌ها کپی می‌شوند.
+Q|What is phishing?|فیشینگ چیست؟|a fake message that steals your details|a virus that breaks the screen|a kind of advertisement|Phishing pretends to be someone you trust.|فیشینگ خود را کسی نشان می‌دهد که به او اعتماد داری.
+Q|Where do unwanted messages go?|پیام‌های ناخواسته کجا می‌روند؟|the spam folder|the trash only|the inbox|Spam filters keep them out of the inbox.|فیلتر هرزنامه آن‌ها را از صندوق ورودی دور نگه می‌دارد.
+Q|Why use a VPN on public Wi-Fi?|چرا در وای‌فای عمومی از وی‌پی‌ان استفاده کنیم؟|it hides your traffic from the network|it makes the battery last|it removes ads|A VPN encrypts the connection between you and the server.|وی‌پی‌ان اتصال بین تو و سرور را رمزگذاری می‌کند.
+
+J|software|6|bug|Apps, updates and bugs|برنامه‌ها، به‌روزرسانی و باگ|adults||Why the app closed, what an update fixes, and how to report it.|چرا برنامه بست، به‌روزرسانی چه را درست می‌کند، و چطور گزارشش بدهی.
+O|describe an app that closes or freezes.|برنامه‌ای که بسته یا فریز می‌شود را توصیف کن.
+O|ask whether an update is safe and what it changes.|بپرس به‌روزرسانی امن است و چه چیزی را عوض می‌کند.
+O|report a bug in two sentences.|یک باگ را در دو جمله گزارش بده.
+W|app|/æp/|noun|برنامه|A program on a phone or tablet that does one job.|tech|phone|A1|The app closes when I open the camera.|برنامه وقتی دوربین را باز می‌کنم بسته می‌شود.|
+W|update|/ˈʌpdeɪt/|noun|به‌روزرسانی|A new version that fixes problems or adds features.|tech|download|A2|The update fixed the battery problem.|به‌روزرسانی مشکل باتری را حل کرد.|
+W|patch|/pætʃ/|noun|وصله|A small update that closes one hole or bug.|tech|download|B2|The company released a patch overnight.|شرکت شبانه یک وصله منتشر کرد.|
+W|bug|/bʌg/|noun|باگ|A mistake in software that makes it behave wrongly.|tech|bug|B1|There is a bug in the search box.|در کادر جست‌وجو یک باگ هست.|
+W|crash|/kræʃ/|verb|از کار افتادن|To stop working suddenly.|tech|bug|B1|The app crashes when I upload a photo.|برنامه وقتی عکس آپلود می‌کنم از کار می‌افتد.|
+W|firmware|/ˈfɜrmwɛr/|noun|فریم‌ور|The software built into a device that runs its hardware.|tech|chip|B2|The speaker needs a firmware update.|اسپیکر به به‌روزرسانی فریم‌ور نیاز دارد.|
+X|expression|It freezes and then closes.|فریز می‌شود و بعد بسته می‌شود.|A precise bug report in six words.|یک گزارش دقیق باگ در شش کلمه.|neutral|It freezes and then closes, always after the login screen.|فریز می‌شود و بعد بسته می‌شود، همیشه بعد از صفحهٔ ورود.|
+X|expression|Is the latest version installed?|آخرین نسخه نصب است؟|The first question in app support.|نخستین پرسش در پشتیبانی برنامه.|neutral|Is the latest version installed? That bug was fixed last month.|آخرین نسخه نصب است؟ آن باگ ماه پیش حل شد.|
+X|expression|The update bricked my phone.|به‌روزرسانی گوشی‌ام را «آجر» کرد.|Literally, turned the phone into a brick; in tech slang, left a device so broken that it will not switch on at all.|به‌طور تحت‌اللفظی، گوشی را به آجر تبدیل کرد؛ در زبان عامیانهٔ فناوری، دستگاهی را چنان خراب کرد که دیگر اصلاً روشن نمی‌شود.|slang|One bad update bricked my phone and I lost every photo on it.|یک به‌روزرسانی بد گوشی‌ام را آجر کرد و همهٔ عکس‌هایم را از دست دادم.|
+X|expression|The update broke something else.|به‌روزرسانی چیز دیگری را خراب کرد.|Names the common side effect.|عارضهٔ رایج را نام می‌برد.|informal|The update broke something else: now the sound is gone.|به‌روزرسانی چیز دیگری را خراب کرد: حالا صدا رفته.|
+X|expression|I will report it to support.|به پشتیبانی گزارشش می‌دهم.|Says the next step and ends the complaint.|مرحلهٔ بعد را می‌گوید و شکایت را تمام می‌کند.|neutral|I will report it to support with a screenshot.|با یک اسکرین‌شات به پشتیبانی گزارشش می‌دهم.|
+X|idiom|It is a crash course in patience.|یک دورهٔ فشردهٔ صبر است.|Literally, an intensive short course; figuratively, a hard lesson learned quickly.|به‌طور تحت‌اللفظی، دورهٔ فشرده و کوتاه؛ به‌طور مجازی، درسی سخت که سریع یاد گرفته می‌شود.|humorous|Setting up this printer was a crash course in patience.|راه‌اندازی این چاپگر یک دورهٔ فشردهٔ صبر بود.|
+P|It + [verb] + when I + [action].|It crashes when I upload a photo.|وقتی عکس آپلود می‌کنم از کار می‌افتد.|The shape of every bug report.|شکل هر گزارش باگ.
+P|Since the update, + [problem].|Since the update, the sound is gone.|از زمان به‌روزرسانی، صدا رفته.|Tie a problem to its start.|مشکل را به شروعش وصل کن.
+S|The app worked until the last update, so I rolled it back.|برنامه تا به‌روزرسانی آخر کار می‌کرد، پس برگرداندمش.|Shows cause, then action.|اول علت، بعد کار.|B1|neutral|I went back to the old version.
+S|I sent support a screenshot and the exact time it happened.|برای پشتیبانی یک اسکرین‌شات و زمان دقیق اتفاق را فرستادم.|What makes a bug report useful.|چیزی که گزارش باگ را مفید می‌کند.|B1|neutral|I sent a screenshot with the time.
+D|Reporting a bug|گزارش یک باگ|Arman|Sahar
+L|Arman|The app crashes every time I open my files.|برنامه هر بار که فایل‌هایم را باز می‌کنم از کار می‌افتد.
+L|Sahar|Is the latest version installed?|آخرین نسخه نصب است؟
+L|Arman|Yes, I updated yesterday.|بله، دیروز به‌روزرسانی کردم.
+L|Sahar|So the update broke something else. What phone is it?|پس به‌روزرسانی چیز دیگری را خراب کرده. چه گوشی‌ای است؟
+L|Arman|A three-year-old Android.|یک اندروید سه‌ساله.
+L|Sahar|Send a screenshot and the exact time it happened.|یک اسکرین‌شات و زمان دقیق اتفاق را بفرست.
+L|Arman|Should I reinstall it?|دوباره نصبش کنم؟
+L|Sahar|Try first. If it still crashes, I will report it to support.|اول امتحان کن. اگر باز از کار افتاد، به پشتیبانی گزارشش می‌دهم.
+C|The freezes|فریزها|The video player freezes at the same moment in every film.|پخش‌کنندهٔ ویدیو در هر فیلم در همان لحظه فریز می‌شود.|Give support what they need in one message.|در یک پیام چیزی که پشتیبانی لازم دارد را بده.|It freezes at forty seconds every time, on the latest version, and here is a screenshot.|هر بار در ثانیهٔ چهل فریز می‌شود، با آخرین نسخه، و این هم اسکرین‌شات.
+C|The update question|پرسش به‌روزرسانی|A message says an update is ready and you are on mobile data.|پیامی می‌گوید به‌روزرسانی آماده است و تو روی دادهٔ همراه هستی.|Decide and say why.|تصمیم بگیر و دلیلش را بگو.|I will update tonight on Wi-Fi. It is only a small patch but it needs a restart.|امشب روی وای‌فای به‌روزرسانی می‌کنم. وصلهٔ کوچکی است اما راه‌اندازی دوباره می‌خواهد.
+Q|What is a bug?|باگ چیست؟|a mistake in software|a virus|a broken screen|A bug is written into the code, not caught from outside.|باگ در کد نوشته شده، از بیرون گرفته نمی‌شود.
+Q|What does a patch do?|وصله چه کار می‌کند؟|it closes one specific problem|it adds a new device|it deletes your data|A patch is a small, targeted fix.|وصله یک تعمیر کوچک و هدفمند است.
+Q|"It crashes" means ...|«از کار می‌افتد» یعنی ...|it stops working suddenly|it runs slowly|it needs charging|A crash ends the program without warning.|کرش برنامه را بی‌هشدار تمام می‌کند.
