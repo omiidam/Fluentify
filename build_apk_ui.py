@@ -532,7 +532,13 @@ BRAND_DIR = ROOT / "brand"
 # CSS inside body.kids, so inside the APK they must exist at the same relative
 # path or the kids page would fall back to the adult logo.
 BRAND_FILES = ["fox-mark.png", "fox-face.png", "kids-fox-bg.png",
-               "kids-fox.png", "kids-fox-face.png"]
+               "kids-fox.png", "kids-fox-face.png",
+               # One photograph per adult journey card. The card draws it
+               # at 58px, so the file is 256px - sharp on a 3x phone and
+               # about 20 KB, which is what keeps four of them cheap in
+               # the APK.
+               "journey-food.jpg", "journey-makeup.jpg",
+               "journey-travel.jpg", "journey-sports.jpg"]
 missing_brand = [f for f in BRAND_FILES if not (BRAND_DIR / f).exists()]
 if missing_brand:
     raise SystemExit("build_apk_ui: brand art missing from brand/: "

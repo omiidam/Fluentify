@@ -129,6 +129,25 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "food",
+        "topic": "food",
+        # Adults only, like makeup and technology: shopping, ordering and
+        # paying in a restaurant are grown-up situations, and the kid
+        # experience never offers them.
+        "title_en": "Food, Cooking & Restaurants Journey",
+        "title_fa": "غذا، آشپزی و رستوران: از بازار تا سر میز",
+        "icon": "🍲",
+        "art": "pot",
+        "audiences": ["adults"],
+        "blurb_en": ("Ingredients, cooking methods, flavours, shopping, "
+                     "restaurant talk and the idioms that come with a meal."),
+        "blurb_fa": ("مواد اولیه، روش‌های پخت، مزه‌ها، خرید، گفت‌وگوی رستوران "
+                     "و اصطلاح‌هایی که با غذا می‌آیند."),
+        "sources": ["tools/journeys_food_a.txt", "tools/journeys_food_b.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

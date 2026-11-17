@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 4,
-   "stages": 50,
-   "words": 309,
-   "expressions": 264,
+   "journeys": 5,
+   "stages": 62,
+   "words": 381,
+   "expressions": 328,
    "sports": 46
   }
  },
@@ -18600,6 +18600,4011 @@
     "stages": 12,
     "words": 72,
     "expressions": 61,
+    "patterns": 24,
+    "sentences": 24,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "food",
+   "topic": "food",
+   "title_en": "Food, Cooking & Restaurants Journey",
+   "title_fa": "غذا، آشپزی و رستوران: از بازار تا سر میز",
+   "icon": "🍲",
+   "art": "pot",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Ingredients, cooking methods, flavours, shopping, restaurant talk and the idioms that come with a meal.",
+   "blurb_fa": "مواد اولیه، روش‌های پخت، مزه‌ها، خرید، گفت‌وگوی رستوران و اصطلاح‌هایی که با غذا می‌آیند.",
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "ingredients",
+     "order": 1,
+     "icon": "apple",
+     "title_en": "Fruit, vegetables and the market",
+     "title_fa": "میوه، سبزی و بازار",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The produce you buy and name, and how to ask what is ripe, what is in season and what it costs.",
+     "blurb_fa": "محصولاتی که می‌خری و نام می‌بری، و اینکه چطور بپرسی چه چیزی رسیده، چه چیزی فصلش است و چه قیمتی دارد.",
+     "objectives": [
+      {
+       "en": "name the vegetables and fruit you cook with every week.",
+       "fa": "سبزی‌ها و میوه‌هایی را که هر هفته با آن‌ها می‌پزی نام ببر."
+      },
+      {
+       "en": "ask whether produce is ripe and how much it costs.",
+       "fa": "بپرس میوه رسیده است یا نه و چه قیمتی دارد."
+      },
+      {
+       "en": "say what is in season and why it tastes better.",
+       "fa": "بگو چه چیزی فصلش است و چرا مزهٔ بهتری دارد."
+      }
+     ],
+     "words": [
+      {
+       "id": "ingredients-w1",
+       "en": "apple",
+       "ipa": "/ˈæpəl/",
+       "pos": "noun",
+       "fa": "سیب",
+       "def_en": "A round fruit with firm white flesh and thin red or green skin.",
+       "sport": "food",
+       "icon": "apple",
+       "level": "A1",
+       "example_en": "I eat an apple every morning after breakfast.",
+       "example_fa": "هر روز صبح بعد از صبحانه یک سیب می‌خورم.",
+       "ref": ""
+      },
+      {
+       "id": "ingredients-w2",
+       "en": "tomato",
+       "ipa": "/təˈmeɪtoʊ/",
+       "pos": "noun",
+       "fa": "گوجه‌فرنگی",
+       "def_en": "A soft red fruit, eaten raw in salads or cooked into sauces.",
+       "sport": "food",
+       "icon": "tomato",
+       "level": "A1",
+       "example_en": "These tomatoes are not ripe yet.",
+       "example_fa": "این گوجه‌فرنگی‌ها هنوز نرسیده‌اند.",
+       "ref": ""
+      },
+      {
+       "id": "ingredients-w3",
+       "en": "onion",
+       "ipa": "/ˈʌnjən/",
+       "pos": "noun",
+       "fa": "پیاز",
+       "def_en": "A round vegetable with layers of skin that makes your eyes water when you cut it.",
+       "sport": "food",
+       "icon": "onion",
+       "level": "A1",
+       "example_en": "Chop one onion and fry it slowly.",
+       "example_fa": "یک پیاز را خرد کن و آرام سرخ کن.",
+       "ref": ""
+      },
+      {
+       "id": "ingredients-w4",
+       "en": "garlic",
+       "ipa": "/ˈɡɑrlɪk/",
+       "pos": "noun",
+       "fa": "سیر",
+       "def_en": "A small white bulb with a strong smell, used to flavour cooking.",
+       "sport": "food",
+       "icon": "garlic",
+       "level": "A2",
+       "example_en": "Add two cloves of garlic to the pan.",
+       "example_fa": "دو حبه سیر به ماهیتابه اضافه کن.",
+       "ref": ""
+      },
+      {
+       "id": "ingredients-w5",
+       "en": "carrot",
+       "ipa": "/ˈkærət/",
+       "pos": "noun",
+       "fa": "هویج",
+       "def_en": "A long orange root vegetable, sweet and crunchy raw or cooked.",
+       "sport": "food",
+       "icon": "carrot",
+       "level": "A1",
+       "example_en": "Peel the carrots before you boil them.",
+       "example_fa": "قبل از پختن هویج‌ها را پوست بگیر.",
+       "ref": ""
+      },
+      {
+       "id": "ingredients-w6",
+       "en": "lettuce",
+       "ipa": "/ˈlɛtɪs/",
+       "pos": "noun",
+       "fa": "کاهو",
+       "def_en": "A leafy green vegetable eaten raw in salads.",
+       "sport": "food",
+       "icon": "leaf",
+       "level": "A2",
+       "example_en": "Wash the lettuce under cold water.",
+       "example_fa": "کاهو را زیر آب سرد بشوی.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "ingredients-x1",
+       "kind": "expression",
+       "en": "I will take a kilo of tomatoes.",
+       "fa": "یک کیلو گوجه‌فرنگی می‌خواهم.",
+       "meaning_en": "The standard way to buy a quantity at a market.",
+       "meaning_fa": "راه استاندارد خرید یک مقدار معین در بازار.",
+       "register": "neutral",
+       "example_en": "I will take a kilo of tomatoes and two onions.",
+       "example_fa": "یک کیلو گوجه‌فرنگی و دو پیاز می‌خواهم.",
+       "alt": ""
+      },
+      {
+       "id": "ingredients-x2",
+       "kind": "expression",
+       "en": "Are these ripe?",
+       "fa": "اینها رسیده‌اند؟",
+       "meaning_en": "Asks whether fruit is ready to eat today rather than in a few days.",
+       "meaning_fa": "می‌پرسد آیا میوه امروز آمادهٔ خوردن است یا چند روز دیگر.",
+       "register": "neutral",
+       "example_en": "Are these ripe, or should I leave them a day?",
+       "example_fa": "اینها رسیده‌اند یا یک روز بمانند؟",
+       "alt": ""
+      },
+      {
+       "id": "ingredients-x3",
+       "kind": "collocation",
+       "en": "It is in season.",
+       "fa": "فصلش است.",
+       "meaning_en": "In season is the collocation for produce grown now, at its best and cheapest.",
+       "meaning_fa": "«فصلش است» ترکیب ثابت برای محصولی است که همین حالا می‌روید و بهترین و ارزان‌ترین حالت را دارد.",
+       "register": "neutral",
+       "example_en": "Tomatoes are cheap now because they are in season.",
+       "example_fa": "گوجه‌فرنگی حالا ارزان است چون فصلش است.",
+       "alt": ""
+      },
+      {
+       "id": "ingredients-x4",
+       "kind": "idiom",
+       "en": "It costs an arm and a leg.",
+       "fa": "خیلی گران است.",
+       "meaning_en": "Literally, the price of a limb; figuratively, it is extremely expensive.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بهای یک دست و پا؛ به‌طور مجازی، بسیار گران است.",
+       "register": "informal",
+       "example_en": "Fresh berries cost an arm and a leg in winter.",
+       "example_fa": "توت تازه در زمستان خیلی گران است.",
+       "alt": ""
+      },
+      {
+       "id": "ingredients-x5",
+       "kind": "idiom",
+       "en": "You are what you eat.",
+       "fa": "هر چه بخوری همان می‌شوی.",
+       "meaning_en": "Literally, food builds the body; figuratively, your health and mood show what you feed yourself.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، غذا بدن را می‌سازد؛ به‌طور مجازی، سلامت و حال تو نشان می‌دهد چه می‌خوری.",
+       "register": "neutral",
+       "example_en": "You are what you eat, so skip the second cake.",
+       "example_fa": "هر چه بخوری همان می‌شوی، پس کیک دوم را نخور.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "How much is + [item]?",
+       "example_en": "How much is a kilo of tomatoes?",
+       "example_fa": "یک کیلو گوجه‌فرنگی چند است؟",
+       "note_en": "Ask the price before you commit.",
+       "note_fa": "قبل از خرید قیمت را بپرس."
+      },
+      {
+       "frame": "Are these + [adjective]?",
+       "example_en": "Are these ripe?",
+       "example_fa": "اینها رسیده‌اند؟",
+       "note_en": "Check the quality with one short question.",
+       "note_fa": "کیفیت را با یک پرسش کوتاه بررسی کن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "ingredients-s1",
+       "en": "The tomatoes at the corner shop are cheaper and much sweeter than the ones in the supermarket.",
+       "fa": "گوجه‌فرنگی‌های مغازهٔ سر کوچه از آنهای سوپرمارکت ارزان‌تر و خیلی شیرین‌ترند.",
+       "use_en": "Compares two shops and gives a reason.",
+       "use_fa": "دو مغازه را مقایسه می‌کند و دلیل می‌آورد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The local ones are cheaper and sweeter."
+      },
+      {
+       "id": "ingredients-s2",
+       "en": "I only buy peaches in August, when they are in season and actually taste of something.",
+       "fa": "هلو را فقط در مرداد می‌خرم، وقتی فصلش است و واقعاً مزه دارد.",
+       "use_en": "Explains a buying habit with its reason.",
+       "use_fa": "عادت خرید را با دلیلش توضیح می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I buy peaches only in season."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the greengrocer",
+      "title_fa": "در میوه‌فروشی",
+      "speakers": [
+       "Neda",
+       "The greengrocer"
+      ],
+      "lines": [
+       {
+        "who": "Neda",
+        "en": "How much are the tomatoes?",
+        "fa": "گوجه‌فرنگی‌ها چقدر است؟"
+       },
+       {
+        "who": "The greengrocer",
+        "en": "Four euros a kilo. They came from the south this morning.",
+        "fa": "کیلویی چهار یورو. امروز صبح از جنوب آمده‌اند."
+       },
+       {
+        "who": "Neda",
+        "en": "Are they ripe enough to eat today?",
+        "fa": "آنقدر رسیده‌اند که امروز بخوریم؟"
+       },
+       {
+        "who": "The greengrocer",
+        "en": "These are. Those are for tomorrow, so leave them a day.",
+        "fa": "اینها بله. آنها برای فردا هستند، یک روز بمانند."
+       },
+       {
+        "who": "Neda",
+        "en": "Then I will take a kilo of these, and two onions.",
+        "fa": "پس یک کیلو از اینها می‌گیرم و دو پیاز."
+       },
+       {
+        "who": "The greengrocer",
+        "en": "Anything else? The lettuce came in this morning too.",
+        "fa": "چیز دیگری هم می‌خواهی؟ کاهو هم صبح آمده."
+       },
+       {
+        "who": "Neda",
+        "en": "No, that is all. How much is that?",
+        "fa": "نه، همین. چقدر شد؟"
+       },
+       {
+        "who": "The greengrocer",
+        "en": "Five twenty, please.",
+        "fa": "پنج و بیست، لطفاً."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The tasteless tomatoes",
+       "title_fa": "گوجه‌فرنگی‌های بی‌مزه",
+       "situation_en": "You bought a kilo of tomatoes that taste of water.",
+       "situation_fa": "یک کیلو گوجه‌فرنگی خریدی که مزهٔ آب می‌دهد.",
+       "task_en": "Ask what is in season instead of what looks biggest.",
+       "task_fa": "بپرس چه چیزی فصلش است، نه چه چیزی درشت‌تر به نظر می‌رسد.",
+       "answer_en": "These have no taste. Do you have any that are in season? The small ones are from a local farm and they are ripe today. These have no taste. Do you have any that are in season?",
+       "answer_fa": "این‌ها مزه ندارند. چیزی دارید که فصلش باشد؟ آنهای کوچک از مزرعهٔ محلی‌اند و امروز رسیده‌اند. این‌ها مزه ندارند. چیزی دارید که فصلش باشد؟"
+      },
+      {
+       "title_en": "The market price",
+       "title_fa": "قیمت بازار",
+       "situation_en": "The stall has no price on the fruit.",
+       "situation_fa": "غرفه روی میوه قیمت نزده.",
+       "task_en": "Ask the price and decide by the kilo.",
+       "task_fa": "قیمت را بپرس و بر پایهٔ کیلو تصمیم بگیر.",
+       "answer_en": "How much is a kilo of these apples? Three fifty a kilo, or five for two kilos. How much is a kilo of these apples?",
+       "answer_fa": "یک کیلو از این سیب‌ها چند است؟ کیلویی سه و نیم، یا دو کیلو پنج. یک کیلو از این سیب‌ها چند است؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "ingredients-q1",
+       "q_en": "What does it mean when produce is in season?",
+       "q_fa": "وقتی محصولی «فصلش است» یعنی چه؟",
+       "options": [
+        "it is grown now and at its best",
+        "it is frozen",
+        "it is expensive"
+       ],
+       "answer": "it is grown now and at its best",
+       "why_en": "In season means the plant is producing it right now.",
+       "why_fa": "«فصلش است» یعنی گیاه همین حالا آن را می‌دهد."
+      },
+      {
+       "id": "ingredients-q2",
+       "q_en": "Which question checks whether fruit is ready to eat today?",
+       "q_fa": "کدام پرسش بررسی می‌کند میوه امروز آمادهٔ خوردن است؟",
+       "options": [
+        "Are these ripe?",
+        "How much is it?",
+        "Is it fresh?"
+       ],
+       "answer": "Are these ripe?",
+       "why_en": "Ripe is about readiness to eat, not about price or age.",
+       "why_fa": "«رسیده» دربارهٔ آماده بودن برای خوردن است، نه قیمت یا سن."
+      },
+      {
+       "id": "ingredients-q3",
+       "q_en": "A tomato with no taste at all can be described as ...",
+       "q_fa": "گوجه‌فرنگی‌ای که هیچ مزه‌ای ندارد چه نام دارد؟",
+       "options": [
+        "bland",
+        "spicy",
+        "tender"
+       ],
+       "answer": "bland",
+       "why_en": "Bland means no flavour; it does not mean hot or soft.",
+       "why_fa": "«بی‌مزه» یعنی بدون طعم؛ نه تند است نه نرم."
+      }
+     ]
+    },
+    {
+     "id": "pantry",
+     "order": 2,
+     "icon": "bag",
+     "title_en": "The pantry and the fridge",
+     "title_fa": "قفسهٔ خواروبار و یخچال",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "What keeps in a cupboard, what belongs in the fridge, and how to say you have run out.",
+     "blurb_fa": "چه چیزی در قفسه می‌ماند، چه چیزی در یخچال، و چگونه بگویی چیزی تمام شده.",
+     "objectives": [
+      {
+       "en": "name the dry goods and dairy you keep at home.",
+       "fa": "مواد خشک و لبنیاتی را که در خانه نگه می‌داری نام ببر."
+      },
+      {
+       "en": "say that something has run out or gone off.",
+       "fa": "بگو چیزی تمام شده یا فاسد شده."
+      },
+      {
+       "en": "measure an ingredient with a pinch, a spoon or a cup.",
+       "fa": "مواد را با نوک انگشت، قاشق یا پیمانه اندازه بگیر."
+      }
+     ],
+     "words": [
+      {
+       "id": "pantry-w1",
+       "en": "flour",
+       "ipa": "/ˈflaʊər/",
+       "pos": "noun",
+       "fa": "آرد",
+       "def_en": "A fine powder made from grain, used for bread, pasta and cakes.",
+       "sport": "food",
+       "icon": "bag",
+       "level": "A2",
+       "example_en": "Weigh the flour before you add the water.",
+       "example_fa": "آرد را قبل از افزودن آب وزن کن.",
+       "ref": ""
+      },
+      {
+       "id": "pantry-w2",
+       "en": "sugar",
+       "ipa": "/ˈʃʊɡər/",
+       "pos": "noun",
+       "fa": "شکر",
+       "def_en": "Sweet white or brown crystals used in baking and drinks.",
+       "sport": "food",
+       "icon": "sugar",
+       "level": "A1",
+       "example_en": "There is too much sugar in this cake.",
+       "example_fa": "این کیک شکر زیادی دارد.",
+       "ref": ""
+      },
+      {
+       "id": "pantry-w3",
+       "en": "salt",
+       "ipa": "/sɔlt/",
+       "pos": "noun",
+       "fa": "نمک",
+       "def_en": "A white mineral that brings out the taste of food.",
+       "sport": "food",
+       "icon": "salt",
+       "level": "A1",
+       "example_en": "Taste it before you add more salt.",
+       "example_fa": "قبل از افزودن نمک بیشتر مزه‌اش را بچش.",
+       "ref": ""
+      },
+      {
+       "id": "pantry-w4",
+       "en": "rice",
+       "ipa": "/raɪs/",
+       "pos": "noun",
+       "fa": "برنج",
+       "def_en": "Small white grains cooked in water and eaten with almost every meal.",
+       "sport": "food",
+       "icon": "rice",
+       "level": "A1",
+       "example_en": "Rinse the rice until the water runs clear.",
+       "example_fa": "برنج را بشوی تا آبش صاف شود.",
+       "ref": ""
+      },
+      {
+       "id": "pantry-w5",
+       "en": "egg",
+       "ipa": "/ɛɡ/",
+       "pos": "noun",
+       "fa": "تخم‌مرغ",
+       "def_en": "An oval food from a hen, boiled, fried or used in baking.",
+       "sport": "food",
+       "icon": "egg",
+       "level": "A1",
+       "example_en": "Beat two eggs with a fork.",
+       "example_fa": "دو تخم‌مرغ را با چنگال بزن.",
+       "ref": ""
+      },
+      {
+       "id": "pantry-w6",
+       "en": "butter",
+       "ipa": "/ˈbʌtər/",
+       "pos": "noun",
+       "fa": "کره",
+       "def_en": "A soft yellow fat made from milk, spread on bread or used for frying.",
+       "sport": "food",
+       "icon": "butter",
+       "level": "A1",
+       "example_en": "Melt the butter in the pan first.",
+       "example_fa": "اول کره را در ماهیتابه آب کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "pantry-x1",
+       "kind": "expression",
+       "en": "We are out of milk.",
+       "fa": "شیر تمام کرده‌ایم.",
+       "meaning_en": "Out of is the everyday way to say there is none left.",
+       "meaning_fa": "«تمام کرده‌ایم» روش روزمرهٔ گفتن این است که چیزی نمانده.",
+       "register": "neutral",
+       "example_en": "We are out of milk, so I will get some on the way home.",
+       "example_fa": "شیر تمام کرده‌ایم، پس در راه خانه می‌خرم.",
+       "alt": ""
+      },
+      {
+       "id": "pantry-x2",
+       "kind": "phrasal_verb",
+       "en": "It has gone off.",
+       "fa": "فاسد شده.",
+       "meaning_en": "Go off is the phrasal verb for food that has spoiled.",
+       "meaning_fa": "«فاسد شدن» فعل عبارتی برای غذایی است که خراب شده.",
+       "register": "informal",
+       "example_en": "Do not use that cream, it has gone off.",
+       "example_fa": "آن خامه را استفاده نکن، فاسد شده.",
+       "alt": ""
+      },
+      {
+       "id": "pantry-x3",
+       "kind": "collocation",
+       "en": "Add a pinch of salt.",
+       "fa": "یک نوک انگشت نمک اضافه کن.",
+       "meaning_en": "A pinch of salt is a fixed measure and a fixed phrase.",
+       "meaning_fa": "«نوک انگشت نمک» هم اندازهٔ ثابت است هم ترکیب ثابت.",
+       "register": "neutral",
+       "example_en": "Add a pinch of salt and taste it again.",
+       "example_fa": "یک نوک انگشت نمک اضافه کن و دوباره بچش.",
+       "alt": ""
+      },
+      {
+       "id": "pantry-x4",
+       "kind": "phrasal_verb",
+       "en": "Use up the leftovers.",
+       "fa": "باقیمانده‌ها را تمام کن.",
+       "meaning_en": "Use up means to finish something completely so nothing is wasted.",
+       "meaning_fa": "«تمام کردن» یعنی چیزی را کامل مصرف کنی تا هدر نرود.",
+       "register": "neutral",
+       "example_en": "Use up the leftovers before you cook again.",
+       "example_fa": "قبل از پختن دوباره، باقیمانده‌ها را تمام کن.",
+       "alt": ""
+      },
+      {
+       "id": "pantry-x5",
+       "kind": "idiom",
+       "en": "It is the best thing since sliced bread.",
+       "fa": "بهترین چیز بعد از نان بریده است.",
+       "meaning_en": "Literally, better than pre-sliced bread seemed when it arrived; figuratively, the best thing you have tried in a long time.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، بهتر از نان بریده وقتی تازه آمد؛ به‌طور مجازی، بهترین چیزی که مدت‌ها امتحان کرده‌ای.",
+       "register": "informal",
+       "example_en": "This little rice cooker is the best thing since sliced bread.",
+       "example_fa": "این پلوپز کوچک بهترین چیز بعد از نان بریده است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "We are out of + [food].",
+       "example_en": "We are out of milk.",
+       "example_fa": "شیر تمام کرده‌ایم.",
+       "note_en": "Name what is missing, not what you need to buy.",
+       "note_fa": "بگو چه چیزی نیست، نه چه چیزی باید بخری."
+      },
+      {
+       "frame": "Add a + [measure] + of + [ingredient].",
+       "example_en": "Add a pinch of salt.",
+       "example_fa": "یک نوک انگشت نمک اضافه کن.",
+       "note_en": "The measure comes before the ingredient.",
+       "note_fa": "اول اندازه، بعد ماده."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "pantry-s1",
+       "en": "There is nothing in the fridge except half a jar of olives and some very old cheese.",
+       "fa": "در یخچال چیزی نیست جز نصف ظرف زیتون و کمی پنیر خیلی کهنه.",
+       "use_en": "Says the fridge is empty without saying empty.",
+       "use_fa": "می‌گوید یخچال خالی است بدون گفتن واژهٔ خالی.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The fridge is almost empty."
+      },
+      {
+       "id": "pantry-s2",
+       "en": "The flour has been in that cupboard since last winter, so it may have gone off.",
+       "fa": "آرد از زمستان گذشته در آن قفسه مانده، پس شاید فاسد شده باشد.",
+       "use_en": "Links storage time to a risk.",
+       "use_fa": "زمان نگهداری را به یک خطر ربط می‌دهد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "That flour is old and may have gone off."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Before the shopping list",
+      "title_fa": "پیش از نوشتن فهرست خرید",
+      "speakers": [
+       "Kian",
+       "Sara"
+      ],
+      "lines": [
+       {
+        "who": "Kian",
+        "en": "We are out of milk and there are only two eggs left.",
+        "fa": "شیر تمام شده و فقط دو تخم‌مرغ مانده."
+       },
+       {
+        "who": "Sara",
+        "en": "What about the flour? I want to make bread tomorrow.",
+        "fa": "آرد چه؟ می‌خواهم فردا نان بپزم."
+       },
+       {
+        "who": "Kian",
+        "en": "Half a bag. Add it to the list.",
+        "fa": "نصف کیسه. به فهرست اضافه کن."
+       },
+       {
+        "who": "Sara",
+        "en": "And the butter in the door has gone off, it smells strange.",
+        "fa": "و کرهٔ در یخچال فاسد شده، بوی عجیبی می‌دهد."
+       },
+       {
+        "who": "Kian",
+        "en": "Right. Milk, flour, butter, eggs. Anything else?",
+        "fa": "درست. شیر، آرد، کره، تخم‌مرغ. چیز دیگری؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Rice, if it is on offer. The last bag was very good.",
+        "fa": "برنج، اگر تخفیف داشته باشد. کیسهٔ قبلی خیلی خوب بود."
+       },
+       {
+        "who": "Kian",
+        "en": "I will take the list and go now, before the shop closes.",
+        "fa": "فهرست را برمی‌دارم و الان می‌روم، قبل از بسته شدن مغازه."
+       },
+       {
+        "who": "Sara",
+        "en": "Take a bag with you, the big one is by the door.",
+        "fa": "یک کیسه با خودت ببر، کیسهٔ بزرگ کنار در است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The empty fridge",
+       "title_fa": "یخچال خالی",
+       "situation_en": "You open the fridge at eight in the evening and there is nothing to cook.",
+       "situation_fa": "ساعت هشت شب یخچال را باز می‌کنی و چیزی برای پختن نیست.",
+       "task_en": "Name what is missing and agree on what to buy.",
+       "task_fa": "بگو چه چیزی نیست و بر خرید توافق کن.",
+       "answer_en": "We are out of eggs and milk. What can we make with rice and flour? Rice with the last of the butter, and we buy eggs tomorrow. We are out of eggs and milk. What can we make with rice and flour?",
+       "answer_fa": "تخم‌مرغ و شیر تمام شده. با برنج و آرد چه می‌شود پخت؟ برنج با آخرین کره، و فردا تخم‌مرغ می‌خریم. تخم‌مرغ و شیر تمام شده. با برنج و آرد چه می‌شود پخت؟"
+      },
+      {
+       "title_en": "The old flour",
+       "title_fa": "آرد کهنه",
+       "situation_en": "A bag of flour has sat in the cupboard for a year.",
+       "situation_fa": "یک کیسه آرد یک سال در قفسه مانده.",
+       "task_en": "Decide whether it is still safe, and say why.",
+       "task_fa": "تصمیم بگیر سالم است یا نه و دلیلش را بگو.",
+       "answer_en": "This flour smells musty. Has it gone off? Flour keeps a year in a dry cupboard, but this one is damp, so throw it out. This flour smells musty. Has it gone off?",
+       "answer_fa": "این آرد بوی نم گرفته. فاسد شده؟ آرد یک سال در قفسهٔ خشک می‌ماند، اما این یکی نم کشیده، پس دور بریز. این آرد بوی نم گرفته. فاسد شده؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "pantry-q1",
+       "q_en": "Which phrasal verb means food has spoiled?",
+       "q_fa": "کدام فعل عبارتی یعنی غذا فاسد شده؟",
+       "options": [
+        "gone off",
+        "used up",
+        "run out"
+       ],
+       "answer": "gone off",
+       "why_en": "Go off is about food spoiling; run out is about having none left.",
+       "why_fa": "«فاسد شدن» دربارهٔ خراب شدن غذاست؛ «تمام کردن» دربارهٔ نماندن آن."
+      },
+      {
+       "id": "pantry-q2",
+       "q_en": "A pinch is ...",
+       "q_fa": "«نوک انگشت» چه اندازه‌ای است؟",
+       "options": [
+        "a very small amount held between finger and thumb",
+        "a full tablespoon",
+        "a cup"
+       ],
+       "answer": "a very small amount held between finger and thumb",
+       "why_en": "A pinch is the smallest measure in a kitchen.",
+       "why_fa": "«نوک انگشت» کوچک‌ترین اندازه در آشپزخانه است."
+      },
+      {
+       "id": "pantry-q3",
+       "q_en": "Where does butter belong?",
+       "q_fa": "کره کجا نگهداری می‌شود؟",
+       "options": [
+        "in the fridge",
+        "in a dry cupboard",
+        "in the freezer for a year"
+       ],
+       "answer": "in the fridge",
+       "why_en": "Butter spoils quickly at room temperature.",
+       "why_fa": "کره در دمای اتاق زود فاسد می‌شود."
+      }
+     ]
+    },
+    {
+     "id": "equipment",
+     "order": 3,
+     "icon": "pot",
+     "title_en": "Pots, pans and the tools",
+     "title_fa": "قابلمه، ماهیتابه و ابزار",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "The equipment a kitchen runs on, where it lives, and how to ask for it.",
+     "blurb_fa": "ابزارهایی که آشپزخانه با آن‌ها کار می‌کند، جایشان، و اینکه چطور بخواهی‌شان.",
+     "objectives": [
+      {
+       "en": "ask where a piece of equipment is kept.",
+       "fa": "بپرس یک وسیله کجا نگهداری می‌شود."
+      },
+      {
+       "en": "name the pot, pan and oven and what each one is for.",
+       "fa": "قابلمه، ماهیتابه و فر را نام ببر و بگو هر کدام برای چیست."
+      },
+      {
+       "en": "say that a tool works well or badly.",
+       "fa": "بگو یک وسیله خوب یا بد کار می‌کند."
+      }
+     ],
+     "words": [
+      {
+       "id": "equipment-w1",
+       "en": "pot",
+       "ipa": "/pɑt/",
+       "pos": "noun",
+       "fa": "قابلمه",
+       "def_en": "A deep round container with a lid, used for boiling and stews.",
+       "sport": "food",
+       "icon": "pot",
+       "level": "A2",
+       "example_en": "Put the potatoes in a large pot of water.",
+       "example_fa": "سیب‌زمینی‌ها را در قابلمهٔ بزرگ آب بگذار.",
+       "ref": ""
+      },
+      {
+       "id": "equipment-w2",
+       "en": "pan",
+       "ipa": "/pæn/",
+       "pos": "noun",
+       "fa": "ماهیتابه",
+       "def_en": "A shallow metal container with a handle, used for frying.",
+       "sport": "food",
+       "icon": "pan",
+       "level": "A2",
+       "example_en": "Heat the oil in a pan before the onions go in.",
+       "example_fa": "قبل از ریختن پیاز، روغن را در ماهیتابه گرم کن.",
+       "ref": ""
+      },
+      {
+       "id": "equipment-w3",
+       "en": "oven",
+       "ipa": "/ˈʌvən/",
+       "pos": "noun",
+       "fa": "فر",
+       "def_en": "The closed box in a kitchen that cooks food with dry heat.",
+       "sport": "food",
+       "icon": "oven",
+       "level": "A1",
+       "example_en": "Preheat the oven to two hundred degrees.",
+       "example_fa": "فر را روی دویست درجه گرم کن.",
+       "ref": ""
+      },
+      {
+       "id": "equipment-w4",
+       "en": "knife",
+       "ipa": "/naɪf/",
+       "pos": "noun",
+       "fa": "چاقو",
+       "def_en": "A sharp blade with a handle, used for cutting food.",
+       "sport": "food",
+       "icon": "knife",
+       "level": "A1",
+       "example_en": "A sharp knife is safer than a blunt one.",
+       "example_fa": "چاقوی تیز از چاقوی کند ایمن‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "equipment-w5",
+       "en": "cutting board",
+       "ipa": "/ˈkʌtɪŋ bɔrd/",
+       "pos": "noun",
+       "fa": "تختهٔ برش",
+       "def_en": "A flat wooden or plastic board you cut food on.",
+       "sport": "food",
+       "icon": "cutting",
+       "level": "A2",
+       "example_en": "Cut the meat on a separate cutting board.",
+       "example_fa": "گوشت را روی تختهٔ برش جداگانه خرد کن.",
+       "ref": ""
+      },
+      {
+       "id": "equipment-w6",
+       "en": "whisk",
+       "ipa": "/wɪsk/",
+       "pos": "noun",
+       "fa": "همزن",
+       "def_en": "A wire tool for beating eggs or cream quickly.",
+       "sport": "food",
+       "icon": "whisk",
+       "level": "B1",
+       "example_en": "Use a whisk to mix the eggs and the sugar.",
+       "example_fa": "با همزن تخم‌مرغ و شکر را مخلوط کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "equipment-x1",
+       "kind": "expression",
+       "en": "Where do you keep the pans?",
+       "fa": "ماهیتابه‌ها را کجا می‌گذاری؟",
+       "meaning_en": "Asks for the place rather than for the thing.",
+       "meaning_fa": "جای شیء را می‌پرسد، نه خود شیء را.",
+       "register": "neutral",
+       "example_en": "Where do you keep the pans in this kitchen?",
+       "example_fa": "در این آشپزخانه ماهیتابه‌ها را کجا می‌گذاری؟",
+       "alt": ""
+      },
+      {
+       "id": "equipment-x2",
+       "kind": "expression",
+       "en": "It is in the bottom drawer.",
+       "fa": "در کشوی پایینی است.",
+       "meaning_en": "The short answer that ends a search.",
+       "meaning_fa": "پاسخ کوتاهی که جست‌وجو را تمام می‌کند.",
+       "register": "neutral",
+       "example_en": "The whisk is in the bottom drawer by the oven.",
+       "example_fa": "همزن در کشوی پایینی کنار فر است.",
+       "alt": ""
+      },
+      {
+       "id": "equipment-x3",
+       "kind": "phrasal_verb",
+       "en": "Turn the oven on.",
+       "fa": "فر را روشن کن.",
+       "meaning_en": "Turn on is the phrasal verb for starting a machine.",
+       "meaning_fa": "«روشن کردن» فعل عبارتی برای راه‌انداختن دستگاه است.",
+       "register": "neutral",
+       "example_en": "Turn the oven on ten minutes before you need it.",
+       "example_fa": "ده دقیقه قبل از نیاز، فر را روشن کن.",
+       "alt": ""
+      },
+      {
+       "id": "equipment-x4",
+       "kind": "idiom",
+       "en": "It works a treat.",
+       "fa": "عالی کار می‌کند.",
+       "meaning_en": "Literally, it works as a treat, a pleasure; figuratively, it works perfectly.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مثل یک هدیه کار می‌کند؛ به‌طور مجازی، بی‌نقص کار می‌کند.",
+       "register": "informal",
+       "example_en": "This old pan works a treat for pancakes.",
+       "example_fa": "این ماهیتابهٔ کهنه برای پنکیک عالی کار می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "equipment-x5",
+       "kind": "idiom",
+       "en": "Too many cooks spoil the broth.",
+       "fa": "آشپز که دو تا شد آش یا شور می‌شود یا بی‌نمک.",
+       "meaning_en": "Literally, a soup ruined by too many cooks; figuratively, too many people helping makes the work worse.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، آشی که آشپزهای زیاد خرابش می‌کنند؛ به‌طور مجازی، کمک زیاد کار را بدتر می‌کند.",
+       "register": "neutral",
+       "example_en": "Let one person plate it: too many cooks spoil the broth.",
+       "example_fa": "بگذار یک نفر غذا را بکشد: آشپز که دو تا شد آش خراب می‌شود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Where do you keep the + [thing]?",
+       "example_en": "Where do you keep the pans?",
+       "example_fa": "ماهیتابه‌ها را کجا می‌گذاری؟",
+       "note_en": "Ask for the place when you are a guest in a kitchen.",
+       "note_fa": "وقتی مهمان آشپزخانه‌ای هستی جای وسیله را بپرس."
+      },
+      {
+       "frame": "It is in the + [place].",
+       "example_en": "It is in the bottom drawer.",
+       "example_fa": "در کشوی پایینی است.",
+       "note_en": "Answer with the place, then stop.",
+       "note_fa": "با مکان پاسخ بده و تمام کن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "equipment-s1",
+       "en": "The only pan that fits the fish is the old one, and its handle gets hot.",
+       "fa": "تنها ماهیتابه‌ای که ماهی در آن جا می‌شود همان کهنه است و دسته‌اش داغ می‌شود.",
+       "use_en": "Describes a real limitation of a tool.",
+       "use_fa": "یک محدودیت واقعی ابزار را توصیف می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The old pan is the only one big enough."
+      },
+      {
+       "id": "equipment-s2",
+       "en": "A sharp knife and a wooden board make the whole job twice as quick.",
+       "fa": "یک چاقوی تیز و تختهٔ چوبی تمام کار را دو برابر سریع‌تر می‌کند.",
+       "use_en": "Links equipment to speed.",
+       "use_fa": "ابزار را به سرعت کار ربط می‌دهد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Good tools make the job quicker."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Borrowing a kitchen",
+      "title_fa": "قرض گرفتن آشپزخانه",
+      "speakers": [
+       "Mina",
+       "Ali"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Where do you keep the big pot?",
+        "fa": "قابلمهٔ بزرگ را کجا می‌گذاری؟"
+       },
+       {
+        "who": "Ali",
+        "en": "In the cupboard under the sink. The lid is separate.",
+        "fa": "در قفسهٔ زیر سینک. درش جداست."
+       },
+       {
+        "who": "Mina",
+        "en": "And a whisk? I want to beat the eggs.",
+        "fa": "و همزن؟ می‌خواهم تخم‌مرغ‌ها را بزنم."
+       },
+       {
+        "who": "Ali",
+        "en": "Top drawer, next to the knives.",
+        "fa": "کشوی بالا، کنار چاقوها."
+       },
+       {
+        "who": "Mina",
+        "en": "Do you have a board I can use for the onions?",
+        "fa": "تخته‌ای داری که برای پیاز استفاده کنم؟"
+       },
+       {
+        "who": "Ali",
+        "en": "Take the plastic one. The wooden one is for bread.",
+        "fa": "پلاستیکی را بردار. چوبی برای نان است."
+       },
+       {
+        "who": "Mina",
+        "en": "Thanks. This oven heats up fast, does it not?",
+        "fa": "ممنون. این فر سریع گرم می‌شود، نه؟"
+       },
+       {
+        "who": "Ali",
+        "en": "It works a treat, but the light inside has gone.",
+        "fa": "عالی کار می‌کند، اما چراغ داخلش رفته است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The missing lid",
+       "title_fa": "در قابلمه گم‌شده",
+       "situation_en": "You want to boil rice and every pot you find has no lid.",
+       "situation_fa": "می‌خواهی برنج بپزی و هر قابلمه‌ای پیدا می‌کنی در ندارد.",
+       "task_en": "Ask for the right pot and say why the lid matters.",
+       "task_fa": "قابلمهٔ درست را بخواه و بگو چرا در مهم است.",
+       "answer_en": "Do you have a pot with a lid? Rice needs one. Take the large one; its lid is in the drawer on the left. Do you have a pot with a lid? Rice needs one.",
+       "answer_fa": "قابلمهٔ دردار داری؟ برنج در می‌خواهد. بزرگ را بردار؛ درش در کشوی سمت چپ است. قابلمهٔ دردار داری؟ برنج در می‌خواهد."
+      },
+      {
+       "title_en": "The blunt knife",
+       "title_fa": "چاقوی کند",
+       "situation_en": "The only knife in the drawer will not cut a tomato.",
+       "situation_fa": "تنها چاقوی کشو گوجه‌فرنگی را نمی‌برد.",
+       "task_en": "Say the tool is not working and ask for another.",
+       "task_fa": "بگو ابزار کار نمی‌کند و یکی دیگر بخواه.",
+       "answer_en": "This knife is blunt. Is there a sharper one? Use the small one and sharpen it first, it takes a minute. This knife is blunt. Is there a sharper one?",
+       "answer_fa": "این چاقو کند است. تیزتری هست؟ کوچک را استفاده کن و اول تیزش کن، یک دقیقه است. این چاقو کند است. تیزتری هست؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "equipment-q1",
+       "q_en": "Which tool beats eggs quickly?",
+       "q_fa": "کدام وسیله تخم‌مرغ را سریع می‌زند؟",
+       "options": [
+        "a whisk",
+        "a pot",
+        "a cutting board"
+       ],
+       "answer": "a whisk",
+       "why_en": "A whisk is made for beating, not for holding food.",
+       "why_fa": "همزن برای زدن ساخته شده، نه نگه داشتن غذا."
+      },
+      {
+       "id": "equipment-q2",
+       "q_en": "Which is a phrasal verb for starting the oven?",
+       "q_fa": "کدام فعل عبارتی یعنی روشن کردن فر است؟",
+       "options": [
+        "turn on",
+        "put in",
+        "take off"
+       ],
+       "answer": "turn on",
+       "why_en": "Turn on starts a machine; turn off stops it.",
+       "why_fa": "«روشن کردن» دستگاه را راه می‌اندازد؛ «خاموش کردن» متوقفش می‌کند."
+      },
+      {
+       "id": "equipment-q3",
+       "q_en": "Why cut meat on a separate board?",
+       "q_fa": "چرا گوشت را روی تختهٔ جداگانه خرد می‌کنیم؟",
+       "options": [
+        "to keep raw meat away from other food",
+        "to keep the knife sharp",
+        "to make the meat tender"
+       ],
+       "answer": "to keep raw meat away from other food",
+       "why_en": "Raw meat carries bacteria that must not touch salad.",
+       "why_fa": "گوشت خام باکتری دارد که نباید به سالاد برسد."
+      }
+     ]
+    },
+    {
+     "id": "methods",
+     "order": 4,
+     "icon": "flame",
+     "title_en": "Cooking methods",
+     "title_fa": "روش‌های پخت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Boil, fry, roast, bake, grill and steam, and the sentences that tell somebody how.",
+     "blurb_fa": "جوشاندن، سرخ کردن، در فر پختن، پختن، گریل کردن و بخارپز کردن، و جمله‌هایی که به کسی می‌گویند چطور.",
+     "objectives": [
+      {
+       "en": "name the six ways food is cooked and what each one does.",
+       "fa": "شش روش پخت و کار هر کدام را نام ببر."
+      },
+      {
+       "en": "give an instruction in the imperative, in the right order.",
+       "fa": "دستور را با فعل امر و به ترتیب درست بده."
+      },
+      {
+       "en": "say how a dish was cooked and how long it took.",
+       "fa": "بگو غذایی چطور پخته شد و چقدر طول کشید."
+      }
+     ],
+     "words": [
+      {
+       "id": "methods-w1",
+       "en": "boil",
+       "ipa": "/bɔɪl/",
+       "pos": "verb",
+       "fa": "جوشاندن",
+       "def_en": "Cook food in water that is bubbling hard.",
+       "sport": "food",
+       "icon": "pot",
+       "level": "A2",
+       "example_en": "Boil the potatoes for twenty minutes.",
+       "example_fa": "سیب‌زمینی‌ها را بیست دقیقه بجوشان.",
+       "ref": ""
+      },
+      {
+       "id": "methods-w2",
+       "en": "fry",
+       "ipa": "/fraɪ/",
+       "pos": "verb",
+       "fa": "سرخ کردن",
+       "def_en": "Cook food in hot oil in a pan.",
+       "sport": "food",
+       "icon": "pan",
+       "level": "A2",
+       "example_en": "Fry the onions until they are soft.",
+       "example_fa": "پیازها را تا نرم شوند سرخ کن.",
+       "ref": ""
+      },
+      {
+       "id": "methods-w3",
+       "en": "roast",
+       "ipa": "/roʊst/",
+       "pos": "verb",
+       "fa": "در فر پختن (گوشت و سبزی)",
+       "def_en": "Cook meat or vegetables in an oven with a little oil.",
+       "sport": "food",
+       "icon": "oven",
+       "level": "B1",
+       "example_en": "Roast the chicken at two hundred degrees for an hour.",
+       "example_fa": "مرغ را یک ساعت روی دویست درجه در فر بپز.",
+       "ref": ""
+      },
+      {
+       "id": "methods-w4",
+       "en": "bake",
+       "ipa": "/beɪk/",
+       "pos": "verb",
+       "fa": "پختن (نان و کیک)",
+       "def_en": "Cook bread or cake in an oven with dry heat.",
+       "sport": "food",
+       "icon": "bread",
+       "level": "A2",
+       "example_en": "Bake the bread for forty minutes.",
+       "example_fa": "نان را چهل دقیقه بپز.",
+       "ref": ""
+      },
+      {
+       "id": "methods-w5",
+       "en": "grill",
+       "ipa": "/ɡrɪl/",
+       "pos": "verb",
+       "fa": "گریل کردن",
+       "def_en": "Cook food under or over strong direct heat.",
+       "sport": "food",
+       "icon": "flame",
+       "level": "B1",
+       "example_en": "Grill the peppers until the skin blackens.",
+       "example_fa": "فلفل‌ها را گریل کن تا پوستشان سیاه شود.",
+       "ref": ""
+      },
+      {
+       "id": "methods-w6",
+       "en": "steam",
+       "ipa": "/stim/",
+       "pos": "verb",
+       "fa": "بخارپز کردن",
+       "def_en": "Cook food with steam and no direct water or oil.",
+       "sport": "food",
+       "icon": "pot",
+       "level": "B1",
+       "example_en": "Steam the broccoli for four minutes only.",
+       "example_fa": "کلم بروکلی را فقط چهار دقیقه بخارپز کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "methods-x1",
+       "kind": "expression",
+       "en": "Boil the water first.",
+       "fa": "اول آب را بجوشان.",
+       "meaning_en": "A step in the right order, which is the whole point of a method.",
+       "meaning_fa": "یک مرحله به ترتیب درست، که کل نکتهٔ روش همین است.",
+       "register": "neutral",
+       "example_en": "Boil the water first, then add the pasta.",
+       "example_fa": "اول آب را بجوشان، بعد پاستا را بریز.",
+       "alt": ""
+      },
+      {
+       "id": "methods-x2",
+       "kind": "collocation",
+       "en": "Fry it until golden.",
+       "fa": "تا طلایی شود سرخش کن.",
+       "meaning_en": "Golden is the fixed word for the colour that means ready.",
+       "meaning_fa": "«طلایی» واژهٔ ثابت برای رنگی است که یعنی آماده است.",
+       "register": "neutral",
+       "example_en": "Fry it until golden, then turn it over.",
+       "example_fa": "تا طلایی شود سرخش کن، بعد برگردانش.",
+       "alt": ""
+      },
+      {
+       "id": "methods-x3",
+       "kind": "expression",
+       "en": "Let it simmer for twenty minutes.",
+       "fa": "بیست دقیقه آرام بجوشد.",
+       "meaning_en": "Simmer is the gentle boil that cooks through without burning.",
+       "meaning_fa": "«آرام جوشیدن» جوش ملایمی است که غذا را می‌پزد بی‌آنکه بسوزد.",
+       "register": "neutral",
+       "example_en": "Turn the heat down and let it simmer for twenty minutes.",
+       "example_fa": "حرارت را کم کن و بگذار بیست دقیقه آرام بجوشد.",
+       "alt": ""
+      },
+      {
+       "id": "methods-x4",
+       "kind": "idiom",
+       "en": "Now you are cooking with gas.",
+       "fa": "حالا کارت راه افتاده.",
+       "meaning_en": "Literally, moved from a slow stove to gas; figuratively, now you are working fast and well.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از اجاق کند به گاز رسیدی؛ به‌طور مجازی، حالا سریع و خوب کار می‌کنی.",
+       "register": "informal",
+       "example_en": "You preheated the pan this time, so now you are cooking with gas.",
+       "example_fa": "این بار ماهیتابه را گرم کردی، پس حالا کارت راه افتاده.",
+       "alt": ""
+      },
+      {
+       "id": "methods-x5",
+       "kind": "idiom",
+       "en": "It all went up in smoke.",
+       "fa": "همه‌اش دود شد و به هوا رفت.",
+       "meaning_en": "Literally, the food burned away; figuratively, the plan or the money disappeared completely.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، غذا در آتش از بین رفت؛ به‌طور مجازی، نقشه یا پول کاملاً ناپدید شد.",
+       "register": "neutral",
+       "example_en": "We forgot the oven and the whole dinner went up in smoke.",
+       "example_fa": "فر را فراموش کردیم و کل شام دود شد و رفت.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Boil the + [food] + for + [time].",
+       "example_en": "Boil the potatoes for twenty minutes.",
+       "example_fa": "سیب‌زمینی‌ها را بیست دقیقه بجوشان.",
+       "note_en": "The food, then the time, in one instruction.",
+       "note_fa": "اول غذا، بعد زمان، در یک دستور."
+      },
+      {
+       "frame": "Let it + [verb] + for + [time].",
+       "example_en": "Let it simmer for twenty minutes.",
+       "example_fa": "بگذار بیست دقیقه آرام بجوشد.",
+       "note_en": "Let it plus a verb softens an instruction.",
+       "note_fa": "«بگذار» به‌همراه فعل، دستور را نرم می‌کند."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "methods-s1",
+       "en": "I roast the vegetables on Sunday and eat them cold in salads all week.",
+       "fa": "یکشنبه سبزی‌ها را در فر می‌پزم و همهٔ هفته سرد در سالاد می‌خورم.",
+       "use_en": "Describes a method plus the reason for it.",
+       "use_fa": "یک روش و دلیلش را توصیف می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I roast once and eat all week."
+      },
+      {
+       "id": "methods-s2",
+       "en": "If you steam the fish instead of frying it, it stays soft and the kitchen stays clean.",
+       "fa": "اگر ماهی را بخارپز کنی نه سرخ، نرم می‌ماند و آشپزخانه تمیز.",
+       "use_en": "Compares two methods and names two results.",
+       "use_fa": "دو روش را مقایسه می‌کند و دو نتیجه را نام می‌برد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Steaming keeps the fish soft and the kitchen clean."
+      }
+     ],
+     "dialogue": {
+      "title_en": "The cooking lesson",
+      "title_fa": "درس آشپزی",
+      "speakers": [
+       "Bahar",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Bahar",
+        "en": "Do I put the onions in cold oil or hot oil?",
+        "fa": "پیاز را در روغن سرد بریزم یا داغ؟"
+       },
+       {
+        "who": "Reza",
+        "en": "Hot, but not smoking. Fry them until golden.",
+        "fa": "داغ، اما نه تا حد دود. تا طلایی شود سرخ کن."
+       },
+       {
+        "who": "Bahar",
+        "en": "And the potatoes? Straight into the pan?",
+        "fa": "و سیب‌زمینی‌ها؟ مستقیم در ماهیتابه؟"
+       },
+       {
+        "who": "Reza",
+        "en": "No, boil them first for ten minutes. Then they roast in half the time.",
+        "fa": "نه، اول ده دقیقه بجوشان. بعد نصف زمان در فر می‌پزند."
+       },
+       {
+        "who": "Bahar",
+        "en": "The oven is at two hundred. Should I put the chicken in now?",
+        "fa": "فر روی دویست است. مرغ را الان بگذارم؟"
+       },
+       {
+        "who": "Reza",
+        "en": "Now, yes. And turn it once, halfway through.",
+        "fa": "الان، بله. و یک بار وسط پخت برگردانش."
+       },
+       {
+        "who": "Bahar",
+        "en": "How will I know it is done?",
+        "fa": "چطور بفهمم پخته است؟"
+       },
+       {
+        "who": "Reza",
+        "en": "The juices run clear. If they are pink, give it ten more minutes.",
+        "fa": "آبه‌اش صاف بیرون می‌آید. اگر صورتی بود، ده دقیقه دیگر بده."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The burnt onions",
+       "title_fa": "پیاز سوخته",
+       "situation_en": "The onions went black while you looked for the salt.",
+       "situation_fa": "پیازها سیاه شدند وقتی دنبال نمک می‌گشتی.",
+       "task_en": "Say what happened, and how to avoid it next time.",
+       "task_fa": "بگو چه شد و دفعهٔ بعد چطور از آن پرهیز کنی.",
+       "answer_en": "I burned the onions. I had the heat too high. Start again on a lower heat and stir them every minute. I burned the onions. I had the heat too high.",
+       "answer_fa": "پیازها را سوزاندم. حرارت را زیاد گذاشته بودم. از نو با حرارت کمتر شروع کن و هر دقیقه هم بزن. پیازها را سوزاندم. حرارت را زیاد گذاشته بودم."
+      },
+      {
+       "title_en": "The raw chicken",
+       "title_fa": "مرغ نپخته",
+       "situation_en": "The chicken looks brown outside and is pink at the bone.",
+       "situation_fa": "مرغ بیرون قهوه‌ای است و کنار استخوان صورتی.",
+       "task_en": "Ask how to finish it safely.",
+       "task_fa": "بپرس چطور ایمن تمامش کنی.",
+       "answer_en": "It is still pink near the bone. What should I do? Put it back for fifteen minutes and cover it with foil so it does not dry. It is still pink near the bone. What should I do?",
+       "answer_fa": "کنار استخوان هنوز صورتی است. چه کار کنم؟ پانزده دقیقه دیگر در فر بگذار و با فویل بپوشان تا خشک نشود. کنار استخوان هنوز صورتی است. چه کار کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "methods-q1",
+       "q_en": "Which method cooks food in gently bubbling liquid?",
+       "q_fa": "کدام روش غذا را در مایع آرام‌جوش می‌پزد؟",
+       "options": [
+        "simmer",
+        "grill",
+        "bake"
+       ],
+       "answer": "simmer",
+       "why_en": "Simmer is a gentle boil, not a hard one.",
+       "why_fa": "«آرام جوشیدن» جوش ملایم است، نه شدید."
+      },
+      {
+       "id": "methods-q2",
+       "q_en": "What does \"fry until golden\" tell you?",
+       "q_fa": "«تا طلایی شود سرخ کن» چه می‌گوید؟",
+       "options": [
+        "the colour that means it is ready",
+        "the temperature of the oil",
+        "the size of the pan"
+       ],
+       "answer": "the colour that means it is ready",
+       "why_en": "Golden is the colour that marks the end of frying.",
+       "why_fa": "«طلایی» رنگی است که پایان سرخ شدن را نشان می‌دهد."
+      },
+      {
+       "id": "methods-q3",
+       "q_en": "Which one uses dry heat in a closed box?",
+       "q_fa": "کدام یک از گرمای خشک در محفظهٔ بسته استفاده می‌کند؟",
+       "options": [
+        "bake",
+        "steam",
+        "boil"
+       ],
+       "answer": "bake",
+       "why_en": "Baking happens in an oven, with no water.",
+       "why_fa": "پختن در فر انجام می‌شود، بدون آب."
+      }
+     ]
+    },
+    {
+     "id": "recipes",
+     "order": 5,
+     "icon": "book",
+     "title_en": "Recipes and quantities",
+     "title_fa": "دستور پخت و مقدارها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Reading a recipe out loud, asking how many it serves, and scaling it up or down.",
+     "blurb_fa": "خواندن دستور پخت با صدای بلند، پرسیدن اینکه برای چند نفر است، و کم و زیاد کردنش.",
+     "objectives": [
+      {
+       "en": "read a recipe's steps in order and say what each one needs.",
+       "fa": "مرحله‌های دستور را به ترتیب بخوان و بگو هر کدام چه می‌خواهد."
+      },
+      {
+       "en": "ask how many people a dish serves.",
+       "fa": "بپرس یک غذا برای چند نفر است."
+      },
+      {
+       "en": "double or halve a recipe and say the new amounts.",
+       "fa": "دستور را دو برابر یا نصف کن و مقدارهای تازه را بگو."
+      }
+     ],
+     "words": [
+      {
+       "id": "recipes-w1",
+       "en": "recipe",
+       "ipa": "/ˈrɛsəpi/",
+       "pos": "noun",
+       "fa": "دستور پخت",
+       "def_en": "A set of instructions for cooking a dish.",
+       "sport": "food",
+       "icon": "book",
+       "level": "A2",
+       "example_en": "This recipe takes forty minutes from start to finish.",
+       "example_fa": "این دستور از اول تا آخر چهل دقیقه می‌برد.",
+       "ref": ""
+      },
+      {
+       "id": "recipes-w2",
+       "en": "ingredient",
+       "ipa": "/ɪnˈɡridiənt/",
+       "pos": "noun",
+       "fa": "مادهٔ اولیه",
+       "def_en": "One of the foods that go into a dish.",
+       "sport": "food",
+       "icon": "basket",
+       "level": "A2",
+       "example_en": "The first ingredient is butter, not oil.",
+       "example_fa": "مادهٔ اولیهٔ اول کره است، نه روغن.",
+       "ref": ""
+      },
+      {
+       "id": "recipes-w3",
+       "en": "tablespoon",
+       "ipa": "/ˈteɪbəlspun/",
+       "pos": "noun",
+       "fa": "قاشق غذاخوری",
+       "def_en": "A large spoon measure, about three teaspoons.",
+       "sport": "food",
+       "icon": "spoon",
+       "level": "A2",
+       "example_en": "Add one tablespoon of olive oil.",
+       "example_fa": "یک قاشق غذاخوری روغن زیتون اضافه کن.",
+       "ref": ""
+      },
+      {
+       "id": "recipes-w4",
+       "en": "teaspoon",
+       "ipa": "/ˈti spun/",
+       "pos": "noun",
+       "fa": "قاشق چای‌خوری",
+       "def_en": "A small spoon measure used for salt and spices.",
+       "sport": "food",
+       "icon": "spoon",
+       "level": "A2",
+       "example_en": "Half a teaspoon of salt is enough.",
+       "example_fa": "نصف قاشق چای‌خوری نمک کافی است.",
+       "ref": ""
+      },
+      {
+       "id": "recipes-w5",
+       "en": "pinch",
+       "ipa": "/pɪntʃ/",
+       "pos": "noun",
+       "fa": "نوک انگشت",
+       "def_en": "A very small amount held between finger and thumb.",
+       "sport": "food",
+       "icon": "salt",
+       "level": "B1",
+       "example_en": "Add a pinch of chilli flakes at the end.",
+       "example_fa": "آخر کار یک نوک انگشت فلفل قرمز اضافه کن.",
+       "ref": ""
+      },
+      {
+       "id": "recipes-w6",
+       "en": "cup",
+       "ipa": "/kʌp/",
+       "pos": "noun",
+       "fa": "پیمانه",
+       "def_en": "A measure of volume used in baking, about two hundred and forty millilitres.",
+       "sport": "food",
+       "icon": "cup",
+       "level": "A2",
+       "example_en": "Use one cup of milk and two cups of flour.",
+       "example_fa": "یک پیمانه شیر و دو پیمانه آرد استفاده کن.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "recipes-x1",
+       "kind": "collocation",
+       "en": "Follow the recipe.",
+       "fa": "دستور را دنبال کن.",
+       "meaning_en": "Follow the recipe is the fixed phrase for doing the steps as written.",
+       "meaning_fa": "«دستور را دنبال کردن» عبارت ثابت برای انجام مرحله‌ها به همان ترتیب نوشته‌شده است.",
+       "register": "neutral",
+       "example_en": "Follow the recipe the first time, then change it.",
+       "example_fa": "بار اول دستور را دنبال کن، بعد تغییرش بده.",
+       "alt": ""
+      },
+      {
+       "id": "recipes-x2",
+       "kind": "expression",
+       "en": "How many does it serve?",
+       "fa": "برای چند نفر است؟",
+       "meaning_en": "Asks for the number of portions, not the number of steps.",
+       "meaning_fa": "تعداد پرس را می‌پرسد، نه تعداد مرحله‌ها را.",
+       "register": "neutral",
+       "example_en": "How many does it serve, four or six?",
+       "example_fa": "برای چند نفر است، چهار یا شش؟",
+       "alt": ""
+      },
+      {
+       "id": "recipes-x3",
+       "kind": "expression",
+       "en": "Double the quantities.",
+       "fa": "مقدارها را دو برابر کن.",
+       "meaning_en": "The instruction for cooking for twice as many people.",
+       "meaning_fa": "دستور پختن برای دو برابر افراد.",
+       "register": "neutral",
+       "example_en": "We are eight, so double the quantities.",
+       "example_fa": "ما هشت نفریم، پس مقدارها را دو برابر کن.",
+       "alt": ""
+      },
+      {
+       "id": "recipes-x4",
+       "kind": "idiom",
+       "en": "It is a recipe for disaster.",
+       "fa": "دستور بدبختی است.",
+       "meaning_en": "Literally, a set of steps that ends in a ruined dish; figuratively, a plan certain to go wrong.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دستوری که به غذای خراب می‌رسد؛ به‌طور مجازی، نقشه‌ای که حتماً بد می‌شود.",
+       "register": "neutral",
+       "example_en": "No timer and a hot oven is a recipe for disaster.",
+       "example_fa": "بی‌تایمر و فر داغ دستور بدبختی است.",
+       "alt": ""
+      },
+      {
+       "id": "recipes-x5",
+       "kind": "idiom",
+       "en": "Do it by the book.",
+       "fa": "دقیقاً طبق دستور انجامش بده.",
+       "meaning_en": "Literally, follow the written recipe exactly; figuratively, follow the rules.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دقیقاً از دستور نوشته‌شده پیروی کن؛ به‌طور مجازی، قواعد را رعایت کن.",
+       "register": "neutral",
+       "example_en": "For the first cake, do it by the book.",
+       "example_fa": "برای کیک اول، دقیقاً طبق دستور انجامش بده.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "How many does it + [verb]?",
+       "example_en": "How many does it serve?",
+       "example_fa": "برای چند نفر است؟",
+       "note_en": "Ask about portions with how many.",
+       "note_fa": "دربارهٔ تعداد پرس با «چند» بپرس."
+      },
+      {
+       "frame": "Add + [amount] + of + [ingredient].",
+       "example_en": "Add one tablespoon of olive oil.",
+       "example_fa": "یک قاشق غذاخوری روغن زیتون اضافه کن.",
+       "note_en": "The amount, then of, then the ingredient.",
+       "note_fa": "اول مقدار، بعد «از»، بعد ماده."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "recipes-s1",
+       "en": "The recipe says four people, but with a salad it easily feeds six.",
+       "fa": "دستور می‌گوید چهار نفر، اما با سالاد راحت شش نفر را سیر می‌کند.",
+       "use_en": "Disagrees with the recipe using evidence.",
+       "use_fa": "با دستور مخالفت می‌کند و دلیل می‌آورد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "It feeds six with a salad."
+      },
+      {
+       "id": "recipes-s2",
+       "en": "I halved the sugar and doubled the lemon, and it tasted much better.",
+       "fa": "شکر را نصف و لیمو را دو برابر کردم و خیلی خوشمزه‌تر شد.",
+       "use_en": "Reports a change and its result.",
+       "use_fa": "تغییر و نتیجه‌اش را گزارش می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Less sugar and more lemon worked better."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Cooking for guests",
+      "title_fa": "آشپزی برای مهمان",
+      "speakers": [
+       "Leila",
+       "Hamed"
+      ],
+      "lines": [
+       {
+        "who": "Leila",
+        "en": "This recipe serves four. There will be seven of us.",
+        "fa": "این دستور برای چهار نفر است. ما هفت نفر می‌شویم."
+       },
+       {
+        "who": "Hamed",
+        "en": "Then double everything except the salt.",
+        "fa": "پس همه چیز را دو برابر کن جز نمک."
+       },
+       {
+        "who": "Leila",
+        "en": "Two tablespoons of oil, then?",
+        "fa": "پس دو قاشق غذاخوری روغن؟"
+       },
+       {
+        "who": "Hamed",
+        "en": "Yes, and four cups of rice. That is plenty for seven.",
+        "fa": "بله، و چهار پیمانه برنج. برای هفت نفر زیاد است."
+       },
+       {
+        "who": "Leila",
+        "en": "How long does it take altogether?",
+        "fa": "در کل چقدر طول می‌کشد؟"
+       },
+       {
+        "who": "Hamed",
+        "en": "An hour, including the chopping, if we both work.",
+        "fa": "یک ساعت، با خرد کردن، اگر هر دو کار کنیم."
+       },
+       {
+        "who": "Leila",
+        "en": "I will do the chopping while the oven heats.",
+        "fa": "من خرد کردن را انجام می‌دهم تا فر گرم شود."
+       },
+       {
+        "who": "Hamed",
+        "en": "Perfect. Read me the next step when you get there.",
+        "fa": "عالی. وقتی رسیدی مرحلهٔ بعد را برایم بخوان."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The recipe for two",
+       "title_fa": "دستور برای دو نفر",
+       "situation_en": "Every recipe you find serves six and you are cooking for two.",
+       "situation_fa": "هر دستوری که پیدا می‌کنی برای شش نفر است و تو برای دو نفر می‌پزی.",
+       "task_en": "Ask how to halve it and which amounts matter most.",
+       "task_fa": "بپرس چطور نصفش کنی و کدام مقدارها مهم‌ترند.",
+       "answer_en": "This serves six. How do I halve it without ruining the sauce? Halve everything except the spices, and taste before you add salt. This serves six. How do I halve it without ruining the sauce?",
+       "answer_fa": "این برای شش نفر است. چطور نصفش کنم که سس خراب نشود؟ همه چیز را نصف کن جز ادویه‌ها، و قبل از نمک زدن بچش. این برای شش نفر است. چطور نصفش کنم که سس خراب نشود؟"
+      },
+      {
+       "title_en": "The missing ingredient",
+       "title_fa": "مادهٔ اولیهٔ گم‌شده",
+       "situation_en": "Halfway through a recipe you find there is no butter.",
+       "situation_fa": "وسط دستور می‌فهمی کره نداری.",
+       "task_en": "Ask what can replace it and what changes.",
+       "task_fa": "بپرس چه چیزی جایگزینش می‌شود و چه چیزی عوض می‌شود.",
+       "answer_en": "There is no butter left. Can I use oil instead? Yes, three tablespoons of oil for fifty grams of butter, but the cake will be denser. There is no butter left. Can I use oil instead?",
+       "answer_fa": "کره نمانده. می‌توانم روغن استفاده کنم؟ بله، سه قاشق غذاخوری روغن برای پنجاه گرم کره، اما کیک سنگین‌تر می‌شود. کره نمانده. می‌توانم روغن استفاده کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "recipes-q1",
+       "q_en": "What does \"it serves four\" tell you?",
+       "q_fa": "«برای چهار نفر است» چه می‌گوید؟",
+       "options": [
+        "how many portions it makes",
+        "how long it takes",
+        "how hot the oven is"
+       ],
+       "answer": "how many portions it makes",
+       "why_en": "Serve here is about portions, not about waiting at a table.",
+       "why_fa": "«برای ... نفر بودن» دربارهٔ تعداد پرس است، نه انتظار سر میز."
+      },
+      {
+       "id": "recipes-q2",
+       "q_en": "A tablespoon is about ...",
+       "q_fa": "یک قاشق غذاخوری حدوداً چقدر است؟",
+       "options": [
+        "three teaspoons",
+        "one cup",
+        "one pinch"
+       ],
+       "answer": "three teaspoons",
+       "why_en": "A tablespoon is the large spoon measure.",
+       "why_fa": "قاشق غذاخوری پیمانهٔ بزرگ است."
+      },
+      {
+       "id": "recipes-q3",
+       "q_en": "Which phrase means follow the rules exactly?",
+       "q_fa": "کدام عبارت یعنی دقیقاً قواعد را رعایت کن؟",
+       "options": [
+        "by the book",
+        "in season",
+        "on offer"
+       ],
+       "answer": "by the book",
+       "why_en": "By the book comes from following a recipe word for word.",
+       "why_fa": "«طبق کتاب» از پیروی کلمه‌به‌کلمه از دستور پخت می‌آید."
+      }
+     ]
+    },
+    {
+     "id": "flavours",
+     "order": 6,
+     "icon": "lemon",
+     "title_en": "Taste and seasoning",
+     "title_fa": "طعم و چاشنی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Sweet, sour, salty, spicy, bitter and savoury, and the sentences for fixing a dish that is wrong.",
+     "blurb_fa": "شیرین، ترش، شور، تند، تلخ و خوش‌طعم، و جمله‌هایی برای درست کردن غذایی که ایراد دارد.",
+     "objectives": [
+      {
+       "en": "describe a dish with the six basic tastes.",
+       "fa": "یک غذا را با شش طعم پایه توصیف کن."
+      },
+      {
+       "en": "ask for the salt or the lemon at a table.",
+       "fa": "سر میز نمک یا لیمو بخواه."
+      },
+      {
+       "en": "say a dish is too hot, too bland or just right.",
+       "fa": "بگو غذایی زیادی تند، بی‌مزه یا درست است."
+      }
+     ],
+     "words": [
+      {
+       "id": "flavours-w1",
+       "en": "sweet",
+       "ipa": "/swit/",
+       "pos": "adjective",
+       "fa": "شیرین",
+       "def_en": "Tasting of sugar.",
+       "sport": "food",
+       "icon": "sugar",
+       "level": "A1",
+       "example_en": "This sauce is too sweet for a main course.",
+       "example_fa": "این سس برای غذای اصلی زیادی شیرین است.",
+       "ref": ""
+      },
+      {
+       "id": "flavours-w2",
+       "en": "sour",
+       "ipa": "/ˈsaʊər/",
+       "pos": "adjective",
+       "fa": "ترش",
+       "def_en": "Tasting sharp, like a lemon or unripe fruit.",
+       "sport": "food",
+       "icon": "lemon",
+       "level": "A2",
+       "example_en": "The yoghurt has gone sour.",
+       "example_fa": "ماست ترش شده.",
+       "ref": ""
+      },
+      {
+       "id": "flavours-w3",
+       "en": "salty",
+       "ipa": "/ˈsɔlti/",
+       "pos": "adjective",
+       "fa": "شور",
+       "def_en": "Containing or tasting of salt.",
+       "sport": "food",
+       "icon": "salt",
+       "level": "A2",
+       "example_en": "The soup is a little salty.",
+       "example_fa": "سوپ کمی شور است.",
+       "ref": ""
+      },
+      {
+       "id": "flavours-w4",
+       "en": "spicy",
+       "ipa": "/ˈspaɪsi/",
+       "pos": "adjective",
+       "fa": "تند",
+       "def_en": "Containing hot spices that burn your mouth.",
+       "sport": "food",
+       "icon": "chili",
+       "level": "A2",
+       "example_en": "This curry is too spicy for me.",
+       "example_fa": "این کاری برای من زیادی تند است.",
+       "ref": ""
+      },
+      {
+       "id": "flavours-w5",
+       "en": "bitter",
+       "ipa": "/ˈbɪtər/",
+       "pos": "adjective",
+       "fa": "تلخ",
+       "def_en": "A sharp taste like dark coffee or grapefruit.",
+       "sport": "food",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "The greens are bitter unless you blanch them.",
+       "example_fa": "سبزی‌ها تلخ‌اند مگر اینکه آب‌پز کوتاهشان کنی.",
+       "ref": ""
+      },
+      {
+       "id": "flavours-w6",
+       "en": "savoury",
+       "ipa": "/ˈseɪvəri/",
+       "pos": "adjective",
+       "fa": "خوش‌طعم و غیرشیرین",
+       "def_en": "Salty or herby rather than sweet.",
+       "sport": "food",
+       "icon": "plate",
+       "level": "B1",
+       "example_en": "I would rather have something savoury than cake.",
+       "example_fa": "ترجیح می‌دهم چیزی غیرشیرین بخورم تا کیک.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "flavours-x1",
+       "kind": "expression",
+       "en": "It tastes a bit bland.",
+       "fa": "کمی بی‌مزه است.",
+       "meaning_en": "Bland is the polite word for a dish that has no flavour.",
+       "meaning_fa": "«بی‌مزه» واژهٔ مؤدبانه برای غذایی است که طعم ندارد.",
+       "register": "neutral",
+       "example_en": "It tastes a bit bland, could it take more pepper?",
+       "example_fa": "کمی بی‌مزه است، فلفل بیشتر می‌گیرد؟",
+       "alt": ""
+      },
+      {
+       "id": "flavours-x2",
+       "kind": "expression",
+       "en": "Could you pass the salt?",
+       "fa": "نمک را می‌دهی؟",
+       "meaning_en": "The standard request at a table, with could for politeness.",
+       "meaning_fa": "درخواست استاندارد سر میز، با «می‌شود» برای ادب.",
+       "register": "neutral",
+       "example_en": "Could you pass the salt and the pepper?",
+       "example_fa": "نمک و فلفل را می‌دهی؟",
+       "alt": ""
+      },
+      {
+       "id": "flavours-x3",
+       "kind": "expression",
+       "en": "It is too spicy for me.",
+       "fa": "برای من زیادی تند است.",
+       "meaning_en": "Says the dish is beyond your limit without calling it bad.",
+       "meaning_fa": "می‌گوید غذا از حد تو بیرون است بی‌آنکه بدش بشماری.",
+       "register": "neutral",
+       "example_en": "It is delicious, but too spicy for me.",
+       "example_fa": "خوشمزه است، اما برای من زیادی تند است.",
+       "alt": ""
+      },
+      {
+       "id": "flavours-x4",
+       "kind": "collocation",
+       "en": "Add a squeeze of lemon.",
+       "fa": "کمی آب لیمو بچکان.",
+       "meaning_en": "A squeeze of lemon is the fixed way to say a small amount of juice.",
+       "meaning_fa": "«یک فشار لیمو» روش ثابت گفتن مقدار کمی آب است.",
+       "register": "neutral",
+       "example_en": "Add a squeeze of lemon at the end.",
+       "example_fa": "آخر کار کمی آب لیمو بچکان.",
+       "alt": ""
+      },
+      {
+       "id": "flavours-x5",
+       "kind": "idiom",
+       "en": "Variety is the spice of life.",
+       "fa": "تنوع، چاشنی زندگی است.",
+       "meaning_en": "Literally, spice makes food interesting; figuratively, doing different things makes life good.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، چاشنی غذا را جذاب می‌کند؛ به‌طور مجازی، تنوع زندگی را خوب می‌کند.",
+       "register": "neutral",
+       "example_en": "We cook a new dish every Friday: variety is the spice of life.",
+       "example_fa": "هر جمعه غذای تازه‌ای می‌پزیم: تنوع چاشنی زندگی است.",
+       "alt": ""
+      },
+      {
+       "id": "flavours-x6",
+       "kind": "idiom",
+       "en": "Take it with a pinch of salt.",
+       "fa": "با کمی تردید باورش کن.",
+       "meaning_en": "Literally, a pinch of salt was said to soften a claim; figuratively, do not believe it completely.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، می‌گفتند نوک انگشتی نمک ادعا را نرم می‌کند؛ به‌طور مجازی، کامل باورش نکن.",
+       "register": "neutral",
+       "example_en": "He says it is the best restaurant in town, but take that with a pinch of salt.",
+       "example_fa": "می‌گوید بهترین رستوران شهر است، اما با کمی تردید باورش کن.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It is too + [adjective] + for me.",
+       "example_en": "It is too spicy for me.",
+       "example_fa": "برای من زیادی تند است.",
+       "note_en": "Too plus an adjective plus for me draws your own limit.",
+       "note_fa": "«زیادی ... برای من» حد خودت را می‌کشد."
+      },
+      {
+       "frame": "Could you pass the + [thing]?",
+       "example_en": "Could you pass the salt?",
+       "example_fa": "نمک را می‌دهی؟",
+       "note_en": "The polite request for anything at a table.",
+       "note_fa": "درخواست مؤدبانه برای هر چیزی سر میز."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "flavours-s1",
+       "en": "The stew needed salt, lemon and ten more minutes, and then it was exactly right.",
+       "fa": "خورش به نمک، لیمو و ده دقیقهٔ دیگر نیاز داشت و بعد دقیقاً درست شد.",
+       "use_en": "Lists three fixes in the order they were made.",
+       "use_fa": "سه اصلاح را به ترتیب انجامشان می‌آورد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Salt, lemon and ten more minutes fixed it."
+      },
+      {
+       "id": "flavours-s2",
+       "en": "I like bitter greens with something sweet, like roasted pumpkin, on the same plate.",
+       "fa": "سبزی‌های تلخ را با چیزی شیرین، مثل کدو حلوایی در فر پخته، در یک بشقاب دوست دارم.",
+       "use_en": "Balances two tastes in one sentence.",
+       "use_fa": "دو طعم را در یک جمله متعادل می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Bitter greens go well with sweet pumpkin."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At a friend's table",
+      "title_fa": "سر میز دوست",
+      "speakers": [
+       "Nima",
+       "Shadi"
+      ],
+      "lines": [
+       {
+        "who": "Nima",
+        "en": "This soup is very good. What is in it?",
+        "fa": "این سوپ خیلی خوب است. در آن چیست؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "Pumpkin, ginger and a little chilli. Is it too spicy?",
+        "fa": "کدو حلوایی، زنجبیل و کمی فلفل. زیادی تند است؟"
+       },
+       {
+        "who": "Nima",
+        "en": "No, it is just right. Maybe a squeeze of lemon would lift it.",
+        "fa": "نه، دقیقاً درست است. شاید کمی آب لیمو بلندش کند."
+       },
+       {
+        "who": "Shadi",
+        "en": "Try it with the lemon. I think you are right.",
+        "fa": "با لیمو امتحان کن. فکر می‌کنم حق داری."
+       },
+       {
+        "who": "Nima",
+        "en": "That is better. It tastes less sweet now.",
+        "fa": "این بهتر است. حالا کمتر شیرین است."
+       },
+       {
+        "who": "Shadi",
+        "en": "Do you want more salt as well?",
+        "fa": "نمک هم بیشتر می‌خواهی؟"
+       },
+       {
+        "who": "Nima",
+        "en": "No, the salt is perfect. Could you pass the bread?",
+        "fa": "نه، نمک بی‌نقص است. نان را می‌دهی؟"
+       },
+       {
+        "who": "Shadi",
+        "en": "Here you are. Take the rest home if you like.",
+        "fa": "بفرما. اگر دوست داری بقیه را ببر خانه."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The over-salted soup",
+       "title_fa": "سوپ شور",
+       "situation_en": "You salted the soup twice by mistake.",
+       "situation_fa": "اشتباهی دو بار سوپ را نمک زدی.",
+       "task_en": "Say what happened and ask how to rescue it.",
+       "task_fa": "بگو چه شد و بپرس چطور نجاتش بدهی.",
+       "answer_en": "I salted it twice. Is there a way to fix it? Add a peeled potato and a little water, then taste again in ten minutes. I salted it twice. Is there a way to fix it?",
+       "answer_fa": "دو بار نمک زدم. راهی برای درست کردنش هست؟ یک سیب‌زمینی پوست‌کنده و کمی آب اضافه کن، بعد ده دقیقه دیگر بچش. دو بار نمک زدم. راهی برای درست کردنش هست؟"
+      },
+      {
+       "title_en": "Too hot for the table",
+       "title_fa": "برای میز زیادی تند",
+       "situation_en": "One dish is far too spicy for two of the guests.",
+       "situation_fa": "یک غذا برای دو مهمان خیلی تند است.",
+       "task_en": "Warn them honestly and offer a mild alternative.",
+       "task_fa": "صادقانه هشدار بده و جایگزین ملایم پیشنهاد کن.",
+       "answer_en": "The curry is very hot tonight. Would you like the yoghurt dish instead? Yes, please, and some bread with it. The curry is very hot tonight. Would you like the yoghurt dish instead?",
+       "answer_fa": "کاری امشب خیلی تند است. دوست داری جای آن غذای ماستی بخوری؟ بله، لطفاً، و کمی نان با آن. کاری امشب خیلی تند است. دوست داری جای آن غذای ماستی بخوری؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "flavours-q1",
+       "q_en": "Which taste is described as sharp like a lemon?",
+       "q_fa": "کدام طعم مثل لیمو تیز است؟",
+       "options": [
+        "sour",
+        "salty",
+        "savoury"
+       ],
+       "answer": "sour",
+       "why_en": "Sour is the sharp taste of lemon and unripe fruit.",
+       "why_fa": "«ترش» طعم تیز لیمو و میوهٔ نرسیده است."
+      },
+      {
+       "id": "flavours-q2",
+       "q_en": "A dish with no flavour at all is ...",
+       "q_fa": "غذایی که هیچ طعمی ندارد ... است.",
+       "options": [
+        "bland",
+        "bitter",
+        "spicy"
+       ],
+       "answer": "bland",
+       "why_en": "Bland is the polite word for no flavour.",
+       "why_fa": "«بی‌مزه» واژهٔ مؤدبانه برای بی‌طعمی است."
+      },
+      {
+       "id": "flavours-q3",
+       "q_en": "What does \"take it with a pinch of salt\" advise?",
+       "q_fa": "«با کمی تردید باورش کن» چه توصیه‌ای می‌کند؟",
+       "options": [
+        "do not believe it completely",
+        "add more salt",
+        "eat it quickly"
+       ],
+       "answer": "do not believe it completely",
+       "why_en": "The phrase is about doubt, not seasoning.",
+       "why_fa": "این عبارت دربارهٔ تردید است، نه چاشنی."
+      }
+     ]
+    },
+    {
+     "id": "texture",
+     "order": 7,
+     "icon": "bread",
+     "title_en": "Texture and doneness",
+     "title_fa": "بافت و پختگی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Crispy, creamy, tender, chewy, smooth and raw: how food feels, and how to say it is not cooked yet.",
+     "blurb_fa": "ترد، خامه‌ای، نرم، سفت، یکدست و خام: حس غذا، و اینکه چطور بگویی هنوز نپخته است.",
+     "objectives": [
+      {
+       "en": "describe how a dish feels in your mouth, not just how it tastes.",
+       "fa": "توصیف کن غذا در دهان چه حسی دارد، نه فقط چه طعمی."
+      },
+      {
+       "en": "say that something is undercooked, overcooked or just right.",
+       "fa": "بگو چیزی نپخته، بیش از حد پخته یا درست است."
+      },
+      {
+       "en": "praise a texture you like and explain why.",
+       "fa": "بافت مورد علاقه‌ات را تحسین کن و دلیلش را بگو."
+      }
+     ],
+     "words": [
+      {
+       "id": "texture-w1",
+       "en": "crispy",
+       "ipa": "/ˈkrɪspi/",
+       "pos": "adjective",
+       "fa": "ترد",
+       "def_en": "Firm and dry, breaking with a sound when you bite it.",
+       "sport": "food",
+       "icon": "bread",
+       "level": "B1",
+       "example_en": "The bread is best when the crust is crispy.",
+       "example_fa": "نان وقتی پوسته‌اش ترد است بهترین است.",
+       "ref": ""
+      },
+      {
+       "id": "texture-w2",
+       "en": "creamy",
+       "ipa": "/ˈkrimi/",
+       "pos": "adjective",
+       "fa": "خامه‌ای و نرم",
+       "def_en": "Thick and soft, like cream.",
+       "sport": "food",
+       "icon": "milk",
+       "level": "B1",
+       "example_en": "The sauce is creamy without being heavy.",
+       "example_fa": "سس خامه‌ای است بی‌آنکه سنگین باشد.",
+       "ref": ""
+      },
+      {
+       "id": "texture-w3",
+       "en": "tender",
+       "ipa": "/ˈtɛndər/",
+       "pos": "adjective",
+       "fa": "نرم و لطیف",
+       "def_en": "Soft enough to cut with a fork.",
+       "sport": "food",
+       "icon": "meat",
+       "level": "B1",
+       "example_en": "Cook the lamb slowly and it stays tender.",
+       "example_fa": "بره را آرام بپز تا نرم بماند.",
+       "ref": ""
+      },
+      {
+       "id": "texture-w4",
+       "en": "chewy",
+       "ipa": "/ˈtʃuːi/",
+       "pos": "adjective",
+       "fa": "سفت و نیازمند جویدن",
+       "def_en": "Needing a lot of chewing.",
+       "sport": "food",
+       "icon": "meat",
+       "level": "B2",
+       "example_en": "This bread is a little too chewy for a sandwich.",
+       "example_fa": "این نان برای ساندویچ کمی زیادی سفت است.",
+       "ref": ""
+      },
+      {
+       "id": "texture-w5",
+       "en": "smooth",
+       "ipa": "/smuːð/",
+       "pos": "adjective",
+       "fa": "یکدست و صاف",
+       "def_en": "With no lumps or pieces in it.",
+       "sport": "food",
+       "icon": "milk",
+       "level": "A2",
+       "example_en": "Blend the soup until it is smooth.",
+       "example_fa": "سوپ را تا یکدست شود مخلوط کن.",
+       "ref": ""
+      },
+      {
+       "id": "texture-w6",
+       "en": "raw",
+       "ipa": "/rɔ/",
+       "pos": "adjective",
+       "fa": "خام",
+       "def_en": "Not cooked at all.",
+       "sport": "food",
+       "icon": "egg",
+       "level": "B1",
+       "example_en": "Do not put raw egg in the sauce.",
+       "example_fa": "تخم‌مرغ خام در سس نریز.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "texture-x1",
+       "kind": "expression",
+       "en": "It is still raw in the middle.",
+       "fa": "وسطش هنوز خام است.",
+       "meaning_en": "Names exactly where the cooking failed.",
+       "meaning_fa": "دقیقاً می‌گوید کجای پخت ناقص مانده.",
+       "register": "neutral",
+       "example_en": "The cake is brown outside and still raw in the middle.",
+       "example_fa": "کیک بیرون قهوه‌ای و وسطش هنوز خام است.",
+       "alt": ""
+      },
+      {
+       "id": "texture-x2",
+       "kind": "collocation",
+       "en": "Cook it until tender.",
+       "fa": "تا نرم شود بپز.",
+       "meaning_en": "Until tender is the fixed phrase for the moment meat is ready.",
+       "meaning_fa": "«تا نرم شود» عبارت ثابت برای لحظهٔ آماده شدن گوشت است.",
+       "register": "neutral",
+       "example_en": "Cover the pot and cook it until tender.",
+       "example_fa": "قابلمه را بپوشان و تا نرم شود بپز.",
+       "alt": ""
+      },
+      {
+       "id": "texture-x3",
+       "kind": "expression",
+       "en": "The bread has gone soft.",
+       "fa": "نان نرم شده.",
+       "meaning_en": "Says a texture changed for the worse, without blaming anyone.",
+       "meaning_fa": "می‌گوید بافت به بدی عوض شده، بی‌آنکه کسی را سرزنش کند.",
+       "register": "neutral",
+       "example_en": "The bread has gone soft, so toast it.",
+       "example_fa": "نان نرم شده، پس تُستش کن.",
+       "alt": ""
+      },
+      {
+       "id": "texture-x4",
+       "kind": "idiom",
+       "en": "It melts in your mouth.",
+       "fa": "در دهان آب می‌شود.",
+       "meaning_en": "Literally, it turns liquid as you eat; figuratively, it is so soft it needs no chewing at all.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، هنگام خوردن آب می‌شود؛ به‌طور مجازی، آنقدر نرم است که هیچ جویدنی نمی‌خواهد.",
+       "register": "neutral",
+       "example_en": "The fish was so fresh it melted in your mouth.",
+       "example_fa": "ماهی آنقدر تازه بود که در دهان آب می‌شد.",
+       "alt": ""
+      },
+      {
+       "id": "texture-x5",
+       "kind": "idiom",
+       "en": "It is not my cup of tea.",
+       "fa": "به سلیقهٔ من نیست.",
+       "meaning_en": "Literally, not the drink you like; figuratively, not to your taste.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، نوشیدنی‌ای نیست که دوست داری؛ به‌طور مجازی، به سلیقهٔ تو نیست.",
+       "register": "informal",
+       "example_en": "Very rich desserts are not my cup of tea.",
+       "example_fa": "دسرهای خیلی پرخامه به سلیقهٔ من نیست.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It is too + [texture] + for me.",
+       "example_en": "It is too chewy for me.",
+       "example_fa": "برای من زیادی سفت است.",
+       "note_en": "Texture words take too plus for me.",
+       "note_fa": "واژه‌های بافت با «زیادی ... برای من» می‌آیند."
+      },
+      {
+       "frame": "Cook it until + [adjective].",
+       "example_en": "Cook it until tender.",
+       "example_fa": "تا نرم شود بپز.",
+       "note_en": "Until plus the adjective marks the end point.",
+       "note_fa": "«تا ... شدن» نقطهٔ پایان را نشان می‌دهد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "texture-s1",
+       "en": "The chips are best straight from the oil, when they are crispy outside and soft inside.",
+       "fa": "سیب‌زمینی‌ها بهترین حالت را مستقیم از روغن دارند، وقتی بیرون ترد و درون نرم‌اند.",
+       "use_en": "Describes one food with two opposite textures.",
+       "use_fa": "یک غذا را با دو بافت متضاد توصیف می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Crispy outside, soft inside: that is the chip."
+      },
+      {
+       "id": "texture-s2",
+       "en": "I left the rice on the heat too long and now it is dry and chewy at the edges.",
+       "fa": "برنج را زیادی روی حرارت گذاشتم و حالا خشک و سفت شده، کناره‌ها سفت‌ترند.",
+       "use_en": "Reports a mistake and its texture result.",
+       "use_fa": "اشتباه و نتیجهٔ بافتی‌اش را گزارش می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The rice is dry and chewy at the edges."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the table",
+      "title_fa": "سر میز",
+      "speakers": [
+       "Omid",
+       "Parisa"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "The chicken is very tender. How did you cook it?",
+        "fa": "مرغ خیلی نرم است. چطور پختی‌اش؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Slowly, covered, for an hour and a half.",
+        "fa": "آرام، با در، یک ساعت و نیم."
+       },
+       {
+        "who": "Omid",
+        "en": "And the potatoes are crispy outside but soft inside. Perfect.",
+        "fa": "و سیب‌زمینی‌ها بیرون ترد و درون نرم‌اند. بی‌نقص."
+       },
+       {
+        "who": "Parisa",
+        "en": "Try the one at the bottom, it may be a little chewy.",
+        "fa": "آن ته ظرف را امتحان کن، شاید کمی سفت باشد."
+       },
+       {
+        "who": "Omid",
+        "en": "No, it is fine. This sauce is very creamy, though. What is in it?",
+        "fa": "نه، خوب است. اما این سس خیلی خامه‌ای است. در آن چیست؟"
+       },
+       {
+        "who": "Parisa",
+        "en": "Yoghurt and a little butter, nothing else.",
+        "fa": "ماست و کمی کره، چیز دیگری نه."
+       },
+       {
+        "who": "Omid",
+        "en": "It melts in your mouth. I will take the recipe.",
+        "fa": "در دهان آب می‌شود. دستور را می‌گیرم."
+       },
+       {
+        "who": "Parisa",
+        "en": "I will send it tonight.",
+        "fa": "امشب می‌فرستمش."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The undercooked potato",
+       "title_fa": "سیب‌زمینی نپخته",
+       "situation_en": "The potatoes are golden outside and hard in the middle.",
+       "situation_fa": "سیب‌زمینی‌ها بیرون طلایی و وسط سفت‌اند.",
+       "task_en": "Say it is not cooked through and ask for a fix.",
+       "task_fa": "بگو کامل نپخته و راه‌حلی بخواه.",
+       "answer_en": "These are still hard in the middle. Are they undercooked? Yes, give them ten more minutes in the oven, covered. These are still hard in the middle. Are they undercooked?",
+       "answer_fa": "اینها وسطشان هنوز سفت است. نپخته‌اند؟ بله، ده دقیقه دیگر در فر بگذار، با در. اینها وسطشان هنوز سفت است. نپخته‌اند؟"
+      },
+      {
+       "title_en": "The dry cake",
+       "title_fa": "کیک خشک",
+       "situation_en": "The cake came out dry and chewy at the edge.",
+       "situation_fa": "کیک خشک شد و لبه‌اش سفت است.",
+       "task_en": "Explain the likely cause and what to do differently.",
+       "task_fa": "علت احتمالی را بگو و بگو دفعهٔ بعد چه کنی.",
+       "answer_en": "It is dry. Did I leave it in too long? Ten minutes too long, probably. Next time take it out a little earlier and cover it while it cools. It is dry. Did I leave it in too long?",
+       "answer_fa": "خشک است. زیادی در فر گذاشتم؟ احتمالاً ده دقیقه زیاد. دفعهٔ بعد کمی زودتر بیرون بیاور و هنگام خنک شدن بپوشانش. خشک است. زیادی در فر گذاشتم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "texture-q1",
+       "q_en": "Which word means firm and dry, breaking with a sound?",
+       "q_fa": "کدام واژه یعنی سفت و خشک که با صدا می‌شکند؟",
+       "options": [
+        "crispy",
+        "creamy",
+        "smooth"
+       ],
+       "answer": "crispy",
+       "why_en": "Crispy is the sound and the dry crust.",
+       "why_fa": "«ترد» صدا و پوستهٔ خشک است."
+      },
+      {
+       "id": "texture-q2",
+       "q_en": "\"It is still raw in the middle\" means ...",
+       "q_fa": "«وسطش هنوز خام است» یعنی ...",
+       "options": [
+        "it is not cooked through",
+        "it is too salty",
+        "it is too hot"
+       ],
+       "answer": "it is not cooked through",
+       "why_en": "Raw means uncooked, not unseasoned.",
+       "why_fa": "«خام» یعنی نپخته، نه بی‌نمک."
+      },
+      {
+       "id": "texture-q3",
+       "q_en": "Which phrase marks the moment meat is ready?",
+       "q_fa": "کدام عبارت لحظهٔ آماده شدن گوشت را نشان می‌دهد؟",
+       "options": [
+        "until tender",
+        "until later",
+        "until the end"
+       ],
+       "answer": "until tender",
+       "why_en": "Until tender is the fixed phrase for readiness.",
+       "why_fa": "«تا نرم شود» عبارت ثابت آماده بودن است."
+      }
+     ]
+    },
+    {
+     "id": "diet",
+     "order": 8,
+     "icon": "shield",
+     "title_en": "Dietary needs and allergies",
+     "title_fa": "رژیم غذایی و حساسیت‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Saying what you do not eat, asking whether a dish contains it, and being understood in a restaurant.",
+     "blurb_fa": "گفتن اینکه چه چیزی نمی‌خوری، پرسیدن آیا غذایی آن را دارد، و فهمیده شدن در رستوران.",
+     "objectives": [
+      {
+       "en": "say what you do not eat and why, in one clear sentence.",
+       "fa": "در یک جملهٔ روشن بگو چه چیزی نمی‌خوری و چرا."
+      },
+      {
+       "en": "ask whether a dish contains an ingredient you must avoid.",
+       "fa": "بپرس آیا غذایی ماده‌ای را دارد که باید از آن دوری کنی."
+      },
+      {
+       "en": "ask for a vegetarian, vegan or gluten-free option.",
+       "fa": "گزینهٔ گیاهخواری، وگان یا بدون گلوتن بخواه."
+      }
+     ],
+     "words": [
+      {
+       "id": "diet-w1",
+       "en": "vegetarian",
+       "ipa": "/ˌvɛdʒəˈtɛriən/",
+       "pos": "adjective",
+       "fa": "گیاه‌خوار",
+       "def_en": "Not eating meat or fish, but usually eating eggs and dairy.",
+       "sport": "food",
+       "icon": "leaf",
+       "level": "A1",
+       "example_en": "I have been vegetarian for six years.",
+       "example_fa": "شش سال است گیاه‌خوارم.",
+       "ref": ""
+      },
+      {
+       "id": "diet-w2",
+       "en": "vegan",
+       "ipa": "/ˈviɡən/",
+       "pos": "adjective",
+       "fa": "وگان",
+       "def_en": "Not eating or using any product from an animal.",
+       "sport": "food",
+       "icon": "leaf",
+       "level": "B1",
+       "example_en": "The soup is vegan, made with coconut milk.",
+       "example_fa": "این سوپ وگان است، با شیر نارگیل درست شده.",
+       "ref": ""
+      },
+      {
+       "id": "diet-w3",
+       "en": "gluten-free",
+       "ipa": "/ˌɡlutən ˈfri/",
+       "pos": "adjective",
+       "fa": "بدون گلوتن",
+       "def_en": "Made without wheat, barley or rye.",
+       "sport": "food",
+       "icon": "bread",
+       "level": "B1",
+       "example_en": "Do you have gluten-free bread?",
+       "example_fa": "نان بدون گلوتن دارید؟",
+       "ref": ""
+      },
+      {
+       "id": "diet-w4",
+       "en": "lactose",
+       "ipa": "/ˈlæktoʊs/",
+       "pos": "noun",
+       "fa": "لاکتوز",
+       "def_en": "The natural sugar in milk that some people cannot digest.",
+       "sport": "food",
+       "icon": "milk",
+       "level": "B2",
+       "example_en": "This milk has the lactose removed.",
+       "example_fa": "لاکتوز این شیر گرفته شده.",
+       "ref": ""
+      },
+      {
+       "id": "diet-w5",
+       "en": "allergy",
+       "ipa": "/ˈælərdʒi/",
+       "pos": "noun",
+       "fa": "حساسیت",
+       "def_en": "A reaction your body has to a food or a substance.",
+       "sport": "food",
+       "icon": "shield",
+       "level": "B1",
+       "example_en": "My son has a serious nut allergy.",
+       "example_fa": "پسرم حساسیت شدید به آجیل دارد.",
+       "ref": ""
+      },
+      {
+       "id": "diet-w6",
+       "en": "portion",
+       "ipa": "/ˈpɔrʃən/",
+       "pos": "noun",
+       "fa": "پرس و سهم",
+       "def_en": "The amount of food served to one person.",
+       "sport": "food",
+       "icon": "plate",
+       "level": "B1",
+       "example_en": "The portions here are far too big.",
+       "example_fa": "پرس‌های اینجا خیلی بزرگ‌اند.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "diet-x1",
+       "kind": "expression",
+       "en": "I am allergic to nuts.",
+       "fa": "به آجیل حساسیت دارم.",
+       "meaning_en": "The shortest and clearest warning you can give.",
+       "meaning_fa": "کوتاه‌ترین و روشن‌ترین هشداری که می‌دهی.",
+       "register": "neutral",
+       "example_en": "I am allergic to nuts, so please check the sauce.",
+       "example_fa": "به آجیل حساسیت دارم، پس لطفاً سس را بررسی کن.",
+       "alt": ""
+      },
+      {
+       "id": "diet-x2",
+       "kind": "expression",
+       "en": "Does this contain dairy?",
+       "fa": "لبنیات دارد؟",
+       "meaning_en": "Contains is the safe verb for asking about an ingredient.",
+       "meaning_fa": "«دارد» فعل ایمن برای پرسیدن دربارهٔ یک ماده است.",
+       "register": "neutral",
+       "example_en": "Does this contain dairy or is it made with oil?",
+       "example_fa": "لبنیات دارد یا با روغن درست شده؟",
+       "alt": ""
+      },
+      {
+       "id": "diet-x3",
+       "kind": "phrasal_verb",
+       "en": "I am cutting down on sugar.",
+       "fa": "مصرف شکرم را کم می‌کنم.",
+       "meaning_en": "Cut down on is the phrasal verb for reducing something, not stopping it.",
+       "meaning_fa": "«کم کردن» فعل عبارتی برای کاهش چیزی است، نه ترک آن.",
+       "register": "neutral",
+       "example_en": "I am cutting down on sugar, so no dessert for me.",
+       "example_fa": "مصرف شکرم را کم می‌کنم، پس دسر نمی‌خورم.",
+       "alt": ""
+      },
+      {
+       "id": "diet-x4",
+       "kind": "expression",
+       "en": "Is there a vegan option?",
+       "fa": "گزینهٔ وگان دارید؟",
+       "meaning_en": "Asks for one dish you can eat rather than a list of what you cannot.",
+       "meaning_fa": "یک غذا می‌خواهد که بتوانی بخوری، نه فهرستی از آنچه نمی‌خوری.",
+       "register": "neutral",
+       "example_en": "Is there a vegan option on the lunch menu?",
+       "example_fa": "در منوی ناهار گزینهٔ وگان هست؟",
+       "alt": ""
+      },
+      {
+       "id": "diet-x5",
+       "kind": "idiom",
+       "en": "You cannot have your cake and eat it.",
+       "fa": "هم نمی‌شود کیک را داشت هم خورد.",
+       "meaning_en": "Literally, you cannot keep a cake whole and eat it; figuratively, you cannot enjoy two opposite things at once.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، نمی‌توان کیک را هم سالم نگه داشت هم خورد؛ به‌طور مجازی، دو چیز متضاد را با هم نمی‌شود داشت.",
+       "register": "neutral",
+       "example_en": "Cheap, fast and healthy: you cannot have your cake and eat it.",
+       "example_fa": "ارزان، سریع و سالم: هم نمی‌شود کیک را داشت هم خورد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I am allergic to + [food].",
+       "example_en": "I am allergic to nuts.",
+       "example_fa": "به آجیل حساسیت دارم.",
+       "note_en": "Name the food, never just \"allergies\".",
+       "note_fa": "نام غذا را بگو، هرگز فقط «حساسیت»."
+      },
+      {
+       "frame": "Does this contain + [ingredient]?",
+       "example_en": "Does this contain dairy?",
+       "example_fa": "لبنیات دارد؟",
+       "note_en": "One ingredient per question, so the answer is clear.",
+       "note_fa": "هر پرسش یک ماده، تا پاسخ روشن باشد."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "diet-s1",
+       "en": "I eat everything except shellfish, and even a little of the sauce is enough to make me ill.",
+       "fa": "همه چیز می‌خورم جز صدف، و حتی کمی از سس کافی است مریض شوم.",
+       "use_en": "States a limit and its seriousness.",
+       "use_fa": "محدودیت و جدی بودنش را می‌گوید.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "I avoid shellfish completely."
+      },
+      {
+       "id": "diet-s2",
+       "en": "The menu marks vegetarian dishes with a leaf, which makes ordering much quicker.",
+       "fa": "منو غذاهای گیاهی را با برگ نشان می‌دهد، که سفارش دادن را خیلی سریع‌تر می‌کند.",
+       "use_en": "Names a helpful detail and its effect.",
+       "use_fa": "جزئیات مفید و اثرش را می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The leaf symbol makes ordering quicker."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Ordering with an allergy",
+      "title_fa": "سفارش با حساسیت",
+      "speakers": [
+       "Sina",
+       "The waiter"
+      ],
+      "lines": [
+       {
+        "who": "Sina",
+        "en": "Before I order, does the mushroom soup contain cream?",
+        "fa": "قبل از سفارش، سوپ قارچ خامه دارد؟"
+       },
+       {
+        "who": "The waiter",
+        "en": "It does. It is finished with cream at the end.",
+        "fa": "دارد. آخر کار با خامه تمام می‌شود."
+       },
+       {
+        "who": "Sina",
+        "en": "I cannot have dairy. Is there another starter?",
+        "fa": "من لبنیات نمی‌توانم بخورم. پیش‌غذای دیگری هست؟"
+       },
+       {
+        "who": "The waiter",
+        "en": "The grilled vegetables are dairy-free and vegan.",
+        "fa": "سبزیجات گریل‌شده بدون لبنیات و وگان هستند."
+       },
+       {
+        "who": "Sina",
+        "en": "That sounds good. And for the main, is the fish cooked with butter?",
+        "fa": "خوب به نظر می‌رسد. و برای غذای اصلی، ماهی با کره پخته می‌شود؟"
+       },
+       {
+        "who": "The waiter",
+        "en": "It is, but the kitchen can use olive oil instead.",
+        "fa": "بله، اما آشپزخانه می‌تواند به جایش روغن زیتون استفاده کند."
+       },
+       {
+        "who": "Sina",
+        "en": "Please ask them to do that. It is an allergy, not a preference.",
+        "fa": "لطفاً از آن‌ها بخواه این کار را بکنند. حساسیت است، نه سلیقه."
+       },
+       {
+        "who": "The waiter",
+        "en": "I will write it on the order now.",
+        "fa": "همین حالا روی سفارش می‌نویسم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The nut sauce",
+       "title_fa": "سس آجیل",
+       "situation_en": "A dish arrives with a sauce you were not warned about.",
+       "situation_fa": "غذایی با سسی می‌رسد که درباره‌اش هشدار نگرفته بودی.",
+       "task_en": "Stop, ask what is in it, and send it back if needed.",
+       "task_fa": "توقف کن، بپرس در آن چیست، و اگر لازم بود برگردان.",
+       "answer_en": "Excuse me, does this sauce contain nuts? I am allergic. I am sorry, it does. I will bring the dish without the sauce. Excuse me, does this sauce contain nuts? I am allergic.",
+       "answer_fa": "ببخشید، این سس آجیل دارد؟ من حساسیت دارم. متأسفم، دارد. غذا را بدون سس می‌آورم. ببخشید، این سس آجیل دارد؟ من حساسیت دارم."
+      },
+      {
+       "title_en": "The vegan guest",
+       "title_fa": "مهمان وگان",
+       "situation_en": "You invited a vegan friend and the menu is all cheese and meat.",
+       "situation_fa": "دوست وگانی دعوت کردی و منو پر از پنیر و گوشت است.",
+       "task_en": "Ask what they eat and build one dish around it.",
+       "task_fa": "بپرس چه می‌خورد و یک غذا حول آن بساز.",
+       "answer_en": "What can I cook that you will actually enjoy? Roast vegetables with chickpeas and rice, and keep the sauce separate. What can I cook that you will actually enjoy?",
+       "answer_fa": "چه بپزم که واقعاً دوست داشته باشی؟ سبزیجات در فر با نخود و برنج، و سس را جدا نگه دار. چه بپزم که واقعاً دوست داشته باشی؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "diet-q1",
+       "q_en": "Which one means no animal products at all?",
+       "q_fa": "کدام یعنی هیچ محصول حیوانی ندارد؟",
+       "options": [
+        "vegan",
+        "vegetarian",
+        "gluten-free"
+       ],
+       "answer": "vegan",
+       "why_en": "Vegan excludes eggs, dairy and honey too.",
+       "why_fa": "وگان تخم‌مرغ، لبنیات و عسل را هم کنار می‌گذارد."
+      },
+      {
+       "id": "diet-q2",
+       "q_en": "What is the safe question about a hidden ingredient?",
+       "q_fa": "پرسش ایمن دربارهٔ مادهٔ پنهان چیست؟",
+       "options": [
+        "Does this contain dairy?",
+        "Is this nice?",
+        "How much is it?"
+       ],
+       "answer": "Does this contain dairy?",
+       "why_en": "Contains asks directly about the ingredient.",
+       "why_fa": "«دارد» مستقیم دربارهٔ ماده می‌پرسد."
+      },
+      {
+       "id": "diet-q3",
+       "q_en": "\"Cutting down on sugar\" means ...",
+       "q_fa": "«کم کردن شکر» یعنی ...",
+       "options": [
+        "eating less sugar, not none",
+        "stopping sugar forever",
+        "adding sugar"
+       ],
+       "answer": "eating less sugar, not none",
+       "why_en": "Cut down on is a reduction, not a ban.",
+       "why_fa": "«کم کردن» کاهش است، نه ترک کامل."
+      }
+     ]
+    },
+    {
+     "id": "grocery",
+     "order": 9,
+     "icon": "cart",
+     "title_en": "At the supermarket",
+     "title_fa": "در سوپرمارکت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Finding an aisle, asking for a smaller size, reading the offer and paying at the checkout.",
+     "blurb_fa": "پیدا کردن راهرو، پرسیدن اندازهٔ کوچک‌تر، خواندن تخفیف و پرداخت در صندوق.",
+     "objectives": [
+      {
+       "en": "ask which aisle something is in.",
+       "fa": "بپرس چیزی در کدام راهرو است."
+      },
+      {
+       "en": "ask for a different size and compare two products.",
+       "fa": "اندازهٔ دیگری بخواه و دو محصول را مقایسه کن."
+      },
+      {
+       "en": "understand an offer and pay at the checkout.",
+       "fa": "تخفیف را بفهم و در صندوق پرداخت کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "grocery-w1",
+       "en": "aisle",
+       "ipa": "/aɪl/",
+       "pos": "noun",
+       "fa": "راهرو",
+       "def_en": "A walkway between shelves in a shop.",
+       "sport": "food",
+       "icon": "cart",
+       "level": "B1",
+       "example_en": "The pasta is in aisle six.",
+       "example_fa": "پاستا در راهروی شش است.",
+       "ref": ""
+      },
+      {
+       "id": "grocery-w2",
+       "en": "trolley",
+       "ipa": "/ˈtrɑli/",
+       "pos": "noun",
+       "fa": "چرخ خرید",
+       "def_en": "A metal cart on wheels for shopping.",
+       "sport": "food",
+       "icon": "cart",
+       "level": "A1",
+       "example_en": "Take a trolley, we need a lot today.",
+       "example_fa": "یک چرخ خرید بردار، امروز زیاد لازم داریم.",
+       "ref": ""
+      },
+      {
+       "id": "grocery-w3",
+       "en": "checkout",
+       "ipa": "/ˈtʃɛkaʊt/",
+       "pos": "noun",
+       "fa": "صندوق پرداخت",
+       "def_en": "The place in a shop where you pay.",
+       "sport": "food",
+       "icon": "receipt",
+       "level": "A2",
+       "example_en": "There was a long queue at the checkout.",
+       "example_fa": "صف طولانی در صندوق بود.",
+       "ref": ""
+      },
+      {
+       "id": "grocery-w4",
+       "en": "receipt",
+       "ipa": "/rɪˈsit/",
+       "pos": "noun",
+       "fa": "رسید",
+       "def_en": "The paper that shows what you paid.",
+       "sport": "food",
+       "icon": "receipt",
+       "level": "A1",
+       "example_en": "Keep the receipt in case something is wrong.",
+       "example_fa": "رسید را نگه دار، اگر چیزی ایراد داشت.",
+       "ref": ""
+      },
+      {
+       "id": "grocery-w5",
+       "en": "discount",
+       "ipa": "/ˈdɪskaʊnt/",
+       "pos": "noun",
+       "fa": "تخفیف",
+       "def_en": "Money taken off the normal price.",
+       "sport": "food",
+       "icon": "tag",
+       "level": "B1",
+       "example_en": "The discount is only for members today.",
+       "example_fa": "تخفیف امروز فقط برای اعضا است.",
+       "ref": ""
+      },
+      {
+       "id": "grocery-w6",
+       "en": "fresh",
+       "ipa": "/frɛʃ/",
+       "pos": "adjective",
+       "fa": "تازه",
+       "def_en": "Recently picked, made or cooked, not frozen or tinned.",
+       "sport": "food",
+       "icon": "leaf",
+       "level": "A1",
+       "example_en": "Buy fresh herbs if the shop has them.",
+       "example_fa": "اگر مغازه سبزی تازه داشت، بخر.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "grocery-x1",
+       "kind": "expression",
+       "en": "Which aisle is the rice in?",
+       "fa": "برنج در کدام راهرو است؟",
+       "meaning_en": "The question that saves ten minutes of walking.",
+       "meaning_fa": "پرسشی که ده دقیقه قدم زدن را صرفه‌جویی می‌کند.",
+       "register": "neutral",
+       "example_en": "Excuse me, which aisle is the rice in?",
+       "example_fa": "ببخشید، برنج در کدام راهرو است؟",
+       "alt": ""
+      },
+      {
+       "id": "grocery-x2",
+       "kind": "expression",
+       "en": "Do you have this in a smaller size?",
+       "fa": "این را اندازهٔ کوچک‌تر دارید؟",
+       "meaning_en": "Asks for the same product, not a different one.",
+       "meaning_fa": "همان محصول را می‌خواهد، نه محصولی دیگر.",
+       "register": "neutral",
+       "example_en": "Do you have this in a smaller size? This one is huge.",
+       "example_fa": "این را اندازهٔ کوچک‌تر دارید؟ این یکی خیلی بزرگ است.",
+       "alt": ""
+      },
+      {
+       "id": "grocery-x3",
+       "kind": "collocation",
+       "en": "It is on offer this week.",
+       "fa": "این هفته تخفیف دارد.",
+       "meaning_en": "On offer is the fixed phrase for a temporary lower price.",
+       "meaning_fa": "«تخفیف دارد» عبارت ثابت برای قیمت پایین‌تر موقت است.",
+       "register": "neutral",
+       "example_en": "The rice is on offer this week, so buy two.",
+       "example_fa": "برنج این هفته تخفیف دارد، پس دو تا بخر.",
+       "alt": ""
+      },
+      {
+       "id": "grocery-x4",
+       "kind": "expression",
+       "en": "I will pay by card.",
+       "fa": "با کارت پرداخت می‌کنم.",
+       "meaning_en": "The one line that answers the checkout question.",
+       "meaning_fa": "یک خطی که پرسش صندوق را پاسخ می‌دهد.",
+       "register": "neutral",
+       "example_en": "I will pay by card, and I do not need a bag.",
+       "example_fa": "با کارت پرداخت می‌کنم، و کیسه نمی‌خواهم.",
+       "alt": ""
+      },
+      {
+       "id": "grocery-x5",
+       "kind": "idiom",
+       "en": "Shop till you drop.",
+       "fa": "آنقدر خرید کن تا از پا بیفتی.",
+       "meaning_en": "Literally, shop until you fall down; figuratively, shop for as long as you possibly can.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، خرید کن تا بیفتی؛ به‌طور مجازی، تا جای ممکن خرید کن.",
+       "register": "informal",
+       "example_en": "We had the whole afternoon and shopped till we dropped.",
+       "example_fa": "کل بعدازظهر را داشتیم و تا از پا افتادیم خرید کردیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Which aisle is the + [item] + in?",
+       "example_en": "Which aisle is the rice in?",
+       "example_fa": "برنج در کدام راهرو است؟",
+       "note_en": "Put the item before the preposition.",
+       "note_fa": "نام کالا را قبل از حرف اضافه بگذار."
+      },
+      {
+       "frame": "Do you have this in a + [size] + size?",
+       "example_en": "Do you have this in a smaller size?",
+       "example_fa": "این را اندازهٔ کوچک‌تر دارید؟",
+       "note_en": "Size at the end names the change you want.",
+       "note_fa": "اندازه در پایان تغییر مورد نظر را می‌گوید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "grocery-s1",
+       "en": "I only buy what is on the list, which is why the trolley is half empty and the bill is small.",
+       "fa": "فقط چیزی می‌خرم که در فهرست است، به همین دلیل چرخ خرید نیمه‌خالی و صورتحساب کم است.",
+       "use_en": "Links a habit to two results.",
+       "use_fa": "عادتی را به دو نتیجه ربط می‌دهد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Sticking to the list keeps the bill small."
+      },
+      {
+       "id": "grocery-s2",
+       "en": "The fresh fish is at the back of the shop, near the counter, not in the freezer.",
+       "fa": "ماهی تازه ته مغازه، نزدیک پیشخوان است، نه در فریزر.",
+       "use_en": "Gives a location precisely.",
+       "use_fa": "مکان را دقیق می‌گوید.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "The fresh fish is near the back counter."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the supermarket",
+      "title_fa": "در سوپرمارکت",
+      "speakers": [
+       "Mahsa",
+       "The assistant"
+      ],
+      "lines": [
+       {
+        "who": "Mahsa",
+        "en": "Excuse me, which aisle is the olive oil in?",
+        "fa": "ببخشید، روغن زیتون در کدام راهرو است؟"
+       },
+       {
+        "who": "The assistant",
+        "en": "Aisle nine, next to the vinegar.",
+        "fa": "راهروی نه، کنار سرکه."
+       },
+       {
+        "who": "Mahsa",
+        "en": "Thank you. And is the rice on offer this week?",
+        "fa": "ممنون. و برنج این هفته تخفیف دارد؟"
+       },
+       {
+        "who": "The assistant",
+        "en": "The large bags are, yes.",
+        "fa": "کیسه‌های بزرگ، بله."
+       },
+       {
+        "who": "Mahsa",
+        "en": "Then I will take two. Do you have this oil in a smaller bottle?",
+        "fa": "پس دو تا می‌گیرم. این روغن را در بطری کوچک‌تر دارید؟"
+       },
+       {
+        "who": "The assistant",
+        "en": "Only the one size, I am afraid.",
+        "fa": "متأسفانه فقط همین اندازه را داریم."
+       },
+       {
+        "who": "Mahsa",
+        "en": "That is fine. I will pay by card at the checkout.",
+        "fa": "اشکالی ندارد. در صندوق با کارت پرداخت می‌کنم."
+       },
+       {
+        "who": "The assistant",
+        "en": "The queue is shorter on the left today.",
+        "fa": "امروز صف سمت چپ کوتاه‌تر است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The missing price",
+       "title_fa": "قیمت ناموجود",
+       "situation_en": "A shelf has no price label and the checkout charges more than you expected.",
+       "situation_fa": "قفسه برچسب قیمت ندارد و صندوق بیشتر از انتظار حساب می‌کند.",
+       "task_en": "Ask for the price and then question the bill politely.",
+       "task_fa": "قیمت را بپرس و بعد مؤدبانه به صورتحساب اعتراض کن.",
+       "answer_en": "The shelf said four euros but you charged six. Could you check? The offer ended yesterday. I will refund the difference. The shelf said four euros but you charged six. Could you check?",
+       "answer_fa": "قفسه چهار یورو زده بود اما شش حساب کردید. می‌شود بررسی کنید؟ تخفیف دیروز تمام شده. تفاوت را برمی‌گردانم. قفسه چهار یورو زده بود اما شش حساب کردید. می‌شود بررسی کنید؟"
+      },
+      {
+       "title_en": "The forgotten item",
+       "title_fa": "کالای فراموش‌شده",
+       "situation_en": "You reach the checkout and remember the one thing you came for.",
+       "situation_fa": "به صندوق رسیدی و یادت آمد برای چه آمده بودی.",
+       "task_en": "Ask an assistant quickly without losing your place.",
+       "task_fa": "سریع از فروشنده بپرس بی‌آنکه جایت را از دست بدهی.",
+       "answer_en": "I forgot the milk. Which aisle is it in, quickly? Aisle four, by the back wall. Leave your trolley here, I will watch it. I forgot the milk. Which aisle is it in, quickly?",
+       "answer_fa": "شیر را فراموش کردم. سریع بگو در کدام راهرو است؟ راهروی چهار، کنار دیوار ته. چرخ را اینجا بگذار، مراقبش هستم. شیر را فراموش کردم. سریع بگو در کدام راهرو است؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "grocery-q1",
+       "q_en": "Where do you pay in a supermarket?",
+       "q_fa": "در سوپرمارکت کجا پرداخت می‌کنی؟",
+       "options": [
+        "at the checkout",
+        "in the aisle",
+        "at the counter for fish"
+       ],
+       "answer": "at the checkout",
+       "why_en": "The checkout is the paying point.",
+       "why_fa": "صندوق محل پرداخت است."
+      },
+      {
+       "id": "grocery-q2",
+       "q_en": "\"On offer\" means ...",
+       "q_fa": "«تخفیف دارد» یعنی ...",
+       "options": [
+        "the price is lower for a while",
+        "the product is new",
+        "the shop is closed"
+       ],
+       "answer": "the price is lower for a while",
+       "why_en": "On offer is a temporary price cut.",
+       "why_fa": "«تخفیف» کاهش قیمت موقت است."
+      },
+      {
+       "id": "grocery-q3",
+       "q_en": "Which word is the paper that proves what you paid?",
+       "q_fa": "کدام واژه کاغذی است که پرداخت را ثابت می‌کند؟",
+       "options": [
+        "receipt",
+        "discount",
+        "aisle"
+       ],
+       "answer": "receipt",
+       "why_en": "The receipt is the proof of payment.",
+       "why_fa": "رسید سند پرداخت است."
+      }
+     ]
+    },
+    {
+     "id": "prep",
+     "order": 10,
+     "icon": "knife",
+     "title_en": "Preparing the food",
+     "title_fa": "آماده کردن غذا",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Chopping, peeling, slicing, dicing, marinating and stirring: the verbs before the heat goes on.",
+     "blurb_fa": "خرد کردن، پوست کندن، برش دادن، مکعبی کردن، مزه‌دار کردن و هم زدن: فعل‌های پیش از روشن شدن حرارت.",
+     "objectives": [
+      {
+       "en": "give a preparation instruction with the right verb.",
+       "fa": "دستور آماده‌سازی را با فعل درست بده."
+      },
+      {
+       "en": "describe how a food is cut and why the size matters.",
+       "fa": "توصیف کن غذایی چطور بریده می‌شود و چرا اندازه مهم است."
+      },
+      {
+       "en": "say how long something should sit before cooking.",
+       "fa": "بگو چیزی چه مدت پیش از پخت باید بماند."
+      }
+     ],
+     "words": [
+      {
+       "id": "prep-w1",
+       "en": "chop",
+       "ipa": "/tʃɑp/",
+       "pos": "verb",
+       "fa": "خرد کردن",
+       "def_en": "Cut food into pieces with a knife.",
+       "sport": "food",
+       "icon": "knife",
+       "level": "A2",
+       "example_en": "Chop the onion finely so it disappears in the sauce.",
+       "example_fa": "پیاز را ریز خرد کن تا در سس گم شود.",
+       "ref": ""
+      },
+      {
+       "id": "prep-w2",
+       "en": "peel",
+       "ipa": "/pil/",
+       "pos": "verb",
+       "fa": "پوست کندن",
+       "def_en": "Remove the skin from fruit or vegetables.",
+       "sport": "food",
+       "icon": "carrot",
+       "level": "A2",
+       "example_en": "Peel the potatoes before you boil them.",
+       "example_fa": "قبل از پختن سیب‌زمینی‌ها را پوست بگیر.",
+       "ref": ""
+      },
+      {
+       "id": "prep-w3",
+       "en": "slice",
+       "ipa": "/slaɪs/",
+       "pos": "verb",
+       "fa": "برش دادن",
+       "def_en": "Cut into thin flat pieces.",
+       "sport": "food",
+       "icon": "knife",
+       "level": "A2",
+       "example_en": "Slice the bread and put it under the grill.",
+       "example_fa": "نان را برش بزن و زیر گریل بگذار.",
+       "ref": ""
+      },
+      {
+       "id": "prep-w4",
+       "en": "dice",
+       "ipa": "/daɪs/",
+       "pos": "verb",
+       "fa": "مکعبی خرد کردن",
+       "def_en": "Cut into small cubes of the same size.",
+       "sport": "food",
+       "icon": "knife",
+       "level": "B1",
+       "example_en": "Dice the carrots so they cook evenly.",
+       "example_fa": "هویج‌ها را مکعبی خرد کن تا یکسان بپزند.",
+       "ref": ""
+      },
+      {
+       "id": "prep-w5",
+       "en": "marinate",
+       "ipa": "/ˈmærəneɪt/",
+       "pos": "verb",
+       "fa": "مزه‌دار کردن",
+       "def_en": "Leave food in a seasoned liquid before cooking it.",
+       "sport": "food",
+       "icon": "bowl",
+       "level": "B2",
+       "example_en": "Marinate the chicken for two hours in yoghurt and lemon.",
+       "example_fa": "مرغ را دو ساعت در ماست و لیمو مزه‌دار کن.",
+       "ref": ""
+      },
+      {
+       "id": "prep-w6",
+       "en": "stir",
+       "ipa": "/stɜr/",
+       "pos": "verb",
+       "fa": "هم زدن",
+       "def_en": "Move a spoon round and round through the food.",
+       "sport": "food",
+       "icon": "spoon",
+       "level": "A2",
+       "example_en": "Stir the sauce so it does not stick.",
+       "example_fa": "سس را هم بزن تا نچسبد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "prep-x1",
+       "kind": "expression",
+       "en": "Chop it into small pieces.",
+       "fa": "آن را به قطعه‌های کوچک خرد کن.",
+       "meaning_en": "Gives the size, which is what a cook actually needs.",
+       "meaning_fa": "اندازه را می‌گوید، که همان چیزی است که آشپز لازم دارد.",
+       "register": "neutral",
+       "example_en": "Chop it into small pieces and add it at the end.",
+       "example_fa": "آن را به قطعه‌های کوچک خرد کن و آخر کار اضافه کن.",
+       "alt": ""
+      },
+      {
+       "id": "prep-x2",
+       "kind": "expression",
+       "en": "Let it marinate overnight.",
+       "fa": "بگذار یک شب مزه‌دار شود.",
+       "meaning_en": "Time plus the verb, with no heat yet.",
+       "meaning_fa": "زمان به‌همراه فعل، هنوز بی‌حرارت.",
+       "register": "neutral",
+       "example_en": "Let it marinate overnight in the fridge.",
+       "example_fa": "بگذار یک شب در یخچال مزه‌دار شود.",
+       "alt": ""
+      },
+      {
+       "id": "prep-x3",
+       "kind": "collocation",
+       "en": "Give it a good stir.",
+       "fa": "خوب همش بزن.",
+       "meaning_en": "A good stir is the fixed phrase for thorough mixing.",
+       "meaning_fa": "«خوب هم زدن» عبارت ثابت برای مخلوط کردن کامل است.",
+       "register": "neutral",
+       "example_en": "Add the flour and give it a good stir.",
+       "example_fa": "آرد را اضافه کن و خوب همش بزن.",
+       "alt": ""
+      },
+      {
+       "id": "prep-x4",
+       "kind": "phrasal_verb",
+       "en": "Rinse the rice off first.",
+       "fa": "اول برنج را آب بکش.",
+       "meaning_en": "Rinse off is the phrasal verb for washing something away with water.",
+       "meaning_fa": "«آب کشیدن» فعل عبارتی برای شستن چیزی با آب است.",
+       "register": "neutral",
+       "example_en": "Rinse the rice off first, then cook it.",
+       "example_fa": "اول برنج را آب بکش، بعد بپز.",
+       "alt": ""
+      },
+      {
+       "id": "prep-x5",
+       "kind": "idiom",
+       "en": "Many hands make light work.",
+       "fa": "کار با دست‌های زیاد سبک می‌شود.",
+       "meaning_en": "Literally, more hands lift the load; figuratively, a job is quick when people help.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دست‌های بیشتر بار را سبک می‌کنند؛ به‌طور مجازی، کار با کمک دیگران سریع می‌شود.",
+       "register": "neutral",
+       "example_en": "You peel and I will chop: many hands make light work.",
+       "example_fa": "تو پوست بگیر و من خرد می‌کنم: کار با دست‌های زیاد سبک می‌شود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Chop it into + [size] + pieces.",
+       "example_en": "Chop it into small pieces.",
+       "example_fa": "آن را به قطعه‌های کوچک خرد کن.",
+       "note_en": "Into plus the size gives the cut you want.",
+       "note_fa": "«به ...» اندازهٔ برش را می‌دهد."
+      },
+      {
+       "frame": "Let it + [verb] + for + [time].",
+       "example_en": "Let it marinate overnight.",
+       "example_fa": "بگذار یک شب مزه‌دار شود.",
+       "note_en": "Let it plus a verb plus a time is the waiting instruction.",
+       "note_fa": "«بگذار» با فعل و زمان، دستور انتظار است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "prep-s1",
+       "en": "If you dice everything the same size, the whole dish cooks at the same speed.",
+       "fa": "اگر همه چیز را یک‌اندازه مکعبی خرد کنی، کل غذا با یک سرعت می‌پزد.",
+       "use_en": "Explains the reason behind a technique.",
+       "use_fa": "دلیل پشت یک تکنیک را می‌گوید.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "Same size pieces cook evenly."
+      },
+      {
+       "id": "prep-s2",
+       "en": "The chicken sits in yoghurt, lemon and garlic all night, and by morning it is already tender.",
+       "fa": "مرغ تمام شب در ماست، لیمو و سیر می‌ماند و صبح уже نرم است.",
+       "use_en": "Describes a marinade and its effect.",
+       "use_fa": "مزه‌دار کردن و اثرش را توصیف می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Overnight in yoghurt makes the chicken tender."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Cooking together",
+      "title_fa": "آشپزی با هم",
+      "speakers": [
+       "Sara",
+       "Kian"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "Can you chop the onions while I peel the potatoes?",
+        "fa": "می‌توانی پیازها را خرد کنی تا من سیب‌زمینی‌ها را پوست بگیرم؟"
+       },
+       {
+        "who": "Kian",
+        "en": "Small or large pieces?",
+        "fa": "قطعه‌های کوچک یا بزرگ؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Small. They should disappear into the sauce.",
+        "fa": "کوچک. باید در سس گم شوند."
+       },
+       {
+        "who": "Kian",
+        "en": "And the carrots? Diced or sliced?",
+        "fa": "و هویج‌ها؟ مکعبی یا برش‌خورده؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Sliced, about half a centimetre. Dice only the ones for the salad.",
+        "fa": "برش‌خورده، حدود نیم سانت. فقط آنهای سالاد را مکعبی کن."
+       },
+       {
+        "who": "Kian",
+        "en": "The chicken is already marinating, so that is done.",
+        "fa": "مرغ از قبل مزه‌دار می‌شود، پس آن تمام است."
+       },
+       {
+        "who": "Sara",
+        "en": "Good. Give the rice a rinse and then we can start the heat.",
+        "fa": "خوب. برنج را آب بکش و بعد حرارت را روشن می‌کنیم."
+       },
+       {
+        "who": "Kian",
+        "en": "Many hands make light work.",
+        "fa": "کار با دست‌های زیاد سبک می‌شود."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The uneven vegetables",
+       "title_fa": "سبزی‌های ناهم‌اندازه",
+       "situation_en": "Half the carrots are burnt and half are still hard.",
+       "situation_fa": "نصف هویج‌ها سوخته و نصف دیگر سفت است.",
+       "task_en": "Explain the cause and the fix for next time.",
+       "task_fa": "علت و راه‌حل دفعهٔ بعد را بگو.",
+       "answer_en": "They are not the same size, so they cooked unevenly. Cut them the same size next time. Yes, dice them all to about one centimetre. They are not the same size, so they cooked unevenly. Cut them the same size next time.",
+       "answer_fa": "هم‌اندازه نیستند، پس نایکسان پختند. دفعهٔ بعد یک‌اندازه خردشان کن. بله، همه را حدود یک سانت مکعبی کن. هم‌اندازه نیستند، پس نایکسان پختند. دفعهٔ بعد یک‌اندازه خردشان کن."
+      },
+      {
+       "title_en": "The marinade question",
+       "title_fa": "پرسش مزه‌دار کردن",
+       "situation_en": "You want to cook the chicken in twenty minutes, not tomorrow.",
+       "situation_fa": "می‌خواهی مرغ را بیست دقیقهٔ دیگر بپزی، نه فردا.",
+       "task_en": "Ask what can be done in the time you have.",
+       "task_fa": "بپرس در زمانی که داری چه می‌شود کرد.",
+       "answer_en": "I do not have all night. Can it marinate for just an hour? Yes, cut it smaller and leave it at room temperature for an hour, turning it once. I do not have all night. Can it marinate for just an hour?",
+       "answer_fa": "تمام شب را ندارم. می‌شود فقط یک ساعت مزه‌دار شود؟ بله، کوچک‌ترش کن و یک ساعت در دمای اتاق بگذار، یک بار برگردانش. تمام شب را ندارم. می‌شود فقط یک ساعت مزه‌دار شود؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "prep-q1",
+       "q_en": "Which verb means cut into small cubes?",
+       "q_fa": "کدام فعل یعنی مکعبی خرد کردن؟",
+       "options": [
+        "dice",
+        "peel",
+        "stir"
+       ],
+       "answer": "dice",
+       "why_en": "Dice is about the cube shape.",
+       "why_fa": "«مکعبی کردن» دربارهٔ شکل مکعب است."
+      },
+      {
+       "id": "prep-q2",
+       "q_en": "Which step removes the skin?",
+       "q_fa": "کدام مرحله پوست را برمی‌دارد؟",
+       "options": [
+        "peel",
+        "slice",
+        "chop"
+       ],
+       "answer": "peel",
+       "why_en": "Peel is only about the skin.",
+       "why_fa": "«پوست کندن» فقط دربارهٔ پوست است."
+      },
+      {
+       "id": "prep-q3",
+       "q_en": "Why cut everything the same size?",
+       "q_fa": "چرا همه چیز را یک‌اندازه می‌بریم؟",
+       "options": [
+        "so it cooks evenly",
+        "so it looks expensive",
+        "so it weighs more"
+       ],
+       "answer": "so it cooks evenly",
+       "why_en": "Equal size means equal cooking time.",
+       "why_fa": "اندازهٔ برابر یعنی زمان پخت برابر."
+      }
+     ]
+    },
+    {
+     "id": "ordering",
+     "order": 11,
+     "icon": "menu",
+     "title_en": "Ordering at a restaurant",
+     "title_fa": "سفارش در رستوران",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Getting a table, reading the menu, asking what is good and ordering without pointing at the wrong dish.",
+     "blurb_fa": "گرفتن میز، خواندن منو، پرسیدن چه چیزی خوب است و سفارش دادن بی‌آنکه غذای اشتباه را نشان دهی.",
+     "objectives": [
+      {
+       "en": "ask for a table and say how many people there are.",
+       "fa": "میز بخواه و بگو چند نفر هستید."
+      },
+      {
+       "en": "ask what the restaurant recommends and understand the answer.",
+       "fa": "بپرس رستوران چه پیشنهادی دارد و پاسخ را بفهم."
+      },
+      {
+       "en": "order a starter, a main and a drink in one go.",
+       "fa": "پیش‌غذا، غذای اصلی و نوشیدنی را یک‌جا سفارش بده."
+      }
+     ],
+     "words": [
+      {
+       "id": "ordering-w1",
+       "en": "menu",
+       "ipa": "/ˈmɛnju/",
+       "pos": "noun",
+       "fa": "منو",
+       "def_en": "The list of food and drink a restaurant serves.",
+       "sport": "food",
+       "icon": "menu",
+       "level": "A1",
+       "example_en": "Could we see the menu, please?",
+       "example_fa": "می‌شود منو را ببینیم؟",
+       "ref": ""
+      },
+      {
+       "id": "ordering-w2",
+       "en": "starter",
+       "ipa": "/ˈstɑrtər/",
+       "pos": "noun",
+       "fa": "پیش‌غذا",
+       "def_en": "A small dish served before the main course.",
+       "sport": "food",
+       "icon": "bowl",
+       "level": "B1",
+       "example_en": "We shared a starter and it was plenty.",
+       "example_fa": "یک پیش‌غذا شریک شدیم و کافی بود.",
+       "ref": ""
+      },
+      {
+       "id": "ordering-w3",
+       "en": "main course",
+       "ipa": "/ˈmeɪn kɔrs/",
+       "pos": "noun",
+       "fa": "غذای اصلی",
+       "def_en": "The largest dish of a meal.",
+       "sport": "food",
+       "icon": "plate",
+       "level": "A2",
+       "example_en": "I had fish for my main course.",
+       "example_fa": "برای غذای اصلی ماهی خوردم.",
+       "ref": ""
+      },
+      {
+       "id": "ordering-w4",
+       "en": "side dish",
+       "ipa": "/ˈsaɪd dɪʃ/",
+       "pos": "noun",
+       "fa": "مخلفات",
+       "def_en": "A small extra dish served with the main course.",
+       "sport": "food",
+       "icon": "plate",
+       "level": "B1",
+       "example_en": "The main comes with a side dish of your choice.",
+       "example_fa": "غذای اصلی با یک مخلفات به انتخاب تو می‌آید.",
+       "ref": ""
+      },
+      {
+       "id": "ordering-w5",
+       "en": "dessert",
+       "ipa": "/dɪˈzɜrt/",
+       "pos": "noun",
+       "fa": "دسر",
+       "def_en": "Sweet food eaten at the end of a meal.",
+       "sport": "food",
+       "icon": "cake",
+       "level": "A2",
+       "example_en": "We were too full for dessert.",
+       "example_fa": "آنقدر سیر بودیم که دسر نخوردیم.",
+       "ref": ""
+      },
+      {
+       "id": "ordering-w6",
+       "en": "special",
+       "ipa": "/ˈspɛʃəl/",
+       "pos": "noun",
+       "fa": "غذای روز",
+       "def_en": "A dish a restaurant serves only that day.",
+       "sport": "food",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "The special is lamb with rice and herbs.",
+       "example_fa": "غذای روز بره با برنج و سبزی است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "ordering-x1",
+       "kind": "expression",
+       "en": "A table for two, please.",
+       "fa": "میز برای دو نفر، لطفاً.",
+       "meaning_en": "The first sentence of almost every restaurant visit.",
+       "meaning_fa": "نخستین جملهٔ تقریباً هر رفتن به رستوران.",
+       "register": "neutral",
+       "example_en": "A table for two, please, by the window if possible.",
+       "example_fa": "میز برای دو نفر، لطفاً، اگر می‌شود کنار پنجره.",
+       "alt": ""
+      },
+      {
+       "id": "ordering-x2",
+       "kind": "expression",
+       "en": "What do you recommend?",
+       "fa": "چه پیشنهاد می‌کنی؟",
+       "meaning_en": "Asks the waiter for a judgement, not just a list.",
+       "meaning_fa": "از پیشخدمت داوری می‌خواهد، نه فقط یک فهرست.",
+       "register": "neutral",
+       "example_en": "What do you recommend for someone who does not eat meat?",
+       "example_fa": "برای کسی که گوشت نمی‌خورد چه پیشنهاد می‌کنی؟",
+       "alt": ""
+      },
+      {
+       "id": "ordering-x3",
+       "kind": "expression",
+       "en": "I will have the same.",
+       "fa": "من هم همان را می‌خواهم.",
+       "meaning_en": "The short way to order what your friend just ordered.",
+       "meaning_fa": "راه کوتاه سفارش همان چیزی که دوستت سفارش داد.",
+       "register": "neutral",
+       "example_en": "That sounds good, I will have the same.",
+       "example_fa": "خوب به نظر می‌رسد، من هم همان را می‌خواهم.",
+       "alt": ""
+      },
+      {
+       "id": "ordering-x4",
+       "kind": "expression",
+       "en": "Could we have the bill, please?",
+       "fa": "می‌شود صورتحساب را بیاورید؟",
+       "meaning_en": "The polite end of the meal, and the phrase most learners get wrong.",
+       "meaning_fa": "پایان مؤدبانهٔ غذا، و عبارتی که بیشتر زبان‌آموزها بد می‌گویند.",
+       "register": "neutral",
+       "example_en": "Whenever you are ready, could we have the bill, please?",
+       "example_fa": "هر وقت آماده بودید، می‌شود صورتحساب را بیاورید؟",
+       "alt": ""
+      },
+      {
+       "id": "ordering-x5",
+       "kind": "idiom",
+       "en": "The proof of the pudding is in the eating.",
+       "fa": "امتحانش عیارش را نشان می‌دهد.",
+       "meaning_en": "Literally, you know a pudding only by tasting it; figuratively, only trying something shows whether it works.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، پودینگ را فقط با چشیدن می‌شناسی؛ به‌طور مجازی، فقط امتحان کردن نشان می‌دهد چیزی کار می‌کند یا نه.",
+       "register": "neutral",
+       "example_en": "The new place looks charming, but the proof of the pudding is in the eating.",
+       "example_fa": "جای جدید جذاب به نظر می‌رسد، اما امتحانش عیارش را نشان می‌دهد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "A table for + [number] +, please.",
+       "example_en": "A table for two, please.",
+       "example_fa": "میز برای دو نفر، لطفاً.",
+       "note_en": "Number of people, then please.",
+       "note_fa": "اول تعداد نفرات، بعد «لطفاً»."
+      },
+      {
+       "frame": "I will have the + [dish].",
+       "example_en": "I will have the same.",
+       "example_fa": "من هم همان را می‌خواهم.",
+       "note_en": "I will have plus the dish is the order itself.",
+       "note_fa": "«من ... را می‌خواهم» خودِ سفارش است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "ordering-s1",
+       "en": "The menu is short, which usually means the kitchen cooks everything well.",
+       "fa": "منو کوتاه است، که معمولاً یعنی آشپزخانه همه چیز را خوب می‌پزد.",
+       "use_en": "Turns a small menu into a reason for confidence.",
+       "use_fa": "منوی کوتاه را به دلیل اطمینان تبدیل می‌کند.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "A short menu is usually a good sign."
+      },
+      {
+       "id": "ordering-s2",
+       "en": "We ordered three starters instead of mains, which was cheaper and far more interesting.",
+       "fa": "سه پیش‌غذا سفارش دادیم جای غذای اصلی، که ارزان‌تر و خیلی جالب‌تر بود.",
+       "use_en": "Explains an unusual order and why.",
+       "use_fa": "سفارش غیرمعمول و دلیلش را می‌گوید.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Three starters worked better than mains."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Ordering dinner",
+      "title_fa": "سفارش شام",
+      "speakers": [
+       "Neda",
+       "The waiter"
+      ],
+      "lines": [
+       {
+        "who": "Neda",
+        "en": "A table for two, please. We do not have a reservation.",
+        "fa": "میز برای دو نفر، لطفاً. رزرو نداریم."
+       },
+       {
+        "who": "The waiter",
+        "en": "That is fine, the table by the window is free.",
+        "fa": "اشکالی ندارد، میز کنار پنجره آزاد است."
+       },
+       {
+        "who": "Neda",
+        "en": "Thank you. What do you recommend tonight?",
+        "fa": "ممنون. امشب چه پیشنهاد می‌کنی؟"
+       },
+       {
+        "who": "The waiter",
+        "en": "The special is grilled fish with rice, and the lamb is very good too.",
+        "fa": "غذای روز ماهی گریل با برنج است، و بره هم خیلی خوب است."
+       },
+       {
+        "who": "Neda",
+        "en": "I will have the fish. And a starter of grilled vegetables to share.",
+        "fa": "من ماهی می‌خواهم. و یک پیش‌غذای سبزیجات گریل برای شریک شدن."
+       },
+       {
+        "who": "Neda",
+        "en": "My friend will have the same.",
+        "fa": "دوستم هم همان را می‌خواهد."
+       },
+       {
+        "who": "The waiter",
+        "en": "Anything to drink?",
+        "fa": "نوشیدنی چیزی؟"
+       },
+       {
+        "who": "Neda",
+        "en": "Just water, please, and could we have the bill whenever you have a moment?",
+        "fa": "فقط آب، لطفاً، و هر وقت فرصت داشتید صورتحساب را بیاورید؟"
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The wrong dish",
+       "title_fa": "غذای اشتباه",
+       "situation_en": "A plate arrives that you did not order.",
+       "situation_fa": "بشقابی می‌رسد که سفارش ندادی.",
+       "task_en": "Say politely what you ordered and ask for the right dish.",
+       "task_fa": "مؤدبانه بگو چه سفارش دادی و غذای درست را بخواه.",
+       "answer_en": "I think this is the chicken. I ordered the fish. You are right, I am sorry. I will bring the fish in five minutes. I think this is the chicken. I ordered the fish.",
+       "answer_fa": "فکر می‌کنم این مرغ است. من ماهی سفارش دادم. حق داری، متأسفم. پنج دقیقهٔ دیگر ماهی را می‌آورم. فکر می‌کنم این مرغ است. من ماهی سفارش دادم."
+      },
+      {
+       "title_en": "The vegetarian at a steak house",
+       "title_fa": "گیاه‌خوار در استیک‌هاوس",
+       "situation_en": "Your friend eats no meat and the menu is almost all meat.",
+       "situation_fa": "دوستت گوشت نمی‌خورد و منو تقریباً تمامش گوشت است.",
+       "task_en": "Ask the waiter what the kitchen can make.",
+       "task_fa": "از پیشخدمت بپرس آشپزخانه چه می‌تواند درست کند.",
+       "answer_en": "Is there anything without meat? Even a large salad would do. The kitchen can make the pasta without the bacon, and the salad is very good. Is there anything without meat? Even a large salad would do.",
+       "answer_fa": "چیزی بدون گوشت هست؟ حتی یک سالاد بزرگ کافی است. آشپزخانه می‌تواند پاستا را بدون بیکن درست کند، و سالاد خیلی خوب است. چیزی بدون گوشت هست؟ حتی یک سالاد بزرگ کافی است."
+      }
+     ],
+     "practice": [
+      {
+       "id": "ordering-q1",
+       "q_en": "What is a starter?",
+       "q_fa": "پیش‌غذا چیست؟",
+       "options": [
+        "a small dish before the main course",
+        "the largest dish",
+        "the sweet course"
+       ],
+       "answer": "a small dish before the main course",
+       "why_en": "A starter comes first and is smaller.",
+       "why_fa": "پیش‌غذا اول می‌آید و کوچک‌تر است."
+      },
+      {
+       "id": "ordering-q2",
+       "q_en": "Which sentence orders the same as your friend?",
+       "q_fa": "کدام جمله همان غذای دوستت را سفارش می‌دهد؟",
+       "options": [
+        "I will have the same.",
+        "What do you recommend?",
+        "A table for two."
+       ],
+       "answer": "I will have the same.",
+       "why_en": "The same means the identical dish.",
+       "why_fa": "«همان» یعنی غذای یکسان."
+      },
+      {
+       "id": "ordering-q3",
+       "q_en": "What does the special mean on a menu?",
+       "q_fa": "«غذای روز» در منو یعنی چه؟",
+       "options": [
+        "a dish served only that day",
+        "the cheapest dish",
+        "the owner's favourite"
+       ],
+       "answer": "a dish served only that day",
+       "why_en": "The special changes daily.",
+       "why_fa": "«غذای روز» هر روز عوض می‌شود."
+      }
+     ]
+    },
+    {
+     "id": "billtalk",
+     "order": 12,
+     "icon": "coin",
+     "title_en": "The bill, the tip and the last word",
+     "title_fa": "صورتحساب، انعام و حرف آخر",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Paying, splitting, taking food home, and the food idioms every English speaker uses.",
+     "blurb_fa": "پرداخت، تقسیم کردن، بردن غذا به خانه، و اصطلاح‌های غذایی که هر انگلیسی‌زبانی به کار می‌برد.",
+     "objectives": [
+      {
+       "en": "ask for the bill and understand whether service is included.",
+       "fa": "صورتحساب بخواه و بفهم آیا سرویس حساب شده است."
+      },
+      {
+       "en": "split a bill between friends and leave a tip.",
+       "fa": "صورتحساب را بین دوستان تقسیم کن و انعام بگذار."
+      },
+      {
+       "en": "use the common food idioms correctly in a conversation.",
+       "fa": "اصطلاح‌های رایج غذایی را درست در گفت‌وگو به کار ببر."
+      }
+     ],
+     "words": [
+      {
+       "id": "billtalk-w1",
+       "en": "bill",
+       "ipa": "/bɪl/",
+       "pos": "noun",
+       "fa": "صورتحساب",
+       "def_en": "The paper that shows what you owe for a meal.",
+       "sport": "food",
+       "icon": "bill",
+       "level": "A2",
+       "example_en": "Could we have the bill, please?",
+       "example_fa": "می‌شود صورتحساب را بیاورید؟",
+       "ref": ""
+      },
+      {
+       "id": "billtalk-w2",
+       "en": "tip",
+       "ipa": "/tɪp/",
+       "pos": "noun",
+       "fa": "انعام",
+       "def_en": "Extra money you leave for good service.",
+       "sport": "food",
+       "icon": "coin",
+       "level": "A2",
+       "example_en": "We left a ten percent tip.",
+       "example_fa": "ده درصد انعام گذاشتیم.",
+       "ref": ""
+      },
+      {
+       "id": "billtalk-w3",
+       "en": "split",
+       "ipa": "/splɪt/",
+       "pos": "verb",
+       "fa": "تقسیم کردن",
+       "def_en": "Divide the cost between the people at the table.",
+       "sport": "food",
+       "icon": "bill",
+       "level": "B1",
+       "example_en": "Let us split the bill four ways.",
+       "example_fa": "بیا صورتحساب را چهار قسمت کنیم.",
+       "ref": ""
+      },
+      {
+       "id": "billtalk-w4",
+       "en": "reservation",
+       "ipa": "/ˌrɛzərˈveɪʃən/",
+       "pos": "noun",
+       "fa": "رزرو",
+       "def_en": "A table kept for you at a fixed time.",
+       "sport": "food",
+       "icon": "clock",
+       "level": "B1",
+       "example_en": "I made a reservation for eight o'clock.",
+       "example_fa": "برای ساعت هشت رزرو کردم.",
+       "ref": ""
+      },
+      {
+       "id": "billtalk-w5",
+       "en": "takeaway",
+       "ipa": "/ˈteɪkəweɪ/",
+       "pos": "noun",
+       "fa": "غذای بیرون‌بر",
+       "def_en": "Food you buy and eat somewhere else.",
+       "sport": "food",
+       "icon": "bag",
+       "level": "A2",
+       "example_en": "We ordered a takeaway on Friday night.",
+       "example_fa": "جمعه شب غذای بیرون‌بر سفارش دادیم.",
+       "ref": ""
+      },
+      {
+       "id": "billtalk-w6",
+       "en": "leftovers",
+       "ipa": "/ˈlɛftˌoʊvərz/",
+       "pos": "noun",
+       "fa": "باقیماندهٔ غذا",
+       "def_en": "Food not eaten at a meal, kept for later.",
+       "sport": "food",
+       "icon": "bowl",
+       "level": "B1",
+       "example_en": "The leftovers will do for lunch tomorrow.",
+       "example_fa": "باقیمانده‌ها برای ناهار فردا کافی است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "billtalk-x1",
+       "kind": "expression",
+       "en": "Is service included?",
+       "fa": "سرویس حساب شده است؟",
+       "meaning_en": "Asks whether the tip is already on the bill.",
+       "meaning_fa": "می‌پرسد آیا انعام از قبل در صورتحساب هست.",
+       "register": "neutral",
+       "example_en": "Is service included, or should we leave a tip?",
+       "example_fa": "سرویس حساب شده یا خودمان انعام بگذاریم؟",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x2",
+       "kind": "expression",
+       "en": "Shall we split the bill?",
+       "fa": "صورتحساب را تقسیم کنیم؟",
+       "meaning_en": "Suggests sharing the cost before anyone pays.",
+       "meaning_fa": "پیش از پرداخت کسی، تقسیم هزینه را پیشنهاد می‌کند.",
+       "register": "neutral",
+       "example_en": "Shall we split the bill, or pay for what we had?",
+       "example_fa": "صورتحساب را تقسیم کنیم یا هر کس غذای خودش را بدهد؟",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x3",
+       "kind": "expression",
+       "en": "Could I take the rest home?",
+       "fa": "می‌توانم بقیه را ببرم؟",
+       "meaning_en": "Asks for the leftovers to be packed.",
+       "meaning_fa": "می‌خواهد باقیمانده بسته‌بندی شود.",
+       "register": "neutral",
+       "example_en": "It was lovely, but I cannot finish it. Could I take the rest home?",
+       "example_fa": "خیلی خوب بود، اما نمی‌توانم تمامش کنم. می‌توانم بقیه را ببرم؟",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x4",
+       "kind": "expression",
+       "en": "What a rip-off.",
+       "fa": "چه کلاهی سر آدم می‌رود.",
+       "meaning_en": "Literally, something torn off you; as slang, a price that is far too high for what you get.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، چیزی که از آدم کنده می‌شود؛ در زبان عامیانه، قیمتی که برای آنچه می‌گیری بسیار زیاد است.",
+       "register": "slang",
+       "example_en": "Fourteen euros for two coffees? What a rip-off.",
+       "example_fa": "چهارده یورو برای دو قهوه؟ چه کلاهی سر آدم می‌رود.",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x5",
+       "kind": "idiom",
+       "en": "Bring home the bacon.",
+       "fa": "نان‌آور خانواده بودن.",
+       "meaning_en": "Literally, bring the cured meat home; figuratively, earn the money the household lives on.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، گوشت نمک‌سود را به خانه بیاور؛ به‌طور مجازی، پول گذران زندگی را دربیاور.",
+       "register": "informal",
+       "example_en": "She works two jobs and brings home the bacon.",
+       "example_fa": "او دو کار می‌کند و نان‌آور خانواده است.",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x6",
+       "kind": "idiom",
+       "en": "Spill the beans.",
+       "fa": "لو دادن ماجرا.",
+       "meaning_en": "Literally, knock over a jar of beans; figuratively, tell the secret.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، ظرف لوبیا را برگرداندن؛ به‌طور مجازی، راز را لو دادن.",
+       "register": "informal",
+       "example_en": "He spilled the beans about the surprise dinner.",
+       "example_fa": "او ماجرای شام غافلگیری را لو داد.",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x7",
+       "kind": "idiom",
+       "en": "A piece of cake.",
+       "fa": "مثل آب خوردن.",
+       "meaning_en": "Literally, a slice of cake; figuratively, very easy.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، یک تکه کیک؛ به‌طور مجازی، بسیار آسان.",
+       "register": "informal",
+       "example_en": "The booking was a piece of cake online.",
+       "example_fa": "رزرو آنلاین مثل آب خوردن بود.",
+       "alt": ""
+      },
+      {
+       "id": "billtalk-x8",
+       "kind": "idiom",
+       "en": "Food for thought.",
+       "fa": "مایهٔ فکر.",
+       "meaning_en": "Literally, food that feeds thinking; figuratively, an idea worth considering carefully.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، غذایی که فکر را می‌پرورد؛ به‌طور مجازی، اندیشه‌ای که ارزش سنجیدن دارد.",
+       "register": "neutral",
+       "example_en": "His talk about waste was real food for thought.",
+       "example_fa": "حرف او دربارهٔ دورریز واقعاً مایهٔ فکر بود.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Is + [thing] + included?",
+       "example_en": "Is service included?",
+       "example_fa": "سرویس حساب شده است؟",
+       "note_en": "Ask what is already in the price.",
+       "note_fa": "بپرس چه چیزی در قیمت هست."
+      },
+      {
+       "frame": "Could I + [verb] + the rest?",
+       "example_en": "Could I take the rest home?",
+       "example_fa": "می‌توانم بقیه را ببرم؟",
+       "note_en": "Could I plus a verb is the polite request.",
+       "note_fa": "«می‌توانم ...» درخواست مؤدبانه است."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "billtalk-s1",
+       "en": "We asked for the bill, split it three ways and left a little extra because the service was so good.",
+       "fa": "صورتحساب را خواستیم، سه قسمت کردیم و کمی بیشتر گذاشتیم چون سرویس خیلی خوب بود.",
+       "use_en": "Covers the whole end of a meal in one line.",
+       "use_fa": "کل پایان غذا را در یک خط می‌آورد.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "We split the bill and left a good tip."
+      },
+      {
+       "id": "billtalk-s2",
+       "en": "I always ask for a box for the leftovers; the next day's lunch is a piece of cake.",
+       "fa": "همیشه برای باقیمانده جعبه می‌خواهم؛ ناهار فردا مثل آب خوردن است.",
+       "use_en": "Uses an idiom naturally and explains the habit.",
+       "use_fa": "اصطلاح را طبیعی به کار می‌برد و عادت را توضیح می‌دهد.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Leftovers make tomorrow's lunch easy."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Paying for dinner",
+      "title_fa": "پرداخت شام",
+      "speakers": [
+       "Hamed",
+       "Leila"
+      ],
+      "lines": [
+       {
+        "who": "Hamed",
+        "en": "That was excellent. Could we have the bill, please?",
+        "fa": "عالی بود. می‌شود صورتحساب را بیاورید؟"
+       },
+       {
+        "who": "Leila",
+        "en": "Is service included, do you know?",
+        "fa": "می‌دانی سرویس حساب شده است؟"
+       },
+       {
+        "who": "Hamed",
+        "en": "It says service is included, but I will leave something extra.",
+        "fa": "نوشته سرویس حساب شده، اما من کمی بیشتر می‌گذارم."
+       },
+       {
+        "who": "Leila",
+        "en": "Shall we split it, or would you rather I paid for the starters?",
+        "fa": "تقسیم کنیم یا ترجیح می‌دهی من پیش‌غذاها را بدهم؟"
+       },
+       {
+        "who": "Hamed",
+        "en": "Let us split it, it is simpler.",
+        "fa": "تقسیم کنیم، ساده‌تر است."
+       },
+       {
+        "who": "Leila",
+        "en": "Fine. And I am taking the rest of this home, it is too good to leave.",
+        "fa": "باشد. و بقیهٔ این را می‌برم خانه، آنقدر خوب است که نماند."
+       },
+       {
+        "who": "Hamed",
+        "en": "Ask for a box. The kitchen does it without any fuss.",
+        "fa": "جعبه بخواه. آشپزخانه بی‌هیچ دردسری انجام می‌دهد."
+       },
+       {
+        "who": "Leila",
+        "en": "Then tomorrow's lunch is a piece of cake.",
+        "fa": "پس ناهار فردا مثل آب خوردن است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The unexpected service charge",
+       "title_fa": "هزینهٔ سرویس غیرمنتظره",
+       "situation_en": "The bill is higher than the menu prices because service was added.",
+       "situation_fa": "صورتحساب از قیمت‌های منو بیشتر است چون سرویس اضافه شده.",
+       "task_en": "Ask what the charge is before paying.",
+       "task_fa": "پیش از پرداخت بپرس این هزینه چیست.",
+       "answer_en": "There is a service charge here. Is it the tip, or extra? It is the tip, ten percent, and you can remove it if you prefer. There is a service charge here. Is it the tip, or extra?",
+       "answer_fa": "اینجا هزینهٔ سرویس هست. انعام است یا اضافه؟ این همان انعام است، ده درصد، و اگر بخواهی می‌توانی حذفش کنی. اینجا هزینهٔ سرویس هست. انعام است یا اضافه؟"
+      },
+      {
+       "title_en": "The friend who never pays",
+       "title_fa": "دوستی که هیچ‌وقت پول نمی‌دهد",
+       "situation_en": "The bill is split four ways and one friend says they only had a salad.",
+       "situation_fa": "صورتحساب چهار قسمت شده و یک دوست می‌گوید فقط سالاد خورده.",
+       "task_en": "Say what is fair without starting a fight.",
+       "task_fa": "بگو چه چیزی منصفانه است بی‌آنکه دعوا راه بیفتد.",
+       "answer_en": "We agreed to split it, but if you would rather pay for your own, that is fair too. You are right, I will pay for mine and put the rest towards the tip. We agreed to split it, but if you would rather pay for your own, that is fair too.",
+       "answer_fa": "قرار شد تقسیم کنیم، اما اگر ترجیح می‌دهی سهم خودت را بدهی، آن هم منصفانه است. حق داری، سهم خودم را می‌دهم و بقیه را برای انعام می‌گذارم. قرار شد تقسیم کنیم، اما اگر ترجیح می‌دهی سهم خودت را بدهی، آن هم منصفانه است."
+      }
+     ],
+     "practice": [
+      {
+       "id": "billtalk-q1",
+       "q_en": "What is a tip?",
+       "q_fa": "انعام چیست؟",
+       "options": [
+        "extra money for good service",
+        "the price of the food",
+        "a discount"
+       ],
+       "answer": "extra money for good service",
+       "why_en": "A tip is given on top of the bill for service.",
+       "why_fa": "انعام بالای صورتحساب برای سرویس داده می‌شود."
+      },
+      {
+       "id": "billtalk-q2",
+       "q_en": "\"Spill the beans\" means ...",
+       "q_fa": "«لو دادن ماجرا» یعنی ...",
+       "options": [
+        "tell the secret",
+        "drop the food",
+        "pay the bill"
+       ],
+       "answer": "tell the secret",
+       "why_en": "The beans are the secret.",
+       "why_fa": "«لوبیاها» همان رازند."
+      },
+      {
+       "id": "billtalk-q3",
+       "q_en": "Which idiom means something is very easy?",
+       "q_fa": "کدام اصطلاح یعنی چیزی بسیار آسان است؟",
+       "options": [
+        "a piece of cake",
+        "food for thought",
+        "bring home the bacon"
+       ],
+       "answer": "a piece of cake",
+       "why_en": "A piece of cake is ease, not dessert.",
+       "why_fa": "«یک تکه کیک» آسانی است، نه دسر."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 64,
     "patterns": 24,
     "sentences": 24,
     "dialogues": 12,

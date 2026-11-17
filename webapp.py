@@ -6737,7 +6737,19 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .tr-card.jn-entry > .jn-art { flex: 0 0 auto; }
   .tr-card.jn-entry .tr-ct { flex: 1 1 170px; min-width: 0; }
   .tr-card.jn-entry .tr-go { flex: 0 0 auto; max-width: 100%; }
+  /* The adult journey cards open with a photograph. A picture of a subject
+     reads at a glance where a 30px line drawing reads as a circle, so the card
+     carries a square crop instead of the pictogram. 58 CSS px from a 256px
+     file stays sharp on a 3x phone; 48px on a narrow one, which is the size
+     that keeps the text column whole. The pictograms are still the drawing on
+     the stage page, the word list and the kid path. */
+  .tr-card.jn-entry .jn-photo {
+    flex: 0 0 auto; width: 58px; height: 58px; border-radius: 14px;
+    object-fit: cover; background: var(--surf-3); display: block;
+    box-shadow: 0 0 0 1px var(--line2), 0 8px 18px -12px rgba(0, 0, 0, .65);
+  }
   @media (max-width: 560px) {
+    .tr-card.jn-entry .jn-photo { width: 48px; height: 48px; border-radius: 12px; }
     .tr-card.jn-entry .tr-go {
       flex: 1 1 100%; white-space: normal; text-align: end; line-height: 1.5;
     }
@@ -15147,6 +15159,9 @@ async function loadPhrases() {
     /* Technology is adult material too: it teaches password, scam and
        privacy vocabulary that belongs with the grown-up panel. */
     box.appendChild(Journey.card('tech', false));
+    /* Food, cooking and restaurants: the everyday subject of a kitchen, a
+       market and a table, in the same adult panel. */
+    box.appendChild(Journey.card('food', false));
     byLevel(topics).forEach(([level, items]) => {
       const sec = document.createElement('div');
       sec.className = 'vgroup';
@@ -20321,6 +20336,45 @@ const Journey = (() => {
     download: '<path d="M16 4v16"/><path d="M10 14l6 6 6-6"/><path d="M5 26h22"/>',
     bluetooth: '<path d="M10 8l12 16M22 8L10 24"/><path d="M16 4v24l6-4-12-16 12 16"/>',
     video: '<rect x="3" y="9" width="18" height="14" rx="3"/><path d="M21 14l7-4v12l-7-4z"/>',
+    basket: '<path d="M4 14h24l-3 12H7z"/><path d="M10 14l3-8M22 14l-3-8"/><path d="M4 14h24"/>',
+    bowl: '<path d="M4 14h24c0 7-5 11-12 11S4 21 4 14z"/><path d="M2 14h28"/>',
+    plate: '<circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7"/><path d="M16 9v14"/>',
+    /* food: the produce, the pantry, the tools, the table. One drawing per
+       word, so a food stage never shows a football where a pot should be. */
+    apple: '<path d="M16 11c-4-3-9-1-9 5 0 6 4 10 6 10 1 0 2-1 3-1s2 1 3 1c2 0 6-4 6-10 0-6-5-8-9-5z"/><path d="M16 11V6"/><path d="M16 6c2-3 5-3 6-2-1 3-3 4-6 2z"/>',
+    tomato: '<circle cx="16" cy="20" r="9"/><path d="M16 11V6"/><path d="M11 10l5-3 5 3"/>',
+    onion: '<path d="M16 7c5 0 8 5 8 10s-4 8-8 8-8-3-8-8 3-10 8-10z"/><path d="M16 7V3"/><path d="M12 21c2-4 2-9 0-12M20 21c-2-4-2-9 0-12"/>',
+    garlic: '<path d="M16 5c3 3 3 6 2 8 3 1 5 4 5 7 0 4-3 6-7 6s-7-2-7-6c0-3 2-6 5-7-1-2-1-5 2-8z"/><path d="M16 14v6"/>',
+    carrot: '<path d="M20 8l4 4-12 12-4-4z"/><path d="M20 8c0-3 2-5 5-5-1 3-2 4-5 5z"/><path d="M15 13l4 4"/>',
+    leaf: '<path d="M6 26c0-11 7-18 20-19 1 13-6 20-17 20"/><path d="M9 23c4-5 8-8 13-10"/>',
+    bag: '<path d="M7 11h18l-2 17H9z"/><path d="M12 11V8a4 4 0 0 1 8 0v3"/>',
+    sugar: '<rect x="7" y="7" width="18" height="18" rx="3"/><path d="M12 13h.01M20 13h.01M12 20h.01M20 20h.01M16 16h.01"/>',
+    salt: '<path d="M11 4h10l-2 8H13z"/><path d="M10 12h12l2 16H8z"/><path d="M13 18h.01M19 18h.01M16 23h.01"/>',
+    rice: '<path d="M4 19h24c0 6-5 9-12 9S4 25 4 19z"/><path d="M9 15l2-3M16 14l1-4M23 15l-1-3"/>',
+    egg: '<path d="M16 4c5 6 7 10 7 14a7 7 0 0 1-14 0c0-4 2-8 7-14z"/>',
+    butter: '<path d="M4 14l10-6 14 4-10 7z"/><path d="M4 14v5l14 6 10-7v-5"/><path d="M14 8v11"/>',
+    pot: '<path d="M6 12h20v9a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4z"/><path d="M4 12h24"/><path d="M12 8V5M20 8V5"/>',
+    pan: '<circle cx="13" cy="19" r="8"/><path d="M20 15l9-4"/>',
+    oven: '<rect x="4" y="6" width="24" height="22" rx="3"/><path d="M4 13h24"/><circle cx="9" cy="9.5" r="1"/><path d="M10 20h12"/>',
+    knife: '<path d="M4 22L22 4l6 6-18 18H4z"/><path d="M11 15l6 6"/>',
+    cutting: '<rect x="3" y="8" width="26" height="16" rx="3"/><circle cx="24" cy="16" r="1.6"/><path d="M8 14h10M8 18h7"/>',
+    whisk: '<path d="M16 3v6"/><path d="M11 9c-1 8 2 13 5 20 3-7 6-12 5-20"/><path d="M13 12c0 6 1 10 3 17M19 12c0 6-1 10-3 17"/>',
+    book: '<path d="M5 6h9a4 4 0 0 1 4 4v18a4 4 0 0 0-4-4H5z"/><path d="M27 6h-9a4 4 0 0 0-4 4v18a4 4 0 0 1 4-4h9z"/>',
+    spoon: '<ellipse cx="11" cy="9" rx="4" ry="6"/><path d="M13 14l8 14"/>',
+    cup: '<path d="M7 9h16v9a6 6 0 0 1-12 0z"/><path d="M23 11h3a3 3 0 0 1 0 6h-3"/><path d="M6 27h20"/>',
+    lemon: '<ellipse cx="16" cy="16" rx="10" ry="7" transform="rotate(-25 16 16)"/><path d="M9 9l2 2"/>',
+    chili: '<path d="M21 5c4 3 4 9 0 13-4 4-10 6-14 5 6-2 10-5 12-9"/><path d="M21 5l2-2"/>',
+    milk: '<path d="M10 4h8l3 6v18H7V10z"/><path d="M7 12h14"/><path d="M13 18h4"/>',
+    meat: '<path d="M9 13c0-4 3-6 7-6s7 2 7 6-3 8-7 8-7-4-7-8z"/><path d="M6 24l6-6"/><circle cx="10" cy="20" r="3"/>',
+    bread: '<path d="M5 14c0-4 3-6 11-6s11 2 11 6v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M10 12v14M16 11v15M22 12v14"/>',
+    cart: '<path d="M4 6h4l4 14h13"/><circle cx="11" cy="25" r="2"/><circle cx="23" cy="25" r="2"/><path d="M9 10h18l-2 8H11"/>',
+    receipt: '<path d="M8 4h16v24l-4-3-4 3-4-3-4 3z"/><path d="M12 10h8M12 15h8M12 20h5"/>',
+    tag: '<path d="M4 16L16 4h10v10L14 26z"/><circle cx="21" cy="9" r="2"/>',
+    cake: '<path d="M6 18c0-3 2-5 10-5s10 2 10 5v8H6z"/><path d="M6 18h20"/><path d="M16 13V8"/><path d="M16 6c2 0 2 2 0 2"/>',
+    coin: '<circle cx="16" cy="16" r="11"/><path d="M16 10v12M13 13h6M13 19h6"/>',
+    menu: '<rect x="6" y="4" width="20" height="24" rx="3"/><path d="M11 11h10M11 16h10M11 21h6"/>',
+    bill: '<path d="M6 5h20v22H6z"/><path d="M10 11h12M10 16h8M10 21h12"/>',
+    flame: '<path d="M16 4c5 5 7 8 7 12a7 7 0 0 1-14 0c0-3 2-5 4-7 0 3 1 4 2 4 0-3 0-6 1-9z"/>',
     ball: '<circle cx="16" cy="16" r="11"/><path d="M5 12c6 3 16 3 22 0"/><path d="M5 20c6-3 16-3 22 0"/>',
     soccer: '<circle cx="16" cy="16" r="12"/><path d="M16 9l6 4-2.3 7h-7.4L10 13z"/><path d="M16 4v5M4.5 13H10M8 26l3.7-6M24.5 26l-4-6M27.5 13h-5"/>',
     football: '<ellipse cx="16" cy="16" rx="12" ry="7.5" transform="rotate(-20 16 16)"/><path d="M12 18l8-4M11 15l1 1M14 13l1 1M17 19l1 1"/>',
@@ -20862,17 +20916,33 @@ const Journey = (() => {
      same panel. It does not need the data to be loaded to be drawn: the counts
      arrive when they arrive. */
   const CARD_WORDS = {
-    travel: { en: 'Travel', fa: 'سفر', sub: 'Speak English confidently wherever you go.', subFa: 'با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', art: 'case' },
-    sports: { en: 'Sports', fa: 'ورزش', sub: 'The words players, coaches and fans actually use.', subFa: 'واژه‌هایی که بازیکن‌ها، مربی‌ها و هوادارها واقعاً به کار می‌برند.', art: 'soccer' },
+    travel: { en: 'Travel', fa: 'سفر', sub: 'Speak English confidently wherever you go.', subFa: 'با اطمینان انگلیسی صحبت کن، هرجا که می‌روی.', art: 'case', photo: 'travel' },
+    sports: { en: 'Sports', fa: 'ورزش', sub: 'The words players, coaches and fans actually use.', subFa: 'واژه‌هایی که بازیکن‌ها، مربی‌ها و هوادارها واقعاً به کار می‌برند.', art: 'soccer', photo: 'sports' },
     tech: { en: 'Technology', fa: 'فناوری', sub: 'Devices, the internet, AI and the words that keep you safe.', subFa: 'دستگاه‌ها، اینترنت، هوش مصنوعی و واژه‌هایی که امن نگهت می‌دارند.', art: 'chip' },
-    makeup: { en: 'Makeup', fa: 'آرایش', sub: 'Products, verbs, looks and idioms, from skin prep to the last touch-up.', subFa: 'محصول‌ها، فعل‌ها، مدل‌ها و اصطلاح‌ها، از آماده‌سازی پوست تا آخرین تجدید.', art: 'lipstick' },
+    makeup: { en: 'Makeup', fa: 'آرایش', sub: 'Products, verbs, looks and idioms, from skin prep to the last touch-up.', subFa: 'محصول‌ها، فعل‌ها، مدل‌ها و اصطلاح‌ها، از آماده‌سازی پوست تا آخرین تجدید.', art: 'lipstick', photo: 'makeup' },
+    food: { en: 'Food, Cooking & Restaurants', fa: 'غذا، آشپزی و رستوران', sub: 'Ingredients, recipes, flavours and everything you say at a table.', subFa: 'مواد اولیه، دستور پخت، مزه‌ها و هر چیزی که سر میز می‌گویی.', art: 'pot', photo: 'food' },
   };
+  /* A photograph where the adult card leads with a picture of the subject.
+     Empty alt: the card's own aria-label already names the journey, and a
+     screen reader should not hear the description twice. */
+  function photo(key, label) {
+    const img = el('img', 'jn-photo');
+    img.src = 'brand/journey-' + key + '.jpg';
+    img.alt = '';
+    img.width = 58;
+    img.height = 58;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.setAttribute('aria-hidden', 'true');
+    img.dataset.journey = label;
+    return img;
+  }
   function card(id, kidsFlag) {
     const isKid = !!kidsFlag;
     const info = CARD_WORDS[id] || { en: id, fa: '', sub: '', subFa: '', art: 'ball' };
     const b = el('button', (isKid ? 'kbtn kc-blue ' : '') + 'tr-card jn-entry');
     b.type = 'button';
-    b.append(art(info.art, info.en));
+    b.append(isKid || !info.photo ? art(info.art, info.en) : photo(info.photo, info.en));
     const ct = el('span', 'tr-ct');
     ct.append(el('b', null, info.en));
     ct.append(el('span', null, info.sub));
@@ -36410,6 +36480,17 @@ class Handler(BaseHTTPRequestHandler):
             # this is the one place a path could be typed in, and the APK
             # carries the identical files.
             name = self.path[len("/brand/"):]
+            if re.fullmatch(r"journey-[a-z]+\.jpg", name):
+                # One photograph per adult journey card, whitelisted as
+                # "journey-" plus a journey id, so the same rule that stops a
+                # traversal keeps a name out of the filesystem.
+                path = ROOT / "brand" / name
+                if not path.exists():
+                    return self._send_text("not found",
+                                           "text/plain; charset=utf-8",
+                                           status=404)
+                self._finish(path.read_bytes(), "image/jpeg", 604800)
+                return
             if not re.fullmatch(r"[a-z0-9-]+\.png", name):
                 return self._send_text("not found", "text/plain; charset=utf-8",
                                        status=404)

@@ -1,0 +1,208 @@
+# Food, cooking and restaurants journey, stages 1-6. Rows are pipe-separated
+# and validated by tools/build_journeys.py; see its header for the field order
+# of each tag. Adult material: this journey is offered to the adult experience.
+
+J|ingredients|1|apple|Fruit, vegetables and the market|میوه، سبزی و بازار|adults||The produce you buy and name, and how to ask what is ripe, what is in season and what it costs.|محصولاتی که می‌خری و نام می‌بری، و اینکه چطور بپرسی چه چیزی رسیده، چه چیزی فصلش است و چه قیمتی دارد.
+O|name the vegetables and fruit you cook with every week.|سبزی‌ها و میوه‌هایی را که هر هفته با آن‌ها می‌پزی نام ببر.
+O|ask whether produce is ripe and how much it costs.|بپرس میوه رسیده است یا نه و چه قیمتی دارد.
+O|say what is in season and why it tastes better.|بگو چه چیزی فصلش است و چرا مزهٔ بهتری دارد.
+W|apple|/ˈæpəl/|noun|سیب|A round fruit with firm white flesh and thin red or green skin.|food|apple|A1|I eat an apple every morning after breakfast.|هر روز صبح بعد از صبحانه یک سیب می‌خورم.|
+W|tomato|/təˈmeɪtoʊ/|noun|گوجه‌فرنگی|A soft red fruit, eaten raw in salads or cooked into sauces.|food|tomato|A1|These tomatoes are not ripe yet.|این گوجه‌فرنگی‌ها هنوز نرسیده‌اند.|
+W|onion|/ˈʌnjən/|noun|پیاز|A round vegetable with layers of skin that makes your eyes water when you cut it.|food|onion|A1|Chop one onion and fry it slowly.|یک پیاز را خرد کن و آرام سرخ کن.|
+W|garlic|/ˈɡɑrlɪk/|noun|سیر|A small white bulb with a strong smell, used to flavour cooking.|food|garlic|A2|Add two cloves of garlic to the pan.|دو حبه سیر به ماهیتابه اضافه کن.|
+W|carrot|/ˈkærət/|noun|هویج|A long orange root vegetable, sweet and crunchy raw or cooked.|food|carrot|A1|Peel the carrots before you boil them.|قبل از پختن هویج‌ها را پوست بگیر.|
+W|lettuce|/ˈlɛtɪs/|noun|کاهو|A leafy green vegetable eaten raw in salads.|food|leaf|A2|Wash the lettuce under cold water.|کاهو را زیر آب سرد بشوی.|
+X|expression|I will take a kilo of tomatoes.|یک کیلو گوجه‌فرنگی می‌خواهم.|The standard way to buy a quantity at a market.|راه استاندارد خرید یک مقدار معین در بازار.|neutral|I will take a kilo of tomatoes and two onions.|یک کیلو گوجه‌فرنگی و دو پیاز می‌خواهم.|
+X|expression|Are these ripe?|اینها رسیده‌اند؟|Asks whether fruit is ready to eat today rather than in a few days.|می‌پرسد آیا میوه امروز آمادهٔ خوردن است یا چند روز دیگر.|neutral|Are these ripe, or should I leave them a day?|اینها رسیده‌اند یا یک روز بمانند؟|
+X|collocation|It is in season.|فصلش است.|In season is the collocation for produce grown now, at its best and cheapest.|«فصلش است» ترکیب ثابت برای محصولی است که همین حالا می‌روید و بهترین و ارزان‌ترین حالت را دارد.|neutral|Tomatoes are cheap now because they are in season.|گوجه‌فرنگی حالا ارزان است چون فصلش است.|
+X|idiom|It costs an arm and a leg.|خیلی گران است.|Literally, the price of a limb; figuratively, it is extremely expensive.|به‌طور تحت‌اللفظی، بهای یک دست و پا؛ به‌طور مجازی، بسیار گران است.|informal|Fresh berries cost an arm and a leg in winter.|توت تازه در زمستان خیلی گران است.|
+X|idiom|You are what you eat.|هر چه بخوری همان می‌شوی.|Literally, food builds the body; figuratively, your health and mood show what you feed yourself.|به‌طور تحت‌اللفظی، غذا بدن را می‌سازد؛ به‌طور مجازی، سلامت و حال تو نشان می‌دهد چه می‌خوری.|neutral|You are what you eat, so skip the second cake.|هر چه بخوری همان می‌شوی، پس کیک دوم را نخور.|
+P|How much is + [item]?|How much is a kilo of tomatoes?|یک کیلو گوجه‌فرنگی چند است؟|Ask the price before you commit.|قبل از خرید قیمت را بپرس.
+P|Are these + [adjective]?|Are these ripe?|اینها رسیده‌اند؟|Check the quality with one short question.|کیفیت را با یک پرسش کوتاه بررسی کن.
+S|The tomatoes at the corner shop are cheaper and much sweeter than the ones in the supermarket.|گوجه‌فرنگی‌های مغازهٔ سر کوچه از آنهای سوپرمارکت ارزان‌تر و خیلی شیرین‌ترند.|Compares two shops and gives a reason.|دو مغازه را مقایسه می‌کند و دلیل می‌آورد.|B1|neutral|The local ones are cheaper and sweeter.
+S|I only buy peaches in August, when they are in season and actually taste of something.|هلو را فقط در مرداد می‌خرم، وقتی فصلش است و واقعاً مزه دارد.|Explains a buying habit with its reason.|عادت خرید را با دلیلش توضیح می‌دهد.|B1|neutral|I buy peaches only in season.
+D|At the greengrocer|در میوه‌فروشی|Neda|The greengrocer
+L|Neda|How much are the tomatoes?|گوجه‌فرنگی‌ها چقدر است؟
+L|The greengrocer|Four euros a kilo. They came from the south this morning.|کیلویی چهار یورو. امروز صبح از جنوب آمده‌اند.
+L|Neda|Are they ripe enough to eat today?|آنقدر رسیده‌اند که امروز بخوریم؟
+L|The greengrocer|These are. Those are for tomorrow, so leave them a day.|اینها بله. آنها برای فردا هستند، یک روز بمانند.
+L|Neda|Then I will take a kilo of these, and two onions.|پس یک کیلو از اینها می‌گیرم و دو پیاز.
+L|The greengrocer|Anything else? The lettuce came in this morning too.|چیز دیگری هم می‌خواهی؟ کاهو هم صبح آمده.
+L|Neda|No, that is all. How much is that?|نه، همین. چقدر شد؟
+L|The greengrocer|Five twenty, please.|پنج و بیست، لطفاً.
+C|The tasteless tomatoes|گوجه‌فرنگی‌های بی‌مزه|You bought a kilo of tomatoes that taste of water.|یک کیلو گوجه‌فرنگی خریدی که مزهٔ آب می‌دهد.|Ask what is in season instead of what looks biggest.|بپرس چه چیزی فصلش است، نه چه چیزی درشت‌تر به نظر می‌رسد.|These have no taste. Do you have any that are in season? The small ones are from a local farm and they are ripe today. These have no taste. Do you have any that are in season?|این‌ها مزه ندارند. چیزی دارید که فصلش باشد؟ آنهای کوچک از مزرعهٔ محلی‌اند و امروز رسیده‌اند. این‌ها مزه ندارند. چیزی دارید که فصلش باشد؟
+C|The market price|قیمت بازار|The stall has no price on the fruit.|غرفه روی میوه قیمت نزده.|Ask the price and decide by the kilo.|قیمت را بپرس و بر پایهٔ کیلو تصمیم بگیر.|How much is a kilo of these apples? Three fifty a kilo, or five for two kilos. How much is a kilo of these apples?|یک کیلو از این سیب‌ها چند است؟ کیلویی سه و نیم، یا دو کیلو پنج. یک کیلو از این سیب‌ها چند است؟
+Q|What does it mean when produce is in season?|وقتی محصولی «فصلش است» یعنی چه؟|it is grown now and at its best|it is frozen|it is expensive|In season means the plant is producing it right now.|«فصلش است» یعنی گیاه همین حالا آن را می‌دهد.
+Q|Which question checks whether fruit is ready to eat today?|کدام پرسش بررسی می‌کند میوه امروز آمادهٔ خوردن است؟|Are these ripe?|How much is it?|Is it fresh?|Ripe is about readiness to eat, not about price or age.|«رسیده» دربارهٔ آماده بودن برای خوردن است، نه قیمت یا سن.
+Q|A tomato with no taste at all can be described as ...|گوجه‌فرنگی‌ای که هیچ مزه‌ای ندارد چه نام دارد؟|bland|spicy|tender|Bland means no flavour; it does not mean hot or soft.|«بی‌مزه» یعنی بدون طعم؛ نه تند است نه نرم.
+
+J|pantry|2|bag|The pantry and the fridge|قفسهٔ خواروبار و یخچال|adults||What keeps in a cupboard, what belongs in the fridge, and how to say you have run out.|چه چیزی در قفسه می‌ماند، چه چیزی در یخچال، و چگونه بگویی چیزی تمام شده.
+O|name the dry goods and dairy you keep at home.|مواد خشک و لبنیاتی را که در خانه نگه می‌داری نام ببر.
+O|say that something has run out or gone off.|بگو چیزی تمام شده یا فاسد شده.
+O|measure an ingredient with a pinch, a spoon or a cup.|مواد را با نوک انگشت، قاشق یا پیمانه اندازه بگیر.
+W|flour|/ˈflaʊər/|noun|آرد|A fine powder made from grain, used for bread, pasta and cakes.|food|bag|A2|Weigh the flour before you add the water.|آرد را قبل از افزودن آب وزن کن.|
+W|sugar|/ˈʃʊɡər/|noun|شکر|Sweet white or brown crystals used in baking and drinks.|food|sugar|A1|There is too much sugar in this cake.|این کیک شکر زیادی دارد.|
+W|salt|/sɔlt/|noun|نمک|A white mineral that brings out the taste of food.|food|salt|A1|Taste it before you add more salt.|قبل از افزودن نمک بیشتر مزه‌اش را بچش.|
+W|rice|/raɪs/|noun|برنج|Small white grains cooked in water and eaten with almost every meal.|food|rice|A1|Rinse the rice until the water runs clear.|برنج را بشوی تا آبش صاف شود.|
+W|egg|/ɛɡ/|noun|تخم‌مرغ|An oval food from a hen, boiled, fried or used in baking.|food|egg|A1|Beat two eggs with a fork.|دو تخم‌مرغ را با چنگال بزن.|
+W|butter|/ˈbʌtər/|noun|کره|A soft yellow fat made from milk, spread on bread or used for frying.|food|butter|A1|Melt the butter in the pan first.|اول کره را در ماهیتابه آب کن.|
+X|expression|We are out of milk.|شیر تمام کرده‌ایم.|Out of is the everyday way to say there is none left.|«تمام کرده‌ایم» روش روزمرهٔ گفتن این است که چیزی نمانده.|neutral|We are out of milk, so I will get some on the way home.|شیر تمام کرده‌ایم، پس در راه خانه می‌خرم.|
+X|phrasal_verb|It has gone off.|فاسد شده.|Go off is the phrasal verb for food that has spoiled.|«فاسد شدن» فعل عبارتی برای غذایی است که خراب شده.|informal|Do not use that cream, it has gone off.|آن خامه را استفاده نکن، فاسد شده.|
+X|collocation|Add a pinch of salt.|یک نوک انگشت نمک اضافه کن.|A pinch of salt is a fixed measure and a fixed phrase.|«نوک انگشت نمک» هم اندازهٔ ثابت است هم ترکیب ثابت.|neutral|Add a pinch of salt and taste it again.|یک نوک انگشت نمک اضافه کن و دوباره بچش.|
+X|phrasal_verb|Use up the leftovers.|باقیمانده‌ها را تمام کن.|Use up means to finish something completely so nothing is wasted.|«تمام کردن» یعنی چیزی را کامل مصرف کنی تا هدر نرود.|neutral|Use up the leftovers before you cook again.|قبل از پختن دوباره، باقیمانده‌ها را تمام کن.|
+X|idiom|It is the best thing since sliced bread.|بهترین چیز بعد از نان بریده است.|Literally, better than pre-sliced bread seemed when it arrived; figuratively, the best thing you have tried in a long time.|به‌طور تحت‌اللفظی، بهتر از نان بریده وقتی تازه آمد؛ به‌طور مجازی، بهترین چیزی که مدت‌ها امتحان کرده‌ای.|informal|This little rice cooker is the best thing since sliced bread.|این پلوپز کوچک بهترین چیز بعد از نان بریده است.|
+P|We are out of + [food].|We are out of milk.|شیر تمام کرده‌ایم.|Name what is missing, not what you need to buy.|بگو چه چیزی نیست، نه چه چیزی باید بخری.
+P|Add a + [measure] + of + [ingredient].|Add a pinch of salt.|یک نوک انگشت نمک اضافه کن.|The measure comes before the ingredient.|اول اندازه، بعد ماده.
+S|There is nothing in the fridge except half a jar of olives and some very old cheese.|در یخچال چیزی نیست جز نصف ظرف زیتون و کمی پنیر خیلی کهنه.|Says the fridge is empty without saying empty.|می‌گوید یخچال خالی است بدون گفتن واژهٔ خالی.|B1|neutral|The fridge is almost empty.
+S|The flour has been in that cupboard since last winter, so it may have gone off.|آرد از زمستان گذشته در آن قفسه مانده، پس شاید فاسد شده باشد.|Links storage time to a risk.|زمان نگهداری را به یک خطر ربط می‌دهد.|B2|neutral|That flour is old and may have gone off.
+D|Before the shopping list|پیش از نوشتن فهرست خرید|Kian|Sara
+L|Kian|We are out of milk and there are only two eggs left.|شیر تمام شده و فقط دو تخم‌مرغ مانده.
+L|Sara|What about the flour? I want to make bread tomorrow.|آرد چه؟ می‌خواهم فردا نان بپزم.
+L|Kian|Half a bag. Add it to the list.|نصف کیسه. به فهرست اضافه کن.
+L|Sara|And the butter in the door has gone off, it smells strange.|و کرهٔ در یخچال فاسد شده، بوی عجیبی می‌دهد.
+L|Kian|Right. Milk, flour, butter, eggs. Anything else?|درست. شیر، آرد، کره، تخم‌مرغ. چیز دیگری؟
+L|Sara|Rice, if it is on offer. The last bag was very good.|برنج، اگر تخفیف داشته باشد. کیسهٔ قبلی خیلی خوب بود.
+L|Kian|I will take the list and go now, before the shop closes.|فهرست را برمی‌دارم و الان می‌روم، قبل از بسته شدن مغازه.
+L|Sara|Take a bag with you, the big one is by the door.|یک کیسه با خودت ببر، کیسهٔ بزرگ کنار در است.
+C|The empty fridge|یخچال خالی|You open the fridge at eight in the evening and there is nothing to cook.|ساعت هشت شب یخچال را باز می‌کنی و چیزی برای پختن نیست.|Name what is missing and agree on what to buy.|بگو چه چیزی نیست و بر خرید توافق کن.|We are out of eggs and milk. What can we make with rice and flour? Rice with the last of the butter, and we buy eggs tomorrow. We are out of eggs and milk. What can we make with rice and flour?|تخم‌مرغ و شیر تمام شده. با برنج و آرد چه می‌شود پخت؟ برنج با آخرین کره، و فردا تخم‌مرغ می‌خریم. تخم‌مرغ و شیر تمام شده. با برنج و آرد چه می‌شود پخت؟
+C|The old flour|آرد کهنه|A bag of flour has sat in the cupboard for a year.|یک کیسه آرد یک سال در قفسه مانده.|Decide whether it is still safe, and say why.|تصمیم بگیر سالم است یا نه و دلیلش را بگو.|This flour smells musty. Has it gone off? Flour keeps a year in a dry cupboard, but this one is damp, so throw it out. This flour smells musty. Has it gone off?|این آرد بوی نم گرفته. فاسد شده؟ آرد یک سال در قفسهٔ خشک می‌ماند، اما این یکی نم کشیده، پس دور بریز. این آرد بوی نم گرفته. فاسد شده؟
+Q|Which phrasal verb means food has spoiled?|کدام فعل عبارتی یعنی غذا فاسد شده؟|gone off|used up|run out|Go off is about food spoiling; run out is about having none left.|«فاسد شدن» دربارهٔ خراب شدن غذاست؛ «تمام کردن» دربارهٔ نماندن آن.
+Q|A pinch is ...|«نوک انگشت» چه اندازه‌ای است؟|a very small amount held between finger and thumb|a full tablespoon|a cup|A pinch is the smallest measure in a kitchen.|«نوک انگشت» کوچک‌ترین اندازه در آشپزخانه است.
+Q|Where does butter belong?|کره کجا نگهداری می‌شود؟|in the fridge|in a dry cupboard|in the freezer for a year|Butter spoils quickly at room temperature.|کره در دمای اتاق زود فاسد می‌شود.
+
+J|equipment|3|pot|Pots, pans and the tools|قابلمه، ماهیتابه و ابزار|adults||The equipment a kitchen runs on, where it lives, and how to ask for it.|ابزارهایی که آشپزخانه با آن‌ها کار می‌کند، جایشان، و اینکه چطور بخواهی‌شان.
+O|ask where a piece of equipment is kept.|بپرس یک وسیله کجا نگهداری می‌شود.
+O|name the pot, pan and oven and what each one is for.|قابلمه، ماهیتابه و فر را نام ببر و بگو هر کدام برای چیست.
+O|say that a tool works well or badly.|بگو یک وسیله خوب یا بد کار می‌کند.
+W|pot|/pɑt/|noun|قابلمه|A deep round container with a lid, used for boiling and stews.|food|pot|A2|Put the potatoes in a large pot of water.|سیب‌زمینی‌ها را در قابلمهٔ بزرگ آب بگذار.|
+W|pan|/pæn/|noun|ماهیتابه|A shallow metal container with a handle, used for frying.|food|pan|A2|Heat the oil in a pan before the onions go in.|قبل از ریختن پیاز، روغن را در ماهیتابه گرم کن.|
+W|oven|/ˈʌvən/|noun|فر|The closed box in a kitchen that cooks food with dry heat.|food|oven|A1|Preheat the oven to two hundred degrees.|فر را روی دویست درجه گرم کن.|
+W|knife|/naɪf/|noun|چاقو|A sharp blade with a handle, used for cutting food.|food|knife|A1|A sharp knife is safer than a blunt one.|چاقوی تیز از چاقوی کند ایمن‌تر است.|
+W|cutting board|/ˈkʌtɪŋ bɔrd/|noun|تختهٔ برش|A flat wooden or plastic board you cut food on.|food|cutting|A2|Cut the meat on a separate cutting board.|گوشت را روی تختهٔ برش جداگانه خرد کن.|
+W|whisk|/wɪsk/|noun|همزن|A wire tool for beating eggs or cream quickly.|food|whisk|B1|Use a whisk to mix the eggs and the sugar.|با همزن تخم‌مرغ و شکر را مخلوط کن.|
+X|expression|Where do you keep the pans?|ماهیتابه‌ها را کجا می‌گذاری؟|Asks for the place rather than for the thing.|جای شیء را می‌پرسد، نه خود شیء را.|neutral|Where do you keep the pans in this kitchen?|در این آشپزخانه ماهیتابه‌ها را کجا می‌گذاری؟|
+X|expression|It is in the bottom drawer.|در کشوی پایینی است.|The short answer that ends a search.|پاسخ کوتاهی که جست‌وجو را تمام می‌کند.|neutral|The whisk is in the bottom drawer by the oven.|همزن در کشوی پایینی کنار فر است.|
+X|phrasal_verb|Turn the oven on.|فر را روشن کن.|Turn on is the phrasal verb for starting a machine.|«روشن کردن» فعل عبارتی برای راه‌انداختن دستگاه است.|neutral|Turn the oven on ten minutes before you need it.|ده دقیقه قبل از نیاز، فر را روشن کن.|
+X|idiom|It works a treat.|عالی کار می‌کند.|Literally, it works as a treat, a pleasure; figuratively, it works perfectly.|به‌طور تحت‌اللفظی، مثل یک هدیه کار می‌کند؛ به‌طور مجازی، بی‌نقص کار می‌کند.|informal|This old pan works a treat for pancakes.|این ماهیتابهٔ کهنه برای پنکیک عالی کار می‌کند.|
+X|idiom|Too many cooks spoil the broth.|آشپز که دو تا شد آش یا شور می‌شود یا بی‌نمک.|Literally, a soup ruined by too many cooks; figuratively, too many people helping makes the work worse.|به‌طور تحت‌اللفظی، آشی که آشپزهای زیاد خرابش می‌کنند؛ به‌طور مجازی، کمک زیاد کار را بدتر می‌کند.|neutral|Let one person plate it: too many cooks spoil the broth.|بگذار یک نفر غذا را بکشد: آشپز که دو تا شد آش خراب می‌شود.|
+P|Where do you keep the + [thing]?|Where do you keep the pans?|ماهیتابه‌ها را کجا می‌گذاری؟|Ask for the place when you are a guest in a kitchen.|وقتی مهمان آشپزخانه‌ای هستی جای وسیله را بپرس.
+P|It is in the + [place].|It is in the bottom drawer.|در کشوی پایینی است.|Answer with the place, then stop.|با مکان پاسخ بده و تمام کن.
+S|The only pan that fits the fish is the old one, and its handle gets hot.|تنها ماهیتابه‌ای که ماهی در آن جا می‌شود همان کهنه است و دسته‌اش داغ می‌شود.|Describes a real limitation of a tool.|یک محدودیت واقعی ابزار را توصیف می‌کند.|B2|neutral|The old pan is the only one big enough.
+S|A sharp knife and a wooden board make the whole job twice as quick.|یک چاقوی تیز و تختهٔ چوبی تمام کار را دو برابر سریع‌تر می‌کند.|Links equipment to speed.|ابزار را به سرعت کار ربط می‌دهد.|B1|neutral|Good tools make the job quicker.
+D|Borrowing a kitchen|قرض گرفتن آشپزخانه|Mina|Ali
+L|Mina|Where do you keep the big pot?|قابلمهٔ بزرگ را کجا می‌گذاری؟
+L|Ali|In the cupboard under the sink. The lid is separate.|در قفسهٔ زیر سینک. درش جداست.
+L|Mina|And a whisk? I want to beat the eggs.|و همزن؟ می‌خواهم تخم‌مرغ‌ها را بزنم.
+L|Ali|Top drawer, next to the knives.|کشوی بالا، کنار چاقوها.
+L|Mina|Do you have a board I can use for the onions?|تخته‌ای داری که برای پیاز استفاده کنم؟
+L|Ali|Take the plastic one. The wooden one is for bread.|پلاستیکی را بردار. چوبی برای نان است.
+L|Mina|Thanks. This oven heats up fast, does it not?|ممنون. این فر سریع گرم می‌شود، نه؟
+L|Ali|It works a treat, but the light inside has gone.|عالی کار می‌کند، اما چراغ داخلش رفته است.
+C|The missing lid|در قابلمه گم‌شده|You want to boil rice and every pot you find has no lid.|می‌خواهی برنج بپزی و هر قابلمه‌ای پیدا می‌کنی در ندارد.|Ask for the right pot and say why the lid matters.|قابلمهٔ درست را بخواه و بگو چرا در مهم است.|Do you have a pot with a lid? Rice needs one. Take the large one; its lid is in the drawer on the left. Do you have a pot with a lid? Rice needs one.|قابلمهٔ دردار داری؟ برنج در می‌خواهد. بزرگ را بردار؛ درش در کشوی سمت چپ است. قابلمهٔ دردار داری؟ برنج در می‌خواهد.
+C|The blunt knife|چاقوی کند|The only knife in the drawer will not cut a tomato.|تنها چاقوی کشو گوجه‌فرنگی را نمی‌برد.|Say the tool is not working and ask for another.|بگو ابزار کار نمی‌کند و یکی دیگر بخواه.|This knife is blunt. Is there a sharper one? Use the small one and sharpen it first, it takes a minute. This knife is blunt. Is there a sharper one?|این چاقو کند است. تیزتری هست؟ کوچک را استفاده کن و اول تیزش کن، یک دقیقه است. این چاقو کند است. تیزتری هست؟
+Q|Which tool beats eggs quickly?|کدام وسیله تخم‌مرغ را سریع می‌زند؟|a whisk|a pot|a cutting board|A whisk is made for beating, not for holding food.|همزن برای زدن ساخته شده، نه نگه داشتن غذا.
+Q|Which is a phrasal verb for starting the oven?|کدام فعل عبارتی یعنی روشن کردن فر است؟|turn on|put in|take off|Turn on starts a machine; turn off stops it.|«روشن کردن» دستگاه را راه می‌اندازد؛ «خاموش کردن» متوقفش می‌کند.
+Q|Why cut meat on a separate board?|چرا گوشت را روی تختهٔ جداگانه خرد می‌کنیم؟|to keep raw meat away from other food|to keep the knife sharp|to make the meat tender|Raw meat carries bacteria that must not touch salad.|گوشت خام باکتری دارد که نباید به سالاد برسد.
+
+J|methods|4|flame|Cooking methods|روش‌های پخت|adults||Boil, fry, roast, bake, grill and steam, and the sentences that tell somebody how.|جوشاندن، سرخ کردن، در فر پختن، پختن، گریل کردن و بخارپز کردن، و جمله‌هایی که به کسی می‌گویند چطور.
+O|name the six ways food is cooked and what each one does.|شش روش پخت و کار هر کدام را نام ببر.
+O|give an instruction in the imperative, in the right order.|دستور را با فعل امر و به ترتیب درست بده.
+O|say how a dish was cooked and how long it took.|بگو غذایی چطور پخته شد و چقدر طول کشید.
+W|boil|/bɔɪl/|verb|جوشاندن|Cook food in water that is bubbling hard.|food|pot|A2|Boil the potatoes for twenty minutes.|سیب‌زمینی‌ها را بیست دقیقه بجوشان.|
+W|fry|/fraɪ/|verb|سرخ کردن|Cook food in hot oil in a pan.|food|pan|A2|Fry the onions until they are soft.|پیازها را تا نرم شوند سرخ کن.|
+W|roast|/roʊst/|verb|در فر پختن (گوشت و سبزی)|Cook meat or vegetables in an oven with a little oil.|food|oven|B1|Roast the chicken at two hundred degrees for an hour.|مرغ را یک ساعت روی دویست درجه در فر بپز.|
+W|bake|/beɪk/|verb|پختن (نان و کیک)|Cook bread or cake in an oven with dry heat.|food|bread|A2|Bake the bread for forty minutes.|نان را چهل دقیقه بپز.|
+W|grill|/ɡrɪl/|verb|گریل کردن|Cook food under or over strong direct heat.|food|flame|B1|Grill the peppers until the skin blackens.|فلفل‌ها را گریل کن تا پوستشان سیاه شود.|
+W|steam|/stim/|verb|بخارپز کردن|Cook food with steam and no direct water or oil.|food|pot|B1|Steam the broccoli for four minutes only.|کلم بروکلی را فقط چهار دقیقه بخارپز کن.|
+X|expression|Boil the water first.|اول آب را بجوشان.|A step in the right order, which is the whole point of a method.|یک مرحله به ترتیب درست، که کل نکتهٔ روش همین است.|neutral|Boil the water first, then add the pasta.|اول آب را بجوشان، بعد پاستا را بریز.|
+X|collocation|Fry it until golden.|تا طلایی شود سرخش کن.|Golden is the fixed word for the colour that means ready.|«طلایی» واژهٔ ثابت برای رنگی است که یعنی آماده است.|neutral|Fry it until golden, then turn it over.|تا طلایی شود سرخش کن، بعد برگردانش.|
+X|expression|Let it simmer for twenty minutes.|بیست دقیقه آرام بجوشد.|Simmer is the gentle boil that cooks through without burning.|«آرام جوشیدن» جوش ملایمی است که غذا را می‌پزد بی‌آنکه بسوزد.|neutral|Turn the heat down and let it simmer for twenty minutes.|حرارت را کم کن و بگذار بیست دقیقه آرام بجوشد.|
+X|idiom|Now you are cooking with gas.|حالا کارت راه افتاده.|Literally, moved from a slow stove to gas; figuratively, now you are working fast and well.|به‌طور تحت‌اللفظی، از اجاق کند به گاز رسیدی؛ به‌طور مجازی، حالا سریع و خوب کار می‌کنی.|informal|You preheated the pan this time, so now you are cooking with gas.|این بار ماهیتابه را گرم کردی، پس حالا کارت راه افتاده.|
+X|idiom|It all went up in smoke.|همه‌اش دود شد و به هوا رفت.|Literally, the food burned away; figuratively, the plan or the money disappeared completely.|به‌طور تحت‌اللفظی، غذا در آتش از بین رفت؛ به‌طور مجازی، نقشه یا پول کاملاً ناپدید شد.|neutral|We forgot the oven and the whole dinner went up in smoke.|فر را فراموش کردیم و کل شام دود شد و رفت.|
+P|Boil the + [food] + for + [time].|Boil the potatoes for twenty minutes.|سیب‌زمینی‌ها را بیست دقیقه بجوشان.|The food, then the time, in one instruction.|اول غذا، بعد زمان، در یک دستور.
+P|Let it + [verb] + for + [time].|Let it simmer for twenty minutes.|بگذار بیست دقیقه آرام بجوشد.|Let it plus a verb softens an instruction.|«بگذار» به‌همراه فعل، دستور را نرم می‌کند.
+S|I roast the vegetables on Sunday and eat them cold in salads all week.|یکشنبه سبزی‌ها را در فر می‌پزم و همهٔ هفته سرد در سالاد می‌خورم.|Describes a method plus the reason for it.|یک روش و دلیلش را توصیف می‌کند.|B1|neutral|I roast once and eat all week.
+S|If you steam the fish instead of frying it, it stays soft and the kitchen stays clean.|اگر ماهی را بخارپز کنی نه سرخ، نرم می‌ماند و آشپزخانه تمیز.|Compares two methods and names two results.|دو روش را مقایسه می‌کند و دو نتیجه را نام می‌برد.|B2|neutral|Steaming keeps the fish soft and the kitchen clean.
+D|The cooking lesson|درس آشپزی|Bahar|Reza
+L|Bahar|Do I put the onions in cold oil or hot oil?|پیاز را در روغن سرد بریزم یا داغ؟
+L|Reza|Hot, but not smoking. Fry them until golden.|داغ، اما نه تا حد دود. تا طلایی شود سرخ کن.
+L|Bahar|And the potatoes? Straight into the pan?|و سیب‌زمینی‌ها؟ مستقیم در ماهیتابه؟
+L|Reza|No, boil them first for ten minutes. Then they roast in half the time.|نه، اول ده دقیقه بجوشان. بعد نصف زمان در فر می‌پزند.
+L|Bahar|The oven is at two hundred. Should I put the chicken in now?|فر روی دویست است. مرغ را الان بگذارم؟
+L|Reza|Now, yes. And turn it once, halfway through.|الان، بله. و یک بار وسط پخت برگردانش.
+L|Bahar|How will I know it is done?|چطور بفهمم پخته است؟
+L|Reza|The juices run clear. If they are pink, give it ten more minutes.|آبه‌اش صاف بیرون می‌آید. اگر صورتی بود، ده دقیقه دیگر بده.
+C|The burnt onions|پیاز سوخته|The onions went black while you looked for the salt.|پیازها سیاه شدند وقتی دنبال نمک می‌گشتی.|Say what happened, and how to avoid it next time.|بگو چه شد و دفعهٔ بعد چطور از آن پرهیز کنی.|I burned the onions. I had the heat too high. Start again on a lower heat and stir them every minute. I burned the onions. I had the heat too high.|پیازها را سوزاندم. حرارت را زیاد گذاشته بودم. از نو با حرارت کمتر شروع کن و هر دقیقه هم بزن. پیازها را سوزاندم. حرارت را زیاد گذاشته بودم.
+C|The raw chicken|مرغ نپخته|The chicken looks brown outside and is pink at the bone.|مرغ بیرون قهوه‌ای است و کنار استخوان صورتی.|Ask how to finish it safely.|بپرس چطور ایمن تمامش کنی.|It is still pink near the bone. What should I do? Put it back for fifteen minutes and cover it with foil so it does not dry. It is still pink near the bone. What should I do?|کنار استخوان هنوز صورتی است. چه کار کنم؟ پانزده دقیقه دیگر در فر بگذار و با فویل بپوشان تا خشک نشود. کنار استخوان هنوز صورتی است. چه کار کنم؟
+Q|Which method cooks food in gently bubbling liquid?|کدام روش غذا را در مایع آرام‌جوش می‌پزد؟|simmer|grill|bake|Simmer is a gentle boil, not a hard one.|«آرام جوشیدن» جوش ملایم است، نه شدید.
+Q|What does "fry until golden" tell you?|«تا طلایی شود سرخ کن» چه می‌گوید؟|the colour that means it is ready|the temperature of the oil|the size of the pan|Golden is the colour that marks the end of frying.|«طلایی» رنگی است که پایان سرخ شدن را نشان می‌دهد.
+Q|Which one uses dry heat in a closed box?|کدام یک از گرمای خشک در محفظهٔ بسته استفاده می‌کند؟|bake|steam|boil|Baking happens in an oven, with no water.|پختن در فر انجام می‌شود، بدون آب.
+
+J|recipes|5|book|Recipes and quantities|دستور پخت و مقدارها|adults||Reading a recipe out loud, asking how many it serves, and scaling it up or down.|خواندن دستور پخت با صدای بلند، پرسیدن اینکه برای چند نفر است، و کم و زیاد کردنش.
+O|read a recipe's steps in order and say what each one needs.|مرحله‌های دستور را به ترتیب بخوان و بگو هر کدام چه می‌خواهد.
+O|ask how many people a dish serves.|بپرس یک غذا برای چند نفر است.
+O|double or halve a recipe and say the new amounts.|دستور را دو برابر یا نصف کن و مقدارهای تازه را بگو.
+W|recipe|/ˈrɛsəpi/|noun|دستور پخت|A set of instructions for cooking a dish.|food|book|A2|This recipe takes forty minutes from start to finish.|این دستور از اول تا آخر چهل دقیقه می‌برد.|
+W|ingredient|/ɪnˈɡridiənt/|noun|مادهٔ اولیه|One of the foods that go into a dish.|food|basket|A2|The first ingredient is butter, not oil.|مادهٔ اولیهٔ اول کره است، نه روغن.|
+W|tablespoon|/ˈteɪbəlspun/|noun|قاشق غذاخوری|A large spoon measure, about three teaspoons.|food|spoon|A2|Add one tablespoon of olive oil.|یک قاشق غذاخوری روغن زیتون اضافه کن.|
+W|teaspoon|/ˈti spun/|noun|قاشق چای‌خوری|A small spoon measure used for salt and spices.|food|spoon|A2|Half a teaspoon of salt is enough.|نصف قاشق چای‌خوری نمک کافی است.|
+W|pinch|/pɪntʃ/|noun|نوک انگشت|A very small amount held between finger and thumb.|food|salt|B1|Add a pinch of chilli flakes at the end.|آخر کار یک نوک انگشت فلفل قرمز اضافه کن.|
+W|cup|/kʌp/|noun|پیمانه|A measure of volume used in baking, about two hundred and forty millilitres.|food|cup|A2|Use one cup of milk and two cups of flour.|یک پیمانه شیر و دو پیمانه آرد استفاده کن.|
+X|collocation|Follow the recipe.|دستور را دنبال کن.|Follow the recipe is the fixed phrase for doing the steps as written.|«دستور را دنبال کردن» عبارت ثابت برای انجام مرحله‌ها به همان ترتیب نوشته‌شده است.|neutral|Follow the recipe the first time, then change it.|بار اول دستور را دنبال کن، بعد تغییرش بده.|
+X|expression|How many does it serve?|برای چند نفر است؟|Asks for the number of portions, not the number of steps.|تعداد پرس را می‌پرسد، نه تعداد مرحله‌ها را.|neutral|How many does it serve, four or six?|برای چند نفر است، چهار یا شش؟|
+X|expression|Double the quantities.|مقدارها را دو برابر کن.|The instruction for cooking for twice as many people.|دستور پختن برای دو برابر افراد.|neutral|We are eight, so double the quantities.|ما هشت نفریم، پس مقدارها را دو برابر کن.|
+X|idiom|It is a recipe for disaster.|دستور بدبختی است.|Literally, a set of steps that ends in a ruined dish; figuratively, a plan certain to go wrong.|به‌طور تحت‌اللفظی، دستوری که به غذای خراب می‌رسد؛ به‌طور مجازی، نقشه‌ای که حتماً بد می‌شود.|neutral|No timer and a hot oven is a recipe for disaster.|بی‌تایمر و فر داغ دستور بدبختی است.|
+X|idiom|Do it by the book.|دقیقاً طبق دستور انجامش بده.|Literally, follow the written recipe exactly; figuratively, follow the rules.|به‌طور تحت‌اللفظی، دقیقاً از دستور نوشته‌شده پیروی کن؛ به‌طور مجازی، قواعد را رعایت کن.|neutral|For the first cake, do it by the book.|برای کیک اول، دقیقاً طبق دستور انجامش بده.|
+P|How many does it + [verb]?|How many does it serve?|برای چند نفر است؟|Ask about portions with how many.|دربارهٔ تعداد پرس با «چند» بپرس.
+P|Add + [amount] + of + [ingredient].|Add one tablespoon of olive oil.|یک قاشق غذاخوری روغن زیتون اضافه کن.|The amount, then of, then the ingredient.|اول مقدار، بعد «از»، بعد ماده.
+S|The recipe says four people, but with a salad it easily feeds six.|دستور می‌گوید چهار نفر، اما با سالاد راحت شش نفر را سیر می‌کند.|Disagrees with the recipe using evidence.|با دستور مخالفت می‌کند و دلیل می‌آورد.|B1|neutral|It feeds six with a salad.
+S|I halved the sugar and doubled the lemon, and it tasted much better.|شکر را نصف و لیمو را دو برابر کردم و خیلی خوشمزه‌تر شد.|Reports a change and its result.|تغییر و نتیجه‌اش را گزارش می‌کند.|B1|neutral|Less sugar and more lemon worked better.
+D|Cooking for guests|آشپزی برای مهمان|Leila|Hamed
+L|Leila|This recipe serves four. There will be seven of us.|این دستور برای چهار نفر است. ما هفت نفر می‌شویم.
+L|Hamed|Then double everything except the salt.|پس همه چیز را دو برابر کن جز نمک.
+L|Leila|Two tablespoons of oil, then?|پس دو قاشق غذاخوری روغن؟
+L|Hamed|Yes, and four cups of rice. That is plenty for seven.|بله، و چهار پیمانه برنج. برای هفت نفر زیاد است.
+L|Leila|How long does it take altogether?|در کل چقدر طول می‌کشد؟
+L|Hamed|An hour, including the chopping, if we both work.|یک ساعت، با خرد کردن، اگر هر دو کار کنیم.
+L|Leila|I will do the chopping while the oven heats.|من خرد کردن را انجام می‌دهم تا فر گرم شود.
+L|Hamed|Perfect. Read me the next step when you get there.|عالی. وقتی رسیدی مرحلهٔ بعد را برایم بخوان.
+C|The recipe for two|دستور برای دو نفر|Every recipe you find serves six and you are cooking for two.|هر دستوری که پیدا می‌کنی برای شش نفر است و تو برای دو نفر می‌پزی.|Ask how to halve it and which amounts matter most.|بپرس چطور نصفش کنی و کدام مقدارها مهم‌ترند.|This serves six. How do I halve it without ruining the sauce? Halve everything except the spices, and taste before you add salt. This serves six. How do I halve it without ruining the sauce?|این برای شش نفر است. چطور نصفش کنم که سس خراب نشود؟ همه چیز را نصف کن جز ادویه‌ها، و قبل از نمک زدن بچش. این برای شش نفر است. چطور نصفش کنم که سس خراب نشود؟
+C|The missing ingredient|مادهٔ اولیهٔ گم‌شده|Halfway through a recipe you find there is no butter.|وسط دستور می‌فهمی کره نداری.|Ask what can replace it and what changes.|بپرس چه چیزی جایگزینش می‌شود و چه چیزی عوض می‌شود.|There is no butter left. Can I use oil instead? Yes, three tablespoons of oil for fifty grams of butter, but the cake will be denser. There is no butter left. Can I use oil instead?|کره نمانده. می‌توانم روغن استفاده کنم؟ بله، سه قاشق غذاخوری روغن برای پنجاه گرم کره، اما کیک سنگین‌تر می‌شود. کره نمانده. می‌توانم روغن استفاده کنم؟
+Q|What does "it serves four" tell you?|«برای چهار نفر است» چه می‌گوید؟|how many portions it makes|how long it takes|how hot the oven is|Serve here is about portions, not about waiting at a table.|«برای ... نفر بودن» دربارهٔ تعداد پرس است، نه انتظار سر میز.
+Q|A tablespoon is about ...|یک قاشق غذاخوری حدوداً چقدر است؟|three teaspoons|one cup|one pinch|A tablespoon is the large spoon measure.|قاشق غذاخوری پیمانهٔ بزرگ است.
+Q|Which phrase means follow the rules exactly?|کدام عبارت یعنی دقیقاً قواعد را رعایت کن؟|by the book|in season|on offer|By the book comes from following a recipe word for word.|«طبق کتاب» از پیروی کلمه‌به‌کلمه از دستور پخت می‌آید.
+
+J|flavours|6|lemon|Taste and seasoning|طعم و چاشنی|adults||Sweet, sour, salty, spicy, bitter and savoury, and the sentences for fixing a dish that is wrong.|شیرین، ترش، شور، تند، تلخ و خوش‌طعم، و جمله‌هایی برای درست کردن غذایی که ایراد دارد.
+O|describe a dish with the six basic tastes.|یک غذا را با شش طعم پایه توصیف کن.
+O|ask for the salt or the lemon at a table.|سر میز نمک یا لیمو بخواه.
+O|say a dish is too hot, too bland or just right.|بگو غذایی زیادی تند، بی‌مزه یا درست است.
+W|sweet|/swit/|adjective|شیرین|Tasting of sugar.|food|sugar|A1|This sauce is too sweet for a main course.|این سس برای غذای اصلی زیادی شیرین است.|
+W|sour|/ˈsaʊər/|adjective|ترش|Tasting sharp, like a lemon or unripe fruit.|food|lemon|A2|The yoghurt has gone sour.|ماست ترش شده.|
+W|salty|/ˈsɔlti/|adjective|شور|Containing or tasting of salt.|food|salt|A2|The soup is a little salty.|سوپ کمی شور است.|
+W|spicy|/ˈspaɪsi/|adjective|تند|Containing hot spices that burn your mouth.|food|chili|A2|This curry is too spicy for me.|این کاری برای من زیادی تند است.|
+W|bitter|/ˈbɪtər/|adjective|تلخ|A sharp taste like dark coffee or grapefruit.|food|leaf|B1|The greens are bitter unless you blanch them.|سبزی‌ها تلخ‌اند مگر اینکه آب‌پز کوتاهشان کنی.|
+W|savoury|/ˈseɪvəri/|adjective|خوش‌طعم و غیرشیرین|Salty or herby rather than sweet.|food|plate|B1|I would rather have something savoury than cake.|ترجیح می‌دهم چیزی غیرشیرین بخورم تا کیک.|
+X|expression|It tastes a bit bland.|کمی بی‌مزه است.|Bland is the polite word for a dish that has no flavour.|«بی‌مزه» واژهٔ مؤدبانه برای غذایی است که طعم ندارد.|neutral|It tastes a bit bland, could it take more pepper?|کمی بی‌مزه است، فلفل بیشتر می‌گیرد؟|
+X|expression|Could you pass the salt?|نمک را می‌دهی؟|The standard request at a table, with could for politeness.|درخواست استاندارد سر میز، با «می‌شود» برای ادب.|neutral|Could you pass the salt and the pepper?|نمک و فلفل را می‌دهی؟|
+X|expression|It is too spicy for me.|برای من زیادی تند است.|Says the dish is beyond your limit without calling it bad.|می‌گوید غذا از حد تو بیرون است بی‌آنکه بدش بشماری.|neutral|It is delicious, but too spicy for me.|خوشمزه است، اما برای من زیادی تند است.|
+X|collocation|Add a squeeze of lemon.|کمی آب لیمو بچکان.|A squeeze of lemon is the fixed way to say a small amount of juice.|«یک فشار لیمو» روش ثابت گفتن مقدار کمی آب است.|neutral|Add a squeeze of lemon at the end.|آخر کار کمی آب لیمو بچکان.|
+X|idiom|Variety is the spice of life.|تنوع، چاشنی زندگی است.|Literally, spice makes food interesting; figuratively, doing different things makes life good.|به‌طور تحت‌اللفظی، چاشنی غذا را جذاب می‌کند؛ به‌طور مجازی، تنوع زندگی را خوب می‌کند.|neutral|We cook a new dish every Friday: variety is the spice of life.|هر جمعه غذای تازه‌ای می‌پزیم: تنوع چاشنی زندگی است.|
+X|idiom|Take it with a pinch of salt.|با کمی تردید باورش کن.|Literally, a pinch of salt was said to soften a claim; figuratively, do not believe it completely.|به‌طور تحت‌اللفظی، می‌گفتند نوک انگشتی نمک ادعا را نرم می‌کند؛ به‌طور مجازی، کامل باورش نکن.|neutral|He says it is the best restaurant in town, but take that with a pinch of salt.|می‌گوید بهترین رستوران شهر است، اما با کمی تردید باورش کن.|
+P|It is too + [adjective] + for me.|It is too spicy for me.|برای من زیادی تند است.|Too plus an adjective plus for me draws your own limit.|«زیادی ... برای من» حد خودت را می‌کشد.
+P|Could you pass the + [thing]?|Could you pass the salt?|نمک را می‌دهی؟|The polite request for anything at a table.|درخواست مؤدبانه برای هر چیزی سر میز.
+S|The stew needed salt, lemon and ten more minutes, and then it was exactly right.|خورش به نمک، لیمو و ده دقیقهٔ دیگر نیاز داشت و بعد دقیقاً درست شد.|Lists three fixes in the order they were made.|سه اصلاح را به ترتیب انجامشان می‌آورد.|B1|neutral|Salt, lemon and ten more minutes fixed it.
+S|I like bitter greens with something sweet, like roasted pumpkin, on the same plate.|سبزی‌های تلخ را با چیزی شیرین، مثل کدو حلوایی در فر پخته، در یک بشقاب دوست دارم.|Balances two tastes in one sentence.|دو طعم را در یک جمله متعادل می‌کند.|B2|neutral|Bitter greens go well with sweet pumpkin.
+D|At a friend's table|سر میز دوست|Nima|Shadi
+L|Nima|This soup is very good. What is in it?|این سوپ خیلی خوب است. در آن چیست؟
+L|Shadi|Pumpkin, ginger and a little chilli. Is it too spicy?|کدو حلوایی، زنجبیل و کمی فلفل. زیادی تند است؟
+L|Nima|No, it is just right. Maybe a squeeze of lemon would lift it.|نه، دقیقاً درست است. شاید کمی آب لیمو بلندش کند.
+L|Shadi|Try it with the lemon. I think you are right.|با لیمو امتحان کن. فکر می‌کنم حق داری.
+L|Nima|That is better. It tastes less sweet now.|این بهتر است. حالا کمتر شیرین است.
+L|Shadi|Do you want more salt as well?|نمک هم بیشتر می‌خواهی؟
+L|Nima|No, the salt is perfect. Could you pass the bread?|نه، نمک بی‌نقص است. نان را می‌دهی؟
+L|Shadi|Here you are. Take the rest home if you like.|بفرما. اگر دوست داری بقیه را ببر خانه.
+C|The over-salted soup|سوپ شور|You salted the soup twice by mistake.|اشتباهی دو بار سوپ را نمک زدی.|Say what happened and ask how to rescue it.|بگو چه شد و بپرس چطور نجاتش بدهی.|I salted it twice. Is there a way to fix it? Add a peeled potato and a little water, then taste again in ten minutes. I salted it twice. Is there a way to fix it?|دو بار نمک زدم. راهی برای درست کردنش هست؟ یک سیب‌زمینی پوست‌کنده و کمی آب اضافه کن، بعد ده دقیقه دیگر بچش. دو بار نمک زدم. راهی برای درست کردنش هست؟
+C|Too hot for the table|برای میز زیادی تند|One dish is far too spicy for two of the guests.|یک غذا برای دو مهمان خیلی تند است.|Warn them honestly and offer a mild alternative.|صادقانه هشدار بده و جایگزین ملایم پیشنهاد کن.|The curry is very hot tonight. Would you like the yoghurt dish instead? Yes, please, and some bread with it. The curry is very hot tonight. Would you like the yoghurt dish instead?|کاری امشب خیلی تند است. دوست داری جای آن غذای ماستی بخوری؟ بله، لطفاً، و کمی نان با آن. کاری امشب خیلی تند است. دوست داری جای آن غذای ماستی بخوری؟
+Q|Which taste is described as sharp like a lemon?|کدام طعم مثل لیمو تیز است؟|sour|salty|savoury|Sour is the sharp taste of lemon and unripe fruit.|«ترش» طعم تیز لیمو و میوهٔ نرسیده است.
+Q|A dish with no flavour at all is ...|غذایی که هیچ طعمی ندارد ... است.|bland|bitter|spicy|Bland is the polite word for no flavour.|«بی‌مزه» واژهٔ مؤدبانه برای بی‌طعمی است.
+Q|What does "take it with a pinch of salt" advise?|«با کمی تردید باورش کن» چه توصیه‌ای می‌کند؟|do not believe it completely|add more salt|eat it quickly|The phrase is about doubt, not seasoning.|این عبارت دربارهٔ تردید است، نه چاشنی.

@@ -60,6 +60,25 @@ REQUIRED_TECH = [
     "screen time", "digital detox", "doomscrolling", "subscription", "privacy", "unplug",
 ]
 
+# What a food glossary has to name before it can call itself complete. The
+# brief asked for five areas - ingredients, equipment, methods, ordering and
+# flavours, shopping and preparation - and this is the vocabulary that covers
+# all five without a hole.
+REQUIRED_FOOD = [
+    "apple", "tomato", "onion", "garlic", "carrot", "lettuce",
+    "flour", "sugar", "salt", "rice", "egg", "butter",
+    "pot", "pan", "oven", "knife", "cutting board", "whisk",
+    "boil", "fry", "roast", "bake", "grill", "steam",
+    "recipe", "ingredient", "tablespoon", "teaspoon", "pinch", "cup",
+    "sweet", "sour", "salty", "spicy", "bitter", "savoury",
+    "crispy", "creamy", "tender", "chewy", "smooth", "raw",
+    "vegetarian", "vegan", "gluten-free", "lactose", "allergy", "portion",
+    "aisle", "trolley", "checkout", "receipt", "discount", "fresh",
+    "chop", "peel", "slice", "dice", "marinate", "stir",
+    "menu", "starter", "main course", "side dish", "dessert", "special",
+    "bill", "tip", "split", "reservation", "takeaway", "leftovers",
+]
+
 # The sports the brief names, by the ids the profiles use.
 REQUIRED_SPORTS = [
     "soccer", "football", "basketball", "volleyball", "rugby", "cricket",
@@ -185,18 +204,20 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds the travel, sports, makeup and technology journeys",
-          {"travel", "sports", "makeup", "tech"} <= set(by_id), str(sorted(by_id)))
+    check("the file holds the travel, sports, makeup, technology and food journeys",
+          {"travel", "sports", "makeup", "tech", "food"} <= set(by_id),
+          str(sorted(by_id)))
 
-    for jid in ("travel", "sports", "makeup", "tech"):
+    for jid in ("travel", "sports", "makeup", "tech", "food"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
-        if jid in ("makeup", "tech"):
-            # Makeup and technology are grown-up subjects in this app: the
-            # adult experience offers them and the kid experience never does.
+        if jid in ("makeup", "tech", "food"):
+            # Makeup, technology and food are grown-up subjects in this app:
+            # the adult experience offers them and the kid experience never
+            # does.
             check(f"{jid}: offered to adults only",
                   set(j.get("audiences") or []) == {"adults"},
                   str(j.get("audiences")))
@@ -235,11 +256,19 @@ def main() -> int:
     check("technology stage order is 1..12",
           [s.get("order") for s in cstages] == list(range(1, 13)),
           str([s.get("order") for s in cstages]))
-    check("sports stage order is 1..14",
+    food = by_id.get("food") or {"stages": []}
+    fstages = food.get("stages") or []
+    check("the food journey has twelve stages", len(fstages) == 12,
+          str(len(fstages)))
+    check("food stage order is 1..12",
+          [s.get("order") for s in fstages] == list(range(1, 13)),
+          str([s.get("order") for s in fstages]))
+    check("food stage order is 1..14" if False else "sports stage order is 1..14",
           [s.get("order") for s in sstages] == list(range(1, 15)),
           str([s.get("order") for s in sstages]))
     for jid, stages in (("travel", tstages), ("sports", sstages),
-                        ("makeup", mstages), ("tech", cstages)):
+                        ("makeup", mstages), ("tech", cstages),
+                        ("food", fstages)):
         ids = [s.get("id") for s in stages]
         check(f"{jid}: stage ids are unique", len(set(ids)) == len(ids), str(ids))
         check(f"{jid}: every stage declares its audience",
@@ -253,6 +282,8 @@ def main() -> int:
     for st in mstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
     for st in cstages:
+        check_stage(st["id"], st, needs_refs=False, needs_words=True)
+    for st in fstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
 
     # ------------------------------------------------------- the travel join --
@@ -419,6 +450,83 @@ def main() -> int:
     check("the technology stage page has its own chat prompt",
           "tech" in src.lower())
 
+    # ---------------------------------------------------- the food glossary --
+    fwords = [w for st in fstages for w in (st.get("words") or [])]
+    fexprs = [x for st in fstages for x in (st.get("expressions") or [])]
+    fterms = " | ".join([w.get("en", "") for w in fwords]
+                        + [x.get("en", "") for x in fexprs]).lower()
+    fabsent = [t for t in REQUIRED_FOOD if t not in fterms]
+    check("the food glossary names every ingredient, tool, method and menu word",
+          not fabsent, str(fabsent))
+    check("the food glossary is big enough to be a glossary",
+          len(fwords) >= 60, str(len(fwords)))
+    check("the food journey teaches at least 50 expressions and idioms",
+          len(fexprs) >= 50, str(len(fexprs)))
+    check("no food word is defined twice with a different meaning",
+          len({w.get("en") for w in fwords}) == len(fwords),
+          str([w.get("en") for w in fwords
+               if [x.get("en") for x in fwords].count(w.get("en")) > 1][:4]))
+    check("every food word carries a reading, a class, a Persian and an example",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos")
+              and w.get("fa") and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa")
+              for w in fwords),
+          str([w.get("en") for w in fwords
+               if not (IPA.search(w.get("ipa") or "") and w.get("pos")
+                       and w.get("fa") and w.get("def_en") and w.get("level")
+                       and w.get("example_en") and w.get("example_fa"))][:4]))
+    fidioms = [x for x in fexprs if x.get("kind") == "idiom"]
+    check("the food journey teaches at least 15 idioms", len(fidioms) >= 15,
+          str(len(fidioms)))
+    check("every food idiom separates the literal reading from the figurative one",
+          all(both_readings(x) for x in fidioms),
+          str([x.get("en") for x in fidioms if not both_readings(x)][:4]))
+    check("every food idiom has an example in context",
+          all(x.get("example_en") and x.get("example_fa") for x in fidioms))
+    check("the food journey labels slang as slang",
+          any(x.get("register") == "slang" for x in fexprs),
+          str(sorted({x.get("register") for x in fexprs})))
+    check("the food journey mixes phrasal verbs and collocations",
+          {x.get("kind") for x in fexprs} >= {"idiom", "expression",
+                                              "phrasal_verb", "collocation"},
+          str(sorted({x.get("kind") for x in fexprs})))
+    fstats = food.get("stats") or {}
+    check("the food journey counts its own statistics",
+          fstats.get("stages") == len(fstages) and fstats.get("words") == len(fwords)
+          and fstats.get("expressions") == len(fexprs),
+          str(fstats))
+    check("the food journey is offered in the adult sentence panel",
+          "Journey.card('food', false)" in src)
+    check("the kid sentence panel never offers food",
+          "Journey.card('food', true)" not in src
+          and "Journey.card('food'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    check("the food card names its own picture",
+          "pot:" in src[src.index("const ART = {"):src.index("function art(key, label)")])
+
+    # ------------------------------------------------- the card photographs --
+    brand = ROOT / "brand"
+    photos = {"travel": "journey-travel.jpg", "sports": "journey-sports.jpg",
+              "makeup": "journey-makeup.jpg", "food": "journey-food.jpg"}
+    for key, name in photos.items():
+        path = brand / name
+        check(f"the {key} card has its photograph", path.exists(), str(path))
+        if path.exists():
+            check(f"the {key} photograph is small enough for a phone",
+                  path.stat().st_size < 60000, f"{path.stat().st_size} bytes")
+    check("every journey card names a photograph",
+          all(f"photo: '{k}'" in src for k in photos), str(sorted(photos)))
+    check("the adult card shows the photograph and the child card the drawing",
+          "isKid || !info.photo ? art(info.art, info.en) : photo(info.photo, info.en)" in src)
+    check("the photograph is served under a whitelisted name",
+          're.fullmatch(r"journey-[a-z]+\\.jpg", name)' in src
+          and '"image/jpeg", 604800' in src)
+    check("the photograph is sized for the card, not the file",
+          "width: 58px; height: 58px" in src and "width: 48px; height: 48px" in src)
+    check("the APK carries the four photographs",
+          all(name in BUILDER.read_text(encoding="utf-8")
+              for name in photos.values()))
+
     check("the makeup card names its own picture",
           "lipstick" in src[src.index("const ART = {"):src.index("function art(key, label)")])
 
@@ -496,6 +604,9 @@ def main() -> int:
     notes.append(f"tech: {len(cstages)} stages, {len(cwords)} glossary words "
                  f"with IPA, {len(cexprs)} expressions and idioms "
                  f"({len(cidioms)} idioms), adult-only")
+    notes.append(f"food: {len(fstages)} stages, {len(fwords)} glossary words "
+                 f"with IPA, {len(fexprs)} expressions and idioms "
+                 f"({len(fidioms)} idioms), adult-only, photographed card")
     notes.append(f"sports: {len(sstages)} stages, {words} words with IPA, {exprs} expressions "
                  f"and idioms ({len(idioms)} idioms), {len(profiles)} sport profiles with "
                  f"{terms} key terms, {sents} own sentences, {prac} practice items; "

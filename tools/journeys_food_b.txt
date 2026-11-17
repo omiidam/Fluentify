@@ -1,0 +1,210 @@
+# Food, cooking and restaurants journey, stages 7-12. Rows are pipe-separated
+# and validated by tools/build_journeys.py; see its header for the field order
+# of each tag. Adult material: this journey is offered to the adult experience.
+
+J|texture|7|bread|Texture and doneness|بافت و پختگی|adults||Crispy, creamy, tender, chewy, smooth and raw: how food feels, and how to say it is not cooked yet.|ترد، خامه‌ای، نرم، سفت، یکدست و خام: حس غذا، و اینکه چطور بگویی هنوز نپخته است.
+O|describe how a dish feels in your mouth, not just how it tastes.|توصیف کن غذا در دهان چه حسی دارد، نه فقط چه طعمی.
+O|say that something is undercooked, overcooked or just right.|بگو چیزی نپخته، بیش از حد پخته یا درست است.
+O|praise a texture you like and explain why.|بافت مورد علاقه‌ات را تحسین کن و دلیلش را بگو.
+W|crispy|/ˈkrɪspi/|adjective|ترد|Firm and dry, breaking with a sound when you bite it.|food|bread|B1|The bread is best when the crust is crispy.|نان وقتی پوسته‌اش ترد است بهترین است.|
+W|creamy|/ˈkrimi/|adjective|خامه‌ای و نرم|Thick and soft, like cream.|food|milk|B1|The sauce is creamy without being heavy.|سس خامه‌ای است بی‌آنکه سنگین باشد.|
+W|tender|/ˈtɛndər/|adjective|نرم و لطیف|Soft enough to cut with a fork.|food|meat|B1|Cook the lamb slowly and it stays tender.|بره را آرام بپز تا نرم بماند.|
+W|chewy|/ˈtʃuːi/|adjective|سفت و نیازمند جویدن|Needing a lot of chewing.|food|meat|B2|This bread is a little too chewy for a sandwich.|این نان برای ساندویچ کمی زیادی سفت است.|
+W|smooth|/smuːð/|adjective|یکدست و صاف|With no lumps or pieces in it.|food|milk|A2|Blend the soup until it is smooth.|سوپ را تا یکدست شود مخلوط کن.|
+W|raw|/rɔ/|adjective|خام|Not cooked at all.|food|egg|B1|Do not put raw egg in the sauce.|تخم‌مرغ خام در سس نریز.|
+X|expression|It is still raw in the middle.|وسطش هنوز خام است.|Names exactly where the cooking failed.|دقیقاً می‌گوید کجای پخت ناقص مانده.|neutral|The cake is brown outside and still raw in the middle.|کیک بیرون قهوه‌ای و وسطش هنوز خام است.|
+X|collocation|Cook it until tender.|تا نرم شود بپز.|Until tender is the fixed phrase for the moment meat is ready.|«تا نرم شود» عبارت ثابت برای لحظهٔ آماده شدن گوشت است.|neutral|Cover the pot and cook it until tender.|قابلمه را بپوشان و تا نرم شود بپز.|
+X|expression|The bread has gone soft.|نان نرم شده.|Says a texture changed for the worse, without blaming anyone.|می‌گوید بافت به بدی عوض شده، بی‌آنکه کسی را سرزنش کند.|neutral|The bread has gone soft, so toast it.|نان نرم شده، پس تُستش کن.|
+X|idiom|It melts in your mouth.|در دهان آب می‌شود.|Literally, it turns liquid as you eat; figuratively, it is so soft it needs no chewing at all.|به‌طور تحت‌اللفظی، هنگام خوردن آب می‌شود؛ به‌طور مجازی، آنقدر نرم است که هیچ جویدنی نمی‌خواهد.|neutral|The fish was so fresh it melted in your mouth.|ماهی آنقدر تازه بود که در دهان آب می‌شد.|
+X|idiom|It is not my cup of tea.|به سلیقهٔ من نیست.|Literally, not the drink you like; figuratively, not to your taste.|به‌طور تحت‌اللفظی، نوشیدنی‌ای نیست که دوست داری؛ به‌طور مجازی، به سلیقهٔ تو نیست.|informal|Very rich desserts are not my cup of tea.|دسرهای خیلی پرخامه به سلیقهٔ من نیست.|
+P|It is too + [texture] + for me.|It is too chewy for me.|برای من زیادی سفت است.|Texture words take too plus for me.|واژه‌های بافت با «زیادی ... برای من» می‌آیند.
+P|Cook it until + [adjective].|Cook it until tender.|تا نرم شود بپز.|Until plus the adjective marks the end point.|«تا ... شدن» نقطهٔ پایان را نشان می‌دهد.
+S|The chips are best straight from the oil, when they are crispy outside and soft inside.|سیب‌زمینی‌ها بهترین حالت را مستقیم از روغن دارند، وقتی بیرون ترد و درون نرم‌اند.|Describes one food with two opposite textures.|یک غذا را با دو بافت متضاد توصیف می‌کند.|B1|neutral|Crispy outside, soft inside: that is the chip.
+S|I left the rice on the heat too long and now it is dry and chewy at the edges.|برنج را زیادی روی حرارت گذاشتم و حالا خشک و سفت شده، کناره‌ها سفت‌ترند.|Reports a mistake and its texture result.|اشتباه و نتیجهٔ بافتی‌اش را گزارش می‌کند.|B2|neutral|The rice is dry and chewy at the edges.
+D|At the table|سر میز|Omid|Parisa
+L|Omid|The chicken is very tender. How did you cook it?|مرغ خیلی نرم است. چطور پختی‌اش؟
+L|Parisa|Slowly, covered, for an hour and a half.|آرام، با در، یک ساعت و نیم.
+L|Omid|And the potatoes are crispy outside but soft inside. Perfect.|و سیب‌زمینی‌ها بیرون ترد و درون نرم‌اند. بی‌نقص.
+L|Parisa|Try the one at the bottom, it may be a little chewy.|آن ته ظرف را امتحان کن، شاید کمی سفت باشد.
+L|Omid|No, it is fine. This sauce is very creamy, though. What is in it?|نه، خوب است. اما این سس خیلی خامه‌ای است. در آن چیست؟
+L|Parisa|Yoghurt and a little butter, nothing else.|ماست و کمی کره، چیز دیگری نه.
+L|Omid|It melts in your mouth. I will take the recipe.|در دهان آب می‌شود. دستور را می‌گیرم.
+L|Parisa|I will send it tonight.|امشب می‌فرستمش.
+C|The undercooked potato|سیب‌زمینی نپخته|The potatoes are golden outside and hard in the middle.|سیب‌زمینی‌ها بیرون طلایی و وسط سفت‌اند.|Say it is not cooked through and ask for a fix.|بگو کامل نپخته و راه‌حلی بخواه.|These are still hard in the middle. Are they undercooked? Yes, give them ten more minutes in the oven, covered. These are still hard in the middle. Are they undercooked?|اینها وسطشان هنوز سفت است. نپخته‌اند؟ بله، ده دقیقه دیگر در فر بگذار، با در. اینها وسطشان هنوز سفت است. نپخته‌اند؟
+C|The dry cake|کیک خشک|The cake came out dry and chewy at the edge.|کیک خشک شد و لبه‌اش سفت است.|Explain the likely cause and what to do differently.|علت احتمالی را بگو و بگو دفعهٔ بعد چه کنی.|It is dry. Did I leave it in too long? Ten minutes too long, probably. Next time take it out a little earlier and cover it while it cools. It is dry. Did I leave it in too long?|خشک است. زیادی در فر گذاشتم؟ احتمالاً ده دقیقه زیاد. دفعهٔ بعد کمی زودتر بیرون بیاور و هنگام خنک شدن بپوشانش. خشک است. زیادی در فر گذاشتم؟
+Q|Which word means firm and dry, breaking with a sound?|کدام واژه یعنی سفت و خشک که با صدا می‌شکند؟|crispy|creamy|smooth|Crispy is the sound and the dry crust.|«ترد» صدا و پوستهٔ خشک است.
+Q|"It is still raw in the middle" means ...|«وسطش هنوز خام است» یعنی ...|it is not cooked through|it is too salty|it is too hot|Raw means uncooked, not unseasoned.|«خام» یعنی نپخته، نه بی‌نمک.
+Q|Which phrase marks the moment meat is ready?|کدام عبارت لحظهٔ آماده شدن گوشت را نشان می‌دهد؟|until tender|until later|until the end|Until tender is the fixed phrase for readiness.|«تا نرم شود» عبارت ثابت آماده بودن است.
+
+J|diet|8|shield|Dietary needs and allergies|رژیم غذایی و حساسیت‌ها|adults||Saying what you do not eat, asking whether a dish contains it, and being understood in a restaurant.|گفتن اینکه چه چیزی نمی‌خوری، پرسیدن آیا غذایی آن را دارد، و فهمیده شدن در رستوران.
+O|say what you do not eat and why, in one clear sentence.|در یک جملهٔ روشن بگو چه چیزی نمی‌خوری و چرا.
+O|ask whether a dish contains an ingredient you must avoid.|بپرس آیا غذایی ماده‌ای را دارد که باید از آن دوری کنی.
+O|ask for a vegetarian, vegan or gluten-free option.|گزینهٔ گیاهخواری، وگان یا بدون گلوتن بخواه.
+W|vegetarian|/ˌvɛdʒəˈtɛriən/|adjective|گیاه‌خوار|Not eating meat or fish, but usually eating eggs and dairy.|food|leaf|A1|I have been vegetarian for six years.|شش سال است گیاه‌خوارم.|
+W|vegan|/ˈviɡən/|adjective|وگان|Not eating or using any product from an animal.|food|leaf|B1|The soup is vegan, made with coconut milk.|این سوپ وگان است، با شیر نارگیل درست شده.|
+W|gluten-free|/ˌɡlutən ˈfri/|adjective|بدون گلوتن|Made without wheat, barley or rye.|food|bread|B1|Do you have gluten-free bread?|نان بدون گلوتن دارید؟|
+W|lactose|/ˈlæktoʊs/|noun|لاکتوز|The natural sugar in milk that some people cannot digest.|food|milk|B2|This milk has the lactose removed.|لاکتوز این شیر گرفته شده.|
+W|allergy|/ˈælərdʒi/|noun|حساسیت|A reaction your body has to a food or a substance.|food|shield|B1|My son has a serious nut allergy.|پسرم حساسیت شدید به آجیل دارد.|
+W|portion|/ˈpɔrʃən/|noun|پرس و سهم|The amount of food served to one person.|food|plate|B1|The portions here are far too big.|پرس‌های اینجا خیلی بزرگ‌اند.|
+X|expression|I am allergic to nuts.|به آجیل حساسیت دارم.|The shortest and clearest warning you can give.|کوتاه‌ترین و روشن‌ترین هشداری که می‌دهی.|neutral|I am allergic to nuts, so please check the sauce.|به آجیل حساسیت دارم، پس لطفاً سس را بررسی کن.|
+X|expression|Does this contain dairy?|لبنیات دارد؟|Contains is the safe verb for asking about an ingredient.|«دارد» فعل ایمن برای پرسیدن دربارهٔ یک ماده است.|neutral|Does this contain dairy or is it made with oil?|لبنیات دارد یا با روغن درست شده؟|
+X|phrasal_verb|I am cutting down on sugar.|مصرف شکرم را کم می‌کنم.|Cut down on is the phrasal verb for reducing something, not stopping it.|«کم کردن» فعل عبارتی برای کاهش چیزی است، نه ترک آن.|neutral|I am cutting down on sugar, so no dessert for me.|مصرف شکرم را کم می‌کنم، پس دسر نمی‌خورم.|
+X|expression|Is there a vegan option?|گزینهٔ وگان دارید؟|Asks for one dish you can eat rather than a list of what you cannot.|یک غذا می‌خواهد که بتوانی بخوری، نه فهرستی از آنچه نمی‌خوری.|neutral|Is there a vegan option on the lunch menu?|در منوی ناهار گزینهٔ وگان هست؟|
+X|idiom|You cannot have your cake and eat it.|هم نمی‌شود کیک را داشت هم خورد.|Literally, you cannot keep a cake whole and eat it; figuratively, you cannot enjoy two opposite things at once.|به‌طور تحت‌اللفظی، نمی‌توان کیک را هم سالم نگه داشت هم خورد؛ به‌طور مجازی، دو چیز متضاد را با هم نمی‌شود داشت.|neutral|Cheap, fast and healthy: you cannot have your cake and eat it.|ارزان، سریع و سالم: هم نمی‌شود کیک را داشت هم خورد.|
+P|I am allergic to + [food].|I am allergic to nuts.|به آجیل حساسیت دارم.|Name the food, never just "allergies".|نام غذا را بگو، هرگز فقط «حساسیت».
+P|Does this contain + [ingredient]?|Does this contain dairy?|لبنیات دارد؟|One ingredient per question, so the answer is clear.|هر پرسش یک ماده، تا پاسخ روشن باشد.
+S|I eat everything except shellfish, and even a little of the sauce is enough to make me ill.|همه چیز می‌خورم جز صدف، و حتی کمی از سس کافی است مریض شوم.|States a limit and its seriousness.|محدودیت و جدی بودنش را می‌گوید.|B2|neutral|I avoid shellfish completely.
+S|The menu marks vegetarian dishes with a leaf, which makes ordering much quicker.|منو غذاهای گیاهی را با برگ نشان می‌دهد، که سفارش دادن را خیلی سریع‌تر می‌کند.|Names a helpful detail and its effect.|جزئیات مفید و اثرش را می‌گوید.|B1|neutral|The leaf symbol makes ordering quicker.
+D|Ordering with an allergy|سفارش با حساسیت|Sina|The waiter
+L|Sina|Before I order, does the mushroom soup contain cream?|قبل از سفارش، سوپ قارچ خامه دارد؟
+L|The waiter|It does. It is finished with cream at the end.|دارد. آخر کار با خامه تمام می‌شود.
+L|Sina|I cannot have dairy. Is there another starter?|من لبنیات نمی‌توانم بخورم. پیش‌غذای دیگری هست؟
+L|The waiter|The grilled vegetables are dairy-free and vegan.|سبزیجات گریل‌شده بدون لبنیات و وگان هستند.
+L|Sina|That sounds good. And for the main, is the fish cooked with butter?|خوب به نظر می‌رسد. و برای غذای اصلی، ماهی با کره پخته می‌شود؟
+L|The waiter|It is, but the kitchen can use olive oil instead.|بله، اما آشپزخانه می‌تواند به جایش روغن زیتون استفاده کند.
+L|Sina|Please ask them to do that. It is an allergy, not a preference.|لطفاً از آن‌ها بخواه این کار را بکنند. حساسیت است، نه سلیقه.
+L|The waiter|I will write it on the order now.|همین حالا روی سفارش می‌نویسم.
+C|The nut sauce|سس آجیل|A dish arrives with a sauce you were not warned about.|غذایی با سسی می‌رسد که درباره‌اش هشدار نگرفته بودی.|Stop, ask what is in it, and send it back if needed.|توقف کن، بپرس در آن چیست، و اگر لازم بود برگردان.|Excuse me, does this sauce contain nuts? I am allergic. I am sorry, it does. I will bring the dish without the sauce. Excuse me, does this sauce contain nuts? I am allergic.|ببخشید، این سس آجیل دارد؟ من حساسیت دارم. متأسفم، دارد. غذا را بدون سس می‌آورم. ببخشید، این سس آجیل دارد؟ من حساسیت دارم.
+C|The vegan guest|مهمان وگان|You invited a vegan friend and the menu is all cheese and meat.|دوست وگانی دعوت کردی و منو پر از پنیر و گوشت است.|Ask what they eat and build one dish around it.|بپرس چه می‌خورد و یک غذا حول آن بساز.|What can I cook that you will actually enjoy? Roast vegetables with chickpeas and rice, and keep the sauce separate. What can I cook that you will actually enjoy?|چه بپزم که واقعاً دوست داشته باشی؟ سبزیجات در فر با نخود و برنج، و سس را جدا نگه دار. چه بپزم که واقعاً دوست داشته باشی؟
+Q|Which one means no animal products at all?|کدام یعنی هیچ محصول حیوانی ندارد؟|vegan|vegetarian|gluten-free|Vegan excludes eggs, dairy and honey too.|وگان تخم‌مرغ، لبنیات و عسل را هم کنار می‌گذارد.
+Q|What is the safe question about a hidden ingredient?|پرسش ایمن دربارهٔ مادهٔ پنهان چیست؟|Does this contain dairy?|Is this nice?|How much is it?|Contains asks directly about the ingredient.|«دارد» مستقیم دربارهٔ ماده می‌پرسد.
+Q|"Cutting down on sugar" means ...|«کم کردن شکر» یعنی ...|eating less sugar, not none|stopping sugar forever|adding sugar|Cut down on is a reduction, not a ban.|«کم کردن» کاهش است، نه ترک کامل.
+
+J|grocery|9|cart|At the supermarket|در سوپرمارکت|adults||Finding an aisle, asking for a smaller size, reading the offer and paying at the checkout.|پیدا کردن راهرو، پرسیدن اندازهٔ کوچک‌تر، خواندن تخفیف و پرداخت در صندوق.
+O|ask which aisle something is in.|بپرس چیزی در کدام راهرو است.
+O|ask for a different size and compare two products.|اندازهٔ دیگری بخواه و دو محصول را مقایسه کن.
+O|understand an offer and pay at the checkout.|تخفیف را بفهم و در صندوق پرداخت کن.
+W|aisle|/aɪl/|noun|راهرو|A walkway between shelves in a shop.|food|cart|B1|The pasta is in aisle six.|پاستا در راهروی شش است.|
+W|trolley|/ˈtrɑli/|noun|چرخ خرید|A metal cart on wheels for shopping.|food|cart|A1|Take a trolley, we need a lot today.|یک چرخ خرید بردار، امروز زیاد لازم داریم.|
+W|checkout|/ˈtʃɛkaʊt/|noun|صندوق پرداخت|The place in a shop where you pay.|food|receipt|A2|There was a long queue at the checkout.|صف طولانی در صندوق بود.|
+W|receipt|/rɪˈsit/|noun|رسید|The paper that shows what you paid.|food|receipt|A1|Keep the receipt in case something is wrong.|رسید را نگه دار، اگر چیزی ایراد داشت.|
+W|discount|/ˈdɪskaʊnt/|noun|تخفیف|Money taken off the normal price.|food|tag|B1|The discount is only for members today.|تخفیف امروز فقط برای اعضا است.|
+W|fresh|/frɛʃ/|adjective|تازه|Recently picked, made or cooked, not frozen or tinned.|food|leaf|A1|Buy fresh herbs if the shop has them.|اگر مغازه سبزی تازه داشت، بخر.|
+X|expression|Which aisle is the rice in?|برنج در کدام راهرو است؟|The question that saves ten minutes of walking.|پرسشی که ده دقیقه قدم زدن را صرفه‌جویی می‌کند.|neutral|Excuse me, which aisle is the rice in?|ببخشید، برنج در کدام راهرو است؟|
+X|expression|Do you have this in a smaller size?|این را اندازهٔ کوچک‌تر دارید؟|Asks for the same product, not a different one.|همان محصول را می‌خواهد، نه محصولی دیگر.|neutral|Do you have this in a smaller size? This one is huge.|این را اندازهٔ کوچک‌تر دارید؟ این یکی خیلی بزرگ است.|
+X|collocation|It is on offer this week.|این هفته تخفیف دارد.|On offer is the fixed phrase for a temporary lower price.|«تخفیف دارد» عبارت ثابت برای قیمت پایین‌تر موقت است.|neutral|The rice is on offer this week, so buy two.|برنج این هفته تخفیف دارد، پس دو تا بخر.|
+X|expression|I will pay by card.|با کارت پرداخت می‌کنم.|The one line that answers the checkout question.|یک خطی که پرسش صندوق را پاسخ می‌دهد.|neutral|I will pay by card, and I do not need a bag.|با کارت پرداخت می‌کنم، و کیسه نمی‌خواهم.|
+X|idiom|Shop till you drop.|آنقدر خرید کن تا از پا بیفتی.|Literally, shop until you fall down; figuratively, shop for as long as you possibly can.|به‌طور تحت‌اللفظی، خرید کن تا بیفتی؛ به‌طور مجازی، تا جای ممکن خرید کن.|informal|We had the whole afternoon and shopped till we dropped.|کل بعدازظهر را داشتیم و تا از پا افتادیم خرید کردیم.|
+P|Which aisle is the + [item] + in?|Which aisle is the rice in?|برنج در کدام راهرو است؟|Put the item before the preposition.|نام کالا را قبل از حرف اضافه بگذار.
+P|Do you have this in a + [size] + size?|Do you have this in a smaller size?|این را اندازهٔ کوچک‌تر دارید؟|Size at the end names the change you want.|اندازه در پایان تغییر مورد نظر را می‌گوید.
+S|I only buy what is on the list, which is why the trolley is half empty and the bill is small.|فقط چیزی می‌خرم که در فهرست است، به همین دلیل چرخ خرید نیمه‌خالی و صورتحساب کم است.|Links a habit to two results.|عادتی را به دو نتیجه ربط می‌دهد.|B2|neutral|Sticking to the list keeps the bill small.
+S|The fresh fish is at the back of the shop, near the counter, not in the freezer.|ماهی تازه ته مغازه، نزدیک پیشخوان است، نه در فریزر.|Gives a location precisely.|مکان را دقیق می‌گوید.|A2|neutral|The fresh fish is near the back counter.
+D|At the supermarket|در سوپرمارکت|Mahsa|The assistant
+L|Mahsa|Excuse me, which aisle is the olive oil in?|ببخشید، روغن زیتون در کدام راهرو است؟
+L|The assistant|Aisle nine, next to the vinegar.|راهروی نه، کنار سرکه.
+L|Mahsa|Thank you. And is the rice on offer this week?|ممنون. و برنج این هفته تخفیف دارد؟
+L|The assistant|The large bags are, yes.|کیسه‌های بزرگ، بله.
+L|Mahsa|Then I will take two. Do you have this oil in a smaller bottle?|پس دو تا می‌گیرم. این روغن را در بطری کوچک‌تر دارید؟
+L|The assistant|Only the one size, I am afraid.|متأسفانه فقط همین اندازه را داریم.
+L|Mahsa|That is fine. I will pay by card at the checkout.|اشکالی ندارد. در صندوق با کارت پرداخت می‌کنم.
+L|The assistant|The queue is shorter on the left today.|امروز صف سمت چپ کوتاه‌تر است.
+C|The missing price|قیمت ناموجود|A shelf has no price label and the checkout charges more than you expected.|قفسه برچسب قیمت ندارد و صندوق بیشتر از انتظار حساب می‌کند.|Ask for the price and then question the bill politely.|قیمت را بپرس و بعد مؤدبانه به صورتحساب اعتراض کن.|The shelf said four euros but you charged six. Could you check? The offer ended yesterday. I will refund the difference. The shelf said four euros but you charged six. Could you check?|قفسه چهار یورو زده بود اما شش حساب کردید. می‌شود بررسی کنید؟ تخفیف دیروز تمام شده. تفاوت را برمی‌گردانم. قفسه چهار یورو زده بود اما شش حساب کردید. می‌شود بررسی کنید؟
+C|The forgotten item|کالای فراموش‌شده|You reach the checkout and remember the one thing you came for.|به صندوق رسیدی و یادت آمد برای چه آمده بودی.|Ask an assistant quickly without losing your place.|سریع از فروشنده بپرس بی‌آنکه جایت را از دست بدهی.|I forgot the milk. Which aisle is it in, quickly? Aisle four, by the back wall. Leave your trolley here, I will watch it. I forgot the milk. Which aisle is it in, quickly?|شیر را فراموش کردم. سریع بگو در کدام راهرو است؟ راهروی چهار، کنار دیوار ته. چرخ را اینجا بگذار، مراقبش هستم. شیر را فراموش کردم. سریع بگو در کدام راهرو است؟
+Q|Where do you pay in a supermarket?|در سوپرمارکت کجا پرداخت می‌کنی؟|at the checkout|in the aisle|at the counter for fish|The checkout is the paying point.|صندوق محل پرداخت است.
+Q|"On offer" means ...|«تخفیف دارد» یعنی ...|the price is lower for a while|the product is new|the shop is closed|On offer is a temporary price cut.|«تخفیف» کاهش قیمت موقت است.
+Q|Which word is the paper that proves what you paid?|کدام واژه کاغذی است که پرداخت را ثابت می‌کند؟|receipt|discount|aisle|The receipt is the proof of payment.|رسید سند پرداخت است.
+
+J|prep|10|knife|Preparing the food|آماده کردن غذا|adults||Chopping, peeling, slicing, dicing, marinating and stirring: the verbs before the heat goes on.|خرد کردن، پوست کندن، برش دادن، مکعبی کردن، مزه‌دار کردن و هم زدن: فعل‌های پیش از روشن شدن حرارت.
+O|give a preparation instruction with the right verb.|دستور آماده‌سازی را با فعل درست بده.
+O|describe how a food is cut and why the size matters.|توصیف کن غذایی چطور بریده می‌شود و چرا اندازه مهم است.
+O|say how long something should sit before cooking.|بگو چیزی چه مدت پیش از پخت باید بماند.
+W|chop|/tʃɑp/|verb|خرد کردن|Cut food into pieces with a knife.|food|knife|A2|Chop the onion finely so it disappears in the sauce.|پیاز را ریز خرد کن تا در سس گم شود.|
+W|peel|/pil/|verb|پوست کندن|Remove the skin from fruit or vegetables.|food|carrot|A2|Peel the potatoes before you boil them.|قبل از پختن سیب‌زمینی‌ها را پوست بگیر.|
+W|slice|/slaɪs/|verb|برش دادن|Cut into thin flat pieces.|food|knife|A2|Slice the bread and put it under the grill.|نان را برش بزن و زیر گریل بگذار.|
+W|dice|/daɪs/|verb|مکعبی خرد کردن|Cut into small cubes of the same size.|food|knife|B1|Dice the carrots so they cook evenly.|هویج‌ها را مکعبی خرد کن تا یکسان بپزند.|
+W|marinate|/ˈmærəneɪt/|verb|مزه‌دار کردن|Leave food in a seasoned liquid before cooking it.|food|bowl|B2|Marinate the chicken for two hours in yoghurt and lemon.|مرغ را دو ساعت در ماست و لیمو مزه‌دار کن.|
+W|stir|/stɜr/|verb|هم زدن|Move a spoon round and round through the food.|food|spoon|A2|Stir the sauce so it does not stick.|سس را هم بزن تا نچسبد.|
+X|expression|Chop it into small pieces.|آن را به قطعه‌های کوچک خرد کن.|Gives the size, which is what a cook actually needs.|اندازه را می‌گوید، که همان چیزی است که آشپز لازم دارد.|neutral|Chop it into small pieces and add it at the end.|آن را به قطعه‌های کوچک خرد کن و آخر کار اضافه کن.|
+X|expression|Let it marinate overnight.|بگذار یک شب مزه‌دار شود.|Time plus the verb, with no heat yet.|زمان به‌همراه فعل، هنوز بی‌حرارت.|neutral|Let it marinate overnight in the fridge.|بگذار یک شب در یخچال مزه‌دار شود.|
+X|collocation|Give it a good stir.|خوب همش بزن.|A good stir is the fixed phrase for thorough mixing.|«خوب هم زدن» عبارت ثابت برای مخلوط کردن کامل است.|neutral|Add the flour and give it a good stir.|آرد را اضافه کن و خوب همش بزن.|
+X|phrasal_verb|Rinse the rice off first.|اول برنج را آب بکش.|Rinse off is the phrasal verb for washing something away with water.|«آب کشیدن» فعل عبارتی برای شستن چیزی با آب است.|neutral|Rinse the rice off first, then cook it.|اول برنج را آب بکش، بعد بپز.|
+X|idiom|Many hands make light work.|کار با دست‌های زیاد سبک می‌شود.|Literally, more hands lift the load; figuratively, a job is quick when people help.|به‌طور تحت‌اللفظی، دست‌های بیشتر بار را سبک می‌کنند؛ به‌طور مجازی، کار با کمک دیگران سریع می‌شود.|neutral|You peel and I will chop: many hands make light work.|تو پوست بگیر و من خرد می‌کنم: کار با دست‌های زیاد سبک می‌شود.|
+P|Chop it into + [size] + pieces.|Chop it into small pieces.|آن را به قطعه‌های کوچک خرد کن.|Into plus the size gives the cut you want.|«به ...» اندازهٔ برش را می‌دهد.
+P|Let it + [verb] + for + [time].|Let it marinate overnight.|بگذار یک شب مزه‌دار شود.|Let it plus a verb plus a time is the waiting instruction.|«بگذار» با فعل و زمان، دستور انتظار است.
+S|If you dice everything the same size, the whole dish cooks at the same speed.|اگر همه چیز را یک‌اندازه مکعبی خرد کنی، کل غذا با یک سرعت می‌پزد.|Explains the reason behind a technique.|دلیل پشت یک تکنیک را می‌گوید.|B1|neutral|Same size pieces cook evenly.
+S|The chicken sits in yoghurt, lemon and garlic all night, and by morning it is already tender.|مرغ تمام شب در ماست، لیمو و سیر می‌ماند و صبح уже نرم است.|Describes a marinade and its effect.|مزه‌دار کردن و اثرش را توصیف می‌کند.|B2|neutral|Overnight in yoghurt makes the chicken tender.
+D|Cooking together|آشپزی با هم|Sara|Kian
+L|Sara|Can you chop the onions while I peel the potatoes?|می‌توانی پیازها را خرد کنی تا من سیب‌زمینی‌ها را پوست بگیرم؟
+L|Kian|Small or large pieces?|قطعه‌های کوچک یا بزرگ؟
+L|Sara|Small. They should disappear into the sauce.|کوچک. باید در سس گم شوند.
+L|Kian|And the carrots? Diced or sliced?|و هویج‌ها؟ مکعبی یا برش‌خورده؟
+L|Sara|Sliced, about half a centimetre. Dice only the ones for the salad.|برش‌خورده، حدود نیم سانت. فقط آنهای سالاد را مکعبی کن.
+L|Kian|The chicken is already marinating, so that is done.|مرغ از قبل مزه‌دار می‌شود، پس آن تمام است.
+L|Sara|Good. Give the rice a rinse and then we can start the heat.|خوب. برنج را آب بکش و بعد حرارت را روشن می‌کنیم.
+L|Kian|Many hands make light work.|کار با دست‌های زیاد سبک می‌شود.
+C|The uneven vegetables|سبزی‌های ناهم‌اندازه|Half the carrots are burnt and half are still hard.|نصف هویج‌ها سوخته و نصف دیگر سفت است.|Explain the cause and the fix for next time.|علت و راه‌حل دفعهٔ بعد را بگو.|They are not the same size, so they cooked unevenly. Cut them the same size next time. Yes, dice them all to about one centimetre. They are not the same size, so they cooked unevenly. Cut them the same size next time.|هم‌اندازه نیستند، پس نایکسان پختند. دفعهٔ بعد یک‌اندازه خردشان کن. بله، همه را حدود یک سانت مکعبی کن. هم‌اندازه نیستند، پس نایکسان پختند. دفعهٔ بعد یک‌اندازه خردشان کن.
+C|The marinade question|پرسش مزه‌دار کردن|You want to cook the chicken in twenty minutes, not tomorrow.|می‌خواهی مرغ را بیست دقیقهٔ دیگر بپزی، نه فردا.|Ask what can be done in the time you have.|بپرس در زمانی که داری چه می‌شود کرد.|I do not have all night. Can it marinate for just an hour? Yes, cut it smaller and leave it at room temperature for an hour, turning it once. I do not have all night. Can it marinate for just an hour?|تمام شب را ندارم. می‌شود فقط یک ساعت مزه‌دار شود؟ بله، کوچک‌ترش کن و یک ساعت در دمای اتاق بگذار، یک بار برگردانش. تمام شب را ندارم. می‌شود فقط یک ساعت مزه‌دار شود؟
+Q|Which verb means cut into small cubes?|کدام فعل یعنی مکعبی خرد کردن؟|dice|peel|stir|Dice is about the cube shape.|«مکعبی کردن» دربارهٔ شکل مکعب است.
+Q|Which step removes the skin?|کدام مرحله پوست را برمی‌دارد؟|peel|slice|chop|Peel is only about the skin.|«پوست کندن» فقط دربارهٔ پوست است.
+Q|Why cut everything the same size?|چرا همه چیز را یک‌اندازه می‌بریم؟|so it cooks evenly|so it looks expensive|so it weighs more|Equal size means equal cooking time.|اندازهٔ برابر یعنی زمان پخت برابر.
+
+J|ordering|11|menu|Ordering at a restaurant|سفارش در رستوران|adults||Getting a table, reading the menu, asking what is good and ordering without pointing at the wrong dish.|گرفتن میز، خواندن منو، پرسیدن چه چیزی خوب است و سفارش دادن بی‌آنکه غذای اشتباه را نشان دهی.
+O|ask for a table and say how many people there are.|میز بخواه و بگو چند نفر هستید.
+O|ask what the restaurant recommends and understand the answer.|بپرس رستوران چه پیشنهادی دارد و پاسخ را بفهم.
+O|order a starter, a main and a drink in one go.|پیش‌غذا، غذای اصلی و نوشیدنی را یک‌جا سفارش بده.
+W|menu|/ˈmɛnju/|noun|منو|The list of food and drink a restaurant serves.|food|menu|A1|Could we see the menu, please?|می‌شود منو را ببینیم؟|
+W|starter|/ˈstɑrtər/|noun|پیش‌غذا|A small dish served before the main course.|food|bowl|B1|We shared a starter and it was plenty.|یک پیش‌غذا شریک شدیم و کافی بود.|
+W|main course|/ˈmeɪn kɔrs/|noun|غذای اصلی|The largest dish of a meal.|food|plate|A2|I had fish for my main course.|برای غذای اصلی ماهی خوردم.|
+W|side dish|/ˈsaɪd dɪʃ/|noun|مخلفات|A small extra dish served with the main course.|food|plate|B1|The main comes with a side dish of your choice.|غذای اصلی با یک مخلفات به انتخاب تو می‌آید.|
+W|dessert|/dɪˈzɜrt/|noun|دسر|Sweet food eaten at the end of a meal.|food|cake|A2|We were too full for dessert.|آنقدر سیر بودیم که دسر نخوردیم.|
+W|special|/ˈspɛʃəl/|noun|غذای روز|A dish a restaurant serves only that day.|food|star|B1|The special is lamb with rice and herbs.|غذای روز بره با برنج و سبزی است.|
+X|expression|A table for two, please.|میز برای دو نفر، لطفاً.|The first sentence of almost every restaurant visit.|نخستین جملهٔ تقریباً هر رفتن به رستوران.|neutral|A table for two, please, by the window if possible.|میز برای دو نفر، لطفاً، اگر می‌شود کنار پنجره.|
+X|expression|What do you recommend?|چه پیشنهاد می‌کنی؟|Asks the waiter for a judgement, not just a list.|از پیشخدمت داوری می‌خواهد، نه فقط یک فهرست.|neutral|What do you recommend for someone who does not eat meat?|برای کسی که گوشت نمی‌خورد چه پیشنهاد می‌کنی؟|
+X|expression|I will have the same.|من هم همان را می‌خواهم.|The short way to order what your friend just ordered.|راه کوتاه سفارش همان چیزی که دوستت سفارش داد.|neutral|That sounds good, I will have the same.|خوب به نظر می‌رسد، من هم همان را می‌خواهم.|
+X|expression|Could we have the bill, please?|می‌شود صورتحساب را بیاورید؟|The polite end of the meal, and the phrase most learners get wrong.|پایان مؤدبانهٔ غذا، و عبارتی که بیشتر زبان‌آموزها بد می‌گویند.|neutral|Whenever you are ready, could we have the bill, please?|هر وقت آماده بودید، می‌شود صورتحساب را بیاورید؟|
+X|idiom|The proof of the pudding is in the eating.|امتحانش عیارش را نشان می‌دهد.|Literally, you know a pudding only by tasting it; figuratively, only trying something shows whether it works.|به‌طور تحت‌اللفظی، پودینگ را فقط با چشیدن می‌شناسی؛ به‌طور مجازی، فقط امتحان کردن نشان می‌دهد چیزی کار می‌کند یا نه.|neutral|The new place looks charming, but the proof of the pudding is in the eating.|جای جدید جذاب به نظر می‌رسد، اما امتحانش عیارش را نشان می‌دهد.|
+P|A table for + [number] +, please.|A table for two, please.|میز برای دو نفر، لطفاً.|Number of people, then please.|اول تعداد نفرات، بعد «لطفاً».
+P|I will have the + [dish].|I will have the same.|من هم همان را می‌خواهم.|I will have plus the dish is the order itself.|«من ... را می‌خواهم» خودِ سفارش است.
+S|The menu is short, which usually means the kitchen cooks everything well.|منو کوتاه است، که معمولاً یعنی آشپزخانه همه چیز را خوب می‌پزد.|Turns a small menu into a reason for confidence.|منوی کوتاه را به دلیل اطمینان تبدیل می‌کند.|B1|neutral|A short menu is usually a good sign.
+S|We ordered three starters instead of mains, which was cheaper and far more interesting.|سه پیش‌غذا سفارش دادیم جای غذای اصلی، که ارزان‌تر و خیلی جالب‌تر بود.|Explains an unusual order and why.|سفارش غیرمعمول و دلیلش را می‌گوید.|B2|neutral|Three starters worked better than mains.
+D|Ordering dinner|سفارش شام|Neda|The waiter
+L|Neda|A table for two, please. We do not have a reservation.|میز برای دو نفر، لطفاً. رزرو نداریم.
+L|The waiter|That is fine, the table by the window is free.|اشکالی ندارد، میز کنار پنجره آزاد است.
+L|Neda|Thank you. What do you recommend tonight?|ممنون. امشب چه پیشنهاد می‌کنی؟
+L|The waiter|The special is grilled fish with rice, and the lamb is very good too.|غذای روز ماهی گریل با برنج است، و بره هم خیلی خوب است.
+L|Neda|I will have the fish. And a starter of grilled vegetables to share.|من ماهی می‌خواهم. و یک پیش‌غذای سبزیجات گریل برای شریک شدن.
+L|Neda|My friend will have the same.|دوستم هم همان را می‌خواهد.
+L|The waiter|Anything to drink?|نوشیدنی چیزی؟
+L|Neda|Just water, please, and could we have the bill whenever you have a moment?|فقط آب، لطفاً، و هر وقت فرصت داشتید صورتحساب را بیاورید؟
+C|The wrong dish|غذای اشتباه|A plate arrives that you did not order.|بشقابی می‌رسد که سفارش ندادی.|Say politely what you ordered and ask for the right dish.|مؤدبانه بگو چه سفارش دادی و غذای درست را بخواه.|I think this is the chicken. I ordered the fish. You are right, I am sorry. I will bring the fish in five minutes. I think this is the chicken. I ordered the fish.|فکر می‌کنم این مرغ است. من ماهی سفارش دادم. حق داری، متأسفم. پنج دقیقهٔ دیگر ماهی را می‌آورم. فکر می‌کنم این مرغ است. من ماهی سفارش دادم.
+C|The vegetarian at a steak house|گیاه‌خوار در استیک‌هاوس|Your friend eats no meat and the menu is almost all meat.|دوستت گوشت نمی‌خورد و منو تقریباً تمامش گوشت است.|Ask the waiter what the kitchen can make.|از پیشخدمت بپرس آشپزخانه چه می‌تواند درست کند.|Is there anything without meat? Even a large salad would do. The kitchen can make the pasta without the bacon, and the salad is very good. Is there anything without meat? Even a large salad would do.|چیزی بدون گوشت هست؟ حتی یک سالاد بزرگ کافی است. آشپزخانه می‌تواند پاستا را بدون بیکن درست کند، و سالاد خیلی خوب است. چیزی بدون گوشت هست؟ حتی یک سالاد بزرگ کافی است.
+Q|What is a starter?|پیش‌غذا چیست؟|a small dish before the main course|the largest dish|the sweet course|A starter comes first and is smaller.|پیش‌غذا اول می‌آید و کوچک‌تر است.
+Q|Which sentence orders the same as your friend?|کدام جمله همان غذای دوستت را سفارش می‌دهد؟|I will have the same.|What do you recommend?|A table for two.|The same means the identical dish.|«همان» یعنی غذای یکسان.
+Q|What does the special mean on a menu?|«غذای روز» در منو یعنی چه؟|a dish served only that day|the cheapest dish|the owner's favourite|The special changes daily.|«غذای روز» هر روز عوض می‌شود.
+
+J|billtalk|12|coin|The bill, the tip and the last word|صورتحساب، انعام و حرف آخر|adults||Paying, splitting, taking food home, and the food idioms every English speaker uses.|پرداخت، تقسیم کردن، بردن غذا به خانه، و اصطلاح‌های غذایی که هر انگلیسی‌زبانی به کار می‌برد.
+O|ask for the bill and understand whether service is included.|صورتحساب بخواه و بفهم آیا سرویس حساب شده است.
+O|split a bill between friends and leave a tip.|صورتحساب را بین دوستان تقسیم کن و انعام بگذار.
+O|use the common food idioms correctly in a conversation.|اصطلاح‌های رایج غذایی را درست در گفت‌وگو به کار ببر.
+W|bill|/bɪl/|noun|صورتحساب|The paper that shows what you owe for a meal.|food|bill|A2|Could we have the bill, please?|می‌شود صورتحساب را بیاورید؟|
+W|tip|/tɪp/|noun|انعام|Extra money you leave for good service.|food|coin|A2|We left a ten percent tip.|ده درصد انعام گذاشتیم.|
+W|split|/splɪt/|verb|تقسیم کردن|Divide the cost between the people at the table.|food|bill|B1|Let us split the bill four ways.|بیا صورتحساب را چهار قسمت کنیم.|
+W|reservation|/ˌrɛzərˈveɪʃən/|noun|رزرو|A table kept for you at a fixed time.|food|clock|B1|I made a reservation for eight o'clock.|برای ساعت هشت رزرو کردم.|
+W|takeaway|/ˈteɪkəweɪ/|noun|غذای بیرون‌بر|Food you buy and eat somewhere else.|food|bag|A2|We ordered a takeaway on Friday night.|جمعه شب غذای بیرون‌بر سفارش دادیم.|
+W|leftovers|/ˈlɛftˌoʊvərz/|noun|باقیماندهٔ غذا|Food not eaten at a meal, kept for later.|food|bowl|B1|The leftovers will do for lunch tomorrow.|باقیمانده‌ها برای ناهار فردا کافی است.|
+X|expression|Is service included?|سرویس حساب شده است؟|Asks whether the tip is already on the bill.|می‌پرسد آیا انعام از قبل در صورتحساب هست.|neutral|Is service included, or should we leave a tip?|سرویس حساب شده یا خودمان انعام بگذاریم؟|
+X|expression|Shall we split the bill?|صورتحساب را تقسیم کنیم؟|Suggests sharing the cost before anyone pays.|پیش از پرداخت کسی، تقسیم هزینه را پیشنهاد می‌کند.|neutral|Shall we split the bill, or pay for what we had?|صورتحساب را تقسیم کنیم یا هر کس غذای خودش را بدهد؟|
+X|expression|Could I take the rest home?|می‌توانم بقیه را ببرم؟|Asks for the leftovers to be packed.|می‌خواهد باقیمانده بسته‌بندی شود.|neutral|It was lovely, but I cannot finish it. Could I take the rest home?|خیلی خوب بود، اما نمی‌توانم تمامش کنم. می‌توانم بقیه را ببرم؟|
+X|expression|What a rip-off.|چه کلاهی سر آدم می‌رود.|Literally, something torn off you; as slang, a price that is far too high for what you get.|به‌طور تحت‌اللفظی، چیزی که از آدم کنده می‌شود؛ در زبان عامیانه، قیمتی که برای آنچه می‌گیری بسیار زیاد است.|slang|Fourteen euros for two coffees? What a rip-off.|چهارده یورو برای دو قهوه؟ چه کلاهی سر آدم می‌رود.|
+X|idiom|Bring home the bacon.|نان‌آور خانواده بودن.|Literally, bring the cured meat home; figuratively, earn the money the household lives on.|به‌طور تحت‌اللفظی، گوشت نمک‌سود را به خانه بیاور؛ به‌طور مجازی، پول گذران زندگی را دربیاور.|informal|She works two jobs and brings home the bacon.|او دو کار می‌کند و نان‌آور خانواده است.|
+X|idiom|Spill the beans.|لو دادن ماجرا.|Literally, knock over a jar of beans; figuratively, tell the secret.|به‌طور تحت‌اللفظی، ظرف لوبیا را برگرداندن؛ به‌طور مجازی، راز را لو دادن.|informal|He spilled the beans about the surprise dinner.|او ماجرای شام غافلگیری را لو داد.|
+X|idiom|A piece of cake.|مثل آب خوردن.|Literally, a slice of cake; figuratively, very easy.|به‌طور تحت‌اللفظی، یک تکه کیک؛ به‌طور مجازی، بسیار آسان.|informal|The booking was a piece of cake online.|رزرو آنلاین مثل آب خوردن بود.|
+X|idiom|Food for thought.|مایهٔ فکر.|Literally, food that feeds thinking; figuratively, an idea worth considering carefully.|به‌طور تحت‌اللفظی، غذایی که فکر را می‌پرورد؛ به‌طور مجازی، اندیشه‌ای که ارزش سنجیدن دارد.|neutral|His talk about waste was real food for thought.|حرف او دربارهٔ دورریز واقعاً مایهٔ فکر بود.|
+P|Is + [thing] + included?|Is service included?|سرویس حساب شده است؟|Ask what is already in the price.|بپرس چه چیزی در قیمت هست.
+P|Could I + [verb] + the rest?|Could I take the rest home?|می‌توانم بقیه را ببرم؟|Could I plus a verb is the polite request.|«می‌توانم ...» درخواست مؤدبانه است.
+S|We asked for the bill, split it three ways and left a little extra because the service was so good.|صورتحساب را خواستیم، سه قسمت کردیم و کمی بیشتر گذاشتیم چون سرویس خیلی خوب بود.|Covers the whole end of a meal in one line.|کل پایان غذا را در یک خط می‌آورد.|B1|neutral|We split the bill and left a good tip.
+S|I always ask for a box for the leftovers; the next day's lunch is a piece of cake.|همیشه برای باقیمانده جعبه می‌خواهم؛ ناهار فردا مثل آب خوردن است.|Uses an idiom naturally and explains the habit.|اصطلاح را طبیعی به کار می‌برد و عادت را توضیح می‌دهد.|B2|neutral|Leftovers make tomorrow's lunch easy.
+D|Paying for dinner|پرداخت شام|Hamed|Leila
+L|Hamed|That was excellent. Could we have the bill, please?|عالی بود. می‌شود صورتحساب را بیاورید؟
+L|Leila|Is service included, do you know?|می‌دانی سرویس حساب شده است؟
+L|Hamed|It says service is included, but I will leave something extra.|نوشته سرویس حساب شده، اما من کمی بیشتر می‌گذارم.
+L|Leila|Shall we split it, or would you rather I paid for the starters?|تقسیم کنیم یا ترجیح می‌دهی من پیش‌غذاها را بدهم؟
+L|Hamed|Let us split it, it is simpler.|تقسیم کنیم، ساده‌تر است.
+L|Leila|Fine. And I am taking the rest of this home, it is too good to leave.|باشد. و بقیهٔ این را می‌برم خانه، آنقدر خوب است که نماند.
+L|Hamed|Ask for a box. The kitchen does it without any fuss.|جعبه بخواه. آشپزخانه بی‌هیچ دردسری انجام می‌دهد.
+L|Leila|Then tomorrow's lunch is a piece of cake.|پس ناهار فردا مثل آب خوردن است.
+C|The unexpected service charge|هزینهٔ سرویس غیرمنتظره|The bill is higher than the menu prices because service was added.|صورتحساب از قیمت‌های منو بیشتر است چون سرویس اضافه شده.|Ask what the charge is before paying.|پیش از پرداخت بپرس این هزینه چیست.|There is a service charge here. Is it the tip, or extra? It is the tip, ten percent, and you can remove it if you prefer. There is a service charge here. Is it the tip, or extra?|اینجا هزینهٔ سرویس هست. انعام است یا اضافه؟ این همان انعام است، ده درصد، و اگر بخواهی می‌توانی حذفش کنی. اینجا هزینهٔ سرویس هست. انعام است یا اضافه؟
+C|The friend who never pays|دوستی که هیچ‌وقت پول نمی‌دهد|The bill is split four ways and one friend says they only had a salad.|صورتحساب چهار قسمت شده و یک دوست می‌گوید فقط سالاد خورده.|Say what is fair without starting a fight.|بگو چه چیزی منصفانه است بی‌آنکه دعوا راه بیفتد.|We agreed to split it, but if you would rather pay for your own, that is fair too. You are right, I will pay for mine and put the rest towards the tip. We agreed to split it, but if you would rather pay for your own, that is fair too.|قرار شد تقسیم کنیم، اما اگر ترجیح می‌دهی سهم خودت را بدهی، آن هم منصفانه است. حق داری، سهم خودم را می‌دهم و بقیه را برای انعام می‌گذارم. قرار شد تقسیم کنیم، اما اگر ترجیح می‌دهی سهم خودت را بدهی، آن هم منصفانه است.
+Q|What is a tip?|انعام چیست؟|extra money for good service|the price of the food|a discount|A tip is given on top of the bill for service.|انعام بالای صورتحساب برای سرویس داده می‌شود.
+Q|"Spill the beans" means ...|«لو دادن ماجرا» یعنی ...|tell the secret|drop the food|pay the bill|The beans are the secret.|«لوبیاها» همان رازند.
+Q|Which idiom means something is very easy?|کدام اصطلاح یعنی چیزی بسیار آسان است؟|a piece of cake|food for thought|bring home the bacon|A piece of cake is ease, not dessert.|«یک تکه کیک» آسانی است، نه دسر.
