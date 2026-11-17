@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Generates the offline Android UI (assets/www/index.html) from webapp.py.
 
-The Python preview talks to /api/chat, /api/grammar, /api/phrases and
-/api/vocabulary. The APK has no server, so those four calls are rewritten to
-use the bundled bot.js engine and the JSON files in assets/www/data.
+The Python preview talks to /api/chat, /api/grammar and /api/vocabulary. The
+APK has no server, so those calls are rewritten to use the bundled bot.js
+engine and the JSON files in assets/www/data. The Sentence panel fetches
+nothing: it is five journey cards built from the bundled journeys.json.
 Keeping one source of truth means the desktop preview and the app never drift.
 """
 
@@ -162,29 +163,15 @@ failure = """    hideTyping();
 
 html = html[:m.start()] + m.group(1) + engine + m.group(3) + failure + m.group(5) + html[m.end():]
 
-# 2) the three panels: read from the bundled JSON instead of the API
-for fn, api, expr in [
-    ("loadGrammar", "/api/grammar", "grammarTopics"),
-    ("loadPhrases", "/api/phrases", "phraseTopics"),
-    ("loadVocabulary", "/api/vocabulary", "vocabGroups"),
-]:
-    old = f"""    const r = await fetch('{api}');
-    const topics = await r.json();"""
-    # each loader names its variable differently; handle generically below
-    del old, fn, api, expr
-
+# 2) the panels: read from the bundled JSON instead of the API. The Sentences
+#    panel fetches nothing any more - it is five journey cards built from the
+#    bundled journeys.json - so there is no fetch there to rewrite.
 html = sub(
     html,
     """    const r = await fetch('/api/grammar');
     const topics = await r.json();""",
     """    const topics = grammarTopics;""",
     "loadGrammar's fetch")
-html = sub(
-    html,
-    """    const r = await fetch('/api/phrases');
-    const topics = await r.json();""",
-    """    const topics = phraseTopics;""",
-    "loadPhrases's fetch")
 html = sub(
     html,
     """    const r = await fetch('/api/vocabulary');

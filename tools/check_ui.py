@@ -159,16 +159,30 @@ def main() -> int:
           "await loadWordArch()" in review,
           "otherwise saving before the Sentences panel was ever opened fails")
 
-    # Fetch and paint are separate because either can run first: offline the
-    # archive is in memory and resolves before the topic buttons exist.
-    # loadWordArch() alone paints whichever ran, leaving the placeholders.
-    check("painting the word chips is separate from fetching them",
-          "function paintWordArch(" in src,
-          "one function cannot win both orderings")
+    # The Sentences panel was a list of 39 sentence banks under A1..C2 headings,
+    # each with a row of word-form chips and a second search of its own. That
+    # was an older architecture beside the journeys, teaching a handful of
+    # canned sentences per topic, and it is gone: the panel is five journey
+    # cards and nothing else.
     phrases = fn_body(src, "loadPhrases")
-    check("the Sentences panel repaints the chips into its fresh slots",
-          "await loadWordArch()" in phrases and "paintWordArch()" in phrases,
-          "the topic buttons are rebuilt on every open, so the chips go with them")
+    for jid in ("sports", "makeup", "food", "tech"):
+        check(f"the Sentences panel offers the {jid} journey",
+              f"Journey.card('{jid}', false)" in phrases)
+    check("the Sentences panel still opens travel from the same list",
+          "Travel.card(false)" in phrases)
+    check("the old sentence-bank list is gone from the Sentences panel",
+          ".ftopic" not in phrases and "/api/phrases" not in phrases
+          and "byLevel" not in phrases,
+          "the A1..C2 bank headings and their word chips were the removed architecture")
+    check("the chip painter went with the chips",
+          "paintWordArch" not in src and "wd-chips" not in src,
+          "a painter with no slots is dead code")
+    check("no panel search is attached to the removed sentence banks",
+          "attach('fpanel'" not in src,
+          "a search box over nothing is a broken control")
+    check("the Sentences heading no longer promises a CEFR ladder",
+          "<h3>Everyday sentences</h3>" in src
+          and "<h3>Everyday sentences A1" not in src)
 
     # ------------------------------------------------------- failed sends --
     # Two bugs shared by both builds: a message that produced no reply still

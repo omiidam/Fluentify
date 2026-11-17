@@ -4236,33 +4236,7 @@
   .ftopic:hover { background: var(--ice2); transform: translateY(-1px); }
   .ftopic .fa { color: var(--muted); font-size: 11.5px; }
 
-  /* ---------- word architecture: clickable chips + detail card ---------- */
-  .wd-slot { margin-top: 9px; padding-top: 9px;
-             border-top: 1px dashed var(--line); }
-  .wd-lab {
-    font-size: 10.5px; letter-spacing: .04em; color: var(--ink-3);
-    font-weight: 600; margin-bottom: 6px;
-  }
-  .wd-lab b { color: var(--muted); font-weight: 400; }
-  .wd-chips { display: flex; flex-wrap: wrap; gap: 4px; }
-  .wchip {
-    background: rgba(79,70,160,.10); color: var(--navy-ink);
-    border: 1px solid rgba(79,70,160,.28); border-radius: 7px;
-    padding: 4px 9px; font-size: 11.5px; cursor: pointer;
-    transition: .12s; font-family: inherit;
-  }
-  .wchip:hover { background: rgba(79,70,160,.18); color: var(--navy-ink);
-                 border-color: rgba(79,70,160,.55); }
-  .wchip.on { background: linear-gradient(135deg, var(--indigo-ink), var(--fill-slate));
-              color: var(--on-fill); border-color: transparent; }
-  .wd-more { font-size: 10.5px; color: var(--dim); margin-top: 5px; }
-  .wd-more.btn {
-    background: var(--line); border: 1px solid var(--line);
-    border-radius: 8px; padding: 5px 10px; cursor: pointer;
-    font-family: inherit; color: var(--muted);
-  }
-  .wd-more.btn:hover { background: var(--line); color: var(--text); }
-
+  /* ---------- word detail card ---------- */
   .wdetail {
     display: none; margin-bottom: 11px; padding: 12px;
     border-radius: 13px; position: relative;
@@ -11277,7 +11251,7 @@
   </div>
 
   <div id="fpanel">
-    <h3>Everyday sentences A1 → C2</h3>
+    <h3>Everyday sentences</h3>
     <div class="wdetail" id="wdetail" aria-live="polite"></div>
     <div class="domains" id="ftopics"></div>
   </div>
@@ -13727,8 +13701,6 @@ const PanelSearch = (() => {
     // put two identical-looking inputs in one panel.
     attach('gpanel', '.gbtn',
       'Search 48 lessons… / جست‌وجوی درس‌ها…', {group: '.glevel'});
-    attach('fpanel', '.ftopic',
-      'Search the sentence banks… / جست‌وجوی موضوع‌ها…');
     // Sounds shows one topic at a time in .phview, so .pgroup is empty until
     // something is clicked and searching it would match nothing. The topic
     // rail is the panel's index and is always there, so that is what is
@@ -14882,8 +14854,9 @@ async function sensesFor(word) {
   return (sensesDoc.words || {})[key] || null;
 }
 
-/* word_arch.json is 302 KB of boot payload and only fills the word chips in
-   the Sentences panel, so it is fetched on first use. The promise is kept so
+/* word_arch.json is 302 KB and is read for one thing now: the review
+   command looks a word up in it ("save apple to review") to find the forms a
+   learner is saving. It is fetched on first use, and the promise is kept so
    two callers cannot start two downloads. */
 let wordArchPromise = null;
 async function loadWordArch() {
@@ -14894,12 +14867,9 @@ async function loadWordArch() {
     const bands = await wordArchBands();
     Object.assign(wordArch, bands);
     wordArchLoaded = true;
-    paintWordArch();
     } catch (e) {
-      const slots = document.querySelectorAll('#ftopics [data-words]');
-      slots.forEach((slot) => {
-        slot.innerHTML = '<div class="wd-more">Word forms unavailable offline.</div>';
-      });
+      /* Offline there is no archive: the review command falls back to the
+         word it was given, which is still a correct thing to save. */
     }
   })().finally(() => {
     wordArchPromise = null;
@@ -14907,126 +14877,28 @@ async function loadWordArch() {
   return wordArchPromise;
 }
 
-/* Fetching the archive and painting the chips are separate because either can
-   happen first: the fetch waits for the panel to open, the paint has to
-   follow the topic buttons being rebuilt. Folded together, offline wins the
-   race and finds no slots to fill. */
-function paintWordArch() {
-  if (!wordArchLoaded) return;
-  // drop the placeholder text and insert the real chips into each level
-  document.querySelectorAll('#ftopics [data-words]').forEach((slot) => {
-      const items = wordArch[slot.dataset.words] || [];
-      slot.innerHTML = '';
-      const lab = document.createElement('div');
-      lab.className = 'wd-lab';
-      lab.innerHTML = '🧩 New words of this level — tap one to see its architecture' +
-        ' / <bdi class="fa" lang="fa" dir="rtl">واژه‌های این سطح</bdi>';
-      slot.appendChild(lab);
-
-      // A1 has ~800 words; rendering them all at once is slow on a phone, so
-      // show a page at a time and let the learner open the rest.
-      const PAGE = 48;
-      let shown = Math.min(PAGE, items.length);
-      const grid = document.createElement('div');
-      grid.className = 'wd-chips';
-
-      const paint = () => {
-        grid.innerHTML = '';
-        items.slice(0, shown).forEach((entry) => {
-          const b = document.createElement('button');
-          b.className = 'wchip';
-          b.textContent = entry.en;
-          b.title = entry.fa;
-          b.onclick = () => {
-            [...slot.querySelectorAll('.wchip.on')].forEach((n) => n.classList.remove('on'));
-            b.classList.add('on');
-            showWord(entry);
-          };
-          grid.appendChild(b);
-        });
-      };
-      paint();
-      slot.appendChild(grid);
-
-      const more = document.createElement('button');
-      more.className = 'wd-more btn';
-      more.onclick = () => {
-        const open = more.dataset.open === '1';
-        shown = open ? PAGE : items.length;
-        more.dataset.open = open ? '0' : '1';
-        more.textContent = open
-          ? items.length + ' words at ' + slot.dataset.words + ' — show more'
-          : 'showing all ' + items.length + ' · show fewer';
-        paint();
-      };
-      more.dataset.open = '0';
-      more.textContent = items.length + ' words at ' + slot.dataset.words +
-        (items.length > PAGE ? ' — show all' : '');
-      slot.appendChild(more);
-    });
-}
-
 async function loadPhrases() {
   const box = document.getElementById('ftopics');
-  try {
-    const topics = phraseTopics;
-    box.innerHTML = '';
-    /* Travel is a category of this panel, not a second app: one card at the
-       top of the same list, and it opens inside the same panel. */
-    box.appendChild(Travel.card(false));
-    box.appendChild(Journey.card('sports', false));
-    /* Makeup is an adult journey: it is offered here, in the adult sentence
-       panel, and nowhere in the kid experience. */
-    box.appendChild(Journey.card('makeup', false));
-    /* Technology is adult material too: it teaches password, scam and
-       privacy vocabulary that belongs with the grown-up panel. */
-    box.appendChild(Journey.card('tech', false));
-    /* Food, cooking and restaurants: the everyday subject of a kitchen, a
-       market and a table, in the same adult panel. */
-    box.appendChild(Journey.card('food', false));
-    byLevel(topics).forEach(([level, items]) => {
-      const sec = document.createElement('div');
-      sec.className = 'vgroup';
-      sec.appendChild(levelHead(level, items.length, ' topics', 'موضوع'));
-      const row = document.createElement('div');
-      row.className = 'vrow';
-      items.forEach((t) => {
-        const b = document.createElement('button');
-        b.className = 'ftopic';
-        b.title = t.count + ' sentences — ' + t.title_fa;
-        const en = document.createElement('span');
-        en.textContent = t.title_en;
-        const fa = document.createElement('span');
-        fa.className = 'fa';
-        fa.textContent = t.title_fa;
-        const n = document.createElement('span');
-        n.className = 'n';
-        n.textContent = t.count;
-        b.append(en, fa, n);
-        b.onclick = () => send(t.query);
-        row.appendChild(b);
-      });
-      sec.appendChild(row);
-
-      const slot = document.createElement('div');
-      slot.className = 'wd-slot';
-      slot.dataset.words = level;
-      slot.innerHTML = '<div class="wd-more">Loading word forms…</div>';
-      sec.appendChild(slot);
-
-      box.appendChild(sec);
-    });
-    // Fetch if it is not in hand, then paint into the slots just created.
-    // The two are separate calls because either can be the first: on the web
-    // the 302 KB archive arrives after this panel has rendered, and offline it
-    // is already in memory and resolves before the slots exist at all. Calling
-    // loadWordArch() on its own would return early the second time and leave
-    // five empty "Loading word forms…" placeholders on screen.
-    await loadWordArch();
-    paintWordArch();
-  } catch (e) {
-    box.innerHTML = '<div class="pblurb">Sentences unavailable offline. / <bdi class="fa" lang="fa" dir="rtl">جملات در دسترس نیست.</bdi></div>';
-  }
+  if (!box) return;
+  /* The panel is five journeys and nothing else. It used to list 39 sentence
+     banks under A1..C2 headings, each with a row of word-form chips beneath it:
+     a second, older architecture that taught a handful of canned sentences per
+     topic and repeated what the journeys already teach in stages. That list is
+     gone, so the five cards below are the whole panel. */
+  box.innerHTML = '';
+  /* Travel is a category of this panel, not a second app: one card at the
+     top of the same list, and it opens inside the same panel. */
+  box.appendChild(Travel.card(false));
+  box.appendChild(Journey.card('sports', false));
+  /* Makeup is an adult journey: it is offered here, in the adult sentence
+     panel, and nowhere in the kid experience. */
+  box.appendChild(Journey.card('makeup', false));
+  /* Food, cooking and restaurants: the everyday subject of a kitchen, a
+     market and a table, in the same adult panel. */
+  box.appendChild(Journey.card('food', false));
+  /* Technology is adult material too: it teaches password, scam and
+     privacy vocabulary that belongs with the grown-up panel. */
+  box.appendChild(Journey.card('tech', false));
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
@@ -25443,12 +25315,13 @@ const PANEL_ON_OPEN = {
   // adult hook does nothing at all: the Vocabulary panel is filled at boot and
   // has never had a search box of its own.
   vpanel: () => { if (Experience.kids()) Kids.vocab(); },
-  // The word chips are the only consumer, and they are 302 KB. Fetch when the
-  // panel is actually opened, then attach the search once there is something
-  // to filter.
+  // Five journey cards, and no list to filter: the panel builds its cards and
+  // stops. The word archive is still read on open because the review command
+  // looks a word up in it ("save apple to review"), and this is where a learner
+  // is standing when they say that.
   fpanel: () => {
     if (Experience.kids()) { Kids.phrases(); return; }
-    loadPhrases().then(() => PanelSearch.attachAll());
+    loadPhrases();
     loadWordArch();
   },
   // Kids get four short clips with questions; adults the CEFR ladder
