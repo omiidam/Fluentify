@@ -11568,15 +11568,6 @@
       </div>
     </div>
     <div class="messageBox" id="messageBox">
-      <button type="button" class="ico" id="gecbtn"
-              aria-label="Check my English / گرامر جمله را چک کن"
-              title="Check my English — گرامر جمله را چک کن">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
-             stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4.5 19.5l1-4.2L15.8 5a1.8 1.8 0 0 1 2.5 0l.7.7a1.8 1.8 0 0 1 0 2.5L8.7 18.5l-4.2 1Z"/>
-          <path d="M14.6 6.2l3.2 3.2"/>
-        </svg>
-      </button>
       <button type="button" class="ico" id="stickerbtn"
               aria-label="Fox stickers / استیکرهای روباه"
               title="Fox stickers / استیکرهای روباه"
@@ -12527,82 +12518,6 @@ async function send(text) {
   sendbtn.disabled = false;
   input.focus();
 }
-
-/* The local corrector: the sentence goes to the model, which answers
-   from the weights on this machine, and the page only draws the result. It is a
-   button rather than a step of send(), so a correction costs nothing from the
-   daily seed and never rewords the conversation the bot is having. */
-/* Correction. The app holds no model: the corrector is 558 MB and runs on the
-   server. If a backend was configured at build time (FLUENTIFY_GEC_API) the
-   sentence goes there; otherwise the rule engine bot.js already carries
-   answers, so the pen still works with the phone in airplane mode. */
-const GEC_API = '';
-const localCorrect = (text) => {
-  const problems = bot.checkGrammar(text);
-  const whole = problems.map((p) => p.whole).find(Boolean);
-  if (!whole) {
-    return {available: true, input: text, output: text, changed: false,
-            refused: null, local: true};
-  }
-  const out = whole.charAt(0).toUpperCase() + whole.slice(1);
-  return {available: true, input: text, output: out, refused: null, local: true,
-          changed: out.toLowerCase() !== text.toLowerCase()};
-};
-async function correctSentence(text) {
-  if (GEC_API) {
-    try {
-      const ctl = new AbortController();
-      const timer = setTimeout(() => ctl.abort(), 8000);
-      const r = await fetch(GEC_API + '/api/correct?message=' + encodeURIComponent(text),
-                            {signal: ctl.signal});
-      clearTimeout(timer);
-      const data = await r.json();
-      if (data && data.available !== false) return data;
-    } catch (e) { /* offline, or the backend is down: the rules answer */ }
-  }
-  return localCorrect(text);
-}
-
-async function checkEnglish(text) {
-  text = (text || '').trim();
-  if (!text || busy) return;
-  const starters = document.getElementById('starters');
-  if (starters) starters.remove();
-  busy = true;
-  add(text, 'user');
-  input.value = '';
-  showTyping();
-  let data = null;
-  try {
-    // The model is server-side, so the page asks the endpoint and draws the
-    // answer. No weights are loaded into the browser any more.
-    data = await correctSentence(text);
-  } catch (e) {
-    data = null;
-  }
-  hideTyping();
-  busy = false;
-  if (!data || data.available === false) {
-    add('⚠️ ' + ((data && data.refused) || 'The correction model did not answer.') +
-        '\n  ↲ مدل اصلاحِ گرامر پاسخ نداد.', 'bot', {err: true});
-    return;
-  }
-  if (data.refused) {
-    add('✍️ ' + data.refused, 'bot');
-    return;
-  }
-  if (!data.changed) {
-    add('✅ That sentence is already correct English.\n' +
-        '  ↲ این جمله از نظر گرامری درست است.', 'bot');
-    return;
-  }
-  add('✍️ Grammar correction / اصلاح گرامر\n' +
-      '• You wrote / نوشتی: ' + text + '\n' +
-      '• Correct / درست: **' + data.output + '**\n' +
-      '  ↲ ' + data.output, 'bot');
-}
-
-document.getElementById('gecbtn').addEventListener('click', () => checkEnglish(input.value));
 
 document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();

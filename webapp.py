@@ -8,10 +8,7 @@ import gzip
 import json
 import os
 import re
-import select
-import subprocess
 import sys
-import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -72,142 +69,6 @@ def bbc_catalog() -> dict:
     doc["count"] = len(doc.get("episodes", []))
     return doc
 bot = ChatBot()  # shared session memory for the preview
-
-# ------------------------------------------------------------ local corrector
-# GEC-BART Base (gotutiyan/gec-bart-base) runs on the server and nowhere else:
-# the weights are a 558 MB BART, the interpreter is .venv/gec, and
-# tools/gec_worker.py keeps the model loaded between sentences. Only a Python
-# process can host it - the browser and the APK ship JavaScript, and a BART is
-# not a JavaScript dependency - so the correction is an endpoint of its own.
-# That is also why chat replies are untouched: the model answers a question
-# about a sentence, it does not edit the conversation, and the APK keeps the
-# rule-based checker it ships with.
-sys.path.insert(0, str(ROOT / "tools"))
-try:
-    import gec as gec_model
-except Exception:                    # a partial checkout must not stop the app
-    gec_model = None
-
-
-class LocalGec:
-    """One long-lived model process, and the fetch that puts it on disk.
-
-    A server is expected to boot with storage keys and an empty disk: the
-    checkpoint lives in ArvanCloud, so the first start pulls it with the key
-    this process already holds and never asks a browser or a phone for
-    anything. The pull runs in the background so a request that arrives during
-    it gets a sentence rather than a timeout; loading the model happens once,
-    and every correction after that costs one generation.
-    """
-
-    def __init__(self):
-        self.proc = None
-        self.lock = threading.Lock()
-        self.state = "idle"          # idle | installing | ready | failed
-        self.error = ""
-
-    def status(self) -> str:
-        """A sentence the page can show, not a stack trace."""
-        if self.state == "installing":
-            return ("The correction model is being installed from storage "
-                    "(561 MB) — try again in a minute.")
-        return self.error
-
-    def prefetch(self) -> None:
-        """Install from object storage at boot when the disk is empty.
-
-        This is what makes a fresh server work with nothing but credentials:
-        the weights are not in the repository, not in the APK, and not on the
-        machine until this runs. Failure is reported, never raised - a missing
-        key must not take the chat down with it.
-        """
-        if self.state in ("installing", "ready"):
-            return
-        if gec_model is None:
-            self.state = "failed"
-            self.error = "The correction model module is missing."
-            return
-        try:
-            cfg = gec_model.load_config()
-        except Exception as exc:
-            self.state, self.error = "failed", f"The corrector is misconfigured: {exc}"
-            return
-        if gec_model.weights_present(cfg):
-            self.state = "ready"
-            return
-        self.state = "installing"
-        threading.Thread(target=self._install, args=(cfg,), daemon=True).start()
-
-    def _install(self, cfg) -> None:
-        try:
-            code = gec_model.install(cfg)
-            ok = code == 0 and gec_model.weights_present(cfg)
-        except Exception as exc:
-            ok, self.error = False, f"The correction model could not be installed: {exc}"
-        if ok:
-            self.state = "ready"
-        else:
-            self.state = "failed"
-            self.error = self.error or (
-                "The correction model could not be installed from storage — check "
-                "the ARVAN_S3_* keys in .arvan-storage.env on this server.")
-
-    def _start(self):
-        if self.proc is not None and self.proc.poll() is None:
-            return self.proc
-        if gec_model is None:
-            raise RuntimeError("The correction model is not installed.")
-        cfg = gec_model.load_config()
-        python = gec_model.venv_python(cfg)
-        if not gec_model.weights_present(cfg):
-            if self.state == "idle":
-                self.prefetch()         # a request before boot: fetch, then say so
-            raise RuntimeError(self.status() or
-                               "The correction model is not installed yet — see "
-                               "gec.json / tools/gec.py.")
-        self.proc = subprocess.Popen(
-            [str(python), str(ROOT / "tools" / "gec_worker.py")],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL, text=True, bufsize=1,
-            env={**os.environ, "HF_HUB_OFFLINE": "1"},
-        )
-        ready, _, _ = select.select([self.proc.stdout], [], [], 180)
-        line = self.proc.stdout.readline() if ready else ""
-        if '"ready": true' not in line.replace("'", '"'):
-            self.proc.kill()
-            self.proc = None
-            raise RuntimeError("The local correction model did not start.")
-        return self.proc
-
-    def correct(self, sentence: str) -> dict:
-        text = " ".join((sentence or "").split())
-        if not text:
-            return {"available": True, "input": "", "output": "", "changed": False,
-                    "refused": "Nothing to correct — the sentence is empty."}
-        with self.lock:
-            try:
-                proc = self._start()
-            except RuntimeError as exc:
-                return {"available": False, "input": text, "output": "",
-                        "changed": False, "refused": str(exc)}
-            try:
-                proc.stdin.write(json.dumps({"sentence": text}) + "\n")
-                proc.stdin.flush()
-                ready, _, _ = select.select([proc.stdout], [], [], 120)
-                line = proc.stdout.readline() if ready else ""
-                row = json.loads(line) if line.strip() else {}
-            except (OSError, ValueError, subprocess.SubprocessError):
-                row = {}
-            if not row:
-                self.proc = None
-                return {"available": False, "input": text, "output": "",
-                        "changed": False,
-                        "refused": "The local correction model stopped answering."}
-        row["available"] = True
-        return row
-
-
-gec = LocalGec()
 
 HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="en">
@@ -11778,15 +11639,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       </div>
     </div>
     <div class="messageBox" id="messageBox">
-      <button type="button" class="ico" id="gecbtn"
-              aria-label="Check my English / گرامر جمله را چک کن"
-              title="Check my English — گرامر جمله را چک کن">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
-             stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4.5 19.5l1-4.2L15.8 5a1.8 1.8 0 0 1 2.5 0l.7.7a1.8 1.8 0 0 1 0 2.5L8.7 18.5l-4.2 1Z"/>
-          <path d="M14.6 6.2l3.2 3.2"/>
-        </svg>
-      </button>
       <button type="button" class="ico" id="stickerbtn"
               aria-label="Fox stickers / استیکرهای روباه"
               title="Fox stickers / استیکرهای روباه"
@@ -12733,52 +12585,6 @@ async function send(text) {
   sendbtn.disabled = false;
   input.focus();
 }
-
-/* The local corrector: the sentence goes to the model, which answers
-   from the weights on this machine, and the page only draws the result. It is a
-   button rather than a step of send(), so a correction costs nothing from the
-   daily seed and never rewords the conversation the bot is having. */
-async function checkEnglish(text) {
-  text = (text || '').trim();
-  if (!text || busy) return;
-  const starters = document.getElementById('starters');
-  if (starters) starters.remove();
-  busy = true;
-  add(text, 'user');
-  input.value = '';
-  showTyping();
-  let data = null;
-  try {
-    // The model is server-side, so the page asks the endpoint and draws the
-    // answer. No weights are loaded into the browser any more.
-    const r = await fetch('/api/correct?message=' + encodeURIComponent(text));
-    data = await r.json();
-  } catch (e) {
-    data = null;
-  }
-  hideTyping();
-  busy = false;
-  if (!data || data.available === false) {
-    add('⚠️ ' + ((data && data.refused) || 'The correction model did not answer.') +
-        '\n  ↲ مدل اصلاحِ گرامر پاسخ نداد.', 'bot', {err: true});
-    return;
-  }
-  if (data.refused) {
-    add('✍️ ' + data.refused, 'bot');
-    return;
-  }
-  if (!data.changed) {
-    add('✅ That sentence is already correct English.\n' +
-        '  ↲ این جمله از نظر گرامری درست است.', 'bot');
-    return;
-  }
-  add('✍️ Grammar correction / اصلاح گرامر\n' +
-      '• You wrote / نوشتی: ' + text + '\n' +
-      '• Correct / درست: **' + data.output + '**\n' +
-      '  ↲ ' + data.output, 'bot');
-}
-
-document.getElementById('gecbtn').addEventListener('click', () => checkEnglish(input.value));
 
 document.getElementById('composer').addEventListener('submit', e => {
   e.preventDefault();
@@ -37599,21 +37405,6 @@ class Handler(BaseHTTPRequestHandler):
             # so it is served straight off disk rather than through the bot.
             body = (ROOT / "foxes.json").read_bytes()
             self._finish(body, "application/json; charset=utf-8")
-        elif self.path.startswith("/api/correct"):
-            # GEC-BART Base answers here and the page only draws the result. A
-            # model that is missing or unwell is a JSON refusal, not a
-            # traceback: the page has to be able to say why it got nothing.
-            query = parse_qs(urlparse(self.path).query)
-            message = query.get("message", [""])[0]
-            try:
-                row = gec.correct(message)
-            except Exception as exc:   # one bad sentence must not end the server
-                row = {"available": False, "input": message, "output": "",
-                       "changed": False,
-                       "refused": f"The correction model failed: {exc}"}
-            # The learner's own sentence travels in this one: never cached.
-            self._finish(json.dumps(row, ensure_ascii=False).encode("utf-8"),
-                         "application/json; charset=utf-8", no_store=True)
         elif self.path.startswith("/api/chat"):
             query = parse_qs(urlparse(self.path).query)
             message = query.get("message", [""])[0]
@@ -37631,10 +37422,6 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    # Fetch the checkpoint before anyone asks for a correction. With storage
-    # keys and an empty disk this is what makes a fresh server work without the
-    # model ever being committed, bundled, or copied here by hand.
-    gec.prefetch()
     server = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"Chatbot preview running at http://localhost:{PORT}")
     server.serve_forever()

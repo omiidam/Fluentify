@@ -833,116 +833,13 @@ Nothing is uploaded by this project: recognition is done by the browser or the
 OS. `tools/transcribe.py` says plainly which backends are missing instead of
 failing quietly.
 
-## 🧠 Grammar correction — GEC-BART Base, on the server
-
-The ✏️ pen in the composer sends one sentence to `/api/correct`. Behind it is
-[gotutiyan/gec-bart-base](https://huggingface.co/gotutiyan/gec-bart-base) — BART-base
-fine-tuned on BEA-2019, CoNLL-2014 and FCE (Katsumata & Komachi, AACL 2020; MIT; ERRANT
-F₀.₅ 63.3 on BEA-19 test). It reads a whole sentence, so it repairs what no pattern list
-was told about: `She go to school yesterday.` → `She went to school yesterday.`
-
-**Where the weights live.** 558 MB of safetensors, in ArvanCloud object storage:
-
-```
-s3://fluentify-bbc/GEC-BART BASE/
-  model.safetensors   config.json        tokenizer.json
-  tokenizer_config.json   vocab.json     merges.txt
-  special_tokens_map.json   manifest.json
-```
-
-Object storage holds the files; it does not run the model. The Python service does, and it
-loads the checkpoint from its own disk — ArvanCloud is touched only for an install, a cache
-repair or a version change.
-
-```bash
-python3 tools/gec_store.py --check      # keys, bucket, prefix, what is in the folder
-python3 tools/gec_store.py --upload     # upload, then verify size and SHA-256 per object
-python3 tools/gec.py --install          # fetch from the bucket into the cache
-python3 tools/gec.py --check            # identity, revision, cache, venv, storage
-python3 tools/gec.py "She go to school yesterday."
-python3 tools/gec.py --bench            # fourteen known sentences, timed
-```
-
-Credentials come from `ARVAN_S3_ACCESS_KEY_ID` / `ARVAN_S3_SECRET_ACCESS_KEY` in the
-environment or from `.arvan-storage.env` (gitignored) — never from a tracked file, because
-this page is bundled into the APK.
-
-Install the dependencies once, into a project venv — a 2 GB torch does not belong in the
-system Python of an app whose selling point is "standard library only":
-
-```bash
-python3 -m venv .venv/gec
-.venv/gec/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
-.venv/gec/bin/pip install transformers safetensors boto3
-```
-
-`tools/gec.py` re-runs itself inside that venv, so the command stays
-`python3 tools/gec.py …`. The checkpoint is pinned in `gec.json` (`model.revision`) and
-every file is checked against `GEC-BART BASE/manifest.json` before the model loads, so an
-interrupted 558 MB download fails at the door rather than at inference.
-
-**Measured on this machine** (CPU, one sentence at a time): **0.24–0.50 s per correction**,
-0.2–0.4 s to load with the files warm in the page cache, **71/73** on
-`tools/gec_corpus.json` (66/73 without the rule pass), and all four already-correct bench
-sentences left untouched. The decode uses `clean_up_tokenization_spaces`, because BART's
-byte-level tokenizer otherwise returns `She went to school yesterday .` — which is how it
-shipped for one build.
-
-**What is on the phone.** Nothing: no weights, no inference runtime, no tokenizer. The
-bundle went from **133 MB to 25 MB**. The pen button asks the backend when the build was
-given one:
-
-```bash
-FLUENTIFY_GEC_API=https://your-server.example python3 build_apk_ui.py
-```
-
-and otherwise answers from the rule engine `bot.js` already carries, so the pen still works
-with the phone in airplane mode. A loopback address is refused at build time: a phone
-cannot reach this laptop, and a correction that silently never arrives is worse than one
-that says it needs a connection.
-
-**Serving it.** The existing Python service hosts the model; `tools/gec_worker.py` keeps it
-resident so a request costs one generation, not one load:
-
-```ini
-# /etc/systemd/system/fluentify-gec.service
-[Service]
-WorkingDirectory=/srv/fluentify
-Environment=FLUENTIFY_GEC_DIR=/srv/fluentify/models/gec-bart
-ExecStart=/srv/fluentify/.venv/gec/bin/python webapp.py
-Restart=always
-```
-
-The endpoint answers `available:false` with a reason — never a traceback — when the model
-is missing, and `HF_HUB_OFFLINE` is set before transformers loads, so a running model never
-phones home. `python3 tools/gec_store.py --verify` compares the server's cache with the
-bucket's manifest when a cache is suspect.
-
-**A corrector repairs the sentence, not the meaning.** It may turn `I have went there` into
-`I have been there`: grammatical, and no longer what the learner said. The rule set's
-`have gone` is the one that keeps their meaning, which is why the chat's second opinion
-stays a line beside the rules rather than a replacement for them:
-
-```bash
-FLUENTIFY_GEC=1 python3 chatbot.py
-> is this correct? I have went there
-✏️  One thing to fix — چند نکته برای اصلاح:
-   • have went  →  have gone
-...
-🧠 Local GEC model — مدل محلی: I have gone there.
-```
-
-The refused cases are named before anything loads — empty input, Persian-only or
-Persian-dominant input (the model is English), and sentences past 64 words — because a
-corrector asked what it was not trained on will invent an answer rather than decline.
-
 ## Checks
 
 ```bash
 python3 tools/check_all.py
 ```
 
-Thirty suites:
+Thirty-six suites:
 
 | suite | what it asks |
 | --- | --- |
@@ -959,7 +856,6 @@ Thirty suites:
 | mastery schedule | does anything come back, and on time? The interval/ease/lapse arithmetic, the recall counters, the line, the cap and the corrupt record. |
 | error log & profile | does a diagnosed mistake ever add up? One log from the level check, the quiz and the drills, ranked, bounded, and re-askable. |
 | practice drills | are the drills sound, and is there exactly one way into them — the circular control that folds out into the list of activities and opens each as a full page, with no second card and no drill inside the drawer? Word partners, register, the ear test over the phonetics pairs, and the word-level comparison behind dictation and speaking, plus the authored bank itself, `Drills.levels` against the real `listening.json` so dictation and say-it can never go empty again, and the drawer, which must build its rows from `Practice.TABS`, open all six as pages, come back to the list on close, and draw no drill of its own. |
-| grammar corrector | is it GEC-BART Base, on the server, and absent from the app? `gec.json` must pin the checkpoint and the ArvanCloud location and carry no global switch; the page, `bot.js` and the Kotlin must name no checkpoint and hold no weights, and the bundle must stay under 60 MB; the default chat reply must stay identical with `FLUENTIFY_GEC` unset; and the installed model must repair the bench and the 73-sentence corpus. |
 
 That last one matters more than its size suggests. A duplicate top-level name
 between the page and `bot.js` is a SyntaxError that kills the whole inline

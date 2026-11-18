@@ -103,12 +103,6 @@ Every suite answers a different question:
                 asks about one real word, remembers a 404 but not a timeout,
                 says where the senses came from instead of inventing a
                 Persian gloss, and the two formatters produce one string.
-  check_gec     is the grammar corrector still GEC-BART Base, on the server,
-                and absent from the app? gec.json must pin the checkpoint and
-                the ArvanCloud location, the APK must hold no weights and no
-                inference runtime, the default chat reply must stay identical
-                with FLUENTIFY_GEC unset, and the installed model must repair
-                the bench and the corpus.
 
 Exit code is non-zero if any suite fails.
 """
@@ -139,7 +133,6 @@ SUITES = [
     ("error log & profile", [sys.executable, "tools/check_errors.py"]),
     ("practice drills", [sys.executable, "tools/check_practice.py"]),
     ("offline grammar analyser", [sys.executable, "tools/check_analyser.py"]),
-    ("local GEC model", [sys.executable, "tools/check_gec.py"]),
     ("dictionary knowledge", [sys.executable, "tools/check_lexicon.py"]),
     ("vocabulary senses", [sys.executable, "tools/check_senses.py"]),
     ("web dictionary fallback", [sys.executable, "tools/check_web_dict.py"]),
