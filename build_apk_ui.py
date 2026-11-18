@@ -527,7 +527,10 @@ BRAND_FILES = ["fox-mark.png", "fox-face.png", "kids-fox-bg.png",
                "journey-food.jpg", "journey-makeup.jpg",
                "journey-travel.jpg", "journey-sports.jpg",
                "journey-tech.jpg", "journey-entertainment.jpg",
-               "journey-social.jpg"]
+               "journey-social.jpg",
+               # The signatory's own hand, cut from the scan the office
+               # signed: the certificate prints the image, not a script font.
+               "signature.png"]
 missing_brand = [f for f in BRAND_FILES if not (BRAND_DIR / f).exists()]
 if missing_brand:
     raise SystemExit("build_apk_ui: brand art missing from brand/: "

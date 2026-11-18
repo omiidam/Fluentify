@@ -226,6 +226,17 @@ const sheet = Cert.render({name: '<b>Sara</b>', band: 'B2', label: 'Upper interm
   labelFa: 'میانی بالا', can: 'You read an article quickly.', at: '2026-11-03T10:00:00.000Z',
   questions: 50, answered: 50, minutes: 17});
 ok(!sheet.includes('<b>Sara</b>'), 'a name is escaped on the certificate');
+ok(sheet.includes('brand/signature.png') && sheet.includes('Sig' + 'nature of Ghazal Poortaghi'),
+   'the signature on the sheet is the signed scan, not a script font');
+ok(sheet.includes('Ghazal Poortaghi') && sheet.includes('Head of Fluentify'),
+   'the sheet prints the name and office of the person who signed it');
+ok(sheet.includes('Serial no.') && sheet.includes('Verification ID'),
+   'the sheet carries both the serial and the verification id');
+ok(/^FL-\d{4}-[A-Z0-9]{4}$/.test(Cert.serial({name: 'Sara Ahmadi', band: 'B2',
+   at: '2026-11-03T10:00:00.000Z'})), 'the serial has the printed shape');
+ok(Cert.serial({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'})
+   === Cert.serial({name: 'Sara Ahmadi', band: 'B2', at: '2026-11-03T10:00:00.000Z'}),
+   'the same result keeps its serial');
 ok(sheet.includes('B2') && sheet.includes('50 questions') && sheet.includes('17'),
    'the certificate carries the level and the assessment counts');
 ok(sheet.includes('not a certified examination'), 'the certificate states its own limits');

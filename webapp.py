@@ -433,6 +433,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
        These values are therefore repeated in the dark block on purpose: a
        token that changes with the theme is the wrong tool for a sheet of paper. */
     --doc-paper: #fffdf6; --doc-paper2: #fdf8ea;
+    --doc-glow: rgba(255,255,255,.92);
+    /* the certificate's own inks: a letterhead band, its gold rule and the
+       plate the mark sits on. Tokens rather than literals so the sheet is
+       the same paper in both themes and no rule hard-codes a colour. */
+    --doc-paper-top: #ffffff; --doc-plate: #fffdf7;
+    --doc-navy2: #2c3260; --doc-plum: #4b2f68;
+    --doc-gold-deep: #b8892e; --doc-gold-pale: #f0dfb0;
+    --doc-on-navy: #f8f4e9;
     --doc-ink: #2b3049; --doc-ink2: #3f4a6b; --doc-ink3: #55607e;
     --doc-ink4: #7b829c; --doc-gold: #8a5a00; --doc-navy: #22375e;
 
@@ -549,6 +557,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --mask: #000000;
     --btn-fill: #3a4562;
     --doc-paper: #fffdf6; --doc-paper2: #fdf8ea;
+    --doc-glow: rgba(255,255,255,.92);
+    /* the certificate's own inks: a letterhead band, its gold rule and the
+       plate the mark sits on. Tokens rather than literals so the sheet is
+       the same paper in both themes and no rule hard-codes a colour. */
+    --doc-paper-top: #ffffff; --doc-plate: #fffdf7;
+    --doc-navy2: #2c3260; --doc-plum: #4b2f68;
+    --doc-gold-deep: #b8892e; --doc-gold-pale: #f0dfb0;
+    --doc-on-navy: #f8f4e9;
     --doc-ink: #2b3049; --doc-ink2: #3f4a6b; --doc-ink3: #55607e;
     --doc-ink4: #7b829c; --doc-gold: #8a5a00; --doc-navy: #22375e;
     color-scheme: dark;
@@ -2115,168 +2131,224 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .ac-passerr > div[dir="rtl"] { direction: rtl; }
   .ac-ok { margin: 0; font-size: 10px; line-height: 1.5; color: var(--ink-2); font-weight: 600; }
 
-  /* ---------- the certificate ------------------------------------------- */
+  /* ---------- the certificate -------------------------------------------
+     A document, not a card: paper that stays paper in both themes, a brand
+     band across the top, the recipient's name at the size a school reads
+     from, the awarded level in its own badge, and a foot that carries the
+     signatory's own hand as an image rather than a font pretending to be
+     handwriting. Everything is sized in clamp() so the same sheet fills A4
+     landscape in print and a 390px phone without dropping the signature. */
   .certwrap {
     position: fixed; inset: 0; z-index: 9995; display: grid;
     grid-template-rows: 1fr auto; gap: 10px; padding: 14px;
-    background: rgba(24, 26, 40, .58); backdrop-filter: blur(5px);
+    background: rgba(18, 20, 34, .68); backdrop-filter: blur(7px);
     overflow: auto;
   }
   .certwrap[hidden] { display: none; }
   .certsheet {
-    width: min(100%, 780px); aspect-ratio: 1.414 / 1; margin: auto;
-    background: radial-gradient(120% 90% at 50% -20%, var(--doc-paper) 0%, var(--doc-paper) 55%, var(--doc-paper2) 100%);
-    border-radius: 8px; padding: 6px; position: relative;
-    box-shadow: 0 30px 70px -38px rgba(0,0,0,.8);
+    width: min(100%, 820px); margin: auto; padding: 7px;
+    border-radius: 16px; position: relative;
+    background: linear-gradient(180deg, var(--doc-paper-top), var(--doc-paper) 38%, var(--doc-paper2));
+    box-shadow: 0 44px 96px -48px rgba(0,0,0,.9), 0 1px 0 rgba(255,255,255,.9) inset;
   }
-  /* A phone cannot show a landscape sheet at a readable size: at 390px wide the
-     ratio leaves 276px of height, and the name, the level, the facts and the
-     two signatures need more than that - so the bottom of the page, where the
-     signature is, would be the part that fell off. Below this width the sheet
-     keeps its margins and grows downwards instead, the way a PDF viewer shows
-     a wide page on a narrow screen. The ratio is kept wherever there is room. */
-  @media (max-width: 700px) {
-    .certsheet { aspect-ratio: auto; }
-    .certinner { height: auto; }
+  /* The landscape ratio only applies where there is height to spend on it.
+     A phone keeps the margins and grows downwards instead, so the foot of
+     the page is never the part that falls off the screen. */
+  @media (min-width: 701px) {
+    .certsheet { aspect-ratio: 1.414 / 1; }
+    .certinner { height: 100%; }
   }
   .certinner {
-    position: relative; height: 100%; border-radius: 5px;
-    border: 1.5px solid rgba(155,106,18,.55);
-    padding: 4.2% 5.2%; display: flex; flex-direction: column;
-    color: var(--doc-ink); overflow: hidden;
+    position: relative; border-radius: 11px; overflow: hidden;
+    border: 1px solid rgba(155,106,18,.42);
+    padding: 3.4% 3.6% 3.2%; display: flex; flex-direction: column;
+    color: var(--doc-ink);
+    background:
+      radial-gradient(120% 80% at 50% 0%, var(--doc-glow), rgba(255,255,255,0) 62%),
+      radial-gradient(80% 60% at 100% 100%, rgba(155,106,18,.06), rgba(155,106,18,0) 70%);
   }
   .certinner::before {
-    content: ''; position: absolute; inset: 8px; border: 1px solid rgba(155,106,18,.28);
-    border-radius: 3px; pointer-events: none;
+    content: ''; position: absolute; inset: 6px; border: 1px solid rgba(155,106,18,.2);
+    border-radius: 7px; pointer-events: none;
   }
-  /* The head is a letterhead: the mark and the wordmark at the start of the
-     line, the stamp that says what this sheet is at the end of it. The stamp
-     used to float in the middle of the page, where it sat on the recipient's
-     name and read as a watermark; a seal belongs in the corner of a letter. */
-  .certhead { display: flex; align-items: center; gap: 9px; }
-  .certhead img { width: 30px; height: 30px; border-radius: 8px; }
-  .certword { display: flex; flex-direction: column; gap: 2px; line-height: 1.1; }
+  /* ---- the letterhead: logo, wordmark, and the stamp that says what this
+     sheet is. It is the one dark element on the page, so the eye lands on the
+     brand first and on the name second. ---- */
+  /* #cert and not a bare class: the light-theme glass rule targets every
+     <header> on the page and would otherwise paint its sheen over the
+     letterhead, leaving pale type on pale paper. */
+  #cert .certhead {
+    display: flex; align-items: center; gap: clamp(8px, 1.4vw, 13px);
+    padding: 2.1% 2.6%; border-radius: 9px; position: relative;
+    background: linear-gradient(115deg, var(--doc-navy) 0%, var(--doc-navy2) 58%, var(--doc-plum) 100%);
+    color: var(--doc-on-navy);
+    box-shadow: 0 12px 26px -22px rgba(43,48,73,.9);
+    border-bottom: 0;
+  }
+  #cert .certhead::after {
+    content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 2px;
+    background: linear-gradient(90deg, var(--doc-gold-deep), var(--doc-gold-pale) 45%, var(--doc-gold-deep));
+  }
+  .certmark {
+    display: grid; place-items: center; flex: 0 0 auto;
+    width: clamp(30px, 4.6vw, 40px); aspect-ratio: 1;
+    border-radius: 10px; background: var(--doc-plate);
+    box-shadow: 0 4px 10px -4px rgba(0,0,0,.5);
+  }
+  .certmark img { width: 76%; height: 76%; object-fit: contain; display: block; }
+  .certword { display: flex; flex-direction: column; gap: 2px; line-height: 1.05; min-width: 0; }
   .certword b {
-    font-family: var(--font-display); font-size: 14px; letter-spacing: .2px;
-    color: var(--doc-gold);
+    font-family: var(--font-display); font-size: clamp(15px, 2.5vw, 20px);
+    letter-spacing: .6px; color: var(--doc-plate);
   }
   .certword span {
-    font-size: 7px; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--doc-ink4);
+    font-size: clamp(5.6px, .95vw, 7.4px); letter-spacing: .2em;
+    text-transform: uppercase; color: rgba(248,244,233,.66);
   }
   .certseal {
-    margin-inline-start: auto; width: clamp(34px, 6.4vw, 48px); aspect-ratio: 1;
-    border-radius: 50%; border: 1px solid rgba(155,106,18,.45);
-    box-shadow: inset 0 0 0 3px var(--doc-paper), inset 0 0 0 4px rgba(155,106,18,.24);
+    margin-inline-start: auto; flex: 0 0 auto; text-align: center;
+    width: clamp(36px, 5.6vw, 50px); aspect-ratio: 1;
     display: grid; place-content: center; justify-items: center; gap: 1px;
-    transform: rotate(-7deg); text-align: center;
+    border-radius: 50%; border: 1px solid rgba(240,223,176,.55);
+    box-shadow: inset 0 0 0 2px rgba(18,20,34,.35), inset 0 0 0 3px rgba(240,223,176,.35);
+    transform: rotate(-6deg);
   }
   .certseal b {
-    font-family: var(--font-display); font-size: clamp(7px, 1.25vw, 9px);
-    letter-spacing: .1em; color: var(--doc-gold); line-height: 1;
+    font-family: var(--font-display); font-size: clamp(7px, 1.15vw, 9px);
+    letter-spacing: .08em; color: var(--doc-gold-pale); line-height: 1;
   }
   .certseal span {
-    font-size: clamp(3.6px, .66vw, 5px); letter-spacing: .07em;
-    text-transform: uppercase; color: var(--doc-ink4); line-height: 1.25;
+    font-size: clamp(3.4px, .58vw, 4.6px); letter-spacing: .08em;
+    text-transform: uppercase; color: rgba(248,244,233,.72); line-height: 1.25;
   }
-  /* The middle is the claim: who, what, and how well. It is centered because
-     that is the one line of the page a reader looks for first. */
+  /* ---- the claim: who, what, and how well ---- */
   .certbody {
     flex: 1; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; text-align: center; gap: 4px; padding: 1.2% 0;
+    justify-content: center; text-align: center; gap: 3px;
+    padding: 2.4% 0 1.6%; min-height: 0;
   }
   .certkick {
-    display: flex; align-items: center; gap: 9px; margin: 0;
-    font-size: 8px; letter-spacing: .3em; text-transform: uppercase;
-    color: var(--doc-gold);
+    display: flex; align-items: center; gap: 10px; margin: 0;
+    font-size: clamp(6.4px, 1.05vw, 8.4px); letter-spacing: .32em;
+    text-transform: uppercase; color: var(--doc-gold); font-weight: 700;
   }
   .certkick::before, .certkick::after {
-    content: ''; width: clamp(12px, 3vw, 24px); height: 1px;
-    background: rgba(155,106,18,.45);
+    content: ''; width: clamp(14px, 3vw, 26px); height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(155,106,18,.55), transparent);
   }
   .certname {
-    font-family: var(--font-display); font-size: clamp(19px, 4.6vw, 33px);
-    line-height: 1.1; color: var(--doc-navy); margin: 0;
-    unicode-bidi: plaintext; letter-spacing: -.2px;
+    font-family: var(--font-display);
+    font-size: clamp(23px, 5.4vw, 44px); font-weight: 800;
+    line-height: 1.06; color: var(--doc-navy); margin: .6% 0 0;
+    unicode-bidi: plaintext; letter-spacing: -.6px;
+    max-width: 96%; overflow-wrap: anywhere;
   }
-  .certlead { font-size: clamp(8.5px, 1.4vw, 11.5px); color: var(--doc-ink3); margin: 0; }
-  .certband {
-    display: inline-flex; align-items: baseline; gap: 8px; margin: .8% 0;
-    padding: .9% 3.2%; border-radius: 999px;
-    background: linear-gradient(180deg, rgba(155,106,18,.13), rgba(155,106,18,.06));
-    border: 1px solid rgba(155,106,18,.34); color: var(--doc-gold);
+  .certlead {
+    font-size: clamp(8.6px, 1.4vw, 11.6px); color: var(--doc-ink3);
+    margin: 0; letter-spacing: .01em;
   }
-  .certband b { font-family: var(--font-display); font-size: clamp(20px, 4.3vw, 31px); line-height: 1; }
-  .certband span { font-size: clamp(8px, 1.4vw, 11px); font-weight: 600; }
+  /* The level is the answer to the question the certificate exists for, so it
+     gets a badge of its own instead of a word inside a sentence. */
+  .certlevel {
+    display: inline-flex; align-items: center; gap: clamp(9px, 1.6vw, 15px);
+    margin: 1.6% 0 1.1%; padding: 1.1% 3.6% 1.1% 2%; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(43,48,73,.055), rgba(155,106,18,.11));
+    border: 1px solid rgba(155,106,18,.42);
+    box-shadow: 0 14px 28px -24px rgba(43,48,73,.95);
+  }
+  .certlv-code {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(30px, 6.2vw, 50px); line-height: .86;
+    color: var(--doc-navy); letter-spacing: -.03em;
+    padding-inline-end: clamp(7px, 1.3vw, 12px);
+    border-inline-end: 1px solid rgba(155,106,18,.4);
+  }
+  .certlv-meta { display: flex; flex-direction: column; gap: 1px; text-align: start; }
+  .certlv-meta b {
+    font-size: clamp(9.4px, 1.7vw, 13.4px); font-weight: 700;
+    color: var(--doc-navy); line-height: 1.2;
+  }
+  .certlv-meta em {
+    font-style: normal; font-size: clamp(5.4px, .92vw, 6.8px);
+    letter-spacing: .2em; text-transform: uppercase; color: var(--doc-ink4);
+  }
   .certline {
-    font-size: clamp(8.5px, 1.4vw, 11.5px); line-height: 1.5;
-    color: var(--doc-ink3); margin: 0; max-width: 88%;
+    font-size: clamp(8.6px, 1.4vw, 11.4px); line-height: 1.5;
+    color: var(--doc-ink3); margin: 0; max-width: 90%;
   }
   .certfa {
-    font-family: var(--font-fa); direction: rtl; font-size: clamp(9px, 1.55vw, 12px);
-    line-height: 1.8; color: var(--doc-ink3); margin: 0;
+    font-family: var(--font-fa); direction: rtl;
+    font-size: clamp(9px, 1.55vw, 12px); line-height: 1.75;
+    color: var(--doc-ink3); margin: 0;
   }
-  /* The facts are a ruled row rather than a sentence: three items, each with
-     its label above the value, divided by hairlines. */
+  /* ---- the register: the facts a verifier would ask for ---- */
   .certfacts {
-    display: grid; grid-template-columns: 1fr 1.15fr 1.3fr;
-    border-top: 1px solid rgba(155,106,18,.22); padding-top: 1.5%;
-    margin: 1.5% 0 1.3%;
+    display: grid; grid-template-columns: 1fr .9fr 1.35fr;
+    border-top: 1px solid rgba(155,106,18,.24);
+    border-bottom: 1px solid rgba(155,106,18,.12);
+    padding: 1.4% 0; margin: 0;
+    background: linear-gradient(180deg, rgba(155,106,18,.035), rgba(155,106,18,0));
   }
-  .certfacts > div {
-    padding-inline: 3%; min-width: 0;
-    border-inline-start: 1px solid rgba(155,106,18,.14);
-  }
-  .certfacts > div:first-child { padding-inline-start: 0; border-inline-start: 0; }
-  .certfacts > div:last-child { padding-inline-end: 0; }
+  .certfacts > div { padding-inline: 4%; min-width: 0; }
+  .certfacts > div + div { border-inline-start: 1px solid rgba(155,106,18,.16); }
+  .certfacts > div:first-child { padding-inline-start: 1%; }
+  .certfacts > div:last-child { padding-inline-end: 1%; }
   .certfacts dt {
-    font-size: 6.2px; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--doc-ink4); margin: 0 0 2px;
+    font-size: clamp(5.4px, .92vw, 6.8px); letter-spacing: .17em;
+    text-transform: uppercase; color: var(--doc-ink4);
+    margin: 0 0 3px; font-weight: 700;
   }
   .certfacts dd {
-    margin: 0; font-size: clamp(7.5px, 1.28vw, 10px); font-weight: 600;
+    margin: 0; font-size: clamp(7.4px, 1.26vw, 10px); font-weight: 600;
     color: var(--doc-ink2); white-space: nowrap; overflow: hidden;
     text-overflow: ellipsis;
   }
-  /* The foot is what makes the sheet a certificate: a hand at the start of the
-     line and the name and office at the end of it, with the rule between them
-     running under each. */
+  .certfacts dd.certid {
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    letter-spacing: .04em; color: var(--doc-navy);
+  }
+  .certverify {
+    font-size: clamp(5.2px, .86vw, 6.4px); letter-spacing: .13em;
+    text-transform: uppercase; color: var(--doc-ink4);
+    margin: 1.1% 0 0; text-align: center;
+  }
+  /* ---- the foot: the signatory's own hand, and the name and office it
+     stands for, on the same rule. ---- */
   .certfoot {
     display: flex; align-items: flex-end; justify-content: space-between;
-    gap: 14px; margin-top: auto;
+    gap: 16px; margin-top: auto; padding-top: 2%;
   }
   .certsign {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
     min-width: 0;
   }
   .certwho {
     display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
     min-width: 0; text-align: end;
   }
-  /* Kalam is the handwriting face the app already ships, so the signature is
-     drawn with a font and not an image: it stays crisp at print size and adds
-     nothing to the bundle. */
+  /* The signature is the scan the office signed with, not a script font: a
+     certificate whose signature changes with the visitor's font stack is not
+     a signature. multiply keeps the ink sitting on the paper instead of in a
+     grey rectangle. */
   .certink {
-    font-family: 'Kalam', 'Segoe Script', cursive;
-    font-size: clamp(14px, 2.7vw, 21px); line-height: 1;
-    color: var(--doc-navy); opacity: .9; white-space: nowrap;
-    transform: rotate(-2.2deg); transform-origin: left bottom;
-    padding: 0 3px 1px;
+    display: block; height: clamp(44px, 7vw, 62px); width: auto;
+    margin: 0 0 1px -3px; mix-blend-mode: multiply;
   }
   .certsignrule {
-    display: block; height: 1px; width: clamp(88px, 20vw, 138px); margin-bottom: 3px;
-    background: linear-gradient(90deg, rgba(43,48,73,.42), rgba(43,48,73,.14));
+    display: block; height: 1px; width: clamp(96px, 20vw, 150px);
+    margin-bottom: 3px;
+    background: linear-gradient(90deg, rgba(43,48,73,.6), rgba(43,48,73,.16));
   }
   .certwho .certsignrule {
-    background: linear-gradient(270deg, rgba(43,48,73,.42), rgba(43,48,73,.14));
+    background: linear-gradient(270deg, rgba(43,48,73,.46), rgba(43,48,73,.12));
   }
   .certwho b {
-    font-family: var(--font-display); font-size: clamp(9px, 1.6vw, 12px);
+    font-family: var(--font-display); font-size: clamp(9px, 1.55vw, 12px);
     color: var(--doc-navy); letter-spacing: .2px; line-height: 1.2;
   }
   .certlab {
-    font-size: 6.2px; letter-spacing: .11em; text-transform: uppercase;
-    color: var(--doc-ink4); line-height: 1.45;
+    font-size: clamp(5.4px, .92vw, 6.8px); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--doc-ink4); line-height: 1.45;
   }
   .certlab .fa { text-transform: none; letter-spacing: 0; }
   .certbar {
@@ -2285,8 +2357,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   .certbar .lv-btn { font-size: 12.5px; }
   .certnote {
-    font-size: 7px; line-height: 1.55; color: var(--doc-ink4);
-    margin: 1.8% 0 0; text-align: center; align-self: center; max-width: 96%;
+    font-size: clamp(5.6px, .95vw, 7.2px); line-height: 1.55;
+    color: var(--doc-ink4); margin: 1.4% 0 0; text-align: center;
+    align-self: center; max-width: 96%;
   }
 
   /* Printing the certificate alone: the screen behind it is a page of panels,
@@ -2303,7 +2376,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       width: 100%; height: auto; aspect-ratio: auto; box-shadow: none; margin: 0;
       background: var(--doc-paper);
     }
-    .certinner { border-color: var(--gold-line); }
+    .certinner { border-color: var(--gold-line); background: var(--doc-paper); }
+    #cert .certhead { box-shadow: none; }
+    .certink { mix-blend-mode: normal; }
     .certbar { display: none !important; }
     .certwrap, .certsheet, .certinner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
@@ -25433,6 +25508,14 @@ const Cert = (() => {
     return `FL-${d.getFullYear()}${month}${day}-${code(data.name + '|' + data.band + '|' + data.at)}`;
   }
 
+  /* The serial is the short form a person reads down a phone; the
+     verification id keeps the issue date in it, so the two together say when
+     the sheet was issued and which attempt it was. */
+  function serial(data) {
+    const d = new Date(data.at || Date.now());
+    return `FL-${d.getFullYear()}-${code(ident(data)).slice(0, 4)}`;
+  }
+
   /* Who signs the sheet, and the office the signature stands for. One
      constant, so the hand at the start of the line and the printed name at the
      end of it can never drift apart. */
@@ -25444,7 +25527,9 @@ const Cert = (() => {
 
   function render(data) {
     const id = ident(data);
-    const date = new Date(data.at).toLocaleDateString('en-US',
+    const serialNo = serial(data);
+    const when = new Date(data.at || Date.now());
+    const date = when.toLocaleDateString('en-US',
       {day: 'numeric', month: 'long', year: 'numeric'});
     /* A run that skipped a part is not a smaller assessment; it is this
        attempt. The size comes from the bank, and the shortfall is stated rather
@@ -25456,32 +25541,33 @@ const Cert = (() => {
     return `
       <div class="certinner">
         <header class="certhead">
-          <img src="brand/fox-mark.png" alt="" width="30" height="30">
+          <span class="certmark"><img src="brand/fox-mark.png" alt="" width="34" height="34"></span>
           <div class="certword">
             <b>Fluentify</b>
-            <span>Level assessment · سنجش سطح</span>
+            <span>Language learning · آموزش زبان</span>
           </div>
-          <div class="certseal" aria-hidden="true"><b>CEFR</b><span>self<br>assessed</span></div>
+          <div class="certseal" aria-hidden="true"><b>CEFR</b><span>certified<br>level</span></div>
         </header>
         <div class="certbody">
           <p class="certkick">Certificate of level</p>
           <h2 class="certname" dir="auto">${esc(data.name)}</h2>
           <p class="certlead">has completed the Fluentify level assessment and reached</p>
-          <div class="certband">
-            <b>${esc(data.band || 'Pre-A1')}</b>
-            <span>${esc(data.label)} · CEFR</span>
+          <div class="certlevel">
+            <span class="certlv-code">${esc(data.band || 'Pre-A1')}</span>
+            <span class="certlv-meta"><b>${esc(data.label)}</b><em>CEFR level · سطح</em></span>
           </div>
           <p class="certline">${esc(data.can)}</p>
           <p class="certfa" dir="rtl" lang="fa">سطح ${esc(data.band || 'Pre-A1')} در چارچوب مرجع اروپایی (CEFR) — ${esc(data.labelFa || '')}</p>
         </div>
         <dl class="certfacts">
           <div><dt>Issued</dt><dd>${esc(date)}</dd></div>
-          <div><dt>Assessment</dt><dd>${asked || '—'} questions · ${data.minutes} min</dd></div>
-          <div><dt>Certificate ID</dt><dd>${esc(id)}</dd></div>
+          <div><dt>Serial no.</dt><dd class="certid">${esc(serialNo)}</dd></div>
+          <div><dt>Verification ID</dt><dd class="certid">${esc(id)}</dd></div>
         </dl>
+        <p class="certverify">Quote this ID to verify the result · برای اعتبارسنجی این شناسه را بگو</p>
         <footer class="certfoot">
           <div class="certsign">
-            <span class="certink" aria-hidden="true">${HEAD.name}</span>
+            <img class="certink" src="brand/signature.png" alt="Signature of ${esc(HEAD.name)}" width="150" height="102">
             <span class="certsignrule"></span>
             <span class="certlab">Signature · <span class="fa" dir="rtl" lang="fa">امضا</span></span>
           </div>
@@ -25491,7 +25577,7 @@ const Cert = (() => {
             <span class="certlab">${HEAD.title} · <span class="fa" dir="rtl" lang="fa">${HEAD.titleFa}</span></span>
           </div>
         </footer>
-        <p class="certnote">Based on grammar, vocabulary, reading, listening and a marked writing task. Speaking was not assessed.${short}
+        <p class="certnote">${asked || '—'} questions · ${esc(String(data.minutes))} min · grammar, vocabulary, reading, listening and a marked writing task. Speaking was not assessed.${short}
           Self-assessment built on a reviewed item bank — not a certified examination.</p>
       </div>`;
   }
@@ -25533,7 +25619,7 @@ const Cert = (() => {
     });
   }
 
-  return {open, close, pdf, bind, render, ident};
+  return {open, close, pdf, bind, render, ident, serial};
 })();
 
 /* only one panel open at a time; the active header button is highlighted */
