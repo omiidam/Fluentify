@@ -2517,6 +2517,97 @@
   .lv-note { font-size: 11px; line-height: 1.6; color: var(--purple-ink); margin: 10px 0 0; }
   .lv-note b { color: var(--ink-2); }
 
+  /* ---- the situation and the document in the learner's hand ---- */
+  .lv-scenario {
+    margin: 7px 0 9px; padding: 10px 12px; border-radius: 11px;
+    border-inline-start: 3px solid var(--lvc);
+    background: linear-gradient(180deg, rgba(107,91,210,.06), rgba(107,91,210,.02));
+  }
+  .lv-scenario-tag {
+    display: inline-block; font-size: 8.5px; letter-spacing: .14em;
+    text-transform: uppercase; font-weight: 700; color: var(--lvc);
+  }
+  .lv-scenario p { margin: 3px 0 0; font-size: 12.5px; line-height: 1.6; color: var(--ink-2); }
+  .lv-scenario .lv-fa { margin-top: 3px; }
+  .lv-stimulus {
+    margin: 0 0 10px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--card); overflow: hidden;
+    box-shadow: 0 1px 2px rgba(20,20,40,.05), 0 6px 18px -14px rgba(20,20,40,.35);
+  }
+  .lv-stimulus figcaption {
+    padding: 6px 11px; font-size: 9.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-4);
+    background: var(--surf-2); border-bottom: 1px solid var(--line);
+  }
+  .lv-note-card pre {
+    margin: 0; padding: 15px 13px; white-space: pre-wrap;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 12px; line-height: 1.7; letter-spacing: .01em; color: var(--ink-2);
+    background: repeating-linear-gradient(180deg, var(--card) 0 27px, rgba(20,20,40,.035) 27px 28px);
+  }
+  .lv-table-wrap { overflow-x: auto; }
+  .lv-table { width: 100%; border-collapse: collapse; font-size: 12px; color: var(--ink-2); }
+  .lv-table th, .lv-table td { padding: 8px 11px; text-align: start; border-bottom: 1px solid var(--line); }
+  .lv-table th { font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-4); }
+  .lv-table tr:last-child td { border-bottom: 0; }
+  .lv-chat { padding: 11px; display: grid; gap: 7px; background: var(--surf-2); }
+  .lv-bubble {
+    max-width: 88%; padding: 7px 11px; border-radius: 12px 12px 12px 4px;
+    background: var(--card); border: 1px solid var(--line);
+  }
+  .lv-bubble span { font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-4); }
+  .lv-bubble p { margin: 2px 0 0; font-size: 12px; line-height: 1.55; color: var(--ink-2); }
+  .lv-sr { margin: 0; padding: 7px 11px; font-size: 11px; color: var(--ink-4); text-align: end; }
+
+  /* ---- the adaptive route, in the paper and in the report ---- */
+  .lv-route { display: flex; gap: 6px; margin: 8px 0 6px; }
+  .lv-rstep {
+    flex: 1; text-align: center; padding: 4px 0; border-radius: 999px;
+    font-size: 10px; font-weight: 600; color: var(--ink-4);
+    background: var(--surf-2); border: 1px solid var(--line);
+  }
+  .lv-rstep.done { color: var(--ink-2); }
+  .lv-rstep.now { color: var(--on-fill); background: var(--lvc); border-color: transparent; }
+  .lv-routebox {
+    padding: 11px 12px; border-radius: 13px; border: 1px solid var(--line);
+    background: var(--surf-1); font-size: 11.5px; line-height: 1.6; color: var(--ink-2);
+  }
+  .lv-routebox > b { font-family: var(--font-display); font-size: 12.5px; color: var(--ink); }
+  .lv-routebox p { margin: 2px 0 0; }
+  .lv-routebox .lv-fa { margin-top: 3px; }
+  .lv-cando { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .lv-cando li {
+    padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--surf-1);
+  }
+  .lv-cando li b { font-family: var(--font-display); font-size: 12.5px; color: var(--ink); }
+  .lv-cando li p { margin: 3px 0 0; font-size: 11.5px; line-height: 1.55; color: var(--ink-2); }
+  .lv-cando .lv-fa { margin-top: 2px; font-size: 11.5px; }
+  .lv-profile { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .lv-profile h4 {
+    margin: 0 0 4px; font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--purple-ink);
+  }
+  .lv-profile ul { margin: 0; padding-inline-start: 16px; font-size: 11.5px; line-height: 1.65; color: var(--ink-2); }
+  .lv-expect {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 9px;
+    margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--line);
+  }
+  .lv-expect div { display: grid; gap: 2px; }
+  .lv-expect b { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-ink); }
+  .lv-expect span { font-size: 11px; line-height: 1.55; color: var(--ink-2); }
+  @media (max-width: 560px) { .lv-expect { grid-template-columns: 1fr; } }
+
+  /* A single quiet rise when a question is drawn: it marks that the part
+     changed without moving anything the learner is reading. Off entirely
+     when the device asks for less motion. */
+  @keyframes lvrise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  .lv-q { animation: lvrise .2s ease-out both; }
+  @media (max-width: 560px) { .lv-profile { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) {
+    .lv-q { animation: none; }
+  }
+
   .lv-method { margin-top: 4px; font-size: 11.5px; color: var(--ink-3); }
   .lv-method summary { cursor: pointer; font-weight: 600; color: var(--ink-2); }
   .lv-method p { margin: 6px 0 0; line-height: 1.6; }
@@ -16693,11 +16784,55 @@ const Level = (() => {
   }
   const partSize = (bank) => bank.blueprint.perBandTotal -
     ((bank.blueprint.perBand || {}).writing || 0);
-  const partCount = (bank) => bank.blueprint.bands.length;
-  const partBand = (bank, n) => bank.blueprint.bands[n] || null;
-  function partIds(bank, n) {
-    const size = partSize(bank);
-    return paper(bank).slice(n * size, (n + 1) * size);
+  const FULL_BANDS = (bank) => bank.blueprint.bands.length;
+
+  /* The ids of one band, in the order the bank lists its skills. A part is a
+     band, not a slice of one paper, because the paper is no longer the same
+     length for two people: the route decides which bands are administered. */
+  function bandIds(bank, band) {
+    return paper(bank).filter((id) => {
+      const it = bank.items.find((x) => x.id === id);
+      return it && it.band === band;
+    });
+  }
+  function bandTally(bank, attempt, band) {
+    const ids = bandIds(bank, band);
+    const right = ids.filter((id) => {
+      const it = bank.items.find((x) => x.id === id);
+      return it && isCorrect(it, (attempt.answers || {})[id]);
+    }).length;
+    return {ids, right, total: ids.length,
+            share: ids.length ? right / ids.length : 0};
+  }
+
+  /* The route. Everyone sits the core bands - A1, A2 and B1 - and the paper
+     climbs into B2 and C1 only when the answers so far earn it. That is the
+     whole adaptation: it changes which questions are asked, never what a
+     right answer is worth, and a route that stops early cannot claim a band
+     it never tested because the cutoffs are read against the full paper. */
+  function route(bank, attempt) {
+    const bp = bank.blueprint;
+    const core = (bp.core || bp.bands.slice(0, 3)).slice();
+    const upper = bp.upper || bp.bands.slice(3);
+    let right = 0, total = 0;
+    core.forEach((band) => {
+      const t = bandTally(bank, attempt, band);
+      right += t.right;
+      total += t.total;
+    });
+    const share = total ? right / total : 0;
+    if (share >= 0.65 && upper.length) {
+      core.push(upper[0]);
+      const second = bandTally(bank, attempt, upper[0]);
+      if (second.share >= 0.6 && upper.length > 1) core.push(upper[1]);
+    }
+    return core;
+  }
+  const partCount = (bank, attempt) => route(bank, attempt || {answers: {}}).length;
+  const partBand = (bank, n, attempt) => route(bank, attempt || {answers: {}})[n] || null;
+  function partIds(bank, n, attempt) {
+    const band = partBand(bank, n, attempt);
+    return band ? bandIds(bank, band) : [];
   }
   /* One marked task per band, in band order, so a weak writer is met where
      they are rather than at the top of the ladder. */
@@ -16711,6 +16846,10 @@ const Level = (() => {
       part: 0,
       answers: {},
       practice: {writing: {}, speaking: {}},
+      /* The bands this attempt administered. Kept on the attempt so a saved
+         paper reopens with the route it was actually given, not with the
+         route this build would choose from the same answers today. */
+      bands: [],
       finishedAt: 0,
     };
   }
@@ -16828,29 +16967,47 @@ const Level = (() => {
   function skillResult(bank, attempt, skill) {
     const rows = {};
     let right = 0;
-    let total = 0;
-    paper(bank).forEach((id) => {
+    let answered = 0;
+    const sitting = sittingIds(bank, attempt);
+    sitting.forEach((id) => {
       const item = bank.items.find((it) => it.id === id);
       if (!item || item.skill !== skill) return;
       rows[item.band] = rows[item.band] || {band: item.band, total: 0, right: 0};
       rows[item.band].total++;
-      total++;
+      answered++;
       if (isCorrect(item, attempt.answers[id])) {
         rows[item.band].right++;
         right++;
       }
     });
+    /* The denominator is the skill's whole bank, not the part of it this
+       route administered: an item that was never asked is not evidence, and
+       counting it in the numerator would be the same as marking it right.
+       This is what stops a short route from reporting a high band. */
+    const total = (bank.blueprint.perBand[skill] || 0) * FULL_BANDS(bank);
     const cutoffs = bank.blueprint.cutoffs;
     return Object.assign({
       band: levelFromCorrect(right, total, cutoffs),
       bands: BANDS.filter((b) => rows[b]).map((b) => rows[b]),
       right,
       total,
+      asked: answered,
       share: total ? Math.round((right / total) * 100) : 0,
     }, confidenceFor(right, total, cutoffs));
   }
 
+  /* Every objective question this route asked. A skipped band contributes
+     nothing, which is exactly how it is reported. */
+  function sittingIds(bank, attempt) {
+    const bands = (attempt.bands && attempt.bands.length)
+      ? attempt.bands : route(bank, attempt);
+    const out = [];
+    bands.forEach((band) => out.push(...bandIds(bank, band)));
+    return out;
+  }
+
   function compute(bank, attempt) {
+    attempt.bands = route(bank, attempt);
     const objective = bank.blueprint.objective ||
       bank.blueprint.assessed.filter((s) => s !== 'writing');
     const skills = {};
@@ -16867,15 +17024,16 @@ const Level = (() => {
     const perTask = bank.blueprint.writingPoints || 4;
     const earned = right + (perTask ? writing.right / perTask : 0);
     const outOf = total + writing.marks.length;
+    const sitting = sittingIds(bank, attempt);
     /* Two numbers, kept apart because they mean different things. `questions`
        is how many this attempt answered - a run that skipped a part has fewer,
        and the report has to say so. `paper` is how many the assessment asks,
        which is the bank's own blueprint and never a property of one attempt:
        the certificate printed the answered count as if it were the size of the
        test, so a half-finished run issued a sheet for "36 questions". */
-    const questions = paper(bank).filter((id) => hasAnswer(attempt, id)).length +
+    const questions = sitting.filter((id) => hasAnswer(attempt, id)).length +
       writing.marks.filter((m) => m.text.trim()).length;
-    const paperSize = paper(bank).length + writing.marks.length;
+    const paperSize = sitting.length + writing.marks.length;
     const practice = {};
     bank.blueprint.practice.forEach((skill) => {
       const picks = (attempt.practice && attempt.practice[skill]) || {};
@@ -16886,7 +17044,7 @@ const Level = (() => {
         picks,
       };
     });
-    return {
+    return Object.assign({
       at: new Date().toISOString(),
       overall: levelFromCorrect(earned, outOf, cutoffs) || PRE,
       right,
@@ -16897,11 +17055,18 @@ const Level = (() => {
       skills,
       practice,
       questions,
+      asked: sitting.length,
       paper: paperSize,
+      /* What the route did, in the order a learner needs it: which bands
+         were asked, how far it climbed, and whether it stopped on purpose. */
+      bands: attempt.bands.slice(),
+      route: attempt.bands.length >= FULL_BANDS(bank) ? 'full'
+        : (attempt.bands.length > (bank.blueprint.core || []).length ? 'plus-B2' : 'core'),
+      stoppedEarly: attempt.bands.length < FULL_BANDS(bank),
       minutes: attempt.finishedAt && attempt.startedAt
         ? Math.max(1, Math.round((attempt.finishedAt - attempt.startedAt) / 60000)) : 0,
-      completion: questions >= total ? 'complete' : 'partial',
-    };
+      completion: questions >= paperSize ? 'complete' : 'partial',
+    }, confidenceFor(earned, outOf, cutoffs));
   }
 
   /* --------------------------------------------------------------- storage */
@@ -16918,7 +17083,10 @@ const Level = (() => {
     state.answers = state.answers || {};
     state.practice = state.practice || {};
     ['writing', 'speaking'].forEach((k) => { state.practice[k] = state.practice[k] || {}; });
-    const rooms = doc ? partCount(doc) : 0;
+    /* The route is a function of the answers, so the saved attempt has to be
+       asked how many parts it had - asking the bare bank gives the three-part
+       core and would send a learner who was halfway through B2 back to Part 1. */
+    const rooms = doc ? partCount(doc, state) : 0;
     if (typeof state.part !== 'number' || state.part < 0 || (rooms && state.part >= rooms)) {
       state.part = 0;
     }
@@ -16939,7 +17107,7 @@ const Level = (() => {
     if (!doc || typeof ErrorLog === 'undefined') return;
     let log = ErrorLog.read();
     const today = Mastery.keyOf(new Date());
-    paper(doc).forEach((id) => {
+    sittingIds(doc, attempt).forEach((id) => {
       if (!hasAnswer(attempt, id)) return;
       const item = doc.items.find((it) => it.id === id);
       if (!item || isCorrect(item, attempt.answers[id])) return;
@@ -16959,7 +17127,7 @@ const Level = (() => {
 
   function recordItems(result, attempt) {
     const stats = read(KEY.items, {});
-    paper(doc).filter((id) => hasAnswer(attempt, id)).forEach((id) => {
+    sittingIds(doc, attempt).filter((id) => hasAnswer(attempt, id)).forEach((id) => {
       const item = doc.items.find((it) => it.id === id);
       if (!item) return;
       const row = stats[id] || {a: 0, c: 0};
@@ -16993,9 +17161,9 @@ const Level = (() => {
     const assessed = doc.blueprint.assessed.length;
     return `<div class="lv-meta">
       <span class="lv-chip"><b>${numWord(assessed)}</b> skills measured</span>
-      <span class="lv-chip"><b>${doc.blueprint.questions}</b> questions</span>
-      <span class="lv-chip">about <b>${doc.minutes}</b> min</span>
-      <span class="lv-chip">same paper for everyone</span>
+      <span class="lv-chip"><b>${doc.blueprint.questions}</b> questions at most</span>
+      <span class="lv-chip"><b>${(doc.minutesRange || [25, doc.minutes]).join('–')}</b> min</span>
+      <span class="lv-chip">adaptive · starts at A1</span>
     </div>`;
   }
 
@@ -17032,15 +17200,22 @@ const Level = (() => {
              <small>${fmtDate(result.at)} · ${bandLabel(result.overall)} · ${result.right}/${result.total} correct · ${result.minutes} min</small>
            </span>${ARROW}</button>`
       : `<button class="lv-btn lv-cta" data-act="start">
-           <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}              <small>${touched ? 'Your place is saved' : doc.blueprint.questions + ' questions · about ' + doc.minutes + ' minutes · ' + numWord(doc.blueprint.assessed.length) + ' skills measured'}</small>
+           <span>${touched ? 'Continue the assessment' : result ? "Take this month's assessment" : 'Start the assessment'}              <small>${touched ? 'Your place is saved'
+                : numWord(doc.blueprint.assessed.length) + ' skills · '
+                  + (doc.minutesRange ? doc.minutesRange[0] + '–' + doc.minutesRange[1] : doc.minutes)
+                  + ' minutes · climbs only as far as your answers support'}</small>
            </span>${ARROW}</button>
          ${touched ? `<button class="lv-btn ghost" data-act="restart">Start over</button>` : ''}
          ${result ? `<button class="lv-btn ghost" data-act="result">Last report</button>` : ''}`;
 
-    const skills = doc.skills.map((s) => `<div class="lv-skillrow" data-band="${result && s.assessed && result.skills[s.id] ? bandKey(result.skills[s.id].band) : 'none'}">
+    /* A result saved before this bank had interaction and mediation has no
+       entry for them. Reading `.band` off that absence threw during a paint,
+       which on the phone is a blank panel - so the row falls back to "not
+       measured by that attempt" instead of assuming every skill is there. */
+    const skills = doc.skills.map((s) => `<div class="lv-skillrow" data-band="${result && s.assessed && result.skills && result.skills[s.id] ? bandKey(result.skills[s.id].band) : 'none'}">
         <span class="lv-skname">${esc(s.title.en)}
           <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
-        <span class="lv-skself">${s.assessed ? 'measured' : 'practice only'}</span>
+        <span class="lv-skself">${s.assessed ? (result && result.skills && !result.skills[s.id] ? 'added since that attempt' : 'measured') : 'practice only'}</span>
         <span class="lv-skev">${esc(s.blurb.en)}</span>
       </div>`).join('');
 
@@ -17054,14 +17229,26 @@ const Level = (() => {
           </div>`).join('')}</div>`
       : '';
 
+    /* What a learner needs before they press start: how long, what they will
+       be asked to do, and whether the browser will ask for a microphone. The
+       listening tasks use the device's own voice; nothing is recorded, and no
+       account or download is needed. */
+    const expect = `<div class="lv-expect">
+      <div><b>Untimed</b><span>${(doc.minutesRange || [doc.minutes]).join('–')} minutes for most people; pause and keep your place at any time.</span></div>
+      <div><b>Adaptive</b><span>Starts at A1. It climbs to B2 and C1 only when your answers support it, so a hard section is meant to be hard.</span></div>
+      <div><b>Listening</b><span>Played by your device's voice. No audio files to download and no microphone needed for the marked paper.</span></div>
+      <div><b>Honest</b><span>Writing is marked on a visible rubric; speaking is practice and is reported as not assessed.</span></div>
+    </div>`;
+
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero">
-        <div class="lv-eyebrow">${locked ? 'This month' : 'Level assessment'} · ${doc.retakeDays} days apart</div>
+        <div class="lv-eyebrow">${locked ? 'This month' : 'Level assessment'} · ${doc.retakeDays} days apart${doc.content && doc.content.version ? ` · content ${esc(doc.content.version)}` : ''}</div>
         <h2 class="lv-h">${locked ? 'Your level this month' : 'Where does your English actually sit?'}</h2>
         <p class="lv-sub">${esc(doc.blurb.en)}</p>
         ${faLine(doc.blurb.fa)}
         ${hero}
         <div class="lv-actions">${actions}</div>
+        ${locked ? '' : expect}
       </section>
       <div class="lv-sectiontitle">What gets measured</div>
       <div class="lv-game">${skills}</div>
@@ -17087,6 +17274,42 @@ const Level = (() => {
       g.ids.push(id);
     });
     return groups;
+  }
+
+  /* A scenario is the situation, and a stimulus is the thing in the learner's
+     hand: a sign, a table, a chat. Both are plain data from the bank and are
+     escaped here - the page draws them, it never runs them. */
+  function scenarioBlock(item) {
+    if (!item.scenario) return '';
+    return `<div class="lv-scenario">
+      <span class="lv-scenario-tag">Situation</span>
+      <p>${esc(item.scenario.en)}</p>
+      ${faLine(item.scenario.fa)}
+    </div>`;
+  }
+
+  function stimulusBlock(item) {
+    const st = item.stimulus;
+    if (!st) return '';
+    let inner = '';
+    if (st.kind === 'note') {
+      inner = `<div class="lv-note-card"><pre>${esc(st.text || '')}</pre></div>`;
+    } else if (st.kind === 'table') {
+      inner = `<div class="lv-table-wrap"><table class="lv-table">
+        <thead><tr>${(st.head || []).map((h) =>
+          `<th>${esc(h.en || h)}</th>`).join('')}</tr></thead>
+        <tbody>${(st.rows || []).map((row) =>
+          `<tr>${row.map((cell) => `<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}
+        </tbody></table></div>`;
+    } else if (st.kind === 'message') {
+      inner = `<div class="lv-chat">${(st.lines || []).map((line) => `
+        <div class="lv-bubble"><span>${esc(line.who)}</span><p>${esc(line.text)}</p></div>`).join('')}</div>`;
+    }
+    return `<figure class="lv-stimulus">
+      <figcaption>${esc((st.title || {}).en || '')}</figcaption>
+      ${inner}
+      <p class="lv-sr">${esc((st.title || {}).fa || '')}</p>
+    </figure>`;
   }
 
   function passageBlock(item) {
@@ -17153,11 +17376,20 @@ const Level = (() => {
 
     return `${read ? '' : ''}<div class="lv-q${done ? ' answered' : ''}" id="lvq-${item.id}">
       ${head}
+      ${scenarioBlock(item)}
+      ${stimulusBlock(item)}
       <p class="lv-stem">${esc(item.prompt.en)}</p>
       ${faLine(item.prompt.fa)}
       ${audio}
       ${answerUi}
     </div>`;
+  }
+
+  /* A quiet strip of the route: what has been sat, where the learner is, and
+     which bands were not opened because the evidence did not ask for them. */
+  function routeBar(bands, at) {
+    return bands.map((b, k) =>
+      `<span class="lv-rstep${k === at ? ' now' : ''}${k < at ? ' done' : ''}">${b}</span>`).join('');
   }
 
   function bandPill(band) {
@@ -17166,12 +17398,19 @@ const Level = (() => {
 
   function renderTest() {
     const a = attemptState();
-    const band = partBand(doc, a.part);
-    const ids = partIds(doc, a.part);
-    const parts = partCount(doc);
-    const paperTotal = paper(doc).length;
+    /* The route is recomputed from the answers, so the part the learner is
+       looking at and the length of the paper both move with their evidence.
+       `a.bands` is what was agreed when the part was opened; it is refreshed
+       here so a completed core grows the paper before the next part. */
+    a.bands = route(doc, a);
+    const bands = a.bands;
+    const band = partBand(doc, a.part, a);
+    const ids = partIds(doc, a.part, a);
+    const parts = bands.length;
+    const sitting = sittingIds(doc, a);
+    const paperTotal = sitting.length;
     const answered = ids.filter((id) => hasAnswer(a, id)).length;
-    const answeredAll = paper(doc).filter((id) => hasAnswer(a, id)).length;
+    const answeredAll = sitting.filter((id) => hasAnswer(a, id)).length;
     const groups = groupBySkill(ids);
     let n = a.part * partSize(doc);
 
@@ -17207,12 +17446,14 @@ const Level = (() => {
         <div class="lv-toptrack"><i data-track style="width:${ids.length ? Math.round(answered / ids.length * 100) : 0}%"></i></div>
         <button class="lv-exit" type="button" data-act="pause">Pause and keep my place</button>
       </div>
-      <p class="lv-secnote">${answeredAll} of ${paperTotal} answered so far. This part is the ${band} band:
-        the paper starts at A1 and climbs to C1, so later parts are meant to feel hard.</p>
-      ${faLine(`تا اینجا ${answeredAll} پرسش از ${paperTotal} پاسخ داده شده. این بخش سطح ${band} است: ` +
-        'برگه از A1 شروع می‌شود و تا C1 بالا می‌رود، پس بخش‌های بعدی باید سخت به نظر برسند.')}
+      <div class="lv-route" data-route>${routeBar(bands, a.part)}</div>
+      <p class="lv-secnote">${answeredAll} of ${paperTotal} answered so far. This part is the ${band} band;
+        the paper is adaptive, so it climbs only while your answers support it — a hard section here is meant to be hard.</p>
+      ${faLine(`تا اینجا ${answeredAll} پرسش از ${paperTotal} پاسخ داده شده. این بخش سطح ${band} است؛ ` +
+        'برگه تطبیقی است و تا جایی بالا می‌رود که پاسخ‌هایت پشتیبانی کند.')}
       ${blocks}
       <div class="lv-foot">
+        ${a.part > 0 ? '<button class="lv-btn ghost" data-act="prev" type="button">Previous part</button>' : ''}
         <button class="lv-btn" data-act="part" type="button">
           ${a.part + 1 >= parts ? 'Writing tasks' : 'Next part'}
         </button>
@@ -17358,6 +17599,31 @@ const Level = (() => {
       (skill.margin ? ' · ±1 band' : '') + `</span>`;
   }
 
+  /* The can-do line for the band a skill actually reached. Nothing above it
+     is printed: a statement the paper did not test is a promise, not a
+     result. */
+  function canDoLine(skill, band) {
+    const s = doc.skills.find((x) => x.id === skill);
+    const line = s && s.canDo && !isPre(band) ? s.canDo[band] : null;
+    return line || null;
+  }
+
+  function routeSentence(result) {
+    if (!result.bands) {
+      return 'This report predates the adaptive route; it was marked on the earlier fixed paper.';
+    }
+    const bands = result.bands;
+    const core = doc.blueprint.core || [];
+    const climbed = bands.filter((b) => !core.includes(b));
+    if (!result.stoppedEarly) {
+      return `The paper ran its full route — ${bands.join(' → ')} — because your answers supported the climb.`;
+    }
+    if (climbed.length) {
+      return `The paper climbed to ${bands[bands.length - 1]} and stopped there, because the evidence from ${bands[0]}–${bands[bands.length - 1]} was already clear.`;
+    }
+    return `The paper covered ${bands.join(' → ')} and stopped. B2 and C1 were not opened, so this result cannot claim them — that is a ceiling, not a failure.`;
+  }
+
   function renderResult() {
     const result = read(KEY.result, null);
     if (!result) { view = 'intro'; renderIntro(); return; }
@@ -17380,7 +17646,9 @@ const Level = (() => {
          saying "9 of 20 correct" there would describe the wrong thing. */
       const evidence = r.scored === 'rubric'
         ? `${r.right} of ${r.total} rubric points (${r.share}%)`
-        : `${r.right} of ${r.total} correct (${r.share}%)`;
+        : r.asked === r.total
+          ? `${r.right} of ${r.total} correct (${r.share}%)`
+          : `${r.right} of ${r.asked} asked correct — ${r.share}% of the whole skill`;
       return `<div class="lv-skillrow" data-band="${bandKey(r.band)}">
         <span class="lv-skname">${esc(s.title.en)}
           <small dir="rtl" lang="fa">${esc(s.title.fa)}</small></span>
@@ -17406,6 +17674,8 @@ const Level = (() => {
         vocabulary: ['Open vocabulary', 'vocab'],
         reading: ['Read a story', 'stories'],
         listening: ['Open listening', 'listen'],
+        interaction: ['Practise a conversation', 'chat'],
+        mediation: ['Practise explaining', 'chat'],
         writing: ['Practice writing', 'writing'],
       }[weakest ? weakest.id : 'reading'];
     const speakingTasks = doc.items.filter((it) => it.skill === 'speaking').length;
@@ -17413,6 +17683,25 @@ const Level = (() => {
     const delta = prev && prev.overall && result.overall
       ? bandIndex(result.overall) - bandIndex(prev.overall) : 0;
     const stats = read(KEY.items, {});
+    const canDo = doc.blueprint.assessed.map((id) => {
+      const r = result.skills[id];
+      if (!r || !r.band) return '';
+      const line = canDoLine(id, r.band);
+      if (!line) return '';
+      return `<li><b>${esc(skillTitle(id).en)}</b>
+        <span class="lv-band" data-band="${bandKey(r.band)}">${bandLabel(r.band)}</span>
+        <p>${esc(line.en)}</p>${faLine(line.fa)}</li>`;
+    }).join('');
+    const strengths = measured.slice()
+      .sort((a, b) => bandIndex(b.band) - bandIndex(a.band)).slice(0, 2);
+    const growth = measured.slice()
+      .sort((a, b) => bandIndex(a.band) - bandIndex(b.band))
+      .filter((x) => !tied).slice(0, 2);
+    const confWord = {high: 'high', medium: 'moderate', low: 'low'}[result.confidence] || 'moderate';
+    const askedLine = result.asked && result.asked < result.total
+      ? `${result.right} of ${result.asked} asked correct — ${result.share}% of the whole paper`
+      : `${result.right} of ${result.total} correct (${result.share}%)`;
+
     const weakItems = Object.entries(stats)
       .filter(([, r]) => r.a >= 2 && r.c / r.a <= 0.5)
       .map(([id]) => doc.items.find((it) => it.id === id))
@@ -17420,7 +17709,7 @@ const Level = (() => {
 
     body().innerHTML = `<div class="lv-wrap">
       <section class="lv-hero" data-band="${bandKey(result.overall)}">
-        <div class="lv-eyebrow">Report · ${fmtDate(result.at)} · ${result.right} of ${result.total} correct · ${result.minutes} min</div>
+        <div class="lv-eyebrow">Report · ${fmtDate(result.at)} · ${result.minutes} min · ${result.questions} answered</div>
         <div class="lv-bigband" style="margin-top:4px">
           <div class="lv-disc" aria-hidden="true">${bandLabel(result.overall)}</div>
           <div>
@@ -17431,16 +17720,42 @@ const Level = (() => {
         </div>
         ${ladder(result.overall)}
         <div class="lv-insight">
-          <span><b>Score</b> ${result.right} of ${result.total} correct (${result.share}%)</span>
-          <span><b>Based on</b> ${measured.length} of 6 skills. Speaking is not assessed.</span>
+          <span><b>Score</b> ${askedLine}</span>
+          <span><b>Confidence</b> ${confWord}${result.margin ? ' · ±1 band' : ''}</span>
+          <span><b>Based on</b> ${measured.length} of ${doc.blueprint.assessed.length} measured skills. Speaking is not assessed.</span>
           ${prev ? `<span><b>Last time</b> ${fmtDate(prev.at)} · ${bandLabel(prev.overall)}${delta
             ? ` (${delta > 0 ? '+' : ''}${delta} band${Math.abs(delta) === 1 ? '' : 's'})` : ' (no change)'}</span>` : ''}
-          <span><b>Completed</b> ${result.completion === 'complete' ? `all ${result.questions} questions` : `${result.questions} of ${result.paper} questions`}${result.completion !== 'complete' ? ' — unanswered questions count as wrong, so the level is provisional' : ''}</span>
+          <span><b>Completed</b> ${result.completion === 'complete' ? `all ${result.paper} questions in your route` : `${result.questions} of ${result.paper} questions in your route`}${result.completion !== 'complete' ? ' — unanswered questions count as wrong, so the level is provisional' : ''}</span>
         </div>
       </section>
 
+      <div class="lv-routebox">
+        <b>How far the paper went</b>
+        <div class="lv-route">${routeBar(result.bands || doc.blueprint.bands, (result.bands || []).length - 1)}</div>
+        <p>${esc(routeSentence(result))}</p>
+        ${faLine(result.stoppedEarly
+          ? 'برگه تا جایی بالا رفت که شواهد پشتیبانی کرد؛ سطح‌های بازنشده سنجیده نشده‌اند و ادعا هم نمی‌شوند.'
+          : 'برگه تمام مسیر را پیمود چون پاسخ‌ها از بالا رفتن پشتیبانی کرد.')}
+      </div>
+
       <div class="lv-sectiontitle">Skill profile</div>
       <div class="lv-game">${rows}</div>
+
+      ${canDo ? `<div class="lv-sectiontitle">What you can do, at the level you reached</div>
+      <ul class="lv-cando">${canDo}</ul>` : ''}
+
+      ${strengths.length ? `<div class="lv-profile">
+        <div>
+          <h4>Strengths</h4>
+          <ul>${strengths.map((x) => `<li>${esc(skillTitle(x.id).en)} — ${bandLabel(x.band)}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <h4>Where growth would help most</h4>
+          <ul>${growth.length
+            ? growth.map((x) => `<li>${esc(skillTitle(x.id).en)} — ${bandLabel(x.band)}</li>`).join('')
+            : '<li>An even profile: no skill is holding the others back.</li>'}</ul>
+        </div>
+      </div>` : ''}
 
       <div class="lv-next" data-band="${bandKey(result.overall)}">
         <h4>Next</h4>
@@ -17449,7 +17764,9 @@ const Level = (() => {
              The next step is material at that level rather than repair of one skill.`
           : `${strongest ? `Strongest: <b>${esc(skillTitle(strongest.id).en)}</b> (${bandLabel(strongest.band)}). ` : ''}${
             weakest ? `Work next on <b>${esc(skillTitle(weakest.id).en)}</b> (${bandLabel(weakest.band)}).` : ''}`}</p>
-        ${faLine('قوی‌ترین مهارت و مهارتی که باید رویش کار کنی در بالا آمده است.')}
+        ${faLine(tied
+          ? 'نمایهٔ متوازن: همهٔ مهارت‌های سنجیده در یک سطح‌اند و قدم بعدی کار در همان سطح است.'
+          : 'قوی‌ترین مهارت و مهارتی که باید رویش کار کنی در بالا آمده است.')}
         <div class="lv-actions">
           <button class="lv-btn ghost" data-act="open" data-panel="${advice[1]}" data-band="${bandKey(result.overall)}">${advice[0]}</button>
           ${speakingTasks ? '<button class="lv-btn ghost" data-act="practice">Speaking practice</button>' : ''}
@@ -17518,6 +17835,16 @@ const Level = (() => {
     </section></div>`;
   }
 
+  function prevPart() {
+    const a = attemptState();
+    if (a.part <= 0) return;
+    a.part--;
+    warned = false;
+    saveAttempt(true);
+    render();
+    body().scrollIntoView({block: 'start'});
+  }
+
   function start(fresh) {
     if (fresh || !read(KEY.attempt, null)) {
       state = blankAttempt();
@@ -17532,7 +17859,7 @@ const Level = (() => {
 
   function nextPart() {
     const a = attemptState();
-    const ids = partIds(doc, a.part);
+    const ids = partIds(doc, a.part, a);
     const answered = ids.filter((id) => hasAnswer(a, id)).length;
     if (answered < ids.length && !warned) {
       warned = true;
@@ -17542,8 +17869,11 @@ const Level = (() => {
     }
     a.part++;
     warned = false;
+    /* The completed core may have earned the next band; the route is asked
+       again here, once, rather than page by page. */
+    a.bands = route(doc, a);
 
-    if (a.part >= partCount(doc)) {
+    if (a.part >= a.bands.length) {
       view = 'writing';
       saveAttempt(true);
       render();
@@ -17643,7 +17973,7 @@ const Level = (() => {
   function refreshProgress() {
     if (view !== 'test') return;
     const a = attemptState();
-    const ids = partIds(doc, a.part);
+    const ids = partIds(doc, a.part, a);
     const total = ids.length;
     const answered = ids.filter((id) => hasAnswer(a, id)).length;
     const track = body().querySelector('[data-track]');
@@ -17792,6 +18122,7 @@ const Level = (() => {
       else if (kind === 'restart') start(true);
       else if (kind === 'pause') { saveAttempt(true); view = 'intro'; render(); }
       else if (kind === 'part') nextPart();
+      else if (kind === 'prev') prevPart();
       else if (kind === 'finish') finish();
       else if (kind === 'result') { view = 'result'; render(); }
       else if (kind === 'certificate') {
@@ -17914,12 +18245,13 @@ const Level = (() => {
       }
     }
     attemptState();
-    if (state && state.part >= partCount(doc)) view = 'writing';
+    if (state && state.part >= partCount(doc, state)) view = 'writing';
     render();
   }
 
   return {
     mount, paintBadge, compute, blankAttempt, paper, partIds, partCount,
+    partBand, bandIds, sittingIds, route,
     writingIds, markWriting, writingResult,
     levelFromCorrect, isCorrect, normalize,
     reset() {

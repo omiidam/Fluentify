@@ -5,10 +5,14 @@
     has a full block for every assessed skill, every Persian line is Persian;
   * the wiring - a tile, a panel, a route, a retake window, and the offline
     APK carrying the file;
-  * the engine - the module's own paper and marking are run in node over
-    synthetic learners: a perfect one, a hopeless one, one who is exactly B1,
-    and one who stops after the first part. The level has to follow the count,
-    and unanswered questions have to count as wrong.
+  * the bank's provenance - every item carries a domain, a task type, a CEFR
+    descriptor, an accessibility line, rights, a version and a review date,
+    and the scenarios and documents it renders are data, never markup;
+  * the engine - the module's own adaptive route and marking are run in node
+    over synthetic learners: a perfect one, a hopeless one, one who is exactly
+    B1, and one who stops after the first part. The paper has to climb only
+    when the evidence supports it, a short route must not claim a band it did
+    not test, and unanswered questions have to count as wrong.
 """
 
 from __future__ import annotations
@@ -61,11 +65,12 @@ def check_fresh() -> None:
 
 def check_content(doc: dict) -> dict:
     check(doc.get("retakeDays") == 30, "the result is not kept for one month")
-    check(doc.get("version") == 2, "the bank is not the second-format bank")
+    check(doc.get("version") == 3, "the bank is not the third-format bank")
 
     skills = doc.get("skills") or []
     assessed = [s["id"] for s in skills if s.get("assessed")]
-    check(assessed == ["grammar", "vocabulary", "reading", "listening", "writing"],
+    check(assessed == ["grammar", "vocabulary", "reading", "listening",
+                       "interaction", "mediation", "writing"],
           f"assessed skills are {assessed}")
     check([s["id"] for s in skills if not s.get("assessed")] == ["speaking"],
           "speaking is not the only practice-only skill")
@@ -79,11 +84,16 @@ def check_content(doc: dict) -> dict:
 
     bp = doc.get("blueprint") or {}
     check(bp.get("bands") == BANDS, f"the blueprint tests {bp.get('bands')}")
-    check(bp.get("questions") == 55, f"the paper is {bp.get('questions')} questions")
+    check(bp.get("questions") == 65, f"the paper is {bp.get('questions')} questions")
+    check(bp.get("core") == BANDS[:3] and bp.get("upper") == BANDS[3:],
+          f"the adaptive route is {bp.get('core')} then {bp.get('upper')}")
     check(sum((bp.get("perBand") or {}).values()) == bp.get("perBandTotal"),
           "the per-band counts do not add up to a band")
     check(bp.get("perBandTotal") * len(BANDS) == bp.get("questions"),
-          "eleven questions a band does not make the paper")
+          "thirteen questions a band does not make the paper")
+    check((bp.get("perBand") or {}).get("interaction") == 1
+          and (bp.get("perBand") or {}).get("mediation") == 1,
+          f"the blueprint spends {bp.get('perBand')} on interaction and mediation")
     check(bp.get("objective") == [s for s in assessed if s != "writing"],
           f"the recognition questions are {bp.get('objective')}")
     check(bp.get("writingPoints") == 4, "a writing task is not worth four points")
@@ -92,9 +102,32 @@ def check_content(doc: dict) -> dict:
           f"the cutoffs are {cut}")
     # The cutoffs are shares, so the count a band needs is the first whole
     # question at or above it: 8.8 of 55 is nine right, 48.4 is forty-nine.
-    check(math.ceil(cut[0] * 55) == 9 and math.ceil(cut[4] * 55) == 49,
-          f"the first cutoff is {math.ceil(cut[0] * 55)} of 55, "
-          f"the last {math.ceil(cut[4] * 55)}")
+    check(math.ceil(cut[0] * 65) == 11 and math.ceil(cut[4] * 65) == 58,
+          f"the first cutoff is {math.ceil(cut[0] * 65)} of 65, "
+          f"the last {math.ceil(cut[4] * 65)}")
+    content = doc.get("content") or {}
+    check(bool(content.get("version")), "the bank has no content version")
+    check(bool(content.get("owner")), "the bank has no review owner")
+    check((content.get("reviewCycleDays") or 0) >= 90,
+          "the review cycle is shorter than a quarter")
+    check(bool(content.get("reviewLog")), "the bank has no review log")
+    try:
+        from datetime import date
+        due = date.fromisoformat(str(content.get("nextReview")))
+        check(due >= date.today(),
+              f"the content package is overdue for review (due {due.isoformat()})")
+        published = date.fromisoformat(str(content.get("published")))
+        for entry in content.get("reviewLog") or []:
+            check(bool(entry.get("on")) and bool(entry.get("what")),
+                  "a review-log entry is missing its date or its reason")
+            check(date.fromisoformat(str(entry["on"])) >= published - (due - due),
+                  "a review-log entry predates the package")
+        for it in doc.get("items") or []:
+            check(date.fromisoformat(str(it.get("nextReview"))) >= date.today(),
+                  f"{it.get('id')}: item review is overdue")
+    except (ValueError, TypeError) as exc:
+        check(False, f"the review dates do not parse: {exc}")
+
     scale = doc.get("writingScale") or {}
     check(list(scale) == BANDS, f"the writing scale covers {list(scale)}")
     for band, row in scale.items():
@@ -113,8 +146,23 @@ def check_content(doc: dict) -> dict:
         check(where not in ids, f"{where}: duplicate id")
         ids.add(where)
         for field in ("id", "skill", "band", "subskill", "kind", "difficulty",
-                      "ability", "prompt", "why", "weight", "source", "review"):
+                      "ability", "prompt", "why", "weight", "source", "review",
+                      "domain", "taskType", "descriptor", "accessibility",
+                      "rights", "itemVersion", "status", "reviewedOn", "nextReview"):
             check(field in it, f"{where}: no {field}")
+        check(it.get("status") in ("reviewed", "approved"), f"{where}: not approved")
+        check(bool(it.get("rights")), f"{where}: no rights")
+        check(bool(FA.search((it.get("descriptor") or {}).get("fa", ""))),
+              f"{where}: the CEFR descriptor has no Persian")
+        check(bool(FA.search((it.get("accessibility") or {}).get("fa", ""))),
+              f"{where}: the accessibility note has no Persian")
+        check(re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(it.get("reviewedOn", ""))) is not None,
+              f"{where}: review date {it.get('reviewedOn')!r}")
+        check(re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(it.get("nextReview", ""))) is not None,
+              f"{where}: next review {it.get('nextReview')!r}")
+        raw = json.dumps(it.get("stimulus"), ensure_ascii=False) if it.get("stimulus") else ""
+        check("<script" not in raw.lower() and not re.search(r"\son\w+=", raw),
+              f"{where}: the stimulus carries markup")
         check(it.get("kind") in KINDS, f"{where}: unknown kind {it.get('kind')}")
         check(it.get("review") == "reviewed", f"{where}: not marked reviewed")
         check(bool(it.get("source")), f"{where}: no source")
@@ -138,7 +186,17 @@ def check_content(doc: dict) -> dict:
         if it.get("say"):
             check(len(it["say"].split()) >= 6, f"{where}: spoken text too short")
 
-    check(len(items) >= 54, f"only {len(items)} items in the bank")
+    check(len(items) >= 64, f"only {len(items)} items in the bank")
+    domains = Counter(it.get("domain") for it in items)
+    check(len(domains) >= 5, f"only {len(domains)} real-world domains")
+    check(max(domains.values()) <= len(items) * 0.4,
+          f"one domain holds {max(domains.values())} of {len(items)} items")
+    check(sum(1 for it in items if it.get("scenario")) >= 8,
+          "fewer than eight scenario items")
+    check(sum(1 for it in items if it.get("stimulus")) >= 3,
+          "fewer than three visual stimuli")
+    prompts = Counter(it["prompt"]["en"].strip().lower() for it in items)
+    check(not [p for p, n in prompts.items() if n > 1], "a prompt is repeated")
     check(len(kinds) >= 5, f"only {len(kinds)} question formats")
     check(kinds.get("mcq", 0) < len(items) * 0.65,
           "the bank is mostly multiple choice")
@@ -153,6 +211,12 @@ def check_content(doc: dict) -> dict:
         check(n == bp.get("perBandTotal"),
               f"band {band}: {n} questions, the paper wants {bp.get('perBandTotal')}")
     check(by_skill["speaking"] >= 2, "fewer than two speaking tasks")
+    check(by_band[("interaction", "C1")] == 1 and by_band[("mediation", "C1")] == 1,
+          "the top band has no interaction or mediation item")
+    for s_ in skills:
+        if s_.get("assessed"):
+            check(len(s_.get("canDo") or {}) == len(BANDS),
+                  f"skill {s_['id']}: {len(s_.get('canDo') or {})} can-do lines")
     # One marked writing task per band, each naming the linking the rubric
     # point is looking for - without it there is nothing to check but length.
     for band in BANDS:
@@ -257,9 +321,7 @@ __MODULE__
 const right = (item) => item.options ? item.answer : (item.accept || [])[0];
 const wrong = (item) => item.options ? (item.answer + 1) % 4 : 'zzz';
 
-/* A model answer per band, written to earn all four rubric points. The
-   harness asserts that it does: a marker that cannot give full marks to a
-   good paragraph is a marker nobody can pass. */
+/* A model answer per band, written to earn all four rubric points. */
 const MODEL = {
   A1: 'My family is small and we are close. I live with my mother and my sister in a flat near the park. We cook dinner together on Friday and then we watch a movie.',
   A2: 'Last weekend I went to the park with my friend. We walked by the river and then we ate lunch outside. The weather was sunny and warm. I liked the afternoon because we talked for hours.',
@@ -268,14 +330,15 @@ const MODEL = {
   C1: 'Remote work arguably harms young employees, although the effect is not uniform. Junior staff may miss the informal learning that happens in an office, and they might not build the networks that promotion depends on. However, to some extent this reflects poor management rather than remote work itself. Companies that invest in mentoring tend to keep their young staff, and those that do not lose them whether the desk is at home or in the building. The problem is solvable, but not by attendance alone. Training does more than proximity, and it can be measured.',
 };
 
-/* Sits the paper, answering `good(item)` correctly, and stopping after part
-   `stopAfterPart` when one is given. A full sit also writes the five tasks. */
+/* Sits the paper, answering `good(item)` correctly. The loop asks the engine
+   for the next part each time, because the route grows as the answers come
+   in - a fixed 0..4 loop would sit the old fixed paper. */
 function sit(good, stopAfterPart) {
   const a = Level.blankAttempt();
   const seen = [];
-  for (let p = 0; p < Level.partCount(bank); p++) {
+  for (let p = 0; p < Level.partCount(bank, a); p++) {
     if (stopAfterPart != null && p > stopAfterPart) break;
-    Level.partIds(bank, p).forEach((id) => {
+    Level.partIds(bank, p, a).forEach((id) => {
       const item = bank.items.find((i) => i.id === id);
       seen.push(id);
       a.answers[id] = good(item) ? right(item) : wrong(item);
@@ -295,52 +358,82 @@ let problems = 0;
 const say = (ok, line) => { if (!ok) problems++; console.log(`${ok ? '  ok  ' : '  FAIL'}  ${line}`); };
 const overall = (r) => r.overall || 'Pre-A1';
 
+/* ---- the bank and the route ------------------------------------------- */
 const ids = Level.paper(bank);
-say(ids.length === 50, `the paper is fifty questions (got ${ids.length})`);
+say(ids.length === 60, `the objective bank is sixty questions (got ${ids.length})`);
 say(new Set(ids).size === ids.length, 'no question appears twice');
-say(Level.partCount(bank) === 5, `the paper is in five parts (got ${Level.partCount(bank)})`);
-say(Level.partIds(bank, 0).length === 10 && Level.partIds(bank, 4).length === 10,
-    'each part is ten questions');
-say(Level.partIds(bank, 0).every((id) => bank.items.find((i) => i.id === id).band === 'A1'),
+
+const blank = Level.blankAttempt();
+say(Level.route(bank, blank).join(',') === 'A1,A2,B1',
+    `a blank paper starts on the core route (got ${Level.route(bank, blank)})`);
+say(Level.partCount(bank, blank) === 3, `the core route is three parts (got ${Level.partCount(bank, blank)})`);
+say(Level.partIds(bank, 0, blank).length === 12,
+    `a band part is twelve questions (got ${Level.partIds(bank, 0, blank).length})`);
+say(Level.partIds(bank, 0, blank).every((id) => bank.items.find((i) => i.id === id).band === 'A1'),
     'the first part is the A1 band');
-say(Level.partIds(bank, 4).every((id) => bank.items.find((i) => i.id === id).band === 'C1'),
-    'the last part is the C1 band');
 
-/* The count is the whole rule, so the edges of every cutoff are pinned. */
+/* A core answered perfectly has earned the climb; a B2 that is answered
+   perfectly has earned the next one. */
+const strong = Level.blankAttempt();
+Level.partIds(bank, 0, strong).forEach((id) => strong.answers[id] = right(bank.items.find((i) => i.id === id)));
+Level.partIds(bank, 1, strong).forEach((id) => strong.answers[id] = right(bank.items.find((i) => i.id === id)));
+Level.partIds(bank, 2, strong).forEach((id) => strong.answers[id] = right(bank.items.find((i) => i.id === id)));
+say(Level.route(bank, strong).join(',') === 'A1,A2,B1,B2',
+    `a perfect core opens B2 only (got ${Level.route(bank, strong)})`);
+
+const weakCore = Level.blankAttempt();
+say(Level.route(bank, weakCore).join(',') === 'A1,A2,B1',
+    'an unanswered core does not open the upper bands');
+
+/* ---- the count still means what the report says ----------------------- */
 const cut = bank.blueprint.cutoffs;
-const at = (n) => Level.levelFromCorrect(n, 50, cut) || 'Pre-A1';
-[[0, 'Pre-A1'], [7, 'Pre-A1'], [8, 'A1'], [16, 'A1'], [17, 'A2'], [25, 'A2'],
- [26, 'B1'], [34, 'B1'], [35, 'B2'], [43, 'B2'], [44, 'C1'], [50, 'C1']]
-  .forEach(([n, band]) => say(at(n) === band, `${n} of 50 is ${band} (got ${at(n)})`));
+const at = (n) => Level.levelFromCorrect(n, 65, cut) || 'Pre-A1';
+[[0, 'Pre-A1'], [10, 'Pre-A1'], [11, 'A1'], [22, 'A1'], [23, 'A2'], [33, 'A2'],
+ [34, 'B1'], [45, 'B1'], [46, 'B2'], [57, 'B2'], [58, 'C1'], [60, 'C1']]
+  .forEach(([n, band]) => say(at(n) === band, `${n} of 65 is ${band} (got ${at(n)})`));
 
+/* ---- four learners ---------------------------------------------------- */
 const perfect = sit(() => true);
-say(perfect.result.right === 50, `a perfect paper scores 50 (got ${perfect.result.right})`);
-say(perfect.result.paper === 55, `the paper is 55 questions with writing (got ${perfect.result.paper})`);
+say(perfect.result.right === 60, `a perfect paper scores 60 (got ${perfect.result.right})`);
+say(perfect.result.paper === 65, `the full route is 65 questions with writing (got ${perfect.result.paper})`);
 say(overall(perfect.result) === 'C1', `an advanced learner is placed at C1 (got ${overall(perfect.result)})`);
+say(perfect.result.route === 'full', `an advanced learner sits the full route (got ${perfect.result.route})`);
 say(perfect.result.completion === 'complete', 'a full paper is reported as complete');
-say(perfect.result.questions === 55,
-    `all fifty answers and five written tasks are counted (got ${perfect.result.questions})`);
-say(perfect.result.startedAt === undefined, 'the report carries no raw attempt state');
+say(perfect.result.questions === 65, `all sixty answers and five tasks are counted (got ${perfect.result.questions})`);
 
 const hopeless = sit(() => false);
 say(hopeless.result.right === 0, `an empty paper scores 0 (got ${hopeless.result.right})`);
 say(overall(hopeless.result) === 'Pre-A1', `a beginner is placed at Pre-A1 (got ${overall(hopeless.result)})`);
-say(hopeless.result.overall === 'Pre-A1',
-    `a paper under the A1 cutoff does not name its band (got ${hopeless.result.overall})`);
+say(hopeless.result.stoppedEarly === true, 'the paper stops climbing for a beginner');
+say(hopeless.result.paper === 41, `the core route is 41 questions with writing (got ${hopeless.result.paper})`);
+say(hopeless.result.asked === 36, `the core route asks 36 objective questions (got ${hopeless.result.asked})`);
 
 const b1 = sit((item) => ['A1', 'A2', 'B1'].includes(item.band));
-say(b1.result.right === 30, `a B1 learner is right thirty times (got ${b1.result.right})`);
+say(b1.result.right === 36, `a B1 learner is right thirty-six times (got ${b1.result.right})`);
 say(overall(b1.result) === 'B1', `a B1 learner is placed at B1 (got ${overall(b1.result)})`);
+say(b1.result.route === 'plus-B2', `B1 evidence opens B2 and stops (got ${b1.result.route})`);
 say(b1.result.skills.listening.band === 'B1', 'each skill is read on its own count');
-say(b1.result.skills.grammar.total === 15 && b1.result.skills.reading.total === 10,
-    'grammar is out of fifteen and reading out of ten');
+say(b1.result.skills.grammar.total === 15 && b1.result.skills.grammar.asked === 12,
+    `grammar is out of fifteen with twelve asked across four bands (got ${b1.result.skills.grammar.asked})`);
+say(b1.result.skills.interaction.total === 5 && b1.result.skills.mediation.total === 5,
+    'interaction and mediation are read on their own five');
 
 const part = sit(() => true, 0);
-say(part.result.questions === 10, `a learner who stops early answered 10 (got ${part.result.questions})`);
-say(part.result.right === 10, `only ten answers are credited (got ${part.result.right})`);
-say(overall(part.result) === 'A1', `ten of fifty reads as A1, not as a perfect part (got ${overall(part.result)})`);
+say(part.result.questions === 12, `a learner who stops early answered 12 (got ${part.result.questions})`);
+say(part.result.right === 12, `only twelve answers are credited (got ${part.result.right})`);
+say(overall(part.result) === 'A1', `twelve of 65 reads as A1, not as a perfect part (got ${overall(part.result)})`);
 say(part.result.completion === 'partial', 'a half-finished paper is reported as partial');
+say(part.result.stoppedEarly === true, 'a half-finished paper never claims an upper band');
 
+/* A short route must not invent a band: the same core, marked perfect, is
+   worth exactly 36 of 65 and cannot pass the B1 cutoff. */
+const short = sit(() => true, 2);
+say(overall(short.result) === 'B1',
+    `a perfect A1-B1 core reads B1, not B2 (got ${overall(short.result)})`);
+say(short.result.skills.grammar.band === 'B1',
+    `a skill on a short route is capped too (got ${short.result.skills.grammar.band})`);
+
+/* ---- writing ---------------------------------------------------------- */
 say('writing' in perfect.result.skills, 'writing is one of the scored skills');
 say(!('speaking' in perfect.result.skills), 'speaking is still absent from the scored skills');
 say(perfect.result.skills.writing.total === 20,
@@ -352,8 +445,6 @@ say(perfect.result.skills.writing.band === 'C1',
 say(perfect.result.skills.writing.scored === 'rubric',
     'the report can tell a rubric mark from a count');
 
-/* The marker itself: an empty task scores nothing, a stub scores little, and
-   the same text always earns the same points. */
 const a1 = bank.items.find((i) => i.id === 'w-a1-1');
 const empty = Level.markWriting(bank, a1, '');
 const stub = Level.markWriting(bank, a1, 'i like cats');
@@ -363,11 +454,12 @@ say(Level.markWriting(bank, a1, MODEL.A1).points === 4, 'the A1 model answer ear
 say(JSON.stringify(Level.markWriting(bank, a1, MODEL.A1)) ===
     JSON.stringify(Level.markWriting(bank, a1, MODEL.A1)), 'the mark is deterministic');
 
-/* Writing has to change the total, or assessing it is decoration. */
 const noWriting = sit(() => true, 4);
-say(noWriting.result.earned === 50 && noWriting.result.outOf === 55,
-    `fifty right and nothing written is 50 of 55 (got ${noWriting.result.earned} of ${noWriting.result.outOf})`);
-say(overall(noWriting.result) === 'C1', 'fifty right still reads as C1 with writing blank');
+say(noWriting.result.earned === 60 && noWriting.result.outOf === 65,
+    `sixty right and nothing written is 60 of 65 (got ${noWriting.result.earned} of ${noWriting.result.outOf})`);
+say(overall(noWriting.result) === 'C1', 'sixty right still reads as C1 with writing blank');
+
+say(perfect.result.startedAt === undefined, 'the report carries no raw attempt state');
 
 process.exit(problems ? 1 : 0);
 """

@@ -43,7 +43,15 @@ KINDS = {"mcq", "cloze", "error", "transform", "order", "shortwriting", "speakin
 TYPED = {"cloze", "transform", "order"}
 DIFFICULTY = {"easy", "medium", "hard"}
 NEED_FIELDS = ("id", "skill", "band", "subskill", "kind", "difficulty", "ability",
-               "prompt", "why", "weight", "source", "review")
+               "prompt", "why", "weight", "source", "review", "domain",
+               "taskType", "descriptor", "accessibility", "rights",
+               "itemVersion", "status", "reviewedOn", "nextReview")
+TASKS = {"selected-response", "dialogue-response", "mediation",
+         "text-comprehension", "audio-comprehension", "constructed-response",
+         "error-identification", "word-order", "cloze"}
+DOMAINS = {"everyday", "travel", "work", "food", "shopping", "technology",
+           "health", "education", "social"}
+STATUSES = {"draft", "reviewed", "approved", "retired"}
 
 problems: list[str] = []
 
@@ -66,16 +74,26 @@ def both_lang(value, where: str) -> None:
 def main() -> int:
     skills = LEVEL["skills"]
     ids = [s["id"] for s in skills]
-    need(ids == ["grammar", "vocabulary", "reading", "listening", "writing", "speaking"],
+    need(ids == ["grammar", "vocabulary", "reading", "listening", "interaction",
+                 "mediation", "writing", "speaking"],
          f"skill order is {ids}")
     assessed = [s["id"] for s in skills if s["assessed"]]
-    need(assessed == ["grammar", "vocabulary", "reading", "listening", "writing"],
+    need(assessed == ["grammar", "vocabulary", "reading", "listening",
+                      "interaction", "mediation", "writing"],
          f"assessed skills are {assessed}")
     need([s["id"] for s in skills if not s["assessed"]] == ["speaking"],
          "speaking is not the only practice-only skill")
     for s in skills:
         both_lang(s["title"], f"skill {s['id']} title")
         both_lang(s["blurb"], f"skill {s['id']} blurb")
+        # Every tested band needs a can-do line, or the report has to fall
+        # back to the band's generic sentence for that skill.
+        if s["id"] in assessed:
+            for band in LEVEL["testedBands"]:
+                need(band in (s.get("canDo") or {}),
+                     f"skill {s['id']}: no can-do line for {band}")
+                if band in (s.get("canDo") or {}):
+                    both_lang(s["canDo"][band], f"skill {s['id']} {band} can-do")
 
     bands = [b["id"] for b in LEVEL["bands"]]
     need(bands == ["PRE", "A1", "A2", "B1", "B2", "C1", "C2"],
@@ -107,6 +125,8 @@ def main() -> int:
              f"writing scale {band}: {row} is not a task worth marking")
     need(bp["perBandTotal"] * len(tested) == bp["questions"],
          "the paper is not one band total per band")
+    need(bp.get("core") == tested[:3] and bp.get("upper") == tested[3:],
+         f"the adaptive route is {bp.get('core')} then {bp.get('upper')}")
     cut = bp["cutoffs"]
     need(len(cut) == len(tested), "there is not one cutoff per band")
     need(all(0 < c < 1 for c in cut), "a cutoff is outside the paper")
@@ -133,6 +153,48 @@ def main() -> int:
              f"{where}: weight is not positive")
         need(it["review"] == "reviewed", f"{where}: not reviewed")
         need(bool(it["source"].strip()), f"{where}: no source")
+        need(it.get("domain") in DOMAINS, f"{where}: domain {it.get('domain')}")
+        need(it.get("taskType") in TASKS, f"{where}: task {it.get('taskType')}")
+        need(it.get("status") in STATUSES, f"{where}: status {it.get('status')}")
+        need(it.get("status") in ("reviewed", "approved"),
+             f"{where}: not past review")
+        need(it.get("rights") and it["rights"].strip(), f"{where}: no rights line")
+        need(bool(it.get("itemVersion")), f"{where}: no item version")
+        for stamp, field in (("reviewedOn", "review date"), ("nextReview", "next review")):
+            raw = str(it.get(stamp, ""))
+            need(re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw) is not None,
+                 f"{where}: {field} is {raw!r}")
+        try:
+            from datetime import date
+            need(date.fromisoformat(it["nextReview"]) > date.fromisoformat(it["reviewedOn"]),
+                 f"{where}: next review is not after the review")
+        except (ValueError, TypeError):
+            pass
+        both_lang(it["descriptor"], f"{where} descriptor")
+        both_lang(it["accessibility"], f"{where} accessibility")
+        # A visual stimulus is data the page draws, never markup it injects:
+        # a bank that can carry HTML can carry a script.
+        stim = it.get("stimulus")
+        if stim is not None:
+            need(isinstance(stim, dict), f"{where}: stimulus is not an object")
+            if isinstance(stim, dict):
+                need(stim.get("kind") in ("note", "table", "message"),
+                     f"{where}: stimulus kind {stim.get('kind')}")
+                both_lang(stim.get("title", {}), f"{where} stimulus title")
+                raw = json.dumps(stim, ensure_ascii=False)
+                need("<script" not in raw.lower() and "javascript:" not in raw.lower()
+                     and not re.search(r"\son\w+=", raw),
+                     f"{where}: stimulus carries markup the page must not run")
+        sc = it.get("scenario")
+        if sc is not None:
+            both_lang(sc, f"{where} scenario")
+        # The item cannot be marked down for its own level: an A1 item that is
+        # hard, or a C1 item that is easy, is a difficulty label that will
+        # mislead every diagnostic built on it.
+        need(not (it["band"] == "A1" and it["difficulty"] == "hard"),
+             f"{where}: an A1 item marked hard")
+        need(not (it["band"] == "C1" and it["difficulty"] == "easy"),
+             f"{where}: a C1 item marked easy")
         both_lang(it["subskill"], f"{where} subskill")
         both_lang(it["ability"], f"{where} ability")
         both_lang(it["prompt"], f"{where} prompt")
@@ -152,8 +214,10 @@ def main() -> int:
             need(all(isinstance(a, str) and a.strip() for a in accept),
                  f"{where}: an empty accepted answer")
         if it["kind"] == "order":
-            need(4 <= len(it["prompt"]["en"].split()) <= 6,
-                 f"{where}: word-order prompt is not a sentence to reorder")
+            # The instruction is prose; the sentence being rebuilt is the
+            # token list, and that is what has to be long enough to order.
+            need(4 <= len(it.get("tokens") or []) <= 7,
+                 f"{where}: {len(it.get('tokens') or [])} tokens to reorder")
         if it["kind"] == "listening" or it.get("say"):
             need(len((it.get("say") or "").split()) >= 6,
                  f"{where}: spoken text is too short to test")
@@ -161,6 +225,17 @@ def main() -> int:
             per_band_skill[(it["skill"], it["band"])] += 1
 
     need(len(kinds) >= 5, f"only {len(kinds)} question formats")
+    # Authentic assessment needs more than one setting, and no setting may
+    # swallow the bank: a paper that is all offices measures office English.
+    domains = Counter(it.get("domain") for it in items)
+    need(len(domains) >= 5, f"only {len(domains)} real-world domains")
+    need(max(domains.values()) <= len(items) * 0.4,
+         f"one domain is {domains.most_common(1)[0][0]} for {domains.most_common(1)[0][1]} items")
+    prompts = Counter(it["prompt"]["en"].strip().lower() for it in items)
+    dupes = [p for p, n in prompts.items() if n > 1]
+    need(not dupes, f"repeated prompt: {dupes[:1]}")
+    scenarios = [it for it in items if it.get("scenario")]
+    need(len(scenarios) >= 8, f"only {len(scenarios)} scenario items")
     need(len(set(keys)) >= 3, f"answer keys use only {len(set(keys))} letters")
     if keys:
         top = Counter(keys).most_common(1)[0][1]
@@ -180,6 +255,18 @@ def main() -> int:
              f"band {band}: {in_band} questions, blueprint wants {bp['perBandTotal']}")
         total += in_band
     need(total == bp["questions"], f"the bank holds {total} questions, not {bp['questions']}")
+
+    content = LEVEL.get("content") or {}
+    need(bool(content.get("version")), "the content package has no version")
+    need(re.fullmatch(r"\d{4}\.\d{2}", str(content.get("version", ""))) is not None,
+         f"content version {content.get('version')!r} is not YYYY.MM")
+    for stamp in ("published", "nextReview"):
+        need(re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(content.get(stamp, ""))) is not None,
+             f"content package: {stamp} is {content.get(stamp)!r}")
+    need(bool(content.get("owner")), "the content package has no owner")
+    need((content.get("reviewCycleDays") or 0) >= 90,
+         "the review cycle is shorter than a quarter")
+    need(bool(content.get("reviewLog")), "the content package has no review log")
 
     passages = {p["id"]: p for p in LEVEL["passages"]}
     need(len(passages) >= 5, f"only {len(passages)} reading passages")

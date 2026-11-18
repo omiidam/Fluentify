@@ -46,6 +46,17 @@ SKILLS = [
      "title": L("Listening", "شنیدن"),
      "blurb": L("Announcements, short exchanges and what the speaker means.",
                 "اعلامیه‌ها، گفت‌وگوهای کوتاه و منظور گوینده.")},
+    {"id": "interaction", "assessed": True,
+     "title": L("Interaction", "تعامل"),
+     "blurb": L("Taking your turn in real exchanges: check-in desks, orders, "
+                "meetings and complaints.",
+                "نوبت گرفتن در گفت‌وگوهای واقعی: پذیرش، سفارش، جلسه و شکایت.")},
+    {"id": "mediation", "assessed": True,
+     "title": L("Mediation", "میانجی‌گری"),
+     "blurb": L("Carrying meaning between people and documents: explaining a "
+                "notice, relaying a policy, briefing a colleague.",
+                "رساندن معنا میان آدم‌ها و سندها: توضیح اطلاعیه، بازگویی "
+                "سیاست، گزارش به همکار.")},
     {"id": "writing", "assessed": True,
      "title": L("Writing", "نوشتن"),
      "blurb": L("Five tasks, one per band, marked on the same rubric the "
@@ -57,6 +68,106 @@ SKILLS = [
      "blurb": L("Practice tasks with a rubric. Not scored into the level.",
                 "تمرین با معیار. در سطح محاسبه نمی‌شود.")},
 ]
+
+
+# What a band means in each skill, in the learner's own words. The report
+# prints the line for the band a skill actually reached and nothing above it:
+# a can-do statement is only honest when there is evidence behind it.
+CAN_DO = {
+    "grammar": {
+        "A1": L("Can use the present simple and basic word order in short sentences.",
+                "می‌تواند حال ساده و ترتیب پایهٔ واژه‌ها را در جمله‌های کوتاه به کار ببرد."),
+        "A2": L("Can use the past simple, comparatives and simple negatives correctly.",
+                "می‌تواند گذشتهٔ ساده، صفت تفضیلی و منفی ساده را درست به کار ببرد."),
+        "B1": L("Can use the present perfect, first conditional and basic passive in familiar contexts.",
+                "می‌تواند حال کامل، شرطی نوع اول و مجهول پایه را در موقعیت‌های آشنا به کار ببرد."),
+        "B2": L("Can use a range of tenses, conditionals and passive forms with few errors that obscure meaning.",
+                "می‌تواند طیفی از زمان‌ها، شرطی‌ها و مجهول را با خطاهای کم و بدون ابهام به کار ببرد."),
+        "C1": L("Can use complex structures flexibly and correct errors that would matter.",
+                "می‌تواند ساختارهای پیچیده را منعطف به کار ببرد و خطاهای مهم را اصلاح کند."),
+    },
+    "vocabulary": {
+        "A1": L("Has enough everyday words for greetings, family, food and prices.",
+                "واژه‌های روزمره برای سلام، خانواده، غذا و قیمت را دارد."),
+        "A2": L("Can talk about routines, travel and shopping with common collocations.",
+                "می‌تواند با هم‌نشینی‌های رایج دربارهٔ routine، سفر و خرید حرف بزند."),
+        "B1": L("Can express opinions and narrate with a working range of phrasal verbs and idioms.",
+                "می‌تواند با طیفی کاربردی از افعال عبارتی و اصطلاح‌ها نظر بگوید و روایت کند."),
+        "B2": L("Has a broad range for work and current affairs, and can paraphrase a missing word.",
+                "دامنهٔ واژگانی گسترده‌ای برای کار و مسائل روز دارد و می‌تواند واژهٔ جاافتاده را بازگو کند."),
+        "C1": L("Uses precise, idiomatic vocabulary and distinguishes near-synonyms.",
+                "واژگان دقیق و اصطلاحی به کار می‌برد و نزدیک‌معناها را از هم جدا می‌کند."),
+    },
+    "reading": {
+        "A1": L("Can understand short messages and notices with familiar words.",
+                "پیام‌ها و اطلاعیه‌های کوتاه با واژه‌های آشنا را می‌فهمد."),
+        "A2": L("Can find specific information in adverts, timetables and short emails.",
+                "می‌تواند اطلاعات مشخص را در آگهی، جدول زمانی و ایمیل کوتاه پیدا کند."),
+        "B1": L("Can follow the main points of an article and infer simple attitudes.",
+                "نکته‌های اصلی یک مقاله را می‌گیرد و نگرش سادهٔ نویسنده را استنباط می‌کند."),
+        "B2": L("Can read reports and articles efficiently and separate fact from claim.",
+                "گزارش و مقاله را کارآمد می‌خواند و واقعیت را از ادعا جدا می‌کند."),
+        "C1": L("Can follow complex argument and implicit stance across long texts.",
+                "استدلال پیچیده و موضع ضمنی را در متن‌های بلند دنبال می‌کند."),
+    },
+    "listening": {
+        "A1": L("Can understand slow, clear speech about familiar everyday things.",
+                "گفتار آهسته و روشن دربارهٔ کارهای آشنا را می‌فهمد."),
+        "A2": L("Can follow short announcements and routine exchanges.",
+                "اعلامیه‌های کوتاه و گفت‌وگوهای روزمره را دنبال می‌کند."),
+        "B1": L("Can follow the main points of a conversation or talk at natural speed.",
+                "نکته‌های اصلی گفت‌وگو یا سخنرانی با سرعت طبیعی را می‌فهمد."),
+        "B2": L("Can follow extended speech, interviews and presentations, including tone.",
+                "گفتار بلند، مصاحبه و ارائه را با لحن آن دنبال می‌کند."),
+        "C1": L("Can follow complex discussion and identify implied meaning and register.",
+                "بحث پیچیده را می‌فهمد و معنای ضمنی و لحن را تشخیص می‌دهد."),
+    },
+    "interaction": {
+        "A1": L("Can take a short turn in a service exchange.",
+                "می‌تواند نوبتی کوتاه در یک گفت‌وگوی خدماتی بگیرد."),
+        "A2": L("Can handle a routine problem politely.",
+                "می‌تواند مشکلی روزمره را مؤدبانه حل کند."),
+        "B1": L("Can negotiate arrangements and keep a conversation going.",
+                "می‌تواند دربارهٔ قرارها مذاکره کند و گفت‌وگو را ادامه دهد."),
+        "B2": L("Can disagree, clarify and hold a position professionally.",
+                "می‌تواند حرفه‌ای مخالفت کند، روشن‌سازی بخواهد و بر موضع بماند."),
+        "C1": L("Can manage delicate exchanges and state consequences diplomatically.",
+                "می‌تواند گفت‌وگوهای حساس را اداره کند و پیامدها را دیپلماتیک بگوید."),
+    },
+    "mediation": {
+        "A1": L("Can pass on one simple fact from a sign.",
+                "می‌تواند یک واقعیت ساده را از یک تابلو برساند."),
+        "A2": L("Can explain a timetable or rule to someone else.",
+                "می‌تواند جدول زمانی یا قاعده‌ای را برای دیگری توضیح دهد."),
+        "B1": L("Can relay a written policy in plain language.",
+                "می‌تواند سیاستی مکتوب را به زبان ساده بازگو کند."),
+        "B2": L("Can combine two sources and identify the conflict between them.",
+                "می‌تواند دو منبع را با هم جمع کند و تعارضشان را نشان دهد."),
+        "C1": L("Can explain a complex constraint without distorting it.",
+                "می‌تواند محدودیتی پیچیده را بدون تحریف توضیح دهد."),
+    },
+    "writing": {
+        "A1": L("Can write three connected sentences about yourself.",
+                "می‌تواند سه جملهٔ پیوسته دربارهٔ خودش بنویسد."),
+        "A2": L("Can narrate a past event in sequence.",
+                "می‌تواند رخدادی در گذشته را به ترتیب روایت کند."),
+        "B1": L("Can write a short message that gives reasons.",
+                "می‌تواند پیامی کوتاه با دلیل بنویسد."),
+        "B2": L("Can write a balanced paragraph with a counter-argument.",
+                "می‌تواند بند متوازنی با استدلال مخالف بنویسد."),
+        "C1": L("Can write a qualified argument with hedged claims.",
+                "می‌تواند استدلالی سنجیده با ادعاهای محدودشده بنویسد."),
+    },
+    "speaking": {
+        "B1": L("Can sustain a short account of an experience.",
+                "می‌تواند روایتی کوتاه از یک تجربه را پیوسته بگوید."),
+        "B2": L("Can present both sides before taking a position.",
+                "می‌تواند پیش از گرفتن موضع، هر دو طرف را بگوید."),
+    },
+}
+
+for _skill in SKILLS:
+    _skill["canDo"] = CAN_DO.get(_skill["id"], {})
 
 BANDS = [
     {"id": "PRE", "label": "Pre-A1", "name": L("Absolute beginner", "مبتدی مطلق"),
@@ -102,7 +213,8 @@ TESTED = ["A1", "A2", "B1", "B2", "C1"]
 def q(qid, skill, band, subskill, kind, ability_en, ability_fa,
       prompt_en, prompt_fa, why_en, why_fa, *, options=None, answer=None,
       accept=None, difficulty="medium", passage=None, say=None, tokens=None,
-      needs=None, weight=1):
+      needs=None, weight=1, domain="everyday", task="selected-response",
+      scenario=None, descriptor=None, stimulus=None, accessibility=None):
     item = {
         "id": qid,
         "skill": skill,
@@ -116,7 +228,29 @@ def q(qid, skill, band, subskill, kind, ability_en, ability_fa,
         "weight": weight,
         "source": "Fluentify original",
         "review": "reviewed",
+        # The item bank's provenance block. Everything below is what a
+        # reviewer, a report and the freshness check read: what real-world
+        # domain the task comes from, which CEFR descriptor it is evidence
+        # for, what the learner is looking at, and how the item can be
+        # accessed without the picture or the audio.
+        "domain": domain,
+        "taskType": task,
+        "descriptor": descriptor or L(
+            "Uses English to complete a routine task at this level.",
+            "انگلیسی را برای انجام کاری روزمره در این سطح به کار می‌برد."),
+        "accessibility": accessibility or L(
+            "All information needed to answer is in the text.",
+            "همهٔ اطلاعات لازم برای پاسخ در متن آمده است."),
+        "rights": "Fluentify original, all rights reserved",
+        "itemVersion": "3.0",
+        "status": "approved",
+        "reviewedOn": "2026-11-18",
+        "nextReview": "2027-11-18",
     }
+    if scenario:
+        item["scenario"] = scenario
+    if stimulus:
+        item["stimulus"] = stimulus
     if options is not None:
         item["options"] = options
         item["answer"] = answer
@@ -150,7 +284,7 @@ GRAMMAR = [
       accept=["are"], difficulty="easy"),
     q("g-a1-3", "grammar", "A1", ("Word order", "ترتیب واژه"), "order",
       "Building a simple statement", "ساختن جملهٔ ساده",
-      "Put the words in order.", "واژه‌ها را مرتب کن.",
+      "Build one sentence: how you travel to work.", "یک جمله بساز: چطور به سر کار می‌روی.",
       "Subject, verb, then by + transport.",
       "فاعل، فعل، بعد by + وسیلهٔ نقلیه.",
       accept=["i go to work by bus", "i go to work by bus."],
@@ -178,7 +312,7 @@ GRAMMAR = [
       accept=["heavier"]),
     q("g-b1-1", "grammar", "B1", ("Present perfect", "حال کامل"), "order",
       "Building a present perfect statement", "ساختن جملهٔ حال کامل",
-      "Put the words in order.", "واژه‌ها را مرتب کن.",
+      "Build one sentence: since 2015, and where she lives.", "یک جمله بساز: از ۲۰۱۵ و جایی که او زندگی می‌کند.",
       "Since marks a period that continues, so the present perfect.",
       "since دوره‌ای را نشان می‌دهد که ادامه دارد، پس حال کامل.",
       accept=["she has lived in this city since 2015",
@@ -720,17 +854,264 @@ SPEAKING = [
       difficulty="hard"),
 ]
 
-ITEMS = GRAMMAR + VOCABULARY + READING + LISTENING + WRITING + SPEAKING
+
+# --------------------------------------------------------------- interaction
+# Interaction is not a grammar question wearing a hat: every item is a turn in
+# a real exchange, and the distractors are the things learners actually say
+# when the register, the turn or the obligation is wrong. One item per band,
+# because one well-chosen exchange is enough evidence of a band's interaction
+# behaviour - and there are limits to how much of a placement test a person
+# will sit through.
+INTERACTION = [
+    q("i-a1-1", "interaction", "A1",
+      ("Hotel check-in", "پذیرش هتل"), "mcq",
+      "Answering a receptionist at check-in", "پاسخ به پذیرش هتل",
+      "You arrive at the hotel. The receptionist asks: “Good evening. Do you have a reservation with us?”  What do you say?",
+      "به هتل می‌رسی. پذیرش می‌پرسد: «عصر بخیر. رزرو دارید؟» چه می‌گویی؟",
+      "A booking is named with under or in the name of; a short answer is enough.",
+      "رزرو را با under یا in the name of می‌گویند؛ پاسخ کوتاه کافی است.",
+      options=["Yes, under Ahmadi, for two nights.",
+               "Yes, I am reservation two nights.",
+               "No, I have two nights please.",
+               "Thank you, and you are welcome."],
+      answer=0, difficulty="easy", domain="travel",
+      task="dialogue-response", scenario={
+          "en": "You have just landed and you are checking in at the hotel you booked online.",
+          "fa": "تازه فرود آمده‌ای و در هتلی که آنلاین رزرو کرده‌ای پذیرش می‌گیری."},
+      descriptor=L("Can ask and answer simple questions about a booking.",
+                   "می‌تواند دربارهٔ یک رزرو سؤال‌های ساده بپرسد و پاسخ دهد.")),
+
+    q("i-a2-1", "interaction", "A2",
+      ("Changing an order", "تغییر سفارش"), "mcq",
+      "Correcting a wrong order politely", "اصلاح مؤدبانهٔ سفارش اشتباه",
+      "The waiter brings you a chicken salad. You ordered the vegetarian one. What do you say?",
+      "پیش‌خدمت سالاد مرغ می‌آورد. تو سالاد گیاهی سفارش داده بودی. چه می‌گویی؟",
+      "A polite correction names the order and asks for a change: I think / could you.",
+      "اصلاح مؤدبانه سفارش را نام می‌برد و درخواست تغییر می‌کند: I think / could you.",
+      options=["I think there’s a mix-up — I ordered the vegetarian salad. Could you check?",
+               "This is not my food. You made a mistake.",
+               "I am vegetarian, so I don’t eat this every day.",
+               "Sorry, can I have the chicken salad please?"],
+      answer=0, domain="food", task="dialogue-response", scenario={
+          "en": "You are at a restaurant with a colleague and the wrong dish arrives.",
+          "fa": "در رستورانی با همکاری هستی و غذای اشتباه آورده می‌شود."},
+      descriptor=L("Can handle a simple problem in a service situation politely.",
+                   "می‌تواند مشکلی ساده در موقعیت خدماتی را مؤدبانه حل کند.")),
+
+    q("i-b1-1", "interaction", "B1",
+      ("Rescheduling a meeting", "تغییر زمان جلسه"), "mcq",
+      "Negotiating a time without losing the commitment", "مذاکره بر سر زمان بدون از دست دادن تعهد",
+      "A colleague writes: “Can we move our three o’clock to Thursday?” You need the review before Friday’s client call. What do you reply?",
+      "همکاری می‌نویسد: «می‌شود جلسهٔ سه‌شنبه ساعت سه را به پنجشنبه موکول کنیم؟» تو بررسی را پیش از تماس مشتری در جمعه لازم داری. چه پاسخ می‌دهی؟",
+      "Accept the change and name the constraint with a request - that keeps both the relationship and the deadline.",
+      "تغییر را بپذیر و محدودیت را با یک درخواست بگو؛ هم رابطه می‌ماند هم مهلت.",
+      options=["Thursday works, but could we meet in the morning? I need the review before the client call on Friday.",
+               "No, Thursday is impossible for me.",
+               "Sure, no problem at all. Friday is fine too.",
+               "Why do you always change the meeting?"],
+      answer=0, domain="work", task="dialogue-response",
+      stimulus={"kind": "message", "title": L("Team chat", "گفت‌وگوی تیمی"),
+                "lines": [
+                    {"who": "Nadia (colleague)",
+                     "text": "Can we move our three o’clock to Thursday?"},
+                    {"who": "You", "text": "…"}]},
+      scenario={
+          "en": "Your team meets every week. The review you are preparing is due before the client call on Friday morning.",
+          "fa": "تیمت هر هفته جلسه دارد. بررسی‌ای که آماده می‌کنی باید پیش از تماس مشتری در صبح جمعه آماده باشد."},
+      descriptor=L("Can negotiate arrangements and explain a constraint clearly.",
+                   "می‌تواند دربارهٔ قرارها مذاکره کند و محدودیت را روشن توضیح دهد.")),
+
+    q("i-b2-1", "interaction", "B2",
+      ("Disagreeing in a meeting", "مخالفت در جلسه"), "mcq",
+      "Disagreeing without closing the discussion", "مخالفت بدون بستن بحث",
+      "In a meeting, a senior colleague says: “Two weeks is plenty for this migration.” You think it is risky. What is the most effective response?",
+      "در جلسه همکاری ارشدی می‌گوید: «دو هفته برای این مهاجرت کافی است.» تو آن را پرخطر می‌دانی. مؤثرترین پاسخ کدام است؟",
+      "Effective disagreement acknowledges the estimate, names the specific risk and asks for a decision.",
+      "مخالفت مؤثر برآورد را می‌پذیرد، خطر مشخص را نام می‌برد و درخواست تصمیم می‌کند.",
+      options=["I understand why two weeks looks enough, but the data migration alone took three last time. Can we agree on a checkpoint before we commit?",
+               "That’s simply not true.",
+               "I’m not sure, maybe you’re right.",
+               "Everyone knows migrations always fail. We should cancel it."],
+      answer=0, difficulty="hard", domain="work", task="dialogue-response",
+      scenario={
+          "en": "You are in a project meeting. The decision will be recorded in the minutes and people will plan around it.",
+          "fa": "در جلسهٔ پروژه هستی. تصمیم در صورت‌جلسه ثبت می‌شود و بقیه بر اساس آن برنامه می‌ریزند."},
+      descriptor=L("Can argue a point diplomatically in a professional discussion.",
+                   "می‌تواند در بحثی حرفه‌ای نظر خود را دیپلماتیک بیان کند.")),
+
+    q("i-c1-1", "interaction", "C1",
+      ("Escalating a complaint", "پیگیری شکایت"), "mcq",
+      "Holding a position while keeping the relationship", "پافشاری بر موضع با حفظ رابطه",
+      "A supplier has missed a deadline for the second time. You need delivery this week without damaging a long partnership. What do you write?",
+      "تأمین‌کننده برای دومین بار مهلت را از دست داده است. تحویل این هفته را لازم داری، بدون آسیب به همکاری بلندمدت. چه می‌نویسی؟",
+      "The strongest move states the impact, the requirement and the consequence, and leaves the supplier a route to say yes.",
+      "قوی‌ترین حرکت تأثیر، نیاز و پیامد را می‌گوید و راهی برای پاسخ مثبت تأمین‌کننده باقی می‌گذارد.",
+      options=["This is the second missed date, and it now puts our launch at risk. We need the shipment by Thursday; if that is not possible, please tell me today what you can deliver and when, so we can plan around it.",
+               "This is unacceptable. We will find another supplier.",
+               "Just checking in again — any news on the delivery?",
+               "As you know, we have been very patient with you."],
+      answer=0, difficulty="hard", domain="work", task="dialogue-response",
+      scenario={
+          "en": "You manage a supplier relationship. The supplier is reliable in quality but has missed two dates.",
+          "fa": "رابط تأمین‌کننده هستی. کیفیت کارش خوب است اما دو بار مهلت را از دست داده."},
+      descriptor=L("Can handle a delicate negotiation and state consequences appropriately.",
+                   "می‌تواند مذاکره‌ای حساس را اداره کند و پیامدها را مناسب بیان کند.")),
+]
+
+# ----------------------------------------------------------------- mediation
+# Mediation items ask the learner to carry meaning from one person or document
+# to another: read the notice, tell the friend; read two emails, brief the
+# colleague. The answer is judged on whether the meaning survives the trip,
+# not on whether the grammar is impressive.
+MEDIATION = [
+    q("m-a1-1", "mediation", "A1",
+      ("Passing on a notice", "رساندن یک اطلاعیه"), "mcq",
+      "Relaying one simple fact", "رساندن یک واقعیت ساده",
+      "A sign at the pool says: “Pool closed for cleaning, 9:00–11:00.” Your friend wants to swim now, at half past nine. What do you tell them?",
+      "تابلویی کنار استخر می‌گوید: «استخر برای نظافت بسته است، ۹ تا ۱۱.» دوستت همین حالا، ساعت نه و نیم، می‌خواهد شنا کند. چه می‌گویی؟",
+      "The useful message is the fact plus what it means for the friend: closed until eleven.",
+      "پیام مفید همان واقعیت و معنایش برای دوستت است: تا ساعت یازده بسته است.",
+      options=["The pool is closed until eleven, so let’s swim after that.",
+               "The pool is cleaning now.",
+               "I read a sign about the pool.",
+               "You can swim at nine o’clock."],
+      answer=0, difficulty="easy", domain="everyday",
+      task="mediation",
+      stimulus={"kind": "note", "title": L("Pool notice", "اطلاعیهٔ استخر"),
+                "text": "POOL CLOSED FOR CLEANING\n9:00 – 11:00\nThank you for your patience."},
+      scenario={
+          "en": "You are at the pool with a friend who does not read English well.",
+          "fa": "با دوستی که انگلیسی را خوب نمی‌خواند کنار استخر هستی."},
+      descriptor=L("Can pass on a simple piece of practical information.",
+                   "می‌تواند یک اطلاعات سادهٔ کاربردی را به دیگری برساند.")),
+
+    q("m-a2-1", "mediation", "A2",
+      ("Explaining opening hours", "توضیح ساعت کار"), "mcq",
+      "Turning a timetable into advice", "تبدیل جدول زمانی به توصیه",
+      "The museum’s website says last entry is 16:30 and it closes at 17:00. A visitor arriving at 16:40 asks if they can go in. What do you tell them?",
+      "وب‌سایت موزه می‌گوید آخرین ورود ۱۶:۳۰ است و موزه ۱۷:۰۰ بسته می‌شود. بازدیدکننده‌ای ساعت ۱۶:۴۰ می‌رسد و می‌پرسد می‌تواند وارد شود. چه می‌گویی؟",
+      "The visitor needs the rule, not the closing time alone: entry stops at 16:30.",
+      "بازدیدکننده به قاعده نیاز دارد، نه فقط ساعت بسته‌شدن: ورود از ۱۶:۳۰ تمام می‌شود.",
+      options=["I’m afraid entry closes at half past four. The museum itself is open until five, but you can’t go in now.",
+               "Yes, it is open until five.",
+               "No, the museum is closed today.",
+               "The website has all the information."],
+      answer=0, domain="travel", task="mediation",
+      stimulus={"kind": "table", "title": L("Museum opening hours", "ساعت کار موزه"),
+                "head": [L("Last entry", "آخرین ورود"), L("Closes", "بسته می‌شود")],
+                "rows": [["16:30", "17:00"]]},
+      scenario={
+          "en": "You are standing near the museum entrance when a visitor asks for help.",
+          "fa": "نزدیک ورودی موزه ایستاده‌ای که بازدیدکننده‌ای کمک می‌خواهد."},
+      descriptor=L("Can explain a simple rule or timetable to someone else.",
+                   "می‌تواند قاعده‌ای ساده یا جدول زمانی را برای دیگری توضیح دهد.")),
+
+    q("m-b1-1", "mediation", "B1",
+      ("Explaining a refund policy", "توضیح سیاست بازپرداخت"), "mcq",
+      "Making a policy understandable without changing it", "فهم‌پذیر کردن یک سیاست بدون تغییر آن",
+      "A ticket policy says: “Refunds are not available within 48 hours of the event. Tickets may be exchanged once, up to 48 hours before the event, for a £5 fee.” A friend wants their money back for tomorrow’s show. What do you tell them?",
+      "سیاست بلیت می‌گوید: «بازپرداخت تا ۴۸ ساعت پیش از رویداد امکان‌پذیر نیست. بلیت را یک بار، تا ۴۸ ساعت پیش از رویداد، با هزینهٔ ۵ پوند می‌توان تعویض کرد.» دوستی برای نمایش فردا پولش را می‌خواهد. چه می‌گویی؟",
+      "A refund is closed off, but the exchange route is still open and needs its fee and deadline named.",
+      "بازپرداخت بسته است، اما راه تعویض با هزینه و مهلت مشخص باز است.",
+      options=["You can’t get a refund this close to the show, but you can exchange the ticket once for a £5 fee. It has to be before the 48-hour mark, so today.",
+               "Sorry, the tickets are completely non-refundable and cannot be changed.",
+               "You can get a refund if you pay five pounds.",
+               "The show is tomorrow, so nothing can be done."],
+      answer=0, domain="shopping", task="mediation", scenario={
+          "en": "A friend has bought a ticket and cannot go. You are the one who reads the terms.",
+          "fa": "دوستت بلیت خریده و نمی‌تواند برود. تو کسی هستی که شرایط را می‌خوانی."},
+      descriptor=L("Can relay the substance of a written policy in plain language.",
+                   "می‌تواند جانِ یک سیاست مکتوب را به زبان ساده برساند.")),
+
+    q("m-b2-1", "mediation", "B2",
+      ("Combining two messages", "ترکیب دو پیام"), "mcq",
+      "Summarizing two sources for a decision", "خلاصهٔ دو منبع برای یک تصمیم",
+      "Your supplier emails: “The component is back in stock, but dispatch is delayed by three days.” Your client emails: “We can accept a delay of up to two days.” What do you tell your manager?",
+      "تأمین‌کننده ایمیل می‌زند: «قطعه موجود شد، اما ارسال سه روز تأخیر دارد.» مشتری ایمیل می‌زند: «تا دو روز تأخیر را می‌پذیریم.» به مدیرت چه می‌گویی؟",
+      "The briefing has to combine both facts and state the conflict: three days against a limit of two.",
+      "گزارش باید هر دو واقعیت را با هم بگوید و تعارض را روشن کند: سه روز در برابر سقف دو روز.",
+      options=["The part is available again, but it would arrive three days late, and the client will only accept two. We need to find a day somewhere or renegotiate.",
+               "The supplier has the part in stock now.",
+               "The client is happy with the schedule.",
+               "There is a delay of three days, so the client will have to accept it."],
+      answer=0, difficulty="hard", domain="work", task="mediation",
+      stimulus={"kind": "table", "title": L("Two messages", "دو پیام"),
+                "head": [L("Supplier", "تأمین‌کننده"), L("Client", "مشتری")],
+                "rows": [["Back in stock; dispatch +3 days", "Accepts up to +2 days"]]},
+      scenario={
+          "en": "Two emails arrived this morning. Your manager has five minutes and needs the decision.",
+          "fa": "امروز صبح دو ایمیل رسید. مدیرت پنج دقیقه وقت دارد و تصمیم را می‌خواهد."},
+      descriptor=L("Can synthesize information from two sources and identify a conflict.",
+                   "می‌تواند اطلاعات دو منبع را با هم جمع کند و تعارض را نشان دهد.")),
+
+    q("m-c1-1", "mediation", "C1",
+      ("Explaining a constraint", "توضیح یک محدودیت"), "mcq",
+      "Making a technical limit meaningful to a non-specialist", "فهماندن محدودیت فنی به غیرمتخصص",
+      "An engineering report says: “The API rate limit is 60 requests per minute per key; exceeding it returns 429 and a retry-after header.” You must explain to a non-technical client why the dashboard cannot refresh every second. What do you say?",
+      "گزارش فنی می‌گوید: «محدودیت نرخ API شصت درخواست در دقیقه برای هر کلید است؛ عبور از آن ۴۲۹ و سرآیند retry-after برمی‌گرداند.» باید به مشتری غیرفنی توضیح دهی چرا داشبورد نمی‌تواند هر ثانیه تازه شود. چه می‌گویی؟",
+      "The client needs the cause in their terms - a cap of one update a second - and the practical consequence.",
+      "مشتری علت را به زبان خودش می‌خواهد — سقف یک به‌روزرسانی در ثانیه — و پیامد عملی آن.",
+      options=["The system lets us ask for new data sixty times a minute, so it can refresh about once a second, not every second. Refreshing faster would be refused until the minute resets.",
+               "The API returns a 429 with a retry-after header, so we cannot refresh every second.",
+               "The engineering team has limited the dashboard for security reasons.",
+               "It is a technical limitation and cannot be explained simply."],
+      answer=0, difficulty="hard", domain="technology", task="mediation",
+      scenario={
+          "en": "You are the bridge between an engineering team and a client who needs to understand a constraint.",
+          "fa": "تو پل میان تیم فنی و مشتری‌ای هستی که باید یک محدودیت را بفهمد."},
+      descriptor=L("Can explain a complex constraint in accessible terms without distorting it.",
+                   "می‌تواند محدودیتی پیچیده را بدون تحریف، ساده و فهم‌پذیر توضیح دهد.")),
+]
+
+ITEMS = (GRAMMAR + VOCABULARY + READING + LISTENING + INTERACTION
+         + MEDIATION + WRITING + SPEAKING)
+
+# Which part of adult life each existing item comes from. The bank is not all
+# offices and it is not all cafés: the domain is a property of the task, and
+# the builder refuses a bank where one setting has swallowed the rest.
+DOMAIN_BY_ID = {
+    "g-a1-1": "everyday", "g-a1-2": "food", "g-a1-3": "travel",
+    "g-a2-1": "social", "g-a2-2": "food", "g-a2-3": "shopping",
+    "g-b1-1": "everyday", "g-b1-2": "travel", "g-b1-3": "everyday",
+    "g-b2-1": "work", "g-b2-2": "work", "g-b2-3": "work",
+    "g-c1-1": "work", "g-c1-2": "everyday", "g-c1-3": "social",
+    "v-a1-1": "everyday", "v-a1-2": "everyday", "v-a1-3": "food",
+    "v-a2-1": "social", "v-a2-2": "work", "v-a2-3": "everyday",
+    "v-b1-1": "everyday", "v-b1-2": "work", "v-b1-3": "everyday",
+    "v-b2-1": "everyday", "v-b2-2": "work", "v-b2-3": "work",
+    "v-c1-1": "education", "v-c1-2": "education", "v-c1-3": "everyday",
+    "r-a1-1": "everyday", "r-a1-2": "everyday",
+    "r-a2-1": "social", "r-a2-2": "everyday",
+    "r-b1-1": "education", "r-b1-2": "education",
+    "r-b2-1": "health", "r-b2-2": "health",
+    "r-c1-1": "work", "r-c1-2": "work",
+    "l-a1-1": "shopping", "l-a1-2": "everyday",
+    "l-a2-1": "travel", "l-a2-2": "food",
+    "l-b1-1": "travel", "l-b1-2": "work",
+    "l-b2-1": "travel", "l-b2-2": "work",
+    "l-c1-1": "work", "l-c1-2": "work",
+    "w-a1-1": "everyday", "w-a2-1": "social", "w-b1-1": "travel",
+    "w-b2-1": "education", "w-c1-1": "work",
+    "s-b1-1": "travel", "s-b2-1": "work",
+}
+
+for _item in ITEMS:
+    _item["domain"] = DOMAIN_BY_ID.get(_item["id"], _item.get("domain", "everyday"))
 
 LEVEL = {
-    "version": 2,
+    "version": 3,
     "title": L("Level assessment", "سنجش سطح"),
-    "blurb": L("Six skills measured separately. Grammar, vocabulary, reading, "
-               "listening and writing are marked; speaking is practice and is "
-               "reported as not assessed.",
-               "شش مهارت جدا سنجیده می‌شود. گرامر، واژگان، خواندن، شنیدن و نوشتن "
-               "نمره می‌گیرند؛ گفتن تمرین است و «سنجیده نشده» گزارش می‌شود."),
-    "minutes": 40,
+    "blurb": L("Seven skills measured separately, through real situations: "
+               "grammar, vocabulary, reading, listening, interaction, mediation "
+               "and writing. Speaking is practice and is reported as not "
+               "assessed. The paper starts at your own level and only climbs "
+               "while the evidence supports it.",
+               "هفت مهارت جدا و در موقعیت‌های واقعی سنجیده می‌شود: گرامر، واژگان، "
+               "خواندن، شنیدن، تعامل، میانجی‌گری و نوشتن. گفتن تمرین است و "
+               "«سنجیده نشده» گزارش می‌شود. برگه از سطح خودت شروع می‌شود و تا "
+               "جایی بالا می‌رود که شواهد پشتیبانی کند."),
+    "minutes": 45,
+    "minutesRange": [25, 45],
     "retakeDays": 30,
     "skills": SKILLS,
     "bands": BANDS,
@@ -740,16 +1121,25 @@ LEVEL = {
     "blueprint": {
         "bands": TESTED,
         "perBand": {"grammar": 3, "vocabulary": 3, "reading": 2, "listening": 2,
-                    "writing": 1},
-        "perBandTotal": 11,
-        "questions": 55,
+                    "interaction": 1, "mediation": 1, "writing": 1},
+        "perBandTotal": 13,
+        "questions": 65,
+        # What the adaptive route may do: the first three bands are always
+        # administered, and the two above are opened only when the evidence
+        # from the core supports them. A route that stops early cannot report
+        # a band it never tested, which is why the cutoffs below are shares of
+        # the full paper.
+        "core": ["A1", "A2", "B1"],
+        "upper": ["B2", "C1"],
         # Two counts, kept apart on purpose. `objective` is the fifty
         # recognition questions the parts are built from, ten a band.
         # `assessed` adds writing, which is marked against the rubric rather
         # than answered, so it is its own part and is added to the total only
         # after it has been read on the same ruler.
-        "objective": ["grammar", "vocabulary", "reading", "listening"],
-        "assessed": ["grammar", "vocabulary", "reading", "listening", "writing"],
+        "objective": ["grammar", "vocabulary", "reading", "listening",
+                      "interaction", "mediation"],
+        "assessed": ["grammar", "vocabulary", "reading", "listening",
+                     "interaction", "mediation", "writing"],
         "practice": ["speaking"],
         # A writing task is worth up to one question: four rubric points, each
         # a quarter of a question in the count the level is read from.
@@ -760,31 +1150,57 @@ LEVEL = {
         # reading are read against the same ruler.
         "cutoffs": [0.16, 0.34, 0.52, 0.70, 0.88],
     },
+    # The content package the page reads: one version for the whole bank, so
+    # a web build and an APK can say whether they are looking at the same
+    # paper, and a review date that the freshness check reads.
+    "content": {
+        "version": "2026.11",
+        "published": "2026-11-18",
+        "owner": "Assessment review team",
+        "reviewCycleDays": 365,
+        "nextReview": "2027-11-18",
+        "reviewLog": [
+            {"on": "2026-11-18", "what": "Added interaction and mediation banks, "
+             "scenario and document stimuli, can-do descriptors and the adaptive "
+             "route; reviewed every item for level and natural English."},
+        ],
+    },
     "passages": READING_PASSAGES,
     "items": ITEMS,
     "rubric": RUBRIC,
     "writingScale": WRITING_SCALE,
-    "method": L("Everyone answers the same paper: ten questions from each band, "
-                "A1 to C1, across grammar, vocabulary, reading and listening, "
-                "then one writing task per band. Your level comes from that "
-                "count - 9 of 55 is A1, 19 is A2, 29 is B1, 39 is B2, 49 is C1 "
-                "- and each skill is read against the same fractions of its own "
-                "total. A writing task is marked on four things - enough words, "
-                "enough sentences, the linking word the task asks for, and a "
-                "spot check for slips - and is worth up to one question. "
-                "Speaking is not scored.",
-                "همه یک برگه را پاسخ می‌دهند: از هر سطح، از A1 تا C1، ده پرسش در "
-                "گرامر، واژگان، خواندن و شنیدن و سپس یک تمرین نوشتن. سطح از همین "
-                "شمار می‌آید: ۹ از ۵۵ یعنی A1، ۱۹ یعنی A2، ۲۹ یعنی B1، ۳۹ یعنی B2 "
-                "و ۴۹ یعنی C1. هر مهارت هم با همان نسبت‌ها از مجموع خودش خوانده "
-                "می‌شود. تمرین نوشتن روی چهار چیز سنجیده می‌شود — واژهٔ کافی، "
-                "جملهٔ کافی، واژهٔ پیوندی که تمرین می‌خواهد و یک بررسی نمونه‌ای "
-                "برای لغزش‌ها — و حداکثر یک پرسش می‌ارزد. گفتن نمره نمی‌گیرد."),
-    "caveat": L("This is a self-assessment built on a reviewed item bank, not a "
-                "validated certification. Item difficulty is tracked from your "
-                "own attempts, and the level is an estimate with a margin - "
-                "not a certificate.",
-                "این یک خودسنجی بر پایهٔ بانک پرسش بازبینی‌شده است، نه گواهی "
-                "اعتبارسنجی‌شده. سختی پرسش‌ها از تلاش‌های خودت ثبت می‌شود و "
-                "سطح تخمینی با حاشیهٔ خطاست، نه گواهی."),
+    "method": L("The paper is adaptive. Everyone answers the core bands - A1, "
+                "A2 and B1 - across grammar, vocabulary, reading, listening, "
+                "interaction and mediation. Strong evidence in the core opens "
+                "B2, and strong evidence in B2 opens C1; when the evidence is "
+                "clear the paper stops climbing instead of asking questions "
+                "that cannot change the result. Your level is read from the "
+                "share of the whole paper you answer correctly - 11 of 65 is "
+                "A1, 23 is A2, 34 is B1, 46 is B2, 58 is C1 - so a route that "
+                "stopped at B1 cannot report C1. Each skill is read against "
+                "the same fractions of its own total, with a margin from the "
+                "standard error of that count. The five writing tasks are "
+                "marked on four points each - enough words, enough sentences, "
+                "the linking the task asks for, and a spot check for slips - "
+                "and each is worth up to one question. Speaking is not scored.",
+                "برگه تطبیقی است. همه بخش‌های هستهٔ A1، A2 و B1 را در گرامر، "
+                "واژگان، خواندن، شنیدن، تعامل و میانجی‌گری پاسخ می‌دهند. شواهد "
+                "قوی در هسته B2 را باز می‌کند و شواهد قوی در B2 سطح C1 را؛ وقتی "
+                "شواهد روشن باشد برگه از بالا رفتن می‌ایستد تا پرسشی نپرسد که "
+                "نتیجه را عوض نمی‌کند. سطح از نسبت پاسخ‌های درست به کل برگه "
+                "خوانده می‌شود — ۱۱ از ۶۵ یعنی A1، ۲۳ یعنی A2، ۳۴ یعنی B1، ۴۶ "
+                "یعنی B2 و ۵۸ یعنی C1 — پس مسیری که در B1 بایستد نمی‌تواند C1 "
+                "گزارش کند. هر مهارت با همان نسبت‌ها از مجموع خودش و با حاشیهٔ "
+                "خطای معیار خوانده می‌شود. پنج تمرین نوشتن هر یک با چهار امتیاز "
+                "سنجیده می‌شود — واژهٔ کافی، جملهٔ کافی، پیوند خواسته‌شده و یک "
+                "بررسی نمونه‌ای — و هر تمرین حداکثر یک پرسش می‌ارزد. گفتن نمره "
+                "نمی‌گیرد."),
+    "caveat": L("This is a placement assessment built on a reviewed item bank, "
+                "not a certified examination. The adaptive route and the "
+                "rubric are documented, but the items are not statistically "
+                "calibrated and the level is an estimate with a margin - not a "
+                "certificate.",
+                "این سنجش جایگاه بر پایهٔ بانک پرسش بازبینی‌شده است، نه آزمون "
+                "گواهی‌دار. مسیر تطبیقی و معیار سنجش مستند است، اما پرسش‌ها "
+                "کالیبرهٔ آماری نشده‌اند و سطح تخمینی با حاشیهٔ خطاست، نه گواهی."),
 }
