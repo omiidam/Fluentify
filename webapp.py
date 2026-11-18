@@ -15187,6 +15187,10 @@ async function loadPhrases() {
      that needs protecting, and adult-only like the rest of the extra
      journeys. */
   box.appendChild(Journey.card('nature', false));
+  /* Fashion and lifestyle: clothes, shoes and accessories, the shop and the
+     fitting room, fabrics, sizes, trends and personal style, adult-only like
+     the other extra journeys. */
+  box.appendChild(Journey.card('fashion', false));
 }
 
 /* vocabulary panel — grouped, one compact pill per domain */
@@ -20762,6 +20766,42 @@ const Journey = (() => {
     trash: '<path d="M6 9h20"/><path d="M10 9V6h12v3"/><path d="M8 9l2 17h12l2-17"/><path d="M13 13v9M19 13v9"/>',
     globe: '<circle cx="16" cy="16" r="11"/><path d="M5 16h22"/><path d="M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22"/>',
     quake: '<path d="M3 20h6l3-6 4 12 3-8 3 2h6"/><path d="M8 8l3 3M21 8l-3 3"/>',
+    /* fashion: garments, shoes, the shop and the wardrobe, one drawing each so
+       a shirt, a boot and a care label never borrow another topic's picture. */
+    trousers: '<path d="M9 4h14l1 24h-6l-2-14-2 14H8z"/><path d="M9 8h14"/>',
+    skirt: '<path d="M10 6h12l4 20H6z"/><path d="M10 10h12"/>',
+    dress: '<path d="M11 4h10l-1 6 5 16H7l5-16z"/><path d="M12 12h8"/>',
+    jacket: '<path d="M12 5L7 8v18h5V5z"/><path d="M20 5l5 3v18h-5V5z"/><path d="M12 5h8"/>',
+    coat: '<path d="M12 4h8l4 4v20h-6V11h-4v17H8V8z"/><path d="M16 4v7"/>',
+    belt: '<rect x="4" y="12" width="24" height="8" rx="2"/><rect x="13" y="10" width="6" height="12" rx="1"/>',
+    scarf: '<path d="M9 5h14v6H9z"/><path d="M12 11v14l4 3 4-3V11"/>',
+    hat: '<path d="M10 14l2-8h8l2 8"/><path d="M4 20c0-3 5-6 12-6s12 3 12 6-5 4-12 4S4 23 4 20z"/>',
+    sunglasses: '<circle cx="10" cy="16" r="5"/><circle cx="22" cy="16" r="5"/><path d="M15 15h2M5 13l-2-2M27 13l2-2"/>',
+    handbag: '<path d="M6 13h20l-2 15H8z"/><path d="M12 13V9a4 4 0 0 1 8 0v4"/>',
+    boot: '<path d="M10 4h6v14h8v8H10z"/><path d="M10 18h14"/><path d="M12 4v14"/>',
+    sneaker: '<path d="M4 20l2-8 6 2 4-4 8 6 4 4v4H6z"/><path d="M4 22h24"/><path d="M12 14l2 4"/>',
+    sandal: '<path d="M5 22c0-6 4-10 11-10s11 4 11 10"/><path d="M8 18l8-4 8 4"/><path d="M5 24h22"/>',
+    heel: '<path d="M5 24c0-8 6-14 14-14l4 12"/><path d="M5 24h16"/><path d="M23 22l3 3"/>',
+    lace: '<path d="M4 20c4-8 10-8 12 0 2-8 8-8 12 0"/><path d="M4 20l-1 4M28 20l1 4"/><path d="M9 16l2 3M23 16l-2 3"/>',
+    sole: '<path d="M4 20c0-4 3-6 8-7l8-2c4-1 7 1 8 5v4H4z"/><path d="M4 22h24"/>',
+    fitting: '<path d="M8 5h16v22H8z"/><path d="M8 5c0 4-3 4-3 8h3M24 5c0 4 3 4 3 8h-3"/><path d="M14 12h4"/>',
+    rack: '<path d="M5 26V9a4 4 0 0 1 4-4h14"/><path d="M5 26h24"/><path d="M12 9v5M18 9v5"/>',
+    tape: '<path d="M6 22l10-10"/><circle cx="10" cy="8" r="5"/><path d="M14 22h12"/>',
+    needle: '<path d="M26 4L8 22"/><path d="M8 22l-3 6 6-3"/><circle cx="24" cy="6" r="2"/>',
+    thread: '<circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 6c4 6-4 10 0 20"/>',
+    stripe: '<path d="M9 4L5 28M17 4l-4 24M25 4l-4 24M33 4l-4 24"/>',
+    check: '<path d="M4 10h24M4 20h24"/><path d="M10 4v24M20 4v24"/>',
+    floral: '<circle cx="16" cy="12" r="3"/><path d="M16 9c2-4 6-3 6 1s-4 4-6 2M16 9c-2-4-6-3-6 1s4 4 6 2M16 15c2 4 6 3 6-1s-4-4-6-2M16 15c-2 4-6 3-6-1s4-4 6-2"/><path d="M16 15v13"/>',
+    trend: '<path d="M4 24l7-8 5 4 8-11 4 3"/><path d="M24 9h4v4"/>',
+    hanger: '<path d="M16 8a3 3 0 1 1 3 3c-2 0-3 1-3 3"/><path d="M16 14L4 23h24z"/>',
+    washer: '<rect x="5" y="4" width="22" height="24" rx="3"/><circle cx="16" cy="18" r="6"/><path d="M9 8h.01M13 8h.01"/>',
+    iron: '<path d="M5 24h22l-2-8H12l-2 4H5z"/><path d="M12 16c0-5 4-8 9-8h3"/><path d="M22 20h4"/>',
+    stain: '<path d="M16 4c5 7 8 10 8 14a8 8 0 0 1-16 0c0-4 3-7 8-14z"/><path d="M13 19a3 3 0 0 0 3 3"/>',
+    suit: '<path d="M11 4h10l-2 7 4 15H9l4-15z"/><path d="M13 11l3 4 3-4"/><path d="M16 15v9"/>',
+    tie: '<path d="M13 4h6l-1 4-2 2-2-2z"/><path d="M16 10l3 12-3 6-3-6z"/>',
+    secondhand: '<path d="M9 14l-4 3 4 3"/><path d="M5 17h9a5 5 0 0 1 5 5"/><path d="M23 18l4-3-4-3"/><path d="M27 15h-9a5 5 0 0 0-5 5"/>',
+    exchange: '<path d="M6 12h13a4 4 0 0 1 4 4"/><path d="M19 8l4 4-4 4"/><path d="M26 20H13a4 4 0 0 1-4-4"/><path d="M13 24l-4-4 4-4"/>',
+    refund: '<circle cx="16" cy="16" r="11"/><path d="M16 10v12"/><path d="M20 12.5c-1-1.4-2.4-2-4-2-2.2 0-4 1.2-4 3s1.8 2.6 4 3.2 4 1.4 4 3.2-1.8 3.1-4 3.1c-1.6 0-3-.6-4-2"/>',
   };
   /* A picture is content, so it has a name: the label is what a screen reader
      says and what the caption beside the card states. */
@@ -21244,6 +21284,7 @@ const Journey = (() => {
     food: { en: 'Food, Cooking & Restaurants', fa: 'غذا، آشپزی و رستوران', sub: 'Ingredients, recipes, flavours and everything you say at a table.', subFa: 'مواد اولیه، دستور پخت، مزه‌ها و هر چیزی که سر میز می‌گویی.', art: 'pot', photo: 'food' },
     entertainment: { en: 'Entertainment, Movies & Music', fa: 'سرگرمی، فیلم و موسیقی', sub: 'Films, series, music, books, games and what to watch next.', subFa: 'فیلم، سریال، موسیقی، کتاب، بازی و اینکه بعد چه ببینی.', art: 'video', photo: 'entertainment' },
     social: { en: 'Social Life & Relationships', fa: 'زندگی اجتماعی و روابط', sub: 'Friends, family, invitations, feelings and the polite way to say it.', subFa: 'دوست، خانواده، دعوت، احساس و راه مؤدبانهٔ گفتنش.', art: 'handshake', photo: 'social' },
+    fashion: { en: 'Fashion & Lifestyle', fa: 'مد و سبک زندگی', sub: 'Clothes, shoes and accessories, the shops, the fabrics and the styles that say who you are.', subFa: 'لباس، کفش و اکسسوری، مغازه‌ها، پارچه‌ها و سبک‌هایی که می‌گویند تو کیستی.', art: 'hanger', photo: 'fashion' },
     nature: { en: 'Nature, Animals & Environment', fa: 'طبیعت، جانوران و محیط زیست', sub: 'Animals and habitats, weather and climate, plants and farms, pollution and recycling, geography and natural disasters.', subFa: 'جانوران و زیستگاه‌ها، هوا و اقلیم، گیاهان و کشاورزی، آلودگی و بازیافت، جغرافیا و بلایای طبیعی.', art: 'leaf', photo: 'nature' },
   };
   /* A photograph where the adult card leads with a picture of the subject.

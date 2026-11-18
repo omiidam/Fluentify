@@ -1,0 +1,97 @@
+# Fashion and lifestyle journey, stages 7-9. Adult-only material.
+
+J|patterns|7|swatch|Colour and pattern|رنگ و طرح|adults||Shades, stripes, checks, florals and plain cloth, and how colour changes in the shop and at home.|سایه‌رنگ‌ها، راه‌راه، چهارخانه، گل‌دار و ساده، و اینکه رنگ در مغازه و خانه چطور عوض می‌شود.
+O|describe a colour precisely enough to shop online.|رنگ را دقیق توصیف کن تا بتوانی آنلاین خرید کنی.
+O|say whether two colours work together.|بگو دو رنگ با هم می‌آیند یا نه.
+O|choose a pattern that suits the occasion.|طرحی انتخاب کن که به موقعیت بخورد.
+W|shade|/ʃeɪd/|noun|سایه‌رنگ|A particular version of a colour, lighter or darker.|fashion|palette|B1|The navy is a warmer shade than the one in the photo.|سرمه‌ای سایهٔ گرم‌تری از رنگ عکس است.|
+W|stripe|/straɪp/|noun|راه‌راه|A long line of one colour on a different background.|fashion|stripe|A2|Vertical stripes make the jacket look longer.|راه‌راه‌های عمودی کاپشن را بلندتر نشان می‌دهند.|
+W|check|/tʃek/|noun|چهارخانه|A pattern of crossing lines that makes squares.|fashion|check|A2|A grey check shirt is safe with jeans.|پیراهن چهارخانهٔ خاکستری با جین بی‌خطر است.|
+W|floral|/ˈflɔːrəl/|adjective|گل‌دار|Decorated with flowers or a flower pattern.|fashion|floral|B1|The floral dress is right for a summer wedding.|پیراهن گل‌دار برای عروسی تابستانی مناسب است.|
+W|plain|/pleɪn/|adjective|ساده و بی‌نقش|One colour with no pattern at all.|fashion|swatch|A2|Wear a plain shirt and let the scarf speak.|پیراهن ساده بپوش و بگذار شال حرف بزند.|
+W|fade|/feɪd/|verb|رنگ‌باختن|To lose colour with sun or washing.|fashion|sun|B1|Black denim fades fastest in the sun.|جین مشکی در آفتاب سریع‌تر رنگ می‌بازد.|
+X|expression|in neutral tones|با رنگ‌های خنثی|Beige, grey, cream and soft brown, together.|بژ، خاکستری، کرم و قهوه‌ای ملایم، با هم.|neutral|The whole outfit is in neutral tones.|کل استایل با رنگ‌های خنثی است.|
+X|expression|a pop of colour|یک تکه رنگ روشن|One small bright item against a quiet outfit.|یک قطعهٔ کوچک روشن در برابر استایل آرام.|neutral|A yellow bag gives the outfit a pop of colour.|کیف زرد به استایل یک تکه رنگ روشن می‌دهد.|
+X|idiom|a wolf in sheep's clothing|گرگ در لباس میش|Literally, a wolf dressed as a sheep; figuratively, someone dangerous who looks harmless.|به‌طور تحت‌اللفظی، گرگی در لباس میش؛ به‌طور مجازی، کسی خطرناک که بی‌خطر به نظر می‌رسد.|neutral|The offer looked kind, but it was a wolf in sheep's clothing.|پیشنهاد مهربان به نظر می‌رسید، اما گرگی در لباس میش بود.|
+X|collocation|a bold print|طرح جسور|A large, strong pattern that is meant to be noticed.|طرحی بزرگ و قوی که باید دیده شود.|neutral|A bold print works better on one piece, not on everything.|طرح جسور روی یک قطعه بهتر کار می‌کند، نه روی همه‌چیز.|
+X|phrasal_verb|go together|با هم آمدن|For two colours or pieces to look right as a pair.|دو رنگ یا قطعه که به‌عنوان جفت درست به نظر برسند.|neutral|Grey and mustard go together better than you think.|خاکستری و خردلی بهتر از آنچه فکر می‌کنی با هم می‌آیند.|
+P|It comes in + [colour] + and + [colour].|It comes in navy and olive.|در سرمه‌ای و زیتونی موجود است.|Naming the range, not one item.|نام بردن از تنوع، نه یک قطعه.
+P|The [pattern] + makes it look + [adjective].|The vertical stripe makes it look longer.|راه‌راه عمودی آن را بلندتر نشان می‌دهد.|A pattern and its visual effect.|یک طرح و اثر بصری‌اش.
+S|I love the pattern, but the shade is too bright for an office, so I would wear it on a weekend.|طرح را دوست دارم، اما سایه‌رنگش برای اداره خیلی روشن است، پس آخر هفته می‌پوشمش.|A judgement and when it applies.|قضاوت و زمانش.|B1|neutral|The shade is too bright for an office.
+S|The plain navy dress is safer than the floral one, because I can wear it to three different events.|پیراهن سرمه‌ای ساده از گل‌دار مطمئن‌تر است، چون می‌توانم آن را در سه موقعیت مختلف بپوشم.|A comparison with a practical reason.|مقایسه‌ای با دلیل عملی.|B2|neutral|I can wear it to three different events.
+D|Choosing a shirt online|انتخاب پیراهن آنلاین|Omid|Sara
+L|Omid|The shirt in the photo is pale blue, but the description says grey.|پیراهن عکس آبی روشن است، اما توضیحات خاکستری می‌گوید.
+L|Sara|That happens with screens. Look for the shade name, not the picture.|این با صفحه‌ها پیش می‌آید. اسم سایه‌رنگ را ببین، نه عکس را.
+L|Omid|It says storm grey. Is that warm or cool?|می‌گوید خاکستری طوفانی. گرم است یا سرد؟
+L|Sara|Cool, with a little blue. It will go with your navy trousers.|سرد، با کمی آبی. با شلوار سرمه‌ای‌ات می‌آید.
+L|Omid|And the check? Is it bold?|و چهارخانه؟ جسور است؟
+L|Sara|Small check, so it reads as plain from a distance. Good for work.|چهارخانهٔ ریز، پس از دور ساده دیده می‌شود. برای کار خوب است.
+C|The colour that looked different online|رنگی که آنلاین متفاوت بود|A scarf arrived much brighter than the picture.|شالی رسید که از عکس خیلی روشن‌تر بود.|Describe the difference precisely and ask for a swap.|تفاوت را دقیق توصیف کن و درخواست تعویض کن.|The scarf is a much warmer red than the photo, closer to orange. Could I exchange it for the burgundy, which looks cooler on my screen?|شال قرمزی خیلی گرم‌تر از عکس است، نزدیک به نارنجی. می‌توانم با زرشکی عوضش کنم که روی صفحهٔ من سردتر به نظر می‌رسد؟
+C|Dressing for a garden party|لباس برای مهمانی باغ|The invitation says bright colours, and your wardrobe is mostly grey.|دعوت رنگ‌های روشن خواسته و بیشتر لباس‌هایت خاکستری است.|Build an outfit with one bright piece.|استایلی با یک قطعهٔ روشن بساز.|I will keep the grey trousers and plain shirt, then add the green scarf and the yellow bag for a pop of colour. That reads as bright without buying anything new.|شلوار خاکستری و پیراهن ساده را نگه می‌دارم، بعد شال سبز و کیف زرد را برای یک تکه رنگ روشن اضافه می‌کنم. این‌طور روشن به نظر می‌رسد بی‌آنکه چیز تازه‌ای بخرم.
+Q|Which pattern is made of crossing lines?|کدام طرح از خطوط متقاطع ساخته می‌شود؟|Check|Stripe|Floral|Crossing lines make the squares of a check.|خطوط متقاطع مربع‌های چهارخانه را می‌سازند.
+Q|A plain shirt is ...|پیراهن ساده ... است.|one colour with no pattern|covered in flowers|always white|Plain means no pattern, whatever the colour.|plain یعنی بی‌طرح، هر رنگی که باشد.
+Q|What does a wolf in sheep's clothing describe?|«گرگ در لباس میش» چه چیزی را توصیف می‌کند؟|Someone dangerous who looks harmless|A warm coat|A pattern of checks|The idiom is about deception, not clothing.|این اصطلاح دربارهٔ فریب است، نه لباس.
+
+J|trends|8|trend|What is in fashion|آنچه مد است|adults||Trends, vintage, streetwear, classics and the fads that disappear by next season.|ترندها، وینتیج، استریت‌ویر، کلاسیک‌ها و مدهای زودی‌فراموش‌شده.
+O|talk about what is in fashion without sounding like an advert.|دربارهٔ مد روز حرف بزن، بی‌آنکه مثل تبلیغ به نظر برسی.
+O|say why something is a classic rather than a trend.|بگو چرا چیزی کلاسیک است نه ترند.
+O|describe a look you saw and where it came from.|ظاهری را که دیدی و منشأش را توصیف کن.
+W|trend|/trend/|noun|ترند|A direction in which fashion is moving at a particular time.|fashion|trend|B1|The trend for wide trousers came back from the nineties.|ترند شلوارهای گشاد از دههٔ نود برگشت.|
+W|vintage|/ˈvɪntɪdʒ/|adjective|وینتیج و قدیمی|Old but valued, usually from an earlier decade.|fashion|clock|B1|She buys vintage coats from a shop near the station.|او پالتوهای وینتیج از مغازه‌ای نزدیک ایستگاه می‌خرد.|
+W|streetwear|/ˈstriːtwer/|noun|استریت‌ویر|Casual clothes from skate and hip-hop culture, now worn everywhere.|fashion|hat|B2|Streetwear moved from the skate park to the office.|استریت‌ویر از پارک اسکیت به اداره رسید.|
+W|classic|/ˈklæsɪk/|adjective|کلاسیک و همیشگی|Good enough to stay in fashion for many years.|fashion|star|B1|A white shirt is classic; a printed one is a season.|پیراهن سفید کلاسیک است؛ طرح‌دار یک فصل.|
+W|fad|/fæd/|noun|مد زودگذر|Something popular for a very short time.|fashion|flame|B2|The tiny bag was a fad; nobody carries one now.|کیف کوچک یک مد زودگذر بود؛ حالا کسی با خودش نمی‌برد.|
+W|runway|/ˈrʌnweɪ/|noun|سکوی مد|The long stage where models show new clothes.|fashion|stage|B1|The coat looked wild on the runway and plain in the shop.|پالتو روی سکوی مد عجیب و در مغازه ساده به نظر می‌رسید.|
+X|idiom|flavour of the month|محبوبِ این ماه|Literally, this month's flavour; figuratively, something briefly popular.|به‌طور تحت‌اللفظی، طعم این ماه؛ به‌طور مجازی، چیزی که کوتاه‌مدت محبوب است.|informal|That brand is the flavour of the month, and next year nobody will remember it.|آن برند محبوبِ این ماه است و سال بعد کسی به یادش نمی‌آورد.|
+X|idiom|old hat|کهنه و ازمدافتاده|Literally, a hat that is old; figuratively, no longer new or interesting.|به‌طور تحت‌اللفظی، کلاهی کهنه؛ به‌طور مجازی، دیگر تازه یا جالب نیست.|informal|Skinny jeans are old hat in that shop.|شلوارهای جین تنگ در آن مغازه ازمدافتاده‌اند.|
+X|phrasal_verb|catch on|همه‌گیر شدن|To become popular, usually slowly.|محبوب شدن، معمولاً به‌آرامی.|neutral|The wide-leg cut caught on with younger buyers first.|برش گشاد اول میان خریداران جوان‌تر همه‌گیر شد.|
+X|expression|back in fashion|دوباره مد شده|Something that returned after being out of style.|چیزی که پس از بی‌مدتی برگشته.|neutral|Brown leather is back in fashion this autumn.|چرم قهوه‌ای این پاییز دوباره مد شده.|
+X|expression|drip|استایل چشمگیر|Street slang for a very noticeable, expensive outfit.|زبان عامیانهٔ خیابانی برای استایل خیلی چشمگیر و گران.|slang|He turned up with serious drip: the trainers, the chain, everything.|او با استایل چشمگیری آمد: کتانی‌ها، زنجیر، همه‌چیز.|
+P|It is a trend, not a + [noun].|It is a trend, not a classic.|این یک ترند است، نه کلاسیک.|The contrast defines both words.|این تقابل هر دو واژه را تعریف می‌کند.
+P|That look started with + [group] + and moved to + [place].|That look started with skateboarders and moved to the office.|آن ظاهر با اسکیت‌بازها شروع شد و به اداره رسید.|Where a style came from, then where it went.|اول منشأ سبک، بعد مقصدش.
+S|I wait a season before I buy a trend, because half of them look strange a year later.|یک فصل صبر می‌کنم تا ترند بخرم، چون نیمی از آن‌ها یک سال بعد عجیب به نظر می‌رسند.|A rule with a reason.|قاعده‌ای با دلیل.|B2|neutral|Half of them look strange a year later.
+S|Streetwear is not a fad any more; it has been in shops for twenty years.|استریت‌ویر دیگر مد زودگذر نیست؛ بیست سال است در مغازه‌هاست.|An argument from duration.|استدلالی بر پایهٔ دوام.|B2|neutral|It has been in shops for twenty years.
+D|Talking about a look|دربارهٔ یک ظاهر|Mina|Reza
+L|Mina|Did you see the wide trousers everywhere this week?|این هفته شلوارهای گشاد را همه‌جا دیدی؟
+L|Reza|I did. The trend came back from the nineties, but the fabric is better now.|دیدم. ترند از دههٔ نود برگشت، اما پارچه حالا بهتر است.
+L|Mina|Is it worth buying, or will it be old hat by spring?|ارزش خرید دارد، یا تا بهار ازمدافتاده می‌شود؟
+L|Reza|The cut will stay. The bright colours are the fad.|برش می‌ماند. رنگ‌های روشن مد زودگذرند.
+L|Mina|Then I will take the grey pair and wear them with the vintage jacket.|پس جفت خاکستری را می‌برم و با کاپشن وینتیج می‌پوشم.
+L|Reza|That works. Classics next to a trend always look deliberate.|این خوب است. کلاسیک کنار یک ترند همیشه عمدی به نظر می‌رسد.
+C|A trend you do not want to follow|ترندی که نمی‌خواهی دنبال کنی|Everyone at work has started wearing the same oversized jacket, and you dislike it.|همه سر کار شروع کرده‌اند همان کاپشن اورسایز را بپوشند و تو دوستش نداری.|Decline without judging anyone.|بدون قضاوت دیگران رد کن.|It looks good on them, but it drowns my shoulders. I will stay with the shorter cut; it is classic enough that nobody will notice it is not the trend.|روی آن‌ها خوب است، اما سرشانه‌های من را گم می‌کند. با برش کوتاه‌تر می‌مانم؛ به‌قدر کافی کلاسیک است که کسی متوجه نشود ترند نیست.
+C|Explaining a look to a friend|توضیح یک ظاهر به دوست|You saw an outfit online and want to describe it precisely.|استایلی آنلاین دیدی و می‌خواهی دقیق توصیفش کنی.|Describe the pieces, the source and the effect.|قطعه‌ها، منشأ و اثر را توصیف کن.|It was streetwear, but quiet: wide grey trousers, a plain white tee, and one vintage leather jacket. Everything was loose except the jacket at the shoulders, which made the whole thing look sharp.|استریت‌ویر بود، اما آرام: شلوار گشاد خاکستری، تی‌شرت سفید ساده و یک کاپشن چرم وینتیج. همه‌چیز گشاد بود جز کاپشن در سرشانه، که کل ظاهر را تیز می‌کرد.
+Q|Which one stays in fashion for years?|کدام‌یک سال‌ها در مد می‌ماند؟|A classic|A fad|A trend|A classic lasts; a fad is brief.|کلاسیک می‌ماند؛ مد زودگذر کوتاه است.
+Q|A fad is popular ...|مد زودگذر ... محبوب است.|for a very short time|for fifty years|only in winter|A fad fades quickly.|مد زودگذر سریع محو می‌شود.
+Q|Where do new clothes appear first?|لباس‌های نو اول کجا ظاهر می‌شوند؟|On the runway|In the office|In the laundry|Designers show them on the runway first.|طراحان اول روی سکوی مد نشانشان می‌دهند.
+
+J|style|9|hanger|Your own style|سلیقهٔ خودت|adults||Outfits, layers, accessories and the details that make a look yours.|استایل‌ها، لایه‌ها، اکسسوری‌ها و جزئیاتی که ظاهر را مالِ تو می‌کند.
+O|describe an outfit from top to bottom.|یک استایل را از بالا تا پایین توصیف کن.
+O|explain your personal style in three sentences.|سلیقهٔ شخصی‌ات را در سه جمله توضیح بده.
+O|give a compliment about clothes that sounds sincere.|تعریفی دربارهٔ لباس بگو که صادقانه به نظر برسد.
+W|outfit|/ˈaʊtfɪt/|noun|استایل و ست لباس|The set of clothes worn together for one occasion.|fashion|hanger|A2|The whole outfit cost less than the shoes.|کل استایل از کفش‌ها ارزان‌تر بود.|
+W|layer|/ˈleɪər/|noun|لایه|One piece worn over another.|fashion|shirt|B1|A thin layer under the jacket keeps you warm without bulk.|یک لایهٔ نازک زیر کاپشن بی‌آنکه حجیم شوی گرمت می‌کند.|
+W|accessory|/əkˈsesəri/|noun|اکسسوری|An item such as a belt or scarf that completes an outfit.|fashion|ring|B1|One good accessory is enough.|یک اکسسوری خوب کافی است.|
+W|silhouette|/ˌsɪluˈet/|noun|خطِ کلی اندام|The shape an outfit makes around the body.|fashion|person|B2|The high waist changes the whole silhouette.|کمر بلند کل خط اندام را عوض می‌کند.|
+W|flair|/fler/|noun|سلیقه و جذابیت|A personal, noticeable style in the way someone dresses.|fashion|star|B2|He wears plain clothes with real flair.|او لباس‌های ساده را با سلیقه‌ای واقعی می‌پوشد.|
+W|signature|/ˈsɪɡnətʃər/|noun|امضای شخصی|The one detail people recognise as yours.|fashion|pen|B2|Red glasses are her signature.|عینک قرمز امضای شخصی اوست.|
+X|collocation|personal style|سلیقهٔ شخصی|The look you choose, not the look you are given.|ظاهری که خودت انتخاب می‌کنی، نه ظاهری که به تو داده می‌شود.|neutral|Her personal style has not changed in ten years.|سلیقهٔ شخصی‌اش ده سال است عوض نشده.|
+X|phrasal_verb|dress up|شیک پوشیدن|To wear something more formal than usual.|چیزی رسمی‌تر از معمول پوشیدن.|neutral|We dress up for the opera, not for the cinema.|ما برای اپرا شیک می‌پوشیم، نه برای سینما.|
+X|idiom|cut from the same cloth|از یک جنس بودن|Literally, cut from one piece of fabric; figuratively, very similar in character.|به‌طور تحت‌اللفظی، از یک تکه پارچه بریده‌شده؛ به‌طور مجازی، از نظر شخصیت بسیار شبیه.|neutral|The two brothers are cut from the same cloth.|آن دو برادر از یک جنس‌اند.|
+X|idiom|wear your heart on your sleeve|احساست را رو نشان دادن|Literally, wear your heart where everyone sees it; figuratively, show your feelings openly.|به‌طور تحت‌اللفظی، قلبت را جایی که همه می‌بینند بگذاری؛ به‌طور مجازی، احساساتت را آشکار نشان بدهی.|neutral|She wears her heart on her sleeve, so you always know how she feels.|او احساسش را رو نشان می‌دهد، پس همیشه می‌دانی چه حالی دارد.|
+X|expression|a pop of colour|یک تکه رنگ روشن|One bright detail against a quiet outfit.|یک جزئیات روشن در برابر استایل آرام.|neutral|The orange scarf is the only pop of colour.|شال نارنجی تنها تکهٔ رنگ روشن است.|
+P|I would describe my style as + [adjective].|I would describe my style as simple but sharp.|سلیقه‌ام را ساده اما تیز توصیف می‌کنم.|A frame for a style statement.|چارچوبی برای بیان سلیقه.
+P|It works because + [reason].|It works because the colours are quiet and the fit is exact.|کار می‌کند چون رنگ‌ها آرام‌اند و اندازه دقیق است.|The reason, after the judgement.|دلیل، بعد از قضاوت.
+S|My style is simple: dark trousers, one good shirt and a watch, and I never think about it again.|سلیقه‌ام ساده است: شلوار تیره، یک پیراهن خوب و یک ساعت، و دیگر به آن فکر نمی‌کنم.|A style described by its rules.|سلیقه‌ای که با قاعده‌هایش توصیف می‌شود.|B1|neutral|I never think about it again.
+S|That jacket suits you, because the shoulders are exact and the colour lifts your face.|آن کاپشن به تو می‌آید، چون سرشانه‌ها دقیق‌اند و رنگ صورتت را روشن می‌کند.|A compliment with a concrete reason.|تعریفی با دلیل مشخص.|B2|neutral|The colour lifts your face.
+D|Describing an outfit|توصیف یک استایل|Sara|Omid
+L|Sara|How would you describe what she is wearing?|چطور توصیفش می‌کنی که او چه پوشیده؟
+L|Omid|A long grey coat, a plain white shirt, and wide trousers in the same grey.|یک پالتوی خاکستری بلند، پیراهن سفید ساده و شلوار گشاد خاکستری.
+L|Sara|Everything is one colour. Why does it work?|همه‌چیز یک رنگ است. چرا کار می‌کند؟
+L|Omid|Because the silhouette is clean and the coat is the only heavy layer.|چون خط کلی تمیز است و پالتو تنها لایهٔ سنگین است.
+L|Sara|And the red bag?|و کیف قرمز؟
+L|Omid|That is the pop of colour. Without it the outfit would disappear.|آن تکهٔ رنگ روشن است. بدون آن استایل محو می‌شد.
+C|Explaining your style at an interview|توضیح سلیقه در مصاحبه|A design studio asks how you dress and why.|یک استودیوی طراحی می‌پرسد چطور لباس می‌پوشی و چرا.|Answer in three sentences, with a reason.|در سه جمله، با یک دلیل پاسخ بده.|I keep my clothes quiet and spend on fit: dark trousers, plain shirts, one good jacket. I add a single accessory, usually a watch, and nothing else. It saves me deciding in the morning and it still looks deliberate.|لباس‌هایم را آرام نگه می‌دارم و برای اندازه خرج می‌کنم: شلوار تیره، پیراهن ساده، یک کاپشن خوب. یک اکسسوری اضافه می‌کنم، معمولاً ساعت، و دیگر هیچ. این‌طور صبح‌ها از تصمیم‌گیری نجات می‌یابم و هنوز عمدی به نظر می‌رسد.
+C|A compliment that is not about the body|تعریفی که دربارهٔ بدن نیست|A colleague is wearing a new jacket and you want to say something kind.|همکاری کاپشن تازه پوشیده و می‌خواهی چیز مهربانی بگویی.|Compliment the choice, not the person's shape.|انتخاب را بستای، نه اندام او را.|That jacket is a great choice. The green lifts the grey and the fit is exact at the shoulder.|آن کاپشن انتخاب خوبی است. سبز خاکستری را روشن می‌کند و اندازه در سرشانه دقیق است.
+Q|What is an outfit?|استایل چیست؟|The clothes worn together|One shoe|A shop|An outfit is the set worn for one occasion.|استایل مجموعه‌ای است که برای یک موقعیت پوشیده می‌شود.
+Q|Which detail is a signature?|کدام جزئیات «امضای شخصی» است؟|The one people recognise as yours|The price tag|The receipt|A signature is the detail that identifies your style.|امضای شخصی جزئیاتی است که سلیقه‌ات را مشخص می‌کند.
+Q|What does it mean to dress up?|«dress up» یعنی چه؟|Wear something more formal|Buy more clothes|Wash your clothes|Dressing up is about formality, not quantity.|dress up دربارهٔ رسمی‌بودن است، نه تعداد.

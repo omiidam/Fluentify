@@ -17,10 +17,10 @@
    "C2"
   ],
   "stats": {
-   "journeys": 8,
-   "stages": 98,
-   "words": 597,
-   "expressions": 525,
+   "journeys": 9,
+   "stages": 110,
+   "words": 669,
+   "expressions": 585,
    "sports": 46
   }
  },
@@ -34619,6 +34619,3843 @@
     "stages": 12,
     "words": 72,
     "expressions": 72,
+    "patterns": 24,
+    "sentences": 24,
+    "dialogues": 12,
+    "scenarios": 24,
+    "practice": 36,
+    "bank_sentences": 0,
+    "bank_words": 0
+   }
+  },
+  {
+   "id": "fashion",
+   "topic": "fashion",
+   "title_en": "Fashion & Lifestyle Journey",
+   "title_fa": "مد و سبک زندگی: از لباس تا سلیقه",
+   "icon": "👗",
+   "art": "hanger",
+   "audiences": [
+    "adults"
+   ],
+   "blurb_en": "Clothes, shoes and accessories, the shops and the fittings, the fabrics and the styles, and what your wardrobe says about you.",
+   "blurb_fa": "لباس، کفش و اکسسوری، مغازه و پرو، پارچه و سبک، و آنچه کمد لباست دربارهٔ تو می‌گوید.",
+   "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "stages": [
+    {
+     "id": "garments",
+     "order": 1,
+     "icon": "shirt",
+     "title_en": "The clothes you wear every day",
+     "title_fa": "لباس‌های هر روز",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Shirts, trousers, skirts, dresses, jackets and coats, and the parts that make them fit.",
+     "blurb_fa": "پیراهن، شلوار، دامن، پیراهنِ زنانه، کاپشن و پالتو، و اجزایی که اندازهٔ آن‌ها را می‌سازند.",
+     "objectives": [
+      {
+       "en": "name the clothes you are wearing and what they are for.",
+       "fa": "نام لباس‌هایی را که پوشیده‌ای و کاربردشان را بگو."
+      },
+      {
+       "en": "ask for a different size or colour without pointing at things.",
+       "fa": "اندازه یا رنگ دیگری بخواه، بی‌آنکه به چیزها اشاره کنی."
+      },
+      {
+       "en": "say why something does not suit you.",
+       "fa": "بگو چرا چیزی به تو نمی‌آید."
+      }
+     ],
+     "words": [
+      {
+       "id": "garments-w1",
+       "en": "shirt",
+       "ipa": "/ʃɜrt/",
+       "pos": "noun",
+       "fa": "پیراهن",
+       "def_en": "A garment for the upper body, with a collar and buttons down the front.",
+       "sport": "fashion",
+       "icon": "shirt",
+       "level": "A2",
+       "example_en": "He rolled up his shirt sleeves before washing the dishes.",
+       "example_fa": "آستین‌های پیراهنش را بالا زد تا ظرف بشوید.",
+       "ref": ""
+      },
+      {
+       "id": "garments-w2",
+       "en": "trousers",
+       "ipa": "/ˈtraʊzərz/",
+       "pos": "noun",
+       "fa": "شلوار",
+       "def_en": "A garment that covers the legs separately, worn from the waist down.",
+       "sport": "fashion",
+       "icon": "trousers",
+       "level": "A2",
+       "example_en": "These trousers are comfortable enough for a long flight.",
+       "example_fa": "این شلوار برای یک پرواز طولانی به‌قدر کافی راحت است.",
+       "ref": ""
+      },
+      {
+       "id": "garments-w3",
+       "en": "skirt",
+       "ipa": "/skɜrt/",
+       "pos": "noun",
+       "fa": "دامن",
+       "def_en": "A garment that hangs from the waist and covers the legs together.",
+       "sport": "fashion",
+       "icon": "skirt",
+       "level": "A2",
+       "example_en": "She wore a grey skirt and flat shoes to the interview.",
+       "example_fa": "او برای مصاحبه دامن خاکستری و کفش تخت پوشید.",
+       "ref": ""
+      },
+      {
+       "id": "garments-w4",
+       "en": "dress",
+       "ipa": "/dres/",
+       "pos": "noun",
+       "fa": "پیراهنِ زنانه",
+       "def_en": "One piece of clothing that covers the body and part of the legs.",
+       "sport": "fashion",
+       "icon": "dress",
+       "level": "A2",
+       "example_en": "The black dress is the only one I can wear to both events.",
+       "example_fa": "پیراهن مشکی تنها چیزی است که برای هر دو مهمانی می‌توانم بپوشم.",
+       "ref": ""
+      },
+      {
+       "id": "garments-w5",
+       "en": "jacket",
+       "ipa": "/ˈdʒækɪt/",
+       "pos": "noun",
+       "fa": "کاپشن",
+       "def_en": "A short coat with sleeves, often worn indoors or in mild weather.",
+       "sport": "fashion",
+       "icon": "jacket",
+       "level": "A2",
+       "example_en": "Take a light jacket; the evenings are cool here.",
+       "example_fa": "یک کاپشن سبک بردار؛ اینجا شب‌ها خنک است.",
+       "ref": ""
+      },
+      {
+       "id": "garments-w6",
+       "en": "coat",
+       "ipa": "/koʊt/",
+       "pos": "noun",
+       "fa": "پالتو",
+       "def_en": "A long outer garment worn over other clothes for warmth.",
+       "sport": "fashion",
+       "icon": "coat",
+       "level": "A2",
+       "example_en": "My winter coat is too heavy for this city.",
+       "example_fa": "پالتو زمستانی‌ام برای این شهر خیلی سنگین است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "garments-x1",
+       "kind": "collocation",
+       "en": "get dressed",
+       "fa": "لباس پوشیدن",
+       "meaning_en": "English gets dressed; it does not wear clothes in this phrase.",
+       "meaning_fa": "انگلیسی «لباس می‌پوشد»؛ در این عبارت فعل wear به کار نمی‌رود.",
+       "register": "neutral",
+       "example_en": "I get dressed quickly when I am late.",
+       "example_fa": "وقتی دیرم، سریع لباس می‌پوشم.",
+       "alt": "put on your clothes"
+      },
+      {
+       "id": "garments-x2",
+       "kind": "expression",
+       "en": "Does this come in a smaller size?",
+       "fa": "این سایز کوچک‌تری دارد؟",
+       "meaning_en": "The question you ask in a shop, without pointing.",
+       "meaning_fa": "پرسشی که در مغازه می‌پرسی، بی‌آنکه اشاره کنی.",
+       "register": "neutral",
+       "example_en": "Does this come in a smaller size? I like the colour.",
+       "example_fa": "این سایز کوچک‌تری دارد؟ رنگش را دوست دارم.",
+       "alt": ""
+      },
+      {
+       "id": "garments-x3",
+       "kind": "idiom",
+       "en": "dressed to kill",
+       "fa": "بسیار شیک و چشمگیر پوشیده",
+       "meaning_en": "Literally, dressed as if to kill; figuratively, dressed extremely well.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، طوری پوشیده که بکشد؛ به‌طور مجازی، بسیار شیک پوشیده.",
+       "register": "informal",
+       "example_en": "She arrived dressed to kill for her first day.",
+       "example_fa": "او روز اول با ظاهری بسیار شیک آمد.",
+       "alt": ""
+      },
+      {
+       "id": "garments-x4",
+       "kind": "phrasal_verb",
+       "en": "try on",
+       "fa": "پرو کردن",
+       "meaning_en": "To put a garment on briefly to see whether it fits.",
+       "meaning_fa": "لباسی را کوتاه بپوشی تا ببینی اندازه‌اش هست یا نه.",
+       "register": "neutral",
+       "example_en": "Try it on before you decide; the mirror is over there.",
+       "example_fa": "قبل از تصمیم پرو کن؛ آینه آنجاست.",
+       "alt": ""
+      },
+      {
+       "id": "garments-x5",
+       "kind": "collocation",
+       "en": "casual clothes",
+       "fa": "لباس راحتی",
+       "meaning_en": "The everyday register of dress, opposite to formal.",
+       "meaning_fa": "پوشش روزمره، در برابر رسمی.",
+       "register": "neutral",
+       "example_en": "We wear casual clothes at home.",
+       "example_fa": "ما در خانه لباس راحتی می‌پوشیم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I usually wear + [item] + to + [place].",
+       "example_en": "I usually wear a shirt and trousers to the office.",
+       "example_fa": "معمولاً برای اداره پیراهن و شلوار می‌پوشم.",
+       "note_en": "Habit first, then the place.",
+       "note_fa": "اول عادت، بعد مکان."
+      },
+      {
+       "frame": "This [item] is too + [adjective] + for + [occasion].",
+       "example_en": "This coat is too formal for a picnic.",
+       "example_fa": "این پالتو برای پیک‌نیک زیادی رسمی است.",
+       "note_en": "The reason comes after the adjective.",
+       "note_fa": "دلیل بعد از صفت می‌آید."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "garments-s1",
+       "en": "I usually wear a shirt to work, but on Fridays I wear something casual.",
+       "fa": "معمولاً سر کار پیراهن می‌پوشم، اما جمعه‌ها لباس راحتی می‌پوشم.",
+       "use_en": "A routine, with one exception.",
+       "use_fa": "یک روال، با یک استثنا.",
+       "level": "A2",
+       "polite": "neutral",
+       "alt": "On Fridays I wear something casual."
+      },
+      {
+       "id": "garments-s2",
+       "en": "The jacket fits well, but the sleeves are a little long for me.",
+       "fa": "کاپشن خوب اندازه است، اما آستین‌هایش کمی برای من بلند است.",
+       "use_en": "A compliment, then one small problem.",
+       "use_fa": "تعریف، بعد یک مشکل کوچک.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "The sleeves are a little long."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Getting ready",
+      "title_fa": "آماده شدن",
+      "speakers": [
+       "Mina",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Are you wearing that shirt to the wedding?",
+        "fa": "می‌خواهی با آن پیراهن به عروسی بروی؟"
+       },
+       {
+        "who": "Omid",
+        "en": "No, I am trying the jacket on first. Does it look too big?",
+        "fa": "نه، اول کاپشن را پرو می‌کنم. زیادی بزرگ به نظر می‌رسد؟"
+       },
+       {
+        "who": "Mina",
+        "en": "The shoulders are fine. The sleeves are long, though.",
+        "fa": "سرشانه‌ها خوب است. اما آستین‌ها بلندند."
+       },
+       {
+        "who": "Omid",
+        "en": "I can wear it with the white shirt and leave the coat at home.",
+        "fa": "می‌توانم با پیراهن سفید بپوشمش و پالتو را خانه بگذارم."
+       },
+       {
+        "who": "Mina",
+        "en": "Good. Do you have trousers that are not jeans?",
+        "fa": "خوب است. شلواری داری که جین نباشد؟"
+       },
+       {
+        "who": "Omid",
+        "en": "The grey ones. I will get dressed now, or we will be late.",
+        "fa": "آن خاکستری. الان لباس می‌پوشم، وگرنه دیر می‌رسیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A wedding invitation",
+       "title_fa": "دعوت به عروسی",
+       "situation_en": "The invitation says smart, and your only suit is at the cleaner.",
+       "situation_fa": "کارت دعوت «شیک» خواسته و تنها کت‌وشلوارت در خشکشویی است.",
+       "task_en": "Choose an outfit from what you own and explain the choice.",
+       "task_fa": "از میان لباس‌هایت دستی انتخاب کن و دلیلش را بگو.",
+       "answer_en": "I will wear the dark trousers with the white shirt and the blue jacket. It is smart without looking like I tried too hard, and the shoes are comfortable for dancing.",
+       "answer_fa": "شلوار تیره را با پیراهن سفید و کاپشن آبی می‌پوشم. شیک است بی‌آنکه تلاش‌کرده به نظر برسم، و کفش‌ها برای رقص راحت‌اند."
+      },
+      {
+       "title_en": "The shirt that does not fit",
+       "title_fa": "پیراهنی که اندازه نیست",
+       "situation_en": "You bought a shirt online and the sleeves end above your wrists.",
+       "situation_fa": "پیراهنی آنلاین خریدی و آستین‌هایش بالای مچ تمام می‌شود.",
+       "task_en": "Explain the problem and ask for an exchange.",
+       "task_fa": "مشکل را توضیح بده و درخواست تعویض کن.",
+       "answer_en": "The shirt is lovely, but the sleeves are too short for me. Could I exchange it for the next size up, or the same size in a different cut?",
+       "answer_fa": "پیراهن قشنگ است، اما آستین‌هایش برای من کوتاه است. می‌توانم با یک سایز بزرگ‌تر، یا همین سایز با برش دیگر عوضش کنم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "garments-q1",
+       "q_en": "Which of these is worn on your legs?",
+       "q_fa": "کدام‌یک روی پاها پوشیده می‌شود؟",
+       "options": [
+        "trousers",
+        "a shirt",
+        "a jacket"
+       ],
+       "answer": "trousers",
+       "why_en": "Trousers cover the legs separately; a shirt and a jacket are for the upper body.",
+       "why_fa": "شلوار پاها را جدا می‌پوشاند؛ پیراهن و کاپشن برای بالاتنه‌اند."
+      },
+      {
+       "id": "garments-q2",
+       "q_en": "You want to see how a jacket looks on you. You ...",
+       "q_fa": "می‌خواهی ببینی کاپشن تنت چطور است. آن را ...",
+       "options": [
+        "try it on",
+        "put it off",
+        "take it in"
+       ],
+       "answer": "try it on",
+       "why_en": "Try on means wear it briefly to check the fit.",
+       "why_fa": "try on یعنی کوتاه بپوشی تا اندازه‌اش را ببینی."
+      },
+      {
+       "id": "garments-q3",
+       "q_en": "Which sentence is the polite way to say it is too big?",
+       "q_fa": "کدام جمله مؤدبانه می‌گوید زیادی بزرگ است؟",
+       "options": [
+        "It is a little too big for me.",
+        "It is wrong.",
+        "This is a bad size."
+       ],
+       "answer": "It is a little too big for me.",
+       "why_en": "A little softens the judgement; the other two sound blunt.",
+       "why_fa": "«a little» قضاوت را نرم می‌کند؛ دو جملهٔ دیگر تند هستند."
+      }
+     ]
+    },
+    {
+     "id": "accessories",
+     "order": 2,
+     "icon": "handbag",
+     "title_en": "The finishing pieces",
+     "title_fa": "تکه‌های تکمیل‌کننده",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Belts, scarves, hats, gloves, sunglasses and bags: the small things that change the whole outfit.",
+     "blurb_fa": "کمربند، شال، کلاه، دستکش، عینک آفتابی و کیف: چیزهای کوچکی که کل استایل را عوض می‌کنند.",
+     "objectives": [
+      {
+       "en": "name an accessory and say what it is for.",
+       "fa": "یک اکسسوری را نام ببر و کاربردش را بگو."
+      },
+      {
+       "en": "say what matches and what clashes.",
+       "fa": "بگو چه چیزی ست است و چه چیزی ناهماهنگ."
+      },
+      {
+       "en": "choose a gift for someone's style.",
+       "fa": "برای سلیقهٔ کسی هدیه انتخاب کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "accessories-w1",
+       "en": "belt",
+       "ipa": "/belt/",
+       "pos": "noun",
+       "fa": "کمربند",
+       "def_en": "A strip of leather or fabric worn around the waist.",
+       "sport": "fashion",
+       "icon": "belt",
+       "level": "A2",
+       "example_en": "A brown belt would go better with those shoes.",
+       "example_fa": "یک کمربند قهوه‌ای با آن کفش‌ها بهتر ست می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "accessories-w2",
+       "en": "scarf",
+       "ipa": "/skɑrf/",
+       "pos": "noun",
+       "fa": "شال و روسری",
+       "def_en": "A piece of fabric worn around the neck or head.",
+       "sport": "fashion",
+       "icon": "scarf",
+       "level": "A2",
+       "example_en": "She tied the scarf loosely and left it hanging.",
+       "example_fa": "شال را شل بست و آویزان گذاشت.",
+       "ref": ""
+      },
+      {
+       "id": "accessories-w3",
+       "en": "hat",
+       "ipa": "/hæt/",
+       "pos": "noun",
+       "fa": "کلاه",
+       "def_en": "A covering worn on the head.",
+       "sport": "fashion",
+       "icon": "hat",
+       "level": "A1",
+       "example_en": "Take a hat; the sun is strong at midday.",
+       "example_fa": "کلاه بردار؛ آفتاب ظهر تند است.",
+       "ref": ""
+      },
+      {
+       "id": "accessories-w4",
+       "en": "gloves",
+       "ipa": "/ɡlʌvz/",
+       "pos": "noun",
+       "fa": "دستکش",
+       "def_en": "Coverings for the hands, one for each hand.",
+       "sport": "fashion",
+       "icon": "gloves",
+       "level": "A2",
+       "example_en": "I keep gloves in every coat pocket.",
+       "example_fa": "در جیب هر پالتو دستکش نگه می‌دارم.",
+       "ref": ""
+      },
+      {
+       "id": "accessories-w5",
+       "en": "sunglasses",
+       "ipa": "/ˈsʌnɡlæsɪz/",
+       "pos": "noun",
+       "fa": "عینک آفتابی",
+       "def_en": "Dark glasses that protect the eyes from sunlight.",
+       "sport": "fashion",
+       "icon": "sunglasses",
+       "level": "A2",
+       "example_en": "These sunglasses are too wide for my face.",
+       "example_fa": "این عینک آفتابی برای صورتم زیادی پهن است.",
+       "ref": ""
+      },
+      {
+       "id": "accessories-w6",
+       "en": "handbag",
+       "ipa": "/ˈhændbæɡ/",
+       "pos": "noun",
+       "fa": "کیف دستی",
+       "def_en": "A small bag for money, keys and personal things, usually carried by a strap.",
+       "sport": "fashion",
+       "icon": "handbag",
+       "level": "A2",
+       "example_en": "Her handbag matches the colour of her shoes exactly.",
+       "example_fa": "کیف دستی‌اش دقیقاً با رنگ کفش‌هایش ست است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "accessories-x1",
+       "kind": "collocation",
+       "en": "match your shoes to your belt",
+       "fa": "کفش را با کمربند ست کردن",
+       "meaning_en": "Match means the two things look deliberate together.",
+       "meaning_fa": "match یعنی دو چیز عمداً با هم هماهنگ به نظر برسند.",
+       "register": "neutral",
+       "example_en": "He always matches his shoes to his belt.",
+       "example_fa": "او همیشه کفشش را با کمربندش ست می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "accessories-x2",
+       "kind": "expression",
+       "en": "a statement piece",
+       "fa": "یک تکهٔ چشمگیر",
+       "meaning_en": "One bold item that carries the whole outfit.",
+       "meaning_fa": "یک قطعهٔ جسور که کل استایل را می‌چرخاند.",
+       "register": "neutral",
+       "example_en": "The red bag is the statement piece; everything else is quiet.",
+       "example_fa": "کیف قرمز تکهٔ چشمگیر است؛ بقیه آرام‌اند.",
+       "alt": ""
+      },
+      {
+       "id": "accessories-x3",
+       "kind": "phrasal_verb",
+       "en": "put on",
+       "fa": "پوشیدن",
+       "meaning_en": "To place clothing on your body, the action rather than the state.",
+       "meaning_fa": "لباس را روی بدن گذاشتن؛ خودِ عمل، نه حالت.",
+       "register": "neutral",
+       "example_en": "Put on your gloves before we go out.",
+       "example_fa": "قبل از بیرون رفتن دستکش‌هایت را بپوش.",
+       "alt": ""
+      },
+      {
+       "id": "accessories-x4",
+       "kind": "idiom",
+       "en": "fit like a glove",
+       "fa": "مثل دستکش اندازه بودن",
+       "meaning_en": "Literally, fit as tightly as a glove; figuratively, fit perfectly.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، مثل دستکش اندازه بودن؛ به‌طور مجازی، کاملاً اندازه بودن.",
+       "register": "neutral",
+       "example_en": "The coat fitted like a glove, so I bought it.",
+       "example_fa": "پالتو مثل دستکش اندازه بود، پس خریدمش.",
+       "alt": ""
+      },
+      {
+       "id": "accessories-x5",
+       "kind": "expression",
+       "en": "bling",
+       "fa": "زرق‌وبرق",
+       "meaning_en": "Bright jewellery or shiny accessories, said with a smile.",
+       "meaning_fa": "جواهر یا اکسسوری براق و پرزرق‌وبرق، با لبخند گفته می‌شود.",
+       "register": "slang",
+       "example_en": "He arrived with all his bling on.",
+       "example_fa": "او با همهٔ زرق‌وبرقش آمد.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "This [accessory] goes with + [item].",
+       "example_en": "This belt goes with the brown boots.",
+       "example_fa": "این کمربند با چکمه‌های قهوه‌ای ست می‌شود.",
+       "note_en": "Go with is the everyday verb for matching.",
+       "note_fa": "go with فعل روزمرهٔ ست بودن است."
+      },
+      {
+       "frame": "I never leave the house without + [item].",
+       "example_en": "I never leave the house without sunglasses.",
+       "example_fa": "هرگز بی‌عینک آفتابی از خانه بیرون نمی‌روم.",
+       "note_en": "A habit stated as a rule.",
+       "note_fa": "عادتی که مثل قاعده گفته می‌شود."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "accessories-s1",
+       "en": "A scarf is the easiest gift, because it fits everyone and costs as much as you want.",
+       "fa": "شال ساده‌ترین هدیه است، چون به همه می‌خورد و هرقدر بخواهی قیمت دارد.",
+       "use_en": "A recommendation with two reasons.",
+       "use_fa": "پیشنهادی با دو دلیل.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "A scarf fits everyone."
+      },
+      {
+       "id": "accessories-s2",
+       "en": "The hat is nice, but it does not go with the coat at all.",
+       "fa": "کلاه قشنگ است، اما اصلاً با پالتو ست نمی‌شود.",
+       "use_en": "Praise, then a clear disagreement.",
+       "use_fa": "تعریف، بعد مخالفت روشن.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "It does not go with the coat."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Choosing a gift",
+      "title_fa": "انتخاب هدیه",
+      "speakers": [
+       "Sara",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "I need a present for my sister. She loves clothes but never buys accessories.",
+        "fa": "برای خواهرم هدیه لازم دارم. لباس را دوست دارد، اما هیچ‌وقت اکسسوری نمی‌خرد."
+       },
+       {
+        "who": "Reza",
+        "en": "What colours does she wear?",
+        "fa": "چه رنگ‌هایی می‌پوشد؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Mostly grey and navy, with one bright thing.",
+        "fa": "بیشتر خاکستری و سرمه‌ای، با یک چیز روشن."
+       },
+       {
+        "who": "Reza",
+        "en": "Then a scarf. A red one would be the statement piece.",
+        "fa": "پس یک شال. شال قرمز می‌تواند تکهٔ چشمگیر باشد."
+       },
+       {
+        "who": "Sara",
+        "en": "Will it go with her coat?",
+        "fa": "با پالتویش ست می‌شود؟"
+       },
+       {
+        "who": "Reza",
+        "en": "A red scarf goes with everything she owns. And it fits like a glove, because scarves do.",
+        "fa": "شال قرمز با همه‌چیز او ست می‌شود. و مثل دستکش اندازه است، چون شال‌ها این‌طورند."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A belt that is the wrong brown",
+       "title_fa": "کمربندی با قهوه‌ای نادرست",
+       "situation_en": "You bought a belt online and it is warmer than your shoes.",
+       "situation_fa": "کمربندی آنلاین خریدی و رنگش از کفش‌هایت گرم‌تر است.",
+       "task_en": "Describe the mismatch and ask what to do.",
+       "task_fa": "ناهماهنگی را توصیف کن و بپرس چه کنی.",
+       "answer_en": "The belt is lovely, but the brown is warmer than my shoes, so they look wrong together. Is there a cooler shade, or should I keep it for the boots?",
+       "answer_fa": "کمربند قشنگ است، اما قهوه‌ای‌اش از کفش‌هایم گرم‌تر است و با هم غلط به نظر می‌رسند. سایهٔ سردتری دارید، یا آن را برای چکمه‌ها نگه دارم؟"
+      },
+      {
+       "title_en": "Too much shine",
+       "title_fa": "بیش از حد براق",
+       "situation_en": "You are going to a quiet dinner and your friend arrives covered in jewellery.",
+       "situation_fa": "به یک شام آرام می‌روی و دوستت پر از جواهر می‌رسد.",
+       "task_en": "Say it kindly and suggest one piece.",
+       "task_fa": "مهربان بگو و یک قطعه پیشنهاد بده.",
+       "answer_en": "You look great, but the dinner is very quiet. Why not keep the earrings and leave the rest at home? One piece would stand out more.",
+       "answer_fa": "عالی به نظر می‌رسی، اما شام خیلی آرام است. چرا گوشواره‌ها را نگه نداری و بقیه را خانه بگذاری؟ یک قطعه بیشتر به چشم می‌آید."
+      }
+     ],
+     "practice": [
+      {
+       "id": "accessories-q1",
+       "q_en": "Which accessory is worn around the waist?",
+       "q_fa": "کدام اکسسوری دور کمر بسته می‌شود؟",
+       "options": [
+        "a belt",
+        "a scarf",
+        "a hat"
+       ],
+       "answer": "a belt",
+       "why_en": "A belt goes around the waist; a scarf around the neck and a hat on the head.",
+       "why_fa": "کمربند دور کمر می‌رود؛ شال دور گردن و کلاه روی سر."
+      },
+      {
+       "id": "accessories-q2",
+       "q_en": "What does it mean if two things go with each other?",
+       "q_fa": "اگر دو چیز با هم «go with» باشند یعنی چه؟",
+       "options": [
+        "They look good together.",
+        "They are the same price.",
+        "They are the same size."
+       ],
+       "answer": "They look good together.",
+       "why_en": "Go with is about looking right together, not price or size.",
+       "why_fa": "go with دربارهٔ خوب به هم آمدن است، نه قیمت یا اندازه."
+      },
+      {
+       "id": "accessories-q3",
+       "q_en": "You say a scarf fits like a glove. What are you praising?",
+       "q_fa": "می‌گویی شال «مثل دستکش اندازه است». چه چیزی را می‌ستایی؟",
+       "options": [
+        "The fit.",
+        "The price.",
+        "The shop."
+       ],
+       "answer": "The fit.",
+       "why_en": "The idiom means it fits perfectly.",
+       "why_fa": "این اصطلاح یعنی کاملاً اندازه است."
+      }
+     ]
+    },
+    {
+     "id": "footwear",
+     "order": 3,
+     "icon": "boot",
+     "title_en": "Shoes for every road",
+     "title_fa": "کفش برای هر راه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Boots, sneakers, sandals, heels and the parts of a shoe, from the laces to the sole.",
+     "blurb_fa": "چکمه، کتانی، صندل، کفش پاشنه‌بلند و اجزای کفش، از بند تا کف.",
+     "objectives": [
+      {
+       "en": "choose the right shoe for the weather and the walk.",
+       "fa": "کفش درست را برای هوا و مسیر انتخاب کن."
+      },
+      {
+       "en": "say where a shoe hurts and what you need.",
+       "fa": "بگو کفش کجا اذیت می‌کند و چه لازم داری."
+      },
+      {
+       "en": "ask for a different width or size in a shoe shop.",
+       "fa": "در فروشگاه کفش عرض یا اندازهٔ دیگری بخواه."
+      }
+     ],
+     "words": [
+      {
+       "id": "footwear-w1",
+       "en": "boot",
+       "ipa": "/buːt/",
+       "pos": "noun",
+       "fa": "چکمه",
+       "def_en": "A strong shoe that covers the ankle and sometimes the leg.",
+       "sport": "fashion",
+       "icon": "boot",
+       "level": "A2",
+       "example_en": "My boots are the only shoes that survive the snow.",
+       "example_fa": "چکمه‌هایم تنها کفشی است که زمستان را دوام می‌آورد.",
+       "ref": ""
+      },
+      {
+       "id": "footwear-w2",
+       "en": "sneaker",
+       "ipa": "/ˈsniːkər/",
+       "pos": "noun",
+       "fa": "کتانی",
+       "def_en": "A soft shoe for sport or everyday walking.",
+       "sport": "fashion",
+       "icon": "sneaker",
+       "level": "A2",
+       "example_en": "White sneakers go with almost everything now.",
+       "example_fa": "کتانی سفید حالا با تقریباً همه‌چیز ست می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "footwear-w3",
+       "en": "sandal",
+       "ipa": "/ˈsændəl/",
+       "pos": "noun",
+       "fa": "صندل",
+       "def_en": "An open shoe held on by straps, worn in warm weather.",
+       "sport": "fashion",
+       "icon": "sandal",
+       "level": "A2",
+       "example_en": "These sandals are fine for the beach, not for a city walk.",
+       "example_fa": "این صندل‌ها برای ساحل خوب‌اند، نه برای پیاده‌روی شهری.",
+       "ref": ""
+      },
+      {
+       "id": "footwear-w4",
+       "en": "heel",
+       "ipa": "/hiːl/",
+       "pos": "noun",
+       "fa": "پاشنه",
+       "def_en": "The raised part under the back of a shoe.",
+       "sport": "fashion",
+       "icon": "heel",
+       "level": "B1",
+       "example_en": "The heel broke on the stairs, so she carried the shoes home.",
+       "example_fa": "پاشنه روی پله شکست، پس کفش‌ها را در دست به خانه برد.",
+       "ref": ""
+      },
+      {
+       "id": "footwear-w5",
+       "en": "lace",
+       "ipa": "/leɪs/",
+       "pos": "noun",
+       "fa": "بند کفش",
+       "def_en": "The string that ties a shoe and holds it closed.",
+       "sport": "fashion",
+       "icon": "lace",
+       "level": "A2",
+       "example_en": "One lace was undone and he stopped to tie it.",
+       "example_fa": "یک بند باز بود و او ایستاد تا ببنددش.",
+       "ref": ""
+      },
+      {
+       "id": "footwear-w6",
+       "en": "sole",
+       "ipa": "/soʊl/",
+       "pos": "noun",
+       "fa": "کفِ کفش",
+       "def_en": "The bottom part of a shoe that touches the ground.",
+       "sport": "fashion",
+       "icon": "sole",
+       "level": "B1",
+       "example_en": "The sole is thin, so you feel every stone.",
+       "example_fa": "کف نازک است، پس هر سنگی را حس می‌کنی.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "footwear-x1",
+       "kind": "phrasal_verb",
+       "en": "break in",
+       "fa": "جا افتادن",
+       "meaning_en": "To make new shoes comfortable by wearing them gradually.",
+       "meaning_fa": "کفش نو را با پوشیدن تدریجی راحت کردن.",
+       "register": "neutral",
+       "example_en": "Wear them around the house for a week to break them in.",
+       "example_fa": "یک هفته در خانه بپوش تا جا بیفتند.",
+       "alt": ""
+      },
+      {
+       "id": "footwear-x2",
+       "kind": "idiom",
+       "en": "walk a mile in someone's shoes",
+       "fa": "در موقعیت کسی قرار گرفتن",
+       "meaning_en": "Literally, walk a mile wearing another person's shoes; figuratively, understand their situation.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، یک میل با کفش دیگری راه رفتن؛ به‌طور مجازی، موقعیت او را درک کردن.",
+       "register": "neutral",
+       "example_en": "Before you judge her, walk a mile in her shoes.",
+       "example_fa": "قبل از قضاوتش، در موقعیت او قرار بگیر.",
+       "alt": ""
+      },
+      {
+       "id": "footwear-x3",
+       "kind": "idiom",
+       "en": "put your best foot forward",
+       "fa": "بهترین خودت را نشان بده",
+       "meaning_en": "Literally, step out with your best foot; figuratively, make your best effort.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، با بهترین پا قدم برداشتن؛ به‌طور مجازی، بهترین تلاش را کردن.",
+       "register": "neutral",
+       "example_en": "Wear something simple and put your best foot forward.",
+       "example_fa": "چیزی ساده بپوش و بهترین خودت را نشان بده.",
+       "alt": ""
+      },
+      {
+       "id": "footwear-x4",
+       "kind": "collocation",
+       "en": "a pair of",
+       "fa": "یک جفت",
+       "meaning_en": "English counts shoes in pairs, never in singles.",
+       "meaning_fa": "انگلیسی کفش را با «جفت» می‌شمارد، نه تک‌تک.",
+       "register": "neutral",
+       "example_en": "I need a pair of black shoes for work.",
+       "example_fa": "من برای کار یک جفت کفش مشکی لازم دارم.",
+       "alt": ""
+      },
+      {
+       "id": "footwear-x5",
+       "kind": "expression",
+       "en": "These are killing me",
+       "fa": "این‌ها پاهایم را می‌کشند",
+       "meaning_en": "A casual way to say shoes hurt a lot.",
+       "meaning_fa": "راه خودمانی برای گفتن اینکه کفش خیلی اذیت می‌کند.",
+       "register": "informal",
+       "example_en": "These are killing me; can we sit down?",
+       "example_fa": "این‌ها پاهایم را می‌کشند؛ می‌توانیم بنشینیم؟",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "These [shoes] are too + [adjective] + for + [activity].",
+       "example_en": "These heels are too high for the walk to the station.",
+       "example_fa": "این کفش‌های پاشنه‌بلند برای پیاده‌روی تا ایستگاه زیادی بلندند.",
+       "note_en": "The activity explains the judgement.",
+       "note_fa": "فعالیت، قضاوت را توضیح می‌دهد."
+      },
+      {
+       "frame": "I need a pair of + [noun].",
+       "example_en": "I need a pair of boots that survive the rain.",
+       "example_fa": "به یک جفت چکمه نیاز دارم که باران را دوام بیاورد.",
+       "note_en": "State the need, then the condition.",
+       "note_fa": "اول نیاز، بعد شرط."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "footwear-s1",
+       "en": "I bought these sneakers for the trip, and I have been breaking them in all week.",
+       "fa": "این کتانی‌ها را برای سفر خریدم و تمام هفته جاافتاده‌شان کرده‌ام.",
+       "use_en": "A purchase and the preparation for it.",
+       "use_fa": "خریدی و آماده‌سازی‌اش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I have been breaking them in all week."
+      },
+      {
+       "id": "footwear-s2",
+       "en": "The sandals are lovely, but I would rather wear something closed for the flight.",
+       "fa": "صندل‌ها قشنگ‌اند، اما برای پرواز ترجیح می‌دهم چیزی بسته بپوشم.",
+       "use_en": "A compliment and a practical preference.",
+       "use_fa": "تعریف و ترجیحی عملی.",
+       "level": "B1",
+       "polite": "polite",
+       "alt": "I would rather wear something closed."
+      }
+     ],
+     "dialogue": {
+      "title_en": "In the shoe shop",
+      "title_fa": "در فروشگاه کفش",
+      "speakers": [
+       "Reza",
+       "Mina"
+      ],
+      "lines": [
+       {
+        "who": "Reza",
+        "en": "I am looking for a pair of shoes I can walk in all day.",
+        "fa": "دنبال یک جفت کفش می‌گردم که تمام روز بتوانم با آن راه بروم."
+       },
+       {
+        "who": "Mina",
+        "en": "These sneakers are light, but the sole is very thin.",
+        "fa": "این کتانی‌ها سبک‌اند، اما کفشان خیلی نازک است."
+       },
+       {
+        "who": "Reza",
+        "en": "Do they come in a wider fit? My toes feel tight.",
+        "fa": "عرض بیشتری دارند؟ انگشتانم فشار می‌آورد."
+       },
+       {
+        "who": "Mina",
+        "en": "They do, in the grey. Try them on and walk to the door.",
+        "fa": "بله، در رنگ خاکستری. پرو کن و تا در برو."
+       },
+       {
+        "who": "Reza",
+        "en": "That is better. My heel stays in place and nothing rubs.",
+        "fa": "این بهتر است. پاشنه‌ام سر جایش می‌ماند و چیزی نمی‌ساید."
+       },
+       {
+        "who": "Mina",
+        "en": "Take them. New shoes need a week to break in, so wear them at home first.",
+        "fa": "ببرشان. کفش نو یک هفته وقت می‌خواهد تا جا بیفتد، پس اول در خانه بپوش."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The boots that hurt",
+       "title_fa": "چکمه‌هایی که اذیت می‌کنند",
+       "situation_en": "You wore new boots for a long day and now your heels are sore.",
+       "situation_fa": "چکمه‌های نو را یک روز طولانی پوشیدی و حالا پاشنه‌هایت زخم شده.",
+       "task_en": "Explain the problem at the shop and ask for a solution.",
+       "task_fa": "در مغازه مشکل را بگو و راه‌حل بخواه.",
+       "answer_en": "The boots are the right size, but the heel rubs after twenty minutes. Could you stretch them, or is there a wider fit in the same style?",
+       "answer_fa": "چکمه‌ها اندازه‌اند، اما بعد از بیست دقیقه پاشنه می‌ساید. می‌توانید کششان بیاورید، یا همین مدل عرض بیشتری دارد؟"
+      },
+      {
+       "title_en": "Shoes for a wedding",
+       "title_fa": "کفش برای عروسی",
+       "situation_en": "The invitation is in a garden, and rain is forecast.",
+       "situation_fa": "دعوت در یک باغ است و پیش‌بینی باران شده.",
+       "task_en": "Choose the shoes and explain the choice.",
+       "task_fa": "کفش را انتخاب کن و دلیلش را بگو.",
+       "answer_en": "I will take the block heels rather than the sandals. They are stable on grass and still formal enough, and the sole keeps my feet out of the mud.",
+       "answer_fa": "به‌جای صندل، کفش پاشنه‌ضخیم می‌برم. روی چمن پایدارند و هنوز به‌قدر کافی رسمی‌اند، و کفشان پاهایم را از گِل دور نگه می‌دارد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "footwear-q1",
+       "q_en": "Where is the sole of a shoe?",
+       "q_fa": "کفِ کفش کجاست؟",
+       "options": [
+        "At the bottom",
+        "At the top",
+        "At the back"
+       ],
+       "answer": "At the bottom",
+       "why_en": "The sole is the part that touches the ground.",
+       "why_fa": "کف همان بخشی است که با زمین تماس دارد."
+      },
+      {
+       "id": "footwear-q2",
+       "q_en": "New shoes are tight. What do you do?",
+       "q_fa": "کفش نو تنگ است. چه می‌کنی؟",
+       "options": [
+        "Break them in slowly",
+        "Throw them away",
+        "Cut the sole"
+       ],
+       "answer": "Break them in slowly",
+       "why_en": "Wearing them gradually makes them comfortable.",
+       "why_fa": "پوشیدن تدریجی آن‌ها را راحت می‌کند."
+      },
+      {
+       "id": "footwear-q3",
+       "q_en": "Which shoes suit a long city walk best?",
+       "q_fa": "کدام کفش برای پیاده‌روی طولانی در شهر بهتر است؟",
+       "options": [
+        "Sneakers",
+        "Heels",
+        "Sandals"
+       ],
+       "answer": "Sneakers",
+       "why_en": "Sneakers support the foot for hours of walking.",
+       "why_fa": "کتانی پا را برای ساعت‌ها راه رفتن حمایت می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "shopping",
+     "order": 4,
+     "icon": "cart",
+     "title_en": "In the shop",
+     "title_fa": "در فروشگاه",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Browsing the rail, taking a fitting room, reading the tag and dealing with a receipt.",
+     "blurb_fa": "گشتن لای لباس‌ها، رفتن به اتاق پرو، خواندن برچسب و سروکله زدن با رسید.",
+     "objectives": [
+      {
+       "en": "ask for a size or a colour without leaving the shop.",
+       "fa": "اندازه یا رنگ را بخواه، بی‌آنکه مغازه را ترک کنی."
+      },
+      {
+       "en": "understand what a tag and a receipt actually say.",
+       "fa": "بفهم برچسب و رسید واقعاً چه می‌گویند."
+      },
+      {
+       "en": "return or exchange something politely.",
+       "fa": "چیزی را مؤدبانه برگردان یا تعویض کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "shopping-w1",
+       "en": "fitting room",
+       "ipa": "/ˈfɪtɪŋ ruːm/",
+       "pos": "noun",
+       "fa": "اتاق پرو",
+       "def_en": "A small room in a shop where you try clothes on.",
+       "sport": "fashion",
+       "icon": "fitting",
+       "level": "A2",
+       "example_en": "The fitting room is at the back, behind the mirrors.",
+       "example_fa": "اتاق پرو ته مغازه، پشت آینه‌هاست.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w2",
+       "en": "rack",
+       "ipa": "/ræk/",
+       "pos": "noun",
+       "fa": "رَک لباس",
+       "def_en": "A frame that holds clothes on hangers in a shop.",
+       "sport": "fashion",
+       "icon": "rack",
+       "level": "B1",
+       "example_en": "The winter coats are on the rack by the window.",
+       "example_fa": "پالتوهای زمستانی روی رک کنار پنجره‌اند.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w3",
+       "en": "tag",
+       "ipa": "/tæɡ/",
+       "pos": "noun",
+       "fa": "برچسب قیمت",
+       "def_en": "A small label that shows the price, size and care of a garment.",
+       "sport": "fashion",
+       "icon": "tag",
+       "level": "A2",
+       "example_en": "The tag says hand wash, so do not put it in the machine.",
+       "example_fa": "برچسب می‌گوید با دست بشوی، پس آن را در ماشین نگذار.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w4",
+       "en": "receipt",
+       "ipa": "/rɪˈsiːt/",
+       "pos": "noun",
+       "fa": "رسید خرید",
+       "def_en": "The paper a shop gives you as proof of payment.",
+       "sport": "fashion",
+       "icon": "receipt",
+       "level": "A2",
+       "example_en": "Keep the receipt; you have thirty days to return it.",
+       "example_fa": "رسید را نگه دار؛ سی روز برای برگرداندنش وقت داری.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w5",
+       "en": "refund",
+       "ipa": "/ˈriːfʌnd/",
+       "pos": "noun",
+       "fa": "بازپرداخت پول",
+       "def_en": "Money given back when you return something you bought.",
+       "sport": "fashion",
+       "icon": "refund",
+       "level": "B1",
+       "example_en": "They offered a refund, but I asked for a different size.",
+       "example_fa": "بازپرداخت پیشنهاد دادند، اما من اندازهٔ دیگری خواستم.",
+       "ref": ""
+      },
+      {
+       "id": "shopping-w6",
+       "en": "exchange",
+       "ipa": "/ɪksˈtʃeɪndʒ/",
+       "pos": "verb",
+       "fa": "تعویض کردن",
+       "def_en": "To give something back and take another in its place.",
+       "sport": "fashion",
+       "icon": "exchange",
+       "level": "B1",
+       "example_en": "Can I exchange this shirt for a larger one?",
+       "example_fa": "می‌توانم این پیراهن را با بزرگ‌تری عوض کنم؟",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "shopping-x1",
+       "kind": "expression",
+       "en": "Can I try this on?",
+       "fa": "می‌توانم این را پرو کنم؟",
+       "meaning_en": "The standard question at the fitting room.",
+       "meaning_fa": "پرسش استاندارد کنار اتاق پرو.",
+       "register": "neutral",
+       "example_en": "I like the green one. Can I try this on?",
+       "example_fa": "سبز را دوست دارم. می‌توانم پرو کنم؟",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x2",
+       "kind": "expression",
+       "en": "It is out of stock.",
+       "fa": "موجودی تمام شده.",
+       "meaning_en": "Said when the shop has none left, even if the website does.",
+       "meaning_fa": "وقتی مغازه چیزی ندارد، حتی اگر سایت داشته باشد.",
+       "register": "neutral",
+       "example_en": "The blue is out of stock until Friday.",
+       "example_fa": "آبی تا جمعه موجود نیست.",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x3",
+       "kind": "idiom",
+       "en": "shop till you drop",
+       "fa": "تا از پا افتادن خرید کردن",
+       "meaning_en": "Literally, shop until you fall down; figuratively, shop for a very long time.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، تا افتادن خرید کردن؛ به‌طور مجازی، بسیار طولانی خرید کردن.",
+       "register": "informal",
+       "example_en": "We shopped till we dropped on Saturday.",
+       "example_fa": "شنبه تا از پا افتادن خرید کردیم.",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x4",
+       "kind": "phrasal_verb",
+       "en": "pick out",
+       "fa": "انتخاب کردن",
+       "meaning_en": "To choose one thing from several.",
+       "meaning_fa": "از میان چند چیز یکی را انتخاب کردن.",
+       "register": "neutral",
+       "example_en": "Pick out a shirt and I will hold your bag.",
+       "example_fa": "یک پیراهن انتخاب کن تا کیف تو را نگه دارم.",
+       "alt": ""
+      },
+      {
+       "id": "shopping-x5",
+       "kind": "collocation",
+       "en": "on sale",
+       "fa": "حراج",
+       "meaning_en": "Reduced in price for a period, the shop's own decision.",
+       "meaning_fa": "برای مدتی با قیمت کمتر، تصمیم خود مغازه.",
+       "register": "neutral",
+       "example_en": "The coats are on sale until Sunday.",
+       "example_fa": "پالتوها تا یکشنبه حراج‌اند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "Do you have this in + [size or colour]?",
+       "example_en": "Do you have this in a medium?",
+       "example_fa": "این سایز متوسط دارد؟",
+       "note_en": "One question covers both size and colour.",
+       "note_fa": "یک پرسش هم اندازه و هم رنگ را می‌پوشاند."
+      },
+      {
+       "frame": "I would like to + [return or exchange] + this.",
+       "example_en": "I would like to exchange this for a larger size.",
+       "example_fa": "می‌خواهم این را با سایز بزرگ‌تری عوض کنم.",
+       "note_en": "The polite frame for any shop request.",
+       "note_fa": "چارچوب مؤدبانه برای هر درخواست در مغازه."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "shopping-s1",
+       "en": "I found the jacket on the rack, but the fitting room queue was too long, so I came back later.",
+       "fa": "کاپشن را روی رک پیدا کردم، اما صف اتاق پرو خیلی بلند بود، پس بعداً برگشتم.",
+       "use_en": "What happened, in order.",
+       "use_fa": "چه شد، به ترتیب.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I came back later."
+      },
+      {
+       "id": "shopping-s2",
+       "en": "The receipt says fourteen days, so we should decide before the weekend.",
+       "fa": "رسید می‌گوید چهارده روز، پس باید قبل از آخر هفته تصمیم بگیریم.",
+       "use_en": "A deadline taken from a document.",
+       "use_fa": "مهلتی که از یک سند گرفته شده.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "We should decide before the weekend."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the till",
+      "title_fa": "پای صندوق",
+      "speakers": [
+       "Omid",
+       "Sara"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "I would like to return this shirt. It is too small across the shoulders.",
+        "fa": "می‌خواهم این پیراهن را برگردانم. سرشانه‌هایش تنگ است."
+       },
+       {
+        "who": "Sara",
+        "en": "Do you have the receipt?",
+        "fa": "رسیدش را داری؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Yes, here. I bought it on Saturday.",
+        "fa": "بله، بفرمایید. شنبه خریدمش."
+       },
+       {
+        "who": "Sara",
+        "en": "Would you like a refund or an exchange?",
+        "fa": "بازپرداخت می‌خواهی یا تعویض؟"
+       },
+       {
+        "who": "Omid",
+        "en": "An exchange, if you have a large. The colour is right.",
+        "fa": "تعویض، اگر سایز بزرگ دارید. رنگش درست است."
+       },
+       {
+        "who": "Sara",
+        "en": "We do. The fitting room is free, and if the large is still tight we can order the next size.",
+        "fa": "داریم. اتاق پرو آزاد است، و اگر بزرگ هم تنگ بود می‌توانیم سایز بعدی را سفارش دهیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The dress that is the wrong shade",
+       "title_fa": "پیراهنی با رنگ نادرست",
+       "situation_en": "The dress arrived, and the red is brighter than the photo.",
+       "situation_fa": "پیراهن رسید و قرمزش از عکس روشن‌تر است.",
+       "task_en": "Ask for an exchange and explain the difference.",
+       "task_fa": "تعویض بخواه و تفاوت را توضیح بده.",
+       "answer_en": "The dress fits well, but the red is much brighter than it looked online. Could I exchange it for the navy, or is there a softer red in the same style?",
+       "answer_fa": "پیراهن خوب اندازه است، اما قرمزش از آنچه آنلاین دیده می‌شد خیلی روشن‌تر است. می‌توانم با سرمه‌ای عوضش کنم، یا همین مدل قرمز ملایم‌تری دارید؟"
+      },
+      {
+       "title_en": "A queue and a closing time",
+       "title_fa": "صف و ساعت بسته‌شدن",
+       "situation_en": "It is ten to nine, the shop closes at nine, and you are still in the fitting room queue.",
+       "situation_fa": "ده دقیقه به نه مانده، مغازه نه بسته می‌شود و تو هنوز در صف اتاق پرو هستی.",
+       "task_en": "Ask the assistant what is possible.",
+       "task_fa": "از فروشنده بپرس چه می‌شود کرد.",
+       "answer_en": "I know you close in ten minutes. Should I keep the two things I want and pay now, or can I come back tomorrow with the tag still on?",
+       "answer_fa": "می‌دانم ده دقیقه دیگر می‌بندید. دو چیز را که می‌خواهم نگه دارم و الان حساب کنم، یا فردا با برچسب برگردم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "shopping-q1",
+       "q_en": "What paper proves you paid?",
+       "q_fa": "چه کاغذی ثابت می‌کند پول داده‌ای؟",
+       "options": [
+        "The receipt",
+        "The tag",
+        "The rack"
+       ],
+       "answer": "The receipt",
+       "why_en": "The receipt is the proof of payment.",
+       "why_fa": "رسید مدرک پرداخت است."
+      },
+      {
+       "id": "shopping-q2",
+       "q_en": "The shop has no more of your size. It is ...",
+       "q_fa": "مغازه اندازهٔ تو را ندارد. آن ... است.",
+       "options": [
+        "out of stock",
+        "on sale",
+        "in exchange"
+       ],
+       "answer": "out of stock",
+       "why_en": "Out of stock means none left.",
+       "why_fa": "out of stock یعنی موجودی تمام شده."
+      },
+      {
+       "id": "shopping-q3",
+       "q_en": "You want a different colour, not your money back. You ask for ...",
+       "q_fa": "رنگ دیگری می‌خواهی، نه پولت را. درخواست ... می‌کنی.",
+       "options": [
+        "an exchange",
+        "a refund",
+        "a receipt"
+       ],
+       "answer": "an exchange",
+       "why_en": "An exchange swaps the item; a refund returns the money.",
+       "why_fa": "exchange کالا را عوض می‌کند؛ refund پول را برمی‌گرداند."
+      }
+     ]
+    },
+    {
+     "id": "fit",
+     "order": 5,
+     "icon": "tape",
+     "title_en": "Size and fit",
+     "title_fa": "اندازه و تن‌خوردگی",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Sizes, measurements, tight and loose, and what a tailor can change.",
+     "blurb_fa": "اندازه‌ها، متر کردن، تنگ و گشاد، و آنچه خیاط می‌تواند عوض کند.",
+     "objectives": [
+      {
+       "en": "say where a garment is tight or loose.",
+       "fa": "بگو لباس کجا تنگ یا گشاد است."
+      },
+      {
+       "en": "give your measurements in a shop or online form.",
+       "fa": "اندازه‌هایت را در مغازه یا فرم آنلاین بگو."
+      },
+      {
+       "en": "explain what a tailor should take in or let out.",
+       "fa": "توضیح بده خیاط چه چیزی را باید تنگ یا باز کند."
+      }
+     ],
+     "words": [
+      {
+       "id": "fit-w1",
+       "en": "size",
+       "ipa": "/saɪz/",
+       "pos": "noun",
+       "fa": "اندازه",
+       "def_en": "The standard measurement a garment is made in.",
+       "sport": "fashion",
+       "icon": "tag",
+       "level": "A2",
+       "example_en": "I am between a small and a medium, depending on the brand.",
+       "example_fa": "بسته به برند، بین کوچک و متوسط هستم.",
+       "ref": ""
+      },
+      {
+       "id": "fit-w2",
+       "en": "measurement",
+       "ipa": "/ˈmeʒərmənt/",
+       "pos": "noun",
+       "fa": "اندازه",
+       "def_en": "A number taken with a tape, such as chest or waist.",
+       "sport": "fashion",
+       "icon": "tape",
+       "level": "B1",
+       "example_en": "Send your measurements and they will make the jacket.",
+       "example_fa": "اندازه‌هایت را بفرست تا کاپشن را بسازند.",
+       "ref": ""
+      },
+      {
+       "id": "fit-w3",
+       "en": "tight",
+       "ipa": "/taɪt/",
+       "pos": "adjective",
+       "fa": "تنگ",
+       "def_en": "So close to the body that it pulls or restricts.",
+       "sport": "fashion",
+       "icon": "belt",
+       "level": "A2",
+       "example_en": "The waist is tight, but the shoulders are fine.",
+       "example_fa": "کمر تنگ است، اما سرشانه‌ها خوب‌اند.",
+       "ref": ""
+      },
+      {
+       "id": "fit-w4",
+       "en": "loose",
+       "ipa": "/luːs/",
+       "pos": "adjective",
+       "fa": "گشاد",
+       "def_en": "Large enough to hang away from the body.",
+       "sport": "fashion",
+       "icon": "shirt",
+       "level": "A2",
+       "example_en": "A loose shirt is cooler in summer.",
+       "example_fa": "پیراهن گشاد در تابستان خنک‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "fit-w5",
+       "en": "tailor",
+       "ipa": "/ˈteɪlər/",
+       "pos": "noun",
+       "fa": "خیاط",
+       "def_en": "A person who makes or adjusts clothes to fit.",
+       "sport": "fashion",
+       "icon": "needle",
+       "level": "B1",
+       "example_en": "The tailor moved the buttons two centimetres.",
+       "example_fa": "خیاط دکمه‌ها را دو سانتی‌متر جابه‌جا کرد.",
+       "ref": ""
+      },
+      {
+       "id": "fit-w6",
+       "en": "alteration",
+       "ipa": "/ˌɔːltəˈreɪʃən/",
+       "pos": "noun",
+       "fa": "اصلاح لباس",
+       "def_en": "A change made to a garment so it fits better.",
+       "sport": "fashion",
+       "icon": "pin",
+       "level": "B2",
+       "example_en": "Alterations cost extra and take a week.",
+       "example_fa": "اصلاحات هزینهٔ اضافه دارد و یک هفته وقت می‌برد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "fit-x1",
+       "kind": "phrasal_verb",
+       "en": "size up",
+       "fa": "یک سایز بزرگ‌تر برداشتن",
+       "meaning_en": "To choose the next size larger.",
+       "meaning_fa": "یک سایز بزرگ‌تر انتخاب کردن.",
+       "register": "neutral",
+       "example_en": "If it is between sizes, size up.",
+       "example_fa": "اگر بین دو سایز بودی، بزرگ‌تر را بردار.",
+       "alt": ""
+      },
+      {
+       "id": "fit-x2",
+       "kind": "phrasal_verb",
+       "en": "take in",
+       "fa": "تنگ کردن",
+       "meaning_en": "To make a garment smaller with seams.",
+       "meaning_fa": "لباس را با درز کوچک‌تر کردن.",
+       "register": "neutral",
+       "example_en": "She took in the waist of the dress.",
+       "example_fa": "او کمر پیراهن را تنگ کرد.",
+       "alt": ""
+      },
+      {
+       "id": "fit-x3",
+       "kind": "expression",
+       "en": "a bit snug",
+       "fa": "کمی تنگ",
+       "meaning_en": "A soft way to say tight, used in shops.",
+       "meaning_fa": "راه نرم گفتن «تنگ»، در مغازه‌ها.",
+       "register": "polite",
+       "example_en": "The jacket is a bit snug across the back.",
+       "example_fa": "کاپشن در ناحیهٔ پشت کمی تنگ است.",
+       "alt": ""
+      },
+      {
+       "id": "fit-x4",
+       "kind": "collocation",
+       "en": "made to measure",
+       "fa": "دوزَنی",
+       "meaning_en": "Made for one person's measurements, not a standard size.",
+       "meaning_fa": "برای اندازهٔ یک نفر ساخته‌شده، نه سایز استاندارد.",
+       "register": "formal",
+       "example_en": "His suit is made to measure.",
+       "example_fa": "کت‌وشلوارش دوزَنی است.",
+       "alt": ""
+      },
+      {
+       "id": "fit-x5",
+       "kind": "collocation",
+       "en": "off the peg",
+       "fa": "آماده (غیردوزَنی)",
+       "meaning_en": "Bought in a standard size, straight from the rail.",
+       "meaning_fa": "با اندازهٔ استاندارد خریداری‌شده، مستقیم از رک.",
+       "register": "neutral",
+       "example_en": "I cannot afford made to measure, so it is off the peg.",
+       "example_fa": "دوزَنی از عهده‌ام خارج است، پس آماده می‌خرم.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It is a little too + [tight or loose] + around + [body part].",
+       "example_en": "It is a little too loose around the waist.",
+       "example_fa": "دور کمر کمی گشاد است.",
+       "note_en": "Name the fit, then the place.",
+       "note_fa": "اول تن‌خوردگی، بعد جا."
+      },
+      {
+       "frame": "Could you take in the + [part]?",
+       "example_en": "Could you take in the sleeves by two centimetres?",
+       "example_fa": "می‌توانید آستین‌ها را دو سانتی‌متر تنگ کنید؟",
+       "note_en": "A precise request for a tailor.",
+       "note_fa": "درخواستی دقیق از خیاط."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "fit-s1",
+       "en": "I am between sizes, so I always size up and let the tailor take in the waist.",
+       "fa": "بین دو سایز هستم، پس همیشه بزرگ‌تر را برمی‌دارم و خیاط کمر را تنگ می‌کند.",
+       "use_en": "A rule for a common problem.",
+       "use_fa": "قاعده‌ای برای مشکلی رایج.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I always size up."
+      },
+      {
+       "id": "fit-s2",
+       "en": "The dress is beautiful, but the shoulders are too wide, so I will ask for an alteration.",
+       "fa": "پیراهن زیباست، اما سرشانه‌ها خیلی پهن‌اند، پس درخواست اصلاح می‌کنم.",
+       "use_en": "Praise and a specific fix.",
+       "use_fa": "تعریف و راه‌حلی مشخص.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I will ask for an alteration."
+      }
+     ],
+     "dialogue": {
+      "title_en": "At the tailor",
+      "title_fa": "نزد خیاط",
+      "speakers": [
+       "Mina",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Reza",
+        "en": "The jacket fits at the shoulders, but there is too much fabric at the waist.",
+        "fa": "کاپشن سرشانه اندازه است، اما دور کمر پارچه زیادی دارد."
+       },
+       {
+        "who": "Mina",
+        "en": "So we take in the waist and leave the length. How much?",
+        "fa": "پس کمر را تنگ می‌کنیم و قد را دست نمی‌زنیم. چقدر؟"
+       },
+       {
+        "who": "Reza",
+        "en": "Three centimetres is enough. I still want to sit down in it.",
+        "fa": "سه سانتی‌متر کافی است. هنوز می‌خواهم با آن بنشینم."
+       },
+       {
+        "who": "Mina",
+        "en": "And the sleeves? They are a little long.",
+        "fa": "و آستین‌ها؟ کمی بلندند."
+       },
+       {
+        "who": "Reza",
+        "en": "Take them up one centimetre, no more. I like to show my watch.",
+        "fa": "یک سانتی‌متر کوتاهشان کن، نه بیشتر. دوست دارم ساعتم دیده شود."
+       },
+       {
+        "who": "Mina",
+        "en": "Fine. Try it on again on Thursday and we will check the fit together.",
+        "fa": "باشه. پنجشنبه دوباره پرو کن تا با هم اندازه را بررسی کنیم."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Ordering online without a tape",
+       "title_fa": "خرید آنلاین بدون متر",
+       "situation_en": "You want a coat from a website that asks for measurements you do not know.",
+       "situation_fa": "پالتویی از سایتی می‌خواهی که اندازه‌هایی می‌پرسد که نمی‌دانی.",
+       "task_en": "Ask a friend to help and describe your usual size.",
+       "task_fa": "از دوستی کمک بخواه و اندازهٔ معمولت را توضیح بده.",
+       "answer_en": "I do not have a tape, but I usually take a medium in coats, and I am 178 centimetres tall. Would you measure my old coat across the chest so I can compare?",
+       "answer_fa": "متر ندارم، اما معمولاً در پالتو سایز متوسط می‌پوشم و قدم ۱۷۸ سانتی‌متر است. می‌شود پالتوی قدیمی‌ام را از سینه اندازه بگیری تا مقایسه کنم؟"
+      },
+      {
+       "title_en": "The trousers that are too long",
+       "title_fa": "شلواری که بلند است",
+       "situation_en": "You bought trousers that fit at the waist but drag on the floor.",
+       "situation_fa": "شلواری خریدی که کمرش اندازه است اما روی زمین می‌کشد.",
+       "task_en": "Explain what needs changing and ask the price.",
+       "task_fa": "بگو چه باید عوض شود و قیمت را بپرس.",
+       "answer_en": "The waist is perfect, but they are five centimetres too long. How much would it cost to shorten them, and can you keep the original hem?",
+       "answer_fa": "کمر عالی است، اما پنج سانتی‌متر بلند است. کوتاه کردنش چقدر می‌شود، و می‌توانید لبهٔ اصلی را نگه دارید؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "fit-q1",
+       "q_en": "A garment that pulls across the chest is ...",
+       "q_fa": "لباسی که روی سینه می‌کشد ... است.",
+       "options": [
+        "tight",
+        "loose",
+        "long"
+       ],
+       "answer": "tight",
+       "why_en": "Pulling is the sign of tightness.",
+       "why_fa": "کشیدن نشانهٔ تنگی است."
+      },
+      {
+       "id": "fit-q2",
+       "q_en": "What does a tailor do to a waist that is too wide?",
+       "q_fa": "خیاط با کمری که خیلی گشاد است چه می‌کند؟",
+       "options": [
+        "Takes it in",
+        "Lets it out",
+        "Sizes it up"
+       ],
+       "answer": "Takes it in",
+       "why_en": "Taking in makes a garment smaller.",
+       "why_fa": "take in لباس را کوچک‌تر می‌کند."
+      },
+      {
+       "id": "fit-q3",
+       "q_en": "Which phrase is the soft, polite way to say tight?",
+       "q_fa": "کدام عبارت راه نرم و مؤدبانه برای گفتن «تنگ» است؟",
+       "options": [
+        "A bit snug",
+        "Wrong",
+        "Too small"
+       ],
+       "answer": "A bit snug",
+       "why_en": "A bit snug softens the comment.",
+       "why_fa": "a bit snug comment را نرم می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "fabrics",
+     "order": 6,
+     "icon": "thread",
+     "title_en": "What it is made of",
+     "title_fa": "از چه ساخته شده",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Cotton, wool, silk, leather, denim and linen, and what each one does on the body.",
+     "blurb_fa": "پنبه، پشم، ابریشم، چرم، جین و کتان، و کاری که هرکدام روی بدن می‌کند.",
+     "objectives": [
+      {
+       "en": "name the material of a garment.",
+       "fa": "جنس یک لباس را نام ببر."
+      },
+      {
+       "en": "say how a fabric feels and when to wear it.",
+       "fa": "بگو پارچه چه حسی دارد و کِی باید پوشید."
+      },
+      {
+       "en": "choose a fabric for the weather and the occasion.",
+       "fa": "پارچه را برای هوا و موقعیت انتخاب کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "fabrics-w1",
+       "en": "cotton",
+       "ipa": "/ˈkɑːtən/",
+       "pos": "noun",
+       "fa": "پنبه",
+       "def_en": "A soft natural fabric made from the cotton plant.",
+       "sport": "fashion",
+       "icon": "thread",
+       "level": "A2",
+       "example_en": "Cotton shirts are cooler than polyester in summer.",
+       "example_fa": "پیراهن‌های پنبه‌ای در تابستان از پلی‌استر خنک‌ترند.",
+       "ref": ""
+      },
+      {
+       "id": "fabrics-w2",
+       "en": "wool",
+       "ipa": "/wʊl/",
+       "pos": "noun",
+       "fa": "پشم",
+       "def_en": "The thick soft hair of sheep, spun into warm fabric.",
+       "sport": "fashion",
+       "icon": "thread",
+       "level": "A2",
+       "example_en": "A wool coat is warm even when it is wet.",
+       "example_fa": "پالتوی پشمی حتی وقتی خیس است گرم است.",
+       "ref": ""
+      },
+      {
+       "id": "fabrics-w3",
+       "en": "silk",
+       "ipa": "/sɪlk/",
+       "pos": "noun",
+       "fa": "ابریشم",
+       "def_en": "A smooth, light fabric made by silkworms.",
+       "sport": "fashion",
+       "icon": "thread",
+       "level": "B1",
+       "example_en": "Silk needs careful washing and never a hot iron.",
+       "example_fa": "ابریشم شست‌وشوی دقیق می‌خواهد و هرگز اتوی داغ.",
+       "ref": ""
+      },
+      {
+       "id": "fabrics-w4",
+       "en": "leather",
+       "ipa": "/ˈleðər/",
+       "pos": "noun",
+       "fa": "چرم",
+       "def_en": "Material made from animal skin, used for shoes and bags.",
+       "sport": "fashion",
+       "icon": "bag",
+       "level": "A2",
+       "example_en": "Leather boots last for years if you look after them.",
+       "example_fa": "چکمه‌های چرمی اگر مراقبت کنی سال‌ها دوام می‌آورند.",
+       "ref": ""
+      },
+      {
+       "id": "fabrics-w5",
+       "en": "denim",
+       "ipa": "/ˈdenɪm/",
+       "pos": "noun",
+       "fa": "جین",
+       "def_en": "The strong cotton fabric that jeans are made of.",
+       "sport": "fashion",
+       "icon": "trousers",
+       "level": "A2",
+       "example_en": "Denim is stiff at first and softens with every wash.",
+       "example_fa": "جین اول سفت است و با هر شست‌وشو نرم می‌شود.",
+       "ref": ""
+      },
+      {
+       "id": "fabrics-w6",
+       "en": "linen",
+       "ipa": "/ˈlɪnən/",
+       "pos": "noun",
+       "fa": "کتان",
+       "def_en": "A light fabric from the flax plant that creases easily.",
+       "sport": "fashion",
+       "icon": "shirt",
+       "level": "B1",
+       "example_en": "Linen is perfect for hot cities, if you accept the creases.",
+       "example_fa": "کتان برای شهرهای گرم عالی است، اگر چین‌ها را بپذیری.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "fabrics-x1",
+       "kind": "collocation",
+       "en": "machine washable",
+       "fa": "قابل شست‌وشو با ماشین",
+       "meaning_en": "The label phrase that decides how you clean it.",
+       "meaning_fa": "عبارت برچسب که نحوهٔ تمیز کردن را تعیین می‌کند.",
+       "register": "neutral",
+       "example_en": "Is the jacket machine washable?",
+       "example_fa": "کاپشن با ماشین شسته می‌شود؟",
+       "alt": ""
+      },
+      {
+       "id": "fabrics-x2",
+       "kind": "collocation",
+       "en": "genuine leather",
+       "fa": "چرم اصل",
+       "meaning_en": "Real leather, not a plastic copy.",
+       "meaning_fa": "چرم واقعی، نه کپی پلاستیکی.",
+       "register": "neutral",
+       "example_en": "The tag says genuine leather.",
+       "example_fa": "برچسب می‌گوید چرم اصل.",
+       "alt": ""
+      },
+      {
+       "id": "fabrics-x3",
+       "kind": "expression",
+       "en": "It breathes well",
+       "fa": "هوا را رد می‌کند",
+       "meaning_en": "Said of a fabric that lets air through.",
+       "meaning_fa": "دربارهٔ پارچه‌ای که هوا را عبور می‌دهد.",
+       "register": "neutral",
+       "example_en": "Cotton breathes well in this heat.",
+       "example_fa": "پنبه در این گرما هوا را خوب رد می‌کند.",
+       "alt": ""
+      },
+      {
+       "id": "fabrics-x4",
+       "kind": "idiom",
+       "en": "pull the wool over someone's eyes",
+       "fa": "چشم کسی را بستن",
+       "meaning_en": "Literally, put wool over someone's eyes; figuratively, deceive them.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، پشم روی چشمان کسی گذاشتن؛ به‌طور مجازی، فریب دادن او.",
+       "register": "neutral",
+       "example_en": "Do not let the label pull the wool over your eyes.",
+       "example_fa": "نگذار برچسب چشمت را ببندد.",
+       "alt": ""
+      },
+      {
+       "id": "fabrics-x5",
+       "kind": "collocation",
+       "en": "faux leather",
+       "fa": "چرم مصنوعی",
+       "meaning_en": "A plastic material made to look like leather.",
+       "meaning_fa": "ماده‌ای پلاستیکی که شبیه چرم ساخته می‌شود.",
+       "register": "neutral",
+       "example_en": "Faux leather is cheaper but less breathable.",
+       "example_fa": "چرم مصنوعی ارزان‌تر است اما کمتر هوا را رد می‌کند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "This [garment] is made of + [material].",
+       "example_en": "This coat is made of wool.",
+       "example_fa": "این پالتو از پشم ساخته شده.",
+       "note_en": "Made of names the material; made from names the process.",
+       "note_fa": "made of جنس را می‌گوید؛ made from فرایند را."
+      },
+      {
+       "frame": "It feels + [adjective] + on the skin.",
+       "example_en": "It feels soft on the skin.",
+       "example_fa": "روی پوست نرم است.",
+       "note_en": "A touch description, not a look.",
+       "note_fa": "توصیف لامسه، نه ظاهر."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "fabrics-s1",
+       "en": "I would rather pay more for wool, because it keeps its shape for years.",
+       "fa": "ترجیح می‌دهم برای پشم بیشتر پول بدهم، چون سال‌ها فرمش را نگه می‌دارد.",
+       "use_en": "A preference with a reason.",
+       "use_fa": "ترجیحی با دلیل.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "It keeps its shape for years."
+      },
+      {
+       "id": "fabrics-s2",
+       "en": "The linen shirt creases in ten minutes, but it is the only thing I can wear in this heat.",
+       "fa": "پیراهن کتان در ده دقیقه چین می‌خورد، اما تنها چیزی است که در این گرما می‌توانم بپوشم.",
+       "use_en": "A trade-off, stated plainly.",
+       "use_fa": "معاوضه‌ای که ساده گفته شده.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It is the only thing I can wear."
+      }
+     ],
+     "dialogue": {
+      "title_en": "In the fabric shop",
+      "title_fa": "در فروشگاه پارچه",
+      "speakers": [
+       "Sara",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "I want a shirt for summer, something that does not stick to my back.",
+        "fa": "یک پیراهن برای تابستان می‌خواهم، چیزی که به پشتم نچسبد."
+       },
+       {
+        "who": "Omid",
+        "en": "Cotton or linen. Linen is cooler, but it creases.",
+        "fa": "پنبه یا کتان. کتان خنک‌تر است، اما چین می‌خورد."
+       },
+       {
+        "who": "Sara",
+        "en": "How much does this cotton cost per metre?",
+        "fa": "این پنبه متری چقدر است؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Twelve. It is a little heavier than the linen, so it hangs better.",
+        "fa": "دوازده. کمی از کتان سنگین‌تر است، پس بهتر می‌ایستد."
+       },
+       {
+        "who": "Sara",
+        "en": "I will take the cotton for the shirt and a metre of silk for a scarf.",
+        "fa": "پنبه را برای پیراهن می‌برم و یک متر ابریشم برای شال."
+       },
+       {
+        "who": "Omid",
+        "en": "Silk is not machine washable. Wash it by hand in cold water.",
+        "fa": "ابریشم با ماشین شسته نمی‌شود. با دست و آب سرد بشوی."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A coat for a wet winter",
+       "title_fa": "پالتو برای زمستانی خیس",
+       "situation_en": "You need a coat that survives rain and still looks smart.",
+       "situation_fa": "پالتویی لازم داری که باران را دوام بیاورد و هنوز شیک باشد.",
+       "task_en": "Choose a fabric and explain the trade-off.",
+       "task_fa": "پارچه را انتخاب کن و معاوضه را توضیح بده.",
+       "answer_en": "I will take the wool coat rather than the faux leather. Wool stays warm when it is damp, it breathes on the metro, and a dark colour hides the rain marks.",
+       "answer_fa": "پالتوی پشمی را به‌جای چرم مصنوعی می‌برم. پشم وقتی نمناک است گرم می‌ماند، در مترو هوا را رد می‌کند و رنگ تیره لکه‌های باران را پنهان می‌کند."
+      },
+      {
+       "title_en": "The jacket that is not leather",
+       "title_fa": "کاپشنی که چرم نیست",
+       "situation_en": "The listing said leather, and the jacket smells of plastic.",
+       "situation_fa": "آگهی گفته بود چرم، و کاپشن بوی پلاستیک می‌دهد.",
+       "task_en": "Ask the seller a precise question.",
+       "task_fa": "از فروشنده پرسشی دقیق بپرس.",
+       "answer_en": "The tag says faux leather, but the listing said genuine leather. Could you confirm the material, and if it is synthetic, what is your return policy?",
+       "answer_fa": "برچسب می‌گوید چرم مصنوعی، اما آگهی چرم اصل گفته بود. می‌شود جنس را تأیید کنید، و اگر مصنوعی است، شرایط برگرداندن چیست؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "fabrics-q1",
+       "q_en": "Which fabric comes from sheep?",
+       "q_fa": "کدام پارچه از گوسفند می‌آید؟",
+       "options": [
+        "Wool",
+        "Cotton",
+        "Linen"
+       ],
+       "answer": "Wool",
+       "why_en": "Wool is spun from sheep's hair.",
+       "why_fa": "پشم از موی گوسفند ریسیده می‌شود."
+      },
+      {
+       "id": "fabrics-q2",
+       "q_en": "Which fabric is cool but creases easily?",
+       "q_fa": "کدام پارچه خنک است اما زود چین می‌خورد؟",
+       "options": [
+        "Linen",
+        "Leather",
+        "Wool"
+       ],
+       "answer": "Linen",
+       "why_en": "Linen is light and creases quickly.",
+       "why_fa": "کتان سبک است و زود چین می‌خورد."
+      },
+      {
+       "id": "fabrics-q3",
+       "q_en": "A fabric that lets air through ...",
+       "q_fa": "پارچه‌ای که هوا را عبور می‌دهد ...",
+       "options": [
+        "breathes well",
+        "pulls the wool",
+        "is faux"
+       ],
+       "answer": "breathes well",
+       "why_en": "Breathing is about air passing through the weave.",
+       "why_fa": "breathing یعنی هوا از بافت عبور می‌کند."
+      }
+     ]
+    },
+    {
+     "id": "patterns",
+     "order": 7,
+     "icon": "swatch",
+     "title_en": "Colour and pattern",
+     "title_fa": "رنگ و طرح",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Shades, stripes, checks, florals and plain cloth, and how colour changes in the shop and at home.",
+     "blurb_fa": "سایه‌رنگ‌ها، راه‌راه، چهارخانه، گل‌دار و ساده، و اینکه رنگ در مغازه و خانه چطور عوض می‌شود.",
+     "objectives": [
+      {
+       "en": "describe a colour precisely enough to shop online.",
+       "fa": "رنگ را دقیق توصیف کن تا بتوانی آنلاین خرید کنی."
+      },
+      {
+       "en": "say whether two colours work together.",
+       "fa": "بگو دو رنگ با هم می‌آیند یا نه."
+      },
+      {
+       "en": "choose a pattern that suits the occasion.",
+       "fa": "طرحی انتخاب کن که به موقعیت بخورد."
+      }
+     ],
+     "words": [
+      {
+       "id": "patterns-w1",
+       "en": "shade",
+       "ipa": "/ʃeɪd/",
+       "pos": "noun",
+       "fa": "سایه‌رنگ",
+       "def_en": "A particular version of a colour, lighter or darker.",
+       "sport": "fashion",
+       "icon": "palette",
+       "level": "B1",
+       "example_en": "The navy is a warmer shade than the one in the photo.",
+       "example_fa": "سرمه‌ای سایهٔ گرم‌تری از رنگ عکس است.",
+       "ref": ""
+      },
+      {
+       "id": "patterns-w2",
+       "en": "stripe",
+       "ipa": "/straɪp/",
+       "pos": "noun",
+       "fa": "راه‌راه",
+       "def_en": "A long line of one colour on a different background.",
+       "sport": "fashion",
+       "icon": "stripe",
+       "level": "A2",
+       "example_en": "Vertical stripes make the jacket look longer.",
+       "example_fa": "راه‌راه‌های عمودی کاپشن را بلندتر نشان می‌دهند.",
+       "ref": ""
+      },
+      {
+       "id": "patterns-w3",
+       "en": "check",
+       "ipa": "/tʃek/",
+       "pos": "noun",
+       "fa": "چهارخانه",
+       "def_en": "A pattern of crossing lines that makes squares.",
+       "sport": "fashion",
+       "icon": "check",
+       "level": "A2",
+       "example_en": "A grey check shirt is safe with jeans.",
+       "example_fa": "پیراهن چهارخانهٔ خاکستری با جین بی‌خطر است.",
+       "ref": ""
+      },
+      {
+       "id": "patterns-w4",
+       "en": "floral",
+       "ipa": "/ˈflɔːrəl/",
+       "pos": "adjective",
+       "fa": "گل‌دار",
+       "def_en": "Decorated with flowers or a flower pattern.",
+       "sport": "fashion",
+       "icon": "floral",
+       "level": "B1",
+       "example_en": "The floral dress is right for a summer wedding.",
+       "example_fa": "پیراهن گل‌دار برای عروسی تابستانی مناسب است.",
+       "ref": ""
+      },
+      {
+       "id": "patterns-w5",
+       "en": "plain",
+       "ipa": "/pleɪn/",
+       "pos": "adjective",
+       "fa": "ساده و بی‌نقش",
+       "def_en": "One colour with no pattern at all.",
+       "sport": "fashion",
+       "icon": "swatch",
+       "level": "A2",
+       "example_en": "Wear a plain shirt and let the scarf speak.",
+       "example_fa": "پیراهن ساده بپوش و بگذار شال حرف بزند.",
+       "ref": ""
+      },
+      {
+       "id": "patterns-w6",
+       "en": "fade",
+       "ipa": "/feɪd/",
+       "pos": "verb",
+       "fa": "رنگ‌باختن",
+       "def_en": "To lose colour with sun or washing.",
+       "sport": "fashion",
+       "icon": "sun",
+       "level": "B1",
+       "example_en": "Black denim fades fastest in the sun.",
+       "example_fa": "جین مشکی در آفتاب سریع‌تر رنگ می‌بازد.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "patterns-x1",
+       "kind": "expression",
+       "en": "in neutral tones",
+       "fa": "با رنگ‌های خنثی",
+       "meaning_en": "Beige, grey, cream and soft brown, together.",
+       "meaning_fa": "بژ، خاکستری، کرم و قهوه‌ای ملایم، با هم.",
+       "register": "neutral",
+       "example_en": "The whole outfit is in neutral tones.",
+       "example_fa": "کل استایل با رنگ‌های خنثی است.",
+       "alt": ""
+      },
+      {
+       "id": "patterns-x2",
+       "kind": "expression",
+       "en": "a pop of colour",
+       "fa": "یک تکه رنگ روشن",
+       "meaning_en": "One small bright item against a quiet outfit.",
+       "meaning_fa": "یک قطعهٔ کوچک روشن در برابر استایل آرام.",
+       "register": "neutral",
+       "example_en": "A yellow bag gives the outfit a pop of colour.",
+       "example_fa": "کیف زرد به استایل یک تکه رنگ روشن می‌دهد.",
+       "alt": ""
+      },
+      {
+       "id": "patterns-x3",
+       "kind": "idiom",
+       "en": "a wolf in sheep's clothing",
+       "fa": "گرگ در لباس میش",
+       "meaning_en": "Literally, a wolf dressed as a sheep; figuratively, someone dangerous who looks harmless.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، گرگی در لباس میش؛ به‌طور مجازی، کسی خطرناک که بی‌خطر به نظر می‌رسد.",
+       "register": "neutral",
+       "example_en": "The offer looked kind, but it was a wolf in sheep's clothing.",
+       "example_fa": "پیشنهاد مهربان به نظر می‌رسید، اما گرگی در لباس میش بود.",
+       "alt": ""
+      },
+      {
+       "id": "patterns-x4",
+       "kind": "collocation",
+       "en": "a bold print",
+       "fa": "طرح جسور",
+       "meaning_en": "A large, strong pattern that is meant to be noticed.",
+       "meaning_fa": "طرحی بزرگ و قوی که باید دیده شود.",
+       "register": "neutral",
+       "example_en": "A bold print works better on one piece, not on everything.",
+       "example_fa": "طرح جسور روی یک قطعه بهتر کار می‌کند، نه روی همه‌چیز.",
+       "alt": ""
+      },
+      {
+       "id": "patterns-x5",
+       "kind": "phrasal_verb",
+       "en": "go together",
+       "fa": "با هم آمدن",
+       "meaning_en": "For two colours or pieces to look right as a pair.",
+       "meaning_fa": "دو رنگ یا قطعه که به‌عنوان جفت درست به نظر برسند.",
+       "register": "neutral",
+       "example_en": "Grey and mustard go together better than you think.",
+       "example_fa": "خاکستری و خردلی بهتر از آنچه فکر می‌کنی با هم می‌آیند.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It comes in + [colour] + and + [colour].",
+       "example_en": "It comes in navy and olive.",
+       "example_fa": "در سرمه‌ای و زیتونی موجود است.",
+       "note_en": "Naming the range, not one item.",
+       "note_fa": "نام بردن از تنوع، نه یک قطعه."
+      },
+      {
+       "frame": "The [pattern] + makes it look + [adjective].",
+       "example_en": "The vertical stripe makes it look longer.",
+       "example_fa": "راه‌راه عمودی آن را بلندتر نشان می‌دهد.",
+       "note_en": "A pattern and its visual effect.",
+       "note_fa": "یک طرح و اثر بصری‌اش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "patterns-s1",
+       "en": "I love the pattern, but the shade is too bright for an office, so I would wear it on a weekend.",
+       "fa": "طرح را دوست دارم، اما سایه‌رنگش برای اداره خیلی روشن است، پس آخر هفته می‌پوشمش.",
+       "use_en": "A judgement and when it applies.",
+       "use_fa": "قضاوت و زمانش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The shade is too bright for an office."
+      },
+      {
+       "id": "patterns-s2",
+       "en": "The plain navy dress is safer than the floral one, because I can wear it to three different events.",
+       "fa": "پیراهن سرمه‌ای ساده از گل‌دار مطمئن‌تر است، چون می‌توانم آن را در سه موقعیت مختلف بپوشم.",
+       "use_en": "A comparison with a practical reason.",
+       "use_fa": "مقایسه‌ای با دلیل عملی.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "I can wear it to three different events."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Choosing a shirt online",
+      "title_fa": "انتخاب پیراهن آنلاین",
+      "speakers": [
+       "Omid",
+       "Sara"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "The shirt in the photo is pale blue, but the description says grey.",
+        "fa": "پیراهن عکس آبی روشن است، اما توضیحات خاکستری می‌گوید."
+       },
+       {
+        "who": "Sara",
+        "en": "That happens with screens. Look for the shade name, not the picture.",
+        "fa": "این با صفحه‌ها پیش می‌آید. اسم سایه‌رنگ را ببین، نه عکس را."
+       },
+       {
+        "who": "Omid",
+        "en": "It says storm grey. Is that warm or cool?",
+        "fa": "می‌گوید خاکستری طوفانی. گرم است یا سرد؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Cool, with a little blue. It will go with your navy trousers.",
+        "fa": "سرد، با کمی آبی. با شلوار سرمه‌ای‌ات می‌آید."
+       },
+       {
+        "who": "Omid",
+        "en": "And the check? Is it bold?",
+        "fa": "و چهارخانه؟ جسور است؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Small check, so it reads as plain from a distance. Good for work.",
+        "fa": "چهارخانهٔ ریز، پس از دور ساده دیده می‌شود. برای کار خوب است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "The colour that looked different online",
+       "title_fa": "رنگی که آنلاین متفاوت بود",
+       "situation_en": "A scarf arrived much brighter than the picture.",
+       "situation_fa": "شالی رسید که از عکس خیلی روشن‌تر بود.",
+       "task_en": "Describe the difference precisely and ask for a swap.",
+       "task_fa": "تفاوت را دقیق توصیف کن و درخواست تعویض کن.",
+       "answer_en": "The scarf is a much warmer red than the photo, closer to orange. Could I exchange it for the burgundy, which looks cooler on my screen?",
+       "answer_fa": "شال قرمزی خیلی گرم‌تر از عکس است، نزدیک به نارنجی. می‌توانم با زرشکی عوضش کنم که روی صفحهٔ من سردتر به نظر می‌رسد؟"
+      },
+      {
+       "title_en": "Dressing for a garden party",
+       "title_fa": "لباس برای مهمانی باغ",
+       "situation_en": "The invitation says bright colours, and your wardrobe is mostly grey.",
+       "situation_fa": "دعوت رنگ‌های روشن خواسته و بیشتر لباس‌هایت خاکستری است.",
+       "task_en": "Build an outfit with one bright piece.",
+       "task_fa": "استایلی با یک قطعهٔ روشن بساز.",
+       "answer_en": "I will keep the grey trousers and plain shirt, then add the green scarf and the yellow bag for a pop of colour. That reads as bright without buying anything new.",
+       "answer_fa": "شلوار خاکستری و پیراهن ساده را نگه می‌دارم، بعد شال سبز و کیف زرد را برای یک تکه رنگ روشن اضافه می‌کنم. این‌طور روشن به نظر می‌رسد بی‌آنکه چیز تازه‌ای بخرم."
+      }
+     ],
+     "practice": [
+      {
+       "id": "patterns-q1",
+       "q_en": "Which pattern is made of crossing lines?",
+       "q_fa": "کدام طرح از خطوط متقاطع ساخته می‌شود؟",
+       "options": [
+        "Check",
+        "Stripe",
+        "Floral"
+       ],
+       "answer": "Check",
+       "why_en": "Crossing lines make the squares of a check.",
+       "why_fa": "خطوط متقاطع مربع‌های چهارخانه را می‌سازند."
+      },
+      {
+       "id": "patterns-q2",
+       "q_en": "A plain shirt is ...",
+       "q_fa": "پیراهن ساده ... است.",
+       "options": [
+        "one colour with no pattern",
+        "covered in flowers",
+        "always white"
+       ],
+       "answer": "one colour with no pattern",
+       "why_en": "Plain means no pattern, whatever the colour.",
+       "why_fa": "plain یعنی بی‌طرح، هر رنگی که باشد."
+      },
+      {
+       "id": "patterns-q3",
+       "q_en": "What does a wolf in sheep's clothing describe?",
+       "q_fa": "«گرگ در لباس میش» چه چیزی را توصیف می‌کند؟",
+       "options": [
+        "Someone dangerous who looks harmless",
+        "A warm coat",
+        "A pattern of checks"
+       ],
+       "answer": "Someone dangerous who looks harmless",
+       "why_en": "The idiom is about deception, not clothing.",
+       "why_fa": "این اصطلاح دربارهٔ فریب است، نه لباس."
+      }
+     ]
+    },
+    {
+     "id": "trends",
+     "order": 8,
+     "icon": "trend",
+     "title_en": "What is in fashion",
+     "title_fa": "آنچه مد است",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Trends, vintage, streetwear, classics and the fads that disappear by next season.",
+     "blurb_fa": "ترندها، وینتیج، استریت‌ویر، کلاسیک‌ها و مدهای زودی‌فراموش‌شده.",
+     "objectives": [
+      {
+       "en": "talk about what is in fashion without sounding like an advert.",
+       "fa": "دربارهٔ مد روز حرف بزن، بی‌آنکه مثل تبلیغ به نظر برسی."
+      },
+      {
+       "en": "say why something is a classic rather than a trend.",
+       "fa": "بگو چرا چیزی کلاسیک است نه ترند."
+      },
+      {
+       "en": "describe a look you saw and where it came from.",
+       "fa": "ظاهری را که دیدی و منشأش را توصیف کن."
+      }
+     ],
+     "words": [
+      {
+       "id": "trends-w1",
+       "en": "trend",
+       "ipa": "/trend/",
+       "pos": "noun",
+       "fa": "ترند",
+       "def_en": "A direction in which fashion is moving at a particular time.",
+       "sport": "fashion",
+       "icon": "trend",
+       "level": "B1",
+       "example_en": "The trend for wide trousers came back from the nineties.",
+       "example_fa": "ترند شلوارهای گشاد از دههٔ نود برگشت.",
+       "ref": ""
+      },
+      {
+       "id": "trends-w2",
+       "en": "vintage",
+       "ipa": "/ˈvɪntɪdʒ/",
+       "pos": "adjective",
+       "fa": "وینتیج و قدیمی",
+       "def_en": "Old but valued, usually from an earlier decade.",
+       "sport": "fashion",
+       "icon": "clock",
+       "level": "B1",
+       "example_en": "She buys vintage coats from a shop near the station.",
+       "example_fa": "او پالتوهای وینتیج از مغازه‌ای نزدیک ایستگاه می‌خرد.",
+       "ref": ""
+      },
+      {
+       "id": "trends-w3",
+       "en": "streetwear",
+       "ipa": "/ˈstriːtwer/",
+       "pos": "noun",
+       "fa": "استریت‌ویر",
+       "def_en": "Casual clothes from skate and hip-hop culture, now worn everywhere.",
+       "sport": "fashion",
+       "icon": "hat",
+       "level": "B2",
+       "example_en": "Streetwear moved from the skate park to the office.",
+       "example_fa": "استریت‌ویر از پارک اسکیت به اداره رسید.",
+       "ref": ""
+      },
+      {
+       "id": "trends-w4",
+       "en": "classic",
+       "ipa": "/ˈklæsɪk/",
+       "pos": "adjective",
+       "fa": "کلاسیک و همیشگی",
+       "def_en": "Good enough to stay in fashion for many years.",
+       "sport": "fashion",
+       "icon": "star",
+       "level": "B1",
+       "example_en": "A white shirt is classic; a printed one is a season.",
+       "example_fa": "پیراهن سفید کلاسیک است؛ طرح‌دار یک فصل.",
+       "ref": ""
+      },
+      {
+       "id": "trends-w5",
+       "en": "fad",
+       "ipa": "/fæd/",
+       "pos": "noun",
+       "fa": "مد زودگذر",
+       "def_en": "Something popular for a very short time.",
+       "sport": "fashion",
+       "icon": "flame",
+       "level": "B2",
+       "example_en": "The tiny bag was a fad; nobody carries one now.",
+       "example_fa": "کیف کوچک یک مد زودگذر بود؛ حالا کسی با خودش نمی‌برد.",
+       "ref": ""
+      },
+      {
+       "id": "trends-w6",
+       "en": "runway",
+       "ipa": "/ˈrʌnweɪ/",
+       "pos": "noun",
+       "fa": "سکوی مد",
+       "def_en": "The long stage where models show new clothes.",
+       "sport": "fashion",
+       "icon": "stage",
+       "level": "B1",
+       "example_en": "The coat looked wild on the runway and plain in the shop.",
+       "example_fa": "پالتو روی سکوی مد عجیب و در مغازه ساده به نظر می‌رسید.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "trends-x1",
+       "kind": "idiom",
+       "en": "flavour of the month",
+       "fa": "محبوبِ این ماه",
+       "meaning_en": "Literally, this month's flavour; figuratively, something briefly popular.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، طعم این ماه؛ به‌طور مجازی، چیزی که کوتاه‌مدت محبوب است.",
+       "register": "informal",
+       "example_en": "That brand is the flavour of the month, and next year nobody will remember it.",
+       "example_fa": "آن برند محبوبِ این ماه است و سال بعد کسی به یادش نمی‌آورد.",
+       "alt": ""
+      },
+      {
+       "id": "trends-x2",
+       "kind": "idiom",
+       "en": "old hat",
+       "fa": "کهنه و ازمدافتاده",
+       "meaning_en": "Literally, a hat that is old; figuratively, no longer new or interesting.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، کلاهی کهنه؛ به‌طور مجازی، دیگر تازه یا جالب نیست.",
+       "register": "informal",
+       "example_en": "Skinny jeans are old hat in that shop.",
+       "example_fa": "شلوارهای جین تنگ در آن مغازه ازمدافتاده‌اند.",
+       "alt": ""
+      },
+      {
+       "id": "trends-x3",
+       "kind": "phrasal_verb",
+       "en": "catch on",
+       "fa": "همه‌گیر شدن",
+       "meaning_en": "To become popular, usually slowly.",
+       "meaning_fa": "محبوب شدن، معمولاً به‌آرامی.",
+       "register": "neutral",
+       "example_en": "The wide-leg cut caught on with younger buyers first.",
+       "example_fa": "برش گشاد اول میان خریداران جوان‌تر همه‌گیر شد.",
+       "alt": ""
+      },
+      {
+       "id": "trends-x4",
+       "kind": "expression",
+       "en": "back in fashion",
+       "fa": "دوباره مد شده",
+       "meaning_en": "Something that returned after being out of style.",
+       "meaning_fa": "چیزی که پس از بی‌مدتی برگشته.",
+       "register": "neutral",
+       "example_en": "Brown leather is back in fashion this autumn.",
+       "example_fa": "چرم قهوه‌ای این پاییز دوباره مد شده.",
+       "alt": ""
+      },
+      {
+       "id": "trends-x5",
+       "kind": "expression",
+       "en": "drip",
+       "fa": "استایل چشمگیر",
+       "meaning_en": "Street slang for a very noticeable, expensive outfit.",
+       "meaning_fa": "زبان عامیانهٔ خیابانی برای استایل خیلی چشمگیر و گران.",
+       "register": "slang",
+       "example_en": "He turned up with serious drip: the trainers, the chain, everything.",
+       "example_fa": "او با استایل چشمگیری آمد: کتانی‌ها، زنجیر، همه‌چیز.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "It is a trend, not a + [noun].",
+       "example_en": "It is a trend, not a classic.",
+       "example_fa": "این یک ترند است، نه کلاسیک.",
+       "note_en": "The contrast defines both words.",
+       "note_fa": "این تقابل هر دو واژه را تعریف می‌کند."
+      },
+      {
+       "frame": "That look started with + [group] + and moved to + [place].",
+       "example_en": "That look started with skateboarders and moved to the office.",
+       "example_fa": "آن ظاهر با اسکیت‌بازها شروع شد و به اداره رسید.",
+       "note_en": "Where a style came from, then where it went.",
+       "note_fa": "اول منشأ سبک، بعد مقصدش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "trends-s1",
+       "en": "I wait a season before I buy a trend, because half of them look strange a year later.",
+       "fa": "یک فصل صبر می‌کنم تا ترند بخرم، چون نیمی از آن‌ها یک سال بعد عجیب به نظر می‌رسند.",
+       "use_en": "A rule with a reason.",
+       "use_fa": "قاعده‌ای با دلیل.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "Half of them look strange a year later."
+      },
+      {
+       "id": "trends-s2",
+       "en": "Streetwear is not a fad any more; it has been in shops for twenty years.",
+       "fa": "استریت‌ویر دیگر مد زودگذر نیست؛ بیست سال است در مغازه‌هاست.",
+       "use_en": "An argument from duration.",
+       "use_fa": "استدلالی بر پایهٔ دوام.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It has been in shops for twenty years."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Talking about a look",
+      "title_fa": "دربارهٔ یک ظاهر",
+      "speakers": [
+       "Mina",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Mina",
+        "en": "Did you see the wide trousers everywhere this week?",
+        "fa": "این هفته شلوارهای گشاد را همه‌جا دیدی؟"
+       },
+       {
+        "who": "Reza",
+        "en": "I did. The trend came back from the nineties, but the fabric is better now.",
+        "fa": "دیدم. ترند از دههٔ نود برگشت، اما پارچه حالا بهتر است."
+       },
+       {
+        "who": "Mina",
+        "en": "Is it worth buying, or will it be old hat by spring?",
+        "fa": "ارزش خرید دارد، یا تا بهار ازمدافتاده می‌شود؟"
+       },
+       {
+        "who": "Reza",
+        "en": "The cut will stay. The bright colours are the fad.",
+        "fa": "برش می‌ماند. رنگ‌های روشن مد زودگذرند."
+       },
+       {
+        "who": "Mina",
+        "en": "Then I will take the grey pair and wear them with the vintage jacket.",
+        "fa": "پس جفت خاکستری را می‌برم و با کاپشن وینتیج می‌پوشم."
+       },
+       {
+        "who": "Reza",
+        "en": "That works. Classics next to a trend always look deliberate.",
+        "fa": "این خوب است. کلاسیک کنار یک ترند همیشه عمدی به نظر می‌رسد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A trend you do not want to follow",
+       "title_fa": "ترندی که نمی‌خواهی دنبال کنی",
+       "situation_en": "Everyone at work has started wearing the same oversized jacket, and you dislike it.",
+       "situation_fa": "همه سر کار شروع کرده‌اند همان کاپشن اورسایز را بپوشند و تو دوستش نداری.",
+       "task_en": "Decline without judging anyone.",
+       "task_fa": "بدون قضاوت دیگران رد کن.",
+       "answer_en": "It looks good on them, but it drowns my shoulders. I will stay with the shorter cut; it is classic enough that nobody will notice it is not the trend.",
+       "answer_fa": "روی آن‌ها خوب است، اما سرشانه‌های من را گم می‌کند. با برش کوتاه‌تر می‌مانم؛ به‌قدر کافی کلاسیک است که کسی متوجه نشود ترند نیست."
+      },
+      {
+       "title_en": "Explaining a look to a friend",
+       "title_fa": "توضیح یک ظاهر به دوست",
+       "situation_en": "You saw an outfit online and want to describe it precisely.",
+       "situation_fa": "استایلی آنلاین دیدی و می‌خواهی دقیق توصیفش کنی.",
+       "task_en": "Describe the pieces, the source and the effect.",
+       "task_fa": "قطعه‌ها، منشأ و اثر را توصیف کن.",
+       "answer_en": "It was streetwear, but quiet: wide grey trousers, a plain white tee, and one vintage leather jacket. Everything was loose except the jacket at the shoulders, which made the whole thing look sharp.",
+       "answer_fa": "استریت‌ویر بود، اما آرام: شلوار گشاد خاکستری، تی‌شرت سفید ساده و یک کاپشن چرم وینتیج. همه‌چیز گشاد بود جز کاپشن در سرشانه، که کل ظاهر را تیز می‌کرد."
+      }
+     ],
+     "practice": [
+      {
+       "id": "trends-q1",
+       "q_en": "Which one stays in fashion for years?",
+       "q_fa": "کدام‌یک سال‌ها در مد می‌ماند؟",
+       "options": [
+        "A classic",
+        "A fad",
+        "A trend"
+       ],
+       "answer": "A classic",
+       "why_en": "A classic lasts; a fad is brief.",
+       "why_fa": "کلاسیک می‌ماند؛ مد زودگذر کوتاه است."
+      },
+      {
+       "id": "trends-q2",
+       "q_en": "A fad is popular ...",
+       "q_fa": "مد زودگذر ... محبوب است.",
+       "options": [
+        "for a very short time",
+        "for fifty years",
+        "only in winter"
+       ],
+       "answer": "for a very short time",
+       "why_en": "A fad fades quickly.",
+       "why_fa": "مد زودگذر سریع محو می‌شود."
+      },
+      {
+       "id": "trends-q3",
+       "q_en": "Where do new clothes appear first?",
+       "q_fa": "لباس‌های نو اول کجا ظاهر می‌شوند؟",
+       "options": [
+        "On the runway",
+        "In the office",
+        "In the laundry"
+       ],
+       "answer": "On the runway",
+       "why_en": "Designers show them on the runway first.",
+       "why_fa": "طراحان اول روی سکوی مد نشانشان می‌دهند."
+      }
+     ]
+    },
+    {
+     "id": "style",
+     "order": 9,
+     "icon": "hanger",
+     "title_en": "Your own style",
+     "title_fa": "سلیقهٔ خودت",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Outfits, layers, accessories and the details that make a look yours.",
+     "blurb_fa": "استایل‌ها، لایه‌ها، اکسسوری‌ها و جزئیاتی که ظاهر را مالِ تو می‌کند.",
+     "objectives": [
+      {
+       "en": "describe an outfit from top to bottom.",
+       "fa": "یک استایل را از بالا تا پایین توصیف کن."
+      },
+      {
+       "en": "explain your personal style in three sentences.",
+       "fa": "سلیقهٔ شخصی‌ات را در سه جمله توضیح بده."
+      },
+      {
+       "en": "give a compliment about clothes that sounds sincere.",
+       "fa": "تعریفی دربارهٔ لباس بگو که صادقانه به نظر برسد."
+      }
+     ],
+     "words": [
+      {
+       "id": "style-w1",
+       "en": "outfit",
+       "ipa": "/ˈaʊtfɪt/",
+       "pos": "noun",
+       "fa": "استایل و ست لباس",
+       "def_en": "The set of clothes worn together for one occasion.",
+       "sport": "fashion",
+       "icon": "hanger",
+       "level": "A2",
+       "example_en": "The whole outfit cost less than the shoes.",
+       "example_fa": "کل استایل از کفش‌ها ارزان‌تر بود.",
+       "ref": ""
+      },
+      {
+       "id": "style-w2",
+       "en": "layer",
+       "ipa": "/ˈleɪər/",
+       "pos": "noun",
+       "fa": "لایه",
+       "def_en": "One piece worn over another.",
+       "sport": "fashion",
+       "icon": "shirt",
+       "level": "B1",
+       "example_en": "A thin layer under the jacket keeps you warm without bulk.",
+       "example_fa": "یک لایهٔ نازک زیر کاپشن بی‌آنکه حجیم شوی گرمت می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "style-w3",
+       "en": "accessory",
+       "ipa": "/əkˈsesəri/",
+       "pos": "noun",
+       "fa": "اکسسوری",
+       "def_en": "An item such as a belt or scarf that completes an outfit.",
+       "sport": "fashion",
+       "icon": "ring",
+       "level": "B1",
+       "example_en": "One good accessory is enough.",
+       "example_fa": "یک اکسسوری خوب کافی است.",
+       "ref": ""
+      },
+      {
+       "id": "style-w4",
+       "en": "silhouette",
+       "ipa": "/ˌsɪluˈet/",
+       "pos": "noun",
+       "fa": "خطِ کلی اندام",
+       "def_en": "The shape an outfit makes around the body.",
+       "sport": "fashion",
+       "icon": "person",
+       "level": "B2",
+       "example_en": "The high waist changes the whole silhouette.",
+       "example_fa": "کمر بلند کل خط اندام را عوض می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "style-w5",
+       "en": "flair",
+       "ipa": "/fler/",
+       "pos": "noun",
+       "fa": "سلیقه و جذابیت",
+       "def_en": "A personal, noticeable style in the way someone dresses.",
+       "sport": "fashion",
+       "icon": "star",
+       "level": "B2",
+       "example_en": "He wears plain clothes with real flair.",
+       "example_fa": "او لباس‌های ساده را با سلیقه‌ای واقعی می‌پوشد.",
+       "ref": ""
+      },
+      {
+       "id": "style-w6",
+       "en": "signature",
+       "ipa": "/ˈsɪɡnətʃər/",
+       "pos": "noun",
+       "fa": "امضای شخصی",
+       "def_en": "The one detail people recognise as yours.",
+       "sport": "fashion",
+       "icon": "pen",
+       "level": "B2",
+       "example_en": "Red glasses are her signature.",
+       "example_fa": "عینک قرمز امضای شخصی اوست.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "style-x1",
+       "kind": "collocation",
+       "en": "personal style",
+       "fa": "سلیقهٔ شخصی",
+       "meaning_en": "The look you choose, not the look you are given.",
+       "meaning_fa": "ظاهری که خودت انتخاب می‌کنی، نه ظاهری که به تو داده می‌شود.",
+       "register": "neutral",
+       "example_en": "Her personal style has not changed in ten years.",
+       "example_fa": "سلیقهٔ شخصی‌اش ده سال است عوض نشده.",
+       "alt": ""
+      },
+      {
+       "id": "style-x2",
+       "kind": "phrasal_verb",
+       "en": "dress up",
+       "fa": "شیک پوشیدن",
+       "meaning_en": "To wear something more formal than usual.",
+       "meaning_fa": "چیزی رسمی‌تر از معمول پوشیدن.",
+       "register": "neutral",
+       "example_en": "We dress up for the opera, not for the cinema.",
+       "example_fa": "ما برای اپرا شیک می‌پوشیم، نه برای سینما.",
+       "alt": ""
+      },
+      {
+       "id": "style-x3",
+       "kind": "idiom",
+       "en": "cut from the same cloth",
+       "fa": "از یک جنس بودن",
+       "meaning_en": "Literally, cut from one piece of fabric; figuratively, very similar in character.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، از یک تکه پارچه بریده‌شده؛ به‌طور مجازی، از نظر شخصیت بسیار شبیه.",
+       "register": "neutral",
+       "example_en": "The two brothers are cut from the same cloth.",
+       "example_fa": "آن دو برادر از یک جنس‌اند.",
+       "alt": ""
+      },
+      {
+       "id": "style-x4",
+       "kind": "idiom",
+       "en": "wear your heart on your sleeve",
+       "fa": "احساست را رو نشان دادن",
+       "meaning_en": "Literally, wear your heart where everyone sees it; figuratively, show your feelings openly.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، قلبت را جایی که همه می‌بینند بگذاری؛ به‌طور مجازی، احساساتت را آشکار نشان بدهی.",
+       "register": "neutral",
+       "example_en": "She wears her heart on her sleeve, so you always know how she feels.",
+       "example_fa": "او احساسش را رو نشان می‌دهد، پس همیشه می‌دانی چه حالی دارد.",
+       "alt": ""
+      },
+      {
+       "id": "style-x5",
+       "kind": "expression",
+       "en": "a pop of colour",
+       "fa": "یک تکه رنگ روشن",
+       "meaning_en": "One bright detail against a quiet outfit.",
+       "meaning_fa": "یک جزئیات روشن در برابر استایل آرام.",
+       "register": "neutral",
+       "example_en": "The orange scarf is the only pop of colour.",
+       "example_fa": "شال نارنجی تنها تکهٔ رنگ روشن است.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "I would describe my style as + [adjective].",
+       "example_en": "I would describe my style as simple but sharp.",
+       "example_fa": "سلیقه‌ام را ساده اما تیز توصیف می‌کنم.",
+       "note_en": "A frame for a style statement.",
+       "note_fa": "چارچوبی برای بیان سلیقه."
+      },
+      {
+       "frame": "It works because + [reason].",
+       "example_en": "It works because the colours are quiet and the fit is exact.",
+       "example_fa": "کار می‌کند چون رنگ‌ها آرام‌اند و اندازه دقیق است.",
+       "note_en": "The reason, after the judgement.",
+       "note_fa": "دلیل، بعد از قضاوت."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "style-s1",
+       "en": "My style is simple: dark trousers, one good shirt and a watch, and I never think about it again.",
+       "fa": "سلیقه‌ام ساده است: شلوار تیره، یک پیراهن خوب و یک ساعت، و دیگر به آن فکر نمی‌کنم.",
+       "use_en": "A style described by its rules.",
+       "use_fa": "سلیقه‌ای که با قاعده‌هایش توصیف می‌شود.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "I never think about it again."
+      },
+      {
+       "id": "style-s2",
+       "en": "That jacket suits you, because the shoulders are exact and the colour lifts your face.",
+       "fa": "آن کاپشن به تو می‌آید، چون سرشانه‌ها دقیق‌اند و رنگ صورتت را روشن می‌کند.",
+       "use_en": "A compliment with a concrete reason.",
+       "use_fa": "تعریفی با دلیل مشخص.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "The colour lifts your face."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Describing an outfit",
+      "title_fa": "توصیف یک استایل",
+      "speakers": [
+       "Sara",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "How would you describe what she is wearing?",
+        "fa": "چطور توصیفش می‌کنی که او چه پوشیده؟"
+       },
+       {
+        "who": "Omid",
+        "en": "A long grey coat, a plain white shirt, and wide trousers in the same grey.",
+        "fa": "یک پالتوی خاکستری بلند، پیراهن سفید ساده و شلوار گشاد خاکستری."
+       },
+       {
+        "who": "Sara",
+        "en": "Everything is one colour. Why does it work?",
+        "fa": "همه‌چیز یک رنگ است. چرا کار می‌کند؟"
+       },
+       {
+        "who": "Omid",
+        "en": "Because the silhouette is clean and the coat is the only heavy layer.",
+        "fa": "چون خط کلی تمیز است و پالتو تنها لایهٔ سنگین است."
+       },
+       {
+        "who": "Sara",
+        "en": "And the red bag?",
+        "fa": "و کیف قرمز؟"
+       },
+       {
+        "who": "Omid",
+        "en": "That is the pop of colour. Without it the outfit would disappear.",
+        "fa": "آن تکهٔ رنگ روشن است. بدون آن استایل محو می‌شد."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Explaining your style at an interview",
+       "title_fa": "توضیح سلیقه در مصاحبه",
+       "situation_en": "A design studio asks how you dress and why.",
+       "situation_fa": "یک استودیوی طراحی می‌پرسد چطور لباس می‌پوشی و چرا.",
+       "task_en": "Answer in three sentences, with a reason.",
+       "task_fa": "در سه جمله، با یک دلیل پاسخ بده.",
+       "answer_en": "I keep my clothes quiet and spend on fit: dark trousers, plain shirts, one good jacket. I add a single accessory, usually a watch, and nothing else. It saves me deciding in the morning and it still looks deliberate.",
+       "answer_fa": "لباس‌هایم را آرام نگه می‌دارم و برای اندازه خرج می‌کنم: شلوار تیره، پیراهن ساده، یک کاپشن خوب. یک اکسسوری اضافه می‌کنم، معمولاً ساعت، و دیگر هیچ. این‌طور صبح‌ها از تصمیم‌گیری نجات می‌یابم و هنوز عمدی به نظر می‌رسد."
+      },
+      {
+       "title_en": "A compliment that is not about the body",
+       "title_fa": "تعریفی که دربارهٔ بدن نیست",
+       "situation_en": "A colleague is wearing a new jacket and you want to say something kind.",
+       "situation_fa": "همکاری کاپشن تازه پوشیده و می‌خواهی چیز مهربانی بگویی.",
+       "task_en": "Compliment the choice, not the person's shape.",
+       "task_fa": "انتخاب را بستای، نه اندام او را.",
+       "answer_en": "That jacket is a great choice. The green lifts the grey and the fit is exact at the shoulder.",
+       "answer_fa": "آن کاپشن انتخاب خوبی است. سبز خاکستری را روشن می‌کند و اندازه در سرشانه دقیق است."
+      }
+     ],
+     "practice": [
+      {
+       "id": "style-q1",
+       "q_en": "What is an outfit?",
+       "q_fa": "استایل چیست؟",
+       "options": [
+        "The clothes worn together",
+        "One shoe",
+        "A shop"
+       ],
+       "answer": "The clothes worn together",
+       "why_en": "An outfit is the set worn for one occasion.",
+       "why_fa": "استایل مجموعه‌ای است که برای یک موقعیت پوشیده می‌شود."
+      },
+      {
+       "id": "style-q2",
+       "q_en": "Which detail is a signature?",
+       "q_fa": "کدام جزئیات «امضای شخصی» است؟",
+       "options": [
+        "The one people recognise as yours",
+        "The price tag",
+        "The receipt"
+       ],
+       "answer": "The one people recognise as yours",
+       "why_en": "A signature is the detail that identifies your style.",
+       "why_fa": "امضای شخصی جزئیاتی است که سلیقه‌ات را مشخص می‌کند."
+      },
+      {
+       "id": "style-q3",
+       "q_en": "What does it mean to dress up?",
+       "q_fa": "«dress up» یعنی چه؟",
+       "options": [
+        "Wear something more formal",
+        "Buy more clothes",
+        "Wash your clothes"
+       ],
+       "answer": "Wear something more formal",
+       "why_en": "Dressing up is about formality, not quantity.",
+       "why_fa": "dress up دربارهٔ رسمی‌بودن است، نه تعداد."
+      }
+     ]
+    },
+    {
+     "id": "care",
+     "order": 10,
+     "icon": "washer",
+     "title_en": "Looking after clothes",
+     "title_fa": "مراقبت از لباس‌ها",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Washing, ironing, stains, shrinking, mending and reading the care label before it is too late.",
+     "blurb_fa": "شستن، اتو کردن، لکه، آب‌رفتگی، رفو کردن و خواندن برچسب پیش از آنکه دیر شود.",
+     "objectives": [
+      {
+       "en": "read a care label and explain what it allows.",
+       "fa": "برچسب نگهداری را بخوان و بگو چه چیزی مجاز است."
+      },
+      {
+       "en": "deal with a stain before it sets.",
+       "fa": "پیش از آنکه لکه جا بیفتد به آن رسیدگی کن."
+      },
+      {
+       "en": "say what can be repaired and what cannot.",
+       "fa": "بگو چه چیزی قابل تعمیر است و چه چیزی نه."
+      }
+     ],
+     "words": [
+      {
+       "id": "care-w1",
+       "en": "laundry",
+       "ipa": "/ˈlɔːndri/",
+       "pos": "noun",
+       "fa": "لباس‌های شستنی",
+       "def_en": "Clothes that need washing, or the place they are washed.",
+       "sport": "fashion",
+       "icon": "washer",
+       "level": "A2",
+       "example_en": "The laundry is already full after three days.",
+       "example_fa": "لباس‌های شستنی بعد از سه روز پر شده‌اند.",
+       "ref": ""
+      },
+      {
+       "id": "care-w2",
+       "en": "iron",
+       "ipa": "/ˈaɪərn/",
+       "pos": "verb",
+       "fa": "اتو کردن",
+       "def_en": "To press cloth flat with a hot iron.",
+       "sport": "fashion",
+       "icon": "iron",
+       "level": "A2",
+       "example_en": "Iron the shirt inside out so the fabric does not shine.",
+       "example_fa": "پیراهن را از پشت اتو کن تا پارچه برق نیفتد.",
+       "ref": ""
+      },
+      {
+       "id": "care-w3",
+       "en": "stain",
+       "ipa": "/steɪn/",
+       "pos": "noun",
+       "fa": "لکه",
+       "def_en": "A mark left by food, drink or dirt that is hard to remove.",
+       "sport": "fashion",
+       "icon": "stain",
+       "level": "B1",
+       "example_en": "Cold water lifts a coffee stain; hot water sets it.",
+       "example_fa": "آب سرد لکهٔ قهوه را برمی‌دارد؛ آب گرم آن را جا می‌اندازد.",
+       "ref": ""
+      },
+      {
+       "id": "care-w4",
+       "en": "shrink",
+       "ipa": "/ʃrɪŋk/",
+       "pos": "verb",
+       "fa": "آب رفتن",
+       "def_en": "To become smaller after washing or drying.",
+       "sport": "fashion",
+       "icon": "shirt",
+       "level": "B1",
+       "example_en": "Wool will shrink if you dry it on a radiator.",
+       "example_fa": "پشم اگر روی رادیاتور خشک شود آب می‌رود.",
+       "ref": ""
+      },
+      {
+       "id": "care-w5",
+       "en": "mend",
+       "ipa": "/mend/",
+       "pos": "verb",
+       "fa": "رفو کردن",
+       "def_en": "To repair a hole or a tear with needle and thread.",
+       "sport": "fashion",
+       "icon": "needle",
+       "level": "B1",
+       "example_en": "She mended the lining instead of replacing the coat.",
+       "example_fa": "او آستر را رفو کرد به‌جای آنکه پالتو را عوض کند.",
+       "ref": ""
+      },
+      {
+       "id": "care-w6",
+       "en": "care label",
+       "ipa": "/keər ˈleɪbəl/",
+       "pos": "noun",
+       "fa": "برچسب نگهداری",
+       "def_en": "The small label inside a garment that gives washing instructions.",
+       "sport": "fashion",
+       "icon": "tag",
+       "level": "B1",
+       "example_en": "The care label says dry clean only.",
+       "example_fa": "برچسب نگهداری می‌گوید فقط خشک‌شویی.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "care-x1",
+       "kind": "expression",
+       "en": "machine wash cold",
+       "fa": "با ماشین و آب سرد بشویید",
+       "meaning_en": "The most common instruction on a label.",
+       "meaning_fa": "رایج‌ترین دستور روی برچسب.",
+       "register": "neutral",
+       "example_en": "Machine wash cold, and do not use bleach.",
+       "example_fa": "با ماشین و آب سرد بشویید و سفیدکننده نزنید.",
+       "alt": ""
+      },
+      {
+       "id": "care-x2",
+       "kind": "expression",
+       "en": "dry clean only",
+       "fa": "فقط خشک‌شویی",
+       "meaning_en": "The garment cannot be washed in water at home.",
+       "meaning_fa": "لباس را نمی‌توان در خانه با آب شست.",
+       "register": "formal",
+       "example_en": "The suit is dry clean only, so do not put it in the machine.",
+       "example_fa": "کت‌وشلوار فقط خشک‌شویی است، پس آن را در ماشین نگذار.",
+       "alt": ""
+      },
+      {
+       "id": "care-x3",
+       "kind": "idiom",
+       "en": "air your dirty laundry",
+       "fa": "مسائل خصوصی را علنی کردن",
+       "meaning_en": "Literally, hang unwashed clothes outside; figuratively, discuss private problems in public.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، لباس‌های نشسته را بیرون آویزان کردن؛ به‌طور مجازی، مشکلات خصوصی را در جمع گفتن.",
+       "register": "informal",
+       "example_en": "They argued about money in front of everyone, airing their dirty laundry.",
+       "example_fa": "سر پول جلوی همه بحث کردند و مسائل خصوصی‌شان را علنی کردند.",
+       "alt": ""
+      },
+      {
+       "id": "care-x4",
+       "kind": "phrasal_verb",
+       "en": "wear out",
+       "fa": "از فرط استفاده از بین رفتن",
+       "meaning_en": "To become thin or unusable through long use.",
+       "meaning_fa": "با استفادهٔ زیاد نازک یا بی‌استفاده شدن.",
+       "register": "neutral",
+       "example_en": "The knees wore out long before the rest of the jeans.",
+       "example_fa": "زانوها خیلی پیش از بقیهٔ جین از بین رفتند.",
+       "alt": ""
+      },
+      {
+       "id": "care-x5",
+       "kind": "collocation",
+       "en": "hand wash",
+       "fa": "با دست شستن",
+       "meaning_en": "Washing by hand because the fabric is delicate.",
+       "meaning_fa": "شستن با دست چون پارچه ظریف است.",
+       "register": "neutral",
+       "example_en": "Hand wash the silk in cold water.",
+       "example_fa": "ابریشم را با دست و آب سرد بشوی.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The label says + [instruction].",
+       "example_en": "The label says wash at thirty degrees.",
+       "example_fa": "برچسب می‌گوید با سی درجه بشویید.",
+       "note_en": "Report what the label allows.",
+       "note_fa": "گزارش آنچه برچسب مجاز می‌داند."
+      },
+      {
+       "frame": "If you + [action], it will + [result].",
+       "example_en": "If you tumble dry it, it will shrink.",
+       "example_fa": "اگر با خشک‌کن خشک کنی، آب می‌رود.",
+       "note_en": "A warning with its consequence.",
+       "note_fa": "هشداری با پیامدش."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "care-s1",
+       "en": "I wash almost everything at thirty degrees, and the clothes last years longer than they did before.",
+       "fa": "تقریباً همه‌چیز را با سی درجه می‌شوم و لباس‌ها سال‌ها بیشتر از قبل دوام می‌آورند.",
+       "use_en": "A habit and its result.",
+       "use_fa": "عادتی و نتیجه‌اش.",
+       "level": "B1",
+       "polite": "neutral",
+       "alt": "The clothes last years longer."
+      },
+      {
+       "id": "care-s2",
+       "en": "The stain is old, so the shop may not be able to lift it, but a tailor can still mend the tear.",
+       "fa": "لکه قدیمی است، پس شاید مغازه نتواند برش دارد، اما خیاط هنوز می‌تواند پارگی را رفو کند.",
+       "use_en": "Two separate problems, two limits.",
+       "use_fa": "دو مشکل جدا، دو محدودیت.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "A tailor can still mend the tear."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Before the first wash",
+      "title_fa": "پیش از نخستین شست‌وشو",
+      "speakers": [
+       "Mina",
+       "Reza"
+      ],
+      "lines": [
+       {
+        "who": "Reza",
+        "en": "Can this shirt go in the machine?",
+        "fa": "این پیراهن با ماشین شسته می‌شود؟"
+       },
+       {
+        "who": "Mina",
+        "en": "The care label says machine wash cold, but not above thirty.",
+        "fa": "برچسب می‌گوید با ماشین و آب سرد، اما نه بالای سی."
+       },
+       {
+        "who": "Reza",
+        "en": "And the stain on the sleeve?",
+        "fa": "و لکهٔ آستین؟"
+       },
+       {
+        "who": "Mina",
+        "en": "Cold water first. Hot water will set it and then it never comes out.",
+        "fa": "اول آب سرد. آب گرم جا می‌اندازد و بعد هرگز بیرون نمی‌آید."
+       },
+       {
+        "who": "Reza",
+        "en": "The hem is open too. Should I throw it away?",
+        "fa": "لبهٔ پایین هم باز شده. دورش بیندازم؟"
+       },
+       {
+        "who": "Mina",
+        "en": "No, that is a five-minute mend. A needle and a matching thread are cheaper than a new shirt.",
+        "fa": "نه، این پنج دقیقه رفو است. سوزن و نخ همرنگ از پیراهن نو ارزان‌تر است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A wool jumper that shrank",
+       "title_fa": "پلیوری که آب رفت",
+       "situation_en": "You washed a wool jumper at sixty degrees and it now fits a child.",
+       "situation_fa": "پلیوری پشمی را با شصت درجه شستی و حالا اندازهٔ یک بچه است.",
+       "task_en": "Explain the mistake and ask whether it can be saved.",
+       "task_fa": "اشتباه را توضیح بده و بپرس نجات می‌یابد یا نه.",
+       "answer_en": "I washed it at sixty degrees, which the label did not allow, so the wool has shrunk. Is there any way to relax the fibres, or should I accept it and pass it on?",
+       "answer_fa": "با شصت درجه شستمش، که برچسب اجازه نمی‌داد، پس پشم آب رفته. راهی برای شل کردن الیاف هست، یا بپذیرم و به کسی بدهم؟"
+      },
+      {
+       "title_en": "A stain before a wedding",
+       "title_fa": "لکه پیش از عروسی",
+       "situation_en": "Someone knocks a glass of red wine over your only formal shirt, an hour before the ceremony.",
+       "situation_fa": "یک ساعت قبل از مراسم، کسی لیوان شراب سرخ را روی تنها پیراهن رسمی‌ات می‌ریزد.",
+       "task_en": "Give clear, calm instructions.",
+       "task_fa": "دستورهای روشن و آرام بده.",
+       "answer_en": "Do not rub it. Blot it with cold water and salt, then keep the shirt under cold water until we get home. Heat is the enemy now, so no iron and no dryer.",
+       "answer_fa": "مالش نده. با آب سرد و نمک بزن، بعد پیراهن را تا رسیدن به خانه زیر آب سرد نگه دار. حالا گرما دشمن است، پس نه اتو نه خشک‌کن."
+      }
+     ],
+     "practice": [
+      {
+       "id": "care-q1",
+       "q_en": "What does a care label tell you?",
+       "q_fa": "برچسب نگهداری چه می‌گوید؟",
+       "options": [
+        "How to wash and dry the garment",
+        "The price",
+        "Who made it"
+       ],
+       "answer": "How to wash and dry the garment",
+       "why_en": "The label gives washing and drying instructions.",
+       "why_fa": "برچسب دستور شست‌وشو و خشک کردن می‌دهد."
+      },
+      {
+       "id": "care-q2",
+       "q_en": "What does hot water do to a stain?",
+       "q_fa": "آب گرم با لکه چه می‌کند؟",
+       "options": [
+        "Sets it",
+        "Removes it",
+        "Fades the cloth only"
+       ],
+       "answer": "Sets it",
+       "why_en": "Heat fixes the stain in the fibres.",
+       "why_fa": "گرما لکه را در الیاف تثبیت می‌کند."
+      },
+      {
+       "id": "care-q3",
+       "q_en": "What does shrink mean?",
+       "q_fa": "shrink یعنی چه؟",
+       "options": [
+        "Become smaller",
+        "Become dirty",
+        "Become soft"
+       ],
+       "answer": "Become smaller",
+       "why_en": "Shrinking is a loss of size after washing.",
+       "why_fa": "shrink یعنی کوچک‌تر شدن پس از شست‌وشو."
+      }
+     ]
+    },
+    {
+     "id": "workwear",
+     "order": 11,
+     "icon": "suit",
+     "title_en": "Dressing for work",
+     "title_fa": "لباس کار",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Suits, ties, blazers, uniforms and what a dress code actually asks for.",
+     "blurb_fa": "کت‌وشلوار، کراوات، بلیزر، اونیفرم و اینکه کد پوشش واقعاً چه می‌خواهد.",
+     "objectives": [
+      {
+       "en": "understand a dress code and dress to it.",
+       "fa": "کد پوشش را بفهم و بر اساسش لباس بپوش."
+      },
+      {
+       "en": "say what is too formal or too casual for a workplace.",
+       "fa": "بگو چه چیزی برای محیط کار زیادی رسمی یا زیادی راحت است."
+      },
+      {
+       "en": "describe a uniform and what it signals.",
+       "fa": "اونیفرم را توصیف کن و بگو چه چیزی را منتقل می‌کند."
+      }
+     ],
+     "words": [
+      {
+       "id": "workwear-w1",
+       "en": "suit",
+       "ipa": "/suːt/",
+       "pos": "noun",
+       "fa": "کت‌وشلوار",
+       "def_en": "A jacket and trousers made of the same fabric, worn together.",
+       "sport": "fashion",
+       "icon": "suit",
+       "level": "A2",
+       "example_en": "He wears a dark suit for client meetings.",
+       "example_fa": "او برای جلسه‌های مشتری کت‌وشلوار تیره می‌پوشد.",
+       "ref": ""
+      },
+      {
+       "id": "workwear-w2",
+       "en": "tie",
+       "ipa": "/taɪ/",
+       "pos": "noun",
+       "fa": "کراوات",
+       "def_en": "A strip of cloth worn around the neck under a collar.",
+       "sport": "fashion",
+       "icon": "tie",
+       "level": "A2",
+       "example_en": "A plain tie is safer than a patterned one.",
+       "example_fa": "کراوات ساده از طرح‌دار مطمئن‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "workwear-w3",
+       "en": "blazer",
+       "ipa": "/ˈbleɪzər/",
+       "pos": "noun",
+       "fa": "بلیزر",
+       "def_en": "A smart jacket worn with different trousers.",
+       "sport": "fashion",
+       "icon": "jacket",
+       "level": "B1",
+       "example_en": "A navy blazer lifts jeans without looking formal.",
+       "example_fa": "بلیزر سرمه‌ای جین را بی‌آنکه رسمی به نظر برسد بالا می‌کشد.",
+       "ref": ""
+      },
+      {
+       "id": "workwear-w4",
+       "en": "uniform",
+       "ipa": "/ˈjuːnɪfɔːrm/",
+       "pos": "noun",
+       "fa": "اونیفرم",
+       "def_en": "The same clothes worn by everyone in a job or school.",
+       "sport": "fashion",
+       "icon": "jersey",
+       "level": "A2",
+       "example_en": "The uniform is grey, with the name on the chest.",
+       "example_fa": "اونیفرم خاکستری است، با نام روی سینه.",
+       "ref": ""
+      },
+      {
+       "id": "workwear-w5",
+       "en": "formal",
+       "ipa": "/ˈfɔːrməl/",
+       "pos": "adjective",
+       "fa": "رسمی",
+       "def_en": "Following strict rules of dress for an important occasion.",
+       "sport": "fashion",
+       "icon": "tie",
+       "level": "A2",
+       "example_en": "The invitation says formal, so jeans are out.",
+       "example_fa": "دعوت رسمی خواسته، پس جین کنار می‌رود.",
+       "ref": ""
+      },
+      {
+       "id": "workwear-w6",
+       "en": "smart casual",
+       "ipa": "/smɑrt ˈkæʒuəl/",
+       "pos": "noun",
+       "fa": "شیک راحت",
+       "def_en": "Neat but not formal: a jacket without a tie, clean shoes.",
+       "sport": "fashion",
+       "icon": "shirt",
+       "level": "B1",
+       "example_en": "Smart casual usually means a shirt and dark trousers.",
+       "example_fa": "شیک راحت معمولاً یعنی پیراهن و شلوار تیره.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "workwear-x1",
+       "kind": "collocation",
+       "en": "dress code",
+       "fa": "کد پوشش",
+       "meaning_en": "The rule a place gives about what to wear.",
+       "meaning_fa": "قاعده‌ای که جایی دربارهٔ پوشش می‌دهد.",
+       "register": "neutral",
+       "example_en": "The restaurant has a dress code after seven.",
+       "example_fa": "رستوران بعد از هفت کد پوشش دارد.",
+       "alt": ""
+      },
+      {
+       "id": "workwear-x2",
+       "kind": "expression",
+       "en": "jacket required",
+       "fa": "کاپشن الزامی است",
+       "meaning_en": "A short way to say a jacket must be worn.",
+       "meaning_fa": "راهی کوتاه برای گفتن اینکه کاپشن باید پوشیده شود.",
+       "register": "formal",
+       "example_en": "For dinner, jacket required.",
+       "example_fa": "برای شام، کاپشن الزامی است.",
+       "alt": ""
+      },
+      {
+       "id": "workwear-x3",
+       "kind": "expression",
+       "en": "business casual",
+       "fa": "رسمیِ راحت",
+       "meaning_en": "Work clothes: no tie, but no shorts either.",
+       "meaning_fa": "لباس کار: بی‌کراوات، اما بی‌شورت هم نه.",
+       "register": "neutral",
+       "example_en": "Business casual means a collared shirt and closed shoes.",
+       "example_fa": "business casual یعنی پیراهن یقه‌دار و کفش بسته.",
+       "alt": ""
+      },
+      {
+       "id": "workwear-x4",
+       "kind": "idiom",
+       "en": "dress for the job you want",
+       "fa": "برای شغلی که می‌خواهی لباس بپوش",
+       "meaning_en": "Literally, dress for the position you want; figuratively, look the part before you have it.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، برای شغلی که می‌خواهی لباس بپوش؛ به‌طور مجازی، پیش از رسیدن به نقش، شبیه آن به نظر برس.",
+       "register": "informal",
+       "example_en": "He wears a jacket every day; dress for the job you want.",
+       "example_fa": "او هر روز کاپشن می‌پوشد؛ برای شغلی که می‌خواهی لباس بپوش.",
+       "alt": ""
+      },
+      {
+       "id": "workwear-x5",
+       "kind": "phrasal_verb",
+       "en": "take off",
+       "fa": "درآوردن",
+       "meaning_en": "To remove a garment.",
+       "meaning_fa": "لباس را از تن درآوردن.",
+       "register": "neutral",
+       "example_en": "Take off your coat and stay for tea.",
+       "example_fa": "پالتویت را دربیاور و برای چای بمان.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "The dress code is + [description].",
+       "example_en": "The dress code is smart casual.",
+       "example_fa": "کد پوشش شیک راحت است.",
+       "note_en": "Report the rule, then meet it.",
+       "note_fa": "اول قاعده را بگو، بعد رعایتش کن."
+      },
+      {
+       "frame": "A + [item] + is too casual for + [place].",
+       "example_en": "A T-shirt is too casual for the client meeting.",
+       "example_fa": "تی‌شرت برای جلسهٔ مشتری زیادی راحت است.",
+       "note_en": "The judgement, then the reason.",
+       "note_fa": "اول قضاوت، بعد دلیل."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "workwear-s1",
+       "en": "I keep a blazer at the office, because it turns a plain shirt into something that works in any meeting.",
+       "fa": "یک بلیزر در اداره نگه می‌دارم، چون پیراهن ساده را به چیزی تبدیل می‌کند که در هر جلسه‌ای کار می‌کند.",
+       "use_en": "A practical habit with a purpose.",
+       "use_fa": "عادتی عملی با هدف.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It works in any meeting."
+      },
+      {
+       "id": "workwear-s2",
+       "en": "The uniform is not fashionable, but it saves me ten minutes every morning and nobody judges anyone's clothes.",
+       "fa": "اونیفرم مد روز نیست، اما هر صبح ده دقیقه وقتم را نجات می‌دهد و کسی لباس کسی را قضاوت نمی‌کند.",
+       "use_en": "A trade-off with two benefits.",
+       "use_fa": "معاوضه‌ای با دو فایده.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "It saves me ten minutes."
+      }
+     ],
+     "dialogue": {
+      "title_en": "Before an interview",
+      "title_fa": "پیش از مصاحبه",
+      "speakers": [
+       "Omid",
+       "Sara"
+      ],
+      "lines": [
+       {
+        "who": "Omid",
+        "en": "The email says business casual. Does that mean a tie?",
+        "fa": "ایمیل می‌گوید business casual. یعنی کراوات؟"
+       },
+       {
+        "who": "Sara",
+        "en": "No tie. A shirt, dark trousers and a blazer if you have one.",
+        "fa": "کراوات نه. پیراهن، شلوار تیره و اگر داری بلیزر."
+       },
+       {
+        "who": "Omid",
+        "en": "My blazer is brown. Is that too casual?",
+        "fa": "بلیزر من قهوه‌ای است. زیادی راحت است؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Brown is fine with navy trousers. Just make sure the shoes are clean.",
+        "fa": "قهوه‌ای با شلوار سرمه‌ای خوب است. فقط مطمئن شو کفش‌ها تمیزند."
+       },
+       {
+        "who": "Omid",
+        "en": "And no jeans?",
+        "fa": "و جین نه؟"
+       },
+       {
+        "who": "Sara",
+        "en": "No jeans. You can dress for the job you want, but not for the weekend.",
+        "fa": "جین نه. می‌توانی برای شغلی که می‌خواهی لباس بپوشی، اما نه برای آخر هفته."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "A dress code you did not expect",
+       "title_fa": "کد پوششی که انتظارش را نداشتی",
+       "situation_en": "You arrive at a restaurant in trainers and the host points to the sign: jacket required.",
+       "situation_fa": "با کتانی به رستوران می‌رسی و میزبان به تابلو اشاره می‌کند: کاپشن الزامی است.",
+       "task_en": "Ask what can be done without arguing.",
+       "task_fa": "بدون بحث بپرس چه می‌شود کرد.",
+       "answer_en": "I did not see the sign. Do you keep jackets for guests, or is there a table where the code is relaxed? We are happy to wait.",
+       "answer_fa": "تابلو را ندیدم. برای مهمان‌ها کاپشن نگه می‌دارید، یا میزی هست که کدش آزادتر باشد؟ با کمال میل صبر می‌کنیم."
+      },
+      {
+       "title_en": "Too formal for the team",
+       "title_fa": "بیش از حد رسمی برای تیم",
+       "situation_en": "You join a new team where everyone wears shirts and jeans, and you arrive in a full suit.",
+       "situation_fa": "به تیمی تازه می‌پیوندی که همه پیراهن و جین می‌پوشند و تو با کت‌وشلوار کامل می‌رسی.",
+       "task_en": "Explain the mismatch and ask what is normal.",
+       "task_fa": "ناهماهنگی را توضیح بده و بپرس معمول چیست.",
+       "answer_en": "I think I misread the dress code. Is a suit normal here, or should I match the team and keep the jacket for client days?",
+       "answer_fa": "فکر می‌کنم کد پوشش را اشتباه خواندم. کت‌وشلوار اینجا معمول است، یا باید با تیم هماهنگ شوم و کاپشن را برای روزهای مشتری نگه دارم؟"
+      }
+     ],
+     "practice": [
+      {
+       "id": "workwear-q1",
+       "q_en": "What is smart casual?",
+       "q_fa": "شیک راحت چیست؟",
+       "options": [
+        "Neat but not formal",
+        "A full suit and tie",
+        "Sportswear"
+       ],
+       "answer": "Neat but not formal",
+       "why_en": "Smart casual is tidy without being formal.",
+       "why_fa": "شیک راحت مرتب است بی‌آنکه رسمی باشد."
+      },
+      {
+       "id": "workwear-q2",
+       "q_en": "Which item is worn around the neck?",
+       "q_fa": "کدام قطعه دور گردن پوشیده می‌شود؟",
+       "options": [
+        "A tie",
+        "A belt",
+        "A blazer"
+       ],
+       "answer": "A tie",
+       "why_en": "A tie goes around the neck under the collar.",
+       "why_fa": "کراوات دور گردن زیر یقه می‌رود."
+      },
+      {
+       "id": "workwear-q3",
+       "q_en": "A uniform is ...",
+       "q_fa": "اونیفرم ... است.",
+       "options": [
+        "the same clothes for everyone in a job",
+        "a jacket for a wedding",
+        "a kind of shoe"
+       ],
+       "answer": "the same clothes for everyone in a job",
+       "why_en": "A uniform is shared by a group.",
+       "why_fa": "اونیفرم را یک گروه با هم می‌پوشد."
+      }
+     ]
+    },
+    {
+     "id": "conscience",
+     "order": 12,
+     "icon": "recycle",
+     "title_en": "Fashion with a conscience",
+     "title_fa": "مد با وجدان",
+     "audiences": [
+      "adults"
+     ],
+     "refs": [],
+     "blurb_en": "Second-hand, thrift, upcycling, sustainability and the industry behind the price tag.",
+     "blurb_fa": "دست‌دوم، تیفت، بازآفرینی، پایداری و صنعتی که پشت برچسب قیمت است.",
+     "objectives": [
+      {
+       "en": "ask where a garment came from and how it was made.",
+       "fa": "بپرس لباس از کجا آمده و چطور ساخته شده."
+      },
+      {
+       "en": "choose second-hand or repair over buying new, and say why.",
+       "fa": "دست‌دوم یا تعمیر را به خرید نو ترجیح بده و دلیلش را بگو."
+      },
+      {
+       "en": "talk about cost, quality and waste in the same conversation.",
+       "fa": "دربارهٔ هزینه، کیفیت و دورریز در یک گفت‌وگو حرف بزن."
+      }
+     ],
+     "words": [
+      {
+       "id": "conscience-w1",
+       "en": "second-hand",
+       "ipa": "/ˌsekənd ˈhænd/",
+       "pos": "adjective",
+       "fa": "دست‌دوم",
+       "def_en": "Owned by someone else before you.",
+       "sport": "fashion",
+       "icon": "secondhand",
+       "level": "A2",
+       "example_en": "The second-hand coat cost a tenth of the new one.",
+       "example_fa": "پالتوی دست‌دوم یک‌دهم نو قیمت داشت.",
+       "ref": ""
+      },
+      {
+       "id": "conscience-w2",
+       "en": "thrift",
+       "ipa": "/θrɪft/",
+       "pos": "verb",
+       "fa": "تیفت کردن",
+       "def_en": "To shop for cheap used clothes, often for style rather than need.",
+       "sport": "fashion",
+       "icon": "tag",
+       "level": "B1",
+       "example_en": "She thrifts on Sundays and alters what she finds.",
+       "example_fa": "او یکشنبه‌ها تیفت می‌کند و آنچه پیدا می‌کند اصلاح می‌کند.",
+       "ref": ""
+      },
+      {
+       "id": "conscience-w3",
+       "en": "upcycle",
+       "ipa": "/ˈʌpsaɪkəl/",
+       "pos": "verb",
+       "fa": "بازآفرینی کردن",
+       "def_en": "To turn an old item into something better, not just recycle it.",
+       "sport": "fashion",
+       "icon": "recycle",
+       "level": "B2",
+       "example_en": "He upcycled two shirts into one jacket.",
+       "example_fa": "او دو پیراهن را به یک کاپشن بازآفرینی کرد.",
+       "ref": ""
+      },
+      {
+       "id": "conscience-w4",
+       "en": "sustainable",
+       "ipa": "/səˈsteɪnəbl/",
+       "pos": "adjective",
+       "fa": "پایدار",
+       "def_en": "Made in a way that can continue without damaging people or the planet.",
+       "sport": "fashion",
+       "icon": "leaf",
+       "level": "B2",
+       "example_en": "Sustainable cotton uses less water, but it still costs more.",
+       "example_fa": "پنبهٔ پایدار آب کمتری مصرف می‌کند، اما هنوز گران‌تر است.",
+       "ref": ""
+      },
+      {
+       "id": "conscience-w5",
+       "en": "collection",
+       "ipa": "/kəˈlekʃən/",
+       "pos": "noun",
+       "fa": "کالکشن",
+       "def_en": "All the new clothes a designer shows for one season.",
+       "sport": "fashion",
+       "icon": "shelf",
+       "level": "B2",
+       "example_en": "The collection is all grey this winter.",
+       "example_fa": "کالکشن این زمستان تماماً خاکستری است.",
+       "ref": ""
+      },
+      {
+       "id": "conscience-w6",
+       "en": "designer",
+       "ipa": "/dɪˈzaɪnər/",
+       "pos": "noun",
+       "fa": "طراح لباس",
+       "def_en": "The person who plans and draws the clothes.",
+       "sport": "fashion",
+       "icon": "pen",
+       "level": "A2",
+       "example_en": "The designer grew up in this neighbourhood.",
+       "example_fa": "طراح در همین محله بزرگ شده است.",
+       "ref": ""
+      }
+     ],
+     "sportRefs": [],
+     "expressions": [
+      {
+       "id": "conscience-x1",
+       "kind": "collocation",
+       "en": "fast fashion",
+       "fa": "مد سریع",
+       "meaning_en": "Cheap clothes made quickly and replaced often.",
+       "meaning_fa": "لباس‌های ارزان که سریع ساخته و زود عوض می‌شوند.",
+       "register": "neutral",
+       "example_en": "Fast fashion made the price low and the waste high.",
+       "example_fa": "مد سریع قیمت را پایین و دورریز را بالا برد.",
+       "alt": ""
+      },
+      {
+       "id": "conscience-x2",
+       "kind": "collocation",
+       "en": "capsule wardrobe",
+       "fa": "کمد کپسولی",
+       "meaning_en": "A small set of clothes that all work together.",
+       "meaning_fa": "مجموعهٔ کوچکی از لباس که همه با هم کار می‌کنند.",
+       "register": "neutral",
+       "example_en": "A capsule wardrobe of twenty pieces covers a whole season.",
+       "example_fa": "کمد کپسولی بیست‌تکه یک فصل کامل را پوشش می‌دهد.",
+       "alt": ""
+      },
+      {
+       "id": "conscience-x3",
+       "kind": "idiom",
+       "en": "cost an arm and a leg",
+       "fa": "خیلی گران تمام شدن",
+       "meaning_en": "Literally, cost a limb; figuratively, be extremely expensive.",
+       "meaning_fa": "به‌طور تحت‌اللفظی، دست و پا هزینه داشتن؛ به‌طور مجازی، بسیار گران بودن.",
+       "register": "informal",
+       "example_en": "That coat cost an arm and a leg, and it is still the best purchase I made.",
+       "example_fa": "آن پالتو خیلی گران تمام شد و هنوز بهترین خریدی است که کرده‌ام.",
+       "alt": ""
+      },
+      {
+       "id": "conscience-x4",
+       "kind": "expression",
+       "en": "an investment piece",
+       "fa": "یک قطعهٔ سرمایه‌ای",
+       "meaning_en": "Something expensive that you wear for years.",
+       "meaning_fa": "چیزی گران که سال‌ها می‌پوشی.",
+       "register": "neutral",
+       "example_en": "The wool coat is an investment piece, not a trend.",
+       "example_fa": "پالتوی پشمی یک قطعهٔ سرمایه‌ای است، نه ترند.",
+       "alt": ""
+      },
+      {
+       "id": "conscience-x5",
+       "kind": "expression",
+       "en": "shop second-hand",
+       "fa": "دست‌دوم خریدن",
+       "meaning_en": "To buy used clothes rather than new ones.",
+       "meaning_fa": "خرید لباس استفاده‌شده به‌جای نو.",
+       "register": "neutral",
+       "example_en": "I shop second-hand for coats and buy shoes new.",
+       "example_fa": "من پالتو را دست‌دوم می‌خرم و کفش را نو.",
+       "alt": ""
+      }
+     ],
+     "patterns": [
+      {
+       "frame": "This + [item] + is second-hand, but it is + [quality].",
+       "example_en": "This jacket is second-hand, but it is wool and the lining is intact.",
+       "example_fa": "این کاپشن دست‌دوم است، اما پشمی است و آستر سالم است.",
+       "note_en": "The origin, then the quality.",
+       "note_fa": "اول منبع، بعد کیفیت."
+      },
+      {
+       "frame": "Instead of + [action], I + [alternative].",
+       "example_en": "Instead of buying a new coat, I had the old one relined.",
+       "example_fa": "به‌جای خرید پالتوی نو، آستر پالتوی قدیمی را عوض کردم.",
+       "note_en": "The alternative, not just the refusal.",
+       "note_fa": "جایگزین، نه فقط رد کردن."
+      }
+     ],
+     "sentences": [
+      {
+       "id": "conscience-s1",
+       "en": "I buy fewer things now, but I choose wool and leather because they can be repaired.",
+       "fa": "حالا کمتر می‌خرم، اما پشم و چرم انتخاب می‌کنم چون قابل تعمیرند.",
+       "use_en": "A rule with its reason.",
+       "use_fa": "قاعده‌ای با دلیلش.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "They can be repaired."
+      },
+      {
+       "id": "conscience-s2",
+       "en": "A cheap coat that lasts one winter is more expensive than a good one that lasts ten.",
+       "fa": "پالتوی ارزانی که یک زمستان دوام بیاورد از یک پالتوی خوب که ده سال می‌ماند گران‌تر است.",
+       "use_en": "A comparison that reframes cost.",
+       "use_fa": "مقایسه‌ای که هزینه را بازتعریف می‌کند.",
+       "level": "B2",
+       "polite": "neutral",
+       "alt": "More expensive than a good one."
+      }
+     ],
+     "dialogue": {
+      "title_en": "In a second-hand shop",
+      "title_fa": "در مغازهٔ دست‌دوم",
+      "speakers": [
+       "Sara",
+       "Omid"
+      ],
+      "lines": [
+       {
+        "who": "Sara",
+        "en": "This coat is thirty years old and the wool is still perfect.",
+        "fa": "این پالتو سی ساله است و پشمش هنوز عالی است."
+       },
+       {
+        "who": "Omid",
+        "en": "But the lining is torn at the sleeve.",
+        "fa": "اما آستر آستین پاره است."
+       },
+       {
+        "who": "Sara",
+        "en": "That is a small mend. A tailor will fix it for less than a new coat costs.",
+        "fa": "این رفو کوچکی است. خیاط آن را کمتر از قیمت پالتوی نو درست می‌کند."
+       },
+       {
+        "who": "Omid",
+        "en": "Is it really sustainable, though, or just cheap?",
+        "fa": "اما واقعاً پایدار است، یا فقط ارزان؟"
+       },
+       {
+        "who": "Sara",
+        "en": "Both. No new fabric, no new dye, and it keeps a good coat out of the bin.",
+        "fa": "هر دو. نه پارچهٔ نو، نه رنگ نو، و یک پالتوی خوب را از سطل زباله دور نگه می‌دارد."
+       },
+       {
+        "who": "Omid",
+        "en": "Then it is an investment piece at a thrift price.",
+        "fa": "پس یک قطعهٔ سرمایه‌ای با قیمت تیفت است."
+       }
+      ]
+     },
+     "scenarios": [
+      {
+       "title_en": "Asking where a shirt came from",
+       "title_fa": "پرسیدن اینکه پیراهن از کجا آمده",
+       "situation_en": "You want to know whether a brand's cotton is sustainable.",
+       "situation_fa": "می‌خواهی بدانی پنبهٔ یک برند پایدار است یا نه.",
+       "task_en": "Ask two precise questions and say why.",
+       "task_fa": "دو پرسش دقیق بپرس و دلیلش را بگو.",
+       "answer_en": "Could you tell me where the cotton is grown and which factory made the shirt? I am trying to buy fewer things, so I want to know whether it can be repaired and how long the fabric will last.",
+       "answer_fa": "می‌شود بگویید پنبه کجا کشت شده و کدام کارخانه پیراهن را ساخته؟ می‌خواهم کمتر بخرم، پس می‌خواهم بدانم قابل تعمیر است و پارچه چقدر دوام می‌آورد."
+      },
+      {
+       "title_en": "A friend buys a new outfit every week",
+       "title_fa": "دوستی هر هفته لباس نو می‌خرد",
+       "situation_en": "You disagree with fast fashion but do not want to preach.",
+       "situation_fa": "با مد سریع مخالفی اما نمی‌خواهی نصیحت کنی.",
+       "task_en": "Say what you do, not what they should do.",
+       "task_fa": "بگو خودت چه می‌کنی، نه آن‌ها چه باید بکنند.",
+       "answer_en": "I stopped buying new coats and started thrifting, mostly because the quality is better for the price. It also means I mend things instead of replacing them. It is not a rule for everyone, just what works for me.",
+       "answer_fa": "خرید پالتوی نو را کنار گذاشتم و تیفت کردن را شروع کردم، بیشتر چون کیفیت برای این قیمت بهتر است. همچنین یعنی چیزها را رفو می‌کنم به‌جای عوض کردن. این قاعده برای همه نیست، فقط برای من کار می‌کند."
+      }
+     ],
+     "practice": [
+      {
+       "id": "conscience-q1",
+       "q_en": "What is second-hand clothing?",
+       "q_fa": "لباس دست‌دوم چیست؟",
+       "options": [
+        "Clothes owned before",
+        "Clothes made by hand",
+        "Clothes on sale"
+       ],
+       "answer": "Clothes owned before",
+       "why_en": "Second-hand means someone owned it before you.",
+       "why_fa": "دست‌دوم یعنی پیش از تو کسی مالکش بوده."
+      },
+      {
+       "id": "conscience-q2",
+       "q_en": "What does upcycle mean?",
+       "q_fa": "upcycle یعنی چه؟",
+       "options": [
+        "Turn an old item into something better",
+        "Throw an old item away",
+        "Wash an old item"
+       ],
+       "answer": "Turn an old item into something better",
+       "why_en": "Upcycling improves an item instead of discarding it.",
+       "why_fa": "upcycle چیز کهنه را بهبود می‌دهد به‌جای دور انداختن."
+      },
+      {
+       "id": "conscience-q3",
+       "q_en": "A capsule wardrobe is ...",
+       "q_fa": "کمد کپسولی ... است.",
+       "options": [
+        "a small set of clothes that work together",
+        "a shop for hats",
+        "a very large wardrobe"
+       ],
+       "answer": "a small set of clothes that work together",
+       "why_en": "A capsule is small and coordinated.",
+       "why_fa": "کپسولی کوچک و هماهنگ است."
+      }
+     ]
+    }
+   ],
+   "stats": {
+    "stages": 12,
+    "words": 72,
+    "expressions": 60,
     "patterns": 24,
     "sentences": 24,
     "dialogues": 12,

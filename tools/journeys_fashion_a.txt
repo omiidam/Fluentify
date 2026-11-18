@@ -1,0 +1,100 @@
+# Fashion and lifestyle journey, stages 1-6. Rows are pipe-separated and
+# validated by tools/build_journeys.py; see its header for the field order of
+# each tag. Adult material: this journey is offered to the adult experience
+# only, and check_journeys.py holds that line.
+
+J|garments|1|shirt|The clothes you wear every day|لباس‌های هر روز|adults||Shirts, trousers, skirts, dresses, jackets and coats, and the parts that make them fit.|پیراهن، شلوار، دامن، پیراهنِ زنانه، کاپشن و پالتو، و اجزایی که اندازهٔ آن‌ها را می‌سازند.
+O|name the clothes you are wearing and what they are for.|نام لباس‌هایی را که پوشیده‌ای و کاربردشان را بگو.
+O|ask for a different size or colour without pointing at things.|اندازه یا رنگ دیگری بخواه، بی‌آنکه به چیزها اشاره کنی.
+O|say why something does not suit you.|بگو چرا چیزی به تو نمی‌آید.
+W|shirt|/ʃɜrt/|noun|پیراهن|A garment for the upper body, with a collar and buttons down the front.|fashion|shirt|A2|He rolled up his shirt sleeves before washing the dishes.|آستین‌های پیراهنش را بالا زد تا ظرف بشوید.|
+W|trousers|/ˈtraʊzərz/|noun|شلوار|A garment that covers the legs separately, worn from the waist down.|fashion|trousers|A2|These trousers are comfortable enough for a long flight.|این شلوار برای یک پرواز طولانی به‌قدر کافی راحت است.|
+W|skirt|/skɜrt/|noun|دامن|A garment that hangs from the waist and covers the legs together.|fashion|skirt|A2|She wore a grey skirt and flat shoes to the interview.|او برای مصاحبه دامن خاکستری و کفش تخت پوشید.|
+W|dress|/dres/|noun|پیراهنِ زنانه|One piece of clothing that covers the body and part of the legs.|fashion|dress|A2|The black dress is the only one I can wear to both events.|پیراهن مشکی تنها چیزی است که برای هر دو مهمانی می‌توانم بپوشم.|
+W|jacket|/ˈdʒækɪt/|noun|کاپشن|A short coat with sleeves, often worn indoors or in mild weather.|fashion|jacket|A2|Take a light jacket; the evenings are cool here.|یک کاپشن سبک بردار؛ اینجا شب‌ها خنک است.|
+W|coat|/koʊt/|noun|پالتو|A long outer garment worn over other clothes for warmth.|fashion|coat|A2|My winter coat is too heavy for this city.|پالتو زمستانی‌ام برای این شهر خیلی سنگین است.|
+X|collocation|get dressed|لباس پوشیدن|English gets dressed; it does not wear clothes in this phrase.|انگلیسی «لباس می‌پوشد»؛ در این عبارت فعل wear به کار نمی‌رود.|neutral|I get dressed quickly when I am late.|وقتی دیرم، سریع لباس می‌پوشم.|put on your clothes
+X|expression|Does this come in a smaller size?|این سایز کوچک‌تری دارد؟|The question you ask in a shop, without pointing.|پرسشی که در مغازه می‌پرسی، بی‌آنکه اشاره کنی.|neutral|Does this come in a smaller size? I like the colour.|این سایز کوچک‌تری دارد؟ رنگش را دوست دارم.|
+X|idiom|dressed to kill|بسیار شیک و چشمگیر پوشیده|Literally, dressed as if to kill; figuratively, dressed extremely well.|به‌طور تحت‌اللفظی، طوری پوشیده که بکشد؛ به‌طور مجازی، بسیار شیک پوشیده.|informal|She arrived dressed to kill for her first day.|او روز اول با ظاهری بسیار شیک آمد.|
+X|phrasal_verb|try on|پرو کردن|To put a garment on briefly to see whether it fits.|لباسی را کوتاه بپوشی تا ببینی اندازه‌اش هست یا نه.|neutral|Try it on before you decide; the mirror is over there.|قبل از تصمیم پرو کن؛ آینه آنجاست.|
+X|collocation|casual clothes|لباس راحتی|The everyday register of dress, opposite to formal.|پوشش روزمره، در برابر رسمی.|neutral|We wear casual clothes at home.|ما در خانه لباس راحتی می‌پوشیم.|
+P|I usually wear + [item] + to + [place].|I usually wear a shirt and trousers to the office.|معمولاً برای اداره پیراهن و شلوار می‌پوشم.|Habit first, then the place.|اول عادت، بعد مکان.
+P|This [item] is too + [adjective] + for + [occasion].|This coat is too formal for a picnic.|این پالتو برای پیک‌نیک زیادی رسمی است.|The reason comes after the adjective.|دلیل بعد از صفت می‌آید.
+S|I usually wear a shirt to work, but on Fridays I wear something casual.|معمولاً سر کار پیراهن می‌پوشم، اما جمعه‌ها لباس راحتی می‌پوشم.|A routine, with one exception.|یک روال، با یک استثنا.|A2|neutral|On Fridays I wear something casual.
+S|The jacket fits well, but the sleeves are a little long for me.|کاپشن خوب اندازه است، اما آستین‌هایش کمی برای من بلند است.|A compliment, then one small problem.|تعریف، بعد یک مشکل کوچک.|B1|polite|The sleeves are a little long.
+D|Getting ready|آماده شدن|Mina|Omid
+L|Mina|Are you wearing that shirt to the wedding?|می‌خواهی با آن پیراهن به عروسی بروی؟
+L|Omid|No, I am trying the jacket on first. Does it look too big?|نه، اول کاپشن را پرو می‌کنم. زیادی بزرگ به نظر می‌رسد؟
+L|Mina|The shoulders are fine. The sleeves are long, though.|سرشانه‌ها خوب است. اما آستین‌ها بلندند.
+L|Omid|I can wear it with the white shirt and leave the coat at home.|می‌توانم با پیراهن سفید بپوشمش و پالتو را خانه بگذارم.
+L|Mina|Good. Do you have trousers that are not jeans?|خوب است. شلواری داری که جین نباشد؟
+L|Omid|The grey ones. I will get dressed now, or we will be late.|آن خاکستری. الان لباس می‌پوشم، وگرنه دیر می‌رسیم.
+C|A wedding invitation|دعوت به عروسی|The invitation says smart, and your only suit is at the cleaner.|کارت دعوت «شیک» خواسته و تنها کت‌وشلوارت در خشکشویی است.|Choose an outfit from what you own and explain the choice.|از میان لباس‌هایت دستی انتخاب کن و دلیلش را بگو.|I will wear the dark trousers with the white shirt and the blue jacket. It is smart without looking like I tried too hard, and the shoes are comfortable for dancing.|شلوار تیره را با پیراهن سفید و کاپشن آبی می‌پوشم. شیک است بی‌آنکه تلاش‌کرده به نظر برسم، و کفش‌ها برای رقص راحت‌اند.
+C|The shirt that does not fit|پیراهنی که اندازه نیست|You bought a shirt online and the sleeves end above your wrists.|پیراهنی آنلاین خریدی و آستین‌هایش بالای مچ تمام می‌شود.|Explain the problem and ask for an exchange.|مشکل را توضیح بده و درخواست تعویض کن.|The shirt is lovely, but the sleeves are too short for me. Could I exchange it for the next size up, or the same size in a different cut?|پیراهن قشنگ است، اما آستین‌هایش برای من کوتاه است. می‌توانم با یک سایز بزرگ‌تر، یا همین سایز با برش دیگر عوضش کنم؟
+Q|Which of these is worn on your legs?|کدام‌یک روی پاها پوشیده می‌شود؟|trousers|a shirt|a jacket|Trousers cover the legs separately; a shirt and a jacket are for the upper body.|شلوار پاها را جدا می‌پوشاند؛ پیراهن و کاپشن برای بالاتنه‌اند.
+Q|You want to see how a jacket looks on you. You ...|می‌خواهی ببینی کاپشن تنت چطور است. آن را ...|try it on|put it off|take it in|Try on means wear it briefly to check the fit.|try on یعنی کوتاه بپوشی تا اندازه‌اش را ببینی.
+Q|Which sentence is the polite way to say it is too big?|کدام جمله مؤدبانه می‌گوید زیادی بزرگ است؟|It is a little too big for me.|It is wrong.|This is a bad size.|A little softens the judgement; the other two sound blunt.|«a little» قضاوت را نرم می‌کند؛ دو جملهٔ دیگر تند هستند.
+
+J|accessories|2|handbag|The finishing pieces|تکه‌های تکمیل‌کننده|adults||Belts, scarves, hats, gloves, sunglasses and bags: the small things that change the whole outfit.|کمربند، شال، کلاه، دستکش، عینک آفتابی و کیف: چیزهای کوچکی که کل استایل را عوض می‌کنند.
+O|name an accessory and say what it is for.|یک اکسسوری را نام ببر و کاربردش را بگو.
+O|say what matches and what clashes.|بگو چه چیزی ست است و چه چیزی ناهماهنگ.
+O|choose a gift for someone's style.|برای سلیقهٔ کسی هدیه انتخاب کن.
+W|belt|/belt/|noun|کمربند|A strip of leather or fabric worn around the waist.|fashion|belt|A2|A brown belt would go better with those shoes.|یک کمربند قهوه‌ای با آن کفش‌ها بهتر ست می‌شود.|
+W|scarf|/skɑrf/|noun|شال و روسری|A piece of fabric worn around the neck or head.|fashion|scarf|A2|She tied the scarf loosely and left it hanging.|شال را شل بست و آویزان گذاشت.|
+W|hat|/hæt/|noun|کلاه|A covering worn on the head.|fashion|hat|A1|Take a hat; the sun is strong at midday.|کلاه بردار؛ آفتاب ظهر تند است.|
+W|gloves|/ɡlʌvz/|noun|دستکش|Coverings for the hands, one for each hand.|fashion|gloves|A2|I keep gloves in every coat pocket.|در جیب هر پالتو دستکش نگه می‌دارم.|
+W|sunglasses|/ˈsʌnɡlæsɪz/|noun|عینک آفتابی|Dark glasses that protect the eyes from sunlight.|fashion|sunglasses|A2|These sunglasses are too wide for my face.|این عینک آفتابی برای صورتم زیادی پهن است.|
+W|handbag|/ˈhændbæɡ/|noun|کیف دستی|A small bag for money, keys and personal things, usually carried by a strap.|fashion|handbag|A2|Her handbag matches the colour of her shoes exactly.|کیف دستی‌اش دقیقاً با رنگ کفش‌هایش ست است.|
+X|collocation|match your shoes to your belt|کفش را با کمربند ست کردن|Match means the two things look deliberate together.|match یعنی دو چیز عمداً با هم هماهنگ به نظر برسند.|neutral|He always matches his shoes to his belt.|او همیشه کفشش را با کمربندش ست می‌کند.|
+X|expression|a statement piece|یک تکهٔ چشمگیر|One bold item that carries the whole outfit.|یک قطعهٔ جسور که کل استایل را می‌چرخاند.|neutral|The red bag is the statement piece; everything else is quiet.|کیف قرمز تکهٔ چشمگیر است؛ بقیه آرام‌اند.|
+X|phrasal_verb|put on|پوشیدن|To place clothing on your body, the action rather than the state.|لباس را روی بدن گذاشتن؛ خودِ عمل، نه حالت.|neutral|Put on your gloves before we go out.|قبل از بیرون رفتن دستکش‌هایت را بپوش.|
+X|idiom|fit like a glove|مثل دستکش اندازه بودن|Literally, fit as tightly as a glove; figuratively, fit perfectly.|به‌طور تحت‌اللفظی، مثل دستکش اندازه بودن؛ به‌طور مجازی، کاملاً اندازه بودن.|neutral|The coat fitted like a glove, so I bought it.|پالتو مثل دستکش اندازه بود، پس خریدمش.|
+X|expression|bling|زرق‌وبرق|Bright jewellery or shiny accessories, said with a smile.|جواهر یا اکسسوری براق و پرزرق‌وبرق، با لبخند گفته می‌شود.|slang|He arrived with all his bling on.|او با همهٔ زرق‌وبرقش آمد.|
+P|This [accessory] goes with + [item].|This belt goes with the brown boots.|این کمربند با چکمه‌های قهوه‌ای ست می‌شود.|Go with is the everyday verb for matching.|go with فعل روزمرهٔ ست بودن است.
+P|I never leave the house without + [item].|I never leave the house without sunglasses.|هرگز بی‌عینک آفتابی از خانه بیرون نمی‌روم.|A habit stated as a rule.|عادتی که مثل قاعده گفته می‌شود.
+S|A scarf is the easiest gift, because it fits everyone and costs as much as you want.|شال ساده‌ترین هدیه است، چون به همه می‌خورد و هرقدر بخواهی قیمت دارد.|A recommendation with two reasons.|پیشنهادی با دو دلیل.|B1|neutral|A scarf fits everyone.
+S|The hat is nice, but it does not go with the coat at all.|کلاه قشنگ است، اما اصلاً با پالتو ست نمی‌شود.|Praise, then a clear disagreement.|تعریف، بعد مخالفت روشن.|B1|polite|It does not go with the coat.
+D|Choosing a gift|انتخاب هدیه|Sara|Reza
+L|Sara|I need a present for my sister. She loves clothes but never buys accessories.|برای خواهرم هدیه لازم دارم. لباس را دوست دارد، اما هیچ‌وقت اکسسوری نمی‌خرد.
+L|Reza|What colours does she wear?|چه رنگ‌هایی می‌پوشد؟
+L|Sara|Mostly grey and navy, with one bright thing.|بیشتر خاکستری و سرمه‌ای، با یک چیز روشن.
+L|Reza|Then a scarf. A red one would be the statement piece.|پس یک شال. شال قرمز می‌تواند تکهٔ چشمگیر باشد.
+L|Sara|Will it go with her coat?|با پالتویش ست می‌شود؟
+L|Reza|A red scarf goes with everything she owns. And it fits like a glove, because scarves do.|شال قرمز با همه‌چیز او ست می‌شود. و مثل دستکش اندازه است، چون شال‌ها این‌طورند.
+C|A belt that is the wrong brown|کمربندی با قهوه‌ای نادرست|You bought a belt online and it is warmer than your shoes.|کمربندی آنلاین خریدی و رنگش از کفش‌هایت گرم‌تر است.|Describe the mismatch and ask what to do.|ناهماهنگی را توصیف کن و بپرس چه کنی.|The belt is lovely, but the brown is warmer than my shoes, so they look wrong together. Is there a cooler shade, or should I keep it for the boots?|کمربند قشنگ است، اما قهوه‌ای‌اش از کفش‌هایم گرم‌تر است و با هم غلط به نظر می‌رسند. سایهٔ سردتری دارید، یا آن را برای چکمه‌ها نگه دارم؟
+C|Too much shine|بیش از حد براق|You are going to a quiet dinner and your friend arrives covered in jewellery.|به یک شام آرام می‌روی و دوستت پر از جواهر می‌رسد.|Say it kindly and suggest one piece.|مهربان بگو و یک قطعه پیشنهاد بده.|You look great, but the dinner is very quiet. Why not keep the earrings and leave the rest at home? One piece would stand out more.|عالی به نظر می‌رسی، اما شام خیلی آرام است. چرا گوشواره‌ها را نگه نداری و بقیه را خانه بگذاری؟ یک قطعه بیشتر به چشم می‌آید.
+Q|Which accessory is worn around the waist?|کدام اکسسوری دور کمر بسته می‌شود؟|a belt|a scarf|a hat|A belt goes around the waist; a scarf around the neck and a hat on the head.|کمربند دور کمر می‌رود؛ شال دور گردن و کلاه روی سر.
+Q|What does it mean if two things go with each other?|اگر دو چیز با هم «go with» باشند یعنی چه؟|They look good together.|They are the same price.|They are the same size.|Go with is about looking right together, not price or size.|go with دربارهٔ خوب به هم آمدن است، نه قیمت یا اندازه.
+Q|You say a scarf fits like a glove. What are you praising?|می‌گویی شال «مثل دستکش اندازه است». چه چیزی را می‌ستایی؟|The fit.|The price.|The shop.|The idiom means it fits perfectly.|این اصطلاح یعنی کاملاً اندازه است.
+
+J|footwear|3|boot|Shoes for every road|کفش برای هر راه|adults||Boots, sneakers, sandals, heels and the parts of a shoe, from the laces to the sole.|چکمه، کتانی، صندل، کفش پاشنه‌بلند و اجزای کفش، از بند تا کف.
+O|choose the right shoe for the weather and the walk.|کفش درست را برای هوا و مسیر انتخاب کن.
+O|say where a shoe hurts and what you need.|بگو کفش کجا اذیت می‌کند و چه لازم داری.
+O|ask for a different width or size in a shoe shop.|در فروشگاه کفش عرض یا اندازهٔ دیگری بخواه.
+W|boot|/buːt/|noun|چکمه|A strong shoe that covers the ankle and sometimes the leg.|fashion|boot|A2|My boots are the only shoes that survive the snow.|چکمه‌هایم تنها کفشی است که زمستان را دوام می‌آورد.|
+W|sneaker|/ˈsniːkər/|noun|کتانی|A soft shoe for sport or everyday walking.|fashion|sneaker|A2|White sneakers go with almost everything now.|کتانی سفید حالا با تقریباً همه‌چیز ست می‌شود.|
+W|sandal|/ˈsændəl/|noun|صندل|An open shoe held on by straps, worn in warm weather.|fashion|sandal|A2|These sandals are fine for the beach, not for a city walk.|این صندل‌ها برای ساحل خوب‌اند، نه برای پیاده‌روی شهری.|
+W|heel|/hiːl/|noun|پاشنه|The raised part under the back of a shoe.|fashion|heel|B1|The heel broke on the stairs, so she carried the shoes home.|پاشنه روی پله شکست، پس کفش‌ها را در دست به خانه برد.|
+W|lace|/leɪs/|noun|بند کفش|The string that ties a shoe and holds it closed.|fashion|lace|A2|One lace was undone and he stopped to tie it.|یک بند باز بود و او ایستاد تا ببنددش.|
+W|sole|/soʊl/|noun|کفِ کفش|The bottom part of a shoe that touches the ground.|fashion|sole|B1|The sole is thin, so you feel every stone.|کف نازک است، پس هر سنگی را حس می‌کنی.|
+X|phrasal_verb|break in|جا افتادن|To make new shoes comfortable by wearing them gradually.|کفش نو را با پوشیدن تدریجی راحت کردن.|neutral|Wear them around the house for a week to break them in.|یک هفته در خانه بپوش تا جا بیفتند.|
+X|idiom|walk a mile in someone's shoes|در موقعیت کسی قرار گرفتن|Literally, walk a mile wearing another person's shoes; figuratively, understand their situation.|به‌طور تحت‌اللفظی، یک میل با کفش دیگری راه رفتن؛ به‌طور مجازی، موقعیت او را درک کردن.|neutral|Before you judge her, walk a mile in her shoes.|قبل از قضاوتش، در موقعیت او قرار بگیر.|
+X|idiom|put your best foot forward|بهترین خودت را نشان بده|Literally, step out with your best foot; figuratively, make your best effort.|به‌طور تحت‌اللفظی، با بهترین پا قدم برداشتن؛ به‌طور مجازی، بهترین تلاش را کردن.|neutral|Wear something simple and put your best foot forward.|چیزی ساده بپوش و بهترین خودت را نشان بده.|
+X|collocation|a pair of|یک جفت|English counts shoes in pairs, never in singles.|انگلیسی کفش را با «جفت» می‌شمارد، نه تک‌تک.|neutral|I need a pair of black shoes for work.|من برای کار یک جفت کفش مشکی لازم دارم.|
+X|expression|These are killing me|این‌ها پاهایم را می‌کشند|A casual way to say shoes hurt a lot.|راه خودمانی برای گفتن اینکه کفش خیلی اذیت می‌کند.|informal|These are killing me; can we sit down?|این‌ها پاهایم را می‌کشند؛ می‌توانیم بنشینیم؟|
+P|These [shoes] are too + [adjective] + for + [activity].|These heels are too high for the walk to the station.|این کفش‌های پاشنه‌بلند برای پیاده‌روی تا ایستگاه زیادی بلندند.|The activity explains the judgement.|فعالیت، قضاوت را توضیح می‌دهد.
+P|I need a pair of + [noun].|I need a pair of boots that survive the rain.|به یک جفت چکمه نیاز دارم که باران را دوام بیاورد.|State the need, then the condition.|اول نیاز، بعد شرط.
+S|I bought these sneakers for the trip, and I have been breaking them in all week.|این کتانی‌ها را برای سفر خریدم و تمام هفته جاافتاده‌شان کرده‌ام.|A purchase and the preparation for it.|خریدی و آماده‌سازی‌اش.|B1|neutral|I have been breaking them in all week.
+S|The sandals are lovely, but I would rather wear something closed for the flight.|صندل‌ها قشنگ‌اند، اما برای پرواز ترجیح می‌دهم چیزی بسته بپوشم.|A compliment and a practical preference.|تعریف و ترجیحی عملی.|B1|polite|I would rather wear something closed.
+D|In the shoe shop|در فروشگاه کفش|Reza|Mina
+L|Reza|I am looking for a pair of shoes I can walk in all day.|دنبال یک جفت کفش می‌گردم که تمام روز بتوانم با آن راه بروم.
+L|Mina|These sneakers are light, but the sole is very thin.|این کتانی‌ها سبک‌اند، اما کفشان خیلی نازک است.
+L|Reza|Do they come in a wider fit? My toes feel tight.|عرض بیشتری دارند؟ انگشتانم فشار می‌آورد.
+L|Mina|They do, in the grey. Try them on and walk to the door.|بله، در رنگ خاکستری. پرو کن و تا در برو.
+L|Reza|That is better. My heel stays in place and nothing rubs.|این بهتر است. پاشنه‌ام سر جایش می‌ماند و چیزی نمی‌ساید.
+L|Mina|Take them. New shoes need a week to break in, so wear them at home first.|ببرشان. کفش نو یک هفته وقت می‌خواهد تا جا بیفتد، پس اول در خانه بپوش.
+C|The boots that hurt|چکمه‌هایی که اذیت می‌کنند|You wore new boots for a long day and now your heels are sore.|چکمه‌های نو را یک روز طولانی پوشیدی و حالا پاشنه‌هایت زخم شده.|Explain the problem at the shop and ask for a solution.|در مغازه مشکل را بگو و راه‌حل بخواه.|The boots are the right size, but the heel rubs after twenty minutes. Could you stretch them, or is there a wider fit in the same style?|چکمه‌ها اندازه‌اند، اما بعد از بیست دقیقه پاشنه می‌ساید. می‌توانید کششان بیاورید، یا همین مدل عرض بیشتری دارد؟
+C|Shoes for a wedding|کفش برای عروسی|The invitation is in a garden, and rain is forecast.|دعوت در یک باغ است و پیش‌بینی باران شده.|Choose the shoes and explain the choice.|کفش را انتخاب کن و دلیلش را بگو.|I will take the block heels rather than the sandals. They are stable on grass and still formal enough, and the sole keeps my feet out of the mud.|به‌جای صندل، کفش پاشنه‌ضخیم می‌برم. روی چمن پایدارند و هنوز به‌قدر کافی رسمی‌اند، و کفشان پاهایم را از گِل دور نگه می‌دارد.
+Q|Where is the sole of a shoe?|کفِ کفش کجاست؟|At the bottom|At the top|At the back|The sole is the part that touches the ground.|کف همان بخشی است که با زمین تماس دارد.
+Q|New shoes are tight. What do you do?|کفش نو تنگ است. چه می‌کنی؟|Break them in slowly|Throw them away|Cut the sole|Wearing them gradually makes them comfortable.|پوشیدن تدریجی آن‌ها را راحت می‌کند.
+Q|Which shoes suit a long city walk best?|کدام کفش برای پیاده‌روی طولانی در شهر بهتر است؟|Sneakers|Heels|Sandals|Sneakers support the foot for hours of walking.|کتانی پا را برای ساعت‌ها راه رفتن حمایت می‌کند.

@@ -210,6 +210,29 @@ JOURNEYS = [
         "uses_refs": False,
         "needs_words": True,
     },
+    {
+        "id": "fashion",
+        "topic": "fashion",
+        # Adults only. Clothes, shops, sizes and the industry behind them are
+        # grown-up subject matter; the kid experience never offers the card and
+        # check_journeys.py holds that line.
+        "title_en": "Fashion & Lifestyle Journey",
+        "title_fa": "مد و سبک زندگی: از لباس تا سلیقه",
+        "icon": "👗",
+        "art": "hanger",
+        "audiences": ["adults"],
+        "blurb_en": ("Clothes, shoes and accessories, the shops and the "
+                     "fittings, the fabrics and the styles, and what your "
+                     "wardrobe says about you."),
+        "blurb_fa": ("لباس، کفش و اکسسوری، مغازه و پرو، پارچه و سبک، و آنچه "
+                     "کمد لباست دربارهٔ تو می‌گوید."),
+        "sources": ["tools/journeys_fashion_a.txt",
+                    "tools/journeys_fashion_b.txt",
+                    "tools/journeys_fashion_c.txt",
+                    "tools/journeys_fashion_d.txt"],
+        "uses_refs": False,
+        "needs_words": True,
+    },
 ]
 
 

@@ -137,6 +137,27 @@ REQUIRED_NATURE = [
     "biodiversity", "conservation", "ecosystem", "extinction", "renewable", "footprint",
 ]
 
+# What a fashion glossary has to name before it can call itself complete. The
+# brief named five areas - the clothes, the shoes and accessories, the shops
+# and fittings, the sizes, fabrics and materials, and the styles and trends -
+# and this is the vocabulary that covers all five without a hole.
+REQUIRED_FASHION = [
+    "shirt", "trousers", "skirt", "dress", "jacket", "coat",
+    "belt", "scarf", "hat", "gloves", "sunglasses", "handbag",
+    "boot", "sneaker", "sandal", "heel", "lace", "sole",
+    "fitting room", "rack", "tag", "receipt", "refund", "exchange",
+    "size", "measurement", "tight", "loose", "tailor", "alteration",
+    "cotton", "wool", "silk", "leather", "denim", "linen",
+    "shade", "stripe", "check", "floral", "plain", "fade",
+    "trend", "vintage", "streetwear", "classic", "fad", "runway",
+    "outfit", "layer", "accessory", "silhouette", "flair", "signature",
+    "laundry", "iron", "stain", "shrink", "mend", "care label",
+    "suit", "tie", "blazer", "uniform", "formal", "smart casual",
+    "second-hand", "thrift", "upcycle", "sustainable", "collection", "designer",
+    "try on", "dress code", "personal style", "capsule wardrobe",
+    "fast fashion", "investment piece", "machine washable", "business casual",
+]
+
 # The sports the brief names, by the ids the profiles use.
 REQUIRED_SPORTS = [
     "soccer", "football", "basketball", "volleyball", "rugby", "cricket",
@@ -262,19 +283,19 @@ def main() -> int:
 
     journeys = doc.get("journeys") or []
     by_id = {j.get("id"): j for j in journeys}
-    check("the file holds all eight journeys",
+    check("the file holds all nine journeys",
           {"travel", "sports", "makeup", "tech", "food", "entertainment",
-           "social", "nature"} <= set(by_id), str(sorted(by_id)))
+           "social", "nature", "fashion"} <= set(by_id), str(sorted(by_id)))
 
     for jid in ("travel", "sports", "makeup", "tech", "food", "entertainment",
-                "social", "nature"):
+                "social", "nature", "fashion"):
         j = by_id.get(jid)
         if not j:
             continue
         for key in ("topic", "title_en", "title_fa", "blurb_en", "blurb_fa"):
             check(f"{jid}: declares {key}", bool(j.get(key)))
         if jid in ("makeup", "tech", "food", "entertainment", "social",
-                   "nature"):
+                   "nature", "fashion"):
             # Makeup, technology and food are grown-up subjects in this app:
             # the adult experience offers them and the kid experience never
             # does.
@@ -337,6 +358,13 @@ def main() -> int:
     check("nature stage order is 1..12",
           [s.get("order") for s in natstages] == list(range(1, 13)),
           str([s.get("order") for s in natstages]))
+    fas = by_id.get("fashion") or {"stages": []}
+    fasstages = fas.get("stages") or []
+    check("the fashion journey has twelve stages", len(fasstages) == 12,
+          str(len(fasstages)))
+    check("fashion stage order is 1..12",
+          [s.get("order") for s in fasstages] == list(range(1, 13)),
+          str([s.get("order") for s in fasstages]))
     soc = by_id.get("social") or {"stages": []}
     socstages = soc.get("stages") or []
     check("the social journey has twelve stages", len(socstages) == 12,
@@ -350,7 +378,8 @@ def main() -> int:
     for jid, stages in (("travel", tstages), ("sports", sstages),
                         ("makeup", mstages), ("tech", cstages),
                         ("food", fstages), ("entertainment", estages),
-                        ("social", socstages), ("nature", natstages)):
+                        ("social", socstages), ("nature", natstages),
+                        ("fashion", fasstages)):
         ids = [s.get("id") for s in stages]
         check(f"{jid}: stage ids are unique", len(set(ids)) == len(ids), str(ids))
         check(f"{jid}: every stage declares its audience",
@@ -372,6 +401,8 @@ def main() -> int:
     for st in socstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
     for st in natstages:
+        check_stage(st["id"], st, needs_refs=False, needs_words=True)
+    for st in fasstages:
         check_stage(st["id"], st, needs_refs=False, needs_words=True)
 
     # ------------------------------------------------------- the travel join --
@@ -533,6 +564,62 @@ def main() -> int:
           "Journey.card('tech', true)" not in src
           and "Journey.card('tech'" not in
           span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    # ----------------------------------------------------- the fashion glossary --
+    fawords = [w for st in fasstages for w in (st.get("words") or [])]
+    faexprs = [x for st in fasstages for x in (st.get("expressions") or [])]
+    faterms = " | ".join([w.get("en", "") for w in fawords]
+                         + [x.get("en", "") for x in faexprs]).lower()
+    faabsent = [t for t in REQUIRED_FASHION if t not in faterms]
+    check("the fashion glossary names every garment, shoe, shop and fabric word",
+          not faabsent, str(faabsent))
+    check("the fashion glossary is big enough to be a glossary",
+          len(fawords) >= 60, str(len(fawords)))
+    check("the fashion journey teaches at least 50 expressions and idioms",
+          len(faexprs) >= 50, str(len(faexprs)))
+    check("no fashion word is defined twice",
+          len({w.get("en") for w in fawords}) == len(fawords),
+          str([w.get("en") for w in fawords
+               if [x.get("en") for x in fawords].count(w.get("en")) > 1][:4]))
+    check("every fashion word carries a reading, a class, a Persian and an example",
+          all(IPA.search(w.get("ipa") or "") and w.get("pos")
+              and w.get("fa") and w.get("def_en") and w.get("level")
+              and w.get("example_en") and w.get("example_fa")
+              for w in fawords),
+          str([w.get("en") for w in fawords
+               if not (IPA.search(w.get("ipa") or "") and w.get("pos")
+                       and w.get("fa") and w.get("def_en") and w.get("level")
+                       and w.get("example_en") and w.get("example_fa"))][:4]))
+    faidioms = [x for x in faexprs if x.get("kind") == "idiom"]
+    check("the fashion journey teaches at least 12 idioms", len(faidioms) >= 12,
+          str(len(faidioms)))
+    check("every fashion idiom separates the literal reading from the figurative one",
+          all(both_readings(x) for x in faidioms),
+          str([x.get("en") for x in faidioms if not both_readings(x)][:4]))
+    check("every fashion idiom has an example in context",
+          all(x.get("example_en") and x.get("example_fa") for x in faidioms))
+    check("the fashion journey labels slang as slang",
+          any(x.get("register") == "slang" for x in faexprs),
+          str(sorted({x.get("register") for x in faexprs})))
+    check("the fashion journey mixes phrasal verbs and collocations",
+          {x.get("kind") for x in faexprs} >= {"idiom", "expression",
+                                               "phrasal_verb", "collocation"},
+          str(sorted({x.get("kind") for x in faexprs})))
+    fastats = fas.get("stats") or {}
+    check("the fashion journey counts its own statistics",
+          fastats.get("stages") == len(fasstages)
+          and fastats.get("words") == len(fawords)
+          and fastats.get("expressions") == len(faexprs),
+          str(fastats))
+    check("the fashion journey is offered in the adult sentence panel",
+          "Journey.card('fashion', false)" in src)
+    check("the kid sentence panel never offers fashion",
+          "Journey.card('fashion', true)" not in src
+          and "Journey.card('fashion'" not in
+          span_between(src, "async function phrases()", "/* ---- the chat ----"))
+    check("the fashion card leads with the supplied picture",
+          "photo: 'fashion'" in src and "journey-fashion.jpg" in
+          (ROOT / "build_apk_ui.py").read_text(encoding="utf-8"))
+
     check("the technology card names its own picture",
           "chip" in src[src.index("const ART = {"):src.index("function art(key, label)")])
     check("the technology stage page has its own chat prompt",

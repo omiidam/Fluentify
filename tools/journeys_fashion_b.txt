@@ -1,0 +1,98 @@
+# Fashion and lifestyle journey, stages 4-6. Adult-only material; see
+# tools/build_journeys.py for the row format.
+
+J|shopping|4|cart|In the shop|در فروشگاه|adults||Browsing the rail, taking a fitting room, reading the tag and dealing with a receipt.|گشتن لای لباس‌ها، رفتن به اتاق پرو، خواندن برچسب و سروکله زدن با رسید.
+O|ask for a size or a colour without leaving the shop.|اندازه یا رنگ را بخواه، بی‌آنکه مغازه را ترک کنی.
+O|understand what a tag and a receipt actually say.|بفهم برچسب و رسید واقعاً چه می‌گویند.
+O|return or exchange something politely.|چیزی را مؤدبانه برگردان یا تعویض کن.
+W|fitting room|/ˈfɪtɪŋ ruːm/|noun|اتاق پرو|A small room in a shop where you try clothes on.|fashion|fitting|A2|The fitting room is at the back, behind the mirrors.|اتاق پرو ته مغازه، پشت آینه‌هاست.|
+W|rack|/ræk/|noun|رَک لباس|A frame that holds clothes on hangers in a shop.|fashion|rack|B1|The winter coats are on the rack by the window.|پالتوهای زمستانی روی رک کنار پنجره‌اند.|
+W|tag|/tæɡ/|noun|برچسب قیمت|A small label that shows the price, size and care of a garment.|fashion|tag|A2|The tag says hand wash, so do not put it in the machine.|برچسب می‌گوید با دست بشوی، پس آن را در ماشین نگذار.|
+W|receipt|/rɪˈsiːt/|noun|رسید خرید|The paper a shop gives you as proof of payment.|fashion|receipt|A2|Keep the receipt; you have thirty days to return it.|رسید را نگه دار؛ سی روز برای برگرداندنش وقت داری.|
+W|refund|/ˈriːfʌnd/|noun|بازپرداخت پول|Money given back when you return something you bought.|fashion|refund|B1|They offered a refund, but I asked for a different size.|بازپرداخت پیشنهاد دادند، اما من اندازهٔ دیگری خواستم.|
+W|exchange|/ɪksˈtʃeɪndʒ/|verb|تعویض کردن|To give something back and take another in its place.|fashion|exchange|B1|Can I exchange this shirt for a larger one?|می‌توانم این پیراهن را با بزرگ‌تری عوض کنم؟|
+X|expression|Can I try this on?|می‌توانم این را پرو کنم؟|The standard question at the fitting room.|پرسش استاندارد کنار اتاق پرو.|neutral|I like the green one. Can I try this on?|سبز را دوست دارم. می‌توانم پرو کنم؟|
+X|expression|It is out of stock.|موجودی تمام شده.|Said when the shop has none left, even if the website does.|وقتی مغازه چیزی ندارد، حتی اگر سایت داشته باشد.|neutral|The blue is out of stock until Friday.|آبی تا جمعه موجود نیست.|
+X|idiom|shop till you drop|تا از پا افتادن خرید کردن|Literally, shop until you fall down; figuratively, shop for a very long time.|به‌طور تحت‌اللفظی، تا افتادن خرید کردن؛ به‌طور مجازی، بسیار طولانی خرید کردن.|informal|We shopped till we dropped on Saturday.|شنبه تا از پا افتادن خرید کردیم.|
+X|phrasal_verb|pick out|انتخاب کردن|To choose one thing from several.|از میان چند چیز یکی را انتخاب کردن.|neutral|Pick out a shirt and I will hold your bag.|یک پیراهن انتخاب کن تا کیف تو را نگه دارم.|
+X|collocation|on sale|حراج|Reduced in price for a period, the shop's own decision.|برای مدتی با قیمت کمتر، تصمیم خود مغازه.|neutral|The coats are on sale until Sunday.|پالتوها تا یکشنبه حراج‌اند.|
+P|Do you have this in + [size or colour]?|Do you have this in a medium?|این سایز متوسط دارد؟|One question covers both size and colour.|یک پرسش هم اندازه و هم رنگ را می‌پوشاند.
+P|I would like to + [return or exchange] + this.|I would like to exchange this for a larger size.|می‌خواهم این را با سایز بزرگ‌تری عوض کنم.|The polite frame for any shop request.|چارچوب مؤدبانه برای هر درخواست در مغازه.
+S|I found the jacket on the rack, but the fitting room queue was too long, so I came back later.|کاپشن را روی رک پیدا کردم، اما صف اتاق پرو خیلی بلند بود، پس بعداً برگشتم.|What happened, in order.|چه شد، به ترتیب.|B1|neutral|I came back later.
+S|The receipt says fourteen days, so we should decide before the weekend.|رسید می‌گوید چهارده روز، پس باید قبل از آخر هفته تصمیم بگیریم.|A deadline taken from a document.|مهلتی که از یک سند گرفته شده.|B1|neutral|We should decide before the weekend.
+D|At the till|پای صندوق|Omid|Sara
+L|Omid|I would like to return this shirt. It is too small across the shoulders.|می‌خواهم این پیراهن را برگردانم. سرشانه‌هایش تنگ است.
+L|Sara|Do you have the receipt?|رسیدش را داری؟
+L|Omid|Yes, here. I bought it on Saturday.|بله، بفرمایید. شنبه خریدمش.
+L|Sara|Would you like a refund or an exchange?|بازپرداخت می‌خواهی یا تعویض؟
+L|Omid|An exchange, if you have a large. The colour is right.|تعویض، اگر سایز بزرگ دارید. رنگش درست است.
+L|Sara|We do. The fitting room is free, and if the large is still tight we can order the next size.|داریم. اتاق پرو آزاد است، و اگر بزرگ هم تنگ بود می‌توانیم سایز بعدی را سفارش دهیم.
+C|The dress that is the wrong shade|پیراهنی با رنگ نادرست|The dress arrived, and the red is brighter than the photo.|پیراهن رسید و قرمزش از عکس روشن‌تر است.|Ask for an exchange and explain the difference.|تعویض بخواه و تفاوت را توضیح بده.|The dress fits well, but the red is much brighter than it looked online. Could I exchange it for the navy, or is there a softer red in the same style?|پیراهن خوب اندازه است، اما قرمزش از آنچه آنلاین دیده می‌شد خیلی روشن‌تر است. می‌توانم با سرمه‌ای عوضش کنم، یا همین مدل قرمز ملایم‌تری دارید؟
+C|A queue and a closing time|صف و ساعت بسته‌شدن|It is ten to nine, the shop closes at nine, and you are still in the fitting room queue.|ده دقیقه به نه مانده، مغازه نه بسته می‌شود و تو هنوز در صف اتاق پرو هستی.|Ask the assistant what is possible.|از فروشنده بپرس چه می‌شود کرد.|I know you close in ten minutes. Should I keep the two things I want and pay now, or can I come back tomorrow with the tag still on?|می‌دانم ده دقیقه دیگر می‌بندید. دو چیز را که می‌خواهم نگه دارم و الان حساب کنم، یا فردا با برچسب برگردم؟
+Q|What paper proves you paid?|چه کاغذی ثابت می‌کند پول داده‌ای؟|The receipt|The tag|The rack|The receipt is the proof of payment.|رسید مدرک پرداخت است.
+Q|The shop has no more of your size. It is ...|مغازه اندازهٔ تو را ندارد. آن ... است.|out of stock|on sale|in exchange|Out of stock means none left.|out of stock یعنی موجودی تمام شده.
+Q|You want a different colour, not your money back. You ask for ...|رنگ دیگری می‌خواهی، نه پولت را. درخواست ... می‌کنی.|an exchange|a refund|a receipt|An exchange swaps the item; a refund returns the money.|exchange کالا را عوض می‌کند؛ refund پول را برمی‌گرداند.
+
+J|fit|5|tape|Size and fit|اندازه و تن‌خوردگی|adults||Sizes, measurements, tight and loose, and what a tailor can change.|اندازه‌ها، متر کردن، تنگ و گشاد، و آنچه خیاط می‌تواند عوض کند.
+O|say where a garment is tight or loose.|بگو لباس کجا تنگ یا گشاد است.
+O|give your measurements in a shop or online form.|اندازه‌هایت را در مغازه یا فرم آنلاین بگو.
+O|explain what a tailor should take in or let out.|توضیح بده خیاط چه چیزی را باید تنگ یا باز کند.
+W|size|/saɪz/|noun|اندازه|The standard measurement a garment is made in.|fashion|tag|A2|I am between a small and a medium, depending on the brand.|بسته به برند، بین کوچک و متوسط هستم.|
+W|measurement|/ˈmeʒərmənt/|noun|اندازه|A number taken with a tape, such as chest or waist.|fashion|tape|B1|Send your measurements and they will make the jacket.|اندازه‌هایت را بفرست تا کاپشن را بسازند.|
+W|tight|/taɪt/|adjective|تنگ|So close to the body that it pulls or restricts.|fashion|belt|A2|The waist is tight, but the shoulders are fine.|کمر تنگ است، اما سرشانه‌ها خوب‌اند.|
+W|loose|/luːs/|adjective|گشاد|Large enough to hang away from the body.|fashion|shirt|A2|A loose shirt is cooler in summer.|پیراهن گشاد در تابستان خنک‌تر است.|
+W|tailor|/ˈteɪlər/|noun|خیاط|A person who makes or adjusts clothes to fit.|fashion|needle|B1|The tailor moved the buttons two centimetres.|خیاط دکمه‌ها را دو سانتی‌متر جابه‌جا کرد.|
+W|alteration|/ˌɔːltəˈreɪʃən/|noun|اصلاح لباس|A change made to a garment so it fits better.|fashion|pin|B2|Alterations cost extra and take a week.|اصلاحات هزینهٔ اضافه دارد و یک هفته وقت می‌برد.|
+X|phrasal_verb|size up|یک سایز بزرگ‌تر برداشتن|To choose the next size larger.|یک سایز بزرگ‌تر انتخاب کردن.|neutral|If it is between sizes, size up.|اگر بین دو سایز بودی، بزرگ‌تر را بردار.|
+X|phrasal_verb|take in|تنگ کردن|To make a garment smaller with seams.|لباس را با درز کوچک‌تر کردن.|neutral|She took in the waist of the dress.|او کمر پیراهن را تنگ کرد.|
+X|expression|a bit snug|کمی تنگ|A soft way to say tight, used in shops.|راه نرم گفتن «تنگ»، در مغازه‌ها.|polite|The jacket is a bit snug across the back.|کاپشن در ناحیهٔ پشت کمی تنگ است.|
+X|collocation|made to measure|دوزَنی|Made for one person's measurements, not a standard size.|برای اندازهٔ یک نفر ساخته‌شده، نه سایز استاندارد.|formal|His suit is made to measure.|کت‌وشلوارش دوزَنی است.|
+X|collocation|off the peg|آماده (غیردوزَنی)|Bought in a standard size, straight from the rail.|با اندازهٔ استاندارد خریداری‌شده، مستقیم از رک.|neutral|I cannot afford made to measure, so it is off the peg.|دوزَنی از عهده‌ام خارج است، پس آماده می‌خرم.|
+P|It is a little too + [tight or loose] + around + [body part].|It is a little too loose around the waist.|دور کمر کمی گشاد است.|Name the fit, then the place.|اول تن‌خوردگی، بعد جا.
+P|Could you take in the + [part]?|Could you take in the sleeves by two centimetres?|می‌توانید آستین‌ها را دو سانتی‌متر تنگ کنید؟|A precise request for a tailor.|درخواستی دقیق از خیاط.
+S|I am between sizes, so I always size up and let the tailor take in the waist.|بین دو سایز هستم، پس همیشه بزرگ‌تر را برمی‌دارم و خیاط کمر را تنگ می‌کند.|A rule for a common problem.|قاعده‌ای برای مشکلی رایج.|B1|neutral|I always size up.
+S|The dress is beautiful, but the shoulders are too wide, so I will ask for an alteration.|پیراهن زیباست، اما سرشانه‌ها خیلی پهن‌اند، پس درخواست اصلاح می‌کنم.|Praise and a specific fix.|تعریف و راه‌حلی مشخص.|B1|neutral|I will ask for an alteration.
+D|At the tailor|نزد خیاط|Mina|Reza
+L|Reza|The jacket fits at the shoulders, but there is too much fabric at the waist.|کاپشن سرشانه اندازه است، اما دور کمر پارچه زیادی دارد.
+L|Mina|So we take in the waist and leave the length. How much?|پس کمر را تنگ می‌کنیم و قد را دست نمی‌زنیم. چقدر؟
+L|Reza|Three centimetres is enough. I still want to sit down in it.|سه سانتی‌متر کافی است. هنوز می‌خواهم با آن بنشینم.
+L|Mina|And the sleeves? They are a little long.|و آستین‌ها؟ کمی بلندند.
+L|Reza|Take them up one centimetre, no more. I like to show my watch.|یک سانتی‌متر کوتاهشان کن، نه بیشتر. دوست دارم ساعتم دیده شود.
+L|Mina|Fine. Try it on again on Thursday and we will check the fit together.|باشه. پنجشنبه دوباره پرو کن تا با هم اندازه را بررسی کنیم.
+C|Ordering online without a tape|خرید آنلاین بدون متر|You want a coat from a website that asks for measurements you do not know.|پالتویی از سایتی می‌خواهی که اندازه‌هایی می‌پرسد که نمی‌دانی.|Ask a friend to help and describe your usual size.|از دوستی کمک بخواه و اندازهٔ معمولت را توضیح بده.|I do not have a tape, but I usually take a medium in coats, and I am 178 centimetres tall. Would you measure my old coat across the chest so I can compare?|متر ندارم، اما معمولاً در پالتو سایز متوسط می‌پوشم و قدم ۱۷۸ سانتی‌متر است. می‌شود پالتوی قدیمی‌ام را از سینه اندازه بگیری تا مقایسه کنم؟
+C|The trousers that are too long|شلواری که بلند است|You bought trousers that fit at the waist but drag on the floor.|شلواری خریدی که کمرش اندازه است اما روی زمین می‌کشد.|Explain what needs changing and ask the price.|بگو چه باید عوض شود و قیمت را بپرس.|The waist is perfect, but they are five centimetres too long. How much would it cost to shorten them, and can you keep the original hem?|کمر عالی است، اما پنج سانتی‌متر بلند است. کوتاه کردنش چقدر می‌شود، و می‌توانید لبهٔ اصلی را نگه دارید؟
+Q|A garment that pulls across the chest is ...|لباسی که روی سینه می‌کشد ... است.|tight|loose|long|Pulling is the sign of tightness.|کشیدن نشانهٔ تنگی است.
+Q|What does a tailor do to a waist that is too wide?|خیاط با کمری که خیلی گشاد است چه می‌کند؟|Takes it in|Lets it out|Sizes it up|Taking in makes a garment smaller.|take in لباس را کوچک‌تر می‌کند.
+Q|Which phrase is the soft, polite way to say tight?|کدام عبارت راه نرم و مؤدبانه برای گفتن «تنگ» است؟|A bit snug|Wrong|Too small|A bit snug softens the comment.|a bit snug comment را نرم می‌کند.
+
+J|fabrics|6|thread|What it is made of|از چه ساخته شده|adults||Cotton, wool, silk, leather, denim and linen, and what each one does on the body.|پنبه، پشم، ابریشم، چرم، جین و کتان، و کاری که هرکدام روی بدن می‌کند.
+O|name the material of a garment.|جنس یک لباس را نام ببر.
+O|say how a fabric feels and when to wear it.|بگو پارچه چه حسی دارد و کِی باید پوشید.
+O|choose a fabric for the weather and the occasion.|پارچه را برای هوا و موقعیت انتخاب کن.
+W|cotton|/ˈkɑːtən/|noun|پنبه|A soft natural fabric made from the cotton plant.|fashion|thread|A2|Cotton shirts are cooler than polyester in summer.|پیراهن‌های پنبه‌ای در تابستان از پلی‌استر خنک‌ترند.|
+W|wool|/wʊl/|noun|پشم|The thick soft hair of sheep, spun into warm fabric.|fashion|thread|A2|A wool coat is warm even when it is wet.|پالتوی پشمی حتی وقتی خیس است گرم است.|
+W|silk|/sɪlk/|noun|ابریشم|A smooth, light fabric made by silkworms.|fashion|thread|B1|Silk needs careful washing and never a hot iron.|ابریشم شست‌وشوی دقیق می‌خواهد و هرگز اتوی داغ.|
+W|leather|/ˈleðər/|noun|چرم|Material made from animal skin, used for shoes and bags.|fashion|bag|A2|Leather boots last for years if you look after them.|چکمه‌های چرمی اگر مراقبت کنی سال‌ها دوام می‌آورند.|
+W|denim|/ˈdenɪm/|noun|جین|The strong cotton fabric that jeans are made of.|fashion|trousers|A2|Denim is stiff at first and softens with every wash.|جین اول سفت است و با هر شست‌وشو نرم می‌شود.|
+W|linen|/ˈlɪnən/|noun|کتان|A light fabric from the flax plant that creases easily.|fashion|shirt|B1|Linen is perfect for hot cities, if you accept the creases.|کتان برای شهرهای گرم عالی است، اگر چین‌ها را بپذیری.|
+X|collocation|machine washable|قابل شست‌وشو با ماشین|The label phrase that decides how you clean it.|عبارت برچسب که نحوهٔ تمیز کردن را تعیین می‌کند.|neutral|Is the jacket machine washable?|کاپشن با ماشین شسته می‌شود؟|
+X|collocation|genuine leather|چرم اصل|Real leather, not a plastic copy.|چرم واقعی، نه کپی پلاستیکی.|neutral|The tag says genuine leather.|برچسب می‌گوید چرم اصل.|
+X|expression|It breathes well|هوا را رد می‌کند|Said of a fabric that lets air through.|دربارهٔ پارچه‌ای که هوا را عبور می‌دهد.|neutral|Cotton breathes well in this heat.|پنبه در این گرما هوا را خوب رد می‌کند.|
+X|idiom|pull the wool over someone's eyes|چشم کسی را بستن|Literally, put wool over someone's eyes; figuratively, deceive them.|به‌طور تحت‌اللفظی، پشم روی چشمان کسی گذاشتن؛ به‌طور مجازی، فریب دادن او.|neutral|Do not let the label pull the wool over your eyes.|نگذار برچسب چشمت را ببندد.|
+X|collocation|faux leather|چرم مصنوعی|A plastic material made to look like leather.|ماده‌ای پلاستیکی که شبیه چرم ساخته می‌شود.|neutral|Faux leather is cheaper but less breathable.|چرم مصنوعی ارزان‌تر است اما کمتر هوا را رد می‌کند.|
+P|This [garment] is made of + [material].|This coat is made of wool.|این پالتو از پشم ساخته شده.|Made of names the material; made from names the process.|made of جنس را می‌گوید؛ made from فرایند را.
+P|It feels + [adjective] + on the skin.|It feels soft on the skin.|روی پوست نرم است.|A touch description, not a look.|توصیف لامسه، نه ظاهر.
+S|I would rather pay more for wool, because it keeps its shape for years.|ترجیح می‌دهم برای پشم بیشتر پول بدهم، چون سال‌ها فرمش را نگه می‌دارد.|A preference with a reason.|ترجیحی با دلیل.|B1|neutral|It keeps its shape for years.
+S|The linen shirt creases in ten minutes, but it is the only thing I can wear in this heat.|پیراهن کتان در ده دقیقه چین می‌خورد، اما تنها چیزی است که در این گرما می‌توانم بپوشم.|A trade-off, stated plainly.|معاوضه‌ای که ساده گفته شده.|B2|neutral|It is the only thing I can wear.
+D|In the fabric shop|در فروشگاه پارچه|Sara|Omid
+L|Sara|I want a shirt for summer, something that does not stick to my back.|یک پیراهن برای تابستان می‌خواهم، چیزی که به پشتم نچسبد.
+L|Omid|Cotton or linen. Linen is cooler, but it creases.|پنبه یا کتان. کتان خنک‌تر است، اما چین می‌خورد.
+L|Sara|How much does this cotton cost per metre?|این پنبه متری چقدر است؟
+L|Omid|Twelve. It is a little heavier than the linen, so it hangs better.|دوازده. کمی از کتان سنگین‌تر است، پس بهتر می‌ایستد.
+L|Sara|I will take the cotton for the shirt and a metre of silk for a scarf.|پنبه را برای پیراهن می‌برم و یک متر ابریشم برای شال.
+L|Omid|Silk is not machine washable. Wash it by hand in cold water.|ابریشم با ماشین شسته نمی‌شود. با دست و آب سرد بشوی.
+C|A coat for a wet winter|پالتو برای زمستانی خیس|You need a coat that survives rain and still looks smart.|پالتویی لازم داری که باران را دوام بیاورد و هنوز شیک باشد.|Choose a fabric and explain the trade-off.|پارچه را انتخاب کن و معاوضه را توضیح بده.|I will take the wool coat rather than the faux leather. Wool stays warm when it is damp, it breathes on the metro, and a dark colour hides the rain marks.|پالتوی پشمی را به‌جای چرم مصنوعی می‌برم. پشم وقتی نمناک است گرم می‌ماند، در مترو هوا را رد می‌کند و رنگ تیره لکه‌های باران را پنهان می‌کند.
+C|The jacket that is not leather|کاپشنی که چرم نیست|The listing said leather, and the jacket smells of plastic.|آگهی گفته بود چرم، و کاپشن بوی پلاستیک می‌دهد.|Ask the seller a precise question.|از فروشنده پرسشی دقیق بپرس.|The tag says faux leather, but the listing said genuine leather. Could you confirm the material, and if it is synthetic, what is your return policy?|برچسب می‌گوید چرم مصنوعی، اما آگهی چرم اصل گفته بود. می‌شود جنس را تأیید کنید، و اگر مصنوعی است، شرایط برگرداندن چیست؟
+Q|Which fabric comes from sheep?|کدام پارچه از گوسفند می‌آید؟|Wool|Cotton|Linen|Wool is spun from sheep's hair.|پشم از موی گوسفند ریسیده می‌شود.
+Q|Which fabric is cool but creases easily?|کدام پارچه خنک است اما زود چین می‌خورد؟|Linen|Leather|Wool|Linen is light and creases quickly.|کتان سبک است و زود چین می‌خورد.
+Q|A fabric that lets air through ...|پارچه‌ای که هوا را عبور می‌دهد ...|breathes well|pulls the wool|is faux|Breathing is about air passing through the weave.|breathing یعنی هوا از بافت عبور می‌کند.

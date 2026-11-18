@@ -1,0 +1,97 @@
+# Fashion and lifestyle journey, stages 10-12. Adult-only material.
+
+J|care|10|washer|Looking after clothes|مراقبت از لباس‌ها|adults||Washing, ironing, stains, shrinking, mending and reading the care label before it is too late.|شستن، اتو کردن، لکه، آب‌رفتگی، رفو کردن و خواندن برچسب پیش از آنکه دیر شود.
+O|read a care label and explain what it allows.|برچسب نگهداری را بخوان و بگو چه چیزی مجاز است.
+O|deal with a stain before it sets.|پیش از آنکه لکه جا بیفتد به آن رسیدگی کن.
+O|say what can be repaired and what cannot.|بگو چه چیزی قابل تعمیر است و چه چیزی نه.
+W|laundry|/ˈlɔːndri/|noun|لباس‌های شستنی|Clothes that need washing, or the place they are washed.|fashion|washer|A2|The laundry is already full after three days.|لباس‌های شستنی بعد از سه روز پر شده‌اند.|
+W|iron|/ˈaɪərn/|verb|اتو کردن|To press cloth flat with a hot iron.|fashion|iron|A2|Iron the shirt inside out so the fabric does not shine.|پیراهن را از پشت اتو کن تا پارچه برق نیفتد.|
+W|stain|/steɪn/|noun|لکه|A mark left by food, drink or dirt that is hard to remove.|fashion|stain|B1|Cold water lifts a coffee stain; hot water sets it.|آب سرد لکهٔ قهوه را برمی‌دارد؛ آب گرم آن را جا می‌اندازد.|
+W|shrink|/ʃrɪŋk/|verb|آب رفتن|To become smaller after washing or drying.|fashion|shirt|B1|Wool will shrink if you dry it on a radiator.|پشم اگر روی رادیاتور خشک شود آب می‌رود.|
+W|mend|/mend/|verb|رفو کردن|To repair a hole or a tear with needle and thread.|fashion|needle|B1|She mended the lining instead of replacing the coat.|او آستر را رفو کرد به‌جای آنکه پالتو را عوض کند.|
+W|care label|/keər ˈleɪbəl/|noun|برچسب نگهداری|The small label inside a garment that gives washing instructions.|fashion|tag|B1|The care label says dry clean only.|برچسب نگهداری می‌گوید فقط خشک‌شویی.|
+X|expression|machine wash cold|با ماشین و آب سرد بشویید|The most common instruction on a label.|رایج‌ترین دستور روی برچسب.|neutral|Machine wash cold, and do not use bleach.|با ماشین و آب سرد بشویید و سفیدکننده نزنید.|
+X|expression|dry clean only|فقط خشک‌شویی|The garment cannot be washed in water at home.|لباس را نمی‌توان در خانه با آب شست.|formal|The suit is dry clean only, so do not put it in the machine.|کت‌وشلوار فقط خشک‌شویی است، پس آن را در ماشین نگذار.|
+X|idiom|air your dirty laundry|مسائل خصوصی را علنی کردن|Literally, hang unwashed clothes outside; figuratively, discuss private problems in public.|به‌طور تحت‌اللفظی، لباس‌های نشسته را بیرون آویزان کردن؛ به‌طور مجازی، مشکلات خصوصی را در جمع گفتن.|informal|They argued about money in front of everyone, airing their dirty laundry.|سر پول جلوی همه بحث کردند و مسائل خصوصی‌شان را علنی کردند.|
+X|phrasal_verb|wear out|از فرط استفاده از بین رفتن|To become thin or unusable through long use.|با استفادهٔ زیاد نازک یا بی‌استفاده شدن.|neutral|The knees wore out long before the rest of the jeans.|زانوها خیلی پیش از بقیهٔ جین از بین رفتند.|
+X|collocation|hand wash|با دست شستن|Washing by hand because the fabric is delicate.|شستن با دست چون پارچه ظریف است.|neutral|Hand wash the silk in cold water.|ابریشم را با دست و آب سرد بشوی.|
+P|The label says + [instruction].|The label says wash at thirty degrees.|برچسب می‌گوید با سی درجه بشویید.|Report what the label allows.|گزارش آنچه برچسب مجاز می‌داند.
+P|If you + [action], it will + [result].|If you tumble dry it, it will shrink.|اگر با خشک‌کن خشک کنی، آب می‌رود.|A warning with its consequence.|هشداری با پیامدش.
+S|I wash almost everything at thirty degrees, and the clothes last years longer than they did before.|تقریباً همه‌چیز را با سی درجه می‌شوم و لباس‌ها سال‌ها بیشتر از قبل دوام می‌آورند.|A habit and its result.|عادتی و نتیجه‌اش.|B1|neutral|The clothes last years longer.
+S|The stain is old, so the shop may not be able to lift it, but a tailor can still mend the tear.|لکه قدیمی است، پس شاید مغازه نتواند برش دارد، اما خیاط هنوز می‌تواند پارگی را رفو کند.|Two separate problems, two limits.|دو مشکل جدا، دو محدودیت.|B2|neutral|A tailor can still mend the tear.
+D|Before the first wash|پیش از نخستین شست‌وشو|Mina|Reza
+L|Reza|Can this shirt go in the machine?|این پیراهن با ماشین شسته می‌شود؟
+L|Mina|The care label says machine wash cold, but not above thirty.|برچسب می‌گوید با ماشین و آب سرد، اما نه بالای سی.
+L|Reza|And the stain on the sleeve?|و لکهٔ آستین؟
+L|Mina|Cold water first. Hot water will set it and then it never comes out.|اول آب سرد. آب گرم جا می‌اندازد و بعد هرگز بیرون نمی‌آید.
+L|Reza|The hem is open too. Should I throw it away?|لبهٔ پایین هم باز شده. دورش بیندازم؟
+L|Mina|No, that is a five-minute mend. A needle and a matching thread are cheaper than a new shirt.|نه، این پنج دقیقه رفو است. سوزن و نخ همرنگ از پیراهن نو ارزان‌تر است.
+C|A wool jumper that shrank|پلیوری که آب رفت|You washed a wool jumper at sixty degrees and it now fits a child.|پلیوری پشمی را با شصت درجه شستی و حالا اندازهٔ یک بچه است.|Explain the mistake and ask whether it can be saved.|اشتباه را توضیح بده و بپرس نجات می‌یابد یا نه.|I washed it at sixty degrees, which the label did not allow, so the wool has shrunk. Is there any way to relax the fibres, or should I accept it and pass it on?|با شصت درجه شستمش، که برچسب اجازه نمی‌داد، پس پشم آب رفته. راهی برای شل کردن الیاف هست، یا بپذیرم و به کسی بدهم؟
+C|A stain before a wedding|لکه پیش از عروسی|Someone knocks a glass of red wine over your only formal shirt, an hour before the ceremony.|یک ساعت قبل از مراسم، کسی لیوان شراب سرخ را روی تنها پیراهن رسمی‌ات می‌ریزد.|Give clear, calm instructions.|دستورهای روشن و آرام بده.|Do not rub it. Blot it with cold water and salt, then keep the shirt under cold water until we get home. Heat is the enemy now, so no iron and no dryer.|مالش نده. با آب سرد و نمک بزن، بعد پیراهن را تا رسیدن به خانه زیر آب سرد نگه دار. حالا گرما دشمن است، پس نه اتو نه خشک‌کن.
+Q|What does a care label tell you?|برچسب نگهداری چه می‌گوید؟|How to wash and dry the garment|The price|Who made it|The label gives washing and drying instructions.|برچسب دستور شست‌وشو و خشک کردن می‌دهد.
+Q|What does hot water do to a stain?|آب گرم با لکه چه می‌کند؟|Sets it|Removes it|Fades the cloth only|Heat fixes the stain in the fibres.|گرما لکه را در الیاف تثبیت می‌کند.
+Q|What does shrink mean?|shrink یعنی چه؟|Become smaller|Become dirty|Become soft|Shrinking is a loss of size after washing.|shrink یعنی کوچک‌تر شدن پس از شست‌وشو.
+
+J|workwear|11|suit|Dressing for work|لباس کار|adults||Suits, ties, blazers, uniforms and what a dress code actually asks for.|کت‌وشلوار، کراوات، بلیزر، اونیفرم و اینکه کد پوشش واقعاً چه می‌خواهد.
+O|understand a dress code and dress to it.|کد پوشش را بفهم و بر اساسش لباس بپوش.
+O|say what is too formal or too casual for a workplace.|بگو چه چیزی برای محیط کار زیادی رسمی یا زیادی راحت است.
+O|describe a uniform and what it signals.|اونیفرم را توصیف کن و بگو چه چیزی را منتقل می‌کند.
+W|suit|/suːt/|noun|کت‌وشلوار|A jacket and trousers made of the same fabric, worn together.|fashion|suit|A2|He wears a dark suit for client meetings.|او برای جلسه‌های مشتری کت‌وشلوار تیره می‌پوشد.|
+W|tie|/taɪ/|noun|کراوات|A strip of cloth worn around the neck under a collar.|fashion|tie|A2|A plain tie is safer than a patterned one.|کراوات ساده از طرح‌دار مطمئن‌تر است.|
+W|blazer|/ˈbleɪzər/|noun|بلیزر|A smart jacket worn with different trousers.|fashion|jacket|B1|A navy blazer lifts jeans without looking formal.|بلیزر سرمه‌ای جین را بی‌آنکه رسمی به نظر برسد بالا می‌کشد.|
+W|uniform|/ˈjuːnɪfɔːrm/|noun|اونیفرم|The same clothes worn by everyone in a job or school.|fashion|jersey|A2|The uniform is grey, with the name on the chest.|اونیفرم خاکستری است، با نام روی سینه.|
+W|formal|/ˈfɔːrməl/|adjective|رسمی|Following strict rules of dress for an important occasion.|fashion|tie|A2|The invitation says formal, so jeans are out.|دعوت رسمی خواسته، پس جین کنار می‌رود.|
+W|smart casual|/smɑrt ˈkæʒuəl/|noun|شیک راحت|Neat but not formal: a jacket without a tie, clean shoes.|fashion|shirt|B1|Smart casual usually means a shirt and dark trousers.|شیک راحت معمولاً یعنی پیراهن و شلوار تیره.|
+X|collocation|dress code|کد پوشش|The rule a place gives about what to wear.|قاعده‌ای که جایی دربارهٔ پوشش می‌دهد.|neutral|The restaurant has a dress code after seven.|رستوران بعد از هفت کد پوشش دارد.|
+X|expression|jacket required|کاپشن الزامی است|A short way to say a jacket must be worn.|راهی کوتاه برای گفتن اینکه کاپشن باید پوشیده شود.|formal|For dinner, jacket required.|برای شام، کاپشن الزامی است.|
+X|expression|business casual|رسمیِ راحت|Work clothes: no tie, but no shorts either.|لباس کار: بی‌کراوات، اما بی‌شورت هم نه.|neutral|Business casual means a collared shirt and closed shoes.|business casual یعنی پیراهن یقه‌دار و کفش بسته.|
+X|idiom|dress for the job you want|برای شغلی که می‌خواهی لباس بپوش|Literally, dress for the position you want; figuratively, look the part before you have it.|به‌طور تحت‌اللفظی، برای شغلی که می‌خواهی لباس بپوش؛ به‌طور مجازی، پیش از رسیدن به نقش، شبیه آن به نظر برس.|informal|He wears a jacket every day; dress for the job you want.|او هر روز کاپشن می‌پوشد؛ برای شغلی که می‌خواهی لباس بپوش.|
+X|phrasal_verb|take off|درآوردن|To remove a garment.|لباس را از تن درآوردن.|neutral|Take off your coat and stay for tea.|پالتویت را دربیاور و برای چای بمان.|
+P|The dress code is + [description].|The dress code is smart casual.|کد پوشش شیک راحت است.|Report the rule, then meet it.|اول قاعده را بگو، بعد رعایتش کن.
+P|A + [item] + is too casual for + [place].|A T-shirt is too casual for the client meeting.|تی‌شرت برای جلسهٔ مشتری زیادی راحت است.|The judgement, then the reason.|اول قضاوت، بعد دلیل.
+S|I keep a blazer at the office, because it turns a plain shirt into something that works in any meeting.|یک بلیزر در اداره نگه می‌دارم، چون پیراهن ساده را به چیزی تبدیل می‌کند که در هر جلسه‌ای کار می‌کند.|A practical habit with a purpose.|عادتی عملی با هدف.|B2|neutral|It works in any meeting.
+S|The uniform is not fashionable, but it saves me ten minutes every morning and nobody judges anyone's clothes.|اونیفرم مد روز نیست، اما هر صبح ده دقیقه وقتم را نجات می‌دهد و کسی لباس کسی را قضاوت نمی‌کند.|A trade-off with two benefits.|معاوضه‌ای با دو فایده.|B2|neutral|It saves me ten minutes.
+D|Before an interview|پیش از مصاحبه|Omid|Sara
+L|Omid|The email says business casual. Does that mean a tie?|ایمیل می‌گوید business casual. یعنی کراوات؟
+L|Sara|No tie. A shirt, dark trousers and a blazer if you have one.|کراوات نه. پیراهن، شلوار تیره و اگر داری بلیزر.
+L|Omid|My blazer is brown. Is that too casual?|بلیزر من قهوه‌ای است. زیادی راحت است؟
+L|Sara|Brown is fine with navy trousers. Just make sure the shoes are clean.|قهوه‌ای با شلوار سرمه‌ای خوب است. فقط مطمئن شو کفش‌ها تمیزند.
+L|Omid|And no jeans?|و جین نه؟
+L|Sara|No jeans. You can dress for the job you want, but not for the weekend.|جین نه. می‌توانی برای شغلی که می‌خواهی لباس بپوشی، اما نه برای آخر هفته.
+C|A dress code you did not expect|کد پوششی که انتظارش را نداشتی|You arrive at a restaurant in trainers and the host points to the sign: jacket required.|با کتانی به رستوران می‌رسی و میزبان به تابلو اشاره می‌کند: کاپشن الزامی است.|Ask what can be done without arguing.|بدون بحث بپرس چه می‌شود کرد.|I did not see the sign. Do you keep jackets for guests, or is there a table where the code is relaxed? We are happy to wait.|تابلو را ندیدم. برای مهمان‌ها کاپشن نگه می‌دارید، یا میزی هست که کدش آزادتر باشد؟ با کمال میل صبر می‌کنیم.
+C|Too formal for the team|بیش از حد رسمی برای تیم|You join a new team where everyone wears shirts and jeans, and you arrive in a full suit.|به تیمی تازه می‌پیوندی که همه پیراهن و جین می‌پوشند و تو با کت‌وشلوار کامل می‌رسی.|Explain the mismatch and ask what is normal.|ناهماهنگی را توضیح بده و بپرس معمول چیست.|I think I misread the dress code. Is a suit normal here, or should I match the team and keep the jacket for client days?|فکر می‌کنم کد پوشش را اشتباه خواندم. کت‌وشلوار اینجا معمول است، یا باید با تیم هماهنگ شوم و کاپشن را برای روزهای مشتری نگه دارم؟
+Q|What is smart casual?|شیک راحت چیست؟|Neat but not formal|A full suit and tie|Sportswear|Smart casual is tidy without being formal.|شیک راحت مرتب است بی‌آنکه رسمی باشد.
+Q|Which item is worn around the neck?|کدام قطعه دور گردن پوشیده می‌شود؟|A tie|A belt|A blazer|A tie goes around the neck under the collar.|کراوات دور گردن زیر یقه می‌رود.
+Q|A uniform is ...|اونیفرم ... است.|the same clothes for everyone in a job|a jacket for a wedding|a kind of shoe|A uniform is shared by a group.|اونیفرم را یک گروه با هم می‌پوشد.
+
+J|conscience|12|recycle|Fashion with a conscience|مد با وجدان|adults||Second-hand, thrift, upcycling, sustainability and the industry behind the price tag.|دست‌دوم، تیفت، بازآفرینی، پایداری و صنعتی که پشت برچسب قیمت است.
+O|ask where a garment came from and how it was made.|بپرس لباس از کجا آمده و چطور ساخته شده.
+O|choose second-hand or repair over buying new, and say why.|دست‌دوم یا تعمیر را به خرید نو ترجیح بده و دلیلش را بگو.
+O|talk about cost, quality and waste in the same conversation.|دربارهٔ هزینه، کیفیت و دورریز در یک گفت‌وگو حرف بزن.
+W|second-hand|/ˌsekənd ˈhænd/|adjective|دست‌دوم|Owned by someone else before you.|fashion|secondhand|A2|The second-hand coat cost a tenth of the new one.|پالتوی دست‌دوم یک‌دهم نو قیمت داشت.|
+W|thrift|/θrɪft/|verb|تیفت کردن|To shop for cheap used clothes, often for style rather than need.|fashion|tag|B1|She thrifts on Sundays and alters what she finds.|او یکشنبه‌ها تیفت می‌کند و آنچه پیدا می‌کند اصلاح می‌کند.|
+W|upcycle|/ˈʌpsaɪkəl/|verb|بازآفرینی کردن|To turn an old item into something better, not just recycle it.|fashion|recycle|B2|He upcycled two shirts into one jacket.|او دو پیراهن را به یک کاپشن بازآفرینی کرد.|
+W|sustainable|/səˈsteɪnəbl/|adjective|پایدار|Made in a way that can continue without damaging people or the planet.|fashion|leaf|B2|Sustainable cotton uses less water, but it still costs more.|پنبهٔ پایدار آب کمتری مصرف می‌کند، اما هنوز گران‌تر است.|
+W|collection|/kəˈlekʃən/|noun|کالکشن|All the new clothes a designer shows for one season.|fashion|shelf|B2|The collection is all grey this winter.|کالکشن این زمستان تماماً خاکستری است.|
+W|designer|/dɪˈzaɪnər/|noun|طراح لباس|The person who plans and draws the clothes.|fashion|pen|A2|The designer grew up in this neighbourhood.|طراح در همین محله بزرگ شده است.|
+X|collocation|fast fashion|مد سریع|Cheap clothes made quickly and replaced often.|لباس‌های ارزان که سریع ساخته و زود عوض می‌شوند.|neutral|Fast fashion made the price low and the waste high.|مد سریع قیمت را پایین و دورریز را بالا برد.|
+X|collocation|capsule wardrobe|کمد کپسولی|A small set of clothes that all work together.|مجموعهٔ کوچکی از لباس که همه با هم کار می‌کنند.|neutral|A capsule wardrobe of twenty pieces covers a whole season.|کمد کپسولی بیست‌تکه یک فصل کامل را پوشش می‌دهد.|
+X|idiom|cost an arm and a leg|خیلی گران تمام شدن|Literally, cost a limb; figuratively, be extremely expensive.|به‌طور تحت‌اللفظی، دست و پا هزینه داشتن؛ به‌طور مجازی، بسیار گران بودن.|informal|That coat cost an arm and a leg, and it is still the best purchase I made.|آن پالتو خیلی گران تمام شد و هنوز بهترین خریدی است که کرده‌ام.|
+X|expression|an investment piece|یک قطعهٔ سرمایه‌ای|Something expensive that you wear for years.|چیزی گران که سال‌ها می‌پوشی.|neutral|The wool coat is an investment piece, not a trend.|پالتوی پشمی یک قطعهٔ سرمایه‌ای است، نه ترند.|
+X|expression|shop second-hand|دست‌دوم خریدن|To buy used clothes rather than new ones.|خرید لباس استفاده‌شده به‌جای نو.|neutral|I shop second-hand for coats and buy shoes new.|من پالتو را دست‌دوم می‌خرم و کفش را نو.
+P|This + [item] + is second-hand, but it is + [quality].|This jacket is second-hand, but it is wool and the lining is intact.|این کاپشن دست‌دوم است، اما پشمی است و آستر سالم است.|The origin, then the quality.|اول منبع، بعد کیفیت.
+P|Instead of + [action], I + [alternative].|Instead of buying a new coat, I had the old one relined.|به‌جای خرید پالتوی نو، آستر پالتوی قدیمی را عوض کردم.|The alternative, not just the refusal.|جایگزین، نه فقط رد کردن.
+S|I buy fewer things now, but I choose wool and leather because they can be repaired.|حالا کمتر می‌خرم، اما پشم و چرم انتخاب می‌کنم چون قابل تعمیرند.|A rule with its reason.|قاعده‌ای با دلیلش.|B2|neutral|They can be repaired.
+S|A cheap coat that lasts one winter is more expensive than a good one that lasts ten.|پالتوی ارزانی که یک زمستان دوام بیاورد از یک پالتوی خوب که ده سال می‌ماند گران‌تر است.|A comparison that reframes cost.|مقایسه‌ای که هزینه را بازتعریف می‌کند.|B2|neutral|More expensive than a good one.
+D|In a second-hand shop|در مغازهٔ دست‌دوم|Sara|Omid
+L|Sara|This coat is thirty years old and the wool is still perfect.|این پالتو سی ساله است و پشمش هنوز عالی است.
+L|Omid|But the lining is torn at the sleeve.|اما آستر آستین پاره است.
+L|Sara|That is a small mend. A tailor will fix it for less than a new coat costs.|این رفو کوچکی است. خیاط آن را کمتر از قیمت پالتوی نو درست می‌کند.
+L|Omid|Is it really sustainable, though, or just cheap?|اما واقعاً پایدار است، یا فقط ارزان؟
+L|Sara|Both. No new fabric, no new dye, and it keeps a good coat out of the bin.|هر دو. نه پارچهٔ نو، نه رنگ نو، و یک پالتوی خوب را از سطل زباله دور نگه می‌دارد.
+L|Omid|Then it is an investment piece at a thrift price.|پس یک قطعهٔ سرمایه‌ای با قیمت تیفت است.
+C|Asking where a shirt came from|پرسیدن اینکه پیراهن از کجا آمده|You want to know whether a brand's cotton is sustainable.|می‌خواهی بدانی پنبهٔ یک برند پایدار است یا نه.|Ask two precise questions and say why.|دو پرسش دقیق بپرس و دلیلش را بگو.|Could you tell me where the cotton is grown and which factory made the shirt? I am trying to buy fewer things, so I want to know whether it can be repaired and how long the fabric will last.|می‌شود بگویید پنبه کجا کشت شده و کدام کارخانه پیراهن را ساخته؟ می‌خواهم کمتر بخرم، پس می‌خواهم بدانم قابل تعمیر است و پارچه چقدر دوام می‌آورد.
+C|A friend buys a new outfit every week|دوستی هر هفته لباس نو می‌خرد|You disagree with fast fashion but do not want to preach.|با مد سریع مخالفی اما نمی‌خواهی نصیحت کنی.|Say what you do, not what they should do.|بگو خودت چه می‌کنی، نه آن‌ها چه باید بکنند.|I stopped buying new coats and started thrifting, mostly because the quality is better for the price. It also means I mend things instead of replacing them. It is not a rule for everyone, just what works for me.|خرید پالتوی نو را کنار گذاشتم و تیفت کردن را شروع کردم، بیشتر چون کیفیت برای این قیمت بهتر است. همچنین یعنی چیزها را رفو می‌کنم به‌جای عوض کردن. این قاعده برای همه نیست، فقط برای من کار می‌کند.
+Q|What is second-hand clothing?|لباس دست‌دوم چیست؟|Clothes owned before|Clothes made by hand|Clothes on sale|Second-hand means someone owned it before you.|دست‌دوم یعنی پیش از تو کسی مالکش بوده.
+Q|What does upcycle mean?|upcycle یعنی چه؟|Turn an old item into something better|Throw an old item away|Wash an old item|Upcycling improves an item instead of discarding it.|upcycle چیز کهنه را بهبود می‌دهد به‌جای دور انداختن.
+Q|A capsule wardrobe is ...|کمد کپسولی ... است.|a small set of clothes that work together|a shop for hats|a very large wardrobe|A capsule is small and coordinated.|کپسولی کوچک و هماهنگ است.
